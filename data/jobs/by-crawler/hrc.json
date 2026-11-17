@@ -426,12 +426,12 @@
     },
     {
       "id": "hrc-1389ee1400e7",
-      "slug": "ergotherapeute-h-f-a-80-hrc-rennaz",
+      "slug": "ergoterapista-m-f-all-80-hopital-riviera-chablais-hrc-rennaz",
       "slugByLocale": {
         "fr": "ergotherapeute-h-f-a-80-hrc-rennaz",
-        "it": "ergotherapeute-h-f-a-80-hrc-rennaz",
-        "en": "ergotherapeute-h-f-a-80-hrc-rennaz",
-        "de": "ergotherapeute-h-f-a-80-hrc-rennaz"
+        "it": "ergoterapista-m-f-all-80-hopital-riviera-chablais-hrc-rennaz",
+        "en": "ergotherapist-m-f-at-80-hopital-riviera-chablais-hrc-rennaz",
+        "de": "ergotherapeut-m-w-bei-80-hopital-riviera-chablais-hrc-rennaz"
       },
       "company": "Hôpital Riviera-Chablais (HRC)",
       "companyKey": "hrc",
@@ -494,16 +494,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T21:30:41.783Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-16T21:30:41.783Z"
+      "firstSeenAt": "2026-11-16T21:30:41.783Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ergotherapeute-h-f-a-80-hrc-rennaz"
+        ],
+        "en": [
+          "ergotherapeute-h-f-a-80-hrc-rennaz"
+        ],
+        "de": [
+          "ergotherapeute-h-f-a-80-hrc-rennaz"
+        ]
+      },
+      "previousSlugs": [
+        "ergotherapeute-h-f-a-80-hrc-rennaz"
+      ]
     },
     {
       "id": "hrc-94b21acb992e",
-      "slug": "infirmier-referent-h-f-en-oncologie-dans-le-service-de-medecine-interne-a-60-100-hrc",
+      "slug": "infermiera-di-riferimento-oncologia-m-f-nel-dipartimento-di-medicina-interna-al-60-100-hopital-riviera-chablais-hrc",
       "slugByLocale": {
         "fr": "infirmier-referent-h-f-en-oncologie-dans-le-service-de-medecine-interne-a-60-100-hrc",
-        "it": "infirmier-referent-h-f-en-oncologie-dans-le-service-de-medecine-interne-a-60-100-hrc",
-        "en": "infirmier-referent-h-f-en-oncologie-dans-le-service-de-medecine-interne-a-60-100-hrc",
-        "de": "infirmier-referent-h-f-en-oncologie-dans-le-service-de-medecine-interne-a-60-100-hrc"
+        "it": "infermiera-di-riferimento-oncologia-m-f-nel-dipartimento-di-medicina-interna-al-60-100-hopital-riviera-chablais-hrc",
+        "en": "oncology-reference-nurse-m-f-in-the-internal-medicine-department-at-60-100-hopital-riviera-chablais-hrc-rennaz",
+        "de": "onkologie-referenz-krankenschwester-m-w-in-der-abteilung-innere-medizin-bei-60-100-hopital-riviera-chablais-hrc-rennaz"
       },
       "company": "Hôpital Riviera-Chablais (HRC)",
       "companyKey": "hrc",
@@ -565,7 +579,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T21:30:41.751Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-16T21:30:41.751Z"
+      "firstSeenAt": "2026-11-16T21:30:41.751Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-referent-h-f-en-oncologie-dans-le-service-de-medecine-interne-a-60-100-hrc"
+        ],
+        "en": [
+          "infirmier-referent-h-f-en-oncologie-dans-le-service-de-medecine-interne-a-60-100-hrc"
+        ],
+        "de": [
+          "infirmier-referent-h-f-en-oncologie-dans-le-service-de-medecine-interne-a-60-100-hrc"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-referent-h-f-en-oncologie-dans-le-service-de-medecine-interne-a-60-100-hrc"
+      ]
     },
     {
       "id": "hrc-9268347d3e2b",

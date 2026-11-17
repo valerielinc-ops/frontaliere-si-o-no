@@ -753,12 +753,12 @@
     },
     {
       "id": "ameos-ch-52a0c211d7ef",
-      "slug": "fachperson-m-w-d-gesundheit-imcu-ameos-einsiedeln",
+      "slug": "professional-m-f-d-health-imcu-ameos-schweiz-einsiedeln",
       "slugByLocale": {
         "de": "fachperson-m-w-d-gesundheit-imcu-ameos-einsiedeln",
-        "it": "fachperson-m-w-d-gesundheit-imcu-ameos-einsiedeln",
+        "it": "professional-m-f-d-health-imcu-ameos-schweiz-einsiedeln",
         "en": "fachperson-m-w-d-gesundheit-imcu-ameos-einsiedeln",
-        "fr": "fachperson-m-w-d-gesundheit-imcu-ameos-einsiedeln"
+        "fr": "professional-h-f-d-sante-imcu-ameos-schweiz-einsiedeln"
       },
       "company": "AMEOS Schweiz",
       "companyKey": "ameos-ch",
@@ -820,7 +820,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T21:18:28.094Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-16T21:18:28.094Z"
+      "firstSeenAt": "2026-11-16T21:18:28.094Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-m-w-d-gesundheit-imcu-ameos-einsiedeln"
+        ],
+        "fr": [
+          "fachperson-m-w-d-gesundheit-imcu-ameos-einsiedeln"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-m-w-d-gesundheit-imcu-ameos-einsiedeln"
+      ]
     },
     {
       "id": "ameos-ch-f86b92c39e71",

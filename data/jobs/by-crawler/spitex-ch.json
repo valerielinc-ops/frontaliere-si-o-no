@@ -1315,12 +1315,12 @@
     },
     {
       "id": "spitex-ch-32b68eff31c1",
-      "slug": "dipl-pflegefachperson-hf-admin-stellvertretung-der-teamleiterin-spitex-ch-breitenbach",
+      "slug": "dipl-infermiera-hf-amministratore-capo-squadra-aggiunto-spitex-thierstein-dorneckberg-breitenbach",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-admin-stellvertretung-der-teamleiterin-spitex-ch-breitenbach",
-        "it": "dipl-pflegefachperson-hf-admin-stellvertretung-der-teamleiterin-spitex-ch-breitenbach",
-        "en": "dipl-pflegefachperson-hf-admin-stellvertretung-der-teamleiterin-spitex-ch-breitenbach",
-        "fr": "dipl-pflegefachperson-hf-admin-stellvertretung-der-teamleiterin-spitex-ch-breitenbach"
+        "it": "dipl-infermiera-hf-amministratore-capo-squadra-aggiunto-spitex-thierstein-dorneckberg-breitenbach",
+        "en": "dipl-nurse-hf-admin-deputy-team-leader-spitex-thierstein-dorneckberg-breitenbach",
+        "fr": "dipl-infirmiere-hf-administrateur-chef-d-equipe-adjoint-spitex-thierstein-dorneckberg-breitenbach"
       },
       "company": "SPITEX Thierstein/Dorneckberg",
       "companyKey": "spitex-ch",
@@ -1383,16 +1383,30 @@
       "streetAddress": "Breitenbach",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-16T21:15:56.670Z"
+      "firstSeenAt": "2026-11-16T21:15:56.670Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-admin-stellvertretung-der-teamleiterin-spitex-ch-breitenbach"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-admin-stellvertretung-der-teamleiterin-spitex-ch-breitenbach"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-admin-stellvertretung-der-teamleiterin-spitex-ch-breitenbach"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-admin-stellvertretung-der-teamleiterin-spitex-ch-breitenbach"
+      ]
     },
     {
       "id": "spitex-ch-dc4df2136de9",
-      "slug": "assistentin-assistent-der-teamleitung-pflege-50-70-spitex-ch-reinach-bl",
+      "slug": "assistente-assistente-della-gestione-del-team-50-70-spitex-region-birs-gmbh-reinach-bl",
       "slugByLocale": {
         "de": "assistentin-assistent-der-teamleitung-pflege-50-70-spitex-ch-reinach-bl",
-        "it": "assistentin-assistent-der-teamleitung-pflege-50-70-spitex-ch-reinach-bl",
-        "en": "assistentin-assistent-der-teamleitung-pflege-50-70-spitex-ch-reinach-bl",
-        "fr": "assistentin-assistent-der-teamleitung-pflege-50-70-spitex-ch-reinach-bl"
+        "it": "assistente-assistente-della-gestione-del-team-50-70-spitex-region-birs-gmbh-reinach-bl",
+        "en": "assistant-assistant-of-team-management-care-50-70-spitex-region-birs-gmbh-reinach-bl",
+        "fr": "assistant-assistant-de-gestion-d-equipe-50-70-spitex-region-birs-gmbh-reinach-bl"
       },
       "company": "Spitex Region Birs GmbH",
       "companyKey": "spitex-ch",
@@ -1455,7 +1469,21 @@
       "streetAddress": "Reinach BL",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-16T21:15:56.086Z"
+      "firstSeenAt": "2026-11-16T21:15:56.086Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistentin-assistent-der-teamleitung-pflege-50-70-spitex-ch-reinach-bl"
+        ],
+        "en": [
+          "assistentin-assistent-der-teamleitung-pflege-50-70-spitex-ch-reinach-bl"
+        ],
+        "fr": [
+          "assistentin-assistent-der-teamleitung-pflege-50-70-spitex-ch-reinach-bl"
+        ]
+      },
+      "previousSlugs": [
+        "assistentin-assistent-der-teamleitung-pflege-50-70-spitex-ch-reinach-bl"
+      ]
     },
     {
       "id": "spitex-ch-d5057905f8ad",
@@ -1463,8 +1491,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-hauswirtschaft-und-pflegehelfer-in-40-50-spitex-ch-fahrwangen",
         "it": "collaboratore-trice-hauswirtschaft-e-pflegehelfer-in-40-50-spitex-oberes-seetal-fahrwangen",
-        "en": "mitarbeiter-in-hauswirtschaft-und-pflegehelfer-in-40-50-spitex-ch-fahrwangen",
-        "fr": "mitarbeiter-in-hauswirtschaft-und-pflegehelfer-in-40-50-spitex-ch-fahrwangen"
+        "en": "housekeeping-employee-and-care-assistant-40-50-spitex-oberes-seetal-fahrwangen",
+        "fr": "employe-e-en-intendance-et-aide-soignant-e-40-50-spitex-oberes-seetal-fahrwangen"
       },
       "company": "Spitex Oberes Seetal",
       "companyKey": "spitex-ch",
@@ -1512,6 +1540,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-hauswirtschaft-und-pflegehelfer-in-40-50-spitex-ch-fahrwangen"
+        ],
+        "en": [
+          "mitarbeiter-in-hauswirtschaft-und-pflegehelfer-in-40-50-spitex-ch-fahrwangen"
+        ],
+        "fr": [
           "mitarbeiter-in-hauswirtschaft-und-pflegehelfer-in-40-50-spitex-ch-fahrwangen"
         ]
       },

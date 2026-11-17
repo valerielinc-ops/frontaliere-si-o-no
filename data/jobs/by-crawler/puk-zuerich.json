@@ -2386,8 +2386,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-mitarbeiterin-administration-patientenservice-puk-zuerich-zurich",
         "it": "collaboratore-trice-mitarbeiterin-administration-patientenservice-psychiatrische-universitatsklinik-zurich",
-        "en": "mitarbeiter-mitarbeiterin-administration-patientenservice-psychiatrische-universitatsklinik-zurich-zurich",
-        "fr": "mitarbeiter-mitarbeiterin-administration-patientenservice-psychiatrische-universitatsklinik-zurich-zurich"
+        "en": "employee-employee-administration-patient-service-psychiatrische-universitatsklinik-zurich-zurich",
+        "fr": "administration-des-employes-et-services-aux-patients-psychiatrische-universitatsklinik-zurich-zurich"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
       "companyKey": "puk-zuerich",
@@ -2440,10 +2440,17 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-mitarbeiterin-administration-patientenservice-puk-zuerich-zurich"
+        ],
+        "en": [
+          "mitarbeiter-mitarbeiterin-administration-patientenservice-psychiatrische-universitatsklinik-zurich-zurich"
+        ],
+        "fr": [
+          "mitarbeiter-mitarbeiterin-administration-patientenservice-psychiatrische-universitatsklinik-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-mitarbeiterin-administration-patientenservice-puk-zuerich-zurich"
+        "mitarbeiter-mitarbeiterin-administration-patientenservice-puk-zuerich-zurich",
+        "mitarbeiter-mitarbeiterin-administration-patientenservice-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

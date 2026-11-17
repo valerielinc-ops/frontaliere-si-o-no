@@ -177,6 +177,9 @@ for (const target of TARGETS) {
 // time-bombs once the listing expires into a soft-landing page (200, no
 // <main>) and the `main` wait hits a 30 s timeout (incident 2026-06-03).
 test('tailwind text-* utilities resolve on real <hN> after hydration: job-detail', async ({ page }) => {
+  // The active-job probe may use 6 × 15 s timeouts plus 25 s of retry pauses.
+  test.setTimeout(115_000);
+
   const path = await resolveActiveJobDetailPath(page);
   await assertTailwindHeadingsResolve(page, path);
 });

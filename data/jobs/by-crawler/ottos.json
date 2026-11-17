@@ -1692,8 +1692,8 @@
       "slugByLocale": {
         "fr": "gerant-h-f-ottos-lausanne",
         "it": "gerant-m-w-d-otto-s-ag-lausanne",
-        "en": "gerant-h-f-ottos-lausanne",
-        "de": "gerant-h-f-ottos-lausanne"
+        "en": "manager-m-f-otto-s-ag-lausanne",
+        "de": "manager-m-w-otto-s-ag-lausanne"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -1745,6 +1745,12 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
+          "gerant-h-f-ottos-lausanne"
+        ],
+        "en": [
+          "gerant-h-f-ottos-lausanne"
+        ],
+        "de": [
           "gerant-h-f-ottos-lausanne"
         ]
       },
@@ -1867,8 +1873,8 @@
       "slugByLocale": {
         "fr": "vendeur-food-non-food-h-f-ottos-lausanne",
         "it": "vendeur-food-non-food-h-f-otto-s-ag-lausanne-b94c90b633",
-        "en": "vendeur-food-non-food-h-f-ottos-lausanne",
-        "de": "vendeur-food-non-food-h-f-ottos-lausanne"
+        "en": "food-non-food-seller-m-f-otto-s-ag-lausanne",
+        "de": "lebensmittel-nichtlebensmittelverkaufer-m-w-otto-s-ag-lausanne"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -1922,6 +1928,12 @@
         "it": [
           "vendeur-food-non-food-h-f-ottos-lausanne",
           "vendeur-food-non-food-m-w-d-otto-s-ag-lausanne"
+        ],
+        "en": [
+          "vendeur-food-non-food-h-f-ottos-lausanne"
+        ],
+        "de": [
+          "vendeur-food-non-food-h-f-ottos-lausanne"
         ]
       },
       "previousSlugs": [
@@ -3954,9 +3966,9 @@
       "slug": "impiegata-impiegato-in-logistica-otto-s-ag-sursee",
       "slugByLocale": {
         "it": "impiegata-impiegato-in-logistica-otto-s-ag-sursee",
-        "en": "logistics-specialist-otto-s-ag-sursee",
+        "en": "logistiker-in-otto-s-ag-sursee",
         "de": "logistiker-in-ottos-sursee",
-        "fr": "logisticien-ne-otto-s-ag-sursee"
+        "fr": "logistiker-in-otto-s-ag-sursee"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -4007,17 +4019,18 @@
       "pensum": "100%",
       "previousSlugs": [
         "logistiker-in-ottos-sursee",
-        "logistiker-in-otto-s-ag-sursee"
+        "logistics-specialist-otto-s-ag-sursee",
+        "logisticien-ne-otto-s-ag-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
           "logistiker-in-ottos-sursee"
         ],
         "en": [
-          "logistiker-in-otto-s-ag-sursee"
+          "logistics-specialist-otto-s-ag-sursee"
         ],
         "fr": [
-          "logistiker-in-otto-s-ag-sursee"
+          "logisticien-ne-otto-s-ag-sursee"
         ]
       },
       "firstSeenAt": "2026-07-04T11:27:19.725Z",
@@ -7707,8 +7720,8 @@
       "slugByLocale": {
         "fr": "vendeur-auxiliaire-food-non-food-h-f-ottos-fribourg",
         "it": "vendeur-auxiliaire-food-non-food-m-w-d-otto-s-ag-fribourg",
-        "en": "vendeur-auxiliaire-food-non-food-h-f-ottos-fribourg",
-        "de": "vendeur-auxiliaire-food-non-food-h-f-ottos-fribourg"
+        "en": "food-non-food-auxiliary-seller-m-f-otto-s-ag-fribourg",
+        "de": "lebensmittel-nichtlebensmittel-hilfsverkaufer-m-w-otto-s-ag-fribourg"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -7760,6 +7773,12 @@
       "pensum": "60 - 80%",
       "previousSlugsByLocale": {
         "it": [
+          "vendeur-auxiliaire-food-non-food-h-f-ottos-fribourg"
+        ],
+        "en": [
+          "vendeur-auxiliaire-food-non-food-h-f-ottos-fribourg"
+        ],
+        "de": [
           "vendeur-auxiliaire-food-non-food-h-f-ottos-fribourg"
         ]
       },

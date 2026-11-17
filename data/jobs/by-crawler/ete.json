@@ -2991,12 +2991,12 @@
     },
     {
       "id": "ete-85bbbde3ddf6",
-      "slug": "lkw-mechaniker-m-w-d-100-emil-egger-ag-harkingen-85bbbde3",
+      "slug": "meccanico-del-camion-m-f-d-100-emil-egger-ag-harkingen-85bbbde3",
       "slugByLocale": {
         "de": "lkw-mechaniker-m-w-d-100-emil-egger-ag-harkingen-85bbbde3",
-        "it": "lkw-mechaniker-m-w-d-100-emil-egger-ag-harkingen-85bbbde3",
-        "en": "lkw-mechaniker-m-w-d-100-emil-egger-ag-harkingen-85bbbde3",
-        "fr": "lkw-mechaniker-m-w-d-100-emil-egger-ag-harkingen-85bbbde3"
+        "it": "meccanico-del-camion-m-f-d-100-emil-egger-ag-harkingen-85bbbde3",
+        "en": "truck-mechanic-m-f-d-100-emil-egger-ag-harkingen-85bbbde3",
+        "fr": "mecanicien-de-camion-h-f-d-100-emil-egger-ag-harkingen-85bbbde3"
       },
       "slugDisambiguator": "85bbbde3",
       "company": "Emil Egger AG",
@@ -3059,7 +3059,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T21:23:07.606Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-16T21:23:07.606Z"
+      "firstSeenAt": "2026-11-16T21:23:07.606Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lkw-mechaniker-m-w-d-100-emil-egger-ag-harkingen-85bbbde3"
+        ],
+        "en": [
+          "lkw-mechaniker-m-w-d-100-emil-egger-ag-harkingen-85bbbde3"
+        ],
+        "fr": [
+          "lkw-mechaniker-m-w-d-100-emil-egger-ag-harkingen-85bbbde3"
+        ]
+      },
+      "previousSlugs": [
+        "lkw-mechaniker-m-w-d-100-emil-egger-ag-harkingen-85bbbde3"
+      ]
     },
     {
       "id": "ete-db7ff58f1338",

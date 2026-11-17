@@ -16861,7 +16861,7 @@
         "it": "assistente-di-studio-medico-80-luzerner-kantonsspital-luks-luzern",
         "en": "medical-practice-assistant-80-luzerner-kantonsspital-luks-luzern",
         "de": "medizinische-praxisassistentin-medizinischer-praxisassistent-80-luks-luzern",
-        "fr": "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
+        "fr": "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -16908,7 +16908,7 @@
       "previousSlugs": [
         "medizinische-praxisassistentin-medizinischer-praxisassistent-80-luks-luzern",
         "assistente-di-studio-medico-assistente-di-studio-medico-40-60-luzerner-kantonsspital-luks-luzern",
-        "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
+        "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -16916,7 +16916,7 @@
           "assistente-di-studio-medico-assistente-di-studio-medico-40-60-luzerner-kantonsspital-luks-luzern"
         ],
         "fr": [
-          "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
+          "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-07-04T11:37:36.406Z",
@@ -17701,8 +17701,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-administration-60-luks-luzern",
         "it": "mitarbeiterin-collaboratore-trice-administration-60-luzerner-kantonsspital-luks-luzern",
-        "en": "mitarbeiterin-mitarbeiter-administration-60-luks-luzern",
-        "fr": "mitarbeiterin-mitarbeiter-administration-60-luks-luzern"
+        "en": "employee-employee-administration-60-luzerner-kantonsspital-luks-luzern",
+        "fr": "administration-des-employes-60-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -17751,6 +17751,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-administration-60-luks-luzern"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-administration-60-luks-luzern"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-administration-60-luks-luzern"
         ]
       },
@@ -17862,12 +17868,12 @@
     },
     {
       "id": "luks-2e3b00ba5bdf",
-      "slug": "physiotherapeutin-physiotherapeut-80-100-schwerpunkt-orthopadie-traumatologie-akutgeriatrie-luzerner-kantonsspital-luks",
+      "slug": "fisioterapista-80-100-con-specializzazione-in-ortopedia-traumatologia-e-geriatria-acuta-luzerner-kantonsspital-luks",
       "slugByLocale": {
         "de": "physiotherapeutin-physiotherapeut-80-100-schwerpunkt-orthopadie-traumatologie-amp",
-        "it": "physiotherapeutin-physiotherapeut-80-100-schwerpunkt-orthopadie-traumatologie-akutgeriatrie-luzerner-kantonsspital-luks",
-        "en": "physiotherapeutin-physiotherapeut-80-100-schwerpunkt-orthopadie-traumatologie-akutgeriatrie-luzerner-kantonsspital-luks",
-        "fr": "physiotherapeutin-physiotherapeut-80-100-schwerpunkt-orthopadie-traumatologie-akutgeriatrie-luzerner-kantonsspital-luks"
+        "it": "fisioterapista-80-100-con-specializzazione-in-ortopedia-traumatologia-e-geriatria-acuta-luzerner-kantonsspital-luks",
+        "en": "physical-therapist-80-100-focus-on-orthopaedics-traumatology-acute-geriatrics-luzerner-kantonsspital-luks-luzern",
+        "fr": "physiotherapeute-80-100-se-concentre-sur-l-orthopedie-traumatologie-et-la-geriatrie-aigue-luzerner-kantonsspital-luks"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -17915,11 +17921,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeutin-physiotherapeut-80-100-schwerpunkt-orthopadie-traumatologie-amp"
+          "physiotherapeutin-physiotherapeut-80-100-schwerpunkt-orthopadie-traumatologie-amp",
+          "physiotherapeutin-physiotherapeut-80-100-schwerpunkt-orthopadie-traumatologie-akutgeriatrie-luzerner-kantonsspital-luks"
+        ],
+        "en": [
+          "physiotherapeutin-physiotherapeut-80-100-schwerpunkt-orthopadie-traumatologie-akutgeriatrie-luzerner-kantonsspital-luks"
+        ],
+        "fr": [
+          "physiotherapeutin-physiotherapeut-80-100-schwerpunkt-orthopadie-traumatologie-akutgeriatrie-luzerner-kantonsspital-luks"
         ]
       },
       "previousSlugs": [
-        "physiotherapeutin-physiotherapeut-80-100-schwerpunkt-orthopadie-traumatologie-amp"
+        "physiotherapeutin-physiotherapeut-80-100-schwerpunkt-orthopadie-traumatologie-amp",
+        "physiotherapeutin-physiotherapeut-80-100-schwerpunkt-orthopadie-traumatologie-akutgeriatrie-luzerner-kantonsspital-luks"
       ],
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -17941,12 +17955,12 @@
     },
     {
       "id": "luks-601eacaee962",
-      "slug": "teamleiterin-teamleiter-interdisziplinare-bettenstation-80-100-luks-wolhusen",
+      "slug": "team-leader-interdisciplinare-stazione-a-letto-80-100-luzerner-kantonsspital-luks-wolhusen",
       "slugByLocale": {
         "de": "teamleiterin-teamleiter-interdisziplinare-bettenstation-80-100-luks-wolhusen",
-        "it": "teamleiterin-teamleiter-interdisziplinare-bettenstation-80-100-luks-wolhusen",
-        "en": "teamleiterin-teamleiter-interdisziplinare-bettenstation-80-100-luks-wolhusen",
-        "fr": "teamleiterin-teamleiter-interdisziplinare-bettenstation-80-100-luks-wolhusen"
+        "it": "team-leader-interdisciplinare-stazione-a-letto-80-100-luzerner-kantonsspital-luks-wolhusen",
+        "en": "team-leader-interdisciplinary-bed-station-80-100-luzerner-kantonsspital-luks-wolhusen",
+        "fr": "chef-d-equipe-station-lit-interdisciplinaire-80-100-luzerner-kantonsspital-luks-wolhusen"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -18008,16 +18022,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-14T21:15:51.723Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-16T21:15:51.723Z"
+      "firstSeenAt": "2026-11-16T21:15:51.723Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiterin-teamleiter-interdisziplinare-bettenstation-80-100-luks-wolhusen"
+        ],
+        "en": [
+          "teamleiterin-teamleiter-interdisziplinare-bettenstation-80-100-luks-wolhusen"
+        ],
+        "fr": [
+          "teamleiterin-teamleiter-interdisziplinare-bettenstation-80-100-luks-wolhusen"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiterin-teamleiter-interdisziplinare-bettenstation-80-100-luks-wolhusen"
+      ]
     },
     {
       "id": "luks-0d946113371c",
-      "slug": "fachfrau-fachmann-gesundheit-90-luks-wolhusen",
+      "slug": "salute-professionale-90-luzerner-kantonsspital-luks-wolhusen",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-90-luks-wolhusen",
-        "it": "fachfrau-fachmann-gesundheit-90-luks-wolhusen",
-        "en": "fachfrau-fachmann-gesundheit-90-luks-wolhusen",
-        "fr": "fachfrau-fachmann-gesundheit-90-luks-wolhusen"
+        "it": "salute-professionale-90-luzerner-kantonsspital-luks-wolhusen",
+        "en": "professional-health-90-luzerner-kantonsspital-luks-wolhusen",
+        "fr": "sante-professionnelle-90-luzerner-kantonsspital-luks-wolhusen"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -18079,16 +18107,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-14T21:15:51.720Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-16T21:15:51.720Z"
+      "firstSeenAt": "2026-11-16T21:15:51.720Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-90-luks-wolhusen"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-90-luks-wolhusen"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-90-luks-wolhusen"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-90-luks-wolhusen"
+      ]
     },
     {
       "id": "luks-60cf6028d567",
-      "slug": "arztsekretarin-arztsekretar-mba-notfall-e-anasthesiesekretariat-40-60-luzerner-kantonsspital-luks-sursee",
+      "slug": "segretaria-medica-segretario-medico-mba-segretariato-di-emergenza-e-anestesia-40-60-luzerner-kantonsspital-luks-sursee",
       "slugByLocale": {
         "de": "arztsekretarin-arztsekretar-mba-notfall-und-anasthesiesekretariat-40-60-luks-sursee",
-        "it": "arztsekretarin-arztsekretar-mba-notfall-e-anasthesiesekretariat-40-60-luzerner-kantonsspital-luks-sursee",
-        "en": "arztsekretarin-arztsekretar-mba-notfall-und-anasthesiesekretariat-40-60-luks-sursee",
-        "fr": "arztsekretarin-arztsekretar-mba-notfall-und-anasthesiesekretariat-40-60-luks-sursee"
+        "it": "segretaria-medica-segretario-medico-mba-segretariato-di-emergenza-e-anestesia-40-60-luzerner-kantonsspital-luks-sursee",
+        "en": "medical-secretary-mba-emergency-and-anesthesia-secretariat-40-60-luzerner-kantonsspital-luks-sursee",
+        "fr": "secretaire-medical-mba-secretariat-d-urgence-et-d-anesthesie-40-60-luzerner-kantonsspital-luks-sursee"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -18136,11 +18178,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "arztsekretarin-arztsekretar-mba-notfall-und-anasthesiesekretariat-40-60-luks-sursee",
+          "arztsekretarin-arztsekretar-mba-notfall-e-anasthesiesekretariat-40-60-luzerner-kantonsspital-luks-sursee"
+        ],
+        "en": [
+          "arztsekretarin-arztsekretar-mba-notfall-und-anasthesiesekretariat-40-60-luks-sursee"
+        ],
+        "fr": [
           "arztsekretarin-arztsekretar-mba-notfall-und-anasthesiesekretariat-40-60-luks-sursee"
         ]
       },
       "previousSlugs": [
-        "arztsekretarin-arztsekretar-mba-notfall-und-anasthesiesekretariat-40-60-luks-sursee"
+        "arztsekretarin-arztsekretar-mba-notfall-und-anasthesiesekretariat-40-60-luks-sursee",
+        "arztsekretarin-arztsekretar-mba-notfall-e-anasthesiesekretariat-40-60-luzerner-kantonsspital-luks-sursee"
       ],
       "salaryMin": 51900,
       "salaryMax": 72300,
@@ -18241,12 +18291,12 @@
     },
     {
       "id": "luks-38e76116c89a",
-      "slug": "fachfrau-gesundheit-fachmann-gesundheit-viszeral-e-gefasschirurgie-80-100-luzerner-kantonsspital-luks-luzern",
+      "slug": "operatrice-sociosanitaria-operatore-sociosanitario-chirurgia-viscerale-e-vascolare-80-100-luzerner-kantonsspital-luks",
       "slugByLocale": {
         "de": "fachfrau-gesundheit-fachmann-gesundheit-viszeral-und-gefasschirurgie-80-100-luks-luzern",
-        "it": "fachfrau-gesundheit-fachmann-gesundheit-viszeral-e-gefasschirurgie-80-100-luzerner-kantonsspital-luks-luzern",
-        "en": "fachfrau-gesundheit-fachmann-gesundheit-viszeral-und-gefasschirurgie-80-100-luks-luzern",
-        "fr": "fachfrau-gesundheit-fachmann-gesundheit-viszeral-und-gefasschirurgie-80-100-luks-luzern"
+        "it": "operatrice-sociosanitaria-operatore-sociosanitario-chirurgia-viscerale-e-vascolare-80-100-luzerner-kantonsspital-luks",
+        "en": "health-specialist-health-specialist-visceral-and-vascular-surgery-80-100-luzerner-kantonsspital-luks-luzern",
+        "fr": "specialiste-de-la-sante-specialiste-de-la-sante-chirurgie-viscerale-et-vasculaire-80-100-luzerner-kantonsspital-luks"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -18294,11 +18344,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-gesundheit-fachmann-gesundheit-viszeral-und-gefasschirurgie-80-100-luks-luzern",
+          "fachfrau-gesundheit-fachmann-gesundheit-viszeral-e-gefasschirurgie-80-100-luzerner-kantonsspital-luks-luzern"
+        ],
+        "en": [
+          "fachfrau-gesundheit-fachmann-gesundheit-viszeral-und-gefasschirurgie-80-100-luks-luzern"
+        ],
+        "fr": [
           "fachfrau-gesundheit-fachmann-gesundheit-viszeral-und-gefasschirurgie-80-100-luks-luzern"
         ]
       },
       "previousSlugs": [
-        "fachfrau-gesundheit-fachmann-gesundheit-viszeral-und-gefasschirurgie-80-100-luks-luzern"
+        "fachfrau-gesundheit-fachmann-gesundheit-viszeral-und-gefasschirurgie-80-100-luks-luzern",
+        "fachfrau-gesundheit-fachmann-gesundheit-viszeral-e-gefasschirurgie-80-100-luzerner-kantonsspital-luks-luzern"
       ],
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -18321,7 +18379,7 @@
       "id": "luks-3abb8af4ef72",
       "slug": "dermatologia-mpa-allergologia-80-100-luzerner-kantonsspital-luks-sursee-b326259a50",
       "slugByLocale": {
-        "it": "dermatologia-mpa-allergologia-80-100-luzerner-kantonsspital-luks-sursee-b326259a50",
+        "it": "dermatologia-mpa-allergologia-80-100-luzerner-kantonsspital-luks-sursee",
         "en": "mpa-dermatology-allergology-80-100-luzerner-kantonsspital-luks-sursee",
         "de": "mpa-dermatologie-allergologie-80-100-luks-sursee",
         "fr": "mpa-dermatologie-allergologie-80-100-luks-sursee"
@@ -18370,13 +18428,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mpa-dermatologie-allergologie-80-100-luks-sursee",
-        "dermatologia-mpa-allergologia-80-100-luzerner-kantonsspital-luks-sursee"
+        "mpa-dermatologie-allergologie-80-100-luks-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mpa-dermatologie-allergologie-80-100-luks-sursee",
-          "dermatologia-mpa-allergologia-80-100-luzerner-kantonsspital-luks-sursee"
+          "mpa-dermatologie-allergologie-80-100-luks-sursee"
         ],
         "en": [
           "mpa-dermatologie-allergologie-80-100-luks-sursee"

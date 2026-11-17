@@ -27377,8 +27377,8 @@
       "slugByLocale": {
         "de": "sacherarbeiterin-sachbearbeiter-sicherheit-administration-a-40-60-befristet-hirslanden",
         "it": "sacherarbeiterin-sachbearbeiter-sicherheit-administration-a-40-60-befristet-hirslanden-klinik-hirslanden",
-        "en": "sacherarbeiterin-sachbearbeiter-sicherheit-administration-a-40-60-befristet-hirslanden",
-        "fr": "sacherarbeiterin-sachbearbeiter-sicherheit-administration-a-40-60-befristet-hirslanden"
+        "en": "personnel-personnel-security-administration-a-40-60-temporary-hirslanden-klinik-hirslanden-klinik-hirslanden",
+        "fr": "personnel-securite-du-personnel-et-administration-a-40-60-temporaire-hirslanden-klinik-hirslanden-klinik-hirslanden"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -27426,6 +27426,12 @@
       "previousSlugsByLocale": {
         "it": [
           "sacherarbeiterin-sachbearbeiter-sicherheit-administration-a-40-60-befristet-hirslanden"
+        ],
+        "en": [
+          "sacherarbeiterin-sachbearbeiter-sicherheit-administration-a-40-60-befristet-hirslanden"
+        ],
+        "fr": [
+          "sacherarbeiterin-sachbearbeiter-sicherheit-administration-a-40-60-befristet-hirslanden"
         ]
       },
       "previousSlugs": [
@@ -27453,12 +27459,12 @@
     {
       "id": "hirslanden-f5f437432ebf",
       "externalId": "1457452733",
-      "slug": "dipl-pflegefachperson-im-pflegepool-dein-beruf-passend-zu-deinem-leben-hirslanden",
+      "slug": "dipl-professionista-nella-piscina-di-cura-la-tua-professione-adatto-per-la-tua-vita-hirslanden-klinik-hirslanden-klinik",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-im-pflegepool-dein-beruf-passend-zu-deinem-leben-hirslanden",
-        "it": "dipl-pflegefachperson-im-pflegepool-dein-beruf-passend-zu-deinem-leben-hirslanden",
-        "en": "dipl-pflegefachperson-im-pflegepool-dein-beruf-passend-zu-deinem-leben-hirslanden",
-        "fr": "dipl-pflegefachperson-im-pflegepool-dein-beruf-passend-zu-deinem-leben-hirslanden"
+        "it": "dipl-professionista-nella-piscina-di-cura-la-tua-professione-adatto-per-la-tua-vita-hirslanden-klinik-hirslanden-klinik",
+        "en": "dipl-care-professional-in-the-care-pool-your-profession-suitable-for-your-life-hirslanden-klinik-hirslanden-klinik-st",
+        "fr": "dipl-professionnel-de-soins-dans-la-piscine-de-soins-votre-profession-adapte-a-votre-vie-hirslanden-klinik-hirslanden"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -27520,17 +27526,31 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T21:23:14.989Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-16T21:23:14.989Z"
+      "firstSeenAt": "2026-11-16T21:23:14.989Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-im-pflegepool-dein-beruf-passend-zu-deinem-leben-hirslanden"
+        ],
+        "en": [
+          "dipl-pflegefachperson-im-pflegepool-dein-beruf-passend-zu-deinem-leben-hirslanden"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-im-pflegepool-dein-beruf-passend-zu-deinem-leben-hirslanden"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-im-pflegepool-dein-beruf-passend-zu-deinem-leben-hirslanden"
+      ]
     },
     {
       "id": "hirslanden-00100cacab7b",
       "externalId": "1457442833",
-      "slug": "pflegefachfrau-pflegefachmann-furs-case-management-patienten-a-80-100-hirslanden",
+      "slug": "infermieristica-professionale-per-la-gestione-dei-casi-pazienti-a-80-100-hirslanden-klinik-hirslanden-klinik-st-anna",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-furs-case-management-patienten-a-80-100-hirslanden",
-        "it": "pflegefachfrau-pflegefachmann-furs-case-management-patienten-a-80-100-hirslanden",
-        "en": "pflegefachfrau-pflegefachmann-furs-case-management-patienten-a-80-100-hirslanden",
-        "fr": "pflegefachfrau-pflegefachmann-furs-case-management-patienten-a-80-100-hirslanden"
+        "it": "infermieristica-professionale-per-la-gestione-dei-casi-pazienti-a-80-100-hirslanden-klinik-hirslanden-klinik-st-anna",
+        "en": "nursing-professional-for-case-management-patients-a-80-100-hirslanden-klinik-hirslanden-klinik-st-anna",
+        "fr": "specialiste-des-soins-infirmiers-pour-les-patients-ayant-une-prise-en-charge-de-cas-a-80-100-hirslanden-klinik"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -27592,7 +27612,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T21:23:13.782Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-16T21:23:13.782Z"
+      "firstSeenAt": "2026-11-16T21:23:13.782Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-pflegefachmann-furs-case-management-patienten-a-80-100-hirslanden"
+        ],
+        "en": [
+          "pflegefachfrau-pflegefachmann-furs-case-management-patienten-a-80-100-hirslanden"
+        ],
+        "fr": [
+          "pflegefachfrau-pflegefachmann-furs-case-management-patienten-a-80-100-hirslanden"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachfrau-pflegefachmann-furs-case-management-patienten-a-80-100-hirslanden"
+      ]
     },
     {
       "id": "hirslanden-eb22047c6c31",

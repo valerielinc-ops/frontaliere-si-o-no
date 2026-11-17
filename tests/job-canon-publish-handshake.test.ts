@@ -37,6 +37,15 @@ function runWorkflowBash(run: unknown, runnerTemp: string, extraEnv: Record<stri
   });
 }
 
+function runPublishHandshake(mapDir: string, affectedFile: string) {
+  return spawnSync(process.execPath, [
+    resolve('scripts/ci/job-canon-publish-handshake.mjs'),
+    `--map-dir=${mapDir}`,
+    `--affected-file=${affectedFile}`,
+    '--base=https://cdn.example.test',
+  ], { encoding: 'utf8', env: { CF_API_TOKEN: '' } });
+}
+
 function fixtureTree() {
   const root = mkdtempSync(join(tmpdir(), 'job-canon-handshake-'));
   const current = join(root, 'current');
@@ -249,6 +258,9 @@ describe('job-canon publication handshake', () => {
   it('inventories changed, added, and deleted Pages shards by bytes', () => {
     const { root, current, previous } = fixtureTree();
     try {
+      writeFileSync(join(previous, 'bi.json'), '{"same":true}');
+      writeFileSync(join(current, 'bi.json'), '{"changed":true}');
+      writeFileSync(join(current, 'a_.json'), '{"added":true}');
       writeFileSync(join(previous, '01.json'), '{"same":true}');
       writeFileSync(join(current, '01.json'), '{"same":true}');
       writeFileSync(join(previous, '02.json'), '{"old":true}');
@@ -258,6 +270,8 @@ describe('job-canon publication handshake', () => {
 
       expect(compareMapTrees(current, previous)).toEqual([
         'job-canon/02.json',
+        'job-canon/a_.json',
+        'job-canon/bi.json',
         'job-canon/v2/abc.json',
         'job-canon/v2/def.json',
       ]);
@@ -269,17 +283,87 @@ describe('job-canon publication handshake', () => {
   it('accepts rclone copies and deletions but rejects untrusted records', () => {
     const log = [
       JSON.stringify({ msg: 'Copied (new)', object: 'job-canon/01.json' }),
+      JSON.stringify({ msg: 'Copied (new)', object: 'job-canon/bi.json' }),
+      JSON.stringify({ msg: 'Copied (new)', object: 'job-canon/a_.json' }),
       JSON.stringify({ msg: 'Deleted', object: 'v2/abc.json' }),
       JSON.stringify({ msg: 'Unchanged skipping', object: 'job-canon/02.json' }),
       JSON.stringify({ msg: 'Updated modification time', object: 'job-canon/03.json' }),
     ].join('\n');
-    expect(parseRcloneChangedKeys(log)).toEqual(['job-canon/01.json', 'job-canon/v2/abc.json']);
+    expect(parseRcloneChangedKeys(log)).toEqual([
+      'job-canon/01.json',
+      'job-canon/a_.json',
+      'job-canon/bi.json',
+      'job-canon/v2/abc.json',
+    ]);
     expect(() => parseRcloneChangedKeys(`${log}\npartial json`)).toThrow(/invalid rclone JSON log record/);
     expect(() => parseRcloneChangedKeys(JSON.stringify({ msg: 'Copied (new)', object: 'assets/nope.js' })))
       .toThrow(/unrecognized job-canon object/);
     expect(() => parseRcloneChangedKeys(JSON.stringify({ msg: 'Unknown operation', object: 'job-canon/01.json' })))
       .toThrow(/unrecognized rclone object record/);
   });
+
+  it.each(['b.json', 'bi0.json', 'BI.json', 'b-.json'])(
+    'rejects invalid v1 bucket filename %s in tree and rclone inventories',
+    (filename) => {
+      const { root, current, previous } = fixtureTree();
+      try {
+        writeFileSync(join(current, filename), '{"invalid":true}');
+        expect(() => compareMapTrees(current, previous)).toThrow(/unexpected job-canon file/);
+        expect(() => parseRcloneChangedKeys(JSON.stringify({
+          msg: 'Copied (new)',
+          object: `job-canon/${filename}`,
+        }))).toThrow(/unrecognized job-canon object/);
+      } finally {
+        rmSync(root, { recursive: true, force: true });
+      }
+    },
+  );
+
+  it('keeps v2 buckets on the existing three-character lowercase hex format', () => {
+    expect(parseRcloneChangedKeys(JSON.stringify({ msg: 'Copied (new)', object: 'job-canon/v2/abc.json' })))
+      .toEqual(['job-canon/v2/abc.json']);
+    expect(() => parseRcloneChangedKeys(JSON.stringify({ msg: 'Copied (new)', object: 'job-canon/v2/ab.json' })))
+      .toThrow(/unrecognized job-canon object/);
+    expect(() => parseRcloneChangedKeys(JSON.stringify({ msg: 'Copied (new)', object: 'job-canon/v2/abg.json' })))
+      .toThrow(/unrecognized job-canon object/);
+  });
+
+  it('accepts v1 and v2 inventory keys in the publish handshake gate', () => {
+    const { root, current } = fixtureTree();
+    try {
+      const affectedFile = join(root, 'affected.txt');
+      writeFileSync(affectedFile, [
+        'job-canon/bi.json',
+        'job-canon/a_.json',
+        'job-canon/v2/abc.json',
+      ].join('\n'));
+
+      const result = runPublishHandshake(current, affectedFile);
+      expect(result.status).toBe(1);
+      expect(result.stderr).toContain('CF_API_TOKEN is required');
+      expect(result.stderr).not.toContain('invalid affected job-canon key');
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it.each(['BI.json', 'a-.json', 'v2/abg.json', 'v2/ab.json'])(
+    'rejects invalid handshake inventory key job-canon/%s',
+    (filename) => {
+      const { root, current } = fixtureTree();
+      try {
+        const affectedFile = join(root, 'affected.txt');
+        writeFileSync(affectedFile, `job-canon/${filename}\n`);
+
+        const result = runPublishHandshake(current, affectedFile);
+        expect(result.status).toBe(1);
+        expect(result.stderr).toContain('invalid affected job-canon key');
+        expect(result.stderr).not.toContain('CF_API_TOKEN is required');
+      } finally {
+        rmSync(root, { recursive: true, force: true });
+      }
+    },
+  );
 
   it('fails closed when the R2 log file is missing', () => {
     const root = mkdtempSync(join(tmpdir(), 'job-canon-inventory-'));

@@ -401,12 +401,12 @@
     },
     {
       "id": "richnerstutz-ch-7cf1763ba3f9",
-      "slug": "led-montagetechniker-in-5612-villmergen-richnerstutz-ch-ch",
+      "slug": "tecnico-a-di-montaggio-led-richnerstutz-ag-5612-villmergen",
       "slugByLocale": {
         "de": "led-montagetechniker-in-5612-villmergen-richnerstutz-ch-ch",
-        "it": "led-montagetechniker-in-5612-villmergen-richnerstutz-ch-ch",
-        "en": "led-montagetechniker-in-5612-villmergen-richnerstutz-ch-ch",
-        "fr": "led-montagetechniker-in-5612-villmergen-richnerstutz-ch-ch"
+        "it": "tecnico-a-di-montaggio-led-richnerstutz-ag-5612-villmergen",
+        "en": "led-assembly-technician-richnerstutz-ag-5612-villmergen",
+        "fr": "technicien-ne-de-montage-led-richnerstutz-ag-5612-villmergen"
       },
       "company": "Richnerstutz AG",
       "companyKey": "richnerstutz-ch",
@@ -482,7 +482,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-14T21:39:31.577Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-16T21:39:31.577Z"
+      "firstSeenAt": "2026-11-16T21:39:31.577Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "led-montagetechniker-in-5612-villmergen-richnerstutz-ch-ch"
+        ],
+        "en": [
+          "led-montagetechniker-in-5612-villmergen-richnerstutz-ch-ch"
+        ],
+        "fr": [
+          "led-montagetechniker-in-5612-villmergen-richnerstutz-ch-ch"
+        ]
+      },
+      "previousSlugs": [
+        "led-montagetechniker-in-5612-villmergen-richnerstutz-ch-ch"
+      ]
     }
   ]
 }

@@ -12,7 +12,7 @@ import { dirname, join, relative } from 'node:path';
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 
 const JOB_CANON_PREFIX = 'job-canon/';
-const V1_RE = /^[0-9a-f]{2}\.json$/;
+const V1_RE = /^[a-z0-9_]{2}\.json$/;
 const V2_RE = /^v2\/[0-9a-f]{3}\.json$/;
 
 function normalizeMapRelative(relativePath) {

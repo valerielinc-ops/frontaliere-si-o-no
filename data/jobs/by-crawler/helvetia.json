@@ -1452,7 +1452,7 @@
         "it": "consulente-del-cliente-f-m-d-assicurazione-langenthal-part-time-fulltime-helvetia-versicherungen-langenthal",
         "en": "customer-consultant-f-m-d-langenthal-insurance-part-time-full-time-helvetia-versicherungen-langenthal",
         "de": "kundenberater-w-m-d-versicherungen-langenthal-teilzeit-vollzeit-helvetia-langenthal",
-        "fr": "conseiller-a-la-clientele-assurances-langenthal-helvetia-versicherungen-langenthal"
+        "fr": "consultant-client-f-m-d-helvetia-versicherungen-langenthal"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -1521,14 +1521,14 @@
       },
       "previousSlugs": [
         "kundenberater-w-m-d-versicherungen-langenthal-teilzeit-vollzeit-helvetia-langenthal",
-        "consultant-client-f-m-d-helvetia-versicherungen-langenthal"
+        "conseiller-a-la-clientele-assurances-langenthal-helvetia-versicherungen-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kundenberater-w-m-d-versicherungen-langenthal-teilzeit-vollzeit-helvetia-langenthal"
         ],
         "fr": [
-          "consultant-client-f-m-d-helvetia-versicherungen-langenthal"
+          "conseiller-a-la-clientele-assurances-langenthal-helvetia-versicherungen-langenthal"
         ]
       },
       "firstSeenAt": "2026-08-05T11:27:42.887Z",
@@ -5405,10 +5405,10 @@
       "id": "helvetia-9e1d12aa6d7d",
       "slug": "specialista-m-w-d-in-cura-dei-bambini-80-helvetia-versicherungen-basel",
       "slugByLocale": {
-        "it": "specialista-m-w-d-in-cura-dei-bambini-80-helvetia-versicherungen-basel",
-        "en": "childcare-specialist-m-w-d-80-helvetia-versicherungen-basel",
+        "it": "professional-m-f-d-child-care-80-helvetia-versicherungen-basel",
+        "en": "professional-m-f-d-child-care-80-helvetia-versicherungen-basel",
         "de": "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-        "fr": "specialiste-en-garde-d-enfants-m-w-d-80-helvetia-versicherungen-basel"
+        "fr": "soins-professionnels-h-f-d-80-helvetia-versicherungen-basel"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -5483,21 +5483,20 @@
       },
       "previousSlugs": [
         "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-        "professional-m-f-d-child-care-80-helvetia-versicherungen-basel",
-        "soins-professionnels-h-f-d-80-helvetia-versicherungen-basel"
+        "childcare-specialist-m-w-d-80-helvetia-versicherungen-basel",
+        "specialiste-en-garde-d-enfants-m-w-d-80-helvetia-versicherungen-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-          "professional-m-f-d-child-care-80-helvetia-versicherungen-basel"
+          "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel"
         ],
         "en": [
           "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-          "professional-m-f-d-child-care-80-helvetia-versicherungen-basel"
+          "childcare-specialist-m-w-d-80-helvetia-versicherungen-basel"
         ],
         "fr": [
           "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-          "soins-professionnels-h-f-d-80-helvetia-versicherungen-basel"
+          "specialiste-en-garde-d-enfants-m-w-d-80-helvetia-versicherungen-basel"
         ]
       },
       "firstSeenAt": "2026-10-13T09:10:58.294Z",
@@ -13985,10 +13984,10 @@
     },
     {
       "id": "helvetia-34ccc33d0f96",
-      "slug": "praktikant-w-m-d-kinderkrippe-bal4kids-helvetia-basel",
+      "slug": "interno-m-f-d-creche-bal4kids-helvetia-versicherungen-basel",
       "slugByLocale": {
         "de": "praktikant-w-m-d-kinderkrippe-bal4kids-helvetia-basel",
-        "it": "praktikant-w-m-d-kinderkrippe-bal4kids-helvetia-basel",
+        "it": "interno-m-f-d-creche-bal4kids-helvetia-versicherungen-basel",
         "en": "praktikant-w-m-d-kinderkrippe-bal4kids-helvetia-basel",
         "fr": "praktikant-w-m-d-kinderkrippe-bal4kids-helvetia-basel"
       },
@@ -14052,16 +14051,24 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-14T21:16:30.762Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-06-23T11:50:49.470Z"
+      "firstSeenAt": "2026-06-23T11:50:49.470Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-w-m-d-kinderkrippe-bal4kids-helvetia-basel"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-w-m-d-kinderkrippe-bal4kids-helvetia-basel"
+      ]
     },
     {
       "id": "helvetia-2ee00a746200",
-      "slug": "kundenberater-w-m-d-versicherung-zurich-stadt-vollzeit-teilzeit-helvetia-zurich",
+      "slug": "consulente-clienti-m-f-d-assicurazione-zurich-city-a-tempo-pieno-part-time-helvetia-versicherungen-zurich",
       "slugByLocale": {
         "de": "kundenberater-w-m-d-versicherung-zurich-stadt-vollzeit-teilzeit-helvetia-zurich",
-        "it": "kundenberater-w-m-d-versicherung-zurich-stadt-vollzeit-teilzeit-helvetia-zurich",
-        "en": "kundenberater-w-m-d-versicherung-zurich-stadt-vollzeit-teilzeit-helvetia-zurich",
-        "fr": "kundenberater-w-m-d-versicherung-zurich-stadt-vollzeit-teilzeit-helvetia-zurich"
+        "it": "consulente-clienti-m-f-d-assicurazione-zurich-city-a-tempo-pieno-part-time-helvetia-versicherungen-zurich",
+        "en": "customer-consultant-m-f-d-insurance-zurich-city-full-time-part-time-helvetia-versicherungen-zurich",
+        "fr": "consultant-client-h-f-d-assurance-zurich-city-temps-plein-temps-partiel-helvetia-versicherungen-zurich"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -14123,16 +14130,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-14T21:16:30.760Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-16T21:16:30.760Z"
+      "firstSeenAt": "2026-11-16T21:16:30.760Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-w-m-d-versicherung-zurich-stadt-vollzeit-teilzeit-helvetia-zurich"
+        ],
+        "en": [
+          "kundenberater-w-m-d-versicherung-zurich-stadt-vollzeit-teilzeit-helvetia-zurich"
+        ],
+        "fr": [
+          "kundenberater-w-m-d-versicherung-zurich-stadt-vollzeit-teilzeit-helvetia-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-w-m-d-versicherung-zurich-stadt-vollzeit-teilzeit-helvetia-zurich"
+      ]
     },
     {
       "id": "helvetia-bd33be521b1b",
-      "slug": "fachspezialist-w-m-d-unternehmensentwicklung-bank-helvetia-basel",
+      "slug": "banca-di-sviluppo-aziendale-specializzata-m-f-d-helvetia-versicherungen-basel",
       "slugByLocale": {
         "de": "fachspezialist-w-m-d-unternehmensentwicklung-bank-helvetia-basel",
-        "it": "fachspezialist-w-m-d-unternehmensentwicklung-bank-helvetia-basel",
-        "en": "fachspezialist-w-m-d-unternehmensentwicklung-bank-helvetia-basel",
-        "fr": "fachspezialist-w-m-d-unternehmensentwicklung-bank-helvetia-basel"
+        "it": "banca-di-sviluppo-aziendale-specializzata-m-f-d-helvetia-versicherungen-basel",
+        "en": "specialist-m-f-d-corporate-development-bank-helvetia-versicherungen-basel",
+        "fr": "specialiste-h-f-d-banque-de-developpement-helvetia-versicherungen-basel"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -14194,16 +14215,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-14T21:16:30.747Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-16T21:16:30.747Z"
+      "firstSeenAt": "2026-11-16T21:16:30.747Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-w-m-d-unternehmensentwicklung-bank-helvetia-basel"
+        ],
+        "en": [
+          "fachspezialist-w-m-d-unternehmensentwicklung-bank-helvetia-basel"
+        ],
+        "fr": [
+          "fachspezialist-w-m-d-unternehmensentwicklung-bank-helvetia-basel"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-w-m-d-unternehmensentwicklung-bank-helvetia-basel"
+      ]
     },
     {
       "id": "helvetia-2a3653a7690b",
-      "slug": "kundenberater-m-w-d-versicherung-region-rheintal-e-furstentum-liechtenstein-helvetia-versicherungen-rebstein",
+      "slug": "consulente-clienti-m-f-d-assicurazioni-regione-del-rheintal-e-principato-del-liechtenstein-helvetia-versicherungen",
       "slugByLocale": {
         "de": "kundenberater-w-m-d-versicherung-region-rheintal-und-furstentum-liechtenstein-helvetia",
-        "it": "kundenberater-m-w-d-versicherung-region-rheintal-e-furstentum-liechtenstein-helvetia-versicherungen-rebstein",
-        "en": "kundenberater-w-m-d-versicherung-region-rheintal-und-furstentum-liechtenstein-helvetia",
-        "fr": "kundenberater-w-m-d-versicherung-region-rheintal-und-furstentum-liechtenstein-helvetia"
+        "it": "consulente-clienti-m-f-d-assicurazioni-regione-del-rheintal-e-principato-del-liechtenstein-helvetia-versicherungen",
+        "en": "customer-advisor-m-f-d-insurance-region-rhine-valley-and-principality-of-liechtenstein-helvetia-versicherungen-rebstein",
+        "fr": "conseiller-client-h-f-d-region-assurance-vallee-du-rhin-et-principaute-de-liechtenstein-helvetia-versicherungen-rebstein"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -14251,11 +14286,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "kundenberater-w-m-d-versicherung-region-rheintal-und-furstentum-liechtenstein-helvetia",
+          "kundenberater-m-w-d-versicherung-region-rheintal-e-furstentum-liechtenstein-helvetia-versicherungen-rebstein"
+        ],
+        "en": [
+          "kundenberater-w-m-d-versicherung-region-rheintal-und-furstentum-liechtenstein-helvetia"
+        ],
+        "fr": [
           "kundenberater-w-m-d-versicherung-region-rheintal-und-furstentum-liechtenstein-helvetia"
         ]
       },
       "previousSlugs": [
-        "kundenberater-w-m-d-versicherung-region-rheintal-und-furstentum-liechtenstein-helvetia"
+        "kundenberater-w-m-d-versicherung-region-rheintal-und-furstentum-liechtenstein-helvetia",
+        "kundenberater-m-w-d-versicherung-region-rheintal-e-furstentum-liechtenstein-helvetia-versicherungen-rebstein"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,

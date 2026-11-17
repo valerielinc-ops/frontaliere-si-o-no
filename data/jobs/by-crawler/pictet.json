@@ -411,12 +411,12 @@
     },
     {
       "id": "pictet-b6a7d924934c",
-      "slug": "executive-assistant-pictet-geneva",
+      "slug": "assistente-esecutivo-pictet-group-geneva",
       "slugByLocale": {
         "en": "executive-assistant-pictet-geneva",
-        "it": "executive-assistant-pictet-geneva",
-        "de": "executive-assistant-pictet-geneva",
-        "fr": "executive-assistant-pictet-geneva"
+        "it": "assistente-esecutivo-pictet-group-geneva",
+        "de": "executive-assistent-pictet-group-geneva",
+        "fr": "assistant-executif-pictet-group-geneva"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -479,14 +479,28 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T21:16:39.430Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-16T21:16:39.430Z"
+      "firstSeenAt": "2026-11-16T21:16:39.430Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "executive-assistant-pictet-geneva"
+        ],
+        "de": [
+          "executive-assistant-pictet-geneva"
+        ],
+        "fr": [
+          "executive-assistant-pictet-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "executive-assistant-pictet-geneva"
+      ]
     },
     {
       "id": "pictet-6fd1878b21fb",
-      "slug": "client-relationship-officer-eastern-europe-market-pictet-zurich",
+      "slug": "client-relationship-officer-mercato-dell-europa-dell-est-pictet-group-zurich",
       "slugByLocale": {
         "en": "client-relationship-officer-eastern-europe-market-pictet-zurich",
-        "it": "client-relationship-officer-eastern-europe-market-pictet-zurich",
+        "it": "client-relationship-officer-mercato-dell-europa-dell-est-pictet-group-zurich",
         "de": "client-relationship-officer-eastern-europe-market-pictet-zurich",
         "fr": "client-relationship-officer-eastern-europe-market-pictet-zurich"
       },
@@ -551,7 +565,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-20T21:16:38.188Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-22T09:23:23.325Z"
+      "firstSeenAt": "2026-10-22T09:23:23.325Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "client-relationship-officer-eastern-europe-market-pictet-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "client-relationship-officer-eastern-europe-market-pictet-zurich"
+      ]
     },
     {
       "id": "pictet-4e578c12b7e7",

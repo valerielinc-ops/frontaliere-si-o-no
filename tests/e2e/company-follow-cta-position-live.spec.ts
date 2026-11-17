@@ -212,6 +212,9 @@ test('gated job detail: preview precedes access and follow, no fixed-widget coll
 });
 
 test('expired job detail: follow CTA sits above the auth gate, no fixed-widget collisions', async ({ page }) => {
+  // One live request may use 6 × 15 s timeouts plus 25 s of retry pauses.
+  test.setTimeout(115_000);
+
   const res = await getLiveWithRetry(
     page.request.get.bind(page.request),
     `${LIVE_BASE_URL}${EXPIRED_JOB_PATH}`,
