@@ -155,6 +155,7 @@ describe('shard_history_needs_compaction (runtime, temp git fixtures)', () => {
 describe('compact-article-shard-history.sh — structural invariants (issue #4881 defect B)', () => {
   const script = read('scripts/lib/compact-article-shard-history.sh');
   const workflow = read('.github/workflows/compact-article-shard-history.yml');
+  const fastWorkflow = read('.github/workflows/fast-publish-article.yml');
   const liveCode = script
     .split('\n')
     .filter((line) => !/^\s*#/.test(line))
@@ -273,6 +274,32 @@ describe('compact-article-shard-history.sh — structural invariants (issue #488
     expect(worker).toContain('node scripts/ci/with-shard-writer-lock.mjs');
     expect(worker).toContain('--section "$section" --locale "$loc" --policy wait --timeout-ms 3600000 --');
     expect(worker).toContain('bash scripts/lib/compact-article-shard-history.sh "$section" "$loc"');
+  });
+
+  it('boots the Firestore lease runtime on a clean compactor runner', () => {
+    expect(workflow).toContain('uses: actions/setup-node@v7');
+    expect(workflow).toContain("node-version: '22'");
+    expect(workflow).toContain('uses: actions/cache@v6');
+    expect(workflow).toContain('path: node_modules');
+    expect(workflow).toContain("key: node-modules-${{ runner.os }}-node22-${{ hashFiles('package-lock.json') }}");
+    expect(workflow).toContain('run: npm ci --ignore-scripts --no-audit --no-fund');
+    expect(workflow).toContain('FIREBASE_SERVICE_ACCOUNT_JSON is required for the shard writer lease');
+    expect(workflow).toContain('GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/firebase-sa.json');
+  });
+
+  it('serializes fast article shard pushes through the same writer lease', () => {
+    const pushStart = fastWorkflow.indexOf('- name: Push locale shards (parallel, fault-tolerant)');
+    const nextStep = fastWorkflow.indexOf('\n      - name:', pushStart + 1);
+    const pushBlock = fastWorkflow.slice(pushStart, nextStep === -1 ? undefined : nextStep);
+    expect(pushStart).toBeGreaterThan(-1);
+    expect(pushBlock).toContain('node scripts/ci/with-shard-writer-lock.mjs');
+    expect(pushBlock).toContain('--section "$SHARD_SECTION" --locale "$locale" --policy wait');
+    expect(pushBlock).toContain('bash scripts/lib/push-article-shard-incremental.sh');
+    expect(pushBlock.indexOf('with-shard-writer-lock')).toBeLessThan(
+      pushBlock.indexOf('push-article-shard-incremental.sh'),
+    );
+    expect(fastWorkflow).toContain('FIREBASE_SERVICE_ACCOUNT_JSON is required for the shard writer lease');
+    expect(fastWorkflow).toContain('run: npm ci --ignore-scripts --no-audit --no-fund');
   });
 });
 
