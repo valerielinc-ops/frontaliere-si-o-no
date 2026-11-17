@@ -153,4 +153,23 @@ describe('Workday tenant account routes', () => {
     expect(clicks).toEqual([]);
     expect(result.counts).toEqual([]);
   });
+
+  it('blocks Work Experience Job Title*, Company*, From*, To* from candidate prompts when CV profile has experience', async () => {
+    const { profileSectionQuestionsOwnedByCv } = await import('../scripts/assisted-application/lib/portal/portal.mjs');
+    const candidate = {
+      profile: {
+        experience: [{ role: 'Sales', employer: 'ACME', start: '2022-01', end: '2024-01' }],
+        education: [],
+      },
+    };
+    expect(profileSectionQuestionsOwnedByCv(candidate, [
+      { applicationQuestion: 'Job Title*', section: 'Work Experience', context: 'Work Experience 8 · Job Title*' },
+      { applicationQuestion: 'Company*', section: 'Work Experience', context: 'Work Experience 8 · Company*' },
+      { applicationQuestion: 'From*', context: 'From*', addressContext: { owners: ['From*', 'Work Experience 1', 'Work Experience'] } },
+      { applicationQuestion: 'To*', context: 'To*', addressContext: { owners: ['To*', 'Work Experience 1', 'Work Experience'] } },
+    ])).toBe(true);
+    expect(profileSectionQuestionsOwnedByCv(candidate, [
+      { applicationQuestion: 'Why do you want to join Rituals?', section: 'Application Questions' },
+    ])).toBe(false);
+  });
 });
