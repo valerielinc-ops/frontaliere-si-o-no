@@ -290,6 +290,26 @@ describe('Zefix LINDAS JobPosting address refresh', () => {
     ])).toThrow(/postcode coverage is 0\/1 \(0\)/);
   });
 
+  it('does not retry a cache record when the active inventory has ambiguous postcodes', () => {
+    const now = Date.now();
+    const key = 'cached company|lugano|TI';
+    const entries = {
+      [key]: {
+        status: 'not-found',
+        companyName: 'Cached Company AG',
+        addressLocality: 'Lugano',
+        addressRegion: 'TI',
+        checkedAt: new Date(now - 10_000).toISOString(),
+      },
+    };
+    const jobs = [
+      { company: 'Cached Company AG', city: 'Lugano', canton: 'TI', postalCode: '6900' },
+      { company: 'Cached Company AG', city: 'Lugano', canton: 'TI', postalCode: '6901' },
+    ];
+
+    expect(collectLookups(jobs, entries, now, 10, { retryUnmatchedCache: true })).toEqual([]);
+  });
+
   it('retries only cached unmatched records and matches with their cached postcode', async () => {
     const now = Date.parse('2026-11-03T00:00:00.000Z');
     const cachedKey = 'cached company|lugano|TI';

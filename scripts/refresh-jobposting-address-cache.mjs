@@ -215,10 +215,12 @@ function collectLookups(jobs, entries, now, limit, { retryUnmatchedCache = false
         ...request,
         jobPostalCode: cachedPostalCode || (currentPostalCodes.size === 1 ? [...currentPostalCodes][0] : ''),
       };
-    }).filter((request) => (
-      JOB_POSTAL_CODE_RE.test(request.jobPostalCode)
-      || (inventoryPostalCodes.get(request.key)?.size || 0) > 0
-    ));
+    }).filter((request) => {
+      if (!JOB_POSTAL_CODE_RE.test(request.jobPostalCode)) return false;
+      const currentPostalCodes = inventoryPostalCodes.get(request.key) || new Set();
+      return currentPostalCodes.size === 0
+        || (currentPostalCodes.size === 1 && currentPostalCodes.has(request.jobPostalCode));
+    });
     return eligibleRequests.slice(offset, offset + limit);
   }
 
@@ -548,16 +550,14 @@ async function processLookupBatches(requests, {
     for (const request of batch) {
       const previous = nextEntries[request.key];
       const requestPostalCodes = postalCodes.get(request.key) || new Set();
+      if (request.requirePostalCodeForMatch && requestPostalCodes.size !== 1) continue;
       const outcome = matchAddress(request, bindingsIndex, requestPostalCodes);
-      const canVerifyRequiredPostalCode = !request.requirePostalCodeForMatch
-        || requestPostalCodes.size > 0;
       const jobPostalCode = requestPostalCodes.size === 1
         ? [...requestPostalCodes][0]
         : requestPostalCodes.size === 0 ? request.jobPostalCode : '';
       // A stale match remains usable until a complete, verified replacement
       // exists. A cache-only retry without the original job postcode cannot
       // establish that the registry address belongs to the posting.
-      if (outcome.status === 'matched' && !canVerifyRequiredPostalCode) continue;
       if (previous?.status !== 'matched' || outcome.status === 'matched') {
         nextEntries[request.key] = cacheEntry(request, outcome, timestamp, jobPostalCode);
       }
