@@ -2861,6 +2861,7 @@ async function sameControl(page, button) {
     && Boolean(candidate.chrome) === Boolean(button.chrome) && Boolean(candidate.dialog) === Boolean(button.dialog)
     && String(candidate.dialogId || '') === String(button.dialogId || '')
     && String(candidate.formId || '') === String(button.formId || '')
+    && (button.formId || String(candidate.roleFormId || '') === String(button.roleFormId || ''))
     && String(candidate.href || '') === String(button.href || '')
     && (candidate.frame || 0) === (button.frame || 0)) || null;
   return matches?.length === 1 ? matches[0] : null;
@@ -2870,8 +2871,10 @@ async function sameControl(page, button) {
 async function clickUniqueNamedControl(frame, button) {
   if (!button.text) return null;
   const formId = String(button.formId || '');
+  const roleFormId = formId ? '' : String(button.roleFormId || '');
   const dialogId = String(button.dialogId || '');
   if (formId && !/^[\w-]{1,80}$/.test(formId)) return null;
+  if (roleFormId && !/^[\w-]{1,80}$/.test(roleFormId)) return null;
   if (button.dialog && !/^[\w-]{1,80}$/.test(dialogId)) return null;
   if (!formId && !button.dialog) return null;
   if (typeof frame?.getByRole !== 'function') return null;
@@ -2885,14 +2888,16 @@ async function clickUniqueNamedControl(frame, button) {
       if (!await candidate.isEnabled({ timeout: 2_000 }).catch(() => false)) continue;
       const owner = await candidate.evaluate((element) => {
         const form = element.form || element.closest?.('form');
+        const roleForm = form ? null : element.closest?.('[role="form"]');
         const dialog = element.closest?.('dialog, [role="dialog"], [aria-modal="true"]');
         return {
           formId: form?.getAttribute('data-aa-id') || '',
+          roleFormId: roleForm?.getAttribute('data-aa-id') || '',
           dialogId: dialog?.getAttribute('data-aa-dialog-id') || '',
           href: element.tagName === 'A' && /^https?:/.test(element.href || '') ? element.href : '',
         };
       }).catch(() => null);
-      if (!owner || owner.formId !== formId || owner.dialogId !== dialogId) continue;
+      if (!owner || owner.formId !== formId || owner.roleFormId !== roleFormId || owner.dialogId !== dialogId) continue;
       if (Object.hasOwn(button, 'href') && owner.href !== String(button.href || '')) continue;
       matches.push(candidate);
       if (matches.length > 1) return null;
@@ -13303,6 +13308,7 @@ export async function submitViaPortal(ctx) {
           by: 'runner',
           buttonId: id,
           formId: String(button.formId || ''),
+          roleFormId: String(button.roleFormId || ''),
           dialogId: String(button.dialogId || ''),
           frame,
           locator: frame.locator(`[data-aa-id="${id}"]`).first(),
@@ -13314,6 +13320,7 @@ export async function submitViaPortal(ctx) {
         by: 'agent',
         buttonId: String(button.buttonId || ''),
         formId: String(button.formId || ''),
+        roleFormId: String(button.roleFormId || ''),
         dialogId: String(button.dialogId || ''),
         frame: button.frame || page.mainFrame(),
         locator: button.locator,
@@ -13450,6 +13457,7 @@ export async function submitViaPortal(ctx) {
         token: guardToken,
         expectedButtonId: final.buttonId,
         expectedFormId: final.formId,
+        expectedRoleFormId: final.roleFormId,
         expectedButtonName: final.label,
       }).catch(() => ({ ok: false, reason: 'final_control_unavailable' }));
       if (!armed?.ok) {
@@ -13459,6 +13467,7 @@ export async function submitViaPortal(ctx) {
           expectedFormId: final.formId,
           ...(armed?.buttonId ? { buttonId: armed.buttonId } : {}),
           ...(armed?.formId ? { formId: armed.formId } : {}),
+          ...(armed?.roleFormId ? { roleFormId: armed.roleFormId } : {}),
         };
         return await handoff('portal_final_form_unbound');
       }
