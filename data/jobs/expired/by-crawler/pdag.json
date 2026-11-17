@@ -761,7 +761,7 @@
     "slugByLocale": {
       "it": "dipl-infermieristica-professionale-infermieristica-psychiatrische-dienste-aargau-pdag-windisch",
       "en": "dipl-nursing-professional-nursing-professional-psychiatrische-dienste-aargau-pdag-windisch",
-      "de": "dipl-pflegefachfrau-pflegefachmann-pdag-windisch",
+      "de": "dipl-pflegefachfrau-pflegefachmann-pdag-windisch-4fe6d66e",
       "fr": "dipl-professionnels-des-soins-infirmiers-professionnels-des-soins-infirmiers-psychiatrische-dienste-aargau-pdag-windisch"
     },
     "sector": "Sanità / Ospedali",
@@ -775,7 +775,6 @@
       "dipl-social-pedagogue-social-pedagogue-or-dipl-nursing-professional-nursing-professional-psychiatrische-dienste-aargau",
       "dipl-sozialpadagogin-sozialpadagoge-oder-dipl-pflegefachfrau-pflegefachmann-pdag-windisch",
       "dipl-pedagogue-social-pedagogue-social-ou-dipl-professionnels-des-soins-infirmiers-professionnels-des-soins-infirmiers",
-      "dipl-pflegefachfrau-pflegefachmann-pdag-windisch",
       "dipl-carriere-dipl-specialiste-des-soins-infirmiers-psychiatrische-dienste-aargau-pdag-windisch",
       "dipl-infermiera-nurse-professionale-psychiatrische-dienste-aargau-pdag-windisch",
       "dipl-pflegefachfrau-pflegefachmann-psychiatrische-dienste-aargau-pdag-windisch",
@@ -799,7 +798,8 @@
       "dipl-professionnels-des-soins-infirmiers-dipl-clinique-de-jour-specialisee-en-soins-infirmiers-psychiatrische-f95623b7",
       "dipl-professionnels-des-soins-infirmiers-dipl-clinique-de-jour-specialisee-en-soins-infirmiers-psychiatrische-a9574267",
       "dipl-professionnels-des-soins-infirmiers-dipl-clinique-de-jour-specialisee-en-soins-infirmiers-psychiatrische-5da9bb23",
-      "dipl-professionnels-des-soins-infirmiers-dipl-clinique-de-jour-specialisee-en-soins-infirmiers-psychiatrische-dienste"
+      "dipl-professionnels-des-soins-infirmiers-dipl-clinique-de-jour-specialisee-en-soins-infirmiers-psychiatrische-dienste",
+      "dipl-pflegefachfrau-pflegefachmann-pdag-windisch"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -807,7 +807,7 @@
         "dipl-social-pedagogue-social-pedagogue-or-dipl-nursing-professional-nursing-professional-psychiatrische-dienste-aargau",
         "dipl-sozialpadagogin-sozialpadagoge-oder-dipl-pflegefachfrau-pflegefachmann-pdag-windisch",
         "dipl-pedagogue-social-pedagogue-social-ou-dipl-professionnels-des-soins-infirmiers-professionnels-des-soins-infirmiers",
-        "dipl-pflegefachfrau-pflegefachmann-pdag-windisch",
+        "dipl-pflegefachfrau-pflegefachmann-pdag-windisch-4fe6d66e",
         "dipl-carriere-dipl-specialiste-des-soins-infirmiers-psychiatrische-dienste-aargau-pdag-windisch",
         "dipl-infermiera-nurse-professionale-psychiatrische-dienste-aargau-pdag-windisch",
         "dipl-pflegefachfrau-pflegefachmann-psychiatrische-dienste-aargau-pdag-windisch",
@@ -834,7 +834,8 @@
         "dipl-professionnels-des-soins-infirmiers-dipl-clinique-de-jour-specialisee-en-soins-infirmiers-psychiatrische-f95623b7",
         "dipl-professionnels-des-soins-infirmiers-dipl-clinique-de-jour-specialisee-en-soins-infirmiers-psychiatrische-a9574267",
         "dipl-professionnels-des-soins-infirmiers-dipl-clinique-de-jour-specialisee-en-soins-infirmiers-psychiatrische-5da9bb23",
-        "dipl-professionnels-des-soins-infirmiers-dipl-clinique-de-jour-specialisee-en-soins-infirmiers-psychiatrische-dienste"
+        "dipl-professionnels-des-soins-infirmiers-dipl-clinique-de-jour-specialisee-en-soins-infirmiers-psychiatrische-dienste",
+        "dipl-pflegefachfrau-pflegefachmann-pdag-windisch"
       ],
       "en": [
         "dipl-nursing-professional-dipl-nursing-professional-psychiatrische-dienste-aargau-pdag-wohlen",
@@ -845,7 +846,8 @@
       "de": [
         "dipl-pflegefachfrau-dipl-pflegefachmann-pdag-wohlen",
         "dipl-sozialpadagogin-sozialpadagoge-oder-dipl-pflegefachfrau-pflegefachmann-pdag-windisch",
-        "dipl-pflegefachfrau-dipl-pflegefachmann-tagesklinik-pdag-baden"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-tagesklinik-pdag-baden",
+        "dipl-pflegefachfrau-pflegefachmann-pdag-windisch-4fe6d66e"
       ],
       "fr": [
         "dipl-professionnels-des-soins-infirmiers-dipl-professionnels-des-soins-infirmiers-psychiatrische-dienste-aargau-pdag",
@@ -1227,7 +1229,7 @@
     "slugByLocale": {
       "it": "medico-senior-per-i-disturbi-da-dipendenza-psychiatrische-dienste-aargau-pdag-windisch",
       "en": "senior-physician-for-addiction-disorders-psychiatrische-dienste-aargau-pdag-windisch",
-      "de": "oberarztin-oberarzt-abhangigkeitserkrankungen-pdag-windisch",
+      "de": "oberarztin-oberarzt-abhangigkeitserkrankungen-pdag-windisch-2a653784",
       "fr": "medecin-principal-pour-les-troubles-lies-aux-addictions-psychiatrische-dienste-aargau-pdag-windisch"
     },
     "sector": "Sanità / Ospedali",
@@ -1245,16 +1247,20 @@
         "senior-physician-addiction-disorders-outpatient-psychiatrische-dienste-aargau-pdag-aarau",
         "oberarztin-oberarzt-abhangigkeitserkrankungen-ambulant-pdag-aarau",
         "troubles-de-la-dependance-chez-les-medecins-seniors-ambulatoire-psychiatrische-dienste-aargau-pdag-aarau",
+        "oberarztin-oberarzt-abhangigkeitserkrankungen-pdag-windisch-2a653784",
         "oberarztin-oberarzt-abhangigkeitserkrankungen-pdag-windisch"
       ],
       "en": [
-        "senior-physician-addiction-disorders-outpatient-psychiatrische-dienste-aargau-pdag-aarau"
+        "senior-physician-addiction-disorders-outpatient-psychiatrische-dienste-aargau-pdag-aarau",
+        "oberarztin-oberarzt-abhangigkeitserkrankungen-pdag-windisch"
       ],
       "de": [
-        "oberarztin-oberarzt-abhangigkeitserkrankungen-ambulant-pdag-aarau"
+        "oberarztin-oberarzt-abhangigkeitserkrankungen-ambulant-pdag-aarau",
+        "oberarztin-oberarzt-abhangigkeitserkrankungen-pdag-windisch-2a653784"
       ],
       "fr": [
-        "troubles-de-la-dependance-chez-les-medecins-seniors-ambulatoire-psychiatrische-dienste-aargau-pdag-aarau"
+        "troubles-de-la-dependance-chez-les-medecins-seniors-ambulatoire-psychiatrische-dienste-aargau-pdag-aarau",
+        "oberarztin-oberarzt-abhangigkeitserkrankungen-pdag-windisch"
       ]
     },
     "postalCode": "5210",
