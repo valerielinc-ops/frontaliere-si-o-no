@@ -64,17 +64,15 @@
     },
     "slugByLocale": {
       "it": "lead-della-governance-dei-png-e-del-ciclo-di-vita-sonova-staefa-switzerland",
-      "en": "npi-lifecycle-governance-lead-sonova-ch",
+      "en": "npi-lifecycle-governance-lead-sonova-ch-d5fda487",
       "de": "npi-und-lebenszyklus-governance-leiter-sonova-staefa-switzerland",
       "fr": "npi-et-gouvernance-du-cycle-de-vie-responsable-sonova-staefa-switzerland"
     },
     "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
     "expiredAt": "2026-11-14T21:15:05.177Z",
-    "previousSlugs": [
-      "npi-lifecycle-governance-lead-sonova-ch"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "npi-lifecycle-governance-lead-sonova-ch-d5fda487",
         "npi-lifecycle-governance-lead-sonova-ch"
       ],
       "de": [
@@ -82,6 +80,9 @@
       ],
       "fr": [
         "npi-lifecycle-governance-lead-sonova-ch"
+      ],
+      "en": [
+        "npi-lifecycle-governance-lead-sonova-ch-d5fda487"
       ]
     },
     "postalCode": "8001",
@@ -91,7 +92,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-npi-&-lifecycle-governance-lead/1455260533",
-    "firstSeenAt": "2026-11-10T09:13:33.827Z"
+    "firstSeenAt": "2026-11-10T09:13:33.827Z",
+    "previousSlugs": [
+      "npi-lifecycle-governance-lead-sonova-ch"
+    ]
   },
   {
     "slug": "power-management-ingegnere-80-100-m-f-d-sonova-staefa",

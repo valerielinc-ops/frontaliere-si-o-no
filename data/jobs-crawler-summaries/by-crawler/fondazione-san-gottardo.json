@@ -1,7 +1,7 @@
 {
   "key": "fondazione-san-gottardo",
   "label": "Fondazione San Gottardo",
-  "generatedAt": "2026-11-17T09:17:57.683Z",
+  "generatedAt": "2026-11-17T21:19:31.823Z",
   "total": 1,
   "discovered": 1,
   "parsed": 1,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 6187,
-  "avgDurationMs": 6187,
+  "durationMs": 5479,
+  "avgDurationMs": 5479,
   "durationHistory": [
-    6187
+    5479
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -43,7 +43,7 @@
       "url": "https://www.fsangottardo.ch/lavoro",
       "source": "Fondazione San Gottardo Dedicated Parser (Internship Opportunity)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-17T09:17:41.688Z",
+      "crawledAt": "2026-11-17T21:19:16.621Z",
       "category": "Altro",
       "contract": "internship",
       "employmentType": "INTERN",
@@ -61,7 +61,7 @@
       "salarySource": "estimated",
       "streetAddress": "Lopagno",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T09:17:41.688Z",
+      "validThrough": "2026-12-17T21:19:16.621Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -72,5 +72,5 @@
       }
     }
   ],
-  "codeCommit": "0a26498058b0569b9b8027a7e9a03db3e2542c6a"
+  "codeCommit": "8a8594aa5e6a6b71cb0a2a3883a7ded1be40621c"
 }

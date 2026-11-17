@@ -1,7 +1,7 @@
 {
   "crawlerKey": "fondazione-san-gottardo",
-  "assembledAt": "2026-11-17T09:17:47.846Z",
-  "runId": "44051973356",
+  "assembledAt": "2026-11-17T21:19:22.553Z",
+  "runId": "44175957792",
   "jobs": [
     {
       "id": "fondazione-san-gottardo-stage-4ffe280d419e",
@@ -39,7 +39,7 @@
       "url": "https://www.fsangottardo.ch/lavoro",
       "source": "Fondazione San Gottardo Dedicated Parser (Internship Opportunity)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-17T09:17:41.688Z",
+      "crawledAt": "2026-11-17T21:19:16.621Z",
       "category": "Altro",
       "contract": "internship",
       "employmentType": "INTERN",
@@ -95,7 +95,7 @@
       },
       "streetAddress": "Lopagno",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T09:17:41.688Z",
+      "validThrough": "2026-12-17T21:19:16.621Z",
       "validThroughSource": "last-observed-window"
     }
   ]
