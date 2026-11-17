@@ -1,7 +1,7 @@
 {
   "crawlerKey": "bobst",
-  "assembledAt": "2026-11-15T21:39:57.384Z",
-  "runId": "43763225608",
+  "assembledAt": "2026-11-17T21:51:56.547Z",
+  "runId": "44179023017",
   "jobs": [
     {
       "id": "bobst-f254d67b8a12",
@@ -34,7 +34,7 @@
       "url": "https://jobs.bobst.com/Vacancies/7706/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T21:39:51.667Z",
+      "crawledAt": "2026-11-17T21:51:48.525Z",
       "addressLocality": "Switzerland (Grenchen)",
       "addressCountry": "CH",
       "country": "CH",
@@ -120,9 +120,8 @@
       "addressRegion": "SO",
       "streetAddress": "Switzerland (Grenchen)",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:39:51.667Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/7706/description/2"
+      "validThrough": "2026-12-17T21:51:48.525Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bobst-a50d899700e3",
@@ -156,7 +155,7 @@
       "url": "https://jobs.bobst.com/Vacancies/8743/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-15T21:39:50.789Z",
+      "crawledAt": "2026-11-17T21:51:47.742Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -206,9 +205,8 @@
       "addressRegion": "VD",
       "streetAddress": "Switzerland (Mex)",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:39:50.789Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/8743/description/2"
+      "validThrough": "2026-12-17T21:51:47.742Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bobst-fb32aad751a0",
@@ -242,7 +240,7 @@
       "url": "https://jobs.bobst.com/Vacancies/8868/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-15T21:39:49.906Z",
+      "crawledAt": "2026-11-17T21:51:46.919Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -292,9 +290,8 @@
       "addressRegion": "VD",
       "streetAddress": "Switzerland (Mex)",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:39:49.906Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/8868/description/3"
+      "validThrough": "2026-12-17T21:51:46.919Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bobst-d5cc3069bc1c",
@@ -327,7 +324,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9073/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-15T21:39:49.046Z",
+      "crawledAt": "2026-11-17T21:51:46.331Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -379,9 +376,8 @@
       "addressRegion": "VD",
       "streetAddress": "Switzerland (Mex)",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:39:49.046Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9073/description/2"
+      "validThrough": "2026-12-17T21:51:46.331Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bobst-42d29368f8b4",
@@ -414,7 +410,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9070/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-15T21:39:48.424Z",
+      "crawledAt": "2026-11-17T21:51:45.521Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -480,9 +476,8 @@
       "addressRegion": "VD",
       "streetAddress": "Switzerland (Mex)",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:39:48.424Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9070/description/2"
+      "validThrough": "2026-12-17T21:51:45.521Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bobst-bdedce751de6",
@@ -516,7 +511,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9221/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-15T21:39:47.604Z",
+      "crawledAt": "2026-11-17T21:51:44.681Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -570,9 +565,8 @@
       "addressRegion": "VD",
       "streetAddress": "Switzerland (Mex)",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:39:47.604Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9221/description/3"
+      "validThrough": "2026-12-17T21:51:44.681Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bobst-855585a4eeb5",
@@ -606,7 +600,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9220/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-15T21:39:46.789Z",
+      "crawledAt": "2026-11-17T21:51:43.855Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -656,9 +650,8 @@
       "addressRegion": "VD",
       "streetAddress": "Switzerland (Mex)",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:39:46.789Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9220/description/3"
+      "validThrough": "2026-12-17T21:51:43.855Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bobst-f8dd9f2738dd",
@@ -692,7 +685,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9222/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-15T21:39:45.924Z",
+      "crawledAt": "2026-11-17T21:51:43.050Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -746,9 +739,8 @@
       "addressRegion": "VD",
       "streetAddress": "Switzerland (Mex)",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:39:45.924Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9222/description/3"
+      "validThrough": "2026-12-17T21:51:43.050Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bobst-093858ad3e55",
@@ -782,7 +774,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9223/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-15T21:39:45.052Z",
+      "crawledAt": "2026-11-17T21:51:42.243Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -836,9 +828,8 @@
       "addressRegion": "VD",
       "streetAddress": "Switzerland (Mex)",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:39:45.052Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9223/description/3"
+      "validThrough": "2026-12-17T21:51:42.243Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bobst-49bee4b2fcbf",
@@ -872,7 +863,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9225/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-15T21:39:44.251Z",
+      "crawledAt": "2026-11-17T21:51:41.397Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -922,9 +913,8 @@
       "addressRegion": "VD",
       "streetAddress": "Switzerland (Mex)",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:39:44.251Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9225/description/3"
+      "validThrough": "2026-12-17T21:51:41.397Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bobst-ca582ec179f7",
@@ -957,7 +947,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9227/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-15T21:39:43.388Z",
+      "crawledAt": "2026-11-17T21:51:40.550Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1011,9 +1001,8 @@
       "addressRegion": "VD",
       "streetAddress": "Switzerland (Mex)",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:39:43.388Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9227/description/3"
+      "validThrough": "2026-12-17T21:51:40.550Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bobst-10e0ab0d935a",
@@ -1046,7 +1035,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9228/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-15T21:39:42.535Z",
+      "crawledAt": "2026-11-17T21:51:39.733Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1096,9 +1085,8 @@
       "addressRegion": "VD",
       "streetAddress": "Switzerland (Mex)",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:39:42.535Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9228/description/3"
+      "validThrough": "2026-12-17T21:51:39.733Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bobst-9b1013c9b68b",
@@ -1132,7 +1120,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9229/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-15T21:39:41.655Z",
+      "crawledAt": "2026-11-17T21:51:38.886Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1182,9 +1170,8 @@
       "addressRegion": "VD",
       "streetAddress": "Switzerland (Mex)",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:39:41.655Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9229/description/3"
+      "validThrough": "2026-12-17T21:51:38.886Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bobst-7953b2006541",
@@ -1218,7 +1205,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9230/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-15T21:39:40.785Z",
+      "crawledAt": "2026-11-17T21:51:38.069Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1262,9 +1249,8 @@
       "addressRegion": "VD",
       "streetAddress": "Switzerland (Mex)",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:39:40.785Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9230/description/3"
+      "validThrough": "2026-12-17T21:51:38.069Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bobst-3621de669a99",
@@ -1298,7 +1284,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9231/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-15T21:39:39.925Z",
+      "crawledAt": "2026-11-17T21:51:37.218Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1348,9 +1334,8 @@
       "addressRegion": "VD",
       "streetAddress": "Switzerland (Mex)",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:39:39.925Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9231/description/3"
+      "validThrough": "2026-12-17T21:51:37.218Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bobst-54b2a93e6104",
@@ -1384,7 +1369,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9224/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-15T21:39:39.046Z",
+      "crawledAt": "2026-11-17T21:51:36.406Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1438,9 +1423,8 @@
       "addressRegion": "VD",
       "streetAddress": "Switzerland (Mex)",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:39:39.046Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9224/description/3"
+      "validThrough": "2026-12-17T21:51:36.406Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bobst-2317c4fa7029",
@@ -1474,7 +1458,7 @@
       "url": "https://jobs.bobst.com/Vacancies/8728/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-15T21:39:38.236Z",
+      "crawledAt": "2026-11-17T21:51:35.593Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1529,9 +1513,93 @@
       "addressRegion": "VD",
       "streetAddress": "Switzerland (Mex)",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:39:38.236Z",
+      "validThrough": "2026-12-17T21:51:35.593Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "bobst-ddacd8e2accc",
+      "slug": "responsabile-dell-evento-principale-bobst-switzerland-mex",
+      "slugByLocale": {
+        "en": "flagship-event-manager-bobst-ch",
+        "it": "responsabile-dell-evento-principale-bobst-switzerland-mex",
+        "de": "manager-fur-das-flaggschiff-event-bobst-switzerland-mex",
+        "fr": "flagship-event-manager-bobst-switzerland-mex"
+      },
+      "company": "Bobst",
+      "companyKey": "bobst",
+      "companyDomain": "bobst.com",
+      "title": "Flagship Event Manager",
+      "titleByLocale": {
+        "en": "Flagship Event Manager",
+        "it": "Flagship Event Manager",
+        "de": "Flagship Event Manager",
+        "fr": "Flagship Event Manager"
+      },
+      "description": "Flagship Event Manager\n\nKey Responsibilities\n• Lead the planning and execution of flagship customer events.\n• Manage event timelines, milestones, and end-to-end delivery to ensure execution excellence.\n• Establish project governance and prepare and lead steering committee meetings.\n• Monitor project progress, manage risks and dependencies, and facilitate timely decision-making.\n• Align and coordinate cross-functional stakeholders, including Product Lines, Industries, Sales, and Regional MarCom teams.\n• Foster effective collaboration and manage project communications across all involved parties.\n• Manage event budgets, procurement activities, and agency selection and performance.\n• Monitor spending and forecasts while ensuring compliance with approved budgets.\n• Define and track KPIs, evaluate event performance and outcomes, and deliver post-event reporting.\n• Capture lessons learned and recommend improvements for future flagship events.\n\nCompetencies, Skills & Experience\n\nExperience\n• Proven experience independently managing complex, large-scale events end-to-end, ideally B2B trade shows , exhibitions, or comparable multi-stakeholder programs\n• Demonstrated experience translating a strategic brief into a complete operational event plan and driving it through delivery\n• Experience managing multiple parallel workstreams with significant interdependencies\n• Proven ownership of substantial event budgets\n• Strong experience managing agencies and suppliers through production and delivery\n• Experience working in complex, international and cross-functional organizations\n• Experience in an industrial, technology or B2B environment would be a strong advantage\n\nSkills\n• Advanced project and program management\n• Budget planning and cost management\n• Risk and dependency management\n• Agency briefing and performance management\n• Project governance and steering committee facilitation\n• Excellent stakeholder communication and coordination\n• Excellent written and verbal English; French and/or German would be an advantage\n\nCompetencies\n• High level of autonomy and ownership, with strong accountability for delivery\n• Ability to translate strategic direction into structured operational execution\n• Proactive and solution-oriented, able to anticipate risks and drive decisions\n• Strong stakeholder leadership, with the ability to align and mobilize cross-functional teams\n• Able to balance operational autonomy with strategic alignment, escalating with clear recommendations when needed",
+      "descriptionByLocale": {
+        "en": "Flagship Event Manager\n\nKey Responsibilities\n• Lead the planning and execution of flagship customer events.\n• Manage event timelines, milestones, and end-to-end delivery to ensure execution excellence.\n• Establish project governance and prepare and lead steering committee meetings.\n• Monitor project progress, manage risks and dependencies, and facilitate timely decision-making.\n• Align and coordinate cross-functional stakeholders, including Product Lines, Industries, Sales, and Regional MarCom teams.\n• Foster effective collaboration and manage project communications across all involved parties.\n• Manage event budgets, procurement activities, and agency selection and performance.\n• Monitor spending and forecasts while ensuring compliance with approved budgets.\n• Define and track KPIs, evaluate event performance and outcomes, and deliver post-event reporting.\n• Capture lessons learned and recommend improvements for future flagship events.\n\nCompetencies, Skills & Experience\n\nExperience\n• Proven experience independently managing complex, large-scale events end-to-end, ideally B2B trade shows , exhibitions, or comparable multi-stakeholder programs\n• Demonstrated experience translating a strategic brief into a complete operational event plan and driving it through delivery\n• Experience managing multiple parallel workstreams with significant interdependencies\n• Proven ownership of substantial event budgets\n• Strong experience managing agencies and suppliers through production and delivery\n• Experience working in complex, international and cross-functional organizations\n• Experience in an industrial, technology or B2B environment would be a strong advantage\n\nSkills\n• Advanced project and program management\n• Budget planning and cost management\n• Risk and dependency management\n• Agency briefing and performance management\n• Project governance and steering committee facilitation\n• Excellent stakeholder communication and coordination\n• Excellent written and verbal English; French and/or German would be an advantage\n\nCompetencies\n• High level of autonomy and ownership, with strong accountability for delivery\n• Ability to translate strategic direction into structured operational execution\n• Proactive and solution-oriented, able to anticipate risks and drive decisions\n• Strong stakeholder leadership, with the ability to align and mobilize cross-functional teams\n• Able to balance operational autonomy with strategic alignment, escalating with clear recommendations when needed",
+        "it": "Flagship Event Manager\n\nKey Responsibilities\n• Lead the planning and execution of flagship customer events.\n• Manage event timelines, milestones, and end-to-end delivery to ensure execution excellence.\n• Establish project governance and prepare and lead steering committee meetings.\n• Monitor project progress, manage risks and dependencies, and facilitate timely decision-making.\n• Align and coordinate cross-functional stakeholders, including Product Lines, Industries, Sales, and Regional MarCom teams.\n• Foster effective collaboration and manage project communications across all involved parties.\n• Manage event budgets, procurement activities, and agency selection and performance.\n• Monitor spending and forecasts while ensuring compliance with approved budgets.\n• Define and track KPIs, evaluate event performance and outcomes, and deliver post-event reporting.\n• Capture lessons learned and recommend improvements for future flagship events.\n\nCompetencies, Skills & Experience\n\nExperience\n• Proven experience independently managing complex, large-scale events end-to-end, ideally B2B trade shows , exhibitions, or comparable multi-stakeholder programs\n• Demonstrated experience translating a strategic brief into a complete operational event plan and driving it through delivery\n• Experience managing multiple parallel workstreams with significant interdependencies\n• Proven ownership of substantial event budgets\n• Strong experience managing agencies and suppliers through production and delivery\n• Experience working in complex, international and cross-functional organizations\n• Experience in an industrial, technology or B2B environment would be a strong advantage\n\nSkills\n• Advanced project and program management\n• Budget planning and cost management\n• Risk and dependency management\n• Agency briefing and performance management\n• Project governance and steering committee facilitation\n• Excellent stakeholder communication and coordination\n• Excellent written and verbal English; French and/or German would be an advantage\n\nCompetencies\n• High level of autonomy and ownership, with strong accountability for delivery\n• Ability to translate strategic direction into structured operational execution\n• Proactive and solution-oriented, able to anticipate risks and drive decisions\n• Strong stakeholder leadership, with the ability to align and mobilize cross-functional teams\n• Able to balance operational autonomy with strategic alignment, escalating with clear recommendations when needed",
+        "de": "Flagship Event Manager\n\nKey Responsibilities\n• Lead the planning and execution of flagship customer events.\n• Manage event timelines, milestones, and end-to-end delivery to ensure execution excellence.\n• Establish project governance and prepare and lead steering committee meetings.\n• Monitor project progress, manage risks and dependencies, and facilitate timely decision-making.\n• Align and coordinate cross-functional stakeholders, including Product Lines, Industries, Sales, and Regional MarCom teams.\n• Foster effective collaboration and manage project communications across all involved parties.\n• Manage event budgets, procurement activities, and agency selection and performance.\n• Monitor spending and forecasts while ensuring compliance with approved budgets.\n• Define and track KPIs, evaluate event performance and outcomes, and deliver post-event reporting.\n• Capture lessons learned and recommend improvements for future flagship events.\n\nCompetencies, Skills & Experience\n\nExperience\n• Proven experience independently managing complex, large-scale events end-to-end, ideally B2B trade shows , exhibitions, or comparable multi-stakeholder programs\n• Demonstrated experience translating a strategic brief into a complete operational event plan and driving it through delivery\n• Experience managing multiple parallel workstreams with significant interdependencies\n• Proven ownership of substantial event budgets\n• Strong experience managing agencies and suppliers through production and delivery\n• Experience working in complex, international and cross-functional organizations\n• Experience in an industrial, technology or B2B environment would be a strong advantage\n\nSkills\n• Advanced project and program management\n• Budget planning and cost management\n• Risk and dependency management\n• Agency briefing and performance management\n• Project governance and steering committee facilitation\n• Excellent stakeholder communication and coordination\n• Excellent written and verbal English; French and/or German would be an advantage\n\nCompetencies\n• High level of autonomy and ownership, with strong accountability for delivery\n• Ability to translate strategic direction into structured operational execution\n• Proactive and solution-oriented, able to anticipate risks and drive decisions\n• Strong stakeholder leadership, with the ability to align and mobilize cross-functional teams\n• Able to balance operational autonomy with strategic alignment, escalating with clear recommendations when needed",
+        "fr": "Flagship Event Manager\n\nKey Responsibilities\n• Lead the planning and execution of flagship customer events.\n• Manage event timelines, milestones, and end-to-end delivery to ensure execution excellence.\n• Establish project governance and prepare and lead steering committee meetings.\n• Monitor project progress, manage risks and dependencies, and facilitate timely decision-making.\n• Align and coordinate cross-functional stakeholders, including Product Lines, Industries, Sales, and Regional MarCom teams.\n• Foster effective collaboration and manage project communications across all involved parties.\n• Manage event budgets, procurement activities, and agency selection and performance.\n• Monitor spending and forecasts while ensuring compliance with approved budgets.\n• Define and track KPIs, evaluate event performance and outcomes, and deliver post-event reporting.\n• Capture lessons learned and recommend improvements for future flagship events.\n\nCompetencies, Skills & Experience\n\nExperience\n• Proven experience independently managing complex, large-scale events end-to-end, ideally B2B trade shows , exhibitions, or comparable multi-stakeholder programs\n• Demonstrated experience translating a strategic brief into a complete operational event plan and driving it through delivery\n• Experience managing multiple parallel workstreams with significant interdependencies\n• Proven ownership of substantial event budgets\n• Strong experience managing agencies and suppliers through production and delivery\n• Experience working in complex, international and cross-functional organizations\n• Experience in an industrial, technology or B2B environment would be a strong advantage\n\nSkills\n• Advanced project and program management\n• Budget planning and cost management\n• Risk and dependency management\n• Agency briefing and performance management\n• Project governance and steering committee facilitation\n• Excellent stakeholder communication and coordination\n• Excellent written and verbal English; French and/or German would be an advantage\n\nCompetencies\n• High level of autonomy and ownership, with strong accountability for delivery\n• Ability to translate strategic direction into structured operational execution\n• Proactive and solution-oriented, able to anticipate risks and drive decisions\n• Strong stakeholder leadership, with the ability to align and mobilize cross-functional teams\n• Able to balance operational autonomy with strategic alignment, escalating with clear recommendations when needed"
+      },
+      "needsRetranslation": true,
+      "location": "Switzerland (Mex)",
+      "canton": "VD",
+      "url": "https://jobs.bobst.com/Vacancies/9307/Description/2",
+      "source": "Bobst Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-17T21:51:33.451Z",
+      "addressLocality": "Switzerland (Mex)",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industria",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-17",
+      "postedDate": "2026-11-17",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.bobst.com/Vacancies/9307/Description/2",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "department": "Marketing",
+      "previousSlugsByLocale": {
+        "it": [
+          "flagship-event-manager-bobst-ch"
+        ],
+        "fr": [
+          "responsable-de-l-evenement-phare-bobst-switzerland-mex"
+        ]
+      },
+      "previousSlugs": [
+        "flagship-event-manager-bobst-ch",
+        "responsable-de-l-evenement-phare-bobst-switzerland-mex"
+      ],
+      "salaryMin": 83500,
+      "salaryMax": 126500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83500,
+          "maxValue": 126500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1003",
+      "addressRegion": "VD",
+      "streetAddress": "Switzerland (Mex)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-15T21:51:33.451Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/8728/description/3"
+      "firstSeenAt": "2026-09-26T14:13:42.234Z"
     }
   ]
 }
