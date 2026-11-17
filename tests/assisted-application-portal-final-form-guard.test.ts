@@ -35,8 +35,16 @@ it('collects a canonical contract only after the selected submitter is linked to
   expect(clearFinalFormGuardInPage(button, 'fixture-token')).toBe(true);
 });
 
-it('binds a fieldless semantic Workday application form when no native form exists', () => {
+it('binds a fieldless Workday review surface when no native form exists', () => {
   const { dom, button } = fixture(`<div role="form" data-aa-id="f1" id="application-review" aria-label="Application review">
+    <button type="button">Read Full Privacy Message</button>
+    <button type="button">Decline</button>
+    <button type="button">Accept Cookies</button>
+    <span>Candidate profile</span>
+    <button type="button">Rituals Careers</button>
+    <button type="button">Candidate Home</button>
+    <button type="button">Back to Job Posting</button>
+    <button type="button">Back</button>
     <button data-aa-id="b1" type="button">Submit</button>
   </div>`);
   const appClicks = vi.fn();

@@ -2876,7 +2876,7 @@ async function clickUniqueNamedControl(frame, button) {
   if (formId && !/^[\w-]{1,80}$/.test(formId)) return null;
   if (roleFormId && !/^[\w-]{1,80}$/.test(roleFormId)) return null;
   if (button.dialog && !/^[\w-]{1,80}$/.test(dialogId)) return null;
-  if (!formId && !button.dialog) return null;
+  if (!formId && !roleFormId && !button.dialog) return null;
   if (typeof frame?.getByRole !== 'function') return null;
   const matches = [];
   for (const role of ['button', 'link']) {
