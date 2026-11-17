@@ -157,7 +157,7 @@ function harness(afterForgot: any) {
   };
   const run = () => handleAuth({
     page,
-    snapshot: login() as any,
+    snapshot: recoveryState.snapshot as any,
     ctx: { candidate: { identity: { email: alias } }, accounts } as any,
   });
   return { run, accounts, beginRecovery, forgotClick, sendClick, page };
