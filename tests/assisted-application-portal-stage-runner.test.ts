@@ -463,6 +463,36 @@ describe('runner final guard across three application stages', () => {
     expect(f.click).not.toHaveBeenCalled();
   });
 
+  it('does not treat a mutated pre-click Workday Apply CTA as a mounted chooser', async () => {
+    const jobUrl = 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Zurich/Store-Assistant_R-19033';
+    const postingBeforeClick = snapshot(jobUrl, 'Store Assistant Rituals Apply', [
+      {
+        id: 'entry', text: 'Apply', href: jobUrl, frame: 0, disabled: false,
+        documentInstance: 'doc-1', controlInstance: 'control-1',
+      },
+    ]);
+    const mutatedPosting = snapshot(jobUrl, 'Store Assistant Rituals Apply now', [
+      {
+        id: 'entry', text: 'Apply now', href: jobUrl, frame: 0, disabled: false,
+        documentInstance: 'doc-1', controlInstance: 'control-1',
+      },
+    ]);
+    const f = fixture(mutatedPosting, postingBeforeClick, review, null, {
+      applyUrl: jobUrl,
+      postingUrl: jobUrl,
+      channelType: 'workday',
+      job: { company: 'Rituals Cosmetics Switzerland', title: 'Store Assistant' },
+      guardUrl: review.url,
+    });
+
+    const result = await f.run();
+
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'application_stage_unknown' });
+    expect(f.openClick).toHaveBeenCalledOnce();
+    expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
+  });
+
   it('rejects a Workday surface that appears after the polled apply route becomes unbound', async () => {
     const postingUrl = 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Zurich/Store-Assistant_R-19033';
     const applyUrl = `${postingUrl}/apply`;
