@@ -90,7 +90,7 @@ describe('filesystem target preflight', () => {
     }
   });
 
-  it('skips a reserved long alias before retained flat-target preflight', () => {
+  it('uses the index target for retained aliases when only the flat sibling is unsafe', () => {
     const distDir = fs.mkdtempSync(path.join(os.tmpdir(), 'dist-path-retained-alias-'));
     const reservedPath = `/${'x'.repeat(251)}/`;
     const retainedClassification = vi.fn(() => true);
@@ -124,32 +124,31 @@ describe('filesystem target preflight', () => {
 
       const nonReservedPath = `/${'y'.repeat(251)}/`;
       const nonReservedClassification = vi.fn(() => true);
-      expect(() => isRetainedBridgePathSafeToEmit(
+      expect(isRetainedBridgePathSafeToEmit(
         distDir,
         nonReservedPath,
         isJobAliasRedirectPath,
         nonReservedClassification,
-      ))
-        .toThrow('[job-alias-redirect-gate] bridge path is not a safe dist target');
-      expect(nonReservedClassification).not.toHaveBeenCalled();
+      )).toBe(true);
+      expect(nonReservedClassification).toHaveBeenCalledWith(nonReservedPath);
     } finally {
       resetWriteRegistry();
       fs.rmSync(distDir, { recursive: true, force: true });
     }
   });
 
-  it('retains unsafe URL and directory rejection before retained classification', () => {
+  it('skips unsafe URL and directory targets before retained classification', () => {
     const unsafeUrl = `/${'x'.repeat(MAX_FILESYSTEM_SEGMENT_BYTES + 1)}/`;
     const hasRetainedClassification = vi.fn(() => true);
-    expect(() => isRetainedBridgePathSafeToEmit('/runner/dist', unsafeUrl, isJobAliasRedirectPath, hasRetainedClassification))
-      .toThrow('[job-alias-redirect-gate] bridge path is not a safe dist target');
+    expect(isRetainedBridgePathSafeToEmit('/runner/dist', unsafeUrl, isJobAliasRedirectPath, hasRetainedClassification))
+      .toBe(false);
 
     const overlongDistDir = path.resolve(
       os.tmpdir(),
       ...Array.from({ length: 17 }, () => 'd'.repeat(235)),
     );
-    expect(() => isRetainedBridgePathSafeToEmit(overlongDistDir, '/safe/', isJobAliasRedirectPath, hasRetainedClassification))
-      .toThrow('[job-alias-redirect-gate] bridge path is not a safe dist target');
+    expect(isRetainedBridgePathSafeToEmit(overlongDistDir, '/safe/', isJobAliasRedirectPath, hasRetainedClassification))
+      .toBe(false);
     expect(hasRetainedClassification).not.toHaveBeenCalled();
   });
 
@@ -288,7 +287,9 @@ describe('raw URL-to-dist writers apply the guard before filesystem joins', () =
 
   it('guards job soft-landing and cross-locale writes before filesystem joins', () => {
     expect(JOBS_SOURCE).toContain('getSafeDistPageTargets(distDir, distPath)');
-    expect(JOBS_SOURCE.match(/getSafeDistPageTargets\(distDir, relPath\)/g) ?? []).toHaveLength(2);
+    expect(JOBS_SOURCE.match(/getSafeDistPageTargets\(distDir, relPath\)/g) ?? []).toHaveLength(1);
+    expect(JOBS_SOURCE.match(/getSafeDistPageTargets\(distDir, relPath, \{ includeFlat: false \}\)/g) ?? [])
+      .toHaveLength(1);
     expect(JOBS_SOURCE).toContain('isDistPathOverFilesystemLimits(distPath)');
     expect(JOBS_SOURCE.match(/isDistPathOverFilesystemLimits\(relPath\)/g) ?? []).toHaveLength(2);
     expect(JOBS_SOURCE.indexOf('getSafeDistPageTargets(distDir, distPath)')).toBeLessThan(

@@ -14904,6 +14904,8 @@ ${staticAnalyticsHtml}
  const activeBridgeKeepByKind: Record<JobCanonBridgePath['kind'], number> = {
   previousSlug: 0, legacyTiMirror: 0, crossLocale: 0,
  };
+ let unsafeBridgePathsSkipped = 0;
+ let unsafeBridgeFlatSiblingsSkipped = 0;
  const bridgePlanHeapStartBytes = process.memoryUsage().heapUsed;
  let bridgePlanHeapPeakBytes = bridgePlanHeapStartBytes;
  const sampleBridgePlanHeap = (): void => {
@@ -14916,8 +14918,13 @@ ${staticAnalyticsHtml}
    reservedHubSlugs: RESERVED_HUB_SLUGS,
    workerWouldRecover: legacyTiPathRecoveredByWorker,
    onHeapSample: sampleBridgePlanHeap,
+   isSafeBridgePath: (bridgePath) => {
+    const safeTargets = getSafeDistPageTargets(distDir, bridgePath, { includeFlat: false });
+    if (!safeTargets) unsafeBridgePathsSkipped++;
+    return Boolean(safeTargets);
+   },
    canWriteCrossLocalePath: (bridgePath) => {
-    const safeTargets = getSafeDistPageTargets(distDir, bridgePath);
+    const safeTargets = getSafeDistPageTargets(distDir, bridgePath, { includeFlat: false });
     return Boolean(safeTargets && !pathIsClaimedOrReserved(safeTargets.indexPath));
    },
   });
@@ -14999,6 +15006,7 @@ ${staticAnalyticsHtml}
   `[jobs-seo-pages] active bridge handoff plan: removable=${activeBridgeRedirectCount} retained=${activeBridgeKeepCount} `
   + `by-locale=${JSON.stringify({ removable: activeBridgeRedirectCounts, retained: activeBridgeKeepCounts })} `
   + `by-kind=${JSON.stringify({ removable: activeBridgeRemovableByKind, retained: activeBridgeKeepByKind })} `
+  + `unsafe-paths-skipped=${unsafeBridgePathsSkipped} `
   + `heap-peak-mb=${(bridgePlanHeapPeakBytes / (1024 * 1024)).toFixed(1)} `
   + `heap-over-start-mb=${((bridgePlanHeapPeakBytes - bridgePlanHeapStartBytes) / (1024 * 1024)).toFixed(1)}`,
  );
@@ -16945,9 +16953,13 @@ ${staticAnalyticsHtml}
    registerIncrementalPage(locale, oldPath, 'previous-slugs-full-content', previousSlugReuseInput);
   }
 
-  const flatFile = np.join(distDir, oldPath.replace(/^\//, '') + '.html');
-  _md(np.dirname(flatFile));
-  _qwFlat(flatFile, indexHtml);
+  const safeTargets = getSafeDistPageTargets(distDir, oldPath);
+  if (safeTargets?.flatPath) {
+   _md(np.dirname(safeTargets.flatPath));
+   _qwFlat(safeTargets.flatPath, indexHtml);
+  } else {
+   unsafeBridgeFlatSiblingsSkipped++;
+  }
   samplePreviousSlugBridgeHeap();
 
   bridgeCount++;
@@ -17030,9 +17042,13 @@ ${staticAnalyticsHtml}
  if (incrementalManifests) {
   registerIncrementalPage(locale, legacyTIRelPath, 'previous-slugs-full-content', legacyTIReuseInput);
  }
- const legacyTIFlatFile = np.join(distDir, legacyTIRelPath + '.html');
- _md(np.dirname(legacyTIFlatFile));
- _qwFlat(legacyTIFlatFile, noindexLegacyTIHtml);
+ const legacyTISafeTargets = getSafeDistPageTargets(distDir, legacyTIRelPath);
+ if (legacyTISafeTargets?.flatPath) {
+  _md(np.dirname(legacyTISafeTargets.flatPath));
+  _qwFlat(legacyTISafeTargets.flatPath, noindexLegacyTIHtml);
+ } else {
+  unsafeBridgeFlatSiblingsSkipped++;
+ }
 
  bridgeCount++;
  recordEmit('previous-slug-bridge-legacy-ti', __tPrevSlugLegacyTIBridge);
@@ -17214,7 +17230,7 @@ ${staticAnalyticsHtml}
   skippedUnsafeDistPaths++;
   continue;
  }
- const safeTargets = getSafeDistPageTargets(distDir, relPath);
+ const safeTargets = getSafeDistPageTargets(distDir, relPath, { includeFlat: false });
  if (!safeTargets) {
   skippedFilesystemLimitPaths++;
   continue;
@@ -17761,7 +17777,7 @@ ${staticAnalyticsHtml}
  const retainedBridgeOutputs = (function* () {
   for (const { bridge } of retainedBridgePaths.values()) {
    if (!shouldEmitLocale(bridge.locale)) continue;
-   const targets = getSafeDistPageTargets(distDir, bridge.path);
+   const targets = getSafeDistPageTargets(distDir, bridge.path, { includeFlat: false });
    if (!targets) throw new Error('[job-alias-redirect-gate] retained bridge path is not a safe dist target');
    yield {
     indexPath: targets.indexPath,
@@ -17791,7 +17807,8 @@ ${staticAnalyticsHtml}
   },
  );
  console.log(
-  `[job-alias-redirect-gate] verified removable-404=${bridgeDistCoverage.removable404} retained-200=${bridgeDistCoverage.retained200}`,
+  `[job-alias-redirect-gate] verified removable-404=${bridgeDistCoverage.removable404} retained-200=${bridgeDistCoverage.retained200} `
+  + `unsafe-flat-siblings-skipped=${unsafeBridgeFlatSiblingsSkipped}`,
  );
  const skipped = collector.skippedByHash;
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s` +

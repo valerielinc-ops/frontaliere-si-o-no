@@ -19,6 +19,7 @@ import {
 import {
   assertBridgePathDistCoverage,
   assertBridgePathClassificationCoverage,
+  isRetainedBridgePathSafeToEmit,
   buildTrackedJobCanonEntries,
   buildTrackedJobCanonEntriesFromPersistedRegistry,
   buildActiveJobBridgePathPlan,
@@ -31,6 +32,7 @@ import {
   type JobCanonEntryLike,
 } from '../build-plugins/shared/jobCanonBridgePaths';
 import { buildCanonicalJobDetailPath } from '../build-plugins/shared/jobDetailPath';
+import { getSafeDistPageTargets } from '../build-plugins/shared/distPathSafety';
 import { jobCanonTarget } from '../infra/cloudflare-worker/locale-router.js';
 import {
   clearJobCanonOrderingFields,
@@ -946,6 +948,46 @@ describe('job canon bridge path planning and PR-B classification', () => {
     previousSlugs: ['flat-old'],
     previousSlugsByLocale: { en: ['old-en', 'worker-owned', 'reserved-hub', 'azienda-acme'] },
   } satisfies ActiveJobSlugMapRow;
+
+  it('skips unsafe previous-slug and legacy-TI bridge paths before classification', () => {
+    const job = {
+      id: 'unsafe-bridge-owner',
+      slug: 'current-it',
+      canton: 'ZH',
+      slugByLocale: { it: 'current-it', en: 'current-en', de: 'current-de', fr: 'current-fr' },
+      previousSlugsByLocale: { en: ['unsafe-slug', 'safe-slug'] },
+    } satisfies ActiveJobSlugMapRow;
+
+    const checkedPaths: string[] = [];
+    const plan = buildActiveJobBridgePathPlan([job], {
+      winners: {},
+      reservedHubSlugs: new Set(),
+      isSafeBridgePath: (bridgePath) => {
+        checkedPaths.push(bridgePath);
+        return !bridgePath.includes('/unsafe-slug/');
+      },
+    });
+
+    expect(checkedPaths).toEqual(expect.arrayContaining([
+      '/en/find-jobs-zurich/unsafe-slug/',
+      '/en/find-jobs-ticino/unsafe-slug/',
+    ]));
+    expect(plan.bridgePaths.some((bridge) => bridge.slug === 'unsafe-slug')).toBe(false);
+    expect(plan.bridgePaths.some((bridge) => bridge.slug === 'safe-slug')).toBe(true);
+  });
+
+  it('keeps a retained bridge when only its optional flat sibling exceeds filesystem limits', () => {
+    const distDir = path.join(os.tmpdir(), 'job-canon-safe-bridge-dist');
+    const canonicalPath = `/en/find-jobs-zurich/${'a'.repeat(255)}/`;
+
+    expect(getSafeDistPageTargets(distDir, canonicalPath, { includeFlat: false })).not.toBeNull();
+    expect(getSafeDistPageTargets(distDir, canonicalPath)).toBeNull();
+    expect(isRetainedBridgePathSafeToEmit(distDir, canonicalPath, () => false, () => true)).toBe(true);
+
+    const unsafeCanonicalPath = `/en/find-jobs-zurich/${'a'.repeat(256)}/`;
+    expect(getSafeDistPageTargets(distDir, unsafeCanonicalPath, { includeFlat: false })).toBeNull();
+    expect(isRetainedBridgePathSafeToEmit(distDir, unsafeCanonicalPath, () => false, () => true)).toBe(false);
+  });
 
   it('matches the cross-locale emitter predicate and creates legacy-TI mirror paths', () => {
     const plan = buildActiveJobBridgePathPlan([active], {

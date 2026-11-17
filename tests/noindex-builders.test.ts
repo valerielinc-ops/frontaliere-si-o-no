@@ -177,8 +177,7 @@ describe('SEO builder noindex guards', () => {
       const retainedOutputBlock = source.slice(retainedOutputStart, retainedOutputEnd);
       expect(retainedOutputStart).toBeGreaterThan(-1);
       expect(retainedOutputEnd).toBeGreaterThan(retainedOutputStart);
-      expect(retainedOutputBlock).toContain('getSafeDistPageTargets(distDir, bridge.path);');
-      expect(retainedOutputBlock).not.toContain('includeFlat: false');
+      expect(retainedOutputBlock).toContain('getSafeDistPageTargets(distDir, bridge.path, { includeFlat: false });');
 
       const coverageStart = source.indexOf('const bridgeDistCoverage = assertBridgePathDistCoverage(');
       const coverageEnd = source.indexOf('console.log(', coverageStart);
