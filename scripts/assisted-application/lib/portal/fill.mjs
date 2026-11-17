@@ -1076,6 +1076,9 @@ export async function applyActions(page, fields, actions, files, {
           const countryLike = isNationalityField(field.label) || isResidenceCountryField(field) || isPhoneCountryField(field);
           const securityChoice = action.evidence === 'account_security_question';
           const visibleOptions = frame.locator('[role="option"]:visible');
+          if ((countryLike || securityChoice) && typeof visibleOptions.first === 'function') {
+            await visibleOptions.first().waitFor?.({ state: 'visible', timeout: 2500 }).catch(() => {});
+          }
           const labels = (countryLike || securityChoice)
             ? (await visibleOptions.allInnerTexts().catch(() => [])).map((label) => String(label).replace(/\s+/g, ' ').trim()).filter(Boolean)
             : [];
@@ -1088,16 +1091,15 @@ export async function applyActions(page, fields, actions, files, {
           const labelSecurityIndex = securityChoice ? ordinalFrom(field.label) : 0;
           const nameSecurityIndex = securityChoice ? ordinalFrom(field.name) : 0;
           const securityIndex = labelSecurityIndex || nameSecurityIndex || 1;
-          // An explicit ordinal in the visible label describes the option's
-          // rendered position, including a leading placeholder. A technical
-          // name is the older contract and numbers only usable questions.
-          const ordinalLabels = labelSecurityIndex ? labels : usableSecurity;
-          const ordinalLabel = securityChoice && securityIndex >= 1 && securityIndex <= ordinalLabels.length
-            ? ordinalLabels[securityIndex - 1]
+          const usableMatch = securityChoice && securityIndex >= 1 && securityIndex <= usableSecurity.length
+            ? usableSecurity[securityIndex - 1]
             : '';
-          const securityFallback = ordinalLabel && !isSecurityQuestionPlaceholder(ordinalLabel)
-            ? ordinalLabel
+          const rawMatch = securityChoice && labelSecurityIndex >= 1 && labelSecurityIndex <= labels.length
+            ? labels[labelSecurityIndex - 1]
             : '';
+          const securityFallback = !securityChoice
+            ? ''
+            : usableMatch || (rawMatch && !isSecurityQuestionPlaceholder(rawMatch) ? rawMatch : '');
           selectedLabel = exact || (isNationalityField(field.label)
             ? nationalityOptionLabel(action.value, labels, nationalityFieldLanguage(field.label))
             : isPhoneCountryField(field)
