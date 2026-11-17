@@ -1592,6 +1592,8 @@ function nativeQuestionText(value, counter = null) {
     .map((element) => ({
       ...visibilityMetadata(element),
       ...dialogMeta(element),
+      documentInstance,
+      controlInstance: controlInstanceFor(element),
       id: idFor(element),
       text: buttonName(element),
       label: buttonAccessibleLabel(element),
