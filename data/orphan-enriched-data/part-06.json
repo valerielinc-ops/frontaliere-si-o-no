@@ -3068,6 +3068,58 @@
       ]
     },
     {
+      "slug": "application-manager-in-bc-80-100-senevita-bern",
+      "locale": "en",
+      "path": "/en/find-jobs-aargau/application-manager-in-bc-80-100-senevita-bern",
+      "observedPaths": {
+        "en": "/en/find-jobs-aargau/application-manager-in-bc-80-100-senevita-bern"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Application manager in bc senevita",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Bern",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "application-manager-in-bc-80-100-senevita-bern",
+        "en": "application-manager-in-bc-80-100-senevita-bern",
+        "de": "application-manager-in-bc-80-100-senevita-bern",
+        "fr": "application-manager-in-bc-80-100-senevita-bern"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-argovia/application-manager-in-bc-80-100-senevita-bern",
+        "en": "/en/find-jobs-aargau/application-manager-in-bc-80-100-senevita-bern",
+        "de": "/de/jobs-im-aargau/application-manager-in-bc-80-100-senevita-bern",
+        "fr": "/fr/trouver-emploi-argovie/application-manager-in-bc-80-100-senevita-bern"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "application-specialista-chemie-biochemie-80-100-w-m-d-hamilton-bonaduz-ag-domat-ems",
       "locale": "it",
       "path": "/cerca-lavoro-ticino/application-specialista-chemie-biochemie-80-100-w-m-d-hamilton-bonaduz-ag-domat-ems",
@@ -8009,6 +8061,58 @@
       ]
     },
     {
+      "slug": "assistente-farmaceutico-assistente-farmaceutica-m-f-d-galenica-ag-galenica-langenthal",
+      "locale": "it",
+      "path": "/cerca-lavoro-friburgo/assistente-farmaceutico-assistente-farmaceutica-m-f-d-galenica-ag-galenica-langenthal",
+      "observedPaths": {
+        "it": "/cerca-lavoro-friburgo/assistente-farmaceutico-assistente-farmaceutica-m-f-d-galenica-ag-galenica-langenthal"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Assistente farmaceutico assistente farmaceutica galenica",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "Galenica AG",
+      "companyKey": "galenica-ag",
+      "location": "Langenthal",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "assistente-farmaceutico-assistente-farmaceutica-m-f-d-galenica-ag-galenica-langenthal",
+        "en": "assistente-farmaceutico-assistente-farmaceutica-m-f-d-galenica-ag-galenica-langenthal",
+        "de": "assistente-farmaceutico-assistente-farmaceutica-m-f-d-galenica-ag-galenica-langenthal",
+        "fr": "assistente-farmaceutico-assistente-farmaceutica-m-f-d-galenica-ag-galenica-langenthal"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-friburgo/assistente-farmaceutico-assistente-farmaceutica-m-f-d-galenica-ag-galenica-langenthal",
+        "en": "/en/find-jobs-fribourg/assistente-farmaceutico-assistente-farmaceutica-m-f-d-galenica-ag-galenica-langenthal",
+        "de": "/de/jobs-im-freiburg/assistente-farmaceutico-assistente-farmaceutica-m-f-d-galenica-ag-galenica-langenthal",
+        "fr": "/fr/trouver-emploi-fribourg/assistente-farmaceutico-assistente-farmaceutica-m-f-d-galenica-ag-galenica-langenthal"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "assistente-in-salute-e-sociale-aiuto-infermiere-srk-40-60-senevita-munsingen-be",
       "locale": "en",
       "path": "/en/find-jobs-ticino/assistente-in-salute-e-sociale-aiuto-infermiere-srk-40-60-senevita-munsingen-be",
@@ -10085,12 +10189,17 @@
         {
           "query": "autista della flotta grigia",
           "clicks": 0,
-          "impressions": 22
+          "impressions": 26
         },
         {
           "query": "ditte di trasporti in svizzera che cercano autisti",
           "clicks": 0,
           "impressions": 22
+        },
+        {
+          "query": "ditte di trasporti in svizzera che cercano autisti",
+          "clicks": 0,
+          "impressions": 13
         },
         {
           "query": "ditte di trasporti in svizzera che cercano autisti",
@@ -10098,27 +10207,22 @@
           "impressions": 10
         },
         {
+          "query": "offerte di lavoro per autisti in svizzera",
+          "clicks": 1,
+          "impressions": 9
+        },
+        {
           "query": "lavoro autista svizzera canton ticino",
           "clicks": 0,
           "impressions": 9
         },
         {
-          "query": "offerte di lavoro per autisti in svizzera",
-          "clicks": 1,
-          "impressions": 7
+          "query": "ditte di trasporti in svizzera che cercano autisti",
+          "clicks": 0,
+          "impressions": 9
         },
         {
           "query": "short list avvocati",
-          "clicks": 0,
-          "impressions": 7
-        },
-        {
-          "query": "ditte di trasporti in svizzera che cercano autisti",
-          "clicks": 0,
-          "impressions": 7
-        },
-        {
-          "query": "ditte di trasporti in svizzera che cercano autisti",
           "clicks": 0,
           "impressions": 7
         },
@@ -10133,13 +10237,13 @@
           "impressions": 6
         },
         {
-          "query": "offerte di lavoro",
-          "clicks": 1,
-          "impressions": 5
-        },
-        {
           "query": "autista ticino",
           "clicks": 0,
+          "impressions": 6
+        },
+        {
+          "query": "offerte di lavoro",
+          "clicks": 1,
           "impressions": 5
         },
         {
@@ -10178,8 +10282,8 @@
           "impressions": 3
         }
       ],
-      "totalImpressions": 357,
-      "totalClicks": 18,
+      "totalImpressions": 387,
+      "totalClicks": 19,
       "topQuery": "autista moritz",
       "title": "Autisti",
       "titleByLocale": {
@@ -10569,10 +10673,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "automobil-fachmann-frau-automobil-mechatroniker-in-emil-frey-erlenbach-zh",
-        "en": "automobil-fachmann-frau-automobil-mechatroniker-in-emil-frey-erlenbach-zh",
         "de": "automobil-fachmann-frau-automobil-mechatroniker-in-emil-frey-erlenbach-zh",
-        "fr": "automobil-fachmann-frau-automobil-mechatroniker-in-emil-frey-erlenbach-zh"
+        "it": "meccanico-a-di-manutenzione-per-automobili-meccatronico-a-d-automobili-emil-frey-erlenbach-zh",
+        "en": "automotive-specialist-automotive-mechatronics-technician-emil-frey-erlenbach-zh",
+        "fr": "mecanicien-ne-en-maintenance-d-automobiles-mecatronicien-ne-d-automobiles-emil-frey-erlenbach-zh"
       },
       "localePaths": {
         "it": "/cerca-lavoro-argovia/automobil-fachmann-frau-automobil-mechatroniker-in-emil-frey-erlenbach-zh",
@@ -10580,12 +10684,13 @@
         "de": "/de/jobs-im-aargau/automobil-fachmann-frau-automobil-mechatroniker-in-emil-frey-erlenbach-zh",
         "fr": "/fr/trouver-emploi-argovie/automobil-fachmann-frau-automobil-mechatroniker-in-emil-frey-erlenbach-zh"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://jobs.emilfrey.ch/automobil-fachmann-frau-automobil-mechatroniker-in-de-j2629.html",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -10925,6 +11030,58 @@
         "en": "/en/find-jobs-st-gallen/bauingenieur-im-aussendienst-region-st-gallen-chur-m-w-d-hilti-ostschweiz-st-gallen-chur",
         "de": "/de/jobs-im-st-gallen/bauingenieur-im-aussendienst-region-st-gallen-chur-m-w-d-hilti-ostschweiz-st-gallen-chur",
         "fr": "/fr/trouver-emploi-saint-gall/bauingenieur-im-aussendienst-region-st-gallen-chur-m-w-d-hilti-ostschweiz-st-gallen-chur"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "bauleiter-in-tiefbau-opus-personal-ag-zweigniederlassung-altdorf-solothurn",
+      "locale": "de",
+      "path": "/de/jobs-in-solothurn/bauleiter-in-tiefbau-opus-personal-ag-zweigniederlassung-altdorf-solothurn",
+      "observedPaths": {
+        "de": "/de/jobs-in-solothurn/bauleiter-in-tiefbau-opus-personal-ag-zweigniederlassung-altdorf-solothurn"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Bauleiter in tiefbau opus personal ag zweigniederlassung altdorf",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Solothurn",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "bauleiter-in-tiefbau-opus-personal-ag-zweigniederlassung-altdorf-solothurn",
+        "en": "bauleiter-in-tiefbau-opus-personal-ag-zweigniederlassung-altdorf-solothurn",
+        "de": "bauleiter-in-tiefbau-opus-personal-ag-zweigniederlassung-altdorf-solothurn",
+        "fr": "bauleiter-in-tiefbau-opus-personal-ag-zweigniederlassung-altdorf-solothurn"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-soletta/bauleiter-in-tiefbau-opus-personal-ag-zweigniederlassung-altdorf-solothurn",
+        "en": "/en/find-jobs-solothurn/bauleiter-in-tiefbau-opus-personal-ag-zweigniederlassung-altdorf-solothurn",
+        "de": "/de/jobs-im-solothurn/bauleiter-in-tiefbau-opus-personal-ag-zweigniederlassung-altdorf-solothurn",
+        "fr": "/fr/trouver-emploi-soleure/bauleiter-in-tiefbau-opus-personal-ag-zweigniederlassung-altdorf-solothurn"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -12222,6 +12379,58 @@
         "en": "/en/find-jobs-bern/brugg",
         "de": "/de/jobs-im-bern/brugg",
         "fr": "/fr/trouver-emploi-berne/brugg"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "business-analyste-rh-h-f-x-80-100-vaudoise-assurances-lausanne",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-bale/business-analyste-rh-h-f-x-80-100-vaudoise-assurances-lausanne",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-bale/business-analyste-rh-h-f-x-80-100-vaudoise-assurances-lausanne"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Business analyste rh h x vaudoise assurances",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Lausanne",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "business-analyste-rh-h-f-x-80-100-vaudoise-assurances-lausanne",
+        "en": "business-analyste-rh-h-f-x-80-100-vaudoise-assurances-lausanne",
+        "de": "business-analyste-rh-h-f-x-80-100-vaudoise-assurances-lausanne",
+        "fr": "business-analyste-rh-h-f-x-80-100-vaudoise-assurances-lausanne"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-basilea/business-analyste-rh-h-f-x-80-100-vaudoise-assurances-lausanne",
+        "en": "/en/find-jobs-basel/business-analyste-rh-h-f-x-80-100-vaudoise-assurances-lausanne",
+        "de": "/de/jobs-im-basel/business-analyste-rh-h-f-x-80-100-vaudoise-assurances-lausanne",
+        "fr": "/fr/trouver-emploi-bale/business-analyste-rh-h-f-x-80-100-vaudoise-assurances-lausanne"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -20127,6 +20336,58 @@
         "en": "/en/find-jobs-ticino/construction-machine-mechanic-pemsa-locarno-f50cmm",
         "de": "/de/jobs-im-tessin/construction-machine-mechanic-pemsa-locarno-f50cmm",
         "fr": "/fr/trouver-emploi-tessin/construction-machine-mechanic-pemsa-locarno-f50cmm"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "construction-manager-building-80-100-f-m-d-ruag-ag-schattdorf",
+      "locale": "it",
+      "path": "/cerca-lavoro-argovia/construction-manager-building-80-100-f-m-d-ruag-ag-schattdorf",
+      "observedPaths": {
+        "it": "/cerca-lavoro-argovia/construction-manager-building-80-100-f-m-d-ruag-ag-schattdorf"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Construction manager building schattdorf",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "RUAG AG",
+      "companyKey": "ruag-ag",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "construction-manager-building-80-100-f-m-d-ruag-ag-schattdorf",
+        "en": "construction-manager-building-80-100-f-m-d-ruag-ag-schattdorf",
+        "de": "construction-manager-building-80-100-f-m-d-ruag-ag-schattdorf",
+        "fr": "construction-manager-building-80-100-f-m-d-ruag-ag-schattdorf"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-argovia/construction-manager-building-80-100-f-m-d-ruag-ag-schattdorf",
+        "en": "/en/find-jobs-aargau/construction-manager-building-80-100-f-m-d-ruag-ag-schattdorf",
+        "de": "/de/jobs-im-aargau/construction-manager-building-80-100-f-m-d-ruag-ag-schattdorf",
+        "fr": "/fr/trouver-emploi-argovie/construction-manager-building-80-100-f-m-d-ruag-ag-schattdorf"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -28160,6 +28421,58 @@
       ]
     },
     {
+      "slug": "direttore-international-data-enablement-novartis-basel",
+      "locale": "it",
+      "path": "/cerca-lavoro-basilea/direttore-international-data-enablement-novartis-basel",
+      "observedPaths": {
+        "it": "/cerca-lavoro-basilea/direttore-international-data-enablement-novartis-basel"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Direttore international data enablement novartis",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Basel",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "direttore-international-data-enablement-novartis-basel",
+        "en": "direttore-international-data-enablement-novartis-basel",
+        "de": "direttore-international-data-enablement-novartis-basel",
+        "fr": "direttore-international-data-enablement-novartis-basel"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-basilea/direttore-international-data-enablement-novartis-basel",
+        "en": "/en/find-jobs-basel/direttore-international-data-enablement-novartis-basel",
+        "de": "/de/jobs-im-basel/direttore-international-data-enablement-novartis-basel",
+        "fr": "/fr/trouver-emploi-bale/direttore-international-data-enablement-novartis-basel"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "direttore-pathogen-safety-csl-behring-bern",
       "locale": "it",
       "path": "/cerca-lavoro-ginevra/direttore-pathogen-safety-csl-behring-bern",
@@ -29226,7 +29539,7 @@
         {
           "query": "help me find ticino caregiver jobs for elderly care with live in option and clear legal contract terms.",
           "clicks": 0,
-          "impressions": 222
+          "impressions": 224
         },
         {
           "query": "politica sanitaria canton ticino anziani",
@@ -29319,7 +29632,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 606,
+      "totalImpressions": 608,
       "totalClicks": 7,
       "topQuery": "i am searching for caregiver jobs in ticino for elderly support.",
       "title": "Elderly care",
@@ -36681,6 +36994,57 @@
       ]
     },
     {
+      "slug": "grundbauer-in-cfc-zindel-co-ag-maienfeld",
+      "locale": "it",
+      "path": "/cerca-lavoro-grigioni/grundbauer-in-cfc-zindel-co-ag-maienfeld",
+      "observedPaths": {
+        "it": "/cerca-lavoro-grigioni/grundbauer-in-cfc-zindel-co-ag-maienfeld"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Grundbauer in cfc zindel co ag maienfeld",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "grundbauer-in-cfc-zindel-co-ag-maienfeld",
+        "en": "grundbauer-in-cfc-zindel-co-ag-maienfeld",
+        "de": "grundbauer-in-cfc-zindel-co-ag-maienfeld",
+        "fr": "grundbauer-in-cfc-zindel-co-ag-maienfeld"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-grigioni/grundbauer-in-cfc-zindel-co-ag-maienfeld",
+        "en": "/en/find-jobs-graubunden/grundbauer-in-cfc-zindel-co-ag-maienfeld",
+        "de": "/de/jobs-im-graubunden/grundbauer-in-cfc-zindel-co-ag-maienfeld",
+        "fr": "/fr/trouver-emploi-grisons/grundbauer-in-cfc-zindel-co-ag-maienfeld"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "gruppenleiter-in-logistik-otto-s-ag-sursee",
       "locale": "de",
       "path": "/de/jobs-in-solothurn/gruppenleiter-in-logistik-otto-s-ag-sursee",
@@ -38251,6 +38615,58 @@
       "source": [
         "gsc",
         "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "i-dipendenti-di-vendita-m-f-d-80-con-focus-sul-servizio-a-zurigo-city-c-a-schweiz-zurich",
+      "locale": "it",
+      "path": "/cerca-lavoro-vallese/i-dipendenti-di-vendita-m-f-d-80-con-focus-sul-servizio-a-zurigo-city-c-a-schweiz-zurich",
+      "observedPaths": {
+        "it": "/cerca-lavoro-vallese/i-dipendenti-di-vendita-m-f-d-80-con-focus-sul-servizio-a-zurigo-city-c-a-schweiz-zurich"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "I dipendenti di vendita con focus sul servizio zurigo city c schweiz",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Zürich",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "i-dipendenti-di-vendita-m-f-d-80-con-focus-sul-servizio-a-zurigo-city-c-a-schweiz-zurich",
+        "en": "i-dipendenti-di-vendita-m-f-d-80-con-focus-sul-servizio-a-zurigo-city-c-a-schweiz-zurich",
+        "de": "i-dipendenti-di-vendita-m-f-d-80-con-focus-sul-servizio-a-zurigo-city-c-a-schweiz-zurich",
+        "fr": "i-dipendenti-di-vendita-m-f-d-80-con-focus-sul-servizio-a-zurigo-city-c-a-schweiz-zurich"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-vallese/i-dipendenti-di-vendita-m-f-d-80-con-focus-sul-servizio-a-zurigo-city-c-a-schweiz-zurich",
+        "en": "/en/find-jobs-valais/i-dipendenti-di-vendita-m-f-d-80-con-focus-sul-servizio-a-zurigo-city-c-a-schweiz-zurich",
+        "de": "/de/jobs-im-wallis/i-dipendenti-di-vendita-m-f-d-80-con-focus-sul-servizio-a-zurigo-city-c-a-schweiz-zurich",
+        "fr": "/fr/trouver-emploi-valais/i-dipendenti-di-vendita-m-f-d-80-con-focus-sul-servizio-a-zurigo-city-c-a-schweiz-zurich"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
       ]
     },
     {
@@ -48041,6 +48457,57 @@
       ]
     },
     {
+      "slug": "location-baar-nendaz",
+      "locale": "en",
+      "path": "/en/find-jobs-ticino/location-baar-nendaz",
+      "observedPaths": {
+        "en": "/en/find-jobs-ticino/location-baar-nendaz"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Location baar nendaz",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "location-baar-nendaz",
+        "en": "location-baar-nendaz",
+        "de": "location-baar-nendaz",
+        "fr": "location-baar-nendaz"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-ticino/location-baar-nendaz",
+        "en": "/en/find-jobs-ticino/location-baar-nendaz",
+        "de": "/de/jobs-im-tessin/location-baar-nendaz",
+        "fr": "/fr/trouver-emploi-tessin/location-baar-nendaz"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "location-bremgarten",
       "locale": "en",
       "path": "/en/find-jobs-ticino/location-bremgarten",
@@ -49086,13 +49553,13 @@
           "impressions": 44
         },
         {
-          "query": "offerte di lavoro impiegato in logistica ticino",
-          "clicks": 4,
-          "impressions": 36
-        },
-        {
           "query": "impiegato in logistica offerte di lavoro ticino",
           "clicks": 0,
+          "impressions": 38
+        },
+        {
+          "query": "offerte di lavoro impiegato in logistica ticino",
+          "clicks": 4,
           "impressions": 36
         },
         {
@@ -49103,7 +49570,7 @@
         {
           "query": "logistica svizzera",
           "clicks": 0,
-          "impressions": 17
+          "impressions": 18
         },
         {
           "query": "site:frontaliereticino.ch",
@@ -49176,8 +49643,8 @@
           "impressions": 5
         }
       ],
-      "totalImpressions": 507,
-      "totalClicks": 17,
+      "totalImpressions": 514,
+      "totalClicks": 19,
       "topQuery": "offerte lavoro logistica ticino",
       "title": "Logistica",
       "titleByLocale": {
@@ -55374,10 +55841,10 @@
         "fr": "nachwuchstalente-vente-coop-genossenschaft-visp"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-argovia/nachwuchstalente-vente-coop-genossenschaft-visp",
-        "en": "/en/find-jobs-aargau/nachwuchstalente-vente-coop-genossenschaft-visp",
-        "de": "/de/jobs-im-aargau/nachwuchstalente-vente-coop-genossenschaft-visp",
-        "fr": "/fr/trouver-emploi-argovie/nachwuchstalente-vente-coop-genossenschaft-visp"
+        "it": "/cerca-lavoro-vallese/nachwuchstalente-vente-coop-genossenschaft-visp",
+        "en": "/en/find-jobs-valais/nachwuchstalente-vente-coop-genossenschaft-visp",
+        "de": "/de/jobs-im-wallis/nachwuchstalente-vente-coop-genossenschaft-visp",
+        "fr": "/fr/trouver-emploi-valais/nachwuchstalente-vente-coop-genossenschaft-visp"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -59740,6 +60207,57 @@
         "en": "/en/find-jobs-ticino/physicien-applique-futurs-aimants-de-detecteurs-supraconducteurs-ep-cms-ic-2026-99-grap-cern-geneva-geneva-switzerland",
         "de": "/de/jobs-im-tessin/physicien-applique-futurs-aimants-de-detecteurs-supraconducteurs-ep-cms-ic-2026-99-grap-cern-geneva-geneva-switzerland",
         "fr": "/fr/trouver-emploi-tessin/physicien-applique-futurs-aimants-de-detecteurs-supraconducteurs-ep-cms-ic-2026-99-grap-cern-geneva-geneva-switzerland"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "physiotherapeute-20-60-pour-les-traitements-a-domicile-physio-swiss-unterageri",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-zoug/physiotherapeute-20-60-pour-les-traitements-a-domicile-physio-swiss-unterageri",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-zoug/physiotherapeute-20-60-pour-les-traitements-a-domicile-physio-swiss-unterageri"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Physiotherapeute 20 pour les traitements domicile physio swiss unterageri",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "physiotherapeute-20-60-pour-les-traitements-a-domicile-physio-swiss-unterageri",
+        "en": "physiotherapeute-20-60-pour-les-traitements-a-domicile-physio-swiss-unterageri",
+        "de": "physiotherapeute-20-60-pour-les-traitements-a-domicile-physio-swiss-unterageri",
+        "fr": "physiotherapeute-20-60-pour-les-traitements-a-domicile-physio-swiss-unterageri"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-zugo/physiotherapeute-20-60-pour-les-traitements-a-domicile-physio-swiss-unterageri",
+        "en": "/en/find-jobs-zug/physiotherapeute-20-60-pour-les-traitements-a-domicile-physio-swiss-unterageri",
+        "de": "/de/jobs-im-zug/physiotherapeute-20-60-pour-les-traitements-a-domicile-physio-swiss-unterageri",
+        "fr": "/fr/trouver-emploi-zoug/physiotherapeute-20-60-pour-les-traitements-a-domicile-physio-swiss-unterageri"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -64715,6 +65233,69 @@
       "source": [
         "gsc",
         "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "qms-compliance-specialista-part-time-external-delvitech-sa-mendrisio",
+      "locale": "it",
+      "path": "/cerca-lavoro-ticino/qms-compliance-specialista-part-time-external-delvitech-sa-mendrisio/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-ticino/qms-compliance-specialista-part-time-external-delvitech-sa-mendrisio/"
+      },
+      "queries": [
+        {
+          "query": "lavoro part time mendrisio",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "part time mendrisio",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 2,
+      "totalClicks": 0,
+      "topQuery": "lavoro part time mendrisio",
+      "title": "Qms compliance specialista part time external",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "Delvitech SA",
+      "companyKey": "delvitech-sa",
+      "location": "Mendrisio",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "qms-compliance-specialista-part-time-external-delvitech-sa-mendrisio",
+        "en": "qms-compliance-specialista-part-time-external-delvitech-sa-mendrisio",
+        "de": "qms-compliance-specialista-part-time-external-delvitech-sa-mendrisio",
+        "fr": "qms-compliance-specialista-part-time-external-delvitech-sa-mendrisio"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-ticino/qms-compliance-specialista-part-time-external-delvitech-sa-mendrisio",
+        "en": "/en/find-jobs-ticino/qms-compliance-specialista-part-time-external-delvitech-sa-mendrisio",
+        "de": "/de/jobs-im-tessin/qms-compliance-specialista-part-time-external-delvitech-sa-mendrisio",
+        "fr": "/fr/trouver-emploi-tessin/qms-compliance-specialista-part-time-external-delvitech-sa-mendrisio"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
       ]
     },
     {
@@ -74039,6 +74620,58 @@
       "source": [
         "gsc",
         "slug-registry",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "senior-expert-marketing-effektivitat-und-performance-100-m-w-d-zurich-julius-baer-zurich",
+      "locale": "de",
+      "path": "/de/jobs-in-zurich/senior-expert-marketing-effektivitat-und-performance-100-m-w-d-zurich-julius-baer-zurich",
+      "observedPaths": {
+        "de": "/de/jobs-in-zurich/senior-expert-marketing-effektivitat-und-performance-100-m-w-d-zurich-julius-baer-zurich"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Senior expert marketing effektivitat und performance zurich",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Zürich",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "senior-expert-marketing-effektivitat-und-performance-100-m-w-d-zurich-julius-baer-zurich",
+        "en": "senior-expert-marketing-effektivitat-und-performance-100-m-w-d-zurich-julius-baer-zurich",
+        "de": "senior-expert-marketing-effektivitat-und-performance-100-m-w-d-zurich-julius-baer-zurich",
+        "fr": "senior-expert-marketing-effektivitat-und-performance-100-m-w-d-zurich-julius-baer-zurich"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-zurigo/senior-expert-marketing-effektivitat-und-performance-100-m-w-d-zurich-julius-baer-zurich",
+        "en": "/en/find-jobs-zurich/senior-expert-marketing-effektivitat-und-performance-100-m-w-d-zurich-julius-baer-zurich",
+        "de": "/de/jobs-im-zurich/senior-expert-marketing-effektivitat-und-performance-100-m-w-d-zurich-julius-baer-zurich",
+        "fr": "/fr/trouver-emploi-zurich/senior-expert-marketing-effektivitat-und-performance-100-m-w-d-zurich-julius-baer-zurich"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -83697,6 +84330,57 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "technicien-ne-de-service-opus-personal-ag-zweigniederlassung-altdorf-zofingen",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-argovie/technicien-ne-de-service-opus-personal-ag-zweigniederlassung-altdorf-zofingen",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-argovie/technicien-ne-de-service-opus-personal-ag-zweigniederlassung-altdorf-zofingen"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Technicien ne de service opus personal ag zweigniederlassung altdorf zofingen",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "technicien-ne-de-service-opus-personal-ag-zweigniederlassung-altdorf-zofingen",
+        "en": "technicien-ne-de-service-opus-personal-ag-zweigniederlassung-altdorf-zofingen",
+        "de": "technicien-ne-de-service-opus-personal-ag-zweigniederlassung-altdorf-zofingen",
+        "fr": "technicien-ne-de-service-opus-personal-ag-zweigniederlassung-altdorf-zofingen"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-argovia/technicien-ne-de-service-opus-personal-ag-zweigniederlassung-altdorf-zofingen",
+        "en": "/en/find-jobs-aargau/technicien-ne-de-service-opus-personal-ag-zweigniederlassung-altdorf-zofingen",
+        "de": "/de/jobs-im-aargau/technicien-ne-de-service-opus-personal-ag-zweigniederlassung-altdorf-zofingen",
+        "fr": "/fr/trouver-emploi-argovie/technicien-ne-de-service-opus-personal-ag-zweigniederlassung-altdorf-zofingen"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {

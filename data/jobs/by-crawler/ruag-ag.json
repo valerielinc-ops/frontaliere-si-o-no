@@ -3683,7 +3683,19 @@
       "streetAddress": "Seetalstrasse 175",
       "streetAddressSource": "zefix-registry",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-08T21:42:45.415Z"
+      "firstSeenAt": "2026-11-08T21:42:45.415Z",
+      "previousSlugs": [
+        "sr-ict-service-manager-100-w-m-d-ruag-ag-emmen-c35fbe89",
+        "sr-gestionnaire-de-services-tic-100-h-f-d-ruag-ag-emmen-40b9c46a"
+      ],
+      "previousSlugsByLocale": {
+        "de": [
+          "sr-ict-service-manager-100-w-m-d-ruag-ag-emmen-c35fbe89"
+        ],
+        "fr": [
+          "sr-gestionnaire-de-services-tic-100-h-f-d-ruag-ag-emmen-40b9c46a"
+        ]
+      }
     },
     {
       "title": "Apprendista operatore in automazione AFC 2027 100% (f/m/d)",

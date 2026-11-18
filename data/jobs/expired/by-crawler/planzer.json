@@ -1523,9 +1523,9 @@
     },
     "slugByLocale": {
       "it": "addetto-a-alla-logistica-m-w-d-planzer-emmen-6bd20541",
-      "en": "employee-logistics-m-f-d-planzer-emmen",
+      "en": "employee-logistics-m-f-d-planzer-emmen-d6e29d83",
       "de": "mitarbeiter-logistik-m-w-d-planzer-emmen-71a52bc1",
-      "fr": "logistique-des-employes-h-f-d-planzer-emmen"
+      "fr": "logistique-des-employes-h-f-d-planzer-emmen-5bb714fe"
     },
     "sector": "Trasporti / Logistica",
     "expiredAt": "2026-11-02T09:21:09.613Z",
@@ -1534,10 +1534,12 @@
         "mitarbeiter-logistik-m-w-d-planzer-emmen-71a52bc1"
       ],
       "en": [
-        "mitarbeiter-logistik-m-w-d-planzer-emmen-71a52bc1"
+        "mitarbeiter-logistik-m-w-d-planzer-emmen-71a52bc1",
+        "employee-logistics-m-f-d-planzer-emmen"
       ],
       "fr": [
-        "mitarbeiter-logistik-m-w-d-planzer-emmen-71a52bc1"
+        "mitarbeiter-logistik-m-w-d-planzer-emmen-71a52bc1",
+        "logistique-des-employes-h-f-d-planzer-emmen"
       ],
       "de": [
         "mitarbeiter-logistik-m-w-d-planzer-emmen-71a52bc1"
@@ -1550,7 +1552,11 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/planzer/job/details/4090020",
-    "firstSeenAt": "2026-10-29T09:31:39.398Z"
+    "firstSeenAt": "2026-10-29T09:31:39.398Z",
+    "previousSlugs": [
+      "employee-logistics-m-f-d-planzer-emmen",
+      "logistique-des-employes-h-f-d-planzer-emmen"
+    ]
   },
   {
     "slug": "consegna-del-pacchetto-m-f-d-planzer-seewen",
@@ -3514,7 +3520,7 @@
     },
     "slugByLocale": {
       "de": "chauffeur-kat-ce-m-w-d-planzer-bern-4dc0c8d5",
-      "fr": "chauffeur-cat-ce-h-f-d-z-planzer-bern"
+      "fr": "chauffeur-cat-ce-h-f-d-z-planzer-bern-dcfde862"
     },
     "sector": "Trasporti / Logistica",
     "expiredAt": "2026-10-23T21:18:50.693Z",
@@ -3526,7 +3532,8 @@
         "chauffeur-kat-ce-m-w-d-planzer-bern-4dc0c8d5"
       ],
       "fr": [
-        "chauffeur-kat-ce-m-w-d-planzer-bern-4dc0c8d5"
+        "chauffeur-kat-ce-m-w-d-planzer-bern-4dc0c8d5",
+        "chauffeur-cat-ce-h-f-d-z-planzer-bern"
       ],
       "de": [
         "chauffeur-kat-ce-m-w-d-planzer-bern-4dc0c8d5"
@@ -3539,7 +3546,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/planzer/job/details/4087598",
-    "firstSeenAt": "2026-10-19T09:15:52.711Z"
+    "firstSeenAt": "2026-10-19T09:15:52.711Z",
+    "previousSlugs": [
+      "chauffeur-cat-ce-h-f-d-z-planzer-bern"
+    ]
   },
   {
     "slug": "consegna-del-parco-m-f-d-planzer-seewen",
@@ -4473,9 +4483,9 @@
     },
     "slugByLocale": {
       "it": "consegna-del-parco-m-f-d-planzer-schmerikon-29ca9278",
-      "en": "parcel-delivery-m-f-d-planzer-schmerikon",
+      "en": "parcel-delivery-m-f-d-planzer-schmerikon-f2867612",
       "de": "paketzusteller-m-w-d-planzer-schmerikon-cedfc901",
-      "fr": "livraison-de-colis-h-f-d-planzer-schmerikon"
+      "fr": "livraison-de-colis-h-f-d-planzer-schmerikon-ed0334f8"
     },
     "sector": "Trasporti / Logistica",
     "expiredAt": "2026-10-23T21:18:50.692Z",
@@ -4484,10 +4494,12 @@
         "paketzusteller-m-w-d-planzer-schmerikon-cedfc901"
       ],
       "en": [
-        "paketzusteller-m-w-d-planzer-schmerikon-cedfc901"
+        "paketzusteller-m-w-d-planzer-schmerikon-cedfc901",
+        "parcel-delivery-m-f-d-planzer-schmerikon"
       ],
       "fr": [
-        "paketzusteller-m-w-d-planzer-schmerikon-cedfc901"
+        "paketzusteller-m-w-d-planzer-schmerikon-cedfc901",
+        "livraison-de-colis-h-f-d-planzer-schmerikon"
       ],
       "de": [
         "paketzusteller-m-w-d-planzer-schmerikon-cedfc901"
@@ -4500,7 +4512,11 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/planzer/job/details/4086099",
-    "firstSeenAt": "2026-10-19T09:15:54.191Z"
+    "firstSeenAt": "2026-10-19T09:15:54.191Z",
+    "previousSlugs": [
+      "parcel-delivery-m-f-d-planzer-schmerikon",
+      "livraison-de-colis-h-f-d-planzer-schmerikon"
+    ]
   },
   {
     "slug": "inoltro-professionale-m-f-d-planzer-dallikon",
