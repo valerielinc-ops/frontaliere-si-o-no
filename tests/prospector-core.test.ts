@@ -704,6 +704,7 @@ describe('vacancy extraction', () => {
         ['Reckenholzstrasse 191, 8046 Zürich']],
       [`<main><p>Einsatzort: Bäretswil und Umgebung</p></main>`, ['Bäretswil und Umgebung']],
       [`<main><p>Arbeitsort/Region</p><p>BE-Bern</p></main>`, ['BE-Bern']],
+      [`<main><p>Arbeitsort / Region</p><p>BE-Bern</p></main>`, ['BE-Bern']],
       [`<main><p>Lieu de travail : 1201 Genève</p></main>`, ['1201 Genève']],
       [`<main><h1>Postdoc</h1><p><strong>Place of work</strong>: Brig<br><strong>Start date</strong>: Immediately</p></main>`, ['Brig']],
       [`<main><h1>Chargé de cours</h1><p><strong>Lieu de travail</strong> : Brigue<br><strong>Date d’entrée</strong> : février</p></main>`, ['Brigue']],
@@ -732,17 +733,19 @@ describe('vacancy extraction', () => {
       .toEqual(['Bioggio']);
   });
 
-  it('keeps a compact Arbeitsort/Region field as source-backed geography', () => {
-    const detail = extractDetailFields(
-      '<main><h1>HR Business Partner</h1>'
-      + '<p>Arbeitsort/Region</p><p>BE-Bern</p>'
-      + '<div class="job-description">Eine ausreichend ausführliche Stellenbeschreibung für die ausgeschriebene Position.</div></main>',
-      'https://opus-personal.ch/aktuelle-jobs/job.aspx/v-185428/f-op/',
-    );
+  it('keeps compact Arbeitsort/Region fields as source-backed geography', () => {
+    for (const label of ['Arbeitsort/Region', 'Arbeitsort / Region']) {
+      const detail = extractDetailFields(
+        '<main><h1>HR Business Partner</h1>'
+        + `<p>${label}</p><p>BE-Bern</p>`
+        + '<div class="job-description">Eine ausreichend ausführliche Stellenbeschreibung für die ausgeschriebene Position.</div></main>',
+        'https://opus-personal.ch/aktuelle-jobs/job.aspx/v-185428/f-op/',
+      );
 
-    expect(detail.locationCandidates).toEqual([{ location: 'BE-Bern' }]);
-    expect(resolveDetailOrListingSwissGeography(detail, {}).geography)
-      .toMatchObject({ location: 'BE-Bern', canton: 'BE' });
+      expect(detail.locationCandidates, label).toEqual([{ location: 'BE-Bern' }]);
+      expect(resolveDetailOrListingSwissGeography(detail, {}).geography, label)
+        .toMatchObject({ location: 'BE-Bern', canton: 'BE' });
+    }
   });
 
   it('keeps multiline workplace labels and rendered formatted addresses intact', () => {
