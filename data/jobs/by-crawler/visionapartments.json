@@ -1,7 +1,7 @@
 {
   "crawlerKey": "visionapartments",
-  "assembledAt": "2026-11-18T09:50:41.585Z",
-  "runId": "44275326198",
+  "assembledAt": "2026-11-18T21:39:30.485Z",
+  "runId": "44400768400",
   "jobs": [
     {
       "id": "visionapartments-8ba295514d0c",
@@ -35,7 +35,7 @@
       "url": "https://www.jobs.ch/fr/offres-emplois/detail/56071e0e-15da-4919-beea-4424c39f31ef/",
       "source": "VISIONAPARTMENTS Dedicated Parser (jobs.ch)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T09:50:35.325Z",
+      "crawledAt": "2026-11-18T21:39:23.446Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -86,7 +86,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-17T09:50:35.325Z",
+      "validThrough": "2027-01-17T21:39:23.446Z",
       "validThroughSource": "last-observed-window"
     }
   ]
