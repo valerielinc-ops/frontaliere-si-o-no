@@ -1,7 +1,7 @@
 {
   "crawlerKey": "le-team",
-  "assembledAt": "2026-11-17T21:33:06.572Z",
-  "runId": "44178424066",
+  "assembledAt": "2026-11-18T09:21:30.180Z",
+  "runId": "44274494747",
   "jobs": [
     {
       "id": "le-team-b6ba3916dcf0",
@@ -35,7 +35,7 @@
       "url": "https://team.jobs/fr/offres-demplois/betonwerker-betonbauer/macon-b-h-f-d/Hagz1kmEzkUfZnEz9JwcJO",
       "source": "le team sa Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T21:32:34.650Z",
+      "crawledAt": "2026-11-18T09:21:03.791Z",
       "addressLocality": "Porrentruy",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -52,7 +52,10 @@
       "applyUrl": "https://team.jobs/fr/offres-demplois/betonwerker-betonbauer/macon-b-h-f-d/Hagz1kmEzkUfZnEz9JwcJO",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-15T21:26:12.232Z",
+      "previousSlugs": [
+        "mason-b-m-f-d-le-team-sa-porrentruy-b6ba3916",
+        "mason-b-m-w-d-le-team-sa-porrentruy-b6ba3916"
+      ],
       "previousSlugsByLocale": {
         "en": [
           "mason-b-m-f-d-le-team-sa-porrentruy-b6ba3916"
@@ -61,10 +64,7 @@
           "mason-b-m-w-d-le-team-sa-porrentruy-b6ba3916"
         ]
       },
-      "previousSlugs": [
-        "mason-b-m-f-d-le-team-sa-porrentruy-b6ba3916",
-        "mason-b-m-w-d-le-team-sa-porrentruy-b6ba3916"
-      ],
+      "firstSeenAt": "2026-10-15T21:26:12.232Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -81,7 +81,7 @@
       "postalCode": "2900",
       "streetAddress": "Porrentruy",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T21:32:34.650Z",
+      "validThrough": "2027-01-14T09:21:03.791Z",
       "validThroughSource": "last-observed-window"
     }
   ]
