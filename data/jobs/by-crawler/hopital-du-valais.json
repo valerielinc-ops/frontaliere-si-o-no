@@ -1,7 +1,7 @@
 {
   "crawlerKey": "hopital-du-valais",
-  "assembledAt": "2026-11-17T21:28:01.619Z",
-  "runId": "44176718139",
+  "assembledAt": "2026-11-18T09:26:00.315Z",
+  "runId": "44272983007",
   "jobs": [
     {
       "id": "hopital-du-valais-58323e4bcee1",
@@ -47,7 +47,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4efe0cbb87918f54dbd6ebd30cbb35be/ATSANN0004722/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:27:52.000Z",
+      "crawledAt": "2026-11-18T09:25:53.429Z",
       "_hvsMeta": {
         "number": "ATSANN0004722",
         "sysId": "4efe0cbb87918f54dbd6ebd30cbb35be",
@@ -87,7 +87,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T21:27:52.000Z",
+      "validThrough": "2026-12-18T09:25:53.429Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -134,7 +134,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/022404fb83d9c39417a39d20ceaad393/ATSANN0004721/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:27:51.617Z",
+      "crawledAt": "2026-11-18T09:25:53.032Z",
       "_hvsMeta": {
         "number": "ATSANN0004721",
         "sysId": "022404fb83d9c39417a39d20ceaad393",
@@ -174,7 +174,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T21:27:51.617Z",
+      "validThrough": "2026-12-18T09:25:53.032Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -221,7 +221,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3bc394fb87158f54dbd6ebd30cbb35f1/ATSANN0004725/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:27:51.239Z",
+      "crawledAt": "2026-11-18T09:25:52.636Z",
       "_hvsMeta": {
         "number": "ATSANN0004725",
         "sysId": "3bc394fb87158f54dbd6ebd30cbb35f1",
@@ -261,7 +261,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T21:27:51.239Z",
+      "validThrough": "2026-12-18T09:25:52.636Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -308,7 +308,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/470810f387d58f54dbd6ebd30cbb3533/ATSANN0004731/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:27:50.860Z",
+      "crawledAt": "2026-11-18T09:25:52.231Z",
       "_hvsMeta": {
         "number": "ATSANN0004731",
         "sysId": "470810f387d58f54dbd6ebd30cbb3533",
@@ -348,7 +348,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T21:27:50.860Z",
+      "validThrough": "2026-12-18T09:25:52.231Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -395,7 +395,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3706103387958f54dbd6ebd30cbb35f5/ATSANN0004728/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:27:50.479Z",
+      "crawledAt": "2026-11-18T09:25:51.846Z",
       "_hvsMeta": {
         "number": "ATSANN0004728",
         "sysId": "3706103387958f54dbd6ebd30cbb35f5",
@@ -429,7 +429,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T21:27:50.479Z",
+      "validThrough": "2026-12-18T09:25:51.846Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -476,7 +476,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/7659a0d287f20f50dbd6ebd30cbb35ab/ATSANN0004855/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:27:50.093Z",
+      "crawledAt": "2026-11-18T09:25:51.401Z",
       "_hvsMeta": {
         "number": "ATSANN0004855",
         "sysId": "7659a0d287f20f50dbd6ebd30cbb35ab",
@@ -510,7 +510,7 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T21:27:50.093Z",
+      "validThrough": "2026-12-18T09:25:51.401Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -557,7 +557,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/fb1bef51470f8310296bd1eb736d4347/ATSANN0004869/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:27:49.704Z",
+      "crawledAt": "2026-11-18T09:25:51.010Z",
       "_hvsMeta": {
         "number": "ATSANN0004869",
         "sysId": "fb1bef51470f8310296bd1eb736d4347",
@@ -594,7 +594,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T21:27:49.704Z",
+      "validThrough": "2026-12-18T09:25:51.010Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -641,7 +641,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/dfdd86de976626501b87322f2153af9d/ATSANN0004228/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:27:49.328Z",
+      "crawledAt": "2026-11-18T09:25:50.617Z",
       "_hvsMeta": {
         "number": "ATSANN0004228",
         "sysId": "dfdd86de976626501b87322f2153af9d",
@@ -675,7 +675,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T21:27:49.328Z",
+      "validThrough": "2026-12-18T09:25:50.617Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -722,7 +722,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3925254147538354ff8065f8736d4338/ATSANN0004899/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:27:48.940Z",
+      "crawledAt": "2026-11-18T09:25:50.230Z",
       "_hvsMeta": {
         "number": "ATSANN0004899",
         "sysId": "3925254147538354ff8065f8736d4338",
@@ -761,7 +761,7 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T21:27:48.940Z",
+      "validThrough": "2026-12-18T09:25:50.230Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -808,7 +808,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/6456fbb5479f0710ff8065f8736d4368/ATSANN0004904/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T21:27:48.559Z",
+      "crawledAt": "2026-11-18T09:25:49.839Z",
       "_hvsMeta": {
         "number": "ATSANN0004904",
         "sysId": "6456fbb5479f0710ff8065f8736d4368",
@@ -848,7 +848,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T21:27:48.559Z",
+      "validThrough": "2026-12-18T09:25:49.839Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -895,7 +895,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/17bdd6924757cb14296bd1eb736d4385/ATSANN0004919/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:27:48.184Z",
+      "crawledAt": "2026-11-18T09:25:49.452Z",
       "_hvsMeta": {
         "number": "ATSANN0004919",
         "sysId": "17bdd6924757cb14296bd1eb736d4385",
@@ -935,7 +935,7 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T21:27:48.184Z",
+      "validThrough": "2026-12-18T09:25:49.452Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -982,7 +982,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/facd39e6979f839012f9322f2153af5a/ATSANN0004920/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:27:47.798Z",
+      "crawledAt": "2026-11-18T09:25:49.061Z",
       "_hvsMeta": {
         "number": "ATSANN0004920",
         "sysId": "facd39e6979f839012f9322f2153af5a",
@@ -1016,7 +1016,7 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T21:27:47.798Z",
+      "validThrough": "2026-12-18T09:25:49.061Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1063,7 +1063,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/8f38b372974e0390316bb0b71153afa1/ATSANN0004805/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:27:47.423Z",
+      "crawledAt": "2026-11-18T09:25:48.671Z",
       "_hvsMeta": {
         "number": "ATSANN0004805",
         "sysId": "8f38b372974e0390316bb0b71153afa1",
@@ -1103,7 +1103,7 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T21:27:47.423Z",
+      "validThrough": "2026-12-29T09:25:48.671Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1150,7 +1150,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/dd66a35bc3ab0f18a043be4c05013142/ATSANN0004943/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T21:27:47.043Z",
+      "crawledAt": "2026-11-18T09:25:48.278Z",
       "_hvsMeta": {
         "number": "ATSANN0004943",
         "sysId": "dd66a35bc3ab0f18a043be4c05013142",
@@ -1190,7 +1190,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T21:27:47.043Z",
+      "validThrough": "2026-12-30T09:25:48.278Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1237,7 +1237,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/56597bad97b387941b87322f2153affa/ATSANN0004959/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T21:27:46.660Z",
+      "crawledAt": "2026-11-18T09:25:47.879Z",
       "_hvsMeta": {
         "number": "ATSANN0004959",
         "sysId": "56597bad97b387941b87322f2153affa",
@@ -1277,7 +1277,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T21:27:46.660Z",
+      "validThrough": "2027-01-06T09:25:47.879Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1324,7 +1324,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/cf1d6c8a477f8350ff8065f8736d4390/ATSANN0004961/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T21:27:46.284Z",
+      "crawledAt": "2026-11-18T09:25:47.486Z",
       "_hvsMeta": {
         "number": "ATSANN0004961",
         "sysId": "cf1d6c8a477f8350ff8065f8736d4390",
@@ -1366,7 +1366,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-07T21:27:46.284Z",
+      "validThrough": "2027-01-07T09:25:47.486Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1413,7 +1413,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/c47fc994470cd790ff8065f8736d4339/ATSANN0004972/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T21:27:45.889Z",
+      "crawledAt": "2026-11-18T09:25:47.102Z",
       "_hvsMeta": {
         "number": "ATSANN0004972",
         "sysId": "c47fc994470cd790ff8065f8736d4339",
@@ -1453,7 +1453,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sierre",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T21:27:45.889Z",
+      "validThrough": "2027-01-14T09:25:47.102Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1500,7 +1500,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/43e0edce47744394296bd1eb736d43f5/ATSANN0004672/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:27:45.513Z",
+      "crawledAt": "2026-11-18T09:25:46.659Z",
       "_hvsMeta": {
         "number": "ATSANN0004672",
         "sysId": "43e0edce47744394296bd1eb736d43f5",
@@ -1551,7 +1551,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T21:27:45.513Z",
+      "validThrough": "2026-12-18T09:25:46.659Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1598,7 +1598,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4cd23cbe4747cb90ff8065f8736d43a7/ATSANN0004885/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:27:45.132Z",
+      "crawledAt": "2026-11-18T09:25:46.225Z",
       "_hvsMeta": {
         "number": "ATSANN0004885",
         "sysId": "4cd23cbe4747cb90ff8065f8736d43a7",
@@ -1635,7 +1635,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T21:27:45.132Z",
+      "validThrough": "2027-01-17T09:25:46.225Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1682,7 +1682,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/984d5d11470853d0ff8065f8736d4347/ATSANN0004973/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:27:44.752Z",
+      "crawledAt": "2026-11-18T09:25:45.838Z",
       "_hvsMeta": {
         "number": "ATSANN0004973",
         "sysId": "984d5d11470853d0ff8065f8736d4347",
@@ -1722,7 +1722,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T21:27:44.752Z",
+      "validThrough": "2027-01-17T09:25:45.838Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1769,7 +1769,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/39138054971cdb101b87322f2153af70/ATSANN0004982/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T21:27:44.371Z",
+      "crawledAt": "2026-11-18T09:25:45.435Z",
       "_hvsMeta": {
         "number": "ATSANN0004982",
         "sysId": "39138054971cdb101b87322f2153af70",
@@ -1811,7 +1811,7 @@
       "addressRegion": "VS",
       "streetAddress": "Monthey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:27:44.371Z",
+      "validThrough": "2027-01-26T09:25:45.435Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1858,7 +1858,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/fd6bb74c47dcd750ff8065f8736d43be/ATSANN0004981/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T21:27:43.994Z",
+      "crawledAt": "2026-11-18T09:25:45.048Z",
       "_hvsMeta": {
         "number": "ATSANN0004981",
         "sysId": "fd6bb74c47dcd750ff8065f8736d43be",
@@ -1900,7 +1900,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:27:43.994Z",
+      "validThrough": "2027-01-26T09:25:45.048Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1947,7 +1947,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/b96018e8c3d45350a043be4c05013111/ATSANN0004983/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T21:27:43.590Z",
+      "crawledAt": "2026-11-18T09:25:44.662Z",
       "_hvsMeta": {
         "number": "ATSANN0004983",
         "sysId": "b96018e8c3d45350a043be4c05013111",
@@ -1972,7 +1972,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:27:43.590Z",
+      "validThrough": "2027-01-27T09:25:44.662Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2019,7 +2019,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/bc4c8a3c47585710ff8065f8736d4317/ATSANN0004986/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T21:27:43.214Z",
+      "crawledAt": "2026-11-18T09:25:44.274Z",
       "_hvsMeta": {
         "number": "ATSANN0004986",
         "sysId": "bc4c8a3c47585710ff8065f8736d4317",
@@ -2059,7 +2059,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T21:27:43.214Z",
+      "validThrough": "2027-01-28T09:25:44.274Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2106,7 +2106,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/96ae497047d81710ff8065f8736d439b/ATSANN0004985/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T21:27:42.828Z",
+      "crawledAt": "2026-11-18T09:25:43.881Z",
       "_hvsMeta": {
         "number": "ATSANN0004985",
         "sysId": "96ae497047d81710ff8065f8736d439b",
@@ -2146,7 +2146,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T21:27:42.828Z",
+      "validThrough": "2027-01-28T09:25:43.881Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2193,7 +2193,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/6a0a7f67c3fbcfd8a043be4c050131fb/ATSANN0004968/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T21:27:42.016Z",
+      "crawledAt": "2026-11-18T09:25:43.024Z",
       "_hvsMeta": {
         "number": "ATSANN0004968",
         "sysId": "6a0a7f67c3fbcfd8a043be4c050131fb",
@@ -2233,7 +2233,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T21:27:42.016Z",
+      "validThrough": "2027-01-12T09:25:43.024Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2280,7 +2280,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4d1d61398350171017a39d20ceaad3fc/ATSANN0004988/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T21:27:41.638Z",
+      "crawledAt": "2026-11-18T09:25:42.636Z",
       "_hvsMeta": {
         "number": "ATSANN0004988",
         "sysId": "4d1d61398350171017a39d20ceaad3fc",
@@ -2320,7 +2320,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T21:27:41.638Z",
+      "validThrough": "2027-01-31T09:25:42.636Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2367,7 +2367,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/7d13df21c37fc398a043be4c05013182/ATSANN0004957/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:27:41.261Z",
+      "crawledAt": "2026-11-18T09:25:42.248Z",
       "_hvsMeta": {
         "number": "ATSANN0004957",
         "sysId": "7d13df21c37fc398a043be4c05013182",
@@ -2407,7 +2407,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T21:27:41.261Z",
+      "validThrough": "2027-01-05T09:25:42.248Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2454,7 +2454,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/f73d0f828794d350dbd6ebd30cbb354c/ATSANN0004990/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T21:27:40.880Z",
+      "crawledAt": "2026-11-18T09:25:41.866Z",
       "_hvsMeta": {
         "number": "ATSANN0004990",
         "sysId": "f73d0f828794d350dbd6ebd30cbb354c",
@@ -2494,7 +2494,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sierre",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:27:40.880Z",
+      "validThrough": "2027-02-01T09:25:41.866Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2541,7 +2541,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/c6680bcc8378b69017a39d20ceaad30d/ATSANN0004378/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:27:40.500Z",
+      "crawledAt": "2026-11-18T09:25:41.407Z",
       "_hvsMeta": {
         "number": "ATSANN0004378",
         "sysId": "c6680bcc8378b69017a39d20ceaad30d",
@@ -2578,7 +2578,7 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:27:40.500Z",
+      "validThrough": "2027-02-01T09:25:41.407Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2625,7 +2625,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/346b33d247189f10339c9146736d4352/ATSANN0004992/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T21:27:40.124Z",
+      "crawledAt": "2026-11-18T09:25:41.020Z",
       "_hvsMeta": {
         "number": "ATSANN0004992",
         "sysId": "346b33d247189f10339c9146736d4352",
@@ -2665,7 +2665,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:27:40.124Z",
+      "validThrough": "2027-02-02T09:25:41.020Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2712,7 +2712,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/c94d379e47189f10339c9146736d43e9/ATSANN0004993/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T21:27:39.740Z",
+      "crawledAt": "2026-11-18T09:25:40.634Z",
       "_hvsMeta": {
         "number": "ATSANN0004993",
         "sysId": "c94d379e47189f10339c9146736d43e9",
@@ -2752,7 +2752,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:27:39.740Z",
+      "validThrough": "2027-02-02T09:25:40.634Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2799,7 +2799,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/cc7770038314575017a39d20ceaad34c/ATSANN0004997/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T21:27:39.359Z",
+      "crawledAt": "2026-11-18T09:25:40.237Z",
       "_hvsMeta": {
         "number": "ATSANN0004997",
         "sysId": "cc7770038314575017a39d20ceaad34c",
@@ -2839,7 +2839,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:27:39.359Z",
+      "validThrough": "2027-02-03T09:25:40.237Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2886,7 +2886,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/18ece4478350575017a39d20ceaad370/ATSANN0004996/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:27:38.980Z",
+      "crawledAt": "2026-11-18T09:25:39.684Z",
       "_hvsMeta": {
         "number": "ATSANN0004996",
         "sysId": "18ece4478350575017a39d20ceaad370",
@@ -2926,7 +2926,7 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:27:38.980Z",
+      "validThrough": "2027-02-03T09:25:39.684Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2973,7 +2973,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/878e0a4f839c975017a39d20ceaad3e7/ATSANN0004998/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T21:27:38.602Z",
+      "crawledAt": "2026-11-18T09:25:39.284Z",
       "_hvsMeta": {
         "number": "ATSANN0004998",
         "sysId": "878e0a4f839c975017a39d20ceaad3e7",
@@ -3013,7 +3013,7 @@
       "addressRegion": "VS",
       "streetAddress": "Granges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:27:38.602Z",
+      "validThrough": "2027-02-04T09:25:39.284Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3060,7 +3060,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3dede48c9724d310316bb0b71153afcc/ATSANN0004999/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T21:27:38.221Z",
+      "crawledAt": "2026-11-18T09:25:38.858Z",
       "_hvsMeta": {
         "number": "ATSANN0004999",
         "sysId": "3dede48c9724d310316bb0b71153afcc",
@@ -3100,7 +3100,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sierre",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T21:27:38.221Z",
+      "validThrough": "2027-02-07T09:25:38.858Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3147,7 +3147,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/1ed985b6971cd750316bb0b71153afa4/ATSANN0004995/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:27:37.840Z",
+      "crawledAt": "2026-11-18T09:25:38.422Z",
       "_hvsMeta": {
         "number": "ATSANN0004995",
         "sysId": "1ed985b6971cd750316bb0b71153afa4",
@@ -3187,7 +3187,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T21:27:37.840Z",
+      "validThrough": "2027-02-09T09:25:38.422Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3234,7 +3234,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4f30855d47645b10339c9146736d43ad/ATSANN0005014/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T21:27:37.458Z",
+      "crawledAt": "2026-11-18T09:25:38.033Z",
       "_hvsMeta": {
         "number": "ATSANN0005014",
         "sysId": "4f30855d47645b10339c9146736d43ad",
@@ -3275,7 +3275,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:27:37.458Z",
+      "validThrough": "2027-02-10T09:25:38.033Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3322,7 +3322,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/dbffc5c197e45b10e7ce346e2153afab/ATSANN0005005/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:27:36.914Z",
+      "crawledAt": "2026-11-18T09:25:37.471Z",
       "_hvsMeta": {
         "number": "ATSANN0005005",
         "sysId": "dbffc5c197e45b10e7ce346e2153afab",
@@ -3362,7 +3362,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:27:36.914Z",
+      "validThrough": "2027-02-10T09:25:37.471Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3409,7 +3409,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/0d1fc59997e0db10316bb0b71153af28/ATSANN0005020/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T21:27:36.533Z",
+      "crawledAt": "2026-11-18T09:25:37.063Z",
       "_hvsMeta": {
         "number": "ATSANN0005020",
         "sysId": "0d1fc59997e0db10316bb0b71153af28",
@@ -3449,7 +3449,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:27:36.533Z",
+      "validThrough": "2027-02-11T09:25:37.063Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3496,7 +3496,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/5f1bc99147685b10339c9146736d439b/ATSANN0005017/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T21:27:35.416Z",
+      "crawledAt": "2026-11-18T09:25:35.879Z",
       "_hvsMeta": {
         "number": "ATSANN0005017",
         "sysId": "5f1bc99147685b10339c9146736d439b",
@@ -3536,7 +3536,7 @@
       "addressRegion": "VS",
       "streetAddress": "Martigny",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:27:35.416Z",
+      "validThrough": "2027-02-11T09:25:35.879Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3583,7 +3583,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/e771404b8301cb9017a39d20ceaad319/ATSANN0004696/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:27:35.027Z",
+      "crawledAt": "2026-11-18T09:25:35.478Z",
       "_hvsMeta": {
         "number": "ATSANN0004696",
         "sysId": "e771404b8301cb9017a39d20ceaad319",
@@ -3617,7 +3617,7 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T21:27:35.027Z",
+      "validThrough": "2027-02-14T09:25:35.478Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3664,7 +3664,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/9027681a8720db50dbd6ebd30cbb35af/ATSANN0004677/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:27:34.648Z",
+      "crawledAt": "2026-11-18T09:25:35.086Z",
       "_hvsMeta": {
         "number": "ATSANN0004677",
         "sysId": "9027681a8720db50dbd6ebd30cbb35af",
@@ -3704,7 +3704,7 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T21:27:34.648Z",
+      "validThrough": "2027-02-14T09:25:35.086Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3751,7 +3751,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/19dc195e832c1f1017a39d20ceaad392/ATSANN0005029/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:27:34.245Z",
+      "crawledAt": "2026-11-18T09:25:34.683Z",
       "_hvsMeta": {
         "number": "ATSANN0005029",
         "sysId": "19dc195e832c1f1017a39d20ceaad392",
@@ -3793,34 +3793,34 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T21:27:34.245Z",
+      "validThrough": "2027-02-14T09:25:34.683Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "hopital-du-valais-0206bb5fd3ef",
       "slug": "80-segretario-ospedaliero-per-l-ospedale-psichiatrico-malevoz-a-monthey-hopital-du-valais-monthey",
       "slugByLocale": {
-        "fr": "secretaire-d-unite-hospitaliere-a-80-pour-l-hopital-psychiatrique-de-malevoz-a-monthey",
         "it": "80-segretario-ospedaliero-per-l-ospedale-psichiatrico-malevoz-a-monthey-hopital-du-valais-monthey",
         "en": "80-hospital-secretary-for-malevoz-psychiatric-hospital-in-monthey-hopital-du-valais-monthey",
-        "de": "80-krankenhaussekretar-fur-malevoz-psychiatric-hospital-in-monthey-hopital-du-valais-monthey"
+        "de": "80-krankenhaussekretar-fur-malevoz-psychiatric-hospital-in-monthey-hopital-du-valais-monthey",
+        "fr": "secretaire-d-unite-hospitaliere-a-80-pour-l-hopital-psychiatrique-de-malevoz-a-monthey"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
       "companyDomain": "hopitalvs.ch",
       "title": "Secrétaire d’unité hospitalière à 80% pour l’Hôpital psychiatrique de Malévoz à Monthey",
       "titleByLocale": {
-        "fr": "Secrétaire d’unité hospitalière à 80% pour l’Hôpital psychiatrique de Malévoz à Monthey",
         "it": "80% segretario ospedaliero per l'ospedale psichiatrico Malevoz a Monthey",
         "en": "80% hospital secretary for Malevoz Psychiatric Hospital in Monthey",
-        "de": "80% Krankenhaussekretär für Malevoz Psychiatric Hospital in Monthey"
+        "de": "80% Krankenhaussekretär für Malevoz Psychiatric Hospital in Monthey",
+        "fr": "Secrétaire d’unité hospitalière à 80% pour l’Hôpital psychiatrique de Malévoz à Monthey"
       },
       "description": "1er employeur du canton, l’Hôpital du Valais compte 6’260 collaborateurs-trices. Chaque année, 41’800 patient-e-s sont pris-e-s en charge et près de 670’300 visites ambulatoires sont assurées.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e\n\nSecrétaire d’unité hospitalière à 80%\n pour l’Hôpital psychiatrique de Malévoz à Monthey\n\nMission:\n• Accueillir les patients et les accompagnants\n\n• Effectuer les admissions\n\n• Organiser les réseaux patients\n\n• Soutenir les colloques et réunions d’équipes soignantes (prise de notes et coordination)\n\n• Assurer/coordonner différentes tâches administratives d’unité hospitalière\n\nProfil:\n• CFC employé-e de commerce (ou formation jugée équivalente)\n\n• Expérience dans le domaine médical ou social\n\n• Sens aigu de l’accueil et aisance dans le contact avec les patients\n\n• Autonome, esprit d’initiative, sens de l’organisation et capacité à gérer les priorités et les imprévus\n\n• Bonne gestion du stress\n\n• Flexibilité et polyvalence\n\n• Maîtrise de l’informatique (bureautique)\n\n• Discrétion et respect du secret médical\n\nSeules les offres répondant au profil seront traitées.\n\nOffre:\nUn environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices.",
       "descriptionByLocale": {
-        "fr": "1er employeur du canton, l’Hôpital du Valais compte 6’260 collaborateurs-trices. Chaque année, 41’800 patient-e-s sont pris-e-s en charge et près de 670’300 visites ambulatoires sont assurées.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e\n\nSecrétaire d’unité hospitalière à 80%\n pour l’Hôpital psychiatrique de Malévoz à Monthey\n\nMission:\n• Accueillir les patients et les accompagnants\n\n• Effectuer les admissions\n\n• Organiser les réseaux patients\n\n• Soutenir les colloques et réunions d’équipes soignantes (prise de notes et coordination)\n\n• Assurer/coordonner différentes tâches administratives d’unité hospitalière\n\nProfil:\n• CFC employé-e de commerce (ou formation jugée équivalente)\n\n• Expérience dans le domaine médical ou social\n\n• Sens aigu de l’accueil et aisance dans le contact avec les patients\n\n• Autonome, esprit d’initiative, sens de l’organisation et capacité à gérer les priorités et les imprévus\n\n• Bonne gestion du stress\n\n• Flexibilité et polyvalence\n\n• Maîtrise de l’informatique (bureautique)\n\n• Discrétion et respect du secret médical\n\nSeules les offres répondant au profil seront traitées.\n\nOffre:\nUn environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices.",
-        "it": "Il primo datore di lavoro del cantone, l'Hôpital du Valais, ha 6.260 dipendenti. Ogni anno vengono curati 418.800 pazienti e sono previste circa 670 300 visite ambulatoriale.\n\nL'Ospedale Vallese è alla ricerca del Centro ospedaliero romano Vallese.\n\n80% segretaria dell'ospedale\n per l'ospedale psichiatrico di Malevoz a Monthey\n\nMissione:\n• Accoglienti e accompagnanti pazienti\n\n• Eseguire le ammissioni\n\n• Organizzare reti di pazienti\n\n• Sostenere i colloqui e le riunioni del team sanitario (nota-assunzione e coordinamento)\n\n• Fornire/coordinare vari compiti amministrativi dell'unità ospedaliera\n\nProfilo:\n• Dipendente commerciale SWC (o formazione ritenuta equivalente)\n\n• Esperienza medica o sociale\n\n• Acuto senso di benvenuto e facilità a contatto con i pazienti\n\n• Autosufficienza, iniziativa, senso organizzativo e capacità di gestire le priorità e le contingenze\n\n• Buona gestione dello stress\n\n• Flessibilità e versatilità\n\n• Computer mastery (automazione ufficio)\n\n• Discreto e rispetto del segreto medico\n\nVerranno elaborate solo offerte che rispondono al profilo.\n\nOfferta:\nUn ambiente stimolante e diversificato con l'opportunità di sfruttare le tue conoscenze e le tue esperienze; condizioni di lavoro attraenti; opportunità di formazione continua e formazione continua. Trova qui tutti i vantaggi per i nostri dipendenti.",
-        "en": "The canton's first employer, the Hôpital du Valais, has 6,260 employees. Each year, 418,800 patients are cared for, and nearly 670 300 outpatient visits are provided.\n\nThe Valais Hospital is looking for the Valais Romand Hospital Centre.\n\n80% hospital secretary\n for the Malevoz Psychiatric Hospital in Monthey\n\nMission:\n• Welcoming and accompanying patients\n\n• Perform admissions\n\n• Organize patient networks\n\n• Support colloquiums and health team meetings (note-taking and coordination)\n\n• Provide/coordinate various administrative tasks of hospital unit\n\nProfile:\n• SWC trade employee (or training deemed equivalent)\n\n• Medical or social experience\n\n• Acute sense of welcome and ease in contact with patients\n\n• Self-reliance, initiative, organizational sense and ability to manage priorities and contingencies\n\n• Good stress management\n\n• Flexibility and versatility\n\n• Computer mastery (office automation)\n\n• Discretion and respect for medical secrecy\n\nOnly offers responding to the profile will be processed.\n\nOffer:\nA stimulating and diverse environment with the opportunity to leverage your knowledge and experience; attractive conditions of employment; opportunities for continuing training and further training. Find here all the advantages for our employees.",
-        "de": "Der erste Arbeitgeber des Kantons, das Walliser Hôpital, beschäftigt 6.260 Mitarbeiter. Jedes Jahr werden 418.800 Patienten betreut, und es werden fast 670 300 ambulante Besuche durchgeführt.\n\nDas Walliser Krankenhaus sucht das Walliser Krankenhauszentrum Romand.\n\n80% Krankenhaussekretärin\n für das Psychiatrische Krankenhaus Malevoz in Monthey\n\nMission:\n• Begrüßung und Begleitung von Patienten\n\n• Durchführung von Zulassungen\n\n• Patientennetzwerke organisieren\n\n• Unterstützung von Kolloquien und Treffen von Gesundheitsteams (Notizen und Koordination)\n\n• Bereitstellung/Koordinierung verschiedener Verwaltungsaufgaben der Krankenhauseinheit\n\nProfil:\n• SWC-Handelsmitarbeiter (oder Ausbildung als gleichwertig angesehen)\n\n• Medizinische oder soziale Erfahrung\n\n• Akutes Gefühl der Aufnahme und Leichtigkeit im Kontakt mit Patienten\n\n• Eigenständigkeit, Initiative, Organisationssinn und Fähigkeit, Prioritäten und Eventualitäten zu verwalten\n\n• Gutes Stressmanagement\n\n• Flexibilität und Vielseitigkeit\n\n• Computer-Mastery (Büroautomation)\n\n• Diskretion und Achtung des medizinischen Geheimhaltungsgeheimnisses\n\nNur Angebote, die auf das Profil reagieren, werden verarbeitet.\n\nAngebot:\nEin anregendes und vielfältiges Umfeld mit der Möglichkeit, Ihr Wissen und Ihre Erfahrung zu nutzen; attraktive Beschäftigungsbedingungen; Möglichkeiten zur Weiterbildung und Weiterbildung. Hier finden Sie alle Vorteile für unsere Mitarbeiter."
+        "it": "Il primo datore di lavoro del cantone, l'Hôpital du Valais, ha 6.260 dipendenti. Ogni anno vengono curati 418.800 pazienti e sono previste circa 670 300 visite ambulatoriale.\n\nL'Ospedale Vallese è alla ricerca del Centro ospedaliero romano Vallese.\n\n80% segretaria dell'ospedale\nper l'ospedale psichiatrico di Malevoz a Monthey\n\nMissione:\n• Accoglienti e accompagnanti pazienti\n\n• Eseguire le ammissioni\n\n• Organizzare reti di pazienti\n\n• Sostenere i colloqui e le riunioni del team sanitario (nota-assunzione e coordinamento)\n\n• Fornire/coordinare vari compiti amministrativi dell'unità ospedaliera\n\nProfilo:\n• Dipendente commerciale SWC (o formazione ritenuta equivalente)\n\n• Esperienza medica o sociale\n\n• Acuto senso di benvenuto e facilità a contatto con i pazienti\n\n• Autosufficienza, iniziativa, senso organizzativo e capacità di gestire le priorità e le contingenze\n\n• Buona gestione dello stress\n\n• Flessibilità e versatilità\n\n• Computer mastery (automazione ufficio)\n\n• Discreto e rispetto del segreto medico\n\nVerranno elaborate solo offerte che rispondono al profilo.\n\nOfferta:\nUn ambiente stimolante e diversificato con l'opportunità di sfruttare le tue conoscenze e le tue esperienze; condizioni di lavoro attraenti; opportunità di formazione continua e formazione continua. Trova qui tutti i vantaggi per i nostri dipendenti.",
+        "en": "The canton's first employer, the Hôpital du Valais, has 6,260 employees. Each year, 418,800 patients are cared for, and nearly 670 300 outpatient visits are provided.\n\nThe Valais Hospital is looking for the Valais Romand Hospital Centre.\n\n80% hospital secretary\nfor the Malevoz Psychiatric Hospital in Monthey\n\nMission:\n• Welcoming and accompanying patients\n\n• Perform admissions\n\n• Organize patient networks\n\n• Support colloquiums and health team meetings (note-taking and coordination)\n\n• Provide/coordinate various administrative tasks of hospital unit\n\nProfile:\n• SWC trade employee (or training deemed equivalent)\n\n• Medical or social experience\n\n• Acute sense of welcome and ease in contact with patients\n\n• Self-reliance, initiative, organizational sense and ability to manage priorities and contingencies\n\n• Good stress management\n\n• Flexibility and versatility\n\n• Computer mastery (office automation)\n\n• Discretion and respect for medical secrecy\n\nOnly offers responding to the profile will be processed.\n\nOffer:\nA stimulating and diverse environment with the opportunity to leverage your knowledge and experience; attractive conditions of employment; opportunities for continuing training and further training. Find here all the advantages for our employees.",
+        "de": "Der erste Arbeitgeber des Kantons, das Walliser Hôpital, beschäftigt 6.260 Mitarbeiter. Jedes Jahr werden 418.800 Patienten betreut, und es werden fast 670 300 ambulante Besuche durchgeführt.\n\nDas Walliser Krankenhaus sucht das Walliser Krankenhauszentrum Romand.\n\n80% Krankenhaussekretärin\nfür das Psychiatrische Krankenhaus Malevoz in Monthey\n\nMission:\n• Begrüßung und Begleitung von Patienten\n\n• Durchführung von Zulassungen\n\n• Patientennetzwerke organisieren\n\n• Unterstützung von Kolloquien und Treffen von Gesundheitsteams (Notizen und Koordination)\n\n• Bereitstellung/Koordinierung verschiedener Verwaltungsaufgaben der Krankenhauseinheit\n\nProfil:\n• SWC-Handelsmitarbeiter (oder Ausbildung als gleichwertig angesehen)\n\n• Medizinische oder soziale Erfahrung\n\n• Akutes Gefühl der Aufnahme und Leichtigkeit im Kontakt mit Patienten\n\n• Eigenständigkeit, Initiative, Organisationssinn und Fähigkeit, Prioritäten und Eventualitäten zu verwalten\n\n• Gutes Stressmanagement\n\n• Flexibilität und Vielseitigkeit\n\n• Computer-Mastery (Büroautomation)\n\n• Diskretion und Achtung des medizinischen Geheimhaltungsgeheimnisses\n\nNur Angebote, die auf das Profil reagieren, werden verarbeitet.\n\nAngebot:\nEin anregendes und vielfältiges Umfeld mit der Möglichkeit, Ihr Wissen und Ihre Erfahrung zu nutzen; attraktive Beschäftigungsbedingungen; Möglichkeiten zur Weiterbildung und Weiterbildung. Hier finden Sie alle Vorteile für unsere Mitarbeiter.",
+        "fr": "1er employeur du canton, l’Hôpital du Valais compte 6’260 collaborateurs-trices. Chaque année, 41’800 patient-e-s sont pris-e-s en charge et près de 670’300 visites ambulatoires sont assurées.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e\n\nSecrétaire d’unité hospitalière à 80%\npour l’Hôpital psychiatrique de Malévoz à Monthey\n\nMission:\n• Accueillir les patients et les accompagnants\n\n• Effectuer les admissions\n\n• Organiser les réseaux patients\n\n• Soutenir les colloques et réunions d’équipes soignantes (prise de notes et coordination)\n\n• Assurer/coordonner différentes tâches administratives d’unité hospitalière\n\nProfil:\n• CFC employé-e de commerce (ou formation jugée équivalente)\n\n• Expérience dans le domaine médical ou social\n\n• Sens aigu de l’accueil et aisance dans le contact avec les patients\n\n• Autonome, esprit d’initiative, sens de l’organisation et capacité à gérer les priorités et les imprévus\n\n• Bonne gestion du stress\n\n• Flexibilité et polyvalence\n\n• Maîtrise de l’informatique (bureautique)\n\n• Discrétion et respect du secret médical\n\nSeules les offres répondant au profil seront traitées.\n\nOffre:\nUn environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices."
       },
       "location": "Monthey",
       "canton": "VS",
@@ -3840,7 +3840,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/2f566e66976c1350e7ce346e2153afc2/ATSANN0005041/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T21:27:33.767Z",
+      "crawledAt": "2026-11-18T09:25:34.293Z",
       "_hvsMeta": {
         "number": "ATSANN0005041",
         "sysId": "2f566e66976c1350e7ce346e2153afc2",
@@ -3848,6 +3848,21 @@
         "famille": "Administratif",
         "site": "MONTHEY"
       },
+      "previousSlugs": [
+        "secretaire-d-unite-hospitaliere-a-80-pour-l-hopital-psychiatrique-de-malevoz-a-monthey"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-d-unite-hospitaliere-a-80-pour-l-hopital-psychiatrique-de-malevoz-a-monthey"
+        ],
+        "en": [
+          "secretaire-d-unite-hospitaliere-a-80-pour-l-hopital-psychiatrique-de-malevoz-a-monthey"
+        ],
+        "de": [
+          "secretaire-d-unite-hospitaliere-a-80-pour-l-hopital-psychiatrique-de-malevoz-a-monthey"
+        ]
+      },
+      "firstSeenAt": "2026-11-17T21:27:33.767Z",
       "salaryMin": 48400,
       "salaryMax": 73200,
       "currency": "CHF",
@@ -3865,31 +3880,16 @@
       "addressRegion": "VS",
       "streetAddress": "Monthey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:27:33.767Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:27:33.767Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "secretaire-d-unite-hospitaliere-a-80-pour-l-hopital-psychiatrique-de-malevoz-a-monthey"
-        ],
-        "en": [
-          "secretaire-d-unite-hospitaliere-a-80-pour-l-hopital-psychiatrique-de-malevoz-a-monthey"
-        ],
-        "de": [
-          "secretaire-d-unite-hospitaliere-a-80-pour-l-hopital-psychiatrique-de-malevoz-a-monthey"
-        ]
-      },
-      "previousSlugs": [
-        "secretaire-d-unite-hospitaliere-a-80-pour-l-hopital-psychiatrique-de-malevoz-a-monthey"
-      ]
+      "validThrough": "2027-02-15T09:25:34.293Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hopital-du-valais-3c0b539f5ea2",
       "slug": "consulente-specializzato-a-in-diabetologia-40-hopital-du-valais-visp",
       "slugByLocale": {
-        "de": "diabetesfachberater-in-40-hopital-du-valais-visp",
         "it": "consulente-specializzato-a-in-diabetologia-40-hopital-du-valais-visp",
         "en": "diabetes-specialist-advisor-40-hopital-du-valais-visp",
+        "de": "diabetesfachberater-in-40-hopital-du-valais-visp",
         "fr": "conseiller-ere-specialise-e-en-diabetologie-40-hopital-du-valais-visp"
       },
       "company": "Hôpital du Valais",
@@ -3897,16 +3897,16 @@
       "companyDomain": "hopitalvs.ch",
       "title": "Diabetesfachberater/in 40%",
       "titleByLocale": {
-        "de": "Diabetesfachberater/in 40%",
         "it": "Consulente specializzato/a in diabetologia 40%",
         "en": "Diabetes specialist advisor 40%",
+        "de": "Diabetesfachberater/in 40%",
         "fr": "Conseiller/ère spécialisé/e en diabétologie 40%"
       },
       "description": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis in der Klinik Innere Medizin eine/n:\n\nDiabetesfachberater/in 40%\n\nIhre Aufgaben:\n• Stationäre und ambulante Beratung, Schulung und Begleitung von Menschen mit unterschiedlichen Diabetesformen\n\n• Interdisziplinäre und Interprofessionelle Zusammenarbeit mit Ärzteschaft, Pflege und weiteren Fachgebieten\n\n• Begleitung von Lernenden und Studierenden für Praxiseinblickstage im Rahmen des Ausbildungskonzepts SZO\n\n• Kontinuierlicher Verbesserungsprozess im Rahmen des Lean Managements\n\n• Mitgestaltung des internen Weiterbildungsangebots\n\n• Gegenseitige Vertretung bei Abwesenheiten\n\nIhr Profil:\n• Diplom HF/FH in Pflege\n\n• Abgeschlossene Weiterbildung in Diabetesfachberatung oder die Bereitschaft diese zu absolvieren\n\n• Sie haben Interesse am Fachgebiet der Diabetologie\n\n• Hohe Fach- und Sozialkompetenz sind für Sie selbstverständlich\n\n• Flexible, selbständige, teamfähige und belastbare Persönlichkeit\n\n• EDV–Anwenderkenntnisse\n\nWir bieten:\n• Interessantes und vielfältiges Aufgabengebiet\n\n• Sorgfältige Einführung in den Aufgabenbereich\n\n• Enge Zusammenarbeit innerhalb der Pflege und der Ärzteschaft\n\n• Selbstständige Arbeitsweise\n\n• Möglichkeit zur Fort- und Weiterbildung\n\n• Attraktive Anstellungsbedingungen",
       "descriptionByLocale": {
-        "de": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis in der Klinik Innere Medizin eine/n:\n\nDiabetesfachberater/in 40%\n\nIhre Aufgaben:\n• Stationäre und ambulante Beratung, Schulung und Begleitung von Menschen mit unterschiedlichen Diabetesformen\n\n• Interdisziplinäre und Interprofessionelle Zusammenarbeit mit Ärzteschaft, Pflege und weiteren Fachgebieten\n\n• Begleitung von Lernenden und Studierenden für Praxiseinblickstage im Rahmen des Ausbildungskonzepts SZO\n\n• Kontinuierlicher Verbesserungsprozess im Rahmen des Lean Managements\n\n• Mitgestaltung des internen Weiterbildungsangebots\n\n• Gegenseitige Vertretung bei Abwesenheiten\n\nIhr Profil:\n• Diplom HF/FH in Pflege\n\n• Abgeschlossene Weiterbildung in Diabetesfachberatung oder die Bereitschaft diese zu absolvieren\n\n• Sie haben Interesse am Fachgebiet der Diabetologie\n\n• Hohe Fach- und Sozialkompetenz sind für Sie selbstverständlich\n\n• Flexible, selbständige, teamfähige und belastbare Persönlichkeit\n\n• EDV–Anwenderkenntnisse\n\nWir bieten:\n• Interessantes und vielfältiges Aufgabengebiet\n\n• Sorgfältige Einführung in den Aufgabenbereich\n\n• Enge Zusammenarbeit innerhalb der Pflege und der Ärzteschaft\n\n• Selbstständige Arbeitsweise\n\n• Möglichkeit zur Fort- und Weiterbildung\n\n• Attraktive Anstellungsbedingungen",
         "it": "L'Ospedale Wallis ne sta cercando uno per il Centro Ospedaliero Oberwallis nella Clinica di Medicina Interna:\n\nConsulente specializzato Diabete/in 40%\n\nI loro compiti:\n• Consulenza paziente e ambulatoriale, formazione e sostegno di persone con diverse forme di diabete\n\n• Cooperazione interdisciplinare e interprofessionale con la professione medica, la cura e altri settori specializzati\n\n• Accompagnare gli studenti e gli studenti per i giorni pratici di comprensione come parte del concetto di formazione SZO\n\n• Processo di miglioramento continuo all'interno della gestione magra\n\n• Co-design dell'offerta di formazione interna\n\n• Rappresentanza reciproca in assenza\n\nIl tuo profilo:\n• Diploma HF/FH in Pflege\n\n• Completato ulteriore formazione nella consulenza specialistica del diabete o la volontà di completarlo\n\n• Sei interessato al campo della diabetologia\n\n• Alta competenza professionale e sociale sono una questione naturalmente per voi\n\n• Personalità flessibile, indipendente, maneggevole e resiliente\n\n• Competenze informatiche\n\nOffriamo:\n• Spazio interessante e diversificato di responsabilità\n\n• Introduzione attenta all'area attività\n\n• Una stretta cooperazione all'interno della professione di infermiera e medica\n\n• Lavoro autonomo\n\n• Opportunità per l'ulteriore istruzione e formazione\n\n• Condizioni di lavoro interessanti",
         "en": "The Wallis Hospital is looking for one for the Oberwallis Hospital Center in the Internal Medicine Clinic:\n\nDiabetes specialist consultant/in 40%\n\nTheir tasks:\n• Inpatient and outpatient counselling, training and support of people with different forms of diabetes\n\n• Interdisciplinary and interprofessional cooperation with the medical profession, nursing and other specialist areas\n\n• Accompanying learners and students for practical insight days as part of the training concept SZO\n\n• Continuous improvement process within Lean Management\n\n• Co-design of the internal training offer\n\n• Mutual representation in absence\n\nYour profile:\n• Diploma HF/FH in Pflege\n\n• Completed further training in diabetes specialist counselling or the willingness to complete it\n\n• You are interested in the field of diabetology\n\n• High professional and social competence are a matter of course for you\n\n• Flexible, independent, team-capable and resilient personality\n\n• Computer skills\n\nWe offer:\n• Interesting and diverse area of responsibility\n\n• Careful introduction to the task area\n\n• Close cooperation within the nursing and medical profession\n\n• Self-employed work\n\n• Opportunity for further education and training\n\n• Attractive employment conditions",
+        "de": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis in der Klinik Innere Medizin eine/n:\n\nDiabetesfachberater/in 40%\n\nIhre Aufgaben:\n• Stationäre und ambulante Beratung, Schulung und Begleitung von Menschen mit unterschiedlichen Diabetesformen\n\n• Interdisziplinäre und Interprofessionelle Zusammenarbeit mit Ärzteschaft, Pflege und weiteren Fachgebieten\n\n• Begleitung von Lernenden und Studierenden für Praxiseinblickstage im Rahmen des Ausbildungskonzepts SZO\n\n• Kontinuierlicher Verbesserungsprozess im Rahmen des Lean Managements\n\n• Mitgestaltung des internen Weiterbildungsangebots\n\n• Gegenseitige Vertretung bei Abwesenheiten\n\nIhr Profil:\n• Diplom HF/FH in Pflege\n\n• Abgeschlossene Weiterbildung in Diabetesfachberatung oder die Bereitschaft diese zu absolvieren\n\n• Sie haben Interesse am Fachgebiet der Diabetologie\n\n• Hohe Fach- und Sozialkompetenz sind für Sie selbstverständlich\n\n• Flexible, selbständige, teamfähige und belastbare Persönlichkeit\n\n• EDV–Anwenderkenntnisse\n\nWir bieten:\n• Interessantes und vielfältiges Aufgabengebiet\n\n• Sorgfältige Einführung in den Aufgabenbereich\n\n• Enge Zusammenarbeit innerhalb der Pflege und der Ärzteschaft\n\n• Selbstständige Arbeitsweise\n\n• Möglichkeit zur Fort- und Weiterbildung\n\n• Attraktive Anstellungsbedingungen",
         "fr": "L'hôpital Wallis en recherche un pour le centre hospitalier Oberwallis de la clinique de médecine interne:\n\nConsultant spécialisé en diabète/en 40%\n\nLeurs tâches:\n• Conseils, formation et soutien aux patients hospitalisés et ambulatoires pour les différentes formes de diabète\n\n• Coopération interdisciplinaire et interprofessionnelle avec la profession médicale, les soins infirmiers et d'autres domaines spécialisés\n\n• Accompagner les apprenants et les étudiants pour des journées de réflexion pratique dans le cadre du concept de formation SZO\n\n• Processus d'amélioration continue au sein de Lean Management\n\n• Co-conception de l'offre de formation interne\n\n• Représentation mutuelle en l ' absence\n\nVotre profil:\n• Diplôme HF/FH à Pflege\n\n• Achevé une formation complémentaire en conseil spécialisé sur le diabète ou la volonté de l'achever\n\n• Vous êtes intéressé par le domaine de la diabétologie\n\n• Une haute compétence professionnelle et sociale est une question bien sûr pour vous\n\n• Personnalité flexible, indépendante, capable d'équipe et résistante\n\n• Compétences informatiques\n\nNous offrons:\n• Domaine de responsabilité intéressant et diversifié\n\n• Introduction attentive à la zone de travail\n\n• Coopération étroite au sein de la profession infirmière et médicale\n\n• Travail indépendant\n\n• Possibilité de poursuivre l'enseignement et la formation\n\n• Conditions d'emploi attrayantes"
       },
       "location": "Visp",
@@ -3927,7 +3927,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/9ef2726697acdb50316bb0b71153af4d/ATSANN0005044/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:27:32.950Z",
+      "crawledAt": "2026-11-18T09:25:33.433Z",
       "_hvsMeta": {
         "number": "ATSANN0005044",
         "sysId": "9ef2726697acdb50316bb0b71153af4d",
@@ -3935,6 +3935,21 @@
         "famille": "Soins",
         "site": "VISP"
       },
+      "previousSlugs": [
+        "diabetesfachberater-in-40-hopital-du-valais-visp"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "diabetesfachberater-in-40-hopital-du-valais-visp"
+        ],
+        "en": [
+          "diabetesfachberater-in-40-hopital-du-valais-visp"
+        ],
+        "fr": [
+          "diabetesfachberater-in-40-hopital-du-valais-visp"
+        ]
+      },
+      "firstSeenAt": "2026-11-17T21:27:32.950Z",
       "salaryMin": 34600,
       "salaryMax": 48200,
       "currency": "CHF",
@@ -3952,23 +3967,8 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:27:32.950Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:27:32.950Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "diabetesfachberater-in-40-hopital-du-valais-visp"
-        ],
-        "en": [
-          "diabetesfachberater-in-40-hopital-du-valais-visp"
-        ],
-        "fr": [
-          "diabetesfachberater-in-40-hopital-du-valais-visp"
-        ]
-      },
-      "previousSlugs": [
-        "diabetesfachberater-in-40-hopital-du-valais-visp"
-      ]
+      "validThrough": "2027-02-15T09:25:33.433Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hopital-du-valais-62c25fe50509",
@@ -4014,7 +4014,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/9e8ded2a97a0df10e7ce346e2153af72/ATSANN0005038/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T21:27:32.535Z",
+      "crawledAt": "2026-11-18T09:25:32.998Z",
       "_hvsMeta": {
         "number": "ATSANN0005038",
         "sysId": "9e8ded2a97a0df10e7ce346e2153af72",
@@ -4054,7 +4054,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:27:32.535Z",
+      "validThrough": "2027-02-15T09:25:32.998Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4101,7 +4101,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/d957e12e97ec9f10e7ce346e2153af3b/ATSANN0005032/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T21:27:32.146Z",
+      "crawledAt": "2026-11-18T09:25:32.598Z",
       "_hvsMeta": {
         "number": "ATSANN0005032",
         "sysId": "d957e12e97ec9f10e7ce346e2153af3b",
@@ -4141,82 +4141,8 @@
       "addressRegion": "VS",
       "streetAddress": "St-maurice",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:27:32.146Z",
+      "validThrough": "2027-02-15T09:25:32.598Z",
       "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "hopital-du-valais-c80ffbc9bcc1",
-      "slug": "stagiaires-mpe-2027-2028-hopital-du-valais-sion",
-      "slugByLocale": {
-        "it": "stagiaires-mpe-2027-2028-hopital-du-valais-sion",
-        "en": "stagiaires-mpe-2027-2028-hopital-du-valais-sion",
-        "de": "stagiaires-mpe-2027-2028-hopital-du-valais-sion",
-        "fr": "stagiaires-mpe-2027-2028-hopital-du-valais-sion"
-      },
-      "company": "Hôpital du Valais",
-      "companyKey": "hopital-du-valais",
-      "companyDomain": "hopitalvs.ch",
-      "title": "Stagiaires MPE 2027-2028",
-      "titleByLocale": {
-        "it": "Interni MPE 2027-2028",
-        "en": "Interns MPE 2027-2028",
-        "de": "Praktikanten MPE 2027-2028",
-        "fr": "Stagiaires MPE 2027-2028"
-      },
-      "description": "Rejoins l’Hôpital du Valais : ton avenir commence ici, dans un environnement dynamique et enrichissant !\n\nL’Hôpital du Valais cherche des\n\nStagiaires MPE 2027-2028\n\nL’Hôpital du Valais t'invite à découvrir des secteurs variés et à développer tes compétences dans un cadre stimulant.\n\nMission:\nL’Hôpital du Valais t'invite à découvrir des secteurs variés et à développer tes compétences dans un cadre stimulant. Voici une multitude de secteurs passionnants :\n\n• Centre de Formation Francophone (Sierre)\n\n• Service des Assurances et Garanties (Sierre)\n\n• Service de Comptabilité – unité facturation HVS (Sion)\n\n• Secrétariat des Expertises médicales (Sierre)\n\n• Service de Facturation Ambulatoire (Sierre)\n\n• Service de Facturation Débiteurs et stationnaire (Sion)\n\n• Secrétariat de la Pharmacie (Sion)\n\n• Service des Ressources Humaines (Sion)\n\n• Service des Salaires (Sion)\n\nProfil:\nEtre inscrit-e auprès d’une école de commerce afin de satisfaire aux conditions d’admission à la maturité professionnelle commerciale.",
-      "descriptionByLocale": {
-        "it": "Unisciti all'Ospedale Vallese: il tuo futuro inizia qui in un ambiente dinamico e gratificante!\n\nL'Ospedale Vallese sta cercando\n\nInterni MPE 2027-2028\n\nL'Ospedale Vallese vi invita a scoprire vari settori e a sviluppare le vostre competenze in un ambiente stimolante.\n\nMissione:\nL'Ospedale Vallese vi invita a scoprire vari settori e a sviluppare le vostre competenze in un ambiente stimolante. Ecco una moltitudine di aree emozionanti:\n\n• Centro di formazione francofono (Sierre)\n\n• Servizio assicurazioni e garanzie (Sierre)\n\n• Servizio di contabilità – Unità di fatturazione HVS (Sion)\n\n• Segreteria di esperti medici (Sierre)\n\n• Servizio di fatturazione ambulatorio (Sierre)\n\n• Conti di servizio di fatturazione creditibili e stazionari (Sion)\n\n• Segreteria di Farmacia (Sion)\n\n• Servizio risorse umane (Sion)\n\n• Servizio di Wage (Sion)\n\nProfilo:\nDa iscriversi a una scuola aziendale per soddisfare le esigenze di ammissione alla maturità professionale commerciale.",
-        "en": "Join the Valais Hospital: your future begins here in a dynamic and rewarding environment!\n\nThe Valais Hospital is looking for\n\nInterns MPE 2027-2028\n\nThe Valais Hospital invites you to discover various sectors and develop your skills in a stimulating environment.\n\nMission:\nThe Valais Hospital invites you to discover various sectors and develop your skills in a stimulating environment. Here are a multitude of exciting areas:\n\n• Francophone Training Centre (Sierre)\n\n• Insurance and Guarantees Service (Sierre)\n\n• Accounting Service – HVS billing unit (Sion)\n\n• Secretariat of Medical Experts (Sierre)\n\n• Ambulatory Billing Service (Sierre)\n\n• Billing Service Accounts receivable and stationary (Sion)\n\n• Pharmacy Secretariat (Sion)\n\n• Human Resources Service (Sion)\n\n• Wage Service (Sion)\n\nProfile:\nTo be registered with a business school in order to meet the requirements for admission to commercial professional maturity.",
-        "de": "Treten Sie dem Walliser Krankenhaus bei: Ihre Zukunft beginnt hier in einer dynamischen und lohnenden Umgebung!\n\nWalliser Krankenhaus sucht\n\nPraktikanten MPE 2027-2028\n\nDas Walliser Krankenhaus lädt Sie ein, verschiedene Sektoren zu entdecken und Ihre Fähigkeiten in einem anregenden Umfeld zu entwickeln.\n\nMission:\nDas Walliser Krankenhaus lädt Sie ein, verschiedene Sektoren zu entdecken und Ihre Fähigkeiten in einem anregenden Umfeld zu entwickeln. Hier sind eine Vielzahl von spannenden Bereichen:\n\n• Französischsprachiges Ausbildungszentrum (Sierre)\n\n• Versicherungs- und Garantieservice (Sierre)\n\n• Accounting Service – HVS Billing Unit (Sion)\n\n• Sekretariat der medizinischen Experten (Sierre)\n\n• Ambulatory Billing Service (Sierre)\n\n• Billing Service Accounts forderungs- und stationär (Sion)\n\n• Apothekensekretariat (Sion)\n\n• Personaldienst (Sion)\n\n• Lohnservice (Sion)\n\nProfil:\nAnzumelden an einer Business School, um die Anforderungen für die Zulassung zur kommerziellen Berufsreife zu erfüllen.",
-        "fr": "Rejoins l’Hôpital du Valais : ton avenir commence ici, dans un environnement dynamique et enrichissant !\n\nL’Hôpital du Valais cherche des\n\nStagiaires MPE 2027-2028\n\nL’Hôpital du Valais t'invite à découvrir des secteurs variés et à développer tes compétences dans un cadre stimulant.\n\nMission:\nL’Hôpital du Valais t'invite à découvrir des secteurs variés et à développer tes compétences dans un cadre stimulant. Voici une multitude de secteurs passionnants :\n\n• Centre de Formation Francophone (Sierre)\n\n• Service des Assurances et Garanties (Sierre)\n\n• Service de Comptabilité – unité facturation HVS (Sion)\n\n• Secrétariat des Expertises médicales (Sierre)\n\n• Service de Facturation Ambulatoire (Sierre)\n\n• Service de Facturation Débiteurs et stationnaire (Sion)\n\n• Secrétariat de la Pharmacie (Sion)\n\n• Service des Ressources Humaines (Sion)\n\n• Service des Salaires (Sion)\n\nProfil:\nEtre inscrit-e auprès d’une école de commerce afin de satisfaire aux conditions d’admission à la maturité professionnelle commerciale."
-      },
-      "location": "Sion",
-      "canton": "VS",
-      "addressLocality": "Sion",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1950",
-      "category": "education",
-      "sector": "Santé / Hôpital",
-      "contract": "full-time",
-      "employmentType": "100%",
-      "featured": false,
-      "datePosted": "2026-10-14",
-      "postedDate": "2026-10-14",
-      "postingDateSource": "reported",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/315bf223c37b8fd8a043be4c05013174/ATSANN0004966/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/315bf223c37b8fd8a043be4c05013174/ATSANN0004966/params/language/fr",
-      "source": "HVS Dedicated Parser (ServiceNow API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-16T21:16:28.598Z",
-      "_hvsMeta": {
-        "number": "ATSANN0004966",
-        "sysId": "315bf223c37b8fd8a043be4c05013174",
-        "societe": "Centre Hospitalier du Valais romand",
-        "famille": "Administratif, Formation",
-        "site": "SION"
-      },
-      "firstSeenAt": "2026-10-14T21:16:11.260Z",
-      "salaryMin": 51000,
-      "salaryMax": 94500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 51000,
-          "maxValue": 94500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "VS",
-      "streetAddress": "Sion",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T21:16:28.598Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
     }
   ]
 }
