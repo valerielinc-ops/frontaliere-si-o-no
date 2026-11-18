@@ -35,6 +35,13 @@ describe('application stage ownership', () => {
     expect(hasApplicationSurface(empty, { pageUrl: manualUrl, postingUrl: manualUrl })).toBe(false);
   });
 
+  it('keeps an empty bound Workday mount pending until route-bound evidence arrives', () => {
+    const applyUrl = 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Zurich/Store-Assistant_R-19033/apply';
+    const empty = { url: applyUrl, fields: [], buttons: [] };
+
+    expect(applicationStage(empty, { applyUrl })).toEqual({ kind: 'unknown_apply' });
+  });
+
   it('does not treat a carried mount marker as fresh proof on a bound manual route', () => {
     const applyUrl = 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Sion/Conseiller-de-Vente--h-f-_R2420/apply';
     const manualUrl = `${applyUrl}/applyManually`;

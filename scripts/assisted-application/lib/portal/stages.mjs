@@ -420,6 +420,13 @@ function invalidPostingKey(value, protocol = null) {
     && !portalJobKey(value, protocol);
 }
 
+/** Shared route evidence for bounded SPA mount waits and stage classification. */
+export function isApplicationRouteBound(url, applyUrl, sourceProtocol = null) {
+  if (invalidPostingKey(url) || invalidPostingKey(applyUrl, sourceProtocol)) return false;
+  if (!isWorkdayTenantUrl(applyUrl)) return true;
+  return isWorkdayJobRouteBound(url, applyUrl);
+}
+
 function boundRoute(value, applyUrl, sourceProtocol = null) {
   const url = parsed(value);
   const expected = parsed(applyUrl);
@@ -552,13 +559,12 @@ export function applicationStage(snapshot, {
   brassRingApplicationEntryProven = false,
   job = {},
 } = {}) {
-  if (invalidPostingKey(url) || invalidPostingKey(applyUrl, sourceProtocol)) return { kind: 'posting_mismatch' };
+  if (!isApplicationRouteBound(url, applyUrl, sourceProtocol)) return { kind: 'posting_mismatch' };
   const text = String(snapshot?.text || '').replace(/\s+/g, ' ');
   if (isWorkdayTenantUrl(applyUrl)) {
     if (isWorkdayTenantAccountRoute(url, applyUrl)) {
       return workdayApplicationEntryProven === true ? { kind: 'account' } : { kind: 'posting_mismatch' };
     }
-    if (!isWorkdayJobRouteBound(url, applyUrl)) return { kind: 'posting_mismatch' };
   }
   const buttons = (snapshot?.buttons || []).filter(button => !button.chrome && !button.disabled);
   const brassRingPrivacyGate = brassRingPrivacyGateControl(snapshot, {
@@ -656,5 +662,10 @@ export function applicationStage(snapshot, {
     && hasApplicationIdentity && (hasCv || hasApplicationQuestion))
     || splitFormApplication || closedSectionApplication;
   if (apply.length && (!applicationForm || pending)) return { kind: 'unknown_apply', prefinal: pending };
+  const hasVisibleStageContent = buttons.length > 0
+    || (snapshot?.fields || []).some(field => !field?.disabled && !field?.chrome);
+  if (!hasVisibleStageContent && snapshot?.workdayApplicationSurface !== true) {
+    return { kind: 'unknown_apply' };
+  }
   return { kind: 'form' };
 }
