@@ -13,6 +13,7 @@ vi.mock('../scripts/lib/stealth-browser.mjs', () => ({
 import { createWorkdaySwissParser } from '../scripts/lib/workday-swiss-job-parser-common.mjs';
 import { fetchAllKsbJobs } from '../scripts/lib/ksb-job-parser.mjs';
 import {
+  createWorkdayRequestContext,
   fetchWorkdayJobDetail,
   fetchWorkdayJsonWithRetry,
   fetchWorkdayJobs,
@@ -236,6 +237,40 @@ describe('Workday JSON transport', () => {
     expect(directFetch).toHaveBeenCalledTimes(3);
     expect(page.evaluate).toHaveBeenCalledOnce();
     expect(browser.close).toHaveBeenCalledOnce();
+  });
+
+  it('serializes tenant requests and carries Retry-After across rate-limited details', async () => {
+    vi.useFakeTimers();
+    vi.stubEnv('JOBS_CRAWLER_RETRIES', '0');
+    const directFetch = vi.fn().mockResolvedValue(
+      new Response('', { status: 429, headers: { 'Retry-After': '5' } }),
+    );
+    vi.stubGlobal('fetch', directFetch);
+    const { page, browser } = browserTransport({
+      jobPostingInfo: { jobDescription: '<p>Recovered detail</p>' },
+    });
+    const context = createWorkdayRequestContext(API_BASE);
+
+    try {
+      const first = await context.request(`${API_BASE}/job/Zurich/Swiss_R1`);
+      expect(first?.jobPostingInfo?.jobDescription).toBe('<p>Recovered detail</p>');
+
+      const second = context.request(`${API_BASE}/job/Zurich/Swiss_R2`);
+      await vi.advanceTimersByTimeAsync(4_999);
+      expect(directFetch).toHaveBeenCalledOnce();
+
+      await vi.advanceTimersByTimeAsync(1);
+      await expect(second).resolves.toEqual({
+        jobPostingInfo: { jobDescription: '<p>Recovered detail</p>' },
+      });
+      expect(directFetch).toHaveBeenCalledTimes(2);
+      expect(page.evaluate).toHaveBeenCalledTimes(2);
+      expect(browser.close).not.toHaveBeenCalled();
+    } finally {
+      await context.close();
+      expect(browser.close).toHaveBeenCalledOnce();
+      vi.useRealTimers();
+    }
   });
 
   it('uses one browser session for two KSB detail requests after rate limiting', async () => {

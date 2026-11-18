@@ -25,6 +25,8 @@ import { sourcePostingDateFields } from '../source-posting-date.mjs';
 import { isSwissLocationText } from '../target-swiss-locations.mjs';
 import {
   fetchWithRetry,
+  MAX_RETRY_AFTER_MS,
+  parseRetryAfterMs,
   RETRYABLE_STATUS,
   isConnectionLevelFetchError,
   isRetryBudgetExhausted as isRetryBudgetExhaustedError,
@@ -290,6 +292,7 @@ async function fetchJsonWithRetry(url, options = {}) {
     retries,
     retryBaseMs,
     browserFallback = null,
+    onTransientFailure,
   } = options;
 
   // Route through the shared transient-fetch retry/backoff. Only TRANSIENT
@@ -366,6 +369,7 @@ async function fetchJsonWithRetry(url, options = {}) {
         // honours the `retryable` flag set above + network/timeout signals).
         isTransient: (err) =>
           !(err instanceof WorkdayAuthError) && isTransientFetchError(err),
+        onTransientFailure,
       },
     );
   } catch (err) {
@@ -406,6 +410,92 @@ async function fetchJsonWithRetry(url, options = {}) {
   }
 }
 
+const DEFAULT_RATE_LIMIT_COOLDOWN_MS = 1_000;
+
+/**
+ * Own the transport for one Workday tenant during a crawler run.
+ *
+ * Workday rate-limits at the tenant/egress boundary, not at an individual
+ * detail URL. A caller that fetches a listing followed by many details must
+ * therefore share both the browser fallback session and the 429 cooldown. The
+ * queue also makes the policy explicit: no second request can start while a
+ * previous request is waiting out the tenant's Retry-After window.
+ *
+ * @param {string} apiBase
+ * @param {{ browserFallback?: Function|null, retryAfterCapMs?: number, fallbackCooldownMs?: number }} [options]
+ * @returns {{ request: (url: string, options?: object) => Promise<any>, close: () => Promise<void> }}
+ */
+export function createWorkdayRequestContext(apiBase, options = {}) {
+  if (!apiBase) throw new TypeError('createWorkdayRequestContext: apiBase is required');
+
+  const {
+    browserFallback: configuredBrowserFallback,
+    retryAfterCapMs = MAX_RETRY_AFTER_MS,
+    fallbackCooldownMs = DEFAULT_RATE_LIMIT_COOLDOWN_MS,
+  } = options;
+  let browserSession = null;
+  let closed = false;
+  let blockedUntil = 0;
+  let queue = Promise.resolve();
+
+  const browserFallback = configuredBrowserFallback === undefined
+    ? async (args) => {
+        browserSession ||= createWorkdayBrowserJsonFallback(apiBase);
+        return browserSession.request(args);
+      }
+    : configuredBrowserFallback;
+
+  const observeRateLimit = (err) => {
+    const status = Number(err?.statusCode ?? err?.status);
+    if (status !== 429) return;
+    const retryAfterMs = parseRetryAfterMs(
+      err?.retryAfter ?? err?.response?.headers?.get?.('retry-after'),
+      { capMs: retryAfterCapMs },
+    );
+    const cooldownMs = retryAfterMs === null
+      ? Math.max(0, Number(fallbackCooldownMs) || 0)
+      : retryAfterMs;
+    blockedUntil = Math.max(blockedUntil, Date.now() + cooldownMs);
+  };
+
+  const waitForRateLimit = async () => {
+    const waitMs = blockedUntil - Date.now();
+    if (waitMs > 0) await new Promise((resolve) => setTimeout(resolve, waitMs));
+  };
+
+  const request = (url, requestOptions = {}) => {
+    if (closed) return Promise.reject(new Error('Workday request context is already closed'));
+
+    const run = async () => {
+      await waitForRateLimit();
+      try {
+        return await fetchJsonWithRetry(url, {
+          ...requestOptions,
+          browserFallback,
+          onTransientFailure: observeRateLimit,
+        });
+      } catch (err) {
+        // Browser fallback errors are outside fetchWithRetry's hook. Preserve a
+        // terminal 429 there too, so the next detail remains behind Retry-After.
+        observeRateLimit(err);
+        throw err;
+      }
+    };
+
+    const pending = queue.then(run, run);
+    queue = pending.catch(() => {});
+    return pending;
+  };
+
+  const close = async () => {
+    closed = true;
+    await queue;
+    await browserSession?.close();
+  };
+
+  return { request, close };
+}
+
 /**
  * Fetch one Workday JSON request with the direct transport first and a lazy
  * same-origin browser transport after the direct retry budget is exhausted.
@@ -418,6 +508,11 @@ async function fetchJsonWithRetry(url, options = {}) {
  * @returns {Promise<any>}
  */
 export async function fetchWorkdayJsonWithRetry(apiBase, url, options = {}) {
+  if (options.requestContext) {
+    const { requestContext, ...requestOptions } = options;
+    return requestContext.request(url, requestOptions);
+  }
+
   const browserSession = options.browserFallback === undefined
     ? createWorkdayBrowserJsonFallback(apiBase)
     : null;

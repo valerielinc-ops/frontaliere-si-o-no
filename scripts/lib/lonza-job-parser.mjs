@@ -13,7 +13,12 @@ import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
-import { fetchWorkdayJsonWithRetry, firstLocationSegment, workdayPostingDateFields } from './ats-clients/workday-client.mjs';
+import {
+  createWorkdayRequestContext,
+  fetchWorkdayJsonWithRetry,
+  firstLocationSegment,
+  workdayPostingDateFields,
+} from './ats-clients/workday-client.mjs';
 import { recoverWorkdayPrimarySwissPlace } from './workday-swiss-job-parser-common.mjs';
 import {
   dropSameSourceReference,
@@ -106,13 +111,19 @@ export function isTrustedDomain(rawUrl = '') {
 /* ── Workday API ───────────────────────────────────────────── */
 
 async function fetchJson(url, options = {}) {
-  const { timeoutMs: configuredTimeoutMs, method = 'GET', body } = options;
+  const {
+    timeoutMs: configuredTimeoutMs,
+    method = 'GET',
+    body,
+    requestContext,
+  } = options;
   const timeoutMs = Number(configuredTimeoutMs) || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
   try {
     return await fetchWorkdayJsonWithRetry(LONZA_API_BASE, url, {
       method,
       body,
       timeoutMs,
+      requestContext,
       userAgent: process.env.JOBS_CRAWLER_USER_AGENT ||
         'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
     });
@@ -122,7 +133,7 @@ async function fetchJson(url, options = {}) {
   }
 }
 
-async function listSwissJobs() {
+async function listSwissJobs(requestContext) {
   const allPostings = [];
   let offset = 0;
   let pages = 0;
@@ -140,6 +151,7 @@ async function listSwissJobs() {
     const data = await fetchJson(`${LONZA_API_BASE}/jobs`, {
       method: 'POST',
       body,
+      requestContext,
     });
 
     if (!data || !Array.isArray(data.jobPostings)) {
@@ -169,8 +181,8 @@ async function listSwissJobs() {
   return allPostings;
 }
 
-async function fetchJobDetail(externalPath) {
-  return fetchJson(`${LONZA_API_BASE}${externalPath}`);
+async function fetchJobDetail(externalPath, requestContext) {
+  return fetchJson(`${LONZA_API_BASE}${externalPath}`, { requestContext });
 }
 
 /* ── Location & canton ─────────────────────────────────────── */
@@ -290,11 +302,13 @@ export const LONZA_FABRICATED_DESCRIPTION_RE =
  * Returns ParsedJob[] with source-locale fields only.
  */
 export async function fetchAllLonzaJobs() {
-  console.log(`🔍 Fetching Lonza jobs from Workday API`);
-  console.log(`   API: ${LONZA_API_BASE}/jobs`);
-  console.log(`   Filter: Switzerland (all Swiss locations)\n`);
+  const requestContext = createWorkdayRequestContext(LONZA_API_BASE);
+  try {
+    console.log(`🔍 Fetching Lonza jobs from Workday API`);
+    console.log(`   API: ${LONZA_API_BASE}/jobs`);
+    console.log(`   Filter: Switzerland (all Swiss locations)\n`);
 
-  const listings = await listSwissJobs();
+  const listings = await listSwissJobs(requestContext);
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No Swiss job listings returned from Workday API.');
     return [];
@@ -311,7 +325,7 @@ export async function fetchAllLonzaJobs() {
     if (!externalPath) continue;
 
     console.log(`  📄 Fetching detail: ${listing.title}`);
-    const detail = await fetchJobDetail(externalPath);
+    const detail = await fetchJobDetail(externalPath, requestContext);
 
     const info = detail?.jobPostingInfo || {};
     const title = normalizeSpace(info.title || listing.title || '');
@@ -456,7 +470,10 @@ export async function fetchAllLonzaJobs() {
  }
 
  console.log(`\n📋 Total unique Lonza jobs discovered: ${unique.length}`);
- return unique;
+  return unique;
+  } finally {
+    await requestContext.close();
+  }
 }
 
 export const __internals = {
