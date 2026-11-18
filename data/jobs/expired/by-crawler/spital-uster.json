@@ -6919,6 +6919,13 @@
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-09-23T23:41:55.379Z",
+    "previousSlugs": [
+      "mitarbeiterin-mitarbeiter-restaurant-70-spital-uster-ch",
+      "mitarbeiterin-collaboratore-trice-restaurant-70-spital-uster",
+      "mitarbeiterin-collaboratore-trice-restaurant-70-spital-uster-982c5e7e",
+      "employee-employee-restaurant-70-spital-uster-uster",
+      "restaurant-pour-employes-employes-70-spital-uster-uster"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "mitarbeiterin-mitarbeiter-restaurant-70-spital-uster-ch-1db16192",
@@ -6947,14 +6954,7 @@
     "salaryMin": 51100,
     "salaryMax": 64000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "previousSlugs": [
-      "mitarbeiterin-mitarbeiter-restaurant-70-spital-uster-ch",
-      "mitarbeiterin-collaboratore-trice-restaurant-70-spital-uster",
-      "mitarbeiterin-collaboratore-trice-restaurant-70-spital-uster-982c5e7e",
-      "employee-employee-restaurant-70-spital-uster-uster",
-      "restaurant-pour-employes-employes-70-spital-uster-uster"
-    ]
+    "salaryPeriod": "YEAR"
   },
   {
     "slug": "responsabile-di-progetto-betriebe-80-100-gebaudetechnik-bauprojekte-spital-uster",

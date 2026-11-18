@@ -23967,6 +23967,11 @@
     },
     "sector": "",
     "expiredAt": "2026-09-10T23:26:15.370Z",
+    "previousSlugs": [
+      "quereinstieg-lokfuhrer-in-rangier-ffs-officine-ferrovie-federali-romanshorn",
+      "cross-entry-locomotive-engineer-ffs-officine-ferrovie-federali-romanshorn",
+      "acces-transversal-conducteur-de-locomotive-a-man-uvre-ffs-officine-ferrovie-federali-romanshorn"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "quereinstieg-lokfuhrer-in-rangier-ffs-officine-ferrovie-federali-romanshorn-ddb021c5",
@@ -23987,12 +23992,7 @@
     "salaryMin": 60000,
     "salaryMax": 102000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "previousSlugs": [
-      "quereinstieg-lokfuhrer-in-rangier-ffs-officine-ferrovie-federali-romanshorn",
-      "cross-entry-locomotive-engineer-ffs-officine-ferrovie-federali-romanshorn",
-      "acces-transversal-conducteur-de-locomotive-a-man-uvre-ffs-officine-ferrovie-federali-romanshorn"
-    ]
+    "salaryPeriod": "YEAR"
   },
   {
     "slug": "facility-manager-siti-produttivi-m-f-d-ffs-officine-ferrovie-federali-olten",
@@ -25746,6 +25746,10 @@
     },
     "sector": "",
     "expiredAt": "2026-08-31T22:42:44.731Z",
+    "previousSlugs": [
+      "policier-policiere-aupres-de-la-police-des-transports-cff-tpo-ffs-officine-ferrovie-federali-fribourg",
+      "police-officer-police-officer-with-the-sbb-transport-police-tpo-ffs-officine-ferrovie-federali-fribourg"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "policier-policiere-aupres-de-la-police-des-transports-cff-tpo-ffs-officine-ferrovie-federali-fribourg-260597cb",
@@ -25765,11 +25769,7 @@
     "salaryMin": 73000,
     "salaryMax": 124500,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "previousSlugs": [
-      "policier-policiere-aupres-de-la-police-des-transports-cff-tpo-ffs-officine-ferrovie-federali-fribourg",
-      "police-officer-police-officer-with-the-sbb-transport-police-tpo-ffs-officine-ferrovie-federali-fribourg"
-    ]
+    "salaryPeriod": "YEAR"
   },
   {
     "slug": "poliziotto-polizia-presso-la-polizia-dei-trasporti-ffs-tpo-ffs-officine-ferrovie-federali-geneve",
@@ -25798,6 +25798,10 @@
     },
     "sector": "",
     "expiredAt": "2026-08-31T22:42:44.731Z",
+    "previousSlugs": [
+      "policier-policiere-aupres-de-la-police-des-transports-cff-tpo-ffs-officine-ferrovie-federali-geneve",
+      "police-officer-police-officer-with-the-sbb-transport-police-tpo-ffs-officine-ferrovie-federali-geneve"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "policier-policiere-aupres-de-la-police-des-transports-cff-tpo-ffs-officine-ferrovie-federali-geneve-0363aa20",
@@ -25817,11 +25821,7 @@
     "salaryMin": 63000,
     "salaryMax": 107500,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "previousSlugs": [
-      "policier-policiere-aupres-de-la-police-des-transports-cff-tpo-ffs-officine-ferrovie-federali-geneve",
-      "police-officer-police-officer-with-the-sbb-transport-police-tpo-ffs-officine-ferrovie-federali-geneve"
-    ]
+    "salaryPeriod": "YEAR"
   },
   {
     "slug": "poliziotto-polizia-presso-la-polizia-dei-trasporti-ffs-tpo-ffs-officine-ferrovie-federali-lausanne",
@@ -25850,6 +25850,10 @@
     },
     "sector": "",
     "expiredAt": "2026-08-31T22:42:44.731Z",
+    "previousSlugs": [
+      "policier-policiere-aupres-de-la-police-des-transports-cff-tpo-ffs-officine-ferrovie-federali-lausanne",
+      "police-officer-police-officer-with-the-sbb-transport-police-tpo-ffs-officine-ferrovie-federali-lausanne"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "policier-policiere-aupres-de-la-police-des-transports-cff-tpo-ffs-officine-ferrovie-federali-lausanne-94706390",
@@ -25869,11 +25873,7 @@
     "salaryMin": 63000,
     "salaryMax": 107500,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "previousSlugs": [
-      "policier-policiere-aupres-de-la-police-des-transports-cff-tpo-ffs-officine-ferrovie-federali-lausanne",
-      "police-officer-police-officer-with-the-sbb-transport-police-tpo-ffs-officine-ferrovie-federali-lausanne"
-    ]
+    "salaryPeriod": "YEAR"
   },
   {
     "slug": "project-manager-sistemi-tecnici-sistemi-elettrici-50hz-ffs-officine-ferrovie-federali-zurich-altstetten",

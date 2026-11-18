@@ -66,7 +66,6 @@
         ]
       },
       "firstSeenAt": "2026-11-13T21:41:38.033Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -671,7 +670,7 @@
       "id": "komax-83b97218b154",
       "slug": "global-supply-chain-logistica-manager-80-100-m-w-d-komax-dierikon",
       "slugByLocale": {
-        "en": "global-supply-chain-logistics-manager-80-100-m-w-d-komax-ch",
+        "en": "global-supply-chain-logistics-manager-80-100-m-w-d-komax-ch-lb62an",
         "it": "global-supply-chain-logistica-manager-80-100-m-w-d-komax-dierikon",
         "de": "global-lieferkette-logistik-manager-80-100-m-w-d-komax-dierikon",
         "fr": "global-chaine-d-approvisionnement-logistique-manager-80-100-m-w-d-komax-dierikon"
@@ -719,9 +718,11 @@
       "jobReqId": "1165813155",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "global-supply-chain-logistics-manager-80-100-m-w-d-komax-ch"
+        ],
+        "en": [
           "global-supply-chain-logistics-manager-80-100-m-w-d-komax-ch"
         ]
       },

@@ -152,7 +152,8 @@
       "streetAddress": "Ticino",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:29:51.249Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-c906e6924aa7",
@@ -1429,7 +1430,8 @@
       "streetAddress": "Ticino",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:29:52.407Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-3bbd9c0b3214",
@@ -2265,7 +2267,8 @@
       "streetAddress": "Ticino",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:29:53.235Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-beb64dd74712",
@@ -2331,7 +2334,8 @@
       "streetAddress": "Ticino",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:29:53.302Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-c511144680b8",
@@ -2648,7 +2652,8 @@
       "streetAddress": "Ticino",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:29:53.590Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-6c1791ffd119",
@@ -2725,7 +2730,8 @@
       "streetAddress": "Ticino",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:29:53.631Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-6578bd3d0123",
@@ -2850,7 +2856,6 @@
       "url": "https://careers.sbb.ch/job/Bern-Projektleiterin-Fachspezialistin-Programm-BZU%2B-%28Umsetzung-BehiG%29-Bern/1411699233",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T21:29:53.806Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-fachspezialist-in-programm-bzu-umsetzung-behig-ffs-officine-ferrovie-federali-ticino"
@@ -3250,7 +3255,6 @@
       "url": "https://careers.sbb.ch/job/Bern-Sp%C3%A9cialiste-Chef-de-projet-dans-le-cadre-du-programme-BZU%2B-%28mise-en-%C5%93uvre-de-la-LHand%29-%28hfd%29-Bern/1411699133",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T21:29:54.160Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -3520,7 +3524,7 @@
       "slugByLocale": {
         "it": "fachtechniker-in-industrie-ffs-officine-ferrovie-federali-ticino-42912bcc50",
         "en": "industrial-technician-ffs-officine-ferrovie-federali-ticino",
-        "de": "fachtechniker-in-industrie-ffs-officine-ferrovie-federali-ticino",
+        "de": "fachtechniker-in-industrie-ffs-officine-ferrovie-federali-ticino-7rhsow",
         "fr": "technicien-ne-specialise-e-en-industrie-ffs-officine-ferrovie-federali-ticino"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -3569,6 +3573,9 @@
         ],
         "fr": [
           "fachtechniker-in-industrie-ffs-officine-ferrovie-federali-ticino"
+        ],
+        "de": [
+          "fachtechniker-in-industrie-ffs-officine-ferrovie-federali-ticino"
         ]
       },
       "firstSeenAt": "2026-11-17T08:20:30.738Z",
@@ -3600,7 +3607,7 @@
       "slugByLocale": {
         "it": "fachtechniker-in-industrie-ffs-officine-ferrovie-federali-ticino-fe229ff73c",
         "en": "industrial-technician-ffs-officine-ferrovie-federali-ticino-ba1c2c",
-        "de": "fachtechniker-in-industrie-ffs-officine-ferrovie-federali-ticino",
+        "de": "fachtechniker-in-industrie-ffs-officine-ferrovie-federali-ticino-5uqsi3",
         "fr": "technicien-ne-specialise-e-en-industrie-ffs-officine-ferrovie-federali-ticino-ba1c2c"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -3648,6 +3655,9 @@
           "fachtechniker-in-industrie-ffs-officine-ferrovie-federali-ticino"
         ],
         "fr": [
+          "fachtechniker-in-industrie-ffs-officine-ferrovie-federali-ticino"
+        ],
+        "de": [
           "fachtechniker-in-industrie-ffs-officine-ferrovie-federali-ticino"
         ]
       },
@@ -3722,7 +3732,6 @@
       "url": "https://careers.sbb.ch/job/BielBienne-Fachtechnikerin-Industrie/1458016733",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T21:29:54.689Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -5799,7 +5808,6 @@
       "url": "https://careers.sbb.ch/job/Langenthal-Quereinstieg-Lokf%C3%BChrerin-Bauzug-mit-handwerklicher-Erfahrung/1457950033",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T21:30:16.573Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -8113,7 +8121,6 @@
       "url": "https://careers.sbb.ch/job/Olten-Quereinstieg-Lokf%C3%BChrerin-Bauzug-mit-handwerklicher-Erfahrung-Olte/1369536633",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T21:30:23.196Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -9862,7 +9869,6 @@
       "url": "https://careers.sbb.ch/job/Renens-Responsabile-del-team-2nd-Level-Impianti-di-sicurezza-Regioni-OvestSud/1457969033",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T21:30:37.407Z",
-      "needsRetranslation": true,
       "salaryMin": 79500,
       "salaryMax": 135000,
       "salarySource": "estimated",
@@ -10005,7 +10011,6 @@
       "url": "https://careers.sbb.ch/job/Renens-Teamleiterin-2nd-Level-Sicherungsanlagen-Region-WestS%C3%BCd/1457969233",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T21:30:37.597Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -10399,7 +10404,6 @@
       "url": "https://careers.sbb.ch/job/Solothurn-Mechanikerin-f%C3%BCr-Triebz%C3%BCge/1457963233",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T21:30:38.174Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "mechaniker-in-fur-triebzuge-ffs-officine-ferrovie-federali-ticino"
@@ -11786,7 +11790,8 @@
       "streetAddress": "Elektrofachpersonal in der Welt der technischen Bahnberufe",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:30:40.723Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-148b00592405",
@@ -11866,7 +11871,8 @@
       "streetAddress": "Netzelektriker:in im Bereich Bahnstrom",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:30:40.738Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-cca567b12324",
@@ -12797,7 +12803,6 @@
       "url": "https://careers.sbb.ch/job/Z%C3%BCrich-Reinigerin/1458032233",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T21:30:43.655Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -14774,7 +14779,8 @@
       },
       "previousSlugs": [
         "responsabile-sicurezza-qualita-e-ambiente-sqa-regione-centro-infrastruttura-ffs-officine-ferrovie-federali-infrastruttura"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "sbb-46f3e22bf526",

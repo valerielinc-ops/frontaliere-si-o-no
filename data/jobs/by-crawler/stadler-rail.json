@@ -79,7 +79,7 @@
       "id": "stadler-rail-941f89bf3339",
       "slug": "movetoprod-project-manager-mobilization-stadler-rail-ch-2",
       "slugByLocale": {
-        "en": "movetoprod-project-manager-mobilization-stadler-rail-ch",
+        "en": "movetoprod-project-manager-mobilization-stadler-rail-ch-dvze63",
         "it": "movetoprod-project-manager-mobilization-stadler-rail-ch-2",
         "de": "movetoprod-project-manager-mobilization-stadler-rail-ch-2",
         "fr": "movetoprod-project-manager-mobilization-stadler-rail-ch-2"
@@ -144,7 +144,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-17T22:26:42.432Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T22:26:42.432Z"
+      "firstSeenAt": "2026-11-17T22:26:42.432Z",
+      "previousSlugs": [
+        "movetoprod-project-manager-mobilization-stadler-rail-ch"
+      ],
+      "previousSlugsByLocale": {
+        "en": [
+          "movetoprod-project-manager-mobilization-stadler-rail-ch"
+        ]
+      }
     },
     {
       "id": "stadler-rail-b48947a9bac1",
@@ -10165,7 +10173,6 @@
         "ingenieur-cloud-azure-stadler-rail-bussnang",
         "cloud-engineer-microsoft-teams-collaboration-stadler-rail-ch"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T07:53:16.910Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -14134,7 +14141,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",

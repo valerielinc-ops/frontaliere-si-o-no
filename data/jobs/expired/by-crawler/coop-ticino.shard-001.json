@@ -622,6 +622,12 @@
     },
     "sector": "",
     "expiredAt": "2026-11-17T21:51:36.808Z",
+    "previousSlugs": [
+      "controllore-di-qualita-frutta-e-verdura-m-w-d-40-coop-novazzano-xhyru5",
+      "m-f-d-fruit-and-vegetable-quality-controller-40-coop-genossenschaft-novazzano-88b05e",
+      "m-w-d-obst-und-gemuse-qualitatskontrolleur-40-coop-genossenschaft-novazzano-88b05e",
+      "controle-qualite-des-fruits-et-legumes-h-f-d-40-coop-genossenschaft-novazzano-88b05e"
+    ],
     "previousSlugsByLocale": {
       "en": [
         "controllore-di-qualita-frutta-e-verdura-m-w-d-40-coop-novazzano-xhyru5-983cc22a",
@@ -649,13 +655,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.coopjobs.ch/posti-vacanti/controllore-di-qualita-frutta-e-verdura-f-m-d/db9b3a97-f3e4-47d7-a206-806eb60221c7",
-    "firstSeenAt": "2026-11-14T09:31:32.707Z",
-    "previousSlugs": [
-      "controllore-di-qualita-frutta-e-verdura-m-w-d-40-coop-novazzano-xhyru5",
-      "m-f-d-fruit-and-vegetable-quality-controller-40-coop-genossenschaft-novazzano-88b05e",
-      "m-w-d-obst-und-gemuse-qualitatskontrolleur-40-coop-genossenschaft-novazzano-88b05e",
-      "controle-qualite-des-fruits-et-legumes-h-f-d-40-coop-genossenschaft-novazzano-88b05e"
-    ]
+    "firstSeenAt": "2026-11-14T09:31:32.707Z"
   },
   {
     "slug": "cuoca-cuoco-90-m-f-d-coop-genossenschaft-martigny-e6bb81-dbd0cc5d",
@@ -3787,7 +3787,8 @@
       "verkaufer-in-kassen-services-coop-zurich-6",
       "verkaufer-in-kassen-services-coop-zurich-7",
       "verkaufer-in-kassen-services-coop-zurich-8",
-      "verkaufer-in-kassen-services-coop-zurich-10"
+      "verkaufer-in-kassen-services-coop-zurich-10",
+      "verkaufer-in-kassen-services-coop-zurich"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -4750,7 +4751,8 @@
       "picker-packer-e-shop-20-coop-genossenschaft-langenthal-a812a1",
       "kommissionierer-in-verpacker-in-e-shop-20-coop-langenthal-y1nkjr",
       "kommissionierer-in-verpacker-in-e-shop-20-coop-genossenschaft-langenthal",
-      "picker-packer-e-shop-20-coop-genossenschaft-langenthal"
+      "picker-packer-e-shop-20-coop-genossenschaft-langenthal",
+      "kommissionierer-in-verpacker-in-e-shop-20-coop-langenthal-2"
     ],
     "previousSlugsByLocale": {
       "it": [
