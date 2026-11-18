@@ -292,21 +292,26 @@
     },
     "sector": "Facility Management / Impiantistica",
     "expiredAt": "2026-11-16T09:21:28.014Z",
-    "previousSlugs": [
-      "tecnico-a-di-servizio-luftung-equans-switzerland-bern",
-      "servicetechniker-in-luftung-equans-bern"
-    ],
     "previousSlugsByLocale": {
       "it": [
         "servicetechniker-in-luftung-equans-bern-a24c3147",
+        "tecnico-a-di-servizio-luftung-equans-switzerland-bern-ae0eb1e9",
         "tecnico-a-di-servizio-luftung-equans-switzerland-bern",
         "servicetechniker-in-luftung-equans-bern"
       ],
       "en": [
+        "servicetechniker-in-luftung-equans-bern-a24c3147",
+        "tecnico-a-di-servizio-luftung-equans-switzerland-bern",
         "servicetechniker-in-luftung-equans-bern"
       ],
       "fr": [
+        "servicetechniker-in-luftung-equans-bern-a24c3147",
+        "tecnico-a-di-servizio-luftung-equans-switzerland-bern",
         "servicetechniker-in-luftung-equans-bern"
+      ],
+      "de": [
+        "tecnico-a-di-servizio-luftung-equans-switzerland-bern",
+        "servicetechniker-in-luftung-equans-bern-a24c3147"
       ]
     },
     "postalCode": "3004",
@@ -316,7 +321,12 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/c21e59e0-5e4e-4b7a-bbe2-4ab803e93e75",
-    "firstSeenAt": "2026-07-04T10:41:47.817Z"
+    "firstSeenAt": "2026-07-04T10:41:47.817Z",
+    "previousSlugs": [
+      "tecnico-a-di-servizio-luftung-equans-switzerland-bern",
+      "servicetechniker-in-luftung-equans-bern",
+      "tecnico-a-di-servizio-luftung-equans-switzerland-bern-ae0eb1e9"
+    ]
   },
   {
     "slug": "pulizia-leader-di-squadra-equans-switzerland-baden-02392b0ccf",
@@ -567,9 +577,9 @@
         "caretaker-equans-switzerland-rapperswil-jona-ef7c34dd",
         "hauswart-in-equans-rapperswil-jona-4c6236ec",
         "caretaker-equans-switzerland-rapperswil-jona-fe610594",
+        "caretaker-equans-switzerland-rapperswil-jona-48c5af28",
         "hauswart-in-equans-rapperswil-jona",
-        "caretaker-equans-switzerland-rapperswil-jona",
-        "caretaker-equans-switzerland-rapperswil-jona-48c5af28"
+        "caretaker-equans-switzerland-rapperswil-jona"
       ],
       "fr": [
         "hauswart-in-equans-rapperswil-jona-18b06a89",
@@ -602,8 +612,8 @@
         "hauswart-in-equans-rapperswil-jona-04fcf9bb",
         "hauswart-in-equans-rapperswil-jona-a99c469d",
         "hauswart-in-equans-rapperswil-jona-4c6236ec",
-        "hauswart-in-equans-rapperswil-jona",
-        "hauswart-in-equans-rapperswil-jona-18b06a89"
+        "hauswart-in-equans-rapperswil-jona-18b06a89",
+        "hauswart-in-equans-rapperswil-jona"
       ]
     },
     "postalCode": "8640",
@@ -1192,9 +1202,9 @@
         "ventilation-service-technician-equans-switzerland-winterthur-20e8f92a",
         "servicetechniker-in-luftung-equans-winterthur-b23e0739",
         "ventilation-service-technician-equans-switzerland-winterthur-e123f42b",
+        "ventilation-service-technician-equans-switzerland-winterthur-7d5e7c34",
         "servicetechniker-in-luftung-equans-winterthur",
-        "ventilation-service-technician-equans-switzerland-winterthur",
-        "ventilation-service-technician-equans-switzerland-winterthur-7d5e7c34"
+        "ventilation-service-technician-equans-switzerland-winterthur"
       ],
       "fr": [
         "servicetechniker-in-luftung-equans-winterthur-b7e0b8b9",
@@ -1235,9 +1245,9 @@
         "technicien-ne-de-service-en-ventilation-equans-switzerland-winterthur-c202fc0b",
         "servicetechniker-in-luftung-equans-winterthur-b23e0739",
         "technicien-ne-de-service-en-ventilation-equans-switzerland-winterthur-3811e13e",
+        "technicien-ne-de-service-en-ventilation-equans-switzerland-winterthur-d0144740",
         "servicetechniker-in-luftung-equans-winterthur",
-        "technicien-ne-de-service-en-ventilation-equans-switzerland-winterthur",
-        "technicien-ne-de-service-en-ventilation-equans-switzerland-winterthur-d0144740"
+        "technicien-ne-de-service-en-ventilation-equans-switzerland-winterthur"
       ],
       "de": [
         "servicetechniker-in-luftung-equans-switzerland-winterthur",
@@ -1261,8 +1271,8 @@
         "servicetechniker-in-luftung-equans-winterthur-1df27736",
         "servicetechniker-in-luftung-equans-winterthur-6a71f807",
         "servicetechniker-in-luftung-equans-winterthur-b23e0739",
-        "servicetechniker-in-luftung-equans-winterthur",
-        "servicetechniker-in-luftung-equans-winterthur-b7e0b8b9"
+        "servicetechniker-in-luftung-equans-winterthur-b7e0b8b9",
+        "servicetechniker-in-luftung-equans-winterthur"
       ]
     },
     "postalCode": "8400",
@@ -2455,9 +2465,9 @@
         "emsr-ingenieur-equans-switzerland-olten-21f4b2d4",
         "emsr-engineer-equans-olten-7be2a6c5",
         "emsr-ingenieur-equans-switzerland-olten-9f598363",
+        "emsr-ingenieur-equans-switzerland-olten-5504142e",
         "emsr-engineer-equans-olten",
-        "emsr-ingenieur-equans-switzerland-olten",
-        "emsr-ingenieur-equans-switzerland-olten-5504142e"
+        "emsr-ingenieur-equans-switzerland-olten"
       ],
       "de": [
         "emsr-engineer-equans-olten-947b0645",
@@ -2925,21 +2935,26 @@
     },
     "sector": "Facility Management / Impiantistica",
     "expiredAt": "2026-11-01T09:16:17.731Z",
-    "previousSlugs": [
-      "sanitarinstallateur-in-equans-switzerland-bern",
-      "sanitarinstallateur-in-equans-bern"
-    ],
     "previousSlugsByLocale": {
       "it": [
         "sanitarinstallateur-in-equans-bern-d9c1e2b8",
+        "sanitarinstallateur-in-equans-switzerland-bern-aca25f00",
         "sanitarinstallateur-in-equans-switzerland-bern",
         "sanitarinstallateur-in-equans-bern"
       ],
       "en": [
+        "sanitarinstallateur-in-equans-bern-d9c1e2b8",
+        "sanitarinstallateur-in-equans-switzerland-bern-aca25f00",
         "sanitarinstallateur-in-equans-bern"
       ],
       "fr": [
+        "sanitarinstallateur-in-equans-bern-d9c1e2b8",
+        "sanitarinstallateur-in-equans-switzerland-bern-aca25f00",
         "sanitarinstallateur-in-equans-bern"
+      ],
+      "de": [
+        "sanitarinstallateur-in-equans-switzerland-bern",
+        "sanitarinstallateur-in-equans-bern-d9c1e2b8"
       ]
     },
     "postalCode": "3004",
@@ -2949,7 +2964,12 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/97db8ea9-d695-439c-bf67-74591d561fc6",
-    "firstSeenAt": "2026-10-03T09:11:24.028Z"
+    "firstSeenAt": "2026-10-03T09:11:24.028Z",
+    "previousSlugs": [
+      "sanitarinstallateur-in-equans-switzerland-bern",
+      "sanitarinstallateur-in-equans-bern",
+      "sanitarinstallateur-in-equans-switzerland-bern-aca25f00"
+    ]
   },
   {
     "slug": "professionista-polivalente-equans-switzerland-zug",
@@ -3051,8 +3071,8 @@
         "all-rounder-equans-switzerland-zug-7ee6756d",
         "all-rounder-equans-switzerland-zug-ea50ecaf",
         "all-rounder-equans-switzerland-zug-5f840b0e",
-        "all-rounder-equans-switzerland-zug",
-        "all-rounder-equans-switzerland-zug-8b8d3cbc"
+        "all-rounder-equans-switzerland-zug-8b8d3cbc",
+        "all-rounder-equans-switzerland-zug"
       ],
       "de": [
         "allrounder-in-equans-zug-156a6e3d",
@@ -3086,8 +3106,8 @@
         "allrounder-in-equans-zug-8259a277",
         "allrounder-in-equans-zug-b613f7d0",
         "allrounder-in-equans-zug-89e4d11a",
-        "allrounder-in-equans-zug",
-        "allrounder-in-equans-zug-f853cf8a"
+        "allrounder-in-equans-zug-f853cf8a",
+        "allrounder-in-equans-zug"
       ],
       "fr": [
         "allrounder-in-equans-zug-f853cf8a",
@@ -3123,8 +3143,8 @@
         "polyvalent-e-equans-switzerland-zug-1b381e05",
         "polyvalent-e-equans-switzerland-zug-4b5965b4",
         "polyvalent-e-equans-switzerland-zug-e39c34c8",
-        "polyvalent-e-equans-switzerland-zug",
-        "polyvalent-e-equans-switzerland-zug-8169ff10"
+        "polyvalent-e-equans-switzerland-zug-8169ff10",
+        "polyvalent-e-equans-switzerland-zug"
       ]
     },
     "postalCode": "6300",
@@ -5809,9 +5829,9 @@
         "technique-equans-switzerland-zurich-ec289ad7",
         "technische-r-hauswart-in-equans-zurich-2-757ee9e5",
         "technique-equans-switzerland-zurich-4f08fcc7",
+        "technique-equans-switzerland-zurich-bb54e4cc",
         "technische-r-hauswart-in-equans-zurich-2",
-        "technique-equans-switzerland-zurich",
-        "technique-equans-switzerland-zurich-bb54e4cc"
+        "technique-equans-switzerland-zurich"
       ],
       "en": [
         "technische-r-hauswart-in-equans-zurich-2-ad20be52",
@@ -7004,8 +7024,8 @@
         "construction-manager-electrical-installer-m-f-d-equans-switzerland-bern-a2c1fd28",
         "construction-manager-electrical-installer-m-f-d-equans-switzerland-bern-273ce9bc",
         "construction-manager-electrical-installer-m-f-d-equans-switzerland-bern-5c61cf67",
-        "construction-manager-electrical-installer-m-f-d-equans-switzerland-bern",
-        "construction-manager-electrical-installer-m-f-d-equans-switzerland-bern-293888c5"
+        "construction-manager-electrical-installer-m-f-d-equans-switzerland-bern-293888c5",
+        "construction-manager-electrical-installer-m-f-d-equans-switzerland-bern"
       ],
       "fr": [
         "gestionnaire-de-construction-installateur-electrique-h-f-d-equans-switzerland-bern-481b6273",
@@ -7131,8 +7151,8 @@
         "gestionnaire-de-construction-installateur-electrique-h-f-d-equans-switzerland-bern-7efe93c1",
         "gestionnaire-de-construction-installateur-electrique-h-f-d-equans-switzerland-bern-6db60b96",
         "gestionnaire-de-construction-installateur-electrique-h-f-d-equans-switzerland-bern-4097b55a",
-        "gestionnaire-de-construction-installateur-electrique-h-f-d-equans-switzerland-bern",
-        "gestionnaire-de-construction-installateur-electrique-h-f-d-equans-switzerland-bern-99503b3f"
+        "gestionnaire-de-construction-installateur-electrique-h-f-d-equans-switzerland-bern-99503b3f",
+        "gestionnaire-de-construction-installateur-electrique-h-f-d-equans-switzerland-bern"
       ],
       "de": [
         "construction-manager-electrical-installer-m-f-d-equans-switzerland-bern",
@@ -8939,7 +8959,7 @@
     "firstSeenAt": "2026-08-27T19:57:22.153Z"
   },
   {
-    "slug": "tecnico-a-di-servizio-klima-kalte-equans-switzerland-bern",
+    "slug": "tecnico-a-di-servizio-klima-kalte-equans-switzerland-bern-6a119c7b",
     "title": "Servicetechniker/in Klima-Kälte",
     "titleByLocale": {
       "it": "Tecnico/a di Servizio Clima-Refrigerazione",
@@ -8958,7 +8978,7 @@
       "fr": "Afin de renforcer notre équipe sur le site de Berne, nous recherchons un technicien de service immédiatement ou par accord.\n\n## Tu peux bouger ça avec nous.\n• Services d'entretien de la climatisation\n• Maintien de la clientèle\n• Recevoir et assurer un dépannage sans heurts avec nos clients\n• Coordination et communication au sein de l'équipe\n• Identifier et faire avancer les propositions d'optimisation pour les usines\n• Service Pictet à intervalles prédéfinis\n\n## C'est ce qui te fait.\n• Achevé la formation de base en tant qu'installateur de systèmes de réfrigération avec une expérience dans le domaine de la réfrigération climatique\n• Plusieurs années d'expérience professionnelle comme technicien de service sont avantageuses\n• Profitez de l'activité de service et du travail indépendant\n• Très hautes compétences sociales et orientation client\n• Personnalité fiable et responsable avec une apparence soignée\n• Style-confident connaissance de l'allemand dans la parole et l'écriture et permis de conduire Cat. B est obligatoire\n\n## C'est ce qu'on vous offre.\n• Domaine d'activité polyvalent avec beaucoup de responsabilité personnelle\n• Une équipe expérimentée et établie, un environnement animé et stimulant\n• Prestations sociales attrayantes avec une somme forfaitaire de Pikett supérieure à la moyenne\n• Voitures d'entreprise à usage privé\n• Possibilités de formation internes et externes\n• Label Friendly Work Space décerné\n• Une ambiance de travail familiale, un équipement de travail moderne et des possibilités de carrière au sein d'une grande entreprise\nEquans Suisse AG\nLieu de travail: Berne\nPensum: 100%\nType d'emploi: emploi permanent\nFonction: Personnel\n\n## Equans Suisse. Façonner l'avenir ensemble.\nEn tant que premier fournisseur de services complets pour les solutions de construction et d'énergie holistiques en Suisse, nous menons la transformation et la numérisation de nos clients et travaillons ensemble sur la transition énergétique. En plus de la technologie du bâtiment, de l'automatisation du bâtiment et de la gestion des installations, notre offre comprend également des disciplines spéciales telles que l'approvisionnement en énergie, les technologies de transport, les télécommunications et l'optimisation énergétique. Avec environ 6 000 employés, nous sommes présents dans plus de 100 endroits en Suisse. Cela nous permet de réaliser des projets régionaux aussi efficacement que des solutions nationales. Chaque jour, nous mettons en œuvre notre promesse : « Réel quelque chose bouge ».\nNos avantages\n\n## Diversité des tâches\nUn emploi varié dans une entreprise familiale internationale établie. Nous offrons une variété d'activités dans tous les métiers et vous donnons la possibilité de développer vos compétences personnelles et professionnelles.\n\n## Éducation et formation\nNous soutenons nos employés dans la planification de carrière et offrons des perspectives. Grâce à l'éducation et à la formation individuelles, des compétences spécialisées et de leadership sont activement encouragées.\n\n## Gestion de la santé au travail\nLa santé de nos employés est une grande préoccupation pour nous, donc notre formule de succès est : Motivation + Satisfaction = Santé. Bénéficiez de diverses offres et formations dans les domaines de la santé, de la prévention du stress et de la sécurité au travail ainsi que de la consultation des employés (gestion de cas, accompagnement professionnel).\n\n## Réduction du parc automobile et utilisation privée des véhicules d'entreprise\nNous offrons des réductions de parc attrayants à divers constructeurs automobiles et la possibilité d'utiliser le véhicule d'affaires en privé.\n\n## Avantages sociaux\nBénéficiez d'une variété de réductions chez nos partenaires (p. ex. abonnement mobile ou mobilier de bureau), de promotions spéciales pour les employés et d'offres de marque exclusive et limitée qui changent chaque semaine (marques pour les employés).\n\n## Prestations de retraite supérieures à la moyenne\nNos employés sont proches de nous, c'est pourquoi nous garantissons des prestations en cas de maternité, de maladie ou d'accident ainsi qu'en ce qui concerne les prestations de retraite qui vont au-delà des exigences légales (p. ex. assurance accident, prise en charge des cotisations à risque de la caisse de retraite et offres actualisées avec les partenaires d'assurance).\n\n## Réseau des femmes WeLink\nWeLink est un lieu d'échange, de communité et de solidarité pour les collaborateurs du Groupe Bouygues. L'objectif est de promouvoir le développement et l'échange d'expériences des femmes dans l'entreprise, de les aider à devenir plus visibles et de soutenir l'avancement au sein du groupe."
     },
     "slugByLocale": {
-      "it": "tecnico-a-di-servizio-klima-kalte-equans-switzerland-bern",
+      "it": "tecnico-a-di-servizio-klima-kalte-equans-switzerland-bern-6a119c7b",
       "en": "service-technician-climate-cold-equans-switzerland-bern",
       "de": "servicetechniker-in-klima-kalte-equans-bern-c7ce2da9",
       "fr": "servicetechniker-in-klima-kalte-equans-switzerland-bern"
@@ -8967,21 +8987,22 @@
     "expiredAt": "2026-10-25T09:13:22.452Z",
     "previousSlugs": [
       "technicien-de-service-climatisation-et-refrigeration-equans-switzerland-bern",
-      "service-technician-klima-kalte-equans-switzerland-bern",
-      "servicetechniker-in-klima-kalte-equans-bern"
+      "service-technician-klima-kalte-equans-switzerland-bern"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "servicetechniker-in-klima-kalte-equans-bern-c7ce2da9",
-        "servicetechniker-in-klima-kalte-equans-bern"
+        "servicetechniker-in-klima-kalte-equans-bern-c7ce2da9"
       ],
       "en": [
         "service-technician-klima-kalte-equans-switzerland-bern",
-        "servicetechniker-in-klima-kalte-equans-bern"
+        "servicetechniker-in-klima-kalte-equans-bern-c7ce2da9"
       ],
       "fr": [
         "technicien-de-service-climatisation-et-refrigeration-equans-switzerland-bern",
-        "servicetechniker-in-klima-kalte-equans-bern"
+        "servicetechniker-in-klima-kalte-equans-bern-c7ce2da9"
+      ],
+      "de": [
+        "servicetechniker-in-klima-kalte-equans-bern-c7ce2da9"
       ]
     },
     "postalCode": "3004",
@@ -9990,9 +10011,9 @@
         "refrigeration-service-technician-equans-switzerland-bern-2eca7e03",
         "servicetechniker-in-kalte-equans-bern-f00c11ab",
         "refrigeration-service-technician-equans-switzerland-bern-28a9a5b4",
+        "refrigeration-service-technician-equans-switzerland-bern-752ee1ba",
         "servicetechniker-in-kalte-equans-bern",
-        "refrigeration-service-technician-equans-switzerland-bern",
-        "refrigeration-service-technician-equans-switzerland-bern-752ee1ba"
+        "refrigeration-service-technician-equans-switzerland-bern"
       ],
       "de": [
         "servicetechniker-in-kalte-equans-switzerland-bern",
@@ -18371,8 +18392,8 @@
         "directeur-de-construction-r-installer-elektro-equans-switzerland-chur-73f6cab5",
         "directeur-de-construction-r-installer-elektro-equans-switzerland-chur-4f8e922f",
         "directeur-de-construction-r-installer-elektro-equans-switzerland-chur-bf96751f",
-        "directeur-de-construction-r-installer-elektro-equans-switzerland-chur",
-        "directeur-de-construction-r-installer-elektro-equans-switzerland-chur-125b3ffb"
+        "directeur-de-construction-r-installer-elektro-equans-switzerland-chur-125b3ffb",
+        "directeur-de-construction-r-installer-elektro-equans-switzerland-chur"
       ],
       "en": [
         "bauleitende-r-installateur-in-elektro-equans-chur",
@@ -19555,8 +19576,8 @@
         "service-technician-heating-sanitary-equans-switzerland-chur-28615f15",
         "service-technician-heating-sanitary-equans-switzerland-chur-7857ba08",
         "service-technician-heating-sanitary-equans-switzerland-chur-e2c94b64",
-        "service-technician-heating-sanitary-equans-switzerland-chur",
-        "service-technician-heating-sanitary-equans-switzerland-chur-76121bc7"
+        "service-technician-heating-sanitary-equans-switzerland-chur-76121bc7",
+        "service-technician-heating-sanitary-equans-switzerland-chur"
       ],
       "fr": [
         "servicetechniker-in-heizung-sanitar-equans-chur-96773569",
@@ -20926,9 +20947,9 @@
         "tagliatori-sanitari-equans-switzerland-chur-e5f2ef67",
         "sanitarmonteur-in-equans-chur-3bee07f1",
         "tagliatori-sanitari-equans-switzerland-chur-8deff75a",
+        "tagliatori-sanitari-equans-switzerland-chur-c7050194",
         "sanitarmonteur-in-equans-chur",
-        "tagliatori-sanitari-equans-switzerland-chur",
-        "tagliatori-sanitari-equans-switzerland-chur-c7050194"
+        "tagliatori-sanitari-equans-switzerland-chur"
       ],
       "en": [
         "sanitary-fitters-equans-switzerland-chur-b4e9b8f5",
@@ -21102,8 +21123,8 @@
         "sanitary-fitters-equans-switzerland-chur-2353f2cc",
         "sanitary-fitters-equans-switzerland-chur-6078be6d",
         "sanitary-fitters-equans-switzerland-chur-52c8228f",
-        "sanitary-fitters-equans-switzerland-chur",
-        "sanitary-fitters-equans-switzerland-chur-86d3accc"
+        "sanitary-fitters-equans-switzerland-chur-86d3accc",
+        "sanitary-fitters-equans-switzerland-chur"
       ],
       "fr": [
         "raccords-sanitaires-equans-switzerland-chur-6f3d9ca3",
@@ -21277,8 +21298,8 @@
         "raccords-sanitaires-equans-switzerland-chur-c64a4d44",
         "raccords-sanitaires-equans-switzerland-chur-0da07815",
         "raccords-sanitaires-equans-switzerland-chur-11c01dc5",
-        "raccords-sanitaires-equans-switzerland-chur",
-        "raccords-sanitaires-equans-switzerland-chur-f5d2ecb1"
+        "raccords-sanitaires-equans-switzerland-chur-f5d2ecb1",
+        "raccords-sanitaires-equans-switzerland-chur"
       ],
       "de": [
         "sanitarmonteur-in-equans-chur-548c0fd4",
@@ -22381,8 +22402,8 @@
         "chef-d-equipe-ventilation-climat-equans-switzerland-luzern-c115a284",
         "chef-d-equipe-ventilation-climat-equans-switzerland-luzern-cdb6203f",
         "chef-d-equipe-ventilation-climat-equans-switzerland-luzern-139b2dbb",
-        "chef-d-equipe-ventilation-climat-equans-switzerland-luzern",
-        "chef-d-equipe-ventilation-climat-equans-switzerland-luzern-334e3f45"
+        "chef-d-equipe-ventilation-climat-equans-switzerland-luzern-334e3f45",
+        "chef-d-equipe-ventilation-climat-equans-switzerland-luzern"
       ]
     },
     "postalCode": "6003",
@@ -22593,8 +22614,8 @@
         "heizwerkfuhrer-in-equans-sisseln-59222153",
         "heizwerkfuhrer-in-equans-sisseln-64a56db3",
         "heizwerkfuhrer-in-equans-sisseln-e939f956",
-        "heizwerkfuhrer-in-equans-sisseln",
-        "heizwerkfuhrer-in-equans-sisseln-d9ec788d"
+        "heizwerkfuhrer-in-equans-sisseln-d9ec788d",
+        "heizwerkfuhrer-in-equans-sisseln"
       ]
     },
     "postalCode": "4334",
@@ -23804,8 +23825,8 @@
         "senior-project-manager-plumbing-80-100-equans-switzerland-luzern-477dd3d2",
         "senior-project-manager-plumbing-80-100-equans-switzerland-luzern-899081e0",
         "senior-project-manager-plumbing-80-100-equans-switzerland-luzern-032a5308",
-        "senior-project-manager-plumbing-80-100-equans-switzerland-luzern",
-        "senior-project-manager-plumbing-80-100-equans-switzerland-luzern-71c96893"
+        "senior-project-manager-plumbing-80-100-equans-switzerland-luzern-71c96893",
+        "senior-project-manager-plumbing-80-100-equans-switzerland-luzern"
       ],
       "de": [
         "senior-projektleiter-in-sanitar-80-100-equans-switzerland-luzern",
@@ -26293,8 +26314,8 @@
         "electrical-installer-energy-management-equans-switzerland-schlieren-6366c1e8",
         "electrical-installer-energy-management-equans-switzerland-schlieren-9257e6dc",
         "electrical-installer-energy-management-equans-switzerland-schlieren-0150ea95",
-        "electrical-installer-energy-management-equans-switzerland-schlieren",
-        "electrical-installer-energy-management-equans-switzerland-schlieren-bf462c8b"
+        "electrical-installer-energy-management-equans-switzerland-schlieren-bf462c8b",
+        "electrical-installer-energy-management-equans-switzerland-schlieren"
       ],
       "de": [
         "electrical-installer-energy-management-equans-switzerland-schlieren"
@@ -26765,9 +26786,9 @@
         "hauswart-in-equans-basel-d9a30925",
         "hauswart-in-equans-switzerland-basel-28ffb6d0",
         "hauswart-in-equans-basel-18d0ee83",
+        "hauswart-in-equans-basel-4904c1fd",
         "hauswart-in-equans-switzerland-basel",
-        "hauswart-in-equans-basel",
-        "hauswart-in-equans-basel-4904c1fd"
+        "hauswart-in-equans-basel"
       ]
     },
     "postalCode": "4001",
@@ -28478,19 +28499,22 @@
       ],
       "en": [
         "automatic-fitter-equans-switzerland-brig",
-        "automatikmonteur-in-equans-brig-glis",
+        "automatikmonteur-in-equans-brig-glis-af1c3a42",
         "automatic-fitter-equans-switzerland-brig-292438",
-        "automatikmonteur-in-equans-switzerland-brig"
+        "automatikmonteur-in-equans-switzerland-brig",
+        "automatikmonteur-in-equans-brig-glis"
       ],
       "de": [
-        "automatikmonteur-in-equans-brig"
+        "automatikmonteur-in-equans-brig",
+        "automatikmonteur-in-equans-brig-glis-af1c3a42"
       ],
       "fr": [
         "automatikmonteur-in-equans-switzerland-brig",
-        "automatikmonteur-in-equans-brig-glis",
+        "automatikmonteur-in-equans-brig-glis-af1c3a42",
         "automatikmonteur-in-equans-switzerland-brig-glis",
         "monteur-automatique-equans-switzerland-brig",
-        "monteur-automatique-equans-switzerland-brig-459a24"
+        "monteur-automatique-equans-switzerland-brig-459a24",
+        "automatikmonteur-in-equans-brig-glis"
       ]
     },
     "postalCode": "3902",

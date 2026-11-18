@@ -327,8 +327,8 @@
         "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zurich-zurich-87626ef8",
         "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zurich-zurich-46e29bc3",
         "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zurich-zurich-68e6d7fb",
-        "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zurich-zurich",
-        "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zuerich-zurigo-52139-b109c6f3"
+        "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zuerich-zurigo-52139-b109c6f3",
+        "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zurich-zurich"
       ]
     },
     "postalCode": "8001",
@@ -13493,8 +13493,8 @@
         "specialist-care-school-schauenberg-stadt-zurich-zurich-0cf74ae9",
         "specialist-care-school-schauenberg-stadt-zurich-zurich-1b7c34fb",
         "specialist-care-school-schauenberg-stadt-zurich-zurich-31abb908",
-        "specialist-care-school-schauenberg-stadt-zurich-zurich",
-        "specialist-care-school-schauenberg-stadt-zurich-zurich-fb4735a9"
+        "specialist-care-school-schauenberg-stadt-zurich-zurich-fb4735a9",
+        "specialist-care-school-schauenberg-stadt-zurich-zurich"
       ],
       "fr": [
         "fachperson-betreuung-schule-schauenberg-stadt-zuerich-zurigo-52106",
@@ -16541,16 +16541,22 @@
     "slugByLocale": {
       "it": "gestione-certificati-stadt-zurich-zurich-2a36b5-d683658c",
       "en": "certificate-manager-stadt-zurich-zurich-2a36b5-29c96791",
-      "de": "hortleiter-in-stadt-zuerich-zurigo-51553",
+      "de": "hortleiter-in-stadt-zuerich-zurigo-51553-61c31622",
       "fr": "gestionnaire-de-certificat-stadt-zurich-zurich-2a36b5-49a08844"
     },
     "sector": "Amministrazione Pubblica",
     "expiredAt": "2026-11-01T09:44:14.102Z",
-    "previousSlugs": [
-      "hortleiter-in-stadt-zuerich-zurigo-51553"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "hortleiter-in-stadt-zuerich-zurigo-51553"
+      ],
+      "en": [
+        "hortleiter-in-stadt-zuerich-zurigo-51553"
+      ],
+      "de": [
+        "hortleiter-in-stadt-zuerich-zurigo-51553-61c31622"
+      ],
+      "fr": [
         "hortleiter-in-stadt-zuerich-zurigo-51553"
       ]
     },
@@ -16561,7 +16567,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.stadt-zuerich.ch/job/hortleiterin/1371346957",
-    "firstSeenAt": "2026-10-25T21:50:53.931Z"
+    "firstSeenAt": "2026-10-25T21:50:53.931Z",
+    "previousSlugs": [
+      "hortleiter-in-stadt-zuerich-zurigo-51553"
+    ]
   },
   {
     "slug": "gestione-certificati-stadt-zurich-zurich-43e77f",
@@ -16935,18 +16944,18 @@
     "slugByLocale": {
       "it": "responsabile-del-doposcuola-stadt-zurich-zurich-d27f10c08d-f84c6513",
       "en": "after-school-care-manager-stadt-zurich-zurich-a518c855",
-      "de": "hortleiter-in-stadt-zuerich-zurigo-51661",
+      "de": "hortleiter-in-stadt-zuerich-zurigo-51661-48c69070",
       "fr": "responsable-de-structure-parascolaire-stadt-zurich-zurich-adbf66b1"
     },
     "sector": "Amministrazione Pubblica",
     "expiredAt": "2026-11-01T09:44:14.102Z",
     "previousSlugs": [
-      "hortleiter-in-stadt-zuerich-zurigo-51661",
       "responsabile-del-doposcuola-stadt-zurich-zurich-d19e0e2e",
       "after-school-care-manager-stadt-zurich-zurich-1ba9f0",
       "sede-centrale-stadt-zurich-zurich",
       "headquarters-stadt-zurich-zurich",
-      "siege-stadt-zurich-zurich"
+      "siege-stadt-zurich-zurich",
+      "hortleiter-in-stadt-zuerich-zurigo-51661"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -16962,6 +16971,9 @@
       "fr": [
         "hortleiter-in-stadt-zuerich-zurigo-51661",
         "siege-stadt-zurich-zurich"
+      ],
+      "de": [
+        "hortleiter-in-stadt-zuerich-zurigo-51661-48c69070"
       ]
     },
     "postalCode": "8001",
@@ -20578,8 +20590,8 @@
         "school-assistance-in-the-area-isr-school-nordstern-stadt-zurich-zurich-0b62b8c8",
         "schulassistenz-im-bereich-isr-schule-nordstern-stadt-zurich-zurich",
         "school-assistance-in-the-area-isr-school-nordstern-stadt-zurich-zurich-a7b681a6",
-        "school-assistance-in-the-area-isr-school-nordstern-stadt-zurich-zurich",
-        "school-assistance-in-the-area-isr-school-nordstern-stadt-zurich-zurich-89c1b511"
+        "school-assistance-in-the-area-isr-school-nordstern-stadt-zurich-zurich-89c1b511",
+        "school-assistance-in-the-area-isr-school-nordstern-stadt-zurich-zurich"
       ],
       "de": [
         "schulassistenz-im-bereich-isr-schule-nordstern-stadt-zurich-zurich-774ce8f4",
@@ -27498,56 +27510,6 @@
     "sourceIdentity": "url:https://jobs.stadt-zuerich.ch/job/fachspezialistin-new-grid-solutions/1370368057"
   },
   {
-    "slug": "stv-capo-del-personale-scolastico-stadt-zurich-zurich",
-    "title": "Stv. Leitung Fachbereich Schulpersonal",
-    "titleByLocale": {
-      "it": "Vicedirettore Dipartimento Personale scolastico",
-      "en": "Deputy Head of School Staff Department",
-      "de": "Stv. Leitung Fachbereich Schulpersonal",
-      "fr": "Direction adjointe du département du personnel scolaire"
-    },
-    "company": "Stadt Zürich",
-    "companyKey": "stadt-zuerich",
-    "location": "Zürich",
-    "addressLocality": "Zürich",
-    "descriptionByLocale": {
-      "it": "Il nostro dipartimento del personale scolastico, il dipartimento HR dell'autorità della scuola distrettuale Letzi, sta cercando 1. Marzo 2027 o d'accordo per rafforzare la squadra una personalità impegnata e resiliente.\n\nCompiti\n\n• Come specialista affidabile e competente, supporti i nostri leader nelle scuole (gestione scolastica, gestione, servizio domestico e tecnologia) in tutte le questioni rilevanti dal personale e li consiglia in modo pratico e orientato alla soluzione.\n\n• Essi svolgono in modo indipendente, professionale e responsabile casi di personale esigente, complesso e talvolta escalato e rispettano i requisiti e i processi legali.\n\n• Sostengono il dipartimento di gestione del personale scolastico per quanto riguarda il controllo e sono responsabili della gestione fluida ed efficiente dei processi HR dell'occupazione cantonale e comunale in vari sistemi come SAP SF, Aconso, PULS, workzone, swiss+, ecc.\n\n• Essi sono attivamente coinvolti nel team, sono coinvolti in gruppi di lavoro e progetti HR e contribuiscono allo sviluppo ulteriore dei processi esistenti. Assicura un flusso regolare di informazioni in collaborazione con altri dipartimenti, l'ufficio scolastico della città di Zurigo e l'ufficio scolastico primario del cantone di Zurigo.\n\n• Essi guidano l'assistente HR e rappresentano il dipartimento di gestione del personale scolastico in assenteia, sia internamente che esternamente.\n\nProfilo\n\n• Completato la formazione commerciale di base con ulteriore formazione nella zona HR a livello federale. ID professionale (specialista HR) e diversi anni di esperienza nelle risorse umane, preferibilmente nell'amministrazione pubblica e/o con la conoscenza della scuola primaria, così come ottime competenze IT (MS Office, di vantaggio SAP SF, SAP HCM)\n\n• Forte capacità di comunicazione e un atteggiamento cooperativo e di sostegno verso colleghi e leader\n\n• Metodo di lavoro indipendente, strutturato e affidabile con elevata flessibilità, disponibilità e resilienza\n\n• Personalità con rapida comprensione, pensiero in rete, alte capacità organizzative e godimento della responsabilità e del lavoro in un ambiente dinamico\n\nOffriamo\n\nUn'attività varia, versatile e responsabile nell'ambiente educativo emozionante e vivace. Inoltre, ci si può aspettare un team ben consolidato, motivato e di mentalità aperta e un'atmosfera collegiale di lavoro, un luogo di lavoro facilmente accessibile a Zurigo-Altstetten, l'opportunità di una giornata di home office e condizioni di lavoro attraenti secondo le linee guida della città.\n\nInformazioni su di noi\n\nIl distretto scolastico di Zurigo-Letzi comprende Stadtkreis 9 con i quartieri Albisrieden, Altstetten e Grünau. Circa 5.400 studenti delle scuole elementari sono insegnati e supervisionati nelle 16 scuole del nostro circolo scolastico in crescita. Più di 1.200 dipendenti lavorano per loro nelle nostre scuole nei settori dell'insegnamento, della cura, del servizio domestico e della tecnologia, nonché dell'amministrazione. Tutti lavorano ogni giorno per gli interessi degli studenti e una giornata di scuola liscia.",
-      "en": "Our school staff department, the HR department of the district school authority Letzi, is looking for 1. March 2027 or by agreement to strengthen the team a committed and resilient personality.\n\nTasks\n\n• As a trustworthy and competent specialist, you support our leaders in schools (school management, management, home service and technology) in all personnel-relevant issues and advise them in a practical and solution-oriented manner.\n\n• They independently, professionally and responsibly carry out demanding, complex and sometimes escalated personnel cases and comply with the legal requirements and processes.\n\n• They support the management department of school staff regarding controlling and are responsible for the smooth and efficient handling of HR processes of cantonal and municipal employment in various systems such as SAP SF, Aconso, PULS, workzone, swiss+, etc.\n\n• They are actively involved in the team, are involved in working groups and HR projects and contribute to the further development of existing processes. You ensure a smooth flow of information in cooperation with other departments, the school office of the city of Zurich and the primary school office of the canton of Zurich.\n\n• They lead the HR assistant and represent the management department of school staff in absentia, both internally and externally.\n\nProfile\n\n• Completed basic commercial training with further training in the HR area at the federal level. Professional ID (HR specialist) and several years of experience in HR, preferably in public administration and/or with knowledge of primary school, as well as very good IT skills (MS Office, of advantage SAP SF, SAP HCM)\n\n• Strong communication skills and a cooperative and supportive attitude towards colleagues and leaders\n\n• Independent, structured and reliable working method with high flexibility, readiness and resilience\n\n• Personality with rapid comprehension, networked thinking, high organizational skills and enjoyment of responsibility and work in a dynamic environment\n\nWe offer\n\nA varied, versatile and responsible activity in the exciting and lively educational environment. In addition, you can expect a well-established, motivated and open-minded team and a collegial working atmosphere, an easily accessible workplace in Zurich-Altstetten, the opportunity for a day of home office and attractive employment conditions according to city guidelines.\n\nAbout us\n\nThe Zurich-Letzi school district comprises Stadtkreis 9 with the districts Albisrieden, Altstetten and Grünau. Around 5,400 primary school students are taught and supervised in the 16 schools in our growing school circle. More than 1,200 employees work for them in our schools in the areas of teaching, care, home service and technology as well as administration. They all work daily for the interests of the students and a smooth school day.",
-      "de": "Unser Fachbereich Schulpersonal, die HR-Abteilung der Kreisschulbehörde Letzi, sucht per 1. März 2027 oder nach Vereinbarung zur Verstärkung des Teams eine engagierte und belastbare Persönlichkeit.\n\nAufgaben\n\n• Als vertrauensvolle und kompetente Fachperson unterstützen Sie unsere Führungspersonen in den Schulen (Schulleitungen, Leitungen Betreuung, Leitungen Hausdienst & Technik) in allen personalrelevanten Fragestellungen und beraten sie praxisnah und lösungsorientiert.\n\n• Sie führen selbständig, professionell und eigenverantwortlich anspruchsvolle, komplexe und teils eskalierte Personalfälle und halten dabei die rechtlichen Vorgaben und Prozesse ein.\n\n• Sie unterstützen die Leitung Fachbereich Schulpersonal bezüglich Controlling und sind zuständig für die reibungslose und effiziente Abwicklung von HR-Prozessen der kantonalen und kommunalen Anstellungen in unterschiedlichen Systemen wie SAP SF, Aconso, PULS, workzone, swiss+, etc.\n\n• Sie bringen sich aktiv im Team ein, engagieren sich in Arbeitsgruppen und in HR-Projekten und tragen zur Weiterentwicklung bestehender Prozesse bei. Dabei sorgen Sie für einen reibungslosen Informationsfluss in Zusammenarbeit mit anderen Fachbereichen, dem Schulamt der Stadt Zürich und dem Volksschulamt des Kantons Zürich.\n\n• Sie führen die HR-Assistenz und vertreten die Leitung Fachbereich Schulpersonal bei Abwesenheit, sowohl intern als auch extern.\n\nProfil\n\n• Abgeschlossene kaufmännische Grundausbildung mit Weiterbildung im HR-Bereich auf Stufe eidg. Fachausweis (HR-Fachperson) und mehrjährige Erfahrung im HR-Bereich, vorzugsweise in der öffentlichen Verwaltung und/oder mit Kenntnissen der Volksschule, sowie sehr gute IT-Skills (MS Office, von Vorteil SAP SF, SAP HCM)\n\n• Ausgeprägte Kommunikationsfähigkeit sowie eine kooperative und unterstützende Haltung gegenüber Kolleg*innen und Führungspersonen\n\n• Selbständige, strukturierte und zuverlässige Arbeitsweise mit hoher Flexibilität, Einsatzbereitschaft und Belastbarkeit\n\n• Persönlichkeit mit rascher Auffassungsgabe, vernetztem Denken, hohen organisatorischen Fähigkeiten und Freude an Verantwortung und an einer Arbeit in einem dynamischen Umfeld\n\nWir bieten\n\nEine abwechslungsreiche, vielseitige und verantwortungsvolle Tätigkeit im spannenden und lebendigen Bildungsumfeld. Zudem erwartet Sie ein eingespieltes, motiviertes und aufgeschlossenes Team und ein kollegiales Arbeitsklima, einen gut erreichbaren Arbeitsplatz in Zürich-Altstetten, die Möglichkeit für einen Tag Home Office sowie attraktive Anstellungsbedingungen gemäss städtischen Richtlinien.\n\nÜber uns\n\nDer Schulkreis Zürich-Letzi umfasst den Stadtkreis 9 mit den Quartieren Albisrieden, Altstetten und Grünau. In den 16 Schulen unseres wachsenden Schulkreises werden rund 5'400 Schüler*innen der Volksschule unterrichtet und betreut. Für sie arbeiten in unseren Schulen über 1'200 Mitarbeitende in den Bereichen Unterricht, Betreuung, Hausdienst und Technik sowie Administration. Sie alle setzen sich täglich für die Belange der Schüler*innen und einen reibungslosen Schulalltag ein.",
-      "fr": "Notre département du personnel scolaire, le département RH de l'autorité scolaire de district Letzi, est à la recherche de 1. Mars 2027 ou par accord pour renforcer l'équipe une personnalité engagée et résistante.\n\nTâche\n\n• En tant que spécialiste fiable et compétent, vous accompagnez nos dirigeants dans les écoles (gestion scolaire, gestion, service à domicile et technologie) dans toutes les questions relatives au personnel et les conseillez de manière pratique et orientée vers la solution.\n\n• Ils mènent, de manière indépendante, professionnelle et responsable, des affaires exigeantes, complexes et parfois aggravées et se conforment aux exigences et procédures légales.\n\n• Ils soutiennent le département de gestion du personnel scolaire en matière de contrôle et sont responsables de la gestion harmonieuse et efficace des processus de RH de l'emploi cantonal et municipal dans divers systèmes tels que SAP SF, Aconso, PULS, zone de travail, swiss+, etc.\n\n• Ils participent activement à l'équipe, participent à des groupes de travail et à des projets de RH et contribuent au développement des processus existants. Vous assurez un flux d'information fluide en collaboration avec d'autres départements, le bureau scolaire de la ville de Zurich et le bureau scolaire primaire du canton de Zurich.\n\n• Ils dirigent l'adjoint aux RH et représentent le département de gestion du personnel scolaire par contumace, tant à l'interne qu'à l'externe.\n\nProfil\n\n• Formation commerciale de base complétée par une formation continue dans le domaine des RH au niveau fédéral. ID professionnel (spécialiste des RH) et plusieurs années d'expérience en RH, de préférence dans l'administration publique et/ou avec une connaissance de l'école primaire, ainsi que de très bonnes compétences en TI (Bureau du SM, avantage SAP SF, SAP HCM)\n\n• Des compétences en communication solides et une attitude coopérative et solidaire envers les collègues et les dirigeants\n\n• Méthode de travail indépendante, structurée et fiable avec une grande flexibilité, disponibilité et résilience\n\n• Personnalité avec une compréhension rapide, une pensée en réseau, des compétences organisationnelles élevées et la jouissance de la responsabilité et du travail dans un environnement dynamique\n\nNous offrons\n\nUne activité variée, polyvalente et responsable dans un environnement éducatif passionnant et animé. En outre, vous pouvez vous attendre à une équipe bien établie, motivée et ouverte d'esprit et une atmosphère de travail collégiale, un lieu de travail facilement accessible à Zurich-Altstetten, l'opportunité d'une journée de bureau à domicile et des conditions d'emploi attrayantes selon les directives de la ville.\n\nSur nous\n\nLe quartier scolaire Zurich-Letzi comprend Stadtkreis 9 avec les districts Albisiden, Altstetten et Grünau. Environ 5 400 élèves du primaire sont enseignés et supervisés dans les 16 écoles de notre cercle scolaire en croissance. Plus de 1 200 employés travaillent pour eux dans nos écoles dans les domaines de l'enseignement, des soins, des services à domicile et de la technologie ainsi que de l'administration. Ils travaillent tous chaque jour pour les intérêts des élèves et une journée d'école en douceur."
-    },
-    "slugByLocale": {
-      "it": "stv-capo-del-personale-scolastico-stadt-zurich-zurich",
-      "en": "stv-head-of-school-staff-stadt-zurich-zurich",
-      "de": "stv-leitung-fachbereich-schulpersonal-stadt-zuerich-zurigo-51809",
-      "fr": "stv-chef-du-personnel-scolaire-stadt-zurich-zurich"
-    },
-    "sector": "Amministrazione Pubblica",
-    "expiredAt": "2026-10-27T09:45:23.004Z",
-    "previousSlugs": [
-      "stv-leitung-fachbereich-schulpersonal-stadt-zuerich-zurigo-51809"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "stv-leitung-fachbereich-schulpersonal-stadt-zuerich-zurigo-51809"
-      ],
-      "en": [
-        "stv-leitung-fachbereich-schulpersonal-stadt-zuerich-zurigo-51809"
-      ],
-      "fr": [
-        "stv-leitung-fachbereich-schulpersonal-stadt-zuerich-zurigo-51809"
-      ]
-    },
-    "postalCode": "8001",
-    "streetAddress": "Stadthausquai 17",
-    "salaryMin": 95000,
-    "salaryMax": 175500,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://jobs.stadt-zuerich.ch/job/stv_-leitung-fachbereich-schulpersonal/1373527557",
-    "firstSeenAt": "2026-09-30T21:45:09.507Z"
-  },
-  {
     "slug": "tirocinante-presso-la-giardineria-comunale-stadt-zurich",
     "title": "Praktikant*in Stadtgärtnerei",
     "titleByLocale": {
@@ -33907,17 +33869,24 @@
     "expiredAt": "2026-10-20T09:44:28.365Z",
     "previousSlugs": [
       "sachbearbeiter-in-behordenabteilung-kesb-stadt-zuerich-zurigo-51797",
-      "sachbearbeiter-in-behordenabteilung-kesb-stadt-zurich-zurich"
+      "sachbearbeiter-in-behordenabteilung-kesb-stadt-zurich-zurich",
+      "sachbearbeiter-in-behordenabteilung-kesb-stadt-zurich-zurich-3438f48a"
     ],
     "previousSlugsByLocale": {
       "it": [
         "sachbearbeiter-in-behordenabteilung-kesb-stadt-zuerich-zurigo-51797",
+        "sachbearbeiter-in-behordenabteilung-kesb-stadt-zurich-zurich-3438f48a",
         "sachbearbeiter-in-behordenabteilung-kesb-stadt-zurich-zurich"
       ],
       "en": [
+        "sachbearbeiter-in-behordenabteilung-kesb-stadt-zurich-zurich-3438f48a",
         "sachbearbeiter-in-behordenabteilung-kesb-stadt-zurich-zurich"
       ],
       "fr": [
+        "sachbearbeiter-in-behordenabteilung-kesb-stadt-zurich-zurich-3438f48a",
+        "sachbearbeiter-in-behordenabteilung-kesb-stadt-zurich-zurich"
+      ],
+      "de": [
         "sachbearbeiter-in-behordenabteilung-kesb-stadt-zurich-zurich"
       ]
     },
@@ -37631,56 +37600,6 @@
     "firstSeenAt": "2026-09-25T15:03:48.456Z"
   },
   {
-    "slug": "capo-dell-assistenza-doposcuola-e-dell-insegnante-sociale-presso-la-vogtsrain-school-stadt-zurich-zurich",
-    "title": "Hortleiter*in/Sozialpädagog*in Schule Vogtsrain",
-    "titleByLocale": {
-      "it": "Capo dell'assistenza doposcuola e dell'insegnante sociale presso la Vogtsrain School",
-      "en": "Head of after-school care/social pedagogue at Vogtsrain School",
-      "de": "Hortleiter*in/Sozialpädagog*in Schule Vogtsrain",
-      "fr": "Responsable de la garde après l'école/pédagogue sociale à l'école Vogtsrain"
-    },
-    "company": "Stadt Zürich",
-    "companyKey": "stadt-zuerich",
-    "location": "Zürich",
-    "addressLocality": "Zürich",
-    "descriptionByLocale": {
-      "it": "Stiamo cercando 1. Novembre 2026 a causa dell'aumento della squadra per il rinforzo Vogtsrain scuola giorno.\n\nCompiti\n\nCome Hortleiter*in sei responsabile per quattro giorni alla settimana (lunedì 10:00-18:00, mercoledì 10:00-18:00, giovedì 10:00-18:00, venerdì 09:30-18:00) insieme a un Hortleiter, quattro specialisti supervisione e due assistenti scolastici nella supervisione Vogtsrain 1 per gli studenti della scuola primaria (1 ° asilo al secondo grado). Un team di supporto di routine ben consolidato vi aspetta, che sarà felice di incontrarvi.\nFai le tue vacanze nel tempo libero della scuola. Inoltre, si completa circa una settimana all'anno incarico nel campo di vacanza. Le informazioni più dettagliate possono essere discusse in una conversazione personale con la direzione.\n\n• Essi contribuiscono alla cura scolastica-complementare e al tempo libero dei bambini di età primaria della scuola.\n\n• Insieme con il vostro Hortleitungskolleg*in si guida l'unità di cura Vogtsrain 1 professionalmente e nella cura quotidiana. Conducono gruppi più grandi di bambini e mantengono il contatto con i nostri genitori.\n\n• Cooperazione intensiva con gli insegnanti e il resto del team scolastico sulla strada per la scuola diurna (scambio regolare, consiglio di classe, eventi congiunti, ecc.).\n\n• Lavoro interno e amministrativo\n\n• Pianificazione e implementazione della cura e della cura delle vacanze nei giorni liberi dalla scuola\n\nProfilo\n\n• Esperienza professionale nella cura dei bambini (cuore, crèche, casa) e un tocco di lavoro con i bambini di età compresa tra 4 e 8 anni\n\n• Godetevi il lavoro con insegnanti e accompagnatori\n\n• Apertura e impegno nel processo di cambiamento alla scuola diurna (inizio dell'anno scolastico 2026/2027)\n\n• Flessibilità e resilienza nonché ottime capacità di team e comunicazione\n\n• atteggiamento di base orientato alla soluzione nel lavoro quotidiano e nel trattare le sfide\n\n• Metodi di lavoro accattivanti e pragmatici\n\n• Humor e un atteggiamento positivo\n\n• Molto buona conoscenza del tedesco\n\ndetengono uno dei seguenti bilanci:\n\n• Università del lavoro sociale (FH/HF), o istruzione equivalente a livello terziario nel settore pedagogico\n\n• Seminario sull'asilo e sull'orto\n\n• Collegio pedagogico (insegnante, insegnante di asilo)\n\n(Tutti i diplomi stranieri e le carte professionali devono essere accompagnati da un certificato di equivalenza svizzero)\n\nOffriamo\n\nVogtsrain vi offre un'attività versatile, indipendente e responsabile, una scuola motivata con un'atmosfera di lavoro piacevole e apprezzata, il supporto competente dei compagni di squadra e il supporto di gestione e uno stipendio progressivo secondo le linee guida del Dipartimento Scuola e Sport della Città di Zurigo.\n\nInformazioni su di noi\n\nLa scuola Vogtsrain si trova nel quartiere Höngg vicino al Meierhofplatz con una splendida vista sull'Üetliberg. In un tavolo mattutino e cinque hoards pranzo / sera, circa 330 bambini della nostra scuola sono curati.",
-      "en": "We are looking for 1. November 2026 due to increase of the team for the day school Vogtsrain reinforcement.\n\nTasks\n\nAs a Hortleiter*in you are responsible for four days per week (Monday 10:00-18:00, Wednesday 10:00-18:00, Thursday 10:00-18:00, Friday 09:30-18:00) together with a Hortleiter, four specialists supervision and two school assistants in the supervision Vogtsrain 1 for primary school students (1st kindergarten to 2nd grade). A well-established, routine support team awaits you, who will be happy to meet you.\nYou take your holidays in the school-free time. In addition, you complete about one week a year assignment in the holiday camp. More detailed information can be discussed in a personal conversation with the management.\n\n• They contribute to the school-complementary care and leisure of children of primary school age.\n\n• Together with your Hortleitungskolleg*in you lead the Vogtsrain 1 care unit professionally and in everyday care. They lead larger groups of children and maintain contact with our parents.\n\n• Intensified cooperation with the teachers and the rest of the school team on the way to the day school (regular exchange, class council, joint events, etc.).\n\n• Domestic and administrative work\n\n• Planning and implementation of holiday care and care on school-free days\n\nProfile\n\n• Professional experience in the care of children (hoard, crèche, home) and a flair for working with children aged 4-8 years\n\n• Enjoy working with teachers and carers\n\n• Openness and commitment in the change process to day school (start of school year 2026/2027)\n\n• Flexibility and resilience as well as very good team and communication skills\n\n• solution-oriented basic attitude in daily work and in dealing with challenges\n\n• Tackling and pragmatic working methods\n\n• Humor and a positive attitude\n\n• Very good knowledge of German\n\nthey hold one of the following financial statements:\n\n• University of Social Work (FH/HF), or equivalent education at tertiary level in the pedagogical field\n\n• Kindergarten and Hort Seminar\n\n• Pedagogical College (teacher, kindergarten teacher)\n\n(All foreign diplomas and professional cards must be accompanied by a Swiss equivalence certificate)\n\nWe offer\n\nVogtsrain offers you a versatile, independent and responsible activity, a motivated school with a pleasant and appreciative working atmosphere, competent support from the teammates and the management support and a progressive salary according to the guidelines of the School and Sports Department of the City of Zurich.\n\nAbout us\n\nThe Vogtsrain school is located in the Höngg district near the Meierhofplatz with wonderful views of the Üetliberg. In a morning table and five lunch/evening hoards, around 330 children of our school are cared for.",
-      "de": "Wir suchen per 1. November 2026 aufgrund Aufstockung des Teams für die Tagesschule Vogtsrain Verstärkung.\n\nAufgaben\n\nAls Hortleiter*in sind Sie während vier Tagen pro Woche (Montag 10:00-18:00, Mittwoch 10:00-18:00, Donnerstag 10:00-18:00, Freitag 09:30-18:00) zusammen mit einer Hortleitung, vier Fachfrauen Betreuung und zwei Schulassistenzen in der Betreuung Vogtsrain 1 für Schülerinnen und Schülern der Primarstufe (1. Kindergarten bis 2. Klasse) zuständig. Es erwartet Sie ein eingespieltes, routiniertes Betreuungsteam, welches sich freut Sie kennenzulernen.\nIhre Ferien beziehen Sie in der schulfreien Zeit. Ausserdem absolvieren Sie ca. eine Woche pro Jahr einen Einsatz im Ferienhort. Genauere Angaben können in einem persönlichen Gespräch mit der Leitung Betreuung besprochen werden.\n\n• Sie gestalten die schulergänzende Betreuung und Freizeit der Kinder im Primarschulalter mit.\n\n• Sie leiten gemeinsam mit Ihrer Hortleitungskolleg*in die Betreuungseinheit Vogtsrain 1 fachlich und im Betreuungsalltag. Sie führen grössere Kindergruppen und pflegen den Kontakt zu unseren Eltern.\n\n• Vertiefte Zusammenarbeit mit den Lehrpersonen und dem restlichen Schulteam auf dem Weg zur Tagesschule (regelmässiger Austausch, Klassenrat, gemeinsame Anlässe, etc.).\n\n• Hauswirtschaftliche und administrative Arbeiten\n\n• Planung und Durchführung der Ferienbetreuung sowie der Betreuung an schulfreien Tagen\n\nProfil\n\n• Berufserfahrung in der Betreuung von Kindern (Hort, Kinderkrippe, Heim) und ein Flair für die Arbeit mit Kindern im Alter von 4-8 Jahren\n\n• Freude an der Zusammenarbeit mit Lehr- und Betreuungspersonen\n\n• Offenheit und Engagement im Changeprozess zur Tagesschule (Start Schuljahr 2026/2027)\n\n• Flexibilität und Belastbarkeit sowie sehr gute Team- und Kommunikationsfähigkeit\n\n• lösungsorientierte Grundhaltung in der täglichen Arbeit und im Umgang mit Herausforderungen\n\n• anpackende und pragmatische Arbeitsweise\n\n• Humor und eine positive Grundeinstellung\n\n• sehr gute Deutschkenntnisse\n\nSie verfügen über einen der folgenden Abschlüsse:\n\n• Hochschule für Soziale Arbeit (FH/HF), oder eine äquivalente Ausbildung auf Tertiärniveau im pädagogischen Bereich\n\n• Kindergarten- und Hort Seminar\n\n• Pädagogische Hochschule (Lehrer/in, Kindergärtner/in)\n\n(Allen ausländischen Diplomen und Fachausweisen ist zwingend eine schweizerische Äquivalenzbestätigung beizulegen)\n\nWir bieten\n\nDie Betreuung Vogtsrain bietet Ihnen eine vielseitige, selbständige und ver­antwortungsvolle Tätigkeit, eine motivierte Schule mit einem angenehmen und wertschätzenden Arbeitsklima, kompetente Unterstützung durch die Teamkolleg*innen und die Leitung Betreuung sowie ein fortschrittliches Salär nach den Richtlinien des Schul- und Sportdepartementes der Stadt Zürich.\n\nÜber uns\n\nDie Schule Vogtsrain befindet sich im Quartier Höngg in der Nähe des Meierhofplatzes mit wunderbarer Aussicht auf den Üetliberg. In einem Morgentisch und fünf Mittag-/Abendhorten werden rund 330 Kinder unserer Schule betreut.",
-      "fr": "Nous cherchons 1. Novembre 2026 en raison de l'augmentation de l'équipe pour l'école de jour Vogtsrain renforcement.\n\nTâche\n\nEn tant que Hortleiter*, vous êtes responsable de quatre jours par semaine (lundi 10h00-18h00, mercredi 10h00-18h00, jeudi 10h00-18h00, vendredi 9h30-18h00) ainsi que d'un Hortleiter, de quatre spécialistes de supervision et de deux assistants scolaires de supervision. Une équipe de soutien bien établie et régulière vous attend, qui sera heureuse de vous rencontrer.\nVous prenez vos vacances en temps libre. De plus, vous accomplissez environ une semaine par année d'affectation dans le camp de vacances. Des renseignements plus détaillés peuvent être discutés lors d'une conversation personnelle avec la direction.\n\n• Elles contribuent à la prise en charge complémentaire et aux loisirs des enfants d ' âge scolaire primaire.\n\n• Avec votre Hortleitungskolleg* vous dirigez l'unité de soins Vogtsrain 1 professionnellement et au quotidien. Ils dirigent de plus grands groupes d'enfants et maintiennent le contact avec nos parents.\n\n• Coopération renforcée avec les enseignants et le reste de l'équipe scolaire sur le chemin de l'école de jour (échange régulier, conseil de classe, événements communs, etc.).\n\n• Travail domestique et administratif\n\n• Planification et mise en œuvre des soins de vacances et des soins les jours sans école\n\nProfil\n\n• Expérience professionnelle dans la prise en charge des enfants (hoard, crèche, maison) et un style pour travailler avec des enfants âgés de 4 à 8 ans\n\n• Profitez de travailler avec les enseignants et les aidants\n\n• Ouverture et engagement dans le processus de changement à l'école de jour (début de l'année scolaire 2026/2027)\n\n• Flexibilité et résilience ainsi que de très bonnes compétences en équipe et en communication\n\n• une attitude de base axée sur la solution dans le travail quotidien et dans la gestion des défis\n\n• Lutte et méthodes de travail pragmatiques\n\n• Humour et attitude positive\n\n• Très bonne connaissance de l'allemand\n\nils détiennent l'un des états financiers suivants:\n\n• Université de travail social (FH/HF), ou équivalent enseignement supérieur dans le domaine pédagogique\n\n• Séminaire de la maternelle et de la maternelle\n\n• Collège pédagogique (enseignant, professeur de maternelle)\n\n(Tous les diplômes étrangers et les cartes professionnelles doivent être accompagnés d'un certificat suisse d'équivalence)\n\nNous offrons\n\nVogtsrain vous offre une activité polyvalente, indépendante et responsable, une école motivée avec une atmosphère de travail agréable et appréciatrice, un soutien compétent des coéquipiers et le soutien de la direction et un salaire progressif selon les directives du Département École et Sports de la Ville de Zurich.\n\nSur nous\n\nL'école Vogtsrain est située dans le quartier Höngg près de la Meierhofplatz avec une vue magnifique sur l'Üetliberg. Dans une table du matin et cinq paniers-repas, environ 330 enfants de notre école sont pris en charge."
-    },
-    "slugByLocale": {
-      "it": "capo-dell-assistenza-doposcuola-e-dell-insegnante-sociale-presso-la-vogtsrain-school-stadt-zurich-zurich",
-      "en": "head-of-after-school-care-social-pedagogue-at-vogtsrain-school-stadt-zurich-zurich",
-      "de": "hortleiter-in-sozialpadagog-in-schule-vogtsrain-stadt-zuerich-zurigo-51781",
-      "fr": "responsable-de-la-garde-apres-l-ecole-pedagogue-sociale-a-l-ecole-vogtsrain-stadt-zurich-zurich"
-    },
-    "sector": "Amministrazione Pubblica",
-    "expiredAt": "2026-10-14T09:51:27.947Z",
-    "previousSlugs": [
-      "hortleiter-in-sozialpadagog-in-schule-vogtsrain-stadt-zuerich-zurigo-51781"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "hortleiter-in-sozialpadagog-in-schule-vogtsrain-stadt-zuerich-zurigo-51781"
-      ],
-      "en": [
-        "hortleiter-in-sozialpadagog-in-schule-vogtsrain-stadt-zuerich-zurigo-51781"
-      ],
-      "fr": [
-        "hortleiter-in-sozialpadagog-in-schule-vogtsrain-stadt-zuerich-zurigo-51781"
-      ]
-    },
-    "postalCode": "8001",
-    "streetAddress": "Stadthausquai 17",
-    "salaryMin": 95000,
-    "salaryMax": 175500,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://jobs.stadt-zuerich.ch/job/hortleiterinsozialp%c3%a4dagogin-schule-vogtsrain/1373281157",
-    "firstSeenAt": "2026-09-28T21:36:08.012Z"
-  },
-  {
     "slug": "lavoratori-qualificati-nel-pavimento-stadt-zurich-zurich",
     "title": "Facharbeiter*in Belag",
     "titleByLocale": {
@@ -41268,8 +41187,8 @@
         "social-pedagogue-or-specialist-care-stadt-zurich-zurich-1ebd9c5b",
         "social-pedagogue-or-specialist-care-stadt-zurich-zurich-ab759ee6",
         "social-pedagogue-or-specialist-care-stadt-zurich-zurich-8528dd6e",
-        "social-pedagogue-or-specialist-care-stadt-zurich-zurich",
-        "social-pedagogue-or-specialist-care-stadt-zurich-zurich-7a174ac9"
+        "social-pedagogue-or-specialist-care-stadt-zurich-zurich-7a174ac9",
+        "social-pedagogue-or-specialist-care-stadt-zurich-zurich"
       ],
       "fr": [
         "sozialpadagogin-oder-fachperson-betreuung-stadt-zurich-zurich",
@@ -41312,8 +41231,8 @@
         "pedagogue-sociale-ou-soins-specialises-stadt-zurich-zurich-a7e39cbf",
         "pedagogue-sociale-ou-soins-specialises-stadt-zurich-zurich-302dd957",
         "pedagogue-sociale-ou-soins-specialises-stadt-zurich-zurich-560523e6",
-        "pedagogue-sociale-ou-soins-specialises-stadt-zurich-zurich",
-        "pedagogue-sociale-ou-soins-specialises-stadt-zurich-zurich-3e7486c1"
+        "pedagogue-sociale-ou-soins-specialises-stadt-zurich-zurich-3e7486c1",
+        "pedagogue-sociale-ou-soins-specialises-stadt-zurich-zurich"
       ],
       "de": [
         "social-pedagogue-or-specialist-care-stadt-zurich-zurich",
@@ -43163,20 +43082,24 @@
     "expiredAt": "2026-10-01T09:33:57.338Z",
     "previousSlugs": [
       "hochschulpraktikant-in-diagnostik-stadt-zuerich-zurigo-51572",
-      "hochschulpraktikant-in-diagnostik-stadt-zurich-zurich"
+      "hochschulpraktikant-in-diagnostik-stadt-zurich-zurich",
+      "hochschulpraktikant-in-diagnostik-stadt-zurich-zurich-aa49debc"
     ],
     "previousSlugsByLocale": {
       "it": [
         "hochschulpraktikant-in-diagnostik-stadt-zuerich-zurigo-51572",
+        "hochschulpraktikant-in-diagnostik-stadt-zurich-zurich-aa49debc",
         "hochschulpraktikant-in-diagnostik-stadt-zurich-zurich"
       ],
       "en": [
+        "hochschulpraktikant-in-diagnostik-stadt-zurich-zurich-aa49debc",
         "hochschulpraktikant-in-diagnostik-stadt-zurich-zurich"
       ],
       "de": [
         "hochschulpraktikant-in-diagnostik-stadt-zurich-zurich"
       ],
       "fr": [
+        "hochschulpraktikant-in-diagnostik-stadt-zurich-zurich-aa49debc",
         "hochschulpraktikant-in-diagnostik-stadt-zurich-zurich"
       ]
     },
