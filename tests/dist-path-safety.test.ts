@@ -11,7 +11,7 @@ import {
   MAX_FILESYSTEM_SEGMENT_BYTES,
   writeDistPageSafely,
 } from '../build-plugins/shared/distPathSafety';
-import { isRetainedBridgePathSafeToEmit } from '../build-plugins/shared/jobCanonBridgePaths';
+import { assertRetainedBridgeMissingBudget, isRetainedBridgePathSafeToEmit } from '../build-plugins/shared/jobCanonBridgePaths';
 import {
   claim,
   getJobAliasRedirectDirs,
@@ -356,5 +356,18 @@ describe('raw URL-to-dist writers apply the guard before filesystem joins', () =
     expect(JOBS_SOURCE).toContain('const pathWasClaimed = (filePath: string): boolean => hasClaimedPath(filePath);');
     expect(JOBS_SOURCE).toContain('const pathIsClaimedOrReserved = (filePath: string): boolean => hasClaimedOrReservedPath(filePath);');
     expect(JOBS_SOURCE).toContain('const isSelfHealTrackingPathClaimed = (relativePath: string): boolean => pathWasClaimed(');
+  });
+});
+
+describe('assertRetainedBridgeMissingBudget', () => {
+  it('accepts gaps within max(25, 1%) of the retained bridges', () => {
+    expect(() => assertRetainedBridgeMissingBudget(0, 0)).not.toThrow();
+    expect(() => assertRetainedBridgeMissingBudget(25, 100)).not.toThrow();
+    expect(() => assertRetainedBridgeMissingBudget(48, 4800)).not.toThrow();
+  });
+
+  it('rejects a systemic gap and reports the numbers', () => {
+    expect(() => assertRetainedBridgeMissingBudget(26, 100)).toThrow(/missing=26.*budget=25/);
+    expect(() => assertRetainedBridgeMissingBudget(49, 4800)).toThrow(/missing=49.*budget=48/);
   });
 });

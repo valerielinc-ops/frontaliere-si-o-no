@@ -201,8 +201,8 @@ describe('SEO builder noindex guards', () => {
       const crossLocaleGate = source.indexOf('if (!shouldEmitLocale(baseLocale)) continue;', crossLocalePlanStart);
       expect(crossLocaleGate).toBeGreaterThan(crossLocalePlanStart);
 
-      const retainedOutputStart = source.indexOf('const retainedBridgeOutputs = (function* () {');
-      const retainedOutputEnd = source.indexOf('})();', retainedOutputStart);
+      const retainedOutputStart = source.indexOf('const retainedBridgeOutputs: Array<{ indexPath: string; targetPath: string }> = [];');
+      const retainedOutputEnd = source.indexOf('assertRetainedBridgeMissingBudget(', retainedOutputStart);
       const retainedOutputBlock = source.slice(retainedOutputStart, retainedOutputEnd);
       expect(retainedOutputStart).toBeGreaterThan(-1);
       expect(retainedOutputEnd).toBeGreaterThan(retainedOutputStart);

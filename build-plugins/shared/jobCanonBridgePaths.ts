@@ -1399,3 +1399,14 @@ export function assertBridgePathDistCoverage(
   }
   return { removable404, retained200 };
 }
+
+export const RETAINED_BRIDGE_MISSING_MIN_BUDGET = 25;
+export const RETAINED_BRIDGE_MISSING_BUDGET_RATIO = 0.01;
+
+/** Safety valve: a few planned bridges may be absent (emitter filters), a systemic gap is a bug. */
+export function assertRetainedBridgeMissingBudget(missing: number, retainedTotal: number): void {
+  const budget = Math.max(RETAINED_BRIDGE_MISSING_MIN_BUDGET, Math.ceil(retainedTotal * RETAINED_BRIDGE_MISSING_BUDGET_RATIO));
+  if (missing > budget) {
+    throw new Error(`[job-alias-redirect-gate] retained bridges missing from dist exceed budget (missing=${missing} retained=${retainedTotal} budget=${budget})`);
+  }
+}
