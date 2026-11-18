@@ -17,15 +17,23 @@ export const SITEMAP_FAMILY_COVERAGE_KEYS = Object.freeze([
 
 /**
  * These families have membership driven by live data: rendered indexability
- * (matchingJobs >= 3 and wordCount >= MIN) for orphan-landings, and the ad
- * floor for profession-cities. Below the floor, the build emits a noindex,follow
- * bridge at the same URL and removes that page from the sitemap (AGENTS.md).
+ * (matchingJobs >= 3 and wordCount >= MIN) for orphan-landings, the ad floor
+ * for profession-cities, and the presence of a fuel price for
+ * fuel-italian-stations (a station that loses its diesel price keeps its
+ * route slot). Below the floor, the build emits a noindex,follow bridge at
+ * the same URL and removes that page from the sitemap (AGENTS.md).
  * 0.1 is a COLLAPSE bound (loss of the mechanism), not a churn allowance.
- * Never add a structural family here without an explicit decision.
+ * Never add a structural family here without an explicit decision. Adding
+ * fuel-italian-stations is that motivated decision: the family is data-driven,
+ * not structural, and the tolerance still requires valid bridge evidence for
+ * every removed URL (noindex,follow file in dist).
  * Evidence: publisher 43795558997 (orphan-landings 1913→1906 = -0.4%,
- * profession-cities 252→248 = -1.6%).
+ * profession-cities 252→248 = -1.6%); publisher 44286440277
+ * (fuel-italian-stations 4120→4112 = -0.19%: 2 stations without a diesel
+ * price x 4 locales = 8 URLs replaced by noindex,follow bridges).
  */
 export const SITEMAP_FAMILY_CHURN_TOLERANCE = Object.freeze({
+  'fuel-italian-stations': 0.1,
   'orphan-landings': 0.1,
   'profession-cities': 0.1,
 });

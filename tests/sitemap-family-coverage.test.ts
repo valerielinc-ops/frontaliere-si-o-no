@@ -229,6 +229,73 @@ describe('sitemap family URL coverage ratchet', () => {
     expect(increased.churn).toEqual([]);
   });
 
+  describe('fuel-italian-stations data-driven churn', () => {
+    const FUEL = 'sitemap-fuel-italian-stations.xml';
+    const fuelSnapshots = (previousCount: number, currentCount: number) => ({
+      previous: snapshot({ [FUEL]: familyUrls('fuel-italian-stations', previousCount) }),
+      current: snapshot({ [FUEL]: familyUrls('fuel-italian-stations', currentCount) }),
+    });
+
+    it('reports 4120 -> 4112 with valid bridge evidence for the 8 removed URLs as churn', () => {
+      const { previous, current } = fuelSnapshots(4120, 4112);
+      const evidence = bridgeEvidence(previous, current, 'fuel-italian-stations');
+      const result = evaluateSitemapFamilyCoverage(previous, current, NO_DECLARATIONS, evidence);
+
+      expect(evidence.entries).toHaveLength(8);
+      expect(result.regressions).toEqual([]);
+      expect(result.bridgeEvidenceErrors).toEqual([]);
+      expect(result.churn).toMatchObject([
+        { family: 'fuel-italian-stations', previousCount: 4120, currentCount: 4112, delta: -8, tolerance: 0.1 },
+      ]);
+    });
+
+    it('fails the same decrease closed without bridge evidence', () => {
+      const { previous, current } = fuelSnapshots(4120, 4112);
+      const result = evaluateSitemapFamilyCoverage(previous, current, NO_DECLARATIONS);
+
+      expect(result.churn).toEqual([]);
+      expect(result.regressions).toEqual([
+        { family: 'fuel-italian-stations', previousCount: 4120, currentCount: 4112, delta: -8 },
+      ]);
+      expect(result.bridgeEvidenceErrors.join('\n')).toContain('missing or has an unsupported schema');
+    });
+
+    it('rejects evidence that misses one removed URL', () => {
+      const { previous, current } = fuelSnapshots(4120, 4112);
+      const evidence = bridgeEvidence(previous, current, 'fuel-italian-stations');
+      evidence.entries.pop();
+      const result = evaluateSitemapFamilyCoverage(previous, current, NO_DECLARATIONS, evidence);
+
+      expect(result.churn).toEqual([]);
+      expect(result.regressions).toHaveLength(1);
+      expect(result.bridgeEvidenceErrors.join('\n')).toContain('missing bridge evidence for removed URL');
+    });
+
+    it('treats a collapse beyond the 10% bound as a regression even with evidence', () => {
+      const { previous, current } = fuelSnapshots(4120, 2000);
+      const result = evaluateSitemapFamilyCoverage(
+        previous, current, NO_DECLARATIONS, bridgeEvidence(previous, current, 'fuel-italian-stations'),
+      );
+
+      expect(result.churn).toEqual([]);
+      expect(result.regressions).toEqual([
+        { family: 'fuel-italian-stations', previousCount: 4120, currentCount: 2000, delta: -2120 },
+      ]);
+    });
+
+    it('treats a decrease just beyond the bound as an undeclared regression', () => {
+      const { previous, current } = fuelSnapshots(1000, 899);
+      const result = evaluateSitemapFamilyCoverage(
+        previous, current, NO_DECLARATIONS, bridgeEvidence(previous, current, 'fuel-italian-stations'),
+      );
+
+      expect(result.churn).toEqual([]);
+      expect(result.regressions).toEqual([
+        { family: 'fuel-italian-stations', previousCount: 1000, currentCount: 899, delta: -101 },
+      ]);
+    });
+  });
+
   it('keeps the existing exact fuel-stations declaration valid', () => {
     const result = evaluateSitemapFamilyCoverage(
       snapshot({ 'sitemap-fuel-italian-stations.xml': familyUrls('fuel-stations', 4116) }),
