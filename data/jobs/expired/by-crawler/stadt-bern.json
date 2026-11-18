@@ -169,16 +169,23 @@
     "slugByLocale": {
       "it": "giardinieri-stadt-bern-bern",
       "en": "gardeners-stadt-bern-bern",
-      "de": "gartner-in-stadt-bern-bern",
+      "de": "gartner-in-stadt-bern-bern-f8d313d4",
       "fr": "jardiniers-stadt-bern-bern"
     },
     "sector": "Amministrazione Pubblica",
     "expiredAt": "2026-11-16T09:14:42.170Z",
-    "previousSlugs": [
-      "gartner-in-stadt-bern-bern"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "gartner-in-stadt-bern-bern-f8d313d4",
+        "gartner-in-stadt-bern-bern"
+      ],
+      "en": [
+        "gartner-in-stadt-bern-bern"
+      ],
+      "de": [
+        "gartner-in-stadt-bern-bern-f8d313d4"
+      ],
+      "fr": [
         "gartner-in-stadt-bern-bern"
       ]
     },
@@ -189,7 +196,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/gaertner-in/067aec99-e6f5-4e34-8fc0-3f30e170a336",
-    "firstSeenAt": "2026-09-19T22:46:53.597Z"
+    "firstSeenAt": "2026-09-19T22:46:53.597Z",
+    "previousSlugs": [
+      "gartner-in-stadt-bern-bern"
+    ]
   },
   {
     "slug": "cogestione-ciclo-2-stadt-bern-bern",
