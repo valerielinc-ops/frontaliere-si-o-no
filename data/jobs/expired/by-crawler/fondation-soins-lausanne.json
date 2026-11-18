@@ -415,15 +415,13 @@
       "it": "icls-infermiera-clinica-specializzata-m-f-fondation-soins-lausanne-lausanne",
       "en": "icls-specialized-clinician-nurse-m-f-fondation-soins-lausanne-lausanne",
       "de": "icls-spezialisierte-krankenschwester-m-w-fondation-soins-lausanne-lausanne",
-      "fr": "icls-infirmier-clinicien-specialise-h-f-fondation-soins-lausanne-lausanne"
+      "fr": "icls-infirmier-clinicien-specialise-h-f-fondation-soins-lausanne-lausanne-22c43326"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-11-11T12:29:22.873Z",
-    "previousSlugs": [
-      "icls-infirmier-clinicien-specialise-h-f-fondation-soins-lausanne-lausanne"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "icls-infirmier-clinicien-specialise-h-f-fondation-soins-lausanne-lausanne-22c43326",
         "icls-infirmier-clinicien-specialise-h-f-fondation-soins-lausanne-lausanne"
       ],
       "en": [
@@ -431,6 +429,9 @@
       ],
       "de": [
         "icls-infirmier-clinicien-specialise-h-f-fondation-soins-lausanne-lausanne"
+      ],
+      "fr": [
+        "icls-infirmier-clinicien-specialise-h-f-fondation-soins-lausanne-lausanne-22c43326"
       ]
     },
     "postalCode": "1003",
@@ -440,7 +441,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/e6698032-dcf0-4f85-a33c-f16480b5169e",
-    "firstSeenAt": "2026-10-28T20:15:36.488Z"
+    "firstSeenAt": "2026-10-28T20:15:36.488Z",
+    "previousSlugs": [
+      "icls-infirmier-clinicien-specialise-h-f-fondation-soins-lausanne-lausanne"
+    ]
   },
   {
     "slug": "infermiera-di-campo-m-f-fondation-soins-lausanne-lausanne-e8b33266",

@@ -1,16 +1,16 @@
 {
   "key": "medacta-international",
   "label": "Medacta",
-  "generatedAt": "2026-11-18T09:22:29.818Z",
+  "generatedAt": "2026-11-18T21:21:41.206Z",
   "total": 5,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 93276,
-  "avgDurationMs": 93276,
+  "durationMs": 86582,
+  "avgDurationMs": 86582,
   "durationHistory": [
-    93276
+    86582
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +34,7 @@
       "source": "Allibo ATS detail page",
       "companyDomain": "medacta.com",
       "sector": "Dispositivi medici",
-      "crawledAt": "2026-11-18T09:20:54.306Z",
+      "crawledAt": "2026-11-18T21:20:25.698Z",
       "sourceLang": "it",
       "addressLocality": "Castel San Pietro/Rancate",
       "addressCountry": "CH",
@@ -50,7 +50,7 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:20:54.306Z",
+      "validThrough": "2026-12-18T21:20:25.698Z",
       "validThroughSource": "last-observed-window",
       "needsRetranslation": true,
       "_qualityScore": 95,
@@ -81,7 +81,7 @@
       "source": "Allibo ATS detail page",
       "companyDomain": "medacta.com",
       "sector": "Dispositivi medici",
-      "crawledAt": "2026-11-18T09:20:51.673Z",
+      "crawledAt": "2026-11-18T21:20:23.280Z",
       "sourceLang": "it",
       "addressLocality": "Rancate",
       "addressCountry": "CH",
@@ -97,7 +97,7 @@
       "postingDateSource": "unknown",
       "streetAddress": "Rancate",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:20:51.673Z",
+      "validThrough": "2026-12-18T21:20:23.280Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -130,7 +130,7 @@
       "source": "Allibo ATS detail page",
       "companyDomain": "medacta.com",
       "sector": "Dispositivi medici",
-      "crawledAt": "2026-11-18T09:20:49.565Z",
+      "crawledAt": "2026-11-18T21:20:21.227Z",
       "sourceLang": "en",
       "addressLocality": "Castel San Pietro",
       "addressCountry": "CH",
@@ -146,7 +146,7 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-18T09:20:49.565Z",
+      "validThrough": "2026-12-18T21:20:21.227Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -176,7 +176,7 @@
       "source": "Allibo ATS detail page",
       "companyDomain": "medacta.com",
       "sector": "Dispositivi medici",
-      "crawledAt": "2026-11-18T09:20:48.485Z",
+      "crawledAt": "2026-11-18T21:20:20.231Z",
       "sourceLang": "it",
       "addressLocality": "Castel San Pietro",
       "addressCountry": "CH",
@@ -192,7 +192,7 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:20:48.485Z",
+      "validThrough": "2026-12-18T21:20:20.231Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -222,7 +222,7 @@
       "source": "Allibo ATS detail page",
       "companyDomain": "medacta.com",
       "sector": "Dispositivi medici",
-      "crawledAt": "2026-11-18T09:20:47.049Z",
+      "crawledAt": "2026-11-18T21:20:18.889Z",
       "sourceLang": "it",
       "addressLocality": "Castel San Pietro",
       "addressCountry": "CH",
@@ -238,7 +238,7 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:20:47.049Z",
+      "validThrough": "2026-12-18T21:20:18.889Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -249,5 +249,5 @@
       }
     }
   ],
-  "codeCommit": "c09e64fc08a252ae7234edb7cb9fdea84c5eb705"
+  "codeCommit": "8862042892397f4dcea90f48fbc2dc028da23eec"
 }
