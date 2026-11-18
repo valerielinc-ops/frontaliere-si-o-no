@@ -131,6 +131,22 @@ function shardKey(slug: string): string {
   return value.length === 2 ? value : (value + '__').slice(0, 2);
 }
 
+/**
+ * v1 is streamed from the finished v2 buckets, so a duplicate must fail before
+ * its second JSON fragment is appended. JSON.parse would otherwise keep only
+ * the last value while the manifest counters and digests counted both.
+ */
+export function assertUniqueJobCanonV1Key(
+  emittedSlugs: Set<string>,
+  slug: string,
+  shard: string,
+): void {
+  if (emittedSlugs.has(slug)) {
+    throw new Error(`[job-canon-redirect-map] duplicate v1 key ${JSON.stringify(slug)} in shard ${shard}`);
+  }
+  emittedSlugs.add(slug);
+}
+
 /** Section prefix the consumers join with `${slug}/`. */
 function sectionPrefix(canonicalPath: string): string | null {
   const segments = canonicalPath.replace(/\/+$/, '').split('/').filter(Boolean);
@@ -1163,6 +1179,7 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
         let v1BufferedBytes = 0;
         const v1Started = new Set<string>();
         const v1HasEntries = new Set<string>();
+        const v1EmittedSlugs = new Set<string>();
         const v1Keys = new Set<string>();
         const v1EntriesByShard = new Map<string, number>();
         const v1AliasesByShard = new Map<string, number>();
@@ -1182,6 +1199,7 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
         };
         const appendV1Entry = (slug: string, entry: LocaleEntry): void => {
           const key = shardKey(slug);
+          assertUniqueJobCanonV1Key(v1EmittedSlugs, slug, key);
           v1Keys.add(key);
           const outputPath = path.join(v1Dir, `${key}.json`);
           if (!v1Started.has(key)) {

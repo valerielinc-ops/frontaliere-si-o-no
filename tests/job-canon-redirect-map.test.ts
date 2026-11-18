@@ -7,6 +7,7 @@ import path from 'node:path';
 import {
   assertJobCanonV2ShardWithinLimit,
   assertMaxShardGrowthWithinPercent,
+  assertUniqueJobCanonV1Key,
   jobCanonRedirectMapPlugin,
 } from '../build-plugins/jobCanonRedirectMapPlugin';
 import {
@@ -141,6 +142,13 @@ describe('jobCanonRedirectMapPlugin', () => {
 
   const readV2Shard = (slug: string): Record<string, Record<string, string>> =>
     JSON.parse(fs.readFileSync(path.join(tmp, 'dist', 'job-canon', 'v2', `${jobCanonV2ShardKey(slug)}.json`), 'utf-8'));
+
+  it('fails closed before a second v1 fragment can duplicate a JSON key', () => {
+    const emittedSlugs = new Set<string>();
+    assertUniqueJobCanonV1Key(emittedSlugs, 'duplicate-v1-key', 'du');
+    expect(() => assertUniqueJobCanonV1Key(emittedSlugs, 'duplicate-v1-key', 'du'))
+      .toThrow('[job-canon-redirect-map] duplicate v1 key "duplicate-v1-key" in shard du');
+  });
 
   it('maps the IT localized slug to its canonical section prefix', () => {
     const shard = readShard('capo-ottimizzazione-portafoglio-ffs-zollikofen');
