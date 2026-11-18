@@ -171,7 +171,8 @@ describe('SEO builder noindex guards', () => {
       expect(retainedGuardEnd).toBeGreaterThan(retainedGuardStart);
       expect(retainedGuardBlock).toContain('isRetainedBridgePathSafeToEmit(');
       expect(retainedGuardBlock).toContain('isJobAliasRedirectPath,');
-      expect(retainedGuardBlock).toContain('retainedBridgePaths.has(bridgePathKey(locale, candidatePath))');
+      expect(retainedGuardBlock).toContain('retainedBridgePaths.get(bridgePathKey(locale, candidatePath))');
+      expect(retainedGuardBlock).toContain('isRetainedBridgeOwnedBy(retained.bridge, kind, ownerJobIdentifier)');
       expect(retainedGuardBlock).toContain('activeBridgePathsOwnedBeforePlan.has(bridgePathKey(locale, canonicalPath))');
 
       // Planning and each active bridge writer must use the shared canonical

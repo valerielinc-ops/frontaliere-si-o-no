@@ -1227,6 +1227,33 @@ describe('job canon bridge path planning and PR-B classification', () => {
       && bridge.path === '/cerca-lavoro-zurigo/current-it-slug/')).toBe(true);
   });
 
+  it('plans no legacy TI mirror when an active page owns the old path, even if the path is not emittable', () => {
+    const activeOwner = {
+      id: 'b-active-owner',
+      slug: 'taken-it',
+      canton: 'ZH',
+      slugByLocale: { it: 'taken-it', en: 'taken-en', de: 'taken-de', fr: 'taken-fr' },
+    } satisfies ActiveJobSlugMapRow;
+    const aliasing = {
+      id: 'a-aliasing',
+      slug: 'current-it',
+      canton: 'ZH',
+      slugByLocale: { it: 'current-it', en: 'current-en', de: 'current-de', fr: 'current-fr' },
+      previousSlugsByLocale: { en: ['taken-en', 'free-en'] },
+    } satisfies ActiveJobSlugMapRow;
+    const activePath = buildCanonicalJobDetailPath('en', aliasing, 'taken-en', 'ZH');
+    const plan = buildActiveJobBridgePathPlan([activeOwner, aliasing], {
+      winners: {},
+      reservedHubSlugs: new Set(),
+      // the active page already claimed its path, so the old-path bridge is not emittable
+      canEmitBridgePath: (_locale, candidatePath) => candidatePath !== activePath,
+    });
+    expect(plan.bridgePaths.some((bridge) => bridge.locale === 'en' && bridge.slug === 'taken-en')).toBe(false);
+    // control: a free old path still gets both its bridge and its legacy TI mirror
+    expect(plan.bridgePaths.some((bridge) => bridge.kind === 'previousSlug' && bridge.locale === 'en' && bridge.slug === 'free-en')).toBe(true);
+    expect(plan.bridgePaths.some((bridge) => bridge.kind === 'legacyTiMirror' && bridge.locale === 'en' && bridge.slug === 'free-en')).toBe(true);
+  });
+
   it('marks a bridge removable only when jobCanonTarget resolves to its exact target', () => {
     const bridgePaths = [
       { path: '/old-section/old-slug/', locale: 'it', slug: 'old-slug', targetPath: '/new-section/current/', kind: 'previousSlug', canton: 'ZH' },

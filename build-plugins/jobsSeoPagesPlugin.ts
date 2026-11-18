@@ -267,6 +267,7 @@ import {
  assertRetainedBridgeMissingBudget,
  classifyRetainedNotEmitted,
  isRetainedBridgePathSafeToEmit,
+ isRetainedBridgeOwnedBy,
  type JobCanonBridgePath,
  type ActiveJobSlugMapRow,
  type BridgeKeepReason,
@@ -15064,10 +15065,15 @@ ${staticAnalyticsHtml}
  // Planned bridges that an emitter actually accepted (plan -> emitter direction of the gate).
  const emittedRetainedBridgeKeys = new Set<string>();
  let unplannedBridgeVisits = 0;
+ // Planned bridges owned by another job/kind: the plan decides, the emitter obeys.
+ let retainedBridgesSkippedNotOwner = 0;
+ const retainedBridgesNotOwnerKeys = new Set<string>();
+ const retainedBridgesNotOwnerExamples: string[] = [];
  const isRetainedActiveBridgePath = (
   locale: JobSeoLocale,
   pathname: string,
   kind: JobCanonBridgePath['kind'],
+  ownerJobIdentifier?: string,
  ): boolean => {
   const canonicalPath = withSlash(pathname);
   if (activeBridgePathsOwnedBeforePlan.has(bridgePathKey(locale, canonicalPath))) return false;
@@ -15075,8 +15081,22 @@ ${staticAnalyticsHtml}
    distDir,
    canonicalPath,
    isJobAliasRedirectPath,
-   (candidatePath) => retainedBridgePaths.has(bridgePathKey(locale, candidatePath)),
+   (candidatePath) => {
+    const retained = retainedBridgePaths.get(bridgePathKey(locale, candidatePath));
+    if (!retained) return false;
+    if (ownerJobIdentifier === undefined) return true;
+    if (isRetainedBridgeOwnedBy(retained.bridge, kind, ownerJobIdentifier)) return true;
+    const notOwnerKey = `${kind}\u0000${locale}\u0000${candidatePath}`;
+    if (!retainedBridgesNotOwnerKeys.has(notOwnerKey)) {
+     retainedBridgesNotOwnerKeys.add(notOwnerKey);
+     retainedBridgesSkippedNotOwner++;
+     if (retainedBridgesNotOwnerExamples.length < 20) retainedBridgesNotOwnerExamples.push(`${kind}:${locale}:${candidatePath}:not-owner`);
+    }
+    return false;
+   },
    (unplannedPath) => {
+    // Planned for another owner/kind: counted above as not-owner, not as unplanned.
+    if (retainedBridgePaths.has(bridgePathKey(locale, unplannedPath))) return;
     unplannedBridgeVisits++;
     const unplannedKey = `${locale}\u0000${unplannedPath}`;
     if (unplannedBridgeKeys.has(unplannedKey)) return;
@@ -16976,7 +16996,7 @@ ${staticAnalyticsHtml}
  const __tPrevSlugBridge = startTimer();
  const outDir = np.join(distDir, oldRelPath);
  let indexHtml: string | null = null;
- if (isRetainedActiveBridgePath(locale, oldPath, 'previousSlug')) {
+ if (isRetainedActiveBridgePath(locale, oldPath, 'previousSlug', String((job as any).id || (job as any).slug || ''))) {
   // Keep full-content rendering and incremental reuse only for URLs that the
   // Worker cannot redirect to this exact canonical destination.
   bridgeFullCount++;
@@ -17067,7 +17087,7 @@ ${staticAnalyticsHtml}
  !activeJobDirs.has(legacyTIKey) &&
  !legacyTiBridgeDirs.has(legacyTIKey)
  ) {
- if (!isRetainedActiveBridgePath(locale, legacyTIRelPath, 'legacyTiMirror')) continue;
+ if (!isRetainedActiveBridgePath(locale, legacyTIRelPath, 'legacyTiMirror', String((job as any).id || (job as any).slug || ''))) continue;
  legacyTiBridgeDirs.add(legacyTIKey);
  const __tPrevSlugLegacyTIBridge = startTimer();
  const legacyTIOutDir = np.join(distDir, legacyTIRelPath);
@@ -17888,6 +17908,12 @@ ${staticAnalyticsHtml}
    + `by-kind=${JSON.stringify(unplannedBridgesSkippedByKind)} `
    + `by-locale=${JSON.stringify(unplannedBridgesSkippedByLocale)} `
    + `examples=${JSON.stringify(unplannedBridgeExamples)}`,
+  );
+ }
+ if (retainedBridgesSkippedNotOwner > 0) {
+  console.warn(
+   `[job-alias-redirect-gate] retained-bridges-skipped-not-owner=${retainedBridgesSkippedNotOwner} `
+   + `examples=${JSON.stringify(retainedBridgesNotOwnerExamples)}`,
   );
  }
  if (retainedOwnedElsewhere + retainedUnemittedMissing > 0) {

@@ -11,7 +11,7 @@ import {
   MAX_FILESYSTEM_SEGMENT_BYTES,
   writeDistPageSafely,
 } from '../build-plugins/shared/distPathSafety';
-import { assertRetainedBridgeMissingBudget, classifyRetainedNotEmitted, isRetainedBridgePathSafeToEmit } from '../build-plugins/shared/jobCanonBridgePaths';
+import { assertRetainedBridgeMissingBudget, classifyRetainedNotEmitted, isRetainedBridgeOwnedBy, isRetainedBridgePathSafeToEmit } from '../build-plugins/shared/jobCanonBridgePaths';
 import {
   claim,
   getJobAliasRedirectDirs,
@@ -422,5 +422,16 @@ describe('retained bridge budget denominator and ownership classification', () =
   it('treats a claimed path or one owned before the plan as owned elsewhere', () => {
     expect(classifyRetainedNotEmitted({ claimed: true, ownedBeforePlan: false, exists: true }).kind).toBe('owned-elsewhere');
     expect(classifyRetainedNotEmitted({ claimed: false, ownedBeforePlan: true, exists: false }).kind).toBe('owned-elsewhere');
+  });
+});
+
+describe('isRetainedBridgeOwnedBy', () => {
+  const retained = { kind: 'previousSlug', sourceJobIdentifier: 'job-1' };
+
+  it('accepts only the same kind and owner', () => {
+    expect(isRetainedBridgeOwnedBy(retained, 'previousSlug', 'job-1')).toBe(true);
+    expect(isRetainedBridgeOwnedBy(retained, 'legacyTiMirror', 'job-1')).toBe(false);
+    expect(isRetainedBridgeOwnedBy(retained, 'previousSlug', 'job-2')).toBe(false);
+    expect(isRetainedBridgeOwnedBy(undefined, 'previousSlug', 'job-1')).toBe(false);
   });
 });
