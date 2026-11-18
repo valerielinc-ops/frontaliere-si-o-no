@@ -62,7 +62,7 @@ export function isCogestimChJob(job) {
     key === COGESTIM_CH_KEY ||
     key.startsWith('cogestim-ch-') ||
     company.includes('cogestim sa') ||
-    url.includes('cogestim.ch')
+    isTrustedDomain(url)
   );
 }
 
