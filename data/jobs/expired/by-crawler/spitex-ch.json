@@ -8291,16 +8291,14 @@
     "slugByLocale": {
       "it": "infermiera-hf-fh-50-100-spitex-regio-liestal-liestal",
       "en": "dipl-nurse-hf-fh-50-100-spitex-regio-liestal-liestal",
-      "de": "dipl-pflegefachperson-hf-fh-50-100-spitex-ch-liestal",
+      "de": "dipl-pflegefachperson-hf-fh-50-100-spitex-ch-liestal-86475498",
       "fr": "infirmiere-diplomee-hf-fh-50-100-spitex-regio-liestal-liestal"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-10-21T09:25:17.223Z",
-    "previousSlugs": [
-      "dipl-pflegefachperson-hf-fh-50-100-spitex-ch-liestal"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "dipl-pflegefachperson-hf-fh-50-100-spitex-ch-liestal-86475498",
         "dipl-pflegefachperson-hf-fh-50-100-spitex-ch-liestal"
       ],
       "en": [
@@ -8308,6 +8306,9 @@
       ],
       "fr": [
         "dipl-pflegefachperson-hf-fh-50-100-spitex-ch-liestal"
+      ],
+      "de": [
+        "dipl-pflegefachperson-hf-fh-50-100-spitex-ch-liestal-86475498"
       ]
     },
     "postalCode": "4410",
@@ -8316,7 +8317,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.spitexjobs.ch/job/dipl-pflegefachperson-hf-fh-50-100-prozent/j996235",
-    "firstSeenAt": "2026-10-16T21:16:20.081Z"
+    "firstSeenAt": "2026-10-16T21:16:20.081Z",
+    "previousSlugs": [
+      "dipl-pflegefachperson-hf-fh-50-100-spitex-ch-liestal"
+    ]
   },
   {
     "slug": "operatrice-operatore-sociosanitario-infermiere-a-con-attestato-crs-infermiere-a-diplomato-a-dni-60-80-betagtenzentrum",
@@ -8394,16 +8398,14 @@
     "slugByLocale": {
       "it": "operatrice-sociosanitaria-operatore-sociosanitario-oss-afc-al-50-100-spitex-regio-liestal-liestal",
       "en": "professional-health-fage-efz-50-100-spitex-regio-liestal-liestal",
-      "de": "fachfrau-fachmann-gesundheit-fage-efz-zu-50-100-spitex-ch-liestal",
+      "de": "fachfrau-fachmann-gesundheit-fage-efz-zu-50-100-spitex-ch-liestal-7e8135e8",
       "fr": "sante-professionnelle-fage-efz-50-100-spitex-regio-liestal-liestal"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-10-21T09:25:17.223Z",
-    "previousSlugs": [
-      "fachfrau-fachmann-gesundheit-fage-efz-zu-50-100-spitex-ch-liestal"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "fachfrau-fachmann-gesundheit-fage-efz-zu-50-100-spitex-ch-liestal-7e8135e8",
         "fachfrau-fachmann-gesundheit-fage-efz-zu-50-100-spitex-ch-liestal"
       ],
       "en": [
@@ -8411,6 +8413,9 @@
       ],
       "fr": [
         "fachfrau-fachmann-gesundheit-fage-efz-zu-50-100-spitex-ch-liestal"
+      ],
+      "de": [
+        "fachfrau-fachmann-gesundheit-fage-efz-zu-50-100-spitex-ch-liestal-7e8135e8"
       ]
     },
     "postalCode": "4410",
@@ -8419,7 +8424,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.spitexjobs.ch/job/fachfrau-fachmann-gesundheit-fage-efz-zu-50-100-prozent/j993299",
-    "firstSeenAt": "2026-10-16T21:16:21.703Z"
+    "firstSeenAt": "2026-10-16T21:16:21.703Z",
+    "previousSlugs": [
+      "fachfrau-fachmann-gesundheit-fage-efz-zu-50-100-spitex-ch-liestal"
+    ]
   },
   {
     "slug": "salute-professionale-60-80-spitex-riehen-bettingen-riehen",
