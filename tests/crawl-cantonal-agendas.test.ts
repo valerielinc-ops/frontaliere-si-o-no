@@ -40,6 +40,10 @@ describe('EVENT_SOURCES entries for the cantonal agendas', () => {
     expect(() => parserFor('nope')).toThrow(/unknown iCMS agenda/);
   });
 
+  it('uses the current explicit iCMS route for the Nidwalden agenda', () => {
+    expect(ICMS_AGENDAS['nw-agenda'].url).toBe('https://www.nw.ch/index.php/anlaesseaktuelles');
+  });
+
   it('fetches the State of Fribourg events feed', () => {
     expect(FEED_URL).toBe('https://www.fr.ch/evenements/rss.xml');
   });
