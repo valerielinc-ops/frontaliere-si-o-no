@@ -17840,6 +17840,14 @@ ${staticAnalyticsHtml}
    if (retainedNotEmittedExamples.length < 20) retainedNotEmittedExamples.push(`${bridge.kind}:${bridge.locale}:${bridge.path}:${notEmitted.flag}`);
   }
  }
+ if (unplannedBridgeKeys.size > 0) {
+  console.warn(
+   `[job-alias-redirect-gate] unplanned-bridges-skipped=${unplannedBridgeKeys.size} visits=${unplannedBridgeVisits} `
+   + `by-kind=${JSON.stringify(unplannedBridgesSkippedByKind)} `
+   + `by-locale=${JSON.stringify(unplannedBridgesSkippedByLocale)} `
+   + `examples=${JSON.stringify(unplannedBridgeExamples)}`,
+  );
+ }
  if (retainedOwnedElsewhere + retainedUnemittedMissing > 0) {
   console.warn(
    `[job-alias-redirect-gate] retained-not-emitted=${retainedOwnedElsewhere + retainedUnemittedMissing} `
