@@ -25,7 +25,9 @@ import { parseIcmsAnlaesseHtml, parseIcmsTermineRss, failIfSourceUnreachable } f
 
 /** Per-source fetch target and parser; keys must exist in EVENT_SOURCES. */
 export const ICMS_AGENDAS = {
-  'nw-agenda': { url: 'https://www.nw.ch/anlaesseaktuelles', origin: 'https://www.nw.ch', format: 'anlaesse' },
+  // Use the current explicit iCMS route. The former pretty URL is a legacy
+  // rewrite and was the only agenda fetch failing in run 44325109263.
+  'nw-agenda': { url: 'https://www.nw.ch/index.php/anlaesseaktuelles', origin: 'https://www.nw.ch', format: 'anlaesse' },
   'ow-agenda': { url: 'https://www.ow.ch/anlaesseaktuelles', origin: 'https://www.ow.ch', format: 'anlaesse' },
   'lu-stadt-agenda': { url: 'https://www.stadtluzern.ch/aktuelles/termine.rss', origin: 'https://www.stadtluzern.ch', format: 'rss' },
 };
