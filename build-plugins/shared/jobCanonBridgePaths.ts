@@ -1429,3 +1429,28 @@ function formatBridgeDiagnosticValue(value: string | undefined): string {
   const safe = value.replace(/[\u0000-\u001f\u007f]/g, '?');
   return safe.length <= 180 ? safe : `${safe.slice(0, 177)}...`;
 }
+
+export const RETAINED_BRIDGE_MISSING_MIN_BUDGET = 25;
+export const RETAINED_BRIDGE_MISSING_BUDGET_RATIO = 0.01;
+
+/** Safety valve: a few planned bridges may be absent (emitter filters), a systemic gap is a bug. */
+export function assertRetainedBridgeMissingBudget(missing: number, retainedTotal: number): void {
+  const budget = Math.max(RETAINED_BRIDGE_MISSING_MIN_BUDGET, Math.ceil(retainedTotal * RETAINED_BRIDGE_MISSING_BUDGET_RATIO));
+  if (missing > budget) {
+    throw new Error(`[job-alias-redirect-gate] retained bridges missing from dist exceed budget (missing=${missing} retained=${retainedTotal} budget=${budget})`);
+  }
+}
+
+/**
+ * Classify a planned (retained) bridge that no emitter accepted. Only a path claimed in this
+ * build's write registry (or owned before the plan) is "owned elsewhere"; a file on disk that
+ * nobody claimed may be stale or wrong content, so it counts as missing and consumes the budget.
+ */
+export function classifyRetainedNotEmitted(input: {
+  claimed: boolean;
+  ownedBeforePlan: boolean;
+  exists: boolean;
+}): { kind: 'owned-elsewhere' | 'missing'; flag: 'claimed' | 'unclaimed-existing' | 'absent' } {
+  if (input.claimed || input.ownedBeforePlan) return { kind: 'owned-elsewhere', flag: 'claimed' };
+  return { kind: 'missing', flag: input.exists ? 'unclaimed-existing' : 'absent' };
+}

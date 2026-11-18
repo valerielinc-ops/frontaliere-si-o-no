@@ -264,6 +264,8 @@ import {
  reconcileFinalWorkerSlugMapRows,
  assertBridgePathClassificationCoverage,
  assertBridgePathDistCoverage,
+ assertRetainedBridgeMissingBudget,
+ classifyRetainedNotEmitted,
  isRetainedBridgePathSafeToEmit,
  type JobCanonBridgePath,
  type ActiveJobSlugMapRow,
@@ -15059,6 +15061,8 @@ ${staticAnalyticsHtml}
  const unplannedBridgesSkippedByLocale: Record<string, number> = {};
  const unplannedBridgeExamples: string[] = [];
  const unplannedBridgeKeys = new Set<string>();
+ // Planned bridges that an emitter actually accepted (plan -> emitter direction of the gate).
+ const emittedRetainedBridgeKeys = new Set<string>();
  let unplannedBridgeVisits = 0;
  const isRetainedActiveBridgePath = (
   locale: JobSeoLocale,
@@ -15067,7 +15071,7 @@ ${staticAnalyticsHtml}
  ): boolean => {
   const canonicalPath = withSlash(pathname);
   if (activeBridgePathsOwnedBeforePlan.has(bridgePathKey(locale, canonicalPath))) return false;
-  return isRetainedBridgePathSafeToEmit(
+  const safeToEmit = isRetainedBridgePathSafeToEmit(
    distDir,
    canonicalPath,
    isJobAliasRedirectPath,
@@ -15082,6 +15086,8 @@ ${staticAnalyticsHtml}
     if (unplannedBridgeExamples.length < 20) unplannedBridgeExamples.push(`${kind}:${locale}:${unplannedPath}`);
    },
   );
+  if (safeToEmit) emittedRetainedBridgeKeys.add(bridgePathKey(locale, canonicalPath));
+  return safeToEmit;
  };
 
  // Keep both employer and recent recommendations in the archived job's canton.
@@ -17832,21 +17838,50 @@ ${staticAnalyticsHtml}
    };
   }
  })();
- const retainedBridgeOutputs = (function* () {
-  for (const { bridge } of retainedBridgePaths.values()) {
-   if (!shouldEmitLocale(bridge.locale)) continue;
-   const targets = getSafeDistPageTargets(distDir, bridge.path, { includeFlat: false });
-   if (!targets) throw new Error(`[job-alias-redirect-gate] retained bridge path is not a safe dist target (locale=${bridge.locale} path=${bridge.path})`);
-   yield {
+ // Full content check only for bridges an emitter accepted. A planned bridge nobody emitted is
+ // either served by another page (owned elsewhere) or absent: telemetry + budget, not a throw.
+ const retainedBridgeOutputs: Array<{
+  indexPath: string;
+  targetPath: string;
+  locale: JobSeoLocale;
+  path: string;
+  kind: JobCanonBridgePath['kind'];
+  sourceJobIdentifier: string | undefined;
+ }> = [];
+ let retainedOwnedElsewhere = 0;
+ let retainedUnemittedMissing = 0;
+ let retainedEligibleTotal = 0;
+ const retainedNotEmittedByLocale: Record<string, number> = {};
+ const retainedNotEmittedExamples: string[] = [];
+ for (const { bridge } of retainedBridgePaths.values()) {
+  if (!shouldEmitLocale(bridge.locale)) continue;
+  const targets = getSafeDistPageTargets(distDir, bridge.path, { includeFlat: false });
+  if (!targets) throw new Error(`[job-alias-redirect-gate] retained bridge path is not a safe dist target (locale=${bridge.locale} path=${bridge.path})`);
+  retainedEligibleTotal++;
+  if (emittedRetainedBridgeKeys.has(bridgePathKey(bridge.locale, bridge.path))) {
+   retainedBridgeOutputs.push({
     indexPath: targets.indexPath,
     targetPath: `${BASE_URL}${bridge.targetPath}`,
     locale: bridge.locale,
     path: bridge.path,
     kind: bridge.kind,
     sourceJobIdentifier: bridge.sourceJobIdentifier,
-   };
+   });
+   continue;
   }
- })();
+  retainedNotEmittedByLocale[bridge.locale] = (retainedNotEmittedByLocale[bridge.locale] ?? 0) + 1;
+  const notEmitted = classifyRetainedNotEmitted({
+   claimed: pathWasClaimed(targets.indexPath),
+   ownedBeforePlan: activeBridgePathsOwnedBeforePlan.has(bridgePathKey(bridge.locale, bridge.path)),
+   exists: fs.existsSync(targets.indexPath),
+  });
+  if (notEmitted.kind === 'owned-elsewhere') {
+   retainedOwnedElsewhere++;
+  } else {
+   retainedUnemittedMissing++;
+   if (retainedNotEmittedExamples.length < 20) retainedNotEmittedExamples.push(`${bridge.kind}:${bridge.locale}:${bridge.path}:${notEmitted.flag}`);
+  }
+ }
  if (unplannedBridgeKeys.size > 0) {
   console.warn(
    `[job-alias-redirect-gate] unplanned-bridges-skipped=${unplannedBridgeKeys.size} visits=${unplannedBridgeVisits} `
@@ -17855,6 +17890,15 @@ ${staticAnalyticsHtml}
    + `examples=${JSON.stringify(unplannedBridgeExamples)}`,
   );
  }
+ if (retainedOwnedElsewhere + retainedUnemittedMissing > 0) {
+  console.warn(
+   `[job-alias-redirect-gate] retained-not-emitted=${retainedOwnedElsewhere + retainedUnemittedMissing} `
+   + `owned-elsewhere=${retainedOwnedElsewhere} missing=${retainedUnemittedMissing} eligible=${retainedEligibleTotal} `
+   + `by-locale=${JSON.stringify(retainedNotEmittedByLocale)} `
+   + `examples=${JSON.stringify(retainedNotEmittedExamples)}`,
+  );
+ }
+ assertRetainedBridgeMissingBudget(retainedUnemittedMissing, retainedEligibleTotal);
  const bridgeDistCoverage = assertBridgePathDistCoverage(
   removableBridgeOutputs,
   retainedBridgeOutputs,
