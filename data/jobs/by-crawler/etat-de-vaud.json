@@ -3355,10 +3355,10 @@
     },
     {
       "id": "etat-de-vaud-6177",
-      "slug": "agent-e-en-information-documentaire-aid-etat-de-vaud-lausanne",
+      "slug": "documentary-information-officer-aid-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "agent-e-en-information-documentaire-aid-etat-de-vaud-lausanne",
-        "it": "agent-e-en-information-documentaire-aid-etat-de-vaud-lausanne",
+        "it": "documentary-information-officer-aid-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
         "en": "agent-e-en-information-documentaire-aid-etat-de-vaud-lausanne",
         "de": "agent-e-en-information-documentaire-aid-etat-de-vaud-lausanne"
       },
@@ -3422,14 +3422,22 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-14T21:47:16.244Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:47:16.244Z"
+      "firstSeenAt": "2026-11-17T21:47:16.244Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "agent-e-en-information-documentaire-aid-etat-de-vaud-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "agent-e-en-information-documentaire-aid-etat-de-vaud-lausanne"
+      ]
     },
     {
       "id": "etat-de-vaud-6176",
-      "slug": "responsable-d-atelier-cuisine-etat-de-vaud-lonay",
+      "slug": "cucina-officina-manager-etat-de-vaud-administration-cantonale-vaudoise-lonay",
       "slugByLocale": {
         "fr": "responsable-d-atelier-cuisine-etat-de-vaud-lonay",
-        "it": "responsable-d-atelier-cuisine-etat-de-vaud-lonay",
+        "it": "cucina-officina-manager-etat-de-vaud-administration-cantonale-vaudoise-lonay",
         "en": "responsable-d-atelier-cuisine-etat-de-vaud-lonay",
         "de": "responsable-d-atelier-cuisine-etat-de-vaud-lonay"
       },
@@ -3493,15 +3501,23 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-14T21:47:15.817Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-05T21:35:34.157Z"
+      "firstSeenAt": "2026-10-05T21:35:34.157Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-d-atelier-cuisine-etat-de-vaud-lonay"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-d-atelier-cuisine-etat-de-vaud-lonay"
+      ]
     },
     {
       "id": "etat-de-vaud-6174",
-      "slug": "assistant-e-en-gestion-comptable-domaine-judiciaire-etat-de-vaud-cully",
+      "slug": "assistente-nella-gestione-contabile-giustizia-etat-de-vaud-administration-cantonale-vaudoise-cully",
       "slugByLocale": {
         "fr": "assistant-e-en-gestion-comptable-domaine-judiciaire-etat-de-vaud-cully",
-        "it": "assistant-e-en-gestion-comptable-domaine-judiciaire-etat-de-vaud-cully",
-        "en": "assistant-e-en-gestion-comptable-domaine-judiciaire-etat-de-vaud-cully",
+        "it": "assistente-nella-gestione-contabile-giustizia-etat-de-vaud-administration-cantonale-vaudoise-cully",
+        "en": "assistant-in-accounting-management-judicial-etat-de-vaud-administration-cantonale-vaudoise-cully",
         "de": "assistant-e-en-gestion-comptable-domaine-judiciaire-etat-de-vaud-cully"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
@@ -3564,16 +3580,27 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-14T21:47:15.388Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:47:15.388Z"
+      "firstSeenAt": "2026-11-17T21:47:15.388Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-en-gestion-comptable-domaine-judiciaire-etat-de-vaud-cully"
+        ],
+        "en": [
+          "assistant-e-en-gestion-comptable-domaine-judiciaire-etat-de-vaud-cully"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-en-gestion-comptable-domaine-judiciaire-etat-de-vaud-cully"
+      ]
     },
     {
       "id": "etat-de-vaud-6173",
-      "slug": "gestionnaire-de-dossiers-specialises-domaine-judiciaire-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "slug": "specialist-file-manager-settore-giudiziario-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "gestionnaire-de-dossiers-specialises-domaine-judiciaire-etat-de-vaud-lausanne",
-        "it": "gestionnaire-de-dossiers-specialises-domaine-judiciaire-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-        "en": "gestionnaire-de-dossiers-specialises-domaine-judiciaire-etat-de-vaud-lausanne-2",
-        "de": "gestionnaire-de-dossiers-specialises-domaine-judiciaire-etat-de-vaud-lausanne-2"
+        "it": "specialist-file-manager-settore-giudiziario-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "en": "specialist-file-manager-judicial-field-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "de": "specialist-file-manager-justizbereich-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3624,20 +3651,24 @@
           "gestionnaire-de-dossiers-specialises-domaine-judiciaire-etat-de-vaud-lausanne-2",
           "specialist-file-manager-settore-giudiziario-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
           "specialist-file-manager-judicial-field-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-          "specialist-file-manager-justizbereich-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+          "specialist-file-manager-justizbereich-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+          "gestionnaire-de-dossiers-specialises-domaine-judiciaire-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
-          "specialist-file-manager-judicial-field-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+          "specialist-file-manager-judicial-field-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+          "gestionnaire-de-dossiers-specialises-domaine-judiciaire-etat-de-vaud-lausanne-2"
         ],
         "de": [
-          "specialist-file-manager-justizbereich-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+          "specialist-file-manager-justizbereich-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+          "gestionnaire-de-dossiers-specialises-domaine-judiciaire-etat-de-vaud-lausanne-2"
         ]
       },
       "previousSlugs": [
         "gestionnaire-de-dossiers-specialises-domaine-judiciaire-etat-de-vaud-lausanne-2",
         "specialist-file-manager-settore-giudiziario-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
         "specialist-file-manager-judicial-field-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-        "specialist-file-manager-justizbereich-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+        "specialist-file-manager-justizbereich-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "gestionnaire-de-dossiers-specialises-domaine-judiciaire-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -3659,12 +3690,12 @@
     },
     {
       "id": "etat-de-vaud-6172",
-      "slug": "greffier-iere-etat-de-vaud-lausanne",
+      "slug": "registrazione-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "greffier-iere-etat-de-vaud-lausanne",
-        "it": "greffier-iere-etat-de-vaud-lausanne",
-        "en": "greffier-iere-etat-de-vaud-lausanne",
-        "de": "greffier-iere-etat-de-vaud-lausanne"
+        "it": "registrazione-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "en": "registrar-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "de": "kanzler-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3726,16 +3757,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-14T21:47:14.511Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:47:14.511Z"
+      "firstSeenAt": "2026-11-17T21:47:14.511Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "greffier-iere-etat-de-vaud-lausanne"
+        ],
+        "en": [
+          "greffier-iere-etat-de-vaud-lausanne"
+        ],
+        "de": [
+          "greffier-iere-etat-de-vaud-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "greffier-iere-etat-de-vaud-lausanne"
+      ]
     },
     {
       "id": "etat-de-vaud-6171",
-      "slug": "employe-e-de-perception-etat-de-vaud-lausanne",
+      "slug": "dipendente-di-raccolta-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "employe-e-de-perception-etat-de-vaud-lausanne",
-        "it": "employe-e-de-perception-etat-de-vaud-lausanne",
-        "en": "employe-e-de-perception-etat-de-vaud-lausanne",
-        "de": "employe-e-de-perception-etat-de-vaud-lausanne"
+        "it": "dipendente-di-raccolta-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "en": "collection-employee-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "de": "inkassobediensteter-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3797,16 +3842,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-14T21:47:14.083Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:47:14.083Z"
+      "firstSeenAt": "2026-11-17T21:47:14.083Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "employe-e-de-perception-etat-de-vaud-lausanne"
+        ],
+        "en": [
+          "employe-e-de-perception-etat-de-vaud-lausanne"
+        ],
+        "de": [
+          "employe-e-de-perception-etat-de-vaud-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "employe-e-de-perception-etat-de-vaud-lausanne"
+      ]
     },
     {
       "id": "etat-de-vaud-6168",
-      "slug": "huissier-ere-judiciaire-etat-de-vaud-echallens",
+      "slug": "ufficiale-giudiziario-etat-de-vaud-administration-cantonale-vaudoise-echallens",
       "slugByLocale": {
         "fr": "huissier-ere-judiciaire-etat-de-vaud-echallens",
-        "it": "huissier-ere-judiciaire-etat-de-vaud-echallens",
-        "en": "huissier-ere-judiciaire-etat-de-vaud-echallens",
-        "de": "huissier-ere-judiciaire-etat-de-vaud-echallens"
+        "it": "ufficiale-giudiziario-etat-de-vaud-administration-cantonale-vaudoise-echallens",
+        "en": "judicial-officer-etat-de-vaud-administration-cantonale-vaudoise-echallens",
+        "de": "justizbeamter-etat-de-vaud-administration-cantonale-vaudoise-echallens"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3868,14 +3927,28 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-14T21:47:13.643Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:47:13.643Z"
+      "firstSeenAt": "2026-11-17T21:47:13.643Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "huissier-ere-judiciaire-etat-de-vaud-echallens"
+        ],
+        "en": [
+          "huissier-ere-judiciaire-etat-de-vaud-echallens"
+        ],
+        "de": [
+          "huissier-ere-judiciaire-etat-de-vaud-echallens"
+        ]
+      },
+      "previousSlugs": [
+        "huissier-ere-judiciaire-etat-de-vaud-echallens"
+      ]
     },
     {
       "id": "etat-de-vaud-6164",
-      "slug": "responsable-d-atelier-tournant-agricole-etat-de-vaud-orbe",
+      "slug": "responsabile-del-laboratorio-di-rotazione-agricola-etat-de-vaud-administration-cantonale-vaudoise-orbe",
       "slugByLocale": {
         "fr": "responsable-d-atelier-tournant-agricole-etat-de-vaud-orbe",
-        "it": "responsable-d-atelier-tournant-agricole-etat-de-vaud-orbe",
+        "it": "responsabile-del-laboratorio-di-rotazione-agricola-etat-de-vaud-administration-cantonale-vaudoise-orbe",
         "en": "responsable-d-atelier-tournant-agricole-etat-de-vaud-orbe",
         "de": "responsable-d-atelier-tournant-agricole-etat-de-vaud-orbe"
       },
@@ -3943,13 +4016,15 @@
       "previousSlugs": [
         "responsabile-del-laboratorio-di-rotazione-agricola-etat-de-vaud-administration-cantonale-vaudoise-orbe",
         "head-of-agricultural-rotating-workshop-etat-de-vaud-administration-cantonale-vaudoise-orbe",
-        "leiter-des-agricultural-rotating-workshops-etat-de-vaud-administration-cantonale-vaudoise-orbe"
+        "leiter-des-agricultural-rotating-workshops-etat-de-vaud-administration-cantonale-vaudoise-orbe",
+        "responsable-d-atelier-tournant-agricole-etat-de-vaud-orbe"
       ],
       "previousSlugsByLocale": {
         "it": [
           "responsabile-del-laboratorio-di-rotazione-agricola-etat-de-vaud-administration-cantonale-vaudoise-orbe",
           "head-of-agricultural-rotating-workshop-etat-de-vaud-administration-cantonale-vaudoise-orbe",
-          "leiter-des-agricultural-rotating-workshops-etat-de-vaud-administration-cantonale-vaudoise-orbe"
+          "leiter-des-agricultural-rotating-workshops-etat-de-vaud-administration-cantonale-vaudoise-orbe",
+          "responsable-d-atelier-tournant-agricole-etat-de-vaud-orbe"
         ],
         "en": [
           "head-of-agricultural-rotating-workshop-etat-de-vaud-administration-cantonale-vaudoise-orbe"
@@ -3961,12 +4036,12 @@
     },
     {
       "id": "etat-de-vaud-6161",
-      "slug": "conseiller-ere-en-vue-du-retour-etat-de-vaud-lausanne",
+      "slug": "consigliere-per-il-ritorno-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "conseiller-ere-en-vue-du-retour-etat-de-vaud-lausanne",
-        "it": "conseiller-ere-en-vue-du-retour-etat-de-vaud-lausanne",
-        "en": "conseiller-ere-en-vue-du-retour-etat-de-vaud-lausanne",
-        "de": "conseiller-ere-en-vue-du-retour-etat-de-vaud-lausanne"
+        "it": "consigliere-per-il-ritorno-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "en": "counsellor-for-return-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "de": "ratgeber-fur-ruckkehr-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -4028,16 +4103,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-14T21:47:12.300Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:47:12.300Z"
+      "firstSeenAt": "2026-11-17T21:47:12.300Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-ere-en-vue-du-retour-etat-de-vaud-lausanne"
+        ],
+        "en": [
+          "conseiller-ere-en-vue-du-retour-etat-de-vaud-lausanne"
+        ],
+        "de": [
+          "conseiller-ere-en-vue-du-retour-etat-de-vaud-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-ere-en-vue-du-retour-etat-de-vaud-lausanne"
+      ]
     },
     {
       "id": "etat-de-vaud-6120",
-      "slug": "psychologue-en-milieu-scolaire-etat-de-vaud-renens-vd",
+      "slug": "psicologo-scolastico-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
       "slugByLocale": {
         "fr": "psychologue-en-milieu-scolaire-etat-de-vaud-renens-vd",
-        "it": "psychologue-en-milieu-scolaire-etat-de-vaud-renens-vd",
-        "en": "psychologue-en-milieu-scolaire-etat-de-vaud-renens-vd",
-        "de": "psychologue-en-milieu-scolaire-etat-de-vaud-renens-vd"
+        "it": "psicologo-scolastico-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
+        "en": "school-psychologist-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
+        "de": "schulpsychologin-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -4099,14 +4188,28 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-14T21:47:11.851Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:47:11.851Z"
+      "firstSeenAt": "2026-11-17T21:47:11.851Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologue-en-milieu-scolaire-etat-de-vaud-renens-vd"
+        ],
+        "en": [
+          "psychologue-en-milieu-scolaire-etat-de-vaud-renens-vd"
+        ],
+        "de": [
+          "psychologue-en-milieu-scolaire-etat-de-vaud-renens-vd"
+        ]
+      },
+      "previousSlugs": [
+        "psychologue-en-milieu-scolaire-etat-de-vaud-renens-vd"
+      ]
     },
     {
       "id": "etat-de-vaud-6100",
-      "slug": "juriste-etat-de-vaud-lausanne",
+      "slug": "ufficiale-legale-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "juriste-etat-de-vaud-lausanne",
-        "it": "juriste-etat-de-vaud-lausanne",
+        "it": "ufficiale-legale-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
         "en": "juriste-etat-de-vaud-lausanne",
         "de": "juriste-etat-de-vaud-lausanne"
       },
@@ -4174,13 +4277,15 @@
       "previousSlugs": [
         "ufficiale-legale-etat-de-vaud-administration-cantonale-vaudoise-lausanne-bf20bd",
         "legal-officer-etat-de-vaud-administration-cantonale-vaudoise-lausanne-bf20bd",
-        "legal-officer-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+        "legal-officer-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "juriste-etat-de-vaud-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ufficiale-legale-etat-de-vaud-administration-cantonale-vaudoise-lausanne-bf20bd",
           "legal-officer-etat-de-vaud-administration-cantonale-vaudoise-lausanne-bf20bd",
-          "legal-officer-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+          "legal-officer-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+          "juriste-etat-de-vaud-lausanne"
         ],
         "en": [
           "legal-officer-etat-de-vaud-administration-cantonale-vaudoise-lausanne-bf20bd"

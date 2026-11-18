@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "bankslm-2f173056316e",
-      "slug": "privatkundenberater-in-basis-60-bank-slm-ag-munsingen",
+      "slug": "consulente-clienti-privato-basato-sul-60-bank-slm-ag-munsingen",
       "slugByLocale": {
         "de": "privatkundenberater-in-basis-60-munsingen-bankslm-ch",
-        "it": "privatkundenberater-in-basis-60-bank-slm-ag-munsingen",
-        "en": "privatkundenberater-in-basis-60-bank-slm-ag-munsingen",
-        "fr": "privatkundenberater-in-basis-60-bank-slm-ag-munsingen"
+        "it": "consulente-clienti-privato-basato-sul-60-bank-slm-ag-munsingen",
+        "en": "private-client-advisor-based-on-60-bank-slm-ag-munsingen",
+        "fr": "conseiller-client-prive-selon-60-bank-slm-ag-munsingen"
       },
       "company": "Bank SLM AG",
       "companyKey": "bankslm",
@@ -58,11 +58,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "privatkundenberater-in-basis-60-munsingen-bankslm-ch"
+          "privatkundenberater-in-basis-60-munsingen-bankslm-ch",
+          "privatkundenberater-in-basis-60-bank-slm-ag-munsingen"
+        ],
+        "en": [
+          "privatkundenberater-in-basis-60-bank-slm-ag-munsingen"
+        ],
+        "fr": [
+          "privatkundenberater-in-basis-60-bank-slm-ag-munsingen"
         ]
       },
       "previousSlugs": [
-        "privatkundenberater-in-basis-60-munsingen-bankslm-ch"
+        "privatkundenberater-in-basis-60-munsingen-bankslm-ch",
+        "privatkundenberater-in-basis-60-bank-slm-ag-munsingen"
       ],
       "salaryMin": 41100,
       "salaryMax": 62400,

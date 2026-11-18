@@ -19037,10 +19037,10 @@
     },
     {
       "id": "jumbo-f75efa54-11f",
-      "slug": "rayonleiter-in-admin-jumbo-arbon-textilstrasse",
+      "slug": "responsabile-di-reparto-admin-jumbo-arbon-textilstrasse",
       "slugByLocale": {
         "de": "rayonleiter-in-admin-jumbo-arbon-textilstrasse",
-        "it": "rayonleiter-in-admin-jumbo-arbon-textilstrasse",
+        "it": "responsabile-di-reparto-admin-jumbo-arbon-textilstrasse",
         "en": "rayonleiter-in-admin-jumbo-arbon-textilstrasse",
         "fr": "rayonleiter-in-admin-jumbo-arbon-textilstrasse"
       },
@@ -19118,7 +19118,15 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-17T21:22:42.577Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-06T22:52:27.446Z"
+      "firstSeenAt": "2026-09-06T22:52:27.446Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "rayonleiter-in-admin-jumbo-arbon-textilstrasse"
+        ]
+      },
+      "previousSlugs": [
+        "rayonleiter-in-admin-jumbo-arbon-textilstrasse"
+      ]
     },
     {
       "id": "jumbo-7439d48a-350",
@@ -19306,10 +19314,10 @@
     },
     {
       "id": "jumbo-0f33dc6c-05d",
-      "slug": "verkaufsberater-in-garden-jumbo-ilanz-glion",
+      "slug": "consulente-di-vendita-garden-jumbo-ilanz-glion",
       "slugByLocale": {
         "de": "verkaufsberater-in-garden-jumbo-ilanz-glion",
-        "it": "verkaufsberater-in-garden-jumbo-ilanz-glion",
+        "it": "consulente-di-vendita-garden-jumbo-ilanz-glion",
         "en": "verkaufsberater-in-garden-jumbo-ilanz-glion",
         "fr": "verkaufsberater-in-garden-jumbo-ilanz-glion"
       },
@@ -19387,15 +19395,23 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-17T21:22:42.574Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-06T22:52:27.442Z"
+      "firstSeenAt": "2026-09-06T22:52:27.442Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-garden-jumbo-ilanz-glion"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-garden-jumbo-ilanz-glion"
+      ]
     },
     {
       "id": "jumbo-86a42f6b-5c8",
-      "slug": "verkaufsberater-in-do-it-jumbo-schafisheim",
+      "slug": "consulente-di-vendita-do-it-jumbo-schafisheim",
       "slugByLocale": {
         "de": "verkaufsberater-in-do-it-jumbo-schafisheim",
-        "it": "verkaufsberater-in-do-it-jumbo-schafisheim",
-        "en": "verkaufsberater-in-do-it-jumbo-schafisheim",
+        "it": "consulente-di-vendita-do-it-jumbo-schafisheim",
+        "en": "sales-advisor-do-it-jumbo-schafisheim",
         "fr": "verkaufsberater-in-do-it-jumbo-schafisheim"
       },
       "company": "JUMBO",
@@ -19473,16 +19489,27 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-14T21:22:42.573Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-16T09:20:32.242Z"
+      "firstSeenAt": "2026-10-16T09:20:32.242Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-do-it-jumbo-schafisheim"
+        ],
+        "en": [
+          "verkaufsberater-in-do-it-jumbo-schafisheim"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-do-it-jumbo-schafisheim"
+      ]
     },
     {
       "id": "jumbo-8413a342-295",
-      "slug": "verkausberater-in-garden-jumbo-rumlang",
+      "slug": "consulente-di-vendita-garden-jumbo-rumlang",
       "slugByLocale": {
         "de": "verkausberater-in-garden-jumbo-rumlang",
-        "it": "verkausberater-in-garden-jumbo-rumlang",
-        "en": "verkausberater-in-garden-jumbo-rumlang",
-        "fr": "verkausberater-in-garden-jumbo-rumlang"
+        "it": "consulente-di-vendita-garden-jumbo-rumlang",
+        "en": "garden-sales-advisor-jumbo-rumlang",
+        "fr": "conseiller-ere-de-vente-garden-jumbo-rumlang"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -19557,7 +19584,21 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-15T21:22:42.572Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkausberater-in-garden-jumbo-rumlang"
+        ],
+        "en": [
+          "verkausberater-in-garden-jumbo-rumlang"
+        ],
+        "fr": [
+          "verkausberater-in-garden-jumbo-rumlang"
+        ]
+      },
+      "previousSlugs": [
+        "verkausberater-in-garden-jumbo-rumlang"
+      ]
     },
     {
       "id": "jumbo-821a750c-c8f",

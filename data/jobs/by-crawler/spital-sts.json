@@ -4611,12 +4611,12 @@
     },
     {
       "id": "spital-sts-ff9268d35485",
-      "slug": "med-praxisassistent-in-endokrinologie-diabetologie-spital-sts-thun",
+      "slug": "assistente-di-studio-medico-in-endocrinologia-diabetologia-spital-sts-thun",
       "slugByLocale": {
         "de": "med-praxisassistent-in-endokrinologie-diabetologie-spital-sts-thun",
-        "it": "med-praxisassistent-in-endokrinologie-diabetologie-spital-sts-thun",
-        "en": "med-praxisassistent-in-endokrinologie-diabetologie-spital-sts-thun",
-        "fr": "med-praxisassistent-in-endokrinologie-diabetologie-spital-sts-thun"
+        "it": "assistente-di-studio-medico-in-endocrinologia-diabetologia-spital-sts-thun",
+        "en": "medical-practice-assistant-endocrinology-diabetology-spital-sts-thun",
+        "fr": "assistante-assistant-medical-e-en-endocrinologie-diabetologie-spital-sts-thun"
       },
       "company": "Spital STS",
       "companyKey": "spital-sts",
@@ -4692,16 +4692,30 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-15T21:23:52.315Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:23:52.315Z"
+      "firstSeenAt": "2026-11-17T21:23:52.315Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "med-praxisassistent-in-endokrinologie-diabetologie-spital-sts-thun"
+        ],
+        "en": [
+          "med-praxisassistent-in-endokrinologie-diabetologie-spital-sts-thun"
+        ],
+        "fr": [
+          "med-praxisassistent-in-endokrinologie-diabetologie-spital-sts-thun"
+        ]
+      },
+      "previousSlugs": [
+        "med-praxisassistent-in-endokrinologie-diabetologie-spital-sts-thun"
+      ]
     },
     {
       "id": "spital-sts-aef32ce5023c",
-      "slug": "dipl-pflegefachfrau-mann-med-aufnahmestation-befristet-spital-sts-thun",
+      "slug": "infermiere-a-diplomato-a-reparto-di-accettazione-medica-a-tempo-determinato-spital-sts-thun",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-med-aufnahmestation-befristet-spital-sts-thun",
-        "it": "dipl-pflegefachfrau-mann-med-aufnahmestation-befristet-spital-sts-thun",
-        "en": "dipl-pflegefachfrau-mann-med-aufnahmestation-befristet-spital-sts-thun",
-        "fr": "dipl-pflegefachfrau-mann-med-aufnahmestation-befristet-spital-sts-thun"
+        "it": "infermiere-a-diplomato-a-reparto-di-accettazione-medica-a-tempo-determinato-spital-sts-thun",
+        "en": "registered-nurse-medical-admissions-unit-fixed-term-spital-sts-thun",
+        "fr": "infirmiere-infirmier-diplome-e-en-unite-d-admission-medicale-poste-a-duree-determinee-spital-sts-thun"
       },
       "company": "Spital STS",
       "companyKey": "spital-sts",
@@ -4777,7 +4791,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-15T21:23:52.296Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:23:52.296Z"
+      "firstSeenAt": "2026-11-17T21:23:52.296Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-mann-med-aufnahmestation-befristet-spital-sts-thun"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-med-aufnahmestation-befristet-spital-sts-thun"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-mann-med-aufnahmestation-befristet-spital-sts-thun"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-mann-med-aufnahmestation-befristet-spital-sts-thun"
+      ]
     },
     {
       "id": "spital-sts-c4c395441242",

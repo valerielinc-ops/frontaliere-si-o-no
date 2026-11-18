@@ -336,12 +336,12 @@
     },
     {
       "id": "hopital-de-lavaux-a3b25f964383",
-      "slug": "responsable-du-service-socioculturel-a-80-au-sein-de-notre-ems-le-pavillon-hopital-de",
+      "slug": "responsabile-del-servizio-socioculturale-80-all-interno-del-nostro-sme-il-padiglione-hopital-de-lavaux-bourg-en-lavaux",
       "slugByLocale": {
         "fr": "responsable-du-service-socioculturel-a-80-au-sein-de-notre-ems-le-pavillon-hopital-de",
-        "it": "responsable-du-service-socioculturel-a-80-au-sein-de-notre-ems-le-pavillon-hopital-de",
-        "en": "responsable-du-service-socioculturel-a-80-au-sein-de-notre-ems-le-pavillon-hopital-de",
-        "de": "responsable-du-service-socioculturel-a-80-au-sein-de-notre-ems-le-pavillon-hopital-de"
+        "it": "responsabile-del-servizio-socioculturale-80-all-interno-del-nostro-sme-il-padiglione-hopital-de-lavaux-bourg-en-lavaux",
+        "en": "head-of-sociocultural-service-80-within-our-ems-the-pavilion-hopital-de-lavaux-bourg-en-lavaux",
+        "de": "leiter-des-soziokulturellen-dienstes-80-in-unserem-ems-the-pavilion-hopital-de-lavaux-bourg-en-lavaux"
       },
       "company": "Hôpital de Lavaux",
       "companyKey": "hopital-de-lavaux",
@@ -404,7 +404,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:18:28.448Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:18:28.448Z"
+      "firstSeenAt": "2026-11-17T21:18:28.448Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-du-service-socioculturel-a-80-au-sein-de-notre-ems-le-pavillon-hopital-de"
+        ],
+        "en": [
+          "responsable-du-service-socioculturel-a-80-au-sein-de-notre-ems-le-pavillon-hopital-de"
+        ],
+        "de": [
+          "responsable-du-service-socioculturel-a-80-au-sein-de-notre-ems-le-pavillon-hopital-de"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-du-service-socioculturel-a-80-au-sein-de-notre-ems-le-pavillon-hopital-de"
+      ]
     }
   ]
 }

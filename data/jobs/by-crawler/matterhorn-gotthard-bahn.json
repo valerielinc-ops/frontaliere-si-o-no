@@ -524,12 +524,12 @@
     },
     {
       "id": "matterhorn-gotthard-bahn-a10c987c95d9",
-      "slug": "logistiker-m-w-d-matterhorn-gotthard-bahn-glis-glisergrund",
+      "slug": "logisticista-m-f-d-matterhorn-gotthard-bahn-glis-glisergrund",
       "slugByLocale": {
         "de": "logistiker-m-w-d-matterhorn-gotthard-bahn-ch",
-        "it": "logistiker-m-w-d-matterhorn-gotthard-bahn-glis-glisergrund",
-        "en": "logistiker-m-w-d-matterhorn-gotthard-bahn-ch",
-        "fr": "logistiker-m-w-d-matterhorn-gotthard-bahn-ch"
+        "it": "logisticista-m-f-d-matterhorn-gotthard-bahn-glis-glisergrund",
+        "en": "logistician-m-f-d-matterhorn-gotthard-bahn-glis-glisergrund",
+        "fr": "logisticien-h-f-d-matterhorn-gotthard-bahn-glis-glisergrund"
       },
       "company": "Matterhorn Gotthard Bahn",
       "companyKey": "matterhorn-gotthard-bahn",
@@ -596,11 +596,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "logistiker-m-w-d-matterhorn-gotthard-bahn-ch",
+          "logistiker-m-w-d-matterhorn-gotthard-bahn-glis-glisergrund"
+        ],
+        "en": [
+          "logistiker-m-w-d-matterhorn-gotthard-bahn-ch"
+        ],
+        "fr": [
           "logistiker-m-w-d-matterhorn-gotthard-bahn-ch"
         ]
       },
       "previousSlugs": [
-        "logistiker-m-w-d-matterhorn-gotthard-bahn-ch"
+        "logistiker-m-w-d-matterhorn-gotthard-bahn-ch",
+        "logistiker-m-w-d-matterhorn-gotthard-bahn-glis-glisergrund"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -727,7 +735,7 @@
       "id": "matterhorn-gotthard-bahn-41586bb36b7c",
       "slug": "filettaio-network-elettrico-m-w-d-matterhorn-gotthard-bahn-brig",
       "slugByLocale": {
-        "it": "filettaio-network-elettrico-m-w-d-matterhorn-gotthard-bahn-brig",
+        "it": "elettricista-m-f-d-matterhorn-gotthard-bahn-brig",
         "en": "catenary-fitter-network-electrician-m-f-d-matterhorn-gotthard-bahn-brig",
         "de": "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch",
         "fr": "electricien-du-reseau-installateur-catenaire-m-f-d-matterhorn-gotthard-bahn-brig"
@@ -795,14 +803,12 @@
       },
       "previousSlugs": [
         "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch",
-        "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-brig",
-        "elettricista-m-f-d-matterhorn-gotthard-bahn-brig"
+        "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-brig"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch",
-          "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-brig",
-          "elettricista-m-f-d-matterhorn-gotthard-bahn-brig"
+          "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-brig"
         ]
       },
       "firstSeenAt": "2026-09-07T15:24:41.109Z",
@@ -825,12 +831,12 @@
     },
     {
       "id": "matterhorn-gotthard-bahn-2f303c571cc1",
-      "slug": "fahrdienstleiter-m-w-d-matterhorn-gotthard-bahn-ch",
+      "slug": "direttore-di-spostamento-m-f-d-matterhorn-gotthard-bahn-zermatt",
       "slugByLocale": {
         "de": "fahrdienstleiter-m-w-d-matterhorn-gotthard-bahn-ch",
-        "it": "fahrdienstleiter-m-w-d-matterhorn-gotthard-bahn-ch",
-        "en": "fahrdienstleiter-m-w-d-matterhorn-gotthard-bahn-ch",
-        "fr": "fahrdienstleiter-m-w-d-matterhorn-gotthard-bahn-ch"
+        "it": "direttore-di-spostamento-m-f-d-matterhorn-gotthard-bahn-zermatt",
+        "en": "displacement-manager-m-f-d-matterhorn-gotthard-bahn-zermatt",
+        "fr": "gestionnaire-de-deplacement-h-f-d-matterhorn-gotthard-bahn-zermatt"
       },
       "company": "Matterhorn Gotthard Bahn",
       "companyKey": "matterhorn-gotthard-bahn",
@@ -907,7 +913,21 @@
       "addressRegion": "VS",
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-17T21:30:48.129Z"
+      "firstSeenAt": "2026-11-17T21:30:48.129Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fahrdienstleiter-m-w-d-matterhorn-gotthard-bahn-ch"
+        ],
+        "en": [
+          "fahrdienstleiter-m-w-d-matterhorn-gotthard-bahn-ch"
+        ],
+        "fr": [
+          "fahrdienstleiter-m-w-d-matterhorn-gotthard-bahn-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fahrdienstleiter-m-w-d-matterhorn-gotthard-bahn-ch"
+      ]
     },
     {
       "id": "matterhorn-gotthard-bahn-5a2182b0d5c7",

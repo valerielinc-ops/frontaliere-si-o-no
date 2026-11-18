@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "spital-limmattal-bb7d2934d0a2",
-      "slug": "mpa-frauenklinik-spital-limmattal-ch",
+      "slug": "mpa-clinica-femminile-spital-limmattal-schlieren",
       "slugByLocale": {
         "de": "mpa-frauenklinik-spital-limmattal-ch",
-        "it": "mpa-frauenklinik-spital-limmattal-ch",
-        "en": "mpa-frauenklinik-spital-limmattal-ch",
-        "fr": "mpa-frauenklinik-spital-limmattal-ch"
+        "it": "mpa-clinica-femminile-spital-limmattal-schlieren",
+        "en": "mpa-women-s-clinic-spital-limmattal-schlieren",
+        "fr": "mpa-clinique-pour-femmes-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -72,7 +72,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:17:47.306Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:17:47.306Z"
+      "firstSeenAt": "2026-11-17T21:17:47.306Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mpa-frauenklinik-spital-limmattal-ch"
+        ],
+        "en": [
+          "mpa-frauenklinik-spital-limmattal-ch"
+        ],
+        "fr": [
+          "mpa-frauenklinik-spital-limmattal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mpa-frauenklinik-spital-limmattal-ch"
+      ]
     },
     {
       "id": "spital-limmattal-a37768dfcb59",
@@ -80,8 +94,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-wascherei-befristete-anstellung-uber-6-monate-spital-limmattal-ch",
         "it": "collaboratore-trice-wascherei-befristete-anstellung-uber-6-monate-spital-limmattal-schlieren",
-        "en": "mitarbeiter-in-wascherei-befristete-anstellung-uber-6-monate-spital-limmattal-ch",
-        "fr": "mitarbeiter-in-wascherei-befristete-anstellung-uber-6-monate-spital-limmattal-ch"
+        "en": "laundry-employee-fixed-term-employment-for-6-months-spital-limmattal-schlieren",
+        "fr": "collaborateur-rice-en-blanchisserie-emploi-a-duree-determinee-de-6-mois-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -128,6 +142,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-wascherei-befristete-anstellung-uber-6-monate-spital-limmattal-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-wascherei-befristete-anstellung-uber-6-monate-spital-limmattal-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-wascherei-befristete-anstellung-uber-6-monate-spital-limmattal-ch"
         ]
       },

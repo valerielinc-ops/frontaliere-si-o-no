@@ -3833,12 +3833,12 @@
     },
     {
       "id": "ksw-7647903f252e",
-      "slug": "medizininformatikerin-medizininformatiker-kantonsspital-winterthur-ksw-winterthur",
+      "slug": "medico-legale-medico-legale-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "medizininformatikerin-medizininformatiker-ksw-ch",
-        "it": "medizininformatikerin-medizininformatiker-kantonsspital-winterthur-ksw-winterthur",
-        "en": "medizininformatikerin-medizininformatiker-kantonsspital-winterthur-ksw-winterthur",
-        "fr": "medizininformatikerin-medizininformatiker-kantonsspital-winterthur-ksw-winterthur"
+        "it": "medico-legale-medico-legale-kantonsspital-winterthur-ksw-winterthur",
+        "en": "medical-informatician-medical-informatician-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "information-medicale-information-medicale-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -3886,11 +3886,19 @@
       "department": "Business Transformation",
       "previousSlugsByLocale": {
         "it": [
-          "medizininformatikerin-medizininformatiker-ksw-ch"
+          "medizininformatikerin-medizininformatiker-ksw-ch",
+          "medizininformatikerin-medizininformatiker-kantonsspital-winterthur-ksw-winterthur"
+        ],
+        "en": [
+          "medizininformatikerin-medizininformatiker-kantonsspital-winterthur-ksw-winterthur"
+        ],
+        "fr": [
+          "medizininformatikerin-medizininformatiker-kantonsspital-winterthur-ksw-winterthur"
         ]
       },
       "previousSlugs": [
-        "medizininformatikerin-medizininformatiker-ksw-ch"
+        "medizininformatikerin-medizininformatiker-ksw-ch",
+        "medizininformatikerin-medizininformatiker-kantonsspital-winterthur-ksw-winterthur"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

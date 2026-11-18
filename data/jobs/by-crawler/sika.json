@@ -2381,12 +2381,12 @@
     },
     {
       "id": "sika-af1d010dd716",
-      "slug": "sachbearbeiter-in-verkaufsinnendienst-100-sika-ch",
+      "slug": "addetto-a-alle-vendite-interne-100-sika-sarnen-obwalden",
       "slugByLocale": {
         "de": "sachbearbeiter-in-verkaufsinnendienst-100-sika-ch",
-        "it": "sachbearbeiter-in-verkaufsinnendienst-100-sika-ch",
-        "en": "sachbearbeiter-in-verkaufsinnendienst-100-sika-ch",
-        "fr": "sachbearbeiter-in-verkaufsinnendienst-100-sika-ch"
+        "it": "addetto-a-alle-vendite-interne-100-sika-sarnen-obwalden",
+        "en": "sales-support-clerk-100-sika-sarnen-obwalden",
+        "fr": "collaborateur-trice-du-service-interne-des-ventes-100-sika-sarnen-obwalden"
       },
       "company": "Sika",
       "companyKey": "sika",
@@ -2448,7 +2448,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-17T21:36:51.104Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:36:51.104Z"
+      "firstSeenAt": "2026-11-17T21:36:51.104Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-verkaufsinnendienst-100-sika-ch"
+        ],
+        "en": [
+          "sachbearbeiter-in-verkaufsinnendienst-100-sika-ch"
+        ],
+        "fr": [
+          "sachbearbeiter-in-verkaufsinnendienst-100-sika-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-verkaufsinnendienst-100-sika-ch"
+      ]
     },
     {
       "id": "sika-032103f10698",

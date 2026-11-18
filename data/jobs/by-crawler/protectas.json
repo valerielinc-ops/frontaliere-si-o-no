@@ -8,9 +8,9 @@
       "slug": "agente-di-sicurezza-ausiliario-contratto-orario-lugano-protectas-ch",
       "slugByLocale": {
         "it": "agente-di-sicurezza-ausiliario-contratto-orario-lugano-protectas-ch",
-        "en": "agente-di-sicurezza-ausiliario-contratto-orario-lugano-protectas-ch",
-        "de": "agente-di-sicurezza-ausiliario-contratto-orario-lugano-protectas-ch",
-        "fr": "agente-di-sicurezza-ausiliario-contratto-orario-lugano-protectas-ch"
+        "en": "auxiliary-security-agent-time-contract-protectas-sa-lugano",
+        "de": "auxiliary-security-agent-zeitvertrag-protectas-sa-lugano",
+        "fr": "agent-auxiliaire-de-securite-contrat-de-temps-protectas-sa-lugano"
       },
       "company": "Protectas SA",
       "companyKey": "protectas-sa",
@@ -114,7 +114,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:53:23.806Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:53:23.806Z"
+      "firstSeenAt": "2026-11-17T21:53:23.806Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "agente-di-sicurezza-ausiliario-contratto-orario-lugano-protectas-ch"
+        ],
+        "de": [
+          "agente-di-sicurezza-ausiliario-contratto-orario-lugano-protectas-ch"
+        ],
+        "fr": [
+          "agente-di-sicurezza-ausiliario-contratto-orario-lugano-protectas-ch"
+        ]
+      },
+      "previousSlugs": [
+        "agente-di-sicurezza-ausiliario-contratto-orario-lugano-protectas-ch"
+      ]
     }
   ]
 }

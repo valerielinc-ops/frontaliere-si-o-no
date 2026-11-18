@@ -9020,12 +9020,12 @@
     },
     {
       "id": "uzh-6b4ca592ef61",
-      "slug": "verwaltungsassistenz-rechtsstelle-universitat-zurich-zurich",
+      "slug": "ufficio-giuridico-dell-assistenza-amministrativa-universitat-zurich-zurich",
       "slugByLocale": {
         "de": "verwaltungsassistenz-rechtsstelle-uzh-zurich",
-        "it": "verwaltungsassistenz-rechtsstelle-universitat-zurich-zurich",
-        "en": "verwaltungsassistenz-rechtsstelle-universitat-zurich-zurich",
-        "fr": "verwaltungsassistenz-rechtsstelle-universitat-zurich-zurich"
+        "it": "ufficio-giuridico-dell-assistenza-amministrativa-universitat-zurich-zurich",
+        "en": "administrative-assistance-legal-office-universitat-zurich-zurich",
+        "fr": "bureau-des-affaires-juridiques-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -9073,11 +9073,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "verwaltungsassistenz-rechtsstelle-uzh-zurich"
+          "verwaltungsassistenz-rechtsstelle-uzh-zurich",
+          "verwaltungsassistenz-rechtsstelle-universitat-zurich-zurich"
+        ],
+        "en": [
+          "verwaltungsassistenz-rechtsstelle-universitat-zurich-zurich"
+        ],
+        "fr": [
+          "verwaltungsassistenz-rechtsstelle-universitat-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "verwaltungsassistenz-rechtsstelle-uzh-zurich"
+        "verwaltungsassistenz-rechtsstelle-uzh-zurich",
+        "verwaltungsassistenz-rechtsstelle-universitat-zurich-zurich"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -9177,12 +9185,12 @@
     },
     {
       "id": "uzh-a5828a8ad2c0",
-      "slug": "verwaltungssekretar-in-universitat-zurich-zurich",
+      "slug": "segretario-a-amministrativo-a-universitat-zurich-zurich",
       "slugByLocale": {
         "de": "verwaltungssekretar-in-uzh-zurich",
-        "it": "verwaltungssekretar-in-universitat-zurich-zurich",
-        "en": "verwaltungssekretar-in-universitat-zurich-zurich",
-        "fr": "verwaltungssekretar-in-universitat-zurich-zurich"
+        "it": "segretario-a-amministrativo-a-universitat-zurich-zurich",
+        "en": "administrative-secretary-universitat-zurich-zurich-16e59d",
+        "fr": "secretaire-administratif-ve-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -9230,11 +9238,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "verwaltungssekretar-in-uzh-zurich"
+          "verwaltungssekretar-in-uzh-zurich",
+          "verwaltungssekretar-in-universitat-zurich-zurich"
+        ],
+        "en": [
+          "verwaltungssekretar-in-universitat-zurich-zurich"
+        ],
+        "fr": [
+          "verwaltungssekretar-in-universitat-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "verwaltungssekretar-in-uzh-zurich"
+        "verwaltungssekretar-in-uzh-zurich",
+        "verwaltungssekretar-in-universitat-zurich-zurich"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

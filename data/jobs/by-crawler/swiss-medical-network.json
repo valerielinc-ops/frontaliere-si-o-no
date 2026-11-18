@@ -116,11 +116,11 @@
       },
       "slugByLocale": {
         "fr": "aide-soignante-a-domicile-contrat-horaire-swiss-medical-network",
-        "it": "aide-soignante-a-domicile-contrat-horaire-swiss-medical-network",
-        "en": "aide-soignante-a-domicile-contrat-horaire-swiss-medical-network",
-        "de": "aide-soignante-a-domicile-contrat-horaire-swiss-medical-network"
+        "it": "home-caregiver-contratto-orario-swiss-medical-network-geneve",
+        "en": "home-caregiver-hourly-contract-swiss-medical-network-geneve",
+        "de": "home-pfleger-stundenvertrag-swiss-medical-network-geneve"
       },
-      "slug": "aide-soignante-a-domicile-contrat-horaire-swiss-medical-network",
+      "slug": "home-caregiver-contratto-orario-swiss-medical-network-geneve",
       "category": "healthcare",
       "datePosted": "2026-11-17T10:08:43.458Z",
       "postedDate": "2026-11-17T10:08:43.458Z",
@@ -153,7 +153,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-11-17T21:22:47.305Z"
+      "firstSeenAt": "2026-11-17T21:22:47.305Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "aide-soignante-a-domicile-contrat-horaire-swiss-medical-network"
+        ],
+        "en": [
+          "aide-soignante-a-domicile-contrat-horaire-swiss-medical-network"
+        ],
+        "de": [
+          "aide-soignante-a-domicile-contrat-horaire-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "aide-soignante-a-domicile-contrat-horaire-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000162017070-dipl-pflegefachperson-hf-",
@@ -4265,7 +4279,7 @@
         "fr": "Spécialiste / Spécialiste en médecine interne générale 60 - 100%"
       },
       "slugByLocale": {
-        "it": "specialista-specialista-in-medicina-interna-generale-60-100-swiss-medical-network-escholzmatt-marbach-ca3791d764",
+        "it": "specialista-specialista-in-medicina-interna-generale-60-100-swiss-medical-network-escholzmatt-marbach",
         "en": "specialist-specialist-for-general-internal-medicine-60-100-swiss-medical-network-escholzmatt-marbach",
         "de": "facharztin-facharzt-fur-allgemeine-innere-medizin-60-100-swiss-medical-network",
         "fr": "specialiste-specialiste-en-medecine-interne-generale-60-100-swiss-medical-network-escholzmatt-marbach"
@@ -4306,13 +4320,11 @@
       },
       "crawlerMissStreak": 1,
       "previousSlugs": [
-        "facharztin-facharzt-fur-allgemeine-innere-medizin-60-100-swiss-medical-network",
-        "specialista-specialista-in-medicina-interna-generale-60-100-swiss-medical-network-escholzmatt-marbach"
+        "facharztin-facharzt-fur-allgemeine-innere-medizin-60-100-swiss-medical-network"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-fur-allgemeine-innere-medizin-60-100-swiss-medical-network",
-          "specialista-specialista-in-medicina-interna-generale-60-100-swiss-medical-network-escholzmatt-marbach"
+          "facharztin-facharzt-fur-allgemeine-innere-medizin-60-100-swiss-medical-network"
         ]
       }
     },

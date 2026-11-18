@@ -3875,9 +3875,9 @@
       "slug": "impiegata-impiegato-in-logistica-otto-s-ag-sursee",
       "slugByLocale": {
         "it": "impiegata-impiegato-in-logistica-otto-s-ag-sursee",
-        "en": "logistics-specialist-otto-s-ag-sursee",
+        "en": "logistiker-in-otto-s-ag-sursee",
         "de": "logistiker-in-ottos-sursee",
-        "fr": "logisticien-ne-otto-s-ag-sursee"
+        "fr": "logistiker-in-otto-s-ag-sursee"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -3928,17 +3928,18 @@
       "pensum": "100%",
       "previousSlugs": [
         "logistiker-in-ottos-sursee",
-        "logistiker-in-otto-s-ag-sursee"
+        "logistics-specialist-otto-s-ag-sursee",
+        "logisticien-ne-otto-s-ag-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
           "logistiker-in-ottos-sursee"
         ],
         "en": [
-          "logistiker-in-otto-s-ag-sursee"
+          "logistics-specialist-otto-s-ag-sursee"
         ],
         "fr": [
-          "logistiker-in-otto-s-ag-sursee"
+          "logisticien-ne-otto-s-ag-sursee"
         ]
       },
       "firstSeenAt": "2026-07-04T11:27:19.725Z",
@@ -6066,12 +6067,12 @@
     },
     {
       "id": "ottos-fe0022b9ecf2",
-      "slug": "aushilfe-verkaufer-in-food-non-food-ottos-brunnen",
+      "slug": "addetto-a-alle-vendite-ausiliario-a-food-non-food-otto-s-ag-brunnen",
       "slugByLocale": {
         "de": "aushilfe-verkaufer-in-food-non-food-ottos-brunnen",
-        "it": "aushilfe-verkaufer-in-food-non-food-ottos-brunnen",
-        "en": "aushilfe-verkaufer-in-food-non-food-ottos-brunnen",
-        "fr": "aushilfe-verkaufer-in-food-non-food-ottos-brunnen"
+        "it": "addetto-a-alle-vendite-ausiliario-a-food-non-food-otto-s-ag-brunnen",
+        "en": "temporary-sales-assistant-food-non-food-otto-s-ag-brunnen",
+        "fr": "auxiliaire-de-vente-food-non-food-otto-s-ag-brunnen"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -6138,7 +6139,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-23T21:47:18.370Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-24T00:09:27.481Z"
+      "firstSeenAt": "2026-09-24T00:09:27.481Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "aushilfe-verkaufer-in-food-non-food-ottos-brunnen"
+        ],
+        "en": [
+          "aushilfe-verkaufer-in-food-non-food-ottos-brunnen"
+        ],
+        "fr": [
+          "aushilfe-verkaufer-in-food-non-food-ottos-brunnen"
+        ]
+      },
+      "previousSlugs": [
+        "aushilfe-verkaufer-in-food-non-food-ottos-brunnen"
+      ]
     },
     {
       "id": "ottos-1509a0eeb112",
@@ -10047,12 +10062,12 @@
     },
     {
       "id": "ottos-ce3a61b42254",
-      "slug": "aushilfe-verkaufer-in-textil-sport-ottos-kirchberg",
+      "slug": "commesso-a-di-supporto-tessile-sportivo-otto-s-ag-kirchberg",
       "slugByLocale": {
         "de": "aushilfe-verkaufer-in-textil-sport-ottos-kirchberg",
-        "it": "aushilfe-verkaufer-in-textil-sport-ottos-kirchberg",
-        "en": "aushilfe-verkaufer-in-textil-sport-ottos-kirchberg",
-        "fr": "aushilfe-verkaufer-in-textil-sport-ottos-kirchberg"
+        "it": "commesso-a-di-supporto-tessile-sportivo-otto-s-ag-kirchberg",
+        "en": "temporary-sales-assistant-textiles-sports-otto-s-ag-kirchberg",
+        "fr": "vendeur-euse-auxiliaire-textile-sport-otto-s-ag-kirchberg"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -10119,7 +10134,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-17T21:46:54.312Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-07-04T11:28:36.814Z"
+      "firstSeenAt": "2026-07-04T11:28:36.814Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "aushilfe-verkaufer-in-textil-sport-ottos-kirchberg"
+        ],
+        "en": [
+          "aushilfe-verkaufer-in-textil-sport-ottos-kirchberg"
+        ],
+        "fr": [
+          "aushilfe-verkaufer-in-textil-sport-ottos-kirchberg"
+        ]
+      },
+      "previousSlugs": [
+        "aushilfe-verkaufer-in-textil-sport-ottos-kirchberg"
+      ]
     },
     {
       "id": "ottos-e5fa00bda54f",
@@ -11019,12 +11048,12 @@
     },
     {
       "id": "ottos-937374d67616",
-      "slug": "aushilfe-verkaufer-in-food-non-food-ottos-horw",
+      "slug": "addetto-a-alle-vendite-ausiliario-a-food-non-food-otto-s-ag-horw",
       "slugByLocale": {
         "de": "aushilfe-verkaufer-in-food-non-food-ottos-horw",
-        "it": "aushilfe-verkaufer-in-food-non-food-ottos-horw",
-        "en": "aushilfe-verkaufer-in-food-non-food-ottos-horw",
-        "fr": "aushilfe-verkaufer-in-food-non-food-ottos-horw"
+        "it": "addetto-a-alle-vendite-ausiliario-a-food-non-food-otto-s-ag-horw",
+        "en": "temporary-sales-assistant-food-non-food-otto-s-ag-horw",
+        "fr": "auxiliaire-de-vente-food-non-food-otto-s-ag-horw"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -11090,7 +11119,21 @@
       "streetAddress": "Horw",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:46:48.043Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "aushilfe-verkaufer-in-food-non-food-ottos-horw"
+        ],
+        "en": [
+          "aushilfe-verkaufer-in-food-non-food-ottos-horw"
+        ],
+        "fr": [
+          "aushilfe-verkaufer-in-food-non-food-ottos-horw"
+        ]
+      },
+      "previousSlugs": [
+        "aushilfe-verkaufer-in-food-non-food-ottos-horw"
+      ]
     },
     {
       "id": "ottos-9c5dc0eb5bac",

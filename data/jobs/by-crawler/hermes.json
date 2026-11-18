@@ -426,12 +426,12 @@
     },
     {
       "id": "hermes-e7aff9ec59f7",
-      "slug": "cdd-winter-support-w-m-hermes-ch",
+      "slug": "cdd-supporto-invernale-m-f-hermes-gstaad-bern-switzerland",
       "slugByLocale": {
         "en": "cdd-winter-support-w-m-hermes-ch",
-        "it": "cdd-winter-support-w-m-hermes-ch",
+        "it": "cdd-supporto-invernale-m-f-hermes-gstaad-bern-switzerland",
         "de": "cdd-winter-support-w-m-hermes-ch",
-        "fr": "cdd-winter-support-w-m-hermes-ch"
+        "fr": "cdd-soutien-hivernal-h-f-hermes-gstaad-bern-switzerland"
       },
       "company": "Hermès",
       "companyKey": "hermes",
@@ -493,7 +493,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:24:09.122Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:24:09.122Z"
+      "firstSeenAt": "2026-11-17T21:24:09.122Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cdd-winter-support-w-m-hermes-ch"
+        ],
+        "fr": [
+          "cdd-winter-support-w-m-hermes-ch"
+        ]
+      },
+      "previousSlugs": [
+        "cdd-winter-support-w-m-hermes-ch"
+      ]
     }
   ]
 }

@@ -828,7 +828,7 @@
         "it": "installatore-sanitario-e-di-riscaldamento-m-f-80-100-groupe-e-guin-dudingen",
         "en": "plumbing-and-heating-installer-m-f-80-100-groupe-e-guin-dudingen-4e9411",
         "de": "sanitar-und-heizungsinstallateur-m-w-80-100-groupe-e-guin-dudingen",
-        "fr": "sanitar-und-heizungsinstallateur-m-w-80-100-groupe-e-guin-dudingen"
+        "fr": "installation-de-plomberie-et-de-chauffage-h-f-80-100-groupe-e-guin-dudingen-4e9411"
       },
       "company": "Groupe E",
       "companyKey": "groupe-e",
@@ -874,7 +874,7 @@
       "previousSlugsByLocale": {
         "fr": [
           "installation-de-plomberie-et-de-chauffage-h-f-80-100-groupe-e-guin-dudingen",
-          "installation-de-plomberie-et-de-chauffage-h-f-80-100-groupe-e-guin-dudingen-4e9411"
+          "sanitar-und-heizungsinstallateur-m-w-80-100-groupe-e-guin-dudingen"
         ],
         "it": [
           "sanitar-und-heizungsinstallateur-m-w-80-100-groupe-e-guin-dudingen",
@@ -893,8 +893,7 @@
         "sanitar-und-heizungsinstallateur-m-w-80-100-groupe-e-guin-dudingen-2",
         "installation-de-plomberie-et-de-chauffage-h-f-80-100-groupe-e-guin-dudingen",
         "installatore-sanitario-e-di-riscaldamento-m-f-80-100-groupe-e-guin-dudingen-133c0b",
-        "plumbing-and-heating-installer-m-f-80-100-groupe-e-guin-dudingen",
-        "installation-de-plomberie-et-de-chauffage-h-f-80-100-groupe-e-guin-dudingen-4e9411"
+        "plumbing-and-heating-installer-m-f-80-100-groupe-e-guin-dudingen"
       ],
       "firstSeenAt": "2026-10-01T09:17:45.121Z",
       "salaryMin": 73000,
@@ -3525,8 +3524,8 @@
       "slugByLocale": {
         "fr": "technico-commercial-e-sav-groupe-e-boudry",
         "it": "technico-commercial-e-sav-groupe-e-boudry",
-        "en": "technico-commercial-e-sav-groupe-e-boudry",
-        "de": "technico-commercial-e-sav-groupe-e-boudry"
+        "en": "technical-sales-representative-after-sales-service-groupe-e-boudry",
+        "de": "technisch-kommerzielle-e-sav-groupe-e-boudry"
       },
       "company": "Groupe E",
       "companyKey": "groupe-e",
@@ -3588,16 +3587,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:24:44.969Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:24:44.969Z"
+      "firstSeenAt": "2026-11-17T21:24:44.969Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "technico-commercial-e-sav-groupe-e-boudry"
+        ],
+        "de": [
+          "technico-commercial-e-sav-groupe-e-boudry"
+        ]
+      },
+      "previousSlugs": [
+        "technico-commercial-e-sav-groupe-e-boudry"
+      ]
     },
     {
       "id": "groupe-e-a55c127f8006",
-      "slug": "technico-commercial-e-solaire-groupe-e-boudry",
+      "slug": "technico-commerciale-solare-groupe-e-boudry",
       "slugByLocale": {
         "fr": "technico-commercial-e-solaire-groupe-e-boudry",
-        "it": "technico-commercial-e-solaire-groupe-e-boudry",
+        "it": "technico-commerciale-solare-groupe-e-boudry",
         "en": "technico-commercial-e-solaire-groupe-e-boudry",
-        "de": "technico-commercial-e-solaire-groupe-e-boudry"
+        "de": "technisch-kommerziell-solar-groupe-e-boudry"
       },
       "company": "Groupe E",
       "companyKey": "groupe-e",
@@ -3659,16 +3669,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:24:44.332Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:24:44.332Z"
+      "firstSeenAt": "2026-11-17T21:24:44.332Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technico-commercial-e-solaire-groupe-e-boudry"
+        ],
+        "de": [
+          "technico-commercial-e-solaire-groupe-e-boudry"
+        ]
+      },
+      "previousSlugs": [
+        "technico-commercial-e-solaire-groupe-e-boudry"
+      ]
     },
     {
       "id": "groupe-e-609070ec1d29",
-      "slug": "technicien-ne-planificateur-ice-en-tableaux-electriques-groupe-e-geneve",
+      "slug": "tecnico-iceplanner-in-pannelli-elettrici-groupe-e-geneve",
       "slugByLocale": {
         "fr": "technicien-ne-planificateur-ice-en-tableaux-electriques-groupe-e-geneve",
-        "it": "technicien-ne-planificateur-ice-en-tableaux-electriques-groupe-e-geneve",
-        "en": "technicien-ne-planificateur-ice-en-tableaux-electriques-groupe-e-geneve",
-        "de": "technicien-ne-planificateur-ice-en-tableaux-electriques-groupe-e-geneve"
+        "it": "tecnico-iceplanner-in-pannelli-elettrici-groupe-e-geneve",
+        "en": "technician-ice-planner-in-electrical-panels-groupe-e-geneve",
+        "de": "techniker-eis-planer-in-elektrischen-panels-groupe-e-geneve"
       },
       "company": "Groupe E",
       "companyKey": "groupe-e",
@@ -3730,7 +3751,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:24:43.709Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:24:43.709Z"
+      "firstSeenAt": "2026-11-17T21:24:43.709Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-ne-planificateur-ice-en-tableaux-electriques-groupe-e-geneve"
+        ],
+        "en": [
+          "technicien-ne-planificateur-ice-en-tableaux-electriques-groupe-e-geneve"
+        ],
+        "de": [
+          "technicien-ne-planificateur-ice-en-tableaux-electriques-groupe-e-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-ne-planificateur-ice-en-tableaux-electriques-groupe-e-geneve"
+      ]
     },
     {
       "id": "groupe-e-ed5fb5146485",

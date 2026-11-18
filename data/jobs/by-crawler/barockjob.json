@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "barockjob-2a9f79926eb0",
-      "slug": "carrosserie-maler-lackierer-in-solothurn-ch-so-barockjob-ch",
+      "slug": "carrosserie-pittore-painter-in-barock-job-ag-solothurn-ch-so",
       "slugByLocale": {
         "de": "carrosserie-maler-lackierer-in-solothurn-ch-so-barockjob-ch",
-        "it": "carrosserie-maler-lackierer-in-solothurn-ch-so-barockjob-ch",
-        "en": "carrosserie-maler-lackierer-in-solothurn-ch-so-barockjob-ch",
-        "fr": "carrosserie-maler-lackierer-in-solothurn-ch-so-barockjob-ch"
+        "it": "carrosserie-pittore-painter-in-barock-job-ag-solothurn-ch-so",
+        "en": "carrosserie-painter-painter-in-barock-job-ag-solothurn-ch-so",
+        "fr": "carrosserie-peintre-peintre-en-barock-job-ag-solothurn-ch-so"
       },
       "company": "Barock Job AG",
       "companyKey": "barockjob",
@@ -76,11 +76,11 @@
         "automobilfachmann-frau-100-solothurn-ch-so-barockjob-ch",
         "abkanter-100-solothurn-ch-so-barockjob-ch",
         "automatikmonteur-elektromonteur-automatiker-solothurn-ch-so-barockjob-ch",
-        "anlagen-und-apparatebauer-in-oder-metallbauer-in-fur-den-bereich-spezialprojekte-80-100"
+        "anlagen-und-apparatebauer-in-oder-metallbauer-in-fur-den-bereich-spezialprojekte-80-100",
+        "carrosserie-maler-lackierer-in-solothurn-ch-so-barockjob-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "anlagen-und-apparatebauer-in-100-solothurn-ch-so-barockjob-ch",
           "aussendienstmitarbeiter-in-inventuren-medizinaltechnik-olten-ch-so-barockjob-ch",
           "anlagen-und-apparatebauer-80-100-langenthal-ch-be-barockjob-ch",
           "anlagen-und-apparatebauer-80-100-olten-ch-so-barockjob-ch",
@@ -99,7 +99,9 @@
           "automobilfachmann-frau-100-solothurn-ch-so-barockjob-ch",
           "abkanter-100-solothurn-ch-so-barockjob-ch",
           "automatikmonteur-elektromonteur-automatiker-solothurn-ch-so-barockjob-ch",
-          "anlagen-und-apparatebauer-in-oder-metallbauer-in-fur-den-bereich-spezialprojekte-80-100"
+          "anlagen-und-apparatebauer-in-oder-metallbauer-in-fur-den-bereich-spezialprojekte-80-100",
+          "carrosserie-maler-lackierer-in-solothurn-ch-so-barockjob-ch",
+          "anlagen-und-apparatebauer-in-100-solothurn-ch-so-barockjob-ch"
         ],
         "de": [
           "anlagen-und-apparatebauer-in-100-solothurn-ch-so-barockjob-ch",
@@ -122,6 +124,12 @@
           "abkanter-100-solothurn-ch-so-barockjob-ch",
           "automatikmonteur-elektromonteur-automatiker-solothurn-ch-so-barockjob-ch",
           "anlagen-und-apparatebauer-in-oder-metallbauer-in-fur-den-bereich-spezialprojekte-80-100"
+        ],
+        "en": [
+          "carrosserie-maler-lackierer-in-solothurn-ch-so-barockjob-ch"
+        ],
+        "fr": [
+          "carrosserie-maler-lackierer-in-solothurn-ch-so-barockjob-ch"
         ]
       },
       "salaryMin": 68500,

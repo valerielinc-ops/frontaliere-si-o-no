@@ -4700,12 +4700,12 @@
     },
     {
       "id": "kispi-zurich-4bbba68c3d0a",
-      "slug": "leiterin-administrative-applications-m-w-d-kispi-zurich-zurich",
+      "slug": "responsabile-delle-applicazioni-amministrative-m-f-d-universitats-kinderspital-zurich-kispi-zurich",
       "slugByLocale": {
         "de": "leiterin-administrative-applications-m-w-d-kispi-zurich-zurich",
-        "it": "leiterin-administrative-applications-m-w-d-kispi-zurich-zurich",
+        "it": "responsabile-delle-applicazioni-amministrative-m-f-d-universitats-kinderspital-zurich-kispi-zurich",
         "en": "leiterin-administrative-applications-m-w-d-kispi-zurich-zurich",
-        "fr": "leiterin-administrative-applications-m-w-d-kispi-zurich-zurich"
+        "fr": "responsable-des-applications-administratives-h-f-d-universitats-kinderspital-zurich-kispi-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
       "companyKey": "kispi-zurich",
@@ -4767,16 +4767,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:24:25.056Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:24:25.056Z"
+      "firstSeenAt": "2026-11-17T21:24:25.056Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leiterin-administrative-applications-m-w-d-kispi-zurich-zurich"
+        ],
+        "fr": [
+          "leiterin-administrative-applications-m-w-d-kispi-zurich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "leiterin-administrative-applications-m-w-d-kispi-zurich-zurich"
+      ]
     },
     {
       "id": "kispi-zurich-6ed87d2c2d91",
-      "slug": "leiterin-pflege-m-w-d-80-100-kispi-zurich-zurich",
+      "slug": "responsabile-della-cura-m-f-d-80-100-universitats-kinderspital-zurich-kispi-zurich",
       "slugByLocale": {
         "de": "leiterin-pflege-m-w-d-80-100-kispi-zurich-zurich",
-        "it": "leiterin-pflege-m-w-d-80-100-kispi-zurich-zurich",
-        "en": "leiterin-pflege-m-w-d-80-100-kispi-zurich-zurich",
-        "fr": "leiterin-pflege-m-w-d-80-100-kispi-zurich-zurich"
+        "it": "responsabile-della-cura-m-f-d-80-100-universitats-kinderspital-zurich-kispi-zurich",
+        "en": "head-of-care-m-f-d-80-100-universitats-kinderspital-zurich-kispi-zurich",
+        "fr": "chef-de-service-h-f-d-80-100-universitats-kinderspital-zurich-kispi-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
       "companyKey": "kispi-zurich",
@@ -4838,7 +4849,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:24:24.392Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:24:24.392Z"
+      "firstSeenAt": "2026-11-17T21:24:24.392Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leiterin-pflege-m-w-d-80-100-kispi-zurich-zurich"
+        ],
+        "en": [
+          "leiterin-pflege-m-w-d-80-100-kispi-zurich-zurich"
+        ],
+        "fr": [
+          "leiterin-pflege-m-w-d-80-100-kispi-zurich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "leiterin-pflege-m-w-d-80-100-kispi-zurich-zurich"
+      ]
     },
     {
       "id": "kispi-zurich-865652a694ba",

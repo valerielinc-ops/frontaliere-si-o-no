@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "sicpa-cf06e0bd38d7",
-      "slug": "apprenti-e-logisticien-ne-sicpa-chavornay",
+      "slug": "logisticista-apprentice-sicpa-sa-chavornay",
       "slugByLocale": {
         "fr": "apprenti-e-logisticien-ne-sicpa-chavornay",
-        "it": "apprenti-e-logisticien-ne-sicpa-chavornay",
-        "en": "apprenti-e-logisticien-ne-sicpa-chavornay",
-        "de": "apprenti-e-logisticien-ne-sicpa-chavornay"
+        "it": "logisticista-apprentice-sicpa-sa-chavornay",
+        "en": "logistician-apprentice-sicpa-sa-chavornay",
+        "de": "auszubildender-logistiker-sicpa-sa-chavornay"
       },
       "company": "SICPA SA",
       "companyKey": "sicpa",
@@ -72,16 +72,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:52:43.136Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:52:43.136Z"
+      "firstSeenAt": "2026-11-17T21:52:43.136Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-e-logisticien-ne-sicpa-chavornay"
+        ],
+        "en": [
+          "apprenti-e-logisticien-ne-sicpa-chavornay"
+        ],
+        "de": [
+          "apprenti-e-logisticien-ne-sicpa-chavornay"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-e-logisticien-ne-sicpa-chavornay"
+      ]
     },
     {
       "id": "sicpa-446286df05e5",
-      "slug": "apprenti-e-employe-e-de-commerce-sicpa-prilly",
+      "slug": "apprendista-commerciale-sicpa-sa-prilly",
       "slugByLocale": {
         "fr": "apprenti-e-employe-e-de-commerce-sicpa-prilly",
-        "it": "apprenti-e-employe-e-de-commerce-sicpa-prilly",
-        "en": "apprenti-e-employe-e-de-commerce-sicpa-prilly",
-        "de": "apprenti-e-employe-e-de-commerce-sicpa-prilly"
+        "it": "apprendista-commerciale-sicpa-sa-prilly",
+        "en": "apprentice-trade-employee-sicpa-sa-prilly",
+        "de": "auszubildender-handelsmitarbeiter-sicpa-sa-prilly"
       },
       "company": "SICPA SA",
       "companyKey": "sicpa",
@@ -157,7 +171,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-15T21:52:42.543Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:52:42.543Z"
+      "firstSeenAt": "2026-11-17T21:52:42.543Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-e-employe-e-de-commerce-sicpa-prilly"
+        ],
+        "en": [
+          "apprenti-e-employe-e-de-commerce-sicpa-prilly"
+        ],
+        "de": [
+          "apprenti-e-employe-e-de-commerce-sicpa-prilly"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-e-employe-e-de-commerce-sicpa-prilly"
+      ]
     },
     {
       "id": "sicpa-ee4544be3e45",
@@ -625,12 +653,12 @@
     },
     {
       "id": "sicpa-c4e14dcba0f3",
-      "slug": "project-cost-controller-sicpa-prilly",
+      "slug": "titolare-del-progetto-e-dei-costi-sicpa-sa-prilly",
       "slugByLocale": {
         "en": "project-cost-controller-sicpa-prilly",
-        "it": "project-cost-controller-sicpa-prilly",
-        "de": "project-cost-controller-sicpa-prilly",
-        "fr": "project-cost-controller-sicpa-prilly"
+        "it": "titolare-del-progetto-e-dei-costi-sicpa-sa-prilly",
+        "de": "projekt-und-kostenkontrolleur-sicpa-sa-prilly",
+        "fr": "controleur-de-projets-et-couts-sicpa-sa-prilly"
       },
       "company": "SICPA SA",
       "companyKey": "sicpa",
@@ -706,7 +734,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-13T21:51:54.782Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:51:54.782Z"
+      "firstSeenAt": "2026-11-17T21:51:54.782Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "project-cost-controller-sicpa-prilly"
+        ],
+        "de": [
+          "project-cost-controller-sicpa-prilly"
+        ],
+        "fr": [
+          "project-cost-controller-sicpa-prilly"
+        ]
+      },
+      "previousSlugs": [
+        "project-cost-controller-sicpa-prilly"
+      ]
     },
     {
       "id": "sicpa-3811aa4d831e",

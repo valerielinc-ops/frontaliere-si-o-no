@@ -638,7 +638,7 @@
       "slugByLocale": {
         "fr": "mitarbeiter-kundendatenverwaltung-m-w-d-hilti-zurich",
         "it": "collaboratore-trice-kundendatenverwaltung-m-w-d-hilti-zurich",
-        "en": "collaborator-customer-data-management-m-w-d-hilti-zurich",
+        "en": "collaborateur-gestion-des-donnees-clients-h-f-d-hilti-ch",
         "de": "mitarbeiter-kundendatenverwaltung-m-w-d-hilti-ch"
       },
       "company": "Hilti",
@@ -688,7 +688,7 @@
           "collaborateur-gestion-des-donnees-clients-h-f-d-hilti-ch"
         ],
         "en": [
-          "collaborateur-gestion-des-donnees-clients-h-f-d-hilti-ch"
+          "collaborator-customer-data-management-m-w-d-hilti-zurich"
         ],
         "de": [
           "mitarbeiter-kundenstamm-m-w-d-hilti-ch"
@@ -699,7 +699,8 @@
       },
       "previousSlugs": [
         "mitarbeiter-kundenstamm-m-w-d-hilti-ch",
-        "collaborateur-gestion-des-donnees-clients-h-f-d-hilti-ch"
+        "collaborateur-gestion-des-donnees-clients-h-f-d-hilti-ch",
+        "collaborator-customer-data-management-m-w-d-hilti-zurich"
       ],
       "firstSeenAt": "2026-08-20T10:09:01.466Z",
       "salaryMin": 73500,
@@ -1040,12 +1041,12 @@
     },
     {
       "id": "hilti-22392-de",
-      "slug": "key-account-verkaufsberater-m-w-d-hilti-ch",
+      "slug": "account-chiave-vendite-advisor-m-f-d-hilti-bern-basel-basel-landschaft",
       "slugByLocale": {
         "de": "key-account-verkaufsberater-m-w-d-hilti-ch",
-        "it": "key-account-verkaufsberater-m-w-d-hilti-ch",
-        "en": "key-account-verkaufsberater-m-w-d-hilti-ch",
-        "fr": "key-account-verkaufsberater-m-w-d-hilti-ch"
+        "it": "account-chiave-vendite-advisor-m-f-d-hilti-bern-basel-basel-landschaft",
+        "en": "key-account-sales-advisor-m-f-d-hilti-bern-basel-basel-landschaft",
+        "fr": "key-account-sales-advisor-h-f-d-hilti-bern-basel-basel-landschaft"
       },
       "company": "Hilti",
       "companyKey": "hilti",
@@ -1107,16 +1108,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:26:18.139Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:26:18.139Z"
+      "firstSeenAt": "2026-11-17T21:26:18.139Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "key-account-verkaufsberater-m-w-d-hilti-ch"
+        ],
+        "en": [
+          "key-account-verkaufsberater-m-w-d-hilti-ch"
+        ],
+        "fr": [
+          "key-account-verkaufsberater-m-w-d-hilti-ch"
+        ]
+      },
+      "previousSlugs": [
+        "key-account-verkaufsberater-m-w-d-hilti-ch"
+      ]
     },
     {
       "id": "hilti-22371-fr",
-      "slug": "conseiller-de-vente-externe-construction-metallique-hilti-ch",
+      "slug": "consulente-vendite-esterne-costruzione-di-metalli-hilti-fribourg-fribourg",
       "slugByLocale": {
         "fr": "conseiller-de-vente-externe-construction-metallique-hilti-ch",
-        "it": "conseiller-de-vente-externe-construction-metallique-hilti-ch",
-        "en": "conseiller-de-vente-externe-construction-metallique-hilti-ch",
-        "de": "conseiller-de-vente-externe-construction-metallique-hilti-ch"
+        "it": "consulente-vendite-esterne-costruzione-di-metalli-hilti-fribourg-fribourg",
+        "en": "external-sales-advisor-metal-construction-hilti-fribourg-fribourg",
+        "de": "externer-verkaufsberater-metallbau-hilti-fribourg-fribourg"
       },
       "company": "Hilti",
       "companyKey": "hilti",
@@ -1178,7 +1193,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:26:18.136Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:26:18.136Z"
+      "firstSeenAt": "2026-11-17T21:26:18.136Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-de-vente-externe-construction-metallique-hilti-ch"
+        ],
+        "en": [
+          "conseiller-de-vente-externe-construction-metallique-hilti-ch"
+        ],
+        "de": [
+          "conseiller-de-vente-externe-construction-metallique-hilti-ch"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-de-vente-externe-construction-metallique-hilti-ch"
+      ]
     },
     {
       "id": "hilti-16292-de",

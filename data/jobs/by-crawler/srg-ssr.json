@@ -4034,9 +4034,9 @@
       "slug": "una-redattrice-un-redattore-srg-ssr-lugano",
       "slugByLocale": {
         "it": "una-redattrice-un-redattore-srg-ssr-lugano",
-        "en": "una-redattrice-un-redattore-srg-ssr-lugano",
-        "de": "una-redattrice-un-redattore-srg-ssr-lugano",
-        "fr": "una-redattrice-un-redattore-srg-ssr-lugano"
+        "en": "a-editor-a-editor-srg-ssr-lugano",
+        "de": "ein-editor-ein-editor-srg-ssr-lugano",
+        "fr": "un-editeur-un-editeur-srg-ssr-lugano"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -4119,7 +4119,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:17:08.057Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:17:08.057Z"
+      "firstSeenAt": "2026-11-17T21:17:08.057Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "una-redattrice-un-redattore-srg-ssr-lugano"
+        ],
+        "de": [
+          "una-redattrice-un-redattore-srg-ssr-lugano"
+        ],
+        "fr": [
+          "una-redattrice-un-redattore-srg-ssr-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "una-redattrice-un-redattore-srg-ssr-lugano"
+      ]
     },
     {
       "id": "srg-ssr-accfa385c6be",

@@ -2590,12 +2590,12 @@
     },
     {
       "id": "novartis-a754201dbc9b",
-      "slug": "associate-director-ai-engineer-novartis-ch",
+      "slug": "associate-direttore-ai-ingegnere-novartis-basel-city",
       "slugByLocale": {
         "en": "associate-director-ai-engineer-novartis-ch",
-        "it": "associate-director-ai-engineer-novartis-ch",
-        "de": "associate-director-ai-engineer-novartis-ch",
-        "fr": "associate-director-ai-engineer-novartis-ch"
+        "it": "associate-direttore-ai-ingegnere-novartis-basel-city",
+        "de": "associate-direktor-ai-ingenieur-novartis-basel-city",
+        "fr": "associate-directeur-ai-ingenieur-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -2658,7 +2658,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:26:59.969Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:26:59.969Z"
+      "firstSeenAt": "2026-11-17T21:26:59.969Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "associate-director-ai-engineer-novartis-ch"
+        ],
+        "de": [
+          "associate-director-ai-engineer-novartis-ch"
+        ],
+        "fr": [
+          "associate-director-ai-engineer-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "associate-director-ai-engineer-novartis-ch"
+      ]
     }
   ]
 }

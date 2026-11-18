@@ -1831,8 +1831,8 @@
       "slugByLocale": {
         "de": "dipl-architekt-in-fh-oder-eth-paraplegie-muhen",
         "it": "dipl-architekt-in-fh-o-eth-schweizer-paraplegiker-gruppe-muhen",
-        "en": "dipl-architekt-in-fh-oder-eth-paraplegie-muhen",
-        "fr": "dipl-architekt-in-fh-oder-eth-paraplegie-muhen"
+        "en": "dipl-architect-in-fh-or-eth-schweizer-paraplegiker-gruppe-muhen",
+        "fr": "dipl-architecte-en-fh-ou-eth-schweizer-paraplegiker-gruppe-muhen"
       },
       "company": "Schweizer Paraplegiker-Gruppe",
       "companyKey": "paraplegie",
@@ -1887,10 +1887,12 @@
           "dipl-architecte-en-fh-ou-eth-schweizer-paraplegiker-gruppe-muhen"
         ],
         "en": [
-          "graduate-architect-fh-or-eth-schweizer-paraplegiker-gruppe-muhen"
+          "graduate-architect-fh-or-eth-schweizer-paraplegiker-gruppe-muhen",
+          "dipl-architekt-in-fh-oder-eth-paraplegie-muhen"
         ],
         "fr": [
-          "dipl-architecte-en-fh-ou-eth-schweizer-paraplegiker-gruppe-muhen"
+          "dipl-architecte-en-fh-ou-eth-schweizer-paraplegiker-gruppe-muhen",
+          "dipl-architekt-in-fh-oder-eth-paraplegie-muhen"
         ]
       },
       "previousSlugs": [
@@ -2928,12 +2930,12 @@
     },
     {
       "id": "paraplegie-c50ed4c47076",
-      "slug": "architecte-dipl-hes-ou-epf-paraplegie-muhen",
+      "slug": "architect-dipl-hes-o-fps-schweizer-paraplegiker-gruppe-muhen",
       "slugByLocale": {
         "fr": "architecte-dipl-hes-ou-epf-paraplegie-muhen",
-        "it": "architecte-dipl-hes-ou-epf-paraplegie-muhen",
-        "en": "architecte-dipl-hes-ou-epf-paraplegie-muhen",
-        "de": "architecte-dipl-hes-ou-epf-paraplegie-muhen"
+        "it": "architect-dipl-hes-o-fps-schweizer-paraplegiker-gruppe-muhen",
+        "en": "architect-dipl-hes-or-fps-schweizer-paraplegiker-gruppe-muhen",
+        "de": "architekt-dipl-hes-oder-fps-schweizer-paraplegiker-gruppe-muhen"
       },
       "company": "Schweizer Paraplegiker-Gruppe",
       "companyKey": "paraplegie",
@@ -2995,7 +2997,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:26:42.886Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:26:42.886Z"
+      "firstSeenAt": "2026-11-17T21:26:42.886Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "architecte-dipl-hes-ou-epf-paraplegie-muhen"
+        ],
+        "en": [
+          "architecte-dipl-hes-ou-epf-paraplegie-muhen"
+        ],
+        "de": [
+          "architecte-dipl-hes-ou-epf-paraplegie-muhen"
+        ]
+      },
+      "previousSlugs": [
+        "architecte-dipl-hes-ou-epf-paraplegie-muhen"
+      ]
     }
   ]
 }

@@ -4716,7 +4716,7 @@
       "slug": "fisioterapista-fisioterapista-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "fisioterapista-fisioterapista-universitatsspital-basel-basel",
-        "en": "physiotherapist-universitatsspital-basel",
+        "en": "physiotherapeutin-physiotherapeut-universitatsspital-basel",
         "de": "physiotherapeutin-physiotherapeut-unispital-basel-ch",
         "fr": "physiotherapeute-physiotherapiste-universitatsspital-basel-basel"
       },
@@ -4765,7 +4765,7 @@
         "physiotherapeutin-physiotherapeut-unispital-basel-ch",
         "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
         "physiotherapist-physiotherapist-universitatsspital-basel-basel",
-        "physiotherapeutin-physiotherapeut-universitatsspital-basel"
+        "physiotherapist-universitatsspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4775,7 +4775,7 @@
         "en": [
           "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
           "physiotherapist-physiotherapist-universitatsspital-basel-basel",
-          "physiotherapeutin-physiotherapeut-universitatsspital-basel"
+          "physiotherapist-universitatsspital-basel"
         ],
         "fr": [
           "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel"
@@ -9933,12 +9933,12 @@
     },
     {
       "id": "unispital-basel-1796bc02bf0d",
-      "slug": "fachleitung-pflege-gynakologisch-onkologisches-ambulatorium-amp-brustklinik-unispital",
+      "slug": "specialist-management-care-gynaecological-oncological-ambulatorium-breast-clinic-universitatsspital-basel-basel-bc299e",
       "slugByLocale": {
         "de": "fachleitung-pflege-gynakologisch-onkologisches-ambulatorium-amp-brustklinik-unispital",
-        "it": "fachleitung-pflege-gynakologisch-onkologisches-ambulatorium-amp-brustklinik-unispital",
-        "en": "fachleitung-pflege-gynakologisch-onkologisches-ambulatorium-amp-brustklinik-unispital",
-        "fr": "fachleitung-pflege-gynakologisch-onkologisches-ambulatorium-amp-brustklinik-unispital"
+        "it": "specialist-management-care-gynaecological-oncological-ambulatorium-breast-clinic-universitatsspital-basel-basel-bc299e",
+        "en": "specialist-management-care-gynaecological-oncological-ambulatorium-breast-clinic-universitatsspital-basel-basel-bc299e",
+        "fr": "soins-de-gestion-specialises-ambulateur-gynecologique-oncologique-et-clinique-du-sein-universitatsspital-basel-bc299e"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -10000,16 +10000,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:27:10.988Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-21T16:08:59.788Z"
+      "firstSeenAt": "2026-09-21T16:08:59.788Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachleitung-pflege-gynakologisch-onkologisches-ambulatorium-amp-brustklinik-unispital"
+        ],
+        "en": [
+          "fachleitung-pflege-gynakologisch-onkologisches-ambulatorium-amp-brustklinik-unispital"
+        ],
+        "fr": [
+          "fachleitung-pflege-gynakologisch-onkologisches-ambulatorium-amp-brustklinik-unispital"
+        ]
+      },
+      "previousSlugs": [
+        "fachleitung-pflege-gynakologisch-onkologisches-ambulatorium-amp-brustklinik-unispital"
+      ]
     },
     {
       "id": "unispital-basel-10705db6375e",
-      "slug": "studentische-r-collaboratore-trice-in-patient-services-augenklinik-universitatsspital-basel",
+      "slug": "collaboratore-trice-studentesco-a-servizi-ai-pazienti-clinica-oculistica-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "studentische-r-mitarbeiter-in-patient-services-augenklinik-unispital-basel-ch",
-        "it": "studentische-r-collaboratore-trice-in-patient-services-augenklinik-universitatsspital-basel",
-        "en": "studentische-r-mitarbeiter-in-patient-services-augenklinik-universitatsspital-basel-basel",
-        "fr": "studentische-r-mitarbeiter-in-patient-services-augenklinik-universitatsspital-basel-basel"
+        "it": "collaboratore-trice-studentesco-a-servizi-ai-pazienti-clinica-oculistica-universitatsspital-basel-basel",
+        "en": "student-assistant-patient-services-ophthalmology-clinic-universitatsspital-basel-basel",
+        "fr": "collaborateur-trice-etudiant-e-en-services-aux-patients-clinique-ophtalmologique-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -10056,11 +10070,20 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "studentische-r-mitarbeiter-in-patient-services-augenklinik-unispital-basel-ch"
+          "studentische-r-mitarbeiter-in-patient-services-augenklinik-unispital-basel-ch",
+          "studentische-r-collaboratore-trice-in-patient-services-augenklinik-universitatsspital-basel"
+        ],
+        "en": [
+          "studentische-r-mitarbeiter-in-patient-services-augenklinik-universitatsspital-basel-basel"
+        ],
+        "fr": [
+          "studentische-r-mitarbeiter-in-patient-services-augenklinik-universitatsspital-basel-basel"
         ]
       },
       "previousSlugs": [
-        "studentische-r-mitarbeiter-in-patient-services-augenklinik-unispital-basel-ch"
+        "studentische-r-mitarbeiter-in-patient-services-augenklinik-unispital-basel-ch",
+        "studentische-r-collaboratore-trice-in-patient-services-augenklinik-universitatsspital-basel",
+        "studentische-r-mitarbeiter-in-patient-services-augenklinik-universitatsspital-basel-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -10083,12 +10106,12 @@
     },
     {
       "id": "unispital-basel-82394ff3c7de",
-      "slug": "junior-projektleiter-in-bereich-betrieb-universitatsspital-basel",
+      "slug": "junior-responsabile-di-progetto-settore-operativo-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "junior-projektleiter-in-bereich-betrieb-unispital-basel-ch",
-        "it": "junior-projektleiter-in-bereich-betrieb-universitatsspital-basel",
-        "en": "junior-projektleiter-in-bereich-betrieb-unispital-basel-ch",
-        "fr": "junior-projektleiter-in-bereich-betrieb-unispital-basel-ch"
+        "it": "junior-responsabile-di-progetto-settore-operativo-universitatsspital-basel-basel",
+        "en": "junior-project-manager-operations-universitatsspital-basel-basel",
+        "fr": "junior-chef-fe-de-projet-dans-le-domaine-de-l-exploitation-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -10135,11 +10158,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "junior-projektleiter-in-bereich-betrieb-unispital-basel-ch",
+          "junior-projektleiter-in-bereich-betrieb-universitatsspital-basel"
+        ],
+        "en": [
+          "junior-projektleiter-in-bereich-betrieb-unispital-basel-ch"
+        ],
+        "fr": [
           "junior-projektleiter-in-bereich-betrieb-unispital-basel-ch"
         ]
       },
       "previousSlugs": [
-        "junior-projektleiter-in-bereich-betrieb-unispital-basel-ch"
+        "junior-projektleiter-in-bereich-betrieb-unispital-basel-ch",
+        "junior-projektleiter-in-bereich-betrieb-universitatsspital-basel"
       ],
       "salaryMin": 52000,
       "salaryMax": 78500,

@@ -634,8 +634,8 @@
       "slugByLocale": {
         "de": "zwei-nebenamtliche-handelsrichterinnen-oder-handelsrichter-kanton-zuerich-zurich",
         "it": "zwei-nebenamtliche-handelsrichterinnen-o-handelsrichter-kantonale-verwaltung-zurich",
-        "en": "zwei-nebenamtliche-handelsrichterinnen-oder-handelsrichter-kantonale-verwaltung-zurich-zurich",
-        "fr": "zwei-nebenamtliche-handelsrichterinnen-oder-handelsrichter-kantonale-verwaltung-zurich-zurich"
+        "en": "two-secondary-commercial-judges-kantonale-verwaltung-zurich-zurich",
+        "fr": "deux-juges-commerciaux-secondaires-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -685,10 +685,17 @@
       "previousSlugsByLocale": {
         "it": [
           "zwei-nebenamtliche-handelsrichterinnen-oder-handelsrichter-kanton-zuerich-zurich"
+        ],
+        "en": [
+          "zwei-nebenamtliche-handelsrichterinnen-oder-handelsrichter-kantonale-verwaltung-zurich-zurich"
+        ],
+        "fr": [
+          "zwei-nebenamtliche-handelsrichterinnen-oder-handelsrichter-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "zwei-nebenamtliche-handelsrichterinnen-oder-handelsrichter-kanton-zuerich-zurich"
+        "zwei-nebenamtliche-handelsrichterinnen-oder-handelsrichter-kanton-zuerich-zurich",
+        "zwei-nebenamtliche-handelsrichterinnen-oder-handelsrichter-kantonale-verwaltung-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -2527,8 +2534,8 @@
       "slugByLocale": {
         "de": "jurist-in-rechtsdienst-befristet-fur-1-jahr-kanton-zuerich-winterthur",
         "it": "jurist-in-rechtsdienst-befristet-per-1-jahr-kantonale-verwaltung-zurich-winterthur",
-        "en": "jurist-in-rechtsdienst-befristet-fur-1-jahr-kanton-zuerich-winterthur",
-        "fr": "jurist-in-rechtsdienst-befristet-fur-1-jahr-kanton-zuerich-winterthur"
+        "en": "lawyer-legal-services-fixed-term-for-1-year-kantonale-verwaltung-zurich-winterthur",
+        "fr": "juriste-au-service-juridique-contrat-a-duree-determinee-pour-1-an-kantonale-verwaltung-zurich-winterthur"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -2579,6 +2586,12 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
+          "jurist-in-rechtsdienst-befristet-fur-1-jahr-kanton-zuerich-winterthur"
+        ],
+        "en": [
+          "jurist-in-rechtsdienst-befristet-fur-1-jahr-kanton-zuerich-winterthur"
+        ],
+        "fr": [
           "jurist-in-rechtsdienst-befristet-fur-1-jahr-kanton-zuerich-winterthur"
         ]
       },
@@ -5313,12 +5326,12 @@
     },
     {
       "id": "kanton-zuerich-12d8508f5263",
-      "slug": "hauswart-in-hausdienst-kanton-zuerich-winterthur",
+      "slug": "custode-servizio-di-custodia-kantonale-verwaltung-zurich-winterthur",
       "slugByLocale": {
         "de": "hauswart-in-hausdienst-kanton-zuerich-winterthur",
-        "it": "hauswart-in-hausdienst-kanton-zuerich-winterthur",
-        "en": "hauswart-in-hausdienst-kanton-zuerich-winterthur",
-        "fr": "hauswart-in-hausdienst-kanton-zuerich-winterthur"
+        "it": "custode-servizio-di-custodia-kantonale-verwaltung-zurich-winterthur",
+        "en": "caretaker-building-services-kantonale-verwaltung-zurich-winterthur",
+        "fr": "concierge-service-de-maison-kantonale-verwaltung-zurich-winterthur"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -5384,7 +5397,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:56:57.894Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:56:57.894Z"
+      "firstSeenAt": "2026-11-17T21:56:57.894Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hauswart-in-hausdienst-kanton-zuerich-winterthur"
+        ],
+        "en": [
+          "hauswart-in-hausdienst-kanton-zuerich-winterthur"
+        ],
+        "fr": [
+          "hauswart-in-hausdienst-kanton-zuerich-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "hauswart-in-hausdienst-kanton-zuerich-winterthur"
+      ]
     },
     {
       "id": "kanton-zuerich-1d8ddf46eb17",
@@ -6100,8 +6127,8 @@
       "slugByLocale": {
         "de": "recruitment-coordinator-befristet-fur-6-monate-kanton-zuerich-zurich",
         "it": "recruitment-coordinatore-befristet-per-6-monate-kantonale-verwaltung-zurich",
-        "en": "recruitment-coordinator-befristet-fur-6-monate-kanton-zuerich-zurich",
-        "fr": "recruitment-coordinator-befristet-fur-6-monate-kanton-zuerich-zurich"
+        "en": "recruitment-coordinator-temporary-for-6-months-kantonale-verwaltung-zurich-zurich",
+        "fr": "coordinateur-rice-du-recrutement-contrat-a-duree-determinee-de-6-mois-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -6152,6 +6179,12 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
+          "recruitment-coordinator-befristet-fur-6-monate-kanton-zuerich-zurich"
+        ],
+        "en": [
+          "recruitment-coordinator-befristet-fur-6-monate-kanton-zuerich-zurich"
+        ],
+        "fr": [
           "recruitment-coordinator-befristet-fur-6-monate-kanton-zuerich-zurich"
         ]
       },
@@ -7009,12 +7042,12 @@
     },
     {
       "id": "kanton-zuerich-92643f4aa3a6",
-      "slug": "redaktorin-redaktor-im-stundenlohn-unbefristet-kanton-zuerich-zurich",
+      "slug": "editore-editore-in-salari-orali-perpetuo-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "redaktorin-redaktor-im-stundenlohn-unbefristet-kanton-zuerich-zurich",
-        "it": "redaktorin-redaktor-im-stundenlohn-unbefristet-kanton-zuerich-zurich",
-        "en": "redaktorin-redaktor-im-stundenlohn-unbefristet-kanton-zuerich-zurich",
-        "fr": "redaktorin-redaktor-im-stundenlohn-unbefristet-kanton-zuerich-zurich"
+        "it": "editore-editore-in-salari-orali-perpetuo-kantonale-verwaltung-zurich-zurich",
+        "en": "editor-editor-in-hourly-wages-perpetual-kantonale-verwaltung-zurich-zurich",
+        "fr": "editeur-editeur-en-salaire-horaire-perpetuel-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -7080,7 +7113,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:56:06.986Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:56:06.986Z"
+      "firstSeenAt": "2026-11-17T21:56:06.986Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "redaktorin-redaktor-im-stundenlohn-unbefristet-kanton-zuerich-zurich"
+        ],
+        "en": [
+          "redaktorin-redaktor-im-stundenlohn-unbefristet-kanton-zuerich-zurich"
+        ],
+        "fr": [
+          "redaktorin-redaktor-im-stundenlohn-unbefristet-kanton-zuerich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "redaktorin-redaktor-im-stundenlohn-unbefristet-kanton-zuerich-zurich"
+      ]
     },
     {
       "id": "kanton-zuerich-9df62e60b020",
@@ -8151,12 +8198,12 @@
     },
     {
       "id": "kanton-zuerich-a37375f4f6cb",
-      "slug": "berufs-studien-e-laufbahnberater-in-kantonale-verwaltung-zurich-8050-zurich",
+      "slug": "consulente-professionale-per-gli-studi-e-di-carriera-kantonale-verwaltung-zurich-8050-zurich",
       "slugByLocale": {
         "de": "berufs-studien-und-laufbahnberater-in-kanton-zuerich-8050-zurich",
-        "it": "berufs-studien-e-laufbahnberater-in-kantonale-verwaltung-zurich-8050-zurich",
-        "en": "berufs-studien-und-laufbahnberater-in-kantonale-verwaltung-zurich-8050-zurich",
-        "fr": "berufs-studien-und-laufbahnberater-in-kantonale-verwaltung-zurich-8050-zurich"
+        "it": "consulente-professionale-per-gli-studi-e-di-carriera-kantonale-verwaltung-zurich-8050-zurich",
+        "en": "vocational-study-and-career-counsellor-kantonale-verwaltung-zurich-8050-zurich",
+        "fr": "conseiller-ere-en-orientation-professionnelle-universitaire-et-de-carriere-kantonale-verwaltung-zurich-8050-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -8207,11 +8254,20 @@
       "pensum": "70%",
       "previousSlugsByLocale": {
         "it": [
-          "berufs-studien-und-laufbahnberater-in-kanton-zuerich-8050-zurich"
+          "berufs-studien-und-laufbahnberater-in-kanton-zuerich-8050-zurich",
+          "berufs-studien-e-laufbahnberater-in-kantonale-verwaltung-zurich-8050-zurich"
+        ],
+        "en": [
+          "berufs-studien-und-laufbahnberater-in-kantonale-verwaltung-zurich-8050-zurich"
+        ],
+        "fr": [
+          "berufs-studien-und-laufbahnberater-in-kantonale-verwaltung-zurich-8050-zurich"
         ]
       },
       "previousSlugs": [
-        "berufs-studien-und-laufbahnberater-in-kanton-zuerich-8050-zurich"
+        "berufs-studien-und-laufbahnberater-in-kanton-zuerich-8050-zurich",
+        "berufs-studien-e-laufbahnberater-in-kantonale-verwaltung-zurich-8050-zurich",
+        "berufs-studien-und-laufbahnberater-in-kantonale-verwaltung-zurich-8050-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -10097,12 +10153,12 @@
     },
     {
       "id": "kanton-zuerich-9ce56ef9907d",
-      "slug": "verwaltungsassistent-in-fachstelle-marketing-e-kommunikation-kantonale-verwaltung-zurich-uster",
+      "slug": "assistente-amministrativo-a-servizio-specializzato-marketing-e-comunicazione-kantonale-verwaltung-zurich-uster",
       "slugByLocale": {
         "de": "verwaltungsassistent-in-fachstelle-marketing-und-kommunikation-kanton-zuerich-uster",
-        "it": "verwaltungsassistent-in-fachstelle-marketing-e-kommunikation-kantonale-verwaltung-zurich-uster",
-        "en": "verwaltungsassistent-in-fachstelle-marketing-und-kommunikation-kantonale-verwaltung-zurich-uster",
-        "fr": "verwaltungsassistent-in-fachstelle-marketing-und-kommunikation-kantonale-verwaltung-zurich-uster"
+        "it": "assistente-amministrativo-a-servizio-specializzato-marketing-e-comunicazione-kantonale-verwaltung-zurich-uster",
+        "en": "administrative-assistant-marketing-and-communications-unit-kantonale-verwaltung-zurich-uster",
+        "fr": "assistant-e-administratif-ve-du-service-specialise-marketing-et-communication-kantonale-verwaltung-zurich-uster"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -10153,11 +10209,20 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
-          "verwaltungsassistent-in-fachstelle-marketing-und-kommunikation-kanton-zuerich-uster"
+          "verwaltungsassistent-in-fachstelle-marketing-und-kommunikation-kanton-zuerich-uster",
+          "verwaltungsassistent-in-fachstelle-marketing-e-kommunikation-kantonale-verwaltung-zurich-uster"
+        ],
+        "en": [
+          "verwaltungsassistent-in-fachstelle-marketing-und-kommunikation-kantonale-verwaltung-zurich-uster"
+        ],
+        "fr": [
+          "verwaltungsassistent-in-fachstelle-marketing-und-kommunikation-kantonale-verwaltung-zurich-uster"
         ]
       },
       "previousSlugs": [
-        "verwaltungsassistent-in-fachstelle-marketing-und-kommunikation-kanton-zuerich-uster"
+        "verwaltungsassistent-in-fachstelle-marketing-und-kommunikation-kanton-zuerich-uster",
+        "verwaltungsassistent-in-fachstelle-marketing-e-kommunikation-kantonale-verwaltung-zurich-uster",
+        "verwaltungsassistent-in-fachstelle-marketing-und-kommunikation-kantonale-verwaltung-zurich-uster"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -10821,12 +10886,12 @@
     },
     {
       "id": "kanton-zuerich-6ee729631f6e",
-      "slug": "job-coach-programm-per-hochqualifizierte-befristet-auf-6-monate-kantonale-verwaltung-zurich",
+      "slug": "job-coach-programma-per-persone-altamente-qualificate-a-tempo-determinato-per-6-mesi-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "job-coach-programm-fur-hochqualifizierte-befristet-auf-6-monate-kanton-zuerich-zurich",
-        "it": "job-coach-programm-per-hochqualifizierte-befristet-auf-6-monate-kantonale-verwaltung-zurich",
-        "en": "job-coach-programm-fur-hochqualifizierte-befristet-auf-6-monate-kantonale-verwaltung-zurich-zurich",
-        "fr": "job-coach-programm-fur-hochqualifizierte-befristet-auf-6-monate-kantonale-verwaltung-zurich-zurich"
+        "it": "job-coach-programma-per-persone-altamente-qualificate-a-tempo-determinato-per-6-mesi-kantonale-verwaltung-zurich-zurich",
+        "en": "job-coach-program-for-highly-qualified-temporary-to-6-months-kantonale-verwaltung-zurich-zurich",
+        "fr": "entraineur-d-emploi-programme-pour-hautement-qualifie-temporaire-a-6-mois-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -10877,11 +10942,20 @@
       "pensum": "60%",
       "previousSlugsByLocale": {
         "it": [
-          "job-coach-programm-fur-hochqualifizierte-befristet-auf-6-monate-kanton-zuerich-zurich"
+          "job-coach-programm-fur-hochqualifizierte-befristet-auf-6-monate-kanton-zuerich-zurich",
+          "job-coach-programm-per-hochqualifizierte-befristet-auf-6-monate-kantonale-verwaltung-zurich"
+        ],
+        "en": [
+          "job-coach-programm-fur-hochqualifizierte-befristet-auf-6-monate-kantonale-verwaltung-zurich-zurich"
+        ],
+        "fr": [
+          "job-coach-programm-fur-hochqualifizierte-befristet-auf-6-monate-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "job-coach-programm-fur-hochqualifizierte-befristet-auf-6-monate-kanton-zuerich-zurich"
+        "job-coach-programm-fur-hochqualifizierte-befristet-auf-6-monate-kanton-zuerich-zurich",
+        "job-coach-programm-per-hochqualifizierte-befristet-auf-6-monate-kantonale-verwaltung-zurich",
+        "job-coach-programm-fur-hochqualifizierte-befristet-auf-6-monate-kantonale-verwaltung-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -14829,12 +14903,12 @@
     },
     {
       "id": "kanton-zuerich-375c453ac017",
-      "slug": "verwaltungsassistent-in-kantonale-verwaltung-zurich-zurich",
+      "slug": "assistente-amministrativo-a-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "verwaltungsassistent-in-kanton-zuerich-zurich",
-        "it": "verwaltungsassistent-in-kantonale-verwaltung-zurich-zurich",
-        "en": "verwaltungsassistent-in-kantonale-verwaltung-zurich-zurich",
-        "fr": "verwaltungsassistent-in-kantonale-verwaltung-zurich-zurich"
+        "it": "assistente-amministrativo-a-kantonale-verwaltung-zurich-zurich",
+        "en": "administrative-assistant-kantonale-verwaltung-zurich-zurich",
+        "fr": "assistant-e-administratif-ve-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -14885,11 +14959,19 @@
       "pensum": "60%",
       "previousSlugsByLocale": {
         "it": [
-          "verwaltungsassistent-in-kanton-zuerich-zurich"
+          "verwaltungsassistent-in-kanton-zuerich-zurich",
+          "verwaltungsassistent-in-kantonale-verwaltung-zurich-zurich"
+        ],
+        "en": [
+          "verwaltungsassistent-in-kantonale-verwaltung-zurich-zurich"
+        ],
+        "fr": [
+          "verwaltungsassistent-in-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "verwaltungsassistent-in-kanton-zuerich-zurich"
+        "verwaltungsassistent-in-kanton-zuerich-zurich",
+        "verwaltungsassistent-in-kantonale-verwaltung-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -15442,7 +15524,7 @@
       "id": "kanton-zuerich-d3efed4a120e",
       "slug": "revisore-revisora-analista-finanziario-a-kantonale-verwaltung-zurich-zurich-3eeca4bf53",
       "slugByLocale": {
-        "it": "revisore-revisora-analista-finanziario-a-kantonale-verwaltung-zurich-zurich-3eeca4bf53",
+        "it": "revisore-revisora-analista-finanziario-a-kantonale-verwaltung-zurich-zurich",
         "en": "auditor-financial-analyst-kantonale-verwaltung-zurich-zurich",
         "de": "wirtschaftsprufer-in-finanzanalyst-in-kanton-zuerich-zurich",
         "fr": "auditeur-rice-analyste-financier-ere-kantonale-verwaltung-zurich-zurich"
@@ -15495,14 +15577,12 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "wirtschaftsprufer-in-finanzanalyst-in-kanton-zuerich-zurich",
-        "wirtschaftsprufer-in-finanzanalyst-in-kantonale-verwaltung-zurich-zurich",
-        "revisore-revisora-analista-finanziario-a-kantonale-verwaltung-zurich-zurich"
+        "wirtschaftsprufer-in-finanzanalyst-in-kantonale-verwaltung-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "wirtschaftsprufer-in-finanzanalyst-in-kanton-zuerich-zurich",
-          "wirtschaftsprufer-in-finanzanalyst-in-kantonale-verwaltung-zurich-zurich",
-          "revisore-revisora-analista-finanziario-a-kantonale-verwaltung-zurich-zurich"
+          "wirtschaftsprufer-in-finanzanalyst-in-kantonale-verwaltung-zurich-zurich"
         ],
         "en": [
           "wirtschaftsprufer-in-finanzanalyst-in-kantonale-verwaltung-zurich-zurich"

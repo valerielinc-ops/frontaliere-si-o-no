@@ -5,11 +5,11 @@
   "jobs": [
     {
       "id": "elite-interim-3587",
-      "slug": "installateur-electricien-cfc-h-f-elite-interim-neuchatel",
+      "slug": "installatore-cfc-m-f-elite-interim-sa-neuchatel",
       "slugByLocale": {
         "fr": "installateur-electricien-cfc-h-f-elite-interim-neuchatel",
-        "it": "installateur-electricien-cfc-h-f-elite-interim-neuchatel",
-        "en": "installateur-electricien-cfc-h-f-elite-interim-neuchatel",
+        "it": "installatore-cfc-m-f-elite-interim-sa-neuchatel",
+        "en": "cfc-installer-m-f-elite-interim-sa-neuchatel",
         "de": "installateur-electricien-cfc-h-f-elite-interim-neuchatel"
       },
       "company": "Elite Interim SA",
@@ -73,16 +73,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:33:22.913Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:33:22.913Z"
+      "firstSeenAt": "2026-11-17T21:33:22.913Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "installateur-electricien-cfc-h-f-elite-interim-neuchatel"
+        ],
+        "en": [
+          "installateur-electricien-cfc-h-f-elite-interim-neuchatel"
+        ]
+      },
+      "previousSlugs": [
+        "installateur-electricien-cfc-h-f-elite-interim-neuchatel"
+      ]
     },
     {
       "id": "elite-interim-3586",
-      "slug": "electricien-de-montage-cfc-h-f-elite-interim-neuchatel",
+      "slug": "installazione-elettrica-cfc-m-f-elite-interim-sa-neuchatel",
       "slugByLocale": {
         "fr": "electricien-de-montage-cfc-h-f-elite-interim-neuchatel",
-        "it": "electricien-de-montage-cfc-h-f-elite-interim-neuchatel",
-        "en": "electricien-de-montage-cfc-h-f-elite-interim-neuchatel",
-        "de": "electricien-de-montage-cfc-h-f-elite-interim-neuchatel"
+        "it": "installazione-elettrica-cfc-m-f-elite-interim-sa-neuchatel",
+        "en": "installation-electrician-cfc-m-f-elite-interim-sa-neuchatel",
+        "de": "installation-elektriker-cfc-m-w-elite-interim-sa-neuchatel"
       },
       "company": "Elite Interim SA",
       "companyKey": "elite-interim",
@@ -145,7 +156,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:33:22.913Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:33:22.913Z"
+      "firstSeenAt": "2026-11-17T21:33:22.913Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "electricien-de-montage-cfc-h-f-elite-interim-neuchatel"
+        ],
+        "en": [
+          "electricien-de-montage-cfc-h-f-elite-interim-neuchatel"
+        ],
+        "de": [
+          "electricien-de-montage-cfc-h-f-elite-interim-neuchatel"
+        ]
+      },
+      "previousSlugs": [
+        "electricien-de-montage-cfc-h-f-elite-interim-neuchatel"
+      ]
     },
     {
       "id": "elite-interim-3552",

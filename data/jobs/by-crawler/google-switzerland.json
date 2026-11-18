@@ -3276,10 +3276,10 @@
     },
     {
       "id": "google-switzerland-7a73c01a52af",
-      "slug": "ux-designer-ads-google-switzerland-zurich",
+      "slug": "designer-ux-pubblicita-google-switzerland-zurich",
       "slugByLocale": {
         "en": "ux-designer-ads-google-switzerland-zurich",
-        "it": "ux-designer-ads-google-switzerland-zurich",
+        "it": "designer-ux-pubblicita-google-switzerland-zurich",
         "de": "ux-designer-ads-google-switzerland-zurich",
         "fr": "ux-designer-ads-google-switzerland-zurich"
       },
@@ -3351,7 +3351,15 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-15T21:23:13.721Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "ux-designer-ads-google-switzerland-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "ux-designer-ads-google-switzerland-zurich"
+      ]
     },
     {
       "id": "google-switzerland-2d8aedfa3920",

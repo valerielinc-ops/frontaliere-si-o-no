@@ -6900,12 +6900,12 @@
     },
     {
       "id": "etat-de-fribourg-b07112712cc9",
-      "slug": "greffier-ere-stagiaire-etat-de-fribourg-ch",
+      "slug": "registratore-tirocinante-etat-de-fribourg-bulle",
       "slugByLocale": {
         "fr": "greffier-ere-stagiaire-etat-de-fribourg-ch",
-        "it": "greffier-ere-stagiaire-etat-de-fribourg-ch",
-        "en": "greffier-ere-stagiaire-etat-de-fribourg-ch",
-        "de": "greffier-ere-stagiaire-etat-de-fribourg-ch"
+        "it": "registratore-tirocinante-etat-de-fribourg-bulle",
+        "en": "registrar-trainee-etat-de-fribourg-bulle",
+        "de": "registrar-praktikant-etat-de-fribourg-bulle"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -6971,7 +6971,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:52:33.898Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:52:33.898Z"
+      "firstSeenAt": "2026-11-17T21:52:33.898Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "greffier-ere-stagiaire-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "greffier-ere-stagiaire-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "greffier-ere-stagiaire-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "greffier-ere-stagiaire-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-5a15e69882fc",

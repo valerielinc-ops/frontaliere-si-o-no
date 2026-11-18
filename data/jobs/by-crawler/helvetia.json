@@ -1349,7 +1349,7 @@
         "it": "consulente-del-cliente-f-m-d-assicurazione-langenthal-part-time-fulltime-helvetia-versicherungen-langenthal",
         "en": "customer-consultant-f-m-d-langenthal-insurance-part-time-full-time-helvetia-versicherungen-langenthal",
         "de": "kundenberater-w-m-d-versicherungen-langenthal-teilzeit-vollzeit-helvetia-langenthal",
-        "fr": "conseiller-a-la-clientele-assurances-langenthal-helvetia-versicherungen-langenthal"
+        "fr": "consultant-client-f-m-d-helvetia-versicherungen-langenthal"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -1418,14 +1418,14 @@
       },
       "previousSlugs": [
         "kundenberater-w-m-d-versicherungen-langenthal-teilzeit-vollzeit-helvetia-langenthal",
-        "consultant-client-f-m-d-helvetia-versicherungen-langenthal"
+        "conseiller-a-la-clientele-assurances-langenthal-helvetia-versicherungen-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kundenberater-w-m-d-versicherungen-langenthal-teilzeit-vollzeit-helvetia-langenthal"
         ],
         "fr": [
-          "consultant-client-f-m-d-helvetia-versicherungen-langenthal"
+          "conseiller-a-la-clientele-assurances-langenthal-helvetia-versicherungen-langenthal"
         ]
       },
       "firstSeenAt": "2026-08-05T11:27:42.887Z",
@@ -5405,10 +5405,10 @@
       "id": "helvetia-9e1d12aa6d7d",
       "slug": "specialista-m-w-d-in-cura-dei-bambini-80-helvetia-versicherungen-basel",
       "slugByLocale": {
-        "it": "specialista-m-w-d-in-cura-dei-bambini-80-helvetia-versicherungen-basel",
-        "en": "childcare-specialist-m-w-d-80-helvetia-versicherungen-basel",
+        "it": "professional-m-f-d-child-care-80-helvetia-versicherungen-basel",
+        "en": "professional-m-f-d-child-care-80-helvetia-versicherungen-basel",
         "de": "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-        "fr": "specialiste-en-garde-d-enfants-m-w-d-80-helvetia-versicherungen-basel"
+        "fr": "soins-professionnels-h-f-d-80-helvetia-versicherungen-basel"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -5483,21 +5483,20 @@
       },
       "previousSlugs": [
         "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-        "professional-m-f-d-child-care-80-helvetia-versicherungen-basel",
-        "soins-professionnels-h-f-d-80-helvetia-versicherungen-basel"
+        "childcare-specialist-m-w-d-80-helvetia-versicherungen-basel",
+        "specialiste-en-garde-d-enfants-m-w-d-80-helvetia-versicherungen-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-          "professional-m-f-d-child-care-80-helvetia-versicherungen-basel"
+          "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel"
         ],
         "en": [
           "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-          "professional-m-f-d-child-care-80-helvetia-versicherungen-basel"
+          "childcare-specialist-m-w-d-80-helvetia-versicherungen-basel"
         ],
         "fr": [
           "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-          "soins-professionnels-h-f-d-80-helvetia-versicherungen-basel"
+          "specialiste-en-garde-d-enfants-m-w-d-80-helvetia-versicherungen-basel"
         ]
       },
       "firstSeenAt": "2026-10-13T09:10:58.294Z",
@@ -14402,12 +14401,12 @@
     },
     {
       "id": "helvetia-0e868a0c1cd6",
-      "slug": "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-zug-teilzeit-vollzeit-helvetia-versicherungen-zug",
+      "slug": "addetto-a-al-supporto-vendite-m-f-d-agenzia-generale-di-zug-tempo-parziale-tempo-pieno-helvetia-versicherungen-zug",
       "slugByLocale": {
         "de": "mitarbeiter-verkaufssupport-m-w-d-generalagentur-zug-teilzeit-vollzeit-helvetia-zug",
-        "it": "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-zug-teilzeit-vollzeit-helvetia-versicherungen-zug",
-        "en": "mitarbeiter-verkaufssupport-m-w-d-generalagentur-zug-teilzeit-vollzeit-helvetia-zug",
-        "fr": "mitarbeiter-verkaufssupport-m-w-d-generalagentur-zug-teilzeit-vollzeit-helvetia-zug"
+        "it": "addetto-a-al-supporto-vendite-m-f-d-agenzia-generale-di-zug-tempo-parziale-tempo-pieno-helvetia-versicherungen-zug",
+        "en": "employee-sales-support-m-f-d-general-agency-train-part-time-full-time-helvetia-versicherungen-zug",
+        "fr": "soutien-aux-ventes-des-employes-h-f-d-agence-generale-train-temps-partiel-temps-plein-helvetia-versicherungen-zug"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -14455,11 +14454,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-verkaufssupport-m-w-d-generalagentur-zug-teilzeit-vollzeit-helvetia-zug",
+          "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-zug-teilzeit-vollzeit-helvetia-versicherungen-zug"
+        ],
+        "en": [
+          "mitarbeiter-verkaufssupport-m-w-d-generalagentur-zug-teilzeit-vollzeit-helvetia-zug"
+        ],
+        "fr": [
           "mitarbeiter-verkaufssupport-m-w-d-generalagentur-zug-teilzeit-vollzeit-helvetia-zug"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-verkaufssupport-m-w-d-generalagentur-zug-teilzeit-vollzeit-helvetia-zug"
+        "mitarbeiter-verkaufssupport-m-w-d-generalagentur-zug-teilzeit-vollzeit-helvetia-zug",
+        "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-zug-teilzeit-vollzeit-helvetia-versicherungen-zug"
       ],
       "salaryMin": 86500,
       "salaryMax": 120500,

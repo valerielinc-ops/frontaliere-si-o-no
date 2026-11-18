@@ -103,12 +103,12 @@
     },
     {
       "id": "thurklinik-fa835b4b56ca",
-      "slug": "leitung-pflege-hf-fh-60-100-thurklinik-niederuzwil",
+      "slug": "gestione-hf-fh-60-100-thurklinik-niederuzwil",
       "slugByLocale": {
         "de": "leitung-pflege-hf-fh-60-100-thurklinik-niederuzwil",
-        "it": "leitung-pflege-hf-fh-60-100-thurklinik-niederuzwil",
-        "en": "leitung-pflege-hf-fh-60-100-thurklinik-niederuzwil",
-        "fr": "leitung-pflege-hf-fh-60-100-thurklinik-niederuzwil"
+        "it": "gestione-hf-fh-60-100-thurklinik-niederuzwil",
+        "en": "management-care-hf-fh-60-100-thurklinik-niederuzwil",
+        "fr": "soins-de-gestion-hf-fh-60-a-100-thurklinik-niederuzwil"
       },
       "company": "Thurklinik",
       "companyKey": "thurklinik",
@@ -184,7 +184,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-15T21:16:47.559Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:16:47.559Z"
+      "firstSeenAt": "2026-11-17T21:16:47.559Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitung-pflege-hf-fh-60-100-thurklinik-niederuzwil"
+        ],
+        "en": [
+          "leitung-pflege-hf-fh-60-100-thurklinik-niederuzwil"
+        ],
+        "fr": [
+          "leitung-pflege-hf-fh-60-100-thurklinik-niederuzwil"
+        ]
+      },
+      "previousSlugs": [
+        "leitung-pflege-hf-fh-60-100-thurklinik-niederuzwil"
+      ]
     },
     {
       "id": "thurklinik-9c988bac746b",

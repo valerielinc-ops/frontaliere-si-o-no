@@ -2379,12 +2379,12 @@
     },
     {
       "id": "spital-muri-fb8a389c8745",
-      "slug": "risorse-umane-praktikantin-praktikant-befristet-12-monate-spital-muri-ag",
+      "slug": "tirocinante-hr-a-tempo-determinato-per-12-mesi-spital-muri-muri-ag",
       "slugByLocale": {
         "de": "hr-praktikantin-praktikant-befristet-12-monate-spital-muri-muri-ag",
-        "it": "risorse-umane-praktikantin-praktikant-befristet-12-monate-spital-muri-ag",
-        "en": "hr-praktikantin-praktikant-befristet-12-monate-spital-muri-muri-ag",
-        "fr": "hr-praktikantin-praktikant-befristet-12-monate-spital-muri-muri-ag"
+        "it": "tirocinante-hr-a-tempo-determinato-per-12-mesi-spital-muri-muri-ag",
+        "en": "hr-intern-intern-limited-12-months-spital-muri-muri-ag",
+        "fr": "stagiaire-rh-contrat-a-duree-determinee-de-12-mois-spital-muri-muri-ag"
       },
       "company": "Spital Muri",
       "companyKey": "spital-muri",
@@ -2435,11 +2435,19 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
+          "hr-praktikantin-praktikant-befristet-12-monate-spital-muri-muri-ag",
+          "risorse-umane-praktikantin-praktikant-befristet-12-monate-spital-muri-ag"
+        ],
+        "en": [
+          "hr-praktikantin-praktikant-befristet-12-monate-spital-muri-muri-ag"
+        ],
+        "fr": [
           "hr-praktikantin-praktikant-befristet-12-monate-spital-muri-muri-ag"
         ]
       },
       "previousSlugs": [
-        "hr-praktikantin-praktikant-befristet-12-monate-spital-muri-muri-ag"
+        "hr-praktikantin-praktikant-befristet-12-monate-spital-muri-muri-ag",
+        "risorse-umane-praktikantin-praktikant-befristet-12-monate-spital-muri-ag"
       ],
       "salaryMin": 52000,
       "salaryMax": 78500,

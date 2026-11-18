@@ -2996,10 +2996,10 @@
     },
     {
       "id": "klinik-barmelweid-3c0583a6f97b",
-      "slug": "fachfrau-fachmann-gesundheit-efz-a-klinik-barmelweid-barmelweid",
+      "slug": "operatrice-operatore-sociosanitario-afc-a-klinik-barmelweid-barmelweid",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-efz-a-klinik-barmelweid-barmelweid",
-        "it": "fachfrau-fachmann-gesundheit-efz-a-klinik-barmelweid-barmelweid",
+        "it": "operatrice-operatore-sociosanitario-afc-a-klinik-barmelweid-barmelweid",
         "en": "fachfrau-fachmann-gesundheit-efz-a-klinik-barmelweid-barmelweid",
         "fr": "fachfrau-fachmann-gesundheit-efz-a-klinik-barmelweid-barmelweid"
       },
@@ -3063,16 +3063,24 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:33:18.057Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:33:18.057Z"
+      "firstSeenAt": "2026-11-17T21:33:18.057Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-efz-a-klinik-barmelweid-barmelweid"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-efz-a-klinik-barmelweid-barmelweid"
+      ]
     },
     {
       "id": "klinik-barmelweid-5e1273f35d77",
-      "slug": "ausbildungsstelle-bsc-soziale-arbeit-per-berufsbegleitendes-teilzeitstudium-klinik-barmelweid",
+      "slug": "posto-di-formazione-bsc-in-lavoro-sociale-per-studio-part-time-parallelo-all-attivita-professionale-klinik-barmelweid",
       "slugByLocale": {
         "de": "ausbildungsstelle-bsc-soziale-arbeit-fur-berufsbegleitendes-teilzeitstudium-klinik",
-        "it": "ausbildungsstelle-bsc-soziale-arbeit-per-berufsbegleitendes-teilzeitstudium-klinik-barmelweid",
-        "en": "ausbildungsstelle-bsc-soziale-arbeit-fur-berufsbegleitendes-teilzeitstudium-klinik",
-        "fr": "ausbildungsstelle-bsc-soziale-arbeit-fur-berufsbegleitendes-teilzeitstudium-klinik"
+        "it": "posto-di-formazione-bsc-in-lavoro-sociale-per-studio-part-time-parallelo-all-attivita-professionale-klinik-barmelweid",
+        "en": "bsc-social-work-for-part-time-part-time-study-klinik-barmelweid-barmelweid",
+        "fr": "bsc-travail-social-pour-les-etudes-a-temps-partiel-klinik-barmelweid-barmelweid"
       },
       "company": "Klinik Barmelweid",
       "companyKey": "klinik-barmelweid",
@@ -3119,11 +3127,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "ausbildungsstelle-bsc-soziale-arbeit-fur-berufsbegleitendes-teilzeitstudium-klinik",
+          "ausbildungsstelle-bsc-soziale-arbeit-per-berufsbegleitendes-teilzeitstudium-klinik-barmelweid"
+        ],
+        "en": [
+          "ausbildungsstelle-bsc-soziale-arbeit-fur-berufsbegleitendes-teilzeitstudium-klinik"
+        ],
+        "fr": [
           "ausbildungsstelle-bsc-soziale-arbeit-fur-berufsbegleitendes-teilzeitstudium-klinik"
         ]
       },
       "previousSlugs": [
-        "ausbildungsstelle-bsc-soziale-arbeit-fur-berufsbegleitendes-teilzeitstudium-klinik"
+        "ausbildungsstelle-bsc-soziale-arbeit-fur-berufsbegleitendes-teilzeitstudium-klinik",
+        "ausbildungsstelle-bsc-soziale-arbeit-per-berufsbegleitendes-teilzeitstudium-klinik-barmelweid"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,

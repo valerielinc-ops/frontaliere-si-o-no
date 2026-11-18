@@ -16122,7 +16122,7 @@
         "it": "assistente-di-studio-medico-80-luzerner-kantonsspital-luks-luzern",
         "en": "medical-practice-assistant-80-luzerner-kantonsspital-luks-luzern",
         "de": "medizinische-praxisassistentin-medizinischer-praxisassistent-80-luks-luzern",
-        "fr": "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
+        "fr": "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -16169,7 +16169,7 @@
       "previousSlugs": [
         "medizinische-praxisassistentin-medizinischer-praxisassistent-80-luks-luzern",
         "assistente-di-studio-medico-assistente-di-studio-medico-40-60-luzerner-kantonsspital-luks-luzern",
-        "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
+        "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -16177,7 +16177,7 @@
           "assistente-di-studio-medico-assistente-di-studio-medico-40-60-luzerner-kantonsspital-luks-luzern"
         ],
         "fr": [
-          "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
+          "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-07-04T11:37:36.406Z",
@@ -17839,12 +17839,12 @@
     },
     {
       "id": "luks-37ef6d8f3748",
-      "slug": "fachspezialistin-fachspezialist-telematik-sanitatsnotruf-144-80-100-luks-luzern",
+      "slug": "specialista-specialista-in-telematica-per-il-numero-di-emergenza-sanitaria-144-80-100-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
         "de": "fachspezialistin-fachspezialist-telematik-sanitatsnotruf-144-80-100-luks-luzern",
-        "it": "fachspezialistin-fachspezialist-telematik-sanitatsnotruf-144-80-100-luks-luzern",
-        "en": "fachspezialistin-fachspezialist-telematik-sanitatsnotruf-144-80-100-luks-luzern",
-        "fr": "fachspezialistin-fachspezialist-telematik-sanitatsnotruf-144-80-100-luks-luzern"
+        "it": "specialista-specialista-in-telematica-per-il-numero-di-emergenza-sanitaria-144-80-100-luzerner-kantonsspital-luks-luzern",
+        "en": "telematics-specialist-medical-emergency-call-144-80-100-luzerner-kantonsspital-luks-luzern",
+        "fr": "specialiste-en-telematique-pour-l-appel-sanitaire-d-urgence-144-80-100-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -17906,7 +17906,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-15T21:23:37.237Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:23:37.237Z"
+      "firstSeenAt": "2026-11-17T21:23:37.237Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialistin-fachspezialist-telematik-sanitatsnotruf-144-80-100-luks-luzern"
+        ],
+        "en": [
+          "fachspezialistin-fachspezialist-telematik-sanitatsnotruf-144-80-100-luks-luzern"
+        ],
+        "fr": [
+          "fachspezialistin-fachspezialist-telematik-sanitatsnotruf-144-80-100-luks-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialistin-fachspezialist-telematik-sanitatsnotruf-144-80-100-luks-luzern"
+      ]
     },
     {
       "id": "luks-afa059ba0251",

@@ -88,12 +88,12 @@
     },
     {
       "id": "tally-weijl-7d4969437800",
-      "slug": "teilzeit-modeberaterin-60-tally-weijl-zurich",
+      "slug": "consulente-di-moda-a-tempo-parziale-60-tally-weijl-zurich",
       "slugByLocale": {
         "de": "teilzeit-modeberaterin-60-tally-weijl-zurich",
-        "it": "teilzeit-modeberaterin-60-tally-weijl-zurich",
-        "en": "teilzeit-modeberaterin-60-tally-weijl-zurich",
-        "fr": "teilzeit-modeberaterin-60-tally-weijl-zurich"
+        "it": "consulente-di-moda-a-tempo-parziale-60-tally-weijl-zurich",
+        "en": "part-time-fashion-consultant-60-tally-weijl-zurich",
+        "fr": "consultant-en-mode-a-temps-partiel-60-tally-weijl-zurich"
       },
       "company": "TALLY WEiJL",
       "companyKey": "tally-weijl",
@@ -155,7 +155,21 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:26:15.060Z"
+      "firstSeenAt": "2026-11-17T21:26:15.060Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teilzeit-modeberaterin-60-tally-weijl-zurich"
+        ],
+        "en": [
+          "teilzeit-modeberaterin-60-tally-weijl-zurich"
+        ],
+        "fr": [
+          "teilzeit-modeberaterin-60-tally-weijl-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "teilzeit-modeberaterin-60-tally-weijl-zurich"
+      ]
     },
     {
       "id": "tally-weijl-951ea1950eea",

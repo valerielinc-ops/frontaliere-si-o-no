@@ -1449,12 +1449,12 @@
     },
     {
       "id": "zuger-kantonsspital-35bd99f9e618",
-      "slug": "klinische-r-fachspezialist-in-70-90-m-w-zuger-kantonsspital-baar",
+      "slug": "specialista-clinico-a-70-90-m-f-zuger-kantonsspital-baar",
       "slugByLocale": {
         "de": "klinische-r-fachspezialist-in-70-90-m-w-zuger-kantonsspital-baar",
-        "it": "klinische-r-fachspezialist-in-70-90-m-w-zuger-kantonsspital-baar",
-        "en": "klinische-r-fachspezialist-in-70-90-m-w-zuger-kantonsspital-baar",
-        "fr": "klinische-r-fachspezialist-in-70-90-m-w-zuger-kantonsspital-baar"
+        "it": "specialista-clinico-a-70-90-m-f-zuger-kantonsspital-baar",
+        "en": "clinical-specialist-70-90-m-f-zuger-kantonsspital-baar",
+        "fr": "specialiste-clinique-70-90-h-f-zuger-kantonsspital-baar"
       },
       "company": "Zuger Kantonsspital",
       "companyKey": "zuger-kantonsspital",
@@ -1516,7 +1516,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-14T21:48:04.352Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:48:04.352Z"
+      "firstSeenAt": "2026-11-17T21:48:04.352Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "klinische-r-fachspezialist-in-70-90-m-w-zuger-kantonsspital-baar"
+        ],
+        "en": [
+          "klinische-r-fachspezialist-in-70-90-m-w-zuger-kantonsspital-baar"
+        ],
+        "fr": [
+          "klinische-r-fachspezialist-in-70-90-m-w-zuger-kantonsspital-baar"
+        ]
+      },
+      "previousSlugs": [
+        "klinische-r-fachspezialist-in-70-90-m-w-zuger-kantonsspital-baar"
+      ]
     }
   ]
 }

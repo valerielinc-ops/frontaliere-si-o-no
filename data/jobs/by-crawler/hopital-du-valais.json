@@ -3798,12 +3798,12 @@
     },
     {
       "id": "hopital-du-valais-0206bb5fd3ef",
-      "slug": "secretaire-d-unite-hospitaliere-a-80-pour-l-hopital-psychiatrique-de-malevoz-a-monthey",
+      "slug": "80-segretario-ospedaliero-per-l-ospedale-psichiatrico-malevoz-a-monthey-hopital-du-valais-monthey",
       "slugByLocale": {
         "fr": "secretaire-d-unite-hospitaliere-a-80-pour-l-hopital-psychiatrique-de-malevoz-a-monthey",
-        "it": "secretaire-d-unite-hospitaliere-a-80-pour-l-hopital-psychiatrique-de-malevoz-a-monthey",
-        "en": "secretaire-d-unite-hospitaliere-a-80-pour-l-hopital-psychiatrique-de-malevoz-a-monthey",
-        "de": "secretaire-d-unite-hospitaliere-a-80-pour-l-hopital-psychiatrique-de-malevoz-a-monthey"
+        "it": "80-segretario-ospedaliero-per-l-ospedale-psichiatrico-malevoz-a-monthey-hopital-du-valais-monthey",
+        "en": "80-hospital-secretary-for-malevoz-psychiatric-hospital-in-monthey-hopital-du-valais-monthey",
+        "de": "80-krankenhaussekretar-fur-malevoz-psychiatric-hospital-in-monthey-hopital-du-valais-monthey"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -3867,16 +3867,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:27:33.767Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:27:33.767Z"
+      "firstSeenAt": "2026-11-17T21:27:33.767Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-d-unite-hospitaliere-a-80-pour-l-hopital-psychiatrique-de-malevoz-a-monthey"
+        ],
+        "en": [
+          "secretaire-d-unite-hospitaliere-a-80-pour-l-hopital-psychiatrique-de-malevoz-a-monthey"
+        ],
+        "de": [
+          "secretaire-d-unite-hospitaliere-a-80-pour-l-hopital-psychiatrique-de-malevoz-a-monthey"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-d-unite-hospitaliere-a-80-pour-l-hopital-psychiatrique-de-malevoz-a-monthey"
+      ]
     },
     {
       "id": "hopital-du-valais-3c0b539f5ea2",
-      "slug": "diabetesfachberater-in-40-hopital-du-valais-visp",
+      "slug": "consulente-specializzato-a-in-diabetologia-40-hopital-du-valais-visp",
       "slugByLocale": {
         "de": "diabetesfachberater-in-40-hopital-du-valais-visp",
-        "it": "diabetesfachberater-in-40-hopital-du-valais-visp",
-        "en": "diabetesfachberater-in-40-hopital-du-valais-visp",
-        "fr": "diabetesfachberater-in-40-hopital-du-valais-visp"
+        "it": "consulente-specializzato-a-in-diabetologia-40-hopital-du-valais-visp",
+        "en": "diabetes-specialist-advisor-40-hopital-du-valais-visp",
+        "fr": "conseiller-ere-specialise-e-en-diabetologie-40-hopital-du-valais-visp"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -3940,7 +3954,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:27:32.950Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:27:32.950Z"
+      "firstSeenAt": "2026-11-17T21:27:32.950Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "diabetesfachberater-in-40-hopital-du-valais-visp"
+        ],
+        "en": [
+          "diabetesfachberater-in-40-hopital-du-valais-visp"
+        ],
+        "fr": [
+          "diabetesfachberater-in-40-hopital-du-valais-visp"
+        ]
+      },
+      "previousSlugs": [
+        "diabetesfachberater-in-40-hopital-du-valais-visp"
+      ]
     },
     {
       "id": "hopital-du-valais-62c25fe50509",

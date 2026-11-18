@@ -426,12 +426,12 @@
     },
     {
       "id": "clinique-de-genolier-b713cb919a05",
-      "slug": "secretaire-medical-e-a-100-clinique-de-genolier",
+      "slug": "100-segretaria-medica-clinique-de-genolier-genolier",
       "slugByLocale": {
         "fr": "secretaire-medical-e-a-100-clinique-de-genolier",
-        "it": "secretaire-medical-e-a-100-clinique-de-genolier",
+        "it": "100-segretaria-medica-clinique-de-genolier-genolier",
         "en": "secretaire-medical-e-a-100-clinique-de-genolier",
-        "de": "secretaire-medical-e-a-100-clinique-de-genolier"
+        "de": "100-medizinischer-sekretar-clinique-de-genolier-genolier"
       },
       "company": "Clinique de Genolier",
       "companyKey": "clinique-de-genolier",
@@ -492,7 +492,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-15T21:23:42.347Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:23:42.347Z"
+      "firstSeenAt": "2026-11-17T21:23:42.347Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-medical-e-a-100-clinique-de-genolier"
+        ],
+        "de": [
+          "secretaire-medical-e-a-100-clinique-de-genolier"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-medical-e-a-100-clinique-de-genolier"
+      ]
     },
     {
       "id": "clinique-de-genolier-893cdcab2904",

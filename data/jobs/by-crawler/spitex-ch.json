@@ -993,8 +993,8 @@
       "slugByLocale": {
         "de": "lehrstelle-fachfrau-fachmann-gesundheit-efz-fage-2027-spitex-ch-windisch",
         "it": "apprendistato-fachfrau-fachmann-gesundheit-cfc-fage-2027-spitex-region-brugg-ag-windisch",
-        "en": "lehrstelle-fachfrau-fachmann-gesundheit-efz-fage-2027-spitex-ch-windisch",
-        "fr": "lehrstelle-fachfrau-fachmann-gesundheit-efz-fage-2027-spitex-ch-windisch"
+        "en": "apprenticeship-professional-health-efz-fage-2027-spitex-region-brugg-ag-windisch",
+        "fr": "apprentissage-sante-professionnelle-efz-fage-2027-spitex-region-brugg-ag-windisch"
       },
       "company": "Spitex Region Brugg AG",
       "companyKey": "spitex-ch",
@@ -1043,6 +1043,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-fachfrau-fachmann-gesundheit-efz-fage-2027-spitex-ch-windisch"
+        ],
+        "en": [
+          "lehrstelle-fachfrau-fachmann-gesundheit-efz-fage-2027-spitex-ch-windisch"
+        ],
+        "fr": [
           "lehrstelle-fachfrau-fachmann-gesundheit-efz-fage-2027-spitex-ch-windisch"
         ]
       },
@@ -1317,8 +1323,8 @@
       "slugByLocale": {
         "de": "studierende-r-pflegefachfrau-mann-hf-100-spitex-ch-emmenbrucke",
         "it": "studierende-r-pflegefachfrau-mann-hf-100-spitex-emmen-emmenbrucke",
-        "en": "studierende-r-pflegefachfrau-mann-hf-100-spitex-ch-emmenbrucke",
-        "fr": "studierende-r-pflegefachfrau-mann-hf-100-spitex-ch-emmenbrucke"
+        "en": "student-nurse-man-hf-100-spitex-emmen-emmenbrucke",
+        "fr": "etudiant-infirmier-homme-hf-100-spitex-emmen-emmenbrucke"
       },
       "company": "Spitex Emmen",
       "companyKey": "spitex-ch",
@@ -1366,6 +1372,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "studierende-r-pflegefachfrau-mann-hf-100-spitex-ch-emmenbrucke"
+        ],
+        "en": [
+          "studierende-r-pflegefachfrau-mann-hf-100-spitex-ch-emmenbrucke"
+        ],
+        "fr": [
           "studierende-r-pflegefachfrau-mann-hf-100-spitex-ch-emmenbrucke"
         ]
       },
@@ -1740,12 +1752,12 @@
     },
     {
       "id": "spitex-ch-f9e01c4f8bd1",
-      "slug": "lernende-r-fachfrau-fachmann-gesundheit-efz-100-spitex-ch-emmenbrucke",
+      "slug": "apprendista-operatrice-operatore-sociosanitario-afc-100-spitex-emmen-emmenbrucke",
       "slugByLocale": {
         "de": "lernende-r-fachfrau-fachmann-gesundheit-efz-100-spitex-ch-emmenbrucke",
-        "it": "lernende-r-fachfrau-fachmann-gesundheit-efz-100-spitex-ch-emmenbrucke",
-        "en": "lernende-r-fachfrau-fachmann-gesundheit-efz-100-spitex-ch-emmenbrucke",
-        "fr": "lernende-r-fachfrau-fachmann-gesundheit-efz-100-spitex-ch-emmenbrucke"
+        "it": "apprendista-operatrice-operatore-sociosanitario-afc-100-spitex-emmen-emmenbrucke",
+        "en": "apprentice-healthcare-specialist-efz-100-spitex-emmen-emmenbrucke",
+        "fr": "apprentie-apprenti-assistant-e-en-soins-et-sante-communautaire-cfc-100-spitex-emmen-emmenbrucke"
       },
       "company": "Spitex Emmen",
       "companyKey": "spitex-ch",
@@ -1807,7 +1819,21 @@
       "streetAddress": "Emmenbrücke",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-17T21:23:46.015Z"
+      "firstSeenAt": "2026-11-17T21:23:46.015Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lernende-r-fachfrau-fachmann-gesundheit-efz-100-spitex-ch-emmenbrucke"
+        ],
+        "en": [
+          "lernende-r-fachfrau-fachmann-gesundheit-efz-100-spitex-ch-emmenbrucke"
+        ],
+        "fr": [
+          "lernende-r-fachfrau-fachmann-gesundheit-efz-100-spitex-ch-emmenbrucke"
+        ]
+      },
+      "previousSlugs": [
+        "lernende-r-fachfrau-fachmann-gesundheit-efz-100-spitex-ch-emmenbrucke"
+      ]
     },
     {
       "id": "spitex-ch-034a40157d62",
@@ -2256,9 +2282,9 @@
       "slug": "benvenuti-a-rebeno-spitex-rebeno-ag-zollikofen",
       "slugByLocale": {
         "it": "benvenuti-a-rebeno-spitex-rebeno-ag-zollikofen",
-        "en": "professional-health-efz-spitex-rebeno-ag-zollikofen",
+        "en": "welcome-to-rebeno-spitex-rebeno-ag-zollikofen",
         "de": "fachfrau-fachmann-gesundheit-efz-spitex-rebeno-ag-zollikofen",
-        "fr": "sante-professionnelle-efz-spitex-rebeno-ag-zollikofen"
+        "fr": "bienvenue-a-rebeno-spitex-rebeno-ag-zollikofen"
       },
       "company": "SPITEX ReBeNo AG",
       "companyKey": "spitex-ch",
@@ -2306,8 +2332,8 @@
         "herzlich-willkommen-bei-rebeno-spitex-ch-zollikofen",
         "fachfrau-fachmann-gesundheit-efz-spitex-ch-zollikofen",
         "fachfrau-fachmann-gesundheit-efz-spitex-rebeno-ag-zollikofen",
-        "welcome-to-rebeno-spitex-rebeno-ag-zollikofen",
-        "bienvenue-a-rebeno-spitex-rebeno-ag-zollikofen"
+        "professional-health-efz-spitex-rebeno-ag-zollikofen",
+        "sante-professionnelle-efz-spitex-rebeno-ag-zollikofen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2317,7 +2343,7 @@
         "en": [
           "herzlich-willkommen-bei-rebeno-spitex-ch-zollikofen",
           "fachfrau-fachmann-gesundheit-efz-spitex-rebeno-ag-zollikofen",
-          "welcome-to-rebeno-spitex-rebeno-ag-zollikofen"
+          "professional-health-efz-spitex-rebeno-ag-zollikofen"
         ],
         "de": [
           "herzlich-willkommen-bei-rebeno-spitex-ch-zollikofen",
@@ -2326,7 +2352,7 @@
         "fr": [
           "herzlich-willkommen-bei-rebeno-spitex-ch-zollikofen",
           "fachfrau-fachmann-gesundheit-efz-spitex-rebeno-ag-zollikofen",
-          "bienvenue-a-rebeno-spitex-rebeno-ag-zollikofen"
+          "sante-professionnelle-efz-spitex-rebeno-ag-zollikofen"
         ]
       },
       "firstSeenAt": "2026-11-17T09:23:07.017Z",

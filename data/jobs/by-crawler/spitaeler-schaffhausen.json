@@ -4588,12 +4588,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-ba5bca1445cc",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen",
+      "slug": "dipl-infermiera-infermiera-specialista-hf-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen",
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen"
+        "it": "dipl-infermiera-infermiera-specialista-hf-spitaler-schaffhausen-schaffhausen",
+        "en": "dipl-nurse-nurse-specialist-hf-spitaler-schaffhausen-schaffhausen",
+        "fr": "dipl-infirmiere-infirmiere-specialiste-hf-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4655,7 +4655,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-15T21:54:58.092Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-17T07:28:05.116Z"
+      "firstSeenAt": "2026-09-17T07:28:05.116Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen"
+      ]
     },
     {
       "id": "spitaeler-schaffhausen-9fc5864c1814",

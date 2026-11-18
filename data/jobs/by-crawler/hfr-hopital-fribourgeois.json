@@ -1626,12 +1626,12 @@
     },
     {
       "id": "hfr-hopital-fribourgeois-b15f20fbf03b",
-      "slug": "chef-fe-de-clinique-hfr-hopital-fribourgeois-riaz-2",
+      "slug": "capo-della-clinica-hopital-fribourgeois-hfr-riaz-switzerland-ac9b51",
       "slugByLocale": {
         "fr": "chef-fe-de-clinique-hfr-hopital-fribourgeois-riaz",
-        "it": "chef-fe-de-clinique-hfr-hopital-fribourgeois-riaz-2",
-        "en": "chef-fe-de-clinique-hfr-hopital-fribourgeois-riaz-2",
-        "de": "chef-fe-de-clinique-hfr-hopital-fribourgeois-riaz-2"
+        "it": "capo-della-clinica-hopital-fribourgeois-hfr-riaz-switzerland-ac9b51",
+        "en": "head-of-clinic-hopital-fribourgeois-hfr-riaz-switzerland-ac9b51",
+        "de": "leiter-der-klinik-hopital-fribourgeois-hfr-riaz-switzerland-ac9b51"
       },
       "company": "Hôpital fribourgeois (HFR)",
       "companyKey": "hfr-hopital-fribourgeois",
@@ -1695,7 +1695,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:48:41.892Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:42:58.586Z"
+      "firstSeenAt": "2026-11-13T21:42:58.586Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-de-clinique-hfr-hopital-fribourgeois-riaz-2"
+        ],
+        "en": [
+          "chef-fe-de-clinique-hfr-hopital-fribourgeois-riaz-2"
+        ],
+        "de": [
+          "chef-fe-de-clinique-hfr-hopital-fribourgeois-riaz-2"
+        ]
+      },
+      "previousSlugs": [
+        "chef-fe-de-clinique-hfr-hopital-fribourgeois-riaz-2"
+      ]
     }
   ]
 }

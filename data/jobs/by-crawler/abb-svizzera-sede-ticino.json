@@ -1560,7 +1560,7 @@
         "it": "finanza-manager-abb-svizzera-sede-ticino-uster-zurich-cqjyhi",
         "en": "finance-manager-abb-svizzera-sede-ticino-uster-zurich-cqjyhi",
         "de": "finanzen-manager-abb-svizzera-sede-ticino-uster-zurich-cqjyhi",
-        "fr": "finance-manager-abb-svizzera-sede-ticino-uster-zurich-cqjyhi"
+        "fr": "directeur-financier-abb-svizzera-sede-ticino-uster-zurich"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -1568,10 +1568,14 @@
       "previousSlugsByLocale": {
         "it": [
           "finance-manager-abb-svizzera-sede-ticino-uster-zurich"
+        ],
+        "fr": [
+          "finance-manager-abb-svizzera-sede-ticino-uster-zurich-cqjyhi"
         ]
       },
       "previousSlugs": [
-        "finance-manager-abb-svizzera-sede-ticino-uster-zurich"
+        "finance-manager-abb-svizzera-sede-ticino-uster-zurich",
+        "finance-manager-abb-svizzera-sede-ticino-uster-zurich-cqjyhi"
       ],
       "salaryMin": 189000,
       "salaryMax": 331500,

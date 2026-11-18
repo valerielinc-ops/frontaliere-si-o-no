@@ -2123,8 +2123,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-steueramt-80-100-stadt-luzern-luzern",
         "it": "collaboratore-trice-in-steueramt-80-100-stadt-luzern",
-        "en": "mitarbeiter-in-steueramt-80-100-stadt-luzern-luzern",
-        "fr": "mitarbeiter-in-steueramt-80-100-stadt-luzern-luzern"
+        "en": "tax-office-employee-80-100-stadt-luzern-luzern",
+        "fr": "collaborateur-rice-du-service-des-impots-80-100-stadt-luzern-luzern"
       },
       "company": "Stadt Luzern",
       "companyKey": "stadt-luzern",
@@ -2173,6 +2173,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-steueramt-80-100-stadt-luzern-luzern"
+        ],
+        "en": [
+          "mitarbeiter-in-steueramt-80-100-stadt-luzern-luzern"
+        ],
+        "fr": [
+          "mitarbeiter-in-steueramt-80-100-stadt-luzern-luzern"
         ]
       },
       "previousSlugs": [
@@ -2198,12 +2204,12 @@
     },
     {
       "id": "stadt-luzern-6954abe42099",
-      "slug": "vorpraktikant-in-soziale-arbeit-80-stadt-luzern-luzern",
+      "slug": "praticante-in-pre-tirocinio-nel-lavoro-sociale-80-stadt-luzern-luzern",
       "slugByLocale": {
         "de": "vorpraktikant-in-soziale-arbeit-80-stadt-luzern-luzern",
-        "it": "vorpraktikant-in-soziale-arbeit-80-stadt-luzern-luzern",
-        "en": "vorpraktikant-in-soziale-arbeit-80-stadt-luzern-luzern",
-        "fr": "vorpraktikant-in-soziale-arbeit-80-stadt-luzern-luzern"
+        "it": "praticante-in-pre-tirocinio-nel-lavoro-sociale-80-stadt-luzern-luzern",
+        "en": "social-work-pre-intern-80-stadt-luzern-luzern",
+        "fr": "stagiaire-prealable-en-travail-social-80-stadt-luzern-luzern"
       },
       "company": "Stadt Luzern",
       "companyKey": "stadt-luzern",
@@ -2265,16 +2271,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-15T21:37:42.218Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:37:42.218Z"
+      "firstSeenAt": "2026-11-17T21:37:42.218Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "vorpraktikant-in-soziale-arbeit-80-stadt-luzern-luzern"
+        ],
+        "en": [
+          "vorpraktikant-in-soziale-arbeit-80-stadt-luzern-luzern"
+        ],
+        "fr": [
+          "vorpraktikant-in-soziale-arbeit-80-stadt-luzern-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "vorpraktikant-in-soziale-arbeit-80-stadt-luzern-luzern"
+      ]
     },
     {
       "id": "stadt-luzern-382de164b3e5",
-      "slug": "springer-hauswart-in-80-100-stadt-luzern-luzern",
+      "slug": "casa-di-primavera-80-100-stadt-luzern-luzern",
       "slugByLocale": {
         "de": "springer-hauswart-in-80-100-stadt-luzern-luzern",
-        "it": "springer-hauswart-in-80-100-stadt-luzern-luzern",
+        "it": "casa-di-primavera-80-100-stadt-luzern-luzern",
         "en": "springer-hauswart-in-80-100-stadt-luzern-luzern",
-        "fr": "springer-hauswart-in-80-100-stadt-luzern-luzern"
+        "fr": "femme-de-menage-springer-80-100-stadt-luzern-luzern"
       },
       "company": "Stadt Luzern",
       "companyKey": "stadt-luzern",
@@ -2336,7 +2356,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-15T21:37:42.216Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:37:42.216Z"
+      "firstSeenAt": "2026-11-17T21:37:42.216Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "springer-hauswart-in-80-100-stadt-luzern-luzern"
+        ],
+        "fr": [
+          "springer-hauswart-in-80-100-stadt-luzern-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "springer-hauswart-in-80-100-stadt-luzern-luzern"
+      ]
     },
     {
       "id": "stadt-luzern-d4267fe3e537",
@@ -2344,8 +2375,8 @@
       "slugByLocale": {
         "de": "sozialpadagog-in-hf-fh-oder-fachperson-betreuung-efz-sbe-littau-dorf-50-60-stadt-luzern",
         "it": "sozialpadagog-in-hf-fh-o-fachperson-betreuung-cfc-sbe-littau-dorf-50-60-stadt-luzern",
-        "en": "sozialpadagog-in-hf-fh-oder-fachperson-betreuung-efz-sbe-littau-dorf-50-60-stadt-luzern",
-        "fr": "sozialpadagog-in-hf-fh-oder-fachperson-betreuung-efz-sbe-littau-dorf-50-60-stadt-luzern"
+        "en": "social-educator-hf-fh-or-care-specialist-efz-sbe-littau-dorf-50-60-stadt-luzern-luzern",
+        "fr": "educateur-rice-social-e-es-hes-ou-assistant-e-socio-educatif-ve-cfc-sbe-littau-dorf-50-60-stadt-luzern-luzern"
       },
       "company": "Stadt Luzern",
       "companyKey": "stadt-luzern",
@@ -2395,6 +2426,12 @@
       "previousSlugsByLocale": {
         "it": [
           "sozialpadagog-in-hf-fh-oder-fachperson-betreuung-efz-sbe-littau-dorf-50-60-stadt-luzern"
+        ],
+        "en": [
+          "sozialpadagog-in-hf-fh-oder-fachperson-betreuung-efz-sbe-littau-dorf-50-60-stadt-luzern"
+        ],
+        "fr": [
+          "sozialpadagog-in-hf-fh-oder-fachperson-betreuung-efz-sbe-littau-dorf-50-60-stadt-luzern"
         ]
       },
       "previousSlugs": [
@@ -2424,8 +2461,8 @@
       "slugByLocale": {
         "de": "leiter-in-rechtsdienst-soziale-dienste-60-80-stadt-luzern-luzern",
         "it": "leiter-in-rechtsdienst-soziale-dienste-60-80-stadt-luzern",
-        "en": "leiter-in-rechtsdienst-soziale-dienste-60-80-stadt-luzern-luzern",
-        "fr": "leiter-in-rechtsdienst-soziale-dienste-60-80-stadt-luzern-luzern"
+        "en": "head-of-legal-services-social-services-60-80-stadt-luzern-luzern",
+        "fr": "responsable-du-service-juridique-des-services-sociaux-60-80-stadt-luzern-luzern"
       },
       "company": "Stadt Luzern",
       "companyKey": "stadt-luzern",
@@ -2473,6 +2510,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-rechtsdienst-soziale-dienste-60-80-stadt-luzern-luzern"
+        ],
+        "en": [
+          "leiter-in-rechtsdienst-soziale-dienste-60-80-stadt-luzern-luzern"
+        ],
+        "fr": [
           "leiter-in-rechtsdienst-soziale-dienste-60-80-stadt-luzern-luzern"
         ]
       },

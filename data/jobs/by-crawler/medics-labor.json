@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "medics-labor-a5e240ae8d9b",
-      "slug": "biomedizinische-r-analytiker-in-klinische-chemie-con-spezialanalytik-befristet-medics-labor-ag-bern",
+      "slug": "analista-biomedico-a-di-chimica-clinica-con-analisi-specialistiche-a-tempo-determinato-medics-labor-ag-bern",
       "slugByLocale": {
         "de": "biomedizinische-r-analytiker-in-klinische-chemie-mit-spezialanalytik-befristet-medics",
-        "it": "biomedizinische-r-analytiker-in-klinische-chemie-con-spezialanalytik-befristet-medics-labor-ag-bern",
-        "en": "biomedizinische-r-analytiker-in-klinische-chemie-mit-spezialanalytik-befristet-medics",
-        "fr": "biomedizinische-r-analytiker-in-klinische-chemie-mit-spezialanalytik-befristet-medics"
+        "it": "analista-biomedico-a-di-chimica-clinica-con-analisi-specialistiche-a-tempo-determinato-medics-labor-ag-bern",
+        "en": "biomedical-analyst-in-clinical-chemistry-with-specialised-analytics-fixed-term-medics-labor-ag-bern",
+        "fr": "analyste-biomedical-e-en-chimie-clinique-avec-analyses-specialisees-contrat-a-duree-determinee-medics-labor-ag-bern"
       },
       "company": "Medics Labor AG",
       "companyKey": "medics-labor",
@@ -58,11 +58,19 @@
       "externalId": "0153",
       "previousSlugsByLocale": {
         "it": [
+          "biomedizinische-r-analytiker-in-klinische-chemie-mit-spezialanalytik-befristet-medics",
+          "biomedizinische-r-analytiker-in-klinische-chemie-con-spezialanalytik-befristet-medics-labor-ag-bern"
+        ],
+        "en": [
+          "biomedizinische-r-analytiker-in-klinische-chemie-mit-spezialanalytik-befristet-medics"
+        ],
+        "fr": [
           "biomedizinische-r-analytiker-in-klinische-chemie-mit-spezialanalytik-befristet-medics"
         ]
       },
       "previousSlugs": [
-        "biomedizinische-r-analytiker-in-klinische-chemie-mit-spezialanalytik-befristet-medics"
+        "biomedizinische-r-analytiker-in-klinische-chemie-mit-spezialanalytik-befristet-medics",
+        "biomedizinische-r-analytiker-in-klinische-chemie-con-spezialanalytik-befristet-medics-labor-ag-bern"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,

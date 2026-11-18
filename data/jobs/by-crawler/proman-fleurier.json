@@ -637,12 +637,12 @@
     },
     {
       "id": "proman-fleurier-ea67a611a869",
-      "slug": "regleur-cnc-h-f-x-val-de-travers-proman-ea67a611",
+      "slug": "regolatore-cnc-m-f-x-proman-bm-emploi-sa-fleurier-val-de-travers-ea67a611",
       "slugByLocale": {
         "fr": "regleur-cnc-h-f-x-val-de-travers-proman-ea67a611",
-        "it": "regleur-cnc-h-f-x-val-de-travers-proman-ea67a611",
-        "en": "regleur-cnc-h-f-x-val-de-travers-proman-ea67a611",
-        "de": "regleur-cnc-h-f-x-val-de-travers-proman-ea67a611"
+        "it": "regolatore-cnc-m-f-x-proman-bm-emploi-sa-fleurier-val-de-travers-ea67a611",
+        "en": "cnc-adjuster-m-f-x-proman-bm-emploi-sa-fleurier-val-de-travers-ea67a611",
+        "de": "cnc-einsteller-m-w-x-proman-bm-emploi-sa-fleurier-val-de-travers-ea67a611"
       },
       "slugDisambiguator": "ea67a611",
       "company": "PROMAN BM-EMPLOI SA — Fleurier",
@@ -703,16 +703,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:55:56.943Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:55:56.943Z"
+      "firstSeenAt": "2026-11-17T21:55:56.943Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "regleur-cnc-h-f-x-val-de-travers-proman-ea67a611"
+        ],
+        "en": [
+          "regleur-cnc-h-f-x-val-de-travers-proman-ea67a611"
+        ],
+        "de": [
+          "regleur-cnc-h-f-x-val-de-travers-proman-ea67a611"
+        ]
+      },
+      "previousSlugs": [
+        "regleur-cnc-h-f-x-val-de-travers-proman-ea67a611"
+      ]
     },
     {
       "id": "proman-fleurier-a53cfb47fd35",
-      "slug": "decolleteur-h-f-x-val-de-travers-proman-a53cfb47",
+      "slug": "decollatore-m-f-x-proman-bm-emploi-sa-fleurier-val-de-travers-a53cfb47",
       "slugByLocale": {
         "fr": "decolleteur-h-f-x-val-de-travers-proman-a53cfb47",
-        "it": "decolleteur-h-f-x-val-de-travers-proman-a53cfb47",
-        "en": "decolleteur-h-f-x-val-de-travers-proman-a53cfb47",
-        "de": "decolleteur-h-f-x-val-de-travers-proman-a53cfb47"
+        "it": "decollatore-m-f-x-proman-bm-emploi-sa-fleurier-val-de-travers-a53cfb47",
+        "en": "m-f-x-decoller-proman-bm-emploi-sa-fleurier-val-de-travers-a53cfb47",
+        "de": "m-w-x-decoller-proman-bm-emploi-sa-fleurier-val-de-travers-a53cfb47"
       },
       "slugDisambiguator": "a53cfb47",
       "company": "PROMAN BM-EMPLOI SA — Fleurier",
@@ -773,16 +787,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:55:56.942Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:55:56.942Z"
+      "firstSeenAt": "2026-11-17T21:55:56.942Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "decolleteur-h-f-x-val-de-travers-proman-a53cfb47"
+        ],
+        "en": [
+          "decolleteur-h-f-x-val-de-travers-proman-a53cfb47"
+        ],
+        "de": [
+          "decolleteur-h-f-x-val-de-travers-proman-a53cfb47"
+        ]
+      },
+      "previousSlugs": [
+        "decolleteur-h-f-x-val-de-travers-proman-a53cfb47"
+      ]
     },
     {
       "id": "proman-fleurier-0e8dbaaddfe4",
-      "slug": "acheteur-confirme-h-f-la-chaux-de-fonds-proman-0e8dbaad",
+      "slug": "acquirente-confermato-m-f-proman-bm-emploi-sa-fleurier-la-chaux-de-fonds-0e8dbaad",
       "slugByLocale": {
         "fr": "acheteur-confirme-h-f-la-chaux-de-fonds-proman-0e8dbaad",
-        "it": "acheteur-confirme-h-f-la-chaux-de-fonds-proman-0e8dbaad",
-        "en": "acheteur-confirme-h-f-la-chaux-de-fonds-proman-0e8dbaad",
-        "de": "acheteur-confirme-h-f-la-chaux-de-fonds-proman-0e8dbaad"
+        "it": "acquirente-confermato-m-f-proman-bm-emploi-sa-fleurier-la-chaux-de-fonds-0e8dbaad",
+        "en": "purchaser-confirmed-m-f-proman-bm-emploi-sa-fleurier-la-chaux-de-fonds-0e8dbaad",
+        "de": "kaufer-bestatigt-m-w-proman-bm-emploi-sa-fleurier-la-chaux-de-fonds-0e8dbaad"
       },
       "slugDisambiguator": "0e8dbaad",
       "company": "PROMAN BM-EMPLOI SA — Fleurier",
@@ -843,16 +871,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:55:56.941Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:55:56.941Z"
+      "firstSeenAt": "2026-11-17T21:55:56.941Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "acheteur-confirme-h-f-la-chaux-de-fonds-proman-0e8dbaad"
+        ],
+        "en": [
+          "acheteur-confirme-h-f-la-chaux-de-fonds-proman-0e8dbaad"
+        ],
+        "de": [
+          "acheteur-confirme-h-f-la-chaux-de-fonds-proman-0e8dbaad"
+        ]
+      },
+      "previousSlugs": [
+        "acheteur-confirme-h-f-la-chaux-de-fonds-proman-0e8dbaad"
+      ]
     },
     {
       "id": "proman-fleurier-528b593d4bb6",
-      "slug": "mecaniciens-regleurs-cnc-en-2x8-h-f-couvet-proman-528b593d",
+      "slug": "regolatori-meccanici-2x8-cnc-m-f-proman-bm-emploi-sa-fleurier-couvet-528b593d",
       "slugByLocale": {
         "fr": "mecaniciens-regleurs-cnc-en-2x8-h-f-couvet-proman-528b593d",
-        "it": "mecaniciens-regleurs-cnc-en-2x8-h-f-couvet-proman-528b593d",
-        "en": "mecaniciens-regleurs-cnc-en-2x8-h-f-couvet-proman-528b593d",
-        "de": "mecaniciens-regleurs-cnc-en-2x8-h-f-couvet-proman-528b593d"
+        "it": "regolatori-meccanici-2x8-cnc-m-f-proman-bm-emploi-sa-fleurier-couvet-528b593d",
+        "en": "mechanics-2x8-cnc-adjusters-m-f-proman-bm-emploi-sa-fleurier-couvet-528b593d",
+        "de": "mechanik-2x8-cnc-justierer-m-w-proman-bm-emploi-sa-fleurier-couvet-528b593d"
       },
       "slugDisambiguator": "528b593d",
       "company": "PROMAN BM-EMPLOI SA — Fleurier",
@@ -913,16 +955,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:55:56.941Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:55:56.941Z"
+      "firstSeenAt": "2026-11-17T21:55:56.941Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mecaniciens-regleurs-cnc-en-2x8-h-f-couvet-proman-528b593d"
+        ],
+        "en": [
+          "mecaniciens-regleurs-cnc-en-2x8-h-f-couvet-proman-528b593d"
+        ],
+        "de": [
+          "mecaniciens-regleurs-cnc-en-2x8-h-f-couvet-proman-528b593d"
+        ]
+      },
+      "previousSlugs": [
+        "mecaniciens-regleurs-cnc-en-2x8-h-f-couvet-proman-528b593d"
+      ]
     },
     {
       "id": "proman-fleurier-44dbac4a63b6",
-      "slug": "regleur-cnc-h-f-x-val-de-travers-proman-44dbac4a",
+      "slug": "regolatore-cnc-m-f-x-proman-bm-emploi-sa-fleurier-val-de-travers-44dbac4a",
       "slugByLocale": {
         "fr": "regleur-cnc-h-f-x-val-de-travers-proman-44dbac4a",
-        "it": "regleur-cnc-h-f-x-val-de-travers-proman-44dbac4a",
-        "en": "regleur-cnc-h-f-x-val-de-travers-proman-44dbac4a",
-        "de": "regleur-cnc-h-f-x-val-de-travers-proman-44dbac4a"
+        "it": "regolatore-cnc-m-f-x-proman-bm-emploi-sa-fleurier-val-de-travers-44dbac4a",
+        "en": "cnc-adjuster-m-f-x-proman-bm-emploi-sa-fleurier-val-de-travers-44dbac4a",
+        "de": "cnc-einsteller-m-w-x-proman-bm-emploi-sa-fleurier-val-de-travers-44dbac4a"
       },
       "slugDisambiguator": "44dbac4a",
       "company": "PROMAN BM-EMPLOI SA — Fleurier",
@@ -983,16 +1039,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:55:56.940Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:55:56.940Z"
+      "firstSeenAt": "2026-11-17T21:55:56.940Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "regleur-cnc-h-f-x-val-de-travers-proman-44dbac4a"
+        ],
+        "en": [
+          "regleur-cnc-h-f-x-val-de-travers-proman-44dbac4a"
+        ],
+        "de": [
+          "regleur-cnc-h-f-x-val-de-travers-proman-44dbac4a"
+        ]
+      },
+      "previousSlugs": [
+        "regleur-cnc-h-f-x-val-de-travers-proman-44dbac4a"
+      ]
     },
     {
       "id": "proman-fleurier-3977a3356efb",
-      "slug": "decolleteurs-cnc-h-f-la-chaux-de-fonds-proman-3977a335",
+      "slug": "decollettori-cnc-m-f-proman-bm-emploi-sa-fleurier-la-chaux-de-fonds-3977a335",
       "slugByLocale": {
         "fr": "decolleteurs-cnc-h-f-la-chaux-de-fonds-proman-3977a335",
-        "it": "decolleteurs-cnc-h-f-la-chaux-de-fonds-proman-3977a335",
-        "en": "decolleteurs-cnc-h-f-la-chaux-de-fonds-proman-3977a335",
-        "de": "decolleteurs-cnc-h-f-la-chaux-de-fonds-proman-3977a335"
+        "it": "decollettori-cnc-m-f-proman-bm-emploi-sa-fleurier-la-chaux-de-fonds-3977a335",
+        "en": "cnc-decollers-m-f-proman-bm-emploi-sa-fleurier-la-chaux-de-fonds-3977a335",
+        "de": "cnc-abscheider-m-w-proman-bm-emploi-sa-fleurier-la-chaux-de-fonds-3977a335"
       },
       "slugDisambiguator": "3977a335",
       "company": "PROMAN BM-EMPLOI SA — Fleurier",
@@ -1053,16 +1123,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:55:56.940Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:55:56.940Z"
+      "firstSeenAt": "2026-11-17T21:55:56.940Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "decolleteurs-cnc-h-f-la-chaux-de-fonds-proman-3977a335"
+        ],
+        "en": [
+          "decolleteurs-cnc-h-f-la-chaux-de-fonds-proman-3977a335"
+        ],
+        "de": [
+          "decolleteurs-cnc-h-f-la-chaux-de-fonds-proman-3977a335"
+        ]
+      },
+      "previousSlugs": [
+        "decolleteurs-cnc-h-f-la-chaux-de-fonds-proman-3977a335"
+      ]
     },
     {
       "id": "proman-fleurier-e7359a161d00",
-      "slug": "programmeur-cnc-h-f-x-la-chaux-de-fonds-proman-e7359a16",
+      "slug": "programmatore-cnc-m-f-x-proman-bm-emploi-sa-fleurier-la-chaux-de-fonds-e7359a16",
       "slugByLocale": {
         "fr": "programmeur-cnc-h-f-x-la-chaux-de-fonds-proman-e7359a16",
-        "it": "programmeur-cnc-h-f-x-la-chaux-de-fonds-proman-e7359a16",
-        "en": "programmeur-cnc-h-f-x-la-chaux-de-fonds-proman-e7359a16",
-        "de": "programmeur-cnc-h-f-x-la-chaux-de-fonds-proman-e7359a16"
+        "it": "programmatore-cnc-m-f-x-proman-bm-emploi-sa-fleurier-la-chaux-de-fonds-e7359a16",
+        "en": "cnc-programmer-m-f-x-proman-bm-emploi-sa-fleurier-la-chaux-de-fonds-e7359a16",
+        "de": "cnc-programmierer-m-w-x-proman-bm-emploi-sa-fleurier-la-chaux-de-fonds-e7359a16"
       },
       "slugDisambiguator": "e7359a16",
       "company": "PROMAN BM-EMPLOI SA — Fleurier",
@@ -1123,7 +1207,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:55:56.939Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:55:56.939Z"
+      "firstSeenAt": "2026-11-17T21:55:56.939Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "programmeur-cnc-h-f-x-la-chaux-de-fonds-proman-e7359a16"
+        ],
+        "en": [
+          "programmeur-cnc-h-f-x-la-chaux-de-fonds-proman-e7359a16"
+        ],
+        "de": [
+          "programmeur-cnc-h-f-x-la-chaux-de-fonds-proman-e7359a16"
+        ]
+      },
+      "previousSlugs": [
+        "programmeur-cnc-h-f-x-la-chaux-de-fonds-proman-e7359a16"
+      ]
     },
     {
       "id": "proman-fleurier-d2a67f494e13",
@@ -1203,12 +1301,12 @@
     },
     {
       "id": "proman-fleurier-f728174e6f72",
-      "slug": "technico-commercial-h-f-la-chaux-de-fonds-proman-f728174e",
+      "slug": "technico-commerciale-m-f-proman-bm-emploi-sa-fleurier-la-chaux-de-fonds-f728174e",
       "slugByLocale": {
         "fr": "technico-commercial-h-f-la-chaux-de-fonds-proman-f728174e",
-        "it": "technico-commercial-h-f-la-chaux-de-fonds-proman-f728174e",
+        "it": "technico-commerciale-m-f-proman-bm-emploi-sa-fleurier-la-chaux-de-fonds-f728174e",
         "en": "technico-commercial-h-f-la-chaux-de-fonds-proman-f728174e",
-        "de": "technico-commercial-h-f-la-chaux-de-fonds-proman-f728174e"
+        "de": "technisch-kommerzielle-m-w-proman-bm-emploi-sa-fleurier-la-chaux-de-fonds-f728174e"
       },
       "slugDisambiguator": "f728174e",
       "company": "PROMAN BM-EMPLOI SA — Fleurier",
@@ -1269,7 +1367,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:55:56.938Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:55:56.938Z"
+      "firstSeenAt": "2026-11-17T21:55:56.938Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technico-commercial-h-f-la-chaux-de-fonds-proman-f728174e"
+        ],
+        "de": [
+          "technico-commercial-h-f-la-chaux-de-fonds-proman-f728174e"
+        ]
+      },
+      "previousSlugs": [
+        "technico-commercial-h-f-la-chaux-de-fonds-proman-f728174e"
+      ]
     },
     {
       "id": "proman-fleurier-d355afc15d2f",

@@ -3848,9 +3848,9 @@
     },
     {
       "id": "siemens-10eb47e4cd68",
-      "slug": "responsabile-di-progetto-gebaudeautomation-80-100-siemens-root",
+      "slug": "responsabile-di-progetto-per-l-automazione-degli-edifici-80-100-siemens-lucerne",
       "slugByLocale": {
-        "it": "responsabile-di-progetto-gebaudeautomation-80-100-siemens-root",
+        "it": "responsabile-di-progetto-per-l-automazione-degli-edifici-80-100-siemens-lucerne",
         "en": "project-manager-building-automation-80-100-siemens-root",
         "de": "projektleiter-in-raumautomation-80-100-siemens-lucerne",
         "fr": "chef-fe-de-projet-en-automatisation-des-batiments-80-100-siemens-root"
@@ -3907,7 +3907,8 @@
         "it": [
           "projektleiter-in-gebaudeautomation-80-100-siemens-root",
           "projektleiter-in-raumautomation-80-100-siemens-root",
-          "projektleiter-in-raumautomation-80-100-siemens-lucerne"
+          "projektleiter-in-raumautomation-80-100-siemens-lucerne",
+          "responsabile-di-progetto-gebaudeautomation-80-100-siemens-root"
         ],
         "en": [
           "projektleiter-in-gebaudeautomation-80-100-siemens-root"
@@ -3919,7 +3920,8 @@
       "previousSlugs": [
         "projektleiter-in-gebaudeautomation-80-100-siemens-root",
         "projektleiter-in-raumautomation-80-100-siemens-root",
-        "projektleiter-in-raumautomation-80-100-siemens-lucerne"
+        "projektleiter-in-raumautomation-80-100-siemens-lucerne",
+        "responsabile-di-progetto-gebaudeautomation-80-100-siemens-root"
       ],
       "firstSeenAt": "2026-11-14T09:13:37.739Z",
       "salaryMin": 107000,
@@ -4028,8 +4030,8 @@
       "slugByLocale": {
         "en": "program-manager-siemens-si-building-products-100-siemens-zug",
         "it": "program-manager-siemens-si-building-products-100-siemens-zug",
-        "de": "program-manager-siemens-si-building-products-100-siemens-zug",
-        "fr": "program-manager-siemens-si-building-products-100-siemens-zug"
+        "de": "programmmanager-siemens-si-bauprodukte-100-siemens-zug",
+        "fr": "gestionnaire-de-programme-siemens-si-produits-de-construction-100-siemens-zug"
       },
       "company": "Siemens",
       "companyKey": "siemens",
@@ -4093,16 +4095,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:17:07.576Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:17:07.576Z"
+      "firstSeenAt": "2026-11-17T21:17:07.576Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "program-manager-siemens-si-building-products-100-siemens-zug"
+        ],
+        "fr": [
+          "program-manager-siemens-si-building-products-100-siemens-zug"
+        ]
+      },
+      "previousSlugs": [
+        "program-manager-siemens-si-building-products-100-siemens-zug"
+      ]
     },
     {
       "id": "siemens-a2a2216ac72b",
-      "slug": "servicetechniker-in-80-100-siemens-aarau",
+      "slug": "tecnico-a-di-assistenza-80-100-siemens-aarau",
       "slugByLocale": {
         "de": "servicetechniker-in-80-100-siemens-aarau",
-        "it": "servicetechniker-in-80-100-siemens-aarau",
-        "en": "servicetechniker-in-80-100-siemens-aarau",
-        "fr": "servicetechniker-in-80-100-siemens-aarau"
+        "it": "tecnico-a-di-assistenza-80-100-siemens-aarau",
+        "en": "service-technician-80-100-siemens-aarau",
+        "fr": "technicien-ne-de-service-80-100-siemens-aarau"
       },
       "company": "Siemens",
       "companyKey": "siemens",
@@ -4167,7 +4180,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:17:05.002Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:17:05.002Z"
+      "firstSeenAt": "2026-11-17T21:17:05.002Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "servicetechniker-in-80-100-siemens-aarau"
+        ],
+        "en": [
+          "servicetechniker-in-80-100-siemens-aarau"
+        ],
+        "fr": [
+          "servicetechniker-in-80-100-siemens-aarau"
+        ]
+      },
+      "previousSlugs": [
+        "servicetechniker-in-80-100-siemens-aarau"
+      ]
     },
     {
       "id": "siemens-e8b94d42a35b",

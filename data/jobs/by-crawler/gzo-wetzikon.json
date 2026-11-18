@@ -1753,12 +1753,12 @@
     },
     {
       "id": "gzo-wetzikon-dc74ef4e1434",
-      "slug": "berufsbildner-in-pflege-medizinische-bettenstation-80-100-gzo-wetzikon-ch",
+      "slug": "formatore-trice-professionale-per-le-cure-infermieristiche-reparto-medico-di-degenza-80-100-gzo-spital-wetzikon-wetzikon",
       "slugByLocale": {
         "de": "berufsbildner-in-pflege-medizinische-bettenstation-80-100-gzo-wetzikon-ch",
-        "it": "berufsbildner-in-pflege-medizinische-bettenstation-80-100-gzo-wetzikon-ch",
-        "en": "berufsbildner-in-pflege-medizinische-bettenstation-80-100-gzo-wetzikon-ch",
-        "fr": "berufsbildner-in-pflege-medizinische-bettenstation-80-100-gzo-wetzikon-ch"
+        "it": "formatore-trice-professionale-per-le-cure-infermieristiche-reparto-medico-di-degenza-80-100-gzo-spital-wetzikon-wetzikon",
+        "en": "vocational-trainer-in-nursing-medical-inpatient-ward-80-100-gzo-spital-wetzikon-wetzikon",
+        "fr": "formateur-trice-professionnel-le-en-soins-infirmiers-service-de-medecine-stationnaire-80-100-gzo-spital-wetzikon"
       },
       "company": "GZO Spital Wetzikon",
       "companyKey": "gzo-wetzikon",
@@ -1823,7 +1823,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:31:57.311Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:31:57.311Z"
+      "firstSeenAt": "2026-11-17T21:31:57.311Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufsbildner-in-pflege-medizinische-bettenstation-80-100-gzo-wetzikon-ch"
+        ],
+        "en": [
+          "berufsbildner-in-pflege-medizinische-bettenstation-80-100-gzo-wetzikon-ch"
+        ],
+        "fr": [
+          "berufsbildner-in-pflege-medizinische-bettenstation-80-100-gzo-wetzikon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berufsbildner-in-pflege-medizinische-bettenstation-80-100-gzo-wetzikon-ch"
+      ]
     },
     {
       "id": "gzo-wetzikon-174ef7481f06",

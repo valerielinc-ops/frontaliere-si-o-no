@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "mobiliar-dcdeda882a8d",
-      "slug": "key-account-manager-private-previdenza-kmu-markt-mitte-m-w-d-die-mobiliar-bern",
+      "slug": "key-account-manager-previdenza-privata-mercato-pmi-centro-m-f-d-die-mobiliar-bern",
       "slugByLocale": {
         "de": "key-account-manager-private-vorsorge-kmu-markt-mitte-w-m-d-mobiliar-ch",
-        "it": "key-account-manager-private-previdenza-kmu-markt-mitte-m-w-d-die-mobiliar-bern",
-        "en": "key-account-manager-private-vorsorge-kmu-markt-mitte-w-m-d-mobiliar-ch",
-        "fr": "key-account-manager-private-vorsorge-kmu-markt-mitte-w-m-d-mobiliar-ch"
+        "it": "key-account-manager-previdenza-privata-mercato-pmi-centro-m-f-d-die-mobiliar-bern",
+        "en": "key-account-manager-private-provision-sme-market-center-m-f-d-die-mobiliar-bern",
+        "fr": "key-account-manager-private-provision-sme-market-center-h-f-d-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -77,11 +77,19 @@
       "sfJobId": "1165617455",
       "previousSlugsByLocale": {
         "it": [
+          "key-account-manager-private-vorsorge-kmu-markt-mitte-w-m-d-mobiliar-ch",
+          "key-account-manager-private-previdenza-kmu-markt-mitte-m-w-d-die-mobiliar-bern"
+        ],
+        "en": [
+          "key-account-manager-private-vorsorge-kmu-markt-mitte-w-m-d-mobiliar-ch"
+        ],
+        "fr": [
           "key-account-manager-private-vorsorge-kmu-markt-mitte-w-m-d-mobiliar-ch"
         ]
       },
       "previousSlugs": [
-        "key-account-manager-private-vorsorge-kmu-markt-mitte-w-m-d-mobiliar-ch"
+        "key-account-manager-private-vorsorge-kmu-markt-mitte-w-m-d-mobiliar-ch",
+        "key-account-manager-private-previdenza-kmu-markt-mitte-m-w-d-die-mobiliar-bern"
       ],
       "salaryMin": 94500,
       "salaryMax": 143000,
@@ -7147,9 +7155,9 @@
       "slug": "schadenspezialist-m-w-d-agenzia-generale-wil-sg-die-mobiliar-wil",
       "slugByLocale": {
         "it": "schadenspezialist-m-w-d-agenzia-generale-wil-sg-die-mobiliar-wil",
-        "en": "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil",
+        "en": "projektleiter-m-d-die-mobiliar-wil",
         "de": "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch",
-        "fr": "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
+        "fr": "projektleiter-m-d-die-mobiliar-wil"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -7213,17 +7221,18 @@
       "sfJobId": "1164087255",
       "previousSlugs": [
         "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch",
-        "projektleiter-m-d-die-mobiliar-wil"
+        "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil",
+        "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch"
         ],
         "en": [
-          "projektleiter-m-d-die-mobiliar-wil"
+          "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil"
         ],
         "fr": [
-          "projektleiter-m-d-die-mobiliar-wil"
+          "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
         ]
       },
       "firstSeenAt": "2026-05-10T22:08:57.734Z",

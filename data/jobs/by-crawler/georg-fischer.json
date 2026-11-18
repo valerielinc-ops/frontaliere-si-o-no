@@ -994,12 +994,12 @@
     },
     {
       "id": "georg-fischer-dd9ee5cfbb74",
-      "slug": "indirect-sales-advisory-manager-customer-experience-center-m-f-d-georg-fischer-ch",
+      "slug": "responsabile-delle-vendite-indirette-e-della-consulenza-del-customer-experience-center-m-f-d-georg-fischer-schaffhausen",
       "slugByLocale": {
         "en": "indirect-sales-advisory-manager-customer-experience-center-m-f-d-georg-fischer-ch",
-        "it": "indirect-sales-advisory-manager-customer-experience-center-m-f-d-georg-fischer-ch",
+        "it": "responsabile-delle-vendite-indirette-e-della-consulenza-del-customer-experience-center-m-f-d-georg-fischer-schaffhausen",
         "de": "indirect-sales-advisory-manager-customer-experience-center-m-f-d-georg-fischer-ch",
-        "fr": "indirect-sales-advisory-manager-customer-experience-center-m-f-d-georg-fischer-ch"
+        "fr": "gestionnaire-de-ventes-et-de-conseils-indirects-centre-d-experience-client-h-f-d-georg-fischer-schaffhausen"
       },
       "company": "Georg Fischer",
       "companyKey": "georg-fischer",
@@ -1073,7 +1073,18 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-15T21:49:58.576Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:49:58.576Z"
+      "firstSeenAt": "2026-11-17T21:49:58.576Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "indirect-sales-advisory-manager-customer-experience-center-m-f-d-georg-fischer-ch"
+        ],
+        "fr": [
+          "indirect-sales-advisory-manager-customer-experience-center-m-f-d-georg-fischer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "indirect-sales-advisory-manager-customer-experience-center-m-f-d-georg-fischer-ch"
+      ]
     },
     {
       "id": "georg-fischer-85a7209f7b44",
@@ -1164,8 +1175,8 @@
       "slugByLocale": {
         "en": "internship-customer-experience-center-m-f-d-12-months-georg-fischer-ch",
         "it": "internship-customer-experience-center-m-f-d-12-months-georg-fischer-ch",
-        "de": "internship-customer-experience-center-m-f-d-12-months-georg-fischer-ch",
-        "fr": "internship-customer-experience-center-m-f-d-12-months-georg-fischer-ch"
+        "de": "praktikum-customer-experience-center-m-w-d-12-monate-georg-fischer-schaffhausen",
+        "fr": "centre-d-experience-client-de-stage-h-f-d-12-mois-georg-fischer-schaffhausen"
       },
       "company": "Georg Fischer",
       "companyKey": "georg-fischer",
@@ -1239,15 +1250,26 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-15T21:49:38.159Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:49:38.159Z"
+      "firstSeenAt": "2026-11-17T21:49:38.159Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "internship-customer-experience-center-m-f-d-12-months-georg-fischer-ch"
+        ],
+        "fr": [
+          "internship-customer-experience-center-m-f-d-12-months-georg-fischer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "internship-customer-experience-center-m-f-d-12-months-georg-fischer-ch"
+      ]
     },
     {
       "id": "georg-fischer-023d91cb79ed",
-      "slug": "global-product-manager-industrial-jointing-technologies-m-f-d-georg-fischer-ch",
+      "slug": "responsabile-globale-di-prodotto-tecnologie-di-giunzione-industriale-m-f-d-georg-fischer-schaffhausen",
       "slugByLocale": {
         "en": "global-product-manager-industrial-jointing-technologies-m-f-d-georg-fischer-ch",
-        "it": "global-product-manager-industrial-jointing-technologies-m-f-d-georg-fischer-ch",
-        "de": "global-product-manager-industrial-jointing-technologies-m-f-d-georg-fischer-ch",
+        "it": "responsabile-globale-di-prodotto-tecnologie-di-giunzione-industriale-m-f-d-georg-fischer-schaffhausen",
+        "de": "globaler-produktmanager-industrielle-jointing-technologien-m-w-d-georg-fischer-schaffhausen",
         "fr": "global-product-manager-industrial-jointing-technologies-m-f-d-georg-fischer-ch"
       },
       "company": "Georg Fischer",
@@ -1322,7 +1344,18 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-15T21:49:27.100Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:49:27.100Z"
+      "firstSeenAt": "2026-11-17T21:49:27.100Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "global-product-manager-industrial-jointing-technologies-m-f-d-georg-fischer-ch"
+        ],
+        "de": [
+          "global-product-manager-industrial-jointing-technologies-m-f-d-georg-fischer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "global-product-manager-industrial-jointing-technologies-m-f-d-georg-fischer-ch"
+      ]
     }
   ]
 }

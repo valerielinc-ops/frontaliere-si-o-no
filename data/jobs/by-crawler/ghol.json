@@ -90,8 +90,8 @@
       "slug": "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
         "it": "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "fr": "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
@@ -161,8 +161,8 @@
       "previousSlugs": [
         "cucina-alimentare-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -170,10 +170,10 @@
           "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
-          "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "de": [
-          "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ]
       },
       "firstSeenAt": "2026-05-20T05:15:42.711Z",
@@ -1162,12 +1162,12 @@
     },
     {
       "id": "ghol-75abe38598a3",
-      "slug": "referent-e-de-secretariat-des-consultations-specialisees-groupement-hospitalier-de-l-ouest",
+      "slug": "riferimento-del-segretariato-delle-consultazioni-specializzate-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
         "fr": "referent-e-de-secretariat-des-consultations-specialisees-groupement-hospitalier-de-l-ouest",
-        "it": "referent-e-de-secretariat-des-consultations-specialisees-groupement-hospitalier-de-l-ouest",
-        "en": "referent-e-de-secretariat-des-consultations-specialisees-groupement-hospitalier-de-l-ouest",
-        "de": "referent-e-de-secretariat-des-consultations-specialisees-groupement-hospitalier-de-l-ouest"
+        "it": "riferimento-del-segretariato-delle-consultazioni-specializzate-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "reference-of-the-specialized-consultations-secretariat-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "referenz-des-sekretariats-fur-spezialkonsultationen-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
       "companyKey": "ghol",
@@ -1225,7 +1225,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:25:05.821Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:25:05.821Z"
+      "firstSeenAt": "2026-11-17T21:25:05.821Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "referent-e-de-secretariat-des-consultations-specialisees-groupement-hospitalier-de-l-ouest"
+        ],
+        "en": [
+          "referent-e-de-secretariat-des-consultations-specialisees-groupement-hospitalier-de-l-ouest"
+        ],
+        "de": [
+          "referent-e-de-secretariat-des-consultations-specialisees-groupement-hospitalier-de-l-ouest"
+        ]
+      },
+      "previousSlugs": [
+        "referent-e-de-secretariat-des-consultations-specialisees-groupement-hospitalier-de-l-ouest"
+      ]
     }
   ]
 }

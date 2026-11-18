@@ -202,7 +202,7 @@
         "it": "operatore-macchina-emmi-emmen-luzern",
         "en": "machine-operator-emmi-emmen-luzern",
         "de": "maschinenfuhrer-in-emmi-ch",
-        "fr": "conducteur-trice-de-machines-emmi-emmen"
+        "fr": "operateur-de-machine-emmi-emmen-luzern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -263,7 +263,7 @@
       "previousSlugs": [
         "maschinenfuhrer-in-emmi-ch",
         "maschinenfuhrer-in-emmi-emmen",
-        "operateur-de-machine-emmi-emmen-luzern"
+        "conducteur-trice-de-machines-emmi-emmen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -271,7 +271,7 @@
           "maschinenfuhrer-in-emmi-emmen"
         ],
         "fr": [
-          "operateur-de-machine-emmi-emmen-luzern"
+          "conducteur-trice-de-machines-emmi-emmen"
         ]
       },
       "firstSeenAt": "2026-06-18T12:13:27.095Z",
@@ -8817,12 +8817,12 @@
     },
     {
       "id": "emmi-8a7ca77bbc96",
-      "slug": "interne-r-transportmitarbeiter-in-in-der-kasekonfektionierung-emmi-ch",
+      "slug": "addetto-a-al-trasporto-interno-nel-confezionamento-dei-formaggi-emmi-emmen-luzern",
       "slugByLocale": {
         "de": "interne-r-transportmitarbeiter-in-in-der-kasekonfektionierung-emmi-ch",
-        "it": "interne-r-transportmitarbeiter-in-in-der-kasekonfektionierung-emmi-ch",
-        "en": "interne-r-transportmitarbeiter-in-in-der-kasekonfektionierung-emmi-ch",
-        "fr": "interne-r-transportmitarbeiter-in-in-der-kasekonfektionierung-emmi-ch"
+        "it": "addetto-a-al-trasporto-interno-nel-confezionamento-dei-formaggi-emmi-emmen-luzern",
+        "en": "internal-transport-employee-in-cheese-packaging-emmi-emmen-luzern",
+        "fr": "collaborateur-trice-interne-au-transport-dans-le-conditionnement-du-fromage-emmi-emmen-luzern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -8897,7 +8897,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-15T21:34:50.285Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:34:50.285Z"
+      "firstSeenAt": "2026-11-17T21:34:50.285Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "interne-r-transportmitarbeiter-in-in-der-kasekonfektionierung-emmi-ch"
+        ],
+        "en": [
+          "interne-r-transportmitarbeiter-in-in-der-kasekonfektionierung-emmi-ch"
+        ],
+        "fr": [
+          "interne-r-transportmitarbeiter-in-in-der-kasekonfektionierung-emmi-ch"
+        ]
+      },
+      "previousSlugs": [
+        "interne-r-transportmitarbeiter-in-in-der-kasekonfektionierung-emmi-ch"
+      ]
     },
     {
       "id": "emmi-5ce9878c66b7",

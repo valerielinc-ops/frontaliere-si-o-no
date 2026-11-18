@@ -236,12 +236,12 @@
     },
     {
       "id": "kuehne-nagel-52187725ec18",
-      "slug": "road-logistics-specialist-m-w-d-kuehne-nagel-thayngen",
+      "slug": "road-logistica-specialista-m-w-d-kuehne-nagel-thayngen",
       "slugByLocale": {
         "de": "road-logistics-specialist-m-w-d-kuehne-nagel-thayngen",
-        "it": "road-logistics-specialist-m-w-d-kuehne-nagel-thayngen",
+        "it": "road-logistica-specialista-m-w-d-kuehne-nagel-thayngen",
         "en": "road-logistics-specialist-m-w-d-kuehne-nagel-thayngen",
-        "fr": "road-logistics-specialist-m-w-d-kuehne-nagel-thayngen"
+        "fr": "road-logistique-specialiste-m-w-d-kuehne-nagel-thayngen"
       },
       "company": "Kuehne+Nagel",
       "companyKey": "kuehne-nagel",
@@ -305,7 +305,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:28:43.042Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:28:43.042Z"
+      "firstSeenAt": "2026-11-17T21:28:43.042Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "road-logistics-specialist-m-w-d-kuehne-nagel-thayngen"
+        ],
+        "fr": [
+          "road-logistics-specialist-m-w-d-kuehne-nagel-thayngen"
+        ]
+      },
+      "previousSlugs": [
+        "road-logistics-specialist-m-w-d-kuehne-nagel-thayngen"
+      ]
     },
     {
       "id": "kuehne-nagel-e682041b5b7f",

@@ -4569,12 +4569,12 @@
     },
     {
       "id": "balgrist-efd12290c9c8",
-      "slug": "co-dozent-co-dozentin-studiengang-chiropraktische-medizin-w-m-d-auf-stundenlohnbasis",
+      "slug": "co-docente-del-corso-di-studi-in-medicina-chiropratica-m-f-d-con-retribuzione-oraria-a-tempo-determinato-dal-1-settembre",
       "slugByLocale": {
         "de": "co-dozent-co-dozentin-studiengang-chiropraktische-medizin-w-m-d-auf-stundenlohnbasis",
-        "it": "co-dozent-co-dozentin-studiengang-chiropraktische-medizin-w-m-d-auf-stundenlohnbasis",
-        "en": "co-dozent-co-dozentin-studiengang-chiropraktische-medizin-w-m-d-auf-stundenlohnbasis",
-        "fr": "co-dozent-co-dozentin-studiengang-chiropraktische-medizin-w-m-d-auf-stundenlohnbasis"
+        "it": "co-docente-del-corso-di-studi-in-medicina-chiropratica-m-f-d-con-retribuzione-oraria-a-tempo-determinato-dal-1-settembre",
+        "en": "co-lecturer-chiropractic-medicine-degree-programme-m-f-d-on-an-hourly-basis-fixed-term-from-september-1-2027-to-may-31",
+        "fr": "co-enseignant-co-enseignante-filiere-de-medecine-chiropratique-h-f-d-sur-base-horaire-a-duree-determinee-du-1er"
       },
       "company": "Universitätsklinik Balgrist",
       "companyKey": "balgrist",
@@ -4636,16 +4636,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:33:58.765Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:33:58.765Z"
+      "firstSeenAt": "2026-11-17T21:33:58.765Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "co-dozent-co-dozentin-studiengang-chiropraktische-medizin-w-m-d-auf-stundenlohnbasis"
+        ],
+        "en": [
+          "co-dozent-co-dozentin-studiengang-chiropraktische-medizin-w-m-d-auf-stundenlohnbasis"
+        ],
+        "fr": [
+          "co-dozent-co-dozentin-studiengang-chiropraktische-medizin-w-m-d-auf-stundenlohnbasis"
+        ]
+      },
+      "previousSlugs": [
+        "co-dozent-co-dozentin-studiengang-chiropraktische-medizin-w-m-d-auf-stundenlohnbasis"
+      ]
     },
     {
       "id": "balgrist-0144f95a1d5d",
-      "slug": "dozent-dozentin-studiengang-chiropraktische-medizin-w-m-d-8-balgrist-zurich",
+      "slug": "docente-corso-di-laurea-in-medicina-chiropratica-m-f-d-8-universitatsklinik-balgrist-zurich",
       "slugByLocale": {
         "de": "dozent-dozentin-studiengang-chiropraktische-medizin-w-m-d-8-balgrist-zurich",
-        "it": "dozent-dozentin-studiengang-chiropraktische-medizin-w-m-d-8-balgrist-zurich",
-        "en": "dozent-dozentin-studiengang-chiropraktische-medizin-w-m-d-8-balgrist-zurich",
-        "fr": "dozent-dozentin-studiengang-chiropraktische-medizin-w-m-d-8-balgrist-zurich"
+        "it": "docente-corso-di-laurea-in-medicina-chiropratica-m-f-d-8-universitatsklinik-balgrist-zurich",
+        "en": "lecturer-chiropractic-medicine-degree-programme-m-f-d-8-universitatsklinik-balgrist-zurich",
+        "fr": "enseignant-enseignante-filiere-de-medecine-chiropratique-h-f-d-8-universitatsklinik-balgrist-zurich"
       },
       "company": "Universitätsklinik Balgrist",
       "companyKey": "balgrist",
@@ -4707,7 +4721,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:33:58.748Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:33:58.748Z"
+      "firstSeenAt": "2026-11-17T21:33:58.748Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dozent-dozentin-studiengang-chiropraktische-medizin-w-m-d-8-balgrist-zurich"
+        ],
+        "en": [
+          "dozent-dozentin-studiengang-chiropraktische-medizin-w-m-d-8-balgrist-zurich"
+        ],
+        "fr": [
+          "dozent-dozentin-studiengang-chiropraktische-medizin-w-m-d-8-balgrist-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "dozent-dozentin-studiengang-chiropraktische-medizin-w-m-d-8-balgrist-zurich"
+      ]
     },
     {
       "id": "balgrist-78ccd1a5552a",

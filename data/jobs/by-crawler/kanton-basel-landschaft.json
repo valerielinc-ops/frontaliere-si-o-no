@@ -1736,7 +1736,7 @@
       "slug": "maestro-6a-classe-kantonale-verwaltung-basel-landschaft-ormalingen",
       "slugByLocale": {
         "it": "maestro-6a-classe-kantonale-verwaltung-basel-landschaft-ormalingen",
-        "en": "teacher-6th-class-kantonale-verwaltung-basel-landschaft-ormalingen",
+        "en": "lehrperson-6-klasse-kantonale-verwaltung-basel-landschaft-ormalingen",
         "de": "lehrperson-6-klasse-kanton-basel-landschaft-ormalingen",
         "fr": "enseignant-6e-classe-kantonale-verwaltung-basel-landschaft-ormalingen"
       },
@@ -1785,14 +1785,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrperson-6-klasse-kanton-basel-landschaft-ormalingen",
-        "lehrperson-6-klasse-kantonale-verwaltung-basel-landschaft-ormalingen"
+        "teacher-6th-class-kantonale-verwaltung-basel-landschaft-ormalingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrperson-6-klasse-kanton-basel-landschaft-ormalingen"
         ],
         "en": [
-          "lehrperson-6-klasse-kantonale-verwaltung-basel-landschaft-ormalingen"
+          "teacher-6th-class-kantonale-verwaltung-basel-landschaft-ormalingen"
         ],
         "fr": [
           "lehrperson-6-klasse-kanton-basel-landschaft-ormalingen"
@@ -5743,12 +5743,12 @@
     },
     {
       "id": "kanton-basel-landschaft-b237e526c41d",
-      "slug": "ict-supporterin-ict-supporter-kanton-basel-landschaft-liestal",
+      "slug": "supporto-ict-supporto-ict-kantonale-verwaltung-basel-landschaft-liestal",
       "slugByLocale": {
         "de": "ict-supporterin-ict-supporter-kanton-basel-landschaft-liestal",
-        "it": "ict-supporterin-ict-supporter-kanton-basel-landschaft-liestal",
+        "it": "supporto-ict-supporto-ict-kantonale-verwaltung-basel-landschaft-liestal",
         "en": "ict-supporterin-ict-supporter-kanton-basel-landschaft-liestal",
-        "fr": "ict-supporterin-ict-supporter-kanton-basel-landschaft-liestal"
+        "fr": "soutien-aux-tic-et-soutien-aux-tic-kantonale-verwaltung-basel-landschaft-liestal"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -5810,16 +5810,27 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-15T21:20:50.581Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:20:50.581Z"
+      "firstSeenAt": "2026-11-17T21:20:50.581Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ict-supporterin-ict-supporter-kanton-basel-landschaft-liestal"
+        ],
+        "fr": [
+          "ict-supporterin-ict-supporter-kanton-basel-landschaft-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "ict-supporterin-ict-supporter-kanton-basel-landschaft-liestal"
+      ]
     },
     {
       "id": "kanton-basel-landschaft-f4dafa114e2e",
-      "slug": "lehrperson-querflote-kanton-basel-landschaft-therwil",
+      "slug": "maestro-flauto-kantonale-verwaltung-basel-landschaft-therwil",
       "slugByLocale": {
         "de": "lehrperson-querflote-kanton-basel-landschaft-therwil",
-        "it": "lehrperson-querflote-kanton-basel-landschaft-therwil",
-        "en": "lehrperson-querflote-kanton-basel-landschaft-therwil",
-        "fr": "lehrperson-querflote-kanton-basel-landschaft-therwil"
+        "it": "maestro-flauto-kantonale-verwaltung-basel-landschaft-therwil",
+        "en": "teacher-flute-kantonale-verwaltung-basel-landschaft-therwil",
+        "fr": "flute-enseignante-kantonale-verwaltung-basel-landschaft-therwil"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -5881,16 +5892,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-15T21:20:50.579Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:20:50.579Z"
+      "firstSeenAt": "2026-11-17T21:20:50.579Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrperson-querflote-kanton-basel-landschaft-therwil"
+        ],
+        "en": [
+          "lehrperson-querflote-kanton-basel-landschaft-therwil"
+        ],
+        "fr": [
+          "lehrperson-querflote-kanton-basel-landschaft-therwil"
+        ]
+      },
+      "previousSlugs": [
+        "lehrperson-querflote-kanton-basel-landschaft-therwil"
+      ]
     },
     {
       "id": "kanton-basel-landschaft-24bb1d87fb62",
-      "slug": "lehrperson-kanton-basel-landschaft-ziefen",
+      "slug": "maestro-kantonale-verwaltung-basel-landschaft-ziefen",
       "slugByLocale": {
         "de": "lehrperson-kanton-basel-landschaft-ziefen",
-        "it": "lehrperson-kanton-basel-landschaft-ziefen",
-        "en": "lehrperson-kanton-basel-landschaft-ziefen",
-        "fr": "lehrperson-kanton-basel-landschaft-ziefen"
+        "it": "maestro-kantonale-verwaltung-basel-landschaft-ziefen",
+        "en": "teacher-kantonale-verwaltung-basel-landschaft-ziefen",
+        "fr": "enseignant-kantonale-verwaltung-basel-landschaft-ziefen"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -5952,7 +5977,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-15T21:20:50.572Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:20:50.572Z"
+      "firstSeenAt": "2026-11-17T21:20:50.572Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrperson-kanton-basel-landschaft-ziefen"
+        ],
+        "en": [
+          "lehrperson-kanton-basel-landschaft-ziefen"
+        ],
+        "fr": [
+          "lehrperson-kanton-basel-landschaft-ziefen"
+        ]
+      },
+      "previousSlugs": [
+        "lehrperson-kanton-basel-landschaft-ziefen"
+      ]
     },
     {
       "id": "kanton-basel-landschaft-52ae30447e1a",

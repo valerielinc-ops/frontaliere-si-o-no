@@ -4240,12 +4240,12 @@
     },
     {
       "id": "unibe-25ef811c40d1",
-      "slug": "poste-de-doctorant-e-en-litterature-francaise-et-medias-unibe-berne",
+      "slug": "ph-d-in-letteratura-e-media-francesi-universitat-bern-berne",
       "slugByLocale": {
         "fr": "poste-de-doctorant-e-en-litterature-francaise-et-medias-unibe-berne",
-        "it": "poste-de-doctorant-e-en-litterature-francaise-et-medias-unibe-berne",
-        "en": "poste-de-doctorant-e-en-litterature-francaise-et-medias-unibe-berne",
-        "de": "poste-de-doctorant-e-en-litterature-francaise-et-medias-unibe-berne"
+        "it": "ph-d-in-letteratura-e-media-francesi-universitat-bern-berne",
+        "en": "ph-d-in-french-literature-and-media-universitat-bern-berne",
+        "de": "ph-d-in-franzosischer-literatur-und-medien-universitat-bern-berne"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4308,7 +4308,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:50:47.422Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:50:47.422Z"
+      "firstSeenAt": "2026-11-17T21:50:47.422Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "poste-de-doctorant-e-en-litterature-francaise-et-medias-unibe-berne"
+        ],
+        "en": [
+          "poste-de-doctorant-e-en-litterature-francaise-et-medias-unibe-berne"
+        ],
+        "de": [
+          "poste-de-doctorant-e-en-litterature-francaise-et-medias-unibe-berne"
+        ]
+      },
+      "previousSlugs": [
+        "poste-de-doctorant-e-en-litterature-francaise-et-medias-unibe-berne"
+      ]
     },
     {
       "id": "unibe-0884eeab52be",
@@ -4316,8 +4330,8 @@
       "slugByLocale": {
         "de": "doktorandin-oder-doktorand-100-unibe-bern",
         "it": "doktorandin-o-doktorand-100-universitat-bern",
-        "en": "doktorandin-oder-doktorand-100-unibe-bern",
-        "fr": "doktorandin-oder-doktorand-100-unibe-bern"
+        "en": "doctoral-candidate-100-universitat-bern-bern",
+        "fr": "candidat-au-doctorat-100-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4365,6 +4379,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "doktorandin-oder-doktorand-100-unibe-bern"
+        ],
+        "en": [
+          "doktorandin-oder-doktorand-100-unibe-bern"
+        ],
+        "fr": [
           "doktorandin-oder-doktorand-100-unibe-bern"
         ]
       },

@@ -1060,12 +1060,12 @@
     },
     {
       "id": "csl-behring-7707066e8394",
-      "slug": "head-finance-csl-behring-ch",
+      "slug": "head-finanza-csl-behring-bern",
       "slugByLocale": {
         "en": "head-finance-csl-behring-ch",
-        "it": "head-finance-csl-behring-ch",
-        "de": "head-finance-csl-behring-ch",
-        "fr": "head-finance-csl-behring-ch"
+        "it": "head-finanza-csl-behring-bern",
+        "de": "head-finanzen-csl-behring-bern",
+        "fr": "chef-des-finances-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -1128,7 +1128,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:51:29.238Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:51:29.238Z"
+      "firstSeenAt": "2026-11-17T21:51:29.238Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "head-finance-csl-behring-ch"
+        ],
+        "de": [
+          "head-finance-csl-behring-ch"
+        ],
+        "fr": [
+          "head-finance-csl-behring-ch"
+        ]
+      },
+      "previousSlugs": [
+        "head-finance-csl-behring-ch"
+      ]
     }
   ]
 }

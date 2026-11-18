@@ -2311,10 +2311,10 @@
     },
     {
       "id": "transgourmet-078dd594-9f5",
-      "slug": "test-engineer-transgourmet-moosseedorf",
+      "slug": "test-ingegnere-transgourmet-moosseedorf",
       "slugByLocale": {
         "de": "test-engineer-transgourmet-moosseedorf",
-        "it": "test-engineer-transgourmet-moosseedorf",
+        "it": "test-ingegnere-transgourmet-moosseedorf",
         "en": "test-engineer-transgourmet-moosseedorf",
         "fr": "test-engineer-transgourmet-moosseedorf"
       },
@@ -2398,7 +2398,15 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-17T21:28:39.164Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-07T15:03:07.169Z"
+      "firstSeenAt": "2026-09-07T15:03:07.169Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "test-engineer-transgourmet-moosseedorf"
+        ]
+      },
+      "previousSlugs": [
+        "test-engineer-transgourmet-moosseedorf"
+      ]
     },
     {
       "id": "transgourmet-820444df-716",

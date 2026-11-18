@@ -2300,12 +2300,12 @@
     },
     {
       "id": "ete-1e77ae7414a7",
-      "slug": "pneukranfahrer-in-100-emil-egger-ag-bassersdorf-1e77ae74",
+      "slug": "pneukrafahrer-in-100-emil-egger-ag-bassersdorf-1e77ae74",
       "slugByLocale": {
         "de": "pneukranfahrer-in-100-emil-egger-ag-bassersdorf-1e77ae74",
-        "it": "pneukranfahrer-in-100-emil-egger-ag-bassersdorf-1e77ae74",
+        "it": "pneukrafahrer-in-100-emil-egger-ag-bassersdorf-1e77ae74",
         "en": "pneukranfahrer-in-100-emil-egger-ag-bassersdorf-1e77ae74",
-        "fr": "pneukranfahrer-in-100-emil-egger-ag-bassersdorf-1e77ae74"
+        "fr": "pneucrafahrer-en-100-emil-egger-ag-bassersdorf-1e77ae74"
       },
       "slugDisambiguator": "1e77ae74",
       "company": "Emil Egger AG",
@@ -2368,7 +2368,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:25:49.003Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:25:49.003Z"
+      "firstSeenAt": "2026-11-17T21:25:49.003Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pneukranfahrer-in-100-emil-egger-ag-bassersdorf-1e77ae74"
+        ],
+        "fr": [
+          "pneukranfahrer-in-100-emil-egger-ag-bassersdorf-1e77ae74"
+        ]
+      },
+      "previousSlugs": [
+        "pneukranfahrer-in-100-emil-egger-ag-bassersdorf-1e77ae74"
+      ]
     },
     {
       "id": "ete-f45d285760e0",
@@ -2456,12 +2467,12 @@
     },
     {
       "id": "ete-adf545fe5bda",
-      "slug": "pneukranfahrer-in-100-emil-egger-ag-st-gallen-adf545fe",
+      "slug": "pneukrafahrer-in-100-emil-egger-ag-st-gallen-adf545fe",
       "slugByLocale": {
         "de": "pneukranfahrer-in-100-emil-egger-ag-st-gallen-adf545fe",
-        "it": "pneukranfahrer-in-100-emil-egger-ag-st-gallen-adf545fe",
+        "it": "pneukrafahrer-in-100-emil-egger-ag-st-gallen-adf545fe",
         "en": "pneukranfahrer-in-100-emil-egger-ag-st-gallen-adf545fe",
-        "fr": "pneukranfahrer-in-100-emil-egger-ag-st-gallen-adf545fe"
+        "fr": "pneucrafahrer-en-100-emil-egger-ag-st-gallen-adf545fe"
       },
       "slugDisambiguator": "adf545fe",
       "company": "Emil Egger AG",
@@ -2524,16 +2535,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:25:49.002Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:25:49.002Z"
+      "firstSeenAt": "2026-11-17T21:25:49.002Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pneukranfahrer-in-100-emil-egger-ag-st-gallen-adf545fe"
+        ],
+        "fr": [
+          "pneukranfahrer-in-100-emil-egger-ag-st-gallen-adf545fe"
+        ]
+      },
+      "previousSlugs": [
+        "pneukranfahrer-in-100-emil-egger-ag-st-gallen-adf545fe"
+      ]
     },
     {
       "id": "ete-4e8d2542dc63",
-      "slug": "disponent-in-arbeits-e-hebebuhnen-100-emil-egger-ag-st-gallen",
+      "slug": "addetto-a-alla-pianificazione-di-piattaforme-di-lavoro-e-piattaforme-elevatrici-100-emil-egger-ag-st-gallen-4e8d2542",
       "slugByLocale": {
         "de": "disponent-in-arbeits-und-hebebuhnen-100-emil-egger-ag-st-gallen-4e8d2542",
-        "it": "disponent-in-arbeits-e-hebebuhnen-100-emil-egger-ag-st-gallen",
-        "en": "disponent-in-arbeits-und-hebebuhnen-100-emil-egger-ag-st-gallen-4e8d2542",
-        "fr": "disponent-in-arbeits-und-hebebuhnen-100-emil-egger-ag-st-gallen-4e8d2542"
+        "it": "addetto-a-alla-pianificazione-di-piattaforme-di-lavoro-e-piattaforme-elevatrici-100-emil-egger-ag-st-gallen-4e8d2542",
+        "en": "dispatcher-for-work-and-lifting-platforms-100-emil-egger-ag-st-gallen-4e8d2542",
+        "fr": "coordinateuse-coordinateur-de-plateformes-de-travail-et-elevatrices-100-emil-egger-ag-st-gallen-4e8d2542"
       },
       "slugDisambiguator": "4e8d2542",
       "company": "Emil Egger AG",
@@ -2580,11 +2602,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "disponent-in-arbeits-und-hebebuhnen-100-emil-egger-ag-st-gallen-4e8d2542",
+          "disponent-in-arbeits-e-hebebuhnen-100-emil-egger-ag-st-gallen"
+        ],
+        "en": [
+          "disponent-in-arbeits-und-hebebuhnen-100-emil-egger-ag-st-gallen-4e8d2542"
+        ],
+        "fr": [
           "disponent-in-arbeits-und-hebebuhnen-100-emil-egger-ag-st-gallen-4e8d2542"
         ]
       },
       "previousSlugs": [
-        "disponent-in-arbeits-und-hebebuhnen-100-emil-egger-ag-st-gallen-4e8d2542"
+        "disponent-in-arbeits-und-hebebuhnen-100-emil-egger-ag-st-gallen-4e8d2542",
+        "disponent-in-arbeits-e-hebebuhnen-100-emil-egger-ag-st-gallen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

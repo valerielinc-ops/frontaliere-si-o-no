@@ -75,12 +75,12 @@
     },
     {
       "id": "microsoft-200067703",
-      "slug": "member-of-technical-staff-microsoft-zurich",
+      "slug": "membro-del-personale-tecnico-microsoft-zurich",
       "slugByLocale": {
         "en": "member-of-technical-staff-microsoft-zurich",
-        "it": "member-of-technical-staff-microsoft-zurich",
-        "de": "member-of-technical-staff-microsoft-zurich",
-        "fr": "member-of-technical-staff-microsoft-zurich"
+        "it": "membro-del-personale-tecnico-microsoft-zurich",
+        "de": "mitglied-des-technischen-personals-microsoft-zurich",
+        "fr": "membre-du-personnel-technique-microsoft-zurich"
       },
       "company": "Microsoft",
       "companyKey": "microsoft",
@@ -142,7 +142,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-15T21:15:00.281Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:15:00.281Z"
+      "firstSeenAt": "2026-11-17T21:15:00.281Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "member-of-technical-staff-microsoft-zurich"
+        ],
+        "de": [
+          "member-of-technical-staff-microsoft-zurich"
+        ],
+        "fr": [
+          "member-of-technical-staff-microsoft-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "member-of-technical-staff-microsoft-zurich"
+      ]
     },
     {
       "id": "microsoft-200055947",
@@ -380,12 +394,12 @@
     },
     {
       "id": "microsoft-200057548",
-      "slug": "services-account-management-microsoft-switzerland",
+      "slug": "gestione-account-microsoft-switzerland",
       "slugByLocale": {
         "en": "services-account-management-microsoft-switzerland",
-        "it": "services-account-management-microsoft-switzerland",
+        "it": "gestione-account-microsoft-switzerland",
         "de": "services-account-management-microsoft-switzerland",
-        "fr": "services-account-management-microsoft-switzerland"
+        "fr": "gestion-des-comptes-de-services-microsoft-switzerland"
       },
       "company": "Microsoft",
       "companyKey": "microsoft",
@@ -446,7 +460,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:15:00.275Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:15:00.275Z"
+      "firstSeenAt": "2026-11-17T21:15:00.275Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "services-account-management-microsoft-switzerland"
+        ],
+        "fr": [
+          "services-account-management-microsoft-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "services-account-management-microsoft-switzerland"
+      ]
     }
   ]
 }

@@ -1483,9 +1483,9 @@
       "slug": "fachmann-frau-hotellerie-hauswirtschaft-i-a-specializzazione-hotellerie-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
         "it": "fachmann-frau-hotellerie-hauswirtschaft-i-a-specializzazione-hotellerie-kantonsspital-baden-ksb-baden",
-        "en": "hospitality-and-housekeeping-specialist-in-training-specialization-in-housekeeping-kantonsspital-baden-ksb-baden",
+        "en": "professional-woman-hotel-industry-i-a-field-of-expertise-hotel-industry-kantonsspital-baden-ksb-baden",
         "de": "fachmann-frau-hotellerie-hauswirtschaft-i-a-fachrichtung-hotellerie-ksb-ch",
-        "fr": "specialiste-en-hotellerie-intendance-en-formation-orientation-intendance-kantonsspital-baden-ksb-baden"
+        "fr": "industrie-hoteliere-professionnelle-femme-i-a-domaine-d-expertise-kantonsspital-baden-ksb-baden"
       },
       "company": "Kantonsspital Baden (KSB)",
       "companyKey": "ksb",
@@ -1533,8 +1533,8 @@
         "fachmann-frau-hotellerie-hauswirtschaft-i-a-fachrichtung-hauswirtschaft-kantonsspital-baden-ksb-baden",
         "fachmann-frau-hotellerie-hauswirtschaft-i-a-fachrichtung-hauswirtschaft-ksb-ch",
         "fachmann-frau-hotellerie-hauswirtschaft-i-a-fachrichtung-hotellerie-ksb-ch-nl99l0",
-        "professional-woman-hotel-industry-i-a-field-of-expertise-hotel-industry-kantonsspital-baden-ksb-baden",
-        "industrie-hoteliere-professionnelle-femme-i-a-domaine-d-expertise-kantonsspital-baden-ksb-baden"
+        "hospitality-and-housekeeping-specialist-in-training-specialization-in-housekeeping-kantonsspital-baden-ksb-baden",
+        "specialiste-en-hotellerie-intendance-en-formation-orientation-intendance-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1542,14 +1542,14 @@
         ],
         "en": [
           "fachmann-frau-hotellerie-hauswirtschaft-i-a-fachrichtung-hauswirtschaft-kantonsspital-baden-ksb-baden",
-          "professional-woman-hotel-industry-i-a-field-of-expertise-hotel-industry-kantonsspital-baden-ksb-baden"
+          "hospitality-and-housekeeping-specialist-in-training-specialization-in-housekeeping-kantonsspital-baden-ksb-baden"
         ],
         "de": [
           "fachmann-frau-hotellerie-hauswirtschaft-i-a-fachrichtung-hotellerie-ksb-ch-nl99l0"
         ],
         "fr": [
           "fachmann-frau-hotellerie-hauswirtschaft-i-a-fachrichtung-hauswirtschaft-kantonsspital-baden-ksb-baden",
-          "industrie-hoteliere-professionnelle-femme-i-a-domaine-d-expertise-kantonsspital-baden-ksb-baden"
+          "specialiste-en-hotellerie-intendance-en-formation-orientation-intendance-kantonsspital-baden-ksb-baden"
         ]
       },
       "firstSeenAt": "2026-06-29T22:37:05.092Z",
@@ -7424,7 +7424,7 @@
         "de": "senior-application-manager-in-100-ksb-ch",
         "it": "senior-application-manager-in-100-ksb-ch",
         "en": "senior-application-manager-in-100-ksb-ch",
-        "fr": "senior-application-manager-in-100-ksb-ch"
+        "fr": "gestionnaire-d-applications-senior-100-kantonsspital-baden-ksb-baden"
       },
       "company": "Kantonsspital Baden (KSB)",
       "companyKey": "ksb",
@@ -7486,16 +7486,24 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:51:01.954Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:51:01.954Z"
+      "firstSeenAt": "2026-11-17T21:51:01.954Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "senior-application-manager-in-100-ksb-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-application-manager-in-100-ksb-ch"
+      ]
     },
     {
       "id": "ksb-f4dd209f1a94",
-      "slug": "mpa-onkologie-hamatologie-brugg-50-ksb-ch",
+      "slug": "mpa-oncologia-ematologia-brugg-50-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
         "de": "mpa-onkologie-hamatologie-brugg-50-ksb-ch",
-        "it": "mpa-onkologie-hamatologie-brugg-50-ksb-ch",
-        "en": "mpa-onkologie-hamatologie-brugg-50-ksb-ch",
-        "fr": "mpa-onkologie-hamatologie-brugg-50-ksb-ch"
+        "it": "mpa-oncologia-ematologia-brugg-50-kantonsspital-baden-ksb-baden",
+        "en": "mpa-oncology-hematology-brugg-50-kantonsspital-baden-ksb-baden",
+        "fr": "mpa-oncologie-hematologie-brugg-50-kantonsspital-baden-ksb-baden"
       },
       "company": "Kantonsspital Baden (KSB)",
       "companyKey": "ksb",
@@ -7557,16 +7565,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:50:51.419Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:50:51.419Z"
+      "firstSeenAt": "2026-11-17T21:50:51.419Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mpa-onkologie-hamatologie-brugg-50-ksb-ch"
+        ],
+        "en": [
+          "mpa-onkologie-hamatologie-brugg-50-ksb-ch"
+        ],
+        "fr": [
+          "mpa-onkologie-hamatologie-brugg-50-ksb-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mpa-onkologie-hamatologie-brugg-50-ksb-ch"
+      ]
     },
     {
       "id": "ksb-57d56bd83d35",
-      "slug": "mitarbeiter-in-zytostatikaherstellung-50-90-kantonsspital-baden-ksb-baden",
+      "slug": "addetto-a-alla-produzione-di-citostatici-50-90-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
         "de": "mitarbeiter-in-zytostatikaherstellung-50-90-ksb-ch",
-        "it": "mitarbeiter-in-zytostatikaherstellung-50-90-kantonsspital-baden-ksb-baden",
-        "en": "mitarbeiter-in-zytostatikaherstellung-50-90-kantonsspital-baden-ksb-baden",
-        "fr": "mitarbeiter-in-zytostatikaherstellung-50-90-kantonsspital-baden-ksb-baden"
+        "it": "addetto-a-alla-produzione-di-citostatici-50-90-kantonsspital-baden-ksb-baden",
+        "en": "cytostatic-drug-production-employee-50-90-kantonsspital-baden-ksb-baden",
+        "fr": "collaborateur-rice-en-fabrication-de-cytostatiques-50-90-kantonsspital-baden-ksb-baden"
       },
       "company": "Kantonsspital Baden (KSB)",
       "companyKey": "ksb",
@@ -7613,11 +7635,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-zytostatikaherstellung-50-90-ksb-ch"
+          "mitarbeiter-in-zytostatikaherstellung-50-90-ksb-ch",
+          "mitarbeiter-in-zytostatikaherstellung-50-90-kantonsspital-baden-ksb-baden"
+        ],
+        "en": [
+          "mitarbeiter-in-zytostatikaherstellung-50-90-kantonsspital-baden-ksb-baden"
+        ],
+        "fr": [
+          "mitarbeiter-in-zytostatikaherstellung-50-90-kantonsspital-baden-ksb-baden"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-zytostatikaherstellung-50-90-ksb-ch"
+        "mitarbeiter-in-zytostatikaherstellung-50-90-ksb-ch",
+        "mitarbeiter-in-zytostatikaherstellung-50-90-kantonsspital-baden-ksb-baden"
       ],
       "salaryMin": 79200,
       "salaryMax": 110700,
