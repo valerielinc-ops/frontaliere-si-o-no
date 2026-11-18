@@ -652,7 +652,11 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
         let prefixBuffer = newBuffer();
         for (const [key, paths, entryPartIndex] of iterateAllKnownJobSlugPartEntries(rootDir)) {
           if (entryPartIndex !== currentPartIndex) {
-            if (currentPartIndex >= 0) flushAll(prefixBuffer);
+            if (currentPartIndex >= 0) {
+              flushAll(prefixBuffer);
+              clearStageBuffer(prefixBuffer);
+              collectGarbage();
+            }
             currentPartIndex = entryPartIndex;
             registryParts += 1;
             prefixBuffer = newBuffer();
@@ -678,7 +682,11 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
             }
           }
         }
-        if (currentPartIndex >= 0) flushAll(prefixBuffer);
+        if (currentPartIndex >= 0) {
+          flushAll(prefixBuffer);
+          clearStageBuffer(prefixBuffer);
+          collectGarbage();
+        }
         sampleHeap();
         markHeap('phase-b1-prefixes-staged');
 
@@ -689,7 +697,11 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
         let aliasBuffer = newBuffer();
         for (const [key, paths, entryPartIndex] of iterateAllKnownJobSlugPartEntries(rootDir)) {
           if (entryPartIndex !== currentPartIndex) {
-            if (currentPartIndex >= 0) flushAll(aliasBuffer);
+            if (currentPartIndex >= 0) {
+              flushAll(aliasBuffer);
+              clearStageBuffer(aliasBuffer);
+              collectGarbage();
+            }
             currentPartIndex = entryPartIndex;
             aliasBuffer = newBuffer();
             sampleHeap();
@@ -709,7 +721,11 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
             pushRecord(aliasBuffer, 'registry-alias', key, locale, target, order);
           }
         }
-        if (currentPartIndex >= 0) flushAll(aliasBuffer);
+        if (currentPartIndex >= 0) {
+          flushAll(aliasBuffer);
+          clearStageBuffer(aliasBuffer);
+          collectGarbage();
+        }
         sampleHeap();
         slugIndex!.clear();
         slugIndex = null;
