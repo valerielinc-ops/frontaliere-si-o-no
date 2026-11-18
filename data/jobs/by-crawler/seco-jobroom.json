@@ -97450,7 +97450,7 @@
         "it": "couvreur-h-f-d-adecco-sion-6ade51c2",
         "en": "couvreur-h-f-d-adecco-sion-6ade51c2",
         "de": "couvreur-h-f-d-adecco-sion-6ade51c2",
-        "fr": "couvreur-h-f-d-adecco-sion-6ade51c2"
+        "fr": "cover-h-f-d-adecco-sion-6ade51c2"
       },
       "slugDisambiguator": "6ade51c2",
       "company": "Adecco",
@@ -97513,7 +97513,15 @@
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-11-03T09:46:16.241Z"
+      "translationHoldReleasedAt": "2026-11-18T06:45:39.151Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "couvreur-h-f-d-adecco-sion-6ade51c2"
+        ]
+      },
+      "previousSlugs": [
+        "couvreur-h-f-d-adecco-sion-6ade51c2"
+      ]
     },
     {
       "id": "seco-jobroom-6b0770ef-6542-4e36-bd72-3c17bac5c07a",

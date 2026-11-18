@@ -6837,8 +6837,8 @@
       "slugByLocale": {
         "de": "teamleitung-stv-leitung-pflege-und-bereuung-dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii",
         "it": "teamleitung-stv-leitung-pflege-e-bereuung-dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-1-tertianum-schlieren",
-        "en": "team-management-stv-management-care-and-regret-dipl-nursing-professional-hf-fh-dnii-80-1-tertianum-schlieren",
-        "fr": "gestion-d-equipe-gestion-stv-soin-et-regret-dipl-specialiste-des-soins-infirmiers-hf-fh-dnii-80-1-tertianum-schlieren"
+        "en": "team-lead-deputy-head-of-nursing-and-care-registered-nurse-hf-fh-dnii-80-1-tertianum-schlieren",
+        "fr": "responsable-d-equipe-et-responsable-adjoint-e-des-soins-et-de-l-accompagnement-infirmiere-diplomee-infirmier-diplome-hf"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -6888,14 +6888,18 @@
           "teamleitung-stv-leitung-pflege-und-bereuung-dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii"
         ],
         "en": [
-          "teamleitung-stv-leitung-pflege-und-bereuung-dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii"
+          "teamleitung-stv-leitung-pflege-und-bereuung-dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii",
+          "team-management-stv-management-care-and-regret-dipl-nursing-professional-hf-fh-dnii-80-1-tertianum-schlieren"
         ],
         "fr": [
-          "teamleitung-stv-leitung-pflege-und-bereuung-dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii"
+          "teamleitung-stv-leitung-pflege-und-bereuung-dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii",
+          "gestion-d-equipe-gestion-stv-soin-et-regret-dipl-specialiste-des-soins-infirmiers-hf-fh-dnii-80-1-tertianum-schlieren"
         ]
       },
       "previousSlugs": [
-        "teamleitung-stv-leitung-pflege-und-bereuung-dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii"
+        "teamleitung-stv-leitung-pflege-und-bereuung-dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii",
+        "team-management-stv-management-care-and-regret-dipl-nursing-professional-hf-fh-dnii-80-1-tertianum-schlieren",
+        "gestion-d-equipe-gestion-stv-soin-et-regret-dipl-specialiste-des-soins-infirmiers-hf-fh-dnii-80-1-tertianum-schlieren"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

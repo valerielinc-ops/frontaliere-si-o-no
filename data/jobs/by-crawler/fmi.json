@@ -189,7 +189,7 @@
       "slug": "infermiere-a-di-psichiatria-spitaler-fmi-ag-unterseen",
       "slugByLocale": {
         "it": "infermiere-a-di-psichiatria-spitaler-fmi-ag-unterseen",
-        "en": "nursing-specialist-psychiatry-stationary-60-100-spitaler-fmi-ag-unterseen",
+        "en": "psychiatric-nurse-spitaler-fmi-ag-unterseen",
         "de": "pflegefachperson-psychiatrie-stationar-60-100-fmi-unterseen",
         "fr": "infirmier-infirmiere-en-psychiatrie-spitaler-fmi-ag-unterseen"
       },
@@ -243,7 +243,7 @@
         "psychologist-in-psychiatry-80-spitaler-fmi-ag-unterseen",
         "psycholog-in-psychiatrie-80-fmi-unterseen",
         "psychologue-en-psychiatrie-80-spitaler-fmi-ag-unterseen",
-        "psychiatric-nurse-spitaler-fmi-ag-unterseen"
+        "nursing-specialist-psychiatry-stationary-60-100-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -256,7 +256,7 @@
         ],
         "en": [
           "psychologist-in-psychiatry-80-spitaler-fmi-ag-unterseen",
-          "psychiatric-nurse-spitaler-fmi-ag-unterseen"
+          "nursing-specialist-psychiatry-stationary-60-100-spitaler-fmi-ag-unterseen"
         ],
         "de": [
           "psycholog-in-psychiatrie-80-fmi-unterseen"
@@ -1276,7 +1276,7 @@
       "slug": "personale-di-assistenza-spitaler-fmi-ag-unterseen",
       "slugByLocale": {
         "it": "personale-di-assistenza-spitaler-fmi-ag-unterseen",
-        "en": "nursing-staff-spitaler-fmi-ag-unterseen",
+        "en": "pflegepersonal-spitaler-fmi-ag-unterseen",
         "de": "pflegepersonal-fmi-unterseen",
         "fr": "personnel-soignant-spitaler-fmi-ag-unterseen"
       },
@@ -1351,7 +1351,7 @@
         "occupational-therapist-60-80-spitaler-fmi-ag-unterseen",
         "ergotherapeut-in-60-80-spitaler-fmi-ag-unterseen",
         "therapeute-en-ergotherapie-60-80-spitaler-fmi-ag-unterseen",
-        "pflegepersonal-spitaler-fmi-ag-unterseen"
+        "nursing-staff-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1379,7 +1379,7 @@
           "nutritionist-in-60-80-spitaler-fmi-ag-unterseen",
           "personnel-in-accounting-40-60-spitaler-fmi-ag-unterseen",
           "occupational-therapist-60-80-spitaler-fmi-ag-unterseen",
-          "pflegepersonal-spitaler-fmi-ag-unterseen"
+          "nursing-staff-spitaler-fmi-ag-unterseen"
         ],
         "de": [
           "ernahrungsberater-in-60-80-fmi-unterseen",
@@ -5900,12 +5900,12 @@
     },
     {
       "id": "fmi-1fa6ad56b6ef",
-      "slug": "assistent-in-gesundheit-e-soziales-o-pflegehilfe-30-60-spitaler-fmi-ag-unterseen",
+      "slug": "assistente-alla-salute-e-al-sociale-o-ausiliario-a-di-cura-30-60-spitaler-fmi-ag-unterseen",
       "slugByLocale": {
         "de": "assistent-in-gesundheit-und-soziales-oder-pflegehilfe-30-60-fmi-unterseen",
-        "it": "assistent-in-gesundheit-e-soziales-o-pflegehilfe-30-60-spitaler-fmi-ag-unterseen",
-        "en": "assistent-in-gesundheit-und-soziales-oder-pflegehilfe-30-60-fmi-unterseen",
-        "fr": "assistent-in-gesundheit-und-soziales-oder-pflegehilfe-30-60-fmi-unterseen"
+        "it": "assistente-alla-salute-e-al-sociale-o-ausiliario-a-di-cura-30-60-spitaler-fmi-ag-unterseen",
+        "en": "healthcare-and-social-care-assistant-or-nursing-aide-30-60-spitaler-fmi-ag-unterseen",
+        "fr": "aide-en-soins-et-accompagnement-ou-aide-soignant-e-30-60-spitaler-fmi-ag-unterseen"
       },
       "company": "Spitäler fmi AG",
       "companyKey": "fmi",
@@ -5952,11 +5952,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "assistent-in-gesundheit-und-soziales-oder-pflegehilfe-30-60-fmi-unterseen",
+          "assistent-in-gesundheit-e-soziales-o-pflegehilfe-30-60-spitaler-fmi-ag-unterseen"
+        ],
+        "en": [
+          "assistent-in-gesundheit-und-soziales-oder-pflegehilfe-30-60-fmi-unterseen"
+        ],
+        "fr": [
           "assistent-in-gesundheit-und-soziales-oder-pflegehilfe-30-60-fmi-unterseen"
         ]
       },
       "previousSlugs": [
-        "assistent-in-gesundheit-und-soziales-oder-pflegehilfe-30-60-fmi-unterseen"
+        "assistent-in-gesundheit-und-soziales-oder-pflegehilfe-30-60-fmi-unterseen",
+        "assistent-in-gesundheit-e-soziales-o-pflegehilfe-30-60-spitaler-fmi-ag-unterseen"
       ],
       "salaryMin": 51000,
       "salaryMax": 71400,

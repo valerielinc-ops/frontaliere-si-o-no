@@ -752,10 +752,10 @@
     },
     {
       "id": "vitrea-gesundheit-8b8faeeba1dd",
-      "slug": "mitarbeiterin-a-hotellerie-40-vitrea-gesundheit-zihlschlacht-sitterdorf",
+      "slug": "dipendenti-a-albergo-40-vitrea-gesundheit-zihlschlacht-sitterdorf",
       "slugByLocale": {
         "de": "mitarbeiterin-a-hotellerie-40-vitrea-gesundheit-zihlschlacht-sitterdorf",
-        "it": "mitarbeiterin-a-hotellerie-40-vitrea-gesundheit-zihlschlacht-sitterdorf",
+        "it": "dipendenti-a-albergo-40-vitrea-gesundheit-zihlschlacht-sitterdorf",
         "en": "mitarbeiterin-a-hotellerie-40-vitrea-gesundheit-zihlschlacht-sitterdorf",
         "fr": "mitarbeiterin-a-hotellerie-40-vitrea-gesundheit-zihlschlacht-sitterdorf"
       },
@@ -819,7 +819,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:19:07.287Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:19:07.287Z"
+      "firstSeenAt": "2026-11-17T21:19:07.287Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiterin-a-hotellerie-40-vitrea-gesundheit-zihlschlacht-sitterdorf"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiterin-a-hotellerie-40-vitrea-gesundheit-zihlschlacht-sitterdorf"
+      ]
     },
     {
       "id": "vitrea-gesundheit-bbda919ab125",
