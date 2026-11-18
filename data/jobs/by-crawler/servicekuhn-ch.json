@@ -1,7 +1,7 @@
 {
   "crawlerKey": "servicekuhn-ch",
-  "assembledAt": "2026-11-18T09:19:18.284Z",
-  "runId": "44273992454",
+  "assembledAt": "2026-11-18T21:19:13.632Z",
+  "runId": "44399268528",
   "jobs": [
     {
       "id": "servicekuhn-ch-9fa3fe3bcb3e",
@@ -34,7 +34,7 @@
       "url": "https://servicekuhn.ch/jobs/",
       "source": "servicekuhn Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:19:11.351Z",
+      "crawledAt": "2026-11-18T21:19:08.454Z",
       "addressLocality": "Thalwil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -83,7 +83,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-18T09:19:11.351Z",
+      "validThrough": "2026-12-18T21:19:08.454Z",
       "validThroughSource": "last-observed-window"
     }
   ]

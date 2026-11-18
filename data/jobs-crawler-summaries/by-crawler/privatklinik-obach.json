@@ -1,7 +1,7 @@
 {
   "key": "privatklinik-obach",
   "label": "Privatklinik Obach",
-  "generatedAt": "2026-11-18T09:29:54.407Z",
+  "generatedAt": "2026-11-18T21:21:48.445Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -13,31 +13,32 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 32462,
-  "avgDurationMs": 32462,
+  "durationMs": 6352,
+  "avgDurationMs": 6352,
   "durationHistory": [
-    32462
+    6352
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "privatklinik-obach-6d695f8c36dd",
-      "slug": "pflegefachperson-hf-privatklinik-obach-solothurn",
+      "slug": "professionista-hf-privatklinik-obach-solothurn",
       "company": "Privatklinik Obach",
       "companyKey": "privatklinik-obach",
       "companyDomain": "swissmedical.net",
       "title": "Pflegefachperson HF",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Solothurn",
       "canton": "SO",
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000162224969-pflegefachperson-hf",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000162224969-pflegefachperson-hf",
       "source": "Privatklinik Obach Dedicated Parser (SMN clinic=PKO)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:29:07.547Z",
+      "crawledAt": "2026-11-18T21:21:34.229Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -53,23 +54,22 @@
       "datePosted": "2026-11-18T06:16:19.263Z",
       "postedDate": "2026-11-18T06:16:19.263Z",
       "postingDateSource": "reported",
+      "firstSeenAt": "2026-11-18T09:29:07.547Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-16T09:29:07.547Z",
+      "validThrough": "2027-02-16T21:21:34.229Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T09:29:07.547Z",
-      "_qualityScore": 84,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -86,7 +86,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000133075633-lagerungspfleger-in-60-100-",
       "source": "Privatklinik Obach Dedicated Parser (SMN clinic=PKO)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:29:10.357Z",
+      "crawledAt": "2026-11-18T21:21:37.042Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -107,7 +107,7 @@
       "salaryMax": 160000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-18T09:29:10.357Z",
+      "validThrough": "2026-12-18T21:21:37.042Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -131,7 +131,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000154931979-dipl-pflegefachperson-mit-berufsbildner-funktion",
       "source": "Privatklinik Obach Dedicated Parser (SMN clinic=PKO)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:29:07.549Z",
+      "crawledAt": "2026-11-18T21:21:34.231Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -152,7 +152,7 @@
       "salaryMax": 119000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-10T09:29:07.549Z",
+      "validThrough": "2027-01-10T21:21:34.231Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -176,7 +176,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146478439-ausbildung-dipl-pflegefachperson-hf",
       "source": "Privatklinik Obach Dedicated Parser (SMN clinic=PKO)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:29:07.548Z",
+      "crawledAt": "2026-11-18T21:21:34.230Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -197,7 +197,7 @@
       "salaryMax": 119000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-18T09:29:07.548Z",
+      "validThrough": "2026-12-18T21:21:34.230Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -221,7 +221,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000157387729-mpa-empfang-60-100-",
       "source": "Privatklinik Obach Dedicated Parser (SMN clinic=PKO)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:29:07.546Z",
+      "crawledAt": "2026-11-18T21:21:34.229Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -242,7 +242,7 @@
       "salaryMax": 119000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-21T09:29:07.546Z",
+      "validThrough": "2027-01-21T21:21:34.229Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -253,5 +253,5 @@
       }
     }
   ],
-  "codeCommit": "c09e64fc08a252ae7234edb7cb9fdea84c5eb705"
+  "codeCommit": "8862042892397f4dcea90f48fbc2dc028da23eec"
 }
