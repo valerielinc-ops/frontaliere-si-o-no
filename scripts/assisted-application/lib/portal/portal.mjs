@@ -5885,7 +5885,13 @@ export function formPostingMatch(formText, job = {}, {
   const brassRingRouteExpected = sameBrassRingPostingAddress(applyUrl, brassRingRouteAddress);
   const brassRingRouteBound = brassRingRouteExpected && sameBrassRingPostingAddress(pageUrl, brassRingRouteAddress);
   const workdayRouteExpected = isWorkdayTenantUrl(applyUrl);
-  const workdayRouteBound = workdayRouteExpected && isWorkdayJobRouteBound(pageUrl, applyUrl);
+  const workdayRouteBound = workdayRouteExpected && (
+    isWorkdayTenantAccountRoute(pageUrl, applyUrl)
+      ? applicationEntry === true
+        && postingMatched === true
+        && samePostingAddress(pageUrl, applicationEntryUrl)
+      : isWorkdayJobRouteBound(pageUrl, applyUrl)
+  );
   const talentSoftPageIdentity = talentSoftPostingIdentity(pageUrl);
   const paidTalentSoftPostingBound = sameTalentSoftPostingRoute(pageUrl, paidPostingUrl);
   // A final TalentSoft page that exposes a requisition ID is bound to the paid

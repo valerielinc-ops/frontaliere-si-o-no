@@ -48,6 +48,21 @@ describe('portal form binding identity', () => {
     })).toBe('match');
   });
 
+  it('uses a proved Workday account handoff as the route binding', () => {
+    const applyUrl = 'https://acme.wd3.myworkdayjobs.com/fr-FR/AcmeCareers/job/Mendrisio%2C-Outlet/Consultant_R-12345-1/apply/applyManually';
+    const accountUrl = 'https://acme.wd3.myworkdayjobs.com/fr-FR/AcmeCareers/createAccount';
+
+    expect(formPostingMatch('Application\nFirst name\nE-mail', {
+      company: 'Acme AG', title: 'Consultant',
+    }, {
+      pageUrl: accountUrl,
+      applyUrl,
+      applicationEntry: true,
+      postingMatched: true,
+      applicationEntryUrl: accountUrl,
+    })).toBe('match');
+  });
+
   it('does not treat the selected role after a separator as another employer', () => {
     expect(namesAnotherEmployer('Example Employer - Payroll Specialist', {
       company: 'Example Employer',
