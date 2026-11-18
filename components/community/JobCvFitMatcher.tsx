@@ -3,12 +3,12 @@ import { AlertCircle, CheckCircle2, Edit3, FileDown, FileText, Loader2, Target, 
 import { useTranslation } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
 import { loadUserCvProfile, type UserCvProfileRecord } from '@/services/profileFirestore';
+import { buildPath } from '@/services/router';
 import {
   cvSkillsFromProfile,
   deleteCandidateProfileCv,
   loadCandidateJobSkills,
   saveCandidateJobSkills,
-  setCandidateCvJobAlertPersonalization,
   uploadCandidateProfileCv,
 } from '@/services/candidateJobProfile';
 import { computeCvMatch, type CvMatchResult } from '../../services/cvmatch';
@@ -94,9 +94,6 @@ export const JobCvFitMatcher: React.FC<JobCvFitMatcherProps> = ({
   const [cvStatusTone, setCvStatusTone] = useState<'success' | 'warning'>('success');
   const [skillsSaveError, setSkillsSaveError] = useState(false);
   const [isSavingSkills, setIsSavingSkills] = useState(false);
-  const [isSavingAlertPreference, setIsSavingAlertPreference] = useState(false);
-  const [alertPreferenceError, setAlertPreferenceError] = useState(false);
-  const [alertPreferenceSaved, setAlertPreferenceSaved] = useState(false);
 
   const candidateSkills = useMemo(() => skillEntries(candidateSkillsText), [candidateSkillsText]);
   const isLoadingProfileSkills = Boolean(userId && skillsLoadedFor !== userId);
@@ -167,10 +164,6 @@ export const JobCvFitMatcher: React.FC<JobCvFitMatcherProps> = ({
     .filter(Boolean)
     .filter((requirement, index, list) => list.indexOf(requirement) === index)
     .slice(0, 10);
-  const knownCvSkills = cvSkillsFromProfile(cvProfile);
-  const canUseCvForJobAlerts = Boolean(
-    userId && cvProfile?.status === 'ready' && knownCvSkills.length > 0,
-  );
   const cvOwnedByCandidate = cvProfile?.cvDocument?.sourceType === 'candidate_profile';
 
   const skillGroups = [
@@ -250,22 +243,6 @@ export const JobCvFitMatcher: React.FC<JobCvFitMatcherProps> = ({
       setCvError(t('jobBoard.affinity.cvRemoveFailed'));
     } finally {
       setIsRemovingCv(false);
-    }
-  };
-
-  const handleCvAlertPreference = async (enabled: boolean) => {
-    if (!userId || (!canUseCvForJobAlerts && enabled)) return;
-    setIsSavingAlertPreference(true);
-    setAlertPreferenceError(false);
-    setAlertPreferenceSaved(false);
-    try {
-      await setCandidateCvJobAlertPersonalization(userId, enabled);
-      setCvProfile((current) => current ? { ...current, jobAlertPersonalizationEnabled: enabled } : current);
-      setAlertPreferenceSaved(true);
-    } catch {
-      setAlertPreferenceError(true);
-    } finally {
-      setIsSavingAlertPreference(false);
     }
   };
 
@@ -494,24 +471,16 @@ export const JobCvFitMatcher: React.FC<JobCvFitMatcherProps> = ({
           </div>
         )}
 
-        {userId && (canUseCvForJobAlerts || cvProfile?.jobAlertPersonalizationEnabled === true) && (
-          <div className="space-y-1 border-t border-edge/60 pt-3">
-            <label className="flex min-h-[44px] cursor-pointer items-start gap-2.5 py-2 text-sm font-medium text-body">
-              <input
-                type="checkbox"
-                className="mt-0.5 h-4 w-4 accent-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-                checked={cvProfile?.jobAlertPersonalizationEnabled === true}
-                disabled={isSavingAlertPreference}
-                onChange={(event) => { void handleCvAlertPreference(event.target.checked); }}
-              />
-              <span>{t('jobBoard.affinity.enableCvJobAlert')}</span>
-            </label>
-            <p className="pl-6 text-xs leading-relaxed text-subtle">{t('jobBoard.affinity.cvJobAlertHint')}</p>
-            {isSavingAlertPreference && <p role="status" className="pl-6 text-xs text-subtle">{t('jobBoard.affinity.savingPreference')}</p>}
-            {alertPreferenceSaved && <p role="status" className="pl-6 text-xs text-success">{t('jobBoard.affinity.preferenceSaved')}</p>}
-            {alertPreferenceError && <p role="alert" className="pl-6 text-xs text-danger">{t('jobBoard.affinity.preferenceSaveFailed')}</p>}
-          </div>
-        )}
+        <div className="border-t border-edge/60 pt-3 text-sm">
+          <a
+            className="inline-flex min-h-[44px] items-center font-semibold text-link underline underline-offset-2 hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+            href={buildPath({ activeTab: 'terms' }, locale)}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {t('jobBoard.assisted.termsLink')}
+          </a>
+        </div>
       </div>
     </section>
   );

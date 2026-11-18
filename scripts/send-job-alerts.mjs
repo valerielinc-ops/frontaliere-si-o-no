@@ -3911,14 +3911,15 @@ async function main() {
     console.warn(`   ⚠️  Application-intent account preference lookup failed; ranking signal disabled: ${redactEmailAddresses(err?.message || err)}`);
   }
 
-  // CV-derived ranking is strictly optional. A failed projection read disables
-  // only this signal; it never changes an alert's hard criteria or geo scope.
+  // CV-derived ranking is an additional signal for the verified account's
+  // ready parser profile. A failed projection read disables only this signal;
+  // it never changes an alert's hard criteria or geo scope.
   try {
     const uids = [...new Set(verifiedAccountUids.values())];
     if (uids.length > 0) {
       if (typeof db.getAll !== 'function') throw new Error('batched CV profile lookup unavailable');
       const PROFILE_CHUNK_SIZE = 200;
-      const enabledProfiles = new Map();
+      const readyProfiles = new Map();
       for (let i = 0; i < uids.length; i += PROFILE_CHUNK_SIZE) {
         const chunk = uids.slice(i, i + PROFILE_CHUNK_SIZE);
         const snapshots = await db.getAll(...chunk.map((uid) => db.collection('user_cv_profiles').doc(uid)));
@@ -3926,18 +3927,18 @@ async function main() {
           const exists = typeof snapshot?.exists === 'function' ? snapshot.exists() : snapshot?.exists === true;
           if (!exists) return;
           const data = snapshot.data() || {};
-          if (data.jobAlertPersonalizationEnabled !== true || data.status !== 'ready') return;
+          if (data.status !== 'ready') return;
           const profile = data.profile && typeof data.profile === 'object' ? data.profile : {};
           const skills = [...(Array.isArray(profile.skills) ? profile.skills : []), ...(Array.isArray(profile.languages) ? profile.languages : [])]
             .filter((skill) => typeof skill === 'string')
             .map((skill) => skill.trim())
             .filter(Boolean)
             .slice(0, 40);
-          if (skills.length > 0) enabledProfiles.set(chunk[index], skills);
+          if (skills.length > 0) readyProfiles.set(chunk[index], skills);
         });
       }
       for (const [email, uid] of verifiedAccountUids) {
-        const skills = enabledProfiles.get(uid);
+        const skills = readyProfiles.get(uid);
         if (skills) cvPersonalizationAccountProfiles.set(email, { uid, skills });
       }
     }

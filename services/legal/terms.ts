@@ -1,13 +1,13 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 import { legalLinks, type LegalDocument, type LegalLocale } from './types';
 
-// Faithful localizations of the existing Italian terms. Legal policy is unchanged.
+// Localized Terms of Service documents.
 // HTML is repository-owned copy; placeholders accept only local routes and the public contact.
 const DOCUMENTS: Record<LegalLocale, LegalDocument> = {
   "it": {
     "title": "Termini di Servizio",
     "description": "Termini e condizioni di utilizzo di Frontaliere Ticino.",
-    "updated": "Ultimo aggiornamento: 11 novembre 2026",
+    "updated": "Ultimo aggiornamento: 18 novembre 2026",
     "introHtml": "<p>Utilizzando la piattaforma <strong>Frontaliere Ticino</strong> (frontaliereticino.ch), accetti i seguenti termini e condizioni di utilizzo.</p>",
     "sections": [
       {
@@ -79,7 +79,7 @@ const DOCUMENTS: Record<LegalLocale, LegalDocument> = {
             "html": "<p> Registrandoti al sito, tramite email o tramite un sistema di accesso federato, accetti questi Termini e iscrivi il tuo indirizzo al rapporto base di comunicazioni di Frontaliere Ticino: newsletter, job alert, messaggi di servizio e comunicazioni promozionali di terzi. Non è richiesta una casella di consenso separata: la registrazione e questa informativa descrivono le comunicazioni incluse. </p>"
           },
           {
-            "html": "<p> Il canale di registrazione può fornire i criteri iniziali dell&apos;alert: una categoria e parole chiave dal jobboard, la ricerca effettuata, il contesto del calcolatore o della pagina visitata. Per le iscrizioni generiche l&apos;alert parte ampio e si perfeziona con le successive ricerche, visite e offerte consultate. Puoi gestire i canali e le preferenze nella pagina <a href=\"{{communications}}\">Comunicazioni</a>. </p>"
+            "html": "<p> Il canale di registrazione può fornire i criteri iniziali dell&apos;alert: una categoria e parole chiave dal jobboard, la ricerca effettuata, il contesto del calcolatore o della pagina visitata. Per le iscrizioni generiche l&apos;alert parte ampio e si perfeziona con le successive ricerche, visite e offerte consultate. Se nel profilo è disponibile un CV elaborato, le competenze e le lingue estratte vengono usate come segnali aggiuntivi per ordinare le offerte nei job alert, senza modificare i criteri o i filtri che hai scelto. Puoi gestire i canali e le preferenze nella pagina <a href=\"{{communications}}\">Comunicazioni</a>. </p>"
           },
           {
             "html": "<p> Salvare un lavoro o seguire un&apos;azienda attiva inoltre il relativo canale aggiuntivo. La pubblicità di terzi non è un percorso di iscrizione separato: è compresa nel rapporto base e attiva in partenza. Puoi disattivarla in qualsiasi momento dal centro preferenze, senza disattivare newsletter o job alert. </p>"
@@ -137,7 +137,7 @@ const DOCUMENTS: Record<LegalLocale, LegalDocument> = {
   "en": {
     "title": "Terms of Service",
     "description": "Terms and conditions for using Frontaliere Ticino.",
-    "updated": "Last updated: 11 November 2026",
+    "updated": "Last updated: 18 November 2026",
     "introHtml": "<p>By using the <strong>Frontaliere Ticino</strong> platform (frontaliereticino.ch), you accept the following terms and conditions of use.</p>",
     "sections": [
       {
@@ -209,7 +209,7 @@ const DOCUMENTS: Record<LegalLocale, LegalDocument> = {
             "html": "<p>By registering on the site, by email or through a federated sign-in system, you accept these Terms and enrol your address in Frontaliere Ticino’s basic communications relationship: newsletters, job alerts, service messages and third-party promotional communications. No separate consent checkbox is required: registration and this notice describe the communications included.</p>"
           },
           {
-            "html": "<p>The registration channel may supply the initial alert criteria: a category and keywords from the job board, your search, or the context of the calculator or page visited. For general registrations, the alert starts broadly and is refined by subsequent searches, visits and job listings viewed. You can manage channels and preferences on the <a href=\"{{communications}}\">Communications</a> page.</p>"
+            "html": "<p>The registration channel may supply the initial alert criteria: a category and keywords from the job board, your search, or the context of the calculator or page visited. For general registrations, the alert starts broadly and is refined by subsequent searches, visits and job listings viewed. If your profile has a processed CV, skills and languages extracted from it are used as additional signals when ranking job listings in alerts; they do not change the criteria or filters you chose for the alert. You can manage channels and preferences on the <a href=\"{{communications}}\">Communications</a> page.</p>"
           },
           {
             "html": "<p>Saving a job or following a company also activates the corresponding additional channel. Third-party advertising is not a separate sign-up path: it is included in the basic relationship and enabled initially. You can disable it at any time in the preference centre without disabling newsletters or job alerts.</p>"
@@ -267,7 +267,7 @@ const DOCUMENTS: Record<LegalLocale, LegalDocument> = {
   "de": {
     "title": "Nutzungsbedingungen",
     "description": "Bedingungen für die Nutzung von Frontaliere Ticino.",
-    "updated": "Letzte Aktualisierung: 11. November 2026",
+    "updated": "Letzte Aktualisierung: 18. November 2026",
     "introHtml": "<p>Mit der Nutzung der Plattform <strong>Frontaliere Ticino</strong> (frontaliereticino.ch) akzeptieren Sie die folgenden Nutzungsbedingungen.</p>",
     "sections": [
       {
@@ -339,7 +339,7 @@ const DOCUMENTS: Record<LegalLocale, LegalDocument> = {
             "html": "<p>Mit Ihrer Registrierung auf der Website per E-Mail oder über ein föderiertes Anmeldesystem akzeptieren Sie diese Bedingungen und melden Ihre Adresse für das grundlegende Kommunikationsverhältnis mit Frontaliere Ticino an: Newsletter, Stellenbenachrichtigungen, Servicemitteilungen und Werbemitteilungen Dritter. Ein separates Einwilligungskästchen ist nicht erforderlich: Die Registrierung und dieser Hinweis beschreiben die enthaltenen Mitteilungen.</p>"
           },
           {
-            "html": "<p>Der Registrierungskanal kann die anfänglichen Kriterien einer Stellenbenachrichtigung liefern: eine Kategorie und Stichwörter aus der Stellenbörse, Ihre Suchanfrage, den Kontext des Rechners oder der besuchten Seite. Bei allgemeinen Registrierungen beginnt die Benachrichtigung breit und wird anhand späterer Suchanfragen, Besuche und angesehener Stellenangebote präzisiert. Kanäle und Einstellungen können Sie auf der Seite <a href=\"{{communications}}\">Mitteilungen</a> verwalten.</p>"
+            "html": "<p>Der Registrierungskanal kann die anfänglichen Kriterien einer Stellenbenachrichtigung liefern: eine Kategorie und Stichwörter aus der Stellenbörse, Ihre Suchanfrage, den Kontext des Rechners oder der besuchten Seite. Bei allgemeinen Registrierungen beginnt die Benachrichtigung breit und wird anhand späterer Suchanfragen, Besuche und angesehener Stellenangebote präzisiert. Wenn in Ihrem Profil ein verarbeiteter Lebenslauf vorliegt, verwenden wir die daraus extrahierten Kompetenzen und Sprachen als zusätzliche Signale für die Rangfolge der Stellenangebote; sie ändern weder die Kriterien noch die Filter, die Sie für den Alert ausgewählt haben. Kanäle und Einstellungen können Sie auf der Seite <a href=\"{{communications}}\">Mitteilungen</a> verwalten.</p>"
           },
           {
             "html": "<p>Das Speichern einer Stelle oder das Folgen eines Unternehmens aktiviert zusätzlich den entsprechenden Kanal. Werbung Dritter ist kein gesonderter Anmeldeweg: Sie gehört zum grundlegenden Verhältnis und ist anfangs aktiviert. Sie können sie jederzeit im Einstellungszentrum deaktivieren, ohne Newsletter oder Stellenbenachrichtigungen abzuschalten.</p>"
@@ -397,7 +397,7 @@ const DOCUMENTS: Record<LegalLocale, LegalDocument> = {
   "fr": {
     "title": "Conditions d’utilisation",
     "description": "Conditions d’utilisation de Frontaliere Ticino.",
-    "updated": "Dernière mise à jour : 11 novembre 2026",
+    "updated": "Dernière mise à jour : 18 novembre 2026",
     "introHtml": "<p>En utilisant la plateforme <strong>Frontaliere Ticino</strong> (frontaliereticino.ch), vous acceptez les conditions d’utilisation suivantes.</p>",
     "sections": [
       {
@@ -469,7 +469,7 @@ const DOCUMENTS: Record<LegalLocale, LegalDocument> = {
             "html": "<p>En vous inscrivant sur le site, par email ou via un système de connexion fédérée, vous acceptez ces Conditions et inscrivez votre adresse à la relation de base de communications de Frontaliere Ticino : newsletters, alertes emploi, messages de service et communications promotionnelles de tiers. Aucune case de consentement distincte n’est requise : l’inscription et cette information décrivent les communications incluses.</p>"
           },
           {
-            "html": "<p>Le canal d’inscription peut fournir les critères initiaux de l’alerte : une catégorie et des mots-clés du portail d’emploi, la recherche effectuée, le contexte du calculateur ou de la page visitée. Pour les inscriptions générales, l’alerte est d’abord large, puis s’affine avec les recherches, visites et offres consultées. Vous pouvez gérer les canaux et préférences sur la page <a href=\"{{communications}}\">Communications</a>.</p>"
+            "html": "<p>Le canal d’inscription peut fournir les critères initiaux de l’alerte : une catégorie et des mots-clés du portail d’emploi, la recherche effectuée, le contexte du calculateur ou de la page visitée. Pour les inscriptions générales, l’alerte est d’abord large, puis s’affine avec les recherches, visites et offres consultées. Si un CV traité figure dans votre profil, nous utilisons les compétences et les langues qui en sont extraites comme signaux supplémentaires pour classer les offres ; elles ne modifient ni les critères ni les filtres que vous avez choisis pour l’alerte. Vous pouvez gérer les canaux et préférences sur la page <a href=\"{{communications}}\">Communications</a>.</p>"
           },
           {
             "html": "<p>Enregistrer une offre ou suivre une entreprise active également le canal supplémentaire correspondant. La publicité de tiers ne fait pas l’objet d’une inscription séparée : elle est comprise dans la relation de base et activée initialement. Vous pouvez la désactiver à tout moment dans le centre de préférences sans désactiver les newsletters ni les alertes emploi.</p>"
