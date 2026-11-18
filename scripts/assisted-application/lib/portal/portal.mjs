@@ -9852,7 +9852,8 @@ function exactHttpsPortalHostUrl(value, host) {
 async function recoverAccountPassword({ page, snapshot, ctx, host, account, diagnostics, typedSecrets, registrationRestarts, recoveryAttempts }) {
   const orderEmail = String(ctx.candidate?.identity?.email || '').trim().toLowerCase();
   const email = String(account?.email || orderEmail).trim().toLowerCase();
-  if (!orderEmail || email !== orderEmail || !aliasLocalPart(email) || usesOtpAccountCreation(host) || ctx.dryRun
+  if (!orderEmail || email !== orderEmail || !aliasLocalPart(email) || usesOtpAccountCreation(host)
+    || (ctx.dryRun && !ctx.allowAccountCreationInDryRun)
     || typeof ctx.accounts.beginRecovery !== 'function'
     || typeof ctx.accounts.waitForPasswordReset !== 'function') {
     return accountHandoff('account', 'account_exists', accountStageFor(snapshot));
@@ -10239,7 +10240,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     if (!await openVerifiedSignInNavigation(page, snapshot)) return accountHandoff('account', 'no_sign_in_button', 'registration');
     return { snapshot: await awaitAuthView(page, snapshot) };
   }
-  if (ctx.dryRun) return { dryRun: true };
+  if (ctx.dryRun && !ctx.allowAccountCreationInDryRun) return { dryRun: true };
   const securityQuestionAnswers = new Map();
   const planRegistrationWithSecurityQuestions = async (plannedSnapshot) => {
     const allFields = Array.isArray(plannedSnapshot?.fields) ? plannedSnapshot.fields : [];
@@ -10759,12 +10760,12 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
  * @param {Map<string,string>} passwords the run's own, by host (re-typed when the page is planned again)
  * @returns {Promise<boolean>} every password field took it
  */
-async function typeOwnPassword({ page, snapshot, ctx, passwords }) {
+async function typeOwnPassword({ page, snapshot, ctx, passwords, allowSaveInDryRun = false }) {
   const host = new URL(page.url()).hostname;
   let password = passwords.get(host) || (await ctx.accounts.load(host))?.password || '';
   if (!password) {
     password = newPortalPassword({ portal: host });
-    if (ctx.dryRun) ctx.accounts.mask?.(password);
+    if (ctx.dryRun && !allowSaveInDryRun) ctx.accounts.mask?.(password);
     else await ctx.accounts.save(host, { email: ctx.candidate.identity.email, password });
   }
   passwords.set(host, password);
@@ -11408,6 +11409,78 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
  * the candidate.
  * @returns {Promise<{questions:Array<object>,documents:Array<object>,handoff?:string,unreadableFields?:Array<string>,portalContract?:object}>} requirements and the metadata-only portal contract for the review page
  */
+async function walkPortalForRequirements(ctx, { entryUrl, channelType, postingMatch = 'unknown', preflightSnapshot = null } = {}) {
+  const result = await submitViaPortal({
+    ...ctx,
+    preReadOnly: true,
+    dryRun: true,
+    allowAccountCreationInDryRun: true,
+    onBeforeSubmit: null,
+    onConfirmedNotSent: null,
+    onReceipt: null,
+    submissionGuard: null,
+  });
+  const event = result?.event || {};
+  const evidence = result?.evidence || {};
+  const contractSnapshot = evidence.lastFormSnapshot || preflightSnapshot;
+  const currentUrl = evidence.finalUrl || evidence.steps?.at(-1)?.url || entryUrl;
+  const matched = evidence.postingMatch || postingMatch || 'unknown';
+  const buildContract = ({ status, handoff = null, questions = [], documents = [] }) => applicationContractFromPreflight({
+    channelType,
+    applyUrl: ctx.applyUrl,
+    sourceUrl: entryUrl,
+    currentUrl,
+    snapshot: contractSnapshot,
+    postingMatch: matched,
+    status,
+    handoff,
+    questions,
+    documents,
+    diagnostics: evidence.diagnostics || null,
+  });
+
+  if (event.type === 'submit_needs_candidate') {
+    const questions = Array.isArray(event.questions) ? event.questions : [];
+    const documents = Array.isArray(event.documents) ? event.documents : [];
+    return {
+      questions,
+      documents,
+      portalContract: buildContract({ status: 'ready', questions, documents }),
+    };
+  }
+  if (event.type === 'dry_run_ready') {
+    return {
+      questions: [],
+      documents: [],
+      portalContract: buildContract({ status: 'ready' }),
+    };
+  }
+  if (event.type === 'posting_closed') {
+    return {
+      questions: [],
+      documents: [],
+      handoff: 'posting_closed',
+      portalContract: buildContract({ status: 'blocked', handoff: 'posting_closed' }),
+    };
+  }
+  if (event.type === 'submit_handoff') {
+    const handoff = event.reason === 'captcha' ? 'captcha_present' : (event.reason || 'portal_reader_failed');
+    return {
+      questions: [],
+      documents: [],
+      handoff,
+      portalContract: buildContract({ status: handoff === 'posting_mismatch' ? 'blocked' : 'handoff', handoff }),
+    };
+  }
+  const handoff = String(event.error || 'portal_reader_failed');
+  return {
+    questions: [],
+    documents: [],
+    handoff,
+    portalContract: buildContract({ status: 'unavailable', handoff }),
+  };
+}
+
 export async function readPortalRequirements(ctx) {
   const entryUrl = portalEntryUrl(ctx);
   // Umantis can publish the posting itself as its applyUrl. portalEntryUrl
@@ -11617,7 +11690,27 @@ export async function readPortalRequirements(ctx) {
       sourcePostingMatched = true;
     }
     contractSnapshot = snapshot;
-    if (opened.handoff) return await finish({ questions: [], documents: [], handoff: opened.handoff });
+    const canWalkWithAccount = Boolean(ctx.accounts) && Boolean(aliasLocalPart(ctx.candidate?.identity?.email || ''));
+    const closePreflightBrowser = async () => {
+      if (contractDiagnostics && !contractFinished) {
+        await contractDiagnostics.finish().catch(() => {});
+        contractFinished = true;
+      }
+      if (browser) {
+        await browser.close().catch(() => {});
+        browser = null;
+      }
+    };
+    const walkthroughAuthHandoff = ['account', 'account_verification'].includes(opened.handoff)
+      || (['workday', 'successfactors'].includes(channelType)
+        && ['posting_mismatch', 'application_stage_unknown'].includes(opened.handoff));
+    if (opened.handoff) {
+      if (canWalkWithAccount && walkthroughAuthHandoff) {
+        await closePreflightBrowser();
+        return await walkPortalForRequirements(ctx, { entryUrl, channelType, postingMatch: contractPostingMatch, preflightSnapshot: contractSnapshot });
+      }
+      return await finish({ questions: [], documents: [], handoff: opened.handoff });
+    }
     // An allowlisted ATS may keep later, unconditional steps mounted with
     // zero-sized controls. Read the complete mounted contract once, without
     // pressing Next/Continue or fabricating an answer. Conditional containers
@@ -11637,18 +11730,31 @@ export async function readPortalRequirements(ctx) {
     const readableApplication = hasApplicationForm(snapshot)
       && (!snapshot.passwordVisible || snapshot.fields.some((field) => field.kind === 'file') || sendsApplication(snapshot));
     if (snapshot.captcha) return await finish({ questions: [], documents: [], handoff: 'captcha_present' });
-    if (!readableApplication) {
-      // An account portal is allowed to expose only its sign-in/create-account
-      // surface before the runner owns a portal account. That is not an
-      // unreadable application: submitViaPortal will create/sign in to the
-      // account and then reopen the job-bound form. Keep the pre-read
-      // read-only and defer the auth gate instead of burning a draft retry.
-      const authGate = ['workday', 'successfactors'].includes(channelType)
-        && (['sign_in', 'create'].includes(authPageKind(snapshot)) || snapshot.passwordVisible === true);
-      if (authGate) {
-        (ctx.log || (() => {}))('portal pre-read deferred: account gate');
-        return await finish({ questions: [], documents: [] });
+    const isAuthSurface = ['sign_in', 'create'].includes(authPageKind(snapshot))
+      || snapshot.passwordVisible === true
+      || Boolean(codeField(snapshot));
+    const isMultiStepForm = readableApplication
+      && Boolean(findButton(snapshot.buttons, NEXT_RE))
+      && !findButton(snapshot.buttons, SUBMIT_RE);
+    if ((!readableApplication && isAuthSurface) || isMultiStepForm) {
+      if (canWalkWithAccount) {
+        (ctx.log || (() => {}))(isMultiStepForm
+          ? 'portal pre-read walking multi-step ATS form'
+          : 'portal pre-read creating/signing into ATS account');
+        await closePreflightBrowser();
+        return await walkPortalForRequirements(ctx, { entryUrl, channelType, postingMatch: contractPostingMatch, preflightSnapshot: contractSnapshot });
       }
+      if (!readableApplication) {
+        const authGate = ['workday', 'successfactors'].includes(channelType)
+          && (['sign_in', 'create'].includes(authPageKind(snapshot)) || snapshot.passwordVisible === true);
+        if (authGate) {
+          (ctx.log || (() => {}))('portal pre-read deferred: account gate');
+          return await finish({ questions: [], documents: [] });
+        }
+        return await finish({ questions: [], documents: [], handoff: 'application_form_unreadable' });
+      }
+    }
+    if (!readableApplication) {
       return await finish({ questions: [], documents: [], handoff: 'application_form_unreadable' });
     }
     // The live form is authoritative for the selected posting. A verified
@@ -13531,6 +13637,11 @@ export async function submitViaPortal(ctx) {
       let unclearQuestions = [];
       let candidateQuestions = [];
       if (workable(snapshot)) {
+        evidence.lastFormSnapshot = {
+          fields: (snapshot.fields || []).map(({ required, invalid, kind, inputType }) => ({
+            required: Boolean(required), invalid: Boolean(invalid), kind: kind || '', inputType: inputType || '',
+          })),
+        };
         // The planner never sees a password field, nor what a retry finds typed in it.
         const cvFields = preferredCvFields(snapshot.fields);
         const preferredCvIds = new Set(cvFields.map(field => field.id));
@@ -13755,7 +13866,15 @@ export async function submitViaPortal(ctx) {
           continue;
         }
         if (ownAccount) {
-          const typed = await typeOwnPassword({ page, snapshot, ctx, passwords: ownPasswords });
+          const typed = await typeOwnPassword({
+            page,
+            snapshot,
+            ctx,
+            passwords: ownPasswords,
+            allowSaveInDryRun: Boolean(ctx.allowAccountCreationInDryRun)
+              && Boolean(findButton(snapshot.buttons, NEXT_RE))
+              && !findButton(snapshot.buttons, SUBMIT_RE),
+          });
           evidence.steps.at(-1).auth = { kind: 'inline', outcome: !typed ? 'password_not_typed' : ctx.dryRun ? 'dry_run' : 'ok' };
           if (!typed) return await handoff('account', { accountFailure: accountFailure('login_unobserved', 'application') });
         }
@@ -14164,7 +14283,7 @@ export async function submitViaPortal(ctx) {
           return await handoff('portal_required_fields_unfilled');
         }
       }
-      if (ctx.dryRun) {
+      if (ctx.dryRun || ctx.preReadOnly) {
         if (ctx.portalReplay !== true) evidence.dryRunScreenshot = (await page.screenshot({ fullPage: true })).toString('base64');
         evidence.finalButton = { label: final.label, by: final.by };
         return { event: { type: 'dry_run_ready' }, evidence };

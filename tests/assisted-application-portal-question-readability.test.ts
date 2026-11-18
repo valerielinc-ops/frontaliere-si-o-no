@@ -4,6 +4,7 @@ import { readFileSync } from 'node:fs';
 import { extractFieldsInPage } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import { guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { applicationEntryControls, formPostingMatch, hasReadOnlyVacancyEvidence, hasVacancySpecificPostingEvidence, localizePortalQuestions, namesAnotherEmployer, portalReadAheadCapability, portalQuestionReductionHandoff, portalRequirementsForCandidate, portalReaderErrorClass, portalRequirementsFromMissingRequired, readPortalRequirements, readPortalQuestions } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { portalAccountStore } from '../scripts/assisted-application/lib/portal/account.mjs';
 import { PORTAL_QUESTION_PLACEHOLDERS } from '../functions/src/lib/portalQuestionText.js';
 import { questionsForCandidate } from '../functions/src/assistedApplicationCandidateEdits.js';
 import { transition } from '../functions/src/assistedApplicationFlow.js';
@@ -1361,6 +1362,374 @@ it('keeps a readable same-language Umantis batch usable when localization is una
     expect.objectContaining({ id: 'referral', applicationQuestionLocale: 'it', localizationStatus: 'same_language' }),
   ]));
   expect(result.every((question: any) => question.localizationStatus !== 'fallback')).toBe(true);
+});
+
+describe('readPortalRequirements account & multi-step walkthrough', () => {
+  function buildWalkthroughBrowser({ startUrl, initialHtml, steps }: {
+    startUrl: string;
+    initialHtml: string;
+    steps: Record<string, { url: string; html: string }>;
+  }) {
+    const dom = new JSDOM(`<!doctype html><html><body>${initialHtml}</body></html>`, { url: startUrl, runScripts: 'outside-only' });
+    const { window } = dom;
+    Object.defineProperty(window, 'CSS', { configurable: true, value: { escape: (value: string) => value } });
+    Object.defineProperty(window.HTMLElement.prototype, 'innerText', { configurable: true, get() { return this.textContent || ''; } });
+    window.Element.prototype.getBoundingClientRect = () => ({ width: 80, height: 30, top: 0, left: 0, right: 80, bottom: 30, x: 0, y: 0, toJSON() {} });
+    let currentUrl = startUrl;
+    const clicks: string[] = [];
+
+    const bindButtons = () => {
+      for (const button of window.document.querySelectorAll('button, [type="submit"]')) {
+        button.addEventListener('click', () => {
+          const id = button.getAttribute('id') || button.textContent?.trim() || '';
+          clicks.push(id);
+          const next = steps[id];
+          if (next) {
+            currentUrl = next.url;
+            window.history.replaceState({}, '', next.url);
+            window.document.body.innerHTML = next.html;
+            bindButtons();
+          }
+        });
+      }
+    };
+    bindButtons();
+
+    const elem = (selector: string) => window.document.querySelector(selector) as any;
+    const locator = (selector: string) => {
+      const target = () => {
+        const found = elem(selector);
+        if (!found) throw new Error(`locator missing: ${selector}`);
+        return found;
+      };
+      const handle: any = {
+        first: () => handle,
+        count: async () => window.document.querySelectorAll(selector).length,
+        isVisible: async () => window.document.querySelectorAll(selector).length > 0,
+        click: async () => target().click(),
+        fill: async (value: string) => {
+          target().value = value;
+          target().dispatchEvent(new window.Event('input', { bubbles: true }));
+          target().dispatchEvent(new window.Event('change', { bubbles: true }));
+        },
+        inputValue: async () => target().value,
+        selectOption: async ({ label, value }: { label?: string; value?: string }) => {
+          const select = target();
+          const option = [...select.options].find((o: any) => (label && o.label === label) || (value && o.value === value));
+          if (!option) throw new Error('option not found');
+          select.value = option.value;
+          select.dispatchEvent(new window.Event('change', { bubbles: true }));
+          return [option.value];
+        },
+        setChecked: async (wanted: boolean) => { const b = target(); if (b.checked !== wanted) b.click(); },
+        isChecked: async () => Boolean(target().checked),
+        setInputFiles: async () => {},
+        evaluate: async (run: any, arg: any) => run(target(), arg),
+        allInnerTexts: async () => [...window.document.querySelectorAll(selector)].map((el: any) => el.textContent || ''),
+      };
+      return handle;
+    };
+    const frame: any = {
+      url: () => currentUrl,
+      locator,
+      evaluate: async (run: any, arg: any) => {
+        const saved = ['window', 'document', 'location', 'CSS', 'getComputedStyle'].map((k) => [k, Object.getOwnPropertyDescriptor(globalThis, k)] as const);
+        Object.defineProperty(globalThis, 'window', { configurable: true, writable: true, value: window });
+        Object.defineProperty(globalThis, 'document', { configurable: true, writable: true, value: window.document });
+        Object.defineProperty(globalThis, 'location', { configurable: true, writable: true, value: window.location });
+        Object.defineProperty(globalThis, 'CSS', { configurable: true, writable: true, value: { escape: (v: string) => v } });
+        Object.defineProperty(globalThis, 'getComputedStyle', { configurable: true, writable: true, value: window.getComputedStyle.bind(window) });
+        try {
+          return run(arg);
+        } finally {
+          for (const [k, desc] of saved) {
+            if (desc) Object.defineProperty(globalThis, k, desc);
+            else delete (globalThis as any)[k];
+          }
+        }
+      },
+    };
+    const page: any = {
+      frames: () => [frame],
+      mainFrame: () => frame,
+      url: () => currentUrl,
+      locator,
+      evaluate: frame.evaluate,
+      goto: async (target: string) => { currentUrl = target; return { status: () => 200 }; },
+      title: async () => window.document.querySelector('h1')?.textContent || '',
+      on: () => {},
+      off: () => {},
+      screenshot: async () => Buffer.from(''),
+      waitForLoadState: async () => {},
+      waitForTimeout: async () => {},
+      getByText: () => {
+        const h: any = { first: () => h, isVisible: async () => false, waitFor: async () => { throw new Error('not found'); } };
+        return h;
+      },
+      getByRole: () => {
+        const h: any = { first: () => h, filter: () => h, waitFor: async () => { throw new Error('not found'); }, isVisible: async () => false };
+        return h;
+      },
+      context: () => ({ addCookies: async () => {} }),
+    };
+    const browser: any = {
+      newContext: async () => ({
+        newPage: async () => page,
+        pages: () => [page],
+        on: () => {},
+        off: () => {},
+        route: async () => {},
+        waitForEvent: async () => { throw new Error('timeout'); },
+        addCookies: async () => {},
+        close: async () => {},
+      }),
+      close: vi.fn(async () => {}),
+    };
+    return { browser, clicks };
+  }
+
+  function parsePromptJson(prompt: string) {
+    const start = prompt.lastIndexOf('\n\n{');
+    const end = prompt.indexOf('\n\nReturn exactly one JSON object', start);
+    return JSON.parse(prompt.slice(start + 2, end));
+  }
+
+  function localizeFromPrompt(prompt: string, mapItem: (q: any) => any) {
+    const input = parsePromptJson(prompt) as { questions?: Array<Record<string, any>> };
+    return { questions: (input.questions || []).map(mapItem) };
+  }
+
+  function fieldIdInPrompt(prompt: string, labelFragment: string) {
+    const data = parsePromptJson(prompt) as { form?: { fields?: Array<Record<string, any>> } };
+    const re = new RegExp(labelFragment, 'i');
+    return (data.form?.fields || []).find((f) => re.test(String(f.label || '')))?.id || '';
+  }
+
+  it('creates an alias account on an account-gated ATS during draft pre-read and extracts post-login questions without submitting', async () => {
+    const postingUrl = 'https://muster.wd3.myworkdayjobs.com/en-US/Careers/job/Lugano/Application-Manager_R123';
+    const startUrl = `${postingUrl}/apply`;
+    const { browser, clicks } = buildWalkthroughBrowser({
+      startUrl,
+      initialHtml: `<main>
+        <h1>Application Manager — Muster Klinik AG</h1>
+        <button id="apply" type="button">Apply</button>
+      </main>`,
+      steps: {
+        apply: {
+          url: postingUrl,
+          html: `<main role="dialog" aria-label="Start Your Application">
+            <h1>Application Manager — Muster Klinik AG</h1>
+            <button id="apply_manually" type="button">Apply Manually</button>
+          </main>`,
+        },
+        apply_manually: {
+          url: `${postingUrl}/apply/applyManually`,
+          html: `<form aria-label="Create Account">
+            <h1>Application Manager — Muster Klinik AG — Create Account</h1>
+            <label for="email">Email Address *</label><input id="email" type="email" name="email" required>
+            <label for="password">Password *</label><input id="password" type="password" name="password" required>
+            <label for="confirm">Verify New Password *</label><input id="confirm" type="password" name="confirm" required>
+            <button id="create" type="button">Create Account</button>
+          </form>`,
+        },
+        create: {
+          url: `${postingUrl}/apply/applyManually`,
+          html: `<form aria-label="Application Questions">
+            <h1>Application Manager — Muster Klinik AG — Application Questions</h1>
+            <label for="firstName">First Name *</label><input id="firstName" type="text" name="firstName" value="Mario" required>
+            <label for="lastName">Last Name *</label><input id="lastName" type="text" name="lastName" value="Rossi" required>
+            <label for="email">Email *</label><input id="email" type="email" name="email" value="c-wd23456789@candidature.frontaliereticino.ch" required>
+            <label for="marital">What is your Marital Status? *</label>
+            <select id="marital" name="marital" required>
+              <option value="">Select One</option>
+              <option value="single">Single</option>
+              <option value="married">Married</option>
+            </select>
+            <button id="submit" type="button">Submit</button>
+          </form>`,
+        },
+      },
+    });
+    const store = createMemoryFirestore({ 'assisted_applications/order_WD': { paymentStatus: 'paid' } });
+    const accounts = portalAccountStore({ db: store.db, orderId: 'order_WD', key: Buffer.alloc(32, 9) });
+    const aliasEmail = 'c-wd23456789@candidature.frontaliereticino.ch';
+    const codex = vi.fn(async ({ prompt }: any) => {
+      const text = String(prompt || '');
+      if (text.includes('You localize questions from an online job application')) {
+        return localizeFromPrompt(text, (question) => ({
+          id: question.id,
+          sourceLocale: 'en',
+          question: 'Qual è il tuo stato civile?',
+          why: 'Richiesto dal portale.',
+          options: ['Celibe/Nubile', 'Sposato/a'],
+          optionMap: [
+            { candidate: 'Celibe/Nubile', application: 'Single' },
+            { candidate: 'Sposato/a', application: 'Married' },
+          ],
+          validationMessage: 'Seleziona una risposta.',
+        }));
+      }
+      const maritalFieldId = fieldIdInPrompt(text, 'What is your Marital Status');
+      if (!maritalFieldId) {
+        const emailFieldId = fieldIdInPrompt(text, 'Email Address');
+        return { actions: emailFieldId ? [{ action: 'fill', fieldId: emailFieldId, value: aliasEmail }] : [], missingRequired: [] };
+      }
+      return {
+        actions: [],
+        missingRequired: [{ fieldId: maritalFieldId, question: 'What is your Marital Status?', type: 'choice', options: ['Single', 'Married'] }],
+      };
+    });
+
+    const result = await readPortalRequirements({
+      channelType: 'workday',
+      applyUrl: startUrl,
+      postingUrl,
+      job: { company: 'Muster Klinik AG', title: 'Application Manager' },
+      language: 'en',
+      candidateLocale: 'it',
+      candidate: { identity: { email: aliasEmail, firstName: 'Mario', lastName: 'Rossi' }, profile: {}, answers: {} },
+      accounts,
+      codex,
+      launch: async () => browser,
+    });
+
+    expect(clicks).toContain('create');
+    expect(clicks).not.toContain('submit');
+    expect(await accounts.load('muster.wd3.myworkdayjobs.com')).toMatchObject({
+      email: aliasEmail,
+      password: expect.any(String),
+    });
+    expect(result.questions).toEqual(expect.arrayContaining([
+      expect.objectContaining({
+        question: 'Qual è il tuo stato civile?',
+        applicationQuestion: 'What is your Marital Status? *',
+        options: ['Celibe/Nubile', 'Sposato/a'],
+      }),
+    ]));
+  });
+
+  it('refuses account-gate walkthrough during draft pre-read when candidate email is not an order alias', async () => {
+    const postingUrl = 'https://muster.wd3.myworkdayjobs.com/en-US/Careers/job/Lugano/Application-Manager_R123';
+    const startUrl = `${postingUrl}/apply`;
+    const { browser, clicks } = buildWalkthroughBrowser({
+      startUrl,
+      initialHtml: `<main>
+        <h1>Application Manager — Muster Klinik AG</h1>
+        <button id="apply" type="button">Apply</button>
+      </main>`,
+      steps: {
+        apply: {
+          url: postingUrl,
+          html: `<main role="dialog" aria-label="Start Your Application">
+            <h1>Application Manager — Muster Klinik AG</h1>
+            <button id="apply_manually" type="button">Apply Manually</button>
+          </main>`,
+        },
+        apply_manually: {
+          url: `${postingUrl}/apply/applyManually`,
+          html: `<form aria-label="Create Account">
+            <h1>Application Manager — Muster Klinik AG — Create Account</h1>
+            <label for="email">Email Address *</label><input id="email" type="email" name="email" required>
+            <label for="password">Password *</label><input id="password" type="password" name="password" required>
+            <button id="create" type="button">Create Account</button>
+          </form>`,
+        },
+      },
+    });
+    const store = createMemoryFirestore({ 'assisted_applications/order_NOALIAS': { paymentStatus: 'paid' } });
+    const accounts = portalAccountStore({ db: store.db, orderId: 'order_NOALIAS', key: Buffer.alloc(32, 9) });
+    const codex = vi.fn(async () => ({ actions: [], missingRequired: [] }));
+
+    const result = await readPortalRequirements({
+      channelType: 'workday',
+      applyUrl: startUrl,
+      postingUrl,
+      job: { company: 'Muster Klinik AG', title: 'Application Manager' },
+      language: 'en',
+      candidateLocale: 'it',
+      candidate: { identity: { email: 'personal@example.com' }, profile: {}, answers: {} },
+      accounts,
+      codex,
+      launch: async () => browser,
+    });
+
+    expect(result.handoff).toBeUndefined();
+    expect(result.questions).toEqual([]);
+    expect(clicks).not.toContain('create');
+    expect(await accounts.load('muster.wd3.myworkdayjobs.com')).toBeNull();
+  });
+
+  it('walks multi-step public forms to collect downstream step questions without submitting', async () => {
+    const startUrl = 'https://careers.example.test/apply';
+    const { browser, clicks } = buildWalkthroughBrowser({
+      startUrl,
+      initialHtml: `<form aria-label="Step 1">
+        <h1>Application Manager — Muster Klinik AG — Step 1</h1>
+        <label for="firstName">First Name *</label><input id="firstName" type="text" name="firstName" value="Mario" required>
+        <label for="lastName">Last Name *</label><input id="lastName" type="text" name="lastName" value="Rossi" required>
+        <label for="email">Email *</label><input id="email" type="email" name="email" value="c-ms23456789@candidature.frontaliereticino.ch" required>
+        <button id="next" type="button">Next</button>
+      </form>`,
+      steps: {
+        next: {
+          url: 'https://careers.example.test/apply/step2',
+          html: `<form aria-label="Step 2">
+            <h1>Application Manager — Muster Klinik AG — Step 2</h1>
+            <label for="shift">Can you work weekend shifts? *</label>
+            <input id="shift" type="text" name="shift" required>
+            <button id="submit" type="button">Submit Application</button>
+          </form>`,
+        },
+      },
+    });
+    const store = createMemoryFirestore({ 'assisted_applications/order_MS': { paymentStatus: 'paid' } });
+    const accounts = portalAccountStore({ db: store.db, orderId: 'order_MS', key: Buffer.alloc(32, 9) });
+    const codex = vi.fn(async ({ prompt }: any) => {
+      const text = String(prompt || '');
+      if (text.includes('You localize questions from an online job application')) {
+        return localizeFromPrompt(text, (question) => ({
+          id: question.id,
+          sourceLocale: 'en',
+          question: 'Puoi lavorare nei turni del weekend?',
+          why: 'Richiesto dal portale.',
+          options: [],
+          optionMap: [],
+          validationMessage: 'Inserisci una risposta.',
+        }));
+      }
+      if (text.includes('Step 1') && !text.includes('Can you work weekend shifts')) {
+        return { actions: [], missingRequired: [] };
+      }
+      const shiftFieldId = fieldIdInPrompt(text, 'Can you work weekend shifts') || 'shift';
+      return {
+        actions: [],
+        missingRequired: [{ fieldId: shiftFieldId, question: 'Can you work weekend shifts?', type: 'text', options: [] }],
+      };
+    });
+
+    const result = await readPortalRequirements({
+      channelType: 'employer_site',
+      applyUrl: startUrl,
+      postingUrl: startUrl,
+      resolvePublicHost: async () => true,
+      job: { company: 'Muster Klinik AG', title: 'Application Manager' },
+      language: 'en',
+      candidateLocale: 'it',
+      candidate: { identity: { email: 'c-ms23456789@candidature.frontaliereticino.ch' }, profile: {}, answers: {} },
+      accounts,
+      codex,
+      launch: async () => browser,
+    });
+
+    expect(clicks).toContain('next');
+    expect(clicks).not.toContain('submit');
+    expect(result.questions).toEqual(expect.arrayContaining([
+      expect.objectContaining({
+        question: 'Puoi lavorare nei turni del weekend?',
+        applicationQuestion: 'Can you work weekend shifts? *',
+      }),
+    ]));
+  });
 });
 
 it('keeps long Italian country catalogues readable when localization is unavailable', async () => {

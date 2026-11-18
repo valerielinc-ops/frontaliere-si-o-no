@@ -37,6 +37,7 @@ import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import { currentPendingPortalAccount, currentRecoveringPortalAccount, exactPortalVerificationUrl, MAX_PORTAL_VERIFICATION_URL, pendingAccountForCode, portalAccountForNotice } from './assistedApplicationPortalSites.js';
 import { orderIdForAlias } from './assistedApplicationAlias.js';
 import { applyAutomationEvent, AUTOMATION_SUBCOLLECTION, confirmSubmissionByEmployer, FLOW_DOC_ID } from './assistedApplicationAutomation.js';
+import { isUnconfirmedSubmission, submissionRefFor } from './assistedApplicationSubmissionGuard.js';
 import { assistedEmailTracking } from './assistedApplicationEmailEvents.js';
 import { brandButton, brandCallout, brandParagraph, brandSignature, renderBrandedEmail } from './assistedApplicationEmailLayout.js';
 import { buildOrderPageUrl, customerEmailFor, resolveOrderLocale } from './assistedApplicationNotifications.js';
@@ -62,6 +63,29 @@ const OWNER_MAILBOX = 'valerie@frontaliereticino.ch';
 const INBOUND_FORWARD_MAX_ATTEMPTS = 3;
 const INBOUND_FORWARD_BACKOFF_MS = [60_000, 5 * 60_000];
 const INBOUND_FORWARD_LEASE_MS = 10 * 60_000;
+const PRE_SUBMISSION_FLOW_STATES = new Set([
+  'drafting',
+  'regenerating',
+  'owner_review',
+  'candidate_review',
+]);
+
+function hasSubmittedOrActiveAttempt({ order, draft, submission }) {
+  if (order?.submissionStatus === 'submitted' || order?.automationState === 'submitted' || order?.submittedAt != null) return true;
+  if (draft?.sentAttempt != null || draft?.sent != null) return true;
+  if (submission && typeof submission === 'object') {
+    for (const [key, record] of Object.entries(submission)) {
+      if (key === 'withdrawnAt' || !record || typeof record !== 'object') continue;
+      if (record.state === 'sent' || isUnconfirmedSubmission(record)) return true;
+    }
+  }
+  return false;
+}
+
+function isPreSubmissionPhase({ order, flow, draft, submission }) {
+  if (!flow || !PRE_SUBMISSION_FLOW_STATES.has(String(flow.state || ''))) return false;
+  return !hasSubmittedOrActiveAttempt({ order, draft, submission });
+}
 
 const ATEXT_RE = /^[A-Za-z0-9!#$%&'*+\-/=?^_`{|}~]$/;
 
@@ -1657,46 +1681,73 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
       ? 'verified'
       : 'unknown';
     const automatedSender = automatedMessage(message);
-    const mayForwardToCandidate = !knownSystemHold && candidateForwardAllowed(message, recorded);
-    const ownerReviewRequired = !knownSystemHold && recorded.category === 'other'
-      && correlationStatus === 'unknown' && automatedSender && !mayForwardToCandidate;
-    const to = customerEmailFor(order);
-    const initialDelivery = passwordReset
-      ? { status: 'skipped', reason: 'portal_password_reset', attempts: 0, lastError: null }
-      : portalVerificationHost
-      ? { status: 'skipped', reason: 'portal_verification', attempts: 0, lastError: null }
-      : consumedByRunner
-        ? { status: 'skipped', reason: 'portal_verification', attempts: 0, lastError: null }
-      : portalAccountNoticeHost
-        ? { status: 'skipped', reason: 'portal_account_notice', attempts: 0, lastError: null }
-        : applicationReceipt
-        ? { status: 'skipped', reason: 'application_receipt', attempts: 0, lastError: null }
-        : structuralApplicationReceipt
-        ? { status: 'skipped', reason: 'application_receipt', attempts: 0, lastError: null }
-        : portalNoticeAccountHost
-        ? { status: 'skipped', reason: detectedPortalNotice, attempts: 0, lastError: null }
-        : applicationReminder
-        ? { status: 'skipped', reason: 'portal_application_reminder', attempts: 0, lastError: null }
-        : recorded.category === 'verification' && !mayForwardToCandidate
-        ? { status: 'skipped', reason: 'account_verification', attempts: 0, lastError: null }
-        : ownerReviewRequired
-        ? { status: 'skipped', reason: 'owner_review', attempts: 0, lastError: null }
-        : !mayForwardToCandidate
-        ? { status: 'skipped', reason: 'not_candidate_action', attempts: 0, lastError: null }
-        : to
-        ? { status: 'queued', attempts: 0, retryAt: nowMs, lastError: null }
-        : { status: 'failed', attempts: 0, lastError: 'candidate_email_missing' };
+    const baseCandidateForwardAllowed = !knownSystemHold && candidateForwardAllowed(message, recorded);
+    const buildInitialDelivery = ({ mayForwardToCandidate, ownerReviewRequired }) => (
+      passwordReset
+        ? { status: 'skipped', reason: 'portal_password_reset', attempts: 0, lastError: null }
+        : portalVerificationHost
+          ? { status: 'skipped', reason: 'portal_verification', attempts: 0, lastError: null }
+          : consumedByRunner
+            ? { status: 'skipped', reason: 'portal_verification', attempts: 0, lastError: null }
+            : portalAccountNoticeHost
+              ? { status: 'skipped', reason: 'portal_account_notice', attempts: 0, lastError: null }
+              : applicationReceipt
+                ? { status: 'skipped', reason: 'application_receipt', attempts: 0, lastError: null }
+                : structuralApplicationReceipt
+                  ? { status: 'skipped', reason: 'application_receipt', attempts: 0, lastError: null }
+                  : portalNoticeAccountHost
+                    ? { status: 'skipped', reason: detectedPortalNotice, attempts: 0, lastError: null }
+                    : applicationReminder
+                      ? { status: 'skipped', reason: 'portal_application_reminder', attempts: 0, lastError: null }
+                      : recorded.category === 'verification' && !mayForwardToCandidate
+                        ? { status: 'skipped', reason: 'account_verification', attempts: 0, lastError: null }
+                        : ownerReviewRequired
+                          ? { status: 'skipped', reason: 'owner_review', attempts: 0, lastError: null }
+                          : !mayForwardToCandidate
+                            ? { status: 'skipped', reason: 'not_candidate_action', attempts: 0, lastError: null }
+                            : customerEmailFor(order)
+                              ? { status: 'queued', attempts: 0, retryAt: nowMs, lastError: null }
+                              : { status: 'failed', attempts: 0, lastError: 'candidate_email_missing' }
+    );
 
     let written = false;
+    let mayForwardToCandidate = false;
+    let customerRecipient = customerEmailFor(order);
     await db.runTransaction(async transaction => {
-      const [currentMessage, currentOrder, currentFlow] = await Promise.all([
-        transaction.get(ref), transaction.get(orderRef),
-        applicationReminder ? transaction.get(orderRef.collection(AUTOMATION_SUBCOLLECTION).doc(FLOW_DOC_ID)) : null,
+      const flowRef = orderRef.collection(AUTOMATION_SUBCOLLECTION).doc(FLOW_DOC_ID);
+      const checkPreSubmission = !knownSystemHold && (baseCandidateForwardAllowed || recorded.category !== 'verification');
+      const [currentMessage, currentOrder, initialFlow, currentDraft, currentSubmission] = await Promise.all([
+        transaction.get(ref),
+        transaction.get(orderRef),
+        applicationReminder ? transaction.get(flowRef) : null,
+        checkPreSubmission ? transaction.get(orderRef.collection('ai_drafts').doc('current')) : null,
+        checkPreSubmission ? transaction.get(submissionRefFor(db, orderId)) : null,
       ]);
       if (!currentMessage.exists || currentMessage.data()?.processedAt) return;
-      const liveFlowState = String(currentFlow?.data?.()?.state || '') || null;
       const liveOrder = currentOrder.data() || {};
+      const liveDraft = currentDraft?.exists ? (currentDraft.data() || null) : null;
+      const liveSubmission = currentSubmission?.exists ? (currentSubmission.data() || null) : null;
       if (liveOrder.retentionPurgedAt) { transaction.delete(ref); return; }
+      const liveFlowSnap = initialFlow || (
+        checkPreSubmission && !hasSubmittedOrActiveAttempt({ order: liveOrder, draft: liveDraft, submission: liveSubmission })
+          ? await transaction.get(flowRef)
+          : null
+      );
+      const liveFlow = liveFlowSnap?.exists ? (liveFlowSnap.data() || null) : null;
+      const liveFlowState = String(liveFlow?.state || '') || null;
+      customerRecipient = customerEmailFor(liveOrder) || customerRecipient;
+      // Keep every pre-submission email (account setup, portal prompts,
+      // draft reminders) at the alias until an owner reviews it, instead of
+      // forwarding directly to the candidate before any application leaves.
+      const preSubmissionHold = !knownSystemHold && isPreSubmissionPhase({
+        order: liveOrder, flow: liveFlow, draft: liveDraft, submission: liveSubmission,
+      });
+      mayForwardToCandidate = preSubmissionHold ? false : baseCandidateForwardAllowed;
+      const ownerReviewRequired = preSubmissionHold
+        ? recorded.category !== 'verification'
+        : (!knownSystemHold && recorded.category === 'other'
+          && correlationStatus === 'unknown' && automatedSender && !mayForwardToCandidate);
+      const initialDelivery = buildInitialDelivery({ mayForwardToCandidate, ownerReviewRequired });
       const employerResponseEvent = {
         ...recorded, receivedAt: claimed.receivedAt, messageId,
       };
@@ -1762,7 +1813,7 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
     });
     if (!written) return { ok: true, skipped: true };
     let forwarded = (await ref.get()).data()?.forwarded?.status || null;
-    if (to && mayForwardToCandidate) {
+    if (customerRecipient && mayForwardToCandidate) {
       const delivery = await attemptAssistedApplicationInboundForward({ db, bucket, orderId, messageId, runKey, sendCascade, nowMs });
       forwarded = delivery.forwarded || forwarded;
     }
