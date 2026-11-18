@@ -1,7 +1,7 @@
 {
   "key": "barockjob",
   "label": "Barock Job AG",
-  "generatedAt": "2026-11-17T21:48:04.777Z",
+  "generatedAt": "2026-11-18T09:42:10.271Z",
   "total": 1,
   "discovered": 25,
   "parsed": 21,
@@ -132,19 +132,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 35028,
-  "avgDurationMs": 35028,
+  "durationMs": 35233,
+  "avgDurationMs": 35233,
   "durationHistory": [
-    35028
+    35233
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "barockjob-2a9f79926eb0",
-      "slug": "carrosserie-maler-lackierer-in-solothurn-ch-so-barockjob-ch",
+      "slug": "carrosserie-pittore-painter-in-barock-job-ag-solothurn-ch-so",
       "company": "Barock Job AG",
       "companyKey": "barockjob",
       "companyDomain": "barockjob.ch",
@@ -154,7 +155,7 @@
       "url": "https://barockjob.ch/jobs/2026/08/18/18342",
       "source": "Barock Job AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:46:58.341Z",
+      "crawledAt": "2026-11-18T09:41:34.102Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -172,25 +173,23 @@
       "postedDate": "2026-08-10T09:53:23+02:00",
       "postingDateSource": "reported",
       "applyUrl": "https://barockjob.ch/jobs/2026/08/18/18342",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-17T21:46:58.341Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T21:46:58.341Z",
+      "validThrough": "2026-12-18T09:41:34.102Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:46:58.341Z",
-      "_qualityScore": 84,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "8a8594aa5e6a6b71cb0a2a3883a7ded1be40621c"
+  "codeCommit": "c09e64fc08a252ae7234edb7cb9fdea84c5eb705"
 }
