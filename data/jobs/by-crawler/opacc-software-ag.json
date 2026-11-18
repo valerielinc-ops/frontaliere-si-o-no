@@ -374,7 +374,18 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-05T09:16:31.734Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T09:18:48.465Z"
+      "firstSeenAt": "2026-11-06T09:18:48.465Z",
+      "previousSlugs": [
+        "erp-pour-les-entreprises-80-100-opacc-software-ag-rothenburg"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "erp-pour-les-entreprises-80-100-opacc-software-ag-rothenburg"
+        ],
+        "fr": [
+          "erp-pour-les-entreprises-80-100-opacc-software-ag-rothenburg"
+        ]
+      }
     },
     {
       "id": "opacc-software-ag-cf3cc644fd34",

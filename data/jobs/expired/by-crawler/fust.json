@@ -523,6 +523,10 @@
     },
     "sector": "",
     "expiredAt": "2026-11-18T09:50:49.287Z",
+    "previousSlugs": [
+      "servicetechniker-in-heimservice-fust-oberburen",
+      "home-service-technician-fust-oberburen"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "servicetechniker-in-heimservice-fust-oberburen-34eee826",
@@ -548,11 +552,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.fust.ch/offene-stellen/servicetechniker-in-heimservice/0782dc8f-9f2c-4a54-823d-02c1d4599958",
-    "firstSeenAt": "2026-09-11T13:54:23.138Z",
-    "previousSlugs": [
-      "servicetechniker-in-heimservice-fust-oberburen",
-      "home-service-technician-fust-oberburen"
-    ]
+    "firstSeenAt": "2026-09-11T13:54:23.138Z"
   },
   {
     "slug": "hr-recruiting-specialist-fust-oberburen",

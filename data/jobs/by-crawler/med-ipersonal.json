@@ -13274,7 +13274,6 @@
       "postedDate": "2026-11-17",
       "postingDateSource": "reported",
       "applyUrl": "https://www.ipersonal.ch/jobs/produktionsmechaniker-in-efz-100-benken-sg-i-2026-0057/",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -13307,9 +13306,9 @@
       "slug": "bauarbeiter-in-ausbaugewerbe-ipersonal-ag-weggis-lu",
       "slugByLocale": {
         "de": "bauarbeiter-in-ausbaugewerbe-ipersonal-ag-weggis-lu",
-        "it": "bauarbeiter-in-ausbaugewerbe-ipersonal-ag-weggis-lu",
-        "en": "bauarbeiter-in-ausbaugewerbe-ipersonal-ag-weggis-lu",
-        "fr": "bauarbeiter-in-ausbaugewerbe-ipersonal-ag-weggis-lu"
+        "it": "operaio-a-edile-settore-delle-finiture-ipersonal-ag-weggis-lu",
+        "en": "construction-worker-finishing-trades-ipersonal-ag-weggis-lu",
+        "fr": "ouvrier-ouvriere-du-batiment-metiers-de-la-finition-ipersonal-ag-weggis-lu"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -13350,7 +13349,6 @@
       "postedDate": "2026-11-17",
       "postingDateSource": "reported",
       "applyUrl": "https://www.ipersonal.ch/jobs/bauarbeiter-in-ausbaugewerbe-100-weggis-i-2026-0032/",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -13368,7 +13366,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T09:51:34.691Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T09:51:34.691Z"
+      "firstSeenAt": "2026-11-18T09:51:34.691Z",
+      "previousSlugs": [
+        "bauarbeiter-in-ausbaugewerbe-ipersonal-ag-weggis-lu"
+      ],
+      "previousSlugsByLocale": {
+        "en": [
+          "bauarbeiter-in-ausbaugewerbe-ipersonal-ag-weggis-lu"
+        ],
+        "fr": [
+          "bauarbeiter-in-ausbaugewerbe-ipersonal-ag-weggis-lu"
+        ]
+      }
     }
   ]
 }
