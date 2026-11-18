@@ -699,15 +699,17 @@ export function buildActiveJobBridgePathPlan(
       }
 
       const oldPath = buildCanonicalJobDetailPath(locale, job, oldSlug, canton);
+      const oldPathKey = normalizedPathKey(oldPath);
+      // An active page on the old path skips the bridge AND the legacy TI mirror, exactly like the
+      // emitter does; the check must not depend on canEmitBridgePath (a claimed path is not emittable).
+      if (
+        activeJobDirs.has(oldPathKey)
+        || activeRouteOwnerKeys.has(`${canton}:${locale}:${oldSlug}`)
+      ) {
+        stats.previousSlugActivePathCollisions += 1;
+        return;
+      }
       if (canEmitBridgePath(locale, oldPath)) {
-        const oldPathKey = normalizedPathKey(oldPath);
-        if (
-          activeJobDirs.has(oldPathKey)
-          || activeRouteOwnerKeys.has(`${canton}:${locale}:${oldSlug}`)
-        ) {
-          stats.previousSlugActivePathCollisions += 1;
-          return;
-        }
         bridgeByPath.set(`${locale}\u0000${oldPathKey}`, {
           path: oldPath,
           locale,
@@ -1453,4 +1455,13 @@ export function classifyRetainedNotEmitted(input: {
 }): { kind: 'owned-elsewhere' | 'missing'; flag: 'claimed' | 'unclaimed-existing' | 'absent' } {
   if (input.claimed || input.ownedBeforePlan) return { kind: 'owned-elsewhere', flag: 'claimed' };
   return { kind: 'missing', flag: input.exists ? 'unclaimed-existing' : 'absent' };
+}
+
+/** True when the planned retained bridge belongs to this emitter's job and kind (plan decides, emitter obeys). */
+export function isRetainedBridgeOwnedBy(
+  retained: { kind: string; sourceJobIdentifier?: string } | undefined,
+  kind: string,
+  ownerJobIdentifier: string,
+): boolean {
+  return !!retained && retained.kind === kind && (retained.sourceJobIdentifier ?? '') === ownerJobIdentifier;
 }
