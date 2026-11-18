@@ -236,17 +236,16 @@ async function main() {
             slugMap.set(pinnedSlug, job.id);
             sbl[locale] = pinnedSlug;
             job.slugByLocale = sbl;
-            if (locale === 'it') syncItalianMasterSlug(job, currentSlug, pinnedSlug);
             sliceChanged = true;
             totalPinned++;
           } else if (!currentSlug) {
             sbl[locale] = pinnedSlug;
             job.slugByLocale = sbl;
             slugMap.set(pinnedSlug, job.id);
-            if (locale === 'it') syncItalianMasterSlug(job, currentSlug, pinnedSlug);
             sliceChanged = true;
             totalPinned++;
           }
+          if (locale === 'it') syncItalianMasterSlug(job, currentSlug, pinnedSlug);
           continue;
         }
 

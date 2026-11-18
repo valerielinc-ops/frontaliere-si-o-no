@@ -24,4 +24,15 @@ describe('Italian master route synchronization', () => {
     expect(job.slug).toBe('pinned-italian-route');
     expect(job.previousSlugsByLocale.it).toEqual(['fallback-master-route']);
   });
+
+  it('promotes the master route when the Italian slot already equals the pin', () => {
+    const job = {
+      slug: 'fallback-master-route',
+      slugByLocale: { it: 'pinned-italian-route' },
+    };
+
+    expect(syncItalianMasterSlug(job, 'pinned-italian-route', 'pinned-italian-route')).toBe(true);
+    expect(job.slug).toBe('pinned-italian-route');
+    expect(job.previousSlugsByLocale.it).toEqual(['fallback-master-route']);
+  });
 });
