@@ -1,7 +1,7 @@
 {
   "crawlerKey": "gemeinde-st-moritz",
-  "assembledAt": "2026-11-17T21:31:27.674Z",
-  "runId": "44178625745",
+  "assembledAt": "2026-11-18T09:25:24.108Z",
+  "runId": "44274660501",
   "jobs": [
     {
       "id": "gemeinde-st-moritz-26220aaafb72",
@@ -9,7 +9,7 @@
       "slugByLocale": {
         "it": "contatti-importanti-gemeinde-st-moritz-st-moritz",
         "en": "municipal-police-100-m-w-d-gemeinde-st-moritz",
-        "de": "gemeindepolizist-100-m-w-d-gemeinde-st-moritz",
+        "de": "wichtige-kontakte-gemeinde-st-moritz-ch",
         "fr": "police-municipale-100-m-w-d-gemeinde-st-moritz"
       },
       "company": "Gemeinde St. Moritz",
@@ -34,7 +34,7 @@
       "url": "https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/gemeindepolizist-100-m-w-1",
       "source": "Gemeinde St. Moritz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:31:20.887Z",
+      "crawledAt": "2026-11-18T09:25:17.367Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "country": "CH",
@@ -79,7 +79,7 @@
           "municipal-police-100-m-f-gemeinde-st-moritz-st-moritz"
         ],
         "de": [
-          "wichtige-kontakte-gemeinde-st-moritz-ch"
+          "gemeindepolizist-100-m-w-d-gemeinde-st-moritz"
         ],
         "fr": [
           "contacts-importants-gemeinde-st-moritz-st-moritz",
@@ -105,7 +105,7 @@
       "addressRegion": "GR",
       "streetAddress": "St. Moritz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T21:31:20.887Z",
+      "validThrough": "2026-12-18T09:25:17.367Z",
       "validThroughSource": "last-observed-window"
     }
   ]
