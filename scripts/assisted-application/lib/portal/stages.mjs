@@ -424,6 +424,7 @@ function invalidPostingKey(value, protocol = null) {
 export function isApplicationRouteBound(url, applyUrl, sourceProtocol = null) {
   if (invalidPostingKey(url) || invalidPostingKey(applyUrl, sourceProtocol)) return false;
   if (!isWorkdayTenantUrl(applyUrl)) return true;
+  if (isWorkdayTenantAccountRoute(url, applyUrl)) return true;
   return isWorkdayJobRouteBound(url, applyUrl);
 }
 
@@ -663,7 +664,8 @@ export function applicationStage(snapshot, {
     || splitFormApplication || closedSectionApplication;
   if (apply.length && (!applicationForm || pending)) return { kind: 'unknown_apply', prefinal: pending };
   const hasVisibleStageContent = buttons.length > 0
-    || (snapshot?.fields || []).some(field => !field?.disabled && !field?.chrome);
+    || (snapshot?.fields || []).some(field => !field?.disabled && !field?.chrome
+      && !['hidden', 'submit', 'button', 'reset', 'image'].includes(String(field?.inputType || '').toLowerCase()));
   if (!hasVisibleStageContent && snapshot?.workdayApplicationSurface !== true) {
     return { kind: 'unknown_apply' };
   }
