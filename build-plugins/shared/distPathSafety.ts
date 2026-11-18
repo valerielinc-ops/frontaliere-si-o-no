@@ -5,7 +5,7 @@ import {
   MAX_FILESYSTEM_SEGMENT_BYTES as MAX_FILESYSTEM_SEGMENT_BYTES_SHARED,
   isSafeCompatPath,
 } from '../../scripts/lib/compat-path-safety.mjs';
-import { hasClaimedPath, isJobAliasRedirectPath } from '../sharedWriteRegistry';
+import { hasClaimedOrReservedPath } from '../sharedWriteRegistry';
 
 export {
   MAX_FILESYSTEM_SEGMENT_BYTES,
@@ -104,13 +104,11 @@ export function writeDistPageSafely(options: SafeDistPageWriteOptions): boolean 
 
   const indexPath = safeTargets?.indexPath ?? options.indexPath;
   const flatPath = safeTargets?.flatPath ?? options.flatPath;
-  if (isJobAliasRedirectPath(indexPath) || (flatPath && isJobAliasRedirectPath(flatPath))) {
-    return false;
-  }
-  // A richer page may already be queued in a WriteCollector without being on
-  // disk yet. Treat the build-lifetime ownership claim as emitted content so
-  // a direct bridge writer cannot win the filesystem race with a pending page.
-  if (hasClaimedPath(indexPath) || (flatPath && hasClaimedPath(flatPath))) {
+  // A richer page may already be queued in a WriteCollector or reserved by a
+  // retained job bridge without being on disk yet. Treat build-lifetime
+  // ownership and reservations as emitted content so a direct bridge writer
+  // cannot win the filesystem race.
+  if (hasClaimedOrReservedPath(indexPath) || (flatPath && hasClaimedOrReservedPath(flatPath))) {
     return false;
   }
 

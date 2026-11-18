@@ -159,6 +159,7 @@ describe('SEO builder noindex guards', () => {
       expect(reservationStart).toBeGreaterThan(unsafeTargetStart);
       expect(classifyBlock.slice(unsafeTargetStart, reservationStart)).toContain('continue;');
       expect(classifyBlock).toContain('reserveJobAliasRedirectDir(targets.directoryPath);');
+      expect(classifyBlock).toContain('reserveRetainedJobBridgeDir(safeTargets.directoryPath);');
       expect(classifyBlock).toContain('continue;');
       expect(classifyBlock).not.toMatch(/\b(?:_qw|_qwFlat|_qwFlatFull|writeFileSync)\s*\(/);
       expect(classifyBlock).toContain('retainedBridgePaths.set(bridgePathKey(bridge.locale, bridge.path), { bridge, reason });');
@@ -186,6 +187,8 @@ describe('SEO builder noindex guards', () => {
         'getSafeDistPageTargets(distDir, bridgePath, { includeFlat: false });',
       );
       expect(activeBridgePlanBlock).toContain('canEmitBridgePath: (locale, bridgePath) =>');
+      expect(activeBridgePlanBlock).toContain('isActivePageEmitted: (locale, canton, slug) =>');
+      expect(activeBridgePlanBlock).toContain('emittedActiveJobPaths.has(activeJobPathOwnerKey(canton, locale, slug))');
       expect(activeBridgePlanBlock).toContain('pathIsClaimedOrReserved(safeTargets.indexPath)');
       expect(source).toContain('const oldPath = buildCanonicalJobDetailPath(locale, job, oldSlug, jobCantonForBridge)');
       expect(source).toContain("const legacyTIRelPath = buildCanonicalJobDetailPath(locale, 'TI', oldSlug)");
@@ -208,6 +211,7 @@ describe('SEO builder noindex guards', () => {
       expect(retainedOutputEnd).toBeGreaterThan(retainedOutputStart);
       expect(retainedOutputBlock).toContain('getSafeDistPageTargets(distDir, bridge.path, { includeFlat: false });');
       expect(retainedOutputBlock).toContain('if (!shouldEmitLocale(bridge.locale)) continue;');
+      expect(retainedOutputBlock).toContain('sourceJobIdentifier: bridge.sourceJobIdentifier');
 
       const coverageStart = source.indexOf('const bridgeDistCoverage = assertBridgePathDistCoverage(');
       const coverageEnd = source.indexOf('console.log(', coverageStart);
@@ -219,6 +223,7 @@ describe('SEO builder noindex guards', () => {
       expect(coverageBlock).toContain('noindex: hasNoindexRobotsMeta(html)');
       expect(coverageBlock).toContain('canonical: hasExactCanonicalHref(html, targetPath)');
       expect(coverageBlock).toContain('if (!checks.noindex || !checks.targetSlug || !checks.canonical)');
+      expect(coverageBlock).toContain('bridgeDiagnosticValue(output.locale)');
     });
 
     // en/de/fr legacy TI URLs of non-TI jobs (and localized-slug aliases) are
@@ -305,7 +310,7 @@ describe('SEO builder noindex guards', () => {
       expect(activeEnd).toBeGreaterThan(activeStart);
       expect(activeBlock).toContain('const noindexCrossLocaleActiveHtml = noindexJobAliasHtml(crossLocaleActiveHtml);');
       expect(activeBlock).toContain('jobsSeoReuse?.finish(crossLocaleActiveReuse, noindexCrossLocaleActiveHtml);');
-      expect(activeBlock).toContain('_qw(indexFile, noindexCrossLocaleActiveHtml);');
+      expect(activeBlock).toContain('_qwRetainedJobBridge(indexFile, noindexCrossLocaleActiveHtml);');
     });
 
     it('recovers only complete self-canonical job details from the noindex quality gate', () => {

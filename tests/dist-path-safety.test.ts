@@ -17,6 +17,7 @@ import {
   getJobAliasRedirectDirs,
   isJobAliasRedirectPath,
   reserveJobAliasRedirectDir,
+  reserveRetainedJobBridgeDir,
   reset as resetWriteRegistry,
 } from '../build-plugins/sharedWriteRegistry';
 
@@ -34,6 +35,10 @@ const COMPANY_SOURCE = read('../build-plugins/companyHubBridgePlugin.ts');
 const RELATED_SOURCE = read('../build-plugins/relatedSearchClustersPlugin.ts');
 const CANTON_ORPHAN_SOURCE = read('../build-plugins/cantonOrphanRedirectsPlugin.ts');
 const DIST_SAFETY_SOURCE = read('../build-plugins/shared/distPathSafety.ts');
+const CALCULATOR_SOURCE = read('../build-plugins/calculatorLegacyAliasPlugin.ts');
+const RECENCY_SOURCE = read('../build-plugins/jobRecencyPagesPlugin.ts');
+const SECTOR_SOURCE = read('../build-plugins/jobSectorPagesPlugin.ts');
+const PHARMACY_SOURCE = read('../build-plugins/pharmacyDirectoryPagesPlugin.ts');
 
 describe('isSafeDistPath', () => {
   it('rejects dot-prefixed segments, including the Search Console offender shape', () => {
@@ -249,6 +254,28 @@ describe('filesystem target preflight', () => {
     }
   });
 
+  it('blocks direct compatibility writes after a retained bridge reserves the output', () => {
+    const distDir = fs.mkdtempSync(path.join(os.tmpdir(), 'dist-path-retained-bridge-'));
+    const pathname = '/de/jobs-in-zurich/old-route/';
+    const targets = getSafeDistPageTargets(distDir, pathname)!;
+    try {
+      reserveRetainedJobBridgeDir(targets.directoryPath);
+      expect(writeDistPageSafely({
+        distDir,
+        indexPath: targets.indexPath,
+        flatPath: targets.flatPath,
+        html: '<html>archive or compatibility page</html>',
+        urlPath: pathname,
+        logPrefix: 'retained-bridge-reservation-test',
+      })).toBe(false);
+      expect(fs.existsSync(targets.indexPath)).toBe(false);
+      expect(fs.existsSync(targets.flatPath!)).toBe(false);
+    } finally {
+      resetWriteRegistry();
+      fs.rmSync(distDir, { recursive: true, force: true });
+    }
+  });
+
   it('blocks safe compatibility page writes when a richer page is only claimed', () => {
     const distDir = fs.mkdtempSync(path.join(os.tmpdir(), 'dist-path-claimed-page-'));
     const pathname = '/de/jobs-in-zurich/active-route/';
@@ -334,25 +361,30 @@ describe('raw URL-to-dist writers apply the guard before filesystem joins', () =
   it('uses the same guard for related-search retirement writes', () => {
     expect(RELATED_SOURCE).toContain('if (stem === \'\' || !isSafeDistPath(stem)) return null;');
     expect(RELATED_SOURCE).toContain('const safeTargets = getSafeDistPageTargets(distDir, landingPath);');
+    expect(RELATED_SOURCE).toContain('!hasClaimedOrReservedPath(path.resolve(distDir, rel))');
+    expect(RELATED_SOURCE).toContain('!hasClaimedOrReservedPath(outputPath)');
     expect(RELATED_SOURCE).toContain('return safeWrites.length;');
   });
 
-  it('routes every direct compatibility page writer through alias reservations', () => {
+  it('routes direct compatibility writers through active job path reservations', () => {
     for (const source of [JOB_ORPHAN_SOURCE, LEGACY_ALIAS_SOURCE, LOCATION_SOURCE,
       COMPANY_SOURCE, CANTON_ORPHAN_SOURCE]) {
-      expect(source).toContain('isJobAliasRedirectPath');
+      expect(source).toContain('hasClaimedOrReservedPath');
     }
     expect(LEGACY_SOURCE).toContain('writeDistPageSafely({');
     expect(CF_SOURCE).toContain('writeDistPageSafely({');
-    expect(DIST_SAFETY_SOURCE).toContain('isJobAliasRedirectPath(indexPath)');
-    expect(DIST_SAFETY_SOURCE).toContain('isJobAliasRedirectPath(flatPath)');
-    expect(DIST_SAFETY_SOURCE).toContain('hasClaimedPath(indexPath)');
-    expect(JOB_ORPHAN_SOURCE).toContain('hasClaimedPath(indexTarget)');
-    expect(LEGACY_ALIAS_SOURCE).toContain('hasClaimedPath(indexTarget)');
-    expect(LOCATION_SOURCE).toContain('hasClaimedPath(indexTarget)');
-    expect(COMPANY_SOURCE).toContain('hasClaimedPath(indexTarget)');
-    expect(CF_SOURCE).toContain('hasClaimedPath(safeTargets.indexPath)');
-    expect(CANTON_ORPHAN_SOURCE).toContain('hasClaimedPath(outFile)');
+    expect(DIST_SAFETY_SOURCE).toContain('hasClaimedOrReservedPath(indexPath)');
+    expect(DIST_SAFETY_SOURCE).toContain('hasClaimedOrReservedPath(flatPath)');
+    expect(JOB_ORPHAN_SOURCE).toContain('hasClaimedOrReservedPath(indexTarget)');
+    expect(LEGACY_ALIAS_SOURCE).toContain('hasClaimedOrReservedPath(indexTarget)');
+    expect(LOCATION_SOURCE).toContain('hasClaimedOrReservedPath(indexTarget)');
+    expect(COMPANY_SOURCE).toContain('hasClaimedOrReservedPath(indexTarget)');
+    expect(CF_SOURCE).toContain('hasClaimedOrReservedPath(safeTargets.indexPath)');
+    expect(CANTON_ORPHAN_SOURCE).toContain('hasClaimedOrReservedPath(outFile)');
+    expect(CALCULATOR_SOURCE).toContain('hasClaimedOrReservedPath(safeTargets.indexPath)');
+    expect(RECENCY_SOURCE).toContain('hasClaimedOrReservedPath(safeTargets.indexPath)');
+    expect(SECTOR_SOURCE).toContain('hasClaimedOrReservedPath(safeTargets.indexPath)');
+    expect(PHARMACY_SOURCE).toContain('hasClaimedOrReservedPath(safeTargets.indexPath)');
     expect(JOBS_SOURCE).toContain('const pathWasClaimed = (filePath: string): boolean => hasClaimedPath(filePath);');
     expect(JOBS_SOURCE).toContain('const pathIsClaimedOrReserved = (filePath: string): boolean => hasClaimedOrReservedPath(filePath);');
     expect(JOBS_SOURCE).toContain('const isSelfHealTrackingPathClaimed = (relativePath: string): boolean => pathWasClaimed(');

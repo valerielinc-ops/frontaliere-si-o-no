@@ -1082,6 +1082,27 @@ describe('job canon bridge path planning and PR-B classification', () => {
     expect(plan.bridgePaths.some((bridge) => bridge.kind === 'crossLocale' && bridge.slug === 'flat-old')).toBe(false);
   });
 
+  it('plans only bridges whose source locale has an emitted active canonical page', () => {
+    const job = {
+      id: 'owner-page-filter',
+      slug: 'owner-it',
+      canton: 'ZH',
+      slugByLocale: { it: 'owner-it', en: 'owner-en', de: 'owner-de', fr: 'owner-fr' },
+      previousSlugsByLocale: { en: ['old-en'] },
+    } satisfies ActiveJobSlugMapRow;
+    const plan = buildActiveJobBridgePathPlan([job], {
+      winners: {},
+      reservedHubSlugs: new Set(),
+      isActivePageEmitted: (locale) => locale !== 'en',
+    });
+
+    expect(plan.bridgePaths.some((bridge) => bridge.locale === 'en' && bridge.slug === 'old-en')).toBe(false);
+    expect(plan.bridgePaths.some((bridge) => bridge.kind === 'legacyTiMirror' && bridge.locale === 'en')).toBe(false);
+    expect(plan.bridgePaths.some((bridge) =>
+      bridge.kind === 'crossLocale' && bridge.locale === 'it' && bridge.slug === 'old-en',
+    )).toBe(true);
+  });
+
   it('treats a flat slug duplicated in a locale list as locale-aware, not legacy flat', () => {
     const overlap = {
       ...active,

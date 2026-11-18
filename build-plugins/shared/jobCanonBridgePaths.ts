@@ -547,12 +547,15 @@ export function buildActiveJobBridgePathPlan(
     workerWouldRecover?: (locale: JobCanonLocale, slug: string, path: string) => boolean;
     /** Every active bridge candidate must pass the producer's path and ownership checks. */
     canEmitBridgePath?: (locale: JobCanonLocale, path: string) => boolean;
+    /** The current canonical page for this locale/route is emitted by this build. */
+    isActivePageEmitted?: (locale: JobCanonLocale, canton: string, slug: string) => boolean;
     onHeapSample?: () => void;
   },
 ): ActiveJobBridgePathPlan {
   const { reservedHubSlugs } = options;
   const workerWouldRecover = options.workerWouldRecover ?? (() => false);
   const canEmitBridgePath = options.canEmitBridgePath ?? (() => true);
+  const isActivePageEmitted = options.isActivePageEmitted ?? (() => true);
   const stats: ActiveJobBridgePathStats = {
     activeJobs: jobs.length,
     previousSlugClaims: 0,
@@ -608,7 +611,7 @@ export function buildActiveJobBridgePathPlan(
     const currentByLocale = currentSlugByJobLocale.get(job)!;
     forEachPreviousSlugByLocale(job, (locale, oldSlug) => {
       const currentSlug = currentByLocale[locale];
-      if (!currentSlug) return;
+      if (!currentSlug || !isActivePageEmitted(locale, canton, currentSlug)) return;
       if (oldSlug === currentSlug) {
         stats.previousSlugAutoClaims += 1;
         return;
@@ -658,6 +661,7 @@ export function buildActiveJobBridgePathPlan(
     const italianSlug = typeof job.slug === 'string' ? job.slug : '';
     if (!italianSlug) continue;
     for (const locale of JOB_CANON_LOCALES) {
+      if (!isActivePageEmitted(locale, canton, currentByLocale[locale])) continue;
       if (locale !== 'it' && currentByLocale[locale] !== italianSlug) {
         const localeAliasPath = buildCanonicalJobDetailPath(locale, job, italianSlug, canton);
         const localeAliasKey = `${locale}\u0000${normalizedPathKey(localeAliasPath)}`;
@@ -681,7 +685,12 @@ export function buildActiveJobBridgePathPlan(
     const jobIdentifier = String(job.id || job.slug || '');
     forEachPreviousSlugByLocale(job, (locale, oldSlug) => {
       const currentSlug = currentByLocale[locale];
-      if (!currentSlug || oldSlug === currentSlug || reservedHubSlugs.has(oldSlug)) return;
+      if (
+        !currentSlug
+        || !isActivePageEmitted(locale, canton, currentSlug)
+        || oldSlug === currentSlug
+        || reservedHubSlugs.has(oldSlug)
+      ) return;
       const winnerKey = previousSlugWinnerKey(canton, locale, oldSlug);
       const winnerId = winnerByClaimKey.get(winnerKey);
       if (winnerId && winnerId !== (jobIdentifier || currentSlug)) {
@@ -745,7 +754,7 @@ export function buildActiveJobBridgePathPlan(
     const currentByLocale = currentSlugByJobLocale.get(job)!;
     for (const baseLocale of JOB_CANON_LOCALES) {
       const baseSlug = currentByLocale[baseLocale];
-      if (!baseSlug) continue;
+      if (!baseSlug || !isActivePageEmitted(baseLocale, canton, baseSlug)) continue;
       const foreignSlugs = new Set<string>();
       for (const otherLocale of JOB_CANON_LOCALES) {
         if (otherLocale === baseLocale) continue;
@@ -1371,6 +1380,10 @@ export interface JobAliasRemovedPageOutput {
 export interface JobAliasRetainedPageOutput {
   indexPath: string;
   targetPath: string;
+  locale?: string;
+  path?: string;
+  kind?: string;
+  sourceJobIdentifier?: string;
 }
 
 /** Verify removed paths stay absent and retained paths still contain their bridge page. */
@@ -1378,7 +1391,11 @@ export function assertBridgePathDistCoverage(
   removableOutputs: Iterable<JobAliasRemovedPageOutput>,
   retainedOutputs: Iterable<JobAliasRetainedPageOutput>,
   outputExists: (filePath: string) => boolean,
-  retainedOutputMatches: (filePath: string, targetPath: string) => boolean,
+  retainedOutputMatches: (
+    filePath: string,
+    targetPath: string,
+    output: JobAliasRetainedPageOutput,
+  ) => boolean,
 ): { removable404: number; retained200: number } {
   let removable404 = 0;
   for (const output of removableOutputs) {
@@ -1389,13 +1406,26 @@ export function assertBridgePathDistCoverage(
   }
   let retained200 = 0;
   for (const output of retainedOutputs) {
+    const diagnostic = [
+      `locale=${formatBridgeDiagnosticValue(output.locale)}`,
+      `path=${formatBridgeDiagnosticValue(output.path ?? output.indexPath)}`,
+      `kind=${formatBridgeDiagnosticValue(output.kind)}`,
+      `source=${formatBridgeDiagnosticValue(output.sourceJobIdentifier)}`,
+      `target=${formatBridgeDiagnosticValue(output.targetPath)}`,
+    ].join(' ');
     if (!outputExists(output.indexPath)) {
-      throw new Error(`[job-alias-redirect-gate] path has neither an exact 301 nor a retained bridge (path=${output.indexPath})`);
+      throw new Error(`[job-alias-redirect-gate] path has neither an exact 301 nor a retained bridge (${diagnostic})`);
     }
-    if (!retainedOutputMatches(output.indexPath, output.targetPath)) {
-      throw new Error(`[job-alias-redirect-gate] retained bridge does not point to its planned canonical (path=${output.indexPath})`);
+    if (!retainedOutputMatches(output.indexPath, output.targetPath, output)) {
+      throw new Error(`[job-alias-redirect-gate] retained bridge does not point to its planned canonical (${diagnostic})`);
     }
     retained200++;
   }
   return { removable404, retained200 };
+}
+
+function formatBridgeDiagnosticValue(value: string | undefined): string {
+  if (!value) return 'unknown';
+  const safe = value.replace(/[\u0000-\u001f\u007f]/g, '?');
+  return safe.length <= 180 ? safe : `${safe.slice(0, 177)}...`;
 }

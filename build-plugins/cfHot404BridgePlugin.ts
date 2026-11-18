@@ -47,7 +47,7 @@ import {
   INCREMENTAL_MANIFEST_ENABLED,
 } from './shared/incrementalManifest.mjs';
 import searchClusterMapFile from '../data/search-cluster-301-map.json';
-import { hasClaimedPath } from './sharedWriteRegistry';
+import { hasClaimedOrReservedPath } from './sharedWriteRegistry';
 
 // Legacy per-canton related-search cluster URLs (old slug format, now 404). The
 // hot-list/GSC sweeps miss them (mostly origin-side worker probes, not eyeball
@@ -355,8 +355,8 @@ function buildCfHot404BridgePlugin(rootDir: string): Plugin {
         const outDir = safeTargets.directoryPath;
         // Gap-fill only: a richer page already here (active job / enriched
         // soft-landing / jobOrphan or hub bridge) must win.
-        if (hasClaimedPath(safeTargets.indexPath)
-          || Boolean(safeTargets.flatPath && hasClaimedPath(safeTargets.flatPath))
+        if (hasClaimedOrReservedPath(safeTargets.indexPath)
+          || Boolean(safeTargets.flatPath && hasClaimedOrReservedPath(safeTargets.flatPath))
           || fs.existsSync(path.join(outDir, 'index.html'))) { skippedExisting++; continue; }
 
         const kind = resolution.kind;

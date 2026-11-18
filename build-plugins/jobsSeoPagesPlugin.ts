@@ -446,6 +446,7 @@ import {
  hasClaimedPath,
  hasClaimedOrReservedPath,
  reserveJobAliasRedirectDir,
+ reserveRetainedJobBridgeDir,
  isJobAliasRedirectPath,
  getJobAliasRedirectDirs,
 } from './sharedWriteRegistry';
@@ -2311,6 +2312,12 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  function _qw(filePath: string, content: string) {
  collector.add(filePath, filePath.endsWith('.html') && !__SKIP_MINIFY ? minifyHtml(content) : content);
  }
+ function _qwRetainedJobBridge(filePath: string, content: string) {
+ collector.addRetainedJobBridgeOutput(
+  filePath,
+  filePath.endsWith('.html') && !__SKIP_MINIFY ? minifyHtml(content) : content,
+ );
+ }
  const hasCollectorWrittenHtmlForPath = (relativePath: string): boolean =>
   // WriteCollector.forgetWrittenPaths() is deliberately lossy; ownership must
   // remain queryable through the build-lifetime shared registry after a chunk
@@ -2486,12 +2493,14 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  return NOSLASH_KEEP_PATHS.has(relPath);
  }
 
- function _qwFlat(flatFile: string, siblingHtml: string) {
+ function _qwFlat(flatFile: string, siblingHtml: string, retainedJobBridge = false) {
  const stem = flatFile.slice(0, -'.html'.length);
  const relPath = np.relative(distDir, stem).replace(/\\/g, '/');
  if (!shouldEmitFlat(relPath)) return;
  const slashUrl = `${BASE_URL}/${relPath}/`;
- _qw(flatFile, buildFlatBridgeFromSibling(siblingHtml, slashUrl));
+ const flatHtml = buildFlatBridgeFromSibling(siblingHtml, slashUrl);
+ if (retainedJobBridge) _qwRetainedJobBridge(flatFile, flatHtml);
+ else _qw(flatFile, flatHtml);
  }
 
  // Like _qw for flat .html paths that historically emitted FULL content
@@ -14893,6 +14902,11 @@ ${staticAnalyticsHtml}
  const activeBridgePathsOwnedBeforePlan = new Set<string>();
  const bridgePathKey = (locale: string, pathname: string): string =>
   `${locale}\u0000${pathname.replace(/^\/+|\/+$/g, '')}`;
+ const bridgeDiagnosticValue = (value: string | undefined): string => {
+  if (!value) return 'unknown';
+  const safe = value.replace(/[\u0000-\u001f\u007f]/g, '?');
+  return safe.length <= 180 ? safe : `${safe.slice(0, 177)}...`;
+ };
  const activeBridgeRedirectCounts: Record<typeof localeList[number], number> = {
   it: 0, en: 0, de: 0, fr: 0,
  };
@@ -14918,6 +14932,8 @@ ${staticAnalyticsHtml}
    winners: loadWinners(previousSlugWinnersPath),
    reservedHubSlugs: RESERVED_HUB_SLUGS,
    workerWouldRecover: legacyTiPathRecoveredByWorker,
+   isActivePageEmitted: (locale, canton, slug) =>
+    emittedActiveJobPaths.has(activeJobPathOwnerKey(canton, locale, slug)),
    onHeapSample: sampleBridgePlanHeap,
    canEmitBridgePath: (locale, bridgePath) => {
     const safeTargets = getSafeDistPageTargets(distDir, bridgePath, { includeFlat: false });
@@ -14988,6 +15004,20 @@ ${staticAnalyticsHtml}
    retainedBridgePaths.set(bridgePathKey(bridge.locale, bridge.path), { bridge, reason });
    activeBridgeKeepCounts[bridge.locale]++;
    activeBridgeKeepByKind[bridge.kind]++;
+  }
+  for (const { bridge } of retainedBridgePaths.values()) {
+   if (!shouldEmitLocale(bridge.locale)) continue;
+   const safeTargets = getSafeDistPageTargets(distDir, bridge.path, { includeFlat: false });
+   if (!safeTargets) {
+    throw new Error(
+     `[job-alias-redirect-gate] retained bridge path is not a safe dist target `
+     + `(locale=${bridgeDiagnosticValue(bridge.locale)} path=${bridgeDiagnosticValue(bridge.path)} `
+     + `kind=${bridgeDiagnosticValue(bridge.kind)} `
+     + `source=${bridgeDiagnosticValue(bridge.sourceJobIdentifier)} `
+     + `target=${bridgeDiagnosticValue(bridge.targetPath)})`,
+    );
+   }
+   reserveRetainedJobBridgeDir(safeTargets.directoryPath);
   }
   bridgePlan.bridgePaths.length = 0;
   bridgePlan.activePrefixByLocaleSlug.clear();
@@ -16711,6 +16741,7 @@ ${staticAnalyticsHtml}
  for (const locale of localeList) {
  const currentSlug = localizedSlug(job, locale);
  if (!currentSlug) continue;
+ if (!emittedActiveJobPaths.has(activeJobPathOwnerKey(jobCantonForClaim, locale, currentSlug))) continue;
  const localeSpecific = pslByLocale && Array.isArray(pslByLocale[locale]) ? (pslByLocale[locale] as string[]) : [];
  const prevSlugsForLocale = new Set<string>([...localeSpecific, ...legacyOnly]);
  for (const oldSlug of prevSlugsForLocale) {
@@ -16975,7 +17006,7 @@ ${staticAnalyticsHtml}
   }
   jobsSeoReuse?.finish(previousSlugReuse, indexHtml);
   _md(outDir);
-  _qw(np.join(outDir, 'index.html'), indexHtml);
+  _qwRetainedJobBridge(np.join(outDir, 'index.html'), indexHtml);
   if (incrementalManifests) {
    registerIncrementalPage(locale, oldPath, 'previous-slugs-full-content', previousSlugReuseInput);
   }
@@ -16983,7 +17014,7 @@ ${staticAnalyticsHtml}
   const safeTargets = getSafeDistPageTargets(distDir, oldPath);
   if (safeTargets?.flatPath) {
    _md(np.dirname(safeTargets.flatPath));
-   _qwFlat(safeTargets.flatPath, indexHtml);
+   _qwFlat(safeTargets.flatPath, indexHtml, true);
   } else {
    unsafeBridgeFlatSiblingsSkipped++;
   }
@@ -17065,14 +17096,14 @@ ${staticAnalyticsHtml}
  const noindexLegacyTIHtml = noindexJobAliasHtml(legacyTIHtml);
  jobsSeoReuse?.finish(legacyTIReuse, noindexLegacyTIHtml);
  _md(legacyTIOutDir);
- _qw(np.join(legacyTIOutDir, 'index.html'), noindexLegacyTIHtml);
+ _qwRetainedJobBridge(np.join(legacyTIOutDir, 'index.html'), noindexLegacyTIHtml);
  if (incrementalManifests) {
   registerIncrementalPage(locale, legacyTIRelPath, 'previous-slugs-full-content', legacyTIReuseInput);
  }
  const legacyTISafeTargets = getSafeDistPageTargets(distDir, legacyTIRelPath);
  if (legacyTISafeTargets?.flatPath) {
   _md(np.dirname(legacyTISafeTargets.flatPath));
-  _qwFlat(legacyTISafeTargets.flatPath, noindexLegacyTIHtml);
+  _qwFlat(legacyTISafeTargets.flatPath, noindexLegacyTIHtml, true);
  } else {
   unsafeBridgeFlatSiblingsSkipped++;
  }
@@ -17280,7 +17311,7 @@ ${staticAnalyticsHtml}
  const indexFile = safeTargets.indexPath;
  // Skip if a previousSlugs bridge already covered this path for
  // this job (same content would be written again).
- if (pathIsClaimedOrReserved(indexFile)) continue;
+ if (pathWasClaimed(indexFile) || isJobAliasRedirectPath(indexFile)) continue;
  if (!isRetainedActiveBridgePath(baseLocale, relPath, 'crossLocale')) continue;
  const __tCrossLocaleActive = startTimer();
  const crossLocaleActiveReuseInput = incrementalManifests
@@ -17313,7 +17344,7 @@ ${staticAnalyticsHtml}
  const noindexCrossLocaleActiveHtml = noindexJobAliasHtml(crossLocaleActiveHtml);
  jobsSeoReuse?.finish(crossLocaleActiveReuse, noindexCrossLocaleActiveHtml);
  _md(outDir);
- _qw(indexFile, noindexCrossLocaleActiveHtml);
+ _qwRetainedJobBridge(indexFile, noindexCrossLocaleActiveHtml);
  sampleCrossLocaleBridgeHeap();
  if (incrementalManifests) {
   registerIncrementalPage(baseLocale, relPath, 'cross-locale-reconciliation', crossLocaleActiveReuseInput);
@@ -17809,6 +17840,10 @@ ${staticAnalyticsHtml}
    yield {
     indexPath: targets.indexPath,
     targetPath: `${BASE_URL}${bridge.targetPath}`,
+    locale: bridge.locale,
+    path: bridge.path,
+    kind: bridge.kind,
+    sourceJobIdentifier: bridge.sourceJobIdentifier,
    };
   }
  })();
@@ -17824,7 +17859,7 @@ ${staticAnalyticsHtml}
   removableBridgeOutputs,
   retainedBridgeOutputs,
   fs.existsSync,
-  (indexPath, targetPath) => {
+  (indexPath, targetPath, output) => {
    const html = fs.readFileSync(indexPath, 'utf-8');
    const targetSlug = targetPath.replace(/\/+$/, '').split('/').pop() || '';
     const checks = {
@@ -17835,7 +17870,10 @@ ${staticAnalyticsHtml}
     if (!checks.noindex || !checks.targetSlug || !checks.canonical) {
     throw new Error(
      `[job-alias-redirect-gate] retained bridge invariant failed: noindex=${checks.noindex} `
-      + `targetSlug=${checks.targetSlug} canonical=${checks.canonical}`,
+      + `targetSlug=${checks.targetSlug} canonical=${checks.canonical} `
+      + `locale=${bridgeDiagnosticValue(output.locale)} path=${bridgeDiagnosticValue(output.path)} `
+      + `kind=${bridgeDiagnosticValue(output.kind)} source=${bridgeDiagnosticValue(output.sourceJobIdentifier)} `
+      + `target=${bridgeDiagnosticValue(targetPath)}`,
     );
    }
    return true;
