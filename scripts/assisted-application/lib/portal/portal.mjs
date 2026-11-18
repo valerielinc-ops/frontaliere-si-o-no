@@ -536,7 +536,7 @@ function profileMatchText(value) {
 
 const PROFILE_ROW_FIELD_RE = /^(?:job\s+title|position|role|company|employer|titolo\s+professionale|azienda|from|to|da|a|start\s+date|end\s+date|school(?:\s+or\s+university)?|university|institution|degree|qualification|titolo\s+di\s+studio|field\s+of\s+study|location|i\s+currently\s+work\s+here)\s*[＊*]?$/iu;
 const PROFILE_GENERIC_OWNER_RE = /^(?:work\s+experience|experience|employment\s+history|work\s+history|berufserfahrung|erfahrung|expérience|parcours\s+professionnel|esperienz[ae]|esperienza\s+lavorativa|esperienze\s+lavorative|education|academic\s+history|school|ausbildung|bildung|études|formation|educazione|istruzione|formazione|studies)(?:\s+\d+)?$/iu;
-const PROFILE_STRUCTURAL_OWNER_RE = /^(?:group|section|row|form|application|control)(?:[\s_-]+\d+)?$/iu;
+const PROFILE_STRUCTURAL_OWNER_RE = /^(?:(?:group|section|row|form|application|control)(?:[\s_-]+\d+)?|name|formfield(?:[\s_-].*)?|(?:start|end|from|to)(?:[\s_-].*)?)$/iu;
 const PROFILE_ORDINAL_PATTERNS = {
   experience: [
     /\b(?:work\s+)?experience(?:\s+(?:entry|row))?\s*[-#:]?\s*(\d+)\b/iu,
@@ -551,7 +551,7 @@ const PROFILE_ORDINAL_PATTERNS = {
 function profileControlValues(field, { includeValue = false } = {}) {
   const supplied = field?.workdayProfile && typeof field.workdayProfile === 'object'
     ? field.workdayProfile : {};
-  const label = String(field?.label || field?.applicationQuestion || field?.question || '').trim();
+  const label = String(field?.label || field?.applicationQuestion || field?.question || supplied.label || '').trim();
   const profileLabel = PROFILE_ROW_FIELD_RE.test(label)
     && !PROFILE_DATE_FIELD_PATTERNS.some(([pattern]) => pattern.test(label));
   return [
@@ -580,6 +580,27 @@ function profileControlValues(field, { includeValue = false } = {}) {
   ].flatMap((value) => String(value || '').split(/\s*[·|]\s*/u));
 }
 
+function profileControlStructuralValues(field) {
+  const supplied = field?.workdayProfile && typeof field.workdayProfile === 'object'
+    ? field.workdayProfile : {};
+  return [
+    supplied.section,
+    supplied.profileSection,
+    supplied.sectionGroup,
+    ...(Array.isArray(supplied.owners) ? supplied.owners : []),
+    field?.profileSection,
+    field?.sectionGroup,
+    field?.addressContext?.section,
+    ...(Array.isArray(field?.addressContext?.owners) ? field.addressContext.owners : []),
+    field?.context,
+    field?.section,
+    field?.controlId,
+    field?.semanticId,
+    field?.dataAutomationId,
+    field?.name,
+  ].flatMap((value) => String(value || '').split(/\s*[·|]\s*/u));
+}
+
 function profileControlEndpoint(field) {
   const supplied = String(field?.workdayProfile?.endpoint || '').trim().toLowerCase();
   if (supplied === 'start' || supplied === 'end') return supplied;
@@ -590,6 +611,7 @@ function profileControlEndpoint(field) {
     field?.label,
     field?.applicationQuestion,
     field?.question,
+    field?.workdayProfile?.label,
     ...(dateLike ? [field?.name, field?.dataAutomationId, field?.controlId, field?.semanticId] : []),
   ].map((value) => String(value || '').normalize('NFKC').trim()).filter(Boolean);
   for (const value of values) {
@@ -629,7 +651,7 @@ function profileControlOrdinal(field, kind, values) {
 }
 
 function profileControlOwners(field, endpoint, values) {
-  const normalizedLabel = profileMatchText(field?.label || field?.applicationQuestion || field?.question);
+  const normalizedLabel = profileMatchText(field?.label || field?.applicationQuestion || field?.question || field?.workdayProfile?.label);
   return [...new Set(values.map((value) => profileMatchText(value)).filter(Boolean))]
     .filter((value) => value !== normalizedLabel
       && !PROFILE_GENERIC_OWNER_RE.test(value)
@@ -644,15 +666,17 @@ function profileControlOwners(field, endpoint, values) {
  */
 export function workdayProfileControl(field, requestedKind = '', { includeValue = false } = {}) {
   const values = profileControlValues(field, { includeValue });
-  const kind = profileControlKind(field, requestedKind, values);
+  const structuralValues = profileControlStructuralValues(field);
+  const kind = profileControlKind(field, requestedKind, structuralValues);
   const endpoint = profileControlEndpoint(field);
-  const ordinal = kind ? profileControlOrdinal(field, kind, values) : 0;
+  const ordinal = kind ? profileControlOrdinal(field, kind, structuralValues) : 0;
   return {
     kind,
     ordinal,
     endpoint,
     owners: profileControlOwners(field, endpoint, values),
-    label: String(field?.label || field?.applicationQuestion || field?.question || '').normalize('NFKC').trim().slice(0, 240),
+    label: String(field?.label || field?.applicationQuestion || field?.question || field?.workdayProfile?.label || '')
+      .normalize('NFKC').trim().slice(0, 240),
   };
 }
 

@@ -480,6 +480,9 @@ describe('assisted application profile history and file replacement', () => {
     expect(profileDateQuestionsCanUseProfile(candidate, [question])).toBe(true);
     expect(profileEntryAnswer(candidate.profile.experience[1], 'experience', question))
       .toEqual({ value: '2024-03', source: 'profile' });
+    expect(profileDateQuestionsCanUseProfile(candidate, [{
+      type: 'date', label: '', section: 'Work Experience 2', dataAutomationId: 'formField-endDate',
+    }])).toBe(true);
   });
 
   it('does not mistake a selected Workday filename for a successful upload receipt', async () => {
