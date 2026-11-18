@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
-import { applicationDestinationDiversionHint, applicationDiversionHint, applicationReceipt, applicationStage, isApplicationRegionUnsupported, portalJobKey } from '../scripts/assisted-application/lib/portal/stages.mjs';
+import { applicationDestinationDiversionHint, applicationDiversionHint, applicationReceipt, applicationStage, isApplicationRegionUnsupported, isApplicationRouteBound, portalJobKey } from '../scripts/assisted-application/lib/portal/stages.mjs';
 import { applicationEntryControls, hasApplicationSurface, isVerifiedPostingEntry, openVerifiedPasswordResetNavigation, pageControls, urlConfirms, workdayRestoreNeedsManualNavigation } from '../scripts/assisted-application/lib/portal/portal.mjs';
 
 const origin = 'https://careers.example';
@@ -33,6 +33,32 @@ describe('application stage ownership', () => {
       postingUrl: manualUrl,
     })).toBe(false);
     expect(hasApplicationSurface(empty, { pageUrl: manualUrl, postingUrl: manualUrl })).toBe(false);
+  });
+
+  it('keeps an empty bound Workday mount pending until route-bound evidence arrives', () => {
+    const applyUrl = 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Zurich/Store-Assistant_R-19033/apply';
+    const empty = { url: applyUrl, fields: [], buttons: [] };
+
+    expect(applicationStage(empty, { applyUrl })).toEqual({ kind: 'unknown_apply' });
+  });
+
+  it('preserves the Workday account route binding before job-route classification', () => {
+    const applyUrl = 'https://swarovski.wd3.myworkdayjobs.com/fr-FR/swarovski/job/Mendrisio-Outlet-CHE/Seasonal-Sales-Consultant_R-12345';
+    const url = 'https://swarovski.wd3.myworkdayjobs.com/fr-FR/swarovski/login';
+
+    expect(isApplicationRouteBound(url, applyUrl)).toBe(true);
+    expect(applicationStage({}, { url, applyUrl, workdayApplicationEntryProven: true }).kind).toBe('account');
+  });
+
+  it.each(['hidden', 'submit', 'button', 'reset', 'image'])('does not promote a mount with only a non-visible %s field', (inputType) => {
+    const applyUrl = 'https://example.invalid/apply';
+    const snapshot = {
+      url: applyUrl,
+      buttons: [],
+      fields: [{ disabled: false, chrome: false, inputType }],
+    };
+
+    expect(applicationStage(snapshot, { applyUrl }).kind).toBe('unknown_apply');
   });
 
   it('does not treat a carried mount marker as fresh proof on a bound manual route', () => {

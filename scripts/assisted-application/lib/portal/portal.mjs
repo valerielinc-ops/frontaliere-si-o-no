@@ -32,7 +32,7 @@ import '../../extension/apply-control.js';
 import path from 'node:path';
 import { browserEngine, isStealthBrowser, launchStealthOrChromium } from '../../../lib/stealth-browser.mjs';
 import { challengeState, passChallenge } from '../../../lib/challenge-pass.mjs';
-import { applicationDestinationDiversionHint, applicationDiversionHint, applicationReceipt, applicationStage, gravityFormsSubmissionOutcome, inPageApplicationOpeners, isApplicationRegionUnsupported, portalJobKey } from './stages.mjs';
+import { applicationDestinationDiversionHint, applicationDiversionHint, applicationReceipt, applicationStage, gravityFormsSubmissionOutcome, inPageApplicationOpeners, isApplicationRegionUnsupported, isApplicationRouteBound, portalJobKey } from './stages.mjs';
 import { BRASSRING_HOME_WITH_PRELOAD_RE, isBrassRingPrivacyGateText, sameBrassRingPostingAddress } from './brass-ring-route.mjs';
 import { COVER_LETTER_DOCUMENT_CONTEXT_RE, COVER_LETTER_DOCUMENT_TERMS, CV_DOCUMENT_CONTEXT_RE, CV_DOCUMENT_TERMS } from './document-labels.mjs';
 import { advancedToFinalReview } from './final-review.mjs';
@@ -4291,33 +4291,24 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     // only on the selected job/application route (or its bound account route),
     // never on an unverified page whose empty surface could be a navigation
     // mismatch.
-    if (!stageContext || !isWorkdayTenantUrl(stageContext.applyUrl)) return true;
-    if (!pendingEntry && !enteredThroughApplicationEntry && !workdayApplicationEntryProven) return true;
+    if (!stageContext || !isWorkdayTenantUrl(stageContext.applyUrl)) return { status: 'ready' };
+    if (!pendingEntry && !enteredThroughApplicationEntry && !workdayApplicationEntryProven) return { status: 'ready' };
     // The initial Workday CTA can open its application chooser in place on
     // the bare requisition route. It is still bound to the selected vacancy;
     // requiring `/apply` here rejects that legitimate pre-entry surface before
     // the chooser can expose `applyManually`.
-    if (!isWorkdayJobRouteBound(page.url(), stageContext.applyUrl)) return false;
-    if (workdayApplicationSurfaceReady(snapshot)) return true;
+    if (!isApplicationRouteBound(page.url(), stageContext.applyUrl, stageContext.sourceProtocol || null)) {
+      return { status: 'route_unbound' };
+    }
+    if (workdayApplicationSurfaceReady(snapshot)) return { status: 'ready' };
     for (let waited = 0; waited < 10_000 && !workdayApplicationSurfaceReady(snapshot); waited += 1000) {
       await page.waitForTimeout(1000);
-      if (!isWorkdayJobRouteBound(page.url(), stageContext.applyUrl)) return false;
+      if (!isApplicationRouteBound(page.url(), stageContext.applyUrl, stageContext.sourceProtocol || null)) {
+        return { status: 'route_unbound' };
+      }
       snapshot = await extractFields(page, NAVIGATION);
     }
-    return workdayApplicationSurfaceReady(snapshot);
-  };
-  const workdaySurfaceHandoff = () => {
-    const binding = resolvePostingBinding({
-      currentUrl: page.url(),
-      applyUrl: stageContext?.applyUrl,
-      routeKind: 'workday',
-      routeExpected: true,
-      routeBound: Boolean(stageContext?.applyUrl
-        && isWorkdayJobRouteBound(page.url(), stageContext.applyUrl)),
-    });
-    return binding.status === POSTING_BINDING_STATUS.BOUND
-      ? 'application_stage_unknown'
-      : 'posting_mismatch';
+    return workdayApplicationSurfaceReady(snapshot) ? { status: 'ready' } : { status: 'timeout' };
   };
   const currentApplicationDiversion = async (current = snapshot) => applicationDestinationDiversionHint({
     ...current,
@@ -4391,12 +4382,15 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
   const waitForPostApplicationEntryEvidence = async (options = {}) => {
     for (let waited = 0; waited <= POST_APPLICATION_ENTRY_EVIDENCE_TIMEOUT_MS;
       waited += POST_APPLICATION_ENTRY_EVIDENCE_POLL_MS) {
-      if (await hasPostApplicationEntryEvidence(snapshot, options)) return true;
+      if (!isApplicationRouteBound(page.url(), stageContext?.applyUrl, stageContext?.sourceProtocol || null)) {
+        return { status: 'route_unbound' };
+      }
+      if (await hasPostApplicationEntryEvidence(snapshot, options)) return { status: 'ready' };
       if (waited === POST_APPLICATION_ENTRY_EVIDENCE_TIMEOUT_MS) break;
       await page.waitForTimeout(POST_APPLICATION_ENTRY_EVIDENCE_POLL_MS);
       snapshot = await extractFields(page, NAVIGATION);
     }
-    return false;
+    return { status: 'timeout' };
   };
   const ensurePortalChallenge = async () => {
     if (typeof stageContext?.onPortalChallenge !== 'function') return true;
@@ -4461,7 +4455,10 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
       }
     }
     if (!await ensurePortalChallenge()) return result({ handoff: 'captcha' });
-    if (!await waitForWorkdayApplicationSurface()) return result({ handoff: workdaySurfaceHandoff() });
+    const initialWorkdayMount = await waitForWorkdayApplicationSurface();
+    if (initialWorkdayMount.status !== 'ready') {
+      return result({ handoff: initialWorkdayMount.status === 'route_unbound' ? 'posting_mismatch' : 'application_stage_unknown' });
+    }
     const publicRecovery = await recoverStadtZurichPublicJobSearch(page, snapshot, stageContext, {
       searched: publicSearchSearched,
     });
@@ -4622,7 +4619,10 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
           if (!await ensurePortalChallenge()) return result({ handoff: 'captcha' });
           await page.waitForTimeout(1200);
           snapshot = await extractFields(page, NAVIGATION);
-          if (!await waitForWorkdayApplicationSurface()) return result({ handoff: workdaySurfaceHandoff() });
+          const directWorkdayMount = await waitForWorkdayApplicationSurface();
+          if (directWorkdayMount.status !== 'ready') {
+            return result({ handoff: directWorkdayMount.status === 'route_unbound' ? 'posting_mismatch' : 'application_stage_unknown' });
+          }
           reportNavigation({ hop: hop + 1, phase: 'direct_route', cookieStatus, controls: applicationControls, ownedEntries });
           if (!isSuccessFactorsPostingEntry({
             applyUrl: page.url(),
@@ -4650,7 +4650,10 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
         if (!await ensurePortalChallenge()) return result({ handoff: 'captcha' });
         await page.waitForTimeout(1200);
         snapshot = await extractFields(page, NAVIGATION);
-        if (!await waitForWorkdayApplicationSurface()) return result({ handoff: workdaySurfaceHandoff() });
+        const directWorkdayMount = await waitForWorkdayApplicationSurface();
+        if (directWorkdayMount.status !== 'ready') {
+          return result({ handoff: directWorkdayMount.status === 'route_unbound' ? 'posting_mismatch' : 'application_stage_unknown' });
+        }
         if (!await currentApplicationDiversion(snapshot)) {
           enteredThroughApplicationEntry = true;
           brassRingApplicationEntryProven = brassRingApplicationEntryProven
@@ -4691,13 +4694,14 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     await settle(page);
     if (!await ensurePortalChallenge()) return result({ handoff: 'captcha' });
     snapshot = await extractFields(page, NAVIGATION);
-    if (!await waitForWorkdayApplicationSurface({ pendingEntry: followedApplicationEntryThisHop })) {
-      return result({ handoff: workdaySurfaceHandoff() });
+    const postEntryWorkdayMount = await waitForWorkdayApplicationSurface({ pendingEntry: followedApplicationEntryThisHop });
+    if (postEntryWorkdayMount.status !== 'ready') {
+      return result({ handoff: postEntryWorkdayMount.status === 'route_unbound' ? 'posting_mismatch' : 'application_stage_unknown' });
     }
-    const postEntryEvidence = followedApplicationEntryThisHop && await waitForPostApplicationEntryEvidence({
+    const postEntryEvidence = followedApplicationEntryThisHop ? await waitForPostApplicationEntryEvidence({
       brassRingEntryProven: pendingBrassRingEntryProven,
       followedControlSignature: portalControlSignature(manual || apply || linkEntry),
-    });
+    }) : { status: 'timeout' };
     if (stageContext && workdayPostingRouteMismatch(page.url(), stageContext.applyUrl, workdayApplicationEntryProven)) {
       return result({ handoff: 'posting_mismatch' });
     }
@@ -4710,7 +4714,9 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
       && !successFactorsCustomPostingDestinationMatches(page.url(), sourceUrl, stageContext)) {
       return result({ handoff: 'posting_mismatch' });
     }
-    if (!postEntryEvidence) return result({ handoff: 'application_stage_unknown' });
+    if (postEntryEvidence.status !== 'ready') {
+      return result({ handoff: postEntryEvidence.status === 'route_unbound' ? 'posting_mismatch' : 'application_stage_unknown' });
+    }
     if (!await ensurePortalChallenge()) return result({ handoff: 'captcha' });
     enteredThroughApplicationEntry = true;
     brassRingApplicationEntryProven = pendingBrassRingEntryProven;
