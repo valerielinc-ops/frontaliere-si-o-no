@@ -81,6 +81,23 @@ export interface JobCanonBridgePath {
   sourceJobIdentifier?: string;
 }
 
+/** True only for the emitter that owns the complete planned bridge record. */
+export function isPlannedJobCanonBridgeOwner(
+  planned: JobCanonBridgePath | undefined,
+  candidate: JobCanonBridgePath,
+): boolean {
+  return Boolean(
+    planned
+    && planned.path === candidate.path
+    && planned.locale === candidate.locale
+    && planned.slug === candidate.slug
+    && planned.targetPath === candidate.targetPath
+    && planned.kind === candidate.kind
+    && planned.canton === candidate.canton
+    && planned.sourceJobIdentifier === candidate.sourceJobIdentifier,
+  );
+}
+
 export interface FinalWorkerSlugMapReconciliation {
   /** Jobs with one unique serialized row whose effective route fields now match the final SEO input. */
   matchedJobIdentifiers: Set<string>;

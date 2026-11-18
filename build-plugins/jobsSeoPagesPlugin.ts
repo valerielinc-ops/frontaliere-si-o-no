@@ -266,8 +266,8 @@ import {
  assertBridgePathDistCoverage,
  assertRetainedBridgeMissingBudget,
  classifyRetainedNotEmitted,
+ isPlannedJobCanonBridgeOwner,
  isRetainedBridgePathSafeToEmit,
- isRetainedBridgeOwnedBy,
  type JobCanonBridgePath,
  type ActiveJobSlugMapRow,
  type BridgeKeepReason,
@@ -909,6 +909,31 @@ function noindexJobAliasHtml(html: string): string {
     ? html.replace(robotsMeta, noindexTag)
     : html.replace('</head>', ` ${noindexTag}\n </head>`);
   return markJobBoardNoindexTargetHtml(noindexHtml);
+}
+
+const ACTIVE_BRIDGE_TARGET_SCRIPT_RE = /<script\b[^>]*>\s*window\.__BRIDGE_TARGET_SLUG__\s*=\s*[\s\S]*?;\s*<\/script\s*>/gi;
+const ACTIVE_BRIDGE_CANONICAL_LINK_RE = /<link\b(?=[^>]*\srel\s*=\s*(?:"canonical"|'canonical'|canonical)(?=[\s>]))[^>]*>/gi;
+
+/** Reapply the planned target metadata after cached active-bridge HTML reuse. */
+export function ensureRetainedActiveBridgeMetadata(
+ html: string,
+ targetSlug: string,
+ targetCanonicalHref: string,
+): string {
+ const withoutOldMetadata = String(html)
+  .replace(ACTIVE_BRIDGE_CANONICAL_LINK_RE, '')
+  .replace(ACTIVE_BRIDGE_TARGET_SCRIPT_RE, '');
+ const headClose = /<\/head\s*>/i;
+ if (!headClose.test(withoutOldMetadata)) {
+  throw new Error('retained active bridge HTML is missing </head>');
+ }
+ const targetScript = `<script>window.__BRIDGE_TARGET_SLUG__=${inlineScriptJson(targetSlug)};</script>`;
+ const canonicalLink = `<link rel="canonical" href="${targetCanonicalHref}">`;
+ const withTargetMetadata = withoutOldMetadata.replace(
+  headClose,
+  ` ${canonicalLink}\n ${targetScript}\n </head>`,
+ );
+ return noindexJobAliasHtml(withTargetMetadata);
 }
 
 function hasNoindexRobotsMeta(html: string): boolean {
@@ -3766,24 +3791,12 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  const activeJobPostingCoverage = createActiveJobPostingCoverage({ keepPages: Boolean(process.env.JOBPOSTING_COVERAGE_OUT) });
 
  /**
-  * Tracks every legacy-TI bridge path (`cerca-lavoro-ticino/<slug>/`,
-  * `de/jobs-im-tessin/<slug>/`, …) written by the AUTHORITATIVE active
-  * cross-canton bridge — i.e. the bridge a non-TI job emits at the legacy
-  * TI section for its OWN current slug, whose `<link rel=canonical>` points
-  * back at the job's canton-aware URL.
-  *
-  * Unlike the canton-aware section, the legacy TI section collapses EVERY
-  * canton into one namespace, so two unrelated non-TI jobs can claim the
-  * same `/cerca-lavoro-ticino/<slug>/` path: one as its active slug, another
-  * as a stale `previousSlugs` alias (multi-city postings cross-pollinate each
-  * other's previousSlugs — e.g. the same Schindler role in Ebikon/LU and
-  * Bern/BE each list the other's slug). Without this guard the previousSlug
-  * TI mirror (~line 11717) overwrites the active job's TI bridge
-  * non-deterministically, flipping its canonical to the WRONG canton and
-  * tripping tests/seo/cathedral-job-detail-canton.test.ts (issue #2545).
-  *
-  * Same role `activeJobDirs` plays for the canton-aware namespace, extended
-  * to the canton-blind TI mirror. Keyed by the slug-relative path.
+  * Records legacy-TI active bridge paths handled earlier in this plugin.
+  * Some en/de/fr entries are Worker-recovery candidates with no static HTML;
+  * others have an emitted active bridge. The retained bridge plan reconstructs
+  * active route ownership and decides whether an exact stale-mirror record may
+  * write, so this marker is diagnostic and never grants or blocks a claim.
+  * Keyed by the slug-relative path.
   */
  const legacyTiBridgeDirs = new Set<string>();
  jobsSeoMemContext.legacyTiBridgeDirs = legacyTiBridgeDirs;
@@ -5722,14 +5735,10 @@ ${staticAnalyticsHtml}
  const legacyTIKey = legacyTIRel.replace(/\/+$/, '');
  if (locale !== 'it' && !activeJobDirs.has(legacyTIKey)) {
  // en/de/fr: no copy. The legacy TI URL of a non-TI job is left to the
- // shard origin's 404, which the locale-router Worker turns into a 301 to
- // the canton-aware page via /job-canon (recoverCantonDriftOrphan): a 200
- // noindex copy here is exactly what stops that 301 from firing (same
- // decision as the expired soft-landing loop and cfHot404BridgePlugin).
- // The path is still CLAIMED, so the canton-blind previousSlug TI mirror
- // below cannot put another job's stale alias on it (#2545). IT is
- // unchanged by choice: its copy is noindex (no canonical mismatch) and
- // the expired soft-landing loop never emitted an IT legacy copy either.
+ // shard origin's 404, which the locale-router Worker may turn into a 301
+ // through its recovery map. The retained bridge planner later checks the
+ // final Worker destination and active route ownership before admitting any
+ // stale mirror at this path. IT keeps its noindex active copy.
  legacyTiBridgeDirs.add(legacyTIKey);
  } else if (!activeJobDirs.has(legacyTIKey)) {
  const legacyTIReuseInput = incrementalManifests
@@ -5771,9 +5780,9 @@ ${staticAnalyticsHtml}
  }
  const legacyTIFlat = np.join(distDir, legacyTIRel + '.html');
  _qwFlatFull(legacyTIFlat, legacyTIIndexHtml.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
- // Claim this TI-mirror path as the AUTHORITATIVE active bridge so the
- // canton-blind previousSlug TI mirror (~line 11717) can't later
- // overwrite it with a stale alias from a different non-TI job (#2545).
+ // Record this active TI-mirror path for diagnostics. The retained bridge
+ // planner independently reconstructs this active owner and excludes a
+ // colliding stale mirror before its exact planned writer can claim output.
  legacyTiBridgeDirs.add(legacyTIKey);
  }
  recordEmit('active-job-cross-canton-legacy', __tCrossCantonLegacy);
@@ -15090,13 +15099,11 @@ ${staticAnalyticsHtml}
  let retainedBridgesSkippedNotOwner = 0;
  const retainedBridgesNotOwnerKeys = new Set<string>();
  const retainedBridgesNotOwnerExamples: string[] = [];
- const isRetainedActiveBridgePath = (
-  locale: JobSeoLocale,
-  pathname: string,
-  kind: JobCanonBridgePath['kind'],
-  ownerJobIdentifier: string,
- ): boolean => {
-  const canonicalPath = withSlash(pathname);
+ const isRetainedActiveBridgePath = (candidate: JobCanonBridgePath): boolean => {
+  const canonicalPath = withSlash(candidate.path);
+  const locale = candidate.locale;
+  const plannedBridge = retainedBridgePaths.get(bridgePathKey(locale, canonicalPath))?.bridge;
+  const isPlannedOwner = isPlannedJobCanonBridgeOwner(plannedBridge, candidate);
   if (activeBridgePathsOwnedBeforePlan.has(bridgePathKey(locale, canonicalPath))) return false;
   const safeToEmit = isRetainedBridgePathSafeToEmit(
    distDir,
@@ -15105,12 +15112,12 @@ ${staticAnalyticsHtml}
    (candidatePath) => {
     const retained = retainedBridgePaths.get(bridgePathKey(locale, candidatePath));
     if (!retained) return false;
-    if (isRetainedBridgeOwnedBy(retained.bridge, kind, ownerJobIdentifier)) return true;
-    const notOwnerKey = `${kind}\u0000${locale}\u0000${candidatePath}`;
+    if (candidatePath === canonicalPath && isPlannedOwner) return true;
+    const notOwnerKey = `${candidate.kind}\u0000${locale}\u0000${candidatePath}`;
     if (!retainedBridgesNotOwnerKeys.has(notOwnerKey)) {
      retainedBridgesNotOwnerKeys.add(notOwnerKey);
      retainedBridgesSkippedNotOwner++;
-     if (retainedBridgesNotOwnerExamples.length < 20) retainedBridgesNotOwnerExamples.push(`${kind}:${locale}:${candidatePath}:not-owner`);
+     if (retainedBridgesNotOwnerExamples.length < 20) retainedBridgesNotOwnerExamples.push(`${candidate.kind}:${locale}:${candidatePath}:not-owner`);
     }
     return false;
    },
@@ -15121,9 +15128,9 @@ ${staticAnalyticsHtml}
     const unplannedKey = `${locale}\u0000${unplannedPath}`;
     if (unplannedBridgeKeys.has(unplannedKey)) return;
     unplannedBridgeKeys.add(unplannedKey);
-    unplannedBridgesSkippedByKind[kind]++;
+    unplannedBridgesSkippedByKind[candidate.kind]++;
     unplannedBridgesSkippedByLocale[locale] = (unplannedBridgesSkippedByLocale[locale] ?? 0) + 1;
-    if (unplannedBridgeExamples.length < 20) unplannedBridgeExamples.push(`${kind}:${locale}:${unplannedPath}`);
+    if (unplannedBridgeExamples.length < 20) unplannedBridgeExamples.push(`${candidate.kind}:${locale}:${unplannedPath}`);
    },
   );
   if (safeToEmit) emittedRetainedBridgeKeys.add(bridgePathKey(locale, canonicalPath));
@@ -16858,16 +16865,13 @@ ${staticAnalyticsHtml}
  ]),
  ];
 
- // Hoist per (currentSlug, locale): bridgeScript + the two .replace()
- // passes over the ~30-50 KB cachedHtml don't depend on `oldSlug`. Lazy
- // (computed only on the first oldSlug that actually emits a bridge) so
- // the case where every prevSlug is filtered out below stays a no-op.
- // Every previous-slug alias preserves the canonical job's full static body.
+ // Hoist the canonical page HTML per (currentSlug, locale). Every
+ // previous-slug alias preserves its full body; planned bridge metadata is
+ // applied after cache reuse for each target.
  let bridgeIndexHtml: string | null = null;
  const ensureBridgeHtml = (): string => {
  if (bridgeIndexHtml === null) {
- const bridgeScript = `<script>window.__BRIDGE_TARGET_SLUG__=${inlineScriptJson(currentSlug)};</script>`;
- bridgeIndexHtml = noindexJobAliasHtml(cachedHtml.replace('</head>', ` ${bridgeScript}\n </head>`));
+  bridgeIndexHtml = cachedHtml;
  }
  return bridgeIndexHtml;
  };
@@ -16934,8 +16938,18 @@ ${staticAnalyticsHtml}
  if (emittedActiveJobPaths.has(`${jobCantonForBridge}:${locale}:${oldSlug}`)) continue;
  const __tPrevSlugBridge = startTimer();
  const outDir = np.join(distDir, oldRelPath);
+ const bridgeTargetPath = buildCanonicalJobDetailPath(locale, job, currentSlug, jobCantonForBridge);
+ const previousSlugBridge: JobCanonBridgePath = {
+  path: withSlash(oldPath),
+  locale,
+  slug: oldSlug,
+  targetPath: bridgeTargetPath,
+  kind: 'previousSlug',
+  canton: jobCantonForBridge,
+  sourceJobIdentifier: String(job.id || job.slug || ''),
+ };
  let indexHtml: string | null = null;
- if (isRetainedActiveBridgePath(locale, oldPath, 'previousSlug', String((job as any).id || (job as any).slug || ''))) {
+ if (isRetainedActiveBridgePath(previousSlugBridge)) {
   // Keep full-content rendering and incremental reuse only for URLs that the
   // Worker cannot redirect to this exact canonical destination.
   bridgeFullCount++;
@@ -16963,12 +16977,15 @@ ${staticAnalyticsHtml}
    },
   );
   if (previousSlugReuse?.hit && !jobsSeoReuse?.shouldRender(previousSlugReuse)) {
-   indexHtml = noindexJobAliasHtml(
-    jobsSeoReuse.reusedHtml(previousSlugReuse, STATIC_PAGE_BUILD_ID) || previousSlugReuse.html,
-   );
+   indexHtml = jobsSeoReuse.reusedHtml(previousSlugReuse, STATIC_PAGE_BUILD_ID) || previousSlugReuse.html;
   } else {
    indexHtml = ensureBridgeHtml();
   }
+  indexHtml = ensureRetainedActiveBridgeMetadata(
+   indexHtml,
+   currentSlug,
+   `${BASE_URL}${bridgeTargetPath}`,
+  );
   jobsSeoReuse?.finish(previousSlugReuse, indexHtml);
   _md(outDir);
   _qwRetainedJobBridge(np.join(outDir, 'index.html'), indexHtml);
@@ -17008,25 +17025,28 @@ ${staticAnalyticsHtml}
  // bridge at ~line 2840 (PR #159), extended here to cover every
  // per-locale previousSlug too.
  if (jobCantonForBridge !== 'TI' && !isCompanyHubNamespaceSlug(oldSlug, locale)) {
- const legacyTIRelPath = buildCanonicalJobDetailPath(locale, 'TI', oldSlug).replace(/^\/+|\/+$/g, '');
+ const legacyTIPath = buildCanonicalJobDetailPath(locale, 'TI', oldSlug);
+ const legacyTIRelPath = legacyTIPath.replace(/^\/+|\/+$/g, '');
  const legacyTIKey = legacyTIRelPath.replace(/\/+$/, '');
  // The legacy TI section is canton-blind: every non-TI job collapses
  // here, so this oldSlug mirror can collide with (a) an active job's
  // authoritative TI bridge that owns the SAME slug under its own
  // canton, or (b) another non-TI job's previousSlug mirror that lists
  // the same oldSlug (multi-city postings cross-pollinate previousSlugs).
- // Skip when an authoritative active bridge already owns the path, and
- // first-claimant-wins among previousSlug mirrors so the canonical at
- // this TI path stays deterministic across builds instead of flipping
- // to whichever job happened to write last (#2545). An explicit
- // previousSlug declaration is authoritative here: it is the producer's
- // durable ownership claim for this legacy URL and must be emitted even when
- // the locale-router registry also contains a same-slug native destination.
- if (
- !activeJobDirs.has(legacyTIKey) &&
- !legacyTiBridgeDirs.has(legacyTIKey)
- ) {
- if (!isRetainedActiveBridgePath(locale, legacyTIRelPath, 'legacyTiMirror', String((job as any).id || (job as any).slug || ''))) continue;
+ // The final Worker-map classification and retained plan own this URL. The
+ // earlier legacyTiBridgeDirs marker can mean the Worker was expected to
+ // recover it, but only an exact Worker target is removable; a retained plan
+ // must still get its index output even when that marker exists.
+ const legacyTIBridge: JobCanonBridgePath = {
+  path: withSlash(legacyTIPath),
+  locale,
+  slug: oldSlug,
+  targetPath: bridgeTargetPath,
+  kind: 'legacyTiMirror',
+  canton: jobCantonForBridge,
+  sourceJobIdentifier: String(job.id || job.slug || ''),
+ };
+ if (!activeJobDirs.has(legacyTIKey) && isRetainedActiveBridgePath(legacyTIBridge)) {
  legacyTiBridgeDirs.add(legacyTIKey);
  const __tPrevSlugLegacyTIBridge = startTimer();
  const legacyTIOutDir = np.join(distDir, legacyTIRelPath);
@@ -17058,7 +17078,11 @@ ${staticAnalyticsHtml}
  const legacyTIHtml = legacyTIReuse?.hit && !jobsSeoReuse?.shouldRender(legacyTIReuse)
   ? jobsSeoReuse.reusedHtml(legacyTIReuse, STATIC_PAGE_BUILD_ID) || legacyTIReuse.html
   : legacyTIBaseHtml;
- const noindexLegacyTIHtml = noindexJobAliasHtml(legacyTIHtml);
+ const noindexLegacyTIHtml = ensureRetainedActiveBridgeMetadata(
+  legacyTIHtml,
+  currentSlug,
+  `${BASE_URL}${bridgeTargetPath}`,
+ );
  jobsSeoReuse?.finish(legacyTIReuse, noindexLegacyTIHtml);
  _md(legacyTIOutDir);
  _qwRetainedJobBridge(np.join(legacyTIOutDir, 'index.html'), noindexLegacyTIHtml);
@@ -17104,10 +17128,10 @@ ${staticAnalyticsHtml}
   sitemapEntries: prevSlugEntries.length,
  });
 
- // Last-reader release, with the marker above as the proof point:
- // winnerByPrevSlugKey is read only by the previous-slug emit loop, and
- // legacyTiBridgeDirs is read only by its legacy-TI mirror guard. The active
- // and cross-locale bridge loops that follow use activeJobDirs instead.
+ // Last-reader release: winnerByPrevSlugKey is read only by the
+ // previous-slug emit loop. legacyTiBridgeDirs is retained for phase
+ // diagnostics; the active and cross-locale bridge loops use their exact
+ // planned ownership records and activeJobDirs.
  winnerByPrevSlugKey.clear();
  legacyTiBridgeDirs.clear();
 
@@ -17201,10 +17225,25 @@ ${staticAnalyticsHtml}
    if (previousSlug && previousSlug !== baseSlug) foreignSlugs.add(previousSlug);
   }
  }
+ const crossLocaleTargetPath = buildCanonicalJobDetailPath(
+  baseLocale,
+  job,
+  baseSlug,
+  jobCantonForCrossLocale,
+ );
  for (const foreignSlug of foreignSlugs) {
   const candidatePath = buildCanonicalJobDetailPath(baseLocale, 'TI', foreignSlug);
-  const retained = retainedBridgePaths.get(bridgePathKey(baseLocale, candidatePath));
-  if (!isRetainedBridgeOwnedBy(retained?.bridge, 'crossLocale', myCrossLocaleJobId)) {
+  const candidate: JobCanonBridgePath = {
+   path: withSlash(candidatePath),
+   locale: baseLocale,
+   slug: foreignSlug,
+   targetPath: crossLocaleTargetPath,
+   kind: 'crossLocale',
+   canton: jobCantonForCrossLocale,
+   sourceJobIdentifier: myCrossLocaleJobId,
+  };
+  const plannedBridge = retainedBridgePaths.get(bridgePathKey(baseLocale, candidatePath))?.bridge;
+  if (!isPlannedJobCanonBridgeOwner(plannedBridge, candidate)) {
    foreignSlugs.delete(foreignSlug);
   }
  }
@@ -17248,7 +17287,8 @@ ${staticAnalyticsHtml}
  // job's location falls back to TI, a foreign-locale company-shaped slug is a
  // company-hub URL and must be left to that emitter (issue #2976).
  if (isCompanyHubNamespaceSlug(foreignSlug, baseLocale)) continue;
- const relPath = buildCanonicalJobDetailPath(baseLocale, 'TI', foreignSlug).replace(/^\/+|\/+$/g, '');
+ const crossLocaleBridgePath = buildCanonicalJobDetailPath(baseLocale, 'TI', foreignSlug);
+ const relPath = crossLocaleBridgePath.replace(/^\/+|\/+$/g, '');
  if (isDistPathOverFilesystemLimits(relPath)) {
   skippedFilesystemLimitPaths++;
   continue;
@@ -17281,7 +17321,16 @@ ${staticAnalyticsHtml}
  // Skip if a previousSlugs bridge already covered this path for
  // this job (same content would be written again).
  if (pathWasClaimed(indexFile) || isJobAliasRedirectPath(indexFile)) continue;
- if (!isRetainedActiveBridgePath(baseLocale, relPath, 'crossLocale', myCrossLocaleJobId)) continue;
+ const crossLocaleBridge: JobCanonBridgePath = {
+  path: withSlash(crossLocaleBridgePath),
+  locale: baseLocale,
+  slug: foreignSlug,
+  targetPath: crossLocaleTargetPath,
+  kind: 'crossLocale',
+  canton: jobCantonForCrossLocale,
+  sourceJobIdentifier: String(job.id || job.slug || ''),
+ };
+ if (!isRetainedActiveBridgePath(crossLocaleBridge)) continue;
  const __tCrossLocaleActive = startTimer();
  const crossLocaleActiveReuseInput = incrementalManifests
   ? {
@@ -17310,7 +17359,11 @@ ${staticAnalyticsHtml}
  // The foreign slug is an alias even when it came from another locale's
  // current/previous slug. Keep the canonical detail indexable and the bridge
  // noindex after fresh rendering and cache reuse alike.
- const noindexCrossLocaleActiveHtml = noindexJobAliasHtml(crossLocaleActiveHtml);
+ const noindexCrossLocaleActiveHtml = ensureRetainedActiveBridgeMetadata(
+  crossLocaleActiveHtml,
+  baseSlug,
+  `${BASE_URL}${crossLocaleTargetPath}`,
+ );
  jobsSeoReuse?.finish(crossLocaleActiveReuse, noindexCrossLocaleActiveHtml);
  _md(outDir);
  _qwRetainedJobBridge(indexFile, noindexCrossLocaleActiveHtml);

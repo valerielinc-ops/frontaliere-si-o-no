@@ -25,6 +25,7 @@ import {
   buildActiveJobBridgePathPlan,
   classifyBridgePathsFromFinalWorkerMap,
   classifyBridgePaths,
+  isPlannedJobCanonBridgeOwner,
   emitActiveJobCanonAliases,
   planActiveJobCanonAliases,
   reconcileFinalWorkerSlugMapRows,
@@ -1080,6 +1081,62 @@ describe('job canon bridge path planning and PR-B classification', () => {
     expect(plan.bridgePaths.some((bridge) => bridge.kind === 'crossLocale' && bridge.slug === 'worker-owned')).toBe(false);
     expect(plan.bridgePaths.some((bridge) => bridge.kind === 'crossLocale' && bridge.locale === 'it' && bridge.slug === 'azienda-acme')).toBe(false);
     expect(plan.bridgePaths.some((bridge) => bridge.kind === 'crossLocale' && bridge.slug === 'flat-old')).toBe(false);
+  });
+
+  it('requires the exact planned owner for a colliding legacy-TI output and keeps non-exact Worker routes', () => {
+    const tiOwner = {
+      id: 'ti-owner',
+      slug: 'ti-current',
+      canton: 'TI',
+      slugByLocale: { it: 'ti-current', en: 'ti-owner-en' },
+      previousSlugsByLocale: { en: ['shared-old'] },
+    } satisfies ActiveJobSlugMapRow;
+    const nonTiOwner = {
+      id: 'non-ti-owner',
+      slug: 'zh-current',
+      canton: 'ZH',
+      slugByLocale: { it: 'zh-current', en: 'zh-owner-en' },
+      previousSlugsByLocale: { en: ['shared-old'] },
+    } satisfies ActiveJobSlugMapRow;
+    const plan = buildActiveJobBridgePathPlan([tiOwner, nonTiOwner], {
+      winners: {},
+      reservedHubSlugs: new Set(),
+    });
+    const sharedLegacyTiPath = buildCanonicalJobDetailPath('en', 'TI', 'shared-old');
+    const plannedMirror = plan.bridgePaths.find((bridge) =>
+      bridge.path === sharedLegacyTiPath && bridge.kind === 'legacyTiMirror',
+    );
+    const earlierTiPreviousSlug = {
+      path: sharedLegacyTiPath,
+      locale: 'en',
+      slug: 'shared-old',
+      targetPath: buildCanonicalJobDetailPath('en', tiOwner, 'ti-owner-en', 'TI'),
+      kind: 'previousSlug',
+      canton: 'TI',
+      sourceJobIdentifier: 'ti-owner',
+    } as const;
+
+    expect(plannedMirror).toMatchObject({
+      kind: 'legacyTiMirror',
+      sourceJobIdentifier: 'non-ti-owner',
+      path: sharedLegacyTiPath,
+    });
+    expect(isPlannedJobCanonBridgeOwner(plannedMirror, earlierTiPreviousSlug)).toBe(false);
+    expect(isPlannedJobCanonBridgeOwner(plannedMirror, plannedMirror!)).toBe(true);
+
+    const exactWorkerTarget = classifyBridgePathsFromFinalWorkerMap(
+      [plannedMirror!],
+      new Map([['shared-old', { alias: { en: plannedMirror!.targetPath } }]]),
+      new Set(['non-ti-owner']),
+    );
+    expect(exactWorkerTarget.removable.has(sharedLegacyTiPath)).toBe(true);
+
+    const workerRedirectsElsewhere = classifyBridgePathsFromFinalWorkerMap(
+      [plannedMirror!],
+      new Map([['shared-old', { alias: { en: '/en/find-jobs-bern/other-owner/' } }]]),
+      new Set(['non-ti-owner']),
+    );
+    expect(workerRedirectsElsewhere.keepBridge.get(sharedLegacyTiPath)).toBe('targetMismatch');
   });
 
   it('plans only bridges whose source locale has an emitted active canonical page', () => {
