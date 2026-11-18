@@ -138,6 +138,30 @@ describe('sharedWriteRegistry', () => {
  expect(getClaimingPlugin(path.join(pageDir, 'nope.html'))).toBeUndefined();
  });
 
+ it('a declared winner gets allow-write even over a prior claim; concurrent writers get skip-write', () => {
+ const hub = path.resolve(os.tmpdir(), 'recency-decl-fixture', 'en', 'find-jobs-ticino', 'last-3-days');
+ const indexPath = path.join(hub, 'index.html');
+ const flatPath = `${hub}.html`;
+ try {
+  declareSharedPath({
+   pattern: /recency-decl-fixture\/en\/find-jobs-ticino\/last-3-days(\/index\.html|\.html)$/,
+   winner: 'job-recency-pages',
+   reason: 'test fixture',
+  });
+  // A concurrent writer claimed first with different content.
+  expect(claim(indexPath, 'other-writer', '<html>other</html>')).toBe('allow-write');
+  expect(claim(indexPath, 'job-recency-pages', '<html>recency</html>')).toBe('allow-write');
+  expect(getClaimingPlugin(indexPath)).toBe('job-recency-pages');
+  // The flat output is claimed by the winner first, then a concurrent writer is suppressed.
+  expect(claim(flatPath, 'job-recency-pages', '<html>recency</html>')).toBe('allow-write');
+  expect(claim(flatPath, 'other-writer', '<html>other-2</html>')).toBe('skip-write');
+  expect(claim(indexPath, 'other-writer', '<html>other-3</html>')).toBe('skip-write');
+  expect(getClaimingPlugin(flatPath)).toBe('job-recency-pages');
+ } finally {
+  clearDeclarationsForTest();
+ }
+ });
+
  it('idempotent re-claim with identical content returns skip-write (no error)', () => {
  claim('/dist/foo/index.html', 'pluginA', '<html>a</html>');
  const out = claim('/dist/foo/index.html', 'pluginA', '<html>a</html>');

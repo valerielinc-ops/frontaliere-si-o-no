@@ -388,6 +388,16 @@ describe('raw URL-to-dist writers apply the guard before filesystem joins', () =
     expect(RECENCY_SOURCE).toContain('isRetainedJobBridgeOutputPath(safeTargets.indexPath)');
     expect(RECENCY_SOURCE).not.toContain('hasClaimedOrReservedPath');
     expect(RECENCY_SOURCE).toContain('claimed-by-other-writer=');
+    // Explicit ownership through the registry: declaration + claims, disk
+    // writes only on allow-write, sitemap push only when we own the final page.
+    expect(RECENCY_SOURCE).toContain('declareSharedPath({');
+    expect(RECENCY_SOURCE).toContain('winner: JOB_RECENCY_WRITER');
+    expect(RECENCY_SOURCE).toContain("claim(safeTargets.indexPath, JOB_RECENCY_WRITER, html)");
+    expect(RECENCY_SOURCE).toContain("claim(safeTargets.flatPath, JOB_RECENCY_WRITER, html)");
+    expect(RECENCY_SOURCE).toContain("indexOutcome === 'allow-write'");
+    expect(RECENCY_SOURCE).toContain("flatOutcome === 'allow-write'");
+    expect(RECENCY_SOURCE.indexOf('const ownsOutput')).toBeLessThan(RECENCY_SOURCE.indexOf('sitemapEntries.push('));
+    expect(RECENCY_SOURCE).toContain('JSON.stringify(claimedByOtherWriterExamples)');
     expect(SECTOR_SOURCE).toContain('hasClaimedOrReservedPath(safeTargets.indexPath)');
     expect(PHARMACY_SOURCE).toContain('hasClaimedOrReservedPath(safeTargets.indexPath)');
     expect(JOBS_SOURCE).toContain('const pathWasClaimed = (filePath: string): boolean => hasClaimedPath(filePath);');

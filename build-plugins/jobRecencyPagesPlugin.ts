@@ -61,9 +61,12 @@ import { windowDaysForVariant } from './jobRecencyLanding';
 import { SECTION_LEGACY_TI } from './shared/cantonSection';
 import { getSafeDistPageTargets } from './shared/distPathSafety';
 import {
+  claim,
+  declareSharedPath,
   getClaimingPlugin,
-  hasClaimedPath,
-  isJobAliasRedirectPath,
+  getLatestClaimVersion,
+  hashContent,
+    isJobAliasRedirectPath,
   isRetainedJobBridgeOutputPath,
 } from './sharedWriteRegistry';
 
@@ -126,6 +129,28 @@ function localizedJobSlug(job: Record<string, unknown>, locale: JobLandingLocale
 }
 
 const VARIANTS: ReadonlyArray<JobRecencyVariant> = ['last-3-days', 'since-yesterday'];
+
+/** Writer id used for every shared-write-registry claim of the recency hubs. */
+const JOB_RECENCY_WRITER = 'job-recency-pages';
+
+const escapeRegExp = (value: string): string => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+/**
+ * Module-load declaration (survives `reset()`, so it exists before any other
+ * writer claims): the recency hub is the canonical owner of its 8 hub URLs
+ * (variant x locale), both `<dir>/index.html` and the flat `<dir>.html`.
+ * Any other writer reaching them after our claim is suppressed (skip-write).
+ */
+declareSharedPath({
+  pattern: new RegExp(
+    `(?:${VARIANTS.flatMap((variant) => LOCALES.map((locale) =>
+      escapeRegExp(`${LOCALE_PREFIX[locale]}/${SECTION_BY_LOCALE[locale]}/${JOB_RECENCY_LANDING_SLUGS[variant][locale]}`),
+    )).join('|')})(?:/index\\.html|\\.html)$`,
+  ),
+  winner: JOB_RECENCY_WRITER,
+  reason:
+    'jobRecencyPagesPlugin owns the 8 recency hubs (last-3-days / since-yesterday x it/en/de/fr) and lists them in sitemap-recency.xml, which feeds the publisher page manifest. Another writer reaching the same URL would make sitemap and manifest describe a page that is not the final one. Winner is job-recency-pages.',
+});
 
 export function jobRecencyPagesPlugin(rootDir: string): Plugin {
   return {
@@ -419,23 +444,43 @@ ${alternates}
           // Never overwrite a retained active-job bridge.
           if (isRetainedJobBridgeOutputPath(safeTargets.indexPath)
             || isRetainedJobBridgeOutputPath(safeTargets.flatPath)) continue;
-          // A path merely claimed by another writer is NOT skipped: the
-          // recency hub owns its URL and the sitemap must list what we write.
-          // Surface it so the claimer can be fixed.
-          if (hasClaimedPath(safeTargets.indexPath) || hasClaimedPath(safeTargets.flatPath)) {
+          // The recency hub is the declared owner of both outputs (see
+          // declareSharedPath at module scope): a claim by another plugin is
+          // not a reason to skip, but it is surfaced so the claimer can be
+          // fixed. Ownership goes through the registry, so concurrent writers
+          // are suppressed (skip-write) before reaching the disk.
+          const priorIndexClaimer = getClaimingPlugin(safeTargets.indexPath);
+          const priorFlatClaimer = getClaimingPlugin(safeTargets.flatPath);
+          if (priorIndexClaimer !== undefined || priorFlatClaimer !== undefined) {
             claimedByOtherWriter += 1;
             if (claimedByOtherWriterExamples.length < 10) {
-              const claimer = getClaimingPlugin(safeTargets.indexPath)
-                ?? getClaimingPlugin(safeTargets.flatPath);
               claimedByOtherWriterExamples.push(
-                `${variant}:${locale}:${canonicalPath}${claimer ? `:claimedBy=${claimer}` : ''}`,
+                `${variant}:${locale}:${canonicalPath}:claimedBy=${priorIndexClaimer ?? '-'}|${priorFlatClaimer ?? '-'}`,
               );
             }
           }
-          ensureDir(safeTargets.directoryPath);
-          fs.writeFileSync(safeTargets.indexPath, html, 'utf-8');
-          ensureDir(np.dirname(safeTargets.flatPath));
-          fs.writeFileSync(safeTargets.flatPath, html, 'utf-8');
+          const indexOutcome = claim(safeTargets.indexPath, JOB_RECENCY_WRITER, html);
+          const flatOutcome = claim(safeTargets.flatPath, JOB_RECENCY_WRITER, html);
+          if (indexOutcome === 'allow-write') {
+            ensureDir(safeTargets.directoryPath);
+            fs.writeFileSync(safeTargets.indexPath, html, 'utf-8');
+          }
+          if (flatOutcome === 'allow-write') {
+            ensureDir(np.dirname(safeTargets.flatPath));
+            fs.writeFileSync(safeTargets.flatPath, html, 'utf-8');
+          }
+          // The sitemap must describe the final page: list it only when the
+          // latest registry version of both outputs is ours (or carries the
+          // identical recency HTML, e.g. an earlier identical claim).
+          const htmlHash = hashContent(html);
+          const ownsOutput = (outputPath: string): boolean => {
+            const latest = getLatestClaimVersion(outputPath);
+            return latest?.plugin === JOB_RECENCY_WRITER || latest?.contentHash === htmlHash;
+          };
+          if (!ownsOutput(safeTargets.indexPath) || !ownsOutput(safeTargets.flatPath)) {
+            console.warn(`[job-recency-pages] final owner of ${canonicalPath} is not job-recency-pages: not listed in sitemap-recency.xml`);
+            continue;
+          }
 
           // Every locale gets its own reciprocal <loc> entry (all 4 carry the
           // same alternate set) — an IT-only push here would leave en/de/fr
@@ -462,7 +507,7 @@ ${alternates}
 
       if (claimedByOtherWriter > 0) {
         console.warn(
-          `[job-recency-pages] claimed-by-other-writer=${claimedByOtherWriter} examples=[${claimedByOtherWriterExamples.join(', ')}]`,
+          `[job-recency-pages] claimed-by-other-writer=${claimedByOtherWriter} examples=${JSON.stringify(claimedByOtherWriterExamples)}`,
         );
       }
 
