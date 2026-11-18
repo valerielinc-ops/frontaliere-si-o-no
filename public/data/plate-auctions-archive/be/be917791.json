@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "be-231568",
+      "sourceKey": "BE",
+      "sourceRecordId": "231568",
+      "canton": "Berna",
+      "platePrefix": "BE",
+      "plateNumber": "917791",
+      "normalizedPlate": "BE917791",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 390,
+      "bidCount": 0,
+      "endsAt": "2026-11-18T20:00:00.000Z",
+      "closedAt": "2026-11-18T20:00:00.000Z",
+      "officialAuctionUrl": "https://auktion-be.ch/de/",
+      "officialDetailUrl": "https://auktion-be.ch/de/auction/231568",
+      "sourceFetchedAt": "2026-11-18T07:26:06.058Z",
+      "lastVerifiedAt": "2026-11-18T07:26:06.058Z",
+      "firstSeenAt": "2026-11-12T15:12:35.239Z",
+      "lastSeenAt": "2026-11-18T07:26:06.058Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "178836198d30"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "zh-43768",
+      "sourceKey": "ZH",
+      "sourceRecordId": "43768",
+      "canton": "Zurigo",
+      "platePrefix": "ZH",
+      "plateNumber": "18463",
+      "normalizedPlate": "ZH18463",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 850,
+      "bidCount": 8,
+      "endsAt": "2026-11-18T18:00:00.000Z",
+      "closedAt": "2026-11-18T18:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion.stva.zh.ch/de/?plate_sub_type=&plate_type=car",
+      "officialDetailUrl": "https://www.auktion.stva.zh.ch/de/auction/43768",
+      "sourceFetchedAt": "2026-11-18T07:27:25.276Z",
+      "lastVerifiedAt": "2026-11-18T07:27:25.276Z",
+      "firstSeenAt": "2026-11-12T15:14:20.801Z",
+      "lastSeenAt": "2026-11-18T07:27:25.276Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "3277bb6e35c6"
+    }
+  ]
+}

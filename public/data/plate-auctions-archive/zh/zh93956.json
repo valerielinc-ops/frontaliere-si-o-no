@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "zh-43790",
+      "sourceKey": "ZH",
+      "sourceRecordId": "43790",
+      "canton": "Zurigo",
+      "platePrefix": "ZH",
+      "plateNumber": "93956",
+      "normalizedPlate": "ZH93956",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 520,
+      "bidCount": 18,
+      "endsAt": "2026-11-18T18:00:00.000Z",
+      "closedAt": "2026-11-18T18:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion.stva.zh.ch/de/?plate_sub_type=&plate_type=car",
+      "officialDetailUrl": "https://www.auktion.stva.zh.ch/de/auction/43790",
+      "sourceFetchedAt": "2026-11-18T07:27:25.276Z",
+      "lastVerifiedAt": "2026-11-18T07:27:25.276Z",
+      "firstSeenAt": "2026-11-12T15:14:20.801Z",
+      "lastSeenAt": "2026-11-18T07:27:25.276Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "dbf36bd38727"
+    }
+  ]
+}

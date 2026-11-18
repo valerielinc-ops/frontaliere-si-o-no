@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "tg-109768",
+      "sourceKey": "TG",
+      "sourceRecordId": "109768",
+      "canton": "Turgovia",
+      "platePrefix": "TG",
+      "plateNumber": "32201",
+      "normalizedPlate": "TG32201",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 600,
+      "bidCount": 1,
+      "endsAt": "2026-11-18T18:00:00.000Z",
+      "closedAt": "2026-11-18T18:00:00.000Z",
+      "officialAuctionUrl": "https://auktion.tg.ch/de/",
+      "officialDetailUrl": "https://auktion.tg.ch/de/auction/109768",
+      "sourceFetchedAt": "2026-11-18T07:27:13.057Z",
+      "lastVerifiedAt": "2026-11-18T07:27:13.057Z",
+      "firstSeenAt": "2026-11-04T06:17:18.136Z",
+      "lastSeenAt": "2026-11-18T07:27:13.057Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "13160d865c8d"
+    }
+  ]
+}

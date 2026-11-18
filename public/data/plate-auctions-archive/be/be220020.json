@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "be-231569",
+      "sourceKey": "BE",
+      "sourceRecordId": "231569",
+      "canton": "Berna",
+      "platePrefix": "BE",
+      "plateNumber": "220020",
+      "normalizedPlate": "BE220020",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 700,
+      "bidCount": 9,
+      "endsAt": "2026-11-18T20:00:00.000Z",
+      "closedAt": "2026-11-18T20:00:00.000Z",
+      "officialAuctionUrl": "https://auktion-be.ch/de/",
+      "officialDetailUrl": "https://auktion-be.ch/de/auction/231569",
+      "sourceFetchedAt": "2026-11-18T07:26:06.058Z",
+      "lastVerifiedAt": "2026-11-18T07:26:06.058Z",
+      "firstSeenAt": "2026-11-12T15:12:35.239Z",
+      "lastSeenAt": "2026-11-18T07:26:06.058Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "4903052405e2"
+    }
+  ]
+}

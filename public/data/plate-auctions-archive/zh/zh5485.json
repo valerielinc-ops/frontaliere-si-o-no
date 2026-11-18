@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "zh-43765",
+      "sourceKey": "ZH",
+      "sourceRecordId": "43765",
+      "canton": "Zurigo",
+      "platePrefix": "ZH",
+      "plateNumber": "5485",
+      "normalizedPlate": "ZH5485",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 5400,
+      "bidCount": 9,
+      "endsAt": "2026-11-18T18:00:00.000Z",
+      "closedAt": "2026-11-18T18:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion.stva.zh.ch/de/?plate_sub_type=&plate_type=car",
+      "officialDetailUrl": "https://www.auktion.stva.zh.ch/de/auction/43765",
+      "sourceFetchedAt": "2026-11-18T07:27:25.276Z",
+      "lastVerifiedAt": "2026-11-18T07:27:25.276Z",
+      "firstSeenAt": "2026-11-12T15:14:20.801Z",
+      "lastSeenAt": "2026-11-18T07:27:25.276Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "027ac1d95ed2"
+    }
+  ]
+}

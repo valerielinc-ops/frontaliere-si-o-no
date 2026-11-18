@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "tg-109776",
+      "sourceKey": "TG",
+      "sourceRecordId": "109776",
+      "canton": "Turgovia",
+      "platePrefix": "TG",
+      "plateNumber": "321321",
+      "normalizedPlate": "TG321321",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 620,
+      "bidCount": 3,
+      "endsAt": "2026-11-18T18:00:00.000Z",
+      "closedAt": "2026-11-18T18:00:00.000Z",
+      "officialAuctionUrl": "https://auktion.tg.ch/de/",
+      "officialDetailUrl": "https://auktion.tg.ch/de/auction/109776",
+      "sourceFetchedAt": "2026-11-18T07:27:13.057Z",
+      "lastVerifiedAt": "2026-11-18T07:27:13.057Z",
+      "firstSeenAt": "2026-11-04T06:17:18.136Z",
+      "lastSeenAt": "2026-11-18T07:27:13.057Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "105a9e7b0961"
+    }
+  ]
+}

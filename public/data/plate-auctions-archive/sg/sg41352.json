@@ -2,9 +2,9 @@
   "schema": 1,
   "rows": [
     {
-      "id": "sg-6682",
+      "id": "sg-6711",
       "sourceKey": "SG",
-      "sourceRecordId": "6682",
+      "sourceRecordId": "6711",
       "canton": "San Gallo",
       "platePrefix": "SG",
       "plateNumber": "41352",
@@ -12,20 +12,20 @@
       "listingType": "auction",
       "vehicleType": "car",
       "auctionStatus": "closed",
-      "currentBidChf": 540,
+      "currentBidChf": 640,
       "startingPriceChf": 500,
-      "bidCount": 2,
+      "bidCount": 4,
       "minimumIncrementChf": 20,
-      "endsAt": "2026-11-04T18:30:00.000Z",
-      "closedAt": "2026-11-04T18:30:00.000Z",
+      "endsAt": "2026-11-18T18:30:00.000Z",
+      "closedAt": "2026-11-18T18:30:00.000Z",
       "officialAuctionUrl": "https://egov.stva.sg.ch/ecari-auction/ui/app/init",
-      "officialDetailUrl": "https://egov.stva.sg.ch/ecari-auction/ui/app/details/app?id=6682",
-      "sourceFetchedAt": "2026-11-04T17:47:05.587Z",
-      "lastVerifiedAt": "2026-11-04T17:47:05.587Z",
-      "firstSeenAt": "2026-10-28T22:35:29.534Z",
-      "lastSeenAt": "2026-11-04T17:47:05.587Z",
+      "officialDetailUrl": "https://egov.stva.sg.ch/ecari-auction/ui/app/details/app?id=6711",
+      "sourceFetchedAt": "2026-11-18T07:26:38.499Z",
+      "lastVerifiedAt": "2026-11-18T07:26:38.499Z",
+      "firstSeenAt": "2026-11-12T00:42:29.829Z",
+      "lastSeenAt": "2026-11-18T07:26:38.499Z",
       "dataConfidence": "partial",
-      "rawSnapshotHash": "e72ca8b32180"
+      "rawSnapshotHash": "944c19829df9"
     }
   ]
 }

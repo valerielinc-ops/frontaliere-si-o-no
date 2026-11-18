@@ -2,9 +2,9 @@
   "schema": 1,
   "rows": [
     {
-      "id": "tg-109887",
+      "id": "tg-109946",
       "sourceKey": "TG",
-      "sourceRecordId": "109887",
+      "sourceRecordId": "109946",
       "canton": "Turgovia",
       "platePrefix": "TG",
       "plateNumber": "495208",
@@ -13,17 +13,17 @@
       "vehicleType": "car",
       "auctionStatus": "closed",
       "currentBidChf": 600,
-      "bidCount": 0,
-      "endsAt": "2026-11-04T18:00:00.000Z",
-      "closedAt": "2026-10-30T22:20:34.942Z",
+      "bidCount": 1,
+      "endsAt": "2026-11-18T18:00:00.000Z",
+      "closedAt": "2026-11-18T18:00:00.000Z",
       "officialAuctionUrl": "https://auktion.tg.ch/de/",
-      "officialDetailUrl": "https://auktion.tg.ch/de/auction/109887",
-      "sourceFetchedAt": "2026-10-30T22:20:34.942Z",
-      "lastVerifiedAt": "2026-10-30T22:20:34.942Z",
-      "firstSeenAt": "2026-10-22T17:12:02.218Z",
-      "lastSeenAt": "2026-10-30T22:20:34.942Z",
+      "officialDetailUrl": "https://auktion.tg.ch/de/auction/109946",
+      "sourceFetchedAt": "2026-11-17T20:56:42.220Z",
+      "lastVerifiedAt": "2026-11-17T20:56:42.220Z",
+      "firstSeenAt": "2026-11-08T06:01:28.428Z",
+      "lastSeenAt": "2026-11-17T20:56:42.220Z",
       "dataConfidence": "partial",
-      "rawSnapshotHash": "19c234ac7cbf"
+      "rawSnapshotHash": "bbd976d4e23f"
     }
   ]
 }
