@@ -239,6 +239,70 @@ describe('profili di sparse-checkout', () => {
     expect(sparsePaths).not.toContain('/scripts/');
   });
 
+  it('misura Source Liveness confrontando parent e HEAD sullo stesso runner', () => {
+    const source = YAML.parse(
+      fs.readFileSync(path.join(WF_DIR, 'source-liveness.yml'), 'utf8'),
+      { logLevel: 'silent' },
+    );
+    const measurement = YAML.parse(
+      fs.readFileSync(path.join(WF_DIR, 'validate-modified-workflows.yml'), 'utf8'),
+      { logLevel: 'silent' },
+    );
+    const job = measurement?.jobs?.source_liveness_measurement;
+    const steps = job?.steps ?? [];
+    const checkouts = steps.filter(
+      (step: any) => typeof step?.uses === 'string' && step.uses.startsWith('actions/checkout@'),
+    );
+    const sparsePaths = (step: any) => String(step?.with?.['sparse-checkout'] ?? '')
+      .split('\n')
+      .map((entry: string) => entry.trim())
+      .filter(Boolean);
+    const sourceCheckout = source?.jobs?.liveness?.steps?.find(
+      (step: any) => typeof step?.uses === 'string' && step.uses.startsWith('actions/checkout@'),
+    );
+    const parentSparse = checkouts.find((step: any) => step?.name === 'Sparse checkout parent');
+    const headSparse = checkouts.find((step: any) => step?.name === 'Sparse checkout HEAD');
+
+    expect(String(job?.if ?? '')).toContain(
+      "contains(needs.validate.outputs.files, '.github/workflows/source-liveness.yml')",
+    );
+    expect(checkouts).toHaveLength(4);
+    expect(checkouts.map((step: any) => step?.with?.['fetch-depth'])).toEqual([1, 1, 1, 1]);
+    expect(checkouts.map((step: any) => step?.with?.path)).toEqual([
+      'source-liveness-parent-full',
+      'source-liveness-parent-sparse',
+      'source-liveness-head-full',
+      'source-liveness-head-sparse',
+    ]);
+    expect(headSparse?.with?.filter).toBe('blob:none');
+    expect(sparsePaths(headSparse)).toEqual(sparsePaths(sourceCheckout));
+    expect(sparsePaths(parentSparse)).toEqual([
+      '/*',
+      '!/public/images/',
+      '!/data/jobs/',
+      '!/data/url-first-seen/',
+      '!/data/seo-404-compat/',
+      '!/data/translation-cache/',
+      '!/packages/articles/content/',
+      '!/data/all-known-job-slugs/',
+      '!/data/orphan-enriched-data/',
+      '!/public/data/',
+      '!/data/related-search-candidates.json',
+      '!/data/cf-hot-404s.json',
+      '!/data/jobs-ai-cache.json',
+      '!/data/dist-size-history.jsonl',
+      '!/data/jobs-stats-history.json',
+      '!/data/url-first-seen.json',
+      '!/data/jobs-snapshots-history/',
+      '!/data/slug-registry.json',
+      '!/data/health-premiums/',
+      '!/data/jobs-crawler-summaries/',
+    ]);
+    expect(steps.some((step: any) => String(step?.run ?? '').includes(
+      'measure-source-liveness-checkout.mjs',
+    ))).toBe(true);
+  });
+
   it('il gate promotion include il helper del controllo di ingresso diretto', () => {
     const workflow = YAML.parse(
       fs.readFileSync(path.join(WF_DIR, 'deploy.yml'), 'utf8'),
