@@ -211,7 +211,7 @@ jobs:
 
       - name: Measure parent and HEAD checkout populations
         run: |
-          node source-liveness-parent-full/scripts/ci/measure-source-liveness-checkout.mjs \
+          node source-liveness-head-full/scripts/ci/measure-source-liveness-checkout.mjs \
             source-liveness-parent-full \
             source-liveness-parent-sparse \
             source-liveness-head-full \
