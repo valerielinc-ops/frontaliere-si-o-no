@@ -418,6 +418,26 @@ it('routes unreadable source labels to a technical hold instead of manufacturing
     [{ fieldId: 'f1', question: 'A plausible but invented question?' }])).toMatchObject({ questions: [], unreadableFields: ['f1'] });
 });
 
+it('keeps a known Workday profile control out of unreadable-question handoff after a label redraw', () => {
+  const result = portalRequirementsFromMissingRequired([{
+    id: 'profile-start',
+    kind: 'text',
+    inputType: 'date',
+    widget: 'workday-date',
+    label: '',
+    section: 'Work Experience',
+    dataAutomationId: 'formField-startDate',
+    addressContext: { owners: ['Sales'] },
+    required: true,
+  }], [{ fieldId: 'profile-start', question: '' }], {
+    candidate: {
+      profile: { experience: [{ role: 'Sales', employer: 'ACME', start: '2022-01', end: '2024-01' }] },
+    },
+  });
+  expect(result.questions).toEqual([]);
+  expect(result.unreadableFields).toBeUndefined();
+});
+
 it('asks for a separately required house number when the residence street has no number', () => {
   const result = portalRequirementsFromMissingRequired([
     { id: 'street', kind: 'text', label: 'Via', required: true },
