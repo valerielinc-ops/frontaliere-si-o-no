@@ -3467,34 +3467,6 @@ export const saveCandidateJobProfileSkills = onCall(
   },
 );
 
-// Job-alert CV ranking is a separate, explicit choice from application-intent
-// personalization. Only the owner's parser projection can enable it.
-export const setCandidateCvJobAlertPersonalization = onCall(
-  { region: 'europe-west6', memory: '256MiB' },
-  async (request) => {
-    const userId = request.auth?.uid;
-    if (!userId) throw new HttpsError('unauthenticated', 'Sign in is required.');
-    const enabled = request.data?.enabled;
-    if (typeof enabled !== 'boolean') throw new HttpsError('invalid-argument', 'invalid_cv_alert_preference');
-    const profileRef = getAdminDb().collection('user_cv_profiles').doc(userId);
-    const profile = await profileRef.get();
-    const data = profile.exists ? profile.data() || {} : {};
-    const skills = Array.isArray(data.profile?.skills) ? data.profile.skills : [];
-    const languages = Array.isArray(data.profile?.languages) ? data.profile.languages : [];
-    if (enabled && (data.status !== 'ready'
-      || ![...skills, ...languages].some((skill) => typeof skill === 'string' && skill.trim()))) {
-      throw new HttpsError('failed-precondition', 'candidate_cv_skills_unavailable');
-    }
-    if (!profile.exists && !enabled) return { enabled: false };
-    await profileRef.set({
-      userId,
-      jobAlertPersonalizationEnabled: enabled,
-      jobAlertPersonalizationUpdatedAt: FieldValue.serverTimestamp(),
-    }, { merge: true });
-    return { enabled };
-  },
-);
-
 export const deleteCandidateCvProfile = onCall(
   { region: 'europe-west6', memory: '256MiB', timeoutSeconds: 60 },
   async (request) => {

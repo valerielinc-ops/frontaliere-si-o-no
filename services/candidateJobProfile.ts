@@ -104,10 +104,6 @@ export async function reuseCandidateProfileCvForAssistedApplication(
   );
 }
 
-export async function setCandidateCvJobAlertPersonalization(uid: string, enabled: boolean): Promise<void> {
-  await callProfileFunction<{ enabled: boolean }>(uid, 'setCandidateCvJobAlertPersonalization', { enabled });
-}
-
 export async function deleteCandidateProfileCv(uid: string): Promise<void> {
   const result = await callProfileFunction<{ deleted: boolean }>(uid, 'deleteCandidateCvProfile', {});
   if (!result.deleted) throw new Error('candidate_cv_delete_unavailable');
