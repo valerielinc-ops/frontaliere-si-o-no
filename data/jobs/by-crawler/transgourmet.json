@@ -1810,12 +1810,12 @@
     },
     {
       "id": "transgourmet-d6d25829-b47",
-      "slug": "kommissioniererin-kommissionierer-transgourmet-basel",
+      "slug": "ordina-picker-ordine-picker-transgourmet-basel",
       "slugByLocale": {
         "de": "kommissioniererin-kommissionierer-transgourmet-basel",
-        "it": "kommissioniererin-kommissionierer-transgourmet-basel",
-        "en": "kommissioniererin-kommissionierer-transgourmet-basel",
-        "fr": "kommissioniererin-kommissionierer-transgourmet-basel"
+        "it": "ordina-picker-ordine-picker-transgourmet-basel",
+        "en": "order-picker-order-picker-transgourmet-basel",
+        "fr": "recuperateur-de-commandes-recuperateur-de-commandes-transgourmet-basel"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
@@ -1892,7 +1892,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-16T09:31:13.710Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T09:31:13.710Z"
+      "firstSeenAt": "2026-11-18T09:31:13.710Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kommissioniererin-kommissionierer-transgourmet-basel"
+        ],
+        "en": [
+          "kommissioniererin-kommissionierer-transgourmet-basel"
+        ],
+        "fr": [
+          "kommissioniererin-kommissionierer-transgourmet-basel"
+        ]
+      },
+      "previousSlugs": [
+        "kommissioniererin-kommissionierer-transgourmet-basel"
+      ]
     },
     {
       "id": "transgourmet-59ff5a37-368",

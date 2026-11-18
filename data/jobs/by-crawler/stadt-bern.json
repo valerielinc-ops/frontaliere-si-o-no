@@ -2775,12 +2775,12 @@
     },
     {
       "id": "stadt-bern-f9d7256b35cc",
-      "slug": "2-co-schulleitungen-stadt-bern-bern",
+      "slug": "2-gestione-co-scuola-stadt-bern-bern",
       "slugByLocale": {
         "de": "2-co-schulleitungen-stadt-bern-bern",
-        "it": "2-co-schulleitungen-stadt-bern-bern",
-        "en": "2-co-schulleitungen-stadt-bern-bern",
-        "fr": "2-co-schulleitungen-stadt-bern-bern"
+        "it": "2-gestione-co-scuola-stadt-bern-bern",
+        "en": "2-co-school-management-stadt-bern-bern",
+        "fr": "2-gestion-des-co-ecoles-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -2843,7 +2843,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-16T09:14:05.505Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T09:14:05.505Z"
+      "firstSeenAt": "2026-11-18T09:14:05.505Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "2-co-schulleitungen-stadt-bern-bern"
+        ],
+        "en": [
+          "2-co-schulleitungen-stadt-bern-bern"
+        ],
+        "fr": [
+          "2-co-schulleitungen-stadt-bern-bern"
+        ]
+      },
+      "previousSlugs": [
+        "2-co-schulleitungen-stadt-bern-bern"
+      ]
     },
     {
       "id": "stadt-bern-660c32ed93cc",

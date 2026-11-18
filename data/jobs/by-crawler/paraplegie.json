@@ -3006,12 +3006,12 @@
     },
     {
       "id": "paraplegie-d4ae258c39a8",
-      "slug": "betriebstechniker-in-mechanik-schweizer-paraplegiker-gruppe-nottwil",
+      "slug": "tecnico-operativo-specializzato-in-meccanica-schweizer-paraplegiker-gruppe-nottwil",
       "slugByLocale": {
         "de": "betriebstechniker-in-mechanik-paraplegie-nottwil",
-        "it": "betriebstechniker-in-mechanik-schweizer-paraplegiker-gruppe-nottwil",
-        "en": "betriebstechniker-in-mechanik-schweizer-paraplegiker-gruppe-nottwil",
-        "fr": "betriebstechniker-in-mechanik-schweizer-paraplegiker-gruppe-nottwil"
+        "it": "tecnico-operativo-specializzato-in-meccanica-schweizer-paraplegiker-gruppe-nottwil",
+        "en": "mechanical-operations-technician-schweizer-paraplegiker-gruppe-nottwil",
+        "fr": "technicien-technicienne-d-exploitation-en-mecanique-schweizer-paraplegiker-gruppe-nottwil"
       },
       "company": "Schweizer Paraplegiker-Gruppe",
       "companyKey": "paraplegie",
@@ -3059,11 +3059,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "betriebstechniker-in-mechanik-paraplegie-nottwil"
+          "betriebstechniker-in-mechanik-paraplegie-nottwil",
+          "betriebstechniker-in-mechanik-schweizer-paraplegiker-gruppe-nottwil"
+        ],
+        "en": [
+          "betriebstechniker-in-mechanik-schweizer-paraplegiker-gruppe-nottwil"
+        ],
+        "fr": [
+          "betriebstechniker-in-mechanik-schweizer-paraplegiker-gruppe-nottwil"
         ]
       },
       "previousSlugs": [
-        "betriebstechniker-in-mechanik-paraplegie-nottwil"
+        "betriebstechniker-in-mechanik-paraplegie-nottwil",
+        "betriebstechniker-in-mechanik-schweizer-paraplegiker-gruppe-nottwil"
       ],
       "salaryMin": 86500,
       "salaryMax": 120500,

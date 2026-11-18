@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "tertianum-cecbc7a7ccd1",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-im-spatdienst-tertianum-zurich",
+      "slug": "dipl-specialista-hf-fh-dnii-80-100-in-servizio-tardivo-tertianum-zurich",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-im-spatdienst-tertianum-zurich",
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-im-spatdienst-tertianum-zurich",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-im-spatdienst-tertianum-zurich",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-im-spatdienst-tertianum-zurich"
+        "it": "dipl-specialista-hf-fh-dnii-80-100-in-servizio-tardivo-tertianum-zurich",
+        "en": "dipl-care-specialist-hf-fh-dnii-80-100-in-late-service-tertianum-zurich",
+        "fr": "dipl-specialiste-des-soins-hf-fh-dnii-80-100-en-fin-de-service-tertianum-zurich"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -72,7 +72,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T09:33:28.259Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T09:33:28.259Z"
+      "firstSeenAt": "2026-11-18T09:33:28.259Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-im-spatdienst-tertianum-zurich"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-im-spatdienst-tertianum-zurich"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-im-spatdienst-tertianum-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-im-spatdienst-tertianum-zurich"
+      ]
     },
     {
       "id": "tertianum-d5812f04a6a6",

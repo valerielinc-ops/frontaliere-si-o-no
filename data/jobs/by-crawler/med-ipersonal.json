@@ -13228,12 +13228,12 @@
     },
     {
       "id": "med-ipersonal-286dcba57b3a",
-      "slug": "produktionsmechaniker-in-cfc-ipersonal-ag-benken-sg-sg",
+      "slug": "meccanico-a-di-produzione-afc-ipersonal-ag-benken-sg-sg",
       "slugByLocale": {
         "de": "produktionsmechaniker-in-efz-ipersonal-ag-benken-sg-sg",
-        "it": "produktionsmechaniker-in-cfc-ipersonal-ag-benken-sg-sg",
-        "en": "produktionsmechaniker-in-efz-ipersonal-ag-benken-sg-sg",
-        "fr": "produktionsmechaniker-in-efz-ipersonal-ag-benken-sg-sg"
+        "it": "meccanico-a-di-produzione-afc-ipersonal-ag-benken-sg-sg",
+        "en": "production-mechanic-efz-swiss-federal-vet-diploma-ipersonal-ag-benken-sg-sg",
+        "fr": "mecanicien-mecanicienne-de-production-cfc-ipersonal-ag-benken-sg-sg"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -13294,11 +13294,19 @@
       "firstSeenAt": "2026-11-18T09:51:34.994Z",
       "previousSlugsByLocale": {
         "it": [
+          "produktionsmechaniker-in-efz-ipersonal-ag-benken-sg-sg",
+          "produktionsmechaniker-in-cfc-ipersonal-ag-benken-sg-sg"
+        ],
+        "en": [
+          "produktionsmechaniker-in-efz-ipersonal-ag-benken-sg-sg"
+        ],
+        "fr": [
           "produktionsmechaniker-in-efz-ipersonal-ag-benken-sg-sg"
         ]
       },
       "previousSlugs": [
-        "produktionsmechaniker-in-efz-ipersonal-ag-benken-sg-sg"
+        "produktionsmechaniker-in-efz-ipersonal-ag-benken-sg-sg",
+        "produktionsmechaniker-in-cfc-ipersonal-ag-benken-sg-sg"
       ]
     },
     {

@@ -3114,12 +3114,12 @@
     },
     {
       "id": "lindenhofgruppe-99bcf8c057ee",
-      "slug": "pflegeexpertin-pflegeexperte-apn-palliative-care-lindenhofgruppe-ch",
+      "slug": "esperto-di-cura-esperto-di-cura-apn-palliative-care-lindenhofgruppe-lindenhofgruppe",
       "slugByLocale": {
         "de": "pflegeexpertin-pflegeexperte-apn-palliative-care-lindenhofgruppe-ch",
-        "it": "pflegeexpertin-pflegeexperte-apn-palliative-care-lindenhofgruppe-ch",
+        "it": "esperto-di-cura-esperto-di-cura-apn-palliative-care-lindenhofgruppe-lindenhofgruppe",
         "en": "pflegeexpertin-pflegeexperte-apn-palliative-care-lindenhofgruppe-ch",
-        "fr": "pflegeexpertin-pflegeexperte-apn-palliative-care-lindenhofgruppe-ch"
+        "fr": "expert-en-soins-expert-en-soins-apn-soins-palliatifs-lindenhofgruppe-lindenhofgruppe"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -3181,7 +3181,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T09:45:57.505Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T09:45:57.505Z"
+      "firstSeenAt": "2026-11-18T09:45:57.505Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegeexpertin-pflegeexperte-apn-palliative-care-lindenhofgruppe-ch"
+        ],
+        "fr": [
+          "pflegeexpertin-pflegeexperte-apn-palliative-care-lindenhofgruppe-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pflegeexpertin-pflegeexperte-apn-palliative-care-lindenhofgruppe-ch"
+      ]
     },
     {
       "id": "lindenhofgruppe-fd93ae323455",

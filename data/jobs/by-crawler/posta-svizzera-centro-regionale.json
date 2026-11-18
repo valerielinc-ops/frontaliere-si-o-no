@@ -12714,12 +12714,12 @@
         "en": "Team Leader in Sorting Logistics (Permanent Night Shift)",
         "fr": "Chef·fe d’équipe en logistique de tri (nuit permanente)"
       },
-      "slug": "teamleader-in-sortierlogistik-dauernacht-post",
+      "slug": "team-leader-logistica-di-smistamento-turno-fisso-di-notte-die-schweizerische-post-zurich-mulligen",
       "slugByLocale": {
         "de": "teamleader-in-sortierlogistik-dauernacht-post",
-        "it": "teamleader-in-sortierlogistik-dauernacht-post",
-        "en": "teamleader-in-sortierlogistik-dauernacht-post",
-        "fr": "teamleader-in-sortierlogistik-dauernacht-post"
+        "it": "team-leader-logistica-di-smistamento-turno-fisso-di-notte-die-schweizerische-post-zurich-mulligen",
+        "en": "team-leader-in-sorting-logistics-permanent-night-shift-die-schweizerische-post-zurich-mulligen",
+        "fr": "chef-fe-d-equipe-en-logistique-de-tri-nuit-permanente-die-schweizerische-post-zurich-mulligen"
       },
       "sourceLang": "de",
       "department": "",
@@ -12757,7 +12757,21 @@
       "streetAddress": "Zürich-Mülligen",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-18T09:54:30.344Z"
+      "firstSeenAt": "2026-11-18T09:54:30.344Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleader-in-sortierlogistik-dauernacht-post"
+        ],
+        "en": [
+          "teamleader-in-sortierlogistik-dauernacht-post"
+        ],
+        "fr": [
+          "teamleader-in-sortierlogistik-dauernacht-post"
+        ]
+      },
+      "previousSlugs": [
+        "teamleader-in-sortierlogistik-dauernacht-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/75236-de_DE",
@@ -12787,8 +12801,8 @@
       "slugByLocale": {
         "de": "zusteller-in-briefe-und-pakete-post",
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-scuol",
-        "en": "zusteller-in-briefe-und-pakete-post",
-        "fr": "zusteller-in-briefe-und-pakete-post"
+        "en": "letter-and-parcel-delivery-person-die-schweizerische-post-scuol",
+        "fr": "livreur-livreuse-de-lettres-et-de-colis-die-schweizerische-post-scuol"
       },
       "sourceLang": "de",
       "department": "",
@@ -12810,6 +12824,12 @@
       "id": "posta-svizzera-centro-regionale-d87661808727",
       "previousSlugsByLocale": {
         "it": [
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "en": [
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "fr": [
           "zusteller-in-briefe-und-pakete-post"
         ]
       },
@@ -13165,7 +13185,7 @@
         "de": "ict-major-incident-manager-in-post",
         "it": "ict-major-incident-manager-in-post",
         "en": "ict-major-incident-manager-in-post",
-        "fr": "ict-major-incident-manager-in-post"
+        "fr": "responsable-des-incidents-majeurs-tic-die-schweizerische-post-bellinzona-bern-lausanne-neuchatel"
       },
       "sourceLang": "de",
       "department": "",
@@ -13203,7 +13223,15 @@
       "postalCode": "2000",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-18T09:54:21.066Z"
+      "firstSeenAt": "2026-11-18T09:54:21.066Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "ict-major-incident-manager-in-post"
+        ]
+      },
+      "previousSlugs": [
+        "ict-major-incident-manager-in-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Leiterin-Facility-Management-Region-Mittelland/75177-de_DE",
@@ -13233,7 +13261,7 @@
       "slugByLocale": {
         "de": "leiter-in-facility-management-region-mittelland-post",
         "it": "responsabile-facility-management-region-mittelland-die-schweizerische-post-bern",
-        "en": "leiter-in-facility-management-region-mittelland-post",
+        "en": "head-of-facility-management-central-plateau-region-die-schweizerische-post-bern",
         "fr": "leiter-in-facility-management-region-mittelland-post"
       },
       "sourceLang": "de",
@@ -13256,6 +13284,9 @@
       "id": "posta-svizzera-centro-regionale-3b02ee813ed3",
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-facility-management-region-mittelland-post"
+        ],
+        "en": [
           "leiter-in-facility-management-region-mittelland-post"
         ]
       },

@@ -12026,12 +12026,12 @@
     },
     {
       "id": "rolex-c205afb68c28",
-      "slug": "gestionnaire-de-stocks-m-w-d-rolex-bienne",
+      "slug": "gestione-azioni-m-f-rolex-bienne",
       "slugByLocale": {
         "fr": "gestionnaire-de-stocks-h-f-rolex-ch",
-        "it": "gestionnaire-de-stocks-m-w-d-rolex-bienne",
-        "en": "gestionnaire-de-stocks-h-f-rolex-ch",
-        "de": "gestionnaire-de-stocks-h-f-rolex-ch"
+        "it": "gestione-azioni-m-f-rolex-bienne",
+        "en": "stock-manager-m-f-rolex-bienne",
+        "de": "aktienmanager-m-w-rolex-bienne"
       },
       "company": "Rolex",
       "companyKey": "rolex",
@@ -12076,11 +12076,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "gestionnaire-de-stocks-h-f-rolex-ch",
+          "gestionnaire-de-stocks-m-w-d-rolex-bienne"
+        ],
+        "en": [
+          "gestionnaire-de-stocks-h-f-rolex-ch"
+        ],
+        "de": [
           "gestionnaire-de-stocks-h-f-rolex-ch"
         ]
       },
       "previousSlugs": [
-        "gestionnaire-de-stocks-h-f-rolex-ch"
+        "gestionnaire-de-stocks-h-f-rolex-ch",
+        "gestionnaire-de-stocks-m-w-d-rolex-bienne"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,

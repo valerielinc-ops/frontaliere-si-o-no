@@ -7996,12 +7996,12 @@
     },
     {
       "id": "senevita-316ec23adba3",
-      "slug": "koch-kochin-efz-senevita-zh-regensdorf",
+      "slug": "cuoco-afc-senevita-zh-regensdorf",
       "slugByLocale": {
         "de": "koch-kochin-efz-senevita-zh-regensdorf",
-        "it": "koch-kochin-efz-senevita-zh-regensdorf",
-        "en": "koch-kochin-efz-senevita-zh-regensdorf",
-        "fr": "koch-kochin-efz-senevita-zh-regensdorf"
+        "it": "cuoco-afc-senevita-zh-regensdorf",
+        "en": "cook-chef-efz-senevita-zh-regensdorf",
+        "fr": "cuisiniere-chef-efz-senevita-zh-regensdorf"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -8063,7 +8063,21 @@
       "streetAddress": "ZH Regensdorf",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-18T09:23:19.782Z"
+      "firstSeenAt": "2026-11-18T09:23:19.782Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "koch-kochin-efz-senevita-zh-regensdorf"
+        ],
+        "en": [
+          "koch-kochin-efz-senevita-zh-regensdorf"
+        ],
+        "fr": [
+          "koch-kochin-efz-senevita-zh-regensdorf"
+        ]
+      },
+      "previousSlugs": [
+        "koch-kochin-efz-senevita-zh-regensdorf"
+      ]
     },
     {
       "id": "senevita-d5cd384b827e",

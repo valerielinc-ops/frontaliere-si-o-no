@@ -2722,10 +2722,10 @@
     },
     {
       "id": "nestle-1455504933",
-      "slug": "chef-de-partie-nestle-ch",
+      "slug": "capopartita-nestle-lausanne",
       "slugByLocale": {
         "en": "chef-de-partie-nestle-ch",
-        "it": "chef-de-partie-nestle-ch",
+        "it": "capopartita-nestle-lausanne",
         "de": "chef-de-partie-nestle-ch",
         "fr": "chef-de-partie-nestle-ch"
       },
@@ -2794,7 +2794,8 @@
       "previousSlugsByLocale": {
         "it": [
           "capopartita-nestle-lausanne",
-          "kuchenchef-de-partie-nestle-lausanne"
+          "kuchenchef-de-partie-nestle-lausanne",
+          "chef-de-partie-nestle-ch"
         ],
         "de": [
           "kuchenchef-de-partie-nestle-lausanne"
@@ -2802,7 +2803,8 @@
       },
       "previousSlugs": [
         "capopartita-nestle-lausanne",
-        "kuchenchef-de-partie-nestle-lausanne"
+        "kuchenchef-de-partie-nestle-lausanne",
+        "chef-de-partie-nestle-ch"
       ]
     },
     {
@@ -4170,12 +4172,12 @@
     },
     {
       "id": "nestle-1457704933",
-      "slug": "r-d-specialist-in-the-powder-creamer-product-development-and-soluble-white-nestle-ch",
+      "slug": "specialista-di-ricerca-e-sviluppo-nello-sviluppo-di-prodotti-in-polvere-e-caffe-solubile-bianco-nestle-konolfingen",
       "slugByLocale": {
         "en": "r-d-specialist-in-the-powder-creamer-product-development-and-soluble-white-nestle-ch",
-        "it": "r-d-specialist-in-the-powder-creamer-product-development-and-soluble-white-nestle-ch",
-        "de": "r-d-specialist-in-the-powder-creamer-product-development-and-soluble-white-nestle-ch",
-        "fr": "r-d-specialist-in-the-powder-creamer-product-development-and-soluble-white-nestle-ch"
+        "it": "specialista-di-ricerca-e-sviluppo-nello-sviluppo-di-prodotti-in-polvere-e-caffe-solubile-bianco-nestle-konolfingen",
+        "de": "f-e-spezialist-fur-die-produktentwicklung-von-kaffeewei-er-pulver-und-loslichem-wei-nestle-konolfingen",
+        "fr": "specialiste-r-d-dans-le-developpement-de-produits-de-creme-en-poudre-et-de-cafe-soluble-blanc-nestle-konolfingen"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -4237,7 +4239,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T09:53:50.467Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T09:53:50.467Z"
+      "firstSeenAt": "2026-11-18T09:53:50.467Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "r-d-specialist-in-the-powder-creamer-product-development-and-soluble-white-nestle-ch"
+        ],
+        "de": [
+          "r-d-specialist-in-the-powder-creamer-product-development-and-soluble-white-nestle-ch"
+        ],
+        "fr": [
+          "r-d-specialist-in-the-powder-creamer-product-development-and-soluble-white-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "r-d-specialist-in-the-powder-creamer-product-development-and-soluble-white-nestle-ch"
+      ]
     },
     {
       "id": "nestle-1445277433",
@@ -6574,7 +6590,7 @@
         "en": "nestep-in-hyperspectral-imaging-nestle-ch",
         "it": "nestep-in-hyperspectral-imaging-nestle-ch",
         "de": "nestep-in-hyperspectral-imaging-nestle-ch",
-        "fr": "nestep-in-hyperspectral-imaging-nestle-ch"
+        "fr": "nestep-dans-l-imagerie-hyperspectrale-nestle-lausanne"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -6636,7 +6652,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T09:53:27.948Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T09:53:27.948Z"
+      "firstSeenAt": "2026-11-18T09:53:27.948Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "nestep-in-hyperspectral-imaging-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "nestep-in-hyperspectral-imaging-nestle-ch"
+      ]
     },
     {
       "id": "nestle-1386110633",

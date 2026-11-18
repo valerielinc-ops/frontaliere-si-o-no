@@ -1933,8 +1933,8 @@
       "slugByLocale": {
         "de": "fachperson-gesundheit-efz-einsatzplanung-mit-bereitschaft-fur-pflegeeinsatze-spitex-ch",
         "it": "fachperson-gesundheit-cfc-einsatzplanung-con-bereitschaft-per-pflegeeinsatze-spitex-regiokirchspiel-kleindottingen",
-        "en": "fachperson-gesundheit-efz-einsatzplanung-mit-bereitschaft-fur-pflegeeinsatze-spitex-ch",
-        "fr": "fachperson-gesundheit-efz-einsatzplanung-mit-bereitschaft-fur-pflegeeinsatze-spitex-ch"
+        "en": "specialist-health-efz-operational-planning-with-readiness-for-care-assignments-spitex-regiokirchspiel-kleindottingen",
+        "fr": "specialiste-de-la-sante-efz-z-planification-operationnelle-avec-preparation-aux-taches-de-soins-spitex-regiokirchspiel"
       },
       "company": "Spitex RegioKirchspiel",
       "companyKey": "spitex-ch",
@@ -1983,6 +1983,12 @@
       "previousSlugsByLocale": {
         "it": [
           "fachperson-gesundheit-efz-einsatzplanung-mit-bereitschaft-fur-pflegeeinsatze-spitex-ch"
+        ],
+        "en": [
+          "fachperson-gesundheit-efz-einsatzplanung-mit-bereitschaft-fur-pflegeeinsatze-spitex-ch"
+        ],
+        "fr": [
+          "fachperson-gesundheit-efz-einsatzplanung-mit-bereitschaft-fur-pflegeeinsatze-spitex-ch"
         ]
       },
       "previousSlugs": [
@@ -2021,12 +2027,12 @@
     },
     {
       "id": "spitex-ch-fd7e5158bd1a",
-      "slug": "fachperson-gesundheit-efz-spitex-ch-kleindottingen",
+      "slug": "operatore-socio-sanitario-afc-spitex-regiokirchspiel-kleindottingen",
       "slugByLocale": {
         "de": "fachperson-gesundheit-efz-spitex-ch-kleindottingen",
-        "it": "fachperson-gesundheit-efz-spitex-ch-kleindottingen",
-        "en": "fachperson-gesundheit-efz-spitex-ch-kleindottingen",
-        "fr": "fachperson-gesundheit-efz-spitex-ch-kleindottingen"
+        "it": "operatore-socio-sanitario-afc-spitex-regiokirchspiel-kleindottingen",
+        "en": "health-professional-efz-spitex-regiokirchspiel-kleindottingen",
+        "fr": "professionnels-de-la-sante-efz-spitex-regiokirchspiel-kleindottingen"
       },
       "company": "Spitex RegioKirchspiel",
       "companyKey": "spitex-ch",
@@ -2102,7 +2108,21 @@
       "streetAddress": "Industriestrasse 7",
       "streetAddressSource": "zefix-registry",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-18T09:17:26.968Z"
+      "firstSeenAt": "2026-11-18T09:17:26.968Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-efz-spitex-ch-kleindottingen"
+        ],
+        "en": [
+          "fachperson-gesundheit-efz-spitex-ch-kleindottingen"
+        ],
+        "fr": [
+          "fachperson-gesundheit-efz-spitex-ch-kleindottingen"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-efz-spitex-ch-kleindottingen"
+      ]
     },
     {
       "id": "spitex-ch-f5af57cf2a4c",

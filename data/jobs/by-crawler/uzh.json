@@ -9102,12 +9102,12 @@
     },
     {
       "id": "uzh-150b34615d0f",
-      "slug": "direktionsassistent-in-universitat-zurich-zurich",
+      "slug": "assistente-di-direzione-universitat-zurich-zurich",
       "slugByLocale": {
         "de": "direktionsassistent-in-uzh-zurich",
-        "it": "direktionsassistent-in-universitat-zurich-zurich",
-        "en": "direktionsassistent-in-universitat-zurich-zurich",
-        "fr": "direktionsassistent-in-universitat-zurich-zurich"
+        "it": "assistente-di-direzione-universitat-zurich-zurich",
+        "en": "executive-assistant-universitat-zurich-zurich",
+        "fr": "assistant-e-de-direction-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -9155,11 +9155,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "direktionsassistent-in-uzh-zurich"
+          "direktionsassistent-in-uzh-zurich",
+          "direktionsassistent-in-universitat-zurich-zurich"
+        ],
+        "en": [
+          "direktionsassistent-in-universitat-zurich-zurich"
+        ],
+        "fr": [
+          "direktionsassistent-in-universitat-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "direktionsassistent-in-uzh-zurich"
+        "direktionsassistent-in-uzh-zurich",
+        "direktionsassistent-in-universitat-zurich-zurich"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -9181,12 +9189,12 @@
     },
     {
       "id": "uzh-999a231a908d",
-      "slug": "phd-position-in-human-centered-business-process-management-uzh-zurich",
+      "slug": "posizione-del-dottorato-in-gestione-del-processo-di-business-universitat-zurich-zurich",
       "slugByLocale": {
         "en": "phd-position-in-human-centered-business-process-management-uzh-zurich",
-        "it": "phd-position-in-human-centered-business-process-management-uzh-zurich",
-        "de": "phd-position-in-human-centered-business-process-management-uzh-zurich",
-        "fr": "phd-position-in-human-centered-business-process-management-uzh-zurich"
+        "it": "posizione-del-dottorato-in-gestione-del-processo-di-business-universitat-zurich-zurich",
+        "de": "doktorandenstelle-im-menschenzentrierten-geschaftsprozessmanagement-universitat-zurich-zurich",
+        "fr": "poste-de-phd-en-gestion-des-processus-d-affaires-en-milieu-humain-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -9248,7 +9256,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-16T09:17:24.389Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T09:17:24.389Z"
+      "firstSeenAt": "2026-11-18T09:17:24.389Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-in-human-centered-business-process-management-uzh-zurich"
+        ],
+        "de": [
+          "phd-position-in-human-centered-business-process-management-uzh-zurich"
+        ],
+        "fr": [
+          "phd-position-in-human-centered-business-process-management-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "phd-position-in-human-centered-business-process-management-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-2e6b22d9edb9",

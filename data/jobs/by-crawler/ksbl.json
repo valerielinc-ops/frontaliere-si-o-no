@@ -3066,7 +3066,7 @@
       "id": "ksbl-e26f60c459c8",
       "slug": "infermiera-a-kantonsspital-baselland-ksbl-liestal-11c54b95e1",
       "slugByLocale": {
-        "it": "infermiera-a-kantonsspital-baselland-ksbl-liestal-11c54b95e1",
+        "it": "infermiera-a-kantonsspital-baselland-ksbl-liestal",
         "en": "dipl-nurse-a-kantonsspital-baselland-ksbl-liestal",
         "de": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-fapojd",
         "fr": "infirmiere-diplomee-a-kantonsspital-baselland-ksbl-liestal"
@@ -5142,7 +5142,7 @@
       "id": "ksbl-cd14c6154336",
       "slug": "infermiera-a-kantonsspital-baselland-ksbl-liestal-a67061767f",
       "slugByLocale": {
-        "it": "infermiera-a-kantonsspital-baselland-ksbl-liestal-a67061767f",
+        "it": "infermiera-a-kantonsspital-baselland-ksbl-liestal",
         "en": "dipl-nurse-a-kantonsspital-baselland-ksbl-liestal",
         "de": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-tiu1kw",
         "fr": "infirmiere-diplomee-a-kantonsspital-baselland-ksbl-liestal"
@@ -8775,12 +8775,12 @@
     },
     {
       "id": "ksbl-dc716616eaad",
-      "slug": "collaboratore-trice-arealdienste-gartnerei-a-kantonsspital-baselland-ksbl-liestal",
+      "slug": "addetto-ai-servizi-di-manutenzione-dell-area-giardinaggio-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
         "de": "mitarbeiter-arealdienste-gartnerei-a-ksbl-liestal",
-        "it": "collaboratore-trice-arealdienste-gartnerei-a-kantonsspital-baselland-ksbl-liestal",
-        "en": "mitarbeiter-arealdienste-gartnerei-a-ksbl-liestal",
-        "fr": "mitarbeiter-arealdienste-gartnerei-a-ksbl-liestal"
+        "it": "addetto-ai-servizi-di-manutenzione-dell-area-giardinaggio-a-kantonsspital-baselland-ksbl-liestal",
+        "en": "employees-area-services-gardening-a-kantonsspital-baselland-ksbl-liestal",
+        "fr": "services-regionaux-des-employes-garderie-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -8827,11 +8827,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-arealdienste-gartnerei-a-ksbl-liestal",
+          "collaboratore-trice-arealdienste-gartnerei-a-kantonsspital-baselland-ksbl-liestal"
+        ],
+        "en": [
+          "mitarbeiter-arealdienste-gartnerei-a-ksbl-liestal"
+        ],
+        "fr": [
           "mitarbeiter-arealdienste-gartnerei-a-ksbl-liestal"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-arealdienste-gartnerei-a-ksbl-liestal"
+        "mitarbeiter-arealdienste-gartnerei-a-ksbl-liestal",
+        "collaboratore-trice-arealdienste-gartnerei-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "salaryMin": 72500,
       "salaryMax": 110500,

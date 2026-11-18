@@ -6721,10 +6721,10 @@
     },
     {
       "id": "etat-de-fribourg-42b264c8acc0",
-      "slug": "stagiaire-juriste-etat-de-fribourg-ch",
+      "slug": "interno-legale-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "fr": "stagiaire-juriste-etat-de-fribourg-ch",
-        "it": "stagiaire-juriste-etat-de-fribourg-ch",
+        "it": "interno-legale-etat-de-fribourg-fribourg",
         "en": "stagiaire-juriste-etat-de-fribourg-ch",
         "de": "stagiaire-juriste-etat-de-fribourg-ch"
       },
@@ -6792,7 +6792,15 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-16T09:32:12.977Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-15T21:29:33.082Z"
+      "firstSeenAt": "2026-10-15T21:29:33.082Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-juriste-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-juriste-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-fc5a8c4c06fb",

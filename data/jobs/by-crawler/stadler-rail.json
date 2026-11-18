@@ -13953,12 +13953,12 @@
     },
     {
       "id": "stadler-rail-fc4c22f3f07a",
-      "slug": "werkstudent-ai-engineer-stadler-rail-ch",
+      "slug": "studente-lavoratore-ai-engineer-stadler-rail-frauenfeld",
       "slugByLocale": {
         "de": "werkstudent-ai-engineer-stadler-rail-ch",
-        "it": "werkstudent-ai-engineer-stadler-rail-ch",
-        "en": "werkstudent-ai-engineer-stadler-rail-ch",
-        "fr": "werkstudent-ai-engineer-stadler-rail-ch"
+        "it": "studente-lavoratore-ai-engineer-stadler-rail-frauenfeld",
+        "en": "working-student-ai-engineer-stadler-rail-frauenfeld",
+        "fr": "etudiant-e-travailleur-travailleuse-ingenieur-ingenieure-ia-stadler-rail-frauenfeld"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -14020,7 +14020,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T09:33:11.585Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T09:33:11.585Z"
+      "firstSeenAt": "2026-11-18T09:33:11.585Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "werkstudent-ai-engineer-stadler-rail-ch"
+        ],
+        "en": [
+          "werkstudent-ai-engineer-stadler-rail-ch"
+        ],
+        "fr": [
+          "werkstudent-ai-engineer-stadler-rail-ch"
+        ]
+      },
+      "previousSlugs": [
+        "werkstudent-ai-engineer-stadler-rail-ch"
+      ]
     },
     {
       "id": "stadler-rail-e6cbbf03d29f",
@@ -14028,8 +14042,8 @@
       "slugByLocale": {
         "de": "nachweismanager-in-zulassung-stadler-rail-ch",
         "it": "nachweismanager-in-zulassung-stadler-rail-ch",
-        "en": "nachweismanager-in-zulassung-stadler-rail-ch",
-        "fr": "nachweismanager-in-zulassung-stadler-rail-ch"
+        "en": "evidence-manager-approval-stadler-rail-st-margrethen",
+        "fr": "responsable-des-justificatifs-en-cours-d-approbation-stadler-rail-st-margrethen"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -14092,7 +14106,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T09:33:00.034Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T09:33:00.034Z"
+      "firstSeenAt": "2026-11-18T09:33:00.034Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "nachweismanager-in-zulassung-stadler-rail-ch"
+        ],
+        "fr": [
+          "nachweismanager-in-zulassung-stadler-rail-ch"
+        ]
+      },
+      "previousSlugs": [
+        "nachweismanager-in-zulassung-stadler-rail-ch"
+      ]
     },
     {
       "id": "stadler-rail-b48947a9bac1",

@@ -599,7 +599,7 @@
         "en": "senior-legal-counsel-sulzer-ch",
         "it": "consigliere-legale-senior-sulzer-winterthur",
         "fr": "conseiller-juridique-principal-sulzer-winterthur",
-        "de": "consigliere-legale-senior-sulzer-winterthur"
+        "de": "leitender-rechtsberater-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -647,10 +647,14 @@
       "previousSlugsByLocale": {
         "it": [
           "senior-legal-counsel-sulzer-ch"
+        ],
+        "de": [
+          "consigliere-legale-senior-sulzer-winterthur"
         ]
       },
       "previousSlugs": [
-        "senior-legal-counsel-sulzer-ch"
+        "senior-legal-counsel-sulzer-ch",
+        "consigliere-legale-senior-sulzer-winterthur"
       ],
       "salaryMin": 131500,
       "salaryMax": 225500,

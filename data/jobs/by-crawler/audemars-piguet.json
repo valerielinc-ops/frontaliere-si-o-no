@@ -2698,7 +2698,7 @@
         "fr": "ingenieur-central-planning-amont-s-op-audemars-piguet-le-brassus-vd-switzerland",
         "it": "ingenieur-central-planning-amont-s-op-audemars-piguet-le-brassus-vd-switzerland",
         "en": "ingenieur-central-planning-amont-s-op-audemars-piguet-le-brassus-vd-switzerland",
-        "de": "ingenieur-central-planning-amont-s-op-audemars-piguet-le-brassus-vd-switzerland"
+        "de": "ingenieur-zentralplanung-amont-s-op-audemars-piguet-le-brassus-vd-switzerland"
       },
       "company": "Audemars Piguet",
       "companyKey": "audemars-piguet",
@@ -2761,7 +2761,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T09:23:48.188Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T09:23:48.188Z"
+      "firstSeenAt": "2026-11-18T09:23:48.188Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "ingenieur-central-planning-amont-s-op-audemars-piguet-le-brassus-vd-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "ingenieur-central-planning-amont-s-op-audemars-piguet-le-brassus-vd-switzerland"
+      ]
     },
     {
       "id": "audemars-piguet-1431ba3eaead",

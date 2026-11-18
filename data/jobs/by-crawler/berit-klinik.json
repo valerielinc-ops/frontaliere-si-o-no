@@ -1012,7 +1012,7 @@
     },
     {
       "title": "Praktikant/-in Fakturierung",
-      "slug": "praktikant-in-fakturierung-berit-klinik",
+      "slug": "tirocinante-in-fatturazione-berit-klinik-speicher",
       "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_praktikant_in_fakturierung_fd237c6182.pdf",
       "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
       "company": "Berit Klinik",
@@ -1050,9 +1050,9 @@
       },
       "slugByLocale": {
         "de": "praktikant-in-fakturierung-berit-klinik",
-        "it": "praktikant-in-fakturierung-berit-klinik",
-        "en": "praktikant-in-fakturierung-berit-klinik",
-        "fr": "praktikant-in-fakturierung-berit-klinik"
+        "it": "tirocinante-in-fatturazione-berit-klinik-speicher",
+        "en": "invoicing-intern-berit-klinik-speicher",
+        "fr": "stagiaire-en-facturation-berit-klinik-speicher"
       },
       "_meta": {
         "sourceFilename": "stelleninserat_praktikant_in_fakturierung_fd237c6182.pdf"
@@ -1088,7 +1088,21 @@
       "streetAddress": "Vögelinsegg 5",
       "streetAddressSource": "zefix-registry",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T09:26:21.850Z"
+      "firstSeenAt": "2026-11-18T09:26:21.850Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-fakturierung-berit-klinik"
+        ],
+        "en": [
+          "praktikant-in-fakturierung-berit-klinik"
+        ],
+        "fr": [
+          "praktikant-in-fakturierung-berit-klinik"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-fakturierung-berit-klinik"
+      ]
     },
     {
       "title": "Sportmedizin, 80-100%",

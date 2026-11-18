@@ -14339,12 +14339,12 @@
     },
     {
       "id": "richemont-e81d76b08cf4",
-      "slug": "lead-security-learning-richemont-meyrin",
+      "slug": "piombo-apprendimento-di-sicurezza-richemont-meyrin",
       "slugByLocale": {
         "en": "lead-security-learning-richemont-meyrin",
-        "it": "lead-security-learning-richemont-meyrin",
-        "de": "lead-security-learning-richemont-meyrin",
-        "fr": "lead-security-learning-richemont-meyrin"
+        "it": "piombo-apprendimento-di-sicurezza-richemont-meyrin",
+        "de": "leiterin-schulungen-zum-thema-sicherheit-richemont-meyrin",
+        "fr": "chef-de-file-formation-en-securite-richemont-meyrin"
       },
       "company": "Richemont",
       "companyKey": "richemont",
@@ -14407,16 +14407,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T09:38:00.968Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T09:38:00.968Z"
+      "firstSeenAt": "2026-11-18T09:38:00.968Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lead-security-learning-richemont-meyrin"
+        ],
+        "de": [
+          "lead-security-learning-richemont-meyrin"
+        ],
+        "fr": [
+          "lead-security-learning-richemont-meyrin"
+        ]
+      },
+      "previousSlugs": [
+        "lead-security-learning-richemont-meyrin"
+      ]
     },
     {
       "id": "richemont-88a44d5cfa81",
-      "slug": "polisseur-richemont-plan-les-ouates",
+      "slug": "polizia-vacheron-constantin-plan-les-ouates",
       "slugByLocale": {
         "fr": "polisseur-richemont-plan-les-ouates",
-        "it": "polisseur-richemont-plan-les-ouates",
-        "en": "polisseur-richemont-plan-les-ouates",
-        "de": "polisseur-richemont-plan-les-ouates"
+        "it": "polizia-vacheron-constantin-plan-les-ouates",
+        "en": "policeman-vacheron-constantin-plan-les-ouates",
+        "de": "polizist-vacheron-constantin-plan-les-ouates"
       },
       "company": "Vacheron Constantin",
       "companyKey": "richemont",
@@ -14479,7 +14493,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T09:38:00.967Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T09:38:00.967Z"
+      "firstSeenAt": "2026-11-18T09:38:00.967Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "polisseur-richemont-plan-les-ouates"
+        ],
+        "en": [
+          "polisseur-richemont-plan-les-ouates"
+        ],
+        "de": [
+          "polisseur-richemont-plan-les-ouates"
+        ]
+      },
+      "previousSlugs": [
+        "polisseur-richemont-plan-les-ouates"
+      ]
     },
     {
       "id": "richemont-0e8914242bc9",
@@ -15207,11 +15235,11 @@
     },
     {
       "id": "richemont-70991b0ce252",
-      "slug": "stagiaire-3-mois-it-richemont-le-sentier",
+      "slug": "stagista-3-mesi-it-jaeger-lecoultre-le-sentier",
       "slugByLocale": {
         "en": "stagiaire-3-mois-it-richemont-le-sentier",
-        "it": "stagiaire-3-mois-it-richemont-le-sentier",
-        "de": "stagiaire-3-mois-it-richemont-le-sentier",
+        "it": "stagista-3-mesi-it-jaeger-lecoultre-le-sentier",
+        "de": "praktikant-3-monate-it-jaeger-lecoultre-le-sentier",
         "fr": "stagiaire-3-mois-it-richemont-le-sentier"
       },
       "company": "Jaeger-LeCoultre",
@@ -15274,16 +15302,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T09:38:00.949Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T09:38:00.949Z"
+      "firstSeenAt": "2026-11-18T09:38:00.949Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-3-mois-it-richemont-le-sentier"
+        ],
+        "de": [
+          "stagiaire-3-mois-it-richemont-le-sentier"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-3-mois-it-richemont-le-sentier"
+      ]
     },
     {
       "id": "richemont-439923333361",
-      "slug": "sustainability-analyst-intern-richemont-meyrin",
+      "slug": "sustainability-analista-tirocinante-richemont-meyrin",
       "slugByLocale": {
         "en": "sustainability-analyst-intern-richemont-meyrin",
-        "it": "sustainability-analyst-intern-richemont-meyrin",
+        "it": "sustainability-analista-tirocinante-richemont-meyrin",
         "de": "sustainability-analyst-intern-richemont-meyrin",
-        "fr": "sustainability-analyst-intern-richemont-meyrin"
+        "fr": "sustainability-analyste-stagiaire-richemont-meyrin"
       },
       "company": "Richemont",
       "companyKey": "richemont",
@@ -15346,15 +15385,26 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-27T09:38:00.923Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T09:38:00.923Z"
+      "firstSeenAt": "2026-11-18T09:38:00.923Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sustainability-analyst-intern-richemont-meyrin"
+        ],
+        "fr": [
+          "sustainability-analyst-intern-richemont-meyrin"
+        ]
+      },
+      "previousSlugs": [
+        "sustainability-analyst-intern-richemont-meyrin"
+      ]
     },
     {
       "id": "richemont-5ebd2adf08e5",
-      "slug": "stagiaire-lean-manufacturing-richemont-plan-les-ouates",
+      "slug": "produzione-interna-vacheron-constantin-plan-les-ouates",
       "slugByLocale": {
         "fr": "stagiaire-lean-manufacturing-richemont-plan-les-ouates",
-        "it": "stagiaire-lean-manufacturing-richemont-plan-les-ouates",
-        "en": "stagiaire-lean-manufacturing-richemont-plan-les-ouates",
+        "it": "produzione-interna-vacheron-constantin-plan-les-ouates",
+        "en": "intern-lean-manufacturing-vacheron-constantin-plan-les-ouates",
         "de": "stagiaire-lean-manufacturing-richemont-plan-les-ouates"
       },
       "company": "Vacheron Constantin",
@@ -15418,7 +15468,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T09:38:00.922Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T09:38:00.922Z"
+      "firstSeenAt": "2026-11-18T09:38:00.922Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-lean-manufacturing-richemont-plan-les-ouates"
+        ],
+        "en": [
+          "stagiaire-lean-manufacturing-richemont-plan-les-ouates"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-lean-manufacturing-richemont-plan-les-ouates"
+      ]
     },
     {
       "id": "richemont-a64e59b728c8",
@@ -15585,12 +15646,12 @@
     },
     {
       "id": "richemont-b79d09a9a71f",
-      "slug": "sales-associate-richemont-geneva",
+      "slug": "vendite-van-cleef-arpels-geneva",
       "slugByLocale": {
         "en": "sales-associate-richemont-geneva",
-        "it": "sales-associate-richemont-geneva",
-        "de": "sales-associate-richemont-geneva",
-        "fr": "sales-associate-richemont-geneva"
+        "it": "vendite-van-cleef-arpels-geneva",
+        "de": "vertriebsmitarbeiter-van-cleef-arpels-geneva",
+        "fr": "associe-de-vente-van-cleef-arpels-geneva"
       },
       "company": "Van Cleef & Arpels",
       "companyKey": "richemont",
@@ -15653,7 +15714,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T09:38:00.912Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-21T16:11:45.788Z"
+      "firstSeenAt": "2026-09-21T16:11:45.788Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-associate-richemont-geneva"
+        ],
+        "de": [
+          "sales-associate-richemont-geneva"
+        ],
+        "fr": [
+          "sales-associate-richemont-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "sales-associate-richemont-geneva"
+      ]
     },
     {
       "id": "richemont-f2960de36239",
@@ -15730,12 +15805,12 @@
     },
     {
       "id": "richemont-5d87d57360df",
-      "slug": "e-learning-intern-richemont-plan-les-ouates",
+      "slug": "e-learning-tirocinante-vacheron-constantin-plan-les-ouates",
       "slugByLocale": {
         "en": "e-learning-intern-richemont-plan-les-ouates",
-        "it": "e-learning-intern-richemont-plan-les-ouates",
-        "de": "e-learning-intern-richemont-plan-les-ouates",
-        "fr": "e-learning-intern-richemont-plan-les-ouates"
+        "it": "e-learning-tirocinante-vacheron-constantin-plan-les-ouates",
+        "de": "e-learning-praktikant-vacheron-constantin-plan-les-ouates",
+        "fr": "e-learning-stagiaire-vacheron-constantin-plan-les-ouates"
       },
       "company": "Vacheron Constantin",
       "companyKey": "richemont",
@@ -15798,7 +15873,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-01T09:38:00.907Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T09:38:00.907Z"
+      "firstSeenAt": "2026-11-18T09:38:00.907Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "e-learning-intern-richemont-plan-les-ouates"
+        ],
+        "de": [
+          "e-learning-intern-richemont-plan-les-ouates"
+        ],
+        "fr": [
+          "e-learning-intern-richemont-plan-les-ouates"
+        ]
+      },
+      "previousSlugs": [
+        "e-learning-intern-richemont-plan-les-ouates"
+      ]
     }
   ]
 }

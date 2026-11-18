@@ -4059,12 +4059,12 @@
     },
     {
       "id": "concara-4733a43ab3a8",
-      "slug": "administrative-assistenz-pflegemanagement-50-60-concara-bern",
+      "slug": "gestione-dell-assistenza-amministrativa-50-60-concara-domicil-spitex-bern-bern",
       "slugByLocale": {
         "de": "administrative-assistenz-pflegemanagement-50-60-concara-bern",
-        "it": "administrative-assistenz-pflegemanagement-50-60-concara-bern",
-        "en": "administrative-assistenz-pflegemanagement-50-60-concara-bern",
-        "fr": "administrative-assistenz-pflegemanagement-50-60-concara-bern"
+        "it": "gestione-dell-assistenza-amministrativa-50-60-concara-domicil-spitex-bern-bern",
+        "en": "administrative-assistance-care-management-50-60-concara-domicil-spitex-bern-bern",
+        "fr": "aide-administrative-gestion-des-soins-50-60-concara-domicil-spitex-bern-bern"
       },
       "company": "Concara (Domicil & Spitex Bern)",
       "companyKey": "concara",
@@ -4126,7 +4126,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-16T09:27:24.070Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T09:27:24.070Z"
+      "firstSeenAt": "2026-11-18T09:27:24.070Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "administrative-assistenz-pflegemanagement-50-60-concara-bern"
+        ],
+        "en": [
+          "administrative-assistenz-pflegemanagement-50-60-concara-bern"
+        ],
+        "fr": [
+          "administrative-assistenz-pflegemanagement-50-60-concara-bern"
+        ]
+      },
+      "previousSlugs": [
+        "administrative-assistenz-pflegemanagement-50-60-concara-bern"
+      ]
     }
   ]
 }

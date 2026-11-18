@@ -5926,8 +5926,8 @@
       "slugByLocale": {
         "de": "leiter-in-famh-labor-60-100-szb-chb-biel-bienne",
         "it": "responsabile-famh-labor-60-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "en": "leiter-in-famh-labor-60-100-szb-chb-biel-bienne",
-        "fr": "leiter-in-famh-labor-60-100-szb-chb-biel-bienne"
+        "en": "head-of-laboratory-famh-60-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "fr": "responsable-de-laboratoire-famh-60-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
       },
       "company": "Spitalzentrum Biel / Centre hospitalier Bienne",
       "companyKey": "szb-chb",
@@ -5975,6 +5975,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-famh-labor-60-100-szb-chb-biel-bienne"
+        ],
+        "en": [
+          "leiter-in-famh-labor-60-100-szb-chb-biel-bienne"
+        ],
+        "fr": [
           "leiter-in-famh-labor-60-100-szb-chb-biel-bienne"
         ]
       },

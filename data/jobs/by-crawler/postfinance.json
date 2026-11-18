@@ -1528,7 +1528,7 @@
         "de": "ict-application-manager-in-2nd-level-betrieb-support-postfinance",
         "it": "ict-application-manager-in-2nd-level-betrieb-support-postfinance",
         "en": "ict-application-manager-in-2nd-level-betrieb-support-postfinance",
-        "fr": "ict-application-manager-in-2nd-level-betrieb-support-postfinance"
+        "fr": "responsable-des-applications-tic-exploitation-et-support-de-2e-niveau-postfinance-bern"
       },
       "sourceLang": "de",
       "department": [
@@ -1572,7 +1572,15 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T09:50:23.221Z"
+      "firstSeenAt": "2026-11-18T09:50:23.221Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "ict-application-manager-in-2nd-level-betrieb-support-postfinance"
+        ]
+      },
+      "previousSlugs": [
+        "ict-application-manager-in-2nd-level-betrieb-support-postfinance"
+      ]
     },
     {
       "url": "https://jobs.postfinance.ch/job/Junior-Financial-Closing-&-Taxes-%28wmd%29/75208-de_DE",
@@ -1596,12 +1604,12 @@
         "en": "Junior Financial Closing & Taxes (m/f/d)",
         "fr": "Clôture financière junior et impôts (h/f/d)"
       },
-      "slug": "junior-financial-closing-taxes-w-m-d-postfinance",
+      "slug": "chiusura-finanziaria-junior-tasse-m-f-d-postfinance-bern",
       "slugByLocale": {
         "de": "junior-financial-closing-taxes-w-m-d-postfinance",
-        "it": "junior-financial-closing-taxes-w-m-d-postfinance",
+        "it": "chiusura-finanziaria-junior-tasse-m-f-d-postfinance-bern",
         "en": "junior-financial-closing-taxes-w-m-d-postfinance",
-        "fr": "junior-financial-closing-taxes-w-m-d-postfinance"
+        "fr": "cloture-financiere-junior-et-impots-h-f-d-postfinance-bern"
       },
       "sourceLang": "de",
       "department": [
@@ -1646,7 +1654,18 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T09:50:22.340Z"
+      "firstSeenAt": "2026-11-18T09:50:22.340Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "junior-financial-closing-taxes-w-m-d-postfinance"
+        ],
+        "fr": [
+          "junior-financial-closing-taxes-w-m-d-postfinance"
+        ]
+      },
+      "previousSlugs": [
+        "junior-financial-closing-taxes-w-m-d-postfinance"
+      ]
     },
     {
       "url": "https://jobs.postfinance.ch/job/Junior-Specialist-Governance-&-Policy-Management-%2860%2C-befristet-f%C3%BCr-6-12-Monate%29/75264-de_DE",
@@ -1670,12 +1689,12 @@
         "en": "Junior Specialist Governance & Policy Management (60%, limited to 6-12 months)",
         "fr": "Spécialiste junior Gouvernance et gestion des politiques (60 %, CDD de 6 à 12 mois)"
       },
-      "slug": "junior-specialista-governance-policy-management-60-befristet-per-6-12-monate-postfinance-bern",
+      "slug": "junior-specialist-governance-policy-management-60-a-tempo-determinato-per-6-12-mesi-postfinance-bern",
       "slugByLocale": {
         "de": "junior-specialist-governance-policy-management-60-befristet-fur-6-12-monate-postfinance",
-        "it": "junior-specialista-governance-policy-management-60-befristet-per-6-12-monate-postfinance-bern",
+        "it": "junior-specialist-governance-policy-management-60-a-tempo-determinato-per-6-12-mesi-postfinance-bern",
         "en": "junior-specialist-governance-policy-management-60-befristet-fur-6-12-monate-postfinance",
-        "fr": "junior-specialist-governance-policy-management-60-befristet-fur-6-12-monate-postfinance"
+        "fr": "specialiste-junior-gouvernance-et-gestion-des-politiques-60-cdd-de-6-a-12-mois-postfinance-bern"
       },
       "sourceLang": "de",
       "department": [
@@ -1701,11 +1720,16 @@
       "id": "postfinance-6bfcf50babdc",
       "previousSlugsByLocale": {
         "it": [
+          "junior-specialist-governance-policy-management-60-befristet-fur-6-12-monate-postfinance",
+          "junior-specialista-governance-policy-management-60-befristet-per-6-12-monate-postfinance-bern"
+        ],
+        "fr": [
           "junior-specialist-governance-policy-management-60-befristet-fur-6-12-monate-postfinance"
         ]
       },
       "previousSlugs": [
-        "junior-specialist-governance-policy-management-60-befristet-fur-6-12-monate-postfinance"
+        "junior-specialist-governance-policy-management-60-befristet-fur-6-12-monate-postfinance",
+        "junior-specialista-governance-policy-management-60-befristet-per-6-12-monate-postfinance-bern"
       ],
       "salaryMin": 34500,
       "salaryMax": 52200,
@@ -1751,12 +1775,12 @@
         "en": "Client Adviser for Private Clients, Basel Steinenberg",
         "fr": "Conseiller/Conseillère clientèle privée Bâle Steinenberg"
       },
-      "slug": "kundenberater-in-privatkunden-basel-steinenberg-postfinance",
+      "slug": "consulente-clienti-privati-basilea-steinenberg-postfinance-basel",
       "slugByLocale": {
         "de": "kundenberater-in-privatkunden-basel-steinenberg-postfinance",
-        "it": "kundenberater-in-privatkunden-basel-steinenberg-postfinance",
-        "en": "kundenberater-in-privatkunden-basel-steinenberg-postfinance",
-        "fr": "kundenberater-in-privatkunden-basel-steinenberg-postfinance"
+        "it": "consulente-clienti-privati-basilea-steinenberg-postfinance-basel",
+        "en": "client-adviser-for-private-clients-basel-steinenberg-postfinance-basel",
+        "fr": "conseiller-conseillere-clientele-privee-bale-steinenberg-postfinance-basel"
       },
       "sourceLang": "de",
       "department": [
@@ -1800,7 +1824,21 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T09:50:20.834Z"
+      "firstSeenAt": "2026-11-18T09:50:20.834Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-in-privatkunden-basel-steinenberg-postfinance"
+        ],
+        "en": [
+          "kundenberater-in-privatkunden-basel-steinenberg-postfinance"
+        ],
+        "fr": [
+          "kundenberater-in-privatkunden-basel-steinenberg-postfinance"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-in-privatkunden-basel-steinenberg-postfinance"
+      ]
     },
     {
       "url": "https://jobs.postfinance.ch/job/Mitarbeiterin-Chargeback/74081-de_DE",

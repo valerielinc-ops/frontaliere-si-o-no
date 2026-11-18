@@ -3536,7 +3536,7 @@
       "id": "eth-zurich-4b19754f5081",
       "slug": "responsabile-di-progetto-m-f-d-committenza-eth-zurich-zurich-6fdbc85028",
       "slugByLocale": {
-        "it": "responsabile-di-progetto-m-f-d-committenza-eth-zurich-zurich-6fdbc85028",
+        "it": "responsabile-di-progetto-m-w-d-bauherrschaft-eth-zurich",
         "en": "project-manager-m-f-d-client-eth-zurich-zurich",
         "de": "projektleiter-in-m-w-d-bauherrschaft-eth-zurich-ch",
         "fr": "chef-fe-de-projet-h-f-d-maitrise-d-ouvrage-eth-zurich-zurich"
@@ -3581,13 +3581,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "projektleiter-in-m-w-d-bauherrschaft-eth-zurich-ch",
-        "responsabile-di-progetto-m-w-d-bauherrschaft-eth-zurich"
+        "projektleiter-in-m-w-d-bauherrschaft-eth-zurich-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-m-w-d-bauherrschaft-eth-zurich-ch",
-          "responsabile-di-progetto-m-w-d-bauherrschaft-eth-zurich"
+          "projektleiter-in-m-w-d-bauherrschaft-eth-zurich-ch"
         ],
         "en": [
           "projektleiter-in-m-w-d-bauherrschaft-eth-zurich-ch"
@@ -9605,7 +9603,7 @@
         "en": "makerspace-manager-eth-zurich-ch",
         "it": "makerspace-manager-eth-zurich-ch",
         "de": "makerspace-manager-eth-zurich-ch",
-        "fr": "makerspace-manager-eth-zurich-ch"
+        "fr": "gestionnaire-makerspace-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -9667,16 +9665,24 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T09:48:20.971Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T09:48:20.971Z"
+      "firstSeenAt": "2026-11-18T09:48:20.971Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "makerspace-manager-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "makerspace-manager-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-0879e1f84c0b",
-      "slug": "product-owner-it-projektleitung-verifiable-credentials-m-w-d-eth-zurich-ch",
+      "slug": "proprietario-del-prodotto-it-project-manager-credenziali-verificabili-m-f-d-eth-zurich-zurich",
       "slugByLocale": {
         "de": "product-owner-it-projektleitung-verifiable-credentials-m-w-d-eth-zurich-ch",
-        "it": "product-owner-it-projektleitung-verifiable-credentials-m-w-d-eth-zurich-ch",
+        "it": "proprietario-del-prodotto-it-project-manager-credenziali-verificabili-m-f-d-eth-zurich-zurich",
         "en": "product-owner-it-projektleitung-verifiable-credentials-m-w-d-eth-zurich-ch",
-        "fr": "product-owner-it-projektleitung-verifiable-credentials-m-w-d-eth-zurich-ch"
+        "fr": "proprietaire-du-produit-gestionnaire-de-projet-informatique-verifications-h-f-d-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -9739,14 +9745,25 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T09:48:20.429Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T09:48:20.429Z"
+      "firstSeenAt": "2026-11-18T09:48:20.429Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "product-owner-it-projektleitung-verifiable-credentials-m-w-d-eth-zurich-ch"
+        ],
+        "fr": [
+          "product-owner-it-projektleitung-verifiable-credentials-m-w-d-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "product-owner-it-projektleitung-verifiable-credentials-m-w-d-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-e68bf0bacafc",
-      "slug": "responsabile-di-progetto-m-w-d-bauherrschaft-eth-zurich-zurich-9e7a36f19e",
+      "slug": "responsabile-di-progetto-m-f-d-committente-eth-zurich-zurich",
       "slugByLocale": {
         "de": "projektleiter-in-m-w-d-bauherrschaft-eth-zurich-ch",
-        "it": "responsabile-di-progetto-m-w-d-bauherrschaft-eth-zurich-zurich-9e7a36f19e",
+        "it": "responsabile-di-progetto-m-f-d-committente-eth-zurich-zurich",
         "en": "projektleiter-in-m-w-d-bauherrschaft-eth-zurich-ch",
         "fr": "projektleiter-in-m-w-d-bauherrschaft-eth-zurich-ch"
       },
@@ -9794,12 +9811,14 @@
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-m-w-d-bauherrschaft-eth-zurich-ch",
-          "responsabile-di-progetto-m-w-d-bauherrschaft-eth-zurich"
+          "responsabile-di-progetto-m-w-d-bauherrschaft-eth-zurich",
+          "responsabile-di-progetto-m-w-d-bauherrschaft-eth-zurich-zurich-9e7a36f19e"
         ]
       },
       "previousSlugs": [
         "projektleiter-in-m-w-d-bauherrschaft-eth-zurich-ch",
-        "responsabile-di-progetto-m-w-d-bauherrschaft-eth-zurich"
+        "responsabile-di-progetto-m-w-d-bauherrschaft-eth-zurich",
+        "responsabile-di-progetto-m-w-d-bauherrschaft-eth-zurich-zurich-9e7a36f19e"
       ],
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -9824,12 +9843,12 @@
     },
     {
       "id": "eth-zurich-707a81fe4937",
-      "slug": "linux-system-administrator-in-webhosting-m-w-d-eth-zurich-ch",
+      "slug": "amministratore-amministratrice-di-sistema-linux-web-hosting-m-f-d-eth-zurich-zurich",
       "slugByLocale": {
         "de": "linux-system-administrator-in-webhosting-m-w-d-eth-zurich-ch",
-        "it": "linux-system-administrator-in-webhosting-m-w-d-eth-zurich-ch",
+        "it": "amministratore-amministratrice-di-sistema-linux-web-hosting-m-f-d-eth-zurich-zurich",
         "en": "linux-system-administrator-in-webhosting-m-w-d-eth-zurich-ch",
-        "fr": "linux-system-administrator-in-webhosting-m-w-d-eth-zurich-ch"
+        "fr": "administrateur-administratrice-systeme-linux-hebergement-web-h-f-d-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -9891,7 +9910,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T09:48:19.375Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T09:48:19.375Z"
+      "firstSeenAt": "2026-11-18T09:48:19.375Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "linux-system-administrator-in-webhosting-m-w-d-eth-zurich-ch"
+        ],
+        "fr": [
+          "linux-system-administrator-in-webhosting-m-w-d-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "linux-system-administrator-in-webhosting-m-w-d-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-bf5e1d8d6f6a",
@@ -9978,12 +10008,12 @@
     },
     {
       "id": "eth-zurich-51d80c672ee6",
-      "slug": "collaboratore-trice-bilddigitalisierung-m-w-d-eth-zurich",
+      "slug": "addetto-a-alla-digitalizzazione-delle-immagini-m-f-d-eth-zurich-zurich",
       "slugByLocale": {
         "de": "mitarbeiter-in-bilddigitalisierung-m-w-d-eth-zurich-ch",
-        "it": "collaboratore-trice-bilddigitalisierung-m-w-d-eth-zurich",
-        "en": "mitarbeiter-in-bilddigitalisierung-m-w-d-eth-zurich-ch",
-        "fr": "mitarbeiter-in-bilddigitalisierung-m-w-d-eth-zurich-ch"
+        "it": "addetto-a-alla-digitalizzazione-delle-immagini-m-f-d-eth-zurich-zurich",
+        "en": "employee-in-image-digitisation-m-f-d-eth-zurich-zurich",
+        "fr": "employe-e-numerisation-d-images-h-f-d-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -10028,11 +10058,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-bilddigitalisierung-m-w-d-eth-zurich-ch",
+          "collaboratore-trice-bilddigitalisierung-m-w-d-eth-zurich"
+        ],
+        "en": [
+          "mitarbeiter-in-bilddigitalisierung-m-w-d-eth-zurich-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-bilddigitalisierung-m-w-d-eth-zurich-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-bilddigitalisierung-m-w-d-eth-zurich-ch"
+        "mitarbeiter-in-bilddigitalisierung-m-w-d-eth-zurich-ch",
+        "collaboratore-trice-bilddigitalisierung-m-w-d-eth-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

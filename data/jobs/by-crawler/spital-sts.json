@@ -4806,12 +4806,12 @@
     },
     {
       "id": "spital-sts-02f143b71158",
-      "slug": "teamleiter-in-sekretariat-endokrinologie-diabetologie-11-2026-spital-sts-thun",
+      "slug": "responsabile-del-team-della-segreteria-di-endocrinologia-diabetologia-11-2026-spital-sts-thun",
       "slugByLocale": {
         "de": "teamleiter-in-sekretariat-endokrinologie-diabetologie-11-2026-spital-sts-thun",
-        "it": "teamleiter-in-sekretariat-endokrinologie-diabetologie-11-2026-spital-sts-thun",
-        "en": "teamleiter-in-sekretariat-endokrinologie-diabetologie-11-2026-spital-sts-thun",
-        "fr": "teamleiter-in-sekretariat-endokrinologie-diabetologie-11-2026-spital-sts-thun"
+        "it": "responsabile-del-team-della-segreteria-di-endocrinologia-diabetologia-11-2026-spital-sts-thun",
+        "en": "team-leader-endocrinology-diabetology-secretarial-office-11-2026-spital-sts-thun",
+        "fr": "chef-fe-d-equipe-du-secretariat-d-endocrinologie-diabetologie-11-2026-spital-sts-thun"
       },
       "company": "Spital STS",
       "companyKey": "spital-sts",
@@ -4887,7 +4887,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-16T09:28:34.511Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T09:28:34.511Z"
+      "firstSeenAt": "2026-11-18T09:28:34.511Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-sekretariat-endokrinologie-diabetologie-11-2026-spital-sts-thun"
+        ],
+        "en": [
+          "teamleiter-in-sekretariat-endokrinologie-diabetologie-11-2026-spital-sts-thun"
+        ],
+        "fr": [
+          "teamleiter-in-sekretariat-endokrinologie-diabetologie-11-2026-spital-sts-thun"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-in-sekretariat-endokrinologie-diabetologie-11-2026-spital-sts-thun"
+      ]
     },
     {
       "id": "spital-sts-e39c84221d3a",
@@ -4986,7 +5000,7 @@
       "id": "spital-sts-c4c395441242",
       "slug": "infermiere-a-diplomato-a-in-medicina-spital-sts-thun-d2f918b170",
       "slugByLocale": {
-        "it": "infermiere-a-diplomato-a-in-medicina-spital-sts-thun-d2f918b170",
+        "it": "infermiere-a-diplomato-a-in-medicina-spital-sts-thun",
         "en": "registered-nurse-medicine-spital-sts-thun",
         "de": "dipl-pflegefachfrau-mann-medizin-spital-sts-thun",
         "fr": "infirmiere-infirmier-diplomee-diplome-en-medecine-spital-sts-thun"
@@ -5034,13 +5048,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-medizin-spital-sts-thun",
-        "infermiere-a-diplomato-a-in-medicina-spital-sts-thun"
+        "dipl-pflegefachfrau-mann-medizin-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-medizin-spital-sts-thun",
-          "infermiere-a-diplomato-a-in-medicina-spital-sts-thun"
+          "dipl-pflegefachfrau-mann-medizin-spital-sts-thun"
         ]
       },
       "firstSeenAt": "2026-09-11T23:11:23.158Z",

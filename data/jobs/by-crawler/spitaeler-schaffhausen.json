@@ -4674,8 +4674,8 @@
       "slugByLocale": {
         "de": "leiter-in-diatkuche-spitaeler-schaffhausen-schaffhausen",
         "it": "responsabile-diatkuche-spitaler-schaffhausen",
-        "en": "leiter-in-diatkuche-spitaeler-schaffhausen-schaffhausen",
-        "fr": "leiter-in-diatkuche-spitaeler-schaffhausen-schaffhausen"
+        "en": "head-of-the-dietary-kitchen-spitaler-schaffhausen-schaffhausen",
+        "fr": "responsable-de-la-cuisine-dietetique-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4724,6 +4724,12 @@
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-diatkuche-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "leiter-in-diatkuche-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "leiter-in-diatkuche-spitaeler-schaffhausen-schaffhausen"
         ]
       },
       "previousSlugs": [
@@ -4749,12 +4755,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-99026fa96f80",
-      "slug": "stationsleitung-geriatrische-rehabilitation-e-ubergangspflege-spitaler-schaffhausen",
+      "slug": "direzione-del-reparto-di-riabilitazione-geriatrica-e-assistenza-transitoria-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
         "de": "stationsleitung-geriatrische-rehabilitation-und-ubergangspflege-spitaeler-schaffhausen",
-        "it": "stationsleitung-geriatrische-rehabilitation-e-ubergangspflege-spitaler-schaffhausen",
-        "en": "stationsleitung-geriatrische-rehabilitation-und-ubergangspflege-spitaeler-schaffhausen",
-        "fr": "stationsleitung-geriatrische-rehabilitation-und-ubergangspflege-spitaeler-schaffhausen"
+        "it": "direzione-del-reparto-di-riabilitazione-geriatrica-e-assistenza-transitoria-spitaler-schaffhausen-schaffhausen",
+        "en": "station-management-geriatric-rehabilitation-and-transitional-care-spitaler-schaffhausen-schaffhausen",
+        "fr": "gestion-des-stations-readaptation-geriatrique-et-soins-de-transition-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4802,11 +4808,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "stationsleitung-geriatrische-rehabilitation-und-ubergangspflege-spitaeler-schaffhausen",
+          "stationsleitung-geriatrische-rehabilitation-e-ubergangspflege-spitaler-schaffhausen"
+        ],
+        "en": [
+          "stationsleitung-geriatrische-rehabilitation-und-ubergangspflege-spitaeler-schaffhausen"
+        ],
+        "fr": [
           "stationsleitung-geriatrische-rehabilitation-und-ubergangspflege-spitaeler-schaffhausen"
         ]
       },
       "previousSlugs": [
-        "stationsleitung-geriatrische-rehabilitation-und-ubergangspflege-spitaeler-schaffhausen"
+        "stationsleitung-geriatrische-rehabilitation-und-ubergangspflege-spitaeler-schaffhausen",
+        "stationsleitung-geriatrische-rehabilitation-e-ubergangspflege-spitaler-schaffhausen"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,

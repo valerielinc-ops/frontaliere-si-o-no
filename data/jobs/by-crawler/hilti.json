@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "hilti-19799-en",
-      "slug": "intern-cybersecurity-m-f-x-hilti-ch",
+      "slug": "tirocinante-cybersecurity-m-f-x-hilti-buchs-st-gallen",
       "slugByLocale": {
         "en": "intern-cybersecurity-m-f-x-hilti-ch",
-        "it": "intern-cybersecurity-m-f-x-hilti-ch",
-        "de": "intern-cybersecurity-m-f-x-hilti-ch",
-        "fr": "intern-cybersecurity-m-f-x-hilti-ch"
+        "it": "tirocinante-cybersecurity-m-f-x-hilti-buchs-st-gallen",
+        "de": "praktikant-cybersecurity-m-f-x-hilti-buchs-st-gallen",
+        "fr": "stagiaire-cybersecurity-m-f-x-hilti-buchs-st-gallen"
       },
       "company": "Hilti",
       "companyKey": "hilti",
@@ -71,16 +71,30 @@
       "streetAddress": "Buchs",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-18T09:26:21.079Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "intern-cybersecurity-m-f-x-hilti-ch"
+        ],
+        "de": [
+          "intern-cybersecurity-m-f-x-hilti-ch"
+        ],
+        "fr": [
+          "intern-cybersecurity-m-f-x-hilti-ch"
+        ]
+      },
+      "previousSlugs": [
+        "intern-cybersecurity-m-f-x-hilti-ch"
+      ]
     },
     {
       "id": "hilti-19175-en",
-      "slug": "intern-it-controlling-m-f-x-hilti-ch",
+      "slug": "tirocinante-it-controlling-m-f-x-hilti-buchs-st-gallen",
       "slugByLocale": {
         "en": "intern-it-controlling-m-f-x-hilti-ch",
-        "it": "intern-it-controlling-m-f-x-hilti-ch",
-        "de": "intern-it-controlling-m-f-x-hilti-ch",
-        "fr": "intern-it-controlling-m-f-x-hilti-ch"
+        "it": "tirocinante-it-controlling-m-f-x-hilti-buchs-st-gallen",
+        "de": "praktikant-it-controlling-m-f-x-hilti-buchs-st-gallen",
+        "fr": "stagiaire-it-controlling-m-f-x-hilti-buchs-st-gallen"
       },
       "company": "Hilti",
       "companyKey": "hilti",
@@ -141,7 +155,21 @@
       "streetAddress": "Buchs",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-18T09:26:21.079Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "intern-it-controlling-m-f-x-hilti-ch"
+        ],
+        "de": [
+          "intern-it-controlling-m-f-x-hilti-ch"
+        ],
+        "fr": [
+          "intern-it-controlling-m-f-x-hilti-ch"
+        ]
+      },
+      "previousSlugs": [
+        "intern-it-controlling-m-f-x-hilti-ch"
+      ]
     },
     {
       "id": "hilti-14822-en",
@@ -223,10 +251,10 @@
     },
     {
       "id": "hilti-19408-en",
-      "slug": "solution-owner-ai-analytics-m-f-x-hilti-ch",
+      "slug": "proprieta-della-soluzione-ai-analytics-m-f-x-hilti-buchs-st-gallen",
       "slugByLocale": {
         "en": "solution-owner-ai-analytics-m-f-x-hilti-ch",
-        "it": "solution-owner-ai-analytics-m-f-x-hilti-ch",
+        "it": "proprieta-della-soluzione-ai-analytics-m-f-x-hilti-buchs-st-gallen",
         "de": "solution-owner-ai-analytics-m-f-x-hilti-ch",
         "fr": "solution-owner-ai-analytics-m-f-x-hilti-ch"
       },
@@ -289,7 +317,15 @@
       "streetAddress": "Buchs",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-23T09:26:21.077Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "solution-owner-ai-analytics-m-f-x-hilti-ch"
+        ]
+      },
+      "previousSlugs": [
+        "solution-owner-ai-analytics-m-f-x-hilti-ch"
+      ]
     },
     {
       "id": "hilti-21035-de",

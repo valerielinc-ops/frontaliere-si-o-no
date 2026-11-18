@@ -4526,12 +4526,12 @@
     },
     {
       "id": "hug-b357dbc09f42",
-      "slug": "ergotherapeute-en-ambulatoire-de-psychiatrie-70-hug-geneve",
+      "slug": "ergoterapista-in-ambulatorio-di-psichiatria-70-hug-geneve",
       "slugByLocale": {
         "fr": "ergotherapeute-en-ambulatoire-de-psychiatrie-70-hug-geneve",
-        "it": "ergotherapeute-en-ambulatoire-de-psychiatrie-70-hug-geneve",
-        "en": "ergotherapeute-en-ambulatoire-de-psychiatrie-70-hug-geneve",
-        "de": "ergotherapeute-en-ambulatoire-de-psychiatrie-70-hug-geneve"
+        "it": "ergoterapista-in-ambulatorio-di-psichiatria-70-hug-geneve",
+        "en": "ergotherapist-in-psychiatry-ambulatory-70-hug-geneve",
+        "de": "ergotherapeut-in-der-psychiatrie-ambulant-70-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4593,16 +4593,30 @@
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T09:23:59.954Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "ergotherapeute-en-ambulatoire-de-psychiatrie-70-hug-geneve"
+        ],
+        "en": [
+          "ergotherapeute-en-ambulatoire-de-psychiatrie-70-hug-geneve"
+        ],
+        "de": [
+          "ergotherapeute-en-ambulatoire-de-psychiatrie-70-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "ergotherapeute-en-ambulatoire-de-psychiatrie-70-hug-geneve"
+      ]
     },
     {
       "id": "hug-d69651bb6f77",
-      "slug": "ergotherapeute-en-psychiatrie-geriatrique-hospitaliere-80-hug-chene-bourg",
+      "slug": "ergoterapista-in-psichiatria-dell-ospedale-geriatrico-80-hug-chene-bourg",
       "slugByLocale": {
         "fr": "ergotherapeute-en-psychiatrie-geriatrique-hospitaliere-80-hug-chene-bourg",
-        "it": "ergotherapeute-en-psychiatrie-geriatrique-hospitaliere-80-hug-chene-bourg",
-        "en": "ergotherapeute-en-psychiatrie-geriatrique-hospitaliere-80-hug-chene-bourg",
-        "de": "ergotherapeute-en-psychiatrie-geriatrique-hospitaliere-80-hug-chene-bourg"
+        "it": "ergoterapista-in-psichiatria-dell-ospedale-geriatrico-80-hug-chene-bourg",
+        "en": "ergotherapist-in-geriatric-hospital-psychiatry-80-hug-chene-bourg",
+        "de": "ergotherapeut-in-der-geriatrischen-krankenhauspsychiatrie-80-hug-chene-bourg"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4664,7 +4678,21 @@
       "streetAddress": "Chêne-Bourg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T09:23:59.948Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "ergotherapeute-en-psychiatrie-geriatrique-hospitaliere-80-hug-chene-bourg"
+        ],
+        "en": [
+          "ergotherapeute-en-psychiatrie-geriatrique-hospitaliere-80-hug-chene-bourg"
+        ],
+        "de": [
+          "ergotherapeute-en-psychiatrie-geriatrique-hospitaliere-80-hug-chene-bourg"
+        ]
+      },
+      "previousSlugs": [
+        "ergotherapeute-en-psychiatrie-geriatrique-hospitaliere-80-hug-chene-bourg"
+      ]
     },
     {
       "id": "hug-680e964116c9",

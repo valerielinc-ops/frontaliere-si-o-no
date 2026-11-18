@@ -1374,12 +1374,12 @@
     },
     {
       "id": "georg-fischer-6282e3a16d4d",
-      "slug": "werkzeugschleifer-in-georg-fischer-sissach",
+      "slug": "affilatore-affilatrice-di-utensili-georg-fischer-sissach",
       "slugByLocale": {
         "de": "werkzeugschleifer-in-georg-fischer-ch",
-        "it": "werkzeugschleifer-in-georg-fischer-sissach",
-        "en": "werkzeugschleifer-in-georg-fischer-sissach",
-        "fr": "werkzeugschleifer-in-georg-fischer-sissach"
+        "it": "affilatore-affilatrice-di-utensili-georg-fischer-sissach",
+        "en": "tool-grinder-georg-fischer-sissach",
+        "fr": "affuteur-affuteuse-d-outils-georg-fischer-sissach"
       },
       "company": "Georg Fischer",
       "companyKey": "georg-fischer",
@@ -1426,11 +1426,19 @@
       "jobReqId": "JR11779",
       "previousSlugsByLocale": {
         "it": [
-          "werkzeugschleifer-in-georg-fischer-ch"
+          "werkzeugschleifer-in-georg-fischer-ch",
+          "werkzeugschleifer-in-georg-fischer-sissach"
+        ],
+        "en": [
+          "werkzeugschleifer-in-georg-fischer-sissach"
+        ],
+        "fr": [
+          "werkzeugschleifer-in-georg-fischer-sissach"
         ]
       },
       "previousSlugs": [
-        "werkzeugschleifer-in-georg-fischer-ch"
+        "werkzeugschleifer-in-georg-fischer-ch",
+        "werkzeugschleifer-in-georg-fischer-sissach"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,

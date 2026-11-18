@@ -5847,8 +5847,8 @@
       "slugByLocale": {
         "de": "physiotherapeutin-physiotherapeut-fur-stationare-therapien-mit-schwerpunkt-neurologie-60",
         "it": "physiotherapeutin-physiotherapeut-per-stationare-therapien-con-schwerpunkt-neurologie-60-100-zurzach-care-bad-zurzach",
-        "en": "physiotherapeutin-physiotherapeut-fur-stationare-therapien-mit-schwerpunkt-neurologie-60",
-        "fr": "physiotherapeutin-physiotherapeut-fur-stationare-therapien-mit-schwerpunkt-neurologie-60"
+        "en": "physiotherapist-physiotherapist-for-inpatient-therapies-with-a-focus-on-neurology-60-100-zurzach-care-bad-zurzach",
+        "fr": "physiotherapiste-physiotherapiste-pour-les-therapies-hospitalisees-mettant-l-accent-sur-la-neurologie-60-100-zurzach"
       },
       "company": "ZURZACH Care",
       "companyKey": "zurzach-care",
@@ -5895,6 +5895,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "physiotherapeutin-physiotherapeut-fur-stationare-therapien-mit-schwerpunkt-neurologie-60"
+        ],
+        "en": [
+          "physiotherapeutin-physiotherapeut-fur-stationare-therapien-mit-schwerpunkt-neurologie-60"
+        ],
+        "fr": [
           "physiotherapeutin-physiotherapeut-fur-stationare-therapien-mit-schwerpunkt-neurologie-60"
         ]
       },

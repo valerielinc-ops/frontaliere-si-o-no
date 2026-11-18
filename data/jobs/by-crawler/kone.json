@@ -351,12 +351,12 @@
     },
     {
       "id": "kone-6d06cdb6c928",
-      "slug": "superviseur-euse-de-maintenance-ascenseurs-lausanne-gruyere-est-gros-de-vaud-kone-ch",
+      "slug": "manutenzione-ascensore-losanna-kone-lausanne",
       "slugByLocale": {
         "fr": "superviseur-euse-de-maintenance-ascenseurs-lausanne-gruyere-est-gros-de-vaud-kone-ch",
-        "it": "superviseur-euse-de-maintenance-ascenseurs-lausanne-gruyere-est-gros-de-vaud-kone-ch",
-        "en": "superviseur-euse-de-maintenance-ascenseurs-lausanne-gruyere-est-gros-de-vaud-kone-ch",
-        "de": "superviseur-euse-de-maintenance-ascenseurs-lausanne-gruyere-est-gros-de-vaud-kone-ch"
+        "it": "manutenzione-ascensore-losanna-kone-lausanne",
+        "en": "maintenance-supervisor-elevators-lausanne-kone-lausanne",
+        "de": "instandhaltungsaufseher-aufzuge-lausanne-kone-lausanne"
       },
       "company": "KONE",
       "companyKey": "kone",
@@ -419,7 +419,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T09:53:58.093Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T09:53:58.093Z"
+      "firstSeenAt": "2026-11-18T09:53:58.093Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "superviseur-euse-de-maintenance-ascenseurs-lausanne-gruyere-est-gros-de-vaud-kone-ch"
+        ],
+        "en": [
+          "superviseur-euse-de-maintenance-ascenseurs-lausanne-gruyere-est-gros-de-vaud-kone-ch"
+        ],
+        "de": [
+          "superviseur-euse-de-maintenance-ascenseurs-lausanne-gruyere-est-gros-de-vaud-kone-ch"
+        ]
+      },
+      "previousSlugs": [
+        "superviseur-euse-de-maintenance-ascenseurs-lausanne-gruyere-est-gros-de-vaud-kone-ch"
+      ]
     }
   ]
 }

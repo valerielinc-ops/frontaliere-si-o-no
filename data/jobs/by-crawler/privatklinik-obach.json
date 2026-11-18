@@ -247,12 +247,12 @@
     },
     {
       "id": "privatklinik-obach-6d695f8c36dd",
-      "slug": "pflegefachperson-hf-privatklinik-obach-solothurn",
+      "slug": "professionista-hf-privatklinik-obach-solothurn",
       "slugByLocale": {
         "de": "pflegefachperson-hf-privatklinik-obach",
-        "it": "pflegefachperson-hf-privatklinik-obach-solothurn",
-        "en": "pflegefachperson-hf-privatklinik-obach-solothurn",
-        "fr": "pflegefachperson-hf-privatklinik-obach-solothurn"
+        "it": "professionista-hf-privatklinik-obach-solothurn",
+        "en": "care-professional-hf-privatklinik-obach-solothurn",
+        "fr": "soins-professionnels-hf-privatklinik-obach-solothurn"
       },
       "company": "Privatklinik Obach",
       "companyKey": "privatklinik-obach",
@@ -299,11 +299,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachperson-hf-privatklinik-obach"
+          "pflegefachperson-hf-privatklinik-obach",
+          "pflegefachperson-hf-privatklinik-obach-solothurn"
+        ],
+        "en": [
+          "pflegefachperson-hf-privatklinik-obach-solothurn"
+        ],
+        "fr": [
+          "pflegefachperson-hf-privatklinik-obach-solothurn"
         ]
       },
       "previousSlugs": [
-        "pflegefachperson-hf-privatklinik-obach"
+        "pflegefachperson-hf-privatklinik-obach",
+        "pflegefachperson-hf-privatklinik-obach-solothurn"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,

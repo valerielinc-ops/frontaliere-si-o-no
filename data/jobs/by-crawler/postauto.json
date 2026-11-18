@@ -776,10 +776,10 @@
     },
     {
       "id": "postauto-ea34851b616b",
-      "slug": "fachspezialist-in-kundenservice-inkasso-postauto-zurich",
+      "slug": "specialista-del-servizio-clienti-incasso-postauto-ag-zurich",
       "slugByLocale": {
         "de": "fachspezialist-in-kundenservice-inkasso-postauto-zurich",
-        "it": "fachspezialist-in-kundenservice-inkasso-postauto-zurich",
+        "it": "specialista-del-servizio-clienti-incasso-postauto-ag-zurich",
         "en": "fachspezialist-in-kundenservice-inkasso-postauto-zurich",
         "fr": "fachspezialist-in-kundenservice-inkasso-postauto-zurich"
       },
@@ -844,16 +844,24 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "source"
+      "validThroughSource": "source",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-in-kundenservice-inkasso-postauto-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-in-kundenservice-inkasso-postauto-zurich"
+      ]
     },
     {
       "id": "postauto-7960c793677f",
-      "slug": "teamleiter-in-fahrpersonal-postauto-freienbach",
+      "slug": "responsabile-del-team-personale-viaggiante-postauto-ag-freienbach",
       "slugByLocale": {
         "de": "teamleiter-in-fahrpersonal-postauto-freienbach",
-        "it": "teamleiter-in-fahrpersonal-postauto-freienbach",
-        "en": "teamleiter-in-fahrpersonal-postauto-freienbach",
-        "fr": "teamleiter-in-fahrpersonal-postauto-freienbach"
+        "it": "responsabile-del-team-personale-viaggiante-postauto-ag-freienbach",
+        "en": "team-leader-driving-staff-postauto-ag-freienbach",
+        "fr": "chef-fe-d-equipe-personnel-de-conduite-postauto-ag-freienbach"
       },
       "company": "PostAuto AG",
       "companyKey": "postauto",
@@ -917,7 +925,21 @@
       },
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-18T09:53:17.879Z"
+      "firstSeenAt": "2026-11-18T09:53:17.879Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-fahrpersonal-postauto-freienbach"
+        ],
+        "en": [
+          "teamleiter-in-fahrpersonal-postauto-freienbach"
+        ],
+        "fr": [
+          "teamleiter-in-fahrpersonal-postauto-freienbach"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-in-fahrpersonal-postauto-freienbach"
+      ]
     },
     {
       "id": "postauto-d7efacd1c75e",

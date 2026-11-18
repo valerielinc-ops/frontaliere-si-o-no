@@ -2393,12 +2393,12 @@
     },
     {
       "id": "sbb-e2d1485b3b6d",
-      "slug": "partnermanager-in-international-affairs-ffs-officine-ferrovie-federali-ticino",
+      "slug": "partner-manager-international-affairs-ffs-officine-ferrovie-federali-ticino",
       "slugByLocale": {
-        "it": "partnermanager-in-international-affairs-ffs-officine-ferrovie-federali-ticino",
+        "it": "partner-manager-international-affairs-ffs-officine-ferrovie-federali-ticino",
         "en": "partnermanager-in-international-affairs-ffs-officine-ferrovie-federali-ticino",
         "de": "partnermanager-in-international-affairs-ffs-officine-ferrovie-federali-ticino",
-        "fr": "partnermanager-in-international-affairs-ffs-officine-ferrovie-federali-ticino"
+        "fr": "responsable-des-partenariats-affaires-internationales-ffs-officine-ferrovie-federali-ticino"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -2460,16 +2460,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T09:22:15.211Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T09:22:15.211Z"
+      "firstSeenAt": "2026-11-18T09:22:15.211Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "partnermanager-in-international-affairs-ffs-officine-ferrovie-federali-ticino"
+        ],
+        "fr": [
+          "partnermanager-in-international-affairs-ffs-officine-ferrovie-federali-ticino"
+        ]
+      },
+      "previousSlugs": [
+        "partnermanager-in-international-affairs-ffs-officine-ferrovie-federali-ticino"
+      ]
     },
     {
       "id": "sbb-ac74818af417",
-      "slug": "product-manager-m-w-d-plattform-e-technologien-ffs-officine-ferrovie-federali-ticino",
+      "slug": "product-manager-m-f-d-piattaforma-e-tecnologie-ffs-officine-ferrovie-federali-ticino",
       "slugByLocale": {
-        "it": "product-manager-m-w-d-plattform-e-technologien-ffs-officine-ferrovie-federali-ticino",
-        "en": "product-manager-m-w-d-plattform-und-technologien-ffs-officine-ferrovie-federali-ticino",
+        "it": "product-manager-m-f-d-piattaforma-e-tecnologie-ffs-officine-ferrovie-federali-ticino",
+        "en": "product-manager-m-f-d-platform-and-technologies-ffs-officine-ferrovie-federali-ticino",
         "de": "product-manager-m-w-d-plattform-und-technologien-ffs-officine-ferrovie-federali-ticino",
-        "fr": "product-manager-m-w-d-plattform-und-technologien-ffs-officine-ferrovie-federali-ticino"
+        "fr": "gestionnaire-de-produits-h-f-d-plateforme-et-technologies-ffs-officine-ferrovie-federali-ticino"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -2512,11 +2523,19 @@
       "crawledAt": "2026-11-18T09:22:15.339Z",
       "previousSlugsByLocale": {
         "it": [
+          "product-manager-m-w-d-plattform-und-technologien-ffs-officine-ferrovie-federali-ticino",
+          "product-manager-m-w-d-plattform-e-technologien-ffs-officine-ferrovie-federali-ticino"
+        ],
+        "en": [
+          "product-manager-m-w-d-plattform-und-technologien-ffs-officine-ferrovie-federali-ticino"
+        ],
+        "fr": [
           "product-manager-m-w-d-plattform-und-technologien-ffs-officine-ferrovie-federali-ticino"
         ]
       },
       "previousSlugs": [
-        "product-manager-m-w-d-plattform-und-technologien-ffs-officine-ferrovie-federali-ticino"
+        "product-manager-m-w-d-plattform-und-technologien-ffs-officine-ferrovie-federali-ticino",
+        "product-manager-m-w-d-plattform-e-technologien-ffs-officine-ferrovie-federali-ticino"
       ],
       "salaryMin": 79500,
       "salaryMax": 135000,
@@ -3176,11 +3195,11 @@
     },
     {
       "id": "sbb-e5d7980c5e45",
-      "slug": "responsable-des-partenariats-affaires-internationales-h-f-d-ffs-officine-ferrovie-federali-ticino",
+      "slug": "responsabile-delle-partnership-affari-internazionali-m-f-d-ffs-officine-ferrovie-federali-ticino",
       "slugByLocale": {
-        "it": "responsable-des-partenariats-affaires-internationales-h-f-d-ffs-officine-ferrovie-federali-ticino",
-        "en": "responsable-des-partenariats-affaires-internationales-h-f-d-ffs-officine-ferrovie-federali-ticino",
-        "de": "responsable-des-partenariats-affaires-internationales-h-f-d-ffs-officine-ferrovie-federali-ticino",
+        "it": "responsabile-delle-partnership-affari-internazionali-m-f-d-ffs-officine-ferrovie-federali-ticino",
+        "en": "head-of-partnerships-international-affairs-m-f-d-ffs-officine-ferrovie-federali-ticino",
+        "de": "leiterin-partnerschaften-internationale-angelegenheiten-m-w-d-ffs-officine-ferrovie-federali-ticino",
         "fr": "responsable-des-partenariats-affaires-internationales-h-f-d-ffs-officine-ferrovie-federali-ticino"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -3243,7 +3262,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T09:22:15.632Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T09:22:15.632Z"
+      "firstSeenAt": "2026-11-18T09:22:15.632Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-des-partenariats-affaires-internationales-h-f-d-ffs-officine-ferrovie-federali-ticino"
+        ],
+        "en": [
+          "responsable-des-partenariats-affaires-internationales-h-f-d-ffs-officine-ferrovie-federali-ticino"
+        ],
+        "de": [
+          "responsable-des-partenariats-affaires-internationales-h-f-d-ffs-officine-ferrovie-federali-ticino"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-des-partenariats-affaires-internationales-h-f-d-ffs-officine-ferrovie-federali-ticino"
+      ]
     },
     {
       "id": "sbb-f913935c4daa",
@@ -11540,12 +11573,12 @@
     },
     {
       "id": "sbb-a3ccbc5dd26b",
-      "slug": "candidato-a-in-riqualificazione-come-sicherheitswarter-in-sicherheitschef-in-baustellen-ffs-officine-ferrovie-federali-ticino",
+      "slug": "personale-neoassunto-come-addetto-a-alla-sicurezza-responsabile-della-sicurezza-nei-cantieri-ffs-officine-ferrovie",
       "slugByLocale": {
-        "it": "candidato-a-in-riqualificazione-come-sicherheitswarter-in-sicherheitschef-in-baustellen-ffs-officine-ferrovie-federali-ticino",
-        "en": "quereinsteiger-in-als-sicherheitswarter-in-sicherheitschef-in-baustellen-ffs-officine-ferrovie-federali-ticino",
+        "it": "personale-neoassunto-come-addetto-a-alla-sicurezza-responsabile-della-sicurezza-nei-cantieri-ffs-officine-ferrovie",
+        "en": "career-changer-as-a-safety-officer-head-of-safety-on-construction-sites-ffs-officine-ferrovie-federali-ticino",
         "de": "quereinsteiger-in-als-sicherheitswarter-in-sicherheitschef-in-baustellen-ffs-officine-ferrovie-federali-ticino",
-        "fr": "quereinsteiger-in-als-sicherheitswarter-in-sicherheitschef-in-baustellen-ffs-officine-ferrovie-federali-ticino"
+        "fr": "changement-de-carriere-agent-agente-de-securite-chef-cheffe-de-la-securite-sur-les-chantiers-ffs-officine-ferrovie"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -11588,11 +11621,19 @@
       "crawledAt": "2026-11-18T09:22:20.080Z",
       "previousSlugsByLocale": {
         "it": [
+          "quereinsteiger-in-als-sicherheitswarter-in-sicherheitschef-in-baustellen-ffs-officine-ferrovie-federali-ticino",
+          "candidato-a-in-riqualificazione-come-sicherheitswarter-in-sicherheitschef-in-baustellen-ffs-officine-ferrovie-federali-ticino"
+        ],
+        "en": [
+          "quereinsteiger-in-als-sicherheitswarter-in-sicherheitschef-in-baustellen-ffs-officine-ferrovie-federali-ticino"
+        ],
+        "fr": [
           "quereinsteiger-in-als-sicherheitswarter-in-sicherheitschef-in-baustellen-ffs-officine-ferrovie-federali-ticino"
         ]
       },
       "previousSlugs": [
-        "quereinsteiger-in-als-sicherheitswarter-in-sicherheitschef-in-baustellen-ffs-officine-ferrovie-federali-ticino"
+        "quereinsteiger-in-als-sicherheitswarter-in-sicherheitschef-in-baustellen-ffs-officine-ferrovie-federali-ticino",
+        "candidato-a-in-riqualificazione-come-sicherheitswarter-in-sicherheitschef-in-baustellen-ffs-officine-ferrovie-federali-ticino"
       ],
       "salaryMin": 51500,
       "salaryMax": 88000,

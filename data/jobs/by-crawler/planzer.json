@@ -513,12 +513,12 @@
     },
     {
       "id": "planzer-fa807ad52657",
-      "slug": "paketzusteller-m-w-d-planzer-zurich-altstetten",
+      "slug": "consegna-del-parco-m-f-d-planzer-zurich-altstetten",
       "slugByLocale": {
         "de": "paketzusteller-m-w-d-planzer-zurich-altstetten",
-        "it": "paketzusteller-m-w-d-planzer-zurich-altstetten",
-        "en": "paketzusteller-m-w-d-planzer-zurich-altstetten",
-        "fr": "paketzusteller-m-w-d-planzer-zurich-altstetten"
+        "it": "consegna-del-parco-m-f-d-planzer-zurich-altstetten",
+        "en": "parcel-delivery-m-f-d-planzer-zurich-altstetten",
+        "fr": "livraison-de-colis-h-f-d-planzer-zurich-altstetten"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -580,14 +580,28 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-16T09:22:03.540Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "paketzusteller-m-w-d-planzer-zurich-altstetten"
+        ],
+        "en": [
+          "paketzusteller-m-w-d-planzer-zurich-altstetten"
+        ],
+        "fr": [
+          "paketzusteller-m-w-d-planzer-zurich-altstetten"
+        ]
+      },
+      "previousSlugs": [
+        "paketzusteller-m-w-d-planzer-zurich-altstetten"
+      ]
     },
     {
       "id": "planzer-6a155737f30d",
-      "slug": "paketzusteller-m-w-d-planzer-schmerikon",
+      "slug": "consegna-del-parco-m-f-d-planzer-schmerikon",
       "slugByLocale": {
         "de": "paketzusteller-m-w-d-planzer-schmerikon",
-        "it": "paketzusteller-m-w-d-planzer-schmerikon",
+        "it": "consegna-del-parco-m-f-d-planzer-schmerikon",
         "en": "paketzusteller-m-w-d-planzer-schmerikon",
         "fr": "paketzusteller-m-w-d-planzer-schmerikon"
       },
@@ -652,7 +666,15 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-17T09:22:02.765Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-19T09:15:54.191Z"
+      "firstSeenAt": "2026-10-19T09:15:54.191Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "paketzusteller-m-w-d-planzer-schmerikon"
+        ]
+      },
+      "previousSlugs": [
+        "paketzusteller-m-w-d-planzer-schmerikon"
+      ]
     },
     {
       "id": "planzer-0492d2f08029",
@@ -736,10 +758,10 @@
     },
     {
       "id": "planzer-5d7e25cf0aca",
-      "slug": "chauffeur-kat-ce-m-w-d-planzer-bern",
+      "slug": "chauffeur-cat-ce-m-f-d-z-planzer-bern",
       "slugByLocale": {
         "de": "chauffeur-kat-ce-m-w-d-planzer-bern",
-        "it": "chauffeur-kat-ce-m-w-d-planzer-bern",
+        "it": "chauffeur-cat-ce-m-f-d-z-planzer-bern",
         "en": "chauffeur-kat-ce-m-w-d-planzer-bern",
         "fr": "chauffeur-kat-ce-m-w-d-planzer-bern"
       },
@@ -804,7 +826,15 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-17T09:22:00.871Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-19T09:15:52.711Z"
+      "firstSeenAt": "2026-10-19T09:15:52.711Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-kat-ce-m-w-d-planzer-bern"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-kat-ce-m-w-d-planzer-bern"
+      ]
     },
     {
       "id": "planzer-bb5869a80b2f",

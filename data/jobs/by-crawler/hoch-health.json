@@ -18383,12 +18383,12 @@
     },
     {
       "id": "hoch-health-daca761aae85",
-      "slug": "stationsleiter-in-80-100-hoch-health-wil",
+      "slug": "capo-reparto-80-100-hoch-health-ostschweiz-wil",
       "slugByLocale": {
         "de": "stationsleiter-in-80-100-hoch-health-wil",
-        "it": "stationsleiter-in-80-100-hoch-health-wil",
-        "en": "stationsleiter-in-80-100-hoch-health-wil",
-        "fr": "stationsleiter-in-80-100-hoch-health-wil"
+        "it": "capo-reparto-80-100-hoch-health-ostschweiz-wil",
+        "en": "ward-manager-80-100-hoch-health-ostschweiz-wil",
+        "fr": "chef-cheffe-de-service-80-100-hoch-health-ostschweiz-wil"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -18450,7 +18450,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T09:57:33.882Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T09:57:33.882Z"
+      "firstSeenAt": "2026-11-18T09:57:33.882Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stationsleiter-in-80-100-hoch-health-wil"
+        ],
+        "en": [
+          "stationsleiter-in-80-100-hoch-health-wil"
+        ],
+        "fr": [
+          "stationsleiter-in-80-100-hoch-health-wil"
+        ]
+      },
+      "previousSlugs": [
+        "stationsleiter-in-80-100-hoch-health-wil"
+      ]
     },
     {
       "id": "hoch-health-d4cd237d9273",
@@ -18531,12 +18545,12 @@
     },
     {
       "id": "hoch-health-aba0a6c67502",
-      "slug": "logistiker-in-50-hoch-health-ostschweiz-grabs",
+      "slug": "addetto-a-alla-logistica-50-hoch-health-ostschweiz-grabs",
       "slugByLocale": {
         "de": "logistiker-in-50-hoch-health-grabs",
-        "it": "logistiker-in-50-hoch-health-ostschweiz-grabs",
-        "en": "logistiker-in-50-hoch-health-grabs",
-        "fr": "logistiker-in-50-hoch-health-grabs"
+        "it": "addetto-a-alla-logistica-50-hoch-health-ostschweiz-grabs",
+        "en": "logistics-specialist-50-hoch-health-ostschweiz-grabs",
+        "fr": "logisticien-logisticienne-50-hoch-health-ostschweiz-grabs"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -18583,11 +18597,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "logistiker-in-50-hoch-health-grabs",
+          "logistiker-in-50-hoch-health-ostschweiz-grabs"
+        ],
+        "en": [
+          "logistiker-in-50-hoch-health-grabs"
+        ],
+        "fr": [
           "logistiker-in-50-hoch-health-grabs"
         ]
       },
       "previousSlugs": [
-        "logistiker-in-50-hoch-health-grabs"
+        "logistiker-in-50-hoch-health-grabs",
+        "logistiker-in-50-hoch-health-ostschweiz-grabs"
       ],
       "salaryMin": 28800,
       "salaryMax": 43500,
@@ -18610,12 +18632,12 @@
     },
     {
       "id": "hoch-health-f4abb3733fab",
-      "slug": "pflegehelfer-in-40-80-hoch-health-wil",
+      "slug": "operatore-operatrice-socio-assistenziale-40-80-hoch-health-ostschweiz-wil",
       "slugByLocale": {
         "de": "pflegehelfer-in-40-80-hoch-health-wil",
-        "it": "pflegehelfer-in-40-80-hoch-health-wil",
-        "en": "pflegehelfer-in-40-80-hoch-health-wil",
-        "fr": "pflegehelfer-in-40-80-hoch-health-wil"
+        "it": "operatore-operatrice-socio-assistenziale-40-80-hoch-health-ostschweiz-wil",
+        "en": "care-assistant-40-80-hoch-health-ostschweiz-wil",
+        "fr": "aide-soignant-e-40-80-hoch-health-ostschweiz-wil"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -18677,16 +18699,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T09:57:32.501Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T09:57:32.501Z"
+      "firstSeenAt": "2026-11-18T09:57:32.501Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegehelfer-in-40-80-hoch-health-wil"
+        ],
+        "en": [
+          "pflegehelfer-in-40-80-hoch-health-wil"
+        ],
+        "fr": [
+          "pflegehelfer-in-40-80-hoch-health-wil"
+        ]
+      },
+      "previousSlugs": [
+        "pflegehelfer-in-40-80-hoch-health-wil"
+      ]
     },
     {
       "id": "hoch-health-3f06423cf41c",
-      "slug": "fachfrau-mann-gesundheit-40-80-hoch-health-ostschweiz-wil",
+      "slug": "operatore-operatrice-socio-sanitario-a-40-80-hoch-health-ostschweiz-wil",
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-40-80-hoch-health-wil",
-        "it": "fachfrau-mann-gesundheit-40-80-hoch-health-ostschweiz-wil",
-        "en": "fachfrau-mann-gesundheit-40-80-hoch-health-wil",
-        "fr": "fachfrau-mann-gesundheit-40-80-hoch-health-wil"
+        "it": "operatore-operatrice-socio-sanitario-a-40-80-hoch-health-ostschweiz-wil",
+        "en": "healthcare-specialist-40-80-hoch-health-ostschweiz-wil",
+        "fr": "specialiste-de-la-sante-40-80-hoch-health-ostschweiz-wil"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -18733,11 +18769,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-mann-gesundheit-40-80-hoch-health-wil",
+          "fachfrau-mann-gesundheit-40-80-hoch-health-ostschweiz-wil"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-40-80-hoch-health-wil"
+        ],
+        "fr": [
           "fachfrau-mann-gesundheit-40-80-hoch-health-wil"
         ]
       },
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-40-80-hoch-health-wil"
+        "fachfrau-mann-gesundheit-40-80-hoch-health-wil",
+        "fachfrau-mann-gesundheit-40-80-hoch-health-ostschweiz-wil"
       ],
       "salaryMin": 48000,
       "salaryMax": 81600,

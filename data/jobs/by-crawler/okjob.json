@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "okjob-bff21ae07422",
-      "slug": "dipl-pflegefachperson-hf-fh-80-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-bff21ae0",
+      "slug": "infermiera-hf-fh-80-100-m-f-d-ok-job-sa-succursale-di-mendrisio-4051-basel-bff21ae0",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-80-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-bff21ae0",
-        "it": "dipl-pflegefachperson-hf-fh-80-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-bff21ae0",
+        "it": "infermiera-hf-fh-80-100-m-f-d-ok-job-sa-succursale-di-mendrisio-4051-basel-bff21ae0",
         "en": "dipl-pflegefachperson-hf-fh-80-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-bff21ae0",
-        "fr": "dipl-pflegefachperson-hf-fh-80-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-bff21ae0"
+        "fr": "infirmiere-diplomee-hf-fh-80-100-h-f-d-ok-job-sa-succursale-di-mendrisio-4051-basel-bff21ae0"
       },
       "slugDisambiguator": "bff21ae0",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -73,16 +73,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T09:30:56.445Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T09:30:56.445Z"
+      "firstSeenAt": "2026-11-18T09:30:56.445Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-80-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-bff21ae0"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-80-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-bff21ae0"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-80-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-bff21ae0"
+      ]
     },
     {
       "id": "okjob-69eb5b973366",
-      "slug": "fachfrau-fachmann-gesundheit-efz-nachtwache-50-60-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-69eb5b97",
+      "slug": "operatore-operatrice-socio-sanitario-afc-turno-di-notte-50-60-m-f-d-ok-job-sa-succursale-di-mendrisio-4051-69eb5b97",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-efz-nachtwache-50-60-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-69eb5b97",
-        "it": "fachfrau-fachmann-gesundheit-efz-nachtwache-50-60-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-69eb5b97",
-        "en": "fachfrau-fachmann-gesundheit-efz-nachtwache-50-60-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-69eb5b97",
-        "fr": "fachfrau-fachmann-gesundheit-efz-nachtwache-50-60-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-69eb5b97"
+        "it": "operatore-operatrice-socio-sanitario-afc-turno-di-notte-50-60-m-f-d-ok-job-sa-succursale-di-mendrisio-4051-69eb5b97",
+        "en": "professional-health-efz-night-watch-50-60-m-f-d-ok-job-sa-succursale-di-mendrisio-4051-basel-69eb5b97",
+        "fr": "sante-professionnelle-surveillance-de-nuit-efz-50-60-h-f-d-ok-job-sa-succursale-di-mendrisio-4051-basel-69eb5b97"
       },
       "slugDisambiguator": "69eb5b97",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -145,16 +156,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T09:30:56.444Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T09:30:56.444Z"
+      "firstSeenAt": "2026-11-18T09:30:56.444Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-efz-nachtwache-50-60-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-69eb5b97"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-efz-nachtwache-50-60-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-69eb5b97"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-efz-nachtwache-50-60-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-69eb5b97"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-efz-nachtwache-50-60-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-69eb5b97"
+      ]
     },
     {
       "id": "okjob-5c1d3d40fe42",
-      "slug": "reparateur-materiel-de-ski-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-5c1d3d40",
+      "slug": "attrezzatura-per-lo-sci-di-riparazione-m-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-5c1d3d40",
       "slugByLocale": {
         "fr": "reparateur-materiel-de-ski-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-5c1d3d40",
-        "it": "reparateur-materiel-de-ski-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-5c1d3d40",
-        "en": "reparateur-materiel-de-ski-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-5c1d3d40",
-        "de": "reparateur-materiel-de-ski-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-5c1d3d40"
+        "it": "attrezzatura-per-lo-sci-di-riparazione-m-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-5c1d3d40",
+        "en": "repairer-ski-equipment-m-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-5c1d3d40",
+        "de": "reparatur-skiausrustung-m-w-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-5c1d3d40"
       },
       "slugDisambiguator": "5c1d3d40",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -217,7 +242,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T09:30:56.443Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T09:30:56.443Z"
+      "firstSeenAt": "2026-11-18T09:30:56.443Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "reparateur-materiel-de-ski-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-5c1d3d40"
+        ],
+        "en": [
+          "reparateur-materiel-de-ski-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-5c1d3d40"
+        ],
+        "de": [
+          "reparateur-materiel-de-ski-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-5c1d3d40"
+        ]
+      },
+      "previousSlugs": [
+        "reparateur-materiel-de-ski-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-5c1d3d40"
+      ]
     },
     {
       "id": "okjob-f6c772a7adc4",
@@ -473,12 +512,12 @@
     },
     {
       "id": "okjob-9510c2e8292f",
-      "slug": "mecanicien-ne-poids-lourds-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-9510c2e8",
+      "slug": "meccanico-m-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-9510c2e8",
       "slugByLocale": {
         "fr": "mecanicien-ne-poids-lourds-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-9510c2e8",
-        "it": "mecanicien-ne-poids-lourds-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-9510c2e8",
-        "en": "mecanicien-ne-poids-lourds-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-9510c2e8",
-        "de": "mecanicien-ne-poids-lourds-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-9510c2e8"
+        "it": "meccanico-m-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-9510c2e8",
+        "en": "mechanic-m-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-9510c2e8",
+        "de": "mechanisches-m-w-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-9510c2e8"
       },
       "slugDisambiguator": "9510c2e8",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -541,16 +580,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T09:30:56.435Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T09:30:56.435Z"
+      "firstSeenAt": "2026-11-18T09:30:56.435Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mecanicien-ne-poids-lourds-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-9510c2e8"
+        ],
+        "en": [
+          "mecanicien-ne-poids-lourds-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-9510c2e8"
+        ],
+        "de": [
+          "mecanicien-ne-poids-lourds-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-9510c2e8"
+        ]
+      },
+      "previousSlugs": [
+        "mecanicien-ne-poids-lourds-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-9510c2e8"
+      ]
     },
     {
       "id": "okjob-a675e1db7603",
-      "slug": "instandhaltungsfachmann-instandhaltungsfachfrau-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-a675e1db",
+      "slug": "manutenzione-professionale-manutenzione-professionale-100-m-f-d-ok-job-sa-succursale-di-mendrisio-4051-basel-a675e1db",
       "slugByLocale": {
         "de": "instandhaltungsfachmann-instandhaltungsfachfrau-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-a675e1db",
-        "it": "instandhaltungsfachmann-instandhaltungsfachfrau-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-a675e1db",
-        "en": "instandhaltungsfachmann-instandhaltungsfachfrau-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-a675e1db",
-        "fr": "instandhaltungsfachmann-instandhaltungsfachfrau-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-a675e1db"
+        "it": "manutenzione-professionale-manutenzione-professionale-100-m-f-d-ok-job-sa-succursale-di-mendrisio-4051-basel-a675e1db",
+        "en": "maintenance-professional-maintenance-professional-100-m-f-d-ok-job-sa-succursale-di-mendrisio-4051-basel-a675e1db",
+        "fr": "professionnel-de-maintenance-professionnel-de-maintenance-100-h-f-d-ok-job-sa-succursale-di-mendrisio-4051-a675e1db"
       },
       "slugDisambiguator": "a675e1db",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -613,7 +666,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T09:30:56.416Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T09:30:56.416Z"
+      "firstSeenAt": "2026-11-18T09:30:56.416Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "instandhaltungsfachmann-instandhaltungsfachfrau-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-a675e1db"
+        ],
+        "en": [
+          "instandhaltungsfachmann-instandhaltungsfachfrau-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-a675e1db"
+        ],
+        "fr": [
+          "instandhaltungsfachmann-instandhaltungsfachfrau-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-a675e1db"
+        ]
+      },
+      "previousSlugs": [
+        "instandhaltungsfachmann-instandhaltungsfachfrau-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-a675e1db"
+      ]
     },
     {
       "id": "okjob-b81fa7c96107",

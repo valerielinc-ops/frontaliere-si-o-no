@@ -515,8 +515,8 @@
       "slugByLocale": {
         "de": "pflegefachperson-hf-imc-w-m-d-50-100-kantonsspital-uri-altdorf",
         "it": "pflegefachperson-hf-imc-w-m-d-50-100-kantonsspital-uri-altdorf",
-        "en": "pflegefachperson-hf-imc-w-m-d-50-100-kantonsspital-uri-altdorf",
-        "fr": "pflegefachperson-hf-imc-w-m-d-50-100-kantonsspital-uri-altdorf"
+        "en": "care-professional-hf-imc-m-f-d-50-100-kantonsspital-uri-altdorf",
+        "fr": "soins-professionnels-hf-imc-h-f-d-50-100-kantonsspital-uri-altdorf"
       },
       "company": "Kantonsspital Uri",
       "companyKey": "kantonsspital-uri",
@@ -578,7 +578,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-16T09:31:15.612Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T09:31:15.612Z"
+      "firstSeenAt": "2026-11-18T09:31:15.612Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "pflegefachperson-hf-imc-w-m-d-50-100-kantonsspital-uri-altdorf"
+        ],
+        "fr": [
+          "pflegefachperson-hf-imc-w-m-d-50-100-kantonsspital-uri-altdorf"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachperson-hf-imc-w-m-d-50-100-kantonsspital-uri-altdorf"
+      ]
     },
     {
       "id": "kantonsspital-uri-eb3cfbf27411",

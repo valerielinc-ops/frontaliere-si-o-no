@@ -2400,7 +2400,7 @@
         "de": "young-talents-manager-kv-it-60-80-six-group-zurich",
         "it": "young-talents-manager-kv-it-60-80-six-group-zurich",
         "en": "young-talents-manager-kv-it-60-80-six-group-zurich",
-        "fr": "young-talents-manager-kv-it-60-80-six-group-zurich"
+        "fr": "responsable-jeunes-talents-cfc-et-informatique-60-80-six-group-zurich"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -2462,7 +2462,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T09:44:42.760Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T09:44:42.760Z"
+      "firstSeenAt": "2026-11-18T09:44:42.760Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "young-talents-manager-kv-it-60-80-six-group-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "young-talents-manager-kv-it-60-80-six-group-zurich"
+      ]
     }
   ]
 }

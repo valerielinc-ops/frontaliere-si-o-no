@@ -1475,12 +1475,12 @@
     },
     {
       "id": "evam-vaud-8756289",
-      "slug": "specialiste-formation-100-cdi-evam-vaud-ch",
+      "slug": "specialista-di-formazione-100-cdi-evam-lausanne",
       "slugByLocale": {
         "fr": "specialiste-formation-100-cdi-evam-vaud-ch",
-        "it": "specialiste-formation-100-cdi-evam-vaud-ch",
-        "en": "specialiste-formation-100-cdi-evam-vaud-ch",
-        "de": "specialiste-formation-100-cdi-evam-vaud-ch"
+        "it": "specialista-di-formazione-100-cdi-evam-lausanne",
+        "en": "training-specialist-100-cdi-evam-lausanne",
+        "de": "schulungsspezialist-100-cdi-evam-lausanne"
       },
       "company": "EVAM",
       "companyKey": "evam-vaud",
@@ -1539,7 +1539,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-16T09:27:15.039Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T09:27:15.039Z"
+      "firstSeenAt": "2026-11-18T09:27:15.039Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "specialiste-formation-100-cdi-evam-vaud-ch"
+        ],
+        "en": [
+          "specialiste-formation-100-cdi-evam-vaud-ch"
+        ],
+        "de": [
+          "specialiste-formation-100-cdi-evam-vaud-ch"
+        ]
+      },
+      "previousSlugs": [
+        "specialiste-formation-100-cdi-evam-vaud-ch"
+      ]
     },
     {
       "id": "evam-vaud-8350787",

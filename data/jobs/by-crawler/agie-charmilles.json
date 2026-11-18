@@ -196,13 +196,19 @@
       },
       "slugByLocale": {
         "it": "logistiker-wareneingang-d-w-m-agie-charmilles-sa-biel-bienne",
-        "en": "logistiker-wareneingang-d-w-m-agie-charmilles-biel-bienne",
+        "en": "logistician-incoming-goods-d-f-m-agie-charmilles-sa-biel-bienne",
         "de": "logistiker-wareneingang-d-w-m-agie-charmilles-biel-bienne",
-        "fr": "logistiker-wareneingang-d-w-m-agie-charmilles-biel-bienne"
+        "fr": "marchandises-d-origine-logistique-d-f-m-agie-charmilles-sa-biel-bienne"
       },
       "id": "agie-charmilles-f355562163fa",
       "previousSlugsByLocale": {
         "it": [
+          "logistiker-wareneingang-d-w-m-agie-charmilles-biel-bienne"
+        ],
+        "en": [
+          "logistiker-wareneingang-d-w-m-agie-charmilles-biel-bienne"
+        ],
+        "fr": [
           "logistiker-wareneingang-d-w-m-agie-charmilles-biel-bienne"
         ]
       },
@@ -435,14 +441,20 @@
       },
       "slugByLocale": {
         "it": "logistiker-wareneingang-d-w-m-100-agie-charmilles-sa-biel-bienne",
-        "en": "logistiker-wareneingang-d-w-m-100-agie-charmilles-biel-bienne",
+        "en": "logistics-incoming-goods-d-f-m-100-agie-charmilles-sa-biel-bienne",
         "de": "logistiker-wareneingang-d-w-m-100-agie-charmilles-biel-bienne",
-        "fr": "logistiker-wareneingang-d-w-m-100-agie-charmilles-biel-bienne"
+        "fr": "logistique-des-biens-entrants-j-f-m-100-agie-charmilles-sa-biel-bienne"
       },
       "id": "agie-charmilles-1fd9a1f7a3ab",
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "logistiker-wareneingang-d-w-m-100-agie-charmilles-biel-bienne"
+        ],
+        "en": [
+          "logistiker-wareneingang-d-w-m-100-agie-charmilles-biel-bienne"
+        ],
+        "fr": [
           "logistiker-wareneingang-d-w-m-100-agie-charmilles-biel-bienne"
         ]
       },

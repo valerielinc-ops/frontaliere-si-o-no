@@ -2426,12 +2426,12 @@
     },
     {
       "id": "livit-b1e8e256006f",
-      "slug": "immobilienbewirtschafter-in-livit-st-gallen",
+      "slug": "amministratore-amministratrice-immobiliare-livit-ag-st-gallen",
       "slugByLocale": {
         "de": "immobilienbewirtschafter-in-livit-st-gallen",
-        "it": "immobilienbewirtschafter-in-livit-st-gallen",
-        "en": "immobilienbewirtschafter-in-livit-st-gallen",
-        "fr": "immobilienbewirtschafter-in-livit-st-gallen"
+        "it": "amministratore-amministratrice-immobiliare-livit-ag-st-gallen",
+        "en": "property-manager-livit-ag-st-gallen",
+        "fr": "gestionnaire-immobilier-gestionnaire-immobiliere-livit-ag-st-gallen"
       },
       "company": "Livit AG",
       "companyKey": "livit",
@@ -2504,7 +2504,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-16T09:45:39.847Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-24T00:11:13.958Z"
+      "firstSeenAt": "2026-09-24T00:11:13.958Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "immobilienbewirtschafter-in-livit-st-gallen"
+        ],
+        "en": [
+          "immobilienbewirtschafter-in-livit-st-gallen"
+        ],
+        "fr": [
+          "immobilienbewirtschafter-in-livit-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "immobilienbewirtschafter-in-livit-st-gallen"
+      ]
     },
     {
       "id": "livit-b59bc449849d",

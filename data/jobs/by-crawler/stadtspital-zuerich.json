@@ -5807,7 +5807,7 @@
       "id": "stadtspital-zuerich-53d18d59894f",
       "slug": "infermiere-specializzato-in-cardiochirurgia-e-traumatologia-triemli-stadtspital-zurich-zurich-0845ae55b1",
       "slugByLocale": {
-        "it": "infermiere-specializzato-in-cardiochirurgia-e-traumatologia-triemli-stadtspital-zurich-zurich-0845ae55b1",
+        "it": "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich",
         "en": "dipl-nursing-specialist-heart-surgery-and-traumatology-triemli-stadtspital-zurich-zurich",
         "de": "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-51306",
         "fr": "dipl-specialiste-des-soins-infirmiers-chirurgie-cardiaque-et-traumatologie-triemli-stadtspital-zurich-zurich"
@@ -6434,7 +6434,7 @@
       "id": "stadtspital-zuerich-5a2b061390bf",
       "slug": "infermiere-a-diplomato-a-chirurgia-cardiaca-e-traumatologia-triemli-stadtspital-zurich-zurich-e516337fce",
       "slugByLocale": {
-        "it": "infermiere-a-diplomato-a-chirurgia-cardiaca-e-traumatologia-triemli-stadtspital-zurich-zurich-e516337fce",
+        "it": "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich",
         "en": "dipl-nursing-specialist-heart-surgery-and-traumatology-triemli-stadtspital-zurich-zurich",
         "de": "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-50310",
         "fr": "dipl-specialiste-des-soins-infirmiers-chirurgie-cardiaque-et-traumatologie-triemli-stadtspital-zurich-zurich"
@@ -9026,12 +9026,12 @@
     },
     {
       "id": "stadtspital-zuerich-1ad35ce545a5",
-      "slug": "assistent-in-gesundheit-e-soziales-o-pflegeassistent-in-con-fachausweis-chirurgie-stadtspital-zurich",
+      "slug": "assistente-socio-sanitario-o-assistente-infermieristico-con-attestato-professionale-in-chirurgia-stadtspital-zurich",
       "slugByLocale": {
         "de": "assistent-in-gesundheit-und-soziales-oder-pflegeassistent-in-mit-fachausweis-chirurgie",
-        "it": "assistent-in-gesundheit-e-soziales-o-pflegeassistent-in-con-fachausweis-chirurgie-stadtspital-zurich",
-        "en": "assistent-in-gesundheit-und-soziales-oder-pflegeassistent-in-mit-fachausweis-chirurgie",
-        "fr": "assistent-in-gesundheit-und-soziales-oder-pflegeassistent-in-mit-fachausweis-chirurgie"
+        "it": "assistente-socio-sanitario-o-assistente-infermieristico-con-attestato-professionale-in-chirurgia-stadtspital-zurich",
+        "en": "health-and-social-care-assistant-or-nursing-assistant-with-a-certificate-of-proficiency-in-surgery-stadtspital-zurich",
+        "fr": "assistant-e-en-soins-de-sante-et-medico-sociaux-ou-assistant-e-en-soins-infirmiers-avec-certificat-professionnel-en"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -9082,11 +9082,19 @@
       "referenceNumber": "52312",
       "previousSlugsByLocale": {
         "it": [
+          "assistent-in-gesundheit-und-soziales-oder-pflegeassistent-in-mit-fachausweis-chirurgie",
+          "assistent-in-gesundheit-e-soziales-o-pflegeassistent-in-con-fachausweis-chirurgie-stadtspital-zurich"
+        ],
+        "en": [
+          "assistent-in-gesundheit-und-soziales-oder-pflegeassistent-in-mit-fachausweis-chirurgie"
+        ],
+        "fr": [
           "assistent-in-gesundheit-und-soziales-oder-pflegeassistent-in-mit-fachausweis-chirurgie"
         ]
       },
       "previousSlugs": [
-        "assistent-in-gesundheit-und-soziales-oder-pflegeassistent-in-mit-fachausweis-chirurgie"
+        "assistent-in-gesundheit-und-soziales-oder-pflegeassistent-in-mit-fachausweis-chirurgie",
+        "assistent-in-gesundheit-e-soziales-o-pflegeassistent-in-con-fachausweis-chirurgie-stadtspital-zurich"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

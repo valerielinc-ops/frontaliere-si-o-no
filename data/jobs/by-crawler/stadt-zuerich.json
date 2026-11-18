@@ -3931,7 +3931,7 @@
       "id": "stadt-zuerich-7fbfffba9e11",
       "slug": "professionista-dell-assistenza-all-infanzia-efz-stadt-zurich-zurich-8326b4c055",
       "slugByLocale": {
-        "it": "professionista-dell-assistenza-all-infanzia-efz-stadt-zurich-zurich-8326b4c055",
+        "it": "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich",
         "en": "specialist-child-care-efz-stadt-zurich-zurich-f06c10",
         "de": "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51137",
         "fr": "soins-specialises-pour-enfants-efz-stadt-zurich-zurich-f06c10"
@@ -5992,7 +5992,7 @@
       "id": "stadt-zuerich-04358cd59fd3",
       "slug": "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-zurich-8a21202701",
       "slugByLocale": {
-        "it": "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-zurich-8a21202701",
+        "it": "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich",
         "en": "apprenticeship-2027-logistics-specialist-efz-warehouse-stadt-zurich-zurich",
         "de": "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zurich-zurich",
         "fr": "place-d-apprentissage-2027-logisticienne-logisticien-cfc-stockage-stadt-zurich-zurich"
@@ -6848,7 +6848,7 @@
       "id": "stadt-zuerich-bf97b1cf4fd8",
       "slug": "professionista-dell-assistenza-all-infanzia-efz-stadt-zurich-zurich-56fcad8f9a",
       "slugByLocale": {
-        "it": "professionista-dell-assistenza-all-infanzia-efz-stadt-zurich-zurich-56fcad8f9a",
+        "it": "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich",
         "en": "specialist-child-care-efz-stadt-zurich-zurich-c7fa8a",
         "de": "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51123",
         "fr": "soins-specialises-pour-enfants-efz-stadt-zurich-zurich-c7fa8a"
@@ -9446,12 +9446,12 @@
     },
     {
       "id": "stadt-zuerich-b1ac51fafb45",
-      "slug": "disponent-in-fahrpersonal-stadt-zurich",
+      "slug": "responsabile-della-pianificazione-del-personale-viaggiante-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "disponent-in-fahrpersonal-stadt-zuerich-zurigo-52108",
-        "it": "disponent-in-fahrpersonal-stadt-zurich",
-        "en": "disponent-in-fahrpersonal-stadt-zuerich-zurigo-52108",
-        "fr": "disponent-in-fahrpersonal-stadt-zuerich-zurigo-52108"
+        "it": "responsabile-della-pianificazione-del-personale-viaggiante-stadt-zurich-zurich",
+        "en": "driving-staff-dispatcher-stadt-zurich-zurich",
+        "fr": "gestionnaire-du-personnel-de-conduite-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -9502,11 +9502,19 @@
       "referenceNumber": "52108",
       "previousSlugsByLocale": {
         "it": [
+          "disponent-in-fahrpersonal-stadt-zuerich-zurigo-52108",
+          "disponent-in-fahrpersonal-stadt-zurich"
+        ],
+        "en": [
+          "disponent-in-fahrpersonal-stadt-zuerich-zurigo-52108"
+        ],
+        "fr": [
           "disponent-in-fahrpersonal-stadt-zuerich-zurigo-52108"
         ]
       },
       "previousSlugs": [
-        "disponent-in-fahrpersonal-stadt-zuerich-zurigo-52108"
+        "disponent-in-fahrpersonal-stadt-zuerich-zurigo-52108",
+        "disponent-in-fahrpersonal-stadt-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -18014,7 +18022,7 @@
       "id": "stadt-zuerich-538bb2f40006",
       "slug": "giardiniere-a-paesaggista-stadt-zurich-zurich-2880b15d85",
       "slugByLocale": {
-        "it": "giardiniere-a-paesaggista-stadt-zurich-zurich-2880b15d85",
+        "it": "gartner-in-garten-e-landschaftsbau-stadt-zurich",
         "en": "gardener-garden-and-landscape-construction-stadt-zurich-zurich",
         "de": "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-51886",
         "fr": "jardinier-ere-en-horticulture-et-amenagement-paysager-stadt-zurich-zurich"
@@ -18067,14 +18075,12 @@
       "previousSlugs": [
         "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-51886",
         "gartner-in-garten-und-landschaftsbau-stadt-zurich",
-        "gartner-in-garten-e-landschaftsbau-stadt-zurich-zurich-4e6db35ff3",
-        "gartner-in-garten-e-landschaftsbau-stadt-zurich"
+        "gartner-in-garten-e-landschaftsbau-stadt-zurich-zurich-4e6db35ff3"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-51886",
-          "gartner-in-garten-e-landschaftsbau-stadt-zurich-zurich-4e6db35ff3",
-          "gartner-in-garten-e-landschaftsbau-stadt-zurich"
+          "gartner-in-garten-e-landschaftsbau-stadt-zurich-zurich-4e6db35ff3"
         ],
         "en": [
           "gartner-in-garten-und-landschaftsbau-stadt-zurich"
@@ -31224,12 +31230,12 @@
     },
     {
       "id": "stadt-zuerich-4b99473be86f",
-      "slug": "vikariat-klassenlehrperson-im-berufsvorbereitungsjahr-stadt-zurich-zurich",
+      "slug": "insegnante-di-classe-vicariat-nell-anno-di-preparazione-professionale-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "vikariat-klassenlehrperson-im-berufsvorbereitungsjahr-stadt-zuerich-zurigo-52303",
-        "it": "vikariat-klassenlehrperson-im-berufsvorbereitungsjahr-stadt-zurich-zurich",
-        "en": "vikariat-klassenlehrperson-im-berufsvorbereitungsjahr-stadt-zurich-zurich",
-        "fr": "vikariat-klassenlehrperson-im-berufsvorbereitungsjahr-stadt-zurich-zurich"
+        "it": "insegnante-di-classe-vicariat-nell-anno-di-preparazione-professionale-stadt-zurich-zurich",
+        "en": "vicariat-class-teacher-in-the-vocational-preparation-year-stadt-zurich-zurich",
+        "fr": "professeur-de-cours-de-vicariat-a-l-annee-de-preparation-professionnelle-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -31280,11 +31286,19 @@
       "referenceNumber": "52303",
       "previousSlugsByLocale": {
         "it": [
-          "vikariat-klassenlehrperson-im-berufsvorbereitungsjahr-stadt-zuerich-zurigo-52303"
+          "vikariat-klassenlehrperson-im-berufsvorbereitungsjahr-stadt-zuerich-zurigo-52303",
+          "vikariat-klassenlehrperson-im-berufsvorbereitungsjahr-stadt-zurich-zurich"
+        ],
+        "en": [
+          "vikariat-klassenlehrperson-im-berufsvorbereitungsjahr-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "vikariat-klassenlehrperson-im-berufsvorbereitungsjahr-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "vikariat-klassenlehrperson-im-berufsvorbereitungsjahr-stadt-zuerich-zurigo-52303"
+        "vikariat-klassenlehrperson-im-berufsvorbereitungsjahr-stadt-zuerich-zurigo-52303",
+        "vikariat-klassenlehrperson-im-berufsvorbereitungsjahr-stadt-zurich-zurich"
       ],
       "salaryMin": 63000,
       "salaryMax": 116500,
@@ -31306,12 +31320,12 @@
     },
     {
       "id": "stadt-zuerich-090aba840ea7",
-      "slug": "fachperson-betreuung-befristet-bis-31-08-2027-stadt-zurich",
+      "slug": "assistenza-specialistica-limitata-a-31-08-2027-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "fachperson-betreuung-befristet-bis-31-08-2027-stadt-zuerich-zurigo-52301",
-        "it": "fachperson-betreuung-befristet-bis-31-08-2027-stadt-zurich",
-        "en": "fachperson-betreuung-befristet-bis-31-08-2027-stadt-zuerich-zurigo-52301",
-        "fr": "fachperson-betreuung-befristet-bis-31-08-2027-stadt-zuerich-zurigo-52301"
+        "it": "assistenza-specialistica-limitata-a-31-08-2027-stadt-zurich-zurich",
+        "en": "specialist-care-limited-to-31-08-2027-stadt-zurich-zurich",
+        "fr": "soins-specialises-limites-a-31-08-2027-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -31362,11 +31376,19 @@
       "referenceNumber": "52301",
       "previousSlugsByLocale": {
         "it": [
+          "fachperson-betreuung-befristet-bis-31-08-2027-stadt-zuerich-zurigo-52301",
+          "fachperson-betreuung-befristet-bis-31-08-2027-stadt-zurich"
+        ],
+        "en": [
+          "fachperson-betreuung-befristet-bis-31-08-2027-stadt-zuerich-zurigo-52301"
+        ],
+        "fr": [
           "fachperson-betreuung-befristet-bis-31-08-2027-stadt-zuerich-zurigo-52301"
         ]
       },
       "previousSlugs": [
-        "fachperson-betreuung-befristet-bis-31-08-2027-stadt-zuerich-zurigo-52301"
+        "fachperson-betreuung-befristet-bis-31-08-2027-stadt-zuerich-zurigo-52301",
+        "fachperson-betreuung-befristet-bis-31-08-2027-stadt-zurich"
       ],
       "salaryMin": 63000,
       "salaryMax": 116500,
@@ -31388,12 +31410,12 @@
     },
     {
       "id": "stadt-zuerich-01b74a80ac51",
-      "slug": "vikariat-fachlehrperson-im-berufsvorbereitungsjahr-stadt-zurich-zurich",
+      "slug": "docente-specializzato-vicariato-nell-anno-di-preparazione-professionale-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "vikariat-fachlehrperson-im-berufsvorbereitungsjahr-stadt-zuerich-zurigo-52304",
-        "it": "vikariat-fachlehrperson-im-berufsvorbereitungsjahr-stadt-zurich-zurich",
-        "en": "vikariat-fachlehrperson-im-berufsvorbereitungsjahr-stadt-zurich-zurich",
-        "fr": "vikariat-fachlehrperson-im-berufsvorbereitungsjahr-stadt-zurich-zurich"
+        "it": "docente-specializzato-vicariato-nell-anno-di-preparazione-professionale-stadt-zurich-zurich",
+        "en": "vicariate-specialist-teacher-in-the-vocational-preparation-year-stadt-zurich-zurich",
+        "fr": "professeur-specialiste-vicariat-a-l-annee-de-preparation-professionnelle-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -31444,11 +31466,19 @@
       "referenceNumber": "52304",
       "previousSlugsByLocale": {
         "it": [
-          "vikariat-fachlehrperson-im-berufsvorbereitungsjahr-stadt-zuerich-zurigo-52304"
+          "vikariat-fachlehrperson-im-berufsvorbereitungsjahr-stadt-zuerich-zurigo-52304",
+          "vikariat-fachlehrperson-im-berufsvorbereitungsjahr-stadt-zurich-zurich"
+        ],
+        "en": [
+          "vikariat-fachlehrperson-im-berufsvorbereitungsjahr-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "vikariat-fachlehrperson-im-berufsvorbereitungsjahr-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "vikariat-fachlehrperson-im-berufsvorbereitungsjahr-stadt-zuerich-zurigo-52304"
+        "vikariat-fachlehrperson-im-berufsvorbereitungsjahr-stadt-zuerich-zurigo-52304",
+        "vikariat-fachlehrperson-im-berufsvorbereitungsjahr-stadt-zurich-zurich"
       ],
       "salaryMin": 63000,
       "salaryMax": 116500,
@@ -31470,12 +31500,12 @@
     },
     {
       "id": "stadt-zuerich-eb3f0f5b1fce",
-      "slug": "gartner-in-mit-erweiterten-aufgaben-stadt-zuerich-zurigo-52309",
+      "slug": "giardiniere-a-con-compiti-ampliati-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "gartner-in-mit-erweiterten-aufgaben-stadt-zuerich-zurigo-52309",
-        "it": "gartner-in-mit-erweiterten-aufgaben-stadt-zuerich-zurigo-52309",
-        "en": "gartner-in-mit-erweiterten-aufgaben-stadt-zuerich-zurigo-52309",
-        "fr": "gartner-in-mit-erweiterten-aufgaben-stadt-zuerich-zurigo-52309"
+        "it": "giardiniere-a-con-compiti-ampliati-stadt-zurich-zurich",
+        "en": "gardener-with-extended-responsibilities-stadt-zurich-zurich",
+        "fr": "jardinier-jardiniere-avec-des-taches-etendues-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -31540,16 +31570,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-16T10:08:18.944Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T10:08:18.944Z"
+      "firstSeenAt": "2026-11-18T10:08:18.944Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gartner-in-mit-erweiterten-aufgaben-stadt-zuerich-zurigo-52309"
+        ],
+        "en": [
+          "gartner-in-mit-erweiterten-aufgaben-stadt-zuerich-zurigo-52309"
+        ],
+        "fr": [
+          "gartner-in-mit-erweiterten-aufgaben-stadt-zuerich-zurigo-52309"
+        ]
+      },
+      "previousSlugs": [
+        "gartner-in-mit-erweiterten-aufgaben-stadt-zuerich-zurigo-52309"
+      ]
     },
     {
       "id": "stadt-zuerich-03f71d5c3543",
-      "slug": "gartner-in-garten-e-landschaftsbau-stadt-zurich-zurich-f3c8f51ef9",
+      "slug": "giardiniere-a-giardinaggio-e-paesaggistica-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-52307",
-        "it": "gartner-in-garten-e-landschaftsbau-stadt-zurich-zurich-f3c8f51ef9",
-        "en": "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-52307",
-        "fr": "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-52307"
+        "it": "giardiniere-a-giardinaggio-e-paesaggistica-stadt-zurich-zurich",
+        "en": "gardener-m-f-gardening-and-landscaping-stadt-zurich-zurich",
+        "fr": "horticulteur-horticultrice-en-amenagement-paysager-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -31601,12 +31645,20 @@
       "previousSlugsByLocale": {
         "it": [
           "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-52307",
-          "gartner-in-garten-e-landschaftsbau-stadt-zurich"
+          "gartner-in-garten-e-landschaftsbau-stadt-zurich",
+          "gartner-in-garten-e-landschaftsbau-stadt-zurich-zurich-f3c8f51ef9"
+        ],
+        "en": [
+          "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-52307"
+        ],
+        "fr": [
+          "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-52307"
         ]
       },
       "previousSlugs": [
         "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-52307",
-        "gartner-in-garten-e-landschaftsbau-stadt-zurich"
+        "gartner-in-garten-e-landschaftsbau-stadt-zurich",
+        "gartner-in-garten-e-landschaftsbau-stadt-zurich-zurich-f3c8f51ef9"
       ],
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -31628,12 +31680,12 @@
     },
     {
       "id": "stadt-zuerich-464f2fee075b",
-      "slug": "sachbearbeiter-in-kundenservice-e-administration-stadt-zurich",
+      "slug": "addetto-a-al-servizio-clienti-e-all-amministrazione-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "sachbearbeiter-in-kundenservice-und-administration-stadt-zuerich-zurigo-52292",
-        "it": "sachbearbeiter-in-kundenservice-e-administration-stadt-zurich",
-        "en": "sachbearbeiter-in-kundenservice-und-administration-stadt-zurich-zurich",
-        "fr": "sachbearbeiter-in-kundenservice-und-administration-stadt-zurich-zurich"
+        "it": "addetto-a-al-servizio-clienti-e-all-amministrazione-stadt-zurich-zurich",
+        "en": "customer-service-and-administration-clerk-stadt-zurich-zurich",
+        "fr": "gestionnaire-du-service-client-et-de-l-administration-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -31684,11 +31736,20 @@
       "referenceNumber": "52292",
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-kundenservice-und-administration-stadt-zuerich-zurigo-52292"
+          "sachbearbeiter-in-kundenservice-und-administration-stadt-zuerich-zurigo-52292",
+          "sachbearbeiter-in-kundenservice-e-administration-stadt-zurich"
+        ],
+        "en": [
+          "sachbearbeiter-in-kundenservice-und-administration-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "sachbearbeiter-in-kundenservice-und-administration-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-kundenservice-und-administration-stadt-zuerich-zurigo-52292"
+        "sachbearbeiter-in-kundenservice-und-administration-stadt-zuerich-zurigo-52292",
+        "sachbearbeiter-in-kundenservice-e-administration-stadt-zurich",
+        "sachbearbeiter-in-kundenservice-und-administration-stadt-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -31710,12 +31771,12 @@
     },
     {
       "id": "stadt-zuerich-6918f8e82596",
-      "slug": "befristete-anstellung-come-reinigungsmitarbeiter-in-stadt-zurich",
+      "slug": "assunzione-a-tempo-determinato-come-addetto-a-alle-pulizie-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "befristete-anstellung-als-reinigungsmitarbeiter-in-stadt-zuerich-zurigo-52306",
-        "it": "befristete-anstellung-come-reinigungsmitarbeiter-in-stadt-zurich",
-        "en": "befristete-anstellung-als-reinigungsmitarbeiter-in-stadt-zurich-zurich",
-        "fr": "befristete-anstellung-als-reinigungsmitarbeiter-in-stadt-zurich-zurich"
+        "it": "assunzione-a-tempo-determinato-come-addetto-a-alle-pulizie-stadt-zurich-zurich",
+        "en": "fixed-term-position-as-a-cleaning-operative-stadt-zurich-zurich",
+        "fr": "emploi-a-duree-determinee-en-tant-qu-agent-e-de-nettoyage-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -31766,11 +31827,20 @@
       "referenceNumber": "52306",
       "previousSlugsByLocale": {
         "it": [
-          "befristete-anstellung-als-reinigungsmitarbeiter-in-stadt-zuerich-zurigo-52306"
+          "befristete-anstellung-als-reinigungsmitarbeiter-in-stadt-zuerich-zurigo-52306",
+          "befristete-anstellung-come-reinigungsmitarbeiter-in-stadt-zurich"
+        ],
+        "en": [
+          "befristete-anstellung-als-reinigungsmitarbeiter-in-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "befristete-anstellung-als-reinigungsmitarbeiter-in-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "befristete-anstellung-als-reinigungsmitarbeiter-in-stadt-zuerich-zurigo-52306"
+        "befristete-anstellung-als-reinigungsmitarbeiter-in-stadt-zuerich-zurigo-52306",
+        "befristete-anstellung-come-reinigungsmitarbeiter-in-stadt-zurich",
+        "befristete-anstellung-als-reinigungsmitarbeiter-in-stadt-zurich-zurich"
       ],
       "salaryMin": 63000,
       "salaryMax": 116500,
@@ -31792,12 +31862,12 @@
     },
     {
       "id": "stadt-zuerich-10003083bcd3",
-      "slug": "fachexpert-in-bildungsmanagement-e-prozesse-stadt-zurich",
+      "slug": "specialista-in-gestione-e-processi-formativi-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "fachexpert-in-bildungsmanagement-und-prozesse-stadt-zuerich-zurigo-52296",
-        "it": "fachexpert-in-bildungsmanagement-e-prozesse-stadt-zurich",
-        "en": "fachexpert-in-bildungsmanagement-und-prozesse-stadt-zurich-zurich",
-        "fr": "fachexpert-in-bildungsmanagement-und-prozesse-stadt-zurich-zurich"
+        "it": "specialista-in-gestione-e-processi-formativi-stadt-zurich-zurich",
+        "en": "specialist-in-educational-management-and-processes-stadt-zurich-zurich",
+        "fr": "expert-e-en-gestion-de-la-formation-et-des-processus-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -31848,11 +31918,20 @@
       "referenceNumber": "52296",
       "previousSlugsByLocale": {
         "it": [
-          "fachexpert-in-bildungsmanagement-und-prozesse-stadt-zuerich-zurigo-52296"
+          "fachexpert-in-bildungsmanagement-und-prozesse-stadt-zuerich-zurigo-52296",
+          "fachexpert-in-bildungsmanagement-e-prozesse-stadt-zurich"
+        ],
+        "en": [
+          "fachexpert-in-bildungsmanagement-und-prozesse-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "fachexpert-in-bildungsmanagement-und-prozesse-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "fachexpert-in-bildungsmanagement-und-prozesse-stadt-zuerich-zurigo-52296"
+        "fachexpert-in-bildungsmanagement-und-prozesse-stadt-zuerich-zurigo-52296",
+        "fachexpert-in-bildungsmanagement-e-prozesse-stadt-zurich",
+        "fachexpert-in-bildungsmanagement-und-prozesse-stadt-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -31874,12 +31953,12 @@
     },
     {
       "id": "stadt-zuerich-d76587e12442",
-      "slug": "fachperson-hauswirtschaft-standort-selnau-stadt-zuerich-zurigo-52299",
+      "slug": "specialista-di-pulizia-sito-selnau-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "fachperson-hauswirtschaft-standort-selnau-stadt-zuerich-zurigo-52299",
-        "it": "fachperson-hauswirtschaft-standort-selnau-stadt-zuerich-zurigo-52299",
-        "en": "fachperson-hauswirtschaft-standort-selnau-stadt-zuerich-zurigo-52299",
-        "fr": "fachperson-hauswirtschaft-standort-selnau-stadt-zuerich-zurigo-52299"
+        "it": "specialista-di-pulizia-sito-selnau-stadt-zurich-zurich",
+        "en": "housekeeping-specialist-selnau-site-stadt-zurich-zurich",
+        "fr": "specialiste-du-menage-site-de-selnau-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -31944,7 +32023,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-16T10:08:18.944Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T10:08:18.944Z"
+      "firstSeenAt": "2026-11-18T10:08:18.944Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-hauswirtschaft-standort-selnau-stadt-zuerich-zurigo-52299"
+        ],
+        "en": [
+          "fachperson-hauswirtschaft-standort-selnau-stadt-zuerich-zurigo-52299"
+        ],
+        "fr": [
+          "fachperson-hauswirtschaft-standort-selnau-stadt-zuerich-zurigo-52299"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-hauswirtschaft-standort-selnau-stadt-zuerich-zurigo-52299"
+      ]
     },
     {
       "id": "stadt-zuerich-c5cc604f3148",
@@ -32233,12 +32326,12 @@
     },
     {
       "id": "stadt-zuerich-c6b8fc4b468f",
-      "slug": "schulassistenz-stadt-zuerich-zurigo-52313",
+      "slug": "assistenza-scolastica-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "schulassistenz-stadt-zuerich-zurigo-52313",
-        "it": "schulassistenz-stadt-zuerich-zurigo-52313",
-        "en": "schulassistenz-stadt-zuerich-zurigo-52313",
-        "fr": "schulassistenz-stadt-zuerich-zurigo-52313"
+        "it": "assistenza-scolastica-stadt-zurich-zurich",
+        "en": "school-assistance-stadt-zurich-zurich",
+        "fr": "aide-scolaire-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -32303,16 +32396,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-16T10:08:18.943Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T10:08:18.943Z"
+      "firstSeenAt": "2026-11-18T10:08:18.943Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schulassistenz-stadt-zuerich-zurigo-52313"
+        ],
+        "en": [
+          "schulassistenz-stadt-zuerich-zurigo-52313"
+        ],
+        "fr": [
+          "schulassistenz-stadt-zuerich-zurigo-52313"
+        ]
+      },
+      "previousSlugs": [
+        "schulassistenz-stadt-zuerich-zurigo-52313"
+      ]
     },
     {
       "id": "stadt-zuerich-0dc86f19f66b",
-      "slug": "hochschulpraktikant-in-diagnostik-stadt-zurich-zurich",
+      "slug": "tirocinante-universitario-a-in-diagnostica-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "hochschulpraktikant-in-diagnostik-stadt-zuerich-zurigo-52314",
-        "it": "hochschulpraktikant-in-diagnostik-stadt-zurich-zurich",
-        "en": "hochschulpraktikant-in-diagnostik-stadt-zurich-zurich",
-        "fr": "hochschulpraktikant-in-diagnostik-stadt-zurich-zurich"
+        "it": "tirocinante-universitario-a-in-diagnostica-stadt-zurich-zurich",
+        "en": "university-trainee-in-diagnostics-stadt-zurich-zurich",
+        "fr": "stagiaire-universitaire-en-diagnostic-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -32364,11 +32471,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "hochschulpraktikant-in-diagnostik-stadt-zuerich-zurigo-52314"
+          "hochschulpraktikant-in-diagnostik-stadt-zuerich-zurigo-52314",
+          "hochschulpraktikant-in-diagnostik-stadt-zurich-zurich"
+        ],
+        "en": [
+          "hochschulpraktikant-in-diagnostik-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "hochschulpraktikant-in-diagnostik-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "hochschulpraktikant-in-diagnostik-stadt-zuerich-zurigo-52314"
+        "hochschulpraktikant-in-diagnostik-stadt-zuerich-zurigo-52314",
+        "hochschulpraktikant-in-diagnostik-stadt-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -33163,12 +33278,12 @@
     },
     {
       "id": "stadt-zuerich-d0b60de05653",
-      "slug": "fachperson-gesundheit-spezialisierte-demenz-standort-mattenhof-stadt-zuerich-zurigo-52249",
+      "slug": "specialista-della-salute-demenza-specializzata-sito-mattenhof-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "fachperson-gesundheit-spezialisierte-demenz-standort-mattenhof-stadt-zuerich-zurigo-52249",
-        "it": "fachperson-gesundheit-spezialisierte-demenz-standort-mattenhof-stadt-zuerich-zurigo-52249",
-        "en": "fachperson-gesundheit-spezialisierte-demenz-standort-mattenhof-stadt-zuerich-zurigo-52249",
-        "fr": "fachperson-gesundheit-spezialisierte-demenz-standort-mattenhof-stadt-zuerich-zurigo-52249"
+        "it": "specialista-della-salute-demenza-specializzata-sito-mattenhof-stadt-zurich-zurich",
+        "en": "health-specialist-specialized-dementia-mattenhof-site-stadt-zurich-zurich",
+        "fr": "specialiste-de-la-sante-demence-specialisee-site-de-mattenhof-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -33233,7 +33348,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-16T10:08:18.943Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T10:08:18.943Z"
+      "firstSeenAt": "2026-11-18T10:08:18.943Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-spezialisierte-demenz-standort-mattenhof-stadt-zuerich-zurigo-52249"
+        ],
+        "en": [
+          "fachperson-gesundheit-spezialisierte-demenz-standort-mattenhof-stadt-zuerich-zurigo-52249"
+        ],
+        "fr": [
+          "fachperson-gesundheit-spezialisierte-demenz-standort-mattenhof-stadt-zuerich-zurigo-52249"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-spezialisierte-demenz-standort-mattenhof-stadt-zuerich-zurigo-52249"
+      ]
     },
     {
       "id": "stadt-zuerich-920a9edafebd",
@@ -33319,12 +33448,12 @@
     },
     {
       "id": "stadt-zuerich-aa1194a86c67",
-      "slug": "teamleiter-in-support-hfrb-stadt-zuerich-zurigo-52310",
+      "slug": "responsabile-del-team-supporto-hfrb-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "teamleiter-in-support-hfrb-stadt-zuerich-zurigo-52310",
-        "it": "teamleiter-in-support-hfrb-stadt-zuerich-zurigo-52310",
-        "en": "teamleiter-in-support-hfrb-stadt-zuerich-zurigo-52310",
-        "fr": "teamleiter-in-support-hfrb-stadt-zuerich-zurigo-52310"
+        "it": "responsabile-del-team-supporto-hfrb-stadt-zurich-zurich",
+        "en": "hfrb-support-team-leader-stadt-zurich-zurich",
+        "fr": "chef-cheffe-d-equipe-support-hfrb-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -33389,7 +33518,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-16T10:08:18.943Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T10:08:18.943Z"
+      "firstSeenAt": "2026-11-18T10:08:18.943Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-support-hfrb-stadt-zuerich-zurigo-52310"
+        ],
+        "en": [
+          "teamleiter-in-support-hfrb-stadt-zuerich-zurigo-52310"
+        ],
+        "fr": [
+          "teamleiter-in-support-hfrb-stadt-zuerich-zurigo-52310"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-in-support-hfrb-stadt-zuerich-zurigo-52310"
+      ]
     },
     {
       "id": "stadt-zuerich-e6ecc02b43f9",
@@ -34187,7 +34330,7 @@
       "id": "stadt-zuerich-7b6cd3f09bf0",
       "slug": "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-zurich-19dadedf49",
       "slugByLocale": {
-        "it": "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-zurich-19dadedf49",
+        "it": "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich",
         "en": "apprenticeship-2027-logistician-logistician-efz-lager-stadt-zurich-zurich",
         "de": "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-51056",
         "fr": "apprentissage-2027-logisticien-logisticien-efz-lager-stadt-zurich-zurich"

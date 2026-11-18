@@ -3579,12 +3579,12 @@
     },
     {
       "id": "csd-engineers-3979cacf4b6b",
-      "slug": "bauleiter-in-genio-civile-80-100-csd-engineers-bern",
+      "slug": "direttore-direttrice-lavori-di-ingegneria-civile-80-100-csd-engineers-bern",
       "slugByLocale": {
         "de": "bauleiter-in-tiefbau-80-100-csd-engineers-ch",
-        "it": "bauleiter-in-genio-civile-80-100-csd-engineers-bern",
-        "en": "bauleiter-in-tiefbau-80-100-csd-engineers-ch",
-        "fr": "bauleiter-in-tiefbau-80-100-csd-engineers-ch"
+        "it": "direttore-direttrice-lavori-di-ingegneria-civile-80-100-csd-engineers-bern",
+        "en": "civil-engineering-site-manager-80-100-csd-engineers-bern",
+        "fr": "chef-cheffe-de-chantier-genie-civil-80-100-csd-engineers-bern"
       },
       "company": "CSD ENGINEERS",
       "companyKey": "csd-engineers",
@@ -3631,11 +3631,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "bauleiter-in-tiefbau-80-100-csd-engineers-ch",
+          "bauleiter-in-genio-civile-80-100-csd-engineers-bern"
+        ],
+        "en": [
+          "bauleiter-in-tiefbau-80-100-csd-engineers-ch"
+        ],
+        "fr": [
           "bauleiter-in-tiefbau-80-100-csd-engineers-ch"
         ]
       },
       "previousSlugs": [
-        "bauleiter-in-tiefbau-80-100-csd-engineers-ch"
+        "bauleiter-in-tiefbau-80-100-csd-engineers-ch",
+        "bauleiter-in-genio-civile-80-100-csd-engineers-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -3658,12 +3666,12 @@
     },
     {
       "id": "csd-engineers-d7d16557bd72",
-      "slug": "bauingenieur-o-umweltingenieur-come-projektleiter-80-100-m-w-d-csd-engineers-st-gallen",
+      "slug": "ingegnere-civile-o-ambientale-come-capo-progetto-80-100-m-f-d-csd-engineers-st-gallen",
       "slugByLocale": {
         "de": "bauingenieur-oder-umweltingenieur-als-projektleiter-80-100-m-w-d-csd-engineers-ch",
-        "it": "bauingenieur-o-umweltingenieur-come-projektleiter-80-100-m-w-d-csd-engineers-st-gallen",
-        "en": "bauingenieur-oder-umweltingenieur-als-projektleiter-80-100-m-w-d-csd-engineers-ch",
-        "fr": "bauingenieur-oder-umweltingenieur-als-projektleiter-80-100-m-w-d-csd-engineers-ch"
+        "it": "ingegnere-civile-o-ambientale-come-capo-progetto-80-100-m-f-d-csd-engineers-st-gallen",
+        "en": "civil-engineer-or-environmental-engineer-as-project-manager-80-100-m-f-d-csd-engineers-st-gallen",
+        "fr": "ingenieur-civil-ou-ingenieur-environnemental-en-tant-que-gestionnaire-de-projet-80-100-h-f-d-csd-engineers-st-gallen"
       },
       "company": "CSD ENGINEERS",
       "companyKey": "csd-engineers",
@@ -3710,11 +3718,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "bauingenieur-oder-umweltingenieur-als-projektleiter-80-100-m-w-d-csd-engineers-ch",
+          "bauingenieur-o-umweltingenieur-come-projektleiter-80-100-m-w-d-csd-engineers-st-gallen"
+        ],
+        "en": [
+          "bauingenieur-oder-umweltingenieur-als-projektleiter-80-100-m-w-d-csd-engineers-ch"
+        ],
+        "fr": [
           "bauingenieur-oder-umweltingenieur-als-projektleiter-80-100-m-w-d-csd-engineers-ch"
         ]
       },
       "previousSlugs": [
-        "bauingenieur-oder-umweltingenieur-als-projektleiter-80-100-m-w-d-csd-engineers-ch"
+        "bauingenieur-oder-umweltingenieur-als-projektleiter-80-100-m-w-d-csd-engineers-ch",
+        "bauingenieur-o-umweltingenieur-come-projektleiter-80-100-m-w-d-csd-engineers-st-gallen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

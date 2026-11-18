@@ -14651,12 +14651,12 @@
     },
     {
       "id": "spital-thurgau-ccde56d4d674",
-      "slug": "dipl-expertin-dipl-experte-anasthesiepflege-nds-hf-stgag-ch",
+      "slug": "dipl-esperto-dipl-cura-esperto-anestesia-nds-hf-spital-thurgau-stgag-kantonsspital-frauenfeld",
       "slugByLocale": {
         "de": "dipl-expertin-dipl-experte-anasthesiepflege-nds-hf-stgag-ch",
-        "it": "dipl-expertin-dipl-experte-anasthesiepflege-nds-hf-stgag-ch",
-        "en": "dipl-expertin-dipl-experte-anasthesiepflege-nds-hf-stgag-ch",
-        "fr": "dipl-expertin-dipl-experte-anasthesiepflege-nds-hf-stgag-ch"
+        "it": "dipl-esperto-dipl-cura-esperto-anestesia-nds-hf-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "en": "dipl-expert-dipl-expert-anesthesia-care-nds-hf-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "fr": "dipl-expert-dipl-soins-anesthesiques-specialises-nds-hf-spital-thurgau-stgag-kantonsspital-frauenfeld"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -14720,16 +14720,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T09:21:23.583Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T09:21:23.583Z"
+      "firstSeenAt": "2026-11-18T09:21:23.583Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-dipl-experte-anasthesiepflege-nds-hf-stgag-ch"
+        ],
+        "en": [
+          "dipl-expertin-dipl-experte-anasthesiepflege-nds-hf-stgag-ch"
+        ],
+        "fr": [
+          "dipl-expertin-dipl-experte-anasthesiepflege-nds-hf-stgag-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-dipl-experte-anasthesiepflege-nds-hf-stgag-ch"
+      ]
     },
     {
       "id": "spital-thurgau-bc63d70fdd64",
-      "slug": "fachfrau-mann-betreuung-kita-come-gruppenleitung-spital-thurgau-stgag-kantonsspital-munsterlingen",
+      "slug": "specialista-nell-assistenza-all-infanzia-in-asilo-nido-come-responsabile-di-gruppo-spital-thurgau-stgag-kantonsspital",
       "slugByLocale": {
         "de": "fachfrau-mann-betreuung-kita-als-gruppenleitung-stgag-ch",
-        "it": "fachfrau-mann-betreuung-kita-come-gruppenleitung-spital-thurgau-stgag-kantonsspital-munsterlingen",
-        "en": "fachfrau-mann-betreuung-kita-als-gruppenleitung-stgag-ch",
-        "fr": "fachfrau-mann-betreuung-kita-als-gruppenleitung-stgag-ch"
+        "it": "specialista-nell-assistenza-all-infanzia-in-asilo-nido-come-responsabile-di-gruppo-spital-thurgau-stgag-kantonsspital",
+        "en": "childcare-specialist-at-a-day-nursery-as-group-leader-spital-thurgau-stgag-kantonsspital-munsterlingen",
+        "fr": "specialiste-de-l-encadrement-en-creche-en-tant-que-responsable-de-groupe-spital-thurgau-stgag-kantonsspital"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -14778,11 +14792,19 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-mann-betreuung-kita-als-gruppenleitung-stgag-ch",
+          "fachfrau-mann-betreuung-kita-come-gruppenleitung-spital-thurgau-stgag-kantonsspital-munsterlingen"
+        ],
+        "en": [
+          "fachfrau-mann-betreuung-kita-als-gruppenleitung-stgag-ch"
+        ],
+        "fr": [
           "fachfrau-mann-betreuung-kita-als-gruppenleitung-stgag-ch"
         ]
       },
       "previousSlugs": [
-        "fachfrau-mann-betreuung-kita-als-gruppenleitung-stgag-ch"
+        "fachfrau-mann-betreuung-kita-als-gruppenleitung-stgag-ch",
+        "fachfrau-mann-betreuung-kita-come-gruppenleitung-spital-thurgau-stgag-kantonsspital-munsterlingen"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,

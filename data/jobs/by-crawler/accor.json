@@ -2522,12 +2522,12 @@
     },
     {
       "id": "accor-5b1aad6b787e",
-      "slug": "receptionniste-cdd-printemps-2027-h-f-x-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-5b1aad6b",
+      "slug": "receptionist-csd-spring-2027-m-f-x-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-5b1aad6b",
       "slugByLocale": {
         "fr": "receptionniste-cdd-printemps-2027-h-f-x-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-5b1aad6b",
-        "it": "receptionniste-cdd-printemps-2027-h-f-x-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-5b1aad6b",
+        "it": "receptionist-csd-spring-2027-m-f-x-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-5b1aad6b",
         "en": "receptionniste-cdd-printemps-2027-h-f-x-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-5b1aad6b",
-        "de": "receptionniste-cdd-printemps-2027-h-f-x-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-5b1aad6b"
+        "de": "rezeptionist-csd-fruhjahr-2027-m-w-x-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-5b1aad6b"
       },
       "slugDisambiguator": "5b1aad6b",
       "company": "Ibis Budget",
@@ -2591,7 +2591,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T09:50:08.613Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T09:50:08.613Z"
+      "firstSeenAt": "2026-11-18T09:50:08.613Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "receptionniste-cdd-printemps-2027-h-f-x-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-5b1aad6b"
+        ],
+        "de": [
+          "receptionniste-cdd-printemps-2027-h-f-x-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-5b1aad6b"
+        ]
+      },
+      "previousSlugs": [
+        "receptionniste-cdd-printemps-2027-h-f-x-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-5b1aad6b"
+      ]
     },
     {
       "id": "accor-25bbb5c819a5",

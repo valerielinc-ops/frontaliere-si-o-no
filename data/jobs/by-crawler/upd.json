@@ -9654,12 +9654,12 @@
     },
     {
       "id": "upd-39f1a8005334",
-      "slug": "sozialarbeiter-in-bachelor-o-master-universitare-psychiatrische-dienste-bern-upd-bern",
+      "slug": "assistente-sociale-laurea-triennale-o-magistrale-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "sozialarbeiter-in-bachelor-oder-master-upd-bern",
-        "it": "sozialarbeiter-in-bachelor-o-master-universitare-psychiatrische-dienste-bern-upd-bern",
-        "en": "sozialarbeiter-in-bachelor-oder-master-upd-bern",
-        "fr": "sozialarbeiter-in-bachelor-oder-master-upd-bern"
+        "it": "assistente-sociale-laurea-triennale-o-magistrale-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "social-worker-bachelor-s-or-master-s-degree-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "assistant-e-social-e-licence-ou-master-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -9707,11 +9707,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "sozialarbeiter-in-bachelor-oder-master-upd-bern",
+          "sozialarbeiter-in-bachelor-o-master-universitare-psychiatrische-dienste-bern-upd-bern"
+        ],
+        "en": [
+          "sozialarbeiter-in-bachelor-oder-master-upd-bern"
+        ],
+        "fr": [
           "sozialarbeiter-in-bachelor-oder-master-upd-bern"
         ]
       },
       "previousSlugs": [
-        "sozialarbeiter-in-bachelor-oder-master-upd-bern"
+        "sozialarbeiter-in-bachelor-oder-master-upd-bern",
+        "sozialarbeiter-in-bachelor-o-master-universitare-psychiatrische-dienste-bern-upd-bern"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -9733,12 +9741,12 @@
     },
     {
       "id": "upd-2d608195d574",
-      "slug": "projektmitarbeiterin-projektmitarbeiter-prozessoptimierung-reinigung-textilmanagement-universitare-psychiatrische",
+      "slug": "progetto-dipendente-progettista-ottimizzazione-del-processo-pulizia-textile-management-universitare-psychiatrische",
       "slugByLocale": {
         "de": "projektmitarbeiterin-projektmitarbeiter-prozessoptimierung-reinigung-amp-textilmanagement",
-        "it": "projektmitarbeiterin-projektmitarbeiter-prozessoptimierung-reinigung-textilmanagement-universitare-psychiatrische",
-        "en": "projektmitarbeiterin-projektmitarbeiter-prozessoptimierung-reinigung-textilmanagement-universitare-psychiatrische",
-        "fr": "projektmitarbeiterin-projektmitarbeiter-prozessoptimierung-reinigung-textilmanagement-universitare-psychiatrische"
+        "it": "progetto-dipendente-progettista-ottimizzazione-del-processo-pulizia-textile-management-universitare-psychiatrische",
+        "en": "project-employee-project-employee-process-optimization-cleaning-textile-management-universitare-psychiatrische-dienste",
+        "fr": "employe-de-projet-employe-de-projet-optimisation-des-processus-nettoyage-et-gestion-des-textiles-universitare"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -9786,11 +9794,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "projektmitarbeiterin-projektmitarbeiter-prozessoptimierung-reinigung-amp-textilmanagement"
+          "projektmitarbeiterin-projektmitarbeiter-prozessoptimierung-reinigung-amp-textilmanagement",
+          "projektmitarbeiterin-projektmitarbeiter-prozessoptimierung-reinigung-textilmanagement-universitare-psychiatrische"
+        ],
+        "en": [
+          "projektmitarbeiterin-projektmitarbeiter-prozessoptimierung-reinigung-textilmanagement-universitare-psychiatrische"
+        ],
+        "fr": [
+          "projektmitarbeiterin-projektmitarbeiter-prozessoptimierung-reinigung-textilmanagement-universitare-psychiatrische"
         ]
       },
       "previousSlugs": [
-        "projektmitarbeiterin-projektmitarbeiter-prozessoptimierung-reinigung-amp-textilmanagement"
+        "projektmitarbeiterin-projektmitarbeiter-prozessoptimierung-reinigung-amp-textilmanagement",
+        "projektmitarbeiterin-projektmitarbeiter-prozessoptimierung-reinigung-textilmanagement-universitare-psychiatrische"
       ],
       "salaryMin": 67500,
       "salaryMax": 84500,
@@ -9898,12 +9914,12 @@
     },
     {
       "id": "upd-fc15fa9fa422",
-      "slug": "ernahrungsberaterin-ernahrungsberater-upd-munsingen",
+      "slug": "nutrizione-nutrizione-universitare-psychiatrische-dienste-bern-upd-munsingen",
       "slugByLocale": {
         "de": "ernahrungsberaterin-ernahrungsberater-upd-munsingen",
-        "it": "ernahrungsberaterin-ernahrungsberater-upd-munsingen",
-        "en": "ernahrungsberaterin-ernahrungsberater-upd-munsingen",
-        "fr": "ernahrungsberaterin-ernahrungsberater-upd-munsingen"
+        "it": "nutrizione-nutrizione-universitare-psychiatrische-dienste-bern-upd-munsingen",
+        "en": "nutritionist-nutritionist-universitare-psychiatrische-dienste-bern-upd-munsingen",
+        "fr": "nutritionniste-nutritionniste-universitare-psychiatrische-dienste-bern-upd-munsingen"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -9965,16 +9981,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-16T09:18:14.062Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T09:18:14.062Z"
+      "firstSeenAt": "2026-11-18T09:18:14.062Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ernahrungsberaterin-ernahrungsberater-upd-munsingen"
+        ],
+        "en": [
+          "ernahrungsberaterin-ernahrungsberater-upd-munsingen"
+        ],
+        "fr": [
+          "ernahrungsberaterin-ernahrungsberater-upd-munsingen"
+        ]
+      },
+      "previousSlugs": [
+        "ernahrungsberaterin-ernahrungsberater-upd-munsingen"
+      ]
     },
     {
       "id": "upd-0ebacadb146d",
-      "slug": "sozialarbeiterin-sozialarbeiter-ptk-upd-bern",
+      "slug": "social-worker-social-worker-ptk-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "sozialarbeiterin-sozialarbeiter-ptk-upd-bern",
-        "it": "sozialarbeiterin-sozialarbeiter-ptk-upd-bern",
+        "it": "social-worker-social-worker-ptk-universitare-psychiatrische-dienste-bern-upd-bern",
         "en": "sozialarbeiterin-sozialarbeiter-ptk-upd-bern",
-        "fr": "sozialarbeiterin-sozialarbeiter-ptk-upd-bern"
+        "fr": "travailleur-social-travailleur-social-ptk-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -10036,16 +10066,27 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-16T09:18:14.057Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T09:18:14.057Z"
+      "firstSeenAt": "2026-11-18T09:18:14.057Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialarbeiterin-sozialarbeiter-ptk-upd-bern"
+        ],
+        "fr": [
+          "sozialarbeiterin-sozialarbeiter-ptk-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "sozialarbeiterin-sozialarbeiter-ptk-upd-bern"
+      ]
     },
     {
       "id": "upd-615a8818413d",
-      "slug": "fachpsychologin-fachpsychologe-o-fortgeschrittene-assistenzpsychologin-fortgeschrittener-assistenzpsychologe-ii-universitare-psychiatrische-dienste-bern-upd-munsingen",
+      "slug": "psicologa-o-specialista-o-psicologa-o-assistente-avanzata-o-ii-universitare-psychiatrische-dienste-bern-upd-munsingen",
       "slugByLocale": {
         "de": "fachpsychologin-fachpsychologe-oder-fortgeschrittene-assistenzpsychologin",
-        "it": "fachpsychologin-fachpsychologe-o-fortgeschrittene-assistenzpsychologin-fortgeschrittener-assistenzpsychologe-ii-universitare-psychiatrische-dienste-bern-upd-munsingen",
-        "en": "fachpsychologin-fachpsychologe-oder-fortgeschrittene-assistenzpsychologin",
-        "fr": "fachpsychologin-fachpsychologe-oder-fortgeschrittene-assistenzpsychologin"
+        "it": "psicologa-o-specialista-o-psicologa-o-assistente-avanzata-o-ii-universitare-psychiatrische-dienste-bern-upd-munsingen",
+        "en": "specialist-psychologist-specialist-psychologist-or-advanced-assistant-psychologist-advanced-assistant-psychologist-ii",
+        "fr": "psychologue-specialiste-psychologue-specialiste-ou-psychologue-adjoint-avance-psychologue-adjoint-avance-ii-universitare"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -10093,11 +10134,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachpsychologin-fachpsychologe-oder-fortgeschrittene-assistenzpsychologin",
+          "fachpsychologin-fachpsychologe-o-fortgeschrittene-assistenzpsychologin-fortgeschrittener-assistenzpsychologe-ii-universitare-psychiatrische-dienste-bern-upd-munsingen"
+        ],
+        "en": [
+          "fachpsychologin-fachpsychologe-oder-fortgeschrittene-assistenzpsychologin"
+        ],
+        "fr": [
           "fachpsychologin-fachpsychologe-oder-fortgeschrittene-assistenzpsychologin"
         ]
       },
       "previousSlugs": [
-        "fachpsychologin-fachpsychologe-oder-fortgeschrittene-assistenzpsychologin"
+        "fachpsychologin-fachpsychologe-oder-fortgeschrittene-assistenzpsychologin",
+        "fachpsychologin-fachpsychologe-o-fortgeschrittene-assistenzpsychologin-fortgeschrittener-assistenzpsychologe-ii-universitare-psychiatrische-dienste-bern-upd-munsingen"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,

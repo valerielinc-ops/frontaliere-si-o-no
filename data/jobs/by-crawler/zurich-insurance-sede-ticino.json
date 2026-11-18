@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "zurich-insurance-sede-ticino-1377803357",
-      "slug": "spezialist-kundensupport-einzelleben-m-w-d-zurich-insurance-sede-ticino-zurich",
+      "slug": "assistenza-clienti-specialistica-vita-individuale-m-f-d-zurich-insurance-zurich-1377803357",
       "slugByLocale": {
         "de": "spezialist-kundensupport-einzelleben-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "it": "spezialist-kundensupport-einzelleben-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "en": "spezialist-kundensupport-einzelleben-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "fr": "spezialist-kundensupport-einzelleben-m-w-d-zurich-insurance-sede-ticino-zurich"
+        "it": "assistenza-clienti-specialistica-vita-individuale-m-f-d-zurich-insurance-zurich-1377803357",
+        "en": "specialist-customer-support-individual-life-m-f-d-zurich-insurance-zurich-1377803357",
+        "fr": "assistance-clientele-specialisee-vie-individuelle-h-f-d-zurich-insurance-zurich-1377803357"
       },
       "slugDisambiguator": "1377803357",
       "company": "Zurich Insurance",
@@ -73,7 +73,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-02T09:27:36.501Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T09:27:36.501Z"
+      "firstSeenAt": "2026-11-18T09:27:36.501Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "spezialist-kundensupport-einzelleben-m-w-d-zurich-insurance-sede-ticino-zurich"
+        ],
+        "en": [
+          "spezialist-kundensupport-einzelleben-m-w-d-zurich-insurance-sede-ticino-zurich"
+        ],
+        "fr": [
+          "spezialist-kundensupport-einzelleben-m-w-d-zurich-insurance-sede-ticino-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "spezialist-kundensupport-einzelleben-m-w-d-zurich-insurance-sede-ticino-zurich"
+      ]
     },
     {
       "id": "zurich-insurance-sede-ticino-1377606857",

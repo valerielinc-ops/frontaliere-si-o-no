@@ -1699,12 +1699,12 @@
     },
     {
       "id": "mediamarkt-101268",
-      "slug": "collaboratore-trice-in-vendita-40-50-befristet-mediamarkt-martigny",
+      "slug": "addetto-a-alle-vendite-40-50-a-tempo-determinato-mediamarkt-martigny",
       "slugByLocale": {
         "de": "mitarbeiter-in-verkauf-40-50-befristet-mediamarkt-martigny-ch",
-        "it": "collaboratore-trice-in-vendita-40-50-befristet-mediamarkt-martigny",
-        "en": "mitarbeiter-in-verkauf-40-50-befristet-mediamarkt-martigny-ch",
-        "fr": "mitarbeiter-in-verkauf-40-50-befristet-mediamarkt-martigny-ch"
+        "it": "addetto-a-alle-vendite-40-50-a-tempo-determinato-mediamarkt-martigny",
+        "en": "sales-assistant-40-50-fixed-term-mediamarkt-martigny",
+        "fr": "employe-e-de-vente-40-50-cdd-mediamarkt-martigny"
       },
       "company": "MediaMarkt",
       "companyKey": "mediamarkt",
@@ -1754,11 +1754,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-verkauf-40-50-befristet-mediamarkt-martigny-ch",
+          "collaboratore-trice-in-vendita-40-50-befristet-mediamarkt-martigny"
+        ],
+        "en": [
+          "mitarbeiter-in-verkauf-40-50-befristet-mediamarkt-martigny-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-verkauf-40-50-befristet-mediamarkt-martigny-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-verkauf-40-50-befristet-mediamarkt-martigny-ch"
+        "mitarbeiter-in-verkauf-40-50-befristet-mediamarkt-martigny-ch",
+        "collaboratore-trice-in-vendita-40-50-befristet-mediamarkt-martigny"
       ],
       "salaryMin": 36000,
       "salaryMax": 55500,
@@ -1780,12 +1788,12 @@
     },
     {
       "id": "mediamarkt-101251",
-      "slug": "collaboratore-trice-in-vendita-80-mediamarkt-schaffhausen",
+      "slug": "addetto-a-alle-vendite-80-mediamarkt-schaffhausen",
       "slugByLocale": {
         "de": "mitarbeiter-in-verkauf-80-mediamarkt-schaffhausen-ch",
-        "it": "collaboratore-trice-in-vendita-80-mediamarkt-schaffhausen",
-        "en": "mitarbeiter-in-verkauf-80-mediamarkt-schaffhausen-ch",
-        "fr": "mitarbeiter-in-verkauf-80-mediamarkt-schaffhausen-ch"
+        "it": "addetto-a-alle-vendite-80-mediamarkt-schaffhausen",
+        "en": "sales-assistant-80-mediamarkt-schaffhausen",
+        "fr": "employe-e-de-vente-80-mediamarkt-schaffhausen"
       },
       "company": "MediaMarkt",
       "companyKey": "mediamarkt",
@@ -1835,11 +1843,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-verkauf-80-mediamarkt-schaffhausen-ch",
+          "collaboratore-trice-in-vendita-80-mediamarkt-schaffhausen"
+        ],
+        "en": [
+          "mitarbeiter-in-verkauf-80-mediamarkt-schaffhausen-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-verkauf-80-mediamarkt-schaffhausen-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-verkauf-80-mediamarkt-schaffhausen-ch"
+        "mitarbeiter-in-verkauf-80-mediamarkt-schaffhausen-ch",
+        "collaboratore-trice-in-vendita-80-mediamarkt-schaffhausen"
       ],
       "salaryMin": 54800,
       "salaryMax": 84000,
