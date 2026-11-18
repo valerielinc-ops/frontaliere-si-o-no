@@ -77,7 +77,7 @@ describe('per-slot first-party creative delivery', () => {
 
     expect(empty.host.querySelector('a')).not.toBeNull();
   });
-  it('holds only the reader-subscription treatment on the mobile static job board until interaction', async () => {
+  it.each(['pointerdown', 'touchstart', 'keydown', 'wheel'] as const)('holds only the reader-subscription treatment on the mobile static job board until a trusted %s', async (releaseEvent) => {
     Object.defineProperty(w, 'innerWidth', { configurable: true, value: 390 });
     const snapshot = w.document.createElement('main');
     snapshot.className = 'seo-static-content job-board-static-hub job-board-static-content';
@@ -87,6 +87,7 @@ describe('per-slot first-party creative delivery', () => {
     w.document.body.append(block);
     const first = frame('unfilled', 'job-board-infeed', block);
     const second = frame('unfilled', 'job-board-infeed-next', block);
+    const addEventListenerSpy = vi.spyOn(w, 'addEventListener');
     w.__ftAdsAuthState = 'anonymous';
     w.fetch.mockResolvedValue({ ok: true, json: async () => ({
       variant: 'control', enrolled: false, assignmentSource: 'local_default',
@@ -102,7 +103,18 @@ describe('per-slot first-party creative delivery', () => {
     expect(first.host.querySelector('[data-house-campaign="reader_subscription"]')).toBeNull();
     expect(second.host.querySelector('[data-house-campaign="reader_subscription"]')).toBeNull();
     expect(w.__ftAdsAuthStateRequested).toBeUndefined();
-    w.dispatchEvent(new w.Event('pointerdown'));
+    for (const name of ['scroll', 'pointerdown', 'touchstart', 'keydown', 'wheel']) {
+      w.dispatchEvent(new w.Event(name));
+      expect(w.document.querySelector('[data-house-campaign="reader_subscription"]')).toBeNull();
+    }
+    // jsdom marks every dispatched event untrusted and exposes isTrusted as a
+    // non-configurable property. Invoke the registered gate with the trusted
+    // event shape that a browser supplies after the synthetic cases above.
+    const trustedReleaseListener = addEventListenerSpy.mock.calls
+      .filter(([name]) => name === releaseEvent)
+      .at(-1)?.[1] as ((event: Event) => void) | undefined;
+    expect(trustedReleaseListener).toBeTypeOf('function');
+    trustedReleaseListener?.({ type: releaseEvent, isTrusted: true } as Event);
     await vi.advanceTimersByTimeAsync(200);
 
     expect(w.document.querySelector('[data-house-campaign="reader_subscription"]')).not.toBeNull();

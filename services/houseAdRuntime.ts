@@ -90,9 +90,11 @@ export function installHouseAds(
   let path = location.pathname;
   const readerSubscriptionExperimentEnabled = () =>
     readerSubscriptionExperimentConfigured && readerSubscriptionInteractionReady;
-  const releaseReaderSubscriptionOnInteraction = () => {
-    if (readerSubscriptionInteractionReady) return;
+  const readerSubscriptionInteractionEvents = ['pointerdown', 'touchstart', 'keydown', 'wheel'] as const;
+  const releaseReaderSubscriptionOnInteraction = (event: Event) => {
+    if (event.type === 'scroll' || event.isTrusted !== true || readerSubscriptionInteractionReady) return;
     readerSubscriptionInteractionReady = true;
+    for (const name of readerSubscriptionInteractionEvents) window.removeEventListener(name, releaseReaderSubscriptionOnInteraction);
     schedule();
   };
   const resizeObserver = typeof ResizeObserver === 'function' ? new ResizeObserver((records) => {
@@ -477,8 +479,8 @@ export function installHouseAds(
   observer.observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['data-ad-status','data-anchor-status','data-ft-ad-state','data-ad-state','data-ft-static-ad-state','data-ft-ad-request-pending','data-ft-ad-stalled','data-ft-script-state','data-failed','data-ft-house-height','data-ft-house-context','data-ft-house-sector','data-ft-house-role','data-ft-house-place','lang','class','style','open','hidden','aria-modal'] });
   for (const name of [config.consentEvent, 'frontaliere:adblock-data', 'storage', 'popstate', 'seo-tracking:pushstate', 'seo-tracking:replacestate', 'resize']) window.addEventListener(name, schedule);
   if (!readerSubscriptionInteractionReady) {
-    for (const name of ['scroll', 'pointerdown', 'touchstart', 'keydown']) {
-      window.addEventListener(name, releaseReaderSubscriptionOnInteraction, { once: true, passive: true });
+    for (const name of readerSubscriptionInteractionEvents) {
+      window.addEventListener(name, releaseReaderSubscriptionOnInteraction, { passive: true });
     }
   }
   window.addEventListener('frontaliere:auth-state', (event) => {
