@@ -78,18 +78,30 @@
       "previousSlugsByLocale": {
         "it": [
           "key-account-manager-private-vorsorge-kmu-markt-mitte-w-m-d-mobiliar-ch",
-          "key-account-manager-private-previdenza-kmu-markt-mitte-m-w-d-die-mobiliar-bern"
+          "key-account-manager-private-previdenza-kmu-markt-mitte-m-w-d-die-mobiliar-bern",
+          "previdenza-coach-private-previdenza-m-w-d-die-mobiliar-bern",
+          "key-account-manager-private-vorsorge-w-m-d-mobiliar-ch",
+          "coach-pension-pension-privee-h-f-d-die-mobiliar-bern",
+          "vorsorge-coach-private-vorsorge-w-m-d-mobiliar-ch"
         ],
         "en": [
           "key-account-manager-private-vorsorge-kmu-markt-mitte-w-m-d-mobiliar-ch"
         ],
         "fr": [
-          "key-account-manager-private-vorsorge-kmu-markt-mitte-w-m-d-mobiliar-ch"
+          "key-account-manager-private-vorsorge-kmu-markt-mitte-w-m-d-mobiliar-ch",
+          "coach-pension-pension-privee-h-f-d-die-mobiliar-bern"
+        ],
+        "de": [
+          "key-account-manager-private-vorsorge-w-m-d-mobiliar-ch"
         ]
       },
       "previousSlugs": [
         "key-account-manager-private-vorsorge-kmu-markt-mitte-w-m-d-mobiliar-ch",
-        "key-account-manager-private-previdenza-kmu-markt-mitte-m-w-d-die-mobiliar-bern"
+        "key-account-manager-private-previdenza-kmu-markt-mitte-m-w-d-die-mobiliar-bern",
+        "previdenza-coach-private-previdenza-m-w-d-die-mobiliar-bern",
+        "key-account-manager-private-vorsorge-w-m-d-mobiliar-ch",
+        "coach-pension-pension-privee-h-f-d-die-mobiliar-bern",
+        "vorsorge-coach-private-vorsorge-w-m-d-mobiliar-ch"
       ],
       "salaryMin": 94500,
       "salaryMax": 143000,
@@ -1379,7 +1391,6 @@
           "mitarbeiter-service-vertrieb-verkaufssupport-w-m-d-generalagentur-seetal-rontal-mobiliar-2"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-21T09:19:58.839Z",
       "salaryMin": 79000,
       "salaryMax": 121500,
