@@ -20,9 +20,10 @@ import { jobDescriptionPreview } from '@/services/jobs/descriptionPreview';
 import { updateJobBoardListingMetadata } from '@/services/seo/jobBoardListingMetadata';
 import { applyCanonicalHref, clearSpaNoindex } from '@/services/seo/staticHeadAuthority';
 import {
- INITIAL_LARGEST_CONTENTFUL_PAINT_TIMEOUT_MS,
- shouldWaitForJobBoardLcp,
- waitForInitialPaintOpportunity,
+  INITIAL_LARGEST_CONTENTFUL_PAINT_TIMEOUT_MS,
+  JOB_BOARD_STATIC_CONTENT_SELECTOR,
+  shouldWaitForJobBoardLcp,
+  waitForInitialPaintOpportunity,
 } from '@/services/initialPaintBootstrap';
 import { isForeignLocation, isListingInventoryJob, normalizeListingIdentity } from '@/services/jobBoardInventory';
 import React, { startTransition, useCallback, useDeferredValue, useEffect, useLayoutEffect, useMemo, useRef, useState, Suspense } from 'react';
@@ -2883,7 +2884,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   catalogInteractionReleaseCancelRef.current = null;
  }, []);
  useEffect(() => {
-  const interactionSurface = '#main-content, main.seo-static-content.job-board-static-hub, main.seo-static-content.job-board-static-content, main.seo-static-content[data-sector-hub]';
+  const interactionSurface = `#main-content, ${JOB_BOARD_STATIC_CONTENT_SELECTOR}`;
   const interactionControl = 'input, select, textarea, nav button, [role="group"] button, [data-job-board-filter-control]';
   const onIntent = (event: Event): void => {
    if (!event.isTrusted) return;

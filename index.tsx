@@ -2,6 +2,7 @@ import './index.css';
 import './services/consentDecisionMark';
 import { startScrollRegionObserver } from './services/scrollRegions';
 import {
+  JOB_BOARD_STATIC_CONTENT_SELECTOR,
   shouldWaitForJobBoardLcp,
   shouldWaitForStaticArticleLcp,
   waitForHomepageContentHandoff,
@@ -40,8 +41,6 @@ const hasPreRenderedPaintContent = (): boolean => !!document.querySelector(
  'main.seo-static-content, main.cluster-seo-prose',
 );
 
-const JOB_BOARD_STATIC_CONTENT_SELECTOR =
- 'main.seo-static-content.job-board-static-hub, main.seo-static-content.job-board-static-content, main.seo-static-content[data-sector-hub]';
 const JOB_BOARD_CONSENT_LCP_SELECTOR =
  'div.fc-dialog-content > div.fc-dialog-scrollable-content > div.fc-footer > p';
 const STATIC_ARTICLE_LCP_SELECTOR = 'main.seo-static-content article.ft-blog-article';
