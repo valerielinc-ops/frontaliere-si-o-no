@@ -33,11 +33,13 @@ import {
   replaceJobPostingJsonLd,
   replaceJobPostingJsonLdWithChange,
   activeJobSourceValidThrough,
+  ensureRetainedActiveBridgeMetadata,
   rewriteActiveBridgeHtml,
   rewriteActiveJobHtml,
   shouldInvalidateActiveJobReuseWithoutJobPosting,
 } from '../../build-plugins/jobsSeoPagesPlugin';
 import type { ActiveJobReuseFragments } from '../../build-plugins/jobsSeoPagesPlugin';
+import { hasExactCanonicalHref } from '../../build-plugins/shared/headLinkPatterns';
 
 const FINGERPRINT_ENV_KEYS = [
   'STRIP_ACTIVE_JOB_PROSE',
@@ -511,6 +513,45 @@ describe('jobs SEO disk HTML reuse', () => {
     );
 
     expect(rewriteActiveBridgeHtml(cachedBridge, currentCanonical)).toBe(expectedBridge);
+  });
+
+  it('repairs target metadata on a reused retained bridge after refreshing volatile fragments', () => {
+    const marker = (name: string, value: string) =>
+      `<!-- jobs-seo-reuse:${name}:start -->${value}<!-- jobs-seo-reuse:${name}:end -->`;
+    const oldCanonical = '<html><head><meta name="robots" content="index,follow">'
+      + '<link rel="canonical" href="https://frontaliereticino.ch/cerca-lavoro-ticino/old-route/">'
+      + '<script>window.__BRIDGE_TARGET_SLUG__="old-route";</script>'
+      + '<script>window.__JOB_SEED__={"slug":"old-route"};</script></head><body>'
+      + marker('job-posting', 'old-date')
+      + marker('hero-badges', 'old-badges')
+      + marker('mobile-action', 'old-action')
+      + marker('recent-articles', 'old-feed')
+      + '</body></html>';
+    const currentCanonical = '<html><head><link rel="canonical" '
+      + 'href="https://frontaliereticino.ch/cerca-lavoro-zurigo/current-route/">'
+      + '<script>window.__JOB_SEED__={"slug":"current-route"};</script></head><body>'
+      + marker('job-posting', 'current-date')
+      + marker('hero-badges', 'current-badges')
+      + marker('mobile-action', 'current-action')
+      + marker('recent-articles', 'current-feed')
+      + '</body></html>';
+    const plannedCanonical = 'https://frontaliereticino.ch/cerca-lavoro-zurigo/current-route/';
+    const reusedBridge = rewriteActiveBridgeHtml(oldCanonical, currentCanonical);
+    const emittedBridge = ensureRetainedActiveBridgeMetadata(
+      reusedBridge,
+      'current-route',
+      plannedCanonical,
+    );
+
+    expect(emittedBridge).toContain('<meta name="robots" content="noindex,follow">');
+    expect(emittedBridge).toContain('window.__BRIDGE_TARGET_SLUG__="current-route";');
+    expect(emittedBridge).not.toContain('window.__BRIDGE_TARGET_SLUG__="old-route";');
+    expect(hasExactCanonicalHref(emittedBridge, plannedCanonical)).toBe(true);
+    expect(emittedBridge).toContain(marker('job-posting', 'current-date'));
+    expect(emittedBridge).toContain(marker('hero-badges', 'current-badges'));
+    expect(emittedBridge).toContain(marker('mobile-action', 'current-action'));
+    expect(emittedBridge).toContain(marker('recent-articles', 'current-feed'));
+    expect(emittedBridge).not.toContain('old-date');
   });
 
   it('replaces the complete archived JobPosting script and leaves other JSON-LD alone', () => {

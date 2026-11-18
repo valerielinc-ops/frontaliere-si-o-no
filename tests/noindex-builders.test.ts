@@ -172,9 +172,9 @@ describe('SEO builder noindex guards', () => {
       expect(retainedGuardBlock).toContain('isRetainedBridgePathSafeToEmit(');
       expect(retainedGuardBlock).toContain('isJobAliasRedirectPath,');
       expect(retainedGuardBlock).toContain('retainedBridgePaths.get(bridgePathKey(locale, candidatePath))');
-      expect(retainedGuardBlock).toContain('isRetainedBridgeOwnedBy(retained.bridge, kind, ownerJobIdentifier)');
-      expect(retainedGuardBlock).toContain('ownerJobIdentifier: string,');
-      expect(retainedGuardBlock).not.toContain('if (ownerJobIdentifier === undefined)');
+      expect(retainedGuardBlock).toContain('isPlannedJobCanonBridgeOwner(plannedBridge, candidate)');
+      expect(retainedGuardBlock).toContain('const isRetainedActiveBridgePath = (candidate: JobCanonBridgePath)');
+      expect(retainedGuardBlock).toContain('candidatePath === canonicalPath && isPlannedOwner');
       expect(retainedGuardBlock).toContain('activeBridgePathsOwnedBeforePlan.has(bridgePathKey(locale, canonicalPath))');
 
       // Planning and each active bridge writer must use the shared canonical
@@ -195,12 +195,14 @@ describe('SEO builder noindex guards', () => {
       expect(activeBridgePlanBlock).toContain('isActivePageOwner:');
       expect(activeBridgePlanBlock).toContain('pathIsClaimedOrReserved(safeTargets.indexPath)');
       expect(source).toContain('const oldPath = buildCanonicalJobDetailPath(locale, job, oldSlug, jobCantonForBridge)');
-      expect(source).toContain("const legacyTIRelPath = buildCanonicalJobDetailPath(locale, 'TI', oldSlug)");
+      expect(source).toContain("const legacyTIPath = buildCanonicalJobDetailPath(locale, 'TI', oldSlug)");
       expect(source).toContain("const candidatePath = buildCanonicalJobDetailPath(baseLocale, 'TI', foreignSlug)");
-      expect(source).toContain("isRetainedBridgeOwnedBy(retained?.bridge, 'crossLocale', myCrossLocaleJobId)");
-      expect(source).toContain("if (!isRetainedActiveBridgePath(baseLocale, relPath, 'crossLocale', myCrossLocaleJobId)) continue;");
+      expect(source).toContain('const plannedBridge = retainedBridgePaths.get(bridgePathKey(baseLocale, candidatePath))?.bridge;');
+      expect(source).toContain('if (!isPlannedJobCanonBridgeOwner(plannedBridge, candidate))');
+      expect(source).toContain('const crossLocaleBridge: JobCanonBridgePath = {');
+      expect(source).toContain('if (!isRetainedActiveBridgePath(crossLocaleBridge)) continue;');
       expect(source).toContain('jobsSeoHtmlCacheKey(locale, canonicalPathForReuse)');
-      expect(source).toContain("const relPath = buildCanonicalJobDetailPath(baseLocale, 'TI', foreignSlug)");
+      expect(source).toContain("const crossLocaleBridgePath = buildCanonicalJobDetailPath(baseLocale, 'TI', foreignSlug)");
       expect(source).toContain('const legacyRel = buildCanonicalJobDetailPath(locale, job, job.slug, jobCanton)');
       expect(source).toContain("const legacyTIRel = buildCanonicalJobDetailPath(locale, 'TI', job.slug)");
 
@@ -278,7 +280,8 @@ describe('SEO builder noindex guards', () => {
       const previousSlugEnd = source.indexOf('if (bridgeCount > 0)', previousSlugStart);
       const previousSlugBlock = source.slice(previousSlugStart, previousSlugEnd);
       expect(previousSlugBlock).not.toContain('legacyTiPathRecoveredByWorker(locale, oldSlug, legacyTIRelPath)');
-      expect(previousSlugBlock).toContain('previousSlug declaration is authoritative');
+      expect(previousSlugBlock).toContain('const legacyTIBridge: JobCanonBridgePath = {');
+      expect(previousSlugBlock).toContain('retained plan own this URL');
     });
 
     it('retained previous-slug bridges force noindex after fresh render or cache reuse', () => {
@@ -287,8 +290,8 @@ describe('SEO builder noindex guards', () => {
       const block = source.slice(start, end);
       expect(start).toBeGreaterThan(-1);
       expect(end).toBeGreaterThan(start);
-      expect(block).toContain('indexHtml = noindexJobAliasHtml(');
-      expect(block).toContain('const noindexLegacyTIHtml = noindexJobAliasHtml(legacyTIHtml);');
+      expect(block).toContain('indexHtml = ensureRetainedActiveBridgeMetadata(');
+      expect(block).toContain('const noindexLegacyTIHtml = ensureRetainedActiveBridgeMetadata(');
     });
 
     it('does not clone an already-marked noindex alias', () => {
@@ -315,7 +318,7 @@ describe('SEO builder noindex guards', () => {
       const activeBlock = source.slice(activeStart, activeEnd);
       expect(activeStart).toBeGreaterThan(-1);
       expect(activeEnd).toBeGreaterThan(activeStart);
-      expect(activeBlock).toContain('const noindexCrossLocaleActiveHtml = noindexJobAliasHtml(crossLocaleActiveHtml);');
+      expect(activeBlock).toContain('const noindexCrossLocaleActiveHtml = ensureRetainedActiveBridgeMetadata(');
       expect(activeBlock).toContain('jobsSeoReuse?.finish(crossLocaleActiveReuse, noindexCrossLocaleActiveHtml);');
       expect(activeBlock).toContain('_qwRetainedJobBridge(indexFile, noindexCrossLocaleActiveHtml);');
     });
