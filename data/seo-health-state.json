@@ -1,86 +1,206 @@
 {
   "schemaVersion": 1,
-  "lastRunAt": "2026-11-17T13:33:02.892Z",
+  "lastRunAt": "2026-11-18T13:09:07.971Z",
   "findings": {
-    "cloudflare-5xx-persistent|https://frontaliereticino.ch/fr/trouver-emploi-jura/senior-specialiste-asset-servicing-80-100-graubundner-kantonalbank-chur/": {
-      "code": "cloudflare-5xx-persistent",
-      "url": "https://frontaliereticino.ch/fr/trouver-emploi-jura/senior-specialiste-asset-servicing-80-100-graubundner-kantonalbank-chur/",
+    "sitemap-noindex|https://frontaliereticino.ch/de/jobs-in-basel/pflegeprofi-per-flexible-einsatze-a-spitex-basel-1b352e91/": {
+      "code": "sitemap-noindex",
+      "url": "https://frontaliereticino.ch/de/jobs-in-basel/pflegeprofi-per-flexible-einsatze-a-spitex-basel-1b352e91/",
       "consecutiveRuns": 1,
-      "firstSeenAt": "2026-11-17T13:33:02.892Z",
-      "lastSeenAt": "2026-11-17T13:33:02.892Z",
+      "firstSeenAt": "2026-11-18T13:09:07.971Z",
+      "lastSeenAt": "2026-11-18T13:09:07.971Z",
+      "detail": null
+    },
+    "jobposting-missing|https://frontaliereticino.ch/de/jobs-in-basel/pflegeprofi-per-flexible-einsatze-a-spitex-basel-1b352e91/": {
+      "code": "jobposting-missing",
+      "url": "https://frontaliereticino.ch/de/jobs-in-basel/pflegeprofi-per-flexible-einsatze-a-spitex-basel-1b352e91/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-18T13:09:07.971Z",
+      "lastSeenAt": "2026-11-18T13:09:07.971Z",
+      "detail": null
+    },
+    "sitemap-noindex|https://frontaliereticino.ch/de/jobs-in-bern/ict-supporter-in-service-desk-80-90-bern-be-yellowshark-ch-4997a3e7/": {
+      "code": "sitemap-noindex",
+      "url": "https://frontaliereticino.ch/de/jobs-in-bern/ict-supporter-in-service-desk-80-90-bern-be-yellowshark-ch-4997a3e7/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-18T13:09:07.971Z",
+      "lastSeenAt": "2026-11-18T13:09:07.971Z",
+      "detail": null
+    },
+    "jobposting-missing|https://frontaliereticino.ch/de/jobs-in-bern/ict-supporter-in-service-desk-80-90-bern-be-yellowshark-ch-4997a3e7/": {
+      "code": "jobposting-missing",
+      "url": "https://frontaliereticino.ch/de/jobs-in-bern/ict-supporter-in-service-desk-80-90-bern-be-yellowshark-ch-4997a3e7/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-18T13:09:07.971Z",
+      "lastSeenAt": "2026-11-18T13:09:07.971Z",
+      "detail": null
+    },
+    "sitemap-noindex|https://frontaliereticino.ch/en/find-jobs-zurich/medecin-superieur-medecin-superieur-en-soins-intensifs-et-ou-anesthesie-60-100-gzo-spital-wetzikon-wetzikon-fda135c8/": {
+      "code": "sitemap-noindex",
+      "url": "https://frontaliereticino.ch/en/find-jobs-zurich/medecin-superieur-medecin-superieur-en-soins-intensifs-et-ou-anesthesie-60-100-gzo-spital-wetzikon-wetzikon-fda135c8/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-18T13:09:07.971Z",
+      "lastSeenAt": "2026-11-18T13:09:07.971Z",
+      "detail": null
+    },
+    "jobposting-missing|https://frontaliereticino.ch/en/find-jobs-zurich/medecin-superieur-medecin-superieur-en-soins-intensifs-et-ou-anesthesie-60-100-gzo-spital-wetzikon-wetzikon-fda135c8/": {
+      "code": "jobposting-missing",
+      "url": "https://frontaliereticino.ch/en/find-jobs-zurich/medecin-superieur-medecin-superieur-en-soins-intensifs-et-ou-anesthesie-60-100-gzo-spital-wetzikon-wetzikon-fda135c8/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-18T13:09:07.971Z",
+      "lastSeenAt": "2026-11-18T13:09:07.971Z",
+      "detail": null
+    },
+    "sitemap-noindex|https://frontaliereticino.ch/fr/trouver-emploi-geneve/prozesslebensdauer-h-f-patek-philippe-plan-les-ouates/": {
+      "code": "sitemap-noindex",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-geneve/prozesslebensdauer-h-f-patek-philippe-plan-les-ouates/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-18T13:09:07.971Z",
+      "lastSeenAt": "2026-11-18T13:09:07.971Z",
+      "detail": null
+    },
+    "jobposting-missing|https://frontaliereticino.ch/fr/trouver-emploi-geneve/prozesslebensdauer-h-f-patek-philippe-plan-les-ouates/": {
+      "code": "jobposting-missing",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-geneve/prozesslebensdauer-h-f-patek-philippe-plan-les-ouates/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-18T13:09:07.971Z",
+      "lastSeenAt": "2026-11-18T13:09:07.971Z",
+      "detail": null
+    },
+    "sitemap-noindex|https://frontaliereticino.ch/fr/trouver-emploi-zurich/senior-physician-senior-physician-intensive-care-medicine-and-or-anesthesia-60-100-gzo-spital-wetzikon-wetzikon-369ec580/": {
+      "code": "sitemap-noindex",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-zurich/senior-physician-senior-physician-intensive-care-medicine-and-or-anesthesia-60-100-gzo-spital-wetzikon-wetzikon-369ec580/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-18T13:09:07.971Z",
+      "lastSeenAt": "2026-11-18T13:09:07.971Z",
+      "detail": null
+    },
+    "jobposting-missing|https://frontaliereticino.ch/fr/trouver-emploi-zurich/senior-physician-senior-physician-intensive-care-medicine-and-or-anesthesia-60-100-gzo-spital-wetzikon-wetzikon-369ec580/": {
+      "code": "jobposting-missing",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-zurich/senior-physician-senior-physician-intensive-care-medicine-and-or-anesthesia-60-100-gzo-spital-wetzikon-wetzikon-369ec580/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-18T13:09:07.971Z",
+      "lastSeenAt": "2026-11-18T13:09:07.971Z",
+      "detail": null
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/fr/trouver-emploi-bale/dipl-pflegefachperson-hf-zentrum-des-alpes-prive-80-100-privatklinik-meiringen-meiringen/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-bale/dipl-pflegefachperson-hf-zentrum-des-alpes-prive-80-100-privatklinik-meiringen-meiringen/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-18T13:09:07.971Z",
+      "lastSeenAt": "2026-11-18T13:09:07.971Z",
+      "detail": "edge=503 count=4 live=503 surface=worker-shard"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/fr/trouver-emploi-bale/fabricant-routier-100-anker-swiss-ag-anker-swiss-ticino-ag-wimmis-4242aa5b/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-bale/fabricant-routier-100-anker-swiss-ag-anker-swiss-ticino-ag-wimmis-4242aa5b/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-18T13:09:07.971Z",
+      "lastSeenAt": "2026-11-18T13:09:07.971Z",
+      "detail": "edge=503 count=4 live=503 surface=worker-shard"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/en/find-jobs-ticino/entry-as-a-train-driver-for-passenger-traffic-12-2026-ffs-officine-ferrovie-federali-chur/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/en/find-jobs-ticino/entry-as-a-train-driver-for-passenger-traffic-12-2026-ffs-officine-ferrovie-federali-chur/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-18T13:09:07.971Z",
+      "lastSeenAt": "2026-11-18T13:09:07.971Z",
       "detail": "edge=503 count=3 live=503 surface=worker-shard"
     },
-    "cloudflare-5xx-persistent|https://frontaliereticino.ch/fr/trouver-emploi-grisons/chef-de-projet-heizung-100-guyer-warme-und-wasser-ag-zurich/": {
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/cerca-lavoro-zugo/assoziierte-r-professor-in-fh-management-organisationen-sozialen-prozessen-e-veranderungsprozesse-etat-de-fribourg/": {
       "code": "cloudflare-5xx-persistent",
-      "url": "https://frontaliereticino.ch/fr/trouver-emploi-grisons/chef-de-projet-heizung-100-guyer-warme-und-wasser-ag-zurich/",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-zugo/assoziierte-r-professor-in-fh-management-organisationen-sozialen-prozessen-e-veranderungsprozesse-etat-de-fribourg/",
       "consecutiveRuns": 1,
-      "firstSeenAt": "2026-11-17T13:33:02.892Z",
-      "lastSeenAt": "2026-11-17T13:33:02.892Z",
-      "detail": "edge=503 count=3 live=503 surface=worker-shard"
-    },
-    "cloudflare-5xx-persistent|https://frontaliereticino.ch/cerca-lavoro-turgovia/mitarbeiterin-reinigung-collaboratore-trice-reinigung-psychiatrische-universitatsklinik-zurich/": {
-      "code": "cloudflare-5xx-persistent",
-      "url": "https://frontaliereticino.ch/cerca-lavoro-turgovia/mitarbeiterin-reinigung-collaboratore-trice-reinigung-psychiatrische-universitatsklinik-zurich/",
-      "consecutiveRuns": 1,
-      "firstSeenAt": "2026-11-17T13:33:02.892Z",
-      "lastSeenAt": "2026-11-17T13:33:02.892Z",
+      "firstSeenAt": "2026-11-18T13:09:07.971Z",
+      "lastSeenAt": "2026-11-18T13:09:07.971Z",
       "detail": "edge=503 count=3 live=503 surface=apex-pages"
     },
-    "cloudflare-5xx-persistent|https://frontaliereticino.ch/cerca-lavoro-ginevra/fachtechnische-r-collaboratore-trice-betriebselektrikerin-80-100-canton-du-valais-brig/": {
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/en/find-jobs-basel/customer-service-in-office-60-in-lyss-concordia-lyss/": {
       "code": "cloudflare-5xx-persistent",
-      "url": "https://frontaliereticino.ch/cerca-lavoro-ginevra/fachtechnische-r-collaboratore-trice-betriebselektrikerin-80-100-canton-du-valais-brig/",
+      "url": "https://frontaliereticino.ch/en/find-jobs-basel/customer-service-in-office-60-in-lyss-concordia-lyss/",
       "consecutiveRuns": 1,
-      "firstSeenAt": "2026-11-17T13:33:02.892Z",
-      "lastSeenAt": "2026-11-17T13:33:02.892Z",
-      "detail": "edge=503 count=3 live=503 surface=apex-pages"
-    },
-    "cloudflare-5xx-persistent|https://frontaliereticino.ch/fr/trouver-emploi-grisons/gestione-del-prodotto-m-w-d-volg-laax-signina/": {
-      "code": "cloudflare-5xx-persistent",
-      "url": "https://frontaliereticino.ch/fr/trouver-emploi-grisons/gestione-del-prodotto-m-w-d-volg-laax-signina/",
-      "consecutiveRuns": 1,
-      "firstSeenAt": "2026-11-17T13:33:02.892Z",
-      "lastSeenAt": "2026-11-17T13:33:02.892Z",
+      "firstSeenAt": "2026-11-18T13:09:07.971Z",
+      "lastSeenAt": "2026-11-18T13:09:07.971Z",
       "detail": "edge=503 count=3 live=503 surface=worker-shard"
     },
-    "cloudflare-5xx-persistent|https://frontaliereticino.ch/fr/trouver-emploi-bale/pharmaziepraktikanten-innen-4-6-monate-oder-pharmazie-studierende-fur-die-mantelassistenz-/": {
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/fr/trouver-emploi-bale/sanitarinstallateur-in-100-m-kunz-ag-klosters-klosters-dorf/": {
       "code": "cloudflare-5xx-persistent",
-      "url": "https://frontaliereticino.ch/fr/trouver-emploi-bale/pharmaziepraktikanten-innen-4-6-monate-oder-pharmazie-studierende-fur-die-mantelassistenz-/",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-bale/sanitarinstallateur-in-100-m-kunz-ag-klosters-klosters-dorf/",
       "consecutiveRuns": 1,
-      "firstSeenAt": "2026-11-17T13:33:02.892Z",
-      "lastSeenAt": "2026-11-17T13:33:02.892Z",
+      "firstSeenAt": "2026-11-18T13:09:07.971Z",
+      "lastSeenAt": "2026-11-18T13:09:07.971Z",
       "detail": "edge=503 count=3 live=503 surface=worker-shard"
     },
-    "cloudflare-5xx-persistent|https://frontaliereticino.ch/cerca-lavoro-turgovia/zivildienstante-come-assistente-alla-cura-bambini-stazioni-lettiera-requisiti-101143-luzerner-kantonsspital-luks-luzern/": {
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/fr/trouver-emploi-bale/medecin-chef-80-100-hematologie-universitats-kinderspital-zurich-zurich/": {
       "code": "cloudflare-5xx-persistent",
-      "url": "https://frontaliereticino.ch/cerca-lavoro-turgovia/zivildienstante-come-assistente-alla-cura-bambini-stazioni-lettiera-requisiti-101143-luzerner-kantonsspital-luks-luzern/",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-bale/medecin-chef-80-100-hematologie-universitats-kinderspital-zurich-zurich/",
       "consecutiveRuns": 1,
-      "firstSeenAt": "2026-11-17T13:33:02.892Z",
-      "lastSeenAt": "2026-11-17T13:33:02.892Z",
+      "firstSeenAt": "2026-11-18T13:09:07.971Z",
+      "lastSeenAt": "2026-11-18T13:09:07.971Z",
+      "detail": "edge=503 count=3 live=503 surface=worker-shard"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/en/find-jobs-ticino/demand-and-supply-manager-thermo-fisher-scientific-ch/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/en/find-jobs-ticino/demand-and-supply-manager-thermo-fisher-scientific-ch/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-18T13:09:07.971Z",
+      "lastSeenAt": "2026-11-18T13:09:07.971Z",
+      "detail": "edge=503 count=3 live=503 surface=worker-shard"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/cerca-lavoro-zugo/verkaufer-in-kassen-services-coop-zug/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-zugo/verkaufer-in-kassen-services-coop-zug/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-18T13:09:07.971Z",
+      "lastSeenAt": "2026-11-18T13:09:07.971Z",
       "detail": "edge=503 count=3 live=503 surface=apex-pages"
     },
-    "cloudflare-5xx-persistent|https://frontaliereticino.ch/fr/trouver-emploi-grisons/droguiste-ou-specialiste-en-sante-a-titre-consultatif-pour-les-aides-a-la-continence-et-a-la-vie-quotidienne-schweizer/": {
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/fr/trouver-emploi-bale/business-analyst-h-f-x-80-100-vaudoise-ch/": {
       "code": "cloudflare-5xx-persistent",
-      "url": "https://frontaliereticino.ch/fr/trouver-emploi-grisons/droguiste-ou-specialiste-en-sante-a-titre-consultatif-pour-les-aides-a-la-continence-et-a-la-vie-quotidienne-schweizer/",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-bale/business-analyst-h-f-x-80-100-vaudoise-ch/",
       "consecutiveRuns": 1,
-      "firstSeenAt": "2026-11-17T13:33:02.892Z",
-      "lastSeenAt": "2026-11-17T13:33:02.892Z",
+      "firstSeenAt": "2026-11-18T13:09:07.971Z",
+      "lastSeenAt": "2026-11-18T13:09:07.971Z",
+      "detail": "edge=503 count=3 live=503 surface=worker-shard"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/cerca-lavoro-vaud/responsabile-del-prodotto-ubs-ticino/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-vaud/responsabile-del-prodotto-ubs-ticino/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-18T13:09:07.971Z",
+      "lastSeenAt": "2026-11-18T13:09:07.971Z",
+      "detail": "edge=503 count=3 live=503 surface=apex-pages"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/cerca-lavoro-vaud/tecnico-di-assistenza-per-ventilazione-condizionamento-equans-switzerland-brig-glis/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-vaud/tecnico-di-assistenza-per-ventilazione-condizionamento-equans-switzerland-brig-glis/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-18T13:09:07.971Z",
+      "lastSeenAt": "2026-11-18T13:09:07.971Z",
+      "detail": "edge=503 count=2 live=503 surface=apex-pages"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/en/find-jobs-ticino/zimmermann-with-versatile-timber-construction-tasks-sta-personal-ag-hochdorf-luzern/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/en/find-jobs-ticino/zimmermann-with-versatile-timber-construction-tasks-sta-personal-ag-hochdorf-luzern/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-18T13:09:07.971Z",
+      "lastSeenAt": "2026-11-18T13:09:07.971Z",
       "detail": "edge=503 count=2 live=503 surface=worker-shard"
     },
-    "cloudflare-5xx-persistent|https://frontaliereticino.ch/fr/trouver-emploi-bale/employes-pour-les-caisses-de-garantie-h-f-d-galaxus-dintikon/": {
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/en/find-jobs-basel/nachdiplomstudium-nds-intensivpflege-universitatsspital-basel-basel/": {
       "code": "cloudflare-5xx-persistent",
-      "url": "https://frontaliereticino.ch/fr/trouver-emploi-bale/employes-pour-les-caisses-de-garantie-h-f-d-galaxus-dintikon/",
+      "url": "https://frontaliereticino.ch/en/find-jobs-basel/nachdiplomstudium-nds-intensivpflege-universitatsspital-basel-basel/",
       "consecutiveRuns": 1,
-      "firstSeenAt": "2026-11-17T13:33:02.892Z",
-      "lastSeenAt": "2026-11-17T13:33:02.892Z",
+      "firstSeenAt": "2026-11-18T13:09:07.971Z",
+      "lastSeenAt": "2026-11-18T13:09:07.971Z",
       "detail": "edge=503 count=2 live=503 surface=worker-shard"
     },
     "cloudflare-5xx-unverified|source:cloudflare-5xx-unverified": {
       "code": "cloudflare-5xx-unverified",
       "url": "source:cloudflare-5xx-unverified",
-      "consecutiveRuns": 5,
+      "consecutiveRuns": 6,
       "firstSeenAt": "2026-11-13T12:18:45.545Z",
-      "lastSeenAt": "2026-11-17T13:33:02.892Z",
-      "detail": "count=5697 sampled-out-or-unprobed; no live recovery asserted"
+      "lastSeenAt": "2026-11-18T13:09:07.971Z",
+      "detail": "count=5633 sampled-out-or-unprobed; no live recovery asserted"
     }
   },
   "cleanRuns": 0,
