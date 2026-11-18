@@ -638,7 +638,7 @@
       "slugByLocale": {
         "it": "ingegnere-di-accesso-remoto-citrix-netscaler-zscaler-private-access-100-f-m-d-julius-baer-zurich",
         "en": "citrix-netscaler-engineer-100-f-m-d-julius-baer",
-        "de": "remote-access-engineer-citrix-netscaler-zscaler-private-access-100-f-m-d-julius-baer-4xvcl7",
+        "de": "remote-access-engineer-citrix-netscaler-zscaler-private-access-100-f-m-d-julius-baer",
         "fr": "ingenieur-citrix-netscaler-100-f-m-d-julius-baer-zurich"
       },
       "category": "technology",
@@ -671,7 +671,7 @@
           "remote-access-engineer-citrix-netscaler-zscaler-private-access-100-f-m-d-julius-baer-4xvcl7"
         ],
         "de": [
-          "remote-access-engineer-citrix-netscaler-zscaler-private-access-100-f-m-d-julius-baer"
+          "remote-access-engineer-citrix-netscaler-zscaler-private-access-100-f-m-d-julius-baer-4xvcl7"
         ],
         "fr": [
           "remote-access-engineer-citrix-netscaler-zscaler-private-access-100-f-m-d-julius-baer"
@@ -811,10 +811,9 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 5188,
-      "retranslationAttempts": 92,
+      "retranslationAttempts": 93,
       "firstSeenAt": "2026-10-01T09:13:13.433Z",
       "crawledAt": "2026-11-18T09:35:28.806Z",
       "streetAddressSource": "to-enrich",
@@ -833,7 +832,8 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Operations-Specialist---Tax-Reclaim-100---f-m-d-----Maternity-cover--February-2027-until-May-2027---contract-through-our-external-payroll-partner-_r-20436-1",
@@ -1782,10 +1782,6 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "needsRetranslation": true,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 6146,
-      "retranslationAttempts": 13,
       "firstSeenAt": "2026-11-03T21:24:53.488Z",
       "crawledAt": "2026-11-18T09:35:28.806Z",
       "streetAddressSource": "to-enrich",
@@ -1804,7 +1800,11 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 14,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 6146,
+      "needsRetranslation": true
     },
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Finance-Business-Partner---Global-Product-Solutions-and-CIO-100---f-m-d-_r-20236",
@@ -2255,6 +2255,9 @@
         "canton": "ZH",
         "location": "Zurich"
       },
+      "previousSlugs": [
+        "front-arena-market-making-specialist-amas-100-f-m-d-contract-through-our-external-payroll-partner-immediate-start-for-12-months-possible-extension-julius-baer"
+      ],
       "previousSlugsByLocale": {
         "en": [
           "front-arena-market-making-specialist-amas-100-f-m-d-contract-through-our-external-payroll-partner-immediate-start-for-12-months-possible-extension-julius-baer"
@@ -2263,13 +2266,9 @@
           "front-arena-market-making-specialist-amas-100-f-m-d-contract-through-our-external-payroll-partner-immediate-start-for-12-months-possible-extension-julius-baer"
         ]
       },
-      "previousSlugs": [
-        "front-arena-market-making-specialist-amas-100-f-m-d-contract-through-our-external-payroll-partner-immediate-start-for-12-months-possible-extension-julius-baer"
-      ],
-      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 3301,
-      "retranslationAttempts": 39,
+      "retranslationAttempts": 40,
       "firstSeenAt": "2026-07-22T11:17:20.458Z",
       "crawledAt": "2026-11-18T09:35:28.806Z",
       "streetAddressSource": "to-enrich",
@@ -2288,7 +2287,8 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Senior-Relationship-Manager-Global-NRI_r-20321",

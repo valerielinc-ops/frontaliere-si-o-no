@@ -2294,10 +2294,6 @@
         "location": "Zürich"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 2733,
-      "retranslationAttempts": 17,
       "firstSeenAt": "2026-10-08T09:16:14.363Z",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
@@ -2316,7 +2312,11 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 18,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 2733,
+      "needsRetranslation": true
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000154030848-tecnico-di-radiologia-medica",
@@ -3953,10 +3953,9 @@
         "location": "Echandens"
       },
       "sourceLang": "fr",
-      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 3861,
-      "retranslationAttempts": 20,
+      "retranslationAttempts": 21,
       "firstSeenAt": "2026-09-26T13:56:03.166Z",
       "streetAddress": "Echandens",
       "streetAddressSource": "to-enrich",
@@ -3975,7 +3974,8 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139058930-gynakologe-in-und-geburtshelfer-in",

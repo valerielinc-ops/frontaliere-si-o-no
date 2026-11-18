@@ -2683,7 +2683,8 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-29T09:32:14.057Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "retranslationAttempts": 1
     },
     {
       "id": "epfl-722976eb1d65",
