@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "lu-car-long-format-91652",
+      "sourceKey": "LU",
+      "sourceRecordId": "car-long-format-91652",
+      "canton": "Lucerna",
+      "platePrefix": "LU",
+      "plateNumber": "91652",
+      "normalizedPlate": "LU91652",
+      "listingType": "fixed-price",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "startingPriceChf": 300,
+      "closedAt": "2026-11-17T20:56:01.337Z",
+      "officialAuctionUrl": "https://strassenverkehrsamt.lu.ch/strassenverkehr/fahrzeug/kontrollschilderboerse_wunschkontrollschild",
+      "officialDetailUrl": "https://strassenverkehrsamt.lu.ch/downloads/strassenverkehrsamt/kontrollschilder/wunschschilder.pdf",
+      "sourceFetchedAt": "2026-11-17T20:56:01.337Z",
+      "lastVerifiedAt": "2026-11-17T20:56:01.337Z",
+      "firstSeenAt": "2026-11-11T14:18:32.791Z",
+      "lastSeenAt": "2026-11-17T20:56:01.337Z",
+      "sourceCategory": "fixed-price-long-format",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "5f1a5e4169c4"
+    }
+  ]
+}
