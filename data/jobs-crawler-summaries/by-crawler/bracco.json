@@ -1,18 +1,21 @@
 {
   "key": "bracco",
   "label": "Bracco Suisse",
-  "generatedAt": "2026-11-17T21:25:35.493Z",
+  "generatedAt": "2026-11-18T09:28:31.907Z",
   "total": 6,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 5,
-  "durationMs": 411950,
-  "avgDurationMs": 411950,
+  "unchangedCount": 6,
+  "durationMs": 388574,
+  "avgDurationMs": 388574,
   "durationHistory": [
-    411950
+    388574
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "url": "https://bracco.wd103.myworkdayjobs.com/it-IT/BraccoCareers/job/CHE---Plan-les-Ouates/HSE-Manager_JR100494",
       "applyUrl": "https://bracco.wd103.myworkdayjobs.com/it-IT/BraccoCareers/job/CHE---Plan-les-Ouates/HSE-Manager_JR100494",
@@ -22,12 +25,12 @@
       "location": "Plan-les-Ouates",
       "canton": "GE",
       "country": "CH",
-      "slug": "hse-manager-bracco-suisse",
+      "slug": "responsabile-hse-bracco-suisse-s-a-plan-les-ouates",
       "category": "management",
       "datePosted": "2026-11-17",
       "postedDate": "2026-11-17",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-17T21:25:21.815Z",
+      "crawledAt": "2026-11-18T09:28:19.795Z",
       "source": "bracco-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -38,8 +41,9 @@
         "location": "Plan-les-Ouates"
       },
       "jobReqId": "JR100494",
-      "needsRetranslation": true,
       "id": "bracco-2896a4802400",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-17T21:25:21.815Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "currency": "CHF",
@@ -49,21 +53,16 @@
       "postalCode": "1228",
       "streetAddress": "Plan-les-Ouates",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:25:21.815Z",
+      "validThrough": "2027-02-15T09:28:19.795Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:25:21.815Z",
-      "_qualityScore": 83,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
+        "translation": 23,
         "completeness": 22
       }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "url": "https://bracco.wd103.myworkdayjobs.com/it-IT/BraccoCareers/job/CHE---Cadempino/Digital-Learning---Training-Internship_JR100407",
       "applyUrl": "https://bracco.wd103.myworkdayjobs.com/it-IT/BraccoCareers/job/CHE---Cadempino/Digital-Learning---Training-Internship_JR100407",
@@ -78,7 +77,7 @@
       "datePosted": "2026-11-09",
       "postedDate": "2026-11-09",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-17T21:25:21.815Z",
+      "crawledAt": "2026-11-18T09:28:19.795Z",
       "source": "bracco-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "ENTRY",
@@ -100,7 +99,7 @@
       "postalCode": "6814",
       "streetAddress": "Cadempino",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T21:25:21.815Z",
+      "validThrough": "2027-02-07T09:28:19.795Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 92,
       "_qualityBreakdown": {
@@ -124,7 +123,7 @@
       "datePosted": "2026-11-03",
       "postedDate": "2026-11-03",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-17T21:25:21.815Z",
+      "crawledAt": "2026-11-18T09:28:19.795Z",
       "source": "bracco-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -146,7 +145,7 @@
       "postalCode": "6814",
       "streetAddress": "Cadempino",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:25:21.815Z",
+      "validThrough": "2027-02-01T09:28:19.795Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 92,
       "_qualityBreakdown": {
@@ -170,7 +169,7 @@
       "datePosted": "2026-10-27",
       "postedDate": "2026-10-27",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-17T21:25:21.815Z",
+      "crawledAt": "2026-11-18T09:28:19.795Z",
       "source": "bracco-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -192,7 +191,7 @@
       "postalCode": "1228",
       "streetAddress": "Plan-les-Ouates",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T21:25:21.815Z",
+      "validThrough": "2027-01-25T09:28:19.795Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 92,
       "_qualityBreakdown": {
@@ -216,7 +215,7 @@
       "datePosted": "2026-10-27",
       "postedDate": "2026-10-27",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-17T21:25:21.815Z",
+      "crawledAt": "2026-11-18T09:28:19.795Z",
       "source": "bracco-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "ENTRY",
@@ -238,7 +237,7 @@
       "postalCode": "1003",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T21:25:21.815Z",
+      "validThrough": "2027-01-25T09:28:19.795Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 92,
       "_qualityBreakdown": {
@@ -262,7 +261,7 @@
       "datePosted": "2026-10-27",
       "postedDate": "2026-10-27",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-17T21:25:21.815Z",
+      "crawledAt": "2026-11-18T09:28:19.795Z",
       "source": "bracco-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "ENTRY",
@@ -284,7 +283,7 @@
       "postalCode": "1003",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T21:25:21.815Z",
+      "validThrough": "2027-01-25T09:28:19.795Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 92,
       "_qualityBreakdown": {
@@ -295,5 +294,5 @@
       }
     }
   ],
-  "codeCommit": "8a8594aa5e6a6b71cb0a2a3883a7ded1be40621c"
+  "codeCommit": "c09e64fc08a252ae7234edb7cb9fdea84c5eb705"
 }
