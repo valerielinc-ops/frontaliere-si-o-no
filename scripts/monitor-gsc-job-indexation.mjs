@@ -355,6 +355,16 @@ function categorize(result, pageUrl) {
   return 'FAIL';
 }
 
+/**
+ * Format the job-specific rich-result state after inspectUrl() has flattened
+ * Google's response. hasJobPostingRichResult() consumes the raw
+ * richResultsResult object; passing this flattened result back to it always
+ * reports "missing", even when inspectUrl() already found a Job postings item.
+ */
+export function jobPostingRichResultLabel(result) {
+  return result?.hasJobs ? '(Job postings ✓)' : '(Job postings missing)';
+}
+
 // ── History ─────────────────────────────────────────────────
 function loadHistory() {
   try {
@@ -651,7 +661,7 @@ async function main() {
 
     switch (category) {
       case 'PASS':
-        log('  ✅', `${shortPath} — PASS ${hasJobPostingRichResult(result) ? '(Job postings ✓)' : '(Job postings missing)'}${result.richResults === 'PASS' ? '' : ` (${result.richResults})`}`);
+        log('  ✅', `${shortPath} — PASS ${jobPostingRichResultLabel(result)}${result.richResults === 'PASS' ? '' : ` (${result.richResults})`}`);
         break;
       case 'FAIL':
         log('  ❌', `${shortPath} — FAIL (canonical: ${result.googleCanonical || 'unknown'})`);

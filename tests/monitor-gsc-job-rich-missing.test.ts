@@ -14,7 +14,7 @@ import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import ts from 'typescript';
-import { jobRichResultRegression } from '../scripts/monitor-gsc-job-indexation.mjs';
+import { jobPostingRichResultLabel, jobRichResultRegression } from '../scripts/monitor-gsc-job-indexation.mjs';
 
 const S = 'https://frontaliereticino.ch';
 
@@ -32,6 +32,13 @@ describe('jobRichResultRegression', () => {
     expect(jobRichResultRegression({ pageUrl: live, liveJob: false, result: { hasJobs: false } })).toBeNull();
     expect(jobRichResultRegression({ pageUrl: live, liveJob: true, result: { error: 'quota' } })).toBeNull();
     expect(jobRichResultRegression({ pageUrl: `${S}/cerca-lavoro-ticino/`, liveJob: true, result: { hasJobs: false } })).toBeNull();
+  });
+});
+
+describe('jobPostingRichResultLabel', () => {
+  it('uses the flattened job-specific flag instead of re-parsing the raw GSC response', () => {
+    expect(jobPostingRichResultLabel({ hasJobs: true, richResults: 'PASS' })).toBe('(Job postings ✓)');
+    expect(jobPostingRichResultLabel({ hasJobs: false, richResults: 'PASS' })).toBe('(Job postings missing)');
   });
 });
 
