@@ -1,0 +1,25 @@
+{
+  "companyKey": "camgiancorporation",
+  "companyName": "Camgian Corporation",
+  "companyHost": "camgiancorporation.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://camgiancorporation.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 22,
+  "sampleTitles": [
+    "CIO Program Coordinator",
+    "DevOps Delivery Engineer",
+    "DevSecOps AWS Architect",
+    "Executive Director, Capture Management - Golden Dome, U.S. Space Force, U.S. Air Force IAMD & Counter-UAS Markets",
+    "Executive Director, Capture Management - U.S. Space & U.S. Air Force IAMD / Space Superiority Markets"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-18T15:03:55.722Z",
+  "candidateKey": "camgiancorporation@applytojob.com"
+}

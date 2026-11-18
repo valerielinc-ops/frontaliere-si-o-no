@@ -1,0 +1,25 @@
+{
+  "companyKey": "7crew-enterprises",
+  "companyName": "7Crew Enterprises",
+  "companyHost": "7brewtxflok.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://7brewtxflok.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 55,
+  "sampleTitles": [
+    "(NEW) 7Brew Brewista N Davis Hwy",
+    "7 Brew Stand Manager - Fort Myers, FL",
+    "7 Brew Stand Manager - Leesburg, FL",
+    "7 Brew Stand Manager - Pensacola #1, FL (Davis Hwy)",
+    "7 Brew Stand Manager $55000 salary - Artesia, NM"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-18T15:04:08.186Z",
+  "candidateKey": "7brewtxflok@applytojob.com"
+}

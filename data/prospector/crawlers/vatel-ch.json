@@ -1,0 +1,27 @@
+{
+  "companyKey": "vatel-ch",
+  "companyName": "Restaurant & Hôtel Vatel",
+  "companyHost": "vatel.ch",
+  "verifiedEmployerDomain": "vatel.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.vatel.ch/en/careers/hospitality-restaurant-tourism"
+  ],
+  "detailTemplate": "/en/job-profile/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 13,
+  "sampleTitles": [
+    "Head of Promotion and Distribution in the Agri-Food Industry Do you want to combine commercial strategy with operational management in the agri-food sector? The",
+    "Tourism and Hospitality Client Manager – Banking and Finance Client Manager specializing in the tourism and hospitality industry is a relationship management pr",
+    "Manager in the Luxury Sector Whether in prestige hospitality, haute couture, or jewelry, the Manager in the Luxury Sector is an ambassador of excelle...",
+    "Hotel Management Lecturer or Consultant A Hotel Management Lecturer shares his/her expertise with students and with professionals in continuing education. Based",
+    "Entrepreneur in Hospitality and Tourism Creating and managing your own hotel, restaurant, franchise, or leisure facility requires a strong entrepreneurial spiri"
+  ],
+  "canton": "VS",
+  "sourceLang": "en",
+  "learnedAt": "2026-11-18T15:06:24.825Z",
+  "candidateKey": "restaurant-hotel-vatel@martigny"
+}

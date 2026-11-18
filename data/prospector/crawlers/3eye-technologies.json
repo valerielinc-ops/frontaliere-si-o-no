@@ -1,0 +1,21 @@
+{
+  "companyKey": "3eye-technologies",
+  "companyName": "3Eye Technologies",
+  "companyHost": "3eyetechnologies.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://3eyetechnologies.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Samsung Partnerships Lead"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-18T15:04:06.916Z",
+  "candidateKey": "3eyetechnologies@applytojob.com"
+}

@@ -1,0 +1,26 @@
+{
+  "companyKey": "ristorante-pizzeria-molino",
+  "companyName": "Ristorante Pizzeria Molino",
+  "companyHost": "jobs.migros.ch",
+  "verifiedEmployerDomain": "ospena.ch",
+  "platform": "migros.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://jobs.migros.ch/de/unsere-unternehmen/ospena-group-ag/offene-stellen"
+  ],
+  "detailTemplate": "/fr/nos-entreprises/job/pizzeria-ristorante-molino/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "Pizzeria Ristorante Molino, Ospena Group AG Chef de Service (H/​F/​D) en CDI à 90%, La Praille ‧ 90% 1212 Lancy Festanstellung (unbefristet)",
+    "Pizzeria Ristorante Molino, Ospena Group AG Pizzaiolo (H/​F/​D) en CDI à 90%, La Praille ‧ 90% 1212 Lancy Festanstellung (unbefristet)",
+    "Pizzeria Ristorante Molino, Ospena Group AG Chef de rang H/​F/​D en CDI à 60-80%, Molino Balexert ‧ 60 – 80% 1211 Genève Nebenerwerb / Auf Stundenbasis",
+    "Pizzeria Ristorante Molino, Ospena Group AG Sous-Chef de cuisine, 100% CDI Molino Balexert ‧ 100% 1211 Genève Festanstellung (unbefristet)"
+  ],
+  "canton": "VS",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-18T15:06:30.233Z",
+  "candidateKey": "ristorante-pizzeria-molino@crans-vs"
+}

@@ -1,0 +1,27 @@
+{
+  "companyKey": "unilabs",
+  "companyName": "Unilabs",
+  "companyHost": "unilabs.dvinci-hr.com",
+  "verifiedEmployerDomain": "unilabs.ch",
+  "platform": "dvinci-hr.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://unilabs.dvinci-hr.com/fr/jobs/iframe"
+  ],
+  "detailTemplate": "/fr/jobs/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 19,
+  "sampleTitles": [
+    "Assistant(e) Médical(e) - Service Client - 100%",
+    "BMA HF Mikrobiologie",
+    "BMA HF im Spitallabor 80 - 100%",
+    "Biomedizinische Analytiker/-in (BMA) Histologie",
+    "CYTOTECHNICIEN/NE"
+  ],
+  "canton": "ZH",
+  "sourceLang": "it",
+  "learnedAt": "2026-11-18T15:16:39.318Z",
+  "candidateKey": "unilabs@horgen"
+}

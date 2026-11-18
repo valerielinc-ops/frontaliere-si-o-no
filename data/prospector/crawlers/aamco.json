@@ -1,0 +1,25 @@
+{
+  "companyKey": "aamco",
+  "companyName": "AAMCO Transmissions and Total Car Care",
+  "companyHost": "aamco.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://aamco.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 105,
+  "sampleTitles": [
+    "General Automotive Technician",
+    "General Automotive Technician",
+    "General Automotive Technician",
+    "Transmission Rebuilder",
+    "Automotive Technician"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-18T15:04:10.746Z",
+  "candidateKey": "aamco@applytojob.com"
+}

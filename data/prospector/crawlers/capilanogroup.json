@@ -1,0 +1,25 @@
+{
+  "companyKey": "capilanogroup",
+  "companyName": "Capilano Group",
+  "companyHost": "capilanogroup.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://capilanogroup.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 9,
+  "sampleTitles": [
+    "F&B Supervisor",
+    "F&B Team Member",
+    "Restaurant Host",
+    "Restaurant Server",
+    "Retail Sales Associate"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-18T15:04:03.119Z",
+  "candidateKey": "capilanogroup@applytojob.com"
+}

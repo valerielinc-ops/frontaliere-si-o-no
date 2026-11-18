@@ -1,0 +1,25 @@
+{
+  "companyKey": "canartaluminumextrusion",
+  "companyName": "Can Art Aluminum Extrusion",
+  "companyHost": "canartaluminumextrusion.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://canartaluminumextrusion.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 6,
+  "sampleTitles": [
+    "Die Room Attendant",
+    "Forklift Operator",
+    "Lead Packer",
+    "Manufacturing Engineer",
+    "Millwright (433A Certified)"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-18T15:04:01.854Z",
+  "candidateKey": "canartaluminumextrusion@applytojob.com"
+}

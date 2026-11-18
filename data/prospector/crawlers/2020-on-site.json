@@ -1,0 +1,21 @@
+{
+  "companyKey": "2020-on-site",
+  "companyName": "2020 On-site",
+  "companyHost": "2020onsite.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://2020onsite.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Optometrist"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-18T15:04:05.657Z",
+  "candidateKey": "2020onsite@applytojob.com"
+}

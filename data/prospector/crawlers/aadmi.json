@@ -1,0 +1,23 @@
+{
+  "companyKey": "aadmi",
+  "companyName": "Aadmi",
+  "companyHost": "aadmi.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://aadmi.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Front-End Developer",
+    "Senior Full Stack Engineer",
+    "Technical Lead - LMS"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-18T15:04:09.461Z",
+  "candidateKey": "aadmi@applytojob.com"
+}

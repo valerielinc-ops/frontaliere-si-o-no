@@ -1,0 +1,24 @@
+{
+  "companyKey": "montela-ch",
+  "companyName": "Montela Hotel & Resort",
+  "companyHost": "montela.ch",
+  "verifiedEmployerDomain": "montela.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.montela.ch/jobs.html"
+  ],
+  "detailTemplate": "/files/content/stellen/2026/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Mehr Informationen",
+    "Mehr Informationen"
+  ],
+  "canton": "VS",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-18T15:06:27.172Z",
+  "candidateKey": "montela-hotel-resort@saas-grund"
+}

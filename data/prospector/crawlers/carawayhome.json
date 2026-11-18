@@ -1,0 +1,25 @@
+{
+  "companyKey": "carawayhome",
+  "companyName": "Caraway Home",
+  "companyHost": "carawayhome.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://carawayhome.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 6,
+  "sampleTitles": [
+    "Associate Director, Product Safety & Compliance",
+    "Caraway Crew Application",
+    "Director of Marketplaces",
+    "Manager, FP&A",
+    "Mechanical Engineer (Asia)"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-18T15:04:04.379Z",
+  "candidateKey": "carawayhome@applytojob.com"
+}

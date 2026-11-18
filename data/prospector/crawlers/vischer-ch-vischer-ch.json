@@ -1,0 +1,24 @@
+{
+  "companyKey": "vischer-ch-vischer-ch",
+  "companyName": "VISCHER AG",
+  "companyHost": "vischer.ch",
+  "verifiedEmployerDomain": "vischer.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.vischer.ch/portrait/offene-stellen/lehrstelle-kaufleute-efz-branche-d-a/"
+  ],
+  "detailTemplate": "/portrait/offene-stellen/*/",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Lehrstelle Kaufleute EFZ, D&A",
+    "Lehrstelle Zeichner/in EFZ"
+  ],
+  "canton": "ZH",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-18T15:18:39.944Z",
+  "candidateKey": "vischer@zurich"
+}
