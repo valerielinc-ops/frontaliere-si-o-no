@@ -58,6 +58,7 @@ on:
         description: 'Optional full commit SHA used as the comparison base (default: head of the latest successful daily run, else the tip itself)'
         required: false
         type: string
+        default: ''
 
 permissions:
   contents: read
@@ -113,6 +114,11 @@ jobs:
           }
           base=''
           source=''
+          # GitHub may materialize an omitted optional string input as this
+          # sentinel. It means "not supplied", not a commit to validate.
+          if [ "$INPUT_BASE_SHA" = '0000000000000000000000000000000000000001' ]; then
+            INPUT_BASE_SHA=''
+          fi
           if [ -n "$INPUT_BASE_SHA" ]; then
             if [[ ! "$INPUT_BASE_SHA" =~ $sha_re ]]; then
               echo '::error::base_sha must be a full 40-character lowercase commit SHA'
@@ -464,19 +470,38 @@ jobs:
       # lanes, and a broker whose Codex login is rejected would otherwise show
       # up as twelve `portal_replay_timeout` families. One tiny trusted request
       # (the base `ai-models.mjs`, never PR code) opens the lanes and either
-      # proves the backend usable or fails here with the cause. Two more
-      # concurrent requests measure whether the lanes really run in parallel.
+      # proves the backend usable, records an explicit provider-quota skip, or
+      # fails here with the cause. Two more concurrent requests measure whether
+      # the lanes really run in parallel.
       - name: Warm up the Codex broker and measure its lanes
+        id: broker_warmup
         env:
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.codex.outputs.codex_auth_broker_socket }}
           CODEX_BROKER_MAX_TIMEOUT_MS: ${{ steps.codex.outputs.codex_broker_max_timeout_ms }}
+          PROVIDER_STATUS_FILE: ${{ runner.temp }}/portal-replay-reports/provider-unavailable-${{ matrix.group }}.status
         run: |
           set -euo pipefail
           node --input-type=module -e '
+            import { appendFileSync, mkdirSync, writeFileSync } from "node:fs";
             import path from "node:path";
             import { pathToFileURL } from "node:url";
             const { requestCodexBrokerJson } = await import(pathToFileURL(path.resolve(".portal-base/scripts/lib/ai-models.mjs")).href);
             const schema = { type: "object", properties: { ok: { type: "boolean" } }, required: ["ok"], additionalProperties: false };
+            const quotaError = /\b(?:usage\s+limit|rate\s+limit|quota\s+(?:exhausted|exceeded)|too\s+many\s+requests)\b/iu;
+            const writeProviderStatus = (status) => {
+              const statusFile = process.env.PROVIDER_STATUS_FILE || "";
+              if (statusFile) {
+                mkdirSync(path.dirname(statusFile), { recursive: true });
+                writeFileSync(statusFile, `${status}\n`, { mode: 0o600 });
+              }
+              if (process.env.GITHUB_OUTPUT) appendFileSync(process.env.GITHUB_OUTPUT, `provider_status=${status}\n`);
+            };
+            const markQuota = (result) => {
+              if (result.ok || !quotaError.test(result.error)) return false;
+              writeProviderStatus("codex_quota");
+              console.log("::warning::Codex broker quota exhausted; portal replay deferred without issuing a portal verdict.");
+              return true;
+            };
             const ask = async () => {
               const started = Date.now();
               try {
@@ -489,10 +514,12 @@ jobs:
             let first = await ask();
             if (!first.ok) {
               console.log(`Codex broker warm-up attempt 1 failed after ${first.ms} ms: ${first.error || "unexpected answer"}`);
+              if (markQuota(first)) process.exit(0);
               await new Promise((resolve) => setTimeout(resolve, 15000));
               first = await ask();
             }
             if (!first.ok) {
+              if (markQuota(first)) process.exit(0);
               console.log(`::error::blocked: the Codex backend did not answer a minimal request (${first.error || "unexpected answer"}, ${first.ms} ms); the portal replay cannot be measured until the CODEX_AUTH_JSON login or the Codex quota is restored.`);
               process.exit(1);
             }
@@ -503,6 +530,10 @@ jobs:
             const slowest = Math.max(...results.map((item) => item.ms));
             console.log(`Codex broker lanes probe: 2 concurrent requests in ${pairMs} ms (single request ${first.ms} ms, errors: ${results.filter((item) => !item.ok).length})`);
             const failedProbes = results.filter((item) => !item.ok);
+            if (failedProbes.length && failedProbes.every((item) => quotaError.test(item.error))) {
+              markQuota(failedProbes[0]);
+              process.exit(0);
+            }
             if (failedProbes.length) {
               console.log(`::warning::Codex broker probe failed on ${failedProbes.length}/2 concurrent requests (${failedProbes[0].error || "unexpected answer"}); the broker is unhealthy under concurrency and replay results may be unmeasured.`);
             }
@@ -512,6 +543,7 @@ jobs:
           '
 
       - name: Replay portal families in parallel inside this worker
+        if: ${{ steps.broker_warmup.outputs.provider_status != 'codex_quota' }}
         env:
           ASSISTED_APPLICATION_HEADED: '1'
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.codex.outputs.codex_auth_broker_socket }}
@@ -619,7 +651,9 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: assisted-application-portal-replay-reports-${{ github.run_id }}-${{ matrix.group }}
-          path: ${{ runner.temp }}/portal-replay-reports/*.json
+          path: |
+            ${{ runner.temp }}/portal-replay-reports/*.json
+            ${{ runner.temp }}/portal-replay-reports/*.status
           if-no-files-found: ignore
           retention-days: 7
 
@@ -645,6 +679,8 @@ jobs:
     timeout-minutes: 10
     permissions:
       contents: read
+    outputs:
+      verdict_code: ${{ steps.aggregate.outputs.verdict_code }}
     steps:
       # The trusted base CLI stays the aggregator once it knows the report
       # semantics. When the base is older than the report protocol (an old
@@ -692,6 +728,7 @@ jobs:
           merge-multiple: true
 
       - name: Aggregate the daily verdict and publish the sanitized report
+        id: aggregate
         env:
           PREPARE_RUN: ${{ needs.detect.outputs.run || 'false' }}
           DETECT_RESULT: ${{ needs.detect.result }}
@@ -711,7 +748,7 @@ jobs:
           fi
           set -euo pipefail
           portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs
-          if [ -f "$portal_replay_cli" ] && grep -Fq "PORTAL_REPLAY_GATE_SEMANTICS = 'measured-baseline-v2'" "$portal_replay_cli"; then
+          if [ -f "$portal_replay_cli" ] && grep -Fq "PORTAL_REPLAY_GATE_SEMANTICS = 'measured-baseline-v3'" "$portal_replay_cli"; then
             gate_cli="$portal_replay_cli"
           else
             gate_cli=.portal-head/scripts/assisted-application/portal-replay.mjs
@@ -726,6 +763,9 @@ jobs:
             --report-dir "$REPORT_DIR" \
             --output "$RUNNER_TEMP/portal-replay-gate.json" \
             --summary "$SUMMARY_FILE"
+          verdict_code="$(jq -r '.verdict.code // empty' "$RUNNER_TEMP/portal-replay-gate.json")"
+          [[ -n "$verdict_code" ]] || { echo '::error::portal replay verdict did not publish a code'; exit 1; }
+          printf 'verdict_code=%s\n' "$verdict_code" >> "$GITHUB_OUTPUT"
 
       # The summary is for people, the JSON for the issue job (verdict code,
       # failing families and their reason codes); both are sanitized.
@@ -812,7 +852,7 @@ jobs:
       # comments on the open issue, reopens a recently closed twin instead of
       # minting a new number, and creates the label idempotently.
       - name: Open or update the daily replay issue
-        if: always() && needs.portal-replay-daily-verdict.result == 'failure'
+        if: always() && needs.portal-replay-daily-verdict.result == 'failure' && needs.portal-replay-daily-verdict.outputs.verdict_code != 'codex_quota'
         env:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
@@ -844,7 +884,7 @@ jobs:
             --require-persisted
 
       - name: Close the daily replay issue after a green verdict
-        if: needs.portal-replay-daily-verdict.result == 'success'
+        if: needs.portal-replay-daily-verdict.result == 'success' && needs.portal-replay-daily-verdict.outputs.verdict_code != 'codex_quota'
         env:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
