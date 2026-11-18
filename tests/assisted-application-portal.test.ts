@@ -6,7 +6,7 @@ import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFile
 import { verificationIsPending, verificationOutcome } from '../scripts/assisted-application/lib/portal/account.mjs';
 import { applicationStage } from '../scripts/assisted-application/lib/portal/stages.mjs';
 import { navigationInfrastructureFailure } from '../functions/src/assistedApplicationTransportRetryPolicy.js';
-import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, dialogFileInput, failedConsentRequiresHandoff, formPostingMatch, handleAuth, hasApplicationSurface, isOtpVerificationPage, isWorkdayBareLocaleSearchShell, needsPortalOptionRead, openFormSections, portalQuestionId, portalQuestionKey, portalRequirementsFromMissingRequired, postingMatch, PREREAD_CHANNELS, profileDateQuestionsCanUseProfile, profileEntriesForSection, profileEntryAnswer, removalsOf, slugId, uploadButtonCandidatesFor, uploadButtonFor, uploadTriggerKey, waitForFileRemoval, waitForNonBlankPage, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, dialogFileInput, failedConsentRequiresHandoff, formPostingMatch, handleAuth, hasApplicationSurface, isOtpVerificationPage, isWorkdayBareLocaleSearchShell, needsPortalOptionRead, openFormSections, portalQuestionId, portalQuestionKey, portalRequirementsFromMissingRequired, postingMatch, PREREAD_CHANNELS, profileDateQuestionsCanUseProfile, profileEntriesForSection, profileEntryAnswer, removalsOf, slugId, uploadButtonCandidatesFor, uploadButtonFor, uploadTriggerKey, waitForFileRemoval, waitForNonBlankPage, WAVE1_CHANNELS, workdayProfileControl } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { addressQuestionAnswer, residenceCountryCode, resolveResidenceAddress } from '../scripts/assisted-application/lib/portal/residence-address.mjs';
 import { personalValuesOf } from '../scripts/assisted-application/lib/secure-run.mjs';
 import { markOptionalAutofillDeclineInPage } from '../scripts/assisted-application/lib/portal/optional-autofill.mjs';
@@ -460,6 +460,29 @@ describe('assisted application profile history and file replacement', () => {
     expect(profileDateQuestionsCanUseProfile(candidate, [{
       type: 'date', applicationQuestion: 'To*', section: 'Work Experience', context: 'work experience marketing',
     }])).toBe(false);
+  });
+
+  it('reuses dynamic Workday endpoint and owner proof for profile date questions', () => {
+    const candidate = { profile: { experience: [
+      { role: 'First role', employer: 'First employer', start: '2020-01', end: '2022-01' },
+      { role: 'Second role', employer: 'Second employer', start: '2022-02', end: '2024-03' },
+    ] } };
+    const question = {
+      type: 'date',
+      label: '',
+      section: 'Work Experience',
+      dataAutomationId: 'formField-endDate',
+      addressContext: { owners: ['Second role'] },
+    };
+    expect(workdayProfileControl(question)).toMatchObject({
+      kind: 'experience', endpoint: 'end', owners: expect.arrayContaining(['second role']),
+    });
+    expect(profileDateQuestionsCanUseProfile(candidate, [question])).toBe(true);
+    expect(profileEntryAnswer(candidate.profile.experience[1], 'experience', question))
+      .toEqual({ value: '2024-03', source: 'profile' });
+    expect(profileDateQuestionsCanUseProfile(candidate, [{
+      type: 'date', label: '', section: 'Work Experience 2', dataAutomationId: 'formField-endDate',
+    }])).toBe(true);
   });
 
   it('does not mistake a selected Workday filename for a successful upload receipt', async () => {

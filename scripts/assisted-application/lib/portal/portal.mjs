@@ -524,32 +524,209 @@ export function profileEntriesForSection(candidate, kind) {
   });
 }
 
-/** Exact labels in an opened history row can use only that row's own profile value. */
-export function profileEntryAnswer(entry, kind, field) {
-  const label = String(field?.label || '').trim();
-  const mappings = kind === 'experience'
-    ? [[/^(?:job title|position|role)\s*[＊*]?$/i, 'role'], [/^(?:employer|company)\s*[＊*]?$/i, 'employer'], [/^(?:start date|from)\s*[＊*]?$/i, 'start'], [/^(?:end date|to)\s*[＊*]?$/i, 'end']]
-    : kind === 'education'
-      ? [[/^(?:degree|qualification)\s*[＊*]?$/i, 'degree'], [/^(?:institution|school)\s*[＊*]?$/i, 'institution'], [/^(?:start date|from)\s*[＊*]?$/i, 'start'], [/^(?:end date|to)\s*[＊*]?$/i, 'end']]
-      : [];
-  const key = mappings.find(([pattern]) => pattern.test(label))?.[1];
-  const value = key ? String(entry?.[key] || '').trim() : '';
-  return value ? { value, source: 'profile' } : null;
-}
-
 const PROFILE_DATE_FIELD_PATTERNS = [
   [/^(?:start date|from|da|von|de|à)\s*[＊*]?$/iu, 'start'],
   [/^(?:end date|to|a|bis)\s*[＊*]?$/iu, 'end'],
 ];
 
-function profileDateFieldKey(question) {
-  const label = String(question?.applicationQuestion || question?.question || '').normalize('NFKC').trim();
-  return PROFILE_DATE_FIELD_PATTERNS.find(([pattern]) => pattern.test(label))?.[1] || '';
-}
-
 function profileMatchText(value) {
   return String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
     .replace(/[^a-z0-9]+/g, ' ').trim();
+}
+
+const PROFILE_ROW_FIELD_RE = /^(?:job\s+title|position|role|company|employer|titolo\s+professionale|azienda|from|to|da|a|start\s+date|end\s+date|school(?:\s+or\s+university)?|university|institution|degree|qualification|titolo\s+di\s+studio|field\s+of\s+study|location|i\s+currently\s+work\s+here)\s*[＊*]?$/iu;
+const PROFILE_GENERIC_OWNER_RE = /^(?:work\s+experience|experience|employment\s+history|work\s+history|berufserfahrung|erfahrung|expérience|parcours\s+professionnel|esperienz[ae]|esperienza\s+lavorativa|esperienze\s+lavorative|education|academic\s+history|school|ausbildung|bildung|études|formation|educazione|istruzione|formazione|studies)(?:\s+\d+)?$/iu;
+const PROFILE_STRUCTURAL_OWNER_RE = /^(?:(?:group|section|row|form|application|control)(?:[\s_-]+\d+)?|name|formfield(?:[\s_-].*)?|(?:start|end|from|to)(?:[\s_-].*)?)$/iu;
+const PROFILE_ORDINAL_PATTERNS = {
+  experience: [
+    /\b(?:work\s+)?experience(?:\s+(?:entry|row))?\s*[-#:]?\s*(\d+)\b/iu,
+    /\b(?:work[-_\s]+)?experience[-_\s]+(?:entry[-_\s]+|row[-_\s]+)?(\d+)\b/iu,
+  ],
+  education: [
+    /\beducation(?:\s+(?:entry|row))?\s*[-#:]?\s*(\d+)\b/iu,
+    /\beducation[-_\s]+(?:entry[-_\s]+|row[-_\s]+)?(\d+)\b/iu,
+  ],
+};
+
+function profileControlValues(field, { includeValue = false } = {}) {
+  const supplied = field?.workdayProfile && typeof field.workdayProfile === 'object'
+    ? field.workdayProfile : {};
+  const label = String(field?.label || field?.applicationQuestion || field?.question || supplied.label || '').trim();
+  const profileLabel = PROFILE_ROW_FIELD_RE.test(label)
+    && !PROFILE_DATE_FIELD_PATTERNS.some(([pattern]) => pattern.test(label));
+  return [
+    supplied.section,
+    supplied.profileSection,
+    supplied.sectionGroup,
+    supplied.rowOwner,
+    supplied.owner,
+    ...(Array.isArray(supplied.owners) ? supplied.owners : []),
+    field?.profileSection,
+    field?.profileRow,
+    field?.profileRowOwner,
+    field?.rowOwner,
+    field?.owner,
+    field?.sectionGroup,
+    field?.sectionGroupId,
+    field?.addressContext?.section,
+    ...(Array.isArray(field?.addressContext?.owners) ? field.addressContext.owners : []),
+    field?.context,
+    field?.section,
+    field?.controlId,
+    field?.semanticId,
+    field?.dataAutomationId,
+    field?.name,
+    ...(includeValue || profileLabel ? [field?.value, label] : []),
+  ].flatMap((value) => String(value || '').split(/\s*[·|]\s*/u));
+}
+
+function profileControlStructuralValues(field) {
+  const supplied = field?.workdayProfile && typeof field.workdayProfile === 'object'
+    ? field.workdayProfile : {};
+  return [
+    supplied.section,
+    supplied.profileSection,
+    supplied.sectionGroup,
+    ...(Array.isArray(supplied.owners) ? supplied.owners : []),
+    field?.profileSection,
+    field?.sectionGroup,
+    field?.addressContext?.section,
+    ...(Array.isArray(field?.addressContext?.owners) ? field.addressContext.owners : []),
+    field?.context,
+    field?.section,
+    field?.controlId,
+    field?.semanticId,
+    field?.dataAutomationId,
+    field?.name,
+  ].flatMap((value) => String(value || '').split(/\s*[·|]\s*/u));
+}
+
+function profileControlEndpoint(field) {
+  const supplied = String(field?.workdayProfile?.endpoint || '').trim().toLowerCase();
+  if (supplied === 'start' || supplied === 'end') return supplied;
+  const widget = String(field?.widget || '').trim().toLowerCase();
+  const inputType = String(field?.inputType || '').trim().toLowerCase();
+  const dateLike = widget === 'workday-date' || inputType === 'date' || field?.kind === 'date' || field?.type === 'date';
+  const values = [
+    field?.label,
+    field?.applicationQuestion,
+    field?.question,
+    field?.workdayProfile?.label,
+    ...(dateLike ? [field?.name, field?.dataAutomationId, field?.controlId, field?.semanticId] : []),
+  ].map((value) => String(value || '').normalize('NFKC').trim()).filter(Boolean);
+  for (const value of values) {
+    const exact = PROFILE_DATE_FIELD_PATTERNS.find(([pattern]) => pattern.test(value))?.[1];
+    if (exact) return exact;
+  }
+  if (!dateLike) return '';
+  for (const value of values) {
+    if (/(?:^|[-_\s])(?:start|from)(?:[-_\s]?date)?(?:$|[-_\s])/iu.test(value)) return 'start';
+    if (/(?:^|[-_\s])(?:end|to)(?:[-_\s]?date)?(?:$|[-_\s])/iu.test(value)) return 'end';
+  }
+  return '';
+}
+
+function profileControlKind(field, requestedKind, values) {
+  const supplied = String(field?.workdayProfile?.kind || '').trim().toLowerCase();
+  const inferred = [...new Set(values.map(profileSectionKind).filter(Boolean))];
+  const kind = supplied || requestedKind || (inferred.length === 1 ? inferred[0] : '');
+  if (!['experience', 'education'].includes(kind)) return '';
+  if (requestedKind && requestedKind !== kind) return '';
+  if (inferred.some((candidate) => candidate !== kind)) return '';
+  return kind;
+}
+
+function profileControlOrdinal(field, kind, values) {
+  const supplied = Number(field?.workdayProfile?.ordinal ?? field?.profileRowOrdinal ?? field?.rowOrdinal);
+  const candidates = [];
+  if (Number.isSafeInteger(supplied) && supplied > 0) candidates.push(supplied);
+  for (const value of values) {
+    for (const pattern of PROFILE_ORDINAL_PATTERNS[kind] || []) {
+      const match = pattern.exec(String(value || ''));
+      if (match) candidates.push(Number(match[1]));
+    }
+  }
+  const unique = [...new Set(candidates.filter((value) => Number.isSafeInteger(value) && value > 0))];
+  return unique.length === 1 ? unique[0] : 0;
+}
+
+function profileControlOwners(field, endpoint, values) {
+  const normalizedLabel = profileMatchText(field?.label || field?.applicationQuestion || field?.question || field?.workdayProfile?.label);
+  return [...new Set(values.map((value) => profileMatchText(value)).filter(Boolean))]
+    .filter((value) => value !== normalizedLabel
+      && !PROFILE_GENERIC_OWNER_RE.test(value)
+      && !(endpoint && PROFILE_DATE_FIELD_PATTERNS.some(([pattern]) => pattern.test(value))));
+}
+
+/**
+ * Normalize Workday's profile-control proof once. Workday can replace a date
+ * wrapper after the row controls rendered, so every consumer must use the
+ * same kind, ordinal, endpoint and owner evidence instead of rebuilding it
+ * from a possibly different label or array position.
+ */
+export function workdayProfileControl(field, requestedKind = '', { includeValue = false } = {}) {
+  const values = profileControlValues(field, { includeValue });
+  const structuralValues = profileControlStructuralValues(field);
+  const kind = profileControlKind(field, requestedKind, structuralValues);
+  const endpoint = profileControlEndpoint(field);
+  const ordinal = kind ? profileControlOrdinal(field, kind, structuralValues) : 0;
+  return {
+    kind,
+    ordinal,
+    endpoint,
+    owners: profileControlOwners(field, endpoint, values),
+    label: String(field?.label || field?.applicationQuestion || field?.question || field?.workdayProfile?.label || '')
+      .normalize('NFKC').trim().slice(0, 240),
+  };
+}
+
+function profileDateFieldKey(question) {
+  return workdayProfileControl(question).endpoint;
+}
+
+function profileControlMatchesEntry(control, kind, entry) {
+  const title = kind === 'experience' ? entry?.role : entry?.degree;
+  const organization = kind === 'experience' ? entry?.employer : entry?.institution;
+  return [title, organization].some((value) => control.owners.some((owner) => profileScopeHasValue(owner, value)));
+}
+
+function profileEntryForControl(candidate, control, kind = control?.kind) {
+  if (!['experience', 'education'].includes(kind)) return null;
+  const source = Array.isArray(candidate?.profile?.[kind]) ? candidate.profile[kind] : [];
+  const hasIdentity = (entry) => {
+    const title = kind === 'experience' ? entry?.role : entry?.degree;
+    const organization = kind === 'experience' ? entry?.employer : entry?.institution;
+    return Boolean(String(title || '').trim() && String(organization || '').trim());
+  };
+  if (control?.ordinal > 0) {
+    const entry = source[control.ordinal - 1];
+    if (!hasIdentity(entry)) return null;
+    const semanticOwners = control.owners.filter((owner) => !PROFILE_STRUCTURAL_OWNER_RE.test(owner));
+    return semanticOwners.length && !profileControlMatchesEntry(control, kind, entry) ? null : entry;
+  }
+  const matching = source.filter((entry) => hasIdentity(entry) && profileControlMatchesEntry(control, kind, entry));
+  return matching.length === 1 ? matching[0] : null;
+}
+
+/** Exact labels in an opened history row can use only that row's own profile value. */
+export function profileEntryAnswer(entry, kind, field) {
+  const control = workdayProfileControl(field, kind);
+  const label = control.label;
+  const mappings = kind === 'experience'
+    ? [[/^(?:job title|position|role)\s*[＊*]?$/iu, 'role'], [/^(?:employer|company)\s*[＊*]?$/iu, 'employer'], [/^(?:start date|from)\s*[＊*]?$/iu, 'start'], [/^(?:end date|to)\s*[＊*]?$/iu, 'end']]
+    : kind === 'education'
+      ? [[/^(?:degree|qualification)\s*[＊*]?$/iu, 'degree'], [/^(?:institution|school)\s*[＊*]?$/iu, 'institution'], [/^(?:start date|from)\s*[＊*]?$/iu, 'start'], [/^(?:end date|to)\s*[＊*]?$/iu, 'end']]
+      : [];
+  const key = control.endpoint || mappings.find(([pattern]) => pattern.test(label))?.[1];
+  const value = key ? String(entry?.[key] || '').trim() : '';
+  return value ? { value, source: 'profile' } : null;
+}
+
+function profileAnswerForWorkdayControl(candidate, field) {
+  const control = workdayProfileControl(field);
+  if (!control.kind) return null;
+  const entry = profileEntryForControl(candidate, control);
+  return entry ? profileEntryAnswer(entry, control.kind, field) : null;
 }
 
 function profileScopeHasValue(scope, value) {
@@ -568,36 +745,12 @@ export function profileDateQuestionsCanUseProfile(candidate, questions) {
   if (!Array.isArray(questions) || !questions.length) return false;
   return questions.every((question) => {
     if (question?.type !== 'date') return false;
-    const key = profileDateFieldKey(question);
-    const scope = [
-      question?.context,
-      question?.section,
-      question?.profileSection,
-      question?.sectionGroup,
-      ...(Array.isArray(question?.addressContext?.owners) ? question.addressContext.owners : []),
-    ]
-      .map(profileMatchText).filter(Boolean).join(' ');
-    const kind = profileSectionKind(scope);
-    if (!key || !kind) return false;
-    const entries = (Array.isArray(candidate?.profile?.[kind]) ? candidate.profile[kind] : []).filter((entry) => {
-      const title = kind === 'experience' ? entry?.role : entry?.degree;
-      const organization = kind === 'experience' ? entry?.employer : entry?.institution;
-      return Boolean(profileMatchText(title) && profileMatchText(organization));
-    });
-    if (!entries.length) return false;
-    const matching = entries.filter((entry) => {
-      const title = kind === 'experience' ? entry?.role : entry?.degree;
-      const organization = kind === 'experience' ? entry?.employer : entry?.institution;
-      return [title, organization].map(profileMatchText)
-        .some((value) => profileScopeHasValue(scope, value));
-    });
-    if (matching.length === 1) return Boolean(String(matching[0]?.[key] || '').trim());
-    if (matching.length > 1) return false;
-    return false;
+    const control = workdayProfileControl(question);
+    const key = control.endpoint || profileDateFieldKey(question);
+    const entry = profileEntryForControl(candidate, control);
+    return Boolean(key && entry && String(entry?.[key] || '').trim());
   });
 }
-
-const PROFILE_ROW_FIELD_RE = /^(?:job\s+title|company|employer|titolo\s+professionale|azienda|from|to|da|a|start\s+date|end\s+date|school(?:\s+or\s+university)?|university|institution|degree|titolo\s+di\s+studio|field\s+of\s+study|location|i\s+currently\s+work\s+here)\s*[＊*]?$/i;
 
 /**
  * Block sending Workday Work Experience / Education row fields (Job Title*,
@@ -607,17 +760,19 @@ const PROFILE_ROW_FIELD_RE = /^(?:job\s+title|company|employer|titolo\s+professi
 export function profileSectionQuestionsOwnedByCv(candidate, questions) {
   if (!Array.isArray(questions) || !questions.length) return false;
   return questions.every((question) => {
-    const label = String(question?.applicationQuestion || question?.question || '').trim();
-    if (!PROFILE_ROW_FIELD_RE.test(label)) return false;
+    const control = workdayProfileControl(question);
+    const label = control.label;
+    if (!PROFILE_ROW_FIELD_RE.test(label) && !control.endpoint) return false;
     const scope = [
       question?.context,
       question?.section,
       question?.profileSection,
       question?.sectionGroup,
       ...(Array.isArray(question?.addressContext?.owners) ? question.addressContext.owners : []),
+      ...control.owners,
     ].map(profileMatchText).filter(Boolean).join(' ');
     if (/\b(?:work\s+)?experience\b/i.test(scope) && /\beducation\b/i.test(scope)) return false;
-    const kind = profileSectionKind(scope);
+    const kind = control.kind || profileSectionKind(scope);
     if (!kind) return false;
     return Array.isArray(candidate?.profile?.[kind]) && candidate.profile[kind].length > 0;
   });
@@ -6299,6 +6454,16 @@ const portalQuestionMetadata = field => {
     : [];
   if (labels.length) metadata.labels = labels.map(value => value.slice(0, 600));
   if (field?.privacyMetadataIncomplete === true) metadata.privacyMetadataIncomplete = true;
+  const profileControl = workdayProfileControl(field);
+  if (profileControl.kind && (profileControl.endpoint || profileControl.ordinal > 0 || profileControl.owners.length)) {
+    metadata.workdayProfile = {
+      kind: profileControl.kind,
+      ordinal: profileControl.ordinal,
+      endpoint: profileControl.endpoint,
+      owners: profileControl.owners.slice(0, 12),
+      label: profileControl.label,
+    };
+  }
   return metadata;
 };
 
@@ -8841,8 +9006,15 @@ const PROFILE_SAVE_RE = /^(?:save|speichern|enregistrer|sauvegarder|salva|salvar
 const PROFILE_CANCEL_RE = /^(?:cancel|abbrechen|annuler|annulla|delete|remove|löschen|loeschen|entfernen|supprimer|elimina|rimuovi)\b/i;
 const PROFILE_INLINE_ROW_RE = /^(?:delete|remove|löschen|loeschen|entfernen|supprimer|elimina|rimuovi|add another|weitere hinzufügen|ajouter une autre|aggiungi un altro)\b/i;
 
+function profileFieldWithControl(field, kind) {
+  if (!field || typeof field !== 'object') return field;
+  const control = workdayProfileControl(field, kind);
+  if (control.kind === kind) field.workdayProfile = control;
+  return field;
+}
+
 function profileFields(snapshot, kind) {
-  return (snapshot.fields || []).filter((field) => profileSectionKind(`${field.section || ''} ${field.label || ''}`) === kind);
+  return (snapshot.fields || []).filter((field) => profileFieldWithControl(field, kind)?.workdayProfile?.kind === kind);
 }
 
 function profileButtons(snapshot, kind, pattern) {
@@ -8863,48 +9035,15 @@ async function waitForProfileFields(page, kind, beforeIds, timeoutMs = 10_000) {
 }
 
 function inlineProfileRowOrdinal(field, kind) {
-  const scope = [
-    field?.section,
-    field?.context,
-    ...(Array.isArray(field?.addressContext?.owners) ? field.addressContext.owners : []),
-  ].filter(Boolean).join(' ');
-  const pattern = kind === 'education'
-    ? /\beducation\s+(\d+)\b/i
-    : /\b(?:work\s+)?experience\s+(\d+)\b/i;
-  const match = pattern.exec(scope);
-  return match ? Number(match[1]) : 0;
+  return workdayProfileControl(field, kind).ordinal;
 }
 
 function inlineProfileDateEndpoint(field) {
-  const widget = String(field?.widget || '').trim().toLowerCase();
-  const inputType = String(field?.inputType || '').trim().toLowerCase();
-  if (widget && widget !== 'workday-date') return '';
-  if (!widget && inputType !== 'date' && field?.kind !== 'date') return '';
-  const label = String(field?.label || '').trim();
-  if (/^(?:start date|from)\s*[＊*]?$/i.test(label)) return 'start';
-  if (/^(?:end date|to)\s*[＊*]?$/i.test(label)) return 'end';
-  return '';
+  return workdayProfileControl(field).endpoint;
 }
 
-const INLINE_PROFILE_GENERIC_OWNER_RE = /^(?:work\s+experience|experience|employment\s+history|work\s+history|education|academic\s+history|studies)(?:\s+\d+)?$/i;
-
 function inlineProfileOwnerTokens(field, includeValue = false) {
-  const endpoint = inlineProfileDateEndpoint(field);
-  const values = [
-    field?.rowOwner,
-    field?.owner,
-    field?.sectionGroupId,
-    field?.addressContext?.section,
-    ...(Array.isArray(field?.addressContext?.owners) ? field.addressContext.owners : []),
-    field?.context,
-    field?.section,
-    ...(includeValue ? [field?.value, field?.label] : []),
-  ];
-  return [...new Set(values.flatMap((value) => String(value || '').split(/\s*[·|]\s*/u)))]
-    .map((value) => value.normalize('NFKC').replace(/\s+/gu, ' ').trim().toLowerCase())
-    .filter((value) => value && value !== String(field?.label || '').trim().toLowerCase()
-      && !INLINE_PROFILE_GENERIC_OWNER_RE.test(value)
-      && (!endpoint || !/^(?:start date|end date|from|to)\s*[＊*]?$/i.test(value)));
+  return workdayProfileControl(field, '', { includeValue }).owners;
 }
 
 /**
@@ -11055,6 +11194,7 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
   };
   for (const item of Array.isArray(missingRequired) ? missingRequired : []) {
     const field = fieldFor(item);
+    const profileAnswer = candidate && field ? profileAnswerForWorkdayControl(candidate, field) : null;
     // Candidate questions are for facts the runner cannot already supply.
     // A value prefilled by the ATS is not candidate confirmation; suppress a
     // planner question only when the candidate's own data supplies an answer.
@@ -11063,7 +11203,8 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
       ? candidateAnswerForField(candidate, field, {
         includeProfileWorkPermit: !(isPermitField(field.label) && asksHeldStatus(field.label)),
       }) : null;
-    if (field && field.invalid !== true && String(candidateAnswer?.value ?? '').trim()) continue;
+    if (field && field.invalid !== true
+      && (String(candidateAnswer?.value ?? '').trim() || String(profileAnswer?.value ?? '').trim())) continue;
     mergeRequired(item);
   }
   // Keep the planner's order when a deterministic candidate requirement
@@ -11071,6 +11212,8 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
   // a generic work-authorisation prompt). Candidate-only requirements are
   // appended after the planner's explicit missing fields.
   for (const item of candidateRequirements.questions) {
+    const field = fieldFor(item);
+    if (field && field.invalid !== true && String(profileAnswerForWorkdayControl(candidate, field)?.value ?? '').trim()) continue;
     mergeRequired(item, { preferIncoming: true });
   }
   const fieldIndexes = new Map(availableFields.map((field, index) => [field, index]));

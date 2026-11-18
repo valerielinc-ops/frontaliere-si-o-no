@@ -60,6 +60,22 @@ describe('portal field extraction', () => {
     expect(plannerFields.find((field: any) => field.label === 'Type to Add Skills')).toMatchObject({ name: 'skills' });
   });
 
+  it('keeps Workday date-wrapper ownership metadata when its label is redrawn', () => {
+    const snapshot = extract(`<form><fieldset><legend>Work Experience 2</legend>
+      <div data-automation-id="dateInputWrapper"><div data-automation-id="formField-startDate">
+        <input role="spinbutton" aria-label="Month" value="3">
+        <input role="spinbutton" aria-label="Year" value="2024">
+      </div></div>
+    </fieldset></form>`);
+    const field = snapshot.fields.find((item: any) => item.widget === 'workday-date');
+    expect(field).toMatchObject({
+      label: 'From*',
+      section: 'Work Experience 2',
+      dataAutomationId: 'formField-startDate',
+      value: '03/2024',
+    });
+  });
+
   it('binds the complete Pinpoint applicant address cluster and preserves its form controls', () => {
     const form = `<form>
       <button type="button">Remove</button>

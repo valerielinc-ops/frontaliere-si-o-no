@@ -1192,7 +1192,8 @@ function nativeQuestionText(value, counter = null) {
     if (!readable(wrapper) || wrapper.closest(datePickerSelector)) continue;
     const spins = [...wrapper.querySelectorAll('[role="spinbutton"]')];
     if (!spins.length) continue;
-    const formField = wrapper.closest('[data-automation-id*="formField"]');
+    const formField = wrapper.closest('[data-automation-id*="formField"]')
+      || wrapper.querySelector('[data-automation-id*="formField"]');
     const formLabel = clean(formField?.querySelector('label, [data-automation-id*="Label"]')?.textContent || '');
     const rawLabel = formLabel || clean(labelFor(wrapper));
     const rawId = `${wrapper.id || ''} ${formField?.getAttribute('data-automation-id') || ''}`;
@@ -1222,9 +1223,12 @@ function nativeQuestionText(value, counter = null) {
       ...dialogMeta(wrapper),
       inputType: 'date',
       name: clean(wrapper.getAttribute('name') || ''),
+      ...semanticIdentifiers(wrapper),
+      dataAutomationId: clean(formField?.getAttribute('data-automation-id') || wrapper.getAttribute('data-automation-id') || ''),
       label,
       context: sectionContext(wrapper),
       addressContext: ownedAddressContext(wrapper),
+      section: headingBefore(wrapper),
       required,
       value: mm && yyyy ? `${mm.padStart(2, '0')}/${yyyy}` : '',
       search: false,
