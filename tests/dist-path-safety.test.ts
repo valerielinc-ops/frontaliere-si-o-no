@@ -11,7 +11,7 @@ import {
   MAX_FILESYSTEM_SEGMENT_BYTES,
   writeDistPageSafely,
 } from '../build-plugins/shared/distPathSafety';
-import { isRetainedBridgePathSafeToEmit } from '../build-plugins/shared/jobCanonBridgePaths';
+import { assertRetainedBridgeMissingBudget, classifyRetainedNotEmitted, isRetainedBridgePathSafeToEmit } from '../build-plugins/shared/jobCanonBridgePaths';
 import {
   claim,
   getJobAliasRedirectDirs,
@@ -388,5 +388,39 @@ describe('raw URL-to-dist writers apply the guard before filesystem joins', () =
     expect(JOBS_SOURCE).toContain('const pathWasClaimed = (filePath: string): boolean => hasClaimedPath(filePath);');
     expect(JOBS_SOURCE).toContain('const pathIsClaimedOrReserved = (filePath: string): boolean => hasClaimedOrReservedPath(filePath);');
     expect(JOBS_SOURCE).toContain('const isSelfHealTrackingPathClaimed = (relativePath: string): boolean => pathWasClaimed(');
+  });
+});
+
+describe('assertRetainedBridgeMissingBudget', () => {
+  it('accepts gaps within max(25, 1%) of the retained bridges', () => {
+    expect(() => assertRetainedBridgeMissingBudget(0, 0)).not.toThrow();
+    expect(() => assertRetainedBridgeMissingBudget(25, 100)).not.toThrow();
+    expect(() => assertRetainedBridgeMissingBudget(48, 4800)).not.toThrow();
+  });
+
+  it('rejects a systemic gap and reports the numbers', () => {
+    expect(() => assertRetainedBridgeMissingBudget(26, 100)).toThrow(/missing=26.*budget=25/);
+    expect(() => assertRetainedBridgeMissingBudget(49, 4800)).toThrow(/missing=49.*budget=48/);
+  });
+});
+
+describe('retained bridge budget denominator and ownership classification', () => {
+  it('uses only the eligible retained total: 26 missing of 100 eligible exceeds budget=25', () => {
+    // Retained bridges of locales excluded by shouldEmitLocale() must not be passed as the total.
+    expect(() => assertRetainedBridgeMissingBudget(26, 100)).toThrow(/budget=25/);
+    expect(() => assertRetainedBridgeMissingBudget(26, 10_100)).not.toThrow();
+  });
+
+  it('counts an existing but unclaimed file as missing, never as owned elsewhere', () => {
+    const results = Array.from({ length: 26 }, () => classifyRetainedNotEmitted({ claimed: false, ownedBeforePlan: false, exists: true }));
+    expect(results.filter((r) => r.kind === 'missing')).toHaveLength(26);
+    expect(results.filter((r) => r.kind === 'owned-elsewhere')).toHaveLength(0);
+    expect(results[0].flag).toBe('unclaimed-existing');
+    expect(classifyRetainedNotEmitted({ claimed: false, ownedBeforePlan: false, exists: false })).toEqual({ kind: 'missing', flag: 'absent' });
+  });
+
+  it('treats a claimed path or one owned before the plan as owned elsewhere', () => {
+    expect(classifyRetainedNotEmitted({ claimed: true, ownedBeforePlan: false, exists: true }).kind).toBe('owned-elsewhere');
+    expect(classifyRetainedNotEmitted({ claimed: false, ownedBeforePlan: true, exists: false }).kind).toBe('owned-elsewhere');
   });
 });
