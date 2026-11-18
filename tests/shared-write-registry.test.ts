@@ -24,6 +24,8 @@ import {
  isJobAliasRedirectPath,
  hasClaimedPath,
  hasClaimedOrReservedPath,
+ isRetainedJobBridgeOutputPath,
+ getClaimingPlugin,
  WriteCollisionError,
  DistPathCollisionError,
 } from '@/build-plugins/sharedWriteRegistry';
@@ -116,6 +118,48 @@ describe('sharedWriteRegistry', () => {
   '<html>second bridge attempt</html>',
  )).toBe('skip-write');
  expect(getPathHistory().get(indexPath)).toHaveLength(1);
+ });
+
+ it('isRetainedJobBridgeOutputPath is true only for reserved bridge outputs', () => {
+ const pageDir = path.resolve(os.tmpdir(), 'retained-bridge-predicate', 'jobs', 'old-route');
+ const otherDir = path.resolve(os.tmpdir(), 'retained-bridge-predicate', 'jobs', 'other');
+ expect(isRetainedJobBridgeOutputPath(path.join(pageDir, 'index.html'))).toBe(false);
+ reserveRetainedJobBridgeDir(pageDir);
+ expect(isRetainedJobBridgeOutputPath(path.join(pageDir, 'index.html'))).toBe(true);
+ expect(isRetainedJobBridgeOutputPath(`${pageDir}.html`)).toBe(true);
+ expect(isRetainedJobBridgeOutputPath(path.join(otherDir, 'index.html'))).toBe(false);
+ expect(isRetainedJobBridgeOutputPath(`${otherDir}.html`)).toBe(false);
+ // A plain claim by another writer is not a retained bridge.
+ const claimed = path.join(otherDir, 'index.html');
+ claim(claimed, 'some-writer', '<html>x</html>');
+ expect(hasClaimedPath(claimed)).toBe(true);
+ expect(isRetainedJobBridgeOutputPath(claimed)).toBe(false);
+ expect(getClaimingPlugin(claimed)).toBe('some-writer');
+ expect(getClaimingPlugin(path.join(pageDir, 'nope.html'))).toBeUndefined();
+ });
+
+ it('a declared winner gets allow-write even over a prior claim; concurrent writers get skip-write', () => {
+ const hub = path.resolve(os.tmpdir(), 'recency-decl-fixture', 'en', 'find-jobs-ticino', 'last-3-days');
+ const indexPath = path.join(hub, 'index.html');
+ const flatPath = `${hub}.html`;
+ try {
+  declareSharedPath({
+   pattern: /recency-decl-fixture\/en\/find-jobs-ticino\/last-3-days(\/index\.html|\.html)$/,
+   winner: 'job-recency-pages',
+   reason: 'test fixture',
+  });
+  // A concurrent writer claimed first with different content.
+  expect(claim(indexPath, 'other-writer', '<html>other</html>')).toBe('allow-write');
+  expect(claim(indexPath, 'job-recency-pages', '<html>recency</html>')).toBe('allow-write');
+  expect(getClaimingPlugin(indexPath)).toBe('job-recency-pages');
+  // The flat output is claimed by the winner first, then a concurrent writer is suppressed.
+  expect(claim(flatPath, 'job-recency-pages', '<html>recency</html>')).toBe('allow-write');
+  expect(claim(flatPath, 'other-writer', '<html>other-2</html>')).toBe('skip-write');
+  expect(claim(indexPath, 'other-writer', '<html>other-3</html>')).toBe('skip-write');
+  expect(getClaimingPlugin(flatPath)).toBe('job-recency-pages');
+ } finally {
+  clearDeclarationsForTest();
+ }
  });
 
  it('idempotent re-claim with identical content returns skip-write (no error)', () => {
