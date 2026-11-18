@@ -379,7 +379,7 @@ describe('jobsSeoPages disk-backed HTML retention', () => {
     expect(phaseEnd).toBeGreaterThan(loopStart);
     expect(bridgeLoop).not.toContain('bridgeFlatHtml');
     expect(bridgeLoop).toContain('bridgeIndexHtml = noindexJobAliasHtml(cachedHtml.replace');
-    expect(bridgeLoop).toContain('if (isRetainedActiveBridgePath(locale, oldPath)) {');
+    expect(bridgeLoop).toContain("if (isRetainedActiveBridgePath(locale, oldPath, 'previousSlug')) {");
     expect(bridgeLoop).toContain('const PREVIOUS_SLUG_BRIDGE_YIELD_INTERVAL = 32;');
     expect(bridgeLoop.match(/if \(shouldYieldPreviousSlugBridgeWrites\(\)\) await yieldPreviousSlugBridgeWrites\(\);/g)).toHaveLength(2);
     const drainIndex = bridgeLoop.indexOf('await collector.awaitDrainSlot(2);');
