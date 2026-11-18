@@ -1,7 +1,7 @@
 {
   "crawlerKey": "sulzer",
-  "assembledAt": "2026-11-17T21:48:04.857Z",
-  "runId": "44179211698",
+  "assembledAt": "2026-11-18T09:26:36.580Z",
+  "runId": "44275159212",
   "jobs": [
     {
       "id": "sulzer-7bb36661ae73",
@@ -34,7 +34,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/HR-Administration---Payroll-Manager_JR102620",
       "source": "Sulzer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:47:53.330Z",
+      "crawledAt": "2026-11-18T09:26:26.813Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -78,7 +78,7 @@
       "postalCode": "8400",
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-31T21:47:53.330Z",
+      "validThrough": "2026-12-31T09:26:26.813Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -112,7 +112,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/Digital-Internal-Communications-Working-Student--Trainee-_JR105047",
       "source": "Sulzer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:47:52.579Z",
+      "crawledAt": "2026-11-18T09:26:26.115Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -162,7 +162,7 @@
       "postalCode": "8400",
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T21:47:52.579Z",
+      "validThrough": "2027-01-04T09:26:26.115Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -197,7 +197,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/Legal-Assistant---Paralegal_JR105145-1",
       "source": "Sulzer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:47:51.908Z",
+      "crawledAt": "2026-11-18T09:26:25.412Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -249,7 +249,7 @@
       "postalCode": "8400",
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-07T21:47:51.908Z",
+      "validThrough": "2027-01-07T09:26:25.412Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -284,7 +284,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/Machine-Diagnostics-Engineer_JR103447-1",
       "source": "Sulzer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:47:36.060Z",
+      "crawledAt": "2026-11-18T09:26:14.587Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -327,7 +327,7 @@
       "postalCode": "8400",
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T21:47:36.060Z",
+      "validThrough": "2027-01-21T09:26:14.587Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -362,7 +362,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/ICT-Supporter_JR105348",
       "source": "Sulzer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:47:25.290Z",
+      "crawledAt": "2026-11-18T09:26:13.825Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -416,7 +416,7 @@
       "postalCode": "8400",
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T21:47:25.290Z",
+      "validThrough": "2027-01-24T09:26:13.825Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -451,7 +451,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/Accounting-Manager_JR104998",
       "source": "Sulzer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:47:13.467Z",
+      "crawledAt": "2026-11-18T09:26:13.128Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -505,15 +505,15 @@
       "postalCode": "8400",
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T21:47:13.467Z",
+      "validThrough": "2027-02-07T09:26:13.128Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "sulzer-5a393d54cc43",
       "slug": "responsabile-della-strategia-e-della-trasformazione-del-portafoglio-sulzer-winterthur",
       "slugByLocale": {
-        "en": "portfolio-strategy-transformation-lead-sulzer-ch",
         "it": "responsabile-della-strategia-e-della-trasformazione-del-portafoglio-sulzer-winterthur",
+        "en": "portfolio-strategy-transformation-lead-sulzer-ch",
         "de": "portfoliostrategie-und-transformation-lead-sulzer-winterthur",
         "fr": "strategie-du-portefeuille-et-transformation-chef-de-file-sulzer-winterthur"
       },
@@ -522,15 +522,15 @@
       "companyDomain": "sulzer.com",
       "title": "Portfolio Strategy & Transformation Lead",
       "titleByLocale": {
-        "en": "Portfolio Strategy & Transformation Lead",
         "it": "Responsabile della strategia e della trasformazione del portafoglio",
+        "en": "Portfolio Strategy & Transformation Lead",
         "de": "Portfoliostrategie und Transformation Lead",
         "fr": "Stratégie du portefeuille et transformation Chef de file"
       },
       "description": "Sulzer is a leading engineering company with a proud heritage of innovation. Join our global team to grow your expertise and develop innovative solutions that enable a prosperous and more sustainable society.\n\nAbout the role\n\nWe are looking for a Portfolio Strategy & Transformation Lead (100%) to join our Global Portfolio Management team within the Flow division in Switzerland. In this high-impact role, you will help transform portfolio management into a strategic business capability across the Water & Industrial Business Unit (WIBU), enabling data-driven decision-making, profitable growth, and long-term portfolio optimization.\n\nYou will establish portfolio governance, performance transparency, product hierarchy ownership, lifecycle management practices, and strategic portfolio steering processes. Working across functions and senior stakeholder groups, you will play a key role in shaping the future direction of our portfolio and driving business transformation.\n\nYour main tasks and responsibilities:\n\n• Own and evolve the Product Hierarchy framework by driving the WIBU Product Hierarchy program, ensuring clear ownership, consistent product classification, improved master data quality, and successful milestone delivery.\n\n• Establish portfolio performance management capabilities , including KPI frameworks, dashboards, reporting standards, and review mechanisms that provide reliable product-level business insights and transparency.\n\n• Drive strategic portfolio steering by developing and facilitating portfolio review processes that support investment decisions, lifecycle management, portfolio optimization, resource allocation, and growth initiatives.\n\n• Generate market, competitive, and portfolio intelligence by consolidating insights on market trends, customer needs, competitive developments, portfolio gaps, and emerging business opportunities in collaboration with segment, product management, and development teams.\n\n• Lead portfolio transformation initiatives related to portfolio governance, lifecycle excellence, digitalization, product master data, performance and pricing management, and process harmonization across the organization.\n\n• Act as a trusted partner to senior leaders, enabling fact-based portfolio decisions and fostering a culture of transparency, accountability, and continuous improvement.\n\nTo succeed in this role, you will need:\n\n• Master's degree in Business Administration, Engineering, Economics, or a related field; an MBA is a strong plus.\n\n• 5-8 years of experience in portfolio management, strategy, business transformation, product management, or a related function within an industrial or manufacturing environment.\n\n• Strong strategic and analytical capabilities, with the ability to translate complex market, portfolio, and business data into actionable recommendations.\n\n• Experience driving cross-functional transformation initiatives involving product management, commercial functions, operations, R&D, and senior leadership.\n\n• Strong change management and project management skills with a track record of driving business improvement and transformation.\n\n• Digital mindset with experience using analytics and reporting tools to drive performance management and business insights.\n\n• Fluent in English; additional languages are an advantage.\n\nWhat we offer you\n\n• An innovative, vibrant and agile culture\n\n• Excellent social benefits (holidays, pension fund etc.)\n\n• Access to a wide range of discounts on Everyday Shopping, Entertainment and Lifestyle\n\n• Central workplace, only 5 minutes from Winterthur train station\n\nSulzer is an equal opportunity employer. We believe in the strength of a diverse workforce and are committed to offering an inclusive work environment.\n\nWe are proud to be recognized as a Top Employer 2026 in Brazil, Canada, China, Finland, Germany, Ireland, Mexico, Switzerland, South Africa, the UK and the USA.",
       "descriptionByLocale": {
-        "en": "Sulzer is a leading engineering company with a proud heritage of innovation. Join our global team to grow your expertise and develop innovative solutions that enable a prosperous and more sustainable society.\n\nAbout the role\n\nWe are looking for a Portfolio Strategy & Transformation Lead (100%) to join our Global Portfolio Management team within the Flow division in Switzerland. In this high-impact role, you will help transform portfolio management into a strategic business capability across the Water & Industrial Business Unit (WIBU), enabling data-driven decision-making, profitable growth, and long-term portfolio optimization.\n\nYou will establish portfolio governance, performance transparency, product hierarchy ownership, lifecycle management practices, and strategic portfolio steering processes. Working across functions and senior stakeholder groups, you will play a key role in shaping the future direction of our portfolio and driving business transformation.\n\nYour main tasks and responsibilities:\n\n• Own and evolve the Product Hierarchy framework by driving the WIBU Product Hierarchy program, ensuring clear ownership, consistent product classification, improved master data quality, and successful milestone delivery.\n\n• Establish portfolio performance management capabilities , including KPI frameworks, dashboards, reporting standards, and review mechanisms that provide reliable product-level business insights and transparency.\n\n• Drive strategic portfolio steering by developing and facilitating portfolio review processes that support investment decisions, lifecycle management, portfolio optimization, resource allocation, and growth initiatives.\n\n• Generate market, competitive, and portfolio intelligence by consolidating insights on market trends, customer needs, competitive developments, portfolio gaps, and emerging business opportunities in collaboration with segment, product management, and development teams.\n\n• Lead portfolio transformation initiatives related to portfolio governance, lifecycle excellence, digitalization, product master data, performance and pricing management, and process harmonization across the organization.\n\n• Act as a trusted partner to senior leaders, enabling fact-based portfolio decisions and fostering a culture of transparency, accountability, and continuous improvement.\n\nTo succeed in this role, you will need:\n\n• Master's degree in Business Administration, Engineering, Economics, or a related field; an MBA is a strong plus.\n\n• 5-8 years of experience in portfolio management, strategy, business transformation, product management, or a related function within an industrial or manufacturing environment.\n\n• Strong strategic and analytical capabilities, with the ability to translate complex market, portfolio, and business data into actionable recommendations.\n\n• Experience driving cross-functional transformation initiatives involving product management, commercial functions, operations, R&D, and senior leadership.\n\n• Strong change management and project management skills with a track record of driving business improvement and transformation.\n\n• Digital mindset with experience using analytics and reporting tools to drive performance management and business insights.\n\n• Fluent in English; additional languages are an advantage.\n\nWhat we offer you\n\n• An innovative, vibrant and agile culture\n\n• Excellent social benefits (holidays, pension fund etc.)\n\n• Access to a wide range of discounts on Everyday Shopping, Entertainment and Lifestyle\n\n• Central workplace, only 5 minutes from Winterthur train station\n\nSulzer is an equal opportunity employer. We believe in the strength of a diverse workforce and are committed to offering an inclusive work environment.\n\nWe are proud to be recognized as a Top Employer 2026 in Brazil, Canada, China, Finland, Germany, Ireland, Mexico, Switzerland, South Africa, the UK and the USA.",
         "it": "Sulzer è una società di ingegneria leader con un patrimonio orgoglioso di innovazione. Unisciti al nostro team globale per accrescere le tue competenze e sviluppare soluzioni innovative che consentano una società prospera e più sostenibile.\n\nInformazioni sul ruolo\n\nStiamo cercando un Portfolio Strategy & Transformation Lead (100%) per unire il nostro team di Global Portfolio Management all'interno della divisione Flow in Svizzera. In questo ruolo ad alto impatto, contribuirai a trasformare la gestione del portafoglio in una capacità strategica di business in Water & Industrial Business Unit (WIBU), consentendo il processo decisionale, la crescita redditizia e l'ottimizzazione del portafoglio a lungo termine.\n\nStabilirete la governance del portafoglio, la trasparenza delle prestazioni, la proprietà della gerarchia dei prodotti, le pratiche di gestione del ciclo di vita e i processi strategici dello sterzo del portafoglio. Lavorando attraverso funzioni e gruppi di stakeholder senior, si svolgerà un ruolo chiave nella definizione della direzione futura del nostro portafoglio e la trasformazione aziendale di guida.\n\nI vostri compiti principali e responsabilità:\n\n• Possedere ed evolvere la struttura della Gerarchia del Prodotto guidando il programma WIBU Product Hierarchy, garantendo una chiara proprietà, una classificazione coerente del prodotto, una migliore qualità dei dati master e una consegna di pietre miliari di successo.\n\n• Stabilire funzionalità di gestione delle prestazioni del portafoglio, tra cui framework KPI, dashboard, standard di reportistica e meccanismi di revisione che forniscono informazioni aziendali affidabili a livello di prodotto e trasparenza.\n\n• Guidare lo sterzo del portafoglio strategico sviluppando e facilitando processi di revisione del portafoglio che supportano le decisioni di investimento, la gestione del ciclo di vita, l'ottimizzazione del portafoglio, l'allocazione delle risorse e le iniziative di crescita.\n\n• Generare il mercato, la competitività e l'intelligenza del portafoglio consolidando le intuizioni sulle tendenze del mercato, le esigenze dei clienti, gli sviluppi competitivi, le lacune del portafoglio e le opportunità di business emergenti in collaborazione con i team di segmento, gestione dei prodotti e sviluppo.\n\n• Iniziative di trasformazione del portafoglio di piombo relative alla governance del portafoglio, l'eccellenza del ciclo di vita, la digitalizzazione, i dati master del prodotto, la gestione delle prestazioni e dei prezzi, e l'armonizzazione del processo in tutta l'organizzazione.\n\n• Agire come partner affidabile per i leader senior, consentendo decisioni di portafoglio basate sul fatto e promuovere una cultura di trasparenza, responsabilità e miglioramento continuo.\n\nPer avere successo in questo ruolo, avrete bisogno di:\n\n• Laurea magistrale in Business Administration, Ingegneria, Economia o un campo correlato; un MBA è un vantaggio forte.\n\n• 5-8 anni di esperienza nella gestione del portafoglio, strategia, trasformazione aziendale, gestione del prodotto, o una funzione correlata all'interno di un ambiente industriale o produttivo.\n\n• Forte capacità strategiche e analitiche, con la capacità di tradurre il mercato complesso, il portafoglio e i dati aziendali in raccomandazioni attuabili.\n\n• Esperienza guida di iniziative di trasformazione interfunzionali che coinvolgono la gestione dei prodotti, funzioni commerciali, operazioni, R&D e leadership senior.\n\n• Forte capacità di gestione dei cambiamenti e gestione dei progetti con un track record di miglioramento e trasformazione del business.\n\n• Digital mindset con esperienza utilizzando strumenti di analisi e reporting per guidare la gestione delle prestazioni e insight aziendali.\n\n• Fluente in inglese; lingue aggiuntive sono un vantaggio.\n\nCosa ti offriamo\n\n• Una cultura innovativa, vibrante e agile\n\n• Prestazioni sociali eccellenti (giorni, pensione, ecc.)\n\n• Accesso a una vasta gamma di sconti su Everyday Shopping, Intrattenimento e Stile di vita\n\n• Posto di lavoro centrale, a soli 5 minuti dalla stazione ferroviaria di Winterthur\n\nSulzer è un datore di lavoro pari opportunità. Crediamo nella forza di una forza lavoro diversificata e ci impegniamo ad offrire un ambiente di lavoro inclusivo.\n\nSiamo orgogliosi di essere riconosciuti come Top Employer 2026 in Brasile, Canada, Cina, Finlandia, Germania, Irlanda, Messico, Svizzera, Sud Africa, Regno Unito e Stati Uniti.",
+        "en": "Sulzer is a leading engineering company with a proud heritage of innovation. Join our global team to grow your expertise and develop innovative solutions that enable a prosperous and more sustainable society.\n\nAbout the role\n\nWe are looking for a Portfolio Strategy & Transformation Lead (100%) to join our Global Portfolio Management team within the Flow division in Switzerland. In this high-impact role, you will help transform portfolio management into a strategic business capability across the Water & Industrial Business Unit (WIBU), enabling data-driven decision-making, profitable growth, and long-term portfolio optimization.\n\nYou will establish portfolio governance, performance transparency, product hierarchy ownership, lifecycle management practices, and strategic portfolio steering processes. Working across functions and senior stakeholder groups, you will play a key role in shaping the future direction of our portfolio and driving business transformation.\n\nYour main tasks and responsibilities:\n\n• Own and evolve the Product Hierarchy framework by driving the WIBU Product Hierarchy program, ensuring clear ownership, consistent product classification, improved master data quality, and successful milestone delivery.\n\n• Establish portfolio performance management capabilities , including KPI frameworks, dashboards, reporting standards, and review mechanisms that provide reliable product-level business insights and transparency.\n\n• Drive strategic portfolio steering by developing and facilitating portfolio review processes that support investment decisions, lifecycle management, portfolio optimization, resource allocation, and growth initiatives.\n\n• Generate market, competitive, and portfolio intelligence by consolidating insights on market trends, customer needs, competitive developments, portfolio gaps, and emerging business opportunities in collaboration with segment, product management, and development teams.\n\n• Lead portfolio transformation initiatives related to portfolio governance, lifecycle excellence, digitalization, product master data, performance and pricing management, and process harmonization across the organization.\n\n• Act as a trusted partner to senior leaders, enabling fact-based portfolio decisions and fostering a culture of transparency, accountability, and continuous improvement.\n\nTo succeed in this role, you will need:\n\n• Master's degree in Business Administration, Engineering, Economics, or a related field; an MBA is a strong plus.\n\n• 5-8 years of experience in portfolio management, strategy, business transformation, product management, or a related function within an industrial or manufacturing environment.\n\n• Strong strategic and analytical capabilities, with the ability to translate complex market, portfolio, and business data into actionable recommendations.\n\n• Experience driving cross-functional transformation initiatives involving product management, commercial functions, operations, R&D, and senior leadership.\n\n• Strong change management and project management skills with a track record of driving business improvement and transformation.\n\n• Digital mindset with experience using analytics and reporting tools to drive performance management and business insights.\n\n• Fluent in English; additional languages are an advantage.\n\nWhat we offer you\n\n• An innovative, vibrant and agile culture\n\n• Excellent social benefits (holidays, pension fund etc.)\n\n• Access to a wide range of discounts on Everyday Shopping, Entertainment and Lifestyle\n\n• Central workplace, only 5 minutes from Winterthur train station\n\nSulzer is an equal opportunity employer. We believe in the strength of a diverse workforce and are committed to offering an inclusive work environment.\n\nWe are proud to be recognized as a Top Employer 2026 in Brazil, Canada, China, Finland, Germany, Ireland, Mexico, Switzerland, South Africa, the UK and the USA.",
         "de": "Sulzer ist ein führendes Ingenieurunternehmen mit einem stolzen Erbe an Innovationen. Schließen Sie sich unserem globalen Team an, um Ihr Fachwissen zu erweitern und innovative Lösungen zu entwickeln, die eine prosperierende und nachhaltigere Gesellschaft ermöglichen.\n\nÜber die Rolle\n\nWir suchen einen Portfolio Strategy & Transformation Lead (100%), um unser Global Portfolio Management Team innerhalb der Flow Division in der Schweiz zu ergänzen. In dieser einflussreichen Rolle tragen Sie dazu bei, das Portfoliomanagement in eine strategische Geschäftsfähigkeit in der Water & Industrial Business Unit (WIBU) zu verwandeln und datengesteuerte Entscheidungen, profitables Wachstum und langfristige Portfoliooptimierung zu ermöglichen.\n\nSie erstellen Portfolio-Governance, Performance-Transparenz, Produkthierarchie, Lifecycle-Management-Praktiken und strategische Portfolio-Lenkungsprozesse. In allen Funktionen und leitenden Stakeholdergruppen spielen Sie eine Schlüsselrolle bei der Gestaltung der zukünftigen Ausrichtung unseres Portfolios und der Förderung der Geschäftstransformation.\n\nIhre Hauptaufgaben und Verantwortlichkeiten:\n\n• Besitzen und entwickeln Sie das Produkthierarchie-Framework, indem Sie das WIBU-Produkthierarchie-Programm vorantreiben und eine klare Eigentümerschaft, konsistente Produktklassifizierung, verbesserte Stammdatenqualität und erfolgreiche Meilensteinlieferung sicherstellen.\n\n• Etablieren Sie Portfolio-Performance-Management-Funktionen, einschließlich KPI-Frameworks, Dashboards, Berichtsstandards und Überprüfungsmechanismen, die zuverlässige Geschäftsinformationen und Transparenz auf Produktebene bieten.\n\n• Förderung der strategischen Portfoliosteuerung durch die Entwicklung und Erleichterung von Portfolioüberprüfungsprozessen, die Investitionsentscheidungen, Lifecycle-Management, Portfoliooptimierung, Ressourcenallokation und Wachstumsinitiativen unterstützen.\n\n• Generieren Sie Markt-, Wettbewerbs- und Portfolio-Intelligence, indem Sie Erkenntnisse über Markttrends, Kundenbedürfnisse, Wettbewerbsentwicklungen, Portfoliolücken und neue Geschäftsmöglichkeiten in Zusammenarbeit mit Segment-, Produktmanagement- und Entwicklungsteams zusammenführen.\n\n• Führen Sie Portfoliotransformationsinitiativen im Zusammenhang mit Portfolio Governance, Lifecycle Excellence, Digitalisierung, Produktstammdaten, Performance- und Preismanagement sowie Prozessharmonisierung im gesamten Unternehmen.\n\n• Handeln Sie als vertrauenswürdiger Partner für Führungskräfte, ermöglichen Sie faktenbasierte Portfolioentscheidungen und fördern Sie eine Kultur der Transparenz, Rechenschaftspflicht und kontinuierlichen Verbesserung.\n\nUm in dieser Rolle erfolgreich zu sein, benötigen Sie:\n\n• Master-Abschluss in Betriebswirtschaft, Ingenieurwesen, Wirtschaft oder einem verwandten Bereich; ein MBA ist ein starkes Plus.\n\n• 5-8 Jahre Erfahrung in Portfoliomanagement, Strategie, Business Transformation, Produktmanagement oder einer verwandten Funktion in einer Industrie- oder Fertigungsumgebung.\n\n• Starke strategische und analytische Fähigkeiten mit der Fähigkeit, komplexe Markt-, Portfolio- und Geschäftsdaten in umsetzbare Empfehlungen zu übersetzen.\n\n• Erleben Sie die Förderung funktionsübergreifender Transformationsinitiativen, die Produktmanagement, kommerzielle Funktionen, Operationen, Forschung und Entwicklung sowie Führungskräfte umfassen.\n\n• Starke Change-Management- und Projektmanagement-Fähigkeiten mit einer Erfolgsbilanz bei der Verbesserung und Transformation von Unternehmen.\n\n• Digitales Mindset mit Erfahrung mit Analyse- und Reporting-Tools, um Performance Management und Business Insights zu fördern.\n\n• Fließend Englisch; zusätzliche Sprachen sind von Vorteil.\n\nWas wir Ihnen bieten\n\n• Eine innovative, lebendige und agile Kultur\n\n• Hervorragende Sozialleistungen (Urlaub, Pensionskasse usw.)\n\n• Zugang zu einer breiten Palette von Rabatten auf Everyday Shopping, Entertainment und Lifestyle\n\n• Zentraler Arbeitsplatz, nur 5 Minuten vom Bahnhof Winterthur entfernt\n\nSulzer ist ein Arbeitgeber für Chancengleichheit. Wir glauben an die Stärke einer vielfältigen Belegschaft und engagieren uns für ein integratives Arbeitsumfeld.\n\nWir sind stolz darauf, als Top Employer 2026 in Brasilien, Kanada, China, Finnland, Deutschland, Irland, Mexiko, der Schweiz, Südafrika, Großbritannien und den USA anerkannt zu werden.",
         "fr": "Sulzer est une entreprise d'ingénierie de premier plan avec un fier héritage d'innovation. Rejoignez notre équipe mondiale pour développer votre expertise et développer des solutions innovantes qui permettent une société prospère et plus durable.\n\nSur le rôle\n\nNous sommes à la recherche d'un Portfolio Strategy & Transformation Lead (100 %) pour rejoindre notre équipe Global Portfolio Management au sein de la division Flow en Suisse. Dans ce rôle à impact élevé, vous aiderez à transformer la gestion de portefeuille en une capacité d'affaires stratégique dans l'ensemble de l'unité d'affaires Water & Industrial (WIBU), permettant la prise de décision axée sur les données, la croissance rentable et l'optimisation de portefeuille à long terme.\n\nVous établirez la gouvernance du portefeuille, la transparence du rendement, la propriété de la hiérarchie des produits, les pratiques de gestion du cycle de vie et les processus stratégiques de pilotage du portefeuille. En travaillant à travers les fonctions et les groupes d'intervenants supérieurs, vous jouerez un rôle clé dans l'orientation future de notre portefeuille et dans la transformation des activités.\n\nVos principales tâches et responsabilités:\n\n• Posséder et développer le cadre de la Hiérarchie des produits en dirigeant le programme de la Hiérarchie des produits WIBU, en assurant une propriété claire, une classification uniforme des produits, une meilleure qualité des données maîtresses et une livraison réussie des jalons.\n\n• Établir des capacités de gestion du rendement du portefeuille, y compris des cadres de l'ICP, des tableaux de bord, des normes d'établissement de rapports et des mécanismes d'examen qui fournissent des renseignements opérationnels fiables au niveau des produits et de la transparence.\n\n• Diriger la direction stratégique du portefeuille en élaborant et en facilitant des processus d'examen du portefeuille qui appuient les décisions d'investissement, la gestion du cycle de vie, l'optimisation du portefeuille, l'affectation des ressources et les initiatives de croissance.\n\n• Générer de l'information sur le marché, la concurrence et le portefeuille en regroupant les connaissances sur les tendances du marché, les besoins des clients, les développements concurrentiels, les lacunes du portefeuille et les nouvelles occasions d'affaires en collaboration avec les équipes de gestion de segment, de produit et de développement.\n\n• Diriger les initiatives de transformation du portefeuille liées à la gouvernance du portefeuille, à l'excellence du cycle de vie, à la numérisation, aux données de base sur les produits, à la gestion du rendement et des prix et à l'harmonisation des processus dans l'ensemble de l'organisation.\n\n• Agir en tant que partenaire de confiance pour les dirigeants supérieurs, favoriser les décisions de portefeuille fondées sur des faits et favoriser une culture de transparence, de responsabilité et d'amélioration continue.\n\nPour réussir dans ce rôle, vous devrez :\n\n• Maîtrise en administration des affaires, en génie, en économie ou dans un domaine connexe; un MBA est un plus fort.\n\n• 5-8 ans d'expérience en gestion de portefeuille, stratégie, transformation d'entreprise, gestion de produits ou une fonction connexe dans un environnement industriel ou manufacturier.\n\n• Des capacités stratégiques et analytiques solides, capables de traduire des données complexes sur les marchés, les portefeuilles et les entreprises en recommandations concrètes.\n\n• Expérience en matière de gestion des produits, de fonctions commerciales, d'exploitation, de R-D et de leadership.\n\n• Fortes compétences en gestion du changement et en gestion de projet, avec des antécédents en matière d'amélioration et de transformation des activités.\n\n• L'état d'esprit numérique avec l'expérience à l'aide d'outils d'analyse et de rapport pour stimuler la gestion du rendement et les perspectives d'affaires.\n\n• Fluent en anglais; des langues supplémentaires sont un avantage.\n\nCe que nous vous offrons\n\n• Une culture innovante, vibrante et agile\n\n• Excellentes prestations sociales (vacances, caisse de retraite, etc.)\n\n• Accès à une large gamme de réductions sur le shopping quotidien, le divertissement et le style de vie\n\n• Lieu de travail central, à seulement 5 minutes de la gare de Winterthur\n\nSulzer est un employeur à chances égales. Nous croyons en la force d'un effectif diversifié et sommes déterminés à offrir un milieu de travail inclusif.\n\nNous sommes fiers d'être reconnus comme l'un des meilleurs employeurs 2026 au Brésil, au Canada, en Chine, en Finlande, en Allemagne, en Irlande, au Mexique, en Suisse, en Afrique du Sud, au Royaume-Uni et aux États-Unis."
       },
@@ -539,7 +539,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/Portfolio-Strategy---Transformation-Lead_JR105742",
       "source": "Sulzer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:47:12.700Z",
+      "crawledAt": "2026-11-18T09:26:12.194Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -556,10 +556,23 @@
       "postingDateSource": "reported",
       "applyUrl": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/Portfolio-Strategy---Transformation-Lead_JR105742",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
+      "requirementsByLocale": {},
       "jobReqId": "JR105742",
+      "previousSlugs": [
+        "portfolio-strategy-transformation-lead-sulzer-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "portfolio-strategy-transformation-lead-sulzer-ch"
+        ],
+        "de": [
+          "portfolio-strategy-transformation-lead-sulzer-ch"
+        ],
+        "fr": [
+          "portfolio-strategy-transformation-lead-sulzer-ch"
+        ]
+      },
+      "firstSeenAt": "2026-11-17T21:47:12.700Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -576,23 +589,88 @@
       "postalCode": "8400",
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:47:12.700Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:47:12.700Z",
+      "validThrough": "2027-02-15T09:26:12.194Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "sulzer-4e522629e0c6",
+      "slug": "consigliere-legale-senior-sulzer-winterthur",
+      "slugByLocale": {
+        "en": "senior-legal-counsel-sulzer-ch",
+        "it": "consigliere-legale-senior-sulzer-winterthur",
+        "fr": "conseiller-juridique-principal-sulzer-winterthur",
+        "de": "consigliere-legale-senior-sulzer-winterthur"
+      },
+      "company": "Sulzer",
+      "companyKey": "sulzer",
+      "companyDomain": "sulzer.com",
+      "title": "Senior Legal Counsel",
+      "titleByLocale": {
+        "en": "Senior Legal Counsel",
+        "it": "Senior Legal Counsel",
+        "de": "Senior Legal Counsel",
+        "fr": "Senior Legal Counsel"
+      },
+      "description": "Sulzer is a leading engineering company with a proud heritage of innovation. Join our global team to grow your expertise and develop innovative solutions that enable a prosperous and more sustainable society.\n\nAbout the role\n\nJoin our Group Legal Team in Winterthur and contribute your expertise to a global, publicly listed industrial company. In this highly visible role, you will report directly to the Head Group Legal / Deputy General Counsel and act as a trusted legal advisor to senior leadership and key corporate functions across the Group.\n\nKey Responsibilities:\n\n• Lead and coordinate the legal workstream of domestic and cross-border M&A transactions, including acquisitions, divestments, joint ventures and other strategic investments, working closely with internal stakeholders and external advisors\n\n• Draft, review and negotiate a broad range of complex commercial agreements, including, joint venture arrangements, technology agreements, sales terms and conditions, and procurement and supply contracts\n\n• Advise on financing transactions, including bond issuances, syndicated and bilateral credit facilities, and provide legal support to the Treasury function on a wide range of financing-related matters\n\n• Oversee and coordinate litigation, arbitration and other dispute resolution matters across the Group, including the management of external counsel\n\n• Oversee the preparation and execution of Annual General Meetings and contribute to the legal review of the Company's Annual Report and Non-Financial Report\n\n• Support the Head Group Legal / Corporate Secretary in all matters relating to the Board of Directors, its committees and the Executive Committee\n\nYour profile:\n\n• Master of Law degree and Swiss Bar admission\n\n• Minimum of 3+ years of relevant post-qualification experience, ideally gained in a leading law firm and/or the legal department of an international industrial company\n\n• Demonstrated experience in M&A and Swiss corporate law, ideally complemented by exposure to antitrust and sanction law as well as capital markets and stock exchange regulations\n\n• Business-oriented legal professional with strong judgment, a pragmatic mindset and the ability to balance legal risks with commercial objectives\n\n• Excellent project and stakeholder management skills, with experience interacting confidently with senior executives, Board members and key external stakeholders\n\n• Digitally savvy, with a strong interest in technology, AI-enabled solutions and modern ways Country-specific benefits\n\nWhat we offer you\n\n• An innovative, vibrant and agile culture\n\n• Excellent social benefits (holidays, pension fund etc.)\n\n• Access to a wide range of discounts on Everyday Shopping, Entertainment and Lifestyle\n\n• Central workplace, only 5 minutes from Winterthur train station\n\nSulzer is an equal opportunity employer. We believe in the strength of a diverse workforce and are committed to offering an inclusive work environment.\n\nWe are proud to be recognized as a Top Employer 2026 in Brazil, Canada, China, Finland, Germany, Ireland, Mexico, Switzerland, South Africa, the UK and the USA.",
+      "descriptionByLocale": {
+        "en": "Sulzer is a leading engineering company with a proud heritage of innovation. Join our global team to grow your expertise and develop innovative solutions that enable a prosperous and more sustainable society.\n\nAbout the role\n\nJoin our Group Legal Team in Winterthur and contribute your expertise to a global, publicly listed industrial company. In this highly visible role, you will report directly to the Head Group Legal / Deputy General Counsel and act as a trusted legal advisor to senior leadership and key corporate functions across the Group.\n\nKey Responsibilities:\n\n• Lead and coordinate the legal workstream of domestic and cross-border M&A transactions, including acquisitions, divestments, joint ventures and other strategic investments, working closely with internal stakeholders and external advisors\n\n• Draft, review and negotiate a broad range of complex commercial agreements, including, joint venture arrangements, technology agreements, sales terms and conditions, and procurement and supply contracts\n\n• Advise on financing transactions, including bond issuances, syndicated and bilateral credit facilities, and provide legal support to the Treasury function on a wide range of financing-related matters\n\n• Oversee and coordinate litigation, arbitration and other dispute resolution matters across the Group, including the management of external counsel\n\n• Oversee the preparation and execution of Annual General Meetings and contribute to the legal review of the Company's Annual Report and Non-Financial Report\n\n• Support the Head Group Legal / Corporate Secretary in all matters relating to the Board of Directors, its committees and the Executive Committee\n\nYour profile:\n\n• Master of Law degree and Swiss Bar admission\n\n• Minimum of 3+ years of relevant post-qualification experience, ideally gained in a leading law firm and/or the legal department of an international industrial company\n\n• Demonstrated experience in M&A and Swiss corporate law, ideally complemented by exposure to antitrust and sanction law as well as capital markets and stock exchange regulations\n\n• Business-oriented legal professional with strong judgment, a pragmatic mindset and the ability to balance legal risks with commercial objectives\n\n• Excellent project and stakeholder management skills, with experience interacting confidently with senior executives, Board members and key external stakeholders\n\n• Digitally savvy, with a strong interest in technology, AI-enabled solutions and modern ways Country-specific benefits\n\nWhat we offer you\n\n• An innovative, vibrant and agile culture\n\n• Excellent social benefits (holidays, pension fund etc.)\n\n• Access to a wide range of discounts on Everyday Shopping, Entertainment and Lifestyle\n\n• Central workplace, only 5 minutes from Winterthur train station\n\nSulzer is an equal opportunity employer. We believe in the strength of a diverse workforce and are committed to offering an inclusive work environment.\n\nWe are proud to be recognized as a Top Employer 2026 in Brazil, Canada, China, Finland, Germany, Ireland, Mexico, Switzerland, South Africa, the UK and the USA.",
+        "it": "Sulzer is a leading engineering company with a proud heritage of innovation. Join our global team to grow your expertise and develop innovative solutions that enable a prosperous and more sustainable society.\n\nAbout the role\n\nJoin our Group Legal Team in Winterthur and contribute your expertise to a global, publicly listed industrial company. In this highly visible role, you will report directly to the Head Group Legal / Deputy General Counsel and act as a trusted legal advisor to senior leadership and key corporate functions across the Group.\n\nKey Responsibilities:\n\n• Lead and coordinate the legal workstream of domestic and cross-border M&A transactions, including acquisitions, divestments, joint ventures and other strategic investments, working closely with internal stakeholders and external advisors\n\n• Draft, review and negotiate a broad range of complex commercial agreements, including, joint venture arrangements, technology agreements, sales terms and conditions, and procurement and supply contracts\n\n• Advise on financing transactions, including bond issuances, syndicated and bilateral credit facilities, and provide legal support to the Treasury function on a wide range of financing-related matters\n\n• Oversee and coordinate litigation, arbitration and other dispute resolution matters across the Group, including the management of external counsel\n\n• Oversee the preparation and execution of Annual General Meetings and contribute to the legal review of the Company's Annual Report and Non-Financial Report\n\n• Support the Head Group Legal / Corporate Secretary in all matters relating to the Board of Directors, its committees and the Executive Committee\n\nYour profile:\n\n• Master of Law degree and Swiss Bar admission\n\n• Minimum of 3+ years of relevant post-qualification experience, ideally gained in a leading law firm and/or the legal department of an international industrial company\n\n• Demonstrated experience in M&A and Swiss corporate law, ideally complemented by exposure to antitrust and sanction law as well as capital markets and stock exchange regulations\n\n• Business-oriented legal professional with strong judgment, a pragmatic mindset and the ability to balance legal risks with commercial objectives\n\n• Excellent project and stakeholder management skills, with experience interacting confidently with senior executives, Board members and key external stakeholders\n\n• Digitally savvy, with a strong interest in technology, AI-enabled solutions and modern ways Country-specific benefits\n\nWhat we offer you\n\n• An innovative, vibrant and agile culture\n\n• Excellent social benefits (holidays, pension fund etc.)\n\n• Access to a wide range of discounts on Everyday Shopping, Entertainment and Lifestyle\n\n• Central workplace, only 5 minutes from Winterthur train station\n\nSulzer is an equal opportunity employer. We believe in the strength of a diverse workforce and are committed to offering an inclusive work environment.\n\nWe are proud to be recognized as a Top Employer 2026 in Brazil, Canada, China, Finland, Germany, Ireland, Mexico, Switzerland, South Africa, the UK and the USA.",
+        "de": "Sulzer is a leading engineering company with a proud heritage of innovation. Join our global team to grow your expertise and develop innovative solutions that enable a prosperous and more sustainable society.\n\nAbout the role\n\nJoin our Group Legal Team in Winterthur and contribute your expertise to a global, publicly listed industrial company. In this highly visible role, you will report directly to the Head Group Legal / Deputy General Counsel and act as a trusted legal advisor to senior leadership and key corporate functions across the Group.\n\nKey Responsibilities:\n\n• Lead and coordinate the legal workstream of domestic and cross-border M&A transactions, including acquisitions, divestments, joint ventures and other strategic investments, working closely with internal stakeholders and external advisors\n\n• Draft, review and negotiate a broad range of complex commercial agreements, including, joint venture arrangements, technology agreements, sales terms and conditions, and procurement and supply contracts\n\n• Advise on financing transactions, including bond issuances, syndicated and bilateral credit facilities, and provide legal support to the Treasury function on a wide range of financing-related matters\n\n• Oversee and coordinate litigation, arbitration and other dispute resolution matters across the Group, including the management of external counsel\n\n• Oversee the preparation and execution of Annual General Meetings and contribute to the legal review of the Company's Annual Report and Non-Financial Report\n\n• Support the Head Group Legal / Corporate Secretary in all matters relating to the Board of Directors, its committees and the Executive Committee\n\nYour profile:\n\n• Master of Law degree and Swiss Bar admission\n\n• Minimum of 3+ years of relevant post-qualification experience, ideally gained in a leading law firm and/or the legal department of an international industrial company\n\n• Demonstrated experience in M&A and Swiss corporate law, ideally complemented by exposure to antitrust and sanction law as well as capital markets and stock exchange regulations\n\n• Business-oriented legal professional with strong judgment, a pragmatic mindset and the ability to balance legal risks with commercial objectives\n\n• Excellent project and stakeholder management skills, with experience interacting confidently with senior executives, Board members and key external stakeholders\n\n• Digitally savvy, with a strong interest in technology, AI-enabled solutions and modern ways Country-specific benefits\n\nWhat we offer you\n\n• An innovative, vibrant and agile culture\n\n• Excellent social benefits (holidays, pension fund etc.)\n\n• Access to a wide range of discounts on Everyday Shopping, Entertainment and Lifestyle\n\n• Central workplace, only 5 minutes from Winterthur train station\n\nSulzer is an equal opportunity employer. We believe in the strength of a diverse workforce and are committed to offering an inclusive work environment.\n\nWe are proud to be recognized as a Top Employer 2026 in Brazil, Canada, China, Finland, Germany, Ireland, Mexico, Switzerland, South Africa, the UK and the USA.",
+        "fr": "Sulzer is a leading engineering company with a proud heritage of innovation. Join our global team to grow your expertise and develop innovative solutions that enable a prosperous and more sustainable society.\n\nAbout the role\n\nJoin our Group Legal Team in Winterthur and contribute your expertise to a global, publicly listed industrial company. In this highly visible role, you will report directly to the Head Group Legal / Deputy General Counsel and act as a trusted legal advisor to senior leadership and key corporate functions across the Group.\n\nKey Responsibilities:\n\n• Lead and coordinate the legal workstream of domestic and cross-border M&A transactions, including acquisitions, divestments, joint ventures and other strategic investments, working closely with internal stakeholders and external advisors\n\n• Draft, review and negotiate a broad range of complex commercial agreements, including, joint venture arrangements, technology agreements, sales terms and conditions, and procurement and supply contracts\n\n• Advise on financing transactions, including bond issuances, syndicated and bilateral credit facilities, and provide legal support to the Treasury function on a wide range of financing-related matters\n\n• Oversee and coordinate litigation, arbitration and other dispute resolution matters across the Group, including the management of external counsel\n\n• Oversee the preparation and execution of Annual General Meetings and contribute to the legal review of the Company's Annual Report and Non-Financial Report\n\n• Support the Head Group Legal / Corporate Secretary in all matters relating to the Board of Directors, its committees and the Executive Committee\n\nYour profile:\n\n• Master of Law degree and Swiss Bar admission\n\n• Minimum of 3+ years of relevant post-qualification experience, ideally gained in a leading law firm and/or the legal department of an international industrial company\n\n• Demonstrated experience in M&A and Swiss corporate law, ideally complemented by exposure to antitrust and sanction law as well as capital markets and stock exchange regulations\n\n• Business-oriented legal professional with strong judgment, a pragmatic mindset and the ability to balance legal risks with commercial objectives\n\n• Excellent project and stakeholder management skills, with experience interacting confidently with senior executives, Board members and key external stakeholders\n\n• Digitally savvy, with a strong interest in technology, AI-enabled solutions and modern ways Country-specific benefits\n\nWhat we offer you\n\n• An innovative, vibrant and agile culture\n\n• Excellent social benefits (holidays, pension fund etc.)\n\n• Access to a wide range of discounts on Everyday Shopping, Entertainment and Lifestyle\n\n• Central workplace, only 5 minutes from Winterthur train station\n\nSulzer is an equal opportunity employer. We believe in the strength of a diverse workforce and are committed to offering an inclusive work environment.\n\nWe are proud to be recognized as a Top Employer 2026 in Brazil, Canada, China, Finland, Germany, Ireland, Mexico, Switzerland, South Africa, the UK and the USA."
+      },
+      "needsRetranslation": true,
+      "location": "Winterthur",
+      "canton": "ZH",
+      "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/Senior-Legal-Counsel_JR103928",
+      "source": "Sulzer Dedicated Parser (Workday)",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-18T09:26:02.735Z",
+      "addressLocality": "Winterthur",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Legale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Industria",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-18",
+      "postedDate": "2026-11-18",
+      "postingDateSource": "reported",
+      "applyUrl": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/Senior-Legal-Counsel_JR103928",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "jobReqId": "JR103928",
       "previousSlugsByLocale": {
         "it": [
-          "portfolio-strategy-transformation-lead-sulzer-ch"
-        ],
-        "de": [
-          "portfolio-strategy-transformation-lead-sulzer-ch"
-        ],
-        "fr": [
-          "portfolio-strategy-transformation-lead-sulzer-ch"
+          "senior-legal-counsel-sulzer-ch"
         ]
       },
       "previousSlugs": [
-        "portfolio-strategy-transformation-lead-sulzer-ch"
-      ]
+        "senior-legal-counsel-sulzer-ch"
+      ],
+      "salaryMin": 131500,
+      "salaryMax": 225500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 131500,
+          "maxValue": 225500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "8400",
+      "streetAddress": "Winterthur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-16T09:26:02.735Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

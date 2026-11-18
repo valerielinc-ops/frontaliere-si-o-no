@@ -1,7 +1,7 @@
 {
   "key": "integra-biosciences",
   "label": "INTEGRA Biosciences",
-  "generatedAt": "2026-11-17T21:52:22.584Z",
+  "generatedAt": "2026-11-18T09:27:06.160Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -15,67 +15,16 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 10162,
-  "avgDurationMs": 10162,
+  "durationMs": 10054,
+  "avgDurationMs": 10054,
   "durationHistory": [
-    10162
+    10054
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "integra-biosciences-b8c80b9e059f",
-      "slug": "trade-compliance-specialista-m-w-d-100-integra-biosciences-zizers",
-      "company": "INTEGRA Biosciences",
-      "companyKey": "integra-biosciences",
-      "companyDomain": "integra-biosciences.com",
-      "title": "Trade Compliance Specialist (m/w/d) | 100%)",
-      "location": "Zizers",
-      "canton": "GR",
-      "url": "https://jobs.integra-biosciences.com/Vacancies/344/Description/1?lang=ger",
-      "source": "INTEGRA Biosciences Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:44:57.453Z",
-      "addressLocality": "Zizers",
-      "postalCode": "7205",
-      "streetAddress": "Tardisstrasse 201",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Commerciale",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Scienze della Vita / Biotecnologia",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-28",
-      "postedDate": "2026-09-28",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.integra-biosciences.com/Vacancies/344/Description/1?lang=ger",
-      "department": "Sales & Customer Support",
-      "pensum": "100%",
-      "pensumMin": 100,
-      "pensumMax": 100,
-      "firstSeenAt": "2026-10-03T09:31:34.870Z",
-      "salaryMin": 68500,
-      "salaryMax": 105000,
-      "salarySource": "estimated",
-      "addressRegion": "GR",
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T09:44:57.453Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "integra-biosciences-20ac990943c5",
@@ -89,7 +38,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/349/Description/1?lang=ger",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:52:06.453Z",
+      "crawledAt": "2026-11-18T09:26:41.834Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -116,7 +65,7 @@
       "salarySource": "estimated",
       "addressRegion": "GR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T21:52:06.453Z",
+      "validThrough": "2027-02-03T09:26:41.834Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -138,7 +87,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/347/Description/2?lang=eng",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:52:04.632Z",
+      "crawledAt": "2026-11-18T09:26:40.210Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -165,7 +114,7 @@
       "salarySource": "estimated",
       "addressRegion": "GR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-20T21:52:04.632Z",
+      "validThrough": "2027-01-20T09:26:40.210Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -187,7 +136,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/345/Description/1?lang=ger",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:52:02.907Z",
+      "crawledAt": "2026-11-18T09:26:38.591Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -214,7 +163,7 @@
       "salarySource": "estimated",
       "addressRegion": "GR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-30T21:52:02.907Z",
+      "validThrough": "2026-12-30T09:26:38.591Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -225,5 +174,5 @@
       }
     }
   ],
-  "codeCommit": "8a8594aa5e6a6b71cb0a2a3883a7ded1be40621c"
+  "codeCommit": "c09e64fc08a252ae7234edb7cb9fdea84c5eb705"
 }
