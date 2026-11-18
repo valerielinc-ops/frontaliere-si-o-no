@@ -1,7 +1,7 @@
 {
   "crawlerKey": "spital-maennedorf",
-  "assembledAt": "2026-11-18T09:22:12.840Z",
-  "runId": "44272481854",
+  "assembledAt": "2026-11-18T21:21:26.871Z",
+  "runId": "44397584335",
   "jobs": [
     {
       "id": "spital-maennedorf-e3b8e098b8c9",
@@ -35,7 +35,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-18T09:22:04.481Z",
+      "crawledAt": "2026-11-18T21:20:57.911Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -103,16 +103,16 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-18T09:22:04.481Z",
+      "validThrough": "2026-12-18T21:20:57.911Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-maennedorf-89bb3b966a62",
       "slug": "studio-radiologia-mtra-hf-m-f-d-spital-mannedorf-mannedorf",
       "slugByLocale": {
+        "de": "medizinische-gerate-m-w-d-spital-mannedorf-mannedorf",
         "it": "studio-radiologia-mtra-hf-m-f-d-spital-mannedorf-mannedorf",
         "en": "study-radiology-mtra-hf-m-f-d-spital-mannedorf-mannedorf",
-        "de": "medizinische-gerate-m-w-d-spital-mannedorf-mannedorf",
         "fr": "studium-radiologie-mtra-hf-m-w-d-spital-mannedorf-mannedorf"
       },
       "company": "Spital Männedorf",
@@ -138,7 +138,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-18T09:22:02.487Z",
+      "crawledAt": "2026-11-18T21:20:57.082Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -211,7 +211,7 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-18T09:22:02.487Z",
+      "validThrough": "2026-12-18T21:20:57.082Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -246,7 +246,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-18T09:22:00.472Z",
+      "crawledAt": "2026-11-18T21:20:56.301Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -328,7 +328,7 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-18T09:22:00.472Z",
+      "validThrough": "2026-12-18T21:20:56.301Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -362,7 +362,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1840/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:21:58.484Z",
+      "crawledAt": "2026-11-18T21:20:55.494Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -468,7 +468,7 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-18T09:21:58.484Z",
+      "validThrough": "2026-12-18T21:20:55.494Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -502,7 +502,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1098/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:21:56.494Z",
+      "crawledAt": "2026-11-18T21:20:54.700Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -591,7 +591,7 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-18T09:21:56.494Z",
+      "validThrough": "2026-12-18T21:20:54.700Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -626,7 +626,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-18T09:21:54.524Z",
+      "crawledAt": "2026-11-18T21:20:53.873Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -725,7 +725,7 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-18T09:21:54.524Z",
+      "validThrough": "2026-12-18T21:20:53.873Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -759,7 +759,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1882/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:21:52.442Z",
+      "crawledAt": "2026-11-18T21:20:53.070Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -857,7 +857,7 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-18T09:21:52.442Z",
+      "validThrough": "2026-12-18T21:20:53.070Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -892,7 +892,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-18T09:21:50.455Z",
+      "crawledAt": "2026-11-18T21:20:52.285Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -983,7 +983,7 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-18T09:21:50.455Z",
+      "validThrough": "2026-12-18T21:20:52.285Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1017,7 +1017,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1958/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:21:48.472Z",
+      "crawledAt": "2026-11-18T21:20:51.638Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -1106,7 +1106,7 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-18T09:21:48.472Z",
+      "validThrough": "2026-12-18T21:20:51.638Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1141,7 +1141,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-18T09:21:46.474Z",
+      "crawledAt": "2026-11-18T21:20:50.842Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -1215,7 +1215,7 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-18T09:21:46.474Z",
+      "validThrough": "2026-12-18T21:20:50.842Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1249,7 +1249,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1952/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:21:44.476Z",
+      "crawledAt": "2026-11-18T21:20:50.032Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -1346,7 +1346,7 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-18T09:21:44.476Z",
+      "validThrough": "2026-12-18T21:20:50.032Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1381,7 +1381,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-18T09:21:42.480Z",
+      "crawledAt": "2026-11-18T21:20:49.226Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -1449,7 +1449,7 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-18T09:21:42.480Z",
+      "validThrough": "2026-12-18T21:20:49.226Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1483,7 +1483,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1904/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:21:40.425Z",
+      "crawledAt": "2026-11-18T21:20:48.403Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -1552,7 +1552,7 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-18T09:21:40.425Z",
+      "validThrough": "2026-12-18T21:20:48.403Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1586,7 +1586,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1987/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:21:38.446Z",
+      "crawledAt": "2026-11-18T21:20:47.626Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -1650,7 +1650,7 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-18T09:21:38.446Z",
+      "validThrough": "2026-12-18T21:20:47.626Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1685,7 +1685,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-18T09:21:36.453Z",
+      "crawledAt": "2026-11-18T21:20:46.976Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -1758,7 +1758,7 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-18T09:21:36.453Z",
+      "validThrough": "2026-12-18T21:20:46.976Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1793,7 +1793,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-18T09:21:34.444Z",
+      "crawledAt": "2026-11-18T21:20:46.170Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -1865,7 +1865,7 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-18T09:21:34.444Z",
+      "validThrough": "2026-12-18T21:20:46.170Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1900,7 +1900,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-18T09:21:32.452Z",
+      "crawledAt": "2026-11-18T21:20:45.359Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -1969,7 +1969,7 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-18T09:21:32.452Z",
+      "validThrough": "2026-12-18T21:20:45.359Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2003,7 +2003,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1984/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:21:30.481Z",
+      "crawledAt": "2026-11-18T21:20:44.582Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -2067,7 +2067,7 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-18T09:21:30.481Z",
+      "validThrough": "2026-12-18T21:20:44.582Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2101,7 +2101,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/2001/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:21:28.497Z",
+      "crawledAt": "2026-11-18T21:20:43.782Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -2172,7 +2172,7 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-18T09:21:28.497Z",
+      "validThrough": "2026-12-18T21:20:43.782Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2207,7 +2207,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-18T09:21:26.487Z",
+      "crawledAt": "2026-11-18T21:20:42.988Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -2277,7 +2277,7 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-18T09:21:26.487Z",
+      "validThrough": "2026-12-18T21:20:42.988Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2312,7 +2312,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-18T09:21:24.455Z",
+      "crawledAt": "2026-11-18T21:20:42.192Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -2376,7 +2376,7 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-18T09:21:24.455Z",
+      "validThrough": "2026-12-18T21:20:42.192Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2411,7 +2411,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-18T09:21:22.457Z",
+      "crawledAt": "2026-11-18T21:20:41.387Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -2478,7 +2478,7 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-18T09:21:22.457Z",
+      "validThrough": "2026-12-18T21:20:41.387Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2513,7 +2513,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-18T09:21:20.564Z",
+      "crawledAt": "2026-11-18T21:20:40.578Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -2582,7 +2582,7 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-18T09:21:20.564Z",
+      "validThrough": "2026-12-18T21:20:40.578Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2616,7 +2616,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/2014/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:21:18.449Z",
+      "crawledAt": "2026-11-18T21:20:39.755Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -2687,7 +2687,7 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-23T09:21:18.449Z",
+      "validThrough": "2026-12-23T21:20:39.755Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2722,7 +2722,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-18T09:21:16.461Z",
+      "crawledAt": "2026-11-18T21:20:38.936Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -2795,7 +2795,7 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-12T09:21:16.461Z",
+      "validThrough": "2027-01-11T21:20:38.936Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2829,7 +2829,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/2023/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:21:14.458Z",
+      "crawledAt": "2026-11-18T21:20:38.141Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -2902,7 +2902,7 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-17T09:21:14.458Z",
+      "validThrough": "2027-01-17T21:20:38.141Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2937,7 +2937,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-18T09:21:12.465Z",
+      "crawledAt": "2026-11-18T21:20:37.499Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -3009,7 +3009,7 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-18T09:21:12.465Z",
+      "validThrough": "2027-01-18T21:20:37.499Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3043,7 +3043,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1207/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:21:10.455Z",
+      "crawledAt": "2026-11-18T21:20:36.694Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -3107,7 +3107,7 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-18T09:21:10.455Z",
+      "validThrough": "2026-12-18T21:20:36.694Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3141,7 +3141,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/2032/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:21:08.482Z",
+      "crawledAt": "2026-11-18T21:20:35.913Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -3206,7 +3206,7 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-02T09:21:08.482Z",
+      "validThrough": "2027-02-02T21:20:35.913Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3240,7 +3240,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1989/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:21:06.472Z",
+      "crawledAt": "2026-11-18T21:20:35.114Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -3309,7 +3309,7 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-04T09:21:06.472Z",
+      "validThrough": "2027-02-03T21:20:35.114Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3343,7 +3343,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/2031/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:21:04.473Z",
+      "crawledAt": "2026-11-18T21:20:34.294Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -3410,7 +3410,7 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-04T09:21:04.473Z",
+      "validThrough": "2027-02-03T21:20:34.294Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3445,7 +3445,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-18T09:21:02.446Z",
+      "crawledAt": "2026-11-18T21:20:33.485Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -3511,7 +3511,7 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-18T09:21:02.446Z",
+      "validThrough": "2026-12-18T21:20:33.485Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3545,7 +3545,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1957/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:21:00.490Z",
+      "crawledAt": "2026-11-18T21:20:32.657Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -3605,7 +3605,7 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-16T09:21:00.490Z",
+      "validThrough": "2027-02-16T21:20:32.657Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3639,7 +3639,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1986/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:20:58.500Z",
+      "crawledAt": "2026-11-18T21:20:32.008Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -3706,7 +3706,7 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-12T09:20:58.500Z",
+      "validThrough": "2027-02-12T21:20:32.008Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3741,7 +3741,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-18T09:20:56.449Z",
+      "crawledAt": "2026-11-18T21:20:31.201Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -3807,8 +3807,106 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-14T09:20:56.449Z",
+      "validThrough": "2027-02-14T21:20:31.201Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "spital-maennedorf-f8102f087c89",
+      "slug": "mitarbeiterin-op-e-bettendisposition-100-m-w-d-spital-mannedorf",
+      "slugByLocale": {
+        "de": "mitarbeiterin-op-und-bettendisposition-100-m-w-d-spital-maennedorf-ch",
+        "it": "mitarbeiterin-op-e-bettendisposition-100-m-w-d-spital-mannedorf",
+        "en": "mitarbeiterin-op-und-bettendisposition-100-m-w-d-spital-mannedorf-mannedorf",
+        "fr": "mitarbeiterin-op-und-bettendisposition-100-m-w-d-spital-mannedorf-mannedorf"
+      },
+      "company": "Spital Männedorf",
+      "companyKey": "spital-maennedorf",
+      "companyDomain": "spitalmaennedorf.ch",
+      "title": "Mitarbeiterin OP- und Bettendisposition 100% (m/w/d)",
+      "titleByLocale": {
+        "de": "Mitarbeiterin OP- und Bettendisposition 100% (m/w/d)",
+        "it": "Mitarbeiterin OP- e Bettendisposition 100% (m/w/d)",
+        "en": "Mitarbeiterin OP- und Bettendisposition 100% (m/w/d)",
+        "fr": "Mitarbeiterin OP- und Bettendisposition 100% (m/w/d)"
+      },
+      "description": "Spital Männedorf – Dein ganz besonderer Arbeitsort.\nOb ein kleines „Danke“ oder ein morgendliches „Grüezi“ - bei uns stehen echte Wertschätzung und Menschlichkeit im Vordergrund. Die Nähe in unserem Haus macht den Alltag unkompliziert und ermöglicht interprofessionelle Zusammenarbeit auf höchstem Niveau. In einem Umfeld, in dem Unterstützung selbstverständlich ist, wird dein Engagement geschätzt und gefördert.\n\nDas Wesen deiner Tätigkeit:\n\n• Koordinieren von Eintritten, Verlegungen sowie der Bettenzuteilung für reguläre und notfallmässige Eintritte\n• Planung von Operationen unter Berücksichtigung der verfügbaren Operationsressourcen sowie der Vorgaben des ärztlichen Dienstes\n• Schriftliches und mündliches Aufbieten von Patientinnen und Patienten\n• Ansprechperson für Patientinnen und Patienten vor dem Eintritt (bei Fragen zum Eintritt, zu medizinischen Anliegen oder zum Spitalaufenthalt)\n• Sicherstellen des Informationsflusses betreffend Eintritte, Austritte und Verlegungen\n• Enge Zusammenarbeit mit Operateuren, MPAs, Pflegepersonal sowie weiteren internen und externen Stellen\n• Mitwirkung im integralen Kapazitätsmanagement\n\nDie Basis deiner Leistung:\n\n• Ausbildung im Gesundheitswesen oder kaufmännische Ausbildung mit Berufserfahrung im Gesundheitswesen\n• Hohes Mass an Verlässlichkeit, insbesondere in der Zusammenarbeit im Team sowie im Umgang mit unseren Kund:innen und Patienten:innen.\n• Flexibilität hinsichtlich der Arbeitstage (keine fixen Arbeitstage, Übernahme von Ferienvertretungen)\n• Selbstständige, engagierte und transparente Arbeitsweise sowie hohe Flexibilität und Belastbarkeit in hektischen Situationen\n• Sicheres und selbstbewusstes Auftreten sowie ausgezeichnete Kommunikationsfähigkeit (stilsichere Deutschkenntnisse in Wort und Schrift)\n• Lösungsorientierte Denkweise, diplomatisches Geschick, Durchsetzungsvermögen und ausgeprägtes Organisationstalent\n• IT-Affinität sowie hohe Dienstleistungs- und Kundenorientierung und analytisches Arbeitsweise\n\nDie Vorzüge deiner Position:\n\n• Geregelte Arbeitszeiten, Montag bis Freitag, max. bis 17.00 Uhr\n• Der Bahnhof 3 Gehminuten entfernt\n• Dienst- und Ferienplanung sehr flexibel\n\nDie Gründe deiner Entscheidung:\nWir bieten moderne Arbeitsbedingungen, fördern interne Weiterbildungen und setzen auf fachlichen Austausch über alle Disziplinen hinweg. Die ruhige Lage direkt am See und die Nähe zur pulsierenden Stadt Zürich runden deinen Arbeitsplatz ab. Darüber hinaus kannst du dich auf ganz spezielle Vorteile freuen.",
+      "descriptionByLocale": {
+        "de": "Spital Männedorf – Dein ganz besonderer Arbeitsort.\nOb ein kleines „Danke“ oder ein morgendliches „Grüezi“ - bei uns stehen echte Wertschätzung und Menschlichkeit im Vordergrund. Die Nähe in unserem Haus macht den Alltag unkompliziert und ermöglicht interprofessionelle Zusammenarbeit auf höchstem Niveau. In einem Umfeld, in dem Unterstützung selbstverständlich ist, wird dein Engagement geschätzt und gefördert.\n\nDas Wesen deiner Tätigkeit:\n\n• Koordinieren von Eintritten, Verlegungen sowie der Bettenzuteilung für reguläre und notfallmässige Eintritte\n• Planung von Operationen unter Berücksichtigung der verfügbaren Operationsressourcen sowie der Vorgaben des ärztlichen Dienstes\n• Schriftliches und mündliches Aufbieten von Patientinnen und Patienten\n• Ansprechperson für Patientinnen und Patienten vor dem Eintritt (bei Fragen zum Eintritt, zu medizinischen Anliegen oder zum Spitalaufenthalt)\n• Sicherstellen des Informationsflusses betreffend Eintritte, Austritte und Verlegungen\n• Enge Zusammenarbeit mit Operateuren, MPAs, Pflegepersonal sowie weiteren internen und externen Stellen\n• Mitwirkung im integralen Kapazitätsmanagement\n\nDie Basis deiner Leistung:\n\n• Ausbildung im Gesundheitswesen oder kaufmännische Ausbildung mit Berufserfahrung im Gesundheitswesen\n• Hohes Mass an Verlässlichkeit, insbesondere in der Zusammenarbeit im Team sowie im Umgang mit unseren Kund:innen und Patienten:innen.\n• Flexibilität hinsichtlich der Arbeitstage (keine fixen Arbeitstage, Übernahme von Ferienvertretungen)\n• Selbstständige, engagierte und transparente Arbeitsweise sowie hohe Flexibilität und Belastbarkeit in hektischen Situationen\n• Sicheres und selbstbewusstes Auftreten sowie ausgezeichnete Kommunikationsfähigkeit (stilsichere Deutschkenntnisse in Wort und Schrift)\n• Lösungsorientierte Denkweise, diplomatisches Geschick, Durchsetzungsvermögen und ausgeprägtes Organisationstalent\n• IT-Affinität sowie hohe Dienstleistungs- und Kundenorientierung und analytisches Arbeitsweise\n\nDie Vorzüge deiner Position:\n\n• Geregelte Arbeitszeiten, Montag bis Freitag, max. bis 17.00 Uhr\n• Der Bahnhof 3 Gehminuten entfernt\n• Dienst- und Ferienplanung sehr flexibel\n\nDie Gründe deiner Entscheidung:\nWir bieten moderne Arbeitsbedingungen, fördern interne Weiterbildungen und setzen auf fachlichen Austausch über alle Disziplinen hinweg. Die ruhige Lage direkt am See und die Nähe zur pulsierenden Stadt Zürich runden deinen Arbeitsplatz ab. Darüber hinaus kannst du dich auf ganz spezielle Vorteile freuen.",
+        "it": "Spital Männedorf – Dein ganz besonderer Arbeitsort.\nOb ein kleines „Danke“ oder ein morgendliches „Grüezi“ - bei uns stehen echte Wertschätzung und Menschlichkeit im Vordergrund. Die Nähe in unserem Haus macht den Alltag unkompliziert und ermöglicht interprofessionelle Zusammenarbeit auf höchstem Niveau. In einem Umfeld, in dem Unterstützung selbstverständlich ist, wird dein Engagement geschätzt und gefördert.\n\nDas Wesen deiner Tätigkeit:\n\n• Koordinieren von Eintritten, Verlegungen sowie der Bettenzuteilung für reguläre und notfallmässige Eintritte\n• Planung von Operationen unter Berücksichtigung der verfügbaren Operationsressourcen sowie der Vorgaben des ärztlichen Dienstes\n• Schriftliches und mündliches Aufbieten von Patientinnen und Patienten\n• Ansprechperson für Patientinnen und Patienten vor dem Eintritt (bei Fragen zum Eintritt, zu medizinischen Anliegen oder zum Spitalaufenthalt)\n• Sicherstellen des Informationsflusses betreffend Eintritte, Austritte und Verlegungen\n• Enge Zusammenarbeit mit Operateuren, MPAs, Pflegepersonal sowie weiteren internen und externen Stellen\n• Mitwirkung im integralen Kapazitätsmanagement\n\nDie Basis deiner Leistung:\n\n• Ausbildung im Gesundheitswesen oder kaufmännische Ausbildung mit Berufserfahrung im Gesundheitswesen\n• Hohes Mass an Verlässlichkeit, insbesondere in der Zusammenarbeit im Team sowie im Umgang mit unseren Kund:innen und Patienten:innen.\n• Flexibilität hinsichtlich der Arbeitstage (keine fixen Arbeitstage, Übernahme von Ferienvertretungen)\n• Selbstständige, engagierte und transparente Arbeitsweise sowie hohe Flexibilität und Belastbarkeit in hektischen Situationen\n• Sicheres und selbstbewusstes Auftreten sowie ausgezeichnete Kommunikationsfähigkeit (stilsichere Deutschkenntnisse in Wort und Schrift)\n• Lösungsorientierte Denkweise, diplomatisches Geschick, Durchsetzungsvermögen und ausgeprägtes Organisationstalent\n• IT-Affinität sowie hohe Dienstleistungs- und Kundenorientierung und analytisches Arbeitsweise\n\nDie Vorzüge deiner Position:\n\n• Geregelte Arbeitszeiten, Montag bis Freitag, max. bis 17.00 Uhr\n• Der Bahnhof 3 Gehminuten entfernt\n• Dienst- und Ferienplanung sehr flexibel\n\nDie Gründe deiner Entscheidung:\nWir bieten moderne Arbeitsbedingungen, fördern interne Weiterbildungen und setzen auf fachlichen Austausch über alle Disziplinen hinweg. Die ruhige Lage direkt am See und die Nähe zur pulsierenden Stadt Zürich runden deinen Arbeitsplatz ab. Darüber hinaus kannst du dich auf ganz spezielle Vorteile freuen.",
+        "en": "Spital Männedorf – Dein ganz besonderer Arbeitsort.\nOb ein kleines „Danke“ oder ein morgendliches „Grüezi“ - bei uns stehen echte Wertschätzung und Menschlichkeit im Vordergrund. Die Nähe in unserem Haus macht den Alltag unkompliziert und ermöglicht interprofessionelle Zusammenarbeit auf höchstem Niveau. In einem Umfeld, in dem Unterstützung selbstverständlich ist, wird dein Engagement geschätzt und gefördert.\n\nDas Wesen deiner Tätigkeit:\n\n• Koordinieren von Eintritten, Verlegungen sowie der Bettenzuteilung für reguläre und notfallmässige Eintritte\n• Planung von Operationen unter Berücksichtigung der verfügbaren Operationsressourcen sowie der Vorgaben des ärztlichen Dienstes\n• Schriftliches und mündliches Aufbieten von Patientinnen und Patienten\n• Ansprechperson für Patientinnen und Patienten vor dem Eintritt (bei Fragen zum Eintritt, zu medizinischen Anliegen oder zum Spitalaufenthalt)\n• Sicherstellen des Informationsflusses betreffend Eintritte, Austritte und Verlegungen\n• Enge Zusammenarbeit mit Operateuren, MPAs, Pflegepersonal sowie weiteren internen und externen Stellen\n• Mitwirkung im integralen Kapazitätsmanagement\n\nDie Basis deiner Leistung:\n\n• Ausbildung im Gesundheitswesen oder kaufmännische Ausbildung mit Berufserfahrung im Gesundheitswesen\n• Hohes Mass an Verlässlichkeit, insbesondere in der Zusammenarbeit im Team sowie im Umgang mit unseren Kund:innen und Patienten:innen.\n• Flexibilität hinsichtlich der Arbeitstage (keine fixen Arbeitstage, Übernahme von Ferienvertretungen)\n• Selbstständige, engagierte und transparente Arbeitsweise sowie hohe Flexibilität und Belastbarkeit in hektischen Situationen\n• Sicheres und selbstbewusstes Auftreten sowie ausgezeichnete Kommunikationsfähigkeit (stilsichere Deutschkenntnisse in Wort und Schrift)\n• Lösungsorientierte Denkweise, diplomatisches Geschick, Durchsetzungsvermögen und ausgeprägtes Organisationstalent\n• IT-Affinität sowie hohe Dienstleistungs- und Kundenorientierung und analytisches Arbeitsweise\n\nDie Vorzüge deiner Position:\n\n• Geregelte Arbeitszeiten, Montag bis Freitag, max. bis 17.00 Uhr\n• Der Bahnhof 3 Gehminuten entfernt\n• Dienst- und Ferienplanung sehr flexibel\n\nDie Gründe deiner Entscheidung:\nWir bieten moderne Arbeitsbedingungen, fördern interne Weiterbildungen und setzen auf fachlichen Austausch über alle Disziplinen hinweg. Die ruhige Lage direkt am See und die Nähe zur pulsierenden Stadt Zürich runden deinen Arbeitsplatz ab. Darüber hinaus kannst du dich auf ganz spezielle Vorteile freuen.",
+        "fr": "Spital Männedorf – Dein ganz besonderer Arbeitsort.\nOb ein kleines „Danke“ oder ein morgendliches „Grüezi“ - bei uns stehen echte Wertschätzung und Menschlichkeit im Vordergrund. Die Nähe in unserem Haus macht den Alltag unkompliziert und ermöglicht interprofessionelle Zusammenarbeit auf höchstem Niveau. In einem Umfeld, in dem Unterstützung selbstverständlich ist, wird dein Engagement geschätzt und gefördert.\n\nDas Wesen deiner Tätigkeit:\n\n• Koordinieren von Eintritten, Verlegungen sowie der Bettenzuteilung für reguläre und notfallmässige Eintritte\n• Planung von Operationen unter Berücksichtigung der verfügbaren Operationsressourcen sowie der Vorgaben des ärztlichen Dienstes\n• Schriftliches und mündliches Aufbieten von Patientinnen und Patienten\n• Ansprechperson für Patientinnen und Patienten vor dem Eintritt (bei Fragen zum Eintritt, zu medizinischen Anliegen oder zum Spitalaufenthalt)\n• Sicherstellen des Informationsflusses betreffend Eintritte, Austritte und Verlegungen\n• Enge Zusammenarbeit mit Operateuren, MPAs, Pflegepersonal sowie weiteren internen und externen Stellen\n• Mitwirkung im integralen Kapazitätsmanagement\n\nDie Basis deiner Leistung:\n\n• Ausbildung im Gesundheitswesen oder kaufmännische Ausbildung mit Berufserfahrung im Gesundheitswesen\n• Hohes Mass an Verlässlichkeit, insbesondere in der Zusammenarbeit im Team sowie im Umgang mit unseren Kund:innen und Patienten:innen.\n• Flexibilität hinsichtlich der Arbeitstage (keine fixen Arbeitstage, Übernahme von Ferienvertretungen)\n• Selbstständige, engagierte und transparente Arbeitsweise sowie hohe Flexibilität und Belastbarkeit in hektischen Situationen\n• Sicheres und selbstbewusstes Auftreten sowie ausgezeichnete Kommunikationsfähigkeit (stilsichere Deutschkenntnisse in Wort und Schrift)\n• Lösungsorientierte Denkweise, diplomatisches Geschick, Durchsetzungsvermögen und ausgeprägtes Organisationstalent\n• IT-Affinität sowie hohe Dienstleistungs- und Kundenorientierung und analytisches Arbeitsweise\n\nDie Vorzüge deiner Position:\n\n• Geregelte Arbeitszeiten, Montag bis Freitag, max. bis 17.00 Uhr\n• Der Bahnhof 3 Gehminuten entfernt\n• Dienst- und Ferienplanung sehr flexibel\n\nDie Gründe deiner Entscheidung:\nWir bieten moderne Arbeitsbedingungen, fördern interne Weiterbildungen und setzen auf fachlichen Austausch über alle Disziplinen hinweg. Die ruhige Lage direkt am See und die Nähe zur pulsierenden Stadt Zürich runden deinen Arbeitsplatz ab. Darüber hinaus kannst du dich auf ganz spezielle Vorteile freuen."
+      },
+      "location": "Männedorf",
+      "canton": "ZH",
+      "url": "https://recruitingapp-2736.umantis.com/Vacancies/2037/Description/1",
+      "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
+      "sourceLang": "de",
+      "needsRetranslation": true,
+      "crawledAt": "2026-11-18T21:20:30.418Z",
+      "addressLocality": "Männedorf",
+      "postalCode": "8708",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://recruitingapp-2736.umantis.com/Vacancies/2037/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Spitaldirektion & Stabsstellen",
+      "pensumMin": 100,
+      "pensumMax": 100,
+      "pensum": "100%",
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiterin-op-und-bettendisposition-100-m-w-d-spital-maennedorf-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiterin-op-und-bettendisposition-100-m-w-d-spital-maennedorf-ch"
+      ],
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Männedorf",
+        "streetAddress": "Asylstrasse 10",
+        "postalCode": "8708",
+        "registeredName": "Spital Männedorf AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "8708",
+        "addressLocality": "Männedorf",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-11-09T15:43:32.637Z"
+      },
+      "streetAddress": "Asylstrasse 10",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-02-16T21:20:30.418Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-18T21:20:30.418Z"
     }
   ]
 }

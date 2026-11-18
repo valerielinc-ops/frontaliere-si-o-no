@@ -1,7 +1,7 @@
 {
   "key": "climeworks",
   "label": "Climeworks",
-  "generatedAt": "2026-11-18T09:17:47.949Z",
+  "generatedAt": "2026-11-18T21:18:29.905Z",
   "total": 7,
   "discovered": null,
   "parsed": 7,
@@ -13,19 +13,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 3005,
-  "avgDurationMs": 3005,
+  "durationMs": 3736,
+  "avgDurationMs": 3736,
   "durationHistory": [
-    3005
+    3736
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "climeworks-f8fefdcb2bc2",
-      "slug": "human-resources-intern-recruiting-hr-projects-80-100-climeworks-zurich",
+      "slug": "risorse-umane-tirocinante-recruiting-risorse-umane-projects-80-100-climeworks-zurich",
       "company": "Climeworks",
       "companyKey": "climeworks",
       "companyDomain": "climeworks.com",
@@ -35,7 +36,7 @@
       "url": "https://climeworks.recruitee.com/o/human-resources-intern-recruiting-hr-projects-80-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-18T09:17:32.637Z",
+      "crawledAt": "2026-11-18T21:18:12.825Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -51,7 +52,7 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://climeworks.recruitee.com/o/human-resources-intern-recruiting-hr-projects-80-100",
       "remote": true,
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-18T09:17:32.637Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -59,19 +60,17 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T09:17:32.637Z",
+      "validThrough": "2027-02-16T21:18:12.825Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T09:17:32.637Z",
-      "_qualityScore": 90,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 21,
+        "translation": 25,
         "completeness": 23
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -86,7 +85,7 @@
       "url": "https://climeworks.recruitee.com/o/lead-electrical-engineer-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-18T09:17:32.647Z",
+      "crawledAt": "2026-11-18T21:18:12.836Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -110,7 +109,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T09:17:32.647Z",
+      "validThrough": "2027-01-10T21:18:12.836Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -132,7 +131,7 @@
       "url": "https://climeworks.recruitee.com/o/filtration-module-product-owner-80-100-101",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-18T09:17:32.646Z",
+      "crawledAt": "2026-11-18T21:18:12.835Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -157,7 +156,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T09:17:32.646Z",
+      "validThrough": "2027-01-13T21:18:12.835Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -179,7 +178,7 @@
       "url": "https://climeworks.recruitee.com/o/intern-in-sorbent-structures-80-100-104",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-18T09:17:32.645Z",
+      "crawledAt": "2026-11-18T21:18:12.834Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -203,7 +202,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:17:32.645Z",
+      "validThrough": "2027-01-26T21:18:12.834Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -225,7 +224,7 @@
       "url": "https://climeworks.recruitee.com/o/science-manager-nature-based-solutions-80-100-101",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-18T09:17:32.644Z",
+      "crawledAt": "2026-11-18T21:18:12.833Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -250,7 +249,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T09:17:32.644Z",
+      "validThrough": "2027-02-11T21:18:12.833Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -272,7 +271,7 @@
       "url": "https://climeworks.recruitee.com/o/principal-design-engineer-mechanical-equipment-80-100-101",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-18T09:17:32.643Z",
+      "crawledAt": "2026-11-18T21:18:12.831Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -297,7 +296,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:17:32.643Z",
+      "validThrough": "2026-12-18T21:18:12.831Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -319,7 +318,7 @@
       "url": "https://climeworks.recruitee.com/o/senior-konstruktionsingenieur-wmx-80-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:17:32.641Z",
+      "crawledAt": "2026-11-18T21:18:12.829Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -344,7 +343,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T09:17:32.641Z",
+      "validThrough": "2027-02-08T21:18:12.829Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -355,5 +354,5 @@
       }
     }
   ],
-  "codeCommit": "c09e64fc08a252ae7234edb7cb9fdea84c5eb705"
+  "codeCommit": "8862042892397f4dcea90f48fbc2dc028da23eec"
 }
