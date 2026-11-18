@@ -16,7 +16,7 @@
  * It NEVER:
  *   - Modifies titleByLocale or descriptionByLocale
  *   - Sets needsRetranslation
- *   - Changes the master slug (job.slug)
+ *   - Changes the master slug independently of the Italian route
  *   - Touches sourceLang or any other job field
  */
 
@@ -72,6 +72,28 @@ export function slugDropsTitleWords(slug, employerTitle, company, location, disa
   );
   const titlePart = String(slug || '').split('-').filter((t) => t && !noise.has(t)).join(' ');
   return localeTitleDropsSourceWords(titlePart, employerTitle);
+}
+
+/**
+ * Keep the master route aligned with an Italian locale replacement.
+ *
+ * `job.slug` is the fallback Italian route whenever `slugByLocale.it` is
+ * absent, and remains a separately served legacy route after the locale slot
+ * becomes explicit. Preserve that old master route before switching it so a
+ * registry pin cannot make the proof lose the pre-run Italian URL.
+ */
+export function syncItalianMasterSlug(job, previousItalianSlug, nextItalianSlug) {
+  if (!job || typeof job !== 'object') return false;
+  const masterSlug = String(job.slug || '').trim();
+  const nextSlug = String(nextItalianSlug || '').trim();
+  const previousSlug = String(previousItalianSlug || '').trim();
+  if (!masterSlug || !nextSlug || masterSlug === nextSlug) return false;
+
+  if (masterSlug !== previousSlug) {
+    addPreviousSlugForLocale(job, 'it', masterSlug, 20);
+  }
+  job.slug = nextSlug;
+  return true;
 }
 
 function readJson(filePath) {
@@ -223,6 +245,9 @@ async function main() {
             sliceChanged = true;
             totalPinned++;
           }
+          if (locale === 'it' && syncItalianMasterSlug(job, currentSlug, pinnedSlug)) {
+            sliceChanged = true;
+          }
           continue;
         }
 
@@ -336,13 +361,7 @@ async function main() {
         job.slugByLocale = sbl;
 
         // Keep master slug in sync with IT slug (master serves the IT path)
-        if (locale === 'it' && job.slug && job.slug !== newSlug) {
-          // Capture old master as IT previousSlug before overwriting
-          if (job.slug !== currentSlug) {
-            addPreviousSlugForLocale(job, 'it', job.slug, 20);
-          }
-          job.slug = newSlug;
-        }
+        if (locale === 'it') syncItalianMasterSlug(job, currentSlug, newSlug);
 
         sliceChanged = true;
         totalFixed++;
