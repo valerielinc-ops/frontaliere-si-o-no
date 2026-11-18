@@ -1,7 +1,7 @@
 {
   "crawlerKey": "strabag",
-  "assembledAt": "2026-11-17T21:47:43.673Z",
-  "runId": "44179405255",
+  "assembledAt": "2026-11-18T09:42:05.736Z",
+  "runId": "44275326198",
   "jobs": [
     {
       "id": "strabag-be6c4df9cb17",
@@ -35,7 +35,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/9294703d-0e8e-446c-a4f3-599c847be9cc/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:47:06.893Z",
+      "crawledAt": "2026-11-18T09:41:21.105Z",
       "addressLocality": "Disentis oder Thusis",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -86,7 +86,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:47:06.893Z",
+      "validThrough": "2027-02-03T09:41:21.105Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -121,7 +121,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/221cf7e6-dd11-4f45-8f2c-17c8a2394925/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:47:06.109Z",
+      "crawledAt": "2026-11-18T09:41:20.389Z",
       "addressLocality": "Disentis oder Thusis",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -172,7 +172,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:47:06.109Z",
+      "validThrough": "2027-02-03T09:41:20.389Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -207,7 +207,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/8d070c96-5cc4-4fbb-8a72-55857355859a/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:47:01.886Z",
+      "crawledAt": "2026-11-18T09:41:19.725Z",
       "addressLocality": "Rothenburg",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -250,7 +250,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T21:47:01.886Z",
+      "validThrough": "2027-02-04T09:41:19.725Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -285,7 +285,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/19809f6c-74b3-429f-b152-712f5c67bdf1/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:47:00.935Z",
+      "crawledAt": "2026-11-18T09:41:19.034Z",
       "addressLocality": "Thusis",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -334,7 +334,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:47:00.935Z",
+      "validThrough": "2027-02-04T09:41:19.034Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -369,7 +369,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/97134f90-53ca-4c05-ab1e-0d73680d4164/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:47:00.099Z",
+      "crawledAt": "2026-11-18T09:41:17.979Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -426,7 +426,7 @@
         "checkedAt": "2026-11-09T15:43:34.452Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-07T21:47:00.099Z",
+      "validThrough": "2027-02-07T09:41:17.979Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -461,7 +461,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/6db58daf-a718-44e1-a504-49529a27bf65/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:46:59.247Z",
+      "crawledAt": "2026-11-18T09:41:17.412Z",
       "addressLocality": "Lindau (bei Effretikon)",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -510,7 +510,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:46:59.247Z",
+      "validThrough": "2027-02-10T09:41:17.412Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -545,7 +545,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/8ec5502f-2df6-4102-9452-e31e337521d7/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:46:55.797Z",
+      "crawledAt": "2026-11-18T09:41:16.726Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -596,7 +596,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:46:55.797Z",
+      "validThrough": "2027-02-10T09:41:16.726Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -631,7 +631,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/bfa39525-ec66-431a-a93d-a73d27c836c2/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:46:55.015Z",
+      "crawledAt": "2026-11-18T09:41:16.050Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -694,7 +694,7 @@
         "checkedAt": "2026-11-09T15:43:34.452Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-10T21:46:55.015Z",
+      "validThrough": "2027-02-10T09:41:16.050Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -729,7 +729,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/febecfc5-942c-4837-924b-31da91dc4932/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:46:54.155Z",
+      "crawledAt": "2026-11-18T09:41:14.916Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -780,7 +780,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:46:54.155Z",
+      "validThrough": "2027-02-10T09:41:14.916Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -814,7 +814,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/98f471f6-9235-41f9-8c22-6c0491d079f6/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:46:50.713Z",
+      "crawledAt": "2026-11-18T09:41:13.738Z",
       "addressLocality": "Subingen / Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -863,7 +863,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:46:50.713Z",
+      "validThrough": "2027-02-11T09:41:13.738Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -898,7 +898,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/b2f51c80-c36f-4074-85bc-b12ed91ddbaf/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:46:50.032Z",
+      "crawledAt": "2026-11-18T09:41:12.923Z",
       "addressLocality": "Subingen / Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -947,7 +947,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:46:50.032Z",
+      "validThrough": "2027-02-11T09:41:12.923Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -981,7 +981,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/221353a5-6c1a-4c1f-a103-59fb95fea682/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:46:49.351Z",
+      "crawledAt": "2026-11-18T09:41:12.241Z",
       "addressLocality": "Lindau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1032,7 +1032,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-14T21:46:49.351Z",
+      "validThrough": "2027-02-14T09:41:12.241Z",
       "validThroughSource": "last-observed-window"
     }
   ]
