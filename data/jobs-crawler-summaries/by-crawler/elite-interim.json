@@ -1,10 +1,10 @@
 {
   "key": "elite-interim",
   "label": "Elite Interim SA",
-  "generatedAt": "2026-11-18T09:23:52.734Z",
+  "generatedAt": "2026-11-18T21:23:09.922Z",
   "total": 8,
   "discovered": null,
-  "parsed": 8,
+  "parsed": 2,
   "lastFetchOutcome": null,
   "fetchReceipt": null,
   "sourceBodyFailureCount": 0,
@@ -14,16 +14,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 6,
-  "durationMs": 5068,
-  "avgDurationMs": 5068,
+  "unchangedCount": 8,
+  "durationMs": 5371,
+  "avgDurationMs": 5371,
   "durationHistory": [
-    5068
+    5371
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "elite-interim-3587",
       "slug": "installatore-cfc-m-f-elite-interim-sa-neuchatel",
@@ -37,7 +39,7 @@
       "applyUrl": "https://eliteinterim.ch/installateur-electricien-cfc-h-f/",
       "source": "Elite Interim Dedicated Parser (official WordPress detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T09:23:34.913Z",
+      "crawledAt": "2026-11-18T21:22:48.832Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -60,7 +62,7 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T09:23:34.913Z",
+      "validThrough": "2027-02-15T21:22:48.832Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -84,7 +86,7 @@
       "applyUrl": "https://eliteinterim.ch/electricien-de-montage-cfc-h-f/",
       "source": "Elite Interim Dedicated Parser (official WordPress detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T09:23:34.913Z",
+      "crawledAt": "2026-11-18T21:22:48.832Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -107,7 +109,7 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T09:23:34.913Z",
+      "validThrough": "2027-02-15T21:22:48.832Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -116,10 +118,7 @@
         "translation": 25,
         "completeness": 25
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "elite-interim-3552",
       "slug": "un-installazione-elettrica-cfc-m-f-elite-interim-sa-canton-de-neuchatel",
@@ -159,6 +158,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-13T09:23:34.913Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -206,6 +206,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-13T09:23:34.913Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -253,6 +254,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-18T09:23:34.913Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -300,6 +302,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-18T09:23:34.913Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -347,6 +350,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-18T09:23:34.913Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -394,6 +398,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-18T09:23:34.913Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -403,5 +408,5 @@
       }
     }
   ],
-  "codeCommit": "c09e64fc08a252ae7234edb7cb9fdea84c5eb705"
+  "codeCommit": "8862042892397f4dcea90f48fbc2dc028da23eec"
 }

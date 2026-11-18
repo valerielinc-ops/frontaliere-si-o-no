@@ -1,31 +1,30 @@
 {
   "key": "recruitingapp-2563",
   "label": "Switch Bewerbermanagement Stellen",
-  "generatedAt": "2026-11-18T09:23:07.492Z",
-  "total": 2,
-  "discovered": 1,
-  "parsed": 1,
+  "generatedAt": "2026-11-18T21:28:17.544Z",
+  "total": 0,
+  "discovered": 0,
+  "parsed": 0,
   "lastFetchOutcome": null,
   "fetchReceipt": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 2,
+  "written": 0,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
-  "authoritativeEmptySnapshot": false,
+  "authoritativeEmptySnapshot": true,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 6176,
-  "avgDurationMs": 6176,
+  "removedCount": 2,
+  "unchangedCount": 0,
+  "durationMs": 2249,
+  "avgDurationMs": 2249,
   "durationHistory": [
-    6176
+    2249
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "recruitingapp-2563-153e731c4d63",
       "slug": "cloud-ingegnere-compute-80-100-all-identities-and-backgrounds-in-zurich-o-lausanne-switch-bewerbermanagement-stellen-zurich",
@@ -121,5 +120,6 @@
       }
     }
   ],
-  "codeCommit": "c09e64fc08a252ae7234edb7cb9fdea84c5eb705"
+  "unchangedJobs": [],
+  "codeCommit": "8862042892397f4dcea90f48fbc2dc028da23eec"
 }

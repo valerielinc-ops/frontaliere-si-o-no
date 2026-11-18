@@ -1,7 +1,7 @@
 {
   "key": "apg-sga",
   "label": "APG|SGA",
-  "generatedAt": "2026-11-18T09:24:29.227Z",
+  "generatedAt": "2026-11-18T21:26:56.954Z",
   "total": 8,
   "discovered": null,
   "parsed": 7,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 8,
-  "durationMs": 8446,
-  "avgDurationMs": 8446,
+  "durationMs": 8056,
+  "avgDurationMs": 8056,
   "durationHistory": [
-    8446
+    8056
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://jobs.apgsga.ch/publication/ict-system-engineer-linux-zuerich/dhljbvsspmii1fzf2yst7lgksh96vsy4cwwbcurwopxpl33e6v7ohypl2770brry",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:24:10.734Z",
+      "crawledAt": "2026-11-18T21:26:37.701Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -61,7 +61,7 @@
       "salarySource": "estimated",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:24:10.734Z",
+      "validThrough": "2026-12-29T21:26:37.701Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -83,7 +83,7 @@
       "url": "https://jobs.apgsga.ch/publication/workplace-engineer-zuerich/8otxkreaeaq5rehjtboe2lg3bmaex5nfq3d56j1bvr1ftd8ti2kbzgrnafy633z0",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:24:10.304Z",
+      "crawledAt": "2026-11-18T21:26:37.257Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -106,7 +106,7 @@
       "salarySource": "estimated",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:24:10.304Z",
+      "validThrough": "2026-12-29T21:26:37.257Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -128,7 +128,7 @@
       "url": "https://jobs.apgsga.ch/publication/sales-coordinator-airport-advertising-zuerich/kwx50lsqcs0s57kphl6u3t2orih52uw7k5pj4tjji0h62tscr18qfnt8cfyzvmky",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:24:09.874Z",
+      "crawledAt": "2026-11-18T21:26:36.781Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -152,7 +152,7 @@
       "salarySource": "estimated",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T09:24:09.874Z",
+      "validThrough": "2027-01-19T21:26:36.781Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -174,7 +174,7 @@
       "url": "https://jobs.apgsga.ch/publication/key-account-manager-in-zuerich/yqbyamdibr2ofdtyu4hhivzweb0vjlvst4c1j2v9hdqkhs86jpvkcplx8pcxdcy5",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:24:09.444Z",
+      "crawledAt": "2026-11-18T21:26:36.342Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -197,7 +197,7 @@
       "salarySource": "estimated",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T09:24:09.444Z",
+      "validThrough": "2027-01-19T21:26:36.342Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -219,7 +219,7 @@
       "url": "https://jobs.apgsga.ch/publication/afficheur-in-wallisellen/fs0uv9ermm41lv2ubrrtjf7kivelnkpkahyy78yp0awsn0pxfiswej30yzwy85hz",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:24:09.005Z",
+      "crawledAt": "2026-11-18T21:26:35.904Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -242,7 +242,7 @@
       "salarySource": "estimated",
       "streetAddress": "Wallisellen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:24:09.005Z",
+      "validThrough": "2027-01-26T21:26:35.904Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -264,7 +264,7 @@
       "url": "https://jobs.apgsga.ch/publication/verkaufsberatung-aussendienst-bern/vkwavwpoo2jxbr09jpnr1wnddc5q0xq0o50iijpdpbrwkmeviovet7cwt7xzih7x",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:24:08.558Z",
+      "crawledAt": "2026-11-18T21:26:35.425Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -287,7 +287,7 @@
       "salarySource": "estimated",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:24:08.558Z",
+      "validThrough": "2027-02-02T21:26:35.425Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -309,7 +309,7 @@
       "url": "https://jobs.apgsga.ch/publication/crm-manager-in-zuerich/257vd61wfejffr6hvrys2vhxobz74m5bs2hxdxcrs7bd4lymbmc52gdexvquncni",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:24:08.124Z",
+      "crawledAt": "2026-11-18T21:26:34.980Z",
       "addressLocality": "8027 Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -332,7 +332,7 @@
       "salarySource": "estimated",
       "streetAddress": "8027 Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T09:24:08.124Z",
+      "validThrough": "2027-02-07T21:26:34.980Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -379,7 +379,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-29T21:26:56.711Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -389,5 +389,5 @@
       }
     }
   ],
-  "codeCommit": "c09e64fc08a252ae7234edb7cb9fdea84c5eb705"
+  "codeCommit": "8862042892397f4dcea90f48fbc2dc028da23eec"
 }
