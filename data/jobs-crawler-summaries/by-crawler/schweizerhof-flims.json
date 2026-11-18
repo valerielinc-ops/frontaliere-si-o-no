@@ -1,7 +1,7 @@
 {
   "key": "schweizerhof-flims",
   "label": "Schweizerhof",
-  "generatedAt": "2026-11-17T21:20:02.261Z",
+  "generatedAt": "2026-11-18T09:20:18.682Z",
   "total": 1,
   "discovered": 28,
   "parsed": 1,
@@ -17,6 +17,14 @@
       {
         "status": 200,
         "url": "https://romantikhotels.hcm4all.de/list/?l=de"
+      },
+      {
+        "status": 200,
+        "url": "https://romantikhotels.hcm4all.de/list/17012"
+      },
+      {
+        "status": 200,
+        "url": "https://romantikhotels.hcm4all.de/list/16248"
       },
       {
         "status": 200,
@@ -80,10 +88,6 @@
       },
       {
         "status": 200,
-        "url": "https://romantikhotels.hcm4all.de/list/16248"
-      },
-      {
-        "status": 200,
         "url": "https://romantikhotels.hcm4all.de/list/20040"
       },
       {
@@ -120,15 +124,11 @@
       },
       {
         "status": 200,
-        "url": "https://romantikhotels.hcm4all.de/list/2085"
-      },
-      {
-        "status": 200,
         "url": "https://romantikhotels.hcm4all.de/list/2086"
       },
       {
         "status": 200,
-        "url": "https://romantikhotels.hcm4all.de/list/2087"
+        "url": "https://romantikhotels.hcm4all.de/list/2085"
       }
     ],
     "proxiedBy": [],
@@ -148,10 +148,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 34663,
-  "avgDurationMs": 34663,
+  "durationMs": 34983,
+  "avgDurationMs": 34983,
   "durationHistory": [
-    34663
+    34983
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -169,7 +169,7 @@
       "url": "https://romantikhotels.hcm4all.de/list/18877",
       "source": "Schweizerhof Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:19:41.481Z",
+      "crawledAt": "2026-11-18T09:20:03.647Z",
       "addressLocality": "Flims",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -192,7 +192,7 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-17T21:19:41.481Z",
+      "validThrough": "2026-12-18T09:20:03.647Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -203,5 +203,5 @@
       }
     }
   ],
-  "codeCommit": "8a8594aa5e6a6b71cb0a2a3883a7ded1be40621c"
+  "codeCommit": "c09e64fc08a252ae7234edb7cb9fdea84c5eb705"
 }
