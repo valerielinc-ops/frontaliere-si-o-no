@@ -1,7 +1,7 @@
 {
   "crawlerKey": "sophia-genetics",
-  "assembledAt": "2026-11-17T21:25:51.464Z",
-  "runId": "44178049619",
+  "assembledAt": "2026-11-18T21:21:59.119Z",
+  "runId": "44399456508",
   "jobs": [
     {
       "id": "sophia-genetics-09e77f4ecb94",
@@ -34,7 +34,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/1B53D0A7AB/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:25:41.082Z",
+      "crawledAt": "2026-11-18T21:21:52.702Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -81,8 +81,81 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T21:25:41.082Z",
+      "validThrough": "2027-02-09T21:21:52.702Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "sophia-genetics-2fdf182c1cc8",
+      "slug": "software-development-engineer-sophia-genetics-rolle",
+      "slugByLocale": {
+        "en": "software-development-engineer-sophia-genetics-rolle",
+        "it": "software-development-engineer-sophia-genetics-rolle",
+        "de": "software-development-engineer-sophia-genetics-rolle",
+        "fr": "software-development-engineer-sophia-genetics-rolle"
+      },
+      "company": "SOPHiA GENETICS",
+      "companyKey": "sophia-genetics",
+      "companyDomain": "sophiagenetics.com",
+      "title": "Software Development Engineer",
+      "titleByLocale": {
+        "en": "Software Development Engineer",
+        "it": "Software Development Ingegnere",
+        "de": "Software Development Ingenieur",
+        "fr": "Software Development Ingénieur"
+      },
+      "description": "Do you bring software engineering experience and an understanding of how cloud-hosted services connect? Have you used AI-assisted development tools to solve engineering problems beyond an individual API or service?\n If this sounds like you and you are driven by purpose, join the SOPHiA GENETICS team as a Software Development Engineer and enable us to make a positive impact on the outcomes for cancer and rare disease patients worldwide.\n Enjoy the flexibility of a hybrid work schedule allowing 2 days PW home working, collaborating closely with colleagues in our Rolle, CH corporate office\n Our Mission\n We believe there is a smarter, more data-driven way to make decisions in healthcare and our cloud-native AI powered SOPHiA DDM Platform makes that vision a reality on a daily basis. You will have direct input to our mission to democratize data-driven medicine for the ultimate benefit of cancer and rare disease patients across the globe.\n Your Mission\n You'll improve the core platform behind our technology, working on identified opportunities to optimize our backend systems. You'll bring an understanding of how services connect and how architectural decisions affect the wider system—not just the code within an individual service.\n The role is primarily backend-focused, but its scope isn't limited to backend development. We're looking for an experienced engineer who can work across system boundaries and use AI-assisted development tools as part of their engineering practice. Healthcare or genomics experience isn't required; experience with comparable technical complexity matters more than your industry background.\n The value you add\n\n• Develop improvements to our core platform, focusing on opportunities to optimize backend systems.\n\n• Understand how services and components interact, and use that understanding to guide implementation decisions.\n\n• Work with cloud-hosted applications, considering how code is packaged, deployed and integrated into the wider platform.\n\n• Use AI-assisted development tools alongside your own engineering judgment to develop and assess solutions.",
+      "descriptionByLocale": {
+        "en": "Do you bring software engineering experience and an understanding of how cloud-hosted services connect? Have you used AI-assisted development tools to solve engineering problems beyond an individual API or service?\n If this sounds like you and you are driven by purpose, join the SOPHiA GENETICS team as a Software Development Engineer and enable us to make a positive impact on the outcomes for cancer and rare disease patients worldwide.\n Enjoy the flexibility of a hybrid work schedule allowing 2 days PW home working, collaborating closely with colleagues in our Rolle, CH corporate office\n Our Mission\n We believe there is a smarter, more data-driven way to make decisions in healthcare and our cloud-native AI powered SOPHiA DDM Platform makes that vision a reality on a daily basis. You will have direct input to our mission to democratize data-driven medicine for the ultimate benefit of cancer and rare disease patients across the globe.\n Your Mission\n You'll improve the core platform behind our technology, working on identified opportunities to optimize our backend systems. You'll bring an understanding of how services connect and how architectural decisions affect the wider system—not just the code within an individual service.\n The role is primarily backend-focused, but its scope isn't limited to backend development. We're looking for an experienced engineer who can work across system boundaries and use AI-assisted development tools as part of their engineering practice. Healthcare or genomics experience isn't required; experience with comparable technical complexity matters more than your industry background.\n The value you add\n\n• Develop improvements to our core platform, focusing on opportunities to optimize backend systems.\n\n• Understand how services and components interact, and use that understanding to guide implementation decisions.\n\n• Work with cloud-hosted applications, considering how code is packaged, deployed and integrated into the wider platform.\n\n• Use AI-assisted development tools alongside your own engineering judgment to develop and assess solutions.",
+        "it": "Do you bring software engineering experience and an understanding of how cloud-hosted services connect? Have you used AI-assisted development tools to solve engineering problems beyond an individual API or service?\n If this sounds like you and you are driven by purpose, join the SOPHiA GENETICS team as a Software Development Engineer and enable us to make a positive impact on the outcomes for cancer and rare disease patients worldwide.\n Enjoy the flexibility of a hybrid work schedule allowing 2 days PW home working, collaborating closely with colleagues in our Rolle, CH corporate office\n Our Mission\n We believe there is a smarter, more data-driven way to make decisions in healthcare and our cloud-native AI powered SOPHiA DDM Platform makes that vision a reality on a daily basis. You will have direct input to our mission to democratize data-driven medicine for the ultimate benefit of cancer and rare disease patients across the globe.\n Your Mission\n You'll improve the core platform behind our technology, working on identified opportunities to optimize our backend systems. You'll bring an understanding of how services connect and how architectural decisions affect the wider system—not just the code within an individual service.\n The role is primarily backend-focused, but its scope isn't limited to backend development. We're looking for an experienced engineer who can work across system boundaries and use AI-assisted development tools as part of their engineering practice. Healthcare or genomics experience isn't required; experience with comparable technical complexity matters more than your industry background.\n The value you add\n\n• Develop improvements to our core platform, focusing on opportunities to optimize backend systems.\n\n• Understand how services and components interact, and use that understanding to guide implementation decisions.\n\n• Work with cloud-hosted applications, considering how code is packaged, deployed and integrated into the wider platform.\n\n• Use AI-assisted development tools alongside your own engineering judgment to develop and assess solutions.",
+        "de": "Do you bring software engineering experience and an understanding of how cloud-hosted services connect? Have you used AI-assisted development tools to solve engineering problems beyond an individual API or service?\n If this sounds like you and you are driven by purpose, join the SOPHiA GENETICS team as a Software Development Engineer and enable us to make a positive impact on the outcomes for cancer and rare disease patients worldwide.\n Enjoy the flexibility of a hybrid work schedule allowing 2 days PW home working, collaborating closely with colleagues in our Rolle, CH corporate office\n Our Mission\n We believe there is a smarter, more data-driven way to make decisions in healthcare and our cloud-native AI powered SOPHiA DDM Platform makes that vision a reality on a daily basis. You will have direct input to our mission to democratize data-driven medicine for the ultimate benefit of cancer and rare disease patients across the globe.\n Your Mission\n You'll improve the core platform behind our technology, working on identified opportunities to optimize our backend systems. You'll bring an understanding of how services connect and how architectural decisions affect the wider system—not just the code within an individual service.\n The role is primarily backend-focused, but its scope isn't limited to backend development. We're looking for an experienced engineer who can work across system boundaries and use AI-assisted development tools as part of their engineering practice. Healthcare or genomics experience isn't required; experience with comparable technical complexity matters more than your industry background.\n The value you add\n\n• Develop improvements to our core platform, focusing on opportunities to optimize backend systems.\n\n• Understand how services and components interact, and use that understanding to guide implementation decisions.\n\n• Work with cloud-hosted applications, considering how code is packaged, deployed and integrated into the wider platform.\n\n• Use AI-assisted development tools alongside your own engineering judgment to develop and assess solutions.",
+        "fr": "Do you bring software engineering experience and an understanding of how cloud-hosted services connect? Have you used AI-assisted development tools to solve engineering problems beyond an individual API or service?\n If this sounds like you and you are driven by purpose, join the SOPHiA GENETICS team as a Software Development Engineer and enable us to make a positive impact on the outcomes for cancer and rare disease patients worldwide.\n Enjoy the flexibility of a hybrid work schedule allowing 2 days PW home working, collaborating closely with colleagues in our Rolle, CH corporate office\n Our Mission\n We believe there is a smarter, more data-driven way to make decisions in healthcare and our cloud-native AI powered SOPHiA DDM Platform makes that vision a reality on a daily basis. You will have direct input to our mission to democratize data-driven medicine for the ultimate benefit of cancer and rare disease patients across the globe.\n Your Mission\n You'll improve the core platform behind our technology, working on identified opportunities to optimize our backend systems. You'll bring an understanding of how services connect and how architectural decisions affect the wider system—not just the code within an individual service.\n The role is primarily backend-focused, but its scope isn't limited to backend development. We're looking for an experienced engineer who can work across system boundaries and use AI-assisted development tools as part of their engineering practice. Healthcare or genomics experience isn't required; experience with comparable technical complexity matters more than your industry background.\n The value you add\n\n• Develop improvements to our core platform, focusing on opportunities to optimize backend systems.\n\n• Understand how services and components interact, and use that understanding to guide implementation decisions.\n\n• Work with cloud-hosted applications, considering how code is packaged, deployed and integrated into the wider platform.\n\n• Use AI-assisted development tools alongside your own engineering judgment to develop and assess solutions."
+      },
+      "location": "Rolle",
+      "canton": "VD",
+      "url": "https://apply.workable.com/sophia-genetics/j/D2178F935F/",
+      "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-18T21:21:52.449Z",
+      "addressLocality": "Rolle",
+      "addressRegion": "Vaud",
+      "streetAddress": "La Pièce 12",
+      "postalCode": "1180",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Health-Tech / Genomica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-18T00:00:00.000Z",
+      "postedDate": "2026-11-18T00:00:00.000Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://apply.workable.com/sophia-genetics/j/D2178F935F/",
+      "jobReqId": "D2178F935F",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 71000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 71000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-16T21:21:52.449Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-18T21:21:52.449Z"
     },
     {
       "id": "sophia-genetics-69b5583b6d1c",
@@ -115,7 +188,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/2BC999723E/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:25:40.590Z",
+      "crawledAt": "2026-11-18T21:21:52.250Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -151,7 +224,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-17T21:25:40.590Z",
+      "validThrough": "2026-12-18T21:21:52.250Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -185,7 +258,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/8FED2C584F/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:25:40.510Z",
+      "crawledAt": "2026-11-18T21:21:52.158Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -221,7 +294,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-17T21:25:40.510Z",
+      "validThrough": "2026-12-18T21:21:52.158Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -255,7 +328,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/AC77213E76/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:25:40.338Z",
+      "crawledAt": "2026-11-18T21:21:52.007Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -304,7 +377,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-17T21:25:40.338Z",
+      "validThrough": "2026-12-18T21:21:52.007Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -338,7 +411,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/5282592E1F/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:25:39.734Z",
+      "crawledAt": "2026-11-18T21:21:51.694Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -374,7 +447,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:25:39.734Z",
+      "validThrough": "2027-01-26T21:21:51.694Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -408,7 +481,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/0AC0C60E7E/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:25:39.371Z",
+      "crawledAt": "2026-11-18T21:21:51.403Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -444,7 +517,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-17T21:25:39.371Z",
+      "validThrough": "2026-12-18T21:21:51.403Z",
       "validThroughSource": "last-observed-window"
     }
   ]
