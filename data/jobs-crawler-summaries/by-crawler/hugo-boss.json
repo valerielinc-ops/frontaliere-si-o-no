@@ -1,24 +1,24 @@
 {
   "key": "hugo-boss",
   "label": "Hugo Boss",
-  "generatedAt": "2026-11-15T22:04:56.020Z",
+  "generatedAt": "2026-11-18T09:49:00.116Z",
   "total": 2,
-  "discovered": 743,
+  "discovered": 739,
   "parsed": 2,
   "written": 2,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 6830,
-  "avgDurationMs": 6830,
+  "durationMs": 9319,
+  "avgDurationMs": 9319,
   "durationHistory": [
-    6830
+    9319
   ],
   "coverage": "complete",
   "terminationReason": null,
-  "sourceRecordsSeen": 743,
-  "sourceTotalHits": 743,
+  "sourceRecordsSeen": 739,
+  "sourceTotalHits": 739,
   "authoritativeSnapshotVerified": true,
   "newJobs": [],
   "updatedJobs": [
@@ -47,10 +47,10 @@
       "experienceLevel": "SENIOR",
       "sector": "Moda / Lusso",
       "firstSeenAt": "2026-10-17T09:51:52.899Z",
-      "crawledAt": "2026-11-15T22:04:43.509Z",
+      "crawledAt": "2026-11-18T09:48:49.129Z",
       "crawledAtSource": "slice-writer",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-15T22:04:43.509Z",
+      "validThrough": "2027-01-16T09:48:49.129Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 96000,
       "salaryMax": 147500,
@@ -92,10 +92,10 @@
       "experienceLevel": "MID",
       "sector": "Moda / Lusso",
       "firstSeenAt": "2026-11-09T21:44:33.570Z",
-      "crawledAt": "2026-11-15T22:04:43.509Z",
+      "crawledAt": "2026-11-18T09:48:49.129Z",
       "crawledAtSource": "slice-writer",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T22:04:43.509Z",
+      "validThrough": "2027-02-08T09:48:49.129Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -110,5 +110,5 @@
       }
     }
   ],
-  "codeCommit": "b0e0a209c23d72cde28658756e39fb5de3eaaca5"
+  "codeCommit": "c09e64fc08a252ae7234edb7cb9fdea84c5eb705"
 }

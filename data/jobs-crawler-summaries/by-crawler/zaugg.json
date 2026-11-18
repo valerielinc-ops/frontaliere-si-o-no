@@ -1,31 +1,30 @@
 {
   "key": "zaugg",
   "label": "ZAUGG AG",
-  "generatedAt": "2026-11-15T22:02:50.046Z",
-  "total": 1,
-  "discovered": null,
-  "parsed": 1,
+  "generatedAt": "2026-11-18T09:53:12.053Z",
+  "total": 0,
+  "discovered": 0,
+  "parsed": 0,
   "lastFetchOutcome": null,
   "fetchReceipt": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 1,
+  "written": 0,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
-  "authoritativeEmptySnapshot": false,
+  "authoritativeEmptySnapshot": true,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 4340,
-  "avgDurationMs": 4340,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 1498,
+  "avgDurationMs": 1498,
   "durationHistory": [
-    4340
+    1498
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "zaugg-497e71aa8479",
       "slug": "saldatore-saldatrice-acciaio-alu-inox-zaugg-ag-eggiwil",
@@ -84,5 +83,6 @@
       }
     }
   ],
-  "codeCommit": "b0e0a209c23d72cde28658756e39fb5de3eaaca5"
+  "unchangedJobs": [],
+  "codeCommit": "c09e64fc08a252ae7234edb7cb9fdea84c5eb705"
 }
