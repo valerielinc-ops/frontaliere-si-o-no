@@ -9201,7 +9201,6 @@
           "responsabile-sicurezza-qualita-e-ambiente-sqa-regione-centro-infrastruttura-ffs-officine-ferrovie-federali-infrastruttura"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-17T09:24:48.876Z",
       "salaryMin": 79500,
       "salaryMax": 135000,
@@ -9223,7 +9222,8 @@
       "streetAddress": "Infrastruttura",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T09:22:18.809Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-386f6b8a52b3",
