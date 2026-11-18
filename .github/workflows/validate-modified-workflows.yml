@@ -140,18 +140,31 @@ jobs:
       # Keep the parent and HEAD measurements on the same runner and use the
       # exact checkout profiles from the two revisions. Each revision also has
       # a full checkout pair so the sparse reduction is independently visible.
+      # Every checkout uses the same blobless fetch mode; runner timestamps
+      # preserve the action's checkout phase for the measurement script.
+      - name: Start parent full checkout timer
+        run: date +%s%N > "$RUNNER_TEMP/source-liveness-parent-full.start"
+
       - name: Full checkout parent
         uses: actions/checkout@v7
         with:
           ref: ${{ github.event.pull_request.base.sha || github.ref }}
           fetch-depth: 1
+          filter: blob:none
           path: source-liveness-parent-full
+
+      - name: Stop parent full checkout timer
+        run: date +%s%N > "$RUNNER_TEMP/source-liveness-parent-full.end"
+
+      - name: Start parent sparse checkout timer
+        run: date +%s%N > "$RUNNER_TEMP/source-liveness-parent-sparse.start"
 
       - name: Sparse checkout parent
         uses: actions/checkout@v7
         with:
           ref: ${{ github.event.pull_request.base.sha || github.ref }}
           fetch-depth: 1
+          filter: blob:none
           path: source-liveness-parent-sparse
           sparse-checkout: |
             /*
@@ -176,6 +189,12 @@ jobs:
             !/data/jobs-crawler-summaries/
           sparse-checkout-cone-mode: false
 
+      - name: Stop parent sparse checkout timer
+        run: date +%s%N > "$RUNNER_TEMP/source-liveness-parent-sparse.end"
+
+      - name: Start HEAD full checkout timer
+        run: date +%s%N > "$RUNNER_TEMP/source-liveness-head-full.start"
+
       - name: Full checkout HEAD
         uses: actions/checkout@v7
         with:
@@ -183,6 +202,12 @@ jobs:
           fetch-depth: 1
           filter: blob:none
           path: source-liveness-head-full
+
+      - name: Stop HEAD full checkout timer
+        run: date +%s%N > "$RUNNER_TEMP/source-liveness-head-full.end"
+
+      - name: Start HEAD sparse checkout timer
+        run: date +%s%N > "$RUNNER_TEMP/source-liveness-head-sparse.start"
 
       - name: Sparse checkout HEAD
         uses: actions/checkout@v7
@@ -209,10 +234,14 @@ jobs:
             /scripts/lib/github-issue-creator.mjs
           sparse-checkout-cone-mode: false
 
-      - name: Measure parent and HEAD checkout populations
+      - name: Stop HEAD sparse checkout timer
+        run: date +%s%N > "$RUNNER_TEMP/source-liveness-head-sparse.end"
+
+      - name: Measure parent and HEAD checkout metrics
         run: |
           node source-liveness-head-full/scripts/ci/measure-source-liveness-checkout.mjs \
             source-liveness-parent-full \
             source-liveness-parent-sparse \
             source-liveness-head-full \
-            source-liveness-head-sparse
+            source-liveness-head-sparse \
+            "$RUNNER_TEMP"

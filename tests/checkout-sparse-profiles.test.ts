@@ -268,6 +268,12 @@ describe('profili di sparse-checkout', () => {
     );
     expect(checkouts).toHaveLength(4);
     expect(checkouts.map((step: any) => step?.with?.['fetch-depth'])).toEqual([1, 1, 1, 1]);
+    expect(checkouts.map((step: any) => step?.with?.filter)).toEqual([
+      'blob:none',
+      'blob:none',
+      'blob:none',
+      'blob:none',
+    ]);
     expect(checkouts.map((step: any) => step?.with?.path)).toEqual([
       'source-liveness-parent-full',
       'source-liveness-parent-sparse',
@@ -301,6 +307,19 @@ describe('profili di sparse-checkout', () => {
     expect(steps.some((step: any) => String(step?.run ?? '').includes(
       'measure-source-liveness-checkout.mjs',
     ))).toBe(true);
+    const measurementStep = steps.find((step: any) => String(step?.run ?? '').includes(
+      'measure-source-liveness-checkout.mjs',
+    ));
+    expect(String(measurementStep?.run ?? '')).toContain('$RUNNER_TEMP');
+    for (const name of [
+      'source-liveness-parent-full',
+      'source-liveness-parent-sparse',
+      'source-liveness-head-full',
+      'source-liveness-head-sparse',
+    ]) {
+      expect(steps.some((step: any) => String(step?.run ?? '').includes(`${name}.start`))).toBe(true);
+      expect(steps.some((step: any) => String(step?.run ?? '').includes(`${name}.end`))).toBe(true);
+    }
   });
 
   it('il gate promotion include il helper del controllo di ingresso diretto', () => {
