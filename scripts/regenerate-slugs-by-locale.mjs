@@ -245,7 +245,9 @@ async function main() {
             sliceChanged = true;
             totalPinned++;
           }
-          if (locale === 'it') syncItalianMasterSlug(job, currentSlug, pinnedSlug);
+          if (locale === 'it' && syncItalianMasterSlug(job, currentSlug, pinnedSlug)) {
+            sliceChanged = true;
+          }
           continue;
         }
 
