@@ -4297,13 +4297,13 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     // the bare requisition route. It is still bound to the selected vacancy;
     // requiring `/apply` here rejects that legitimate pre-entry surface before
     // the chooser can expose `applyManually`.
-    if (!isApplicationRouteBound(page.url(), stageContext.applyUrl, stageContext.sourceProtocol || null)) {
+    if (!isApplicationRouteBound(page.url(), stageContext.applyUrl, stageContext.sourceProtocol || null, workdayApplicationEntryProven)) {
       return { status: 'route_unbound' };
     }
     if (workdayApplicationSurfaceReady(snapshot)) return { status: 'ready' };
     for (let waited = 0; waited < 10_000 && !workdayApplicationSurfaceReady(snapshot); waited += 1000) {
       await page.waitForTimeout(1000);
-      if (!isApplicationRouteBound(page.url(), stageContext.applyUrl, stageContext.sourceProtocol || null)) {
+      if (!isApplicationRouteBound(page.url(), stageContext.applyUrl, stageContext.sourceProtocol || null, workdayApplicationEntryProven)) {
         return { status: 'route_unbound' };
       }
       snapshot = await extractFields(page, NAVIGATION);
@@ -4382,7 +4382,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
   const waitForPostApplicationEntryEvidence = async (options = {}) => {
     for (let waited = 0; waited <= POST_APPLICATION_ENTRY_EVIDENCE_TIMEOUT_MS;
       waited += POST_APPLICATION_ENTRY_EVIDENCE_POLL_MS) {
-      if (!isApplicationRouteBound(page.url(), stageContext?.applyUrl, stageContext?.sourceProtocol || null)) {
+      if (!isApplicationRouteBound(page.url(), stageContext?.applyUrl, stageContext?.sourceProtocol || null, workdayApplicationEntryProven)) {
         return { status: 'route_unbound' };
       }
       if (await hasPostApplicationEntryEvidence(snapshot, options)) return { status: 'ready' };

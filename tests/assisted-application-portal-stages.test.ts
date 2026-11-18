@@ -42,12 +42,14 @@ describe('application stage ownership', () => {
     expect(applicationStage(empty, { applyUrl })).toEqual({ kind: 'unknown_apply' });
   });
 
-  it('preserves the Workday account route binding before job-route classification', () => {
+  it('requires Workday application-entry proof before binding an account route', () => {
     const applyUrl = 'https://swarovski.wd3.myworkdayjobs.com/fr-FR/swarovski/job/Mendrisio-Outlet-CHE/Seasonal-Sales-Consultant_R-12345';
     const url = 'https://swarovski.wd3.myworkdayjobs.com/fr-FR/swarovski/login';
 
-    expect(isApplicationRouteBound(url, applyUrl)).toBe(true);
+    expect(isApplicationRouteBound(url, applyUrl)).toBe(false);
+    expect(isApplicationRouteBound(url, applyUrl, null, true)).toBe(true);
     expect(applicationStage({}, { url, applyUrl, workdayApplicationEntryProven: true }).kind).toBe('account');
+    expect(applicationStage({}, { url, applyUrl }).kind).toBe('posting_mismatch');
   });
 
   it.each(['hidden', 'submit', 'button', 'reset', 'image'])('does not promote a mount with only a non-visible %s field', (inputType) => {

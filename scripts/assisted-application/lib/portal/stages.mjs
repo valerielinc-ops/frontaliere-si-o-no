@@ -422,10 +422,10 @@ function invalidPostingKey(value, protocol = null) {
 }
 
 /** Shared route evidence for bounded SPA mount waits and stage classification. */
-export function isApplicationRouteBound(url, applyUrl, sourceProtocol = null) {
+export function isApplicationRouteBound(url, applyUrl, sourceProtocol = null, workdayApplicationEntryProven = false) {
   if (invalidPostingKey(url) || invalidPostingKey(applyUrl, sourceProtocol)) return false;
   if (!isWorkdayTenantUrl(applyUrl)) return true;
-  if (isWorkdayTenantAccountRoute(url, applyUrl)) return true;
+  if (isWorkdayTenantAccountRoute(url, applyUrl)) return workdayApplicationEntryProven === true;
   return isWorkdayJobRouteBound(url, applyUrl);
 }
 
@@ -564,7 +564,7 @@ export function applicationStage(snapshot, {
   brassRingApplicationEntryProven = false,
   job = {},
 } = {}) {
-  if (!isApplicationRouteBound(url, applyUrl, sourceProtocol)) return { kind: 'posting_mismatch' };
+  if (!isApplicationRouteBound(url, applyUrl, sourceProtocol, workdayApplicationEntryProven)) return { kind: 'posting_mismatch' };
   const workdayRouteExpected = isWorkdayTenantUrl(applyUrl);
   const workdayRouteBound = workdayRouteExpected && (
     isWorkdayTenantAccountRoute(url, applyUrl)
