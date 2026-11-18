@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-11-18T16:02:19.167Z",
+  "updatedAt": "2026-11-18T16:04:20.355Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -156746,12 +156746,12 @@
     },
     "barock-job@solothurn": {
       "key": "barock-job@solothurn",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:26:03.341Z",
-      "updatedAt": "2026-11-17T15:12:40.658Z",
+      "updatedAt": "2026-11-18T16:04:20.247Z",
       "name": "Barock Job AG",
       "city": "Solothurn",
       "zip": "4500",
@@ -157583,7 +157583,13 @@
         "barockjob.ch"
       ],
       "promotionPr": "19250",
-      "promotionBranch": "prospector/promote-2026-11-17"
+      "promotionBranch": "prospector/promote-2026-11-17",
+      "promotedAt": "2026-11-17T16:55:38Z",
+      "firstCrawlerOutputStatus": "published",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": "2026-11-18T09:41:48.914Z",
+      "firstCrawlerJobCount": 1
     },
     "barockcafe.ch": {
       "key": "barockcafe.ch",
@@ -282391,12 +282397,12 @@
     },
     "careanesth": {
       "key": "careanesth",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:25:29.823Z",
-      "updatedAt": "2026-11-17T15:12:40.658Z",
+      "updatedAt": "2026-11-18T16:04:20.248Z",
       "name": "Careanesth AG",
       "city": "",
       "zip": "",
@@ -283112,7 +283118,13 @@
       "secoEmployerClassification": "direct",
       "secoStaffingMatchConfidence": "curated-registry-and-signal-residual",
       "promotionPr": "19250",
-      "promotionBranch": "prospector/promote-2026-11-17"
+      "promotionBranch": "prospector/promote-2026-11-17",
+      "promotedAt": "2026-11-17T16:55:38Z",
+      "firstCrawlerOutputStatus": "published",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": "2026-11-17T21:23:52.415Z",
+      "firstCrawlerJobCount": 1
     },
     "careanesth@bern": {
       "key": "careanesth@bern",
@@ -1275508,12 +1275520,12 @@
     },
     "ritter-schumacher": {
       "key": "ritter-schumacher",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-10-17T07:58:10.494Z",
-      "updatedAt": "2026-11-17T15:12:40.658Z",
+      "updatedAt": "2026-11-18T16:04:20.248Z",
       "name": "Ritter Schumacher AG",
       "city": "",
       "zip": "",
@@ -1276507,7 +1276519,13 @@
         }
       ],
       "promotionPr": "19250",
-      "promotionBranch": "prospector/promote-2026-11-17"
+      "promotionBranch": "prospector/promote-2026-11-17",
+      "promotedAt": "2026-11-17T16:55:38Z",
+      "firstCrawlerOutputStatus": "published",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": "2026-11-18T09:25:38.782Z",
+      "firstCrawlerJobCount": 5
     },
     "ritterapotheke.ch": {
       "key": "ritterapotheke.ch",
@@ -1383747,7 +1383765,7 @@
         "web"
       ],
       "firstSeenAt": "2026-10-19T21:46:32.730Z",
-      "updatedAt": "2026-11-17T15:12:04.136Z",
+      "updatedAt": "2026-11-18T16:04:20.248Z",
       "name": "sintio",
       "domain": "sintio.ch",
       "careersUrl": "https://join.com/companies/sintio/16868238-technische-r-verkaufsberater-in-und-projektleiter-in-e-mobility",
@@ -1383968,7 +1383986,7 @@
       "firstCrawlerOutputStatus": "empty",
       "firstCrawlerOutputAttention": true,
       "firstCrawlerOutputReason": null,
-      "firstCrawlerOutputAt": "2026-11-17T09:45:45.678Z",
+      "firstCrawlerOutputAt": "2026-11-18T09:38:27.170Z",
       "firstCrawlerJobCount": 0,
       "firstCrawlerOutputAttentionAt": "2026-11-04T13:55:58.168Z"
     },
