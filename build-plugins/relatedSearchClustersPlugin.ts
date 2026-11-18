@@ -73,7 +73,7 @@ import {
 import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { getSafeDistPageTargets, isSafeDistPath } from './shared/distPathSafety';
-import { isJobAliasRedirectPath } from './sharedWriteRegistry';
+import { hasClaimedOrReservedPath, isJobAliasRedirectPath } from './sharedWriteRegistry';
 import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { HREFLANG_LINK_RX } from './shared/headLinkPatterns';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
@@ -686,9 +686,9 @@ export async function tryRestoreFromCache(
   // cache produced before a reservation must not recreate either static
   // representation of that alias on a later cache HIT.
   const files = manifest.files.filter((rel) =>
-    !isJobAliasRedirectPath(path.resolve(distDir, rel)));
+    !hasClaimedOrReservedPath(path.resolve(distDir, rel)));
   const retiredFiles = manifest.retiredFiles?.filter((rel) =>
-    !isJobAliasRedirectPath(path.resolve(distDir, rel)));
+    !hasClaimedOrReservedPath(path.resolve(distDir, rel)));
   const ensuredDirs = new Set<string>();
   let restored = 0;
   let missing = 0;
@@ -3187,7 +3187,7 @@ export function reapplyRetiredManifestFiles(
     const outputPath = path.resolve(distDir, write.rel);
     return Boolean(expectedPath)
       && path.resolve(expectedPath) === outputPath
-      && !isJobAliasRedirectPath(outputPath);
+      && !hasClaimedOrReservedPath(outputPath);
   });
   for (const write of safeWrites) {
     const outFile = path.resolve(distDir, write.rel);

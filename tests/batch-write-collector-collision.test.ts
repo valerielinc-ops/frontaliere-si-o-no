@@ -33,6 +33,7 @@ import {
   getCollisions,
   WriteCollisionError,
   reserveJobAliasRedirectDir,
+  reserveRetainedJobBridgeDir,
 } from '@/build-plugins/sharedWriteRegistry';
 
 describe('WriteCollector collision visibility', () => {
@@ -70,6 +71,32 @@ describe('WriteCollector collision visibility', () => {
     expect(() =>
       intruder.add('/dist/tasse-frontalieri-comune/como/index.html', '<html>rogue</html>'),
     ).toThrow(WriteCollisionError);
+  });
+
+  it('keeps a planned retained bridge ahead of later archive writes', async () => {
+    const tmpRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'wc-retained-bridge-'));
+    try {
+      const distDir = path.join(tmpRoot, 'dist');
+      const pageDir = path.join(distDir, 'cerca-lavoro-zurigo', 'old-route');
+      const indexPath = path.join(pageDir, 'index.html');
+      const bridge = '<html><meta name="robots" content="noindex,follow"></html>';
+      reserveRetainedJobBridgeDir(pageDir);
+
+      const archiveWriter = new WriteCollector({ pluginName: 'jobsSeoPagesPlugin', distDir });
+      archiveWriter.add(indexPath, '<html>historical archive</html>');
+      expect(archiveWriter.count).toBe(0);
+
+      const bridgeWriter = new WriteCollector({ pluginName: 'jobsSeoPagesPlugin', distDir });
+      bridgeWriter.addRetainedJobBridgeOutput(indexPath, bridge);
+      await bridgeWriter.flush();
+
+      expect(fs.readFileSync(indexPath, 'utf-8')).toBe(bridge);
+      archiveWriter.add(indexPath, '<html>late archive</html>');
+      expect(archiveWriter.count).toBe(0);
+      expect(fs.readFileSync(indexPath, 'utf-8')).toBe(bridge);
+    } finally {
+      fs.rmSync(tmpRoot, { recursive: true, force: true });
+    }
   });
 
   it('a double add() of the same path with different content within one collector is tracked, not silently dropped', () => {

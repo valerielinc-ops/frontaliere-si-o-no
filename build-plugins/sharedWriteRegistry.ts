@@ -211,6 +211,12 @@ const pathHistory = new Map<string, StoredClaimHistory>();
 // refill the path after jobsSeoPagesPlugin has classified it.
 const jobAliasRedirectDirs = new Set<string>();
 const jobAliasRedirectOutputPaths = new Set<string>();
+// Retained active-job bridges are reserved before archive/self-heal writers
+// run. Their planned bridge writer gets one explicit claim per output; every
+// ordinary claim remains blocked even when collision mode is `report`.
+const retainedJobBridgeOutputPaths = new Set<string>();
+const retainedJobBridgeOutputClaims = new Set<string>();
+const retainedJobBridgeOutputPermits = new Set<string>();
 /** Deterministic post-process fingerprint applied to claimed HTML in deploy manifests. */
 let finalOutputManifestFingerprint: string | null = null;
 /**
@@ -513,6 +519,13 @@ export function reserveJobAliasRedirectDir(directoryPath: string): void {
   jobAliasRedirectOutputPaths.add(flatPath);
 }
 
+/** Reserve both static representations for a planned retained bridge. */
+export function reserveRetainedJobBridgeDir(directoryPath: string): void {
+  const directory = resolveRetainedPath(directoryPath);
+  retainedJobBridgeOutputPaths.add(path.join(directory, DIRECTORY_INDEX_BASENAME));
+  retainedJobBridgeOutputPaths.add(`${directory}.html`);
+}
+
 function isReservedJobAliasOutputPath(filePath: string): boolean {
   if (jobAliasRedirectOutputPaths.has(filePath) || jobAliasRedirectDirs.has(filePath)) return true;
   if (filePath.endsWith(DIRECTORY_INDEX_SUFFIX)) {
@@ -563,6 +576,11 @@ export function hasJobAliasRedirectReservations(): boolean {
  */
 export function claim(claimPath: string, plugin: string, content: string): ClaimOutcome {
   if (isJobAliasRedirectPath(claimPath)) return 'skip-write';
+  const retainedBridgePath = resolveRetainedPath(claimPath);
+  if (
+    retainedJobBridgeOutputPaths.has(retainedBridgePath)
+    && !retainedJobBridgeOutputPermits.has(retainedBridgePath)
+  ) return 'skip-write';
   // WriteCollector calls claim() before queuing or auto-flushing the path.
   // Keep this structural guard beside the single registration point so a
   // second auto-flush cannot turn an earlier file into a directory silently.
@@ -635,6 +653,30 @@ export function claim(claimPath: string, plugin: string, content: string): Claim
   return 'allow-write';
 }
 
+/** Claim one reserved retained-bridge output for its planned SEO bridge writer. */
+export function claimRetainedJobBridgeOutput(
+  claimPath: string,
+  plugin: string,
+  content: string,
+): ClaimOutcome {
+  const retainedBridgePath = resolveRetainedPath(claimPath);
+  if (plugin !== 'jobsSeoPagesPlugin' || !retainedJobBridgeOutputPaths.has(retainedBridgePath)) {
+    throw new Error(`[retained-job-bridge] unreserved output claim (plugin=${plugin} path=${claimPath})`);
+  }
+  if (retainedJobBridgeOutputClaims.has(retainedBridgePath)) return 'skip-write';
+
+  retainedJobBridgeOutputClaims.add(retainedBridgePath);
+  retainedJobBridgeOutputPermits.add(retainedBridgePath);
+  try {
+    return claim(claimPath, plugin, content);
+  } catch (error) {
+    retainedJobBridgeOutputClaims.delete(retainedBridgePath);
+    throw error;
+  } finally {
+    retainedJobBridgeOutputPermits.delete(retainedBridgePath);
+  }
+}
+
 /**
  * Declare that a path (or family of paths) is legitimately written by multiple
  * plugins, and that one of them wins. Loser plugins' writes are silently
@@ -673,6 +715,9 @@ export function reset(): void {
   pathHistory.clear();
   jobAliasRedirectDirs.clear();
   jobAliasRedirectOutputPaths.clear();
+  retainedJobBridgeOutputPaths.clear();
+  retainedJobBridgeOutputClaims.clear();
+  retainedJobBridgeOutputPermits.clear();
   finalOutputManifestFingerprint = null;
   claimedOutputDescendants.clear();
   claimedOutputPathAliases.clear();
@@ -704,7 +749,9 @@ export function hasClaimedPath(filePath: string): boolean {
 
 /** Check whether a path is claimed or reserved against a future write. */
 export function hasClaimedOrReservedPath(filePath: string): boolean {
-  return pathHistory.has(filePath) || isJobAliasRedirectPath(filePath);
+  return pathHistory.has(filePath)
+    || isJobAliasRedirectPath(filePath)
+    || retainedJobBridgeOutputPaths.has(resolveRetainedPath(filePath));
 }
 
 /** Number of distinct claimed output paths. */

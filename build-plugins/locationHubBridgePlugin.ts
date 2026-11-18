@@ -48,7 +48,7 @@ import { renderCantonSeoProse, buildCantonSeoProseFaqItems, type CantonSeoLocale
 import type { Locale } from '../services/i18n';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { composePlaceTitle } from './shared/titleSuffix';
-import { hasClaimedPath, isJobAliasRedirectPath } from './sharedWriteRegistry';
+import { hasClaimedOrReservedPath } from './sharedWriteRegistry';
 import { SECTION_LEGACY_TI } from './shared/cantonSection';
 import { getSafeDistPageTargets, isDistPathOverFilesystemLimits, isSafeDistPath } from './shared/distPathSafety';
 
@@ -409,13 +409,8 @@ export function locationHubBridgePlugin(rootDir: string): Plugin {
         }
         const { indexPath: indexTarget, flatPath: flatTarget } = safeTargets;
 
-        if (isJobAliasRedirectPath(indexTarget) || (flatTarget && isJobAliasRedirectPath(flatTarget))) {
-          skipped++;
-          continue;
-        }
-
-        if (hasClaimedPath(indexTarget)
-          || Boolean(flatTarget && hasClaimedPath(flatTarget))
+        if (hasClaimedOrReservedPath(indexTarget)
+          || Boolean(flatTarget && hasClaimedOrReservedPath(flatTarget))
           || fs.existsSync(indexTarget)) { skipped++; continue; }
 
         const html = entry.kind === 'matched'

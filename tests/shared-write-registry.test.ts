@@ -18,6 +18,8 @@ import {
  setModeForTest,
  clearDeclarationsForTest,
  reserveJobAliasRedirectDir,
+ reserveRetainedJobBridgeDir,
+ claimRetainedJobBridgeOutput,
  hasJobAliasRedirectReservations,
  isJobAliasRedirectPath,
  hasClaimedPath,
@@ -91,6 +93,29 @@ describe('sharedWriteRegistry', () => {
  } finally {
   fs.rmSync(fixtureRoot, { recursive: true, force: true });
  }
+ });
+
+ it('lets one planned bridge claim its reservation and blocks later output claims', () => {
+ const pageDir = path.resolve(os.tmpdir(), 'retained-job-bridge-fixture', 'jobs', 'old-route');
+ const indexPath = path.join(pageDir, 'index.html');
+ const flatPath = `${pageDir}.html`;
+ reserveRetainedJobBridgeDir(pageDir);
+
+ expect(hasClaimedOrReservedPath(indexPath)).toBe(true);
+ expect(hasClaimedOrReservedPath(flatPath)).toBe(true);
+ expect(claim(indexPath, 'archive-writer', '<html>archive</html>')).toBe('skip-write');
+ expect(claimRetainedJobBridgeOutput(
+  indexPath,
+  'jobsSeoPagesPlugin',
+  '<html>retained bridge</html>',
+ )).toBe('allow-write');
+ expect(claim(flatPath, 'later-plugin', '<html>later flat output</html>')).toBe('skip-write');
+ expect(claimRetainedJobBridgeOutput(
+  indexPath,
+  'jobsSeoPagesPlugin',
+  '<html>second bridge attempt</html>',
+ )).toBe('skip-write');
+ expect(getPathHistory().get(indexPath)).toHaveLength(1);
  });
 
  it('idempotent re-claim with identical content returns skip-write (no error)', () => {

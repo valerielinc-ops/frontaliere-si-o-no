@@ -48,7 +48,7 @@ import { buildSeoPageHtml } from './shared/seoPageShell';
 import type { Locale } from '../services/i18n';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { getSafeDistPageTargets } from './shared/distPathSafety';
-import { isJobAliasRedirectPath } from './sharedWriteRegistry';
+import { hasClaimedOrReservedPath } from './sharedWriteRegistry';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 
@@ -215,7 +215,8 @@ export function calculatorLegacyAliasPlugin(rootDir: string): Plugin {
           console.warn(`\x1b[33m[calculator-legacy-alias]\x1b[0m skipped unsafe path for ${entry.locale}`);
           continue;
         }
-        if (isJobAliasRedirectPath(safeTargets.indexPath) || isJobAliasRedirectPath(safeTargets.flatPath)) continue;
+        if (hasClaimedOrReservedPath(safeTargets.indexPath)
+          || hasClaimedOrReservedPath(safeTargets.flatPath)) continue;
         const html = renderAliasPage(entry, distDir);
         const indexTarget = safeTargets.indexPath;
         const flatTarget = safeTargets.flatPath;

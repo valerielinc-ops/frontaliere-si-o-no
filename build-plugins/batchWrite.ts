@@ -24,6 +24,7 @@ import { getManifest } from './contentHash';
 import {
  assertNoFileDirectoryPathCollisions,
  claim,
+ claimRetainedJobBridgeOutput,
  hasJobAliasRedirectReservations,
  isJobAliasRedirectPath,
  type ClaimOutcome,
@@ -416,6 +417,19 @@ export class WriteCollector {
 
  /** Queue a file write. Skips files unchanged since last build (via content hash manifest). */
  add(filePath: string, content: string) {
+  this.addWithClaim(filePath, content, claim);
+ }
+
+ /** Queue the single planned write for a reserved retained active-job bridge output. */
+ addRetainedJobBridgeOutput(filePath: string, content: string) {
+  this.addWithClaim(filePath, content, claimRetainedJobBridgeOutput);
+ }
+
+ private addWithClaim(
+  filePath: string,
+  content: string,
+  claimOutput: typeof claim,
+ ) {
  // Per-locale shard build (BUILD_LOCALE): drop writes that belong to a
  // locale this shard isn't responsible for. This gates the COLLECTOR writes
  // only (the ~1M-page bulk) — direct fs.writeFileSync emitters in other
@@ -442,7 +456,7 @@ export class WriteCollector {
   // claim() registers the path shape before this collector can queue or
   // release it. The deferred transaction window keeps the previous batch
   // unwritten until the next synchronous claim has passed this guard.
-  outcome = claim(filePath, this._pluginName, content);
+  outcome = claimOutput(filePath, this._pluginName, content);
  } catch (error) {
   // A structural collision aborts the not-yet-started batches as one unit;
   // otherwise a later flush would still materialize a partial dist tree.
