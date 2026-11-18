@@ -18,8 +18,12 @@ import {
 import { mergeInstagramCommunityOutcomeSnapshots } from '../scripts/lib/instagram-community-outcomes.mjs';
 import { socialCopyRevisionId } from '../scripts/lib/social-copy-revision.mjs';
 
-const NOW = new Date('2026-10-10T12:00:00.000Z');
-const STORY_PUBLISHED_AT = new Date('2026-10-10T12:15:00.000Z');
+const NOW = new Date();
+const MEDIA_PUBLISHED_AT = new Date(NOW.getTime() - 6 * 60 * 60 * 1000);
+const COMMENT_RECEIVED_AT = new Date(NOW.getTime() - 60 * 60 * 1000);
+const MESSAGE_RECEIVED_AT = new Date(NOW.getTime() - 30 * 60 * 1000);
+const STORY_PUBLISHED_AT = new Date(NOW.getTime() + 15 * 60 * 1000);
+const LEGACY_SNAPSHOT_AT = new Date(NOW.getTime() - 24 * 60 * 60 * 1000);
 
 function response(body: unknown, status = 200) {
   return {
@@ -30,12 +34,12 @@ function response(body: unknown, status = 200) {
 }
 
 function fakeInstagramFetch({
-  comments = [{ id: 'comment-1', text: '1', from: { id: 'person-1' }, timestamp: '2026-10-10T11:00:00.000Z' }],
+  comments = [{ id: 'comment-1', text: '1', from: { id: 'person-1' }, timestamp: COMMENT_RECEIVED_AT.toISOString() }],
   messages = [{
     id: 'message-1',
     from: { id: 'person-1' },
     message: 'Mi mandi il link?',
-    created_time: '2026-10-10T11:30:00.000Z',
+    created_time: MESSAGE_RECEIVED_AT.toISOString(),
   }],
 } = {}) {
   const calls: { url: string; options: any }[] = [];
@@ -46,7 +50,7 @@ function fakeInstagramFetch({
     if (method === 'GET' && parsed.pathname.endsWith('/account-1/media')) {
       return response({ data: [{
         id: 'media-1',
-        timestamp: '2026-10-09T06:00:00.000Z',
+        timestamp: MEDIA_PUBLISHED_AT.toISOString(),
         media_type: 'CAROUSEL_ALBUM',
         permalink: 'https://instagram.test/p/1',
         media_url: 'https://cdn.test/story.jpg',
@@ -89,8 +93,8 @@ function ledger() {
     posted: [{
       id: 'article-1',
       kind: 'article',
-      day: '2026-10-09',
-      ts: '2026-10-09T06:00:00.000Z',
+      day: MEDIA_PUBLISHED_AT.toISOString().slice(0, 10),
+      ts: MEDIA_PUBLISHED_AT.toISOString(),
       instagramMediaId: 'media-1',
       creativeId: 'question-choice',
       primaryMetric: 'comments',
@@ -130,10 +134,10 @@ describe('Instagram community automation', () => {
 
   it('rejects ambiguous timestamp joins instead of replying under the wrong post', () => {
     const result = matchLedgerGroupsToMedia(
-      [{ identity: 'q-1', publishedAtMs: Date.parse('2026-10-09T06:00:00.000Z'), mediaId: null }],
+      [{ identity: 'q-1', publishedAtMs: MEDIA_PUBLISHED_AT.getTime(), mediaId: null }],
       [
-        { id: 'm-1', timestamp: '2026-10-09T05:59:30.000Z' },
-        { id: 'm-2', timestamp: '2026-10-09T06:00:30.000Z' },
+        { id: 'm-1', timestamp: new Date(MEDIA_PUBLISHED_AT.getTime() - 30_000).toISOString() },
+        { id: 'm-2', timestamp: new Date(MEDIA_PUBLISHED_AT.getTime() + 30_000).toISOString() },
       ],
     );
     expect(result.matches).toHaveLength(0);
@@ -241,7 +245,7 @@ describe('Instagram community automation', () => {
       id: `topic-comment-${index}`,
       text: question,
       from: { id: `person-${index}` },
-      timestamp: '2026-10-10T11:00:00.000Z',
+      timestamp: COMMENT_RECEIVED_AT.toISOString(),
     }));
     const run = fakeInstagramFetch({ comments });
     const result = await runInstagramCommunityAutomation({
@@ -280,7 +284,7 @@ describe('Instagram community automation', () => {
       id: 'private-message-id',
       from: { id: 'private-sender-id' },
       message: question,
-      created_time: '2026-10-10T11:30:00.000Z',
+      created_time: MESSAGE_RECEIVED_AT.toISOString(),
     }];
     const run = fakeInstagramFetch({ messages });
     const result = await runInstagramCommunityAutomation({
@@ -323,7 +327,7 @@ describe('Instagram community automation', () => {
       weeks: [],
     }, {
       schemaVersion: 1,
-      generatedAt: '2026-10-11T12:00:00.000Z',
+      generatedAt: LEGACY_SNAPSHOT_AT.toISOString(),
       latestRun: 'legacy-browser-run',
       weeks: [],
     });
