@@ -1410,3 +1410,17 @@ export function assertRetainedBridgeMissingBudget(missing: number, retainedTotal
     throw new Error(`[job-alias-redirect-gate] retained bridges missing from dist exceed budget (missing=${missing} retained=${retainedTotal} budget=${budget})`);
   }
 }
+
+/**
+ * Classify a planned (retained) bridge that no emitter accepted. Only a path claimed in this
+ * build's write registry (or owned before the plan) is "owned elsewhere"; a file on disk that
+ * nobody claimed may be stale or wrong content, so it counts as missing and consumes the budget.
+ */
+export function classifyRetainedNotEmitted(input: {
+  claimed: boolean;
+  ownedBeforePlan: boolean;
+  exists: boolean;
+}): { kind: 'owned-elsewhere' | 'missing'; flag: 'claimed' | 'unclaimed-existing' | 'absent' } {
+  if (input.claimed || input.ownedBeforePlan) return { kind: 'owned-elsewhere', flag: 'claimed' };
+  return { kind: 'missing', flag: input.exists ? 'unclaimed-existing' : 'absent' };
+}

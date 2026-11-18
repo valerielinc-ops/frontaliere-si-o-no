@@ -265,6 +265,7 @@ import {
  assertBridgePathClassificationCoverage,
  assertBridgePathDistCoverage,
  assertRetainedBridgeMissingBudget,
+ classifyRetainedNotEmitted,
  isRetainedBridgePathSafeToEmit,
  type JobCanonBridgePath,
  type ActiveJobSlugMapRow,
@@ -17811,12 +17812,14 @@ ${staticAnalyticsHtml}
  const retainedBridgeOutputs: Array<{ indexPath: string; targetPath: string }> = [];
  let retainedOwnedElsewhere = 0;
  let retainedUnemittedMissing = 0;
+ let retainedEligibleTotal = 0;
  const retainedNotEmittedByLocale: Record<string, number> = {};
  const retainedNotEmittedExamples: string[] = [];
  for (const { bridge } of retainedBridgePaths.values()) {
   if (!shouldEmitLocale(bridge.locale)) continue;
   const targets = getSafeDistPageTargets(distDir, bridge.path, { includeFlat: false });
   if (!targets) throw new Error(`[job-alias-redirect-gate] retained bridge path is not a safe dist target (locale=${bridge.locale} path=${bridge.path})`);
+  retainedEligibleTotal++;
   if (emittedRetainedBridgeKeys.has(bridgePathKey(bridge.locale, bridge.path))) {
    retainedBridgeOutputs.push({
     indexPath: targets.indexPath,
@@ -17825,30 +17828,27 @@ ${staticAnalyticsHtml}
    continue;
   }
   retainedNotEmittedByLocale[bridge.locale] = (retainedNotEmittedByLocale[bridge.locale] ?? 0) + 1;
-  if (fs.existsSync(targets.indexPath)) {
+  const notEmitted = classifyRetainedNotEmitted({
+   claimed: pathWasClaimed(targets.indexPath),
+   ownedBeforePlan: activeBridgePathsOwnedBeforePlan.has(bridgePathKey(bridge.locale, bridge.path)),
+   exists: fs.existsSync(targets.indexPath),
+  });
+  if (notEmitted.kind === 'owned-elsewhere') {
    retainedOwnedElsewhere++;
   } else {
    retainedUnemittedMissing++;
-   if (retainedNotEmittedExamples.length < 20) retainedNotEmittedExamples.push(`${bridge.kind}:${bridge.locale}:${bridge.path}`);
+   if (retainedNotEmittedExamples.length < 20) retainedNotEmittedExamples.push(`${bridge.kind}:${bridge.locale}:${bridge.path}:${notEmitted.flag}`);
   }
- }
- if (unplannedBridgeKeys.size > 0) {
-  console.warn(
-   `[job-alias-redirect-gate] unplanned-bridges-skipped=${unplannedBridgeKeys.size} visits=${unplannedBridgeVisits} `
-   + `by-kind=${JSON.stringify(unplannedBridgesSkippedByKind)} `
-   + `by-locale=${JSON.stringify(unplannedBridgesSkippedByLocale)} `
-   + `examples=${JSON.stringify(unplannedBridgeExamples)}`,
-  );
  }
  if (retainedOwnedElsewhere + retainedUnemittedMissing > 0) {
   console.warn(
    `[job-alias-redirect-gate] retained-not-emitted=${retainedOwnedElsewhere + retainedUnemittedMissing} `
-   + `owned-elsewhere=${retainedOwnedElsewhere} missing=${retainedUnemittedMissing} `
+   + `owned-elsewhere=${retainedOwnedElsewhere} missing=${retainedUnemittedMissing} eligible=${retainedEligibleTotal} `
    + `by-locale=${JSON.stringify(retainedNotEmittedByLocale)} `
    + `examples=${JSON.stringify(retainedNotEmittedExamples)}`,
   );
  }
- assertRetainedBridgeMissingBudget(retainedUnemittedMissing, retainedBridgePaths.size);
+ assertRetainedBridgeMissingBudget(retainedUnemittedMissing, retainedEligibleTotal);
  const bridgeDistCoverage = assertBridgePathDistCoverage(
   removableBridgeOutputs,
   retainedBridgeOutputs,
