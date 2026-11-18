@@ -1,7 +1,7 @@
 {
   "key": "benisasa-ch",
   "label": "Benisa SA",
-  "generatedAt": "2026-11-18T09:40:53.520Z",
+  "generatedAt": "2026-11-18T21:55:40.817Z",
   "total": 3,
   "discovered": 3,
   "parsed": 3,
@@ -64,10 +64,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 15143,
-  "avgDurationMs": 15143,
+  "durationMs": 15746,
+  "avgDurationMs": 15746,
   "durationHistory": [
-    15143
+    15746
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -85,7 +85,7 @@
       "url": "https://www.benisasa.ch/jobs/pianificatore-elettricista-afc",
       "source": "Benisa SA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-18T09:40:03.271Z",
+      "crawledAt": "2026-11-18T21:55:05.241Z",
       "addressLocality": "Cadempino",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -108,7 +108,7 @@
       "salaryMax": 75000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T09:40:03.271Z",
+      "validThrough": "2027-02-10T21:55:05.241Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -130,7 +130,7 @@
       "url": "https://www.benisasa.ch/jobs/installatore-elettricista-afc",
       "source": "Benisa SA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-18T09:40:03.270Z",
+      "crawledAt": "2026-11-18T21:55:05.237Z",
       "addressLocality": "Cadempino",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -153,7 +153,7 @@
       "salaryMax": 88000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T09:40:03.270Z",
+      "validThrough": "2027-02-10T21:55:05.237Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -175,7 +175,7 @@
       "url": "https://www.benisasa.ch/jobs/capo-progetto-in-installazione-e-sicurezza",
       "source": "Benisa SA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-18T09:40:03.267Z",
+      "crawledAt": "2026-11-18T21:55:05.232Z",
       "addressLocality": "Cadempino",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -198,7 +198,7 @@
       "salaryMax": 88000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T09:40:03.267Z",
+      "validThrough": "2027-02-10T21:55:05.232Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -209,5 +209,5 @@
       }
     }
   ],
-  "codeCommit": "c09e64fc08a252ae7234edb7cb9fdea84c5eb705"
+  "codeCommit": "8862042892397f4dcea90f48fbc2dc028da23eec"
 }

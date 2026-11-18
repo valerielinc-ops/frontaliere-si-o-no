@@ -1,7 +1,7 @@
 {
   "key": "cdg-beratungen",
   "label": "cdg Beratungen AG",
-  "generatedAt": "2026-11-18T09:42:22.503Z",
+  "generatedAt": "2026-11-18T21:53:30.063Z",
   "total": 1,
   "discovered": 1,
   "parsed": 1,
@@ -36,10 +36,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 7361,
-  "avgDurationMs": 7361,
+  "durationMs": 5156,
+  "avgDurationMs": 5156,
   "durationHistory": [
-    7361
+    5156
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -57,7 +57,7 @@
       "url": "https://cdg-beratungen.softgarden.io/job/67261350?l=de",
       "source": "cdg Beratungen AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:41:57.907Z",
+      "crawledAt": "2026-11-18T21:52:58.312Z",
       "addressLocality": "Opfikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -80,7 +80,7 @@
       "salaryMax": 100500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T09:41:57.907Z",
+      "validThrough": "2027-01-12T21:52:58.312Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -91,5 +91,5 @@
       }
     }
   ],
-  "codeCommit": "c09e64fc08a252ae7234edb7cb9fdea84c5eb705"
+  "codeCommit": "8862042892397f4dcea90f48fbc2dc028da23eec"
 }
