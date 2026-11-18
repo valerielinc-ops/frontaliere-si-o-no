@@ -1,7 +1,7 @@
 {
   "key": "medartis",
   "label": "Medartis",
-  "generatedAt": "2026-11-18T09:27:20.659Z",
+  "generatedAt": "2026-11-18T21:32:29.325Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -13,19 +13,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 2,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 8651,
-  "avgDurationMs": 8651,
+  "durationMs": 8808,
+  "avgDurationMs": 8808,
   "durationHistory": [
-    8651
+    8808
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "medartis-2f093688beed",
-      "slug": "senior-identity-engineer-architect-medartis-basel",
+      "slug": "senior-identity-ingegnere-architetto-medartis-basel",
       "company": "Medartis",
       "companyKey": "medartis",
       "companyDomain": "medartis.com",
@@ -36,7 +37,7 @@
       "url": "https://careers.medartis.com/job/Senior-Identity-Engineer-&-Architect/1458221833/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:26:57.290Z",
+      "crawledAt": "2026-11-18T21:32:13.196Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -53,36 +54,36 @@
       "postedDate": "2026-11-17T00:00:00Z",
       "postingDateSource": "reported",
       "applyUrl": "https://careers.medartis.com/talentcommunity/apply/1458221833/?locale=de_DE",
+      "firstSeenAt": "2026-11-18T09:26:57.290Z",
       "salaryMin": 99500,
       "salaryMax": 151000,
       "salarySource": "estimated",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T09:26:57.290Z",
+      "validThrough": "2027-02-15T21:32:13.196Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T09:26:57.290Z",
-      "_qualityScore": 91,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
     },
     {
       "id": "medartis-6e8489712f89",
-      "slug": "it-service-delivery-manager-medartis-basel",
+      "slug": "responsabile-del-servizio-it-medartis-basel",
       "company": "Medartis",
       "companyKey": "medartis",
       "companyDomain": "medartis.com",
       "title": "IT Service Delivery Manager",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Basel",
       "canton": "BS",
       "url": "https://careers.medartis.com/job/IT-Service-Delivery-Manager/1458220133/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:26:56.503Z",
+      "crawledAt": "2026-11-18T21:32:12.413Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -99,24 +100,23 @@
       "postedDate": "2026-11-17T00:00:00Z",
       "postingDateSource": "reported",
       "applyUrl": "https://careers.medartis.com/talentcommunity/apply/1458220133/?locale=de_DE",
+      "firstSeenAt": "2026-11-18T09:26:56.503Z",
       "salaryMin": 99500,
       "salaryMax": 169500,
       "salarySource": "estimated",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T09:26:56.503Z",
+      "validThrough": "2027-02-15T21:32:12.413Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T09:26:56.503Z",
-      "_qualityScore": 86,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -132,7 +132,7 @@
       "url": "https://careers.medartis.com/job/Events-Manager/1457737633/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:26:58.821Z",
+      "crawledAt": "2026-11-18T21:32:14.881Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -155,7 +155,7 @@
       "salarySource": "estimated",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T09:26:58.821Z",
+      "validThrough": "2027-02-14T21:32:14.881Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -178,7 +178,7 @@
       "url": "https://careers.medartis.com/job/Quality-Inspector-100/1456101133/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:26:58.328Z",
+      "crawledAt": "2026-11-18T21:32:14.327Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -201,7 +201,7 @@
       "salarySource": "estimated",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T09:26:58.328Z",
+      "validThrough": "2027-02-08T21:32:14.327Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -223,7 +223,7 @@
       "url": "https://careers.medartis.com/job/PLM-Support-Specialist/1428557833/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:26:57.819Z",
+      "crawledAt": "2026-11-18T21:32:13.764Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -246,7 +246,7 @@
       "salarySource": "estimated",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:26:57.819Z",
+      "validThrough": "2026-12-18T21:32:13.764Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -257,5 +257,5 @@
       }
     }
   ],
-  "codeCommit": "c09e64fc08a252ae7234edb7cb9fdea84c5eb705"
+  "codeCommit": "8862042892397f4dcea90f48fbc2dc028da23eec"
 }
