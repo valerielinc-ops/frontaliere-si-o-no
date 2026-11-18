@@ -1850,14 +1850,26 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "referent-programmation-richemont-les-breuleux"
+          "referent-programmation-richemont-les-breuleux",
+          "pianificatore-donze-baume-les-breuleux",
+          "planner-donze-baume-les-breuleux",
+          "planer-donze-baume-les-breuleux",
+          "planificateur-richemont-les-breuleux",
+          "reference-programming-donze-baume-les-breuleux",
+          "referent-programmplanung-donze-baume-les-breuleux"
         ],
         "fr": [
           "referent-programmation-richemont-les-breuleux"
         ]
       },
       "previousSlugs": [
-        "referent-programmation-richemont-les-breuleux"
+        "referent-programmation-richemont-les-breuleux",
+        "pianificatore-donze-baume-les-breuleux",
+        "planner-donze-baume-les-breuleux",
+        "planer-donze-baume-les-breuleux",
+        "planificateur-richemont-les-breuleux",
+        "reference-programming-donze-baume-les-breuleux",
+        "referent-programmplanung-donze-baume-les-breuleux"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -4259,7 +4271,8 @@
         "sales-associate-buccellati-geneva",
         "vertriebsmitarbeiter-buccellati-geneva",
         "associe-de-vente-buccellati-geneva",
-        "sales-associate-richemont-geneva"
+        "sales-associate-richemont-geneva",
+        "sales-associate-richemont-geneva-r2fjzn"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4279,6 +4292,9 @@
         ],
         "fr": [
           "sales-associate-richemont-geneva"
+        ],
+        "en": [
+          "sales-associate-richemont-geneva-r2fjzn"
         ]
       },
       "firstSeenAt": "2026-09-21T16:11:45.788Z",
@@ -7680,7 +7696,25 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-18T09:38:01.138Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-30T21:23:38.439Z"
+      "firstSeenAt": "2026-09-30T21:23:38.439Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "media-performance-tirocinante-6-months-internship-jaeger-lecoultre-meyrin",
+          "media-performance-praktikant-6-months-internship-jaeger-lecoultre-meyrin",
+          "media-performance-stagiaire-6-months-internship-jaeger-lecoultre-meyrin"
+        ],
+        "de": [
+          "media-performance-praktikant-6-months-internship-jaeger-lecoultre-meyrin"
+        ],
+        "fr": [
+          "media-performance-stagiaire-6-months-internship-jaeger-lecoultre-meyrin"
+        ]
+      },
+      "previousSlugs": [
+        "media-performance-tirocinante-6-months-internship-jaeger-lecoultre-meyrin",
+        "media-performance-praktikant-6-months-internship-jaeger-lecoultre-meyrin",
+        "media-performance-stagiaire-6-months-internship-jaeger-lecoultre-meyrin"
+      ]
     },
     {
       "id": "richemont-f0c81ef3f5a6",
@@ -14355,7 +14389,6 @@
       "requirementsByLocale": {
         "en": []
       },
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -15224,7 +15257,6 @@
       "requirementsByLocale": {
         "en": []
       },
-      "needsRetranslation": true,
       "salaryMin": 57000,
       "salaryMax": 97000,
       "salarySource": "estimated",

@@ -73,7 +73,31 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-31T09:26:20.958Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-04T09:20:22.976Z"
+      "firstSeenAt": "2026-10-04T09:20:22.976Z",
+      "previousSlugs": [
+        "manager-performance-commerciale-e-ottimizzazione-msc-group-geneva",
+        "manager-commercial-performance-und-optimierung-msc-group-geneva",
+        "gestionnaire-performance-commerciale-et-optimisation-msc-group-geneva",
+        "responsabile-performance-commerciale-e-ottimizzazione-msc-group-geneva",
+        "manager-kommerzielle-leistung-und-optimierung-msc-group-geneva",
+        "responsable-performance-commerciale-et-optimisation-msc-group-geneva"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "manager-performance-commerciale-e-ottimizzazione-msc-group-geneva",
+          "manager-commercial-performance-und-optimierung-msc-group-geneva",
+          "gestionnaire-performance-commerciale-et-optimisation-msc-group-geneva",
+          "responsabile-performance-commerciale-e-ottimizzazione-msc-group-geneva",
+          "manager-kommerzielle-leistung-und-optimierung-msc-group-geneva",
+          "responsable-performance-commerciale-et-optimisation-msc-group-geneva"
+        ],
+        "de": [
+          "manager-commercial-performance-und-optimierung-msc-group-geneva"
+        ],
+        "fr": [
+          "gestionnaire-performance-commerciale-et-optimisation-msc-group-geneva"
+        ]
+      }
     },
     {
       "id": "msc-cargo-f21f2e88a182",

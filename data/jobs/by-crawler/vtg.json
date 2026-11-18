@@ -50,7 +50,6 @@
         "de": "leiter-in-verpflegung-swiss-armed-forces-vtg-linden",
         "fr": "leiter-in-verpflegung-swiss-armed-forces-vtg-bern-hurdri"
       },
-      "needsRetranslation": true,
       "sourceLang": "de",
       "postalCode": "3673",
       "addressLocality": "Linden",
@@ -133,7 +132,6 @@
         "de": "mitarbeiter-in-gebaudebetrieb-swiss-armed-forces-vtg-visp-ul9q4e",
         "fr": "mitarbeiter-in-gebaudebetrieb-swiss-armed-forces-vtg-visp-ul9q4e"
       },
-      "needsRetranslation": true,
       "sourceLang": "de",
       "postalCode": "3930",
       "addressLocality": "Visp",
@@ -291,7 +289,6 @@
         "fr": "logistiker-in-swiss-armed-forces-vtg-s-chanf"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "postalCode": "7525",
       "addressLocality": "S-chanf",
       "addressRegion": "GR",
@@ -380,7 +377,6 @@
         "fr": "logistiker-in-swiss-armed-forces-vtg-rivera-di1mm0"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "postalCode": "6802",
       "addressLocality": "Rivera",
       "addressRegion": "TI",
@@ -459,7 +455,6 @@
         "fr": "automobil-mechatroniker-in-swiss-armed-forces-vtg-biere-isn8fh"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "postalCode": "1145",
       "addressLocality": "Bière",
       "addressRegion": "VD",
@@ -538,7 +533,6 @@
         "fr": "panzermechatroniker-in-schwere-raupenfahrzeuge-swiss-armed-forces-vtg-bronschhofen-sg-66ad6y"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "postalCode": "9552",
       "addressLocality": "Bronschhofen",
       "addressRegion": "SG",
@@ -617,18 +611,28 @@
         "fr": "automobil-mechatroniker-in-swiss-armed-forces-vtg-hinwil-ybqy3f"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "postalCode": "8340",
       "addressLocality": "Hinwil",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 17",
       "previousSlugsByLocale": {
         "it": [
-          "automobil-mechatroniker-in-swiss-armed-forces-vtg-hinwil"
+          "automobil-mechatroniker-in-swiss-armed-forces-vtg-hinwil",
+          "automobil-mechatroniker-in-confederazione-hinwil"
+        ],
+        "en": [
+          "automobil-mechatroniker-in-confederazione-hinwil"
+        ],
+        "de": [
+          "automobil-mechatroniker-in-confederazione-hinwil"
+        ],
+        "fr": [
+          "automobil-mechatroniker-in-confederazione-hinwil"
         ]
       },
       "previousSlugs": [
-        "automobil-mechatroniker-in-swiss-armed-forces-vtg-hinwil"
+        "automobil-mechatroniker-in-swiss-armed-forces-vtg-hinwil",
+        "automobil-mechatroniker-in-confederazione-hinwil"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -696,7 +700,6 @@
         "fr": "motorgeratemechaniker-in-hinwil-swiss-armed-forces-vtg-hinwil-s1fqc3"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "postalCode": "8340",
       "addressLocality": "Hinwil",
       "addressRegion": "ZH",
@@ -6050,7 +6053,8 @@
       "validThrough": "2027-01-27T09:51:18.409Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 73000,
-      "salaryMax": 124500
+      "salaryMax": 124500,
+      "needsRetranslation": true
     },
     {
       "id": "company-9e7syr",

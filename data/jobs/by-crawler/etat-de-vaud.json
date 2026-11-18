@@ -1974,11 +1974,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "gestionnaire-de-dossiers-specialises-etat-de-vaud-lausanne-2"
+        "gestionnaire-de-dossiers-specialises-etat-de-vaud-lausanne-2",
+        "gestionnaire-de-dossiers-specialises-etat-de-vaud-administration-cantonale-vaudoise-j6wrwd",
+        "gestionnaire-de-dossiers-specialises-etat-de-vaud-administration-cantonale-vaudoise-j6wsjk"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gestionnaire-de-dossiers-specialises-etat-de-vaud-lausanne-2"
+          "gestionnaire-de-dossiers-specialises-etat-de-vaud-lausanne-2",
+          "gestionnaire-de-dossiers-specialises-etat-de-vaud-administration-cantonale-vaudoise-j6wrwd",
+          "gestionnaire-de-dossiers-specialises-etat-de-vaud-administration-cantonale-vaudoise-j6wsjk"
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:20.041Z",
@@ -4344,7 +4348,27 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-16T09:30:04.853Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-07-05T11:43:20.041Z"
+      "firstSeenAt": "2026-07-05T11:43:20.041Z",
+      "previousSlugs": [
+        "assistente-contabile-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "accounting-assistant-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "assistent-e-en-gestion-comptable-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "assistant-e-en-gestion-comptable-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "assistente-contabile-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+          "accounting-assistant-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+          "assistent-e-en-gestion-comptable-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+          "assistant-e-en-gestion-comptable-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+        ],
+        "en": [
+          "accounting-assistant-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+        ],
+        "de": [
+          "assistent-e-en-gestion-comptable-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+        ]
+      }
     },
     {
       "id": "etat-de-vaud-6180",
@@ -4401,11 +4425,18 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "gestionnaire-de-dossiers-domaine-judiciaire-etat-de-vaud-lausanne"
+          "gestionnaire-de-dossiers-domaine-judiciaire-etat-de-vaud-lausanne",
+          "case-manager-giustizia-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+          "case-manager-judicial-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+        ],
+        "en": [
+          "case-manager-judicial-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ]
       },
       "previousSlugs": [
-        "gestionnaire-de-dossiers-domaine-judiciaire-etat-de-vaud-lausanne"
+        "gestionnaire-de-dossiers-domaine-judiciaire-etat-de-vaud-lausanne",
+        "case-manager-giustizia-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "case-manager-judicial-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,

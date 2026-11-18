@@ -1871,7 +1871,6 @@
           "mitarbeiterin-mitarbeiter-hauswirtschaft-a-80-hirslanden-hirslanden-klinik-beau-site"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-03T09:23:11.548Z",
       "salaryMin": 54000,
       "salaryMax": 67600,
@@ -1889,8 +1888,7 @@
       "streetAddress": "Hirslanden Klinik Beau-Site",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-21T09:36:22.723Z",
-      "validThroughSource": "last-observed-window",
-      "retranslationAttempts": 1
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hirslanden-d52f4ab8086f",
@@ -6112,7 +6110,6 @@
           "mitarbeiterin-mitarbeiter-guest-relations-a-70-hirslanden-hirslanden-klinik-aarau"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 61600,
       "salaryMax": 86100,
       "salarySource": "estimated",
@@ -6129,8 +6126,7 @@
       "streetAddress": "Hirslanden Klinik Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-28T09:34:30.638Z",
-      "validThroughSource": "last-observed-window",
-      "retranslationAttempts": 1
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hirslanden-18c7e3e28fca",
