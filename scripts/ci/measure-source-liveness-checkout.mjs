@@ -4,11 +4,27 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 
-const [parentFullArg, parentSparseArg, headFullArg, headSparseArg, metricsDirArg] = process.argv.slice(2);
+const [
+  parentFullArg,
+  parentSparseArg,
+  headFullArg,
+  headSparseArg,
+  metricsDirArg,
+  expectedParentRevisionArg,
+  expectedHeadRevisionArg,
+] = process.argv.slice(2);
 
-if (!parentFullArg || !parentSparseArg || !headFullArg || !headSparseArg || !metricsDirArg) {
+if (
+  !parentFullArg
+  || !parentSparseArg
+  || !headFullArg
+  || !headSparseArg
+  || !metricsDirArg
+  || !expectedParentRevisionArg
+  || !expectedHeadRevisionArg
+) {
   console.error(
-    'Usage: measure-source-liveness-checkout.mjs <parent-full> <parent-sparse> <head-full> <head-sparse> <metrics-dir>',
+    'Usage: measure-source-liveness-checkout.mjs <parent-full> <parent-sparse> <head-full> <head-sparse> <metrics-dir> <expected-parent-revision> <expected-head-revision>',
   );
   process.exit(2);
 }
@@ -165,6 +181,16 @@ try {
   const headRevision = revision(headFull);
   if (revision(headSparse) !== headRevision) {
     throw new Error('HEAD full/sparse checkout HEAD mismatch');
+  }
+  if (parentRevision !== expectedParentRevisionArg) {
+    throw new Error(
+      `parent checkout revision mismatch: expected ${expectedParentRevisionArg}, actual ${parentRevision}`,
+    );
+  }
+  if (headRevision !== expectedHeadRevisionArg) {
+    throw new Error(
+      `HEAD checkout revision mismatch: expected ${expectedHeadRevisionArg}, actual ${headRevision}`,
+    );
   }
 
   const parentFullMeasurement = measureWorkingTree(parentFull);

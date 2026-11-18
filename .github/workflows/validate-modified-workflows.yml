@@ -254,5 +254,7 @@ jobs:
               source-liveness-parent-sparse \
               source-liveness-head-full \
               source-liveness-head-sparse \
-              "$RUNNER_TEMP"
+              "$RUNNER_TEMP" \
+              "${{ github.event.pull_request.base.sha || github.ref }}" \
+              "${{ github.event.pull_request.head.sha || github.sha }}"
           } | tee "$GITHUB_STEP_SUMMARY"
