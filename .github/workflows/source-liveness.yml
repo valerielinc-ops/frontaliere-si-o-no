@@ -69,7 +69,8 @@ jobs:
           # This probe only needs its runner scripts and npm manifests. The
           # explicit allow-list bounds the materialized paths by construction;
           # validate-modified-workflows.yml records a same-run parent/HEAD
-          # checkout baseline before merge, including object and phase metrics.
+          # checkout baseline before merge, including object and phase metrics,
+          # in the linked job summary.
           # Scheduled runs remain the operational confirmation after merge.
           filter: blob:none
           sparse-checkout: |

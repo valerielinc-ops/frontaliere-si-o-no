@@ -311,6 +311,9 @@ describe('profili di sparse-checkout', () => {
       'measure-source-liveness-checkout.mjs',
     ));
     expect(String(measurementStep?.run ?? '')).toContain('$RUNNER_TEMP');
+    expect(String(measurementStep?.run ?? '')).toContain('$GITHUB_STEP_SUMMARY');
+    expect(measurementStep?.env?.PARENT_SHA).toBe('${{ github.event.pull_request.base.sha || github.event.before }}');
+    expect(measurementStep?.env?.HEAD_SHA).toBe('${{ github.event.pull_request.head.sha || github.sha }}');
     for (const name of [
       'source-liveness-parent-full',
       'source-liveness-parent-sparse',

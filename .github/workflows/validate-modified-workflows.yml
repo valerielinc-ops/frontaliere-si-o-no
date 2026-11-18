@@ -238,10 +238,21 @@ jobs:
         run: date +%s%N > "$RUNNER_TEMP/source-liveness-head-sparse.end"
 
       - name: Measure parent and HEAD checkout metrics
+        env:
+          PARENT_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
         run: |
-          node source-liveness-head-full/scripts/ci/measure-source-liveness-checkout.mjs \
-            source-liveness-parent-full \
-            source-liveness-parent-sparse \
-            source-liveness-head-full \
-            source-liveness-head-sparse \
-            "$RUNNER_TEMP"
+          {
+            echo '## Source Liveness checkout measurement'
+            echo
+            echo "**Run:** ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+            echo "**Parent SHA:** ${PARENT_SHA}"
+            echo "**HEAD SHA:** ${HEAD_SHA}"
+            echo
+            node source-liveness-head-full/scripts/ci/measure-source-liveness-checkout.mjs \
+              source-liveness-parent-full \
+              source-liveness-parent-sparse \
+              source-liveness-head-full \
+              source-liveness-head-sparse \
+              "$RUNNER_TEMP"
+          } | tee "$GITHUB_STEP_SUMMARY"
