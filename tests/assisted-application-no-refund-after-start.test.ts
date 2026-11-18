@@ -213,8 +213,8 @@ describe('Terms 6.5 and the mandate say it, in the four languages', () => {
       expect(html, locale).not.toMatch(/rimborsiamo automaticamente|automatically refund|erstatten wir automatisch|remboursons automatiquement/);
       expect(html, locale).not.toMatch(/20\d\d/);
     }
-    expect(getTermsLegalDocument('it').updated).toBe('Ultimo aggiornamento: 11 novembre 2026');
-    expect(getTermsLegalDocument('en').updated).toBe('Last updated: 11 November 2026');
+    expect(getTermsLegalDocument('it').updated).toBe('Ultimo aggiornamento: 18 novembre 2026');
+    expect(getTermsLegalDocument('en').updated).toBe('Last updated: 18 November 2026');
   });
 
   it('asks for the express request and the acknowledgement in the mandate, before anything starts', () => {
