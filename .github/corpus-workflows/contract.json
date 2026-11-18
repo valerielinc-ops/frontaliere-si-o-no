@@ -4,27 +4,27 @@
   "generatorSha256": "340371d083e0836e23b2f39df8dea876d32c7a1ec690a1afeb2dffbf7761c79c",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "86458b59d6259a1218f0e4bcd37534d5802d6b3a",
-  "sourceCommitVerified": true,
+  "sourceCommit": "b14cbcd6f6da56c1aaa1f6bff9aa48860392f836",
+  "sourceCommitVerified": false,
   "artifactObservation": {
     "generatorSha256": "340371d083e0836e23b2f39df8dea876d32c7a1ec690a1afeb2dffbf7761c79c",
     "sourceRef": "main",
-    "sourceCommit": "86458b59d6259a1218f0e4bcd37534d5802d6b3a"
+    "sourceCommit": "b14cbcd6f6da56c1aaa1f6bff9aa48860392f836"
   },
   "groupCount": 25,
   "artifactCount": 26,
   "observerCount": 8,
-  "crawlerCount": 709,
+  "crawlerCount": 711,
   "crawlerRosterCardinality": {
-    "sourceCommit": "86458b59d6259a1218f0e4bcd37534d5802d6b3a",
+    "sourceCommit": "b14cbcd6f6da56c1aaa1f6bff9aa48860392f836",
     "groupCount": 25,
     "artifactCount": 26,
-    "crawlerCount": 709
+    "crawlerCount": 711
   },
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:9ce145bb33078fd7b933bb8b2268ceabec44053b8a496fb980c675dad00e1c1a",
+    "rosterDigest": "sha256:bc9c810a6a4f7363db08084daa7be0626f9867de6f592f7be9f25ff80e2535c1",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -198,6 +198,7 @@
     "scripts/update-clinique-le-noirmont-jobs.mjs",
     "scripts/update-cnp-jobs.mjs",
     "scripts/update-cnvo-ch-jobs.mjs",
+    "scripts/update-cogestim-ch-jobs.mjs",
     "scripts/update-comuni-ticino-jobs.mjs",
     "scripts/update-concara-jobs.mjs",
     "scripts/update-concordia-jobs.mjs",
@@ -324,6 +325,7 @@
     "scripts/update-hornbach-jobs.mjs",
     "scripts/update-hospice-general-jobs.mjs",
     "scripts/update-hoval-jobs.mjs",
+    "scripts/update-hpjob-ch-jobs.mjs",
     "scripts/update-hrc-jobs.mjs",
     "scripts/update-huber-suhner-jobs.mjs",
     "scripts/update-hug-jobs.mjs",
@@ -909,8 +911,8 @@
     {
       "file": "crawler-group-06.yml",
       "sourceLogic": "crawler-group-06-logic.yml",
-      "sourceSha256": "61627517426627a53c5c455dee2c5eb598cbdb3cc86f5fe0ab80ca53f587cc2c",
-      "artifactSha256": "ab9a02c425f0c62d263d40bb9d1385a864ade96693a4b7adc4b5a46e6ef76c03",
+      "sourceSha256": "c49df1faf7d446c4d774e2a4a5144e484d25e7677b136720b800be7f47648ffa",
+      "artifactSha256": "c0d379de1aa500e63f64c8c9a0f7c0a915c68d871090f45817b4a9fd745826f1",
       "generatorSha256": "340371d083e0836e23b2f39df8dea876d32c7a1ec690a1afeb2dffbf7761c79c",
       "members": [
         "merian-iselin",
@@ -942,14 +944,15 @@
         "ehnv",
         "mueller-steinmaur",
         "siegfried",
-        "teo-jakob"
+        "teo-jakob",
+        "hpjob-ch"
       ]
     },
     {
       "file": "crawler-group-07.yml",
       "sourceLogic": "crawler-group-07-logic.yml",
-      "sourceSha256": "22d8c01f191000618ba2250a4a20c3678ed998dd7ddac88dc27175a6008bb004",
-      "artifactSha256": "dc485e5390fc60e17c10fa6c0ecd184b2593209e594f0b2964f1fd79a1a44b6b",
+      "sourceSha256": "acc2d7231de3fb63ec95198b9b871e1d9de0912171e9417a8425f68c79f7523e",
+      "artifactSha256": "8cbb67ef123adcff5d426d3eedf9167e882b890b56cc46f226644b7f25f3f62e",
       "generatorSha256": "340371d083e0836e23b2f39df8dea876d32c7a1ec690a1afeb2dffbf7761c79c",
       "members": [
         "spital-emmental",
@@ -981,7 +984,8 @@
         "guggerbach",
         "lonza",
         "kita-summervogel",
-        "mpa-praxisstellen-ch"
+        "mpa-praxisstellen-ch",
+        "cogestim-ch"
       ]
     },
     {

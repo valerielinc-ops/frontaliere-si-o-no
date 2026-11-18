@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 25,
-  "crawlerCount": 709,
+  "crawlerCount": 711,
   "groups": {
     "10": [
       "atec-personal",
@@ -646,6 +646,7 @@
       "hopital-de-lavaux",
       "hopital-du-valais",
       "hoval",
+      "hpjob-ch",
       "julius-baer",
       "merian-iselin",
       "migrolino",
@@ -670,6 +671,7 @@
       "citta-di-lugano",
       "clinica-varini",
       "clinique-de-valere",
+      "cogestim-ch",
       "deloitte",
       "fnz",
       "gesundheitszentrum-fricktal",
@@ -912,6 +914,7 @@
     "clinique-le-noirmont": "data/jobs/by-crawler/clinique-le-noirmont.json",
     "cnp": "data/jobs/by-crawler/cnp.json",
     "cnvo-ch": "data/jobs/by-crawler/cnvo-ch.json",
+    "cogestim-ch": "data/jobs/by-crawler/cogestim-ch.json",
     "colin-cie": "data/jobs/by-crawler/colin-cie.json",
     "comuni-ticino": "data/jobs/by-crawler/comuni-ticino.json",
     "concara": "data/jobs/by-crawler/concara.json",
@@ -1072,6 +1075,7 @@
     "hornbach": "data/jobs/by-crawler/hornbach.json",
     "hospice-general": "data/jobs/by-crawler/hospice-general.json",
     "hoval": "data/jobs/by-crawler/hoval.json",
+    "hpjob-ch": "data/jobs/by-crawler/hpjob-ch.json",
     "hrc": "data/jobs/by-crawler/hrc.json",
     "huber-suhner": "data/jobs/by-crawler/huber-suhner.json",
     "hug": "data/jobs/by-crawler/hug.json",
@@ -1474,5 +1478,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:9ce145bb33078fd7b933bb8b2268ceabec44053b8a496fb980c675dad00e1c1a"
+  "digest": "sha256:bc9c810a6a4f7363db08084daa7be0626f9867de6f592f7be9f25ff80e2535c1"
 }
