@@ -1359,7 +1359,10 @@ async function aggregateMode(values) {
   }
   if (process.env.GITHUB_STEP_SUMMARY && values.summary) appendFileSync(process.env.GITHUB_STEP_SUMMARY, `${markdown}\n`);
   console.log(`portal replay gate: ${verdict.status.toUpperCase()} (${safeCode(verdict.code)})`);
-  return verdict.status === 'pass' ? 0 : 1;
+  // A provider-quota skip is a successful deferral, not a failed replay. Keep
+  // unknown skip codes fail-closed so only the declared non-regression path is
+  // allowed to make the aggregate CLI green.
+  return verdict.status === 'pass' || (verdict.status === 'skip' && verdict.code === 'codex_quota') ? 0 : 1;
 }
 
 async function main(argv = process.argv.slice(2)) {
