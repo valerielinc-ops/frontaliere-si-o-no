@@ -370,3 +370,38 @@ describe('rerender-article-hubs deployment ordering', () => {
     expect(String(summary?.run ?? '')).toContain('shell asset gate deferred');
   });
 });
+
+describe('rerender-article-corpus deployment ordering', () => {
+  const workflow = YAML.parse(fs.readFileSync(path.join(ROOT, WORKFLOW), 'utf8'));
+  const plan = workflow?.jobs?.plan;
+  const compute = plan?.steps?.find((step: { id?: string }) => step.id === 'compute');
+  const publisher = YAML.parse(fs.readFileSync(path.join(ROOT, PUBLISH_WORKFLOW), 'utf8'));
+  const watchdog = publisher?.jobs?.['runtime-watchdog'];
+  const dispatch = watchdog?.steps?.find(
+    (step: { name?: string }) => step.name === 'Dispatch article corpus rerender after validated publish',
+  );
+
+  it('waits for a successful full deploy before a code-triggered fan-out', () => {
+    expect(workflow?.on?.workflow_dispatch?.inputs?.published_deploy_head_sha?.type).toBe('string');
+    expect(String(plan?.if ?? '')).toContain("github.event_name != 'push'");
+    expect(plan?.outputs?.deferred).toBe('${{ steps.compute.outputs.deferred }}');
+    expect(String(workflow?.jobs?.rerender?.if ?? '')).toContain("needs.plan.outputs.deferred != 'true'");
+    expect(dispatch?.if).toContain("needs.publish.result == 'success'");
+    expect(dispatch?.if).toContain("needs.validate-dist.result == 'success'");
+    expect(dispatch?.if).toContain("needs.validate-live.result == 'success'");
+    expect(String(dispatch?.run ?? '')).toContain('gh workflow run rerender-article-corpus.yml');
+    expect(String(dispatch?.run ?? '')).toContain('-f dry_run=false');
+    expect(dispatch?.env?.PUBLISHED_DEPLOY_HEAD_SHA).toBe('${{ inputs.source_sha }}');
+    expect(String(dispatch?.run ?? '')).toContain('-f published_deploy_head_sha="$PUBLISHED_DEPLOY_HEAD_SHA"');
+  });
+
+  it('defers an attested deploy completion that no longer represents the current main tip', () => {
+    const run = String(compute?.run ?? '');
+    expect(compute?.env?.GH_TOKEN).toBe('${{ github.token }}');
+    expect(compute?.env?.PUBLISHED_DEPLOY_HEAD_SHA).toBe('${{ inputs.published_deploy_head_sha }}');
+    expect(run).toContain('gh api "repos/${GITHUB_REPOSITORY}/commits/main"');
+    expect(run).toContain('$PUBLISHED_DEPLOY_HEAD_SHA');
+    expect(run).toContain("echo 'deferred=true' >> \"$GITHUB_OUTPUT\"");
+    expect(run).toContain("echo 'sections=[\"frontaliere\",\"svizzera\"]' >> \"$GITHUB_OUTPUT\"");
+  });
+});

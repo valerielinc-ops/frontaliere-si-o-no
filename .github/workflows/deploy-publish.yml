@@ -4462,6 +4462,27 @@ jobs:
             -f section=all \
             -f dry_run=false \
             -f published_deploy_head_sha="$PUBLISHED_DEPLOY_HEAD_SHA"
+      # The corpus writer must run only after the validated full publish too:
+      # its HTML references the content-addressed shell assets that the
+      # publisher has just repaired. The push-triggered corpus workflow only
+      # records the stale signal and stops at plan, so this explicit dispatch
+      # is the durable publication point.
+      - name: Dispatch article corpus rerender after validated publish
+        if: >-
+          ${{ needs.publish.result == 'success' &&
+              needs.validate-dist.result == 'success' &&
+              needs.validate-live.result == 'success' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUBLISHED_DEPLOY_HEAD_SHA: ${{ inputs.source_sha }}
+        run: |
+          gh workflow run rerender-article-corpus.yml \
+            --repo "$GITHUB_REPOSITORY" \
+            --ref main \
+            -f section=all \
+            -f locale=all \
+            -f dry_run=false \
+            -f published_deploy_head_sha="$PUBLISHED_DEPLOY_HEAD_SHA"
 
   # A publisher run must never be green while the Pages deployment it was
   # admitted for did not happen. `deploy` is `skipped` (not failed) whenever one

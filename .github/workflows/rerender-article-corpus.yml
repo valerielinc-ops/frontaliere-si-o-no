@@ -77,6 +77,14 @@ name: Rerender Article Corpus
 # rerender-article-hubs.yml, which exists for them, renders through the same
 # scripts/lib/render-and-push-hubs.mjs the fast-publish path uses, and pushes
 # through the same scripts/lib/push-article-shard-incremental.sh this one does.
+#
+# A push is only a signal that the corpus is stale. The full deploy publishes
+# the content-addressed shell assets after the source build; starting this
+# writer directly from the push can therefore render HTML that names a newer
+# shell than the CDN serves. The push path below records the signal and stops
+# at plan; deploy-publish.yml dispatches the same writer after its validated
+# publish, with the source SHA as an attestation. This is the same ordering
+# contract used by rerender-article-hubs.yml.
 on:
   workflow_dispatch:
     inputs:
@@ -114,6 +122,11 @@ on:
         description: 'Article ids per render subprocess batch (memory-bounded — see scripts/rerender-article-corpus.mjs header comment)'
         type: string
         default: '300'
+      published_deploy_head_sha:
+        description: 'SHA of the validated full deploy that dispatched this rerender'
+        required: false
+        type: string
+        default: ''
   push:
     branches: [main]
     # A path filter only ever sees the files a commit CHANGED. Since the #4881
@@ -196,16 +209,43 @@ permissions:
 
 jobs:
   plan:
-    # Computes which section(s) run as separate matrix jobs below. A push
-    # trigger (template file changed on main) always means "rerender both —
-    # a shared template affects both sections identically". workflow_dispatch
-    # honors the operator's --section choice, defaulting to both.
+    # A push only records that work is needed; the full deploy publishes the
+    # shell assets that the writer is allowed to reference. The validated
+    # publisher dispatches this workflow explicitly afterwards. A manual
+    # dispatch without an attestation remains available for an operator-led
+    # rerender; an attested dispatch must still represent the current main tip.
+    if: github.event_name != 'push'
     runs-on: ubuntu-latest
     outputs:
       sections: ${{ steps.compute.outputs.sections }}
+      deferred: ${{ steps.compute.outputs.deferred }}
     steps:
       - id: compute
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PUBLISHED_DEPLOY_HEAD_SHA: ${{ inputs.published_deploy_head_sha }}
         run: |
+          set -euo pipefail
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ -n "${PUBLISHED_DEPLOY_HEAD_SHA:-}" ]; then
+            # A queued deploy may complete after a newer push has reached main.
+            # Do not render the old source against the newer renderer; the
+            # next validated publisher dispatches the current tip.
+            if ! current_main_sha="$(gh api "repos/${GITHUB_REPOSITORY}/commits/main" --jq '.sha')"; then
+              echo "::error::cannot verify the current main tip after the full deploy; failing the corpus rerender plan"
+              exit 1
+            fi
+            if [ -z "$current_main_sha" ]; then
+              echo "::error::current main tip lookup returned an empty SHA; failing the corpus rerender plan"
+              exit 1
+            fi
+            if [ "$current_main_sha" != "$PUBLISHED_DEPLOY_HEAD_SHA" ]; then
+              echo "full deploy $PUBLISHED_DEPLOY_HEAD_SHA is behind current main $current_main_sha; deferring corpus rerender"
+              echo 'deferred=true' >> "$GITHUB_OUTPUT"
+              echo 'sections=["frontaliere","svizzera"]' >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+          fi
+          echo 'deferred=false' >> "$GITHUB_OUTPUT"
           if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.section }}" != "all" ]; then
             echo 'sections=["${{ inputs.section }}"]' >> "$GITHUB_OUTPUT"
           else
@@ -214,6 +254,7 @@ jobs:
 
   rerender:
     needs: plan
+    if: needs.plan.result == 'success' && needs.plan.outputs.deferred != 'true'
     strategy:
       fail-fast: false
       max-parallel: 2
