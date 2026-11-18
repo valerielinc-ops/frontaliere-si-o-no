@@ -18678,7 +18678,7 @@
       "slugByLocale": {
         "de": "physio-30-100-in-dubendorf-8600-dubendorf-physioswiss-ch",
         "it": "fisio-30-100-a-dubendorf-physio-swiss-8600-dubendorf",
-        "en": "physio-30-100-in-dubendorf-8600-dubendorf-physioswiss-ch",
+        "en": "physiotherapist-30-100-in-dubendorf-physio-swiss-8600-dubendorf",
         "fr": "physio-30-100-in-dubendorf-8600-dubendorf-physioswiss-ch"
       },
       "company": "Physio swiss",
@@ -18744,6 +18744,9 @@
       "firstSeenAt": "2026-11-18T09:57:06.056Z",
       "previousSlugsByLocale": {
         "it": [
+          "physio-30-100-in-dubendorf-8600-dubendorf-physioswiss-ch"
+        ],
+        "en": [
           "physio-30-100-in-dubendorf-8600-dubendorf-physioswiss-ch"
         ]
       },

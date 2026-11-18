@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "bms-building-0b1fdc9c129c",
-      "slug": "praktikum-business-development-100-w-m-d-bms-building-ch",
+      "slug": "sviluppo-aziendale-di-stage-100-m-f-d-bms-building-materials-rumlang",
       "slugByLocale": {
         "de": "praktikum-business-development-100-w-m-d-bms-building-ch",
-        "it": "praktikum-business-development-100-w-m-d-bms-building-ch",
+        "it": "sviluppo-aziendale-di-stage-100-m-f-d-bms-building-materials-rumlang",
         "en": "praktikum-business-development-100-w-m-d-bms-building-ch",
-        "fr": "praktikum-business-development-100-w-m-d-bms-building-ch"
+        "fr": "developpement-des-entreprises-100-h-f-d-bms-building-materials-rumlang"
       },
       "company": "BMS Building Materials",
       "companyKey": "bms-building",
@@ -100,7 +100,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T09:18:18.911Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T09:18:18.911Z"
+      "firstSeenAt": "2026-11-18T09:18:18.911Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikum-business-development-100-w-m-d-bms-building-ch"
+        ],
+        "fr": [
+          "praktikum-business-development-100-w-m-d-bms-building-ch"
+        ]
+      },
+      "previousSlugs": [
+        "praktikum-business-development-100-w-m-d-bms-building-ch"
+      ]
     },
     {
       "id": "bms-building-780d6df1e2c7",

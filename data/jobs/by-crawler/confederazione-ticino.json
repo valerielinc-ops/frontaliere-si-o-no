@@ -72,7 +72,8 @@
         "automobil-mechatroniker-in-confederazione-biere",
         "automobil-mechatroniker-in-swiss-armed-forces-vtg-biere-isn8fh",
         "efz-as-automotive-mechatronics-technician-confederazione-svizzera-biere",
-        "mecanicien-mecanicienne-automobile-mecatronicien-mecatronicienne-confederazione-svizzera-biere"
+        "mecanicien-mecanicienne-automobile-mecatronicien-mecatronicienne-confederazione-svizzera-biere",
+        "meccatronico-swiss-armed-forces-vtg-biere"
       ],
       "previousSlugsByLocale": {
         "en": [
@@ -90,7 +91,8 @@
         ],
         "it": [
           "automobil-mechatroniker-in-swiss-armed-forces-vtg-biere-isn8fh",
-          "automobil-mechatroniker-in-confederazione-biere"
+          "automobil-mechatroniker-in-confederazione-biere",
+          "meccatronico-swiss-armed-forces-vtg-biere"
         ]
       }
     },
@@ -304,7 +306,8 @@
         "en": [
           "mitarbeiter-in-gebaudebetrieb-confederazione-visp",
           "mitarbeiter-in-gebaudebetrieb-swiss-armed-forces-vtg-visp-ul9q4e",
-          "building-operations-employee-confederazione-svizzera-visp"
+          "building-operations-employee-confederazione-svizzera-visp",
+          "building-operations-employee-swiss-armed-forces-vtg-visp"
         ],
         "de": [
           "mitarbeiter-in-gebaudebetrieb-confederazione-visp"
@@ -312,7 +315,8 @@
         "fr": [
           "mitarbeiter-in-gebaudebetrieb-confederazione-visp",
           "mitarbeiter-in-gebaudebetrieb-swiss-armed-forces-vtg-visp-ul9q4e",
-          "employe-e-dans-l-exploitation-des-batiments-confederazione-svizzera-visp"
+          "employe-e-dans-l-exploitation-des-batiments-confederazione-svizzera-visp",
+          "employe-e-dans-l-exploitation-des-batiments-swiss-armed-forces-vtg-visp"
         ]
       },
       "previousSlugs": [
@@ -321,7 +325,9 @@
         "collaboratore-trice-gebaudebetrieb-confederazione-svizzera-visp",
         "mitarbeiter-in-gebaudebetrieb-swiss-armed-forces-vtg-visp-ul9q4e",
         "building-operations-employee-confederazione-svizzera-visp",
-        "employe-e-dans-l-exploitation-des-batiments-confederazione-svizzera-visp"
+        "employe-e-dans-l-exploitation-des-batiments-confederazione-svizzera-visp",
+        "building-operations-employee-swiss-armed-forces-vtg-visp",
+        "employe-e-dans-l-exploitation-des-batiments-swiss-armed-forces-vtg-visp"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -414,13 +420,17 @@
         "business-owner-operativ-confederazione-bern",
         "business-owner-operativ-swiss-armed-forces-vtg-bern-obust0",
         "business-owner-operational-confederazione-svizzera-bern",
-        "proprietaire-d-entreprise-exploitation-confederazione-svizzera-bern"
+        "proprietaire-d-entreprise-exploitation-confederazione-svizzera-bern",
+        "operazione-del-proprietario-di-affari-swiss-armed-forces-vtg-bern",
+        "business-owner-operational-swiss-armed-forces-vtg-bern",
+        "proprietaire-d-entreprise-exploitation-swiss-armed-forces-vtg-bern"
       ],
       "previousSlugsByLocale": {
         "en": [
           "business-owner-operativ-confederazione-bern",
           "business-owner-operativ-swiss-armed-forces-vtg-bern-obust0",
-          "business-owner-operational-confederazione-svizzera-bern"
+          "business-owner-operational-confederazione-svizzera-bern",
+          "business-owner-operational-swiss-armed-forces-vtg-bern"
         ],
         "de": [
           "business-owner-operativ-confederazione-bern"
@@ -428,11 +438,13 @@
         "fr": [
           "business-owner-operativ-confederazione-bern",
           "business-owner-operativ-swiss-armed-forces-vtg-bern-obust0",
-          "proprietaire-d-entreprise-exploitation-confederazione-svizzera-bern"
+          "proprietaire-d-entreprise-exploitation-confederazione-svizzera-bern",
+          "proprietaire-d-entreprise-exploitation-swiss-armed-forces-vtg-bern"
         ],
         "it": [
           "business-owner-operativ-swiss-armed-forces-vtg-bern-obust0",
-          "business-owner-operativ-confederazione-bern"
+          "business-owner-operativ-confederazione-bern",
+          "operazione-del-proprietario-di-affari-swiss-armed-forces-vtg-bern"
         ]
       }
     },
@@ -555,14 +567,15 @@
       },
       "slugByLocale": {
         "de": "logistiker-in-swiss-armed-forces-vtg-rivera-di1mm0",
-        "it": "impiegato-a-in-logistica-swiss-armed-forces-vtg-rivera-di1mm0",
+        "it": "impiegato-a-in-logistica-confederazione-svizzera-rivera",
         "en": "logistics-specialist-swiss-armed-forces-vtg-rivera",
         "fr": "logisticien-logisticienne-swiss-armed-forces-vtg-rivera"
       },
       "id": "confederazione-ticino-551a964555cd",
       "previousSlugsByLocale": {
         "it": [
-          "logistiker-in-confederazione-rivera"
+          "logistiker-in-confederazione-rivera",
+          "impiegato-a-in-logistica-swiss-armed-forces-vtg-rivera-di1mm0"
         ],
         "de": [
           "logistiker-in-confederazione-rivera",
@@ -571,12 +584,14 @@
         "en": [
           "logistiker-in-confederazione-svizzera-rivera",
           "logistiker-in-swiss-armed-forces-vtg-rivera-di1mm0",
-          "logistics-specialist-confederazione-svizzera-rivera"
+          "logistics-specialist-confederazione-svizzera-rivera",
+          "logistics-specialist-swiss-armed-forces-vtg-rivera"
         ],
         "fr": [
           "logistiker-in-confederazione-svizzera-rivera",
           "logistiker-in-swiss-armed-forces-vtg-rivera-di1mm0",
-          "logisticien-logisticienne-confederazione-svizzera-rivera"
+          "logisticien-logisticienne-confederazione-svizzera-rivera",
+          "logisticien-logisticienne-swiss-armed-forces-vtg-rivera"
         ]
       },
       "previousSlugs": [
@@ -584,7 +599,10 @@
         "logistiker-in-confederazione-svizzera-rivera",
         "logistiker-in-swiss-armed-forces-vtg-rivera-di1mm0",
         "logistics-specialist-confederazione-svizzera-rivera",
-        "logisticien-logisticienne-confederazione-svizzera-rivera"
+        "logisticien-logisticienne-confederazione-svizzera-rivera",
+        "impiegato-a-in-logistica-swiss-armed-forces-vtg-rivera-di1mm0",
+        "logistics-specialist-swiss-armed-forces-vtg-rivera",
+        "logisticien-logisticienne-swiss-armed-forces-vtg-rivera"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -677,7 +695,8 @@
         "automobil-mechatroniker-in-confederazione-hinwil",
         "automobil-mechatroniker-in-swiss-armed-forces-vtg-hinwil-ybqy3f",
         "efz-as-automotive-mechatronics-technician-confederazione-svizzera-hinwil",
-        "mecanicien-mecanicienne-automobile-mecatronicien-mecatronicienne-confederazione-svizzera-hinwil"
+        "mecanicien-mecanicienne-automobile-mecatronicien-mecatronicienne-confederazione-svizzera-hinwil",
+        "meccatronico-swiss-armed-forces-vtg-hinwil"
       ],
       "previousSlugsByLocale": {
         "en": [
@@ -695,7 +714,8 @@
         ],
         "it": [
           "automobil-mechatroniker-in-swiss-armed-forces-vtg-hinwil-ybqy3f",
-          "automobil-mechatroniker-in-confederazione-hinwil"
+          "automobil-mechatroniker-in-confederazione-hinwil",
+          "meccatronico-swiss-armed-forces-vtg-hinwil"
         ]
       }
     },
@@ -748,7 +768,8 @@
           "motorgeratemechaniker-in-hinwil-confederazione-svizzera-hinwil",
           "motorgeratemechaniker-in-hinwil-confederazione-hinwil",
           "motorgeratemechaniker-in-hinwil-swiss-armed-forces-vtg-hinwil-s1fqc3",
-          "motorised-equipment-mechanic-hinwil-confederazione-svizzera-hinwil"
+          "motorised-equipment-mechanic-hinwil-confederazione-svizzera-hinwil",
+          "motorised-equipment-mechanic-hinwil-swiss-armed-forces-vtg-hinwil"
         ],
         "de": [
           "motorgeratemechaniker-in-hinwil-confederazione-svizzera-hinwil",
@@ -763,7 +784,8 @@
         "it": [
           "motorgeratemechaniker-in-hinwil-confederazione-hinwil",
           "motorgeratemechaniker-in-hinwil-swiss-armed-forces-vtg-hinwil-s1fqc3",
-          "motorgeratemechaniker-in-hinwil-confederazione-svizzera-hinwil"
+          "motorgeratemechaniker-in-hinwil-confederazione-svizzera-hinwil",
+          "meccanico-a-di-macchine-a-motore-hinwil-swiss-armed-forces-vtg-hinwil"
         ]
       },
       "previousSlugs": [
@@ -771,7 +793,9 @@
         "motorgeratemechaniker-in-hinwil-confederazione-hinwil",
         "motorgeratemechaniker-in-hinwil-swiss-armed-forces-vtg-hinwil-s1fqc3",
         "motorised-equipment-mechanic-hinwil-confederazione-svizzera-hinwil",
-        "mecanicien-mecanicienne-d-appareils-a-moteur-hinwil-confederazione-svizzera-hinwil"
+        "mecanicien-mecanicienne-d-appareils-a-moteur-hinwil-confederazione-svizzera-hinwil",
+        "meccanico-a-di-macchine-a-motore-hinwil-swiss-armed-forces-vtg-hinwil",
+        "motorised-equipment-mechanic-hinwil-swiss-armed-forces-vtg-hinwil"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1691,7 +1715,7 @@
     },
     {
       "title": "Kanzleimitarbeiter/-in (Sekretär/-in)",
-      "slug": "kanzleimitarbeiter-in-sekretar-in-confederazione-lausanne",
+      "slug": "impiegato-a-di-studio-legale-segretario-a-confederazione-svizzera-lausanne",
       "url": "https://jobs.admin.ch/posti-vacanti/kanzleimitarbeiter-in-sekretaer-in/194f5895-af12-4db0-ae74-caf4a48cb196",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=21098",
       "company": "Confederazione Svizzera",
@@ -1728,7 +1752,7 @@
       },
       "slugByLocale": {
         "de": "kanzleimitarbeiter-in-sekretar-in-confederazione-lausanne",
-        "it": "kanzleimitarbeiter-in-sekretar-in-confederazione-lausanne",
+        "it": "impiegato-a-di-studio-legale-segretario-a-confederazione-svizzera-lausanne",
         "en": "law-firm-employee-secretary-confederazione-svizzera-lausanne",
         "fr": "collaborateur-collaboratrice-de-cabinet-secretaire-confederazione-svizzera-lausanne"
       },
@@ -1759,6 +1783,9 @@
           "kanzleimitarbeiter-in-sekretar-in-confederazione-lausanne"
         ],
         "fr": [
+          "kanzleimitarbeiter-in-sekretar-in-confederazione-lausanne"
+        ],
+        "it": [
           "kanzleimitarbeiter-in-sekretar-in-confederazione-lausanne"
         ]
       },
