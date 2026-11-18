@@ -1,7 +1,7 @@
 {
   "key": "stellentreff",
   "label": "Stellentreff AG",
-  "generatedAt": "2026-11-17T21:23:40.399Z",
+  "generatedAt": "2026-11-18T09:23:32.488Z",
   "total": 0,
   "discovered": null,
   "parsed": null,
@@ -12,20 +12,28 @@
       "https://www.stellentreff.ch/stellen/"
     ],
     "phase": "listing",
-    "pages": 2,
+    "pages": 4,
     "httpStatuses": [
       {
         "status": 200,
         "url": "https://www.stellentreff.ch/stellen/"
       },
       {
-        "status": 403,
+        "status": 200,
         "url": "https://www.stellentreff.ch/stellen/page/2/"
+      },
+      {
+        "status": 200,
+        "url": "https://www.stellentreff.ch/stellen/page/3/"
+      },
+      {
+        "status": 403,
+        "url": "https://www.stellentreff.ch/stellen/page/4/"
       }
     ],
     "proxiedBy": [],
     "fetchOutcome": null,
-    "fetchDetail": "Prospector fetch failed for https://www.stellentreff.ch/stellen/page/2/: HTTP 403"
+    "fetchDetail": "Prospector fetch failed for https://www.stellentreff.ch/stellen/page/4/: HTTP 403"
   },
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
@@ -41,5 +49,5 @@
   "unchangedJobs": [],
   "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "8a8594aa5e6a6b71cb0a2a3883a7ded1be40621c"
+  "codeCommit": "c09e64fc08a252ae7234edb7cb9fdea84c5eb705"
 }
