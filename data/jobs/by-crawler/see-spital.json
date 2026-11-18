@@ -1,11 +1,11 @@
 {
   "crawlerKey": "see-spital",
-  "assembledAt": "2026-11-17T21:29:34.468Z",
-  "runId": "44177669155",
+  "assembledAt": "2026-11-18T09:19:01.007Z",
+  "runId": "44273824788",
   "jobs": [
     {
       "id": "see-spital-5c7a070a875d",
-      "slug": "sub-assistant-pj-graduate-surgery-see-spital-horgen",
+      "slug": "assistente-pj-laureato-in-chirurgia-see-spital-horgen",
       "slugByLocale": {
         "it": "assistente-pj-laureato-in-chirurgia-see-spital-horgen",
         "en": "sub-assistant-pj-graduate-surgery-see-spital-horgen",
@@ -34,7 +34,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/301/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:29:09.887Z",
+      "crawledAt": "2026-11-18T09:18:47.231Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -57,11 +57,13 @@
       "previousSlugs": [
         "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
         "pj-absolvens-in-chirurgie-see-spital-horgen",
-        "pj-absolvent-in-chirurgies-see-spital-horgen"
+        "pj-absolvent-in-chirurgies-see-spital-horgen",
+        "sub-assistant-pj-graduate-surgery-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch"
+          "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
+          "sub-assistant-pj-graduate-surgery-see-spital-horgen"
         ],
         "en": [
           "pj-absolvent-in-chirurgies-see-spital-horgen"
@@ -101,7 +103,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-17T21:29:09.887Z",
+      "validThrough": "2026-12-18T09:18:47.231Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -136,7 +138,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-17T21:29:08.758Z",
+      "crawledAt": "2026-11-18T09:18:46.208Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -207,7 +209,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-17T21:29:08.758Z",
+      "validThrough": "2026-12-18T09:18:46.208Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -242,7 +244,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-17T21:29:07.599Z",
+      "crawledAt": "2026-11-18T09:18:45.144Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -304,7 +306,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-17T21:29:07.599Z",
+      "validThrough": "2026-12-18T09:18:45.144Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -338,7 +340,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/688/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:29:06.497Z",
+      "crawledAt": "2026-11-18T09:18:44.103Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -463,7 +465,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-17T21:29:06.497Z",
+      "validThrough": "2026-12-18T09:18:44.103Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -497,7 +499,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/851/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:29:05.420Z",
+      "crawledAt": "2026-11-18T09:18:43.081Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -615,7 +617,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-17T21:29:05.420Z",
+      "validThrough": "2026-12-18T09:18:43.081Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -650,7 +652,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-17T21:29:04.300Z",
+      "crawledAt": "2026-11-18T09:18:42.061Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -731,7 +733,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-17T21:29:04.300Z",
+      "validThrough": "2026-12-18T09:18:42.061Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -766,7 +768,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-17T21:29:03.177Z",
+      "crawledAt": "2026-11-18T09:18:41.008Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -860,7 +862,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-17T21:29:03.177Z",
+      "validThrough": "2026-12-18T09:18:41.008Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -895,7 +897,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-17T21:29:02.071Z",
+      "crawledAt": "2026-11-18T09:18:39.971Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -993,7 +995,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-17T21:29:02.071Z",
+      "validThrough": "2026-12-18T09:18:39.971Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1028,7 +1030,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-17T21:29:00.963Z",
+      "crawledAt": "2026-11-18T09:18:38.936Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1115,7 +1117,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-17T21:29:00.963Z",
+      "validThrough": "2026-12-18T09:18:38.936Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1150,7 +1152,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-17T21:28:59.819Z",
+      "crawledAt": "2026-11-18T09:18:37.871Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1233,7 +1235,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-17T21:28:59.819Z",
+      "validThrough": "2026-12-18T09:18:37.871Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1268,7 +1270,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-17T21:28:58.730Z",
+      "crawledAt": "2026-11-18T09:18:36.861Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1358,7 +1360,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-17T21:28:58.730Z",
+      "validThrough": "2026-12-18T09:18:36.861Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1393,7 +1395,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-17T21:28:57.599Z",
+      "crawledAt": "2026-11-18T09:18:35.856Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1486,7 +1488,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-17T21:28:57.599Z",
+      "validThrough": "2026-12-18T09:18:35.856Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1520,7 +1522,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/717/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:28:56.501Z",
+      "crawledAt": "2026-11-18T09:18:34.811Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1613,7 +1615,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-17T21:28:56.501Z",
+      "validThrough": "2026-12-18T09:18:34.811Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1647,7 +1649,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1137/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:28:55.413Z",
+      "crawledAt": "2026-11-18T09:18:33.754Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1728,7 +1730,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-17T21:28:55.413Z",
+      "validThrough": "2026-12-18T09:18:33.754Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1762,7 +1764,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1129/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:28:54.304Z",
+      "crawledAt": "2026-11-18T09:18:32.709Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1856,7 +1858,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-17T21:28:54.304Z",
+      "validThrough": "2026-12-18T09:18:32.709Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1891,7 +1893,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-17T21:28:53.185Z",
+      "crawledAt": "2026-11-18T09:18:31.678Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1980,7 +1982,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-17T21:28:53.185Z",
+      "validThrough": "2026-12-18T09:18:31.678Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2014,7 +2016,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1198/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:28:52.063Z",
+      "crawledAt": "2026-11-18T09:18:30.652Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2104,7 +2106,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-17T21:28:52.063Z",
+      "validThrough": "2026-12-18T09:18:30.652Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2139,7 +2141,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-17T21:28:50.977Z",
+      "crawledAt": "2026-11-18T09:18:29.594Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2227,7 +2229,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-17T21:28:50.977Z",
+      "validThrough": "2026-12-18T09:18:29.594Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2262,7 +2264,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-17T21:28:49.874Z",
+      "crawledAt": "2026-11-18T09:18:28.542Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2366,7 +2368,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-17T21:28:49.874Z",
+      "validThrough": "2026-12-18T09:18:28.542Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2400,7 +2402,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1256/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:28:48.757Z",
+      "crawledAt": "2026-11-18T09:18:27.512Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2492,7 +2494,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-17T21:28:48.757Z",
+      "validThrough": "2026-12-18T09:18:27.512Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2526,7 +2528,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1278/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:28:47.625Z",
+      "crawledAt": "2026-11-18T09:18:26.502Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2591,7 +2593,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-17T21:28:47.625Z",
+      "validThrough": "2026-12-18T09:18:26.502Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2626,7 +2628,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-17T21:28:46.514Z",
+      "crawledAt": "2026-11-18T09:18:25.462Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2691,7 +2693,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-17T21:28:46.514Z",
+      "validThrough": "2026-12-18T09:18:25.462Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2726,7 +2728,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-17T21:28:45.419Z",
+      "crawledAt": "2026-11-18T09:18:24.444Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2791,7 +2793,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-17T21:28:45.419Z",
+      "validThrough": "2026-12-18T09:18:24.444Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2825,7 +2827,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1262/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:28:44.338Z",
+      "crawledAt": "2026-11-18T09:18:23.394Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2890,7 +2892,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-17T21:28:44.338Z",
+      "validThrough": "2026-12-18T09:18:23.394Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2925,7 +2927,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-17T21:28:43.235Z",
+      "crawledAt": "2026-11-18T09:18:22.375Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2995,7 +2997,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-17T21:28:43.235Z",
+      "validThrough": "2026-12-18T09:18:22.375Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3030,7 +3032,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-17T21:28:42.108Z",
+      "crawledAt": "2026-11-18T09:18:21.338Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3097,7 +3099,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-17T21:28:42.108Z",
+      "validThrough": "2026-12-18T09:18:21.338Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3131,7 +3133,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1290/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:28:41.030Z",
+      "crawledAt": "2026-11-18T09:18:20.270Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3211,7 +3213,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-17T21:28:41.030Z",
+      "validThrough": "2026-12-18T09:18:20.270Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3246,7 +3248,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-17T21:28:39.874Z",
+      "crawledAt": "2026-11-18T09:18:19.238Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3311,7 +3313,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-17T21:28:39.874Z",
+      "validThrough": "2026-12-18T09:18:19.238Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3346,7 +3348,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-17T21:28:38.801Z",
+      "crawledAt": "2026-11-18T09:18:18.207Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3411,7 +3413,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-19T21:28:38.801Z",
+      "validThrough": "2026-12-19T09:18:18.207Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3445,7 +3447,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1311/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:28:37.725Z",
+      "crawledAt": "2026-11-18T09:18:17.174Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3512,7 +3514,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-07T21:28:37.725Z",
+      "validThrough": "2027-01-08T09:18:17.174Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3547,7 +3549,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-17T21:28:36.590Z",
+      "crawledAt": "2026-11-18T09:18:16.105Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3567,10 +3569,11 @@
       "requirementsByLocale": {},
       "department": "See-Spital",
       "contractDuration": "permanent",
+      "previousSlugs": [
+        "hr-rekrutierungsspezialist-in-see-spital-ch",
+        "hr-rekrutierungsspezialist-in-see-spital-horgen"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "hr-rekrutierungsspezialist-in-see-spital-horgen"
-        ],
         "it": [
           "hr-rekrutierungsspezialist-in-see-spital-ch",
           "hr-rekrutierungsspezialist-in-see-spital-horgen"
@@ -3578,14 +3581,13 @@
         "en": [
           "hr-rekrutierungsspezialist-in-see-spital-horgen"
         ],
+        "de": [
+          "hr-rekrutierungsspezialist-in-see-spital-horgen"
+        ],
         "fr": [
           "hr-rekrutierungsspezialist-in-see-spital-horgen"
         ]
       },
-      "previousSlugs": [
-        "hr-rekrutierungsspezialist-in-see-spital-ch",
-        "hr-rekrutierungsspezialist-in-see-spital-horgen"
-      ],
       "firstSeenAt": "2026-10-13T21:18:28.215Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -3617,7 +3619,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-11T21:28:36.590Z",
+      "validThrough": "2027-01-12T09:18:16.105Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3651,7 +3653,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1312/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:28:35.497Z",
+      "crawledAt": "2026-11-18T09:18:15.069Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3718,7 +3720,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-11T21:28:35.497Z",
+      "validThrough": "2027-01-12T09:18:15.069Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3752,7 +3754,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1284/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:28:34.364Z",
+      "crawledAt": "2026-11-18T09:18:14.033Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3817,7 +3819,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-21T21:28:34.364Z",
+      "validThrough": "2027-01-22T09:18:14.033Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3852,7 +3854,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-17T21:28:33.274Z",
+      "crawledAt": "2026-11-18T09:18:13.015Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3916,7 +3918,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-15T21:28:33.274Z",
+      "validThrough": "2027-02-16T09:18:13.015Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3951,7 +3953,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-17T21:28:32.118Z",
+      "crawledAt": "2026-11-18T09:18:11.979Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -4016,7 +4018,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-25T21:28:32.118Z",
+      "validThrough": "2027-01-26T09:18:11.979Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4051,7 +4053,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-17T21:28:31.012Z",
+      "crawledAt": "2026-11-18T09:18:10.948Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -4116,7 +4118,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-25T21:28:31.012Z",
+      "validThrough": "2027-01-26T09:18:10.948Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4150,7 +4152,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1310/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:28:29.894Z",
+      "crawledAt": "2026-11-18T09:18:09.868Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -4215,7 +4217,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-27T21:28:29.894Z",
+      "validThrough": "2027-01-28T09:18:09.868Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4250,7 +4252,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-17T21:28:28.798Z",
+      "crawledAt": "2026-11-18T09:18:08.844Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -4319,7 +4321,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-28T21:28:28.798Z",
+      "validThrough": "2027-01-29T09:18:08.844Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4353,7 +4355,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1318/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:28:27.714Z",
+      "crawledAt": "2026-11-18T09:18:07.793Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -4420,7 +4422,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-02T21:28:27.714Z",
+      "validThrough": "2027-02-03T09:18:07.793Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4455,7 +4457,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-17T21:28:26.608Z",
+      "crawledAt": "2026-11-18T09:18:06.739Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -4475,24 +4477,24 @@
       "requirementsByLocale": {},
       "department": "See-Spital",
       "contractDuration": "permanent",
+      "previousSlugs": [
+        "hr-berater-in-see-spital-ch",
+        "hr-berater-in-see-spital-horgen"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "hr-berater-in-see-spital-horgen"
-        ],
         "it": [
           "hr-berater-in-see-spital-ch"
         ],
         "en": [
           "hr-berater-in-see-spital-ch"
         ],
+        "de": [
+          "hr-berater-in-see-spital-horgen"
+        ],
         "fr": [
           "hr-berater-in-see-spital-ch"
         ]
       },
-      "previousSlugs": [
-        "hr-berater-in-see-spital-ch",
-        "hr-berater-in-see-spital-horgen"
-      ],
       "firstSeenAt": "2026-11-12T21:55:37.601Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -4524,7 +4526,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-11T21:28:26.608Z",
+      "validThrough": "2027-02-11T09:18:06.739Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4559,7 +4561,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-17T21:28:25.528Z",
+      "crawledAt": "2026-11-18T09:18:05.679Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -4626,7 +4628,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-11T21:28:25.528Z",
+      "validThrough": "2027-02-11T09:18:05.679Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4661,7 +4663,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-17T21:28:24.382Z",
+      "crawledAt": "2026-11-18T09:18:04.649Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -4726,33 +4728,33 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-15T21:28:24.382Z",
+      "validThrough": "2027-02-16T09:18:04.649Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "see-spital-41ac4d180cae",
-      "slug": "arztsekretar-in-medizin-see-spital-horgen",
+      "slug": "segretario-del-dottore-in-medicina-con-focus-sulla-gastroenterologia-see-spital-horgen",
       "slugByLocale": {
-        "de": "arztsekretar-in-medizin-mit-schwerpunkt-gastroenterologie-see-spital-ch",
+        "it": "segretario-del-dottore-in-medicina-con-focus-sulla-gastroenterologia-see-spital-horgen",
         "en": "doctor-s-secretary-in-medicine-with-focus-on-gastroenterology-see-spital-horgen",
-        "fr": "le-secretaire-du-docteur-en-medecine-axe-sur-la-gastroenterologie-see-spital-horgen",
-        "it": "segretario-del-dottore-in-medicina-con-focus-sulla-gastroenterologia-see-spital-horgen"
+        "de": "arztsekretar-in-medizin-mit-schwerpunkt-gastroenterologie-see-spital-ch",
+        "fr": "le-secretaire-du-docteur-en-medecine-axe-sur-la-gastroenterologie-see-spital-horgen"
       },
       "company": "See-Spital",
       "companyKey": "see-spital",
       "companyDomain": "see-spital.ch",
       "title": "Arztsekretär*in Medizin",
       "titleByLocale": {
-        "de": "Arztsekretär*in Medizin",
         "it": "Segretario/a medico/a in medicina",
         "en": "Medical secretary",
+        "de": "Arztsekretär*in Medizin",
         "fr": "Secrétaire médical·e en médecine"
       },
       "description": "Per Januar 2027 oder nach Vereinbarung suchen wir eine*n Arztsekretär*in Medizin\n50-70 %\n\nIhr Aufgabengebiet:\n\n• Schreiben von ärztlichen Berichten ab eDiktat\n• Korrigieren, Gestalten und Versenden von Austrittsberichten für den stationären Bereich und den Notfall\n• Verwalten des E-Mail-Postfachs des Sekretariats\n• Organisation von konsiliarärztlichen Sprechstunden\n• Telefonischer Kontakt mit Hausärzt*innen, Versicherungen und Patient*innen\n• Scannen von Patient*innenunterlagen\n• Korrespondenz mit Versicherungen\n• Controlling der Leistungserfassung der Notfallpatient*innen\n• Diverse administrative Tätigkeiten\n\nIhr Profil:\n\n• Abgeschlossene Ausbildung als MPA EFZ, Kaufmann*frau EFZ im Gesundheitswesen oder Arztsekretär*in\n• Stilsicher in der deutschen Sprache sowie in der medizinischen Terminologie\n• Eigenverantwortliche und selbstständige Arbeitsweise\n• Organisations-, Kommunikations- und Teamfähigkeit\n• Dienstleistungsorientierung und freundliches Auftreten\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.\n\nBenefits\nNebst zahlreichen Fringe Benefits (zusätzlichen Leistungen) profitieren Sie bei uns von gezielter Förderung und Weiterbildungsangeboten auf allen Stufen. Moderne Anstellungsbedingungen\n• 42 Stunden-Woche (Ärzte 50)\n• Überstunden werden i.d.R. durch Freizeit von gleicher Dauer entschädigt\n• 5 Wochen Ferien, ab 50. Altersjahr 6 Woche\n• Täglich 20 min bezahlte Pause\n• Umkleidezeit gilt als Arbeitszeit\n• Möglichkeit für Home Office\n\nLaufende Weiterbildungen\n• Interne Weiterbildungen für Mitarbeitende\n• Kosten- und Arbeitszeitbeteiligung für Fort- und Weiterbildungen durch Arbeitgeberin\n• Als Aus- und Weiterbildungsspital bieten wir diverse Praktikums- und Ausbildungsplätze\n• Führungsentwicklung Seminare\n\nRabatte und Konditionen\n• Vergünstigte Ernährungsberatung und Massage\n• Jährlich kostenlose Grippeimpfung\n• Spitalboot zum Mieten\n• Gratis Verpflegung für Nachtarbeitende\n• In Horgen und Umgebung gewähren verschiedene ausgewählte Unternehmen mindestens 10 % Rabatt beim Vorzeigen des Personalausweises (z.B. Gratis Zoo Zürich Jahreskarten, 15 % Rabatt im Alpamare, Brack.ch bis 25 % uvm.)\n• Flottenrabatte bei amag Partnern (Audi, VW, Seat, Skoda), BWM und Mini sowie Mercedes und Smart\n\nWeitreichende Versicherungen\n• Das See-Spital bietet 16 Wochen Mutterschaftsurlaub zu 100% Lohnfortzahlung statt der gesetzlich vorgeschriebenen 14 Wochen zu 80%\n• Prämie für Unfall-Zusatzversicherung (Privat) zulasten Arbeitgeberin\n\nWork-Life-Balance\n• Möglichkeit von Teilzeit- und Stundenlohnanstellung (auf Abruf)\n• Flexible Arbeitszeiten (Jahresarbeitszeit)\n• Möglichkeit für unbezahlten Urlaub\n\nBetriebliches Gesundheitsmanagement\n• Arbeitssicherheit und Gesundheitsschutz\n• Team- und spitalweite Aktivitäten (Sommerfest, Weihnachtsapéro)\n• Präsenzmanagement\n• Externes Case Management\n• Generationenmanagement\n\nSonstige Leistungen\n• Treueprämie ab 10 Dienstjahren alle 5 Jahre (Ferien oder Lohn)\n• 13. Monatslohn (Auszahlung Juni und Dezember)\n• Personalzimmer und -wohnungen in Horgen und Kilchberg\n• Personalkommission\n• Günstige Verpflegungsmöglichkeit im Personalrestaurant",
       "descriptionByLocale": {
-        "de": "Per Januar 2027 oder nach Vereinbarung suchen wir eine*n Arztsekretär*in Medizin\n50-70 %\n\nIhr Aufgabengebiet:\n\n• Schreiben von ärztlichen Berichten ab eDiktat\n• Korrigieren, Gestalten und Versenden von Austrittsberichten für den stationären Bereich und den Notfall\n• Verwalten des E-Mail-Postfachs des Sekretariats\n• Organisation von konsiliarärztlichen Sprechstunden\n• Telefonischer Kontakt mit Hausärzt*innen, Versicherungen und Patient*innen\n• Scannen von Patient*innenunterlagen\n• Korrespondenz mit Versicherungen\n• Controlling der Leistungserfassung der Notfallpatient*innen\n• Diverse administrative Tätigkeiten\n\nIhr Profil:\n\n• Abgeschlossene Ausbildung als MPA EFZ, Kaufmann*frau EFZ im Gesundheitswesen oder Arztsekretär*in\n• Stilsicher in der deutschen Sprache sowie in der medizinischen Terminologie\n• Eigenverantwortliche und selbstständige Arbeitsweise\n• Organisations-, Kommunikations- und Teamfähigkeit\n• Dienstleistungsorientierung und freundliches Auftreten\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.\n\nBenefits\nNebst zahlreichen Fringe Benefits (zusätzlichen Leistungen) profitieren Sie bei uns von gezielter Förderung und Weiterbildungsangeboten auf allen Stufen. Moderne Anstellungsbedingungen\n• 42 Stunden-Woche (Ärzte 50)\n• Überstunden werden i.d.R. durch Freizeit von gleicher Dauer entschädigt\n• 5 Wochen Ferien, ab 50. Altersjahr 6 Woche\n• Täglich 20 min bezahlte Pause\n• Umkleidezeit gilt als Arbeitszeit\n• Möglichkeit für Home Office\n\nLaufende Weiterbildungen\n• Interne Weiterbildungen für Mitarbeitende\n• Kosten- und Arbeitszeitbeteiligung für Fort- und Weiterbildungen durch Arbeitgeberin\n• Als Aus- und Weiterbildungsspital bieten wir diverse Praktikums- und Ausbildungsplätze\n• Führungsentwicklung Seminare\n\nRabatte und Konditionen\n• Vergünstigte Ernährungsberatung und Massage\n• Jährlich kostenlose Grippeimpfung\n• Spitalboot zum Mieten\n• Gratis Verpflegung für Nachtarbeitende\n• In Horgen und Umgebung gewähren verschiedene ausgewählte Unternehmen mindestens 10 % Rabatt beim Vorzeigen des Personalausweises (z.B. Gratis Zoo Zürich Jahreskarten, 15 % Rabatt im Alpamare, Brack.ch bis 25 % uvm.)\n• Flottenrabatte bei amag Partnern (Audi, VW, Seat, Skoda), BWM und Mini sowie Mercedes und Smart\n\nWeitreichende Versicherungen\n• Das See-Spital bietet 16 Wochen Mutterschaftsurlaub zu 100% Lohnfortzahlung statt der gesetzlich vorgeschriebenen 14 Wochen zu 80%\n• Prämie für Unfall-Zusatzversicherung (Privat) zulasten Arbeitgeberin\n\nWork-Life-Balance\n• Möglichkeit von Teilzeit- und Stundenlohnanstellung (auf Abruf)\n• Flexible Arbeitszeiten (Jahresarbeitszeit)\n• Möglichkeit für unbezahlten Urlaub\n\nBetriebliches Gesundheitsmanagement\n• Arbeitssicherheit und Gesundheitsschutz\n• Team- und spitalweite Aktivitäten (Sommerfest, Weihnachtsapéro)\n• Präsenzmanagement\n• Externes Case Management\n• Generationenmanagement\n\nSonstige Leistungen\n• Treueprämie ab 10 Dienstjahren alle 5 Jahre (Ferien oder Lohn)\n• 13. Monatslohn (Auszahlung Juni und Dezember)\n• Personalzimmer und -wohnungen in Horgen und Kilchberg\n• Personalkommission\n• Günstige Verpflegungsmöglichkeit im Personalrestaurant",
         "it": "A partire da gennaio 2027 o su appuntamento stiamo cercando un segretario medico\n50-70 %\n\nLe tue responsabilità:\n\n• Scrivere rapporti medici da eDiktat\n• Correggere, progettare e inviare report di uscita per l'area stazionaria e l'emergenza\n• Gestione della mailbox del segretariato\n• Organizzazione delle ore di consulenza\n• Contatto telefonico con medici di famiglia, compagnie di assicurazione e pazienti\n• Scansione dei documenti del paziente\n• Corrispondenza con assicurazione\n• Controllo della registrazione delle prestazioni dei pazienti di emergenza\n• Varie attività amministrative\n\nIl tuo profilo:\n\n• Formazione completa come MPA EFZ, uomo d'affari*donna EFZ in assistenza sanitaria o segretaria medica*\n• Stile fiducioso nella lingua tedesca così come in terminologia medica\n• Metodi di lavoro autonomi e indipendenti\n• Capacità organizzative, di comunicazione e di squadra\n• L'orientamento del servizio e l'aspetto amichevole\n\nCosa ti offriamo:\n\n• Lavorare in modo indipendente in un team motivato e collegiale che si sostiene a vicenda.\n• Un luogo di lavoro con la migliore connessione ai trasporti pubblici, così come i posti di parcheggio del personale economico.\n• Infrastrutture moderne e un ambiente di lavoro in cui si può sentire a casa – vista lago incluso.\n• Vantaggi diversi – da grandi sconti per i dipendenti a ulteriori offerte di istruzione.\n• Un ambiente di lavoro piacevole in una posizione attraente vicino a Zurigo, che ha molto da offrire sia professionalmente che privatamente. Le applicazioni fisiche non possono essere considerate o restituite.\n\nVantaggi\nOltre ai numerosi vantaggi di Fringe (servizi aggiuntivi), si beneficiano di promozioni mirate e ulteriori offerte di istruzione a tutti i livelli. Condizioni di lavoro moderne\n• 42 ore settimanali (docenti 50)\n• Gli straordinari sono solitamente compensati dal tempo libero della stessa durata\n• 5 settimane di vacanza, a partire da 50 anni 6 settimane\n• Quotidiano 20 min\n• Il tempo di cambio è considerato come orario di lavoro\n• Possibilità di Home Office\n\nFormazione continua\n• Formazione interna per i dipendenti\n• Partecipazione ai costi e all'orario di lavoro per un'ulteriore formazione e formazione da parte del datore di lavoro\n• Come ospedale per l'istruzione e la formazione, offriamo vari stage e apprendisti\n• Seminari di sviluppo della leadership\n\nRiduzioni e condizioni\n• Consigli nutrizionali ridotti e massaggio\n• Vaccinazione annuale di libero scambio\n• Barca Ospedale in affitto\n• Pasti gratuiti per i lavoratori notturni\n• In Horgen e nella zona circostante, diverse aziende selezionate concedono almeno il 10% di sconto per presentare la carta d'identità (ad esempio i biglietti annuali Free Zoo Zurich, 15% di sconto in Alpamare, Brack.ch fino al 25% e più).\n• Sconti delle pulci presso i partner di amag (Audi, VW, Seat, Skoda), BWM e Mini e Mercedes e Smart\n\nAssicurazione estesa\n• See-Spital offre 16 settimane di congedo di maternità al 100% di prosecuzione salariale invece della legalmente richiesto 14 settimane all'80%\n• Premio per l'assicurazione complementare contro gli infortuni (privato) a spese del datore di lavoro\n\nBilancia della vita lavorativa\n• Possibilità di impiego parziale e oraria (su richiesta)\n• Ore lavorative flessibili (ore lavorative annuali)\n• Opportunità per congedo non pagato\n\nGestione della salute sul lavoro\n• Salute e sicurezza sul lavoro\n• Team e attività ospedaliere (Summer Festival, Christmas Apéro)\n• Gestione della presenza\n• Gestione dei casi esterni\n• Gestione generazionale\n\nAltri vantaggi\n• Bonus fedeltà da 10 anni di servizio ogni 5 anni (vacanze o salari)\n• 13. Salari mensili (pagamento giugno e dicembre)\n• Camere e appartamenti del personale a Horgen e Kilchberg\n• Comitato del personale\n• Opzioni di cibo economiche nel ristorante del personale",
         "en": "As of January 2027 or by appointment we are looking for a medical secretary\n50-70 %\n\nYour responsibilities:\n\n• Writing of medical reports from eDiktat\n• Correcting, designing and sending exit reports for the stationary area and emergency\n• Management of the Secretariat’s email mailbox\n• Organisation of consultancy hours\n• Telephone contact with family doctors, insurance companies and patients\n• Scanning of patient documents\n• Correspondence with insurance\n• Controlling the performance recording of emergency patients\n• Miscellaneous administrative activities\n\nYour profile:\n\n• Completed training as MPA EFZ, businessman*woman EFZ in health care or medical secretary*\n• Style confident in the German language as well as in medical terminology\n• Self-responsible and independent working methods\n• Organisational, communication and team skills\n• Service orientation and friendly appearance\n\nWhat we offer you:\n\n• Working independently in a motivated and collegial team that supports each other.\n• A place of work with the best connection to public transport, as well as cost-effective staff parking spaces.\n• Modern infrastructure and a working environment in which you can feel at home – lake views included.\n• Diverse benefits – from great employee discounts to further education offers.\n• A pleasant working atmosphere in an attractive location near Zurich, which has a lot to offer you both professionally and privately. Physical applications cannot be considered or returned.\n\nBenefits\nIn addition to numerous Fringe Benefits (additional services), you benefit from targeted promotion and further education offers at all levels. Modern employment conditions\n• 42 hour week (Doctors 50)\n• Overtime is usually compensated by free time of the same duration\n• 5 weeks holiday, from 50 years of age 6 week\n• Daily 20 min paid break\n• Changing time is considered as working time\n• Possibility for Home Office\n\nOngoing training\n• Internal training for employees\n• Participation in costs and working time for further education and training by employer\n• As an education and training hospital, we offer various internships and apprenticeships\n• Leadership Development Seminars\n\nRebates and conditions\n• Reduced nutrition advice and massage\n• Annual free flu vaccination\n• Hospital boat for rent\n• Free meals for night workers\n• In Horgen and the surrounding area, various selected companies grant at least 10% discount when presenting the identity card (e.g. Free Zoo Zurich annual tickets, 15% discount in the Alpamare, Brack.ch up to 25% and more).\n• Fleet discounts at amag partners (Audi, VW, Seat, Skoda), BWM and Mini as well as Mercedes and Smart\n\nExtensive insurance\n• See-Spital offers 16 weeks of maternity leave at 100% wage continuation instead of the legally required 14 weeks at 80%\n• Premium for accident supplementary insurance (private) at the expense of the employer\n\nWork-life balance\n• Possibility of part-time and hourly employment (on demand)\n• Flexible working hours (annual working hours)\n• Opportunity for unpaid leave\n\nOccupational health management\n• Occupational health and safety\n• Team and hospital-wide activities (Summer Festival, Christmas Apéro)\n• Presence management\n• External case management\n• Generational management\n\nOther benefits\n• Loyalty bonus from 10 years of service every 5 years (vacations or wages)\n• 13. Monthly wage (disbursement June and December)\n• Staff rooms and apartments in Horgen and Kilchberg\n• Staff Committee\n• Cheap food options in the staff restaurant",
+        "de": "Per Januar 2027 oder nach Vereinbarung suchen wir eine*n Arztsekretär*in Medizin\n50-70 %\n\nIhr Aufgabengebiet:\n\n• Schreiben von ärztlichen Berichten ab eDiktat\n• Korrigieren, Gestalten und Versenden von Austrittsberichten für den stationären Bereich und den Notfall\n• Verwalten des E-Mail-Postfachs des Sekretariats\n• Organisation von konsiliarärztlichen Sprechstunden\n• Telefonischer Kontakt mit Hausärzt*innen, Versicherungen und Patient*innen\n• Scannen von Patient*innenunterlagen\n• Korrespondenz mit Versicherungen\n• Controlling der Leistungserfassung der Notfallpatient*innen\n• Diverse administrative Tätigkeiten\n\nIhr Profil:\n\n• Abgeschlossene Ausbildung als MPA EFZ, Kaufmann*frau EFZ im Gesundheitswesen oder Arztsekretär*in\n• Stilsicher in der deutschen Sprache sowie in der medizinischen Terminologie\n• Eigenverantwortliche und selbstständige Arbeitsweise\n• Organisations-, Kommunikations- und Teamfähigkeit\n• Dienstleistungsorientierung und freundliches Auftreten\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.\n\nBenefits\nNebst zahlreichen Fringe Benefits (zusätzlichen Leistungen) profitieren Sie bei uns von gezielter Förderung und Weiterbildungsangeboten auf allen Stufen. Moderne Anstellungsbedingungen\n• 42 Stunden-Woche (Ärzte 50)\n• Überstunden werden i.d.R. durch Freizeit von gleicher Dauer entschädigt\n• 5 Wochen Ferien, ab 50. Altersjahr 6 Woche\n• Täglich 20 min bezahlte Pause\n• Umkleidezeit gilt als Arbeitszeit\n• Möglichkeit für Home Office\n\nLaufende Weiterbildungen\n• Interne Weiterbildungen für Mitarbeitende\n• Kosten- und Arbeitszeitbeteiligung für Fort- und Weiterbildungen durch Arbeitgeberin\n• Als Aus- und Weiterbildungsspital bieten wir diverse Praktikums- und Ausbildungsplätze\n• Führungsentwicklung Seminare\n\nRabatte und Konditionen\n• Vergünstigte Ernährungsberatung und Massage\n• Jährlich kostenlose Grippeimpfung\n• Spitalboot zum Mieten\n• Gratis Verpflegung für Nachtarbeitende\n• In Horgen und Umgebung gewähren verschiedene ausgewählte Unternehmen mindestens 10 % Rabatt beim Vorzeigen des Personalausweises (z.B. Gratis Zoo Zürich Jahreskarten, 15 % Rabatt im Alpamare, Brack.ch bis 25 % uvm.)\n• Flottenrabatte bei amag Partnern (Audi, VW, Seat, Skoda), BWM und Mini sowie Mercedes und Smart\n\nWeitreichende Versicherungen\n• Das See-Spital bietet 16 Wochen Mutterschaftsurlaub zu 100% Lohnfortzahlung statt der gesetzlich vorgeschriebenen 14 Wochen zu 80%\n• Prämie für Unfall-Zusatzversicherung (Privat) zulasten Arbeitgeberin\n\nWork-Life-Balance\n• Möglichkeit von Teilzeit- und Stundenlohnanstellung (auf Abruf)\n• Flexible Arbeitszeiten (Jahresarbeitszeit)\n• Möglichkeit für unbezahlten Urlaub\n\nBetriebliches Gesundheitsmanagement\n• Arbeitssicherheit und Gesundheitsschutz\n• Team- und spitalweite Aktivitäten (Sommerfest, Weihnachtsapéro)\n• Präsenzmanagement\n• Externes Case Management\n• Generationenmanagement\n\nSonstige Leistungen\n• Treueprämie ab 10 Dienstjahren alle 5 Jahre (Ferien oder Lohn)\n• 13. Monatslohn (Auszahlung Juni und Dezember)\n• Personalzimmer und -wohnungen in Horgen und Kilchberg\n• Personalkommission\n• Günstige Verpflegungsmöglichkeit im Personalrestaurant",
         "fr": "En janvier 2027 ou sur rendez-vous, nous cherchons un secrétaire médical\n50-70 %\n\nVos responsabilités :\n\n• Rédaction de rapports médicaux par eDiktat\n• Correction, conception et envoi de rapports de sortie pour la zone fixe et les urgences\n• Gestion du courrier électronique du Secrétariat\n• Organisation des heures de consultation\n• Contact téléphonique avec les médecins de famille, les compagnies d'assurance et les patients\n• Analyse des documents du patient\n• Correspondance avec l'assurance\n• Contrôle de l'enregistrement des performances des patients d'urgence\n• Activités administratives diverses\n\nVotre profil:\n\n• Formation terminée en tant que MPA EFZ, homme d'affaires* femme EFZ en soins de santé ou secrétaire médicale*\n• Style confiant dans la langue allemande ainsi que dans la terminologie médicale\n• Méthodes de travail autonomes\n• Compétences organisationnelles, en communication et en équipe\n• Orientation du service et apparence amicale\n\nCe que nous vous offrons:\n\n• Travailler de façon indépendante dans une équipe motivée et collégiale qui se soutient mutuellement.\n• Un lieu de travail avec la meilleure connexion aux transports en commun, ainsi que des places de stationnement du personnel rentable.\n• Infrastructure moderne et environnement de travail dans lequel vous pouvez vous sentir à la maison – vue sur le lac inclus.\n• Avantages divers – de grandes réductions pour les employés aux offres de formation continue.\n• Une atmosphère de travail agréable dans un endroit attrayant près de Zurich, qui a beaucoup à vous offrir à la fois professionnellement et en privé. Les applications physiques ne peuvent être envisagées ou retournées.\n\nAvantages\nEn plus de nombreux Fringe Benefits (services supplémentaires), vous bénéficiez d'offres ciblées de promotion et de formation continue à tous les niveaux. Conditions d'emploi modernes\n• Semaine de 42 heures (Doctors 50)\n• Les heures supplémentaires sont généralement compensées par un temps libre de même durée\n• 5 semaines de vacances, à partir de 50 ans 6 semaines\n• Pause quotidienne payée de 20 min\n• Le changement de temps est considéré comme du temps de travail\n• Possibilité pour le Home Office\n\nFormation continue\n• Formation interne des salariés\n• Participation des employeurs aux coûts et au temps de travail pour la formation continue\n• En tant qu'hôpital d'éducation et de formation, nous proposons divers stages et apprentissages\n• Séminaires de perfectionnement en leadership\n\nRemboursements et conditions\n• Conseils nutritionnels et massages réduits\n• Vaccination annuelle gratuite contre la grippe\n• Bateau hospitalier à louer\n• Repas gratuits pour les travailleurs de nuit\n• À Horgen et dans les environs, diverses entreprises sélectionnées accordent au moins 10% de réduction lors de la présentation de la carte d'identité (par exemple, les billets annuels du Zoo gratuit de Zurich, 15% de réduction dans l'Alpamare, Brack.ch jusqu'à 25% et plus).\n• Réductions de flotte chez les partenaires amag (Audi, VW, Seat, Skoda), BWM et Mini ainsi que Mercedes et Smart\n\nAssurance étendue\n• See-Spital offre 16 semaines de congé de maternité à 100% de maintien du salaire au lieu des 14 semaines légalement requises à 80%\n• Prime pour assurance complémentaire accident (privée) aux frais de l'employeur\n\nÉquilibre travail-vie privée\n• Possibilité d'emploi à temps partiel et horaire (sur demande)\n• Temps de travail flexible (heures de travail annuelles)\n• Possibilité de congé non rémunéré\n\nGestion de la santé au travail\n• Santé et sécurité au travail\n• Activités en équipe et à l'échelle de l'hôpital (Festival d'été, Apéro de Noël)\n• Gestion de la présence\n• Gestion externe des dossiers\n• Gestion des générations\n\nAutres prestations\n• Prime de fidélité à partir de 10 ans de service tous les 5 ans (vacances ou salaires)\n• 13. Salaire mensuel (dépenses de juin et décembre)\n• Chambres du personnel et appartements à Horgen et Kilchberg\n• Comité du personnel\n• Options de restauration pas cher dans le restaurant du personnel"
       },
       "location": "Horgen",
@@ -4760,7 +4762,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1138/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:28:23.259Z",
+      "crawledAt": "2026-11-18T09:18:03.585Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -4777,26 +4779,26 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1138/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "See-Spital",
       "contractDuration": "permanent",
-      "previousSlugsByLocale": {
-        "it": [
-          "arztsekretar-in-medizin-see-spital-ch"
-        ],
-        "de": [
-          "arztsekretar-in-medizin-see-spital-ch"
-        ],
-        "en": [
-          "arztsekretar-in-medizin-see-spital-horgen"
-        ]
-      },
       "previousSlugs": [
         "arztsekretar-in-medizin-see-spital-ch",
         "arztsekretar-in-medizin-see-spital-horgen"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretar-in-medizin-see-spital-ch",
+          "arztsekretar-in-medizin-see-spital-horgen"
+        ],
+        "en": [
+          "arztsekretar-in-medizin-see-spital-horgen"
+        ],
+        "de": [
+          "arztsekretar-in-medizin-see-spital-ch"
+        ]
+      },
+      "firstSeenAt": "2026-11-17T21:28:23.259Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -4827,9 +4829,8 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-15T21:28:23.259Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:28:23.259Z"
+      "validThrough": "2027-02-16T09:18:03.585Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }
