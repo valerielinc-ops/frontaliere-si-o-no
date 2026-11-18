@@ -35,6 +35,9 @@ export function installHouseAds(
   if (typeof MutationObserver !== 'function') return undefined;
   const variants = config.variants;
   const readerSubscriptionExperimentConfigured = config.readerSubscriptionExperimentEnabled === true;
+  // The static mobile job-board snapshot owns the first paint. Keep the
+  // Firebase-selected reader treatment out of that window, while the normal
+  // house fallback and the experiment itself remain available after intent.
   let readerSubscriptionInteractionReady = config.deferReaderSubscriptionUntilInteraction !== true;
   const occupiedAdSelector = 'ins[data-ad-status="filled"],ins[data-ad-status="unfill-optimized"],ins[data-anchor-status="displayed"],[data-ad-state="filled"],[data-ad-state="optimized"],[data-ft-ad-state="filled"],[data-ft-ad-state="optimized"],[data-ft-static-ad-state="filled"],[data-ft-static-ad-state="optimized"]';
   const entries = new Map<HTMLElement, Entry>();

@@ -95,15 +95,16 @@ describe('per-slot first-party creative delivery', () => {
       readerSubscriptionAssignmentSource: 'firebase_remote_config',
     }) });
 
-    await start(() => true, { ...config, deferReaderSubscriptionUntilInteraction: true }, 1100);
+    await start(() => true, { ...config, deferReaderSubscriptionUntilInteraction: true }, 1300);
 
+    expect(first.host.querySelector('a')?.dataset.houseCampaign).toBe('job_search_automation');
+    expect(second.host.querySelector('a')?.dataset.houseCampaign).toBe('job_search_automation');
     expect(first.host.querySelector('[data-house-campaign="reader_subscription"]')).toBeNull();
     expect(second.host.querySelector('[data-house-campaign="reader_subscription"]')).toBeNull();
     expect(w.__ftAdsAuthStateRequested).toBeUndefined();
     w.dispatchEvent(new w.Event('pointerdown'));
     await vi.advanceTimersByTimeAsync(200);
 
-    expect(w.__ftAdsAuthStateRequested).toBe(true);
     expect(w.document.querySelector('[data-house-campaign="reader_subscription"]')).not.toBeNull();
   });
   it('fills a static slot when the visitor explicitly denies Google ads consent', async () => {

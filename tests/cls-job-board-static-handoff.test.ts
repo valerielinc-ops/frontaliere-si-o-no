@@ -91,9 +91,10 @@ describe('initial SPA bootstrap — mobile first paint', () => {
     expect(entry).toContain('waitForContentfulPaint: homeCritical || hasPreRenderedPaintContent()');
     expect(entry).toContain('main.seo-static-content, main.cluster-seo-prose');
     expect(entry).toContain('const homeCritical = isHomeCriticalPath(window.location.pathname);');
-    expect(entry).toContain('main.seo-static-content.job-board-static-hub');
-    expect(entry).toContain('main.seo-static-content.job-board-static-content');
-    expect(entry).toContain('main.seo-static-content[data-sector-hub]');
+    expect(entry).toContain('JOB_BOARD_STATIC_CONTENT_SELECTOR');
+    expect(paintBootstrap).toContain('main.seo-static-content.job-board-static-hub');
+    expect(paintBootstrap).toContain('main.seo-static-content.job-board-static-content');
+    expect(paintBootstrap).toContain('main.seo-static-content[data-sector-hub]');
     expect(entry).toContain('JOB_BOARD_CONSENT_LCP_SELECTOR');
     expect(entry).toContain('shouldWaitForJobBoardLcp');
     const jobBoardLcpGate = entry.indexOf('if (shouldWaitForJobBoardStaticLcp)');
