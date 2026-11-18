@@ -3427,8 +3427,8 @@ async function main() {
   // purpose preference permits it. Missing/erroring profile reads leave this
   // map empty, which is the intentional fail-closed behavior.
   const applicationIntentAccountProfiles = new Map();
-  // CV skills are a separate, explicit opt-in and are read only after the
-  // private behavior projection confirms the same Auth UID as the subscriber.
+  // CV skills are loaded automatically from the verified account's ready CV
+  // projection; missing or inconsistent identity links leave this map empty.
   const cvPersonalizationAccountProfiles = new Map();
   // Raw personalization subdoc + whether the parent doc exists, kept so the
   // post-send enrichment step (section 6 below) can consolidate every signal
@@ -3873,17 +3873,22 @@ async function main() {
     for (const [email, behavior] of behaviorProfiles) {
       const newsletter = subscriberProfiles.get(email) || {};
       const alertSubscriber = jobAlertProfiles.get(email) || {};
-      const uid = [
+      const linkedUids = [
         newsletter.user_id,
         newsletter.userId,
         newsletter.uid,
         alertSubscriber.user_id,
         alertSubscriber.userId,
         alertSubscriber.uid,
-      ].find((candidate) => typeof candidate === 'string' && candidate.trim());
-      const normalizedUid = typeof uid === 'string' ? uid.trim() : '';
-      if (normalizedUid && normalizedUid === behavior.applicationIntentAuthUid) {
-        uidByEmail.set(email, normalizedUid);
+      ].filter((candidate) => typeof candidate === 'string' && candidate.trim())
+        .map((candidate) => candidate.trim());
+      const authUid = typeof behavior.applicationIntentAuthUid === 'string'
+        ? behavior.applicationIntentAuthUid.trim()
+        : '';
+      // Subscriber aliases can survive auth migrations. Require every stored
+      // alias to agree with the current verified UID before reading its CV.
+      if (authUid && linkedUids.length > 0 && linkedUids.every((uid) => uid === authUid)) {
+        uidByEmail.set(email, authUid);
       }
     }
     const uids = [...new Set(uidByEmail.values())];
@@ -3922,19 +3927,24 @@ async function main() {
       const readyProfiles = new Map();
       for (let i = 0; i < uids.length; i += PROFILE_CHUNK_SIZE) {
         const chunk = uids.slice(i, i + PROFILE_CHUNK_SIZE);
+        const requestedUids = new Set(chunk);
         const snapshots = await db.getAll(...chunk.map((uid) => db.collection('user_cv_profiles').doc(uid)));
-        snapshots.forEach((snapshot, index) => {
+        snapshots.forEach((snapshot) => {
+          // Associate by snapshot document ID rather than getAll return order;
+          // an unexpected or missing ID cannot attach another account's skills.
+          const profileUid = typeof snapshot?.id === 'string' ? snapshot.id : '';
+          if (!requestedUids.has(profileUid)) return;
           const exists = typeof snapshot?.exists === 'function' ? snapshot.exists() : snapshot?.exists === true;
           if (!exists) return;
           const data = snapshot.data() || {};
-          if (data.status !== 'ready') return;
+          if (data.userId !== profileUid || data.status !== 'ready') return;
           const profile = data.profile && typeof data.profile === 'object' ? data.profile : {};
           const skills = [...(Array.isArray(profile.skills) ? profile.skills : []), ...(Array.isArray(profile.languages) ? profile.languages : [])]
             .filter((skill) => typeof skill === 'string')
             .map((skill) => skill.trim())
             .filter(Boolean)
             .slice(0, 40);
-          if (skills.length > 0) readyProfiles.set(chunk[index], skills);
+          if (skills.length > 0) readyProfiles.set(profileUid, skills);
         });
       }
       for (const [email, uid] of verifiedAccountUids) {
