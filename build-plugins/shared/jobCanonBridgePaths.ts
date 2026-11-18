@@ -414,6 +414,12 @@ export interface ActiveJobBridgePathPlan {
   activeRouteSlugKeys: ReadonlySet<string>;
   activeCanonicalPaths: ReadonlySet<string>;
   activePrefixByLocaleSlug: Map<string, string | null>;
+  resolvedWinners: WinnersFile;
+  multiClaimantWinnerByKey: Map<string, string>;
+  winnerNowIso: string;
+  previousSlugCandidatesCount: number;
+  previousSlugClaimedKeyCount: number;
+  multiClaimantKeys: number;
   stats: ActiveJobBridgePathStats;
 }
 
@@ -549,6 +555,8 @@ export function buildActiveJobBridgePathPlan(
     canEmitBridgePath?: (locale: JobCanonLocale, path: string) => boolean;
     /** The current canonical page for this locale/route is emitted by this build. */
     isActivePageEmitted?: (locale: JobCanonLocale, canton: string, slug: string) => boolean;
+    /** Exact owner check for active-job legacy TI bridges (suppresses losing duplicate active jobs). */
+    isActivePageOwner?: (locale: JobCanonLocale, canton: string, slug: string, jobIdentifier: string) => boolean;
     onHeapSample?: () => void;
   },
 ): ActiveJobBridgePathPlan {
@@ -556,6 +564,8 @@ export function buildActiveJobBridgePathPlan(
   const workerWouldRecover = options.workerWouldRecover ?? (() => false);
   const canEmitBridgePath = options.canEmitBridgePath ?? (() => true);
   const isActivePageEmitted = options.isActivePageEmitted ?? (() => true);
+  const isActivePageOwner = options.isActivePageOwner
+    ?? ((locale: JobCanonLocale, canton: string, slug: string) => isActivePageEmitted(locale, canton, slug));
   const stats: ActiveJobBridgePathStats = {
     activeJobs: jobs.length,
     previousSlugClaims: 0,
@@ -631,8 +641,13 @@ export function buildActiveJobBridgePathPlan(
 
   const resolvedWinners: WinnersFile = { ...options.winners };
   const winnerByClaimKey = new Map<string, string>();
+  const multiClaimantWinnerByKey = new Map<string, string>();
   const now = new Date().toISOString().slice(0, 10) + 'T00:00:00.000Z';
+  let previousSlugCandidatesCount = 0;
+  let multiClaimantKeys = 0;
   for (const [key, group] of claimantGroups) {
+    previousSlugCandidatesCount += group.candidates.length;
+    if (group.candidates.length > 1) multiClaimantKeys += 1;
     const winner = resolveWinner(
       resolvedWinners,
       group.canton,
@@ -641,8 +656,14 @@ export function buildActiveJobBridgePathPlan(
       group.candidates,
       now,
     );
-    if (winner) winnerByClaimKey.set(key, winner.winnerJobIdentifier);
+    if (winner) {
+      winnerByClaimKey.set(key, winner.winnerJobIdentifier);
+      if (group.candidates.length > 1) {
+        multiClaimantWinnerByKey.set(key, winner.winnerJobIdentifier);
+      }
+    }
   }
+  const previousSlugClaimedKeyCount = claimantGroups.size;
 
   // Each path keeps the last bridge writer, matching the existing emit loops:
   // a later TI mirror or later previous-slug page may replace the same path.
@@ -658,10 +679,11 @@ export function buildActiveJobBridgePathPlan(
   for (const job of jobs) {
     const canton = cantonByJob.get(job)!;
     const currentByLocale = currentSlugByJobLocale.get(job)!;
+    const jobIdentifier = String(job.id || job.slug || '');
     const italianSlug = typeof job.slug === 'string' ? job.slug : '';
     if (!italianSlug) continue;
     for (const locale of JOB_CANON_LOCALES) {
-      if (!isActivePageEmitted(locale, canton, currentByLocale[locale])) continue;
+      if (!isActivePageOwner(locale, canton, currentByLocale[locale], jobIdentifier)) continue;
       if (locale !== 'it' && currentByLocale[locale] !== italianSlug) {
         const localeAliasPath = buildCanonicalJobDetailPath(locale, job, italianSlug, canton);
         const localeAliasKey = `${locale}\u0000${normalizedPathKey(localeAliasPath)}`;
@@ -833,6 +855,12 @@ export function buildActiveJobBridgePathPlan(
     activeRouteSlugKeys,
     activeCanonicalPaths,
     activePrefixByLocaleSlug,
+    resolvedWinners,
+    multiClaimantWinnerByKey,
+    winnerNowIso: now,
+    previousSlugCandidatesCount,
+    previousSlugClaimedKeyCount,
+    multiClaimantKeys,
     stats,
   };
 }
