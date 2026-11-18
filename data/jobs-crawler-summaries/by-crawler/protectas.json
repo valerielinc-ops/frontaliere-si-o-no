@@ -1,7 +1,7 @@
 {
   "key": "protectas",
   "label": "Protectas SA",
-  "generatedAt": "2026-11-17T21:53:42.068Z",
+  "generatedAt": "2026-11-18T09:32:04.894Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -13,16 +13,17 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4699,
-  "avgDurationMs": 4699,
+  "durationMs": 4703,
+  "avgDurationMs": 4703,
   "durationHistory": [
-    4699
+    4703
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "protectas-9f5e51eeddc4",
       "slug": "agente-di-sicurezza-ausiliario-contratto-orario-lugano-protectas-ch",
@@ -35,7 +36,7 @@
       "url": "https://www.protectas.com/it-ch/carriere/offerte-di-lavoro/744000161747400/",
       "source": "Protectas SA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-17T21:53:23.806Z",
+      "crawledAt": "2026-11-18T09:31:52.309Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -51,27 +52,25 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://www.protectas.com/it-ch/carriere/offerte-di-lavoro/744000161747400/",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-17T21:53:23.806Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
       "postalCode": "6900",
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:53:23.806Z",
+      "validThrough": "2027-02-16T09:31:52.309Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:53:23.806Z",
-      "_qualityScore": 85,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 16,
+        "translation": 25,
         "completeness": 23
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "8a8594aa5e6a6b71cb0a2a3883a7ded1be40621c"
+  "codeCommit": "c09e64fc08a252ae7234edb7cb9fdea84c5eb705"
 }
