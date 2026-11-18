@@ -1,7 +1,7 @@
 {
   "crawlerKey": "badrutts-palace",
-  "assembledAt": "2026-11-18T09:26:51.452Z",
-  "runId": "44274823122",
+  "assembledAt": "2026-11-18T21:27:58.023Z",
+  "runId": "44400201772",
   "jobs": [
     {
       "id": "badrutts-palace-7fc4aec52ba7",
@@ -34,7 +34,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/5478672-elektriker-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:26:43.012Z",
+      "crawledAt": "2026-11-18T21:27:47.258Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -98,7 +98,7 @@
       },
       "streetAddress": "Via Serlas 27",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-18T09:26:43.012Z",
+      "validThrough": "2026-12-18T21:27:47.258Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -132,7 +132,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/8107575-director-of-brand-marketing-m-f-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-18T09:26:43.006Z",
+      "crawledAt": "2026-11-18T21:27:47.252Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -206,7 +206,7 @@
       },
       "streetAddress": "Via Serlas 27",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-18T09:26:43.006Z",
+      "validThrough": "2026-12-18T21:27:47.252Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -240,7 +240,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/8158231-assistant-head-of-technical-services-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-18T09:26:43.001Z",
+      "crawledAt": "2026-11-18T21:27:47.246Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -311,7 +311,7 @@
       },
       "streetAddress": "Via Serlas 27",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-18T09:26:43.001Z",
+      "validThrough": "2026-12-18T21:27:47.246Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -345,7 +345,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/8537004-assistant-director-of-food-beverage-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:26:42.986Z",
+      "crawledAt": "2026-11-18T21:27:47.225Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -363,24 +363,24 @@
       "applyUrl": "https://jobs.badruttscareers.com/en-GB/jobs/8537004-assistant-director-of-food-beverage-m-w-d",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "assistant-director-of-food-amp-beverage-m-w-d-badrutts-palace-ch",
+        "assistant-director-of-food-beverage-m-w-d-badrutt-s-palace-hotel-st-moritz"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "assistant-director-of-food-beverage-m-w-d-badrutt-s-palace-hotel-st-moritz"
-        ],
         "it": [
           "assistant-director-of-food-amp-beverage-m-w-d-badrutts-palace-ch"
         ],
         "en": [
           "assistant-director-of-food-amp-beverage-m-w-d-badrutts-palace-ch"
         ],
+        "de": [
+          "assistant-director-of-food-beverage-m-w-d-badrutt-s-palace-hotel-st-moritz"
+        ],
         "fr": [
           "assistant-director-of-food-amp-beverage-m-w-d-badrutts-palace-ch"
         ]
       },
-      "previousSlugs": [
-        "assistant-director-of-food-amp-beverage-m-w-d-badrutts-palace-ch",
-        "assistant-director-of-food-beverage-m-w-d-badrutt-s-palace-hotel-st-moritz"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-11-17T09:44:28.423Z",
       "salaryMin": 83500,
@@ -410,7 +410,7 @@
       },
       "streetAddress": "Via Serlas 27",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-11T09:26:42.986Z",
+      "validThrough": "2027-01-11T21:27:47.225Z",
       "validThroughSource": "last-observed-window"
     }
   ]

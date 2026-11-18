@@ -1,15 +1,15 @@
 {
   "crawlerKey": "new-yorker",
-  "assembledAt": "2026-11-18T09:28:32.225Z",
-  "runId": "44274823122",
+  "assembledAt": "2026-11-18T21:25:52.071Z",
+  "runId": "44400201772",
   "jobs": [
     {
       "id": "new-yorker-28573",
       "slug": "gestione-del-ramo-aggiunto-m-f-d-new-yorker-basel-67d62300ff",
       "slugByLocale": {
-        "de": "stellvertretende-filialleitung-m-w-d-new-yorker-basel",
         "it": "gestione-del-ramo-aggiunto-m-f-d-new-yorker-basel-67d62300ff",
         "en": "deputy-branch-management-m-f-d-new-yorker-basel",
+        "de": "stellvertretende-filialleitung-m-w-d-new-yorker-basel",
         "fr": "direction-generale-adjointe-m-f-d-new-yorker-basel"
       },
       "company": "New Yorker",
@@ -34,7 +34,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/Stellvertretende-Filialleitung-mwd-de-j28573.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:27:48.095Z",
+      "crawledAt": "2026-11-18T21:25:39.700Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "Freie Strasse 68",
@@ -53,16 +53,17 @@
       "applyUrl": "https://jobs.newyorker.de/karriere-schweiz/Stellvertretende-Filialleitung-mwd-de-j28573.html",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "stellvertretende-filialleitung-m-w-d-new-yorker-basel",
+        "gestione-del-ramo-aggiunto-m-f-d-new-yorker-basel"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "stellvertretende-filialleitung-m-w-d-new-yorker-basel",
           "gestione-del-ramo-aggiunto-m-f-d-new-yorker-basel"
         ]
       },
-      "previousSlugs": [
-        "stellvertretende-filialleitung-m-w-d-new-yorker-basel",
-        "gestione-del-ramo-aggiunto-m-f-d-new-yorker-basel"
-      ],
+      "firstSeenAt": "2026-07-06T22:24:28.978Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -77,9 +78,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-16T09:27:48.095Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-07-06T22:24:28.978Z"
+      "validThrough": "2027-02-16T21:25:39.700Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "new-yorker-27706",
@@ -112,7 +112,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/Stellvertretende-Filialleitung-mwd-de-j27706.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:27:47.405Z",
+      "crawledAt": "2026-11-18T21:25:38.974Z",
       "addressLocality": "Interlaken",
       "addressRegion": "BE",
       "streetAddress": "Rugenparkstrasse 8-10",
@@ -156,7 +156,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-18T09:27:47.405Z",
+      "validThrough": "2026-12-18T21:25:38.974Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -190,7 +190,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/REINIGUNGSKRAFT-MWD-de-j28307.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:27:46.719Z",
+      "crawledAt": "2026-11-18T21:25:38.287Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Riedbachstrasse",
@@ -238,7 +238,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-11T09:27:46.719Z",
+      "validThrough": "2027-01-11T21:25:38.287Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -272,7 +272,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-80-de-j28572.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:27:46.039Z",
+      "crawledAt": "2026-11-18T21:25:37.579Z",
       "addressLocality": "Lyssach",
       "addressRegion": "BE",
       "streetAddress": "Coop Fachmarkt, Bernstrasse 9",
@@ -322,7 +322,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-15T09:27:46.039Z",
+      "validThrough": "2027-02-15T21:25:37.579Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -356,7 +356,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-80-de-j28440.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:27:45.383Z",
+      "crawledAt": "2026-11-18T21:25:36.882Z",
       "addressLocality": "Interlaken",
       "addressRegion": "BE",
       "streetAddress": "Rugenparkstrasse 8-10",
@@ -406,7 +406,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-30T09:27:45.383Z",
+      "validThrough": "2027-01-30T21:25:36.882Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -440,7 +440,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-80-de-j28148.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:27:44.668Z",
+      "crawledAt": "2026-11-18T21:25:36.215Z",
       "addressLocality": "Urtenen-Schönbühl",
       "addressRegion": "BE",
       "streetAddress": "EKZ Shoppyland, Industriestrasse 10",
@@ -486,7 +486,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T09:27:44.668Z",
+      "validThrough": "2026-12-20T21:25:36.215Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -520,7 +520,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-80-de-j28060.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:27:43.986Z",
+      "crawledAt": "2026-11-18T21:25:35.532Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "Bälliz 24",
@@ -572,7 +572,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-18T09:27:43.986Z",
+      "validThrough": "2026-12-18T21:25:35.532Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -606,7 +606,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-80-de-j27750.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:27:43.305Z",
+      "crawledAt": "2026-11-18T21:25:34.858Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Riedbachstrasse",
@@ -652,7 +652,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-18T09:27:43.305Z",
+      "validThrough": "2026-12-18T21:25:34.858Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -686,7 +686,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-80-de-j27743.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:27:42.598Z",
+      "crawledAt": "2026-11-18T21:25:34.125Z",
       "addressLocality": "Zürich (Sihlcity)",
       "addressRegion": "ZH",
       "streetAddress": "Kalanderplatz 1",
@@ -732,7 +732,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-18T09:27:42.598Z",
+      "validThrough": "2026-12-18T21:25:34.125Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -766,7 +766,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-80-de-j26477.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:27:41.937Z",
+      "crawledAt": "2026-11-18T21:25:33.414Z",
       "addressLocality": "Volketswil",
       "addressRegion": "ZH",
       "streetAddress": "EKZ Volkiland, Industriestrasse 1",
@@ -812,7 +812,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-18T09:27:41.937Z",
+      "validThrough": "2026-12-18T21:25:33.414Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -846,7 +846,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-70-de-j25735.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:27:41.189Z",
+      "crawledAt": "2026-11-18T21:25:32.680Z",
       "addressLocality": "Spreitenbach",
       "addressRegion": "AG",
       "streetAddress": "EKZ shopi Tivoli Landstrasse",
@@ -892,7 +892,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-18T09:27:41.189Z",
+      "validThrough": "2026-12-18T21:25:32.680Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -926,7 +926,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-60-de-j28246.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:27:40.464Z",
+      "crawledAt": "2026-11-18T21:25:31.953Z",
       "addressLocality": "Zürich (Sihlcity)",
       "addressRegion": "ZH",
       "streetAddress": "Kalanderplatz 1",
@@ -968,7 +968,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-03T09:27:40.464Z",
+      "validThrough": "2027-01-03T21:25:31.953Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1002,7 +1002,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-60-de-j26860.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:27:39.750Z",
+      "crawledAt": "2026-11-18T21:25:31.254Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Papiermühlestraße 85",
@@ -1048,7 +1048,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-18T09:27:39.750Z",
+      "validThrough": "2026-12-18T21:25:31.254Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1082,7 +1082,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-60-de-j25733.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:27:39.018Z",
+      "crawledAt": "2026-11-18T21:25:30.529Z",
       "addressLocality": "Volketswil",
       "addressRegion": "ZH",
       "streetAddress": "EKZ Volkiland, Industriestrasse 1",
@@ -1134,7 +1134,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-18T09:27:39.018Z",
+      "validThrough": "2026-12-18T21:25:30.529Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1168,7 +1168,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-50-de-j28247.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:27:38.303Z",
+      "crawledAt": "2026-11-18T21:25:29.832Z",
       "addressLocality": "Interlaken",
       "addressRegion": "BE",
       "streetAddress": "Rugenparkstrasse 8-10",
@@ -1210,7 +1210,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-03T09:27:38.303Z",
+      "validThrough": "2027-01-03T21:25:29.832Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1244,7 +1244,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-50-de-j26861.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:27:37.552Z",
+      "crawledAt": "2026-11-18T21:25:29.130Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Papiermühlestraße 85",
@@ -1291,7 +1291,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-18T09:27:37.552Z",
+      "validThrough": "2026-12-18T21:25:29.130Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1325,7 +1325,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-40-de-j27744.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:27:36.846Z",
+      "crawledAt": "2026-11-18T21:25:28.435Z",
       "addressLocality": "Volketswil",
       "addressRegion": "ZH",
       "streetAddress": "EKZ Volkiland, Industriestrasse 1",
@@ -1383,7 +1383,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-18T09:27:36.846Z",
+      "validThrough": "2026-12-18T21:25:28.435Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1417,7 +1417,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-100-de-j28571.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:27:36.078Z",
+      "crawledAt": "2026-11-18T21:25:27.676Z",
       "addressLocality": "Lyssach",
       "addressRegion": "BE",
       "streetAddress": "Coop Fachmarkt, Bernstrasse 9",
@@ -1465,7 +1465,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-15T09:27:36.078Z",
+      "validThrough": "2027-02-15T21:25:27.676Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1499,7 +1499,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-100-de-j28441.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:27:35.259Z",
+      "crawledAt": "2026-11-18T21:25:26.981Z",
       "addressLocality": "Spreitenbach",
       "addressRegion": "AG",
       "streetAddress": "EKZ shopi Tivoli Landstrasse",
@@ -1548,8 +1548,87 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-30T09:27:35.259Z",
+      "validThrough": "2027-01-30T21:25:26.981Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "new-yorker-27749",
+      "slug": "collaboratore-trice-m-w-d-im-vendita-100-new-yorker-bern",
+      "slugByLocale": {
+        "de": "mitarbeiter-m-w-d-im-verkauf-100-new-yorker-bern",
+        "it": "collaboratore-trice-m-w-d-im-vendita-100-new-yorker-bern",
+        "en": "cooperation-m-f-d-in-sale-100-new-yorker-bern",
+        "fr": "cooperation-h-f-d-en-vente-100-new-yorker-bern"
+      },
+      "company": "New Yorker",
+      "companyKey": "new-yorker",
+      "companyDomain": "newyorker.de",
+      "title": "MITARBEITER (M/W/D) IM VERKAUF 100%",
+      "titleByLocale": {
+        "de": "MITARBEITER (M/W/D) IM VERKAUF 100%",
+        "it": "Collaboratore/trice (M/W/D) IM vendita 100%",
+        "en": "MITARBEITER (M/W/D) IM Sales 100%",
+        "fr": "MITARBEITER (M/W/D) IM Vente 100%"
+      },
+      "description": "DAS SIND WIR Als erfolgreiches Young Fashion Unternehmen ist NEW YORKER weltweit mit mehr als 1.100 Filialen in über 46 Ländern vertreten und kontinuierlich auf Wachstumskurs. Mit einem Team von über 19.000 Mitarbeitern arbeiten wir am Puls der Zeit und legen Wert auf ein freundschaftliches Miteinander. Durch unsere Leidenschaft für Mode, unsere Spontanität und Schnelligkeit haben wir es geschafft, seit über 40 Jahren ein fester Bestandteil der Modewelt zu sein. Werde Teil unseres Teams! DAS IST DER JOB\n• Kundenberatung und Verkauf\n• Durchführung der Kassiertätigkeiten\n• Warenpflege und Warenpräsentation\n• Umgang mit betrieblichen Kennzahlen DAS ÜBERZEUGT UNS\n• Abgeschlossene Ausbildung\n• Berufserfahrung im Detailhandel\n• Kunden- und Serviceorientierung\n• Flexibilität und Engagement\n• Teamfähigkeit und Kommunikationsstärke\n• Modeaffinität und Identifikation mit New Yorker DAS SPRICHT FÜR UNS NEW YORKER bietet dir ein attraktives Arbeitsumfeld mit spannenden Herausforderungen sowie viel Spielraum für eigene Ideen. Es erwartet dich ein offenes und dynamisches Team mit flachen Hierarchien und kurzen Abstimmungswegen. SO SIND WIR ERREICHBAR Haben wir dein Interesse geweckt? Dann freuen wir uns auf deine Online-Bewerbung. SO SIND WIR ERREICHBAR Haben wir dein Interesse geweckt? Dann freuen wir uns auf deine Online-Bewerbung.\n\nDAS IST DER JOB\n• Kundenberatung und Verkauf\n• Durchführung der Kassiertätigkeiten\n• Warenpflege und Warenpräsentation\n• Umgang mit betrieblichen Kennzahlen\n\nDAS ÜBERZEUGT UNS\n• Abgeschlossene Ausbildung\n• Berufserfahrung im Detailhandel\n• Kunden- und Serviceorientierung\n• Flexibilität und Engagement\n• Teamfähigkeit und Kommunikationsstärke\n• Modeaffinität und Identifikation mit New Yorker\n\nDAS SPRICHT FÜR UNS NEW YORKER bietet dir ein attraktives Arbeitsumfeld mit spannenden Herausforderungen sowie viel Spielraum für eigene Ideen. Es erwartet dich ein offenes und dynamisches Team mit flachen Hierarchien und kurzen Abstimmungswegen.\n\nBereich: Vertrieb",
+      "descriptionByLocale": {
+        "de": "DAS SIND WIR Als erfolgreiches Young Fashion Unternehmen ist NEW YORKER weltweit mit mehr als 1.100 Filialen in über 46 Ländern vertreten und kontinuierlich auf Wachstumskurs. Mit einem Team von über 19.000 Mitarbeitern arbeiten wir am Puls der Zeit und legen Wert auf ein freundschaftliches Miteinander. Durch unsere Leidenschaft für Mode, unsere Spontanität und Schnelligkeit haben wir es geschafft, seit über 40 Jahren ein fester Bestandteil der Modewelt zu sein. Werde Teil unseres Teams! DAS IST DER JOB\n• Kundenberatung und Verkauf\n• Durchführung der Kassiertätigkeiten\n• Warenpflege und Warenpräsentation\n• Umgang mit betrieblichen Kennzahlen DAS ÜBERZEUGT UNS\n• Abgeschlossene Ausbildung\n• Berufserfahrung im Detailhandel\n• Kunden- und Serviceorientierung\n• Flexibilität und Engagement\n• Teamfähigkeit und Kommunikationsstärke\n• Modeaffinität und Identifikation mit New Yorker DAS SPRICHT FÜR UNS NEW YORKER bietet dir ein attraktives Arbeitsumfeld mit spannenden Herausforderungen sowie viel Spielraum für eigene Ideen. Es erwartet dich ein offenes und dynamisches Team mit flachen Hierarchien und kurzen Abstimmungswegen. SO SIND WIR ERREICHBAR Haben wir dein Interesse geweckt? Dann freuen wir uns auf deine Online-Bewerbung. SO SIND WIR ERREICHBAR Haben wir dein Interesse geweckt? Dann freuen wir uns auf deine Online-Bewerbung.\n\nDAS IST DER JOB\n• Kundenberatung und Verkauf\n• Durchführung der Kassiertätigkeiten\n• Warenpflege und Warenpräsentation\n• Umgang mit betrieblichen Kennzahlen\n\nDAS ÜBERZEUGT UNS\n• Abgeschlossene Ausbildung\n• Berufserfahrung im Detailhandel\n• Kunden- und Serviceorientierung\n• Flexibilität und Engagement\n• Teamfähigkeit und Kommunikationsstärke\n• Modeaffinität und Identifikation mit New Yorker\n\nDAS SPRICHT FÜR UNS NEW YORKER bietet dir ein attraktives Arbeitsumfeld mit spannenden Herausforderungen sowie viel Spielraum für eigene Ideen. Es erwartet dich ein offenes und dynamisches Team mit flachen Hierarchien und kurzen Abstimmungswegen.\n\nBereich: Vertrieb",
+        "it": "DAS SIND WIR Als erfolgreiches Young Fashion Unternehmen ist NEW YORKER weltweit mit mehr als 1.100 Filialen in über 46 Ländern vertreten und kontinuierlich auf Wachstumskurs. Mit einem Team von über 19.000 Mitarbeitern arbeiten wir am Puls der Zeit und legen Wert auf ein freundschaftliches Miteinander. Durch unsere Leidenschaft für Mode, unsere Spontanität und Schnelligkeit haben wir es geschafft, seit über 40 Jahren ein fester Bestandteil der Modewelt zu sein. Werde Teil unseres Teams! DAS IST DER JOB\n• Kundenberatung und Verkauf\n• Durchführung der Kassiertätigkeiten\n• Warenpflege und Warenpräsentation\n• Umgang mit betrieblichen Kennzahlen DAS ÜBERZEUGT UNS\n• Abgeschlossene Ausbildung\n• Berufserfahrung im Detailhandel\n• Kunden- und Serviceorientierung\n• Flexibilität und Engagement\n• Teamfähigkeit und Kommunikationsstärke\n• Modeaffinität und Identifikation mit New Yorker DAS SPRICHT FÜR UNS NEW YORKER bietet dir ein attraktives Arbeitsumfeld mit spannenden Herausforderungen sowie viel Spielraum für eigene Ideen. Es erwartet dich ein offenes und dynamisches Team mit flachen Hierarchien und kurzen Abstimmungswegen. SO SIND WIR ERREICHBAR Haben wir dein Interesse geweckt? Dann freuen wir uns auf deine Online-Bewerbung. SO SIND WIR ERREICHBAR Haben wir dein Interesse geweckt? Dann freuen wir uns auf deine Online-Bewerbung.\n\nDAS IST DER JOB\n• Kundenberatung und Verkauf\n• Durchführung der Kassiertätigkeiten\n• Warenpflege und Warenpräsentation\n• Umgang mit betrieblichen Kennzahlen\n\nDAS ÜBERZEUGT UNS\n• Abgeschlossene Ausbildung\n• Berufserfahrung im Detailhandel\n• Kunden- und Serviceorientierung\n• Flexibilität und Engagement\n• Teamfähigkeit und Kommunikationsstärke\n• Modeaffinität und Identifikation mit New Yorker\n\nDAS SPRICHT FÜR UNS NEW YORKER bietet dir ein attraktives Arbeitsumfeld mit spannenden Herausforderungen sowie viel Spielraum für eigene Ideen. Es erwartet dich ein offenes und dynamisches Team mit flachen Hierarchien und kurzen Abstimmungswegen.\n\nBereich: Vertrieb",
+        "en": "DAS SIND WIR Als erfolgreiches Young Fashion Unternehmen ist NEW YORKER weltweit mit mehr als 1.100 Filialen in über 46 Ländern vertreten und kontinuierlich auf Wachstumskurs. Mit einem Team von über 19.000 Mitarbeitern arbeiten wir am Puls der Zeit und legen Wert auf ein freundschaftliches Miteinander. Durch unsere Leidenschaft für Mode, unsere Spontanität und Schnelligkeit haben wir es geschafft, seit über 40 Jahren ein fester Bestandteil der Modewelt zu sein. Werde Teil unseres Teams! DAS IST DER JOB\n• Kundenberatung und Verkauf\n• Durchführung der Kassiertätigkeiten\n• Warenpflege und Warenpräsentation\n• Umgang mit betrieblichen Kennzahlen DAS ÜBERZEUGT UNS\n• Abgeschlossene Ausbildung\n• Berufserfahrung im Detailhandel\n• Kunden- und Serviceorientierung\n• Flexibilität und Engagement\n• Teamfähigkeit und Kommunikationsstärke\n• Modeaffinität und Identifikation mit New Yorker DAS SPRICHT FÜR UNS NEW YORKER bietet dir ein attraktives Arbeitsumfeld mit spannenden Herausforderungen sowie viel Spielraum für eigene Ideen. Es erwartet dich ein offenes und dynamisches Team mit flachen Hierarchien und kurzen Abstimmungswegen. SO SIND WIR ERREICHBAR Haben wir dein Interesse geweckt? Dann freuen wir uns auf deine Online-Bewerbung. SO SIND WIR ERREICHBAR Haben wir dein Interesse geweckt? Dann freuen wir uns auf deine Online-Bewerbung.\n\nDAS IST DER JOB\n• Kundenberatung und Verkauf\n• Durchführung der Kassiertätigkeiten\n• Warenpflege und Warenpräsentation\n• Umgang mit betrieblichen Kennzahlen\n\nDAS ÜBERZEUGT UNS\n• Abgeschlossene Ausbildung\n• Berufserfahrung im Detailhandel\n• Kunden- und Serviceorientierung\n• Flexibilität und Engagement\n• Teamfähigkeit und Kommunikationsstärke\n• Modeaffinität und Identifikation mit New Yorker\n\nDAS SPRICHT FÜR UNS NEW YORKER bietet dir ein attraktives Arbeitsumfeld mit spannenden Herausforderungen sowie viel Spielraum für eigene Ideen. Es erwartet dich ein offenes und dynamisches Team mit flachen Hierarchien und kurzen Abstimmungswegen.\n\nBereich: Vertrieb",
+        "fr": "DAS SIND WIR Als erfolgreiches Young Fashion Unternehmen ist NEW YORKER weltweit mit mehr als 1.100 Filialen in über 46 Ländern vertreten und kontinuierlich auf Wachstumskurs. Mit einem Team von über 19.000 Mitarbeitern arbeiten wir am Puls der Zeit und legen Wert auf ein freundschaftliches Miteinander. Durch unsere Leidenschaft für Mode, unsere Spontanität und Schnelligkeit haben wir es geschafft, seit über 40 Jahren ein fester Bestandteil der Modewelt zu sein. Werde Teil unseres Teams! DAS IST DER JOB\n• Kundenberatung und Verkauf\n• Durchführung der Kassiertätigkeiten\n• Warenpflege und Warenpräsentation\n• Umgang mit betrieblichen Kennzahlen DAS ÜBERZEUGT UNS\n• Abgeschlossene Ausbildung\n• Berufserfahrung im Detailhandel\n• Kunden- und Serviceorientierung\n• Flexibilität und Engagement\n• Teamfähigkeit und Kommunikationsstärke\n• Modeaffinität und Identifikation mit New Yorker DAS SPRICHT FÜR UNS NEW YORKER bietet dir ein attraktives Arbeitsumfeld mit spannenden Herausforderungen sowie viel Spielraum für eigene Ideen. Es erwartet dich ein offenes und dynamisches Team mit flachen Hierarchien und kurzen Abstimmungswegen. SO SIND WIR ERREICHBAR Haben wir dein Interesse geweckt? Dann freuen wir uns auf deine Online-Bewerbung. SO SIND WIR ERREICHBAR Haben wir dein Interesse geweckt? Dann freuen wir uns auf deine Online-Bewerbung.\n\nDAS IST DER JOB\n• Kundenberatung und Verkauf\n• Durchführung der Kassiertätigkeiten\n• Warenpflege und Warenpräsentation\n• Umgang mit betrieblichen Kennzahlen\n\nDAS ÜBERZEUGT UNS\n• Abgeschlossene Ausbildung\n• Berufserfahrung im Detailhandel\n• Kunden- und Serviceorientierung\n• Flexibilität und Engagement\n• Teamfähigkeit und Kommunikationsstärke\n• Modeaffinität und Identifikation mit New Yorker\n\nDAS SPRICHT FÜR UNS NEW YORKER bietet dir ein attraktives Arbeitsumfeld mit spannenden Herausforderungen sowie viel Spielraum für eigene Ideen. Es erwartet dich ein offenes und dynamisches Team mit flachen Hierarchien und kurzen Abstimmungswegen.\n\nBereich: Vertrieb"
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-100-de-j27749.html",
+      "source": "New Yorker Dedicated Parser (rexx systems)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-18T21:25:26.309Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "streetAddress": "Riedbachstrasse",
+      "postalCode": "3004",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "admin",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "sector": "Retail / Fashion (abbigliamento)",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-18",
+      "postedDate": "2026-11-18",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-100-de-j27749.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-m-w-d-im-verkauf-100-new-yorker-bern"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-m-w-d-im-verkauf-100-new-yorker-bern"
+      ],
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-16T21:25:26.309Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-08-23T21:38:18.072Z"
     },
     {
       "id": "new-yorker-28569",
@@ -1582,7 +1661,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/LERNENDE-FACHFRAU-MANN-IM-DETAILHANDEL-EFZ-START-01082027-de-j28569.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:27:34.559Z",
+      "crawledAt": "2026-11-18T21:25:25.588Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "streetAddress": "Mall of Switzerland, Ebisquare-Strasse 1",
@@ -1617,7 +1696,6 @@
           "lernende-fachfrau-mann-im-detailhandel-efz-start-01-08-2027-new-yorker-ebikon"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-11-17T21:35:31.316Z",
       "salaryMin": 58500,
       "salaryMax": 89000,
@@ -1633,7 +1711,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-15T09:27:34.559Z",
+      "validThrough": "2027-02-15T21:25:25.588Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1667,7 +1745,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/Filialleitung-mwd-de-j27804.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:27:33.669Z",
+      "crawledAt": "2026-11-18T21:25:24.787Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "streetAddress": "Bahnhofstrasse 14",
@@ -1709,7 +1787,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-13T09:27:33.669Z",
+      "validThrough": "2027-02-13T21:25:24.787Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1743,7 +1821,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/AUSHILFE-MWD-IM-VERKAUF-de-j28458.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:27:32.847Z",
+      "crawledAt": "2026-11-18T21:25:24.095Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "streetAddress": "Mall of Switzerland, Ebisquare-Strasse 1",
@@ -1793,7 +1871,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T09:27:32.847Z",
+      "validThrough": "2027-02-01T21:25:24.095Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1827,7 +1905,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/AUSHILFE-MWD-IM-VERKAUF-de-j28421.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:27:32.042Z",
+      "crawledAt": "2026-11-18T21:25:23.386Z",
       "addressLocality": "Basel St. Jakob",
       "addressRegion": "BS",
       "streetAddress": "St. Jakobs-Strasse 397",
@@ -1876,7 +1954,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T09:27:32.042Z",
+      "validThrough": "2027-01-26T21:25:23.386Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1910,7 +1988,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/AUSHILFE-MWD-IM-VERKAUF-de-j28415.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:27:31.297Z",
+      "crawledAt": "2026-11-18T21:25:22.685Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Riedbachstrasse",
@@ -1964,7 +2042,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-18T09:27:31.297Z",
+      "validThrough": "2026-12-18T21:25:22.685Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1998,7 +2076,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/AUSHILFE-MWD-IM-VERKAUF-de-j28364.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:27:30.551Z",
+      "crawledAt": "2026-11-18T21:25:22.005Z",
       "addressLocality": "Spreitenbach",
       "addressRegion": "AG",
       "streetAddress": "EKZ shopi Tivoli Landstrasse",
@@ -2048,7 +2126,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-18T09:27:30.551Z",
+      "validThrough": "2027-01-18T21:25:22.005Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2082,7 +2160,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/AUSHILFE-MWD-IM-VERKAUF-de-j25984.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:27:29.077Z",
+      "crawledAt": "2026-11-18T21:25:20.623Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "Bälliz 24",
@@ -2124,7 +2202,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-18T09:27:29.077Z",
+      "validThrough": "2026-12-18T21:25:20.623Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2158,7 +2236,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/AUSHILFE-MWD-IM-VERKAUF-de-j25476.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:27:28.354Z",
+      "crawledAt": "2026-11-18T21:25:19.950Z",
       "addressLocality": "Volketswil",
       "addressRegion": "ZH",
       "streetAddress": "EKZ Volkiland, Industriestrasse 1",
@@ -2200,7 +2278,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-18T09:27:28.354Z",
+      "validThrough": "2026-12-18T21:25:19.950Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2234,7 +2312,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/AUSHILFE-MWD-IM-VERKAUF-de-j25212.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:27:27.563Z",
+      "crawledAt": "2026-11-18T21:25:19.223Z",
       "addressLocality": "Interlaken",
       "addressRegion": "BE",
       "streetAddress": "Rugenparkstrasse 8-10",
@@ -2276,7 +2354,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-18T09:27:27.563Z",
+      "validThrough": "2026-12-18T21:25:19.223Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2310,7 +2388,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/AUSHILFE-MWD-IM-VERKAUF-de-j24321.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:27:26.822Z",
+      "crawledAt": "2026-11-18T21:25:18.475Z",
       "addressLocality": "Lyssach",
       "addressRegion": "BE",
       "streetAddress": "Coop Fachmarkt, Bernstrasse 9",
@@ -2352,12 +2430,12 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-18T09:27:26.822Z",
+      "validThrough": "2026-12-18T21:25:18.475Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "new-yorker-27003",
-      "slug": "gestione-del-ramo-aggiunto-m-f-d-new-yorker-basel-efb36ad572",
+      "slug": "gestione-del-ramo-aggiunto-m-f-d-new-yorker-basel",
       "slugByLocale": {
         "it": "gestione-del-ramo-aggiunto-m-f-d-new-yorker-basel",
         "en": "deputy-branch-management-m-f-d-new-yorker-basel",
@@ -2417,7 +2495,8 @@
         "stellvertretende-filialleitung-m-w-d-new-yorker-bern",
         "direction-generale-adjointe-m-f-d-new-yorker-bern",
         "vice-direttore-di-filiale-m-f-d-new-yorker-bern",
-        "stellvertretende-filialleitung-m-w-d-new-yorker-basel"
+        "stellvertretende-filialleitung-m-w-d-new-yorker-basel",
+        "gestione-del-ramo-aggiunto-m-f-d-new-yorker-basel-efb36ad572"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2432,7 +2511,8 @@
           "stellvertretende-filialleitung-m-w-d-new-yorker-bern",
           "direction-generale-adjointe-m-f-d-new-yorker-bern",
           "vice-direttore-di-filiale-m-f-d-new-yorker-bern",
-          "stellvertretende-filialleitung-m-w-d-new-yorker-basel"
+          "stellvertretende-filialleitung-m-w-d-new-yorker-basel",
+          "gestione-del-ramo-aggiunto-m-f-d-new-yorker-basel-efb36ad572"
         ],
         "en": [
           "deputy-branch-management-m-f-d-new-yorker-rapperswil",
@@ -2464,7 +2544,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-17T21:35:43.500Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
