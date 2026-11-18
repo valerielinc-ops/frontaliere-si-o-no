@@ -179,9 +179,9 @@
     },
     "slugByLocale": {
       "it": "capogruppo-aggiunto-viva-luzern-luzern-230c980e",
-      "en": "deputy-team-leader-care-viva-luzern-luzern",
+      "en": "deputy-team-leader-care-viva-luzern-luzern-61c2f683",
       "de": "stellvertretung-teamleitung-pflege-viva-luzern-luzern-4e617753",
-      "fr": "chef-d-equipe-adjoint-viva-luzern-luzern"
+      "fr": "chef-d-equipe-adjoint-viva-luzern-luzern-095ddcc8"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-11-08T09:14:39.342Z",
@@ -190,10 +190,12 @@
         "stellvertretung-teamleitung-pflege-viva-luzern-luzern-4e617753"
       ],
       "en": [
-        "stellvertretung-teamleitung-pflege-viva-luzern-luzern-4e617753"
+        "stellvertretung-teamleitung-pflege-viva-luzern-luzern-4e617753",
+        "deputy-team-leader-care-viva-luzern-luzern"
       ],
       "fr": [
-        "stellvertretung-teamleitung-pflege-viva-luzern-luzern-4e617753"
+        "stellvertretung-teamleitung-pflege-viva-luzern-luzern-4e617753",
+        "chef-d-equipe-adjoint-viva-luzern-luzern"
       ],
       "de": [
         "stellvertretung-teamleitung-pflege-viva-luzern-luzern-4e617753"
@@ -206,7 +208,11 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.vivaluzern.ch/offene-stellen/stellvertretung-teamleitung-pflege/48f0632b-dec9-47aa-a003-4890eb58772b",
-    "firstSeenAt": "2026-10-07T09:18:39.676Z"
+    "firstSeenAt": "2026-10-07T09:18:39.676Z",
+    "previousSlugs": [
+      "deputy-team-leader-care-viva-luzern-luzern",
+      "chef-d-equipe-adjoint-viva-luzern-luzern"
+    ]
   },
   {
     "slug": "personale-capo-del-team-infermieristico-viva-luzern-luzern",

@@ -179,7 +179,7 @@
     },
     "slugByLocale": {
       "it": "assistente-per-la-salute-e-la-cura-della-comunita-m-f-fondation-soins-lausanne-lausanne-103e3198",
-      "en": "community-health-and-care-assistant-m-f-fondation-soins-lausanne-lausanne",
+      "en": "community-health-and-care-assistant-m-f-fondation-soins-lausanne-lausanne-c96c2a22",
       "de": "assistant-en-soins-et-sante-communautaire-h-f-fondation-soins-lausanne-lausanne-2bf2640f",
       "fr": "assistant-en-soins-et-sante-communautaire-h-f-fondation-soins-lausanne-lausanne-2bf2640f"
     },
@@ -190,7 +190,8 @@
         "assistant-en-soins-et-sante-communautaire-h-f-fondation-soins-lausanne-lausanne-2bf2640f"
       ],
       "en": [
-        "assistant-en-soins-et-sante-communautaire-h-f-fondation-soins-lausanne-lausanne-2bf2640f"
+        "assistant-en-soins-et-sante-communautaire-h-f-fondation-soins-lausanne-lausanne-2bf2640f",
+        "community-health-and-care-assistant-m-f-fondation-soins-lausanne-lausanne"
       ],
       "de": [
         "assistant-en-soins-et-sante-communautaire-h-f-fondation-soins-lausanne-lausanne-2bf2640f"
@@ -206,7 +207,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/6f2aef65-0c51-4024-a827-ddc4f69165e5",
-    "firstSeenAt": "2026-09-23T23:47:33.658Z"
+    "firstSeenAt": "2026-09-23T23:47:33.658Z",
+    "previousSlugs": [
+      "community-health-and-care-assistant-m-f-fondation-soins-lausanne-lausanne"
+    ]
   },
   {
     "slug": "ergoterapisti-m-f-fondation-soins-lausanne-lausanne-2f3bea",
@@ -458,14 +462,16 @@
     },
     "slugByLocale": {
       "it": "infermiera-di-campo-m-f-fondation-soins-lausanne-lausanne-e8b33266",
-      "en": "field-nurse-m-f-fondation-soins-lausanne-lausanne",
-      "de": "feld-krankenschwester-m-w-fondation-soins-lausanne-lausanne",
+      "en": "field-nurse-m-f-fondation-soins-lausanne-lausanne-8446cedb",
+      "de": "feld-krankenschwester-m-w-fondation-soins-lausanne-lausanne-6e243a22",
       "fr": "infirmier-terrain-h-f-fondation-soins-lausanne-lausanne-44b6f877"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-11-11T12:29:22.873Z",
     "previousSlugs": [
-      "infirmier-terrain-m-w-d-fondation-soins-lausanne"
+      "infirmier-terrain-m-w-d-fondation-soins-lausanne",
+      "field-nurse-m-f-fondation-soins-lausanne-lausanne",
+      "feld-krankenschwester-m-w-fondation-soins-lausanne-lausanne"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -473,10 +479,12 @@
       ],
       "de": [
         "infirmier-terrain-h-f-fondation-soins-lausanne-lausanne-44b6f877",
-        "infirmier-terrain-m-w-d-fondation-soins-lausanne"
+        "infirmier-terrain-m-w-d-fondation-soins-lausanne",
+        "feld-krankenschwester-m-w-fondation-soins-lausanne-lausanne"
       ],
       "en": [
-        "infirmier-terrain-h-f-fondation-soins-lausanne-lausanne-44b6f877"
+        "infirmier-terrain-h-f-fondation-soins-lausanne-lausanne-44b6f877",
+        "field-nurse-m-f-fondation-soins-lausanne-lausanne"
       ],
       "fr": [
         "infirmier-terrain-h-f-fondation-soins-lausanne-lausanne-44b6f877"
@@ -512,14 +520,16 @@
     },
     "slugByLocale": {
       "it": "infermiera-di-riferimento-m-f-fondation-soins-lausanne-lausanne-f588575d",
-      "en": "reference-nurse-m-f-fondation-soins-lausanne-lausanne",
-      "de": "referenz-krankenschwester-m-w-fondation-soins-lausanne-lausanne",
+      "en": "reference-nurse-m-f-fondation-soins-lausanne-lausanne-bf11b049",
+      "de": "referenz-krankenschwester-m-w-fondation-soins-lausanne-lausanne-beb369f5",
       "fr": "infirmier-referent-h-f-fondation-soins-lausanne-lausanne-dc29d0cf"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-11-11T12:29:22.873Z",
     "previousSlugs": [
-      "infirmier-referent-m-w-d-fondation-soins-lausanne"
+      "infirmier-referent-m-w-d-fondation-soins-lausanne",
+      "reference-nurse-m-f-fondation-soins-lausanne-lausanne",
+      "referenz-krankenschwester-m-w-fondation-soins-lausanne-lausanne"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -527,10 +537,12 @@
       ],
       "de": [
         "infirmier-referent-h-f-fondation-soins-lausanne-lausanne-dc29d0cf",
-        "infirmier-referent-m-w-d-fondation-soins-lausanne"
+        "infirmier-referent-m-w-d-fondation-soins-lausanne",
+        "referenz-krankenschwester-m-w-fondation-soins-lausanne-lausanne"
       ],
       "en": [
-        "infirmier-referent-h-f-fondation-soins-lausanne-lausanne-dc29d0cf"
+        "infirmier-referent-h-f-fondation-soins-lausanne-lausanne-dc29d0cf",
+        "reference-nurse-m-f-fondation-soins-lausanne-lausanne"
       ],
       "fr": [
         "infirmier-referent-h-f-fondation-soins-lausanne-lausanne-dc29d0cf"
@@ -566,7 +578,7 @@
     },
     "slugByLocale": {
       "it": "salute-ausiliare-m-f-fondation-soins-lausanne-lausanne-5799b5de",
-      "en": "health-auxiliary-m-f-fondation-soins-lausanne-lausanne",
+      "en": "health-auxiliary-m-f-fondation-soins-lausanne-lausanne-7775582c",
       "de": "gesundheitshilfskrafte-m-w-fondation-soins-lausanne-lausanne",
       "fr": "auxiliaire-de-sante-h-f-fondation-soins-lausanne-lausanne-4dcf6a61"
     },
@@ -577,7 +589,8 @@
         "auxiliaire-de-sante-h-f-fondation-soins-lausanne-lausanne-4dcf6a61"
       ],
       "en": [
-        "auxiliaire-de-sante-h-f-fondation-soins-lausanne-lausanne-4dcf6a61"
+        "auxiliaire-de-sante-h-f-fondation-soins-lausanne-lausanne-4dcf6a61",
+        "health-auxiliary-m-f-fondation-soins-lausanne-lausanne"
       ],
       "de": [
         "auxiliaire-de-sante-h-f-fondation-soins-lausanne-lausanne-4dcf6a61"
@@ -593,7 +606,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/43c1c32d-6f86-4c53-a7f1-bda1af702767",
-    "firstSeenAt": "2026-09-23T23:47:36.439Z"
+    "firstSeenAt": "2026-09-23T23:47:36.439Z",
+    "previousSlugs": [
+      "health-auxiliary-m-f-fondation-soins-lausanne-lausanne"
+    ]
   },
   {
     "slug": "salute-mentale-infermiera-m-f-fondation-soins-lausanne-lausanne-d4502bc2",
@@ -616,8 +632,8 @@
     },
     "slugByLocale": {
       "it": "salute-mentale-infermiera-m-f-fondation-soins-lausanne-lausanne-d4502bc2",
-      "en": "mental-health-nurse-m-f-fondation-soins-lausanne-lausanne",
-      "de": "psychische-gesundheit-krankenschwester-m-w-fondation-soins-lausanne-lausanne",
+      "en": "mental-health-nurse-m-f-fondation-soins-lausanne-lausanne-ba51d6c1",
+      "de": "psychische-gesundheit-krankenschwester-m-w-fondation-soins-lausanne-lausanne-cde08a77",
       "fr": "infirmier-sante-mentale-h-f-fondation-soins-lausanne-lausanne-4f76b0b9"
     },
     "sector": "Sanità / Ospedali",
@@ -627,10 +643,12 @@
         "infirmier-sante-mentale-h-f-fondation-soins-lausanne-lausanne-4f76b0b9"
       ],
       "en": [
-        "infirmier-sante-mentale-h-f-fondation-soins-lausanne-lausanne-4f76b0b9"
+        "infirmier-sante-mentale-h-f-fondation-soins-lausanne-lausanne-4f76b0b9",
+        "mental-health-nurse-m-f-fondation-soins-lausanne-lausanne"
       ],
       "de": [
-        "infirmier-sante-mentale-h-f-fondation-soins-lausanne-lausanne-4f76b0b9"
+        "infirmier-sante-mentale-h-f-fondation-soins-lausanne-lausanne-4f76b0b9",
+        "psychische-gesundheit-krankenschwester-m-w-fondation-soins-lausanne-lausanne"
       ],
       "fr": [
         "infirmier-sante-mentale-h-f-fondation-soins-lausanne-lausanne-4f76b0b9"
@@ -643,7 +661,11 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/492a41be-1f59-4982-a023-87cf042025dc",
-    "firstSeenAt": "2026-09-23T23:47:37.835Z"
+    "firstSeenAt": "2026-09-23T23:47:37.835Z",
+    "previousSlugs": [
+      "mental-health-nurse-m-f-fondation-soins-lausanne-lausanne",
+      "psychische-gesundheit-krankenschwester-m-w-fondation-soins-lausanne-lausanne"
+    ]
   },
   {
     "slug": "infermiera-rai-hc-m-f-fondation-soins-lausanne-lausanne-32d544d5",
@@ -666,8 +688,8 @@
     },
     "slugByLocale": {
       "it": "infermiera-rai-hc-m-f-fondation-soins-lausanne-lausanne-32d544d5",
-      "en": "rai-nurse-hc-m-f-fondation-soins-lausanne-lausanne",
-      "de": "rai-nurse-hc-m-w-fondation-soins-lausanne-lausanne",
+      "en": "rai-nurse-hc-m-f-fondation-soins-lausanne-lausanne-2f5524bf",
+      "de": "rai-nurse-hc-m-w-fondation-soins-lausanne-lausanne-3fc12a82",
       "fr": "infirmier-rai-hc-h-f-fondation-soins-lausanne-lausanne-81d5abcb"
     },
     "sector": "Sanità / Ospedali",
@@ -677,10 +699,12 @@
         "infirmier-rai-hc-h-f-fondation-soins-lausanne-lausanne-81d5abcb"
       ],
       "en": [
-        "infirmier-rai-hc-h-f-fondation-soins-lausanne-lausanne-81d5abcb"
+        "infirmier-rai-hc-h-f-fondation-soins-lausanne-lausanne-81d5abcb",
+        "rai-nurse-hc-m-f-fondation-soins-lausanne-lausanne"
       ],
       "de": [
-        "infirmier-rai-hc-h-f-fondation-soins-lausanne-lausanne-81d5abcb"
+        "infirmier-rai-hc-h-f-fondation-soins-lausanne-lausanne-81d5abcb",
+        "rai-nurse-hc-m-w-fondation-soins-lausanne-lausanne"
       ],
       "fr": [
         "infirmier-rai-hc-h-f-fondation-soins-lausanne-lausanne-81d5abcb"
@@ -693,7 +717,11 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/0149f398-f947-45bb-b638-9e37f465fc1f",
-    "firstSeenAt": "2026-09-19T22:58:47.313Z"
+    "firstSeenAt": "2026-09-19T22:58:47.313Z",
+    "previousSlugs": [
+      "rai-nurse-hc-m-f-fondation-soins-lausanne-lausanne",
+      "rai-nurse-hc-m-w-fondation-soins-lausanne-lausanne"
+    ]
   },
   {
     "slug": "reception-e-reception-manager-m-f-fondation-soins-lausanne-lausanne",

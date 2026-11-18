@@ -376,7 +376,7 @@
     },
     "slugByLocale": {
       "it": "test-ingegnere-transgourmet-moosseedorf",
-      "en": "test-engineer-transgourmet-moosseedorf",
+      "en": "test-engineer-transgourmet-moosseedorf-17901d35",
       "de": "test-engineer-transgourmet-moosseedorf-17901d35",
       "fr": "test-ingenieur-transgourmet-moosseedorf"
     },
@@ -387,12 +387,14 @@
         "test-engineer-transgourmet-moosseedorf-17901d35"
       ],
       "en": [
+        "test-engineer-transgourmet-moosseedorf-17901d35",
         "test-engineer-transgourmet-moosseedorf"
       ],
       "de": [
         "test-engineer-transgourmet-moosseedorf-17901d35"
       ],
       "fr": [
+        "test-engineer-transgourmet-moosseedorf-17901d35",
         "test-engineer-transgourmet-moosseedorf"
       ]
     },
@@ -403,7 +405,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/test-engineer/9d46ad75-471d-4ab6-92aa-848e17579b40",
-    "firstSeenAt": "2026-09-07T15:03:07.169Z"
+    "firstSeenAt": "2026-09-07T15:03:07.169Z",
+    "previousSlugs": [
+      "test-engineer-transgourmet-moosseedorf"
+    ]
   },
   {
     "slug": "assegno-vendite-dipendenti-limitato-dic-sl-50-100-transgourmet-ruschlikon",

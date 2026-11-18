@@ -5689,8 +5689,8 @@
     "expiredAt": "2026-10-05T06:25:17.024Z",
     "previousSlugs": [
       "stv-sektionsleitung-qualitatsmanagement-stadt-bern-1",
-      "stv-sektionsleitung-qualitatsmanagement-stadt-bern-bern",
-      "stv-sektionsleitung-qualitatsmanagement-stadt-bern-bern-d4146d09"
+      "stv-sektionsleitung-qualitatsmanagement-stadt-bern-bern-d4146d09",
+      "stv-sektionsleitung-qualitatsmanagement-stadt-bern-bern"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -9364,21 +9364,26 @@
     },
     "slugByLocale": {
       "it": "supporto-amministrativo-specializzato-stadt-bern-bern",
-      "en": "fachangestellte-r-administration-support-stadt-bern-bern",
-      "de": "fachangestellte-r-administration-support-stadt-bern-bern",
+      "en": "fachangestellte-r-administration-support-stadt-bern-bern-667a5e43",
+      "de": "fachangestellte-r-administration-support-stadt-bern-bern-667a5e43",
       "fr": "appui-administratif-specialise-stadt-bern-bern"
     },
     "sector": "Amministrazione Pubblica",
     "expiredAt": "2026-07-22T10:55:44.693Z",
-    "previousSlugs": [
-      "fachangestellte-r-administration-support-stadt-bern-bern"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "fachangestellte-r-administration-support-stadt-bern-bern-667a5e43",
         "fachangestellte-r-administration-support-stadt-bern-bern"
       ],
       "fr": [
+        "fachangestellte-r-administration-support-stadt-bern-bern-667a5e43",
         "fachangestellte-r-administration-support-stadt-bern-bern"
+      ],
+      "en": [
+        "fachangestellte-r-administration-support-stadt-bern-bern-667a5e43"
+      ],
+      "de": [
+        "fachangestellte-r-administration-support-stadt-bern-bern-667a5e43"
       ]
     },
     "postalCode": "3008",
@@ -9386,7 +9391,10 @@
     "salaryMin": 68500,
     "salaryMax": 104000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "previousSlugs": [
+      "fachangestellte-r-administration-support-stadt-bern-bern"
+    ]
   },
   {
     "slug": "sachbearbeiter-in-finanzen-e-gebuhren-stadt-bern",

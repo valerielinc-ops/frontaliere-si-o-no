@@ -64,9 +64,9 @@
     },
     "slugByLocale": {
       "it": "consulente-clienti-privato-m-f-d-raiffeisen-oberlunkhofen-f6d03553",
-      "en": "private-client-advisor-m-f-d-raiffeisen-oberlunkhofen",
+      "en": "private-client-advisor-m-f-d-raiffeisen-oberlunkhofen-742abe7f",
       "de": "privatkundenberater-w-m-d-raiffeisen-oberlunkhofen-fb6223be",
-      "fr": "conseiller-client-prive-h-f-d-raiffeisen-oberlunkhofen"
+      "fr": "conseiller-client-prive-h-f-d-raiffeisen-oberlunkhofen-d2dc7852"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-11-15T09:25:44.068Z",
@@ -75,10 +75,12 @@
         "privatkundenberater-w-m-d-raiffeisen-oberlunkhofen-fb6223be"
       ],
       "en": [
-        "privatkundenberater-w-m-d-raiffeisen-oberlunkhofen-fb6223be"
+        "privatkundenberater-w-m-d-raiffeisen-oberlunkhofen-fb6223be",
+        "private-client-advisor-m-f-d-raiffeisen-oberlunkhofen"
       ],
       "fr": [
-        "privatkundenberater-w-m-d-raiffeisen-oberlunkhofen-fb6223be"
+        "privatkundenberater-w-m-d-raiffeisen-oberlunkhofen-fb6223be",
+        "conseiller-client-prive-h-f-d-raiffeisen-oberlunkhofen"
       ],
       "de": [
         "privatkundenberater-w-m-d-raiffeisen-oberlunkhofen-fb6223be"
@@ -91,7 +93,11 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.raiffeisen.ch/offene-stellen/privatkundenberater-w-m-d/88b98f76-a244-496f-aae7-5cd5ee13ee70",
-    "firstSeenAt": "2026-09-19T23:02:14.275Z"
+    "firstSeenAt": "2026-09-19T23:02:14.275Z",
+    "previousSlugs": [
+      "private-client-advisor-m-f-d-raiffeisen-oberlunkhofen",
+      "conseiller-client-prive-h-f-d-raiffeisen-oberlunkhofen"
+    ]
   },
   {
     "slug": "leiter-privatkundenberatung-m-w-d-raiffeisen-gossau",
@@ -509,9 +515,9 @@
     },
     "slugByLocale": {
       "it": "consulente-clienti-w-m-d-raiffeisen-oberlunkhofen-d199f15f",
-      "en": "customer-advisor-w-m-d-raiffeisen-oberlunkhofen",
+      "en": "customer-advisor-w-m-d-raiffeisen-oberlunkhofen-7d5e4fad",
       "de": "kundenberater-w-m-d-raiffeisen-oberlunkhofen-526104bd",
-      "fr": "conseiller-a-la-clientele-w-m-d-raiffeisen-oberlunkhofen"
+      "fr": "conseiller-a-la-clientele-w-m-d-raiffeisen-oberlunkhofen-151bb3b8"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-11-13T21:27:42.664Z",
@@ -520,10 +526,12 @@
         "kundenberater-w-m-d-raiffeisen-oberlunkhofen-526104bd"
       ],
       "en": [
-        "kundenberater-w-m-d-raiffeisen-oberlunkhofen-526104bd"
+        "kundenberater-w-m-d-raiffeisen-oberlunkhofen-526104bd",
+        "customer-advisor-w-m-d-raiffeisen-oberlunkhofen"
       ],
       "fr": [
-        "kundenberater-w-m-d-raiffeisen-oberlunkhofen-526104bd"
+        "kundenberater-w-m-d-raiffeisen-oberlunkhofen-526104bd",
+        "conseiller-a-la-clientele-w-m-d-raiffeisen-oberlunkhofen"
       ],
       "de": [
         "kundenberater-w-m-d-raiffeisen-oberlunkhofen-526104bd"
@@ -536,7 +544,11 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.raiffeisen.ch/offene-stellen/kundenberater-w-m-d/d8c720d6-e8f7-4210-b119-c1d2fc569901",
-    "firstSeenAt": "2026-10-13T21:20:11.763Z"
+    "firstSeenAt": "2026-10-13T21:20:11.763Z",
+    "previousSlugs": [
+      "customer-advisor-w-m-d-raiffeisen-oberlunkhofen",
+      "conseiller-a-la-clientele-w-m-d-raiffeisen-oberlunkhofen"
+    ]
   },
   {
     "slug": "software-ingegnere-w-m-d-kreditservices-raiffeisen-st-gallen",
@@ -1131,9 +1143,9 @@
     },
     "slugByLocale": {
       "it": "consulente-clienti-privato-individuale-m-f-d-raiffeisen-unterageri-e457351b",
-      "en": "private-client-advisor-individual-m-f-d-raiffeisen-unterageri",
+      "en": "private-client-advisor-individual-m-f-d-raiffeisen-unterageri-2082b676",
       "de": "privatkundenberater-individual-w-m-d-raiffeisen-unterageri-368e653e",
-      "fr": "conseiller-client-prive-individuel-h-f-d-raiffeisen-unterageri"
+      "fr": "conseiller-client-prive-individuel-h-f-d-raiffeisen-unterageri-24335789"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-11-12T21:36:18.819Z",
@@ -1142,10 +1154,12 @@
         "privatkundenberater-individual-w-m-d-raiffeisen-unterageri-368e653e"
       ],
       "en": [
-        "privatkundenberater-individual-w-m-d-raiffeisen-unterageri-368e653e"
+        "privatkundenberater-individual-w-m-d-raiffeisen-unterageri-368e653e",
+        "private-client-advisor-individual-m-f-d-raiffeisen-unterageri"
       ],
       "fr": [
-        "privatkundenberater-individual-w-m-d-raiffeisen-unterageri-368e653e"
+        "privatkundenberater-individual-w-m-d-raiffeisen-unterageri-368e653e",
+        "conseiller-client-prive-individuel-h-f-d-raiffeisen-unterageri"
       ],
       "de": [
         "privatkundenberater-individual-w-m-d-raiffeisen-unterageri-368e653e"
@@ -1158,7 +1172,11 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.raiffeisen.ch/offene-stellen/privatkundenberater-individual-w-m-d/2e6afdcd-cebc-466a-b67f-1ce78eee5767",
-    "firstSeenAt": "2026-09-30T21:18:42.012Z"
+    "firstSeenAt": "2026-09-30T21:18:42.012Z",
+    "previousSlugs": [
+      "private-client-advisor-individual-m-f-d-raiffeisen-unterageri",
+      "conseiller-client-prive-individuel-h-f-d-raiffeisen-unterageri"
+    ]
   },
   {
     "slug": "home-consulente-clienti-m-f-raiffeisen-vevey",
