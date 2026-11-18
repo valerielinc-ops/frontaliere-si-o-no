@@ -1,8 +1,9 @@
 /** Application stages are proved by the page's controls and instructions, never its URL alone. */
 import { avaturePortalDirectory, avaturePostingJobKey, sameAvaturePortal } from './protocol.mjs';
 import { isCvDocumentLabel } from './document-labels.mjs';
-import { brassRingPrivacyGateControl } from './brass-ring-route.mjs';
+import { brassRingPrivacyGateControl, sameBrassRingPostingAddress } from './brass-ring-route.mjs';
 import { isWorkdayApplicationRouteBound, isWorkdayJobRouteBound, isWorkdayTenantAccountRoute, isWorkdayTenantUrl, sameWorkdayJobRoute, workdayJobRoute } from './workday-route.mjs';
+import { POSTING_BINDING_STATUS, resolvePostingBinding, samePostingRouteAddress } from './posting-binding.mjs';
 import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE } from './fill.mjs';
 
 // Match the complete route relative to the proved source directory, never a
@@ -546,19 +547,42 @@ export function applicationReceipt(snapshot, { url = snapshot?.url, applyUrl, su
 export function applicationStage(snapshot, {
   url = snapshot?.url,
   applyUrl,
+  postingUrl = '',
   sourceProtocol = null,
   postingEntry = false,
+  applicationEntryUrl = '',
+  applicationEntryProven = false,
   workdayApplicationEntryProven = false,
   brassRingApplicationEntryProven = false,
   job = {},
 } = {}) {
   if (invalidPostingKey(url) || invalidPostingKey(applyUrl, sourceProtocol)) return { kind: 'posting_mismatch' };
+  const workdayRouteExpected = isWorkdayTenantUrl(applyUrl);
+  const workdayRouteBound = workdayRouteExpected && (
+    isWorkdayTenantAccountRoute(url, applyUrl)
+      ? workdayApplicationEntryProven === true
+      : isWorkdayJobRouteBound(url, applyUrl)
+  );
+  const brassRingRouteExpected = sameBrassRingPostingAddress(applyUrl, applyUrl);
+  const brassRingRouteBound = brassRingRouteExpected && sameBrassRingPostingAddress(url, applyUrl);
+  const postingBinding = resolvePostingBinding({
+    currentUrl: url,
+    postingUrl,
+    routeKind: workdayRouteExpected ? 'workday' : brassRingRouteExpected ? 'brassring' : '',
+    routeExpected: workdayRouteExpected || brassRingRouteExpected,
+    routeBound: workdayRouteBound || brassRingRouteBound,
+    selectedPostingRoute: Boolean(postingUrl && samePostingRouteAddress(url, postingUrl)),
+    applicationEntryUrl,
+    applicationEntryProven,
+    postingEntryProven: postingEntry === true,
+  });
+  if (postingBinding.status === POSTING_BINDING_STATUS.MISMATCH) return { kind: 'posting_mismatch' };
   const text = String(snapshot?.text || '').replace(/\s+/g, ' ');
-  if (isWorkdayTenantUrl(applyUrl)) {
+  if (workdayRouteExpected) {
     if (isWorkdayTenantAccountRoute(url, applyUrl)) {
-      return workdayApplicationEntryProven === true ? { kind: 'account' } : { kind: 'posting_mismatch' };
+      return { kind: 'account' };
     }
-    if (!isWorkdayJobRouteBound(url, applyUrl)) return { kind: 'posting_mismatch' };
+    if (!workdayRouteBound) return { kind: 'posting_mismatch' };
   }
   const buttons = (snapshot?.buttons || []).filter(button => !button.chrome && !button.disabled);
   const brassRingPrivacyGate = brassRingPrivacyGateControl(snapshot, {

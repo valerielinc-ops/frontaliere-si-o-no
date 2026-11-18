@@ -64,6 +64,7 @@ import { detectLanguageWithConfidence } from '../../../lib/detect-language.mjs';
 import { classifyLiveness, isHardClosed } from '../liveness.mjs';
 import { armFinalFormClickGuardInPage, clearFinalFormGuardInPage, installFinalFormGuardCaptureInPage, readFinalFormGuardStatusInPage } from './form-contract.mjs';
 import { isWorkdayApplicationRouteBound, isWorkdayJobRouteBound, isWorkdayTenantAccountRoute, isWorkdayTenantUrl, sameWorkdayJobRoute, workdayBareLocaleFallbackUrl, workdayJobRoute, workdayManualApplicationUrl } from './workday-route.mjs';
+import { POSTING_BINDING_STATUS, resolvePostingBinding } from './posting-binding.mjs';
 import { installPortalReplayFence } from './replay-fence.mjs';
 
 function workdayPostingRouteMismatch(pageUrl, applyUrl, workdayApplicationEntryProven = false) {
@@ -4305,6 +4306,19 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     }
     return workdayApplicationSurfaceReady(snapshot);
   };
+  const workdaySurfaceHandoff = () => {
+    const binding = resolvePostingBinding({
+      currentUrl: page.url(),
+      applyUrl: stageContext?.applyUrl,
+      routeKind: 'workday',
+      routeExpected: true,
+      routeBound: Boolean(stageContext?.applyUrl
+        && isWorkdayJobRouteBound(page.url(), stageContext.applyUrl)),
+    });
+    return binding.status === POSTING_BINDING_STATUS.BOUND
+      ? 'application_stage_unknown'
+      : 'posting_mismatch';
+  };
   const currentApplicationDiversion = async (current = snapshot) => applicationDestinationDiversionHint({
     ...current,
     title: await page.title().catch(() => ''),
@@ -4447,7 +4461,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
       }
     }
     if (!await ensurePortalChallenge()) return result({ handoff: 'captcha' });
-    if (!await waitForWorkdayApplicationSurface()) return result({ handoff: 'posting_mismatch' });
+    if (!await waitForWorkdayApplicationSurface()) return result({ handoff: workdaySurfaceHandoff() });
     const publicRecovery = await recoverStadtZurichPublicJobSearch(page, snapshot, stageContext, {
       searched: publicSearchSearched,
     });
@@ -4608,7 +4622,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
           if (!await ensurePortalChallenge()) return result({ handoff: 'captcha' });
           await page.waitForTimeout(1200);
           snapshot = await extractFields(page, NAVIGATION);
-          if (!await waitForWorkdayApplicationSurface()) return result({ handoff: 'posting_mismatch' });
+          if (!await waitForWorkdayApplicationSurface()) return result({ handoff: workdaySurfaceHandoff() });
           reportNavigation({ hop: hop + 1, phase: 'direct_route', cookieStatus, controls: applicationControls, ownedEntries });
           if (!isSuccessFactorsPostingEntry({
             applyUrl: page.url(),
@@ -4636,7 +4650,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
         if (!await ensurePortalChallenge()) return result({ handoff: 'captcha' });
         await page.waitForTimeout(1200);
         snapshot = await extractFields(page, NAVIGATION);
-        if (!await waitForWorkdayApplicationSurface()) return result({ handoff: 'posting_mismatch' });
+        if (!await waitForWorkdayApplicationSurface()) return result({ handoff: workdaySurfaceHandoff() });
         if (!await currentApplicationDiversion(snapshot)) {
           enteredThroughApplicationEntry = true;
           brassRingApplicationEntryProven = brassRingApplicationEntryProven
@@ -4678,7 +4692,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     if (!await ensurePortalChallenge()) return result({ handoff: 'captcha' });
     snapshot = await extractFields(page, NAVIGATION);
     if (!await waitForWorkdayApplicationSurface({ pendingEntry: followedApplicationEntryThisHop })) {
-      return result({ handoff: 'posting_mismatch' });
+      return result({ handoff: workdaySurfaceHandoff() });
     }
     const postEntryEvidence = followedApplicationEntryThisHop && await waitForPostApplicationEntryEvidence({
       brassRingEntryProven: pendingBrassRingEntryProven,
@@ -6022,6 +6036,17 @@ export function formPostingMatch(formText, job = {}, {
   );
   const umantisPairPostingUrl = umantisFormPostingUrl(formApplicationUrl, postingUrl);
   const bound = isPostingRouteBound({ pageUrl, postingUrl: formPostingUrl, postingRouteProof });
+  const brassRingRouteAddress = formPostingUrl || postingUrl || applyUrl;
+  const brassRingRouteExpected = sameBrassRingPostingAddress(applyUrl, brassRingRouteAddress);
+  const brassRingRouteBound = brassRingRouteExpected && sameBrassRingPostingAddress(pageUrl, brassRingRouteAddress);
+  const workdayRouteExpected = isWorkdayTenantUrl(applyUrl);
+  const workdayRouteBound = workdayRouteExpected && (
+    isWorkdayTenantAccountRoute(pageUrl, applyUrl)
+      ? applicationEntry === true
+        && postingMatched === true
+        && samePostingAddress(pageUrl, applicationEntryUrl)
+      : isWorkdayJobRouteBound(pageUrl, applyUrl)
+  );
   const talentSoftPageIdentity = talentSoftPostingIdentity(pageUrl);
   const paidTalentSoftPostingBound = sameTalentSoftPostingRoute(pageUrl, paidPostingUrl);
   // A final TalentSoft page that exposes a requisition ID is bound to the paid
@@ -6036,14 +6061,27 @@ export function formPostingMatch(formText, job = {}, {
     || (Boolean(String(applicationEntryUrl || '').trim())
       && (samePostingAddress(pageUrl, applicationEntryUrl)
         || sameBrassRingPostingAddress(pageUrl, applicationEntryUrl)));
-  const verifiedEntry = postingEntry || (applicationEntry && postingMatched && applicationEntryRouteBound);
   const roleOnlyPostingBound = postingEntry || (postingMatched && applicationEntryRouteBound);
+  const postingBinding = resolvePostingBinding({
+    currentUrl: pageUrl,
+    postingUrl: formPostingUrl,
+    routeKind: workdayRouteExpected ? 'workday' : brassRingRouteExpected ? 'brassring' : bound ? 'ats-route' : '',
+    routeExpected: workdayRouteExpected || brassRingRouteExpected,
+    routeBound: bound || workdayRouteBound || brassRingRouteBound,
+    selectedPostingRoute: Boolean(postingMatched
+      && (samePostingAddress(pageUrl, formPostingUrl)
+        || sameBrassRingPostingAddress(pageUrl, formPostingUrl))),
+    applicationEntryUrl,
+    applicationEntryProven: applicationEntry === true && postingMatched === true,
+    postingEntryProven: postingEntry === true,
+  });
+  if (postingBinding.status === POSTING_BINDING_STATUS.MISMATCH) return 'mismatch';
   // A same-route employer form can prove the posting from the selected page
   // without carrying a requisition key. That proof is enough to classify the
   // posting's own location in the title as metadata, but it must not weaken
   // the separate employer/role conflict checks below.
   const postingLocationBound = bound || roleOnlyPostingBound;
-  const verifiedApplicationEntryRoute = verifiedEntry && Boolean(applicationEntryUrl)
+  const verifiedApplicationEntryRoute = applicationEntry === true && applicationEntryRouteBound && Boolean(applicationEntryUrl)
     && (samePostingAddress(pageUrl, applicationEntryUrl)
       || sameBrassRingPostingAddress(pageUrl, applicationEntryUrl));
   const verifiedEmployerFormRoute = verifiedApplicationEntryRoute
@@ -6058,7 +6096,7 @@ export function formPostingMatch(formText, job = {}, {
       return AMBIGUOUS_APPLICATION_HEADING_SEGMENTS.has(normalized)
         && postingMatch(segment, { company: job.company }, pageUrl) !== 'match';
     }));
-  const verifiedFormBinding = verifiedEntry || bound || paidTalentSoftPostingBound;
+  const verifiedFormBinding = postingBinding.status === POSTING_BINDING_STATUS.BOUND || paidTalentSoftPostingBound;
   const allowAmbiguousStageHeading = Boolean(verifiedFormBinding);
   const employerHeadingCandidates = headingCandidates
     .map((heading) => employerIdentityHeadingText(heading, { allowAmbiguous: allowAmbiguousStageHeading }))
@@ -6133,7 +6171,7 @@ export function formPostingMatch(formText, job = {}, {
   // requisition when the page has no requisition ID. Mutable `postingUrl` is
   // never proof.
   if (direct === 'match' && hasEquivalentEmployerNameHeading(identityFormText, job, headingCandidates)) {
-    if (!talentSoftPageIdentity && !verifiedEntry && !paidTalentSoftPostingBound) return 'mismatch';
+    if (!talentSoftPageIdentity && postingBinding.status !== POSTING_BINDING_STATUS.BOUND && !paidTalentSoftPostingBound) return 'mismatch';
   }
   // A source-backed SuccessFactors module must still carry the requisition
   // captured from that posting. Do not let its employer query alone turn a
@@ -6200,6 +6238,10 @@ export function formPostingMatch(formText, job = {}, {
   // while the raw document still names a different role. Keep that conflict
   // fail-closed without promoting the shell to a verified application entry.
   if (direct === 'unknown' && roleOnlyPostingBound && rawDirect === 'mismatch') return 'mismatch';
+  // A verified employer-site entry, Pinpoint/BrassRing route, or Workday
+  // requisition is binding evidence even when the ATS form repeats no role or
+  // employer text. The conflict checks above still win over this proof.
+  if (postingBinding.status === POSTING_BINDING_STATUS.BOUND) return 'match';
   // A paid posting can link to a generic form hosted on the employer's own
   // secondary domain (for example, an ECAM DocuWare form). Preserve the
   // posting's entry proof when the form URL names that employer, while the
@@ -12002,7 +12044,8 @@ export async function submitViaPortal(ctx) {
       || earlierCvHeld(current.buttons, cvFileNames, keptCvUrls.has(page.url()));
     const snapshot = { ...current, text: await pageText(page), uploadedCv };
     const controls = pageControls(current.buttons, known, page.url(), {
-      snapshot, applyUrl: ctx.applyUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting,
+      snapshot, applyUrl: ctx.applyUrl, postingUrl: ctx.postingUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting,
+      applicationEntryUrl, applicationEntryProven: enteredThroughApplicationEntry,
       ...stageEntryProvenance(page.url()), job: ctx.job,
     });
     if (controls.stage) {
@@ -12016,7 +12059,8 @@ export async function submitViaPortal(ctx) {
   const confirmedReceipt = async (current) => {
     const snapshot = { ...current, text: await pageText(page) };
     const stage = applicationStage(snapshot, {
-      applyUrl: ctx.applyUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting,
+      applyUrl: ctx.applyUrl, postingUrl: ctx.postingUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting,
+      applicationEntryUrl, applicationEntryProven: enteredThroughApplicationEntry,
       ...stageEntryProvenance(page.url()), job: ctx.job, url: page.url(),
     });
     if (stage.kind !== 'receipt') return null;
@@ -13992,7 +14036,7 @@ export async function submitViaPortal(ctx) {
       if (duplicateBeforeFinal) return duplicateBeforeFinal;
       const finalText = `${await page.title().catch(() => '')}\n${await pageText(page)}\n${page.url()}`;
       const finalStage = applicationStage({ ...after, text: finalText }, {
-        applyUrl: ctx.applyUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting,
+        applyUrl: ctx.applyUrl, postingUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting,
         ...stageEntryProvenance(page.url()), job: ctx.job, url: page.url(),
       });
       const finalMatch = await formMatch();
@@ -14002,10 +14046,30 @@ export async function submitViaPortal(ctx) {
       const successFactorsBound = ctx.postingRouteProof?.via === 'successfactors'
         && successFactorsRequisitionShown(finalText, ctx.job, { pageUrl: page.url(), applyUrl: ctx.applyUrl });
       const jobKeyConflict = Boolean(expectedJobKey && currentJobKey && expectedJobKey !== currentJobKey);
-      const hasPostingBinding = finalMatch === 'match'
-        || Boolean(expectedJobKey && currentJobKey && expectedJobKey === currentJobKey)
-        || (isWorkdayTenantUrl(ctx.applyUrl) && sameWorkdayJobRoute(workdayJobRoute(page.url()), workdayJobRoute(ctx.applyUrl)))
-        || successFactorsBound;
+      const brassRingRouteExpected = sameBrassRingPostingAddress(ctx.applyUrl, postingUrl);
+      const brassRingRouteBound = brassRingRouteExpected && sameBrassRingPostingAddress(page.url(), postingUrl);
+      const jobKeyBound = Boolean(expectedJobKey && currentJobKey && expectedJobKey === currentJobKey);
+      const finalRouteBound = isPostingRouteBound({
+        pageUrl: page.url(), postingUrl, postingRouteProof: ctx.postingRouteProof,
+      })
+        || (isWorkdayTenantUrl(ctx.applyUrl) && workdayBound)
+        || brassRingRouteBound
+        || (!isWorkdayTenantUrl(ctx.applyUrl) && !brassRingRouteExpected && jobKeyBound);
+      const finalBinding = resolvePostingBinding({
+        currentUrl: page.url(),
+        postingUrl,
+        routeKind: isWorkdayTenantUrl(ctx.applyUrl) ? 'workday' : brassRingRouteExpected ? 'brassring' : finalRouteBound ? 'ats-route' : '',
+        routeExpected: isWorkdayTenantUrl(ctx.applyUrl) || brassRingRouteExpected,
+        routeBound: finalRouteBound,
+        selectedPostingRoute: Boolean(postingVacancyMatched
+          && (samePostingAddress(page.url(), postingUrl)
+            || sameBrassRingPostingAddress(page.url(), postingUrl))),
+        applicationEntryUrl,
+        applicationEntryProven: enteredThroughApplicationEntry,
+        postingEntryProven: enteredFromMatchingPosting,
+        formMatch: finalMatch,
+        explicitMismatch: jobKeyConflict || finalStage.kind === 'posting_mismatch',
+      });
       const finalDiversionHint = applicationDestinationDiversionHint({
         ...after,
         title: await page.title().catch(() => ''),
@@ -14013,13 +14077,13 @@ export async function submitViaPortal(ctx) {
         pageHeadings: await postingMainHeadings(page),
         text: finalText,
       });
-      const finalBindingValid = workdayBound && !jobKeyConflict && finalStage.kind !== 'posting_mismatch'
-        && !finalDiversionHint && hasPostingBinding;
+      const finalBindingValid = finalBinding.status === POSTING_BINDING_STATUS.BOUND && !finalDiversionHint;
       if (!finalBindingValid) {
         evidence.steps.at(-1).finalPostingBinding = {
           status: 'unbound', formMatch: finalMatch, stage: finalStage.kind,
+          binding: finalBinding,
           ...(finalDiversionHint ? { diversion: finalDiversionHint } : {}),
-          workdayBound, jobKeyMatch: Boolean(expectedJobKey && currentJobKey && expectedJobKey === currentJobKey),
+          workdayBound, jobKeyMatch: jobKeyBound,
           successFactorsBound,
         };
         if (!finalPostingRecoveryUsed && autonomousNavigation) {
@@ -14034,7 +14098,8 @@ export async function submitViaPortal(ctx) {
       }
       evidence.steps.at(-1).finalPostingBinding = {
         status: 'bound', formMatch: finalMatch, stage: finalStage.kind,
-        workdayBound, jobKeyMatch: Boolean(expectedJobKey && currentJobKey && expectedJobKey === currentJobKey),
+        binding: finalBinding,
+        workdayBound, jobKeyMatch: jobKeyBound,
         successFactorsBound,
       };
       // A normal send button is not evidence that the portal form is complete.

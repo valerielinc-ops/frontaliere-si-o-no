@@ -2,6 +2,67 @@ import { describe, expect, it } from 'vitest';
 import { formPostingMatch, namesAnotherEmployer } from '../scripts/assisted-application/lib/portal/portal.mjs';
 
 describe('portal form binding identity', () => {
+  it('uses the exact employer-site application entry as the binding discriminator', () => {
+    const applicationUrl = 'https://apply.example.test/forms/selected-role';
+    const job = { company: 'Example Employer', title: 'Payroll Specialist' };
+
+    expect(formPostingMatch('Application\nFirst name\nE-mail', job, {
+      postingMatched: true,
+      applicationEntry: true,
+      applicationEntryUrl: applicationUrl,
+      pageUrl: applicationUrl,
+      postingUrl: 'https://careers.example.test/jobs/payroll-specialist',
+      applyUrl: applicationUrl,
+    })).toBe('match');
+    expect(formPostingMatch('Application\nFirst name\nE-mail', job, {
+      postingMatched: true,
+      applicationEntry: true,
+      applicationEntryUrl: applicationUrl,
+      pageUrl: 'https://apply.example.test/forms/another-role',
+      postingUrl: 'https://careers.example.test/jobs/payroll-specialist',
+      applyUrl: applicationUrl,
+    })).toBe('unknown');
+  });
+
+  it.each([
+    ['Pinpoint',
+      'https://kempinski.pinpointhq.com/en/postings/9d8a7c6b-5e4f-4321-9abc-0123456789de',
+      'https://kempinski.pinpointhq.com/en/postings/9d8a7c6b-5e4f-4321-9abc-0123456789de/applications/new'],
+    ['BrassRing',
+      'https://jobs.ubs.com/TGNewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=348358&PageType=jobdetails',
+      'https://jobs.ubs.com/TGNewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=348358&PageType=jobdetails#application'],
+    ['Workday',
+      'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Zurich/Store-Assistant_R-19033',
+      'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Zurich/Store-Assistant_R-19033/apply/applyManually'],
+  ])('uses the %s route discriminator for a generic ATS form', (_ats, postingUrl, applicationUrl) => {
+    expect(formPostingMatch('Application\nFirst name\nE-mail', {
+      company: 'Example Employer', title: 'Store Assistant',
+    }, {
+      postingMatched: true,
+      postingEntry: true,
+      applicationEntry: true,
+      applicationEntryUrl: applicationUrl,
+      pageUrl: applicationUrl,
+      postingUrl,
+      applyUrl: applicationUrl,
+    })).toBe('match');
+  });
+
+  it('uses a proved Workday account handoff as the route binding', () => {
+    const applyUrl = 'https://acme.wd3.myworkdayjobs.com/fr-FR/AcmeCareers/job/Mendrisio%2C-Outlet/Consultant_R-12345-1/apply/applyManually';
+    const accountUrl = 'https://acme.wd3.myworkdayjobs.com/fr-FR/AcmeCareers/createAccount';
+
+    expect(formPostingMatch('Application\nFirst name\nE-mail', {
+      company: 'Acme AG', title: 'Consultant',
+    }, {
+      pageUrl: accountUrl,
+      applyUrl,
+      applicationEntry: true,
+      postingMatched: true,
+      applicationEntryUrl: accountUrl,
+    })).toBe('match');
+  });
+
   it('does not treat the selected role after a separator as another employer', () => {
     expect(namesAnotherEmployer('Example Employer - Payroll Specialist', {
       company: 'Example Employer',
