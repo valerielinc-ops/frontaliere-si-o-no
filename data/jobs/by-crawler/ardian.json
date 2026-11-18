@@ -1,7 +1,7 @@
 {
   "crawlerKey": "ardian",
-  "assembledAt": "2026-11-17T21:42:38.660Z",
-  "runId": "44179593436",
+  "assembledAt": "2026-11-18T09:53:15.392Z",
+  "runId": "44275493881",
   "jobs": [
     {
       "id": "ardian-9f5eec77bfad",
@@ -34,7 +34,7 @@
       "url": "https://ardian.wd103.myworkdayjobs.com/en-US/ArdianCareers/job/Zurich/Investor-Relations-Intern---January-2027-I-Zurich_JR1002219",
       "source": "Ardian Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:42:32.975Z",
+      "crawledAt": "2026-11-18T09:53:08.989Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -83,7 +83,7 @@
       "postalCode": "8001",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T21:42:32.975Z",
+      "validThrough": "2026-12-18T09:53:08.989Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -117,7 +117,7 @@
       "url": "https://ardian.wd103.myworkdayjobs.com/en-US/ArdianCareers/job/Zurich/Customized-Solutions-Intern---March---July-2027---Zurich--M-F-_JR1002285",
       "source": "Ardian Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:42:20.104Z",
+      "crawledAt": "2026-11-18T09:52:57.818Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -166,7 +166,7 @@
       "postalCode": "8001",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T21:42:20.104Z",
+      "validThrough": "2026-12-18T09:52:57.818Z",
       "validThroughSource": "last-observed-window"
     }
   ]
