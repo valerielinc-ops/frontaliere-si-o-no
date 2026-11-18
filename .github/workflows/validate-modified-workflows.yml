@@ -129,3 +129,132 @@ jobs:
 
       - name: Measure same-HEAD checkout populations
         run: node checkout-full/scripts/ci/measure-checkout-profile.mjs checkout-full checkout-sparse
+
+  source_liveness_measurement:
+    name: source-liveness checkout measurement
+    needs: validate
+    if: ${{ github.event_name == 'pull_request' && needs.validate.result == 'success' && contains(needs.validate.outputs.files, '.github/workflows/source-liveness.yml') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      # Keep the parent and HEAD measurements on the same runner and use the
+      # exact checkout profiles from the two revisions. Each revision also has
+      # a full checkout pair so the sparse reduction is independently visible.
+      # Every checkout uses the same blobless fetch mode; runner timestamps
+      # preserve the action's checkout phase for the measurement script.
+      - name: Start parent full checkout timer
+        run: date +%s%N > "$RUNNER_TEMP/source-liveness-parent-full.start"
+
+      - name: Full checkout parent
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.base.sha || github.ref }}
+          fetch-depth: 1
+          filter: blob:none
+          path: source-liveness-parent-full
+
+      - name: Stop parent full checkout timer
+        run: date +%s%N > "$RUNNER_TEMP/source-liveness-parent-full.end"
+
+      - name: Start parent sparse checkout timer
+        run: date +%s%N > "$RUNNER_TEMP/source-liveness-parent-sparse.start"
+
+      - name: Sparse checkout parent
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.base.sha || github.ref }}
+          fetch-depth: 1
+          filter: blob:none
+          path: source-liveness-parent-sparse
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/url-first-seen/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+
+      - name: Stop parent sparse checkout timer
+        run: date +%s%N > "$RUNNER_TEMP/source-liveness-parent-sparse.end"
+
+      - name: Start HEAD full checkout timer
+        run: date +%s%N > "$RUNNER_TEMP/source-liveness-head-full.start"
+
+      - name: Full checkout HEAD
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.ref }}
+          fetch-depth: 1
+          filter: blob:none
+          path: source-liveness-head-full
+
+      - name: Stop HEAD full checkout timer
+        run: date +%s%N > "$RUNNER_TEMP/source-liveness-head-full.end"
+
+      - name: Start HEAD sparse checkout timer
+        run: date +%s%N > "$RUNNER_TEMP/source-liveness-head-sparse.start"
+
+      - name: Sparse checkout HEAD
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.ref }}
+          fetch-depth: 1
+          filter: blob:none
+          path: source-liveness-head-sparse
+          sparse-checkout: |
+            /.npmrc
+            /package.json
+            /package-lock.json
+            /scripts/load-rc-env.mjs
+            /scripts/check-source-liveness.mjs
+            /scripts/lib/fetch-with-ref-timeout.mjs
+            /scripts/lib/remote-config-template-url.mjs
+            /scripts/lib/google-service-account-token.mjs
+            /scripts/lib/source-liveness.mjs
+            /scripts/lib/int-from-env.mjs
+            /scripts/lib/monitor-scheda.mjs
+            /scripts/lib/posthog-client.mjs
+            /scripts/lib/ga4-service-account.mjs
+            /scripts/lib/analytics-settled-window.mjs
+            /scripts/lib/github-issue-creator.mjs
+          sparse-checkout-cone-mode: false
+
+      - name: Stop HEAD sparse checkout timer
+        run: date +%s%N > "$RUNNER_TEMP/source-liveness-head-sparse.end"
+
+      - name: Measure parent and HEAD checkout metrics
+        env:
+          PARENT_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          {
+            echo '## Source Liveness checkout measurement'
+            echo
+            echo "**Run:** ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+            echo "**Parent SHA:** ${PARENT_SHA}"
+            echo "**HEAD SHA:** ${HEAD_SHA}"
+            echo
+            node source-liveness-head-full/scripts/ci/measure-source-liveness-checkout.mjs \
+              source-liveness-parent-full \
+              source-liveness-parent-sparse \
+              source-liveness-head-full \
+              source-liveness-head-sparse \
+              "$RUNNER_TEMP" \
+              "${{ github.event.pull_request.base.sha || github.ref }}" \
+              "${{ github.event.pull_request.head.sha || github.sha }}"
+          } | tee "$GITHUB_STEP_SUMMARY"
