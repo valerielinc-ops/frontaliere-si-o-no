@@ -344,6 +344,26 @@ describe('runner final guard across three application stages', () => {
     expect(f.click).toHaveBeenCalledOnce();
   });
 
+  it('hands off an unproven Workday account route before waiting for a mount', async () => {
+    const postingUrl = 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Zurich/Store-Assistant_R-19033';
+    const applyUrl = `${postingUrl}/apply`;
+    const account = snapshot('https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/login', 'Connexion', []);
+    const posting = snapshot(postingUrl, 'Store Assistant Rituals Apply', [{ id: 'entry', text: 'Apply', frame: 0, disabled: false }]);
+    const f = fixture(account, posting, review, null, {
+      applyUrl,
+      postingUrl,
+      channelType: 'workday',
+      job: { company: 'Rituals Cosmetics Switzerland', title: 'Store Assistant' },
+    });
+
+    const result = await f.run();
+
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'posting_mismatch' });
+    expect(f.openClick).toHaveBeenCalledOnce();
+    expect(f.codex).not.toHaveBeenCalled();
+    expect(f.guard).not.toHaveBeenCalled();
+  });
+
   it('keeps a Workday chooser on the bare requisition route bound while it mounts', async () => {
     const jobUrl = 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Zurich/Store-Assistant_R-19033';
     const manualUrl = `${jobUrl}/apply/applyManually`;

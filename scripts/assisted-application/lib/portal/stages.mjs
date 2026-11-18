@@ -421,6 +421,14 @@ function invalidPostingKey(value, protocol = null) {
     && !portalJobKey(value, protocol);
 }
 
+/** Shared route evidence for bounded SPA mount waits and stage classification. */
+export function isApplicationRouteBound(url, applyUrl, sourceProtocol = null, workdayApplicationEntryProven = false) {
+  if (invalidPostingKey(url) || invalidPostingKey(applyUrl, sourceProtocol)) return false;
+  if (!isWorkdayTenantUrl(applyUrl)) return true;
+  if (isWorkdayTenantAccountRoute(url, applyUrl)) return workdayApplicationEntryProven === true;
+  return isWorkdayJobRouteBound(url, applyUrl);
+}
+
 function boundRoute(value, applyUrl, sourceProtocol = null) {
   const url = parsed(value);
   const expected = parsed(applyUrl);
@@ -556,7 +564,7 @@ export function applicationStage(snapshot, {
   brassRingApplicationEntryProven = false,
   job = {},
 } = {}) {
-  if (invalidPostingKey(url) || invalidPostingKey(applyUrl, sourceProtocol)) return { kind: 'posting_mismatch' };
+  if (!isApplicationRouteBound(url, applyUrl, sourceProtocol, workdayApplicationEntryProven)) return { kind: 'posting_mismatch' };
   const workdayRouteExpected = isWorkdayTenantUrl(applyUrl);
   const workdayRouteBound = workdayRouteExpected && (
     isWorkdayTenantAccountRoute(url, applyUrl)
@@ -680,5 +688,11 @@ export function applicationStage(snapshot, {
     && hasApplicationIdentity && (hasCv || hasApplicationQuestion))
     || splitFormApplication || closedSectionApplication;
   if (apply.length && (!applicationForm || pending)) return { kind: 'unknown_apply', prefinal: pending };
+  const hasVisibleStageContent = buttons.length > 0
+    || (snapshot?.fields || []).some(field => !field?.disabled && !field?.chrome
+      && !['hidden', 'submit', 'button', 'reset', 'image'].includes(String(field?.inputType || '').toLowerCase()));
+  if (!hasVisibleStageContent && snapshot?.workdayApplicationSurface !== true) {
+    return { kind: 'unknown_apply' };
+  }
   return { kind: 'form' };
 }
