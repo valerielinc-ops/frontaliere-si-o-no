@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-11-18T03:21:24.043Z",
+  "generatedAt": "2026-11-18T19:22:42.643Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -110970,6 +110970,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-10T21:23:16.348Z"
     },
+    "myswitzerland:67dc2d9971a645b7a3e4442f4ffb6511::18f0172634e6b2b3505c758092dfe4670d1b268bc12420d79fc17d1b31138003": {
+      "id": "myswitzerland:67dc2d9971a645b7a3e4442f4ffb6511",
+      "sourceDescriptionHash": "18f0172634e6b2b3505c758092dfe4670d1b268bc12420d79fc17d1b31138003",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Neue Reformierte Kirche; comune: Urdorf; cantone: ZH; categoria: Sports; data: 2027-03-23; ora: 09:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Neue Reformierte Kirche; comune: Urdorf; cantone: ZH; categoria: Sports; data: 2027-03-23; ora: 09:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Neue Reformierte Kirche; municipality: Urdorf; canton: ZH; category: Sports; date: 2027-03-23; time: 09:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Neue Reformierte Kirche; gemeinde: Urdorf; kanton: ZH; kategorie: Sports; datum: 2027-03-23; uhrzeit: 09:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Neue Reformierte Kirche; commune: Urdorf; canton: ZH; catégorie: Sports; date: 2027-03-23; heure: 09:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-18T19:17:19.770Z"
+    },
     "myswitzerland:67e38dfafdb24f0d8fb29c29d1aeba9a::f56385e6c63889d4657d8144b84ca7b681caa6e67d26cbaa8b9fedb3838ee10f": {
       "id": "myswitzerland:67e38dfafdb24f0d8fb29c29d1aeba9a",
       "sourceDescriptionHash": "f56385e6c63889d4657d8144b84ca7b681caa6e67d26cbaa8b9fedb3838ee10f",
@@ -198401,15 +198415,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-17T18:26:58.217Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "myswitzerland:67dc2d9971a645b7a3e4442f4ffb6511::18f0172634e6b2b3505c758092dfe4670d1b268bc12420d79fc17d1b31138003": {
-      "id": "myswitzerland:67dc2d9971a645b7a3e4442f4ffb6511",
-      "sourceDescriptionHash": "18f0172634e6b2b3505c758092dfe4670d1b268bc12420d79fc17d1b31138003",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-15T11:22:09.801Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
