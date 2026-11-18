@@ -1,7 +1,7 @@
 {
   "crawlerKey": "google-switzerland",
-  "assembledAt": "2026-11-17T21:23:47.194Z",
-  "runId": "44176342839",
+  "assembledAt": "2026-11-18T09:22:55.481Z",
+  "runId": "44272647809",
   "jobs": [
     {
       "id": "google-switzerland-93a8572772f9",
@@ -34,7 +34,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/128594980477248198-security-sales-specialist-google-cloud-german",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:23:35.357Z",
+      "crawledAt": "2026-11-18T09:22:25.488Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -82,7 +82,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-25T21:23:35.357Z",
+      "validThrough": "2027-01-25T09:22:25.488Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -116,7 +116,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/107667015740596934-senior-software-engineer-google-cloud-generative-ai-blackbelt-team",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:23:34.793Z",
+      "crawledAt": "2026-11-18T09:22:24.944Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -173,8 +173,93 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T21:23:34.793Z",
+      "validThrough": "2027-02-10T09:22:24.944Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "google-switzerland-b8637a5f17a0",
+      "slug": "data-cloud-sales-specialist-dach-google-switzerland-zurich",
+      "slugByLocale": {
+        "en": "data-cloud-sales-specialist-dach-google-switzerland-zurich",
+        "it": "data-cloud-sales-specialist-dach-google-switzerland-zurich",
+        "de": "data-cloud-sales-specialist-dach-google-switzerland-zurich",
+        "fr": "data-cloud-sales-specialist-dach-google-switzerland-zurich"
+      },
+      "company": "Google Switzerland",
+      "companyKey": "google-switzerland",
+      "companyDomain": "google.com",
+      "title": "Data Cloud Sales Specialist, DACH",
+      "titleByLocale": {
+        "en": "Data Cloud Sales Specialist, DACH",
+        "it": "Data Cloud Sales Specialista, DACH",
+        "de": "Data Cloud Sales Spezialist, DACH",
+        "fr": "Data Cloud Sales Spécialiste, DACH"
+      },
+      "description": "Note: By applying to this position you will have an opportunity to share your preferred working location from the following: Munich, Germany; Zürich, Switzerland.\n\nMinimum qualifications:\n\n• Bachelor's degree or equivalent practical experience.\n\n• 10 years of quota-carrying enterprise sales experience.\n\n• Experience building business cases through workshops or product demos to business executives.\n\n• Experience developing partnerships with technical stakeholders (e.g., Enterprise Architects, Data Engineers, Data Scientists).\n\n• Experience positioning and selling technical solutions in data management, analytics, infrastructure, or AI/ML.\n\nPreferred qualifications:\n\n• Experience positioning modern cloud data platforms, lakehouses, real-time streaming, or GenAI platforms against legacy or other proprietary enterprise systems.\n\n• Experience working with Global System Integrators, hyperscalers, or ISVs to co-sell and accelerate pipeline.\n\n• Experience closing large-scale data and AI transformation deals within specific regulated or high-growth enterprise verticals (e.g., Financial Services, Healthcare/Life Sciences, Retail, or Manufacturing).\n\n• Practical understanding of how modern cloud architectures, data governance (e.g., cataloging, lineage, compliance), and clean data estates enable AI and real-time analytics.\n\nAbout the job\n\nAs the Data Cloud Sales Specialists team, we work together with Field Sales Representatives (Account Managers), Customer Engineers, and our partners to help our customers modernize their operational and analytical data foundations on GCP. We enable them to transition to modern, unified cloud architectures that position data as the absolute foundation for AI success and power next-generation AI and intelligent applications. As a master of complex lakehouse solutions, data governance, and AI, you are the exact sales expert we need to translate technical capabilities into high-impact business outcomes.\n You will be at the forefront of driving Google Cloud's most critical data and AI growth. In this role, you will drive growth by securing net-new greenfield logos and identify untapped, uncommitted workloads. You will partner with field sales representatives, customer engineers, and partners to execute joint Data+AI plays that establish long-term data platform standardization.\n You are a master of value-selling. You will engage with Line-of-Business (LoB) leaders, CDO, CAIO, and CFO to discover critical pain points, build robust business cases (ROI/TCO reduction), and demonstrate the quantifiable business value of modernizing data estates on GCP.\n Additionally, you will guide technical stakeholders and position Google Cloud's Data Cloud suite as the premium data intelligence platform. You will present demos that showcase how unified, well-governed data foundations power secure, hallucination-free AI agents and real-time experiences.\n Google Cloud accelerates every organization’s ability to digitally transform its business and industry. We deliver enterprise-grade solutions that leverage Google’s cutting-edge technology, and tools that help developers build more sustainably. Customers in more than 200 countries and territories turn to Google Cloud as their trusted partner to enable growth and solve their most critical business problems.\nIndividual pay is determined by factors including job-related skills, experience, and relevant education or training.\n\nGermany: €120000 - €123000 (EUR) + 100% bonus target + equity + benefits\n\nLearn more about benefits at Google .\n Responsibilities\n\n• Deliver against quota and achieve or exceed strategic business and growth goals. Drive net-new greenfield logos and workloads in existing accounts through proactive campaigns.\n\n• Run complex, multi-threaded business cycles from initial discovery and value hypothesis to ROI business case creation and commercial close.\n\n• Engage business leaders, Chief Data Officer, Chief Financial Officer, Chief Marketing Officer, Chief AI Officer, through value-selling, tying modern Data & AI capabilities to quantified business outcomes.\n\n• Align cross-functionally with FSRs and partners to execute joint Data+AI plays, driving platform standardization and co-sell motions.\n\n• Whiteboard modern architectures (BigQuery, Spark, Spanner, AlloyDB) to demonstrate how unified data foundations power high-performance, hallucination-free AI agents.",
+      "descriptionByLocale": {
+        "en": "Note: By applying to this position you will have an opportunity to share your preferred working location from the following: Munich, Germany; Zürich, Switzerland.\n\nMinimum qualifications:\n\n• Bachelor's degree or equivalent practical experience.\n\n• 10 years of quota-carrying enterprise sales experience.\n\n• Experience building business cases through workshops or product demos to business executives.\n\n• Experience developing partnerships with technical stakeholders (e.g., Enterprise Architects, Data Engineers, Data Scientists).\n\n• Experience positioning and selling technical solutions in data management, analytics, infrastructure, or AI/ML.\n\nPreferred qualifications:\n\n• Experience positioning modern cloud data platforms, lakehouses, real-time streaming, or GenAI platforms against legacy or other proprietary enterprise systems.\n\n• Experience working with Global System Integrators, hyperscalers, or ISVs to co-sell and accelerate pipeline.\n\n• Experience closing large-scale data and AI transformation deals within specific regulated or high-growth enterprise verticals (e.g., Financial Services, Healthcare/Life Sciences, Retail, or Manufacturing).\n\n• Practical understanding of how modern cloud architectures, data governance (e.g., cataloging, lineage, compliance), and clean data estates enable AI and real-time analytics.\n\nAbout the job\n\nAs the Data Cloud Sales Specialists team, we work together with Field Sales Representatives (Account Managers), Customer Engineers, and our partners to help our customers modernize their operational and analytical data foundations on GCP. We enable them to transition to modern, unified cloud architectures that position data as the absolute foundation for AI success and power next-generation AI and intelligent applications. As a master of complex lakehouse solutions, data governance, and AI, you are the exact sales expert we need to translate technical capabilities into high-impact business outcomes.\n You will be at the forefront of driving Google Cloud's most critical data and AI growth. In this role, you will drive growth by securing net-new greenfield logos and identify untapped, uncommitted workloads. You will partner with field sales representatives, customer engineers, and partners to execute joint Data+AI plays that establish long-term data platform standardization.\n You are a master of value-selling. You will engage with Line-of-Business (LoB) leaders, CDO, CAIO, and CFO to discover critical pain points, build robust business cases (ROI/TCO reduction), and demonstrate the quantifiable business value of modernizing data estates on GCP.\n Additionally, you will guide technical stakeholders and position Google Cloud's Data Cloud suite as the premium data intelligence platform. You will present demos that showcase how unified, well-governed data foundations power secure, hallucination-free AI agents and real-time experiences.\n Google Cloud accelerates every organization’s ability to digitally transform its business and industry. We deliver enterprise-grade solutions that leverage Google’s cutting-edge technology, and tools that help developers build more sustainably. Customers in more than 200 countries and territories turn to Google Cloud as their trusted partner to enable growth and solve their most critical business problems.\nIndividual pay is determined by factors including job-related skills, experience, and relevant education or training.\n\nGermany: €120000 - €123000 (EUR) + 100% bonus target + equity + benefits\n\nLearn more about benefits at Google .\n Responsibilities\n\n• Deliver against quota and achieve or exceed strategic business and growth goals. Drive net-new greenfield logos and workloads in existing accounts through proactive campaigns.\n\n• Run complex, multi-threaded business cycles from initial discovery and value hypothesis to ROI business case creation and commercial close.\n\n• Engage business leaders, Chief Data Officer, Chief Financial Officer, Chief Marketing Officer, Chief AI Officer, through value-selling, tying modern Data & AI capabilities to quantified business outcomes.\n\n• Align cross-functionally with FSRs and partners to execute joint Data+AI plays, driving platform standardization and co-sell motions.\n\n• Whiteboard modern architectures (BigQuery, Spark, Spanner, AlloyDB) to demonstrate how unified data foundations power high-performance, hallucination-free AI agents.",
+        "it": "Note: By applying to this position you will have an opportunity to share your preferred working location from the following: Munich, Germany; Zürich, Switzerland.\n\nMinimum qualifications:\n\n• Bachelor's degree or equivalent practical experience.\n\n• 10 years of quota-carrying enterprise sales experience.\n\n• Experience building business cases through workshops or product demos to business executives.\n\n• Experience developing partnerships with technical stakeholders (e.g., Enterprise Architects, Data Engineers, Data Scientists).\n\n• Experience positioning and selling technical solutions in data management, analytics, infrastructure, or AI/ML.\n\nPreferred qualifications:\n\n• Experience positioning modern cloud data platforms, lakehouses, real-time streaming, or GenAI platforms against legacy or other proprietary enterprise systems.\n\n• Experience working with Global System Integrators, hyperscalers, or ISVs to co-sell and accelerate pipeline.\n\n• Experience closing large-scale data and AI transformation deals within specific regulated or high-growth enterprise verticals (e.g., Financial Services, Healthcare/Life Sciences, Retail, or Manufacturing).\n\n• Practical understanding of how modern cloud architectures, data governance (e.g., cataloging, lineage, compliance), and clean data estates enable AI and real-time analytics.\n\nAbout the job\n\nAs the Data Cloud Sales Specialists team, we work together with Field Sales Representatives (Account Managers), Customer Engineers, and our partners to help our customers modernize their operational and analytical data foundations on GCP. We enable them to transition to modern, unified cloud architectures that position data as the absolute foundation for AI success and power next-generation AI and intelligent applications. As a master of complex lakehouse solutions, data governance, and AI, you are the exact sales expert we need to translate technical capabilities into high-impact business outcomes.\n You will be at the forefront of driving Google Cloud's most critical data and AI growth. In this role, you will drive growth by securing net-new greenfield logos and identify untapped, uncommitted workloads. You will partner with field sales representatives, customer engineers, and partners to execute joint Data+AI plays that establish long-term data platform standardization.\n You are a master of value-selling. You will engage with Line-of-Business (LoB) leaders, CDO, CAIO, and CFO to discover critical pain points, build robust business cases (ROI/TCO reduction), and demonstrate the quantifiable business value of modernizing data estates on GCP.\n Additionally, you will guide technical stakeholders and position Google Cloud's Data Cloud suite as the premium data intelligence platform. You will present demos that showcase how unified, well-governed data foundations power secure, hallucination-free AI agents and real-time experiences.\n Google Cloud accelerates every organization’s ability to digitally transform its business and industry. We deliver enterprise-grade solutions that leverage Google’s cutting-edge technology, and tools that help developers build more sustainably. Customers in more than 200 countries and territories turn to Google Cloud as their trusted partner to enable growth and solve their most critical business problems.\nIndividual pay is determined by factors including job-related skills, experience, and relevant education or training.\n\nGermany: €120000 - €123000 (EUR) + 100% bonus target + equity + benefits\n\nLearn more about benefits at Google .\n Responsibilities\n\n• Deliver against quota and achieve or exceed strategic business and growth goals. Drive net-new greenfield logos and workloads in existing accounts through proactive campaigns.\n\n• Run complex, multi-threaded business cycles from initial discovery and value hypothesis to ROI business case creation and commercial close.\n\n• Engage business leaders, Chief Data Officer, Chief Financial Officer, Chief Marketing Officer, Chief AI Officer, through value-selling, tying modern Data & AI capabilities to quantified business outcomes.\n\n• Align cross-functionally with FSRs and partners to execute joint Data+AI plays, driving platform standardization and co-sell motions.\n\n• Whiteboard modern architectures (BigQuery, Spark, Spanner, AlloyDB) to demonstrate how unified data foundations power high-performance, hallucination-free AI agents.",
+        "de": "Note: By applying to this position you will have an opportunity to share your preferred working location from the following: Munich, Germany; Zürich, Switzerland.\n\nMinimum qualifications:\n\n• Bachelor's degree or equivalent practical experience.\n\n• 10 years of quota-carrying enterprise sales experience.\n\n• Experience building business cases through workshops or product demos to business executives.\n\n• Experience developing partnerships with technical stakeholders (e.g., Enterprise Architects, Data Engineers, Data Scientists).\n\n• Experience positioning and selling technical solutions in data management, analytics, infrastructure, or AI/ML.\n\nPreferred qualifications:\n\n• Experience positioning modern cloud data platforms, lakehouses, real-time streaming, or GenAI platforms against legacy or other proprietary enterprise systems.\n\n• Experience working with Global System Integrators, hyperscalers, or ISVs to co-sell and accelerate pipeline.\n\n• Experience closing large-scale data and AI transformation deals within specific regulated or high-growth enterprise verticals (e.g., Financial Services, Healthcare/Life Sciences, Retail, or Manufacturing).\n\n• Practical understanding of how modern cloud architectures, data governance (e.g., cataloging, lineage, compliance), and clean data estates enable AI and real-time analytics.\n\nAbout the job\n\nAs the Data Cloud Sales Specialists team, we work together with Field Sales Representatives (Account Managers), Customer Engineers, and our partners to help our customers modernize their operational and analytical data foundations on GCP. We enable them to transition to modern, unified cloud architectures that position data as the absolute foundation for AI success and power next-generation AI and intelligent applications. As a master of complex lakehouse solutions, data governance, and AI, you are the exact sales expert we need to translate technical capabilities into high-impact business outcomes.\n You will be at the forefront of driving Google Cloud's most critical data and AI growth. In this role, you will drive growth by securing net-new greenfield logos and identify untapped, uncommitted workloads. You will partner with field sales representatives, customer engineers, and partners to execute joint Data+AI plays that establish long-term data platform standardization.\n You are a master of value-selling. You will engage with Line-of-Business (LoB) leaders, CDO, CAIO, and CFO to discover critical pain points, build robust business cases (ROI/TCO reduction), and demonstrate the quantifiable business value of modernizing data estates on GCP.\n Additionally, you will guide technical stakeholders and position Google Cloud's Data Cloud suite as the premium data intelligence platform. You will present demos that showcase how unified, well-governed data foundations power secure, hallucination-free AI agents and real-time experiences.\n Google Cloud accelerates every organization’s ability to digitally transform its business and industry. We deliver enterprise-grade solutions that leverage Google’s cutting-edge technology, and tools that help developers build more sustainably. Customers in more than 200 countries and territories turn to Google Cloud as their trusted partner to enable growth and solve their most critical business problems.\nIndividual pay is determined by factors including job-related skills, experience, and relevant education or training.\n\nGermany: €120000 - €123000 (EUR) + 100% bonus target + equity + benefits\n\nLearn more about benefits at Google .\n Responsibilities\n\n• Deliver against quota and achieve or exceed strategic business and growth goals. Drive net-new greenfield logos and workloads in existing accounts through proactive campaigns.\n\n• Run complex, multi-threaded business cycles from initial discovery and value hypothesis to ROI business case creation and commercial close.\n\n• Engage business leaders, Chief Data Officer, Chief Financial Officer, Chief Marketing Officer, Chief AI Officer, through value-selling, tying modern Data & AI capabilities to quantified business outcomes.\n\n• Align cross-functionally with FSRs and partners to execute joint Data+AI plays, driving platform standardization and co-sell motions.\n\n• Whiteboard modern architectures (BigQuery, Spark, Spanner, AlloyDB) to demonstrate how unified data foundations power high-performance, hallucination-free AI agents.",
+        "fr": "Note: By applying to this position you will have an opportunity to share your preferred working location from the following: Munich, Germany; Zürich, Switzerland.\n\nMinimum qualifications:\n\n• Bachelor's degree or equivalent practical experience.\n\n• 10 years of quota-carrying enterprise sales experience.\n\n• Experience building business cases through workshops or product demos to business executives.\n\n• Experience developing partnerships with technical stakeholders (e.g., Enterprise Architects, Data Engineers, Data Scientists).\n\n• Experience positioning and selling technical solutions in data management, analytics, infrastructure, or AI/ML.\n\nPreferred qualifications:\n\n• Experience positioning modern cloud data platforms, lakehouses, real-time streaming, or GenAI platforms against legacy or other proprietary enterprise systems.\n\n• Experience working with Global System Integrators, hyperscalers, or ISVs to co-sell and accelerate pipeline.\n\n• Experience closing large-scale data and AI transformation deals within specific regulated or high-growth enterprise verticals (e.g., Financial Services, Healthcare/Life Sciences, Retail, or Manufacturing).\n\n• Practical understanding of how modern cloud architectures, data governance (e.g., cataloging, lineage, compliance), and clean data estates enable AI and real-time analytics.\n\nAbout the job\n\nAs the Data Cloud Sales Specialists team, we work together with Field Sales Representatives (Account Managers), Customer Engineers, and our partners to help our customers modernize their operational and analytical data foundations on GCP. We enable them to transition to modern, unified cloud architectures that position data as the absolute foundation for AI success and power next-generation AI and intelligent applications. As a master of complex lakehouse solutions, data governance, and AI, you are the exact sales expert we need to translate technical capabilities into high-impact business outcomes.\n You will be at the forefront of driving Google Cloud's most critical data and AI growth. In this role, you will drive growth by securing net-new greenfield logos and identify untapped, uncommitted workloads. You will partner with field sales representatives, customer engineers, and partners to execute joint Data+AI plays that establish long-term data platform standardization.\n You are a master of value-selling. You will engage with Line-of-Business (LoB) leaders, CDO, CAIO, and CFO to discover critical pain points, build robust business cases (ROI/TCO reduction), and demonstrate the quantifiable business value of modernizing data estates on GCP.\n Additionally, you will guide technical stakeholders and position Google Cloud's Data Cloud suite as the premium data intelligence platform. You will present demos that showcase how unified, well-governed data foundations power secure, hallucination-free AI agents and real-time experiences.\n Google Cloud accelerates every organization’s ability to digitally transform its business and industry. We deliver enterprise-grade solutions that leverage Google’s cutting-edge technology, and tools that help developers build more sustainably. Customers in more than 200 countries and territories turn to Google Cloud as their trusted partner to enable growth and solve their most critical business problems.\nIndividual pay is determined by factors including job-related skills, experience, and relevant education or training.\n\nGermany: €120000 - €123000 (EUR) + 100% bonus target + equity + benefits\n\nLearn more about benefits at Google .\n Responsibilities\n\n• Deliver against quota and achieve or exceed strategic business and growth goals. Drive net-new greenfield logos and workloads in existing accounts through proactive campaigns.\n\n• Run complex, multi-threaded business cycles from initial discovery and value hypothesis to ROI business case creation and commercial close.\n\n• Engage business leaders, Chief Data Officer, Chief Financial Officer, Chief Marketing Officer, Chief AI Officer, through value-selling, tying modern Data & AI capabilities to quantified business outcomes.\n\n• Align cross-functionally with FSRs and partners to execute joint Data+AI plays, driving platform standardization and co-sell motions.\n\n• Whiteboard modern architectures (BigQuery, Spark, Spanner, AlloyDB) to demonstrate how unified data foundations power high-performance, hallucination-free AI agents."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.google.com/about/careers/applications/jobs/results/124361935872238278-data-cloud-sales-specialist-dach",
+      "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-18T09:22:24.242Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "Zürich",
+      "streetAddress": "Brandschenkestrasse 110",
+      "postalCode": "8001",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Commerciale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Tecnologia / R&D",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://www.google.com/about/careers/applications/jobs/results/124361935872238278-data-cloud-sales-specialist-dach",
+      "jobReqId": "124361935872238278",
+      "requirements": [
+        "Bachelor's degree or equivalent practical experience.",
+        "10 years of quota-carrying enterprise sales experience.",
+        "Experience building business cases through workshops or product demos to business executives.",
+        "Experience developing partnerships with technical stakeholders (e.g., Enterprise Architects, Data Engineers, Data Scientists).",
+        "Experience positioning and selling technical solutions in data management, analytics, infrastructure, or AI/ML."
+      ],
+      "requirementsByLocale": {
+        "en": [
+          "Bachelor's degree or equivalent practical experience.",
+          "10 years of quota-carrying enterprise sales experience.",
+          "Experience building business cases through workshops or product demos to business executives.",
+          "Experience developing partnerships with technical stakeholders (e.g., Enterprise Architects, Data Engineers, Data Scientists).",
+          "Experience positioning and selling technical solutions in data management, analytics, infrastructure, or AI/ML."
+        ]
+      },
+      "needsRetranslation": true,
+      "salaryMin": 83000,
+      "salaryMax": 127500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 127500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-16T09:22:24.242Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-18T09:22:24.242Z"
     },
     {
       "id": "google-switzerland-30025ee810c0",
@@ -207,7 +292,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/105458081579573958-software-engineer-iii-aiml-dsphtp-optimisation",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:23:34.242Z",
+      "crawledAt": "2026-11-18T09:22:23.707Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -252,7 +337,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-17T21:23:34.242Z",
+      "validThrough": "2026-12-18T09:22:23.707Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -286,7 +371,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/77684590197514950-data-science-phd-intern-2027",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:23:33.691Z",
+      "crawledAt": "2026-11-18T09:22:23.151Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -330,7 +415,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-17T21:23:33.691Z",
+      "validThrough": "2026-12-18T09:22:23.151Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -364,7 +449,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/98438078061781702-staff-software-engineer-aai-research",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:23:33.132Z",
+      "crawledAt": "2026-11-18T09:22:22.618Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -422,7 +507,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T21:23:33.132Z",
+      "validThrough": "2027-02-02T09:22:22.618Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -456,7 +541,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/99554498975802054-search-traffic-integrity-engineering-analyst",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:23:32.589Z",
+      "crawledAt": "2026-11-18T09:22:22.073Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -503,7 +588,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-27T21:23:32.589Z",
+      "validThrough": "2027-01-28T09:22:22.073Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -537,7 +622,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/123047855462982342-research-scientist-gemini-vision-deepmind",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:23:31.971Z",
+      "crawledAt": "2026-11-18T09:22:21.409Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -587,7 +672,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-29T21:23:31.971Z",
+      "validThrough": "2026-12-30T09:22:21.409Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -621,7 +706,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/118953332948509382-senior-security-engineer",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:23:31.422Z",
+      "crawledAt": "2026-11-18T09:22:20.862Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -669,7 +754,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T21:23:31.422Z",
+      "validThrough": "2027-02-03T09:22:20.862Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -703,7 +788,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/79730131723002566-software-engineer-iii-shopping-graph-feeds-infrastructure",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:23:30.851Z",
+      "crawledAt": "2026-11-18T09:22:20.347Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -749,7 +834,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-11T21:23:30.851Z",
+      "validThrough": "2027-01-12T09:22:20.347Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -783,7 +868,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/129187054603903686-senior-product-manager-ai-ecosystems-frontier-ai-deepmind",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:23:30.291Z",
+      "crawledAt": "2026-11-18T09:22:19.826Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -840,7 +925,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T21:23:30.291Z",
+      "validThrough": "2027-02-02T09:22:19.826Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -874,7 +959,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/72112067431015110-director-martech-and-applied-ai-youtube-marketing",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:23:29.757Z",
+      "crawledAt": "2026-11-18T09:22:19.273Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -921,8 +1006,89 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-05T21:23:29.757Z",
+      "validThrough": "2027-02-05T09:22:19.273Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "google-switzerland-c8c0064d1f02",
+      "slug": "applied-ml-graph-neural-network-research-software-engineer-google-switzerland-zurich",
+      "slugByLocale": {
+        "en": "applied-ml-graph-neural-network-research-software-engineer-google-switzerland-zurich",
+        "it": "applied-ml-graph-neural-network-research-software-engineer-google-switzerland-zurich",
+        "de": "applied-ml-graph-neural-network-research-software-engineer-google-switzerland-zurich",
+        "fr": "applied-ml-graph-neural-network-research-software-engineer-google-switzerland-zurich"
+      },
+      "company": "Google Switzerland",
+      "companyKey": "google-switzerland",
+      "companyDomain": "google.com",
+      "title": "Applied ML Graph Neural Network Research Software Engineer",
+      "titleByLocale": {
+        "en": "Applied ML Graph Neural Network Research Software Engineer",
+        "it": "Applied ML Graph Neural Network Ricerca Software Ingegnere",
+        "de": "Applied ML Graph Neural Network Forschung Software Ingenieur",
+        "fr": "Applied ML Graph Neural Network Recherche Software Ingénieur"
+      },
+      "description": "In most instances, this position requires in-person interviews as part of the hiring process.\n\nMinimum qualifications:\n\n• Bachelor’s degree or equivalent practical experience.\n\n• 5 years of experience with ML infrastructure (e.g., model deployment, model evaluation, optimization, data processing, debugging).\n\n• Experience designing, training, and deploying Graph Neural Networks (GNNs) or graph embedding models using frameworks such as PyTorch Geometric (PyG), JAX/Jraph, or TF-GNN.\n\nPreferred qualifications:\n\n• Ability to lead the Research and Development (R&D) and production of complex ML/Infra algorithms.\n\nAbout the job\n Google's software engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another. Our products need to handle information at massive scale, and extend well beyond web search. We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day. As a software engineer, you will work on a specific project critical to Google’s needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve. We need our engineers to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full-stack as we continue to push technology forward.\n\nOur mission is to research and develop production-ready, self-service ML tools, and to support Google product teams on deploying ML solutions.\n In this role, you will join a fast moving Applied ML group dedicated to bringing graph ML algorithms to solve industrial temporal and relational data problems in Google. You will drive end-to-end life cycle of new features (brainstorming, literature review, development, productionization) and helping product teams (internal and external) deploy models.\n\nYou will also be a key contributor in the GraphML for Google Systems cross-Product Area initiative, helping build a unified platform based on GNN and AI agents to monitor, optimize, and support core infrastructure across storage, networking, and compute.\n\nResponsibilities\n\n• Identify, develop and productionize GNN/ML methods driven by client feedback, team brainstorming, literature review and original research applied into the GraphFlow GNN library.\n\n• Develop and productionize industrial GNN/ML models and infrastructure for the GraphML for Google Systems cross-Product Area initiative to build a unified GNN and AI agent system to support Google's Systems.\n\n• Partner closely with product teams and research groups to translate business requirements into ML solutions.",
+      "descriptionByLocale": {
+        "en": "In most instances, this position requires in-person interviews as part of the hiring process.\n\nMinimum qualifications:\n\n• Bachelor’s degree or equivalent practical experience.\n\n• 5 years of experience with ML infrastructure (e.g., model deployment, model evaluation, optimization, data processing, debugging).\n\n• Experience designing, training, and deploying Graph Neural Networks (GNNs) or graph embedding models using frameworks such as PyTorch Geometric (PyG), JAX/Jraph, or TF-GNN.\n\nPreferred qualifications:\n\n• Ability to lead the Research and Development (R&D) and production of complex ML/Infra algorithms.\n\nAbout the job\n Google's software engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another. Our products need to handle information at massive scale, and extend well beyond web search. We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day. As a software engineer, you will work on a specific project critical to Google’s needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve. We need our engineers to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full-stack as we continue to push technology forward.\n\nOur mission is to research and develop production-ready, self-service ML tools, and to support Google product teams on deploying ML solutions.\n In this role, you will join a fast moving Applied ML group dedicated to bringing graph ML algorithms to solve industrial temporal and relational data problems in Google. You will drive end-to-end life cycle of new features (brainstorming, literature review, development, productionization) and helping product teams (internal and external) deploy models.\n\nYou will also be a key contributor in the GraphML for Google Systems cross-Product Area initiative, helping build a unified platform based on GNN and AI agents to monitor, optimize, and support core infrastructure across storage, networking, and compute.\n\nResponsibilities\n\n• Identify, develop and productionize GNN/ML methods driven by client feedback, team brainstorming, literature review and original research applied into the GraphFlow GNN library.\n\n• Develop and productionize industrial GNN/ML models and infrastructure for the GraphML for Google Systems cross-Product Area initiative to build a unified GNN and AI agent system to support Google's Systems.\n\n• Partner closely with product teams and research groups to translate business requirements into ML solutions.",
+        "it": "In most instances, this position requires in-person interviews as part of the hiring process.\n\nMinimum qualifications:\n\n• Bachelor’s degree or equivalent practical experience.\n\n• 5 years of experience with ML infrastructure (e.g., model deployment, model evaluation, optimization, data processing, debugging).\n\n• Experience designing, training, and deploying Graph Neural Networks (GNNs) or graph embedding models using frameworks such as PyTorch Geometric (PyG), JAX/Jraph, or TF-GNN.\n\nPreferred qualifications:\n\n• Ability to lead the Research and Development (R&D) and production of complex ML/Infra algorithms.\n\nAbout the job\n Google's software engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another. Our products need to handle information at massive scale, and extend well beyond web search. We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day. As a software engineer, you will work on a specific project critical to Google’s needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve. We need our engineers to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full-stack as we continue to push technology forward.\n\nOur mission is to research and develop production-ready, self-service ML tools, and to support Google product teams on deploying ML solutions.\n In this role, you will join a fast moving Applied ML group dedicated to bringing graph ML algorithms to solve industrial temporal and relational data problems in Google. You will drive end-to-end life cycle of new features (brainstorming, literature review, development, productionization) and helping product teams (internal and external) deploy models.\n\nYou will also be a key contributor in the GraphML for Google Systems cross-Product Area initiative, helping build a unified platform based on GNN and AI agents to monitor, optimize, and support core infrastructure across storage, networking, and compute.\n\nResponsibilities\n\n• Identify, develop and productionize GNN/ML methods driven by client feedback, team brainstorming, literature review and original research applied into the GraphFlow GNN library.\n\n• Develop and productionize industrial GNN/ML models and infrastructure for the GraphML for Google Systems cross-Product Area initiative to build a unified GNN and AI agent system to support Google's Systems.\n\n• Partner closely with product teams and research groups to translate business requirements into ML solutions.",
+        "de": "In most instances, this position requires in-person interviews as part of the hiring process.\n\nMinimum qualifications:\n\n• Bachelor’s degree or equivalent practical experience.\n\n• 5 years of experience with ML infrastructure (e.g., model deployment, model evaluation, optimization, data processing, debugging).\n\n• Experience designing, training, and deploying Graph Neural Networks (GNNs) or graph embedding models using frameworks such as PyTorch Geometric (PyG), JAX/Jraph, or TF-GNN.\n\nPreferred qualifications:\n\n• Ability to lead the Research and Development (R&D) and production of complex ML/Infra algorithms.\n\nAbout the job\n Google's software engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another. Our products need to handle information at massive scale, and extend well beyond web search. We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day. As a software engineer, you will work on a specific project critical to Google’s needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve. We need our engineers to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full-stack as we continue to push technology forward.\n\nOur mission is to research and develop production-ready, self-service ML tools, and to support Google product teams on deploying ML solutions.\n In this role, you will join a fast moving Applied ML group dedicated to bringing graph ML algorithms to solve industrial temporal and relational data problems in Google. You will drive end-to-end life cycle of new features (brainstorming, literature review, development, productionization) and helping product teams (internal and external) deploy models.\n\nYou will also be a key contributor in the GraphML for Google Systems cross-Product Area initiative, helping build a unified platform based on GNN and AI agents to monitor, optimize, and support core infrastructure across storage, networking, and compute.\n\nResponsibilities\n\n• Identify, develop and productionize GNN/ML methods driven by client feedback, team brainstorming, literature review and original research applied into the GraphFlow GNN library.\n\n• Develop and productionize industrial GNN/ML models and infrastructure for the GraphML for Google Systems cross-Product Area initiative to build a unified GNN and AI agent system to support Google's Systems.\n\n• Partner closely with product teams and research groups to translate business requirements into ML solutions.",
+        "fr": "In most instances, this position requires in-person interviews as part of the hiring process.\n\nMinimum qualifications:\n\n• Bachelor’s degree or equivalent practical experience.\n\n• 5 years of experience with ML infrastructure (e.g., model deployment, model evaluation, optimization, data processing, debugging).\n\n• Experience designing, training, and deploying Graph Neural Networks (GNNs) or graph embedding models using frameworks such as PyTorch Geometric (PyG), JAX/Jraph, or TF-GNN.\n\nPreferred qualifications:\n\n• Ability to lead the Research and Development (R&D) and production of complex ML/Infra algorithms.\n\nAbout the job\n Google's software engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another. Our products need to handle information at massive scale, and extend well beyond web search. We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day. As a software engineer, you will work on a specific project critical to Google’s needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve. We need our engineers to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full-stack as we continue to push technology forward.\n\nOur mission is to research and develop production-ready, self-service ML tools, and to support Google product teams on deploying ML solutions.\n In this role, you will join a fast moving Applied ML group dedicated to bringing graph ML algorithms to solve industrial temporal and relational data problems in Google. You will drive end-to-end life cycle of new features (brainstorming, literature review, development, productionization) and helping product teams (internal and external) deploy models.\n\nYou will also be a key contributor in the GraphML for Google Systems cross-Product Area initiative, helping build a unified platform based on GNN and AI agents to monitor, optimize, and support core infrastructure across storage, networking, and compute.\n\nResponsibilities\n\n• Identify, develop and productionize GNN/ML methods driven by client feedback, team brainstorming, literature review and original research applied into the GraphFlow GNN library.\n\n• Develop and productionize industrial GNN/ML models and infrastructure for the GraphML for Google Systems cross-Product Area initiative to build a unified GNN and AI agent system to support Google's Systems.\n\n• Partner closely with product teams and research groups to translate business requirements into ML solutions."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.google.com/about/careers/applications/jobs/results/105578566418080454-applied-ml-graph-neural-network-research-software-engineer",
+      "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-18T09:22:18.582Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "Zürich",
+      "streetAddress": "Brandschenkestrasse 110",
+      "postalCode": "8001",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Tecnologia / R&D",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://www.google.com/about/careers/applications/jobs/results/105578566418080454-applied-ml-graph-neural-network-research-software-engineer",
+      "jobReqId": "105578566418080454",
+      "requirements": [
+        "Bachelor’s degree or equivalent practical experience.",
+        "5 years of experience with ML infrastructure (e.g., model deployment, model evaluation, optimization, data processing, debugging).",
+        "Experience designing, training, and deploying Graph Neural Networks (GNNs) or graph embedding models using frameworks such as PyTorch Geometric (PyG), JAX/Jraph, or TF-GNN."
+      ],
+      "requirementsByLocale": {
+        "en": [
+          "Bachelor’s degree or equivalent practical experience.",
+          "5 years of experience with ML infrastructure (e.g., model deployment, model evaluation, optimization, data processing, debugging).",
+          "Experience designing, training, and deploying Graph Neural Networks (GNNs) or graph embedding models using frameworks such as PyTorch Geometric (PyG), JAX/Jraph, or TF-GNN."
+        ]
+      },
+      "needsRetranslation": true,
+      "salaryMin": 83000,
+      "salaryMax": 126000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 126000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-08T09:22:18.582Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-10-09T21:16:12.684Z"
     },
     {
       "id": "google-switzerland-08237d323a7e",
@@ -955,7 +1121,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/102134702726357702-information-security-engineer-hardware-security",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:23:29.205Z",
+      "crawledAt": "2026-11-18T09:22:17.964Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -999,15 +1165,15 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T21:23:29.205Z",
+      "validThrough": "2027-02-09T09:22:17.964Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-8bdd16cfddf7",
       "slug": "senior-ux-design-manager-youtube-studio-and-support-google-switzerland-zurich",
       "slugByLocale": {
-        "en": "senior-ux-design-manager-youtube-studio-and-support-google-switzerland-zurich",
         "it": "senior-ux-design-manager-youtube-studio-and-support-google-switzerland-zurich",
+        "en": "senior-ux-design-manager-youtube-studio-and-support-google-switzerland-zurich",
         "de": "senior-ux-design-manager-youtube-studio-and-support-google-switzerland-zurich",
         "fr": "senior-ux-design-manager-youtube-studio-and-support-google-switzerland-zurich"
       },
@@ -1016,24 +1182,24 @@
       "companyDomain": "google.com",
       "title": "Senior UX Design Manager, YouTube Studio and Support",
       "titleByLocale": {
-        "en": "Senior UX Design Manager, YouTube Studio and Support",
         "it": "Senior UX Design Manager, YouTube Studio e Supporto",
+        "en": "Senior UX Design Manager, YouTube Studio and Support",
         "de": "Senior UX Design Manager, YouTube Studio und Support",
         "fr": "Responsable senior de la conception UX, YouTube Studio et assistance"
       },
       "description": "Minimum qualifications:\n\n• Bachelor's degree or equivalent practical experience.\n\n• 10 years of experience in product design or UX.\n\n• 5 years of experience leading design projects and managing people or teams.\n\n• 3 years of work experience working with executive leaders.\n\n• Include a portfolio, website, or any other relevant link to your work in your resume (providing a viewable link or access instructions).\n\nPreferred qualifications:\n\n• Master's degree in Design, Human-Computer Interaction, Computer Science, a related field, or equivalent practical experience.\n\n• 7 years of experience working in a complex, cross-functional organization.\n\nAbout the job\n At Google, we \"Focus on the user and all else will follow.\" As a UX Design Manager, you will drive this vision by defining product strategy, mitigating complexity, and conceptualizing ecosystem-level UX. You are a systems-level thinker and a fierce advocate for both your users and your team.\n\nYou will be responsible for guiding the careers of your direct reports, helping them realize their full potential while fostering a culture of forward-thinking design. With a practiced eye for quality, you will transform complex workflows into elegantly simple experiences. You will collaborate closely with Engineering and Product Management leaders to align business goals with design innovation, leveraging your passion for brand, craft, and execution.\n\nUser experience is at the forefront of how we create intuitive, innovative, and beautiful products that people love. We strive to learn and understand our users’ needs, behaviors, and emotions to gather insights that inform product strategy and design. Our UX teams include designers, researchers, content strategists, and engineers who are passionate about quality, usability, and simplicity. We work on collaborative teams to solve complex challenges and craft experiences that highlight our products’ unique capabilities and personalities. Our work touches billions while exemplifying a key principle that is core to Google’s philosophy: “Focus on the user and all else will follow.”\n\nResponsibilities\n\n• Drive the long-term User Experience (UX) goal for YouTube Studio and Creator Support, ensuring alignment across YouTube.\n\n• Lead and mentor a high-performing, multi-disciplinary UX team across Zurich and Bangalore, fostering a collaborative culture.\n\n• Partner closely with Product, Engineering, Research, and Content Design to influence stakeholders and align regional strategies.\n\n• Advocate for scalable design systems while leveraging AI capabilities to enhance creator workflows and experience consistency.\n\n• Maintain high visual and interaction quality standards while making informed product decisions grounded in creator needs.",
       "descriptionByLocale": {
-        "en": "Minimum qualifications:\n\n• Bachelor's degree or equivalent practical experience.\n\n• 10 years of experience in product design or UX.\n\n• 5 years of experience leading design projects and managing people or teams.\n\n• 3 years of work experience working with executive leaders.\n\n• Include a portfolio, website, or any other relevant link to your work in your resume (providing a viewable link or access instructions).\n\nPreferred qualifications:\n\n• Master's degree in Design, Human-Computer Interaction, Computer Science, a related field, or equivalent practical experience.\n\n• 7 years of experience working in a complex, cross-functional organization.\n\nAbout the job\n At Google, we \"Focus on the user and all else will follow.\" As a UX Design Manager, you will drive this vision by defining product strategy, mitigating complexity, and conceptualizing ecosystem-level UX. You are a systems-level thinker and a fierce advocate for both your users and your team.\n\nYou will be responsible for guiding the careers of your direct reports, helping them realize their full potential while fostering a culture of forward-thinking design. With a practiced eye for quality, you will transform complex workflows into elegantly simple experiences. You will collaborate closely with Engineering and Product Management leaders to align business goals with design innovation, leveraging your passion for brand, craft, and execution.\n\nUser experience is at the forefront of how we create intuitive, innovative, and beautiful products that people love. We strive to learn and understand our users’ needs, behaviors, and emotions to gather insights that inform product strategy and design. Our UX teams include designers, researchers, content strategists, and engineers who are passionate about quality, usability, and simplicity. We work on collaborative teams to solve complex challenges and craft experiences that highlight our products’ unique capabilities and personalities. Our work touches billions while exemplifying a key principle that is core to Google’s philosophy: “Focus on the user and all else will follow.”\n\nResponsibilities\n\n• Drive the long-term User Experience (UX) goal for YouTube Studio and Creator Support, ensuring alignment across YouTube.\n\n• Lead and mentor a high-performing, multi-disciplinary UX team across Zurich and Bangalore, fostering a collaborative culture.\n\n• Partner closely with Product, Engineering, Research, and Content Design to influence stakeholders and align regional strategies.\n\n• Advocate for scalable design systems while leveraging AI capabilities to enhance creator workflows and experience consistency.\n\n• Maintain high visual and interaction quality standards while making informed product decisions grounded in creator needs.",
-        "it": "Titolo minimo:\n\n• Corso di laurea o esperienza pratica equivalente.\n\n• 10 anni di esperienza nella progettazione del prodotto o UX.\n\n• 5 anni di esperienza leader progetti di progettazione e gestione di persone o team.\n\n• 3 anni di esperienza lavorativa che lavorano con i leader esecutivi.\n\n• Includere un portafoglio, un sito web o qualsiasi altro link rilevante al tuo lavoro nel tuo curriculum (fornire un link visibile o istruzioni di accesso).\n\nQualifiche preferenziali:\n\n• Laurea magistrale in Design, Interazione Umana-Computer, Scienza informatica, un campo correlato, o esperienza pratica equivalente.\n\n• 7 anni di esperienza che lavorano in un'organizzazione complessa e interfunzionale.\n\nRiguardo al lavoro\n A Google, \"Focus sull'utente e tutto il resto seguirà\". Come UX Design Manager, guiderai questa visione definendo la strategia del prodotto, mitigando la complessità e concettualizzando l'UX a livello di ecosistema. Sei un pensatore di livello di sistemi e un feroce sostenitore sia per i tuoi utenti che per il tuo team.\n\nSarete responsabili di guidare le carriere dei vostri rapporti diretti, aiutandoli a realizzare il loro pieno potenziale, promuovendo una cultura del design in anticipo. Con un occhio praticato per la qualità, trasformerai i flussi di lavoro complessi in esperienze elegantemente semplici. Collaborerai a stretto contatto con i leader di Engineering e Product Management per allineare gli obiettivi aziendali con l'innovazione del design, sfruttando la tua passione per il marchio, l'artigianato e l'esecuzione.\n\nL'esperienza dell'utente è all'avanguardia nel modo in cui creiamo prodotti intuitivi, innovativi e belli che la gente ama. Ci sforziamo di imparare e comprendere le esigenze, i comportamenti e le emozioni dei nostri utenti per raccogliere informazioni che informano la strategia e il design del prodotto. I nostri team UX includono designer, ricercatori, strateghi dei contenuti e ingegneri che sono appassionati di qualità, usabilità e semplicità. Lavoriamo su team collaborativi per risolvere complesse sfide e esperienze artigianali che evidenziano le capacità e le personalità uniche dei nostri prodotti. Il nostro lavoro tocca miliardi esemplifica un principio chiave che è fondamentale per la filosofia di Google: “Focus sull’utente e tutto il resto seguirà”.\n\nresponsabilità\n\n• Guidare l'obiettivo a lungo termine User Experience (UX) per YouTube Studio e Supporto Creator, assicurando l'allineamento su YouTube.\n\n• Leader e mentore di un team UX multidisciplinare di alto livello in tutta Zurigo e Bangalore, promuovendo una cultura collaborativa.\n\n• Collabora con Product, Engineering, Research e Content Design per influenzare le parti interessate e allineare le strategie regionali.\n\n• Avvocato per sistemi di progettazione scalabili, sfruttando le capacità AI per migliorare i flussi di lavoro dei creatori e la consistenza dell'esperienza.\n\n• Mantenere elevati standard di qualità visiva e di interazione durante la presa di decisioni di prodotto informate basate sulle esigenze del creatore.",
-        "de": "Mindestqualifikationen:\n\n• Bachelor-Abschluss oder gleichwertige praktische Erfahrung.\n\n• 10 Jahre Erfahrung im Produktdesign oder UX.\n\n• 5 Jahre Erfahrung in der Leitung von Designprojekten und der Verwaltung von Personen oder Teams.\n\n• 3 Jahre Berufserfahrung in der Arbeit mit Führungskräften.\n\n• Fügen Sie ein Portfolio, eine Website oder einen anderen relevanten Link zu Ihrer Arbeit in Ihren Lebenslauf ein (mit einem sichtbaren Link oder Zugangsanweisungen).\n\nBevorzugte Qualifikationen:\n\n• Master-Abschluss in Design, Mensch-Computer-Interaktion, Informatik, einem verwandten Bereich oder gleichwertige praktische Erfahrung.\n\n• 7 Jahre Erfahrung in einer komplexen, funktionsübergreifenden Organisation.\n\nÜber den Job\n Bei Google konzentrieren wir uns auf den Benutzer und alles andere wird folgen. Als UX Design Manager treiben Sie diese Vision voran, indem Sie Produktstrategien definieren, Komplexität mindern und UX auf Ökosystemebene konzipieren. Sie sind ein System-Level-Denker und ein leidenschaftlicher Fürsprecher für Ihre Benutzer und Ihr Team.\n\nSie sind dafür verantwortlich, die Karriere Ihrer direkten Berichte zu leiten und ihnen zu helfen, ihr volles Potenzial auszuschöpfen und gleichzeitig eine Kultur des zukunftsorientierten Designs zu fördern. Mit einem geübten Auge für Qualität verwandeln Sie komplexe Workflows in elegant einfache Erlebnisse. Sie werden eng mit Führungskräften im Bereich Engineering und Produktmanagement zusammenarbeiten, um Geschäftsziele mit Designinnovationen in Einklang zu bringen und Ihre Leidenschaft für Marke, Handwerk und Ausführung zu nutzen.\n\nDie Benutzererfahrung steht an vorderster Front bei der Entwicklung intuitiver, innovativer und schöner Produkte, die die Menschen lieben. Wir bemühen uns, die Bedürfnisse, Verhaltensweisen und Emotionen unserer Benutzer zu lernen und zu verstehen, um Erkenntnisse zu sammeln, die die Produktstrategie und das Design beeinflussen. Unsere UX-Teams umfassen Designer, Forscher, Content-Strategen und Ingenieure, die sich für Qualität, Benutzerfreundlichkeit und Einfachheit begeistern. Wir arbeiten in Kollaborationsteams, um komplexe Herausforderungen zu lösen und Erfahrungen zu machen, die die einzigartigen Fähigkeiten und Persönlichkeiten unserer Produkte hervorheben. Unsere Arbeit berührt Milliarden und veranschaulicht ein Schlüsselprinzip, das der Kern der Google-Philosophie ist: \"Konzentrieren Sie sich auf den Benutzer und alles andere wird folgen.\"\n\nZuständigkeiten\n\n• Führen Sie das langfristige Ziel der User Experience (UX) für YouTube Studio und Creator Support voran und gewährleisten Sie die Ausrichtung auf YouTube.\n\n• Führen und betreuen Sie ein leistungsstarkes, multidisziplinäres UX-Team in Zürich und Bangalore und fördern Sie eine kollaborative Kultur.\n\n• Enge Zusammenarbeit mit Product, Engineering, Research und Content Design, um Stakeholder zu beeinflussen und regionale Strategien auszurichten.\n\n• Setzen Sie sich für skalierbare Designsysteme ein und nutzen Sie gleichzeitig die KI-Fähigkeiten, um die Workflows der Ersteller zu verbessern und Konsistenz zu erleben.\n\n• Halten Sie hohe visuelle und Interaktionsqualitätsstandards ein, während Sie fundierte Produktentscheidungen treffen, die auf den Bedürfnissen des Schöpfers basieren.",
-        "fr": "Titres minimums:\n\n• Baccalauréat ou expérience pratique équivalente.\n\n• 10 ans d'expérience dans la conception de produits ou UX.\n\n• 5 ans d'expérience à la tête de projets de conception et de gestion de personnes ou d'équipes.\n\n• 3 ans d'expérience professionnelle en collaboration avec des dirigeants exécutifs.\n\n• Inclure un portfolio, un site Web ou tout autre lien pertinent à votre travail dans votre CV (fournissant un lien visible ou des instructions d'accès).\n\nQualifications privilégiées:\n\n• Maîtrise en conception, interaction homme-ordinateur, informatique, domaine connexe ou expérience pratique équivalente.\n\n• 7 ans d'expérience dans une organisation complexe et interfonctionnelle.\n\nSur le travail\n Chez Google, nous \"Focus sur l'utilisateur et tout le reste suivra.\" En tant que gestionnaire de conception UX, vous piloterez cette vision en définissant la stratégie de produit, en atténuant la complexité et en conceptualisant UX au niveau de l'écosystème. Vous êtes un penseur de systèmes et un ardent défenseur de vos utilisateurs et de votre équipe.\n\nVous serez responsable de guider la carrière de vos rapports directs, en les aidant à réaliser leur plein potentiel tout en favorisant une culture de conception prospective. Avec un œil pratique pour la qualité, vous transformerez des workflows complexes en expériences élégamment simples. Vous collaborerez étroitement avec les dirigeants de l'ingénierie et de la gestion des produits pour aligner les objectifs commerciaux sur l'innovation en matière de conception, en tirant parti de votre passion pour la marque, l'artisanat et l'exécution.\n\nL'expérience utilisateur est à l'avant-garde de la façon dont nous créons des produits intuitifs, innovants et beaux que les gens aiment. Nous nous efforçons d'apprendre et de comprendre les besoins, les comportements et les émotions de nos utilisateurs pour recueillir des idées qui éclairent la stratégie et la conception des produits. Nos équipes UX comprennent des concepteurs, des chercheurs, des stratèges de contenu et des ingénieurs passionnés par la qualité, la convivialité et la simplicité. Nous travaillons sur des équipes collaboratives pour résoudre des défis complexes et des expériences artisanales qui mettent en valeur nos produits. Notre travail touche des milliards tout en exemplifiant un principe clé qui est le cœur de la philosophie de Google: \"Focus sur l'utilisateur et tout le reste suivra.\"\n\nResponsabilités\n\n• Conduire l'objectif à long terme de l'expérience utilisateur (UX) pour YouTube Studio et Creator Support, en assurant l'alignement sur YouTube.\n\n• Dirigez et mentorez une équipe multidisciplinaire à haut rendement à Zurich et Bangalore, favorisant une culture collaborative.\n\n• S'associer étroitement à la conception des produits, de l'ingénierie, de la recherche et du contenu pour influencer les intervenants et harmoniser les stratégies régionales.\n\n• Adoptez des systèmes de conception évolutives tout en tirant parti des capacités d'IA pour améliorer les flux de travail des créateurs et leur cohérence.\n\n• Maintenir des normes élevées de qualité visuelle et d'interaction tout en prenant des décisions éclairées sur les produits en fonction des besoins des créateurs."
+        "it": "Titolo minimo:\n\n• Corso di laurea o esperienza pratica equivalente.\n\n• 10 anni di esperienza nella progettazione del prodotto o UX.\n\n• 5 anni di esperienza leader progetti di progettazione e gestione di persone o team.\n\n• 3 anni di esperienza lavorativa che lavorano con i leader esecutivi.\n\n• Includere un portafoglio, un sito web o qualsiasi altro link rilevante al tuo lavoro nel tuo curriculum (fornire un link visibile o istruzioni di accesso).\n\nQualifiche preferenziali:\n\n• Laurea magistrale in Design, Interazione Umana-Computer, Scienza informatica, un campo correlato, o esperienza pratica equivalente.\n\n• 7 anni di esperienza che lavorano in un'organizzazione complessa e interfunzionale.\n\nRiguardo al lavoro\nA Google, \"Focus sull'utente e tutto il resto seguirà\". Come UX Design Manager, guiderai questa visione definendo la strategia del prodotto, mitigando la complessità e concettualizzando l'UX a livello di ecosistema. Sei un pensatore di livello di sistemi e un feroce sostenitore sia per i tuoi utenti che per il tuo team.\n\nSarete responsabili di guidare le carriere dei vostri rapporti diretti, aiutandoli a realizzare il loro pieno potenziale, promuovendo una cultura del design in anticipo. Con un occhio praticato per la qualità, trasformerai i flussi di lavoro complessi in esperienze elegantemente semplici. Collaborerai a stretto contatto con i leader di Engineering e Product Management per allineare gli obiettivi aziendali con l'innovazione del design, sfruttando la tua passione per il marchio, l'artigianato e l'esecuzione.\n\nL'esperienza dell'utente è all'avanguardia nel modo in cui creiamo prodotti intuitivi, innovativi e belli che la gente ama. Ci sforziamo di imparare e comprendere le esigenze, i comportamenti e le emozioni dei nostri utenti per raccogliere informazioni che informano la strategia e il design del prodotto. I nostri team UX includono designer, ricercatori, strateghi dei contenuti e ingegneri che sono appassionati di qualità, usabilità e semplicità. Lavoriamo su team collaborativi per risolvere complesse sfide e esperienze artigianali che evidenziano le capacità e le personalità uniche dei nostri prodotti. Il nostro lavoro tocca miliardi esemplifica un principio chiave che è fondamentale per la filosofia di Google: “Focus sull’utente e tutto il resto seguirà”.\n\nresponsabilità\n\n• Guidare l'obiettivo a lungo termine User Experience (UX) per YouTube Studio e Supporto Creator, assicurando l'allineamento su YouTube.\n\n• Leader e mentore di un team UX multidisciplinare di alto livello in tutta Zurigo e Bangalore, promuovendo una cultura collaborativa.\n\n• Collabora con Product, Engineering, Research e Content Design per influenzare le parti interessate e allineare le strategie regionali.\n\n• Avvocato per sistemi di progettazione scalabili, sfruttando le capacità AI per migliorare i flussi di lavoro dei creatori e la consistenza dell'esperienza.\n\n• Mantenere elevati standard di qualità visiva e di interazione durante la presa di decisioni di prodotto informate basate sulle esigenze del creatore.",
+        "en": "Minimum qualifications:\n\n• Bachelor's degree or equivalent practical experience.\n\n• 10 years of experience in product design or UX.\n\n• 5 years of experience leading design projects and managing people or teams.\n\n• 3 years of work experience working with executive leaders.\n\n• Include a portfolio, website, or any other relevant link to your work in your resume (providing a viewable link or access instructions).\n\nPreferred qualifications:\n\n• Master's degree in Design, Human-Computer Interaction, Computer Science, a related field, or equivalent practical experience.\n\n• 7 years of experience working in a complex, cross-functional organization.\n\nAbout the job\nAt Google, we \"Focus on the user and all else will follow.\" As a UX Design Manager, you will drive this vision by defining product strategy, mitigating complexity, and conceptualizing ecosystem-level UX. You are a systems-level thinker and a fierce advocate for both your users and your team.\n\nYou will be responsible for guiding the careers of your direct reports, helping them realize their full potential while fostering a culture of forward-thinking design. With a practiced eye for quality, you will transform complex workflows into elegantly simple experiences. You will collaborate closely with Engineering and Product Management leaders to align business goals with design innovation, leveraging your passion for brand, craft, and execution.\n\nUser experience is at the forefront of how we create intuitive, innovative, and beautiful products that people love. We strive to learn and understand our users’ needs, behaviors, and emotions to gather insights that inform product strategy and design. Our UX teams include designers, researchers, content strategists, and engineers who are passionate about quality, usability, and simplicity. We work on collaborative teams to solve complex challenges and craft experiences that highlight our products’ unique capabilities and personalities. Our work touches billions while exemplifying a key principle that is core to Google’s philosophy: “Focus on the user and all else will follow.”\n\nResponsibilities\n\n• Drive the long-term User Experience (UX) goal for YouTube Studio and Creator Support, ensuring alignment across YouTube.\n\n• Lead and mentor a high-performing, multi-disciplinary UX team across Zurich and Bangalore, fostering a collaborative culture.\n\n• Partner closely with Product, Engineering, Research, and Content Design to influence stakeholders and align regional strategies.\n\n• Advocate for scalable design systems while leveraging AI capabilities to enhance creator workflows and experience consistency.\n\n• Maintain high visual and interaction quality standards while making informed product decisions grounded in creator needs.",
+        "de": "Mindestqualifikationen:\n\n• Bachelor-Abschluss oder gleichwertige praktische Erfahrung.\n\n• 10 Jahre Erfahrung im Produktdesign oder UX.\n\n• 5 Jahre Erfahrung in der Leitung von Designprojekten und der Verwaltung von Personen oder Teams.\n\n• 3 Jahre Berufserfahrung in der Arbeit mit Führungskräften.\n\n• Fügen Sie ein Portfolio, eine Website oder einen anderen relevanten Link zu Ihrer Arbeit in Ihren Lebenslauf ein (mit einem sichtbaren Link oder Zugangsanweisungen).\n\nBevorzugte Qualifikationen:\n\n• Master-Abschluss in Design, Mensch-Computer-Interaktion, Informatik, einem verwandten Bereich oder gleichwertige praktische Erfahrung.\n\n• 7 Jahre Erfahrung in einer komplexen, funktionsübergreifenden Organisation.\n\nÜber den Job\nBei Google konzentrieren wir uns auf den Benutzer und alles andere wird folgen. Als UX Design Manager treiben Sie diese Vision voran, indem Sie Produktstrategien definieren, Komplexität mindern und UX auf Ökosystemebene konzipieren. Sie sind ein System-Level-Denker und ein leidenschaftlicher Fürsprecher für Ihre Benutzer und Ihr Team.\n\nSie sind dafür verantwortlich, die Karriere Ihrer direkten Berichte zu leiten und ihnen zu helfen, ihr volles Potenzial auszuschöpfen und gleichzeitig eine Kultur des zukunftsorientierten Designs zu fördern. Mit einem geübten Auge für Qualität verwandeln Sie komplexe Workflows in elegant einfache Erlebnisse. Sie werden eng mit Führungskräften im Bereich Engineering und Produktmanagement zusammenarbeiten, um Geschäftsziele mit Designinnovationen in Einklang zu bringen und Ihre Leidenschaft für Marke, Handwerk und Ausführung zu nutzen.\n\nDie Benutzererfahrung steht an vorderster Front bei der Entwicklung intuitiver, innovativer und schöner Produkte, die die Menschen lieben. Wir bemühen uns, die Bedürfnisse, Verhaltensweisen und Emotionen unserer Benutzer zu lernen und zu verstehen, um Erkenntnisse zu sammeln, die die Produktstrategie und das Design beeinflussen. Unsere UX-Teams umfassen Designer, Forscher, Content-Strategen und Ingenieure, die sich für Qualität, Benutzerfreundlichkeit und Einfachheit begeistern. Wir arbeiten in Kollaborationsteams, um komplexe Herausforderungen zu lösen und Erfahrungen zu machen, die die einzigartigen Fähigkeiten und Persönlichkeiten unserer Produkte hervorheben. Unsere Arbeit berührt Milliarden und veranschaulicht ein Schlüsselprinzip, das der Kern der Google-Philosophie ist: \"Konzentrieren Sie sich auf den Benutzer und alles andere wird folgen.\"\n\nZuständigkeiten\n\n• Führen Sie das langfristige Ziel der User Experience (UX) für YouTube Studio und Creator Support voran und gewährleisten Sie die Ausrichtung auf YouTube.\n\n• Führen und betreuen Sie ein leistungsstarkes, multidisziplinäres UX-Team in Zürich und Bangalore und fördern Sie eine kollaborative Kultur.\n\n• Enge Zusammenarbeit mit Product, Engineering, Research und Content Design, um Stakeholder zu beeinflussen und regionale Strategien auszurichten.\n\n• Setzen Sie sich für skalierbare Designsysteme ein und nutzen Sie gleichzeitig die KI-Fähigkeiten, um die Workflows der Ersteller zu verbessern und Konsistenz zu erleben.\n\n• Halten Sie hohe visuelle und Interaktionsqualitätsstandards ein, während Sie fundierte Produktentscheidungen treffen, die auf den Bedürfnissen des Schöpfers basieren.",
+        "fr": "Titres minimums:\n\n• Baccalauréat ou expérience pratique équivalente.\n\n• 10 ans d'expérience dans la conception de produits ou UX.\n\n• 5 ans d'expérience à la tête de projets de conception et de gestion de personnes ou d'équipes.\n\n• 3 ans d'expérience professionnelle en collaboration avec des dirigeants exécutifs.\n\n• Inclure un portfolio, un site Web ou tout autre lien pertinent à votre travail dans votre CV (fournissant un lien visible ou des instructions d'accès).\n\nQualifications privilégiées:\n\n• Maîtrise en conception, interaction homme-ordinateur, informatique, domaine connexe ou expérience pratique équivalente.\n\n• 7 ans d'expérience dans une organisation complexe et interfonctionnelle.\n\nSur le travail\nChez Google, nous \"Focus sur l'utilisateur et tout le reste suivra.\" En tant que gestionnaire de conception UX, vous piloterez cette vision en définissant la stratégie de produit, en atténuant la complexité et en conceptualisant UX au niveau de l'écosystème. Vous êtes un penseur de systèmes et un ardent défenseur de vos utilisateurs et de votre équipe.\n\nVous serez responsable de guider la carrière de vos rapports directs, en les aidant à réaliser leur plein potentiel tout en favorisant une culture de conception prospective. Avec un œil pratique pour la qualité, vous transformerez des workflows complexes en expériences élégamment simples. Vous collaborerez étroitement avec les dirigeants de l'ingénierie et de la gestion des produits pour aligner les objectifs commerciaux sur l'innovation en matière de conception, en tirant parti de votre passion pour la marque, l'artisanat et l'exécution.\n\nL'expérience utilisateur est à l'avant-garde de la façon dont nous créons des produits intuitifs, innovants et beaux que les gens aiment. Nous nous efforçons d'apprendre et de comprendre les besoins, les comportements et les émotions de nos utilisateurs pour recueillir des idées qui éclairent la stratégie et la conception des produits. Nos équipes UX comprennent des concepteurs, des chercheurs, des stratèges de contenu et des ingénieurs passionnés par la qualité, la convivialité et la simplicité. Nous travaillons sur des équipes collaboratives pour résoudre des défis complexes et des expériences artisanales qui mettent en valeur nos produits. Notre travail touche des milliards tout en exemplifiant un principe clé qui est le cœur de la philosophie de Google: \"Focus sur l'utilisateur et tout le reste suivra.\"\n\nResponsabilités\n\n• Conduire l'objectif à long terme de l'expérience utilisateur (UX) pour YouTube Studio et Creator Support, en assurant l'alignement sur YouTube.\n\n• Dirigez et mentorez une équipe multidisciplinaire à haut rendement à Zurich et Bangalore, favorisant une culture collaborative.\n\n• S'associer étroitement à la conception des produits, de l'ingénierie, de la recherche et du contenu pour influencer les intervenants et harmoniser les stratégies régionales.\n\n• Adoptez des systèmes de conception évolutives tout en tirant parti des capacités d'IA pour améliorer les flux de travail des créateurs et leur cohérence.\n\n• Maintenir des normes élevées de qualité visuelle et d'interaction tout en prenant des décisions éclairées sur les produits en fonction des besoins des créateurs."
       },
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://www.google.com/about/careers/applications/jobs/results/122444748370649798-senior-ux-design-manager-youtube-studio-and-support",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:23:28.652Z",
+      "crawledAt": "2026-11-18T09:22:17.419Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1064,11 +1230,19 @@
           "Bachelor's degree or equivalent practical experience.",
           "10 years of experience in product design or UX.",
           "5 years of experience leading design projects and managing people or teams.",
-          "3 years of work experience working with executive leaders.",
-          "Include a portfolio, website, or any other relevant link to your work in your resume (providing a viewable link or access instructions)."
+          "3 years of work experience working with executive leaders."
         ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-11-17T21:23:28.652Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "responsable-senior-de-la-conception-ux-youtube-studio-et-assistance-google-switzerland-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-senior-de-la-conception-ux-youtube-studio-et-assistance-google-switzerland-zurich"
+      ],
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -1083,9 +1257,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-15T21:23:28.652Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:23:28.652Z"
+      "validThrough": "2027-02-16T09:22:17.419Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-4935ff59a6be",
@@ -1118,7 +1291,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/131677068336210630-senior-software-engineer",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:23:28.058Z",
+      "crawledAt": "2026-11-18T09:22:16.736Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1167,7 +1340,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-08T21:23:28.058Z",
+      "validThrough": "2027-02-09T09:22:16.736Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1201,7 +1374,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/132589149738672838-software-engineer-iii-retail-advertiser-intelligence-google-ads",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:23:27.502Z",
+      "crawledAt": "2026-11-18T09:22:16.203Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1245,7 +1418,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T21:23:27.502Z",
+      "validThrough": "2027-02-01T09:22:16.203Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1279,7 +1452,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/130911348950213318-software-engineer-iii-centerpiece",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:23:26.947Z",
+      "crawledAt": "2026-11-18T09:22:15.666Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1324,7 +1497,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-17T21:23:26.947Z",
+      "validThrough": "2026-12-18T09:22:15.666Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1358,7 +1531,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/104587629684499142-software-engineer-iii-data-protection-acceleration",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:23:26.383Z",
+      "crawledAt": "2026-11-18T09:22:15.110Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1401,7 +1574,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-17T21:23:26.383Z",
+      "validThrough": "2026-12-18T09:22:15.110Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1435,7 +1608,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/80851750352757446-ai-sales-specialist-google-cloud",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:23:25.830Z",
+      "crawledAt": "2026-11-18T09:22:14.555Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1482,7 +1655,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-04T21:23:25.830Z",
+      "validThrough": "2027-02-04T09:22:14.555Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1516,7 +1689,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/110546686085866182-staff-software-engineer-shopping-graph",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:23:25.232Z",
+      "crawledAt": "2026-11-18T09:22:14.013Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1576,7 +1749,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-06T21:23:25.232Z",
+      "validThrough": "2027-01-07T09:22:14.013Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1610,7 +1783,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/108511099220828870-staff-security-engineer-dynamic-reasoning-and-nextgen-detection-and-response",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:23:24.636Z",
+      "crawledAt": "2026-11-18T09:22:13.480Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1672,7 +1845,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T21:23:24.636Z",
+      "validThrough": "2027-02-03T09:22:13.480Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1706,7 +1879,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/125554354085077702-software-engineer-iii-youtube-shopping-search-ai",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:23:24.063Z",
+      "crawledAt": "2026-11-18T09:22:12.949Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1750,7 +1923,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T21:23:24.063Z",
+      "validThrough": "2027-02-03T09:22:12.949Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1784,7 +1957,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/97084041571771078-infotasks-productivity-agents-deepmind",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:23:23.488Z",
+      "crawledAt": "2026-11-18T09:22:12.399Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1839,7 +2012,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-17T21:23:23.488Z",
+      "validThrough": "2027-01-18T09:22:12.399Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1873,7 +2046,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/111285665542349510-research-scientist-phd-intern-2027",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:23:22.914Z",
+      "crawledAt": "2026-11-18T09:22:11.846Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1943,7 +2116,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-17T21:23:22.914Z",
+      "validThrough": "2026-12-18T09:22:11.846Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1977,7 +2150,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/73200092168757958-senior-software-engineer-site-reliability-engineering-youtube-ml",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:23:22.346Z",
+      "crawledAt": "2026-11-18T09:22:11.309Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2036,7 +2209,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-18T21:23:22.346Z",
+      "validThrough": "2027-01-19T09:22:11.309Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2070,7 +2243,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/82237360489538246-field-sales-representative-fsi-google-cloud-dach",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:23:21.779Z",
+      "crawledAt": "2026-11-18T09:22:10.762Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2130,7 +2303,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-14T21:23:21.779Z",
+      "validThrough": "2027-02-15T09:22:10.762Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2164,7 +2337,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/124012647656891078-technical-program-manager-google-health-and-home-infrastructure",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:23:21.200Z",
+      "crawledAt": "2026-11-18T09:22:10.209Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2224,7 +2397,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-08T21:23:21.200Z",
+      "validThrough": "2027-02-09T09:22:10.209Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2258,7 +2431,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/105218557964362438-staff-security-engineer-security-research",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:23:20.621Z",
+      "crawledAt": "2026-11-18T09:22:09.662Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2323,7 +2496,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T21:23:20.621Z",
+      "validThrough": "2027-02-09T09:22:09.662Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2357,7 +2530,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/111066250427146950-principal-engineer-ai-research-and-development",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:23:20.011Z",
+      "crawledAt": "2026-11-18T09:22:09.134Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2416,7 +2589,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T21:23:20.011Z",
+      "validThrough": "2027-02-11T09:22:09.134Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2450,7 +2623,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/118460461828973254-product-manager-ii-youtube-ads-agentic-buyflows",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:23:19.467Z",
+      "crawledAt": "2026-11-18T09:22:08.573Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2503,7 +2676,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-15T21:23:19.467Z",
+      "validThrough": "2027-02-16T09:22:08.573Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2537,7 +2710,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/103614681884566214-senior-engineering-traffic-analyst-search-antiscraper",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:23:18.884Z",
+      "crawledAt": "2026-11-18T09:22:08.011Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2595,7 +2768,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-31T21:23:18.884Z",
+      "validThrough": "2027-02-01T09:22:08.011Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2629,7 +2802,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/81658813362381510-staff-research-data-scientist-manager-ads-metrics",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:23:18.325Z",
+      "crawledAt": "2026-11-18T09:22:07.451Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2674,7 +2847,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:23:18.325Z",
+      "validThrough": "2027-01-27T09:22:07.451Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2708,7 +2881,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/81048341743313606-software-engineer-multimodal-search-infrastructure-google-lens",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:23:17.760Z",
+      "crawledAt": "2026-11-18T09:22:06.897Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2752,7 +2925,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-14T21:23:17.760Z",
+      "validThrough": "2027-02-15T09:22:06.897Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2786,7 +2959,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/78601150982431430-senior-quantitative-ux-researcher-merchant-shopping",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:23:17.143Z",
+      "crawledAt": "2026-11-18T09:22:06.367Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2847,7 +3020,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T21:23:17.143Z",
+      "validThrough": "2027-02-10T09:22:06.367Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2881,7 +3054,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/79361738150945478-technical-program-manager-gemma-deepmind",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:23:16.583Z",
+      "crawledAt": "2026-11-18T09:22:05.814Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2938,7 +3111,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T21:23:16.583Z",
+      "validThrough": "2027-02-10T09:22:05.814Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2972,7 +3145,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/116974862706057926-software-engineer-proof-and-verification-engineer",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:23:16.029Z",
+      "crawledAt": "2026-11-18T09:22:05.299Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3022,7 +3195,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T21:23:16.029Z",
+      "validThrough": "2027-02-09T09:22:05.299Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3056,7 +3229,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/86512016885195462-security-engineer-red-team",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:23:15.481Z",
+      "crawledAt": "2026-11-18T09:22:04.750Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3105,7 +3278,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T21:23:15.481Z",
+      "validThrough": "2027-02-09T09:22:04.750Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3139,7 +3312,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/80006404152140486-director-product-management-shopping-graph-core",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:23:14.902Z",
+      "crawledAt": "2026-11-18T09:22:04.206Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3184,7 +3357,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-12T21:23:14.902Z",
+      "validThrough": "2027-02-12T09:22:04.206Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3218,7 +3391,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/136295776576774854-software-engineer-iii-youtube-viewcount-and-aggregations",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:23:14.340Z",
+      "crawledAt": "2026-11-18T09:22:03.651Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3271,15 +3444,15 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-23T21:23:14.340Z",
+      "validThrough": "2026-12-23T09:22:03.651Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-7a73c01a52af",
       "slug": "designer-ux-pubblicita-google-switzerland-zurich",
       "slugByLocale": {
-        "en": "ux-designer-ads-google-switzerland-zurich",
         "it": "designer-ux-pubblicita-google-switzerland-zurich",
+        "en": "ux-designer-ads-google-switzerland-zurich",
         "de": "ux-designer-ads-google-switzerland-zurich",
         "fr": "ux-designer-ads-google-switzerland-zurich"
       },
@@ -3288,24 +3461,24 @@
       "companyDomain": "google.com",
       "title": "UX Designer, Ads",
       "titleByLocale": {
-        "en": "UX Designer, Ads",
         "it": "Designer UX, Pubblicità",
+        "en": "UX Designer, Ads",
         "de": "UX Designer, Anzeigen",
         "fr": "UX Designer, Annonces"
       },
       "description": "Minimum qualifications:\n\n• Bachelor's degree or equivalent practical experience.\n\n• 4 years of interaction design experience in product design or UX design.\n\n• Include a portfolio, website, or any other relevant link to your work in your resume (providing a viewable link or access instructions).\n\nPreferred qualifications:\n\n• Master's degree in Design, Human-Computer Interaction, Computer Science, a related field, or equivalent practical experience.\n\n• 2 years of experience working in a complex, cross-functional organization.\n\n• 1 year of experience leading design projects.\n\n• Expert with Figma and other design tools to produce mockups and prototypes.\n\n• Track record of designing and launching consumer products.\n\nAbout the job\n At Google, we \"Focus on the user and all else will follow.\" Our Interaction Designers transform complex tasks into intuitive, easy-to-use experiences for billions of people. From creating user flows and wireframes to building mockups and prototypes, you will envision and bring product experiences to life with an inspired, refined, and magical feel. You will join our multi-disciplinary UX team, collaborating with Engineering and Product Management, leveraging user insights to create industry-leading products.\n\nAs an Interaction Designer, you'll apply user-centered design methods to craft industry-leading user experiences from concept to execution, working with design partners to evolve the Google design language to build beautiful, innovative products.\n\nUser experience is at the forefront of how we create intuitive, innovative, and beautiful products that people love. We strive to learn and understand our users’ needs, behaviors, and emotions to gather insights that inform product strategy and design. Our UX teams include designers, researchers, content strategists, and engineers who are passionate about quality, usability, and simplicity. We work on collaborative teams to solve complex challenges and craft experiences that highlight our products’ unique capabilities and personalities. Our work touches billions while exemplifying a key principle that is core to Google’s philosophy: “Focus on the user and all else will follow.”\n\nResponsibilities\n\n• Collaborate with product managers, engineers, and cross-functional stakeholders to understand requirements, and provide creative, thoughtful solutions.\n\n• Communicate the user experience at various stages of the design process with wireframes, flow diagrams, storyboards, mockups, or prototypes.\n\n• Advocate for the prioritization of design centered changes, refinements, and improvements.\n\n• Design new shopping experiences for Viewers, including user flows, wireframes, mocks, and functional prototypes.\n\n• Leverage User Experience Researcher (UXR) partnership to deepen the team’s understanding of shopping behavior, decision-making and growing needs.",
       "descriptionByLocale": {
-        "en": "Minimum qualifications:\n\n• Bachelor's degree or equivalent practical experience.\n\n• 4 years of interaction design experience in product design or UX design.\n\n• Include a portfolio, website, or any other relevant link to your work in your resume (providing a viewable link or access instructions).\n\nPreferred qualifications:\n\n• Master's degree in Design, Human-Computer Interaction, Computer Science, a related field, or equivalent practical experience.\n\n• 2 years of experience working in a complex, cross-functional organization.\n\n• 1 year of experience leading design projects.\n\n• Expert with Figma and other design tools to produce mockups and prototypes.\n\n• Track record of designing and launching consumer products.\n\nAbout the job\n At Google, we \"Focus on the user and all else will follow.\" Our Interaction Designers transform complex tasks into intuitive, easy-to-use experiences for billions of people. From creating user flows and wireframes to building mockups and prototypes, you will envision and bring product experiences to life with an inspired, refined, and magical feel. You will join our multi-disciplinary UX team, collaborating with Engineering and Product Management, leveraging user insights to create industry-leading products.\n\nAs an Interaction Designer, you'll apply user-centered design methods to craft industry-leading user experiences from concept to execution, working with design partners to evolve the Google design language to build beautiful, innovative products.\n\nUser experience is at the forefront of how we create intuitive, innovative, and beautiful products that people love. We strive to learn and understand our users’ needs, behaviors, and emotions to gather insights that inform product strategy and design. Our UX teams include designers, researchers, content strategists, and engineers who are passionate about quality, usability, and simplicity. We work on collaborative teams to solve complex challenges and craft experiences that highlight our products’ unique capabilities and personalities. Our work touches billions while exemplifying a key principle that is core to Google’s philosophy: “Focus on the user and all else will follow.”\n\nResponsibilities\n\n• Collaborate with product managers, engineers, and cross-functional stakeholders to understand requirements, and provide creative, thoughtful solutions.\n\n• Communicate the user experience at various stages of the design process with wireframes, flow diagrams, storyboards, mockups, or prototypes.\n\n• Advocate for the prioritization of design centered changes, refinements, and improvements.\n\n• Design new shopping experiences for Viewers, including user flows, wireframes, mocks, and functional prototypes.\n\n• Leverage User Experience Researcher (UXR) partnership to deepen the team’s understanding of shopping behavior, decision-making and growing needs.",
-        "it": "Titolo minimo:\n\n• Corso di laurea o esperienza pratica equivalente.\n\n• 4 anni di esperienza di progettazione di interazione nella progettazione del prodotto o progettazione UX.\n\n• Includere un portafoglio, un sito web o qualsiasi altro link rilevante al tuo lavoro nel tuo curriculum (fornire un link visibile o istruzioni di accesso).\n\nQualifiche preferenziali:\n\n• Laurea magistrale in Design, Interazione Umana-Computer, Scienza informatica, un campo correlato, o esperienza pratica equivalente.\n\n• 2 anni di esperienza che lavorano in un'organizzazione complessa e interfunzionale.\n\n• 1 anno di esperienza leader progetti di design.\n\n• Esperto con Figma e altri strumenti di progettazione per produrre mockup e prototipi.\n\n• Tracciare il record di progettazione e lancio di prodotti di consumo.\n\nRiguardo al lavoro\n A Google, \"Focus sull'utente e tutto il resto seguirà\". I nostri progettisti di interazione trasformano compiti complessi in esperienze intuitive e facili da usare per miliardi di persone. Dalla creazione di flussi utente e wireframe per la costruzione di mockup e prototipi, si prevede e portare a vita esperienze di prodotto con un'atmosfera ispirata, raffinata e magica. Ti unirai al nostro team UX multidisciplinare, collaborando con Engineering e Product Management, sfruttando le informazioni degli utenti per creare prodotti leader nel settore.\n\nIn qualità di Interaction Designer, applicherai metodi di progettazione orientati all'utente per creare esperienze utente leader del settore dal concetto all'esecuzione, lavorando con partner di design per evolvere il linguaggio di design di Google per costruire prodotti belli e innovativi.\n\nL'esperienza dell'utente è all'avanguardia nel modo in cui creiamo prodotti intuitivi, innovativi e belli che la gente ama. Ci sforziamo di imparare e comprendere le esigenze, i comportamenti e le emozioni dei nostri utenti per raccogliere informazioni che informano la strategia e il design del prodotto. I nostri team UX includono designer, ricercatori, strateghi dei contenuti e ingegneri che sono appassionati di qualità, usabilità e semplicità. Lavoriamo su team collaborativi per risolvere complesse sfide e esperienze artigianali che evidenziano le capacità e le personalità uniche dei nostri prodotti. Il nostro lavoro tocca miliardi esemplifica un principio chiave che è fondamentale per la filosofia di Google: “Focus sull’utente e tutto il resto seguirà”.\n\nresponsabilità\n\n• Collabora con product manager, ingegneri e stakeholder interfunzionali per comprendere i requisiti e fornire soluzioni creative e riflessive.\n\n• Comunicare l'esperienza dell'utente in varie fasi del processo di progettazione con wireframe, diagrammi di flusso, storyboard, mockup o prototipi.\n\n• Avvocato per la prioritizzazione di modifiche, perfezionamenti e miglioramenti del design.\n\n• Progettare nuove esperienze di shopping per Viewers, tra cui flussi utente, wireframe, mocks e prototipi funzionali.\n\n• Leverage User Experience Researcher (UXR) partnership per approfondire la comprensione del team di comportamenti commerciali, processi decisionali e crescenti esigenze.",
-        "de": "Mindestqualifikationen:\n\n• Bachelor-Abschluss oder gleichwertige praktische Erfahrung.\n\n• 4 Jahre Interaktionsdesign-Erfahrung im Produktdesign oder UX-Design.\n\n• Fügen Sie ein Portfolio, eine Website oder einen anderen relevanten Link zu Ihrer Arbeit in Ihren Lebenslauf ein (mit einem sichtbaren Link oder Zugangsanweisungen).\n\nBevorzugte Qualifikationen:\n\n• Master-Abschluss in Design, Mensch-Computer-Interaktion, Informatik, einem verwandten Bereich oder gleichwertige praktische Erfahrung.\n\n• 2 Jahre Erfahrung in einer komplexen, funktionsübergreifenden Organisation.\n\n• 1 Jahr Erfahrung in der Leitung von Designprojekten.\n\n• Experte mit Figma und anderen Design-Tools, um Mockups und Prototypen zu produzieren.\n\n• Erfolgsbilanz bei der Entwicklung und Einführung von Verbraucherprodukten.\n\nÜber den Job\n Bei Google konzentrieren wir uns auf den Benutzer und alles andere wird folgen. Unsere Interaction Designer verwandeln komplexe Aufgaben in intuitive, benutzerfreundliche Erlebnisse für Milliarden von Menschen. Vom Erstellen von Benutzerströmen und Wireframes bis hin zum Erstellen von Mockups und Prototypen werden Sie sich Produkterlebnisse mit einem inspirierten, raffinierten und magischen Gefühl vorstellen und zum Leben erwecken. Sie werden unserem multidisziplinären UX-Team beitreten, das mit Engineering und Produktmanagement zusammenarbeitet und Benutzereinblicke nutzt, um branchenführende Produkte zu entwickeln.\n\nAls Interaktionsdesigner wenden Sie benutzerzentrierte Designmethoden an, um branchenführende Benutzererfahrungen vom Konzept bis zur Ausführung zu erstellen, und arbeiten mit Designpartnern zusammen, um die Google-Designsprache zu entwickeln, um schöne, innovative Produkte zu entwickeln.\n\nDie Benutzererfahrung steht an vorderster Front bei der Entwicklung intuitiver, innovativer und schöner Produkte, die die Menschen lieben. Wir bemühen uns, die Bedürfnisse, Verhaltensweisen und Emotionen unserer Benutzer zu lernen und zu verstehen, um Erkenntnisse zu sammeln, die die Produktstrategie und das Design beeinflussen. Unsere UX-Teams umfassen Designer, Forscher, Content-Strategen und Ingenieure, die sich für Qualität, Benutzerfreundlichkeit und Einfachheit begeistern. Wir arbeiten in Kollaborationsteams, um komplexe Herausforderungen zu lösen und Erfahrungen zu machen, die die einzigartigen Fähigkeiten und Persönlichkeiten unserer Produkte hervorheben. Unsere Arbeit berührt Milliarden und veranschaulicht ein Schlüsselprinzip, das der Kern der Google-Philosophie ist: \"Konzentrieren Sie sich auf den Benutzer und alles andere wird folgen.\"\n\nZuständigkeiten\n\n• Arbeiten Sie mit Produktmanagern, Ingenieuren und funktionsübergreifenden Stakeholdern zusammen, um die Anforderungen zu verstehen und kreative, durchdachte Lösungen anzubieten.\n\n• Kommunizieren Sie die Benutzererfahrung in verschiedenen Phasen des Designprozesses mit Wireframes, Flussdiagrammen, Storyboards, Mockups oder Prototypen.\n\n• Befürworten Sie die Priorisierung von designzentrierten Änderungen, Verfeinerungen und Verbesserungen.\n\n• Entwerfen Sie neue Einkaufserlebnisse für Betrachter, einschließlich Benutzerflüssen, Wireframes, Mocks und funktionalen Prototypen.\n\n• Nutzen Sie die Partnerschaft von User Experience Researcher (UXR), um das Verständnis des Teams für Einkaufsverhalten, Entscheidungsfindung und wachsende Bedürfnisse zu vertiefen.",
-        "fr": "Titres minimums:\n\n• Baccalauréat ou expérience pratique équivalente.\n\n• 4 ans d'expérience en conception d'interactions dans la conception de produits ou UX.\n\n• Inclure un portfolio, un site Web ou tout autre lien pertinent à votre travail dans votre CV (fournissant un lien visible ou des instructions d'accès).\n\nQualifications privilégiées:\n\n• Maîtrise en conception, interaction homme-ordinateur, informatique, domaine connexe ou expérience pratique équivalente.\n\n• 2 ans d'expérience dans une organisation complexe et interfonctionnelle.\n\n• 1 an d'expérience à la tête de projets de conception.\n\n• Expert avec Figma et autres outils de conception pour produire des maquettes et des prototypes.\n\n• Suivre l'évolution de la conception et du lancement des produits de consommation.\n\nSur le travail\n Chez Google, nous \"Focus sur l'utilisateur et tout le reste suivra.\" Nos concepteurs d'interaction transforment des tâches complexes en expériences intuitives et faciles à utiliser pour des milliards de personnes. De la création de flux d'utilisateurs et de trames filaires à la construction de maquettes et de prototypes, vous pourrez imaginer et vivre des expériences de produits avec une sensation inspirée, raffinée et magique. Vous vous joindrez à notre équipe multidisciplinaire UX, collaborant avec l'ingénierie et la gestion des produits, en tirant parti des connaissances des utilisateurs pour créer des produits de pointe.\n\nEn tant que concepteur d'interactions, vous appliquerez des méthodes de conception centrées sur l'utilisateur à l'artisanat - des expériences utilisateur de pointe du concept à l'exécution, en travaillant avec des partenaires de conception pour développer le langage de conception Google pour construire de beaux produits innovants.\n\nL'expérience utilisateur est à l'avant-garde de la façon dont nous créons des produits intuitifs, innovants et beaux que les gens aiment. Nous nous efforçons d'apprendre et de comprendre les besoins, les comportements et les émotions de nos utilisateurs pour recueillir des idées qui éclairent la stratégie et la conception des produits. Nos équipes UX comprennent des concepteurs, des chercheurs, des stratèges de contenu et des ingénieurs passionnés par la qualité, la convivialité et la simplicité. Nous travaillons sur des équipes collaboratives pour résoudre des défis complexes et des expériences artisanales qui mettent en valeur nos produits. Notre travail touche des milliards tout en exemplifiant un principe clé qui est le cœur de la philosophie de Google: \"Focus sur l'utilisateur et tout le reste suivra.\"\n\nResponsabilités\n\n• Collaborer avec les gestionnaires de produits, les ingénieurs et les intervenants interfonctionnels pour comprendre les exigences et fournir des solutions créatives et réfléchies.\n\n• Communiquez l'expérience utilisateur à différentes étapes du processus de conception avec des trames filaires, des diagrammes de flux, des storyboards, des maquettes ou des prototypes.\n\n• Préconiser la priorisation des changements, des améliorations et des améliorations centrés sur la conception.\n\n• Concevoir de nouvelles expériences d'achat pour les téléspectateurs, y compris des flux d'utilisateurs, des trames filaires, des maquettes et des prototypes fonctionnels.\n\n• Tirer parti du partenariat de chercheur d'expérience utilisateur (UXR) pour approfondir la compréhension de l'équipe du comportement d'achat, de la prise de décision et des besoins croissants."
+        "it": "Titolo minimo:\n\n• Corso di laurea o esperienza pratica equivalente.\n\n• 4 anni di esperienza di progettazione di interazione nella progettazione del prodotto o progettazione UX.\n\n• Includere un portafoglio, un sito web o qualsiasi altro link rilevante al tuo lavoro nel tuo curriculum (fornire un link visibile o istruzioni di accesso).\n\nQualifiche preferenziali:\n\n• Laurea magistrale in Design, Interazione Umana-Computer, Scienza informatica, un campo correlato, o esperienza pratica equivalente.\n\n• 2 anni di esperienza che lavorano in un'organizzazione complessa e interfunzionale.\n\n• 1 anno di esperienza leader progetti di design.\n\n• Esperto con Figma e altri strumenti di progettazione per produrre mockup e prototipi.\n\n• Tracciare il record di progettazione e lancio di prodotti di consumo.\n\nRiguardo al lavoro\nA Google, \"Focus sull'utente e tutto il resto seguirà\". I nostri progettisti di interazione trasformano compiti complessi in esperienze intuitive e facili da usare per miliardi di persone. Dalla creazione di flussi utente e wireframe per la costruzione di mockup e prototipi, si prevede e portare a vita esperienze di prodotto con un'atmosfera ispirata, raffinata e magica. Ti unirai al nostro team UX multidisciplinare, collaborando con Engineering e Product Management, sfruttando le informazioni degli utenti per creare prodotti leader nel settore.\n\nIn qualità di Interaction Designer, applicherai metodi di progettazione orientati all'utente per creare esperienze utente leader del settore dal concetto all'esecuzione, lavorando con partner di design per evolvere il linguaggio di design di Google per costruire prodotti belli e innovativi.\n\nL'esperienza dell'utente è all'avanguardia nel modo in cui creiamo prodotti intuitivi, innovativi e belli che la gente ama. Ci sforziamo di imparare e comprendere le esigenze, i comportamenti e le emozioni dei nostri utenti per raccogliere informazioni che informano la strategia e il design del prodotto. I nostri team UX includono designer, ricercatori, strateghi dei contenuti e ingegneri che sono appassionati di qualità, usabilità e semplicità. Lavoriamo su team collaborativi per risolvere complesse sfide e esperienze artigianali che evidenziano le capacità e le personalità uniche dei nostri prodotti. Il nostro lavoro tocca miliardi esemplifica un principio chiave che è fondamentale per la filosofia di Google: “Focus sull’utente e tutto il resto seguirà”.\n\nresponsabilità\n\n• Collabora con product manager, ingegneri e stakeholder interfunzionali per comprendere i requisiti e fornire soluzioni creative e riflessive.\n\n• Comunicare l'esperienza dell'utente in varie fasi del processo di progettazione con wireframe, diagrammi di flusso, storyboard, mockup o prototipi.\n\n• Avvocato per la prioritizzazione di modifiche, perfezionamenti e miglioramenti del design.\n\n• Progettare nuove esperienze di shopping per Viewers, tra cui flussi utente, wireframe, mocks e prototipi funzionali.\n\n• Leverage User Experience Researcher (UXR) partnership per approfondire la comprensione del team di comportamenti commerciali, processi decisionali e crescenti esigenze.",
+        "en": "Minimum qualifications:\n\n• Bachelor's degree or equivalent practical experience.\n\n• 4 years of interaction design experience in product design or UX design.\n\n• Include a portfolio, website, or any other relevant link to your work in your resume (providing a viewable link or access instructions).\n\nPreferred qualifications:\n\n• Master's degree in Design, Human-Computer Interaction, Computer Science, a related field, or equivalent practical experience.\n\n• 2 years of experience working in a complex, cross-functional organization.\n\n• 1 year of experience leading design projects.\n\n• Expert with Figma and other design tools to produce mockups and prototypes.\n\n• Track record of designing and launching consumer products.\n\nAbout the job\nAt Google, we \"Focus on the user and all else will follow.\" Our Interaction Designers transform complex tasks into intuitive, easy-to-use experiences for billions of people. From creating user flows and wireframes to building mockups and prototypes, you will envision and bring product experiences to life with an inspired, refined, and magical feel. You will join our multi-disciplinary UX team, collaborating with Engineering and Product Management, leveraging user insights to create industry-leading products.\n\nAs an Interaction Designer, you'll apply user-centered design methods to craft industry-leading user experiences from concept to execution, working with design partners to evolve the Google design language to build beautiful, innovative products.\n\nUser experience is at the forefront of how we create intuitive, innovative, and beautiful products that people love. We strive to learn and understand our users’ needs, behaviors, and emotions to gather insights that inform product strategy and design. Our UX teams include designers, researchers, content strategists, and engineers who are passionate about quality, usability, and simplicity. We work on collaborative teams to solve complex challenges and craft experiences that highlight our products’ unique capabilities and personalities. Our work touches billions while exemplifying a key principle that is core to Google’s philosophy: “Focus on the user and all else will follow.”\n\nResponsibilities\n\n• Collaborate with product managers, engineers, and cross-functional stakeholders to understand requirements, and provide creative, thoughtful solutions.\n\n• Communicate the user experience at various stages of the design process with wireframes, flow diagrams, storyboards, mockups, or prototypes.\n\n• Advocate for the prioritization of design centered changes, refinements, and improvements.\n\n• Design new shopping experiences for Viewers, including user flows, wireframes, mocks, and functional prototypes.\n\n• Leverage User Experience Researcher (UXR) partnership to deepen the team’s understanding of shopping behavior, decision-making and growing needs.",
+        "de": "Mindestqualifikationen:\n\n• Bachelor-Abschluss oder gleichwertige praktische Erfahrung.\n\n• 4 Jahre Interaktionsdesign-Erfahrung im Produktdesign oder UX-Design.\n\n• Fügen Sie ein Portfolio, eine Website oder einen anderen relevanten Link zu Ihrer Arbeit in Ihren Lebenslauf ein (mit einem sichtbaren Link oder Zugangsanweisungen).\n\nBevorzugte Qualifikationen:\n\n• Master-Abschluss in Design, Mensch-Computer-Interaktion, Informatik, einem verwandten Bereich oder gleichwertige praktische Erfahrung.\n\n• 2 Jahre Erfahrung in einer komplexen, funktionsübergreifenden Organisation.\n\n• 1 Jahr Erfahrung in der Leitung von Designprojekten.\n\n• Experte mit Figma und anderen Design-Tools, um Mockups und Prototypen zu produzieren.\n\n• Erfolgsbilanz bei der Entwicklung und Einführung von Verbraucherprodukten.\n\nÜber den Job\nBei Google konzentrieren wir uns auf den Benutzer und alles andere wird folgen. Unsere Interaction Designer verwandeln komplexe Aufgaben in intuitive, benutzerfreundliche Erlebnisse für Milliarden von Menschen. Vom Erstellen von Benutzerströmen und Wireframes bis hin zum Erstellen von Mockups und Prototypen werden Sie sich Produkterlebnisse mit einem inspirierten, raffinierten und magischen Gefühl vorstellen und zum Leben erwecken. Sie werden unserem multidisziplinären UX-Team beitreten, das mit Engineering und Produktmanagement zusammenarbeitet und Benutzereinblicke nutzt, um branchenführende Produkte zu entwickeln.\n\nAls Interaktionsdesigner wenden Sie benutzerzentrierte Designmethoden an, um branchenführende Benutzererfahrungen vom Konzept bis zur Ausführung zu erstellen, und arbeiten mit Designpartnern zusammen, um die Google-Designsprache zu entwickeln, um schöne, innovative Produkte zu entwickeln.\n\nDie Benutzererfahrung steht an vorderster Front bei der Entwicklung intuitiver, innovativer und schöner Produkte, die die Menschen lieben. Wir bemühen uns, die Bedürfnisse, Verhaltensweisen und Emotionen unserer Benutzer zu lernen und zu verstehen, um Erkenntnisse zu sammeln, die die Produktstrategie und das Design beeinflussen. Unsere UX-Teams umfassen Designer, Forscher, Content-Strategen und Ingenieure, die sich für Qualität, Benutzerfreundlichkeit und Einfachheit begeistern. Wir arbeiten in Kollaborationsteams, um komplexe Herausforderungen zu lösen und Erfahrungen zu machen, die die einzigartigen Fähigkeiten und Persönlichkeiten unserer Produkte hervorheben. Unsere Arbeit berührt Milliarden und veranschaulicht ein Schlüsselprinzip, das der Kern der Google-Philosophie ist: \"Konzentrieren Sie sich auf den Benutzer und alles andere wird folgen.\"\n\nZuständigkeiten\n\n• Arbeiten Sie mit Produktmanagern, Ingenieuren und funktionsübergreifenden Stakeholdern zusammen, um die Anforderungen zu verstehen und kreative, durchdachte Lösungen anzubieten.\n\n• Kommunizieren Sie die Benutzererfahrung in verschiedenen Phasen des Designprozesses mit Wireframes, Flussdiagrammen, Storyboards, Mockups oder Prototypen.\n\n• Befürworten Sie die Priorisierung von designzentrierten Änderungen, Verfeinerungen und Verbesserungen.\n\n• Entwerfen Sie neue Einkaufserlebnisse für Betrachter, einschließlich Benutzerflüssen, Wireframes, Mocks und funktionalen Prototypen.\n\n• Nutzen Sie die Partnerschaft von User Experience Researcher (UXR), um das Verständnis des Teams für Einkaufsverhalten, Entscheidungsfindung und wachsende Bedürfnisse zu vertiefen.",
+        "fr": "Titres minimums:\n\n• Baccalauréat ou expérience pratique équivalente.\n\n• 4 ans d'expérience en conception d'interactions dans la conception de produits ou UX.\n\n• Inclure un portfolio, un site Web ou tout autre lien pertinent à votre travail dans votre CV (fournissant un lien visible ou des instructions d'accès).\n\nQualifications privilégiées:\n\n• Maîtrise en conception, interaction homme-ordinateur, informatique, domaine connexe ou expérience pratique équivalente.\n\n• 2 ans d'expérience dans une organisation complexe et interfonctionnelle.\n\n• 1 an d'expérience à la tête de projets de conception.\n\n• Expert avec Figma et autres outils de conception pour produire des maquettes et des prototypes.\n\n• Suivre l'évolution de la conception et du lancement des produits de consommation.\n\nSur le travail\nChez Google, nous \"Focus sur l'utilisateur et tout le reste suivra.\" Nos concepteurs d'interaction transforment des tâches complexes en expériences intuitives et faciles à utiliser pour des milliards de personnes. De la création de flux d'utilisateurs et de trames filaires à la construction de maquettes et de prototypes, vous pourrez imaginer et vivre des expériences de produits avec une sensation inspirée, raffinée et magique. Vous vous joindrez à notre équipe multidisciplinaire UX, collaborant avec l'ingénierie et la gestion des produits, en tirant parti des connaissances des utilisateurs pour créer des produits de pointe.\n\nEn tant que concepteur d'interactions, vous appliquerez des méthodes de conception centrées sur l'utilisateur à l'artisanat - des expériences utilisateur de pointe du concept à l'exécution, en travaillant avec des partenaires de conception pour développer le langage de conception Google pour construire de beaux produits innovants.\n\nL'expérience utilisateur est à l'avant-garde de la façon dont nous créons des produits intuitifs, innovants et beaux que les gens aiment. Nous nous efforçons d'apprendre et de comprendre les besoins, les comportements et les émotions de nos utilisateurs pour recueillir des idées qui éclairent la stratégie et la conception des produits. Nos équipes UX comprennent des concepteurs, des chercheurs, des stratèges de contenu et des ingénieurs passionnés par la qualité, la convivialité et la simplicité. Nous travaillons sur des équipes collaboratives pour résoudre des défis complexes et des expériences artisanales qui mettent en valeur nos produits. Notre travail touche des milliards tout en exemplifiant un principe clé qui est le cœur de la philosophie de Google: \"Focus sur l'utilisateur et tout le reste suivra.\"\n\nResponsabilités\n\n• Collaborer avec les gestionnaires de produits, les ingénieurs et les intervenants interfonctionnels pour comprendre les exigences et fournir des solutions créatives et réfléchies.\n\n• Communiquez l'expérience utilisateur à différentes étapes du processus de conception avec des trames filaires, des diagrammes de flux, des storyboards, des maquettes ou des prototypes.\n\n• Préconiser la priorisation des changements, des améliorations et des améliorations centrés sur la conception.\n\n• Concevoir de nouvelles expériences d'achat pour les téléspectateurs, y compris des flux d'utilisateurs, des trames filaires, des maquettes et des prototypes fonctionnels.\n\n• Tirer parti du partenariat de chercheur d'expérience utilisateur (UXR) pour approfondir la compréhension de l'équipe du comportement d'achat, de la prise de décision et des besoins croissants."
       },
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://www.google.com/about/careers/applications/jobs/results/112839964546212550-ux-designer-ads",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:23:13.721Z",
+      "crawledAt": "2026-11-18T09:22:03.100Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3332,8 +3505,15 @@
       "requirementsByLocale": {
         "en": [
           "Bachelor's degree or equivalent practical experience.",
-          "4 years of interaction design experience in product design or UX design.",
-          "Include a portfolio, website, or any other relevant link to your work in your resume (providing a viewable link or access instructions)."
+          "4 years of interaction design experience in product design or UX design."
+        ]
+      },
+      "previousSlugs": [
+        "ux-designer-ads-google-switzerland-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "ux-designer-ads-google-switzerland-zurich"
         ]
       },
       "salaryMin": 73500,
@@ -3350,16 +3530,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-15T21:23:13.721Z",
-      "validThroughSource": "last-observed-window",
-      "previousSlugsByLocale": {
-        "it": [
-          "ux-designer-ads-google-switzerland-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "ux-designer-ads-google-switzerland-zurich"
-      ]
+      "validThrough": "2027-02-16T09:22:03.100Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-2d8aedfa3920",
@@ -3392,7 +3564,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/93078491720753862-software-engineering-phd-intern-2027",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:23:13.189Z",
+      "crawledAt": "2026-11-18T09:22:02.490Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3436,7 +3608,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-17T21:23:13.189Z",
+      "validThrough": "2026-12-18T09:22:02.490Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3470,7 +3642,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/112295976873403078-software-engineer-iii-youtube-content-id-claiming",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:23:12.654Z",
+      "crawledAt": "2026-11-18T09:22:01.864Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3515,7 +3687,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-08T21:23:12.654Z",
+      "validThrough": "2027-02-09T09:22:01.864Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3549,7 +3721,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/102577022080819910-senior-software-engineer-health-and-home-infrastructure",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:23:12.092Z",
+      "crawledAt": "2026-11-18T09:22:01.309Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3594,7 +3766,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:23:12.092Z",
+      "validThrough": "2027-01-27T09:22:01.309Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3628,7 +3800,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/86733690079453894-student-researcher-2027",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:23:11.540Z",
+      "crawledAt": "2026-11-18T09:22:00.652Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3675,7 +3847,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-04T21:23:11.540Z",
+      "validThrough": "2027-01-04T09:22:00.652Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3709,7 +3881,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/82143346071347910-software-engineer-iii-search-ads-quality-and-ai",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:23:10.939Z",
+      "crawledAt": "2026-11-18T09:22:00.055Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3777,7 +3949,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-17T21:23:10.939Z",
+      "validThrough": "2026-12-18T09:22:00.055Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3811,7 +3983,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/104448828152652486-research-scientist-user-signals-from-agentic-logs-deepmind",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:23:10.387Z",
+      "crawledAt": "2026-11-18T09:21:59.510Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3872,7 +4044,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-18T21:23:10.387Z",
+      "validThrough": "2027-01-19T09:21:59.510Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3906,7 +4078,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/72456132160824006-solution-architect-capital-markets-and-exchanges-google-cloud",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:23:09.795Z",
+      "crawledAt": "2026-11-18T09:21:58.968Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3951,7 +4123,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-21T21:23:09.795Z",
+      "validThrough": "2027-01-21T09:21:58.968Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3985,7 +4157,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/75492331247018694-software-engineer-iii-information-security",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T21:23:09.229Z",
+      "crawledAt": "2026-11-18T09:21:58.425Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -4030,7 +4202,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-22T21:23:09.229Z",
+      "validThrough": "2027-01-22T09:21:58.425Z",
       "validThroughSource": "last-observed-window"
     }
   ]

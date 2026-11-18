@@ -1,7 +1,7 @@
 {
   "crawlerKey": "medimeo",
-  "assembledAt": "2026-11-17T21:18:23.292Z",
-  "runId": "44176342839",
+  "assembledAt": "2026-11-18T09:21:29.379Z",
+  "runId": "44272647809",
   "jobs": [
     {
       "id": "medimeo-d23ca2966d4e",
@@ -34,7 +34,7 @@
       "url": "https://medimeo.ch/job/facharzt-fachaerztin-fuer-ophthalmologie-60-100-grossraum-zuerich-3762/",
       "source": "Medimeo AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:17:48.196Z",
+      "crawledAt": "2026-11-18T09:21:23.771Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -85,7 +85,7 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-13T21:17:48.196Z",
+      "validThrough": "2027-02-13T09:21:23.771Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -119,7 +119,7 @@
       "url": "https://medimeo.ch/job/fachaerztin-facharzt-innere-medizin-60-100-hochmodern-und-effiziente-struktur-mehr-zeit-fuer-sie-3764/",
       "source": "Medimeo AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:17:48.194Z",
+      "crawledAt": "2026-11-18T09:21:23.769Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -170,7 +170,7 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-13T21:17:48.194Z",
+      "validThrough": "2027-02-13T09:21:23.769Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -204,7 +204,7 @@
       "url": "https://medimeo.ch/job/facharzt-fachaerztin-fuer-ophthalmologie-40-100-flexibel-in-modernen-sturkturen-3609/",
       "source": "Medimeo AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:17:48.192Z",
+      "crawledAt": "2026-11-18T09:21:23.768Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -255,7 +255,7 @@
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T21:17:48.192Z",
+      "validThrough": "2027-02-14T09:21:23.768Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -289,7 +289,7 @@
       "url": "https://medimeo.ch/job/oberaerztin-oberarzt-gynaekologie-und-geburtshilfe-80-100-begleitet-in-ihre-erste-oberarztrolle-3613/",
       "source": "Medimeo AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:17:48.191Z",
+      "crawledAt": "2026-11-18T09:21:23.767Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -340,7 +340,7 @@
       "postalCode": "4600",
       "streetAddress": "Olten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T21:17:48.191Z",
+      "validThrough": "2027-02-14T09:21:23.767Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -349,7 +349,7 @@
       "slugByLocale": {
         "it": "allgemeinmedizinerin-hausarzt-60-100-angestellt-o-infrastrukturnutzung-medimeo-ag-olten",
         "en": "general-practitioner-family-doctor-60-100-employed-or-infrastructure-use-medimeo-ag-olten-aargau",
-        "de": "allgemeinmedizinerin-hausarzt-60-100-angestellt-oder-infrastrukturnutzung-medimeo-ag-olten",
+        "de": "allgemeinmedizinerin-hausarzt-60-100-angestellt-oder-infrastrukturnutzung-olten-aargau",
         "fr": "medecin-general-medecin-de-famille-60-100-employe-ou-utilisation-de-l-infrastructure-medimeo-ag-olten-aargau"
       },
       "company": "Medimeo AG",
@@ -374,7 +374,7 @@
       "url": "https://medimeo.ch/job/allgemeinmedizinerin-hausarzt-60-100-angestellt-oder-infrastrukturnutzung-3763/",
       "source": "Medimeo AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:17:48.189Z",
+      "crawledAt": "2026-11-18T09:21:23.766Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -392,11 +392,10 @@
       "applyUrl": "https://medimeo.ch/job/allgemeinmedizinerin-hausarzt-60-100-angestellt-oder-infrastrukturnutzung-3763/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "allgemeinmedizinerin-hausarzt-60-100-angestellt-oder-infrastrukturnutzung-olten-aargau",
-        "allgemeinmedizinerin-hausarzt-60-100-angestellt-oder-infrastrukturnutzung-medimeo-ag-olten"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "allgemeinmedizinerin-hausarzt-60-100-angestellt-oder-infrastrukturnutzung-medimeo-ag-olten"
+        ],
         "it": [
           "allgemeinmedizinerin-hausarzt-60-100-angestellt-oder-infrastrukturnutzung-olten-aargau"
         ],
@@ -405,11 +404,12 @@
         ],
         "fr": [
           "allgemeinmedizinerin-hausarzt-60-100-angestellt-oder-infrastrukturnutzung-medimeo-ag-olten"
-        ],
-        "de": [
-          "allgemeinmedizinerin-hausarzt-60-100-angestellt-oder-infrastrukturnutzung-olten-aargau"
         ]
       },
+      "previousSlugs": [
+        "allgemeinmedizinerin-hausarzt-60-100-angestellt-oder-infrastrukturnutzung-olten-aargau",
+        "allgemeinmedizinerin-hausarzt-60-100-angestellt-oder-infrastrukturnutzung-medimeo-ag-olten"
+      ],
       "firstSeenAt": "2026-11-16T09:20:15.435Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -427,7 +427,7 @@
       "postalCode": "4600",
       "streetAddress": "Olten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T21:17:48.189Z",
+      "validThrough": "2027-02-14T09:21:23.766Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -461,7 +461,7 @@
       "url": "https://medimeo.ch/job/hausarzt-allgemeinmedizinerin-60-100-eigenstaendig-arbeiten-ohne-betriebliches-risiko-3767/",
       "source": "Medimeo AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:17:48.188Z",
+      "crawledAt": "2026-11-18T09:21:23.765Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -510,94 +510,8 @@
       "postalCode": "4600",
       "streetAddress": "Olten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:17:48.188Z",
+      "validThrough": "2027-02-15T09:21:23.765Z",
       "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "medimeo-3bed5c64b23b",
-      "slug": "medica-dirigente-medico-dirigente-in-psichiatria-con-responsabilita-della-sede-a-zurigo-80-100-senza-turni-notturni-e",
-      "slugByLocale": {
-        "it": "medica-dirigente-medico-dirigente-in-psichiatria-con-responsabilita-della-sede-a-zurigo-80-100-senza-turni-notturni-e",
-        "en": "senior-physician-senior-physician-psychiatry-with-location-management-in-zurich-80-100-without-night-and-weekend",
-        "de": "oberarztin-oberarzt-psychiatrie-mit-standortleitung-in-zurich-80-100-ohne-nacht-und",
-        "fr": "medecin-senior-medecin-senior-psychiatrie-avec-gestion-de-localisation-a-zurich-80-100-sans-services-de-nuit-et-de-fin"
-      },
-      "company": "Medimeo AG",
-      "companyKey": "medimeo",
-      "companyDomain": "medimeo.ch",
-      "title": "Oberärztin / Oberarzt Psychiatrie mit Standortleitung in Zürich (80–100%) – ohne Nacht- und Wochenenddienste",
-      "titleByLocale": {
-        "it": "Medica dirigente / medico dirigente in psichiatria con responsabilità della sede a Zurigo (80–100%) – senza turni notturni e nei fine settimana",
-        "en": "Senior physician / senior physician psychiatry with location management in Zurich (80–100%) – without night and weekend services",
-        "de": "Oberärztin / Oberarzt Psychiatrie mit Standortleitung in Zürich (80–100%) – ohne Nacht- und Wochenenddienste",
-        "fr": "Médecin senior / Médecin senior psychiatrie avec gestion de localisation à Zurich (80–100%) – sans services de nuit et de fin de semaine"
-      },
-      "description": "- 13. November 2026\n- 3759\nSonntagabend, und Sie denken schon an den nächsten Dienst? Sie lieben Ihren Beruf, aber nicht mehr die Art, wie Sie ihn ausüben müssen? Dann ist es Zeit für einen Ort, an dem Führung nicht heisst, immer erreichbar zu sein. In Zürich leiten Sie einen Standort, arbeiten psychotherapeutisch, und die Wochenenden gehören wieder Ihnen.\nSeit Herbst 2025 ist eine ambulante Spezialklinik für psychiatrisch-psychosomatische Behandlung auch in Zürich vertreten. Sie ist vergleichbar mit einer psychosomatischen Tagesklinik mit angeschlossener Ambulanz in Deutschland. Das Konzept hat sich an den anderen Standorten über Jahre bewährt, das Team in Zürich ist noch jung und wächst. Behandelt werden Menschen mit Stressfolgeerkrankungen, Depressionen, Angststörungen oder chronischen Schmerzen, mit Psychotherapie und Körpertherapie im Zentrum.\nIhre Aufgaben:\n- Medizinische Leitung des Standorts, in enger Abstimmung mit der Klinikleitung\n- Fachliche Führung des ärztlichen Teams und Supervision der Therapeutinnen und Therapeuten\n- Behandlung eigener Patientinnen und Patienten, von der Erstabklärung bis zur Fallführung\n- Qualitätssicherung und Weiterentwicklung des Standortkonzepts\n- Aufbau eines Netzwerks mit Zuweisenden, Arbeitgebern und Versicherungen\nIhre Kompetenzen:\n- Facharzttitel für Psychiatrie und Psychotherapie. Ihr deutscher Titel wird über die MEBEKO anerkannt, und Medimeo begleitet Sie durch das Verfahren\n- Einige Jahre Erfahrung als Oberärztin oder Oberarzt, idealerweise in einer psychosomatischen Klinik, einer Tagesklinik oder einer Institutsambulanz\n- Freude daran, ein Team zu führen und zusammenzuhalten\n- Sehr gute Deutschkenntnisse (C1)\n- Lust, sich langfristig in einem wachsenden Betrieb einzubringen\nIhre Vorteile:\n- Führungsverantwortung ohne Nacht- und Wochenenddienste, an fünf Tagen pro Woche\n- Psychotherapeutisch ausgerichtetes Konzept statt reiner Medikation\n- Ein Standort, der noch Ihre Handschrift tragen kann\n- Kurze Entscheidungswege und ein direkter Draht zur Klinikleitung\n- 5 Wochen Ferien und zusätzlich 1 Woche für Weiterbildung\n- Leben in Zürich: deutschsprachig, international, mit See und Bergen, und mit guten Verbindungen nach Süddeutschland\nIhr Wechsel mit Medimeo\n- Eine feste Ansprechperson, vertraulich, auch solange Sie noch in Deutschland angestellt sind\n- Begleitung durch MEBEKO-Anerkennung und kantonale Berufsausübungsbewilligung, mit Beteiligung an den Kosten\n- Unterstützung bei Wohnungssuche, Umzug und Anmeldung in der Schweiz\n- Ein persönlicher Netto-Vergleich zwischen Deutschland und der Schweiz für Ihre Situation\nIhr Kontakt:\n#3759\nAlexandra Amrein\n+41 (0)31 310 98 74\na.amrein@medimeo.ch",
-      "descriptionByLocale": {
-        "it": "- 13. novembre 2026\n- 3759\nDomenica sera, e stai già pensando al prossimo ministero? Ami la tua professione, ma non più il modo in cui devi esercitarla? Allora è il momento di un posto dove la leadership non significa essere sempre raggiungibili. A Zurigo, gestisci una posizione, lavori psicoterapeuticamente, e i fine settimana sono di nuovo tuoi.\nDall'autunno del 2025, anche a Zurigo è stata rappresentata una clinica specializzata per il trattamento psicosomatico psichiatrico. È paragonabile a una clinica diurna psicosomatica con un'ambulanza collegata in Germania. Il concetto si è dimostrato negli altri luoghi da anni, il team di Zurigo è ancora giovane e in crescita. Le persone sono trattate con stress malattie secondarie, depressione, disturbi di ansia o dolore cronico, con psicoterapia e terapia del corpo al centro.\nI loro compiti:\n- Gestione medica del sito, in stretto coordinamento con la gestione clinica\n- Leader professionale della squadra medica e supervisione dei terapisti\n- Trattamento dei propri pazienti, dal primo esame alla gestione dei casi\n- Garanzia di qualità e ulteriore sviluppo del concetto del sito\n- Costruire una rete con assegnanti, datori di lavoro e compagnie assicurative\nLe tue competenze:\n- Titolo specialistico per psichiatria e psicoterapia. Il vostro titolo tedesco è riconosciuto attraverso MEBEKO, e Medimeo vi accompagna attraverso la procedura\n- Alcuni anni di esperienza come medico senior, idealmente in una clinica psicosomatica, una clinica diurna o un'ambulanza dell'istituto\n- Gioia di guidare una squadra e mantenere insieme\n- Conoscenza molto buona del tedesco (C1)\n- desiderio di partecipare a una società in crescita a lungo termine\nI loro vantaggi:\n- Responsabilità della leadership senza servizi notturni e week-end, cinque giorni alla settimana\n- Psicoterapeutamente orientato concetto invece di puro farmaco\n- Un luogo che può ancora portare la scrittura\n- Brevi percorsi decisionali e una linea diretta alla gestione clinica\n- 5 settimane di ferie e un'ulteriore 1 settimana di formazione\n- Vivere a Zurigo: tedesco, internazionale, con mare e montagna, e con buoni collegamenti con la Germania meridionale\nIl tuo cambiamento con Medimeo\n- Un contatto permanente, confidenziale, purché tu sia ancora impiegato in Germania\n- Accompagnamento attraverso il riconoscimento MEBEKO e il permesso di pratica professionale cantonale, con contributo ai costi\n- Assistenza nella ricerca di alloggi, trasferimento e registrazione in Svizzera\n- Un confronto netto personale tra Germania e Svizzera per la tua situazione\nIl tuo contatto:\n#3759\nAlexandra Amrein\n+41 (0)31 310 98 74\na.amrein@medimeo.ch",
-        "en": "- 13. November 2026\n- 3759\nSunday night, and you are already thinking about the next ministry? You love your profession, but no longer the way you need to exercise it? Then it’s time for a place where leadership doesn’t mean always being reachable. In Zurich, you manage a location, work psychotherapeutically, and the weekends are yours again.\nSince autumn 2025, an outpatient specialist clinic for psychiatric psychosomatic treatment has also been represented in Zurich. It is comparable to a psychosomatic day clinic with a connected ambulance in Germany. The concept has proven itself at the other locations for years, the team in Zurich is still young and growing. People are treated with stress secondary diseases, depression, anxiety disorders or chronic pain, with psychotherapy and body therapy in the center.\nTheir tasks:\n- Medical management of the site, in close coordination with the clinic management\n- Professional leadership of the medical team and supervision of the therapists\n- Treatment of own patients, from first examination to case management\n- Quality assurance and further development of the site concept\n- Building a network with assignees, employers and insurance companies\nYour Competences:\n- Specialist title for psychiatry and psychotherapy. Your German title is recognized through MEBEKO, and Medimeo accompanies you through the procedure\n- Some years of experience as a senior physician, ideally in a psychosomatic clinic, a day clinic or an institute ambulance\n- Joy of leading a team and keeping it together\n- Very good knowledge of German (C1)\n- Desire to participate in a growing company in the long term\nTheir advantages:\n- Leadership responsibility without night and weekend services, five days a week\n- Psychotherapeutically oriented concept instead of pure medication\n- A location that can still carry your handwriting\n- Short decision paths and a direct line to the clinic management\n- 5 weeks holidays and an additional 1 week for further training\n- Living in Zurich: German-speaking, international, with sea and mountains, and with good connections to southern Germany\nYour change with Medimeo\n- A permanent contact person, confidential, even as long as you are still employed in Germany\n- Accompaniment through MEBEKO recognition and cantonal professional practice permit, with contribution to the costs\n- Assistance in finding accommodation, moving and registering in Switzerland\n- A personal net comparison between Germany and Switzerland for your situation\nYour contact:\n#3759\nAlexandra Amrein\n+41 (0)31 310 98 74\na.amrein@medimeo.ch",
-        "de": "- 13. November 2026\n- 3759\nSonntagabend, und Sie denken schon an den nächsten Dienst? Sie lieben Ihren Beruf, aber nicht mehr die Art, wie Sie ihn ausüben müssen? Dann ist es Zeit für einen Ort, an dem Führung nicht heisst, immer erreichbar zu sein. In Zürich leiten Sie einen Standort, arbeiten psychotherapeutisch, und die Wochenenden gehören wieder Ihnen.\nSeit Herbst 2025 ist eine ambulante Spezialklinik für psychiatrisch-psychosomatische Behandlung auch in Zürich vertreten. Sie ist vergleichbar mit einer psychosomatischen Tagesklinik mit angeschlossener Ambulanz in Deutschland. Das Konzept hat sich an den anderen Standorten über Jahre bewährt, das Team in Zürich ist noch jung und wächst. Behandelt werden Menschen mit Stressfolgeerkrankungen, Depressionen, Angststörungen oder chronischen Schmerzen, mit Psychotherapie und Körpertherapie im Zentrum.\nIhre Aufgaben:\n- Medizinische Leitung des Standorts, in enger Abstimmung mit der Klinikleitung\n- Fachliche Führung des ärztlichen Teams und Supervision der Therapeutinnen und Therapeuten\n- Behandlung eigener Patientinnen und Patienten, von der Erstabklärung bis zur Fallführung\n- Qualitätssicherung und Weiterentwicklung des Standortkonzepts\n- Aufbau eines Netzwerks mit Zuweisenden, Arbeitgebern und Versicherungen\nIhre Kompetenzen:\n- Facharzttitel für Psychiatrie und Psychotherapie. Ihr deutscher Titel wird über die MEBEKO anerkannt, und Medimeo begleitet Sie durch das Verfahren\n- Einige Jahre Erfahrung als Oberärztin oder Oberarzt, idealerweise in einer psychosomatischen Klinik, einer Tagesklinik oder einer Institutsambulanz\n- Freude daran, ein Team zu führen und zusammenzuhalten\n- Sehr gute Deutschkenntnisse (C1)\n- Lust, sich langfristig in einem wachsenden Betrieb einzubringen\nIhre Vorteile:\n- Führungsverantwortung ohne Nacht- und Wochenenddienste, an fünf Tagen pro Woche\n- Psychotherapeutisch ausgerichtetes Konzept statt reiner Medikation\n- Ein Standort, der noch Ihre Handschrift tragen kann\n- Kurze Entscheidungswege und ein direkter Draht zur Klinikleitung\n- 5 Wochen Ferien und zusätzlich 1 Woche für Weiterbildung\n- Leben in Zürich: deutschsprachig, international, mit See und Bergen, und mit guten Verbindungen nach Süddeutschland\nIhr Wechsel mit Medimeo\n- Eine feste Ansprechperson, vertraulich, auch solange Sie noch in Deutschland angestellt sind\n- Begleitung durch MEBEKO-Anerkennung und kantonale Berufsausübungsbewilligung, mit Beteiligung an den Kosten\n- Unterstützung bei Wohnungssuche, Umzug und Anmeldung in der Schweiz\n- Ein persönlicher Netto-Vergleich zwischen Deutschland und der Schweiz für Ihre Situation\nIhr Kontakt:\n#3759\nAlexandra Amrein\n+41 (0)31 310 98 74\na.amrein@medimeo.ch",
-        "fr": "- 13. Novembre 2026\n- 3759\nDimanche soir, et tu penses déjà au prochain ministère ? Vous aimez votre métier, mais vous n'avez plus besoin de l'exercer ? Alors il est temps pour un endroit où le leadership ne signifie pas toujours être accessible. À Zurich, vous gérez un emplacement, travaillez de façon psychothérapeutique, et les week-ends sont de nouveau à vous.\nDepuis l'automne 2025, une clinique spécialisée en traitement psychosomatique psychiatrique est également représentée à Zurich. Il est comparable à une clinique de jour psychosomatique avec une ambulance connectée en Allemagne. Le concept a fait ses preuves dans les autres lieux depuis des années, l'équipe de Zurich est encore jeune et en croissance. Les personnes sont traitées par des maladies secondaires de stress, dépression, troubles anxieux ou douleurs chroniques, avec la psychothérapie et la thérapie corporelle dans le centre.\nLeurs tâches:\n- Gestion médicale du site, en étroite coordination avec la gestion de la clinique\n- Direction professionnelle de l'équipe médicale et supervision des thérapeutes\n- Traitement des patients, du premier examen à la prise en charge des cas\n- Assurance de la qualité et développement du concept de site\n- Construire un réseau avec les cessionnaires, les employeurs et les compagnies d'assurance\nVos compétences :\n- Titre spécialisé en psychiatrie et psychothérapie. Votre titre allemand est reconnu par MEBEKO, et Medimeo vous accompagne par la procédure\n- Quelques années d'expérience en tant que médecin senior, idéalement dans une clinique psychosomatique, une clinique de jour ou une ambulance d'institut\n- Joy de diriger une équipe et de la garder ensemble\n- Très bonne connaissance de l'allemand (C1)\n- Désir de participer à long terme à une entreprise en croissance\nLeurs avantages:\n- Responsabilité du leadership sans services de nuit et de fin de semaine, cinq jours par semaine\n- Concept psychothérapeutique au lieu de médicaments purs\n- Un endroit qui peut encore porter votre écriture\n- Courts chemins de décision et une ligne directe à la gestion de la clinique\n- 5 semaines de vacances et 1 semaine supplémentaire pour la formation continue\n- Vivre à Zurich: germanophone, international, avec mer et montagnes, et avec de bonnes connexions avec le sud de l'Allemagne\nVotre changement avec Medimeo\n- Une personne de contact permanente, confidentielle, même si vous êtes toujours employé en Allemagne\n- Accompagné de la reconnaissance MEBEKO et du permis de pratique professionnelle cantonale, avec contribution aux coûts\n- Aide à la recherche d'un logement, au déménagement et à l'inscription en Suisse\n- Une comparaison nette personnelle entre l'Allemagne et la Suisse pour votre situation\nVotre contact:\n#3759\nAlexandra Amrein\n+41 (0)31 310 98 74\na.amrein@medimeo.ch"
-      },
-      "location": "Region Zürich",
-      "canton": "ZH",
-      "url": "https://medimeo.ch/job/oberaerztin-oberarzt-psychiatrie-mit-standortleitung-in-zuerich-80-100-ohne-nacht-und-wochenenddienste-3759/",
-      "source": "Medimeo AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-16T21:18:09.996Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-13T00:00:00+01:00",
-      "postedDate": "2026-11-13T00:00:00+01:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://medimeo.ch/job/oberaerztin-oberarzt-psychiatrie-mit-standortleitung-in-zuerich-80-100-ohne-nacht-und-wochenenddienste-3759/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "oberarztin-oberarzt-psychiatrie-mit-standortleitung-in-zurich-80-100-ohne-nacht-und",
-        "oberarztin-oberarzt-psychiatrie-con-standortleitung-in-zurich-80-100-ohne-nacht-e-wochenenddienste-medimeo-ag-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "oberarztin-oberarzt-psychiatrie-mit-standortleitung-in-zurich-80-100-ohne-nacht-und",
-          "oberarztin-oberarzt-psychiatrie-con-standortleitung-in-zurich-80-100-ohne-nacht-e-wochenenddienste-medimeo-ag-zurich"
-        ],
-        "en": [
-          "oberarztin-oberarzt-psychiatrie-mit-standortleitung-in-zurich-80-100-ohne-nacht-und"
-        ],
-        "fr": [
-          "oberarztin-oberarzt-psychiatrie-mit-standortleitung-in-zurich-80-100-ohne-nacht-und"
-        ]
-      },
-      "firstSeenAt": "2026-11-13T21:21:16.525Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "8001",
-      "streetAddress": "Zürich",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:18:09.996Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
     }
   ]
 }
