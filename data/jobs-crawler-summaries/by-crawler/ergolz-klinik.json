@@ -1,7 +1,7 @@
 {
   "key": "ergolz-klinik",
   "label": "Ergolz Klinik",
-  "generatedAt": "2026-11-18T09:19:59.797Z",
+  "generatedAt": "2026-11-18T21:21:47.819Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -14,18 +14,16 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 3998,
-  "avgDurationMs": 3998,
+  "unchangedCount": 0,
+  "durationMs": 6364,
+  "avgDurationMs": 6364,
   "durationHistory": [
-    3998
+    6364
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "ergolz-klinik-9afa70b1ddcc",
       "slug": "dipl-curatore-anestesia-60-80-ergolz-klinik-liestal",
@@ -39,7 +37,7 @@
       "url": "https://ergolz.cardiance.com/wp-content/uploads/sites/4/2026/04/Inserat-Anasthesie-Pflege-60-80.pdf",
       "source": "Ergolz Klinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:19:44.177Z",
+      "crawledAt": "2026-11-18T21:21:30.064Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -73,7 +71,7 @@
       },
       "streetAddress": "Hammerstrasse 35",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-18T09:19:44.177Z",
+      "validThrough": "2026-12-18T21:21:30.064Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -84,5 +82,7 @@
       }
     }
   ],
-  "codeCommit": "c09e64fc08a252ae7234edb7cb9fdea84c5eb705"
+  "removedJobs": [],
+  "unchangedJobs": [],
+  "codeCommit": "8862042892397f4dcea90f48fbc2dc028da23eec"
 }

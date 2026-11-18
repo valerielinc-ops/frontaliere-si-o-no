@@ -1,7 +1,7 @@
 {
   "crawlerKey": "spital-limmattal",
-  "assembledAt": "2026-11-18T09:16:28.452Z",
-  "runId": "44272647809",
+  "assembledAt": "2026-11-18T21:16:53.000Z",
+  "runId": "44397777882",
   "jobs": [
     {
       "id": "spital-limmattal-bb7d2934d0a2",
@@ -35,7 +35,7 @@
       "url": "https://apply.refline.ch/486538/0904/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:16:21.404Z",
+      "crawledAt": "2026-11-18T21:16:43.943Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -84,7 +84,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T09:16:21.404Z",
+      "validThrough": "2027-02-15T21:16:43.943Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -119,7 +119,7 @@
       "url": "https://apply.refline.ch/486538/0905/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:16:20.980Z",
+      "crawledAt": "2026-11-18T21:16:43.517Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -168,7 +168,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T09:16:20.980Z",
+      "validThrough": "2027-02-15T21:16:43.517Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -203,7 +203,7 @@
       "url": "https://apply.refline.ch/486538/0824/pub/2/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:16:20.557Z",
+      "crawledAt": "2026-11-18T21:16:43.093Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -246,7 +246,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:16:20.557Z",
+      "validThrough": "2026-12-18T21:16:43.093Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -281,7 +281,7 @@
       "url": "https://apply.refline.ch/486538/0903/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:16:20.135Z",
+      "crawledAt": "2026-11-18T21:16:42.668Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -329,7 +329,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:16:20.135Z",
+      "validThrough": "2027-02-08T21:16:42.668Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -364,7 +364,7 @@
       "url": "https://apply.refline.ch/486538/0856/pub/3/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:16:19.718Z",
+      "crawledAt": "2026-11-18T21:16:42.245Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -418,7 +418,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:16:19.718Z",
+      "validThrough": "2026-12-18T21:16:42.245Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -452,7 +452,7 @@
       "url": "https://apply.refline.ch/486538/0898/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:16:19.296Z",
+      "crawledAt": "2026-11-18T21:16:41.819Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -506,7 +506,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T09:16:19.296Z",
+      "validThrough": "2027-01-31T21:16:41.819Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -540,7 +540,7 @@
       "url": "https://apply.refline.ch/486538/0901/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:16:18.873Z",
+      "crawledAt": "2026-11-18T21:16:41.392Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -594,7 +594,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:16:18.873Z",
+      "validThrough": "2027-02-03T21:16:41.392Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -629,7 +629,7 @@
       "url": "https://apply.refline.ch/486538/0900/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:16:18.452Z",
+      "crawledAt": "2026-11-18T21:16:40.967Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -681,7 +681,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:16:18.452Z",
+      "validThrough": "2027-02-02T21:16:40.967Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -716,7 +716,7 @@
       "url": "https://apply.refline.ch/486538/0307/pub/6/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:16:18.033Z",
+      "crawledAt": "2026-11-18T21:16:40.536Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -765,7 +765,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:16:18.033Z",
+      "validThrough": "2026-12-18T21:16:40.536Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -800,7 +800,7 @@
       "url": "https://apply.refline.ch/486538/0897/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:16:17.614Z",
+      "crawledAt": "2026-11-18T21:16:40.111Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -854,7 +854,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-29T09:16:17.614Z",
+      "validThrough": "2027-01-28T21:16:40.111Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -889,7 +889,7 @@
       "url": "https://apply.refline.ch/486538/0730/pub/7/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:16:17.194Z",
+      "crawledAt": "2026-11-18T21:16:39.684Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -940,7 +940,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:16:17.194Z",
+      "validThrough": "2026-12-18T21:16:39.684Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -975,7 +975,7 @@
       "url": "https://apply.refline.ch/486538/0899/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:16:16.771Z",
+      "crawledAt": "2026-11-18T21:16:39.251Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1027,7 +1027,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T09:16:16.771Z",
+      "validThrough": "2027-01-31T21:16:39.251Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1062,7 +1062,7 @@
       "url": "https://apply.refline.ch/486538/0762/pub/3/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:16:16.349Z",
+      "crawledAt": "2026-11-18T21:16:38.826Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1111,7 +1111,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:16:16.349Z",
+      "validThrough": "2026-12-18T21:16:38.826Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1146,7 +1146,7 @@
       "url": "https://apply.refline.ch/486538/0639/pub/4/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:16:15.930Z",
+      "crawledAt": "2026-11-18T21:16:38.399Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1197,7 +1197,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:16:15.930Z",
+      "validThrough": "2026-12-18T21:16:38.399Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1232,7 +1232,7 @@
       "url": "https://apply.refline.ch/486538/0895/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:16:15.509Z",
+      "crawledAt": "2026-11-18T21:16:37.972Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1281,7 +1281,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:16:15.509Z",
+      "validThrough": "2027-01-26T21:16:37.972Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1316,7 +1316,7 @@
       "url": "https://apply.refline.ch/486538/0894/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:16:14.969Z",
+      "crawledAt": "2026-11-18T21:16:37.547Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1368,7 +1368,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:16:14.969Z",
+      "validThrough": "2027-01-26T21:16:37.547Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1403,7 +1403,7 @@
       "url": "https://apply.refline.ch/486538/0893/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:16:13.950Z",
+      "crawledAt": "2026-11-18T21:16:37.123Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1463,7 +1463,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T09:16:13.950Z",
+      "validThrough": "2027-01-19T21:16:37.123Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1497,7 +1497,7 @@
       "url": "https://apply.refline.ch/486538/0889/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:16:13.529Z",
+      "crawledAt": "2026-11-18T21:16:36.698Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1549,7 +1549,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T09:16:13.529Z",
+      "validThrough": "2027-01-18T21:16:36.698Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1584,7 +1584,7 @@
       "url": "https://apply.refline.ch/486538/0888/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:16:13.109Z",
+      "crawledAt": "2026-11-18T21:16:36.268Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1638,7 +1638,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T09:16:13.109Z",
+      "validThrough": "2027-01-18T21:16:36.268Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1672,7 +1672,7 @@
       "url": "https://apply.refline.ch/486538/0749/pub/5/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:16:12.687Z",
+      "crawledAt": "2026-11-18T21:16:35.839Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1729,7 +1729,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:16:12.687Z",
+      "validThrough": "2026-12-18T21:16:35.839Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1764,7 +1764,7 @@
       "url": "https://apply.refline.ch/486538/0711/pub/5/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:16:12.264Z",
+      "crawledAt": "2026-11-18T21:16:35.414Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1813,7 +1813,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:16:12.264Z",
+      "validThrough": "2026-12-18T21:16:35.414Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1848,7 +1848,7 @@
       "url": "https://apply.refline.ch/486538/0887/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:16:11.844Z",
+      "crawledAt": "2026-11-18T21:16:34.010Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1897,7 +1897,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-08T09:16:11.844Z",
+      "validThrough": "2027-01-07T21:16:34.010Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1932,7 +1932,7 @@
       "url": "https://apply.refline.ch/486538/0840/pub/4/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:16:11.421Z",
+      "crawledAt": "2026-11-18T21:16:33.586Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1984,7 +1984,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:16:11.421Z",
+      "validThrough": "2026-12-18T21:16:33.586Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2019,7 +2019,7 @@
       "url": "https://apply.refline.ch/486538/0880/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:16:10.999Z",
+      "crawledAt": "2026-11-18T21:16:33.146Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2071,7 +2071,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T09:16:10.999Z",
+      "validThrough": "2027-01-04T21:16:33.146Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2106,7 +2106,7 @@
       "url": "https://apply.refline.ch/486538/0883/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:16:10.569Z",
+      "crawledAt": "2026-11-18T21:16:32.720Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2155,7 +2155,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T09:16:10.569Z",
+      "validThrough": "2027-01-06T21:16:32.720Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2190,7 +2190,7 @@
       "url": "https://apply.refline.ch/486538/0882/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:16:10.134Z",
+      "crawledAt": "2026-11-18T21:16:32.295Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2239,7 +2239,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T09:16:10.134Z",
+      "validThrough": "2027-01-06T21:16:32.295Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2274,7 +2274,7 @@
       "url": "https://apply.refline.ch/486538/0886/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:16:09.713Z",
+      "crawledAt": "2026-11-18T21:16:31.864Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2323,7 +2323,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T09:16:09.713Z",
+      "validThrough": "2027-01-06T21:16:31.864Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2358,7 +2358,7 @@
       "url": "https://apply.refline.ch/486538/0885/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:16:09.288Z",
+      "crawledAt": "2026-11-18T21:16:31.438Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2407,7 +2407,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T09:16:09.288Z",
+      "validThrough": "2027-01-06T21:16:31.438Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2442,7 +2442,7 @@
       "url": "https://apply.refline.ch/486538/0884/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:16:08.859Z",
+      "crawledAt": "2026-11-18T21:16:31.014Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2491,7 +2491,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T09:16:08.859Z",
+      "validThrough": "2027-01-06T21:16:31.014Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2526,7 +2526,7 @@
       "url": "https://apply.refline.ch/486538/0879/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:16:08.431Z",
+      "crawledAt": "2026-11-18T21:16:30.582Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2575,7 +2575,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-03T09:16:08.431Z",
+      "validThrough": "2027-01-03T21:16:30.582Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2610,7 +2610,7 @@
       "url": "https://apply.refline.ch/486538/0878/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:16:08.006Z",
+      "crawledAt": "2026-11-18T21:16:30.154Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2659,7 +2659,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-01T09:16:08.006Z",
+      "validThrough": "2026-12-31T21:16:30.154Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2694,7 +2694,7 @@
       "url": "https://apply.refline.ch/486538/0870/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:16:07.583Z",
+      "crawledAt": "2026-11-18T21:16:29.728Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2746,7 +2746,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:16:07.583Z",
+      "validThrough": "2026-12-28T21:16:29.728Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2781,7 +2781,7 @@
       "url": "https://apply.refline.ch/486538/0876/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:16:07.156Z",
+      "crawledAt": "2026-11-18T21:16:29.302Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2830,7 +2830,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-01T09:16:07.156Z",
+      "validThrough": "2026-12-31T21:16:29.302Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2865,7 +2865,7 @@
       "url": "https://apply.refline.ch/486538/0877/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:16:06.726Z",
+      "crawledAt": "2026-11-18T21:16:28.874Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2914,7 +2914,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-01T09:16:06.726Z",
+      "validThrough": "2026-12-31T21:16:28.874Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2949,7 +2949,7 @@
       "url": "https://apply.refline.ch/486538/0872/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:16:06.295Z",
+      "crawledAt": "2026-11-18T21:16:28.448Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3001,7 +3001,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T09:16:06.295Z",
+      "validThrough": "2026-12-29T21:16:28.448Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3035,7 +3035,7 @@
       "url": "https://apply.refline.ch/486538/0868/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:16:05.876Z",
+      "crawledAt": "2026-11-18T21:16:28.009Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3084,7 +3084,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:16:05.876Z",
+      "validThrough": "2026-12-27T21:16:28.009Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3119,7 +3119,7 @@
       "url": "https://apply.refline.ch/486538/0860/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:16:05.445Z",
+      "crawledAt": "2026-11-18T21:16:27.580Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3171,7 +3171,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:16:05.445Z",
+      "validThrough": "2026-12-18T21:16:27.580Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3206,7 +3206,7 @@
       "url": "https://apply.refline.ch/486538/0616/pub/10/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:16:04.985Z",
+      "crawledAt": "2026-11-18T21:16:27.155Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3300,7 +3300,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:16:04.985Z",
+      "validThrough": "2026-12-18T21:16:27.155Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3335,7 +3335,7 @@
       "url": "https://apply.refline.ch/486538/0859/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:16:03.862Z",
+      "crawledAt": "2026-11-18T21:16:26.732Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3402,7 +3402,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:16:03.862Z",
+      "validThrough": "2026-12-18T21:16:26.732Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3437,7 +3437,7 @@
       "url": "https://apply.refline.ch/486538/0854/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:16:03.439Z",
+      "crawledAt": "2026-11-18T21:16:26.307Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3518,7 +3518,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:16:03.439Z",
+      "validThrough": "2026-12-18T21:16:26.307Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3552,7 +3552,7 @@
       "url": "https://apply.refline.ch/486538/0851/pub/2/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:16:02.997Z",
+      "crawledAt": "2026-11-18T21:16:25.880Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3601,7 +3601,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:16:02.997Z",
+      "validThrough": "2026-12-18T21:16:25.880Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3636,7 +3636,7 @@
       "url": "https://apply.refline.ch/486538/0853/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:16:02.572Z",
+      "crawledAt": "2026-11-18T21:16:25.453Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3688,7 +3688,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:16:02.572Z",
+      "validThrough": "2026-12-18T21:16:25.453Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3723,7 +3723,7 @@
       "url": "https://apply.refline.ch/486538/0627/pub/4/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:16:02.153Z",
+      "crawledAt": "2026-11-18T21:16:25.031Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3766,7 +3766,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:16:02.153Z",
+      "validThrough": "2026-12-18T21:16:25.031Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3800,7 +3800,7 @@
       "url": "https://apply.refline.ch/486538/0708/pub/3/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:16:01.733Z",
+      "crawledAt": "2026-11-18T21:16:23.800Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3852,7 +3852,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:16:01.733Z",
+      "validThrough": "2026-12-18T21:16:23.800Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3887,7 +3887,7 @@
       "url": "https://apply.refline.ch/486538/0803/pub/2/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:16:01.311Z",
+      "crawledAt": "2026-11-18T21:16:23.373Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3939,7 +3939,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:16:01.311Z",
+      "validThrough": "2026-12-18T21:16:23.373Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3974,7 +3974,7 @@
       "url": "https://apply.refline.ch/486538/0694/pub/5/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:16:00.888Z",
+      "crawledAt": "2026-11-18T21:16:22.943Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4025,7 +4025,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:16:00.888Z",
+      "validThrough": "2026-12-18T21:16:22.943Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4060,7 +4060,7 @@
       "url": "https://apply.refline.ch/486538/0835/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:16:00.468Z",
+      "crawledAt": "2026-11-18T21:16:22.518Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4134,7 +4134,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:16:00.468Z",
+      "validThrough": "2026-12-18T21:16:22.518Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4169,7 +4169,7 @@
       "url": "https://apply.refline.ch/486538/0836/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:16:00.050Z",
+      "crawledAt": "2026-11-18T21:16:22.095Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4222,7 +4222,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:16:00.050Z",
+      "validThrough": "2026-12-18T21:16:22.095Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4256,7 +4256,7 @@
       "url": "https://apply.refline.ch/486538/0819/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:15:59.628Z",
+      "crawledAt": "2026-11-18T21:16:21.669Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4309,7 +4309,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:15:59.628Z",
+      "validThrough": "2026-12-18T21:16:21.669Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4344,7 +4344,7 @@
       "url": "https://apply.refline.ch/486538/0410/pub/2/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:15:59.209Z",
+      "crawledAt": "2026-11-18T21:16:21.245Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4400,7 +4400,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:15:59.209Z",
+      "validThrough": "2026-12-18T21:16:21.245Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4435,7 +4435,7 @@
       "url": "https://apply.refline.ch/486538/0831/pub/2/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:15:58.787Z",
+      "crawledAt": "2026-11-18T21:16:20.819Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4487,7 +4487,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:15:58.787Z",
+      "validThrough": "2026-12-18T21:16:20.819Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4522,7 +4522,7 @@
       "url": "https://apply.refline.ch/486538/0738/pub/3/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:15:58.366Z",
+      "crawledAt": "2026-11-18T21:16:20.391Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4578,7 +4578,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:15:58.366Z",
+      "validThrough": "2026-12-18T21:16:20.391Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4613,7 +4613,7 @@
       "url": "https://apply.refline.ch/486538/0710/pub/4/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:15:57.944Z",
+      "crawledAt": "2026-11-18T21:16:19.965Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4662,7 +4662,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:15:57.944Z",
+      "validThrough": "2026-12-18T21:16:19.965Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4696,7 +4696,7 @@
       "url": "https://apply.refline.ch/486538/0782/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:15:57.521Z",
+      "crawledAt": "2026-11-18T21:16:19.534Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4762,7 +4762,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:15:57.521Z",
+      "validThrough": "2026-12-18T21:16:19.534Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4797,7 +4797,7 @@
       "url": "https://apply.refline.ch/486538/0624/pub/5/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:15:57.099Z",
+      "crawledAt": "2026-11-18T21:16:19.107Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4853,7 +4853,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:15:57.099Z",
+      "validThrough": "2026-12-18T21:16:19.107Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4887,7 +4887,7 @@
       "url": "https://apply.refline.ch/486538/0748/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:15:56.678Z",
+      "crawledAt": "2026-11-18T21:16:18.679Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4957,7 +4957,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:15:56.678Z",
+      "validThrough": "2026-12-18T21:16:18.679Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4992,7 +4992,7 @@
       "url": "https://apply.refline.ch/486538/0552/pub/2/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:15:56.257Z",
+      "crawledAt": "2026-11-18T21:16:18.247Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5057,7 +5057,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:15:56.257Z",
+      "validThrough": "2026-12-18T21:16:18.247Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5092,7 +5092,7 @@
       "url": "https://apply.refline.ch/486538/0665/pub/2/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:15:55.837Z",
+      "crawledAt": "2026-11-18T21:16:17.817Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5156,7 +5156,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:15:55.837Z",
+      "validThrough": "2026-12-18T21:16:17.817Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5191,7 +5191,7 @@
       "url": "https://apply.refline.ch/486538/0551/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:15:55.408Z",
+      "crawledAt": "2026-11-18T21:16:17.394Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5255,7 +5255,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:15:55.408Z",
+      "validThrough": "2026-12-18T21:16:17.394Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5290,7 +5290,7 @@
       "url": "https://apply.refline.ch/486538/0550/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:15:54.974Z",
+      "crawledAt": "2026-11-18T21:16:16.969Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5355,7 +5355,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:15:54.974Z",
+      "validThrough": "2026-12-18T21:16:16.969Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5390,7 +5390,7 @@
       "url": "https://apply.refline.ch/486538/0549/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:15:53.961Z",
+      "crawledAt": "2026-11-18T21:16:16.540Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5481,7 +5481,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:15:53.961Z",
+      "validThrough": "2026-12-18T21:16:16.540Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5516,7 +5516,7 @@
       "url": "https://apply.refline.ch/486538/0492/pub/3/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:15:53.541Z",
+      "crawledAt": "2026-11-18T21:16:16.113Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5579,7 +5579,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:15:53.541Z",
+      "validThrough": "2026-12-18T21:16:16.113Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5614,7 +5614,7 @@
       "url": "https://apply.refline.ch/486538/0484/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:15:53.100Z",
+      "crawledAt": "2026-11-18T21:16:15.634Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5677,7 +5677,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:15:53.100Z",
+      "validThrough": "2026-12-18T21:16:15.634Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5768,7 +5768,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-17T21:17:40.541Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "spital-limmattal-8e942442c456",
@@ -5853,7 +5853,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-27T21:17:38.688Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
