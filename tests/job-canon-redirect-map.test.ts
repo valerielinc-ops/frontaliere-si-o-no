@@ -1254,6 +1254,47 @@ describe('job canon bridge path planning and PR-B classification', () => {
     expect(plan.bridgePaths.some((bridge) => bridge.kind === 'legacyTiMirror' && bridge.locale === 'en' && bridge.slug === 'free-en')).toBe(true);
   });
 
+  it('exposes plan-resolved multi-claimant winners and respects isActivePageOwner for active TI claims', () => {
+    const winnerActive = {
+      id: 'job-winner-active',
+      slug: 'winner-it',
+      canton: 'BE',
+      slugByLocale: { it: 'winner-it', en: 'shared-en', de: 'winner-de', fr: 'winner-fr' },
+      previousSlugsByLocale: { en: ['contested-old-en'] },
+    } satisfies ActiveJobSlugMapRow;
+    const losingDupActive = {
+      id: 'job-losing-dup',
+      slug: 'dup-it-legacy-slug',
+      canton: 'BE',
+      slugByLocale: { it: 'dup-it', en: 'shared-en', de: 'dup-de', fr: 'dup-fr' },
+      previousSlugsByLocale: { en: ['contested-old-en'] },
+    } satisfies ActiveJobSlugMapRow;
+    const mirrorClaimant = {
+      id: 'job-mirror-claimant',
+      slug: 'mirror-it',
+      canton: 'ZH',
+      slugByLocale: { it: 'mirror-it', en: 'mirror-en', de: 'mirror-de', fr: 'mirror-fr' },
+      previousSlugsByLocale: { en: ['dup-it-legacy-slug'] },
+    } satisfies ActiveJobSlugMapRow;
+    const plan = buildActiveJobBridgePathPlan([winnerActive, losingDupActive, mirrorClaimant], {
+      winners: {},
+      reservedHubSlugs: new Set(),
+      // Only winnerActive actually emitted /en/find-jobs-bern/shared-en/
+      isActivePageOwner: (locale, canton, slug, jobId) =>
+        !(locale === 'en' && canton === 'BE' && slug === 'shared-en' && jobId === 'job-losing-dup'),
+    });
+    expect(plan.multiClaimantKeys).toBe(1);
+    const winnerId = plan.multiClaimantWinnerByKey.get('BE::en::contested-old-en');
+    expect(winnerId).toBeDefined();
+    expect(plan.resolvedWinners['BE::en::contested-old-en']?.winnerJobIdentifier).toBe(winnerId);
+    // losingDupActive did not own the active EN page, so its italian slug must not block mirrorClaimant's legacy TI mirror
+    expect(plan.bridgePaths.some((bridge) =>
+      bridge.kind === 'legacyTiMirror'
+      && bridge.locale === 'en'
+      && bridge.slug === 'dup-it-legacy-slug'
+      && bridge.sourceJobIdentifier === 'job-mirror-claimant')).toBe(true);
+  });
+
   it('marks a bridge removable only when jobCanonTarget resolves to its exact target', () => {
     const bridgePaths = [
       { path: '/old-section/old-slug/', locale: 'it', slug: 'old-slug', targetPath: '/new-section/current/', kind: 'previousSlug', canton: 'ZH' },

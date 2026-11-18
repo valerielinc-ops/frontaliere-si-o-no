@@ -4018,6 +4018,7 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  // whose HTML would point at a path the per-job dedup skipped — keeping
  // sitemap and dist/ byte-for-byte consistent.
  const emittedActiveJobPaths = new Set<string>();
+ const emittedActiveJobOwnerIds = new Map<string, string>();
  // Percorsi canonici di OGNI pagina annuncio attiva registrata come emessa, per
  // tutti i locali (anche quelli che uno shard BUILD_LOCALE non renderizza):
  // alimenta `dist/job-pages-manifest.json`, con cui il sender dei job alert
@@ -4576,6 +4577,7 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  }
  renderedActiveJobPaths.add(__activeJobKey);
  emittedActiveJobPaths.add(__activeJobKey);
+ emittedActiveJobOwnerIds.set(__activeJobKey, String((job as any).id || (job as any).slug || ''));
  activeJobPagePathsForManifest.add(relPath);
  claimedJobPaths.claim(localePathClaimKey(relPath));
  // Per-locale shard build (BUILD_LOCALE): the dedup Set above is fully
@@ -14929,14 +14931,26 @@ ${staticAnalyticsHtml}
  const sampleBridgePlanHeap = (): void => {
   bridgePlanHeapPeakBytes = Math.max(bridgePlanHeapPeakBytes, process.memoryUsage().heapUsed);
  };
+ const previousSlugWinnersPath = np.resolve(rootDir, 'data', 'previous-slug-winners.json');
+ const initialPreviousSlugWinners: PreviousSlugWinnersFile = loadWinners(previousSlugWinnersPath);
+ const previousSlugWinnersBefore = JSON.stringify(initialPreviousSlugWinners);
+ let previousSlugWinners: PreviousSlugWinnersFile;
+ let winnerByPrevSlugKey: Map<string, string>;
+ let winnerNowIso = '';
+ let previousSlugCandidates = 0;
+ let previousSlugClaimedKeys = 0;
+ let multiClaimantKeys = 0;
  {
-  const previousSlugWinnersPath = np.resolve(rootDir, 'data', 'previous-slug-winners.json');
   const bridgePlan = buildActiveJobBridgePathPlan(activeBridgeJobs, {
-   winners: loadWinners(previousSlugWinnersPath),
+   winners: initialPreviousSlugWinners,
    reservedHubSlugs: RESERVED_HUB_SLUGS,
    workerWouldRecover: legacyTiPathRecoveredByWorker,
    isActivePageEmitted: (locale, canton, slug) =>
     emittedActiveJobPaths.has(activeJobPathOwnerKey(canton, locale, slug)),
+   isActivePageOwner: options.fastLane
+    ? () => false
+    : (locale, canton, slug, jobIdentifier) =>
+      emittedActiveJobOwnerIds.get(activeJobPathOwnerKey(canton, locale, slug)) === jobIdentifier,
    onHeapSample: sampleBridgePlanHeap,
    canEmitBridgePath: (locale, bridgePath) => {
     const safeTargets = getSafeDistPageTargets(distDir, bridgePath, { includeFlat: false });
@@ -14951,6 +14965,13 @@ ${staticAnalyticsHtml}
     return true;
    },
   });
+  emittedActiveJobOwnerIds.clear();
+  previousSlugWinners = bridgePlan.resolvedWinners;
+  winnerByPrevSlugKey = bridgePlan.multiClaimantWinnerByKey;
+  winnerNowIso = bridgePlan.winnerNowIso;
+  previousSlugCandidates = bridgePlan.previousSlugCandidatesCount;
+  previousSlugClaimedKeys = bridgePlan.previousSlugClaimedKeyCount;
+  multiClaimantKeys = bridgePlan.multiClaimantKeys;
   const bridgeSlugs = new Set(bridgePlan.bridgePaths.map((bridge) => bridge.slug));
   const tracked = buildTrackedJobCanonEntriesFromPersistedRegistry(rootDir, bridgeSlugs, sampleBridgePlanHeap);
   const activeAliasPlan = planActiveJobCanonAliases(
@@ -15073,7 +15094,7 @@ ${staticAnalyticsHtml}
   locale: JobSeoLocale,
   pathname: string,
   kind: JobCanonBridgePath['kind'],
-  ownerJobIdentifier?: string,
+  ownerJobIdentifier: string,
  ): boolean => {
   const canonicalPath = withSlash(pathname);
   if (activeBridgePathsOwnedBeforePlan.has(bridgePathKey(locale, canonicalPath))) return false;
@@ -15084,7 +15105,6 @@ ${staticAnalyticsHtml}
    (candidatePath) => {
     const retained = retainedBridgePaths.get(bridgePathKey(locale, candidatePath));
     if (!retained) return false;
-    if (ownerJobIdentifier === undefined) return true;
     if (isRetainedBridgeOwnedBy(retained.bridge, kind, ownerJobIdentifier)) return true;
     const notOwnerKey = `${kind}\u0000${locale}\u0000${candidatePath}`;
     if (!retainedBridgesNotOwnerKeys.has(notOwnerKey)) {
@@ -16748,98 +16768,17 @@ ${staticAnalyticsHtml}
  // its bridge under /cerca-lavoro-zurigo/). Two jobs in different cantons
  // that legitimately share a prevSlug emit DIFFERENT bridge URLs —
  // ownership is per (canton, locale, oldSlug), not per (locale, oldSlug).
- const previousSlugClaimants = new Map<string, PreviousSlugCandidate[]>();
- jobsSeoMemContext.previousSlugClaimants = previousSlugClaimants;
- for (const job of activeBridgeJobs) {
-  await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
- const localeAwareAll = new Set<string>();
- const pslByLocale = (job as any).previousSlugsByLocale;
- if (pslByLocale && typeof pslByLocale === 'object') {
- for (const arr of Object.values(pslByLocale)) {
- if (Array.isArray(arr)) for (const s of arr as string[]) localeAwareAll.add(s);
- }
- }
- const legacyOnly = Array.isArray(job.previousSlugs)
- ? job.previousSlugs.filter((s: string) => !localeAwareAll.has(s))
- : [];
- if (localeAwareAll.size === 0 && legacyOnly.length === 0) continue;
- const jobCantonForClaim = sharedResolveJobCanton(job as { canton?: string; location?: string });
- for (const locale of localeList) {
- const currentSlug = localizedSlug(job, locale);
- if (!currentSlug) continue;
- if (!emittedActiveJobPaths.has(activeJobPathOwnerKey(jobCantonForClaim, locale, currentSlug))) continue;
- const localeSpecific = pslByLocale && Array.isArray(pslByLocale[locale]) ? (pslByLocale[locale] as string[]) : [];
- const prevSlugsForLocale = new Set<string>([...localeSpecific, ...legacyOnly]);
- for (const oldSlug of prevSlugsForLocale) {
- if (!oldSlug || oldSlug === currentSlug) continue;
- if (RESERVED_HUB_SLUGS.has(oldSlug)) continue;
- const key = previousSlugWinnerKey(jobCantonForClaim, locale, oldSlug);
- const list = previousSlugClaimants.get(key);
- const candidate: PreviousSlugCandidate = {
- jobIdentifier: String((job as any).id || (job as any).slug || currentSlug),
- canonicalSlug: currentSlug,
- };
- if (list) list.push(candidate);
- else {
- previousSlugClaimants.set(key, [candidate]);
- }
- }
- }
- }
-
- // Pre-scan #2: load persisted winners and resolve a winner identifier for
- // every key. Single-claimant keys take the trivial winner (no registry
- // entry written). Multi-claimant keys reuse the persisted winner when it
- // is still in the candidates list, else re-elect via the heuristic.
- const previousSlugWinnersPath = np.resolve(rootDir, 'data', 'previous-slug-winners.json');
- const previousSlugWinners: PreviousSlugWinnersFile = loadWinners(previousSlugWinnersPath);
- const previousSlugWinnersBefore = JSON.stringify(previousSlugWinners);
- const winnerByPrevSlugKey = new Map<string, string>(); // key → winner jobIdentifier
+ // Winners were already resolved by `buildActiveJobBridgePathPlan` over the exact
+ // same `activeBridgeJobs` and `emittedActiveJobPaths` snapshot, so the emitter
+ // cannot diverge from the plan (even across UTC midnight).
  jobsSeoMemContext.winnerByPrevSlugKey = winnerByPrevSlugKey;
- // Day-quantized timestamp. With millisecond precision the previous-slug
- // winners registry's `lastSeenAt` field churned on every deploy, producing
- // ~96 commits/day to data/previous-slug-winners.json (one per article-cron
- // deploy) — pure noise that invalidated jobs-seo-pages cache and bloated
- // git history. Quantizing to UTC midnight means the file only changes
- // once per day (when crossing the day boundary refreshes lastSeenAt for
- // every active entry). pruneStaleWinners uses a 30+ day threshold so the
- // day-level granularity is more than fine.
- const nowIso = new Date().toISOString().slice(0, 10) + 'T00:00:00.000Z';
- let multiClaimantKeys = 0;
- for (const [key, candidates] of previousSlugClaimants) {
- // Key shape: `${canton}::${locale}::${oldSlug}`. We split on the FIRST
- // two '::' separators only, so an oldSlug containing '::' (defensive —
- // not expected in real slugs) is preserved as the remainder.
- const firstSep = key.indexOf('::');
- const secondSep = firstSep >= 0 ? key.indexOf('::', firstSep + 2) : -1;
- if (firstSep < 0 || secondSep < 0) continue;
- const canton = key.slice(0, firstSep);
- const locale = key.slice(firstSep + 2, secondSep);
- const oldSlug = key.slice(secondSep + 2);
- if (candidates.length > 1) multiClaimantKeys += 1;
- const winner = resolveWinner(previousSlugWinners, canton, locale, oldSlug, candidates, nowIso);
- // A single claimant is already the winner by construction; retaining its
- // key and identifier only duplicates the much larger claimant index.
- if (candidates.length > 1 && winner) winnerByPrevSlugKey.set(key, winner.winnerJobIdentifier);
- }
+ const nowIso = winnerNowIso;
  if (multiClaimantKeys > 0) {
  console.log(
- `\x1b[36m[jobs-seo-pages]\x1b[0m previous-slug winners: ${previousSlugClaimants.size} claimed slugs, ${multiClaimantKeys} contested → resolved via registry + heuristic`,
+ `\x1b[36m[jobs-seo-pages]\x1b[0m previous-slug winners: ${previousSlugClaimedKeys} claimed slugs, ${multiClaimantKeys} contested → resolved via registry + heuristic`,
  );
  }
-
- // previousSlugClaimants was the last reader of itself — its only purpose
- // was resolving winnerByPrevSlugKey above (`.size` on the line just above
- // is its last read). It stays dead state for the rest of closeBundle: the
- // emit loop below reads winnerByPrevSlugKey only.
- // Mirrors expiredSoftLandingCache.clear()+forceGc() a few hundred lines up
- // (same "clear the dead map before the next big emit" pattern, #6134):
- // free it before the retained previous-slug bridge pass, so only path
- // classification survivors can hold full-page HTML in this phase.
- let previousSlugCandidates = 0;
- for (const candidates of previousSlugClaimants.values()) previousSlugCandidates += candidates.length;
  logJobsSeoMem('before-previous-slug-claimant-clear', { previousSlugCandidates });
- previousSlugClaimants.clear();
  logJobsSeoMem('after-previous-slug-claimant-clear');
 
  let bridgeCount = 0;
@@ -16901,7 +16840,7 @@ ${staticAnalyticsHtml}
  // marker; the fallback map preserves the old result only when no file exists.
  const cachedHtml = readCachedOrEmittedHtml(
   jobHtmlCache,
-  `${locale}:${currentSlug}`,
+  jobsSeoHtmlCacheKey(locale, canonicalPathForReuse),
   distDir,
   canonicalPathForReuse,
  );
@@ -17229,6 +17168,7 @@ ${staticAnalyticsHtml}
  // canonical (the job's real, non-TI canton) drifts the
  // cathedral-sector-hubs invariant (issue #2976 recurrence).
  const jobCantonForCrossLocale = sharedResolveJobCanton(job as { canton?: string; location?: string });
+ const myCrossLocaleJobId = String((job as any).id || (job as any).slug || '');
  const slugPerLocale: Record<string, string> = {};
  for (const locale of localeList) {
  const s = localizedSlug(job, locale);
@@ -17263,7 +17203,10 @@ ${staticAnalyticsHtml}
  }
  for (const foreignSlug of foreignSlugs) {
   const candidatePath = buildCanonicalJobDetailPath(baseLocale, 'TI', foreignSlug);
-  if (!retainedBridgePaths.has(bridgePathKey(baseLocale, candidatePath))) foreignSlugs.delete(foreignSlug);
+  const retained = retainedBridgePaths.get(bridgePathKey(baseLocale, candidatePath));
+  if (!isRetainedBridgeOwnedBy(retained?.bridge, 'crossLocale', myCrossLocaleJobId)) {
+   foreignSlugs.delete(foreignSlug);
+  }
  }
  if (foreignSlugs.size === 0) continue;
  const baseCanonicalPath = withSlash(
@@ -17338,7 +17281,7 @@ ${staticAnalyticsHtml}
  // Skip if a previousSlugs bridge already covered this path for
  // this job (same content would be written again).
  if (pathWasClaimed(indexFile) || isJobAliasRedirectPath(indexFile)) continue;
- if (!isRetainedActiveBridgePath(baseLocale, relPath, 'crossLocale')) continue;
+ if (!isRetainedActiveBridgePath(baseLocale, relPath, 'crossLocale', myCrossLocaleJobId)) continue;
  const __tCrossLocaleActive = startTimer();
  const crossLocaleActiveReuseInput = incrementalManifests
   ? {

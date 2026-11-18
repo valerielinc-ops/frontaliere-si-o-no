@@ -173,6 +173,8 @@ describe('SEO builder noindex guards', () => {
       expect(retainedGuardBlock).toContain('isJobAliasRedirectPath,');
       expect(retainedGuardBlock).toContain('retainedBridgePaths.get(bridgePathKey(locale, candidatePath))');
       expect(retainedGuardBlock).toContain('isRetainedBridgeOwnedBy(retained.bridge, kind, ownerJobIdentifier)');
+      expect(retainedGuardBlock).toContain('ownerJobIdentifier: string,');
+      expect(retainedGuardBlock).not.toContain('if (ownerJobIdentifier === undefined)');
       expect(retainedGuardBlock).toContain('activeBridgePathsOwnedBeforePlan.has(bridgePathKey(locale, canonicalPath))');
 
       // Planning and each active bridge writer must use the shared canonical
@@ -190,10 +192,14 @@ describe('SEO builder noindex guards', () => {
       expect(activeBridgePlanBlock).toContain('canEmitBridgePath: (locale, bridgePath) =>');
       expect(activeBridgePlanBlock).toContain('isActivePageEmitted: (locale, canton, slug) =>');
       expect(activeBridgePlanBlock).toContain('emittedActiveJobPaths.has(activeJobPathOwnerKey(canton, locale, slug))');
+      expect(activeBridgePlanBlock).toContain('isActivePageOwner:');
       expect(activeBridgePlanBlock).toContain('pathIsClaimedOrReserved(safeTargets.indexPath)');
       expect(source).toContain('const oldPath = buildCanonicalJobDetailPath(locale, job, oldSlug, jobCantonForBridge)');
       expect(source).toContain("const legacyTIRelPath = buildCanonicalJobDetailPath(locale, 'TI', oldSlug)");
       expect(source).toContain("const candidatePath = buildCanonicalJobDetailPath(baseLocale, 'TI', foreignSlug)");
+      expect(source).toContain("isRetainedBridgeOwnedBy(retained?.bridge, 'crossLocale', myCrossLocaleJobId)");
+      expect(source).toContain("if (!isRetainedActiveBridgePath(baseLocale, relPath, 'crossLocale', myCrossLocaleJobId)) continue;");
+      expect(source).toContain('jobsSeoHtmlCacheKey(locale, canonicalPathForReuse)');
       expect(source).toContain("const relPath = buildCanonicalJobDetailPath(baseLocale, 'TI', foreignSlug)");
       expect(source).toContain('const legacyRel = buildCanonicalJobDetailPath(locale, job, job.slug, jobCanton)');
       expect(source).toContain("const legacyTIRel = buildCanonicalJobDetailPath(locale, 'TI', job.slug)");
