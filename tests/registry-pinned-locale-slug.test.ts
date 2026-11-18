@@ -214,6 +214,26 @@ describe('registryPinnedLocaleSlug', () => {
       );
     });
 
+    it('keeps a valid parallel compound with two translated role endings', () => {
+      const legitimateParallelCompound = {
+        canonicalSlug: 'industriekauffrau-industriekaufmann-ksa-aarau',
+        slugByLocale: {
+          de: 'versicherungskauffrau-versicherungskaufmann-ksa-aarau',
+        },
+      };
+      const legitimateParallelCtx = {
+        titleByLocale: { de: 'Industriekauffrau Industriekaufmann' },
+        company: 'KSA',
+        location: 'Aarau',
+        sourceLang: '',
+      };
+
+      expect(garbledPinRepairPolicy(legitimateParallelCompound, 'de', legitimateParallelCtx)).toBe(false);
+      expect(registryPinnedLocaleSlug(legitimateParallelCompound, 'de', '', legitimateParallelCtx)).toBe(
+        'versicherungskauffrau-versicherungskaufmann-ksa-aarau',
+      );
+    });
+
     it('KEEPS a valid-but-generic pin that still shares the canonical token (anti-churn, harden-registry-pin-quality-repair)', () => {
       // Real regression shape (EOC, umantis 2908): source-lang detection lands
       // on EN and overwrites the EN title to the German base ("Informatiker/in"),

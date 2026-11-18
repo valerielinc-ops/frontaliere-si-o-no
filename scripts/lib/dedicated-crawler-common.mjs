@@ -6904,9 +6904,18 @@ function hasMalformedPinSuffix(pinTokens, witnessTokens) {
         pinToken.length - suffixLength >= GARBLED_PIN_MIN_EXTRA_LENGTH &&
         witnessToken.length - suffixLength >= GARBLED_PIN_MIN_EXTRA_LENGTH
       ) {
+        const pinPrefix = pinToken.slice(0, -suffixLength);
+        const witnessPrefix = witnessToken.slice(0, -suffixLength);
+        // A valid parallel compound can have the same two role endings on
+        // different prefixes (`versicherungskauffrau/-kaufmann` versus
+        // `industriekauffrau/-kaufmann`). The observed KSA garbage instead
+        // has a shorter foreign prefix (`hyard` versus `pflege`). Treat that
+        // asymmetry as part of the positive witness; an equal or longer pin
+        // prefix is ambiguous and must keep the immutable registry pin.
+        if (pinPrefix.length >= witnessPrefix.length) continue;
         candidates.push({
-          pinPrefix: pinToken.slice(0, -suffixLength),
-          witnessPrefix: witnessToken.slice(0, -suffixLength),
+          pinPrefix,
+          witnessPrefix,
           suffix: pinToken.slice(-suffixLength),
         });
       }
