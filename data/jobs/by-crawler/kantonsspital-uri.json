@@ -1,7 +1,7 @@
 {
   "crawlerKey": "kantonsspital-uri",
-  "assembledAt": "2026-11-18T09:31:42.258Z",
-  "runId": "44274990446",
+  "assembledAt": "2026-11-18T21:46:17.406Z",
+  "runId": "44400389690",
   "jobs": [
     {
       "id": "kantonsspital-uri-a7ca34ef560a",
@@ -35,7 +35,7 @@
       "url": "https://stellen.ksuri.ch/Unterassistenten-Innere-Medizin-de-j34.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:31:19.359Z",
+      "crawledAt": "2026-11-18T21:45:36.214Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -90,7 +90,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-18T09:31:19.359Z",
+      "validThrough": "2026-12-18T21:45:36.214Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -124,7 +124,7 @@
       "url": "https://stellen.ksuri.ch/Unterassistenten-Gynaekologie-und-Geburtshilfe-de-j37.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:31:18.728Z",
+      "crawledAt": "2026-11-18T21:45:35.645Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -167,7 +167,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-18T09:31:18.728Z",
+      "validThrough": "2026-12-18T21:45:35.645Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -202,7 +202,7 @@
       "url": "https://stellen.ksuri.ch/Unterassistenten-Chirurgie-und-Orthopaedie-de-j35.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:31:18.074Z",
+      "crawledAt": "2026-11-18T21:45:35.049Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -247,7 +247,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-18T09:31:18.074Z",
+      "validThrough": "2026-12-18T21:45:35.049Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -281,7 +281,7 @@
       "url": "https://stellen.ksuri.ch/Unterassistenten-Anaesthesie-de-j36.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:31:17.421Z",
+      "crawledAt": "2026-11-18T21:45:34.556Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -330,7 +330,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T09:31:17.421Z",
+      "validThrough": "2027-02-09T21:45:34.556Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -365,7 +365,7 @@
       "url": "https://stellen.ksuri.ch/Physiotherapeutin-mit-Zusatzfunktion-als-Berufsbildnerin-w-de-j409.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:31:16.924Z",
+      "crawledAt": "2026-11-18T21:45:34.104Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -400,7 +400,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-21T09:31:16.924Z",
+      "validThrough": "2026-12-21T21:45:34.104Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -434,7 +434,7 @@
       "url": "https://stellen.ksuri.ch/Physiotherapeutin-wmd-70-100-de-j433.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:31:16.294Z",
+      "crawledAt": "2026-11-18T21:45:33.538Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -506,7 +506,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T09:31:16.294Z",
+      "validThrough": "2026-12-27T21:45:33.538Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -523,24 +523,25 @@
       "companyDomain": "ksuri.ch",
       "title": "Pflegefachperson HF IMC (w/m/d) 50-100%",
       "titleByLocale": {
-        "de": "Pflegefachperson HF IMC (w/m/d) 50-100%",
         "it": "Professionista HF IMC (m/f/d) 50-100 %",
         "en": "Care professional HF IMC (m/f/d) 50-100 %",
+        "de": "Pflegefachperson HF IMC (w/m/d) 50-100%",
         "fr": "Soins professionnels HF IMC (h/f/d) 50-100 %"
       },
       "description": "Unser Spital mit modernster Infrastruktur sichert mit seinem umfassenden Leistungsangebot die ambulante und stationäre erweiterte Grundversorgung für den Kanton Uri. Unsere SGI-anerkannte Intensivpflegestation ist eine modern ausgestattete, interdisziplinäre Abteilung mit sechs Betten, darunter zwei Beatmungsplätze. Die kompetente und einfühlsame Begleitung unserer Patientinnen und Patienten – ebenso wie ihrer Angehörigen – in herausfordernden Situationen ist für uns Ausdruck gelebter Qualität und Professionalität. Unser engagiertes Team mit rund 25 Mitarbeitenden freut sich darauf, per 1. Mai 2027 oder nach Vereinbarung ein neues Teammitglied willkommen zu heissen. DEINE AUFGABEN\n• Du bist für die Betreuung und Pflege unserer Patientinnen und Patienten auf der Intensivstation mitverantwortlich und berätst sie und ihre Angehörigen in Krisensituationen.\n• Du setzt die individuelle Pflegeplanung in Zusammenarbeit mit dem interprofessionellen Behandlungsteam um.\n• Du arbeitest bereichsübergreifend und gestaltest mit deinen Kolleginnen und Kollegen einen möglichst reibungslosen Tagesablauf. DEIN PROFIL\n• Du hast ein Diplom als Dipl. Pflegefachperson HF/FH (Ausländische Diplome: SRK-Anerkennung).\n• Den Nachdiplomkurs Überwachungspflege (IMC-Kurs) hast du bereits oder bist bereit, diesen oder das NDS Intensivpflege zu absolvieren.\n• Du hast Berufserfahrung in der Akutpflege und bleibst auch in hitzigen Situationen cool.\n• Du bist eine flexible und aufgestellte Persönlichkeit mit rascher Auffassungsgabe und hoher Sozialkompetenz.\n• Teamarbeit und das Begleiten von Studierenden und Lernenden bereitet dir Freude. DEINE PERSPEKTIVEN\n• Ein eingespieltes, engagiertes Team aus Pflege und Ärzteschaft\n• Flache Hierarchien, ein familiäres Umfeld und eine gelebte DU-Kultur\n• Attraktive Anstellungsbedingungen mit umfangreichen Sozialleistungen Unsere Leiterin Intensivpflege, Evelyne Simon, erteilt dir unter 041 875 53 37 gerne weitere Auskünfte. Wir freuen uns auf deine Bewerbung. Unsere Leiterin Intensivpflege, Evelyne Simon, erteilt dir unter 041 875 53 37 gerne weitere Auskünfte. Wir freuen uns auf deine Bewerbung.",
       "descriptionByLocale": {
-        "de": "Unser Spital mit modernster Infrastruktur sichert mit seinem umfassenden Leistungsangebot die ambulante und stationäre erweiterte Grundversorgung für den Kanton Uri. Unsere SGI-anerkannte Intensivpflegestation ist eine modern ausgestattete, interdisziplinäre Abteilung mit sechs Betten, darunter zwei Beatmungsplätze. Die kompetente und einfühlsame Begleitung unserer Patientinnen und Patienten – ebenso wie ihrer Angehörigen – in herausfordernden Situationen ist für uns Ausdruck gelebter Qualität und Professionalität. Unser engagiertes Team mit rund 25 Mitarbeitenden freut sich darauf, per 1. Mai 2027 oder nach Vereinbarung ein neues Teammitglied willkommen zu heissen. DEINE AUFGABEN\n• Du bist für die Betreuung und Pflege unserer Patientinnen und Patienten auf der Intensivstation mitverantwortlich und berätst sie und ihre Angehörigen in Krisensituationen.\n• Du setzt die individuelle Pflegeplanung in Zusammenarbeit mit dem interprofessionellen Behandlungsteam um.\n• Du arbeitest bereichsübergreifend und gestaltest mit deinen Kolleginnen und Kollegen einen möglichst reibungslosen Tagesablauf. DEIN PROFIL\n• Du hast ein Diplom als Dipl. Pflegefachperson HF/FH (Ausländische Diplome: SRK-Anerkennung).\n• Den Nachdiplomkurs Überwachungspflege (IMC-Kurs) hast du bereits oder bist bereit, diesen oder das NDS Intensivpflege zu absolvieren.\n• Du hast Berufserfahrung in der Akutpflege und bleibst auch in hitzigen Situationen cool.\n• Du bist eine flexible und aufgestellte Persönlichkeit mit rascher Auffassungsgabe und hoher Sozialkompetenz.\n• Teamarbeit und das Begleiten von Studierenden und Lernenden bereitet dir Freude. DEINE PERSPEKTIVEN\n• Ein eingespieltes, engagiertes Team aus Pflege und Ärzteschaft\n• Flache Hierarchien, ein familiäres Umfeld und eine gelebte DU-Kultur\n• Attraktive Anstellungsbedingungen mit umfangreichen Sozialleistungen Unsere Leiterin Intensivpflege, Evelyne Simon, erteilt dir unter 041 875 53 37 gerne weitere Auskünfte. Wir freuen uns auf deine Bewerbung. Unsere Leiterin Intensivpflege, Evelyne Simon, erteilt dir unter 041 875 53 37 gerne weitere Auskünfte. Wir freuen uns auf deine Bewerbung.",
         "it": "Con la sua gamma completa di servizi, il nostro ospedale con infrastrutture all'avanguardia assicura l'assistenza di base ambulatoriale e stazionaria estesa per il cantone di Uri. Il nostro reparto di assistenza intensiva approvato dalla SGI è un moderno reparto interdisciplinare con sei letti, tra cui due aree di ventilazione. Il supporto competente e sensibile dei nostri pazienti – così come dei loro parenti – in situazioni difficili è per noi un'espressione di qualità e professionalità vissuta. Il nostro team dedicato di circa 25 dipendenti è impaziente di iniziare a 1. Maggio 2027 o per accordo per accogliere un nuovo membro della squadra. Le tue domande\n• Siete congiuntamente responsabili per la cura e la cura dei nostri pazienti nella terapia intensiva e consigliarli e dei loro parenti in situazioni di crisi.\n• Realizzi la pianificazione individuale della cura in collaborazione con il team di trattamento interprofessionale.\n• Lavorate nei reparti e lavorate con i vostri colleghi per creare la routine quotidiana più liscia possibile. Il tuo profilo\n• Hai un diploma come Dipl. Infermiera HF/FH (diploma stranieri: riconoscimento SRC).\n• Il corso Post-Diplomation Supervision Care (IMC) hai già o sei pronto a completare questo o il NDS Intensive Care.\n• Hai esperienza professionale in cura acuta e rimanere fresco anche in situazioni riscaldate.\n• Sei una personalità flessibile e ben posizionata con una rapida comprensione e un'alta competenza sociale.\n• Il lavoro di squadra e gli studenti e gli studenti di accompagnamento vi porta gioia. Le tue prospettive\n• Un team esperto e impegnato di personale infermieristico e medico\n• Gerarchie piatte, un ambiente familiare e una cultura DU vissuta\n• Il nostro capo della cura intensiva, Evelyne Simon, è lieto di fornirvi ulteriori informazioni il 041 875 53 37. Attendiamo con ansia la vostra applicazione. Il nostro capo di terapia intensiva, Evelyne Simon, è lieto di fornirvi ulteriori informazioni sul 041 875 53 37. Attendiamo con ansia la vostra applicazione.",
         "en": "With its comprehensive range of services, our hospital with state-of-the-art infrastructure ensures the extended outpatient and stationary basic care for the canton of Uri. Our SGI-approved intensive care unit is a modern, interdisciplinary department with six beds, including two ventilation areas. The competent and sensitive support of our patients – as well as their relatives – in challenging situations is for us an expression of lived quality and professionalism. Our dedicated team of around 25 employees is looking forward to starting at 1. May 2027 or by arrangement to welcome a new team member. YOUR TASKS\n• You are jointly responsible for the care and care of our patients in the intensive care unit and advise them and their relatives in crisis situations.\n• You implement individual care planning in cooperation with the interprofessional treatment team.\n• You work across departments and work with your colleagues to create the smoothest possible daily routine. Your profile\n• You have a diploma as a Dipl. Nurse HF/FH (foreign diplomas: SRC recognition).\n• The Post-Diplomation Supervision Care (IMC) course you already have or are ready to complete this or the NDS Intensive Care.\n• You have professional experience in acute care and stay cool even in heated situations.\n• You are a flexible and well-positioned personality with rapid comprehension and high social competence.\n• Teamwork and accompanying students and learners brings you joy. Your perspectives\n• An experienced, committed team of nursing and medical staff\n• Flat hierarchies, a family environment and a lived DU culture\n• Our Head of Intensive Care, Evelyne Simon, is happy to provide you with further information on 041 875 53 37. We look forward to your application. Our head of intensive care, Evelyne Simon, is happy to provide you with further information on 041 875 53 37. We look forward to your application.",
+        "de": "Unser Spital mit modernster Infrastruktur sichert mit seinem umfassenden Leistungsangebot die ambulante und stationäre erweiterte Grundversorgung für den Kanton Uri. Unsere SGI-anerkannte Intensivpflegestation ist eine modern ausgestattete, interdisziplinäre Abteilung mit sechs Betten, darunter zwei Beatmungsplätze. Die kompetente und einfühlsame Begleitung unserer Patientinnen und Patienten – ebenso wie ihrer Angehörigen – in herausfordernden Situationen ist für uns Ausdruck gelebter Qualität und Professionalität. Unser engagiertes Team mit rund 25 Mitarbeitenden freut sich darauf, per 1. Mai 2027 oder nach Vereinbarung ein neues Teammitglied willkommen zu heissen. DEINE AUFGABEN\n• Du bist für die Betreuung und Pflege unserer Patientinnen und Patienten auf der Intensivstation mitverantwortlich und berätst sie und ihre Angehörigen in Krisensituationen.\n• Du setzt die individuelle Pflegeplanung in Zusammenarbeit mit dem interprofessionellen Behandlungsteam um.\n• Du arbeitest bereichsübergreifend und gestaltest mit deinen Kolleginnen und Kollegen einen möglichst reibungslosen Tagesablauf. DEIN PROFIL\n• Du hast ein Diplom als Dipl. Pflegefachperson HF/FH (Ausländische Diplome: SRK-Anerkennung).\n• Den Nachdiplomkurs Überwachungspflege (IMC-Kurs) hast du bereits oder bist bereit, diesen oder das NDS Intensivpflege zu absolvieren.\n• Du hast Berufserfahrung in der Akutpflege und bleibst auch in hitzigen Situationen cool.\n• Du bist eine flexible und aufgestellte Persönlichkeit mit rascher Auffassungsgabe und hoher Sozialkompetenz.\n• Teamarbeit und das Begleiten von Studierenden und Lernenden bereitet dir Freude. DEINE PERSPEKTIVEN\n• Ein eingespieltes, engagiertes Team aus Pflege und Ärzteschaft\n• Flache Hierarchien, ein familiäres Umfeld und eine gelebte DU-Kultur\n• Attraktive Anstellungsbedingungen mit umfangreichen Sozialleistungen Unsere Leiterin Intensivpflege, Evelyne Simon, erteilt dir unter 041 875 53 37 gerne weitere Auskünfte. Wir freuen uns auf deine Bewerbung. Unsere Leiterin Intensivpflege, Evelyne Simon, erteilt dir unter 041 875 53 37 gerne weitere Auskünfte. Wir freuen uns auf deine Bewerbung.",
         "fr": "Grâce à sa gamme complète de services, notre hôpital doté d'une infrastructure ultramoderne assure les soins de base ambulatoires et fixes du canton d'Uri. Notre unité de soins intensifs approuvée par SGI est un département moderne et interdisciplinaire avec six lits, dont deux zones de ventilation. Le soutien compétent et sensible de nos patients – ainsi que de leurs proches – dans des situations difficiles est pour nous une expression de qualité vécue et de professionnalisme. Notre équipe dévouée d'environ 25 employés est impatiente de commencer à 1. Mai 2027 ou par arrangement pour accueillir un nouveau membre de l'équipe. Vos tâches\n• Vous êtes conjointement responsable des soins et soins de nos patients dans l'unité de soins intensifs et conseillez-les et leurs proches en situation de crise.\n• Vous implémentez la planification des soins individuels en collaboration avec l'équipe de traitement interprofessionnel.\n• Vous travaillez à travers les départements et travaillez avec vos collègues pour créer la routine quotidienne la plus fluide possible. Votre profil\n• Vous avez un diplôme de diplômé. Infirmière HF/FH (diplômes étrangers : reconnaissance SRC).\n• Le cours de soins de surveillance post-diplomatie (IMC) que vous avez déjà ou êtes prêt à suivre ou le programme de soins intensifs NDS.\n• Vous avez une expérience professionnelle en soins actifs et restez au frais même dans des situations chaudes.\n• Vous êtes une personnalité flexible et bien placée avec une compréhension rapide et une haute compétence sociale.\n• Le travail d'équipe et l'accompagnement des étudiants et des apprenants vous apportent de la joie. Vos perspectives\n• Une équipe expérimentée et dévouée de personnel infirmier et médical\n• Hiérarchies plates, milieu familial et culture DU vécue\n• Notre responsable des soins intensifs, Evelyne Simon, est heureuse de vous fournir des informations complémentaires sur 041 875 53 37. Nous attendons avec impatience votre candidature. Notre responsable des soins intensifs, Evelyne Simon, est heureuse de vous fournir des informations complémentaires sur 041 875 53 37. Nous attendons avec impatience votre candidature."
       },
+      "needsRetranslation": false,
       "location": "Altdorf",
       "canton": "UR",
       "url": "https://stellen.ksuri.ch/Pflegefachperson-HF-IMC-wmd-50-100-de-j439.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:31:15.612Z",
+      "crawledAt": "2026-11-18T21:45:32.937Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -559,9 +560,19 @@
       "postingDateSource": "reported",
       "applyUrl": "https://stellen.ksuri.ch/Pflegefachperson-HF-IMC-wmd-50-100-de-j439.html",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "pflegefachperson-hf-imc-w-m-d-50-100-kantonsspital-uri-altdorf"
+      ],
+      "previousSlugsByLocale": {
+        "en": [
+          "pflegefachperson-hf-imc-w-m-d-50-100-kantonsspital-uri-altdorf"
+        ],
+        "fr": [
+          "pflegefachperson-hf-imc-w-m-d-50-100-kantonsspital-uri-altdorf"
+        ]
       },
+      "firstSeenAt": "2026-11-18T09:31:15.612Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -576,20 +587,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-16T09:31:15.612Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T09:31:15.612Z",
-      "previousSlugsByLocale": {
-        "en": [
-          "pflegefachperson-hf-imc-w-m-d-50-100-kantonsspital-uri-altdorf"
-        ],
-        "fr": [
-          "pflegefachperson-hf-imc-w-m-d-50-100-kantonsspital-uri-altdorf"
-        ]
-      },
-      "previousSlugs": [
-        "pflegefachperson-hf-imc-w-m-d-50-100-kantonsspital-uri-altdorf"
-      ]
+      "validThrough": "2027-02-16T21:45:32.937Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kantonsspital-uri-eb3cfbf27411",
@@ -622,7 +621,7 @@
       "url": "https://stellen.ksuri.ch/Oberaerztin-arzt-Innere-Medizin-mit-Facharzt-Intensivmediz-de-j391.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:31:15.094Z",
+      "crawledAt": "2026-11-18T21:45:32.470Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -718,7 +717,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-31T09:31:15.094Z",
+      "validThrough": "2026-12-31T21:45:32.470Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -752,7 +751,7 @@
       "url": "https://stellen.ksuri.ch/Mitarbeiterin-Service-Excellence-Restaurant-wmd-80-de-j437.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:31:14.432Z",
+      "crawledAt": "2026-11-18T21:45:31.855Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -795,7 +794,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-24T09:31:14.432Z",
+      "validThrough": "2027-01-24T21:45:31.855Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -830,7 +829,7 @@
       "url": "https://stellen.ksuri.ch/Leiterin-ICT-80-100-wmd-de-j438.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:31:13.914Z",
+      "crawledAt": "2026-11-18T21:45:31.371Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -876,7 +875,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-07T09:31:13.914Z",
+      "validThrough": "2027-02-07T21:45:31.371Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -910,7 +909,7 @@
       "url": "https://stellen.ksuri.ch/Leitender-aerztinArzt-Innere-Medizin-mit-Facharzt-Intensiv-de-j429.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:31:13.399Z",
+      "crawledAt": "2026-11-18T21:45:30.901Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -993,7 +992,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-18T09:31:13.399Z",
+      "validThrough": "2026-12-18T21:45:30.901Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1028,7 +1027,7 @@
       "url": "https://stellen.ksuri.ch/Leitende-aerztin-Leitender-Arzt-Gastroenterologie-60-100-w-de-j426.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:31:12.748Z",
+      "crawledAt": "2026-11-18T21:45:30.297Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1077,7 +1076,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-30T09:31:12.748Z",
+      "validThrough": "2026-12-30T21:45:30.297Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1112,7 +1111,7 @@
       "url": "https://stellen.ksuri.ch/Fachperson-Operationstechnik-HF-wmd-80-100-de-j143.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:31:12.191Z",
+      "crawledAt": "2026-11-18T21:45:29.816Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1158,7 +1157,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-18T09:31:12.191Z",
+      "validThrough": "2026-12-18T21:45:29.816Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1193,7 +1192,7 @@
       "url": "https://stellen.ksuri.ch/Fachperson-Gesundheit-FaGe-wmd-40-100-de-j399.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:31:11.470Z",
+      "crawledAt": "2026-11-18T21:45:29.221Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1242,7 +1241,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-24T09:31:11.470Z",
+      "validThrough": "2026-12-24T21:45:29.221Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1277,7 +1276,7 @@
       "url": "https://stellen.ksuri.ch/Expert-in-Intensivpflege-NDS-HF-wmd-60-100-de-j347.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:31:10.840Z",
+      "crawledAt": "2026-11-18T21:45:28.645Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1351,7 +1350,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-18T09:31:10.840Z",
+      "validThrough": "2026-12-18T21:45:28.645Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1385,7 +1384,7 @@
       "url": "https://stellen.ksuri.ch/Dipl-Pflegefachperson-FH-mit-Fachverantwortung-Akutpflege--de-j369.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:31:10.331Z",
+      "crawledAt": "2026-11-18T21:45:28.156Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1459,7 +1458,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-24T09:31:10.331Z",
+      "validThrough": "2026-12-24T21:45:28.156Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1493,7 +1492,7 @@
       "url": "https://stellen.ksuri.ch/Ausbildungsplaetze-Pflegefachfrau-mann-HF-wmd-100-de-j59.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:31:09.729Z",
+      "crawledAt": "2026-11-18T21:45:27.576Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1560,7 +1559,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-18T09:31:09.729Z",
+      "validThrough": "2026-12-18T21:45:27.576Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1595,7 +1594,7 @@
       "url": "https://stellen.ksuri.ch/Ausbildungsplatz-Radiologiefachperson-HF-wmd-100-de-j397.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:31:09.217Z",
+      "crawledAt": "2026-11-18T21:45:27.082Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1641,7 +1640,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-30T09:31:09.217Z",
+      "validThrough": "2026-12-30T21:45:27.082Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1676,7 +1675,7 @@
       "url": "https://stellen.ksuri.ch/Ausbildungsplatz-Experte-in-Anaesthesiepflege-NDS-HF-wmd-1-de-j407.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:31:08.678Z",
+      "crawledAt": "2026-11-18T21:45:26.492Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1719,7 +1718,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-18T09:31:08.678Z",
+      "validThrough": "2026-12-18T21:45:26.492Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1754,7 +1753,7 @@
       "url": "https://stellen.ksuri.ch/Ausbildungsplatz-Dipl-FachfrauFachmann-Operationstechnik-H-de-j213.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:31:08.029Z",
+      "crawledAt": "2026-11-18T21:45:25.890Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1797,7 +1796,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-18T09:31:08.029Z",
+      "validThrough": "2026-12-18T21:45:25.890Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1832,7 +1831,7 @@
       "url": "https://stellen.ksuri.ch/Ausbildungsplatz-Experte-in-Intensivpflege-NDS-HF-wmd-60-1-de-j210.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:31:07.374Z",
+      "crawledAt": "2026-11-18T21:45:25.292Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1881,7 +1880,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-31T09:31:07.374Z",
+      "validThrough": "2026-12-31T21:45:25.292Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1916,7 +1915,7 @@
       "url": "https://stellen.ksuri.ch/Assistenzaerztin-Assistenzarzt-Allgemeine-Innere-Medizin-w-de-j222.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:31:06.758Z",
+      "crawledAt": "2026-11-18T21:45:24.698Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1959,7 +1958,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-18T09:31:06.758Z",
+      "validThrough": "2026-12-18T21:45:24.698Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1993,7 +1992,7 @@
       "url": "https://stellen.ksuri.ch/Assistenzaerztin-Assistenzarzt-Gynaekologie-und-Geburtshil-de-j402.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:31:06.115Z",
+      "crawledAt": "2026-11-18T21:45:24.093Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -2036,7 +2035,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-18T09:31:06.115Z",
+      "validThrough": "2026-12-18T21:45:24.093Z",
       "validThroughSource": "last-observed-window"
     }
   ]

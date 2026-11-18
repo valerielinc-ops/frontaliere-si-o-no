@@ -1,12 +1,12 @@
 {
-  "detailCandidates": 367,
+  "detailCandidates": 364,
   "detailGone": 0,
-  "detailRejected": 367,
+  "detailRejected": 364,
   "key": "opus-personal",
   "label": "Opus Personal AG, Zweigniederlassung Altdorf",
-  "generatedAt": "2026-11-18T09:40:04.889Z",
+  "generatedAt": "2026-11-18T21:52:58.764Z",
   "total": 0,
-  "discovered": 367,
+  "discovered": 364,
   "parsed": 0,
   "lastFetchOutcome": "selector_miss",
   "fetchReceipt": {
@@ -15,7 +15,7 @@
       "https://opus-personal.ch/aktuelle-jobs"
     ],
     "phase": "detail",
-    "pages": 368,
+    "pages": 365,
     "httpStatuses": [
       {
         "status": 200,
@@ -72,10 +72,6 @@
       {
         "status": 200,
         "url": "https://opus-personal.ch/aktuelle-jobs/job.aspx/v-186596/f-op/"
-      },
-      {
-        "status": 200,
-        "url": "https://opus-personal.ch/aktuelle-jobs/job.aspx/v-186862/f-op/"
       },
       {
         "status": 200,
@@ -216,11 +212,15 @@
       {
         "status": 200,
         "url": "https://opus-personal.ch/aktuelle-jobs/job.aspx/v-158625/f-op/"
+      },
+      {
+        "status": 200,
+        "url": "https://opus-personal.ch/aktuelle-jobs/job.aspx/v-158642/f-op/"
       }
     ],
     "proxiedBy": [],
     "fetchOutcome": null,
-    "fetchDetail": "[prospector:opus-personal] detail snapshot incompleto: 367/367 detail page(s) dropped (100% > 15%); refusing partial publication"
+    "fetchDetail": "[prospector:opus-personal] detail snapshot incompleto: 364/364 detail page(s) dropped (100% > 15%); refusing partial publication"
   },
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
@@ -236,5 +236,5 @@
   "unchangedJobs": [],
   "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "c09e64fc08a252ae7234edb7cb9fdea84c5eb705"
+  "codeCommit": "8862042892397f4dcea90f48fbc2dc028da23eec"
 }
