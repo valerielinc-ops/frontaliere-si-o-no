@@ -9,12 +9,16 @@
  * same, so only the two calls that depend on the feedback run again.
  */
 
+import { mkdtemp, rm, writeFile } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import path from 'node:path';
 import { guardMobilityMatch } from '../../../functions/src/lib/mobilityRequirements.js';
 import { sourceCitations, citationSchema, resolveCitations } from '../../../functions/src/lib/sourceCitations.js';
 import { repairApplicationDocuments } from './fact-repair.mjs';
 import { pdfRendererMode, renderLetterPdf } from '../../../functions/src/assistedApplicationPdfRenderer.js';
 import {
   applicationEmailText,
+  applicationFileName,
   applyLetterConventions,
   buildFormAnswers,
   checkDraftTexts,
@@ -100,10 +104,19 @@ const MAX_REPAIR_FINDINGS = 12;
 // the submit run reads the live form again with the same rules, CV and
 // decision engine, so a pre-read that did not get through costs nothing.
 const PORTAL_PRE_READ_HANDOFFS = new Set([
-  'application_form_unreadable', 'captcha_present', 'cookie_preferences_unresolved', 'planner_unavailable',
-  'portal_reader_failed', 'posting_mismatch', 'question_label_unreadable', 'question_localization_unavailable',
-  'question_planning_failed', 'public_route_unavailable', 'requirements_unavailable',
+  'account', 'account_create_refused', 'account_sign_in_failed', 'account_verification',
+  'account_verification_retry_refused', 'account_application_already_applied',
+  'account_application_history_uncertain', 'account_recovery_timeout', 'account_recovery_rejected',
+  'application_form_unreadable', 'application_region_unsupported', 'application_stage_unknown',
+  'captcha_present', 'cookie_preferences_unresolved', 'cv_upload_failed', 'planner_unavailable',
+  'portal_choice_not_registered', 'portal_final_form_unbound', 'portal_needs_candidate',
+  'portal_question_reduction', 'portal_reader_failed', 'portal_required_fields_unfilled',
+  'portal_required_file_unhandled', 'posting_closed', 'posting_mismatch',
+  'privacy_not_accepted', 'profile_section_row_fill_failed', 'profile_section_row_incomplete',
+  'public_route_unavailable', 'question_label_unreadable', 'question_localization_unavailable',
+  'question_planning_failed', 'requirements_unavailable', 'upload_failed',
 ]);
+const EXTENSION = { pdf: 'pdf', docx: 'docx', doc: 'doc' };
 const CANDIDATE_LOCALES = new Set(['it', 'de', 'fr', 'en']);
 
 /** What the fact gate did not find, as the model is told it for the one repair. */
@@ -456,31 +469,91 @@ export async function buildDraft(ctx) {
   });
   let portalContract = null;
   let portalPreRead = null;
+  const rendererMode = await pdfRendererMode();
   if (readPortal && channel.applyUrl) {
     // The form of address the name gives is the platform's answer to a required
     // portal title field (owner decision 2026-11-09): never asked, always shown
     // among the form fields, where the candidate can correct it.
     const portalAnswers = { ...answers };
-    // The pre-read is an optimisation of the first review, never a gate on
-    // the draft: a reader that throws is recorded like one that hands off.
-    const portalResult = await Promise.resolve().then(() => readPortal({
-      channelType: channel.type,
-      applyUrl: channel.applyUrl,
-      postingUrl: portalPostingUrl,
-      job: portalJob,
-      ...(channel.via === 'successfactors' ? {
-        postingRouteProof: {
-          via: 'successfactors',
-          applyUrl: channel.applyUrl,
-          postingUrl: posting.postingUrl || order.jobUrl || '',
-        },
-      } : {}),
-      language,
-      candidateLocale: locale,
-      candidate: candidateForForm({ identity, profile, answers: portalAnswers, draft: { formAnswers, coverLetter: { text: letterBody } }, language, personal, job: { title, company: order.companyName || '' }, platformFacts: edited.platformFacts }),
-      codex,
-      log,
-    })).catch((error) => ({ questions: [], documents: [], handoff: 'portal_reader_failed', readerError: portalReaderErrorClass(error) }));
+    const knownPortalQuestions = [
+      ...questions.filter((q) => q?.source === 'portal'),
+      ...((previousDraft?.questions || []).filter((q) => q?.source === 'portal')),
+    ];
+    const currentAnswerIds = Object.entries(flow?.answers || {})
+      .filter(([, value]) => String(value ?? '').trim())
+      .map(([id]) => id);
+    let preReadDir = null;
+    let preReadFiles = null;
+    if (ctx.accounts && cvBuffer) {
+      try {
+        preReadDir = await mkdtemp(path.join(tmpdir(), 'aa-preread-'));
+        const cvPath = path.join(preReadDir, applicationFileName('cv', {
+          name: documentIdentity.name, language, extension: EXTENSION[cvType] || 'pdf',
+        }));
+        await writeFile(cvPath, cvBuffer);
+        preReadFiles = { cv: cvPath };
+        try {
+          const previewLetter = await renderLetterPdf(letterPdfBlocks({
+            identity: documentIdentity, profile, posting: letterAddress, companyName: order.companyName,
+            language, letter: documents.coverLetter, title, now: new Date(nowMs),
+            enclosures: letterEnclosures(language, enclosedDocumentLabels({ requiredDocuments }, null, orderId)), type: kind.type,
+          }), { mode: rendererMode, log });
+          const letterPath = path.join(preReadDir, applicationFileName('letter', {
+            name: documentIdentity.name, language, extension: 'pdf',
+          }));
+          await writeFile(letterPath, previewLetter.pdf);
+          preReadFiles.cover_letter = letterPath;
+        } catch {
+          // A missing preview letter must not prevent reading portal questions with the CV.
+        }
+      } catch {
+        preReadFiles = null;
+      }
+    }
+    let portalResult;
+    try {
+      // The pre-read is an optimisation of the first review, never a gate on
+      // the draft: a reader that throws is recorded like one that hands off.
+      portalResult = await Promise.resolve().then(() => readPortal({
+        channelType: channel.type,
+        applyUrl: channel.applyUrl,
+        postingUrl: portalPostingUrl,
+        job: portalJob,
+        ...(channel.via === 'successfactors' ? {
+          postingRouteProof: {
+            via: 'successfactors',
+            applyUrl: channel.applyUrl,
+            postingUrl: posting.postingUrl || order.jobUrl || '',
+          },
+        } : {}),
+        language,
+        candidateLocale: locale,
+        candidate: candidateForForm({
+          identity,
+          profile,
+          answers: portalAnswers,
+          currentAnswerIds,
+          draft: { formAnswers, coverLetter: { text: letterBody } },
+          portalQuestions: knownPortalQuestions,
+          language,
+          personal,
+          job: { title, company: order.companyName || '' },
+          platformFacts: edited.platformFacts,
+          suppressedQuestionIds: edited.candidateAnswerDefaultSuppressionIds,
+          suppressedAnswerContracts: edited.candidateAnswerSuppressedQuestionContracts,
+        }),
+        ...(ctx.accounts ? {
+          accounts: ctx.accounts,
+          knowledge: ctx.knowledge || null,
+          ...(preReadFiles ? { files: preReadFiles } : {}),
+          cvText,
+        } : {}),
+        codex,
+        log,
+      })).catch((error) => ({ questions: [], documents: [], handoff: 'portal_reader_failed', readerError: portalReaderErrorClass(error) }));
+    } finally {
+      if (preReadDir) await rm(preReadDir, { recursive: true, force: true }).catch(() => {});
+    }
     // Older test/integration callers return only the question array; the live
     // reader also returns required file fields so they reach the upload picker
     // before the first submission attempt.
@@ -557,7 +630,6 @@ export async function buildDraft(ctx) {
   });
 
   // Typst with the embedded font; the standard-font writer when it fails or the switch says "legacy".
-  const rendererMode = await pdfRendererMode();
   const { pdf, renderer: letterRenderer } = await renderLetterPdf(letterPdfBlocks({
     identity: documentIdentity, profile, posting: letterAddress, companyName: order.companyName, language, letter: documents.coverLetter, title, now: new Date(nowMs),
     enclosures: letterEnclosures(language, enclosedDocumentLabels({ requiredDocuments }, null, orderId)), type: kind.type,

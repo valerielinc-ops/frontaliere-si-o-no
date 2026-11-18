@@ -766,3 +766,55 @@ it('does not recreate a purged inbox or reply projection if retention finishes d
   expect(store.list(`assisted_applications/${ORDER}/inbox/`)).toEqual([]);
   expect(store.read(`assisted_applications/${ORDER}`)?.employerResponse).toBeNull();
 });
+
+it.each(['drafting', 'regenerating', 'owner_review', 'candidate_review'])(
+  'holds non-system ATS emails in owner_review and never forwards them to the candidate during %s',
+  async (flowState) => {
+    const { store, alias } = await setupInbound();
+    await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('flow').set({
+      state: flowState, round: 1, heldBy: [],
+    });
+    const sendCascade = vi.fn(async () => ({ failed: [], sent: [{ provider: 'maileroo' }] }));
+    const classify = async () => ({
+      category: 'question',
+      summaryCandidate: 'Conferma il tuo profilo sul portale.',
+      needsReply: true,
+    });
+    const raw = employerMail({
+      subject: 'Complete your candidate profile',
+      text: 'Please sign in to your candidate portal profile to continue.',
+    });
+    const { processed } = await deliver({ store, alias, raw, classify, sendCascade, nowMs: 5000 });
+
+    expect(processed).toMatchObject({ ok: true, category: 'question', forwarded: 'skipped' });
+    expect(sendCascade).not.toHaveBeenCalled();
+    const inboxPath = store.list(`assisted_applications/${ORDER}/inbox/`)[0];
+    expect(store.read(inboxPath)).toMatchObject({
+      candidateForwardAllowed: false,
+      ownerReviewRequired: true,
+      ownerReviewStatus: 'pending',
+      forwardDelivery: { status: 'skipped', reason: 'owner_review' },
+    });
+  },
+);
+
+it('resumes candidate forwarding once automation/flow reaches submitted', async () => {
+  const { store, alias } = await setupInbound();
+  await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('flow').set({
+    state: 'submitted', round: 1, heldBy: [],
+  });
+  const sendCascade = vi.fn(async () => ({ failed: [], sent: [{ provider: 'maileroo' }] }));
+  const classify = async () => ({
+    category: 'question',
+    summaryCandidate: 'L’azienda chiede la tua disponibilità per un colloquio.',
+    needsReply: true,
+  });
+  const raw = employerMail({
+    subject: 'Availability check',
+    text: 'Could you share your availability for next week?',
+  });
+  const { processed } = await deliver({ store, alias, raw, classify, sendCascade, nowMs: 5000 });
+
+  expect(processed).toMatchObject({ ok: true, category: 'question', forwarded: 'sent' });
+  expect(sendCascade).toHaveBeenCalledOnce();
+});
