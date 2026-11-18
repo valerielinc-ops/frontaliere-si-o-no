@@ -1555,7 +1555,7 @@ export function extractDetailFields(html = '', pageUrl = '', opts = {}) {
  * `<label>Arbeitsort:</label><span>Reckenholzstrasse 191, 8046 Zürich</span>`,
  * a node pair no class name marks and no structured record carries.
  */
-const WORKPLACE_LABEL_RX = /^(?:arbeitsorte?|einsatzorte?|place of work|lieux? de travail|luog(?:o|hi) di lavoro)(?=\s*(?::|$))\s*:?\s*/iu;
+const WORKPLACE_LABEL_RX = /^(?:arbeitsorte?(?:\s*\/\s*region)?|einsatzorte?|place of work|lieux? de travail|luog(?:o|hi) di lavoro)(?=\s*(?::|$))\s*:?\s*/iu;
 
 /**
  * Read the value of an inline `<strong>`/`<b>` workplace label without
