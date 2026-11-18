@@ -25,10 +25,10 @@ function blockerOnlyFrame(placement = 'article-atf') {
   el.append(google);
   w.document.body.append(el); return el;
 }
-async function start(allowed = () => true, runtimeConfig = config) {
+async function start(allowed = () => true, runtimeConfig = config, advanceMs = 12200) {
   const install = w.eval(`(${installHouseAds.toString()})`);
   install(w.eval(`(${createHouseAdCreative.toString()})`), HOUSE_AD_CREATIVE_CSS, emit, allowed, runtimeConfig);
-  await vi.advanceTimersByTimeAsync(12200);
+  await vi.advanceTimersByTimeAsync(advanceMs);
 }
 beforeEach(() => {
   vi.useFakeTimers(); emit.mockClear();
@@ -76,6 +76,35 @@ describe('per-slot first-party creative delivery', () => {
     await start();
 
     expect(empty.host.querySelector('a')).not.toBeNull();
+  });
+  it('holds only the reader-subscription treatment on the mobile static job board until interaction', async () => {
+    Object.defineProperty(w, 'innerWidth', { configurable: true, value: 390 });
+    const snapshot = w.document.createElement('main');
+    snapshot.className = 'seo-static-content job-board-static-hub job-board-static-content';
+    w.document.body.prepend(snapshot);
+    const block = w.document.createElement('div');
+    block.dataset.ftHouseBlock = 'static-job-board';
+    w.document.body.append(block);
+    const first = frame('unfilled', 'job-board-infeed', block);
+    const second = frame('unfilled', 'job-board-infeed-next', block);
+    w.__ftAdsAuthState = 'anonymous';
+    w.fetch.mockResolvedValue({ ok: true, json: async () => ({
+      variant: 'control', enrolled: false, assignmentSource: 'local_default',
+      readerSubscriptionVariant: 'subscription', readerSubscriptionEnrolled: true,
+      readerSubscriptionExperimentId: 'reader_subscription_house_v1',
+      readerSubscriptionAssignmentSource: 'firebase_remote_config',
+    }) });
+
+    await start(() => true, { ...config, deferReaderSubscriptionUntilInteraction: true }, 1100);
+
+    expect(first.host.querySelector('[data-house-campaign="reader_subscription"]')).toBeNull();
+    expect(second.host.querySelector('[data-house-campaign="reader_subscription"]')).toBeNull();
+    expect(w.__ftAdsAuthStateRequested).toBeUndefined();
+    w.dispatchEvent(new w.Event('pointerdown'));
+    await vi.advanceTimersByTimeAsync(200);
+
+    expect(w.__ftAdsAuthStateRequested).toBe(true);
+    expect(w.document.querySelector('[data-house-campaign="reader_subscription"]')).not.toBeNull();
   });
   it('fills a static slot when the visitor explicitly denies Google ads consent', async () => {
     const el = w.document.createElement('div'); el.dataset.house = 'article-atf'; el.dataset.ftHouseHeight = '220'; el.dataset.width = '452';

@@ -432,6 +432,7 @@ describe('signed-origin autonomous SDK startup', () => {
  });
  it('enables Firebase-gated reader subscription in the static recovery bootstrap', () => {
   expect(AD_RECOVERY_CONTENT).toContain('readerSubscriptionExperimentEnabled:true');
+  expect(AD_RECOVERY_CONTENT).toContain('deferReaderSubscriptionUntilInteraction:window.innerWidth<1024');
  });
  it('invalidates the transported fingerprint when either producer or helper changes', () => {
   const snapshot = thirdPartyShellAssetSnapshot();

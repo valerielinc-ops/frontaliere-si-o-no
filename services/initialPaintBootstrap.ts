@@ -10,6 +10,9 @@ export const INITIAL_LARGEST_CONTENTFUL_PAINT_TIMEOUT_MS = 5000;
 export const LARGEST_CONTENTFUL_PAINT_QUIET_TIMEOUT_MS = 250;
 /** Never leave the homepage shell in front of a failed or stale app forever. */
 export const HOMEPAGE_CONTENT_HANDOFF_TIMEOUT_MS = 2500;
+/** Static surfaces whose HTML owns the first mobile job-board paint. */
+export const JOB_BOARD_STATIC_CONTENT_SELECTOR =
+  'main.seo-static-content.job-board-static-hub, main.seo-static-content.job-board-static-content, main.seo-static-content[data-sector-hub]';
 /** The static job-board LCP gate is needed below the desktop layout breakpoint. */
 export const JOB_BOARD_LCP_WAIT_MAX_WIDTH = 1024;
 
