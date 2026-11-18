@@ -747,6 +747,16 @@ export function hasClaimedPath(filePath: string): boolean {
   return pathHistory.has(filePath);
 }
 
+/** True when the path is reserved for a retained active-job bridge. */
+export function isRetainedJobBridgeOutputPath(filePath: string): boolean {
+  return retainedJobBridgeOutputPaths.has(resolveRetainedPath(filePath));
+}
+
+/** Plugin that most recently claimed a path in this build (diagnostics only). */
+export function getClaimingPlugin(filePath: string): string | undefined {
+  return getLatestClaimVersion(filePath)?.plugin;
+}
+
 /** Check whether a path is claimed or reserved against a future write. */
 export function hasClaimedOrReservedPath(filePath: string): boolean {
   return pathHistory.has(filePath)

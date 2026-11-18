@@ -24,6 +24,8 @@ import {
  isJobAliasRedirectPath,
  hasClaimedPath,
  hasClaimedOrReservedPath,
+ isRetainedJobBridgeOutputPath,
+ getClaimingPlugin,
  WriteCollisionError,
  DistPathCollisionError,
 } from '@/build-plugins/sharedWriteRegistry';
@@ -116,6 +118,24 @@ describe('sharedWriteRegistry', () => {
   '<html>second bridge attempt</html>',
  )).toBe('skip-write');
  expect(getPathHistory().get(indexPath)).toHaveLength(1);
+ });
+
+ it('isRetainedJobBridgeOutputPath is true only for reserved bridge outputs', () => {
+ const pageDir = path.resolve(os.tmpdir(), 'retained-bridge-predicate', 'jobs', 'old-route');
+ const otherDir = path.resolve(os.tmpdir(), 'retained-bridge-predicate', 'jobs', 'other');
+ expect(isRetainedJobBridgeOutputPath(path.join(pageDir, 'index.html'))).toBe(false);
+ reserveRetainedJobBridgeDir(pageDir);
+ expect(isRetainedJobBridgeOutputPath(path.join(pageDir, 'index.html'))).toBe(true);
+ expect(isRetainedJobBridgeOutputPath(`${pageDir}.html`)).toBe(true);
+ expect(isRetainedJobBridgeOutputPath(path.join(otherDir, 'index.html'))).toBe(false);
+ expect(isRetainedJobBridgeOutputPath(`${otherDir}.html`)).toBe(false);
+ // A plain claim by another writer is not a retained bridge.
+ const claimed = path.join(otherDir, 'index.html');
+ claim(claimed, 'some-writer', '<html>x</html>');
+ expect(hasClaimedPath(claimed)).toBe(true);
+ expect(isRetainedJobBridgeOutputPath(claimed)).toBe(false);
+ expect(getClaimingPlugin(claimed)).toBe('some-writer');
+ expect(getClaimingPlugin(path.join(pageDir, 'nope.html'))).toBeUndefined();
  });
 
  it('idempotent re-claim with identical content returns skip-write (no error)', () => {

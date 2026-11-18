@@ -60,7 +60,12 @@ import { renderJobBoardCommuterContext } from './shared/jobBoardCommuterContext'
 import { windowDaysForVariant } from './jobRecencyLanding';
 import { SECTION_LEGACY_TI } from './shared/cantonSection';
 import { getSafeDistPageTargets } from './shared/distPathSafety';
-import { hasClaimedOrReservedPath } from './sharedWriteRegistry';
+import {
+  getClaimingPlugin,
+  hasClaimedPath,
+  isJobAliasRedirectPath,
+  isRetainedJobBridgeOutputPath,
+} from './sharedWriteRegistry';
 
 const LOCALES: ReadonlyArray<JobLandingLocale> = ['it', 'en', 'de', 'fr'];
 
@@ -174,6 +179,8 @@ export function jobRecencyPagesPlugin(rootDir: string): Plugin {
       const hasSpaBundle = spaBundle.hasSpaBundle;
 
       const sitemapEntries: string[] = [];
+      let claimedByOtherWriter = 0;
+      const claimedByOtherWriterExamples: string[] = [];
 
       const ensuredDirs = new Set<string>();
       const ensureDir = (dir: string): void => {
@@ -407,8 +414,24 @@ ${alternates}
             console.warn(`[job-recency-pages] skipped unsafe path ${canonicalPath}`);
             continue;
           }
-          if (hasClaimedOrReservedPath(safeTargets.indexPath)
-            || hasClaimedOrReservedPath(safeTargets.flatPath)) continue;
+          if (isJobAliasRedirectPath(safeTargets.indexPath)
+            || isJobAliasRedirectPath(safeTargets.flatPath)) continue;
+          // Never overwrite a retained active-job bridge.
+          if (isRetainedJobBridgeOutputPath(safeTargets.indexPath)
+            || isRetainedJobBridgeOutputPath(safeTargets.flatPath)) continue;
+          // A path merely claimed by another writer is NOT skipped: the
+          // recency hub owns its URL and the sitemap must list what we write.
+          // Surface it so the claimer can be fixed.
+          if (hasClaimedPath(safeTargets.indexPath) || hasClaimedPath(safeTargets.flatPath)) {
+            claimedByOtherWriter += 1;
+            if (claimedByOtherWriterExamples.length < 10) {
+              const claimer = getClaimingPlugin(safeTargets.indexPath)
+                ?? getClaimingPlugin(safeTargets.flatPath);
+              claimedByOtherWriterExamples.push(
+                `${variant}:${locale}:${canonicalPath}${claimer ? `:claimedBy=${claimer}` : ''}`,
+              );
+            }
+          }
           ensureDir(safeTargets.directoryPath);
           fs.writeFileSync(safeTargets.indexPath, html, 'utf-8');
           ensureDir(np.dirname(safeTargets.flatPath));
@@ -435,6 +458,12 @@ ${alternates}
             `  <url>\n    <loc>${canonicalUrl}</loc>\n${altLinks}\n    <xhtml:link rel="alternate" hreflang="x-default" href="${itUrl}" />\n    <changefreq>hourly</changefreq>\n    <priority>${priority}</priority>\n  </url>`,
           );
         }
+      }
+
+      if (claimedByOtherWriter > 0) {
+        console.warn(
+          `[job-recency-pages] claimed-by-other-writer=${claimedByOtherWriter} examples=[${claimedByOtherWriterExamples.join(', ')}]`,
+        );
       }
 
       // Write sitemap-recency.xml.

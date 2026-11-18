@@ -382,7 +382,12 @@ describe('raw URL-to-dist writers apply the guard before filesystem joins', () =
     expect(CF_SOURCE).toContain('hasClaimedOrReservedPath(safeTargets.indexPath)');
     expect(CANTON_ORPHAN_SOURCE).toContain('hasClaimedOrReservedPath(outFile)');
     expect(CALCULATOR_SOURCE).toContain('hasClaimedOrReservedPath(safeTargets.indexPath)');
-    expect(RECENCY_SOURCE).toContain('hasClaimedOrReservedPath(safeTargets.indexPath)');
+    // Recency hubs own their URL: skip only job-alias redirects and retained
+    // bridges, never a path merely claimed by another writer (it is logged).
+    expect(RECENCY_SOURCE).toContain('isJobAliasRedirectPath(safeTargets.indexPath)');
+    expect(RECENCY_SOURCE).toContain('isRetainedJobBridgeOutputPath(safeTargets.indexPath)');
+    expect(RECENCY_SOURCE).not.toContain('hasClaimedOrReservedPath');
+    expect(RECENCY_SOURCE).toContain('claimed-by-other-writer=');
     expect(SECTOR_SOURCE).toContain('hasClaimedOrReservedPath(safeTargets.indexPath)');
     expect(PHARMACY_SOURCE).toContain('hasClaimedOrReservedPath(safeTargets.indexPath)');
     expect(JOBS_SOURCE).toContain('const pathWasClaimed = (filePath: string): boolean => hasClaimedPath(filePath);');
