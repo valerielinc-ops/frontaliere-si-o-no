@@ -131,23 +131,44 @@
     "sector": "",
     "expiredAt": "2026-11-18T13:43:43.538Z",
     "previousSlugs": [
+      "vendeur-dans-la-laiterie-genossenschaft-migros-zurich",
       "verkaufer-in-molkerei-genossenschaft-migros-zurich",
       "latticini-di-vendita-genossenschaft-migros-zurich-zurich",
       "seller-dairy-genossenschaft-migros-zurich-zurich",
-      "vendeur-dans-la-laiterie-genossenschaft-migros-zurich",
-      "produits-laitiers-vendus-genossenschaft-migros-zurich-zurich"
+      "produits-laitiers-vendus-genossenschaft-migros-zurich-zurich",
+      "latticini-di-vendita-genossenschaft-migros-zurich-zurich-fdbf8f4b",
+      "seller-dairy-genossenschaft-migros-zurich-zurich-32516086",
+      "verkaufer-in-molkerei-genossenschaft-migros-zurich-ed993b54",
+      "produits-laitiers-vendus-genossenschaft-migros-zurich-zurich-9cfc5a61"
     ],
     "previousSlugsByLocale": {
       "it": [
         "verkaufer-in-molkerei-genossenschaft-migros-zurich",
+        "latticini-di-vendita-genossenschaft-migros-zurich-zurich-fdbf8f4b",
+        "seller-dairy-genossenschaft-migros-zurich-zurich",
+        "produits-laitiers-vendus-genossenschaft-migros-zurich-zurich",
         "latticini-di-vendita-genossenschaft-migros-zurich-zurich"
       ],
       "en": [
+        "seller-dairy-genossenschaft-migros-zurich-zurich-32516086",
+        "verkaufer-in-molkerei-genossenschaft-migros-zurich-ed993b54",
+        "latticini-di-vendita-genossenschaft-migros-zurich-zurich",
+        "produits-laitiers-vendus-genossenschaft-migros-zurich-zurich",
         "seller-dairy-genossenschaft-migros-zurich-zurich",
         "verkaufer-in-molkerei-genossenschaft-migros-zurich"
       ],
       "fr": [
         "vendeur-dans-la-laiterie-genossenschaft-migros-zurich",
+        "verkaufer-in-molkerei-genossenschaft-migros-zurich-ed993b54",
+        "produits-laitiers-vendus-genossenschaft-migros-zurich-zurich-9cfc5a61",
+        "latticini-di-vendita-genossenschaft-migros-zurich-zurich",
+        "seller-dairy-genossenschaft-migros-zurich-zurich",
+        "verkaufer-in-molkerei-genossenschaft-migros-zurich",
+        "produits-laitiers-vendus-genossenschaft-migros-zurich-zurich"
+      ],
+      "de": [
+        "latticini-di-vendita-genossenschaft-migros-zurich-zurich",
+        "seller-dairy-genossenschaft-migros-zurich-zurich",
         "verkaufer-in-molkerei-genossenschaft-migros-zurich",
         "produits-laitiers-vendus-genossenschaft-migros-zurich-zurich"
       ]
@@ -14615,8 +14636,7 @@
       "verkaufer-in-molkerei-genossenschaft-migros-zurich-557fd7d1",
       "verkaufer-in-molkerei-genossenschaft-migros-zurich-821aafca",
       "verkaufer-in-molkerei-genossenschaft-migros-zurich-afff848f",
-      "verkaufer-in-molkerei-genossenschaft-migros-zurich-dafd17e6",
-      "verkaufer-in-molkerei-genossenschaft-migros-zurich"
+      "verkaufer-in-molkerei-genossenschaft-migros-zurich-dafd17e6"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -14772,9 +14792,7 @@
         "verkaufer-in-molkerei-genossenschaft-migros-zurich-ccec2ee2",
         "verkaufer-in-molkerei-genossenschaft-migros-zurich-97694cfb"
       ],
-      "de": [
-        "verkaufer-in-molkerei-genossenschaft-migros-zurich"
-      ]
+      "de": []
     },
     "postalCode": "8001",
     "streetAddress": "Zürich",
@@ -89532,18 +89550,25 @@
     "sector": "",
     "expiredAt": "2026-08-05T22:55:16.122Z",
     "previousSlugs": [
+      "mitarbeiter-in-empfang-fitnesspark-zug-v5o3i4",
       "mitarbeiter-in-empfang-fitnesspark-zug",
-      "mitarbeiter-in-empfang-fitnesspark-zug-v5o3i4"
+      "mitarbeiter-in-empfang-fitnesspark-zug-8702f276"
     ],
     "previousSlugsByLocale": {
       "it": [
+        "mitarbeiter-in-empfang-fitnesspark-zug-8702f276",
         "mitarbeiter-in-empfang-fitnesspark-zug"
       ],
       "en": [
-        "mitarbeiter-in-empfang-fitnesspark-zug-v5o3i4"
+        "mitarbeiter-in-empfang-fitnesspark-zug-v5o3i4",
+        "mitarbeiter-in-empfang-fitnesspark-zug"
       ],
       "fr": [
-        "mitarbeiter-in-empfang-fitnesspark-zug-v5o3i4"
+        "mitarbeiter-in-empfang-fitnesspark-zug-v5o3i4",
+        "mitarbeiter-in-empfang-fitnesspark-zug"
+      ],
+      "de": [
+        "mitarbeiter-in-empfang-fitnesspark-zug"
       ]
     },
     "postalCode": "6300",
