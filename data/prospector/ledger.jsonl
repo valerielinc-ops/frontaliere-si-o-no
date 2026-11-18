@@ -63040,3 +63040,5 @@
 {"eventType":"candidate_transition","key":"careanesth","from":"awaiting_first_crawl","to":"production","at":"2026-11-18T16:04:20.248Z","runId":"44298374531","runAttempt":1,"phase":"promote","eventId":"172b6c1834fe3dbd61433757"}
 {"eventType":"candidate_transition","key":"ritter-schumacher","from":"awaiting_first_crawl","to":"production","at":"2026-11-18T16:04:20.248Z","runId":"44298374531","runAttempt":1,"phase":"promote","eventId":"69ba705ed7523e50df753e2c"}
 {"eventType":"candidate_attempt","key":"sintio.ch","status":"awaiting_first_crawl","outcome":"updated","at":"2026-11-18T16:04:20.248Z","runId":"44298374531","runAttempt":1,"phase":"promote","eventId":"27a1bd4a941982adc06e6af2"}
+{"eventType":"candidate_transition","key":"hp-job@au-sg","from":"promoted","to":"promoting","at":"2026-11-18T16:04:53.463Z","runId":"44298374531","runAttempt":1,"phase":"promote","eventId":"2ccd31f5ab46b4cf04942653"}
+{"eventType":"candidate_transition","key":"cogestim@lausanne","from":"promoted","to":"promoting","at":"2026-11-18T16:04:53.464Z","runId":"44298374531","runAttempt":1,"phase":"promote","eventId":"7ad6c3ed3cf5aae3bfb972c9"}

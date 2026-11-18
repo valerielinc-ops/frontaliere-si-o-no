@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-11-18T16:04:20.355Z",
+  "updatedAt": "2026-11-18T16:04:53.528Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -345163,12 +345163,12 @@
     },
     "cogestim@lausanne": {
       "key": "cogestim@lausanne",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:30:49.607Z",
-      "updatedAt": "2026-11-18T15:20:18.137Z",
+      "updatedAt": "2026-11-18T16:04:53.464Z",
       "name": "COGESTIM SA",
       "city": "Lausanne",
       "zip": "1003",
@@ -345472,7 +345472,9 @@
           "logoSourceUrl": "https://cogestim.ch/wp-content/uploads/2026/11/cropped-favicon-cogestim-blanc-degrade-192x192.png",
           "employerSiteName": "Cogestim"
         }
-      ]
+      ],
+      "promotionPr": "19361",
+      "promotionBranch": "prospector/promote-2026-11-18"
     },
     "cogestra.ch": {
       "key": "cogestra.ch",
@@ -730275,12 +730277,12 @@
     },
     "hp-job@au-sg": {
       "key": "hp-job@au-sg",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:25:27.644Z",
-      "updatedAt": "2026-11-18T15:20:50.899Z",
+      "updatedAt": "2026-11-18T16:04:53.463Z",
       "name": "HP Job GmbH",
       "city": "Au SG",
       "zip": "9434",
@@ -730653,7 +730655,9 @@
           "logoSourceUrl": "https://hpjob.ch/wp-content/uploads/theme_icon-300x300.png",
           "employerSiteName": "HP Job"
         }
-      ]
+      ],
+      "promotionPr": "19361",
+      "promotionBranch": "prospector/promote-2026-11-18"
     },
     "hpa-handel-planung-ausfuhrung@st-margrethen-sg": {
       "key": "hpa-handel-planung-ausfuhrung@st-margrethen-sg",
