@@ -1,10 +1,10 @@
 {
   "key": "pks-bewerbung-ch",
   "label": "pks-bewerbung",
-  "generatedAt": "2026-11-17T09:38:59.239Z",
+  "generatedAt": "2026-11-18T09:49:14.851Z",
   "total": 3,
-  "discovered": 3,
-  "parsed": 3,
+  "discovered": 2,
+  "parsed": 2,
   "lastFetchOutcome": null,
   "fetchReceipt": {
     "specKey": "pks-bewerbung-ch",
@@ -12,7 +12,7 @@
       "https://www.pks-personal.ch/pks/bewerber/stellen-kaufmaennisch.php"
     ],
     "phase": "detail",
-    "pages": 4,
+    "pages": 3,
     "httpStatuses": [
       {
         "status": 200,
@@ -25,10 +25,6 @@
       {
         "status": 200,
         "url": "https://www.pks-personal.ch/stellen/hr-assistent-in-50-60-befristet-fuer-4-monate/basel/hrm/82e9b75e"
-      },
-      {
-        "status": 200,
-        "url": "https://www.pks-personal.ch/stellen/hr-professional-50-mit-payroll-erfahrung/basel/hrm/15cad6a3"
       }
     ],
     "proxiedBy": [],
@@ -38,35 +34,36 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 3,
-  "detailCandidates": 3,
+  "detailCandidates": 2,
   "detailGone": 0,
   "detailRejected": 0,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 35767,
-  "avgDurationMs": 35767,
+  "durationMs": 36196,
+  "avgDurationMs": 36196,
   "durationHistory": [
-    35767
+    36196
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "pks-bewerbung-ch-a08c935471a7",
       "slug": "risorse-umane-generalistin-80-100-ihr-einstieg-in-la-risorse-umane-digitalisierung-come-abacus-consulente-pks-bewerbung-binningen",
       "company": "pks-bewerbung",
       "companyKey": "pks-bewerbung-ch",
       "companyDomain": "pks-personal.ch",
-      "title": "HR-Generalistin 80–100 % – Ihr Einstieg in die HR-Digitalisierung als ABACUS Consultant",
+      "title": "HR-Generalist:in 80–100 % – Ihr Einstieg in die HR-Digitalisierung als ABACUS Consultant HR-Generalistin 80–100 % – Ihr Einstieg in die HR-Digitalisierung",
       "location": "4102 Binningen",
       "canton": "BL",
       "url": "https://www.pks-personal.ch/stellen/hr-generalistin-80-100-ihr-einstieg-in-die-hr-digitalisierung/basel/hrm/91824262",
       "source": "pks-bewerbung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T09:38:11.580Z",
+      "crawledAt": "2026-11-18T09:48:28.174Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -84,24 +81,23 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://www.pks-personal.ch/stellen/hr-generalistin-80-100-ihr-einstieg-in-die-hr-digitalisierung/basel/hrm/91824262",
+      "firstSeenAt": "2026-11-17T09:38:11.580Z",
       "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T09:38:11.580Z",
+      "validThrough": "2027-02-15T09:48:28.174Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:38:11.580Z",
-      "_qualityScore": 93,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 21,
+        "translation": 25,
         "completeness": 23
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -141,6 +137,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-12T09:38:11.583Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -186,7 +183,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-27T21:50:49.382Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -196,5 +193,5 @@
       }
     }
   ],
-  "codeCommit": "0a26498058b0569b9b8027a7e9a03db3e2542c6a"
+  "codeCommit": "c09e64fc08a252ae7234edb7cb9fdea84c5eb705"
 }

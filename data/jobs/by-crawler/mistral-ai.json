@@ -1,7 +1,7 @@
 {
   "crawlerKey": "mistral-ai",
-  "assembledAt": "2026-11-17T09:32:25.827Z",
-  "runId": "44055269248",
+  "assembledAt": "2026-11-18T09:50:30.791Z",
+  "runId": "44275660644",
   "jobs": [
     {
       "id": "mistral-ai-c24d6a4a84d2",
@@ -34,7 +34,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/19026237-fb3d-480d-a1a3-27204bcb154a",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T09:32:17.427Z",
+      "crawledAt": "2026-11-18T09:50:22.016Z",
       "addressLocality": "Zurich | Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -82,7 +82,7 @@
       "postalCode": "8001",
       "addressRegion": "ZH",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:32:17.427Z",
+      "validThrough": "2027-01-28T09:50:22.016Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -116,7 +116,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/865fced4-d279-4073-848d-f078c0053155",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T09:32:17.424Z",
+      "crawledAt": "2026-11-18T09:50:22.014Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -134,6 +134,9 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
+        "en": [
+          "ai-scientist-mistral-ai-ch"
+        ],
         "it": [
           "ai-scientist-zurigo-mistral-ai-zurich",
           "ai-scientist-zurich-mistral-ai-ch",
@@ -149,7 +152,8 @@
       "previousSlugs": [
         "ai-scientist-zurigo-mistral-ai-zurich",
         "ai-scientist-zurich-mistral-ai-ch",
-        "scientifique-ai-zurich-mistral-ai-zurich"
+        "scientifique-ai-zurich-mistral-ai-zurich",
+        "ai-scientist-mistral-ai-ch"
       ],
       "firstSeenAt": "2026-07-14T22:36:36.714Z",
       "salaryMin": 73500,
@@ -169,7 +173,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T09:32:17.424Z",
+      "validThrough": "2026-12-18T09:50:22.014Z",
       "validThroughSource": "last-observed-window"
     }
   ]

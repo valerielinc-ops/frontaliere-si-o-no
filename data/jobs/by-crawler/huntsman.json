@@ -1,7 +1,7 @@
 {
   "crawlerKey": "huntsman",
-  "assembledAt": "2026-11-17T09:36:54.285Z",
-  "runId": "44055269248",
+  "assembledAt": "2026-11-18T09:52:01.218Z",
+  "runId": "44275660644",
   "jobs": [
     {
       "id": "huntsman-24b5023af669",
@@ -50,7 +50,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Measurement-Engineer_J-019405",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T09:36:47.615Z",
+      "crawledAt": "2026-11-18T09:51:53.926Z",
       "jobReqId": "J-019405",
       "previousSlugs": [
         "engineer-measurement-technology-electrical-physical-testing-of-plastics-huntsman-corporati",
@@ -83,7 +83,7 @@
       "addressRegion": "BS",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T09:36:47.615Z",
+      "validThrough": "2026-12-18T09:51:53.926Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -133,7 +133,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Electricien-ou-automaticien--Mtrologie-_J-019937",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T09:36:37.496Z",
+      "crawledAt": "2026-11-18T09:51:43.075Z",
       "jobReqId": "J-019937",
       "previousSlugs": [
         "electricien-ou-automaticien-metrologie-huntsman-ch"
@@ -161,7 +161,7 @@
       "addressRegion": "VS",
       "streetAddress": "Monthey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T09:36:37.496Z",
+      "validThrough": "2026-12-18T09:51:43.075Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -211,7 +211,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Production-Operator_J-019940",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T09:36:27.872Z",
+      "crawledAt": "2026-11-18T09:51:32.400Z",
       "jobReqId": "J-019940",
       "previousSlugs": [
         "technologue-s-en-production-5-equipes-huntsman-ch"
@@ -245,7 +245,7 @@
       "addressRegion": "VS",
       "streetAddress": "Monthey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:36:27.872Z",
+      "validThrough": "2027-02-04T09:51:32.400Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -295,12 +295,13 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Agent-Technique_J-020477-1",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T09:36:17.510Z",
+      "crawledAt": "2026-11-18T09:51:21.955Z",
       "jobReqId": "J-020477",
+      "previousSlugs": [
+        "agent-technique-huntsman-ch",
+        "agent-technique-huntsman-corporation-monthey"
+      ],
       "previousSlugsByLocale": {
-        "fr": [
-          "agent-technique-huntsman-corporation-monthey"
-        ],
         "it": [
           "agent-technique-huntsman-ch"
         ],
@@ -309,12 +310,11 @@
         ],
         "de": [
           "agent-technique-huntsman-ch"
+        ],
+        "fr": [
+          "agent-technique-huntsman-corporation-monthey"
         ]
       },
-      "previousSlugs": [
-        "agent-technique-huntsman-ch",
-        "agent-technique-huntsman-corporation-monthey"
-      ],
       "firstSeenAt": "2026-11-13T21:51:10.600Z",
       "salaryMin": 97500,
       "salaryMax": 148000,
@@ -333,7 +333,7 @@
       "addressRegion": "VS",
       "streetAddress": "Monthey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T09:36:17.510Z",
+      "validThrough": "2027-02-11T09:51:21.955Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -383,7 +383,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Senior-Procurement-Specialist_J-020336",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T09:36:06.782Z",
+      "crawledAt": "2026-11-18T09:51:10.834Z",
       "jobReqId": "J-020336",
       "previousSlugs": [
         "senior-procurement-specialist-huntsman-ch"
@@ -415,8 +415,81 @@
       "addressRegion": "VS",
       "streetAddress": "Monthey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T09:36:06.782Z",
+      "validThrough": "2027-02-11T09:51:10.834Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "huntsman-9c5fe29602a3",
+      "slug": "chemical-technician-huntsman-ch",
+      "slugByLocale": {
+        "en": "chemical-technician-huntsman-ch",
+        "it": "chemical-technician-huntsman-ch",
+        "de": "chemical-technician-huntsman-ch",
+        "fr": "chemical-technician-huntsman-ch"
+      },
+      "company": "Huntsman Corporation",
+      "companyKey": "huntsman",
+      "companyDomain": "huntsman.com",
+      "title": "Chemical Technician",
+      "titleByLocale": {
+        "en": "Chemical Technician",
+        "it": "Chemical Technician",
+        "de": "Chemical Techniker",
+        "fr": "Chemical Technicien"
+      },
+      "description": "Job Description :\n\n• Conduct chemical and physical laboratory tests to assist scientists in making\n• qualitative and quantitative analyses of solids, liquids, and gaseous materials for\n• research and development of new products or processes, quality control,\n• maintenance of environmental standards, and other work involving experimental,\n• theoretical, or practical application of chemistry and related sciences.\n\nAdditional Locations:\n\nHuntsman Corporation is a global manufacturer of differentiated and specialty chemicals. The company operates a major production site in Monthey (Valais), Switzerland.",
+      "descriptionByLocale": {
+        "en": "Job Description :\n\n• Conduct chemical and physical laboratory tests to assist scientists in making\n• qualitative and quantitative analyses of solids, liquids, and gaseous materials for\n• research and development of new products or processes, quality control,\n• maintenance of environmental standards, and other work involving experimental,\n• theoretical, or practical application of chemistry and related sciences.\n\nAdditional Locations:\n\nHuntsman Corporation is a global manufacturer of differentiated and specialty chemicals. The company operates a major production site in Monthey (Valais), Switzerland.",
+        "it": "Job Description :\n\n• Conduct chemical and physical laboratory tests to assist scientists in making\n• qualitative and quantitative analyses of solids, liquids, and gaseous materials for\n• research and development of new products or processes, quality control,\n• maintenance of environmental standards, and other work involving experimental,\n• theoretical, or practical application of chemistry and related sciences.\n\nAdditional Locations:\n\nHuntsman Corporation is a global manufacturer of differentiated and specialty chemicals. The company operates a major production site in Monthey (Valais), Switzerland.",
+        "de": "Job Description :\n\n• Conduct chemical and physical laboratory tests to assist scientists in making\n• qualitative and quantitative analyses of solids, liquids, and gaseous materials for\n• research and development of new products or processes, quality control,\n• maintenance of environmental standards, and other work involving experimental,\n• theoretical, or practical application of chemistry and related sciences.\n\nAdditional Locations:\n\nHuntsman Corporation is a global manufacturer of differentiated and specialty chemicals. The company operates a major production site in Monthey (Valais), Switzerland.",
+        "fr": "Job Description :\n\n• Conduct chemical and physical laboratory tests to assist scientists in making\n• qualitative and quantitative analyses of solids, liquids, and gaseous materials for\n• research and development of new products or processes, quality control,\n• maintenance of environmental standards, and other work involving experimental,\n• theoretical, or practical application of chemistry and related sciences.\n\nAdditional Locations:\n\nHuntsman Corporation is a global manufacturer of differentiated and specialty chemicals. The company operates a major production site in Monthey (Valais), Switzerland."
+      },
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "location": "Monthey",
+      "canton": "VS",
+      "addressLocality": "Monthey",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Chimica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-17",
+      "postedDate": "2026-11-17",
+      "postingDateSource": "reported",
+      "url": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Chemical-Technician_J-020479",
+      "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Chemical-Technician_J-020479",
+      "source": "Huntsman Corporation Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-18T09:50:59.459Z",
+      "jobReqId": "J-020479",
+      "needsRetranslation": true,
+      "salaryMin": 71000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 71000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1870",
+      "addressRegion": "VS",
+      "streetAddress": "Monthey",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-15T09:50:59.459Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-18T09:50:59.459Z"
     }
   ]
 }
