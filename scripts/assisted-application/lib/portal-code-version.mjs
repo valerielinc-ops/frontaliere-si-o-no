@@ -24,6 +24,7 @@ export function portalCodeFingerprintFiles(root = defaultRoot) {
     'scripts/assisted-application/agent.mjs', 'scripts/assisted-application/extension/apply-control.js',
     'functions/src/assistedApplicationConstants.js', 'functions/src/assistedApplicationRetention.js',
     'functions/src/assistedApplicationPortalSites.js',
+    'functions/src/lib/portalStopCodes.js',
     'functions/src/assistedApplicationExtraDocuments.js', 'functions/src/assistedApplicationOperationalAnswers.js', 'functions/src/assistedApplicationCandidateEdits.js',
     // The rules that answer a held portal question (reconcile-portal-code.mjs portalQuestionsResolvedByCode).
     'functions/src/assistedApplicationPlatformDefaults.js', 'functions/src/assistedApplicationCvAnswers.js',

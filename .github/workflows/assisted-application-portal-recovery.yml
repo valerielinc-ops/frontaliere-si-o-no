@@ -45,6 +45,7 @@ on:
       - 'functions/src/assistedApplicationDraftRetryPolicy.js'
       - 'functions/src/assistedApplicationDispatchRetryPolicy.js'
       - 'functions/src/assistedApplicationPortalRecoveryPolicy.js'
+      - 'functions/src/lib/portalStopCodes.js'
       - 'functions/src/assistedApplicationSubmissionGuard.js'
       - 'functions/src/lib/applicationConsent.js'
       - 'functions/src/lib/portalNativeContract.js'

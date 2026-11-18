@@ -19,6 +19,7 @@
 
 import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
 import { publicValueShape } from './value-shape.mjs';
+import { PORTAL_STOP_REASONS } from '../../../../functions/src/lib/portalStopCodes.js';
 
 const STRUCK = '[dato del candidato]';
 const EMAIL_RE = /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/gi;
@@ -176,12 +177,7 @@ export function portalPassRecord(pass, mode) {
   };
 }
 
-const REASONS = {
-  portal_needs_candidate: 'pagina non superata',
-  posting_mismatch: 'modulo non riconosciuto come quello dell’annuncio',
-  account: 'account del portale',
-  rejected: 'invio rifiutato dal portale',
-};
+export const REASONS = PORTAL_STOP_REASONS;
 
 const code = (value) => `\`${String(value).replace(/`/g, "'")}\``;
 
