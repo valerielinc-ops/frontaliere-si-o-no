@@ -37,7 +37,7 @@ export const PORTAL_REPLAY_SEED = 'frontaliereticino-portal-replay-v1';
 // The gate checks this marker before re-sanitizing reports. A PR that changes
 // comparison semantics must be able to validate its new report contract until
 // that contract is present in the base checkout used by the trusted gate.
-export const PORTAL_REPLAY_GATE_SEMANTICS = 'measured-baseline-v2';
+export const PORTAL_REPLAY_GATE_SEMANTICS = 'measured-baseline-v3';
 export const PORTAL_REPLAY_FAMILIES = new Set([
   'employer_site', 'lever', 'greenhouse', 'smartrecruiters', 'personio', 'softgarden', 'umantis', 'refline',
   'jobs_ch', 'manatal', 'workday', 'successfactors',
@@ -175,7 +175,7 @@ const SAFE_REPORT_CODES = new Set([
   'portal_replay_codex_broker_unavailable', 'portal_replay_family_missing', 'portal_replay_corpus_empty',
   'portal_replay_family_sample_too_small', 'portal_replay_passed', 'portal_stop', 'posting_closed', 'posting_mismatch', 'yes', 'no',
   'region_blocked', 'no_runner_paths_changed', 'prepare_failed', 'matrix_incomplete_or_failed', 'submission_attempted',
-  'runner_error', 'unknown', 'unknown_handoff', 'unknown_runner_error',
+  'runner_error', 'unknown', 'unknown_handoff', 'unknown_runner_error', 'codex_quota',
 ]);
 const SAFE_FINDING_CODES = new Set([
   'sample_missing', 'final_click_attempt', 'non_get_passed', 'node_egress_attempt', 'wrong_posting_or_talent_pool', 'submission_attempted',
@@ -1114,9 +1114,16 @@ export function comparePortalReplayFamily({ family, baseRecords = [], headRecord
   };
 }
 
-export function aggregatePortalReplayGate({ prepareRun = false, prepareResult = 'success', matrixResult = 'skipped', families = [], reports = [] } = {}) {
+export function aggregatePortalReplayGate({ prepareRun = false, prepareResult = 'success', matrixResult = 'skipped', families = [], reports = [], providerStatus = '' } = {}) {
   if (prepareResult !== 'success') return { status: 'fail', code: 'prepare_failed', reportCount: reports.length };
   if (!prepareRun) return { status: 'pass', code: 'no_runner_paths_changed', reportCount: 0 };
+  // A quota marker is emitted only when the warm-up proved that the provider
+  // itself refused the request. It is a skip, not a portal verdict. Require a
+  // successful matrix result so a mixed quota/infrastructure failure remains
+  // fail-closed instead of being hidden by the external marker.
+  if (providerStatus === 'codex_quota' && matrixResult === 'success') {
+    return { status: 'skip', code: 'codex_quota', reportCount: reports.length };
+  }
   const byFamily = new Map(reports.map((report) => [report.family, report]));
   const missing = families.filter((family) => !byFamily.has(family));
   const failed = reports.filter((report) => report.status !== 'pass').map((report) => report.family);
@@ -1130,6 +1137,9 @@ export function markdownForAggregate(verdict, reports, prepareRun) {
   const lines = ['## Assisted application portal replay', ''];
   if (!prepareRun && verdict.status === 'pass') return [...lines, '- Esito: PASS (`no_runner_paths_changed`)', '- La PR non modifica i percorsi del runner che richiedono replay.'].join('\n');
   if (!prepareRun) return [...lines, `- Esito: ${verdict.status.toUpperCase()} (${safeCode(verdict.code)})`, '- Il replay non ha potuto determinare i path del runner interessati.'].join('\n');
+  if (verdict.status === 'skip' && verdict.code === 'codex_quota') {
+    return [...lines, '- Esito: SKIP (`codex_quota`)', '- Il provider Codex ha esaurito la quota: il replay resta da misurare e nessuna famiglia viene classificata come regressione.'].join('\n');
+  }
   lines.push(`- Esito: ${verdict.status.toUpperCase()} (${safeCode(verdict.code)})`);
   if (verdict.missingFamilies?.length) lines.push(`- Famiglie senza rapporto: ${verdict.missingFamilies.map(safeCode).join(', ')}`);
   if (verdict.failedFamilies?.length) lines.push(`- Famiglie con regressioni o misure incomplete: ${verdict.failedFamilies.map(safeCode).join(', ')}`);
@@ -1327,11 +1337,15 @@ async function aggregateMode(values) {
   const matrixResult = values['matrix-result'] || 'skipped';
   const families = values.families ? JSON.parse(values.families) : [];
   const reportDir = values['report-dir'] ? path.resolve(values['report-dir']) : '';
-  const reports = reportDir ? readdirSync(reportDir, { withFileTypes: true }).filter((item) => item.isFile() && item.name.endsWith('.json'))
+  const entries = reportDir ? readdirSync(reportDir, { withFileTypes: true }) : [];
+  const providerStatuses = entries.filter((item) => item.isFile() && item.name.endsWith('.status'))
+    .map((item) => readFileSync(path.join(reportDir, item.name), 'utf8').trim()).filter(Boolean);
+  const uniqueProviderStatuses = [...new Set(providerStatuses)];
+  const providerStatus = uniqueProviderStatuses.length === 1 ? uniqueProviderStatuses[0] : '';
+  const reports = entries.filter((item) => item.isFile() && item.name.endsWith('.json'))
     .sort((left, right) => left.name.localeCompare(right.name))
-    .map((item) => sanitizePortalReplayReport(JSON.parse(readFileSync(path.join(reportDir, item.name), 'utf8'))))
-    : [];
-  const verdict = aggregatePortalReplayGate({ prepareRun, prepareResult, matrixResult, families, reports });
+    .map((item) => sanitizePortalReplayReport(JSON.parse(readFileSync(path.join(reportDir, item.name), 'utf8'))));
+  const verdict = aggregatePortalReplayGate({ prepareRun, prepareResult, matrixResult, families, reports, providerStatus });
   const markdown = markdownForAggregate(verdict, reports, prepareRun);
   if (values.output) {
     const output = path.resolve(values.output);

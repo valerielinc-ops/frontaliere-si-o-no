@@ -486,7 +486,9 @@ describe('portal replay workflow wiring', () => {
     const verdictBlock = workflow.slice(verdictJob, workflow.indexOf('\n  portal-replay-daily-issue:'));
     expect(verdictBlock).toContain('ref: ${{ github.sha }}');
     expect(verdictBlock).toContain('path: .portal-head');
-    expect(verdictBlock).toContain("PORTAL_REPLAY_GATE_SEMANTICS = 'measured-baseline-v2'");
+    expect(verdictBlock).toContain("PORTAL_REPLAY_GATE_SEMANTICS = 'measured-baseline-v3'");
+    expect(verdictBlock).toContain('id: aggregate');
+    expect(verdictBlock).toContain('verdict_code: ${{ steps.aggregate.outputs.verdict_code }}');
     expect(verdictBlock).toContain('gate_cli=.portal-head/scripts/assisted-application/portal-replay.mjs');
     expect(verdictBlock).toContain('node "$gate_cli" aggregate');
   });
@@ -593,6 +595,9 @@ describe('portal replay workflow wiring', () => {
     expect(step).toContain('::error::blocked: the Codex backend did not answer a minimal request');
     expect(step).toContain('process.exit(1)');
     expect(step).toContain('Codex broker lanes probe');
+    expect(step).toContain('provider_status=');
+    expect(step).toContain('usage\\s+limit');
+    expect(workflow).toContain("if: ${{ steps.broker_warmup.outputs.provider_status != 'codex_quota' }}");
   });
 });
 
@@ -998,6 +1003,21 @@ describe('portal replay base/head gate', () => {
       prepareRun: true, prepareResult: 'success', matrixResult: 'success', families: ['workday'],
       reports: [{ family: 'workday', status: 'pass' }],
     })).toMatchObject({ status: 'pass', code: 'portal_replay_passed' });
+    expect(aggregatePortalReplayGate({
+      prepareRun: true, prepareResult: 'success', matrixResult: 'success', families: ['workday'],
+      reports: [], providerStatus: 'codex_quota',
+    })).toMatchObject({ status: 'skip', code: 'codex_quota' });
+    expect(aggregatePortalReplayGate({
+      prepareRun: true, prepareResult: 'success', matrixResult: 'failure', families: ['workday'],
+      reports: [], providerStatus: 'codex_quota',
+    })).toMatchObject({ status: 'fail', code: 'matrix_incomplete_or_failed' });
+  });
+
+  it('summarizes a provider quota skip without naming portal regressions', () => {
+    const summary = markdownForAggregate({ status: 'skip', code: 'codex_quota', reportCount: 0 }, [], true);
+    expect(summary).toContain('SKIP (`codex_quota`)');
+    expect(summary).toContain('nessuna famiglia viene classificata come regressione');
+    expect(summary).not.toContain('Famiglie senza rapporto');
   });
 });
 
@@ -1035,7 +1055,7 @@ describe('portal replay daily check', () => {
     const cron = String(doc.on.schedule[0].cron);
     // one run a day, off the :00/:30 marks
     expect(cron).toMatch(/^(?!0 |30 )\d{1,2} \d{1,2} \* \* \*$/u);
-    expect(doc.on.workflow_dispatch.inputs.base_sha).toMatchObject({ required: false, type: 'string' });
+    expect(doc.on.workflow_dispatch.inputs.base_sha).toMatchObject({ required: false, type: 'string', default: '' });
     const text = workflow();
     expect(text).not.toContain('github.event.pull_request');
     expect(text).not.toMatch(/^\s*pull_request/mu);
@@ -1081,6 +1101,8 @@ describe('portal replay daily check', () => {
     expect(detect.match(/\$\{\{ inputs\./gu)).toHaveLength(1);
     expect(detect).toContain('INPUT_BASE_SHA: ${{ inputs.base_sha }}');
     expect(detect).toContain("sha_re='^[0-9a-f]{40}$'");
+    expect(detect).toContain("if [ \"$INPUT_BASE_SHA\" = '0000000000000000000000000000000000000001' ]; then");
+    expect(detect).toContain("INPUT_BASE_SHA=''");
     // the lookup is bounded, with a growing backoff
     expect(detect).toContain('for attempt in 1 2 3 4; do');
     expect(detect).toContain('delay=$((attempt * attempt * 15))');
@@ -1143,6 +1165,7 @@ describe('portal replay daily check', () => {
     expect(issueBlock).toContain('node scripts/lib/github-issue-creator.mjs --resolve');
     expect(issueBlock).toContain("if: always() && needs.portal-replay-daily-verdict.result == 'failure'");
     expect(issueBlock).toContain("if: needs.portal-replay-daily-verdict.result == 'success'");
+    expect(issueBlock).toContain("needs.portal-replay-daily-verdict.outputs.verdict_code != 'codex_quota'");
     // the title comes from the same module that owns the marker
     expect(issueBlock).toContain('--print-title');
     // `scan-unreported-failures.mjs` recognizes a domain issue only when its
@@ -1284,6 +1307,27 @@ describe('portal replay daily helpers (CLI)', () => {
     execFileSync(process.execPath, [script, '--gate-json', join(dir, 'missing.json'), '--run-url', 'https://github.com/o/r/actions/runs/1', '--out', out]);
     expect(readFileSync(out, 'utf8')).toContain('verdict_unavailable');
   });
+
+  it('turns the warm-up quota marker into a non-regression skip', () => {
+    const script = fileURLToPath(new URL('../scripts/assisted-application/portal-replay.mjs', import.meta.url));
+    const dir = tempDir();
+    const output = join(dir, 'gate.json');
+    const summary = join(dir, 'summary.md');
+    writeFileSync(join(dir, 'provider-unavailable-0.status'), 'codex_quota\n');
+    execFileSync(process.execPath, [
+      script, 'aggregate',
+      '--prepare-run', 'true',
+      '--prepare-result', 'success',
+      '--matrix-result', 'success',
+      '--families', '["workday"]',
+      '--report-dir', dir,
+      '--output', output,
+      '--summary', summary,
+    ], { encoding: 'utf8' });
+    const gate = JSON.parse(readFileSync(output, 'utf8'));
+    expect(gate.verdict).toMatchObject({ status: 'skip', code: 'codex_quota' });
+    expect(readFileSync(summary, 'utf8')).toContain('SKIP (`codex_quota`)');
+  });
 });
 
 describe('portal replay base resolution', () => {
@@ -1303,4 +1347,3 @@ describe('portal replay base resolution', () => {
     expect(run([{ event: 'pull_request', headSha: sha('4'), createdAt: '2026-11-16T01:00:00Z' }])).toBe('');
   });
 });
-
