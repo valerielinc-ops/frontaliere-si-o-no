@@ -2489,31 +2489,35 @@
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-08-01T22:34:45.627Z",
-    "previousSlugs": [
-      "oberarzt-oberarztin-anasthesie-schmerzmedizin-80-100-gzo-wetzikon-ch",
-      "senior-physician-anesthesia-pain-medicine-80-100-gzo-spital-wetzikon-wetzikon"
-    ],
     "previousSlugsByLocale": {
       "it": [
         "oberarzt-oberarztin-anasthesie-schmerzmedizin-80-100-gzo-wetzikon-ch-b0bda090",
+        "senior-physician-anesthesia-pain-medicine-80-100-gzo-spital-wetzikon-wetzikon",
         "oberarzt-oberarztin-anasthesie-schmerzmedizin-80-100-gzo-wetzikon-ch"
       ],
       "en": [
         "oberarzt-oberarztin-anasthesie-schmerzmedizin-80-100-gzo-wetzikon-ch",
+        "senior-physician-anesthesia-pain-medicine-80-100-gzo-spital-wetzikon-wetzikon-7e63e8f6",
         "senior-physician-anesthesia-pain-medicine-80-100-gzo-spital-wetzikon-wetzikon"
       ],
       "de": [
-        "oberarzt-oberarztin-anasthesie-schmerzmedizin-80-100-gzo-wetzikon-ch-b0bda090"
+        "oberarzt-oberarztin-anasthesie-schmerzmedizin-80-100-gzo-wetzikon-ch-b0bda090",
+        "senior-physician-anesthesia-pain-medicine-80-100-gzo-spital-wetzikon-wetzikon"
       ],
       "fr": [
-        "oberarzt-oberarztin-anasthesie-schmerzmedizin-80-100-gzo-wetzikon-ch"
+        "oberarzt-oberarztin-anasthesie-schmerzmedizin-80-100-gzo-wetzikon-ch",
+        "senior-physician-anesthesia-pain-medicine-80-100-gzo-spital-wetzikon-wetzikon"
       ]
     },
     "postalCode": "8620",
     "salaryMin": 101500,
     "salaryMax": 154000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "previousSlugs": [
+      "oberarzt-oberarztin-anasthesie-schmerzmedizin-80-100-gzo-wetzikon-ch",
+      "senior-physician-anesthesia-pain-medicine-80-100-gzo-spital-wetzikon-wetzikon"
+    ]
   },
   {
     "slug": "elettricista-di-stabilimento-a-100-gzo-spital-wetzikon-wetzikon",

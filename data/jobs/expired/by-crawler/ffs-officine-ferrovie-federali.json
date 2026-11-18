@@ -23629,11 +23629,11 @@
     "expiredAt": "2026-09-13T14:14:08.717Z",
     "previousSlugs": [
       "team-leader-nell-acquisto-di-costruzioni-ffs-officine-ferrovie-federali-olten",
+      "teamleiter-in-baueinkauf-ffs-officine-ferrovie-federali-olten-13958a6d",
+      "chef-d-equipe-dans-les-achats-de-construction-ffs-officine-ferrovie-federali-olten-965c9ccb",
       "chef-fe-d-equipe-achats-construction-ffs-officine-ferrovie-federali-olten",
       "teamleiter-in-baueinkauf-ffs-officine-ferrovie-federali-olten",
       "chef-d-equipe-dans-les-achats-de-construction-ffs-officine-ferrovie-federali-olten",
-      "teamleiter-in-baueinkauf-ffs-officine-ferrovie-federali-olten-13958a6d",
-      "chef-d-equipe-dans-les-achats-de-construction-ffs-officine-ferrovie-federali-olten-965c9ccb",
       "construction-purchasing-team-leader-ffs-officine-ferrovie-federali-olten"
     ],
     "previousSlugsByLocale": {
@@ -23642,6 +23642,7 @@
         "team-leader-nell-acquisto-di-costruzioni-ffs-officine-ferrovie-federali-olten",
         "teamleiter-in-baueinkauf-ffs-officine-ferrovie-federali-olten-13958a6d",
         "chef-d-equipe-dans-les-achats-de-construction-ffs-officine-ferrovie-federali-olten",
+        "construction-purchasing-team-leader-ffs-officine-ferrovie-federali-olten",
         "chef-fe-d-equipe-achats-construction-ffs-officine-ferrovie-federali-olten",
         "teamleiter-in-baueinkauf-ffs-officine-ferrovie-federali-olten"
       ],
@@ -23649,18 +23650,21 @@
         "teamleiter-in-baueinkauf-ffs-officine-ferrovie-federali-olten-13958a6d",
         "chef-fe-d-equipe-achats-construction-ffs-officine-ferrovie-federali-olten-773a4523",
         "chef-d-equipe-dans-les-achats-de-construction-ffs-officine-ferrovie-federali-olten",
+        "construction-purchasing-team-leader-ffs-officine-ferrovie-federali-olten",
         "teamleiter-in-baueinkauf-ffs-officine-ferrovie-federali-olten"
       ],
       "fr": [
         "chef-d-equipe-dans-les-achats-de-construction-ffs-officine-ferrovie-federali-olten-965c9ccb",
         "chef-fe-d-equipe-achats-construction-ffs-officine-ferrovie-federali-olten-773a4523",
         "teamleiter-in-baueinkauf-ffs-officine-ferrovie-federali-olten",
+        "construction-purchasing-team-leader-ffs-officine-ferrovie-federali-olten",
         "chef-d-equipe-dans-les-achats-de-construction-ffs-officine-ferrovie-federali-olten"
       ],
       "en": [
         "chef-fe-d-equipe-achats-construction-ffs-officine-ferrovie-federali-olten-773a4523",
         "teamleiter-in-baueinkauf-ffs-officine-ferrovie-federali-olten",
         "chef-d-equipe-dans-les-achats-de-construction-ffs-officine-ferrovie-federali-olten",
+        "construction-purchasing-team-leader-ffs-officine-ferrovie-federali-olten-9bc364f7",
         "construction-purchasing-team-leader-ffs-officine-ferrovie-federali-olten"
       ]
     },
@@ -23789,19 +23793,27 @@
         "ingegnere-civile-opere-geotecniche-ffs-officine-ferrovie-federali-berne",
         "geotechnical-civil-engineering-engineer-ffs-officine-ferrovie-federali-berne",
         "tiefbauingenieurwesen-ffs-officine-ferrovie-federali-berne",
+        "civil-engineering-engineer-geotechnical-structures-ffs-officine-ferrovie-federali-berne",
+        "bauingenieur-geotechnische-bauwerke-ffs-officine-ferrovie-federali-berne",
         "ingenieur-e-genie-civil-ouvrages-geotechnique-ffs-officine-ferrovie-federali-berne"
       ],
       "en": [
         "geotechnical-civil-engineering-engineer-ffs-officine-ferrovie-federali-berne",
         "ingenieur-e-genie-civil-ouvrages-geotechnique-ffs-officine-ferrovie-federali-berne-777b58a6",
+        "civil-engineering-engineer-geotechnical-structures-ffs-officine-ferrovie-federali-berne-5946b78d",
+        "bauingenieur-geotechnische-bauwerke-ffs-officine-ferrovie-federali-berne",
         "civil-engineering-engineer-geotechnical-structures-ffs-officine-ferrovie-federali-berne"
       ],
       "de": [
         "ingenieur-e-genie-civil-ouvrages-geotechnique-ffs-officine-ferrovie-federali-berne-777b58a6",
+        "bauingenieur-geotechnische-bauwerke-ffs-officine-ferrovie-federali-berne-ec9890c2",
+        "civil-engineering-engineer-geotechnical-structures-ffs-officine-ferrovie-federali-berne",
         "bauingenieur-geotechnische-bauwerke-ffs-officine-ferrovie-federali-berne"
       ],
       "fr": [
-        "ingenieur-e-genie-civil-ouvrages-geotechnique-ffs-officine-ferrovie-federali-berne-777b58a6"
+        "ingenieur-e-genie-civil-ouvrages-geotechnique-ffs-officine-ferrovie-federali-berne-777b58a6",
+        "civil-engineering-engineer-geotechnical-structures-ffs-officine-ferrovie-federali-berne",
+        "bauingenieur-geotechnische-bauwerke-ffs-officine-ferrovie-federali-berne"
       ]
     },
     "salaryMin": 73000,
@@ -23967,32 +23979,40 @@
     },
     "sector": "",
     "expiredAt": "2026-09-10T23:26:15.370Z",
-    "previousSlugs": [
-      "quereinstieg-lokfuhrer-in-rangier-ffs-officine-ferrovie-federali-romanshorn",
-      "cross-entry-locomotive-engineer-ffs-officine-ferrovie-federali-romanshorn",
-      "acces-transversal-conducteur-de-locomotive-a-man-uvre-ffs-officine-ferrovie-federali-romanshorn"
-    ],
     "previousSlugsByLocale": {
       "it": [
         "quereinstieg-lokfuhrer-in-rangier-ffs-officine-ferrovie-federali-romanshorn-ddb021c5",
+        "cross-entry-locomotive-engineer-ffs-officine-ferrovie-federali-romanshorn",
+        "acces-transversal-conducteur-de-locomotive-a-man-uvre-ffs-officine-ferrovie-federali-romanshorn",
         "quereinstieg-lokfuhrer-in-rangier-ffs-officine-ferrovie-federali-romanshorn"
       ],
       "en": [
         "quereinstieg-lokfuhrer-in-rangier-ffs-officine-ferrovie-federali-romanshorn-ddb021c5",
+        "cross-entry-locomotive-engineer-ffs-officine-ferrovie-federali-romanshorn-0abae44c",
+        "acces-transversal-conducteur-de-locomotive-a-man-uvre-ffs-officine-ferrovie-federali-romanshorn",
         "cross-entry-locomotive-engineer-ffs-officine-ferrovie-federali-romanshorn"
       ],
       "de": [
-        "quereinstieg-lokfuhrer-in-rangier-ffs-officine-ferrovie-federali-romanshorn-ddb021c5"
+        "quereinstieg-lokfuhrer-in-rangier-ffs-officine-ferrovie-federali-romanshorn-ddb021c5",
+        "cross-entry-locomotive-engineer-ffs-officine-ferrovie-federali-romanshorn",
+        "acces-transversal-conducteur-de-locomotive-a-man-uvre-ffs-officine-ferrovie-federali-romanshorn"
       ],
       "fr": [
         "quereinstieg-lokfuhrer-in-rangier-ffs-officine-ferrovie-federali-romanshorn-ddb021c5",
+        "acces-transversal-conducteur-de-locomotive-a-man-uvre-ffs-officine-ferrovie-federali-romanshorn-279cf93e",
+        "cross-entry-locomotive-engineer-ffs-officine-ferrovie-federali-romanshorn",
         "acces-transversal-conducteur-de-locomotive-a-man-uvre-ffs-officine-ferrovie-federali-romanshorn"
       ]
     },
     "salaryMin": 60000,
     "salaryMax": 102000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "previousSlugs": [
+      "quereinstieg-lokfuhrer-in-rangier-ffs-officine-ferrovie-federali-romanshorn",
+      "cross-entry-locomotive-engineer-ffs-officine-ferrovie-federali-romanshorn",
+      "acces-transversal-conducteur-de-locomotive-a-man-uvre-ffs-officine-ferrovie-federali-romanshorn"
+    ]
   },
   {
     "slug": "facility-manager-siti-produttivi-m-f-d-ffs-officine-ferrovie-federali-olten",
@@ -25746,30 +25766,34 @@
     },
     "sector": "",
     "expiredAt": "2026-08-31T22:42:44.731Z",
-    "previousSlugs": [
-      "policier-policiere-aupres-de-la-police-des-transports-cff-tpo-ffs-officine-ferrovie-federali-fribourg",
-      "police-officer-police-officer-with-the-sbb-transport-police-tpo-ffs-officine-ferrovie-federali-fribourg"
-    ],
     "previousSlugsByLocale": {
       "it": [
         "policier-policiere-aupres-de-la-police-des-transports-cff-tpo-ffs-officine-ferrovie-federali-fribourg-260597cb",
+        "police-officer-police-officer-with-the-sbb-transport-police-tpo-ffs-officine-ferrovie-federali-fribourg",
         "policier-policiere-aupres-de-la-police-des-transports-cff-tpo-ffs-officine-ferrovie-federali-fribourg"
       ],
       "en": [
         "policier-policiere-aupres-de-la-police-des-transports-cff-tpo-ffs-officine-ferrovie-federali-fribourg-260597cb",
+        "police-officer-police-officer-with-the-sbb-transport-police-tpo-ffs-officine-ferrovie-federali-fribourg-15584597",
         "police-officer-police-officer-with-the-sbb-transport-police-tpo-ffs-officine-ferrovie-federali-fribourg"
       ],
       "de": [
-        "policier-policiere-aupres-de-la-police-des-transports-cff-tpo-ffs-officine-ferrovie-federali-fribourg-260597cb"
+        "policier-policiere-aupres-de-la-police-des-transports-cff-tpo-ffs-officine-ferrovie-federali-fribourg-260597cb",
+        "police-officer-police-officer-with-the-sbb-transport-police-tpo-ffs-officine-ferrovie-federali-fribourg"
       ],
       "fr": [
-        "policier-policiere-aupres-de-la-police-des-transports-cff-tpo-ffs-officine-ferrovie-federali-fribourg-260597cb"
+        "policier-policiere-aupres-de-la-police-des-transports-cff-tpo-ffs-officine-ferrovie-federali-fribourg-260597cb",
+        "police-officer-police-officer-with-the-sbb-transport-police-tpo-ffs-officine-ferrovie-federali-fribourg"
       ]
     },
     "salaryMin": 73000,
     "salaryMax": 124500,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "previousSlugs": [
+      "policier-policiere-aupres-de-la-police-des-transports-cff-tpo-ffs-officine-ferrovie-federali-fribourg",
+      "police-officer-police-officer-with-the-sbb-transport-police-tpo-ffs-officine-ferrovie-federali-fribourg"
+    ]
   },
   {
     "slug": "poliziotto-polizia-presso-la-polizia-dei-trasporti-ffs-tpo-ffs-officine-ferrovie-federali-geneve",
@@ -25798,30 +25822,34 @@
     },
     "sector": "",
     "expiredAt": "2026-08-31T22:42:44.731Z",
-    "previousSlugs": [
-      "policier-policiere-aupres-de-la-police-des-transports-cff-tpo-ffs-officine-ferrovie-federali-geneve",
-      "police-officer-police-officer-with-the-sbb-transport-police-tpo-ffs-officine-ferrovie-federali-geneve"
-    ],
     "previousSlugsByLocale": {
       "it": [
         "policier-policiere-aupres-de-la-police-des-transports-cff-tpo-ffs-officine-ferrovie-federali-geneve-0363aa20",
+        "police-officer-police-officer-with-the-sbb-transport-police-tpo-ffs-officine-ferrovie-federali-geneve",
         "policier-policiere-aupres-de-la-police-des-transports-cff-tpo-ffs-officine-ferrovie-federali-geneve"
       ],
       "en": [
         "policier-policiere-aupres-de-la-police-des-transports-cff-tpo-ffs-officine-ferrovie-federali-geneve-0363aa20",
+        "police-officer-police-officer-with-the-sbb-transport-police-tpo-ffs-officine-ferrovie-federali-geneve-cbed9a5b",
         "police-officer-police-officer-with-the-sbb-transport-police-tpo-ffs-officine-ferrovie-federali-geneve"
       ],
       "de": [
-        "policier-policiere-aupres-de-la-police-des-transports-cff-tpo-ffs-officine-ferrovie-federali-geneve-0363aa20"
+        "policier-policiere-aupres-de-la-police-des-transports-cff-tpo-ffs-officine-ferrovie-federali-geneve-0363aa20",
+        "police-officer-police-officer-with-the-sbb-transport-police-tpo-ffs-officine-ferrovie-federali-geneve"
       ],
       "fr": [
-        "policier-policiere-aupres-de-la-police-des-transports-cff-tpo-ffs-officine-ferrovie-federali-geneve-0363aa20"
+        "policier-policiere-aupres-de-la-police-des-transports-cff-tpo-ffs-officine-ferrovie-federali-geneve-0363aa20",
+        "police-officer-police-officer-with-the-sbb-transport-police-tpo-ffs-officine-ferrovie-federali-geneve"
       ]
     },
     "salaryMin": 63000,
     "salaryMax": 107500,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "previousSlugs": [
+      "policier-policiere-aupres-de-la-police-des-transports-cff-tpo-ffs-officine-ferrovie-federali-geneve",
+      "police-officer-police-officer-with-the-sbb-transport-police-tpo-ffs-officine-ferrovie-federali-geneve"
+    ]
   },
   {
     "slug": "poliziotto-polizia-presso-la-polizia-dei-trasporti-ffs-tpo-ffs-officine-ferrovie-federali-lausanne",
@@ -25850,30 +25878,34 @@
     },
     "sector": "",
     "expiredAt": "2026-08-31T22:42:44.731Z",
-    "previousSlugs": [
-      "policier-policiere-aupres-de-la-police-des-transports-cff-tpo-ffs-officine-ferrovie-federali-lausanne",
-      "police-officer-police-officer-with-the-sbb-transport-police-tpo-ffs-officine-ferrovie-federali-lausanne"
-    ],
     "previousSlugsByLocale": {
       "it": [
         "policier-policiere-aupres-de-la-police-des-transports-cff-tpo-ffs-officine-ferrovie-federali-lausanne-94706390",
+        "police-officer-police-officer-with-the-sbb-transport-police-tpo-ffs-officine-ferrovie-federali-lausanne",
         "policier-policiere-aupres-de-la-police-des-transports-cff-tpo-ffs-officine-ferrovie-federali-lausanne"
       ],
       "en": [
         "policier-policiere-aupres-de-la-police-des-transports-cff-tpo-ffs-officine-ferrovie-federali-lausanne-94706390",
+        "police-officer-police-officer-with-the-sbb-transport-police-tpo-ffs-officine-ferrovie-federali-lausanne-03c2b81b",
         "police-officer-police-officer-with-the-sbb-transport-police-tpo-ffs-officine-ferrovie-federali-lausanne"
       ],
       "de": [
-        "policier-policiere-aupres-de-la-police-des-transports-cff-tpo-ffs-officine-ferrovie-federali-lausanne-94706390"
+        "policier-policiere-aupres-de-la-police-des-transports-cff-tpo-ffs-officine-ferrovie-federali-lausanne-94706390",
+        "police-officer-police-officer-with-the-sbb-transport-police-tpo-ffs-officine-ferrovie-federali-lausanne"
       ],
       "fr": [
-        "policier-policiere-aupres-de-la-police-des-transports-cff-tpo-ffs-officine-ferrovie-federali-lausanne-94706390"
+        "policier-policiere-aupres-de-la-police-des-transports-cff-tpo-ffs-officine-ferrovie-federali-lausanne-94706390",
+        "police-officer-police-officer-with-the-sbb-transport-police-tpo-ffs-officine-ferrovie-federali-lausanne"
       ]
     },
     "salaryMin": 63000,
     "salaryMax": 107500,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "previousSlugs": [
+      "policier-policiere-aupres-de-la-police-des-transports-cff-tpo-ffs-officine-ferrovie-federali-lausanne",
+      "police-officer-police-officer-with-the-sbb-transport-police-tpo-ffs-officine-ferrovie-federali-lausanne"
+    ]
   },
   {
     "slug": "project-manager-sistemi-tecnici-sistemi-elettrici-50hz-ffs-officine-ferrovie-federali-zurich-altstetten",

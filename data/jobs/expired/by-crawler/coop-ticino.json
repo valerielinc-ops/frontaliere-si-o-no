@@ -34,8 +34,8 @@
       "vendita-prodotti-alimentari-coop-genossenschaft-zurich-45084e",
       "seller-food-coop-city-zurich-gwlaq6",
       "aliments-pour-vendeurs-coop-city-zurich-gwlaq6",
-      "verkaufer-in-food-coop-city-zurich",
       "verkaufer-in-food-coop-city-zurich-824e8e3b",
+      "verkaufer-in-food-coop-city-zurich",
       "verkaufer-in-food-coop-genossenschaft-zurich"
     ],
     "previousSlugsByLocale": {
@@ -44,6 +44,7 @@
         "verkaufer-in-food-coop-city-zurich-824e8e3b",
         "verkaufer-in-food-coop-city-zurich-gwlaq6",
         "vendita-prodotti-alimentari-coop-genossenschaft-zurich-45084e",
+        "verkaufer-in-food-coop-genossenschaft-zurich",
         "verkaufer-in-food-coop-city-zurich"
       ],
       "en": [
@@ -51,11 +52,13 @@
         "verkaufer-in-food-coop-city-zurich-gwlaq6",
         "seller-food-coop-genossenschaft-zurich-45084e",
         "seller-food-coop-city-zurich-gwlaq6",
-        "verkaufer-in-food-coop-city-zurich"
+        "verkaufer-in-food-coop-city-zurich",
+        "verkaufer-in-food-coop-genossenschaft-zurich"
       ],
       "de": [
         "verkaufer-in-food-coop-city-zurich-joarti",
         "verkaufer-in-food-coop-city-zurich",
+        "verkaufer-in-food-coop-genossenschaft-zurich-4bd3344f",
         "verkaufer-in-food-coop-genossenschaft-zurich"
       ],
       "fr": [
@@ -63,7 +66,8 @@
         "verkaufer-in-food-coop-city-zurich-gwlaq6",
         "aliments-pour-vendeurs-coop-genossenschaft-zurich-45084e",
         "aliments-pour-vendeurs-coop-city-zurich-gwlaq6",
-        "verkaufer-in-food-coop-city-zurich"
+        "verkaufer-in-food-coop-city-zurich",
+        "verkaufer-in-food-coop-genossenschaft-zurich"
       ]
     },
     "postalCode": "8001",
@@ -20890,8 +20894,7 @@
       "verkaufer-in-food-coop-city-zurich-5d867e9c",
       "verkaufer-in-food-coop-genossenschaft-zurich-5ee1c93d",
       "verkaufer-in-food-coop-city-zurich-574d61ca",
-      "verkaufer-in-food-coop-genossenschaft-zurich-fcaf5b71",
-      "verkaufer-in-food-coop-genossenschaft-zurich"
+      "verkaufer-in-food-coop-genossenschaft-zurich-fcaf5b71"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -20938,12 +20941,10 @@
         "verkaufer-in-food-coop-city-zurich-d3d03ec8",
         "verkaufer-in-food-coop-city-zurich-0f6f47b9",
         "verkaufer-in-food-coop-city-zurich-5d867e9c",
-        "verkaufer-in-food-coop-city-zurich-574d61ca",
-        "verkaufer-in-food-coop-genossenschaft-zurich"
+        "verkaufer-in-food-coop-city-zurich-574d61ca"
       ],
       "en": [
-        "verkaufer-in-food-coop-city-zurich-ipp1td",
-        "verkaufer-in-food-coop-genossenschaft-zurich"
+        "verkaufer-in-food-coop-city-zurich-ipp1td"
       ],
       "de": [
         "verkaufer-in-food-coop-city-zurich-ipp1td",
@@ -20992,8 +20993,7 @@
         "verkaufer-in-food-coop-genossenschaft-zurich-fcaf5b71"
       ],
       "fr": [
-        "verkaufer-in-food-coop-city-zurich-ipp1td",
-        "verkaufer-in-food-coop-genossenschaft-zurich"
+        "verkaufer-in-food-coop-city-zurich-ipp1td"
       ]
     },
     "postalCode": "8050",
@@ -112885,7 +112885,6 @@
       "geschaftsfuhrer-in-restaurant-mit-kochfunktion-coop-ristorante-visp-wallis-vi12gt",
       "directeur-general-au-restaurant-avec-fonction-de-cuisine-coop-genossenschaft-visp",
       "directeur-general-dans-un-restaurant-avec-fonction-cuisine-coop-genossenschaft-visp",
-      "managing-director-restaurant-with-cooking-function-coop-genossenschaft-visp",
       "geschaftsfuhrer-in-restaurant-mit-kochfunktion-coop-ristorante-visp-wallis-h9mgzp",
       "amministratore-delegato-in-ristorante-coop-genossenschaft-sarnen-obwalden",
       "geschaftsfuhrer-in-restaurant-coop-genossenschaft-sarnen-obwalden-1x5gvf",
@@ -112903,7 +112902,9 @@
       "managing-director-in-restaurant-with-cooking-function-coop-genossenschaft-bern",
       "geschaftsfuhrer-in-restaurant-con-kochfunktion-coop-genossenschaft-bern",
       "geschaftsfuhrer-in-restaurant-mit-kochfunktion-coop-genossenschaft-bern",
-      "directeur-general-du-restaurant-avec-fonction-culinaire-coop-genossenschaft-bern"
+      "directeur-general-du-restaurant-avec-fonction-culinaire-coop-genossenschaft-bern",
+      "managing-director-restaurant-with-cooking-function-coop-genossenschaft-visp",
+      "managing-director-restaurant-with-cooking-function-coop-genossenschaft-visp-290bf6af"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -112916,7 +112917,8 @@
         "geschaftsfuhrer-in-restaurant-coop-genossenschaft-sarnen-obwalden-1x5gvf",
         "geschaftsfuhrer-in-restaurant-coop-genossenschaft-sarnen-obwalden",
         "amministratore-delegato-in-ristorante-coop-genossenschaft-sarnen",
-        "geschaftsfuhrer-in-restaurant-con-kochfunktion-coop-ristorante-visp-wallis-x6itty"
+        "geschaftsfuhrer-in-restaurant-con-kochfunktion-coop-ristorante-visp-wallis-x6itty",
+        "managing-director-restaurant-with-cooking-function-coop-genossenschaft-visp"
       ],
       "en": [
         "managing-director-in-restaurant-with-cooking-function-coop-genossenschaft-visp",
@@ -112925,12 +112927,14 @@
         "geschaftsfuhrer-in-restaurant-coop-genossenschaft-sarnen-obwalden-1x5gvf",
         "managing-director-in-restaurant-coop-genossenschaft-sarnen",
         "geschaftsfuhrer-in-restaurant-mit-kochfunktion-coop-ristorante-visp-wallis-vi12gt",
-        "geschaftsfuhrer-in-restaurant-mit-kochfunktion-coop-ristorante-visp-wallis-x6itty"
+        "geschaftsfuhrer-in-restaurant-mit-kochfunktion-coop-ristorante-visp-wallis-x6itty",
+        "managing-director-restaurant-with-cooking-function-coop-genossenschaft-visp-290bf6af"
       ],
       "de": [
         "geschaftsfuhrer-in-restaurant-mit-kochfunktion-coop-ristorante-visp-wallis-vi12gt",
         "geschaftsfuhrer-in-restaurant-coop-genossenschaft-sarnen-obwalden-1x5gvf",
-        "geschaftsfuhrer-in-restaurant-mit-kochfunktion-coop-ristorante-visp-wallis-x6itty"
+        "geschaftsfuhrer-in-restaurant-mit-kochfunktion-coop-ristorante-visp-wallis-x6itty",
+        "managing-director-restaurant-with-cooking-function-coop-genossenschaft-visp"
       ],
       "fr": [
         "directeur-general-au-restaurant-avec-fonction-de-cuisine-coop-genossenschaft-visp",
@@ -112939,7 +112943,8 @@
         "geschaftsfuhrer-in-restaurant-coop-genossenschaft-sarnen-obwalden-1x5gvf",
         "directeur-general-au-restaurant-coop-genossenschaft-sarnen",
         "geschaftsfuhrer-in-restaurant-mit-kochfunktion-coop-ristorante-visp-wallis-vi12gt",
-        "geschaftsfuhrer-in-restaurant-mit-kochfunktion-coop-ristorante-visp-wallis-x6itty"
+        "geschaftsfuhrer-in-restaurant-mit-kochfunktion-coop-ristorante-visp-wallis-x6itty",
+        "managing-director-restaurant-with-cooking-function-coop-genossenschaft-visp"
       ]
     },
     "postalCode": "3930",
@@ -166264,7 +166269,7 @@
     "firstSeenAt": "2026-09-24T14:39:33.182Z"
   },
   {
-    "slug": "vendita-prodotti-alimentari-coop-genossenschaft-heiden",
+    "slug": "vendita-prodotti-alimentari-coop-genossenschaft-heiden-6fa2c115",
     "title": "Verkäufer:in Food",
     "titleByLocale": {
       "it": "Vendita prodotti alimentari",
@@ -166283,30 +166288,34 @@
       "fr": "## Vendeur:dans la nourriture\n\n**Coopérative Coop** — Heiden, AR, Svizzera\n\n- Ouverture d'emploi: immédiatement ou par accord\n- Spécialité: Vente d'aliments\n- Lieu: Coop, Werdstrasse 1, 9410 Heiden\n- Pensum: 8 à 20 heures/semaine\n\n## Tâche\n- Vous aimez la variété, donc vous servez et conseillez nos clients dans différents départements – toujours amical et engagé.\n- Grâce à votre utilisation active, les marchandises se vendent mieux et sont gérées haut.\n- Il est clair que vous respectez nos exigences, qu'il s'agisse de fraîcheur et de qualité, d'hygiène, de régulation de la température ou de la date d'expiration.\n- Votre engagement aux caisses enregistreuses est également varié si vous soutenez l'équipe.\n\n## Exigences\n- Êtes-vous formé au commerce de détail (éducation de base) ou avez-vous déjà acquis beaucoup d'expérience dans les ventes? Bingo, puis appliquez.\n- Vos temps d'affectation sont flexibles, mais cela ne vous cause aucun problème.\n- Vous maîtrisez bien l'allemand, en conversation et sur papier.\n- Réductions: Réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers sur Coop Mobile, Reka Card: Remise sur l'achat, réduction sur Mobility CarSharing, réduction personnelle également pour les partenaires:dans (habitant dans le même ménage), réduction sur l'abonnement GA, réductions sur les événements culturels, réductions sur les activités de loisirs\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par la Coop, les conditions d'emploi attractives et l'égalité de rémunération certifiée, les primes de fidélité, le régime d'épargne de la Caisse de retraite, le contrat d'emploi total, 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n- Temps de travail: 5 semaines de vacances, modèles flexibles de temps de travail\n- Formation complémentaire: plus de 600 cours de formation interne, gestion des talents avec des possibilités de développement diverses, formation et offres de formation complémentaire du L-GAV et du Coop\n- Durabilité : Engagement envers les personnes, les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les employés\n- Santé : Mise à jour de la condition physique : Fr. 200.– Rabais sur l'abonnement annuel, participation gratuite à diverses activités de l'entreprise, offres de sports maison\n\n## Votre personne à contacter\nNadia Ruetsch\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sécurité :** Pagans"
     },
     "slugByLocale": {
-      "it": "vendita-prodotti-alimentari-coop-genossenschaft-heiden",
-      "en": "seller-food-coop-genossenschaft-heiden",
+      "it": "vendita-prodotti-alimentari-coop-genossenschaft-heiden-6fa2c115",
+      "en": "seller-food-coop-genossenschaft-heiden-0258b534",
       "de": "verkaufer-in-food-coop-genossenschaft-heiden",
-      "fr": "aliments-pour-vendeurs-coop-genossenschaft-heiden"
+      "fr": "aliments-pour-vendeurs-coop-genossenschaft-heiden-a3233ac2"
     },
     "sector": "",
     "expiredAt": "2026-10-20T22:05:19.032Z",
     "previousSlugs": [
       "verkaufer-in-food-coop-heiden-u8fvjh",
+      "verkaufer-in-food-coop-heiden-dcc88288",
       "verkaufer-in-food-coop-heiden"
     ],
     "previousSlugsByLocale": {
       "it": [
         "verkaufer-in-food-coop-heiden-u8fvjh",
-        "verkaufer-in-food-coop-heiden"
+        "verkaufer-in-food-coop-heiden-dcc88288"
       ],
       "en": [
-        "verkaufer-in-food-coop-heiden-u8fvjh"
+        "verkaufer-in-food-coop-heiden-u8fvjh",
+        "verkaufer-in-food-coop-heiden"
       ],
       "de": [
-        "verkaufer-in-food-coop-heiden-u8fvjh"
+        "verkaufer-in-food-coop-heiden-u8fvjh",
+        "verkaufer-in-food-coop-heiden"
       ],
       "fr": [
-        "verkaufer-in-food-coop-heiden-u8fvjh"
+        "verkaufer-in-food-coop-heiden-u8fvjh",
+        "verkaufer-in-food-coop-heiden"
       ]
     },
     "postalCode": "9410",
@@ -168704,8 +168713,8 @@
     },
     "slugByLocale": {
       "it": "venditrice-venditore-food-m-w-d-coop-val-de-charmey-pr8086",
-      "en": "seller-seller-food-m-f-d-coop-genossenschaft-val-de-charmey",
-      "de": "verkaufer-verkaufer-lebensmittel-m-w-d-coop-genossenschaft-val-de-charmey",
+      "en": "seller-seller-food-m-f-d-coop-genossenschaft-val-de-charmey-24603f04",
+      "de": "verkaufer-verkaufer-lebensmittel-m-w-d-coop-genossenschaft-val-de-charmey-035b5287",
       "fr": "vendeuse-vendeur-food-m-w-d-coop-val-de-charmey-pr8086"
     },
     "sector": "",
@@ -168724,7 +168733,9 @@
       "seller-seller-food-m-f-d-coop-genossenschaft-val-de-charmey-3f97ec0c",
       "verkaufer-verkaufer-lebensmittel-m-w-d-coop-genossenschaft-val-de-charmey-34048b91",
       "verkaufer-verkaufer-lebensmittel-m-w-d-coop-genossenschaft-val-de-charmey-24cb56ae",
-      "verkaufer-verkaufer-lebensmittel-m-w-d-coop-genossenschaft-val-de-charmey-637c9a8f"
+      "verkaufer-verkaufer-lebensmittel-m-w-d-coop-genossenschaft-val-de-charmey-637c9a8f",
+      "seller-seller-food-m-f-d-coop-genossenschaft-val-de-charmey",
+      "verkaufer-verkaufer-lebensmittel-m-w-d-coop-genossenschaft-val-de-charmey"
     ],
     "previousSlugsByLocale": {
       "en": [
@@ -168732,14 +168743,16 @@
         "seller-seller-food-m-f-d-coop-genossenschaft-val-de-charmey-9315b3f5",
         "vendeuse-vendeur-food-m-w-d-coop-val-de-charmey-aj1u6n",
         "seller-seller-food-m-f-d-coop-genossenschaft-val-de-charmey-b261364b",
-        "seller-seller-food-m-f-d-coop-genossenschaft-val-de-charmey-3f97ec0c"
+        "seller-seller-food-m-f-d-coop-genossenschaft-val-de-charmey-3f97ec0c",
+        "seller-seller-food-m-f-d-coop-genossenschaft-val-de-charmey"
       ],
       "de": [
         "vendeuse-vendeur-food-m-w-d-coop-val-de-charmey-pr8086",
         "verkaufer-verkaufer-lebensmittel-m-w-d-coop-genossenschaft-val-de-charmey-34048b91",
         "vendeuse-vendeur-food-m-w-d-coop-val-de-charmey-aj1u6n",
         "verkaufer-verkaufer-lebensmittel-m-w-d-coop-genossenschaft-val-de-charmey-24cb56ae",
-        "verkaufer-verkaufer-lebensmittel-m-w-d-coop-genossenschaft-val-de-charmey-637c9a8f"
+        "verkaufer-verkaufer-lebensmittel-m-w-d-coop-genossenschaft-val-de-charmey-637c9a8f",
+        "verkaufer-verkaufer-lebensmittel-m-w-d-coop-genossenschaft-val-de-charmey"
       ],
       "it": [
         "vendeuse-vendeur-food-m-w-d-coop-val-de-charmey",
@@ -248342,7 +248355,7 @@
     ]
   },
   {
-    "slug": "vendi-cibo-per-andare-coop-genossenschaft-st-gallen",
+    "slug": "vendi-cibo-per-andare-coop-genossenschaft-st-gallen-42158869",
     "title": "Verkäufer:in Food to go",
     "titleByLocale": {
       "it": "Vendi cibo per andare",
@@ -248361,10 +248374,10 @@
       "fr": "## Vendeur: dans la nourriture à emporter\n\n**Coopérative Coop** — St. Gallen, SG, Svizzera\n\n- Ouverture d'emploi: par accord\n- Spécialité: Vente d'aliments\n- Lieu: Coop City, Bohl 6, 9000 St. Gallen\n- Pensum: 8 à 20 heures/semaine\n\n## Tâche\n- Conseils et services: Dans le workflow quotidien, vous êtes là pour nos clients exigeants.\n- Vous prenez consciencieusement soin de la gamme de produits divers.\n- Ce calcul est basé sur : Le système de trésorerie est votre responsabilité.\n- Lorsque vous êtes en utilisation, la rayonne est propre et bien entretenue.\n\n## Exigences\n- Formation sur les ventes terminée? C'est la condition préalable.\n- Vous connaissez la nourriture ? Tant mieux.\n- Votre allemand est très bon – verbalement et par écrit.\n- Heure de déploiement ? Vous êtes flexible.\n- Tu préfères travailler avec les gens. Dans votre équipe – et tout aussi heureux avec les clients.\n- Réduction sur le voyage offre ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, des abonnements mobiles et prépayés moins chers chez Coop Mobile, réduction personnelle également pour les partenaires:in (habitant dans le même ménage)\n- Conditions d'emploi: fonds de pension: 2/3 est payé par Coop, contrat de travail collectif (GAV), 18 semaines de congé de maternité payé et 4 semaines de congé de paternité payé, primes de fidélité, plan d'épargne à la caisse de pension, régime flexible et attrayant de retraite anticipée à partir de 58. Année\n- Heures de travail: 5 semaines de congés\n- Formation : Plus de 600 cours de formation interne, soutien à l ' éducation et à la formation externes, gestion des talents avec un large éventail de possibilités de développement\n- Santé : Mise à jour de la condition physique : Fr. 200.– Rabais d'abonnement annuel\n\n## Votre personne à contacter\nSuzana Jovanovic\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sede:** St. Gallen"
     },
     "slugByLocale": {
-      "it": "vendi-cibo-per-andare-coop-genossenschaft-st-gallen",
-      "en": "seller-food-to-go-coop-genossenschaft-st-gallen",
+      "it": "vendi-cibo-per-andare-coop-genossenschaft-st-gallen-42158869",
+      "en": "seller-food-to-go-coop-genossenschaft-st-gallen-100d74fa",
       "de": "verkaufer-in-food-to-go-coop-city-st-gallen-el3iqx",
-      "fr": "vente-de-nourriture-a-emporter-coop-genossenschaft-st-gallen"
+      "fr": "vente-de-nourriture-a-emporter-coop-genossenschaft-st-gallen-0d09deaf"
     },
     "sector": "",
     "expiredAt": "2026-10-09T22:06:07.777Z",
@@ -248374,7 +248387,6 @@
       "seller-food-to-go-coop-city-st-gallen-1a1xrk-803a554a",
       "verkaufer-in-food-to-go-coop-genossenschaft-st-gallen-2bd4ab5e",
       "verkaufer-in-food-to-go-coop-city-st-gallen-2",
-      "verkaufer-in-food-to-go-coop-city-st-gallen",
       "verkaufer-in-food-to-go-coop-city-st-gallen-1a1xrk-8f6dd994",
       "verkaufer-in-food-to-go-coop-city-st-gallen-el3iqx",
       "vendeur-in-food-to-go-coop-city-st-gallen-1a1xrk-15a58f6f",
@@ -248626,13 +248638,15 @@
       "verkaufer-in-food-to-go-coop-city-st-gallen-1a1xrk",
       "seller-food-to-go-coop-city-st-gallen-1a1xrk-d0220822",
       "vendeur-in-food-to-go-coop-city-st-gallen-1a1xrk-43ef67a0",
-      "vente-de-nourriture-a-emporter-coop-city-st-gallen-1a1xrk-b337f82b"
+      "vente-de-nourriture-a-emporter-coop-city-st-gallen-1a1xrk-b337f82b",
+      "verkaufer-in-food-to-go-coop-city-st-gallen-1dfe6f68",
+      "verkaufer-in-food-to-go-coop-city-st-gallen"
     ],
     "previousSlugsByLocale": {
       "it": [
         "verkaufer-in-food-to-go-coop-genossenschaft-st-gallen-2bd4ab5e",
         "verkaufer-in-food-to-go-coop-city-st-gallen-2",
-        "verkaufer-in-food-to-go-coop-city-st-gallen",
+        "verkaufer-in-food-to-go-coop-city-st-gallen-1dfe6f68",
         "verkaufer-in-food-to-go-coop-city-st-gallen-1a1xrk-8f6dd994",
         "verkaufer-in-food-to-go-coop-city-st-gallen-el3iqx",
         "verkaufer-in-food-to-go-coop-genossenschaft-st-gallen-11ac53c8",
@@ -248888,7 +248902,8 @@
         "verkaufer-in-food-to-go-coop-city-st-gallen-1a1xrk",
         "vendeur-in-food-to-go-coop-city-st-gallen-1a1xrk",
         "vente-de-nourriture-a-emporter-coop-city-st-gallen-1a1xrk",
-        "seller-food-to-go-coop-city-st-gallen-1a1xrk-d0220822"
+        "seller-food-to-go-coop-city-st-gallen-1a1xrk-d0220822",
+        "verkaufer-in-food-to-go-coop-city-st-gallen"
       ],
       "de": [
         "verkaufer-in-food-to-go-coop-city-st-gallen-1a1xrk-8f6dd994",
@@ -248944,7 +248959,8 @@
         "seller-food-to-go-coop-city-st-gallen-1a1xrk",
         "vendeur-in-food-to-go-coop-city-st-gallen-1a1xrk",
         "vente-de-nourriture-a-emporter-coop-city-st-gallen-1a1xrk",
-        "verkaufer-in-food-to-go-coop-city-st-gallen-1a1xrk-d4a88f83"
+        "verkaufer-in-food-to-go-coop-city-st-gallen-1a1xrk-d4a88f83",
+        "verkaufer-in-food-to-go-coop-city-st-gallen"
       ],
       "fr": [
         "vendeur-in-food-to-go-coop-city-st-gallen-1a1xrk-3adf75da",
@@ -249146,7 +249162,8 @@
         "verkaufer-in-food-to-go-coop-city-st-gallen-1a1xrk",
         "seller-food-to-go-coop-city-st-gallen-1a1xrk",
         "vendeur-in-food-to-go-coop-city-st-gallen-1a1xrk-43ef67a0",
-        "vente-de-nourriture-a-emporter-coop-city-st-gallen-1a1xrk-b337f82b"
+        "vente-de-nourriture-a-emporter-coop-city-st-gallen-1a1xrk-b337f82b",
+        "verkaufer-in-food-to-go-coop-city-st-gallen"
       ]
     },
     "postalCode": "9000",
@@ -493401,7 +493418,6 @@
       "consultant-in-garden-jumbo-division-der-coop-genossenschaft-rumlang",
       "consultant-en-jardin-jumbo-rumlang",
       "consultant-en-jardin-jumbo-division-der-coop-genossenschaft-rumlang",
-      "consulente-di-vendita-garden-jumbo-rumlang",
       "verkausberater-in-garden-jumbo-division-der-coop-genossenschaft-rumlang-zurich-7u4s09",
       "verkausberater-in-garden-jumbo-division-der-coop-genossenschaft-rumlang-zurich",
       "sales-consultant-garden-jumbo-division-der-coop-genossenschaft-rumlang-7u4s09",
@@ -493421,7 +493437,9 @@
       "consulente-vendita-giardino-jumbo-tenero-contra-ticino-6nt3pw",
       "consulente-sales-giardino-jumbo-tenero-contra-ticino-6nt3pw",
       "consulente-verkauf-giardino-jumbo-tenero-contra-ticino-6nt3pw",
-      "consulente-vente-giardino-jumbo-tenero-contra-ticino-6nt3pw"
+      "consulente-vente-giardino-jumbo-tenero-contra-ticino-6nt3pw",
+      "consulente-di-vendita-garden-jumbo-rumlang",
+      "consulente-di-vendita-garden-jumbo-rumlang-78e24e72"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -493439,12 +493457,13 @@
         "verkausberater-in-garden-jumbo-rumlang-zurich-96b928",
         "verkausberater-in-garden-jumbo-rumlang-zurich",
         "consulente-in-giardino-jumbo-division-der-coop-genossenschaft-rumlang",
-        "consulente-di-vendita-garden-jumbo-rumlang",
+        "consulente-di-vendita-garden-jumbo-rumlang-78e24e72",
         "verkausberater-in-garden-jumbo-division-der-coop-genossenschaft-rumlang-zurich-7u4s09",
         "verkausberater-in-garden-jumbo-division-der-coop-genossenschaft-rumlang-zurich",
         "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon-thurgau-nlee3y",
         "verkaufsberater-in-garden-e-pflanzen-jumbo-arbon-thurgau-aedwt4",
-        "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon-thurgau-aedwt4"
+        "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon-thurgau-aedwt4",
+        "consulente-di-vendita-garden-jumbo-rumlang"
       ],
       "en": [
         "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon-thurgau-20na9e",
@@ -493457,7 +493476,8 @@
         "sales-consultant-garden-jumbo-division-der-coop-genossenschaft-rumlang",
         "verkausberater-in-garden-jumbo-division-der-coop-genossenschaft-rumlang-zurich",
         "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon-thurgau-nlee3y",
-        "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon-thurgau-aedwt4"
+        "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon-thurgau-aedwt4",
+        "consulente-di-vendita-garden-jumbo-rumlang"
       ],
       "de": [
         "verkaufsberater-in-garden-und-pflanzen-jumbo-division-der-coop-genossenschaft-arbon-thurgau-8uems0",
@@ -493465,7 +493485,8 @@
         "verkausberater-in-garden-jumbo-division-der-coop-genossenschaft-rumlang-zurich-7u4s09",
         "verkausberater-im-garten-jumbo-division-der-coop-genossenschaft-rumlang",
         "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon-thurgau-nlee3y",
-        "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon-thurgau-aedwt4"
+        "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon-thurgau-aedwt4",
+        "consulente-di-vendita-garden-jumbo-rumlang"
       ],
       "fr": [
         "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon-thurgau-20na9e",
@@ -493479,7 +493500,8 @@
         "verkausberater-in-garden-jumbo-division-der-coop-genossenschaft-rumlang-zurich",
         "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon-thurgau-nlee3y",
         "conseiller-ere-de-vente-jardin-et-plantes-jumbo-division-der-coop-genossenschaft-arbon",
-        "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon-thurgau-aedwt4"
+        "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon-thurgau-aedwt4",
+        "consulente-di-vendita-garden-jumbo-rumlang"
       ]
     },
     "salaryMin": 57500,
@@ -540609,7 +540631,6 @@
     "sector": "",
     "expiredAt": "2026-08-15T08:10:02.266Z",
     "previousSlugs": [
-      "consulente-di-vendita-garden-jumbo-rumlang",
       "consultant-in-garden-jumbo-division-der-coop-genossenschaft-rumlang",
       "verkausberater-in-garden-jumbo-division-der-coop-genossenschaft-rumlang-zurich-7u4s09",
       "consultant-en-jardin-jumbo-division-der-coop-genossenschaft-rumlang",
@@ -540663,7 +540684,9 @@
       "verkausberater-in-garten-jumbo-frauenfeld-thurgau-ckao8l-5925fcb4",
       "verkausberater-in-garten-jumbo-frauenfeld-thurgau-254196b5",
       "verkausberater-in-garten-jumbo-frauenfeld-thurgau-ckao8l-b5e40adb",
-      "verkausberater-in-garten-jumbo-frauenfeld-thurgau"
+      "verkausberater-in-garten-jumbo-frauenfeld-thurgau",
+      "consulente-di-vendita-garden-jumbo-rumlang",
+      "consulente-di-vendita-garden-jumbo-rumlang-a739b72b"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -540702,7 +540725,8 @@
         "verkausberater-in-garten-jumbo-frauenfeld-thurgau-c521087b",
         "verkausberater-in-garten-jumbo-frauenfeld-thurgau-ckao8l-c9631a39",
         "verkausberater-in-garten-jumbo-frauenfeld-thurgau-e70d0248",
-        "verkausberater-in-garten-jumbo-frauenfeld-thurgau-ckao8l-5925fcb4"
+        "verkausberater-in-garten-jumbo-frauenfeld-thurgau-ckao8l-5925fcb4",
+        "consulente-di-vendita-garden-jumbo-rumlang-a739b72b"
       ],
       "en": [
         "consultant-in-garden-jumbo-division-der-coop-genossenschaft-rumlang",
@@ -540728,7 +540752,8 @@
         "verkausberater-in-garten-jumbo-frauenfeld-thurgau-e70d0248",
         "verkausberater-in-garten-jumbo-frauenfeld-thurgau-ckao8l-5925fcb4",
         "verkausberater-in-garten-jumbo-frauenfeld-thurgau-254196b5",
-        "verkausberater-in-garten-jumbo-frauenfeld-thurgau-ckao8l-b5e40adb"
+        "verkausberater-in-garten-jumbo-frauenfeld-thurgau-ckao8l-b5e40adb",
+        "consulente-di-vendita-garden-jumbo-rumlang"
       ],
       "de": [
         "verkausberater-in-garden-jumbo-division-der-coop-genossenschaft-rumlang-zurich-7u4s09",
@@ -540745,7 +540770,8 @@
         "verkausberater-in-garten-jumbo-frauenfeld-thurgau-ckao8l-aad18a9b",
         "verkausberater-in-garten-jumbo-frauenfeld-thurgau-ckao8l-c9631a39",
         "verkausberater-in-garten-jumbo-frauenfeld-thurgau-ckao8l-5925fcb4",
-        "verkausberater-in-garten-jumbo-frauenfeld-thurgau-ckao8l-b5e40adb"
+        "verkausberater-in-garten-jumbo-frauenfeld-thurgau-ckao8l-b5e40adb",
+        "consulente-di-vendita-garden-jumbo-rumlang"
       ],
       "fr": [
         "consultant-en-jardin-jumbo-division-der-coop-genossenschaft-rumlang",
@@ -540771,7 +540797,8 @@
         "verkausberater-in-garten-jumbo-frauenfeld-thurgau-e70d0248",
         "verkausberater-in-garten-jumbo-frauenfeld-thurgau-ckao8l-5925fcb4",
         "verkausberater-in-garten-jumbo-frauenfeld-thurgau-254196b5",
-        "verkausberater-in-garten-jumbo-frauenfeld-thurgau-ckao8l-b5e40adb"
+        "verkausberater-in-garten-jumbo-frauenfeld-thurgau-ckao8l-b5e40adb",
+        "consulente-di-vendita-garden-jumbo-rumlang"
       ]
     },
     "salaryMin": 73500,
@@ -696468,8 +696495,8 @@
       "verkaufer-in-food-coop-bern-3-ebdb1cd1",
       "verkaufer-in-food-coop-bern-3-386e8af4",
       "verkaufer-in-food-coop-bern-3-938cfe9c",
-      "verkaufer-in-food-coop-bern-3",
-      "verkaufer-in-food-coop-bern-3-93859ce8"
+      "verkaufer-in-food-coop-bern-3-93859ce8",
+      "verkaufer-in-food-coop-bern-3"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -704903,8 +704930,8 @@
       "verkaufer-in-food-coop-bern-3-d3b1e190",
       "verkaufer-in-food-coop-bern-3-753f390f",
       "verkaufer-in-food-coop-bern-3-caf5c367",
-      "verkaufer-in-food-coop-bern-3",
-      "verkaufer-in-food-coop-bern-3-d1d9804c"
+      "verkaufer-in-food-coop-bern-3-d1d9804c",
+      "verkaufer-in-food-coop-bern-3"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -770121,8 +770148,8 @@
       "verkaufer-in-food-coop-bern-3-48457bf8",
       "verkaufer-in-food-coop-bern-3-9b45cbee",
       "verkaufer-in-food-coop-bern-3-32c75a9e",
-      "verkaufer-in-food-coop-bern-3",
-      "verkaufer-in-food-coop-bern-3-6b6607ec"
+      "verkaufer-in-food-coop-bern-3-6b6607ec",
+      "verkaufer-in-food-coop-bern-3"
     ],
     "previousSlugsByLocale": {
       "en": [
@@ -828352,8 +828379,8 @@
       "verkaufer-in-food-coop-bern-3-9ed48a2f",
       "verkaufer-in-food-coop-bern-3-64e60841",
       "verkaufer-in-food-coop-bern-3-261f119c",
-      "verkaufer-in-food-coop-bern-3",
-      "verkaufer-in-food-coop-bern-3-d3ebd637"
+      "verkaufer-in-food-coop-bern-3-d3ebd637",
+      "verkaufer-in-food-coop-bern-3"
     ],
     "previousSlugsByLocale": {
       "en": [
@@ -843345,8 +843372,8 @@
       "verkaufer-in-food-coop-bern-832ef635",
       "verkaufer-in-food-coop-genossenschaft-bern-5c9f684c",
       "verkaufer-in-food-coop-bern-9b66ff83",
-      "verkaufer-in-food-coop-bern-3",
-      "verkaufer-in-food-coop-bern-3-9db9a4d9"
+      "verkaufer-in-food-coop-bern-3-9db9a4d9",
+      "verkaufer-in-food-coop-bern-3"
     ],
     "previousSlugsByLocale": {
       "it": [
