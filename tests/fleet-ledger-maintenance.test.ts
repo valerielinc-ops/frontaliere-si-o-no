@@ -33,7 +33,7 @@ function git(repo: string, args: string[]) {
 
 const sha256 = (data: string) => createHash('sha256').update(data).digest('hex');
 
-function fixture(variant?: 'invalid-json' | 'missing-lf' | 'wrong-type' | 'unprojectable' | 'symlink' | 'noncanonical') {
+function fixture(variant?: 'invalid-json' | 'missing-lf' | 'wrong-type' | 'unprojectable' | 'symlink' | 'noncanonical', withIntermediate = false) {
   const root = fs.mkdtempSync(path.join(fs.realpathSync.native(os.tmpdir()), 'maintenance-'));
   roots.push(root);
   const repo = path.join(root, 'source');
@@ -75,14 +75,15 @@ function fixture(variant?: 'invalid-json' | 'missing-lf' | 'wrong-type' | 'unpro
   };
   fs.writeFileSync(path.join(repo, 'outside.txt'), 'preserved\n');
   const archiveSha = commit();
+  const intermediate = withIntermediate ? commit(archiveSha) : undefined;
   fs.writeFileSync(path.join(repo, 'outside.txt'), 'preserved from parent\n');
-  const expected = commit(archiveSha);
+  const expected = commit(intermediate ?? archiveSha);
   git(repo, ['update-ref', pin, expected]);
   const inventoryEntries = [[decision, decisions], [observation, observations]].map(([name, data]) =>
     [ledger + '/' + name, oid(name), sha256(data), Buffer.byteLength(data), 1]);
   const attestationSha256 = sha256(JSON.stringify([archiveSha, inventoryEntries]));
   const request = { repo, archiveSha, output, ordinals: '3,4', attestationSha256 };
-  return { root, repo, output, expected, request, inventoryEntries, decision, observation, decisions, observations, index, manifest };
+  return { root, repo, output, expected, intermediate, request, inventoryEntries, decision, observation, decisions, observations, index, manifest };
 }
 
 const counts = { files: 2, records: 2 };
@@ -181,8 +182,7 @@ it('rejects malformed dispatch input before starting Git and emits a fixed error
 });
 
 function prepareTransport(shallow: boolean) {
-  const f = fixture();
-  attest(f.request, counts);
+  const f = fixture(undefined, true);
   const remote = path.join(f.root, 'remote.git');
   fs.mkdirSync(remote);
   git(remote, ['init', '--bare', '--quiet', '--object-format=sha1', '--template=']);
@@ -191,7 +191,13 @@ function prepareTransport(shallow: boolean) {
   fs.mkdirSync(source);
   git(source, ['init', '--quiet', '--object-format=sha1', '--template=']);
   git(source, ['fetch', '--no-tags', ...(shallow ? ['--depth=1'] : []), remote, ref + ':' + pin]);
-  if (shallow) git(source, ['fetch', '--no-tags', '--depth=1', remote, f.request.archiveSha]);
+  if (shallow) {
+    git(source, ['fetch', '--no-tags', '--depth=1', remote, f.request.archiveSha]);
+    expect(git(remote, ['rev-parse', f.expected + '^'])).toBe(f.intermediate);
+    const missing = spawnSync('git', ['-C', source, 'cat-file', '-e', f.intermediate!], { env });
+    expect(missing.status).toBe(1);
+  }
+  attest({ ...f.request, repo: source }, counts);
   const stage = path.join(f.root, 'stage');
   execFileSync(process.execPath, [candidateTool, '--repo', source, '--archive-sha', f.request.archiveSha,
     '--expected-sha', f.expected, '--inventory', f.output, '--output', stage], { env, stdio: 'pipe' });
