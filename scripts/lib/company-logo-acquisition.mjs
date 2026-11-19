@@ -39,6 +39,20 @@ const ATS_HOST_MARKERS = [
 ];
 
 export const DOMAIN_OVERRIDES = {
+  // Issue #18884: official sites verified at adecco.com/en-ch, baumont.ch,
+  // team.jobs/impressum, flexsis.ch, hamiltoncompany.com/bonaduz-switzerland,
+  // mitopersonal.ch, provia.jobs, and sago-personal.ch. The acquisition
+  // workflow still has to validate the logo asset itself.
+  adecco: ['adecco.com'],
+  'baumont-ag': ['baumont.ch'],
+  'das-team-ag': ['team.jobs'],
+  'flexsis-sa': ['flexsis.ch'],
+  hamilton: ['hamiltoncompany.com'],
+  'hamilton-ag': ['hamiltoncompany.com'],
+  'leteam-ressources-humaines': ['team.jobs'],
+  'mito-personal-ag': ['mitopersonal.ch'],
+  'provia-personal-ag': ['provia.jobs'],
+  'sago-personal-ag': ['sago-personal.ch'],
   'amina-bank': ['amina.ch'],
   'apleona-schweiz-ag': ['apleona.com'],
   'badrutts-palace': ['badruttspalace.com'],
