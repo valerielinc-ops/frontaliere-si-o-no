@@ -205,7 +205,9 @@ describe('translation observability workflow', () => {
       expect(stalePrepass?.run).toContain('node scripts/fix-untranslated-descriptions.mjs --stale-only --max "$prepass_max"');
       const stalePrepassReport = steps.find((step) => step.name === 'Report stale-description prepass outcome');
       expect(stalePrepassReport, `${label}: stale description prepass report missing`).toMatchObject({
-        if: "always() && steps.repair_stale_descriptions.outcome != 'skipped'",
+        if: label === 'portable artifact'
+          ? `always() && steps.repair_stale_descriptions.outcome != 'skipped' && ${RECOVERY_READY}`
+          : "always() && steps.repair_stale_descriptions.outcome != 'skipped'",
         env: {
           PREPASS_OUTCOME: '${{ steps.repair_stale_descriptions.outcome }}',
           PREPASS_MAX: '${{ steps.repair_stale_descriptions.outputs.max }}',
