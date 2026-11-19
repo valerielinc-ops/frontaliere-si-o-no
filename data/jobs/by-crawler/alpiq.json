@@ -1,11 +1,11 @@
 {
   "crawlerKey": "alpiq",
-  "assembledAt": "2026-11-18T21:31:59.420Z",
-  "runId": "44400584558",
+  "assembledAt": "2026-11-19T10:26:06.828Z",
+  "runId": "44495585159",
   "jobs": [
     {
       "id": "alpiq-5e759a112ffc",
-      "slug": "commercio-di-energia-e-gas-alpiq-lausanne",
+      "slug": "power-gas-trader-alpiq-lausanne",
       "slugByLocale": {
         "it": "commercio-di-energia-e-gas-alpiq-lausanne",
         "en": "power-gas-trader-alpiq-lausanne",
@@ -50,10 +50,10 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=261&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-18T21:31:54.265Z",
+      "crawledAt": "2026-11-19T10:26:00.856Z",
       "firstSeenAt": "2026-10-29T21:52:53.782Z",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T21:31:54.265Z",
+      "validThrough": "2027-01-28T10:26:00.856Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 83000,
       "salaryMax": 127000,
@@ -67,15 +67,7 @@
           "maxValue": 127000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "power-gas-trader-alpiq-lausanne"
-        ]
-      },
-      "previousSlugs": [
-        "power-gas-trader-alpiq-lausanne"
-      ]
+      }
     },
     {
       "id": "alpiq-f05066085344",
@@ -121,7 +113,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=281&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-18T21:31:54.266Z",
+      "crawledAt": "2026-11-19T10:26:00.858Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-10-30T09:47:47.856Z",
       "companyRegisteredAddress": {
@@ -136,7 +128,7 @@
         "streetAddressSource": "zefix-registry"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-28T21:31:54.266Z",
+      "validThrough": "2027-01-28T10:26:00.858Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 130000,
       "salaryMax": 198000,
@@ -154,7 +146,7 @@
     },
     {
       "id": "alpiq-e2526cd82bc9",
-      "slug": "ingegnere-di-rete-e-sistema-ot-alpiq-lausanne",
+      "slug": "ot-network-system-engineer-alpiq-switzerland",
       "slugByLocale": {
         "it": "ingegnere-di-rete-e-sistema-ot-alpiq-lausanne",
         "en": "ot-network-system-engineer-alpiq-switzerland",
@@ -199,10 +191,10 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=283&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-18T21:31:54.267Z",
+      "crawledAt": "2026-11-19T10:26:00.861Z",
       "firstSeenAt": "2026-10-30T21:41:25.278Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-29T21:31:54.267Z",
+      "validThrough": "2027-01-29T10:26:00.861Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 83000,
       "salaryMax": 127000,
@@ -216,19 +208,11 @@
           "maxValue": 127000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "ot-network-system-engineer-alpiq-switzerland"
-        ]
-      },
-      "previousSlugs": [
-        "ot-network-system-engineer-alpiq-switzerland"
-      ]
+      }
     },
     {
       "id": "alpiq-722140b8ffd5",
-      "slug": "addetto-a-tecnico-a-all-esercizio-della-centrale-idroelettrica-di-gosgen-alpiq-niedergosgen",
+      "slug": "technische-r-betriebsmitarbeiter-in-wasserkraftwerk-gosgen-alpiq-niedergosgen",
       "slugByLocale": {
         "it": "addetto-a-tecnico-a-all-esercizio-della-centrale-idroelettrica-di-gosgen-alpiq-niedergosgen",
         "en": "technical-operations-employee-at-gosgen-hydroelectric-power-plant-alpiq-niedergosgen",
@@ -273,10 +257,14 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=311&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:31:54.271Z",
+      "crawledAt": "2026-11-19T10:26:00.865Z",
+      "needsRetranslation": true,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 3103,
+      "retranslationAttempts": 21,
       "firstSeenAt": "2026-09-25T15:00:06.553Z",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T21:31:54.271Z",
+      "validThrough": "2026-12-25T10:26:00.865Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 92000,
       "salaryMax": 140000,
@@ -290,23 +278,11 @@
           "maxValue": 140000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 21,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 3103,
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "technische-r-betriebsmitarbeiter-in-wasserkraftwerk-gosgen-alpiq-niedergosgen"
-        ]
-      },
-      "previousSlugs": [
-        "technische-r-betriebsmitarbeiter-in-wasserkraftwerk-gosgen-alpiq-niedergosgen"
-      ]
+      }
     },
     {
       "id": "alpiq-0d54e1b2a0a9",
-      "slug": "interno-dipendente-commerciale-alpiq-suisse",
+      "slug": "stagiaire-employee-de-commerce-alpiq-suisse",
       "slugByLocale": {
         "it": "interno-dipendente-commerciale-alpiq-suisse",
         "en": "intern-commercial-employee-alpiq-suisse",
@@ -351,10 +327,10 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=320&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T21:31:54.274Z",
+      "crawledAt": "2026-11-19T10:26:00.869Z",
       "firstSeenAt": "2026-11-04T22:03:16.706Z",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:31:54.274Z",
+      "validThrough": "2027-02-03T10:26:00.869Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 74000,
       "salaryMax": 113000,
@@ -368,19 +344,11 @@
           "maxValue": 113000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "stagiaire-employee-de-commerce-alpiq-suisse"
-        ]
-      },
-      "previousSlugs": [
-        "stagiaire-employee-de-commerce-alpiq-suisse"
-      ]
+      }
     },
     {
       "id": "alpiq-cafc6ebc9931",
-      "slug": "mba-stagista-green-power-business-development-alpiq-lausanne-710655c677",
+      "slug": "mba-intern-green-power-business-development-alpiq-switzerland",
       "slugByLocale": {
         "it": "mba-stagista-green-power-business-development-alpiq-lausanne-710655c677",
         "en": "mba-intern-green-power-business-development-alpiq-switzerland",
@@ -425,10 +393,10 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=328&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-18T21:31:54.275Z",
+      "crawledAt": "2026-11-19T10:26:00.870Z",
       "firstSeenAt": "2026-11-03T21:39:53.841Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T21:31:54.275Z",
+      "validThrough": "2027-02-02T10:26:00.870Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 74000,
       "salaryMax": 113000,
@@ -442,15 +410,7 @@
           "maxValue": 113000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "mba-intern-green-power-business-development-alpiq-switzerland"
-        ]
-      },
-      "previousSlugs": [
-        "mba-intern-green-power-business-development-alpiq-switzerland"
-      ]
+      }
     }
   ]
 }
