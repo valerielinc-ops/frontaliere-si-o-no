@@ -906,13 +906,30 @@ export function collectMissingAssembledBridges(sliceJob, assembled, { skipBridge
   // but it is NOT new for the flat union, so it does not consume headroom.
   const adds = [];
   const seen = new Set();
+  const assembledFlatOrder = new Map();
+  for (const [index, value] of (Array.isArray(assembled.previousSlugs) ? assembled.previousSlugs : []).entries()) {
+    const slug = String(value || '');
+    if (slug && !assembledFlatOrder.has(slug)) assembledFlatOrder.set(slug, index);
+  }
   if (assembled.previousSlugsByLocale && typeof assembled.previousSlugsByLocale === 'object') {
     for (const locale of LOCALES) {
       const arr = assembled.previousSlugsByLocale[locale];
       if (!Array.isArray(arr)) continue;
       const bucket = Array.isArray(existingByLocale[locale]) ? existingByLocale[locale] : [];
-      for (const s of arr) {
-        const v = String(s || '');
+      // When a locale bucket is short on room, prefer the assembled bridge's
+      // established flat-mirror order over the order of this one locale
+      // bucket. The flat union is the only shared history order and therefore
+      // keeps a bridge that was already served by the slice from losing the
+      // last available locale slot to a later candidate. This consumes no new
+      // flat-cap headroom because these candidates are already known.
+      const candidates = arr
+        .map((slug, index) => ({ slug: String(slug || ''), index }))
+        .sort((left, right) => (
+          (assembledFlatOrder.get(left.slug) ?? Number.MAX_SAFE_INTEGER)
+          - (assembledFlatOrder.get(right.slug) ?? Number.MAX_SAFE_INTEGER)
+          || left.index - right.index
+        ));
+      for (const { slug: v } of candidates) {
         // A bridge the cleaner drops on its next pass (it equals this
         // locale's active slug, or the master slug in the Italian bucket) can
         // never be persisted: it is not missing, and adding it would only be

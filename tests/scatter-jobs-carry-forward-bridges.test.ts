@@ -864,6 +864,37 @@ describe('scatter carry-forward of assembled previousSlugs bridges', () => {
     expect(applyAssembledToSliceJob(result.job, assembled).changed).toBe(false);
   });
 
+  it('uses the established flat order when only one locale-history slot remains', () => {
+    const flatFirst = 'it-flat-first';
+    const localeLater = 'it-locale-later';
+    const existingLocaleHistory = Array.from({ length: 19 }, (_, index) => `it-existing-${index}`);
+    const sliceJob = {
+      ...baseSlice(),
+      previousSlugs: [flatFirst, localeLater],
+      previousSlugsByLocale: { it: existingLocaleHistory },
+    };
+    const assembled = {
+      ...baseSlice(),
+      previousSlugs: [flatFirst, localeLater],
+      // The locale bucket was rebuilt in a different order, but the flat
+      // mirror still records which already-served bridge gets the scarce slot.
+      previousSlugsByLocale: { it: [localeLater, flatFirst] },
+    };
+
+    expect(collectMissingAssembledBridges(sliceJob, assembled)).toEqual([
+      { locale: 'it', slug: flatFirst },
+    ]);
+
+    const result = applyAssembledToSliceJob(sliceJob, assembled);
+    expect(result.job.previousSlugsByLocale.it).toContain(flatFirst);
+    expect(result.job.previousSlugsByLocale.it).not.toContain(localeLater);
+    expect(verifyScatterParity([assembled], [{ file: 'fixture.json', jobs: [result.job] }])).toMatchObject({
+      missingBridges: 0,
+      pendingWrites: 0,
+      passed: true,
+    });
+  });
+
   // #4208 (post-merge review of #4200): collectMissingAssembledBridges was
   // called on the PRE-rename sliceJob, so its headroom didn't yet know about
   // the flat-cap slots the rename loop (L189-196) was about to spend on the
