@@ -1050,14 +1050,28 @@ function nativeQuestionText(value, counter = null) {
   // tight address cluster together prove that these controls belong to the
   // candidate; the raw Rails country name is part of that same contract.
   const PINPOINT_HOST_RE = /^[a-z0-9-]+\.pinpointhq\.com$/i;
-  const PINPOINT_APPLICATION_ROUTE_RE = /^\/(?:[a-z]{2}(?:-[a-z]{2})?\/)?postings\/[^/]+\/applications\/new\/?$/iu;
+  const PINPOINT_APPLICATION_ROUTE_RE = /^\/(?:[a-z]{2}(?:-[a-z]{2})?\/)?postings\/([^/]+)\/applications(?:\/new)?\/?$/iu;
   const PINPOINT_COUNTRY_NAME_RE = /^application_form\[application\]\[country\]$/i;
+  // Pinpoint renders these service controls inside the applicant form. They
+  // remain useful as chrome evidence, but never as an application entry or a
+  // required question. Keep the vocabulary exact so a real candidate action
+  // such as "Submit application" cannot be classified by a partial match.
+  const PINPOINT_FORM_CHROME_RE = /^(?:save(?:\s+(?:the\s+)?application)?\s+for\s+later|save\s+for\s+later|cookies?|remove|cancel|close|discard(?:\s+(?:the\s+)?(?:draft|application))?|delete\s+draft|später\s+speichern|bewerbung\s+später\s+speichern|abbrechen|schließen|salva(?:\s+(?:la\s+)?candidatura)?\s+per\s+dopo|annulla|chiudi|enregistrer\s+(?:la\s+)?candidature\s+pour\s+plus\s+tard|annuler|fermer)[.!:;]?$/iu;
+  const pinpointNativeSelectName = (field) => {
+    const nativeSelectId = String(field?.nativeSelectId || '').trim();
+    if (!nativeSelectId) return '';
+    const native = [...document.querySelectorAll('[id]')].filter(element => element.id === nativeSelectId);
+    return native.length === 1 && native[0].tagName === 'SELECT'
+      ? clean(native[0].getAttribute('name') || '')
+      : '';
+  };
   const pinpointCaption = (field) => clean(field?.label || '')
     .replace(/^\s*\((?:required|mandatory|obbligatorio|erforderlich|pflichtfeld|obligatoire)\)\s*/i, '')
     .replace(/\s*\((?:required|mandatory|obbligatorio|erforderlich|pflichtfeld|obligatoire)\)\s*$/i, '')
     .replace(/[＊*]/g, '').replace(/[:?]\s*$/, '').trim();
   const pinpointApplicantAddressRole = (field) => {
-    if (PINPOINT_COUNTRY_NAME_RE.test(clean(field?.name || ''))) return 'country';
+    const name = pinpointNativeSelectName(field) || clean(field?.name || '');
+    if (PINPOINT_COUNTRY_NAME_RE.test(name)) return 'country';
     const caption = pinpointCaption(field);
     if (/^address\s+line\s+1$/i.test(caption)) return 'street';
     if (/^address\s+line\s+2$/i.test(caption)) return 'streetOptional';
@@ -1072,8 +1086,8 @@ function nativeQuestionText(value, counter = null) {
     return /^(?:last\s+name|last_name|lastname|surname)$/i.test(caption);
   };
   const applyPinpointApplicantAddressOwnership = () => {
-    if (!PINPOINT_HOST_RE.test(String(location?.hostname || ''))
-      || !PINPOINT_APPLICATION_ROUTE_RE.test(String(location?.pathname || ''))) return;
+    const route = PINPOINT_APPLICATION_ROUTE_RE.exec(String(location?.pathname || ''));
+    if (!PINPOINT_HOST_RE.test(String(location?.hostname || '')) || !route) return null;
     const fieldsByForm = new Map();
     for (const field of fields) {
       if (!Number.isSafeInteger(field?.form) || field.form < 0) continue;
@@ -1103,7 +1117,7 @@ function nativeQuestionText(value, counter = null) {
       }
       if (qualifyingClusters.length === 1) applicantForms.push({ group, ...qualifyingClusters[0] });
     }
-    if (applicantForms.length !== 1) return;
+    if (applicantForms.length !== 1) return null;
     const { group, start, end } = applicantForms[0];
     const applicantOwner = { section: 'Personal information', owners: ['Personal information'], unknown: false };
     for (const [index, field] of group.entries()) {
@@ -1114,6 +1128,16 @@ function nativeQuestionText(value, counter = null) {
       if (current.unknown === true || String(current.section || '').trim() || (Array.isArray(current.owners) && current.owners.length)) continue;
       field.addressContext = applicantOwner;
     }
+    return {
+      form: group[0]?.form,
+      postingId: route[1] || '',
+      fieldIds: group.map(field => field.id).filter(Boolean),
+      addressFieldIds: group
+        .slice(start, end + 1)
+        .filter(field => ['street', 'streetOptional', 'city', 'postalCode', 'country'].includes(pinpointApplicantAddressRole(field)))
+        .map(field => field.id)
+        .filter(Boolean),
+    };
   };
   // A portal may replace a control while copying its data-aa-id. Keep a
   // page-local identity for the actual DOM node so a later snapshot cannot
@@ -1242,7 +1266,10 @@ function nativeQuestionText(value, counter = null) {
   // Which <form> a control is sent with (-1: none). A password in the form
   // that also asks for the CV is the application's own (account.mjs).
   const forms = [...document.forms];
-  const formOf = (element) => (element.form ? forms.indexOf(element.form) : -1);
+  const formOf = (element) => {
+    const form = element?.form || element?.closest?.('form');
+    return form ? forms.indexOf(form) : -1;
+  };
   const radios = new Map();
   const HONEYPOT_LABEL = /\b(?:for|nur für|solo per|pour les) (?:robots?|bots?|roboter)\b|\bif you(?:'|’)?re (?:a )?human\b|\bif you are (?:a )?human\b/i;
   const CV_SECTION_TITLE_RE = /^(?:cv|r[eé]sum[eé]\s*\/\s*cv|lebenslauf|curriculum(?:\s+vitae)?)(?:\b|$)/iu;
@@ -1451,7 +1478,33 @@ function nativeQuestionText(value, counter = null) {
     const node = identifiedElements.get(field.id);
     if (node) Object.assign(field, applicationOwnershipFor(node));
   }
-  applyPinpointApplicantAddressOwnership();
+  // Resolve form ownership before the Pinpoint binder runs. Composite fields
+  // (radio groups, date widgets and select proxies) can otherwise be left with
+  // only a generated id and disappear from the applicant form's field set.
+  for (const field of fields) {
+    const native = field.nativeSelectId
+      ? [...document.querySelectorAll('[id]')].filter(element => element.id === field.nativeSelectId) : null;
+    const node = native
+      ? (native.length === 1 && native[0].tagName === 'SELECT' ? native[0] : null)
+      : identifiedElements.get(field.id);
+    const form = node?.form || node?.closest?.('form');
+    if (form) {
+      field.form = forms.indexOf(form);
+      field.formId = idFor(form);
+    }
+  }
+  let pinpointApplicantBinding = applyPinpointApplicantAddressOwnership();
+  if (pinpointApplicantBinding?.fieldIds?.length) {
+    const boundFieldIds = new Set(pinpointApplicantBinding.fieldIds);
+    const applicantFields = fields.filter(field => boundFieldIds.has(field.id));
+    // Never expose a partial binding: an incomplete DOM redraw must remain
+    // unknown instead of silently dropping a required field from the form.
+    if (applicantFields.length === boundFieldIds.size) {
+      fields.splice(0, fields.length, ...applicantFields);
+    } else {
+      pinpointApplicantBinding = null;
+    }
+  }
   // aria-hidden is about the accessibility tree, not about what is drawn: a button with it is still one to
   // press, but for two cases. Workday keeps its real submit, out of the tab order, next to a «click_filter»
   // overlay with the same name, and reads a click on the hidden one as a robot's. And what a page hides
@@ -1530,6 +1583,13 @@ function nativeQuestionText(value, counter = null) {
     // accessible name points to visually hidden text through `aria-labelledby`.
     (element.getAttribute('aria-labelledby') || '').split(/\s+/).map(textOf).filter(Boolean).join(' '),
   ].map(clean).find(Boolean) || '';
+  const pinpointFormChrome = (element) => {
+    if (!pinpointApplicantBinding) return false;
+    const form = element.form || element.closest?.('form');
+    if (!form || forms.indexOf(form) !== pinpointApplicantBinding.form) return false;
+    const label = clean(buttonName(element)).normalize('NFKC').replace(/[.!:;]+$/u, '').trim();
+    return PINPOINT_FORM_CHROME_RE.test(label);
+  };
   const buttonAccessibleLabel = (element) => {
     const labelledBy = (element.getAttribute('aria-labelledby') || '').split(/\s+/)
       .map(textOf)
@@ -1639,7 +1699,7 @@ function nativeQuestionText(value, counter = null) {
       disabled: Boolean(element.disabled) || element.getAttribute('aria-disabled') === 'true',
       href: element.tagName === 'A' && /^https?:/.test(element.href || '') ? element.href : '',
       formId: element.form || element.closest('form') ? idFor(element.form || element.closest('form')) : '',
-      ...(isSiteChromeControl(element) ? { chrome: true } : {}),
+      ...(isSiteChromeControl(element) || pinpointFormChrome(element) ? { chrome: true } : {}),
       ...(disclosureToggle(element) ? { popup: true } : {}),
       ...(openedMenuItem(element) ? { menuItem: true } : {}),
       ...noticeMetadata(element),
@@ -1668,20 +1728,6 @@ function nativeQuestionText(value, counter = null) {
     }
     return candidateButtons.filter((button) => kept.has(button));
   })();
-  // Bind every field and action to its actual owner, so a site-search field
-  // cannot turn a nearby Apply link into the application's final form.
-  for (const field of fields) {
-    // Widget ownership was proved by the producer. Its nativeSelectId is a
-    // raw DOM id: never borrow the span/button proxy's surrounding form, or
-    // choose the first of several controls carrying the native id.
-    const native = field.nativeSelectId
-      ? [...document.querySelectorAll('[id]')].filter(element => element.id === field.nativeSelectId) : null;
-    const node = native
-      ? (native.length === 1 && native[0].tagName === 'SELECT' ? native[0] : null)
-      : document.querySelector(`[data-aa-id="${field.id}"]`);
-    const form = native ? node?.form : node?.form || node?.closest('form');
-    field.formId = form ? idFor(form) : '';
-  }
   // A plain link is no button, so that no button search meets an ordinary link, yet a required notice can
   // be printed as one. Read apart with its target: portal.mjs can verify a unique external Apply handoff.
   const links = [...document.querySelectorAll('a[href]')]
@@ -1703,6 +1749,7 @@ function nativeQuestionText(value, counter = null) {
       href: /^https?:/.test(element.href || '') ? element.href : '',
       ...vacancyContextMetadata(element),
       ...noticeMetadata(element),
+      ...(pinpointFormChrome(element) ? { chrome: true } : {}),
     }));
   // Saved after the buttons got their ids too, or the next scan hands them out again.
   document.documentElement.setAttribute('data-aa-counter', String(counter));
@@ -1783,6 +1830,7 @@ function nativeQuestionText(value, counter = null) {
     fields,
     buttons,
     links,
+    ...(pinpointApplicantBinding ? { pinpointApplicationBinding: pinpointApplicantBinding } : {}),
     dialogs: [...document.querySelectorAll(DIALOG_SELECTOR)].filter(visible).map(dialog => dialogMeta(dialog)),
     captcha,
     passwordVisible,

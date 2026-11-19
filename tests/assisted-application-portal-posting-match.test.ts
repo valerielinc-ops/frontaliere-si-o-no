@@ -336,6 +336,7 @@ describe('PinpointHQ New Application title and route binding', () => {
     const applicationUrl = `${postingUrl}/applications/new`;
     const job = { company: 'Kempinski', title: 'Front Office Agent' };
     const form = [
+      'Remove',
       'Save application for later',
       'SUBMIT APPLICATION',
       'COOKIES',

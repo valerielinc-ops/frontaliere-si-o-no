@@ -111,6 +111,16 @@ describe('portal field extraction', () => {
     expect(snapshot.buttons.map((button: any) => button.text)).toEqual(expect.arrayContaining([
       'Remove', 'Save application for later', 'SUBMIT APPLICATION', 'COOKIES',
     ]));
+    expect(snapshot.pinpointApplicationBinding).toMatchObject({
+      form: 0,
+      postingId: '9d8a7c6b-5e4f-4321-9abc-0123456789de',
+      fieldIds: expect.arrayContaining([expect.any(String)]),
+      addressFieldIds: expect.arrayContaining([expect.any(String)]),
+    });
+    expect(snapshot.buttons.find((button: any) => button.text === 'Remove')).toMatchObject({ chrome: true });
+    expect(snapshot.buttons.find((button: any) => button.text === 'Save application for later')).toMatchObject({ chrome: true });
+    expect(snapshot.buttons.find((button: any) => button.text === 'COOKIES')).toMatchObject({ chrome: true });
+    expect(snapshot.buttons.find((button: any) => button.text === 'SUBMIT APPLICATION')).not.toHaveProperty('chrome');
     expect(snapshot.fields.map((field: any) => field.label)).toEqual(expect.arrayContaining([
       'First Name', 'Middle Name', 'Last Name', 'Email Address', 'Phone',
       'Address Line 1', 'Address Line 2', 'Town', 'Postcode',
@@ -165,6 +175,48 @@ describe('portal field extraction', () => {
     });
   });
 
+  it('binds a Pinpoint country from the unique native select behind its proxy', () => {
+    const snapshot = extract(`<form>
+      <label for="first">First Name</label><input id="first" name="first_name" required>
+      <label for="last">Last Name</label><input id="last" name="last_name" required>
+      <label for="email">Email Address</label><input id="email" name="email" type="email" required>
+      <label for="country">Country</label>
+      <select id="country" name="application_form[application][country]" style="display:none"><option value="">Select</option><option value="CH">Switzerland</option></select>
+      <span id="country-button" class="ui-selectmenu-button" role="combobox" aria-owns="country-menu" aria-label="Country">Select</span>
+      <ul id="country-menu"><li>Switzerland</li></ul>
+      <label for="street">Address Line 1</label><input id="street" name="address_line_1" required>
+      <label for="town">Town</label><input id="town" name="town" required>
+      <label for="postcode">Postcode</label><input id="postcode" name="postcode" required>
+    </form>`, 'https://kempinski.pinpointhq.com/en/postings/9d8a7c6b-5e4f-4321-9abc-0123456789de/applications/new');
+
+    const country = snapshot.fields.find((field: any) => field.nativeSelectId === 'country');
+    expect(country).toMatchObject({ name: '', nativeSelectId: 'country' });
+    expect(country.addressContext).toEqual({ section: 'Personal information', owners: ['Personal information'], unknown: false });
+    expect(snapshot.pinpointApplicationBinding).toMatchObject({ form: 0 });
+    expect(snapshot.pinpointApplicationBinding.addressFieldIds).toContain(country.id);
+  });
+
+  it('keeps unrelated native forms out of a uniquely bound Pinpoint applicant snapshot', () => {
+    const snapshot = extract(`<form id="search">
+      <label for="search-term">Search</label><input id="search-term" name="query" required>
+    </form>
+    <form id="application">
+      <label for="first">First Name</label><input id="first" name="first_name" required>
+      <label for="last">Last Name</label><input id="last" name="last_name" required>
+      <label for="email">Email Address</label><input id="email" name="email" type="email" required>
+      <label for="street">Address Line 1</label><input id="street" name="address_line_1" required>
+      <label for="town">Town</label><input id="town" name="town" required>
+      <label for="postcode">Postcode</label><input id="postcode" name="postcode" required>
+      <label for="country">Country</label><input id="country" name="application_form[application][country]" required>
+    </form>`, 'https://kempinski.pinpointhq.com/en/postings/9d8a7c6b-5e4f-4321-9abc-0123456789de/applications');
+
+    expect(snapshot.pinpointApplicationBinding).toMatchObject({ form: 1 });
+    expect(snapshot.fields.find((field: any) => field.domId === 'search-term')).toBeUndefined();
+    expect(snapshot.fields.map((field: any) => field.domId)).toEqual(expect.arrayContaining([
+      'first', 'last', 'email', 'street', 'town', 'postcode', 'country',
+    ]));
+  });
+
   it('fails closed when one Pinpoint form contains complete address clusters with different spans', () => {
     const snapshot = extract(`<form>
       <label for="first">First Name</label><input id="first" name="first_name">
@@ -196,6 +248,7 @@ describe('portal field extraction', () => {
       ['Address Line 1', 'Town', 'Postcode'].includes(field.label)
       || field.label === 'application_form[application][country]');
     expect(addressFields).toHaveLength(8);
+    expect(snapshot.pinpointApplicationBinding).toBeUndefined();
     expect(addressFields.every((field: any) => field.addressContext?.owners?.includes('Personal information') !== true)).toBe(true);
   });
 
