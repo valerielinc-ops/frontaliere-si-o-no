@@ -63,7 +63,9 @@ export const TARGET_PAGES = [
   { key: 'simulazione_tasse_nuovi_frontalieri', path: '/tasse-e-pensione/simulazione-tasse-nuovi-frontalieri/', cls: 0.25 },
   { key: 'cerca_lavoro_svizzera', path: '/cerca-lavoro-svizzera/', inp: 500 },
   { key: 'comuni_di_frontiera', path: '/vivere-in-ticino/comuni-di-frontiera/', inp: 500 },
-  { key: 'cerca_lavoro_ticino', path: '/cerca-lavoro-ticino/', cls: 0.1, inp: 200 },
+  // The open field regression is GA4 desktop INP. Keep its target explicit so
+  // mobile/tablet samples cannot open, reconfirm or close that issue.
+  { key: 'cerca_lavoro_ticino', path: '/cerca-lavoro-ticino/', cls: 0.1, inp: 200, inpDevices: ['desktop'] },
   { key: 'home', path: '/', cls: 0.1, inp: 200 },
 ];
 
@@ -75,6 +77,15 @@ const normalizeDevice = (value) => {
   const device = String(value || '').toLowerCase();
   return DEVICES.includes(device) ? device : 'unknown';
 };
+
+function targetDevicesForMetric(page, metric) {
+  const configured = page[`${String(metric).toLowerCase()}Devices`];
+  return Array.isArray(configured) && configured.length > 0 ? configured : DEVICES;
+}
+
+function metricHasExplicitDeviceTarget(page, metric) {
+  return Array.isArray(page[`${String(metric).toLowerCase()}Devices`]);
+}
 
 export function loadHistory(file) {
   if (!existsSync(file)) return { pages: {} };
@@ -261,6 +272,13 @@ export function cwvRecoveryVerdict(issue, history) {
   if (!page) return incomplete(`${parsed.path} non è più fra i TARGET_PAGES del monitor`);
   const threshold = page[parsed.metric.toLowerCase()];
   if (threshold == null) return incomplete(`${parsed.path} non ha una soglia ${parsed.metric}`);
+  const scopedDevices = targetDevicesForMetric(page, parsed.metric);
+  const unsupportedDevice = parsed.device === 'all'
+    ? metricHasExplicitDeviceTarget(page, parsed.metric)
+    : !scopedDevices.includes(parsed.device);
+  if (unsupportedDevice) {
+    return incomplete(`${parsed.metric} ${parsed.device} su ${parsed.path} non è un target del monitor`);
+  }
   const field = METRIC_FIELDS[parsed.metric];
   const weeks = history?.pages?.[page.key]?.weeks || [];
   const pair = comparableWindows(weeks, field, parsed.device);
@@ -288,21 +306,33 @@ export function cwvRecoveryVerdict(issue, history) {
 
 /**
  * I titoli misurati sopra soglia in questa run: quelli coniati
- * (`regressions`) più, per ogni pagina e metrica in regressione su un device
- * o sull'aggregato, il titolo nella forma precedente senza device. Così una
- * issue aperta con il vecchio titolo (8868) resta `keep` e perde
- * `maybe-resolved` quando la pagina è ancora sopra soglia.
+ * (`regressions`) più, per ogni metrica non vincolata a un device, il titolo
+ * nella forma precedente senza device. Così una issue aperta con il vecchio
+ * titolo resta `keep` e perde `maybe-resolved` quando la pagina è ancora
+ * sopra soglia; un target device-scoped non può invece essere riconfermato
+ * dalla popolazione aggregata.
  */
 export function cwvMeasuredTitles(history, regressions = []) {
   const titles = new Set();
   for (const r of regressions) {
     titles.add(cwvIssueTitle(r));
-    titles.add(legacyCwvIssueTitle(r));
+    const page = TARGET_PAGES.find((candidate) => candidate.path === r.path);
+    if (page && !metricHasExplicitDeviceTarget(page, r.metric)) {
+      titles.add(legacyCwvIssueTitle(r));
+    }
   }
   for (const page of TARGET_PAGES) {
     const weeks = history?.pages?.[page.key]?.weeks || [];
     for (const [metric, field] of Object.entries(METRIC_FIELDS)) {
-      if (evaluateConsecutiveRegression(weeks, field, page[metric.toLowerCase()], 'all')) {
+      const threshold = page[metric.toLowerCase()];
+      if (threshold == null) continue;
+      for (const device of targetDevicesForMetric(page, metric)) {
+        if (evaluateConsecutiveRegression(weeks, field, threshold, device)) {
+          titles.add(cwvIssueTitle({ metric, device, path: page.path }));
+        }
+      }
+      if (!metricHasExplicitDeviceTarget(page, metric)
+          && evaluateConsecutiveRegression(weeks, field, threshold, 'all')) {
         titles.add(legacyCwvIssueTitle({ metric, path: page.path }));
       }
     }
@@ -314,8 +344,11 @@ export function cwvMeasuredTitles(history, regressions = []) {
 function hasComparableWindows(history) {
   return TARGET_PAGES.some((page) => {
     const weeks = history?.pages?.[page.key]?.weeks || [];
-    return Object.entries(METRIC_FIELDS).some(([metric, field]) => page[metric.toLowerCase()] != null
-      && ['all', ...DEVICES].some((device) => comparableWindows(weeks, field, device)));
+    return Object.entries(METRIC_FIELDS).some(([metric, field]) => {
+      if (page[metric.toLowerCase()] == null) return false;
+      return targetDevicesForMetric(page, metric).some((device) => comparableWindows(weeks, field, device))
+        || (!metricHasExplicitDeviceTarget(page, metric) && comparableWindows(weeks, field, 'all'));
+    });
   });
 }
 
@@ -532,10 +565,18 @@ export async function main({
 
     const hasMetricObservation = (value, count) =>
       value != null && Number.isFinite(Number(value)) && Number(count ?? 0) > 0;
-    const hasTargetObservation =
-      Object.values(snapshot.devices).some((row) =>
-        (page.cls != null && hasMetricObservation(row.cls_p75, row.cls_n))
-        || (page.inp != null && hasMetricObservation(row.inp_p75, row.inp_n)));
+    const targetMetrics = [
+      ['CLS', 'cls_p75', 'cls_n', page.cls],
+      ['INP', 'inp_p75', 'inp_n', page.inp],
+    ];
+    const metricObserved = ([metric, valueField, countField, threshold]) => threshold != null
+      && targetDevicesForMetric(page, metric).some((device) =>
+        hasMetricObservation(snapshot.devices[device][valueField], snapshot.devices[device][countField]));
+    const hasTargetObservation = targetMetrics.some(metricObserved)
+      // A device-scoped contract is mandatory, not merely one signal among a
+      // page's pooled metrics: missing desktop INP must fail closed even when
+      // the same page still has a CLS sample from another device.
+      && targetMetrics.filter(([metric]) => metricHasExplicitDeviceTarget(page, metric)).every(metricObserved);
     if (!hasTargetObservation) {
       recordSnapshot(history, page.key, page.path, today, {
         ...measurement,
@@ -558,11 +599,11 @@ export async function main({
     recordSnapshot(history, page.key, page.path, today, snapshot);
     const weeks = history.pages[page.key].weeks;
 
-    for (const device of DEVICES) {
-      for (const [metric, field, threshold, fmt, unit] of [
-        ['CLS', 'cls_p75', page.cls, fmtCls, ''],
-        ['INP', 'inp_p75', page.inp, fmtMs, 'ms'],
-      ]) {
+    for (const [metric, field, threshold, fmt, unit] of [
+      ['CLS', 'cls_p75', page.cls, fmtCls, ''],
+      ['INP', 'inp_p75', page.inp, fmtMs, 'ms'],
+    ]) {
+      for (const device of targetDevicesForMetric(page, metric)) {
         const regression = evaluateConsecutiveRegression(weeks, field, threshold, device);
         if (regression) regressions.push({
           key: `${page.key}:${device}`, path: page.path, metric, unit, fmt, threshold, ...regression,
