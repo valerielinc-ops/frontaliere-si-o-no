@@ -1170,6 +1170,13 @@ const CONSENT = /\b(?:consens\w*|acconsent\w*|consent\w*|einwillig\w*|zustimm\w*
 const MARKETING = /\b(?:newsletter\w*|marketing|promozional\w*|pubblicit\w*|werbung|werbe\w*|publicit\w*|offerte commerciali|job ?alert\w*|jobabo\w*|talent ?pool\w*|talent community|corsi|academy|opportunita di formazione|weitere angebote|offres commerciales|informazioni (?:su|sulle|riguardo))\b/;
 const PRIVACY = /\b(?:informativa|privacy|datenschutz\w*|protection des donnees|donnees personnelles|trattamento dei (?:tuoi )?dati|dati personali|data protection|personal data|privacy notice|privacy policy)\b/;
 const LANGUAGE_LEVEL = /\b(?:livello|level|niveau|proficiency|fluency|fluent|conoscenz\w*|kenntnis\w*|competenz\w*|parli|speak|sprechen|parlez|sprachkenntnisse)\b/;
+// Shift, weekend, evening/morning/night and flexible schedule availability (owner decision 2026-11-19:
+// always yes, like relocation, hybrid work and on-call duty; requires employment/work domain context and excludes
+// past experience, workload %, interview scheduling, or negative availability framing).
+const SHIFT_SCHEDULE = /\b(?:shift\w*|turn\w*|\w*schicht\w*|travail (?:en equipe|poste|par equipe)|horaires? decales?|fine settimana|week ?end\w*|\w*wochenend\w*|sabato|domenica|saturday|sunday|samstag|sonntag|samedi|dimanche|festiv\w*|feiertag\w*|jours? feries?|public holidays?|turni (?:mattutin\w*|seral\w*|notturn\w*)|(?:morning|evening|night) shifts?|(?:fruh|spat|nacht)schicht\w*|(?:orari\w*|fasc[ei]\w* orari\w*|hours?|schedules?|working hours?|arbeitszeit\w*|dienstplan|horaires?) flexibl\w*|flexib\w* (?:orari\w*|hours?|schedule\w*|working hours?|arbeitszeit\w*|horaires?)|flessibil\w* (?:sugli |negli |di |d )?(?:orari\w*|turn\w*|fasc[ei]\w*))\b/;
+const SHIFT_WORK_CONTEXT = /\b(?:shift\w*|turn\w*|\w*schicht\w*|work\w*|lavor\w*|\w*arbeit\w*|travaill\w*|travail|employ\w*|impieg\w*|serviz\w*|copertur\w*|dienst\w*|betrieb|horaires?|orari\w*|working hours?|arbeitszeit\w*|dienstplan|job|poste)\b/;
+const SHIFT_AVAILABLE = /\b(?:availab\w*|willing\w*|ready|prepared|open to|able to|can you|could you|would you|do you|are you|flexib\w*|dispost\w*|disponibil\w*|flessib\w*|puo|puoi|potresti|sei in grado|accett\w*|bereit\w*|\w*bereitschaft|flexibel|verfugbar\w*|einsatzbereit\w*|einverstanden|konnen sie|wurden sie|sind sie|disponible|pret\w*|flexible\w*|pouvez vous|pourriez vous|acceptez vous)\b/;
+const SHIFT_NOT_FLEXIBILITY = /\b(?:esperienz\w*|experience|erfahrung\w*|worked|lavorat\w*|gearbeitet|travaille|how many|how long|how often|quanti|quanto spesso|wie viele|wie oft|combien|which|quale|welch|quel|part ?time|tempo parziale|teilzeit|temps partiel|full ?time|tempo pieno|vollzeit|temps plein|pensum|workload|grado di occupazione|taux d (?:activite|occupation)|percent\w*|percentuale|prozent|certific\w*|medic\w*|sanitar\w*|gesundheit\w*|salute|health|sante|interview\w*|colloqui\w*|vorstellungsgesprach\w*|entretien\w*|cannot|can t|unavailab\w*|unable|impossibilit\w*|not (?:willing|able|availab\w*|flexib\w*|prepared|ready|open)|non (?:dispost\w*|in grado|flessib\w*|disponibil\w*|accett\w*)|nicht (?:verfugbar\w*|bereit\w*|flexibel|einsatzbereit\w*)|pas (?:disponible|pret\w*|flexible\w*|en mesure)|kein\w* (?:schicht\w*|wochenend\w*|bereitschaft\w*))\b/;
 // Business travel (owner decision 2026-11-10: availability is always yes, like relocation and on-call duty).
 const TRAVEL = /\b(?:business travel\w*|travel\w*|trasfert\w*|viagg\w*|reisebereitschaft|reisetatigkeit\w*|reisen|dienstreise\w*|geschaftsreise\w*|deplacement\w*|voyag\w*)\b/;
 const AVAILABLE = /\b(?:availab\w*|willing\w*|ready|prepared|open to|dispost\w*|disponibil\w*|bereit\w*|bereitschaft|disponible\w*|pret\w*|can you|are you able|potresti|sei in grado|konnen sie|pouvez vous)\b/;
@@ -1260,7 +1267,7 @@ const TOPIC_FAMILY = {
   profile_visibility: 'privacy',
 };
 const HISTORY_AVAILABILITY_TOPICS = new Set([
-  'start_date', 'notice_period', 'preferred_workload', 'relocation', 'hybrid', 'on_call', 'other_sites', 'business_travel',
+  'start_date', 'notice_period', 'preferred_workload', 'relocation', 'hybrid', 'on_call', 'other_sites', 'business_travel', 'shift_flexibility',
 ]);
 
 /**
@@ -1554,6 +1561,8 @@ function classifyPlatformSubject(question) {
   if (RELOCATION.test(text)) return 'relocation';
   if (((OTHER_SITES.test(text) && AVAILABLE.test(text)) || SITE_FLEXIBILITY.test(text)) && isBinary(question)) return 'other_sites';
   if (TRAVEL.test(text) && AVAILABLE.test(text) && !TRAVEL_NOT_AVAILABILITY.test(text) && isBinary(question)) return 'business_travel';
+  if ((id === 'shift_flexibility' || (SHIFT_SCHEDULE.test(text) && SHIFT_WORK_CONTEXT.test(text) && SHIFT_AVAILABLE.test(text)))
+    && !SHIFT_NOT_FLEXIBILITY.test(text) && !/\d+\s*%/.test(raw) && isBinary(question)) return 'shift_flexibility';
   if (SUITABILITY.test(text) && APPLIED_FUNCTION.test(text) && !NOT_SUITABILITY.test(text) && isBinary(question)) return 'function_suitability';
   const languages = languageCodesIn(text);
   if (languages.length === 1 && LANGUAGE_LEVEL.test(text)) return `language:${languages[0]}`;
@@ -2173,6 +2182,7 @@ export function platformDefaultAnswer(question, facts = null, { locale } = {}) {
     case 'business_travel':
     case 'function_suitability':
     case 'other_sites':
+    case 'shift_flexibility':
     case 'relocation': value = yesValue(question, lang); break;
     // The broadest audience inside the same employer; a yes/no or a box: yes.
     case 'profile_visibility': value = options.length && !isBinary(question) ? profileVisibilityOption(question) : yesValue(question, lang); break;

@@ -1341,7 +1341,7 @@ describe('assisted portal question batching', () => {
     const fixture = fakePage({ conditional: false });
     const { page, window } = fixture;
     window.document.querySelector('form')!.insertAdjacentHTML('afterbegin',
-      '<label for="shifts">Are you willing to work in shifts? *</label><select id="shifts" name="shifts" required><option value="">Choose one</option><option value="Y">Yes</option><option value="N">No</option></select>');
+      '<label for="cash">Are you willing to handle cash register duties? *</label><select id="cash" name="cash" required><option value="">Choose one</option><option value="Y">Yes</option><option value="N">No</option></select>');
     const context: any = {
       on: () => {}, off: () => {}, pages: () => [page], newPage: async () => page,
       close: async () => {}, waitForEvent: async () => null,
@@ -1358,12 +1358,12 @@ describe('assisted portal question batching', () => {
       if (schema?.properties?.decisions) {
         calls.decide += 1;
         const ids: string[] = schema.properties.decisions.items.properties.id.enum;
-        return { decisions: ids.map((id) => ({ id, decision: 'answer', value: 'Yes', principle: 'application_success', category: '', reason: 'Availability.' })) };
+        return { decisions: ids.map((id) => ({ id, decision: 'answer', value: 'Yes', principle: 'application_success', category: '', reason: 'Suitability.' })) };
       }
       calls.plan += 1;
       return {
         actions: [{ fieldId: fieldId('motivation'), action: 'fill', value: 'Synthetic interest', document: 'none', source: 'draft', evidence: '' }],
-        missingRequired: [{ fieldId: fieldId('shifts'), question: 'Are you willing to work in shifts?', why: '', type: 'choice', options: ['Yes', 'No'] }],
+        missingRequired: [{ fieldId: fieldId('cash'), question: 'Are you willing to handle cash register duties?', why: '', type: 'choice', options: ['Yes', 'No'] }],
       };
     };
 
@@ -1378,7 +1378,7 @@ describe('assisted portal question batching', () => {
     expect(calls.decide).toBe(1);
     expect(calls.localize).toBe(0);
     expect(calls.plan).toBeGreaterThanOrEqual(2);
-    expect((window.document.getElementById('shifts') as any).value).toBe('Y');
+    expect((window.document.getElementById('cash') as any).value).toBe('Y');
     expect(result.event.reason).not.toBe('question_localization_unavailable');
     expect(result.event.type).not.toBe('submit_needs_candidate');
   });

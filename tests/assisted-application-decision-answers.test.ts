@@ -103,13 +103,48 @@ describe('profile visibility inside the employer (Stadt Zürich, order fUHc8nmN)
   });
 });
 
-describe('business travel (order rg82P9MP)', () => {
+describe('business travel (order rg82P9MP) and shift flexibility (order BvZdi8SlElmV1yogrWub)', () => {
   it('is always available, like relocation and on-call duty', () => {
     expect(platformDefaultAnswer(travel, null, { locale: 'it' })).toMatchObject({ value: 'Sì', topic: 'platform:business_travel' });
     expect(platformDefaultAnswer({ question: 'Sind Sie bereit, gelegentlich Dienstreisen zu unternehmen?', type: 'yes_no', options: ['Ja', 'Nein'] }, null, { locale: 'de' })?.value).toBe('Ja');
     expect(platformDefaultAnswer({ question: 'Êtes-vous disponible pour des déplacements professionnels ?', type: 'yes_no' }, null, { locale: 'fr' })?.value).toBe('Oui');
     const draft = draftOf([travel]);
     expect(evaluateRedFlags(draft, {}, {}, {}, null, order).candidate).toEqual([]);
+  });
+
+  it('auto-answers shift, evening and weekend flexibility questions as yes across languages', () => {
+    const matchShift = {
+      id: 'shift_flexibility', source: 'match', type: 'yes_no', required: true, options: ['Sì', 'No'],
+      question: 'Può lavorare con flessibilità su turni mattutini, serali e nei fine settimana?',
+    };
+    expect(platformQuestionTopic(matchShift)).toBe('shift_flexibility');
+    expect(platformDefaultAnswer(matchShift, null, { locale: 'it' })).toMatchObject({ value: 'Sì', topic: 'platform:shift_flexibility', source: 'policy_default' });
+    expect(platformDefaultAnswer({ question: 'Sind Sie bereit, im Schichtbetrieb und am Wochenende zu arbeiten?', type: 'choice', options: ['Ja', 'Nein'] }, null, { locale: 'de' }))
+      .toMatchObject({ value: 'Ja', topic: 'platform:shift_flexibility' });
+    expect(platformDefaultAnswer({ question: 'Are you flexible to work morning, evening and weekend shifts?', type: 'yes_no' }, null, { locale: 'en' }))
+      .toMatchObject({ value: 'Yes', topic: 'platform:shift_flexibility' });
+    expect(platformDefaultAnswer({ question: 'Êtes-vous disponible pour travailler en équipe et le week-end ?', type: 'yes_no' }, null, { locale: 'fr' }))
+      .toMatchObject({ value: 'Oui', topic: 'platform:shift_flexibility' });
+    expect(platformDefaultAnswer({ question: 'Sind Sie für Wochenendarbeit verfügbar?', type: 'yes_no' }, null, { locale: 'de' }))
+      .toMatchObject({ value: 'Ja', topic: 'platform:shift_flexibility', source: 'policy_default' });
+    expect(evaluateRedFlags(draftOf([matchShift]), {}, {}, {}, null, order).candidate).toEqual([]);
+
+    const { platformFacts } = candidateWithEdits({ order, draft: draftOf([matchShift]), flow: {} });
+    expect(candidateAnswerForField({ platformFacts, answers: {}, profile: {}, identity: {} }, {
+      label: 'Are you flexible to work weekends? *', kind: 'select', required: true, options: [{ label: 'Yes', value: 'Y' }, { label: 'No', value: 'N' }],
+    })).toMatchObject({ value: 'Yes', source: 'policy_default' });
+  });
+
+  it('does not auto-answer past shift experience, workload percentages, interviews, non-binary or negative questions', () => {
+    expect(platformQuestionTopic({ question: 'Hai già lavorato su turni notturni negli ultimi anni?', type: 'yes_no', options: ['Sì', 'No'] })).toBeNull();
+    expect(platformQuestionTopic({ question: 'Quale grado di occupazione desideri per il lavoro a turni?', type: 'yes_no', options: ['Sì', 'No'] })).toBeNull();
+    expect(platformQuestionTopic({ question: 'Which weekend shifts do you prefer?', type: 'choice', options: ['Morning', 'Evening'] })).toBeNull();
+    expect(platformQuestionTopic({ question: 'Tick if you are unavailable for weekend shifts', type: 'checkbox' })).toBeNull();
+    expect(platformQuestionTopic({ question: 'Would you be unavailable for weekend shifts?', type: 'yes_no', options: ['Yes', 'No'] })).toBeNull();
+    expect(operationalDefaultAnswer({ question: 'Would you be unavailable for weekend shifts?', type: 'yes_no', options: ['Yes', 'No'] })).toBeNull();
+    expect(platformQuestionTopic({ question: 'Are you available for the Saturday interview?', type: 'yes_no', options: ['Yes', 'No'] })).toBeNull();
+    expect(operationalDefaultAnswer({ question: 'Are you available for the Saturday interview?', type: 'yes_no', options: ['Yes', 'No'] })).toBeNull();
+    expect(platformQuestionTopic({ question: 'Can you work weekend shifts?', type: 'text' })).toBeNull();
   });
 
   it('is not a question on travel costs or on how often', () => {
@@ -158,13 +193,13 @@ describe('what stays with the candidate', () => {
 });
 
 describe('the deterministic checks of a decision', () => {
-  const shifts = { id: 'shifts', source: 'portal', type: 'choice', required: true, question: 'Sei disponibile a lavorare a turni?', applicationQuestion: 'Sind Sie bereit, im Schichtbetrieb zu arbeiten?', options: ['Sì', 'No'], applicationOptions: ['Ja', 'Nein'] };
+  const cashRegister = { id: 'cash_register', source: 'portal', type: 'choice', required: true, question: 'Hai familiarità con la gestione della cassa?', applicationQuestion: 'Sind Sie bereit, Kassenverantwortung zu übernehmen?', options: ['Sì', 'No'], applicationOptions: ['Ja', 'Nein'] };
 
   it('maps a choice to the option shown and to the portal\'s own', () => {
-    expect(verifyDecision({ decision: 'answer', value: 'Ja', principle: 'application_success', reason: 'availability' }, { question: shifts, cvText: CV }))
+    expect(verifyDecision({ decision: 'answer', value: 'Ja', principle: 'application_success', reason: 'suitability' }, { question: cashRegister, cvText: CV }))
       .toMatchObject({ ok: true, shape: 'choice', value: 'Sì', applicationValue: 'Ja' });
-    expect(verifyDecision({ decision: 'answer', value: 'Vielleicht', principle: 'application_success', reason: '' }, { question: shifts, cvText: CV }).reasons).toContain('not_an_option');
-    expect(verifyDecision({ decision: 'answer', value: 'Ja', principle: 'gut_feeling', reason: '' }, { question: shifts, cvText: CV }).reasons).toContain('principle_unknown');
+    expect(verifyDecision({ decision: 'answer', value: 'Vielleicht', principle: 'application_success', reason: '' }, { question: cashRegister, cvText: CV }).reasons).toContain('not_an_option');
+    expect(verifyDecision({ decision: 'answer', value: 'Ja', principle: 'gut_feeling', reason: '' }, { question: cashRegister, cvText: CV }).reasons).toContain('principle_unknown');
   });
 
   it('never says yes to marketing or to third parties (principle 4, in code)', () => {
@@ -186,7 +221,7 @@ describe('the deterministic checks of a decision', () => {
 });
 
 describe('the engine at draft time', () => {
-  const shifts = { id: 'shifts', source: 'portal', type: 'choice', required: true, question: 'Sei disponibile a lavorare a turni?', applicationQuestion: 'Sind Sie bereit, im Schichtbetrieb zu arbeiten?', options: ['Sì', 'No'], applicationOptions: ['Ja', 'Nein'], applicationQuestionLocale: 'de' };
+  const cashRegister = { id: 'cash_register', source: 'portal', type: 'choice', required: true, question: 'Hai familiarità con la gestione della cassa?', applicationQuestion: 'Sind Sie bereit, Kassenverantwortung zu übernehmen?', options: ['Sì', 'No'], applicationOptions: ['Ja', 'Nein'], applicationQuestionLocale: 'de' };
   const employee = { id: 'already_employee', source: 'portal', type: 'yes_no', required: true, question: 'Sei già dipendente della Città di Zurigo?', applicationQuestion: 'Sind Sie bereits bei der Stadt Zürich angestellt?' };
   const ahv = { id: 'ahv', source: 'portal', type: 'text', required: true, question: 'Numero AVS', applicationQuestion: 'AHV-Nummer' };
   const health = { id: 'health', source: 'portal', type: 'yes_no', required: true, question: 'Haben Sie gesundheitliche Einschränkungen?' };
@@ -197,46 +232,46 @@ describe('the engine at draft time', () => {
     const codex = async (request: typeof requests[number]) => {
       requests.push(request);
       return { decisions: [
-        { id: shifts.id, decision: 'answer', value: 'Ja', principle: 'application_success', category: '', reason: 'Availability raises the chances.' },
+        { id: cashRegister.id, decision: 'answer', value: 'Ja', principle: 'application_success', category: '', reason: 'Willingness raises the chances.' },
         { id: employee.id, decision: 'answer', value: 'no', principle: 'plausible_deduction', category: '', reason: 'The CV shows another employer.' },
       ] };
     };
-    const questions = [visibility, travel, shifts, employee, ahv, health, marketing];
+    const questions = [visibility, travel, cashRegister, employee, ahv, health, marketing];
     const result = await draftDecisionAnswers({ questions, cvText: CV, codex, employer: 'Stadt Zürich', jobTitle: 'Sachbearbeiterin', facts: candidateWithEdits({ order, draft: draftOf([]), flow: {} }).platformFacts });
     expect(requests).toHaveLength(1);
     // Rules answered visibility, travel and the newsletter; AHV and health never reach the model.
-    expect(requests[0].schema.properties.decisions.items.properties.id.enum).toEqual([shifts.id, employee.id]);
+    expect(requests[0].schema.properties.decisions.items.properties.id.enum).toEqual([cashRegister.id, employee.id]);
     expect(requests[0].prompt).not.toContain('"id":"ahv"');
     expect(requests[0].prompt).not.toContain('AHV-Nummer');
-    expect(result.kept).toEqual([shifts.id, employee.id]);
+    expect(result.kept).toEqual([cashRegister.id, employee.id]);
     const draft = draftOf(result.questions);
     expect(evaluateRedFlags(draft, {}, {}, {}, null, order).candidate).toEqual([ahv.id, health.id]);
 
     const { answers, profile, platformFacts } = candidateWithEdits({ order, draft, flow: {} });
     // Form-only: never in the answers or the profile the letter and the CV are written from.
-    expect(answers[shifts.id]).toBeUndefined();
-    expect(JSON.stringify(profile)).not.toContain('Schicht');
-    expect(platformFacts.decisionAnswers[shifts.id]).toMatchObject({ value: 'Sì', applicationValue: 'Ja', principle: 'application_success' });
+    expect(answers[cashRegister.id]).toBeUndefined();
+    expect(JSON.stringify(profile)).not.toContain('Kassenverantwortung');
+    expect(platformFacts.decisionAnswers[cashRegister.id]).toMatchObject({ value: 'Sì', applicationValue: 'Ja', principle: 'application_success' });
     const { defaults } = withOperationalQuestionAnswers(draft.questions, answers, { facts: platformFacts });
-    expect(defaults[shifts.id]).toMatchObject({ value: 'Sì', source: 'policy_default', origin: 'platform_decision' });
+    expect(defaults[cashRegister.id]).toMatchObject({ value: 'Sì', source: 'policy_default', origin: 'platform_decision' });
     expect(defaults[employee.id]).toMatchObject({ value: 'No', topic: 'decision:plausible_deduction' });
 
     // The review page shows them as editable platform proposals, with the principle.
     const payload = buildReviewPayload({ order, flow: { state: 'candidate_review', round: 1 }, draft, round: 1, coverLetterUrl: null });
-    const shown = payload.questions.find((item: { id: string }) => item.id === shifts.id);
+    const shown = payload.questions.find((item: { id: string }) => item.id === cashRegister.id);
     expect(shown).toMatchObject({ answeredByPlatform: true, answerDecisionPrinciple: 'application_success' });
-    expect(payload.answers[shifts.id]).toBe('Sì');
+    expect(payload.answers[cashRegister.id]).toBe('Sì');
   });
 
   it('drops a decision that no longer passes on read, and one the model left', async () => {
     const codex = async () => ({ decisions: [
-      { id: shifts.id, decision: 'candidate', value: '', principle: '', category: '', reason: '' },
+      { id: cashRegister.id, decision: 'candidate', value: '', principle: '', category: '', reason: '' },
       { id: employee.id, decision: 'answer', value: 'forse', principle: 'plausible_deduction', category: '', reason: '' },
     ] });
-    const result = await draftDecisionAnswers({ questions: [shifts, employee], cvText: CV, codex });
+    const result = await draftDecisionAnswers({ questions: [cashRegister, employee], cvText: CV, codex });
     expect(result.kept).toEqual([]);
     expect(result.decisions).toEqual([
-      expect.objectContaining({ id: shifts.id, kept: false, reasons: expect.arrayContaining(['left_to_candidate']) }),
+      expect.objectContaining({ id: cashRegister.id, kept: false, reasons: expect.arrayContaining(['left_to_candidate']) }),
       expect.objectContaining({ id: employee.id, kept: false, reasons: expect.arrayContaining(['not_yes_or_no']) }),
     ]);
     // A stored decision tampered into a marketing yes is not projected.
@@ -246,34 +281,34 @@ describe('the engine at draft time', () => {
 
   it('keeps the draft unchanged when the model fails', async () => {
     const codex = async () => { throw new Error('broker down'); };
-    const result = await draftDecisionAnswers({ questions: [shifts], cvText: CV, codex });
+    const result = await draftDecisionAnswers({ questions: [cashRegister], cvText: CV, codex });
     expect(result).toMatchObject({ asked: [], kept: [] });
-    expect(result.questions[0]).toBe(shifts);
+    expect(result.questions[0]).toBe(cashRegister);
   });
 });
 
 describe('the engine in the run, before asking the candidate', () => {
   it('decides the live required controls, which the planner then fills by their label', async () => {
-    const shiftsLive = { id: 'portal_shift', question: 'Sei disponibile a lavorare a turni?', applicationQuestion: 'Sind Sie bereit, im Schichtbetrieb zu arbeiten?', type: 'choice', options: ['Sì', 'No'], applicationOptions: ['Ja', 'Nein'] };
+    const cashLive = { id: 'portal_cash', question: 'Sei disponibile a gestire la cassa?', applicationQuestion: 'Sind Sie bereit, Kassenverantwortung zu übernehmen?', type: 'choice', options: ['Sì', 'No'], applicationOptions: ['Ja', 'Nein'] };
     const ahvLive = { id: 'portal_ahv', question: 'Numero AVS', applicationQuestion: 'AHV-Nummer', type: 'text' };
     const textLive = { id: 'portal_text', question: 'Perché questa posizione?', applicationQuestion: 'Warum diese Stelle?', type: 'text' };
     const prompts: string[] = [];
     const codex = async ({ prompt }: { prompt: string }) => {
       prompts.push(prompt);
-      return { decisions: [{ id: shiftsLive.id, decision: 'answer', value: 'Ja', principle: 'application_success', category: '', reason: 'Availability.' }] };
+      return { decisions: [{ id: cashLive.id, decision: 'answer', value: 'Ja', principle: 'application_success', category: '', reason: 'Suitability.' }] };
     };
     const { platformFacts } = candidateWithEdits({ order, draft: draftOf([]), flow: {} });
     const candidate = { platformFacts, profile: { headline: 'Impiegata di commercio', experience: [{ role: 'Impiegata', employer: 'Gamma Servizi SA' }] }, job: { company: 'Stadt Zürich', title: 'Sachbearbeiterin' }, identity: { email: 'x@example.test' } };
-    const engine = await decideLiveQuestions({ questions: [shiftsLive, ahvLive, textLive], candidate, codex });
+    const engine = await decideLiveQuestions({ questions: [cashLive, ahvLive, textLive], candidate, codex });
     // Free text needs the CV's text to be checked: not in the run. AHV stays with the candidate.
     expect(prompts).toHaveLength(1);
-    expect(prompts[0]).toContain('portal_shift');
+    expect(prompts[0]).toContain('portal_cash');
     expect(prompts[0]).not.toContain('portal_ahv');
     expect(prompts[0]).not.toContain('portal_text');
     expect(prompts[0]).not.toContain('x@example.test');
-    expect(engine.ids).toEqual([shiftsLive.id]);
+    expect(engine.ids).toEqual([cashLive.id]);
     const facts = { ...platformFacts, decisionAnswers: engine.decided };
-    const field = { label: 'Sind Sie bereit, im Schichtbetrieb zu arbeiten? *', kind: 'radio', required: true, options: [{ label: 'Ja', value: 'Y' }, { label: 'Nein', value: 'N' }] };
+    const field = { label: 'Sind Sie bereit, Kassenverantwortung zu übernehmen? *', kind: 'radio', required: true, options: [{ label: 'Ja', value: 'Y' }, { label: 'Nein', value: 'N' }] };
     expect(operationalDefaultAnswer(field, { facts })).toMatchObject({ value: 'Ja', origin: 'platform_decision' });
     expect(candidateAnswerForField({ platformFacts: facts, answers: {}, profile: {}, identity: {} }, field)).toMatchObject({ value: 'Ja', source: 'policy_default' });
     expect(isOperationalDefaultValue(field, 'Ja', { facts })).toBe(true);
@@ -282,7 +317,7 @@ describe('the engine in the run, before asking the candidate', () => {
   });
 
   it('does nothing without the model or the platform facts', async () => {
-    const question = { id: 'q', question: 'Sind Sie bereit, im Schichtbetrieb zu arbeiten?', type: 'yes_no' };
+    const question = { id: 'q', question: 'Sind Sie bereit, Kassenverantwortung zu übernehmen?', type: 'yes_no' };
     expect(await decideLiveQuestions({ questions: [question], candidate: { platformFacts: {} }, codex: null })).toMatchObject({ ids: [] });
     expect(await decideLiveQuestions({ questions: [question], candidate: {}, codex: async () => ({ decisions: [] }) })).toMatchObject({ ids: [] });
   });
