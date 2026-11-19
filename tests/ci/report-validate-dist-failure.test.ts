@@ -114,6 +114,22 @@ describe('parseGateLines — righe ❌ FAIL dal log BFS reale', () => {
     expect(failedGates.some((g) => g.gate === 'audit:orphan-sitemap-pages')).toBe(false);
     expect(summaryLines).toContain('BFS-chain summary: 1 passed, 1 failed');
   });
+
+  it('accetta il suffisso `s` emesso dal publisher fast gate', () => {
+    const log = [
+      '❌ FAIL publisher-fast-gate 49.80s rc=1',
+      '✅ PASS source-artifacts 1.25s rc=0',
+    ].join('\n');
+
+    const { failedGates, passedGates } = parseGateLines(log);
+    expect(failedGates).toEqual([{
+      gate: 'publisher-fast-gate',
+      seconds: 49.8,
+      rc: 1,
+      line: '❌ FAIL publisher-fast-gate 49.80s rc=1',
+    }]);
+    expect(passedGates).toContain('source-artifacts');
+  });
 });
 
 describe('extractStepExcerpt — ultime righe utili, senza dump env', () => {
