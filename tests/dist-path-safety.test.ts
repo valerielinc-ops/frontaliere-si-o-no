@@ -11,7 +11,7 @@ import {
   MAX_FILESYSTEM_SEGMENT_BYTES,
   writeDistPageSafely,
 } from '../build-plugins/shared/distPathSafety';
-import { assertRetainedBridgeMissingBudget, classifyRetainedNotEmitted, isRetainedBridgeOwnedBy, isRetainedBridgePathSafeToEmit } from '../build-plugins/shared/jobCanonBridgePaths';
+import { classifyRetainedNotEmitted, isRetainedBridgeOwnedBy, isRetainedBridgePathSafeToEmit } from '../build-plugins/shared/jobCanonBridgePaths';
 import {
   claim,
   getJobAliasRedirectDirs,
@@ -418,26 +418,7 @@ describe('raw URL-to-dist writers apply the guard before filesystem joins', () =
   });
 });
 
-describe('assertRetainedBridgeMissingBudget', () => {
-  it('accepts gaps within max(25, 1%) of the retained bridges', () => {
-    expect(() => assertRetainedBridgeMissingBudget(0, 0)).not.toThrow();
-    expect(() => assertRetainedBridgeMissingBudget(25, 100)).not.toThrow();
-    expect(() => assertRetainedBridgeMissingBudget(48, 4800)).not.toThrow();
-  });
-
-  it('rejects a systemic gap and reports the numbers', () => {
-    expect(() => assertRetainedBridgeMissingBudget(26, 100)).toThrow(/missing=26.*budget=25/);
-    expect(() => assertRetainedBridgeMissingBudget(49, 4800)).toThrow(/missing=49.*budget=48/);
-  });
-});
-
-describe('retained bridge budget denominator and ownership classification', () => {
-  it('uses only the eligible retained total: 26 missing of 100 eligible exceeds budget=25', () => {
-    // Retained bridges of locales excluded by shouldEmitLocale() must not be passed as the total.
-    expect(() => assertRetainedBridgeMissingBudget(26, 100)).toThrow(/budget=25/);
-    expect(() => assertRetainedBridgeMissingBudget(26, 10_100)).not.toThrow();
-  });
-
+describe('retained bridge ownership classification', () => {
   it('counts an existing but unclaimed file as missing, never as owned elsewhere', () => {
     const results = Array.from({ length: 26 }, () => classifyRetainedNotEmitted({ claimed: false, ownedBeforePlan: false, exists: true }));
     expect(results.filter((r) => r.kind === 'missing')).toHaveLength(26);

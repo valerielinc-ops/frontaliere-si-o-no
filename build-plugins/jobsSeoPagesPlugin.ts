@@ -264,7 +264,6 @@ import {
  reconcileFinalWorkerSlugMapRows,
  assertBridgePathClassificationCoverage,
  assertBridgePathDistCoverage,
- assertRetainedBridgeMissingBudget,
  classifyRetainedNotEmitted,
  isPlannedJobCanonBridgeOwner,
  isRetainedBridgePathSafeToEmit,
@@ -17854,8 +17853,10 @@ ${staticAnalyticsHtml}
    };
   }
  })();
- // Full content check only for bridges an emitter accepted. A planned bridge nobody emitted is
- // either served by another page (owned elsewhere) or absent: telemetry + budget, not a throw.
+ // Check every planned keepBridge path, including paths no emitter accepted.
+ // Presence alone is not enough: the dist gate verifies noindex, the exact
+ // target slug and canonical on each retained output, and fails if a path is
+ // absent or owned by unrelated HTML.
  const retainedBridgeOutputs: Array<{
   indexPath: string;
   targetPath: string;
@@ -17874,15 +17875,15 @@ ${staticAnalyticsHtml}
   const targets = getSafeDistPageTargets(distDir, bridge.path, { includeFlat: false });
   if (!targets) throw new Error(`[job-alias-redirect-gate] retained bridge path is not a safe dist target (locale=${bridge.locale} path=${bridge.path})`);
   retainedEligibleTotal++;
+  retainedBridgeOutputs.push({
+   indexPath: targets.indexPath,
+   targetPath: `${BASE_URL}${bridge.targetPath}`,
+   locale: bridge.locale,
+   path: bridge.path,
+   kind: bridge.kind,
+   sourceJobIdentifier: bridge.sourceJobIdentifier,
+  });
   if (emittedRetainedBridgeKeys.has(bridgePathKey(bridge.locale, bridge.path))) {
-   retainedBridgeOutputs.push({
-    indexPath: targets.indexPath,
-    targetPath: `${BASE_URL}${bridge.targetPath}`,
-    locale: bridge.locale,
-    path: bridge.path,
-    kind: bridge.kind,
-    sourceJobIdentifier: bridge.sourceJobIdentifier,
-   });
    continue;
   }
   retainedNotEmittedByLocale[bridge.locale] = (retainedNotEmittedByLocale[bridge.locale] ?? 0) + 1;
@@ -17920,7 +17921,6 @@ ${staticAnalyticsHtml}
    + `examples=${JSON.stringify(retainedNotEmittedExamples)}`,
   );
  }
- assertRetainedBridgeMissingBudget(retainedUnemittedMissing, retainedEligibleTotal);
  const bridgeDistCoverage = assertBridgePathDistCoverage(
   removableBridgeOutputs,
   retainedBridgeOutputs,
