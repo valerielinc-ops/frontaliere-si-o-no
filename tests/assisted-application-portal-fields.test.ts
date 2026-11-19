@@ -2032,7 +2032,7 @@ describe('portal field extraction', () => {
     const page = extract(`
       <form>
         <label for="permit">Do you hold a valid work permit for Switzerland? (erforderlich)</label>
-        <input id="permit" type="text" role="combobox" aria-controls="popup permit-list" aria-owns="permit-list">
+        <input id="permit" type="text" role="combobox" aria-controls="popup" aria-owns="popup permit-list">
         <div id="popup"></div><ul id="permit-list" role="listbox"></ul>
         <label for="optional">Optional source</label>
         <input id="optional" type="text" role="combobox" aria-controls="optional-list">
@@ -2057,7 +2057,7 @@ describe('portal field extraction', () => {
     const url = 'https://careers.example.ch/careers';
     const html = `<form>
       <label for="permit" data-required>Do you hold a valid work permit for Switzerland?</label>
-      <input id="permit" type="text" role="combobox" aria-controls="popup permit-list" aria-owns="permit-list">
+      <input id="permit" type="text" role="combobox" aria-controls="popup" aria-owns="popup permit-list">
       <div id="popup"></div><ul id="permit-list" role="listbox"></ul>
     </form>`;
     extract(html, url);

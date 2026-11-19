@@ -109,14 +109,11 @@ function nativeQuestionText(value, counter = null) {
   const ownedListFor = (element) => {
     const owns = idRefs(element.getAttribute('aria-owns'));
     const controls = idRefs(element.getAttribute('aria-controls'));
-    // A control may name a popup and its listbox in aria-controls while
-    // repeating the listbox in aria-owns. Prefer a shared reference, then
-    // controls, then owns; the role, not attribute order, identifies the
+    // Resolve every ARIA IDREF. A shared popup wrapper must not hide a
+    // separate listbox named only in aria-owns; the role identifies the
     // effective option list.
-    const shared = controls.filter((id) => owns.includes(id));
-    const refs = [...new Set([...shared, ...controls, ...owns])];
-    const prioritizedRefs = shared.length ? shared : refs;
-    const nodes = prioritizedRefs.map((id) => document.getElementById(id)).filter(Boolean);
+    const refs = [...new Set([...controls, ...owns])];
+    const nodes = refs.map((id) => document.getElementById(id)).filter(Boolean);
     const listboxes = [...new Set(nodes.flatMap((node) => [
       ...(node.getAttribute('role')?.toLowerCase() === 'listbox' ? [node] : []),
       ...node.querySelectorAll('[role="listbox"]'),

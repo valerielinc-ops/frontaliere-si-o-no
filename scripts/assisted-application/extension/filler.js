@@ -1471,14 +1471,11 @@
     const idRefs = (value) => String(value || '').trim().split(/\s+/).filter(Boolean);
     const owns = idRefs(input.getAttribute('aria-owns'));
     const controls = idRefs(input.getAttribute('aria-controls'));
-    // Resolve both ARIA IDREF attributes once. SuccessFactors may expose a
-    // popup plus the real listbox in aria-controls and repeat only the latter
-    // in aria-owns; the role identifies the target both for classification and
-    // for option reads.
-    const shared = controls.filter((id) => owns.includes(id));
-    const refs = [...new Set([...shared, ...controls, ...owns])];
-    const prioritizedRefs = shared.length ? shared : refs;
-    const nodes = prioritizedRefs.map((id) => doc.getElementById(id)).filter(Boolean);
+    // Resolve every ARIA IDREF. A shared popup wrapper must not hide a
+    // separate listbox named only in aria-owns; the role identifies the
+    // effective target for both classification and option reads.
+    const refs = [...new Set([...controls, ...owns])];
+    const nodes = refs.map((id) => doc.getElementById(id)).filter(Boolean);
     const listboxes = [...new Set(nodes.flatMap((node) => [
       ...(node.getAttribute('role')?.toLowerCase() === 'listbox' ? [node] : []),
       ...node.querySelectorAll('[role="listbox"]'),
