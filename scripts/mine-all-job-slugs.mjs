@@ -880,65 +880,65 @@ async function main() {
   // if the registry writer fails before compat shards are committed.
   try {
     if (!DRY_RUN) {
-    assertCompatFloor(preparedCompat.previousTotalPaths, preparedCompat.totalPaths, { label: compatFile });
-    // Size guard: GitHub rejects files ≥ 100 MiB (~104 MB). Two-tier prune.
-    // All consumers use JSON.parse() so compact JSON (no indent) is fine.
-    //
-    // Tier 1 — remove `_gitOnly` entries (removed slugs from git history, lowest
-    //   signal: not present in any live data source). These are marked at first-add
-    //   time and are the first to drop when the file grows.
-    // Tier 2 — if tier 1 alone is insufficient (e.g. 0 _gitOnly entries remain after
-    //   previous runs already pruned them), remove entries NOT seen from any high-value
-    //   primary source in *this run* (active/expired jobs, slug registry, orphan data,
-    //   fuzzy-matched orphans). These are "compat-path echoes" — slugs that were mined
-    //   FROM the compat file itself and never (re)appeared in primary data. Pruning
-    //   them from tracking drops their soft-landing pages but their compat-paths remain,
-    //   so 404 compat redirects are preserved until prune-404-compat-paths.ts cleans up.
-    // The registry is sharded (#4248), so GitHub's ~100 MiB limit applies to
-    // each `data/all-known-job-slugs/part-NN.json`, not to the whole registry.
-    // The invariant this guard enforces is unchanged — "no blob may approach
-    // 100 MiB" — but the budget it translates to is now per-shard × shard count
-    // instead of one file. The two-tier prune below is DESTRUCTIVE (it drops
-    // historical slugs from an accumulator nothing can rebuild), so it must fire
-    // only when a shard would genuinely be unpushable: with the monolith it was
-    // firing on every run at 116 MB, silently deleting slugs to buy headroom the
-    // split now provides structurally.
-    const SIZE_CAP = 95 * 1024 * 1024 * KNOWN_SLUGS_SHARD_COUNT; // 95 MiB per shard
-    let serializedLength = measureSerializedJsonObjectLength(tracking);
-    if (serializedLength > SIZE_CAP && incompleteSources.size > 0) {
-      console.warn(
-        `  ⚠️  Skipping destructive size pruning because mining was incomplete: ${[...incompleteSources].join(', ')}`,
-      );
-    } else if (serializedLength > SIZE_CAP) {
-      const preMB = (serializedLength / 1e6).toFixed(1);
+      assertCompatFloor(preparedCompat.previousTotalPaths, preparedCompat.totalPaths, { label: compatFile });
+      // Size guard: GitHub rejects files ≥ 100 MiB (~104 MB). Two-tier prune.
+      // All consumers use JSON.parse() so compact JSON (no indent) is fine.
+      //
+      // Tier 1 — remove `_gitOnly` entries (removed slugs from git history, lowest
+      //   signal: not present in any live data source). These are marked at first-add
+      //   time and are the first to drop when the file grows.
+      // Tier 2 — if tier 1 alone is insufficient (e.g. 0 _gitOnly entries remain after
+      //   previous runs already pruned them), remove entries NOT seen from any high-value
+      //   primary source in *this run* (active/expired jobs, slug registry, orphan data,
+      //   fuzzy-matched orphans). These are "compat-path echoes" — slugs that were mined
+      //   FROM the compat file itself and never (re)appeared in primary data. Pruning
+      //   them from tracking drops their soft-landing pages but their compat-paths remain,
+      //   so 404 compat redirects are preserved until prune-404-compat-paths.ts cleans up.
+      // The registry is sharded (#4248), so GitHub's ~100 MiB limit applies to
+      // each `data/all-known-job-slugs/part-NN.json`, not to the whole registry.
+      // The invariant this guard enforces is unchanged — "no blob may approach
+      // 100 MiB" — but the budget it translates to is now per-shard × shard count
+      // instead of one file. The two-tier prune below is DESTRUCTIVE (it drops
+      // historical slugs from an accumulator nothing can rebuild), so it must fire
+      // only when a shard would genuinely be unpushable: with the monolith it was
+      // firing on every run at 116 MB, silently deleting slugs to buy headroom the
+      // split now provides structurally.
+      const SIZE_CAP = 95 * 1024 * 1024 * KNOWN_SLUGS_SHARD_COUNT; // 95 MiB per shard
+      let serializedLength = measureSerializedJsonObjectLength(tracking);
+      if (serializedLength > SIZE_CAP && incompleteSources.size > 0) {
+        console.warn(
+          `  ⚠️  Skipping destructive size pruning because mining was incomplete: ${[...incompleteSources].join(', ')}`,
+        );
+      } else if (serializedLength > SIZE_CAP) {
+        const preMB = (serializedLength / 1e6).toFixed(1);
 
-      // Tier 1: prune git-history-only entries
-      let pruned1 = 0;
-      for (const slug of Object.keys(tracking)) {
-        if (tracking[slug]?._gitOnly === true) {
-          delete tracking[slug];
-          pruned1++;
-        }
-      }
-      if (pruned1 > 0) serializedLength = measureSerializedJsonObjectLength(tracking);
-      console.log(`\n  ✂️  Size cap tier 1: pruned ${pruned1} git-history-only entries (${preMB} MB → ${(serializedLength / 1e6).toFixed(1)} MB)`);
-
-      // Tier 2: if still over cap, prune compat-path-only echoes
-      if (serializedLength > SIZE_CAP) {
-        let pruned2 = 0;
+        // Tier 1: prune git-history-only entries
+        let pruned1 = 0;
         for (const slug of Object.keys(tracking)) {
-          if (!highValueSlugs.has(slug)) {
+          if (tracking[slug]?._gitOnly === true) {
             delete tracking[slug];
-            pruned2++;
+            pruned1++;
           }
         }
-        serializedLength = measureSerializedJsonObjectLength(tracking);
-        console.log(`  ✂️  Size cap tier 2: pruned ${pruned2} compat-path-only entries (→ ${(serializedLength / 1e6).toFixed(1)} MB)`);
+        if (pruned1 > 0) serializedLength = measureSerializedJsonObjectLength(tracking);
+        console.log(`\n  ✂️  Size cap tier 1: pruned ${pruned1} git-history-only entries (${preMB} MB → ${(serializedLength / 1e6).toFixed(1)} MB)`);
+
+        // Tier 2: if still over cap, prune compat-path-only echoes
         if (serializedLength > SIZE_CAP) {
-          console.warn(`  ⚠️  Still over ${(SIZE_CAP / 1e6).toFixed(0)} MB after two-tier prune — high-value sources are the growth driver`);
+          let pruned2 = 0;
+          for (const slug of Object.keys(tracking)) {
+            if (!highValueSlugs.has(slug)) {
+              delete tracking[slug];
+              pruned2++;
+            }
+          }
+          serializedLength = measureSerializedJsonObjectLength(tracking);
+          console.log(`  ✂️  Size cap tier 2: pruned ${pruned2} compat-path-only entries (→ ${(serializedLength / 1e6).toFixed(1)} MB)`);
+          if (serializedLength > SIZE_CAP) {
+            console.warn(`  ⚠️  Still over ${(SIZE_CAP / 1e6).toFixed(0)} MB after two-tier prune — high-value sources are the growth driver`);
+          }
         }
       }
-    }
       writeAllKnownJobSlugs(tracking, ROOT);
       preparedCompat.commit(new Date().toISOString().split('T')[0]);
       console.log('\n  ✅ Files written');
