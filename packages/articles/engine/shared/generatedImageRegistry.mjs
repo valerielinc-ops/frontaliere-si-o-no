@@ -464,13 +464,8 @@ export function validateGeneratedImageRecord(record, { allowLegacyVision = false
     && !Object.hasOwn(record.vision, 'contains_recognizable_foreground_person')
     && Array.isArray(record.restrictions)
     && record.restrictions.includes('no-real-recognizable-foreground-person');
-  const foregroundPersonError = allowLegacyVision
-    ? (isPhoto
-      ? record.vision?.contains_recognizable_foreground_person !== false
-      : !legacyForegroundPersonSafe && record.vision?.contains_recognizable_foreground_person !== false)
-    : (isPhoto && record.scope === 'article-hero'
-      ? record.vision?.contains_recognizable_foreground_person !== false
-      : false);
+  const foregroundPersonError = !legacyForegroundPersonSafe
+    && record.vision?.contains_recognizable_foreground_person !== false;
   if (!isPrivateGrant && (!isRecord(record.vision)
     || record.vision.ok !== true
     || record.vision.contains_logo !== false

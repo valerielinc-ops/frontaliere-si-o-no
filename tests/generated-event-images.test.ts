@@ -3,12 +3,14 @@ import {
   buildGeneratedImagePrompt,
   GENERATED_IMAGE_PROMPT_VERSION,
   GENERATED_IMAGE_RESTRICTIONS,
+  LICENSED_PHOTO_KIND,
   LICENSED_PHOTO_RESTRICTIONS,
   legacyVisionAssetIdsForRegistry,
   validateGeneratedImageRegistry,
   validateGeneratedImageRecord,
   verifyPublishedEventImages,
 } from '../packages/articles/engine/shared/generatedImageRegistry.mjs';
+import { imageVisionRejected } from '../packages/articles/engine/shared/generatedImageVision.mjs';
 import {
   assignEventImageAsset,
   eventImageLibrarySlots,
@@ -43,6 +45,7 @@ const RECORD = {
     contains_text: false,
     contains_logo: false,
     contains_recognizable_face: false,
+    contains_recognizable_foreground_person: false,
     looks_like_specific_real_event: false,
     is_photograph: false,
     notes: 'safe fixture',
@@ -86,6 +89,7 @@ const PHOTO_RECORD = {
     contains_text: true,
     contains_logo: false,
     contains_recognizable_face: false,
+    contains_recognizable_foreground_person: false,
     looks_like_specific_real_event: false,
     is_photograph: true,
     notes: 'safe licensed landscape fixture',
@@ -120,6 +124,31 @@ describe('generated event image policy', () => {
     expect(prompt).toContain('never a documentary or journalistic photograph');
   });
 
+  it('rejects foreground people and incomplete foreground-person verdicts for every image scope', () => {
+    const completeGeneratedVerdict = {
+      ok: true,
+      contains_text: false,
+      contains_logo: false,
+      contains_recognizable_face: false,
+      contains_recognizable_foreground_person: false,
+      looks_like_specific_real_event: false,
+      is_photograph: false,
+      is_topic_relevant: true,
+      notes: 'safe generated fixture',
+    };
+    expect(imageVisionRejected({
+      ...completeGeneratedVerdict,
+      contains_recognizable_foreground_person: true,
+    }, { scope: 'article-hero' })).toBe(true);
+
+    const incompletePhotoVerdict = { ...PHOTO_RECORD.vision };
+    delete incompletePhotoVerdict.contains_recognizable_foreground_person;
+    expect(imageVisionRejected(incompletePhotoVerdict, {
+      kind: LICENSED_PHOTO_KIND,
+      scope: 'event-library',
+    })).toBe(true);
+  });
+
   it('validates a complete generated record and rejects a stale path', () => {
     expect(validateGeneratedImageRecord(RECORD).valid).toBe(true);
     expect(validateGeneratedImageRecord(ARTICLE_RECORD).valid).toBe(true);
@@ -130,22 +159,36 @@ describe('generated event image policy', () => {
   });
 
   it('keeps the legacy foreground-person exception versioned, listed, and generated-only', () => {
+    const legacyRecord = {
+      ...ARTICLE_RECORD,
+      vision: { ...ARTICLE_RECORD.vision },
+    };
+    delete legacyRecord.vision.contains_recognizable_foreground_person;
     const registry = {
       schema: 1,
       assetCount: 1,
-      legacyVision: { schema: 0, assetIds: [ARTICLE_RECORD.assetId, ARTICLE_RECORD.assetId] },
-      assets: [ARTICLE_RECORD],
+      legacyVision: { schema: 0, assetIds: [legacyRecord.assetId, legacyRecord.assetId] },
+      assets: [legacyRecord],
     };
     const legacyIds = legacyVisionAssetIdsForRegistry(registry);
 
-    expect(legacyIds).toEqual([ARTICLE_RECORD.assetId]);
-    expect(validateGeneratedImageRecord(ARTICLE_RECORD, {
+    expect(legacyIds).toEqual([legacyRecord.assetId]);
+    expect(validateGeneratedImageRecord(legacyRecord).valid).toBe(false);
+    expect(validateGeneratedImageRegistry(registry).valid).toBe(false);
+    expect(validateGeneratedImageRecord(legacyRecord, {
       allowLegacyVision: true,
       legacyVisionAssetIds: legacyIds,
     }).valid).toBe(true);
     expect(validateGeneratedImageRegistry(registry, { allowLegacyVision: true }).valid).toBe(true);
 
-    expect(validateGeneratedImageRecord(ARTICLE_RECORD, {
+    expect(validateGeneratedImageRecord({
+      ...legacyRecord,
+      vision: { ...legacyRecord.vision, contains_recognizable_foreground_person: true },
+    }, {
+      allowLegacyVision: true,
+      legacyVisionAssetIds: legacyIds,
+    }).valid).toBe(false);
+    expect(validateGeneratedImageRecord(legacyRecord, {
       allowLegacyVision: true,
       legacyVisionAssetIds: [],
     }).valid).toBe(false);
@@ -154,8 +197,8 @@ describe('generated event image policy', () => {
       legacyVision: { schema: 1, assetIds: [ARTICLE_RECORD.assetId] },
     }, { allowLegacyVision: true }).valid).toBe(false);
     expect(validateGeneratedImageRecord({
-      ...ARTICLE_RECORD,
-      restrictions: ARTICLE_RECORD.restrictions.filter((item) => item !== 'no-real-recognizable-foreground-person'),
+      ...legacyRecord,
+      restrictions: legacyRecord.restrictions.filter((item) => item !== 'no-real-recognizable-foreground-person'),
     }, {
       allowLegacyVision: true,
       legacyVisionAssetIds: legacyIds,
@@ -172,6 +215,7 @@ describe('generated event image policy', () => {
         is_topic_relevant: true,
       },
     };
+    delete legacyPhoto.vision.contains_recognizable_foreground_person;
     expect(validateGeneratedImageRecord(legacyPhoto, {
       allowLegacyVision: true,
       legacyVisionAssetIds: [legacyPhoto.assetId],
