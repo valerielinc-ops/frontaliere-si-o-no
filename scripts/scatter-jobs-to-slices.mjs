@@ -889,12 +889,15 @@ export function collectMissingAssembledBridges(sliceJob, assembled, { skipBridge
   if (headroom === 0) return [];
 
   // `addPreviousSlugForLocale` also caps each locale bucket at 20. A flat
-  // union can still have room while a particular locale bucket is full; in
-  // that case adding a missing attributed bridge would evict an older slice
-  // bridge and make every subsequent run rotate the same capped set. Preserve
-  // the committed bucket and fall back to the wider, provenance-unknown flat
-  // bridge instead. This keeps the URL reachable without inventing a
-  // locale-bucket eviction.
+  // union can still have room while a particular locale bucket is full. New
+  // assembled history must not evict an unrelated committed locale bridge in
+  // that case, so it falls back to the wider, provenance-unknown flat field.
+  // A bridge that is already served by this slice is different: leaving it in
+  // the flat field (or under another locale) still fails parity because the
+  // assembled side has authoritative locale provenance. Reattribute that
+  // existing bridge even when the destination bucket is full; the bounded
+  // locale helper rotates only that bucket while the flat union keeps the
+  // route reachable.
   const localeHeadroom = new Map(LOCALES.map((locale) => {
     const bucket = Array.isArray(existingByLocale[locale]) ? existingByLocale[locale] : [];
     return [locale, Math.max(0, DEFAULT_PREV_SLUG_CAP - bucket.length)];
@@ -940,9 +943,14 @@ export function collectMissingAssembledBridges(sliceJob, assembled, { skipBridge
         const consumesHeadroom = !known.has(v);
         if (consumesHeadroom && adds.filter((a) => !a._free).length >= headroom) continue;
         const hasLocaleRoom = (localeHeadroom.get(locale) || 0) > 0;
-        if (!hasLocaleRoom && !consumesHeadroom) continue;
+        const reattributeExistingBridge = !hasLocaleRoom && !consumesHeadroom;
+        if (!hasLocaleRoom && !reattributeExistingBridge && consumesHeadroom) continue;
         seen.add(dedupKey);
-        adds.push({ locale: hasLocaleRoom ? locale : null, slug: v, _free: !consumesHeadroom });
+        adds.push({
+          locale: hasLocaleRoom || reattributeExistingBridge ? locale : null,
+          slug: v,
+          _free: !consumesHeadroom,
+        });
         if (hasLocaleRoom) localeHeadroom.set(locale, localeHeadroom.get(locale) - 1);
         if (consumesHeadroom) known.add(v);
       }
