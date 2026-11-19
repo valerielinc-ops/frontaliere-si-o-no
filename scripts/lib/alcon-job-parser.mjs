@@ -17,8 +17,8 @@
  *
  * Location text format: `Fribourg - ASSA` (Alcon Swiss Standard Address —
  * a Schönbühl manufacturing complex), `Fribourg, Switzerland`, or rollups
- * like `2 Locations`. We split on " - " / "," and pick the first city-like
- * segment; fall back to Fribourg.
+ * like `2 Locations`. We split on a spaced qualifier dash / comma and pick
+ * the first city-like segment; hyphens inside locality names stay intact.
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllAlconJobs() — Fetch and parse all Swiss jobs
@@ -83,8 +83,9 @@ function cleanAlconLocation(raw = '') {
   if (/\d+\s+location/i.test(trimmed)) return '';
   // Strip "Switzerland" suffix
   const noSuffix = trimmed.replace(/,?\s*(switzerland|schweiz|suisse|svizzera)\s*$/i, '').trim();
-  // Split on either " - " or ","
-  const parts = noSuffix.split(/\s*[-,]\s*/).map((p) => p.trim()).filter(Boolean);
+  // Split only on a comma or a dash used as a spaced qualifier separator;
+  // locality names such as `Yverdon-les-Bains` must stay intact.
+  const parts = noSuffix.split(/\s*,\s*|\s+[-–—]\s+/).map((p) => p.trim()).filter(Boolean);
   if (parts.length === 0) return '';
   // Prefer the first part the BFS matcher recognises as a Swiss municipality.
   for (const p of parts) {
