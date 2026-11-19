@@ -4,19 +4,19 @@
   "generatorSha256": "340371d083e0836e23b2f39df8dea876d32c7a1ec690a1afeb2dffbf7761c79c",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "76059d113271a7c93c722da7d011597492a471a4",
-  "sourceCommitVerified": true,
+  "sourceCommit": "cbb74087d4a6c49e6c5fbc67b41d1500a9644850",
+  "sourceCommitVerified": false,
   "artifactObservation": {
     "generatorSha256": "340371d083e0836e23b2f39df8dea876d32c7a1ec690a1afeb2dffbf7761c79c",
     "sourceRef": "main",
-    "sourceCommit": "76059d113271a7c93c722da7d011597492a471a4"
+    "sourceCommit": "cbb74087d4a6c49e6c5fbc67b41d1500a9644850"
   },
   "groupCount": 25,
   "artifactCount": 26,
   "observerCount": 8,
   "crawlerCount": 711,
   "crawlerRosterCardinality": {
-    "sourceCommit": "76059d113271a7c93c722da7d011597492a471a4",
+    "sourceCommit": "cbb74087d4a6c49e6c5fbc67b41d1500a9644850",
     "groupCount": 25,
     "artifactCount": 26,
     "crawlerCount": 711
@@ -1679,7 +1679,7 @@
       "file": "translate-pending.yml",
       "sourceLogic": "translate-pending-logic.yml",
       "sourceSha256": "073b1ddc593831a1633492ee0af2677c253099cc56cec56bf3cf72ed50b417b2",
-      "artifactSha256": "5c40b6879b0825ec57c8a267a23c78639b7db0f84f53cd0d23e2cf669d8a2807",
+      "artifactSha256": "39b2dfcb2e44e68f63df737d756171a596e5fc8404854c3c61ecf5c735bc84ca",
       "generatorSha256": "340371d083e0836e23b2f39df8dea876d32c7a1ec690a1afeb2dffbf7761c79c",
       "members": []
     }

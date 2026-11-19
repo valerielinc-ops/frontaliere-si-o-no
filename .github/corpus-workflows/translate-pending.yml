@@ -603,7 +603,7 @@ jobs:
           printf 'max=%s\n' "$prepass_max" >> "$GITHUB_OUTPUT"
           node scripts/fix-untranslated-descriptions.mjs --stale-only --max "$prepass_max"
       - name: Report stale-description prepass outcome
-        if: always() && steps.repair_stale_descriptions.outcome != 'skipped'
+        if: always() && steps.repair_stale_descriptions.outcome != 'skipped' && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         env:
           PREPASS_OUTCOME: ${{ steps.repair_stale_descriptions.outcome }}
           PREPASS_MAX: ${{ steps.repair_stale_descriptions.outputs.max }}
@@ -1080,7 +1080,7 @@ jobs:
           SKIP_AI_TRANSLATION: "1"
         run: bash scripts/lib/git-commit-data.sh --slice-only "⚠️ Release translation deploy fallback after failed phase" data/translation-deploy-handoff.json
       - name: Report failure to GitHub Issues
-        if: always() && (failure() || steps.repair_stale_descriptions.outcome == 'failure') && (steps.site_checkout_primary.outcome == 'success' || steps.site_checkout_retry.outcome == 'success')
+        if: failure() && (steps.site_checkout_primary.outcome == 'success' || steps.site_checkout_retry.outcome == 'success')
         uses: ./.github/actions/report-failure
         with:
           title: "Workflow Failure: Translate Pending Jobs (sparse cross-repo execution)"
