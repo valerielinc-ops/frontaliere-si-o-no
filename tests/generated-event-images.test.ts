@@ -6,6 +6,7 @@ import {
   GENERATED_IMAGE_PROVIDERS,
   GENERATED_IMAGE_PROMPT_VERSION,
   GENERATED_IMAGE_RESTRICTIONS,
+  IMAGE_PROVIDERS,
   LICENSED_PHOTO_KIND,
   LICENSED_PHOTO_RESTRICTIONS,
   legacyVisionAssetIdsForRegistry,
@@ -161,6 +162,49 @@ describe('generated event image policy', () => {
     expect(validateGeneratedImageRecord({ ...RECORD, licenseUrl: 'https://example.com/terms' }).valid).toBe(false);
     expect(validateGeneratedImageRegistry({ schema: 1, libraryVersion: '2026-10-06', cdnPrefix: '/images/events/library/', assetCount: 1, assets: [RECORD] }, { scope: 'event-library' }).valid).toBe(true);
     expect(validateGeneratedImageRecord({ ...RECORD, imageUrl: '/images/events/myswitzerland-old.webp' }).valid).toBe(false);
+  });
+
+  it('validates historical Gemini records without reactivating Gemini generation', () => {
+    const legacyGeminiRecord = {
+      ...RECORD,
+      assetId: 'historical-gemini-image',
+      imageUrl: '/images/events/library/historical-gemini-image.webp',
+      provider: 'gemini',
+      model: 'gemini-3.1-flash-image',
+      executorModel: 'gemini-3.1-flash-image',
+      licenseUrl: 'https://ai.google.dev/gemini-api/terms',
+    };
+    const registry = {
+      schema: 1,
+      libraryVersion: '2026-10-06',
+      cdnPrefix: '/images/events/library/',
+      assetCount: 1,
+      assets: [legacyGeminiRecord],
+    };
+
+    expect(GENERATED_IMAGE_PROVIDERS).not.toContain('gemini');
+    expect(IMAGE_PROVIDERS).not.toContain('gemini');
+    expect(validateGeneratedImageRecord(legacyGeminiRecord)).toMatchObject({
+      valid: false,
+      errors: expect.arrayContaining(['provider is not allowed']),
+    });
+    expect(validateGeneratedImageRecordWithRegistry(legacyGeminiRecord, registry)).toEqual({ valid: true, errors: [] });
+    for (const untrustedRegistry of [
+      { schema: 1, assetCount: 0, assets: [] },
+      { ...registry, assetCount: 2 },
+      { ...registry, assets: [{ ...legacyGeminiRecord, credit: 'unrelated record' }] },
+      { ...registry, assets: [{ ...legacyGeminiRecord, assetId: 'another-asset' }] },
+    ]) {
+      expect(validateGeneratedImageRecordWithRegistry(legacyGeminiRecord, untrustedRegistry).errors)
+        .toContain('provider is not allowed');
+    }
+    expect(validateGeneratedImageRegistry(registry, { scope: 'event-library' })).toEqual({ valid: true, errors: [] });
+    const invalidTermsRegistry = {
+      ...registry,
+      assets: [{ ...legacyGeminiRecord, licenseUrl: 'https://example.com/terms' }],
+    };
+    expect(validateGeneratedImageRegistry(invalidTermsRegistry, { scope: 'event-library' }).errors)
+      .toContain('historical-gemini-image: licenseUrl does not match the provider terms');
   });
 
   it('keeps the legacy foreground-person exception versioned, listed, and generated-only', () => {
