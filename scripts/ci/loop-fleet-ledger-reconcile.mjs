@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { hasL9PrivateEvidence, L9_PRIVATE_EVIDENCE } from '../lib/l9-artifact-privacy.mjs';
 import { realpathSync } from 'node:fs';
 
 /**
@@ -153,6 +154,9 @@ export function durableRecordIds(ledgerDir) {
  * incomplete artifacts are reported as unavailable, never as already saved.
  */
 export function missingEvidenceRecordIds(inputDir, ledgerDir, { loopId, runId, sha } = {}) {
+  if (loopId === 'L9' && hasL9PrivateEvidence(inputDir)) {
+    return { ok: false, reason: L9_PRIVATE_EVIDENCE, missing: [] };
+  }
   const summaryFile = findFile(inputDir, 'loop-fleet-evidence.json');
   if (!summaryFile) return { ok: false, reason: 'loop-fleet-evidence.json is missing', missing: [] };
   const summary = parseJson(fs.readFileSync(summaryFile, 'utf8'));

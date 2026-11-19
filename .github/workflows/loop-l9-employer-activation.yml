@@ -111,18 +111,19 @@ jobs:
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
+          umask 077
           if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
             echo 'L9 Firestore export unavailable: FIREBASE_SERVICE_ACCOUNT_JSON is not set; continuing as unmeasurable.' | tee -a "$GITHUB_STEP_SUMMARY"
             exit 0
           fi
           printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/firebase-sa.json"
-          chmod 600 "$RUNNER_TEMP/firebase-sa.json"
           echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/firebase-sa.json" >> "$GITHUB_ENV"
       - name: Export fresh L9 outcomes
         if: github.event_name != 'pull_request'
         run: |
+          umask 077
           set +e
-          node scripts/ci/export-loop-outcomes.mjs --loop L9 --profiles data/employer-profiles.json --out "$RUNNER_TEMP/employer-funnel-outcomes.json"
+          node scripts/ci/export-loop-outcomes.mjs --loop L9 --profiles data/employer-profiles.json --out "$RUNNER_TEMP/employer-funnel-outcomes.json" > "$RUNNER_TEMP/l9-export.log" 2>&1
           export_code=$?
           set -e
           if [ "$export_code" -ne 0 ]; then
@@ -135,7 +136,7 @@ jobs:
           ISSUE_ENABLED: ${{ github.event_name == 'schedule' || github.event_name == 'workflow_run' || inputs.issue == true }}
           REPORT_DIR: ${{ runner.temp }}/loop-fleet-l9
         run: |
-          set -o pipefail
+          umask 077
           mkdir -p "$REPORT_DIR"
           outcomes_path=data/employer-funnel-outcomes.json
           if [ "${{ github.event_name }}" != "pull_request" ]; then outcomes_path="$RUNNER_TEMP/employer-funnel-outcomes.json"; fi
@@ -146,8 +147,8 @@ jobs:
             args+=(--dry-run --strict)
           fi
           set +e
-          node scripts/ci/loop-l9-employer-activation.mjs "${args[@]}" | tee "$REPORT_DIR/cli-output.log" | tee -a "$GITHUB_STEP_SUMMARY"
-          run_code=${PIPESTATUS[0]}
+          node scripts/ci/loop-l9-employer-activation.mjs "${args[@]}" > "$RUNNER_TEMP/l9-audit.log" 2>&1
+          run_code=$?
           set -e
           if [ "$run_code" -ne 0 ] && jq -e '(.issued == true and .ok == false)' "$REPORT_DIR/l9-result.json" >/dev/null 2>&1; then
             echo 'L9 finding persisted; no outreach, price or inventory mutation was performed.' | tee -a "$GITHUB_STEP_SUMMARY"
@@ -160,6 +161,7 @@ jobs:
             && jq -e '(.ok == false and .quality == "zero" and .issueCount == 0 and .issued == false and .outcomeLedgerMissing == false and .safeDraftOnly == true and .profileInventoryComplete == true and .realOutreachSent == false and .inventoryUntouched == true and .subscriptionStateUntouched == true and .pricesUntouched == true)' "$REPORT_DIR/l9-result.json" >/dev/null 2>&1; then
             echo 'L9 employer sample is still empty; paid activation remains unmeasurable while awaiting the first eligible account.' | tee -a "$GITHUB_STEP_SUMMARY"
           elif [ "$run_code" -ne 0 ]; then
+            echo '::error::L9 audit failed.'
             exit "$run_code"
           fi
       - name: Validate runner-local L9 outcome export
@@ -169,17 +171,35 @@ jobs:
           REPORT_DIR: ${{ runner.temp }}/loop-fleet-l9
         run: |
           test -s "$REPORT_DIR/l9-outcome.json"
-          jq -e '(.loopId == "L9" and (.status | type) == "string" and (.independent | type) == "boolean" and (.safeToAct == false) and (.realOutreachSent == false) and (.inventoryUntouched == true) and (.subscriptionStateUntouched == true) and (.pricesUntouched == true) and (.recipientsUntouched == true))' "$REPORT_DIR/l9-outcome.json" >/dev/null
+          jq -e '(.loopId == "L9" and (.status | type) == "string" and (.independent | type) == "boolean" and (.safeToAct == false) and (.realOutreachSent == false) and (.inventoryUntouched == true) and (.subscriptionStateUntouched == true) and (.pricesUntouched == true) and (.recipientsUntouched == true))' "$REPORT_DIR/l9-outcome.json" >/dev/null 2>&1
       - name: Record canonical L9 evidence
         if: ${{ always() && steps.validate_l9_outcome.outcome == 'success' }}
         env:
           REPORT_DIR: ${{ runner.temp }}/loop-fleet-l9
-        run: node scripts/ci/record-loop-fleet-evidence.mjs --loop L9 --report-dir "$REPORT_DIR" --registry data/loop-fleet/loop-registry.json
+        run: |
+          umask 077
+          LOOP_FLEET_LEDGER_DIR='' node scripts/ci/record-loop-fleet-evidence.mjs --loop L9 --report-dir "$REPORT_DIR" --registry data/loop-fleet/loop-registry.json > "$RUNNER_TEMP/l9-evidence.log" 2>&1 || {
+            record_code=$?
+            echo '::error::L9 canonical evidence recording failed.'
+            exit "$record_code"
+          }
       - name: Upload L9 observation and actions
         if: always()
         uses: actions/upload-artifact@v7
         with:
           name: loop-l9-employer-activation-${{ github.run_id }}
-          path: ${{ runner.temp }}/loop-fleet-l9/
+          path: |
+            ${{ runner.temp }}/loop-fleet-l9/l9-observation.json
+            ${{ runner.temp }}/loop-fleet-l9/l9-decision.json
+            ${{ runner.temp }}/loop-fleet-l9/l9-outcome.json
+            ${{ runner.temp }}/loop-fleet-l9/l9-actions.json
+            ${{ runner.temp }}/loop-fleet-l9/l9-result.json
+            ${{ runner.temp }}/loop-fleet-l9/l9-report.md
+            ${{ runner.temp }}/loop-fleet-l9/loop-fleet-evidence.json
+            ${{ runner.temp }}/loop-fleet-l9/loop-fleet-outcome.json
+            ${{ runner.temp }}/loop-fleet-l9/loop-observations.jsonl
+            ${{ runner.temp }}/loop-fleet-l9/loop-decisions.jsonl
+            ${{ runner.temp }}/loop-fleet-l9/loop-health-history.jsonl
+            ${{ runner.temp }}/loop-fleet-l9/lifecycle-events.jsonl
           retention-days: 90
           if-no-files-found: error

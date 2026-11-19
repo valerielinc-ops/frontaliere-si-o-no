@@ -89,6 +89,7 @@ const BLOCK_RE = /<!-- LOOP_STATE:start -->[\s\S]*?<!-- LOOP_STATE:end -->/u;
 const MAX_BODY_LEN = 60000;
 const MAX_REASON_LEN = 500;
 const SCHEDULE_EVENT = 'schedule';
+const REPLACE_LEGACY_ISSUE_BODY_LOOPS = new Set(['L8', 'L9']);
 
 /**
  * Classe normalizzata di un motivo: ciò che resta togliendo quello che cambia
@@ -515,7 +516,7 @@ export async function reportLoopIssue(params = {}, deps = {}) {
         'issue', 'comment', String(existing.number),
         '--body', [
           `${LOOP_STATE_CHANGE_MARKER} Stato cambiato${loopId ? ` (${loopId})` : ''}: ${oneLine(reason) || 'motivo non dichiarato'}`,
-          loopId !== 'L8' && previous?.signature ? `Firma precedente: \`${previous.signature}\`` : '',
+          !REPLACE_LEGACY_ISSUE_BODY_LOOPS.has(loopId) && previous?.signature ? `Firma precedente: \`${previous.signature}\`` : '',
           `Firma corrente: \`${signature}\``,
           state.runUrl ? `Run: ${state.runUrl}` : '',
           description,
@@ -526,7 +527,7 @@ export async function reportLoopIssue(params = {}, deps = {}) {
       persisted = editBody(
         ctx,
         existing.number,
-        upsertLoopStateBlock(loopId === 'L8' ? description : existing.body, { ...state, pinnedByLoopLib: plan.pinnedByLoopLib }),
+        upsertLoopStateBlock(REPLACE_LEGACY_ISSUE_BODY_LOOPS.has(loopId) ? description : existing.body, { ...state, pinnedByLoopLib: plan.pinnedByLoopLib }),
         labelArgs(plan),
       );
     }
@@ -617,7 +618,7 @@ function reconcileCreatedIssue(ctx, number, state, { reopened = false } = {}) {
   return editBody(
     ctx,
     number,
-    upsertLoopStateBlock(state.loopId === 'L8' ? state.reason : issue?.body, { ...state, pinnedByLoopLib: plan.pinnedByLoopLib }),
+    upsertLoopStateBlock(REPLACE_LEGACY_ISSUE_BODY_LOOPS.has(state.loopId) ? state.reason : issue?.body, { ...state, pinnedByLoopLib: plan.pinnedByLoopLib }),
     labelArgs(plan),
   );
 }
@@ -676,11 +677,11 @@ export async function resolveLoopIssue(params = {}, deps = {}) {
       }
       continue;
     }
-    const written = editBody(ctx, issue.number, upsertLoopStateBlock(loopId === 'L8' ? '' : issue.body, {
+    const written = editBody(ctx, issue.number, upsertLoopStateBlock(REPLACE_LEGACY_ISSUE_BODY_LOOPS.has(loopId) ? '' : issue.body, {
       loopId: loopId ?? previous?.loopId ?? null,
       ok: true,
       reason: `verdetto ok (${okStreak} di ${LOOP_OK_STREAK}); la issue resta aperta fino al terzo consecutivo`,
-      signature: loopId === 'L8' ? null : previous?.signature ?? null,
+      signature: REPLACE_LEGACY_ISSUE_BODY_LOOPS.has(loopId) ? null : previous?.signature ?? null,
       okStreak,
       pinnedByLoopLib: plan.pinnedByLoopLib,
       runUrl,

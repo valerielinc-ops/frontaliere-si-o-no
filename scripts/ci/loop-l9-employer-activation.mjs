@@ -23,11 +23,11 @@ import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { LOOP_STATE_AWAITING_SAMPLE, reportLoopIssue, resolveLoopIssue } from '../lib/loop-fleet-issue.mjs';
-import { buildValidatedLoopOutcome } from '../lib/loop-fleet-outcome.mjs';
 import {
   actionClassForPolicy,
   buildDecision,
   buildObservation,
+  buildOutcome,
   loadLoopPolicyForRun,
   validateActionClassAgainstPolicy,
 } from '../lib/loop-fleet-contract.mjs';
@@ -131,7 +131,6 @@ function emptyOutcomeSnapshot(sourcePath, { missing = true } = {}) {
     renewals: null,
     freeProfiles: null,
     sponsoredProfiles: null,
-    mrrRecognizedChf: null,
   };
 }
 
@@ -167,8 +166,8 @@ function profileCandidate(profile, actionClass = null) {
     companyKey: profile.companyKey,
     employerName: profile.name,
     activeJobs: profile.activeJobs,
-    topCantons: profile.cantons.slice(0, 3),
-    topCities: profile.cities.slice(0, 3),
+    topCantons: profile.cantons.slice(0, 3).map(({ name, count }) => ({ name, count })),
+    topCities: profile.cities.slice(0, 3).map(({ name, count }) => ({ name, count })),
     ...(actionClass ? { actionClass } : {}),
     action: 'draft-outreach only: prepare a human-reviewed employer activation brief; do not send it',
     reversible: true,
@@ -232,7 +231,7 @@ export function validateEmployerProfiles(source, {
       rowIssues.push('profile is not an object');
     } else {
       if (!text(profile.slug)) rowIssues.push('slug is missing');
-      else if (seenSlugs.has(profile.slug)) rowIssues.push(`duplicate slug ${profile.slug}`);
+      else if (seenSlugs.has(profile.slug)) rowIssues.push('duplicate profile slug');
       else seenSlugs.add(profile.slug);
       if (!text(profile.name)) rowIssues.push('name is missing');
       if (!text(profile.companyKey)) rowIssues.push('companyKey is missing');
@@ -385,8 +384,10 @@ export function validateEmployerFunnelOutcomes(outcomes, {
   for (const [name, value] of Object.entries(values)) {
     if (!integer(value)) issues.push(`outcomes.${name} is missing or not a non-negative integer`);
   }
-  const mrrRecognizedChf = outcomeValue(outcomes, 'mrrRecognizedChf', ['recognizedMrrChf'], issues);
-  if (!finiteNumber(mrrRecognizedChf)) issues.push('outcomes.mrrRecognizedChf is missing or not a non-negative number');
+  const economicIssues = [];
+  const mrrRecognizedChf = outcomeValue(outcomes, 'mrrRecognizedChf', ['recognizedMrrChf'], economicIssues);
+  if (economicIssues.length) issues.push('outcomes economic field has conflicting duplicate representations');
+  if (!finiteNumber(mrrRecognizedChf)) issues.push('outcomes economic field is missing or not a non-negative number');
 
   const inventoryScope = outcomes.inventoryScope;
   if (!object(inventoryScope)) {
@@ -413,6 +414,8 @@ export function validateEmployerFunnelOutcomes(outcomes, {
     ['leadAccounts', 'profileViewAccounts'],
     ['checkoutStartAccounts', 'leadAccounts'],
     ['paidActivations', 'checkoutStartAccounts'],
+    // This constraint still applies when anonymous stages break the chain.
+    ...(anonymousFunnelExcluded ? [['paidActivations', 'eligibleEmployerAccounts']] : []),
   ];
   for (const [numerator, denominator] of orderedRelations) {
     // The browser employer CTA events carry no publisherUid. A zero here is a
@@ -449,14 +452,11 @@ export function validateEmployerFunnelOutcomes(outcomes, {
     generatedAt: generatedAt?.toISOString() || null,
     ageHours: ageHours === null ? null : Number(ageHours.toFixed(3)),
     ...Object.fromEntries(Object.entries(values).map(([name, value]) => [name, integer(value) ? value : null])),
-    mrrRecognizedChf: finiteNumber(mrrRecognizedChf) ? mrrRecognizedChf : null,
     inventoryScope: object(inventoryScope) ? {
-      cohortKey: text(inventoryScope.cohortKey) ? inventoryScope.cohortKey : null,
-      profileSource: text(inventoryScope.profileSource) ? inventoryScope.profileSource : null,
       profileCount: integer(inventoryScope.profileCount) ? inventoryScope.profileCount : null,
       profileGeneratedAt: finiteDate(inventoryScope.profileGeneratedAt)?.toISOString() || null,
     } : null,
-    export: exportEvidence && object(exportEvidence) ? exportEvidence : null,
+    anonymousFunnelExcluded,
   };
   let quality = 'observed';
   if (outcomes.independent !== true
@@ -588,7 +588,6 @@ function reportMarkdown(verdict, observation, decision) {
     `- Profiles: ${profiles.profileCount ?? 'unmeasurable'} (${profiles.generatedAt || 'unmeasurable'})`,
     `- Eligible employer accounts: ${outcomes.eligibleEmployerAccounts ?? 'unmeasurable'}`,
     `- Paid activations: ${outcomes.paidActivations ?? 'unmeasurable'}`,
-    `- Recognized MRR CHF: ${outcomes.mrrRecognizedChf ?? 'unmeasurable'}`,
     `- Primary metric: ${observation.primaryMetric}`,
     `- Decision: **${decision.decision}** (${decision.actionClass})`,
     `- Rollback: ${decision.rollbackPlan}`,
@@ -673,22 +672,6 @@ function writeResult(reportDir, { verdict, issued, actionsWritten }) {
   return file;
 }
 
-function issueBody(verdict, decision) {
-  return [
-    'L9 non può dichiarare paid activation dagli annunci disponibili: l’inventario employer è separato dal funnel checkout/subscription.',
-    '',
-    `- Source profiles: ${verdict.sourcePath}`,
-    `- Outcome ledger: ${verdict.snapshot?.outcomes?.path || 'missing'}`,
-    `- Quality: ${verdict.quality}`,
-    `- Reason: ${verdict.reason}`,
-    `- Decision: ${decision.decision} / ${decision.actionClass}`,
-    '',
-    'Azione sicura: produrre solo brief di outreach draft-only e PR revisionabili per la riparazione dello schema. Nessun messaggio viene inviato, nessun prezzo cambia e nessun profilo pubblicato viene riscritto.',
-    '',
-    'Comando di verifica: `node scripts/ci/loop-l9-employer-activation.mjs --json --dry-run`',
-  ].join('\n');
-}
-
 export async function runL9({
   now = new Date(),
   profilesPath = DEFAULT_PROFILES_PATH,
@@ -728,13 +711,13 @@ export async function runL9({
         draftOutreach: draftOutreachActionClass,
       },
     });
-  } catch (error) {
+  } catch {
     verdict = baseVerdict({
       sourcePath: profilesPath,
       now,
       quality: 'unmeasurable',
       ok: false,
-      reason: error.message,
+      reason: 'l9-input-unreadable',
       snapshot: {
         source: 'employer-profile-inventory-plus-funnel-ledger',
         profiles: emptyProfileSnapshot(profilesPath),
@@ -802,19 +785,32 @@ export async function runL9({
     quality: verdict.quality,
     recordedAt: now.toISOString(),
   });
+  const observedAt = finiteDate(outcomes.generatedAt)?.toISOString() ?? null;
+  const outcomeMeasurable = measurable && observedAt !== null && Date.parse(observedAt) <= now.getTime();
+  const status = !outcomeMeasurable && ['observed', 'zero'].includes(verdict.quality)
+    ? 'partial'
+    : verdict.quality;
+  const requiredFieldsPresent = outcomeMeasurable
+    ? [...loopPolicy.outcome.requiredFields]
+    : (observedAt ? ['generatedAt'] : []);
+  // The fleet recorder verifies this source claim against the candidate decision.
   observation.outcome = {
-    ...buildValidatedLoopOutcome({
-      registry: loopRegistry,
-      loopId: LOOP_ID,
-      quality: verdict.quality,
-      independent: verdict.ok,
-      numerator: verdict.ok ? outcomes.paidActivations : null,
-      denominator: verdict.ok ? outcomes.eligibleEmployerAccounts : null,
-      observedAt: finiteDate(outcomes.generatedAt)?.toISOString() || null,
-      reason: verdict.ok
+    ...buildOutcome({
+      outcomeId: loopPolicy.outcome.outcomeId,
+      status,
+      independent: outcomeMeasurable,
+      sourceRefs: loopPolicy.outcome.sourceRefs,
+      primaryMetric: loopPolicy.primaryMetric,
+      numerator: outcomeMeasurable ? outcomes.paidActivations : null,
+      denominator: outcomeMeasurable ? outcomes.eligibleEmployerAccounts : null,
+      requiredFieldsPresent,
+      missingFields: loopPolicy.outcome.requiredFields.filter((field) => !requiredFieldsPresent.includes(field)),
+      observedAt,
+      reason: outcomeMeasurable
         ? 'employer profile inventory and the independent funnel/subscription ledger agree'
-        : `paid employer outcome is ${verdict.quality}; inventory is not treated as revenue`,
-      now,
+        : `paid employer outcome is ${status}; inventory is not treated as revenue`,
+      allowNumeratorExceedDenominator: loopPolicy.outcome.allowNumeratorExceedDenominator,
+      recordedAt: now.toISOString(),
     }),
     loopId: LOOP_ID,
     safeToAct: false,
@@ -832,7 +828,9 @@ export async function runL9({
     sourceSnapshot: observation.sourceSnapshot,
     observationWindow: observation.observationWindow,
     cohort: observation.cohort,
-    decision: verdict.ok ? 'observing' : 'candidate',
+    // The recorder requires a candidate lifecycle record for measured evidence.
+    // The action class still controls what the decision can do.
+    decision: 'candidate',
     reason: verdict.reason,
     actionClass,
     rollbackPlan: 'discard runner-local employer briefs and PR proposals; send no outreach and leave prices, inventory and subscription state unchanged',
@@ -849,16 +847,18 @@ export async function runL9({
   }
   let issued = false;
   if (issue && !verdict.ok) {
+    const awaitingSample = l9FindingKind(verdict) === 'underpowered-sample';
+    const reason = awaitingSample ? 'l9-awaiting-sample' : 'l9-ledger-failure';
     await createIssueImpl({
       title: ISSUE_TITLE,
-      description: issueBody(verdict, decision),
+      description: reason,
       priority: 2,
       labels: ['monitoring', 'monetization', 'loop-l9'],
       workflow: ISSUE_WORKFLOW,
       loopId: LOOP_ID,
-      reason: verdict.reason,
+      reason,
       loopTitles: [ISSUE_TITLE],
-      ...(l9FindingKind(verdict) === 'underpowered-sample' ? {
+      ...(awaitingSample ? {
         state: LOOP_STATE_AWAITING_SAMPLE,
         // `eligibleEmployerAccounts` è uno stock (il ledger Firestore corrente,
         // `export.accountMetricWindow`), non un flusso nella finestra: nessun
@@ -926,8 +926,8 @@ export async function main({ argv = process.argv.slice(2), logger = console } = 
 }
 
 if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
-  main().catch((error) => {
-    console.error(`[L9] fatal: ${error.message}`);
+  main().catch(() => {
+    console.error('[L9] fatal: l9-audit-failed');
     process.exitCode = 1;
   });
 }

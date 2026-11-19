@@ -143,16 +143,16 @@ function fakeGithub({ failOn = null as null | ((args: string[]) => boolean) } = 
   return { issues, add, deps, open, recurrences };
 }
 
-it('publishes only the current public L8 status when editing a legacy issue', async () => {
+it.each(['L8', 'L9'])('publishes only the current public %s status when editing a legacy issue', async (loopId) => {
   const github = fakeGithub();
   const diagnostic = 'SYNTHETIC_PRIVATE_DIAGNOSTIC';
-  const title = 'Synthetic L8 issue';
+  const title = `Synthetic ${loopId} issue`;
   const issue = github.add(title, upsertLoopStateBlock('987654.321', {
-    loopId: 'L8', ok: false, reason: diagnostic, signature: diagnostic,
+    loopId, ok: false, reason: diagnostic, signature: diagnostic,
   }));
-  const status = 'L8 economic values are private.';
+  const status = `${loopId} economic values are private.`;
   const result = await reportLoopIssue({
-    title, loopId: 'L8', description: status, reason: status, eventName: 'schedule',
+    title, loopId, description: status, reason: status, eventName: 'schedule',
   }, github.deps);
   expect(result).toMatchObject({ number: issue.number, persisted: true });
   expect(issue.comments).toHaveLength(1);
