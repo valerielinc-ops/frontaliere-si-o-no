@@ -13,6 +13,7 @@ import { operationalAnswerForOption, operationalQuestionTopic } from '../../../.
 import { hasNativeApplicantIdentity } from './native-control-contract.mjs';
 import { PORTAL_NATIVE_CONTRACT_VERSION } from '../../../../functions/src/lib/portalNativeContract.js';
 import { isUnconfirmedSubmission } from '../../../../functions/src/assistedApplicationSubmissionGuard.js';
+import { isPortalNeedsCandidateHold } from '../../../../functions/src/lib/portalStopCodes.js';
 
 // Receipt version follows the answer provenance contract independently of
 // the native proof version stored on questions.
@@ -42,7 +43,7 @@ export const portalContractQuestionKey = question => text(question?.applicationQ
 
 function ownerPortalQuestionHold(flow) {
   return flow?.state === 'owner_takeover' && flow.heldBy?.length === 1
-    && flow.heldBy[0] === 'portal:portal_needs_candidate';
+    && isPortalNeedsCandidateHold(flow.heldBy[0]);
 }
 function contractWorkerIdle({ flow, execution = {} }, nowMs) {
   if (!flow?.executionId && !Object.keys(execution).length) return true;

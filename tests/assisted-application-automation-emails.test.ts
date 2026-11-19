@@ -211,6 +211,19 @@ describe('automation e-mails', () => {
     expect(portalRetry.subject).toContain('Nuovo tentativo automatico previsto');
     expect(portalRetry.text).toContain(`Riproveremo automaticamente ${formatDeadline(DEADLINE, 'it')}`);
     expect(portalRetry.text).toContain('Sono previsti al massimo due tentativi automatici');
+    const normalizedPortalRetry = buildOwnerAutomationEmail('owner_takeover', {
+      job: 'Infermiera', company: 'Ospedale', orderId: 'o', reason: ' PORTAL : PORTAL_NEEDS_CANDIDATE ',
+      portalAutoRetryAt: DEADLINE,
+    });
+    expect(normalizedPortalRetry.subject).toContain('Nuovo tentativo automatico previsto');
+    expect(normalizedPortalRetry.text).toContain(`Riproveremo automaticamente ${formatDeadline(DEADLINE, 'it')}`);
+    expect(normalizedPortalRetry.text).toContain('Sono previsti al massimo due tentativi automatici');
+    const normalizedTransportRetry = buildOwnerAutomationEmail('owner_takeover', {
+      job: 'Infermiera', company: 'Ospedale', orderId: 'o', reason: ' TRANSPORT : EMAIL_PROVIDER_UNAVAILABLE ',
+      portalAutoRetryAt: DEADLINE,
+    });
+    expect(normalizedTransportRetry.text).toContain('Motivo: i provider email non hanno accettato l’invio.');
+    expect(normalizedTransportRetry.text).toContain(`Riproveremo automaticamente ${formatDeadline(DEADLINE, 'it')}`);
     // #11161: a retry completes a WhatsApp application by e-mail when the channel has a PastaHR https link.
     const whatsapp = describeTakeover({ reason: 'portal:whatsapp', stage: 'submit' });
     expect(whatsapp.reason).toContain('solo via WhatsApp');

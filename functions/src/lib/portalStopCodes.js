@@ -84,3 +84,141 @@ export const PORTAL_STOP_REDISCOVERY_HOLDS = holdCodes('rediscover');
 
 // Every canonical stop is safe to expose as a sanitized replay outcome code.
 export const PORTAL_STOP_REPLAY_CODES = new Set(Object.keys(PORTAL_STOP_CODES));
+
+/**
+ * Recovery behavior for a persisted portal hold.
+ *
+ * The public stop vocabulary above describes what the runner may report. This
+ * contract describes what the state machine may do with a persisted hold. It
+ * belongs here so the retry policy, source-version reconciler and notifications
+ * cannot disagree about a spelling variant of the same namespaced stop.
+ */
+export const PORTAL_STOP_CLASSES = Object.freeze({
+  SOURCE_RECOVERABLE: 'source_recoverable',
+  TRANSPORT: 'transport',
+  PORTAL_RETRY: 'portal_retry',
+  CAPTCHA: 'captcha',
+  AMBIGUOUS: 'ambiguous',
+  TERMINAL: 'terminal',
+  UNKNOWN: 'unknown',
+});
+
+const SOURCE_RECOVERABLE_STOP = Object.freeze({
+  category: PORTAL_STOP_CLASSES.SOURCE_RECOVERABLE,
+  sourceRecovery: true,
+  retryLane: 'none',
+  automaticRetry: false,
+});
+const TRANSPORT_STOP = Object.freeze({
+  category: PORTAL_STOP_CLASSES.TRANSPORT,
+  sourceRecovery: false,
+  retryLane: 'transport',
+  automaticRetry: true,
+});
+const PORTAL_RETRY_STOP = Object.freeze({
+  category: PORTAL_STOP_CLASSES.PORTAL_RETRY,
+  sourceRecovery: true,
+  retryLane: 'portal',
+  automaticRetry: true,
+});
+const CAPTCHA_STOP = Object.freeze({
+  category: PORTAL_STOP_CLASSES.CAPTCHA,
+  sourceRecovery: false,
+  retryLane: 'none',
+  automaticRetry: false,
+});
+const AMBIGUOUS_STOP = Object.freeze({
+  category: PORTAL_STOP_CLASSES.AMBIGUOUS,
+  sourceRecovery: false,
+  retryLane: 'none',
+  automaticRetry: false,
+});
+const TERMINAL_STOP = Object.freeze({
+  category: PORTAL_STOP_CLASSES.TERMINAL,
+  sourceRecovery: false,
+  retryLane: 'none',
+  automaticRetry: false,
+});
+const UNKNOWN_STOP = Object.freeze({
+  category: PORTAL_STOP_CLASSES.UNKNOWN,
+  sourceRecovery: false,
+  retryLane: 'none',
+  automaticRetry: false,
+});
+
+const SOURCE_RECOVERABLE_CODES = new Set([
+  ...[...PORTAL_STOP_RECOVERY_HOLDS].map(hold => hold.replace(/^portal:/u, '')),
+  // These runner handoffs are source-repairable but do not yet have public
+  // hint/reason projections in PORTAL_STOP_CODES.
+  'profile_section_row_incomplete',
+  'previous_file_not_removable',
+  'previous_file_removal_failed',
+  'previous_file_removal_unconfirmed',
+  'previous_file_replacement_unavailable',
+  'portal_required_fields_unfilled',
+  'portal_final_form_unbound',
+  'posting_unbound',
+  'portal_reader_failed',
+]);
+
+const PORTAL_STOP_RECOVERY_CONTRACT = Object.freeze({
+  ...Object.fromEntries([...SOURCE_RECOVERABLE_CODES].map(code => [`portal:${code}`, SOURCE_RECOVERABLE_STOP])),
+
+  // This lane has candidate-answer checks in the reconciler and the extra
+  // send fence in portalRecoveryDefinitelyUnsent.
+  'portal:portal_needs_candidate': PORTAL_RETRY_STOP,
+
+  // Stops caused by where/how the runner connects, not by the candidate.
+  'portal:navigation_unavailable': TRANSPORT_STOP,
+  'transport:email_provider_unavailable': TRANSPORT_STOP,
+  'portal:question_localization_unavailable': TRANSPORT_STOP,
+  'portal:application_region_unsupported': TRANSPORT_STOP,
+  'portal:swiss_runner_offline': TRANSPORT_STOP,
+
+  'portal:captcha': CAPTCHA_STOP,
+  'portal:captcha_provider_unavailable': CAPTCHA_STOP,
+  'portal:cookie_preferences_unresolved': AMBIGUOUS_STOP,
+  'portal:portal_control_click_unresolved': AMBIGUOUS_STOP,
+  'portal:application_stage_unknown': AMBIGUOUS_STOP,
+  'portal:account_application_already_applied': AMBIGUOUS_STOP,
+  'portal:account_application_history_uncertain': AMBIGUOUS_STOP,
+  'portal:account_recovery_rejected': AMBIGUOUS_STOP,
+  'portal:portal_ambiguous': AMBIGUOUS_STOP,
+  'portal:portal_antibot_ambiguous': AMBIGUOUS_STOP,
+  'portal:account_verification': AMBIGUOUS_STOP,
+
+  'portal:portal_refused': TERMINAL_STOP,
+  'portal:portal_validation': TERMINAL_STOP,
+  'portal:portal_replay_final_click_blocked': TERMINAL_STOP,
+  'portal:posting_closed': TERMINAL_STOP,
+});
+
+export function normalizePortalStopReason(reason) {
+  return String(reason ?? '')
+    .normalize('NFC')
+    .trim()
+    .toLowerCase()
+    .replace(/\s*:\s*/gu, ':');
+}
+
+export function portalStopCode(reason) {
+  return normalizePortalStopReason(reason).replace(/^(?:portal|transport):/u, '');
+}
+
+/** Resolve only a known, namespaced hold; unknown reasons fail closed. */
+export function portalStopContract(reason) {
+  const normalized = normalizePortalStopReason(reason);
+  const code = portalStopCode(normalized);
+  const contract = PORTAL_STOP_RECOVERY_CONTRACT[normalized];
+  return Object.freeze({
+    normalized,
+    code,
+    known: Boolean(contract),
+    rediscovery: PORTAL_STOP_REDISCOVERY_HOLDS.has(normalized),
+    ...(contract || UNKNOWN_STOP),
+  });
+}
+
+export function isPortalNeedsCandidateHold(reason) {
+  return portalStopContract(reason).normalized === 'portal:portal_needs_candidate';
+}

@@ -18,7 +18,7 @@ import { portalAutoRetryAttemptsRemaining, portalExhaustedRecoveryPending } from
 import './extension/apply-control.js';
 import { candidateAnswerForField, isIdentityEmailConfirmationField } from './lib/portal/plan.mjs';
 import { portalQuestionDocumentSlotKind } from './lib/portal/portal.mjs';
-import { PORTAL_STOP_REDISCOVERY_HOLDS } from '../../functions/src/lib/portalStopCodes.js';
+import { isPortalNeedsCandidateHold, portalStopContract } from '../../functions/src/lib/portalStopCodes.js';
 
 const hasAnswer = value => typeof value === 'boolean' || typeof value === 'number' && Number.isFinite(value)
   || typeof value === 'string' && value.trim().length > 0 || Array.isArray(value) && value.some(item => String(item ?? '').trim());
@@ -144,7 +144,7 @@ function hasUntrustedProfileOperationalAnswers({ profile, draft }) {
 }
 
 function canRediscoverUnreadablePortalQuestions(flow, draft, flags) {
-  if (flow?.heldBy?.length !== 1 || !PORTAL_STOP_REDISCOVERY_HOLDS.has(flow.heldBy[0])
+  if (flow?.heldBy?.length !== 1 || !portalStopContract(flow.heldBy[0]).rediscovery
     || !flags.candidate.length) return false;
   const portalQuestionIds = new Set((Array.isArray(draft?.questions) ? draft.questions : [])
     .filter(question => question?.source === 'portal' && question.required === true)
@@ -201,7 +201,7 @@ export async function reconcilePortalCode({ db, version, apply = false, nowMs = 
             receiptVersion: receipt?.version });
         const ownerRecoveryReady = portalRecoveryDefinitelyUnsent({ order, flow, draft, submission, version });
         if ((!ownerRecoveryReady && !identityQuestionReady && !questionHoldsReady) || !roundWasSent(flow) || flow.postingExpiredAt) return false;
-        if (flow.heldBy[0] === 'portal:portal_needs_candidate'
+        if (isPortalNeedsCandidateHold(flow.heldBy[0])
           && !talentPoolConsentActive(order) && !(retentionPurgeDueAt(order) > nowMs)) return false;
         // A source-version change may make a previously blocked portal
         // technically recoverable. After the normal two-attempt ladder, allow
@@ -257,7 +257,7 @@ export async function reconcilePortalCode({ db, version, apply = false, nowMs = 
           return 'questions';
         }
         const trustedLocalAnswers = flow.orderQuestionAnswersEvidenceVersion === ORDER_QUESTION_ANSWER_EVIDENCE_VERSION;
-        if (flow.heldBy[0] === 'portal:portal_needs_candidate' && !trustedLocalAnswers
+        if (isPortalNeedsCandidateHold(flow.heldBy[0]) && !trustedLocalAnswers
           && hasUntrustedProfileOperationalAnswers({ profile: profileDoc?.data(), draft })
           && !hasCurrentNativePortalContract(draft)) return false;
         const verifiedQuestionAnswers = Object.fromEntries((answerContext.answerEvidence || [])
@@ -274,7 +274,7 @@ export async function reconcilePortalCode({ db, version, apply = false, nowMs = 
         const recoveryFlow = {
           ...answerContext.flow,
           answers: { ...(answerContext.flow.answers || {}), ...legacyLocalAnswers },
-          ...(flow.heldBy[0] === 'portal:portal_needs_candidate' && !trustedLocalAnswers
+          ...(isPortalNeedsCandidateHold(flow.heldBy[0]) && !trustedLocalAnswers
             ? { questionAnswers: verifiedQuestionAnswers } : {}),
         };
         if (!operationalPortalRecoveryReady({ order, flow: recoveryFlow, draft })) return false;
@@ -298,7 +298,7 @@ export async function reconcilePortalCode({ db, version, apply = false, nowMs = 
             }, { merge: true });
           } else {
             const heldBy = ['portal:portal_needs_candidate'];
-            const recoveryOrderAnswers = flow.heldBy[0] === 'portal:portal_needs_candidate' && !trustedLocalAnswers
+            const recoveryOrderAnswers = isPortalNeedsCandidateHold(flow.heldBy[0]) && !trustedLocalAnswers
               ? {} : trustedLocalAnswers ? answerContext.orderAnswers
                 : rememberCandidateQuestionAnswers({ questions: draft?.questions || [], answers: legacyLocalAnswers, changed: legacyLocalAnswers });
             transaction.set(flowRef, { heldBy,

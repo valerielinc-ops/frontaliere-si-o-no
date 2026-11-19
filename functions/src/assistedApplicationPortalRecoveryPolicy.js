@@ -7,14 +7,13 @@ import { operationalQuestionTopic, operationalAnswerReadyForDiscovery, withOpera
 import { platformDefaultAnswer } from './assistedApplicationPlatformDefaults.js';
 import { isUnconfirmedSubmission } from './assistedApplicationSubmissionGuard.js';
 import { validateAnswer } from './lib/answerRules.js';
-import { PORTAL_STOP_RECOVERY_HOLDS } from './lib/portalStopCodes.js';
+import { isPortalNeedsCandidateHold, portalStopContract } from './lib/portalStopCodes.js';
 
 export const portalCodeVersion = value => /^[a-f0-9]{64}$/.test(String(value || '')) ? String(value) : null;
-const RECOVERABLE = PORTAL_STOP_RECOVERY_HOLDS;
 
 export function portalCodeChanged(flow, version) {
   return Boolean(portalCodeVersion(version)) && flow?.state === 'owner_takeover'
-    && flow.heldBy?.length === 1 && RECOVERABLE.has(flow.heldBy[0])
+    && flow.heldBy?.length === 1 && portalStopContract(flow.heldBy[0]).sourceRecovery
     && flow.portalCodeVersion !== version && flow.portalRecoveryVersion !== version;
 }
 
@@ -28,7 +27,7 @@ export function portalRecoveryDefinitelyUnsent({ order, flow, draft, submission 
     && draft?.status === 'ready' && Number(draft.round) === round && !draft.sent && !draft.sentAttempt
     && send?.state === 'failed' && send.channel === 'portal' && !isUnconfirmedSubmission(send) && Number(send.releasedAt) > 0
     && !Object.values(submission).some(record => record?.state === 'sent' || isUnconfirmedSubmission(record))
-    && (flow.heldBy[0] !== 'portal:portal_needs_candidate'
+    && (!isPortalNeedsCandidateHold(flow.heldBy[0])
       || !Object.values(submission).some(record => record?.state === 'sending' || isUnconfirmedSubmission(record)));
 }
 
@@ -104,8 +103,9 @@ function explicitCandidateAnswerReadyForDiscovery(question, answer) {
 
 /** This lane only schedules native discovery of resolved operational fields. */
 export function operationalPortalRecoveryReady({ order, flow, draft }) {
-  if (!flow?.heldBy?.includes('portal:portal_needs_candidate')) return true;
-  if (flow.heldBy.length !== 1) return false;
+  const heldBy = Array.isArray(flow?.heldBy) ? flow.heldBy : [];
+  if (!heldBy.some(isPortalNeedsCandidateHold)) return true;
+  if (heldBy.length !== 1) return false;
   const questions = (Array.isArray(draft?.questions) ? draft.questions : []).filter(question => {
     if (provenOptionalOperationalPortalQuestion(question, draft)) return false;
     return question?.source === 'portal' || question?.required !== false;

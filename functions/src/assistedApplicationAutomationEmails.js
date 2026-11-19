@@ -12,6 +12,7 @@
  */
 
 import { isCaptchaHandoffReason, isInfrastructureRetryHold } from './assistedApplicationPortalRetryPolicy.js';
+import { isPortalNeedsCandidateHold, portalStopContract } from './lib/portalStopCodes.js';
 import {
   brandButton,
   brandCallout,
@@ -634,8 +635,10 @@ const RUNNER_HINTS = {
  */
 export function describeTakeover({ reason, stage, attempts, portalAutoRetryAt }) {
   const raw = String(reason || '').trim();
+  const stop = portalStopContract(reason);
+  const normalizedReason = stop.normalized;
   // The order leaves only from the Swiss runner (assistedApplicationSwissRunner.js), and none took the run.
-  if (raw === 'swiss_runner_offline' || raw === 'portal:swiss_runner_offline') {
+  if (normalizedReason === 'swiss_runner_offline' || normalizedReason === 'portal:swiss_runner_offline') {
     const retry = Number(portalAutoRetryAt) > 0
       ? ` La rimettiamo in coda per il runner svizzero ${formatDeadline(portalAutoRetryAt, 'it')}, senza passare da GitHub.`
       : ' Riaccodala dalla coda («Riprova l’invio automatico», o «Riprendi automazione» per una bozza) quando il runner è di nuovo attivo.';
@@ -645,27 +648,27 @@ export function describeTakeover({ reason, stage, attempts, portalAutoRetryAt })
       detail: '',
     };
   }
-  if (isInfrastructureRetryHold({ heldBy: [raw] }) && Number(portalAutoRetryAt) > 0) {
+  if (stop.retryLane === 'transport' && Number(portalAutoRetryAt) > 0) {
     return {
-      reason: raw.startsWith('transport:') ? 'i provider email non hanno accettato l’invio'
-        : raw === 'portal:application_region_unsupported' ? `l’invio sul portale si è fermato: ${PORTAL_STOPS.application_region_unsupported}`
+      reason: normalizedReason.startsWith('transport:') ? 'i provider email non hanno accettato l’invio'
+        : normalizedReason === 'portal:application_region_unsupported' ? `l’invio sul portale si è fermato: ${PORTAL_STOPS.application_region_unsupported}`
           : 'la connessione al portale non è riuscita',
       hint: `La candidatura resta in coda. Riproveremo automaticamente ${formatDeadline(portalAutoRetryAt, 'it')} e i tentativi proseguiranno mentre l’annuncio è disponibile. Non serve intervenire sulla singola candidatura.`,
       detail: '',
     };
   }
-  if (TAKEOVER_REASONS[raw]) return { reason: TAKEOVER_REASONS[raw], hint: '', detail: '' };
-  if (raw.startsWith('portal:')) {
-    const code = raw.slice('portal:'.length);
+  if (TAKEOVER_REASONS[normalizedReason]) return { reason: TAKEOVER_REASONS[normalizedReason], hint: '', detail: '' };
+  if (normalizedReason.startsWith('portal:')) {
+    const code = stop.code;
     const hint = code === 'portal_needs_candidate' && Number(portalAutoRetryAt) > 0
       ? `Il candidato non deve fare nulla. Riproveremo automaticamente ${formatDeadline(portalAutoRetryAt, 'it')}. Sono previsti al massimo due tentativi automatici; se il portale si ferma ancora, ti chiederemo di completare l’invio dalla coda.`
       : PORTAL_STOP_HINTS[code] || PORTAL_HINT;
     return { reason: `l’invio sul portale si è fermato: ${PORTAL_STOPS[code] || PORTAL_STOPS.portal_needs_candidate}`, hint, detail: '' };
   }
   const step = STAGE_LABELS[stage] || 'il flusso automatico si è fermato';
-  const known = RUNNER_ERRORS.find(([pattern]) => pattern.test(raw));
+  const known = RUNNER_ERRORS.find(([pattern]) => pattern.test(normalizedReason));
   let cause = known?.[1] || '';
-  if (!cause && isTransientRunError(raw)) {
+  if (!cause && isTransientRunError(normalizedReason)) {
     cause = stage === 'submit'
       ? 'Codex, la rete o il portale non hanno risposto in tempo'
       : 'Codex non ha risposto in tempo o non era raggiungibile';
@@ -673,7 +676,7 @@ export function describeTakeover({ reason, stage, attempts, portalAutoRetryAt })
   const runs = Number(attempts) > 1 ? `, anche dopo ${Number(attempts)} tentativi automatici` : '';
   return {
     reason: cause ? `${step}: ${cause}${runs}` : `${step}${runs}`,
-    hint: RUNNER_HINTS[raw] || STAGE_HINTS[stage] || '',
+    hint: RUNNER_HINTS[normalizedReason] || STAGE_HINTS[stage] || '',
     detail: known ? '' : clean(raw, 300),
   };
 }
@@ -818,7 +821,7 @@ export function buildOwnerAutomationEmail(kind, vars) {
     html.push(brandInfoCard('Sintesi', esc(vars.summary || '—')), brandParagraph(esc(facts.join(' · '))));
     text.push(`Sintesi: ${vars.summary || '—'}`, facts.join(' · '));
   } else if (kind === 'owner_takeover') {
-    const retryPending = (String(vars.reason || '') === 'portal:portal_needs_candidate'
+    const retryPending = (isPortalNeedsCandidateHold(vars.reason)
       || isInfrastructureRetryHold({ heldBy: [String(vars.reason || '')] })) && Number(vars.portalAutoRetryAt) > 0;
     subject = retryPending
       ? `[Candidatura] Nuovo tentativo automatico previsto: ${job} — ${company}`
