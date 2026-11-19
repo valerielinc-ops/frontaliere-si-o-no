@@ -190,17 +190,39 @@ describe('translation observability workflow', () => {
         .toBeLessThan(steps.findIndex((step) => step.name === 'Phase 2a: Local MT bulk translate (Argos)'));
       const stalePrepass = steps.find((step) => step.name === 'Phase 2 pre: Repair stale source-copy descriptions (bounded)');
       expect(stalePrepass, `${label}: stale description prepass missing`).toMatchObject({
+        id: 'repair_stale_descriptions',
         if: "inputs.skip_translate != true && inputs.dry_run != true && (github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && env.TRANSLATION_MANUAL_OVERRIDE != 'true'))",
         'continue-on-error': true,
         env: {
           UNTRANSLATED_DESCRIPTION_FIX_STALE_ONLY: '1',
           UNTRANSLATED_DESCRIPTION_FIX_DEADLINE_MS: label === 'portable artifact' ? '900000' : '900000',
-          UNTRANSLATED_DESCRIPTION_FIX_MAX: label === 'portable artifact'
-            ? "${{ vars.UNTRANSLATED_DESCRIPTION_FIX_PREPASS_MAX || '100' }}"
-            : "${{ vars.UNTRANSLATED_DESCRIPTION_FIX_PREPASS_MAX || '100' }}",
+          UNTRANSLATED_DESCRIPTION_FIX_PREPASS_MAX_RAW: "${{ vars.UNTRANSLATED_DESCRIPTION_FIX_PREPASS_MAX }}",
         },
-        run: 'node scripts/fix-untranslated-descriptions.mjs --stale-only --max "$UNTRANSLATED_DESCRIPTION_FIX_MAX"',
       });
+      expect(stalePrepass?.run, `${label}: stale prepass must normalize its max`).toContain('parseBoundedPrepassMax()');
+      expect(stalePrepass?.run).toContain('local ceiling=250');
+      expect(stalePrepass?.run).toContain('local fallback=100');
+      expect(stalePrepass?.run).toContain('node scripts/fix-untranslated-descriptions.mjs --stale-only --max "$prepass_max"');
+      const stalePrepassReport = steps.find((step) => step.name === 'Report stale-description prepass outcome');
+      expect(stalePrepassReport, `${label}: stale description prepass report missing`).toMatchObject({
+        if: "always() && steps.repair_stale_descriptions.outcome != 'skipped'",
+        env: {
+          PREPASS_OUTCOME: '${{ steps.repair_stale_descriptions.outcome }}',
+          PREPASS_MAX: '${{ steps.repair_stale_descriptions.outputs.max }}',
+        },
+      });
+      expect(stalePrepassReport?.run, `${label}: stale prepass report must surface the tolerated failure`)
+        .toContain('::warning title=Translation stale-description prepass failed::');
+      const failureReporter = steps.find((step) => step.name === 'Report failure to GitHub Issues');
+      expect(failureReporter, `${label}: workflow failure reporter missing`).toMatchObject({
+        if: label === 'portable artifact'
+          ? "always() && (failure() || steps.repair_stale_descriptions.outcome == 'failure') && (steps.site_checkout_primary.outcome == 'success' || steps.site_checkout_retry.outcome == 'success')"
+          : "always() && (failure() || steps.repair_stale_descriptions.outcome == 'failure')",
+      });
+      expect(failureReporter?.with, `${label}: stale prepass failure must enter the alert path`)
+        .toMatchObject({
+          context: expect.stringContaining('Prepass descrizioni stale: ${{ steps.repair_stale_descriptions.outcome }}'),
+        });
       expect(steps.findIndex((step) => step.name === 'Initialize translation run clock'))
         .toBeLessThan(steps.findIndex((step) => step.name === 'Phase 2 pre: Repair stale source-copy descriptions (bounded)'));
       expect(steps.findIndex((step) => step.name === 'Phase 2 pre: Repair stale source-copy descriptions (bounded)'))

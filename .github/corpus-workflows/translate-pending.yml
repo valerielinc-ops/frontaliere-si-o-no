@@ -580,13 +580,38 @@ jobs:
           console.log(`Translation run clock initialized at ${startMs}.`);
           NODE
       - name: "Phase 2 pre: Repair stale source-copy descriptions (bounded)"
+        id: repair_stale_descriptions
         if: inputs.skip_translate != true && inputs.dry_run != true && (github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && env.TRANSLATION_MANUAL_OVERRIDE != 'true'))
         continue-on-error: true
         env:
           UNTRANSLATED_DESCRIPTION_FIX_STALE_ONLY: "1"
           UNTRANSLATED_DESCRIPTION_FIX_DEADLINE_MS: "900000"
-          UNTRANSLATED_DESCRIPTION_FIX_MAX: ${{ vars.UNTRANSLATED_DESCRIPTION_FIX_PREPASS_MAX || '100' }}
-        run: node scripts/fix-untranslated-descriptions.mjs --stale-only --max "$UNTRANSLATED_DESCRIPTION_FIX_MAX"
+          UNTRANSLATED_DESCRIPTION_FIX_PREPASS_MAX_RAW: ${{ vars.UNTRANSLATED_DESCRIPTION_FIX_PREPASS_MAX }}
+        run: |-
+          parseBoundedPrepassMax() {
+            local value="${1:-}"
+            local fallback=100
+            local ceiling=250
+            if [[ ! "$value" =~ ^([1-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|250)$ ]]; then
+              echo "::warning title=Translation stale-description prepass limit normalized::UNTRANSLATED_DESCRIPTION_FIX_PREPASS_MAX is invalid or exceeds ${ceiling}; using bounded fallback ${fallback}." >&2
+              printf '%s\n' "$fallback"
+              return
+            fi
+            printf '%s\n' "$value"
+          }
+          prepass_max="$(parseBoundedPrepassMax "$UNTRANSLATED_DESCRIPTION_FIX_PREPASS_MAX_RAW")"
+          printf 'max=%s\n' "$prepass_max" >> "$GITHUB_OUTPUT"
+          node scripts/fix-untranslated-descriptions.mjs --stale-only --max "$prepass_max"
+      - name: Report stale-description prepass outcome
+        if: always() && steps.repair_stale_descriptions.outcome != 'skipped'
+        env:
+          PREPASS_OUTCOME: ${{ steps.repair_stale_descriptions.outcome }}
+          PREPASS_MAX: ${{ steps.repair_stale_descriptions.outputs.max }}
+        run: |-
+          printf '### Stale-description prepass\n\n- outcome: `%s`\n- bounded max: `%s`\n' "$PREPASS_OUTCOME" "${PREPASS_MAX:-unavailable}" >> "$GITHUB_STEP_SUMMARY"
+          if [ "$PREPASS_OUTCOME" = 'failure' ]; then
+            echo "::warning title=Translation stale-description prepass failed::The bounded prepass failed (max=${PREPASS_MAX:-unavailable}); the later description-repair lane remains available and this outcome is recorded in the run summary."
+          fi
       - name: Assemble dataset
         if: inputs.skip_translate != true
         env:
@@ -1055,7 +1080,7 @@ jobs:
           SKIP_AI_TRANSLATION: "1"
         run: bash scripts/lib/git-commit-data.sh --slice-only "⚠️ Release translation deploy fallback after failed phase" data/translation-deploy-handoff.json
       - name: Report failure to GitHub Issues
-        if: failure() && (steps.site_checkout_primary.outcome == 'success' || steps.site_checkout_retry.outcome == 'success')
+        if: always() && (failure() || steps.repair_stale_descriptions.outcome == 'failure') && (steps.site_checkout_primary.outcome == 'success' || steps.site_checkout_retry.outcome == 'success')
         uses: ./.github/actions/report-failure
         with:
           title: "Workflow Failure: Translate Pending Jobs (sparse cross-repo execution)"
@@ -1066,7 +1091,7 @@ jobs:
           workflow-file: .github/corpus-workflows/translate-pending.yml
           priority: "2"
           labels: Bug
-          context: "La pipeline di traduzione è a fasi (fetch → translate → verify → commit): lo step fallito qui sopra dice a quale fase si è fermata, e i job non tradotti restano in coda per il prossimo cron."
+          context: "La pipeline di traduzione è a fasi (fetch → translate → verify → commit): lo step fallito qui sopra dice a quale fase si è fermata, e i job non tradotti restano in coda per il prossimo cron. Prepass descrizioni stale: ${{ steps.repair_stale_descriptions.outcome }} (max bounded: ${{ steps.repair_stale_descriptions.outputs.max }})."
     outputs:
       recovery_guard: ${{ github.run_attempt == 1 && 'success' || steps.recovery_guard.outcome }}
     needs: translate_queue_guard
