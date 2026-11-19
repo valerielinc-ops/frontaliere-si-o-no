@@ -42,7 +42,7 @@ const APLEONA_DETAIL_SECTIONS = [
   { className: 'why-apleona', vacancySpecific: false },
   { className: 'benefits', vacancySpecific: false },
 ];
-const APLEONA_SECOND_SKIN_HEADING_RX = /^(?:(?:deine\s+)?(?:aufgaben|anforderungen)|ihr(?:e)?\s+profil)\s*:?$/i;
+const APLEONA_SECOND_SKIN_HEADING_RX = /^(?:(?:(?:deine|ihre)\s+)?(?:aufgaben|anforderungen)|(?:dein|ihr(?:e)?)\s+profil)\s*:?$/i;
 const APLEONA_CANTON_CODES = new Set(ALL_CANTON_CODES);
 
 /* ── Helpers ───────────────────────────────────────────────── */
@@ -162,7 +162,8 @@ export function extractApleonaDetailFields(html = '', pageUrl = '', opts = {}) {
     }
 
     // The same tenant currently serves a second Apleona-owned skin where the
-    // vacancy sections are plain `<section><div class="container"><h2>...`.
+    // vacancy sections are either plain `<section><div class="container"><h2>...`
+    // blocks or Umantis `showblock`/`customdatablock` pairs.
     // Heading identity is the boundary: generic company/contact sections are
     // intentionally excluded even when they are longer. The heading pattern is
     // German-only because the spec pins the seed to `lang=ger` and declares
@@ -219,8 +220,8 @@ export function extractApleonaDetailFields(html = '', pageUrl = '', opts = {}) {
       }
       if (descriptionBlocks.length === 0 && unmatchedHeadings.length > 0) {
         console.warn(
-          `  ⚠️ Apleona second-skin fallback found section heading(s) not matching the German `
-          + `aufgaben/anforderungen pattern — row will be dropped: ${JSON.stringify(unmatchedHeadings)} (${pageUrl})`,
+          `  ⚠️ Apleona second-skin fallback found heading(s) not matching the German vacancy `
+          + `heading pattern — row will be dropped: ${JSON.stringify(unmatchedHeadings)} (${pageUrl})`,
         );
       }
     }
