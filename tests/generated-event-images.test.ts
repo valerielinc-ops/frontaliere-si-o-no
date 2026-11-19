@@ -168,6 +168,7 @@ describe('generated event image policy', () => {
     const legacyGeminiRecord = {
       ...RECORD,
       assetId: 'historical-gemini-image',
+      imageUrl: '/images/events/library/historical-gemini-image.webp',
       provider: 'gemini',
       model: 'gemini-3.1-flash-image',
       executorModel: 'gemini-3.1-flash-image',
