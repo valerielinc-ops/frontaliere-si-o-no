@@ -1856,34 +1856,89 @@ function nativeQuestionText(value, counter = null) {
 export const LIST_PROMPT_RE = /^(bitte (aus)?wählen|please select|select|seleziona(re)?|sélectionne[rz]?|choisi(r|ssez)|aucune\s+(?:sélection|selection)(?:née|nee)?|keine\s+auswahl|no\s+selection|nothing\s+selected)\b/i;
 
 /** Open a listbox button, read its owned options, close it again. */
-export async function readListboxOptions(frame, fieldOrAaId) {
+const PROMPT_OPTION_SELECTOR = '[data-automation-id="promptOption"], [data-automation-id="selectOption"]';
+const SEARCH_PROMPT_SELECTOR = 'input[data-automation-id="searchBox"], input[type="search"], input[placeholder*="search" i]';
+const SEARCH_PROMPT_VISIBLE_SELECTOR = 'input[data-automation-id="searchBox"]:visible, input[type="search"]:visible, input[placeholder*="search" i]:visible';
+
+async function visibleLocator(locator) {
+  if (!locator) return false;
+  if (typeof locator.count === 'function' && typeof locator.nth === 'function') {
+    const count = await locator.count().catch(() => 0);
+    for (let index = 0; index < count; index += 1) {
+      const node = locator.nth(index);
+      if (typeof node?.isVisible === 'function') {
+        if (await node.isVisible().catch(() => false)) return true;
+      } else {
+        return true;
+      }
+    }
+    if (count > 0) return false;
+  }
+  const first = typeof locator.first === 'function' ? locator.first() : null;
+  if (typeof first?.isVisible === 'function') return await first.isVisible().catch(() => false);
+  if (typeof locator?.count === 'function') return (await locator.count().catch(() => 0)) > 0;
+  return false;
+}
+
+async function readOptionsFromLocator(options, timeoutMs) {
+  if (!options) return [];
+  const first = typeof options.first === 'function' ? options.first() : null;
+  if (first && typeof first.waitFor === 'function') {
+    const ready = await first.waitFor({ state: 'visible', timeout: timeoutMs }).then(() => true, () => false);
+    if (!ready) return [];
+  }
+  const raw = typeof options.allInnerTexts === 'function' ? await options.allInnerTexts().catch(() => []) : [];
+  return raw.map((text) => text.replace(/\s+/g, ' ').trim()).filter((label) => label && !LIST_PROMPT_RE.test(label));
+}
+
+async function readPopupListCatalogue(frame, { trigger, list = null, hasOwnedList = false, primaryTimeoutMs = 8000 } = {}) {
+  try {
+    await trigger.click({ timeout: 5000 });
+    const hasList = list ? await list.waitFor({ state: 'visible', timeout: 4000 }).then(() => true, () => false) : false;
+    if (!hasList && hasOwnedList) {
+      await trigger.press('Escape').catch(() => {});
+      return { options: [], searchablePrompt: false };
+    }
+    const roleOptions = hasList ? list.locator('[role="option"]') : frame.locator('[role="option"]:visible');
+    let labels = await readOptionsFromLocator(roleOptions, primaryTimeoutMs);
+    if (!labels.length) {
+      // Workday searchable/prompt picklists can render promptOption nodes or a
+      // search input popup instead of flat ARIA role="option" rows.
+      const promptOptions = hasList
+        ? list.locator(PROMPT_OPTION_SELECTOR)
+        : frame.locator(`${PROMPT_OPTION_SELECTOR.split(', ').map((s) => `${s}:visible`).join(', ')}`);
+      labels = await readOptionsFromLocator(promptOptions, 1500);
+    }
+    if (labels.length) {
+      await trigger.press('Escape').catch(() => {});
+      return { options: labels.map((label) => ({ value: label, label })), searchablePrompt: false };
+    }
+    const searchInput = hasList ? list.locator(SEARCH_PROMPT_SELECTOR) : frame.locator(SEARCH_PROMPT_VISIBLE_SELECTOR);
+    const searchablePrompt = await visibleLocator(searchInput);
+    await trigger.press('Escape').catch(() => {});
+    return { options: [], searchablePrompt };
+  } catch {
+    await frame.page?.()?.keyboard?.press('Escape').catch(() => {});
+    return { options: [], searchablePrompt: false };
+  }
+}
+
+async function readListboxCatalogue(frame, fieldOrAaId) {
   const field = typeof fieldOrAaId === 'object' ? fieldOrAaId : { id: fieldOrAaId };
-  if (field?.ownedListAmbiguous) return [];
-  const first = locator => typeof locator?.first === 'function' ? locator.first() : locator;
+  if (field?.ownedListAmbiguous) return { options: [], searchablePrompt: false };
+  const first = (locator) => (typeof locator?.first === 'function' ? locator.first() : locator);
   const button = first(frame.locator(`[data-aa-id="${field.id}"]`));
   const ownedList = field?.ownedList
     ? first(frame.locator(`[id="${String(field.ownedList).replace(/["\\]/g, '\\$&')}"]`))
     : null;
-  try {
-    await button.click({ timeout: 5000 });
-    // Only the open list, but all of it: Workday keeps the options of a list
-    // opened before in the DOM (hidden), and a long list scrolls.
-    const list = ownedList || frame.locator('[role="listbox"]:visible').last();
-    const hasList = await list.waitFor({ state: 'visible', timeout: 4000 }).then(() => true, () => false);
-    if (!hasList && ownedList) {
-      await button.press('Escape').catch(() => {});
-      return [];
-    }
-    const options = hasList ? list.locator('[role="option"]') : frame.locator('[role="option"]:visible');
-    await options.first().waitFor({ state: 'visible', timeout: 8000 });
-    // The list's prompt is no option of it («Select One» was offered to the candidate as a marital status).
-    const labels = (await options.allInnerTexts()).map((text) => text.replace(/\s+/g, ' ').trim()).filter((label) => label && !LIST_PROMPT_RE.test(label));
-    await button.press('Escape').catch(() => {});
-    return labels.map((label) => ({ value: label, label }));
-  } catch {
-    await frame.page().keyboard.press('Escape').catch(() => {});
-    return [];
-  }
+  // Only the open list, but all of it: Workday keeps the options of a list
+  // opened before in the DOM (hidden), and a long list scrolls.
+  const list = ownedList || frame.locator('[role="listbox"]:visible').last();
+  return readPopupListCatalogue(frame, { trigger: button, list, hasOwnedList: Boolean(ownedList) });
+}
+
+export async function readListboxOptions(frame, fieldOrAaId) {
+  return (await readListboxCatalogue(frame, fieldOrAaId)).options;
 }
 
 /**
@@ -1891,24 +1946,16 @@ export async function readListboxOptions(frame, fieldOrAaId) {
  * they have loaded (SuccessFactors fetches them, up to ~4 s), closed again.
  * The prompt («Bitte auswählen») is no option.
  */
-export async function readOwnedListOptions(frame, field) {
-  if (field?.ownedListAmbiguous || !field?.ownedList) return [];
-  const first = locator => typeof locator?.first === 'function' ? locator.first() : locator;
+async function readOwnedListCatalogue(frame, field) {
+  if (field?.ownedListAmbiguous || !field?.ownedList) return { options: [], searchablePrompt: false };
+  const first = (locator) => (typeof locator?.first === 'function' ? locator.first() : locator);
   const input = first(frame.locator(`[data-aa-id="${field.id}"]`));
   const list = first(frame.locator(`[id="${String(field.ownedList).replace(/["\\]/g, '\\$&')}"]`));
-  try {
-    await input.click({ timeout: 5000 });
-    await list.waitFor({ state: 'visible', timeout: 4000 });
-    const options = list.locator('[role="option"]');
-    await options.first().waitFor({ state: 'visible', timeout: 8000 });
-    const labels = (await options.allInnerTexts()).map((text) => text.replace(/\s+/g, ' ').trim())
-      .filter((label) => label && !LIST_PROMPT_RE.test(label));
-    await input.press('Escape').catch(() => {});
-    return labels.map((label) => ({ value: label, label }));
-  } catch {
-    await frame.page().keyboard.press('Escape').catch(() => {});
-    return [];
-  }
+  return readPopupListCatalogue(frame, { trigger: input, list, hasOwnedList: true });
+}
+
+export async function readOwnedListOptions(frame, field) {
+  return (await readOwnedListCatalogue(frame, field)).options;
 }
 
 /**
@@ -1971,7 +2018,11 @@ export async function extractFields(page, { listboxOptions = true, channelType =
       continue; // cross-origin or detached
     }
     for (const field of listboxOptions && !includeHidden ? snapshot.fields.filter((item) => (item.kind === 'listbox' && item.widget !== 'jquery-multiselect') || (item.selectLike && item.widget !== 'jquery-selectmenu')).slice(0, 15) : []) {
-      field.options = field.selectLike ? await readOwnedListOptions(frame, field) : await readListboxOptions(frame, field);
+      const catalogue = field.selectLike
+        ? await readOwnedListCatalogue(frame, field)
+        : await readListboxCatalogue(frame, field);
+      field.options = catalogue.options;
+      if (catalogue.searchablePrompt && !catalogue.options.length) field.searchablePrompt = true;
     }
     result.frames.push({ index, url: snapshot.url });
     result.workdayApplicationSurface ||= snapshot.workdayApplicationSurface === true;

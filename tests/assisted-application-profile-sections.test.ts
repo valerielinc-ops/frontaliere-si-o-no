@@ -235,4 +235,127 @@ describe('profile history rows', () => {
     expect(result.handoff).toBe('profile_section_row_fill_failed');
     expect(current.fields.find((field) => field.id === 'from-1').value).toBe('');
   });
+
+  it('defaults year-only experience months to 01 and copies missing company from role while deleting unfillable inline rows', async () => {
+    let current: any = {
+      url: 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Sion/Role_R2420/apply/applyManually',
+      fields: [
+        { id: 'exp-role-1', section: 'Work Experience 1', label: 'Job Title*', kind: 'text', required: true, value: '' },
+        { id: 'exp-company-1', section: 'Work Experience 1', label: 'Company*', kind: 'text', required: true, value: '' },
+        { id: 'exp-from-1', section: 'Work Experience 1', label: 'From*', kind: 'text', inputType: 'date', widget: 'workday-date', required: true, value: '' },
+        { id: 'exp-to-1', section: 'Work Experience 1', label: 'To*', kind: 'text', inputType: 'date', widget: 'workday-date', required: true, value: '' },
+        { id: 'edu-degree-1', section: 'Education 1', label: 'Degree*', kind: 'text', required: true, value: 'High School' },
+        { id: 'edu-from-1', section: 'Education 1', label: 'From*', kind: 'text', inputType: 'date', widget: 'workday-date', required: true, value: '' },
+        { id: 'edu-to-1', section: 'Education 1', label: 'To*', kind: 'text', inputType: 'date', widget: 'workday-date', required: true, value: '' },
+      ],
+      buttons: [
+        { id: 'exp-add', text: 'Add Another', section: 'Work Experience', disabled: false },
+        { id: 'exp-del-1', text: 'Delete', section: 'Work Experience 1', disabled: false },
+        { id: 'edu-add', text: 'Add Another', section: 'Education', disabled: false },
+        { id: 'edu-del-1', text: 'Delete', section: 'Education 1', disabled: false },
+      ],
+    };
+    const deletedButtons: string[] = [];
+    doubles.extractFields.mockImplementation(async () => current);
+    const makePage = () => {
+      const clickFor = (selector: string) => {
+        const match = /data-aa-id="([^"]+)"/.exec(selector);
+        const buttonId = match?.[1] || '';
+        return {
+          first: () => ({
+            click: async () => {
+              deletedButtons.push(buttonId);
+              if (buttonId === 'edu-del-1') {
+                current = {
+                  ...current,
+                  fields: current.fields.filter((field: any) => !String(field.section || '').startsWith('Education')),
+                  buttons: current.buttons.filter((item: any) => item.id !== 'edu-del-1'),
+                };
+              }
+            },
+          }),
+        };
+      };
+      const frame = { locator: clickFor };
+      return {
+        url: () => current.url,
+        waitForTimeout: async () => {},
+        frames: () => [frame],
+        mainFrame: () => frame,
+        locator: clickFor,
+      };
+    };
+    doubles.applyActions.mockImplementation(async (_page: unknown, _fields: unknown, actions: any[]) => {
+      for (const action of actions) {
+        const target = current.fields.find((field: any) => field.id === action.fieldId);
+        if (target) target.value = action.value;
+      }
+      return actions.map((action) => ({ fieldId: action.fieldId, ok: true }));
+    });
+    const candidate = {
+      profile: {
+        experience: [{ role: 'Boutique Owner', employer: '', start: '2017', end: '07/2024' }],
+        education: [{ degree: 'High School', institution: 'Local High School', start: '', end: '' }],
+      },
+    };
+
+    const result = await fillProfileSections(makePage() as never, current as never, { candidate });
+
+    expect(result.handoff).toBeUndefined();
+    expect(result.snapshot.fields.find((field: any) => field.id === 'exp-company-1')?.value).toBe('Boutique Owner');
+    expect(result.snapshot.fields.find((field: any) => field.id === 'exp-from-1')?.value).toBe('2017-01');
+    expect(result.snapshot.fields.find((field: any) => field.id === 'exp-to-1')?.value).toBe('07/2024');
+    // No incomplete Work Experience rows remain; Education has undated profile entries so Add is skipped cleanly.
+    expect(deletedButtons).toEqual([]);
+
+    // Also verify reconcileExistingInlineProfileRows deletes an inline row that remains incomplete after fill
+    // (for example, an extra required field like Field of Study* that profile does not provide).
+    const eduOnly = {
+      url: current.url,
+      fields: [
+        { id: 'edu-degree-1', section: 'Education 1', label: 'Degree*', kind: 'text', required: true, value: 'High School' },
+        { id: 'edu-school-1', section: 'Education 1', label: 'School*', kind: 'text', required: true, value: '' },
+        { id: 'edu-major-1', section: 'Education 1', label: 'Field of Study*', kind: 'text', required: true, value: '' },
+      ],
+      buttons: [
+        { id: 'edu-add', text: 'Add Another', section: 'Education', disabled: false },
+        { id: 'edu-del-1', text: 'Delete', section: 'Education 1', disabled: false },
+      ],
+    };
+    current = eduOnly;
+    const eduResult = await fillProfileSections(makePage() as never, current as never, {
+      candidate: {
+        profile: {
+          experience: [],
+          education: [{ degree: 'High School', institution: 'Local High School', start: '2015', end: '2019' }],
+        },
+      },
+    });
+    expect(eduResult.handoff).toBeUndefined();
+    expect(deletedButtons).toEqual(['edu-del-1']);
+    expect(eduResult.snapshot.fields).toEqual([]);
+
+    // If a Delete click does not actually remove the incomplete row from the DOM, fail closed instead of returning success.
+    const sticky = {
+      url: current.url,
+      fields: [
+        { id: 'exp-title-1', section: 'Work Experience 1', label: 'Job Title*', kind: 'text', required: true, value: 'Role' },
+        { id: 'exp-extra-1', section: 'Work Experience 1', label: 'Manager Email*', kind: 'text', required: true, value: '' },
+      ],
+      buttons: [
+        { id: 'exp-add', text: 'Add Another', section: 'Work Experience', disabled: false },
+        { id: 'exp-del-sticky', text: 'Delete', section: 'Work Experience 1', disabled: false },
+      ],
+    };
+    current = sticky;
+    const stickyResult = await fillProfileSections(makePage() as never, current as never, {
+      candidate: {
+        profile: {
+          experience: [{ role: 'Role', employer: 'Employer', start: '2020-01', end: '2024-01' }],
+          education: [],
+        },
+      },
+    });
+    expect(stickyResult.handoff).toBe('profile_section_row_fill_failed');
+  });
 });

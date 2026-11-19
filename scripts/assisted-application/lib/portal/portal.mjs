@@ -43,7 +43,7 @@ import { extractFields as extractFieldsRaw, registerPortalChannelType } from './
 import { startPortalDiagnostics, portalHandoffReason } from './diagnostics.mjs';
 import { applicationContractFromPreflight, applicationContractFromSubmission } from './application-contract.mjs';
 import { NO_PORTAL_KNOWLEDGE, labelsAt, learnedButton } from './knowledge.mjs';
-import { addressAnswerNeedsOwnership, candidateAnswerForField, expectedValueShape, holdsValue, isPermitHistoricalQuestion, ownConsent, planPage, questionTopic, targetEmployerNoOption } from './plan.mjs';
+import { addressAnswerNeedsOwnership, candidateAnswerForField, expectedValueShape, holdsValue, isOpenEndedExperienceEnd, isPermitHistoricalQuestion, ownConsent, planPage, questionTopic, targetEmployerNoOption } from './plan.mjs';
 import { publicValueShape, readbackShape, reportedValueShape } from './value-shape.mjs';
 import { registerCookieSessionRecovery } from './cookie-session.mjs';
 import { portalAnswerForApplication, portalOptionMap, portalQuestionId, portalQuestionKey, slugId } from './question-key.mjs';
@@ -513,16 +513,43 @@ function hasExplicitMonth(value) {
   return /\b(?:jan(?:uary|uar)?|feb(?:ruary|ruar)?|mar(?:ch|z)?|apr(?:il)?|may|mai|jun(?:e|i)?|jul(?:y|i)?|aug(?:ust)?|sep(?:tember|t)?|oct(?:ober|ober)?|nov(?:ember)?|dec(?:ember)|gen(?:naio)?|febbraio|marzo|apr(?:ile)?|mag(?:gio)?|giu(?:gno)?|lug(?:lio)?|ago(?:sto)?|sett(?:embre)?|ott(?:obre)?|nov(?:embre)?|dic(?:embre)?|janv(?:ier)?|févr(?:ier)?|mars|avr(?:il)?|juin|juil(?:let)?|août|sept(?:embre)?|oct(?:obre)?|nov(?:embre)?|déc(?:embre)?|januar|februar|märz|mai|juni|juli|oktober|dezember)\b.*\b(?:19|20)\d{2}\b/i.test(text);
 }
 
-/** Profile rows whose dates retain month-level precision, in the source order. */
+const PROFILE_YEAR_ONLY_RE = /^((?:19|20)\d{2})$/;
+
+function normalizeProfilePeriodDate(value) {
+  const text = String(value || '').trim();
+  if (!text || isOpenEndedExperienceEnd(text)) return '';
+  if (hasExplicitMonth(text)) return text;
+  const yearMatch = PROFILE_YEAR_ONLY_RE.exec(text);
+  return yearMatch ? `${yearMatch[1]}-01` : '';
+}
+
+function normalizeProfileEntry(entry = {}, kind = 'experience') {
+  if (!entry || typeof entry !== 'object') return entry;
+  const normalizeEndpoint = (raw) => {
+    const text = String(raw || '').trim();
+    if (!text || isOpenEndedExperienceEnd(text)) return '';
+    return normalizeProfilePeriodDate(text) || text;
+  };
+  const start = normalizeEndpoint(entry.start);
+  const end = normalizeEndpoint(entry.end);
+  if (kind !== 'experience') return { ...entry, start, end };
+  const role = String(entry.role || '').trim();
+  const employer = String(entry.employer || '').trim() || role;
+  return { ...entry, employer, start, end };
+}
+
+/** Profile rows whose dates retain year/month precision (defaulting year-only to month 01), in source order. */
 export function profileEntriesForSection(candidate, kind) {
   const source = candidate?.profile?.[kind];
   if (!Array.isArray(source) || !['experience', 'education'].includes(kind)) return [];
-  return source.filter((entry) => {
-    const title = kind === 'experience' ? entry?.role : entry?.degree;
-    const organization = kind === 'experience' ? entry?.employer : entry?.institution;
-    return Boolean(String(title || '').trim() && String(organization || '').trim()
-      && hasExplicitMonth(entry?.start) && hasExplicitMonth(entry?.end));
-  });
+  return source
+    .map((entry) => normalizeProfileEntry(entry, kind))
+    .filter((entry) => {
+      const title = kind === 'experience' ? entry?.role : entry?.degree;
+      const organization = kind === 'experience' ? entry?.employer : entry?.institution;
+      return Boolean(String(title || '').trim() && String(organization || '').trim()
+        && hasExplicitMonth(entry?.start) && hasExplicitMonth(entry?.end));
+    });
 }
 
 const PROFILE_DATE_FIELD_PATTERNS = [
@@ -693,7 +720,9 @@ function profileControlMatchesEntry(control, kind, entry) {
 
 function profileEntryForControl(candidate, control, kind = control?.kind) {
   if (!['experience', 'education'].includes(kind)) return null;
-  const source = Array.isArray(candidate?.profile?.[kind]) ? candidate.profile[kind] : [];
+  const source = Array.isArray(candidate?.profile?.[kind])
+    ? candidate.profile[kind].map((entry) => normalizeProfileEntry(entry, kind))
+    : [];
   const hasIdentity = (entry) => {
     const title = kind === 'experience' ? entry?.role : entry?.degree;
     const organization = kind === 'experience' ? entry?.employer : entry?.institution;
@@ -711,6 +740,7 @@ function profileEntryForControl(candidate, control, kind = control?.kind) {
 
 /** Exact labels in an opened history row can use only that row's own profile value. */
 export function profileEntryAnswer(entry, kind, field) {
+  const normalized = normalizeProfileEntry(entry, kind);
   const control = workdayProfileControl(field, kind);
   const label = control.label;
   const mappings = kind === 'experience'
@@ -719,7 +749,7 @@ export function profileEntryAnswer(entry, kind, field) {
       ? [[/^(?:degree|qualification)\s*[＊*]?$/iu, 'degree'], [/^(?:institution|school)\s*[＊*]?$/iu, 'institution'], [/^(?:start date|from)\s*[＊*]?$/iu, 'start'], [/^(?:end date|to)\s*[＊*]?$/iu, 'end']]
       : [];
   const key = control.endpoint || mappings.find(([pattern]) => pattern.test(label))?.[1];
-  const value = key ? String(entry?.[key] || '').trim() : '';
+  const value = key ? String(normalized?.[key] || '').trim() : '';
   return value ? { value, source: 'profile' } : null;
 }
 
@@ -1733,7 +1763,18 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
       // Workday's, SuccessFactors' and umantis' "My Experience" steps: the work
       // history as the CV states it, instead of questions to the candidate.
       experience: (profile.experience || []).slice(0, 8)
-        .map(({ role = '', employer = '', location = '', start = '', end = '' }) => ({ role, employer, location, start, end })),
+        .map(({ role = '', employer = '', location = '', start = '', end = '' }) => {
+          const normalized = normalizeProfileEntry({ role, employer, start, end }, 'experience');
+          return {
+            role,
+            employer: normalized.employer,
+            location,
+            start: normalized.start,
+            // Preserve explicit ongoing markers on candidateForForm for hasCurrentJob/employment status,
+            // while profileEntryAnswer/normalizeDateAnswer strip them before writing date controls.
+            end: isOpenEndedExperienceEnd(end) ? String(end).trim() : normalized.end,
+          };
+        }),
       languages: profile.languages || [],
       languagesExplicitList: profile.languagesExplicitList === true,
       // The detected language of the candidate's CV is evidence for the
@@ -2905,10 +2946,13 @@ const fieldHasNativeOptions = (field) => ['combobox', 'select', 'radio', 'listbo
   || field?.selectLike === true
   || Boolean(field?.nativeSelectId);
 
-const fieldRequiresNativeOptions = (field) => fieldHasNativeOptions(field) && !editableCombobox(field);
+const fieldRequiresNativeOptions = (field) => fieldHasNativeOptions(field)
+  && !editableCombobox(field)
+  && field?.searchablePrompt !== true;
 
 export function needsPortalOptionRead(snapshot = {}) {
   return snapshot.fields?.some((field) => {
+    if (field?.searchablePrompt === true) return false;
     if (!fieldHasNativeOptions(field)) return false;
     return !portalHasChoiceCatalogue(field);
   }) || false;
@@ -2958,9 +3002,16 @@ export function mergePortalChoiceOptions(current, refreshed) {
   const fields = currentFields.map((field) => {
     if (portalHasChoiceCatalogue(field)) return field;
     const live = refreshedByIdentity.get(fieldKey(current, field));
-    if (!portalHasChoiceCatalogue(live)) return field;
-    changed = true;
-    return { ...field, options: live.options };
+    if (!live) return field;
+    if (portalHasChoiceCatalogue(live)) {
+      changed = true;
+      return { ...field, options: live.options };
+    }
+    if (live.searchablePrompt === true && field.searchablePrompt !== true) {
+      changed = true;
+      return { ...field, searchablePrompt: true };
+    }
+    return field;
   });
   return changed ? { ...current, fields } : current;
 }
@@ -9193,8 +9244,26 @@ async function reconcileExistingInlineProfileRows(page, snapshot, kind, entries,
     if (!opened.fields.length && !hasExpectedRows()) return fail();
   }
 
-  let deleteAttempts = 0;
   const DELETE_ROW_RE = /^(?:delete|remove|löschen|loeschen|entfernen|supprimer|elimina|rimuovi)\b/i;
+  const deleteInlineRow = async (ordinal, { allowLastFallback = false, strict = false } = {}) => {
+    const delButtons = profileButtons(current, kind, DELETE_ROW_RE);
+    const delBtn = byOrdinal.size === 1
+      ? delButtons[0]
+      : (delButtons.length === byOrdinal.size ? delButtons[ordinal - 1] : (allowLastFallback ? delButtons.at(-1) : null));
+    if (!delBtn) return false;
+    try {
+      const clickOutcome = await clickButton(page, delBtn);
+      if (typeof clickOutcome !== 'string' || !clickOutcome) return false;
+      await page.waitForTimeout(200);
+      current = await extractFields(page);
+      byOrdinal = rowsByOrdinal(profileFields(current, kind));
+      if (!attachUnnumberedInlineProfileDates(profileFields(current, kind), kind, byOrdinal) && strict) return false;
+      return true;
+    } catch {
+      return false;
+    }
+  };
+  let deleteAttempts = 0;
   while (true) {
     byOrdinal = rowsByOrdinal(profileFields(current, kind));
     if (!attachUnnumberedInlineProfileDates(profileFields(current, kind), kind, byOrdinal)) return fail();
@@ -9204,23 +9273,14 @@ async function reconcileExistingInlineProfileRows(page, snapshot, kind, entries,
       .sort((a, b) => b - a)[0];
     if (emptyExtraOrdinal === undefined) break;
     if (deleteAttempts++ >= Math.max(byOrdinal.size, entries.length + 1)) return fail();
-    const delButtons = profileButtons(current, kind, DELETE_ROW_RE);
-    const delBtn = delButtons[emptyExtraOrdinal - 1] || delButtons.at(-1);
-    if (!delBtn) return fail();
-    try {
-      const clickOutcome = await clickButton(page, delBtn);
-      if (typeof clickOutcome !== 'string' || !clickOutcome) return fail();
-      await page.waitForTimeout(200);
-      current = await extractFields(page);
-    } catch {
-      return fail();
-    }
+    if (!await deleteInlineRow(emptyExtraOrdinal, { allowLastFallback: true, strict: true })) return fail();
   }
   byOrdinal = rowsByOrdinal(profileFields(current, kind));
   if (!attachUnnumberedInlineProfileDates(profileFields(current, kind), kind, byOrdinal)) return fail();
   const unresolvedExtra = [...byOrdinal.entries()]
     .some(([ordinal, rowFields]) => ordinal > entries.length && !rowFields.some((field) => holdsValue(field)));
   if (unresolvedExtra || !hasExpectedRows()) return fail();
+  let filledAny = false;
   for (let ordinal = 1; ordinal <= entries.length; ordinal += 1) {
     const entry = entries[ordinal - 1];
     const rowFields = byOrdinal.get(ordinal) || [];
@@ -9239,6 +9299,7 @@ async function reconcileExistingInlineProfileRows(page, snapshot, kind, entries,
       });
     }
     if (actions.length) {
+      filledAny = true;
       const results = await applyActions(page, rowFields, actions, files).catch(() => null);
       if (!Array.isArray(results) || results.some((result) => !result?.ok)) {
         return {
@@ -9248,7 +9309,29 @@ async function reconcileExistingInlineProfileRows(page, snapshot, kind, entries,
       }
     }
   }
-  return { snapshot: await extractFields(page).catch(() => current) };
+  if (filledAny) current = await extractFields(page).catch(() => current);
+  byOrdinal = rowsByOrdinal(profileFields(current, kind));
+  if (!attachUnnumberedInlineProfileDates(profileFields(current, kind), kind, byOrdinal)) return fail();
+  const incompleteOrdinals = () => [...byOrdinal.entries()]
+    .filter(([, rowFields]) => rowFields.some((field) => field.required && !holdsValue(field)))
+    .map(([ordinal]) => ordinal)
+    .sort((a, b) => b - a);
+  const maxCleanupAttempts = byOrdinal.size;
+  let cleanupAttempts = 0;
+  while (cleanupAttempts++ < maxCleanupAttempts) {
+    const incompleteOrdinal = incompleteOrdinals()[0];
+    if (incompleteOrdinal === undefined) break;
+    const prevRowCount = byOrdinal.size;
+    const targetFieldIds = new Set((byOrdinal.get(incompleteOrdinal) || []).map((field) => field.id));
+    if (!await deleteInlineRow(incompleteOrdinal, { strict: true })) return fail();
+    const stillPresent = byOrdinal.size >= prevRowCount
+      || (targetFieldIds.size > 0
+        && profileFields(current, kind).some((field) => targetFieldIds.has(field.id))
+        && incompleteOrdinals().includes(incompleteOrdinal));
+    if (stillPresent) return fail();
+  }
+  if (incompleteOrdinals().length) return fail();
+  return { snapshot: current };
 }
 
 /**
@@ -11359,6 +11442,7 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
         let type = item.type;
         if (field) {
           if (item.forceType) type = item.forceType;
+          else if (field.searchablePrompt && !applicationOptions.length) type = 'text';
           else if (['select', 'radio', 'listbox'].includes(field.kind) || field.selectLike || field.nativeSelectId || applicationOptions.length) type = 'choice';
           else if (editableCombobox(field)) type = 'text';
           else if (field.kind === 'checkbox') type = 'yes_no';
@@ -13654,6 +13738,7 @@ export async function submitViaPortal(ctx) {
       let unclearQuestions = [];
       let candidateQuestions = [];
       if (workable(snapshot)) {
+        snapshot = await snapshotWithPortalOptions(snapshot);
         evidence.lastFormSnapshot = {
           fields: (snapshot.fields || []).map(({ required, invalid, kind, inputType }) => ({
             required: Boolean(required), invalid: Boolean(invalid), kind: kind || '', inputType: inputType || '',
