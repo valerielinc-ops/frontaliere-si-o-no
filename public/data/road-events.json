@@ -1,69 +1,67 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-19T02:56:34.805Z",
+  "generatedAt": "2026-11-19T12:16:38.611Z",
   "sources": [
     {
       "id": "astra-datex2",
       "status": "ok",
-      "count": 540,
-      "coverage": 87.7,
-      "lastSuccessAt": "2026-11-19T02:56:34.805Z"
+      "count": 533,
+      "coverage": 87.2,
+      "lastSuccessAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "ne-mobilite",
       "status": "ok",
       "count": 1,
-      "lastSuccessAt": "2026-11-19T02:56:34.805Z"
+      "lastSuccessAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "ne-territoire",
       "status": "ok",
       "count": 0,
-      "lastSuccessAt": "2026-11-19T02:56:34.805Z"
+      "lastSuccessAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "fr-mobilite",
       "status": "ok",
       "count": 2,
-      "lastSuccessAt": "2026-11-19T02:56:34.805Z"
+      "lastSuccessAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "fr-police",
       "status": "ok",
       "count": 2,
-      "lastSuccessAt": "2026-11-19T02:56:34.805Z"
+      "lastSuccessAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "ge-police",
-      "status": "error",
-      "reason": "feed carries zero items",
-      "lastSuccessAt": "2026-11-18T12:20:02.191Z",
-      "carriedForward": 3
+      "status": "ok",
+      "count": 3,
+      "lastSuccessAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "ge-mobilite",
-      "status": "error",
-      "reason": "feed carries zero items",
-      "lastSuccessAt": "2026-11-18T12:20:02.191Z",
-      "carriedForward": 3
+      "status": "ok",
+      "count": 3,
+      "lastSuccessAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "vd-police",
       "status": "ok",
       "count": 1,
-      "lastSuccessAt": "2026-11-19T02:56:34.805Z"
+      "lastSuccessAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "vd-mobilis",
       "status": "ok",
       "count": 0,
-      "lastSuccessAt": "2026-11-19T02:56:34.805Z"
+      "lastSuccessAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "basilea-bvb",
       "status": "ok",
       "count": 1,
-      "lastSuccessAt": "2026-11-19T02:56:34.805Z"
+      "lastSuccessAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "appenzello-polizei",
@@ -75,10 +73,27 @@
       "id": "ti-polizia",
       "status": "ok",
       "count": 1,
-      "lastSuccessAt": "2026-11-19T02:56:34.805Z"
+      "lastSuccessAt": "2026-11-19T12:16:38.611Z"
     }
   ],
   "events": [
+    {
+      "id": "astra-datex2:situation.668596.1",
+      "canton": "AG",
+      "type": "chiusura",
+      "title": "A1 Zürich -> Bern tra Svincolo autostradale Neuenhof E Svincolo autostradale Baden West Situazione: problemi di traffico cantiere Limitazione del traffico: corsia d'emergenza chiusa",
+      "titleByLocale": {
+        "it": "A1 Zürich -> Bern tra Svincolo autostradale Neuenhof E Svincolo autostradale Baden West Situazione: problemi di traffico cantiere Limitazione del traffico: corsia d'emergenza chiusa",
+        "de": "A1 Zürich -> Bern zwischen Anschluss Neuenhof und Anschluss Baden-West Sachlage: Verkehrsbehinderung Baustelle Verkehrsführung: Pannenstreifen gesperrt",
+        "fr": "A1 Zurich -> Berne entre Jonction autoroutière Neuenhof et Jonction autoroutière Baden-Ouest Situation: trafic perturbé travaux Gestion du trafic: bande d'arrêt d'urgence fermée"
+      },
+      "url": null,
+      "validFrom": "2026-11-19T06:35:00.000Z",
+      "validTo": "2026-12-01T11:00:00.000Z",
+      "publishedAt": null,
+      "source": "astra-datex2",
+      "observedAt": "2026-11-19T12:16:38.611Z"
+    },
     {
       "id": "astra-datex2:situation.668233.1",
       "canton": "AG",
@@ -94,7 +109,7 @@
       "validTo": "2026-12-07T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667966.1",
@@ -111,7 +126,7 @@
       "validTo": "2026-11-19T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.665848.1",
@@ -128,7 +143,7 @@
       "validTo": "2026-12-11T11:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.664025.1",
@@ -145,7 +160,7 @@
       "validTo": "2026-11-19T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.664002.1",
@@ -162,7 +177,7 @@
       "validTo": "2026-11-19T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.661088.1",
@@ -179,7 +194,7 @@
       "validTo": "2026-12-02T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.656789.1",
@@ -196,7 +211,24 @@
       "validTo": "2026-11-30T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
+    },
+    {
+      "id": "astra-datex2:situation.668594.1",
+      "canton": "AG",
+      "type": "cantiere",
+      "title": "A1 Bern -> Zürich tra Svincolo autostradale Baden West E Svincolo autostradale Neuenhof Situazione: problemi di traffico cantiere, lunghezza [km] 0.7 Limitazione del traffico: corsie strette ridotta su due corsie Aggiunta 1: limite temporan",
+      "titleByLocale": {
+        "it": "A1 Bern -> Zürich tra Svincolo autostradale Baden West E Svincolo autostradale Neuenhof Situazione: problemi di traffico cantiere, lunghezza [km] 0.7 Limitazione del traffico: corsie strette ridotta su due corsie Aggiunta 1: limite temporan",
+        "de": "A1 Bern -> Zürich zwischen Anschluss Baden-West und Anschluss Neuenhof Sachlage: Verkehrsbehinderung Baustelle, Länge [km] 0.7 Verkehrsführung: Fahrbahnverengung auf zwei Fahrstreifen verengt Zusatz 1: vorübergehende Begrenzung der Breite F",
+        "fr": "A1 Berne -> Zurich entre Jonction autoroutière Baden-Ouest et Jonction autoroutière Neuenhof Situation: trafic perturbé travaux, longueur [km] 0.7 Gestion du trafic: rétrécissement des voies sur deux voies de circulation Complément 1: limit"
+      },
+      "url": null,
+      "validFrom": "2026-11-19T06:34:00.000Z",
+      "validTo": "2026-12-01T04:00:00.000Z",
+      "publishedAt": null,
+      "source": "astra-datex2",
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.668368.1",
@@ -213,7 +245,7 @@
       "validTo": "2026-11-19T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.668296.1",
@@ -230,7 +262,7 @@
       "validTo": "2026-11-19T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.668193.1",
@@ -247,7 +279,7 @@
       "validTo": "2026-12-09T11:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667817.1",
@@ -264,7 +296,7 @@
       "validTo": "2026-12-10T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666800.1",
@@ -281,7 +313,7 @@
       "validTo": "2026-12-11T13:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666727.1",
@@ -298,7 +330,7 @@
       "validTo": "2026-12-03T17:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667513.1",
@@ -315,7 +347,7 @@
       "validTo": "2026-11-27T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667156.1",
@@ -332,7 +364,7 @@
       "validTo": "2026-12-10T05:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666809.1",
@@ -349,7 +381,7 @@
       "validTo": "2026-11-20T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666309.1",
@@ -366,7 +398,7 @@
       "validTo": "2026-12-11T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666066.1",
@@ -383,7 +415,7 @@
       "validTo": "2026-11-30T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666068.1",
@@ -400,7 +432,7 @@
       "validTo": "2026-11-27T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.665847.1",
@@ -417,7 +449,7 @@
       "validTo": "2026-12-11T11:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.664972.1",
@@ -434,7 +466,7 @@
       "validTo": "2026-12-03T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.664591.1",
@@ -451,7 +483,7 @@
       "validTo": "2026-12-03T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.664070.1",
@@ -468,7 +500,7 @@
       "validTo": "2026-11-20T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.663930.1",
@@ -485,7 +517,7 @@
       "validTo": "2026-12-16T14:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.663884.1",
@@ -502,24 +534,7 @@
       "validTo": "2026-11-27T11:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
-    },
-    {
-      "id": "astra-datex2:situation.663510.1",
-      "canton": "AG",
-      "type": "cantiere",
-      "title": "A3 Diramazione Rheinfelden <-> Germania Dogana Rheinfelden Situazione: problemi di traffico cantiere, lunghezza [km] 0.2 Limitazione del traffico: nuova viabilità Aggiunta 1: limite temporaneo larghezza Larghezza carreggiata [m] 3.5",
-      "titleByLocale": {
-        "it": "A3 Diramazione Rheinfelden <-> Germania Dogana Rheinfelden Situazione: problemi di traffico cantiere, lunghezza [km] 0.2 Limitazione del traffico: nuova viabilità Aggiunta 1: limite temporaneo larghezza Larghezza carreggiata [m] 3.5",
-        "de": "A3 Verzweigung Rheinfelden <-> Deutschland Zollstation Rheinfelden Sachlage: Verkehrsbehinderung Baustelle, Länge [km] 0.2 Verkehrsführung: veränderte Verkehrsführung Zusatz 1: vorübergehende Begrenzung der Breite Fahrbahnbreite [m] 3.5",
-        "fr": "A3 Echangeur de Rheinfelden <-> Allemagne Poste de douane Rheinfelden Situation: trafic perturbé travaux, longueur [km] 0.2 Gestion du trafic: nouveau plan de circulation Complément 1: limitation temporaire de largeur largeur de la voie [m]"
-      },
-      "url": null,
-      "validFrom": "2026-11-01T20:14:00.000Z",
-      "validTo": "2026-11-19T11:00:00.000Z",
-      "publishedAt": null,
-      "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.661986.1",
@@ -536,7 +551,7 @@
       "validTo": "2026-11-24T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.661985.1",
@@ -553,7 +568,7 @@
       "validTo": "2026-11-24T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.661217.1",
@@ -570,7 +585,7 @@
       "validTo": "2026-11-26T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.660489.1",
@@ -587,7 +602,7 @@
       "validTo": "2027-02-05T05:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.608168.1",
@@ -604,7 +619,7 @@
       "validTo": "2027-08-31T21:59:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.591167.1",
@@ -621,7 +636,7 @@
       "validTo": "2026-11-20T13:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.576577.1",
@@ -638,7 +653,7 @@
       "validTo": "2027-07-01T21:59:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.536060.1",
@@ -655,7 +670,7 @@
       "validTo": "2027-04-30T00:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.665134.1",
@@ -672,7 +687,7 @@
       "validTo": "2027-02-15T04:45:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666453.1",
@@ -689,7 +704,7 @@
       "validTo": "2026-11-25T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666308.1",
@@ -706,7 +721,7 @@
       "validTo": "2026-12-03T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.662894.1",
@@ -723,7 +738,7 @@
       "validTo": "2026-11-27T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.661249.1",
@@ -740,7 +755,7 @@
       "validTo": "2026-11-24T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.661247.1",
@@ -757,7 +772,7 @@
       "validTo": "2026-11-25T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.661242.1",
@@ -774,7 +789,7 @@
       "validTo": "2026-11-20T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.659255.1",
@@ -791,7 +806,7 @@
       "validTo": "2026-11-26T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.601306.1",
@@ -808,7 +823,7 @@
       "validTo": "2026-11-20T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.656418.1",
@@ -825,7 +840,7 @@
       "validTo": "2026-11-30T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.656423.1",
@@ -842,7 +857,7 @@
       "validTo": "2026-11-30T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.668335.1",
@@ -859,7 +874,7 @@
       "validTo": "2026-12-15T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.668279.1",
@@ -876,7 +891,7 @@
       "validTo": "2026-12-11T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.668013.1",
@@ -893,7 +908,7 @@
       "validTo": "2026-11-30T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.668161.1",
@@ -910,7 +925,7 @@
       "validTo": "2026-12-08T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667242.1",
@@ -927,7 +942,7 @@
       "validTo": "2027-09-17T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667118.1",
@@ -944,7 +959,7 @@
       "validTo": "2026-12-01T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666808.1",
@@ -961,7 +976,7 @@
       "validTo": "2026-12-03T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666645.1",
@@ -978,7 +993,7 @@
       "validTo": "2026-11-19T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666642.1",
@@ -995,7 +1010,7 @@
       "validTo": "2027-03-05T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.665849.1",
@@ -1012,7 +1027,7 @@
       "validTo": "2026-12-04T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.663100.1",
@@ -1029,7 +1044,7 @@
       "validTo": "2026-12-18T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.661218.1",
@@ -1046,7 +1061,7 @@
       "validTo": "2026-11-30T22:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.661080.1",
@@ -1063,7 +1078,7 @@
       "validTo": "2026-12-01T02:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.659243.1",
@@ -1080,7 +1095,7 @@
       "validTo": "2026-11-23T21:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.654751.1",
@@ -1097,7 +1112,7 @@
       "validTo": "2026-12-04T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.644368.1",
@@ -1114,7 +1129,7 @@
       "validTo": "2026-11-25T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.644117.1",
@@ -1131,7 +1146,7 @@
       "validTo": "2026-11-20T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.599857.1",
@@ -1148,7 +1163,7 @@
       "validTo": "2026-12-18T21:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.601218.1",
@@ -1165,24 +1180,7 @@
       "validTo": "2026-12-18T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
-    },
-    {
-      "id": "astra-datex2:situation.600379.1",
-      "canton": "BASILEA",
-      "type": "cantiere",
-      "title": "A2 Lucerna -> Basilea tra Raccordo autostradale Raccordo di Gellert E Svincolo autostradale Basilea-Wettstein Situazione: problemi di traffico cantiere, lunghezza [km] 1.2 Limitazione del traffico: corsie strette ridotta su una corsia Aggiu",
-      "titleByLocale": {
-        "it": "A2 Lucerna -> Basilea tra Raccordo autostradale Raccordo di Gellert E Svincolo autostradale Basilea-Wettstein Situazione: problemi di traffico cantiere, lunghezza [km] 1.2 Limitazione del traffico: corsie strette ridotta su una corsia Aggiu",
-        "de": "A2 Luzern -> Basel zwischen Autobahndreieck Verzweigung Gellert und Anschluss Basel-Wettstein Sachlage: Verkehrsbehinderung Baustelle, Länge [km] 1.2 Verkehrsführung: Fahrbahnverengung auf einen Fahrstreifen verengt Zusatz 1: vorübergehende",
-        "fr": "A2 Lucerne -> Bâle entre Echangeur Echangeur de Gellert et Jonction autoroutière Bâle-Wettstein Situation: trafic perturbé travaux, longueur [km] 1.2 Gestion du trafic: rétrécissement des voies sur une voie de circulation Complément 1: limi"
-      },
-      "url": null,
-      "validFrom": "2026-01-29T04:27:00.000Z",
-      "validTo": "2026-11-19T04:00:00.000Z",
-      "publishedAt": null,
-      "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "basilea-bvb:https://www.bvb.ch/de/2026/11/05/oev-plus-app-gemeinsam-fuer-den-stadt-und-regionalverkehr/",
@@ -1194,7 +1192,7 @@
       "validTo": null,
       "publishedAt": "2026-11-05T07:49:54.000Z",
       "source": "basilea-bvb",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.668380.1",
@@ -1211,7 +1209,7 @@
       "validTo": "2026-11-25T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z",
+      "observedAt": "2026-11-19T12:16:38.611Z",
       "geo": {
         "lat": 47.04,
         "lng": 7.1
@@ -1232,7 +1230,7 @@
       "validTo": "2026-11-30T18:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.665853.1",
@@ -1249,7 +1247,7 @@
       "validTo": "2026-11-24T17:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667299.1",
@@ -1266,7 +1264,7 @@
       "validTo": "2026-11-27T17:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.665890.1",
@@ -1283,7 +1281,7 @@
       "validTo": "2026-11-19T17:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666748.1",
@@ -1300,7 +1298,7 @@
       "validTo": "2026-11-20T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666746.1",
@@ -1317,7 +1315,7 @@
       "validTo": "2026-11-20T03:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666747.1",
@@ -1334,7 +1332,7 @@
       "validTo": "2026-11-20T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666307.1",
@@ -1351,7 +1349,7 @@
       "validTo": "2026-11-26T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.662299.1",
@@ -1368,7 +1366,7 @@
       "validTo": "2026-11-27T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z",
+      "observedAt": "2026-11-19T12:16:38.611Z",
       "geo": {
         "lat": 47.24,
         "lng": 7.18
@@ -1389,7 +1387,7 @@
       "validTo": "2026-12-04T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.665222.1",
@@ -1406,7 +1404,7 @@
       "validTo": null,
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.662296.1",
@@ -1423,7 +1421,7 @@
       "validTo": null,
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.659181.1",
@@ -1440,7 +1438,7 @@
       "validTo": "2027-03-26T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.658972.1",
@@ -1457,7 +1455,7 @@
       "validTo": "2026-11-25T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.663597.1",
@@ -1474,7 +1472,7 @@
       "validTo": "2027-06-30T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.632657.1",
@@ -1491,7 +1489,7 @@
       "validTo": "2026-11-30T14:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.518543.1",
@@ -1508,7 +1506,7 @@
       "validTo": "2027-08-27T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.498960.1",
@@ -1525,7 +1523,7 @@
       "validTo": "2027-08-27T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z",
+      "observedAt": "2026-11-19T12:16:38.611Z",
       "geo": {
         "lat": 46.9,
         "lng": 7.24
@@ -1546,7 +1544,7 @@
       "validTo": "2026-12-04T15:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666812.1",
@@ -1563,7 +1561,7 @@
       "validTo": "2026-12-04T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.663642.1",
@@ -1580,7 +1578,24 @@
       "validTo": "2026-11-27T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
+    },
+    {
+      "id": "astra-datex2:situation.663332.1",
+      "canton": "BE",
+      "type": "cantiere",
+      "title": "H6 Bern <-> Lyss Luogo Münchenbuchsee Situazione: problemi di traffico Causa: lavori di costruzione Limitazione del traffico: circolazione a corsie alternate Aggiunta 1: limite temporaneo larghezza Larghezza carreggiata [m] 3.5",
+      "titleByLocale": {
+        "it": "H6 Bern <-> Lyss Luogo Münchenbuchsee Situazione: problemi di traffico Causa: lavori di costruzione Limitazione del traffico: circolazione a corsie alternate Aggiunta 1: limite temporaneo larghezza Larghezza carreggiata [m] 3.5",
+        "de": "H6 Bern <-> Lyss Ortschaft Münchenbuchsee Sachlage: Verkehrsbehinderung Ursache: Bauarbeiten Verkehrsführung: wechselseitige Verkehrsführung Zusatz 1: vorübergehende Begrenzung der Breite Fahrbahnbreite [m] 3.5",
+        "fr": "H6 Berne <-> Lyss Localité Münchenbuchsee Situation: trafic perturbé Raison: travaux de construction Gestion du trafic: circulation alternée à une voie Complément 1: limitation temporaire de largeur largeur de la voie [m] 3.5"
+      },
+      "url": null,
+      "validFrom": "2026-11-19T05:00:00.000Z",
+      "validTo": "2026-11-20T16:00:00.000Z",
+      "publishedAt": null,
+      "source": "astra-datex2",
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666901.1",
@@ -1597,28 +1612,28 @@
       "validTo": "2026-11-19T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z",
+      "observedAt": "2026-11-19T12:16:38.611Z",
       "geo": {
         "lat": 46.92,
         "lng": 7.74
       }
     },
     {
-      "id": "astra-datex2:situation.663332.1",
+      "id": "astra-datex2:situation.668569.1",
       "canton": "BE",
       "type": "cantiere",
-      "title": "H6 Bern <-> Lyss Luogo Münchenbuchsee Situazione: problemi di traffico Causa: lavori di costruzione Limitazione del traffico: circolazione a corsie alternate Aggiunta 1: limite temporaneo larghezza Larghezza carreggiata [m] 3.5",
+      "title": "A6W Diramazione Lattigen -> Port tra Raccordo autostradale Diramazione Lattigen E Svincolo autostradale Wimmis Situazione: problemi di traffico cantiere, lunghezza [km] 0.4 Limitazione del traffico: corsie strette ridotta su una corsia Aggi",
       "titleByLocale": {
-        "it": "H6 Bern <-> Lyss Luogo Münchenbuchsee Situazione: problemi di traffico Causa: lavori di costruzione Limitazione del traffico: circolazione a corsie alternate Aggiunta 1: limite temporaneo larghezza Larghezza carreggiata [m] 3.5",
-        "de": "H6 Bern <-> Lyss Ortschaft Münchenbuchsee Sachlage: Verkehrsbehinderung Ursache: Bauarbeiten Verkehrsführung: wechselseitige Verkehrsführung Zusatz 1: vorübergehende Begrenzung der Breite Fahrbahnbreite [m] 3.5",
-        "fr": "H6 Berne <-> Lyss Localité Münchenbuchsee Situation: trafic perturbé Raison: travaux de construction Gestion du trafic: circulation alternée à une voie Complément 1: limitation temporaire de largeur largeur de la voie [m] 3.5"
+        "it": "A6W Diramazione Lattigen -> Port tra Raccordo autostradale Diramazione Lattigen E Svincolo autostradale Wimmis Situazione: problemi di traffico cantiere, lunghezza [km] 0.4 Limitazione del traffico: corsie strette ridotta su una corsia Aggi",
+        "de": "A6W Verzweigung Lattigen -> Port zwischen Autobahndreieck Verzweigung Lattigen und Anschluss Wimmis Sachlage: Verkehrsbehinderung Baustelle, Länge [km] 0.4 Verkehrsführung: Fahrbahnverengung auf einen Fahrstreifen verengt Zusatz 1: vorüberg",
+        "fr": "A6W Echangeur de Lattigen -> Port entre Echangeur Echangeur de Lattigen et Jonction autoroutière Wimmis Situation: trafic perturbé travaux, longueur [km] 0.4 Gestion du trafic: rétrécissement des voies sur une voie de circulation Complément"
       },
       "url": null,
-      "validFrom": "2026-11-18T23:00:00.000Z",
-      "validTo": "2026-11-20T16:00:00.000Z",
+      "validFrom": "2026-11-18T15:30:00.000Z",
+      "validTo": "2026-12-18T15:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.668358.1",
@@ -1635,7 +1650,7 @@
       "validTo": "2026-12-09T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z",
+      "observedAt": "2026-11-19T12:16:38.611Z",
       "geo": {
         "lat": 46.5,
         "lng": 7.57
@@ -1656,7 +1671,7 @@
       "validTo": "2026-12-04T13:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667995.1",
@@ -1673,7 +1688,7 @@
       "validTo": "2026-12-18T19:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.665210.1",
@@ -1690,7 +1705,7 @@
       "validTo": "2026-11-24T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667648.1",
@@ -1707,7 +1722,7 @@
       "validTo": "2026-11-25T12:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667186.1",
@@ -1724,7 +1739,7 @@
       "validTo": "2026-11-20T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666383.1",
@@ -1741,7 +1756,7 @@
       "validTo": "2026-11-27T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.665817.1",
@@ -1758,7 +1773,7 @@
       "validTo": "2026-12-18T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.663287.1",
@@ -1775,7 +1790,7 @@
       "validTo": "2026-12-10T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.665854.1",
@@ -1792,7 +1807,7 @@
       "validTo": "2026-12-18T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.659830.1",
@@ -1809,7 +1824,7 @@
       "validTo": "2026-12-09T16:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.662669.1",
@@ -1826,7 +1841,7 @@
       "validTo": "2026-11-24T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z",
+      "observedAt": "2026-11-19T12:16:38.611Z",
       "geo": {
         "lat": 46.51,
         "lng": 7.59
@@ -1847,7 +1862,7 @@
       "validTo": "2026-11-27T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.663716.1",
@@ -1864,7 +1879,7 @@
       "validTo": "2026-12-18T22:45:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.661735.1",
@@ -1881,7 +1896,7 @@
       "validTo": "2026-11-30T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z",
+      "observedAt": "2026-11-19T12:16:38.611Z",
       "geo": {
         "lat": 46.87,
         "lng": 7.52
@@ -1902,7 +1917,7 @@
       "validTo": "2026-11-27T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z",
+      "observedAt": "2026-11-19T12:16:38.611Z",
       "geo": {
         "lat": 46.75,
         "lng": 8.05
@@ -1923,7 +1938,7 @@
       "validTo": "2027-08-06T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z",
+      "observedAt": "2026-11-19T12:16:38.611Z",
       "geo": {
         "lat": 46.95,
         "lng": 7.45
@@ -1944,7 +1959,7 @@
       "validTo": "2027-05-28T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.662236.1",
@@ -1961,7 +1976,7 @@
       "validTo": "2027-12-09T23:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.659232.1",
@@ -1978,7 +1993,7 @@
       "validTo": "2026-12-18T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z",
+      "observedAt": "2026-11-19T12:16:38.611Z",
       "geo": {
         "lat": 46.94,
         "lng": 7.4
@@ -1999,7 +2014,7 @@
       "validTo": "2026-12-23T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.659664.1",
@@ -2016,7 +2031,7 @@
       "validTo": "2026-12-11T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.655882.1",
@@ -2033,7 +2048,7 @@
       "validTo": "2026-12-18T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.656364.1",
@@ -2050,7 +2065,7 @@
       "validTo": "2026-11-20T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.654317.1",
@@ -2067,7 +2082,7 @@
       "validTo": "2026-11-27T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.657448.1",
@@ -2084,7 +2099,7 @@
       "validTo": "2026-12-18T22:45:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.654273.1",
@@ -2101,7 +2116,7 @@
       "validTo": "2028-01-28T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.652085.1",
@@ -2118,7 +2133,7 @@
       "validTo": "2026-12-18T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.653238.1",
@@ -2135,7 +2150,7 @@
       "validTo": "2026-12-18T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z",
+      "observedAt": "2026-11-19T12:16:38.611Z",
       "geo": {
         "lat": 46.93,
         "lng": 7.42
@@ -2156,7 +2171,7 @@
       "validTo": "2026-12-23T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z",
+      "observedAt": "2026-11-19T12:16:38.611Z",
       "geo": {
         "lat": 46.9,
         "lng": 7.25
@@ -2177,7 +2192,7 @@
       "validTo": "2026-11-22T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.651569.1",
@@ -2194,7 +2209,7 @@
       "validTo": "2026-11-27T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z",
+      "observedAt": "2026-11-19T12:16:38.611Z",
       "geo": {
         "lat": 46.47,
         "lng": 7.29
@@ -2215,7 +2230,7 @@
       "validTo": "2026-12-18T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z",
+      "observedAt": "2026-11-19T12:16:38.611Z",
       "geo": {
         "lat": 46.93,
         "lng": 7.82
@@ -2236,7 +2251,7 @@
       "validTo": "2027-06-30T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.650404.1",
@@ -2253,7 +2268,7 @@
       "validTo": "2027-05-31T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.647965.1",
@@ -2270,7 +2285,7 @@
       "validTo": "2026-12-23T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.647322.1",
@@ -2287,7 +2302,7 @@
       "validTo": "2026-11-27T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z",
+      "observedAt": "2026-11-19T12:16:38.611Z",
       "geo": {
         "lat": 46.8,
         "lng": 7.57
@@ -2308,7 +2323,7 @@
       "validTo": "2026-11-27T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.646331.1",
@@ -2325,7 +2340,7 @@
       "validTo": "2026-11-27T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.643496.1",
@@ -2342,7 +2357,7 @@
       "validTo": "2026-11-30T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.644640.1",
@@ -2359,7 +2374,7 @@
       "validTo": "2026-12-11T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z",
+      "observedAt": "2026-11-19T12:16:38.611Z",
       "geo": {
         "lat": 46.73,
         "lng": 8.18
@@ -2380,7 +2395,7 @@
       "validTo": "2026-12-31T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.642458.1",
@@ -2397,7 +2412,7 @@
       "validTo": "2026-12-18T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.639992.1",
@@ -2414,7 +2429,7 @@
       "validTo": "2027-04-30T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.640833.1",
@@ -2431,7 +2446,7 @@
       "validTo": "2027-07-30T13:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.637642.1",
@@ -2448,7 +2463,7 @@
       "validTo": "2026-12-31T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.661121.1",
@@ -2465,7 +2480,7 @@
       "validTo": "2026-11-20T19:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.662312.1",
@@ -2482,7 +2497,7 @@
       "validTo": "2026-12-11T22:45:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.660852.1",
@@ -2499,7 +2514,7 @@
       "validTo": "2026-11-30T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.622923.1",
@@ -2516,7 +2531,7 @@
       "validTo": "2029-05-01T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.629178.1",
@@ -2533,7 +2548,7 @@
       "validTo": "2029-07-31T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666103.1",
@@ -2550,7 +2565,7 @@
       "validTo": "2026-12-16T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.609203.1",
@@ -2567,7 +2582,7 @@
       "validTo": "2026-11-27T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.609137.1",
@@ -2584,7 +2599,7 @@
       "validTo": "2026-11-20T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.605945.1",
@@ -2601,7 +2616,7 @@
       "validTo": "2026-11-30T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.605209.1",
@@ -2618,7 +2633,7 @@
       "validTo": "2026-11-27T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.603913.1",
@@ -2635,7 +2650,7 @@
       "validTo": "2026-12-31T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.599259.1",
@@ -2652,7 +2667,7 @@
       "validTo": "2026-12-04T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z",
+      "observedAt": "2026-11-19T12:16:38.611Z",
       "geo": {
         "lat": 46.75,
         "lng": 7.57
@@ -2673,7 +2688,7 @@
       "validTo": "2027-09-24T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.598009.1",
@@ -2690,7 +2705,7 @@
       "validTo": "2026-12-18T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.595467.1",
@@ -2707,7 +2722,7 @@
       "validTo": "2026-12-18T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.571859.1",
@@ -2724,7 +2739,7 @@
       "validTo": "2027-09-30T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.559339.1",
@@ -2741,7 +2756,7 @@
       "validTo": "2026-11-30T11:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.545571.1",
@@ -2758,7 +2773,7 @@
       "validTo": "2026-12-20T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.475683.1",
@@ -2775,7 +2790,7 @@
       "validTo": "2027-07-31T14:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666150.1",
@@ -2792,7 +2807,7 @@
       "validTo": "2026-12-28T21:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666415.1",
@@ -2809,7 +2824,7 @@
       "validTo": "2026-12-04T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z",
+      "observedAt": "2026-11-19T12:16:38.611Z",
       "geo": {
         "lat": 46.72,
         "lng": 7.93
@@ -2830,7 +2845,7 @@
       "validTo": "2026-12-18T11:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.668332.1",
@@ -2847,7 +2862,7 @@
       "validTo": "2026-11-25T17:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z",
+      "observedAt": "2026-11-19T12:16:38.611Z",
       "geo": {
         "lat": 46.8,
         "lng": 7.17
@@ -2868,7 +2883,7 @@
       "validTo": "2026-12-03T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z",
+      "observedAt": "2026-11-19T12:16:38.611Z",
       "geo": {
         "lat": 46.93,
         "lng": 7.11
@@ -2889,7 +2904,7 @@
       "validTo": "2026-11-27T07:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z",
+      "observedAt": "2026-11-19T12:16:38.611Z",
       "geo": {
         "lat": 46.85,
         "lng": 6.85
@@ -2910,7 +2925,7 @@
       "validTo": null,
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.664640.1",
@@ -2927,7 +2942,7 @@
       "validTo": "2026-11-25T04:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z",
+      "observedAt": "2026-11-19T12:16:38.611Z",
       "geo": {
         "lat": 46.72,
         "lng": 6.96
@@ -2948,7 +2963,7 @@
       "validTo": "2026-12-04T04:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z",
+      "observedAt": "2026-11-19T12:16:38.611Z",
       "geo": {
         "lat": 46.83,
         "lng": 7.07
@@ -2969,7 +2984,7 @@
       "validTo": "2026-12-23T16:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z",
+      "observedAt": "2026-11-19T12:16:38.611Z",
       "geo": {
         "lat": 46.53,
         "lng": 6.85
@@ -2990,7 +3005,7 @@
       "validTo": "2026-11-23T17:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z",
+      "observedAt": "2026-11-19T12:16:38.611Z",
       "geo": {
         "lat": 46.89,
         "lng": 7.28
@@ -3011,7 +3026,7 @@
       "validTo": "2026-11-23T17:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z",
+      "observedAt": "2026-11-19T12:16:38.611Z",
       "geo": {
         "lat": 46.88,
         "lng": 7.27
@@ -3032,7 +3047,7 @@
       "validTo": "2026-11-27T07:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z",
+      "observedAt": "2026-11-19T12:16:38.611Z",
       "geo": {
         "lat": 46.84,
         "lng": 6.85
@@ -3053,7 +3068,7 @@
       "validTo": "2026-11-27T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z",
+      "observedAt": "2026-11-19T12:16:38.611Z",
       "geo": {
         "lat": 46.86,
         "lng": 7.13
@@ -3074,7 +3089,7 @@
       "validTo": "2026-12-12T17:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z",
+      "observedAt": "2026-11-19T12:16:38.611Z",
       "geo": {
         "lat": 46.78,
         "lng": 7.14
@@ -3095,7 +3110,7 @@
       "validTo": "2026-11-30T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z",
+      "observedAt": "2026-11-19T12:16:38.611Z",
       "geo": {
         "lat": 46.89,
         "lng": 7.17
@@ -3116,7 +3131,7 @@
       "validTo": "2026-12-04T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z",
+      "observedAt": "2026-11-19T12:16:38.611Z",
       "geo": {
         "lat": 46.8,
         "lng": 7.16
@@ -3137,7 +3152,7 @@
       "validTo": "2026-11-23T17:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z",
+      "observedAt": "2026-11-19T12:16:38.611Z",
       "geo": {
         "lat": 46.8,
         "lng": 7.26
@@ -3158,7 +3173,7 @@
       "validTo": "2026-11-20T15:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.661423.1",
@@ -3175,7 +3190,7 @@
       "validTo": "2026-11-21T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.659405.1",
@@ -3192,7 +3207,7 @@
       "validTo": "2027-03-30T22:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z",
+      "observedAt": "2026-11-19T12:16:38.611Z",
       "geo": {
         "lat": 46.53,
         "lng": 6.9
@@ -3213,7 +3228,7 @@
       "validTo": "2027-07-31T21:59:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.509946.1",
@@ -3230,7 +3245,7 @@
       "validTo": "2027-09-30T21:45:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.495106.1",
@@ -3247,7 +3262,7 @@
       "validTo": "2027-08-31T14:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "fr-mobilite:https://www.fr.ch/mobilite-et-transport/transports-individuels-motorises/systeme-de-comptage-routier-par-capteur-optique",
@@ -3259,7 +3274,7 @@
       "validTo": null,
       "publishedAt": "2026-11-09T17:07:27.000Z",
       "source": "fr-mobilite",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "fr-mobilite:https://www.fr.ch/mobilite-et-transport/transports-individuels-motorises/observatoire-de-la-mobilite",
@@ -3271,7 +3286,7 @@
       "validTo": null,
       "publishedAt": "2026-11-09T15:55:21.000Z",
       "source": "fr-mobilite",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "fr-police:https://www.fr.ch/dsjs/pol/actualites/une-pietonne-decede-apres-avoir-ete-heurtee-par-des-vehicules-sur-la12-appel-a-temoins",
@@ -3283,7 +3298,7 @@
       "validTo": null,
       "publishedAt": "2026-11-02T13:58:09.000Z",
       "source": "fr-police",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "fr-police:https://www.fr.ch/dsjs/pol/actualites/quelques-incidents-et-plusieurs-accidents-de-la-circulation",
@@ -3295,7 +3310,7 @@
       "validTo": null,
       "publishedAt": "2026-11-01T09:10:00.000Z",
       "source": "fr-police",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.659881.1",
@@ -3312,7 +3327,7 @@
       "validTo": "2027-03-30T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z",
+      "observedAt": "2026-11-19T12:16:38.611Z",
       "geo": {
         "lat": 46.79,
         "lng": 7.12
@@ -3333,7 +3348,7 @@
       "validTo": "2027-06-30T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z",
+      "observedAt": "2026-11-19T12:16:38.611Z",
       "geo": {
         "lat": 46.93,
         "lng": 7.14
@@ -3354,7 +3369,7 @@
       "validTo": "2026-12-04T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z",
+      "observedAt": "2026-11-19T12:16:38.611Z",
       "geo": {
         "lat": 46.81,
         "lng": 7.16
@@ -3375,7 +3390,7 @@
       "validTo": "2026-11-26T03:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667611.1",
@@ -3392,7 +3407,7 @@
       "validTo": "2026-11-21T03:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666187.1",
@@ -3409,7 +3424,7 @@
       "validTo": "2026-12-04T03:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666210.1",
@@ -3426,7 +3441,7 @@
       "validTo": "2026-12-04T03:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666194.1",
@@ -3443,7 +3458,19 @@
       "validTo": "2026-12-04T03:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
+    },
+    {
+      "id": "ge-mobilite:https://www.ge.ch/node/45530",
+      "canton": "GE",
+      "type": "cantiere",
+      "title": "Impacts Mobilités: démarrage de nouveaux chantiers impactant les déplacements dès le 23 novembre 2026",
+      "url": "https://www.ge.ch/node/45530",
+      "validFrom": null,
+      "validTo": null,
+      "publishedAt": "2026-11-19T08:53:50.000Z",
+      "source": "ge-mobilite",
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "ge-mobilite:https://www.ge.ch/node/45465",
@@ -3455,7 +3482,7 @@
       "validTo": null,
       "publishedAt": "2026-11-12T08:21:31.000Z",
       "source": "ge-mobilite",
-      "observedAt": "2026-11-18T12:20:02.191Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "ge-mobilite:https://www.ge.ch/node/45397",
@@ -3467,19 +3494,7 @@
       "validTo": null,
       "publishedAt": "2026-11-05T08:29:18.000Z",
       "source": "ge-mobilite",
-      "observedAt": "2026-11-18T12:20:02.191Z"
-    },
-    {
-      "id": "ge-mobilite:https://www.ge.ch/node/45356",
-      "canton": "GE",
-      "type": "cantiere",
-      "title": "Impacts Mobilités: démarrage de nouveaux chantiers impactant les déplacements dès le 2 novembre 2026",
-      "url": "https://www.ge.ch/node/45356",
-      "validFrom": null,
-      "validTo": null,
-      "publishedAt": "2026-10-29T09:37:40.000Z",
-      "source": "ge-mobilite",
-      "observedAt": "2026-11-18T12:20:02.191Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "ge-police:https://www.ge.ch/node/45507",
@@ -3491,7 +3506,7 @@
       "validTo": null,
       "publishedAt": "2026-11-13T13:20:45.000Z",
       "source": "ge-police",
-      "observedAt": "2026-11-18T12:20:02.191Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "ge-police:https://www.ge.ch/node/45418",
@@ -3503,7 +3518,7 @@
       "validTo": null,
       "publishedAt": "2026-11-05T15:20:03.000Z",
       "source": "ge-police",
-      "observedAt": "2026-11-18T12:20:02.191Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "ge-police:https://www.ge.ch/node/45382",
@@ -3515,7 +3530,7 @@
       "validTo": null,
       "publishedAt": "2026-10-31T18:01:57.000Z",
       "source": "ge-police",
-      "observedAt": "2026-11-18T12:20:02.191Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.662096.1",
@@ -3532,7 +3547,7 @@
       "validTo": "2026-11-29T18:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667255.1",
@@ -3549,7 +3564,24 @@
       "validTo": "2026-12-02T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
+    },
+    {
+      "id": "astra-datex2:situation.668645.1",
+      "canton": "GR",
+      "type": "chiusura",
+      "title": "A13 S. Bernardino <-> Sargans tra Svincolo autostradale Chur Nord E Svincolo autostradale Landquart Situazione: problemi di traffico cantiere, lunghezza [km] 0.1 Limitazione del traffico: corsia d'emergenza chiusa",
+      "titleByLocale": {
+        "it": "A13 S. Bernardino <-> Sargans tra Svincolo autostradale Chur Nord E Svincolo autostradale Landquart Situazione: problemi di traffico cantiere, lunghezza [km] 0.1 Limitazione del traffico: corsia d'emergenza chiusa",
+        "de": "A13 S. Bernardino <-> Sargans zwischen Anschluss Chur-Nord und Anschluss Landquart Sachlage: Verkehrsbehinderung Baustelle, Länge [km] 0.1 Verkehrsführung: Pannenstreifen gesperrt",
+        "fr": "A13 S. Bernardino <-> Sargans entre Jonction autoroutière Coire-Nord et Jonction autoroutière Landquart Situation: trafic perturbé travaux, longueur [km] 0.1 Gestion du trafic: bande d'arrêt d'urgence fermée"
+      },
+      "url": null,
+      "validFrom": "2026-11-19T10:28:00.000Z",
+      "validTo": "2026-12-11T16:00:00.000Z",
+      "publishedAt": null,
+      "source": "astra-datex2",
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666833.1",
@@ -3566,7 +3598,7 @@
       "validTo": "2026-12-01T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.665215.1",
@@ -3583,41 +3615,7 @@
       "validTo": "2026-12-05T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
-    },
-    {
-      "id": "astra-datex2:situation.653571.1",
-      "canton": "GR",
-      "type": "chiusura",
-      "title": "A13 Bellinzona -> S. Bernardino Svincolo autostradale Grono Situazione: uscita chiusa cantiere",
-      "titleByLocale": {
-        "it": "A13 Bellinzona -> S. Bernardino Svincolo autostradale Grono Situazione: uscita chiusa cantiere",
-        "de": "A13 Bellinzona -> S. Bernardino Anschluss Grono Sachlage: Ausfahrt gesperrt Baustelle",
-        "fr": "A13 Bellinzone -> S. Bernardino Jonction autoroutière Grono Situation: sortie fermée travaux"
-      },
-      "url": null,
-      "validFrom": "2026-09-17T20:00:00.000Z",
-      "validTo": "2026-11-19T04:00:00.000Z",
-      "publishedAt": null,
-      "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
-    },
-    {
-      "id": "astra-datex2:situation.653574.1",
-      "canton": "GR",
-      "type": "chiusura",
-      "title": "A13 Bellinzona -> S. Bernardino tra Svincolo autostradale Roveredo E Svincolo autostradale Lostallo Situazione: chiusa cantiere",
-      "titleByLocale": {
-        "it": "A13 Bellinzona -> S. Bernardino tra Svincolo autostradale Roveredo E Svincolo autostradale Lostallo Situazione: chiusa cantiere",
-        "de": "A13 Bellinzona -> S. Bernardino zwischen Anschluss Roveredo und Anschluss Lostallo Sachlage: Strecke gesperrt Baustelle",
-        "fr": "A13 Bellinzone -> S. Bernardino entre Jonction autoroutière Roveredo et Jonction autoroutière Lostallo Situation: fermé travaux"
-      },
-      "url": null,
-      "validFrom": "2026-09-17T20:00:00.000Z",
-      "validTo": "2026-11-19T04:00:00.000Z",
-      "publishedAt": null,
-      "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.668326.1",
@@ -3634,7 +3632,7 @@
       "validTo": "2026-11-26T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667645.1",
@@ -3651,7 +3649,7 @@
       "validTo": "2026-11-27T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667247.1",
@@ -3668,7 +3666,7 @@
       "validTo": "2026-11-23T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.664472.1",
@@ -3685,7 +3683,7 @@
       "validTo": "2026-11-23T22:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.659961.1",
@@ -3702,7 +3700,7 @@
       "validTo": "2026-11-24T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.657742.1",
@@ -3719,7 +3717,7 @@
       "validTo": "2028-11-03T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.657739.1",
@@ -3736,7 +3734,7 @@
       "validTo": "2027-10-22T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.654844.1",
@@ -3753,7 +3751,7 @@
       "validTo": "2027-05-31T21:45:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.631245.1",
@@ -3770,7 +3768,7 @@
       "validTo": "2028-08-31T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.668361.1",
@@ -3787,7 +3785,7 @@
       "validTo": "2026-12-09T22:45:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667169.1",
@@ -3804,7 +3802,7 @@
       "validTo": "2026-11-26T11:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666853.1",
@@ -3821,7 +3819,7 @@
       "validTo": "2026-12-16T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666728.1",
@@ -3838,7 +3836,7 @@
       "validTo": "2026-11-19T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.664020.1",
@@ -3855,7 +3853,7 @@
       "validTo": "2026-11-19T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.668363.1",
@@ -3872,7 +3870,7 @@
       "validTo": "2026-12-10T01:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667633.1",
@@ -3889,7 +3887,7 @@
       "validTo": "2026-11-23T21:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667631.1",
@@ -3906,7 +3904,7 @@
       "validTo": "2026-11-23T21:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667115.1",
@@ -3923,7 +3921,7 @@
       "validTo": "2027-12-10T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666851.1",
@@ -3940,7 +3938,7 @@
       "validTo": "2026-12-03T12:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666846.1",
@@ -3957,7 +3955,7 @@
       "validTo": "2026-12-03T14:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666838.1",
@@ -3974,7 +3972,7 @@
       "validTo": "2026-11-26T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666830.1",
@@ -3991,7 +3989,7 @@
       "validTo": "2026-11-25T11:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666828.1",
@@ -4008,7 +4006,7 @@
       "validTo": "2026-11-25T14:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666801.1",
@@ -4025,7 +4023,7 @@
       "validTo": "2026-12-08T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666336.1",
@@ -4042,7 +4040,7 @@
       "validTo": "2027-10-01T02:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666413.1",
@@ -4059,7 +4057,7 @@
       "validTo": "2027-04-16T02:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666159.1",
@@ -4076,7 +4074,7 @@
       "validTo": "2026-11-23T10:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.663290.1",
@@ -4093,7 +4091,7 @@
       "validTo": "2026-12-10T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.665826.1",
@@ -4110,7 +4108,7 @@
       "validTo": "2026-12-09T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.662007.1",
@@ -4127,7 +4125,7 @@
       "validTo": "2026-12-17T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.664041.1",
@@ -4144,7 +4142,7 @@
       "validTo": "2026-11-19T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.662001.1",
@@ -4161,7 +4159,7 @@
       "validTo": "2026-12-04T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.662000.1",
@@ -4178,7 +4176,7 @@
       "validTo": "2026-12-01T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.661090.1",
@@ -4195,7 +4193,7 @@
       "validTo": "2026-11-26T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.658262.1",
@@ -4212,7 +4210,7 @@
       "validTo": "2026-11-27T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.659622.1",
@@ -4229,7 +4227,7 @@
       "validTo": "2026-11-23T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.659152.1",
@@ -4246,7 +4244,7 @@
       "validTo": "2026-12-20T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.652890.1",
@@ -4263,7 +4261,7 @@
       "validTo": "2026-12-24T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.652885.1",
@@ -4280,7 +4278,7 @@
       "validTo": "2026-12-18T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.652886.1",
@@ -4297,7 +4295,7 @@
       "validTo": "2026-12-24T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.590332.1",
@@ -4314,7 +4312,7 @@
       "validTo": "2026-12-11T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.539792.1",
@@ -4331,7 +4329,7 @@
       "validTo": "2027-06-30T21:59:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.538142.1",
@@ -4348,7 +4346,7 @@
       "validTo": "2027-12-31T22:59:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.497377.1",
@@ -4365,7 +4363,7 @@
       "validTo": "2027-12-17T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667203.1",
@@ -4382,7 +4380,7 @@
       "validTo": "2026-11-20T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.662049.1",
@@ -4399,7 +4397,7 @@
       "validTo": "2026-11-20T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.668324.1",
@@ -4416,7 +4414,7 @@
       "validTo": "2026-11-24T14:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.659196.1",
@@ -4433,7 +4431,7 @@
       "validTo": "2027-05-31T21:45:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.536379.1",
@@ -4450,7 +4448,7 @@
       "validTo": "2027-04-30T21:59:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.494518.1",
@@ -4467,7 +4465,7 @@
       "validTo": "2026-12-31T22:59:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "ne-mobilite:https://www.ne.ch/communiques-de-presse/neuchatel-vaud-et-fribourg-sengagent-pour-lavenir-de-la-navigation-sur-les-trois-lacs",
@@ -4479,7 +4477,7 @@
       "validTo": null,
       "publishedAt": "2026-11-16T10:18:21.000Z",
       "source": "ne-mobilite",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.668025.1",
@@ -4496,7 +4494,7 @@
       "validTo": "2026-11-25T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.668026.1",
@@ -4513,10 +4511,10 @@
       "validTo": "2026-11-27T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
-      "id": "astra-datex2:situation.665189.1",
+      "id": "astra-datex2:situation.665205.1",
       "canton": "NW",
       "type": "chiusura",
       "title": "A2 S. Gottardo -> Luzern tra Svincolo autostradale Stans Süd E Svincolo autostradale Stans Nord Situazione: problemi di traffico cantiere, lunghezza [km] 0.2 Limitazione del traffico: corsia d'emergenza chiusa",
@@ -4526,28 +4524,11 @@
         "fr": "A2 St-Gothard -> Lucerne entre Jonction autoroutière Stans-Sud et Jonction autoroutière Stans-Nord Situation: trafic perturbé travaux, longueur [km] 0.2 Gestion du trafic: bande d'arrêt d'urgence fermée"
       },
       "url": null,
-      "validFrom": "2026-11-06T05:32:00.000Z",
+      "validFrom": "2026-11-06T07:01:00.000Z",
       "validTo": "2026-11-24T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
-    },
-    {
-      "id": "astra-datex2:situation.662233.1",
-      "canton": "NW",
-      "type": "chiusura",
-      "title": "A8 Stans Nord -> Sarnen tra Galleria Gallerie Kirchenwald E Galleria Galleria Lopper Situazione: chiusa cantiere, lunghezza [km] 1.5 Limitazione del traffico: corsia chiusa",
-      "titleByLocale": {
-        "it": "A8 Stans Nord -> Sarnen tra Galleria Gallerie Kirchenwald E Galleria Galleria Lopper Situazione: chiusa cantiere, lunghezza [km] 1.5 Limitazione del traffico: corsia chiusa",
-        "de": "A8 Stans Nord -> Sarnen zwischen Tunnel Kirchenwald-Tunnel und Tunnel Lopper-Tunnel Sachlage: Strecke gesperrt Baustelle, Länge [km] 1.5 Verkehrsführung: Fahrstreifen gesperrt",
-        "fr": "A8 Stans Nord -> Sarnen entre Tunnel Tunnel de Kirchenwald et Tunnel Tunnel du Lopper Situation: fermé travaux, longueur [km] 1.5 Gestion du trafic: voie fermée"
-      },
-      "url": null,
-      "validFrom": "2026-10-27T06:26:00.000Z",
-      "validTo": "2026-11-19T04:00:00.000Z",
-      "publishedAt": null,
-      "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667875.1",
@@ -4564,7 +4545,7 @@
       "validTo": "2026-11-25T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666513.1",
@@ -4581,24 +4562,7 @@
       "validTo": "2026-11-20T11:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
-    },
-    {
-      "id": "astra-datex2:situation.665183.1",
-      "canton": "NW",
-      "type": "cantiere",
-      "title": "A2 S. Gottardo -> Luzern tra Svincolo autostradale Stans Süd E Svincolo autostradale Stans Nord Situazione: problemi di traffico cantiere, lunghezza [km] 0.2 Limitazione del traffico: corsie strette ridotta su una corsia Aggiunta 1: limite ",
-      "titleByLocale": {
-        "it": "A2 S. Gottardo -> Luzern tra Svincolo autostradale Stans Süd E Svincolo autostradale Stans Nord Situazione: problemi di traffico cantiere, lunghezza [km] 0.2 Limitazione del traffico: corsie strette ridotta su una corsia Aggiunta 1: limite ",
-        "de": "A2 Gotthard -> Luzern zwischen Anschluss Stans-Süd und Anschluss Stans-Nord Sachlage: Verkehrsbehinderung Baustelle, Länge [km] 0.2 Verkehrsführung: Fahrbahnverengung auf einen Fahrstreifen verengt Zusatz 1: vorübergehende Begrenzung der Br",
-        "fr": "A2 St-Gothard -> Lucerne entre Jonction autoroutière Stans-Sud et Jonction autoroutière Stans-Nord Situation: trafic perturbé travaux, longueur [km] 0.2 Gestion du trafic: rétrécissement des voies sur une voie de circulation Complément 1: l"
-      },
-      "url": null,
-      "validFrom": "2026-11-06T05:27:00.000Z",
-      "validTo": "2026-11-19T11:00:00.000Z",
-      "publishedAt": null,
-      "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.659148.1",
@@ -4615,7 +4579,41 @@
       "validTo": "2026-12-20T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
+    },
+    {
+      "id": "astra-datex2:situation.668634.1",
+      "canton": "OW",
+      "type": "chiusura",
+      "title": "Sarnen <-> Entlebuch Passo Passo del Glaubenberg Situazione: chiusa Causa: chiusura invernale",
+      "titleByLocale": {
+        "it": "Sarnen <-> Entlebuch Passo Passo del Glaubenberg Situazione: chiusa Causa: chiusura invernale",
+        "de": "Sarnen <-> Entlebuch Pass Glaubenbergpass Sachlage: Strecke gesperrt Ursache: Wintersperre",
+        "fr": "Sarnen <-> Entlebuch Col Col du Glaubenberg Situation: fermé Raison: fermeture hivernale"
+      },
+      "url": null,
+      "validFrom": "2026-11-19T09:47:00.000Z",
+      "validTo": null,
+      "publishedAt": null,
+      "source": "astra-datex2",
+      "observedAt": "2026-11-19T12:16:38.611Z"
+    },
+    {
+      "id": "astra-datex2:situation.668629.1",
+      "canton": "OW",
+      "type": "chiusura",
+      "title": "Giswil <-> Sörenberg Passo Passo del Glaubenbüelen Situazione: chiusa Causa: chiusura invernale",
+      "titleByLocale": {
+        "it": "Giswil <-> Sörenberg Passo Passo del Glaubenbüelen Situazione: chiusa Causa: chiusura invernale",
+        "de": "Giswil <-> Sörenberg Pass Glaubenbüelenpass Sachlage: Strecke gesperrt Ursache: Wintersperre",
+        "fr": "Giswil <-> Sörenberg Col Col du Glaubenbüelen Situation: fermé Raison: fermeture hivernale"
+      },
+      "url": null,
+      "validFrom": "2026-11-19T08:46:00.000Z",
+      "validTo": null,
+      "publishedAt": null,
+      "source": "astra-datex2",
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667973.1",
@@ -4632,7 +4630,7 @@
       "validTo": null,
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z",
+      "observedAt": "2026-11-19T12:16:38.611Z",
       "geo": {
         "lat": 46.84,
         "lng": 8.29
@@ -4653,7 +4651,7 @@
       "validTo": "2026-12-17T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666379.1",
@@ -4670,24 +4668,7 @@
       "validTo": "2026-12-17T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
-    },
-    {
-      "id": "astra-datex2:situation.662224.1",
-      "canton": "OW",
-      "type": "chiusura",
-      "title": "A8 Hergiswil -> Sarnen tra Raccordo autostradale Diramazione Lopper E Svincolo autostradale Sarnen Nord Situazione: chiusa cantiere Limitazione del traffico: corsia chiusa",
-      "titleByLocale": {
-        "it": "A8 Hergiswil -> Sarnen tra Raccordo autostradale Diramazione Lopper E Svincolo autostradale Sarnen Nord Situazione: chiusa cantiere Limitazione del traffico: corsia chiusa",
-        "de": "A8 Hergiswil -> Sarnen zwischen Autobahndreieck Verzweigung Lopper und Anschluss Sarnen-Nord Sachlage: Strecke gesperrt Baustelle Verkehrsführung: Fahrstreifen gesperrt",
-        "fr": "A8 Hergiswil -> Sarnen entre Echangeur Echangeur du Lopper et Jonction autoroutière Sarnen-Nord Situation: fermé travaux Gestion du trafic: voie fermée"
-      },
-      "url": null,
-      "validFrom": "2026-10-27T19:00:00.000Z",
-      "validTo": "2026-11-19T04:00:00.000Z",
-      "publishedAt": null,
-      "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.662225.1",
@@ -4704,7 +4685,7 @@
       "validTo": "2026-11-20T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.662226.1",
@@ -4721,7 +4702,7 @@
       "validTo": "2026-11-20T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.661159.1",
@@ -4738,7 +4719,7 @@
       "validTo": "2026-11-20T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.650005.1",
@@ -4755,7 +4736,7 @@
       "validTo": "2027-04-30T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.665300.1",
@@ -4772,7 +4753,7 @@
       "validTo": "2026-11-20T05:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.637949.1",
@@ -4789,7 +4770,7 @@
       "validTo": "2026-11-20T05:15:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.636339.1",
@@ -4806,7 +4787,7 @@
       "validTo": "2026-11-20T05:15:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.597298.1",
@@ -4823,7 +4804,7 @@
       "validTo": "2027-05-01T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.597276.1",
@@ -4840,7 +4821,7 @@
       "validTo": "2027-04-30T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667981.1",
@@ -4857,7 +4838,7 @@
       "validTo": "2026-11-20T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667209.1",
@@ -4874,7 +4855,7 @@
       "validTo": "2026-11-19T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666869.1",
@@ -4891,7 +4872,7 @@
       "validTo": "2026-11-21T05:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666429.1",
@@ -4908,7 +4889,7 @@
       "validTo": "2026-11-24T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.665113.1",
@@ -4925,7 +4906,7 @@
       "validTo": "2026-11-20T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.664875.1",
@@ -4942,7 +4923,7 @@
       "validTo": "2026-12-02T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.664598.1",
@@ -4959,7 +4940,7 @@
       "validTo": "2026-12-07T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.663619.1",
@@ -4976,7 +4957,7 @@
       "validTo": "2027-12-30T23:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.659229.1",
@@ -4993,7 +4974,7 @@
       "validTo": "2026-11-27T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.657032.1",
@@ -5010,7 +4991,7 @@
       "validTo": "2026-11-29T23:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.632667.1",
@@ -5027,7 +5008,7 @@
       "validTo": "2026-12-18T05:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.632649.1",
@@ -5044,7 +5025,7 @@
       "validTo": "2026-12-14T05:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.616648.1",
@@ -5061,7 +5042,7 @@
       "validTo": "2026-12-08T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666378.1",
@@ -5078,7 +5059,7 @@
       "validTo": "2026-11-23T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.665181.1",
@@ -5095,7 +5076,7 @@
       "validTo": "2026-11-20T14:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.661215.1",
@@ -5112,7 +5093,7 @@
       "validTo": "2026-11-19T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.661216.1",
@@ -5129,7 +5110,7 @@
       "validTo": "2026-11-19T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667980.1",
@@ -5146,7 +5127,7 @@
       "validTo": "2026-12-08T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667977.1",
@@ -5163,7 +5144,7 @@
       "validTo": "2026-11-27T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667818.1",
@@ -5180,7 +5161,7 @@
       "validTo": "2026-12-09T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667680.1",
@@ -5197,7 +5178,7 @@
       "validTo": "2026-12-08T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667660.1",
@@ -5214,7 +5195,7 @@
       "validTo": "2026-12-08T14:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667694.1",
@@ -5231,7 +5212,7 @@
       "validTo": "2026-12-04T11:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.664993.1",
@@ -5248,7 +5229,7 @@
       "validTo": "2026-12-04T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.662239.1",
@@ -5265,7 +5246,7 @@
       "validTo": "2027-12-09T23:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.652087.1",
@@ -5282,7 +5263,7 @@
       "validTo": "2026-12-18T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.537229.1",
@@ -5299,7 +5280,7 @@
       "validTo": "2027-07-30T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.518096.1",
@@ -5316,7 +5297,7 @@
       "validTo": "2029-12-31T22:59:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.518090.1",
@@ -5333,7 +5314,7 @@
       "validTo": "2028-12-31T22:59:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.657683.1",
@@ -5350,7 +5331,7 @@
       "validTo": "2026-11-29T20:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.668390.1",
@@ -5367,7 +5348,7 @@
       "validTo": "2026-11-19T14:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666472.1",
@@ -5384,7 +5365,7 @@
       "validTo": "2026-11-20T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.661503.1",
@@ -5401,7 +5382,7 @@
       "validTo": "2027-02-04T17:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.668392.1",
@@ -5418,7 +5399,7 @@
       "validTo": "2026-11-19T13:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.668304.1",
@@ -5435,7 +5416,7 @@
       "validTo": "2026-11-27T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666656.1",
@@ -5452,7 +5433,7 @@
       "validTo": "2026-11-21T03:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666506.1",
@@ -5469,7 +5450,7 @@
       "validTo": "2026-11-20T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666369.1",
@@ -5486,7 +5467,7 @@
       "validTo": "2026-11-26T22:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.663635.1",
@@ -5503,7 +5484,7 @@
       "validTo": "2026-12-10T14:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666674.1",
@@ -5520,7 +5501,7 @@
       "validTo": "2026-11-20T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.665133.1",
@@ -5537,7 +5518,7 @@
       "validTo": "2026-12-07T12:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.668375.1",
@@ -5554,7 +5535,7 @@
       "validTo": "2026-11-27T15:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z",
+      "observedAt": "2026-11-19T12:16:38.611Z",
       "geo": {
         "lat": 46.15,
         "lng": 8.87
@@ -5575,7 +5556,7 @@
       "validTo": "2026-11-25T19:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667675.1",
@@ -5592,7 +5573,7 @@
       "validTo": "2026-12-14T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667659.1",
@@ -5609,7 +5590,7 @@
       "validTo": "2026-12-11T16:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.665820.1",
@@ -5626,7 +5607,7 @@
       "validTo": "2026-11-28T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.664906.1",
@@ -5643,7 +5624,7 @@
       "validTo": null,
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.663208.1",
@@ -5660,7 +5641,7 @@
       "validTo": "2026-12-09T11:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.662933.1",
@@ -5677,7 +5658,7 @@
       "validTo": null,
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z",
+      "observedAt": "2026-11-19T12:16:38.611Z",
       "geo": {
         "lat": 46.55,
         "lng": 8.57
@@ -5698,7 +5679,7 @@
       "validTo": "2027-02-12T16:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.668408.1",
@@ -5715,7 +5696,7 @@
       "validTo": "2027-06-30T20:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667965.1",
@@ -5732,7 +5713,7 @@
       "validTo": "2026-12-12T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667955.1",
@@ -5749,7 +5730,7 @@
       "validTo": "2026-11-26T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667952.1",
@@ -5766,7 +5747,7 @@
       "validTo": "2026-11-25T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667882.1",
@@ -5783,7 +5764,7 @@
       "validTo": "2026-12-04T16:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667672.1",
@@ -5800,7 +5781,7 @@
       "validTo": "2027-02-23T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667690.1",
@@ -5817,7 +5798,7 @@
       "validTo": "2026-12-11T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667691.1",
@@ -5834,7 +5815,7 @@
       "validTo": "2026-12-18T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667646.1",
@@ -5851,7 +5832,7 @@
       "validTo": "2026-12-17T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667644.1",
@@ -5868,7 +5849,7 @@
       "validTo": "2026-12-16T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667642.1",
@@ -5885,7 +5866,7 @@
       "validTo": "2026-12-09T23:15:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667641.1",
@@ -5902,10 +5883,10 @@
       "validTo": "2026-12-10T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
-      "id": "astra-datex2:situation.665812.1",
+      "id": "astra-datex2:situation.665815.1",
       "canton": "TI",
       "type": "cantiere",
       "title": "406 Riazzino <-> Cadenazzo tra Luogo Contone E Luogo Cadenazzo Situazione: problemi di traffico cantiere, lunghezza [km] 0.4 Aggiunta 1: limite temporaneo larghezza Larghezza carreggiata [m] 3.5",
@@ -5915,11 +5896,11 @@
         "fr": "406 Riazzino <-> Cadenazzo entre Localité Contone et Localité Cadenazzo Situation: trafic perturbé travaux, longueur [km] 0.4 Complément 1: limitation temporaire de largeur largeur de la voie [m] 3.5"
       },
       "url": null,
-      "validFrom": "2026-11-09T09:06:00.000Z",
+      "validFrom": "2026-11-09T09:08:00.000Z",
       "validTo": "2026-11-20T04:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.665220.1",
@@ -5936,7 +5917,7 @@
       "validTo": "2026-12-11T03:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.665201.1",
@@ -5953,7 +5934,7 @@
       "validTo": "2026-12-03T03:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.664986.1",
@@ -5970,7 +5951,7 @@
       "validTo": "2026-12-02T18:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.664984.1",
@@ -5987,7 +5968,7 @@
       "validTo": "2026-12-02T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.664980.1",
@@ -6004,7 +5985,7 @@
       "validTo": "2026-11-20T03:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.665024.1",
@@ -6021,7 +6002,7 @@
       "validTo": "2026-11-19T19:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.664495.1",
@@ -6038,7 +6019,7 @@
       "validTo": "2026-11-20T15:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z",
+      "observedAt": "2026-11-19T12:16:38.611Z",
       "geo": {
         "lat": 46.15,
         "lng": 8.86
@@ -6059,7 +6040,7 @@
       "validTo": "2026-11-20T03:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.662926.1",
@@ -6076,7 +6057,7 @@
       "validTo": "2026-12-14T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.659719.1",
@@ -6093,7 +6074,7 @@
       "validTo": "2026-11-20T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.654420.1",
@@ -6110,7 +6091,7 @@
       "validTo": "2026-11-20T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.535065.1",
@@ -6127,7 +6108,7 @@
       "validTo": "2027-03-24T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.509979.1",
@@ -6144,7 +6125,7 @@
       "validTo": "2028-06-28T06:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.342097.1",
@@ -6161,7 +6142,7 @@
       "validTo": "2028-12-29T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.287191.1",
@@ -6178,7 +6159,24 @@
       "validTo": "2028-12-29T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
+    },
+    {
+      "id": "astra-datex2:situation.668638.1",
+      "canton": "TI",
+      "type": "traffico",
+      "title": "Revocato: A2 S. Gottardo -> Chiasso tra Galleria Galleria Stalvedro E Svincolo autostradale Quinto Situazione: problemi di traffico Causa: incidente Limitazione del traffico: corsia di sinistra bloccata",
+      "titleByLocale": {
+        "it": "Revocato: A2 S. Gottardo -> Chiasso tra Galleria Galleria Stalvedro E Svincolo autostradale Quinto Situazione: problemi di traffico Causa: incidente Limitazione del traffico: corsia di sinistra bloccata",
+        "de": "Aufgehoben: A2 Gotthard -> Chiasso zwischen Tunnel Stalvedro-Tunnel und Anschluss Quinto Sachlage: Verkehrsbehinderung Ursache: Unfall Verkehrsführung: linker Fahrstreifen blockiert",
+        "fr": "Révoqué: A2 St-Gothard -> Chiasso entre Tunnel Tunnel de Stalvedro et Jonction autoroutière Quinto Situation: trafic perturbé Raison: accident Gestion du trafic: voie de gauche bloquée"
+      },
+      "url": null,
+      "validFrom": "2026-11-19T10:04:00.000Z",
+      "validTo": null,
+      "publishedAt": null,
+      "source": "astra-datex2",
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "ti-polizia:https://www4.ti.ch/di/pol-new/comunicazioni/comunicati-stampa-1/dettaglio/?user_polizia_pi1[newsId]=261531",
@@ -6190,7 +6188,7 @@
       "validTo": null,
       "publishedAt": "2026-11-05T14:51:01.000Z",
       "source": "ti-polizia",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666724.1",
@@ -6207,7 +6205,7 @@
       "validTo": "2026-11-19T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.651545.1",
@@ -6224,7 +6222,24 @@
       "validTo": null,
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
+    },
+    {
+      "id": "astra-datex2:situation.668651.1",
+      "canton": "UR",
+      "type": "cantiere",
+      "title": "A4 Brunnen -> Altdorf tra Luogo Sisikon E Galleria Galleria Flüelen Situazione: problemi di traffico cantiere, lunghezza [km] 0.2 Aggiunta 1: limite temporaneo larghezza Larghezza carreggiata [m] 3.3",
+      "titleByLocale": {
+        "it": "A4 Brunnen -> Altdorf tra Luogo Sisikon E Galleria Galleria Flüelen Situazione: problemi di traffico cantiere, lunghezza [km] 0.2 Aggiunta 1: limite temporaneo larghezza Larghezza carreggiata [m] 3.3",
+        "de": "A4 Brunnen -> Altdorf zwischen Ortschaft Sisikon und Tunnel Flüelen-Tunnel Sachlage: Verkehrsbehinderung Baustelle, Länge [km] 0.2 Zusatz 1: vorübergehende Begrenzung der Breite Fahrbahnbreite [m] 3.3",
+        "fr": "A4 Brunnen -> Altdorf entre Localité Sisikon et Tunnel Tunnel de Flüelen Situation: trafic perturbé travaux, longueur [km] 0.2 Complément 1: limitation temporaire de largeur largeur de la voie [m] 3.3"
+      },
+      "url": null,
+      "validFrom": "2026-11-19T12:05:00.000Z",
+      "validTo": "2026-11-27T04:00:00.000Z",
+      "publishedAt": null,
+      "source": "astra-datex2",
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.668302.1",
@@ -6241,7 +6256,7 @@
       "validTo": "2026-11-25T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666479.1",
@@ -6258,7 +6273,7 @@
       "validTo": "2026-11-19T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.664534.1",
@@ -6275,7 +6290,7 @@
       "validTo": "2026-11-26T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.663550.1",
@@ -6292,7 +6307,7 @@
       "validTo": "2026-11-26T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.657714.1",
@@ -6309,7 +6324,7 @@
       "validTo": "2026-12-04T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.596108.1",
@@ -6326,7 +6341,41 @@
       "validTo": "2026-12-31T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
+    },
+    {
+      "id": "astra-datex2:situation.668649.1",
+      "canton": "UR",
+      "type": "traffico",
+      "title": "A2 Luzern -> S. Gottardo tra Svincolo autostradale Wassen E Svincolo autostradale Göschenen Situazione: colonna lunghezza [km] 2.0 Causa: traffico congestionato Aggiunta 1: ritardi No. [min] 20",
+      "titleByLocale": {
+        "it": "A2 Luzern -> S. Gottardo tra Svincolo autostradale Wassen E Svincolo autostradale Göschenen Situazione: colonna lunghezza [km] 2.0 Causa: traffico congestionato Aggiunta 1: ritardi No. [min] 20",
+        "de": "A2 Luzern -> Gotthard zwischen Anschluss Wassen und Anschluss Göschenen Sachlage: Stau Länge [km] 2.0 Ursache: Verkehrsüberlastung Zusatz 1: Zeitverlust Anz. [min] 20",
+        "fr": "A2 Lucerne -> St-Gothard entre Jonction autoroutière Wassen et Jonction autoroutière Göschenen Situation: bouchon longueur [km] 2.0 Raison: surcharge de trafic Complément 1: retards Nbre. [min] 20"
+      },
+      "url": null,
+      "validFrom": "2026-11-19T11:59:00.000Z",
+      "validTo": null,
+      "publishedAt": null,
+      "source": "astra-datex2",
+      "observedAt": "2026-11-19T12:16:38.611Z"
+    },
+    {
+      "id": "astra-datex2:situation.668641.1",
+      "canton": "UR",
+      "type": "traffico",
+      "title": "Revocato: A2 Luzern -> S. Gottardo tra Svincolo autostradale Wassen E Svincolo autostradale Göschenen Situazione: colonna lunghezza [km] 1.0 Causa: incidente Aggiunta 1: ritardi No. [min] 10",
+      "titleByLocale": {
+        "it": "Revocato: A2 Luzern -> S. Gottardo tra Svincolo autostradale Wassen E Svincolo autostradale Göschenen Situazione: colonna lunghezza [km] 1.0 Causa: incidente Aggiunta 1: ritardi No. [min] 10",
+        "de": "Aufgehoben: A2 Luzern -> Gotthard zwischen Anschluss Wassen und Anschluss Göschenen Sachlage: Stau Länge [km] 1.0 Ursache: Unfall Zusatz 1: Zeitverlust Anz. [min] 10",
+        "fr": "Révoqué: A2 Lucerne -> St-Gothard entre Jonction autoroutière Wassen et Jonction autoroutière Göschenen Situation: bouchon longueur [km] 1.0 Raison: accident Complément 1: retards Nbre. [min] 10"
+      },
+      "url": null,
+      "validFrom": "2026-11-19T10:13:00.000Z",
+      "validTo": null,
+      "publishedAt": null,
+      "source": "astra-datex2",
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.668208.1",
@@ -6343,7 +6392,7 @@
       "validTo": null,
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666189.1",
@@ -6360,7 +6409,7 @@
       "validTo": "2026-12-04T03:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.668036.1",
@@ -6377,24 +6426,7 @@
       "validTo": "2026-12-01T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
-    },
-    {
-      "id": "astra-datex2:situation.666248.1",
-      "canton": "VD",
-      "type": "chiusura",
-      "title": "A9 Lausanne -> Vevey tra Raccordo autostradale Diramazione Villars-Ste-Croix E Svincolo autostradale Lausanne-Blécherette Situazione: chiusa cantiere",
-      "titleByLocale": {
-        "it": "A9 Lausanne -> Vevey tra Raccordo autostradale Diramazione Villars-Ste-Croix E Svincolo autostradale Lausanne-Blécherette Situazione: chiusa cantiere",
-        "de": "A9 Lausanne -> Vevey zwischen Autobahndreieck Verzweigung Villars-Ste-Croix und Anschluss Lausanne-Blécherette Sachlage: Strecke gesperrt Baustelle",
-        "fr": "A9 Lausanne -> Vevey entre Echangeur Echangeur de Villars-Ste-Croix et Jonction autoroutière Lausanne-Blécherette Situation: fermé travaux"
-      },
-      "url": null,
-      "validFrom": "2026-11-18T21:00:00.000Z",
-      "validTo": "2026-12-09T03:30:00.000Z",
-      "publishedAt": null,
-      "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.668037.1",
@@ -6411,7 +6443,7 @@
       "validTo": "2026-12-01T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.668039.1",
@@ -6428,7 +6460,7 @@
       "validTo": "2026-11-24T03:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.668040.1",
@@ -6445,7 +6477,7 @@
       "validTo": "2026-11-28T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.668041.1",
@@ -6462,7 +6494,7 @@
       "validTo": "2026-11-28T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667682.1",
@@ -6479,7 +6511,7 @@
       "validTo": "2026-11-26T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667168.1",
@@ -6496,7 +6528,7 @@
       "validTo": "2026-11-20T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666817.1",
@@ -6513,7 +6545,7 @@
       "validTo": "2026-12-01T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666193.1",
@@ -6530,7 +6562,7 @@
       "validTo": "2026-11-24T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666197.1",
@@ -6547,24 +6579,7 @@
       "validTo": "2026-11-20T03:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
-    },
-    {
-      "id": "astra-datex2:situation.666235.1",
-      "canton": "VD",
-      "type": "chiusura",
-      "title": "A1 Genève -> Lausanne Svincolo autostradale Lausanne-Crissier Situazione: entrato-uscito chiusa cantiere",
-      "titleByLocale": {
-        "it": "A1 Genève -> Lausanne Svincolo autostradale Lausanne-Crissier Situazione: entrato-uscito chiusa cantiere",
-        "de": "A1 Genf -> Lausanne Anschluss Lausanne-Crissier Sachlage: Ein- und Ausfahrt gesperrt Baustelle",
-        "fr": "A1 Genève -> Lausanne Jonction autoroutière Lausanne-Crissier Situation: Entrée et sortie verrouillées travaux"
-      },
-      "url": null,
-      "validFrom": "2026-11-10T21:00:00.000Z",
-      "validTo": "2026-12-09T03:30:00.000Z",
-      "publishedAt": null,
-      "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666182.1",
@@ -6581,7 +6596,7 @@
       "validTo": "2026-12-04T20:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.665219.1",
@@ -6598,7 +6613,7 @@
       "validTo": "2026-11-26T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.663598.1",
@@ -6615,24 +6630,7 @@
       "validTo": "2026-11-26T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
-    },
-    {
-      "id": "astra-datex2:situation.662243.1",
-      "canton": "VD",
-      "type": "chiusura",
-      "title": "A9 Vevey <-> Martigny tra Svincolo autostradale Bex Nord E Svincolo autostradale St-Maurice Situazione: chiusa cantiere Limitazione del traffico: corsia chiusa",
-      "titleByLocale": {
-        "it": "A9 Vevey <-> Martigny tra Svincolo autostradale Bex Nord E Svincolo autostradale St-Maurice Situazione: chiusa cantiere Limitazione del traffico: corsia chiusa",
-        "de": "A9 Vevey <-> Martigny zwischen Anschluss Bex-Nord und Anschluss St-Maurice Sachlage: Strecke gesperrt Baustelle Verkehrsführung: Fahrstreifen gesperrt",
-        "fr": "A9 Vevey <-> Martigny entre Jonction autoroutière Bex-Nord et Jonction autoroutière St-Maurice Situation: fermé travaux Gestion du trafic: voie fermée"
-      },
-      "url": null,
-      "validFrom": "2026-10-27T19:00:00.000Z",
-      "validTo": "2026-11-19T04:00:00.000Z",
-      "publishedAt": null,
-      "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.653310.1",
@@ -6649,7 +6647,7 @@
       "validTo": "2027-07-09T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.653311.1",
@@ -6666,7 +6664,7 @@
       "validTo": "2027-07-08T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.653306.1",
@@ -6683,7 +6681,7 @@
       "validTo": "2027-07-06T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.653309.1",
@@ -6700,7 +6698,7 @@
       "validTo": "2027-07-07T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.653304.1",
@@ -6717,7 +6715,7 @@
       "validTo": "2027-10-26T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.653299.1",
@@ -6734,7 +6732,7 @@
       "validTo": "2027-10-29T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.648730.1",
@@ -6751,7 +6749,24 @@
       "validTo": "2026-11-21T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
+    },
+    {
+      "id": "astra-datex2:situation.668644.1",
+      "canton": "VD",
+      "type": "cantiere",
+      "title": "A9 Vevey -> Martigny tra Svincolo autostradale Villeneuve E Svincolo autostradale St-Triphon Situazione: problemi di traffico cantiere, lunghezza [km] 6.2 Limitazione del traffico: nuova viabilità Aggiunta 1: limite temporaneo larghezza Lar",
+      "titleByLocale": {
+        "it": "A9 Vevey -> Martigny tra Svincolo autostradale Villeneuve E Svincolo autostradale St-Triphon Situazione: problemi di traffico cantiere, lunghezza [km] 6.2 Limitazione del traffico: nuova viabilità Aggiunta 1: limite temporaneo larghezza Lar",
+        "de": "A9 Vevey -> Martigny zwischen Anschluss Villeneuve und Anschluss St-Triphon Sachlage: Verkehrsbehinderung Baustelle, Länge [km] 6.2 Verkehrsführung: veränderte Verkehrsführung Zusatz 1: vorübergehende Begrenzung der Breite Fahrbahnbreite [m",
+        "fr": "A9 Vevey -> Martigny entre Jonction autoroutière Villeneuve et Jonction autoroutière St-Triphon Situation: trafic perturbé travaux, longueur [km] 6.2 Gestion du trafic: nouveau plan de circulation Complément 1: limitation temporaire de larg"
+      },
+      "url": null,
+      "validFrom": "2026-11-19T10:20:00.000Z",
+      "validTo": "2026-11-27T04:30:00.000Z",
+      "publishedAt": null,
+      "source": "astra-datex2",
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.668321.1",
@@ -6768,7 +6783,7 @@
       "validTo": "2026-12-12T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.668035.1",
@@ -6785,7 +6800,7 @@
       "validTo": "2026-11-27T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.665225.1",
@@ -6802,7 +6817,7 @@
       "validTo": "2026-11-29T18:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666117.1",
@@ -6819,7 +6834,7 @@
       "validTo": "2026-12-10T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667636.1",
@@ -6836,7 +6851,7 @@
       "validTo": "2026-11-20T11:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667610.1",
@@ -6853,24 +6868,7 @@
       "validTo": "2026-11-20T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
-    },
-    {
-      "id": "astra-datex2:situation.667206.1",
-      "canton": "VD",
-      "type": "cantiere",
-      "title": "A9 Vevey -> Martigny tra Svincolo autostradale Aigle E Svincolo autostradale Bex Nord Situazione: problemi di traffico cantiere, lunghezza [km] 6.4 Limitazione del traffico: corsie strette ridotta su una corsia Aggiunta 1: limite temporaneo",
-      "titleByLocale": {
-        "it": "A9 Vevey -> Martigny tra Svincolo autostradale Aigle E Svincolo autostradale Bex Nord Situazione: problemi di traffico cantiere, lunghezza [km] 6.4 Limitazione del traffico: corsie strette ridotta su una corsia Aggiunta 1: limite temporaneo",
-        "de": "A9 Vevey -> Martigny zwischen Anschluss Aigle und Anschluss Bex-Nord Sachlage: Verkehrsbehinderung Baustelle, Länge [km] 6.4 Verkehrsführung: Fahrbahnverengung auf einen Fahrstreifen verengt Zusatz 1: vorübergehende Begrenzung der Breite Fa",
-        "fr": "A9 Vevey -> Martigny entre Jonction autoroutière Aigle et Jonction autoroutière Bex-Nord Situation: trafic perturbé travaux, longueur [km] 6.4 Gestion du trafic: rétrécissement des voies sur une voie de circulation Complément 1: limitation "
-      },
-      "url": null,
-      "validFrom": "2026-11-13T10:29:00.000Z",
-      "validTo": "2026-11-19T04:00:00.000Z",
-      "publishedAt": null,
-      "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667204.1",
@@ -6887,7 +6885,7 @@
       "validTo": "2026-11-20T03:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666223.1",
@@ -6904,7 +6902,7 @@
       "validTo": "2026-12-05T03:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666191.1",
@@ -6921,24 +6919,7 @@
       "validTo": "2026-11-26T03:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
-    },
-    {
-      "id": "astra-datex2:situation.666233.1",
-      "canton": "VD",
-      "type": "cantiere",
-      "title": "A1 Genève -> Lausanne tra Raccordo autostradale Diramazione Ecublens E Raccordo autostradale Diramazione Villars-Ste-Croix Situazione: problemi di traffico cantiere, lunghezza [km] 1.9 Limitazione del traffico: corsie strette ridotta su due",
-      "titleByLocale": {
-        "it": "A1 Genève -> Lausanne tra Raccordo autostradale Diramazione Ecublens E Raccordo autostradale Diramazione Villars-Ste-Croix Situazione: problemi di traffico cantiere, lunghezza [km] 1.9 Limitazione del traffico: corsie strette ridotta su due",
-        "de": "A1 Genf -> Lausanne zwischen Autobahndreieck Verzweigung Ecublens und Autobahndreieck Verzweigung Villars-Ste-Croix Sachlage: Verkehrsbehinderung Baustelle, Länge [km] 1.9 Verkehrsführung: Fahrbahnverengung auf zwei Fahrstreifen verengt Zus",
-        "fr": "A1 Genève -> Lausanne entre Echangeur Echangeur d'Ecublens et Echangeur Echangeur de Villars-Ste-Croix Situation: trafic perturbé travaux, longueur [km] 1.9 Gestion du trafic: rétrécissement des voies sur deux voies de circulation Complémen"
-      },
-      "url": null,
-      "validFrom": "2026-11-10T21:00:00.000Z",
-      "validTo": "2026-12-09T03:30:00.000Z",
-      "publishedAt": null,
-      "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.665233.1",
@@ -6955,7 +6936,7 @@
       "validTo": "2026-12-05T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.665247.1",
@@ -6972,41 +6953,7 @@
       "validTo": "2026-11-21T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
-    },
-    {
-      "id": "astra-datex2:situation.665242.1",
-      "canton": "VD",
-      "type": "cantiere",
-      "title": "A1 Lausanne -> Genève tra Area di servizio La Côte E Svincolo autostradale Gland Situazione: problemi di traffico cantiere, lunghezza [km] 0.2 Limitazione del traffico: nuova viabilità Aggiunta 1: limite temporaneo larghezza Larghezza carre",
-      "titleByLocale": {
-        "it": "A1 Lausanne -> Genève tra Area di servizio La Côte E Svincolo autostradale Gland Situazione: problemi di traffico cantiere, lunghezza [km] 0.2 Limitazione del traffico: nuova viabilità Aggiunta 1: limite temporaneo larghezza Larghezza carre",
-        "de": "A1 Lausanne -> Genf zwischen Raststätte La Côte und Anschluss Gland Sachlage: Verkehrsbehinderung Baustelle, Länge [km] 0.2 Verkehrsführung: veränderte Verkehrsführung Zusatz 1: vorübergehende Begrenzung der Breite Fahrbahnbreite [m] 3.5",
-        "fr": "A1 Lausanne -> Genève entre Aire de service La Côte et Jonction autoroutière Gland Situation: trafic perturbé travaux, longueur [km] 0.2 Gestion du trafic: nouveau plan de circulation Complément 1: limitation temporaire de largeur largeur d"
-      },
-      "url": null,
-      "validFrom": "2026-11-06T19:30:00.000Z",
-      "validTo": "2026-11-19T04:00:00.000Z",
-      "publishedAt": null,
-      "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
-    },
-    {
-      "id": "astra-datex2:situation.665243.1",
-      "canton": "VD",
-      "type": "cantiere",
-      "title": "A1 Lausanne -> Genève tra Svincolo autostradale Gland E Parcheggio Pierre Féline Situazione: problemi di traffico cantiere, lunghezza [km] 0.3 Limitazione del traffico: corsie strette ridotta su una corsia Aggiunta 1: limite temporaneo larg",
-      "titleByLocale": {
-        "it": "A1 Lausanne -> Genève tra Svincolo autostradale Gland E Parcheggio Pierre Féline Situazione: problemi di traffico cantiere, lunghezza [km] 0.3 Limitazione del traffico: corsie strette ridotta su una corsia Aggiunta 1: limite temporaneo larg",
-        "de": "A1 Lausanne -> Genf zwischen Anschluss Gland und Parkplatz Pierre Féline Sachlage: Verkehrsbehinderung Baustelle, Länge [km] 0.3 Verkehrsführung: Fahrbahnverengung auf einen Fahrstreifen verengt Zusatz 1: vorübergehende Begrenzung der Breit",
-        "fr": "A1 Lausanne -> Genève entre Jonction autoroutière Gland et Parking Pierre Féline Situation: trafic perturbé travaux, longueur [km] 0.3 Gestion du trafic: rétrécissement des voies sur une voie de circulation Complément 1: limitation temporai"
-      },
-      "url": null,
-      "validFrom": "2026-11-06T19:30:00.000Z",
-      "validTo": "2026-11-19T04:00:00.000Z",
-      "publishedAt": null,
-      "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.665246.1",
@@ -7023,7 +6970,7 @@
       "validTo": "2026-11-20T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.665254.1",
@@ -7040,24 +6987,7 @@
       "validTo": "2026-11-26T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
-    },
-    {
-      "id": "astra-datex2:situation.665234.1",
-      "canton": "VD",
-      "type": "cantiere",
-      "title": "A1 Genève -> Lausanne tra Svincolo autostradale Aubonne E Parcheggio St-Prex Situazione: problemi di traffico cantiere, lunghezza [km] 1.7 Limitazione del traffico: nuova viabilità Aggiunta 1: limite temporaneo larghezza Larghezza carreggia",
-      "titleByLocale": {
-        "it": "A1 Genève -> Lausanne tra Svincolo autostradale Aubonne E Parcheggio St-Prex Situazione: problemi di traffico cantiere, lunghezza [km] 1.7 Limitazione del traffico: nuova viabilità Aggiunta 1: limite temporaneo larghezza Larghezza carreggia",
-        "de": "A1 Genf -> Lausanne zwischen Anschluss Aubonne und Parkplatz St-Prex Sachlage: Verkehrsbehinderung Baustelle, Länge [km] 1.7 Verkehrsführung: veränderte Verkehrsführung Zusatz 1: vorübergehende Begrenzung der Breite Fahrbahnbreite [m] 3.5",
-        "fr": "A1 Genève -> Lausanne entre Jonction autoroutière Aubonne et Parking St-Prex Situation: trafic perturbé travaux, longueur [km] 1.7 Gestion du trafic: nouveau plan de circulation Complément 1: limitation temporaire de largeur largeur de la v"
-      },
-      "url": null,
-      "validFrom": "2026-11-06T19:00:00.000Z",
-      "validTo": "2026-11-19T04:00:00.000Z",
-      "publishedAt": null,
-      "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.665236.1",
@@ -7074,7 +7004,7 @@
       "validTo": "2026-11-25T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.665237.1",
@@ -7091,7 +7021,7 @@
       "validTo": "2026-11-25T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.665238.1",
@@ -7108,7 +7038,7 @@
       "validTo": "2026-11-24T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.665261.1",
@@ -7125,7 +7055,7 @@
       "validTo": "2026-12-09T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.665256.1",
@@ -7142,7 +7072,7 @@
       "validTo": "2026-12-03T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666184.1",
@@ -7159,7 +7089,7 @@
       "validTo": "2026-12-02T03:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666211.1",
@@ -7176,7 +7106,7 @@
       "validTo": "2026-12-02T18:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.637726.1",
@@ -7193,7 +7123,7 @@
       "validTo": "2026-11-20T21:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.603094.1",
@@ -7210,7 +7140,7 @@
       "validTo": "2026-12-12T09:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.602143.1",
@@ -7227,7 +7157,7 @@
       "validTo": "2026-12-04T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "vd-police:https://www.vd.ch/actualites/actualite/news/26793-accident-de-la-circulation-impliquant-une-pietonne-a-moudon-appel-a-temoins",
@@ -7239,7 +7169,7 @@
       "validTo": null,
       "publishedAt": "2026-11-13T13:22:23.000Z",
       "source": "vd-police",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.660114.1",
@@ -7256,7 +7186,7 @@
       "validTo": null,
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z",
+      "observedAt": "2026-11-19T12:16:38.611Z",
       "geo": {
         "lat": 46.59,
         "lng": 6.61
@@ -7277,7 +7207,24 @@
       "validTo": "2026-11-20T02:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
+    },
+    {
+      "id": "astra-datex2:situation.668646.1",
+      "canton": "VS",
+      "type": "chiusura",
+      "title": "A9 Sion -> Martigny tra Svincolo autostradale Conthey E Parcheggio Chamoson/ Ardon Situazione: colonna Causa: incidente Limitazione del traffico: corsia di sinistra chiusa",
+      "titleByLocale": {
+        "it": "A9 Sion -> Martigny tra Svincolo autostradale Conthey E Parcheggio Chamoson/ Ardon Situazione: colonna Causa: incidente Limitazione del traffico: corsia di sinistra chiusa",
+        "de": "A9 Sion -> Martigny zwischen Anschluss Conthey und Parkplatz Chamoson/ Ardon Sachlage: Stau Ursache: Unfall Verkehrsführung: linker Fahrstreifen gesperrt",
+        "fr": "A9 Sion -> Martigny entre Jonction autoroutière Conthey et Parking Chamoson/ Ardon Situation: bouchon Raison: accident Gestion du trafic: voie de gauche fermée"
+      },
+      "url": null,
+      "validFrom": "2026-11-19T10:53:00.000Z",
+      "validTo": null,
+      "publishedAt": null,
+      "source": "astra-datex2",
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.661558.1",
@@ -7294,7 +7241,7 @@
       "validTo": null,
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z",
+      "observedAt": "2026-11-19T12:16:38.611Z",
       "geo": {
         "lat": 46.21,
         "lng": 6.82
@@ -7315,7 +7262,7 @@
       "validTo": "2026-11-20T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.668055.1",
@@ -7332,7 +7279,7 @@
       "validTo": null,
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z",
+      "observedAt": "2026-11-19T12:16:38.611Z",
       "geo": {
         "lat": 45.92,
         "lng": 7.11
@@ -7353,7 +7300,7 @@
       "validTo": null,
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667683.1",
@@ -7370,7 +7317,7 @@
       "validTo": null,
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z",
+      "observedAt": "2026-11-19T12:16:38.611Z",
       "geo": {
         "lat": 46.36,
         "lng": 8.18
@@ -7391,7 +7338,7 @@
       "validTo": null,
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667634.1",
@@ -7408,7 +7355,7 @@
       "validTo": null,
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667635.1",
@@ -7425,7 +7372,7 @@
       "validTo": null,
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667581.1",
@@ -7442,7 +7389,7 @@
       "validTo": null,
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667171.1",
@@ -7459,7 +7406,7 @@
       "validTo": null,
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667128.1",
@@ -7476,7 +7423,7 @@
       "validTo": null,
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667095.1",
@@ -7493,7 +7440,7 @@
       "validTo": "2026-11-20T06:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666879.1",
@@ -7510,7 +7457,7 @@
       "validTo": "2026-11-20T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666876.1",
@@ -7527,7 +7474,7 @@
       "validTo": "2026-11-20T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666858.1",
@@ -7544,7 +7491,7 @@
       "validTo": "2026-11-20T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667435.1",
@@ -7561,7 +7508,7 @@
       "validTo": "2026-11-20T07:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.665818.1",
@@ -7578,7 +7525,7 @@
       "validTo": null,
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.664150.1",
@@ -7595,7 +7542,7 @@
       "validTo": null,
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z",
+      "observedAt": "2026-11-19T12:16:38.611Z",
       "geo": {
         "lat": 46.08,
         "lng": 6.98
@@ -7616,7 +7563,7 @@
       "validTo": null,
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z",
+      "observedAt": "2026-11-19T12:16:38.611Z",
       "geo": {
         "lat": 46.12,
         "lng": 7.17
@@ -7637,7 +7584,7 @@
       "validTo": null,
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.665042.1",
@@ -7654,7 +7601,7 @@
       "validTo": null,
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.664151.1",
@@ -7671,7 +7618,7 @@
       "validTo": null,
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.662328.1",
@@ -7688,7 +7635,7 @@
       "validTo": null,
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z",
+      "observedAt": "2026-11-19T12:16:38.611Z",
       "geo": {
         "lat": 46.43,
         "lng": 7.84
@@ -7709,7 +7656,7 @@
       "validTo": null,
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z",
+      "observedAt": "2026-11-19T12:16:38.611Z",
       "geo": {
         "lat": 46.04,
         "lng": 7.96
@@ -7730,7 +7677,7 @@
       "validTo": null,
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z",
+      "observedAt": "2026-11-19T12:16:38.611Z",
       "geo": {
         "lat": 46.38,
         "lng": 8.15
@@ -7751,7 +7698,7 @@
       "validTo": "2026-12-18T15:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z",
+      "observedAt": "2026-11-19T12:16:38.611Z",
       "geo": {
         "lat": 46.2,
         "lng": 7.01
@@ -7772,7 +7719,7 @@
       "validTo": "2026-11-20T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667970.1",
@@ -7789,7 +7736,7 @@
       "validTo": "2026-11-20T14:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667305.1",
@@ -7806,7 +7753,7 @@
       "validTo": "2026-11-19T14:45:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666870.1",
@@ -7823,7 +7770,7 @@
       "validTo": "2026-12-10T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666821.1",
@@ -7840,7 +7787,7 @@
       "validTo": "2026-11-20T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.664593.1",
@@ -7857,7 +7804,7 @@
       "validTo": "2026-12-18T16:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.663652.1",
@@ -7874,7 +7821,7 @@
       "validTo": "2026-11-20T17:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.647288.1",
@@ -7891,7 +7838,7 @@
       "validTo": "2026-11-30T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.646176.1",
@@ -7908,7 +7855,7 @@
       "validTo": "2026-11-23T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.644933.1",
@@ -7925,7 +7872,7 @@
       "validTo": "2026-11-26T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.635142.1",
@@ -7942,7 +7889,7 @@
       "validTo": "2026-11-30T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.612724.1",
@@ -7959,7 +7906,7 @@
       "validTo": "2026-12-18T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.522352.1",
@@ -7976,7 +7923,7 @@
       "validTo": "2026-12-18T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.668027.1",
@@ -7993,7 +7940,7 @@
       "validTo": "2026-12-03T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667971.1",
@@ -8010,7 +7957,7 @@
       "validTo": "2026-12-09T14:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.661476.1",
@@ -8027,24 +7974,7 @@
       "validTo": "2026-12-01T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
-    },
-    {
-      "id": "astra-datex2:situation.668351.1",
-      "canton": "ZG",
-      "type": "cantiere",
-      "title": "A14 Diramazione Blegi <-> Walterswil tra Svincolo autostradale Zug E Svincolo autostradale Walterswil Situazione: problemi di traffico cantiere, lunghezza [km] 7.0",
-      "titleByLocale": {
-        "it": "A14 Diramazione Blegi <-> Walterswil tra Svincolo autostradale Zug E Svincolo autostradale Walterswil Situazione: problemi di traffico cantiere, lunghezza [km] 7.0",
-        "de": "A14 Verzweigung Blegi <-> Walterswil zwischen Anschluss Zug und Anschluss Walterswil Sachlage: Verkehrsbehinderung Baustelle, Länge [km] 7.0",
-        "fr": "A14 Echangeur de Blegi <-> Walterswil entre Jonction autoroutière Zoug et Jonction autoroutière Walterswil Situation: trafic perturbé travaux, longueur [km] 7.0"
-      },
-      "url": null,
-      "validFrom": "2026-11-18T12:02:00.000Z",
-      "validTo": "2026-11-19T12:00:00.000Z",
-      "publishedAt": null,
-      "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.668333.1",
@@ -8061,7 +7991,7 @@
       "validTo": "2026-11-24T10:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.668247.1",
@@ -8078,7 +8008,7 @@
       "validTo": "2026-11-23T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.668246.1",
@@ -8095,7 +8025,7 @@
       "validTo": "2026-11-23T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667969.1",
@@ -8112,7 +8042,7 @@
       "validTo": "2026-12-18T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666137.1",
@@ -8129,7 +8059,7 @@
       "validTo": "2026-12-09T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.665206.1",
@@ -8146,7 +8076,7 @@
       "validTo": "2026-12-08T12:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.663904.1",
@@ -8163,7 +8093,7 @@
       "validTo": "2026-12-02T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.663934.1",
@@ -8180,7 +8110,7 @@
       "validTo": "2026-12-14T10:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.663933.1",
@@ -8197,7 +8127,7 @@
       "validTo": "2026-12-16T14:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.663880.1",
@@ -8214,7 +8144,7 @@
       "validTo": "2026-12-01T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.663638.1",
@@ -8231,7 +8161,7 @@
       "validTo": "2026-12-11T14:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.663636.1",
@@ -8248,7 +8178,7 @@
       "validTo": "2026-12-11T09:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.663630.1",
@@ -8265,7 +8195,7 @@
       "validTo": "2026-12-10T14:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.663629.1",
@@ -8282,7 +8212,7 @@
       "validTo": "2026-12-08T09:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.663628.1",
@@ -8299,7 +8229,7 @@
       "validTo": "2026-12-08T14:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.663632.1",
@@ -8316,7 +8246,7 @@
       "validTo": "2026-12-11T14:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.663627.1",
@@ -8333,7 +8263,7 @@
       "validTo": "2026-12-08T14:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666797.1",
@@ -8350,24 +8280,7 @@
       "validTo": "2026-11-25T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
-    },
-    {
-      "id": "astra-datex2:situation.666796.1",
-      "canton": "ZH",
-      "type": "chiusura",
-      "title": "A4 Winterthur <-> Schaffhausen tra Svincolo autostradale Henggart E Svincolo autostradale Kleinandelfingen Situazione: chiusa cantiere, lunghezza [km] 5.4 Limitazione del traffico: corsia chiusa",
-      "titleByLocale": {
-        "it": "A4 Winterthur <-> Schaffhausen tra Svincolo autostradale Henggart E Svincolo autostradale Kleinandelfingen Situazione: chiusa cantiere, lunghezza [km] 5.4 Limitazione del traffico: corsia chiusa",
-        "de": "A4 Winterthur <-> Schaffhausen zwischen Anschluss Henggart und Anschluss Kleinandelfingen Sachlage: Strecke gesperrt Baustelle, Länge [km] 5.4 Verkehrsführung: Fahrstreifen gesperrt",
-        "fr": "A4 Winterthur <-> Schaffhouse entre Jonction autoroutière Henggart et Jonction autoroutière Kleinandelfingen Situation: fermé travaux, longueur [km] 5.4 Gestion du trafic: voie fermée"
-      },
-      "url": null,
-      "validFrom": "2026-11-12T08:01:00.000Z",
-      "validTo": "2026-11-19T04:00:00.000Z",
-      "publishedAt": null,
-      "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666451.1",
@@ -8384,7 +8297,7 @@
       "validTo": "2026-11-20T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666368.1",
@@ -8401,7 +8314,7 @@
       "validTo": "2026-11-27T12:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.665901.1",
@@ -8418,7 +8331,7 @@
       "validTo": "2027-02-11T03:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.665903.1",
@@ -8435,7 +8348,7 @@
       "validTo": "2027-02-11T03:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.665863.1",
@@ -8452,24 +8365,7 @@
       "validTo": "2026-11-20T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
-    },
-    {
-      "id": "astra-datex2:situation.665860.1",
-      "canton": "ZH",
-      "type": "chiusura",
-      "title": "A3 Basel -> Chur Svincolo autostradale Urdorf Nord Situazione: uscita chiusa cantiere, lunghezza [km] 0.6",
-      "titleByLocale": {
-        "it": "A3 Basel -> Chur Svincolo autostradale Urdorf Nord Situazione: uscita chiusa cantiere, lunghezza [km] 0.6",
-        "de": "A3 Basel -> Chur Anschluss Urdorf-Nord Sachlage: Ausfahrt gesperrt Baustelle, Länge [km] 0.6",
-        "fr": "A3 Bâle -> Coire Jonction autoroutière Urdorf-Nord Situation: sortie fermée travaux, longueur [km] 0.6"
-      },
-      "url": null,
-      "validFrom": "2026-11-09T14:06:00.000Z",
-      "validTo": "2026-11-19T03:00:00.000Z",
-      "publishedAt": null,
-      "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.663610.1",
@@ -8486,7 +8382,7 @@
       "validTo": "2026-12-11T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.662524.1",
@@ -8503,7 +8399,7 @@
       "validTo": "2026-12-16T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.662521.1",
@@ -8520,7 +8416,7 @@
       "validTo": "2026-12-11T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.659695.1",
@@ -8537,7 +8433,7 @@
       "validTo": "2026-11-27T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666439.1",
@@ -8554,7 +8450,7 @@
       "validTo": "2026-11-20T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.668019.1",
@@ -8571,7 +8467,7 @@
       "validTo": "2027-09-09T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.668010.1",
@@ -8588,7 +8484,7 @@
       "validTo": "2027-09-10T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.668011.1",
@@ -8605,7 +8501,7 @@
       "validTo": "2027-09-09T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.668012.1",
@@ -8622,7 +8518,7 @@
       "validTo": "2027-03-25T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667187.1",
@@ -8639,7 +8535,7 @@
       "validTo": "2027-04-05T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667238.1",
@@ -8656,7 +8552,7 @@
       "validTo": "2027-09-15T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667237.1",
@@ -8673,7 +8569,7 @@
       "validTo": "2027-09-14T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667235.1",
@@ -8690,7 +8586,7 @@
       "validTo": "2027-09-13T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667232.1",
@@ -8707,7 +8603,7 @@
       "validTo": "2027-09-07T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667230.1",
@@ -8724,7 +8620,7 @@
       "validTo": "2027-09-10T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667229.1",
@@ -8741,7 +8637,7 @@
       "validTo": "2027-09-09T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667227.1",
@@ -8758,7 +8654,7 @@
       "validTo": "2027-09-08T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667224.1",
@@ -8775,7 +8671,7 @@
       "validTo": "2027-09-03T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667223.1",
@@ -8792,7 +8688,7 @@
       "validTo": "2027-09-02T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667181.1",
@@ -8809,7 +8705,7 @@
       "validTo": "2027-04-02T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667180.1",
@@ -8826,7 +8722,7 @@
       "validTo": "2027-04-01T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667179.1",
@@ -8843,7 +8739,7 @@
       "validTo": "2027-03-31T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.667129.1",
@@ -8860,7 +8756,7 @@
       "validTo": "2026-12-11T11:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666822.1",
@@ -8877,7 +8773,7 @@
       "validTo": "2026-11-23T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.666802.1",
@@ -8894,7 +8790,7 @@
       "validTo": "2026-11-27T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.665209.1",
@@ -8911,7 +8807,7 @@
       "validTo": "2027-02-11T03:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.665274.1",
@@ -8928,7 +8824,7 @@
       "validTo": "2026-11-24T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.659665.1",
@@ -8945,7 +8841,7 @@
       "validTo": "2026-11-27T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.655390.1",
@@ -8962,7 +8858,7 @@
       "validTo": "2026-11-24T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.655389.1",
@@ -8979,7 +8875,7 @@
       "validTo": "2026-11-25T14:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.626106.1",
@@ -8996,7 +8892,7 @@
       "validTo": "2027-06-29T22:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.626178.1",
@@ -9013,7 +8909,7 @@
       "validTo": "2027-06-29T22:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.548420.1",
@@ -9030,7 +8926,7 @@
       "validTo": "2027-05-31T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.540298.1",
@@ -9047,7 +8943,41 @@
       "validTo": "2027-06-30T14:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
+    },
+    {
+      "id": "astra-datex2:situation.668648.1",
+      "canton": "ZH",
+      "type": "traffico",
+      "title": "Revocato: 340 Hinwil -> Uster tra Incrocio Zürichstrasse - Hinwil E Luogo Wetzikon Situazione: traffico fortemente rallentato Causa: traffico congestionato",
+      "titleByLocale": {
+        "it": "Revocato: 340 Hinwil -> Uster tra Incrocio Zürichstrasse - Hinwil E Luogo Wetzikon Situazione: traffico fortemente rallentato Causa: traffico congestionato",
+        "de": "Aufgehoben: 340 Hinwil -> Uster zwischen Kreuzung Zürichstrasse - Hinwil und Ortschaft Wetzikon Sachlage: stockender Verkehr Ursache: Verkehrsüberlastung",
+        "fr": "Révoqué: 340 Hinwil -> Uster entre Carrefour Zürichstrasse - Hinwil et Localité Wetzikon Situation: trafic en accordéon Raison: surcharge de trafic"
+      },
+      "url": null,
+      "validFrom": "2026-11-19T11:09:00.000Z",
+      "validTo": null,
+      "publishedAt": null,
+      "source": "astra-datex2",
+      "observedAt": "2026-11-19T12:16:38.611Z"
+    },
+    {
+      "id": "astra-datex2:situation.668639.1",
+      "canton": "ZH",
+      "type": "traffico",
+      "title": "Revocato: A3 Chur -> Basel tra Svincolo autostradale Urdorf Nord E Raccordo autostradale Diramazione Limmattal Situazione: traffico fortemente rallentato Causa: traffico congestionato",
+      "titleByLocale": {
+        "it": "Revocato: A3 Chur -> Basel tra Svincolo autostradale Urdorf Nord E Raccordo autostradale Diramazione Limmattal Situazione: traffico fortemente rallentato Causa: traffico congestionato",
+        "de": "Aufgehoben: A3 Chur -> Basel zwischen Anschluss Urdorf-Nord und Autobahnkreuz Verzweigung Limmattal Sachlage: stockender Verkehr Ursache: Verkehrsüberlastung",
+        "fr": "Révoqué: A3 Coire -> Bâle entre Jonction autoroutière Urdorf-Nord et Echangeur Echangeur de Limmattal Situation: trafic en accordéon Raison: surcharge de trafic"
+      },
+      "url": null,
+      "validFrom": "2026-11-19T10:10:00.000Z",
+      "validTo": null,
+      "publishedAt": null,
+      "source": "astra-datex2",
+      "observedAt": "2026-11-19T12:16:38.611Z"
     },
     {
       "id": "astra-datex2:situation.664277.1",
@@ -9064,7 +8994,7 @@
       "validTo": null,
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-11-19T02:56:34.805Z"
+      "observedAt": "2026-11-19T12:16:38.611Z"
     }
   ]
 }
