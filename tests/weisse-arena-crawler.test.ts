@@ -450,6 +450,43 @@ describe('TalentLink pagination completeness', () => {
     expect(jobs).toHaveLength(1);
     expect(jobs[0].title).toBe('Chef');
   });
+
+  it('rejects non-scalar identity fields before emitting a job', async () => {
+    const malformedIdentityListing = {
+      id: {},
+      jobFields: {
+        id: {},
+        jobNumber: {},
+        jobTitle: 'Chef',
+      },
+      customFields: [],
+    };
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify({
+      globals: { jobsCount: 1 },
+      jobs: [malformedIdentityListing],
+    }), { headers: { 'Content-Type': 'application/json' } })));
+
+    await expect(fetchAllWeisseArenaJobs()).rejects.toThrow(/no stable identity/i);
+  });
+
+  it('rejects non-textual title fields before emitting a job', async () => {
+    const malformedTitleListing = {
+      id: 1,
+      jobFields: {
+        id: 1,
+        jobNumber: 'WAG00001',
+        jobTitle: {},
+        sJobTitle: '',
+      },
+      customFields: [],
+    };
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify({
+      globals: { jobsCount: 1 },
+      jobs: [malformedTitleListing],
+    }), { headers: { 'Content-Type': 'application/json' } })));
+
+    await expect(fetchAllWeisseArenaJobs()).rejects.toThrow(/no usable job title/i);
+  });
 });
 
 // ─── Slug generation ────────────────────────────────────────────────────────────

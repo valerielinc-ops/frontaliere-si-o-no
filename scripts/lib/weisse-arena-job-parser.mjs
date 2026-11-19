@@ -52,11 +52,17 @@ function normalize(value = '') {
 }
 
 function firstNonEmptyValue(...values) {
-  return values.map((value) => String(value ?? '').trim()).find(Boolean) || '';
+  return values
+    .filter((value) => typeof value === 'string' || (typeof value === 'number' && Number.isFinite(value)))
+    .map((value) => String(value).trim())
+    .find(Boolean) || '';
 }
 
 function firstNonEmptyNormalized(...values) {
-  return values.map((value) => normalizeSpace(value)).find(Boolean) || '';
+  return values
+    .filter((value) => typeof value === 'string')
+    .map((value) => normalizeSpace(value))
+    .find(Boolean) || '';
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
