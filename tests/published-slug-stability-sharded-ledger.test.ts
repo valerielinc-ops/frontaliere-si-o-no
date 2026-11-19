@@ -7,6 +7,7 @@
  * (measured 2026-11-13: 3,286 locale slots for the whole ledger).
  */
 import fs from 'node:fs';
+import { spawnSync } from 'node:child_process';
 import os from 'node:os';
 import path from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
@@ -47,6 +48,41 @@ describe('loadServedSlugLedger over a shard directory', () => {
   it('an absent directory is "unknown" (null), as an absent file always was', () => {
     process.env.URL_FIRST_SEEN_PATH_OVERRIDE = path.join(tempDir(), 'missing-dir');
     expect(loadServedSlugLedger()).toBeNull();
+  });
+
+  it('returns and caches an empty map when the route core is unavailable', () => {
+    const dir = tempDir();
+    const ledgerFile = path.join(dir, 'ledger.json');
+    const routeCoreBlocker = path.join(dir, 'block-route-core.cjs');
+    fs.writeFileSync(ledgerFile, '{}');
+    fs.writeFileSync(routeCoreBlocker, `
+const Module = require('node:module');
+const originalLoad = Module._load;
+Module._load = function(request, parent, isMain) {
+  if (request === './job-board-detail-path-core.mjs') {
+    const error = new Error('Cannot find module job-board-detail-path-core.mjs');
+    error.code = 'ERR_MODULE_NOT_FOUND';
+    throw error;
+  }
+  return originalLoad.call(this, request, parent, isMain);
+};
+`);
+    const moduleUrl = new URL('../scripts/lib/published-slug-stability.mjs', import.meta.url).href;
+    const result = spawnSync(process.execPath, [
+      '--require', routeCoreBlocker,
+      '--input-type=module',
+      '--eval',
+      `const { loadServedSlugLedger } = await import(${JSON.stringify(moduleUrl)});
+const first = loadServedSlugLedger();
+const second = loadServedSlugLedger();
+if (!(first instanceof Map) || first.size !== 0 || second !== first) process.exit(2);`,
+    ], {
+      encoding: 'utf8',
+      env: { ...process.env, URL_FIRST_SEEN_PATH_OVERRIDE: ledgerFile },
+    });
+    expect(result.error).toBeUndefined();
+    expect(result.status).toBe(0);
+    expect(result.stderr).not.toContain('ERR_MODULE_NOT_FOUND');
   });
 
   it('throws, naming the shard, when ONE shard is unreadable', () => {

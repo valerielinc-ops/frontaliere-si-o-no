@@ -227,8 +227,14 @@ export function loadServedSlugLedger() {
   // shape, the data-backed matcher rejects unknown sections and city hubs, and
   // the company matcher removes company pages. Keep the complete normalized
   // path as the key so lookups compare the route emitted for this job.
-  const { parseJobBoardDetailPath } = getJobBoardDetailPathCore();
   const index = new Map();
+  // An empty present ledger is known to contain no served routes, so it needs
+  // no route-core (which is absent from script-only sparse checkouts).
+  if (raw.size === 0) {
+    ledgerCache = { path: location.key, index };
+    return index;
+  }
+  const { parseJobBoardDetailPath } = getJobBoardDetailPathCore();
   for (const [urlPath, date] of raw) {
     const key = normalizeServedPath(urlPath);
     if (
