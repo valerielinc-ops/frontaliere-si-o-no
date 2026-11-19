@@ -11,12 +11,11 @@
  * Canton VD, postal 1162 (Chemin de la Ligne 7, Saint-Prex).
  *
  * The tenant names its country facet `Location_Country`: `locationCountry`
- * and `Country` answer HTTP 400, which used to drop every run onto the
- * unfiltered global board (one detail request per posting) and end in a bare
- * zero the monitor could only allowlist. Verified live 2026-10-02: the
- * Swiss-faceted query answers `total: 0`, and the live board (54 postings,
- * 20 countries — the site ferring.com/join-us/your-career-at-ferring links
- * to) lists no Switzerland, so the zero is proven every run.
+ * and `Country` answer HTTP 400, so the source-level zero proof must continue
+ * to use the tenant's own facet. Workday may spell the Swiss primary as
+ * `St-Prex, Switzerland`; the official Ferring careers page identifies the
+ * same facility as Saint-Prex, so that source descriptor is mapped explicitly
+ * rather than inferred from the employer HQ default.
  */
 import { createWorkdaySwissParser } from './workday-swiss-job-parser-common.mjs';
 
@@ -36,6 +35,12 @@ const parser = createWorkdaySwissParser({
   defaultPostalCode: '1162',
   sector: 'Farmaceutica',
   defaultSourceLang: 'en',
+  facilityLocations: {
+    'St-Prex, Switzerland': {
+      locality: 'Saint-Prex',
+      evidence: 'https://www.ferring.com/en/working-at-ferring/',
+    },
+  },
   countryFacetParameter: 'Location_Country',
   proveSwissAbsentFromLiveBoard: true,
 });
