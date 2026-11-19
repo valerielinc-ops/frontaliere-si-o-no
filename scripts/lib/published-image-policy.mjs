@@ -17,8 +17,10 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 import {
+  isLicensedPhotoMissingForegroundVerdictOnly,
   isGeneratedImagePath,
   validateGeneratedImageRecord,
+  validateGeneratedImageRecordWithRegistry,
   validateGeneratedImageRegistry,
 } from '../../packages/articles/engine/shared/generatedImageRegistry.mjs';
 import { coverKey, createImageCreditReader } from '../../packages/articles/engine/shared/imageCredits.mjs';
@@ -85,9 +87,11 @@ function failure(reason, url, extra = {}) {
   return { valid: false, reason, url: String(url || ''), ...extra };
 }
 
-function validGeneratedRecord(url, record, expectedPath) {
+function validGeneratedRecord(url, record, expectedPath, legacyVisionRegistry = null) {
   if (!record) return failure('missing-generated-record', url, { path: expectedPath });
-  const validation = validateGeneratedImageRecord(record);
+  const validation = legacyVisionRegistry
+    ? validateGeneratedImageRecordWithRegistry(record, legacyVisionRegistry)
+    : validateGeneratedImageRecord(record);
   if (!validation.valid) {
     return failure('invalid-generated-record', url, {
       path: expectedPath,
@@ -141,6 +145,8 @@ export function checkPublishedImageUrl(
     requireCdn = false,
     inferredCovers = null,
     generatedBlogRecords = [],
+    legacyVisionRegistry = null,
+    legacyVisionRegistryForRecord = null,
   } = {},
 ) {
   const url = asAbsoluteHttpsUrl(imageUrl);
@@ -161,12 +167,17 @@ export function checkPublishedImageUrl(
     || pathname.startsWith('/images/places/');
   if (generatedPrefix) {
     const record = recordsByPath(records).get(pathname);
-    return validGeneratedRecord(imageUrl, record, pathname);
+    const registry = typeof legacyVisionRegistryForRecord === 'function'
+      ? legacyVisionRegistryForRecord(record)
+      : null;
+    return validGeneratedRecord(imageUrl, record, pathname, registry);
   }
 
   if (pathname.startsWith('/images/blog/')) {
     const generatedRecord = recordsByPath(generatedBlogRecords).get(pathname);
-    if (generatedRecord) return validGeneratedRecord(imageUrl, generatedRecord, pathname);
+    if (generatedRecord) {
+      return validGeneratedRecord(imageUrl, generatedRecord, pathname, legacyVisionRegistry);
+    }
     if (!imageCreditReader || typeof imageCreditReader.get !== 'function') {
       return failure('missing-image-credit-reader', imageUrl, { path: pathname });
     }
@@ -201,25 +212,54 @@ export function checkOwnedOgImage(imageUrl, options = {}) {
   return checkPublishedImageUrl(value, options);
 }
 
-function readRegistryFile(filePath, { scope, warn }) {
-  if (!fs.existsSync(filePath)) return { records: [], error: null };
+function readRegistryFile(filePath, {
+  scope,
+  warn,
+  allowLegacyVision = false,
+  retainValidRecordsOnFailure = false,
+}) {
+  if (!fs.existsSync(filePath)) return { records: [], error: null, registry: null };
   try {
     const parsed = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-    const validation = validateGeneratedImageRegistry(parsed, scope ? { scope } : {});
+    const validation = validateGeneratedImageRegistry(parsed, {
+      ...(scope ? { scope } : {}),
+      allowLegacyVision,
+    });
     if (!validation.valid) {
       const error = `${filePath}: ${validation.errors.join('; ')}`;
       warn(`[published-image-policy] ${error}`);
-      return { records: [], error };
+      if (retainValidRecordsOnFailure) {
+        const assets = Array.isArray(parsed) ? parsed : parsed.assets;
+        const incompletePhotoIds = assets
+          .filter(isLicensedPhotoMissingForegroundVerdictOnly)
+          .map((record) => record.assetId);
+        const expectedPhotoErrors = new Set(incompletePhotoIds.map((assetId) => (
+          `${assetId}: licensed-photo vision gate verdict is missing or rejected`
+        )));
+        const onlyIncompletePhotosFail = validation.errors.length === expectedPhotoErrors.size
+          && validation.errors.every((item) => expectedPhotoErrors.has(item));
+        if (onlyIncompletePhotosFail) {
+          const records = assets.filter((record) => (
+            validateGeneratedImageRecordWithRegistry(record, parsed, scope ? { scope } : {}).valid
+          ));
+          return { records, error, registry: parsed };
+        }
+      }
+      return { records: [], error, registry: null };
     }
-    return { records: Array.isArray(parsed) ? parsed : parsed.assets, error: null };
+    return { records: Array.isArray(parsed) ? parsed : parsed.assets, error: null, registry: parsed };
   } catch (error) {
     const message = `${filePath}: unreadable registry (${error.message})`;
     warn(`[published-image-policy] ${message}`);
-    return { records: [], error: message };
+    return { records: [], error: message, registry: null };
   }
 }
 
-function readPublishedBlogImageEvidence(filePath, { required = false, warn = console.warn } = {}) {
+function readPublishedBlogImageEvidence(filePath, {
+  required = false,
+  warn = console.warn,
+  legacyVisionRegistry = null,
+} = {}) {
   if (!fs.existsSync(filePath)) {
     if (!required) return { records: [], error: null };
     const error = `${filePath}: required published blog image evidence snapshot is missing`;
@@ -239,7 +279,7 @@ function readPublishedBlogImageEvidence(filePath, { required = false, warn = con
 
     const records = [];
     for (const [imageUrl, record] of Object.entries(snapshot.generated)) {
-      const validation = validatePublishedBlogImageEvidence(imageUrl, record);
+      const validation = validatePublishedBlogImageEvidence(imageUrl, record, { legacyVisionRegistry });
       if (!validation.valid) {
         throw new Error(`${imageUrl}: ${validation.errors.join('; ')}`);
       }
@@ -265,24 +305,47 @@ export function loadPublishedImagePolicy({
   requirePublishedBlogImageEvidence = false,
 } = {}) {
   const registrySpecs = [
-    { path: path.join(root, 'data', 'event-image-library.json'), scope: 'event-library' },
-    { path: path.join(root, 'data', 'generated-image-registry.json') },
-    { path: path.join(root, 'public', 'data', 'generated-image-registry.json') },
+    {
+      path: path.join(root, 'data', 'event-image-library.json'),
+      scope: 'event-library',
+      allowLegacyVision: true,
+      retainValidRecordsOnFailure: true,
+    },
+    { path: path.join(root, 'data', 'generated-image-registry.json'), allowLegacyVision: true },
+    { path: path.join(root, 'public', 'data', 'generated-image-registry.json'), allowLegacyVision: true },
   ];
   const records = [];
   const registryErrors = [];
+  const registryByRecord = new WeakMap();
   for (const spec of registrySpecs) {
-    const result = readRegistryFile(spec.path, { scope: spec.scope, warn });
+    const result = readRegistryFile(spec.path, {
+      scope: spec.scope,
+      warn,
+      allowLegacyVision: spec.allowLegacyVision,
+      retainValidRecordsOnFailure: spec.retainValidRecordsOnFailure,
+    });
     records.push(...result.records);
+    if (result.registry) {
+      for (const record of result.records) {
+        if (record && typeof record === 'object') registryByRecord.set(record, result.registry);
+      }
+    }
     if (result.error) registryErrors.push(result.error);
   }
 
+  const blogRegistryResult = readRegistryFile(
+    path.join(root, 'data', 'blog-generated-image-registry.json'),
+    { scope: 'article-hero', warn, allowLegacyVision: true },
+  );
+  if (blogRegistryResult.error) registryErrors.push(blogRegistryResult.error);
+  const legacyVisionRegistry = blogRegistryResult.registry;
+
   const publishedBlogEvidence = readPublishedBlogImageEvidence(
     path.join(root, 'data', 'og-published-blog-generated-image-evidence.json'),
-    { required: requirePublishedBlogImageEvidence, warn },
+    { required: requirePublishedBlogImageEvidence, warn, legacyVisionRegistry },
   );
   if (publishedBlogEvidence.error) registryErrors.push(publishedBlogEvidence.error);
-  const ogRecords = [...records, ...publishedBlogEvidence.records];
+  const ogRecords = [...records, ...blogRegistryResult.records, ...publishedBlogEvidence.records];
   const generatedBlogRecords = ogRecords.filter((record) => record?.scope === 'article-hero');
 
   const imageCreditReader = createImageCreditReader(
@@ -291,12 +354,13 @@ export function loadPublishedImagePolicy({
       path.join(root, 'packages', 'articles', 'content', 'image-credits'),
       path.join(root, 'content', 'image-credits'),
     ],
-    { warn },
+    { warn, legacyVisionRegistry },
   );
   const check = (imageUrl, options = {}) => checkPublishedImageUrl(imageUrl, {
     ...options,
     records,
     imageCreditReader,
+    legacyVisionRegistryForRecord: (record) => record && registryByRecord.get(record),
     // Never for an uploader, whatever the caller passes.
     inferredCovers: null,
   });
@@ -306,6 +370,8 @@ export function loadPublishedImagePolicy({
     imageCreditReader,
     inferredCovers,
     generatedBlogRecords,
+    legacyVisionRegistry,
+    legacyVisionRegistryForRecord: (record) => record && registryByRecord.get(record),
   });
   return { records, imageCreditReader, registryErrors, check, checkOg };
 }

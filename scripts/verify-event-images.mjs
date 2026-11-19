@@ -3,7 +3,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {
-  validateGeneratedImageRegistry,
+  validateEventImageRegistryForPublishedEvents,
   verifyPublishedEventImages,
 } from '../packages/articles/engine/shared/generatedImageRegistry.mjs';
 
@@ -17,13 +17,14 @@ const registryPath = path.resolve(argument('--registry', 'data/event-image-libra
 const eventsDoc = JSON.parse(fs.readFileSync(eventsPath, 'utf8'));
 const registry = JSON.parse(fs.readFileSync(registryPath, 'utf8'));
 const errors = [];
-const registryValidation = validateGeneratedImageRegistry(registry, { scope: 'event-library' });
+const events = eventsDoc.events || [];
+const registryValidation = validateEventImageRegistryForPublishedEvents(events, registry);
 if (!registryValidation.valid) errors.push(...registryValidation.errors);
-const eventResult = verifyPublishedEventImages(eventsDoc.events || [], registry.assets || []);
+const eventResult = verifyPublishedEventImages(events, registry);
 errors.push(...eventResult.errors);
 if (errors.length) {
   console.error(`Event image gate failed with ${errors.length} error(s):`);
   for (const error of errors.slice(0, 100)) console.error(`- ${error}`);
   process.exit(1);
 }
-console.error(`Event image gate passed: ${registry.assets?.length || 0} registry records, ${(eventsDoc.events || []).length} events.`);
+console.error(`Event image gate passed: ${registry.assets?.length || 0} registry records, ${events.length} events.`);

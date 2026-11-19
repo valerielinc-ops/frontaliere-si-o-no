@@ -206,11 +206,23 @@ function isEphemeralEvent(event: SiteEvent): boolean {
   return event.ephemeral === true;
 }
 
-function loadEventImageLibraryForBuild(): { assets: SiteEvent[] } {
+type EventImageRegistry = {
+  assets: SiteEvent[];
+  legacyVision?: {
+    schema: number;
+    scope?: string;
+    scopes?: string[];
+    promptVersion?: string;
+    restrictions?: string[];
+    assetIds: string[];
+  };
+};
+
+function loadEventImageLibraryForBuild(): EventImageRegistry {
   const filePath = path.resolve(process.cwd(), 'data/event-image-library.json');
   try {
-    const parsed = JSON.parse(fs.readFileSync(filePath, 'utf-8')) as { assets?: SiteEvent[] };
-    return { assets: Array.isArray(parsed.assets) ? parsed.assets : [] };
+    const parsed = JSON.parse(fs.readFileSync(filePath, 'utf-8')) as EventImageRegistry;
+    return Array.isArray(parsed.assets) ? parsed : { ...parsed, assets: [] };
   } catch {
     return { assets: [] };
   }

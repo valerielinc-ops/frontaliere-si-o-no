@@ -1,13 +1,18 @@
 import { describe, expect, it } from 'vitest';
+import fs from 'node:fs';
+import path from 'node:path';
 import {
   buildGeneratedImagePrompt,
+  GENERATED_IMAGE_PROVIDERS,
   GENERATED_IMAGE_PROMPT_VERSION,
   GENERATED_IMAGE_RESTRICTIONS,
   LICENSED_PHOTO_KIND,
   LICENSED_PHOTO_RESTRICTIONS,
   legacyVisionAssetIdsForRegistry,
+  validateEventImageRegistryForPublishedEvents,
   validateGeneratedImageRegistry,
   validateGeneratedImageRecord,
+  validateGeneratedImageRecordWithRegistry,
   verifyPublishedEventImages,
 } from '../packages/articles/engine/shared/generatedImageRegistry.mjs';
 import { imageVisionRejected } from '../packages/articles/engine/shared/generatedImageVision.mjs';
@@ -167,7 +172,13 @@ describe('generated event image policy', () => {
     const registry = {
       schema: 1,
       assetCount: 1,
-      legacyVision: { schema: 0, assetIds: [legacyRecord.assetId, legacyRecord.assetId] },
+      legacyVision: {
+        schema: 0,
+        scope: 'article-hero',
+        promptVersion: GENERATED_IMAGE_PROMPT_VERSION,
+        restrictions: [...GENERATED_IMAGE_RESTRICTIONS],
+        assetIds: [legacyRecord.assetId],
+      },
       assets: [legacyRecord],
     };
     const legacyIds = legacyVisionAssetIdsForRegistry(registry);
@@ -194,8 +205,19 @@ describe('generated event image policy', () => {
     }).valid).toBe(false);
     expect(validateGeneratedImageRegistry({
       ...registry,
-      legacyVision: { schema: 1, assetIds: [ARTICLE_RECORD.assetId] },
+      legacyVision: { ...registry.legacyVision, schema: 1 },
     }, { allowLegacyVision: true }).valid).toBe(false);
+    expect(validateGeneratedImageRegistry({
+      ...registry,
+      legacyVision: { ...registry.legacyVision, assetIds: [legacyRecord.assetId, legacyRecord.assetId] },
+    }, { allowLegacyVision: true }).valid).toBe(false);
+    expect(legacyVisionAssetIdsForRegistry({
+      ...registry,
+      assets: [{
+        ...legacyRecord,
+        restrictions: legacyRecord.restrictions.filter((item) => item !== 'no-real-recognizable-foreground-person'),
+      }],
+    })).toEqual([]);
     expect(validateGeneratedImageRecord({
       ...legacyRecord,
       restrictions: legacyRecord.restrictions.filter((item) => item !== 'no-real-recognizable-foreground-person'),
@@ -220,6 +242,228 @@ describe('generated event image policy', () => {
       allowLegacyVision: true,
       legacyVisionAssetIds: [legacyPhoto.assetId],
     }).valid).toBe(false);
+
+    const corpusLegacyPlace = {
+      ...legacyRecord,
+      assetId: 'legacy-place-asset',
+      scope: 'place',
+      imageUrl: '/images/places/legacy-place-asset.webp',
+    };
+    const corpusLegacyRegistry = {
+      schema: 1,
+      assetCount: 1,
+      legacyVision: { schema: 0, assetIds: [corpusLegacyPlace.assetId] },
+      assets: [corpusLegacyPlace],
+    };
+    expect(validateGeneratedImageRegistry(corpusLegacyRegistry, { allowLegacyVision: true }).valid).toBe(true);
+  });
+
+  it('pins the production blog legacy envelope to all source-eligible records', () => {
+    const registry = JSON.parse(fs.readFileSync(
+      path.join(process.cwd(), 'data/blog-generated-image-registry.json'),
+      'utf8',
+    ));
+    const contract = registry.legacyVision;
+    const eligibleIds = registry.assets
+      .filter((record) => record.scope === 'article-hero'
+        && record.license === 'generated-provider'
+        && GENERATED_IMAGE_PROVIDERS.includes(record.provider)
+        && (record.kind === undefined || record.kind === 'generated')
+        && record.promptVersion === GENERATED_IMAGE_PROMPT_VERSION
+        && Array.isArray(record.restrictions)
+        && GENERATED_IMAGE_RESTRICTIONS.every((restriction) => record.restrictions.includes(restriction))
+        && record.vision
+        && !Object.hasOwn(record.vision, 'contains_recognizable_foreground_person')
+        && record.vision.ok === true
+        && record.vision.contains_text === false
+        && record.vision.contains_logo === false
+        && record.vision.contains_recognizable_face === false
+        && record.vision.looks_like_specific_real_event === false
+        && typeof record.vision.notes === 'string'
+        && record.vision.notes.trim())
+      .map((record) => record.assetId)
+      .sort();
+
+    expect(contract.schema).toBe(0);
+    expect(contract.scope).toBe('article-hero');
+    expect(contract.promptVersion).toBe(GENERATED_IMAGE_PROMPT_VERSION);
+    expect(contract.restrictions).toEqual([...GENERATED_IMAGE_RESTRICTIONS]);
+    expect(contract.assetIds).toHaveLength(107);
+    expect([...contract.assetIds].sort()).toEqual(eligibleIds);
+    expect(legacyVisionAssetIdsForRegistry(registry)).toEqual(contract.assetIds);
+    expect(validateGeneratedImageRegistry(registry, {
+      scope: 'article-hero',
+      allowLegacyVision: true,
+    })).toEqual({ valid: true, errors: [] });
+
+    const changedLegacyRecord = {
+      ...registry,
+      assets: registry.assets.map((record) => record.assetId === contract.assetIds[0]
+        ? { ...record, vision: { ...record.vision, contains_recognizable_foreground_person: true } }
+        : record),
+    };
+    expect(legacyVisionAssetIdsForRegistry(changedLegacyRecord)).toEqual([]);
+    expect(validateGeneratedImageRegistry(changedLegacyRecord, {
+      scope: 'article-hero',
+      allowLegacyVision: true,
+    }).valid).toBe(false);
+  });
+
+  it('pins the site legacy envelope to generated profiles and places only', () => {
+    const registry = JSON.parse(fs.readFileSync(
+      path.join(process.cwd(), 'data/generated-image-registry.json'),
+      'utf8',
+    ));
+    const contract = registry.legacyVision;
+    const eligible = registry.assets.filter((record) => record.schema === 1
+      && ['editorial-profile', 'place'].includes(record.scope)
+      && record.license === 'generated-provider'
+      && GENERATED_IMAGE_PROVIDERS.includes(record.provider)
+      && (record.kind === undefined || record.kind === 'generated')
+      && record.promptVersion === GENERATED_IMAGE_PROMPT_VERSION
+      && Array.isArray(record.restrictions)
+      && GENERATED_IMAGE_RESTRICTIONS.every((restriction) => record.restrictions.includes(restriction))
+      && record.vision
+      && !Object.hasOwn(record.vision, 'contains_recognizable_foreground_person')
+      && record.vision.ok === true
+      && record.vision.contains_text === false
+      && record.vision.contains_logo === false
+      && record.vision.contains_recognizable_face === false
+      && record.vision.looks_like_specific_real_event === false
+      && typeof record.vision.notes === 'string'
+      && record.vision.notes.trim());
+    const eligibleIds = eligible.map((record) => record.assetId).sort();
+
+    expect(contract.schema).toBe(0);
+    expect(contract.scopes).toEqual(['editorial-profile', 'place']);
+    expect(contract.promptVersion).toBe(GENERATED_IMAGE_PROMPT_VERSION);
+    expect(contract.restrictions).toEqual([...GENERATED_IMAGE_RESTRICTIONS]);
+    expect(contract.assetIds).toHaveLength(35);
+    expect([...contract.assetIds].sort()).toEqual(eligibleIds);
+    expect(eligible.filter((record) => record.scope === 'editorial-profile')).toHaveLength(3);
+    expect(eligible.filter((record) => record.scope === 'place')).toHaveLength(32);
+    expect(contract.assetIds).not.toContain('samuele-valente');
+    expect(contract.assetIds.some((assetId) => assetId.startsWith('publisher-logo-'))).toBe(false);
+    expect(legacyVisionAssetIdsForRegistry(registry)).toEqual(contract.assetIds);
+    expect(validateGeneratedImageRegistry(registry, { allowLegacyVision: true })).toEqual({ valid: true, errors: [] });
+    expect(validateGeneratedImageRegistry(registry).valid).toBe(false);
+
+    const unlistedGeneratedRecord = {
+      ...eligible[0],
+      assetId: 'unlisted-legacy-place',
+      imageUrl: '/images/places/unlisted-legacy-place.webp',
+    };
+    expect(validateGeneratedImageRecordWithRegistry(unlistedGeneratedRecord, registry).errors)
+      .toContain('vision gate verdict is missing or rejected');
+
+    const duplicateIds = {
+      ...registry,
+      legacyVision: { ...contract, assetIds: [...contract.assetIds, contract.assetIds[0]] },
+    };
+    expect(legacyVisionAssetIdsForRegistry(duplicateIds)).toEqual([]);
+
+    const explicitTrue = {
+      ...registry,
+      assets: registry.assets.map((record) => record.assetId === contract.assetIds[0]
+        ? { ...record, vision: { ...record.vision, contains_recognizable_foreground_person: true } }
+        : record),
+    };
+    const explicitTrueRecord = explicitTrue.assets.find((record) => record.assetId === contract.assetIds[0]);
+    expect(legacyVisionAssetIdsForRegistry(explicitTrue)).toEqual([]);
+    expect(validateGeneratedImageRecordWithRegistry(explicitTrueRecord, explicitTrue).valid).toBe(false);
+    expect(validateGeneratedImageRegistry(explicitTrue, { allowLegacyVision: true }).valid).toBe(false);
+  });
+
+  it('pins the event legacy envelope to eligible generated assets and rejects incomplete photos', () => {
+    const registry = JSON.parse(fs.readFileSync(
+      path.join(process.cwd(), 'data/event-image-library.json'),
+      'utf8',
+    ));
+    const contract = registry.legacyVision;
+    const eligible = registry.assets.filter((record) => record.schema === 1
+      && record.scope === 'event-library'
+      && record.license === 'generated-provider'
+      && GENERATED_IMAGE_PROVIDERS.includes(record.provider)
+      && (record.kind === undefined || record.kind === 'generated')
+      && record.promptVersion === GENERATED_IMAGE_PROMPT_VERSION
+      && Array.isArray(record.restrictions)
+      && GENERATED_IMAGE_RESTRICTIONS.every((restriction) => record.restrictions.includes(restriction))
+      && record.vision
+      && !Object.hasOwn(record.vision, 'contains_recognizable_foreground_person')
+      && record.vision.ok === true
+      && record.vision.contains_text === false
+      && record.vision.contains_logo === false
+      && record.vision.contains_recognizable_face === false
+      && record.vision.looks_like_specific_real_event === false
+      && typeof record.vision.notes === 'string'
+      && record.vision.notes.trim());
+    const eligibleIds = eligible.map((record) => record.assetId).sort();
+    const photosMissingForeground = registry.assets.filter((record) => record.kind === LICENSED_PHOTO_KIND
+      && !Object.hasOwn(record.vision || {}, 'contains_recognizable_foreground_person'));
+
+    expect(contract.schema).toBe(0);
+    expect(contract.scope).toBe('event-library');
+    expect(contract.promptVersion).toBe(GENERATED_IMAGE_PROMPT_VERSION);
+    expect(contract.restrictions).toEqual([...GENERATED_IMAGE_RESTRICTIONS]);
+    expect(contract.assetIds).toHaveLength(112);
+    expect([...contract.assetIds].sort()).toEqual(eligibleIds);
+    expect(eligible.every((record) => validateGeneratedImageRecordWithRegistry(record, registry).valid)).toBe(true);
+    expect(registry.assets.filter((record) => record.vision?.contains_recognizable_foreground_person === true)).toHaveLength(0);
+    expect(photosMissingForeground).toHaveLength(8);
+    expect(photosMissingForeground.every((record) => !contract.assetIds.includes(record.assetId))).toBe(true);
+    expect(photosMissingForeground.every((record) => validateGeneratedImageRecordWithRegistry(record, registry).errors
+      .includes('licensed-photo vision gate verdict is missing or rejected'))).toBe(true);
+    const validation = validateGeneratedImageRegistry(registry, {
+      scope: 'event-library',
+      allowLegacyVision: true,
+    });
+    expect(validation.valid).toBe(false);
+    expect(validation.errors).toHaveLength(8);
+    expect(validation.errors.every((error) => error.includes('licensed-photo vision gate verdict is missing or rejected'))).toBe(true);
+
+    expect(validateEventImageRegistryForPublishedEvents([], registry)).toEqual({ valid: true, errors: [] });
+    const selected = selectEventImageAsset({ id: 'event-with-stale-photo' }, registry);
+    expect(selected).toBeDefined();
+    expect(photosMissingForeground.map((record) => record.assetId)).not.toContain(selected?.assetId);
+
+    const referencedById = validateEventImageRegistryForPublishedEvents([
+      { id: 'event-references-incomplete-photo', imageAssetId: photosMissingForeground[0].assetId },
+    ], registry);
+    expect(referencedById.valid).toBe(false);
+    expect(referencedById.errors).toContain(
+      `${photosMissingForeground[0].assetId}: licensed-photo vision gate verdict is missing or rejected`,
+    );
+
+    const referencedPhoto = photosMissingForeground[0];
+    const publishedReference = {
+      id: 'event-publishes-incomplete-photo',
+      imageUrl: referencedPhoto.imageUrl,
+      imageAssetId: referencedPhoto.assetId,
+      imageLicense: referencedPhoto.license,
+      imageLicenseUrl: referencedPhoto.licenseUrl,
+      imageCredit: referencedPhoto.credit,
+      imageProvider: referencedPhoto.provider,
+      imageAuthor: referencedPhoto.author,
+      imageSourcePageUrl: referencedPhoto.sourcePageUrl,
+      imageCopyrightNotice: referencedPhoto.copyrightNotice,
+      imageAcquireLicensePage: referencedPhoto.acquireLicensePage,
+      imageModifications: referencedPhoto.modifications,
+    };
+    expect(verifyPublishedEventImages([publishedReference], registry).valid).toBe(false);
+
+    const otherPhotoVerdictFailure = {
+      ...registry,
+      assets: registry.assets.map((record) => record.assetId === referencedPhoto.assetId
+        ? { ...record, vision: { ...record.vision } }
+        : record),
+    };
+    delete otherPhotoVerdictFailure.assets.find((record) => record.assetId === referencedPhoto.assetId)
+      .vision.contains_text;
+    expect(validateEventImageRegistryForPublishedEvents([], otherPhotoVerdictFailure).valid).toBe(false);
+
+    const otherRegistryFailure = { ...registry, libraryVersion: '' };
+    expect(validateEventImageRegistryForPublishedEvents([], otherRegistryFailure).errors)
+      .toContain('event registry libraryVersion is required');
   });
 
   it('validates licensed photo metadata and rejects a missing licence', () => {

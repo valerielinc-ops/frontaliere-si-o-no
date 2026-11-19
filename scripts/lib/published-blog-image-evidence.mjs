@@ -8,7 +8,10 @@
  * generated-image validator proves the scope/path pair; every other scope is
  * still rejected by this consumer policy.
  */
-import { validateGeneratedImageRecord } from '../../packages/articles/engine/shared/generatedImageRegistry.mjs';
+import {
+  validateGeneratedImageRecord,
+  validateGeneratedImageRecordWithRegistry,
+} from '../../packages/articles/engine/shared/generatedImageRegistry.mjs';
 
 export const PUBLISHED_BLOG_IMAGE_EVIDENCE_SCOPES = Object.freeze(['article-hero', 'place']);
 export const DETERMINISTIC_CARD_SOURCE = 'deterministic-card';
@@ -30,8 +33,10 @@ export function isPublishedDeterministicCardRecord(record) {
     && record?.templateVersion === DETERMINISTIC_CARD_TEMPLATE_VERSION;
 }
 
-export function validatePublishedBlogImageEvidence(imageUrl, record) {
-  const validation = validateGeneratedImageRecord(record);
+export function validatePublishedBlogImageEvidence(imageUrl, record, { legacyVisionRegistry = null } = {}) {
+  const validation = legacyVisionRegistry
+    ? validateGeneratedImageRecordWithRegistry(record, legacyVisionRegistry)
+    : validateGeneratedImageRecord(record);
   const errors = [...validation.errors];
   if (!PUBLISHED_BLOG_IMAGE_EVIDENCE_SCOPES.includes(record?.scope)) {
     errors.push(`scope is not ${PUBLISHED_BLOG_IMAGE_EVIDENCE_SCOPES.join(' or ')}`);

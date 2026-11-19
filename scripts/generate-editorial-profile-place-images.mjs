@@ -11,6 +11,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { generateImageFromSpec } from '../packages/articles/engine/shared/generatedImageEngine.mjs';
+import { validateGeneratedImageRegistry } from '../packages/articles/engine/shared/generatedImageRegistry.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const REGISTRY_PATH = path.join(ROOT, 'data', 'generated-image-registry.json');
@@ -95,15 +96,26 @@ function descriptors(scope) {
   return [...authorAssets, ...placeAssets];
 }
 
-function persist(assetsByUrl) {
+function persist(assetsByUrl, sourceRegistry = {}) {
   const assets = [...assetsByUrl.values()].sort((a, b) => a.imageUrl.localeCompare(b.imageUrl));
+  const legacyIds = Array.isArray(sourceRegistry.legacyVision?.assetIds)
+    ? sourceRegistry.legacyVision.assetIds.filter((assetId) => {
+      const record = assets.find((candidate) => candidate.assetId === assetId);
+      return record?.vision?.contains_recognizable_foreground_person !== false;
+    })
+    : [];
   const registry = {
     schema: 1,
     registry: 'editorial-profile-and-place-images',
     assetCount: assets.length,
     generatedAt: new Date().toISOString(),
+    ...(legacyIds.length > 0
+      ? { legacyVision: { ...sourceRegistry.legacyVision, assetIds: legacyIds } }
+      : {}),
     assets,
   };
+  const validation = validateGeneratedImageRegistry(registry, { allowLegacyVision: true });
+  if (!validation.valid) throw new Error(`generated image registry is invalid: ${validation.errors.join('; ')}`);
   fs.mkdirSync(path.dirname(REGISTRY_PATH), { recursive: true });
   fs.writeFileSync(REGISTRY_PATH, `${JSON.stringify(registry, null, 2)}\n`, 'utf8');
   return registry;
@@ -139,11 +151,11 @@ async function main() {
     fs.mkdirSync(path.dirname(item.targetPath), { recursive: true });
     fs.copyFileSync(result.filePath, item.targetPath);
     assetsByUrl.set(item.imageUrl, result.record);
-    persist(assetsByUrl);
+    persist(assetsByUrl, registry);
     console.error(`[generated-image] published ${item.imageUrl} (${result.record.width}x${result.record.height}, ${result.record.bytes} bytes)`);
   }
 
-  const finalRegistry = persist(assetsByUrl);
+  const finalRegistry = persist(assetsByUrl, registry);
   console.error(`[generated-image] registry records: ${finalRegistry.assetCount}; codex=${providerCounts['openai-codex'] || 0}`);
 }
 

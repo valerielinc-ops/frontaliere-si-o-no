@@ -71,6 +71,7 @@ import {
 import { ARTICLE_SECTION_CORE } from '../build-plugins/shared/articleSectionCore.mjs';
 import { isReservedPublishedSlug } from './lib/published-slug-guard.mjs';
 import { validatePublishedBlogImageEvidence } from './lib/published-blog-image-evidence.mjs';
+import { validateGeneratedImageRegistry } from '../packages/articles/engine/shared/generatedImageRegistry.mjs';
 import {
   parsePublishedCantonArticles,
   PUBLISHED_CANTON_ARTICLES_ARTIFACT,
@@ -83,6 +84,7 @@ const CHECK_ONLY = process.argv.includes('--check');
 const BLOG_CREDITS_ARTIFACT = 'data/image-credits-blog.json';
 const SLUGS_ARTIFACT = 'slugs.json';
 const BLOG_GENERATED_EVIDENCE_SNAPSHOT = path.join(ROOT, 'data/published-blog-generated-image-evidence.json');
+const BLOG_GENERATED_IMAGE_REGISTRY = path.join(ROOT, 'data/blog-generated-image-registry.json');
 const DISCOVERY_ARTICLES_PATH = path.join(PUBLIC_DIR, DISCOVERY_ARTICLES_DESTINATION);
 const DISCOVERY_ARTICLES_MANIFEST_PATH = path.join(PUBLIC_DIR, 'data/discovery-articles-manifest.json');
 
@@ -946,8 +948,18 @@ if (credits.schema !== 1 || credits.section !== 'blog'
 if (credits.commit !== manifest.commit) {
   failSnapshotMismatch(`${BLOG_CREDITS_ARTIFACT} does not match the pinned blog-index contract — refusing`);
 }
+const blogGeneratedRegistry = JSON.parse(fs.readFileSync(BLOG_GENERATED_IMAGE_REGISTRY, 'utf-8'));
+const blogGeneratedRegistryValidation = validateGeneratedImageRegistry(blogGeneratedRegistry, {
+  scope: 'article-hero',
+  allowLegacyVision: true,
+});
+if (!blogGeneratedRegistryValidation.valid) {
+  fail(`${BLOG_GENERATED_IMAGE_REGISTRY} is invalid: ${blogGeneratedRegistryValidation.errors.join('; ')}`);
+}
 for (const [imageUrl, record] of Object.entries(credits.generated)) {
-  const validation = validatePublishedBlogImageEvidence(imageUrl, record);
+  const validation = validatePublishedBlogImageEvidence(imageUrl, record, {
+    legacyVisionRegistry: blogGeneratedRegistry,
+  });
   const errors = [...validation.errors];
   if (errors.length > 0) {
     fail(`${BLOG_CREDITS_ARTIFACT} has invalid article image evidence for ${imageUrl}: ${errors.join('; ')}`);

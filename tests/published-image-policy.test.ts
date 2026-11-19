@@ -129,6 +129,37 @@ describe('published image policy', () => {
     });
   });
 
+  it('validates a legacy generated place URL with its source registry envelope', () => {
+    withPinnedRoot((root) => {
+      const record = generatedArticleHero('lugano-view');
+      record.scope = 'place';
+      record.imageUrl = '/images/places/lugano-view.webp';
+      delete record.vision.contains_recognizable_foreground_person;
+      const registry = {
+        schema: 1,
+        assetCount: 1,
+        legacyVision: {
+          schema: 0,
+          scopes: ['editorial-profile', 'place'],
+          promptVersion: GENERATED_IMAGE_PROMPT_VERSION,
+          restrictions: [...GENERATED_IMAGE_RESTRICTIONS],
+          assetIds: [record.assetId],
+        },
+        assets: [record],
+      };
+      fs.writeFileSync(path.join(root, 'data/generated-image-registry.json'), JSON.stringify(registry));
+
+      const policy = loadPublishedImagePolicy({ root });
+
+      expect(policy.registryErrors).toEqual([]);
+      expect(policy.check(`${IMAGE_CDN_ORIGIN}${record.imageUrl}`, { requireCdn: true })).toMatchObject({
+        valid: true,
+        source: 'generated-registry',
+        path: record.imageUrl,
+      });
+    });
+  });
+
   it('requires the published corpus snapshot when requested and rejects invalid evidence', () => {
     withPinnedRoot((root) => {
       const warn = vi.fn();
@@ -283,6 +314,7 @@ describe('published image policy', () => {
     const record = registry.assets[0];
     const url = `${IMAGE_CDN_ORIGIN}${record.imageUrl}`;
 
+    expect(policy.registryErrors.some((error) => error.includes('licensed-photo vision gate verdict is missing or rejected'))).toBe(true);
     expect(policy.check(url, { requireCdn: true })).toMatchObject({
       valid: true,
       source: 'generated-registry',
@@ -297,13 +329,21 @@ describe('published image policy', () => {
   it.skipIf(SKIP_LIVE_DATA)('accepts a verified licensed photo record through the same CDN gate', () => {
     const registry = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/event-image-library.json'), 'utf8'));
     const policy = loadPublishedImagePolicy({ root: ROOT });
-    const record = registry.assets.find((asset) => asset.kind === 'photo');
+    const record = registry.assets.find((asset) => asset.kind === 'photo'
+      && asset.vision?.contains_recognizable_foreground_person === false);
+    const incomplete = registry.assets.find((asset) => asset.kind === 'photo'
+      && !Object.hasOwn(asset.vision || {}, 'contains_recognizable_foreground_person'));
 
     expect(record).toBeDefined();
     expect(policy.check(`${IMAGE_CDN_ORIGIN}${record.imageUrl}`, { requireCdn: true })).toMatchObject({
       valid: true,
       source: 'licensed-photo-registry',
       path: record.imageUrl,
+    });
+    expect(incomplete).toBeDefined();
+    expect(policy.check(`${IMAGE_CDN_ORIGIN}${incomplete.imageUrl}`, { requireCdn: true })).toMatchObject({
+      valid: false,
+      reason: 'missing-generated-record',
     });
   });
 

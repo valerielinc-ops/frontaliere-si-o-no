@@ -11,6 +11,7 @@ import {
   GENERATED_IMAGE_LICENSE,
   isLicensedPhotoRecord,
   validateGeneratedImageRecord,
+  validateGeneratedImageRecordWithRegistry,
 } from './generatedImageRegistry.mjs';
 
 export const EVENT_IMAGE_LIBRARY_SCHEMA_VERSION = 1;
@@ -279,7 +280,9 @@ export function selectEventImageAsset(event, registry) {
     && record?.imageUrl?.startsWith(EVENT_IMAGE_LIBRARY_PREFIX)
     && record?.assetId
     && (record?.license === GENERATED_IMAGE_LICENSE || isLicensedPhotoRecord(record))
-    && validateGeneratedImageRecord(record).valid);
+    && (Array.isArray(registry)
+      ? validateGeneratedImageRecord(record).valid
+      : validateGeneratedImageRecordWithRegistry(record, registry).valid));
   if (!records.length) return null;
   const category = normalizeEventImageCategory(event);
   const area = normalizeEventImageArea(event);

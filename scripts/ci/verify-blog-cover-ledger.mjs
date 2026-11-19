@@ -218,7 +218,7 @@ function main() {
   }
 
   const generatedValidation = generatedRegistry
-    ? validateGeneratedImageRegistry(generatedRegistry, { scope: 'article-hero' })
+    ? validateGeneratedImageRegistry(generatedRegistry, { scope: 'article-hero', allowLegacyVision: true })
     : { valid: true, errors: [] };
   if (!generatedValidation.valid) throw new Error(`generated registry invalid: ${generatedValidation.errors.join('; ')}`);
   const generatedByUrl = new Map((generatedRegistry?.assets || []).map((record) => [record.imageUrl, record]));
@@ -241,7 +241,9 @@ function main() {
         errors.push('published generated-image evidence commit differs from the corpus baseline');
       }
       for (const [imageUrl, record] of Object.entries(generatedEvidence.generated)) {
-        const validation = validatePublishedBlogImageEvidence(imageUrl, record);
+        const validation = validatePublishedBlogImageEvidence(imageUrl, record, {
+          legacyVisionRegistry: generatedRegistry,
+        });
         if (!validation.valid) {
           errors.push(`${imageUrl}: invalid published generated-image evidence${validation.errors.length
             ? `: ${validation.errors.join('; ')}`
@@ -294,7 +296,9 @@ function main() {
       errors.push(`${key}: published cover has no image-credit record`);
       continue;
     }
-    const validation = validateImageCreditRecord(record);
+    const validation = validateImageCreditRecord(record, {
+      legacyVisionRegistry: generatedRegistry,
+    });
     if (!validation.valid) {
       errors.push(`${key}: ${validation.errors.join('; ')}`);
       continue;

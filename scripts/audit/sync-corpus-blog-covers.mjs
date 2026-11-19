@@ -10,7 +10,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import {
-  validateGeneratedImageRecord,
+  validateGeneratedImageRecordWithRegistry,
   validateGeneratedImageRegistry,
 } from '../../packages/articles/engine/shared/generatedImageRegistry.mjs';
 
@@ -65,7 +65,7 @@ export function buildCorpusBlogCoverSyncItems({
     if (seen.has(imageUrl)) continue;
     seen.add(imageUrl);
     const record = assets.find((item) => item?.imageUrl === imageUrl || item?.assetId === action.assetId);
-    const validation = validateGeneratedImageRecord(record, { scope: 'article-hero' });
+    const validation = validateGeneratedImageRecordWithRegistry(record, registry, { scope: 'article-hero' });
     if (!validation.valid) {
       throw new Error(`${imageUrl}: site blog record is invalid: ${validation.errors.join('; ')}`);
     }
@@ -103,7 +103,7 @@ export function syncCorpusBlogCovers({
   if (!items.length) return { items: [], changed: false };
 
   const current = readJson(corpusRegistryPath, { schema: 1, assetCount: 0, assets: [] });
-  const registryValidation = validateGeneratedImageRegistry(current);
+  const registryValidation = validateGeneratedImageRegistry(current, { allowLegacyVision: true });
   if (!registryValidation.valid) {
     throw new Error(`corpus generated image registry is invalid: ${registryValidation.errors.join('; ')}`);
   }
@@ -120,13 +120,25 @@ export function syncCorpusBlogCovers({
     }
     assets.set(item.record.assetId, item.record);
   }
+  const assetRecords = [...assets.values()];
+  const legacyVisionIds = Array.isArray(current.legacyVision?.assetIds)
+    ? current.legacyVision.assetIds.filter((assetId) => {
+      const record = assetRecords.find((candidate) => candidate.assetId === assetId);
+      return record && record.vision?.contains_recognizable_foreground_person !== false;
+    })
+    : [];
+  const currentWithoutLegacyVision = { ...current };
+  delete currentWithoutLegacyVision.legacyVision;
   const next = {
-    ...current,
+    ...currentWithoutLegacyVision,
+    ...(legacyVisionIds.length > 0
+      ? { legacyVision: { ...current.legacyVision, assetIds: legacyVisionIds } }
+      : {}),
     schema: 1,
     assetCount: assets.size,
-    assets: [...assets.values()].sort((left, right) => String(left.imageUrl).localeCompare(String(right.imageUrl))),
+    assets: assetRecords.sort((left, right) => String(left.imageUrl).localeCompare(String(right.imageUrl))),
   };
-  const nextValidation = validateGeneratedImageRegistry(next);
+  const nextValidation = validateGeneratedImageRegistry(next, { allowLegacyVision: true });
   if (!nextValidation.valid) {
     throw new Error(`corpus generated image registry after sync is invalid: ${nextValidation.errors.join('; ')}`);
   }

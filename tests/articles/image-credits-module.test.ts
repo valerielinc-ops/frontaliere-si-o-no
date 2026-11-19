@@ -31,6 +31,10 @@ import {
   validateImageCreditRecord,
   type ImageCreditRecord,
 } from '../../packages/articles/engine/shared/imageCredits.mjs';
+import {
+  GENERATED_IMAGE_PROMPT_VERSION,
+  GENERATED_IMAGE_RESTRICTIONS,
+} from '../../packages/articles/engine/shared/generatedImageRegistry.mjs';
 
 type DeepPartial<T> = { [K in keyof T]?: T[K] extends object | null ? DeepPartial<T[K]> | null : T[K] };
 
@@ -194,6 +198,7 @@ function generatedArticleHero(): ImageCreditRecord {
       contains_text: false,
       contains_logo: false,
       contains_recognizable_face: false,
+      contains_recognizable_foreground_person: false,
       looks_like_specific_real_event: false,
       notes: 'safe generic editorial illustration',
     },
@@ -254,6 +259,31 @@ describe('generated article-hero image records', () => {
 
   it('validate the shared engine record without treating it as Wikimedia', () => {
     expect(validateImageCreditRecord(generated)).toEqual({ valid: true, errors: [] });
+  });
+
+  it('accepts a missing legacy foreground verdict only through its source registry envelope', () => {
+    const legacy = JSON.parse(JSON.stringify(generated)) as ImageCreditRecord;
+    const legacyGenerated = legacy.generated as { assetId: string; [key: string]: unknown };
+    const legacyVision = legacyGenerated.vision as Record<string, unknown>;
+    delete legacyVision.contains_recognizable_foreground_person;
+    const legacyRegistry = {
+      schema: 1,
+      assetCount: 1,
+      legacyVision: {
+        schema: 0,
+        scope: 'article-hero',
+        promptVersion: GENERATED_IMAGE_PROMPT_VERSION,
+        restrictions: [...GENERATED_IMAGE_RESTRICTIONS],
+        assetIds: [legacyGenerated.assetId],
+      },
+      assets: [legacyGenerated],
+    };
+
+    expect(validateImageCreditRecord(legacy).valid).toBe(false);
+    expect(validateImageCreditRecord(legacy, { legacyVisionRegistry: legacyRegistry }).valid).toBe(true);
+
+    legacyVision.contains_recognizable_foreground_person = true;
+    expect(validateImageCreditRecord(legacy, { legacyVisionRegistry: legacyRegistry }).valid).toBe(false);
   });
 
   it('projects provider terms consistently to SEO, visible copy and RSS', () => {
