@@ -70,6 +70,16 @@ describe('job-board catalog loading after the first listing paint', () => {
     expect(readiness).toContain('[deferJobBoardCatalogUntilInteraction, fullLoadPending, jobBoardInteractionObserved, jobs.length, jobsLoading, onInitialContentReady, resultsResolving]');
     expect(readiness).toContain('onInitialContentReady?.()');
   });
+
+  it('keeps the mobile handoff footprint aligned with the static latest-jobs block', () => {
+    expect(JOB_BOARD_SOURCE).toContain("import { TI_HUB_LATEST_JOBS_LIMIT } from '@/build-plugins/shared/tiHubLatestJobs';");
+    expect(JOB_BOARD_SOURCE).toContain('const firstPageCardCount = isCanonicalFirstPageListing ? TI_HUB_LATEST_JOBS_LIMIT : pageSize;');
+    expect(JOB_BOARD_SOURCE).toContain('const [mobileJobLimit, setMobileJobLimit] = useState(firstPageCardCount);');
+    expect(JOB_BOARD_SOURCE).toContain('setMobileJobLimit(firstPageCardCount);');
+    expect(JOB_BOARD_SOURCE).toContain('? firstPageCardCount');
+    expect(JOB_BOARD_SOURCE).toContain(': Math.min(firstPageCardCount, filteredJobs.length)');
+  });
+
   it('releases the catalog when a filter is already active, without any board interaction', () => {
     expect(JOB_BOARD_SOURCE).toContain('const filterAwaitsCatalog = fullLoadPending && (activeFilterCount > 0 || salaryRangeFilter.min !== null);');
     expect(JOB_BOARD_SOURCE).toContain('if (filterAwaitsCatalog) noteJobBoardInteraction();');
