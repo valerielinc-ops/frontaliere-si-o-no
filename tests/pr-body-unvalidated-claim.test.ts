@@ -175,6 +175,18 @@ describe('unvalidated-perf-claim: riconoscimento del riferimento workflow/job', 
     expect(isConcreteJobWorkflowReference('workflow "Release pages"')).toBe(true);
     expect(isConcreteJobWorkflowReference('workflow is-active')).toBe(false);
   });
+
+  it('non tratta i parametri di query di un URL arbitrario come riferimenti concreti', () => {
+    for (const owner of ['workflow', 'job', 'run', 'deploy']) {
+      expect(isConcreteJobWorkflowReference(`blocked: misura post-merge; https://example.test/${owner}=build-1; soglia 2s; trigger di revert: rollback`), owner).toBe(false);
+    }
+    expect(isConcreteJobWorkflowReference('blocked: misura post-merge; https://example.test/job=build-1; soglia 2s; trigger di revert: rollback')).toBe(false);
+  });
+
+  it('mantiene valide le URL Actions riconosciute', () => {
+    expect(isConcreteJobWorkflowReference('workflow https://github.com/o/r/actions/workflows/build.yml')).toBe(true);
+    expect(isConcreteJobWorkflowReference('run https://github.com/o/r/actions/runs/123')).toBe(true);
+  });
 });
 
 describe('unvalidated-perf-claim: l\'evidenza è sostanziale e locale al bullet', () => {

@@ -508,6 +508,7 @@ const PERF_CONTEXT_RE = new RegExp(`${PERF_RESOURCE}|${PERF_BENEFIT}|${PERF_QTY}
 const PERF_CONCRETE_JOB_WORKFLOW_RE = /\b(?:workflow|job|run|deploy)\b\s*(?::|=)?\s*(?:(['"`])([^'"`]+)\1|([A-Za-z0-9][A-Za-z0-9_.:\/-]*))/gi;
 const PERF_REFERENCE_NAME_RE = /^(?=[A-Za-z0-9][A-Za-z0-9_.:\/-]*$)(?=.*[._:\/-]|\d)[A-Za-z0-9][A-Za-z0-9_.:\/-]*$/;
 const PERF_PROSE_REFERENCE_PREFIX_RE = /^(?:is|are|was|were|be|been|being|has|have|had|will|would|should|could|can|may|might|must|defined|configured|available|pending|ready|running|completed?|failed|successful|scheduled|used|tracked|monitored|measured|validated)(?:[._:\/-]|$)/i;
+const PERF_ACTIONS_URL_RE = /https?:\/\/[^\s<>()]+\/actions\/(?:runs\/\d+|workflows\/[^/?#\s<>()]+(?:\/runs\/\d+)?)(?:[?#][^\s<>()]*)?/i;
 const PERF_PAIR_RE = new RegExp(
   String.raw`${PERF_QTY}[^.\n]{0,40}(?:\bcontro\b|\bvs\.?(?!\w)|→|->)[^.\n]{0,20}?${PERF_QTY}`
   + String.raw`|\bda\s+(?:circa\s+|~)?${PERF_QTY}\s+a\s+(?:circa\s+|~)?${PERF_QTY}`,
@@ -528,6 +529,15 @@ function hasSubstantialEvidenceValue(value) {
 
 function hasSubstantialEvidenceTail(match) {
   return match ? hasSubstantialEvidenceValue(match[1]) : false;
+}
+
+function urlContainingIndex(source, index) {
+  const urlRe = /https?:\/\/[^\s<>()]+/gi;
+  for (const url of source.matchAll(urlRe)) {
+    const start = url.index ?? -1;
+    if (index >= start && index < start + url[0].length) return url[0];
+  }
+  return null;
 }
 
 /**
@@ -568,6 +578,9 @@ export function isConcreteJobWorkflowReference(text = '') {
     if (quotedName) return true;
 
     const name = match[3] ?? '';
+    const containingUrl = urlContainingIndex(source, match.index ?? -1);
+    if (containingUrl && !PERF_ACTIONS_URL_RE.test(containingUrl)) continue;
+    if (/^[A-Za-z][A-Za-z0-9+.-]*:\/\//.test(name) && !PERF_ACTIONS_URL_RE.test(name)) continue;
     if (!PERF_REFERENCE_NAME_RE.test(name) || PERF_PROSE_REFERENCE_PREFIX_RE.test(name)) continue;
     return true;
   }
