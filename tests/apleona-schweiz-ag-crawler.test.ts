@@ -149,6 +149,22 @@ describe('Apleona Schweiz AG crawler parser', () => {
       expect(detail.description).not.toContain('Teamgrösse: 6 Personen');
     });
 
+    it('extracts vacancy sections from the Umantis showblock skin', () => {
+      const detail = extractApleonaDetailFields(
+        fixture('detail-showblock-sections.html'),
+      );
+      expect(detail.title).toBe('Immobilienbewirtschafter Retail- und Center Management (m/w/d)');
+      expect(detail.locationCandidates).toEqual([expect.objectContaining({
+        location: 'Wallisellen',
+        addressLocality: 'Wallisellen',
+        addressCountry: 'CH',
+      })]);
+      expect(detail.description).toContain('Aufgaben\n• Du betreust anspruchsvolle Retail- und Center-Liegenschaften');
+      expect(detail.description).toContain('Anforderungen\n• Du verfügst über eine kaufmännische Ausbildung');
+      expect(detail.description).not.toContain('Recruiting Kontakt und Personaldienstleister');
+      expect(detail.description.split(/\s+/).filter(Boolean).length).toBeGreaterThan(50);
+    });
+
     it('rejects a canton suffix that fails independent verification without leaking the raw string', () => {
       const detail = extractApleonaDetailFields(
         fixture('detail-canton-mismatch.html'),
