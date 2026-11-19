@@ -115,10 +115,20 @@ function nativeQuestionText(value, counter = null) {
     // effective option list.
     const shared = controls.filter((id) => owns.includes(id));
     const refs = [...new Set([...shared, ...controls, ...owns])];
-    const nodes = refs.map((id) => document.getElementById(id)).filter(Boolean);
-    const listbox = nodes.find((node) => node.getAttribute('role')?.toLowerCase() === 'listbox');
+    const prioritizedRefs = shared.length ? shared : refs;
+    const nodes = prioritizedRefs.map((id) => document.getElementById(id)).filter(Boolean);
+    const listboxes = [...new Set(nodes.flatMap((node) => [
+      ...(node.getAttribute('role')?.toLowerCase() === 'listbox' ? [node] : []),
+      ...node.querySelectorAll('[role="listbox"]'),
+    ]))];
+    const listbox = listboxes.length === 1 ? listboxes[0] : null;
     const target = listbox || nodes[0] || null;
-    return { id: target?.id || refs[0] || '', element: target, listbox: Boolean(listbox) };
+    return {
+      id: listbox?.id || target?.id || refs[0] || '',
+      element: target,
+      listbox: Boolean(listbox),
+      ambiguous: listboxes.length > 1,
+    };
   };
   // Personio marks a required field "Geschlecht* (erforderlich)" without the `required` attribute.
   const REQUIRED_LABEL = /\*|\b(?:erforderlich|pflichtfeld|required|mandatory|obbligatorio|obligatoire|obligatorisch)\b/i;
@@ -1353,7 +1363,8 @@ function nativeQuestionText(value, counter = null) {
       // «Bitte auswählen» and loads its options into the list it owns once
       // opened. A select by another name: its options are read (extractFields).
       const owned = ownedListFor(element);
-      field.ownedList = owned.id;
+      field.ownedList = owned.ambiguous ? '' : owned.id;
+      if (owned.ambiguous) field.ownedListAmbiguous = true;
       field.selectLike = Boolean(field.ownedList)
         // SuccessFactors localises its empty value too: Rolex's French form
         // says «Aucune sélection», not «Sélectionnez». It is still the same
@@ -1455,7 +1466,11 @@ function nativeQuestionText(value, counter = null) {
       // Keep the control-to-popup relationship in the snapshot. Without it,
       // a page with more than one visible UBS/BrassRing list would make the
       // action runner search every option collection in the frame.
-      ...(owned.listbox && owned.id ? { ownedList: owned.id } : {}),
+      ...(owned.ambiguous ? { ownedListAmbiguous: true } : {}),
+      // Keep the declared popup id even before its listbox is mounted. The
+      // lazy BrassRing popup is allowed to attach its visible options only
+      // after the control is opened; the id still binds that later catalogue.
+      ...(!owned.ambiguous && owned.id ? { ownedList: owned.id } : {}),
       ...(nativeSelect ? { widget: 'jquery-multiselect', nativeSelectId: nativeSelect.id,
         options: [...nativeSelect.options].filter(option => !option.matches(':disabled') && !option.closest('optgroup:disabled')).map(option => nativeOption(option, nativeSelect)),
         required: nativeSelect.required || hasAriaRequired(nativeSelect) || REQUIRED_LABEL.test(fieldLabel) } : {}),

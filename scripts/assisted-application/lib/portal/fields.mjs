@@ -125,10 +125,20 @@ function nativeQuestionText(value, counter = null) {
     // effective option list.
     const shared = controls.filter((id) => owns.includes(id));
     const refs = [...new Set([...shared, ...controls, ...owns])];
-    const nodes = refs.map((id) => document.getElementById(id)).filter(Boolean);
-    const listbox = nodes.find((node) => node.getAttribute('role')?.toLowerCase() === 'listbox');
+    const prioritizedRefs = shared.length ? shared : refs;
+    const nodes = prioritizedRefs.map((id) => document.getElementById(id)).filter(Boolean);
+    const listboxes = [...new Set(nodes.flatMap((node) => [
+      ...(node.getAttribute('role')?.toLowerCase() === 'listbox' ? [node] : []),
+      ...node.querySelectorAll('[role="listbox"]'),
+    ]))];
+    const listbox = listboxes.length === 1 ? listboxes[0] : null;
     const target = listbox || nodes[0] || null;
-    return { id: target?.id || refs[0] || '', element: target, listbox: Boolean(listbox) };
+    return {
+      id: listbox?.id || target?.id || refs[0] || '',
+      element: target,
+      listbox: Boolean(listbox),
+      ambiguous: listboxes.length > 1,
+    };
   };
   // Personio marks a required field "Geschlecht* (erforderlich)" without the `required` attribute.
   const REQUIRED_LABEL = /\*|\b(?:erforderlich|pflichtfeld|required|mandatory|obbligatorio|obligatoire|obligatorisch)\b/i;
@@ -1363,7 +1373,8 @@ function nativeQuestionText(value, counter = null) {
       // «Bitte auswählen» and loads its options into the list it owns once
       // opened. A select by another name: its options are read (extractFields).
       const owned = ownedListFor(element);
-      field.ownedList = owned.id;
+      field.ownedList = owned.ambiguous ? '' : owned.id;
+      if (owned.ambiguous) field.ownedListAmbiguous = true;
       field.selectLike = Boolean(field.ownedList)
         // SuccessFactors localises its empty value too: Rolex's French form
         // says «Aucune sélection», not «Sélectionnez». It is still the same
@@ -1465,7 +1476,11 @@ function nativeQuestionText(value, counter = null) {
       // Keep the control-to-popup relationship in the snapshot. Without it,
       // a page with more than one visible UBS/BrassRing list would make the
       // action runner search every option collection in the frame.
-      ...(owned.listbox && owned.id ? { ownedList: owned.id } : {}),
+      ...(owned.ambiguous ? { ownedListAmbiguous: true } : {}),
+      // Keep the declared popup id even before its listbox is mounted. The
+      // lazy BrassRing popup is allowed to attach its visible options only
+      // after the control is opened; the id still binds that later catalogue.
+      ...(!owned.ambiguous && owned.id ? { ownedList: owned.id } : {}),
       ...(nativeSelect ? { widget: 'jquery-multiselect', nativeSelectId: nativeSelect.id,
         options: [...nativeSelect.options].filter(option => !option.matches(':disabled') && !option.closest('optgroup:disabled')).map(option => nativeOption(option, nativeSelect)),
         required: nativeSelect.required || hasAriaRequired(nativeSelect) || REQUIRED_LABEL.test(fieldLabel) } : {}),
@@ -1843,17 +1858,27 @@ function nativeQuestionText(value, counter = null) {
 // What a list shows before anything is chosen: «Select One», «Bitte auswählen», «Seleziona», «Aucune sélection».
 export const LIST_PROMPT_RE = /^(bitte (aus)?wählen|please select|select|seleziona(re)?|sélectionne[rz]?|choisi(r|ssez)|aucune\s+(?:sélection|selection)(?:née|nee)?|keine\s+auswahl|no\s+selection|nothing\s+selected)\b/i;
 
-/** Open a listbox button, read its options, close it again. */
-export async function readListboxOptions(frame, aaId) {
-  const button = frame.locator(`[data-aa-id="${aaId}"]`).first();
+/** Open a listbox button, read its owned options, close it again. */
+export async function readListboxOptions(frame, fieldOrAaId) {
+  const field = typeof fieldOrAaId === 'object' ? fieldOrAaId : { id: fieldOrAaId };
+  if (field?.ownedListAmbiguous) return [];
+  const first = locator => typeof locator?.first === 'function' ? locator.first() : locator;
+  const button = first(frame.locator(`[data-aa-id="${field.id}"]`));
+  const ownedList = field?.ownedList
+    ? first(frame.locator(`[id="${String(field.ownedList).replace(/["\\]/g, '\\$&')}"]`))
+    : null;
   try {
     await button.click({ timeout: 5000 });
     // Only the open list, but all of it: Workday keeps the options of a list
     // opened before in the DOM (hidden), and a long list scrolls.
-    const list = frame.locator('[role="listbox"]:visible').last();
+    const list = ownedList || frame.locator('[role="listbox"]:visible').last();
     const hasList = await list.waitFor({ state: 'visible', timeout: 4000 }).then(() => true, () => false);
+    if (!hasList && ownedList) {
+      await button.press('Escape').catch(() => {});
+      return [];
+    }
     const options = hasList ? list.locator('[role="option"]') : frame.locator('[role="option"]:visible');
-    await options.first().waitFor({ state: 'attached', timeout: 4000 });
+    await options.first().waitFor({ state: 'visible', timeout: 8000 });
     // The list's prompt is no option of it («Select One» was offered to the candidate as a marital status).
     const labels = (await options.allInnerTexts()).map((text) => text.replace(/\s+/g, ' ').trim()).filter((label) => label && !LIST_PROMPT_RE.test(label));
     await button.press('Escape').catch(() => {});
@@ -1870,12 +1895,16 @@ export async function readListboxOptions(frame, aaId) {
  * The prompt («Bitte auswählen») is no option.
  */
 export async function readOwnedListOptions(frame, field) {
-  const input = frame.locator(`[data-aa-id="${field.id}"]`).first();
-  const list = frame.locator(`[id="${String(field.ownedList).replace(/["\\]/g, '\\$&')}"]`);
+  if (field?.ownedListAmbiguous || !field?.ownedList) return [];
+  const first = locator => typeof locator?.first === 'function' ? locator.first() : locator;
+  const input = first(frame.locator(`[data-aa-id="${field.id}"]`));
+  const list = first(frame.locator(`[id="${String(field.ownedList).replace(/["\\]/g, '\\$&')}"]`));
   try {
     await input.click({ timeout: 5000 });
-    await list.locator('[role="option"]').first().waitFor({ state: 'attached', timeout: 8000 });
-    const labels = (await list.locator('[role="option"]').allInnerTexts()).map((text) => text.replace(/\s+/g, ' ').trim())
+    await list.waitFor({ state: 'visible', timeout: 4000 });
+    const options = list.locator('[role="option"]');
+    await options.first().waitFor({ state: 'visible', timeout: 8000 });
+    const labels = (await options.allInnerTexts()).map((text) => text.replace(/\s+/g, ' ').trim())
       .filter((label) => label && !LIST_PROMPT_RE.test(label));
     await input.press('Escape').catch(() => {});
     return labels.map((label) => ({ value: label, label }));
@@ -1945,7 +1974,7 @@ export async function extractFields(page, { listboxOptions = true, channelType =
       continue; // cross-origin or detached
     }
     for (const field of listboxOptions && !includeHidden ? snapshot.fields.filter((item) => (item.kind === 'listbox' && item.widget !== 'jquery-multiselect') || (item.selectLike && item.widget !== 'jquery-selectmenu')).slice(0, 15) : []) {
-      field.options = field.selectLike ? await readOwnedListOptions(frame, field) : await readListboxOptions(frame, field.id);
+      field.options = field.selectLike ? await readOwnedListOptions(frame, field) : await readListboxOptions(frame, field);
     }
     result.frames.push({ index, url: snapshot.url });
     result.workdayApplicationSurface ||= snapshot.workdayApplicationSurface === true;

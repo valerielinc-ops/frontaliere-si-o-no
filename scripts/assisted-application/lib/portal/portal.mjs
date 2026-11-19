@@ -33,7 +33,7 @@ import path from 'node:path';
 import { browserEngine, isStealthBrowser, launchStealthOrChromium } from '../../../lib/stealth-browser.mjs';
 import { challengeState, passChallenge } from '../../../lib/challenge-pass.mjs';
 import { applicationDestinationDiversionHint, applicationDiversionHint, applicationReceipt, applicationStage, gravityFormsSubmissionOutcome, inPageApplicationOpeners, isApplicationRegionUnsupported, isApplicationRouteBound, portalJobKey } from './stages.mjs';
-import { BRASSRING_HOME_WITH_PRELOAD_RE, isBrassRingPrivacyGateText, sameBrassRingPostingAddress } from './brass-ring-route.mjs';
+import { BRASSRING_HOME_WITH_PRELOAD_RE, brassRingActiveFields, isBrassRingPrivacyGateText, sameBrassRingPostingAddress } from './brass-ring-route.mjs';
 import { COVER_LETTER_DOCUMENT_CONTEXT_RE, COVER_LETTER_DOCUMENT_TERMS, CV_DOCUMENT_CONTEXT_RE, CV_DOCUMENT_TERMS } from './document-labels.mjs';
 import { advancedToFinalReview } from './final-review.mjs';
 export { advancedToFinalReview } from './final-review.mjs';
@@ -2576,6 +2576,21 @@ function successFactorsCustomPostingDestinationMatches(destinationUrl, sourceUrl
   }) || sameSuccessFactorsTenantContinuation(context.applyUrl, destinationUrl);
 }
 
+function brassRingControlMatchesSelectedVacancy(control, context = {}) {
+  const identity = controlPostingIdentity(control);
+  if (identity === null) return false;
+  const expectedIdentity = expectedPostingIdentity(context);
+  if (identity && (!expectedIdentity || identity !== expectedIdentity)) return false;
+  if (identity) return true;
+  if (fieldlessApplicationEntryContextMatchesPosting(control, context)) return true;
+  // BrassRing can replace the selected vacancy's local heading with a generic
+  // wizard label. On the exact query-bound route, the selected jobid is the
+  // stronger proof; the caller still requires the current surface to match
+  // that route and to expose one sole Apply now control.
+  return context.allowSingleExternalApplicationEntry === true
+    && sameBrassRingPostingAddress(context.applyUrl, context.postingUrl);
+}
+
 export function applicationEntryControls(snapshot = {}, context = {}) {
   const successFactorsCustomEntries = successFactorsCustomPostingEntries(snapshot, context);
   if (successFactorsCustomEntries !== null) return successFactorsCustomEntries;
@@ -2669,7 +2684,8 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
     && !control?.formId && isMainFrameControl(control)
     && /^apply now$/iu.test(String(control?.text || control?.label || control?.ariaLabel || '')
       .normalize('NFKC').trim())
-    && !control?.menuItem && !control?.popup && !socialApplicationEntry(control));
+    && !control?.menuItem && !control?.popup && !socialApplicationEntry(control)
+    && brassRingControlMatchesSelectedVacancy(control, context));
   const brassRingSelectedPostingSurface = context.allowSingleExternalApplicationEntry === true
     && posting?.origin === 'https://jobs.ubs.com'
     && apply?.origin === posting.origin
@@ -2677,8 +2693,9 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
     && BRASSRING_HOME_WITH_PRELOAD_RE.test(posting.pathname || '')
     && sameSelectedPostingAddress(context.applyUrl, context.postingUrl)
     && sameSelectedPostingAddress(snapshot.url, context.postingUrl)
-    && Array.isArray(snapshot.fields) && snapshot.fields.length === 0
-    && brassRingRouteApplyNowEntries.length === 1 && allEntries.length === 1;
+    && brassRingRouteApplyNowEntries.length === 1
+    && brassRingActiveFields(snapshot, brassRingRouteApplyNowEntries[0]).length === 0
+    && allEntries.length === 1;
   if (brassRingSelectedPostingSurface) return brassRingRouteApplyNowEntries;
   const selectedPostingApplyPage = context.selectedPostingIsApplicationUrl === true
     && context.allowSingleExternalApplicationEntry === true

@@ -2014,6 +2014,20 @@ describe('portal field extraction', () => {
     ]));
   });
 
+  it('binds a listbox control to its sole popup list and rejects an ambiguous popup', () => {
+    const bound = extract(`
+      <button type="button" aria-haspopup="listbox" aria-controls="choice-popup">Question 1</button>
+      <div id="choice-popup"><ul id="choice-list" role="listbox"><li role="option">First pet?</li></ul></div>`);
+    expect(bound.fields.find((field: any) => field.kind === 'listbox')).toMatchObject({ ownedList: 'choice-list' });
+
+    const ambiguous = extract(`
+      <button type="button" aria-haspopup="listbox" aria-controls="choice-popup">Question 1</button>
+      <div id="choice-popup"><ul id="choice-a" role="listbox"><li role="option">First pet?</li></ul>
+        <ul id="choice-b" role="listbox"><li role="option">Favorite city?</li></ul></div>`);
+    expect(ambiguous.fields.find((field: any) => field.kind === 'listbox')).toMatchObject({ ownedListAmbiguous: true });
+    expect(ambiguous.fields.find((field: any) => field.kind === 'listbox')).not.toHaveProperty('ownedList');
+  });
+
   it('recognizes a branded SuccessFactors tenant from its application route', () => {
     const page = extract(`
       <form>

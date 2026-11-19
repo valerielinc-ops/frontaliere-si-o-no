@@ -1014,8 +1014,11 @@
   }
 
   /** The options of the listbox a control just opened (Workday renders it at the end of the page). */
-  function openOptions(doc) {
-    return [...doc.querySelectorAll('[role="listbox"] [role="option"], [role="option"]')].filter(isShown)
+  function openOptions(doc, owner = null) {
+    const owned = owner ? ownedListFor(owner) : null;
+    if (owned?.ambiguous || (owned?.id && !owned.element)) return [];
+    const scope = owned?.element || doc;
+    return [...scope.querySelectorAll('[role="listbox"] [role="option"], [role="option"]')].filter(isShown)
       .map((element) => ({ element, label: textOf(element) }));
   }
 
@@ -1474,15 +1477,27 @@
     // for option reads.
     const shared = controls.filter((id) => owns.includes(id));
     const refs = [...new Set([...shared, ...controls, ...owns])];
-    const nodes = refs.map((id) => doc.getElementById(id)).filter(Boolean);
-    const listbox = nodes.find((node) => node.getAttribute('role')?.toLowerCase() === 'listbox');
+    const prioritizedRefs = shared.length ? shared : refs;
+    const nodes = prioritizedRefs.map((id) => doc.getElementById(id)).filter(Boolean);
+    const listboxes = [...new Set(nodes.flatMap((node) => [
+      ...(node.getAttribute('role')?.toLowerCase() === 'listbox' ? [node] : []),
+      ...node.querySelectorAll('[role="listbox"]'),
+    ]))];
+    const listbox = listboxes.length === 1 ? listboxes[0] : null;
     const element = listbox || nodes[0] || null;
-    return { id: element?.id || refs[0] || '', element, listbox: Boolean(listbox) };
+    return {
+      id: listbox?.id || element?.id || refs[0] || '',
+      element,
+      listbox: Boolean(listbox),
+      ambiguous: listboxes.length > 1,
+    };
   }
 
   function optionsNear(input) {
     const doc = input.ownerDocument;
-    const scope = ownedListFor(input).element || doc;
+    const owned = ownedListFor(input);
+    if (owned.ambiguous || (owned.id && !owned.element)) return [];
+    const scope = owned.element || doc;
     return [...scope.querySelectorAll('[role="option"], [id*="-option-"]')].filter(isShown)
       .map((element) => ({ element, label: textOf(element) }));
   }
@@ -1533,6 +1548,7 @@
   function selectLike(input, channelType = '') {
     const owned = ownedListFor(input);
     const required = isRequiredControl(input);
+    if (owned.ambiguous) return false;
     return Boolean(owned.id)
       && (SELECT_PROMPT_RE.test(input.getAttribute('placeholder') || '')
         || SELECT_PROMPT_RE.test(input.value || '')
@@ -1809,7 +1825,7 @@
         }
         // Open it, click the option the answer names (lib/portal/fill.mjs: exact label).
         press(element);
-        const option = await waitFor(() => bestOption(openOptions(element.ownerDocument), answer.value, answer.family));
+        const option = await waitFor(() => bestOption(openOptions(element.ownerDocument, element), answer.value, answer.family));
         if (!option) {
           fire(element, 'keydown', { key: 'Escape' });
           return false;
