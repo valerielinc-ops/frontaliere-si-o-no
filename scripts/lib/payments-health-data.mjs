@@ -101,6 +101,7 @@ function matchesStripe(row, record) {
   if (stripeCollection(row) !== record.collection || row.referenceConflict) return false;
   switch (record.collection) {
     case 'consulting_orders':
+      return (row.orderId ?? row.id) === record.id;
     case 'reader_checkout_claims':
       return row.id === record.id;
     case 'application_concierge_services':
@@ -115,7 +116,7 @@ function applicationState(record) {
   if (record.state === 'paid' || (record.collection === 'orders' && record.state === 'active')) return 'paid';
   if (record.collection === 'orders' && record.state === 'created') return 'unpaid';
   if (['assisted_applications', 'application_concierge_services'].includes(record.collection)
-      && ['pending', 'failed'].includes(record.state)) return 'unpaid';
+      && ['pending', 'failed', 'unpaid'].includes(record.state)) return 'unpaid';
   return 'unknown';
 }
 

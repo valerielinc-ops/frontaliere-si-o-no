@@ -131,7 +131,7 @@ describe('SumUp signals', () => {
     expect(fetchImpl).toHaveBeenCalledTimes(4);
     expect(result.counts).toEqual({
       refunds: 1, chargebacks: 1,
-      checkouts: { PENDING: 0, PAID: 1, FAILED: 0, EXPIRED: 0, CANCELLED: 0, unknown: 1 },
+      checkouts: { OPEN: 0, PENDING: 0, PAID: 1, FAILED: 0, EXPIRED: 0, CANCELLED: 0, unknown: 1 },
     });
     expect(result.details.checkouts[0]).toEqual({
       id: 'co_1', status: 'PAID', createdMs: nowMs - 1, checkoutReference: 'order_1~sumup~2',
@@ -299,20 +299,28 @@ function runtimeFixture({ webhook = false, orders = false, incomplete = false } 
         .not.toEqual(expect.arrayContaining(['uid']));
       if (!orders) return json([{ readTime: older }]);
       if (collection === 'assisted_applications') return json([
-        paymentDoc(collection, 'app_1', { paymentStatus: 'pending', stripeCheckoutSessionId: 'cs_assisted' }),
+        paymentDoc(collection, 'app_1', { paymentStatus: 'unpaid', stripeCheckoutSessionId: 'cs_assisted' }),
         paymentDoc(collection, 'app_2', { paymentStatus: 'paid', stripeSessionId: 'cs_async' }),
-        paymentDoc(collection, 'app_3', { paymentStatus: 'pending', stripeCheckoutSessionId: 'cs_grace' }, recent),
+        paymentDoc(collection, 'app_3', { paymentStatus: 'unpaid', stripeCheckoutSessionId: 'cs_grace' }, recent),
         paymentDoc(collection, 'app_4', { paymentStatus: 'paid', stripeSessionId: 'cs_expired' }),
       ]);
       if (collection === 'application_concierge_services') return json([
         paymentDoc(collection, 'service_1', { paymentStatus: 'paid', paymentProvider: 'sumup', sumupCheckoutId: 'su_checkout' }),
         paymentDoc(collection, 'service_2', { paymentStatus: 'paid', paymentProvider: 'sumup', sumupCheckoutId: 'su_wrong' }),
+        paymentDoc(collection, 'service_3', { paymentStatus: 'unpaid', sumupCheckoutId: 'su_paid' }),
+        paymentDoc(collection, 'service_4', { paymentStatus: 'unpaid', sumupCheckoutId: 'su_near' }),
+        paymentDoc(collection, 'service_5', { paymentStatus: 'paid', sumupCheckoutId: 'su_open' }),
+        paymentDoc(collection, 'service_6', { paymentStatus: 'paid', sumupCheckoutId: 'su_pending' }),
       ]);
       if (collection === 'orders') return json([
         paymentDoc(collection, 'publisher_order', { status: 'active', stripeCheckoutSessionId: 'cs_publisher' }),
       ]);
       if (collection === 'consulting_orders') return json([
         paymentDoc(collection, 'cs_consulting', { status: 'paid', stripeSessionId: 'cs_consulting' }),
+        paymentDoc(collection, 'consulting_reference', { status: 'paid', stripeSessionId: 'cs_consulting_reference' }),
+        paymentDoc(collection, 'cs_consulting_conflict', { status: 'paid', stripeSessionId: 'cs_consulting_conflict' }),
+        paymentDoc(collection, 'cs_consulting_invalid', { status: 'paid', stripeSessionId: 'cs_consulting_invalid' }),
+        paymentDoc(collection, 'consulting_missing_reference', { status: 'paid', stripeSessionId: 'cs_consulting_missing_reference' }),
       ]);
       if (collection === 'reader_checkout_claims') return json([paymentDoc(collection, 'cs_claim', {})]);
       throw new Error('unexpected collection');
@@ -334,15 +342,26 @@ function runtimeFixture({ webhook = false, orders = false, incomplete = false } 
           row('cs_grace', assisted('app_3')),
           row('cs_publisher', { publisherUid: 'owner_fixture', orderId: 'publisher_order' }, 'paid', 'publisher_order'),
           row('cs_consulting', { product: 'consulting' }),
+          row('cs_consulting_reference', { product: 'consulting', orderId: 'consulting_reference' }),
+          row('cs_consulting_conflict', { product: 'consulting', orderId: 'cs_consulting_conflict_extra' }),
+          row('cs_consulting_invalid', { product: 'consulting', orderId: ' ' }),
+          row('cs_consulting_missing_reference', { product: 'consulting' }),
           row('cs_claim', { plan: 'reader_noads' }),
           row('cs_unclaimed', { plan: 'reader_noads', readerUid: 'owner_fixture' }, 'paid', 'owner_fixture'),
           row('cs_foreign', {}, 'paid', 'app_2'),
         ]);
     }
     if (url.hostname === 'api.sumup.com') {
+      const id = url.pathname.split('/').at(-1);
+      const checkouts: Record<string, [string, string]> = {
+        su_paid: ['PAID', 'service_3'],
+        su_near: ['PAID', 'service_40'],
+        su_open: ['OPEN', 'service_5'],
+        su_pending: ['PENDING', 'service_6'],
+      };
+      const [status, checkoutReference] = checkouts[id ?? ''] ?? ['FAILED', 'service_1'];
       return url.pathname.endsWith('/history') ? json({ items: [] }) : json({
-        id: url.pathname.split('/').at(-1), status: 'FAILED',
-        checkout_reference: 'service_1~sumup~2', merchant_code: key,
+        id, status, checkout_reference: `${checkoutReference}~sumup~2`, merchant_code: key,
       });
     }
     throw new Error('unexpected request');
@@ -373,21 +392,22 @@ describe('payments health runtime', () => {
     const fixture = runtimeFixture({ orders: true });
     const summary = await runPaymentsHealth({ ...fixture, nowMs, notify: true });
     expect(summary.reconciliation).toEqual({
-      matched: 3, providerPaidAppUnpaid: 1, appPaidProviderIncompatible: 2, grace: 1, unknown: 3,
+      matched: 4, providerPaidAppUnpaid: 2, appPaidProviderIncompatible: 2, grace: 1, unknown: 12,
     });
+    expect(summary.sumup?.checkouts).toMatchObject({ OPEN: 1, PENDING: 1 });
     expect(summary.incomplete).toEqual(['reconciliation.insufficient_evidence']);
     expect(paymentsHealthExitCode(summary)).toBe(0);
     expect(fixture.reportIssue).toHaveBeenCalledExactlyOnceWith({
       title: 'Payments health: payment reconciliation gaps',
-      description: '- Provider paid, application unpaid: 1\n- Application paid, provider incompatible: 2',
+      description: '- Provider paid, application unpaid: 2\n- Application paid, provider incompatible: 2',
     });
     expect(JSON.stringify(summary)).not.toMatch(/cs_|app_\d|su_checkout|owner_fixture|publisher_order/);
   });
 
-  it('does not infer a mismatch from failed Stripe pagination', async () => {
+  it('reports only the independently verified SumUp mismatch when Stripe pagination fails', async () => {
     const fixture = runtimeFixture({ orders: true, incomplete: true });
     const summary = await runPaymentsHealth({ ...fixture, nowMs });
-    expect(summary.reconciliation.providerPaidAppUnpaid).toBe(0);
+    expect(summary.reconciliation.providerPaidAppUnpaid).toBe(1);
     expect(summary.reconciliation.unknown).toBeGreaterThan(0);
     expect(summary.incomplete).toContain('stripe.complete_checkouts.pagination_stalled');
     expect(paymentsHealthExitCode(summary)).toBe(1);

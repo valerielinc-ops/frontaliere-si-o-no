@@ -22,7 +22,7 @@ const DISPUTE_STATES = [
   'needs_response', 'under_review', 'appeal_needs_response', 'appeal_under_review',
   'won', 'lost', 'prevented',
 ];
-const SUMUP_STATES = ['PENDING', 'PAID', 'FAILED', 'EXPIRED', 'CANCELLED'];
+const SUMUP_STATES = ['OPEN', 'PENDING', 'PAID', 'FAILED', 'EXPIRED', 'CANCELLED'];
 const SUMUP_TYPES = ['REFUND', 'CHARGE_BACK'];
 
 class CollectorError extends Error {
@@ -136,7 +136,8 @@ function stripeCheckout(row, source, expectedStatus) {
       ? product : product == null ? null : 'other',
     reader: row.metadata?.plan === 'reader_noads',
     publisher: product == null && !row.metadata?.readerUid && Boolean(reference(row.metadata?.publisherUid)),
-    referenceConflict: Boolean(knownReference && row.client_reference_id != null && clientReferenceId !== knownReference),
+    referenceConflict: (product === 'consulting' && row.metadata?.orderId != null && !orderId)
+      || Boolean(knownReference && row.client_reference_id != null && clientReferenceId !== knownReference),
     orderId,
     serviceId,
     clientReferenceId: knownReference && clientReferenceId === knownReference ? clientReferenceId : null,
