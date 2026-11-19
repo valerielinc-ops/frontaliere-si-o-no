@@ -458,6 +458,11 @@ export function normalizeCompatShardEntries(
   const occurrences = new Map();
   for (const entry of entries) {
     for (const p of entry.paths) {
+      if (typeof p !== 'string') {
+        throw new Error(
+          `${errorPrefix} ${entry.name} contains a non-string path; refusing destructive rewrite`,
+        );
+      }
       const list = occurrences.get(p) || [];
       list.push({ name: entry.name, shardIndex: entry.shardIndex });
       occurrences.set(p, list);

@@ -14,6 +14,7 @@ import {
   compatShardFile,
   compatShardIndex,
   compatManifestFile,
+  normalizeCompatShardEntries,
   COMPAT_SHARD_COUNT,
 } from '../scripts/lib/compat-paths-store.mjs';
 
@@ -263,5 +264,17 @@ describe('writeCompatPaths — shard write minimization', () => {
     fs.writeFileSync(targetFile, JSON.stringify(target));
 
     expect(() => readCompatPathsStrict(rootDir)).toThrow(/assigned to shard/);
+  });
+
+  it('rejects non-string paths before shared ownership hashing', () => {
+    const shardIndex = compatShardIndex(1);
+
+    expect(() => normalizeCompatShardEntries([
+      {
+        name: `part-${String(shardIndex).padStart(2, '0')}.json`,
+        shardIndex,
+        paths: [1],
+      },
+    ])).toThrow(/non-string path/);
   });
 });
