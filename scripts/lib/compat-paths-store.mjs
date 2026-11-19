@@ -152,7 +152,9 @@ export function readCompatPaths(rootDir = process.cwd()) {
  * by the writers. A duplicate path therefore has no semantic effect for a
  * streaming inspection. `readCompatPathsStrict()` heals an exact duplicate
  * inside one shard (reported as `duplicatesRemoved`) and still rejects the same
- * path in two shards or in the wrong shard.
+ * path in two shards or in the wrong shard. The repair readers additionally
+ * remove an exact cross-shard copy when the hash-canonical occurrence is
+ * present; a path with no canonical occurrence remains a hard failure.
  *
  * @param {string} [rootDir]
  * @returns {Generator<string>}
@@ -225,15 +227,16 @@ export function readCompatPathsStrictAfterMerge(rootDir = process.cwd(), expecte
 }
 
 /**
- * Repair only stale manifest metadata after the complete shard set has been
- * validated. Shard contents are never rewritten here: a stale count is a
- * recoverable merge-order artifact, while missing/corrupt/duplicate/wrongly
- * assigned shard data remains a hard failure.
+ * Repair stale manifest metadata and exact duplicate shard copies after the
+ * complete shard set has been validated. A stale count is a recoverable
+ * merge-order artifact, and an exact duplicate is recoverable only when the
+ * path's hash-canonical occurrence is present. Missing/corrupt data and a
+ * path with no canonical shard remain hard failures.
  *
  * This is intentionally separate from readCompatPathsStrict(). Consumers that
- * are about to mine or append the accumulator may opt into this metadata-only
- * recovery; strict readers keep rejecting stale manifests so a caller cannot
- * accidentally treat an unvalidated store as safe.
+ * are about to mine or append the accumulator may opt into this recovery;
+ * strict readers keep rejecting stale manifests and cross-shard duplicates so
+ * a caller cannot accidentally treat an unvalidated store as safe.
  */
 function repairCompatManifestFromValidated(rootDir, validated) {
   const dir = path.resolve(rootDir, COMPAT_SHARD_DIR);
@@ -281,24 +284,40 @@ function repairCompatManifestFromValidated(rootDir, validated) {
 }
 
 export function repairCompatManifest(rootDir = process.cwd()) {
-  const validated = readCompatPathsStrictInternal(rootDir, { allowStaleManifest: true });
+  const validated = readCompatPathsStrictInternal(rootDir, {
+    allowStaleManifest: true,
+    repairExactCrossShardDuplicates: true,
+  });
+  repairExactDuplicateShards(rootDir, validated);
   return repairCompatManifestFromValidated(rootDir, validated);
 }
 
 /**
- * Strictly read the store and repair only its derived manifest metadata in the
- * same validation pass. The returned `data` is safe for a destructive writer;
- * `changed` describes whether the manifest was rewritten.
+ * Strictly read the store and repair its derived manifest metadata plus exact
+ * duplicate shard copies in the same validation pass. The returned `data` is
+ * safe for a destructive writer; `changed` describes whether the manifest was
+ * rewritten.
  */
 export function readCompatPathsStrictWithManifestRepair(rootDir = process.cwd()) {
-  const data = readCompatPathsStrictInternal(rootDir, { allowStaleManifest: true });
+  const data = readCompatPathsStrictInternal(rootDir, {
+    allowStaleManifest: true,
+    repairExactCrossShardDuplicates: true,
+  });
+  repairExactDuplicateShards(rootDir, data);
   return {
     data,
     ...repairCompatManifestFromValidated(rootDir, data),
   };
 }
 
-function readCompatPathsStrictInternal(rootDir, { expectedTotalPaths = null, allowStaleManifest = false } = {}) {
+function readCompatPathsStrictInternal(
+  rootDir,
+  {
+    expectedTotalPaths = null,
+    allowStaleManifest = false,
+    repairExactCrossShardDuplicates = false,
+  } = {},
+) {
   const dir = path.resolve(rootDir, COMPAT_SHARD_DIR);
   let shardNames;
   try {
@@ -360,11 +379,7 @@ function readCompatPathsStrictInternal(rootDir, { expectedTotalPaths = null, all
     throw new Error('[compat-paths-store] invalid shard manifest; refusing destructive rewrite');
   }
 
-  const seen = new Set();
-  const paths = [];
-  let duplicatesRemoved = 0;
-  const duplicateShards = [];
-  const duplicateExamples = [];
+  const shardEntries = [];
   for (const name of shardNames) {
     const file = path.join(dir, name);
     const shardIndex = Number(name.slice('part-'.length, -'.json'.length));
@@ -381,61 +396,137 @@ function readCompatPathsStrictInternal(rootDir, { expectedTotalPaths = null, all
       || shard.paths.some((p) => typeof p !== 'string')) {
       throw new Error(`[compat-paths-store] invalid ${name}; refusing destructive rewrite`);
     }
-    // An EXACT duplicate inside the same (correct) shard carries no information
-    // (the store has set semantics) and is healed: keep the first occurrence,
-    // drop the rest. The same path in a DIFFERENT shard, or a path assigned to
-    // another shard, stays fatal: that is a routing/integrity failure.
-    const inShard = new Set();
-    for (const p of shard.paths) {
-      if (inShard.has(p)) {
-        duplicatesRemoved++;
-        if (duplicateShards.indexOf(name) === -1) duplicateShards.push(name);
-        if (duplicateExamples.length < 5) duplicateExamples.push(p);
-        continue;
-      }
-      if (seen.has(p)) {
-        throw new Error(`[compat-paths-store] duplicate path ${p} across shards; refusing destructive rewrite`);
-      }
-      if (compatShardIndex(p) !== shardIndex) {
-        throw new Error(
-          `[compat-paths-store] ${name} contains path assigned to shard ${compatShardIndex(p)}: ${p}; `
-          + 'refusing destructive rewrite',
-        );
-      }
-      inShard.add(p);
-      paths.push(p);
-    }
-    for (const p of inShard) seen.add(p);
+    shardEntries.push({ name, shardIndex, paths: shard.paths });
   }
-  if (duplicatesRemoved > 0) {
+
+  const normalized = normalizeCompatShardEntries(shardEntries, {
+    repairExactCrossShardDuplicates,
+    errorPrefix: '[compat-paths-store]',
+  });
+  if (normalized.duplicatesRemoved > 0) {
     console.warn(
-      `[compat-paths-store] dropped ${duplicatesRemoved} exact duplicate path(s) in shard(s) `
-      + `${duplicateShards.join(', ')} (kept first occurrence; examples: ${JSON.stringify(duplicateExamples)})`,
+      `[compat-paths-store] dropped ${normalized.duplicatesRemoved} exact duplicate path(s) in shard(s) `
+      + `${normalized.duplicateShards.join(', ')} (kept canonical occurrence; examples: `
+      + `${JSON.stringify(normalized.duplicateExamples)})`,
     );
   }
 
-  if (expectedTotalPaths !== null && paths.length !== expectedTotalPaths) {
+  if (expectedTotalPaths !== null && normalized.paths.length !== expectedTotalPaths) {
     throw new Error(
-      `[compat-paths-store] merged shards contain ${paths.length} paths, `
+      `[compat-paths-store] merged shards contain ${normalized.paths.length} paths, `
       + `but the resolver expected ${expectedTotalPaths}; refusing destructive rewrite`,
     );
   }
 
-  if (expectedTotalPaths === null && !allowStaleManifest && paths.length !== meta.totalPaths) {
+  if (expectedTotalPaths === null && !allowStaleManifest && normalized.paths.length !== meta.totalPaths) {
     throw new Error(
       `[compat-paths-store] manifest declares ${meta.totalPaths} paths, `
-      + `but complete shards contain ${paths.length}; refusing destructive rewrite`,
+      + `but complete shards contain ${normalized.paths.length}; refusing destructive rewrite`,
     );
   }
 
   delete meta.paths;
   delete meta.shardCount;
   delete meta.totalPaths;
-  const result = { ...meta, paths };
+  const result = { ...meta, paths: normalized.paths };
   // Non-enumerable on purpose: `data` is handed back to writeCompatPaths(), whose
   // manifest meta is every enumerable key except `paths`.
-  Object.defineProperty(result, 'duplicatesRemoved', { value: duplicatesRemoved, enumerable: false });
+  Object.defineProperty(result, 'duplicatesRemoved', {
+    value: normalized.duplicatesRemoved,
+    enumerable: false,
+  });
+  Object.defineProperty(result, 'duplicateShardRepairs', {
+    value: normalized.shards.filter((entry) => entry.changed),
+    enumerable: false,
+  });
   return result;
+}
+
+/**
+ * Validate and normalize shard entries while preserving the strict ownership
+ * invariant. A cross-shard duplicate is recoverable only when one occurrence
+ * is in the path's deterministic hash shard; a duplicate with no canonical
+ * occurrence is still a routing failure and must not be guessed at.
+ *
+ * @param {{name: string, shardIndex: number, paths: string[]}[]} entries
+ * @param {{repairExactCrossShardDuplicates?: boolean, errorPrefix?: string}} options
+ */
+export function normalizeCompatShardEntries(
+  entries,
+  { repairExactCrossShardDuplicates = false, errorPrefix = '[compat-paths-store]' } = {},
+) {
+  const occurrences = new Map();
+  for (const entry of entries) {
+    for (const p of entry.paths) {
+      if (typeof p !== 'string') {
+        throw new Error(
+          `${errorPrefix} ${entry.name} contains a non-string path; refusing destructive rewrite`,
+        );
+      }
+      const list = occurrences.get(p) || [];
+      list.push({ name: entry.name, shardIndex: entry.shardIndex });
+      occurrences.set(p, list);
+    }
+  }
+
+  const seen = new Set();
+  const paths = [];
+  const shards = [];
+  let duplicatesRemoved = 0;
+  const duplicateShards = [];
+  const duplicateExamples = [];
+  const recordDuplicate = (name, p) => {
+    duplicatesRemoved++;
+    if (!duplicateShards.includes(name)) duplicateShards.push(name);
+    if (duplicateExamples.length < 5) duplicateExamples.push(p);
+  };
+
+  for (const entry of entries) {
+    const normalizedPaths = [];
+    const keptInShard = new Set();
+    for (const p of entry.paths) {
+      const pathOccurrences = occurrences.get(p) || [];
+      const occurrenceShardIndexes = new Set(pathOccurrences.map(({ shardIndex }) => shardIndex));
+      const expectedShardIndex = compatShardIndex(p);
+      const hasCanonicalOccurrence = occurrenceShardIndexes.has(expectedShardIndex);
+
+      if (occurrenceShardIndexes.size > 1 && !repairExactCrossShardDuplicates) {
+        throw new Error(
+          `${errorPrefix} duplicate path ${p} across shards; refusing destructive rewrite`,
+        );
+      }
+      if (!hasCanonicalOccurrence) {
+        throw new Error(
+          `${errorPrefix} ${entry.name} contains path assigned to shard ${expectedShardIndex}: ${p}; `
+          + 'refusing destructive rewrite',
+        );
+      }
+      if (entry.shardIndex !== expectedShardIndex) {
+        recordDuplicate(entry.name, p);
+        continue;
+      }
+      if (keptInShard.has(p)) {
+        recordDuplicate(entry.name, p);
+        continue;
+      }
+      keptInShard.add(p);
+      normalizedPaths.push(p);
+      if (!seen.has(p)) {
+        seen.add(p);
+        paths.push(p);
+      }
+    }
+    shards.push({ ...entry, paths: normalizedPaths, changed: normalizedPaths.length !== entry.paths.length });
+  }
+
+  return { paths, shards, duplicatesRemoved, duplicateShards, duplicateExamples };
+}
+
+function repairExactDuplicateShards(rootDir, validated) {
+  for (const entry of validated.duplicateShardRepairs || []) {
+    const file = path.join(path.resolve(rootDir, COMPAT_SHARD_DIR), entry.name);
+    writeShardFileIfChanged(file, JSON.stringify({ paths: entry.paths }, null, 2) + '\n');
+  }
 }
 
 /**
