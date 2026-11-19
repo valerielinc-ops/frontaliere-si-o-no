@@ -4,6 +4,7 @@ import { createHash } from 'node:crypto';
 import { isDeepStrictEqual } from 'node:util';
 
 import { digestDocument } from '../lib/canonical-json-digest.mjs';
+import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 import {
   LOOP_FLEET_LEDGER_INDEX_FILE,
   LOOP_FLEET_LEDGER_MANIFEST_FILE,
@@ -287,4 +288,6 @@ function run(argv) {
   }
 }
 
-run(process.argv.slice(2));
+if (isInvokedDirectly(import.meta.url)) {
+  run(process.argv.slice(2));
+}

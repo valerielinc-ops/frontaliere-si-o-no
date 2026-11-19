@@ -3,7 +3,7 @@ import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { gzipSync } from 'node:zlib';
 import { afterEach, expect, it } from 'vitest';
 
@@ -107,6 +107,15 @@ function fixture() {
 
 afterEach(() => {
   for (const root of roots.splice(0)) fs.rmSync(root, { recursive: true });
+});
+
+it('imports without running the CLI or producing output', () => {
+  const result = spawnSync(process.execPath, [
+    '--input-type=module', '--eval', `await import(${JSON.stringify(pathToFileURL(script).href)});`,
+  ], { encoding: 'utf8' });
+  expect(result.status).toBe(0);
+  expect(result.stdout).toBe('');
+  expect(result.stderr).toBe('');
 });
 
 it('projects mixed records while preserving original bytes and the complete index', () => {
