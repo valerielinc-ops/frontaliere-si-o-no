@@ -342,10 +342,10 @@
     },
     {
       "id": "wagerenhof-4a4dd9c3e6bd",
-      "slug": "lernende-fachperson-gesundheit-wagerenhof-uster",
+      "slug": "professionista-della-salute-in-formazione-stiftung-wagerenhof-uster",
       "slugByLocale": {
         "de": "lernende-fachperson-gesundheit-wagerenhof-uster",
-        "it": "lernende-fachperson-gesundheit-wagerenhof-uster",
+        "it": "professionista-della-salute-in-formazione-stiftung-wagerenhof-uster",
         "en": "lernende-fachperson-gesundheit-wagerenhof-uster",
         "fr": "lernende-fachperson-gesundheit-wagerenhof-uster"
       },
@@ -409,7 +409,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-28T21:21:06.746Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-29T21:28:24.783Z"
+      "firstSeenAt": "2026-10-29T21:28:24.783Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lernende-fachperson-gesundheit-wagerenhof-uster"
+        ]
+      },
+      "previousSlugs": [
+        "lernende-fachperson-gesundheit-wagerenhof-uster"
+      ]
     },
     {
       "id": "wagerenhof-4153d34d35f2",
