@@ -47,7 +47,7 @@ on:
       - 'scripts/lib/loop-fleet-*.mjs'
       - 'scripts/lib/gh-exec-buffer.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
-      - 'scripts/lib/gh-exec-buffer.mjs'
+      - 'scripts/ci/lib/workflow-input-references.mjs'
       - 'data/loop-fleet/loop-registry.json'
       - 'package-lock.json'
 
