@@ -9,6 +9,8 @@ import {
   readCompatPathsStrict,
   readCompatPathsStrictAfterMerge,
   readCompatPathsStrictWithManifestRepair,
+  forEachCompatPathsStrict,
+  prepareCompatPathsForTracking,
   repairCompatManifest,
   writeCompatPaths,
   compatShardFile,
@@ -93,6 +95,64 @@ describe('writeCompatPaths — shard write minimization', () => {
     fs.writeFileSync(legacyFile, JSON.stringify({ paths: ['/legacy-a/', 42, '/legacy-b/'] }));
 
     expect([...iterateCompatPaths(rootDir)]).toEqual(['/legacy-a/', '/legacy-b/']);
+  });
+
+  it('strictly streams shards and stages a deduplicated tracking union', async () => {
+    writeCompatPaths({ source: 'miner-fixture', paths: ['/existing/', '/old/'] }, rootDir);
+
+    const streamed: string[] = [];
+    const strict = await forEachCompatPathsStrict(rootDir, (value) => streamed.push(value));
+    expect(strict.totalPaths).toBe(2);
+    expect(new Set(streamed)).toEqual(new Set(['/existing/', '/old/']));
+
+    const prepared = await prepareCompatPathsForTracking({
+      first: { it: '/existing/', en: '/new-a/', de: '/new-b/', fr: '/new-a/' },
+      second: { it: '/old/', en: '/new-c/', de: '/new-d/', fr: '/new-c/' },
+    }, { rootDir, lastUpdated: '2026-01-02' });
+    try {
+      expect(prepared.previousTotalPaths).toBe(2);
+      expect(prepared.totalPaths).toBe(6);
+      expect(prepared.compatAdded).toBe(4);
+      expect(readCompatPathsStrict(rootDir).paths).toHaveLength(2);
+
+      prepared.commit();
+      const written = readCompatPathsStrict(rootDir);
+      expect(new Set(written.paths)).toEqual(new Set([
+        '/existing/', '/old/', '/new-a/', '/new-b/', '/new-c/', '/new-d/',
+      ]));
+      expect(written.lastUpdated).toBe('2026-01-02');
+    } finally {
+      prepared.cleanup();
+    }
+  });
+
+  it('strictly streams the legacy accumulator before migrating its union', async () => {
+    const legacyFile = path.join(rootDir, 'data', 'seo-404-compat-paths.json');
+    fs.mkdirSync(path.dirname(legacyFile), { recursive: true });
+    fs.writeFileSync(legacyFile, JSON.stringify({
+      source: 'legacy-fixture',
+      lastUpdated: '2026-01-01',
+      paths: ['/legacy-a/', '/legacy-b/', '/legacy-a/'],
+    }));
+
+    const streamed: string[] = [];
+    const strict = await forEachCompatPathsStrict(rootDir, (value) => streamed.push(value));
+    expect(strict.sharded).toBe(false);
+    expect(strict.totalPaths).toBe(2);
+    expect(streamed).toEqual(['/legacy-a/', '/legacy-b/', '/legacy-a/']);
+
+    const prepared = await prepareCompatPathsForTracking({
+      migrated: { it: '/legacy-a/', en: '/legacy-c/', de: '/legacy-d/', fr: '/legacy-c/' },
+    }, { rootDir, lastUpdated: '2026-01-02' });
+    try {
+      expect(prepared.previousTotalPaths).toBe(2);
+      expect(prepared.totalPaths).toBe(4);
+      expect(prepared.compatAdded).toBe(2);
+      prepared.commit();
+      expect(readCompatPathsStrict(rootDir).paths).toHaveLength(4);
+    } finally {
+      prepared.cleanup();
+    }
   });
 
   it('propagates a non-ENOENT error reading a shard instead of silently forcing a write (issue #6696)', () => {

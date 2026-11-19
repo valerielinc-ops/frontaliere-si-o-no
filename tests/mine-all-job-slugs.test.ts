@@ -18,12 +18,14 @@
  * in mine-all-job-slugs.mjs).
  */
 import { spawnSync } from 'node:child_process';
+import fs from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import {
   buildLocalePathsForCanton,
   buildLocalePathsForJob,
   fillMissingLocalePaths,
   measureSerializedJsonObjectLength,
+  mergeMinedSources,
 } from '../scripts/mine-all-job-slugs.mjs';
 
 describe('measureSerializedJsonObjectLength', () => {
@@ -54,6 +56,56 @@ describe('measureSerializedJsonObjectLength', () => {
     );
 
     expect(result.status, `${result.stderr}\n${result.stdout}`).toBe(0);
+  });
+});
+
+describe('mine-all-job-slugs bounded sources', () => {
+  it('streams compat paths and Git history instead of retaining whole buffers', () => {
+    const source = fs.readFileSync(new URL('../scripts/mine-all-job-slugs.mjs', import.meta.url), 'utf8');
+    const backfill = fs.readFileSync(
+      new URL('../scripts/backfill-renamed-slugs-from-history.mjs', import.meta.url),
+      'utf8',
+    );
+    expect(source).toContain('forEachCompatPathsStrict(ROOT');
+    expect(source).toContain('prepareCompatPathsForTracking(tracking');
+    expect(source).toContain("{ name: 'Compat paths', stream: mineCompatPaths }");
+    expect(source).toContain("spawn('git'");
+    expect(source).toContain('createInterface({ input: child.stdout');
+    expect(source).not.toContain('execSync(');
+    expect(source).not.toMatch(/readCompatPathsStrict(?:WithManifestRepair)?\s*\(/);
+    expect(source).not.toContain('new Set(compat.paths)');
+    expect(backfill).toContain("spawn('git'");
+    expect(backfill).toContain('createInterface({ input: child.stdout');
+    expect(backfill).not.toContain("diff.split('\\n')");
+    expect(backfill).not.toContain('execSync(');
+  });
+
+  it('keeps earlier source locale paths while accepting missing locales from a stream', async () => {
+    const result = await mergeMinedSources([
+      {
+        name: 'Active jobs',
+        fn: () => new Map([
+          ['stable-slug', { locales: { it: '/cerca-lavoro-ticino/stable-slug' } }],
+        ]),
+      },
+      {
+        name: 'Compat paths',
+        stream: async (onPath) => {
+          onPath('stable-slug', 'it', '/cerca-lavoro-ticino/compat-it');
+          onPath('stable-slug', 'en', '/en/find-jobs-ticino/stable-slug');
+          onPath('new-slug', 'de', '/de/jobs-im-tessin/new-slug');
+          return 3;
+        },
+      },
+    ]);
+
+    expect(result.allSlugs.get('stable-slug').locales).toEqual({
+      it: '/cerca-lavoro-ticino/stable-slug',
+      en: '/en/find-jobs-ticino/stable-slug',
+    });
+    expect(result.allSlugs.get('new-slug').locales).toEqual({
+      de: '/de/jobs-im-tessin/new-slug',
+    });
   });
 });
 

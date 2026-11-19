@@ -31,7 +31,13 @@ describe('destructive compatibility writers', () => {
     for (const relativePath of DESTRUCTIVE_WRITERS) {
       const source = fs.readFileSync(path.join(ROOT, relativePath), 'utf8');
       const code = withoutComments(source);
-      expect(code, relativePath).toContain('readCompatPathsStrict');
+      if (relativePath === 'scripts/mine-all-job-slugs.mjs') {
+        expect(code, relativePath).toContain('forEachCompatPathsStrict');
+        expect(code, relativePath).toContain('prepareCompatPathsForTracking');
+        expect(code, relativePath).toContain('assertCompatFloor(preparedCompat.previousTotalPaths, preparedCompat.totalPaths');
+      } else {
+        expect(code, relativePath).toContain('readCompatPathsStrict');
+      }
       expect(code, relativePath).not.toMatch(/\breadCompatPaths\s*\(/);
     }
   });

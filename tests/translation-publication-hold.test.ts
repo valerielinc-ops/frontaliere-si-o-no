@@ -444,14 +444,14 @@ describe('un job trattenuto che lascia lo slice prima del rilascio non diventa u
     expect(isHeldFromPublication(heldDeparted)).toBe(true);
     commit(crawl2.filter((job) => job.id !== departing.id && job.id !== expiring.id), 'crawl: two jobs gone');
 
-    const gitMined = mineGitRemovedSlugs({ cwd: repo });
+    const gitMined = await mineGitRemovedSlugs({ cwd: repo });
     for (const slug of routeSlugs(heldDeparted)) expect(gitMined.has(slug)).toBe(false);
     expect(gitMined.has(expiring.slug)).toBe(true); // a public removal is still mined
     const registered = registeredSlugs(regPath);
     for (const slug of routeSlugs(heldDeparted)) expect(registered.has(slug)).toBe(false);
     expect(registered.has(released.slug)).toBe(true); // registered once admitted
 
-    const { allSlugs } = mergeMinedSources([
+    const { allSlugs } = await mergeMinedSources([
       { name: 'Active jobs', fn: () => mineActiveJobs(slicesDir) },
       { name: 'Slug registry', fn: () => mineSlugRegistry(regPath) },
       { name: 'Git history (removed slugs)', fn: () => mineGitRemovedSlugs({ cwd: repo }) },

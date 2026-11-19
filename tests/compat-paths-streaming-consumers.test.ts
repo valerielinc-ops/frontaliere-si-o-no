@@ -16,6 +16,10 @@ describe('compat accumulator streaming consumers', () => {
       path.resolve(process.cwd(), 'scripts/backfill-slug-aliases.mjs'),
       'utf8',
     );
+    const miner = fs.readFileSync(
+      path.resolve(process.cwd(), 'scripts/mine-all-job-slugs.mjs'),
+      'utf8',
+    );
 
     expect(jobsSeo).toContain('iterateCompatPaths(rootDir)');
     expect(jobsSeo).not.toContain('readCompatPaths(rootDir).paths');
@@ -23,5 +27,10 @@ describe('compat accumulator streaming consumers', () => {
     expect(enrichment).not.toContain('readCompatPaths(ROOT)');
     expect(backfill).toContain('iterateCompatPaths(ROOT)');
     expect(backfill).not.toContain('readCompatPaths(ROOT)');
+    expect(miner).toContain('forEachCompatPathsStrict(ROOT');
+    expect(miner).toContain('prepareCompatPathsForTracking(tracking');
+    expect(miner).not.toMatch(/readCompatPathsStrict(?:WithManifestRepair)?\s*\(/);
+    expect(miner).not.toContain('new Set(compat.paths)');
+    expect(miner).not.toContain('[...existingCompat]');
   });
 });
