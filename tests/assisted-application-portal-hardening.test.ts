@@ -2395,7 +2395,7 @@ describe('portal runner hardening (career-ops apply.md)', () => {
       job: { title: 'Infermiera', company: 'Ospedale Civico' },
     });
     expect(form.job).toEqual({ title: 'Infermiera', company: 'Ospedale Civico', organization: '' });
-    expect(form.profile.experience).toEqual([{ role: 'Infermiera', employer: 'Ospedale Civico', location: 'Lugano', start: '2018', end: '2023' }]);
+    expect(form.profile.experience).toEqual([{ role: 'Infermiera', employer: 'Ospedale Civico', location: 'Lugano', start: '2018-01', end: '2023-01' }]);
     expect(form.profile.education[0]).toMatchObject({ degree: 'Bachelor in cure infermieristiche', institution: 'SUPSI' });
   });
 
