@@ -432,7 +432,7 @@ export function validateGeneratedImageRecordWithRegistry(record, registry, optio
   return validateGeneratedImageRecord(record, {
     ...options,
     allowLegacyVision: true,
-    allowLegacyProviders: true,
+    allowLegacyProviders: registryContainsExactRecord(record, registry),
     legacyVisionAssetIds: contract.valid ? contract.assetIds : [],
   });
 }
@@ -451,6 +451,36 @@ export function generatedImageAssetIdFromPath(value) {
   return value.startsWith('/images/publisher/')
     ? `publisher-${stem}-${extension}`
     : stem;
+}
+
+function stableRecordJson(value) {
+  if (Array.isArray(value)) return `[${value.map(stableRecordJson).join(',')}]`;
+  if (isRecord(value)) {
+    const entries = Object.keys(value).sort()
+      .map((key) => `${JSON.stringify(key)}:${stableRecordJson(value[key])}`);
+    return `{${entries.join(',')}}`;
+  }
+  return JSON.stringify(value);
+}
+
+function registryContainsExactRecord(record, registry) {
+  if (!isRecord(record)) return false;
+  let assets;
+  if (Array.isArray(registry)) {
+    assets = registry;
+  } else {
+    if (!isRecord(registry)
+      || registry.schema !== GENERATED_IMAGE_SCHEMA_VERSION
+      || !Array.isArray(registry.assets)
+      || (registry.assetCount !== undefined && registry.assetCount !== registry.assets.length)) {
+      return false;
+    }
+    assets = registry.assets;
+  }
+  const serializedRecord = stableRecordJson(record);
+  return assets.some((asset) => isRecord(asset)
+    && asset.assetId === record.assetId
+    && stableRecordJson(asset) === serializedRecord);
 }
 
 /**

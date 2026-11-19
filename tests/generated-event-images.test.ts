@@ -189,6 +189,15 @@ describe('generated event image policy', () => {
       errors: expect.arrayContaining(['provider is not allowed']),
     });
     expect(validateGeneratedImageRecordWithRegistry(legacyGeminiRecord, registry)).toEqual({ valid: true, errors: [] });
+    for (const untrustedRegistry of [
+      { schema: 1, assetCount: 0, assets: [] },
+      { ...registry, assetCount: 2 },
+      { ...registry, assets: [{ ...legacyGeminiRecord, credit: 'unrelated record' }] },
+      { ...registry, assets: [{ ...legacyGeminiRecord, assetId: 'another-asset' }] },
+    ]) {
+      expect(validateGeneratedImageRecordWithRegistry(legacyGeminiRecord, untrustedRegistry).errors)
+        .toContain('provider is not allowed');
+    }
     expect(validateGeneratedImageRegistry(registry, { scope: 'event-library' })).toEqual({ valid: true, errors: [] });
     const invalidTermsRegistry = {
       ...registry,
