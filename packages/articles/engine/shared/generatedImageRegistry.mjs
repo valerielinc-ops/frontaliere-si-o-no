@@ -338,6 +338,13 @@ export function isPrivateGrantImageRecord(record) {
   return isRecord(record) && record.license === PRIVATE_GRANT_LICENSE && record.provider === PRIVATE_GRANT_PROVIDER;
 }
 
+/** Return only the explicitly versioned registry entries allowed to omit the foreground-person vision flag. */
+export function legacyVisionAssetIdsForRegistry(registry) {
+  const contract = isRecord(registry) ? registry.legacyVision : null;
+  if (!isRecord(contract) || contract.schema !== 0 || !Array.isArray(contract.assetIds)) return [];
+  return [...new Set(contract.assetIds.map((value) => String(value || '').trim()).filter(Boolean))];
+}
+
 export function generatedImageAssetIdFromPath(value) {
   if (!isGeneratedImagePath(value)) return null;
   const file = value.slice(value.lastIndexOf('/') + 1);
@@ -352,7 +359,7 @@ export function generatedImageAssetIdFromPath(value) {
  * Validate one persisted registry record. The function is intentionally
  * strict: a record is the permission to publish the bytes, not commentary.
  */
-export function validateGeneratedImageRecord(record) {
+export function validateGeneratedImageRecord(record, { allowLegacyVision = false, legacyVisionAssetIds = [] } = {}) {
   const errors = [];
   if (!isRecord(record)) return { valid: false, errors: ['record must be an object'] };
   if (record.schema !== GENERATED_IMAGE_SCHEMA_VERSION) errors.push('schema must be 1');
@@ -449,12 +456,27 @@ export function validateGeneratedImageRecord(record) {
   if (!isPrivateGrant && isPhoto && (!Array.isArray(record.restrictions) || !LICENSED_PHOTO_RESTRICTIONS.every((item) => record.restrictions.includes(item)))) {
     errors.push('restrictions do not contain the mandatory licensed-photo policy');
   }
+  const legacyForegroundPersonSafe = allowLegacyVision
+    && Array.isArray(legacyVisionAssetIds)
+    && legacyVisionAssetIds.includes(record.assetId)
+    && !isPhoto
+    && isRecord(record.vision)
+    && !Object.hasOwn(record.vision, 'contains_recognizable_foreground_person')
+    && Array.isArray(record.restrictions)
+    && record.restrictions.includes('no-real-recognizable-foreground-person');
+  const foregroundPersonError = allowLegacyVision
+    ? (isPhoto
+      ? record.vision?.contains_recognizable_foreground_person !== false
+      : !legacyForegroundPersonSafe && record.vision?.contains_recognizable_foreground_person !== false)
+    : (isPhoto && record.scope === 'article-hero'
+      ? record.vision?.contains_recognizable_foreground_person !== false
+      : false);
   if (!isPrivateGrant && (!isRecord(record.vision)
     || record.vision.ok !== true
     || record.vision.contains_logo !== false
     || record.vision.contains_recognizable_face !== false
+    || foregroundPersonError
     || (isPhoto ? record.vision.is_photograph !== true : false)
-    || (isPhoto && record.scope === 'article-hero' ? record.vision.contains_recognizable_foreground_person !== false : false)
     || (isPhoto && record.scope === 'article-hero' ? record.vision.is_topic_relevant !== true : false)
     || (isPhoto ? typeof record.vision.contains_text !== 'boolean' : record.vision.contains_text !== false)
     || (isPhoto ? typeof record.vision.looks_like_specific_real_event !== 'boolean' : record.vision.looks_like_specific_real_event !== false)
@@ -475,7 +497,7 @@ export function validateGeneratedImageRecord(record) {
   return { valid: errors.length === 0, errors };
 }
 
-export function validateGeneratedImageRegistry(registry, { scope } = {}) {
+export function validateGeneratedImageRegistry(registry, { scope, allowLegacyVision = false } = {}) {
   const errors = [];
   const assets = Array.isArray(registry) ? registry : registry?.assets;
   if (!isRecord(registry) && !Array.isArray(registry)) return { valid: false, errors: ['registry must be an object or asset array'] };
@@ -489,12 +511,13 @@ export function validateGeneratedImageRegistry(registry, { scope } = {}) {
     if (registry.cdnPrefix !== '/images/events/library/') errors.push('event registry cdnPrefix is invalid');
     if (!nonEmpty(registry.libraryVersion)) errors.push('event registry libraryVersion is required');
   }
+  const legacyVisionAssetIds = allowLegacyVision ? legacyVisionAssetIdsForRegistry(registry) : [];
   const assetIds = new Set();
   const imageUrls = new Set();
   const hashesByScope = new Map();
   const sourcePagesByScope = new Map();
   for (const record of assets) {
-    const validation = validateGeneratedImageRecord(record);
+    const validation = validateGeneratedImageRecord(record, { allowLegacyVision, legacyVisionAssetIds });
     if (!validation.valid) errors.push(`${record?.assetId || '<unknown>'}: ${validation.errors.join(', ')}`);
     if (assetIds.has(record?.assetId)) errors.push(`${record?.assetId || '<unknown>'}: duplicate assetId`);
     if (imageUrls.has(record?.imageUrl)) errors.push(`${record?.assetId || '<unknown>'}: duplicate imageUrl`);

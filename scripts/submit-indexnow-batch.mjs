@@ -90,6 +90,18 @@ const sitemapFilters = args
 // them directly instead of rebuilding the site.
 const SITEMAP_BASE = (process.env.SITEMAP_BASE || `https://${HOST}`).replace(/\/+$/, '');
 
+export function buildLiveSitemapCacheBust({
+  useLocal = USE_LOCAL,
+  env = process.env,
+  now = Date.now,
+} = {}) {
+  if (useLocal) return undefined;
+  const runId = String(env.GITHUB_RUN_ID || '').trim();
+  if (!runId) return String(now());
+  const runAttempt = String(env.GITHUB_RUN_ATTEMPT || '1').trim() || '1';
+  return `${runId}-${runAttempt}`;
+}
+
 if (args.includes('--help') || args.includes('-h')) {
   console.log(`
 Usage: node scripts/submit-indexnow-batch.mjs [options]
@@ -158,6 +170,8 @@ export async function getUrlsFromSitemaps({ fetchAttempts, fetchDelayMs } = {}) 
     ? resolve(rootDir, 'dist')
     : resolve(rootDir, 'public');
   let crawl;
+  const liveCacheBust = buildLiveSitemapCacheBust();
+  const liveCrawlOptions = liveCacheBust === undefined ? {} : { liveCacheBust };
   try {
     // The live root index and robots.txt are authoritative. Do not make a
     // historical filename list a required part of the live crawl: a producer
@@ -172,6 +186,7 @@ export async function getUrlsFromSitemaps({ fetchAttempts, fetchDelayMs } = {}) 
       rootDir: USE_LOCAL ? sitemapDir : undefined,
       seeds: graphSeeds,
       strict: !USE_LOCAL,
+      ...liveCrawlOptions,
       ...(fetchAttempts === undefined ? {} : { fetchAttempts }),
       ...(fetchDelayMs === undefined ? {} : { fetchDelayMs }),
     });
@@ -185,6 +200,7 @@ export async function getUrlsFromSitemaps({ fetchAttempts, fetchDelayMs } = {}) 
         rootDir: USE_LOCAL ? sitemapDir : undefined,
         seeds: [...new Set([...graphSeeds, ...SUB_SITEMAPS])],
         strict: !USE_LOCAL,
+        ...liveCrawlOptions,
         ...(fetchAttempts === undefined ? {} : { fetchAttempts }),
         ...(fetchDelayMs === undefined ? {} : { fetchDelayMs }),
       });

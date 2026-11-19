@@ -4,6 +4,7 @@ import {
   GENERATED_IMAGE_PROMPT_VERSION,
   GENERATED_IMAGE_RESTRICTIONS,
   LICENSED_PHOTO_RESTRICTIONS,
+  legacyVisionAssetIdsForRegistry,
   validateGeneratedImageRegistry,
   validateGeneratedImageRecord,
   verifyPublishedEventImages,
@@ -126,6 +127,55 @@ describe('generated event image policy', () => {
     expect(validateGeneratedImageRecord({ ...RECORD, licenseUrl: 'https://example.com/terms' }).valid).toBe(false);
     expect(validateGeneratedImageRegistry({ schema: 1, libraryVersion: '2026-10-06', cdnPrefix: '/images/events/library/', assetCount: 1, assets: [RECORD] }, { scope: 'event-library' }).valid).toBe(true);
     expect(validateGeneratedImageRecord({ ...RECORD, imageUrl: '/images/events/myswitzerland-old.webp' }).valid).toBe(false);
+  });
+
+  it('keeps the legacy foreground-person exception versioned, listed, and generated-only', () => {
+    const registry = {
+      schema: 1,
+      assetCount: 1,
+      legacyVision: { schema: 0, assetIds: [ARTICLE_RECORD.assetId, ARTICLE_RECORD.assetId] },
+      assets: [ARTICLE_RECORD],
+    };
+    const legacyIds = legacyVisionAssetIdsForRegistry(registry);
+
+    expect(legacyIds).toEqual([ARTICLE_RECORD.assetId]);
+    expect(validateGeneratedImageRecord(ARTICLE_RECORD, {
+      allowLegacyVision: true,
+      legacyVisionAssetIds: legacyIds,
+    }).valid).toBe(true);
+    expect(validateGeneratedImageRegistry(registry, { allowLegacyVision: true }).valid).toBe(true);
+
+    expect(validateGeneratedImageRecord(ARTICLE_RECORD, {
+      allowLegacyVision: true,
+      legacyVisionAssetIds: [],
+    }).valid).toBe(false);
+    expect(validateGeneratedImageRegistry({
+      ...registry,
+      legacyVision: { schema: 1, assetIds: [ARTICLE_RECORD.assetId] },
+    }, { allowLegacyVision: true }).valid).toBe(false);
+    expect(validateGeneratedImageRecord({
+      ...ARTICLE_RECORD,
+      restrictions: ARTICLE_RECORD.restrictions.filter((item) => item !== 'no-real-recognizable-foreground-person'),
+    }, {
+      allowLegacyVision: true,
+      legacyVisionAssetIds: legacyIds,
+    }).valid).toBe(false);
+
+    const legacyPhoto = {
+      ...PHOTO_RECORD,
+      assetId: 'article-hero-legacy-photo',
+      scope: 'article-hero',
+      imageUrl: '/images/blog/article-hero-legacy-photo.webp',
+      vision: {
+        ...PHOTO_RECORD.vision,
+        contains_text: false,
+        is_topic_relevant: true,
+      },
+    };
+    expect(validateGeneratedImageRecord(legacyPhoto, {
+      allowLegacyVision: true,
+      legacyVisionAssetIds: [legacyPhoto.assetId],
+    }).valid).toBe(false);
   });
 
   it('validates licensed photo metadata and rejects a missing licence', () => {
