@@ -108,7 +108,8 @@ const SEGMENT_BASELINE: Record<string, number> = {
   'infra/cloudflare-worker/locale-router.js': 0,
   'scripts/adsense-format-ab-report.mjs': 2,
   'scripts/analytics-report.mjs': 2,
-  'scripts/audit-404-risk.mjs': 1,
+  // 1 → 0: the job-canon locale prefixes now derive from SECTION_LEGACY_TI.
+  'scripts/audit-404-risk.mjs': 0,
   'scripts/audit-cls-live.mjs': 2,
   'scripts/audit-cls-stripping.mjs': 1,
   'scripts/build-legacy-aliases.mjs': 3,

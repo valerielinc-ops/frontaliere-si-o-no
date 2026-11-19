@@ -29,6 +29,7 @@ import {
   sectionUsesHashFanout,
   ticinoTreeBucket,
 } from '../infra/cloudflare-worker/ticino-tree-bucket.js';
+import { SECTION_LEGACY_TI } from '../build-plugins/shared/cantonResolvers.mjs';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const SCRIPT = readFileSync(resolve(ROOT, 'scripts/audit-404-risk.mjs'), 'utf-8');
@@ -62,6 +63,7 @@ function loadHelpers(env: Record<string, string> = {}) {
     const slugs = JSON.parse(readFileSync(resolve(ROOT, 'scripts/lib/section-shard-slugs.json'), 'utf-8'));
     const src = `
     const SECTION_SLUGS = ${JSON.stringify(slugs)};
+    const SECTION_BY_LOCALE = ${JSON.stringify(SECTION_LEGACY_TI)};
     const utf8Encoder = new TextEncoder();
     const SECTION_TREE_FANOUT_SECTIONS = ${JSON.stringify(SECTION_TREE_FANOUT_SECTIONS)};
     ${sectionTreeBucket.toString()}

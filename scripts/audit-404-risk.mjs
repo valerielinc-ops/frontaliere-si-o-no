@@ -378,7 +378,7 @@ function extractAlternateHrefs(xml) {
 // shard trees, the file entry `<route>/index.html` (or `<route>.html`) yields
 // the route `/<route>`.
 function treeEntryToRoute(entry, section = null, loc = null, fannedSections = null) {
-  // entry e.g. "de/jobs-im-tessin/x/index.html" → "/de/jobs-im-tessin/x"
+  // entry e.g. "de/<job-section>/x/index.html" → "/de/<job-section>/x"
   //            "de.html"                          → "/de"
   const toPublicRoute = (value) => {
     let route = value.replace(/\/index\.html$/i, '');
@@ -460,10 +460,10 @@ const JOB_CANON_ALIAS_FETCH_TIMEOUT_MS = 5_000;
 const JOB_DETAIL_RE =
   /^(?:\/(?:en|de|fr))?\/(?:cerca-lavoro|find-jobs|jobs-im|jobs-in|trouver-emploi|job-search|jobsuche|recherche-emploi)-[a-z-]+\/([^/]+)(?:\/(\d+))?\/?$/;
 const JOB_DETAIL_PREFIXES_BY_LOCALE = {
-  it: ['/cerca-lavoro-'],
-  en: ['/en/find-jobs-'],
-  de: ['/de/jobs-in-', '/de/jobs-im-tessin/'],
-  fr: ['/fr/trouver-emploi-'],
+  it: [`/${SECTION_BY_LOCALE.it.replace(/ticino$/, '')}`],
+  en: [`/en/${SECTION_BY_LOCALE.en.replace(/ticino$/, '')}`],
+  de: ['/de/jobs-in-', `/de/${SECTION_BY_LOCALE.de}/`],
+  fr: [`/fr/${SECTION_BY_LOCALE.fr.replace(/tessin$/, '')}`],
 };
 
 function isValidJobCanonBuildId(value) {
