@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Actualités et guides pour les frontaliers au Tessin</description>
     <language>fr</language>
-    <lastBuildDate>Sun, 15 Nov 2026 12:38:23 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 19 Nov 2026 14:21:02 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Français</title>
@@ -17,6 +17,98 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-fr.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Frontaliers : les relevés disponibles aujourd’hui — 19 novembre 2026</title>
+      <link>https://frontaliereticino.ch/fr/articles-frontalier/bulletin-frontalier-2026-11-19/</link>
+      <description><![CDATA[Les chiffres du jour, 19 novembre 2026, pour les frontaliers : les dernières attentes aux douanes, les communes où le carburant coûte le moins cher]]></description>
+      <content:encoded><![CDATA[Aucune comparaison homogène ne franchit aujourd’hui le seuil pour constituer le fait principal. Le bulletin présente les relevés disponibles et la période couverte par chaque source.
+
+Bonjour — nous sommes jeudi 19 novembre 2026. Voici le bulletin quotidien pour celles et ceux qui vivent d'un côté de la frontière et travaillent de l'autre : quatre thèmes suivis par notre monitoring — files aux douanes, essence, taux de change et emploi — chacun avec le lien vers sa page en direct.
+
+## Attentes selon les relevés disponibles
+
+Les relevés disponibles indiquent un trafic fluide : sur 141 passages surveillés, 140 ne signalent aucune file et l'attente maximale relevée n'est que de **8 minutes** (Ferney-Voltaire / Grand-Saconnex).
+
+Le trafic change d'heure en heure — l'état en direct de chaque douane est sur la [page du temps d'attente](/fr/temps-attente-douane/).
+## Carburants : prix communiqués à la frontière
+
+| Commune (IT) | Sans plomb, minimum communiqué |
+|---|---|
+| Livigno (SO) | 1,165 €/L |
+| Ardenno (SO) | 1,789 €/L |
+| Sondrio (SO) | 1,789 €/L |
+| Talamona (SO) | 1,789 €/L |
+| Gera Lario (CO) | 1,799 €/L |
+
+À **Livigno** (SO), les prix communiqués diffèrent de **45,60 € pour 50 litres** (1,165 €/L en Italie contre 2,077 €/L à la station suisse la plus proche).
+
+### Prix communiqués dans les mêmes stations
+| Entreprise / localité | Essence EUR/L | Diesel EUR/L | Dernière communication |
+|---|---|---|---|
+| Ardenno | 1,789 | 2,099 | 2026-11-18 |
+| Sondrio | 1,789 | 2,099 | 2026-11-13 |
+| Talamona | 1,789 | 2,099 | 2026-11-14 |
+| Gera Lario | 1,799 | 2,129 | 2026-11-18 |
+
+Relevé: 2026-11-19T09:23:26.069Z.
+
+Les prix commune par commune, mis à jour chaque jour : [prix de l'essence à la frontière, aujourd'hui](/fr/prix-essence-suisse/aujourd-hui/).
+## Taux de change franc–euro
+
+Un franc vaut **1,0829 €** (relevé du 2026-11-18). Par rapport au relevé précédent il gagne +0,0005 € ; par rapport au relevé hebdomadaire disponible, la variation est de -0,0007 €.
+
+### Simulation du seul change pour 4.000 CHF
+Contre-valeur brute en euros: **4'331,60 EUR** (2026-11-18).
+
+Différence avec le relevé de change hebdomadaire disponible: **-2,80 EUR**.
+
+💡 Quand on gagne en francs et qu'on dépense en euros, le taux fait partie du salaire : sur 4 000 CHF, un centime de variation vaut 40 € par mois. Le [calculateur de salaire net](/fr/calculer-salaire/) et le [comparatif des services de change](/fr/comparaison-services/taux-change-chf-eur/) font le calcul pour votre cas.
+## Offres d’emploi actives
+
+Notre job board compte actuellement **35'559 offres d'emploi actives en Suisse**, de 1'842 entreprises.
+
+Filtrez par canton, secteur et ville : [trouver un emploi au Tessin et en Suisse](/fr/trouver-emploi-tessin/).
+
+### Entreprises avec le plus d’annonces actives en Suisse
+| Entreprise / localité | Annonces actives |
+|---|---|
+| fachkraft.ch GmbH | 3'479 |
+| STA Personal AG | 1'855 |
+| Coop Genossenschaft | 1'094 |
+| yellowshark AG | 940 |
+| Stellentreff AG | 840 |
+
+### Localités avec le plus d’annonces actives
+| Entreprise / localité | Annonces actives |
+|---|---|
+| Zurich | 4'073 |
+| Lucerne | 1'404 |
+| Berne | 1'315 |
+| Bâle | 852 |
+| Winterthur | 807 |
+
+## Les thèmes recherchés par les lecteurs
+2026-11-10 → 2026-11-16
+
+| Thème | Impressions dans la Recherche Google | Événements de recherche sur le site |
+|---|---|---|
+| Emploi | 3'318 | 6'239 |
+| Carburants | 433 | 0 |
+| Salaire net | 42 | 0 |
+
+Thèmes agrégés uniquement : aucune recherche individuelle n’est publiée. Les impressions mesurent la visibilité sur Google. Les événements peuvent inclure des mises à jour de recherche ; ce ne sont pas des personnes ou des recherches uniques.
+
+Source: Google Search Console, Firebase Analytics / GA4 (échantillon partiel).
+
+## Comment naît ce bulletin
+
+Aucun des chiffres ci-dessus ne vient d’un flux d’agence — c’est notre propre suivi : files échantillonnées plusieurs fois par heure à chaque passage frontalier suisse, prix des carburants dans les communes frontalières italiennes et aux stations suisses proches, série officielle quotidienne CHF/EUR et crawlers de notre job board. Le bulletin est publié chaque jour et peut être actualisé dans la journée ; les périodes d’observation dépendent de la source, les pages liées restent en direct toute la journée.]]></content:encoded>
+      <pubDate>Thu, 19 Nov 2026 14:21:02 GMT</pubDate>
+      <dc:creator><![CDATA[Laura Bianchi]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-frontalier/bollettino-frontaliere-2026-11-19</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-bollettino-frontaliere-2026-11-19.webp" medium="image"/>
+    </item>
     <item>
       <title>Frontaliers : change -42,80 € sur 4 000 CHF — 15 novembre 2026</title>
       <link>https://frontaliereticino.ch/fr/articles-frontalier/bulletin-frontalier-2026-11-15/</link>
@@ -3337,74 +3429,6 @@ Cette annonce ne permet pas de déduire de changements concernant ces questions.
       <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-frontalier/bellinzona-nuova-strada-ciclabile</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-bellinzona-nuova-strada-ciclabile.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Industrie tessinoise : 15 licenciements collectifs en 18 mois, -900 frontaliers</title>
-      <link>https://frontaliereticino.ch/fr/articles-frontalier/industrie-tessin-strategies-personnel/</link>
-      <description><![CDATA[Au cours des dix-huit derniers mois, au Tessin, les licenciements collectifs dans le secteur industriel ont été nombreux et ont alimenté]]></description>
-      <content:encoded><![CDATA[## En bref
-- Au cours des 18 derniers mois, de nombreux licenciements collectifs au Tessin
-- 15 licenciements collectifs suivis en un an et demi
-- Environ 900 frontaliers en moins en deux ans
-- Des commandes satisfaisantes, mais sans continuité garantie
-
-## Faits clés
-- Période des licenciements → les dix-huit derniers mois
-- Licenciements collectifs suivis → 15
-- Frontaliers en moins → environ 900 en deux ans
-- Directeur interviewé → Stefano Modenini
-- Partenaire académique cité → SUPSI
-
-Au cours des dix-huit derniers mois, au Tessin, les licenciements collectifs dans le secteur industriel ont été nombreux et ont alimenté les inquiétudes quant à l'avenir du secteur. L'analyse propose toutefois une lecture moins linéaire : l'origine de la situation est probablement à chercher dans les choix stratégiques de la direction plutôt que dans la conjoncture.
-
-La reconstitution part des alertes qui ont circulé ces derniers mois. Le battage médiatique a associé les difficultés de l'industrie à l'annonce des droits de douane américains, à la vigueur du franc suisse, à l'augmentation des coûts de l'énergie et des transports due aux guerres. Le texte précise que les droits de douane n'ont en réalité concerné qu'une part très limitée des entreprises suisses. Parmi les facteurs évoqués lors de l'entretien avec Stefano Modenini figurent également la crise du secteur automobile et l'interruption de certaines voies de communication.
-
-### Commandes et licenciements : deux signaux ensemble
-
-Modenini, directeur de l'Associazione industrie ticinesi, décrit une phase aujourd'hui moins préoccupante qu'elle ne le paraissait au début de l'année. Selon lui, une grande partie des entreprises dispose d'un carnet de commandes satisfaisant pour les prochains mois. La stabilité ne constitue toutefois pas une garantie de continuité : la formule utilisée dans l'entretien associe les deux éléments sans effacer les incertitudes.
-
-Au cours des dix-huit derniers mois, Modenini a suivi quinze licenciements collectifs. La moitié concernait le secteur industriel, tandis que les autres concernaient le secteur tertiaire. Ce chiffre décrit les événements qu'il a suivis et s'inscrit dans la même période de dix-huit mois mentionnée au début. Le récit des licenciements coexiste donc avec un carnet de commandes qui, pour une grande partie des entreprises, semble satisfaisant à court terme.
-
-Le sujet fait intervenir deux interlocuteurs : Modenini offre le point de vue des employeurs, tandis que Daniele Duma, responsable du département de fusion de GF à Novazzano, décrit la réalité de son entreprise du point de vue des travailleurs. L'avenir de l'industrie tessinoise est donc examiné à la fois à travers les décisions des entreprises et à travers l'expérience acquise dans les ateliers de production.
-## La stratégie pèse autant que la conjoncture
-
-Le point central de l’analyse approfondie est la distinction entre ce qui se passe à court terme et les choix qui orientent une entreprise pour les années suivantes. Un licenciement collectif, explique Modenini, ne dépend pas nécessairement d’une crise conjoncturelle ou économique. Une entreprise peut décider de diversifier sa production ou de privilégier d’autres sites de production. Dans les deux cas, le territoire est comparé à d’autres régions.
-
-| Signal à court terme | Horizon stratégique |
-|---|---|
-| Portefeuille de commandes satisfaisant pour les prochains mois | Plans de développement tournés vers l’avenir |
-| Droits de douane, franc, énergie, transports et voies de communication | Diversification ou autres sites de production |
-| Stabilité sans garantie de continuité | Attractivité du territoire par rapport à d’autres régions |
-
-La valeur de cette comparaison est de séparer deux niveaux qui, dans l’alerte publique, peuvent se chevaucher. Le portefeuille de commandes donne une image des perspectives pour les prochains mois ; les décisions concernant la production et les sites portent en revanche sur les années suivantes. La source ne présente pas la stabilité des commandes comme une garantie de continuité et ne considère pas le licenciement collectif comme une preuve automatique d’une crise conjoncturelle.
-
-### Le territoire comme paramètre industriel
-
-Le passage sur les conditions-cadres rend concrète la relation entre l’entreprise et le territoire. Modenini cite la stabilité juridique, la fiscalité, les coûts et la disponibilité de la main-d’œuvre. Améliorer ces conditions, selon l’entretien, signifie réduire le risque qu’une entreprise quitte le territoire. L’évaluation de l’attractivité ne concerne donc pas seulement le coût immédiat, mais aussi la possibilité d’organiser l’activité au cours des années suivantes.
-
-Le même raisonnement vaut pour l’innovation. Le secteur industriel suisse est reconnu à l’échelle mondiale pour sa qualité technique et sa capacité d’innovation, mais introduire l’innovation nécessite des investissements dans les outils, la formation et la mise à jour des processus. La source décrit des entreprises qui se trouvent à des stades différents : certaines doivent encore entamer leur transformation numérique, d’autres intègrent l’intelligence artificielle.
-
-Sur le plan des instruments publics, la Loi sur l’innovation met à disposition des financements, mais l’entretien signale la nécessité de faire quelque chose de différent et de mettre en place des instruments ciblés pour les petites et moyennes entreprises. La collaboration avec les partenaires académiques, comme la SUPSI, est en revanche présentée comme positive. Le tableau d’ensemble réunit ainsi qualité technique, formation professionnelle, recherche et mise à jour des processus : ce sont les éléments que la source associe aux choix stratégiques du management.
-## Main-d’œuvre et frontière : le périmètre documenté
-
-La pénurie de personnel relie la question des travailleurs frontaliers aux difficultés de l’industrie. Le manque de main-d’œuvre est présenté comme l’un des principaux défis du secteur et, surtout au Tessin, le problème est aggravé par l’introduction de l’accord fiscal qui régit l’imposition des travailleurs frontaliers avec l’Italie voisine. Il est en outre demandé à Modenini de prendre en compte le lien avec la crise démographique et l’effet dissuasif possible de l’accord sur les travailleurs aux revenus plus élevés qui s’intéressent à un emploi au Tessin.
-
-La réponse rapportée part d’une donnée des statistiques sur les travailleurs frontaliers : en deux ans, environ 900 travailleuses et travailleurs ont été perdus, également pour des raisons liées à l’âge. Ce passage est important pour le canton du Tessin, car il relie la disponibilité de personnel au problème de l’attractivité du territoire, déjà indiquée dans l’interview parmi les conditions que les entreprises évaluent lorsqu’elles décident comment organiser la production. Le texte rapporte donc, dans le même passage, la donnée relative à la perte d’environ 900 travailleuses et travailleurs ainsi que l’indication des raisons liées à l’âge.
-
-### La date de l’accord et le traitement fiscal
-
-Le Nouvel Accord sur les frontaliers a été signé le 23 décembre 2020 et est en vigueur depuis le 1er janvier 2024 ; la ratification italienne est la loi 83 du 13 juin 2023. La même référence précise que l’impôt à la source sur le revenu du travail des travailleurs frontaliers n’est retenu qu’en Suisse et que l’Italie évite la double imposition grâce au crédit d’impôt dans le cadre CE du 730.
-
-Ces derniers éléments appartiennent à la référence vérifiée et ne doivent pas être attribués aux déclarations de Modenini. Ils servent à situer dans le temps et sur le plan fiscal l’accord cité par la source industrielle, qui le présente en revanche en lien avec la disponibilité de main-d’œuvre au Tessin.
-
-Le passage reste consacré au travail transfrontalier et ne devient pas un guide sur le permis G, l’AVS, la LPP, la LAMal ou les rétrocessions. Le périmètre documenté est celui de l’industrie : licenciements collectifs, choix stratégiques, innovation, formation, carnet de commandes et disponibilité de personnel. Aucune procédure administrative ni prestation non décrite n’est donc ajoutée. Le tableau de l’industrie tessinoise naît du croisement entre les décisions des entreprises, la formation requise par l’innovation et la disponibilité des travailleuses et travailleurs.
-
-*Source: [ocst.ch](https://www.ocst.ch/il-lavoro/548-approfondimenti/2618-industria-il-futuro-del-settore-sta-nelle-persone)*]]></content:encoded>
-      <pubDate>Thu, 22 Oct 2026 00:06:32 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-frontalier/industria-ticino-strategie-personale</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-industria-ticino-strategie-personale.webp" medium="image"/>
     </item>
   </channel>
 </rss>

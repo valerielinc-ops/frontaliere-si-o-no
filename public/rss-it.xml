@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Notizie e guide per frontalieri italiani in Ticino</description>
     <language>it</language>
-    <lastBuildDate>Sun, 15 Nov 2026 12:38:23 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 19 Nov 2026 14:21:02 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino</title>
@@ -17,6 +17,98 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Frontalieri: i dati verificati di oggi — 19 novembre 2026</title>
+      <link>https://frontaliereticino.ch/articoli-frontaliere/bollettino-frontaliere-2026-11-19/</link>
+      <description><![CDATA[I numeri di oggi, 19 novembre 2026, per chi attraversa il confine: le ultime attese ai valichi, i comuni con la benzina meno cara, il cambio]]></description>
+      <content:encoded><![CDATA[Nessun confronto omogeneo supera le soglie per indicare una variazione come notizia principale. Riportiamo i dati disponibili e il periodo a cui si riferisce ciascuna rilevazione.
+
+È giovedì 19 novembre 2026. Questo è il bollettino quotidiano per chi vive da una parte del confine e lavora dall'altra: quattro temi seguiti dal nostro monitoraggio — code ai valichi, benzina, cambio e lavoro — con i link alle pagine live per seguirli durante la giornata.
+
+## Attese ai valichi: rilevamenti disponibili
+
+Tra i rilevamenti disponibili il traffico risulta scorrevole: su 141 valichi monitorati, 140 risultano senza coda e l'attesa massima registrata è di appena **8 minuti** (Ferney-Voltaire / Grand-Saconnex).
+
+Il traffico cambia di ora in ora: la situazione live di ogni valico è sulla [pagina del traffico alle dogane](/traffico-dogane/).
+## Carburanti: prezzi comunicati al confine
+
+| Comune (IT) | Benzina, minimo comunicato |
+|---|---|
+| Livigno (SO) | 1.165 €/L |
+| Ardenno (SO) | 1.789 €/L |
+| Sondrio (SO) | 1.789 €/L |
+| Talamona (SO) | 1.789 €/L |
+| Gera Lario (CO) | 1.799 €/L |
+
+A **Livigno** (SO), i prezzi comunicati differiscono di **45.60 € su 50 litri** (1.165 €/L in Italia contro 2.077 €/L al distributore svizzero più vicino).
+
+### Prezzi comunicati presso gli stessi distributori
+| Azienda / località | Benzina €/L | Diesel €/L | Ultima comunicazione |
+|---|---|---|---|
+| Ardenno | 1.789 | 2.099 | 2026-11-18 |
+| Sondrio | 1.789 | 2.099 | 2026-11-13 |
+| Talamona | 1.789 | 2.099 | 2026-11-14 |
+| Gera Lario | 1.799 | 2.129 | 2026-11-18 |
+
+Rilevamento: 2026-11-19T09:23:26.069Z.
+
+Prezzi comune per comune, aggiornati ogni giorno: [prezzi benzina al confine, oggi](/prezzi-benzina/oggi/).
+## Cambio franco–euro
+
+Un franco vale **1.0829 €** (rilevamento del 2026-11-18). Rispetto al precedente rilevamento guadagna +0.0005 €; rispetto al riferimento settimanale disponibile la variazione è di -0.0007 €.
+
+### Simulazione del solo cambio su 4.000 CHF
+Controvalore lordo in euro: **4331.60 EUR** (2026-11-18).
+
+Differenza rispetto al riferimento settimanale disponibile: **-2.80 EUR**.
+
+💡 Per chi prende lo stipendio in franchi e spende in euro, il cambio È una parte dello stipendio: su 4.000 CHF, un centesimo di variazione vale 40 € al mese. Il [calcolatore dello stipendio netto](/calcola-stipendio/) e il [confronto dei servizi di cambio](/compara-servizi/cambio-franco-euro/) fanno i conti sul tuo caso.
+## Lavoro: annunci attivi
+
+Sul nostro job board gli annunci di lavoro attivi in Svizzera sono **35'559**, da 1842 aziende.
+
+Le offerte si filtrano per cantone, settore e città: [cerca lavoro in Ticino e in Svizzera](/cerca-lavoro-ticino/).
+
+### Aziende con più annunci attivi in Svizzera
+| Azienda / località | Annunci attivi |
+|---|---|
+| fachkraft.ch GmbH | 3479 |
+| STA Personal AG | 1855 |
+| Coop Genossenschaft | 1094 |
+| yellowshark AG | 940 |
+| Stellentreff AG | 840 |
+
+### Località con più annunci attivi
+| Azienda / località | Annunci attivi |
+|---|---|
+| Zurigo | 4073 |
+| Lucerna | 1404 |
+| Berna | 1315 |
+| Basilea | 852 |
+| Winterthur | 807 |
+
+## I temi cercati dai lettori
+2026-11-10 → 2026-11-16
+
+| Tema | Impression in Ricerca Google | Eventi di ricerca sul sito |
+|---|---|---|
+| Lavoro | 3318 | 6239 |
+| Carburanti | 433 | 0 |
+| Stipendio netto | 42 | 0 |
+
+Dati aggregati per tema: non sono pubblicate ricerche individuali. Le impression misurano esposizione su Google. Gli eventi sul sito possono includere aggiornamenti della ricerca; non sono persone o ricerche uniche.
+
+Fonte: Google Search Console, Firebase Analytics / GA4 (campione parziale).
+
+## Come nasce questo bollettino
+
+I numeri qui sopra non arrivano da un'agenzia: sono il nostro monitoraggio. Le attese ai valichi vengono campionate più volte l'ora su tutti i valichi di confine svizzeri; i prezzi dei carburanti coprono i comuni italiani di fascia e i distributori svizzeri vicini al confine; il cambio segue la serie ufficiale giornaliera; gli annunci arrivano dai crawler del nostro job board. Il bollettino esce ogni giorno e può essere aggiornato durante la giornata — i periodi di osservazione dipendono dalla fonte, le pagine linkate restano live tutto il giorno.]]></content:encoded>
+      <pubDate>Thu, 19 Nov 2026 14:21:02 GMT</pubDate>
+      <dc:creator><![CDATA[Laura Bianchi]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/articoli-frontaliere/bollettino-frontaliere-2026-11-19</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-bollettino-frontaliere-2026-11-19.webp" medium="image"/>
+    </item>
     <item>
       <title>Frontalieri: cambio -42.80 € su 4.000 CHF — 15 novembre 2026</title>
       <link>https://frontaliereticino.ch/articoli-frontaliere/bollettino-frontaliere-2026-11-15/</link>
@@ -3358,74 +3450,6 @@ Da questo annuncio non si possono ricavare cambiamenti su questi temi.
       <guid isPermaLink="false">https://frontaliereticino.ch/articoli-frontaliere/bellinzona-nuova-strada-ciclabile</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-bellinzona-nuova-strada-ciclabile.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Industria Ticino: 15 licenziamenti collettivi in 18 mesi, -900 frontalieri</title>
-      <link>https://frontaliereticino.ch/articoli-frontaliere/industria-ticino-strategie-personale/</link>
-      <description><![CDATA[Negli ultimi diciotto mesi, in Ticino, i licenziamenti collettivi nel settore industriale sono stati numerosi e hanno alimentato la preoccupazione]]></description>
-      <content:encoded><![CDATA[## In breve
-- Negli ultimi 18 mesi, numerosi licenziamenti collettivi in Ticino
-- 15 licenziamenti collettivi seguiti in un anno e mezzo
-- Circa 900 frontalieri in meno in due anni
-- Ordini soddisfacenti, ma senza continuità garantita
-
-## Fatti chiave
-- Periodo dei licenziamenti → ultimi diciotto mesi
-- Licenziamenti collettivi seguiti → 15
-- Frontalieri in meno → circa 900 in due anni
-- Direttore intervistato → Stefano Modenini
-- Partner accademico citato → SUPSI
-
-Negli ultimi diciotto mesi, in Ticino, i licenziamenti collettivi nel settore industriale sono stati numerosi e hanno alimentato la preoccupazione sul futuro del comparto. L'approfondimento, però, propone una lettura meno lineare: l'origine della situazione è probabilmente da cercare nelle scelte strategiche del management più che nella congiuntura.
-
-La ricostruzione parte dagli allarmi circolati nei mesi scorsi. Il tam-tam mediatico ha associato le difficoltà dell'industria all'annuncio dei dazi statunitensi, alla forza del franco svizzero, all'aumento dei costi dell'energia e dei trasporti dovuto alle guerre. Nel testo si precisa che i dazi hanno toccato in realtà una parte molto limitata delle aziende svizzere. Tra i fattori richiamati nel colloquio con Stefano Modenini figurano anche la crisi dell'automotive e l'interruzione di alcune vie di comunicazione.
-
-### Ordini e licenziamenti: due segnali insieme
-
-Modenini, direttore dell'Associazione industrie ticinesi, descrive una fase oggi meno preoccupante di quanto sembrasse all'inizio dell'anno. Gran parte delle aziende, riferisce, ha un portafoglio ordini soddisfacente per i prossimi mesi. La stabilità, tuttavia, non equivale a una garanzia di continuità: la formula usata nell'intervista tiene insieme i due elementi senza cancellare le incertezze.
-
-Nell'ultimo anno e mezzo Modenini ha seguito quindici licenziamenti collettivi. La metà era legata al mondo industriale, mentre gli altri riguardavano il settore terziario. Il dato descrive gli eventi da lui seguiti e si colloca nello stesso arco temporale dei diciotto mesi richiamati all'inizio. La cronaca dei licenziamenti, quindi, convive con un portafoglio ordini che, per gran parte delle aziende, appare soddisfacente nel breve periodo.
-
-Il tema coinvolge due interlocutori: Modenini offre la prospettiva dei datori di lavoro, mentre Daniele Duma, responsabile del reparto fusione della GF di Novazzano, descrive la realtà della propria azienda dal lato dei lavoratori. Il futuro dell'industria ticinese viene quindi esaminato sia attraverso le decisioni aziendali sia attraverso l'esperienza maturata nei reparti produttivi.
-## La strategia pesa quanto la congiuntura
-
-Il punto centrale dell'approfondimento è la distinzione tra ciò che accade nel breve periodo e le scelte che orientano un'azienda per gli anni successivi. Un licenziamento collettivo, spiega Modenini, non dipende necessariamente da una crisi congiunturale o economica. Un'impresa può decidere di diversificare la produzione oppure di privilegiare altre sedi produttive. In entrambi i casi, il territorio viene confrontato con altre regioni.
-
-| Segnale di breve periodo | Orizzonte strategico |
-|---|---|
-| Portafoglio ordini soddisfacente per i prossimi mesi | Piani di sviluppo orientati al futuro |
-| Dazi, franco, energia, trasporti e vie di comunicazione | Diversificazione o altre sedi produttive |
-| Stabilità senza garanzia di continuità | Attrattività del territorio rispetto ad altre regioni |
-
-Il valore di questo confronto è separare due piani che nell'allarme pubblico possono sovrapporsi. Il portafoglio ordini fotografa le prospettive dei prossimi mesi; le decisioni sulla produzione e sulle sedi riguardano invece gli anni successivi. La fonte non presenta la stabilità degli ordini come una garanzia di continuità, né considera il licenziamento collettivo una prova automatica di crisi congiunturale.
-
-### Il territorio come parametro industriale
-
-Il passaggio sulle condizioni quadro rende concreta la relazione tra impresa e territorio. Modenini cita la stabilità giuridica, la fiscalità, i costi e la disponibilità di manodopera. Migliorare queste condizioni, secondo l'intervista, significa ridurre il rischio che un'azienda lasci il territorio. La valutazione dell'attrattività non riguarda quindi soltanto il costo immediato, ma anche la possibilità di organizzare l'attività negli anni successivi.
-
-Lo stesso ragionamento vale per l'innovazione. Il settore industriale svizzero è riconosciuto a livello globale per la qualità tecnica e la capacità innovativa, ma introdurre innovazione richiede investimenti in strumenti, formazione e aggiornamento dei processi. La fonte descrive aziende che si trovano in fasi diverse: alcune devono ancora avviare la digitalizzazione, altre stanno integrando l'intelligenza artificiale.
-
-Sul piano degli strumenti pubblici, la Legge per l'innovazione mette a disposizione finanziamenti, ma l'intervista segnala la necessità di fare qualcosa di diverso e di predisporre strumenti mirati per le piccole e medie imprese. La collaborazione con i partner accademici, come la SUPSI, viene invece indicata come positiva. Il quadro unisce così qualità tecnica, formazione professionale, ricerca e aggiornamento dei processi: sono gli elementi che la fonte affianca alle scelte strategiche del management.
-## Manodopera e confine: il perimetro documentato
-
-La carenza di personale collega la questione dei lavoratori frontalieri alle difficoltà dell'industria. La mancanza di manodopera è indicata come una delle principali sfide del settore e, soprattutto in Ticino, il problema è aggravato dall'introduzione dell'accordo fiscale che disciplina la tassazione dei frontalieri con la vicina Italia. A Modenini viene inoltre chiesto di considerare il rapporto con la crisi demografica e il possibile effetto deterrente dell'accordo sui lavoratori con redditi più elevati interessati a un impiego in Ticino.
-
-La risposta riportata parte da un dato sulle statistiche dei frontalieri: in due anni sono state perse circa 900 lavoratrici e lavoratori, anche per motivi anagrafici. Il passaggio è rilevante per il Canton Ticino perché collega la disponibilità di personale al problema dell'attrattività del territorio, già indicata nell'intervista tra le condizioni che le aziende valutano quando decidono come organizzare la produzione. Il testo riporta quindi, nello stesso passaggio, il dato sulla perdita di circa 900 lavoratrici e lavoratori e l'indicazione dei motivi anagrafici.
-
-### La data dell'accordo e il trattamento fiscale
-
-Il Nuovo Accordo Frontalieri è stato firmato il 23 dicembre 2020 ed è in vigore dal 1° gennaio 2024; la ratifica italiana è la Legge 83 del 13 giugno 2023. Lo stesso riferimento precisa che l'imposta alla fonte sul reddito da lavoro dei frontalieri è trattenuta in Svizzera e che l'Italia evita la doppia imposizione attraverso il credito d'imposta nel quadro CE del 730.
-
-Questi ultimi elementi appartengono al riferimento verificato e non vanno attribuiti alle dichiarazioni di Modenini. Servono a collocare nel tempo e sul piano fiscale l'accordo richiamato dalla fonte industriale, che lo presenta invece in relazione alla disponibilità di manodopera nel Ticino.
-
-Il passaggio resta sul lavoro transfrontaliero e non diventa una guida al permesso G, all'AVS, alla LPP, alla LAMal o ai ristorni. Il perimetro documentato è quello industriale: licenziamenti collettivi, scelte strategiche, innovazione, formazione, portafoglio ordini e disponibilità di personale. Non vengono quindi aggiunte procedure amministrative o prestazioni non descritte. Il quadro dell'industria ticinese nasce dall'incrocio tra le decisioni delle aziende, la formazione richiesta dall'innovazione e la disponibilità di lavoratrici e lavoratori.
-
-*Fonte: [ocst.ch](https://www.ocst.ch/il-lavoro/548-approfondimenti/2618-industria-il-futuro-del-settore-sta-nelle-persone)*]]></content:encoded>
-      <pubDate>Thu, 22 Oct 2026 00:06:32 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/articoli-frontaliere/industria-ticino-strategie-personale</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-industria-ticino-strategie-personale.webp" medium="image"/>
     </item>
   </channel>
 </rss>
