@@ -94,6 +94,14 @@ on:
         required: false
         default: 'false'
         type: string
+      rehydrate_max_parallel:
+        description: >-
+          Maximum concurrent section rehydrate workers within one locale.
+          Keep the disk-safe default at 1; callers with a separately measured
+          runner contract may opt into a higher bounded value.
+        required: false
+        default: '1'
+        type: string
 
   workflow_call:
     inputs:
@@ -154,6 +162,14 @@ on:
           the shard it pushed minutes earlier, so the default stays lenient.
         required: false
         default: 'true'
+        type: string
+      rehydrate_max_parallel:
+        description: >-
+          Maximum concurrent section rehydrate workers within one locale.
+          Keep the disk-safe default at 1; callers with a separately measured
+          runner contract may opt into a higher bounded value.
+        required: false
+        default: '1'
         type: string
 
 permissions:
@@ -322,11 +338,10 @@ jobs:
           # silently misses the new ones; this form cannot drift (AGENTS.md #6).
           REPO_VARS_JSON: ${{ toJSON(vars) }}
           # The complete logical dist is disk-bound even after the source-only
-          # image tree is omitted from this caller's checkout. The shared
-          # rehydrate script keeps locales serialized and applies this cap to
-          # sections within the current locale, so two workers overlap useful
-          # extraction without retaining batch ZIPs for four growing trees.
-          REHYDRATE_MAX_PARALLEL: '2'
+          # image tree is omitted from this caller's checkout. Keep the cap
+          # caller-owned: the weekly full replay is serial, while the async
+          # replay opts into its separately measured two-worker contract.
+          REHYDRATE_MAX_PARALLEL: ${{ inputs.rehydrate_max_parallel }}
         run: |
           set -uo pipefail
           eval "$(jq -r 'to_entries[]
