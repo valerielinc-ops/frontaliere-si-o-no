@@ -1,7 +1,7 @@
 {
   "crawlerKey": "kiabi",
-  "assembledAt": "2026-11-18T21:16:26.971Z",
-  "runId": "44398890658",
+  "assembledAt": "2026-11-19T09:24:43.462Z",
+  "runId": "44494103455",
   "jobs": [
     {
       "id": "kiabi-8372070d20fb",
@@ -34,7 +34,7 @@
       "url": "https://jobs.smartrecruiters.com/KIABI/744000153728909-conseiller-de-vente-en-renfort-d-equipe-contrat-sur-appel-cdi-etudiant-e-temps-partiel-h-f-nb-kiabi-fribourg?oga=true",
       "source": "Kiabi Suisse Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T21:15:31.915Z",
+      "crawledAt": "2026-11-19T09:24:36.854Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -84,7 +84,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T21:15:31.915Z",
+      "validThrough": "2026-12-19T09:24:36.854Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -118,7 +118,7 @@
       "url": "https://jobs.smartrecruiters.com/KIABI/744000161105332-conseiller-ere-de-mode-a-60-80-h-f-nb-cdi-kiabi-fribourg?oga=true",
       "source": "Kiabi Suisse Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T21:15:31.913Z",
+      "crawledAt": "2026-11-19T09:24:36.852Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -168,17 +168,17 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T21:15:31.913Z",
+      "validThrough": "2027-02-10T09:24:36.852Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "kiabi-a8709a01c782",
       "slug": "direttore-h-f-nb-kiabi-aigle-kiabi-suisse-aigle-1beb980b4d",
       "slugByLocale": {
-        "fr": "directeur-magasin-h-f-nb-kiabi-aigle-kiabi-aigle",
         "it": "direttore-h-f-nb-kiabi-aigle-kiabi-suisse-aigle-1beb980b4d",
         "en": "director-store-h-f-nb-kiabi-aigle-kiabi-suisse-aigle",
-        "de": "director-store-h-f-nb-kiabi-aigle-kiabi-suisse-aigle"
+        "de": "director-store-h-f-nb-kiabi-aigle-kiabi-suisse-aigle",
+        "fr": "directeur-magasin-h-f-nb-kiabi-aigle-kiabi-aigle"
       },
       "company": "Kiabi Suisse",
       "companyKey": "kiabi",
@@ -202,7 +202,7 @@
       "url": "https://jobs.smartrecruiters.com/KIABI/744000162350620-directeur-magasin-h-f-nb-kiabi-aigle?oga=true",
       "source": "Kiabi Suisse Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T21:15:31.912Z",
+      "crawledAt": "2026-11-19T09:24:36.850Z",
       "addressLocality": "AIGLE",
       "addressRegion": "VD",
       "streetAddress": "AIGLE",
@@ -223,16 +223,17 @@
       "jobReqId": "744000162350620",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "directeur-magasin-h-f-nb-kiabi-aigle-kiabi-aigle",
+        "direttore-h-f-nb-kiabi-aigle-kiabi-suisse-aigle"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "directeur-magasin-h-f-nb-kiabi-aigle-kiabi-aigle",
           "direttore-h-f-nb-kiabi-aigle-kiabi-suisse-aigle"
         ]
       },
-      "previousSlugs": [
-        "directeur-magasin-h-f-nb-kiabi-aigle-kiabi-aigle",
-        "direttore-h-f-nb-kiabi-aigle-kiabi-suisse-aigle"
-      ],
+      "firstSeenAt": "2026-11-17T09:22:24.450Z",
       "salaryMin": 174500,
       "salaryMax": 306000,
       "salarySource": "estimated",
@@ -247,9 +248,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T21:15:31.912Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:22:24.450Z"
+      "validThrough": "2027-02-17T09:24:36.850Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kiabi-b02813c2cadb",
@@ -336,7 +336,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T09:22:01.208Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
