@@ -32,7 +32,7 @@ import {
   WAF_IP_BLOCK_STATUS,
   isConnectionLevelFetchError,
 } from './crawler-template.mjs';
-import { fetchViaJinaWithRetry, detectJinaErrorBody } from './jina-proxy.mjs';
+import { fetchViaJinaWithRetry } from './jina-proxy.mjs';
 import {
   decodeEntities,
   normalizeSpace,
@@ -54,6 +54,15 @@ const PUBLIC_CAREER_URL = 'https://www.bachtelen.ch/arbeiten-bei-uns/';
 const DEFAULT_CITY = 'Grenchen';
 const DEFAULT_CANTON = 'SO';
 const DEFAULT_POSTAL = '2540';
+
+function validateBachtelenRestBody(body = '') {
+  try {
+    const payload = JSON.parse(body);
+    return Array.isArray(payload) ? null : 'expected a JSON array from WP REST stelle';
+  } catch (error) {
+    return `invalid JSON from WP REST stelle: ${error?.message || error}`;
+  }
+}
 
 export function isBachtelenJob(job) {
   const url = String(job?.url || '').toLowerCase();
@@ -97,21 +106,24 @@ async function fetchBachtelenListingJson(url, timeoutMs = 20000) {
   } catch (err) {
     if (!(isConnectionLevelFetchError(err) || WAF_IP_BLOCK_STATUS.has(err?.status))) throw err;
     console.warn(`   ⚠️ Direct fetch to Bachtelen WP REST stelle blocked (${err?.message || err}) — retrying via Jina clean-IP proxy...`);
-    const res = await fetchViaJinaWithRetry(url, { format: 'text' });
+    const res = await fetchViaJinaWithRetry(url, {
+      format: 'text',
+      // The shared validator rejects short bodies, but [] is an authoritative
+      // empty WP REST collection. Keep the retry source-specific and reject
+      // JSON error envelopes instead of treating them as an empty feed.
+      validateBody: validateBachtelenRestBody,
+    });
     if (!res.ok) {
       console.warn(`   ⚠️ Jina proxy returned HTTP ${res.status} for Bachtelen WP REST stelle — falling back to original error.`);
       throw err;
     }
     const body = await res.text();
-    const reason = detectJinaErrorBody(body);
-    if (reason) {
-      console.warn(`   ⚠️ Jina-proxied Bachtelen WP REST stelle body looks like a challenge/non-target page (${reason}) — falling back to original error.`);
-      throw err;
-    }
     try {
-      return JSON.parse(body);
+      const payload = JSON.parse(body);
+      if (!Array.isArray(payload)) throw new Error('expected a JSON array from WP REST stelle');
+      return payload;
     } catch (parseErr) {
-      console.warn(`   ⚠️ Jina-proxied Bachtelen WP REST stelle body was not valid JSON (${parseErr?.message || parseErr}) — falling back to original error.`);
+      console.warn(`   ⚠️ Jina-proxied Bachtelen WP REST stelle body was invalid or had an unexpected JSON shape (${parseErr?.message || parseErr}) — falling back to original error.`);
       throw err;
     }
   }

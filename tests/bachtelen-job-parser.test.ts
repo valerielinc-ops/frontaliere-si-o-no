@@ -124,13 +124,27 @@ describe('Bachtelen job parser', () => {
       expect(jobs[0]).toMatchObject({ title: 'Sozialpädagog:in FH / HF 70-80%' });
       expect(fetchViaJinaWithRetry).toHaveBeenCalledWith(
         expect.stringContaining('/wp-json/wp/v2/stelle'),
-        expect.objectContaining({ format: 'text' }),
+        expect.objectContaining({ format: 'text', validateBody: expect.any(Function) }),
       );
+    });
+
+    it('accepts an authoritative empty WP REST collection from Jina', async () => {
+      const fetchMock = vi.fn(async (rawUrl: string) => {
+        const url = String(rawUrl);
+        if (url.includes('/wp-json/wp/v2/stelle?')) return { ok: false, status: 403, text: async () => '' };
+        throw new Error(`unexpected fetch: ${url}`);
+      });
+      vi.stubGlobal('fetch', fetchMock);
+      fetchViaJinaWithRetry.mockResolvedValue({ ok: true, status: 200, text: async () => '[]' });
+
+      await expect(fetchAllBachtelenJobs()).resolves.toEqual([]);
+      expect(fetchViaJinaWithRetry).toHaveBeenCalledOnce();
     });
 
     it.each([
       ['challenge', 'Just a moment...'],
       ['invalid JSON', `<html><body>${'not json '.repeat(30)}</body></html>`],
+      ['JSON error envelope', JSON.stringify({ code: 'rest_forbidden', message: 'blocked '.repeat(80) })],
     ])('rethrows the original 403 for a Jina %s body', async (_label, body) => {
       const fetchMock = vi.fn(async (rawUrl: string) => {
         const url = String(rawUrl);
