@@ -993,16 +993,14 @@
     "slugByLocale": {
       "it": "gestione-delle-capacita-a-kantonsspital-baselland-ksbl-liestal",
       "en": "data-manager-integral-capacity-management-a-kantonsspital-baselland-ksbl-liestal",
-      "de": "datenmanagerin-datenmanager-integrales-kapazitatsmanagement-a-ksbl-liestal",
+      "de": "datenmanagerin-datenmanager-integrales-kapazitatsmanagement-a-ksbl-liestal-4cb443f3",
       "fr": "gestionnaire-de-donnees-gestion-integree-des-capacites-a-kantonsspital-baselland-ksbl-liestal"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-11-04T12:48:55.651Z",
-    "previousSlugs": [
-      "datenmanagerin-datenmanager-integrales-kapazitatsmanagement-a-ksbl-liestal"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "datenmanagerin-datenmanager-integrales-kapazitatsmanagement-a-ksbl-liestal-4cb443f3",
         "datenmanagerin-datenmanager-integrales-kapazitatsmanagement-a-ksbl-liestal"
       ],
       "en": [
@@ -1010,6 +1008,9 @@
       ],
       "fr": [
         "datenmanagerin-datenmanager-integrales-kapazitatsmanagement-a-ksbl-liestal"
+      ],
+      "de": [
+        "datenmanagerin-datenmanager-integrales-kapazitatsmanagement-a-ksbl-liestal-4cb443f3"
       ]
     },
     "postalCode": "4410",
@@ -1019,7 +1020,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/datenmanagerin-datenmanager-integrales-kapazitaetsmanagement-a/19e7e8cb-a978-4384-ab56-1d5bcef76fde",
-    "firstSeenAt": "2026-10-30T21:49:22.671Z"
+    "firstSeenAt": "2026-10-30T21:49:22.671Z",
+    "previousSlugs": [
+      "datenmanagerin-datenmanager-integrales-kapazitatsmanagement-a-ksbl-liestal"
+    ]
   },
   {
     "slug": "oberarztin-oberarzt-orthopala-team-wirbelsaule-a-kantonsspital-baselland-ksbl-liestal",

@@ -1,7 +1,7 @@
 {
   "key": "kone",
   "label": "KONE",
-  "generatedAt": "2026-11-19T10:21:32.455Z",
+  "generatedAt": "2026-11-19T22:00:22.497Z",
   "total": 5,
   "discovered": null,
   "parsed": 4,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 121966,
-  "avgDurationMs": 121966,
+  "durationMs": 52350,
+  "avgDurationMs": 52350,
   "durationHistory": [
-    121966
+    52350
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -39,7 +39,7 @@
       "url": "https://kone.wd3.myworkdayjobs.com/en-US/Careers/job/Bern/Verkaufsberater-in-Neuanlagen---Region-Bern_R0663874",
       "source": "KONE Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:21:17.104Z",
+      "crawledAt": "2026-11-19T22:00:04.653Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -63,7 +63,7 @@
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T10:21:17.104Z",
+      "validThrough": "2026-12-19T22:00:04.653Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -86,7 +86,7 @@
       "url": "https://kone.wd3.myworkdayjobs.com/en-US/Careers/job/Brttisellen/Aufzugsmonteur-in---Region-Luzern_R0664487",
       "source": "KONE Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:20:35.968Z",
+      "crawledAt": "2026-11-19T21:59:54.048Z",
       "addressLocality": "Brüttisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -110,7 +110,7 @@
       "postalCode": "8306",
       "streetAddress": "Brüttisellen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T10:20:35.968Z",
+      "validThrough": "2027-01-25T21:59:54.048Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -133,7 +133,7 @@
       "url": "https://kone.wd3.myworkdayjobs.com/en-US/Careers/job/Brttisellen/Servicetechniker-Aufzge---Region-Horgen--Rschlikon-und-Umgebung_R0666347",
       "source": "KONE Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:20:05.902Z",
+      "crawledAt": "2026-11-19T21:59:43.137Z",
       "addressLocality": "Brüttisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -157,7 +157,7 @@
       "postalCode": "8306",
       "streetAddress": "Brüttisellen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T10:20:05.902Z",
+      "validThrough": "2027-02-14T21:59:43.137Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -180,7 +180,7 @@
       "url": "https://kone.wd3.myworkdayjobs.com/en-US/Careers/job/Lausanne/Superviseureuse-de-maintenance-Ascenseurs---Lausanne---Gruyre---Est-Gros-de-Vaud_R0666605",
       "source": "KONE Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T10:19:55.319Z",
+      "crawledAt": "2026-11-19T21:59:32.075Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -204,7 +204,7 @@
       "postalCode": "1003",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T10:19:55.319Z",
+      "validThrough": "2027-02-16T21:59:32.075Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -253,7 +253,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-20T22:06:15.964Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -263,5 +263,5 @@
       }
     }
   ],
-  "codeCommit": "af8f978c37a7f89c95dd40500d2ac0a67c1ede33"
+  "codeCommit": "07c2e8305c6747f1893222ba4bfdddc597008157"
 }

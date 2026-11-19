@@ -750,7 +750,6 @@
         "medizinische-r-praxisassistent-in-fachfrau-mann-gesundheit-60-80-hoch-health-st-gallen-ef7a25f0",
         "medical-practice-assistant-specialist-health-60-80-hoch-health-ostschweiz-st-gallen-f5318b6e",
         "assistente-medico-pratico-salute-specialistica-60-80-hoch-health-ostschweiz-st-gallen-8a607125",
-        "medizinische-r-praxisassistent-in-fachfrau-mann-gesundheit-60-80-kssg-ch",
         "assistente-medico-pratico-in-50-60-hoch-health-ostschweiz-st-gallen",
         "medizinische-r-praxisassistent-in-50-60-hoch-health-st-gallen",
         "100-medical-practice-assistant-hoch-health-ostschweiz-st-gallen",
@@ -777,14 +776,14 @@
         "assistant-medical-professionnel-specialiste-de-la-sante-60-80-hoch-health-ostschweiz-st-gallen",
         "medizinische-r-praxisassistent-in-disponent-in-70-100-hoch-health-st-gallen",
         "assistant-coordonnateur-trice-medical-e-70-100-hoch-health-ostschweiz-st-gallen",
-        "medical-practice-assistant-health-specialist-40-50-spital-schwyz-schwyz"
+        "medical-practice-assistant-health-specialist-40-50-spital-schwyz-schwyz",
+        "medizinische-r-praxisassistent-in-fachfrau-mann-gesundheit-60-80-kssg-ch"
       ],
       "fr": [
         "medizinische-r-praxisassistent-in-fachfrau-mann-gesundheit-60-80-hoch-health-st-gallen-ef7a25f0",
         "assistant-medical-professionnel-specialiste-de-la-sante-60-80-hoch-health-ostschweiz-st-gallen-7562b7c5",
         "assistente-medico-pratico-salute-specialistica-60-80-hoch-health-ostschweiz-st-gallen-8a607125",
         "assistant-coordonnateur-trice-medical-e-70-100-hoch-health-ostschweiz-st-gallen-f6b9f386",
-        "medizinische-r-praxisassistent-in-fachfrau-mann-gesundheit-60-80-kssg-ch",
         "assistente-medico-pratico-in-50-60-hoch-health-ostschweiz-st-gallen",
         "medizinische-r-praxisassistent-in-50-60-hoch-health-st-gallen",
         "100-medical-practice-assistant-hoch-health-ostschweiz-st-gallen",
@@ -810,12 +809,12 @@
         "medical-practice-assistant-coordinator-70-100-hoch-health-ostschweiz-st-gallen-8b93dbf1",
         "medical-practice-assistant-specialist-health-60-80-hoch-health-ostschweiz-st-gallen",
         "medizinische-r-praxisassistent-in-disponent-in-70-100-hoch-health-st-gallen",
-        "medical-practice-assistant-health-specialist-40-50-spital-schwyz-schwyz"
+        "medical-practice-assistant-health-specialist-40-50-spital-schwyz-schwyz",
+        "medizinische-r-praxisassistent-in-fachfrau-mann-gesundheit-60-80-kssg-ch"
       ],
       "de": [
         "assistente-medico-pratico-salute-specialistica-60-80-hoch-health-ostschweiz-st-gallen-8a607125",
         "medizinische-r-praxisassistent-in-disponent-in-70-100-hoch-health-st-gallen-fc838ee3",
-        "medizinische-r-praxisassistent-in-fachfrau-mann-gesundheit-60-80-kssg-ch",
         "assistente-medico-pratico-in-50-60-hoch-health-ostschweiz-st-gallen",
         "medizinische-r-praxisassistent-in-50-60-hoch-health-st-gallen",
         "100-medical-practice-assistant-hoch-health-ostschweiz-st-gallen",
@@ -842,7 +841,8 @@
         "medical-practice-assistant-specialist-health-60-80-hoch-health-ostschweiz-st-gallen",
         "assistant-medical-professionnel-specialiste-de-la-sante-60-80-hoch-health-ostschweiz-st-gallen",
         "assistant-coordonnateur-trice-medical-e-70-100-hoch-health-ostschweiz-st-gallen",
-        "medical-practice-assistant-health-specialist-40-50-spital-schwyz-schwyz"
+        "medical-practice-assistant-health-specialist-40-50-spital-schwyz-schwyz",
+        "medizinische-r-praxisassistent-in-fachfrau-mann-gesundheit-60-80-kssg-ch"
       ]
     },
     "postalCode": "9000",
@@ -885,7 +885,6 @@
       "medical-practice-assistant-specialist-health-60-80-hoch-health-ostschweiz-st-gallen",
       "assistant-medical-professionnel-specialiste-de-la-sante-60-80-hoch-health-ostschweiz-st-gallen",
       "medical-practice-assistant-specialist-health-60-80-hoch-health-ostschweiz-st-gallen-f5318b6e",
-      "medizinische-r-praxisassistent-in-fachfrau-mann-gesundheit-60-80-kssg-ch",
       "assistente-medico-pratico-in-50-60-hoch-health-ostschweiz-st-gallen",
       "medizinische-r-praxisassistent-in-50-60-hoch-health-st-gallen",
       "100-medical-practice-assistant-hoch-health-ostschweiz-st-gallen",
@@ -903,7 +902,8 @@
       "medizinische-r-praxisassistent-in-fachfrau-mann-gesundheit-60-80-hoch-health-ostschweiz-st-gallen",
       "medizinische-r-praxisassistent-in-disponent-in-70-100-hoch-health-st-gallen",
       "assistant-coordonnateur-trice-medical-e-70-100-hoch-health-ostschweiz-st-gallen",
-      "medical-practice-assistant-health-specialist-40-50-spital-schwyz-schwyz"
+      "medical-practice-assistant-health-specialist-40-50-spital-schwyz-schwyz",
+      "medizinische-r-praxisassistent-in-fachfrau-mann-gesundheit-60-80-kssg-ch"
     ]
   },
   {
@@ -4034,20 +4034,28 @@
     },
     "slugByLocale": {
       "en": "kochin-koch-80-100-hoch-health-ostschweiz-st-gallen",
-      "de": "kochin-koch-80-100-hoch-health-st-gallen"
+      "de": "kochin-koch-80-100-hoch-health-st-gallen-bd735634"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-10-28T20:19:11.285Z",
     "previousSlugs": [
-      "kochin-koch-80-100-hoch-health-st-gallen",
-      "cook-80-100-hoch-health-ostschweiz-st-gallen"
+      "cook-80-100-hoch-health-ostschweiz-st-gallen",
+      "kochin-koch-80-100-hoch-health-st-gallen"
     ],
     "previousSlugsByLocale": {
       "it": [
+        "kochin-koch-80-100-hoch-health-st-gallen-bd735634",
         "kochin-koch-80-100-hoch-health-st-gallen"
       ],
       "en": [
-        "cook-80-100-hoch-health-ostschweiz-st-gallen"
+        "cook-80-100-hoch-health-ostschweiz-st-gallen",
+        "kochin-koch-80-100-hoch-health-st-gallen"
+      ],
+      "de": [
+        "kochin-koch-80-100-hoch-health-st-gallen-bd735634"
+      ],
+      "fr": [
+        "kochin-koch-80-100-hoch-health-st-gallen"
       ]
     },
     "postalCode": "9000",
