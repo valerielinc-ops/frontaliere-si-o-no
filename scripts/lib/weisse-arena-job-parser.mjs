@@ -218,7 +218,9 @@ async function fetchJobListings() {
     }
 
     const rawTotal = data?.globals?.jobsCount;
-    const totalCount = typeof rawTotal === 'number' || typeof rawTotal === 'string'
+    const hasUsableRawTotal = (typeof rawTotal === 'number' && Number.isFinite(rawTotal))
+      || (typeof rawTotal === 'string' && rawTotal.trim() !== '');
+    const totalCount = hasUsableRawTotal
       ? Number(rawTotal)
       : Number.NaN;
     if (!Number.isSafeInteger(totalCount) || totalCount < 0) {
@@ -252,8 +254,9 @@ async function fetchJobListings() {
         );
       }
 
-      const listingId = fields.jobNumber ?? fields.id ?? listing.id;
-      const identity = String(listingId ?? '').trim();
+      const identity = [fields.jobNumber, fields.id, listing.id]
+        .map((value) => String(value ?? '').trim())
+        .find(Boolean);
       if (!identity) {
         throw new Error(
           `Weisse Arena listing row ${index + 1} at offset ${offset} has no stable identity; refusing a partial crawl.`,

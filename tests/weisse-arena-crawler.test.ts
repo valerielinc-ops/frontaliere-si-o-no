@@ -388,6 +388,35 @@ describe('TalentLink pagination completeness', () => {
 
     await expect(fetchAllWeisseArenaJobs()).rejects.toThrow(/pagination incomplete.*1\/2/i);
   });
+
+  it.each(['', '   '])('rejects an empty declared jobsCount (%j)', async (jobsCount) => {
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify({
+      globals: { jobsCount },
+      jobs: [],
+    }), { headers: { 'Content-Type': 'application/json' } })));
+
+    await expect(fetchAllWeisseArenaJobs()).rejects.toThrow(/valid globals\.jobsCount/i);
+  });
+
+  it('uses the first non-empty listing identity fallback', async () => {
+    const fallbackListing = {
+      jobFields: {
+        jobNumber: ' ',
+        id: 'A-1',
+        jobTitle: 'Chef',
+      },
+      customFields: [],
+    };
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify({
+      globals: { jobsCount: 1 },
+      jobs: [fallbackListing],
+    }), { headers: { 'Content-Type': 'application/json' } })));
+
+    const jobs = await fetchAllWeisseArenaJobs();
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].url).toContain('jobId=A-1');
+  });
 });
 
 // ─── Slug generation ────────────────────────────────────────────────────────────
