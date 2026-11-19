@@ -284,18 +284,18 @@ function itempropTokens(tag = '') {
 }
 
 /**
- * Return the contents of every element carrying one requested itemprop.
+ * Return the contents of every element selected by a structural predicate.
  * A small balanced-tag reader keeps nested spans (jobLocation > address) in
  * scope without letting unrelated header/footer metadata leak into the
  * vacancy's structured address.
  */
-function itempropElementContents(html = '', wantedProp = '') {
+function elementContentsWhere(html = '', predicate = () => false) {
   const source = stripScriptsAndStyles(String(html || ''));
   const openingTag = /<([a-z][\w:-]*)\b[^>]*>/gi;
   const results = [];
   let match;
   while ((match = openingTag.exec(source))) {
-    if (!itempropTokens(match[0]).includes(wantedProp.toLowerCase())) continue;
+    if (!predicate(match[0])) continue;
     const tagName = match[1];
     const sameTag = new RegExp(`<${tagName}\\b[^>]*>|</${tagName}\\s*>`, 'gi');
     sameTag.lastIndex = openingTag.lastIndex;
@@ -319,11 +319,52 @@ function itempropElementContents(html = '', wantedProp = '') {
   return results;
 }
 
-export function extractSbbStrongMarkupLocation(html = '') {
+function itempropElementContents(html = '', wantedProp = '') {
+  return elementContentsWhere(html, (tag) => itempropTokens(tag).includes(wantedProp.toLowerCase()));
+}
+
+function jobPostingElementContents(html = '') {
+  return elementContentsWhere(html, (tag) => (
+    /\bitemscope(?:\s|>|$)/i.test(tag)
+    && /\bitemtype\s*=\s*["'][^"']*jobposting[^"']*["']/i.test(tag)
+  ));
+}
+
+function markupIdentityKey(value = '') {
+  return stripHtml(String(value || ''))
+    .toLowerCase()
+    .normalize('NFKC')
+    .replace(/[^\p{L}\p{N}]+/gu, ' ')
+    .trim();
+}
+
+function currentJobLocationMicrodataScopes(html = '', { title = '', url = '' } = {}) {
+  const postingScopes = jobPostingElementContents(html);
+  if (postingScopes.length === 0) {
+    // Some current SBB pages expose only the nested jobLocation itemprop. Keep
+    // that legacy shape safe by accepting it only when there is one scope.
+    const locations = itempropElementContents(html, 'jobLocation');
+    return locations.length === 1 ? locations : [];
+  }
+  let currentScopes = postingScopes;
+  if (postingScopes.length > 1) {
+    const titleKey = markupIdentityKey(title);
+    const urlKey = String(url || '').trim().toLowerCase();
+    currentScopes = postingScopes.filter((scope) => {
+      const scopeText = markupIdentityKey(scope);
+      return (titleKey && scopeText.includes(titleKey))
+        || (urlKey && String(scope).toLowerCase().includes(urlKey));
+    });
+    if (currentScopes.length !== 1) return [];
+  }
+  return currentScopes.flatMap((scope) => itempropElementContents(scope, 'jobLocation'));
+}
+
+export function extractSbbStrongMarkupLocation(html = '', identity = {}) {
   // Only read addressLocality inside the current JobPosting's jobLocation
-  // itemprop. A bare meta itemprop in a header or related-job card is not a
+  // itemprop. A bare meta itemprop in a header or a related-job card is not a
   // workplace and must never outrank the vacancy JSON-LD.
-  for (const scope of itempropElementContents(html, 'jobLocation')) {
+  for (const scope of currentJobLocationMicrodataScopes(html, identity)) {
     const tags = [...scope.matchAll(/<meta\b[^>]*>/gi)].map((match) => match[0]);
     for (const tag of tags) {
       if (!itempropTokens(tag).includes('addresslocality')) continue;
@@ -390,7 +431,10 @@ export function parseSbbDetailPage(html = '') {
     const bodyLocation = extractSbbBodyLocation(html);
     if (bodyLocation) return bodyLocation;
 
-    const strongMarkupLocation = extractSbbStrongMarkupLocation(html);
+    const strongMarkupLocation = extractSbbStrongMarkupLocation(html, {
+      title,
+      url: jobPosting?.url || '',
+    });
     if (strongMarkupLocation) return strongMarkupLocation;
 
     const locations = Array.isArray(jobPosting?.jobLocation)

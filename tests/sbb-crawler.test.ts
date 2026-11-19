@@ -362,6 +362,21 @@ describe('parseSbbDetailPage — body location override', () => {
     expect(parseSbbDetailPage(fixture).location).toBe('Aarau');
   });
 
+  it('selects the current JobPosting microdata scope when a related scope comes first', () => {
+    const fixture = '<div itemscope itemtype="https://schema.org/JobPosting">'
+      + '<h1 itemprop="title">Other vacancy</h1>'
+      + '<span itemprop="jobLocation"><span itemprop="address">'
+      + '<meta itemprop="addressLocality" content="Bern">'
+      + '</span></span></div>'
+      + '<div itemscope itemtype="https://schema.org/JobPosting">'
+      + '<h1 itemprop="title">Project Manager</h1>'
+      + '<span itemprop="jobLocation"><span itemprop="address">'
+      + '<meta itemprop="addressLocality" content="Aarau">'
+      + '</span></span></div>';
+
+    expect(extractSbbStrongMarkupLocation(fixture, { title: 'Project Manager' })).toBe('Aarau');
+  });
+
   it('lets a verified detail JobPosting locality outrank login and AEM fallbacks', () => {
     expect(resolveSbbJobLocation({
       sourceLoginData: { location: 'Bern' },
