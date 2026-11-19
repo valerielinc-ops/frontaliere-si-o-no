@@ -184,10 +184,18 @@ describe('generated event image policy', () => {
 
     expect(GENERATED_IMAGE_PROVIDERS).not.toContain('gemini');
     expect(IMAGE_PROVIDERS).not.toContain('gemini');
-    expect(validateGeneratedImageRecord(legacyGeminiRecord)).toEqual({ valid: true, errors: [] });
+    expect(validateGeneratedImageRecord(legacyGeminiRecord)).toMatchObject({
+      valid: false,
+      errors: expect.arrayContaining(['provider is not allowed']),
+    });
+    expect(validateGeneratedImageRecordWithRegistry(legacyGeminiRecord, registry)).toEqual({ valid: true, errors: [] });
     expect(validateGeneratedImageRegistry(registry, { scope: 'event-library' })).toEqual({ valid: true, errors: [] });
-    expect(validateGeneratedImageRecord({ ...legacyGeminiRecord, licenseUrl: 'https://example.com/terms' }).valid)
-      .toBe(false);
+    const invalidTermsRegistry = {
+      ...registry,
+      assets: [{ ...legacyGeminiRecord, licenseUrl: 'https://example.com/terms' }],
+    };
+    expect(validateGeneratedImageRegistry(invalidTermsRegistry, { scope: 'event-library' }).errors)
+      .toContain('historical-gemini-image: licenseUrl does not match the provider terms');
   });
 
   it('keeps the legacy foreground-person exception versioned, listed, and generated-only', () => {

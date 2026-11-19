@@ -432,6 +432,7 @@ export function validateGeneratedImageRecordWithRegistry(record, registry, optio
   return validateGeneratedImageRecord(record, {
     ...options,
     allowLegacyVision: true,
+    allowLegacyProviders: true,
     legacyVisionAssetIds: contract.valid ? contract.assetIds : [],
   });
 }
@@ -456,9 +457,15 @@ export function generatedImageAssetIdFromPath(value) {
  * Validate one persisted registry record. The function is intentionally
  * strict: a record is the permission to publish the bytes, not commentary.
  */
-export function validateGeneratedImageRecord(record, { allowLegacyVision = false, legacyVisionAssetIds = [] } = {}) {
+export function validateGeneratedImageRecord(record, {
+  allowLegacyVision = false,
+  allowLegacyProviders = false,
+  legacyVisionAssetIds = [],
+} = {}) {
   const errors = [];
   if (!isRecord(record)) return { valid: false, errors: ['record must be an object'] };
+  const generatedProviders = allowLegacyProviders ? GENERATED_IMAGE_RECORD_PROVIDERS : GENERATED_IMAGE_PROVIDERS;
+  const generatedLicenseUrls = allowLegacyProviders ? GENERATED_IMAGE_RECORD_LICENSE_URLS : GENERATED_IMAGE_LICENSE_URLS;
   if (record.schema !== GENERATED_IMAGE_SCHEMA_VERSION) errors.push('schema must be 1');
   if (!ASSET_ID_RE.test(String(record.assetId || ''))) errors.push('assetId is invalid');
   const isPrivateGrant = record.license === PRIVATE_GRANT_LICENSE;
@@ -515,14 +522,14 @@ export function validateGeneratedImageRecord(record, { allowLegacyVision = false
     }
   } else {
     if (record.kind !== undefined && record.kind !== GENERATED_IMAGE_KIND) errors.push('generated record kind must be generated');
-    if (!GENERATED_IMAGE_RECORD_PROVIDERS.includes(record.provider)) errors.push('provider is not allowed');
+    if (!generatedProviders.includes(record.provider)) errors.push('provider is not allowed');
     if (!nonEmpty(record.model)) errors.push('model is required');
     if (record.promptVersion !== GENERATED_IMAGE_PROMPT_VERSION) errors.push('promptVersion is not current');
     if (!SHA256_RE.test(String(record.promptHash || ''))) errors.push('promptHash must be sha256');
     if (record.license !== GENERATED_IMAGE_LICENSE) errors.push('license must be generated-provider');
     if (!/^https:\/\//i.test(String(record.licenseUrl || ''))) errors.push('licenseUrl must be https');
-    if (GENERATED_IMAGE_RECORD_LICENSE_URLS[record.provider]
-      && record.licenseUrl !== GENERATED_IMAGE_RECORD_LICENSE_URLS[record.provider]) {
+    if (generatedLicenseUrls[record.provider]
+      && record.licenseUrl !== generatedLicenseUrls[record.provider]) {
       errors.push('licenseUrl does not match the provider terms');
     }
     if (record.credit !== GENERATED_IMAGE_CREDIT) errors.push('credit must be frontaliereticino.ch');
@@ -613,7 +620,13 @@ export function validateGeneratedImageRegistry(registry, { scope, allowLegacyVis
   const hashesByScope = new Map();
   const sourcePagesByScope = new Map();
   for (const record of assets) {
-    const validation = validateGeneratedImageRecord(record, { allowLegacyVision, legacyVisionAssetIds });
+    // Registries are persisted state; only this path preserves retired provider
+    // records. New generation validates records through the strict default.
+    const validation = validateGeneratedImageRecord(record, {
+      allowLegacyVision,
+      allowLegacyProviders: true,
+      legacyVisionAssetIds,
+    });
     if (!validation.valid) errors.push(`${record?.assetId || '<unknown>'}: ${validation.errors.join(', ')}`);
     if (assetIds.has(record?.assetId)) errors.push(`${record?.assetId || '<unknown>'}: duplicate assetId`);
     if (imageUrls.has(record?.imageUrl)) errors.push(`${record?.assetId || '<unknown>'}: duplicate imageUrl`);
