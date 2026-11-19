@@ -67,6 +67,32 @@ describe('sitemap family bridge evidence builder', () => {
     expect(urlLocale(url)).toBe(locale);
   });
 
+  it.each([true, false])('ignores corpus topics and requires a local bridge (present: %s)', (bridgePresent) => {
+    const topic = 'https://frontaliereticino.ch/articoli-frontaliere/argomenti/permesso-g/';
+    const profession = 'https://frontaliereticino.ch/lavoro-berna-contabile/';
+    const distDir = tempRoot();
+    if (bridgePresent) {
+      writeFile(distDir, 'lavoro-berna-contabile/index.html', '<meta name="robots" content="noindex,follow">');
+    }
+
+    const result = buildSitemapFamilyBridgeEvidence({
+      previousSnapshot: { version: 3, perSitemap: {
+        'sitemap-topics-frontaliere.xml': [topic],
+        'sitemap-profession-cantons.xml': [profession],
+      } },
+      currentSnapshot: snapshot([]),
+      distDir,
+      locale: 'it',
+    });
+
+    expect(result.externallyServed).toEqual([{ family: 'topics', url: topic }]);
+    expect(result.entries.map(({ url }) => url)).toEqual(bridgePresent ? [profession] : []);
+    expect(result.missing).toEqual(bridgePresent ? [] : [{
+      family: 'profession-cantons', url: profession, reason: 'bridge file is absent from dist',
+    }]);
+    expect(result.complete).toBe(bridgePresent);
+  });
+
   it('filters removed URLs to the requested locale without reporting other locales as missing', () => {
     const urls = [
       'https://frontaliereticino.ch/ricerca/x/',
