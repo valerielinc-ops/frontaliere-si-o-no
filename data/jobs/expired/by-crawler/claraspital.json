@@ -2253,16 +2253,23 @@
     "slugByLocale": {
       "it": "specialista-della-salute-st-claraspital-basel",
       "en": "healthcare-professional-st-claraspital-basel",
-      "de": "fachperson-gesundheit-claraspital-basel",
+      "de": "fachperson-gesundheit-claraspital-basel-da24afae",
       "fr": "professionnel-de-la-sante-st-claraspital-basel"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-10-22T09:30:04.266Z",
-    "previousSlugs": [
-      "fachperson-gesundheit-claraspital-basel"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "fachperson-gesundheit-claraspital-basel-da24afae",
+        "fachperson-gesundheit-claraspital-basel"
+      ],
+      "en": [
+        "fachperson-gesundheit-claraspital-basel"
+      ],
+      "de": [
+        "fachperson-gesundheit-claraspital-basel-da24afae"
+      ],
+      "fr": [
         "fachperson-gesundheit-claraspital-basel"
       ]
     },
@@ -2273,7 +2280,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/fachperson-gesundheit/c74123a9-ed6a-4b3f-83b4-550102c0669c",
-    "firstSeenAt": "2026-05-19T12:23:42.138Z"
+    "firstSeenAt": "2026-05-19T12:23:42.138Z",
+    "previousSlugs": [
+      "fachperson-gesundheit-claraspital-basel"
+    ]
   },
   {
     "slug": "corso-post-diploma-per-diventare-esperto-a-di-infermieristica-intensiva-nds-hf-st-claraspital-basel",
@@ -2816,19 +2826,23 @@
     "slugByLocale": {
       "it": "diplomato-a-della-professione-infermieristica-hf-fh-st-claraspital-basel",
       "en": "dipl-care-professional-hf-fh-st-claraspital-basel",
-      "de": "dipl-pflegefachperson-hf-fh-claraspital-basel",
+      "de": "dipl-pflegefachperson-hf-fh-claraspital-basel-9c868155",
       "fr": "diplome-e-en-soins-infirmiers-hf-fh-st-claraspital-basel"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-10-04T09:25:51.583Z",
-    "previousSlugs": [
-      "dipl-pflegefachperson-hf-fh-claraspital-basel"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "dipl-pflegefachperson-hf-fh-claraspital-basel-9c868155",
         "dipl-pflegefachperson-hf-fh-claraspital-basel"
       ],
       "en": [
+        "dipl-pflegefachperson-hf-fh-claraspital-basel"
+      ],
+      "de": [
+        "dipl-pflegefachperson-hf-fh-claraspital-basel-9c868155"
+      ],
+      "fr": [
         "dipl-pflegefachperson-hf-fh-claraspital-basel"
       ]
     },
@@ -2839,7 +2853,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/dipl-pflegefachperson-hf-fh/7eb248da-7e7b-4dc5-bfcd-970b7303e414",
-    "firstSeenAt": "2026-05-19T12:23:42.141Z"
+    "firstSeenAt": "2026-05-19T12:23:42.141Z",
+    "previousSlugs": [
+      "dipl-pflegefachperson-hf-fh-claraspital-basel"
+    ]
   },
   {
     "slug": "dipl-medico-hf-fh-chirurgia-st-claraspital-basel-abccff0d",
