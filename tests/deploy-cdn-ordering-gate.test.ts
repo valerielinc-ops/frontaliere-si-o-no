@@ -2005,7 +2005,7 @@ describe('deploy-it-pages-prep.sh — DEPLOY_CDN_PUSH_ONLY runs the CDN push and
     expect(r.stdout).toMatch(/already set by the early CDN push phase — skipping the CDN push/);
   });
 
-  it('a retry clears a partial stage and rebuilds all global shell pairs from dist', () => {
+  it('a retry leaves an old partial stage isolated and rebuilds all global shell pairs from dist', () => {
     const workspace = mkdtempSync(join(tmpdir(), 'prep-cdn-retry-'));
     try {
       const interruptedStage = join(workspace, 'cdn-stage');
@@ -2021,7 +2021,7 @@ describe('deploy-it-pages-prep.sh — DEPLOY_CDN_PUSH_ONLY runs the CDN push and
       expect(r.code).toBe(1); // The missing Pages key is the expected final handshake failure.
       expect(r.stdout).toMatch(/no CDN_DEPLOY_KEY secret — skipping CDN push/);
       expect(r.stdout).not.toMatch(/CDN asset stage must contain|stable shell asset/);
-      expect(r.stdout).not.toMatch(/partial-file\.js/);
+      expect(readFileSync(join(interruptedStage, 'assets', 'partial-file.js'), 'utf8')).toBe('partial attempt');
       expect(readFileSync(join(workspace, 'dist', 'assets', 'gtag-init.js'), 'utf8')).toBe('gtag-init bytes');
       expect(readFileSync(join(workspace, 'dist', 'assets', 'gtag-init-0a1b2c3d4e5f.js'), 'utf8')).toBe('gtag-init bytes');
     } finally {
@@ -2029,7 +2029,7 @@ describe('deploy-it-pages-prep.sh — DEPLOY_CDN_PUSH_ONLY runs the CDN push and
     }
   });
 
-  it('keeps retry assets intact when a previous attempt cleans up late', () => {
+  it.each([false, true])('keeps retry assets intact during late cleanup (explicit prefix: %s)', (explicitPrefix) => {
     const workspace = mkdtempSync(join(tmpdir(), 'prep-cdn-late-cleanup-'));
     try {
       const shellSetup = join(workspace, 'stage-observer.sh');
@@ -2051,6 +2051,7 @@ describe('deploy-it-pages-prep.sh — DEPLOY_CDN_PUSH_ONLY runs the CDN push and
         CDN_TARGET: 'pages',
         BASH_ENV: shellSetup,
         TEST_STAGE_LOG: stageLog,
+        ...(explicitPrefix ? { CDN_STAGE_DIR: join(workspace, 'explicit-stage') } : {}),
       };
 
       runPrep(env, workspace);

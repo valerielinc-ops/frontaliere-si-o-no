@@ -1724,13 +1724,9 @@ step_push_cdn() {
   # A timed-out attempt can still run cleanup while its retry is staging.
   # Give each runner invocation its own directory so that cleanup only
   # removes the payload owned by that invocation.
+  local stage_prefix="${CDN_STAGE_DIR:-${RUNNER_TEMP}/cdn-stage}"
   local stage
-  if [ -n "${CDN_STAGE_DIR:-}" ]; then
-    stage="$CDN_STAGE_DIR"
-    rm -rf -- "$stage" && mkdir -p -- "$stage" || return 1
-  else
-    stage="$(mktemp -d "${RUNNER_TEMP}/cdn-stage.XXXXXXXX")" || return 1
-  fi
+  stage="$(mktemp -d "${stage_prefix}.XXXXXXXX")" || return 1
   # Same leaked-staging-dir class fixed for push-locale-shard.sh /
   # push-section-shard.sh (issue #4734): $stage holds up to ~950 MB
   # (og+data+assets+images) and is never read again after this function
