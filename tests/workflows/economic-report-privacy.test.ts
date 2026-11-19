@@ -171,4 +171,25 @@ exit "$MOCK_EXIT"
     expect(l8.outcome).toMatchObject({ status: 'unmeasurable', independent: false });
     expect(l8.missingOutcome).toContain('private');
   });
+
+  it('audits L9 PR inventory with a missing runner-local outcome export', () => {
+    const source = readFileSync('.github/workflows/loop-l9-employer-activation.yml', 'utf8');
+    const { on, jobs } = YAML.parse(source);
+    const steps = jobs.audit.steps;
+    const checkout = steps.find((step: Step) => step.name === 'Checkout employer inputs');
+    const credentials = steps.find((step: Step) => step.name === 'Prepare read-only Firebase credentials');
+    const exportStep = steps.find((step: Step) => step.name === 'Export fresh L9 outcomes');
+    const audit = steps.find((step: Step) => step.name === 'Audit employer activation');
+
+    expect(source).not.toContain('data/employer-funnel-outcomes.json');
+    expect(on.push.paths).toContain('data/employer-profiles.json');
+    expect(on.pull_request.paths).toContain('data/employer-profiles.json');
+    expect(checkout.with['sparse-checkout'].split('\n')).toContain('/data/employer-profiles.json');
+    expect(credentials.if).toBe("github.event_name != 'pull_request'");
+    expect(exportStep.if).toBe("github.event_name != 'pull_request'");
+    expect(exportStep.run).toContain('--out "$RUNNER_TEMP/employer-funnel-outcomes.json"');
+    expect(audit.if).toBeUndefined();
+    expect(audit.run).toContain('--profiles data/employer-profiles.json --outcomes "$RUNNER_TEMP/employer-funnel-outcomes.json"');
+    expect(audit.run).toContain('.quality == "unmeasurable" and .outcomeLedgerMissing == true and .profileInventoryComplete == true');
+  });
 });
