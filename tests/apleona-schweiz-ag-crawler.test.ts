@@ -159,7 +159,7 @@ describe('Apleona Schweiz AG crawler parser', () => {
         addressLocality: 'Wallisellen',
         addressCountry: 'CH',
       })]);
-      expect(detail.description).toContain('Aufgaben\n• Du betreust anspruchsvolle Retail- und Center-Liegenschaften');
+      expect(detail.description).toContain('Ihre Aufgaben\n• Du betreust anspruchsvolle Retail- und Center-Liegenschaften');
       expect(detail.description).toContain('Anforderungen\n• Du verfügst über eine kaufmännische Ausbildung');
       expect(detail.description).not.toContain('Recruiting Kontakt und Personaldienstleister');
       expect(detail.description.split(/\s+/).filter(Boolean).length).toBeGreaterThan(50);

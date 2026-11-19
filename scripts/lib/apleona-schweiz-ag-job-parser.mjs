@@ -172,7 +172,7 @@ export function extractApleonaDetailFields(html = '', pageUrl = '', opts = {}) {
     // would otherwise fail-close silently: the row is dropped with no signal.
     // Surface that instead of hiding it, so a real drift is diagnosable from
     // crawler logs rather than only from a missing-jobs symptom.
-    if (descriptionBlocks.length === 0) {
+    if (!hasVacancySpecificSection) {
       const unmatchedHeadings = [];
       const appendSecondSkinSection = (headingValue, body) => {
         const heading = normalizeSpace(headingValue);
@@ -199,7 +199,7 @@ export function extractApleonaDetailFields(html = '', pageUrl = '', opts = {}) {
       // followed by its body). Read only those explicit pairs; never fall back
       // to the whole detail page, whose remaining blocks are company/contact
       // chrome.
-      if (descriptionBlocks.length === 0) {
+      if (!hasVacancySpecificSection) {
         for (const block of document.querySelectorAll('.showblock')) {
           const heading = block.querySelector('.showblock_title')?.textContent || '';
           if (!heading) continue;
@@ -208,7 +208,7 @@ export function extractApleonaDetailFields(html = '', pageUrl = '', opts = {}) {
         }
       }
 
-      if (descriptionBlocks.length === 0) {
+      if (!hasVacancySpecificSection) {
         for (const block of document.querySelectorAll('.showblock')) {
           const customBlocks = [...block.querySelectorAll('.customdatablock')];
           for (let index = 0; index < customBlocks.length - 1; index += 1) {
