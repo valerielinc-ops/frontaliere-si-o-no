@@ -146,16 +146,16 @@ export function cleanLogLine(line) {
 }
 
 // Riga per-gate emessa dai job di post-deploy-validate-dist.yml
-// (`printf '%-40s %7.2f rc=%d'` + prefisso ❌/✅ del summary loop).
-const GATE_FAIL_RE = /^❌ FAIL\s+(\S+)\s+(\d+(?:\.\d+)?)\s+rc=(\d+)\s*$/;
-const GATE_PASS_RE = /^✅ PASS\s+(\S+)\s+(\d+(?:\.\d+)?)\s+rc=(\d+)\s*$/;
+// (`printf '%-40s %7.2f rc=%d'` or `${gate_seconds}s` + prefisso ❌/✅).
+const GATE_FAIL_RE = /^❌ FAIL\s+(\S+)\s+(\d+(?:\.\d+)?)s?\s+rc=(\d+)\s*$/;
+const GATE_PASS_RE = /^✅ PASS\s+(\S+)\s+(\d+(?:\.\d+)?)s?\s+rc=(\d+)\s*$/;
 // Marker di scripts/audit-all.mjs: i sotto-auditor rossi del bundle.
 const AUDIT_ALL_MARKER_RE = /^audit-all: failed-audits=(.*)$/;
 const SUMMARY_RE = /^\S.*summary:\s*\d+ passed,\s*\d+ failed\s*$/i;
 
 /**
  * Estrae dal log di un job (raw: timestamp/ANSI ammessi):
- * - le righe `❌ FAIL <gate> <sec> rc=<n>`, con `audit:all` espanso nei
+ * - le righe `❌ FAIL <gate> <sec>[s] rc=<n>`, con `audit:all` espanso nei
  *   sotto-auditor della riga `audit-all: failed-audits=` quando c'è (senza
  *   marker resta il nome opaco: fail-closed, come in failed_gates);
  * - i gate `✅ PASS`, e per `audit:all` i sotto-auditor classificati che
