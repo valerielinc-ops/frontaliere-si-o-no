@@ -1,7 +1,7 @@
 {
   "key": "vereinaklosters",
   "label": "Vereina",
-  "generatedAt": "2026-11-19T10:24:50.737Z",
+  "generatedAt": "2026-11-19T21:45:11.626Z",
   "total": 1,
   "discovered": 1,
   "parsed": 1,
@@ -12,18 +12,30 @@
       "https://www.hotelcareer.ch/jobs/hotel-vereina-52746"
     ],
     "phase": "detail",
-    "pages": 2,
+    "pages": 4,
     "httpStatuses": [
       {
-        "status": 200,
+        "status": 403,
         "url": "https://www.hotelcareer.ch/jobs/hotel-vereina-52746"
       },
       {
         "status": 200,
+        "url": "https://www.hotelcareer.ch/jobs/hotel-vereina-52746",
+        "proxiedBy": "browser"
+      },
+      {
+        "status": 403,
         "url": "https://www.hotelcareer.ch/jobs/hotel-vereina-52746/zimmer-reinigungskraft-4035476?rltr=comp"
+      },
+      {
+        "status": 200,
+        "url": "https://www.hotelcareer.ch/jobs/hotel-vereina-52746/zimmer-reinigungskraft-4035476?rltr=comp",
+        "proxiedBy": "browser"
       }
     ],
-    "proxiedBy": [],
+    "proxiedBy": [
+      "browser"
+    ],
     "fetchOutcome": null,
     "fetchDetail": null
   },
@@ -40,10 +52,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 6012,
-  "avgDurationMs": 6012,
+  "durationMs": 31339,
+  "avgDurationMs": 31339,
   "durationHistory": [
-    6012
+    31339
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -61,7 +73,7 @@
       "url": "https://www.hotelcareer.ch/jobs/hotel-vereina-52746/zimmer-reinigungskraft-4035476?rltr=comp",
       "source": "Vereina Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:24:33.541Z",
+      "crawledAt": "2026-11-19T21:44:55.119Z",
       "addressLocality": "Klosters",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -84,7 +96,7 @@
       "postalCode": "7250",
       "streetAddress": "Klosters",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T10:24:33.541Z",
+      "validThrough": "2027-02-14T21:44:55.119Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -95,5 +107,5 @@
       }
     }
   ],
-  "codeCommit": "af8f978c37a7f89c95dd40500d2ac0a67c1ede33"
+  "codeCommit": "07c2e8305c6747f1893222ba4bfdddc597008157"
 }
