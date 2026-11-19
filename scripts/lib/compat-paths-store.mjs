@@ -40,12 +40,12 @@ import { shardFileName, listShardFilesIn, SHARD_FILE_RE } from './shard-file-nam
 import { writeShardFileIfChanged, writeFileAtomic } from './atomic-shard-write.mjs';
 import { filterCompatPaths } from './compat-path-safety.mjs';
 import streamJson from 'stream-json';
-import PickModule from 'stream-json/filters/Pick.js';
-import ReplaceModule from 'stream-json/filters/Replace.js';
-import StreamArrayModule from 'stream-json/streamers/StreamArray.js';
-import StreamObjectModule from 'stream-json/streamers/StreamObject.js';
-import { PassThrough } from 'node:stream';
-import { finished, pipeline } from 'node:stream/promises';
+import PickModule from 'stream-json/core/filters/pick.js';
+import ReplaceModule from 'stream-json/core/filters/replace.js';
+import StreamArrayModule from 'stream-json/streamers/stream-array.js';
+import StreamObjectModule from 'stream-json/streamers/stream-object.js';
+import chain from 'stream-chain';
+import { finished } from 'node:stream/promises';
 import { once } from 'node:events';
 import { createInterface } from 'node:readline';
 
@@ -399,14 +399,13 @@ function readStrictCompatShard(rootDir, name) {
 }
 
 async function readLegacyCompatMetadata(file) {
-  const parser = streamJson.parser();
+  const parser = streamJson();
   const replacement = ReplaceModule.replace({
     filter: 'paths',
     replacement: [{ name: 'startArray' }, { name: 'endArray' }],
   });
   const objectStream = StreamObjectModule.streamObject();
-  const output = new PassThrough({ objectMode: true });
-  const running = pipeline(fs.createReadStream(file), parser, replacement, objectStream, output);
+  const output = chain([fs.createReadStream(file), parser, replacement, objectStream]);
   const metadata = Object.create(null);
   let pathsSeen = false;
   try {
@@ -418,10 +417,8 @@ async function readLegacyCompatMetadata(file) {
         metadata[key] = value;
       }
     }
-    await running;
   } catch (err) {
     output.destroy();
-    await running.catch(() => {});
     throw err;
   }
   if (!pathsSeen) throw new Error('invalid legacy accumulator; refusing destructive rewrite');
@@ -431,7 +428,7 @@ async function readLegacyCompatMetadata(file) {
 }
 
 async function* streamLegacyCompatPaths(file) {
-  const parser = streamJson.parser();
+  const parser = streamJson();
   let depth = 0;
   let rootSeen = false;
   let pathsSeen = false;
@@ -460,8 +457,7 @@ async function* streamLegacyCompatPaths(file) {
 
   const picked = PickModule.pick({ filter: 'paths', once: true });
   const arrayStream = StreamArrayModule.streamArray();
-  const output = new PassThrough({ objectMode: true });
-  const running = pipeline(fs.createReadStream(file), parser, picked, arrayStream, output);
+  const output = chain([fs.createReadStream(file), parser, picked, arrayStream]);
   try {
     for await (const item of output) {
       if (typeof item.value !== 'string') {
@@ -470,10 +466,8 @@ async function* streamLegacyCompatPaths(file) {
       if (invalidShape) throw invalidShape;
       yield item.value;
     }
-    await running;
   } catch (err) {
     output.destroy();
-    await running.catch(() => {});
     throw err;
   }
   if (invalidShape) throw invalidShape;

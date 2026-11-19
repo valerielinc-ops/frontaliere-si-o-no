@@ -25,6 +25,7 @@ import {
   buildLocalePathsForJob,
   fillMissingLocalePaths,
   measureSerializedJsonObjectLength,
+  mergeMinedSources,
 } from '../scripts/mine-all-job-slugs.mjs';
 
 describe('measureSerializedJsonObjectLength', () => {
@@ -69,6 +70,34 @@ describe('mine-all-job-slugs bounded sources', () => {
     expect(source).not.toContain('execSync(');
     expect(source).not.toMatch(/readCompatPathsStrict(?:WithManifestRepair)?\s*\(/);
     expect(source).not.toContain('new Set(compat.paths)');
+  });
+
+  it('keeps earlier source locale paths while accepting missing locales from a stream', async () => {
+    const result = await mergeMinedSources([
+      {
+        name: 'Active jobs',
+        fn: () => new Map([
+          ['stable-slug', { locales: { it: '/cerca-lavoro-ticino/stable-slug' } }],
+        ]),
+      },
+      {
+        name: 'Compat paths',
+        stream: async (onPath) => {
+          onPath('stable-slug', 'it', '/cerca-lavoro-ticino/compat-it');
+          onPath('stable-slug', 'en', '/en/find-jobs-ticino/stable-slug');
+          onPath('new-slug', 'de', '/de/jobs-im-tessin/new-slug');
+          return 3;
+        },
+      },
+    ]);
+
+    expect(result.allSlugs.get('stable-slug').locales).toEqual({
+      it: '/cerca-lavoro-ticino/stable-slug',
+      en: '/en/find-jobs-ticino/stable-slug',
+    });
+    expect(result.allSlugs.get('new-slug').locales).toEqual({
+      de: '/de/jobs-im-tessin/new-slug',
+    });
   });
 });
 
