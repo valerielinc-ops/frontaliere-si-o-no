@@ -62,6 +62,10 @@ describe('measureSerializedJsonObjectLength', () => {
 describe('mine-all-job-slugs bounded sources', () => {
   it('streams compat paths and Git history instead of retaining whole buffers', () => {
     const source = fs.readFileSync(new URL('../scripts/mine-all-job-slugs.mjs', import.meta.url), 'utf8');
+    const backfill = fs.readFileSync(
+      new URL('../scripts/backfill-renamed-slugs-from-history.mjs', import.meta.url),
+      'utf8',
+    );
     expect(source).toContain('forEachCompatPathsStrict(ROOT');
     expect(source).toContain('prepareCompatPathsForTracking(tracking');
     expect(source).toContain("{ name: 'Compat paths', stream: mineCompatPaths }");
@@ -70,6 +74,10 @@ describe('mine-all-job-slugs bounded sources', () => {
     expect(source).not.toContain('execSync(');
     expect(source).not.toMatch(/readCompatPathsStrict(?:WithManifestRepair)?\s*\(/);
     expect(source).not.toContain('new Set(compat.paths)');
+    expect(backfill).toContain("spawn('git'");
+    expect(backfill).toContain('createInterface({ input: child.stdout');
+    expect(backfill).not.toContain("diff.split('\\n')");
+    expect(backfill).not.toContain('execSync(');
   });
 
   it('keeps earlier source locale paths while accepting missing locales from a stream', async () => {

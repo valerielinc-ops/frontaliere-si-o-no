@@ -28,7 +28,8 @@
 import fs from 'node:fs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import path from 'node:path';
-import { execSync } from 'node:child_process';
+import { execFileSync, spawn } from 'node:child_process';
+import { createInterface } from 'node:readline';
 import { fileURLToPath } from 'node:url';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
@@ -52,44 +53,52 @@ function readJson(p) {
  * Walk diff lines for one per-crawler slice between the given ref and HEAD.
  * Yields { slug, url } for every job removed in that range.
  */
-function extractRemovedJobs(file, sinceRef) {
+async function extractRemovedJobs(file, sinceRef) {
   const rel = path.relative(ROOT, file);
-  let diff = '';
-  try {
-    diff = execSync(`git log ${sinceRef}..HEAD -p --no-color -- ${rel}`, {
-      cwd: ROOT,
-      encoding: 'utf8',
-      maxBuffer: 500 * 1024 * 1024,
-    });
-  } catch {
-    return [];
-  }
   const removed = [];
   let pendingSlug = null;
   let pendingUrl = null;
-  // We walk line-by-line. A removed job block is a contiguous run of
-  // `-` lines containing `"slug": "..."` and `"url": "..."`. They may
-  // appear in either order — capture both, emit when we have both.
-  for (const line of diff.split('\n')) {
-    if (!line.startsWith('-')) {
-      // Reset on non-removal lines to avoid pairing across jobs.
-      if (line.startsWith('+')) continue;
+  let spawnError = null;
+  try {
+    const child = spawn('git', ['log', `${sinceRef}..HEAD`, '-p', '--no-color', '--', rel], {
+      cwd: ROOT,
+      stdio: ['ignore', 'pipe', 'ignore'],
+      timeout: 180_000,
+    });
+    child.on('error', (err) => { spawnError = err; });
+    const closePromise = new Promise((resolve) => {
+      child.once('close', (code, signal) => resolve({ code, signal }));
+    });
+    const lines = createInterface({ input: child.stdout, crlfDelay: Infinity });
+    // We walk diff lines one at a time. A removed job block is a contiguous run
+    // of `-` lines containing `"slug": "..."` and `"url": "..."`. They may
+    // appear in either order — capture both, emit when we have both.
+    for await (const line of lines) {
+      if (!line.startsWith('-')) {
+        // Reset on non-removal lines to avoid pairing across jobs.
+        if (line.startsWith('+')) continue;
+        if (pendingSlug && pendingUrl) {
+          removed.push({ slug: pendingSlug, url: pendingUrl });
+        }
+        pendingSlug = null;
+        pendingUrl = null;
+        continue;
+      }
+      const m1 = line.match(/"slug":\s*"([^"]+)"/);
+      if (m1) pendingSlug = m1[1];
+      const m2 = line.match(/"url":\s*"([^"]+)"/);
+      if (m2) pendingUrl = m2[1];
       if (pendingSlug && pendingUrl) {
         removed.push({ slug: pendingSlug, url: pendingUrl });
+        pendingSlug = null;
+        pendingUrl = null;
       }
-      pendingSlug = null;
-      pendingUrl = null;
-      continue;
     }
-    const m1 = line.match(/"slug":\s*"([^"]+)"/);
-    if (m1) pendingSlug = m1[1];
-    const m2 = line.match(/"url":\s*"([^"]+)"/);
-    if (m2) pendingUrl = m2[1];
-    if (pendingSlug && pendingUrl) {
-      removed.push({ slug: pendingSlug, url: pendingUrl });
-      pendingSlug = null;
-      pendingUrl = null;
-    }
+    const { code } = await closePromise;
+    if (spawnError || code !== 0) return [];
+    if (pendingSlug && pendingUrl) removed.push({ slug: pendingSlug, url: pendingUrl });
+  } catch {
+    return [];
   }
   return removed;
 }
@@ -105,11 +114,11 @@ function indexCurrentJobsByStableId(file) {
   return { data, jobs, byKey };
 }
 
-function main() {
+async function main() {
   console.log(`🔧 backfill-renamed-slugs-from-history — ${DRY_RUN ? 'DRY RUN' : 'LIVE'} (last ${DAYS}d, cap ${MAX_PER_JOB} previousSlugs/job)`);
 
-  const sinceRef = execSync(
-    `git rev-list -1 --before="${DAYS} days ago" HEAD`,
+  const sinceRef = execFileSync(
+    'git', ['rev-list', '-1', `--before=${DAYS} days ago`, 'HEAD'],
     { cwd: ROOT, encoding: 'utf8' },
   ).trim();
   if (!sinceRef) {
@@ -130,7 +139,7 @@ function main() {
 
   for (const file of files) {
     const rel = path.relative(ROOT, file);
-    const removed = extractRemovedJobs(file, sinceRef);
+    const removed = await extractRemovedJobs(file, sinceRef);
     if (removed.length === 0) continue;
     totalDropped += removed.length;
 
@@ -185,4 +194,7 @@ function main() {
   if (DRY_RUN) console.log('\n(no files written — re-run without --dry-run to persist)');
 }
 
-main();
+main().catch((error) => {
+  console.error(error?.stack || error?.message || String(error));
+  process.exitCode = 1;
+});
