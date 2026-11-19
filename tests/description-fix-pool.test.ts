@@ -121,6 +121,25 @@ describe('collectDescriptionFixTasks', () => {
     const short = 'Kurzer Text.';
     expect(collectDescriptionFixTasks([{ sourceLang: 'de', description: short, descriptionByLocale: { it: short } }])).toEqual([]);
   });
+
+  it('stale-only mode leaves younger and undated queue entries untouched', () => {
+    const makeJob = (id: string, firstSeenAt?: string) => ({
+      id,
+      sourceLang: 'de',
+      description: `${source} (${id})`,
+      descriptionByLocale: { de: `${source} (${id})`, it: `${source} (${id})` },
+      ...(firstSeenAt ? { firstSeenAt } : {}),
+    });
+    const tasks = collectDescriptionFixTasks([
+      makeJob('stale', '2026-10-01T00:00:00.000Z'),
+      makeJob('young', '2026-10-25T00:00:00.000Z'),
+      makeJob('undated'),
+    ], {
+      now: new Date('2026-10-29T00:00:00.000Z').getTime(),
+      staleOnly: true,
+    });
+    expect([...new Set(tasks.map((task: { job: { id: string } }) => task.job.id))]).toEqual(['stale']);
+  });
 });
 
 describe('collectDescriptionFixTasks groups the slots by language pair', () => {
