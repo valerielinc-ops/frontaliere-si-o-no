@@ -15,7 +15,6 @@ on:
       - Loop L5 decision moments
       - Loop L6 content learning and factuality
       - Loop L7 experiment allocator
-      - Loop L8 revenue and attribution reconciliation
       - Loop L9 employer supply to paid activation
       - Loop L10 fleet control
       - Technical operations supervisor
@@ -26,7 +25,7 @@ on:
         description: 'Loop ID whose immutable artifact should be recovered'
         required: true
         type: choice
-        options: [L0, L1, L2, L3, L4, L5, L6, L7, L8, L9, L10, L11]
+        options: [L0, L1, L2, L3, L4, L5, L6, L7, L9, L10, L11]
       run_id:
         description: 'Completed source run ID'
         required: true
@@ -115,7 +114,6 @@ jobs:
             'Loop L5 decision moments') loop='L5'; artifact="loop-l5-decision-moments-${SOURCE_RUN_ID}" ;;
             'Loop L6 content learning and factuality') loop='L6'; artifact="loop-l6-content-factuality-${SOURCE_RUN_ID}" ;;
             'Loop L7 experiment allocator') loop='L7'; artifact="loop-l7-experiment-allocator-${SOURCE_RUN_ID}" ;;
-            'Loop L8 revenue and attribution reconciliation') loop='L8'; artifact="loop-l8-revenue-attribution-${SOURCE_RUN_ID}" ;;
             'Loop L9 employer supply to paid activation') loop='L9'; artifact="loop-l9-employer-activation-${SOURCE_RUN_ID}" ;;
             'Loop L10 fleet control') loop='L10'; artifact="loop-l10-fleet-control-${SOURCE_RUN_ID}" ;;
             'Technical operations supervisor') loop='L11'; artifact="technical-operations-audit-${SOURCE_RUN_ID}" ;;
@@ -129,7 +127,6 @@ jobs:
                 L5) loop='L5'; artifact="loop-l5-decision-moments-${SOURCE_RUN_ID}" ;;
                 L6) loop='L6'; artifact="loop-l6-content-factuality-${SOURCE_RUN_ID}" ;;
                 L7) loop='L7'; artifact="loop-l7-experiment-allocator-${SOURCE_RUN_ID}" ;;
-                L8) loop='L8'; artifact="loop-l8-revenue-attribution-${SOURCE_RUN_ID}" ;;
                 L9) loop='L9'; artifact="loop-l9-employer-activation-${SOURCE_RUN_ID}" ;;
                 L10) loop='L10'; artifact="loop-l10-fleet-control-${SOURCE_RUN_ID}" ;;
                 L11) loop='L11'; artifact="technical-operations-audit-${SOURCE_RUN_ID}" ;;
