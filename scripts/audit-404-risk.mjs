@@ -462,7 +462,7 @@ const JOB_DETAIL_RE =
 const JOB_DETAIL_PREFIXES_BY_LOCALE = {
   it: ['/cerca-lavoro-'],
   en: ['/en/find-jobs-'],
-  de: ['/de/jobs-in-', '/de/jobs-im-'],
+  de: ['/de/jobs-in-', '/de/jobs-im-tessin/'],
   fr: ['/fr/trouver-emploi-'],
 };
 
