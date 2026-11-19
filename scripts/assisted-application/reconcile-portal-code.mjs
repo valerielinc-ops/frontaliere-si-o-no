@@ -18,6 +18,7 @@ import { portalAutoRetryAttemptsRemaining, portalExhaustedRecoveryPending } from
 import './extension/apply-control.js';
 import { candidateAnswerForField, isIdentityEmailConfirmationField } from './lib/portal/plan.mjs';
 import { portalQuestionDocumentSlotKind } from './lib/portal/portal.mjs';
+import { PORTAL_STOP_REDISCOVERY_HOLDS } from '../../functions/src/lib/portalStopCodes.js';
 
 const hasAnswer = value => typeof value === 'boolean' || typeof value === 'number' && Number.isFinite(value)
   || typeof value === 'string' && value.trim().length > 0 || Array.isArray(value) && value.some(item => String(item ?? '').trim());
@@ -143,7 +144,7 @@ function hasUntrustedProfileOperationalAnswers({ profile, draft }) {
 }
 
 function canRediscoverUnreadablePortalQuestions(flow, draft, flags) {
-  if (flow?.heldBy?.length !== 1 || flow.heldBy[0] !== 'portal:question_label_unreadable'
+  if (flow?.heldBy?.length !== 1 || !PORTAL_STOP_REDISCOVERY_HOLDS.has(flow.heldBy[0])
     || !flags.candidate.length) return false;
   const portalQuestionIds = new Set((Array.isArray(draft?.questions) ? draft.questions : [])
     .filter(question => question?.source === 'portal' && question.required === true)

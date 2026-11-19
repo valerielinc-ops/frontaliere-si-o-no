@@ -29,6 +29,7 @@ import { boundedPortalContext, normalizedPortalContext, portalQuestionKey } from
 import { allowAgentApplicationEntryClickInPage, installAgentFinalClickLockInPage, installFinalFormGuardCaptureInPage, releaseAgentFinalClickLockInPage } from './form-contract.mjs';
 import { recognizeAts } from './ats-recognize.mjs';
 import { applicationDestinationDiversionHint } from './stages.mjs';
+import { PORTAL_STOP_HINTS } from '../../../../functions/src/lib/portalStopCodes.js';
 
 const LIST = (items) => ({ type: 'array', items });
 const OBJ = (properties) => ({ type: 'object', properties, required: Object.keys(properties), additionalProperties: false });
@@ -169,24 +170,7 @@ function languageActionKind(action) {
   };
 }
 
-export const HINTS = {
-  next_disabled: 'The deterministic filler filled the form controls it understood, but the button to the next step is missing or disabled: a question on this page is still unanswered (often a custom widget).',
-  refused: 'The page did not move on after Next: the form refused a value or a required answer is missing. Look for error messages and fix them.',
-  no_form_controls: 'No standard form controls were found on this page: its questions are custom widgets.',
-  unclear_fields: 'Some required fields have no readable label (generated ids such as "select-input-_r_p_"): find their real question on the page and answer it.',
-  // The account registration/sign-in page (handleAuth) the deterministic filler could not complete.
-  // The runner alone types the password, accepts the privacy statement and presses the account
-  // button, after its own stable re-read: the agent only answers this page's other fields.
-  registration_incomplete: 'This is the portal\'s account registration page, before the application itself. The deterministic filler could not complete it (a field did not keep its value, or the form kept redrawing). Fill or choose every field you can answer from the candidate data (e-mail and its repetition, names, country of residence, other personal fields); type into a field that rejects a pasted value. Leave password fields, privacy consent, and account creation or sign-in clicks to the runner. Do not invent facts: use NEEDS_CANDIDATE only for required information that is genuinely unavailable. When the other fields are ready, return ACCOUNT_STEP.',
-  sign_in_incomplete: 'This is the portal\'s sign-in page for the candidate\'s existing account. The values the runner typed did not stay in the form: something on the page (a notice or dialog over the form, a widget around the e-mail field) undoes them. Make the form usable and type the candidate\'s e-mail where a pasted value does not stay. Never type a password or one-time code and never press the sign-in button: the runner does that through the existing account flow. When the page is ready for that flow, return ACCOUNT_STEP.',
-  // A cookie consent banner or preference panel the runner's deterministic passes could not close
-  // (portal.mjs resolveCookieConsent). The runner re-checks the page itself afterwards.
-  cookie_preferences_unresolved: 'A cookie consent banner or cookie preference panel is still open on this page (it may sit inside an iframe or a shadow root) and the runner could not close it. Close it allowing only the necessary cookies: press the control that rejects the optional cookies or allows only the necessary ones; if only a preference panel is open, leave every optional category switched off and press the control that saves the choice; accept all cookies only when no other control closes it. Act only on the cookie banner or panel: do not press application, sign-in, registration, navigation, or submit controls and do not fill fields. Return REACHED_FORM once the banner is gone, or PARKED with a concrete reason if it cannot be closed.',
-  required_fields_unfilled: 'The portal still has required fields unfilled. Inspect the current page and repair every required field you can answer from the candidate profile, CV/documents, or previously saved portal answers. This includes custom controls and CV/document uploads when the matching file is available. Do not ask again for known answers and do not invent facts; use NEEDS_CANDIDATE only for required information that is genuinely unavailable.',
-  posting_mismatch: 'This page or route is not recognized as the selected job. Return to its posting or search this employer site by the exact requirement ID or job title. Continue only when the current application is linked to that selected job.',
-  application_stage_unknown: 'The runner cannot classify this portal page. Inspect it and continue toward the selected job application, using visible links, buttons, tabs, or the same-site job search as needed.',
-  posting_unbound: 'The final form is not yet proven to belong to the paid job. Return to the selected posting once and reopen its application. Never submit from a talent pool, spontaneous application, or job alert.',
-};
+export const HINTS = PORTAL_STOP_HINTS;
 
 export function agentSystemPrompt(candidateLocale, { navigationEnabled = true } = {}) {
   const language = LANGUAGE_NAMES[candidateLocale] || 'Italian';

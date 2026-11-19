@@ -23,6 +23,7 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { parseArgs } from 'node:util';
 import { classifyApplicationChannel } from '../../functions/src/assistedApplicationAiJob.js';
+import { PORTAL_STOP_REPLAY_CODES } from '../../functions/src/lib/portalStopCodes.js';
 
 const nodeRequire = createRequire(import.meta.url);
 const trustedNet = nodeRequire('node:net');
@@ -123,6 +124,7 @@ const PORTAL_REPLAY_OTHER_ALLOWED_PATHS = Object.freeze([
   'functions/src/lib/personalFacts.js',
   'functions/src/lib/phoneNormalization.js',
   'functions/src/lib/portalNativeContract.js',
+  'functions/src/lib/portalStopCodes.js',
   'functions/src/lib/portalQuestionMapping.js',
   'functions/src/lib/portalQuestionText.js',
   'functions/src/lib/postingGuard.js',
@@ -158,7 +160,8 @@ const STAGE_RANK = Object.freeze({
 const NEUTRAL_STAGES = new Set(['http_5xx', 'posting_closed', 'captcha', 'region_blocked']);
 const SUCCESS_STAGES = new Set(['dry_run_ready', 'account_gate']);
 const FORM_REACHED_STAGES = new Set(['form', 'account_gate', 'dry_run_ready']);
-const SAFE_REPORT_CODES = new Set([
+export const SAFE_REPORT_CODES = new Set([
+  ...PORTAL_STOP_REPLAY_CODES,
   ...PORTAL_REPLAY_FAMILIES,
   ...Object.keys(STAGE_RANK),
   'sample_missing', 'final_click_attempt', 'non_get_passed', 'node_egress_attempt', 'wrong_posting_or_talent_pool',
