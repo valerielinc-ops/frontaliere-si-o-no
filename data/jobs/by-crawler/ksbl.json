@@ -2962,9 +2962,9 @@
     },
     {
       "id": "ksbl-e26f60c459c8",
-      "slug": "infermiera-a-kantonsspital-baselland-ksbl-liestal-11c54b95e1",
+      "slug": "infermiera-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
-        "it": "infermiera-a-kantonsspital-baselland-ksbl-liestal-11c54b95e1",
+        "it": "infermiera-a-kantonsspital-baselland-ksbl-liestal",
         "en": "dipl-nurse-a-kantonsspital-baselland-ksbl-liestal",
         "de": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-fapojd",
         "fr": "infirmiere-diplomee-a-kantonsspital-baselland-ksbl-liestal"
@@ -3014,14 +3014,16 @@
         "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
         "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal",
         "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-d9d0683b62",
-        "infermiera-a-kantonsspital-baselland-ksbl-liestal"
+        "infermiera-a-kantonsspital-baselland-ksbl-liestal",
+        "infermiera-a-kantonsspital-baselland-ksbl-liestal-11c54b95e1"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
           "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal",
           "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-d9d0683b62",
-          "infermiera-a-kantonsspital-baselland-ksbl-liestal"
+          "infermiera-a-kantonsspital-baselland-ksbl-liestal",
+          "infermiera-a-kantonsspital-baselland-ksbl-liestal-11c54b95e1"
         ],
         "de": [
           "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal"
@@ -5038,9 +5040,9 @@
     },
     {
       "id": "ksbl-cd14c6154336",
-      "slug": "infermiera-a-kantonsspital-baselland-ksbl-liestal-a67061767f",
+      "slug": "infermiera-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
-        "it": "infermiera-a-kantonsspital-baselland-ksbl-liestal-a67061767f",
+        "it": "infermiera-a-kantonsspital-baselland-ksbl-liestal",
         "en": "dipl-nurse-a-kantonsspital-baselland-ksbl-liestal",
         "de": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-tiu1kw",
         "fr": "infirmiere-diplomee-a-kantonsspital-baselland-ksbl-liestal"
@@ -5089,12 +5091,14 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
         "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal",
-        "infermiera-a-kantonsspital-baselland-ksbl-liestal"
+        "infermiera-a-kantonsspital-baselland-ksbl-liestal",
+        "infermiera-a-kantonsspital-baselland-ksbl-liestal-a67061767f"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
-          "infermiera-a-kantonsspital-baselland-ksbl-liestal"
+          "infermiera-a-kantonsspital-baselland-ksbl-liestal",
+          "infermiera-a-kantonsspital-baselland-ksbl-liestal-a67061767f"
         ],
         "de": [
           "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal"
@@ -8759,12 +8763,12 @@
     },
     {
       "id": "ksbl-847cdffbbeca",
-      "slug": "stv-stationsleiterin-stationsleiter-zentrum-bauch-e-onkologie-hamatologie-a-kantonsspital-baselland-ksbl-liestal",
+      "slug": "vicecaposala-caposala-centro-addome-e-oncologia-ematologia-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
         "de": "stv-stationsleiterin-stationsleiter-zentrum-bauch-und-onkologie-hamatologie-a-ksbl-liestal",
-        "it": "stv-stationsleiterin-stationsleiter-zentrum-bauch-e-onkologie-hamatologie-a-kantonsspital-baselland-ksbl-liestal",
-        "en": "stv-stationsleiterin-stationsleiter-zentrum-bauch-und-onkologie-hamatologie-a-ksbl-liestal",
-        "fr": "stv-stationsleiterin-stationsleiter-zentrum-bauch-und-onkologie-hamatologie-a-ksbl-liestal"
+        "it": "vicecaposala-caposala-centro-addome-e-oncologia-ematologia-a-kantonsspital-baselland-ksbl-liestal",
+        "en": "deputy-ward-manager-ward-manager-center-for-abdominal-medicine-and-oncology-hematology-a-kantonsspital-baselland-ksbl",
+        "fr": "responsable-adjoint-responsable-adjointe-de-station-centre-de-l-abdomen-et-d-oncologie-hematologie-a-kantonsspital"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -8811,11 +8815,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "stv-stationsleiterin-stationsleiter-zentrum-bauch-und-onkologie-hamatologie-a-ksbl-liestal",
+          "stv-stationsleiterin-stationsleiter-zentrum-bauch-e-onkologie-hamatologie-a-kantonsspital-baselland-ksbl-liestal"
+        ],
+        "en": [
+          "stv-stationsleiterin-stationsleiter-zentrum-bauch-und-onkologie-hamatologie-a-ksbl-liestal"
+        ],
+        "fr": [
           "stv-stationsleiterin-stationsleiter-zentrum-bauch-und-onkologie-hamatologie-a-ksbl-liestal"
         ]
       },
       "previousSlugs": [
-        "stv-stationsleiterin-stationsleiter-zentrum-bauch-und-onkologie-hamatologie-a-ksbl-liestal"
+        "stv-stationsleiterin-stationsleiter-zentrum-bauch-und-onkologie-hamatologie-a-ksbl-liestal",
+        "stv-stationsleiterin-stationsleiter-zentrum-bauch-e-onkologie-hamatologie-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -8838,12 +8850,12 @@
     },
     {
       "id": "ksbl-782959a73c71",
-      "slug": "fage-zentrum-bauch-e-onkologie-hamatologie-a-kantonsspital-baselland-ksbl-liestal",
+      "slug": "fage-centro-addome-e-oncologia-ematologia-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
         "de": "fage-zentrum-bauch-und-onkologie-hamatologie-a-ksbl-liestal",
-        "it": "fage-zentrum-bauch-e-onkologie-hamatologie-a-kantonsspital-baselland-ksbl-liestal",
-        "en": "fage-zentrum-bauch-und-onkologie-hamatologie-a-ksbl-liestal",
-        "fr": "fage-zentrum-bauch-und-onkologie-hamatologie-a-ksbl-liestal"
+        "it": "fage-centro-addome-e-oncologia-ematologia-a-kantonsspital-baselland-ksbl-liestal",
+        "en": "fage-centre-belly-and-oncology-hematology-a-kantonsspital-baselland-ksbl-liestal",
+        "fr": "fage-centre-belly-et-oncologie-hematologie-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -8890,11 +8902,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fage-zentrum-bauch-und-onkologie-hamatologie-a-ksbl-liestal",
+          "fage-zentrum-bauch-e-onkologie-hamatologie-a-kantonsspital-baselland-ksbl-liestal"
+        ],
+        "en": [
+          "fage-zentrum-bauch-und-onkologie-hamatologie-a-ksbl-liestal"
+        ],
+        "fr": [
           "fage-zentrum-bauch-und-onkologie-hamatologie-a-ksbl-liestal"
         ]
       },
       "previousSlugs": [
-        "fage-zentrum-bauch-und-onkologie-hamatologie-a-ksbl-liestal"
+        "fage-zentrum-bauch-und-onkologie-hamatologie-a-ksbl-liestal",
+        "fage-zentrum-bauch-e-onkologie-hamatologie-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,

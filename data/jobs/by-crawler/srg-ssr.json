@@ -3936,12 +3936,12 @@
     },
     {
       "id": "srg-ssr-ad1b6cebe0bb",
-      "slug": "spezialist-in-personaladministration-srg-ssr-bern",
+      "slug": "specialista-in-amministrazione-del-personale-srg-ssr-bern",
       "slugByLocale": {
         "de": "spezialist-in-personaladministration-srg-ssr-bern",
-        "it": "spezialist-in-personaladministration-srg-ssr-bern",
-        "en": "spezialist-in-personaladministration-srg-ssr-bern",
-        "fr": "spezialist-in-personaladministration-srg-ssr-bern"
+        "it": "specialista-in-amministrazione-del-personale-srg-ssr-bern",
+        "en": "specialist-in-personnel-administration-srg-ssr-bern",
+        "fr": "specialiste-en-administration-du-personnel-srg-ssr-bern"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -4024,16 +4024,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-16T21:17:24.245Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T21:17:24.245Z"
+      "firstSeenAt": "2026-11-18T21:17:24.245Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "spezialist-in-personaladministration-srg-ssr-bern"
+        ],
+        "en": [
+          "spezialist-in-personaladministration-srg-ssr-bern"
+        ],
+        "fr": [
+          "spezialist-in-personaladministration-srg-ssr-bern"
+        ]
+      },
+      "previousSlugs": [
+        "spezialist-in-personaladministration-srg-ssr-bern"
+      ]
     },
     {
       "id": "srg-ssr-abb324002530",
-      "slug": "specialiste-en-administration-rh-srg-ssr-bern",
+      "slug": "specialista-dell-amministrazione-hr-srg-ssr-bern",
       "slugByLocale": {
         "fr": "specialiste-en-administration-rh-srg-ssr-bern",
-        "it": "specialiste-en-administration-rh-srg-ssr-bern",
-        "en": "specialiste-en-administration-rh-srg-ssr-bern",
-        "de": "specialiste-en-administration-rh-srg-ssr-bern"
+        "it": "specialista-dell-amministrazione-hr-srg-ssr-bern",
+        "en": "hr-administration-specialist-srg-ssr-bern",
+        "de": "hr-administration-spezialist-srg-ssr-bern"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -4116,7 +4130,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-16T21:17:23.334Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T21:17:23.334Z"
+      "firstSeenAt": "2026-11-18T21:17:23.334Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "specialiste-en-administration-rh-srg-ssr-bern"
+        ],
+        "en": [
+          "specialiste-en-administration-rh-srg-ssr-bern"
+        ],
+        "de": [
+          "specialiste-en-administration-rh-srg-ssr-bern"
+        ]
+      },
+      "previousSlugs": [
+        "specialiste-en-administration-rh-srg-ssr-bern"
+      ]
     },
     {
       "id": "srg-ssr-e9c3fe660ba5",

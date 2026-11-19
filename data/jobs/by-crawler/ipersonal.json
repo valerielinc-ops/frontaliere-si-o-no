@@ -1619,12 +1619,12 @@
     },
     {
       "id": "ipersonal-1ad8667a25de",
-      "slug": "experte-in-anasthesiepflege-nds-hf-medipersonal-brugg-ag-ag",
+      "slug": "esperto-a-in-assistenza-anestesiologica-nds-hf-medipersonal-brugg-ag-ag",
       "slugByLocale": {
         "de": "experte-in-anasthesiepflege-nds-hf-medipersonal-brugg-ag-ag",
-        "it": "experte-in-anasthesiepflege-nds-hf-medipersonal-brugg-ag-ag",
-        "en": "experte-in-anasthesiepflege-nds-hf-medipersonal-brugg-ag-ag",
-        "fr": "experte-in-anasthesiepflege-nds-hf-medipersonal-brugg-ag-ag"
+        "it": "esperto-a-in-assistenza-anestesiologica-nds-hf-medipersonal-brugg-ag-ag",
+        "en": "expert-in-anesthesia-nursing-nds-hf-medipersonal-brugg-ag-ag",
+        "fr": "expert-e-en-soins-d-anesthesie-nds-hf-medipersonal-brugg-ag-ag"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -1682,7 +1682,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T21:16:53.594Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T21:16:53.594Z"
+      "firstSeenAt": "2026-11-18T21:16:53.594Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "experte-in-anasthesiepflege-nds-hf-medipersonal-brugg-ag-ag"
+        ],
+        "en": [
+          "experte-in-anasthesiepflege-nds-hf-medipersonal-brugg-ag-ag"
+        ],
+        "fr": [
+          "experte-in-anasthesiepflege-nds-hf-medipersonal-brugg-ag-ag"
+        ]
+      },
+      "previousSlugs": [
+        "experte-in-anasthesiepflege-nds-hf-medipersonal-brugg-ag-ag"
+      ]
     }
   ]
 }

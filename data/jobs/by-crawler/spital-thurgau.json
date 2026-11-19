@@ -14651,12 +14651,12 @@
     },
     {
       "id": "spital-thurgau-5bb151db18fe",
-      "slug": "lehrperson-basisstufe-stgag-ch",
+      "slug": "livello-di-base-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
         "de": "lehrperson-basisstufe-stgag-ch",
-        "it": "lehrperson-basisstufe-stgag-ch",
-        "en": "lehrperson-basisstufe-stgag-ch",
-        "fr": "lehrperson-basisstufe-stgag-ch"
+        "it": "livello-di-base-spital-thurgau-stgag-munsterlingen",
+        "en": "teacher-basic-level-spital-thurgau-stgag-munsterlingen",
+        "fr": "enseignant-niveau-de-base-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -14720,7 +14720,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T21:21:06.291Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T21:21:06.291Z"
+      "firstSeenAt": "2026-11-18T21:21:06.291Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrperson-basisstufe-stgag-ch"
+        ],
+        "en": [
+          "lehrperson-basisstufe-stgag-ch"
+        ],
+        "fr": [
+          "lehrperson-basisstufe-stgag-ch"
+        ]
+      },
+      "previousSlugs": [
+        "lehrperson-basisstufe-stgag-ch"
+      ]
     },
     {
       "id": "spital-thurgau-bc63d70fdd64",

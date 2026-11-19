@@ -10,7 +10,7 @@
         "en": "senior-manager-catering-newbuilding-msc-geneva",
         "it": "senior-manager-catering-newbuilding-msc-geneva",
         "de": "senior-manager-catering-newbuilding-msc-geneva",
-        "fr": "senior-manager-catering-newbuilding-msc-geneva"
+        "fr": "directeur-principal-restauration-newbuilding-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -73,7 +73,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T21:22:53.397Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T21:22:53.397Z"
+      "firstSeenAt": "2026-11-18T21:22:53.397Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "senior-manager-catering-newbuilding-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "senior-manager-catering-newbuilding-msc-geneva"
+      ]
     },
     {
       "id": "msc-cargo-f21f2e88a182",

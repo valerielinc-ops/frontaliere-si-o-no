@@ -413,12 +413,12 @@
     },
     {
       "id": "pictet-e6f496d771b6",
-      "slug": "sustainability-manager-6-months-contract-pictet-geneva",
+      "slug": "sostenibilita-manager-6-mesi-contratto-pictet-group-geneva",
       "slugByLocale": {
         "en": "sustainability-manager-6-months-contract-pictet-geneva",
-        "it": "sustainability-manager-6-months-contract-pictet-geneva",
-        "de": "sustainability-manager-6-months-contract-pictet-geneva",
-        "fr": "sustainability-manager-6-months-contract-pictet-geneva"
+        "it": "sostenibilita-manager-6-mesi-contratto-pictet-group-geneva",
+        "de": "nachhaltigkeitsmanager-6-monate-vertrag-pictet-group-geneva",
+        "fr": "durabilite-manager-contrat-de-6-mois-pictet-group-geneva"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -481,7 +481,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T21:16:37.514Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T21:16:37.514Z"
+      "firstSeenAt": "2026-11-18T21:16:37.514Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sustainability-manager-6-months-contract-pictet-geneva"
+        ],
+        "de": [
+          "sustainability-manager-6-months-contract-pictet-geneva"
+        ],
+        "fr": [
+          "sustainability-manager-6-months-contract-pictet-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "sustainability-manager-6-months-contract-pictet-geneva"
+      ]
     },
     {
       "id": "pictet-b6a7d924934c",

@@ -18388,8 +18388,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-ivf-labor-60-80-hoch-health-st-gallen",
         "it": "collaboratore-trice-ivf-labor-60-80-hoch-health-ostschweiz-st-gallen",
-        "en": "mitarbeiter-in-ivf-labor-60-80-hoch-health-st-gallen",
-        "fr": "mitarbeiter-in-ivf-labor-60-80-hoch-health-st-gallen"
+        "en": "ivf-laboratory-employee-60-80-hoch-health-ostschweiz-st-gallen",
+        "fr": "collaborateur-trice-de-laboratoire-fiv-60-80-hoch-health-ostschweiz-st-gallen"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -18436,6 +18436,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-ivf-labor-60-80-hoch-health-st-gallen"
+        ],
+        "en": [
+          "mitarbeiter-in-ivf-labor-60-80-hoch-health-st-gallen"
+        ],
+        "fr": [
           "mitarbeiter-in-ivf-labor-60-80-hoch-health-st-gallen"
         ]
       },

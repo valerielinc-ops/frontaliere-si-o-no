@@ -1529,7 +1529,7 @@
     },
     {
       "id": "company-vtfbv9",
-      "slug": "talent-acquisition-partner-100-abb-svizzera-sede-ticino-baden-aargau-vtfbv9",
+      "slug": "partner-per-l-acquisizione-di-talenti-100-abb-svizzera-sede-ticino-baden-aargau",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "Talent Acquisition Partner (100%)",
       "location": "Baden, Aargau",
@@ -1571,10 +1571,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "talent-acquisition-partner-100-abb-svizzera-sede-ticino-baden-aargau-vtfbv9",
+        "it": "partner-per-l-acquisizione-di-talenti-100-abb-svizzera-sede-ticino-baden-aargau",
         "en": "talent-acquisition-partner-100-abb-svizzera-sede-ticino-baden-aargau-vtfbv9",
-        "de": "talent-acquisition-partner-100-abb-svizzera-sede-ticino-baden-aargau-vtfbv9",
-        "fr": "talent-acquisition-partner-100-abb-svizzera-sede-ticino-baden-aargau-vtfbv9"
+        "de": "partner-fur-talentakquise-100-abb-svizzera-sede-ticino-baden-aargau",
+        "fr": "partenaire-en-acquisition-de-talents-100-abb-svizzera-sede-ticino-baden-aargau"
       },
       "requirementsByLocale": {
         "it": [],
@@ -1588,11 +1588,19 @@
       "sourceLang": "en",
       "previousSlugsByLocale": {
         "it": [
-          "talent-acquisition-partner-100-abb-svizzera-sede-ticino-baden-aargau"
+          "talent-acquisition-partner-100-abb-svizzera-sede-ticino-baden-aargau",
+          "talent-acquisition-partner-100-abb-svizzera-sede-ticino-baden-aargau-vtfbv9"
+        ],
+        "de": [
+          "talent-acquisition-partner-100-abb-svizzera-sede-ticino-baden-aargau-vtfbv9"
+        ],
+        "fr": [
+          "talent-acquisition-partner-100-abb-svizzera-sede-ticino-baden-aargau-vtfbv9"
         ]
       },
       "previousSlugs": [
-        "talent-acquisition-partner-100-abb-svizzera-sede-ticino-baden-aargau"
+        "talent-acquisition-partner-100-abb-svizzera-sede-ticino-baden-aargau",
+        "talent-acquisition-partner-100-abb-svizzera-sede-ticino-baden-aargau-vtfbv9"
       ],
       "salaryMin": 64500,
       "salaryMax": 110000,

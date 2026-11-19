@@ -1424,12 +1424,12 @@
     },
     {
       "id": "spitex-ch-6dd13382a5eb",
-      "slug": "pflegeexpertin-pflegeexperte-mscn-40-60-spitex-ch-chur",
+      "slug": "esperto-di-cura-mscn-40-60-bundner-spital-und-heimverband-chur",
       "slugByLocale": {
         "de": "pflegeexpertin-pflegeexperte-mscn-40-60-spitex-ch-chur",
-        "it": "pflegeexpertin-pflegeexperte-mscn-40-60-spitex-ch-chur",
-        "en": "pflegeexpertin-pflegeexperte-mscn-40-60-spitex-ch-chur",
-        "fr": "pflegeexpertin-pflegeexperte-mscn-40-60-spitex-ch-chur"
+        "it": "esperto-di-cura-mscn-40-60-bundner-spital-und-heimverband-chur",
+        "en": "care-expert-mscn-40-60-bundner-spital-und-heimverband-chur",
+        "fr": "expert-en-soins-mscn-40-60-bundner-spital-und-heimverband-chur"
       },
       "company": "Bündner Spital- und Heimverband",
       "companyKey": "spitex-ch",
@@ -1490,16 +1490,30 @@
       },
       "streetAddress": "Chur",
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "source"
+      "validThroughSource": "source",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegeexpertin-pflegeexperte-mscn-40-60-spitex-ch-chur"
+        ],
+        "en": [
+          "pflegeexpertin-pflegeexperte-mscn-40-60-spitex-ch-chur"
+        ],
+        "fr": [
+          "pflegeexpertin-pflegeexperte-mscn-40-60-spitex-ch-chur"
+        ]
+      },
+      "previousSlugs": [
+        "pflegeexpertin-pflegeexperte-mscn-40-60-spitex-ch-chur"
+      ]
     },
     {
       "id": "spitex-ch-b7a380e880da",
-      "slug": "fachfrau-mann-gesundheit-80-befristet-spitex-stadt-winterthur",
+      "slug": "operatore-trice-sociosanitario-a-80-a-tempo-determinato-spitex-spitex-stadt-winterthur-winterthur",
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-80-befristet-spitex-spitex-ch-winterthur",
-        "it": "fachfrau-mann-gesundheit-80-befristet-spitex-stadt-winterthur",
-        "en": "fachfrau-mann-gesundheit-80-befristet-spitex-spitex-ch-winterthur",
-        "fr": "fachfrau-mann-gesundheit-80-befristet-spitex-spitex-ch-winterthur"
+        "it": "operatore-trice-sociosanitario-a-80-a-tempo-determinato-spitex-spitex-stadt-winterthur-winterthur",
+        "en": "healthcare-specialist-80-fixed-term-spitex-spitex-stadt-winterthur-winterthur",
+        "fr": "assistant-e-en-soins-et-sante-communautaire-80-a-duree-determinee-spitex-spitex-stadt-winterthur-winterthur"
       },
       "company": "Spitex Stadt Winterthur",
       "companyKey": "spitex-ch",
@@ -1547,11 +1561,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-mann-gesundheit-80-befristet-spitex-spitex-ch-winterthur",
+          "fachfrau-mann-gesundheit-80-befristet-spitex-stadt-winterthur"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-80-befristet-spitex-spitex-ch-winterthur"
+        ],
+        "fr": [
           "fachfrau-mann-gesundheit-80-befristet-spitex-spitex-ch-winterthur"
         ]
       },
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-80-befristet-spitex-spitex-ch-winterthur"
+        "fachfrau-mann-gesundheit-80-befristet-spitex-spitex-ch-winterthur",
+        "fachfrau-mann-gesundheit-80-befristet-spitex-stadt-winterthur"
       ],
       "salaryMin": 73200,
       "salaryMax": 102400,
@@ -1573,12 +1595,12 @@
     },
     {
       "id": "spitex-ch-a81c91703d90",
-      "slug": "fachpersonen-pflege-per-befristete-einsatze-m-w-d-spitex-bodensee-rorschach",
+      "slug": "personale-qualificato-nell-assistenza-infermieristica-per-impieghi-a-tempo-determinato-m-f-d-spitex-bodensee-rorschach",
       "slugByLocale": {
         "de": "fachpersonen-pflege-fur-befristete-einsatze-w-m-d-spitex-ch-rorschach",
-        "it": "fachpersonen-pflege-per-befristete-einsatze-m-w-d-spitex-bodensee-rorschach",
-        "en": "fachpersonen-pflege-fur-befristete-einsatze-w-m-d-spitex-ch-rorschach",
-        "fr": "fachpersonen-pflege-fur-befristete-einsatze-w-m-d-spitex-ch-rorschach"
+        "it": "personale-qualificato-nell-assistenza-infermieristica-per-impieghi-a-tempo-determinato-m-f-d-spitex-bodensee-rorschach",
+        "en": "specialists-care-for-temporary-assignments-m-f-d-spitex-bodensee-rorschach",
+        "fr": "specialistes-soins-pour-les-affectations-temporaires-h-f-d-spitex-bodensee-rorschach"
       },
       "company": "Spitex Bodensee",
       "companyKey": "spitex-ch",
@@ -1626,11 +1648,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachpersonen-pflege-fur-befristete-einsatze-w-m-d-spitex-ch-rorschach",
+          "fachpersonen-pflege-per-befristete-einsatze-m-w-d-spitex-bodensee-rorschach"
+        ],
+        "en": [
+          "fachpersonen-pflege-fur-befristete-einsatze-w-m-d-spitex-ch-rorschach"
+        ],
+        "fr": [
           "fachpersonen-pflege-fur-befristete-einsatze-w-m-d-spitex-ch-rorschach"
         ]
       },
       "previousSlugs": [
-        "fachpersonen-pflege-fur-befristete-einsatze-w-m-d-spitex-ch-rorschach"
+        "fachpersonen-pflege-fur-befristete-einsatze-w-m-d-spitex-ch-rorschach",
+        "fachpersonen-pflege-per-befristete-einsatze-m-w-d-spitex-bodensee-rorschach"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -1652,10 +1682,10 @@
     },
     {
       "id": "spitex-ch-059b608b4419",
-      "slug": "fachfrau-fachmann-gesundheit-fage-efz-zu-50-100-spitex-ch-liestal",
+      "slug": "operatrice-operatore-sociosanitario-fage-efz-al-50-100-spitex-regio-liestal-liestal",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-fage-efz-zu-50-100-spitex-ch-liestal",
-        "it": "fachfrau-fachmann-gesundheit-fage-efz-zu-50-100-spitex-ch-liestal",
+        "it": "operatrice-operatore-sociosanitario-fage-efz-al-50-100-spitex-regio-liestal-liestal",
         "en": "fachfrau-fachmann-gesundheit-fage-efz-zu-50-100-spitex-ch-liestal",
         "fr": "fachfrau-fachmann-gesundheit-fage-efz-zu-50-100-spitex-ch-liestal"
       },
@@ -1734,16 +1764,24 @@
       "streetAddress": "Hammerstrasse 49",
       "streetAddressSource": "zefix-registry",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-10-16T21:16:21.703Z"
+      "firstSeenAt": "2026-10-16T21:16:21.703Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-fage-efz-zu-50-100-spitex-ch-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-fage-efz-zu-50-100-spitex-ch-liestal"
+      ]
     },
     {
       "id": "spitex-ch-2718c8bd68bd",
-      "slug": "mitarbeiterin-einsatzplanung-60-spitex-ch-kuttigen",
+      "slug": "dipendenti-nella-pianificazione-operativa-60-spitex-region-aarau-kuttigen",
       "slugByLocale": {
         "de": "mitarbeiterin-einsatzplanung-60-spitex-ch-kuttigen",
-        "it": "mitarbeiterin-einsatzplanung-60-spitex-ch-kuttigen",
-        "en": "mitarbeiterin-einsatzplanung-60-spitex-ch-kuttigen",
-        "fr": "mitarbeiterin-einsatzplanung-60-spitex-ch-kuttigen"
+        "it": "dipendenti-nella-pianificazione-operativa-60-spitex-region-aarau-kuttigen",
+        "en": "employee-in-operational-planning-60-spitex-region-aarau-kuttigen",
+        "fr": "employe-en-planification-operationnelle-60-spitex-region-aarau-kuttigen"
       },
       "company": "Spitex Region Aarau",
       "companyKey": "spitex-ch",
@@ -1805,14 +1843,28 @@
       "streetAddress": "Küttigen",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-18T21:15:48.271Z"
+      "firstSeenAt": "2026-11-18T21:15:48.271Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiterin-einsatzplanung-60-spitex-ch-kuttigen"
+        ],
+        "en": [
+          "mitarbeiterin-einsatzplanung-60-spitex-ch-kuttigen"
+        ],
+        "fr": [
+          "mitarbeiterin-einsatzplanung-60-spitex-ch-kuttigen"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiterin-einsatzplanung-60-spitex-ch-kuttigen"
+      ]
     },
     {
       "id": "spitex-ch-b4178fc60271",
-      "slug": "dipl-pflegefachperson-hf-fh-50-100-spitex-ch-liestal",
+      "slug": "infermiera-hf-fh-50-100-spitex-regio-liestal-liestal",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-50-100-spitex-ch-liestal",
-        "it": "dipl-pflegefachperson-hf-fh-50-100-spitex-ch-liestal",
+        "it": "infermiera-hf-fh-50-100-spitex-regio-liestal-liestal",
         "en": "dipl-pflegefachperson-hf-fh-50-100-spitex-ch-liestal",
         "fr": "dipl-pflegefachperson-hf-fh-50-100-spitex-ch-liestal"
       },
@@ -1891,7 +1943,15 @@
       "streetAddress": "Hammerstrasse 49",
       "streetAddressSource": "zefix-registry",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-10-16T21:16:20.081Z"
+      "firstSeenAt": "2026-10-16T21:16:20.081Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-50-100-spitex-ch-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-50-100-spitex-ch-liestal"
+      ]
     },
     {
       "id": "spitex-ch-356d3b111bd1",

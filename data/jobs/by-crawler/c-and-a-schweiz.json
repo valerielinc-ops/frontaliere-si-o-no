@@ -2684,12 +2684,12 @@
     },
     {
       "id": "c-and-a-schweiz-1bc651889839",
-      "slug": "ch-collaboratrice-de-vente-50-cdd-decembre-et-janvier-c-and-a-schweiz-ch",
+      "slug": "ch-sales-cooperativo-50-dicembre-e-gennaio-csd-c-a-schweiz-bulle-ch",
       "slugByLocale": {
         "fr": "ch-collaboratrice-de-vente-50-cdd-decembre-et-janvier-c-and-a-schweiz-ch",
-        "it": "ch-collaboratrice-de-vente-50-cdd-decembre-et-janvier-c-and-a-schweiz-ch",
-        "en": "ch-collaboratrice-de-vente-50-cdd-decembre-et-janvier-c-and-a-schweiz-ch",
-        "de": "ch-collaboratrice-de-vente-50-cdd-decembre-et-janvier-c-and-a-schweiz-ch"
+        "it": "ch-sales-cooperativo-50-dicembre-e-gennaio-csd-c-a-schweiz-bulle-ch",
+        "en": "ch-sales-co-operative-50-december-and-january-csd-c-a-schweiz-bulle-ch",
+        "de": "ch-vertriebsgenossenschaft-50-dezember-und-januar-csd-c-a-schweiz-bulle-ch"
       },
       "company": "C&A Schweiz",
       "companyKey": "c-and-a-schweiz",
@@ -2751,7 +2751,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T21:22:27.436Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T21:22:27.436Z"
+      "firstSeenAt": "2026-11-18T21:22:27.436Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ch-collaboratrice-de-vente-50-cdd-decembre-et-janvier-c-and-a-schweiz-ch"
+        ],
+        "en": [
+          "ch-collaboratrice-de-vente-50-cdd-decembre-et-janvier-c-and-a-schweiz-ch"
+        ],
+        "de": [
+          "ch-collaboratrice-de-vente-50-cdd-decembre-et-janvier-c-and-a-schweiz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ch-collaboratrice-de-vente-50-cdd-decembre-et-janvier-c-and-a-schweiz-ch"
+      ]
     }
   ]
 }

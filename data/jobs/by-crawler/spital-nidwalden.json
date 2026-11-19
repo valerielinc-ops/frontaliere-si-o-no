@@ -882,12 +882,12 @@
     },
     {
       "id": "spital-nidwalden-dd4b07499008",
-      "slug": "collaboratore-trice-in-sozial-e-austrittsberatung-spital-nidwalden-stans",
+      "slug": "collaboratore-trice-per-la-consulenza-sociale-e-di-dimissione-spital-nidwalden-stans",
       "slugByLocale": {
         "de": "mitarbeiter-in-sozial-und-austrittsberatung-spital-nidwalden-stans",
-        "it": "collaboratore-trice-in-sozial-e-austrittsberatung-spital-nidwalden-stans",
+        "it": "collaboratore-trice-per-la-consulenza-sociale-e-di-dimissione-spital-nidwalden-stans",
         "en": "mitarbeiter-in-sozial-und-austrittsberatung-spital-nidwalden-stans",
-        "fr": "mitarbeiter-in-sozial-und-austrittsberatung-spital-nidwalden-stans"
+        "fr": "collaborateur-trice-en-conseil-social-et-en-conseil-de-sortie-spital-nidwalden-stans"
       },
       "company": "Spital Nidwalden",
       "companyKey": "spital-nidwalden",
@@ -936,11 +936,16 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-sozial-und-austrittsberatung-spital-nidwalden-stans",
+          "collaboratore-trice-in-sozial-e-austrittsberatung-spital-nidwalden-stans"
+        ],
+        "fr": [
           "mitarbeiter-in-sozial-und-austrittsberatung-spital-nidwalden-stans"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-sozial-und-austrittsberatung-spital-nidwalden-stans"
+        "mitarbeiter-in-sozial-und-austrittsberatung-spital-nidwalden-stans",
+        "collaboratore-trice-in-sozial-e-austrittsberatung-spital-nidwalden-stans"
       ],
       "salaryMin": 86500,
       "salaryMax": 120500,

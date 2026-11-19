@@ -3833,12 +3833,12 @@
     },
     {
       "id": "coopers-a862b953243d",
-      "slug": "senior-business-analyst-in-derivate-m-w-d-coopers-bern",
+      "slug": "analista-aziendale-senior-derivati-m-f-d-coopers-group-ag-bern",
       "slugByLocale": {
         "de": "senior-business-analyst-in-derivate-m-w-d-coopers-bern",
-        "it": "senior-business-analyst-in-derivate-m-w-d-coopers-bern",
+        "it": "analista-aziendale-senior-derivati-m-f-d-coopers-group-ag-bern",
         "en": "senior-business-analyst-in-derivate-m-w-d-coopers-bern",
-        "fr": "senior-business-analyst-in-derivate-m-w-d-coopers-bern"
+        "fr": "analyste-d-affaires-senior-produits-derives-h-f-d-coopers-group-ag-bern"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -3914,7 +3914,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-17T21:20:13.594Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T21:20:13.594Z"
+      "firstSeenAt": "2026-11-18T21:20:13.594Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-business-analyst-in-derivate-m-w-d-coopers-bern"
+        ],
+        "fr": [
+          "senior-business-analyst-in-derivate-m-w-d-coopers-bern"
+        ]
+      },
+      "previousSlugs": [
+        "senior-business-analyst-in-derivate-m-w-d-coopers-bern"
+      ]
     },
     {
       "id": "coopers-e1f7d0a90067",

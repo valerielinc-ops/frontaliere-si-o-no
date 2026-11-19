@@ -1071,12 +1071,12 @@
     },
     {
       "id": "omega-34386",
-      "slug": "chef-de-projet-industrialisation-omega-biel-bienne",
+      "slug": "progetto-di-industrializzazione-omega-sa-biel-bienne",
       "slugByLocale": {
         "fr": "chef-de-projet-industrialisation-omega-biel-bienne",
-        "it": "chef-de-projet-industrialisation-omega-biel-bienne",
-        "en": "chef-de-projet-industrialisation-omega-biel-bienne",
-        "de": "chef-de-projet-industrialisation-omega-biel-bienne"
+        "it": "progetto-di-industrializzazione-omega-sa-biel-bienne",
+        "en": "industrialization-project-head-omega-sa-biel-bienne",
+        "de": "wirtschaftsprojekt-omega-sa-biel-bienne"
       },
       "company": "OMEGA SA",
       "companyKey": "omega",
@@ -1172,7 +1172,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-16T22:21:01.336Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T22:21:01.336Z"
+      "firstSeenAt": "2026-11-18T22:21:01.336Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-de-projet-industrialisation-omega-biel-bienne"
+        ],
+        "en": [
+          "chef-de-projet-industrialisation-omega-biel-bienne"
+        ],
+        "de": [
+          "chef-de-projet-industrialisation-omega-biel-bienne"
+        ]
+      },
+      "previousSlugs": [
+        "chef-de-projet-industrialisation-omega-biel-bienne"
+      ]
     }
   ]
 }

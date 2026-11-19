@@ -8862,12 +8862,12 @@
     },
     {
       "id": "roche-c506a753a9ea",
-      "slug": "praktikum-per-hochschulstudenten-innen-bei-quality-basel-drug-substance-manufacturing-per-12-monate-in-basel-roche-basel",
+      "slug": "tirocinio-per-studenti-universitari-e-presso-quality-basel-drug-substance-manufacturing-per-12-mesi-a-basilea-roche",
       "slugByLocale": {
         "de": "praktikum-fur-hochschulstudenten-innen-bei-quality-basel-drug-substance-manufacturing-fur",
-        "it": "praktikum-per-hochschulstudenten-innen-bei-quality-basel-drug-substance-manufacturing-per-12-monate-in-basel-roche-basel",
-        "en": "praktikum-fur-hochschulstudenten-innen-bei-quality-basel-drug-substance-manufacturing-fur",
-        "fr": "praktikum-fur-hochschulstudenten-innen-bei-quality-basel-drug-substance-manufacturing-fur"
+        "it": "tirocinio-per-studenti-universitari-e-presso-quality-basel-drug-substance-manufacturing-per-12-mesi-a-basilea-roche",
+        "en": "internship-for-university-students-at-quality-basel-drug-substance-manufacturing-for-12-months-in-basel-roche-basel",
+        "fr": "stage-pour-etudiants-es-universitaires-chez-quality-basel-drug-substance-manufacturing-pour-12-mois-a-bale-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -8912,11 +8912,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "praktikum-fur-hochschulstudenten-innen-bei-quality-basel-drug-substance-manufacturing-fur",
+          "praktikum-per-hochschulstudenten-innen-bei-quality-basel-drug-substance-manufacturing-per-12-monate-in-basel-roche-basel"
+        ],
+        "en": [
+          "praktikum-fur-hochschulstudenten-innen-bei-quality-basel-drug-substance-manufacturing-fur"
+        ],
+        "fr": [
           "praktikum-fur-hochschulstudenten-innen-bei-quality-basel-drug-substance-manufacturing-fur"
         ]
       },
       "previousSlugs": [
-        "praktikum-fur-hochschulstudenten-innen-bei-quality-basel-drug-substance-manufacturing-fur"
+        "praktikum-fur-hochschulstudenten-innen-bei-quality-basel-drug-substance-manufacturing-fur",
+        "praktikum-per-hochschulstudenten-innen-bei-quality-basel-drug-substance-manufacturing-per-12-monate-in-basel-roche-basel"
       ],
       "salaryMin": 69500,
       "salaryMax": 93500,
@@ -9020,12 +9028,12 @@
     },
     {
       "id": "roche-92c9740159ad",
-      "slug": "forward-deployment-engineer-trial-simulation-protocol-design-roche-ch",
+      "slug": "ingegnere-di-implementazione-sul-campo-simulazione-di-prove-e-progettazione-di-protocolli-roche-kaiseraugst",
       "slugByLocale": {
         "en": "digital-solution-lead-trial-simulation-protocol-design-roche-ch",
-        "it": "forward-deployment-engineer-trial-simulation-protocol-design-roche-ch",
-        "de": "forward-deployment-engineer-trial-simulation-protocol-design-roche-ch",
-        "fr": "forward-deployment-engineer-trial-simulation-protocol-design-roche-ch"
+        "it": "ingegnere-di-implementazione-sul-campo-simulazione-di-prove-e-progettazione-di-protocolli-roche-kaiseraugst",
+        "de": "ingenieur-fur-vor-ort-bereitstellung-versuchssimulation-protokolldesign-roche-kaiseraugst",
+        "fr": "ingenieur-en-deploiement-avance-simulation-d-essais-et-conception-de-protocoles-roche-kaiseraugst"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -9071,6 +9079,15 @@
       "previousSlugsByLocale": {
         "en": [
           "forward-deployment-engineer-trial-simulation-protocol-design-roche-ch"
+        ],
+        "it": [
+          "forward-deployment-engineer-trial-simulation-protocol-design-roche-ch"
+        ],
+        "de": [
+          "forward-deployment-engineer-trial-simulation-protocol-design-roche-ch"
+        ],
+        "fr": [
+          "forward-deployment-engineer-trial-simulation-protocol-design-roche-ch"
         ]
       },
       "previousSlugs": [
@@ -9099,12 +9116,12 @@
     },
     {
       "id": "roche-e2d4c7dc0c23",
-      "slug": "operations-partner-administrative-support-to-executive-leadership-roche-ch",
+      "slug": "operazioni-partner-supporto-amministrativo-alla-leadership-esecutivo-roche-basel",
       "slugByLocale": {
         "en": "operations-partner-administrative-support-to-executive-leadership-roche-ch",
-        "it": "operations-partner-administrative-support-to-executive-leadership-roche-ch",
-        "de": "operations-partner-administrative-support-to-executive-leadership-roche-ch",
-        "fr": "operations-partner-administrative-support-to-executive-leadership-roche-ch"
+        "it": "operazioni-partner-supporto-amministrativo-alla-leadership-esecutivo-roche-basel",
+        "de": "operations-partner-administrative-unterstutzung-der-fuhrungskrafte-roche-basel",
+        "fr": "partenaire-operationnel-appui-administratif-au-leadership-des-cadres-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -9166,7 +9183,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T21:18:30.322Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T21:18:30.322Z"
+      "firstSeenAt": "2026-11-18T21:18:30.322Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "operations-partner-administrative-support-to-executive-leadership-roche-ch"
+        ],
+        "de": [
+          "operations-partner-administrative-support-to-executive-leadership-roche-ch"
+        ],
+        "fr": [
+          "operations-partner-administrative-support-to-executive-leadership-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "operations-partner-administrative-support-to-executive-leadership-roche-ch"
+      ]
     },
     {
       "id": "roche-8d74ab96ca16",

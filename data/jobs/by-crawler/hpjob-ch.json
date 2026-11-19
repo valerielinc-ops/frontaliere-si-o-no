@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "hpjob-ch-a88cf34eff42",
-      "slug": "verkaufsinnendienst-mit-italienisch-hp-job-gmbh-au",
+      "slug": "addetto-a-alle-vendite-interne-con-conoscenza-dell-italiano-hp-job-gmbh-au-st-gallen",
       "slugByLocale": {
         "de": "verkaufsinnendienst-mit-italienisch-au-st-gallen-hpjob-ch-ch",
-        "it": "verkaufsinnendienst-mit-italienisch-hp-job-gmbh-au",
-        "en": "verkaufsinnendienst-mit-italienisch-hp-job-gmbh-au",
-        "fr": "verkaufsinnendienst-mit-italienisch-hp-job-gmbh-au"
+        "it": "addetto-a-alle-vendite-interne-con-conoscenza-dell-italiano-hp-job-gmbh-au-st-gallen",
+        "en": "internal-sales-service-with-italian-hp-job-gmbh-au-st-gallen",
+        "fr": "service-de-vente-interne-avec-italien-hp-job-gmbh-au-st-gallen"
       },
       "company": "HP Job GmbH",
       "companyKey": "hpjob-ch",
@@ -58,11 +58,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsinnendienst-mit-italienisch-au-st-gallen-hpjob-ch-ch"
+          "verkaufsinnendienst-mit-italienisch-au-st-gallen-hpjob-ch-ch",
+          "verkaufsinnendienst-mit-italienisch-hp-job-gmbh-au"
+        ],
+        "en": [
+          "verkaufsinnendienst-mit-italienisch-hp-job-gmbh-au"
+        ],
+        "fr": [
+          "verkaufsinnendienst-mit-italienisch-hp-job-gmbh-au"
         ]
       },
       "previousSlugs": [
-        "verkaufsinnendienst-mit-italienisch-au-st-gallen-hpjob-ch-ch"
+        "verkaufsinnendienst-mit-italienisch-au-st-gallen-hpjob-ch-ch",
+        "verkaufsinnendienst-mit-italienisch-hp-job-gmbh-au"
       ],
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -88,8 +96,8 @@
       "slugByLocale": {
         "de": "lackierer-maler-fur-produktion-buchs-sg-st-gallen-hpjob-ch-ch",
         "it": "lackierer-maler-per-produktion-hp-job-gmbh-buchs-sg",
-        "en": "lackierer-maler-fur-produktion-buchs-sg-st-gallen-hpjob-ch-ch",
-        "fr": "lackierer-maler-fur-produktion-buchs-sg-st-gallen-hpjob-ch-ch"
+        "en": "painter-painter-for-production-hp-job-gmbh-buchs-sg-st-gallen",
+        "fr": "peintre-pour-la-production-hp-job-gmbh-buchs-sg-st-gallen"
       },
       "company": "HP Job GmbH",
       "companyKey": "hpjob-ch",
@@ -138,6 +146,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lackierer-maler-fur-produktion-buchs-sg-st-gallen-hpjob-ch-ch"
+        ],
+        "en": [
+          "lackierer-maler-fur-produktion-buchs-sg-st-gallen-hpjob-ch-ch"
+        ],
+        "fr": [
+          "lackierer-maler-fur-produktion-buchs-sg-st-gallen-hpjob-ch-ch"
         ]
       },
       "previousSlugs": [
@@ -163,12 +177,12 @@
     },
     {
       "id": "hpjob-ch-8c345491c07d",
-      "slug": "technischer-kaufmann-mit-franzosischkenntnissen-hp-job-gmbh-balgach",
+      "slug": "impiegato-a-commerciale-tecnico-a-con-conoscenze-del-francese-hp-job-gmbh-balgach-st-gallen",
       "slugByLocale": {
         "de": "technischer-kaufmann-mit-franzosischkenntnissen-balgach-st-gallen-hpjob-ch-ch",
-        "it": "technischer-kaufmann-mit-franzosischkenntnissen-hp-job-gmbh-balgach",
-        "en": "technischer-kaufmann-mit-franzosischkenntnissen-hp-job-gmbh-balgach",
-        "fr": "technischer-kaufmann-mit-franzosischkenntnissen-hp-job-gmbh-balgach"
+        "it": "impiegato-a-commerciale-tecnico-a-con-conoscenze-del-francese-hp-job-gmbh-balgach-st-gallen",
+        "en": "technical-merchant-with-knowledge-of-french-hp-job-gmbh-balgach-st-gallen",
+        "fr": "marchand-technique-avec-connaissance-du-francais-hp-job-gmbh-balgach-st-gallen"
       },
       "company": "HP Job GmbH",
       "companyKey": "hpjob-ch",
@@ -216,11 +230,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "technischer-kaufmann-mit-franzosischkenntnissen-balgach-st-gallen-hpjob-ch-ch"
+          "technischer-kaufmann-mit-franzosischkenntnissen-balgach-st-gallen-hpjob-ch-ch",
+          "technischer-kaufmann-mit-franzosischkenntnissen-hp-job-gmbh-balgach"
+        ],
+        "en": [
+          "technischer-kaufmann-mit-franzosischkenntnissen-hp-job-gmbh-balgach"
+        ],
+        "fr": [
+          "technischer-kaufmann-mit-franzosischkenntnissen-hp-job-gmbh-balgach"
         ]
       },
       "previousSlugs": [
-        "technischer-kaufmann-mit-franzosischkenntnissen-balgach-st-gallen-hpjob-ch-ch"
+        "technischer-kaufmann-mit-franzosischkenntnissen-balgach-st-gallen-hpjob-ch-ch",
+        "technischer-kaufmann-mit-franzosischkenntnissen-hp-job-gmbh-balgach"
       ],
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -242,12 +264,12 @@
     },
     {
       "id": "hpjob-ch-dade420623e8",
-      "slug": "prozessfachmann-arbeitsvorbereitung-metallbearbeitung-hp-job-gmbh-au",
+      "slug": "specialista-di-processo-preparazione-del-lavoro-lavorazione-del-metallo-hp-job-gmbh-au-st-gallen",
       "slugByLocale": {
         "de": "prozessfachmann-arbeitsvorbereitung-metallbearbeitung-au-st-gallen-hpjob-ch-ch",
-        "it": "prozessfachmann-arbeitsvorbereitung-metallbearbeitung-hp-job-gmbh-au",
-        "en": "prozessfachmann-arbeitsvorbereitung-metallbearbeitung-hp-job-gmbh-au",
-        "fr": "prozessfachmann-arbeitsvorbereitung-metallbearbeitung-hp-job-gmbh-au"
+        "it": "specialista-di-processo-preparazione-del-lavoro-lavorazione-del-metallo-hp-job-gmbh-au-st-gallen",
+        "en": "process-specialist-work-preparation-metal-processing-hp-job-gmbh-au-st-gallen",
+        "fr": "specialiste-des-procedes-preparation-des-travaux-hp-job-gmbh-au-st-gallen"
       },
       "company": "HP Job GmbH",
       "companyKey": "hpjob-ch",
@@ -295,11 +317,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "prozessfachmann-arbeitsvorbereitung-metallbearbeitung-au-st-gallen-hpjob-ch-ch"
+          "prozessfachmann-arbeitsvorbereitung-metallbearbeitung-au-st-gallen-hpjob-ch-ch",
+          "prozessfachmann-arbeitsvorbereitung-metallbearbeitung-hp-job-gmbh-au"
+        ],
+        "en": [
+          "prozessfachmann-arbeitsvorbereitung-metallbearbeitung-hp-job-gmbh-au"
+        ],
+        "fr": [
+          "prozessfachmann-arbeitsvorbereitung-metallbearbeitung-hp-job-gmbh-au"
         ]
       },
       "previousSlugs": [
-        "prozessfachmann-arbeitsvorbereitung-metallbearbeitung-au-st-gallen-hpjob-ch-ch"
+        "prozessfachmann-arbeitsvorbereitung-metallbearbeitung-au-st-gallen-hpjob-ch-ch",
+        "prozessfachmann-arbeitsvorbereitung-metallbearbeitung-hp-job-gmbh-au"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

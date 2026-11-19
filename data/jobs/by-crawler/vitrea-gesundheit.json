@@ -750,12 +750,12 @@
     },
     {
       "id": "vitrea-gesundheit-aa10393aaf25",
-      "slug": "operative-r-einkauferin-a-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
+      "slug": "acquirente-operativo-a-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
       "slugByLocale": {
         "de": "operative-r-einkauferin-a-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
-        "it": "operative-r-einkauferin-a-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
-        "en": "operative-r-einkauferin-a-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
-        "fr": "operative-r-einkauferin-a-100-vitrea-gesundheit-zihlschlacht-sitterdorf"
+        "it": "acquirente-operativo-a-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
+        "en": "operational-purchaser-a-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
+        "fr": "acheteur-operationnel-a-100-vitrea-gesundheit-zihlschlacht-sitterdorf"
       },
       "company": "Vitrea Gesundheit",
       "companyKey": "vitrea-gesundheit",
@@ -816,7 +816,21 @@
       "streetAddress": "Zihlschlacht-Sitterdorf",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T21:19:42.683Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "operative-r-einkauferin-a-100-vitrea-gesundheit-zihlschlacht-sitterdorf"
+        ],
+        "en": [
+          "operative-r-einkauferin-a-100-vitrea-gesundheit-zihlschlacht-sitterdorf"
+        ],
+        "fr": [
+          "operative-r-einkauferin-a-100-vitrea-gesundheit-zihlschlacht-sitterdorf"
+        ]
+      },
+      "previousSlugs": [
+        "operative-r-einkauferin-a-100-vitrea-gesundheit-zihlschlacht-sitterdorf"
+      ]
     },
     {
       "id": "vitrea-gesundheit-67a711c04add",

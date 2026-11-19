@@ -6994,12 +6994,12 @@
     },
     {
       "id": "kanton-st-gallen-081679574494",
-      "slug": "leitung-wirtschaftsdelikte-w-m-d-staatsanwaltschaft-st-gallen-kanton-st-gallen-ch",
+      "slug": "capo-dei-crimini-di-affari-m-f-d-ufficio-del-pubblico-procuratore-st-gallen-kanton-st-gallen-st-gallen",
       "slugByLocale": {
         "de": "leitung-wirtschaftsdelikte-w-m-d-staatsanwaltschaft-st-gallen-kanton-st-gallen-ch",
-        "it": "leitung-wirtschaftsdelikte-w-m-d-staatsanwaltschaft-st-gallen-kanton-st-gallen-ch",
-        "en": "leitung-wirtschaftsdelikte-w-m-d-staatsanwaltschaft-st-gallen-kanton-st-gallen-ch",
-        "fr": "leitung-wirtschaftsdelikte-w-m-d-staatsanwaltschaft-st-gallen-kanton-st-gallen-ch"
+        "it": "capo-dei-crimini-di-affari-m-f-d-ufficio-del-pubblico-procuratore-st-gallen-kanton-st-gallen-st-gallen",
+        "en": "head-of-business-crimes-m-f-d-public-prosecutor-s-office-st-gallen-kanton-st-gallen-st-gallen",
+        "fr": "chef-des-affaires-h-f-d-bureau-du-procureur-general-st-gallen-kanton-st-gallen-st-gallen"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -7062,16 +7062,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-16T21:17:34.256Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T21:17:34.256Z"
+      "firstSeenAt": "2026-11-18T21:17:34.256Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitung-wirtschaftsdelikte-w-m-d-staatsanwaltschaft-st-gallen-kanton-st-gallen-ch"
+        ],
+        "en": [
+          "leitung-wirtschaftsdelikte-w-m-d-staatsanwaltschaft-st-gallen-kanton-st-gallen-ch"
+        ],
+        "fr": [
+          "leitung-wirtschaftsdelikte-w-m-d-staatsanwaltschaft-st-gallen-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "leitung-wirtschaftsdelikte-w-m-d-staatsanwaltschaft-st-gallen-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-ff56b746826e",
-      "slug": "business-analista-in-m-w-d-con-stellvertreterfunktion-per-den-betriebsleiter-nesa-kanton-st-gallen",
+      "slug": "analista-aziendale-m-f-d-con-funzione-di-vice-del-responsabile-operativo-nesa-kanton-st-gallen-st-gallen",
       "slugByLocale": {
         "de": "business-analyst-in-m-w-d-mit-stellvertreterfunktion-fur-den-betriebsleiter-nesa-kanton-st",
-        "it": "business-analista-in-m-w-d-con-stellvertreterfunktion-per-den-betriebsleiter-nesa-kanton-st-gallen",
-        "en": "business-analyst-in-m-w-d-mit-stellvertreterfunktion-fur-den-betriebsleiter-nesa-kanton-st",
-        "fr": "business-analyst-in-m-w-d-mit-stellvertreterfunktion-fur-den-betriebsleiter-nesa-kanton-st"
+        "it": "analista-aziendale-m-f-d-con-funzione-di-vice-del-responsabile-operativo-nesa-kanton-st-gallen-st-gallen",
+        "en": "business-analyst-m-f-d-with-deputy-role-for-operations-manager-nesa-kanton-st-gallen-st-gallen",
+        "fr": "business-analyst-h-f-d-avec-fonction-de-suppleance-du-responsable-d-exploitation-nesa-kanton-st-gallen-st-gallen"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -7120,11 +7134,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "business-analyst-in-m-w-d-mit-stellvertreterfunktion-fur-den-betriebsleiter-nesa-kanton-st",
+          "business-analista-in-m-w-d-con-stellvertreterfunktion-per-den-betriebsleiter-nesa-kanton-st-gallen"
+        ],
+        "en": [
+          "business-analyst-in-m-w-d-mit-stellvertreterfunktion-fur-den-betriebsleiter-nesa-kanton-st"
+        ],
+        "fr": [
           "business-analyst-in-m-w-d-mit-stellvertreterfunktion-fur-den-betriebsleiter-nesa-kanton-st"
         ]
       },
       "previousSlugs": [
-        "business-analyst-in-m-w-d-mit-stellvertreterfunktion-fur-den-betriebsleiter-nesa-kanton-st"
+        "business-analyst-in-m-w-d-mit-stellvertreterfunktion-fur-den-betriebsleiter-nesa-kanton-st",
+        "business-analista-in-m-w-d-con-stellvertreterfunktion-per-den-betriebsleiter-nesa-kanton-st-gallen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

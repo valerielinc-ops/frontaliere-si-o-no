@@ -9066,12 +9066,12 @@
     },
     {
       "id": "ksa-b4aa26b2273f",
-      "slug": "sachbearbeiter-in-administration-kantonsspital-aarau-ksa-aarau",
+      "slug": "impiegato-a-amministrativo-a-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "sachbearbeiter-in-administration-ksa-ch",
-        "it": "sachbearbeiter-in-administration-kantonsspital-aarau-ksa-aarau",
-        "en": "sachbearbeiter-in-administration-kantonsspital-aarau-ksa-aarau",
-        "fr": "sachbearbeiter-in-administration-kantonsspital-aarau-ksa-aarau"
+        "it": "impiegato-a-amministrativo-a-kantonsspital-aarau-ksa-aarau",
+        "en": "administrative-clerk-kantonsspital-aarau-ksa-aarau",
+        "fr": "collaborateur-administratif-collaboratrice-administrative-en-administration-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -9119,11 +9119,19 @@
       "department": "Kantonsspital Aarau AG",
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-administration-ksa-ch"
+          "sachbearbeiter-in-administration-ksa-ch",
+          "sachbearbeiter-in-administration-kantonsspital-aarau-ksa-aarau"
+        ],
+        "en": [
+          "sachbearbeiter-in-administration-kantonsspital-aarau-ksa-aarau"
+        ],
+        "fr": [
+          "sachbearbeiter-in-administration-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-administration-ksa-ch"
+        "sachbearbeiter-in-administration-ksa-ch",
+        "sachbearbeiter-in-administration-kantonsspital-aarau-ksa-aarau"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,

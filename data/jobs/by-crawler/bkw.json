@@ -25720,8 +25720,8 @@
       "slugByLocale": {
         "de": "leiter-in-service-center-nord-alle-bkw-ch",
         "it": "responsabile-service-center-nord-alle-bkw-biel-benken",
-        "en": "leiter-in-service-center-nord-alle-bkw-ch",
-        "fr": "leiter-in-service-center-nord-alle-bkw-ch"
+        "en": "head-of-service-center-north-all-genders-bkw-biel-benken",
+        "fr": "responsable-du-centre-de-services-nord-tous-genres-bkw-biel-benken"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -25770,6 +25770,12 @@
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-service-center-nord-alle-bkw-ch"
+        ],
+        "en": [
+          "leiter-in-service-center-nord-alle-bkw-ch"
+        ],
+        "fr": [
+          "leiter-in-service-center-nord-alle-bkw-ch"
         ]
       },
       "previousSlugs": [
@@ -25795,12 +25801,12 @@
     },
     {
       "id": "bkw-298a4019c1da",
-      "slug": "bereichsleiter-in-hochspannungsleitungen-alle-bkw-ch",
+      "slug": "responsabile-di-settore-delle-linee-ad-alta-tensione-tutti-bkw-luterbach",
       "slugByLocale": {
         "de": "bereichsleiter-in-hochspannungsleitungen-alle-bkw-ch",
-        "it": "bereichsleiter-in-hochspannungsleitungen-alle-bkw-ch",
-        "en": "bereichsleiter-in-hochspannungsleitungen-alle-bkw-ch",
-        "fr": "bereichsleiter-in-hochspannungsleitungen-alle-bkw-ch"
+        "it": "responsabile-di-settore-delle-linee-ad-alta-tensione-tutti-bkw-luterbach",
+        "en": "head-of-high-voltage-lines-all-genders-bkw-luterbach",
+        "fr": "responsable-du-secteur-des-lignes-a-haute-tension-tous-bkw-luterbach"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -25862,7 +25868,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-16T21:21:49.540Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T21:21:49.540Z"
+      "firstSeenAt": "2026-11-18T21:21:49.540Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "bereichsleiter-in-hochspannungsleitungen-alle-bkw-ch"
+        ],
+        "en": [
+          "bereichsleiter-in-hochspannungsleitungen-alle-bkw-ch"
+        ],
+        "fr": [
+          "bereichsleiter-in-hochspannungsleitungen-alle-bkw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "bereichsleiter-in-hochspannungsleitungen-alle-bkw-ch"
+      ]
     },
     {
       "id": "bkw-f5cab6e90c2a",

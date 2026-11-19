@@ -619,7 +619,7 @@
       "sourceLang": "de",
       "slug": "projektleiter-projektleiterin-logistik-supply-chain-w-m-d-galenica-galenica-burgdorf",
       "slugByLocale": {
-        "it": "project-manager-project-manager-logistica-supply-chain-m-f-d-galenica-galenica-burgdorf",
+        "it": "projektleiter-projektleiterin-logistik-supply-chain-w-m-d-galenica-galenica-burgdorf",
         "en": "project-manager-project-manager-logistics-supply-chain-m-f-d-galenica-galenica-burgdorf",
         "de": "galenica-galenica-projektleiter-projektleiterin-logistik-supply-chain-w-m-d-burgdorf",
         "fr": "chef-de-projet-cheffe-de-projet-logistique-chaine-d-approvisionnement-h-f-d-galenica-galenica-burgdorf"
@@ -635,12 +635,14 @@
       "id": "galenica-70edf8af43c1",
       "previousSlugs": [
         "galenica-galenica-projektleiter-projektleiterin-logistik-supply-chain-w-m-d-burgdorf",
-        "projektleiter-projektleiterin-logistik-supply-chain-m-w-d-galenica-burgdorf"
+        "projektleiter-projektleiterin-logistik-supply-chain-m-w-d-galenica-burgdorf",
+        "project-manager-project-manager-logistica-supply-chain-m-f-d-galenica-galenica-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "galenica-galenica-projektleiter-projektleiterin-logistik-supply-chain-w-m-d-burgdorf",
-          "projektleiter-projektleiterin-logistik-supply-chain-m-w-d-galenica-burgdorf"
+          "projektleiter-projektleiterin-logistik-supply-chain-m-w-d-galenica-burgdorf",
+          "project-manager-project-manager-logistica-supply-chain-m-f-d-galenica-galenica-burgdorf"
         ],
         "en": [
           "galenica-galenica-projektleiter-projektleiterin-logistik-supply-chain-w-m-d-burgdorf"
@@ -1312,7 +1314,7 @@
       "slug": "galenica-galenica-assistant-assistante-en-pharmacie-cfc-formation-continue-et-soins-de-premier-recours-medinform-f-h-d-bern",
       "slugByLocale": {
         "it": "galenica-galenica-assistant-assistante-en-pharmacie-cfc-formation-continue-et-soins-de-premier-recours-medinform-f-h-d-bern",
-        "en": "galenica-galenica-assistant-assistante-en-pharmacie-cfc-formation-continue-et-soins-de-premier-recours-medinform-f-h-d-bern",
+        "en": "pharmacy-assistant-cfc-continuing-training-and-first-recourse-care-medinform-m-f-d-galenica-galenica-bern",
         "de": "galenica-galenica-assistant-assistante-en-pharmacie-cfc-formation-continue-et-soins-de-premier-recours-medinform-f-h-d-bern",
         "fr": "galenica-galenica-assistant-assistante-en-pharmacie-cfc-formation-continue-et-soins-de-premier-recours-medinform-f-h-d-bern"
       },
@@ -1345,7 +1347,15 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-16T21:20:58.983Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T21:20:58.983Z"
+      "firstSeenAt": "2026-11-18T21:20:58.983Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "galenica-galenica-assistant-assistante-en-pharmacie-cfc-formation-continue-et-soins-de-premier-recours-medinform-f-h-d-bern"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-galenica-assistant-assistante-en-pharmacie-cfc-formation-continue-et-soins-de-premier-recours-medinform-f-h-d-bern"
+      ]
     },
     {
       "title": "Apotheker als Geschäftsführer / Apothekerin als Geschäftsführerin (w/m/d)",
@@ -1916,12 +1926,12 @@
       "postedDate": "",
       "source": "company-website",
       "sourceLang": "de",
-      "slug": "apotheker-apothekerin-fortbildung-e-pharmazeutische-dienstleistungen-grundversorgung-bei-medinform-m-w-d-galenica-bern",
+      "slug": "farmacista-formazione-continua-e-servizi-farmaceutici-di-base-presso-medinform-m-f-d-galenica-galenica-bern",
       "slugByLocale": {
-        "it": "apotheker-apothekerin-fortbildung-e-pharmazeutische-dienstleistungen-grundversorgung-bei-medinform-m-w-d-galenica-bern",
-        "en": "galenica-galenica-apotheker-apothekerin-fortbildung-und-pharmazeutische-dienstleistungen-grundversorgung-bei-medinform-w-m-d-bern",
+        "it": "farmacista-formazione-continua-e-servizi-farmaceutici-di-base-presso-medinform-m-f-d-galenica-galenica-bern",
+        "en": "pharmacist-training-and-pharmaceutical-services-for-primary-care-at-medinform-m-f-d-galenica-galenica-bern",
         "de": "galenica-galenica-apotheker-apothekerin-fortbildung-und-pharmazeutische-dienstleistungen-grundversorgung-bei-medinform-w-m-d-bern",
-        "fr": "galenica-galenica-apotheker-apothekerin-fortbildung-und-pharmazeutische-dienstleistungen-grundversorgung-bei-medinform-w-m-d-bern"
+        "fr": "pharmacienne-formation-et-services-pharmaceutiques-pour-les-soins-primaires-au-medinform-h-f-d-galenica-galenica-bern"
       },
       "titleByLocale": {
         "it": "Farmacista – Formazione continua e servizi farmaceutici di base presso medinform (m/f/d)",
@@ -1934,11 +1944,19 @@
       "id": "galenica-1010e553ef32",
       "previousSlugsByLocale": {
         "it": [
+          "galenica-galenica-apotheker-apothekerin-fortbildung-und-pharmazeutische-dienstleistungen-grundversorgung-bei-medinform-w-m-d-bern",
+          "apotheker-apothekerin-fortbildung-e-pharmazeutische-dienstleistungen-grundversorgung-bei-medinform-m-w-d-galenica-bern"
+        ],
+        "en": [
+          "galenica-galenica-apotheker-apothekerin-fortbildung-und-pharmazeutische-dienstleistungen-grundversorgung-bei-medinform-w-m-d-bern"
+        ],
+        "fr": [
           "galenica-galenica-apotheker-apothekerin-fortbildung-und-pharmazeutische-dienstleistungen-grundversorgung-bei-medinform-w-m-d-bern"
         ]
       },
       "previousSlugs": [
-        "galenica-galenica-apotheker-apothekerin-fortbildung-und-pharmazeutische-dienstleistungen-grundversorgung-bei-medinform-w-m-d-bern"
+        "galenica-galenica-apotheker-apothekerin-fortbildung-und-pharmazeutische-dienstleistungen-grundversorgung-bei-medinform-w-m-d-bern",
+        "apotheker-apothekerin-fortbildung-e-pharmazeutische-dienstleistungen-grundversorgung-bei-medinform-m-w-d-galenica-bern"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -2954,8 +2972,8 @@
       "slug": "galenica-galenica-pharmacien-pharmacienne-formation-continue-et-prestations-pharmaceutiques-medinform-f-h-d-bern",
       "slugByLocale": {
         "it": "galenica-galenica-pharmacien-pharmacienne-formation-continue-et-prestations-pharmaceutiques-medinform-f-h-d-bern",
-        "en": "galenica-galenica-pharmacien-pharmacienne-formation-continue-et-prestations-pharmaceutiques-medinform-f-h-d-bern",
-        "de": "galenica-galenica-pharmacien-pharmacienne-formation-continue-et-prestations-pharmaceutiques-medinform-f-h-d-bern",
+        "en": "pharmacist-pharmacist-continuing-education-and-pharmaceutical-benefits-medinform-m-f-d-galenica-galenica-bern",
+        "de": "apotheker-apotheker-weiterbildung-und-pharmazeutische-leistungen-medinform-m-w-d-galenica-galenica-bern",
         "fr": "galenica-galenica-pharmacien-pharmacienne-formation-continue-et-prestations-pharmaceutiques-medinform-f-h-d-bern"
       },
       "titleByLocale": {
@@ -2987,7 +3005,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-16T21:20:58.983Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T21:20:58.983Z"
+      "firstSeenAt": "2026-11-18T21:20:58.983Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "galenica-galenica-pharmacien-pharmacienne-formation-continue-et-prestations-pharmaceutiques-medinform-f-h-d-bern"
+        ],
+        "de": [
+          "galenica-galenica-pharmacien-pharmacienne-formation-continue-et-prestations-pharmaceutiques-medinform-f-h-d-bern"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-galenica-pharmacien-pharmacienne-formation-continue-et-prestations-pharmaceutiques-medinform-f-h-d-bern"
+      ]
     },
     {
       "title": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
@@ -5016,12 +5045,12 @@
       "postedDate": "",
       "source": "company-website",
       "sourceLang": "de",
-      "slug": "galenica-galenica-apotheker-apothekerin-w-m-d-dietikon",
+      "slug": "farmacista-farmacista-m-f-d-galenica-galenica-dietikon",
       "slugByLocale": {
-        "it": "galenica-galenica-apotheker-apothekerin-w-m-d-dietikon",
-        "en": "galenica-galenica-apotheker-apothekerin-w-m-d-dietikon",
+        "it": "farmacista-farmacista-m-f-d-galenica-galenica-dietikon",
+        "en": "pharmacist-pharmacist-m-f-d-galenica-galenica-dietikon",
         "de": "galenica-galenica-apotheker-apothekerin-w-m-d-dietikon",
-        "fr": "galenica-galenica-apotheker-apothekerin-w-m-d-dietikon"
+        "fr": "pharmacienne-pharmacienne-h-f-d-galenica-galenica-dietikon"
       },
       "titleByLocale": {
         "it": "Farmacista / farmacista (m/f/d)",
@@ -5052,7 +5081,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-16T21:20:58.983Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T21:20:58.983Z"
+      "firstSeenAt": "2026-11-18T21:20:58.983Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-galenica-apotheker-apothekerin-w-m-d-dietikon"
+        ],
+        "en": [
+          "galenica-galenica-apotheker-apothekerin-w-m-d-dietikon"
+        ],
+        "fr": [
+          "galenica-galenica-apotheker-apothekerin-w-m-d-dietikon"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-galenica-apotheker-apothekerin-w-m-d-dietikon"
+      ]
     },
     {
       "title": "Assistant / Assistante en pharmacie (f/h/d)",
@@ -6022,12 +6065,12 @@
       "postedDate": "",
       "source": "company-website",
       "sourceLang": "de",
-      "slug": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-st-gallen",
+      "slug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-galenica-st-gallen",
       "slugByLocale": {
-        "it": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-st-gallen",
-        "en": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-st-gallen",
+        "it": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-galenica-st-gallen",
+        "en": "pharmaceutical-assistant-pharmaceutical-assistant-m-f-d-galenica-galenica-st-gallen",
         "de": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-st-gallen",
-        "fr": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-st-gallen"
+        "fr": "assistant-pharmaceutique-assistant-pharmaceutique-h-f-d-galenica-galenica-st-gallen"
       },
       "titleByLocale": {
         "it": "Assistente farmaceutico / Assistente farmaceutico (m/f/d)",
@@ -6058,7 +6101,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-16T21:20:58.983Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T21:20:58.983Z"
+      "firstSeenAt": "2026-11-18T21:20:58.983Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-st-gallen"
+        ],
+        "en": [
+          "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-st-gallen"
+        ],
+        "fr": [
+          "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-st-gallen"
+      ]
     },
     {
       "title": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
@@ -6608,7 +6665,7 @@
       "sourceLang": "fr",
       "slug": "pharmacien-adjoint-pharmacienne-adjointe-f-m-d-galenica-galenica-nyon",
       "slugByLocale": {
-        "it": "assistente-farmacista-assistente-farmacista-m-f-d-galenica-galenica-nyon",
+        "it": "pharmacien-adjoint-pharmacienne-adjointe-f-m-d-galenica-galenica-nyon",
         "en": "assistant-pharmacist-assistant-pharmacist-m-f-d-galenica-galenica-nyon",
         "de": "assistenzapotheker-assistenzapotheker-m-w-d-galenica-galenica-nyon",
         "fr": "galenica-galenica-pharmacien-adjoint-pharmacienne-adjointe-f-h-d-nyon"
@@ -6624,12 +6681,14 @@
       "id": "galenica-4b8a3441a5ae",
       "previousSlugs": [
         "galenica-galenica-pharmacien-adjoint-pharmacienne-adjointe-f-h-d-nyon",
-        "pharmacien-adjoint-pharmacienne-adjointe-m-w-d-galenica-nyon"
+        "pharmacien-adjoint-pharmacienne-adjointe-m-w-d-galenica-nyon",
+        "assistente-farmacista-assistente-farmacista-m-f-d-galenica-galenica-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "galenica-galenica-pharmacien-adjoint-pharmacienne-adjointe-f-h-d-nyon",
-          "pharmacien-adjoint-pharmacienne-adjointe-m-w-d-galenica-nyon"
+          "pharmacien-adjoint-pharmacienne-adjointe-m-w-d-galenica-nyon",
+          "assistente-farmacista-assistente-farmacista-m-f-d-galenica-galenica-nyon"
         ],
         "en": [
           "galenica-galenica-pharmacien-adjoint-pharmacienne-adjointe-f-h-d-nyon"
@@ -6920,12 +6979,12 @@
       "postedDate": "",
       "source": "company-website",
       "sourceLang": "de",
-      "slug": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-zurich",
+      "slug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-galenica-zurich-a01473",
       "slugByLocale": {
-        "it": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-zurich",
-        "en": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-zurich",
+        "it": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-galenica-zurich-a01473",
+        "en": "pharmaceutical-assistant-pharmaceutical-assistant-m-f-d-galenica-galenica-zurich-a01473",
         "de": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-zurich",
-        "fr": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-zurich"
+        "fr": "assistant-pharmaceutique-assistant-pharmaceutique-h-f-d-galenica-galenica-zurich-a01473"
       },
       "titleByLocale": {
         "it": "Assistente farmaceutico / Assistente farmaceutico (m/f/d)",
@@ -6956,7 +7015,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-19T21:20:58.983Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-21T09:26:11.365Z"
+      "firstSeenAt": "2026-10-21T09:26:11.365Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-zurich"
+        ],
+        "en": [
+          "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-zurich"
+        ],
+        "fr": [
+          "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-zurich"
+      ]
     },
     {
       "title": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
@@ -7683,12 +7756,12 @@
       "postedDate": "",
       "source": "company-website",
       "sourceLang": "de",
-      "slug": "galenica-galenica-ag-senior-hr-berater-beraterin-w-m-d-bern",
+      "slug": "consulente-senior-hr-m-f-d-galenica-ag-galenica-bern",
       "slugByLocale": {
-        "it": "galenica-galenica-ag-senior-hr-berater-beraterin-w-m-d-bern",
-        "en": "galenica-galenica-ag-senior-hr-berater-beraterin-w-m-d-bern",
+        "it": "consulente-senior-hr-m-f-d-galenica-ag-galenica-bern",
+        "en": "senior-hr-consultant-consultant-m-f-d-galenica-ag-galenica-bern",
         "de": "galenica-galenica-ag-senior-hr-berater-beraterin-w-m-d-bern",
-        "fr": "galenica-galenica-ag-senior-hr-berater-beraterin-w-m-d-bern"
+        "fr": "conseiller-conseillere-rh-senior-h-f-d-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
         "it": "Consulente senior HR (m/f/d)",
@@ -7719,7 +7792,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-16T21:20:58.983Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T21:20:58.983Z"
+      "firstSeenAt": "2026-11-18T21:20:58.983Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-galenica-ag-senior-hr-berater-beraterin-w-m-d-bern"
+        ],
+        "en": [
+          "galenica-galenica-ag-senior-hr-berater-beraterin-w-m-d-bern"
+        ],
+        "fr": [
+          "galenica-galenica-ag-senior-hr-berater-beraterin-w-m-d-bern"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-galenica-ag-senior-hr-berater-beraterin-w-m-d-bern"
+      ]
     },
     {
       "title": "Apotheker / Apothekerin (w/m/d)",

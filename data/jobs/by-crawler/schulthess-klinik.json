@@ -1361,12 +1361,12 @@
     },
     {
       "id": "schulthess-klinik-6ede94e6d1a9",
-      "slug": "arztsekretarin-arztsekretar-handchirurgie-schulthess-klinik-zurich",
+      "slug": "segreto-medico-segreto-medico-chirurgia-della-mano-schulthess-klinik-zurich",
       "slugByLocale": {
         "de": "arztsekretarin-arztsekretar-handchirurgie-schulthess-klinik-zurich",
-        "it": "arztsekretarin-arztsekretar-handchirurgie-schulthess-klinik-zurich",
+        "it": "segreto-medico-segreto-medico-chirurgia-della-mano-schulthess-klinik-zurich",
         "en": "arztsekretarin-arztsekretar-handchirurgie-schulthess-klinik-zurich",
-        "fr": "arztsekretarin-arztsekretar-handchirurgie-schulthess-klinik-zurich"
+        "fr": "secretaire-medical-secretaire-medical-chirurgie-manuelle-schulthess-klinik-zurich"
       },
       "company": "Schulthess Klinik",
       "companyKey": "schulthess-klinik",
@@ -1428,7 +1428,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-18T21:16:00.303Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-01T14:09:05.664Z"
+      "firstSeenAt": "2026-09-01T14:09:05.664Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretarin-arztsekretar-handchirurgie-schulthess-klinik-zurich"
+        ],
+        "fr": [
+          "arztsekretarin-arztsekretar-handchirurgie-schulthess-klinik-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekretarin-arztsekretar-handchirurgie-schulthess-klinik-zurich"
+      ]
     }
   ]
 }

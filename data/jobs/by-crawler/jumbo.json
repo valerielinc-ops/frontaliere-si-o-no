@@ -19490,12 +19490,12 @@
     },
     {
       "id": "jumbo-1e2805b1-edd",
-      "slug": "verkaufsberater-in-garten-jumbo-emmen",
+      "slug": "consulente-di-vendita-per-il-reparto-giardino-jumbo-emmen",
       "slugByLocale": {
         "de": "verkaufsberater-in-garten-jumbo-emmen",
-        "it": "verkaufsberater-in-garten-jumbo-emmen",
-        "en": "verkaufsberater-in-garten-jumbo-emmen",
-        "fr": "verkaufsberater-in-garten-jumbo-emmen"
+        "it": "consulente-di-vendita-per-il-reparto-giardino-jumbo-emmen",
+        "en": "sales-advisor-garden-jumbo-emmen",
+        "fr": "conseiller-ere-de-vente-en-jardinerie-jumbo-emmen"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -19571,7 +19571,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-16T21:15:28.087Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T21:15:28.087Z"
+      "firstSeenAt": "2026-11-18T21:15:28.087Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-garten-jumbo-emmen"
+        ],
+        "en": [
+          "verkaufsberater-in-garten-jumbo-emmen"
+        ],
+        "fr": [
+          "verkaufsberater-in-garten-jumbo-emmen"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-garten-jumbo-emmen"
+      ]
     },
     {
       "id": "jumbo-504c7ecd-51d",
@@ -19768,10 +19782,10 @@
     },
     {
       "id": "jumbo-54d092ae-25a",
-      "slug": "consulente-di-vendita-garden-jumbo-heimberg-85f400473c",
+      "slug": "consulente-di-vendita-garden-jumbo-heimberg",
       "slugByLocale": {
         "de": "verkaufsberater-in-garden-jumbo-heimberg",
-        "it": "consulente-di-vendita-garden-jumbo-heimberg-85f400473c",
+        "it": "consulente-di-vendita-garden-jumbo-heimberg",
         "en": "sales-advisor-garden-jumbo-heimberg",
         "fr": "conseiller-ere-de-vente-garden-jumbo-heimberg"
       },
@@ -19835,12 +19849,12 @@
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "verkaufsberater-in-garden-jumbo-heimberg",
-        "consulente-di-vendita-garden-jumbo-heimberg"
+        "consulente-di-vendita-garden-jumbo-heimberg-85f400473c"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-garden-jumbo-heimberg",
-          "consulente-di-vendita-garden-jumbo-heimberg"
+          "consulente-di-vendita-garden-jumbo-heimberg-85f400473c"
         ],
         "en": [
           "verkaufsberater-in-garden-jumbo-heimberg"
@@ -19870,7 +19884,7 @@
     },
     {
       "id": "jumbo-43d252fe-8df",
-      "slug": "addetta-addetto-alle-vendite-garden-m-f-d-jumbo-bienne-bbf0ab4c36",
+      "slug": "addetta-addetto-alle-vendite-garden-m-f-d-jumbo-bienne",
       "slugByLocale": {
         "fr": "conseillere-conseiller-de-vente-garden-f-h-d-jumbo-bienne",
         "it": "addetta-addetto-alle-vendite-garden-m-f-d-jumbo-bienne",
@@ -19929,11 +19943,13 @@
       "needsRetranslation": false,
       "_enrichedFromDetail": true,
       "previousSlugs": [
-        "conseillere-conseiller-de-vente-garden-f-h-d-jumbo-bienne"
+        "conseillere-conseiller-de-vente-garden-f-h-d-jumbo-bienne",
+        "addetta-addetto-alle-vendite-garden-m-f-d-jumbo-bienne-bbf0ab4c36"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseillere-conseiller-de-vente-garden-f-h-d-jumbo-bienne"
+          "conseillere-conseiller-de-vente-garden-f-h-d-jumbo-bienne",
+          "addetta-addetto-alle-vendite-garden-m-f-d-jumbo-bienne-bbf0ab4c36"
         ],
         "en": [
           "conseillere-conseiller-de-vente-garden-f-h-d-jumbo-bienne"

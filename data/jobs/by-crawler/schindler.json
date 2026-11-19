@@ -1995,12 +1995,12 @@
     },
     {
       "id": "schindler-351089cd8ec1",
-      "slug": "geschaftsfuhrer-schindler-repro-m-w-d-80-100-schindler-ebikon",
+      "slug": "amministratore-delegato-schindler-repro-m-f-d-80-100-schindler-ebikon",
       "slugByLocale": {
         "de": "geschaftsfuhrer-schindler-repro-m-w-d-80-100-schindler-ebikon",
-        "it": "geschaftsfuhrer-schindler-repro-m-w-d-80-100-schindler-ebikon",
-        "en": "geschaftsfuhrer-schindler-repro-m-w-d-80-100-schindler-ebikon",
-        "fr": "geschaftsfuhrer-schindler-repro-m-w-d-80-100-schindler-ebikon"
+        "it": "amministratore-delegato-schindler-repro-m-f-d-80-100-schindler-ebikon",
+        "en": "managing-director-schindler-repro-m-f-d-80-100-schindler-ebikon",
+        "fr": "directeur-general-schindler-repro-h-f-d-80-100-schindler-ebikon"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -2063,7 +2063,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T21:19:53.333Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T21:19:53.333Z"
+      "firstSeenAt": "2026-11-18T21:19:53.333Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "geschaftsfuhrer-schindler-repro-m-w-d-80-100-schindler-ebikon"
+        ],
+        "en": [
+          "geschaftsfuhrer-schindler-repro-m-w-d-80-100-schindler-ebikon"
+        ],
+        "fr": [
+          "geschaftsfuhrer-schindler-repro-m-w-d-80-100-schindler-ebikon"
+        ]
+      },
+      "previousSlugs": [
+        "geschaftsfuhrer-schindler-repro-m-w-d-80-100-schindler-ebikon"
+      ]
     },
     {
       "id": "schindler-8ba87e043de5",
@@ -8574,7 +8588,7 @@
       "slug": "responsabile-del-consenso-ai-cookie-schindler-bussigny",
       "slugByLocale": {
         "it": "responsabile-del-consenso-ai-cookie-schindler-bussigny",
-        "en": "cookie-consent-manager-schindler-bussigny-qcnbsr",
+        "en": "cookie-consent-manager-schindler-bussigny",
         "de": "cookie-einwilligungsmanager-schindler-bussigny",
         "fr": "gestionnaire-de-consentements-pour-les-cookies-schindler-bussigny"
       },
@@ -8627,7 +8641,7 @@
         "gestionnaire-de-consentements-pour-les-cookies-schindler-bussigny",
         "swc-trade-apprendimento-dei-dipendenti-per-2027-schindler-bussigny",
         "apprentissage-de-constructeur-d-appareils-industriels-cfc-monteur-d-ascenseurs-schindler-bussigny",
-        "cookie-consent-manager-schindler-bussigny"
+        "cookie-consent-manager-schindler-bussigny-qcnbsr"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8643,7 +8657,7 @@
           "apprentissage-de-constructeur-d-appareils-industriels-cfc-monteur-d-ascenseurs-schindler-bussigny"
         ],
         "en": [
-          "cookie-consent-manager-schindler-bussigny"
+          "cookie-consent-manager-schindler-bussigny-qcnbsr"
         ]
       },
       "firstSeenAt": "2026-08-24T21:32:05.582Z",
@@ -9120,7 +9134,7 @@
       "slug": "responsabile-del-consenso-ai-cookie-schindler-sion",
       "slugByLocale": {
         "it": "responsabile-del-consenso-ai-cookie-schindler-sion",
-        "en": "cookie-consent-manager-schindler-sion-qcokaf",
+        "en": "cookie-consent-manager-schindler-sion",
         "de": "cookie-einwilligungsmanager-schindler-sion",
         "fr": "gestionnaire-de-consentements-pour-les-cookies-schindler-sion"
       },
@@ -9180,7 +9194,7 @@
           "montatore-polimeccanico-cfc-elevatore-per-2027-schindler-sion"
         ],
         "en": [
-          "cookie-consent-manager-schindler-sion"
+          "cookie-consent-manager-schindler-sion-qcokaf"
         ]
       },
       "previousSlugs": [
@@ -9192,7 +9206,7 @@
         "polymechanisches-cfc-elevator-mounter-learning-fur-2027-schindler-sion",
         "polymechanische-fckw-aufzugshalterung-fur-2027-schindler-sion",
         "montatore-polimeccanico-cfc-elevatore-per-2027-schindler-sion",
-        "cookie-consent-manager-schindler-sion"
+        "cookie-consent-manager-schindler-sion-qcokaf"
       ],
       "firstSeenAt": "2026-08-24T21:32:06.358Z",
       "salaryMin": 72000,
@@ -9815,10 +9829,10 @@
     },
     {
       "id": "schindler-2617e6024cff",
-      "slug": "product-owner-customer-care-platform-m-f-d-80-100-schindler-ebikon",
+      "slug": "piattaforma-di-assistenza-clienti-m-f-d-80-100-schindler-ebikon",
       "slugByLocale": {
         "en": "product-owner-customer-care-platform-m-f-d-80-100-schindler-ebikon",
-        "it": "product-owner-customer-care-platform-m-f-d-80-100-schindler-ebikon",
+        "it": "piattaforma-di-assistenza-clienti-m-f-d-80-100-schindler-ebikon",
         "de": "product-owner-customer-care-platform-m-f-d-80-100-schindler-ebikon",
         "fr": "product-owner-customer-care-platform-m-f-d-80-100-schindler-ebikon"
       },
@@ -9883,7 +9897,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T21:18:36.977Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T21:18:36.977Z"
+      "firstSeenAt": "2026-11-18T21:18:36.977Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "product-owner-customer-care-platform-m-f-d-80-100-schindler-ebikon"
+        ]
+      },
+      "previousSlugs": [
+        "product-owner-customer-care-platform-m-f-d-80-100-schindler-ebikon"
+      ]
     },
     {
       "id": "schindler-d186ef120d62",

@@ -5903,8 +5903,8 @@
       "slugByLocale": {
         "de": "op-logistiker-in-80-fmi-unterseen",
         "it": "op-impiegata-impiegato-in-logistica-80-spitaler-fmi-ag-unterseen",
-        "en": "op-logistiker-in-80-spitaler-fmi-ag-unterseen",
-        "fr": "op-logistiker-in-80-spitaler-fmi-ag-unterseen"
+        "en": "operating-room-logistics-specialist-80-spitaler-fmi-ag-unterseen",
+        "fr": "logisticien-logisticienne-de-bloc-operatoire-80-spitaler-fmi-ag-unterseen"
       },
       "company": "Spitäler fmi AG",
       "companyKey": "fmi",
@@ -5952,10 +5952,17 @@
       "previousSlugsByLocale": {
         "it": [
           "op-logistiker-in-80-fmi-unterseen"
+        ],
+        "en": [
+          "op-logistiker-in-80-spitaler-fmi-ag-unterseen"
+        ],
+        "fr": [
+          "op-logistiker-in-80-spitaler-fmi-ag-unterseen"
         ]
       },
       "previousSlugs": [
-        "op-logistiker-in-80-fmi-unterseen"
+        "op-logistiker-in-80-fmi-unterseen",
+        "op-logistiker-in-80-spitaler-fmi-ag-unterseen"
       ],
       "salaryMin": 61600,
       "salaryMax": 93200,
@@ -5983,7 +5990,7 @@
         "de": "case-manager-in-sozialberatung-patienten-austrittsmanagement-70-fmi-unterseen",
         "it": "case-manager-in-sozialberatung-patienten-austrittsmanagement-70-fmi-unterseen",
         "en": "case-manager-in-sozialberatung-patienten-austrittsmanagement-70-fmi-unterseen",
-        "fr": "case-manager-in-sozialberatung-patienten-austrittsmanagement-70-fmi-unterseen"
+        "fr": "gestionnaire-de-cas-en-conseil-social-gestion-de-la-sortie-des-patients-70-spitaler-fmi-ag-unterseen"
       },
       "company": "Spitäler fmi AG",
       "companyKey": "fmi",
@@ -6046,7 +6053,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T21:21:16.576Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T21:21:16.576Z"
+      "firstSeenAt": "2026-11-18T21:21:16.576Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "case-manager-in-sozialberatung-patienten-austrittsmanagement-70-fmi-unterseen"
+        ]
+      },
+      "previousSlugs": [
+        "case-manager-in-sozialberatung-patienten-austrittsmanagement-70-fmi-unterseen"
+      ]
     },
     {
       "id": "fmi-5eaf27b923e6",

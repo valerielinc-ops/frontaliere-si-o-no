@@ -2859,12 +2859,12 @@
     },
     {
       "id": "stadt-bern-b00437fe8068",
-      "slug": "collaboratore-trice-in-punkt-6-sunntigs-znacht-stadt-bern",
+      "slug": "collaboratore-trice-punto-6-cena-della-domenica-stadt-bern-bern",
       "slugByLocale": {
         "de": "mitarbeiter-in-punkt-6-amp-sunntigs-znacht-stadt-bern-bern",
-        "it": "collaboratore-trice-in-punkt-6-sunntigs-znacht-stadt-bern",
-        "en": "mitarbeiter-in-punkt-6-amp-sunntigs-znacht-stadt-bern-bern",
-        "fr": "mitarbeiter-in-punkt-6-amp-sunntigs-znacht-stadt-bern-bern"
+        "it": "collaboratore-trice-punto-6-cena-della-domenica-stadt-bern-bern",
+        "en": "employee-point-6-sunday-dinner-stadt-bern-bern",
+        "fr": "collaborateur-rice-punkt-6-sunntigs-znacht-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -2912,11 +2912,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-punkt-6-amp-sunntigs-znacht-stadt-bern-bern",
+          "collaboratore-trice-in-punkt-6-sunntigs-znacht-stadt-bern"
+        ],
+        "en": [
+          "mitarbeiter-in-punkt-6-amp-sunntigs-znacht-stadt-bern-bern"
+        ],
+        "fr": [
           "mitarbeiter-in-punkt-6-amp-sunntigs-znacht-stadt-bern-bern"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-punkt-6-amp-sunntigs-znacht-stadt-bern-bern"
+        "mitarbeiter-in-punkt-6-amp-sunntigs-znacht-stadt-bern-bern",
+        "collaboratore-trice-in-punkt-6-sunntigs-znacht-stadt-bern"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -2938,10 +2946,10 @@
     },
     {
       "id": "stadt-bern-ca19347ca544",
-      "slug": "gartner-in-stadt-bern-bern",
+      "slug": "giardiniere-a-stadt-bern-bern-c1bad1",
       "slugByLocale": {
         "de": "gartner-in-stadt-bern-bern",
-        "it": "gartner-in-stadt-bern-bern",
+        "it": "giardiniere-a-stadt-bern-bern-c1bad1",
         "en": "gartner-in-stadt-bern-bern",
         "fr": "gartner-in-stadt-bern-bern"
       },
@@ -3005,7 +3013,15 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-19T21:14:04.744Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-19T22:46:53.597Z"
+      "firstSeenAt": "2026-09-19T22:46:53.597Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gartner-in-stadt-bern-bern"
+        ]
+      },
+      "previousSlugs": [
+        "gartner-in-stadt-bern-bern"
+      ]
     },
     {
       "id": "stadt-bern-660c32ed93cc",

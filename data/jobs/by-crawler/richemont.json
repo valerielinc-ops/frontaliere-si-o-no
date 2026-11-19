@@ -14671,12 +14671,12 @@
     },
     {
       "id": "richemont-f049073a619e",
-      "slug": "company-accountant-richemont-villars-sur-glane",
+      "slug": "company-contabile-richemont-villars-sur-glane",
       "slugByLocale": {
         "fr": "company-accountant-richemont-villars-sur-glane",
-        "it": "company-accountant-richemont-villars-sur-glane",
+        "it": "company-contabile-richemont-villars-sur-glane",
         "en": "company-accountant-richemont-villars-sur-glane",
-        "de": "company-accountant-richemont-villars-sur-glane"
+        "de": "company-buchhalter-richemont-villars-sur-glane"
       },
       "company": "Richemont",
       "companyKey": "richemont",
@@ -14740,7 +14740,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T21:32:07.562Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T21:32:07.562Z"
+      "firstSeenAt": "2026-11-18T21:32:07.562Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "company-accountant-richemont-villars-sur-glane"
+        ],
+        "de": [
+          "company-accountant-richemont-villars-sur-glane"
+        ]
+      },
+      "previousSlugs": [
+        "company-accountant-richemont-villars-sur-glane"
+      ]
     },
     {
       "id": "richemont-2818ab8fcacd",
@@ -15731,12 +15742,12 @@
     },
     {
       "id": "richemont-1b1b91dbd3cf",
-      "slug": "retail-compliance-project-manager-f-m-richemont-geneva",
+      "slug": "responsabile-del-progetto-di-conformita-al-dettaglio-m-f-van-cleef-arpels-geneva",
       "slugByLocale": {
         "en": "retail-compliance-project-manager-f-m-richemont-geneva",
-        "it": "retail-compliance-project-manager-f-m-richemont-geneva",
-        "de": "retail-compliance-project-manager-f-m-richemont-geneva",
-        "fr": "retail-compliance-project-manager-f-m-richemont-geneva"
+        "it": "responsabile-del-progetto-di-conformita-al-dettaglio-m-f-van-cleef-arpels-geneva",
+        "de": "retail-compliance-projektmanager-m-w-van-cleef-arpels-geneva",
+        "fr": "gestionnaire-de-projet-de-conformite-de-detail-h-f-van-cleef-arpels-geneva"
       },
       "company": "Van Cleef & Arpels",
       "companyKey": "richemont",
@@ -15800,7 +15811,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:32:07.499Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T21:32:07.499Z"
+      "firstSeenAt": "2026-11-18T21:32:07.499Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "retail-compliance-project-manager-f-m-richemont-geneva"
+        ],
+        "de": [
+          "retail-compliance-project-manager-f-m-richemont-geneva"
+        ],
+        "fr": [
+          "retail-compliance-project-manager-f-m-richemont-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "retail-compliance-project-manager-f-m-richemont-geneva"
+      ]
     },
     {
       "id": "richemont-f2960de36239",
@@ -15973,12 +15998,12 @@
     },
     {
       "id": "richemont-946478fdbf5a",
-      "slug": "human-resources-product-manager-richemont-meyrin",
+      "slug": "risorse-umane-product-manager-richemont-meyrin",
       "slugByLocale": {
         "en": "human-resources-product-manager-richemont-meyrin",
-        "it": "human-resources-product-manager-richemont-meyrin",
-        "de": "human-resources-product-manager-richemont-meyrin",
-        "fr": "human-resources-product-manager-richemont-meyrin"
+        "it": "risorse-umane-product-manager-richemont-meyrin",
+        "de": "personalwesen-product-manager-richemont-meyrin",
+        "fr": "ressources-humaines-product-manager-richemont-meyrin"
       },
       "company": "Richemont",
       "companyKey": "richemont",
@@ -16041,7 +16066,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T21:32:07.480Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T21:32:07.480Z"
+      "firstSeenAt": "2026-11-18T21:32:07.480Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "human-resources-product-manager-richemont-meyrin"
+        ],
+        "de": [
+          "human-resources-product-manager-richemont-meyrin"
+        ],
+        "fr": [
+          "human-resources-product-manager-richemont-meyrin"
+        ]
+      },
+      "previousSlugs": [
+        "human-resources-product-manager-richemont-meyrin"
+      ]
     },
     {
       "id": "richemont-7db724b917ec",

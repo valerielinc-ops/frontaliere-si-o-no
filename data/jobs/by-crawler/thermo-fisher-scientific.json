@@ -643,11 +643,11 @@
     },
     {
       "id": "thermo-fisher-scientific-d9f2bc22c552",
-      "slug": "operator-secondary-thermo-fisher-scientific-ch",
+      "slug": "operatore-secondary-thermo-fisher-scientific-schweiz-ag-allschwil",
       "slugByLocale": {
         "de": "operator-secondary-thermo-fisher-scientific-ch",
         "fr": "operateur-secondary-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
-        "it": "operator-secondary-thermo-fisher-scientific-ch",
+        "it": "operatore-secondary-thermo-fisher-scientific-schweiz-ag-allschwil",
         "en": "operator-secondary-thermo-fisher-scientific-ch"
       },
       "company": "Thermo Fisher Scientific (Schweiz) AG",
@@ -710,7 +710,15 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-16T21:22:17.506Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-15T21:23:09.104Z"
+      "firstSeenAt": "2026-10-15T21:23:09.104Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "operator-secondary-thermo-fisher-scientific-ch"
+        ]
+      },
+      "previousSlugs": [
+        "operator-secondary-thermo-fisher-scientific-ch"
+      ]
     },
     {
       "id": "thermo-fisher-scientific-2e7a49849dbd",

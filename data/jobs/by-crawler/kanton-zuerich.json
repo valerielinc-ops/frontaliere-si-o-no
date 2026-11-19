@@ -806,12 +806,12 @@
     },
     {
       "id": "kanton-zuerich-414cbcf39f45",
-      "slug": "vorarbeiter-in-wasserbau-kanton-zuerich-andelfingen",
+      "slug": "caposquadra-nel-settore-delle-opere-idrauliche-kantonale-verwaltung-zurich-andelfingen",
       "slugByLocale": {
         "de": "vorarbeiter-in-wasserbau-kanton-zuerich-andelfingen",
-        "it": "vorarbeiter-in-wasserbau-kanton-zuerich-andelfingen",
-        "en": "vorarbeiter-in-wasserbau-kanton-zuerich-andelfingen",
-        "fr": "vorarbeiter-in-wasserbau-kanton-zuerich-andelfingen"
+        "it": "caposquadra-nel-settore-delle-opere-idrauliche-kantonale-verwaltung-zurich-andelfingen",
+        "en": "foreperson-in-hydraulic-engineering-kantonale-verwaltung-zurich-andelfingen",
+        "fr": "contremaitre-contremaitresse-en-construction-hydraulique-kantonale-verwaltung-zurich-andelfingen"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -877,7 +877,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T21:48:29.143Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T21:48:29.143Z"
+      "firstSeenAt": "2026-11-18T21:48:29.143Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "vorarbeiter-in-wasserbau-kanton-zuerich-andelfingen"
+        ],
+        "en": [
+          "vorarbeiter-in-wasserbau-kanton-zuerich-andelfingen"
+        ],
+        "fr": [
+          "vorarbeiter-in-wasserbau-kanton-zuerich-andelfingen"
+        ]
+      },
+      "previousSlugs": [
+        "vorarbeiter-in-wasserbau-kanton-zuerich-andelfingen"
+      ]
     },
     {
       "id": "kanton-zuerich-92e1cac6f442",
@@ -2950,12 +2964,12 @@
     },
     {
       "id": "kanton-zuerich-60fa480dc224",
-      "slug": "verwaltungsassistent-in-mit-schwerpunkt-personelles-kantonale-verwaltung-zurich-8400-winterthur",
+      "slug": "assistente-amministrativo-a-con-specializzazione-nella-gestione-del-personale-kantonale-verwaltung-zurich-8400",
       "slugByLocale": {
         "de": "verwaltungsassistent-in-mit-schwerpunkt-personelles-kanton-zuerich-8400-winterthur",
-        "it": "verwaltungsassistent-in-mit-schwerpunkt-personelles-kantonale-verwaltung-zurich-8400-winterthur",
-        "en": "verwaltungsassistent-in-mit-schwerpunkt-personelles-kantonale-verwaltung-zurich-8400-winterthur",
-        "fr": "verwaltungsassistent-in-mit-schwerpunkt-personelles-kantonale-verwaltung-zurich-8400-winterthur"
+        "it": "assistente-amministrativo-a-con-specializzazione-nella-gestione-del-personale-kantonale-verwaltung-zurich-8400",
+        "en": "administrative-assistant-specializing-in-human-resources-kantonale-verwaltung-zurich-8400-winterthur",
+        "fr": "assistant-administratif-assistante-administrative-specialise-e-dans-la-gestion-du-personnel-kantonale-verwaltung-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -3006,11 +3020,19 @@
       "pensum": "50%",
       "previousSlugsByLocale": {
         "it": [
-          "verwaltungsassistent-in-mit-schwerpunkt-personelles-kanton-zuerich-8400-winterthur"
+          "verwaltungsassistent-in-mit-schwerpunkt-personelles-kanton-zuerich-8400-winterthur",
+          "verwaltungsassistent-in-mit-schwerpunkt-personelles-kantonale-verwaltung-zurich-8400-winterthur"
+        ],
+        "en": [
+          "verwaltungsassistent-in-mit-schwerpunkt-personelles-kantonale-verwaltung-zurich-8400-winterthur"
+        ],
+        "fr": [
+          "verwaltungsassistent-in-mit-schwerpunkt-personelles-kantonale-verwaltung-zurich-8400-winterthur"
         ]
       },
       "previousSlugs": [
-        "verwaltungsassistent-in-mit-schwerpunkt-personelles-kanton-zuerich-8400-winterthur"
+        "verwaltungsassistent-in-mit-schwerpunkt-personelles-kanton-zuerich-8400-winterthur",
+        "verwaltungsassistent-in-mit-schwerpunkt-personelles-kantonale-verwaltung-zurich-8400-winterthur"
       ],
       "salaryMin": 79000,
       "salaryMax": 134500,
@@ -4567,12 +4589,12 @@
     },
     {
       "id": "kanton-zuerich-9b533c596b08",
-      "slug": "co-leitung-sektion-oberflachengewasser-kantonale-verwaltung-zurich-zurich",
+      "slug": "sezione-acqua-di-superficie-di-co-direzione-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "co-leitung-sektion-oberflachengewasser-kanton-zuerich-zurich",
-        "it": "co-leitung-sektion-oberflachengewasser-kantonale-verwaltung-zurich-zurich",
-        "en": "co-leitung-sektion-oberflachengewasser-kantonale-verwaltung-zurich-zurich",
-        "fr": "co-leitung-sektion-oberflachengewasser-kantonale-verwaltung-zurich-zurich"
+        "it": "sezione-acqua-di-superficie-di-co-direzione-kantonale-verwaltung-zurich-zurich",
+        "en": "co-direction-surface-water-section-kantonale-verwaltung-zurich-zurich",
+        "fr": "section-de-la-codirection-des-eaux-de-surface-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -4623,11 +4645,19 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
-          "co-leitung-sektion-oberflachengewasser-kanton-zuerich-zurich"
+          "co-leitung-sektion-oberflachengewasser-kanton-zuerich-zurich",
+          "co-leitung-sektion-oberflachengewasser-kantonale-verwaltung-zurich-zurich"
+        ],
+        "en": [
+          "co-leitung-sektion-oberflachengewasser-kantonale-verwaltung-zurich-zurich"
+        ],
+        "fr": [
+          "co-leitung-sektion-oberflachengewasser-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "co-leitung-sektion-oberflachengewasser-kanton-zuerich-zurich"
+        "co-leitung-sektion-oberflachengewasser-kanton-zuerich-zurich",
+        "co-leitung-sektion-oberflachengewasser-kantonale-verwaltung-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -7430,12 +7460,12 @@
     },
     {
       "id": "kanton-zuerich-ebd0586e34c6",
-      "slug": "lehrauftrag-per-wirtschaft-e-recht-26-auf-beginn-des-fruhlingssemesters-2027-kantonale-verwaltung-zurich-bulach",
+      "slug": "incarico-di-insegnamento-per-economia-e-diritto-26-a-partire-dall-inizio-del-semestre-primaverile-2027-kantonale",
       "slugByLocale": {
         "de": "lehrauftrag-fur-wirtschaft-und-recht-26-auf-beginn-des-fruhlingssemesters-2027-kanton",
-        "it": "lehrauftrag-per-wirtschaft-e-recht-26-auf-beginn-des-fruhlingssemesters-2027-kantonale-verwaltung-zurich-bulach",
-        "en": "lehrauftrag-fur-wirtschaft-und-recht-26-auf-beginn-des-fruhlingssemesters-2027-kantonale-verwaltung-zurich-bulach",
-        "fr": "lehrauftrag-fur-wirtschaft-und-recht-26-auf-beginn-des-fruhlingssemesters-2027-kantonale-verwaltung-zurich-bulach"
+        "it": "incarico-di-insegnamento-per-economia-e-diritto-26-a-partire-dall-inizio-del-semestre-primaverile-2027-kantonale",
+        "en": "lecturership-in-economics-and-law-26-at-the-start-of-the-spring-semester-2027-kantonale-verwaltung-zurich-bulach",
+        "fr": "conference-en-economie-et-droit-26-au-debut-du-semestre-de-printemps-2027-kantonale-verwaltung-zurich-bulach"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -7486,11 +7516,20 @@
       "pensum": "20 - 30%",
       "previousSlugsByLocale": {
         "it": [
-          "lehrauftrag-fur-wirtschaft-und-recht-26-auf-beginn-des-fruhlingssemesters-2027-kanton"
+          "lehrauftrag-fur-wirtschaft-und-recht-26-auf-beginn-des-fruhlingssemesters-2027-kanton",
+          "lehrauftrag-per-wirtschaft-e-recht-26-auf-beginn-des-fruhlingssemesters-2027-kantonale-verwaltung-zurich-bulach"
+        ],
+        "en": [
+          "lehrauftrag-fur-wirtschaft-und-recht-26-auf-beginn-des-fruhlingssemesters-2027-kantonale-verwaltung-zurich-bulach"
+        ],
+        "fr": [
+          "lehrauftrag-fur-wirtschaft-und-recht-26-auf-beginn-des-fruhlingssemesters-2027-kantonale-verwaltung-zurich-bulach"
         ]
       },
       "previousSlugs": [
-        "lehrauftrag-fur-wirtschaft-und-recht-26-auf-beginn-des-fruhlingssemesters-2027-kanton"
+        "lehrauftrag-fur-wirtschaft-und-recht-26-auf-beginn-des-fruhlingssemesters-2027-kanton",
+        "lehrauftrag-per-wirtschaft-e-recht-26-auf-beginn-des-fruhlingssemesters-2027-kantonale-verwaltung-zurich-bulach",
+        "lehrauftrag-fur-wirtschaft-und-recht-26-auf-beginn-des-fruhlingssemesters-2027-kantonale-verwaltung-zurich-bulach"
       ],
       "salaryMin": 22100,
       "salaryMax": 37700,
@@ -10527,12 +10566,12 @@
     },
     {
       "id": "kanton-zuerich-698abfc5e7cd",
-      "slug": "betriebsleiter-in-kantonaler-strassenunterhalt-kantonale-verwaltung-zurich-wila",
+      "slug": "responsabile-della-manutenzione-stradale-cantonale-kantonale-verwaltung-zurich-wila",
       "slugByLocale": {
         "de": "betriebsleiter-in-kantonaler-strassenunterhalt-kanton-zuerich-wila",
-        "it": "betriebsleiter-in-kantonaler-strassenunterhalt-kantonale-verwaltung-zurich-wila",
-        "en": "betriebsleiter-in-kantonaler-strassenunterhalt-kantonale-verwaltung-zurich-wila",
-        "fr": "betriebsleiter-in-kantonaler-strassenunterhalt-kantonale-verwaltung-zurich-wila"
+        "it": "responsabile-della-manutenzione-stradale-cantonale-kantonale-verwaltung-zurich-wila",
+        "en": "operations-manager-cantonal-road-maintenance-kantonale-verwaltung-zurich-wila",
+        "fr": "chef-cheffe-d-exploitation-de-l-entretien-des-routes-cantonales-kantonale-verwaltung-zurich-wila"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -10583,11 +10622,19 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
-          "betriebsleiter-in-kantonaler-strassenunterhalt-kanton-zuerich-wila"
+          "betriebsleiter-in-kantonaler-strassenunterhalt-kanton-zuerich-wila",
+          "betriebsleiter-in-kantonaler-strassenunterhalt-kantonale-verwaltung-zurich-wila"
+        ],
+        "en": [
+          "betriebsleiter-in-kantonaler-strassenunterhalt-kantonale-verwaltung-zurich-wila"
+        ],
+        "fr": [
+          "betriebsleiter-in-kantonaler-strassenunterhalt-kantonale-verwaltung-zurich-wila"
         ]
       },
       "previousSlugs": [
-        "betriebsleiter-in-kantonaler-strassenunterhalt-kanton-zuerich-wila"
+        "betriebsleiter-in-kantonaler-strassenunterhalt-kanton-zuerich-wila",
+        "betriebsleiter-in-kantonaler-strassenunterhalt-kantonale-verwaltung-zurich-wila"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -13620,12 +13667,12 @@
     },
     {
       "id": "kanton-zuerich-e5cd8c1ca77e",
-      "slug": "hr-specialist-people-analytics-employee-experience-kanton-zuerich-zurich",
+      "slug": "risorse-umane-specialista-people-analytics-employee-experience-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "hr-specialist-people-analytics-employee-experience-kanton-zuerich-zurich",
-        "it": "hr-specialist-people-analytics-employee-experience-kanton-zuerich-zurich",
+        "it": "risorse-umane-specialista-people-analytics-employee-experience-kantonale-verwaltung-zurich-zurich",
         "en": "hr-specialist-people-analytics-employee-experience-kanton-zuerich-zurich",
-        "fr": "hr-specialist-people-analytics-employee-experience-kanton-zuerich-zurich"
+        "fr": "ressources-humaines-specialiste-people-analytics-employee-experience-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -13692,7 +13739,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T21:47:18.349Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T21:47:18.349Z"
+      "firstSeenAt": "2026-11-18T21:47:18.349Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-specialist-people-analytics-employee-experience-kanton-zuerich-zurich"
+        ],
+        "fr": [
+          "hr-specialist-people-analytics-employee-experience-kanton-zuerich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "hr-specialist-people-analytics-employee-experience-kanton-zuerich-zurich"
+      ]
     },
     {
       "id": "kanton-zuerich-1e63fda30338",

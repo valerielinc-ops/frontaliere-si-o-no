@@ -11477,12 +11477,12 @@
     },
     {
       "id": "raiffeisen-4f14968a65bd",
-      "slug": "berater-privatkunden-w-m-d-raiffeisen-lugano",
+      "slug": "consulente-clienti-privato-m-f-d-raiffeisen-lugano",
       "slugByLocale": {
         "de": "berater-privatkunden-w-m-d-raiffeisen-lugano",
-        "it": "berater-privatkunden-w-m-d-raiffeisen-lugano",
-        "en": "berater-privatkunden-w-m-d-raiffeisen-lugano",
-        "fr": "berater-privatkunden-w-m-d-raiffeisen-lugano"
+        "it": "consulente-clienti-privato-m-f-d-raiffeisen-lugano",
+        "en": "private-client-advisor-m-f-d-raiffeisen-lugano",
+        "fr": "conseiller-client-prive-h-f-d-raiffeisen-lugano"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -11544,16 +11544,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-16T21:18:01.791Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T21:18:01.791Z"
+      "firstSeenAt": "2026-11-18T21:18:01.791Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berater-privatkunden-w-m-d-raiffeisen-lugano"
+        ],
+        "en": [
+          "berater-privatkunden-w-m-d-raiffeisen-lugano"
+        ],
+        "fr": [
+          "berater-privatkunden-w-m-d-raiffeisen-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "berater-privatkunden-w-m-d-raiffeisen-lugano"
+      ]
     },
     {
       "id": "raiffeisen-bedf8a0185db",
       "slug": "consulente-clientela-privata-m-f-d-raiffeisen-lugano",
       "slugByLocale": {
         "it": "consulente-clientela-privata-m-f-d-raiffeisen-lugano",
-        "en": "consulente-clientela-privata-m-f-d-raiffeisen-lugano",
-        "de": "consulente-clientela-privata-m-f-d-raiffeisen-lugano",
-        "fr": "consulente-clientela-privata-m-f-d-raiffeisen-lugano"
+        "en": "private-customer-support-m-f-d-raiffeisen-lugano",
+        "de": "privater-kundensupport-m-w-d-raiffeisen-lugano",
+        "fr": "assistance-client-privee-h-f-d-raiffeisen-lugano"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -11615,16 +11629,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-16T21:18:01.784Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T21:18:01.784Z"
+      "firstSeenAt": "2026-11-18T21:18:01.784Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "consulente-clientela-privata-m-f-d-raiffeisen-lugano"
+        ],
+        "de": [
+          "consulente-clientela-privata-m-f-d-raiffeisen-lugano"
+        ],
+        "fr": [
+          "consulente-clientela-privata-m-f-d-raiffeisen-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "consulente-clientela-privata-m-f-d-raiffeisen-lugano"
+      ]
     },
     {
       "id": "raiffeisen-20f54955ad7b",
-      "slug": "finanzberater-mit-fokus-finanzieren-w-m-d-raiffeisen-allschwil",
+      "slug": "consulente-finanziario-con-focus-sui-finanziamenti-m-f-d-raiffeisen-allschwil",
       "slugByLocale": {
         "de": "finanzberater-mit-fokus-finanzieren-w-m-d-raiffeisen-allschwil",
-        "it": "finanzberater-mit-fokus-finanzieren-w-m-d-raiffeisen-allschwil",
-        "en": "finanzberater-mit-fokus-finanzieren-w-m-d-raiffeisen-allschwil",
-        "fr": "finanzberater-mit-fokus-finanzieren-w-m-d-raiffeisen-allschwil"
+        "it": "consulente-finanziario-con-focus-sui-finanziamenti-m-f-d-raiffeisen-allschwil",
+        "en": "financial-advisor-with-focus-financing-m-f-d-raiffeisen-allschwil",
+        "fr": "conseiller-financier-avec-focus-financement-h-f-d-raiffeisen-allschwil"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -11686,7 +11714,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T21:18:01.760Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T21:18:01.760Z"
+      "firstSeenAt": "2026-11-18T21:18:01.760Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "finanzberater-mit-fokus-finanzieren-w-m-d-raiffeisen-allschwil"
+        ],
+        "en": [
+          "finanzberater-mit-fokus-finanzieren-w-m-d-raiffeisen-allschwil"
+        ],
+        "fr": [
+          "finanzberater-mit-fokus-finanzieren-w-m-d-raiffeisen-allschwil"
+        ]
+      },
+      "previousSlugs": [
+        "finanzberater-mit-fokus-finanzieren-w-m-d-raiffeisen-allschwil"
+      ]
     },
     {
       "id": "raiffeisen-6d5b4f8b3bf4",

@@ -30,9 +30,9 @@
       },
       "slugByLocale": {
         "it": "medico-assistente-in-formazione-in-chirurgia-swiss-medical-network",
-        "en": "medico-assistente-in-formazione-in-chirurgia-swiss-medical-network",
-        "de": "medico-assistente-in-formazione-in-chirurgia-swiss-medical-network",
-        "fr": "medico-assistente-in-formazione-in-chirurgia-swiss-medical-network"
+        "en": "doctor-assistant-in-surgery-swiss-medical-network-sorengo",
+        "de": "doctor-assistant-in-der-chirurgie-swiss-medical-network-sorengo",
+        "fr": "docteur-assistant-en-chirurgie-swiss-medical-network-sorengo"
       },
       "slug": "medico-assistente-in-formazione-in-chirurgia-swiss-medical-network",
       "category": "medical",
@@ -67,7 +67,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-11-18T21:15:31.376Z"
+      "firstSeenAt": "2026-11-18T21:15:31.376Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "medico-assistente-in-formazione-in-chirurgia-swiss-medical-network"
+        ],
+        "de": [
+          "medico-assistente-in-formazione-in-chirurgia-swiss-medical-network"
+        ],
+        "fr": [
+          "medico-assistente-in-formazione-in-chirurgia-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "medico-assistente-in-formazione-in-chirurgia-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000162286524-mitarbeitende-kundenempfang-40-50-",
@@ -96,11 +110,11 @@
       },
       "slugByLocale": {
         "de": "mitarbeitende-kundenempfang-40-50-swiss-medical-network",
-        "it": "mitarbeitende-kundenempfang-40-50-swiss-medical-network",
-        "en": "mitarbeitende-kundenempfang-40-50-swiss-medical-network",
-        "fr": "mitarbeitende-kundenempfang-40-50-swiss-medical-network"
+        "it": "ricevimento-dei-dipendenti-40-50-swiss-medical-network-rapperswil-jona",
+        "en": "employee-reception-40-50-swiss-medical-network-rapperswil-jona",
+        "fr": "reception-des-employes-40-50-swiss-medical-network-rapperswil-jona"
       },
-      "slug": "mitarbeitende-kundenempfang-40-50-swiss-medical-network",
+      "slug": "ricevimento-dei-dipendenti-40-50-swiss-medical-network-rapperswil-jona",
       "category": "healthcare",
       "datePosted": "2026-11-18T12:46:28.368Z",
       "postedDate": "2026-11-18T12:46:28.368Z",
@@ -133,7 +147,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-11-18T21:15:31.968Z"
+      "firstSeenAt": "2026-11-18T21:15:31.968Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeitende-kundenempfang-40-50-swiss-medical-network"
+        ],
+        "en": [
+          "mitarbeitende-kundenempfang-40-50-swiss-medical-network"
+        ],
+        "fr": [
+          "mitarbeitende-kundenempfang-40-50-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeitende-kundenempfang-40-50-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000162284629-team-lead-hr-administration-payroll-de",
@@ -164,7 +192,7 @@
         "de": "team-lead-hr-administration-payroll-de-swiss-medical-network",
         "it": "amministrazione-e-retribuzione-delle-risorse-umane-del-team-di-guida-it-swiss-medical-network-zurich-6aada63fd9",
         "en": "amministrazione-e-retribuzione-delle-risorse-umane-del-team-di-guida-it-swiss-medical-network-zurich-6aada63fd9",
-        "fr": "amministrazione-e-retribuzione-delle-risorse-umane-del-team-di-guida-it-swiss-medical-network-zurich-6aada63fd9"
+        "fr": "chef-d-equipe-administration-des-rh-et-paie-de-swiss-medical-network-zurich"
       },
       "slug": "amministrazione-e-retribuzione-delle-risorse-umane-del-team-di-guida-it-swiss-medical-network-zurich-6aada63fd9",
       "category": "admin",
@@ -201,11 +229,15 @@
       },
       "firstSeenAt": "2026-10-08T09:16:14.363Z",
       "previousSlugs": [
-        "team-lead-hr-administration-payroll-de-swiss-medical-network"
+        "team-lead-hr-administration-payroll-de-swiss-medical-network",
+        "amministrazione-e-retribuzione-delle-risorse-umane-del-team-di-guida-it-swiss-medical-network-zurich-6aada63fd9"
       ],
       "previousSlugsByLocale": {
         "it": [
           "team-lead-hr-administration-payroll-de-swiss-medical-network"
+        ],
+        "fr": [
+          "amministrazione-e-retribuzione-delle-risorse-umane-del-team-di-guida-it-swiss-medical-network-zurich-6aada63fd9"
         ]
       },
       "needsRetranslation": true
@@ -241,7 +273,7 @@
         "de": "facharztin-facharzt-fur-allgemeine-innere-medizin-60-100-swiss-medical-network",
         "fr": "specialista-specialista-in-medicina-interna-generale-60-100-swiss-medical-network-escholzmatt-marbach-46e3b50122"
       },
-      "slug": "facharztin-facharzt-fur-allgemeine-innere-medizin-60-100-swiss-medical-network",
+      "slug": "specialista-specialista-in-medicina-interna-generale-60-100-swiss-medical-network-escholzmatt-marbach-46e3b50122",
       "category": "medical",
       "datePosted": "2026-11-17T13:32:45.621Z",
       "postedDate": "2026-11-17T13:32:45.621Z",
@@ -260,12 +292,14 @@
         "specialista-specialista-in-medicina-interna-generale-60-100-swiss-medical-network-escholzmatt-marbach",
         "specialista-specialista-in-medicina-interna-generale-60-100-swiss-medical-network-escholzmatt-marbach-ca3791d764",
         "specialist-specialist-for-general-internal-medicine-60-100-swiss-medical-network-escholzmatt-marbach",
-        "specialiste-specialiste-en-medecine-interne-generale-60-100-swiss-medical-network-escholzmatt-marbach"
+        "specialiste-specialiste-en-medecine-interne-generale-60-100-swiss-medical-network-escholzmatt-marbach",
+        "facharztin-facharzt-fur-allgemeine-innere-medizin-60-100-swiss-medical-network"
       ],
       "previousSlugsByLocale": {
         "it": [
           "specialista-specialista-in-medicina-interna-generale-60-100-swiss-medical-network-escholzmatt-marbach",
-          "specialista-specialista-in-medicina-interna-generale-60-100-swiss-medical-network-escholzmatt-marbach-ca3791d764"
+          "specialista-specialista-in-medicina-interna-generale-60-100-swiss-medical-network-escholzmatt-marbach-ca3791d764",
+          "facharztin-facharzt-fur-allgemeine-innere-medizin-60-100-swiss-medical-network"
         ],
         "en": [
           "specialist-specialist-for-general-internal-medicine-60-100-swiss-medical-network-escholzmatt-marbach"
@@ -325,7 +359,7 @@
         "de": "home-pfleger-stundenvertrag-swiss-medical-network-geneve",
         "fr": "aide-soignante-a-domicile-contrat-horaire-swiss-medical-network"
       },
-      "slug": "aide-soignante-a-domicile-contrat-horaire-swiss-medical-network",
+      "slug": "home-caregiver-contratto-orario-swiss-medical-network-geneve",
       "category": "healthcare",
       "datePosted": "2026-11-17T10:08:43.458Z",
       "postedDate": "2026-11-17T10:08:43.458Z",
@@ -348,6 +382,9 @@
           "aide-soignante-a-domicile-contrat-horaire-swiss-medical-network"
         ],
         "de": [
+          "aide-soignante-a-domicile-contrat-horaire-swiss-medical-network"
+        ],
+        "it": [
           "aide-soignante-a-domicile-contrat-horaire-swiss-medical-network"
         ]
       },
@@ -402,7 +439,7 @@
         "de": "dipl-pflegefachperson-hf-swiss-medical-network",
         "fr": "dipl-soins-professionnels-hf-swiss-medical-network-schaffhausen"
       },
-      "slug": "dipl-pflegefachperson-hf-swiss-medical-network",
+      "slug": "dipl-professionista-hf-swiss-medical-network-schaffhausen",
       "category": "nursing",
       "datePosted": "2026-11-17T08:40:30.695Z",
       "postedDate": "2026-11-17T08:40:30.695Z",
@@ -425,6 +462,9 @@
           "dipl-pflegefachperson-hf-swiss-medical-network"
         ],
         "fr": [
+          "dipl-pflegefachperson-hf-swiss-medical-network"
+        ],
+        "it": [
           "dipl-pflegefachperson-hf-swiss-medical-network"
         ]
       },
@@ -479,7 +519,7 @@
         "de": "assc-assistant-e-en-soins-et-sante-communautaire-swiss-medical-network",
         "fr": "assc-assistant-e-en-soins-et-sante-communautaire-swiss-medical-network"
       },
-      "slug": "assc-assistant-e-en-soins-et-sante-communautaire-swiss-medical-network",
+      "slug": "assc-assistente-per-la-salute-e-la-cura-della-comunita-swiss-medical-network-montreux",
       "category": "admin",
       "datePosted": "2026-11-16T15:06:05.320Z",
       "postedDate": "2026-11-16T15:06:05.320Z",
@@ -499,6 +539,9 @@
       ],
       "previousSlugsByLocale": {
         "en": [
+          "assc-assistant-e-en-soins-et-sante-communautaire-swiss-medical-network"
+        ],
+        "it": [
           "assc-assistant-e-en-soins-et-sante-communautaire-swiss-medical-network"
         ]
       },
@@ -553,7 +596,7 @@
         "de": "medizinische-r-praxisassistent-in-40-60-swiss-medical-network",
         "fr": "assistant-medical-40-60-swiss-medical-network-bern"
       },
-      "slug": "medizinische-r-praxisassistent-in-40-60-swiss-medical-network",
+      "slug": "assistente-medico-40-60-swiss-medical-network-bern",
       "category": "healthcare",
       "datePosted": "2026-11-16T13:30:50.709Z",
       "postedDate": "2026-11-16T13:30:50.709Z",
@@ -576,6 +619,9 @@
           "medizinische-r-praxisassistent-in-40-60-swiss-medical-network"
         ],
         "fr": [
+          "medizinische-r-praxisassistent-in-40-60-swiss-medical-network"
+        ],
+        "it": [
           "medizinische-r-praxisassistent-in-40-60-swiss-medical-network"
         ]
       },
@@ -630,7 +676,7 @@
         "de": "assistenzarzt-padopsychiater-fmh-m-w-swiss-medical-network-saint-imier",
         "fr": "medecin-adjoint-pedopsychiatre-fmh-h-f-swiss-medical-network"
       },
-      "slug": "medecin-adjoint-pedopsychiatre-fmh-h-f-swiss-medical-network",
+      "slug": "assistente-medico-pedopsychiatrist-fmh-m-f-swiss-medical-network-saint-imier-3ca71b2474",
       "category": "medical",
       "datePosted": "2026-11-12T12:58:29.960Z",
       "postedDate": "2026-11-12T12:58:29.960Z",
@@ -663,7 +709,15 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-adjoint-pedopsychiatre-fmh-h-f-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-adjoint-pedopsychiatre-fmh-h-f-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000160866136-cva-cuisinier-ere-",
@@ -696,7 +750,7 @@
         "de": "cva-kuche-swiss-medical-network-glion",
         "fr": "cva-cuisinier-ere-swiss-medical-network"
       },
-      "slug": "cva-cuisinier-ere-swiss-medical-network",
+      "slug": "cucina-cva-swiss-medical-network-glion",
       "category": "healthcare",
       "datePosted": "2026-11-10T12:51:53.176Z",
       "postedDate": "2026-11-10T12:51:53.176Z",
@@ -729,7 +783,15 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "cva-cuisinier-ere-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "cva-cuisinier-ere-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000160820029-secretaire-medical-e-",
@@ -762,7 +824,7 @@
         "de": "medizinische-sekretarin-swiss-medical-network-lausanne",
         "fr": "secretaire-medical-e-swiss-medical-network"
       },
-      "slug": "secretaire-medical-e-swiss-medical-network",
+      "slug": "segretario-medico-swiss-medical-network-lausanne",
       "category": "healthcare",
       "datePosted": "2026-11-10T08:49:38.302Z",
       "postedDate": "2026-11-10T08:49:38.302Z",
@@ -794,7 +856,15 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-medical-e-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-medical-e-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000160183270-deputy-cfo-regione-ticino",
@@ -959,7 +1029,7 @@
         "de": "trainee-nms-programm-praktikum-swiss-medical-network-echandens",
         "fr": "stagiaire-programme-smn-internship-swiss-medical-network"
       },
-      "slug": "stagiaire-programme-smn-internship-swiss-medical-network",
+      "slug": "trainee-stage-di-programma-nms-swiss-medical-network-echandens",
       "category": "healthcare",
       "datePosted": "2026-11-06T10:25:09.153Z",
       "postedDate": "2026-11-06T10:25:09.153Z",
@@ -992,7 +1062,15 @@
           "maxValue": 108000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-programme-smn-internship-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-programme-smn-internship-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000159904959-dipl-fachperson-operationstechnik-toa-ota-",
@@ -1025,7 +1103,7 @@
         "de": "dipl-fachperson-operationstechnik-toa-ota-swiss-medical-network",
         "fr": "dipl-specialiste-en-genie-operationnel-toa-ota-swiss-medical-network-rapperswil-jona"
       },
-      "slug": "dipl-fachperson-operationstechnik-toa-ota-swiss-medical-network",
+      "slug": "dipl-ingegneria-operativa-specialista-toa-ota-swiss-medical-network-rapperswil-jona",
       "category": "technical",
       "datePosted": "2026-11-05T15:38:32.748Z",
       "postedDate": "2026-11-05T15:38:32.748Z",
@@ -1058,7 +1136,15 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachperson-operationstechnik-toa-ota-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachperson-operationstechnik-toa-ota-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000159383460-gestionnaire-rh-specialiste-salaires-80-sur-5-jours-ou-100-",
@@ -1091,7 +1177,7 @@
         "de": "hr-manager-gehaltsspezialist-80-uber-5-tage-oder-100-swiss-medical-network-fribourg",
         "fr": "gestionnaire-rh-specialiste-salaires-80-sur-5-jours-ou-100-swiss-medical-network"
       },
-      "slug": "gestionnaire-rh-specialiste-salaires-80-sur-5-jours-ou-100-swiss-medical-network",
+      "slug": "hr-manager-salary-specialist-80-su-5-giorni-o-100-swiss-medical-network-fribourg",
       "category": "healthcare",
       "datePosted": "2026-11-03T13:19:20.976Z",
       "postedDate": "2026-11-03T13:19:20.976Z",
@@ -1124,7 +1210,15 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "gestionnaire-rh-specialiste-salaires-80-sur-5-jours-ou-100-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "gestionnaire-rh-specialiste-salaires-80-sur-5-jours-ou-100-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000159339599-assistente-di-studio-medico",
@@ -1223,7 +1317,7 @@
         "de": "dipl-pflegefachperson-als-dauernachtwache-swiss-medical-network",
         "fr": "dipl-professionnel-de-soins-comme-une-veille-de-nuit-permanente-swiss-medical-network-rapperswil-jona"
       },
-      "slug": "dipl-pflegefachperson-als-dauernachtwache-swiss-medical-network",
+      "slug": "dipl-cura-professionale-come-un-guardia-notturna-permanente-swiss-medical-network-rapperswil-jona",
       "category": "nursing",
       "datePosted": "2026-11-02T17:10:25.609Z",
       "postedDate": "2026-11-02T17:10:25.609Z",
@@ -1256,7 +1350,15 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-als-dauernachtwache-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-als-dauernachtwache-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000158016750-medecin-pediatre-h-f-",
@@ -1289,7 +1391,7 @@
         "de": "kinderarzt-m-w-swiss-medical-network-saint-imier",
         "fr": "medecin-pediatre-h-f-swiss-medical-network"
       },
-      "slug": "medecin-pediatre-h-f-swiss-medical-network",
+      "slug": "medico-pediatrico-m-f-swiss-medical-network-saint-imier-7e96ad2645",
       "category": "medical",
       "datePosted": "2026-10-27T11:14:39.347Z",
       "postedDate": "2026-10-27T11:14:39.347Z",
@@ -1322,7 +1424,15 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-pediatre-h-f-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-pediatre-h-f-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000158014899-assistant-e-medical-e-",
@@ -1355,7 +1465,7 @@
         "de": "arzthelferin-swiss-medical-network-saint-imier",
         "fr": "assistant-e-medical-e-swiss-medical-network"
       },
-      "slug": "assistant-e-medical-e-swiss-medical-network",
+      "slug": "assistente-medico-swiss-medical-network-saint-imier-1d0158eec2",
       "category": "admin",
       "datePosted": "2026-10-27T10:56:23.535Z",
       "postedDate": "2026-10-27T10:56:23.535Z",
@@ -1388,7 +1498,15 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-medical-e-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-medical-e-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000157827650-facharztin-facharzt-fur-allgemeine-innere-medizin",
@@ -1421,7 +1539,7 @@
         "de": "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network",
         "fr": "specialiste-specialiste-en-medecine-interne-generale-swiss-medical-network-beromunster"
       },
-      "slug": "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network",
+      "slug": "specialista-specialista-in-medicina-interna-generale-swiss-medical-network-beromunster",
       "category": "medical",
       "datePosted": "2026-10-26T14:20:08.010Z",
       "postedDate": "2026-10-26T14:20:08.010Z",
@@ -1453,7 +1571,15 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000157828429-medizinische-praxisassistenz-fur-allgemeine-innere-medizin",
@@ -1486,7 +1612,7 @@
         "de": "medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network",
         "fr": "assistance-medicale-pour-la-medecine-interne-generale-swiss-medical-network-beromunster"
       },
-      "slug": "medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network",
+      "slug": "assistenza-medica-per-la-medicina-interna-generale-swiss-medical-network-beromunster",
       "category": "healthcare",
       "datePosted": "2026-10-26T14:18:53.199Z",
       "postedDate": "2026-10-26T14:18:53.199Z",
@@ -1519,7 +1645,15 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000157828209-medizinische-praxisassistenz-efz-fur-allgemeine-innere-medizin-m-w-d-60-100-",
@@ -1552,7 +1686,7 @@
         "de": "medizinische-praxisassistenz-efz-fur-allgemeine-innere-medizin-m-w-d-60-100-swiss-medical-network",
         "fr": "aide-a-la-pratique-medicale-efz-pour-la-medecine-interne-generale-h-f-d-60-100-swiss-medical-network-schaffhausen"
       },
-      "slug": "medizinische-praxisassistenz-efz-fur-allgemeine-innere-medizin-m-w-d-60-100-swiss-medical-network",
+      "slug": "assistenza-medica-efz-per-medicina-interna-generale-m-f-d-60-100-swiss-medical-network-schaffhausen",
       "category": "healthcare",
       "datePosted": "2026-10-26T14:18:01.860Z",
       "postedDate": "2026-10-26T14:18:01.860Z",
@@ -1585,7 +1719,15 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-praxisassistenz-efz-fur-allgemeine-innere-medizin-m-w-d-60-100-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-praxisassistenz-efz-fur-allgemeine-innere-medizin-m-w-d-60-100-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000157826894-medizinische-praxisassistenz-fur-allgemeine-innere-medizin-60-100-",
@@ -1618,7 +1760,7 @@
         "de": "medizinische-praxisassistenz-fur-allgemeine-innere-medizin-60-100-swiss-medical-network",
         "fr": "aide-a-la-pratique-medicale-pour-la-medecine-interne-generale-60-100-swiss-medical-network-stein-am-rhein"
       },
-      "slug": "medizinische-praxisassistenz-fur-allgemeine-innere-medizin-60-100-swiss-medical-network",
+      "slug": "assistenza-medica-per-medicina-generale-interna-60-100-swiss-medical-network-stein-am-rhein",
       "category": "healthcare",
       "datePosted": "2026-10-26T14:16:41.815Z",
       "postedDate": "2026-10-26T14:16:41.815Z",
@@ -1651,7 +1793,15 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-praxisassistenz-fur-allgemeine-innere-medizin-60-100-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-praxisassistenz-fur-allgemeine-innere-medizin-60-100-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000157761951-perioperative-assistenz-operationssaal",
@@ -1684,7 +1834,7 @@
         "de": "perioperative-assistenz-operationssaal-swiss-medical-network",
         "fr": "salle-d-exploitation-de-l-aide-perioperatoire-swiss-medical-network-rapperswil-jona"
       },
-      "slug": "perioperative-assistenz-operationssaal-swiss-medical-network",
+      "slug": "sala-operatoria-di-assistenza-perioperativa-swiss-medical-network-rapperswil-jona",
       "category": "healthcare",
       "datePosted": "2026-10-26T09:59:34.737Z",
       "postedDate": "2026-10-26T09:59:34.737Z",
@@ -1717,7 +1867,15 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "perioperative-assistenz-operationssaal-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "perioperative-assistenz-operationssaal-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000157098279-apprenti-e-assistant-e-medical-e-cfc",
@@ -1750,7 +1908,7 @@
         "de": "auszubildender-arztassistent-cfc-swiss-medical-network-saint-imier",
         "fr": "apprenti-e-assistant-e-medical-e-cfc-swiss-medical-network"
       },
-      "slug": "apprenti-e-assistant-e-medical-e-cfc-swiss-medical-network",
+      "slug": "apprendista-medico-cfc-swiss-medical-network-saint-imier-5d18feb9f3",
       "category": "admin",
       "datePosted": "2026-10-22T10:45:13.392Z",
       "postedDate": "2026-10-22T10:45:13.392Z",
@@ -1783,7 +1941,15 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-e-assistant-e-medical-e-cfc-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-e-assistant-e-medical-e-cfc-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000157095209-psychologue-psychotherapeute-titre-e-h-f-d-80-100-",
@@ -1816,7 +1982,7 @@
         "de": "psychologin-psychotherapie-mit-dem-titel-m-w-d-80-100-swiss-medical-network-saint-imier",
         "fr": "psychologue-psychotherapeute-titre-e-h-f-d-80-100-swiss-medical-network"
       },
-      "slug": "psychologue-psychotherapeute-titre-e-h-f-d-80-100-swiss-medical-network",
+      "slug": "psicologo-psicoterapia-m-f-d-80-100-swiss-medical-network-saint-imier",
       "category": "psychology",
       "datePosted": "2026-10-22T10:25:39.092Z",
       "postedDate": "2026-10-22T10:25:39.092Z",
@@ -1849,7 +2015,15 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologue-psychotherapeute-titre-e-h-f-d-80-100-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "psychologue-psychotherapeute-titre-e-h-f-d-80-100-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000157090179-assistant-e-medical-e-a-80-cdm",
@@ -1881,7 +2055,7 @@
         "de": "80-medizinischer-assistent-hom-swiss-medical-network-geneve",
         "fr": "assistant-e-medical-e-a-80-cdm-swiss-medical-network"
       },
-      "slug": "assistant-e-medical-e-a-80-cdm-swiss-medical-network",
+      "slug": "80-assistente-medico-hom-swiss-medical-network-geneve",
       "category": "admin",
       "datePosted": "2026-10-22T09:57:08.499Z",
       "postedDate": "2026-10-22T09:57:08.499Z",
@@ -1914,7 +2088,15 @@
           "maxValue": 73200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-medical-e-a-80-cdm-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-medical-e-a-80-cdm-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000157064619-allgemeinmediziner-in-50-bis-100-",
@@ -2019,7 +2201,7 @@
         "de": "cmev-medizinischer-assistent-swiss-medical-network-geneve",
         "fr": "cmev-assistant-e-medical-e-swiss-medical-network"
       },
-      "slug": "cmev-assistant-e-medical-e-swiss-medical-network",
+      "slug": "assistente-medico-cmev-swiss-medical-network-geneve",
       "category": "admin",
       "datePosted": "2026-10-21T07:35:12.932Z",
       "postedDate": "2026-10-21T07:35:12.932Z",
@@ -2052,7 +2234,15 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "cmev-assistant-e-medical-e-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "cmev-assistant-e-medical-e-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000156467879-assistant-en-soins-et-sante-communautaire-assc-service-de-soins",
@@ -2085,7 +2275,7 @@
         "de": "gesundheits-und-pflegeassistentin-chs-swiss-medical-network-neuchatel",
         "fr": "assistant-en-soins-et-sante-communautaire-assc-service-de-soins-swiss-medical-network"
       },
-      "slug": "assistant-en-soins-et-sante-communautaire-assc-service-de-soins-swiss-medical-network",
+      "slug": "assistente-per-la-salute-e-la-cura-della-comunita-chs-swiss-medical-network-neuchatel",
       "category": "admin",
       "datePosted": "2026-10-20T06:08:12.881Z",
       "postedDate": "2026-10-20T06:08:12.881Z",
@@ -2118,7 +2308,15 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-en-soins-et-sante-communautaire-assc-service-de-soins-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-en-soins-et-sante-communautaire-assc-service-de-soins-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000155413538-medico-a-ospedaliero-a-50-100-",
@@ -2217,7 +2415,7 @@
         "de": "anasthesist-krankenschwester-swiss-medical-network-saint-imier",
         "fr": "infirmier-ere-anesthesiste-swiss-medical-network"
       },
-      "slug": "infirmier-ere-anesthesiste-swiss-medical-network",
+      "slug": "infermiere-anestetista-swiss-medical-network-saint-imier",
       "category": "healthcare",
       "datePosted": "2026-10-12T08:07:05.200Z",
       "postedDate": "2026-10-12T08:07:05.200Z",
@@ -2250,7 +2448,15 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-anesthesiste-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-anesthesiste-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000154087928-specialista-in-ginecologia-e-ostetricia-100-",
@@ -2349,7 +2555,7 @@
         "de": "dipl-fachfrau-mann-operationstechnik-hf-swiss-medical-network",
         "fr": "oui-technique-chirurgicale-professionnelle-hf-swiss-medical-network-zurich"
       },
-      "slug": "dipl-fachfrau-mann-operationstechnik-hf-swiss-medical-network",
+      "slug": "dipl-tecnica-chirurgica-professionale-hf-swiss-medical-network-zurich",
       "category": "technical",
       "datePosted": "2026-10-01T10:42:51.493Z",
       "postedDate": "2026-10-01T10:42:51.493Z",
@@ -2382,7 +2588,15 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachfrau-mann-operationstechnik-hf-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachfrau-mann-operationstechnik-hf-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000152326151-medizinische-r-praxisassistent-in-50-100-",
@@ -2415,7 +2629,7 @@
         "de": "medizinische-r-praxisassistent-in-50-100-swiss-medical-network",
         "fr": "assistant-medical-50-100-swiss-medical-network-solothurn"
       },
-      "slug": "medizinische-r-praxisassistent-in-50-100-swiss-medical-network",
+      "slug": "assistente-medico-50-100-swiss-medical-network-solothurn",
       "category": "healthcare",
       "datePosted": "2026-09-29T05:26:40.402Z",
       "postedDate": "2026-09-29T05:26:40.402Z",
@@ -2448,7 +2662,15 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-r-praxisassistent-in-50-100-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-r-praxisassistent-in-50-100-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000151390974-teamleitung-radiologie-dipl-radiologiefachperson",
@@ -2481,7 +2703,7 @@
         "de": "teamleitung-radiologie-dipl-radiologiefachperson-swiss-medical-network",
         "fr": "chef-d-equipe-radiologie-dipl-specialiste-de-radiologie-swiss-medical-network-ostermundigen"
       },
-      "slug": "teamleitung-radiologie-dipl-radiologiefachperson-swiss-medical-network",
+      "slug": "team-leader-radiology-dipl-specialista-di-radiologia-swiss-medical-network-ostermundigen",
       "category": "healthcare",
       "datePosted": "2026-09-23T13:53:06.061Z",
       "postedDate": "2026-09-23T13:53:06.061Z",
@@ -2514,7 +2736,15 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleitung-radiologie-dipl-radiologiefachperson-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "teamleitung-radiologie-dipl-radiologiefachperson-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000151333330-gestionnaire-de-sante-viva",
@@ -2547,7 +2777,7 @@
         "de": "gesundheitsmanagerin-viva-swiss-medical-network-tavannes",
         "fr": "gestionnaire-de-sante-viva-swiss-medical-network"
       },
-      "slug": "gestionnaire-de-sante-viva-swiss-medical-network",
+      "slug": "responsabile-della-salute-viva-swiss-medical-network-tavannes",
       "category": "healthcare",
       "datePosted": "2026-09-23T09:30:27.130Z",
       "postedDate": "2026-09-23T09:30:27.130Z",
@@ -2580,7 +2810,15 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "gestionnaire-de-sante-viva-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "gestionnaire-de-sante-viva-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000150600628-dipl-radiologiefachperson",
@@ -2613,7 +2851,7 @@
         "de": "dipl-radiologiefachperson-swiss-medical-network",
         "fr": "dipl-specialiste-de-radiologie-swiss-medical-network-ostermundigen"
       },
-      "slug": "dipl-radiologiefachperson-swiss-medical-network",
+      "slug": "dipl-specialista-della-radiologia-swiss-medical-network-ostermundigen",
       "category": "healthcare",
       "datePosted": "2026-09-21T05:54:58.360Z",
       "postedDate": "2026-09-21T05:54:58.360Z",
@@ -2646,7 +2884,15 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-radiologiefachperson-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-radiologiefachperson-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000149360409-medecin-generaliste-medecin-de-famille-",
@@ -2679,7 +2925,7 @@
         "de": "allgemeinmediziner-hausarzt-swiss-medical-network-saint-imier",
         "fr": "medecin-generaliste-medecin-de-famille-swiss-medical-network"
       },
-      "slug": "medecin-generaliste-medecin-de-famille-swiss-medical-network",
+      "slug": "professionista-generale-medico-di-famiglia-swiss-medical-network-saint-imier",
       "category": "medical",
       "datePosted": "2026-09-14T15:00:13.611Z",
       "postedDate": "2026-09-14T15:00:13.611Z",
@@ -2712,7 +2958,15 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-generaliste-medecin-de-famille-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-generaliste-medecin-de-famille-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000149320840-allgemeinmediziner-in-50-bis-100-",
@@ -2828,7 +3082,7 @@
         "de": "ausbildung-assc-assistant-in-community-health-and-care-cfc-saint-imier-swiss-medical-network-saint-imier",
         "fr": "apprenti-e-assc-assistant-e-en-soins-et-sante-communautaire-cfc-saint-imier-swiss-medical-network"
       },
-      "slug": "apprenti-e-assc-assistant-e-en-soins-et-sante-communautaire-cfc-saint-imier-swiss-medical-network",
+      "slug": "apprendistato-assc-assistant-in-community-health-and-care-cfc-saint-imier-swiss-medical-network-saint-imier",
       "category": "admin",
       "datePosted": "2026-09-07T13:15:49.272Z",
       "postedDate": "2026-09-07T13:15:49.272Z",
@@ -2861,7 +3115,15 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-e-assc-assistant-e-en-soins-et-sante-communautaire-cfc-saint-imier-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-e-assc-assistant-e-en-soins-et-sante-communautaire-cfc-saint-imier-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000147924809-apprenti-e-cuisinier-ere-cfc-saint-imier-",
@@ -2894,7 +3156,7 @@
         "de": "auszubildender-cfc-saint-imier-swiss-medical-network-saint-imier",
         "fr": "apprenti-e-cuisinier-ere-cfc-saint-imier-swiss-medical-network"
       },
-      "slug": "apprenti-e-cuisinier-ere-cfc-saint-imier-swiss-medical-network",
+      "slug": "apprentice-cfc-saint-imier-swiss-medical-network-saint-imier",
       "category": "healthcare",
       "datePosted": "2026-09-07T12:28:08.896Z",
       "postedDate": "2026-09-07T12:28:08.896Z",
@@ -2927,7 +3189,15 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-e-cuisinier-ere-cfc-saint-imier-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-e-cuisinier-ere-cfc-saint-imier-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146936744-candidature-spontanee-secteur-medical",
@@ -2960,7 +3230,7 @@
         "de": "unerbetene-anwendung-medizinsektor-swiss-medical-network-saint-imier",
         "fr": "candidature-spontanee-secteur-medical-swiss-medical-network"
       },
-      "slug": "candidature-spontanee-secteur-medical-swiss-medical-network",
+      "slug": "applicazione-non-richiesta-settore-medico-swiss-medical-network-saint-imier",
       "category": "healthcare",
       "datePosted": "2026-09-02T09:37:15.622Z",
       "postedDate": "2026-09-02T09:37:15.622Z",
@@ -2993,7 +3263,15 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "candidature-spontanee-secteur-medical-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "candidature-spontanee-secteur-medical-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146637229-facharzt-in-fur-allgemeine-innere-medizin",
@@ -3026,7 +3304,7 @@
         "de": "facharzt-in-fur-allgemeine-innere-medizin-swiss-medical-network",
         "fr": "specialiste-en-medecine-interne-generale-swiss-medical-network-solothurn"
       },
-      "slug": "facharzt-in-fur-allgemeine-innere-medizin-swiss-medical-network",
+      "slug": "specialista-in-medicina-interna-generale-swiss-medical-network-solothurn",
       "category": "healthcare",
       "datePosted": "2026-09-01T07:19:52.992Z",
       "postedDate": "2026-09-01T07:19:52.992Z",
@@ -3059,7 +3337,15 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "facharzt-in-fur-allgemeine-innere-medizin-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "facharzt-in-fur-allgemeine-innere-medizin-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000145899259-medizintechnik-ingenieur-spezialisiert-auf-medizinische-bildgebung",
@@ -3092,7 +3378,7 @@
         "de": "medizintechnik-ingenieur-spezialisiert-auf-medizinische-bildgebung-swiss-medical-network",
         "fr": "ingenieur-en-genie-medical-specialise-en-imagerie-medicale-swiss-medical-network-zurich"
       },
-      "slug": "medizintechnik-ingenieur-spezialisiert-auf-medizinische-bildgebung-swiss-medical-network",
+      "slug": "ingegnere-medico-specializzato-in-imaging-medico-swiss-medical-network-zurich",
       "category": "technical",
       "datePosted": "2026-08-27T06:10:47.065Z",
       "postedDate": "2026-08-27T06:10:47.065Z",
@@ -3108,11 +3394,13 @@
       },
       "sourceLang": "de",
       "previousSlugs": [
-        "medizintechnik-ingenieur-spezialisiert-auf-medizinische-bildgebung-swiss-medical-network-zurich"
+        "medizintechnik-ingenieur-spezialisiert-auf-medizinische-bildgebung-swiss-medical-network-zurich",
+        "medizintechnik-ingenieur-spezialisiert-auf-medizinische-bildgebung-swiss-medical-network"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizintechnik-ingenieur-spezialisiert-auf-medizinische-bildgebung-swiss-medical-network-zurich"
+          "medizintechnik-ingenieur-spezialisiert-auf-medizinische-bildgebung-swiss-medical-network-zurich",
+          "medizintechnik-ingenieur-spezialisiert-auf-medizinische-bildgebung-swiss-medical-network"
         ]
       },
       "firstSeenAt": "2026-08-28T05:21:42.686Z",
@@ -3166,7 +3454,7 @@
         "de": "assistenzarzt-in-bilingualer-psychiatrie-deutsch-franzosisch-swiss-medical-network-biel",
         "fr": "medecin-adjoint-e-en-psychiatrie-bilingue-allemand-francais-swiss-medical-network"
       },
-      "slug": "medecin-adjoint-e-en-psychiatrie-bilingue-allemand-francais-swiss-medical-network",
+      "slug": "assistente-dottore-in-psichiatria-bilingue-tedesco-francese-swiss-medical-network-biel",
       "category": "medical",
       "datePosted": "2026-08-25T13:53:45.953Z",
       "postedDate": "2026-08-25T13:53:45.953Z",
@@ -3199,7 +3487,15 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-adjoint-e-en-psychiatrie-bilingue-allemand-francais-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-adjoint-e-en-psychiatrie-bilingue-allemand-francais-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000144066264-assistenzarzt-in-in-der-ambulanten-psychiatrie",
@@ -3232,7 +3528,7 @@
         "de": "assistenzarzt-in-in-der-ambulanten-psychiatrie-swiss-medical-network",
         "fr": "assistant-medecin-en-psychiatrie-ambulatoire-swiss-medical-network-biel"
       },
-      "slug": "assistenzarzt-in-in-der-ambulanten-psychiatrie-swiss-medical-network",
+      "slug": "assistente-medico-in-psichiatria-ambulatoria-swiss-medical-network-biel",
       "category": "healthcare",
       "datePosted": "2026-08-18T13:05:26.054Z",
       "postedDate": "2026-08-18T13:05:26.054Z",
@@ -3248,11 +3544,13 @@
       },
       "sourceLang": "de",
       "previousSlugs": [
-        "assistenzarzt-in-in-der-ambulanten-psychiatrie-swiss-medical-network-biel"
+        "assistenzarzt-in-in-der-ambulanten-psychiatrie-swiss-medical-network-biel",
+        "assistenzarzt-in-in-der-ambulanten-psychiatrie-swiss-medical-network"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarzt-in-in-der-ambulanten-psychiatrie-swiss-medical-network-biel"
+          "assistenzarzt-in-in-der-ambulanten-psychiatrie-swiss-medical-network-biel",
+          "assistenzarzt-in-in-der-ambulanten-psychiatrie-swiss-medical-network"
         ]
       },
       "firstSeenAt": "2026-08-18T21:35:49.117Z",
@@ -3306,7 +3604,7 @@
         "de": "allgemeinmediziner-in-40-bis-100-swiss-medical-network",
         "fr": "medecin-general-40-a-100-swiss-medical-network-ittigen"
       },
-      "slug": "allgemeinmediziner-in-40-bis-100-swiss-medical-network",
+      "slug": "professionista-generale-40-100-swiss-medical-network-ittigen",
       "category": "healthcare",
       "datePosted": "2026-08-17T13:47:01.278Z",
       "postedDate": "2026-08-17T13:47:01.278Z",
@@ -3322,11 +3620,13 @@
       },
       "sourceLang": "de",
       "previousSlugs": [
-        "allgemeinmediziner-in-40-bis-100-swiss-medical-network-ittigen"
+        "allgemeinmediziner-in-40-bis-100-swiss-medical-network-ittigen",
+        "allgemeinmediziner-in-40-bis-100-swiss-medical-network"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "allgemeinmediziner-in-40-bis-100-swiss-medical-network-ittigen"
+          "allgemeinmediziner-in-40-bis-100-swiss-medical-network-ittigen",
+          "allgemeinmediziner-in-40-bis-100-swiss-medical-network"
         ]
       },
       "firstSeenAt": "2026-08-17T21:31:00.265Z",
@@ -3380,7 +3680,7 @@
         "de": "instrumentale-krankenschwester-swiss-medical-network-sion",
         "fr": "infirmier-ere-instrumentiste-swiss-medical-network"
       },
-      "slug": "infirmier-ere-instrumentiste-swiss-medical-network",
+      "slug": "infermiere-strumentali-swiss-medical-network-sion",
       "category": "healthcare",
       "datePosted": "2026-08-10T14:18:52.503Z",
       "postedDate": "2026-08-10T14:18:52.503Z",
@@ -3413,7 +3713,15 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-instrumentiste-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-instrumentiste-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000142611608-medecin-specialiste-en-chirurgie-de-la-main",
@@ -3446,7 +3754,7 @@
         "de": "arzt-spezialist-fur-handchirurgie-swiss-medical-network-saint-imier",
         "fr": "medecin-specialiste-en-chirurgie-de-la-main-swiss-medical-network"
       },
-      "slug": "medecin-specialiste-en-chirurgie-de-la-main-swiss-medical-network",
+      "slug": "specialista-in-chirurgia-a-mano-swiss-medical-network-saint-imier",
       "category": "medical",
       "datePosted": "2026-08-10T10:51:34.293Z",
       "postedDate": "2026-08-10T10:51:34.293Z",
@@ -3479,7 +3787,15 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-specialiste-en-chirurgie-de-la-main-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-specialiste-en-chirurgie-de-la-main-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000141172969-montchoisi-motionlab",
@@ -3512,7 +3828,7 @@
         "de": "montchoisi-bewegungslab-swiss-medical-network-lausanne",
         "fr": "montchoisi-motionlab-swiss-medical-network"
       },
-      "slug": "montchoisi-motionlab-swiss-medical-network",
+      "slug": "montchoisi-laboratorio-di-movimento-swiss-medical-network-lausanne",
       "category": "technical",
       "datePosted": "2026-08-03T04:24:19.066Z",
       "postedDate": "2026-08-03T04:24:19.066Z",
@@ -3548,7 +3864,15 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "montchoisi-motionlab-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "montchoisi-motionlab-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139931805-medecin-angiologue-h-f-",
@@ -3581,7 +3905,7 @@
         "de": "angiologe-h-f-swiss-medical-network-st-imier",
         "fr": "medecin-angiologue-h-f-swiss-medical-network"
       },
-      "slug": "medecin-angiologue-h-f-swiss-medical-network",
+      "slug": "angiologo-h-f-swiss-medical-network-st-imier",
       "category": "medical",
       "datePosted": "2026-07-27T07:38:55.991Z",
       "postedDate": "2026-07-27T07:38:55.991Z",
@@ -3614,7 +3938,15 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-angiologue-h-f-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-angiologue-h-f-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139920480-fullstack-developer-ai-digital-health-de",
@@ -3712,7 +4044,7 @@
         "de": "it-business-analyst-gesundheitswesen-swiss-medical-network-echandens",
         "fr": "it-business-analyst-healthcare-swiss-medical-network"
       },
-      "slug": "it-business-analyst-healthcare-swiss-medical-network",
+      "slug": "analista-di-business-it-sanita-swiss-medical-network-echandens",
       "category": "technology",
       "datePosted": "2026-07-22T19:21:45.912Z",
       "postedDate": "2026-07-22T19:21:45.912Z",
@@ -3749,7 +4081,15 @@
           "unitText": "YEAR"
         }
       },
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "it-business-analyst-healthcare-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "it-business-analyst-healthcare-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139058930-gynakologe-in-und-geburtshelfer-in",
@@ -3782,7 +4122,7 @@
         "de": "gynakologe-in-und-geburtshelfer-in-swiss-medical-network",
         "fr": "gynecologue-et-obstetricien-swiss-medical-network-bern"
       },
-      "slug": "gynakologe-in-und-geburtshelfer-in-swiss-medical-network",
+      "slug": "ginecologo-e-ostetriciano-swiss-medical-network-bern",
       "category": "healthcare",
       "datePosted": "2026-07-22T12:08:56.062Z",
       "postedDate": "2026-07-22T12:08:56.062Z",
@@ -3815,7 +4155,15 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "gynakologe-in-und-geburtshelfer-in-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "gynakologe-in-und-geburtshelfer-in-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000138653929-medecin-responsable-d-unite",
@@ -3848,7 +4196,7 @@
         "de": "fur-die-einheit-zustandiger-arzt-swiss-medical-network-montreux",
         "fr": "medecin-responsable-d-unite-swiss-medical-network"
       },
-      "slug": "medecin-responsable-d-unite-swiss-medical-network",
+      "slug": "dottore-responsabile-dell-unita-swiss-medical-network-montreux",
       "category": "medical",
       "datePosted": "2026-07-20T13:59:58.265Z",
       "postedDate": "2026-07-20T13:59:58.265Z",
@@ -3881,7 +4229,15 @@
           "maxValue": 162500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-responsable-d-unite-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-responsable-d-unite-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000137849199-product-owner-klinische-applikationen-",
@@ -3914,7 +4270,7 @@
         "de": "product-owner-klinische-applikationen-swiss-medical-network",
         "fr": "applications-cliniques-du-proprietaire-du-produit-swiss-medical-network-zofingen"
       },
-      "slug": "product-owner-klinische-applikationen-swiss-medical-network",
+      "slug": "applicazioni-cliniche-del-proprietario-del-prodotto-swiss-medical-network-zofingen",
       "category": "healthcare",
       "datePosted": "2026-07-15T09:44:10.255Z",
       "postedDate": "2026-07-15T09:44:10.255Z",
@@ -3947,7 +4303,15 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "product-owner-klinische-applikationen-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "product-owner-klinische-applikationen-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000135503719-facharztin-facharzt-innere-medizin-50-100-",
@@ -4054,7 +4418,7 @@
         "de": "cva-kuchenhilfe-swiss-medical-network-glion",
         "fr": "cva-aide-de-cuisine-swiss-medical-network"
       },
-      "slug": "cva-aide-de-cuisine-swiss-medical-network",
+      "slug": "cva-cucina-aiuto-swiss-medical-network-glion-72c270f8b4",
       "category": "healthcare",
       "datePosted": "2026-11-13T14:02:48.476Z",
       "postedDate": "2026-11-13T14:02:48.476Z",
@@ -4071,12 +4435,14 @@
       "sourceLang": "fr",
       "previousSlugs": [
         "cva-cucina-aiuto-swiss-medical-network-glion",
-        "cva-cucina-aiuto-swiss-medical-network-glion-a908a2064c"
+        "cva-cucina-aiuto-swiss-medical-network-glion-a908a2064c",
+        "cva-aide-de-cuisine-swiss-medical-network"
       ],
       "previousSlugsByLocale": {
         "it": [
           "cva-cucina-aiuto-swiss-medical-network-glion",
-          "cva-cucina-aiuto-swiss-medical-network-glion-a908a2064c"
+          "cva-cucina-aiuto-swiss-medical-network-glion-a908a2064c",
+          "cva-aide-de-cuisine-swiss-medical-network"
         ]
       },
       "firstSeenAt": "2026-11-10T22:10:24.429Z",
@@ -4190,11 +4556,11 @@
         "fr": "Chef d'équipe Administration des RH et paie DE"
       },
       "slugByLocale": {
-        "it": "amministrazione-e-retribuzione-delle-risorse-umane-del-team-di-guida-it-swiss-medical-network-zurich-94d73a9c10",
+        "it": "amministrazione-e-retribuzione-delle-risorse-umane-del-team-di-guida-it-swiss-medical-network-zurich",
         "de": "team-lead-hr-administration-payroll-de-swiss-medical-network",
         "fr": "chef-d-equipe-administration-des-rh-et-paie-de-swiss-medical-network-zurich"
       },
-      "slug": "amministrazione-e-retribuzione-delle-risorse-umane-del-team-di-guida-it-swiss-medical-network-zurich-94d73a9c10",
+      "slug": "amministrazione-e-retribuzione-delle-risorse-umane-del-team-di-guida-it-swiss-medical-network-zurich",
       "category": "admin",
       "datePosted": "2026-10-07T09:26:18.715Z",
       "postedDate": "2026-10-07T09:26:18.715Z",
@@ -4235,12 +4601,12 @@
       "crawlerMissStreak": 1,
       "previousSlugs": [
         "team-lead-hr-administration-payroll-de-swiss-medical-network",
-        "amministrazione-e-retribuzione-delle-risorse-umane-del-team-di-guida-it-swiss-medical-network-zurich"
+        "amministrazione-e-retribuzione-delle-risorse-umane-del-team-di-guida-it-swiss-medical-network-zurich-94d73a9c10"
       ],
       "previousSlugsByLocale": {
         "it": [
           "team-lead-hr-administration-payroll-de-swiss-medical-network",
-          "amministrazione-e-retribuzione-delle-risorse-umane-del-team-di-guida-it-swiss-medical-network-zurich"
+          "amministrazione-e-retribuzione-delle-risorse-umane-del-team-di-guida-it-swiss-medical-network-zurich-94d73a9c10"
         ]
       }
     },
@@ -4342,7 +4708,7 @@
         "de": "facharzt-in-allgemeine-innere-medizin-swiss-medical-network",
         "fr": "specialiste-en-medecine-interne-generale-swiss-medical-network-wengen"
       },
-      "slug": "specialista-medicina-interna-swiss-medical-network-wengen-244df2ecf9",
+      "slug": "specialista-medicina-interna-swiss-medical-network-wengen",
       "category": "healthcare",
       "datePosted": "2026-08-25T14:16:14.836Z",
       "postedDate": "2026-08-25T14:16:14.836Z",
@@ -4358,11 +4724,13 @@
       },
       "sourceLang": "de",
       "previousSlugs": [
-        "facharzt-in-allgemeine-innere-medizin-swiss-medical-network"
+        "facharzt-in-allgemeine-innere-medizin-swiss-medical-network",
+        "specialista-medicina-interna-swiss-medical-network-wengen-244df2ecf9"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharzt-in-allgemeine-innere-medizin-swiss-medical-network"
+          "facharzt-in-allgemeine-innere-medizin-swiss-medical-network",
+          "specialista-medicina-interna-swiss-medical-network-wengen-244df2ecf9"
         ]
       },
       "firstSeenAt": "2026-09-23T23:43:24.352Z",

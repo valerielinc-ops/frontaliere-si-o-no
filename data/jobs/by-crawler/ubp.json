@@ -4601,12 +4601,12 @@
     },
     {
       "id": "ubp-94071bd508f3",
-      "slug": "apprentissage-employe-e-de-commerce-banque-2027-2030-union-bancaire-privee-geneva-switzerland",
+      "slug": "apprendistato-dipendente-commerciale-banca-2027-2030-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
         "fr": "apprentissage-employe-e-de-commerce-banque-2027-2030-ubp-ch",
-        "it": "apprentissage-employe-e-de-commerce-banque-2027-2030-union-bancaire-privee-geneva-switzerland",
-        "en": "apprentissage-employe-e-de-commerce-banque-2027-2030-ubp-ch",
-        "de": "apprentissage-employe-e-de-commerce-banque-2027-2030-ubp-ch"
+        "it": "apprendistato-dipendente-commerciale-banca-2027-2030-union-bancaire-privee-geneva-switzerland",
+        "en": "apprenticeship-trade-employee-bank-2027-2030-union-bancaire-privee-geneva-switzerland",
+        "de": "lehrling-handel-mitarbeiter-bank-2027-2030-union-bancaire-privee-geneva-switzerland"
       },
       "company": "Union Bancaire Privée",
       "companyKey": "ubp",
@@ -4653,11 +4653,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "apprentissage-employe-e-de-commerce-banque-2027-2030-ubp-ch",
+          "apprentissage-employe-e-de-commerce-banque-2027-2030-union-bancaire-privee-geneva-switzerland"
+        ],
+        "en": [
+          "apprentissage-employe-e-de-commerce-banque-2027-2030-ubp-ch"
+        ],
+        "de": [
           "apprentissage-employe-e-de-commerce-banque-2027-2030-ubp-ch"
         ]
       },
       "previousSlugs": [
-        "apprentissage-employe-e-de-commerce-banque-2027-2030-ubp-ch"
+        "apprentissage-employe-e-de-commerce-banque-2027-2030-ubp-ch",
+        "apprentissage-employe-e-de-commerce-banque-2027-2030-union-bancaire-privee-geneva-switzerland"
       ],
       "salaryMin": 72000,
       "salaryMax": 111000,

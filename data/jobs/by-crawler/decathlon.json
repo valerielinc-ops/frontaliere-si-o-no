@@ -3306,11 +3306,11 @@
     },
     {
       "id": "decathlon-d28c7f94895a",
-      "slug": "conseiller-ere-sportif-running-trail-h-f-cdi-50-70-decathlon-avry-decathlon-ch",
+      "slug": "consulente-sportivo-running-trail-m-f-cdi-50-70-decathlon-avry-decathlon-matran",
       "slugByLocale": {
         "fr": "conseiller-ere-sportif-running-trail-h-f-cdi-50-70-decathlon-avry-decathlon-ch",
-        "it": "conseiller-ere-sportif-running-trail-h-f-cdi-50-70-decathlon-avry-decathlon-ch",
-        "en": "conseiller-ere-sportif-running-trail-h-f-cdi-50-70-decathlon-avry-decathlon-ch",
+        "it": "consulente-sportivo-running-trail-m-f-cdi-50-70-decathlon-avry-decathlon-matran",
+        "en": "sports-adviser-running-trail-m-f-cdi-50-70-decathlon-avry-decathlon-matran",
         "de": "conseiller-ere-sportif-running-trail-h-f-cdi-50-70-decathlon-avry-decathlon-ch"
       },
       "company": "Decathlon",
@@ -3372,7 +3372,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T21:26:30.028Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T21:26:30.028Z"
+      "firstSeenAt": "2026-11-18T21:26:30.028Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-ere-sportif-running-trail-h-f-cdi-50-70-decathlon-avry-decathlon-ch"
+        ],
+        "en": [
+          "conseiller-ere-sportif-running-trail-h-f-cdi-50-70-decathlon-avry-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-ere-sportif-running-trail-h-f-cdi-50-70-decathlon-avry-decathlon-ch"
+      ]
     }
   ]
 }

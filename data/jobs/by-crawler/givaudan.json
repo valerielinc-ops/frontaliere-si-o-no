@@ -92,7 +92,7 @@
       "slugByLocale": {
         "en": "senior-regulatory-data-analyst-w-m-d-givaudan-ch",
         "it": "senior-regulatory-data-analyst-w-m-d-givaudan-ch",
-        "de": "senior-regulatory-data-analyst-w-m-d-givaudan-ch",
+        "de": "senior-analyst-fur-regulatorische-daten-m-w-d-givaudan-vernier",
         "fr": "senior-regulatory-data-analyst-w-m-d-givaudan-ch"
       },
       "company": "Givaudan",
@@ -155,7 +155,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-06T21:45:11.807Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-12T21:26:47.614Z"
+      "firstSeenAt": "2026-10-12T21:26:47.614Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "senior-regulatory-data-analyst-w-m-d-givaudan-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-regulatory-data-analyst-w-m-d-givaudan-ch"
+      ]
     },
     {
       "id": "givaudan-6ac69795be6d",
@@ -241,12 +249,12 @@
     },
     {
       "id": "givaudan-386f769ccd64",
-      "slug": "head-of-it-office-givaudan-ch",
+      "slug": "responsabile-it-office-givaudan-vernier",
       "slugByLocale": {
         "en": "head-of-it-office-givaudan-ch",
-        "it": "head-of-it-office-givaudan-ch",
-        "de": "head-of-it-office-givaudan-ch",
-        "fr": "head-of-it-office-givaudan-ch"
+        "it": "responsabile-it-office-givaudan-vernier",
+        "de": "leiter-it-office-givaudan-vernier",
+        "fr": "responsable-it-office-givaudan-vernier"
       },
       "company": "Givaudan",
       "companyKey": "givaudan",
@@ -309,7 +317,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-16T21:45:09.656Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T21:45:09.656Z"
+      "firstSeenAt": "2026-11-18T21:45:09.656Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "head-of-it-office-givaudan-ch"
+        ],
+        "de": [
+          "head-of-it-office-givaudan-ch"
+        ],
+        "fr": [
+          "head-of-it-office-givaudan-ch"
+        ]
+      },
+      "previousSlugs": [
+        "head-of-it-office-givaudan-ch"
+      ]
     },
     {
       "id": "givaudan-878f847674f8",

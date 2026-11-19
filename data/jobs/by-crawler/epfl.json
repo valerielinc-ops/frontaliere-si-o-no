@@ -5,7 +5,7 @@
   "jobs": [
     {
       "id": "epfl-07d69ace397a",
-      "slug": "postdoctoral-researcher-in-geometry-epfl-lausanne",
+      "slug": "ricercatore-post-dottorato-in-geometria-epfl-lausanne",
       "slugByLocale": {
         "it": "ricercatore-post-dottorato-in-geometria-epfl-lausanne",
         "en": "postdoctoral-researcher-in-geometry-epfl-lausanne",
@@ -73,7 +73,15 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-21T21:23:40.875Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "postdoctoral-researcher-in-geometry-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "postdoctoral-researcher-in-geometry-epfl-lausanne"
+      ]
     },
     {
       "id": "epfl-84910af98cd0",
@@ -1299,7 +1307,7 @@
     },
     {
       "id": "epfl-25d14b737daf",
-      "slug": "postdoctoral-researcher-epfl-lausanne",
+      "slug": "ricercatore-post-dottorato-epfl-lausanne",
       "slugByLocale": {
         "it": "ricercatore-post-dottorato-epfl-lausanne",
         "en": "postdoctoral-researcher-epfl-lausanne",
@@ -1354,11 +1362,13 @@
         "recherche-post-doctorale-epfl-lausanne",
         "chercheur-post-doctoral-epfl-lausanne",
         "postdoctoral-researcher-in-photoelectrochemistry-epfl-lausanne",
-        "postdoktorandischer-forscher-epfl-lausanne"
+        "postdoktorandischer-forscher-epfl-lausanne",
+        "postdoctoral-researcher-epfl-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ricercatore-post-doc-epfl-lausanne"
+          "ricercatore-post-doc-epfl-lausanne",
+          "postdoctoral-researcher-epfl-lausanne"
         ],
         "de": [
           "post-doktorand-epfl-lausanne",
@@ -2606,7 +2616,7 @@
     },
     {
       "id": "epfl-d3fbf1d979eb",
-      "slug": "postdoc-at-the-digital-and-cognitive-musicology-lab-epfl-lausanne",
+      "slug": "ricercatore-post-dottorato-presso-il-laboratorio-di-musicologia-digitale-e-cognitiva-epfl-lausanne-epfl-lausanne",
       "slugByLocale": {
         "en": "postdoc-at-the-digital-and-cognitive-musicology-lab-epfl-lausanne-epfl-lausanne",
         "it": "ricercatore-post-dottorato-presso-il-laboratorio-di-musicologia-digitale-e-cognitiva-epfl-lausanne-epfl-lausanne",
@@ -2656,11 +2666,13 @@
       "contractType": "Post-doc / Collab. scientifique",
       "externalId": "1164200455",
       "previousSlugs": [
-        "postdoc-at-the-digital-and-cognitive-musicology-lab-epfl-lausanne-epfl-lausanne"
+        "postdoc-at-the-digital-and-cognitive-musicology-lab-epfl-lausanne-epfl-lausanne",
+        "postdoc-at-the-digital-and-cognitive-musicology-lab-epfl-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postdoc-at-the-digital-and-cognitive-musicology-lab-epfl-lausanne-epfl-lausanne"
+          "postdoc-at-the-digital-and-cognitive-musicology-lab-epfl-lausanne-epfl-lausanne",
+          "postdoc-at-the-digital-and-cognitive-musicology-lab-epfl-lausanne"
         ]
       },
       "firstSeenAt": "2026-05-10T21:32:10.707Z",
@@ -5576,7 +5588,7 @@
     },
     {
       "id": "epfl-51a09e21257e",
-      "slug": "postdoctoral-researcher-in-building-technology-epfl-fribourg",
+      "slug": "ricercatore-post-dottorato-nella-tecnologia-dell-edilizia-epfl-fribourg",
       "slugByLocale": {
         "it": "ricercatore-post-dottorato-nella-tecnologia-dell-edilizia-epfl-fribourg",
         "en": "postdoctoral-researcher-in-building-technology-epfl-fribourg",
@@ -5634,14 +5646,16 @@
         "postdoktorand-in-bauwissenschaften-epfl-fribourg",
         "postdoktorand-im-bereich-bautechnik-epfl-fribourg",
         "postdoktorand-in-gebaudetechnik-epfl-fribourg",
-        "rechercheur-post-doctoral-en-technologie-de-construction-epfl-fribourg"
+        "rechercheur-post-doctoral-en-technologie-de-construction-epfl-fribourg",
+        "postdoctoral-researcher-in-building-technology-epfl-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ricercatore-post-dottorato-in-building-technology-epfl-fribourg",
           "ricercatore-post-dottorato-in-tecnologia-edile-epfl-fribourg",
           "ricercatore-post-dottorato-in-tecnologia-dell-edilizia-epfl-fribourg",
-          "ricercatore-post-dottorato-in-tecnologia-edilizia-epfl-fribourg"
+          "ricercatore-post-dottorato-in-tecnologia-edilizia-epfl-fribourg",
+          "postdoctoral-researcher-in-building-technology-epfl-fribourg"
         ],
         "de": [
           "postdoktorandin-fur-bautechnik-epfl-fribourg",

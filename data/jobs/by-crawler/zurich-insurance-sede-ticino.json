@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "zurich-insurance-sede-ticino-1377861557",
-      "slug": "sustainability-risk-manager-100-zurich-insurance-sede-ticino-zurich",
+      "slug": "gestione-del-rischio-di-sostenibilita-100-zurich-insurance-zurich-1377861557",
       "slugByLocale": {
         "en": "sustainability-risk-manager-100-zurich-insurance-sede-ticino-zurich",
-        "it": "sustainability-risk-manager-100-zurich-insurance-sede-ticino-zurich",
-        "de": "sustainability-risk-manager-100-zurich-insurance-sede-ticino-zurich",
-        "fr": "sustainability-risk-manager-100-zurich-insurance-sede-ticino-zurich"
+        "it": "gestione-del-rischio-di-sostenibilita-100-zurich-insurance-zurich-1377861557",
+        "de": "manager-fur-nachhaltigkeitsrisiken-100-zurich-insurance-zurich-1377861557",
+        "fr": "gestionnaire-des-risques-pour-la-durabilite-100-zurich-insurance-zurich-1377861557"
       },
       "slugDisambiguator": "1377861557",
       "company": "Zurich Insurance",
@@ -73,7 +73,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T21:26:25.701Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T21:26:25.701Z"
+      "firstSeenAt": "2026-11-18T21:26:25.701Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sustainability-risk-manager-100-zurich-insurance-sede-ticino-zurich"
+        ],
+        "de": [
+          "sustainability-risk-manager-100-zurich-insurance-sede-ticino-zurich"
+        ],
+        "fr": [
+          "sustainability-risk-manager-100-zurich-insurance-sede-ticino-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "sustainability-risk-manager-100-zurich-insurance-sede-ticino-zurich"
+      ]
     },
     {
       "id": "zurich-insurance-sede-ticino-1377803357",

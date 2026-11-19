@@ -2579,12 +2579,12 @@
     },
     {
       "id": "cnp-dfeeb83e9a3f",
-      "slug": "medecin-chef-fe-de-clinique-adjoint-e-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
+      "slug": "capo-medico-della-clinica-responsabile-della-clinica-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
       "slugByLocale": {
         "fr": "medecin-chef-fe-de-clinique-chef-fe-de-clinique-adjoint-e-cnp-marin-epagnier",
-        "it": "medecin-chef-fe-de-clinique-adjoint-e-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
-        "en": "medecin-chef-fe-de-clinique-chef-fe-de-clinique-adjoint-e-cnp-marin-epagnier",
-        "de": "medecin-chef-fe-de-clinique-chef-fe-de-clinique-adjoint-e-cnp-marin-epagnier"
+        "it": "capo-medico-della-clinica-responsabile-della-clinica-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
+        "en": "chief-medical-officer-of-clinic-deputy-head-of-clinic-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
+        "de": "chief-medical-officer-der-klinik-stellvertretender-leiter-der-klinik-centre-neuchatelois-de-psychiatrie-cnp-marin"
       },
       "company": "Centre Neuchâtelois de Psychiatrie (CNP)",
       "companyKey": "cnp",
@@ -2631,11 +2631,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "medecin-chef-fe-de-clinique-chef-fe-de-clinique-adjoint-e-cnp-marin-epagnier",
+          "medecin-chef-fe-de-clinique-adjoint-e-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
+        ],
+        "en": [
+          "medecin-chef-fe-de-clinique-chef-fe-de-clinique-adjoint-e-cnp-marin-epagnier"
+        ],
+        "de": [
           "medecin-chef-fe-de-clinique-chef-fe-de-clinique-adjoint-e-cnp-marin-epagnier"
         ]
       },
       "previousSlugs": [
-        "medecin-chef-fe-de-clinique-chef-fe-de-clinique-adjoint-e-cnp-marin-epagnier"
+        "medecin-chef-fe-de-clinique-chef-fe-de-clinique-adjoint-e-cnp-marin-epagnier",
+        "medecin-chef-fe-de-clinique-adjoint-e-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
       ],
       "salaryMin": 86000,
       "salaryMax": 120000,

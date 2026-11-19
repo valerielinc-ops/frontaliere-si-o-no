@@ -14155,7 +14155,7 @@
     },
     {
       "id": "denner-4f4e16a03415",
-      "slug": "vice-direttoredifiliale-denner-zollikofen-d20454eeb0",
+      "slug": "stv-filialleiter-in-denner",
       "titleByLocale": {
         "it": "Vice direttoredifiliale",
         "en": "Deputy branch manager",
@@ -14163,7 +14163,7 @@
         "fr": "Directeur (trice) adjoint (e) de succursale"
       },
       "slugByLocale": {
-        "it": "vice-direttoredifiliale-denner-zollikofen-d20454eeb0",
+        "it": "stv-filialleiter-in-denner",
         "en": "stv-filialleiter-in-denner-bern",
         "de": "stv-filialleiter-in-denner-ag-bern-tp6czy",
         "fr": "stv-filialleiter-in-denner-bern"
@@ -14225,12 +14225,13 @@
         ],
         "it": [
           "vice-direttoredifiliale-denner-bern-0a22b0245e",
-          "stv-filialleiter-in-denner"
+          "vice-direttoredifiliale-denner-zollikofen-d20454eeb0"
         ]
       },
       "previousSlugs": [
         "vice-direttoredifiliale-denner-bern-0a22b0245e",
-        "stv-filialleiter-in-denner"
+        "stv-filialleiter-in-denner",
+        "vice-direttoredifiliale-denner-zollikofen-d20454eeb0"
       ],
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
       "salaryMin": 109000,
@@ -24245,7 +24246,7 @@
     },
     {
       "id": "denner-292c9d054d15",
-      "slug": "vice-responsabile-di-filiale-denner-cham-e95ffcd0ef",
+      "slug": "stv-filialleiter-in-denner",
       "titleByLocale": {
         "it": "Vice responsabile di filiale",
         "en": "Deputy Branch Manager",
@@ -24253,7 +24254,7 @@
         "fr": "Responsable adjoint·e de filiale"
       },
       "slugByLocale": {
-        "it": "vice-responsabile-di-filiale-denner-cham-e95ffcd0ef",
+        "it": "stv-filialleiter-in-denner",
         "en": "deputy-branch-manager-denner-cham",
         "de": "stv-filialleiter-in-denner-cham",
         "fr": "responsable-adjoint-e-de-filiale-denner-cham"
@@ -24316,7 +24317,7 @@
         "it": [
           "stv-filialleiter-in-denner-11l56c",
           "stv-filialleiter-in-denner-cham-b334ddb645",
-          "stv-filialleiter-in-denner"
+          "vice-responsabile-di-filiale-denner-cham-e95ffcd0ef"
         ],
         "en": [
           "stv-filialleiter-in-denner-cham"
@@ -24329,7 +24330,8 @@
         "stv-filialleiter-in-denner-cham",
         "stv-filialleiter-in-denner-11l56c",
         "stv-filialleiter-in-denner-cham-b334ddb645",
-        "stv-filialleiter-in-denner"
+        "stv-filialleiter-in-denner",
+        "vice-responsabile-di-filiale-denner-cham-e95ffcd0ef"
       ],
       "firstSeenAt": "2026-06-22T22:33:45.051Z",
       "salaryMin": 110500,
@@ -27410,7 +27412,7 @@
     },
     {
       "id": "denner-70157c457783",
-      "slug": "verkaufer-in-denner-hinwil",
+      "slug": "commesso-a-denner-hinwil",
       "titleByLocale": {
         "de": "Verkäufer*in",
         "it": "Commesso/a",
@@ -27419,9 +27421,9 @@
       },
       "slugByLocale": {
         "de": "verkaufer-in-denner",
-        "it": "verkaufer-in-denner-hinwil",
-        "en": "verkaufer-in-denner-hinwil",
-        "fr": "verkaufer-in-denner-hinwil"
+        "it": "commesso-a-denner-hinwil",
+        "en": "salesperson-denner-hinwil",
+        "fr": "vendeur-euse-denner-hinwil"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -27478,12 +27480,20 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner",
-          "verkaufer-in-denner-5"
+          "verkaufer-in-denner-5",
+          "verkaufer-in-denner-hinwil"
+        ],
+        "en": [
+          "verkaufer-in-denner-hinwil"
+        ],
+        "fr": [
+          "verkaufer-in-denner-hinwil"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-denner",
-        "verkaufer-in-denner-5"
+        "verkaufer-in-denner-5",
+        "verkaufer-in-denner-hinwil"
       ],
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -27505,7 +27515,7 @@
     },
     {
       "id": "denner-fea3bc44df88",
-      "slug": "verkaufer-in-morgenschicht-im-stundenlohn-denner",
+      "slug": "addetto-a-alle-vendite-per-il-turno-del-mattino-con-retribuzione-oraria-denner-mellingen",
       "titleByLocale": {
         "de": "Verkäufer*in Morgenschicht im Stundenlohn",
         "it": "Addetto/a alle vendite per il turno del mattino con retribuzione oraria",
@@ -27514,9 +27524,9 @@
       },
       "slugByLocale": {
         "de": "verkaufer-in-morgenschicht-im-stundenlohn-denner",
-        "it": "verkaufer-in-morgenschicht-im-stundenlohn-denner",
-        "en": "verkaufer-in-morgenschicht-im-stundenlohn-denner",
-        "fr": "verkaufer-in-morgenschicht-im-stundenlohn-denner"
+        "it": "addetto-a-alle-vendite-per-il-turno-del-mattino-con-retribuzione-oraria-denner-mellingen",
+        "en": "salesperson-on-the-morning-shift-paid-by-the-hour-denner-mellingen",
+        "fr": "vendeur-euse-en-equipe-du-matin-remunere-e-a-l-heure-denner-mellingen"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -27586,7 +27596,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-16T21:20:48.763Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T21:20:48.763Z"
+      "firstSeenAt": "2026-11-18T21:20:48.763Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-morgenschicht-im-stundenlohn-denner"
+        ],
+        "en": [
+          "verkaufer-in-morgenschicht-im-stundenlohn-denner"
+        ],
+        "fr": [
+          "verkaufer-in-morgenschicht-im-stundenlohn-denner"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-morgenschicht-im-stundenlohn-denner"
+      ]
     }
   ]
 }

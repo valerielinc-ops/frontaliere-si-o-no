@@ -4457,12 +4457,12 @@
     },
     {
       "id": "etat-de-vaud-6178",
-      "slug": "secretaire-d-unite-decentralisee-etat-de-vaud-chavannes-renens",
+      "slug": "segretario-unita-decente-etat-de-vaud-administration-cantonale-vaudoise-chavannes-renens",
       "slugByLocale": {
         "fr": "secretaire-d-unite-decentralisee-etat-de-vaud-chavannes-renens",
-        "it": "secretaire-d-unite-decentralisee-etat-de-vaud-chavannes-renens",
-        "en": "secretaire-d-unite-decentralisee-etat-de-vaud-chavannes-renens",
-        "de": "secretaire-d-unite-decentralisee-etat-de-vaud-chavannes-renens"
+        "it": "segretario-unita-decente-etat-de-vaud-administration-cantonale-vaudoise-chavannes-renens",
+        "en": "decentralised-unit-secretary-etat-de-vaud-administration-cantonale-vaudoise-chavannes-renens",
+        "de": "dezentraler-referatssekretar-etat-de-vaud-administration-cantonale-vaudoise-chavannes-renens"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -4524,7 +4524,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-16T21:43:57.084Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T21:43:57.084Z"
+      "firstSeenAt": "2026-11-18T21:43:57.084Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-d-unite-decentralisee-etat-de-vaud-chavannes-renens"
+        ],
+        "en": [
+          "secretaire-d-unite-decentralisee-etat-de-vaud-chavannes-renens"
+        ],
+        "de": [
+          "secretaire-d-unite-decentralisee-etat-de-vaud-chavannes-renens"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-d-unite-decentralisee-etat-de-vaud-chavannes-renens"
+      ]
     }
   ]
 }

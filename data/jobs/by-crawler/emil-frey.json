@@ -6835,12 +6835,12 @@
     },
     {
       "id": "emil-frey-557a472fb5ec",
-      "slug": "leiter-carrosserie-emil-frey-zurich",
+      "slug": "capo-di-carrosserie-emil-frey-zurich",
       "slugByLocale": {
         "de": "leiter-carrosserie-emil-frey-zurich",
-        "it": "leiter-carrosserie-emil-frey-zurich",
-        "en": "leiter-carrosserie-emil-frey-zurich",
-        "fr": "leiter-carrosserie-emil-frey-zurich"
+        "it": "capo-di-carrosserie-emil-frey-zurich",
+        "en": "head-of-carrosserie-emil-frey-zurich",
+        "fr": "chef-de-carrosserie-emil-frey-zurich"
       },
       "company": "Emil Frey",
       "companyKey": "emil-frey",
@@ -6902,7 +6902,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-16T21:18:58.925Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T21:18:58.925Z"
+      "firstSeenAt": "2026-11-18T21:18:58.925Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leiter-carrosserie-emil-frey-zurich"
+        ],
+        "en": [
+          "leiter-carrosserie-emil-frey-zurich"
+        ],
+        "fr": [
+          "leiter-carrosserie-emil-frey-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "leiter-carrosserie-emil-frey-zurich"
+      ]
     },
     {
       "id": "emil-frey-73f1ca4c2089",

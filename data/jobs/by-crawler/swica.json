@@ -2789,12 +2789,12 @@
     },
     {
       "id": "swica-5dd055f1c20e",
-      "slug": "gestionnaire-prestations-accident-complexe-toutes-swica-gesundheitsorganisation-winterthur",
+      "slug": "manager-benefits-accident-complex-tutti-swica-gesundheitsorganisation-winterthur",
       "slugByLocale": {
         "fr": "gestionnaire-prestations-accident-complexe-toutes-swica-winterthur",
-        "it": "gestionnaire-prestations-accident-complexe-toutes-swica-gesundheitsorganisation-winterthur",
-        "en": "gestionnaire-prestations-accident-complexe-toutes-swica-winterthur",
-        "de": "gestionnaire-prestations-accident-complexe-toutes-swica-winterthur"
+        "it": "manager-benefits-accident-complex-tutti-swica-gesundheitsorganisation-winterthur",
+        "en": "manager-benefits-accident-complex-all-swica-gesundheitsorganisation-winterthur",
+        "de": "manager-benefits-unfallkomplex-alle-swica-gesundheitsorganisation-winterthur"
       },
       "company": "SWICA Gesundheitsorganisation",
       "companyKey": "swica",
@@ -2842,11 +2842,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "gestionnaire-prestations-accident-complexe-toutes-swica-winterthur",
+          "gestionnaire-prestations-accident-complexe-toutes-swica-gesundheitsorganisation-winterthur"
+        ],
+        "en": [
+          "gestionnaire-prestations-accident-complexe-toutes-swica-winterthur"
+        ],
+        "de": [
           "gestionnaire-prestations-accident-complexe-toutes-swica-winterthur"
         ]
       },
       "previousSlugs": [
-        "gestionnaire-prestations-accident-complexe-toutes-swica-winterthur"
+        "gestionnaire-prestations-accident-complexe-toutes-swica-winterthur",
+        "gestionnaire-prestations-accident-complexe-toutes-swica-gesundheitsorganisation-winterthur"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -2872,8 +2880,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-intake-service-amp-support-ktg-alle-swica-basel",
         "it": "collaboratore-trice-intake-service-support-ktg-alle-swica-gesundheitsorganisation-basel",
-        "en": "mitarbeiter-intake-service-amp-support-ktg-alle-swica-basel",
-        "fr": "mitarbeiter-intake-service-amp-support-ktg-alle-swica-basel"
+        "en": "employee-intake-service-support-ktg-all-swica-gesundheitsorganisation-basel",
+        "fr": "prise-en-charge-service-et-soutien-des-employes-swica-gesundheitsorganisation-basel"
       },
       "company": "SWICA Gesundheitsorganisation",
       "companyKey": "swica",
@@ -2921,6 +2929,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-intake-service-amp-support-ktg-alle-swica-basel"
+        ],
+        "en": [
+          "mitarbeiter-intake-service-amp-support-ktg-alle-swica-basel"
+        ],
+        "fr": [
           "mitarbeiter-intake-service-amp-support-ktg-alle-swica-basel"
         ]
       },

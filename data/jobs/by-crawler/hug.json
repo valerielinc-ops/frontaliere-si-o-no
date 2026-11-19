@@ -4609,12 +4609,12 @@
     },
     {
       "id": "hug-a50c2d807eda",
-      "slug": "ingenieur-ou-ingenieure-cheffe-de-projet-technique-et-batiment-en-electricite-100-hug",
+      "slug": "ingegnere-o-ingegnere-project-manager-tecnico-e-edificio-elettrico-100-hug-geneve",
       "slugByLocale": {
         "fr": "ingenieur-ou-ingenieure-cheffe-de-projet-technique-et-batiment-en-electricite-100-hug",
-        "it": "ingenieur-ou-ingenieure-cheffe-de-projet-technique-et-batiment-en-electricite-100-hug",
-        "en": "ingenieur-ou-ingenieure-cheffe-de-projet-technique-et-batiment-en-electricite-100-hug",
-        "de": "ingenieur-ou-ingenieure-cheffe-de-projet-technique-et-batiment-en-electricite-100-hug"
+        "it": "ingegnere-o-ingegnere-project-manager-tecnico-e-edificio-elettrico-100-hug-geneve",
+        "en": "engineer-or-engineer-technical-project-manager-and-electrical-building-100-hug-geneve",
+        "de": "ingenieur-oder-ingenieur-technischer-projektleiter-und-elektrogebaude-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4676,16 +4676,30 @@
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T21:17:49.562Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "ingenieur-ou-ingenieure-cheffe-de-projet-technique-et-batiment-en-electricite-100-hug"
+        ],
+        "en": [
+          "ingenieur-ou-ingenieure-cheffe-de-projet-technique-et-batiment-en-electricite-100-hug"
+        ],
+        "de": [
+          "ingenieur-ou-ingenieure-cheffe-de-projet-technique-et-batiment-en-electricite-100-hug"
+        ]
+      },
+      "previousSlugs": [
+        "ingenieur-ou-ingenieure-cheffe-de-projet-technique-et-batiment-en-electricite-100-hug"
+      ]
     },
     {
       "id": "hug-ee99e9dc2f42",
-      "slug": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-en-gastro-enterologie-et",
+      "slug": "responsabile-clinica-con-o-senza-specializzazione-in-gastroenterologia-ed-epatologia-80-al-100-hug-geneve",
       "slugByLocale": {
         "fr": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-en-gastro-enterologie-et",
-        "it": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-en-gastro-enterologie-et",
-        "en": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-en-gastro-enterologie-et",
-        "de": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-en-gastro-enterologie-et"
+        "it": "responsabile-clinica-con-o-senza-specializzazione-in-gastroenterologia-ed-epatologia-80-al-100-hug-geneve",
+        "en": "head-of-clinic-with-or-without-speciality-in-gastroenterology-and-hepatology-80-to-100-hug-geneve",
+        "de": "leiter-der-klinik-mit-oder-ohne-spezialisierung-in-gastroenterologie-und-hepatologie-80-bis-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4748,16 +4762,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T21:17:49.557Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-04T23:00:42.259Z"
+      "firstSeenAt": "2026-09-04T23:00:42.259Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-en-gastro-enterologie-et"
+        ],
+        "en": [
+          "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-en-gastro-enterologie-et"
+        ],
+        "de": [
+          "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-en-gastro-enterologie-et"
+        ]
+      },
+      "previousSlugs": [
+        "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-en-gastro-enterologie-et"
+      ]
     },
     {
       "id": "hug-3eb40cf810e3",
-      "slug": "medecin-interne-en-rotation-entre-le-service-de-gastro-enterologie-et-hepatologie-et-le",
+      "slug": "medico-interno-ruotato-tra-il-reparto-gastroenterologia-e-epatologia-e-il-dipartimento-generale-della-medicina-interna",
       "slugByLocale": {
         "fr": "medecin-interne-en-rotation-entre-le-service-de-gastro-enterologie-et-hepatologie-et-le",
-        "it": "medecin-interne-en-rotation-entre-le-service-de-gastro-enterologie-et-hepatologie-et-le",
-        "en": "medecin-interne-en-rotation-entre-le-service-de-gastro-enterologie-et-hepatologie-et-le",
-        "de": "medecin-interne-en-rotation-entre-le-service-de-gastro-enterologie-et-hepatologie-et-le"
+        "it": "medico-interno-ruotato-tra-il-reparto-gastroenterologia-e-epatologia-e-il-dipartimento-generale-della-medicina-interna",
+        "en": "internal-physician-rotated-between-the-gastroenterology-and-hepatology-department-and-the-general-internal-medicine",
+        "de": "interner-arzt-rotiert-zwischen-der-abteilung-fur-gastroenterologie-und-hepatologie-und-der-abteilung-fur-allgemeine"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4820,16 +4848,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T21:17:49.554Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T21:17:49.554Z"
+      "firstSeenAt": "2026-11-18T21:17:49.554Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-interne-en-rotation-entre-le-service-de-gastro-enterologie-et-hepatologie-et-le"
+        ],
+        "en": [
+          "medecin-interne-en-rotation-entre-le-service-de-gastro-enterologie-et-hepatologie-et-le"
+        ],
+        "de": [
+          "medecin-interne-en-rotation-entre-le-service-de-gastro-enterologie-et-hepatologie-et-le"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-interne-en-rotation-entre-le-service-de-gastro-enterologie-et-hepatologie-et-le"
+      ]
     },
     {
       "id": "hug-a5a2677e56c5",
-      "slug": "chef-ou-cheffe-de-clinique-en-rotation-entre-le-service-de-gastro-enterologie-et",
+      "slug": "responsabile-o-responsabile-della-rotazione-clinica-tra-il-servizio-gastroenterologia-ed-epatologia-e-il-servizio",
       "slugByLocale": {
         "fr": "chef-ou-cheffe-de-clinique-en-rotation-entre-le-service-de-gastro-enterologie-et",
-        "it": "chef-ou-cheffe-de-clinique-en-rotation-entre-le-service-de-gastro-enterologie-et",
-        "en": "chef-ou-cheffe-de-clinique-en-rotation-entre-le-service-de-gastro-enterologie-et",
-        "de": "chef-ou-cheffe-de-clinique-en-rotation-entre-le-service-de-gastro-enterologie-et"
+        "it": "responsabile-o-responsabile-della-rotazione-clinica-tra-il-servizio-gastroenterologia-ed-epatologia-e-il-servizio",
+        "en": "head-or-head-of-clinical-rotation-between-the-gastroenterology-and-hepatology-service-and-the-general-internal-medicine",
+        "de": "leiter-oder-leiter-der-klinischen-rotation-zwischen-dem-gastroenterology-and-hepatology-service-und-dem-general-internal"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4892,7 +4934,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T21:17:49.550Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T21:17:49.550Z"
+      "firstSeenAt": "2026-11-18T21:17:49.550Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-ou-cheffe-de-clinique-en-rotation-entre-le-service-de-gastro-enterologie-et"
+        ],
+        "en": [
+          "chef-ou-cheffe-de-clinique-en-rotation-entre-le-service-de-gastro-enterologie-et"
+        ],
+        "de": [
+          "chef-ou-cheffe-de-clinique-en-rotation-entre-le-service-de-gastro-enterologie-et"
+        ]
+      },
+      "previousSlugs": [
+        "chef-ou-cheffe-de-clinique-en-rotation-entre-le-service-de-gastro-enterologie-et"
+      ]
     },
     {
       "id": "hug-d69651bb6f77",

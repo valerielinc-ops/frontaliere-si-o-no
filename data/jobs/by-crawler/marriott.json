@@ -627,7 +627,7 @@
         "en": "manager-entity-reporting-tax-jv-18-month-ftc-marriott-root-d4",
         "it": "manager-entity-reporting-tax-jv-18-month-ftc-marriott-root-d4",
         "de": "manager-entity-reporting-tax-jv-18-month-ftc-marriott-root-d4",
-        "fr": "manager-entity-reporting-tax-jv-18-month-ftc-marriott-root-d4"
+        "fr": "gestionnaire-declaration-des-entites-et-impot-jv-18-mois-ftc-marriott-international-root-d4"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -698,7 +698,15 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-16T22:05:13.160Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T22:05:13.160Z"
+      "firstSeenAt": "2026-11-18T22:05:13.160Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "manager-entity-reporting-tax-jv-18-month-ftc-marriott-root-d4"
+        ]
+      },
+      "previousSlugs": [
+        "manager-entity-reporting-tax-jv-18-month-ftc-marriott-root-d4"
+      ]
     },
     {
       "id": "marriott-d180760dcd46",

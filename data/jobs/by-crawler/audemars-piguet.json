@@ -2700,10 +2700,10 @@
     },
     {
       "id": "audemars-piguet-8ef465c3b951",
-      "slug": "operateur-perlage-atelier-premontage-audemars-piguet-le-brassus-vd-switzerland",
+      "slug": "perline-operatori-laboratorio-pre-assemblaggio-audemars-piguet-le-brassus-vd-switzerland",
       "slugByLocale": {
         "fr": "operateur-perlage-atelier-premontage-audemars-piguet-le-brassus-vd-switzerland",
-        "it": "operateur-perlage-atelier-premontage-audemars-piguet-le-brassus-vd-switzerland",
+        "it": "perline-operatori-laboratorio-pre-assemblaggio-audemars-piguet-le-brassus-vd-switzerland",
         "en": "operateur-perlage-atelier-premontage-audemars-piguet-le-brassus-vd-switzerland",
         "de": "operateur-perlage-atelier-premontage-audemars-piguet-le-brassus-vd-switzerland"
       },
@@ -2768,7 +2768,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T21:22:34.438Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-01T07:37:28.255Z"
+      "firstSeenAt": "2026-09-01T07:37:28.255Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "operateur-perlage-atelier-premontage-audemars-piguet-le-brassus-vd-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "operateur-perlage-atelier-premontage-audemars-piguet-le-brassus-vd-switzerland"
+      ]
     },
     {
       "id": "audemars-piguet-bcd1588ae83e",

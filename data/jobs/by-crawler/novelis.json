@@ -338,12 +338,12 @@
     },
     {
       "id": "novelis-264af718bfd4",
-      "slug": "strategic-projects-lead-m-f-d-novelis-ch",
+      "slug": "progetti-strategici-piombo-m-f-d-novelis-kusnacht",
       "slugByLocale": {
         "en": "strategic-projects-lead-m-f-d-novelis-ch",
-        "it": "strategic-projects-lead-m-f-d-novelis-ch",
-        "de": "strategic-projects-lead-m-f-d-novelis-ch",
-        "fr": "strategic-projects-lead-m-f-d-novelis-ch"
+        "it": "progetti-strategici-piombo-m-f-d-novelis-kusnacht",
+        "de": "strategische-projekte-fuhren-m-w-d-novelis-kusnacht",
+        "fr": "projets-strategiques-chef-h-f-d-novelis-kusnacht"
       },
       "company": "Novelis",
       "companyKey": "novelis",
@@ -405,7 +405,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T21:20:44.306Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T21:20:44.306Z"
+      "firstSeenAt": "2026-11-18T21:20:44.306Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "strategic-projects-lead-m-f-d-novelis-ch"
+        ],
+        "de": [
+          "strategic-projects-lead-m-f-d-novelis-ch"
+        ],
+        "fr": [
+          "strategic-projects-lead-m-f-d-novelis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "strategic-projects-lead-m-f-d-novelis-ch"
+      ]
     }
   ]
 }

@@ -331,12 +331,12 @@
     },
     {
       "id": "neoproconseils-71333434d9b4",
-      "slug": "employe-e-de-commerce-geneve-ge-neoproconseils-ch",
+      "slug": "dipendente-di-affari-neo-pro-conseils-sa-geneve-ge",
       "slugByLocale": {
         "fr": "employe-e-de-commerce-geneve-ge-neoproconseils-ch",
-        "it": "employe-e-de-commerce-geneve-ge-neoproconseils-ch",
-        "en": "employe-e-de-commerce-geneve-ge-neoproconseils-ch",
-        "de": "employe-e-de-commerce-geneve-ge-neoproconseils-ch"
+        "it": "dipendente-di-affari-neo-pro-conseils-sa-geneve-ge",
+        "en": "business-employee-neo-pro-conseils-sa-geneve-ge",
+        "de": "geschaftsreisender-neo-pro-conseils-sa-geneve-ge"
       },
       "company": "NEO Pro conseils SA",
       "companyKey": "neoproconseils",
@@ -398,7 +398,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T21:19:15.188Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T21:19:15.188Z"
+      "firstSeenAt": "2026-11-18T21:19:15.188Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "employe-e-de-commerce-geneve-ge-neoproconseils-ch"
+        ],
+        "en": [
+          "employe-e-de-commerce-geneve-ge-neoproconseils-ch"
+        ],
+        "de": [
+          "employe-e-de-commerce-geneve-ge-neoproconseils-ch"
+        ]
+      },
+      "previousSlugs": [
+        "employe-e-de-commerce-geneve-ge-neoproconseils-ch"
+      ]
     }
   ]
 }

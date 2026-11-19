@@ -821,12 +821,12 @@
     },
     {
       "id": "vista-4f4c2c69bc9d",
-      "slug": "augenoptiker-in-100-vista-liestal",
+      "slug": "ottico-a-100-vista-augenpraxen-kliniken-liestal",
       "slugByLocale": {
         "de": "augenoptiker-in-100-vista-liestal",
-        "it": "augenoptiker-in-100-vista-liestal",
-        "en": "augenoptiker-in-100-vista-liestal",
-        "fr": "augenoptiker-in-100-vista-liestal"
+        "it": "ottico-a-100-vista-augenpraxen-kliniken-liestal",
+        "en": "optician-100-vista-augenpraxen-kliniken-liestal",
+        "fr": "opticien-ne-100-vista-augenpraxen-kliniken-liestal"
       },
       "company": "Vista Augenpraxen & Kliniken",
       "companyKey": "vista",
@@ -892,7 +892,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-16T21:17:15.064Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T21:17:15.064Z"
+      "firstSeenAt": "2026-11-18T21:17:15.064Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "augenoptiker-in-100-vista-liestal"
+        ],
+        "en": [
+          "augenoptiker-in-100-vista-liestal"
+        ],
+        "fr": [
+          "augenoptiker-in-100-vista-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "augenoptiker-in-100-vista-liestal"
+      ]
     },
     {
       "id": "vista-a14b350da55c",

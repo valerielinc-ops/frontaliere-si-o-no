@@ -1873,12 +1873,12 @@
     },
     {
       "id": "hopital-la-tour-75a179a929f3",
-      "slug": "medecin-interne-ou-chef-fe-de-clinique-a-100-cardiologie-non-invasive-hopital-la-tour",
+      "slug": "medico-interno-o-testa-clinica-al-100-cardiologia-non-invasiva-hopital-de-la-tour-meyrin",
       "slugByLocale": {
         "fr": "medecin-interne-ou-chef-fe-de-clinique-a-100-cardiologie-non-invasive-hopital-la-tour",
-        "it": "medecin-interne-ou-chef-fe-de-clinique-a-100-cardiologie-non-invasive-hopital-la-tour",
-        "en": "medecin-interne-ou-chef-fe-de-clinique-a-100-cardiologie-non-invasive-hopital-la-tour",
-        "de": "medecin-interne-ou-chef-fe-de-clinique-a-100-cardiologie-non-invasive-hopital-la-tour"
+        "it": "medico-interno-o-testa-clinica-al-100-cardiologia-non-invasiva-hopital-de-la-tour-meyrin",
+        "en": "internal-physician-or-100-clinical-head-non-invasive-cardiology-hopital-de-la-tour-meyrin",
+        "de": "innerer-arzt-oder-100-klinischer-leiter-nicht-invasive-kardiologie-hopital-de-la-tour-meyrin"
       },
       "company": "Hôpital de La Tour",
       "companyKey": "hopital-la-tour",
@@ -1951,7 +1951,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-16T21:26:56.910Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T21:26:56.910Z"
+      "firstSeenAt": "2026-11-18T21:26:56.910Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-interne-ou-chef-fe-de-clinique-a-100-cardiologie-non-invasive-hopital-la-tour"
+        ],
+        "en": [
+          "medecin-interne-ou-chef-fe-de-clinique-a-100-cardiologie-non-invasive-hopital-la-tour"
+        ],
+        "de": [
+          "medecin-interne-ou-chef-fe-de-clinique-a-100-cardiologie-non-invasive-hopital-la-tour"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-interne-ou-chef-fe-de-clinique-a-100-cardiologie-non-invasive-hopital-la-tour"
+      ]
     },
     {
       "id": "hopital-la-tour-17eed49eb6ca",

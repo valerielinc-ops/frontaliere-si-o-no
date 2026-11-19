@@ -405,12 +405,12 @@
     },
     {
       "id": "tschuggen-3e1f7a4e32d3",
-      "slug": "human-resources-assistant-100-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch",
+      "slug": "assistente-alle-risorse-umane-100-m-f-d-con-impiego-annuale-a-tempo-indeterminato-tschuggen-collection-st-moritz",
       "slugByLocale": {
         "de": "human-resources-assistant-100-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch",
-        "it": "human-resources-assistant-100-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch",
-        "en": "human-resources-assistant-100-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch",
-        "fr": "human-resources-assistant-100-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch"
+        "it": "assistente-alle-risorse-umane-100-m-f-d-con-impiego-annuale-a-tempo-indeterminato-tschuggen-collection-st-moritz",
+        "en": "human-resources-assistant-100-m-f-d-in-permanent-annual-employment-tschuggen-collection-st-moritz",
+        "fr": "assistant-e-en-ressources-humaines-100-h-f-d-en-contrat-annuel-a-duree-indeterminee-tschuggen-collection-st-moritz"
       },
       "company": "Tschuggen Collection",
       "companyKey": "tschuggen",
@@ -478,7 +478,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T21:19:57.858Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T21:19:57.858Z"
+      "firstSeenAt": "2026-11-18T21:19:57.858Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "human-resources-assistant-100-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch"
+        ],
+        "en": [
+          "human-resources-assistant-100-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch"
+        ],
+        "fr": [
+          "human-resources-assistant-100-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "human-resources-assistant-100-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch"
+      ]
     },
     {
       "id": "tschuggen-ef3ce2a4e8f1",

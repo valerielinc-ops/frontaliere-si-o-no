@@ -10855,12 +10855,12 @@
     },
     {
       "id": "ottos-e5a3908c7837",
-      "slug": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-oberburg",
+      "slug": "addetto-a-alla-vendita-di-prodotti-alimentari-non-alimentari-otto-s-ag-oberburg",
       "slugByLocale": {
         "de": "verkaufsmitarbeiter-in-food-non-food-ottos-oberburg",
-        "it": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-oberburg",
-        "en": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-oberburg",
-        "fr": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-oberburg"
+        "it": "addetto-a-alla-vendita-di-prodotti-alimentari-non-alimentari-otto-s-ag-oberburg",
+        "en": "sales-employee-food-non-food-otto-s-ag-oberburg",
+        "fr": "employe-e-de-vente-alimentaire-non-alimentaire-otto-s-ag-oberburg"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -10912,11 +10912,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-food-non-food-ottos-oberburg"
+          "verkaufsmitarbeiter-in-food-non-food-ottos-oberburg",
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-oberburg"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-oberburg"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-oberburg"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-food-non-food-ottos-oberburg"
+        "verkaufsmitarbeiter-in-food-non-food-ottos-oberburg",
+        "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-oberburg"
       ],
       "salaryMin": 77500,
       "salaryMax": 118500,

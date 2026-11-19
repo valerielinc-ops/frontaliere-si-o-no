@@ -14214,8 +14214,8 @@
       "slug": "consulente-alla-clientela-f-m-d-assicurazione-zona-lugano-part-time-tempo-pieno-helvetia",
       "slugByLocale": {
         "it": "consulente-alla-clientela-f-m-d-assicurazione-zona-lugano-part-time-tempo-pieno-helvetia",
-        "en": "consulente-alla-clientela-f-m-d-assicurazione-zona-lugano-part-time-tempo-pieno-helvetia",
-        "de": "consulente-alla-clientela-f-m-d-assicurazione-zona-lugano-part-time-tempo-pieno-helvetia",
+        "en": "customer-advisor-m-f-d-insurance-zone-lugano-part-time-full-time-helvetia-versicherungen-agenzia-generale-lugano",
+        "de": "kundenberater-in-m-w-d-versicherung-region-lugano-teilzeit-vollzeit-helvetia-versicherungen-agenzia-generale-lugano",
         "fr": "consulente-alla-clientela-f-m-d-assicurazione-zona-lugano-part-time-tempo-pieno-helvetia"
       },
       "company": "Helvetia Versicherungen",
@@ -14278,16 +14278,27 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-16T21:19:19.878Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T21:19:19.878Z"
+      "firstSeenAt": "2026-11-18T21:19:19.878Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "consulente-alla-clientela-f-m-d-assicurazione-zona-lugano-part-time-tempo-pieno-helvetia"
+        ],
+        "de": [
+          "consulente-alla-clientela-f-m-d-assicurazione-zona-lugano-part-time-tempo-pieno-helvetia"
+        ]
+      },
+      "previousSlugs": [
+        "consulente-alla-clientela-f-m-d-assicurazione-zona-lugano-part-time-tempo-pieno-helvetia"
+      ]
     },
     {
       "id": "helvetia-0e75d51e9a07",
-      "slug": "aushilfe-schadenbearbeitung-motorfahrzeug-mit-versicherungserfahrung-w-m-d-teilzeit",
+      "slug": "addetto-a-alla-gestione-dei-sinistri-di-veicoli-a-motore-con-esperienza-assicurativa-m-f-d-tempo-parziale-tempo-pieno",
       "slugByLocale": {
         "de": "aushilfe-schadenbearbeitung-motorfahrzeug-mit-versicherungserfahrung-w-m-d-teilzeit",
-        "it": "aushilfe-schadenbearbeitung-motorfahrzeug-mit-versicherungserfahrung-w-m-d-teilzeit",
-        "en": "aushilfe-schadenbearbeitung-motorfahrzeug-mit-versicherungserfahrung-w-m-d-teilzeit",
-        "fr": "aushilfe-schadenbearbeitung-motorfahrzeug-mit-versicherungserfahrung-w-m-d-teilzeit"
+        "it": "addetto-a-alla-gestione-dei-sinistri-di-veicoli-a-motore-con-esperienza-assicurativa-m-f-d-tempo-parziale-tempo-pieno",
+        "en": "motor-vehicle-with-insurance-experience-m-f-d-part-time-full-time-helvetia-versicherungen-basel",
+        "fr": "voiture-avec-assurance-experience-h-f-d-temps-partiel-temps-plein-helvetia-versicherungen-basel"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -14349,16 +14360,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-16T21:19:19.843Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-03T09:14:19.966Z"
+      "firstSeenAt": "2026-10-03T09:14:19.966Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "aushilfe-schadenbearbeitung-motorfahrzeug-mit-versicherungserfahrung-w-m-d-teilzeit"
+        ],
+        "en": [
+          "aushilfe-schadenbearbeitung-motorfahrzeug-mit-versicherungserfahrung-w-m-d-teilzeit"
+        ],
+        "fr": [
+          "aushilfe-schadenbearbeitung-motorfahrzeug-mit-versicherungserfahrung-w-m-d-teilzeit"
+        ]
+      },
+      "previousSlugs": [
+        "aushilfe-schadenbearbeitung-motorfahrzeug-mit-versicherungserfahrung-w-m-d-teilzeit"
+      ]
     },
     {
       "id": "helvetia-3ae364d000ad",
-      "slug": "kundenberater-w-m-d-versicherung-region-gossau-helvetia-gossau",
+      "slug": "fornitore-di-servizi-clienti-m-f-d-regione-di-assicurazione-gossau-helvetia-versicherungen-gossau",
       "slugByLocale": {
         "de": "kundenberater-w-m-d-versicherung-region-gossau-helvetia-gossau",
-        "it": "kundenberater-w-m-d-versicherung-region-gossau-helvetia-gossau",
-        "en": "kundenberater-w-m-d-versicherung-region-gossau-helvetia-gossau",
-        "fr": "kundenberater-w-m-d-versicherung-region-gossau-helvetia-gossau"
+        "it": "fornitore-di-servizi-clienti-m-f-d-regione-di-assicurazione-gossau-helvetia-versicherungen-gossau",
+        "en": "customer-service-provider-m-f-d-insurance-region-gossau-helvetia-versicherungen-gossau",
+        "fr": "fournisseur-de-services-a-la-clientele-h-f-d-assurance-region-gossau-helvetia-versicherungen-gossau"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -14420,7 +14445,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-16T21:19:19.831Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T21:19:19.831Z"
+      "firstSeenAt": "2026-11-18T21:19:19.831Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-w-m-d-versicherung-region-gossau-helvetia-gossau"
+        ],
+        "en": [
+          "kundenberater-w-m-d-versicherung-region-gossau-helvetia-gossau"
+        ],
+        "fr": [
+          "kundenberater-w-m-d-versicherung-region-gossau-helvetia-gossau"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-w-m-d-versicherung-region-gossau-helvetia-gossau"
+      ]
     },
     {
       "id": "helvetia-eb321ffe4ee4",

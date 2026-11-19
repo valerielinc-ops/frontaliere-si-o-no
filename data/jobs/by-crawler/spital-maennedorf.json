@@ -3812,12 +3812,12 @@
     },
     {
       "id": "spital-maennedorf-f8102f087c89",
-      "slug": "mitarbeiterin-op-e-bettendisposition-100-m-w-d-spital-mannedorf",
+      "slug": "addetta-alla-gestione-delle-sale-operatorie-e-dei-posti-letto-100-m-f-d-spital-mannedorf-mannedorf",
       "slugByLocale": {
         "de": "mitarbeiterin-op-und-bettendisposition-100-m-w-d-spital-maennedorf-ch",
-        "it": "mitarbeiterin-op-e-bettendisposition-100-m-w-d-spital-mannedorf",
-        "en": "mitarbeiterin-op-und-bettendisposition-100-m-w-d-spital-mannedorf-mannedorf",
-        "fr": "mitarbeiterin-op-und-bettendisposition-100-m-w-d-spital-mannedorf-mannedorf"
+        "it": "addetta-alla-gestione-delle-sale-operatorie-e-dei-posti-letto-100-m-f-d-spital-mannedorf-mannedorf",
+        "en": "operating-and-bed-disposition-100-m-f-d-spital-mannedorf-mannedorf",
+        "fr": "fonctionnement-et-disposition-du-lit-100-h-f-d-spital-mannedorf-mannedorf"
       },
       "company": "Spital Männedorf",
       "companyKey": "spital-maennedorf",
@@ -3867,11 +3867,20 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-op-und-bettendisposition-100-m-w-d-spital-maennedorf-ch"
+          "mitarbeiterin-op-und-bettendisposition-100-m-w-d-spital-maennedorf-ch",
+          "mitarbeiterin-op-e-bettendisposition-100-m-w-d-spital-mannedorf"
+        ],
+        "en": [
+          "mitarbeiterin-op-und-bettendisposition-100-m-w-d-spital-mannedorf-mannedorf"
+        ],
+        "fr": [
+          "mitarbeiterin-op-und-bettendisposition-100-m-w-d-spital-mannedorf-mannedorf"
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-op-und-bettendisposition-100-m-w-d-spital-maennedorf-ch"
+        "mitarbeiterin-op-und-bettendisposition-100-m-w-d-spital-maennedorf-ch",
+        "mitarbeiterin-op-e-bettendisposition-100-m-w-d-spital-mannedorf",
+        "mitarbeiterin-op-und-bettendisposition-100-m-w-d-spital-mannedorf-mannedorf"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

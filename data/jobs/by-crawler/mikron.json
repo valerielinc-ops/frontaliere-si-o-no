@@ -499,7 +499,7 @@
         "de": "steuerungsingenieur-spezialist-m-w-d-mikron-group-boudry",
         "fr": "controls-engineer-specialist-m-f-d-mikron"
       },
-      "slug": "controls-engineer-specialist-m-f-d-mikron",
+      "slug": "controllo-ingegnere-specialista-m-f-d-mikron-group-boudry",
       "sourceLang": "fr",
       "category": "technology",
       "datePosted": "",
@@ -534,7 +534,15 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "controls-engineer-specialist-m-f-d-mikron"
+        ]
+      },
+      "previousSlugs": [
+        "controls-engineer-specialist-m-f-d-mikron"
+      ]
     }
   ]
 }

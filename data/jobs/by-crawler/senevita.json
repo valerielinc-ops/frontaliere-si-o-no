@@ -202,12 +202,12 @@
     },
     {
       "id": "senevita-a3913d2906ef",
-      "slug": "assistent-in-gesundheit-soziales-pflegehelfer-in-srk-70-100-im-nachtdienst-senevita-be",
+      "slug": "assistente-alla-salute-e-al-sociale-ausiliario-a-di-cura-crs-70-100-nel-servizio-notturno-senevita-be-munsingen",
       "slugByLocale": {
         "de": "assistent-in-gesundheit-soziales-pflegehelfer-in-srk-70-100-im-nachtdienst-senevita-be",
-        "it": "assistent-in-gesundheit-soziales-pflegehelfer-in-srk-70-100-im-nachtdienst-senevita-be",
-        "en": "assistent-in-gesundheit-soziales-pflegehelfer-in-srk-70-100-im-nachtdienst-senevita-be",
-        "fr": "assistent-in-gesundheit-soziales-pflegehelfer-in-srk-70-100-im-nachtdienst-senevita-be"
+        "it": "assistente-alla-salute-e-al-sociale-ausiliario-a-di-cura-crs-70-100-nel-servizio-notturno-senevita-be-munsingen",
+        "en": "healthcare-and-social-care-assistant-nursing-assistant-srk-70-100-on-night-shift-senevita-be-munsingen",
+        "fr": "assistant-e-en-soins-et-accompagnement-auxiliaire-de-sante-crs-70-100-en-service-de-nuit-senevita-be-munsingen"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -269,7 +269,21 @@
       "streetAddress": "BE Münsingen",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-18T21:23:30.984Z"
+      "firstSeenAt": "2026-11-18T21:23:30.984Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistent-in-gesundheit-soziales-pflegehelfer-in-srk-70-100-im-nachtdienst-senevita-be"
+        ],
+        "en": [
+          "assistent-in-gesundheit-soziales-pflegehelfer-in-srk-70-100-im-nachtdienst-senevita-be"
+        ],
+        "fr": [
+          "assistent-in-gesundheit-soziales-pflegehelfer-in-srk-70-100-im-nachtdienst-senevita-be"
+        ]
+      },
+      "previousSlugs": [
+        "assistent-in-gesundheit-soziales-pflegehelfer-in-srk-70-100-im-nachtdienst-senevita-be"
+      ]
     },
     {
       "id": "senevita-853148128ba1",
@@ -2778,12 +2792,12 @@
     },
     {
       "id": "senevita-8ac93e067d3c",
-      "slug": "dipl-pflegefachperson-hf-o-fh-im-spat-e-nachtdienst-80-100-senevita-zh-zurich",
+      "slug": "infermiere-a-diplomato-a-sss-o-sup-nei-turni-serali-e-notturni-80-100-senevita-zh-zurich",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-oder-fh-im-spat-und-nachtdienst-80-100-senevita-zh-zurich",
-        "it": "dipl-pflegefachperson-hf-o-fh-im-spat-e-nachtdienst-80-100-senevita-zh-zurich",
-        "en": "dipl-pflegefachperson-hf-oder-fh-im-spat-und-nachtdienst-80-100-senevita-zh-zurich",
-        "fr": "dipl-pflegefachperson-hf-oder-fh-im-spat-und-nachtdienst-80-100-senevita-zh-zurich"
+        "it": "infermiere-a-diplomato-a-sss-o-sup-nei-turni-serali-e-notturni-80-100-senevita-zh-zurich",
+        "en": "dipl-care-professional-hf-or-fh-in-late-and-night-service-80-100-senevita-zh-zurich",
+        "fr": "dipl-soins-professionnels-hf-ou-fh-en-service-tard-et-nuit-80-100-senevita-zh-zurich"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -2831,11 +2845,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachperson-hf-oder-fh-im-spat-und-nachtdienst-80-100-senevita-zh-zurich",
+          "dipl-pflegefachperson-hf-o-fh-im-spat-e-nachtdienst-80-100-senevita-zh-zurich"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-oder-fh-im-spat-und-nachtdienst-80-100-senevita-zh-zurich"
+        ],
+        "fr": [
           "dipl-pflegefachperson-hf-oder-fh-im-spat-und-nachtdienst-80-100-senevita-zh-zurich"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-oder-fh-im-spat-und-nachtdienst-80-100-senevita-zh-zurich"
+        "dipl-pflegefachperson-hf-oder-fh-im-spat-und-nachtdienst-80-100-senevita-zh-zurich",
+        "dipl-pflegefachperson-hf-o-fh-im-spat-e-nachtdienst-80-100-senevita-zh-zurich"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -6076,12 +6098,12 @@
     },
     {
       "id": "senevita-82574a5c3905",
-      "slug": "fachfrau-mann-gesundheit-cfc-60-100-con-bb-funktion-senevita-be-munsingen",
+      "slug": "operatore-trice-sociosanitario-a-afc-60-100-con-funzione-di-formatore-trice-professionale-senevita-be-munsingen",
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-efz-60-100-mit-bb-funktion-senevita-be-munsingen",
-        "it": "fachfrau-mann-gesundheit-cfc-60-100-con-bb-funktion-senevita-be-munsingen",
-        "en": "fachfrau-mann-gesundheit-efz-60-100-mit-bb-funktion-senevita-be-munsingen",
-        "fr": "fachfrau-mann-gesundheit-efz-60-100-mit-bb-funktion-senevita-be-munsingen"
+        "it": "operatore-trice-sociosanitario-a-afc-60-100-con-funzione-di-formatore-trice-professionale-senevita-be-munsingen",
+        "en": "healthcare-professional-efz-60-100-with-vocational-trainer-function-senevita-be-munsingen",
+        "fr": "assistant-e-en-soins-et-sante-communautaire-cfc-60-100-avec-fonction-de-formateur-trice-senevita-be-munsingen"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -6129,11 +6151,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-mann-gesundheit-efz-60-100-mit-bb-funktion-senevita-be-munsingen",
+          "fachfrau-mann-gesundheit-cfc-60-100-con-bb-funktion-senevita-be-munsingen"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-efz-60-100-mit-bb-funktion-senevita-be-munsingen"
+        ],
+        "fr": [
           "fachfrau-mann-gesundheit-efz-60-100-mit-bb-funktion-senevita-be-munsingen"
         ]
       },
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-efz-60-100-mit-bb-funktion-senevita-be-munsingen"
+        "fachfrau-mann-gesundheit-efz-60-100-mit-bb-funktion-senevita-be-munsingen",
+        "fachfrau-mann-gesundheit-cfc-60-100-con-bb-funktion-senevita-be-munsingen"
       ],
       "salaryMin": 73000,
       "salaryMax": 124500,
@@ -10848,12 +10878,12 @@
     },
     {
       "id": "senevita-b21c6c1184fe",
-      "slug": "apprendistato-fachfrau-mann-hotellerie-hauswirtschaft-cfc-senevita-fr-murten",
+      "slug": "posto-di-apprendistato-come-impiegata-o-d-albergo-economia-domestica-afc-senevita-fr-murten",
       "slugByLocale": {
         "de": "lehrstelle-fachfrau-mann-hotellerie-hauswirtschaft-efz-senevita-fr-murten",
-        "it": "apprendistato-fachfrau-mann-hotellerie-hauswirtschaft-cfc-senevita-fr-murten",
-        "en": "lehrstelle-fachfrau-mann-hotellerie-hauswirtschaft-efz-senevita-fr-murten",
-        "fr": "lehrstelle-fachfrau-mann-hotellerie-hauswirtschaft-efz-senevita-fr-murten"
+        "it": "posto-di-apprendistato-come-impiegata-o-d-albergo-economia-domestica-afc-senevita-fr-murten",
+        "en": "apprenticeship-as-a-hospitality-and-housekeeping-specialist-efz-senevita-fr-murten",
+        "fr": "place-d-apprentissage-de-specialiste-en-hotellerie-intendance-cfc-senevita-fr-murten"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -10901,11 +10931,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-fachfrau-mann-hotellerie-hauswirtschaft-efz-senevita-fr-murten",
+          "apprendistato-fachfrau-mann-hotellerie-hauswirtschaft-cfc-senevita-fr-murten"
+        ],
+        "en": [
+          "lehrstelle-fachfrau-mann-hotellerie-hauswirtschaft-efz-senevita-fr-murten"
+        ],
+        "fr": [
           "lehrstelle-fachfrau-mann-hotellerie-hauswirtschaft-efz-senevita-fr-murten"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-fachfrau-mann-hotellerie-hauswirtschaft-efz-senevita-fr-murten"
+        "lehrstelle-fachfrau-mann-hotellerie-hauswirtschaft-efz-senevita-fr-murten",
+        "apprendistato-fachfrau-mann-hotellerie-hauswirtschaft-cfc-senevita-fr-murten"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -11256,12 +11294,12 @@
     },
     {
       "id": "senevita-15f3b5de430b",
-      "slug": "apprendistato-fachmann-frau-betriebsunterhalt-cfc-senevita-fr-murten",
+      "slug": "posto-di-apprendistato-come-addetta-o-alla-manutenzione-afc-senevita-fr-murten",
       "slugByLocale": {
         "de": "lehrstelle-fachmann-frau-betriebsunterhalt-efz-senevita-fr-murten",
-        "it": "apprendistato-fachmann-frau-betriebsunterhalt-cfc-senevita-fr-murten",
-        "en": "lehrstelle-fachmann-frau-betriebsunterhalt-efz-senevita-fr-murten",
-        "fr": "lehrstelle-fachmann-frau-betriebsunterhalt-efz-senevita-fr-murten"
+        "it": "posto-di-apprendistato-come-addetta-o-alla-manutenzione-afc-senevita-fr-murten",
+        "en": "apprenticeship-as-a-facility-services-specialist-efz-senevita-fr-murten",
+        "fr": "place-d-apprentissage-d-agent-e-d-exploitation-cfc-senevita-fr-murten"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -11309,11 +11347,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-fachmann-frau-betriebsunterhalt-efz-senevita-fr-murten",
+          "apprendistato-fachmann-frau-betriebsunterhalt-cfc-senevita-fr-murten"
+        ],
+        "en": [
+          "lehrstelle-fachmann-frau-betriebsunterhalt-efz-senevita-fr-murten"
+        ],
+        "fr": [
           "lehrstelle-fachmann-frau-betriebsunterhalt-efz-senevita-fr-murten"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-fachmann-frau-betriebsunterhalt-efz-senevita-fr-murten"
+        "lehrstelle-fachmann-frau-betriebsunterhalt-efz-senevita-fr-murten",
+        "apprendistato-fachmann-frau-betriebsunterhalt-cfc-senevita-fr-murten"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -13089,12 +13135,12 @@
     },
     {
       "id": "senevita-9063a78c96ce",
-      "slug": "apprendista-fachfrau-mann-hotellerie-hauswirtschaft-cfc-senevita-zh-regensdorf",
+      "slug": "apprendista-impiegata-o-d-albergo-economia-domestica-afc-senevita-zh-regensdorf",
       "slugByLocale": {
         "de": "lernende-r-fachfrau-mann-hotellerie-hauswirtschaft-efz-senevita-zh-regensdorf",
-        "it": "apprendista-fachfrau-mann-hotellerie-hauswirtschaft-cfc-senevita-zh-regensdorf",
-        "en": "lernende-r-fachfrau-mann-hotellerie-hauswirtschaft-efz-senevita-zh-regensdorf",
-        "fr": "lernende-r-fachfrau-mann-hotellerie-hauswirtschaft-efz-senevita-zh-regensdorf"
+        "it": "apprendista-impiegata-o-d-albergo-economia-domestica-afc-senevita-zh-regensdorf",
+        "en": "trainee-hospitality-and-housekeeping-specialist-efz-senevita-zh-regensdorf",
+        "fr": "apprenti-e-specialiste-en-hotellerie-intendance-cfc-senevita-zh-regensdorf"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -13142,11 +13188,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lernende-r-fachfrau-mann-hotellerie-hauswirtschaft-efz-senevita-zh-regensdorf",
+          "apprendista-fachfrau-mann-hotellerie-hauswirtschaft-cfc-senevita-zh-regensdorf"
+        ],
+        "en": [
+          "lernende-r-fachfrau-mann-hotellerie-hauswirtschaft-efz-senevita-zh-regensdorf"
+        ],
+        "fr": [
           "lernende-r-fachfrau-mann-hotellerie-hauswirtschaft-efz-senevita-zh-regensdorf"
         ]
       },
       "previousSlugs": [
-        "lernende-r-fachfrau-mann-hotellerie-hauswirtschaft-efz-senevita-zh-regensdorf"
+        "lernende-r-fachfrau-mann-hotellerie-hauswirtschaft-efz-senevita-zh-regensdorf",
+        "apprendista-fachfrau-mann-hotellerie-hauswirtschaft-cfc-senevita-zh-regensdorf"
       ],
       "salaryMin": 58000,
       "salaryMax": 73000,
@@ -15165,12 +15219,12 @@
     },
     {
       "id": "senevita-9665c8e9d79d",
-      "slug": "pflegefachperson-mit-rai-ltcf-verantwortung-40-100-senevita-be-munsingen",
+      "slug": "professionista-infermieristico-a-con-responsabilita-rai-ltcf-40-100-senevita-be-munsingen",
       "slugByLocale": {
         "de": "pflegefachperson-mit-rai-ltcf-verantwortung-40-100-senevita-be-munsingen",
         "en": "nurse-with-rai-ltcf-responsibility-40-100-senevita-be-munsingen",
         "fr": "infirmiere-responsable-du-rai-ltcf-40-100-senevita-be-munsingen",
-        "it": "pflegefachperson-mit-rai-ltcf-verantwortung-40-100-senevita-be-munsingen"
+        "it": "professionista-infermieristico-a-con-responsabilita-rai-ltcf-40-100-senevita-be-munsingen"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -15231,7 +15285,15 @@
       },
       "streetAddress": "BE Münsingen",
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "source"
+      "validThroughSource": "source",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-mit-rai-ltcf-verantwortung-40-100-senevita-be-munsingen"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachperson-mit-rai-ltcf-verantwortung-40-100-senevita-be-munsingen"
+      ]
     },
     {
       "id": "senevita-56dd47d30f9c",

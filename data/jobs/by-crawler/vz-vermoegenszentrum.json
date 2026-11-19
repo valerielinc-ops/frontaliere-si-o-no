@@ -7264,12 +7264,12 @@
     },
     {
       "id": "vz-vermoegenszentrum-aa8b9fa95ea5",
-      "slug": "conseiller-ere-clients-service-center-vz-vermogenszentrum-zug",
+      "slug": "servizio-clienti-advisor-vz-vermogenszentrum-zug-zug",
       "slugByLocale": {
         "fr": "conseiller-ere-clients-service-center-vz-vermoegenszentrum-ch",
-        "it": "conseiller-ere-clients-service-center-vz-vermogenszentrum-zug",
-        "en": "conseiller-ere-clients-service-center-vz-vermogenszentrum-zug",
-        "de": "conseiller-ere-clients-service-center-vz-vermoegenszentrum-ch"
+        "it": "servizio-clienti-advisor-vz-vermogenszentrum-zug-zug",
+        "en": "service-center-customer-advisor-vz-vermogenszentrum-zug-zug",
+        "de": "service-center-kundenberater-vz-vermogenszentrum-zug-zug"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -7332,11 +7332,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "conseiller-ere-clients-service-center-vz-vermoegenszentrum-ch",
+          "conseiller-ere-clients-service-center-vz-vermogenszentrum-zug"
+        ],
+        "en": [
+          "conseiller-ere-clients-service-center-vz-vermogenszentrum-zug"
+        ],
+        "de": [
           "conseiller-ere-clients-service-center-vz-vermoegenszentrum-ch"
         ]
       },
       "previousSlugs": [
-        "conseiller-ere-clients-service-center-vz-vermoegenszentrum-ch"
+        "conseiller-ere-clients-service-center-vz-vermoegenszentrum-ch",
+        "conseiller-ere-clients-service-center-vz-vermogenszentrum-zug"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,

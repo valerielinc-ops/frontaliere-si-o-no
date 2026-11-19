@@ -16722,9 +16722,9 @@
       },
       "slugByLocale": {
         "it": "assistente-di-studio-medico-100-eoc-ente-ospedaliero-cantonale-bellinzona-fefqet",
-        "en": "assistente-di-studio-medico-100-eoc-ente-ospedaliero-cantonale-bellinzona-fefqet",
-        "de": "assistente-di-studio-medico-100-eoc-ente-ospedaliero-cantonale-bellinzona-fefqet",
-        "fr": "assistente-di-studio-medico-100-eoc-ente-ospedaliero-cantonale-bellinzona-fefqet"
+        "en": "medical-study-assistant-100-eoc-ente-ospedaliero-cantonale-bellinzona-5ca520",
+        "de": "medical-study-assistant-100-eoc-ente-ospedaliero-cantonale-bellinzona-5ca520",
+        "fr": "assistant-d-etudes-medicales-100-eoc-ente-ospedaliero-cantonale-bellinzona-5ca520"
       },
       "requirementsByLocale": {
         "it": [
@@ -16738,10 +16738,20 @@
       "previousSlugsByLocale": {
         "it": [
           "assistente-di-studio-medico-100-eoc-ente-ospedaliero-cantonale-bellinzona"
+        ],
+        "en": [
+          "assistente-di-studio-medico-100-eoc-ente-ospedaliero-cantonale-bellinzona-fefqet"
+        ],
+        "de": [
+          "assistente-di-studio-medico-100-eoc-ente-ospedaliero-cantonale-bellinzona-fefqet"
+        ],
+        "fr": [
+          "assistente-di-studio-medico-100-eoc-ente-ospedaliero-cantonale-bellinzona-fefqet"
         ]
       },
       "previousSlugs": [
-        "assistente-di-studio-medico-100-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "assistente-di-studio-medico-100-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "assistente-di-studio-medico-100-eoc-ente-ospedaliero-cantonale-bellinzona-fefqet"
       ],
       "salaryMin": 70500,
       "salaryMax": 98500,

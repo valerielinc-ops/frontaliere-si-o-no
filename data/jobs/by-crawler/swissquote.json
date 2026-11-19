@@ -2139,12 +2139,12 @@
     },
     {
       "id": "swissquote-437ab6d4b4bc",
-      "slug": "institutional-client-support-executive-swissquote-gland",
+      "slug": "executive-del-supporto-clienti-istituzionale-swissquote-gland",
       "slugByLocale": {
         "en": "institutional-client-support-executive-swissquote-gland",
-        "it": "institutional-client-support-executive-swissquote-gland",
-        "de": "institutional-client-support-executive-swissquote-gland",
-        "fr": "institutional-client-support-executive-swissquote-gland"
+        "it": "executive-del-supporto-clienti-istituzionale-swissquote-gland",
+        "de": "institutionelle-kundenbetreuung-executive-swissquote-gland",
+        "fr": "soutien-institutionnel-a-la-clientele-swissquote-gland"
       },
       "company": "Swissquote",
       "companyKey": "swissquote",
@@ -2207,7 +2207,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-16T21:30:03.977Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T21:30:03.977Z"
+      "firstSeenAt": "2026-11-18T21:30:03.977Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "institutional-client-support-executive-swissquote-gland"
+        ],
+        "de": [
+          "institutional-client-support-executive-swissquote-gland"
+        ],
+        "fr": [
+          "institutional-client-support-executive-swissquote-gland"
+        ]
+      },
+      "previousSlugs": [
+        "institutional-client-support-executive-swissquote-gland"
+      ]
     },
     {
       "id": "swissquote-180d86f6e4ff",
