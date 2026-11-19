@@ -1,7 +1,7 @@
 {
   "key": "sophia-genetics",
   "label": "SOPHiA GENETICS",
-  "generatedAt": "2026-11-18T21:22:06.871Z",
+  "generatedAt": "2026-11-19T09:46:38.489Z",
   "total": 7,
   "discovered": null,
   "parsed": 7,
@@ -13,16 +13,17 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 5048,
-  "avgDurationMs": 5048,
+  "durationMs": 5088,
+  "avgDurationMs": 5088,
   "durationHistory": [
-    5048
+    5088
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "sophia-genetics-2fdf182c1cc8",
       "slug": "software-development-engineer-sophia-genetics-rolle",
@@ -35,7 +36,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/D2178F935F/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-18T21:21:52.449Z",
+      "crawledAt": "2026-11-19T09:46:25.092Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -54,24 +55,22 @@
       "postingDateSource": "reported",
       "applyUrl": "https://apply.workable.com/sophia-genetics/j/D2178F935F/",
       "jobReqId": "D2178F935F",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-18T21:21:52.449Z",
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-16T21:21:52.449Z",
+      "validThrough": "2027-02-16T09:46:25.092Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T21:21:52.449Z",
-      "_qualityScore": 89,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -86,7 +85,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/1B53D0A7AB/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-18T21:21:52.702Z",
+      "crawledAt": "2026-11-19T09:46:25.490Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -110,7 +109,7 @@
       "salaryMax": 148000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T21:21:52.702Z",
+      "validThrough": "2027-02-09T09:46:25.490Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -132,7 +131,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/2BC999723E/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-18T21:21:52.250Z",
+      "crawledAt": "2026-11-19T09:46:24.742Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -156,7 +155,7 @@
       "salaryMax": 165500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-18T21:21:52.250Z",
+      "validThrough": "2026-12-19T09:46:24.742Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -178,7 +177,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/8FED2C584F/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-18T21:21:52.158Z",
+      "crawledAt": "2026-11-19T09:46:24.633Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -202,7 +201,7 @@
       "salaryMax": 126500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-18T21:21:52.158Z",
+      "validThrough": "2026-12-19T09:46:24.633Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -224,7 +223,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/AC77213E76/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-18T21:21:52.007Z",
+      "crawledAt": "2026-11-19T09:46:24.405Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -248,7 +247,7 @@
       "salaryMax": 162000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-18T21:21:52.007Z",
+      "validThrough": "2026-12-19T09:46:24.405Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -270,7 +269,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/5282592E1F/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-18T21:21:51.694Z",
+      "crawledAt": "2026-11-19T09:46:23.911Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -294,7 +293,7 @@
       "salaryMax": 107500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:21:51.694Z",
+      "validThrough": "2027-01-26T09:46:23.911Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -316,7 +315,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/0AC0C60E7E/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-18T21:21:51.403Z",
+      "crawledAt": "2026-11-19T09:46:23.333Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -340,7 +339,7 @@
       "salaryMax": 126500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-18T21:21:51.403Z",
+      "validThrough": "2026-12-19T09:46:23.333Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -351,5 +350,5 @@
       }
     }
   ],
-  "codeCommit": "8862042892397f4dcea90f48fbc2dc028da23eec"
+  "codeCommit": "af8f978c37a7f89c95dd40500d2ac0a67c1ede33"
 }

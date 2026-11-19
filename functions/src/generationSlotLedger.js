@@ -4,6 +4,9 @@ import { generationSlotMinute } from './generationSlotSchedule.js';
 export const GENERATION_SLOT_COLLECTION = 'generationSlotClaims';
 export const GENERATION_SLOT_CLAIM_LEASE_MS = 5 * 60 * 1000;
 export const GENERATION_SLOT_RETRY_DELAY_MS = 2 * 60 * 1000;
+// Each section gets one nominal slot per hour. GitHub may assign a runner
+// well after the scheduler's short lease for dispatch retries.
+const GENERATION_SLOT_ADMISSION_WINDOW_MS = 60 * 60 * 1000;
 
 function dateMs(value) {
   if (value instanceof Date) return value.getTime();
@@ -158,8 +161,10 @@ export async function admitGenerationSlotClaim(db, slotKey, claimToken, runId, {
       && current.admittedRunId === normalizedRunId) {
       return { admitted: true, reason: 'already_admitted' };
     }
+    // Rotation or release invalidates the token transactionally. Expiry of
+    // the dispatch lease alone does not revoke a run that is already queued.
     if (current?.status !== 'claimed' || !tokensEqual(current.claimToken, claimToken)
-      || dateMs(current.leaseUntil) <= nowMs) {
+      || !Number.isFinite(nowMs) || nowMs >= parsed.slot.getTime() + GENERATION_SLOT_ADMISSION_WINDOW_MS) {
       return { admitted: false, reason: 'claim_not_current' };
     }
     transaction.update(ref, {

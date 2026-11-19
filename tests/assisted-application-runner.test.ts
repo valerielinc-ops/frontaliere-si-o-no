@@ -1743,6 +1743,40 @@ describe('submit mode', () => {
     expect(matchPrompt).toContain('"requestedDocuments":[{"document":"Diploma SUP","required":true}]');
   });
 
+  it('retires a matcher shift_flexibility question on a portal draft while auto-answering portal shift questions', async () => {
+    const base = fakeCodex();
+    const codex = vi.fn(async (request: any) => {
+      const answer = await base(request);
+      if (isMatchSchema(request.schema)) {
+        return {
+          ...answer,
+          questions: [{
+            id: 'shift_flexibility',
+            question: 'Può lavorare con flessibilità su turni mattutini, serali e nei fine settimana?',
+            why: 'Turni e weekend richiesti.',
+            type: 'yes_no',
+            options: ['Sì', 'No'],
+            required: true,
+          }],
+        };
+      }
+      return answer;
+    });
+    const draft = await buildDraft({
+      order, orderId: ORDER_ID, flow: { round: 1, answers: {} }, previousDraft: null, cvBuffer: cvPdf(), cvType: 'pdf',
+      codex, bucket: fakeBucket(), runKey: KEY, resolve: publicDns, fetchImpl: fakeFetch(), nowMs: Date.UTC(2026, 8, 30), log: quiet,
+      readPortalRequirements: async () => ({
+        questions: [
+          { id: 'portal_what_is_your_marital_status', question: 'Qual è il tuo stato civile?*', why: '', type: 'choice', options: ['Celibe/nubile', 'Coniugato/a'], required: true, source: 'portal' },
+        ],
+        documents: [],
+      }),
+    } as any);
+
+    expect(draft.questions.map((q: any) => q.id)).not.toContain('shift_flexibility');
+    expect(draft.questions.map((q: any) => q.id)).toContain('portal_what_is_your_marital_status');
+  });
+
   // Owner decision 2026-10-08: what the posting demands is uploaded, or nothing leaves. A waiver recorded by an
   // older flow sent the application without the document, to fail at the portal's upload or at the employer.
   it('never sends without a required document, whatever an older flow recorded', async () => {

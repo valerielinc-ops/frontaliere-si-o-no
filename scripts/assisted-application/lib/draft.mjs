@@ -46,6 +46,7 @@ import { draftDecisionAnswers } from './decision-answers.mjs';
 import { verifiedCvAnswers } from '../../../functions/src/assistedApplicationCvAnswers.js';
 import { verifiedDecisionAnswers } from '../../../functions/src/assistedApplicationDecisionAnswers.js';
 import { withPlatformSuggestions } from '../../../functions/src/assistedApplicationOperationalAnswers.js';
+import { platformQuestionTopic } from '../../../functions/src/assistedApplicationPlatformDefaults.js';
 import {
   DOCUMENTS_SCHEMA,
   MATCH_SCHEMA,
@@ -598,6 +599,16 @@ export async function buildDraft(ctx) {
       portalPreRead = { status: 'read', questions: portal.questions?.length || 0, documents: portal.documents?.length || 0 };
       log('portal pre-read', channel.type, `${portal.questions?.length || 0} questions`, `${portal.documents?.length || 0} documents`);
     }
+  }
+  const AUTO_RETIRED_MATCH_TOPICS = new Set(['shift_flexibility']);
+  if (channel?.type !== 'email') {
+    questions = questions.filter((question) => {
+      if (question?.source !== 'match') return true;
+      const topic = platformQuestionTopic(question);
+      if (!AUTO_RETIRED_MATCH_TOPICS.has(topic)) return true;
+      log('question answered by platform rule', question.id, topic);
+      return false;
+    });
   }
   // The CV answers the open text questions (owner decisions 2026-11-10, lib/cv-answers.mjs): a technical
   // one with cited excerpts, a behavioural one with a plausible description built from the CV. A verified

@@ -50,7 +50,7 @@ const MAX_EVIDENCE = 3;
 /** The owner's principles, in the order the model applies them. */
 export const DECISION_PRINCIPLES = Object.freeze([
   { id: 'cv_fact', rule: "the facts of the CV and the candidate's own answers" },
-  { id: 'platform_rule', rule: "the platform's rules: privacy notices and audio recording accepted, marketing declined, relocation, hybrid work, on-call or piquet duty, travel, support to other sites or branches and flexibility on the place of work always available, workload 100%, notice and start three months ahead" },
+  { id: 'platform_rule', rule: "the platform's rules: privacy notices and audio recording accepted, marketing declined, relocation, hybrid work, on-call or piquet duty, travel, shift, evening, weekend and flexible schedule availability, support to other sites or branches and flexibility on the place of work always available, workload 100%, notice and start three months ahead" },
   { id: 'application_success', rule: 'what maximizes the success of the application: availability and flexibility yes; a requirement declared as met when the CV makes it plausible' },
   { id: 'same_employer_consent', rule: 'consent to what the application needs at the same employer (privacy notice, data processing, internal forwarding, visibility to that employer\'s recruiters); no to marketing, newsletters, job alerts, talent pools and sharing with third parties, other companies of a group or the public' },
   { id: 'plausible_deduction', rule: 'when the CV is silent, a plausible deduction consistent with the CV' },
