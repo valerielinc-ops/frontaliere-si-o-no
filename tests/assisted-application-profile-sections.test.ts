@@ -334,5 +334,28 @@ describe('profile history rows', () => {
     expect(eduResult.handoff).toBeUndefined();
     expect(deletedButtons).toEqual(['edu-del-1']);
     expect(eduResult.snapshot.fields).toEqual([]);
+
+    // If a Delete click does not actually remove the incomplete row from the DOM, fail closed instead of returning success.
+    const sticky = {
+      url: current.url,
+      fields: [
+        { id: 'exp-title-1', section: 'Work Experience 1', label: 'Job Title*', kind: 'text', required: true, value: 'Role' },
+        { id: 'exp-extra-1', section: 'Work Experience 1', label: 'Manager Email*', kind: 'text', required: true, value: '' },
+      ],
+      buttons: [
+        { id: 'exp-add', text: 'Add Another', section: 'Work Experience', disabled: false },
+        { id: 'exp-del-sticky', text: 'Delete', section: 'Work Experience 1', disabled: false },
+      ],
+    };
+    current = sticky;
+    const stickyResult = await fillProfileSections(makePage() as never, current as never, {
+      candidate: {
+        profile: {
+          experience: [{ role: 'Role', employer: 'Employer', start: '2020-01', end: '2024-01' }],
+          education: [],
+        },
+      },
+    });
+    expect(stickyResult.handoff).toBe('profile_section_row_fill_failed');
   });
 });

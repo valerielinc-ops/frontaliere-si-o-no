@@ -1861,8 +1861,20 @@ const SEARCH_PROMPT_SELECTOR = 'input[data-automation-id="searchBox"], input[typ
 const SEARCH_PROMPT_VISIBLE_SELECTOR = 'input[data-automation-id="searchBox"]:visible, input[type="search"]:visible, input[placeholder*="search" i]:visible';
 
 async function visibleLocator(locator) {
-  if (!locator || typeof locator.first !== 'function') return false;
-  const first = locator.first();
+  if (!locator) return false;
+  if (typeof locator.count === 'function' && typeof locator.nth === 'function') {
+    const count = await locator.count().catch(() => 0);
+    for (let index = 0; index < Math.min(count, 10); index += 1) {
+      const node = locator.nth(index);
+      if (typeof node?.isVisible === 'function') {
+        if (await node.isVisible().catch(() => false)) return true;
+      } else {
+        return true;
+      }
+    }
+    if (count > 0) return false;
+  }
+  const first = typeof locator.first === 'function' ? locator.first() : null;
   if (typeof first?.isVisible === 'function') return await first.isVisible().catch(() => false);
   if (typeof locator?.count === 'function') return (await locator.count().catch(() => 0)) > 0;
   return false;

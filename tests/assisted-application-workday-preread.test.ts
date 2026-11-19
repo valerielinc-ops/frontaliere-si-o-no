@@ -426,4 +426,51 @@ describe('Workday and ATS question readability & profile completeness', () => {
     expect(result.event.questions.map((q: any) => q.applicationQuestion)).toEqual(['What is your Marital Status? *']);
     expect(result.event.questions[0].applicationOptions).toEqual(['Single', 'Married']);
   });
+
+  it('detects searchablePrompt when a hidden duplicate searchBox precedes a visible searchBox', async () => {
+    const html = `<!doctype html><html><body><form><fieldset><legend>Phone</legend>
+      <label id="lbl-code" for="phone-code">Country Phone Code *</label>
+      <button id="phone-code" aria-haspopup="listbox" aria-labelledby="lbl-code" aria-required="true">Select One</button>
+    </fieldset></form></body></html>`;
+    const dom = new JSDOM(html, { url: 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Shop_R1/apply/applyManually' });
+    const { window } = dom;
+    Object.defineProperty(window.HTMLElement.prototype, 'innerText', { configurable: true, get() { return this.textContent || ''; } });
+    window.Element.prototype.getBoundingClientRect = () => ({ width: 80, height: 24 } as DOMRect);
+
+    const noOptions = { first: () => ({ waitFor: async () => { throw new Error('timeout'); } }) };
+    const trigger = { click: vi.fn(async () => {}), press: vi.fn(async () => {}) };
+    const searchLocator = {
+      count: async () => 2,
+      nth: (index: number) => ({ isVisible: async () => index === 1 }),
+      first: () => ({ isVisible: async () => false }),
+    };
+    const frame = {
+      url: () => window.location.href,
+      evaluate: async (fn: any, arg: any) => inWindow(window, () => fn(arg)),
+      locator: (selector: string) => {
+        if (selector.startsWith('[data-aa-id=')) return { first: () => trigger };
+        if (selector === '[role="listbox"]:visible') return { last: () => ({ waitFor: async () => { throw new Error('no listbox'); } }) };
+        if (selector.includes('searchBox')) return searchLocator;
+        return noOptions;
+      },
+    };
+    const page = { url: () => window.location.href, frames: () => [frame], mainFrame: () => frame };
+    const snapshot = await extractFields(page as never);
+    expect(snapshot.fields[0]).toMatchObject({ kind: 'listbox', options: [], searchablePrompt: true });
+  });
+
+  it('clears open-ended end markers ("present", "ad oggi") in profileEntryAnswer and date guards while preserving ongoing status on candidateForForm', () => {
+    const dateField = { id: 'to-1', kind: 'text', inputType: 'date', widget: 'workday-date', label: 'To*', required: true };
+    for (const marker of ['present', 'ad oggi']) {
+      const candidate = candidateForForm({
+        identity: { name: 'Mario Rossi', email: 'c-test@candidature.frontaliereticino.ch' },
+        profile: { experience: [{ role: 'Boutique Owner', employer: '', start: '2017', end: marker }] },
+        language: 'it',
+      });
+      expect(candidate.profile.experience[0].end).toBe(marker);
+      expect(profileEntryAnswer(candidate.profile.experience[0], 'experience', { label: 'To*' })).toBeNull();
+      expect(profileEntryAnswer({ role: 'Boutique Owner', employer: '', start: '2017', end: marker }, 'experience', { label: 'To*' })).toBeNull();
+      expect(normalizeDateAnswer(dateField, marker)).toBe('');
+    }
+  });
 });

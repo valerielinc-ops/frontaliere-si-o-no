@@ -43,7 +43,7 @@ import { extractFields as extractFieldsRaw, registerPortalChannelType } from './
 import { startPortalDiagnostics, portalHandoffReason } from './diagnostics.mjs';
 import { applicationContractFromPreflight, applicationContractFromSubmission } from './application-contract.mjs';
 import { NO_PORTAL_KNOWLEDGE, labelsAt, learnedButton } from './knowledge.mjs';
-import { addressAnswerNeedsOwnership, candidateAnswerForField, expectedValueShape, holdsValue, isPermitHistoricalQuestion, ownConsent, planPage, questionTopic, targetEmployerNoOption } from './plan.mjs';
+import { addressAnswerNeedsOwnership, candidateAnswerForField, expectedValueShape, holdsValue, isOpenEndedExperienceEnd, isPermitHistoricalQuestion, ownConsent, planPage, questionTopic, targetEmployerNoOption } from './plan.mjs';
 import { publicValueShape, readbackShape, reportedValueShape } from './value-shape.mjs';
 import { registerCookieSessionRecovery } from './cookie-session.mjs';
 import { portalAnswerForApplication, portalOptionMap, portalQuestionId, portalQuestionKey, slugId } from './question-key.mjs';
@@ -517,7 +517,7 @@ const PROFILE_YEAR_ONLY_RE = /^((?:19|20)\d{2})$/;
 
 function normalizeProfilePeriodDate(value) {
   const text = String(value || '').trim();
-  if (!text) return '';
+  if (!text || isOpenEndedExperienceEnd(text)) return '';
   if (hasExplicitMonth(text)) return text;
   const yearMatch = PROFILE_YEAR_ONLY_RE.exec(text);
   return yearMatch ? `${yearMatch[1]}-01` : '';
@@ -525,8 +525,13 @@ function normalizeProfilePeriodDate(value) {
 
 function normalizeProfileEntry(entry = {}, kind = 'experience') {
   if (!entry || typeof entry !== 'object') return entry;
-  const start = normalizeProfilePeriodDate(entry.start) || String(entry.start || '').trim();
-  const end = normalizeProfilePeriodDate(entry.end) || String(entry.end || '').trim();
+  const normalizeEndpoint = (raw) => {
+    const text = String(raw || '').trim();
+    if (!text || isOpenEndedExperienceEnd(text)) return '';
+    return normalizeProfilePeriodDate(text) || text;
+  };
+  const start = normalizeEndpoint(entry.start);
+  const end = normalizeEndpoint(entry.end);
   if (kind !== 'experience') return { ...entry, start, end };
   const role = String(entry.role || '').trim();
   const employer = String(entry.employer || '').trim() || role;
@@ -1765,7 +1770,9 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
             employer: normalized.employer,
             location,
             start: normalized.start,
-            end: normalized.end,
+            // Preserve explicit ongoing markers on candidateForForm for hasCurrentJob/employment status,
+            // while profileEntryAnswer/normalizeDateAnswer strip them before writing date controls.
+            end: isOpenEndedExperienceEnd(end) ? String(end).trim() : normalized.end,
           };
         }),
       languages: profile.languages || [],
@@ -9304,18 +9311,26 @@ async function reconcileExistingInlineProfileRows(page, snapshot, kind, entries,
   }
   if (filledAny) current = await extractFields(page).catch(() => current);
   byOrdinal = rowsByOrdinal(profileFields(current, kind));
-  if (attachUnnumberedInlineProfileDates(profileFields(current, kind), kind, byOrdinal)) {
-    const maxCleanupAttempts = byOrdinal.size;
-    let cleanupAttempts = 0;
-    while (cleanupAttempts++ < maxCleanupAttempts) {
-      const incompleteOrdinal = [...byOrdinal.entries()]
-        .filter(([, rowFields]) => rowFields.some((field) => field.required && !holdsValue(field)))
-        .map(([ordinal]) => ordinal)
-        .sort((a, b) => b - a)[0];
-      if (incompleteOrdinal === undefined) break;
-      if (!await deleteInlineRow(incompleteOrdinal)) break;
-    }
+  if (!attachUnnumberedInlineProfileDates(profileFields(current, kind), kind, byOrdinal)) return fail();
+  const incompleteOrdinals = () => [...byOrdinal.entries()]
+    .filter(([, rowFields]) => rowFields.some((field) => field.required && !holdsValue(field)))
+    .map(([ordinal]) => ordinal)
+    .sort((a, b) => b - a);
+  const maxCleanupAttempts = byOrdinal.size;
+  let cleanupAttempts = 0;
+  while (cleanupAttempts++ < maxCleanupAttempts) {
+    const incompleteOrdinal = incompleteOrdinals()[0];
+    if (incompleteOrdinal === undefined) break;
+    const prevRowCount = byOrdinal.size;
+    const targetFieldIds = new Set((byOrdinal.get(incompleteOrdinal) || []).map((field) => field.id));
+    if (!await deleteInlineRow(incompleteOrdinal, { strict: true })) return fail();
+    const stillPresent = byOrdinal.size >= prevRowCount
+      || (targetFieldIds.size > 0
+        && profileFields(current, kind).some((field) => targetFieldIds.has(field.id))
+        && incompleteOrdinals().includes(incompleteOrdinal));
+    if (stillPresent) return fail();
   }
+  if (incompleteOrdinals().length) return fail();
   return { snapshot: current };
 }
 
