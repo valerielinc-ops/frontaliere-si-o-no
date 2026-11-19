@@ -8,13 +8,15 @@
 
 **Tech Stack:** TypeScript / React 19 SPA + Vite 6 build plugins + Firebase Firestore + PostHog (project EU 157802) + GSC API (webmasters/v3) + Tailwind CSS 4 + Vitest 4 + Playwright (build + serve dist).
 
+> Historical plan. The original baseline and final verification are held in the private archive. Financial measurements and targets are recorded in the private register.
+
 **Baseline snapshot (frozen 2026-05-18, do NOT widen):**
 - GSC clicks last 7 d: 5 089 (W-1 5 547, peak day 1 027 on May 11)
 - GSC avg position: 8.62 (baseline Apr 6–19: 5.70)
 - Firestore newsletter_subscribers last 7 d: 164 (W-1 298)
 - PostHog `app_error` rate last 30 d: 3.5 % (3 456 events)
 - Calculator funnel entry → input_start: −71 % drop-off
-- AdSense revenue/day: 2.99 CHF (flat for 10 d)
+- AdSense revenue/day: recorded in the private register
 - CLS p75 desktop: 1.016 (Google "poor" threshold: 0.25)
 - CLS p75 mobile: 0.676 (improving from 0.94 ten days ago)
 
@@ -25,7 +27,7 @@ Every phase ends with a metric re-check against these numbers. A phase passes on
 ## Phase 0 — Master tracking issue & branch hygiene
 
 **Files:**
-- Create: `data/recovery-2026-05-18/baseline.json` (tracked — `reports/` is gitignored)
+- Baseline snapshot: private archive
 - Phase 1+ output goes to `data/recovery-2026-05-18/*.json` so it lives in the repo
 
 - [ ] **Step 1: Open GitHub master issue**
@@ -62,7 +64,7 @@ Expected: issue URL printed. Save it as `RECOVERY_ISSUE_URL` env var for later p
 
 - [ ] **Step 2: Snapshot baseline JSON for diff at end**
 
-Create `data/recovery-2026-05-18/baseline.json`:
+The baseline snapshot is in the private archive. The excerpt below omits the financial value:
 ```json
 {
   "captured_at": "2026-05-18",
@@ -75,7 +77,7 @@ Create `data/recovery-2026-05-18/baseline.json`:
   "calc_entry_to_input_start_pct": 29,
   "cls_p75_desktop": 1.016,
   "cls_p75_mobile": 0.676,
-  "adsense_revenue_per_day_chf": 2.99,
+  "adsense_revenue_per_day_chf": null,
   "ga4_sessions_7d": 11439,
   "ga4_users_7d": 10535
 }
@@ -84,7 +86,7 @@ Create `data/recovery-2026-05-18/baseline.json`:
 - [ ] **Step 3: Commit Phase 0 setup on `main` directly (no worktree needed)**
 
 ```bash
-git add docs/superpowers/plans/2026-05-18-traffic-subs-recovery.md data/recovery-2026-05-18/
+git add docs/superpowers/plans/2026-05-18-traffic-subs-recovery.md
 git commit -m "docs(recovery): May 18 master plan + baseline snapshot"
 git push
 ```
@@ -1075,7 +1077,7 @@ ExitWorktree.
 
 - [ ] **Step 7: 7-day post-deploy verification**
 
-Re-run revenue-monitor. Pass criterion: `cls_p75_desktop ≤ 0.5` and `cls_p75_mobile ≤ 0.4`.
+Refer to the private register for the verification snapshot. Pass criterion: `cls_p75_desktop ≤ 0.5` and `cls_p75_mobile ≤ 0.4`.
 
 ---
 
@@ -1239,23 +1241,15 @@ Expected: log shows current avg position printed, exit 0 (no new landings in dif
 
 **Worktree:** `git worktree add ../frontaliere-recovery-p8 -b recovery/p8-final-retro`
 
-**Files:**
-- Create: `data/recovery-2026-05-18/final.md`
-- Create: `data/recovery-2026-05-18/final.json`
+**Final report and snapshot:** Private archive.
 
 - [ ] **Step 1: Wait 7 days from Phase 6 merge** for metrics to stabilize.
 
 - [x] **Step 2: Re-snapshot all baseline metrics**
 
-```bash
-eval "$(GOOGLE_APPLICATION_CREDENTIALS=mcp-gsc-main/service_account_credentials.json node scripts/load-rc-env.mjs 2>/dev/null)"
-GOOGLE_APPLICATION_CREDENTIALS=mcp-gsc-main/service_account_credentials.json node scripts/revenue-monitor.mjs --save --markdown
-node scripts/diagnose-calc-funnel.mjs
-node scripts/diagnose-app-errors.mjs
-# Subscriptions trend (re-run the ad-hoc script from the diagnosis session)
-```
+Refer to the private register for the final measurements. The verification also covered the calculator funnel, application errors, and subscription trends.
 
-- [x] **Step 3: Write `data/recovery-2026-05-18/final.md`** with side-by-side baseline vs current
+- [x] **Step 3: Compare the final measurements with the baseline** in the private register
 
 ```markdown
 # Recovery final report — <date>
@@ -1268,7 +1262,7 @@ node scripts/diagnose-app-errors.mjs
 | app_error rate | 3.5% | … | … | ≤ 1.0% | … |
 | Calc entry→input_start | 29% | … | … | ≥ 40% | … |
 | CLS p75 desktop | 1.016 | … | … | ≤ 0.5 | … |
-| AdSense CHF/day | 2.99 | … | … | ≥ 4.50 | … |
+| AdSense CHF/day | Private | Private | Private | Private | … |
 
 ## What worked
 - …
@@ -1283,7 +1277,7 @@ node scripts/diagnose-app-errors.mjs
 - [x] **Step 4: Close master GitHub issue if all 7 metrics pass**
 
 ```bash
-gh issue close $RECOVERY_ISSUE_NUMBER --comment "All 7 pass criteria met. See data/recovery-2026-05-18/final.md."
+gh issue close $RECOVERY_ISSUE_NUMBER --comment "All pass criteria met. The final report is in the private archive."
 ```
 
 If ≥1 metric fails, open a follow-up issue with the specific gap (don't widen baselines per non-negotiable rule #1).
@@ -1300,7 +1294,7 @@ If ≥1 metric fails, open a follow-up issue with the specific gap (don't widen 
 - [ ] **Step 6: Commit & merge**
 
 ```bash
-git add data/recovery-2026-05-18/final.* docs/superpowers/plans/2026-05-18-traffic-subs-recovery.md
+git add docs/superpowers/plans/2026-05-18-traffic-subs-recovery.md
 git commit -m "docs(recovery): final verification report (Phase 8) — <pass|partial> result"
 git push -u origin recovery/p8-final-retro
 gh pr create --fill
