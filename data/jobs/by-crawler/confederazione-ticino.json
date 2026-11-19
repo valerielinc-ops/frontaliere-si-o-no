@@ -122,9 +122,9 @@
       },
       "slugByLocale": {
         "de": "ict-berater-in-professional-swiss-armed-forces-vtg-bern-19ax8d",
-        "it": "consulente-ict-professional-confederazione-svizzera-bern",
-        "en": "ict-consultant-professional-confederazione-svizzera-bern",
-        "fr": "conseiller-ere-ict-professional-confederazione-svizzera-bern"
+        "it": "consulente-ict-professional-swiss-armed-forces-vtg-bern",
+        "en": "ict-consultant-professional-swiss-armed-forces-vtg-bern",
+        "fr": "conseiller-ere-ict-professional-swiss-armed-forces-vtg-bern"
       },
       "id": "confederazione-ticino-8b09faa76203",
       "salaryMin": 73000,
@@ -150,7 +150,9 @@
       "firstSeenAt": "2026-11-19T10:21:03.283Z",
       "previousSlugs": [
         "ict-berater-in-professional-confederazione-bern",
-        "ict-berater-in-professional-swiss-armed-forces-vtg-bern-19ax8d"
+        "ict-berater-in-professional-swiss-armed-forces-vtg-bern-19ax8d",
+        "ict-consultant-professional-confederazione-svizzera-bern",
+        "conseiller-ere-ict-professional-confederazione-svizzera-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -159,14 +161,16 @@
         ],
         "en": [
           "ict-berater-in-professional-confederazione-bern",
-          "ict-berater-in-professional-swiss-armed-forces-vtg-bern-19ax8d"
+          "ict-berater-in-professional-swiss-armed-forces-vtg-bern-19ax8d",
+          "ict-consultant-professional-confederazione-svizzera-bern"
         ],
         "de": [
           "ict-berater-in-professional-confederazione-bern"
         ],
         "fr": [
           "ict-berater-in-professional-confederazione-bern",
-          "ict-berater-in-professional-swiss-armed-forces-vtg-bern-19ax8d"
+          "ict-berater-in-professional-swiss-armed-forces-vtg-bern-19ax8d",
+          "conseiller-ere-ict-professional-confederazione-svizzera-bern"
         ]
       }
     },
@@ -210,32 +214,33 @@
       "slugByLocale": {
         "de": "wissenschaftliche-r-mitarbeiter-in-prospektivplanung-swiss-armed-forces-vtg-bern-q1r8cq",
         "it": "wissenschaftliche-r-collaboratore-trice-in-prospektivplanung-swiss-armed-forces-vtg-bern-q1r8cq",
-        "en": "research-associate-prospective-planning-confederazione-svizzera-bern",
-        "fr": "collaborateur-trice-scientifique-en-planification-prospective-confederazione-svizzera-bern"
+        "en": "research-associate-prospective-planning-swiss-armed-forces-vtg-bern",
+        "fr": "collaborateur-trice-scientifique-en-planification-prospective-swiss-armed-forces-vtg-bern"
       },
       "id": "confederazione-ticino-1708378e75bc",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "wissenschaftliche-r-mitarbeiter-in-prospektivplanung-confederazione-bern",
-          "wissenschaftliche-r-collaboratore-trice-in-prospektivplanung-swiss-armed-forces-vtg-bern-q1r8cq"
+          "wissenschaftliche-r-mitarbeiter-in-prospektivplanung-confederazione-bern"
         ],
         "en": [
           "wissenschaftliche-r-mitarbeiter-in-prospektivplanung-confederazione-bern",
-          "wissenschaftliche-r-mitarbeiter-in-prospektivplanung-swiss-armed-forces-vtg-bern-q1r8cq"
+          "wissenschaftliche-r-mitarbeiter-in-prospektivplanung-swiss-armed-forces-vtg-bern-q1r8cq",
+          "research-associate-prospective-planning-confederazione-svizzera-bern"
         ],
         "de": [
           "wissenschaftliche-r-mitarbeiter-in-prospektivplanung-confederazione-bern"
         ],
         "fr": [
           "wissenschaftliche-r-mitarbeiter-in-prospektivplanung-confederazione-bern",
-          "wissenschaftliche-r-mitarbeiter-in-prospektivplanung-swiss-armed-forces-vtg-bern-q1r8cq"
+          "wissenschaftliche-r-mitarbeiter-in-prospektivplanung-swiss-armed-forces-vtg-bern-q1r8cq",
+          "collaborateur-trice-scientifique-en-planification-prospective-confederazione-svizzera-bern"
         ]
       },
       "previousSlugs": [
         "wissenschaftliche-r-mitarbeiter-in-prospektivplanung-confederazione-bern",
-        "wissenschaftliche-r-collaboratore-trice-in-prospektivplanung-swiss-armed-forces-vtg-bern-q1r8cq",
-        "wissenschaftliche-r-mitarbeiter-in-prospektivplanung-swiss-armed-forces-vtg-bern-q1r8cq"
+        "wissenschaftliche-r-mitarbeiter-in-prospektivplanung-swiss-armed-forces-vtg-bern-q1r8cq",
+        "research-associate-prospective-planning-confederazione-svizzera-bern",
+        "collaborateur-trice-scientifique-en-planification-prospective-confederazione-svizzera-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -298,9 +303,9 @@
       },
       "slugByLocale": {
         "de": "sachbearbeiter-in-stab-swiss-armed-forces-vtg-othmarsingen-kpj1p1",
-        "it": "addetto-a-amministrativo-a-di-staff-confederazione-svizzera-othmarsingen",
-        "en": "staff-officer-confederazione-svizzera-othmarsingen",
-        "fr": "collaborateur-trice-specialise-e-d-etat-major-confederazione-svizzera-othmarsingen"
+        "it": "addetto-a-amministrativo-a-di-staff-swiss-armed-forces-vtg-othmarsingen",
+        "en": "staff-officer-swiss-armed-forces-vtg-othmarsingen",
+        "fr": "collaborateur-trice-specialise-e-d-etat-major-swiss-armed-forces-vtg-othmarsingen"
       },
       "id": "confederazione-ticino-65931205ddcd",
       "salaryMin": 62000,
@@ -326,7 +331,9 @@
       "firstSeenAt": "2026-11-19T10:21:03.283Z",
       "previousSlugs": [
         "sachbearbeiter-in-stab-confederazione-othmarsingen",
-        "sachbearbeiter-in-stab-swiss-armed-forces-vtg-othmarsingen-kpj1p1"
+        "sachbearbeiter-in-stab-swiss-armed-forces-vtg-othmarsingen-kpj1p1",
+        "staff-officer-confederazione-svizzera-othmarsingen",
+        "collaborateur-trice-specialise-e-d-etat-major-confederazione-svizzera-othmarsingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -335,14 +342,16 @@
         ],
         "en": [
           "sachbearbeiter-in-stab-confederazione-othmarsingen",
-          "sachbearbeiter-in-stab-swiss-armed-forces-vtg-othmarsingen-kpj1p1"
+          "sachbearbeiter-in-stab-swiss-armed-forces-vtg-othmarsingen-kpj1p1",
+          "staff-officer-confederazione-svizzera-othmarsingen"
         ],
         "de": [
           "sachbearbeiter-in-stab-confederazione-othmarsingen"
         ],
         "fr": [
           "sachbearbeiter-in-stab-confederazione-othmarsingen",
-          "sachbearbeiter-in-stab-swiss-armed-forces-vtg-othmarsingen-kpj1p1"
+          "sachbearbeiter-in-stab-swiss-armed-forces-vtg-othmarsingen-kpj1p1",
+          "collaborateur-trice-specialise-e-d-etat-major-confederazione-svizzera-othmarsingen"
         ]
       }
     },
