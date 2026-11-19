@@ -337,6 +337,43 @@ describe('Workday JSON transport', () => {
     }
   });
 
+  it('preserves browser 429 metadata after direct retry exhaustion', async () => {
+    vi.useFakeTimers();
+    vi.stubEnv('JOBS_CRAWLER_RETRIES', '0');
+    const directFetch = vi.fn().mockResolvedValue(new Response('', { status: 503 }));
+    vi.stubGlobal('fetch', directFetch);
+    const { page, browser } = browserTransport({ recovered: true });
+    page.evaluate
+      .mockResolvedValueOnce({ status: 429, retryAfter: '30', body: '' })
+      .mockResolvedValueOnce({ status: 200, body: JSON.stringify({ recovered: true }) });
+    const context = createWorkdayRequestContext(API_BASE);
+
+    try {
+      const first = context.request(`${API_BASE}/job/Zurich/Swiss_R1`);
+      await expect(first).rejects.toMatchObject({
+        statusCode: 429,
+        status: 429,
+        retryAfter: '30',
+        retryExhausted: true,
+      });
+      expect(page.evaluate).toHaveBeenCalledOnce();
+
+      const second = context.request(`${API_BASE}/job/Zurich/Swiss_R2`);
+      await vi.advanceTimersByTimeAsync(29_999);
+      expect(directFetch).toHaveBeenCalledOnce();
+      expect(page.evaluate).toHaveBeenCalledOnce();
+
+      await vi.advanceTimersByTimeAsync(1);
+      await expect(second).resolves.toEqual({ recovered: true });
+      expect(directFetch).toHaveBeenCalledTimes(2);
+      expect(page.evaluate).toHaveBeenCalledTimes(2);
+    } finally {
+      await context.close();
+      expect(browser.close).toHaveBeenCalledOnce();
+      vi.useRealTimers();
+    }
+  });
+
   it('uses one browser session for two KSB detail requests after rate limiting', async () => {
     vi.stubEnv('JOBS_CRAWLER_RETRIES', '1');
     vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');

@@ -402,7 +402,16 @@ async function fetchJsonWithRetry(url, options = {}) {
         if (fallbackErr instanceof WorkdayApiError && fallbackErr.statusCode !== 0) {
           const fallbackWasRetryable = fallbackErr.retryable === true
             || RETRYABLE_STATUS.has(fallbackErr.statusCode);
-          if (retryBudgetExhausted && fallbackWasRetryable) throw err;
+          if (retryBudgetExhausted && fallbackWasRetryable) {
+            // Keep the direct terminal error's retryExhausted marker, but let
+            // the browser response supply the HTTP metadata. In particular, a
+            // browser 429 must reach the tenant limiter with its Retry-After.
+            err.statusCode = fallbackErr.statusCode;
+            if (fallbackErr.status !== undefined) err.status = fallbackErr.status;
+            err.retryable = fallbackErr.retryable;
+            err.retryAfter = fallbackErr.retryAfter ?? null;
+            throw err;
+          }
           throw fallbackErr;
         }
         console.warn(`⚠️ Workday browser transport fallback failed for ${url}: ${fallbackErr?.message || fallbackErr}`);
