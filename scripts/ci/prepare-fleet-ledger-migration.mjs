@@ -1,8 +1,7 @@
-import { execFileSync, spawn } from 'node:child_process';
+import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
-import { pipeline } from 'node:stream/promises';
 import { fileURLToPath } from 'node:url';
 
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
@@ -19,6 +18,9 @@ const OPTIONS = ['repo', 'archive-sha', 'expected-sha', 'inventory', 'output'];
 const SHA = /^[a-f0-9]{40}$/u;
 const CANDIDATE = /^loop-(?:observations|decisions)(?:-run-[0-9]+)?\.jsonl$/u;
 const FILE_LIMIT = 72 * 1024 * 1024;
+const GITHUB_BLOB_LIMIT = 100 * 1024 * 1024;
+const BATCH_BYTE_LIMIT = 16 * 1024 * 1024;
+const BATCH_BLOB_LIMIT = 128;
 const TOTAL_LIMIT = 150 * 1024 * 1024;
 const decoder = new TextDecoder('utf-8', { fatal: true, ignoreBOM: true });
 const projection = fileURLToPath(new URL('./prepare-fleet-ledger-projection.mjs', import.meta.url));
@@ -184,46 +186,51 @@ function write(file, data) {
   fs.writeFileSync(file, data, { flag: 'wx', mode: 0o600 });
 }
 
-async function materializeLedger(repo, expected, ledgerDir) {
-  // Archive the validated subtree in the isolated repo so source attributes
-  // cannot omit files or substitute their contents.
-  const tree = git(repo, ['rev-parse', expected + ':' + LEDGER]).toString().trim();
+function materializeLedger(repo, current, ledgerDir) {
+  const entries = [...current];
+  const requests = entries.map(([, { oid }]) => oid + '\n');
+  const maxHeaderBytes = Buffer.byteLength('0'.repeat(40) + ' blob ' + GITHUB_BLOB_LIMIT + '\n');
+  const metadata = decoder.decode(git(repo, ['cat-file', '--batch-check'],
+    requests.join(''), entries.length * maxHeaderBytes)).split('\n');
+  requireThat(metadata.pop() === '' && metadata.length === entries.length);
+  const blobs = entries.map(([file, { mode, oid }], i) => {
+    const prefix = oid + ' blob ';
+    const header = metadata[i] + '\n';
+    const size = Number(metadata[i].slice(prefix.length));
+    requireThat(Number.isSafeInteger(size) && size >= 0 && size <= GITHUB_BLOB_LIMIT
+      && header === prefix + size + '\n');
+    return { name: path.basename(file), mode, header: Buffer.from(header), size };
+  });
+
   fs.mkdirSync(ledgerDir, { recursive: true, mode: 0o700 });
-  const archive = spawn('git', ['-C', repo, '-c', 'core.attributesFile=/dev/null', 'archive', '--format=tar', tree], {
-    env: { ...gitEnv, GIT_ATTR_NOSYSTEM: '1' }, stdio: ['ignore', 'pipe', 'ignore'],
-  });
-  const extract = spawn('tar', ['-xf', '-', '-C', ledgerDir, '--no-same-permissions'], {
-    env: gitEnv, stdio: ['pipe', 'ignore', 'ignore'],
-  });
-  const stop = () => {
-    archive.kill('SIGKILL');
-    extract.kill('SIGKILL');
-  };
-  const wait = (child) => new Promise((resolve, reject) => {
-    child.once('error', stop);
-    child.once('close', (code) => {
-      if (code === 0) resolve();
-      else {
-        stop();
-        reject(new Error('ledger materialization failed'));
-      }
-    });
-  });
-  const timeout = setTimeout(stop, 60_000);
-  try {
-    const results = await Promise.allSettled([
-      wait(archive), wait(extract), pipeline(archive.stdout, extract.stdin).catch((error) => {
-        stop();
-        throw error;
-      }),
-    ]);
-    requireThat(results.every(({ status }) => status === 'fulfilled'));
-  } finally {
-    clearTimeout(timeout);
+  for (let start = 0; start < blobs.length;) {
+    let end = start;
+    let batchBytes = 0;
+    while (end < blobs.length && end - start < BATCH_BLOB_LIMIT) {
+      const { header, size } = blobs[end];
+      const responseBytes = header.length + size + 1;
+      if (end > start && batchBytes + responseBytes > BATCH_BYTE_LIMIT) break;
+      batchBytes += responseBytes;
+      end++;
+    }
+    const data = git(repo, ['cat-file', '--batch'], requests.slice(start, end).join(''), batchBytes);
+    requireThat(data.length === batchBytes);
+    let offset = 0;
+    for (const { name, mode, header, size } of blobs.slice(start, end)) {
+      const contentStart = offset + header.length;
+      const contentEnd = contentStart + size;
+      requireThat(data.subarray(offset, contentStart).equals(header) && data[contentEnd] === 0x0a);
+      fs.writeFileSync(path.join(ledgerDir, name), data.subarray(contentStart, contentEnd), {
+        flag: 'wx', mode: mode === '100755' ? 0o700 : 0o600,
+      });
+      offset = contentEnd + 1;
+    }
+    requireThat(offset === data.length);
+    start = end;
   }
 }
 
-async function prepare(argv) {
+function prepare(argv) {
   let stage = 'arguments';
   let createdOutput;
   try {
@@ -255,7 +262,7 @@ async function prepare(argv) {
     git(candidateRepo, ['read-tree', expected]);
     const ledgerDir = path.join(candidateRepo, LEDGER);
     stage = 'materialization';
-    await materializeLedger(candidateRepo, expected, ledgerDir);
+    materializeLedger(candidateRepo, current, ledgerDir);
     const work = fs.mkdtempSync(path.join(output, 'inputs-'));
     const restored = path.join(work, 'restored');
     const indexInput = path.join(work, 'index');
@@ -341,5 +348,5 @@ async function prepare(argv) {
 
 if (isInvokedDirectly(import.meta.url)) {
   process.umask(0o077);
-  await prepare(process.argv.slice(2));
+  prepare(process.argv.slice(2));
 }
