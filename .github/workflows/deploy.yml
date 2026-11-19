@@ -408,6 +408,27 @@ jobs:
         env:
           JOBS_SKIP_URL_VALIDATION: '1'
         run: node scripts/cleanup-jobs.mjs
+      # cleanup-jobs hardens the generated assembled snapshot. Persist those
+      # locale/slug changes to their canonical crawler slices before this run
+      # packs and publishes the snapshot; otherwise the next assembly starts
+      # from stale source data and loses the hardening pass.
+      - name: Require source-slice push credential
+        run: |
+          set -euo pipefail
+          if [[ -z "${GITHUB_PAT:-}" && -z "${APP_TOKEN:-}" ]]; then
+            echo "::error::No GITHUB_PAT or APP_TOKEN was loaded; refusing to write source slices without the main-push credential required by the repository ruleset."
+            exit 1
+          fi
+      - name: Scatter hardened jobs back to crawler slices
+        run: |
+          set -euo pipefail
+          if [[ ! -s data/jobs.json ]]; then
+            echo "::error::Assembled data/jobs.json is missing; refusing to skip the hardening source sync."
+            exit 1
+          fi
+          node scripts/scatter-jobs-to-slices.mjs
+      - name: Commit hardened jobs to crawler slices
+        run: bash scripts/lib/git-commit-data.sh --slice-only "🌐 Sync hardened job locale fields to crawler slices"
       - name: Refresh employer-profiles snapshot from live corpus
         run: node scripts/build-employer-profiles.mjs
       - name: Refresh weekly-employers footer link list
