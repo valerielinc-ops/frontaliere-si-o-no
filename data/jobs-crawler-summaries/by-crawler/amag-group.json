@@ -1,16 +1,16 @@
 {
   "key": "amag-group",
   "label": "AMAG Group",
-  "generatedAt": "2026-11-19T09:33:27.217Z",
+  "generatedAt": "2026-11-19T21:20:32.320Z",
   "total": 6,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 156104,
-  "avgDurationMs": 156104,
+  "durationMs": 145168,
+  "avgDurationMs": 145168,
   "durationHistory": [
-    156104
+    145168
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -50,7 +50,7 @@
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-19T09:33:14.813Z",
+      "crawledAt": "2026-11-19T21:20:18.253Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://jobs.amag-group.ch/consulente-vendita-veicoli-commerciali-mf-100-it-j23843.html",
       "_qualityScore": 93,
@@ -95,7 +95,7 @@
       "firstSeenAt": "2026-10-09T21:30:03.052Z",
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-19T09:33:14.813Z",
+      "crawledAt": "2026-11-19T21:20:18.253Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://jobs.amag-group.ch/apprendista-impiegatoa-in-logistica-afc-2027-it-j23749.html",
       "_qualityScore": 93,
@@ -140,7 +140,7 @@
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-19T09:33:14.813Z",
+      "crawledAt": "2026-11-19T21:20:18.253Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://jobs.amag-group.ch/apprendista-carrozzierea-verniciatore-trice-afc-mf-estate--it-j20676.html",
       "_qualityScore": 93,
@@ -186,7 +186,7 @@
       "streetAddress": "Gordola",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-19T09:33:14.813Z",
+      "crawledAt": "2026-11-19T21:20:18.253Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -230,7 +230,7 @@
       "streetAddress": "Tutti",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-19T09:33:14.813Z",
+      "crawledAt": "2026-11-19T21:20:18.253Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -275,7 +275,7 @@
       "streetAddress": "Breganzona",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-19T09:33:14.813Z",
+      "crawledAt": "2026-11-19T21:20:18.253Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -286,5 +286,5 @@
       }
     }
   ],
-  "codeCommit": "af8f978c37a7f89c95dd40500d2ac0a67c1ede33"
+  "codeCommit": "07c2e8305c6747f1893222ba4bfdddc597008157"
 }
