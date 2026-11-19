@@ -151,6 +151,27 @@ describe('unvalidated-perf-claim: le prove accettate e i numeri che non sono pre
     });
   });
 
+  it('accetta un trigger in code span quando contiene la propria azione', () => {
+    const residual = 'blocked: post-merge measurement on workflow tests.yml; threshold 30 min. `Revert-trigger: rollback on failure`. ';
+    expect(parseDeferredPerfEvidence(residual).complete).toBe(true);
+  });
+
+  it('non combina un trigger valido in code span con un trigger in prosa senza azione', () => {
+    const residual = 'blocked: post-merge measurement on workflow tests.yml; threshold 30 min. Revert-trigger: observe only; `Revert-trigger: rollback on failure`. ';
+    expect(parseDeferredPerfEvidence(residual)).toMatchObject({
+      blocked: true,
+      hasRevertAction: false,
+      hasThreshold: true,
+      hasJobOrWorkflow: true,
+      complete: false,
+    });
+  });
+
+  it('accetta soglia e rollback in code span appartenenti allo stesso trigger', () => {
+    const residual = 'blocked: post-merge measurement on workflow tests.yml. Revert-trigger: if the job exceeds `30 min`, `rollback` this PR.';
+    expect(parseDeferredPerfEvidence(residual).complete).toBe(true);
+  });
+
   it('riconosce gli ausiliari stato e been nei claim non misurati pre-merge', () => {
     for (const claim of [
       '- Il tempo di build non è stato misurato pre-merge.',

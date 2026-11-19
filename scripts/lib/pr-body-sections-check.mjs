@@ -605,21 +605,35 @@ export function extractCodeSpanEvidence(text = '') {
     .filter((content) => quantity.test(content) || /\b(?:revert|rollback|ripristin\w*)\b/i.test(content));
 }
 
+function revertTriggerMatches(text = '') {
+  const matcher = new RegExp(PERF_EVIDENCE_REVERT_RE.source, 'gi');
+  return [...String(text).matchAll(matcher)];
+}
+
 export function parseDeferredPerfEvidence(text = '') {
   const source = stripNonContent(text);
   const prose = stripCode(source);
-  const codeEvidence = extractCodeSpanEvidence(source);
-  const evidence = [prose, ...codeEvidence].join('\n');
+  const inlineSpans = [...source.matchAll(/`([^`\n]+)`/g)]
+    .map((match) => match[1].trim());
+  const triggerSpans = inlineSpans.filter((content) => revertTriggerMatches(content).length > 0);
+  const proseWithInlineEvidence = source.replace(/`([^`\n]+)`/g, (full, content) =>
+    revertTriggerMatches(content).length > 0 ? ' '.repeat(full.length) : ` ${content} `);
+  const quantity = new RegExp(PERF_QTY, 'i');
+  const proseHasThreshold = quantity.test(proseWithInlineEvidence);
+  const triggerEvidence = [
+    ...revertTriggerMatches(proseWithInlineEvidence).map((match) => ({
+      tail: match[1],
+      hasThreshold: proseHasThreshold,
+    })),
+    ...triggerSpans.flatMap((content) => revertTriggerMatches(content).map((match) => ({
+      tail: match[1],
+      hasThreshold: proseHasThreshold || quantity.test(content),
+    }))),
+  ];
   const blocked = PERF_EVIDENCE_BLOCKED_RE.test(prose);
-  const revertMarkerInProse = PERF_EVIDENCE_REVERT_RE.exec(prose);
-  const sourceWithInlineCode = source.replace(/`([^`\n]+)`/g, ' $1 ');
-  const revertMarkerWithInlineCode = PERF_EVIDENCE_REVERT_RE.exec(sourceWithInlineCode);
-  const hasRevertAction = Boolean(
-    revertMarkerInProse
-    && revertMarkerWithInlineCode
-    && /\b(?:revert|rollback|ripristin\w*)\b/i.test(revertMarkerWithInlineCode[1]),
-  );
-  const hasThreshold = new RegExp(PERF_QTY, 'i').test(evidence);
+  const hasRevertAction = triggerEvidence.length > 0 && triggerEvidence.every(({ tail }) =>
+    /\b(?:revert|rollback|ripristin\w*)\b/i.test(tail));
+  const hasThreshold = triggerEvidence.length > 0 && triggerEvidence.every((item) => item.hasThreshold);
   const hasJobOrWorkflow = isConcreteJobWorkflowReference(source);
   return {
     blocked,
