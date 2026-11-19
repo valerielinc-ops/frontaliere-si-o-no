@@ -176,7 +176,11 @@ export function createWorkdayBrowserJsonFallback(apiBase) {
             'Accept-Language': 'en,de-CH;q=0.9,it-CH;q=0.8,fr-CH;q=0.7',
           },
         });
-        return { status: response.status, body: await response.text() };
+        return {
+          status: response.status,
+          retryAfter: response.headers?.get?.('retry-after') ?? null,
+          body: await response.text(),
+        };
       } finally {
         clearTimeout(timer);
       }
@@ -202,6 +206,7 @@ export function createWorkdayBrowserJsonFallback(apiBase) {
       );
       err.status = result.status;
       err.retryable = RETRYABLE_STATUS.has(result.status);
+      err.retryAfter = result.retryAfter ?? null;
       throw err;
     }
     try {
@@ -292,6 +297,7 @@ async function fetchJsonWithRetry(url, options = {}) {
     retries,
     retryBaseMs,
     browserFallback = null,
+    beforeBrowserFallback,
     onTransientFailure,
   } = options;
 
@@ -386,6 +392,7 @@ async function fetchJsonWithRetry(url, options = {}) {
       && isRetryBudgetExhaustedError(err);
     if (browserFallback && (connectionLevelFailure || retryBudgetExhausted)) {
       try {
+        if (typeof beforeBrowserFallback === 'function') await beforeBrowserFallback();
         return await browserFallback({ url, method, body, userAgent, timeoutMs });
       } catch (fallbackErr) {
         // A browser response is stronger evidence than the original socket
@@ -472,6 +479,7 @@ export function createWorkdayRequestContext(apiBase, options = {}) {
         return await fetchJsonWithRetry(url, {
           ...requestOptions,
           browserFallback,
+          beforeBrowserFallback: waitForRateLimit,
           onTransientFailure: observeRateLimit,
         });
       } catch (err) {
