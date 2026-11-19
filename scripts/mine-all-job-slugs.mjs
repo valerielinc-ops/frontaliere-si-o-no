@@ -714,7 +714,8 @@ async function mergeMinedSources(sources) {
           sourceMask |= 16;
         }
         if (!Object.hasOwn(entry, COMPAT_SOURCE_LOCALE_MASK)) {
-          Object.defineProperty(entry, COMPAT_SOURCE_LOCALE_MASK, { value: sourceMask, writable: true });
+          // The main loop deletes this mask; strict mode throws if it is non-configurable (run 44535238046).
+          Object.defineProperty(entry, COMPAT_SOURCE_LOCALE_MASK, { value: sourceMask, writable: true, configurable: true });
         } else entry[COMPAT_SOURCE_LOCALE_MASK] = sourceMask;
         // Preserve old precedence: earlier sources win, while the last compat
         // path for a locale wins among paths from this source.

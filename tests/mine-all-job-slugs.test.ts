@@ -21,7 +21,10 @@ import { spawnSync } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { describe, expect, it, vi } from 'vitest';
+import { knownSlugsShardFile, knownSlugsShardIndex } from '../scripts/lib/all-known-job-slugs-store.mjs';
+import { writeCompatPaths } from '../scripts/lib/compat-paths-store.mjs';
 import {
   buildLocalePathsForCanton,
   buildLocalePathsForJob,
@@ -104,6 +107,36 @@ describe('mine-all-job-slugs bounded source handling', () => {
     expect(result.allSlugs.get('compat-only-job')?.locales).toEqual({ fr: '/fr/compat-only/' });
     expect(result.nonGitSourceSlugs).toEqual(new Set(['shared-job-slug', 'compat-only-job']));
     expect(result.highValueSlugs).toEqual(new Set(['shared-job-slug']));
+  });
+
+  it('writes a compat-only slug through the CLI without serializing the source mask', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'mine-job-slugs-compat-'));
+    const repo = fileURLToPath(new URL('../', import.meta.url));
+    const script = 'scripts/mine-all-job-slugs.mjs';
+    const slug = 'software-engineer-compat-only';
+    const compatPath = `/en/find-jobs-ticino/${slug}/`;
+    try {
+      fs.mkdirSync(path.join(root, 'scripts'));
+      fs.mkdirSync(path.join(root, 'data'));
+      fs.copyFileSync(path.join(repo, script), path.join(root, script));
+      for (const dir of ['scripts/lib', 'build-plugins']) {
+        fs.symlinkSync(path.join(repo, dir), path.join(root, dir), 'dir');
+      }
+      for (const file of ['data/canton-url-slugs.json', 'data/canton-municipalities.json']) {
+        fs.copyFileSync(path.join(repo, file), path.join(root, file));
+      }
+      writeCompatPaths({ paths: [compatPath] }, root);
+
+      const result = spawnSync(process.execPath, [script], { cwd: root, encoding: 'utf8' });
+
+      expect(result.status, result.stderr).toBe(0);
+      const output = fs.readFileSync(knownSlugsShardFile(knownSlugsShardIndex(slug), root), 'utf8');
+      expect(JSON.parse(output)).toEqual({
+        slugs: { [slug]: { ...buildLocalePathsForCanton('TI', slug), en: compatPath } },
+      });
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
   });
 
   it('marks incomplete sources so the caller can avoid destructive pruning', async () => {
