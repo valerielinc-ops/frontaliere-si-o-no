@@ -35,19 +35,22 @@ describe('workflow failure reporting stays coupled to the central scanner contra
     expect(body).toContain(`<!-- failure-signature: ${signature} -->`);
   });
 
-  it.each(['deploy-publish', 'issue-fix'])('%s checks out the complete reporter import graph', (workflow) => {
-    const source = parse(`.github/workflows/${workflow}.yml`);
-    const checkout = source.jobs['report-failure'].steps.find(
-      (step: any) => step.uses?.startsWith('actions/checkout@'),
-    );
-    const paths = checkout.with['sparse-checkout'].split('\n').map((line: string) => line.trim()).filter(Boolean);
-    const closure = collectRelativeImportClosure(fileURLToPath(root), 'scripts/ci/report-workflow-failure.mjs');
-    expect(closure).toContain('scripts/cathedral-seo-gates-check.mjs');
-    for (const dependency of closure) {
-      expect(paths.some((entry: string) => entry.endsWith('/') ? dependency.startsWith(entry) : dependency === entry),
-        `${workflow}: missing reporter dependency ${dependency}`).toBe(true);
-    }
-  });
+  it.each(['deploy-publish', 'issue-fix', 'needs-human-sweep'])(
+    '%s checks out the complete reporter import graph',
+    (workflow) => {
+      const source = parse(`.github/workflows/${workflow}.yml`);
+      const checkout = source.jobs['report-failure'].steps.find(
+        (step: any) => step.uses?.startsWith('actions/checkout@'),
+      );
+      const paths = checkout.with['sparse-checkout'].split('\n').map((line: string) => line.trim()).filter(Boolean);
+      const closure = collectRelativeImportClosure(fileURLToPath(root), 'scripts/ci/report-workflow-failure.mjs');
+      expect(closure).toContain('scripts/cathedral-seo-gates-check.mjs');
+      for (const dependency of closure) {
+        expect(paths.some((entry: string) => entry.endsWith('/') ? dependency.startsWith(entry) : dependency === entry),
+          `${workflow}: missing reporter dependency ${dependency}`).toBe(true);
+      }
+    },
+  );
 
   it('reports both issue-fix failure jobs after their logs are complete', () => {
     const source = parse('.github/workflows/issue-fix.yml');
