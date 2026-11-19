@@ -19,6 +19,7 @@ import {
 import {
   GENERATED_IMAGE_LICENSE,
   validateGeneratedImageRecord,
+  validateGeneratedImageRecordWithRegistry,
   validateGeneratedImageRegistry,
 } from '../../packages/articles/engine/shared/generatedImageRegistry.mjs';
 import { isPublishedDeterministicCardRecord } from '../lib/published-blog-image-evidence.mjs';
@@ -175,11 +176,22 @@ function replaceGeneratedRegistryAsset(registry, image, generated = null) {
     registry.assets = assets;
     registry.assetCount = assets.length;
     registry.generatedAt = new Date().toISOString();
+    if (Array.isArray(registry.legacyVision?.assetIds)) {
+      const remainingLegacyIds = registry.legacyVision.assetIds.filter((assetId) => {
+        const retained = assets.find((record) => record.assetId === assetId);
+        return retained && retained.vision?.contains_recognizable_foreground_person !== false;
+      });
+      if (remainingLegacyIds.length > 0) {
+        registry.legacyVision = { ...registry.legacyVision, assetIds: remainingLegacyIds };
+      } else {
+        delete registry.legacyVision;
+      }
+    }
   }
   return changed;
 }
 
-function generatedCreditRecordFromEvidence(generated, existing = null) {
+function generatedCreditRecordFromEvidence(generated, existing = null, legacyVisionRegistry = null) {
   const next = {
     schema: 1,
     cover: generated.imageUrl,
@@ -215,7 +227,7 @@ function generatedCreditRecordFromEvidence(generated, existing = null) {
     curation: existing?.curation ?? null,
     generated,
   };
-  const validation = validateImageCreditRecord(next);
+  const validation = validateImageCreditRecord(next, { legacyVisionRegistry });
   if (!validation.valid) {
     return { record: null, reason: `generated credit record after reconciliation is invalid: ${validation.errors.join('; ')}` };
   }
@@ -311,7 +323,7 @@ function applyDeterministicCardEvidence(index, key, item, image, evidence, repla
   };
 }
 
-function inspectGeneratedEvidence(key, image, recordsByImage, knownBytes = null) {
+function inspectGeneratedEvidence(key, image, recordsByImage, knownBytes = null, legacyVisionRegistry = null) {
   const records = recordsByImage.get(image) || [];
   if (records.length === 0) return { state: 'missing' };
   if (records.length !== 1) {
@@ -319,7 +331,9 @@ function inspectGeneratedEvidence(key, image, recordsByImage, knownBytes = null)
   }
 
   const generated = records[0];
-  const registryValidation = validateGeneratedImageRecord(generated, { scope: 'article-hero' });
+  const registryValidation = legacyVisionRegistry
+    ? validateGeneratedImageRecordWithRegistry(generated, legacyVisionRegistry, { scope: 'article-hero' })
+    : validateGeneratedImageRecord(generated, { scope: 'article-hero' });
   if (!registryValidation.valid) {
     return { state: 'rejected', reason: `invalid generated registry record: ${registryValidation.errors.join('; ')}` };
   }
@@ -352,7 +366,7 @@ function inspectGeneratedEvidence(key, image, recordsByImage, knownBytes = null)
   if (fs.existsSync(path.join(ROOT, recordFile))) {
     try {
       const candidate = readJson(path.join(ROOT, recordFile));
-      const creditValidation = validateImageCreditRecord(candidate);
+      const creditValidation = validateImageCreditRecord(candidate, { legacyVisionRegistry });
       if (creditValidation.valid
         && candidate.source === 'generated-provider'
         && candidate.cover === image
@@ -370,7 +384,7 @@ function inspectGeneratedEvidence(key, image, recordsByImage, knownBytes = null)
   if (generated.license !== GENERATED_IMAGE_LICENSE) {
     return { state: 'rejected', reason: 'published article-hero evidence is neither a deterministic card nor a generated-provider record' };
   }
-  const reconciled = generatedCreditRecordFromEvidence(generated, existingCreditRecord);
+  const reconciled = generatedCreditRecordFromEvidence(generated, existingCreditRecord, legacyVisionRegistry);
   if (!reconciled.record) return { state: 'rejected', reason: reconciled.reason };
   return {
     state: 'verified',
@@ -438,7 +452,10 @@ function main() {
       && generatedRegistry.assetCount !== generatedRegistry.assets.length)) {
     throw new Error('Site blog generated-image registry is invalid');
   }
-  const generatedRegistryValidation = validateGeneratedImageRegistry(generatedRegistry, { scope: 'article-hero' });
+  const generatedRegistryValidation = validateGeneratedImageRegistry(generatedRegistry, {
+    scope: 'article-hero',
+    allowLegacyVision: true,
+  });
   if (!generatedRegistryValidation.valid) {
     throw new Error(`Site blog generated-image registry is invalid: ${generatedRegistryValidation.errors.join('; ')}`);
   }
@@ -523,7 +540,7 @@ function main() {
       currentlyPublished: true,
       status: 'no-credit',
     };
-    const evidence = inspectGeneratedEvidence(key, articles[0].image, recordsByImage, bytes);
+    const evidence = inspectGeneratedEvidence(key, articles[0].image, recordsByImage, bytes, generatedRegistry);
     if (evidence.state === 'verified') {
       if (evidence.kind === 'deterministic-card') {
         applyDeterministicCardEvidence(index, key, item, articles[0].image, evidence, replacements);
@@ -563,7 +580,7 @@ function main() {
 
     const beforeItem = JSON.stringify(item);
     const beforeCoverIndex = JSON.stringify(index.covers[key]);
-    const evidence = inspectGeneratedEvidence(key, image, recordsByImage);
+    const evidence = inspectGeneratedEvidence(key, image, recordsByImage, null, generatedRegistry);
     if (evidence.state === 'verified') {
       const wasInferred = item.evidence === 'inferred';
       if (evidence.kind === 'deterministic-card') {

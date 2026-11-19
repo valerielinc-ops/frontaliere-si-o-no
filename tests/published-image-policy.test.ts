@@ -12,6 +12,7 @@ import {
   checkPublishedImageUrl,
   loadPublishedImagePolicy,
 } from '../scripts/lib/published-image-policy.mjs';
+import { validatePublishedBlogImageEvidence } from '../scripts/lib/published-blog-image-evidence.mjs';
 import { syncPublishedBlogImageEvidence } from '../scripts/sync-published-blog-image-evidence.mjs';
 import {
   collectOgImageReferences,
@@ -92,6 +93,37 @@ function withPinnedRoot<T>(run: (root: string) => T): T {
 }
 
 describe('published image policy', () => {
+  it('validates published place evidence against the place registry envelope', () => {
+    const blogRegistry = JSON.parse(fs.readFileSync(
+      path.join(ROOT, 'data/blog-generated-image-registry.json'),
+      'utf8',
+    ));
+    const sharedRegistry = JSON.parse(fs.readFileSync(
+      path.join(ROOT, 'data/generated-image-registry.json'),
+      'utf8',
+    ));
+    const placeRecord = sharedRegistry.assets.find((record: { assetId: string }) => record.assetId === 'lugano-view');
+
+    expect(placeRecord).toBeDefined();
+    expect(validatePublishedBlogImageEvidence(placeRecord.imageUrl, placeRecord, {
+      legacyVisionRegistry: blogRegistry,
+      legacyVisionRegistries: {
+        'article-hero': blogRegistry,
+        place: sharedRegistry,
+      },
+    })).toEqual({ valid: true, errors: [] });
+    expect(validatePublishedBlogImageEvidence(placeRecord.imageUrl, placeRecord, {
+      legacyVisionRegistry: blogRegistry,
+    }).errors).toContain('vision gate verdict is missing or rejected');
+    expect(validatePublishedBlogImageEvidence(placeRecord.imageUrl, placeRecord, {
+      legacyVisionRegistry: blogRegistry,
+      legacyVisionRegistries: {
+        'article-hero': blogRegistry,
+        place: null,
+      },
+    }).errors).toContain('vision gate verdict is missing or rejected');
+  });
+
   it('accepts manifest-pinned corpus generated covers for OG images without widening uploader policy', () => {
     withPinnedRoot((root) => {
       const assetIds = [
@@ -125,6 +157,37 @@ describe('published image policy', () => {
       expect(policy.checkOg(`${IMAGE_CDN_ORIGIN}/images/blog/not-in-corpus.webp`)).toMatchObject({
         valid: false,
         reason: 'missing-or-unpublishable-image-credit',
+      });
+    });
+  });
+
+  it('validates a legacy generated place URL with its source registry envelope', () => {
+    withPinnedRoot((root) => {
+      const record = generatedArticleHero('lugano-view');
+      record.scope = 'place';
+      record.imageUrl = '/images/places/lugano-view.webp';
+      delete record.vision.contains_recognizable_foreground_person;
+      const registry = {
+        schema: 1,
+        assetCount: 1,
+        legacyVision: {
+          schema: 0,
+          scopes: ['editorial-profile', 'place'],
+          promptVersion: GENERATED_IMAGE_PROMPT_VERSION,
+          restrictions: [...GENERATED_IMAGE_RESTRICTIONS],
+          assetIds: [record.assetId],
+        },
+        assets: [record],
+      };
+      fs.writeFileSync(path.join(root, 'data/generated-image-registry.json'), JSON.stringify(registry));
+
+      const policy = loadPublishedImagePolicy({ root });
+
+      expect(policy.registryErrors).toEqual([]);
+      expect(policy.check(`${IMAGE_CDN_ORIGIN}${record.imageUrl}`, { requireCdn: true })).toMatchObject({
+        valid: true,
+        source: 'generated-registry',
+        path: record.imageUrl,
       });
     });
   });
@@ -188,6 +251,44 @@ describe('published image policy', () => {
       expect(result).toMatchObject({ commit, recordCount: 1 });
       expect(snapshot).toEqual({ schema: 1, commit, generated: { [record.imageUrl]: record } });
       expect(ledgerSnapshot).toEqual(existingLedgerSnapshot);
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('accepts a place fallback from the shared registry while syncing corpus evidence', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'frontaliere-place-image-evidence-'));
+    try {
+      const sharedRegistry = JSON.parse(fs.readFileSync(
+        path.join(ROOT, 'data/generated-image-registry.json'),
+        'utf8',
+      ));
+      const record = sharedRegistry.assets.find((asset: { assetId: string }) => asset.assetId === 'lugano-view');
+      const commit = 'b'.repeat(40);
+      const creditsText = JSON.stringify({
+        schema: 1,
+        section: 'blog',
+        commit,
+        generated: { [record.imageUrl]: record },
+      });
+      fs.mkdirSync(path.join(root, 'data'), { recursive: true });
+      fs.writeFileSync(
+        path.join(root, 'data/generated-image-registry.json'),
+        JSON.stringify(sharedRegistry),
+      );
+      const manifestText = JSON.stringify({
+        commit,
+        files: { 'data/image-credits-blog.json': Buffer.byteLength(creditsText, 'utf8') },
+      });
+      const fetchImpl = vi.fn(async (input: string | URL) => String(input).endsWith('/manifest.json')
+        ? new Response(manifestText, { status: 200 })
+        : new Response(creditsText, { status: 200 }));
+
+      const result = await syncPublishedBlogImageEvidence({ root, apiBase: 'https://api.example.test', fetchImpl });
+      const snapshot = JSON.parse(fs.readFileSync(path.join(root, BLOG_EVIDENCE_SNAPSHOT), 'utf8'));
+
+      expect(result).toMatchObject({ commit, recordCount: 1 });
+      expect(snapshot.generated).toEqual({ [record.imageUrl]: record });
     } finally {
       fs.rmSync(root, { recursive: true, force: true });
     }
@@ -283,6 +384,7 @@ describe('published image policy', () => {
     const record = registry.assets[0];
     const url = `${IMAGE_CDN_ORIGIN}${record.imageUrl}`;
 
+    expect(policy.registryErrors.some((error) => error.includes('licensed-photo vision gate verdict is missing or rejected'))).toBe(true);
     expect(policy.check(url, { requireCdn: true })).toMatchObject({
       valid: true,
       source: 'generated-registry',
@@ -297,13 +399,21 @@ describe('published image policy', () => {
   it.skipIf(SKIP_LIVE_DATA)('accepts a verified licensed photo record through the same CDN gate', () => {
     const registry = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/event-image-library.json'), 'utf8'));
     const policy = loadPublishedImagePolicy({ root: ROOT });
-    const record = registry.assets.find((asset) => asset.kind === 'photo');
+    const record = registry.assets.find((asset) => asset.kind === 'photo'
+      && asset.vision?.contains_recognizable_foreground_person === false);
+    const incomplete = registry.assets.find((asset) => asset.kind === 'photo'
+      && !Object.hasOwn(asset.vision || {}, 'contains_recognizable_foreground_person'));
 
     expect(record).toBeDefined();
     expect(policy.check(`${IMAGE_CDN_ORIGIN}${record.imageUrl}`, { requireCdn: true })).toMatchObject({
       valid: true,
       source: 'licensed-photo-registry',
       path: record.imageUrl,
+    });
+    expect(incomplete).toBeDefined();
+    expect(policy.check(`${IMAGE_CDN_ORIGIN}${incomplete.imageUrl}`, { requireCdn: true })).toMatchObject({
+      valid: false,
+      reason: 'missing-generated-record',
     });
   });
 

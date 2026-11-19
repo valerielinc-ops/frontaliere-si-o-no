@@ -56,6 +56,7 @@ import {
   isLicensedPhotoRecord,
   LICENSED_PHOTO_PROVIDERS,
   validateGeneratedImageRecord,
+  validateGeneratedImageRecordWithRegistry,
 } from './generatedImageRegistry.mjs';
 
 export const IMAGE_CREDIT_SCHEMA_VERSION = 1;
@@ -557,9 +558,10 @@ function checkDisplayString(value, where, max, errors) {
  * character, or `/images/`, which the engine would mistake for the hero path).
  *
  * @param {unknown} record
+ * @param {{ legacyVisionRegistry?: unknown }} [options]
  * @returns {ImageCreditValidation}
  */
-export function validateImageCreditRecord(record) {
+export function validateImageCreditRecord(record, { legacyVisionRegistry = null } = {}) {
   /** @type {string[]} */
   const errors = [];
   if (!isPlainObject(record)) return { valid: false, errors: ['record must be an object'] };
@@ -595,7 +597,9 @@ export function validateImageCreditRecord(record) {
     if (!isPlainObject(record.generated)) {
       errors.push('generated must be an object for generated-provider records');
     } else {
-      const generatedValidation = validateGeneratedImageRecord(record.generated);
+      const generatedValidation = legacyVisionRegistry
+        ? validateGeneratedImageRecordWithRegistry(record.generated, legacyVisionRegistry)
+        : validateGeneratedImageRecord(record.generated);
       if (!generatedValidation.valid) {
         errors.push(`generated record is invalid: ${generatedValidation.errors.join(', ')}`);
       }
@@ -868,7 +872,7 @@ function deepFreeze(value) {
  *
  * @param {ImageCreditFs} fs
  * @param {string | readonly string[]} candidateDirs
- * @param {{ warn?: (message: string) => void }} [options]
+ * @param {{ warn?: (message: string) => void, legacyVisionRegistry?: unknown }} [options]
  * @returns {ImageCreditReader}
  */
 export function createImageCreditReader(fs, candidateDirs, options = {}) {
@@ -903,7 +907,9 @@ export function createImageCreditReader(fs, candidateDirs, options = {}) {
         warn(`[image-credits] ${file}: not JSON (${errorMessage(error)}) — cover rendered without credit`);
         return null;
       }
-      const { valid, errors } = validateImageCreditRecord(parsed);
+      const { valid, errors } = validateImageCreditRecord(parsed, {
+        legacyVisionRegistry: options.legacyVisionRegistry,
+      });
       if (!valid) {
         warn(`[image-credits] ${file}: invalid record (${errors.join('; ')}) — cover rendered without credit`);
         return null;

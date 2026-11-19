@@ -10,7 +10,10 @@ import {
 
 describe('published editorial and place image registry', () => {
   it('covers every published author/place WebP and matches its bytes', async () => {
-    const result = await verifyPublishedGeneratedSiteImages({ rootDir: process.cwd() });
+    const result = await verifyPublishedGeneratedSiteImages({
+      rootDir: process.cwd(),
+      allowLegacyVision: true,
+    });
     expect(result.valid, result.errors.join('\n')).toBe(true);
     expect(result.records).toHaveLength(36);
 
@@ -45,7 +48,7 @@ describe('published editorial and place image registry', () => {
       path.join(process.cwd(), 'data', 'generated-image-registry.json'),
       'utf8',
     ));
-    const validation = validateGeneratedImageRegistry(registry);
+    const validation = validateGeneratedImageRegistry(registry, { allowLegacyVision: true });
     expect(validation.valid, validation.errors.join('\n')).toBe(true);
     const publishers = registry.assets.filter((record: { scope?: string }) => record.scope === 'publisher');
     expect(publishers).toHaveLength(6);

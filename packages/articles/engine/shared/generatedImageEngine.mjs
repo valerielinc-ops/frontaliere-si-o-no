@@ -39,6 +39,7 @@ import {
   generatedImagePathForScope,
   scopeAllowsLicensedPhoto,
   validateGeneratedImageRecord,
+  validateGeneratedImageRecordWithRegistry,
 } from './generatedImageRegistry.mjs';
 import {
   eventImageLibrarySlots,
@@ -1602,18 +1603,29 @@ export async function generateEventImageLibrary({
     if (!entries.includes(diagnostic) && entries.length < 5) entries.push(diagnostic);
   };
   const persist = () => {
-    if (registryPath === null) return;
     const partialAssets = [...assetsById.values()].sort((a, b) => String(a.assetId).localeCompare(String(b.assetId)));
+    const legacyVisionIds = Array.isArray(registry.legacyVision?.assetIds)
+      ? registry.legacyVision.assetIds.filter((assetId) => {
+        const record = assetsById.get(assetId);
+        return record && record.vision?.contains_recognizable_foreground_person !== false;
+      })
+      : [];
     const partial = {
       schema: 1,
       libraryVersion: registry.libraryVersion || new Date().toISOString().slice(0, 10),
       cdnPrefix: '/images/events/library/',
       assetCount: partialAssets.length,
       generatedAt: generated.length > 0 ? new Date().toISOString() : (registry.generatedAt || new Date().toISOString()),
+      ...(legacyVisionIds.length > 0
+        ? { legacyVision: { ...registry.legacyVision, assetIds: legacyVisionIds } }
+        : {}),
       assets: partialAssets,
     };
-    fs.mkdirSync(path.dirname(resolvedRegistryPath), { recursive: true });
-    fs.writeFileSync(resolvedRegistryPath, `${JSON.stringify(partial, null, 2)}\n`, 'utf8');
+    if (registryPath !== null) {
+      fs.mkdirSync(path.dirname(resolvedRegistryPath), { recursive: true });
+      fs.writeFileSync(resolvedRegistryPath, `${JSON.stringify(partial, null, 2)}\n`, 'utf8');
+    }
+    return partial;
   };
   for (const slot of eventImageLibrarySlots({ variants })) {
     if (generated.length >= boundedLimit) break;
@@ -1621,7 +1633,7 @@ export async function generateEventImageLibrary({
     // The registry is the source of truth for already-published slots. CI
     // deliberately starts with an empty local cache, so requiring a local
     // byte here would regenerate the first N assets on every weekly run.
-    if (existing && validateGeneratedImageRecord(existing).valid) continue;
+    if (existing && validateGeneratedImageRecordWithRegistry(existing, registry).valid) continue;
     try {
       const result = await generateImageFromSpec({
         scope: 'event-library',
@@ -1676,15 +1688,6 @@ export async function generateEventImageLibrary({
       if (explicitProviderRequest) break;
     }
   }
-  const assets = [...assetsById.values()].sort((a, b) => String(a.assetId).localeCompare(String(b.assetId)));
-  const output = {
-    schema: 1,
-    libraryVersion: registry.libraryVersion || new Date().toISOString().slice(0, 10),
-    cdnPrefix: '/images/events/library/',
-    assetCount: assets.length,
-    generatedAt: generated.length > 0 ? new Date().toISOString() : (registry.generatedAt || new Date().toISOString()),
-    assets,
-  };
-  persist();
+  const output = persist();
   return { registry: output, generated, generationCalls, providerCounts, providerFailures };
 }

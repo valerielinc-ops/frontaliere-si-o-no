@@ -338,11 +338,97 @@ export function isPrivateGrantImageRecord(record) {
   return isRecord(record) && record.license === PRIVATE_GRANT_LICENSE && record.provider === PRIVATE_GRANT_PROVIDER;
 }
 
-/** Return only the explicitly versioned registry entries allowed to omit the foreground-person vision flag. */
+function matchesLegacyGeneratedVisionContract(record, contract) {
+  return isRecord(record)
+    && record.schema === GENERATED_IMAGE_SCHEMA_VERSION
+    && record.license === GENERATED_IMAGE_LICENSE
+    && GENERATED_IMAGE_PROVIDERS.includes(record.provider)
+    && (record.kind === undefined || record.kind === GENERATED_IMAGE_KIND)
+    && GENERATED_IMAGE_SCOPES.includes(record.scope)
+    && (contract.scope === undefined || record.scope === contract.scope)
+    && (contract.scopes === undefined
+      || (Array.isArray(contract.scopes) && contract.scopes.includes(record.scope)))
+    && record.promptVersion === (contract.promptVersion || GENERATED_IMAGE_PROMPT_VERSION)
+    && Array.isArray(record.restrictions)
+    && GENERATED_IMAGE_RESTRICTIONS.every((restriction) => record.restrictions.includes(restriction))
+    && (!Array.isArray(contract.restrictions)
+      || contract.restrictions.every((restriction) => record.restrictions.includes(restriction)))
+    && isRecord(record.vision)
+    && !Object.hasOwn(record.vision, 'contains_recognizable_foreground_person')
+    && record.vision.ok === true
+    && record.vision.contains_text === false
+    && record.vision.contains_logo === false
+    && record.vision.contains_recognizable_face === false
+    && record.vision.looks_like_specific_real_event === false
+    && nonEmpty(record.vision.notes);
+}
+
+function legacyVisionContractForRegistry(registry) {
+  const contract = isRecord(registry) ? registry.legacyVision : undefined;
+  if (contract === undefined) return { valid: true, assetIds: [], errors: [] };
+  if (!isRecord(contract)) {
+    return { valid: false, assetIds: [], errors: ['legacyVision must be an object'] };
+  }
+
+  const errors = [];
+  if (contract.schema !== 0) errors.push('legacyVision schema must be 0');
+  if (contract.scope !== undefined && contract.scopes !== undefined) {
+    errors.push('legacyVision must declare scope or scopes, not both');
+  }
+  if (contract.scope !== undefined && !GENERATED_IMAGE_SCOPES.includes(contract.scope)) {
+    errors.push('legacyVision scope is not allowed');
+  }
+  if (contract.scopes !== undefined) {
+    if (!Array.isArray(contract.scopes) || contract.scopes.length === 0
+      || contract.scopes.some((scope) => !GENERATED_IMAGE_SCOPES.includes(scope))) {
+      errors.push('legacyVision scopes must be a non-empty array of allowed scopes');
+    } else if (new Set(contract.scopes).size !== contract.scopes.length) {
+      errors.push('legacyVision scopes contain duplicates');
+    }
+  }
+  if (contract.promptVersion !== undefined && contract.promptVersion !== GENERATED_IMAGE_PROMPT_VERSION) {
+    errors.push('legacyVision promptVersion is not the historical generated-image policy');
+  }
+  if (contract.restrictions !== undefined && (!Array.isArray(contract.restrictions)
+    || GENERATED_IMAGE_RESTRICTIONS.some((restriction) => !contract.restrictions.includes(restriction)))) {
+    errors.push('legacyVision restrictions do not contain the complete generated-image policy');
+  }
+  if (!Array.isArray(contract.assetIds) || contract.assetIds.length === 0) {
+    errors.push('legacyVision assetIds must be a non-empty array');
+  }
+
+  const listedIds = Array.isArray(contract.assetIds)
+    ? contract.assetIds.map((value) => String(value || '').trim())
+    : [];
+  if (listedIds.some((value) => !ASSET_ID_RE.test(value))) errors.push('legacyVision assetIds contain an invalid id');
+  if (new Set(listedIds).size !== listedIds.length) errors.push('legacyVision assetIds contain duplicates');
+
+  const assets = Array.isArray(registry?.assets) ? registry.assets : [];
+  const assetsById = new Map(assets.map((record) => [record?.assetId, record]));
+  for (const assetId of listedIds) {
+    const record = assetsById.get(assetId);
+    if (!matchesLegacyGeneratedVisionContract(record, contract)) {
+      errors.push(`legacyVision assetId ${assetId || '<empty>'} does not match the legacy generated-image contract`);
+    }
+  }
+
+  return { valid: errors.length === 0, assetIds: errors.length === 0 ? listedIds : [], errors };
+}
+
+/** Validate a generated record only when the caller supplies its source registry envelope. */
+export function validateGeneratedImageRecordWithRegistry(record, registry, options = {}) {
+  const contract = legacyVisionContractForRegistry(registry);
+  return validateGeneratedImageRecord(record, {
+    ...options,
+    allowLegacyVision: true,
+    legacyVisionAssetIds: contract.valid ? contract.assetIds : [],
+  });
+}
+
+/** Return only explicitly listed, source-verified legacy generated records. */
 export function legacyVisionAssetIdsForRegistry(registry) {
-  const contract = isRecord(registry) ? registry.legacyVision : null;
-  if (!isRecord(contract) || contract.schema !== 0 || !Array.isArray(contract.assetIds)) return [];
-  return [...new Set(contract.assetIds.map((value) => String(value || '').trim()).filter(Boolean))];
+  const contract = legacyVisionContractForRegistry(registry);
+  return contract.valid ? contract.assetIds : [];
 }
 
 export function generatedImageAssetIdFromPath(value) {
@@ -460,17 +546,11 @@ export function validateGeneratedImageRecord(record, { allowLegacyVision = false
     && Array.isArray(legacyVisionAssetIds)
     && legacyVisionAssetIds.includes(record.assetId)
     && !isPhoto
-    && isRecord(record.vision)
-    && !Object.hasOwn(record.vision, 'contains_recognizable_foreground_person')
-    && Array.isArray(record.restrictions)
-    && record.restrictions.includes('no-real-recognizable-foreground-person');
-  const foregroundPersonError = allowLegacyVision
-    ? (isPhoto
-      ? record.vision?.contains_recognizable_foreground_person !== false
-      : !legacyForegroundPersonSafe && record.vision?.contains_recognizable_foreground_person !== false)
-    : (isPhoto && record.scope === 'article-hero'
-      ? record.vision?.contains_recognizable_foreground_person !== false
-      : false);
+    && matchesLegacyGeneratedVisionContract(record, {
+      promptVersion: GENERATED_IMAGE_PROMPT_VERSION,
+    });
+  const foregroundPersonError = !legacyForegroundPersonSafe
+    && record.vision?.contains_recognizable_foreground_person !== false;
   if (!isPrivateGrant && (!isRecord(record.vision)
     || record.vision.ok !== true
     || record.vision.contains_logo !== false
@@ -511,7 +591,11 @@ export function validateGeneratedImageRegistry(registry, { scope, allowLegacyVis
     if (registry.cdnPrefix !== '/images/events/library/') errors.push('event registry cdnPrefix is invalid');
     if (!nonEmpty(registry.libraryVersion)) errors.push('event registry libraryVersion is required');
   }
-  const legacyVisionAssetIds = allowLegacyVision ? legacyVisionAssetIdsForRegistry(registry) : [];
+  const legacyVisionContract = allowLegacyVision ? legacyVisionContractForRegistry(registry) : null;
+  if (legacyVisionContract && !legacyVisionContract.valid) {
+    errors.push(...legacyVisionContract.errors.map((error) => `registry ${error}`));
+  }
+  const legacyVisionAssetIds = legacyVisionContract?.valid ? legacyVisionContract.assetIds : [];
   const assetIds = new Set();
   const imageUrls = new Set();
   const hashesByScope = new Map();
@@ -555,12 +639,59 @@ export function validateGeneratedImageRegistry(registry, { scope, allowLegacyVis
   return { valid: errors.length === 0, errors };
 }
 
+/** Return true only when a licensed photo is missing this one vision verdict. */
+export function isLicensedPhotoMissingForegroundVerdictOnly(record) {
+  const vision = record?.vision;
+  return isLicensedPhotoRecord(record)
+    && isRecord(vision)
+    && !Object.hasOwn(vision, 'contains_recognizable_foreground_person')
+    && vision.ok === true
+    && vision.contains_logo === false
+    && vision.contains_recognizable_face === false
+    && vision.is_photograph === true
+    && typeof vision.contains_text === 'boolean'
+    && typeof vision.looks_like_specific_real_event === 'boolean'
+    && nonEmpty(vision.notes);
+}
+
+/**
+ * Validate the event registry while allowing only unreferenced licensed photos
+ * whose sole missing verdict is the foreground-person field. These records
+ * remain invalid for selection and publication; this exception only lets the
+ * event build replace stale references before the publication gate runs.
+ */
+export function validateEventImageRegistryForPublishedEvents(events, registry) {
+  const validation = validateGeneratedImageRegistry(registry, {
+    scope: 'event-library',
+    allowLegacyVision: true,
+  });
+  if (validation.valid) return validation;
+
+  const assets = Array.isArray(registry?.assets) ? registry.assets : [];
+  const referencedAssetIds = new Set();
+  const referencedImageUrls = new Set();
+  for (const event of Array.isArray(events) ? events : []) {
+    if (typeof event?.imageAssetId === 'string') referencedAssetIds.add(event.imageAssetId);
+    if (typeof event?.imageUrl === 'string') referencedImageUrls.add(event.imageUrl);
+  }
+
+  const toleratedErrors = new Set(assets
+    .filter((record) => record?.scope === 'event-library'
+      && isLicensedPhotoMissingForegroundVerdictOnly(record)
+      && !referencedAssetIds.has(record.assetId)
+      && !referencedImageUrls.has(record.imageUrl))
+    .map((record) => `${record.assetId}: licensed-photo vision gate verdict is missing or rejected`));
+  const errors = validation.errors.filter((error) => !toleratedErrors.has(error));
+  return { valid: errors.length === 0, errors };
+}
+
 /**
  * Gate an assembled event set. OpenAgenda remains the only source-image
  * exception and must carry its own per-image licence fields; every library
  * image must point to one valid generated or licensed-photo record.
  */
 export function verifyPublishedEventImages(events, records) {
+  const registry = Array.isArray(records) ? null : records;
   const assets = Array.isArray(records) ? records : Array.isArray(records?.assets) ? records.assets : [];
   const byUrl = new Map(assets.map((record) => [record?.imageUrl, record]));
   const errors = [];
@@ -583,7 +714,9 @@ export function verifyPublishedEventImages(events, records) {
     }
     if (isGeneratedImagePath(imageUrl)) {
       const record = byUrl.get(imageUrl);
-      const validation = validateGeneratedImageRecord(record);
+      const validation = registry
+        ? validateGeneratedImageRecordWithRegistry(record, registry)
+        : validateGeneratedImageRecord(record);
       const eventScopeError = record && (record.scope !== 'event-library' || !imageUrl.startsWith('/images/events/library/'))
         ? ['event image must use event-library scope and prefix']
         : [];

@@ -5,12 +5,14 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { coverKey, validateImageCreditRecord } from '../../packages/articles/engine/shared/imageCredits.mjs';
+import { validateGeneratedImageRegistry } from '../../packages/articles/engine/shared/generatedImageRegistry.mjs';
 import { readPublishedCantonArticles } from '../lib/published-canton-articles.mjs';
 
 const ROOT = process.cwd();
 const RECORD_DIR = path.join(ROOT, 'packages/articles/content/image-credits/blog');
 const OUTPUT = path.join(ROOT, 'data/image-credits-blog.json');
 const LEDGER = path.join(ROOT, 'data/blog-cover-ledger.json');
+const GENERATED_REGISTRY = path.join(ROOT, 'data/blog-generated-image-registry.json');
 const REGISTRIES = [
   'packages/articles/content/blog-articles-data.ts',
   'packages/articles/content/swiss-articles-data.ts',
@@ -93,6 +95,14 @@ function main() {
     ...readPublishedCantonArticles(ROOT, { optional: true }).map(({ image }) => coverKey(image)).filter(Boolean),
   ]);
   const ledger = readJson(LEDGER);
+  const generatedRegistry = readJson(GENERATED_REGISTRY);
+  const registryValidation = validateGeneratedImageRegistry(generatedRegistry, {
+    scope: 'article-hero',
+    allowLegacyVision: true,
+  });
+  if (!registryValidation.valid) {
+    throw new Error(`blog generated-image registry is invalid: ${registryValidation.errors.join('; ')}`);
+  }
   const files = {};
   const covers = {};
   let generated = 0;
@@ -112,7 +122,9 @@ function main() {
       }
       continue;
     }
-    const validation = validateImageCreditRecord(record);
+    const validation = validateImageCreditRecord(record, {
+      legacyVisionRegistry: generatedRegistry,
+    });
     if (!validation.valid) throw new Error(`${key}: invalid record: ${validation.errors.join('; ')}`);
     if (record.source === 'inferred') {
       covers[key] = {

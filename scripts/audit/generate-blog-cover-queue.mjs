@@ -12,7 +12,6 @@ import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { generateImageFromSpec } from '../../packages/articles/engine/shared/generatedImageEngine.mjs';
 import {
-  validateGeneratedImageRecord,
   validateGeneratedImageRegistry,
 } from '../../packages/articles/engine/shared/generatedImageRegistry.mjs';
 import { validateImageCreditRecord } from '../../packages/articles/engine/shared/imageCredits.mjs';
@@ -104,15 +103,19 @@ function writeAssetRecord(key, record) {
   return `packages/articles/content/image-credits/blog/${key}.json`;
 }
 
-function persistRegistry(assets) {
+function persistRegistry(assets, currentRegistry) {
   const registry = {
+    ...currentRegistry,
     schema: 1,
     cdnPrefix: '/images/blog/',
     assetCount: assets.length,
     generatedAt: new Date().toISOString(),
     assets: assets.slice().sort((a, b) => a.assetId.localeCompare(b.assetId)),
   };
-  const validation = validateGeneratedImageRegistry(registry, { scope: 'article-hero' });
+  const validation = validateGeneratedImageRegistry(registry, {
+    scope: 'article-hero',
+    allowLegacyVision: true,
+  });
   if (!validation.valid) throw new Error(`generated registry invalid: ${validation.errors.join('; ')}`);
   writeJson(REGISTRY_PATH, registry);
   return registry;
@@ -149,7 +152,10 @@ async function main() {
   const currentRegistry = readJson(REGISTRY_PATH, { schema: 1, cdnPrefix: '/images/blog/', assetCount: 0, assets: [] });
   if (!queue || !inventory) throw new Error('Run materialize-blog-cover-ledger.mjs first');
   const assets = new Map((currentRegistry.assets || []).map((record) => [record.assetId, record]));
-  if (!validateGeneratedImageRegistry({ ...currentRegistry, assetCount: assets.size, assets: [...assets.values()] }, { scope: 'article-hero' }).valid) {
+  if (!validateGeneratedImageRegistry({ ...currentRegistry, assetCount: assets.size, assets: [...assets.values()] }, {
+    scope: 'article-hero',
+    allowLegacyVision: true,
+  }).valid) {
     throw new Error('Existing blog generated registry is invalid');
   }
   for (const [key, item] of Object.entries(queue.items)) {
@@ -206,7 +212,7 @@ async function main() {
       fs.copyFileSync(result.filePath, path.join(ROOT, 'public/images/blog', `${key}.webp`));
       const recordFile = writeAssetRecord(key, record);
       assets.set(record.generated.assetId, record.generated);
-      persistRegistry([...assets.values()]);
+      persistRegistry([...assets.values()], currentRegistry);
       updateCommittedState(queue, inventory, key, { generated: record.generated }, recordFile);
       writeJson(QUEUE_PATH, queue);
       writeJson(INVENTORY_PATH, inventory);
