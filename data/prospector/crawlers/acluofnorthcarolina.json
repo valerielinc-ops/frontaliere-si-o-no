@@ -1,0 +1,25 @@
+{
+  "companyKey": "acluofnorthcarolina",
+  "companyName": "American Civil Liberties Union of North Carolina",
+  "companyHost": "acluofnorthcarolina.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://acluofnorthcarolina.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 5,
+  "sampleTitles": [
+    "ACLU-NC Staff Attorney",
+    "ACLU-NC Policy & Advocacy Summer Intern 2027",
+    "ACLU-NC Legal Fellow 2027",
+    "ACLU-NC Legal Summer Intern 2027",
+    "ACLU-NC Communications Spring Intern 2027"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-19T14:06:34.886Z",
+  "candidateKey": "acluofnorthcarolina@applytojob.com"
+}

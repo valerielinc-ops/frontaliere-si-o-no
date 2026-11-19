@@ -1,0 +1,24 @@
+{
+  "companyKey": "polycompound-ch",
+  "companyName": "Polycompound AG",
+  "companyHost": "polycompound.ch",
+  "verifiedEmployerDomain": "polycompound.ch",
+  "platform": "expresspersonal.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://polycompound.ch/"
+  ],
+  "detailTemplate": "/job/*/",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Teamleiter Technical Services",
+    "Betriebsmechaniker Instandhaltung"
+  ],
+  "canton": "BL",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-19T14:13:09.773Z",
+  "candidateKey": "polycompound@sissach"
+}

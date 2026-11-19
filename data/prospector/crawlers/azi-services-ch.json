@@ -1,0 +1,25 @@
+{
+  "companyKey": "azi-services-ch",
+  "companyName": "AZI Services AG",
+  "companyHost": "azi-services.ch",
+  "verifiedEmployerDomain": "azi-services.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://azi-services.ch/offene-stellen/"
+  ],
+  "detailTemplate": "/offene-stellen/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Fachkräfte Anlagenbau Schweiz",
+    "Industrial Staffing Switzerland",
+    "Pharma und Chemie Personalverleih"
+  ],
+  "canton": "BL",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-19T14:15:30.385Z",
+  "candidateKey": "azi-services@pratteln"
+}

@@ -1,0 +1,27 @@
+{
+  "companyKey": "batterman-ch-batterman-ch",
+  "companyName": "Batterman Consulting Basel AG",
+  "companyHost": "batterman.ch",
+  "verifiedEmployerDomain": "batterman.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.batterman.ch/jobs/"
+  ],
+  "detailTemplate": "/stelleninserat/*/",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 9,
+  "sampleTitles": [
+    "Wirtschaftsprüfer/in (80 – 100%) Region: Nordwestschweiz",
+    "Sales Manager FMCG Retail (m/w) Region: Zürich",
+    "Key Account Manager FMCG Retail (m/w) Region: Zürich",
+    "Director Group Accounting & Consolidation (m/w/d) Region: Basel",
+    "Sales & Key Account ManagerIn (BS, BE & Zentralschweiz) Region: Nordwestschweiz"
+  ],
+  "canton": "BL",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-19T14:16:29.785Z",
+  "candidateKey": "batterman-consulting-basel@pratteln"
+}

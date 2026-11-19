@@ -1,0 +1,24 @@
+{
+  "companyKey": "acore",
+  "companyName": "ACORE",
+  "companyHost": "acore.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://acore.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "ACORE Accounting Associate",
+    "ACORE Director, Siting Campaigns",
+    "ACORE Manager of Policy & Engagement",
+    "ACORE Spring Policy Intern"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-19T14:06:37.596Z",
+  "candidateKey": "acore@applytojob.com"
+}

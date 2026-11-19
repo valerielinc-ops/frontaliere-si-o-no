@@ -1,0 +1,25 @@
+{
+  "companyKey": "acutepeturgentcare",
+  "companyName": "AcutePet Urgent Care",
+  "companyHost": "acutepeturgentcare.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://acutepeturgentcare.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 8,
+  "sampleTitles": [
+    "Medical Director (Managing Veterinarian) – Urgent Care, Beavercreek, OH",
+    "Part-Time Client Care Representative (CCR)",
+    "Part-Time Veterinarian | West Chester, OH",
+    "Urgent Care Veterinarian - Avon / Cleveland, OH",
+    "Urgent Care Veterinarian - Cincinnati's West Side / White Oak"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-19T14:06:41.710Z",
+  "candidateKey": "acutepeturgentcare@applytojob.com"
+}

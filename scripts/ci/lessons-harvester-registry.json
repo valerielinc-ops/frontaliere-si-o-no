@@ -152,9 +152,9 @@
     {
       "key": "reviewer-finding/fp:scripts-funnel-does-not",
       "outcome": "declined",
-      "decidedAt": "2026-10-22T10:24:27Z",
-      "ref": "#14414, #14219, #13638",
-      "reason": "Gia' coperto da AGENTS.md #6 e dalla classe registrata `fp:scripts-correctness-does-not`: le regex/parser devono verificare le rappresentazioni reali al confine del consumer, inclusi label/formati locali e container HTML non nominali."
+      "decidedAt": "2026-11-19T14:39:04Z",
+      "ref": "#19457, #19023, #17297",
+      "reason": "Gia' coperto da AGENTS.md #6: varianti locali, normalizzazione e classificazione del valore al confine parser/consumer sono gia' richieste; una nuova riga duplichera' il contratto."
     },
     {
       "key": "fix-outcome/fix-outcome:pr-updated",

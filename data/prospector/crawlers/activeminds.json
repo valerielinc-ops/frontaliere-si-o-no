@@ -1,0 +1,22 @@
+{
+  "companyKey": "activeminds",
+  "companyName": "Active Minds",
+  "companyHost": "activeminds.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://activeminds.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Marketing Manager",
+    "Senior Manager, Youth Grants & Educator Engagement"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-19T14:06:38.934Z",
+  "candidateKey": "activeminds@applytojob.com"
+}

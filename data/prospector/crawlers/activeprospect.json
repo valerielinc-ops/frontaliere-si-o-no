@@ -1,0 +1,25 @@
+{
+  "companyKey": "activeprospect",
+  "companyName": "ActiveProspect, Inc.",
+  "companyHost": "activeprospect.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://activeprospect.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 6,
+  "sampleTitles": [
+    "Data Privacy & Contracts Counsel",
+    "Deal Desk CPQ Consultant (Contractor)",
+    "Senior Product Engineer (Node)",
+    "Senior Product Manager (Data Cooperative & Activate)",
+    "Sr. Product Marketing Manager (Technical Products)"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-19T14:06:40.338Z",
+  "candidateKey": "activeprospect@applytojob.com"
+}

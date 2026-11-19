@@ -1,0 +1,26 @@
+{
+  "companyKey": "kusterpartner-ch",
+  "companyName": "Kuster + Partner AG",
+  "companyHost": "kusterpartner.ch",
+  "verifiedEmployerDomain": "kusterpartner.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://kusterpartner.ch/jobs"
+  ],
+  "detailTemplate": "/jobs/*/",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "Projektleitung Energie & Nachhaltigkeit (60-100 %), Zürich",
+    "Projektleitung Bauphysik / Akustik (80–100 %), Basel",
+    "Lärmschutzexpert/in (80–100 %) Basel, Chur oder Lachen",
+    "Projektleiter/in Bauphysik + Akustik (80-100 %), Lachen"
+  ],
+  "canton": "BL",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-19T14:13:40.243Z",
+  "candidateKey": "kuster-partner@munchenstein"
+}

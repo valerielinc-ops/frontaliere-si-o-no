@@ -1,0 +1,25 @@
+{
+  "companyKey": "cordag-ch",
+  "companyName": "Cordag AG",
+  "companyHost": "cordag.ch",
+  "verifiedEmployerDomain": "cordag.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.cordag.ch/de/ueber-uns/offene-stellen"
+  ],
+  "detailTemplate": "/UserFiles/stelleninserate/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "TECHNISCHER VERKäUFER NORDWESTSCHWEIZ (M/W)",
+    "TECHNISCHER VERKäUFER REGION MITTE/OST (M/W)",
+    "GESTALTER WERBETECHNIK (M/W)"
+  ],
+  "canton": "BL",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-19T14:14:03.145Z",
+  "candidateKey": "cordag@aesch-bl"
+}

@@ -1,0 +1,25 @@
+{
+  "companyKey": "accesseducationaladvisor",
+  "companyName": "Access Educational Advisors, LLC",
+  "companyHost": "accesseducationaladvisor.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://accesseducationaladvisor.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 8,
+  "sampleTitles": [
+    "Art Teacher",
+    "High School Math Teacher",
+    "K-8 Spanish/World Languages Teacher",
+    "Middle School Science Teacher",
+    "Music Teacher (K-8)"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-19T14:06:28.585Z",
+  "candidateKey": "accesseducationaladvisor@applytojob.com"
+}

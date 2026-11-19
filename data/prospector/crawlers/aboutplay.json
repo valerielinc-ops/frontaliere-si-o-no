@@ -1,0 +1,25 @@
+{
+  "companyKey": "aboutplay",
+  "companyName": "About Play",
+  "companyHost": "aboutplay.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://aboutplay.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 16,
+  "sampleTitles": [
+    "Early Intervention - Service Coordinator",
+    "Early Intervention - Service Coordinator",
+    "Early Intervention - Service Coordinator",
+    "Early Intervention - Service Coordinator",
+    "Early Intervention Specialist- Beaufort"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-19T14:06:27.190Z",
+  "candidateKey": "aboutplay@applytojob.com"
+}

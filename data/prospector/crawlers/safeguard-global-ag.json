@@ -1,0 +1,27 @@
+{
+  "companyKey": "safeguard-global-ag",
+  "companyName": "Safeguard Global AG",
+  "companyHost": "app.loxo.co",
+  "verifiedEmployerDomain": "safeguardglobal.com",
+  "platform": "loxo.co",
+  "mode": "template",
+  "seedUrls": [
+    "https://app.loxo.co/safeguard-global-recruiting"
+  ],
+  "detailTemplate": "/job/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 10,
+  "sampleTitles": [
+    "Parkingeye - Senior QA Test Engineer",
+    "Merchandiser",
+    "Field Project Manager",
+    "EU Software Engineer",
+    "Program Officer"
+  ],
+  "canton": "LU",
+  "sourceLang": "en",
+  "learnedAt": "2026-11-19T14:17:19.762Z",
+  "candidateKey": "safeguard-global@luzern"
+}
