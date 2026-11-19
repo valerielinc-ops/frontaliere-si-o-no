@@ -39,11 +39,11 @@ import { fnv1a32Mod } from './fnv1a.mjs';
 import { shardFileName, listShardFilesIn, SHARD_FILE_RE } from './shard-file-naming.mjs';
 import { writeShardFileIfChanged, writeFileAtomic } from './atomic-shard-write.mjs';
 import { filterCompatPaths } from './compat-path-safety.mjs';
-import streamJson from 'stream-json';
-import PickModule from 'stream-json/filters/Pick.js';
-import ReplaceModule from 'stream-json/filters/Replace.js';
-import StreamArrayModule from 'stream-json/streamers/StreamArray.js';
-import StreamObjectModule from 'stream-json/streamers/StreamObject.js';
+import ParserModule from 'stream-json/parser.js';
+import PickModule from 'stream-json/filters/pick.js';
+import ReplaceModule from 'stream-json/filters/replace.js';
+import StreamArrayModule from 'stream-json/streamers/stream-array.js';
+import StreamObjectModule from 'stream-json/streamers/stream-object.js';
 import { PassThrough } from 'node:stream';
 import { finished, pipeline } from 'node:stream/promises';
 import { once } from 'node:events';
@@ -401,12 +401,12 @@ function readStrictCompatShard(rootDir, name) {
 }
 
 async function readLegacyCompatMetadata(file) {
-  const parser = streamJson.parser();
-  const replacement = ReplaceModule.replace({
+  const parser = ParserModule.asStream();
+  const replacement = ReplaceModule.asStream({
     filter: 'paths',
     replacement: [{ name: 'startArray' }, { name: 'endArray' }],
   });
-  const objectStream = StreamObjectModule.streamObject();
+  const objectStream = StreamObjectModule.asStream();
   const output = new PassThrough({ objectMode: true });
   const running = pipeline(fs.createReadStream(file), parser, replacement, objectStream, output);
   const metadata = Object.create(null);
@@ -433,7 +433,7 @@ async function readLegacyCompatMetadata(file) {
 }
 
 async function* streamLegacyCompatPaths(file) {
-  const parser = streamJson.parser();
+  const parser = ParserModule.asStream();
   let depth = 0;
   let rootSeen = false;
   let pathsSeen = false;
@@ -462,8 +462,8 @@ async function* streamLegacyCompatPaths(file) {
     else if (token.name === 'endObject' || token.name === 'endArray') depth--;
   });
 
-  const picked = PickModule.pick({ filter: 'paths', once: true });
-  const arrayStream = StreamArrayModule.streamArray();
+  const picked = PickModule.asStream({ filter: 'paths', once: true });
+  const arrayStream = StreamArrayModule.asStream();
   const output = new PassThrough({ objectMode: true });
   const running = pipeline(fs.createReadStream(file), parser, picked, arrayStream, output);
   try {
