@@ -1,7 +1,7 @@
 {
   "key": "elettra-1938",
   "label": "Elettra 1938",
-  "generatedAt": "2026-11-18T21:27:44.452Z",
+  "generatedAt": "2026-11-19T10:02:12.391Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 7568,
-  "avgDurationMs": 7568,
+  "durationMs": 5171,
+  "avgDurationMs": 5171,
   "durationHistory": [
-    7568
+    5171
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/hw-engineer-740162/it/",
       "source": "Elettra 1938 Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-18T21:27:17.344Z",
+      "crawledAt": "2026-11-19T10:01:55.607Z",
       "addressLocality": "Sede Stabio Svizzera",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -61,7 +61,7 @@
       "salarySource": "estimated",
       "streetAddress": "Sede Stabio Svizzera",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:27:17.344Z",
+      "validThrough": "2027-02-15T10:01:55.607Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -72,5 +72,5 @@
       }
     }
   ],
-  "codeCommit": "8862042892397f4dcea90f48fbc2dc028da23eec"
+  "codeCommit": "af8f978c37a7f89c95dd40500d2ac0a67c1ede33"
 }
