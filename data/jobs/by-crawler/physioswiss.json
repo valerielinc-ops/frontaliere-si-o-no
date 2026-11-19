@@ -20198,7 +20198,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -20269,11 +20268,25 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "praxis-in-3177-laupen-sucht-physiotherapeuten-3177-laupen-physioswiss-ch"
+          "praxis-in-3177-laupen-sucht-physiotherapeuten-3177-laupen-physioswiss-ch",
+          "praxis-in-3177-laupen-sucht-physiotherapeuten-physio-swiss-laupen",
+          "pratica-nel-3177-laupen-cerca-terapisti-fisici-physio-swiss-3177-laupen"
+        ],
+        "en": [
+          "praxis-in-3177-laupen-sucht-physiotherapeuten-physio-swiss-laupen",
+          "practice-in-3177-laupen-seeks-physical-therapists-physio-swiss-3177-laupen"
+        ],
+        "fr": [
+          "praxis-in-3177-laupen-sucht-physiotherapeuten-physio-swiss-laupen",
+          "pratique-en-3177-laupen-cherche-des-physiotherapeutes-physio-swiss-3177-laupen"
         ]
       },
       "previousSlugs": [
-        "praxis-in-3177-laupen-sucht-physiotherapeuten-3177-laupen-physioswiss-ch"
+        "praxis-in-3177-laupen-sucht-physiotherapeuten-3177-laupen-physioswiss-ch",
+        "praxis-in-3177-laupen-sucht-physiotherapeuten-physio-swiss-laupen",
+        "pratica-nel-3177-laupen-cerca-terapisti-fisici-physio-swiss-3177-laupen",
+        "practice-in-3177-laupen-seeks-physical-therapists-physio-swiss-3177-laupen",
+        "pratique-en-3177-laupen-cherche-des-physiotherapeutes-physio-swiss-3177-laupen"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -20511,7 +20524,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "physiotherapeut-in-40-80-8303-bassersdorf-physioswiss-ch"

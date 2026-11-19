@@ -5032,7 +5032,6 @@
         "gestionnaire-de-compte-cle-defense-m-f-x-liebherr-bulle"
       ],
       "firstSeenAt": "2026-07-31T22:10:08.557Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -5407,7 +5406,8 @@
       "streetAddress": "Bulle",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-05T10:17:55.656Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "liebherr-b3beea9ae45d",

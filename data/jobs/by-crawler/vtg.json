@@ -130,7 +130,6 @@
         "fr": "sachbearbeiter-in-stab-swiss-armed-forces-vtg-othmarsingen-kpj1p1"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "postalCode": "5504",
       "addressLocality": "Othmarsingen",
       "addressRegion": "AG",
@@ -209,7 +208,6 @@
         "fr": "ict-berater-in-professional-swiss-armed-forces-vtg-bern-19ax8d"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "postalCode": "3004",
       "addressLocality": "Bern",
       "addressRegion": "BE",
@@ -6353,7 +6351,8 @@
       "validThrough": "2027-01-27T10:19:59.908Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 73000,
-      "salaryMax": 124500
+      "salaryMax": 124500,
+      "needsRetranslation": true
     },
     {
       "id": "company-9e7syr",

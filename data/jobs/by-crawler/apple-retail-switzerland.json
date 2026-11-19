@@ -169,7 +169,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:19:38.772Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -269,7 +268,6 @@
         ]
       },
       "firstSeenAt": "2026-07-14T23:03:17.856Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -464,8 +462,7 @@
       "streetAddress": "Dietlikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-19T09:39:23.666Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "apple-retail-switzerland-feb2f352f1a3",
@@ -1246,7 +1243,6 @@
         ]
       },
       "firstSeenAt": "2026-11-11T21:25:29.605Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1346,7 +1342,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:19:38.775Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",

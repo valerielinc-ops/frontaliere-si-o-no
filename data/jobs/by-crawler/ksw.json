@@ -1744,7 +1744,6 @@
         "de": []
       },
       "department": "Information",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "stv-leiterin-stv-leiter-information-telefonzentrale-ksw-ch"
@@ -5187,7 +5186,7 @@
       "slugByLocale": {
         "it": "specialista-stazione-di-emergenza-sanitaria-kantonsspital-winterthur-ksw-winterthur",
         "en": "specialist-health-emergency-bed-station-kantonsspital-winterthur-ksw-winterthur",
-        "de": "fachfrau-fachmann-gesundheit-notfallbettenstation-ksw-ch",
+        "de": "fachfrau-fachmann-gesundheit-notfallbettenstation-ksw-ch-b6wxkg",
         "fr": "specialiste-station-de-lits-d-urgence-sante-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
@@ -5240,6 +5239,9 @@
         "it": [
           "fachfrau-fachmann-gesundheit-notfallbettenstation-ksw-ch",
           "fachfrau-fachmann-gesundheit-notfallbettenstation-ksw-ch-2"
+        ],
+        "de": [
+          "fachfrau-fachmann-gesundheit-notfallbettenstation-ksw-ch"
         ]
       },
       "firstSeenAt": "2026-10-20T21:15:12.599Z",
@@ -5959,7 +5961,6 @@
         "de": []
       },
       "department": "Nachsorge- und Sozialberatung",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "case-manager-in-sozialarbeiter-in-nachsorge-und-sozialberatung-ksw-ch"
