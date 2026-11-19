@@ -31,11 +31,12 @@ import { realpathSync } from 'node:fs';
  *   node scripts/revenue-monitor.mjs --save          # write reports/revenue-YYYY-MM-DD.{md,json}
  *                                                     # and append data/revenue-monitor-history.jsonl
  *
- * Exits 0 always — this is a monitor, not a gate. Regressions are flagged
+ * Use --history=<path> to override the history file and --report-dir=<path>
+ * to override the --save report directory. Relative paths resolve from cwd.
+ * Invalid path arguments exit 1 before collection. Regressions are flagged
  * with ⚠️ / 🔴 in the output so the weekly digest draws attention without
  * blocking CI.
  */
-
 import { writeFileSync, mkdirSync, existsSync, appendFileSync, readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
@@ -147,6 +148,23 @@ const flags = {
   save: args.includes('--save'),
   debug: args.includes('--debug'),
 };
+
+export function reportPathFromArgs(args, flag, fallback) {
+  const prefix = flag + '=';
+  const matches = args.filter((arg) => arg === flag || arg.startsWith(prefix));
+  if (matches.length === 0) return fallback;
+  if (matches.length > 1) throw new Error(`${flag} may only be specified once`);
+  const value = matches[0].slice(prefix.length);
+  if (!value.trim() || value.includes('\0')) throw new Error(`Use ${flag}=<path> with a non-empty path`);
+  return resolve(value);
+}
+
+export function revenueReportPaths(args) {
+  return {
+    historyFile: reportPathFromArgs(args, '--history', HISTORY_FILE),
+    reportsDir: reportPathFromArgs(args, '--report-dir', REPORTS_DIR),
+  };
+}
 
 const log = (emoji, msg) => {
   const line = emoji ? `${emoji} ${msg}` : msg;
@@ -1159,7 +1177,7 @@ export function loadLatestPosthogBaseline(
 }
 
 // ── Main ────────────────────────────────────────────────────
-async function main() {
+async function main(paths) {
   const current = { adsense: null, gsc: null, gscDiscover: null, gscNews: null, gscWindowProbe: null, posthog: null, publisher: null, affiliate: null, errors: [], warnings: [] };
 
   const affiliateWindow = last7Days();
@@ -1304,10 +1322,8 @@ async function main() {
     if (errors.length) log('⚠️', `GA4 CLS failed: ${errors.join('; ')}`);
   }
 
-  const ga4Baseline = loadLatestPosthogBaseline(HISTORY_FILE, 'ga4-fallback');
-  const comparisonBaseline = ga4Baseline ? { ...BASELINE, posthogGa4: ga4Baseline } : BASELINE;
-  const rows = buildComparisonRows(current, comparisonBaseline);
-  const payload = { generatedAt: new Date().toISOString(), baseline: comparisonBaseline, current, rows };
+  const payload = buildRevenuePayload(current, paths.historyFile);
+  const { rows } = payload;
 
   if (flags.json) {
     process.stdout.write(JSON.stringify(payload, null, 2) + '\n');
@@ -1322,28 +1338,42 @@ async function main() {
     else log('✅', 'No regressions flagged');
   }
 
-  if (flags.save) {
-    if (!existsSync(REPORTS_DIR)) mkdirSync(REPORTS_DIR, { recursive: true });
-    const stamp = new Date().toISOString().slice(0, 10);
-    writeFileSync(resolve(REPORTS_DIR, `revenue-${stamp}.json`), JSON.stringify(payload, null, 2));
-    writeFileSync(resolve(REPORTS_DIR, `revenue-${stamp}.md`), renderMarkdown(rows, current));
-    log('💾', `reports/revenue-${stamp}.{json,md} written`);
+  if (flags.save) saveRevenueReport(payload, paths);
+}
 
-    // Committed, append-only trend record — reports/ is gitignored and never
-    // survives a fresh CI checkout, so this is the only copy that persists
-    // across weekly runs (issue #2741).
-    if (!existsSync(dirname(HISTORY_FILE))) mkdirSync(dirname(HISTORY_FILE), { recursive: true });
-    appendFileSync(HISTORY_FILE, JSON.stringify(buildHistoryEntry(current, rows, stamp)) + '\n');
-    log('🗂 ', `data/revenue-monitor-history.jsonl appended`);
-  }
+export function buildRevenuePayload(current, historyFile) {
+  const ga4Baseline = loadLatestPosthogBaseline(historyFile, 'ga4-fallback');
+  const baseline = ga4Baseline ? { ...BASELINE, posthogGa4: ga4Baseline } : BASELINE;
+  const rows = buildComparisonRows(current, baseline);
+  return { generatedAt: new Date().toISOString(), baseline, current, rows };
+}
+
+export function saveRevenueReport(payload, { historyFile, reportsDir }) {
+  const { current, rows, generatedAt } = payload;
+  const stamp = generatedAt.slice(0, 10);
+  mkdirSync(reportsDir, { recursive: true });
+  writeFileSync(resolve(reportsDir, `revenue-${stamp}.json`), JSON.stringify(payload, null, 2));
+  writeFileSync(resolve(reportsDir, `revenue-${stamp}.md`), renderMarkdown(rows, current));
+  log('💾', `revenue-${stamp}.{json,md} written`);
+
+  mkdirSync(dirname(historyFile), { recursive: true });
+  appendFileSync(historyFile, JSON.stringify(buildHistoryEntry(current, rows, stamp)) + '\n');
+  log('🗂 ', 'Revenue history appended');
 }
 
 // Only run main() when invoked directly (not when imported by tests).
 const invokedDirectly = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (invokedDirectly) {
-  main().catch((e) => {
-    console.error('revenue-monitor failed:', e.message);
-    if (flags.debug) console.error(e.stack);
+  let paths;
+  try {
+    paths = revenueReportPaths(args);
+  } catch (e) {
+    console.error('revenue-monitor:', e.message);
+    process.exit(1);
+  }
+  main(paths).catch((e) => {
+    console.error('revenue-monitor failed:', e.path ? e.code : e.message);
+    if (flags.debug && !e.path) console.error(e.stack);
     process.exit(0);
   });
 }

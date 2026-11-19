@@ -71,8 +71,9 @@ import { realpathSync } from 'node:fs';
  *   node scripts/adsense-format-ab-report.mjs --save       # write reports/adsense-format-ab-<experiment>-YYYY-MM-DD.{md,json}
  *                                                           # + append data/adsense-format-ab-history.jsonl
  *
- * Exits 0 always — this is a report, not a gate (mirrors revenue-monitor.mjs
- * "monitor, not gate"). A fetch failure on any of the three signals is
+ * Use --history=<path> to override the history file and --report-dir=<path>
+ * to override the --save report directory. Relative paths resolve from cwd.
+ * Invalid path arguments exit 1 before collection. A fetch failure on any of the three signals is
  * recorded as a warning IN the report (so the weekly GitHub issue update
  * surfaces it) rather than failing the workflow; the history line's AdSense
  * fields are only populated when real data for both sides was fetched, so
@@ -87,7 +88,7 @@ import { fileURLToPath } from 'node:url';
 
 import { AD_CLIENT } from '../services/adsenseSlots.ts';
 import { ACTIVE_EXPERIMENT_IDS, PAUSED_REASON } from './lib/adsense-format-ab-plan.mjs';
-import { getAdSenseToken, last7Days } from './revenue-monitor.mjs';
+import { getAdSenseToken, last7Days, reportPathFromArgs } from './revenue-monitor.mjs';
 import { getServiceAccountToken, fetchRetry, DEFAULT_GA4_PROPERTY_ID } from './lib/ga4-service-account.mjs';
 import { engagementConsistency, fetchDailyEngagementVerdict } from './lib/ga4-engagement-reliability.mjs';
 import { runHogQL } from './lib/posthog-client.mjs';
@@ -588,7 +589,7 @@ function isBelowCumulativeTarget(experiment, history) {
   return control < target || treatment < target;
 }
 
-export function buildMarkdown(report, history) {
+export function buildMarkdown(report, history, historyFile = HISTORY_FILE) {
   const { window, control, treatment, deltas, engagement, engagementDeltas, cwv, warnings } = report;
   const experiment = report.experiment || DEFAULT_EXPERIMENT;
   const controlLabel = experiment.control.label;
@@ -787,7 +788,7 @@ export function buildMarkdown(report, history) {
   }
 
   lines.push('---');
-  lines.push(`AdSense \`${experiment.adsenseDimension}\`: \`${experiment.control.adsenseValue}\` (controllo) / \`${experiment.treatment.adsenseValue}\` (trattamento). Pagine GA4/PostHog/CrUX: \`${experiment.control.path}\` / \`${experiment.treatment.path}\`. Storico separato per \`${experiment.id}\` in \`data/adsense-format-ab-history.jsonl\`. Script: \`scripts/adsense-format-ab-report.mjs\`.`);
+  lines.push(`AdSense \`${experiment.adsenseDimension}\`: \`${experiment.control.adsenseValue}\` (controllo) / \`${experiment.treatment.adsenseValue}\` (trattamento). Pagine GA4/PostHog/CrUX: \`${experiment.control.path}\` / \`${experiment.treatment.path}\`. Storico separato per \`${experiment.id}\`${historyFile === HISTORY_FILE ? ' in \`data/adsense-format-ab-history.jsonl\`' : ''}. Script: \`scripts/adsense-format-ab-report.mjs\`.`);
 
   return lines.join('\n');
 }
@@ -902,8 +903,14 @@ export function experimentFromArgs(args) {
   return experiment;
 }
 
-async function main() {
-  const args = process.argv.slice(2);
+export function adsenseReportPaths(args) {
+  return {
+    historyFile: reportPathFromArgs(args, '--history', HISTORY_FILE),
+    reportsDir: reportPathFromArgs(args, '--report-dir', resolve(__dirname, '..', 'reports')),
+  };
+}
+
+async function main(args, paths) {
   const flags = {
     json: args.includes('--json'),
     markdown: args.includes('--markdown'),
@@ -1016,12 +1023,12 @@ async function main() {
     cwv,
     warnings,
   };
-  const historySummary = readHistorySummary(experiment);
+  const historySummary = readHistorySummary(experiment, paths.historyFile);
 
   if (flags.json) {
     console.log(JSON.stringify(report, null, 2));
   } else if (flags.markdown) {
-    console.log(buildMarkdown(report, historySummary));
+    console.log(buildMarkdown(report, historySummary, paths.historyFile));
   } else {
     console.log(`AdSense format A/B ${experiment.id} — ${window.start} → ${window.end}`);
     console.log(`  ${experiment.control.label} (controllo): impr=${control?.impressions ?? '—'} rpm=${control?.rpmCHF ?? '—'} coverage=${control?.coveragePct ?? '—'}% pv=${control?.pageViews ?? '—'} epv=${control?.earningsPerPageviewCHF ?? '—'}`);
@@ -1036,38 +1043,48 @@ async function main() {
     for (const w of warnings) console.log(`  ⚠️ ${w}`);
   }
 
-  if (flags.save) {
-    const reportsDir = resolve(__dirname, '..', 'reports');
-    if (!existsSync(reportsDir)) mkdirSync(reportsDir, { recursive: true });
-    const stamp = new Date().toISOString().slice(0, 10);
-    const reportBase = `adsense-format-ab-${experiment.id}-${stamp}`;
-    writeFileSync(resolve(reportsDir, `${reportBase}.json`), JSON.stringify(report, null, 2));
-    writeFileSync(resolve(reportsDir, `${reportBase}.md`), buildMarkdown(report, historySummary));
-    log('📄', `reports/${reportBase}.{json,md} written`);
+  if (flags.save) saveAdsenseReport(report, historySummary, paths);
+}
 
-    // Only persist a history line for a clean post-treatment window when BOTH
-    // AdSense sides produced real numbers — a mixed/partial row would corrupt the
-    // cumulative trend (mirrors revenue-monitor.mjs's philosophy of never
-    // writing a metric it could not actually measure). Engagement/CWV ride
-    // along in the same line when available, null otherwise — they never
-    // gate the AdSense history the way AdSense gates itself.
-    if (control && treatment && windowPhase === 'post-treatment') {
-      if (!existsSync(dirname(HISTORY_FILE))) mkdirSync(dirname(HISTORY_FILE), { recursive: true });
-      appendFileSync(HISTORY_FILE, JSON.stringify(buildHistoryEntry(report)) + '\n');
-      log('🗂 ', 'data/adsense-format-ab-history.jsonl appended');
-    } else {
-      const reason = windowPhase === 'post-treatment' ? 'incomplete AdSense data' : `${windowPhase} window`;
-      log('⚪', `History append skipped — ${reason}.`);
-    }
+export function saveAdsenseReport(report, historySummary, { historyFile, reportsDir }) {
+  const { experiment, control, treatment, windowPhase } = report;
+  mkdirSync(reportsDir, { recursive: true });
+  const stamp = new Date().toISOString().slice(0, 10);
+  const reportBase = `adsense-format-ab-${experiment.id}-${stamp}`;
+  writeFileSync(resolve(reportsDir, `${reportBase}.json`), JSON.stringify(report, null, 2));
+  writeFileSync(resolve(reportsDir, `${reportBase}.md`), buildMarkdown(report, historySummary, historyFile));
+  log('📄', `${reportBase}.{json,md} written`);
+
+  // Only persist a history line for a clean post-treatment window when BOTH
+  // AdSense sides produced real numbers — a mixed/partial row would corrupt the
+  // cumulative trend (mirrors revenue-monitor.mjs's philosophy of never
+  // writing a metric it could not actually measure). Engagement/CWV ride
+  // along in the same line when available, null otherwise — they never
+  // gate the AdSense history the way AdSense gates itself.
+  if (control && treatment && windowPhase === 'post-treatment') {
+    mkdirSync(dirname(historyFile), { recursive: true });
+    appendFileSync(historyFile, JSON.stringify(buildHistoryEntry(report)) + '\n');
+    log('🗂 ', 'AdSense format A/B history appended');
+  } else {
+    const reason = windowPhase === 'post-treatment' ? 'incomplete AdSense data' : `${windowPhase} window`;
+    log('⚪', `History append skipped — ${reason}.`);
   }
 }
 
 // Only run main() when invoked directly (not when imported by tests).
 const invokedDirectly = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (invokedDirectly) {
-  main().catch((e) => {
-    console.error('adsense-format-ab-report failed:', e.message);
-    if (process.argv.includes('--debug')) console.error(e.stack);
+  const args = process.argv.slice(2);
+  let paths;
+  try {
+    paths = adsenseReportPaths(args);
+  } catch (e) {
+    console.error('adsense-format-ab-report:', e.message);
+    process.exit(1);
+  }
+  main(args, paths).catch((e) => {
+    console.error('adsense-format-ab-report failed:', e.path ? e.code : e.message);
+    if (args.includes('--debug') && !e.path) console.error(e.stack);
     process.exit(0);
   });
 }

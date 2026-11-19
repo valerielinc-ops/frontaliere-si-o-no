@@ -1,4 +1,4 @@
-import { execFileSync } from 'node:child_process';
+import { execFileSync, spawnSync } from 'node:child_process';
 import { copyFileSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { fileURLToPath } from 'node:url';
@@ -776,5 +776,72 @@ describe('adsense-format-ab-report / buildHistoryEntry()', () => {
     expect(entry.engagement.deltas.engagementRatePct).toBe(46.6);
     expect(entry.cwv.ga4Available).toBe(false);
     expect(entry.cwv.posthogWindowDays).toBe(POSTHOG_CWV_WINDOW_DAYS);
+  });
+});
+
+describe('adsense-format-ab-report / report destinations', () => {
+  const { adsenseReportPaths, saveAdsenseReport } = reportModule;
+  const script = path.join(REPO_ROOT, 'scripts', 'adsense-format-ab-report.mjs');
+
+  it('keeps the checkout-relative defaults and experiment for the legacy invocation', () => {
+    const args = ['--markdown', '--save', '--experiment', 'svizzera-ticino'];
+    expect(adsenseReportPaths(args)).toEqual({
+      historyFile: path.join(REPO_ROOT, 'data', 'adsense-format-ab-history.jsonl'),
+      reportsDir: path.join(REPO_ROOT, 'reports'),
+    });
+    expect(experimentFromArgs(args)).toBe(DEFAULT_EXPERIMENT);
+  });
+
+  it('reads only the selected experiment and appends to the configured history', () => {
+    const dir = mkdtempSync(path.join(tmpdir(), 'adsense-destinations-'));
+    try {
+      const historyFile = path.join(dir, 'history.jsonl');
+      const reportsDir = path.join(dir, 'nested', 'reports');
+      const paths = adsenseReportPaths([
+        `--history=${historyFile}`,
+        `--report-dir=${path.relative(process.cwd(), reportsDir)}`,
+      ]);
+      expect(paths).toEqual({ historyFile, reportsDir });
+      const experiment = DEFAULT_EXPERIMENT;
+      const control = { pageViews: 10 };
+      const treatment = { pageViews: 20 };
+      const prior = [
+        { experimentId: 'another-experiment', windowPhase: 'post-treatment', control, treatment },
+        { experimentId: experiment.id, windowPhase: 'post-treatment', control, treatment },
+      ].map((entry) => JSON.stringify(entry)).join('\n') + '\n';
+      writeFileSync(historyFile, prior);
+      const summary = readHistorySummary(experiment, paths.historyFile);
+      expect(summary).toEqual({ weeksWithData: 1, cumulativePageViews: { control: 10, treatment: 20 } });
+
+      const date = new Date().toISOString().slice(0, 10);
+      const report = { experiment, windowPhase: 'post-treatment', window: { start: date, end: date }, control, treatment };
+      saveAdsenseReport(report, summary, paths);
+      const base = path.join(reportsDir, `adsense-format-ab-${experiment.id}-${date}`);
+      expect(JSON.parse(readFileSync(base + '.json', 'utf8'))).toMatchObject({ control, treatment });
+      expect(readFileSync(base + '.md', 'utf8')).toContain('campione 10/');
+      const appended = readFileSync(historyFile, 'utf8');
+      expect(appended.startsWith(prior)).toBe(true);
+      expect(JSON.parse(appended.slice(prior.length))).toMatchObject({ experimentId: experiment.id, control, treatment });
+
+      saveAdsenseReport({ ...report, windowPhase: 'mixed' }, summary, paths);
+      expect(readFileSync(historyFile, 'utf8')).toBe(appended);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it.each([
+    { args: ['--history'], message: 'non-empty path' },
+    { args: ['--report-dir=   '], message: 'non-empty path' },
+    { args: ['--history', '--history=a'], message: 'only be specified once' },
+    { args: ['--report-dir=a', '--report-dir=b'], message: 'only be specified once' },
+  ])('rejects $args at CLI entry', ({ args, message }) => {
+    const result = spawnSync(process.execPath, [script, ...args], {
+      encoding: 'utf8',
+      timeout: 5000,
+    });
+    expect(result.status).toBe(1);
+    expect(result.stderr).toContain(message);
+    expect(result.stdout).toBe('');
   });
 });

@@ -1,5 +1,7 @@
+import { spawnSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
 import { describe, expect, it, vi } from 'vitest';
-import { mkdtempSync, writeFileSync } from 'node:fs';
+import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { AD_CLIENT } from '../../services/adsenseSlots.ts';
@@ -486,5 +488,67 @@ describe('revenue-monitor / loadLatestPosthogBaseline()', () => {
       posthog: { clsP75Mobile: 0.4, clsP75Desktop: 0.16, source: 'ga4-fallback' },
     }));
     expect(loadLatestPosthogBaseline(file, 'ga4-fallback', { now: new Date('2026-09-11T12:00:00Z') })).toBeNull();
+  });
+});
+
+describe('revenue-monitor / report destinations', () => {
+  const { revenueReportPaths, buildRevenuePayload, saveRevenueReport } = revenueMonitorModule;
+  const script = fileURLToPath(new URL('../../scripts/revenue-monitor.mjs', import.meta.url));
+
+  it('keeps the checkout-relative defaults for the legacy invocation', () => {
+    expect(revenueReportPaths(['--json', '--save'])).toEqual({
+      historyFile: path.resolve(path.dirname(script), '../data/revenue-monitor-history.jsonl'),
+      reportsDir: path.resolve(path.dirname(script), '../reports'),
+    });
+  });
+
+  it('reads the configured baseline and writes both reports and the history entry', () => {
+    const dir = mkdtempSync(path.join(os.tmpdir(), 'revenue-destinations-'));
+    try {
+      const historyFile = path.join(dir, 'history=monitor.jsonl');
+      const reportsDir = path.join(dir, 'nested', 'reports');
+      const paths = revenueReportPaths([
+        `--history=${path.relative(process.cwd(), historyFile)}`,
+        `--report-dir=${reportsDir}`,
+      ]);
+      expect(paths).toEqual({ historyFile, reportsDir });
+      const yesterday = new Date();
+      yesterday.setUTCDate(yesterday.getUTCDate() - 1);
+      const date = yesterday.toISOString().slice(0, 10);
+      const posthog = { source: 'ga4-fallback', clsP75Mobile: 0.042 };
+      const prior = JSON.stringify({ date, posthog });
+      writeFileSync(historyFile, prior + '\n');
+
+      const payload = buildRevenuePayload({ errors: [], warnings: [], posthog }, paths.historyFile);
+      expect(payload.baseline.posthogGa4).toMatchObject({ ...posthog, baselineDate: date });
+      saveRevenueReport(payload, paths);
+
+      const stamp = payload.generatedAt.slice(0, 10);
+      expect(JSON.parse(readFileSync(path.join(reportsDir, `revenue-${stamp}.json`), 'utf8'))).toMatchObject({
+        baseline: { posthogGa4: { baselineDate: date, clsP75Mobile: 0.042 } },
+      });
+      expect(readFileSync(path.join(reportsDir, `revenue-${stamp}.md`), 'utf8')).toContain('# Revenue monitor');
+      const entries = readFileSync(historyFile, 'utf8').trimEnd().split('\n');
+      expect(entries).toHaveLength(2);
+      expect(entries[0]).toBe(prior);
+      expect(JSON.parse(entries[1])).toMatchObject({ date: stamp, posthog });
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it.each([
+    { args: ['--history='], message: 'non-empty path' },
+    { args: ['--report-dir'], message: 'non-empty path' },
+    { args: ['--history=a', '--history=b'], message: 'only be specified once' },
+    { args: ['--report-dir', '--report-dir=a'], message: 'only be specified once' },
+  ])('rejects $args at CLI entry', ({ args, message }) => {
+    const result = spawnSync(process.execPath, [script, ...args], {
+      encoding: 'utf8',
+      timeout: 5000,
+    });
+    expect(result.status).toBe(1);
+    expect(result.stderr).toContain(message);
+    expect(result.stdout).toBe('');
   });
 });
