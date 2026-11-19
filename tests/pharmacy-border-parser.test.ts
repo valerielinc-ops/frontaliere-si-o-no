@@ -1,5 +1,65 @@
+import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { buildItalianBorderRecords, buildTicinoCompleteRecords } from '../scripts/lib/pharmacy-border-parser.mjs';
+import {
+  buildItalianBorderRecords,
+  buildTicinoCompleteRecords,
+  readPharmacyBorderRegistry,
+} from '../scripts/lib/pharmacy-border-parser.mjs';
+
+const ticinoFixture = {
+  country: 'CH',
+  area: 'Ticino',
+  officialSourceUrl: 'https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Lista_farmacie_sito_web_stato_20260713.pdf',
+  accessMethod: 'pdf',
+  sourceType: 'official',
+  status: 'active',
+};
+const italyFixture = {
+  country: 'IT',
+  areas: ['VB', 'CO', 'VA'],
+  officialSourceUrl: 'https://www.dati.salute.gov.it/it/dataset/farmacie/',
+  accessMethod: 'json-api',
+  sourceType: 'official',
+  status: 'active',
+};
+
+function readRegistryFixture(sources: Record<string, unknown>) {
+  const dir = mkdtempSync(join(tmpdir(), 'pharmacy-border-registry-'));
+  try {
+    const file = join(dir, 'sources.json');
+    writeFileSync(file, JSON.stringify({ sources }));
+    return readPharmacyBorderRegistry(file);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+}
+
+describe('readPharmacyBorderRegistry', () => {
+  it('reads the official sources and preserves the declared province order', () => {
+    expect(readRegistryFixture({ 'ticino-complete': ticinoFixture, 'italy-border': italyFixture })).toEqual({
+      ticinoArea: 'Ticino',
+      ticinoPdfUrl: ticinoFixture.officialSourceUrl,
+      italyProvinces: italyFixture.areas,
+      italyDatasetPage: italyFixture.officialSourceUrl,
+    });
+  });
+
+  it.each([
+    ['duplicate province', ticinoFixture, { ...italyFixture, areas: ['CO', 'VA', 'CO'] }, 'areas: italy-border'],
+    ['unknown province', ticinoFixture, { ...italyFixture, areas: ['CO', 'VA', 'MI'] }, 'areas: italy-border'],
+    ['out-of-scope canton', { ...ticinoFixture, area: 'Grigioni' }, italyFixture, 'area: ticino-complete'],
+    ['ambiguous areas', { ...ticinoFixture, areas: ['Ticino'] }, italyFixture, 'area: ticino-complete'],
+    ['non-official Ticino host', { ...ticinoFixture, officialSourceUrl: ticinoFixture.officialSourceUrl.replace('www4.ti.ch', 'www4.ti.ch.example.com') }, italyFixture, 'URL: ticino-complete'],
+    ['non-official Italian host', ticinoFixture, { ...italyFixture, officialSourceUrl: italyFixture.officialSourceUrl.replace('www.dati.salute.gov.it', 'example.com') }, 'URL: italy-border'],
+    ['insecure source', ticinoFixture, { ...italyFixture, officialSourceUrl: italyFixture.officialSourceUrl.replace('https:', 'http:') }, 'URL: italy-border'],
+    ['incomplete metadata', ticinoFixture, { areas: italyFixture.areas }, 'metadata: italy-border'],
+    ['missing source', undefined, italyFixture, 'area: ticino-complete'],
+  ])('rejects %s', (_case, ticino, italy, message) => {
+    expect(() => readRegistryFixture({ 'ticino-complete': ticino, 'italy-border': italy })).toThrow(message);
+  });
+});
 
 describe('buildTicinoCompleteRecords', () => {
   it('reconciles an exact pharmacy identity across locality labels and retains its old detail URL', () => {

@@ -42,6 +42,7 @@ import {
 import {
   ITALY_BORDER_PROVINCES,
   ITALY_PHARMACY_DATASET_PAGE,
+  TICINO_PHARMACY_AREA,
   TICINO_PHARMACY_DIRECTORY_URL,
   TICINO_PHARMACY_DIRECTORY_MIRROR_URL,
   TICINO_PHARMACY_PDF_URL,
@@ -205,7 +206,7 @@ export function buildPharmacyReleaseContract({ catalogue, duties, evaluatedAt })
     version: 1,
     scope: {
       country: 'CH',
-      canton: 'Ticino',
+      canton: TICINO_PHARMACY_AREA,
       regions: TICINO_DUTY_REGIONS.map((region) => region.key),
     },
     timezone: PHARMACY_TIME_ZONE,
@@ -804,7 +805,7 @@ function assertBorderRecords(records) {
     if (slugs.has(pharmacy.slug)) throw new Error(`Duplicate pharmacy slug: ${pharmacy.slug}`);
     ids.add(pharmacy.id);
     slugs.add(pharmacy.slug);
-    if (pharmacy.country === 'CH' && pharmacy.canton !== 'Ticino') throw new Error(`Swiss pharmacy is outside Ticino: ${pharmacy.id}`);
+    if (pharmacy.country === 'CH' && pharmacy.canton !== TICINO_PHARMACY_AREA) throw new Error(`Swiss pharmacy is outside Ticino: ${pharmacy.id}`);
     if (pharmacy.country === 'IT' && !ITALY_BORDER_PROVINCES.includes(pharmacy.province)) throw new Error(`Italian pharmacy is outside the configured border provinces: ${pharmacy.id}`);
     if (!['CH', 'IT'].includes(pharmacy.country)) throw new Error(`Unsupported pharmacy country: ${pharmacy.id}`);
   }
@@ -913,7 +914,7 @@ export function buildTicinoCatalogueSnapshot({
     _pharmacyCount: pharmacies.length,
     _errors: errors,
     _warnings: warnings,
-    _scope: { country: 'CH', canton: 'Ticino' },
+    _scope: { country: 'CH', canton: TICINO_PHARMACY_AREA },
     ...(preserved ? { _preserved: true } : {}),
     pharmacies,
   };

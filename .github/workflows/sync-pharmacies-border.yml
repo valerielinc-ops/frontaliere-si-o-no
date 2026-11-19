@@ -26,6 +26,8 @@ jobs:
         uses: actions/checkout@v7
         with:
           ref: main
+      - name: Record refresh execution time
+        run: echo "BORDER_REFRESH_RUN_AT=$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> "$GITHUB_ENV"
       - name: Setup Node
         uses: actions/setup-node@v7
         with:
@@ -177,8 +179,11 @@ jobs:
           GH_TOKEN: ${{ env.GITHUB_PAT }}
         run: |
           set -euo pipefail
+          # The Google reservation commit changes only its ledger. HEAD still
+          # contains the checked-out main versions of both catalogues.
+          monthly="$(node scripts/compare-border-inventory-refresh.mjs pharmacies "$BORDER_REFRESH_RUN_AT")"
           if git diff --quiet -- data/pharmacies-ticino-complete.json data/pharmacies-italy-border.json data/pharmacy-enrichment.json data/pharmacy-enrichment-sources.json data/pharmacy-duties-ticino.json data/pharmacy-duties-ticino-status.json data/pharmacy-duties-geneva.json data/pharmacy-duties-geneva-status.json data/pharmacy-duties-swiss-cantons.json data/pharmacy-sources-registry.json public/data/pharmacy-duty-cantons.json \
-            && [ -z "$(git status --porcelain -- public/data/pharmacy-duty-cantons.json data/pharmacy-duty-week-history)" ]; then
+            && [ -z "$(git status --porcelain -- public/data/pharmacy-duty-cantons.json data/pharmacy-duty-week-history data/pharmacies-ticino-complete.json data/pharmacies-italy-border.json)" ]; then
             echo "No cross-border pharmacy data changes."
             exit 0
           fi
@@ -198,6 +203,11 @@ jobs:
 
           - Publishes the validated atomic cross-border pharmacy catalogue and duty/status snapshots through a PR so the required Vitest check runs before they reach main.
 
+          EOF
+          if [ -n "$monthly" ]; then
+            printf '%s\n\n' "$monthly" >> "$body"
+          fi
+          cat >> "$body" <<EOF
           ## Non implementato (ancora)
 
           Nessuno

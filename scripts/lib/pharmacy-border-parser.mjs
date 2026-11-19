@@ -10,6 +10,11 @@
  * directory whose terms prohibit automated reuse.
  */
 
+import { readFileSync } from 'node:fs';
+import { dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { BORDER_MINIMUMS } from './pharmacy-border-release-validation.mjs';
+
 const DAY_NAMES = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
 const OSM_DAY_NAMES = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'];
 const OSM_SOURCE_TYPE = 'directory';
@@ -25,12 +30,6 @@ const TICINO_ADDRESS_OVERRIDES = new Map([
   }],
 ]);
 
-export const ITALY_BORDER_PROVINCES = Object.freeze(['CO', 'VA', 'VB']);
-export const TICINO_PHARMACY_PDF_URL = 'https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf';
-// The canton publishes the same official PDF through the m4 host as well. The
-// alternate host is a transport fallback; a dated URL discovered on the
-// official landing page is retained as the provenance when the filename moves.
-export const TICINO_PHARMACY_PDF_MIRROR_URL = 'https://m4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf';
 // The official landing page currently links this dated filename. Keep it as a
 // bounded emergency candidate because the landing page can time out while the
 // published document remains reachable; discovery from the landing page stays
@@ -39,15 +38,71 @@ export const TICINO_PHARMACY_PDF_CURRENT_URL = 'https://www4.ti.ch/fileadmin/DSS
 export const TICINO_PHARMACY_PDF_CURRENT_MIRROR_URL = 'https://m4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Lista_farmacie_sito_web_stato_20260713.pdf';
 export const TICINO_PHARMACY_DIRECTORY_URL = 'https://www4.ti.ch/dss/dsp/ufc/sportello/elenchi-e-indirizzi/';
 export const TICINO_PHARMACY_DIRECTORY_MIRROR_URL = 'https://m4.ti.ch/dss/dsp/ufc/sportello/elenchi-e-indirizzi/';
+const TICINO_PHARMACY_PDF_HOSTS = new Set(['www4.ti.ch', 'm4.ti.ch']);
+const TICINO_PHARMACY_PDF_PATH_PREFIX = '/fileadmin/DSS/DSP/UFC/PDF/';
+const ITALY_PHARMACY_ORIGIN = 'https://www.dati.salute.gov.it';
+const ITALY_PHARMACY_DATASET_PATH = '/it/dataset/farmacie/';
+
+function readOfficialSourceUrl(source, key, country, accessMethod, isAllowedUrl) {
+  if (source?.country !== country || source.accessMethod !== accessMethod
+      || source.sourceType !== 'official' || source.status !== 'active') {
+    throw new Error(`Invalid pharmacy source metadata: ${key}`);
+  }
+  const value = source.officialSourceUrl;
+  try {
+    const url = new URL(value);
+    if (url.href === value && url.protocol === 'https:' && !url.port
+        && !url.username && !url.password && !url.search && !url.hash && isAllowedUrl(url)) {
+      return url.href;
+    }
+  } catch {
+    // Invalid absolute URLs and malformed PDF filenames fail the same source check.
+  }
+  throw new Error(`Invalid official pharmacy source URL: ${key}`);
+}
+
+export function readPharmacyBorderRegistry(file = resolve(dirname(fileURLToPath(import.meta.url)), '../../data/pharmacy-border-sources.json')) {
+  const { sources } = JSON.parse(readFileSync(file, 'utf8')) ?? {};
+  const ticino = sources?.['ticino-complete'];
+  const italy = sources?.['italy-border'];
+  if (ticino?.area !== 'Ticino' || Object.hasOwn(ticino, 'areas')) {
+    throw new Error('Invalid pharmacy source area: ticino-complete');
+  }
+  const provinces = italy?.areas;
+  // Every configured province must have a release floor, and every floor must
+  // still be covered by the importer.
+  if (!Array.isArray(provinces) || Object.hasOwn(italy, 'area')
+      || provinces.length !== Object.keys(BORDER_MINIMUMS.italyByProvince).length
+      || new Set(provinces).size !== provinces.length
+      || !provinces.every((province) => typeof province === 'string'
+        && Object.hasOwn(BORDER_MINIMUMS.italyByProvince, province))) {
+    throw new Error('Invalid pharmacy source areas: italy-border');
+  }
+  return {
+    ticinoArea: ticino.area,
+    ticinoPdfUrl: readOfficialSourceUrl(ticino, 'ticino-complete', 'CH', 'pdf',
+      (url) => isTicinoPharmacyPdfUrl(url.href)),
+    italyProvinces: Object.freeze(provinces),
+    italyDatasetPage: readOfficialSourceUrl(italy, 'italy-border', 'IT', 'json-api',
+      (url) => url.origin === ITALY_PHARMACY_ORIGIN && url.pathname === ITALY_PHARMACY_DATASET_PATH),
+  };
+}
+
+export const {
+  ticinoArea: TICINO_PHARMACY_AREA,
+  ticinoPdfUrl: TICINO_PHARMACY_PDF_URL,
+  italyProvinces: ITALY_BORDER_PROVINCES,
+  italyDatasetPage: ITALY_PHARMACY_DATASET_PAGE,
+} = readPharmacyBorderRegistry();
+
+// The alternate official host serves the same catalogue as a transport fallback.
+export const TICINO_PHARMACY_PDF_MIRROR_URL = mirrorTicinoPharmacyPdfUrl(TICINO_PHARMACY_PDF_URL);
 export const TICINO_PHARMACY_PDF_URLS = Object.freeze([
   TICINO_PHARMACY_PDF_URL,
   TICINO_PHARMACY_PDF_MIRROR_URL,
   TICINO_PHARMACY_PDF_CURRENT_URL,
   TICINO_PHARMACY_PDF_CURRENT_MIRROR_URL,
 ]);
-const TICINO_PHARMACY_PDF_HOSTS = new Set(['www4.ti.ch', 'm4.ti.ch']);
-const TICINO_PHARMACY_PDF_PATH_PREFIX = '/fileadmin/DSS/DSP/UFC/PDF/';
-export const ITALY_PHARMACY_DATASET_PAGE = 'https://www.dati.salute.gov.it/it/dataset/farmacie/';
 export const OSM_BORDER_QUERY_BBOX = '45.3,7.0,46.7,10.8';
 
 function decodeHtmlAttribute(value) {
@@ -838,7 +893,7 @@ export function buildTicinoCompleteRecords(pdfRows, { previous = [], fetchedAt, 
       address,
       postalCode: row.postalCode,
       city: row.city,
-      canton: 'Ticino',
+      canton: TICINO_PHARMACY_AREA,
       country: 'CH',
       ...((row.phone || previousRecord?.phone)
         ? { phone: row.phone || previousRecord.phone }

@@ -71,6 +71,26 @@ fonti senza aggiungere cantoni alla mappa nazionale.
 Le entry possono vivere in `data/pharmacy-sources-registry.json` e seguono gli
 stati `unverified`, `active`, `blocked` e `degraded`.
 
+Il registro dichiarativo dell'anagrafica di confine è
+`data/pharmacy-border-sources.json`. Dichiara perimetro, fonte ufficiale,
+licenza e frequenza per il catalogo completo del Ticino
+(`data/pharmacies-ticino-complete.json`) e per il catalogo italiano
+(`data/pharmacies-italy-border.json`), oltre alla fonte OSM per l'arricchimento
+facoltativo. `scripts/check-pharmacy-border-data.mjs` valida il registro e
+`scripts/check-pharmacy-data-health.mjs` usa le frequenze dichiarate per
+controllare la freschezza. `data/pharmacies-ticino.json` resta il sottoinsieme
+storico per i consumer esistenti.
+
+L'importatore e `scripts/lib/pharmacy-border-parser.mjs` applicano il perimetro
+con le sigle `CO/VA/VB`, l'etichetta e i metadati del Ticino e gli URL delle
+fonti definiti nel codice. Le voci `italy-border` e `ticino-complete` del
+registro possono fornire al loader le stesse aree e gli URL canonici. La
+scoperta del PDF, i mirror cantonali e i controlli di identità restano
+responsabilità dei connettori. Il riquadro di interrogazione OSM è una costante
+del parser e serve a cercare candidati per l'arricchimento delle sedi
+ufficiali. Il registro nazionale `data/pharmacy-sources-registry.json`
+descrive le fonti dei turni e le relative regioni ticinesi.
+
 Una fonte entra in `active` solo dopo una verifica documentata. Una fonte
 `unverified` non abilita la pubblicazione automatica dei campi che dovrebbe
 fornire. `blocked` richiede un accesso effettivamente negato; `degraded`
