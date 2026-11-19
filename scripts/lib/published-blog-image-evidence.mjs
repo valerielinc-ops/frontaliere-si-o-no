@@ -33,9 +33,13 @@ export function isPublishedDeterministicCardRecord(record) {
     && record?.templateVersion === DETERMINISTIC_CARD_TEMPLATE_VERSION;
 }
 
-export function validatePublishedBlogImageEvidence(imageUrl, record, { legacyVisionRegistry = null } = {}) {
-  const validation = legacyVisionRegistry
-    ? validateGeneratedImageRecordWithRegistry(record, legacyVisionRegistry)
+export function validatePublishedBlogImageEvidence(imageUrl, record, {
+  legacyVisionRegistry = null,
+  legacyVisionRegistries = null,
+} = {}) {
+  const sourceRegistry = legacyVisionRegistries?.[record?.scope] || legacyVisionRegistry;
+  const validation = sourceRegistry
+    ? validateGeneratedImageRecordWithRegistry(record, sourceRegistry)
     : validateGeneratedImageRecord(record);
   const errors = [...validation.errors];
   if (!PUBLISHED_BLOG_IMAGE_EVIDENCE_SCOPES.includes(record?.scope)) {

@@ -155,6 +155,7 @@ function main() {
   const replacements = readJson(path.join(ROOT, 'data/blog-cover-replacements.json'));
   const imageCreditsIndex = readJson(IMAGE_CREDITS_INDEX);
   const generatedRegistry = readJson(path.join(ROOT, 'data/blog-generated-image-registry.json'));
+  const sharedGeneratedRegistry = readJson(path.join(ROOT, 'data/generated-image-registry.json'));
   const generatedEvidenceExists = fs.existsSync(GENERATED_EVIDENCE_SNAPSHOT);
   const generatedEvidence = generatedEvidenceExists ? readJson(GENERATED_EVIDENCE_SNAPSHOT) : null;
   const corpusBaseline = readJson(path.join(ROOT, 'data/blog-cover-corpus-baseline.json'));
@@ -221,6 +222,12 @@ function main() {
     ? validateGeneratedImageRegistry(generatedRegistry, { scope: 'article-hero', allowLegacyVision: true })
     : { valid: true, errors: [] };
   if (!generatedValidation.valid) throw new Error(`generated registry invalid: ${generatedValidation.errors.join('; ')}`);
+  const sharedGeneratedValidation = sharedGeneratedRegistry
+    ? validateGeneratedImageRegistry(sharedGeneratedRegistry, { allowLegacyVision: true })
+    : { valid: false, errors: ['site generated registry is missing'] };
+  if (!sharedGeneratedValidation.valid) {
+    throw new Error(`site generated registry invalid: ${sharedGeneratedValidation.errors.join('; ')}`);
+  }
   const generatedByUrl = new Map((generatedRegistry?.assets || []).map((record) => [record.imageUrl, record]));
   const currentCoverImages = new Map();
   for (const file of REGISTRIES) {
@@ -243,6 +250,10 @@ function main() {
       for (const [imageUrl, record] of Object.entries(generatedEvidence.generated)) {
         const validation = validatePublishedBlogImageEvidence(imageUrl, record, {
           legacyVisionRegistry: generatedRegistry,
+          legacyVisionRegistries: {
+            'article-hero': generatedRegistry,
+            place: sharedGeneratedRegistry,
+          },
         });
         if (!validation.valid) {
           errors.push(`${imageUrl}: invalid published generated-image evidence${validation.errors.length

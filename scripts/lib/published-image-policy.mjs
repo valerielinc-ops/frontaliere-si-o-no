@@ -259,6 +259,7 @@ function readPublishedBlogImageEvidence(filePath, {
   required = false,
   warn = console.warn,
   legacyVisionRegistry = null,
+  legacyVisionRegistries = null,
 } = {}) {
   if (!fs.existsSync(filePath)) {
     if (!required) return { records: [], error: null };
@@ -279,7 +280,10 @@ function readPublishedBlogImageEvidence(filePath, {
 
     const records = [];
     for (const [imageUrl, record] of Object.entries(snapshot.generated)) {
-      const validation = validatePublishedBlogImageEvidence(imageUrl, record, { legacyVisionRegistry });
+      const validation = validatePublishedBlogImageEvidence(imageUrl, record, {
+        legacyVisionRegistry,
+        legacyVisionRegistries,
+      });
       if (!validation.valid) {
         throw new Error(`${imageUrl}: ${validation.errors.join('; ')}`);
       }
@@ -310,13 +314,19 @@ export function loadPublishedImagePolicy({
       scope: 'event-library',
       allowLegacyVision: true,
       retainValidRecordsOnFailure: true,
+      legacyScopes: ['event-library'],
     },
-    { path: path.join(root, 'data', 'generated-image-registry.json'), allowLegacyVision: true },
+    {
+      path: path.join(root, 'data', 'generated-image-registry.json'),
+      allowLegacyVision: true,
+      legacyScopes: ['editorial-profile', 'place'],
+    },
     { path: path.join(root, 'public', 'data', 'generated-image-registry.json'), allowLegacyVision: true },
   ];
   const records = [];
   const registryErrors = [];
   const registryByRecord = new WeakMap();
+  const legacyVisionRegistries = Object.create(null);
   for (const spec of registrySpecs) {
     const result = readRegistryFile(spec.path, {
       scope: spec.scope,
@@ -329,6 +339,9 @@ export function loadPublishedImagePolicy({
       for (const record of result.records) {
         if (record && typeof record === 'object') registryByRecord.set(record, result.registry);
       }
+      for (const scope of spec.legacyScopes || []) {
+        legacyVisionRegistries[scope] = result.registry;
+      }
     }
     if (result.error) registryErrors.push(result.error);
   }
@@ -339,12 +352,17 @@ export function loadPublishedImagePolicy({
   );
   if (blogRegistryResult.error) registryErrors.push(blogRegistryResult.error);
   const legacyVisionRegistry = blogRegistryResult.registry;
+  if (legacyVisionRegistry) legacyVisionRegistries['article-hero'] = legacyVisionRegistry;
 
   const publishedBlogEvidence = readPublishedBlogImageEvidence(
     path.join(root, 'data', 'og-published-blog-generated-image-evidence.json'),
-    { required: requirePublishedBlogImageEvidence, warn, legacyVisionRegistry },
+    { required: requirePublishedBlogImageEvidence, warn, legacyVisionRegistry, legacyVisionRegistries },
   );
   if (publishedBlogEvidence.error) registryErrors.push(publishedBlogEvidence.error);
+  for (const record of publishedBlogEvidence.records) {
+    const registry = legacyVisionRegistries[record?.scope];
+    if (record && typeof record === 'object' && registry) registryByRecord.set(record, registry);
+  }
   const ogRecords = [...records, ...blogRegistryResult.records, ...publishedBlogEvidence.records];
   const generatedBlogRecords = ogRecords.filter((record) => record?.scope === 'article-hero');
 

@@ -12,6 +12,7 @@ import {
   checkPublishedImageUrl,
   loadPublishedImagePolicy,
 } from '../scripts/lib/published-image-policy.mjs';
+import { validatePublishedBlogImageEvidence } from '../scripts/lib/published-blog-image-evidence.mjs';
 import { syncPublishedBlogImageEvidence } from '../scripts/sync-published-blog-image-evidence.mjs';
 import {
   collectOgImageReferences,
@@ -92,6 +93,30 @@ function withPinnedRoot<T>(run: (root: string) => T): T {
 }
 
 describe('published image policy', () => {
+  it('validates published place evidence against the place registry envelope', () => {
+    const blogRegistry = JSON.parse(fs.readFileSync(
+      path.join(ROOT, 'data/blog-generated-image-registry.json'),
+      'utf8',
+    ));
+    const sharedRegistry = JSON.parse(fs.readFileSync(
+      path.join(ROOT, 'data/generated-image-registry.json'),
+      'utf8',
+    ));
+    const placeRecord = sharedRegistry.assets.find((record: { assetId: string }) => record.assetId === 'lugano-view');
+
+    expect(placeRecord).toBeDefined();
+    expect(validatePublishedBlogImageEvidence(placeRecord.imageUrl, placeRecord, {
+      legacyVisionRegistry: blogRegistry,
+      legacyVisionRegistries: {
+        'article-hero': blogRegistry,
+        place: sharedRegistry,
+      },
+    })).toEqual({ valid: true, errors: [] });
+    expect(validatePublishedBlogImageEvidence(placeRecord.imageUrl, placeRecord, {
+      legacyVisionRegistry: blogRegistry,
+    }).errors).toContain('vision gate verdict is missing or rejected');
+  });
+
   it('accepts manifest-pinned corpus generated covers for OG images without widening uploader policy', () => {
     withPinnedRoot((root) => {
       const assetIds = [
