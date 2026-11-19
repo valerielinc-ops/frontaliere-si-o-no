@@ -1072613,7 +1072613,8 @@
     "slugByLocale": {
       "it": "manager-dichiarazione-fiscale-compliance-fiscale-60-100-pwc-switzerland-basel",
       "de": "manager-steuerdeklarationen-tax-compliance-60-100-pwc-basel",
-      "fr": "gestionnaire-declarations-fiscales-conformite-fiscale-60-100-pwc-switzerland-basel"
+      "fr": "gestionnaire-declarations-fiscales-conformite-fiscale-60-100-pwc-switzerland-basel",
+      "en": "manager-tax-declarations-tax-compliance-60-100-pwc-switzerland-basel"
     },
     "createdAt": "2026-11-18",
     "canton": "BS"
@@ -1072621,7 +1072622,10 @@
   "id|pwc.ch|d4c690a3-0dc1-48d0-97d2-4a0e796e33fe": {
     "canonicalSlug": "director-transaction-services-pwc-zurich",
     "slugByLocale": {
-      "en": "director-transaction-services-pwc-zurich"
+      "en": "director-transaction-services-pwc-zurich",
+      "it": "direttore-transaction-services-pwc-switzerland-zurich",
+      "de": "direktor-transaction-services-pwc-switzerland-zurich",
+      "fr": "directeur-transaction-services-pwc-switzerland-zurich"
     },
     "createdAt": "2026-11-18",
     "canton": "ZH"
@@ -1072630,7 +1072634,9 @@
     "canonicalSlug": "manager-in-finance-transformation-epm-solutions-pwc-zurich",
     "slugByLocale": {
       "en": "manager-in-finance-transformation-epm-solutions-pwc-zurich",
-      "fr": "gestionnaire-en-transformation-financiere-solutions-epm-pwc-switzerland-zurich"
+      "fr": "gestionnaire-en-transformation-financiere-solutions-epm-pwc-switzerland-zurich",
+      "it": "manager-in-finanza-transformation-epm-solutions-pwc-switzerland-zurich",
+      "de": "manager-in-finanzen-transformation-epm-solutions-pwc-switzerland-zurich"
     },
     "createdAt": "2026-11-18",
     "canton": "ZH"
