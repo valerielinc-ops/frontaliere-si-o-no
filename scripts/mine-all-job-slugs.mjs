@@ -882,6 +882,7 @@ async function main() {
   // if the registry writer fails before compat shards are committed.
   try {
     if (!DRY_RUN) {
+      assertCompatFloor(preparedCompat.previousTotalPaths, preparedCompat.totalPaths, { label: compatFile });
     // Size guard: GitHub rejects files ≥ 100 MiB (~104 MB). Two-tier prune.
     // All consumers use JSON.parse() so compact JSON (no indent) is fine.
     //
