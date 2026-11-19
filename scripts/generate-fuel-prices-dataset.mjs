@@ -26,31 +26,13 @@ import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
-const MUNICIPALITIES_PATH = path.join(ROOT, 'data', 'municipalities.ts');
+const MUNICIPALITIES_PATH = path.join(ROOT, 'data', 'fuel-border-municipalities.json');
 const DATA_OUT = path.join(ROOT, 'data', 'fuel-prices.json');
 const PUBLIC_OUT = path.join(ROOT, 'public', 'data', 'fuel-prices.json');
 
 const ITALY_PRICES_URL = 'https://www.mimit.gov.it/images/exportCSV/prezzo_alle_8.csv';
 const ITALY_STATIONS_URL = 'https://www.mimit.gov.it/images/exportCSV/anagrafica_impianti_attivi.csv';
 const MIMIT_API_URL = 'https://carburanti.mise.gov.it/ospzApi/search/area';
-// The generator only publishes the border municipalities below. These are the
-// Osservaprezzi registry IDs, not ISTAT region codes: keep the mapping
-// explicit so an unknown province cannot silently broaden an API query and
-// produce data for the wrong target set.
-const MIMIT_API_REGION_BY_PROVINCE = Object.freeze({
-  AO: 16,
-  CO: 19,
-  VA: 19,
-  VB: 13,
-  LC: 19,
-  SO: 19,
-  VC: 13,
-  MB: 19,
-  BG: 19,
-  BS: 19,
-  TN: 5,
-  BZ: 5,
-});
 // Osservaprezzi answers concurrent bursts with HTTP 429. Keep both lookup
 // levels serial and enforce the same spacing through the request wrapper. A
 // province response that already contains a target row stays bounded; only an
@@ -129,25 +111,46 @@ export function chunkSwissBorderMunicipalities(
   return chunkRows(municipalities, chunkSize, 'Swiss border');
 }
 
-function readMunicipalities() {
-  const source = fs.readFileSync(MUNICIPALITIES_PATH, 'utf8');
-  const rows = [];
-  const re = /\{\s*name:\s*'((?:\\'|[^'])+)',\s*province:\s*'([^']+)',\s*lat:\s*([\d.]+),\s*lng:\s*([\d.]+),\s*irpefAddizionale:\s*([\d.]+),\s*distanceKm:\s*(\d+),\s*avgRentMonthly:\s*(\d+),\s*population:\s*(\d+),\s*fascia:\s*'([^']+)'/g;
-  let match;
-  while ((match = re.exec(source))) {
-    rows.push({
-      name: match[1].replace(/\\'/g, "'"),
-      province: match[2],
-      lat: Number(match[3]),
-      lng: Number(match[4]),
-      irpefAddizionale: Number(match[5]),
-      distanceKm: Number(match[6]),
-      avgRentMonthly: Number(match[7]),
-      population: Number(match[8]),
-      fascia: match[9],
-    });
+export function readFuelBorderMunicipalities(filePath = MUNICIPALITIES_PATH) {
+  const registry = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+  const { schemaVersion, sources, mimitApiRegionByProvince, municipalities } = registry ?? {};
+  if (schemaVersion !== 1
+    || ![sources?.municipalities, sources?.mimitApiRegionByProvince].every(
+      (source) => typeof source === 'string' && source.trim(),
+    )
+    || !mimitApiRegionByProvince || typeof mimitApiRegionByProvince !== 'object'
+    || Array.isArray(mimitApiRegionByProvince)
+    || !Array.isArray(municipalities) || municipalities.length === 0) {
+    throw new Error('Invalid fuel border municipalities registry schema');
   }
-  return rows;
+
+  for (const [province, region] of Object.entries(mimitApiRegionByProvince)) {
+    if (!/^[A-Z]{2}$/.test(province) || !Number.isSafeInteger(region) || region <= 0) {
+      throw new Error(`Invalid MIMIT region mapping for province ${province}`);
+    }
+  }
+
+  const seen = new Set();
+  for (const row of municipalities) {
+    const { name, province, lat, lng, distanceKm, fascia } = row ?? {};
+    const normalizedName = typeof name === 'string' && normalizeText(name);
+    if (!normalizedName || typeof province !== 'string' || !/^[A-Z]{2}$/.test(province)
+      || !Number.isFinite(distanceKm) || distanceKm < 0
+      || typeof fascia !== 'string' || !fascia.trim()) {
+      throw new Error('Invalid municipality record in fuel border municipalities registry');
+    }
+    if (!Object.hasOwn(mimitApiRegionByProvince, province)) {
+      throw new Error(`Fuel border municipalities registry has no MIMIT region mapping for province ${province}`);
+    }
+    if (!Number.isFinite(lat) || Math.abs(lat) > 90 || !Number.isFinite(lng) || Math.abs(lng) > 180) {
+      throw new Error(`Invalid coordinates for fuel municipality ${name} (${province})`);
+    }
+    const key = `${province}:${normalizedName}`;
+    if (seen.has(key)) throw new Error(`Duplicate fuel municipality ${name} (${province})`);
+    seen.add(key);
+  }
+
+  return { municipalities, mimitApiRegionByProvince };
 }
 
 function normalizeText(value = '') {
@@ -672,7 +675,12 @@ async function fetchMimitApiArea({ region, province, town, fetchImpl, retries })
 
 export async function fetchMimitApiSource(
   municipalities,
-  { fetchImpl = fetch, retries = 3, requestIntervalMs = MIMIT_API_MIN_INTERVAL_MS } = {},
+  {
+    fetchImpl = fetch,
+    retries = 3,
+    requestIntervalMs = MIMIT_API_MIN_INTERVAL_MS,
+    mimitApiRegionByProvince = readFuelBorderMunicipalities().mimitApiRegionByProvince,
+  } = {},
 ) {
   const provinces = [...new Set(municipalities.map((municipality) => String(municipality.province || '').trim().toUpperCase()))]
     .filter(Boolean)
@@ -684,7 +692,7 @@ export async function fetchMimitApiSource(
   ]));
   const rateLimitedFetch = createMimitApiRateLimitedFetch(fetchImpl, requestIntervalMs);
   const responsesByProvince = await mapWithConcurrency(provinces, MIMIT_API_CONCURRENCY, async (province) => {
-    const region = MIMIT_API_REGION_BY_PROVINCE[province];
+    const region = mimitApiRegionByProvince[province];
     if (region == null) throw new Error(`MIMIT API fallback has no region mapping for province ${province}`);
     const targetMunicipalities = municipalitiesByProvince.get(province) || [];
     const provinceResponse = await fetchMimitApiArea({
@@ -1654,8 +1662,7 @@ async function writeToFirestore(payload) {
 }
 
 async function main() {
-  const municipalities = readMunicipalities();
-  if (!municipalities.length) throw new Error('Unable to read municipalities dataset');
+  const { municipalities, mimitApiRegionByProvince } = readFuelBorderMunicipalities();
 
   const saveLocal = process.argv.includes('--save-local');
   const cantonsInputFlag = process.argv.indexOf('--cantons-input-out');
@@ -1675,7 +1682,7 @@ async function main() {
       })
       .catch(async (csvError) => {
         try {
-          const apiResult = await fetchMimitApiSource(municipalities);
+          const apiResult = await fetchMimitApiSource(municipalities, { mimitApiRegionByProvince });
           console.warn(`::warning::[fuel] MIMIT bulk CSV unavailable (${csvError.message}) — official Osservaprezzi API fallback used`);
           return apiResult;
         } catch (apiError) {

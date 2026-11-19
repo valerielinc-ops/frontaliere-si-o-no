@@ -11,7 +11,8 @@
  * All dates are relative to the test clock (no calendar time bombs).
  */
 import { describe, expect, it } from 'vitest';
-import { readFileSync } from 'node:fs';
+import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
 import { resolve } from 'node:path';
 import {
   buildItalyRowsFromMimitApi,
@@ -19,6 +20,7 @@ import {
   buildItalyStations,
   fetchMimitApiSource,
   italyByMunicipalityFromDataset,
+  readFuelBorderMunicipalities,
   resolveItalySource,
   validateMimitCsvPayload,
 } from '../scripts/generate-fuel-prices-dataset.mjs';
@@ -39,6 +41,51 @@ const VARESE = { name: 'Varese', province: 'VA', lat: 45.82, lng: 8.83, distance
 const AOSTA = { name: 'Aosta', province: 'AO', lat: 45.74, lng: 7.32, distanceKm: 0, fascia: '0-10' };
 const VERBANIA = { name: 'Verbania', province: 'VB', lat: 45.92, lng: 8.55, distanceKm: 0, fascia: '0-10' };
 const TRENTO = { name: 'Trento', province: 'TN', lat: 46.07, lng: 11.12, distanceKm: 0, fascia: '0-10' };
+
+describe('generator: fuel border municipalities registry', () => {
+  const registry = {
+    schemaVersion: 1,
+    sources: { municipalities: 'Comparator fixture', mimitApiRegionByProvince: 'MIMIT fixture' },
+    mimitApiRegionByProvince: { CO: 19, VA: 19 },
+    municipalities: [{ ...CANTU, fascia: '1' }, { ...VARESE, fascia: '2' }],
+  };
+
+  function readFixture(payload: object) {
+    const directory = mkdtempSync(resolve(tmpdir(), 'fuel-municipalities-'));
+    try {
+      const file = resolve(directory, 'registry.json');
+      writeFileSync(file, JSON.stringify(payload));
+      return readFuelBorderMunicipalities(file);
+    } finally {
+      rmSync(directory, { recursive: true, force: true });
+    }
+  }
+
+  it('preserves the ordered comparator rows and MIMIT mapping', () => {
+    const { municipalities, mimitApiRegionByProvince } = registry;
+    expect(readFixture(registry)).toEqual({ municipalities, mimitApiRegionByProvince });
+  });
+
+  it('rejects a duplicate identity after normalizing case, Unicode and punctuation', () => {
+    const duplicate = { ...registry.municipalities[0], name: '• CAN-TU\u0300' };
+    expect(() => readFixture({ ...registry, municipalities: [...registry.municipalities, duplicate] }))
+      .toThrow(/Duplicate fuel municipality/);
+  });
+
+  it('rejects a province without a MIMIT mapping', () => {
+    expect(() => readFixture({ ...registry, municipalities: [{ ...COMO, province: 'MI' }] }))
+      .toThrow(/no MIMIT region mapping for province MI/);
+  });
+
+  it('rejects missing schema metadata', () => {
+    expect(() => readFixture({ ...registry, schemaVersion: undefined })).toThrow(/registry schema/);
+  });
+
+  it('rejects invalid coordinates', () => {
+    expect(() => readFixture({ ...registry, municipalities: [{ ...COMO, lat: 91 }] }))
+      .toThrow(/Invalid coordinates/);
+  });
+});
 
 function previousDataset(snapshotDay: string) {
   return {

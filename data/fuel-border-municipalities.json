@@ -1,0 +1,4167 @@
+{
+  "schemaVersion": 1,
+  "sources": {
+    "municipalities": "Initial snapshot of data/municipalities.ts, selected by the former readMunicipalities() in scripts/generate-fuel-prices-dataset.mjs. Order and comparator fields preserved.",
+    "mimitApiRegionByProvince": "Existing explicit province mapping from scripts/generate-fuel-prices-dataset.mjs for the official MIMIT Osservaprezzi search/area API. Values are Osservaprezzi registry IDs."
+  },
+  "mimitApiRegionByProvince": {
+    "AO": 16,
+    "CO": 19,
+    "VA": 19,
+    "VB": 13,
+    "LC": 19,
+    "SO": 19,
+    "VC": 13,
+    "MB": 19,
+    "BG": 19,
+    "BS": 19,
+    "TN": 5,
+    "BZ": 5
+  },
+  "municipalities": [
+    {
+      "name": "Albavilla",
+      "province": "CO",
+      "lat": 45.8031,
+      "lng": 9.1885,
+      "distanceKm": 13,
+      "fascia": "1"
+    },
+    {
+      "name": "Albese con Cassano",
+      "province": "CO",
+      "lat": 45.8116,
+      "lng": 9.1686,
+      "distanceKm": 11,
+      "fascia": "1"
+    },
+    {
+      "name": "Albiolo",
+      "province": "CO",
+      "lat": 45.8068,
+      "lng": 8.9393,
+      "distanceKm": 8,
+      "fascia": "1"
+    },
+    {
+      "name": "Alserio",
+      "province": "CO",
+      "lat": 45.7791,
+      "lng": 9.1995,
+      "distanceKm": 15,
+      "fascia": "1"
+    },
+    {
+      "name": "Alta Valle Intelvi",
+      "province": "CO",
+      "lat": 45.9809,
+      "lng": 9.0419,
+      "distanceKm": 4,
+      "fascia": "1"
+    },
+    {
+      "name": "Alzate Brianza",
+      "province": "CO",
+      "lat": 45.7698,
+      "lng": 9.182,
+      "distanceKm": 14,
+      "fascia": "1"
+    },
+    {
+      "name": "Anzano del Parco",
+      "province": "CO",
+      "lat": 45.7698,
+      "lng": 9.1993,
+      "distanceKm": 15,
+      "fascia": "1"
+    },
+    {
+      "name": "Appiano Gentile",
+      "province": "CO",
+      "lat": 45.7361,
+      "lng": 8.9814,
+      "distanceKm": 12,
+      "fascia": "1A"
+    },
+    {
+      "name": "Argegno",
+      "province": "CO",
+      "lat": 45.9433,
+      "lng": 9.1282,
+      "distanceKm": 8,
+      "fascia": "1"
+    },
+    {
+      "name": "Arosio",
+      "province": "CO",
+      "lat": 45.717,
+      "lng": 9.208,
+      "distanceKm": 19,
+      "fascia": "1"
+    },
+    {
+      "name": "Asso",
+      "province": "CO",
+      "lat": 45.8613,
+      "lng": 9.2695,
+      "distanceKm": 19,
+      "fascia": "1"
+    },
+    {
+      "name": "Barni",
+      "province": "CO",
+      "lat": 45.9113,
+      "lng": 9.2651,
+      "distanceKm": 20,
+      "fascia": "1"
+    },
+    {
+      "name": "Bellagio",
+      "province": "CO",
+      "lat": 45.9873,
+      "lng": 9.2613,
+      "distanceKm": 18,
+      "fascia": "1"
+    },
+    {
+      "name": "Bene Lario",
+      "province": "CO",
+      "lat": 46.0234,
+      "lng": 9.1711,
+      "distanceKm": 13,
+      "fascia": "1"
+    },
+    {
+      "name": "Beregazzo con Figliaro",
+      "province": "CO",
+      "lat": 45.771,
+      "lng": 8.9583,
+      "distanceKm": 9,
+      "fascia": "1"
+    },
+    {
+      "name": "Binago",
+      "province": "CO",
+      "lat": 45.7844,
+      "lng": 8.9222,
+      "distanceKm": 10,
+      "fascia": "1"
+    },
+    {
+      "name": "Bizzarone",
+      "province": "CO",
+      "lat": 45.8362,
+      "lng": 8.9465,
+      "distanceKm": 1,
+      "fascia": "1"
+    },
+    {
+      "name": "Blessagno",
+      "province": "CO",
+      "lat": 45.9595,
+      "lng": 9.0975,
+      "distanceKm": 9,
+      "fascia": "1"
+    },
+    {
+      "name": "Blevio",
+      "province": "CO",
+      "lat": 45.8399,
+      "lng": 9.1025,
+      "distanceKm": 5,
+      "fascia": "1"
+    },
+    {
+      "name": "Bregnano",
+      "province": "CO",
+      "lat": 45.6971,
+      "lng": 9.0595,
+      "distanceKm": 16,
+      "fascia": "1"
+    },
+    {
+      "name": "Brenna",
+      "province": "CO",
+      "lat": 45.743,
+      "lng": 9.1871,
+      "distanceKm": 16,
+      "fascia": "1"
+    },
+    {
+      "name": "Brienno",
+      "province": "CO",
+      "lat": 45.9114,
+      "lng": 9.1313,
+      "distanceKm": 9,
+      "fascia": "1"
+    },
+    {
+      "name": "Brunate",
+      "province": "CO",
+      "lat": 45.8244,
+      "lng": 9.0922,
+      "distanceKm": 7,
+      "fascia": "1"
+    },
+    {
+      "name": "Bulgarograsso",
+      "province": "CO",
+      "lat": 45.7471,
+      "lng": 9.0064,
+      "distanceKm": 9,
+      "fascia": "1A"
+    },
+    {
+      "name": "Cabiate",
+      "province": "CO",
+      "lat": 45.6742,
+      "lng": 9.1737,
+      "distanceKm": 21,
+      "fascia": "1A"
+    },
+    {
+      "name": "Cadorago",
+      "province": "CO",
+      "lat": 45.7246,
+      "lng": 9.0382,
+      "distanceKm": 12,
+      "fascia": "1"
+    },
+    {
+      "name": "Caglio",
+      "province": "CO",
+      "lat": 45.8716,
+      "lng": 9.2383,
+      "distanceKm": 17,
+      "fascia": "1"
+    },
+    {
+      "name": "Campione d'Italia",
+      "province": "CO",
+      "lat": 45.9681,
+      "lng": 8.971,
+      "distanceKm": 5,
+      "fascia": "1"
+    },
+    {
+      "name": "Cantù",
+      "province": "CO",
+      "lat": 45.7382,
+      "lng": 9.1271,
+      "distanceKm": 15,
+      "fascia": "1A"
+    },
+    {
+      "name": "Canzo",
+      "province": "CO",
+      "lat": 45.8505,
+      "lng": 9.2743,
+      "distanceKm": 19,
+      "fascia": "1"
+    },
+    {
+      "name": "Capiago Intimiano",
+      "province": "CO",
+      "lat": 45.7708,
+      "lng": 9.13,
+      "distanceKm": 11,
+      "fascia": "1"
+    },
+    {
+      "name": "Carate Urio",
+      "province": "CO",
+      "lat": 45.8805,
+      "lng": 9.1105,
+      "distanceKm": 7,
+      "fascia": "1"
+    },
+    {
+      "name": "Carbonate",
+      "province": "CO",
+      "lat": 45.6837,
+      "lng": 8.94,
+      "distanceKm": 18,
+      "fascia": "1"
+    },
+    {
+      "name": "Carimate",
+      "province": "CO",
+      "lat": 45.703,
+      "lng": 9.1106,
+      "distanceKm": 16,
+      "fascia": "1"
+    },
+    {
+      "name": "Carlazzo",
+      "province": "CO",
+      "lat": 46.05,
+      "lng": 9.1545,
+      "distanceKm": 13,
+      "fascia": "1"
+    },
+    {
+      "name": "Carugo",
+      "province": "CO",
+      "lat": 45.7092,
+      "lng": 9.1946,
+      "distanceKm": 19,
+      "fascia": "1"
+    },
+    {
+      "name": "Caslino d'Erba",
+      "province": "CO",
+      "lat": 45.8376,
+      "lng": 9.2309,
+      "distanceKm": 16,
+      "fascia": "1"
+    },
+    {
+      "name": "Casnate con Bernate",
+      "province": "CO",
+      "lat": 45.7535,
+      "lng": 9.0717,
+      "distanceKm": 9,
+      "fascia": "1A"
+    },
+    {
+      "name": "Cassina Rizzardi",
+      "province": "CO",
+      "lat": 45.7505,
+      "lng": 9.0312,
+      "distanceKm": 9,
+      "fascia": "1"
+    },
+    {
+      "name": "Castelmarte",
+      "province": "CO",
+      "lat": 45.8332,
+      "lng": 9.2327,
+      "distanceKm": 16,
+      "fascia": "1"
+    },
+    {
+      "name": "Castelnuovo Bozzente",
+      "province": "CO",
+      "lat": 45.7646,
+      "lng": 8.9435,
+      "distanceKm": 10,
+      "fascia": "1"
+    },
+    {
+      "name": "Cavargna",
+      "province": "CO",
+      "lat": 46.0901,
+      "lng": 9.1112,
+      "distanceKm": 13,
+      "fascia": "1"
+    },
+    {
+      "name": "Centro Valle Intelvi",
+      "province": "CO",
+      "lat": 45.9505,
+      "lng": 9.0637,
+      "distanceKm": 8,
+      "fascia": "1"
+    },
+    {
+      "name": "Cerano d'Intelvi",
+      "province": "CO",
+      "lat": 45.9433,
+      "lng": 9.0888,
+      "distanceKm": 10,
+      "fascia": "1"
+    },
+    {
+      "name": "Cermenate",
+      "province": "CO",
+      "lat": 45.7001,
+      "lng": 9.0801,
+      "distanceKm": 15,
+      "fascia": "1"
+    },
+    {
+      "name": "Cernobbio",
+      "province": "CO",
+      "lat": 45.8414,
+      "lng": 9.0759,
+      "distanceKm": 4,
+      "fascia": "1"
+    },
+    {
+      "name": "Cirimido",
+      "province": "CO",
+      "lat": 45.6998,
+      "lng": 9.0125,
+      "distanceKm": 15,
+      "fascia": "1"
+    },
+    {
+      "name": "Claino con Osteno",
+      "province": "CO",
+      "lat": 46.0095,
+      "lng": 9.0901,
+      "distanceKm": 1,
+      "fascia": "1"
+    },
+    {
+      "name": "Colonno",
+      "province": "CO",
+      "lat": 45.9576,
+      "lng": 9.1556,
+      "distanceKm": 13,
+      "fascia": "1"
+    },
+    {
+      "name": "Colverde",
+      "province": "CO",
+      "lat": 45.8047,
+      "lng": 9.0015,
+      "distanceKm": 4,
+      "fascia": "1"
+    },
+    {
+      "name": "Como",
+      "province": "CO",
+      "lat": 45.8116,
+      "lng": 9.083,
+      "distanceKm": 3,
+      "fascia": "1"
+    },
+    {
+      "name": "Corrido",
+      "province": "CO",
+      "lat": 46.0458,
+      "lng": 9.1398,
+      "distanceKm": 12,
+      "fascia": "1"
+    },
+    {
+      "name": "Cremia",
+      "province": "CO",
+      "lat": 46.0861,
+      "lng": 9.2726,
+      "distanceKm": 23,
+      "fascia": "1A"
+    },
+    {
+      "name": "Cucciago",
+      "province": "CO",
+      "lat": 45.7399,
+      "lng": 9.0955,
+      "distanceKm": 12,
+      "fascia": "1"
+    },
+    {
+      "name": "Cusino",
+      "province": "CO",
+      "lat": 46.0746,
+      "lng": 9.1525,
+      "distanceKm": 14,
+      "fascia": "1"
+    },
+    {
+      "name": "Dizzasco",
+      "province": "CO",
+      "lat": 45.9438,
+      "lng": 9.0997,
+      "distanceKm": 10,
+      "fascia": "1"
+    },
+    {
+      "name": "Domaso",
+      "province": "CO",
+      "lat": 46.1541,
+      "lng": 9.3314,
+      "distanceKm": 4,
+      "fascia": "1"
+    },
+    {
+      "name": "Dongo",
+      "province": "CO",
+      "lat": 46.1268,
+      "lng": 9.2822,
+      "distanceKm": 6,
+      "fascia": "1"
+    },
+    {
+      "name": "Dosso del Liro",
+      "province": "CO",
+      "lat": 46.164,
+      "lng": 9.2729,
+      "distanceKm": 27,
+      "fascia": "1A"
+    },
+    {
+      "name": "Erba",
+      "province": "CO",
+      "lat": 45.8128,
+      "lng": 9.2226,
+      "distanceKm": 18,
+      "fascia": "1A"
+    },
+    {
+      "name": "Eupilio",
+      "province": "CO",
+      "lat": 45.8182,
+      "lng": 9.2647,
+      "distanceKm": 18,
+      "fascia": "1"
+    },
+    {
+      "name": "Faggeto Lario",
+      "province": "CO",
+      "lat": 45.8581,
+      "lng": 9.1709,
+      "distanceKm": 11,
+      "fascia": "1"
+    },
+    {
+      "name": "Faloppio",
+      "province": "CO",
+      "lat": 45.8089,
+      "lng": 8.9712,
+      "distanceKm": 5,
+      "fascia": "1"
+    },
+    {
+      "name": "Fenegrò",
+      "province": "CO",
+      "lat": 45.7007,
+      "lng": 8.9986,
+      "distanceKm": 15,
+      "fascia": "1"
+    },
+    {
+      "name": "Figino Serenza",
+      "province": "CO",
+      "lat": 45.7098,
+      "lng": 9.1289,
+      "distanceKm": 16,
+      "fascia": "1"
+    },
+    {
+      "name": "Fino Mornasco",
+      "province": "CO",
+      "lat": 45.7509,
+      "lng": 9.0454,
+      "distanceKm": 10,
+      "fascia": "1A"
+    },
+    {
+      "name": "Garzeno",
+      "province": "CO",
+      "lat": 46.1343,
+      "lng": 9.2483,
+      "distanceKm": 24,
+      "fascia": "1A"
+    },
+    {
+      "name": "Gera Lario",
+      "province": "CO",
+      "lat": 46.1711,
+      "lng": 9.3719,
+      "distanceKm": 34,
+      "fascia": "1A"
+    },
+    {
+      "name": "Grandate",
+      "province": "CO",
+      "lat": 45.7771,
+      "lng": 9.064,
+      "distanceKm": 7,
+      "fascia": "1A"
+    },
+    {
+      "name": "Grandola ed Uniti",
+      "province": "CO",
+      "lat": 46.0509,
+      "lng": 9.1899,
+      "distanceKm": 16,
+      "fascia": "1"
+    },
+    {
+      "name": "Gravedona ed Uniti",
+      "province": "CO",
+      "lat": 46.151,
+      "lng": 9.3061,
+      "distanceKm": 5,
+      "fascia": "1"
+    },
+    {
+      "name": "Griante",
+      "province": "CO",
+      "lat": 45.9953,
+      "lng": 9.2355,
+      "distanceKm": 18,
+      "fascia": "1"
+    },
+    {
+      "name": "Guanzate",
+      "province": "CO",
+      "lat": 45.7276,
+      "lng": 9.0169,
+      "distanceKm": 12,
+      "fascia": "1A"
+    },
+    {
+      "name": "Inverigo",
+      "province": "CO",
+      "lat": 45.7405,
+      "lng": 9.2236,
+      "distanceKm": 18,
+      "fascia": "1"
+    },
+    {
+      "name": "Laglio",
+      "province": "CO",
+      "lat": 45.8778,
+      "lng": 9.1383,
+      "distanceKm": 8,
+      "fascia": "1"
+    },
+    {
+      "name": "Laino",
+      "province": "CO",
+      "lat": 45.9845,
+      "lng": 9.0754,
+      "distanceKm": 6,
+      "fascia": "1"
+    },
+    {
+      "name": "Lambrugo",
+      "province": "CO",
+      "lat": 45.7592,
+      "lng": 9.2418,
+      "distanceKm": 18,
+      "fascia": "1"
+    },
+    {
+      "name": "Lasnigo",
+      "province": "CO",
+      "lat": 45.8822,
+      "lng": 9.2671,
+      "distanceKm": 19,
+      "fascia": "1"
+    },
+    {
+      "name": "Lezzeno",
+      "province": "CO",
+      "lat": 45.9451,
+      "lng": 9.1941,
+      "distanceKm": 16,
+      "fascia": "1"
+    },
+    {
+      "name": "Limido Comasco",
+      "province": "CO",
+      "lat": 45.6892,
+      "lng": 8.9798,
+      "distanceKm": 17,
+      "fascia": "1"
+    },
+    {
+      "name": "Lipomo",
+      "province": "CO",
+      "lat": 45.7983,
+      "lng": 9.1124,
+      "distanceKm": 8,
+      "fascia": "1A"
+    },
+    {
+      "name": "Livo",
+      "province": "CO",
+      "lat": 46.1688,
+      "lng": 9.3045,
+      "distanceKm": 30,
+      "fascia": "1A"
+    },
+    {
+      "name": "Locate Varesino",
+      "province": "CO",
+      "lat": 45.6889,
+      "lng": 8.9307,
+      "distanceKm": 18,
+      "fascia": "1"
+    },
+    {
+      "name": "Lomazzo",
+      "province": "CO",
+      "lat": 45.7028,
+      "lng": 9.0414,
+      "distanceKm": 14,
+      "fascia": "1A"
+    },
+    {
+      "name": "Longone al Segrino",
+      "province": "CO",
+      "lat": 45.8192,
+      "lng": 9.2504,
+      "distanceKm": 17,
+      "fascia": "1"
+    },
+    {
+      "name": "Luisago",
+      "province": "CO",
+      "lat": 45.7629,
+      "lng": 9.0354,
+      "distanceKm": 8,
+      "fascia": "1"
+    },
+    {
+      "name": "Lurago d'Erba",
+      "province": "CO",
+      "lat": 45.7471,
+      "lng": 9.2145,
+      "distanceKm": 17,
+      "fascia": "1"
+    },
+    {
+      "name": "Lurago Marinone",
+      "province": "CO",
+      "lat": 45.7058,
+      "lng": 8.9813,
+      "distanceKm": 15,
+      "fascia": "1"
+    },
+    {
+      "name": "Lurate Caccivio",
+      "province": "CO",
+      "lat": 45.7686,
+      "lng": 8.9878,
+      "distanceKm": 10,
+      "fascia": "1A"
+    },
+    {
+      "name": "Magreglio",
+      "province": "CO",
+      "lat": 45.9207,
+      "lng": 9.2621,
+      "distanceKm": 20,
+      "fascia": "1"
+    },
+    {
+      "name": "Mariano Comense",
+      "province": "CO",
+      "lat": 45.6999,
+      "lng": 9.1773,
+      "distanceKm": 18,
+      "fascia": "1A"
+    },
+    {
+      "name": "Maslianico",
+      "province": "CO",
+      "lat": 45.8428,
+      "lng": 9.0472,
+      "distanceKm": 2,
+      "fascia": "1"
+    },
+    {
+      "name": "Menaggio",
+      "province": "CO",
+      "lat": 46.02,
+      "lng": 9.2365,
+      "distanceKm": 8,
+      "fascia": "1"
+    },
+    {
+      "name": "Merone",
+      "province": "CO",
+      "lat": 45.7879,
+      "lng": 9.2465,
+      "distanceKm": 18,
+      "fascia": "1"
+    },
+    {
+      "name": "Moltrasio",
+      "province": "CO",
+      "lat": 45.8585,
+      "lng": 9.0927,
+      "distanceKm": 5,
+      "fascia": "1"
+    },
+    {
+      "name": "Monguzzo",
+      "province": "CO",
+      "lat": 45.7829,
+      "lng": 9.2326,
+      "distanceKm": 17,
+      "fascia": "1"
+    },
+    {
+      "name": "Montano Lucino",
+      "province": "CO",
+      "lat": 45.7903,
+      "lng": 9.0275,
+      "distanceKm": 7,
+      "fascia": "1A"
+    },
+    {
+      "name": "Montemezzo",
+      "province": "CO",
+      "lat": 46.1782,
+      "lng": 9.3743,
+      "distanceKm": 34,
+      "fascia": "1A"
+    },
+    {
+      "name": "Montorfano",
+      "province": "CO",
+      "lat": 45.7855,
+      "lng": 9.1461,
+      "distanceKm": 11,
+      "fascia": "1"
+    },
+    {
+      "name": "Mozzate",
+      "province": "CO",
+      "lat": 45.6752,
+      "lng": 8.9558,
+      "distanceKm": 19,
+      "fascia": "1"
+    },
+    {
+      "name": "Musso",
+      "province": "CO",
+      "lat": 46.1143,
+      "lng": 9.2764,
+      "distanceKm": 25,
+      "fascia": "1A"
+    },
+    {
+      "name": "Nesso",
+      "province": "CO",
+      "lat": 45.9114,
+      "lng": 9.1571,
+      "distanceKm": 13,
+      "fascia": "1"
+    },
+    {
+      "name": "Novedrate",
+      "province": "CO",
+      "lat": 45.6989,
+      "lng": 9.1205,
+      "distanceKm": 17,
+      "fascia": "1"
+    },
+    {
+      "name": "Olgiate Comasco",
+      "province": "CO",
+      "lat": 45.7843,
+      "lng": 8.9678,
+      "distanceKm": 7,
+      "fascia": "1A"
+    },
+    {
+      "name": "Oltrona di San Mamette",
+      "province": "CO",
+      "lat": 45.757,
+      "lng": 8.9763,
+      "distanceKm": 10,
+      "fascia": "1"
+    },
+    {
+      "name": "Orsenigo",
+      "province": "CO",
+      "lat": 45.7773,
+      "lng": 9.1811,
+      "distanceKm": 13,
+      "fascia": "1"
+    },
+    {
+      "name": "Peglio",
+      "province": "CO",
+      "lat": 46.1604,
+      "lng": 9.2947,
+      "distanceKm": 29,
+      "fascia": "1A"
+    },
+    {
+      "name": "Pianello del Lario",
+      "province": "CO",
+      "lat": 46.1028,
+      "lng": 9.2766,
+      "distanceKm": 24,
+      "fascia": "1A"
+    },
+    {
+      "name": "Pigra",
+      "province": "CO",
+      "lat": 45.9576,
+      "lng": 9.1277,
+      "distanceKm": 11,
+      "fascia": "1"
+    },
+    {
+      "name": "Plesio",
+      "province": "CO",
+      "lat": 46.0464,
+      "lng": 9.2303,
+      "distanceKm": 18,
+      "fascia": "1"
+    },
+    {
+      "name": "Pognana Lario",
+      "province": "CO",
+      "lat": 45.8819,
+      "lng": 9.1646,
+      "distanceKm": 12,
+      "fascia": "1"
+    },
+    {
+      "name": "Ponna",
+      "province": "CO",
+      "lat": 45.9957,
+      "lng": 9.1108,
+      "distanceKm": 9,
+      "fascia": "1"
+    },
+    {
+      "name": "Ponte Lambro",
+      "province": "CO",
+      "lat": 45.8266,
+      "lng": 9.2254,
+      "distanceKm": 15,
+      "fascia": "1"
+    },
+    {
+      "name": "Porlezza",
+      "province": "CO",
+      "lat": 46.0361,
+      "lng": 9.1184,
+      "distanceKm": 2,
+      "fascia": "1"
+    },
+    {
+      "name": "Proserpio",
+      "province": "CO",
+      "lat": 45.8283,
+      "lng": 9.2455,
+      "distanceKm": 17,
+      "fascia": "1"
+    },
+    {
+      "name": "Pusiano",
+      "province": "CO",
+      "lat": 45.8139,
+      "lng": 9.2818,
+      "distanceKm": 20,
+      "fascia": "1"
+    },
+    {
+      "name": "Rezzago",
+      "province": "CO",
+      "lat": 45.8668,
+      "lng": 9.2497,
+      "distanceKm": 17,
+      "fascia": "1"
+    },
+    {
+      "name": "Rodero",
+      "province": "CO",
+      "lat": 45.8258,
+      "lng": 8.9178,
+      "distanceKm": 3,
+      "fascia": "1"
+    },
+    {
+      "name": "Ronago",
+      "province": "CO",
+      "lat": 45.8323,
+      "lng": 8.9836,
+      "distanceKm": 2,
+      "fascia": "1"
+    },
+    {
+      "name": "Rovellasca",
+      "province": "CO",
+      "lat": 45.668,
+      "lng": 9.0542,
+      "distanceKm": 19,
+      "fascia": "1"
+    },
+    {
+      "name": "Rovello Porro",
+      "province": "CO",
+      "lat": 45.6512,
+      "lng": 9.0403,
+      "distanceKm": 20,
+      "fascia": "1"
+    },
+    {
+      "name": "Sala Comacina",
+      "province": "CO",
+      "lat": 45.9657,
+      "lng": 9.1683,
+      "distanceKm": 14,
+      "fascia": "1"
+    },
+    {
+      "name": "San Bartolomeo Val Cavargna",
+      "province": "CO",
+      "lat": 46.0835,
+      "lng": 9.1491,
+      "distanceKm": 14,
+      "fascia": "1"
+    },
+    {
+      "name": "San Fermo della Battaglia",
+      "province": "CO",
+      "lat": 45.8084,
+      "lng": 9.0486,
+      "distanceKm": 6,
+      "fascia": "1A"
+    },
+    {
+      "name": "San Nazzaro Val Cavargna",
+      "province": "CO",
+      "lat": 46.0894,
+      "lng": 9.1274,
+      "distanceKm": 14,
+      "fascia": "1"
+    },
+    {
+      "name": "San Siro",
+      "province": "CO",
+      "lat": 46.0469,
+      "lng": 9.2615,
+      "distanceKm": 21,
+      "fascia": "1A"
+    },
+    {
+      "name": "Schignano",
+      "province": "CO",
+      "lat": 45.92,
+      "lng": 9.1001,
+      "distanceKm": 11,
+      "fascia": "1"
+    },
+    {
+      "name": "Senna Comasco",
+      "province": "CO",
+      "lat": 45.763,
+      "lng": 9.111,
+      "distanceKm": 10,
+      "fascia": "1"
+    },
+    {
+      "name": "Solbiate con Cagno",
+      "province": "CO",
+      "lat": 45.8004,
+      "lng": 8.9154,
+      "distanceKm": 10,
+      "fascia": "1"
+    },
+    {
+      "name": "Sorico",
+      "province": "CO",
+      "lat": 46.1723,
+      "lng": 9.3799,
+      "distanceKm": 35,
+      "fascia": "1A"
+    },
+    {
+      "name": "Sormano",
+      "province": "CO",
+      "lat": 45.8778,
+      "lng": 9.2487,
+      "distanceKm": 18,
+      "fascia": "1"
+    },
+    {
+      "name": "Stazzona",
+      "province": "CO",
+      "lat": 46.1385,
+      "lng": 9.2747,
+      "distanceKm": 26,
+      "fascia": "1A"
+    },
+    {
+      "name": "Tavernerio",
+      "province": "CO",
+      "lat": 45.8024,
+      "lng": 9.1464,
+      "distanceKm": 10,
+      "fascia": "1"
+    },
+    {
+      "name": "Torno",
+      "province": "CO",
+      "lat": 45.8576,
+      "lng": 9.1163,
+      "distanceKm": 7,
+      "fascia": "1"
+    },
+    {
+      "name": "Tremezzina",
+      "province": "CO",
+      "lat": 45.9835,
+      "lng": 9.1915,
+      "distanceKm": 10,
+      "fascia": "1"
+    },
+    {
+      "name": "Trezzone",
+      "province": "CO",
+      "lat": 46.1881,
+      "lng": 9.3463,
+      "distanceKm": 33,
+      "fascia": "1A"
+    },
+    {
+      "name": "Turate",
+      "province": "CO",
+      "lat": 45.6596,
+      "lng": 9.0044,
+      "distanceKm": 18,
+      "fascia": "1A"
+    },
+    {
+      "name": "Uggiate-Trevano",
+      "province": "CO",
+      "lat": 45.8234,
+      "lng": 8.9602,
+      "distanceKm": 3,
+      "fascia": "1"
+    },
+    {
+      "name": "Val Rezzo",
+      "province": "CO",
+      "lat": 46.0703,
+      "lng": 9.1009,
+      "distanceKm": 11,
+      "fascia": "1"
+    },
+    {
+      "name": "Valbrona",
+      "province": "CO",
+      "lat": 45.8811,
+      "lng": 9.3016,
+      "distanceKm": 22,
+      "fascia": "1A"
+    },
+    {
+      "name": "Valmorea",
+      "province": "CO",
+      "lat": 45.8174,
+      "lng": 8.9322,
+      "distanceKm": 2,
+      "fascia": "1"
+    },
+    {
+      "name": "Valsolda",
+      "province": "CO",
+      "lat": 46.0291,
+      "lng": 9.0439,
+      "distanceKm": 1,
+      "fascia": "1"
+    },
+    {
+      "name": "Veleso",
+      "province": "CO",
+      "lat": 45.9084,
+      "lng": 9.1821,
+      "distanceKm": 14,
+      "fascia": "1"
+    },
+    {
+      "name": "Veniano",
+      "province": "CO",
+      "lat": 45.7156,
+      "lng": 8.9831,
+      "distanceKm": 14,
+      "fascia": "1"
+    },
+    {
+      "name": "Vercana",
+      "province": "CO",
+      "lat": 46.1595,
+      "lng": 9.3351,
+      "distanceKm": 31,
+      "fascia": "1A"
+    },
+    {
+      "name": "Vertemate con Minoprio",
+      "province": "CO",
+      "lat": 45.7282,
+      "lng": 9.0784,
+      "distanceKm": 12,
+      "fascia": "1"
+    },
+    {
+      "name": "Villa Guardia",
+      "province": "CO",
+      "lat": 45.7738,
+      "lng": 9.0237,
+      "distanceKm": 7,
+      "fascia": "1"
+    },
+    {
+      "name": "Zelbio",
+      "province": "CO",
+      "lat": 45.9046,
+      "lng": 9.1805,
+      "distanceKm": 14,
+      "fascia": "1"
+    },
+    {
+      "name": "Agra",
+      "province": "VA",
+      "lat": 46.035,
+      "lng": 8.7717,
+      "distanceKm": 3,
+      "fascia": "1"
+    },
+    {
+      "name": "Albizzate",
+      "province": "VA",
+      "lat": 45.7239,
+      "lng": 8.8031,
+      "distanceKm": 21,
+      "fascia": "1A"
+    },
+    {
+      "name": "Arcisate",
+      "province": "VA",
+      "lat": 45.865,
+      "lng": 8.855,
+      "distanceKm": 5,
+      "fascia": "1"
+    },
+    {
+      "name": "Arsago Seprio",
+      "province": "VA",
+      "lat": 45.6882,
+      "lng": 8.7315,
+      "distanceKm": 28,
+      "fascia": "1A"
+    },
+    {
+      "name": "Azzate",
+      "province": "VA",
+      "lat": 45.7878,
+      "lng": 8.7681,
+      "distanceKm": 12,
+      "fascia": "1A"
+    },
+    {
+      "name": "Azzio",
+      "province": "VA",
+      "lat": 45.8848,
+      "lng": 8.7092,
+      "distanceKm": 14,
+      "fascia": "1"
+    },
+    {
+      "name": "Barasso",
+      "province": "VA",
+      "lat": 45.8405,
+      "lng": 8.7568,
+      "distanceKm": 16,
+      "fascia": "1"
+    },
+    {
+      "name": "Bardello con Malgesso e Bregano",
+      "province": "VA",
+      "lat": 45.8241,
+      "lng": 8.6822,
+      "distanceKm": 21,
+      "fascia": "1A"
+    },
+    {
+      "name": "Bedero Valcuvia",
+      "province": "VA",
+      "lat": 45.9143,
+      "lng": 8.7942,
+      "distanceKm": 8,
+      "fascia": "1"
+    },
+    {
+      "name": "Besano",
+      "province": "VA",
+      "lat": 45.885,
+      "lng": 8.89,
+      "distanceKm": 2,
+      "fascia": "1"
+    },
+    {
+      "name": "Besnate",
+      "province": "VA",
+      "lat": 45.7002,
+      "lng": 8.7683,
+      "distanceKm": 25,
+      "fascia": "1A"
+    },
+    {
+      "name": "Besozzo",
+      "province": "VA",
+      "lat": 45.8481,
+      "lng": 8.6656,
+      "distanceKm": 18,
+      "fascia": "1A"
+    },
+    {
+      "name": "Biandronno",
+      "province": "VA",
+      "lat": 45.8215,
+      "lng": 8.7132,
+      "distanceKm": 20,
+      "fascia": "1"
+    },
+    {
+      "name": "Bisuschio",
+      "province": "VA",
+      "lat": 45.8704,
+      "lng": 8.8703,
+      "distanceKm": 4,
+      "fascia": "1"
+    },
+    {
+      "name": "Bodio Lomnago",
+      "province": "VA",
+      "lat": 45.7912,
+      "lng": 8.751,
+      "distanceKm": 21,
+      "fascia": "1A"
+    },
+    {
+      "name": "Brebbia",
+      "province": "VA",
+      "lat": 45.8285,
+      "lng": 8.6501,
+      "distanceKm": 22,
+      "fascia": "1"
+    },
+    {
+      "name": "Brenta",
+      "province": "VA",
+      "lat": 45.8932,
+      "lng": 8.6851,
+      "distanceKm": 14,
+      "fascia": "1"
+    },
+    {
+      "name": "Brezzo di Bedero",
+      "province": "VA",
+      "lat": 45.9777,
+      "lng": 8.7187,
+      "distanceKm": 5,
+      "fascia": "1"
+    },
+    {
+      "name": "Brinzio",
+      "province": "VA",
+      "lat": 45.8891,
+      "lng": 8.7904,
+      "distanceKm": 10,
+      "fascia": "1"
+    },
+    {
+      "name": "Brissago-Valtravaglia",
+      "province": "VA",
+      "lat": 45.9486,
+      "lng": 8.7472,
+      "distanceKm": 7,
+      "fascia": "1"
+    },
+    {
+      "name": "Brunello",
+      "province": "VA",
+      "lat": 45.7654,
+      "lng": 8.7974,
+      "distanceKm": 20,
+      "fascia": "1"
+    },
+    {
+      "name": "Brusimpiano",
+      "province": "VA",
+      "lat": 45.96,
+      "lng": 8.8783,
+      "distanceKm": 1,
+      "fascia": "1"
+    },
+    {
+      "name": "Buguggiate",
+      "province": "VA",
+      "lat": 45.786,
+      "lng": 8.805,
+      "distanceKm": 18,
+      "fascia": "1"
+    },
+    {
+      "name": "Cadegliano-Viconago",
+      "province": "VA",
+      "lat": 45.9646,
+      "lng": 8.8308,
+      "distanceKm": 2,
+      "fascia": "1"
+    },
+    {
+      "name": "Cadrezzate con Osmate",
+      "province": "VA",
+      "lat": 45.7899,
+      "lng": 8.6493,
+      "distanceKm": 26,
+      "fascia": "1A"
+    },
+    {
+      "name": "Cairate",
+      "province": "VA",
+      "lat": 45.6909,
+      "lng": 8.8725,
+      "distanceKm": 20,
+      "fascia": "1"
+    },
+    {
+      "name": "Cantello",
+      "province": "VA",
+      "lat": 45.8199,
+      "lng": 8.8947,
+      "distanceKm": 3,
+      "fascia": "1"
+    },
+    {
+      "name": "Caravate",
+      "province": "VA",
+      "lat": 45.8779,
+      "lng": 8.652,
+      "distanceKm": 17,
+      "fascia": "1"
+    },
+    {
+      "name": "Carnago",
+      "province": "VA",
+      "lat": 45.7228,
+      "lng": 8.8358,
+      "distanceKm": 20,
+      "fascia": "1"
+    },
+    {
+      "name": "Caronno Varesino",
+      "province": "VA",
+      "lat": 45.7386,
+      "lng": 8.8312,
+      "distanceKm": 19,
+      "fascia": "1"
+    },
+    {
+      "name": "Casale Litta",
+      "province": "VA",
+      "lat": 45.7673,
+      "lng": 8.7401,
+      "distanceKm": 24,
+      "fascia": "1A"
+    },
+    {
+      "name": "Casalzuigno",
+      "province": "VA",
+      "lat": 45.9045,
+      "lng": 8.7061,
+      "distanceKm": 12,
+      "fascia": "1"
+    },
+    {
+      "name": "Casciago",
+      "province": "VA",
+      "lat": 45.8355,
+      "lng": 8.7812,
+      "distanceKm": 16,
+      "fascia": "1"
+    },
+    {
+      "name": "Cassano Magnago",
+      "province": "VA",
+      "lat": 45.6752,
+      "lng": 8.8256,
+      "distanceKm": 24,
+      "fascia": "1A"
+    },
+    {
+      "name": "Cassano Valcuvia",
+      "province": "VA",
+      "lat": 45.9316,
+      "lng": 8.7683,
+      "distanceKm": 8,
+      "fascia": "1"
+    },
+    {
+      "name": "Castello Cabiaglio",
+      "province": "VA",
+      "lat": 45.8934,
+      "lng": 8.756,
+      "distanceKm": 6,
+      "fascia": "1"
+    },
+    {
+      "name": "Castelseprio",
+      "province": "VA",
+      "lat": 45.7183,
+      "lng": 8.8629,
+      "distanceKm": 18,
+      "fascia": "1"
+    },
+    {
+      "name": "Castelveccana",
+      "province": "VA",
+      "lat": 45.9509,
+      "lng": 8.6693,
+      "distanceKm": 9,
+      "fascia": "1"
+    },
+    {
+      "name": "Castiglione Olona",
+      "province": "VA",
+      "lat": 45.7556,
+      "lng": 8.8668,
+      "distanceKm": 15,
+      "fascia": "1"
+    },
+    {
+      "name": "Castronno",
+      "province": "VA",
+      "lat": 45.7468,
+      "lng": 8.8142,
+      "distanceKm": 19,
+      "fascia": "1"
+    },
+    {
+      "name": "Cavaria con Premezzo",
+      "province": "VA",
+      "lat": 45.6927,
+      "lng": 8.7965,
+      "distanceKm": 24,
+      "fascia": "1A"
+    },
+    {
+      "name": "Cazzago Brabbia",
+      "province": "VA",
+      "lat": 45.7977,
+      "lng": 8.7332,
+      "distanceKm": 21,
+      "fascia": "1A"
+    },
+    {
+      "name": "Cislago",
+      "province": "VA",
+      "lat": 45.6588,
+      "lng": 8.9719,
+      "distanceKm": 20,
+      "fascia": "1"
+    },
+    {
+      "name": "Cittiglio",
+      "province": "VA",
+      "lat": 45.8924,
+      "lng": 8.6615,
+      "distanceKm": 14,
+      "fascia": "1A"
+    },
+    {
+      "name": "Clivio",
+      "province": "VA",
+      "lat": 45.8642,
+      "lng": 8.9293,
+      "distanceKm": 1,
+      "fascia": "1"
+    },
+    {
+      "name": "Cocquio-Trevisago",
+      "province": "VA",
+      "lat": 45.8634,
+      "lng": 8.6957,
+      "distanceKm": 17,
+      "fascia": "1"
+    },
+    {
+      "name": "Comabbio",
+      "province": "VA",
+      "lat": 45.772,
+      "lng": 8.6744,
+      "distanceKm": 26,
+      "fascia": "1A"
+    },
+    {
+      "name": "Comerio",
+      "province": "VA",
+      "lat": 45.8396,
+      "lng": 8.7464,
+      "distanceKm": 17,
+      "fascia": "1"
+    },
+    {
+      "name": "Cremenaga",
+      "province": "VA",
+      "lat": 45.9889,
+      "lng": 8.8022,
+      "distanceKm": 5,
+      "fascia": "1"
+    },
+    {
+      "name": "Crosio della Valle",
+      "province": "VA",
+      "lat": 45.76,
+      "lng": 8.7704,
+      "distanceKm": 22,
+      "fascia": "1A"
+    },
+    {
+      "name": "Cuasso al Monte",
+      "province": "VA",
+      "lat": 45.9148,
+      "lng": 8.8791,
+      "distanceKm": 6,
+      "fascia": "1"
+    },
+    {
+      "name": "Cugliate-Fabiasco",
+      "province": "VA",
+      "lat": 45.9461,
+      "lng": 8.8218,
+      "distanceKm": 3,
+      "fascia": "1"
+    },
+    {
+      "name": "Cunardo",
+      "province": "VA",
+      "lat": 45.9296,
+      "lng": 8.8027,
+      "distanceKm": 5,
+      "fascia": "1"
+    },
+    {
+      "name": "Curiglia con Monteviasco",
+      "province": "VA",
+      "lat": 46.0602,
+      "lng": 8.8043,
+      "distanceKm": 7,
+      "fascia": "1"
+    },
+    {
+      "name": "Cuveglio",
+      "province": "VA",
+      "lat": 45.9044,
+      "lng": 8.7333,
+      "distanceKm": 12,
+      "fascia": "1"
+    },
+    {
+      "name": "Cuvio",
+      "province": "VA",
+      "lat": 45.896,
+      "lng": 8.733,
+      "distanceKm": 13,
+      "fascia": "1"
+    },
+    {
+      "name": "Daverio",
+      "province": "VA",
+      "lat": 45.7784,
+      "lng": 8.7718,
+      "distanceKm": 21,
+      "fascia": "1A"
+    },
+    {
+      "name": "Dumenza",
+      "province": "VA",
+      "lat": 46.0192,
+      "lng": 8.7871,
+      "distanceKm": 3,
+      "fascia": "1"
+    },
+    {
+      "name": "Duno",
+      "province": "VA",
+      "lat": 45.9142,
+      "lng": 8.7379,
+      "distanceKm": 11,
+      "fascia": "1"
+    },
+    {
+      "name": "Fagnano Olona",
+      "province": "VA",
+      "lat": 45.6689,
+      "lng": 8.8728,
+      "distanceKm": 22,
+      "fascia": "1A"
+    },
+    {
+      "name": "Ferrera di Varese",
+      "province": "VA",
+      "lat": 45.9345,
+      "lng": 8.7858,
+      "distanceKm": 7,
+      "fascia": "1"
+    },
+    {
+      "name": "Gallarate",
+      "province": "VA",
+      "lat": 45.6594,
+      "lng": 8.7912,
+      "distanceKm": 25,
+      "fascia": "2"
+    },
+    {
+      "name": "Galliate Lombardo",
+      "province": "VA",
+      "lat": 45.7846,
+      "lng": 8.7709,
+      "distanceKm": 21,
+      "fascia": "1A"
+    },
+    {
+      "name": "Gavirate",
+      "province": "VA",
+      "lat": 45.8426,
+      "lng": 8.7242,
+      "distanceKm": 15,
+      "fascia": "1A"
+    },
+    {
+      "name": "Gazzada Schianno",
+      "province": "VA",
+      "lat": 45.781,
+      "lng": 8.8324,
+      "distanceKm": 16,
+      "fascia": "1"
+    },
+    {
+      "name": "Gemonio",
+      "province": "VA",
+      "lat": 45.8792,
+      "lng": 8.6754,
+      "distanceKm": 16,
+      "fascia": "1"
+    },
+    {
+      "name": "Gerenzano",
+      "province": "VA",
+      "lat": 45.6387,
+      "lng": 9.0003,
+      "distanceKm": 22,
+      "fascia": "1"
+    },
+    {
+      "name": "Germignaga",
+      "province": "VA",
+      "lat": 45.9924,
+      "lng": 8.7261,
+      "distanceKm": 2,
+      "fascia": "1"
+    },
+    {
+      "name": "Gorla Maggiore",
+      "province": "VA",
+      "lat": 45.6641,
+      "lng": 8.8909,
+      "distanceKm": 22,
+      "fascia": "1A"
+    },
+    {
+      "name": "Gorla Minore",
+      "province": "VA",
+      "lat": 45.6443,
+      "lng": 8.8979,
+      "distanceKm": 24,
+      "fascia": "1A"
+    },
+    {
+      "name": "Gornate Olona",
+      "province": "VA",
+      "lat": 45.7396,
+      "lng": 8.8598,
+      "distanceKm": 17,
+      "fascia": "1"
+    },
+    {
+      "name": "Grantola",
+      "province": "VA",
+      "lat": 45.9492,
+      "lng": 8.7743,
+      "distanceKm": 7,
+      "fascia": "1"
+    },
+    {
+      "name": "Inarzo",
+      "province": "VA",
+      "lat": 45.7853,
+      "lng": 8.7345,
+      "distanceKm": 23,
+      "fascia": "1A"
+    },
+    {
+      "name": "Induno Olona",
+      "province": "VA",
+      "lat": 45.8542,
+      "lng": 8.8375,
+      "distanceKm": 8,
+      "fascia": "1A"
+    },
+    {
+      "name": "Jerago con Orago",
+      "province": "VA",
+      "lat": 45.708,
+      "lng": 8.794,
+      "distanceKm": 23,
+      "fascia": "1A"
+    },
+    {
+      "name": "Lavena Ponte Tresa",
+      "province": "VA",
+      "lat": 45.9639,
+      "lng": 8.8558,
+      "distanceKm": 0,
+      "fascia": "1"
+    },
+    {
+      "name": "Laveno-Mombello",
+      "province": "VA",
+      "lat": 45.9104,
+      "lng": 8.6144,
+      "distanceKm": 10,
+      "fascia": "1A"
+    },
+    {
+      "name": "Leggiuno",
+      "province": "VA",
+      "lat": 45.8754,
+      "lng": 8.6205,
+      "distanceKm": 18,
+      "fascia": "1"
+    },
+    {
+      "name": "Lonate Ceppino",
+      "province": "VA",
+      "lat": 45.7045,
+      "lng": 8.8743,
+      "distanceKm": 19,
+      "fascia": "1"
+    },
+    {
+      "name": "Lozza",
+      "province": "VA",
+      "lat": 45.7757,
+      "lng": 8.8577,
+      "distanceKm": 15,
+      "fascia": "1"
+    },
+    {
+      "name": "Luino",
+      "province": "VA",
+      "lat": 46.0017,
+      "lng": 8.7467,
+      "distanceKm": 1,
+      "fascia": "1"
+    },
+    {
+      "name": "Luvinate",
+      "province": "VA",
+      "lat": 45.8393,
+      "lng": 8.7691,
+      "distanceKm": 16,
+      "fascia": "1"
+    },
+    {
+      "name": "Maccagno con Pino e Veddasca",
+      "province": "VA",
+      "lat": 46.0737,
+      "lng": 8.7764,
+      "distanceKm": 1,
+      "fascia": "1"
+    },
+    {
+      "name": "Malnate",
+      "province": "VA",
+      "lat": 45.8016,
+      "lng": 8.8759,
+      "distanceKm": 5,
+      "fascia": "1A"
+    },
+    {
+      "name": "Marchirolo",
+      "province": "VA",
+      "lat": 45.95,
+      "lng": 8.8324,
+      "distanceKm": 2,
+      "fascia": "1"
+    },
+    {
+      "name": "Marzio",
+      "province": "VA",
+      "lat": 45.9387,
+      "lng": 8.8592,
+      "distanceKm": 3,
+      "fascia": "1"
+    },
+    {
+      "name": "Masciago Primo",
+      "province": "VA",
+      "lat": 45.9178,
+      "lng": 8.7811,
+      "distanceKm": 8,
+      "fascia": "1"
+    },
+    {
+      "name": "Mercallo",
+      "province": "VA",
+      "lat": 45.7499,
+      "lng": 8.6696,
+      "distanceKm": 28,
+      "fascia": "1A"
+    },
+    {
+      "name": "Mesenzana",
+      "province": "VA",
+      "lat": 45.9478,
+      "lng": 8.7578,
+      "distanceKm": 7,
+      "fascia": "1"
+    },
+    {
+      "name": "Montegrino Valtravaglia",
+      "province": "VA",
+      "lat": 45.9731,
+      "lng": 8.7689,
+      "distanceKm": 4,
+      "fascia": "1"
+    },
+    {
+      "name": "Monvalle",
+      "province": "VA",
+      "lat": 45.8569,
+      "lng": 8.6337,
+      "distanceKm": 19,
+      "fascia": "1"
+    },
+    {
+      "name": "Morazzone",
+      "province": "VA",
+      "lat": 45.765,
+      "lng": 8.8315,
+      "distanceKm": 17,
+      "fascia": "1"
+    },
+    {
+      "name": "Mornago",
+      "province": "VA",
+      "lat": 45.7475,
+      "lng": 8.7523,
+      "distanceKm": 24,
+      "fascia": "1A"
+    },
+    {
+      "name": "Oggiona con Santo Stefano",
+      "province": "VA",
+      "lat": 45.6994,
+      "lng": 8.8184,
+      "distanceKm": 22,
+      "fascia": "1A"
+    },
+    {
+      "name": "Orino",
+      "province": "VA",
+      "lat": 45.8826,
+      "lng": 8.7178,
+      "distanceKm": 14,
+      "fascia": "1"
+    },
+    {
+      "name": "Porto Ceresio",
+      "province": "VA",
+      "lat": 45.9075,
+      "lng": 8.9042,
+      "distanceKm": 1,
+      "fascia": "1"
+    },
+    {
+      "name": "Porto Valtravaglia",
+      "province": "VA",
+      "lat": 45.9614,
+      "lng": 8.6818,
+      "distanceKm": 8,
+      "fascia": "1"
+    },
+    {
+      "name": "Rancio Valcuvia",
+      "province": "VA",
+      "lat": 45.916,
+      "lng": 8.771,
+      "distanceKm": 9,
+      "fascia": "1"
+    },
+    {
+      "name": "Saltrio",
+      "province": "VA",
+      "lat": 45.8739,
+      "lng": 8.9217,
+      "distanceKm": 1,
+      "fascia": "1"
+    },
+    {
+      "name": "Sangiano",
+      "province": "VA",
+      "lat": 45.8751,
+      "lng": 8.6333,
+      "distanceKm": 18,
+      "fascia": "1"
+    },
+    {
+      "name": "Saronno",
+      "province": "VA",
+      "lat": 45.6249,
+      "lng": 9.0399,
+      "distanceKm": 28,
+      "fascia": "1A"
+    },
+    {
+      "name": "Solbiate Arno",
+      "province": "VA",
+      "lat": 45.7191,
+      "lng": 8.8143,
+      "distanceKm": 21,
+      "fascia": "1A"
+    },
+    {
+      "name": "Solbiate Olona",
+      "province": "VA",
+      "lat": 45.6514,
+      "lng": 8.8878,
+      "distanceKm": 23,
+      "fascia": "1A"
+    },
+    {
+      "name": "Sumirago",
+      "province": "VA",
+      "lat": 45.7392,
+      "lng": 8.781,
+      "distanceKm": 22,
+      "fascia": "1A"
+    },
+    {
+      "name": "Ternate",
+      "province": "VA",
+      "lat": 45.7823,
+      "lng": 8.6903,
+      "distanceKm": 24,
+      "fascia": "1A"
+    },
+    {
+      "name": "Tradate",
+      "province": "VA",
+      "lat": 45.7115,
+      "lng": 8.9043,
+      "distanceKm": 20,
+      "fascia": "1A"
+    },
+    {
+      "name": "Travedona-Monate",
+      "province": "VA",
+      "lat": 45.8051,
+      "lng": 8.6742,
+      "distanceKm": 23,
+      "fascia": "1A"
+    },
+    {
+      "name": "Tronzano Lago Maggiore",
+      "province": "VA",
+      "lat": 46.0891,
+      "lng": 8.7338,
+      "distanceKm": 2,
+      "fascia": "1"
+    },
+    {
+      "name": "Valganna",
+      "province": "VA",
+      "lat": 45.9022,
+      "lng": 8.8254,
+      "distanceKm": 5,
+      "fascia": "1"
+    },
+    {
+      "name": "Varano Borghi",
+      "province": "VA",
+      "lat": 45.7746,
+      "lng": 8.7037,
+      "distanceKm": 25,
+      "fascia": "1A"
+    },
+    {
+      "name": "Varese",
+      "province": "VA",
+      "lat": 45.8183,
+      "lng": 8.8249,
+      "distanceKm": 12,
+      "fascia": "1A"
+    },
+    {
+      "name": "Vedano Olona",
+      "province": "VA",
+      "lat": 45.7769,
+      "lng": 8.8856,
+      "distanceKm": 13,
+      "fascia": "1"
+    },
+    {
+      "name": "Venegono Inferiore",
+      "province": "VA",
+      "lat": 45.7381,
+      "lng": 8.9018,
+      "distanceKm": 15,
+      "fascia": "1"
+    },
+    {
+      "name": "Venegono Superiore",
+      "province": "VA",
+      "lat": 45.7514,
+      "lng": 8.9048,
+      "distanceKm": 13,
+      "fascia": "1"
+    },
+    {
+      "name": "Vergiate",
+      "province": "VA",
+      "lat": 45.7248,
+      "lng": 8.694,
+      "distanceKm": 29,
+      "fascia": "1"
+    },
+    {
+      "name": "Viggiù",
+      "province": "VA",
+      "lat": 45.8722,
+      "lng": 8.9059,
+      "distanceKm": 2,
+      "fascia": "1"
+    },
+    {
+      "name": "Antrona Schieranco",
+      "province": "VB",
+      "lat": 46.0569,
+      "lng": 8.0965,
+      "distanceKm": 23,
+      "fascia": "1A"
+    },
+    {
+      "name": "Arizzano",
+      "province": "VB",
+      "lat": 45.9566,
+      "lng": 8.5838,
+      "distanceKm": 14,
+      "fascia": "1"
+    },
+    {
+      "name": "Aurano",
+      "province": "VB",
+      "lat": 45.9991,
+      "lng": 8.5883,
+      "distanceKm": 13,
+      "fascia": "1"
+    },
+    {
+      "name": "Baceno",
+      "province": "VB",
+      "lat": 46.2609,
+      "lng": 8.3202,
+      "distanceKm": 25,
+      "fascia": "1A"
+    },
+    {
+      "name": "Bannio Anzino",
+      "province": "VB",
+      "lat": 45.96,
+      "lng": 8.1551,
+      "distanceKm": 34,
+      "fascia": "1A"
+    },
+    {
+      "name": "Bee",
+      "province": "VB",
+      "lat": 45.9611,
+      "lng": 8.5814,
+      "distanceKm": 14,
+      "fascia": "1"
+    },
+    {
+      "name": "Beura-Cardezza",
+      "province": "VB",
+      "lat": 46.0796,
+      "lng": 8.2997,
+      "distanceKm": 30,
+      "fascia": "1A"
+    },
+    {
+      "name": "Bognanco",
+      "province": "VB",
+      "lat": 46.1264,
+      "lng": 8.2011,
+      "distanceKm": 21,
+      "fascia": "1A"
+    },
+    {
+      "name": "Borgomezzavalle",
+      "province": "VB",
+      "lat": 46.0473,
+      "lng": 8.1994,
+      "distanceKm": 27,
+      "fascia": "1A"
+    },
+    {
+      "name": "Calasca-Castiglione",
+      "province": "VB",
+      "lat": 45.9917,
+      "lng": 8.1934,
+      "distanceKm": 32,
+      "fascia": "1A"
+    },
+    {
+      "name": "Cambiasca",
+      "province": "VB",
+      "lat": 45.9624,
+      "lng": 8.5446,
+      "distanceKm": 17,
+      "fascia": "1"
+    },
+    {
+      "name": "Cannero Riviera",
+      "province": "VB",
+      "lat": 46.0186,
+      "lng": 8.6688,
+      "distanceKm": 3,
+      "fascia": "1"
+    },
+    {
+      "name": "Cannobio",
+      "province": "VB",
+      "lat": 46.0588,
+      "lng": 8.6917,
+      "distanceKm": 1,
+      "fascia": "1"
+    },
+    {
+      "name": "Caprezzo",
+      "province": "VB",
+      "lat": 45.982,
+      "lng": 8.5628,
+      "distanceKm": 15,
+      "fascia": "1"
+    },
+    {
+      "name": "Ceppo Morelli",
+      "province": "VB",
+      "lat": 45.9718,
+      "lng": 8.0677,
+      "distanceKm": 31,
+      "fascia": "1A"
+    },
+    {
+      "name": "Cossogno",
+      "province": "VB",
+      "lat": 45.9641,
+      "lng": 8.5096,
+      "distanceKm": 19,
+      "fascia": "1"
+    },
+    {
+      "name": "Craveggia",
+      "province": "VB",
+      "lat": 46.1397,
+      "lng": 8.4908,
+      "distanceKm": 18,
+      "fascia": "1"
+    },
+    {
+      "name": "Crevoladossola",
+      "province": "VB",
+      "lat": 46.1519,
+      "lng": 8.3014,
+      "distanceKm": 2,
+      "fascia": "1"
+    },
+    {
+      "name": "Crodo",
+      "province": "VB",
+      "lat": 46.2233,
+      "lng": 8.3239,
+      "distanceKm": 25,
+      "fascia": "1A"
+    },
+    {
+      "name": "Domodossola",
+      "province": "VB",
+      "lat": 46.114,
+      "lng": 8.2922,
+      "distanceKm": 3,
+      "fascia": "1"
+    },
+    {
+      "name": "Druogno",
+      "province": "VB",
+      "lat": 46.1351,
+      "lng": 8.4342,
+      "distanceKm": 22,
+      "fascia": "1A"
+    },
+    {
+      "name": "Formazza",
+      "province": "VB",
+      "lat": 46.3919,
+      "lng": 8.3904,
+      "distanceKm": 34,
+      "fascia": "1A"
+    },
+    {
+      "name": "Ghiffa",
+      "province": "VB",
+      "lat": 45.9527,
+      "lng": 8.5888,
+      "distanceKm": 5,
+      "fascia": "1"
+    },
+    {
+      "name": "Gurro",
+      "province": "VB",
+      "lat": 46.0857,
+      "lng": 8.5704,
+      "distanceKm": 11,
+      "fascia": "1"
+    },
+    {
+      "name": "Intragna",
+      "province": "VB",
+      "lat": 45.9942,
+      "lng": 8.5729,
+      "distanceKm": 14,
+      "fascia": "1"
+    },
+    {
+      "name": "Macugnaga",
+      "province": "VB",
+      "lat": 45.9684,
+      "lng": 7.9673,
+      "distanceKm": 31,
+      "fascia": "1A"
+    },
+    {
+      "name": "Malesco",
+      "province": "VB",
+      "lat": 46.1266,
+      "lng": 8.5009,
+      "distanceKm": 17,
+      "fascia": "1"
+    },
+    {
+      "name": "Masera",
+      "province": "VB",
+      "lat": 46.14,
+      "lng": 8.3234,
+      "distanceKm": 28,
+      "fascia": "1A"
+    },
+    {
+      "name": "Mergozzo",
+      "province": "VB",
+      "lat": 45.9613,
+      "lng": 8.4495,
+      "distanceKm": 24,
+      "fascia": "1A"
+    },
+    {
+      "name": "Miazzina",
+      "province": "VB",
+      "lat": 45.9764,
+      "lng": 8.5222,
+      "distanceKm": 18,
+      "fascia": "1"
+    },
+    {
+      "name": "Montecrestese",
+      "province": "VB",
+      "lat": 46.1628,
+      "lng": 8.3298,
+      "distanceKm": 27,
+      "fascia": "1A"
+    },
+    {
+      "name": "Montescheno",
+      "province": "VB",
+      "lat": 46.0679,
+      "lng": 8.2252,
+      "distanceKm": 27,
+      "fascia": "1A"
+    },
+    {
+      "name": "Oggebbio",
+      "province": "VB",
+      "lat": 45.982,
+      "lng": 8.641,
+      "distanceKm": 4,
+      "fascia": "1"
+    },
+    {
+      "name": "Pallanzeno",
+      "province": "VB",
+      "lat": 46.042,
+      "lng": 8.2581,
+      "distanceKm": 31,
+      "fascia": "1A"
+    },
+    {
+      "name": "Piedimulera",
+      "province": "VB",
+      "lat": 46.0242,
+      "lng": 8.2593,
+      "distanceKm": 32,
+      "fascia": "1A"
+    },
+    {
+      "name": "Pieve Vergonte",
+      "province": "VB",
+      "lat": 46.0062,
+      "lng": 8.2665,
+      "distanceKm": 34,
+      "fascia": "1A"
+    },
+    {
+      "name": "Premeno",
+      "province": "VB",
+      "lat": 45.9781,
+      "lng": 8.5961,
+      "distanceKm": 12,
+      "fascia": "1"
+    },
+    {
+      "name": "Premia",
+      "province": "VB",
+      "lat": 46.2681,
+      "lng": 8.339,
+      "distanceKm": 26,
+      "fascia": "1A"
+    },
+    {
+      "name": "Premosello-Chiovenda",
+      "province": "VB",
+      "lat": 46.004,
+      "lng": 8.3276,
+      "distanceKm": 31,
+      "fascia": "1A"
+    },
+    {
+      "name": "Re",
+      "province": "VB",
+      "lat": 46.1305,
+      "lng": 8.5445,
+      "distanceKm": 14,
+      "fascia": "1"
+    },
+    {
+      "name": "San Bernardino Verbano",
+      "province": "VB",
+      "lat": 45.9952,
+      "lng": 8.4561,
+      "distanceKm": 22,
+      "fascia": "1A"
+    },
+    {
+      "name": "Santa Maria Maggiore",
+      "province": "VB",
+      "lat": 46.135,
+      "lng": 8.4673,
+      "distanceKm": 20,
+      "fascia": "1"
+    },
+    {
+      "name": "Stresa",
+      "province": "VB",
+      "lat": 45.8833,
+      "lng": 8.5333,
+      "distanceKm": 8,
+      "fascia": "1"
+    },
+    {
+      "name": "Toceno",
+      "province": "VB",
+      "lat": 46.1436,
+      "lng": 8.4667,
+      "distanceKm": 20,
+      "fascia": "1"
+    },
+    {
+      "name": "Trarego Viggiona",
+      "province": "VB",
+      "lat": 46.0387,
+      "lng": 8.6461,
+      "distanceKm": 7,
+      "fascia": "1"
+    },
+    {
+      "name": "Trasquera",
+      "province": "VB",
+      "lat": 46.2189,
+      "lng": 8.2068,
+      "distanceKm": 0,
+      "fascia": "1"
+    },
+    {
+      "name": "Trontano",
+      "province": "VB",
+      "lat": 46.1225,
+      "lng": 8.3332,
+      "distanceKm": 29,
+      "fascia": "1A"
+    },
+    {
+      "name": "Valle Cannobina",
+      "province": "VB",
+      "lat": 46.103,
+      "lng": 8.5997,
+      "distanceKm": 9,
+      "fascia": "1"
+    },
+    {
+      "name": "Valstrona",
+      "province": "VB",
+      "lat": 45.923,
+      "lng": 8.2563,
+      "distanceKm": 39,
+      "fascia": "1A"
+    },
+    {
+      "name": "Vanzone con San Carlo",
+      "province": "VB",
+      "lat": 45.9804,
+      "lng": 8.1141,
+      "distanceKm": 31,
+      "fascia": "1A"
+    },
+    {
+      "name": "Varzo",
+      "province": "VB",
+      "lat": 46.205,
+      "lng": 8.2526,
+      "distanceKm": 1,
+      "fascia": "1"
+    },
+    {
+      "name": "Verbania",
+      "province": "VB",
+      "lat": 45.9257,
+      "lng": 8.5528,
+      "distanceKm": 5,
+      "fascia": "1"
+    },
+    {
+      "name": "Vignone",
+      "province": "VB",
+      "lat": 45.9598,
+      "lng": 8.5666,
+      "distanceKm": 15,
+      "fascia": "1"
+    },
+    {
+      "name": "Villadossola",
+      "province": "VB",
+      "lat": 46.0684,
+      "lng": 8.2636,
+      "distanceKm": 5,
+      "fascia": "1"
+    },
+    {
+      "name": "Villette",
+      "province": "VB",
+      "lat": 46.1322,
+      "lng": 8.5353,
+      "distanceKm": 15,
+      "fascia": "1"
+    },
+    {
+      "name": "Vogogna",
+      "province": "VB",
+      "lat": 46.009,
+      "lng": 8.293,
+      "distanceKm": 33,
+      "fascia": "1A"
+    },
+    {
+      "name": "Abbadia Lariana",
+      "province": "LC",
+      "lat": 45.9,
+      "lng": 9.3341,
+      "distanceKm": 25,
+      "fascia": "1A"
+    },
+    {
+      "name": "Albaredo Per San Marco",
+      "province": "SO",
+      "lat": 46.1035,
+      "lng": 9.59,
+      "distanceKm": 41,
+      "fascia": "1"
+    },
+    {
+      "name": "Albosaggia",
+      "province": "SO",
+      "lat": 46.1472,
+      "lng": 9.8532,
+      "distanceKm": 21,
+      "fascia": "1"
+    },
+    {
+      "name": "Andalo Valtellino",
+      "province": "SO",
+      "lat": 46.1336,
+      "lng": 9.4735,
+      "distanceKm": 39,
+      "fascia": "1"
+    },
+    {
+      "name": "Aprica",
+      "province": "SO",
+      "lat": 46.1527,
+      "lng": 10.1517,
+      "distanceKm": 12,
+      "fascia": "1"
+    },
+    {
+      "name": "Ardenno",
+      "province": "SO",
+      "lat": 46.1643,
+      "lng": 9.6449,
+      "distanceKm": 35,
+      "fascia": "1"
+    },
+    {
+      "name": "Bellano",
+      "province": "LC",
+      "lat": 46.0422,
+      "lng": 9.3014,
+      "distanceKm": 10,
+      "fascia": "1"
+    },
+    {
+      "name": "Bema",
+      "province": "SO",
+      "lat": 46.0788,
+      "lng": 9.5812,
+      "distanceKm": 43,
+      "fascia": "1"
+    },
+    {
+      "name": "Berbenno di Valtellina",
+      "province": "SO",
+      "lat": 46.169,
+      "lng": 9.7434,
+      "distanceKm": 27,
+      "fascia": "1"
+    },
+    {
+      "name": "Bianzone",
+      "province": "SO",
+      "lat": 46.1882,
+      "lng": 10.1094,
+      "distanceKm": 7,
+      "fascia": "1"
+    },
+    {
+      "name": "Bormio",
+      "province": "SO",
+      "lat": 46.4679,
+      "lng": 10.3709,
+      "distanceKm": 4,
+      "fascia": "1"
+    },
+    {
+      "name": "Bosisio Parini",
+      "province": "LC",
+      "lat": 45.8023,
+      "lng": 9.2907,
+      "distanceKm": 21,
+      "fascia": "1A"
+    },
+    {
+      "name": "Buglio in Monte",
+      "province": "SO",
+      "lat": 46.1828,
+      "lng": 9.6748,
+      "distanceKm": 32,
+      "fascia": "1"
+    },
+    {
+      "name": "Bulciago",
+      "province": "LC",
+      "lat": 45.7547,
+      "lng": 9.291,
+      "distanceKm": 22,
+      "fascia": "1"
+    },
+    {
+      "name": "Caiolo",
+      "province": "SO",
+      "lat": 46.15,
+      "lng": 9.8145,
+      "distanceKm": 23,
+      "fascia": "1"
+    },
+    {
+      "name": "Campodolcino",
+      "province": "SO",
+      "lat": 46.3987,
+      "lng": 9.35,
+      "distanceKm": 3,
+      "fascia": "1"
+    },
+    {
+      "name": "Casargo",
+      "province": "LC",
+      "lat": 46.0395,
+      "lng": 9.3882,
+      "distanceKm": 30,
+      "fascia": "1A"
+    },
+    {
+      "name": "Caspoggio",
+      "province": "SO",
+      "lat": 46.2646,
+      "lng": 9.8639,
+      "distanceKm": 17,
+      "fascia": "1"
+    },
+    {
+      "name": "Castello Dell'Acqua",
+      "province": "SO",
+      "lat": 46.146,
+      "lng": 10.0136,
+      "distanceKm": 13,
+      "fascia": "1"
+    },
+    {
+      "name": "Castione Andevenno",
+      "province": "SO",
+      "lat": 46.1728,
+      "lng": 9.8002,
+      "distanceKm": 23,
+      "fascia": "1"
+    },
+    {
+      "name": "Cedrasco",
+      "province": "SO",
+      "lat": 46.149,
+      "lng": 9.7674,
+      "distanceKm": 27,
+      "fascia": "1"
+    },
+    {
+      "name": "Cercino",
+      "province": "SO",
+      "lat": 46.1581,
+      "lng": 9.5081,
+      "distanceKm": 39,
+      "fascia": "1"
+    },
+    {
+      "name": "Cesana Brianza",
+      "province": "LC",
+      "lat": 45.8168,
+      "lng": 9.2995,
+      "distanceKm": 21,
+      "fascia": "1A"
+    },
+    {
+      "name": "Chiavenna",
+      "province": "SO",
+      "lat": 46.3217,
+      "lng": 9.3997,
+      "distanceKm": 3,
+      "fascia": "1"
+    },
+    {
+      "name": "Chiesa in Valmalenco",
+      "province": "SO",
+      "lat": 46.2641,
+      "lng": 9.8497,
+      "distanceKm": 18,
+      "fascia": "1"
+    },
+    {
+      "name": "Chiuro",
+      "province": "SO",
+      "lat": 46.1708,
+      "lng": 9.9894,
+      "distanceKm": 11,
+      "fascia": "1"
+    },
+    {
+      "name": "Cino",
+      "province": "SO",
+      "lat": 46.1581,
+      "lng": 9.4861,
+      "distanceKm": 38,
+      "fascia": "1"
+    },
+    {
+      "name": "Civate",
+      "province": "LC",
+      "lat": 45.8281,
+      "lng": 9.3429,
+      "distanceKm": 24,
+      "fascia": "1A"
+    },
+    {
+      "name": "Civo",
+      "province": "SO",
+      "lat": 46.1543,
+      "lng": 9.5608,
+      "distanceKm": 41,
+      "fascia": "1"
+    },
+    {
+      "name": "Colico",
+      "province": "LC",
+      "lat": 46.1344,
+      "lng": 9.3742,
+      "distanceKm": 8,
+      "fascia": "1"
+    },
+    {
+      "name": "Colorina",
+      "province": "SO",
+      "lat": 46.1511,
+      "lng": 9.7328,
+      "distanceKm": 29,
+      "fascia": "1"
+    },
+    {
+      "name": "Cosio Valtellino",
+      "province": "SO",
+      "lat": 46.1337,
+      "lng": 9.5292,
+      "distanceKm": 42,
+      "fascia": "1"
+    },
+    {
+      "name": "Costa Masnaga",
+      "province": "LC",
+      "lat": 45.768,
+      "lng": 9.2764,
+      "distanceKm": 21,
+      "fascia": "1A"
+    },
+    {
+      "name": "Dazio",
+      "province": "SO",
+      "lat": 46.1613,
+      "lng": 9.6008,
+      "distanceKm": 38,
+      "fascia": "1"
+    },
+    {
+      "name": "Delebio",
+      "province": "SO",
+      "lat": 46.1361,
+      "lng": 9.4606,
+      "distanceKm": 38,
+      "fascia": "1"
+    },
+    {
+      "name": "Dervio",
+      "province": "LC",
+      "lat": 46.0766,
+      "lng": 9.3045,
+      "distanceKm": 25,
+      "fascia": "1A"
+    },
+    {
+      "name": "Dorio",
+      "province": "LC",
+      "lat": 46.1391,
+      "lng": 9.3966,
+      "distanceKm": 34,
+      "fascia": "1A"
+    },
+    {
+      "name": "Dubino",
+      "province": "SO",
+      "lat": 46.1534,
+      "lng": 9.4613,
+      "distanceKm": 38,
+      "fascia": "1"
+    },
+    {
+      "name": "Esino Lario",
+      "province": "LC",
+      "lat": 45.9939,
+      "lng": 9.3332,
+      "distanceKm": 26,
+      "fascia": "1A"
+    },
+    {
+      "name": "Faedo Valtellino",
+      "province": "SO",
+      "lat": 46.153,
+      "lng": 9.9061,
+      "distanceKm": 17,
+      "fascia": "1"
+    },
+    {
+      "name": "Forcola",
+      "province": "SO",
+      "lat": 46.1588,
+      "lng": 9.6708,
+      "distanceKm": 33,
+      "fascia": "1"
+    },
+    {
+      "name": "Fusine",
+      "province": "SO",
+      "lat": 46.149,
+      "lng": 9.7491,
+      "distanceKm": 28,
+      "fascia": "1"
+    },
+    {
+      "name": "Gordona",
+      "province": "SO",
+      "lat": 46.2917,
+      "lng": 9.3657,
+      "distanceKm": 21,
+      "fascia": "1"
+    },
+    {
+      "name": "Grosio",
+      "province": "SO",
+      "lat": 46.2989,
+      "lng": 10.2745,
+      "distanceKm": 16,
+      "fascia": "1"
+    },
+    {
+      "name": "Grosotto",
+      "province": "SO",
+      "lat": 46.2799,
+      "lng": 10.2584,
+      "distanceKm": 14,
+      "fascia": "1"
+    },
+    {
+      "name": "Lanzada",
+      "province": "SO",
+      "lat": 46.2693,
+      "lng": 9.8692,
+      "distanceKm": 16,
+      "fascia": "1"
+    },
+    {
+      "name": "Lierna",
+      "province": "LC",
+      "lat": 45.9592,
+      "lng": 9.3025,
+      "distanceKm": 24,
+      "fascia": "1A"
+    },
+    {
+      "name": "Livigno",
+      "province": "SO",
+      "lat": 46.5384,
+      "lng": 10.1357,
+      "distanceKm": 0,
+      "fascia": "1"
+    },
+    {
+      "name": "Lovero",
+      "province": "SO",
+      "lat": 46.2314,
+      "lng": 10.2286,
+      "distanceKm": 12,
+      "fascia": "1"
+    },
+    {
+      "name": "Madesimo",
+      "province": "SO",
+      "lat": 46.4333,
+      "lng": 9.35,
+      "distanceKm": 2,
+      "fascia": "1"
+    },
+    {
+      "name": "Mandello del Lario",
+      "province": "LC",
+      "lat": 45.9143,
+      "lng": 9.317,
+      "distanceKm": 18,
+      "fascia": "1A"
+    },
+    {
+      "name": "Mantello",
+      "province": "SO",
+      "lat": 46.1522,
+      "lng": 9.4885,
+      "distanceKm": 39,
+      "fascia": "1"
+    },
+    {
+      "name": "Mazzo di Valtellina",
+      "province": "SO",
+      "lat": 46.2586,
+      "lng": 10.2567,
+      "distanceKm": 14,
+      "fascia": "1"
+    },
+    {
+      "name": "Mello",
+      "province": "SO",
+      "lat": 46.1542,
+      "lng": 9.5479,
+      "distanceKm": 40,
+      "fascia": "1"
+    },
+    {
+      "name": "Mese",
+      "province": "SO",
+      "lat": 46.3053,
+      "lng": 9.3803,
+      "distanceKm": 20,
+      "fascia": "1"
+    },
+    {
+      "name": "Molteno",
+      "province": "LC",
+      "lat": 45.7804,
+      "lng": 9.3074,
+      "distanceKm": 22,
+      "fascia": "1"
+    },
+    {
+      "name": "Montagna in Valtellina",
+      "province": "SO",
+      "lat": 46.1785,
+      "lng": 9.903,
+      "distanceKm": 16,
+      "fascia": "1"
+    },
+    {
+      "name": "Morbegno",
+      "province": "SO",
+      "lat": 46.1362,
+      "lng": 9.5731,
+      "distanceKm": 12,
+      "fascia": "1A"
+    },
+    {
+      "name": "Nibionno",
+      "province": "LC",
+      "lat": 45.7465,
+      "lng": 9.2689,
+      "distanceKm": 21,
+      "fascia": "1A"
+    },
+    {
+      "name": "Novate Mezzola",
+      "province": "SO",
+      "lat": 46.2218,
+      "lng": 9.4536,
+      "distanceKm": 6,
+      "fascia": "1"
+    },
+    {
+      "name": "Oliveto Lario",
+      "province": "LC",
+      "lat": 45.9292,
+      "lng": 9.2859,
+      "distanceKm": 22,
+      "fascia": "1A"
+    },
+    {
+      "name": "Pagnona",
+      "province": "LC",
+      "lat": 46.0597,
+      "lng": 9.4029,
+      "distanceKm": 32,
+      "fascia": "1A"
+    },
+    {
+      "name": "Perledo",
+      "province": "LC",
+      "lat": 46.0128,
+      "lng": 9.2963,
+      "distanceKm": 23,
+      "fascia": "1A"
+    },
+    {
+      "name": "Piantedo",
+      "province": "SO",
+      "lat": 46.1342,
+      "lng": 9.4293,
+      "distanceKm": 36,
+      "fascia": "1"
+    },
+    {
+      "name": "Piateda",
+      "province": "SO",
+      "lat": 46.1588,
+      "lng": 9.9423,
+      "distanceKm": 15,
+      "fascia": "1"
+    },
+    {
+      "name": "Piuro",
+      "province": "SO",
+      "lat": 46.3288,
+      "lng": 9.4397,
+      "distanceKm": 2,
+      "fascia": "1"
+    },
+    {
+      "name": "Poggiridenti",
+      "province": "SO",
+      "lat": 46.1757,
+      "lng": 9.9262,
+      "distanceKm": 14,
+      "fascia": "1"
+    },
+    {
+      "name": "Ponte in Valtellina",
+      "province": "SO",
+      "lat": 46.1769,
+      "lng": 9.9824,
+      "distanceKm": 11,
+      "fascia": "1"
+    },
+    {
+      "name": "Postalesio",
+      "province": "SO",
+      "lat": 46.1741,
+      "lng": 9.7754,
+      "distanceKm": 25,
+      "fascia": "1"
+    },
+    {
+      "name": "Prata Camportaccio",
+      "province": "SO",
+      "lat": 46.3072,
+      "lng": 9.3952,
+      "distanceKm": 20,
+      "fascia": "1"
+    },
+    {
+      "name": "Rogeno",
+      "province": "LC",
+      "lat": 45.7824,
+      "lng": 9.274,
+      "distanceKm": 20,
+      "fascia": "1"
+    },
+    {
+      "name": "Rogolo",
+      "province": "SO",
+      "lat": 46.1357,
+      "lng": 9.4873,
+      "distanceKm": 40,
+      "fascia": "1"
+    },
+    {
+      "name": "Samolaco",
+      "province": "SO",
+      "lat": 46.2463,
+      "lng": 9.3949,
+      "distanceKm": 27,
+      "fascia": "1"
+    },
+    {
+      "name": "San Giacomo Filippo",
+      "province": "SO",
+      "lat": 46.3374,
+      "lng": 9.3707,
+      "distanceKm": 16,
+      "fascia": "1"
+    },
+    {
+      "name": "Sernio",
+      "province": "SO",
+      "lat": 46.2245,
+      "lng": 10.2041,
+      "distanceKm": 10,
+      "fascia": "1"
+    },
+    {
+      "name": "Sondalo",
+      "province": "SO",
+      "lat": 46.3333,
+      "lng": 10.3333,
+      "distanceKm": 8,
+      "fascia": "1A"
+    },
+    {
+      "name": "Sondrio",
+      "province": "SO",
+      "lat": 46.17,
+      "lng": 9.8727,
+      "distanceKm": 15,
+      "fascia": "1A"
+    },
+    {
+      "name": "Spriana",
+      "province": "SO",
+      "lat": 46.2198,
+      "lng": 9.8648,
+      "distanceKm": 17,
+      "fascia": "1"
+    },
+    {
+      "name": "Sueglio",
+      "province": "LC",
+      "lat": 46.0861,
+      "lng": 9.3324,
+      "distanceKm": 27,
+      "fascia": "1A"
+    },
+    {
+      "name": "Suello",
+      "province": "LC",
+      "lat": 45.8168,
+      "lng": 9.3115,
+      "distanceKm": 22,
+      "fascia": "1A"
+    },
+    {
+      "name": "Talamona",
+      "province": "SO",
+      "lat": 46.1361,
+      "lng": 9.6105,
+      "distanceKm": 38,
+      "fascia": "1"
+    },
+    {
+      "name": "Tartano",
+      "province": "SO",
+      "lat": 46.1032,
+      "lng": 9.6869,
+      "distanceKm": 34,
+      "fascia": "1"
+    },
+    {
+      "name": "Teglio",
+      "province": "SO",
+      "lat": 46.1717,
+      "lng": 10.0667,
+      "distanceKm": 10,
+      "fascia": "1A"
+    },
+    {
+      "name": "Tirano",
+      "province": "SO",
+      "lat": 46.2167,
+      "lng": 10.1667,
+      "distanceKm": 2,
+      "fascia": "1"
+    },
+    {
+      "name": "Torre di Santa Maria",
+      "province": "SO",
+      "lat": 46.2335,
+      "lng": 9.8516,
+      "distanceKm": 18,
+      "fascia": "1"
+    },
+    {
+      "name": "Tovo di Sant'Agata",
+      "province": "SO",
+      "lat": 46.2448,
+      "lng": 10.2465,
+      "distanceKm": 13,
+      "fascia": "1"
+    },
+    {
+      "name": "Traona",
+      "province": "SO",
+      "lat": 46.1496,
+      "lng": 9.5258,
+      "distanceKm": 40,
+      "fascia": "1"
+    },
+    {
+      "name": "Tresivio",
+      "province": "SO",
+      "lat": 46.1757,
+      "lng": 9.9426,
+      "distanceKm": 13,
+      "fascia": "1"
+    },
+    {
+      "name": "Val Masino",
+      "province": "SO",
+      "lat": 46.2457,
+      "lng": 9.6379,
+      "distanceKm": 34,
+      "fascia": "1"
+    },
+    {
+      "name": "Valdidentro",
+      "province": "SO",
+      "lat": 46.5089,
+      "lng": 10.2908,
+      "distanceKm": 3,
+      "fascia": "1"
+    },
+    {
+      "name": "Valdisotto",
+      "province": "SO",
+      "lat": 46.4252,
+      "lng": 10.3574,
+      "distanceKm": 14,
+      "fascia": "1"
+    },
+    {
+      "name": "Valfurva",
+      "province": "SO",
+      "lat": 46.4167,
+      "lng": 10.5126,
+      "distanceKm": 5,
+      "fascia": "1"
+    },
+    {
+      "name": "Valmadrera",
+      "province": "LC",
+      "lat": 45.8463,
+      "lng": 9.3582,
+      "distanceKm": 25,
+      "fascia": "1A"
+    },
+    {
+      "name": "Valvarrone",
+      "province": "LC",
+      "lat": 46.0849,
+      "lng": 9.3614,
+      "distanceKm": 29,
+      "fascia": "1A"
+    },
+    {
+      "name": "Varenna",
+      "province": "LC",
+      "lat": 46.0107,
+      "lng": 9.2836,
+      "distanceKm": 12,
+      "fascia": "1"
+    },
+    {
+      "name": "Verceia",
+      "province": "SO",
+      "lat": 46.1979,
+      "lng": 9.4518,
+      "distanceKm": 33,
+      "fascia": "1"
+    },
+    {
+      "name": "Vervio",
+      "province": "SO",
+      "lat": 46.2528,
+      "lng": 10.2402,
+      "distanceKm": 12,
+      "fascia": "1"
+    },
+    {
+      "name": "Villa di Chiavenna",
+      "province": "SO",
+      "lat": 46.331,
+      "lng": 9.4894,
+      "distanceKm": 2,
+      "fascia": "1"
+    },
+    {
+      "name": "Villa di Tirano",
+      "province": "SO",
+      "lat": 46.2039,
+      "lng": 10.1339,
+      "distanceKm": 7,
+      "fascia": "1"
+    },
+    {
+      "name": "Allein",
+      "province": "AO",
+      "lat": 45.8078,
+      "lng": 7.2725,
+      "distanceKm": 11,
+      "fascia": "1"
+    },
+    {
+      "name": "Antey-Saint-André",
+      "province": "AO",
+      "lat": 45.8065,
+      "lng": 7.5982,
+      "distanceKm": 34,
+      "fascia": "1"
+    },
+    {
+      "name": "Aosta",
+      "province": "AO",
+      "lat": 45.7371,
+      "lng": 7.3197,
+      "distanceKm": 19,
+      "fascia": "1"
+    },
+    {
+      "name": "Arvier",
+      "province": "AO",
+      "lat": 45.7025,
+      "lng": 7.1665,
+      "distanceKm": 19,
+      "fascia": "1"
+    },
+    {
+      "name": "Avise",
+      "province": "AO",
+      "lat": 45.7086,
+      "lng": 7.1397,
+      "distanceKm": 18,
+      "fascia": "1"
+    },
+    {
+      "name": "Ayas",
+      "province": "AO",
+      "lat": 45.8626,
+      "lng": 7.7319,
+      "distanceKm": 44,
+      "fascia": "1"
+    },
+    {
+      "name": "Aymavilles",
+      "province": "AO",
+      "lat": 45.7017,
+      "lng": 7.2477,
+      "distanceKm": 20,
+      "fascia": "1"
+    },
+    {
+      "name": "Bionaz",
+      "province": "AO",
+      "lat": 45.9105,
+      "lng": 7.4971,
+      "distanceKm": 26,
+      "fascia": "1"
+    },
+    {
+      "name": "Brissogne",
+      "province": "AO",
+      "lat": 45.7285,
+      "lng": 7.4067,
+      "distanceKm": 24,
+      "fascia": "1"
+    },
+    {
+      "name": "Brusson",
+      "province": "AO",
+      "lat": 45.7593,
+      "lng": 7.7304,
+      "distanceKm": 45,
+      "fascia": "1"
+    },
+    {
+      "name": "Chambave",
+      "province": "AO",
+      "lat": 45.7445,
+      "lng": 7.5499,
+      "distanceKm": 33,
+      "fascia": "1"
+    },
+    {
+      "name": "Chamois",
+      "province": "AO",
+      "lat": 45.841,
+      "lng": 7.6437,
+      "distanceKm": 37,
+      "fascia": "1"
+    },
+    {
+      "name": "Charvensod",
+      "province": "AO",
+      "lat": 45.7209,
+      "lng": 7.3261,
+      "distanceKm": 21,
+      "fascia": "1"
+    },
+    {
+      "name": "Châtillon",
+      "province": "AO",
+      "lat": 45.7488,
+      "lng": 7.6125,
+      "distanceKm": 37,
+      "fascia": "1"
+    },
+    {
+      "name": "Courmayeur",
+      "province": "AO",
+      "lat": 45.7874,
+      "lng": 6.9731,
+      "distanceKm": 14,
+      "fascia": "1"
+    },
+    {
+      "name": "Doues",
+      "province": "AO",
+      "lat": 45.8194,
+      "lng": 7.3066,
+      "distanceKm": 12,
+      "fascia": "1"
+    },
+    {
+      "name": "Emarèse",
+      "province": "AO",
+      "lat": 45.7234,
+      "lng": 7.7007,
+      "distanceKm": 44,
+      "fascia": "1"
+    },
+    {
+      "name": "Etroubles",
+      "province": "AO",
+      "lat": 45.8206,
+      "lng": 7.2306,
+      "distanceKm": 7,
+      "fascia": "1"
+    },
+    {
+      "name": "Fénis",
+      "province": "AO",
+      "lat": 45.736,
+      "lng": 7.4944,
+      "distanceKm": 29,
+      "fascia": "1"
+    },
+    {
+      "name": "Gaby",
+      "province": "AO",
+      "lat": 45.7107,
+      "lng": 7.8901,
+      "distanceKm": 59,
+      "fascia": "1"
+    },
+    {
+      "name": "Gignod",
+      "province": "AO",
+      "lat": 45.7792,
+      "lng": 7.2957,
+      "distanceKm": 14,
+      "fascia": "1"
+    },
+    {
+      "name": "Gressan",
+      "province": "AO",
+      "lat": 45.7192,
+      "lng": 7.2851,
+      "distanceKm": 19,
+      "fascia": "1"
+    },
+    {
+      "name": "Gressoney-La-Trinité",
+      "province": "AO",
+      "lat": 45.8296,
+      "lng": 7.8241,
+      "distanceKm": 49,
+      "fascia": "1"
+    },
+    {
+      "name": "Gressoney-Saint-Jean",
+      "province": "AO",
+      "lat": 45.7793,
+      "lng": 7.825,
+      "distanceKm": 52,
+      "fascia": "1"
+    },
+    {
+      "name": "Introd",
+      "province": "AO",
+      "lat": 45.6905,
+      "lng": 7.1866,
+      "distanceKm": 20,
+      "fascia": "1"
+    },
+    {
+      "name": "Jovençan",
+      "province": "AO",
+      "lat": 45.7151,
+      "lng": 7.2763,
+      "distanceKm": 19,
+      "fascia": "1"
+    },
+    {
+      "name": "La Magdeleine",
+      "province": "AO",
+      "lat": 45.8141,
+      "lng": 7.6219,
+      "distanceKm": 36,
+      "fascia": "1"
+    },
+    {
+      "name": "La Salle",
+      "province": "AO",
+      "lat": 45.7454,
+      "lng": 7.0706,
+      "distanceKm": 16,
+      "fascia": "1"
+    },
+    {
+      "name": "La Thuile",
+      "province": "AO",
+      "lat": 45.7163,
+      "lng": 6.9486,
+      "distanceKm": 7,
+      "fascia": "1"
+    },
+    {
+      "name": "Morgex",
+      "province": "AO",
+      "lat": 45.758,
+      "lng": 7.0354,
+      "distanceKm": 15,
+      "fascia": "1"
+    },
+    {
+      "name": "Nus",
+      "province": "AO",
+      "lat": 45.7412,
+      "lng": 7.4694,
+      "distanceKm": 27,
+      "fascia": "1"
+    },
+    {
+      "name": "Ollomont",
+      "province": "AO",
+      "lat": 45.8497,
+      "lng": 7.3106,
+      "distanceKm": 11,
+      "fascia": "1"
+    },
+    {
+      "name": "Oyace",
+      "province": "AO",
+      "lat": 45.8508,
+      "lng": 7.3829,
+      "distanceKm": 17,
+      "fascia": "1"
+    },
+    {
+      "name": "Pollein",
+      "province": "AO",
+      "lat": 45.728,
+      "lng": 7.3522,
+      "distanceKm": 21,
+      "fascia": "1"
+    },
+    {
+      "name": "Pré-Saint-Didier",
+      "province": "AO",
+      "lat": 45.7639,
+      "lng": 6.9853,
+      "distanceKm": 12,
+      "fascia": "1"
+    },
+    {
+      "name": "Quart",
+      "province": "AO",
+      "lat": 45.741,
+      "lng": 7.4144,
+      "distanceKm": 24,
+      "fascia": "1"
+    },
+    {
+      "name": "Roisan",
+      "province": "AO",
+      "lat": 45.7846,
+      "lng": 7.3113,
+      "distanceKm": 14,
+      "fascia": "1"
+    },
+    {
+      "name": "Saint-Christophe",
+      "province": "AO",
+      "lat": 45.7474,
+      "lng": 7.3562,
+      "distanceKm": 20,
+      "fascia": "1"
+    },
+    {
+      "name": "Saint-Denis",
+      "province": "AO",
+      "lat": 45.7647,
+      "lng": 7.5713,
+      "distanceKm": 33,
+      "fascia": "1"
+    },
+    {
+      "name": "Saint-Marcel",
+      "province": "AO",
+      "lat": 45.7346,
+      "lng": 7.4462,
+      "distanceKm": 26,
+      "fascia": "1"
+    },
+    {
+      "name": "Saint-Nicolas",
+      "province": "AO",
+      "lat": 45.7161,
+      "lng": 7.168,
+      "distanceKm": 17,
+      "fascia": "1"
+    },
+    {
+      "name": "Saint-Oyen",
+      "province": "AO",
+      "lat": 45.8246,
+      "lng": 7.2132,
+      "distanceKm": 6,
+      "fascia": "1"
+    },
+    {
+      "name": "Saint-Pierre",
+      "province": "AO",
+      "lat": 45.7095,
+      "lng": 7.2291,
+      "distanceKm": 18,
+      "fascia": "1"
+    },
+    {
+      "name": "Saint-Rhémy-En-Bosses",
+      "province": "AO",
+      "lat": 45.8237,
+      "lng": 7.1822,
+      "distanceKm": 5,
+      "fascia": "1"
+    },
+    {
+      "name": "Saint-Vincent",
+      "province": "AO",
+      "lat": 45.7504,
+      "lng": 7.6479,
+      "distanceKm": 39,
+      "fascia": "1"
+    },
+    {
+      "name": "Sarre",
+      "province": "AO",
+      "lat": 45.7168,
+      "lng": 7.2592,
+      "distanceKm": 18,
+      "fascia": "1"
+    },
+    {
+      "name": "Torgnon",
+      "province": "AO",
+      "lat": 45.824,
+      "lng": 7.5657,
+      "distanceKm": 31,
+      "fascia": "1"
+    },
+    {
+      "name": "Valpelline",
+      "province": "AO",
+      "lat": 45.8245,
+      "lng": 7.3242,
+      "distanceKm": 13,
+      "fascia": "1"
+    },
+    {
+      "name": "Valtournenche",
+      "province": "AO",
+      "lat": 45.877,
+      "lng": 7.6228,
+      "distanceKm": 35,
+      "fascia": "1"
+    },
+    {
+      "name": "Verrayes",
+      "province": "AO",
+      "lat": 45.7693,
+      "lng": 7.5238,
+      "distanceKm": 30,
+      "fascia": "1"
+    },
+    {
+      "name": "Villeneuve",
+      "province": "AO",
+      "lat": 45.7024,
+      "lng": 7.2075,
+      "distanceKm": 19,
+      "fascia": "1"
+    },
+    {
+      "name": "Alagna Valsesia",
+      "province": "VC",
+      "lat": 45.8512,
+      "lng": 7.9372,
+      "distanceKm": 45,
+      "fascia": "1"
+    },
+    {
+      "name": "Alto Sermenza",
+      "province": "VC",
+      "lat": 45.8727,
+      "lng": 8.0382,
+      "distanceKm": 42,
+      "fascia": "1"
+    },
+    {
+      "name": "Boccioleto",
+      "province": "VC",
+      "lat": 45.8302,
+      "lng": 8.1129,
+      "distanceKm": 47,
+      "fascia": "1"
+    },
+    {
+      "name": "Campertogno",
+      "province": "VC",
+      "lat": 45.799,
+      "lng": 8.0322,
+      "distanceKm": 50,
+      "fascia": "1"
+    },
+    {
+      "name": "Carcoforo",
+      "province": "VC",
+      "lat": 45.9087,
+      "lng": 8.0495,
+      "distanceKm": 38,
+      "fascia": "1"
+    },
+    {
+      "name": "Cervatto",
+      "province": "VC",
+      "lat": 45.883,
+      "lng": 8.1623,
+      "distanceKm": 43,
+      "fascia": "1"
+    },
+    {
+      "name": "Cravagliana",
+      "province": "VC",
+      "lat": 45.8484,
+      "lng": 8.2027,
+      "distanceKm": 46,
+      "fascia": "1"
+    },
+    {
+      "name": "Fobello",
+      "province": "VC",
+      "lat": 45.8894,
+      "lng": 8.1587,
+      "distanceKm": 42,
+      "fascia": "1"
+    },
+    {
+      "name": "Mollia",
+      "province": "VC",
+      "lat": 45.8167,
+      "lng": 8.0303,
+      "distanceKm": 48,
+      "fascia": "1"
+    },
+    {
+      "name": "Piode",
+      "province": "VC",
+      "lat": 45.7708,
+      "lng": 8.0511,
+      "distanceKm": 53,
+      "fascia": "1"
+    },
+    {
+      "name": "Rassa",
+      "province": "VC",
+      "lat": 45.7685,
+      "lng": 8.0131,
+      "distanceKm": 54,
+      "fascia": "1"
+    },
+    {
+      "name": "Rimella",
+      "province": "VC",
+      "lat": 45.9075,
+      "lng": 8.1814,
+      "distanceKm": 41,
+      "fascia": "1"
+    },
+    {
+      "name": "Rossa",
+      "province": "VC",
+      "lat": 45.8335,
+      "lng": 8.1255,
+      "distanceKm": 47,
+      "fascia": "1"
+    },
+    {
+      "name": "Barlassina",
+      "province": "MB",
+      "lat": 45.6564,
+      "lng": 9.1301,
+      "distanceKm": 21,
+      "fascia": "1"
+    },
+    {
+      "name": "Briosco",
+      "province": "MB",
+      "lat": 45.7206,
+      "lng": 9.2372,
+      "distanceKm": 20,
+      "fascia": "1"
+    },
+    {
+      "name": "Cogliate",
+      "province": "MB",
+      "lat": 45.6454,
+      "lng": 9.082,
+      "distanceKm": 21,
+      "fascia": "1"
+    },
+    {
+      "name": "Giussano",
+      "province": "MB",
+      "lat": 45.6994,
+      "lng": 9.2097,
+      "distanceKm": 21,
+      "fascia": "1"
+    },
+    {
+      "name": "Lazzate",
+      "province": "MB",
+      "lat": 45.6723,
+      "lng": 9.0852,
+      "distanceKm": 19,
+      "fascia": "1"
+    },
+    {
+      "name": "Lentate sul Seveso",
+      "province": "MB",
+      "lat": 45.6784,
+      "lng": 9.1182,
+      "distanceKm": 19,
+      "fascia": "1"
+    },
+    {
+      "name": "Meda",
+      "province": "MB",
+      "lat": 45.6625,
+      "lng": 9.1568,
+      "distanceKm": 22,
+      "fascia": "1"
+    },
+    {
+      "name": "Misinto",
+      "province": "MB",
+      "lat": 45.6631,
+      "lng": 9.0827,
+      "distanceKm": 20,
+      "fascia": "1"
+    },
+    {
+      "name": "Veduggio con Colzano",
+      "province": "MB",
+      "lat": 45.7336,
+      "lng": 9.2625,
+      "distanceKm": 21,
+      "fascia": "1"
+    },
+    {
+      "name": "Schilpario",
+      "province": "BG",
+      "lat": 46.0094,
+      "lng": 10.1541,
+      "distanceKm": 27,
+      "fascia": "1"
+    },
+    {
+      "name": "Valbondione",
+      "province": "BG",
+      "lat": 46.0342,
+      "lng": 10.0059,
+      "distanceKm": 25,
+      "fascia": "1"
+    },
+    {
+      "name": "Vilminore di Scalve",
+      "province": "BG",
+      "lat": 45.9977,
+      "lng": 10.0925,
+      "distanceKm": 28,
+      "fascia": "1"
+    },
+    {
+      "name": "Berzo Demo",
+      "province": "BS",
+      "lat": 46.0934,
+      "lng": 10.3363,
+      "distanceKm": 26,
+      "fascia": "1"
+    },
+    {
+      "name": "Corteno Golgi",
+      "province": "BS",
+      "lat": 46.1662,
+      "lng": 10.2435,
+      "distanceKm": 16,
+      "fascia": "1"
+    },
+    {
+      "name": "Edolo",
+      "province": "BS",
+      "lat": 46.1794,
+      "lng": 10.3308,
+      "distanceKm": 21,
+      "fascia": "1"
+    },
+    {
+      "name": "Incudine",
+      "province": "BS",
+      "lat": 46.2203,
+      "lng": 10.3588,
+      "distanceKm": 22,
+      "fascia": "1"
+    },
+    {
+      "name": "Malonno",
+      "province": "BS",
+      "lat": 46.1226,
+      "lng": 10.3192,
+      "distanceKm": 23,
+      "fascia": "1"
+    },
+    {
+      "name": "Monno",
+      "province": "BS",
+      "lat": 46.2116,
+      "lng": 10.3399,
+      "distanceKm": 20,
+      "fascia": "1"
+    },
+    {
+      "name": "Paisco Loveno",
+      "province": "BS",
+      "lat": 46.0783,
+      "lng": 10.2907,
+      "distanceKm": 25,
+      "fascia": "1"
+    },
+    {
+      "name": "Ponte di Legno",
+      "province": "BS",
+      "lat": 46.2586,
+      "lng": 10.5087,
+      "distanceKm": 31,
+      "fascia": "1"
+    },
+    {
+      "name": "Sonico",
+      "province": "BS",
+      "lat": 46.1655,
+      "lng": 10.3529,
+      "distanceKm": 23,
+      "fascia": "1"
+    },
+    {
+      "name": "Vezza d'Oglio",
+      "province": "BS",
+      "lat": 46.2402,
+      "lng": 10.3997,
+      "distanceKm": 25,
+      "fascia": "1"
+    },
+    {
+      "name": "Vione",
+      "province": "BS",
+      "lat": 46.2484,
+      "lng": 10.4472,
+      "distanceKm": 28,
+      "fascia": "1"
+    },
+    {
+      "name": "Peio",
+      "province": "TN",
+      "lat": 46.3629,
+      "lng": 10.6732,
+      "distanceKm": 25,
+      "fascia": "1"
+    },
+    {
+      "name": "Rabbi",
+      "province": "TN",
+      "lat": 46.4009,
+      "lng": 10.8249,
+      "distanceKm": 32,
+      "fascia": "1"
+    },
+    {
+      "name": "Curon Venosta",
+      "province": "BZ",
+      "lat": 46.8037,
+      "lng": 10.555,
+      "distanceKm": 31,
+      "fascia": "1"
+    },
+    {
+      "name": "Glorenza",
+      "province": "BZ",
+      "lat": 46.6715,
+      "lng": 10.5539,
+      "distanceKm": 18,
+      "fascia": "1"
+    },
+    {
+      "name": "Lasa",
+      "province": "BZ",
+      "lat": 46.6166,
+      "lng": 10.7002,
+      "distanceKm": 21,
+      "fascia": "1"
+    },
+    {
+      "name": "Malles Venosta",
+      "province": "BZ",
+      "lat": 46.6879,
+      "lng": 10.5465,
+      "distanceKm": 19,
+      "fascia": "1"
+    },
+    {
+      "name": "Martello",
+      "province": "BZ",
+      "lat": 46.5155,
+      "lng": 10.7215,
+      "distanceKm": 21,
+      "fascia": "1"
+    },
+    {
+      "name": "Prato Allo Stelvio",
+      "province": "BZ",
+      "lat": 46.6038,
+      "lng": 10.5819,
+      "distanceKm": 13,
+      "fascia": "1"
+    },
+    {
+      "name": "Silandro",
+      "province": "BZ",
+      "lat": 46.6281,
+      "lng": 10.7735,
+      "distanceKm": 27,
+      "fascia": "1"
+    },
+    {
+      "name": "Sluderno",
+      "province": "BZ",
+      "lat": 46.6645,
+      "lng": 10.5848,
+      "distanceKm": 18,
+      "fascia": "1"
+    },
+    {
+      "name": "Stelvio",
+      "province": "BZ",
+      "lat": 46.5424,
+      "lng": 10.5578,
+      "distanceKm": 8,
+      "fascia": "1"
+    },
+    {
+      "name": "Tubre",
+      "province": "BZ",
+      "lat": 46.6456,
+      "lng": 10.4642,
+      "distanceKm": 13,
+      "fascia": "1"
+    }
+  ]
+}
