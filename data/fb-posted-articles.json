@@ -2,12 +2,6 @@
   "schemaVersion": 1,
   "posted": [
     {
-      "id": "svizzera-elettricita-inverno-2026",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/svizzera-elettricita-inverno-2026/",
-      "ts": "2026-05-07T12:30:19.299Z",
-      "seed": true
-    },
-    {
       "id": "hantavirus-svizzera-frontalieri-2026",
       "url": "https://frontaliereticino.ch/articoli-frontaliere/hantavirus-svizzera-frontalieri-2026/",
       "ts": "2026-05-07T12:40:37.150Z",
@@ -6352,6 +6346,23 @@
       "copyAngleIntent": "both",
       "copyHook": "Redditi esteri: un passaggio pratico da verificare nella guida.",
       "copyCta": "Leggi l'approfondimento."
+    },
+    {
+      "id": "bollettino-frontaliere-2026-11-19",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/bollettino-frontaliere-2026-11-19/",
+      "ts": "2026-11-19T22:18:23.582Z",
+      "fbPostId": "951226518080080_122131866531272498",
+      "copyMode": "codex",
+      "copySlot": "article",
+      "copyPromptVersion": "frontaliere-social-copy-v5",
+      "copyPackId": "e1e656e043e06845",
+      "copyTemplateId": "fb-article-question",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "domanda-comune",
+      "copyPillarId": "strumenti-utili",
+      "copyAngleIntent": "both",
+      "copyHook": "Mobilità oltreconfine: una domanda precisa per leggere meglio la guida.",
+      "copyCta": "Consulta la guida."
     }
   ]
 }
