@@ -2795,7 +2795,11 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  // article page uses. A detail page whose hero has one carries the photo's
  // creator and licence and a credit at the end of its body; any other renders
  // as before.
- const imageCredits = createImageCreditReader(fs, np.resolve(rootDir, 'packages/articles/content/image-credits'));
+ const imageCredits = createImageCreditReader(
+  fs,
+  np.resolve(rootDir, 'packages/articles/content/image-credits'),
+  { legacyVisionRegistryRoot: rootDir },
+ );
 
  const swissSlugs = new Set(['articoli-svizzera', 'swiss-articles', 'schweiz-artikel', 'articles-suisse']);
  const swissArticleIdByLocale: Record<'it' | 'en' | 'de' | 'fr', Record<string, string>> = {

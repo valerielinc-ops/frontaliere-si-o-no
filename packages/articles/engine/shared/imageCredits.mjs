@@ -558,10 +558,10 @@ function checkDisplayString(value, where, max, errors) {
  * character, or `/images/`, which the engine would mistake for the hero path).
  *
  * @param {unknown} record
- * @param {{ legacyVisionRegistry?: unknown }} [options]
+ * @param {{ legacyVisionRegistry?: unknown, legacyVisionRegistries?: readonly unknown[] }} [options]
  * @returns {ImageCreditValidation}
  */
-export function validateImageCreditRecord(record, { legacyVisionRegistry = null } = {}) {
+export function validateImageCreditRecord(record, { legacyVisionRegistry = null, legacyVisionRegistries = [] } = {}) {
   /** @type {string[]} */
   const errors = [];
   if (!isPlainObject(record)) return { valid: false, errors: ['record must be an object'] };
@@ -597,9 +597,14 @@ export function validateImageCreditRecord(record, { legacyVisionRegistry = null 
     if (!isPlainObject(record.generated)) {
       errors.push('generated must be an object for generated-provider records');
     } else {
-      const generatedValidation = legacyVisionRegistry
-        ? validateGeneratedImageRecordWithRegistry(record.generated, legacyVisionRegistry)
-        : validateGeneratedImageRecord(record.generated);
+      const registries = [
+        ...(legacyVisionRegistry === null || legacyVisionRegistry === undefined ? [] : [legacyVisionRegistry]),
+        ...(Array.isArray(legacyVisionRegistries) ? legacyVisionRegistries : []),
+      ];
+      const validations = registries.length
+        ? registries.map((registry) => validateGeneratedImageRecordWithRegistry(record.generated, registry))
+        : [validateGeneratedImageRecord(record.generated)];
+      const generatedValidation = validations.find((validation) => validation.valid) || validations[0];
       if (!generatedValidation.valid) {
         errors.push(`generated record is invalid: ${generatedValidation.errors.join(', ')}`);
       }
@@ -845,6 +850,49 @@ function errorMessage(error) {
   return error instanceof Error ? error.message : String(error);
 }
 
+/**
+ * Load the source registries that can contain persisted blog-cover records.
+ * A record is still accepted only when it matches an asset in one of these
+ * registry envelopes exactly (`validateGeneratedImageRecordWithRegistry`).
+ * The site keeps the blog registry separately; the corpus keeps the shared
+ * generated-image registry.
+ *
+ * @param {ImageCreditFs} fs
+ * @param {string | undefined} root
+ * @param {(message: string) => void} warn
+ * @returns {unknown[]}
+ */
+function readLegacyVisionRegistries(fs, root, warn) {
+  if (typeof root !== 'string' || !isNonEmptyString(root)) return [];
+  const normalizedRoot = root.replace(/[\\/]+$/, '');
+  const registryPaths = [
+    `${normalizedRoot}/data/generated-image-registry.json`,
+    `${normalizedRoot}/data/blog-generated-image-registry.json`,
+    `${normalizedRoot}/public/data/generated-image-registry.json`,
+  ];
+  const registries = [];
+  for (const registryPath of registryPaths) {
+    /** @type {string} */
+    let raw;
+    try {
+      if (typeof fs.existsSync === 'function' && !fs.existsSync(registryPath)) continue;
+      raw = String(fs.readFileSync(registryPath, 'utf-8'));
+    } catch (error) {
+      if (isMissingFileError(error)) continue;
+      warn(`[image-credits] ${registryPath}: registry unreadable (${errorMessage(error)}) — legacy generated credits may be omitted`);
+      continue;
+    }
+    try {
+      const registry = JSON.parse(raw);
+      if (isPlainObject(registry)) registries.push(registry);
+      else warn(`[image-credits] ${registryPath}: registry must be an object — legacy generated credits may be omitted`);
+    } catch (error) {
+      warn(`[image-credits] ${registryPath}: registry is not JSON (${errorMessage(error)}) — legacy generated credits may be omitted`);
+    }
+  }
+  return registries;
+}
+
 /** @template T @param {T} value @returns {T} */
 function deepFreeze(value) {
   if (typeof value === 'object' && value !== null && !Object.isFrozen(value)) {
@@ -872,7 +920,7 @@ function deepFreeze(value) {
  *
  * @param {ImageCreditFs} fs
  * @param {string | readonly string[]} candidateDirs
- * @param {{ warn?: (message: string) => void, legacyVisionRegistry?: unknown }} [options]
+ * @param {{ warn?: (message: string) => void, legacyVisionRegistry?: unknown, legacyVisionRegistries?: readonly unknown[], legacyVisionRegistryRoot?: string }} [options]
  * @returns {ImageCreditReader}
  */
 export function createImageCreditReader(fs, candidateDirs, options = {}) {
@@ -882,6 +930,13 @@ export function createImageCreditReader(fs, candidateDirs, options = {}) {
   const warn = typeof options.warn === 'function'
     ? options.warn
     : (/** @type {string} */ message) => console.warn(message);
+  const legacyVisionRegistries = [
+    ...(options.legacyVisionRegistry === null || options.legacyVisionRegistry === undefined
+      ? []
+      : [options.legacyVisionRegistry]),
+    ...(Array.isArray(options.legacyVisionRegistries) ? options.legacyVisionRegistries : []),
+    ...readLegacyVisionRegistries(fs, options.legacyVisionRegistryRoot, warn),
+  ];
   /** @type {Map<string, ImageCreditRecord | null>} */
   const cache = new Map();
 
@@ -908,7 +963,7 @@ export function createImageCreditReader(fs, candidateDirs, options = {}) {
         return null;
       }
       const { valid, errors } = validateImageCreditRecord(parsed, {
-        legacyVisionRegistry: options.legacyVisionRegistry,
+        legacyVisionRegistries,
       });
       if (!valid) {
         warn(`[image-credits] ${file}: invalid record (${errors.join('; ')}) — cover rendered without credit`);

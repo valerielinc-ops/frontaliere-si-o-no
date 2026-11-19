@@ -598,7 +598,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const imageCredits = createImageCreditReader(fs, [
  np.resolve(rootDir, 'packages/articles/content/image-credits'),
  np.resolve(rootDir, 'content/image-credits'),
- ]);
+ ], { legacyVisionRegistryRoot: rootDir });
 
  // Parse article categories from blog-articles-data.ts for FAQ schema filtering
  const EVERGREEN_CATEGORIES = new Set(['fiscale', 'pratico', 'pensione']);
