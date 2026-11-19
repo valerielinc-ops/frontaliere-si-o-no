@@ -6,6 +6,7 @@ import {
   GENERATED_IMAGE_PROVIDERS,
   GENERATED_IMAGE_PROMPT_VERSION,
   GENERATED_IMAGE_RESTRICTIONS,
+  IMAGE_PROVIDERS,
   LICENSED_PHOTO_KIND,
   LICENSED_PHOTO_RESTRICTIONS,
   legacyVisionAssetIdsForRegistry,
@@ -161,6 +162,31 @@ describe('generated event image policy', () => {
     expect(validateGeneratedImageRecord({ ...RECORD, licenseUrl: 'https://example.com/terms' }).valid).toBe(false);
     expect(validateGeneratedImageRegistry({ schema: 1, libraryVersion: '2026-10-06', cdnPrefix: '/images/events/library/', assetCount: 1, assets: [RECORD] }, { scope: 'event-library' }).valid).toBe(true);
     expect(validateGeneratedImageRecord({ ...RECORD, imageUrl: '/images/events/myswitzerland-old.webp' }).valid).toBe(false);
+  });
+
+  it('validates historical Gemini records without reactivating Gemini generation', () => {
+    const legacyGeminiRecord = {
+      ...RECORD,
+      assetId: 'historical-gemini-image',
+      provider: 'gemini',
+      model: 'gemini-3.1-flash-image',
+      executorModel: 'gemini-3.1-flash-image',
+      licenseUrl: 'https://ai.google.dev/gemini-api/terms',
+    };
+    const registry = {
+      schema: 1,
+      libraryVersion: '2026-10-06',
+      cdnPrefix: '/images/events/library/',
+      assetCount: 1,
+      assets: [legacyGeminiRecord],
+    };
+
+    expect(GENERATED_IMAGE_PROVIDERS).not.toContain('gemini');
+    expect(IMAGE_PROVIDERS).not.toContain('gemini');
+    expect(validateGeneratedImageRecord(legacyGeminiRecord)).toEqual({ valid: true, errors: [] });
+    expect(validateGeneratedImageRegistry(registry, { scope: 'event-library' })).toEqual({ valid: true, errors: [] });
+    expect(validateGeneratedImageRecord({ ...legacyGeminiRecord, licenseUrl: 'https://example.com/terms' }).valid)
+      .toBe(false);
   });
 
   it('keeps the legacy foreground-person exception versioned, listed, and generated-only', () => {

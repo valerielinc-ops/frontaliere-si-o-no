@@ -59,11 +59,22 @@ export const IMAGE_PROVIDERS = Object.freeze([
   ...GENERATED_IMAGE_PROVIDERS,
   ...LICENSED_PHOTO_PROVIDERS,
 ]);
+// `gemini` remains recognized only when validating already-persisted records.
+// It is deliberately absent from GENERATED_IMAGE_PROVIDERS / IMAGE_PROVIDERS,
+// so it cannot re-enter a new generation chain.
+const GENERATED_IMAGE_RECORD_PROVIDERS = Object.freeze([
+  ...GENERATED_IMAGE_PROVIDERS,
+  'gemini',
+]);
 export const GENERATED_IMAGE_LICENSE_URLS = Object.freeze({
   'openai-codex': 'https://openai.com/policies/terms-of-use/',
   fal: 'https://fal.ai/terms',
   together: 'https://www.together.ai/terms-of-service',
   pollinations: 'https://pollinations.ai/terms',
+});
+const GENERATED_IMAGE_RECORD_LICENSE_URLS = Object.freeze({
+  ...GENERATED_IMAGE_LICENSE_URLS,
+  gemini: 'https://ai.google.dev/gemini-api/terms',
 });
 export const LICENSED_PHOTO_LICENSE_URLS = Object.freeze({
   wikimedia: 'https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia',
@@ -342,7 +353,7 @@ function matchesLegacyGeneratedVisionContract(record, contract) {
   return isRecord(record)
     && record.schema === GENERATED_IMAGE_SCHEMA_VERSION
     && record.license === GENERATED_IMAGE_LICENSE
-    && GENERATED_IMAGE_PROVIDERS.includes(record.provider)
+    && GENERATED_IMAGE_RECORD_PROVIDERS.includes(record.provider)
     && (record.kind === undefined || record.kind === GENERATED_IMAGE_KIND)
     && GENERATED_IMAGE_SCOPES.includes(record.scope)
     && (contract.scope === undefined || record.scope === contract.scope)
@@ -504,13 +515,14 @@ export function validateGeneratedImageRecord(record, { allowLegacyVision = false
     }
   } else {
     if (record.kind !== undefined && record.kind !== GENERATED_IMAGE_KIND) errors.push('generated record kind must be generated');
-    if (!GENERATED_IMAGE_PROVIDERS.includes(record.provider)) errors.push('provider is not allowed');
+    if (!GENERATED_IMAGE_RECORD_PROVIDERS.includes(record.provider)) errors.push('provider is not allowed');
     if (!nonEmpty(record.model)) errors.push('model is required');
     if (record.promptVersion !== GENERATED_IMAGE_PROMPT_VERSION) errors.push('promptVersion is not current');
     if (!SHA256_RE.test(String(record.promptHash || ''))) errors.push('promptHash must be sha256');
     if (record.license !== GENERATED_IMAGE_LICENSE) errors.push('license must be generated-provider');
     if (!/^https:\/\//i.test(String(record.licenseUrl || ''))) errors.push('licenseUrl must be https');
-    if (GENERATED_IMAGE_LICENSE_URLS[record.provider] && record.licenseUrl !== GENERATED_IMAGE_LICENSE_URLS[record.provider]) {
+    if (GENERATED_IMAGE_RECORD_LICENSE_URLS[record.provider]
+      && record.licenseUrl !== GENERATED_IMAGE_RECORD_LICENSE_URLS[record.provider]) {
       errors.push('licenseUrl does not match the provider terms');
     }
     if (record.credit !== GENERATED_IMAGE_CREDIT) errors.push('credit must be frontaliereticino.ch');
