@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-11-19T18:59:39.565Z",
+  "generatedAt": "2026-11-19T20:31:53.026Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -98566,6 +98566,20 @@
       "promptVersion": "event-description-rewrite-v1",
       "rewrittenAt": "2026-10-06T12:15:13.033Z"
     },
+    "myswitzerland:47070e29937e4a2797b8a45404a16170::5ea39ba519fc93a581c09dc26760749f20e7cf496acd2a1da143a496855e687c": {
+      "id": "myswitzerland:47070e29937e4a2797b8a45404a16170",
+      "sourceDescriptionHash": "5ea39ba519fc93a581c09dc26760749f20e7cf496acd2a1da143a496855e687c",
+      "description": "L’evento di Porrentruy esplora il rapporto tra Coghuf e i paesaggi delle Franches-Montagnes. La presentazione si svolge al Musée de l’Hôtel-Dieu.",
+      "descriptionByLocale": {
+        "it": "L’evento di Porrentruy esplora il rapporto tra Coghuf e i paesaggi delle Franches-Montagnes. La presentazione si svolge al Musée de l’Hôtel-Dieu.",
+        "en": "This event in Porrentruy examines the landscapes of the Franches-Montagnes in relation to Coghuf’s artistic work. The presentation takes place at the Musée de l’Hôtel-Dieu.",
+        "de": "Die Veranstaltung in Porrentruy widmet sich den Landschaften der Freiberge im Zusammenhang mit dem Schaffen von Coghuf. Schauplatz ist das Musée de l’Hôtel-Dieu.",
+        "fr": "À Porrentruy, l’événement s’intéresse aux paysages des Franches-Montagnes dans l’œuvre de Coghuf. Il se tient au Musée de l’Hôtel-Dieu."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-19T20:23:39.321Z"
+    },
     "myswitzerland:470cc077ea7e4edd8ef41bf0033613e5::9c14183d123835f7ac3189b8536d737a6d629f307db107d0fe312b7e366ec9d6": {
       "id": "myswitzerland:470cc077ea7e4edd8ef41bf0033613e5",
       "sourceDescriptionHash": "9c14183d123835f7ac3189b8536d737a6d629f307db107d0fe312b7e366ec9d6",
@@ -196604,6 +196618,15 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
+    "guidle:AGLi2GK::dcb335bcec69a14db6f8aef60b1676a7553e2013eb92495930a99546aa9037c3": {
+      "id": "guidle:AGLi2GK",
+      "sourceDescriptionHash": "dcb335bcec69a14db6f8aef60b1676a7553e2013eb92495930a99546aa9037c3",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-11-19T20:26:10.684Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
     "guidle:AGpyxNK::c9cabd07a7425d75951693acbce0285297abed9ba77493e4202efcfccc84bcc0": {
       "id": "guidle:AGpyxNK",
       "sourceDescriptionHash": "c9cabd07a7425d75951693acbce0285297abed9ba77493e4202efcfccc84bcc0",
@@ -197940,8 +197963,8 @@
       "id": "guidle:AWXkKeW",
       "sourceDescriptionHash": "946c09df7de732c17985f07b11644d4920f93c3b389000af0a8ce881412ee350",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-19T16:25:07.910Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-19T20:23:16.194Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -199373,6 +199396,15 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-14T21:31:02.033Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "myswitzerland:40c5215e1dde4625b28708e48832837f::d97f83db9710f085a9b284fcb1e9fb1ab6f234a55c7c89cc0f4ea318f35af85b": {
+      "id": "myswitzerland:40c5215e1dde4625b28708e48832837f",
+      "sourceDescriptionHash": "d97f83db9710f085a9b284fcb1e9fb1ab6f234a55c7c89cc0f4ea318f35af85b",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-11-19T20:26:55.557Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
