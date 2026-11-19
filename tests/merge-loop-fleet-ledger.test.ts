@@ -107,6 +107,24 @@ function writeHistoricalL2Lifecycle(ledgerDir: string) {
 }
 
 describe('merge-loop-fleet-ledger', () => {
+  it('rejects L8 before reading the registry or artifact or creating the ledger', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-ledger-'));
+    const ledgerDir = path.join(root, 'ledger');
+    try {
+      expect(() => mergeLedger({
+        loopId: 'L8',
+        runId: '12345',
+        sha: SHA,
+        inputDir: path.join(root, 'missing-input'),
+        registryPath: path.join(root, 'missing-registry.json'),
+        ledgerDir,
+      })).toThrow(/^l8-private-canonical-evidence$/u);
+      expect(fs.existsSync(ledgerDir)).toBe(false);
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
   it('appends a validated run to one bounded shard and skips an identical rerun', () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-ledger-'));
     const inputDir = path.join(root, 'input');

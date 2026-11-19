@@ -240,6 +240,7 @@ export function mergeLoopFleetLedger({
   shardId = null,
 } = {}) {
   if (!/^L\d+$/u.test(String(loopId || ''))) throw new Error('loopId must look like L0, L1, …');
+  if (loopId === 'L8') throw new Error('l8-private-canonical-evidence');
   if (!text(runId)) throw new Error('runId is required');
   if (!/^[0-9a-f]{40}$/iu.test(String(sha || ''))) throw new Error('sha must be a 40-character commit SHA');
   if (!inputDir) throw new Error('inputDir is required');

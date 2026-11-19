@@ -745,6 +745,31 @@ describe('loop fleet workflow contract', () => {
     expect(source).not.toContain("github.event.workflow_run.conclusion != 'cancelled'");
   });
 
+  it('excludes L8 from bridge triggers, dispatch choices, and source routing', () => {
+    const workflow = YAML.parse(fs.readFileSync(path.join(workflowDir, 'loop-fleet-ledger.yml'), 'utf8'));
+    const l8 = YAML.parse(fs.readFileSync(path.join(workflowDir, 'loop-l8-revenue-attribution.yml'), 'utf8'));
+    expect(workflow.on.workflow_run.workflows).not.toContain(l8.name);
+    expect(workflow.on.workflow_dispatch.inputs.loop.options).not.toContain('L8');
+
+    const router = workflow.jobs.persist.steps.find((step: { id?: string }) => step.id === 'source').run;
+    for (const [sourceWorkflow, inputLoop, error] of [
+      [l8.name, '', 'unrecognized source workflow'],
+      ['', 'L8', 'manual source loop is invalid'],
+    ]) {
+      expect(() => execFileSync('bash', ['--noprofile', '--norc', '-c', router], {
+        stdio: 'pipe',
+        env: {
+          ...process.env,
+          SOURCE_WORKFLOW: sourceWorkflow,
+          INPUT_LOOP: inputLoop,
+          SOURCE_RUN_ID: '12345',
+          SOURCE_SHA: 'a'.repeat(40),
+          GITHUB_OUTPUT: '/dev/null',
+        },
+      })).toThrow(error);
+    }
+  });
+
   it('treats a successful source run without evidence as a no-op, not a failed bridge', () => {
     const source = fs.readFileSync(path.join(workflowDir, 'loop-fleet-ledger.yml'), 'utf8');
     expect(source).toContain('id: source_artifact');
