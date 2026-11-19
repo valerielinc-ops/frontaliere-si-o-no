@@ -462,7 +462,7 @@ const JOB_DETAIL_RE =
 const JOB_DETAIL_PREFIXES_BY_LOCALE = {
   it: [`/${SECTION_BY_LOCALE.it.replace(/ticino$/, '')}`],
   en: [`/en/${SECTION_BY_LOCALE.en.replace(/ticino$/, '')}`],
-  de: ['/de/jobs-in-', `/de/${SECTION_BY_LOCALE.de}/`],
+  de: ['/de/jobs-in-', `${LOCALE_PREFIX.de}/${SECTION_BY_LOCALE.de}/`],
   fr: [`/fr/${SECTION_BY_LOCALE.fr.replace(/tessin$/, '')}`],
 };
 

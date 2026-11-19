@@ -79,6 +79,7 @@ function loadHelpers(env: Record<string, string> = {}) {
       .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').trim();
     ${pick('localeOf')}
     ${pick('normPath')}
+    ${constBlock('LOCALE_PREFIX')}
     ${constBlock('JOB_CANON_CDN_BASE')}
     ${pick('isValidJobCanonBuildId')}
     ${pick('lowerSegment')}
