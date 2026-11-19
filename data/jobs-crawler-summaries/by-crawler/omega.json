@@ -1,7 +1,7 @@
 {
   "key": "omega",
   "label": "OMEGA SA",
-  "generatedAt": "2026-11-18T22:37:51.646Z",
+  "generatedAt": "2026-11-19T11:09:55.846Z",
   "total": 12,
   "discovered": null,
   "parsed": 12,
@@ -13,19 +13,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 11,
-  "durationMs": 2714578,
-  "avgDurationMs": 2714578,
+  "durationMs": 2704299,
+  "avgDurationMs": 2704299,
   "durationHistory": [
-    2714578
+    2704299
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "omega-34386",
-      "slug": "chef-de-projet-industrialisation-omega-biel-bienne",
+      "slug": "progetto-di-industrializzazione-omega-sa-biel-bienne",
       "company": "OMEGA SA",
       "companyKey": "omega",
       "companyDomain": "omegawatches.com",
@@ -35,7 +36,7 @@
       "url": "https://www.swatchgroup.com/fr/job/34386",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T22:21:01.336Z",
+      "crawledAt": "2026-11-19T10:53:10.343Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -53,24 +54,22 @@
       "postedDate": "2026-11-18T11:22:07+01:00",
       "postingDateSource": "reported",
       "applyUrl": "https://apply5.lumessetalentlink.com/apply-app/pages/application-form?jobId=PQVFK026203F3VBQB8NLO79O6-284109&langCode=fr_FR&source=swatchgroup.com",
-      "needsRetranslation": true,
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "firstSeenAt": "2026-11-18T22:21:01.336Z",
+      "salaryMin": 94500,
+      "salaryMax": 143000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-16T22:21:01.336Z",
+      "validThrough": "2027-02-16T10:53:10.343Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T22:21:01.336Z",
-      "_qualityScore": 91,
+      "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -85,7 +84,7 @@
       "url": "https://www.swatchgroup.com/de/job/33609",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T22:37:37.279Z",
+      "crawledAt": "2026-11-19T11:09:41.643Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -108,7 +107,7 @@
       "salaryMax": 118500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-25T22:37:37.279Z",
+      "validThrough": "2027-01-26T11:09:41.643Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 100,
       "_qualityBreakdown": {
@@ -130,7 +129,7 @@
       "url": "https://www.swatchgroup.com/fr/job/33645",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T22:36:06.806Z",
+      "crawledAt": "2026-11-19T11:08:11.180Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -153,7 +152,7 @@
       "salaryMax": 104000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T22:36:06.806Z",
+      "validThrough": "2027-01-28T11:08:11.180Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 100,
       "_qualityBreakdown": {
@@ -175,7 +174,7 @@
       "url": "https://www.swatchgroup.com/fr/job/33698",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T22:34:35.971Z",
+      "crawledAt": "2026-11-19T11:06:41.440Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -198,7 +197,7 @@
       "salaryMax": 116500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T22:34:35.971Z",
+      "validThrough": "2027-02-02T11:06:41.440Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 100,
       "_qualityBreakdown": {
@@ -220,7 +219,7 @@
       "url": "https://www.swatchgroup.com/fr/job/33741",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T22:33:05.275Z",
+      "crawledAt": "2026-11-19T11:05:11.295Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -243,7 +242,7 @@
       "salaryMax": 104000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T22:33:05.275Z",
+      "validThrough": "2027-02-04T11:05:11.295Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 100,
       "_qualityBreakdown": {
@@ -265,7 +264,7 @@
       "url": "https://www.swatchgroup.com/fr/job/33831",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T22:31:35.836Z",
+      "crawledAt": "2026-11-19T11:03:40.578Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -288,7 +287,7 @@
       "salaryMax": 143000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-04T22:31:35.836Z",
+      "validThrough": "2027-02-05T11:03:40.578Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 100,
       "_qualityBreakdown": {
@@ -310,7 +309,7 @@
       "url": "https://www.swatchgroup.com/fr/job/34046",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T22:30:05.338Z",
+      "crawledAt": "2026-11-19T11:02:09.878Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -333,7 +332,7 @@
       "salaryMax": 104000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T22:30:05.338Z",
+      "validThrough": "2027-02-09T11:02:09.878Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 100,
       "_qualityBreakdown": {
@@ -355,7 +354,7 @@
       "url": "https://www.swatchgroup.com/fr/job/34191",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T22:28:34.834Z",
+      "crawledAt": "2026-11-19T11:00:39.657Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -378,7 +377,7 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-11T22:28:34.834Z",
+      "validThrough": "2027-02-11T11:00:39.657Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 100,
       "_qualityBreakdown": {
@@ -400,7 +399,7 @@
       "url": "https://www.swatchgroup.com/fr/job/34211",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T22:27:03.616Z",
+      "crawledAt": "2026-11-19T10:59:09.021Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -424,7 +423,7 @@
       "salaryMax": 116500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-11T22:27:03.616Z",
+      "validThrough": "2027-02-12T10:59:09.021Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 100,
       "_qualityBreakdown": {
@@ -446,7 +445,7 @@
       "url": "https://www.swatchgroup.com/de/job/34226",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T22:25:33.149Z",
+      "crawledAt": "2026-11-19T10:57:40.225Z",
       "addressLocality": "Berne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -469,7 +468,7 @@
       "salaryMax": 94800,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-13T22:25:33.149Z",
+      "validThrough": "2027-02-14T10:57:40.225Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 100,
       "_qualityBreakdown": {
@@ -491,7 +490,7 @@
       "url": "https://www.swatchgroup.com/de/job/34231",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T22:24:03.181Z",
+      "crawledAt": "2026-11-19T10:56:10.349Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -514,7 +513,7 @@
       "salaryMax": 127500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-13T22:24:03.181Z",
+      "validThrough": "2027-02-14T10:56:10.349Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 100,
       "_qualityBreakdown": {
@@ -536,7 +535,7 @@
       "url": "https://www.swatchgroup.com/fr/job/34261",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T22:22:32.220Z",
+      "crawledAt": "2026-11-19T10:54:40.845Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -559,7 +558,7 @@
       "salaryMax": 104000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-14T22:22:32.220Z",
+      "validThrough": "2027-02-14T10:54:40.845Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 100,
       "_qualityBreakdown": {
@@ -570,5 +569,5 @@
       }
     }
   ],
-  "codeCommit": "8862042892397f4dcea90f48fbc2dc028da23eec"
+  "codeCommit": "af8f978c37a7f89c95dd40500d2ac0a67c1ede33"
 }
