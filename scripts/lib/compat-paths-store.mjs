@@ -150,8 +150,9 @@ export function readCompatPaths(rootDir = process.cwd()) {
  *
  * Shard files are the canonical representation and are internally validated
  * by the writers. A duplicate path therefore has no semantic effect for a
- * streaming inspection: callers that need the strict uniqueness invariant use
- * `readCompatPathsStrict()` instead.
+ * streaming inspection. `readCompatPathsStrict()` heals an exact duplicate
+ * inside one shard (reported as `duplicatesRemoved`) and still rejects the same
+ * path in two shards or in the wrong shard.
  *
  * @param {string} [rootDir]
  * @returns {Generator<string>}
@@ -361,6 +362,9 @@ function readCompatPathsStrictInternal(rootDir, { expectedTotalPaths = null, all
 
   const seen = new Set();
   const paths = [];
+  let duplicatesRemoved = 0;
+  const duplicateShards = [];
+  const duplicateExamples = [];
   for (const name of shardNames) {
     const file = path.join(dir, name);
     const shardIndex = Number(name.slice('part-'.length, -'.json'.length));
@@ -377,7 +381,18 @@ function readCompatPathsStrictInternal(rootDir, { expectedTotalPaths = null, all
       || shard.paths.some((p) => typeof p !== 'string')) {
       throw new Error(`[compat-paths-store] invalid ${name}; refusing destructive rewrite`);
     }
+    // An EXACT duplicate inside the same (correct) shard carries no information
+    // (the store has set semantics) and is healed: keep the first occurrence,
+    // drop the rest. The same path in a DIFFERENT shard, or a path assigned to
+    // another shard, stays fatal: that is a routing/integrity failure.
+    const inShard = new Set();
     for (const p of shard.paths) {
+      if (inShard.has(p)) {
+        duplicatesRemoved++;
+        if (duplicateShards.indexOf(name) === -1) duplicateShards.push(name);
+        if (duplicateExamples.length < 5) duplicateExamples.push(p);
+        continue;
+      }
       if (seen.has(p)) {
         throw new Error(`[compat-paths-store] duplicate path ${p} across shards; refusing destructive rewrite`);
       }
@@ -387,9 +402,16 @@ function readCompatPathsStrictInternal(rootDir, { expectedTotalPaths = null, all
           + 'refusing destructive rewrite',
         );
       }
-      seen.add(p);
+      inShard.add(p);
       paths.push(p);
     }
+    for (const p of inShard) seen.add(p);
+  }
+  if (duplicatesRemoved > 0) {
+    console.warn(
+      `[compat-paths-store] dropped ${duplicatesRemoved} exact duplicate path(s) in shard(s) `
+      + `${duplicateShards.join(', ')} (kept first occurrence; examples: ${JSON.stringify(duplicateExamples)})`,
+    );
   }
 
   if (expectedTotalPaths !== null && paths.length !== expectedTotalPaths) {
@@ -409,7 +431,11 @@ function readCompatPathsStrictInternal(rootDir, { expectedTotalPaths = null, all
   delete meta.paths;
   delete meta.shardCount;
   delete meta.totalPaths;
-  return { ...meta, paths };
+  const result = { ...meta, paths };
+  // Non-enumerable on purpose: `data` is handed back to writeCompatPaths(), whose
+  // manifest meta is every enumerable key except `paths`.
+  Object.defineProperty(result, 'duplicatesRemoved', { value: duplicatesRemoved, enumerable: false });
+  return result;
 }
 
 /**
@@ -436,6 +462,7 @@ export function writeCompatPaths(data, rootDir = process.cwd()) {
   const { paths: rawPaths, ...meta } = data || {};
   delete meta.shardCount;
   delete meta.totalPaths;
+  delete meta.duplicatesRemoved;
   const filtered = filterCompatPaths(rawPaths);
   if (filtered.dropped.length > 0) {
     const byReason = filtered.dropped.reduce((counts, { reason }) => {
