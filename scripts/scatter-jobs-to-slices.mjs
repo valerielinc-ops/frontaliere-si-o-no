@@ -892,12 +892,13 @@ export function collectMissingAssembledBridges(sliceJob, assembled, { skipBridge
   // union can still have room while a particular locale bucket is full. New
   // assembled history must not evict an unrelated committed locale bridge in
   // that case, so it falls back to the wider, provenance-unknown flat field.
-  // A bridge that is already served by this slice is different: leaving it in
-  // the flat field (or under another locale) still fails parity because the
-  // assembled side has authoritative locale provenance. Reattribute that
-  // existing bridge even when the destination bucket is full; the bounded
-  // locale helper rotates only that bucket while the flat union keeps the
-  // route reachable.
+  // A bridge that is already attributed to another locale is different:
+  // leaving it there fails parity because the assembled side has authoritative
+  // locale provenance. Reattribute that existing bridge even when the
+  // destination bucket is full; the bounded locale helper rotates only that
+  // bucket while the flat union keeps the route reachable. A flat-only bridge
+  // remains flat-only when the destination bucket has no room, preserving the
+  // no-rotation guarantee above.
   const localeHeadroom = new Map(LOCALES.map((locale) => {
     const bucket = Array.isArray(existingByLocale[locale]) ? existingByLocale[locale] : [];
     return [locale, Math.max(0, DEFAULT_PREV_SLUG_CAP - bucket.length)];
@@ -943,8 +944,15 @@ export function collectMissingAssembledBridges(sliceJob, assembled, { skipBridge
         const consumesHeadroom = !known.has(v);
         if (consumesHeadroom && adds.filter((a) => !a._free).length >= headroom) continue;
         const hasLocaleRoom = (localeHeadroom.get(locale) || 0) > 0;
-        const reattributeExistingBridge = !hasLocaleRoom && !consumesHeadroom;
-        if (!hasLocaleRoom && !reattributeExistingBridge && consumesHeadroom) continue;
+        const hasOtherLocaleAttribution = LOCALES.some((otherLocale) => (
+          otherLocale !== locale
+          && Array.isArray(existingByLocale[otherLocale])
+          && existingByLocale[otherLocale].includes(v)
+        ));
+        const reattributeExistingBridge = !hasLocaleRoom
+          && !consumesHeadroom
+          && hasOtherLocaleAttribution;
+        if (!hasLocaleRoom && !consumesHeadroom && !reattributeExistingBridge) continue;
         seen.add(dedupKey);
         adds.push({
           locale: hasLocaleRoom || reattributeExistingBridge ? locale : null,
