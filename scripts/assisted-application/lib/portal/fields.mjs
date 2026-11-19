@@ -313,8 +313,10 @@ function nativeQuestionText(value, counter = null) {
       ...(privacyMetadataIncomplete ? { privacyMetadataIncomplete: true } : {}),
     };
   };
-  const QUESTION_GROUP_SELECTOR = 'fieldset, [role="group"], [role="radiogroup"], .field, .form-group, .application-question, li';
-  const QUESTION_LABEL_SELECTOR = 'legend, .label, .question, h1, h2, h3, h4, [role="heading"], label, [class*="label"], [class*="question"], [class*="title"]';
+  // Umantis places the shared question and required marker in the caption
+  // column, separate from the individual option labels in the control column.
+  const QUESTION_GROUP_SELECTOR = '.form_content_row, fieldset, [role="group"], [role="radiogroup"], .field, .form-group, .application-question, li';
+  const QUESTION_LABEL_SELECTOR = '.form_content_row > .form_content_left_boundary > .form_content_left, legend, .label, .question, h1, h2, h3, h4, [role="heading"], label, [class*="label"], [class*="question"], [class*="title"]';
   const DATE_QUESTION_SELECTOR = '[ui5-date-picker], [data-scope="date-picker"][data-part="root"]';
   const QUESTION_CONTROL_SELECTOR = `input, select, textarea, [role="combobox"], [role="radio"], [role="checkbox"], button[aria-haspopup="listbox"], [role="button"][aria-haspopup="listbox"], ${DATE_QUESTION_SELECTOR}`;
   // Unnamed option cards are one question only inside a pure, bounded list.

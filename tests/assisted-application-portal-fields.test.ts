@@ -37,6 +37,29 @@ afterEach(() => {
 });
 
 describe('portal field extraction', () => {
+  it('reads the required question above Umantis residence status radio options', () => {
+    const snapshot = extract(`<form>
+      <div class="form_content_row">
+        <div class="form_content_left_boundary">
+          <div class="form_content_left">Statuto di soggiorno<span class="form_content_label_mustsign">*</span><span class="form_content_label_colon">:</span></div>
+        </div>
+        <div class="form_content_right_boundary">
+          <label for="residence-c"><input id="residence-c" name="residence" type="radio" value="c">Permesso C</label>
+          <label for="residence-b"><input id="residence-b" name="residence" type="radio" value="b">Permesso B</label>
+        </div>
+      </div>
+    </form>`, 'https://recruiting.example/Vacancies/1/Application/New/4');
+    const field = snapshot.fields.find((entry: any) => entry.name === 'residence');
+    expect(field).toMatchObject({
+      kind: 'radio',
+      label: expect.stringContaining('Statuto di soggiorno'),
+      required: true,
+      options: [expect.objectContaining({ label: 'Permesso C' }), expect.objectContaining({ label: 'Permesso B' })],
+    });
+    expect(candidateAnswerForField({ profile: { permitStatus: 'permit_c' } }, field)?.value).toBe('Permesso C');
+    expect(candidateAnswerForField({ profile: { workPermit: 'Permesso C' } }, field)?.value).toBeUndefined();
+  });
+
   it('keeps repeated Workday profile names out of planner field identity', () => {
     const rows = Array.from({ length: 5 }, (_, index) => `<fieldset><legend>Work Experience ${index + 1}</legend>
       <label for="job-${index}">Job Title*</label><input id="job-${index}" name="name" required>
