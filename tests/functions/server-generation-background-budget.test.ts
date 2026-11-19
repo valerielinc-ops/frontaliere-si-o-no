@@ -34,7 +34,7 @@ describe('trusted background inference budget', () => {
   it('finishes a realistic 30s NVIDIA response in background', async () => {
     const result = generateServerText({ ...input, background: true });
     await vi.advanceTimersByTimeAsync(30_000);
-    expect(await result).toMatchObject({ status: 200, body: { provider: 'nvidia-gpt-oss-20b', ok: true } });
+    expect(await result).toMatchObject({ status: 200, body: { provider: 'nvidia-gemma-4-31b-it', ok: true } });
   });
   it('keeps the 18s interactive cap, including untrusted body overrides', async () => {
     const result = handleGeminiGenerate({ method: 'POST', body: { ...input, background: true, userPrompt: 'Short interactive prompt' } });
