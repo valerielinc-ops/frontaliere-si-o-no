@@ -11443,6 +11443,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-15T09:34:15.758Z",
       "validThroughSource": "last-observed-window",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -11455,15 +11457,19 @@
         }
       },
       "previousSlugs": [
-        "mitarbeiter-in-gastronomie-office-coop-ristorante-rickenbach"
+        "mitarbeiter-in-gastronomie-office-coop-ristorante-rickenbach",
+        "associate-gastronomie-office-coop-ristorante-rickenbach-w4voum",
+        "mitarbeiter-in-gastronomie-office-coop-ristorante-rickenbach-w4voum",
+        "collaborateur-trice-gastronomie-office-coop-ristorante-rickenbach-w4voum"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-gastronomie-office-coop-ristorante-rickenbach"
+          "mitarbeiter-in-gastronomie-office-coop-ristorante-rickenbach",
+          "associate-gastronomie-office-coop-ristorante-rickenbach-w4voum",
+          "mitarbeiter-in-gastronomie-office-coop-ristorante-rickenbach-w4voum",
+          "collaborateur-trice-gastronomie-office-coop-ristorante-rickenbach-w4voum"
         ]
-      },
-      "salaryMin": 57500,
-      "salaryMax": 87000
+      }
     },
     {
       "id": "company-6tr33r",
@@ -41276,7 +41282,7 @@
         "fr": "## Picker:in / Packer:in E-Shop, 20 %\n\n**Coopérative de coop** — Langenthal, BE, Svizzera\n\n- Ouverture d'emploi: immédiatement ou par accord\n- Spécialiste: Logistique / Transport\n- Lieu: Coop, Nordstrasse 1, 4900 Langenthal\n- Pensum: 20%\n\n## Tâche\n- Les produits commandés peuvent être choisis de façon fiable et efficace à l'aide d'un terminal de radio de données, d'un appareil radio ou d'un scanner manuel radio.\n- Pendant le contrôle, vous faites attention à la quantité, la qualité et les dommages visibles\n- Ensuite, vous emballez les commandes professionnellement et assurez-vous qu'ils sont prêts pour l'expédition complètement et à temps.\n- Le travail en entrepôt général est tout aussi important que d'assurer l'ordre et la propreté au travail.\n- En cas de charge de travail élevée, vous aidez également avec souplesse les autres ministères dans les opérations quotidiennes.\n\n## Exigences\n- Idéalement, vous apporterez une expérience pratique dans la logistique, l'entreposage ou la cueillette de commande.\n- La condition physique est importante parce que les marchandises sont régulièrement déplacées pendant le travail\n- Une bonne connaissance orale et écrite de l'allemand est nécessaire pour que les instructions de travail et de sécurité puissent être comprises en toute sécurité\n- Une manière fiable, prudente et efficace de travailler vous distingue; Même avec un volume de travail élevé, vous gardez l'aperçu\n- La disponibilité tous les lundis ainsi que l'arrivée obligatoire par les transports publics sont des conditions préalables\n- Réductions: 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop\n- Conditions d'emploi: conditions d'emploi attractives et salaire égal certifié, contrat total d'emploi (GAV)\n- Heures de travail: 5 semaines de congés\n- Formation : plus de 600 cours de formation interne\n- Durabilité: Engagement envers les personnes et les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les employés\n- Santé : Mise à jour de la condition physique : Fr. 200.– Rabais d'abonnement annuel\n\n## Votre personne à contacter\nMichèle du Danemark\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sede:** Langenthal"
       },
       "slugByLocale": {
-        "it": "picker-packer-e-shop-20-coop-genossenschaft-langenthal",
+        "it": "picker-packer-e-shop-20-coop-genossenschaft-langenthal-b131c3a6f0",
         "en": "kommissionierer-in-verpacker-in-e-shop-20-coop-langenthal-yrpxmn",
         "de": "kommissionierer-in-verpacker-in-e-shop-20-coop-langenthal-yrpxmn",
         "fr": "kommissionierer-in-verpacker-in-e-shop-20-coop-langenthal-yrpxmn"
@@ -41293,7 +41299,8 @@
           "kommissionierer-in-verpacker-in-e-shop-20-coop-langenthal-2",
           "kommissionierer-in-verpacker-in-e-shop-20-coop-langenthal-yrpxmn",
           "kommissionierer-in-verpacker-in-e-shop-20-coop-langenthal-6mpt67",
-          "kommissionierer-in-verpacker-in-e-shop-20-coop-langenthal"
+          "kommissionierer-in-verpacker-in-e-shop-20-coop-langenthal",
+          "picker-packer-e-shop-20-coop-genossenschaft-langenthal"
         ],
         "en": [
           "kommissionierer-in-verpacker-in-e-shop-20-coop-langenthal-9rtshe",
@@ -41313,11 +41320,14 @@
         "kommissionierer-in-verpacker-in-e-shop-20-coop-langenthal-2",
         "kommissionierer-in-verpacker-in-e-shop-20-coop-langenthal-yrpxmn",
         "kommissionierer-in-verpacker-in-e-shop-20-coop-langenthal-6mpt67",
-        "kommissionierer-in-verpacker-in-e-shop-20-coop-langenthal"
+        "kommissionierer-in-verpacker-in-e-shop-20-coop-langenthal",
+        "picker-packer-e-shop-20-coop-genossenschaft-langenthal"
       ],
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-08T09:34:15.758Z",
       "validThroughSource": "last-observed-window",
+      "salaryMin": 13700,
+      "salaryMax": 20800,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -41328,9 +41338,7 @@
           "maxValue": 20800,
           "unitText": "YEAR"
         }
-      },
-      "salaryMin": 13700,
-      "salaryMax": 20800
+      }
     },
     {
       "id": "company-39m14g",
@@ -84889,12 +84897,12 @@
           "seller-food-coop-genossenschaft-luzern-318504",
           "verkaufer-in-food-coop-luzern-ha2h9v"
         ],
-        "de": [
-          "verkaufer-in-food-coop-luzern-ha2h9v"
-        ],
         "fr": [
           "verkaufer-in-food-coop-luzern-uygdt3",
           "produits-alimentaires-vendus-coop-genossenschaft-luzern-318504",
+          "verkaufer-in-food-coop-luzern-ha2h9v"
+        ],
+        "de": [
           "verkaufer-in-food-coop-luzern-ha2h9v"
         ]
       },
@@ -96955,13 +96963,13 @@
           "responsabile-junior-vendita-region-oberwallis-coop-genossenschaft-bern",
           "responsabile-junior-vendita-region-oberwallis-coop-regiog-brig-visp-zermatt-und-goms-r3d3pl"
         ],
-        "en": [
-          "nachwuchskader-sales-region-oberwallis-coop-regiog-brig-visp-zermatt-und-goms-r3d3pl"
-        ],
         "de": [
           "nachwuchskader-verkauf-region-oberwallis-coop-regiog-brig-visp-zermatt-und-goms-0cg4cm",
           "nachwuchskader-verkauf-region-oberwallis-coop-genossenschaft-bern",
           "nachwuchskader-verkauf-region-oberwallis-coop-regiog-brig-visp-zermatt-und-goms-r3d3pl"
+        ],
+        "en": [
+          "nachwuchskader-sales-region-oberwallis-coop-regiog-brig-visp-zermatt-und-goms-r3d3pl"
         ],
         "fr": [
           "nachwuchskader-vente-region-oberwallis-coop-regiog-brig-visp-zermatt-und-goms-r3d3pl"
