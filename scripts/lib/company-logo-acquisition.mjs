@@ -139,7 +139,17 @@ export const DOMAIN_OVERRIDES = {
   'hugo-boss': ['hugoboss.com'],
   'seniorenzentrum-engelhof': ['seniorenzentrum-engelhof.ch'],
   my: ['teojakob.ch'],
+  // Official OK JOB SA site; the audit key keeps its hyphenated source identity.
+  'ok-job-sa': ['okjob.ch'],
   okjob: ['okjob.ch'],
+  // Official contact page lists JOB Ticino SA and its job-ti.ch email.
+  'job-ticino-sa': ['job-ti.ch'],
+  // Work Selection's imprint identifies Work Selection AG on this domain.
+  'work-selection': ['workselection.com'],
+  // The official Zenhäusern contact page names Zenhäusern Frères SA.
+  'zenhausern-freres-sa': ['chezzen.ch'],
+  // Official team.jobs branch pages identify the Locarno employer as il team sa.
+  'il-team-sa': ['team.jobs'],
   pianorm: ['pianorm.ch'],
   // The crawler's official employer domain is pks-personal.ch; never derive
   // an audit source from the pks-bewerbung key or its ATS/job URL.
