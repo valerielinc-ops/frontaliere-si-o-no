@@ -306,6 +306,24 @@ describe('L9 Employer Supply → Paid Activation', () => {
         ok: false, reason: 'l9-private-economic-evidence', missing: [],
       });
       fs.unlinkSync(path.join(reportDir, 'l9-report.md'));
+
+      const logPath = path.join(reportDir, 'cli-output.log');
+      fs.writeFileSync(logPath, 'Recognized MRR CHF status: unavailable\n');
+      expect(merge().inputRecords).toMatchObject({ observation: 1, decision: 1, health: 1 });
+      expect(missingEvidenceRecordIds(reportDir, ledgerDir, source)).toMatchObject({ ok: true, missing: [] });
+
+      for (const log of [
+        `Recognized MRR CHF: ${privateAmount}\n`,
+        JSON.stringify({ recognizedMrrChf: privateAmount }),
+      ]) {
+        fs.writeFileSync(logPath, log);
+        expect(() => merge()).toThrow(/^l9-private-economic-evidence$/u);
+        expect(missingEvidenceRecordIds(reportDir, ledgerDir, source)).toEqual({
+          ok: false, reason: 'l9-private-economic-evidence', missing: [],
+        });
+      }
+      fs.unlinkSync(logPath);
+
       writeJson(reportDir, 'l9-decision.json', { sourceSnapshot: { metrics: { recognizedMrrChf: privateAmount } } });
       expect(() => merge()).toThrow(/^l9-private-economic-evidence$/u);
     } finally {

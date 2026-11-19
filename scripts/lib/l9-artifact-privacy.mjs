@@ -14,9 +14,11 @@ export function hasL9PrivateEvidence(dir) {
     const contents = fs.readFileSync(file, 'utf8')
       .replace(/\\u([0-9a-f]{4})/giu, (_, code) => String.fromCharCode(Number.parseInt(code, 16)))
       .normalize('NFKC');
-    if (/\.md$/iu.test(entry.name)) {
-      return /^\s*(?:>\s*)*(?:[-*+]\s+)?[*_`]*recognized\s+mrr\s+chf[*_`]*\s*:/imu.test(contents);
+    if (/\.(md|log)$/iu.test(entry.name)
+        && /^\s*(?:>\s*)*(?:[-*+]\s+)?[*_`]*recognized\s+mrr\s+chf[*_`]*\s*:/imu.test(contents)) {
+      return true;
     }
-    return /"(?:mrr[ _-]*recognized|recognized[ _-]*mrr)[ _-]*chf"\s*:/iu.test(contents);
+    return !/\.md$/iu.test(entry.name)
+      && /"(?:mrr[ _-]*recognized|recognized[ _-]*mrr)[ _-]*chf"\s*:/iu.test(contents);
   });
 }
