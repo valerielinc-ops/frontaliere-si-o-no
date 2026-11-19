@@ -35,7 +35,11 @@ function optionValue(args, name) {
 function parseOptions(args) {
   const apply = args.includes('--apply');
   const dryRun = args.includes('--dry-run') || !apply;
+  const alignUnserved = args.includes('--align-unserved');
   if (apply && args.includes('--dry-run')) throw new Error('choose either --dry-run or --apply');
+  if (apply && alignUnserved) {
+    throw new Error('--align-unserved is measured here and applied by regenerate-slugs-by-locale.mjs');
+  }
   const expectedCount = Number(optionValue(args, '--expected-count') || 40);
   if (!Number.isSafeInteger(expectedCount) || expectedCount < 0) {
     throw new Error('--expected-count must be a non-negative integer');
@@ -43,6 +47,7 @@ function parseOptions(args) {
   return {
     apply,
     dryRun,
+    alignUnserved,
     expectedCount,
     slicesDir: path.resolve(optionValue(args, '--slices-dir') || DEFAULT_SLICES_DIR),
     ledger: optionValue(args, '--ledger'),
@@ -126,8 +131,8 @@ async function main() {
         const result = servedSlugSliceWriter(job, locale, {
           usedSlugs: usedSlugs.get(locale),
           candidateClaims: candidateClaims.get(locale),
-          allowFirstServedRestore: true,
-          requireCurrentServed: true,
+          allowFirstServedRestore: !options.alignUnserved,
+          requireCurrentServed: !options.alignUnserved,
         });
         if (!result.changed) {
           skipped.set(result.reason, (skipped.get(result.reason) || 0) + 1);
@@ -170,7 +175,11 @@ async function main() {
 
   const skippedSummary = Object.fromEntries([...skipped].sort(([a], [b]) => a.localeCompare(b)));
   console.log(JSON.stringify({
-    mode: options.apply ? 'apply' : 'dry-run',
+    mode: options.apply
+      ? 'apply-first-served'
+      : options.alignUnserved
+        ? 'dry-run-align-unserved'
+        : 'dry-run-first-served',
     selected: plan.changes.length,
     expected: options.expectedCount,
     countMatches,
