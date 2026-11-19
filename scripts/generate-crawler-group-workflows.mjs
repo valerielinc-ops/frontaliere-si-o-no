@@ -3751,7 +3751,15 @@ export function buildStandaloneCrossRepoWorkflow({
         throw new Error(`${name}: standalone workflow has multiple diagnostic failure reporters`);
       }
       diagnosticReporter = step;
-      step.if = diagnosticFailureCondition;
+      if (isTranslatePendingArtifact && step.name === 'Report failure to GitHub Issues') {
+        if (typeof step.if !== 'string'
+          || !step.if.includes("steps.repair_stale_descriptions.outcome == 'failure'")) {
+          throw new Error(`${name}: failure reporter must preserve the tolerated stale-description prepass failure`);
+        }
+        step.if = `${step.if} && (steps.${primaryId}.outcome == 'success' || steps.site_checkout_retry.outcome == 'success')`;
+      } else {
+        step.if = diagnosticFailureCondition;
+      }
       step.with = {
         ...step.with,
         title: `Workflow Failure: ${name}`,
