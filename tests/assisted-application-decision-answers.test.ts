@@ -125,6 +125,8 @@ describe('business travel (order rg82P9MP) and shift flexibility (order BvZdi8Sl
       .toMatchObject({ value: 'Yes', topic: 'platform:shift_flexibility' });
     expect(platformDefaultAnswer({ question: 'Êtes-vous disponible pour travailler en équipe et le week-end ?', type: 'yes_no' }, null, { locale: 'fr' }))
       .toMatchObject({ value: 'Oui', topic: 'platform:shift_flexibility' });
+    expect(platformDefaultAnswer({ question: 'Sind Sie für Wochenendarbeit verfügbar?', type: 'yes_no' }, null, { locale: 'de' }))
+      .toMatchObject({ value: 'Ja', topic: 'platform:shift_flexibility', source: 'policy_default' });
     expect(evaluateRedFlags(draftOf([matchShift]), {}, {}, {}, null, order).candidate).toEqual([]);
 
     const { platformFacts } = candidateWithEdits({ order, draft: draftOf([matchShift]), flow: {} });
@@ -133,11 +135,15 @@ describe('business travel (order rg82P9MP) and shift flexibility (order BvZdi8Sl
     })).toMatchObject({ value: 'Yes', source: 'policy_default' });
   });
 
-  it('does not auto-answer past shift experience, workload percentages, non-binary or negative questions', () => {
+  it('does not auto-answer past shift experience, workload percentages, interviews, non-binary or negative questions', () => {
     expect(platformQuestionTopic({ question: 'Hai già lavorato su turni notturni negli ultimi anni?', type: 'yes_no', options: ['Sì', 'No'] })).toBeNull();
     expect(platformQuestionTopic({ question: 'Quale grado di occupazione desideri per il lavoro a turni?', type: 'yes_no', options: ['Sì', 'No'] })).toBeNull();
     expect(platformQuestionTopic({ question: 'Which weekend shifts do you prefer?', type: 'choice', options: ['Morning', 'Evening'] })).toBeNull();
     expect(platformQuestionTopic({ question: 'Tick if you are unavailable for weekend shifts', type: 'checkbox' })).toBeNull();
+    expect(platformQuestionTopic({ question: 'Would you be unavailable for weekend shifts?', type: 'yes_no', options: ['Yes', 'No'] })).toBeNull();
+    expect(operationalDefaultAnswer({ question: 'Would you be unavailable for weekend shifts?', type: 'yes_no', options: ['Yes', 'No'] })).toBeNull();
+    expect(platformQuestionTopic({ question: 'Are you available for the Saturday interview?', type: 'yes_no', options: ['Yes', 'No'] })).toBeNull();
+    expect(operationalDefaultAnswer({ question: 'Are you available for the Saturday interview?', type: 'yes_no', options: ['Yes', 'No'] })).toBeNull();
     expect(platformQuestionTopic({ question: 'Can you work weekend shifts?', type: 'text' })).toBeNull();
   });
 
