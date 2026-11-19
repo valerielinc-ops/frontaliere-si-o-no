@@ -413,6 +413,8 @@ jobs:
       - name: Refresh weekly-employers footer link list
         run: node scripts/refresh-weekly-employers-top-pairs.mjs
       - name: Mine all job slugs for 404 coverage
+        env:
+          NODE_OPTIONS: --max-old-space-size=12288
         run: node scripts/mine-all-job-slugs.mjs
       - name: Canton-aware migration of slug registry
         run: node scripts/migrate-all-known-job-slugs-canton-aware.mjs

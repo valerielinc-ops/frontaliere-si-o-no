@@ -785,6 +785,13 @@ function main() {
     }
   }
 
+  // allSlugs/nonGitSourceSlugs are not read past this loop: release them
+  // before the ~7M-path compat store is loaded (OOM at the 4 GB default
+  // heap in deploy run 44489201411).
+  const allSlugsSize = allSlugs.size;
+  allSlugs.clear();
+  nonGitSourceSlugs.clear();
+
   console.log(`\n  Tracking: ${added} new, ${patched} patched (${initialCount} → ${Object.keys(tracking).length})`);
   if (reservedHubsSkipped > 0) {
     console.log(`  🛡️  Skipped ${reservedHubsSkipped} reserved hub slug(s) (would clobber sector/city hub HTML)`);
@@ -794,6 +801,8 @@ function main() {
   const compatFile = dataPath('seo-404-compat'); // sharded dir (issue #2988)
   const compat = readCompatPathsStrict(ROOT) || { paths: [] };
   const existingCompat = new Set(compat.paths);
+  const prevCompatCount = compat.paths.length;
+  compat.paths = null; // the Set owns the strings now; drop the duplicate array
   let compatAdded = 0;
 
   for (const paths of Object.values(tracking)) {
@@ -806,7 +815,7 @@ function main() {
     }
   }
 
-  console.log(`  Compat: ${compatAdded} new paths (${compat.paths.length} → ${existingCompat.size})`);
+  console.log(`  Compat: ${compatAdded} new paths (${prevCompatCount} → ${existingCompat.size})`);
 
   // Write outputs
   if (!DRY_RUN) {
@@ -872,10 +881,11 @@ function main() {
     };
     // Floor-guard (#1353): additive writer (same class as discover-404s/sync-gsc-orphans).
     // readCompatPathsStrict() aborts on a corrupt/incomplete store before the
-    // additive update can persist a partial set. Re-read on-disk for the
-    // authoritative pre-write count and keep the shared floor guard as a
-    // second defense against a broad logical regression.
-    const prevCount = readCompatPathsStrict(ROOT)?.paths?.length ?? 0;
+    // additive update can persist a partial set. Nothing in this process writes
+    // the compat store between that read and this write: writeAllKnownJobSlugs
+    // only writes data/all-known-job-slugs. Reuse the count to avoid loading
+    // another copy of the ~7M paths.
+    const prevCount = prevCompatCount;
     assertCompatFloor(prevCount, updatedCompat.paths.length, { label: compatFile });
     writeCompatPaths(updatedCompat, ROOT);
     console.log('\n  ✅ Files written');
@@ -887,7 +897,7 @@ function main() {
   console.log('\n' + '═'.repeat(50));
   console.log('⛏️  Mining Summary');
   console.log('═'.repeat(50));
-  console.log(`  Unique slugs mined:    ${allSlugs.size}`);
+  console.log(`  Unique slugs mined:    ${allSlugsSize}`);
   console.log(`  Tracking entries:      ${Object.keys(tracking).length}`);
   console.log(`  New tracking entries:  ${added}`);
   console.log(`  Patched entries:       ${patched}`);
