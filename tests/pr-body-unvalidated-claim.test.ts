@@ -7,7 +7,11 @@
  */
 
 import { describe, it, expect } from 'vitest';
-import { checkPrBodySections, unvalidatedPerfClaims } from '../scripts/lib/pr-body-sections-check.mjs';
+import {
+  checkPrBodySections,
+  isConcreteJobWorkflowReference,
+  unvalidatedPerfClaims,
+} from '../scripts/lib/pr-body-sections-check.mjs';
 
 function body(impl: string, nonImpl = 'Nessuno.') {
   return `## Implementato\n\n${impl}\n\n## Non implementato (ancora)\n\n${nonImpl}\n`;
@@ -124,6 +128,14 @@ describe('unvalidated-perf-claim: le prove accettate e i numeri che non sono pre
     expect(res.violations.some(isClaimViolation)).toBe(true);
   });
 
+  it('non tratta un file YAML citato dopo prosa come workflow concreto', () => {
+    const res = strict(body(
+      '- La riduzione wall-clock non è validata pre-merge.',
+      '- blocked: misura post-merge; workflow is monitored by `tests.yml`; soglia 30 minuti. **Trigger di revert:** se il job supera 30 minuti, revert di questa PR.',
+    ));
+    expect(res.violations.some(isClaimViolation)).toBe(true);
+  });
+
   it('numeri che non sono prestazioni («3 file», «12 test»)', () => {
     const res = strict(body('- Aggiornati 3 file del crawler e aggiunti 12 test; il parser evita i duplicati di slug.'));
     expect(res.ok).toBe(true);
@@ -147,6 +159,34 @@ describe('unvalidated-perf-claim: le prove accettate e i numeri che non sono pre
     const res = checkPrBodySections(body(claim));
     expect(res.violations.some(isClaimViolation)).toBe(false);
     expect(res.ok).toBe(true);
+  });
+});
+
+describe('unvalidated-perf-claim: riconoscimento del riferimento workflow/job', () => {
+  it('richiede un nome concreto subito dopo workflow o job', () => {
+    expect(isConcreteJobWorkflowReference('workflow is monitored by tests.yml')).toBe(false);
+    expect(isConcreteJobWorkflowReference('job is pending; see deploy.yml')).toBe(false);
+    expect(isConcreteJobWorkflowReference('workflow tests.yml')).toBe(true);
+    expect(isConcreteJobWorkflowReference('job build-test')).toBe(true);
+    expect(isConcreteJobWorkflowReference('run https://github.com/o/r/actions/runs/123')).toBe(true);
+  });
+
+  it('accetta un nome esplicito quoted ma non un prefisso di prosa camuffato', () => {
+    expect(isConcreteJobWorkflowReference('workflow "Release pages"')).toBe(true);
+    expect(isConcreteJobWorkflowReference('workflow is-active')).toBe(false);
+  });
+
+  it('non tratta i parametri di query di un URL arbitrario come riferimenti concreti', () => {
+    for (const owner of ['workflow', 'job', 'run', 'deploy']) {
+      expect(isConcreteJobWorkflowReference(`blocked: misura post-merge; https://example.test/${owner}=build-1; soglia 2s; trigger di revert: rollback`), owner).toBe(false);
+      expect(isConcreteJobWorkflowReference(`blocked: misura post-merge; https://example.test/${owner}="build-1"; soglia 2s; trigger di revert: rollback`), `${owner} quoted`).toBe(false);
+    }
+    expect(isConcreteJobWorkflowReference('blocked: misura post-merge; https://example.test/job=build-1; soglia 2s; trigger di revert: rollback')).toBe(false);
+  });
+
+  it('mantiene valide le URL Actions riconosciute', () => {
+    expect(isConcreteJobWorkflowReference('workflow https://github.com/o/r/actions/workflows/build.yml')).toBe(true);
+    expect(isConcreteJobWorkflowReference('run https://github.com/o/r/actions/runs/123')).toBe(true);
   });
 });
 
