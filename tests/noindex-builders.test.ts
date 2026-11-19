@@ -214,13 +214,17 @@ describe('SEO builder noindex guards', () => {
       expect(crossLocaleGate).toBeGreaterThan(crossLocalePlanStart);
 
       const retainedOutputStart = source.indexOf('const retainedBridgeOutputs: Array<{');
-      const retainedOutputEnd = source.indexOf('assertRetainedBridgeMissingBudget(', retainedOutputStart);
+      const retainedOutputEnd = source.indexOf('const bridgeDistCoverage = assertBridgePathDistCoverage(', retainedOutputStart);
       const retainedOutputBlock = source.slice(retainedOutputStart, retainedOutputEnd);
       expect(retainedOutputStart).toBeGreaterThan(-1);
       expect(retainedOutputEnd).toBeGreaterThan(retainedOutputStart);
       expect(retainedOutputBlock).toContain('getSafeDistPageTargets(distDir, bridge.path, { includeFlat: false });');
       expect(retainedOutputBlock).toContain('if (!shouldEmitLocale(bridge.locale)) continue;');
       expect(retainedOutputBlock).toContain('sourceJobIdentifier: bridge.sourceJobIdentifier');
+      expect(retainedOutputBlock.indexOf('retainedBridgeOutputs.push({')).toBeLessThan(
+        retainedOutputBlock.indexOf('if (emittedRetainedBridgeKeys.has('),
+      );
+      expect(source).not.toContain('assertRetainedBridgeMissingBudget');
 
       const coverageStart = source.indexOf('const bridgeDistCoverage = assertBridgePathDistCoverage(');
       const coverageEnd = source.indexOf('console.log(', coverageStart);
