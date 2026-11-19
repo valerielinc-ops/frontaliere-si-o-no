@@ -19,7 +19,7 @@ import { mergeInstagramCommunityOutcomeSnapshots } from '../scripts/lib/instagra
 import { socialCopyRevisionId } from '../scripts/lib/social-copy-revision.mjs';
 
 const NOW = new Date();
-const MEDIA_PUBLISHED_AT = new Date(NOW.getTime() - 6 * 60 * 60 * 1000);
+const MEDIA_PUBLISHED_AT = new Date(NOW.getTime() - 30 * 60 * 60 * 1000);
 const COMMENT_RECEIVED_AT = new Date(NOW.getTime() - 60 * 60 * 1000);
 const MESSAGE_RECEIVED_AT = new Date(NOW.getTime() - 30 * 60 * 1000);
 const STORY_PUBLISHED_AT = new Date(NOW.getTime() + 15 * 60 * 1000);
