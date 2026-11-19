@@ -3,6 +3,7 @@ import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
+import { isExternallyServedUrl } from '../lib/externally-served-paths.mjs';
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 import { readSitemapSnapshot } from '../lib/sitemap-snapshot.mjs';
 import {
@@ -115,9 +116,17 @@ export function buildSitemapFamilyBridgeEvidence({ previousSnapshot, currentSnap
   const reader = distReader ?? createDirectoryDistReader(distDir);
   const entries = [];
   const missing = [];
+  const externallyServed = [];
   for (const family of Object.keys(SITEMAP_FAMILY_CHURN_TOLERANCE)) {
     for (const url of familyRemovedUrls(previousSnapshot, currentSnapshot, family)) {
       if (locale && urlLocale(url) !== locale) continue;
+      // The Worker serves these URLs from the corpus shard. As in
+      // validate-sitemap-pages/links and audit-hreflang, BUILD_EMIT_SKIP means
+      // this build neither owns nor emits them, so no bridge is required.
+      if (isExternallyServedUrl(url)) {
+        externallyServed.push({ family, url });
+        continue;
+      }
       const candidate = routeCandidates(url).find((relative) => reader.exists(relative));
       if (!candidate) {
         missing.push({ family, url, reason: 'bridge file is absent from dist' });
@@ -139,6 +148,7 @@ export function buildSitemapFamilyBridgeEvidence({ previousSnapshot, currentSnap
   }
   entries.sort((a, b) => `${a.family}\0${a.url}`.localeCompare(`${b.family}\0${b.url}`));
   missing.sort((a, b) => `${a.family}\0${a.url}`.localeCompare(`${b.family}\0${b.url}`));
+  externallyServed.sort((a, b) => `${a.family}\0${a.url}`.localeCompare(`${b.family}\0${b.url}`));
   return {
     schemaVersion: SITEMAP_FAMILY_BRIDGE_EVIDENCE_VERSION,
     kind: BRIDGE_EVIDENCE_KIND,
@@ -146,6 +156,7 @@ export function buildSitemapFamilyBridgeEvidence({ previousSnapshot, currentSnap
     ...(locale ? { locale } : {}),
     entries,
     missing,
+    externallyServed,
   };
 }
 
@@ -190,12 +201,13 @@ function main() {
       complete: false,
       ...(LOCALES.has(args.locale) ? { locale: args.locale } : {}),
       entries: [],
+      externallyServed: [],
       missing: [{ reason: `cannot build bridge evidence: ${error.message}` }],
     };
   }
   fs.mkdirSync(path.dirname(out), { recursive: true });
   fs.writeFileSync(out, `${JSON.stringify(result)}\n`);
-  console.log(`[bridge-evidence] ${args.locale ?? 'all'} ${result.complete ? 'complete' : 'incomplete'} entries=${result.entries.length} missing=${result.missing.length}`);
+  console.log(`[bridge-evidence] ${args.locale ?? 'all'} ${result.complete ? 'complete' : 'incomplete'} entries=${result.entries.length} missing=${result.missing.length} externallyServed=${result.externallyServed.length}`);
 }
 
 if (isInvokedDirectly(import.meta.url)) main();

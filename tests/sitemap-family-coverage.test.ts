@@ -7,6 +7,7 @@ import {
   diffSitemapFamilyUrls,
   evaluateSitemapFamilyCoverage,
   filterExternallyServedUrlsFromSitemapCoverage,
+  validateSitemapFamilyBridgeEvidence,
 } from '../scripts/lib/sitemap-family-coverage.mjs';
 
 const NO_DECLARATIONS = { version: 1, decreases: [] };
@@ -146,6 +147,21 @@ describe('sitemap family URL coverage ratchet', () => {
     expect(result.churn).toHaveLength(1);
     expect(result.churn[0]).toMatchObject({
       family: 'orphan-landings', previousCount: 1913, currentCount: 1906, delta: -7, tolerance: 0.1,
+    });
+  });
+
+  it.each([
+    ['https://frontaliereticino.ch/articoli-frontaliere/argomenti/permesso-g/', true],
+    ['https://frontaliereticino.ch/topic/permesso-g/', false],
+  ])('requires bridge evidence only for locally served removals (%s)', (url, valid) => {
+    const previous = snapshot({ 'sitemap-topics-frontaliere.xml': [url] });
+    const current = snapshot({ 'sitemap-topics-frontaliere.xml': [] });
+    const evidence = { ...bridgeEvidence(previous, current, 'topics'), entries: [] };
+
+    expect(validateSitemapFamilyBridgeEvidence(previous, current, evidence, 'topics')).toEqual({
+      valid,
+      entries: [],
+      errors: valid ? [] : [`topics: missing bridge evidence for removed URL ${url}`],
     });
   });
 

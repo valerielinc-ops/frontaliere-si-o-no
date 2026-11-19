@@ -175,7 +175,9 @@ export function validateSitemapFamilyBridgeEvidence(
 ) {
   const previousUrls = sitemapFamilyUrlSets(previousSnapshot).get(family) ?? new Set();
   const currentUrls = sitemapFamilyUrlSets(currentSnapshot).get(family) ?? new Set();
-  const removedUrls = [...previousUrls].filter((url) => !currentUrls.has(url)).sort();
+  const removedUrls = [...previousUrls]
+    .filter((url) => !currentUrls.has(url) && !isExternallyServedUrl(url))
+    .sort();
   if (removedUrls.length === 0) return { valid: true, errors: [], entries: [] };
 
   const { entries, validShape } = bridgeEvidenceEntriesForFamily(bridgeEvidence, family);
