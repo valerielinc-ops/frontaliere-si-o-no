@@ -21,13 +21,13 @@ import { realpathSync } from 'node:fs';
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { execFileSync, execSync } from 'node:child_process';
+import { execFileSync, spawn } from 'node:child_process';
+import { createInterface } from 'node:readline';
 import { fileURLToPath } from 'node:url';
 import { assertCompatFloor } from './lib/compat-paths-floor-guard.mjs';
 import {
-  readCompatPathsStrict,
-  readCompatPathsStrictWithManifestRepair,
-  writeCompatPaths,
+  forEachCompatPathsStrict,
+  prepareCompatPathsForTracking,
 } from './lib/compat-paths-store.mjs';
 import {
   readAllKnownJobSlugs,
@@ -43,6 +43,8 @@ import { isHeldFromPublication, isTranslationHoldCrawlerKey } from './lib/transl
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const DRY_RUN = process.argv.includes('--dry-run');
+const COMPAT_SOURCE_LOCALE_MASK = Symbol('compatSourceLocaleMask');
+const LOCALE_MASK = { it: 1, en: 2, de: 4, fr: 8 };
 
 const cantonSlugFile = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'canton-url-slugs.json'), 'utf8'));
 const municipalitiesFile = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'canton-municipalities.json'), 'utf8'));
@@ -373,38 +375,26 @@ function mineOrphanData(orphansOverride = null) {
   return slugs;
 }
 
-function mineCompatPaths() {
-  const slugs = new Map();
-  let compat;
-  if (!DRY_RUN) {
-    const prepared = readCompatPathsStrictWithManifestRepair(ROOT);
-    if (prepared.changed) {
-      console.warn(
-        `⚠️ Repaired stale seo-404-compat manifest count ${prepared.previousTotalPaths} → `
-          + `${prepared.totalPaths} from validated shards`,
-      );
-    }
-    compat = prepared.data;
-  } else {
-    compat = readCompatPathsStrict(ROOT);
-  }
-  // sharded accumulator (issue #2988)
-  if (!compat?.paths) return slugs;
-
-  for (const p of compat.paths) {
+async function mineCompatPaths(onSlugPath) {
+  let pathCount = 0;
+  await forEachCompatPathsStrict(ROOT, (p) => {
     const slug = extractSlugFromPath(p);
-    if (!isValidJobSlug(slug)) continue;
-    if (!slugs.has(slug)) slugs.set(slug, { locales: {} });
+    if (!isValidJobSlug(slug)) return;
     // Detect locale from path, case-insensitively (GSC may index a locale
     // segment with drifted casing, e.g. `/EN/find-jobs-ticino/...`) — mirrors
     // inferLocale() in build-plugins/searchConsoleCompat.ts.
     const lowerPath = p.toLowerCase();
-    if (lowerPath.startsWith('/en/')) slugs.get(slug).locales.en = p;
-    else if (lowerPath.startsWith('/de/')) slugs.get(slug).locales.de = p;
-    else if (lowerPath.startsWith('/fr/')) slugs.get(slug).locales.fr = p;
-    else slugs.get(slug).locales.it = p;
-  }
-  return slugs;
+    const locale = lowerPath.startsWith('/en/') ? 'en'
+      : lowerPath.startsWith('/de/') ? 'de'
+        : lowerPath.startsWith('/fr/') ? 'fr' : 'it';
+    onSlugPath(slug, locale, p);
+    pathCount++;
+  }, {
+    allowStaleManifest: !DRY_RUN,
+    repairExactCrossShardDuplicates: !DRY_RUN,
+    warnDuplicates: false,
+  });
+  return pathCount;
 }
 
 // ══════════════════════════════════════════════════════════
@@ -452,8 +442,9 @@ function heldOnlySlugsInBlob(blob, cwd) {
   }
 }
 
-function mineGitRemovedSlugs({ cwd = ROOT } = {}) {
+async function mineGitRemovedSlugs({ cwd = ROOT } = {}) {
   const slugs = new Map();
+  let historyComplete = true;
   // Removed slug lines of an agency slice are judged on the slice version the
   // commit removed them FROM (its pre-image blob): a slug that belonged only to
   // a held job there was never served, and the job leaving its slice (or
@@ -473,11 +464,6 @@ function mineGitRemovedSlugs({ cwd = ROOT } = {}) {
   };
 
   try {
-    const diff = execSync(
-      'git log --all -300 -p --full-index -- "data/jobs/by-crawler/*.json" "data/jobs/expired/by-crawler/*.json"',
-      { cwd, maxBuffer: 500 * 1024 * 1024, encoding: 'utf8', timeout: 180_000 }
-    );
-
     let inSlugByLocale = false;
     let braceDepth = 0;
     const localeSlugRe = /"(it|en|de|fr)":\s*"([a-z0-9][a-z0-9-]{10,})"/;
@@ -494,18 +480,18 @@ function mineGitRemovedSlugs({ cwd = ROOT } = {}) {
       addSlug(slugs, slug, locale, localePath, fullPaths);
     };
 
-    for (const line of diff.split('\n')) {
+    const consumeLine = (line) => {
       if (line.startsWith('diff --git ')) {
         const m = line.match(/^diff --git a\/(\S+) b\//);
         gatedFile = gatedActiveSlicePath(m?.[1]);
         preImageBlob = null;
         inSlugByLocale = false;
-        continue;
+        return;
       }
       if (line.startsWith('index ')) {
         const m = line.match(/^index ([0-9a-f]+)\.\./);
         preImageBlob = m && !NULL_BLOB_RE.test(m[1]) ? m[1] : null;
-        continue;
+        return;
       }
       const raw = (line.startsWith('+') || line.startsWith('-')) ? line.substring(1) : line;
       const trimmed = raw.trim();
@@ -518,7 +504,7 @@ function mineGitRemovedSlugs({ cwd = ROOT } = {}) {
         }
       }
 
-      if (!line.startsWith('-')) continue;
+      if (!line.startsWith('-')) return;
 
       // Raw git diff text only exposes the slug value, never the job's canton
       // field at this parse point — defaults to the legacy TI board (same
@@ -539,9 +525,42 @@ function mineGitRemovedSlugs({ cwd = ROOT } = {}) {
         const slug = topMatch[1];
         record(slug, null, null, buildLocalePathsForCanton('TI', slug));
       }
+    };
+
+    // Do not capture the history diff in an execSync buffer. The publication
+    // checkout can produce hundreds of megabytes here; line streaming keeps
+    // only the current line plus the mined slug maps resident.
+    const child = spawn('git', [
+      'log', '--all', '-300', '-p', '--full-index', '--',
+      'data/jobs/by-crawler/*.json',
+      'data/jobs/expired/by-crawler/*.json',
+    ], {
+      cwd,
+      stdio: ['ignore', 'pipe', 'pipe'],
+      timeout: 180_000,
+    });
+    let stderr = '';
+    let spawnError = null;
+    child.stderr.setEncoding('utf8');
+    child.stderr.on('data', (chunk) => { stderr = (stderr + chunk).slice(-8192); });
+    child.on('error', (err) => { spawnError = err; });
+    const closePromise = new Promise((resolve) => {
+      child.once('close', (code, signal) => resolve({ code, signal }));
+    });
+    const lines = createInterface({ input: child.stdout, crlfDelay: Infinity });
+    for await (const line of lines) consumeLine(line);
+    const { code, signal } = await closePromise;
+    if (spawnError) throw spawnError;
+    if (code !== 0) {
+      throw new Error(`git log exited ${code ?? signal ?? 'without a status'}${stderr ? `: ${stderr.trim()}` : ''}`);
     }
   } catch (err) {
-    console.warn(`  ⚠️  Git history mining skipped: ${err.message?.substring(0, 80)}`);
+    // Keep every slug already observed in the stream. A partial history read
+    // can add evidence but must never remove slugs from the other sources.
+    // The caller also disables destructive size pruning when this source is
+    // incomplete, so unobserved historical slugs are not discarded.
+    historyComplete = false;
+    console.warn(`  ⚠️  Git history mining incomplete: ${err.message?.substring(0, 120)}`);
   }
 
   // A slug removed from a version where it was published (or whose version
@@ -566,6 +585,7 @@ function mineGitRemovedSlugs({ cwd = ROOT } = {}) {
     console.log(`  ⏸️  Git history: ${heldEraSkipped} removed slug(s) belonged only to jobs held for translation — never served, not mined`);
   }
 
+  if (!historyComplete) Object.defineProperty(slugs, 'miningIncomplete', { value: true });
   return slugs;
 }
 
@@ -650,9 +670,9 @@ function fuzzyReconcileOrphans(knownSlugs) {
  * Merge the mined sources in order. 'Active jobs' must come first: it fills the
  * held-only slug set the registry and git sources are filtered against.
  *
- * @param {{ name: string, fn: () => Map<string, { locales: Record<string, string> }> }[]} sources
+ * @param {{ name: string, fn?: () => Map<string, { locales: Record<string, string> }>, stream?: (onSlugPath: (slug: string, locale: string, value: string) => void) => Promise<number> }[]} sources
  */
-function mergeMinedSources(sources) {
+async function mergeMinedSources(sources) {
   const allSlugs = new Map(); // slug → { locales: { it?, en?, de?, fr? } }
   // Track slugs seen from any non-git source — used for size-cap pruning below.
   const nonGitSourceSlugs = new Set();
@@ -664,10 +684,49 @@ function mergeMinedSources(sources) {
   const HIGH_VALUE_SOURCES = new Set(['Active jobs', 'Expired jobs', 'Slug registry', 'Orphan data']);
 
   let heldSlugsSkipped = 0;
-  for (const { name, fn } of sources) {
-    const mined = fn();
+  const incompleteSources = new Set();
+  for (const { name, fn, stream } of sources) {
+    if (stream) {
+      let streamedPaths = 0;
+      let streamedSlugs = 0;
+      const pathCount = await stream((slug, locale, value) => {
+        if (isHeldOnlySlugForSource(name, slug)) {
+          heldSlugsSkipped++;
+          return;
+        }
+        nonGitSourceSlugs.add(slug);
+        if (!allSlugs.has(slug)) allSlugs.set(slug, { locales: {} });
+        const entry = allSlugs.get(slug);
+        let sourceMask = entry[COMPAT_SOURCE_LOCALE_MASK];
+        if (!Object.hasOwn(entry, COMPAT_SOURCE_LOCALE_MASK)) {
+          let mask = 0;
+          for (const localeName of Object.keys(LOCALE_MASK)) {
+            if (!entry.locales[localeName]) mask |= LOCALE_MASK[localeName];
+          }
+          sourceMask = mask;
+        }
+        if (!(sourceMask & 16)) {
+          streamedSlugs++;
+          sourceMask |= 16;
+        }
+        if (!Object.hasOwn(entry, COMPAT_SOURCE_LOCALE_MASK)) {
+          Object.defineProperty(entry, COMPAT_SOURCE_LOCALE_MASK, { value: sourceMask, writable: true });
+        } else {
+          entry[COMPAT_SOURCE_LOCALE_MASK] = sourceMask;
+        }
+        // Earlier sources win; among compat paths the last path for a locale
+        // wins, matching the old in-memory Map behavior.
+        if (sourceMask & LOCALE_MASK[locale]) entry.locales[locale] = value;
+        streamedPaths++;
+      });
+      console.log(`  📦 ${name}: ${streamedSlugs} slugs (${streamedPaths} streamed paths; ${pathCount} valid paths)`);
+      continue;
+    }
+
+    const mined = await fn();
     const isGit = name === 'Git history (removed slugs)';
     const isHighValue = HIGH_VALUE_SOURCES.has(name);
+    if (mined.miningIncomplete) incompleteSources.add(name);
     console.log(`  📦 ${name}: ${mined.size} slugs`);
     for (const [slug, data] of mined) {
       if (isHeldOnlySlugForSource(name, slug)) {
@@ -685,10 +744,10 @@ function mergeMinedSources(sources) {
       }
     }
   }
-  return { allSlugs, nonGitSourceSlugs, highValueSlugs, heldSlugsSkipped };
+  return { allSlugs, nonGitSourceSlugs, highValueSlugs, heldSlugsSkipped, incompleteSources };
 }
 
-function main() {
+async function main() {
   console.log('⛏️  Mining all job slugs from local data sources...\n');
 
   // Mine all sources
@@ -697,11 +756,11 @@ function main() {
     { name: 'Expired jobs', fn: mineExpiredJobs },
     { name: 'Slug registry', fn: mineSlugRegistry },
     { name: 'Orphan data', fn: mineOrphanData },
-    { name: 'Compat paths', fn: mineCompatPaths },
+    { name: 'Compat paths', stream: mineCompatPaths },
     { name: 'Git history (removed slugs)', fn: mineGitRemovedSlugs },
   ];
 
-  const { allSlugs, nonGitSourceSlugs, highValueSlugs, heldSlugsSkipped } = mergeMinedSources(sources);
+  const { allSlugs, nonGitSourceSlugs, highValueSlugs, heldSlugsSkipped, incompleteSources } = await mergeMinedSources(sources);
 
   if (heldOnlySlugs.size > 0) {
     console.log(`  ⏸️  ${heldOnlySlugs.size} slug(s) of jobs held out of publication for translation — not registered (${heldSlugsSkipped} skipped from registry/git sources)`);
@@ -748,6 +807,7 @@ function main() {
   ]);
 
   for (const [slug, data] of allSlugs) {
+    delete data[COMPAT_SOURCE_LOCALE_MASK];
     if (RESERVED_HUB_SLUGS.has(slug)) {
       reservedHubsSkipped++;
       continue;
@@ -785,31 +845,42 @@ function main() {
     }
   }
 
+  const allSlugsSize = allSlugs.size;
+  // These maps are not read after tracking is merged. Release them before
+  // staging the multi-million-path compat union.
+  allSlugs.clear();
+  nonGitSourceSlugs.clear();
   console.log(`\n  Tracking: ${added} new, ${patched} patched (${initialCount} → ${Object.keys(tracking).length})`);
   if (reservedHubsSkipped > 0) {
     console.log(`  🛡️  Skipped ${reservedHubsSkipped} reserved hub slug(s) (would clobber sector/city hub HTML)`);
   }
 
-  // Update compat paths: add ALL tracking paths as safety net
+  // Prepare the compat union in deterministic shard order. Each shard is
+  // merged independently; no global path array/Set is built beside tracking.
   const compatFile = dataPath('seo-404-compat'); // sharded dir (issue #2988)
-  const compat = readCompatPathsStrict(ROOT) || { paths: [] };
-  const existingCompat = new Set(compat.paths);
-  let compatAdded = 0;
-
-  for (const paths of Object.values(tracking)) {
-    for (const l of ['it', 'en', 'de', 'fr']) {
-      const p = paths[l];
-      if (p && !existingCompat.has(p)) {
-        existingCompat.add(p);
-        compatAdded++;
-      }
-    }
+  const preparedCompat = await prepareCompatPathsForTracking(tracking, {
+    rootDir: ROOT,
+    dryRun: DRY_RUN,
+    lastUpdated: new Date().toISOString().split('T')[0],
+  });
+  const compatAdded = preparedCompat.compatAdded;
+  if (preparedCompat.changed) {
+    console.warn(
+      `⚠️ Repaired stale seo-404-compat manifest count ${preparedCompat.previousManifestTotalPaths} → `
+        + `${preparedCompat.previousTotalPaths} from validated shards`,
+    );
   }
+  console.log(
+    `  Compat: ${compatAdded} new paths `
+      + `(${preparedCompat.previousTotalPaths} → ${preparedCompat.totalPaths})`,
+  );
 
-  console.log(`  Compat: ${compatAdded} new paths (${compat.paths.length} → ${existingCompat.size})`);
-
-  // Write outputs
-  if (!DRY_RUN) {
+  // Write outputs only after the streamed merge has validated every source
+  // shard and the shared truncation floor has passed. Stage cleanup also runs
+  // if the registry writer fails before compat shards are committed.
+  try {
+    if (!DRY_RUN) {
+    assertCompatFloor(preparedCompat.previousTotalPaths, preparedCompat.totalPaths, { label: compatFile });
     // Size guard: GitHub rejects files ≥ 100 MiB (~104 MB). Two-tier prune.
     // All consumers use JSON.parse() so compact JSON (no indent) is fine.
     //
@@ -834,7 +905,11 @@ function main() {
     // split now provides structurally.
     const SIZE_CAP = 95 * 1024 * 1024 * KNOWN_SLUGS_SHARD_COUNT; // 95 MiB per shard
     let serializedLength = measureSerializedJsonObjectLength(tracking);
-    if (serializedLength > SIZE_CAP) {
+    if (serializedLength > SIZE_CAP && incompleteSources.size > 0) {
+      console.warn(
+        `  ⚠️  Skipping destructive size pruning because mining was incomplete: ${[...incompleteSources].join(', ')}`,
+      );
+    } else if (serializedLength > SIZE_CAP) {
       const preMB = (serializedLength / 1e6).toFixed(1);
 
       // Tier 1: prune git-history-only entries
@@ -864,34 +939,25 @@ function main() {
         }
       }
     }
-    writeAllKnownJobSlugs(tracking, ROOT);
-    const updatedCompat = {
-      ...compat,
-      paths: [...existingCompat].filter((p) => typeof p === 'string' && p.startsWith('/')).sort(),
-      lastUpdated: new Date().toISOString().split('T')[0],
-    };
-    // Floor-guard (#1353): additive writer (same class as discover-404s/sync-gsc-orphans).
-    // readCompatPathsStrict() aborts on a corrupt/incomplete store before the
-    // additive update can persist a partial set. Re-read on-disk for the
-    // authoritative pre-write count and keep the shared floor guard as a
-    // second defense against a broad logical regression.
-    const prevCount = readCompatPathsStrict(ROOT)?.paths?.length ?? 0;
-    assertCompatFloor(prevCount, updatedCompat.paths.length, { label: compatFile });
-    writeCompatPaths(updatedCompat, ROOT);
-    console.log('\n  ✅ Files written');
-  } else {
-    console.log('\n  🔍 Dry run — no files written');
+      writeAllKnownJobSlugs(tracking, ROOT);
+      preparedCompat.commit(new Date().toISOString().split('T')[0]);
+      console.log('\n  ✅ Files written');
+    } else {
+      console.log('\n  🔍 Dry run — no files written');
+    }
+  } finally {
+    preparedCompat.cleanup();
   }
 
   // Summary
   console.log('\n' + '═'.repeat(50));
   console.log('⛏️  Mining Summary');
   console.log('═'.repeat(50));
-  console.log(`  Unique slugs mined:    ${allSlugs.size}`);
+  console.log(`  Unique slugs mined:    ${allSlugsSize}`);
   console.log(`  Tracking entries:      ${Object.keys(tracking).length}`);
   console.log(`  New tracking entries:  ${added}`);
   console.log(`  Patched entries:       ${patched}`);
-  console.log(`  Compat paths:          ${existingCompat.size}`);
+  console.log(`  Compat paths:          ${preparedCompat.totalPaths}`);
   console.log(`  New compat paths:      ${compatAdded}`);
   console.log(`  Total URLs covered:    ${Object.keys(tracking).length * 4} (${Object.keys(tracking).length} × 4 locales)`);
 
@@ -908,7 +974,10 @@ function main() {
 // data-mutating pipeline as a side effect of import — established
 // convention, see `scripts/assemble-jobs-dataset.mjs`'s CLI entry point.
 if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
-  main();
+  main().catch((err) => {
+    console.error(err?.stack || err?.message || String(err));
+    process.exitCode = 1;
+  });
 }
 
 export {

@@ -18,6 +18,7 @@
  * in mine-all-job-slugs.mjs).
  */
 import { spawnSync } from 'node:child_process';
+import fs from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import {
   buildLocalePathsForCanton,
@@ -54,6 +55,20 @@ describe('measureSerializedJsonObjectLength', () => {
     );
 
     expect(result.status, `${result.stderr}\n${result.stdout}`).toBe(0);
+  });
+});
+
+describe('mine-all-job-slugs bounded sources', () => {
+  it('streams compat paths and Git history instead of retaining whole buffers', () => {
+    const source = fs.readFileSync(new URL('../scripts/mine-all-job-slugs.mjs', import.meta.url), 'utf8');
+    expect(source).toContain('forEachCompatPathsStrict(ROOT');
+    expect(source).toContain('prepareCompatPathsForTracking(tracking');
+    expect(source).toContain("{ name: 'Compat paths', stream: mineCompatPaths }");
+    expect(source).toContain("spawn('git'");
+    expect(source).toContain('createInterface({ input: child.stdout');
+    expect(source).not.toContain('execSync(');
+    expect(source).not.toMatch(/readCompatPathsStrict(?:WithManifestRepair)?\s*\(/);
+    expect(source).not.toContain('new Set(compat.paths)');
   });
 });
 

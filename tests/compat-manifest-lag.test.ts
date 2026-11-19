@@ -546,7 +546,6 @@ function sourceWithoutComments(relativePath: string): string {
 
 describe('compat consumers choose the reader that matches their write contract', () => {
   const REPAIRING_PRODUCERS = [
-    'scripts/mine-all-job-slugs.mjs',
     'scripts/discover-404s-via-cloudflare.mjs',
     'scripts/discover-404s-via-inspection.mjs',
     'scripts/ingest-gsc-coverage-404s.ts',
@@ -559,6 +558,15 @@ describe('compat consumers choose the reader that matches their write contract',
     expect(source).toMatch(
       /readCompatPathsStrictWithManifestRepair\s*\(\s*ROOT\s*\)/,
     );
+  });
+
+  it('the miner validates and merges the store without materializing all compat paths', () => {
+    const source = sourceWithoutComments('scripts/mine-all-job-slugs.mjs');
+    expect(source).toContain('forEachCompatPathsStrict(ROOT');
+    expect(source).toContain('prepareCompatPathsForTracking(tracking');
+    expect(source).toContain('allowStaleManifest: !DRY_RUN');
+    expect(source).not.toMatch(/readCompatPathsStrict(?:WithManifestRepair)?\s*\(/);
+    expect(source).not.toContain('new Set(compat.paths)');
   });
 
   it('prune-404-compat-paths repairs validated metadata before rewriting the set', () => {
