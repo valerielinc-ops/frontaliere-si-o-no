@@ -1,0 +1,55 @@
+name: Payments Health
+
+on:
+  schedule:
+    - cron: '58 * * * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Print aggregates without writing to Firestore or GitHub'
+        type: boolean
+        default: true
+
+concurrency:
+  group: payments-health
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            scripts
+            functions/src/sumupCheckoutReference.js
+            functions/package.json
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+      - name: Run payments health monitor
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+          GH_REPO: ${{ github.repository }}
+          GH_TOKEN: ${{ github.token }}
+          EVENT_NAME: ${{ github.event_name }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          umask 077
+          GOOGLE_APPLICATION_CREDENTIALS="$(mktemp "${RUNNER_TEMP}/payments-health.XXXXXX")"
+          export GOOGLE_APPLICATION_CREDENTIALS
+          trap 'rm -f -- "$GOOGLE_APPLICATION_CREDENTIALS"' EXIT
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$GOOGLE_APPLICATION_CREDENTIALS"
+          unset FIREBASE_SERVICE_ACCOUNT_JSON
+          if [[ "$EVENT_NAME" == schedule || "$DRY_RUN" == false ]]; then
+            node scripts/payments-health.mjs --record --notify
+          else
+            node scripts/payments-health.mjs
+          fi
