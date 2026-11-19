@@ -34,9 +34,11 @@ import {
 import {
   adoptStaticFallbackIntoRoot,
   preserveRootForPaint,
+  shouldKeepStaticFallbackOutsideRoot,
   shouldKeepStaticRootVisible,
   STATIC_HANDOFF_PRESERVE_MARK,
 } from '@/services/staticFallbackHandoff';
+import type { AppRoute } from '@/services/router';
 
 const ROOT = resolve(__dirname, '..');
 
@@ -488,6 +490,25 @@ describe('static job-board root visibility — issue 13044', () => {
     expect(entry).toContain('staticHandoff.hideRootForCrossfade(rootElement)');
     expect(entry).toContain('if (!keepStaticRootVisible) {');
     expect(entry).not.toContain('crossfadeStaticRoot');
+  });
+
+  it('keeps the long job-board SEO snapshot outside #root on desktop until the catalog is ready', () => {
+    const entry = readFileSync(resolve(ROOT, 'index.tsx'), 'utf-8');
+    const app = readFileSync(resolve(ROOT, 'App.tsx'), 'utf-8');
+    const route = { activeTab: 'job-board', jobBoardCanton: 'TI' } as AppRoute;
+
+    expect(entry).toMatch(
+      /const keepJobBoardSnapshotOutsideRoot = parsedRoute\.activeTab === 'job-board'\s*\|\|\s*shouldWaitForJobBoardLcp\(window\.innerWidth\);/,
+    );
+    expect(app).toMatch(
+      /const keepJobBoardSnapshotOutsideRoot = typeof window === 'undefined'\s*\|\| activeTab === 'job-board'\s*\|\|\s*shouldWaitForJobBoardLcp\(window\.innerWidth\);/,
+    );
+    expect(shouldKeepStaticFallbackOutsideRoot(
+      route,
+      'job-board',
+      true,
+      { keepJobBoardOutsideRoot: true },
+    )).toBe(true);
   });
 });
 

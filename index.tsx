@@ -258,10 +258,12 @@ const bootstrapApp = async () => {
  // <main class="seo-static-content"> as a sibling OUTSIDE #root, which paints
  // at SSG time then App.tsx hides post-hydration — collapsing ~800px and
  // jumping the footer (live desktop CLS ~0.2 job detail, up to ~0.9 thin
- // search). MOVE that fallback into #root so React+s createRoot().render()
+ // search). MOVE that fallback into #root so React's createRoot().render()
  // replaces it IN-PLACE (reusing the reserve+crossfade below) instead of an
- // external collapse. Bare canton/aggregate job-board roots keep their
- // external snapshot outside only on the sub-desktop LCP path.
+ // external collapse. Bare canton/aggregate job-board roots are the
+ // exception: their long SEO snapshot stays external at every viewport until
+ // the authoritative catalog is ready, so its height cannot become the
+ // #root reserve and collapse the live page.
  // parsePath is dynamic-imported (NOT a static entry import) so router+s heavy
  // route registries stay out of the entry chunk — it is already loaded with App
  // above, so this resolves from cache.
@@ -275,7 +277,8 @@ const bootstrapApp = async () => {
    keepStaticRootVisible = staticHandoff.shouldKeepStaticRootVisible(fallback);
    const { parsePath } = await import('./services/router');
    const parsedRoute = parsePath(window.location.pathname).route;
-   const keepJobBoardSnapshotOutsideRoot = shouldWaitForJobBoardLcp(window.innerWidth);
+   const keepJobBoardSnapshotOutsideRoot = parsedRoute.activeTab === 'job-board'
+     || shouldWaitForJobBoardLcp(window.innerWidth);
    const fallbackKind: StaticFallbackKind = fallback?.querySelector('article.ft-blog-article')
      ? 'article'
      : fallback?.classList.contains('job-board-static-content')
@@ -348,8 +351,9 @@ const bootstrapApp = async () => {
  // Desktop uses the same preserve path because it intentionally does not wait
  // for the static LCP candidate (#15770).
  if (keepStaticRootVisible) {
-   // The canonical job-board snapshot is outside #root and owns the body until
-   // the first result set is ready; legacy in-root snapshots use the same path.
+   // The canonical job-board snapshot stays outside #root and owns the body
+   // until the authoritative result set is ready. This is also the desktop
+   // path: the full SEO body is intentionally not used as a root height floor.
    staticHandoff.preserveRootForPaint(rootElement);
  } else {
    staticHandoff.hideRootForCrossfade(rootElement);
