@@ -1,0 +1,27 @@
+{
+  "companyKey": "audika-ag-2",
+  "companyName": "Audika AG",
+  "companyHost": "careers.demant.com",
+  "verifiedEmployerDomain": "audika.ch",
+  "platform": "demant.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://careers.demant.com/audika_Switzerland/go/Audika-Switzerland-Vacancies-World-of-Opportunity-DE_CH/8764901/?locale=de_CH&previewCategory=true&referrerSave=false"
+  ],
+  "detailTemplate": "/audika_Switzerland/job/*/*/",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 8,
+  "sampleTitles": [
+    "Hörsystemakustiker*in 100% im Grossraum Zürich Flughafen (m/w/d)",
+    "Hörsystemakustiker*in 40% Winterthur Bahnhofsplatz (m/w/d)",
+    "Consulente specializzato/a 60% Lugano (m/f/d)",
+    "Call Agent outbound bilingual 50% (m/w/d) - 6 Monate mit Festanstellungsperspektive",
+    "Hörsystemakustiker*in St. Gallen 60-80% (m/w/d)"
+  ],
+  "canton": "ZH",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-19T14:17:21.550Z",
+  "candidateKey": "audika@urdorf"
+}

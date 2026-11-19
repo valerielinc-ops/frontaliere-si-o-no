@@ -1,0 +1,24 @@
+{
+  "companyKey": "acmefreight",
+  "companyName": "Acme Freight",
+  "companyHost": "acmefreight.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://acmefreight.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "Amazon Package Delivery Driver",
+    "Delivery Driver",
+    "Driver Associate",
+    "Fleet Service Technician"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-19T14:06:36.205Z",
+  "candidateKey": "acmefreight@applytojob.com"
+}

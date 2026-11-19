@@ -1,0 +1,27 @@
+{
+  "companyKey": "elektroschmidli-ch",
+  "companyName": "Elektro Schmidli GmbH",
+  "companyHost": "elektroschmidli.ch",
+  "verifiedEmployerDomain": "elektroschmidli.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.elektroschmidli.ch/jobs"
+  ],
+  "detailTemplate": "/jobs/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 5,
+  "sampleTitles": [
+    "Details ansehen Öffnet Detailseite",
+    "Details ansehen Öffnet Detailseite",
+    "Details ansehen Öffnet Detailseite",
+    "Details ansehen Öffnet Detailseite",
+    "Details ansehen Öffnet Detailseite"
+  ],
+  "canton": "BL",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-19T14:15:16.663Z",
+  "candidateKey": "elektro-schmidli@oberdorf-bl"
+}

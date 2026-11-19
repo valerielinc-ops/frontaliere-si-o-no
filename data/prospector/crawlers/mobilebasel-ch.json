@@ -1,0 +1,24 @@
+{
+  "companyKey": "mobilebasel-ch",
+  "companyName": "Mobile Basel",
+  "companyHost": "mobilebasel.ch",
+  "verifiedEmployerDomain": "mobilebasel.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://mobilebasel.ch/wir/offene-stellen"
+  ],
+  "detailTemplate": "/media/pages/wir/offene-stellen/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Dependance Sozialarbeiter:in / Psycholog:in - 90 %",
+    "Technische:r Allrounder:in 80%"
+  ],
+  "canton": "BS",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-19T14:08:45.518Z",
+  "candidateKey": "mobile-basel@basel"
+}

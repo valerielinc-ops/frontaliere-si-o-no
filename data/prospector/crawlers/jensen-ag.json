@@ -1,0 +1,23 @@
+{
+  "companyKey": "jensen-ag",
+  "companyName": "Jensen AG",
+  "companyHost": "link.ostendis.com",
+  "verifiedEmployerDomain": "jensen.ch",
+  "platform": "ostendis.com",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://link.ostendis.com/publication/automobil-mechatroniker-in/rvhlwspkvepl05h2dsc558dmy7o4j2ok7w8z2x6r4wtm818j6fyfkbb3ajb2lq18"
+  ],
+  "detailTemplate": "/publication/automobil-mechatroniker-in/rvhlwspkvepl05h2dsc558dmy7o4j2ok7w8z2x6r4wtm818j6fyfkbb3ajb2lq18",
+  "detailEnrichment": false,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Automobil-Mechatroniker/in oder Automobil-Fachmann/-frau"
+  ],
+  "canton": "ZH",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-19T14:17:26.702Z",
+  "candidateKey": "jensen@rumlang"
+}

@@ -1,0 +1,24 @@
+{
+  "companyKey": "theasiacompany-ch",
+  "companyName": "The Asia Company S.A.",
+  "companyHost": "theasiacompany.ch",
+  "verifiedEmployerDomain": "theasiacompany.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://theasiacompany.ch/de/site/ueber-offene-stellen"
+  ],
+  "detailTemplate": "/content/freetext/Bewerbungen/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Inserat_SachbearbeiterIn_Import__Transportlogistik_261025.pdf (79 KB)",
+    "Inserat_LKW_Fahrer_261025.pdf (77 KB)"
+  ],
+  "canton": "BL",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-19T14:16:34.620Z",
+  "candidateKey": "the-asia-company-s-a@munchenstein"
+}

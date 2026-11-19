@@ -1,0 +1,27 @@
+{
+  "companyKey": "rubag-ch",
+  "companyName": "RUBAG, Rollmaterial- & Baumaschinen AG",
+  "companyHost": "rubag.ch",
+  "verifiedEmployerDomain": "rubag.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.rubag.ch/de/jobs"
+  ],
+  "detailTemplate": "/de/job/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 7,
+  "sampleTitles": [
+    "Teamleiter Logistik und Disposition (m/w/d) 100% Logistik RUBAG Birsfelden",
+    "Technischer Sachbearbeiter (w/m/d) 80-100% Service & Reparatur RUBAG Birsfelden",
+    "Baumaschinenmechaniker/in (m/w/d) 80 - 100% Service & Reparatur RUBAG Otelfingen",
+    "Baumaschinenmechaniker/in (m/w/d) 80 - 100% Service & Reparatur RUBAG Birsfelden",
+    "Baumaschinenmechaniker/in (m/w/d) 80 - 100% Service & Reparatur RUBAG Tuggen"
+  ],
+  "canton": "BL",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-19T14:15:01.596Z",
+  "candidateKey": "rubag-rollmaterial-baumaschinen@birsfelden"
+}

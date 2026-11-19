@@ -1,0 +1,23 @@
+{
+  "companyKey": "ducksch-anliker-ag",
+  "companyName": "Ducksch Anliker AG",
+  "companyHost": "my.jobalino.ch",
+  "verifiedEmployerDomain": "duckschanliker.ch",
+  "platform": "jobalino.ch",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://my.jobalino.ch/job/881fecb7a37cf12a8aa25cf76172c984/ducksck-anliker-ag/bauleiter-in-wohnen-gewerbe"
+  ],
+  "detailTemplate": "/job/881fecb7a37cf12a8aa25cf76172c984/ducksck-anliker-ag/bauleiter-in-wohnen-gewerbe",
+  "detailEnrichment": false,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Bauleiter:in Wohnen | Gewerbe / 80% - 100%"
+  ],
+  "canton": "ZH",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-19T14:17:28.213Z",
+  "candidateKey": "ducksch-anliker@zurich"
+}

@@ -1,0 +1,25 @@
+{
+  "companyKey": "kottmann-kohler-ch",
+  "companyName": "Kottmann-Kohler Gartenbau AG",
+  "companyHost": "kottmann-kohler.ch",
+  "verifiedEmployerDomain": "kottmann-kohler.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://kottmann-kohler.ch/jobs/"
+  ],
+  "detailTemplate": "/jobs/*/",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "<img width=\"1200\" height=\"800\" src=\"https://kottmann-kohler.ch/wp-content/uploads/2024/04/IMG_6689-1200x800.jpg\" class=\"w-100 img-fluid img-scale\" alt=\"\" decodi",
+    "<img width=\"1200\" height=\"800\" src=\"https://kottmann-kohler.ch/wp-content/uploads/2024/02/KottmannKohler_Situationen_5460-1200x800.jpg\" class=\"w-100 img-fluid i",
+    "<img width=\"1200\" height=\"800\" src=\"https://kottmann-kohler.ch/wp-content/uploads/2024/02/KottmannKohler_Situationen_5323-1200x800.jpg\" class=\"w-100 img-fluid i"
+  ],
+  "canton": "BL",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-19T14:14:45.933Z",
+  "candidateKey": "kottmann-kohler-gartenbau@dittingen"
+}

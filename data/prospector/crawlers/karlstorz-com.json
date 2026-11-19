@@ -1,0 +1,27 @@
+{
+  "companyKey": "karlstorz-com",
+  "companyName": "KARL STORZ Endoskope Schweiz AG",
+  "companyHost": "career.karlstorz.com",
+  "verifiedEmployerDomain": "karlstorz.com",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://career.karlstorz.com/search"
+  ],
+  "detailTemplate": "/job/*/*/",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 15,
+  "sampleTitles": [
+    "Biomedical Engineer NZ",
+    "FPGA Engineer IV",
+    "Sales Executive, Surgical - Charlotte, NC",
+    "Territory Manager Auckland (North / South)",
+    "Assistant Territory Manager - OR1 (Northern & Eastern India) (m/f/d)"
+  ],
+  "canton": "BL",
+  "sourceLang": "en",
+  "learnedAt": "2026-11-19T14:15:49.248Z",
+  "candidateKey": "karl-storz-endoskope@reinach-bl"
+}

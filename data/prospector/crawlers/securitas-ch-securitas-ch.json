@@ -1,0 +1,27 @@
+{
+  "companyKey": "securitas-ch-securitas-ch",
+  "companyName": "Securitas AG Schweizerische Bewachungsgesellschaft Regionaldirektion Zürich",
+  "companyHost": "jobs.security",
+  "verifiedEmployerDomain": "securitas.ch",
+  "platform": "jobs.security",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.jobs.security/offene-stellen/?company=Securitas+AG"
+  ],
+  "detailTemplate": "/jobs/*/",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 7,
+  "sampleTitles": [
+    "Wirtschaftsingenieur Jobs",
+    "Fachkraft Schutz und Sicherheit Jobs",
+    "60-80%",
+    "40-60%",
+    "Veranstaltungssicherheit Jobs"
+  ],
+  "canton": "ZH",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-19T14:17:23.219Z",
+  "candidateKey": "securitas-schweizerische-bewachungsgesellschaft-regionaldirektion-zurich@zurich"
+}

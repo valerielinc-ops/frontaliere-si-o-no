@@ -1,0 +1,27 @@
+{
+  "companyKey": "jobgate-ch",
+  "companyName": "jobgate ag",
+  "companyHost": "jobgate.ch",
+  "verifiedEmployerDomain": "jobgate.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://jobgate.ch/stellenangebote/"
+  ],
+  "detailTemplate": "/job/*/",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 9,
+  "sampleTitles": [
+    "Servicetechniker Intralogistik (a)",
+    "Instandhaltungstechniker Logistikanlagen (a)",
+    "Instandhaltungstechniker (a)",
+    "Geschäftsführer / Projektleiter Elektro (a)",
+    "Mitarbeiter Baustellenlogistik / Allrounder (a)"
+  ],
+  "canton": "BL",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-19T14:13:11.936Z",
+  "candidateKey": "jobgate@bubendorf"
+}

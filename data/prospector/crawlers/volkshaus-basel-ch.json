@@ -1,0 +1,26 @@
+{
+  "companyKey": "volkshaus-basel-ch",
+  "companyName": "Volkshaus Basel Boutique-Hotel Restaurant",
+  "companyHost": "volkshaus-basel.ch",
+  "verifiedEmployerDomain": "volkshaus-basel.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://volkshaus-basel.ch/jobs/"
+  ],
+  "detailTemplate": "/jobs/*/",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "Aushilfe service Bar (M/W/D)",
+    "Aushilfe service frühstück (M/W/D)",
+    "Aushilfe Koch (M/W/D)",
+    "Arbeiten bei uns wirkt &rarr;"
+  ],
+  "canton": "BS",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-19T14:09:15.303Z",
+  "candidateKey": "volkshaus-basel-boutique-hotel-restaurant@basel"
+}
