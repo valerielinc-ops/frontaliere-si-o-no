@@ -574,12 +574,13 @@ export function isConcreteJobWorkflowReference(text = '') {
   if (PERF_EVIDENCE_RUN_RE.test(source)) return true;
 
   for (const match of source.matchAll(PERF_CONCRETE_JOB_WORKFLOW_RE)) {
+    const containingUrl = urlContainingIndex(source, match.index ?? -1);
+    if (containingUrl && !PERF_ACTIONS_URL_RE.test(containingUrl)) continue;
+
     const quotedName = match[2]?.trim();
     if (quotedName) return true;
 
     const name = match[3] ?? '';
-    const containingUrl = urlContainingIndex(source, match.index ?? -1);
-    if (containingUrl && !PERF_ACTIONS_URL_RE.test(containingUrl)) continue;
     if (/^[A-Za-z][A-Za-z0-9+.-]*:\/\//.test(name) && !PERF_ACTIONS_URL_RE.test(name)) continue;
     if (!PERF_REFERENCE_NAME_RE.test(name) || PERF_PROSE_REFERENCE_PREFIX_RE.test(name)) continue;
     return true;
