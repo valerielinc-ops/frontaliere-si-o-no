@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-11-19T20:31:53.026Z",
+  "generatedAt": "2026-11-19T21:52:46.100Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -8475,6 +8475,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-19T12:39:51.900Z"
+    },
+    "ge-agenda:duels-club::69db2b06d4b6df8734f70a1f9978764a7bab6d46f757d7b0d33f1613cb2c4dc6": {
+      "id": "ge-agenda:duels-club",
+      "sourceDescriptionHash": "69db2b06d4b6df8734f70a1f9978764a7bab6d46f757d7b0d33f1613cb2c4dc6",
+      "description": "È uno spettacolo teatrale che si svolge a Ginevra. Membri di squadre diverse si affrontano in prove sceniche davanti al pubblico.",
+      "descriptionByLocale": {
+        "it": "È uno spettacolo teatrale che si svolge a Ginevra. Membri di squadre diverse si affrontano in prove sceniche davanti al pubblico.",
+        "en": "This theatre event takes place in Geneva. Members of separate teams meet in stage challenges before an audience.",
+        "de": "Die Theaterveranstaltung findet in Genf statt. Mitglieder verschiedener Teams treten in szenischen Prüfungen gegeneinander an und begegnen dabei dem Publikum.",
+        "fr": "Ce spectacle théâtral a lieu à Genève. Des membres d’équipes différentes s’y affrontent dans des épreuves scéniques devant le public."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-19T21:36:39.537Z"
     },
     "ge-agenda:eau-origine-vies-source-usages::f0ef16618a0d9a36615fe7791ef009cca94c3bd155899d80a3d55af6850563a8": {
       "id": "ge-agenda:eau-origine-vies-source-usages",
@@ -24533,6 +24547,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-14T23:36:18.233Z"
+    },
+    "guidle:A2iTdEf::0ccf1f463b6f64d732e2c36d7cd4602e06a31f1cb9b3f90632558863e3dc165c": {
+      "id": "guidle:A2iTdEf",
+      "sourceDescriptionHash": "0ccf1f463b6f64d732e2c36d7cd4602e06a31f1cb9b3f90632558863e3dc165c",
+      "description": "Il corso invernale presenta erbe medicinali e rimedi domestici utili per disturbi come tosse, mal di gola, influenza e febbre, con esempi tratti dalla natura e dalla cucina. I partecipanti imparano a usare impacchi e cataplasmi e preparano un unguento con erbe essiccate, da portare a casa insieme agli strumenti e alle dispense; il corso è guidato da Petra Nägele a Gipf-Oberfrick.",
+      "descriptionByLocale": {
+        "it": "Il corso invernale presenta erbe medicinali e rimedi domestici utili per disturbi come tosse, mal di gola, influenza e febbre, con esempi tratti dalla natura e dalla cucina. I partecipanti imparano a usare impacchi e cataplasmi e preparano un unguento con erbe essiccate, da portare a casa insieme agli strumenti e alle dispense; il corso è guidato da Petra Nägele a Gipf-Oberfrick.",
+        "en": "The winter course examines medicinal plants and household remedies for complaints including coughs, sore throats, flu and fever, drawing on ingredients from nature and the kitchen. Practical instruction covers compresses, poultices and the preparation of an ointment from dried herbs; participants can take the finished ointment, making tools and course notes home, and Petra Nägele leads the event in Gipf-Oberfrick.",
+        "de": "Der Winterkurs behandelt Heilpflanzen und Hausmittel aus Natur und Küche, die bei Beschwerden wie Husten, Halsweh, Grippe oder Fieber eingesetzt werden. In praktischen Übungen lernen die Teilnehmenden, Wickel und Auflagen anzuwenden, und stellen aus getrockneten Kräutern eine Salbe her; geleitet wird der Kurs von Petra Nägele in Gipf-Oberfrick.",
+        "fr": "Ce cours d’hiver porte sur des plantes médicinales et des remèdes du quotidien issus de la nature ou de la cuisine, notamment pour la toux, les maux de gorge, la grippe et la fièvre. Les participants découvrent l’usage des compresses et cataplasmes et préparent un baume à base d’herbes séchées; le baume, le matériel de fabrication et le support détaillé peuvent être emportés, sous la conduite de Petra Nägele à Gipf-Oberfrick."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-19T21:26:41.242Z"
     },
     "guidle:A2jHgSi::2257c0efd08478dd32ae46ec768312c52f797686f9111cdc2599b6f52001c6ab": {
       "id": "guidle:A2jHgSi",
@@ -194928,6 +194956,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-11-19T16:23:20.689Z"
     },
+    "tio-agenda:65127::65ab2b67836b1a0f2187c5311b96d63fa2054e08c1be9f9f6bdb9128d3c5887e": {
+      "id": "tio-agenda:65127",
+      "sourceDescriptionHash": "65ab2b67836b1a0f2187c5311b96d63fa2054e08c1be9f9f6bdb9128d3c5887e",
+      "description": "Il mercatino dell’usato di Lumino propone giocattoli, libri, capi d’abbigliamento, apparecchi elettrici funzionanti, articoli per la casa e decorazioni natalizie in buono stato. L’iniziativa si svolge presso la Protezione civile di Lumino ed è organizzata da un gruppo di cittadini con il sostegno del Municipio; il ricavato è destinato ad associazioni benefiche.",
+      "descriptionByLocale": {
+        "it": "Il mercatino dell’usato di Lumino propone giocattoli, libri, capi d’abbigliamento, apparecchi elettrici funzionanti, articoli per la casa e decorazioni natalizie in buono stato. L’iniziativa si svolge presso la Protezione civile di Lumino ed è organizzata da un gruppo di cittadini con il sostegno del Municipio; il ricavato è destinato ad associazioni benefiche.",
+        "en": "The used-goods market in Lumino offers toys, books, clothing, working electrical appliances, household items and Christmas decorations that are still in good condition. It takes place at Lumino’s civil-protection facility and is run by a group of residents with municipal support; proceeds go to charitable associations.",
+        "de": "Der Gebrauchtwarenmarkt in Lumino bietet gut erhaltene Spielsachen, Bücher, Kleidung, funktionierende Elektrogeräte, Haushaltsartikel und Weihnachtsdekoration an. Die Veranstaltung findet bei der Zivilschutzstelle von Lumino statt und wird von einer Bürgergruppe mit Unterstützung der Gemeinde getragen; der Erlös geht an gemeinnützige Organisationen.",
+        "fr": "Le marché de seconde main de Lumino propose des jouets, des livres, des vêtements, des appareils électriques en état de marche, des articles ménagers et des décorations de Noël encore utilisables. L’événement a lieu dans les locaux de la protection civile de Lumino et est porté par un groupe de citoyens avec le soutien de la municipalité; la recette est versée à des associations caritatives."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-19T21:32:12.585Z"
+    },
     "tio-agenda:65128::66df4525f91bf4238d7653bb0ddfc11a1c9edc4e321ce9b68e93e7b5ae4f7d4a": {
       "id": "tio-agenda:65128",
       "sourceDescriptionHash": "66df4525f91bf4238d7653bb0ddfc11a1c9edc4e321ce9b68e93e7b5ae4f7d4a",
@@ -195001,9 +195043,9 @@
     "fr-agenda:cfc-assc-avec-maturite-integree-presentation-online-via-teams-24-novembre-2026::4c0ef113f3222a78f2e8f02f712f9f152748138cdc50e356b03e81091661041b": {
       "id": "fr-agenda:cfc-assc-avec-maturite-integree-presentation-online-via-teams-24-novembre-2026",
       "sourceDescriptionHash": "4c0ef113f3222a78f2e8f02f712f9f152748138cdc50e356b03e81091661041b",
-      "code": "new-date-or-price",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-19T18:24:36.622Z",
+      "code": "new-number",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-19T21:23:42.660Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -195101,8 +195143,8 @@
       "id": "ge-agenda:atelier-ecriture-mondes-imaginaires-0",
       "sourceDescriptionHash": "d91ae85c025942448d3e1e221bad1dc3a336391ea511371245a9cd129054ffad",
       "code": "new-number",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-19T18:26:59.336Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-19T21:31:51.017Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -195244,9 +195286,9 @@
     "ge-agenda:degustation-vins-gratuite-geneve::d7e72cb50c7a996bbc4eac841fb8a4d966844b589d4a7aa1ff6ffc6a73194406": {
       "id": "ge-agenda:degustation-vins-gratuite-geneve",
       "sourceDescriptionHash": "d7e72cb50c7a996bbc4eac841fb8a4d966844b589d4a7aa1ff6ffc6a73194406",
-      "code": "new-date-or-price",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-19T18:36:16.150Z",
+      "code": "new-number",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-19T21:20:34.955Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -195274,15 +195316,6 @@
       "code": "new-number",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-16T05:34:05.995Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "ge-agenda:duels-club::69db2b06d4b6df8734f70a1f9978764a7bab6d46f757d7b0d33f1613cb2c4dc6": {
-      "id": "ge-agenda:duels-club",
-      "sourceDescriptionHash": "69db2b06d4b6df8734f70a1f9978764a7bab6d46f757d7b0d33f1613cb2c4dc6",
-      "code": "new-date-or-price",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-19T18:43:57.937Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -195640,9 +195673,9 @@
     "ge-agenda:semaine-climat-visite-futur-imparfait-maison-avenir::29caa1e6dcf39b23c9d5cb5297e94f09b4753e435096d11e96993668d7b4c3b0": {
       "id": "ge-agenda:semaine-climat-visite-futur-imparfait-maison-avenir",
       "sourceDescriptionHash": "29caa1e6dcf39b23c9d5cb5297e94f09b4753e435096d11e96993668d7b4c3b0",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-19T18:33:49.663Z",
+      "code": "new-number",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-19T21:37:52.738Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -195686,8 +195719,8 @@
       "id": "ge-agenda:soiree-geneve",
       "sourceDescriptionHash": "21ad6ba1c9d3516882b8ef0270ccb9d47fba4142b0417da455eaa41e5da37698",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-19T18:27:22.601Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-19T21:21:30.125Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -195695,8 +195728,8 @@
       "id": "ge-agenda:stage-autodefense-feministe-adolescente",
       "sourceDescriptionHash": "4d5c86fd5d9fd0090187da51aa64259afc2c81e614c5043432e8714f481786a6",
       "code": "new-number",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-19T18:33:43.058Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-19T21:27:48.649Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -195862,15 +195895,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "guidle:A2iTdEf::0ccf1f463b6f64d732e2c36d7cd4602e06a31f1cb9b3f90632558863e3dc165c": {
-      "id": "guidle:A2iTdEf",
-      "sourceDescriptionHash": "0ccf1f463b6f64d732e2c36d7cd4602e06a31f1cb9b3f90632558863e3dc165c",
-      "code": "source-ngram-8",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-19T18:41:21.163Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "guidle:A2j4k7g::7d04b745ceb93978f187de4dbc5d5ba7fba55e3139a09e561feaa4b94d7a4f98": {
       "id": "guidle:A2j4k7g",
       "sourceDescriptionHash": "7d04b745ceb93978f187de4dbc5d5ba7fba55e3139a09e561feaa4b94d7a4f98",
@@ -196001,8 +196025,8 @@
       "id": "guidle:A5s4Qrt",
       "sourceDescriptionHash": "86b43fc2c9de0d1989e87fe3e3920dad92c54dd80b9e708e4fe00001811bf392",
       "code": "new-number",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-19T18:36:39.982Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-19T21:30:20.540Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -196208,8 +196232,8 @@
       "id": "guidle:AaWNWAc",
       "sourceDescriptionHash": "c7037ff753444ccecde01bfef7f4db86c2cfc4c60f6096e7aee9157fad9e4be6",
       "code": "new-number",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-19T18:35:54.953Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-19T21:40:23.825Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -196838,8 +196862,8 @@
       "id": "guidle:AjNDX9m",
       "sourceDescriptionHash": "831868f433435265ab82b75272dac3b815f60327b2bb46b8b9da3a78ae433f87",
       "code": "new-number",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-19T18:34:53.261Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-19T21:38:45.692Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -197261,8 +197285,8 @@
       "id": "guidle:ApfdgiA",
       "sourceDescriptionHash": "82bb4e510e60d82051f02548561293a3df7b87cb17e826318c78bdd1f7c7ed86",
       "code": "new-number",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-19T18:21:10.146Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-19T21:24:44.016Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -199385,8 +199409,8 @@
       "id": "myswitzerland:3f3da8b07db64603bb35ed7f2811ee0d",
       "sourceDescriptionHash": "1f7ecc8945595fa0751f3eb87a1aede6bc5f083a6b220e10ce5d3788d600f567",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-19T18:40:32.004Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-19T21:20:45.430Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -203506,9 +203530,9 @@
     "tio-agenda:64901::42618ce8f3d7f403e09e566310488882ec9cc399d2eac624e3cd688b50c73c3a": {
       "id": "tio-agenda:64901",
       "sourceDescriptionHash": "42618ce8f3d7f403e09e566310488882ec9cc399d2eac624e3cd688b50c73c3a",
-      "code": "source-ngram-8",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-19T18:49:48.570Z",
+      "code": "new-name",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-19T21:43:43.058Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -203543,8 +203567,8 @@
       "id": "tio-agenda:65054",
       "sourceDescriptionHash": "a69ee24f1bf0cf00709d2b84d33b01a6de54a38b335b72559fa110129a40eb1f",
       "code": "new-number",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-19T18:33:22.392Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-19T21:22:31.442Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -203552,17 +203576,17 @@
       "id": "tio-agenda:65094",
       "sourceDescriptionHash": "02ccb754578bdd0a0bfa94e4f2219d341aad55e52effcf9f6855c6dfb72d0296",
       "code": "new-date-or-price",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-19T18:19:53.653Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-19T21:23:37.792Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
     "tio-agenda:65095::7523bac35eda28f610c2d8935391e41f10c9ea6a272e987eec6846f8d75e2b58": {
       "id": "tio-agenda:65095",
       "sourceDescriptionHash": "7523bac35eda28f610c2d8935391e41f10c9ea6a272e987eec6846f8d75e2b58",
-      "code": "new-number",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-19T18:23:47.920Z",
+      "code": "new-date-or-price",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-19T21:27:07.578Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -203570,8 +203594,8 @@
       "id": "tio-agenda:65096",
       "sourceDescriptionHash": "3dc384d7922b54f8743a5805c8a1e74303f53b7554363a36e0faa004914a86a6",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-19T18:20:54.988Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-19T21:24:33.252Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -203579,8 +203603,8 @@
       "id": "tio-agenda:65100",
       "sourceDescriptionHash": "eb79937895f49d602b6b2122959808918f341cdacbe2843707ddb1aae687416c",
       "code": "new-number",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-19T18:35:18.795Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-19T21:29:14.489Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -203588,26 +203612,26 @@
       "id": "tio-agenda:65108",
       "sourceDescriptionHash": "52aa3d4ffe9b1ae811b545d7a9b5e9528b336f79707730fa338e39e8089a0293",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-19T18:30:16.457Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-19T21:33:29.296Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
     "tio-agenda:65111::1c251c947bb33bb7ceb1cb9df9b0242ee00db2d365f12a929ce36f6e1ceabb9e": {
       "id": "tio-agenda:65111",
       "sourceDescriptionHash": "1c251c947bb33bb7ceb1cb9df9b0242ee00db2d365f12a929ce36f6e1ceabb9e",
-      "code": "new-date-or-price",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-19T18:30:31.962Z",
+      "code": "source-ngram-8",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-19T21:23:53.384Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
     "tio-agenda:65115::97ce5a3d7aefbffd724241ab4b5d4e32ba2443778871ece4223a68db8af5bf50": {
       "id": "tio-agenda:65115",
       "sourceDescriptionHash": "97ce5a3d7aefbffd724241ab4b5d4e32ba2443778871ece4223a68db8af5bf50",
-      "code": "source-ngram-8",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-19T18:29:18.414Z",
+      "code": "new-number",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-19T21:22:53.648Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -203615,17 +203639,8 @@
       "id": "tio-agenda:65118",
       "sourceDescriptionHash": "abc0cd9791ce1145181d82262bc22ac9f49c77e28ea72c24d57c0dff3237568a",
       "code": "new-number",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-19T18:22:47.987Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "tio-agenda:65127::65ab2b67836b1a0f2187c5311b96d63fa2054e08c1be9f9f6bdb9128d3c5887e": {
-      "id": "tio-agenda:65127",
-      "sourceDescriptionHash": "65ab2b67836b1a0f2187c5311b96d63fa2054e08c1be9f9f6bdb9128d3c5887e",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-19T18:28:52.493Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-19T21:26:15.079Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     }

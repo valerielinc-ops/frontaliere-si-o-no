@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-19T20:38:27.710Z",
+  "generatedAt": "2026-11-19T22:00:43.442Z",
   "totalEvents": 17597,
   "events": [
     {
@@ -473559,7 +473559,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il mercatino dell’usato di Lumino propone giocattoli, libri, capi d’abbigliamento, apparecchi elettrici funzionanti, articoli per la casa e decorazioni natalizie in buono stato. L’iniziativa si svolge presso la Protezione civile di Lumino ed è organizzata da un gruppo di cittadini con il sostegno del Municipio; il ricavato è destinato ad associazioni benefiche.",
+      "descriptionByLocale": {
+        "it": "Il mercatino dell’usato di Lumino propone giocattoli, libri, capi d’abbigliamento, apparecchi elettrici funzionanti, articoli per la casa e decorazioni natalizie in buono stato. L’iniziativa si svolge presso la Protezione civile di Lumino ed è organizzata da un gruppo di cittadini con il sostegno del Municipio; il ricavato è destinato ad associazioni benefiche.",
+        "en": "The used-goods market in Lumino offers toys, books, clothing, working electrical appliances, household items and Christmas decorations that are still in good condition. It takes place at Lumino’s civil-protection facility and is run by a group of residents with municipal support; proceeds go to charitable associations.",
+        "de": "Der Gebrauchtwarenmarkt in Lumino bietet gut erhaltene Spielsachen, Bücher, Kleidung, funktionierende Elektrogeräte, Haushaltsartikel und Weihnachtsdekoration an. Die Veranstaltung findet bei der Zivilschutzstelle von Lumino statt und wird von einer Bürgergruppe mit Unterstützung der Gemeinde getragen; der Erlös geht an gemeinnützige Organisationen.",
+        "fr": "Le marché de seconde main de Lumino propose des jouets, des livres, des vêtements, des appareils électriques en état de marche, des articles ménagers et des décorations de Noël encore utilisables. L’événement a lieu dans les locaux de la protection civile de Lumino et est porté par un groupe de citoyens avec le soutien de la municipalité; la recette est versée à des associations caritatives."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "fr-agenda:vernissage-de-la-sculpture-disabelle-krieg-femme-detendue",
@@ -546398,7 +546406,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "È uno spettacolo teatrale che si svolge a Ginevra. Membri di squadre diverse si affrontano in prove sceniche davanti al pubblico.",
+      "descriptionByLocale": {
+        "it": "È uno spettacolo teatrale che si svolge a Ginevra. Membri di squadre diverse si affrontano in prove sceniche davanti al pubblico.",
+        "en": "This theatre event takes place in Geneva. Members of separate teams meet in stage challenges before an audience.",
+        "de": "Die Theaterveranstaltung findet in Genf statt. Mitglieder verschiedener Teams treten in szenischen Prüfungen gegeneinander an und begegnen dabei dem Publikum.",
+        "fr": "Ce spectacle théâtral a lieu à Genève. Des membres d’équipes différentes s’y affrontent dans des épreuves scéniques devant le public."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AcjR1pQ",
