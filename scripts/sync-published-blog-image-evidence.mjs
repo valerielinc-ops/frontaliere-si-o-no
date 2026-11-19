@@ -12,6 +12,7 @@ import { validateGeneratedImageRegistry } from '../packages/articles/engine/shar
 
 const BLOG_CREDITS_ARTIFACT = 'data/image-credits-blog.json';
 const BLOG_REGISTRY_PATH = path.join('data', 'blog-generated-image-registry.json');
+const SHARED_REGISTRY_PATH = path.join('data', 'generated-image-registry.json');
 const SNAPSHOT_PATH = path.join('data', 'og-published-blog-generated-image-evidence.json');
 
 function isRecord(value) {
@@ -82,9 +83,24 @@ export async function syncPublishedBlogImageEvidence({
       throw new Error(`${BLOG_REGISTRY_PATH} is invalid: ${registryValidation.errors.join('; ')}`);
     }
   }
+  const sharedRegistryPath = path.join(root, SHARED_REGISTRY_PATH);
+  let sharedVisionRegistry = null;
+  if (fs.existsSync(sharedRegistryPath)) {
+    sharedVisionRegistry = JSON.parse(fs.readFileSync(sharedRegistryPath, 'utf8'));
+    const registryValidation = validateGeneratedImageRegistry(sharedVisionRegistry, { allowLegacyVision: true });
+    if (!registryValidation.valid) {
+      throw new Error(`${SHARED_REGISTRY_PATH} is invalid: ${registryValidation.errors.join('; ')}`);
+    }
+  }
 
   for (const [imageUrl, record] of Object.entries(credits.generated)) {
-    const validation = validatePublishedBlogImageEvidence(imageUrl, record, { legacyVisionRegistry });
+    const validation = validatePublishedBlogImageEvidence(imageUrl, record, {
+      legacyVisionRegistry,
+      legacyVisionRegistries: {
+        'article-hero': legacyVisionRegistry,
+        place: sharedVisionRegistry,
+      },
+    });
     if (!validation.valid) {
       throw new Error(`${BLOG_CREDITS_ARTIFACT} has invalid evidence for ${imageUrl}: ${validation.errors.join('; ')}`);
     }

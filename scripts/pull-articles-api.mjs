@@ -85,6 +85,7 @@ const BLOG_CREDITS_ARTIFACT = 'data/image-credits-blog.json';
 const SLUGS_ARTIFACT = 'slugs.json';
 const BLOG_GENERATED_EVIDENCE_SNAPSHOT = path.join(ROOT, 'data/published-blog-generated-image-evidence.json');
 const BLOG_GENERATED_IMAGE_REGISTRY = path.join(ROOT, 'data/blog-generated-image-registry.json');
+const SHARED_GENERATED_IMAGE_REGISTRY = path.join(ROOT, 'data/generated-image-registry.json');
 const DISCOVERY_ARTICLES_PATH = path.join(PUBLIC_DIR, DISCOVERY_ARTICLES_DESTINATION);
 const DISCOVERY_ARTICLES_MANIFEST_PATH = path.join(PUBLIC_DIR, 'data/discovery-articles-manifest.json');
 
@@ -956,9 +957,24 @@ const blogGeneratedRegistryValidation = validateGeneratedImageRegistry(blogGener
 if (!blogGeneratedRegistryValidation.valid) {
   fail(`${BLOG_GENERATED_IMAGE_REGISTRY} is invalid: ${blogGeneratedRegistryValidation.errors.join('; ')}`);
 }
+const sharedGeneratedRegistry = fs.existsSync(SHARED_GENERATED_IMAGE_REGISTRY)
+  ? JSON.parse(fs.readFileSync(SHARED_GENERATED_IMAGE_REGISTRY, 'utf-8'))
+  : null;
+if (sharedGeneratedRegistry) {
+  const sharedGeneratedRegistryValidation = validateGeneratedImageRegistry(sharedGeneratedRegistry, {
+    allowLegacyVision: true,
+  });
+  if (!sharedGeneratedRegistryValidation.valid) {
+    fail(`${SHARED_GENERATED_IMAGE_REGISTRY} is invalid: ${sharedGeneratedRegistryValidation.errors.join('; ')}`);
+  }
+}
 for (const [imageUrl, record] of Object.entries(credits.generated)) {
   const validation = validatePublishedBlogImageEvidence(imageUrl, record, {
     legacyVisionRegistry: blogGeneratedRegistry,
+    legacyVisionRegistries: {
+      'article-hero': blogGeneratedRegistry,
+      place: sharedGeneratedRegistry,
+    },
   });
   const errors = [...validation.errors];
   if (errors.length > 0) {

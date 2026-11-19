@@ -37,7 +37,11 @@ export function validatePublishedBlogImageEvidence(imageUrl, record, {
   legacyVisionRegistry = null,
   legacyVisionRegistries = null,
 } = {}) {
-  const sourceRegistry = legacyVisionRegistries?.[record?.scope] || legacyVisionRegistry;
+  const hasScopedRegistry = legacyVisionRegistries
+    && Object.prototype.hasOwnProperty.call(legacyVisionRegistries, record?.scope);
+  const sourceRegistry = hasScopedRegistry
+    ? legacyVisionRegistries[record.scope]
+    : legacyVisionRegistry;
   const validation = sourceRegistry
     ? validateGeneratedImageRecordWithRegistry(record, sourceRegistry)
     : validateGeneratedImageRecord(record);

@@ -115,6 +115,13 @@ describe('published image policy', () => {
     expect(validatePublishedBlogImageEvidence(placeRecord.imageUrl, placeRecord, {
       legacyVisionRegistry: blogRegistry,
     }).errors).toContain('vision gate verdict is missing or rejected');
+    expect(validatePublishedBlogImageEvidence(placeRecord.imageUrl, placeRecord, {
+      legacyVisionRegistry: blogRegistry,
+      legacyVisionRegistries: {
+        'article-hero': blogRegistry,
+        place: null,
+      },
+    }).errors).toContain('vision gate verdict is missing or rejected');
   });
 
   it('accepts manifest-pinned corpus generated covers for OG images without widening uploader policy', () => {
@@ -244,6 +251,44 @@ describe('published image policy', () => {
       expect(result).toMatchObject({ commit, recordCount: 1 });
       expect(snapshot).toEqual({ schema: 1, commit, generated: { [record.imageUrl]: record } });
       expect(ledgerSnapshot).toEqual(existingLedgerSnapshot);
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('accepts a place fallback from the shared registry while syncing corpus evidence', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'frontaliere-place-image-evidence-'));
+    try {
+      const sharedRegistry = JSON.parse(fs.readFileSync(
+        path.join(ROOT, 'data/generated-image-registry.json'),
+        'utf8',
+      ));
+      const record = sharedRegistry.assets.find((asset: { assetId: string }) => asset.assetId === 'lugano-view');
+      const commit = 'b'.repeat(40);
+      const creditsText = JSON.stringify({
+        schema: 1,
+        section: 'blog',
+        commit,
+        generated: { [record.imageUrl]: record },
+      });
+      fs.mkdirSync(path.join(root, 'data'), { recursive: true });
+      fs.writeFileSync(
+        path.join(root, 'data/generated-image-registry.json'),
+        JSON.stringify(sharedRegistry),
+      );
+      const manifestText = JSON.stringify({
+        commit,
+        files: { 'data/image-credits-blog.json': Buffer.byteLength(creditsText, 'utf8') },
+      });
+      const fetchImpl = vi.fn(async (input: string | URL) => String(input).endsWith('/manifest.json')
+        ? new Response(manifestText, { status: 200 })
+        : new Response(creditsText, { status: 200 }));
+
+      const result = await syncPublishedBlogImageEvidence({ root, apiBase: 'https://api.example.test', fetchImpl });
+      const snapshot = JSON.parse(fs.readFileSync(path.join(root, BLOG_EVIDENCE_SNAPSHOT), 'utf8'));
+
+      expect(result).toMatchObject({ commit, recordCount: 1 });
+      expect(snapshot.generated).toEqual({ [record.imageUrl]: record });
     } finally {
       fs.rmSync(root, { recursive: true, force: true });
     }
