@@ -1,8 +1,486 @@
 {
   "crawlerKey": "apg-sga",
-  "assembledAt": "2026-11-19T09:28:19.463Z",
-  "runId": "44494932351",
+  "assembledAt": "2026-11-19T21:30:14.623Z",
+  "runId": "44617361649",
   "jobs": [
+    {
+      "id": "apg-sga-3571f2ae3eee",
+      "slug": "workplace-ingegnere-80-100-zurich-apg-sga-zurich",
+      "slugByLocale": {
+        "it": "workplace-ingegnere-80-100-zurich-apg-sga-zurich",
+        "en": "workplace-engineer-80-100-zurich-apg-sga-ch",
+        "de": "workplace-engineer-80-100-zurich-apg-sga-ch",
+        "fr": "workplace-ingenieur-80-100-zurich-apg-sga-zurich"
+      },
+      "company": "APG|SGA",
+      "companyKey": "apg-sga",
+      "companyDomain": "apgsga.ch",
+      "title": "Workplace Engineer 80-100%, Zürich",
+      "titleByLocale": {
+        "it": "Workplace Ingegnere 80-100%, Zürich",
+        "en": "Workplace Engineer 80-100%, Zurich",
+        "de": "Workplace Engineer 80-100%, Zürich",
+        "fr": "Workplace Ingénieur 80-100%, Zürich"
+      },
+      "description": "Workplace Engineer\n\n• 80-100%\n\n•\n\n• Festanstellung\n Als Workplace Engineer spielst du eine zentrale Rolle bei der digitalen schweizweiten Out-of-Home Werbung und bei allen Arbeitsplätzen der APG|SGA. Im Bereich Digital Playout sorgst du dafür, dass Werbung und Informationen zuverlässig auf Displays an Bahnhöfen, Flughäfen, in Bussen, Trams und Zügen in der ganzen Schweiz erscheinen. Im Bereich Workplaces sorgst du für eine homogene, moderne und schlanke Client-Architektur, mit der täglich hunderte von Mitarbeitenden tausende von Kunden bedienen. Deine Arbeit ist entscheidend für den Betrieb und die Weiterentwicklung der digitalen Werbeplattformen, die täglich von Millionen Menschen gesehen werden.\n Deine Aufgaben\n\n• Du betreust und entwickelst die Digital Playout Clients weiter – hauptsächlich auf Basis von Windows und Windows Embedded. Clients mit Linux gehören auch dazu, sind jedoch deutlich in der Unterzahl\n\n• Zudem betreust und entwickelst du in enger Zusammenarbeit mit dafür spezialisierten Dienstleistern die Workplace-Clients auf Basis von Windows 11 für das gesamte Unternehmen\n\n• Du stellst sicher, dass die eingesetzte Player-Hardware mit Betriebssystemen und Treibern kompatibel ist\n\n• Du erstellst und pflegst Windows-Images , konfigurierst Systemdienste und sorgst für eine stabile Funktionalität.\n\n• Du entwickelst und wartest Batch- & Powershell-Skripte, um Prozesse zu automatisieren und effizienter zu gestalten (Intune-Paketierung)\n\n• Du unterstützt bei der Netzwerkintegration und arbeitest eng mit den anderen Bereichen wie Infrastruktur sowie Service Desk zusammen\n\n• Du überwachst die eingesetzten Clients und Hardware, analysierst Fehler und dokumentierst die Systemlandschaft\n\n• Du wirkst beim 1st und 2nd Level Support im Bereich Digital Playout mit\n\n• Du setzt Projekten im Bereich Digital Playout und Workplaces um\n Du bringst mit\n\n• Du bringst sehr gute Kenntnisse in Windows-Betriebssystemen und vertiefte Windows-11- und Enterprise-Client-Management-Erfahrung mit\n\n• Du kennst dich mit der Erstellung von Images, der Konfiguration von Diensten und der Optimierung von Funktionalitäten aus (Autopilot, Intune, Entra Join, Compliance und Security Baselines)\n\n• Erfahrung im Umgang mit Player-Hardware, Prozessoren und Treiberkompatibilität\n\n• Erfahrung in Batch- und PowerShell-Scripting zur Automatisierung von Prozessen\n\n• Grundkenntnisse in Netzwerktechnologien (z. B. TCP/IP, VLAN, DHCP)\n\n• Linux-Grundkenntnisse sind ein Plus, ebenso wie gute Englischkenntnisse, um dich in einem technisch geprägten Umfeld sicher zu bewegen\n\n• Bereitschaft, in einem agilen Umfeld nach SAFe (Scaled Agile Framework) zu arbeiten und aktiv zur Planung, Umsetzung und kontinuierlichen Verbesserung innerhalb des Teams beizutragen\n Das erwartet dich\n\n• Moderne Arbeitsplätze und 1/2 der Arbeitszeit im Homeoffice\n\n• Flexible Arbeitszeiten und mindestens fünf Wochen Ferien sowie die Möglichkeit von zwei zusätzlichen Wochen Ferienkauf\n\n• Sehr gute Sozialleistungen, es wird für dich vorgesorgt\n\n• Gratis Tickets zu diversen Veranstaltungen\n\n• Top Standort in Zürich\n Interessiert?\n Corinne freut sich auf deine\n Online-Bewerbung\n\nFür diese Position berücksichtigen wir nur Direktbewerbungen.\n\nCorinne Hofer\n HR Business Partner\n +41 58 220 71 53",
+      "descriptionByLocale": {
+        "it": "Ingegnere del posto di lavoro\n\n• 80-100%\n\n•\n\n• Occupazione permanente\nIn qualità di ingegnere del posto di lavoro, si gioca un ruolo centrale nella pubblicità fuori casa in Svizzera e in tutti i luoghi di lavoro presso APG|SGA. Nell'area del digital playout, si assicura che la pubblicità e le informazioni appaiono in modo affidabile sulle stazioni ferroviarie, aeroporti, autobus, tram e treni in tutta la Svizzera. Nell'area dei luoghi di lavoro, si fornisce un'architettura client omogenea, moderna e magra che serve migliaia di clienti ogni giorno. Il vostro lavoro è fondamentale per il funzionamento e lo sviluppo delle piattaforme pubblicitarie digitali che milioni di persone vedono ogni giorno.\nI tuoi compiti\n\n• Potrai supervisionare e sviluppare i client di riproduzione digitale – principalmente basati su Windows e Windows Embedded. I client con Linux sono anche inclusi, ma sono chiaramente in minoranza\n\n• Inoltre, in stretta collaborazione con fornitori di servizi specializzati, supervisionerai e svilupperai clienti di lavoro basati su Windows 11 per l'intera azienda.\n\n• Assicurarsi che l'hardware del giocatore utilizzato sia compatibile con sistemi operativi e driver\n\n• Creare e mantenere le immagini di Windows, configurare i servizi di sistema e fornire funzionalità stabili.\n\n• Sviluppi e mantieni gli script batch & power shell per automatizzare i processi e renderli più efficienti (imballaggio unico)\n\n• Supporti l'integrazione della rete e lavori a stretto contatto con altre aree come infrastrutture e service desk\n\n• Monitorare i client e l'hardware utilizzati, analizzare gli errori e documentare il paesaggio del sistema\n\n• Si partecipa al 1 ° e 2 ° livello di supporto nella zona di digital playout\n\n• Realizzi progetti nel settore del digital playout e dei luoghi di lavoro\nPorta con te\n\n• Porterai una buona conoscenza dei sistemi operativi Windows e un'esperienza di gestione client di Windows 11 approfondita e enterprise\n\n• Hai familiarità con la creazione di immagini, servizi di configurazione e l'ottimizzazione delle funzionalità (Autopilota, Intune, Entra Join, Compliance e Security Baselines)\n\n• Gestione dell'esperienza hardware, processori e compatibilità del driver\n\n• Esperienza nello scripting batch e power shell per l'automazione dei processi\n\n• Conoscenza di base delle tecnologie di rete (ad esempio TCP/IP, VLAN, DHCP)\n\n• Le competenze di base Linux sono un plus, così come buone abilità inglesi per tenervi al sicuro in un ambiente tecnico\n\n• La volontà di lavorare in un ambiente agile secondo SAFe (Scaled Agile Framework) e contribuire attivamente alla pianificazione, implementazione e miglioramento continuo nel team\nQuesto è ciò che vi aspetta\n\n• Lavori moderni e 1/2 ore di lavoro nell'ufficio\n\n• Orari di lavoro flessibili e almeno cinque settimane di vacanza, nonché la possibilità di due settimane supplementari di acquisto di vacanza\n\n• Vantaggi sociali molto buoni, è fornito per voi\n\n• Biglietti gratuiti per vari eventi\n\n• Migliore posizione a Zurigo\nInteressante?\nCorinne non vede l'ora di te\nApplicazione online\n\nPer questa posizione, consideriamo solo applicazioni dirette.\n\nCorinne Hofer\nHR Business Partner\n+41 58 220 71 53",
+        "en": "Workplace Engineer\n\n• 80-100%\n\n•\n\n• Permanent employment\nAs a workplace engineer, you play a central role in Switzerland-wide out-of-home advertising and in all workplaces at APG|SGA. In the area of digital playout, you ensure that advertising and information reliably appear on displays at train stations, airports, buses, trams and trains throughout Switzerland. In the area of workplaces, you provide a homogeneous, modern and lean client architecture that serves thousands of customers every day. Your work is critical to the operation and development of the digital advertising platforms that millions of people see every day.\nYour tasks\n\n• You will supervise and develop the Digital Playout Clients – mainly based on Windows and Windows Embedded. Clients with Linux are also included, but are clearly outnumbered\n\n• In addition, in close cooperation with specialized service providers, you will supervise and develop workplace clients based on Windows 11 for the entire company.\n\n• Ensure that the player hardware used is compatible with operating systems and drivers\n\n• You create and maintain Windows images, configure system services and provide stable functionality.\n\n• You develop and maintain batch & power shell scripts to automate processes and make them more efficient (intune packaging)\n\n• You support network integration and work closely with other areas such as infrastructure and service desk\n\n• You monitor the used clients and hardware, analyze errors and document the system landscape\n\n• You participate in the 1st and 2nd level support in the area of digital playout\n\n• You implement projects in the area of digital playout and workplaces\nYou bring with you\n\n• You’ll bring very good knowledge of Windows operating systems and in-depth Windows 11 and enterprise client management experience\n\n• You are familiar with creating images, configuring services and optimizing functionalities (Autopilot, Intune, Entra Join, Compliance and Security Baselines)\n\n• Experience handling player hardware, processors and driver compatibility\n\n• Experience in batch and power shell scripting for process automation\n\n• Basic knowledge of network technologies (e.g. TCP/IP, VLAN, DHCP)\n\n• Basic Linux skills are a plus, as well as good English skills to keep you safe in a technical environment\n\n• Willingness to work in an agile environment according to SAFe (Scaled Agile Framework) and actively contribute to the planning, implementation and continuous improvement within the team\nThis is what awaits you\n\n• Modern jobs and 1/2 of working hours in the home office\n\n• Flexible working hours and at least five weeks of holidays as well as the possibility of two additional weeks of holiday purchase\n\n• Very good social benefits, it is provided for you\n\n• Free tickets to various events\n\n• Top location in Zurich\nInterested?\nCorinne is looking forward to your\nOnline application\n\nFor this position, we only consider direct applications.\n\nCorinne Hofer\nHR Business Partner\n+41 58 220 71 53",
+        "de": "Workplace Engineer\n\n• 80-100%\n\n•\n\n• Festanstellung\n Als Workplace Engineer spielst du eine zentrale Rolle bei der digitalen schweizweiten Out-of-Home Werbung und bei allen Arbeitsplätzen der APG|SGA. Im Bereich Digital Playout sorgst du dafür, dass Werbung und Informationen zuverlässig auf Displays an Bahnhöfen, Flughäfen, in Bussen, Trams und Zügen in der ganzen Schweiz erscheinen. Im Bereich Workplaces sorgst du für eine homogene, moderne und schlanke Client-Architektur, mit der täglich hunderte von Mitarbeitenden tausende von Kunden bedienen. Deine Arbeit ist entscheidend für den Betrieb und die Weiterentwicklung der digitalen Werbeplattformen, die täglich von Millionen Menschen gesehen werden.\n Deine Aufgaben\n\n• Du betreust und entwickelst die Digital Playout Clients weiter – hauptsächlich auf Basis von Windows und Windows Embedded. Clients mit Linux gehören auch dazu, sind jedoch deutlich in der Unterzahl\n\n• Zudem betreust und entwickelst du in enger Zusammenarbeit mit dafür spezialisierten Dienstleistern die Workplace-Clients auf Basis von Windows 11 für das gesamte Unternehmen\n\n• Du stellst sicher, dass die eingesetzte Player-Hardware mit Betriebssystemen und Treibern kompatibel ist\n\n• Du erstellst und pflegst Windows-Images , konfigurierst Systemdienste und sorgst für eine stabile Funktionalität.\n\n• Du entwickelst und wartest Batch- & Powershell-Skripte, um Prozesse zu automatisieren und effizienter zu gestalten (Intune-Paketierung)\n\n• Du unterstützt bei der Netzwerkintegration und arbeitest eng mit den anderen Bereichen wie Infrastruktur sowie Service Desk zusammen\n\n• Du überwachst die eingesetzten Clients und Hardware, analysierst Fehler und dokumentierst die Systemlandschaft\n\n• Du wirkst beim 1st und 2nd Level Support im Bereich Digital Playout mit\n\n• Du setzt Projekten im Bereich Digital Playout und Workplaces um\n Du bringst mit\n\n• Du bringst sehr gute Kenntnisse in Windows-Betriebssystemen und vertiefte Windows-11- und Enterprise-Client-Management-Erfahrung mit\n\n• Du kennst dich mit der Erstellung von Images, der Konfiguration von Diensten und der Optimierung von Funktionalitäten aus (Autopilot, Intune, Entra Join, Compliance und Security Baselines)\n\n• Erfahrung im Umgang mit Player-Hardware, Prozessoren und Treiberkompatibilität\n\n• Erfahrung in Batch- und PowerShell-Scripting zur Automatisierung von Prozessen\n\n• Grundkenntnisse in Netzwerktechnologien (z. B. TCP/IP, VLAN, DHCP)\n\n• Linux-Grundkenntnisse sind ein Plus, ebenso wie gute Englischkenntnisse, um dich in einem technisch geprägten Umfeld sicher zu bewegen\n\n• Bereitschaft, in einem agilen Umfeld nach SAFe (Scaled Agile Framework) zu arbeiten und aktiv zur Planung, Umsetzung und kontinuierlichen Verbesserung innerhalb des Teams beizutragen\n Das erwartet dich\n\n• Moderne Arbeitsplätze und 1/2 der Arbeitszeit im Homeoffice\n\n• Flexible Arbeitszeiten und mindestens fünf Wochen Ferien sowie die Möglichkeit von zwei zusätzlichen Wochen Ferienkauf\n\n• Sehr gute Sozialleistungen, es wird für dich vorgesorgt\n\n• Gratis Tickets zu diversen Veranstaltungen\n\n• Top Standort in Zürich\n Interessiert?\n Corinne freut sich auf deine\n Online-Bewerbung\n\nFür diese Position berücksichtigen wir nur Direktbewerbungen.\n\nCorinne Hofer\n HR Business Partner\n +41 58 220 71 53",
+        "fr": "Ingénieur de travail\n\n• 80-100%\n\n•\n\n• Emploi permanent\nEn tant qu'ingénieur en milieu de travail, vous jouez un rôle central dans la publicité hors-domestique à l'échelle de la Suisse et dans tous les lieux de travail de l'APG. Dans le domaine des jeux numériques, vous veillez à ce que la publicité et l'information apparaissent de manière fiable sur les écrans des gares, aéroports, bus, tramways et trains dans toute la Suisse. Dans le domaine des lieux de travail, vous fournissez une architecture client homogène, moderne et maigre qui sert des milliers de clients chaque jour. Votre travail est essentiel au fonctionnement et au développement des plateformes publicitaires numériques que des millions de personnes voient chaque jour.\nVos tâches\n\n• Vous superviserez et développerez les Clients Digital Playout, principalement basés sur Windows et Windows Embedded. Les clients avec Linux sont également inclus, mais sont nettement plus nombreux\n\n• En outre, en étroite collaboration avec des prestataires de services spécialisés, vous superviserez et développerez des clients en milieu de travail basés sur Windows 11 pour toute l'entreprise.\n\n• S'assurer que le matériel utilisé est compatible avec les systèmes d'exploitation et les pilotes\n\n• Vous créez et maintenez des images Windows, configurez les services du système et offrez des fonctionnalités stables.\n\n• Vous développez et maintenez des scripts batch & power shell pour automatiser les processus et les rendre plus efficaces (emballage intégré)\n\n• Vous soutenez l'intégration des réseaux et travaillez en étroite collaboration avec d'autres domaines tels que l'infrastructure et le service\n\n• Vous surveillez les clients et le matériel utilisés, analysez les erreurs et documentez le paysage système\n\n• Vous participez au support de premier et deuxième niveaux dans le domaine des playouts numériques\n\n• Vous implémentez des projets dans le domaine des jeux numériques et des lieux de travail\nTu amènes avec toi\n\n• Vous apporterez une très bonne connaissance des systèmes d'exploitation Windows et de Windows 11 en profondeur et l'expérience de gestion client d'entreprise\n\n• Vous connaissez la création d'images, la configuration de services et l'optimisation des fonctionnalités (pilote automatique, intune, Entra Join, Compliance and Security Baselines)\n\n• Expérience de la manipulation du matériel, des processeurs et de la compatibilité du pilote\n\n• Expérience dans le script batch et power shell pour l'automatisation des processus\n\n• Connaissance de base des technologies de réseau (p. ex. TCP/IP, VLAN, DHCP)\n\n• Les compétences Linux de base sont un plus, ainsi que de bonnes compétences en anglais pour vous garder en sécurité dans un environnement technique\n\n• Volonté de travailler dans un environnement agile selon le SAFe (Scaled Agile Framework) et contribuer activement à la planification, la mise en œuvre et l'amélioration continue au sein de l'équipe\nC'est ce qui vous attend.\n\n• Emplois modernes et demi-heures de travail dans les bureaux à domicile\n\n• Durées de travail flexibles et au moins cinq semaines de vacances ainsi que la possibilité de deux semaines supplémentaires d'achat de vacances\n\n• Très bons avantages sociaux, il est fourni pour vous\n\n• Billets gratuits pour divers événements\n\n• Meilleur emplacement à Zurich\nIntéressé ?\nCorinne attend avec impatience votre\nDemande en ligne\n\nPour cette position, nous ne considérons que les demandes directes.\n\nCorinne Hofer\nPartenaire d'affaires RH\n+41 58 220 71 53"
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://jobs.apgsga.ch/publication/workplace-engineer-zuerich/8otxkreaeaq5rehjtboe2lg3bmaex5nfq3d56j1bvr1ftd8ti2kbzgrnafy633z0",
+      "source": "APG|SGA Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-19T21:30:06.985Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Pubblicità / Media esterni",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-30",
+      "postedDate": "2026-09-30",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.apgsga.ch/publication/workplace-engineer-zuerich/8otxkreaeaq5rehjtboe2lg3bmaex5nfq3d56j1bvr1ftd8ti2kbzgrnafy633z0",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "workplace-engineer-80-100-zurich-apg-sga-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "workplace-engineer-80-100-zurich-apg-sga-ch"
+        ]
+      },
+      "firstSeenAt": "2026-10-05T09:26:38.009Z",
+      "salaryMin": 83000,
+      "salaryMax": 126000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 126000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T21:30:06.985Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "apg-sga-53d6c2a2e61d",
+      "slug": "sales-coordinatore-airport-advertising-80-100-zurich-apg-sga-zurich",
+      "slugByLocale": {
+        "it": "sales-coordinatore-airport-advertising-80-100-zurich-apg-sga-zurich",
+        "en": "sales-coordinator-airport-advertising-80-100-zurich-apg-sga-ch",
+        "de": "sales-coordinator-airport-advertising-80-100-zurich-apg-sga-ch",
+        "fr": "sales-coordinateur-airport-advertising-80-100-zurich-apg-sga-zurich"
+      },
+      "company": "APG|SGA",
+      "companyKey": "apg-sga",
+      "companyDomain": "apgsga.ch",
+      "title": "Sales Coordinator Airport Advertising 80-100%, Zürich",
+      "titleByLocale": {
+        "it": "Sales Coordinatore Airport Advertising 80-100%, Zürich",
+        "en": "Sales Coordinator Airport Advertising 80-100%, Zurich",
+        "de": "Sales Coordinator Airport Advertising 80-100%, Zürich",
+        "fr": "Sales Coordinateur Airport Advertising 80-100%, Zürich"
+      },
+      "description": "Sales Coordinator\nAirport Advertising\n\n• 80-100%\n\n•\n\n• Festanstellung\n In dieser neu geschaffenen Stelle unterstützt du unser Key Account Management durch eine vorausschauende, strategisch und kommerziell ausgerichtete Bewirtschaftung des gesamten Werbeflächenportfolios am Flughafen Zürich.\n Deine Aufgaben\n\n• Strategische Inventar- und Portfoliobewirtschaftung\n\n• Yield Management und Umsatzoptimierung\n\n• Leitung von komplexen Flughafen- und Kundenprojekten\n\n• Schnittstelle zu Sales, dem Flughafen Zürich, unserem Product Management und Operations\n\n• Megaposter- und Spezialflächenmanagement\n\n• Kampagnenabwicklung und Fotodokumentation\n\n• Verlängerungs- und Bestandskundenmanagement\n\n• Unterstützung und Entlastung des Key Account Managements\n Du bringst mit\n\n• Kaufmännische Lehre oder gleichwertige Ausbildung mit einigen Jahren Berufserfahrung\n\n• Weiterbildung im Bereich Verkauf und/oder Marketing ist wünschenswert\n\n• Gute Anwenderkenntnisse der gängigen MS Office Programme\n\n• Mehrjährige Erfahrung im Projektmanagement, vorzugsweise in Medien, Aussenwerbung, Vermarktung oder Marketing\n\n• Ausgeprägtes kommerzielles Verständnis, analytisches Denken und Sicherheit im Umgang mit Excel, CRM und Präsentationen\n\n• Strukturierte, eigenständige Arbeitsweise; Kommunikationsstärke, Priorisierungskompetenz und Hands-on-Mentalität\n\n• Fähigkeit, zahlreiche interne und externe Anspruchsgruppen verbindlich zu koordinieren\n\n• Sehr gute Deutsch- und Englischkenntnisse\n Das erwartet dich\n\n• Motiviertes und gut eingespieltes Team, in welchem du dich aktiv einbringen kannst\n\n• Top Standort im Herzen von Zürich\n\n• Moderne Arbeitsplätze und 1/3 der Arbeitszeit im Homeoffice\n\n• Flexible Arbeitszeiten und mindestens fünf Wochen Ferien sowie die Möglichkeit von zwei zusätzlichen Wochen Ferienkauf\n\n• Gratis Tickets zu diversen Veranstaltungen\n\n• Sehr gute Sozialleistungen, es wird für dich vorgesorgt\n\n• Gratis Früchte und Getränke - feel good\n Interessiert?\n Nadja freut sich auf deine\n Online-Bewerbung\n Nadja Minola\n HR Business Partner\n +41 58 220 71 55",
+      "descriptionByLocale": {
+        "it": "Coordinatore vendite\nPubblicità aeroportuale\n\n• 80-100%\n\n•\n\n• Occupazione permanente\nIn questa nuova posizione, supporti la nostra Key Account Management attraverso una gestione avanzata, strategica e commerciale dell'intero portafoglio di spazi pubblicitari all'aeroporto di Zurigo.\nI tuoi compiti\n\n• Gestione strategica dell'inventario e del portafoglio\n\n• Gestione dei rendimenti e ottimizzazione dei ricavi\n\n• Gestione di complessi progetti aeroportuali e di clienti\n\n• Interfaccia alle vendite, Aeroporto di Zurigo, la nostra gestione e le operazioni dei prodotti\n\n• Megaposter e gestione delle aree speciali\n\n• Elaborazione della campagna e documentazione fotografica\n\n• Estensione e gestione dei clienti esistenti\n\n• Supporto e scarico della gestione dei conti chiave\nPorta con te\n\n• Apprendistato commerciale o istruzione equivalente con diversi anni di esperienza professionale\n\n• Un'ulteriore formazione nelle vendite e/o nel marketing è auspicabile\n\n• Buona conoscenza dell'utente dei programmi comuni di MS Office\n\n• Diversi anni di esperienza nella gestione del progetto, preferibilmente nei media, pubblicità all'aperto, marketing o marketing\n\n• Forte comprensione commerciale, pensiero analitico e sicurezza nel trattare con Excel, CRM e presentazioni\n\n• Metodi di lavoro strutturati e indipendenti; Forza di comunicazione, competenza di priorità e mentalità hands-on\n\n• Capacità di coordinare numerosi stakeholder interni ed esterni in modo vincolante\n\n• Molto buona conoscenza del tedesco e dell'inglese\nQuesto è ciò che vi aspetta\n\n• Squadra motivata e ben provata in cui è possibile partecipare attivamente\n\n• Posizione nel cuore di Zurigo\n\n• Lavori moderni e 1/3 delle ore di lavoro nell'ufficio\n\n• Orari di lavoro flessibili e almeno cinque settimane di vacanza, nonché la possibilità di due settimane supplementari di acquisto di vacanza\n\n• Biglietti gratuiti per vari eventi\n\n• Benefici sociali, è fornito per voi\n\n• Frutta e bevande gratis - sentirsi bene\nInteressante?\nNadja è impaziente per il tuo\nApplicazione online\nNadja Minola\nHR Business Partner\n+41 58 220 71 55",
+        "en": "Sales Coordinator\nAirport Advertising\n\n• 80-100%\n\n•\n\n• Permanent employment\nIn this newly created position, you support our Key Account Management through a forward-looking, strategic and commercial management of the entire advertising space portfolio at Zurich Airport.\nYour tasks\n\n• Strategic inventory and portfolio management\n\n• Yield management and revenue optimization\n\n• Management of complex airport and customer projects\n\n• Interface to Sales, Zurich Airport, our Product Management and Operations\n\n• Megaposter and Special Area Management\n\n• Campaign processing and photo documentation\n\n• Extension and existing customer management\n\n• Support and discharge of key account management\nYou bring with you\n\n• Commercial apprenticeship or equivalent education with several years of professional experience\n\n• Further training in sales and/or marketing is desirable\n\n• Good user knowledge of the common MS Office programs\n\n• Several years of experience in project management, preferably in media, outdoor advertising, marketing or marketing\n\n• Strong commercial understanding, analytical thinking and security in dealing with Excel, CRM and presentations\n\n• Structured, independent working methods; Communication strength, prioritization competence and hands-on mentality\n\n• Ability to coordinate numerous internal and external stakeholders in a binding manner\n\n• Very good knowledge of German and English\nThis is what awaits you\n\n• Motivated and well-rehearsed team in which you can actively participate\n\n• Top location in the heart of Zurich\n\n• Modern jobs and 1/3 of working hours in the home office\n\n• Flexible working hours and at least five weeks of holidays as well as the possibility of two additional weeks of holiday purchase\n\n• Free tickets to various events\n\n• Very good social benefits, it is provided for you\n\n• Free fruits and drinks - feel good\nInterested?\nNadja is looking forward to your\nOnline application\nNadja Minola\nHR Business Partner\n+41 58 220 71 55",
+        "de": "Sales Coordinator\nAirport Advertising\n\n• 80-100%\n\n•\n\n• Festanstellung\n In dieser neu geschaffenen Stelle unterstützt du unser Key Account Management durch eine vorausschauende, strategisch und kommerziell ausgerichtete Bewirtschaftung des gesamten Werbeflächenportfolios am Flughafen Zürich.\n Deine Aufgaben\n\n• Strategische Inventar- und Portfoliobewirtschaftung\n\n• Yield Management und Umsatzoptimierung\n\n• Leitung von komplexen Flughafen- und Kundenprojekten\n\n• Schnittstelle zu Sales, dem Flughafen Zürich, unserem Product Management und Operations\n\n• Megaposter- und Spezialflächenmanagement\n\n• Kampagnenabwicklung und Fotodokumentation\n\n• Verlängerungs- und Bestandskundenmanagement\n\n• Unterstützung und Entlastung des Key Account Managements\n Du bringst mit\n\n• Kaufmännische Lehre oder gleichwertige Ausbildung mit einigen Jahren Berufserfahrung\n\n• Weiterbildung im Bereich Verkauf und/oder Marketing ist wünschenswert\n\n• Gute Anwenderkenntnisse der gängigen MS Office Programme\n\n• Mehrjährige Erfahrung im Projektmanagement, vorzugsweise in Medien, Aussenwerbung, Vermarktung oder Marketing\n\n• Ausgeprägtes kommerzielles Verständnis, analytisches Denken und Sicherheit im Umgang mit Excel, CRM und Präsentationen\n\n• Strukturierte, eigenständige Arbeitsweise; Kommunikationsstärke, Priorisierungskompetenz und Hands-on-Mentalität\n\n• Fähigkeit, zahlreiche interne und externe Anspruchsgruppen verbindlich zu koordinieren\n\n• Sehr gute Deutsch- und Englischkenntnisse\n Das erwartet dich\n\n• Motiviertes und gut eingespieltes Team, in welchem du dich aktiv einbringen kannst\n\n• Top Standort im Herzen von Zürich\n\n• Moderne Arbeitsplätze und 1/3 der Arbeitszeit im Homeoffice\n\n• Flexible Arbeitszeiten und mindestens fünf Wochen Ferien sowie die Möglichkeit von zwei zusätzlichen Wochen Ferienkauf\n\n• Gratis Tickets zu diversen Veranstaltungen\n\n• Sehr gute Sozialleistungen, es wird für dich vorgesorgt\n\n• Gratis Früchte und Getränke - feel good\n Interessiert?\n Nadja freut sich auf deine\n Online-Bewerbung\n Nadja Minola\n HR Business Partner\n +41 58 220 71 55",
+        "fr": "Coordonnateur des ventes\nPublicité aéroportuaire\n\n• 80-100%\n\n•\n\n• Emploi permanent\nDans ce nouveau poste, vous soutenez notre gestion de compte clé grâce à une gestion prospective, stratégique et commerciale de l'ensemble du portefeuille d'espaces publicitaires de l'aéroport de Zurich.\nVos tâches\n\n• Gestion stratégique des stocks et du portefeuille\n\n• Gestion du rendement et optimisation des recettes\n\n• Gestion de projets complexes d'aéroports et de clients\n\n• Interface avec les ventes, Zurich Airport, notre gestion de produits et nos opérations\n\n• Mégaposte et gestion des zones spéciales\n\n• Traitement des campagnes et documentation photographique\n\n• Extension et gestion actuelle des clients\n\n• Soutien et décharge de la gestion des comptes clés\nTu amènes avec toi\n\n• Apprentissage commercial ou formation équivalente avec plusieurs années d'expérience professionnelle\n\n• Une formation complémentaire en matière de vente et/ou de commercialisation est souhaitable\n\n• Bonne connaissance par les utilisateurs des programmes communs du MS Office\n\n• Plusieurs années d'expérience dans la gestion de projet, de préférence dans les médias, la publicité extérieure, le marketing ou le marketing\n\n• Forte compréhension commerciale, réflexion analytique et sécurité dans le traitement d'Excel, CRM et présentations\n\n• Méthodes de travail structurées et indépendantes; Force de communication, compétence en matière de hiérarchisation et mentalité pratique\n\n• Capacité de coordonner de nombreuses parties prenantes internes et externes de manière contraignante\n\n• Très bonne connaissance de l'allemand et de l'anglais\nC'est ce qui vous attend.\n\n• Une équipe motivée et bien informée à laquelle vous pouvez participer activement\n\n• Meilleur emplacement au cœur de Zurich\n\n• Emplois modernes et 1/3 des heures de travail dans les bureaux à domicile\n\n• Durées de travail flexibles et au moins cinq semaines de vacances ainsi que la possibilité de deux semaines supplémentaires d'achat de vacances\n\n• Billets gratuits pour divers événements\n\n• Très bons avantages sociaux, il est fourni pour vous\n\n• Fruits et boissons gratuits - se sentir bien\nIntéressé ?\nNadja attend avec impatience votre\nDemande en ligne\nNadja Minola\nPartenaire d'affaires RH\n+41 58 220 71 55"
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://jobs.apgsga.ch/publication/sales-coordinator-airport-advertising-zuerich/kwx50lsqcs0s57kphl6u3t2orih52uw7k5pj4tjji0h62tscr18qfnt8cfyzvmky",
+      "source": "APG|SGA Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-19T21:30:06.562Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "category": "Commerciale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Pubblicità / Media esterni",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-21",
+      "postedDate": "2026-10-21",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.apgsga.ch/publication/sales-coordinator-airport-advertising-zuerich/kwx50lsqcs0s57kphl6u3t2orih52uw7k5pj4tjji0h62tscr18qfnt8cfyzvmky",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sales-coordinator-airport-advertising-80-100-zurich-apg-sga-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-coordinator-airport-advertising-80-100-zurich-apg-sga-ch"
+        ],
+        "fr": [
+          "sales-coordinator-airport-advertising-80-100-zurich-apg-sga-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-29T21:27:24.407Z",
+      "salaryMin": 83000,
+      "salaryMax": 127500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 127500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-19T21:30:06.562Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "apg-sga-2f41bcf53f7f",
+      "slug": "responsabile-key-account-80-100-zurigo-apg-sga-zurich",
+      "slugByLocale": {
+        "it": "responsabile-key-account-80-100-zurigo-apg-sga-zurich",
+        "en": "key-account-manager-in-80-100-zurich-apg-sga-ch",
+        "de": "key-account-manager-in-80-100-zurich-apg-sga-ch",
+        "fr": "responsable-grands-comptes-80-100-zurich-apg-sga-zurich"
+      },
+      "company": "APG|SGA",
+      "companyKey": "apg-sga",
+      "companyDomain": "apgsga.ch",
+      "title": "Key Account Manager:in 80-100%, Zürich",
+      "titleByLocale": {
+        "it": "Responsabile Key Account 80-100%, Zurigo",
+        "en": "Key Account Manager 80-100%, Zurich",
+        "de": "Key Account Manager:in 80-100%, Zürich",
+        "fr": "Responsable grands comptes 80-100 %, Zurich"
+      },
+      "description": "Key Account Manager:in\n\n• 80-100%\n\n•\n\n• Festanstellung\n In dieser neu geschaffenen Hybrid-Funktion betreust du Direktkunden wie auch Agenturen.\n Deine Aufgaben\n\n• Verkauf von Out of Home Werbeflächen und Dienstleistungen an Key Accounts\n\n• Persönliche Betreuung von Direktkunden sowie Media- und Werbeagenturen\n\n• Sicherstellung einer hohen Kundenbindung und Kundenqualität\n\n• Erarbeiten von Out of Home Kampagnenstrategien und dazugehörenden Präsentationen\n\n• Akquisition von Neukunden\n\n• Sicherstellung, dass unsere Kunden über unsere Produkte und Möglichkeiten immer auf dem neusten Stand sind\n\n• Analyse, Informationsbeschaffung, Ideenentwicklung zwecks Ausarbeitung von massgeschneiderten Entscheidungsgrundlagen für den Kunden\n\n• Erarbeitung und Durchführung von Produkte- und Neuheitenpräsentationen\n Du bringst mit\n\n• Abgeschlossene kaufmännische Ausbildung oder gleichwertige Grundausbildung sowie Weiterbildung im Bereich Verkauf und/oder Marketing\n\n• Mehrjährige, fundierte Erfahrung im Key Account Management\n\n• Bereits bestehendes Netzwerk auf Endkundenseite\n\n• Ausgewiesene Erfahrung in der Medienbranche sind Voraussetzung\n\n• Verhandlungssicher bei Kundengesprächen und Verhandlungen\n\n• Kontaktfreudig, kommunikationsstark und hohe Dienstleistungsorientierung\n\n• Hohes Engagement und Eigeninitiative sowie eine Affinität zur Werbung\n\n• Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse\n Das erwartet dich\n\n• Motiviertes und gut eingespieltes Team, in welchem du dich aktiv einbringen kannst\n\n• Auto, welches du auch privat nutzen kannst\n\n• Top Standort im Herzen von Zürich\n\n• Sehr gute Sozialleistungen, es wird für dich vorgesorgt\n\n• Moderne Arbeitsplätze und 1/3 der Arbeitszeit im Homeoffice\n\n• Flexible Arbeitszeiten und mindestens fünf Wochen Ferien sowie die Möglichkeit von zwei zusätzlichen Wochen Ferienkauf\n\n• Gratis Tickets zu diversen Veranstaltungen\n\n• Gratis Früchte und Getränke - feel good\n Interessiert?\n Nadja freut sich auf deine\n Online-Bewerbung\n Nadja Minola\n HR Business Partner\n +41 58 220 71 55",
+      "descriptionByLocale": {
+        "it": "Key Account Manager:\n\n• 80-100%\n\n•\n\n• Occupazione permanente\nIn questa nuova funzione ibrida, supporta clienti diretti e agenzie.\nI tuoi compiti\n\n• Vendita di Out of Home spazi pubblicitari e servizi ai principali account\n\n• Supporto personale per clienti diretti e agenzie pubblicitarie\n\n• Garantire alta fedeltà e qualità dei clienti\n\n• Sviluppo delle strategie di campagna Out of Home e presentazioni associate\n\n• acquisizione di nuovi clienti\n\n• Assicurarsi che i nostri clienti siano sempre aggiornati con i nostri prodotti e opportunità\n\n• Analisi, raccolta di informazioni, sviluppo di idee per l'elaborazione di basi decisionali su misura per il cliente\n\n• Sviluppo e realizzazione di presentazioni di prodotto e novità\nPorta con te\n\n• Formazione commerciale o formazione di base equivalente e formazione continua nelle vendite e/o nella commercializzazione\n\n• Diversi anni di profonda esperienza nella gestione dei conti chiave\n\n• Rete esistente sul lato cliente finale\n\n• L'esperienza provata nell'industria dei media è un presupposto\n\n• Provenienza della negoziazione nelle discussioni e nei negoziati dei clienti\n\n• Sociable, comunicazione forte e orientamento ad alto servizio\n\n• Alto impegno e iniziativa nonché un'affinità per la pubblicità\n\n• Conoscenza molto buona del tedesco e buona conoscenza dell'inglese\nQuesto è ciò che vi aspetta\n\n• Squadra motivata e consolidata in cui è possibile partecipare attivamente\n\n• Auto che si può anche utilizzare privatamente\n\n• Posizione nel cuore di Zurigo\n\n• Vantaggi sociali molto buoni, è fornito per voi\n\n• Lavori moderni e 1/3 del tempo di lavoro nell'ufficio\n\n• Orari di lavoro flessibili e almeno cinque settimane di vacanza, nonché la possibilità di due settimane supplementari di acquisto di vacanza\n\n• Biglietti gratuiti per vari eventi\n\n• Frutta e bevande gratis - sentirsi bene\nInteressante?\nNadja è impaziente per il tuo\nApplicazione online\nNadja Minola\nHR Business Partner\n+41 58 220 71 55",
+        "en": "Key Account Manager:\n\n• 80-100%\n\n•\n\n• Permanent employment\nIn this newly created hybrid function, you support direct customers as well as agencies.\nYour tasks\n\n• Sale of Out of Home advertising space and services to key accounts\n\n• Personal support for direct customers as well as media and advertising agencies\n\n• Ensuring high customer loyalty and customer quality\n\n• Development of Out of Home campaign strategies and associated presentations\n\n• acquisition of new customers\n\n• Ensuring that our customers are always up-to-date with our products and opportunities\n\n• Analysis, information gathering, idea development for the elaboration of tailor-made decision bases for the customer\n\n• Development and implementation of product and novelty presentations\nYou bring with you\n\n• Commercial training or equivalent basic training and further training in sales and/or marketing\n\n• Several years of profound experience in key account management\n\n• Existing network on the end customer side\n\n• Proven experience in the media industry is a prerequisite\n\n• Negotiation-proof in customer discussions and negotiations\n\n• Sociable, strong communication and high service orientation\n\n• High commitment and initiative as well as an affinity for advertising\n\n• Very good knowledge of German and good knowledge of English\nThis is what awaits you\n\n• Motivated and well-established team in which you can actively participate\n\n• Car that you can also use privately\n\n• Top location in the heart of Zurich\n\n• Very good social benefits, it is provided for you\n\n• Modern jobs and 1/3 of working time in the home office\n\n• Flexible working hours and at least five weeks of holidays as well as the possibility of two additional weeks of holiday purchase\n\n• Free tickets to various events\n\n• Free fruits and drinks - feel good\nInterested?\nNadja is looking forward to your\nOnline application\nNadja Minola\nHR Business Partner\n+41 58 220 71 55",
+        "de": "Key Account Manager:in\n\n• 80-100%\n\n•\n\n• Festanstellung\n In dieser neu geschaffenen Hybrid-Funktion betreust du Direktkunden wie auch Agenturen.\n Deine Aufgaben\n\n• Verkauf von Out of Home Werbeflächen und Dienstleistungen an Key Accounts\n\n• Persönliche Betreuung von Direktkunden sowie Media- und Werbeagenturen\n\n• Sicherstellung einer hohen Kundenbindung und Kundenqualität\n\n• Erarbeiten von Out of Home Kampagnenstrategien und dazugehörenden Präsentationen\n\n• Akquisition von Neukunden\n\n• Sicherstellung, dass unsere Kunden über unsere Produkte und Möglichkeiten immer auf dem neusten Stand sind\n\n• Analyse, Informationsbeschaffung, Ideenentwicklung zwecks Ausarbeitung von massgeschneiderten Entscheidungsgrundlagen für den Kunden\n\n• Erarbeitung und Durchführung von Produkte- und Neuheitenpräsentationen\n Du bringst mit\n\n• Abgeschlossene kaufmännische Ausbildung oder gleichwertige Grundausbildung sowie Weiterbildung im Bereich Verkauf und/oder Marketing\n\n• Mehrjährige, fundierte Erfahrung im Key Account Management\n\n• Bereits bestehendes Netzwerk auf Endkundenseite\n\n• Ausgewiesene Erfahrung in der Medienbranche sind Voraussetzung\n\n• Verhandlungssicher bei Kundengesprächen und Verhandlungen\n\n• Kontaktfreudig, kommunikationsstark und hohe Dienstleistungsorientierung\n\n• Hohes Engagement und Eigeninitiative sowie eine Affinität zur Werbung\n\n• Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse\n Das erwartet dich\n\n• Motiviertes und gut eingespieltes Team, in welchem du dich aktiv einbringen kannst\n\n• Auto, welches du auch privat nutzen kannst\n\n• Top Standort im Herzen von Zürich\n\n• Sehr gute Sozialleistungen, es wird für dich vorgesorgt\n\n• Moderne Arbeitsplätze und 1/3 der Arbeitszeit im Homeoffice\n\n• Flexible Arbeitszeiten und mindestens fünf Wochen Ferien sowie die Möglichkeit von zwei zusätzlichen Wochen Ferienkauf\n\n• Gratis Tickets zu diversen Veranstaltungen\n\n• Gratis Früchte und Getränke - feel good\n Interessiert?\n Nadja freut sich auf deine\n Online-Bewerbung\n Nadja Minola\n HR Business Partner\n +41 58 220 71 55",
+        "fr": "Gestionnaire de compte clé :\n\n• 80-100%\n\n•\n\n• Emploi permanent\nDans cette nouvelle fonction hybride, vous aidez les clients directs ainsi que les agences.\nVos tâches\n\n• Vente d'espaces publicitaires et de services à des clients clés\n\n• Soutien personnel aux clients directs ainsi qu'aux agences de médias et de publicité\n\n• Assurer une grande fidélité à la clientèle et une qualité élevée\n\n• Élaboration de stratégies de campagne hors de la maison et présentations connexes\n\n• acquisition de nouveaux clients\n\n• S'assurer que nos clients sont toujours à jour avec nos produits et opportunités\n\n• Analyse, collecte d'informations, développement d'idées pour l'élaboration de bases de décision sur mesure pour le client\n\n• Élaboration et mise en œuvre de présentations de produits et de nouveautés\nTu amènes avec toi\n\n• Formation commerciale ou formation de base et perfectionnement équivalents en matière de vente et/ou de commercialisation\n\n• Plusieurs années d'expérience profonde dans la gestion des comptes clés\n\n• Réseau existant du côté du client final\n\n• Une expérience éprouvée dans l'industrie des médias est une condition préalable\n\n• Négociations-preuves dans les discussions avec les clients et les négociations\n\n• Sociable, communication forte et orientation haut service\n\n• Un engagement et une initiative élevés ainsi qu'une affinité pour la publicité\n\n• Très bonne connaissance de l'allemand et bonne connaissance de l'anglais\nC'est ce qui vous attend\n\n• Équipe motivée et bien établie à laquelle vous pouvez participer activement\n\n• Voiture que vous pouvez également utiliser en privé\n\n• Meilleur emplacement au cœur de Zurich\n\n• Très bons avantages sociaux, il est fourni pour vous\n\n• Emplois modernes et 1/3 du temps de travail dans les bureaux à domicile\n\n• Des horaires de travail flexibles et au moins cinq semaines de vacances ainsi que la possibilité de deux semaines supplémentaires d'achat de vacances\n\n• Billets gratuits pour divers événements\n\n• Fruits et boissons gratuits - se sentir bien\nIntéressé ?\nNadja est impatient de votre\nDemande en ligne\nNadja Minola\nPartenaire d'affaires RH\n+41 58 220 71 55"
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://jobs.apgsga.ch/publication/key-account-manager-in-zuerich/yqbyamdibr2ofdtyu4hhivzweb0vjlvst4c1j2v9hdqkhs86jpvkcplx8pcxdcy5",
+      "source": "APG|SGA Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-19T21:30:06.124Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "category": "Commerciale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Pubblicità / Media esterni",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-21",
+      "postedDate": "2026-10-21",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.apgsga.ch/publication/key-account-manager-in-zuerich/yqbyamdibr2ofdtyu4hhivzweb0vjlvst4c1j2v9hdqkhs86jpvkcplx8pcxdcy5",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "key-account-manager-in-80-100-zurich-apg-sga-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "key-account-manager-in-80-100-zurich-apg-sga-ch"
+        ]
+      },
+      "firstSeenAt": "2026-11-06T09:36:02.334Z",
+      "salaryMin": 117000,
+      "salaryMax": 180000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 117000,
+          "maxValue": 180000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-19T21:30:06.124Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "apg-sga-4ded1f826986",
+      "slug": "addetto-a-all-affissione-80-wallisellen-apg-sga-wallisellen",
+      "slugByLocale": {
+        "it": "addetto-a-all-affissione-80-wallisellen-apg-sga-wallisellen",
+        "en": "poster-installer-80-wallisellen-apg-sga-wallisellen",
+        "de": "afficheur-in-80-wallisellen-apg-sga-ch",
+        "fr": "afficheur-in-80-wallisellen-apg-sga-ch"
+      },
+      "company": "APG|SGA",
+      "companyKey": "apg-sga",
+      "companyDomain": "apgsga.ch",
+      "title": "Afficheur:in 80%, Wallisellen",
+      "titleByLocale": {
+        "it": "Addetto/a all'affissione 80%, Wallisellen",
+        "en": "Poster Installer 80%, Wallisellen",
+        "de": "Afficheur:in 80%, Wallisellen",
+        "fr": "Afficheur/-euse 80%, Wallisellen"
+      },
+      "description": "Mitarbeiter:in Plakataushang\n\n• 80% (Montag-Donnerstag)\n\n•\n\n• Festanstellung\n Deine Aufgaben\n\n• Detaillierte Vorbereitung und einwandfreie Ausführung des Plakataushangs auf den zugeteilten Aushangtouren gemäss Vorgaben\n\n• Regelmässiger Unterhalt an Werbestellen, deren Reinigung inklusiv Rückschnitt von Sträuchern und Bäumen\n\n• Elektronische-Aushanglisten regelmässig, sauber und gewissenhaft nachführen mit einem Smartphone\n\n• Allgemeine Betriebsarbeiten gemäss Weisungen des Vorgesetzten\n Du bringst mit\n\n• Fahrausweis Kategorie B\n\n• Freude am Arbeiten im Freien (bei jeder Witterung)\n\n• Gute körperliche Verfassung\n\n• Gute Deutschkenntnisse in Wort und Schrift\n Das erwartet dich\n\n• Auto, welches du für den Arbeitsweg nutzen kannst\n\n• APG|SGA-Kleidung für alle Jahreszeiten inkl. Wäscheservice\n\n• Beteiligung an Verpflegung, wenn du für uns unterwegs bist\n\n• Sehr gute Sozialleistungen, es wird für dich vorgesorgt\n\n• Gratis Früchte und Getränke - feel good\n\n• Mindestens fünf Wochen Ferien sowie die Möglichkeit von zwei zusätzlichen Wochen Ferienkauf\n\n• Gratis Tickets zu diversen Veranstaltungen\n Interessiert?\n Simone freut sich auf deine\n Online-Bewerbung\n Simone Raimann\n HR Business Partner\n +41 58 220 75 79",
+      "descriptionByLocale": {
+        "it": "Dipendente: in poster\n\n• 80% (lunedì-giovedì)\n\n•\n\n• Occupazione permanente\nI tuoi compiti\n\n• Preparazione dettagliata e perfetta esecuzione del display poster sui tour di visualizzazione assegnati secondo le specifiche\n\n• Manutenzione regolare a pubblicità, pulizia compreso taglio indietro di arbusti e alberi\n\n• Le liste di appendere elettroniche regolarmente, in modo pulito e cosciente tracciano con uno smartphone\n\n• Lavori operativi generali secondo le istruzioni del supervisore\nPorta con te\n\n• Biglietto categoria B\n\n• Gioia di lavoro all'aperto (in tutte le condizioni atmosferiche)\n\n• Buone condizioni fisiche\n\n• Buona conoscenza del tedesco nelle parole e nella scrittura\nQuesto è ciò che vi aspetta\n\n• Auto che è possibile utilizzare per il lavoro\n\n• APG|SGA abbigliamento per tutte le stagioni\n\n• Partecipazione al cibo quando viaggi per noi\n\n• Vantaggi sociali molto buoni, è fornito per voi\n\n• Frutta e bevande gratis - sentirsi bene\n\n• Almeno cinque settimane di vacanze e la possibilità di due settimane supplementari di acquisto di vacanza\n\n• Biglietti gratuiti per vari eventi\nInteressante?\nSimone è impaziente di te\nApplicazione online\nSimone Raimann\nHR Business Partner\n+41 58 220 75 79",
+        "en": "Employee:in poster\n\n• 80% (Monday-Thursday)\n\n•\n\n• Permanent employment\nYour tasks\n\n• Detailed preparation and perfect execution of the poster display on the allocated display tours according to specifications\n\n• Regular maintenance at advertisements, cleaning including cutting back of shrubs and trees\n\n• Electronic hanging lists regularly, cleanly and conscientiously track with a smartphone\n\n• General operational work in accordance with the instructions of the supervisor\nYou bring with you\n\n• Category B ticket\n\n• Joy of working outdoors (in all weather conditions)\n\n• Good physical condition\n\n• Good knowledge of German in words and writing\nThis is what awaits you\n\n• Car that you can use for work\n\n• APG|SGA clothing for all seasons Laundry services\n\n• Participation in food when you travel for us\n\n• Very good social benefits, it is provided for you\n\n• Free fruits and drinks - feel good\n\n• At least five weeks of holidays and the possibility of two additional weeks of holiday purchase\n\n• Free tickets to various events\nInterested?\nSimone is looking forward to your\nOnline application\nSimone Raimann\nHR Business Partner\n+41 58 220 75 79",
+        "de": "Mitarbeiter:in Plakataushang\n\n• 80% (Montag-Donnerstag)\n\n•\n\n• Festanstellung\n Deine Aufgaben\n\n• Detaillierte Vorbereitung und einwandfreie Ausführung des Plakataushangs auf den zugeteilten Aushangtouren gemäss Vorgaben\n\n• Regelmässiger Unterhalt an Werbestellen, deren Reinigung inklusiv Rückschnitt von Sträuchern und Bäumen\n\n• Elektronische-Aushanglisten regelmässig, sauber und gewissenhaft nachführen mit einem Smartphone\n\n• Allgemeine Betriebsarbeiten gemäss Weisungen des Vorgesetzten\n Du bringst mit\n\n• Fahrausweis Kategorie B\n\n• Freude am Arbeiten im Freien (bei jeder Witterung)\n\n• Gute körperliche Verfassung\n\n• Gute Deutschkenntnisse in Wort und Schrift\n Das erwartet dich\n\n• Auto, welches du für den Arbeitsweg nutzen kannst\n\n• APG|SGA-Kleidung für alle Jahreszeiten inkl. Wäscheservice\n\n• Beteiligung an Verpflegung, wenn du für uns unterwegs bist\n\n• Sehr gute Sozialleistungen, es wird für dich vorgesorgt\n\n• Gratis Früchte und Getränke - feel good\n\n• Mindestens fünf Wochen Ferien sowie die Möglichkeit von zwei zusätzlichen Wochen Ferienkauf\n\n• Gratis Tickets zu diversen Veranstaltungen\n Interessiert?\n Simone freut sich auf deine\n Online-Bewerbung\n Simone Raimann\n HR Business Partner\n +41 58 220 75 79",
+        "fr": "Employé:dans l'affiche\n\n• 80% (lundi-jeudi)\n\n•\n\n• Emploi permanent\nVos tâches\n\n• Préparation détaillée et exécution parfaite de l'affichage sur les visites d'affichage attribuées selon les spécifications\n\n• Entretien régulier dans les publicités, nettoyage y compris coupe des arbustes et des arbres\n\n• Listes de suspension électroniques régulièrement, de manière propre et consciencieuse avec un smartphone\n\n• Travail opérationnel général conformément aux instructions du superviseur\nTu amènes avec toi\n\n• Billet de catégorie B\n\n• Joy de travailler à l'extérieur (dans toutes les conditions météorologiques)\n\n• Bonne condition physique\n\n• Bonne connaissance de l'allemand en mots et en écriture\nC'est ce qui vous attend.\n\n• Voiture que vous pouvez utiliser pour le travail\n\n• Vêtements APG-SGA pour toutes les saisons\n\n• Participation à la nourriture lorsque vous voyagez pour nous\n\n• Très bons avantages sociaux, il est fourni pour vous\n\n• Fruits et boissons gratuits - se sentir bien\n\n• Au moins cinq semaines de vacances et la possibilité de deux semaines supplémentaires d'achat de vacances\n\n• Billets gratuits pour divers événements\nIntéressé ?\nSimone attend avec impatience votre\nDemande en ligne\nSimone Raimann\nPartenaire d'affaires RH\n+41 58 220 75 79"
+      },
+      "location": "Wallisellen",
+      "canton": "ZH",
+      "url": "https://jobs.apgsga.ch/publication/afficheur-in-wallisellen/fs0uv9ermm41lv2ubrrtjf7kivelnkpkahyy78yp0awsn0pxfiswej30yzwy85hz",
+      "source": "APG|SGA Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-19T21:30:05.699Z",
+      "addressLocality": "Wallisellen",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8304",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Pubblicità / Media esterni",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-28",
+      "postedDate": "2026-10-28",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.apgsga.ch/publication/afficheur-in-wallisellen/fs0uv9ermm41lv2ubrrtjf7kivelnkpkahyy78yp0awsn0pxfiswej30yzwy85hz",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "afficheur-in-80-wallisellen-apg-sga-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "afficheur-in-80-wallisellen-apg-sga-ch"
+        ],
+        "en": [
+          "afficheur-in-80-wallisellen-apg-sga-ch"
+        ]
+      },
+      "firstSeenAt": "2026-11-05T09:27:09.715Z",
+      "salaryMin": 58800,
+      "salaryMax": 89200,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58800,
+          "maxValue": 89200,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Wallisellen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T21:30:05.699Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "apg-sga-48c5158cac7e",
+      "slug": "consulenza-vendita-servizio-di-campo-100-berna-apg-sga-bern",
+      "slugByLocale": {
+        "it": "consulenza-vendita-servizio-di-campo-100-berna-apg-sga-bern",
+        "en": "sales-consultancy-field-service-100-bern-apg-sga-bern",
+        "de": "verkaufsberatung-aussendienst-100-bern-apg-sga-ch",
+        "fr": "conseil-en-vente-service-sur-le-terrain-100-berne-apg-sga-bern"
+      },
+      "company": "APG|SGA",
+      "companyKey": "apg-sga",
+      "companyDomain": "apgsga.ch",
+      "title": "Verkaufsberatung Aussendienst 100%, Bern",
+      "titleByLocale": {
+        "it": "Consulenza vendita Servizio di campo 100%, Berna",
+        "en": "Sales consultancy Field service 100%, Bern",
+        "de": "Verkaufsberatung Aussendienst 100%, Bern",
+        "fr": "Conseil en vente Service sur le terrain 100%, Berne"
+      },
+      "description": "Verkaufsberatung Aussendienst\n\n• 100%\n\n•\n\n• Festanstellung\n Deine Aufgaben\n\n• Kundenkontakte aktiv planen und eine hohe persönliche Präsenz bei bestehenden sowie potenziellen Kunden in der Region Bern sicherstellen\n\n• Kundenbesuche vorbereiten, durchführen und Kundenbedürfnisse / Geschäftspotenziale erkennen\n\n• Bestehende Kunden weiterentwickeln und neue Kunden gewinnen\n\n• Verkaufschancen konsequent bearbeiten, passende OOH-/DOOH-Lösungen entwickeln und bis zum Abschluss führen\n\n• Pipeline und Verkaufsaktivitäten aktiv steuern und relevante Kontakte, Chancen und nächste Schritte verbindlich im CRM dokumentieren\n\n• Aktive Teilnahme an Netzwerk- und Kundenanlässen zur Stärkung der Marktpräsenz, kontinuierlicher und gezielter Aufbau des persönlichen Netzwerks und Erschliessung neuer Umsatzpotenziale\n\n• Verantwortung für die Erreichung der vereinbarten quantitativen sowie qualitativen Ziele im zugewiesenen Marktgebiet Bern\n Du bringst mit\n\n• Abgeschlossene Grundausbildung, ein Abschluss im Bereich Marketing, Kommunikation oder Verkauf ist von Vorteil\n\n• Ausgewiesene Erfahrung im Verkauf / Aussendienst in der Verkaufsregion Bern\n\n• Gute Kenntnisse der Medienbranche Schweiz und ein bestehendes Kontaktnetzwerk bei Werbeauftraggebern\n\n• Gute Kenntnisse in CRM-Systemen, Erfahrung mit Microsoft Dynamics 365 von Vorteil\n\n• Kontaktfreudig, kommunikationsstark und gute Präsentationsfähigkeiten gegenüber der internen und externen Kundschaft\n\n• Teamfähige, lösungsorientierte und aufgestellte Person, mit vernetzter Denkweise\n\n• Hohe Eigeninitiative, ausgeprägter Ehrgeiz und hohe Kundenorientierung\n Das erwartet dich\n\n• Motiviertes und gut eingespieltes Team, in welchem du dich aktiv einbringen kannst\n\n• Auto, welches du auch privat nutzen kannst\n\n• Moderne Arbeitsplätze und 1/3 der Arbeitszeit im Homeoffice\n\n• Verantwortungsvoller und herausfordernder Job\n\n• Sehr gute Sozialleistungen, es wird für dich vorgesorgt\n\n• Flexible Arbeitszeiten und mindestens fünf Wochen Ferien sowie die Möglichkeit von zwei zusätzlichen Wochen Ferienkauf\n\n• Gratis Tickets zu diversen Veranstaltungen\n\n• Gratis Früchte und Getränke - feel good\n Interessiert?\n Nadja freut sich auf deine\n Online-Bewerbung\n Nadja Minola\n HR Business Partner\n +41 58 220 71 55",
+      "descriptionByLocale": {
+        "it": "Consulenza di vendita\n\n• 100%\n\n•\n\n• Occupazione permanente\nI tuoi compiti\n\n• Pianificare attivamente i contatti con i clienti e garantire un'alta presenza personale con i clienti esistenti e potenziali nella regione di Berna\n\n• Preparare, effettuare visite ai clienti e identificare le esigenze del cliente / potenziale aziendale\n\n• sviluppare ulteriormente i clienti esistenti e vincere nuovi clienti\n\n• Coerentemente elaborare opportunità di vendita, sviluppare soluzioni OOH/DOOH adatte e portare a termine\n\n• Gestione attiva delle attività di pipeline e vendita e documenta contatti, opportunità e passi successivi nel CRM\n\n• Partecipazione attiva a eventi di rete e clienti per rafforzare la presenza di mercato, lo sviluppo continuo e mirato della rete personale e lo sviluppo di nuove potenzialità di fatturato\n\n• Responsabilità per raggiungere gli obiettivi quantitativi e qualitativi concordati nell'area di mercato assegnata di Berna\nPorta con te\n\n• Formazione di base completa, una laurea in marketing, comunicazione o vendita è vantaggioso\n\n• Esperienza comprovata nel servizio vendita/campo nella regione di vendita di Berna\n\n• Buona conoscenza dell'industria dei media svizzera e di una rete di contatti esistente per i clienti pubblicitari\n\n• Buona conoscenza dei sistemi CRM, esperienza con Microsoft Dynamics 365\n\n• Sociable, forte comunicazione e buone capacità di presentazione verso clienti interni ed esterni\n\n• Persona responsabile del team, orientata alla soluzione e posizionata, con una mentalità in rete\n\n• Alta iniziativa, forte ambizione e alto orientamento del cliente\nQuesto è ciò che vi aspetta\n\n• Squadra motivata e consolidata in cui è possibile partecipare attivamente\n\n• Auto che si può anche utilizzare privatamente\n\n• Lavori moderni e 1/3 del tempo di lavoro nell'ufficio\n\n• Lavoro responsabile e impegnativo\n\n• Vantaggi sociali molto buoni, è fornito per voi\n\n• Orari di lavoro flessibili e almeno cinque settimane di vacanza, nonché la possibilità di due settimane supplementari di acquisto di vacanza\n\n• Biglietti gratuiti per vari eventi\n\n• Frutta e bevande gratis - sentirsi bene\nInteressante?\nNadja è impaziente per il tuo\nApplicazione online\nNadja Minola\nHR Business Partner\n+41 58 220 71 55",
+        "en": "Sales consultancy Field service\n\n• 100%\n\n•\n\n• Permanent employment\nYour tasks\n\n• Actively plan customer contacts and ensure a high personal presence with existing and potential customers in the Berne region\n\n• Prepare, carry out customer visits and identify customer needs / business potential\n\n• Further develop existing customers and win new customers\n\n• Consistently process sales opportunities, develop suitable OOH/DOOH solutions and lead to completion\n\n• Actively manage pipeline and sales activities and document relevant contacts, opportunities and next steps in the CRM\n\n• Active participation in network and customer events to strengthen the market presence, continuous and targeted development of the personal network and development of new revenue potential\n\n• Responsibility for achieving the agreed quantitative and qualitative targets in the assigned market area of Bern\nYou bring with you\n\n• Completed basic training, a degree in marketing, communication or sales is beneficial\n\n• Proven experience in sales / field service in the sales region of Bern\n\n• Good knowledge of the Swiss media industry and an existing contact network for advertising clients\n\n• Good knowledge of CRM systems, experience with Microsoft Dynamics 365\n\n• Sociable, strong communication and good presentation skills towards internal and external customers\n\n• Team-capable, solution-oriented and positioned person, with a networked mindset\n\n• High initiative, strong ambition and high customer orientation\nThis is what awaits you\n\n• Motivated and well-established team in which you can actively participate\n\n• Car that you can also use privately\n\n• Modern jobs and 1/3 of working time in the home office\n\n• Responsible and challenging job\n\n• Very good social benefits, it is provided for you\n\n• Flexible working hours and at least five weeks of holidays as well as the possibility of two additional weeks of holiday purchase\n\n• Free tickets to various events\n\n• Free fruits and drinks - feel good\nInterested?\nNadja is looking forward to your\nOnline application\nNadja Minola\nHR Business Partner\n+41 58 220 71 55",
+        "de": "Verkaufsberatung Aussendienst\n\n• 100%\n\n•\n\n• Festanstellung\n Deine Aufgaben\n\n• Kundenkontakte aktiv planen und eine hohe persönliche Präsenz bei bestehenden sowie potenziellen Kunden in der Region Bern sicherstellen\n\n• Kundenbesuche vorbereiten, durchführen und Kundenbedürfnisse / Geschäftspotenziale erkennen\n\n• Bestehende Kunden weiterentwickeln und neue Kunden gewinnen\n\n• Verkaufschancen konsequent bearbeiten, passende OOH-/DOOH-Lösungen entwickeln und bis zum Abschluss führen\n\n• Pipeline und Verkaufsaktivitäten aktiv steuern und relevante Kontakte, Chancen und nächste Schritte verbindlich im CRM dokumentieren\n\n• Aktive Teilnahme an Netzwerk- und Kundenanlässen zur Stärkung der Marktpräsenz, kontinuierlicher und gezielter Aufbau des persönlichen Netzwerks und Erschliessung neuer Umsatzpotenziale\n\n• Verantwortung für die Erreichung der vereinbarten quantitativen sowie qualitativen Ziele im zugewiesenen Marktgebiet Bern\n Du bringst mit\n\n• Abgeschlossene Grundausbildung, ein Abschluss im Bereich Marketing, Kommunikation oder Verkauf ist von Vorteil\n\n• Ausgewiesene Erfahrung im Verkauf / Aussendienst in der Verkaufsregion Bern\n\n• Gute Kenntnisse der Medienbranche Schweiz und ein bestehendes Kontaktnetzwerk bei Werbeauftraggebern\n\n• Gute Kenntnisse in CRM-Systemen, Erfahrung mit Microsoft Dynamics 365 von Vorteil\n\n• Kontaktfreudig, kommunikationsstark und gute Präsentationsfähigkeiten gegenüber der internen und externen Kundschaft\n\n• Teamfähige, lösungsorientierte und aufgestellte Person, mit vernetzter Denkweise\n\n• Hohe Eigeninitiative, ausgeprägter Ehrgeiz und hohe Kundenorientierung\n Das erwartet dich\n\n• Motiviertes und gut eingespieltes Team, in welchem du dich aktiv einbringen kannst\n\n• Auto, welches du auch privat nutzen kannst\n\n• Moderne Arbeitsplätze und 1/3 der Arbeitszeit im Homeoffice\n\n• Verantwortungsvoller und herausfordernder Job\n\n• Sehr gute Sozialleistungen, es wird für dich vorgesorgt\n\n• Flexible Arbeitszeiten und mindestens fünf Wochen Ferien sowie die Möglichkeit von zwei zusätzlichen Wochen Ferienkauf\n\n• Gratis Tickets zu diversen Veranstaltungen\n\n• Gratis Früchte und Getränke - feel good\n Interessiert?\n Nadja freut sich auf deine\n Online-Bewerbung\n Nadja Minola\n HR Business Partner\n +41 58 220 71 55",
+        "fr": "Services consultatifs en matière de vente Service mobile\n\n• 100%\n\n•\n\n• Emploi permanent\nVos tâches\n\n• Planifier activement les contacts avec les clients et assurer une forte présence personnelle avec les clients existants et potentiels dans la région de Berne\n\n• Préparer, effectuer des visites des clients et identifier les besoins des clients / potentiel d'affaires\n\n• Développer les clients existants et gagner de nouveaux clients\n\n• Procéder de façon cohérente aux possibilités de vente, élaborer des solutions OOH/DOOH appropriées et mener à l'achèvement\n\n• Gérer activement les activités de pipeline et de vente et documenter les contacts, les possibilités et les prochaines étapes du CRM\n\n• Participation active aux événements de réseau et de clientèle pour renforcer la présence sur le marché, le développement continu et ciblé du réseau personnel et le développement de nouveaux potentiels de revenus\n\n• Responsabilité de la réalisation des objectifs quantitatifs et qualitatifs convenus dans la zone de marché de Berne\nTu amènes avec toi\n\n• Une formation de base complète, un diplôme en marketing, communication ou vente est bénéfique\n\n• Expérience éprouvée en vente / service sur le terrain dans la région de vente de Berne\n\n• Bonne connaissance de l'industrie suisse des médias et d'un réseau de contact existant pour les clients publicitaires\n\n• Bonne connaissance des systèmes CRM, expérience avec Microsoft Dynamics 365\n\n• Sociable, forte communication et bonne présentation des clients internes et externes\n\n• Une personne capable d'équipe, orientée vers la solution et positionnée, avec un état d'esprit en réseau\n\n• Haute initiative, forte ambition et grande orientation client\nC'est ce qui vous attend\n\n• Équipe motivée et bien établie à laquelle vous pouvez participer activement\n\n• Voiture que vous pouvez également utiliser en privé\n\n• Emplois modernes et 1/3 du temps de travail dans les bureaux à domicile\n\n• Un travail responsable et stimulant\n\n• Très bons avantages sociaux, il est fourni pour vous\n\n• Des horaires de travail flexibles et au moins cinq semaines de vacances ainsi que la possibilité de deux semaines supplémentaires d'achat de vacances\n\n• Billets gratuits pour divers événements\n\n• Fruits et boissons gratuits - se sentir bien\nIntéressé ?\nNadja est impatient de votre\nDemande en ligne\nNadja Minola\nPartenaire d'affaires RH\n+41 58 220 71 55"
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.apgsga.ch/publication/verkaufsberatung-aussendienst-bern/vkwavwpoo2jxbr09jpnr1wnddc5q0xq0o50iijpdpbrwkmeviovet7cwt7xzih7x",
+      "source": "APG|SGA Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-19T21:30:05.245Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3004",
+      "category": "Commerciale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Pubblicità / Media esterni",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-04",
+      "postedDate": "2026-11-04",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.apgsga.ch/publication/verkaufsberatung-aussendienst-bern/vkwavwpoo2jxbr09jpnr1wnddc5q0xq0o50iijpdpbrwkmeviovet7cwt7xzih7x",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "verkaufsberatung-aussendienst-100-bern-apg-sga-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberatung-aussendienst-100-bern-apg-sga-ch"
+        ],
+        "en": [
+          "verkaufsberatung-aussendienst-100-bern-apg-sga-ch"
+        ],
+        "fr": [
+          "verkaufsberatung-aussendienst-100-bern-apg-sga-ch"
+        ]
+      },
+      "firstSeenAt": "2026-11-09T21:24:53.853Z",
+      "salaryMin": 77500,
+      "salaryMax": 118500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 77500,
+          "maxValue": 118500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-02T21:30:05.245Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "apg-sga-f9ac031f849f",
+      "slug": "responsabile-crm-80-100-zurich-apg-sga-8027-zurich",
+      "slugByLocale": {
+        "it": "responsabile-crm-80-100-zurich-apg-sga-8027-zurich",
+        "en": "crm-manager-in-80-100-zurich-apg-sga-ch",
+        "de": "crm-manager-in-80-100-zurich-apg-sga-ch",
+        "fr": "responsable-crm-80-100-zurich-apg-sga-8027-zurich"
+      },
+      "company": "APG|SGA",
+      "companyKey": "apg-sga",
+      "companyDomain": "apgsga.ch",
+      "title": "CRM Manager:in 80-100%, Zürich",
+      "titleByLocale": {
+        "it": "Responsabile CRM 80-100%, Zürich",
+        "en": "CRM Manager 80-100%, Zurich",
+        "de": "CRM Manager:in 80-100%, Zürich",
+        "fr": "Responsable CRM 80-100%, Zurich"
+      },
+      "description": "CRM Manager:in\n\n• 80-100%\n\n•\n\n• Festanstellung\n Deine Aufgaben\n\n• Planung und operative Ausführung von CRM-Kampagnen in enger Zusammenarbeit mit dem Marketing & Sales Team\n\n• Überwachung sowie Analyse der Kundenzufriedenheitsbefragung und Verarbeitung der Kundenfeedbacks\n\n• Erarbeiten von Handlungsempfehlungen und Massnahmen aufgrund der Resultate aus der Kundenzufriedenheitsbefragung\n\n• Aufbau und stetige Weiterentwicklung von Customer Journeys und Segmentierung zusammen mit allen Stakeholdern\n\n• Laufende Überwachung und Reporting der Resultate sowie Durchführung von Kampagnen- und Daten Analysen mit entsprechenden Handlungsempfehlungen\n\n• Mitarbeit in Projekten und Übernahme der Rolle als Process Manager\n\n• Vertretung des Fachbereichs als Anwendervertreter für die MS Dynamics Sales- und Marketing-Applikationen, inklusive Sicherstellung der optimalen Nutzung und Weiterentwicklung der Systeme\n\n• Verantwortung für die interne Kommunikation des CRM-Teams\n Du bringst mit\n\n• Abgeschlossene kaufmännische Grundausbildung oder gleichwertige Grundausbildung\n\n• Erfahrungen im Bereich Microsoft Dynamics 365 Sales & Marketing oder mit anderen CRM-Systemen\n\n• Sehr gute operative Kenntnisse im Kampagnenmanagement, insbesondere mit MS Dynamics, über verschiedene Kanäle on- & offline\n\n• Erfahrung im Umgang mit agilen Projekten von Vorteil\n\n• Sehr gute Planungs- und Organisationsfähigkeiten\n\n• Zielstrebigkeit und Lösungsorientierung\n\n• Die Fähigkeit mit unterschiedlichen Persönlichkeiten und Anspruchsgruppen zusammenzuarbeiten\n Das erwartet dich\n\n• Kleines Team, in welchem du dich aktiv einbringen kannst\n\n• Top Standort im Herzen von Zürich\n\n• Verantwortungsvoller Job\n\n• Moderne Arbeitsplätze und 1/3 der Arbeitszeit im Homeoffice\n\n• Flexible Arbeitszeiten und mindestens fünf Wochen Ferien sowie die Möglichkeit von zwei zusätzlichen Wochen Ferienkauf\n\n• Sehr gute Sozialleistungen, es wird für dich vorgesorgt\n\n• Gratis Tickets zu diversen Veranstaltungen\n\n• Gratis Früchte und Getränke - feel good\n Interessiert?\n Nadja freut sich auf deine\n Online-Bewerbung\n Nadja Minola\n HR Business Partner\n +41 58 220 71 55",
+      "descriptionByLocale": {
+        "it": "CRM Manager:\n\n• 80-100%\n\n•\n\n• Occupazione permanente\nI tuoi compiti\n\n• Pianificazione ed esecuzione operativa delle campagne CRM in stretta collaborazione con il team Marketing & Sales\n\n• Monitoraggio e analisi dell'indagine sulla soddisfazione del cliente e elaborazione del feedback dei clienti\n\n• Sviluppo di raccomandazioni per azioni e misure basate sui risultati dell'indagine sulla soddisfazione del cliente\n\n• Sviluppo e sviluppo continuo dei viaggi dei clienti e della segmentazione insieme a tutti gli stakeholder\n\n• Monitoraggio e reporting in corso dei risultati, nonché analisi della campagna e dei dati con raccomandazioni corrispondenti per l'azione\n\n• Partecipazione a progetti e assumendo il ruolo di Process Manager\n\n• Rappresentanza del dipartimento come rappresentante dell'utente per le applicazioni di vendita e marketing di MS Dynamics, tra cui garantire un uso ottimale e un ulteriore sviluppo dei sistemi\n\n• Responsabilità per la comunicazione interna del team CRM\nPorta con te\n\n• Istruzione commerciale di base o equivalente\n\n• Esperienza in Microsoft Dynamics 365 Vendite & Marketing o con altri sistemi CRM\n\n• Conoscenza operativa molto buona nella gestione delle campagne, soprattutto con MS Dynamics, tramite vari canali on- & offline\n\n• L'esperienza nel trattare i progetti agili è vantaggiosa\n\n• Molto buona pianificazione e capacità organizzative\n\n• Obiettivo e orientamento della soluzione\n\n• Capacità di lavorare con diverse personalità e stakeholder\nQuesto è ciò che vi aspetta\n\n• Piccolo team in cui è possibile partecipare attivamente\n\n• Posizione nel cuore di Zurigo\n\n• Lavoro responsabile\n\n• Lavori moderni e 1/3 del tempo di lavoro nell'ufficio\n\n• Orari di lavoro flessibili e almeno cinque settimane di vacanza, nonché la possibilità di due settimane supplementari di acquisto di vacanza\n\n• Vantaggi sociali molto buoni, è fornito per voi\n\n• Biglietti gratuiti per vari eventi\n\n• Frutta e bevande gratis - sentirsi bene\nInteressante?\nNadja è impaziente per il tuo\nApplicazione online\nNadja Minola\nHR Business Partner\n+41 58 220 71 55",
+        "en": "CRM Manager:\n\n• 80-100%\n\n•\n\n• Permanent employment\nYour tasks\n\n• Planning and operational execution of CRM campaigns in close cooperation with the Marketing & Sales Team\n\n• Monitoring and analysis of customer satisfaction survey and processing of customer feedback\n\n• Development of recommendations for action and measures based on the results of the customer satisfaction survey\n\n• Development and continuous development of customer journeys and segmentation together with all stakeholders\n\n• Ongoing monitoring and reporting of results as well as campaign and data analysis with corresponding recommendations for action\n\n• Participation in projects and assuming the role of Process Manager\n\n• Representation of the department as user representative for the MS Dynamics sales and marketing applications, including ensuring optimal use and further development of the systems\n\n• Responsibility for internal communication of the CRM team\nYou bring with you\n\n• Basic commercial education or equivalent\n\n• Experience in Microsoft Dynamics 365 Sales & Marketing or with other CRM systems\n\n• Very good operational knowledge in campaign management, especially with MS Dynamics, via various channels on- & offline\n\n• Experience in dealing with agile projects is advantageous\n\n• Very good planning and organizational skills\n\n• Purpose and solution orientation\n\n• Ability to work with different personalities and stakeholders\nThis is what awaits you\n\n• Small team in which you can actively participate\n\n• Top location in the heart of Zurich\n\n• Responsible job\n\n• Modern jobs and 1/3 of working time in the home office\n\n• Flexible working hours and at least five weeks of holidays as well as the possibility of two additional weeks of holiday purchase\n\n• Very good social benefits, it is provided for you\n\n• Free tickets to various events\n\n• Free fruits and drinks - feel good\nInterested?\nNadja is looking forward to your\nOnline application\nNadja Minola\nHR Business Partner\n+41 58 220 71 55",
+        "de": "CRM Manager:in\n\n• 80-100%\n\n•\n\n• Festanstellung\n Deine Aufgaben\n\n• Planung und operative Ausführung von CRM-Kampagnen in enger Zusammenarbeit mit dem Marketing & Sales Team\n\n• Überwachung sowie Analyse der Kundenzufriedenheitsbefragung und Verarbeitung der Kundenfeedbacks\n\n• Erarbeiten von Handlungsempfehlungen und Massnahmen aufgrund der Resultate aus der Kundenzufriedenheitsbefragung\n\n• Aufbau und stetige Weiterentwicklung von Customer Journeys und Segmentierung zusammen mit allen Stakeholdern\n\n• Laufende Überwachung und Reporting der Resultate sowie Durchführung von Kampagnen- und Daten Analysen mit entsprechenden Handlungsempfehlungen\n\n• Mitarbeit in Projekten und Übernahme der Rolle als Process Manager\n\n• Vertretung des Fachbereichs als Anwendervertreter für die MS Dynamics Sales- und Marketing-Applikationen, inklusive Sicherstellung der optimalen Nutzung und Weiterentwicklung der Systeme\n\n• Verantwortung für die interne Kommunikation des CRM-Teams\n Du bringst mit\n\n• Abgeschlossene kaufmännische Grundausbildung oder gleichwertige Grundausbildung\n\n• Erfahrungen im Bereich Microsoft Dynamics 365 Sales & Marketing oder mit anderen CRM-Systemen\n\n• Sehr gute operative Kenntnisse im Kampagnenmanagement, insbesondere mit MS Dynamics, über verschiedene Kanäle on- & offline\n\n• Erfahrung im Umgang mit agilen Projekten von Vorteil\n\n• Sehr gute Planungs- und Organisationsfähigkeiten\n\n• Zielstrebigkeit und Lösungsorientierung\n\n• Die Fähigkeit mit unterschiedlichen Persönlichkeiten und Anspruchsgruppen zusammenzuarbeiten\n Das erwartet dich\n\n• Kleines Team, in welchem du dich aktiv einbringen kannst\n\n• Top Standort im Herzen von Zürich\n\n• Verantwortungsvoller Job\n\n• Moderne Arbeitsplätze und 1/3 der Arbeitszeit im Homeoffice\n\n• Flexible Arbeitszeiten und mindestens fünf Wochen Ferien sowie die Möglichkeit von zwei zusätzlichen Wochen Ferienkauf\n\n• Sehr gute Sozialleistungen, es wird für dich vorgesorgt\n\n• Gratis Tickets zu diversen Veranstaltungen\n\n• Gratis Früchte und Getränke - feel good\n Interessiert?\n Nadja freut sich auf deine\n Online-Bewerbung\n Nadja Minola\n HR Business Partner\n +41 58 220 71 55",
+        "fr": "Gestionnaire CRM :\n\n• 80-100%\n\n•\n\n• Emploi permanent\nVos tâches\n\n• Planification et exécution opérationnelle des campagnes CRM en étroite collaboration avec l'équipe Marketing & Ventes\n\n• Suivi et analyse de l'enquête sur la satisfaction des clients et traitement de la rétroaction des clients\n\n• Élaboration de recommandations d'action et de mesures fondées sur les résultats de l'enquête sur la satisfaction des clients\n\n• Développement et développement continu des parcours et de la segmentation avec toutes les parties prenantes\n\n• Suivi et communication continus des résultats ainsi que des campagnes et des analyses de données et recommandations d ' action correspondantes\n\n• Participation aux projets et prise en charge du gestionnaire de processus\n\n• Représentation du département en tant que représentant de l'utilisateur pour les applications de vente et de marketing MS Dynamics, y compris en assurant une utilisation optimale et le développement des systèmes\n\n• Responsabilité de la communication interne de l'équipe CRM\nTu amènes avec toi\n\n• Enseignement commercial de base ou équivalent\n\n• Expérience dans Microsoft Dynamics 365 Ventes & Marketing ou avec d'autres systèmes CRM\n\n• Très bonne connaissance opérationnelle en gestion de campagne, en particulier avec MS Dynamics, via différents canaux sur- & hors ligne\n\n• L'expérience des projets agiles est avantageuse\n\n• Très bonnes compétences en planification et en organisation\n\n• Objectif et orientation de la solution\n\n• Capacité de travailler avec différentes personnalités et parties prenantes\nC'est ce qui vous attend\n\n• Petite équipe à laquelle vous pouvez participer activement\n\n• Meilleur emplacement au cœur de Zurich\n\n• Travail responsable\n\n• Emplois modernes et 1/3 du temps de travail dans les bureaux à domicile\n\n• Des horaires de travail flexibles et au moins cinq semaines de vacances ainsi que la possibilité de deux semaines supplémentaires d'achat de vacances\n\n• Très bons avantages sociaux, il est fourni pour vous\n\n• Billets gratuits pour divers événements\n\n• Fruits et boissons gratuits - se sentir bien\nIntéressé ?\nNadja est impatient de votre\nDemande en ligne\nNadja Minola\nPartenaire d'affaires RH\n+41 58 220 71 55"
+      },
+      "location": "8027 Zürich",
+      "canton": "ZH",
+      "url": "https://jobs.apgsga.ch/publication/crm-manager-in-zuerich/257vd61wfejffr6hvrys2vhxobz74m5bs2hxdxcrs7bd4lymbmc52gdexvquncni",
+      "source": "APG|SGA Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-19T21:30:04.819Z",
+      "addressLocality": "8027 Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Pubblicità / Media esterni",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-09",
+      "postedDate": "2026-11-09",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.apgsga.ch/publication/crm-manager-in-zuerich/257vd61wfejffr6hvrys2vhxobz74m5bs2hxdxcrs7bd4lymbmc52gdexvquncni",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "crm-manager-in-80-100-zurich-apg-sga-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "crm-manager-in-80-100-zurich-apg-sga-ch"
+        ],
+        "fr": [
+          "crm-manager-in-80-100-zurich-apg-sga-ch"
+        ]
+      },
+      "firstSeenAt": "2026-11-17T08:23:00.929Z",
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 101500,
+          "maxValue": 154000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "8027 Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-07T21:30:04.819Z",
+      "validThroughSource": "last-observed-window"
+    },
     {
       "id": "apg-sga-72bdd698c817",
       "slug": "ict-system-ingegnere-linux-80-100-zurich-apg-sga-zurich",
@@ -81,485 +559,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-29T09:28:11.562Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "apg-sga-3571f2ae3eee",
-      "slug": "workplace-ingegnere-80-100-zurich-apg-sga-zurich",
-      "slugByLocale": {
-        "it": "workplace-ingegnere-80-100-zurich-apg-sga-zurich",
-        "en": "workplace-engineer-80-100-zurich-apg-sga-ch",
-        "de": "workplace-engineer-80-100-zurich-apg-sga-ch",
-        "fr": "workplace-ingenieur-80-100-zurich-apg-sga-zurich"
-      },
-      "company": "APG|SGA",
-      "companyKey": "apg-sga",
-      "companyDomain": "apgsga.ch",
-      "title": "Workplace Engineer 80-100%, Zürich",
-      "titleByLocale": {
-        "it": "Workplace Ingegnere 80-100%, Zürich",
-        "en": "Workplace Engineer 80-100%, Zurich",
-        "de": "Workplace Engineer 80-100%, Zürich",
-        "fr": "Workplace Ingénieur 80-100%, Zürich"
-      },
-      "description": "Workplace Engineer\n\n• 80-100%\n\n•\n\n• Festanstellung\n Als Workplace Engineer spielst du eine zentrale Rolle bei der digitalen schweizweiten Out-of-Home Werbung und bei allen Arbeitsplätzen der APG|SGA. Im Bereich Digital Playout sorgst du dafür, dass Werbung und Informationen zuverlässig auf Displays an Bahnhöfen, Flughäfen, in Bussen, Trams und Zügen in der ganzen Schweiz erscheinen. Im Bereich Workplaces sorgst du für eine homogene, moderne und schlanke Client-Architektur, mit der täglich hunderte von Mitarbeitenden tausende von Kunden bedienen. Deine Arbeit ist entscheidend für den Betrieb und die Weiterentwicklung der digitalen Werbeplattformen, die täglich von Millionen Menschen gesehen werden.\n Deine Aufgaben\n\n• Du betreust und entwickelst die Digital Playout Clients weiter – hauptsächlich auf Basis von Windows und Windows Embedded. Clients mit Linux gehören auch dazu, sind jedoch deutlich in der Unterzahl\n\n• Zudem betreust und entwickelst du in enger Zusammenarbeit mit dafür spezialisierten Dienstleistern die Workplace-Clients auf Basis von Windows 11 für das gesamte Unternehmen\n\n• Du stellst sicher, dass die eingesetzte Player-Hardware mit Betriebssystemen und Treibern kompatibel ist\n\n• Du erstellst und pflegst Windows-Images , konfigurierst Systemdienste und sorgst für eine stabile Funktionalität.\n\n• Du entwickelst und wartest Batch- & Powershell-Skripte, um Prozesse zu automatisieren und effizienter zu gestalten (Intune-Paketierung)\n\n• Du unterstützt bei der Netzwerkintegration und arbeitest eng mit den anderen Bereichen wie Infrastruktur sowie Service Desk zusammen\n\n• Du überwachst die eingesetzten Clients und Hardware, analysierst Fehler und dokumentierst die Systemlandschaft\n\n• Du wirkst beim 1st und 2nd Level Support im Bereich Digital Playout mit\n\n• Du setzt Projekten im Bereich Digital Playout und Workplaces um\n Du bringst mit\n\n• Du bringst sehr gute Kenntnisse in Windows-Betriebssystemen und vertiefte Windows-11- und Enterprise-Client-Management-Erfahrung mit\n\n• Du kennst dich mit der Erstellung von Images, der Konfiguration von Diensten und der Optimierung von Funktionalitäten aus (Autopilot, Intune, Entra Join, Compliance und Security Baselines)\n\n• Erfahrung im Umgang mit Player-Hardware, Prozessoren und Treiberkompatibilität\n\n• Erfahrung in Batch- und PowerShell-Scripting zur Automatisierung von Prozessen\n\n• Grundkenntnisse in Netzwerktechnologien (z. B. TCP/IP, VLAN, DHCP)\n\n• Linux-Grundkenntnisse sind ein Plus, ebenso wie gute Englischkenntnisse, um dich in einem technisch geprägten Umfeld sicher zu bewegen\n\n• Bereitschaft, in einem agilen Umfeld nach SAFe (Scaled Agile Framework) zu arbeiten und aktiv zur Planung, Umsetzung und kontinuierlichen Verbesserung innerhalb des Teams beizutragen\n Das erwartet dich\n\n• Moderne Arbeitsplätze und 1/2 der Arbeitszeit im Homeoffice\n\n• Flexible Arbeitszeiten und mindestens fünf Wochen Ferien sowie die Möglichkeit von zwei zusätzlichen Wochen Ferienkauf\n\n• Sehr gute Sozialleistungen, es wird für dich vorgesorgt\n\n• Gratis Tickets zu diversen Veranstaltungen\n\n• Top Standort in Zürich\n Interessiert?\n Corinne freut sich auf deine\n Online-Bewerbung\n\nFür diese Position berücksichtigen wir nur Direktbewerbungen.\n\nCorinne Hofer\n HR Business Partner\n +41 58 220 71 53",
-      "descriptionByLocale": {
-        "it": "Ingegnere del posto di lavoro\n\n• 80-100%\n\n•\n\n• Occupazione permanente\nIn qualità di ingegnere del posto di lavoro, si gioca un ruolo centrale nella pubblicità fuori casa in Svizzera e in tutti i luoghi di lavoro presso APG|SGA. Nell'area del digital playout, si assicura che la pubblicità e le informazioni appaiono in modo affidabile sulle stazioni ferroviarie, aeroporti, autobus, tram e treni in tutta la Svizzera. Nell'area dei luoghi di lavoro, si fornisce un'architettura client omogenea, moderna e magra che serve migliaia di clienti ogni giorno. Il vostro lavoro è fondamentale per il funzionamento e lo sviluppo delle piattaforme pubblicitarie digitali che milioni di persone vedono ogni giorno.\nI tuoi compiti\n\n• Potrai supervisionare e sviluppare i client di riproduzione digitale – principalmente basati su Windows e Windows Embedded. I client con Linux sono anche inclusi, ma sono chiaramente in minoranza\n\n• Inoltre, in stretta collaborazione con fornitori di servizi specializzati, supervisionerai e svilupperai clienti di lavoro basati su Windows 11 per l'intera azienda.\n\n• Assicurarsi che l'hardware del giocatore utilizzato sia compatibile con sistemi operativi e driver\n\n• Creare e mantenere le immagini di Windows, configurare i servizi di sistema e fornire funzionalità stabili.\n\n• Sviluppi e mantieni gli script batch & power shell per automatizzare i processi e renderli più efficienti (imballaggio unico)\n\n• Supporti l'integrazione della rete e lavori a stretto contatto con altre aree come infrastrutture e service desk\n\n• Monitorare i client e l'hardware utilizzati, analizzare gli errori e documentare il paesaggio del sistema\n\n• Si partecipa al 1 ° e 2 ° livello di supporto nella zona di digital playout\n\n• Realizzi progetti nel settore del digital playout e dei luoghi di lavoro\nPorta con te\n\n• Porterai una buona conoscenza dei sistemi operativi Windows e un'esperienza di gestione client di Windows 11 approfondita e enterprise\n\n• Hai familiarità con la creazione di immagini, servizi di configurazione e l'ottimizzazione delle funzionalità (Autopilota, Intune, Entra Join, Compliance e Security Baselines)\n\n• Gestione dell'esperienza hardware, processori e compatibilità del driver\n\n• Esperienza nello scripting batch e power shell per l'automazione dei processi\n\n• Conoscenza di base delle tecnologie di rete (ad esempio TCP/IP, VLAN, DHCP)\n\n• Le competenze di base Linux sono un plus, così come buone abilità inglesi per tenervi al sicuro in un ambiente tecnico\n\n• La volontà di lavorare in un ambiente agile secondo SAFe (Scaled Agile Framework) e contribuire attivamente alla pianificazione, implementazione e miglioramento continuo nel team\nQuesto è ciò che vi aspetta\n\n• Lavori moderni e 1/2 ore di lavoro nell'ufficio\n\n• Orari di lavoro flessibili e almeno cinque settimane di vacanza, nonché la possibilità di due settimane supplementari di acquisto di vacanza\n\n• Vantaggi sociali molto buoni, è fornito per voi\n\n• Biglietti gratuiti per vari eventi\n\n• Migliore posizione a Zurigo\nInteressante?\nCorinne non vede l'ora di te\nApplicazione online\n\nPer questa posizione, consideriamo solo applicazioni dirette.\n\nCorinne Hofer\nHR Business Partner\n+41 58 220 71 53",
-        "en": "Workplace Engineer\n\n• 80-100%\n\n•\n\n• Permanent employment\nAs a workplace engineer, you play a central role in Switzerland-wide out-of-home advertising and in all workplaces at APG|SGA. In the area of digital playout, you ensure that advertising and information reliably appear on displays at train stations, airports, buses, trams and trains throughout Switzerland. In the area of workplaces, you provide a homogeneous, modern and lean client architecture that serves thousands of customers every day. Your work is critical to the operation and development of the digital advertising platforms that millions of people see every day.\nYour tasks\n\n• You will supervise and develop the Digital Playout Clients – mainly based on Windows and Windows Embedded. Clients with Linux are also included, but are clearly outnumbered\n\n• In addition, in close cooperation with specialized service providers, you will supervise and develop workplace clients based on Windows 11 for the entire company.\n\n• Ensure that the player hardware used is compatible with operating systems and drivers\n\n• You create and maintain Windows images, configure system services and provide stable functionality.\n\n• You develop and maintain batch & power shell scripts to automate processes and make them more efficient (intune packaging)\n\n• You support network integration and work closely with other areas such as infrastructure and service desk\n\n• You monitor the used clients and hardware, analyze errors and document the system landscape\n\n• You participate in the 1st and 2nd level support in the area of digital playout\n\n• You implement projects in the area of digital playout and workplaces\nYou bring with you\n\n• You’ll bring very good knowledge of Windows operating systems and in-depth Windows 11 and enterprise client management experience\n\n• You are familiar with creating images, configuring services and optimizing functionalities (Autopilot, Intune, Entra Join, Compliance and Security Baselines)\n\n• Experience handling player hardware, processors and driver compatibility\n\n• Experience in batch and power shell scripting for process automation\n\n• Basic knowledge of network technologies (e.g. TCP/IP, VLAN, DHCP)\n\n• Basic Linux skills are a plus, as well as good English skills to keep you safe in a technical environment\n\n• Willingness to work in an agile environment according to SAFe (Scaled Agile Framework) and actively contribute to the planning, implementation and continuous improvement within the team\nThis is what awaits you\n\n• Modern jobs and 1/2 of working hours in the home office\n\n• Flexible working hours and at least five weeks of holidays as well as the possibility of two additional weeks of holiday purchase\n\n• Very good social benefits, it is provided for you\n\n• Free tickets to various events\n\n• Top location in Zurich\nInterested?\nCorinne is looking forward to your\nOnline application\n\nFor this position, we only consider direct applications.\n\nCorinne Hofer\nHR Business Partner\n+41 58 220 71 53",
-        "de": "Workplace Engineer\n\n• 80-100%\n\n•\n\n• Festanstellung\n Als Workplace Engineer spielst du eine zentrale Rolle bei der digitalen schweizweiten Out-of-Home Werbung und bei allen Arbeitsplätzen der APG|SGA. Im Bereich Digital Playout sorgst du dafür, dass Werbung und Informationen zuverlässig auf Displays an Bahnhöfen, Flughäfen, in Bussen, Trams und Zügen in der ganzen Schweiz erscheinen. Im Bereich Workplaces sorgst du für eine homogene, moderne und schlanke Client-Architektur, mit der täglich hunderte von Mitarbeitenden tausende von Kunden bedienen. Deine Arbeit ist entscheidend für den Betrieb und die Weiterentwicklung der digitalen Werbeplattformen, die täglich von Millionen Menschen gesehen werden.\n Deine Aufgaben\n\n• Du betreust und entwickelst die Digital Playout Clients weiter – hauptsächlich auf Basis von Windows und Windows Embedded. Clients mit Linux gehören auch dazu, sind jedoch deutlich in der Unterzahl\n\n• Zudem betreust und entwickelst du in enger Zusammenarbeit mit dafür spezialisierten Dienstleistern die Workplace-Clients auf Basis von Windows 11 für das gesamte Unternehmen\n\n• Du stellst sicher, dass die eingesetzte Player-Hardware mit Betriebssystemen und Treibern kompatibel ist\n\n• Du erstellst und pflegst Windows-Images , konfigurierst Systemdienste und sorgst für eine stabile Funktionalität.\n\n• Du entwickelst und wartest Batch- & Powershell-Skripte, um Prozesse zu automatisieren und effizienter zu gestalten (Intune-Paketierung)\n\n• Du unterstützt bei der Netzwerkintegration und arbeitest eng mit den anderen Bereichen wie Infrastruktur sowie Service Desk zusammen\n\n• Du überwachst die eingesetzten Clients und Hardware, analysierst Fehler und dokumentierst die Systemlandschaft\n\n• Du wirkst beim 1st und 2nd Level Support im Bereich Digital Playout mit\n\n• Du setzt Projekten im Bereich Digital Playout und Workplaces um\n Du bringst mit\n\n• Du bringst sehr gute Kenntnisse in Windows-Betriebssystemen und vertiefte Windows-11- und Enterprise-Client-Management-Erfahrung mit\n\n• Du kennst dich mit der Erstellung von Images, der Konfiguration von Diensten und der Optimierung von Funktionalitäten aus (Autopilot, Intune, Entra Join, Compliance und Security Baselines)\n\n• Erfahrung im Umgang mit Player-Hardware, Prozessoren und Treiberkompatibilität\n\n• Erfahrung in Batch- und PowerShell-Scripting zur Automatisierung von Prozessen\n\n• Grundkenntnisse in Netzwerktechnologien (z. B. TCP/IP, VLAN, DHCP)\n\n• Linux-Grundkenntnisse sind ein Plus, ebenso wie gute Englischkenntnisse, um dich in einem technisch geprägten Umfeld sicher zu bewegen\n\n• Bereitschaft, in einem agilen Umfeld nach SAFe (Scaled Agile Framework) zu arbeiten und aktiv zur Planung, Umsetzung und kontinuierlichen Verbesserung innerhalb des Teams beizutragen\n Das erwartet dich\n\n• Moderne Arbeitsplätze und 1/2 der Arbeitszeit im Homeoffice\n\n• Flexible Arbeitszeiten und mindestens fünf Wochen Ferien sowie die Möglichkeit von zwei zusätzlichen Wochen Ferienkauf\n\n• Sehr gute Sozialleistungen, es wird für dich vorgesorgt\n\n• Gratis Tickets zu diversen Veranstaltungen\n\n• Top Standort in Zürich\n Interessiert?\n Corinne freut sich auf deine\n Online-Bewerbung\n\nFür diese Position berücksichtigen wir nur Direktbewerbungen.\n\nCorinne Hofer\n HR Business Partner\n +41 58 220 71 53",
-        "fr": "Ingénieur de travail\n\n• 80-100%\n\n•\n\n• Emploi permanent\nEn tant qu'ingénieur en milieu de travail, vous jouez un rôle central dans la publicité hors-domestique à l'échelle de la Suisse et dans tous les lieux de travail de l'APG. Dans le domaine des jeux numériques, vous veillez à ce que la publicité et l'information apparaissent de manière fiable sur les écrans des gares, aéroports, bus, tramways et trains dans toute la Suisse. Dans le domaine des lieux de travail, vous fournissez une architecture client homogène, moderne et maigre qui sert des milliers de clients chaque jour. Votre travail est essentiel au fonctionnement et au développement des plateformes publicitaires numériques que des millions de personnes voient chaque jour.\nVos tâches\n\n• Vous superviserez et développerez les Clients Digital Playout, principalement basés sur Windows et Windows Embedded. Les clients avec Linux sont également inclus, mais sont nettement plus nombreux\n\n• En outre, en étroite collaboration avec des prestataires de services spécialisés, vous superviserez et développerez des clients en milieu de travail basés sur Windows 11 pour toute l'entreprise.\n\n• S'assurer que le matériel utilisé est compatible avec les systèmes d'exploitation et les pilotes\n\n• Vous créez et maintenez des images Windows, configurez les services du système et offrez des fonctionnalités stables.\n\n• Vous développez et maintenez des scripts batch & power shell pour automatiser les processus et les rendre plus efficaces (emballage intégré)\n\n• Vous soutenez l'intégration des réseaux et travaillez en étroite collaboration avec d'autres domaines tels que l'infrastructure et le service\n\n• Vous surveillez les clients et le matériel utilisés, analysez les erreurs et documentez le paysage système\n\n• Vous participez au support de premier et deuxième niveaux dans le domaine des playouts numériques\n\n• Vous implémentez des projets dans le domaine des jeux numériques et des lieux de travail\nTu amènes avec toi\n\n• Vous apporterez une très bonne connaissance des systèmes d'exploitation Windows et de Windows 11 en profondeur et l'expérience de gestion client d'entreprise\n\n• Vous connaissez la création d'images, la configuration de services et l'optimisation des fonctionnalités (pilote automatique, intune, Entra Join, Compliance and Security Baselines)\n\n• Expérience de la manipulation du matériel, des processeurs et de la compatibilité du pilote\n\n• Expérience dans le script batch et power shell pour l'automatisation des processus\n\n• Connaissance de base des technologies de réseau (p. ex. TCP/IP, VLAN, DHCP)\n\n• Les compétences Linux de base sont un plus, ainsi que de bonnes compétences en anglais pour vous garder en sécurité dans un environnement technique\n\n• Volonté de travailler dans un environnement agile selon le SAFe (Scaled Agile Framework) et contribuer activement à la planification, la mise en œuvre et l'amélioration continue au sein de l'équipe\nC'est ce qui vous attend.\n\n• Emplois modernes et demi-heures de travail dans les bureaux à domicile\n\n• Durées de travail flexibles et au moins cinq semaines de vacances ainsi que la possibilité de deux semaines supplémentaires d'achat de vacances\n\n• Très bons avantages sociaux, il est fourni pour vous\n\n• Billets gratuits pour divers événements\n\n• Meilleur emplacement à Zurich\nIntéressé ?\nCorinne attend avec impatience votre\nDemande en ligne\n\nPour cette position, nous ne considérons que les demandes directes.\n\nCorinne Hofer\nPartenaire d'affaires RH\n+41 58 220 71 53"
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://jobs.apgsga.ch/publication/workplace-engineer-zuerich/8otxkreaeaq5rehjtboe2lg3bmaex5nfq3d56j1bvr1ftd8ti2kbzgrnafy633z0",
-      "source": "APG|SGA Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:28:11.128Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Pubblicità / Media esterni",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-30",
-      "postedDate": "2026-09-30",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.apgsga.ch/publication/workplace-engineer-zuerich/8otxkreaeaq5rehjtboe2lg3bmaex5nfq3d56j1bvr1ftd8ti2kbzgrnafy633z0",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "workplace-engineer-80-100-zurich-apg-sga-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "workplace-engineer-80-100-zurich-apg-sga-ch"
-        ]
-      },
-      "firstSeenAt": "2026-10-05T09:26:38.009Z",
-      "salaryMin": 83000,
-      "salaryMax": 126000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 126000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Zürich",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:28:11.128Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "apg-sga-53d6c2a2e61d",
-      "slug": "sales-coordinatore-airport-advertising-80-100-zurich-apg-sga-zurich",
-      "slugByLocale": {
-        "it": "sales-coordinatore-airport-advertising-80-100-zurich-apg-sga-zurich",
-        "en": "sales-coordinator-airport-advertising-80-100-zurich-apg-sga-ch",
-        "de": "sales-coordinator-airport-advertising-80-100-zurich-apg-sga-ch",
-        "fr": "sales-coordinateur-airport-advertising-80-100-zurich-apg-sga-zurich"
-      },
-      "company": "APG|SGA",
-      "companyKey": "apg-sga",
-      "companyDomain": "apgsga.ch",
-      "title": "Sales Coordinator Airport Advertising 80-100%, Zürich",
-      "titleByLocale": {
-        "it": "Sales Coordinatore Airport Advertising 80-100%, Zürich",
-        "en": "Sales Coordinator Airport Advertising 80-100%, Zurich",
-        "de": "Sales Coordinator Airport Advertising 80-100%, Zürich",
-        "fr": "Sales Coordinateur Airport Advertising 80-100%, Zürich"
-      },
-      "description": "Sales Coordinator\nAirport Advertising\n\n• 80-100%\n\n•\n\n• Festanstellung\n In dieser neu geschaffenen Stelle unterstützt du unser Key Account Management durch eine vorausschauende, strategisch und kommerziell ausgerichtete Bewirtschaftung des gesamten Werbeflächenportfolios am Flughafen Zürich.\n Deine Aufgaben\n\n• Strategische Inventar- und Portfoliobewirtschaftung\n\n• Yield Management und Umsatzoptimierung\n\n• Leitung von komplexen Flughafen- und Kundenprojekten\n\n• Schnittstelle zu Sales, dem Flughafen Zürich, unserem Product Management und Operations\n\n• Megaposter- und Spezialflächenmanagement\n\n• Kampagnenabwicklung und Fotodokumentation\n\n• Verlängerungs- und Bestandskundenmanagement\n\n• Unterstützung und Entlastung des Key Account Managements\n Du bringst mit\n\n• Kaufmännische Lehre oder gleichwertige Ausbildung mit einigen Jahren Berufserfahrung\n\n• Weiterbildung im Bereich Verkauf und/oder Marketing ist wünschenswert\n\n• Gute Anwenderkenntnisse der gängigen MS Office Programme\n\n• Mehrjährige Erfahrung im Projektmanagement, vorzugsweise in Medien, Aussenwerbung, Vermarktung oder Marketing\n\n• Ausgeprägtes kommerzielles Verständnis, analytisches Denken und Sicherheit im Umgang mit Excel, CRM und Präsentationen\n\n• Strukturierte, eigenständige Arbeitsweise; Kommunikationsstärke, Priorisierungskompetenz und Hands-on-Mentalität\n\n• Fähigkeit, zahlreiche interne und externe Anspruchsgruppen verbindlich zu koordinieren\n\n• Sehr gute Deutsch- und Englischkenntnisse\n Das erwartet dich\n\n• Motiviertes und gut eingespieltes Team, in welchem du dich aktiv einbringen kannst\n\n• Top Standort im Herzen von Zürich\n\n• Moderne Arbeitsplätze und 1/3 der Arbeitszeit im Homeoffice\n\n• Flexible Arbeitszeiten und mindestens fünf Wochen Ferien sowie die Möglichkeit von zwei zusätzlichen Wochen Ferienkauf\n\n• Gratis Tickets zu diversen Veranstaltungen\n\n• Sehr gute Sozialleistungen, es wird für dich vorgesorgt\n\n• Gratis Früchte und Getränke - feel good\n Interessiert?\n Nadja freut sich auf deine\n Online-Bewerbung\n Nadja Minola\n HR Business Partner\n +41 58 220 71 55",
-      "descriptionByLocale": {
-        "it": "Coordinatore vendite\nPubblicità aeroportuale\n\n• 80-100%\n\n•\n\n• Occupazione permanente\nIn questa nuova posizione, supporti la nostra Key Account Management attraverso una gestione avanzata, strategica e commerciale dell'intero portafoglio di spazi pubblicitari all'aeroporto di Zurigo.\nI tuoi compiti\n\n• Gestione strategica dell'inventario e del portafoglio\n\n• Gestione dei rendimenti e ottimizzazione dei ricavi\n\n• Gestione di complessi progetti aeroportuali e di clienti\n\n• Interfaccia alle vendite, Aeroporto di Zurigo, la nostra gestione e le operazioni dei prodotti\n\n• Megaposter e gestione delle aree speciali\n\n• Elaborazione della campagna e documentazione fotografica\n\n• Estensione e gestione dei clienti esistenti\n\n• Supporto e scarico della gestione dei conti chiave\nPorta con te\n\n• Apprendistato commerciale o istruzione equivalente con diversi anni di esperienza professionale\n\n• Un'ulteriore formazione nelle vendite e/o nel marketing è auspicabile\n\n• Buona conoscenza dell'utente dei programmi comuni di MS Office\n\n• Diversi anni di esperienza nella gestione del progetto, preferibilmente nei media, pubblicità all'aperto, marketing o marketing\n\n• Forte comprensione commerciale, pensiero analitico e sicurezza nel trattare con Excel, CRM e presentazioni\n\n• Metodi di lavoro strutturati e indipendenti; Forza di comunicazione, competenza di priorità e mentalità hands-on\n\n• Capacità di coordinare numerosi stakeholder interni ed esterni in modo vincolante\n\n• Molto buona conoscenza del tedesco e dell'inglese\nQuesto è ciò che vi aspetta\n\n• Squadra motivata e ben provata in cui è possibile partecipare attivamente\n\n• Posizione nel cuore di Zurigo\n\n• Lavori moderni e 1/3 delle ore di lavoro nell'ufficio\n\n• Orari di lavoro flessibili e almeno cinque settimane di vacanza, nonché la possibilità di due settimane supplementari di acquisto di vacanza\n\n• Biglietti gratuiti per vari eventi\n\n• Benefici sociali, è fornito per voi\n\n• Frutta e bevande gratis - sentirsi bene\nInteressante?\nNadja è impaziente per il tuo\nApplicazione online\nNadja Minola\nHR Business Partner\n+41 58 220 71 55",
-        "en": "Sales Coordinator\nAirport Advertising\n\n• 80-100%\n\n•\n\n• Permanent employment\nIn this newly created position, you support our Key Account Management through a forward-looking, strategic and commercial management of the entire advertising space portfolio at Zurich Airport.\nYour tasks\n\n• Strategic inventory and portfolio management\n\n• Yield management and revenue optimization\n\n• Management of complex airport and customer projects\n\n• Interface to Sales, Zurich Airport, our Product Management and Operations\n\n• Megaposter and Special Area Management\n\n• Campaign processing and photo documentation\n\n• Extension and existing customer management\n\n• Support and discharge of key account management\nYou bring with you\n\n• Commercial apprenticeship or equivalent education with several years of professional experience\n\n• Further training in sales and/or marketing is desirable\n\n• Good user knowledge of the common MS Office programs\n\n• Several years of experience in project management, preferably in media, outdoor advertising, marketing or marketing\n\n• Strong commercial understanding, analytical thinking and security in dealing with Excel, CRM and presentations\n\n• Structured, independent working methods; Communication strength, prioritization competence and hands-on mentality\n\n• Ability to coordinate numerous internal and external stakeholders in a binding manner\n\n• Very good knowledge of German and English\nThis is what awaits you\n\n• Motivated and well-rehearsed team in which you can actively participate\n\n• Top location in the heart of Zurich\n\n• Modern jobs and 1/3 of working hours in the home office\n\n• Flexible working hours and at least five weeks of holidays as well as the possibility of two additional weeks of holiday purchase\n\n• Free tickets to various events\n\n• Very good social benefits, it is provided for you\n\n• Free fruits and drinks - feel good\nInterested?\nNadja is looking forward to your\nOnline application\nNadja Minola\nHR Business Partner\n+41 58 220 71 55",
-        "de": "Sales Coordinator\nAirport Advertising\n\n• 80-100%\n\n•\n\n• Festanstellung\n In dieser neu geschaffenen Stelle unterstützt du unser Key Account Management durch eine vorausschauende, strategisch und kommerziell ausgerichtete Bewirtschaftung des gesamten Werbeflächenportfolios am Flughafen Zürich.\n Deine Aufgaben\n\n• Strategische Inventar- und Portfoliobewirtschaftung\n\n• Yield Management und Umsatzoptimierung\n\n• Leitung von komplexen Flughafen- und Kundenprojekten\n\n• Schnittstelle zu Sales, dem Flughafen Zürich, unserem Product Management und Operations\n\n• Megaposter- und Spezialflächenmanagement\n\n• Kampagnenabwicklung und Fotodokumentation\n\n• Verlängerungs- und Bestandskundenmanagement\n\n• Unterstützung und Entlastung des Key Account Managements\n Du bringst mit\n\n• Kaufmännische Lehre oder gleichwertige Ausbildung mit einigen Jahren Berufserfahrung\n\n• Weiterbildung im Bereich Verkauf und/oder Marketing ist wünschenswert\n\n• Gute Anwenderkenntnisse der gängigen MS Office Programme\n\n• Mehrjährige Erfahrung im Projektmanagement, vorzugsweise in Medien, Aussenwerbung, Vermarktung oder Marketing\n\n• Ausgeprägtes kommerzielles Verständnis, analytisches Denken und Sicherheit im Umgang mit Excel, CRM und Präsentationen\n\n• Strukturierte, eigenständige Arbeitsweise; Kommunikationsstärke, Priorisierungskompetenz und Hands-on-Mentalität\n\n• Fähigkeit, zahlreiche interne und externe Anspruchsgruppen verbindlich zu koordinieren\n\n• Sehr gute Deutsch- und Englischkenntnisse\n Das erwartet dich\n\n• Motiviertes und gut eingespieltes Team, in welchem du dich aktiv einbringen kannst\n\n• Top Standort im Herzen von Zürich\n\n• Moderne Arbeitsplätze und 1/3 der Arbeitszeit im Homeoffice\n\n• Flexible Arbeitszeiten und mindestens fünf Wochen Ferien sowie die Möglichkeit von zwei zusätzlichen Wochen Ferienkauf\n\n• Gratis Tickets zu diversen Veranstaltungen\n\n• Sehr gute Sozialleistungen, es wird für dich vorgesorgt\n\n• Gratis Früchte und Getränke - feel good\n Interessiert?\n Nadja freut sich auf deine\n Online-Bewerbung\n Nadja Minola\n HR Business Partner\n +41 58 220 71 55",
-        "fr": "Coordonnateur des ventes\nPublicité aéroportuaire\n\n• 80-100%\n\n•\n\n• Emploi permanent\nDans ce nouveau poste, vous soutenez notre gestion de compte clé grâce à une gestion prospective, stratégique et commerciale de l'ensemble du portefeuille d'espaces publicitaires de l'aéroport de Zurich.\nVos tâches\n\n• Gestion stratégique des stocks et du portefeuille\n\n• Gestion du rendement et optimisation des recettes\n\n• Gestion de projets complexes d'aéroports et de clients\n\n• Interface avec les ventes, Zurich Airport, notre gestion de produits et nos opérations\n\n• Mégaposte et gestion des zones spéciales\n\n• Traitement des campagnes et documentation photographique\n\n• Extension et gestion actuelle des clients\n\n• Soutien et décharge de la gestion des comptes clés\nTu amènes avec toi\n\n• Apprentissage commercial ou formation équivalente avec plusieurs années d'expérience professionnelle\n\n• Une formation complémentaire en matière de vente et/ou de commercialisation est souhaitable\n\n• Bonne connaissance par les utilisateurs des programmes communs du MS Office\n\n• Plusieurs années d'expérience dans la gestion de projet, de préférence dans les médias, la publicité extérieure, le marketing ou le marketing\n\n• Forte compréhension commerciale, réflexion analytique et sécurité dans le traitement d'Excel, CRM et présentations\n\n• Méthodes de travail structurées et indépendantes; Force de communication, compétence en matière de hiérarchisation et mentalité pratique\n\n• Capacité de coordonner de nombreuses parties prenantes internes et externes de manière contraignante\n\n• Très bonne connaissance de l'allemand et de l'anglais\nC'est ce qui vous attend.\n\n• Une équipe motivée et bien informée à laquelle vous pouvez participer activement\n\n• Meilleur emplacement au cœur de Zurich\n\n• Emplois modernes et 1/3 des heures de travail dans les bureaux à domicile\n\n• Durées de travail flexibles et au moins cinq semaines de vacances ainsi que la possibilité de deux semaines supplémentaires d'achat de vacances\n\n• Billets gratuits pour divers événements\n\n• Très bons avantages sociaux, il est fourni pour vous\n\n• Fruits et boissons gratuits - se sentir bien\nIntéressé ?\nNadja attend avec impatience votre\nDemande en ligne\nNadja Minola\nPartenaire d'affaires RH\n+41 58 220 71 55"
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://jobs.apgsga.ch/publication/sales-coordinator-airport-advertising-zuerich/kwx50lsqcs0s57kphl6u3t2orih52uw7k5pj4tjji0h62tscr18qfnt8cfyzvmky",
-      "source": "APG|SGA Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:28:10.694Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "category": "Commerciale",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Pubblicità / Media esterni",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-21",
-      "postedDate": "2026-10-21",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.apgsga.ch/publication/sales-coordinator-airport-advertising-zuerich/kwx50lsqcs0s57kphl6u3t2orih52uw7k5pj4tjji0h62tscr18qfnt8cfyzvmky",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "sales-coordinator-airport-advertising-80-100-zurich-apg-sga-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sales-coordinator-airport-advertising-80-100-zurich-apg-sga-ch"
-        ],
-        "fr": [
-          "sales-coordinator-airport-advertising-80-100-zurich-apg-sga-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-29T21:27:24.407Z",
-      "salaryMin": 83000,
-      "salaryMax": 127500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 127500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Zürich",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T09:28:10.694Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "apg-sga-2f41bcf53f7f",
-      "slug": "responsabile-key-account-80-100-zurigo-apg-sga-zurich",
-      "slugByLocale": {
-        "it": "responsabile-key-account-80-100-zurigo-apg-sga-zurich",
-        "en": "key-account-manager-in-80-100-zurich-apg-sga-ch",
-        "de": "key-account-manager-in-80-100-zurich-apg-sga-ch",
-        "fr": "responsable-grands-comptes-80-100-zurich-apg-sga-zurich"
-      },
-      "company": "APG|SGA",
-      "companyKey": "apg-sga",
-      "companyDomain": "apgsga.ch",
-      "title": "Key Account Manager:in 80-100%, Zürich",
-      "titleByLocale": {
-        "it": "Responsabile Key Account 80-100%, Zurigo",
-        "en": "Key Account Manager 80-100%, Zurich",
-        "de": "Key Account Manager:in 80-100%, Zürich",
-        "fr": "Responsable grands comptes 80-100 %, Zurich"
-      },
-      "description": "Key Account Manager:in\n\n• 80-100%\n\n•\n\n• Festanstellung\n In dieser neu geschaffenen Hybrid-Funktion betreust du Direktkunden wie auch Agenturen.\n Deine Aufgaben\n\n• Verkauf von Out of Home Werbeflächen und Dienstleistungen an Key Accounts\n\n• Persönliche Betreuung von Direktkunden sowie Media- und Werbeagenturen\n\n• Sicherstellung einer hohen Kundenbindung und Kundenqualität\n\n• Erarbeiten von Out of Home Kampagnenstrategien und dazugehörenden Präsentationen\n\n• Akquisition von Neukunden\n\n• Sicherstellung, dass unsere Kunden über unsere Produkte und Möglichkeiten immer auf dem neusten Stand sind\n\n• Analyse, Informationsbeschaffung, Ideenentwicklung zwecks Ausarbeitung von massgeschneiderten Entscheidungsgrundlagen für den Kunden\n\n• Erarbeitung und Durchführung von Produkte- und Neuheitenpräsentationen\n Du bringst mit\n\n• Abgeschlossene kaufmännische Ausbildung oder gleichwertige Grundausbildung sowie Weiterbildung im Bereich Verkauf und/oder Marketing\n\n• Mehrjährige, fundierte Erfahrung im Key Account Management\n\n• Bereits bestehendes Netzwerk auf Endkundenseite\n\n• Ausgewiesene Erfahrung in der Medienbranche sind Voraussetzung\n\n• Verhandlungssicher bei Kundengesprächen und Verhandlungen\n\n• Kontaktfreudig, kommunikationsstark und hohe Dienstleistungsorientierung\n\n• Hohes Engagement und Eigeninitiative sowie eine Affinität zur Werbung\n\n• Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse\n Das erwartet dich\n\n• Motiviertes und gut eingespieltes Team, in welchem du dich aktiv einbringen kannst\n\n• Auto, welches du auch privat nutzen kannst\n\n• Top Standort im Herzen von Zürich\n\n• Sehr gute Sozialleistungen, es wird für dich vorgesorgt\n\n• Moderne Arbeitsplätze und 1/3 der Arbeitszeit im Homeoffice\n\n• Flexible Arbeitszeiten und mindestens fünf Wochen Ferien sowie die Möglichkeit von zwei zusätzlichen Wochen Ferienkauf\n\n• Gratis Tickets zu diversen Veranstaltungen\n\n• Gratis Früchte und Getränke - feel good\n Interessiert?\n Nadja freut sich auf deine\n Online-Bewerbung\n Nadja Minola\n HR Business Partner\n +41 58 220 71 55",
-      "descriptionByLocale": {
-        "it": "Key Account Manager:\n\n• 80-100%\n\n•\n\n• Occupazione permanente\nIn questa nuova funzione ibrida, supporta clienti diretti e agenzie.\nI tuoi compiti\n\n• Vendita di Out of Home spazi pubblicitari e servizi ai principali account\n\n• Supporto personale per clienti diretti e agenzie pubblicitarie\n\n• Garantire alta fedeltà e qualità dei clienti\n\n• Sviluppo delle strategie di campagna Out of Home e presentazioni associate\n\n• acquisizione di nuovi clienti\n\n• Assicurarsi che i nostri clienti siano sempre aggiornati con i nostri prodotti e opportunità\n\n• Analisi, raccolta di informazioni, sviluppo di idee per l'elaborazione di basi decisionali su misura per il cliente\n\n• Sviluppo e realizzazione di presentazioni di prodotto e novità\nPorta con te\n\n• Formazione commerciale o formazione di base equivalente e formazione continua nelle vendite e/o nella commercializzazione\n\n• Diversi anni di profonda esperienza nella gestione dei conti chiave\n\n• Rete esistente sul lato cliente finale\n\n• L'esperienza provata nell'industria dei media è un presupposto\n\n• Provenienza della negoziazione nelle discussioni e nei negoziati dei clienti\n\n• Sociable, comunicazione forte e orientamento ad alto servizio\n\n• Alto impegno e iniziativa nonché un'affinità per la pubblicità\n\n• Conoscenza molto buona del tedesco e buona conoscenza dell'inglese\nQuesto è ciò che vi aspetta\n\n• Squadra motivata e consolidata in cui è possibile partecipare attivamente\n\n• Auto che si può anche utilizzare privatamente\n\n• Posizione nel cuore di Zurigo\n\n• Vantaggi sociali molto buoni, è fornito per voi\n\n• Lavori moderni e 1/3 del tempo di lavoro nell'ufficio\n\n• Orari di lavoro flessibili e almeno cinque settimane di vacanza, nonché la possibilità di due settimane supplementari di acquisto di vacanza\n\n• Biglietti gratuiti per vari eventi\n\n• Frutta e bevande gratis - sentirsi bene\nInteressante?\nNadja è impaziente per il tuo\nApplicazione online\nNadja Minola\nHR Business Partner\n+41 58 220 71 55",
-        "en": "Key Account Manager:\n\n• 80-100%\n\n•\n\n• Permanent employment\nIn this newly created hybrid function, you support direct customers as well as agencies.\nYour tasks\n\n• Sale of Out of Home advertising space and services to key accounts\n\n• Personal support for direct customers as well as media and advertising agencies\n\n• Ensuring high customer loyalty and customer quality\n\n• Development of Out of Home campaign strategies and associated presentations\n\n• acquisition of new customers\n\n• Ensuring that our customers are always up-to-date with our products and opportunities\n\n• Analysis, information gathering, idea development for the elaboration of tailor-made decision bases for the customer\n\n• Development and implementation of product and novelty presentations\nYou bring with you\n\n• Commercial training or equivalent basic training and further training in sales and/or marketing\n\n• Several years of profound experience in key account management\n\n• Existing network on the end customer side\n\n• Proven experience in the media industry is a prerequisite\n\n• Negotiation-proof in customer discussions and negotiations\n\n• Sociable, strong communication and high service orientation\n\n• High commitment and initiative as well as an affinity for advertising\n\n• Very good knowledge of German and good knowledge of English\nThis is what awaits you\n\n• Motivated and well-established team in which you can actively participate\n\n• Car that you can also use privately\n\n• Top location in the heart of Zurich\n\n• Very good social benefits, it is provided for you\n\n• Modern jobs and 1/3 of working time in the home office\n\n• Flexible working hours and at least five weeks of holidays as well as the possibility of two additional weeks of holiday purchase\n\n• Free tickets to various events\n\n• Free fruits and drinks - feel good\nInterested?\nNadja is looking forward to your\nOnline application\nNadja Minola\nHR Business Partner\n+41 58 220 71 55",
-        "de": "Key Account Manager:in\n\n• 80-100%\n\n•\n\n• Festanstellung\n In dieser neu geschaffenen Hybrid-Funktion betreust du Direktkunden wie auch Agenturen.\n Deine Aufgaben\n\n• Verkauf von Out of Home Werbeflächen und Dienstleistungen an Key Accounts\n\n• Persönliche Betreuung von Direktkunden sowie Media- und Werbeagenturen\n\n• Sicherstellung einer hohen Kundenbindung und Kundenqualität\n\n• Erarbeiten von Out of Home Kampagnenstrategien und dazugehörenden Präsentationen\n\n• Akquisition von Neukunden\n\n• Sicherstellung, dass unsere Kunden über unsere Produkte und Möglichkeiten immer auf dem neusten Stand sind\n\n• Analyse, Informationsbeschaffung, Ideenentwicklung zwecks Ausarbeitung von massgeschneiderten Entscheidungsgrundlagen für den Kunden\n\n• Erarbeitung und Durchführung von Produkte- und Neuheitenpräsentationen\n Du bringst mit\n\n• Abgeschlossene kaufmännische Ausbildung oder gleichwertige Grundausbildung sowie Weiterbildung im Bereich Verkauf und/oder Marketing\n\n• Mehrjährige, fundierte Erfahrung im Key Account Management\n\n• Bereits bestehendes Netzwerk auf Endkundenseite\n\n• Ausgewiesene Erfahrung in der Medienbranche sind Voraussetzung\n\n• Verhandlungssicher bei Kundengesprächen und Verhandlungen\n\n• Kontaktfreudig, kommunikationsstark und hohe Dienstleistungsorientierung\n\n• Hohes Engagement und Eigeninitiative sowie eine Affinität zur Werbung\n\n• Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse\n Das erwartet dich\n\n• Motiviertes und gut eingespieltes Team, in welchem du dich aktiv einbringen kannst\n\n• Auto, welches du auch privat nutzen kannst\n\n• Top Standort im Herzen von Zürich\n\n• Sehr gute Sozialleistungen, es wird für dich vorgesorgt\n\n• Moderne Arbeitsplätze und 1/3 der Arbeitszeit im Homeoffice\n\n• Flexible Arbeitszeiten und mindestens fünf Wochen Ferien sowie die Möglichkeit von zwei zusätzlichen Wochen Ferienkauf\n\n• Gratis Tickets zu diversen Veranstaltungen\n\n• Gratis Früchte und Getränke - feel good\n Interessiert?\n Nadja freut sich auf deine\n Online-Bewerbung\n Nadja Minola\n HR Business Partner\n +41 58 220 71 55",
-        "fr": "Gestionnaire de compte clé :\n\n• 80-100%\n\n•\n\n• Emploi permanent\nDans cette nouvelle fonction hybride, vous aidez les clients directs ainsi que les agences.\nVos tâches\n\n• Vente d'espaces publicitaires et de services à des clients clés\n\n• Soutien personnel aux clients directs ainsi qu'aux agences de médias et de publicité\n\n• Assurer une grande fidélité à la clientèle et une qualité élevée\n\n• Élaboration de stratégies de campagne hors de la maison et présentations connexes\n\n• acquisition de nouveaux clients\n\n• S'assurer que nos clients sont toujours à jour avec nos produits et opportunités\n\n• Analyse, collecte d'informations, développement d'idées pour l'élaboration de bases de décision sur mesure pour le client\n\n• Élaboration et mise en œuvre de présentations de produits et de nouveautés\nTu amènes avec toi\n\n• Formation commerciale ou formation de base et perfectionnement équivalents en matière de vente et/ou de commercialisation\n\n• Plusieurs années d'expérience profonde dans la gestion des comptes clés\n\n• Réseau existant du côté du client final\n\n• Une expérience éprouvée dans l'industrie des médias est une condition préalable\n\n• Négociations-preuves dans les discussions avec les clients et les négociations\n\n• Sociable, communication forte et orientation haut service\n\n• Un engagement et une initiative élevés ainsi qu'une affinité pour la publicité\n\n• Très bonne connaissance de l'allemand et bonne connaissance de l'anglais\nC'est ce qui vous attend\n\n• Équipe motivée et bien établie à laquelle vous pouvez participer activement\n\n• Voiture que vous pouvez également utiliser en privé\n\n• Meilleur emplacement au cœur de Zurich\n\n• Très bons avantages sociaux, il est fourni pour vous\n\n• Emplois modernes et 1/3 du temps de travail dans les bureaux à domicile\n\n• Des horaires de travail flexibles et au moins cinq semaines de vacances ainsi que la possibilité de deux semaines supplémentaires d'achat de vacances\n\n• Billets gratuits pour divers événements\n\n• Fruits et boissons gratuits - se sentir bien\nIntéressé ?\nNadja est impatient de votre\nDemande en ligne\nNadja Minola\nPartenaire d'affaires RH\n+41 58 220 71 55"
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://jobs.apgsga.ch/publication/key-account-manager-in-zuerich/yqbyamdibr2ofdtyu4hhivzweb0vjlvst4c1j2v9hdqkhs86jpvkcplx8pcxdcy5",
-      "source": "APG|SGA Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:28:10.259Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "category": "Commerciale",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Pubblicità / Media esterni",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-21",
-      "postedDate": "2026-10-21",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.apgsga.ch/publication/key-account-manager-in-zuerich/yqbyamdibr2ofdtyu4hhivzweb0vjlvst4c1j2v9hdqkhs86jpvkcplx8pcxdcy5",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "key-account-manager-in-80-100-zurich-apg-sga-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "key-account-manager-in-80-100-zurich-apg-sga-ch"
-        ]
-      },
-      "firstSeenAt": "2026-11-06T09:36:02.334Z",
-      "salaryMin": 117000,
-      "salaryMax": 180000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 117000,
-          "maxValue": 180000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Zürich",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T09:28:10.259Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "apg-sga-4ded1f826986",
-      "slug": "addetto-a-all-affissione-80-wallisellen-apg-sga-wallisellen",
-      "slugByLocale": {
-        "it": "addetto-a-all-affissione-80-wallisellen-apg-sga-wallisellen",
-        "en": "poster-installer-80-wallisellen-apg-sga-wallisellen",
-        "de": "afficheur-in-80-wallisellen-apg-sga-ch",
-        "fr": "afficheur-in-80-wallisellen-apg-sga-ch"
-      },
-      "company": "APG|SGA",
-      "companyKey": "apg-sga",
-      "companyDomain": "apgsga.ch",
-      "title": "Afficheur:in 80%, Wallisellen",
-      "titleByLocale": {
-        "it": "Addetto/a all'affissione 80%, Wallisellen",
-        "en": "Poster Installer 80%, Wallisellen",
-        "de": "Afficheur:in 80%, Wallisellen",
-        "fr": "Afficheur/-euse 80%, Wallisellen"
-      },
-      "description": "Mitarbeiter:in Plakataushang\n\n• 80% (Montag-Donnerstag)\n\n•\n\n• Festanstellung\n Deine Aufgaben\n\n• Detaillierte Vorbereitung und einwandfreie Ausführung des Plakataushangs auf den zugeteilten Aushangtouren gemäss Vorgaben\n\n• Regelmässiger Unterhalt an Werbestellen, deren Reinigung inklusiv Rückschnitt von Sträuchern und Bäumen\n\n• Elektronische-Aushanglisten regelmässig, sauber und gewissenhaft nachführen mit einem Smartphone\n\n• Allgemeine Betriebsarbeiten gemäss Weisungen des Vorgesetzten\n Du bringst mit\n\n• Fahrausweis Kategorie B\n\n• Freude am Arbeiten im Freien (bei jeder Witterung)\n\n• Gute körperliche Verfassung\n\n• Gute Deutschkenntnisse in Wort und Schrift\n Das erwartet dich\n\n• Auto, welches du für den Arbeitsweg nutzen kannst\n\n• APG|SGA-Kleidung für alle Jahreszeiten inkl. Wäscheservice\n\n• Beteiligung an Verpflegung, wenn du für uns unterwegs bist\n\n• Sehr gute Sozialleistungen, es wird für dich vorgesorgt\n\n• Gratis Früchte und Getränke - feel good\n\n• Mindestens fünf Wochen Ferien sowie die Möglichkeit von zwei zusätzlichen Wochen Ferienkauf\n\n• Gratis Tickets zu diversen Veranstaltungen\n Interessiert?\n Simone freut sich auf deine\n Online-Bewerbung\n Simone Raimann\n HR Business Partner\n +41 58 220 75 79",
-      "descriptionByLocale": {
-        "it": "Dipendente: in poster\n\n• 80% (lunedì-giovedì)\n\n•\n\n• Occupazione permanente\nI tuoi compiti\n\n• Preparazione dettagliata e perfetta esecuzione del display poster sui tour di visualizzazione assegnati secondo le specifiche\n\n• Manutenzione regolare a pubblicità, pulizia compreso taglio indietro di arbusti e alberi\n\n• Le liste di appendere elettroniche regolarmente, in modo pulito e cosciente tracciano con uno smartphone\n\n• Lavori operativi generali secondo le istruzioni del supervisore\nPorta con te\n\n• Biglietto categoria B\n\n• Gioia di lavoro all'aperto (in tutte le condizioni atmosferiche)\n\n• Buone condizioni fisiche\n\n• Buona conoscenza del tedesco nelle parole e nella scrittura\nQuesto è ciò che vi aspetta\n\n• Auto che è possibile utilizzare per il lavoro\n\n• APG|SGA abbigliamento per tutte le stagioni\n\n• Partecipazione al cibo quando viaggi per noi\n\n• Vantaggi sociali molto buoni, è fornito per voi\n\n• Frutta e bevande gratis - sentirsi bene\n\n• Almeno cinque settimane di vacanze e la possibilità di due settimane supplementari di acquisto di vacanza\n\n• Biglietti gratuiti per vari eventi\nInteressante?\nSimone è impaziente di te\nApplicazione online\nSimone Raimann\nHR Business Partner\n+41 58 220 75 79",
-        "en": "Employee:in poster\n\n• 80% (Monday-Thursday)\n\n•\n\n• Permanent employment\nYour tasks\n\n• Detailed preparation and perfect execution of the poster display on the allocated display tours according to specifications\n\n• Regular maintenance at advertisements, cleaning including cutting back of shrubs and trees\n\n• Electronic hanging lists regularly, cleanly and conscientiously track with a smartphone\n\n• General operational work in accordance with the instructions of the supervisor\nYou bring with you\n\n• Category B ticket\n\n• Joy of working outdoors (in all weather conditions)\n\n• Good physical condition\n\n• Good knowledge of German in words and writing\nThis is what awaits you\n\n• Car that you can use for work\n\n• APG|SGA clothing for all seasons Laundry services\n\n• Participation in food when you travel for us\n\n• Very good social benefits, it is provided for you\n\n• Free fruits and drinks - feel good\n\n• At least five weeks of holidays and the possibility of two additional weeks of holiday purchase\n\n• Free tickets to various events\nInterested?\nSimone is looking forward to your\nOnline application\nSimone Raimann\nHR Business Partner\n+41 58 220 75 79",
-        "de": "Mitarbeiter:in Plakataushang\n\n• 80% (Montag-Donnerstag)\n\n•\n\n• Festanstellung\n Deine Aufgaben\n\n• Detaillierte Vorbereitung und einwandfreie Ausführung des Plakataushangs auf den zugeteilten Aushangtouren gemäss Vorgaben\n\n• Regelmässiger Unterhalt an Werbestellen, deren Reinigung inklusiv Rückschnitt von Sträuchern und Bäumen\n\n• Elektronische-Aushanglisten regelmässig, sauber und gewissenhaft nachführen mit einem Smartphone\n\n• Allgemeine Betriebsarbeiten gemäss Weisungen des Vorgesetzten\n Du bringst mit\n\n• Fahrausweis Kategorie B\n\n• Freude am Arbeiten im Freien (bei jeder Witterung)\n\n• Gute körperliche Verfassung\n\n• Gute Deutschkenntnisse in Wort und Schrift\n Das erwartet dich\n\n• Auto, welches du für den Arbeitsweg nutzen kannst\n\n• APG|SGA-Kleidung für alle Jahreszeiten inkl. Wäscheservice\n\n• Beteiligung an Verpflegung, wenn du für uns unterwegs bist\n\n• Sehr gute Sozialleistungen, es wird für dich vorgesorgt\n\n• Gratis Früchte und Getränke - feel good\n\n• Mindestens fünf Wochen Ferien sowie die Möglichkeit von zwei zusätzlichen Wochen Ferienkauf\n\n• Gratis Tickets zu diversen Veranstaltungen\n Interessiert?\n Simone freut sich auf deine\n Online-Bewerbung\n Simone Raimann\n HR Business Partner\n +41 58 220 75 79",
-        "fr": "Employé:dans l'affiche\n\n• 80% (lundi-jeudi)\n\n•\n\n• Emploi permanent\nVos tâches\n\n• Préparation détaillée et exécution parfaite de l'affichage sur les visites d'affichage attribuées selon les spécifications\n\n• Entretien régulier dans les publicités, nettoyage y compris coupe des arbustes et des arbres\n\n• Listes de suspension électroniques régulièrement, de manière propre et consciencieuse avec un smartphone\n\n• Travail opérationnel général conformément aux instructions du superviseur\nTu amènes avec toi\n\n• Billet de catégorie B\n\n• Joy de travailler à l'extérieur (dans toutes les conditions météorologiques)\n\n• Bonne condition physique\n\n• Bonne connaissance de l'allemand en mots et en écriture\nC'est ce qui vous attend.\n\n• Voiture que vous pouvez utiliser pour le travail\n\n• Vêtements APG-SGA pour toutes les saisons\n\n• Participation à la nourriture lorsque vous voyagez pour nous\n\n• Très bons avantages sociaux, il est fourni pour vous\n\n• Fruits et boissons gratuits - se sentir bien\n\n• Au moins cinq semaines de vacances et la possibilité de deux semaines supplémentaires d'achat de vacances\n\n• Billets gratuits pour divers événements\nIntéressé ?\nSimone attend avec impatience votre\nDemande en ligne\nSimone Raimann\nPartenaire d'affaires RH\n+41 58 220 75 79"
-      },
-      "location": "Wallisellen",
-      "canton": "ZH",
-      "url": "https://jobs.apgsga.ch/publication/afficheur-in-wallisellen/fs0uv9ermm41lv2ubrrtjf7kivelnkpkahyy78yp0awsn0pxfiswej30yzwy85hz",
-      "source": "APG|SGA Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:28:09.832Z",
-      "addressLocality": "Wallisellen",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8304",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Pubblicità / Media esterni",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-28",
-      "postedDate": "2026-10-28",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.apgsga.ch/publication/afficheur-in-wallisellen/fs0uv9ermm41lv2ubrrtjf7kivelnkpkahyy78yp0awsn0pxfiswej30yzwy85hz",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "afficheur-in-80-wallisellen-apg-sga-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "afficheur-in-80-wallisellen-apg-sga-ch"
-        ],
-        "en": [
-          "afficheur-in-80-wallisellen-apg-sga-ch"
-        ]
-      },
-      "firstSeenAt": "2026-11-05T09:27:09.715Z",
-      "salaryMin": 58800,
-      "salaryMax": 89200,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 58800,
-          "maxValue": 89200,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Wallisellen",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:28:09.832Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "apg-sga-48c5158cac7e",
-      "slug": "consulenza-vendita-servizio-di-campo-100-berna-apg-sga-bern",
-      "slugByLocale": {
-        "it": "consulenza-vendita-servizio-di-campo-100-berna-apg-sga-bern",
-        "en": "sales-consultancy-field-service-100-bern-apg-sga-bern",
-        "de": "verkaufsberatung-aussendienst-100-bern-apg-sga-ch",
-        "fr": "conseil-en-vente-service-sur-le-terrain-100-berne-apg-sga-bern"
-      },
-      "company": "APG|SGA",
-      "companyKey": "apg-sga",
-      "companyDomain": "apgsga.ch",
-      "title": "Verkaufsberatung Aussendienst 100%, Bern",
-      "titleByLocale": {
-        "it": "Consulenza vendita Servizio di campo 100%, Berna",
-        "en": "Sales consultancy Field service 100%, Bern",
-        "de": "Verkaufsberatung Aussendienst 100%, Bern",
-        "fr": "Conseil en vente Service sur le terrain 100%, Berne"
-      },
-      "description": "Verkaufsberatung Aussendienst\n\n• 100%\n\n•\n\n• Festanstellung\n Deine Aufgaben\n\n• Kundenkontakte aktiv planen und eine hohe persönliche Präsenz bei bestehenden sowie potenziellen Kunden in der Region Bern sicherstellen\n\n• Kundenbesuche vorbereiten, durchführen und Kundenbedürfnisse / Geschäftspotenziale erkennen\n\n• Bestehende Kunden weiterentwickeln und neue Kunden gewinnen\n\n• Verkaufschancen konsequent bearbeiten, passende OOH-/DOOH-Lösungen entwickeln und bis zum Abschluss führen\n\n• Pipeline und Verkaufsaktivitäten aktiv steuern und relevante Kontakte, Chancen und nächste Schritte verbindlich im CRM dokumentieren\n\n• Aktive Teilnahme an Netzwerk- und Kundenanlässen zur Stärkung der Marktpräsenz, kontinuierlicher und gezielter Aufbau des persönlichen Netzwerks und Erschliessung neuer Umsatzpotenziale\n\n• Verantwortung für die Erreichung der vereinbarten quantitativen sowie qualitativen Ziele im zugewiesenen Marktgebiet Bern\n Du bringst mit\n\n• Abgeschlossene Grundausbildung, ein Abschluss im Bereich Marketing, Kommunikation oder Verkauf ist von Vorteil\n\n• Ausgewiesene Erfahrung im Verkauf / Aussendienst in der Verkaufsregion Bern\n\n• Gute Kenntnisse der Medienbranche Schweiz und ein bestehendes Kontaktnetzwerk bei Werbeauftraggebern\n\n• Gute Kenntnisse in CRM-Systemen, Erfahrung mit Microsoft Dynamics 365 von Vorteil\n\n• Kontaktfreudig, kommunikationsstark und gute Präsentationsfähigkeiten gegenüber der internen und externen Kundschaft\n\n• Teamfähige, lösungsorientierte und aufgestellte Person, mit vernetzter Denkweise\n\n• Hohe Eigeninitiative, ausgeprägter Ehrgeiz und hohe Kundenorientierung\n Das erwartet dich\n\n• Motiviertes und gut eingespieltes Team, in welchem du dich aktiv einbringen kannst\n\n• Auto, welches du auch privat nutzen kannst\n\n• Moderne Arbeitsplätze und 1/3 der Arbeitszeit im Homeoffice\n\n• Verantwortungsvoller und herausfordernder Job\n\n• Sehr gute Sozialleistungen, es wird für dich vorgesorgt\n\n• Flexible Arbeitszeiten und mindestens fünf Wochen Ferien sowie die Möglichkeit von zwei zusätzlichen Wochen Ferienkauf\n\n• Gratis Tickets zu diversen Veranstaltungen\n\n• Gratis Früchte und Getränke - feel good\n Interessiert?\n Nadja freut sich auf deine\n Online-Bewerbung\n Nadja Minola\n HR Business Partner\n +41 58 220 71 55",
-      "descriptionByLocale": {
-        "it": "Consulenza di vendita\n\n• 100%\n\n•\n\n• Occupazione permanente\nI tuoi compiti\n\n• Pianificare attivamente i contatti con i clienti e garantire un'alta presenza personale con i clienti esistenti e potenziali nella regione di Berna\n\n• Preparare, effettuare visite ai clienti e identificare le esigenze del cliente / potenziale aziendale\n\n• sviluppare ulteriormente i clienti esistenti e vincere nuovi clienti\n\n• Coerentemente elaborare opportunità di vendita, sviluppare soluzioni OOH/DOOH adatte e portare a termine\n\n• Gestione attiva delle attività di pipeline e vendita e documenta contatti, opportunità e passi successivi nel CRM\n\n• Partecipazione attiva a eventi di rete e clienti per rafforzare la presenza di mercato, lo sviluppo continuo e mirato della rete personale e lo sviluppo di nuove potenzialità di fatturato\n\n• Responsabilità per raggiungere gli obiettivi quantitativi e qualitativi concordati nell'area di mercato assegnata di Berna\nPorta con te\n\n• Formazione di base completa, una laurea in marketing, comunicazione o vendita è vantaggioso\n\n• Esperienza comprovata nel servizio vendita/campo nella regione di vendita di Berna\n\n• Buona conoscenza dell'industria dei media svizzera e di una rete di contatti esistente per i clienti pubblicitari\n\n• Buona conoscenza dei sistemi CRM, esperienza con Microsoft Dynamics 365\n\n• Sociable, forte comunicazione e buone capacità di presentazione verso clienti interni ed esterni\n\n• Persona responsabile del team, orientata alla soluzione e posizionata, con una mentalità in rete\n\n• Alta iniziativa, forte ambizione e alto orientamento del cliente\nQuesto è ciò che vi aspetta\n\n• Squadra motivata e consolidata in cui è possibile partecipare attivamente\n\n• Auto che si può anche utilizzare privatamente\n\n• Lavori moderni e 1/3 del tempo di lavoro nell'ufficio\n\n• Lavoro responsabile e impegnativo\n\n• Vantaggi sociali molto buoni, è fornito per voi\n\n• Orari di lavoro flessibili e almeno cinque settimane di vacanza, nonché la possibilità di due settimane supplementari di acquisto di vacanza\n\n• Biglietti gratuiti per vari eventi\n\n• Frutta e bevande gratis - sentirsi bene\nInteressante?\nNadja è impaziente per il tuo\nApplicazione online\nNadja Minola\nHR Business Partner\n+41 58 220 71 55",
-        "en": "Sales consultancy Field service\n\n• 100%\n\n•\n\n• Permanent employment\nYour tasks\n\n• Actively plan customer contacts and ensure a high personal presence with existing and potential customers in the Berne region\n\n• Prepare, carry out customer visits and identify customer needs / business potential\n\n• Further develop existing customers and win new customers\n\n• Consistently process sales opportunities, develop suitable OOH/DOOH solutions and lead to completion\n\n• Actively manage pipeline and sales activities and document relevant contacts, opportunities and next steps in the CRM\n\n• Active participation in network and customer events to strengthen the market presence, continuous and targeted development of the personal network and development of new revenue potential\n\n• Responsibility for achieving the agreed quantitative and qualitative targets in the assigned market area of Bern\nYou bring with you\n\n• Completed basic training, a degree in marketing, communication or sales is beneficial\n\n• Proven experience in sales / field service in the sales region of Bern\n\n• Good knowledge of the Swiss media industry and an existing contact network for advertising clients\n\n• Good knowledge of CRM systems, experience with Microsoft Dynamics 365\n\n• Sociable, strong communication and good presentation skills towards internal and external customers\n\n• Team-capable, solution-oriented and positioned person, with a networked mindset\n\n• High initiative, strong ambition and high customer orientation\nThis is what awaits you\n\n• Motivated and well-established team in which you can actively participate\n\n• Car that you can also use privately\n\n• Modern jobs and 1/3 of working time in the home office\n\n• Responsible and challenging job\n\n• Very good social benefits, it is provided for you\n\n• Flexible working hours and at least five weeks of holidays as well as the possibility of two additional weeks of holiday purchase\n\n• Free tickets to various events\n\n• Free fruits and drinks - feel good\nInterested?\nNadja is looking forward to your\nOnline application\nNadja Minola\nHR Business Partner\n+41 58 220 71 55",
-        "de": "Verkaufsberatung Aussendienst\n\n• 100%\n\n•\n\n• Festanstellung\n Deine Aufgaben\n\n• Kundenkontakte aktiv planen und eine hohe persönliche Präsenz bei bestehenden sowie potenziellen Kunden in der Region Bern sicherstellen\n\n• Kundenbesuche vorbereiten, durchführen und Kundenbedürfnisse / Geschäftspotenziale erkennen\n\n• Bestehende Kunden weiterentwickeln und neue Kunden gewinnen\n\n• Verkaufschancen konsequent bearbeiten, passende OOH-/DOOH-Lösungen entwickeln und bis zum Abschluss führen\n\n• Pipeline und Verkaufsaktivitäten aktiv steuern und relevante Kontakte, Chancen und nächste Schritte verbindlich im CRM dokumentieren\n\n• Aktive Teilnahme an Netzwerk- und Kundenanlässen zur Stärkung der Marktpräsenz, kontinuierlicher und gezielter Aufbau des persönlichen Netzwerks und Erschliessung neuer Umsatzpotenziale\n\n• Verantwortung für die Erreichung der vereinbarten quantitativen sowie qualitativen Ziele im zugewiesenen Marktgebiet Bern\n Du bringst mit\n\n• Abgeschlossene Grundausbildung, ein Abschluss im Bereich Marketing, Kommunikation oder Verkauf ist von Vorteil\n\n• Ausgewiesene Erfahrung im Verkauf / Aussendienst in der Verkaufsregion Bern\n\n• Gute Kenntnisse der Medienbranche Schweiz und ein bestehendes Kontaktnetzwerk bei Werbeauftraggebern\n\n• Gute Kenntnisse in CRM-Systemen, Erfahrung mit Microsoft Dynamics 365 von Vorteil\n\n• Kontaktfreudig, kommunikationsstark und gute Präsentationsfähigkeiten gegenüber der internen und externen Kundschaft\n\n• Teamfähige, lösungsorientierte und aufgestellte Person, mit vernetzter Denkweise\n\n• Hohe Eigeninitiative, ausgeprägter Ehrgeiz und hohe Kundenorientierung\n Das erwartet dich\n\n• Motiviertes und gut eingespieltes Team, in welchem du dich aktiv einbringen kannst\n\n• Auto, welches du auch privat nutzen kannst\n\n• Moderne Arbeitsplätze und 1/3 der Arbeitszeit im Homeoffice\n\n• Verantwortungsvoller und herausfordernder Job\n\n• Sehr gute Sozialleistungen, es wird für dich vorgesorgt\n\n• Flexible Arbeitszeiten und mindestens fünf Wochen Ferien sowie die Möglichkeit von zwei zusätzlichen Wochen Ferienkauf\n\n• Gratis Tickets zu diversen Veranstaltungen\n\n• Gratis Früchte und Getränke - feel good\n Interessiert?\n Nadja freut sich auf deine\n Online-Bewerbung\n Nadja Minola\n HR Business Partner\n +41 58 220 71 55",
-        "fr": "Services consultatifs en matière de vente Service mobile\n\n• 100%\n\n•\n\n• Emploi permanent\nVos tâches\n\n• Planifier activement les contacts avec les clients et assurer une forte présence personnelle avec les clients existants et potentiels dans la région de Berne\n\n• Préparer, effectuer des visites des clients et identifier les besoins des clients / potentiel d'affaires\n\n• Développer les clients existants et gagner de nouveaux clients\n\n• Procéder de façon cohérente aux possibilités de vente, élaborer des solutions OOH/DOOH appropriées et mener à l'achèvement\n\n• Gérer activement les activités de pipeline et de vente et documenter les contacts, les possibilités et les prochaines étapes du CRM\n\n• Participation active aux événements de réseau et de clientèle pour renforcer la présence sur le marché, le développement continu et ciblé du réseau personnel et le développement de nouveaux potentiels de revenus\n\n• Responsabilité de la réalisation des objectifs quantitatifs et qualitatifs convenus dans la zone de marché de Berne\nTu amènes avec toi\n\n• Une formation de base complète, un diplôme en marketing, communication ou vente est bénéfique\n\n• Expérience éprouvée en vente / service sur le terrain dans la région de vente de Berne\n\n• Bonne connaissance de l'industrie suisse des médias et d'un réseau de contact existant pour les clients publicitaires\n\n• Bonne connaissance des systèmes CRM, expérience avec Microsoft Dynamics 365\n\n• Sociable, forte communication et bonne présentation des clients internes et externes\n\n• Une personne capable d'équipe, orientée vers la solution et positionnée, avec un état d'esprit en réseau\n\n• Haute initiative, forte ambition et grande orientation client\nC'est ce qui vous attend\n\n• Équipe motivée et bien établie à laquelle vous pouvez participer activement\n\n• Voiture que vous pouvez également utiliser en privé\n\n• Emplois modernes et 1/3 du temps de travail dans les bureaux à domicile\n\n• Un travail responsable et stimulant\n\n• Très bons avantages sociaux, il est fourni pour vous\n\n• Des horaires de travail flexibles et au moins cinq semaines de vacances ainsi que la possibilité de deux semaines supplémentaires d'achat de vacances\n\n• Billets gratuits pour divers événements\n\n• Fruits et boissons gratuits - se sentir bien\nIntéressé ?\nNadja est impatient de votre\nDemande en ligne\nNadja Minola\nPartenaire d'affaires RH\n+41 58 220 71 55"
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.apgsga.ch/publication/verkaufsberatung-aussendienst-bern/vkwavwpoo2jxbr09jpnr1wnddc5q0xq0o50iijpdpbrwkmeviovet7cwt7xzih7x",
-      "source": "APG|SGA Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:28:09.381Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3004",
-      "category": "Commerciale",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Pubblicità / Media esterni",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-04",
-      "postedDate": "2026-11-04",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.apgsga.ch/publication/verkaufsberatung-aussendienst-bern/vkwavwpoo2jxbr09jpnr1wnddc5q0xq0o50iijpdpbrwkmeviovet7cwt7xzih7x",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "verkaufsberatung-aussendienst-100-bern-apg-sga-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufsberatung-aussendienst-100-bern-apg-sga-ch"
-        ],
-        "en": [
-          "verkaufsberatung-aussendienst-100-bern-apg-sga-ch"
-        ],
-        "fr": [
-          "verkaufsberatung-aussendienst-100-bern-apg-sga-ch"
-        ]
-      },
-      "firstSeenAt": "2026-11-09T21:24:53.853Z",
-      "salaryMin": 77500,
-      "salaryMax": 118500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 77500,
-          "maxValue": 118500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Bern",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:28:09.381Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "apg-sga-f9ac031f849f",
-      "slug": "responsabile-crm-80-100-zurich-apg-sga-8027-zurich",
-      "slugByLocale": {
-        "it": "responsabile-crm-80-100-zurich-apg-sga-8027-zurich",
-        "en": "crm-manager-in-80-100-zurich-apg-sga-ch",
-        "de": "crm-manager-in-80-100-zurich-apg-sga-ch",
-        "fr": "responsable-crm-80-100-zurich-apg-sga-8027-zurich"
-      },
-      "company": "APG|SGA",
-      "companyKey": "apg-sga",
-      "companyDomain": "apgsga.ch",
-      "title": "CRM Manager:in 80-100%, Zürich",
-      "titleByLocale": {
-        "it": "Responsabile CRM 80-100%, Zürich",
-        "en": "CRM Manager 80-100%, Zurich",
-        "de": "CRM Manager:in 80-100%, Zürich",
-        "fr": "Responsable CRM 80-100%, Zurich"
-      },
-      "description": "CRM Manager:in\n\n• 80-100%\n\n•\n\n• Festanstellung\n Deine Aufgaben\n\n• Planung und operative Ausführung von CRM-Kampagnen in enger Zusammenarbeit mit dem Marketing & Sales Team\n\n• Überwachung sowie Analyse der Kundenzufriedenheitsbefragung und Verarbeitung der Kundenfeedbacks\n\n• Erarbeiten von Handlungsempfehlungen und Massnahmen aufgrund der Resultate aus der Kundenzufriedenheitsbefragung\n\n• Aufbau und stetige Weiterentwicklung von Customer Journeys und Segmentierung zusammen mit allen Stakeholdern\n\n• Laufende Überwachung und Reporting der Resultate sowie Durchführung von Kampagnen- und Daten Analysen mit entsprechenden Handlungsempfehlungen\n\n• Mitarbeit in Projekten und Übernahme der Rolle als Process Manager\n\n• Vertretung des Fachbereichs als Anwendervertreter für die MS Dynamics Sales- und Marketing-Applikationen, inklusive Sicherstellung der optimalen Nutzung und Weiterentwicklung der Systeme\n\n• Verantwortung für die interne Kommunikation des CRM-Teams\n Du bringst mit\n\n• Abgeschlossene kaufmännische Grundausbildung oder gleichwertige Grundausbildung\n\n• Erfahrungen im Bereich Microsoft Dynamics 365 Sales & Marketing oder mit anderen CRM-Systemen\n\n• Sehr gute operative Kenntnisse im Kampagnenmanagement, insbesondere mit MS Dynamics, über verschiedene Kanäle on- & offline\n\n• Erfahrung im Umgang mit agilen Projekten von Vorteil\n\n• Sehr gute Planungs- und Organisationsfähigkeiten\n\n• Zielstrebigkeit und Lösungsorientierung\n\n• Die Fähigkeit mit unterschiedlichen Persönlichkeiten und Anspruchsgruppen zusammenzuarbeiten\n Das erwartet dich\n\n• Kleines Team, in welchem du dich aktiv einbringen kannst\n\n• Top Standort im Herzen von Zürich\n\n• Verantwortungsvoller Job\n\n• Moderne Arbeitsplätze und 1/3 der Arbeitszeit im Homeoffice\n\n• Flexible Arbeitszeiten und mindestens fünf Wochen Ferien sowie die Möglichkeit von zwei zusätzlichen Wochen Ferienkauf\n\n• Sehr gute Sozialleistungen, es wird für dich vorgesorgt\n\n• Gratis Tickets zu diversen Veranstaltungen\n\n• Gratis Früchte und Getränke - feel good\n Interessiert?\n Nadja freut sich auf deine\n Online-Bewerbung\n Nadja Minola\n HR Business Partner\n +41 58 220 71 55",
-      "descriptionByLocale": {
-        "it": "CRM Manager:\n\n• 80-100%\n\n•\n\n• Occupazione permanente\nI tuoi compiti\n\n• Pianificazione ed esecuzione operativa delle campagne CRM in stretta collaborazione con il team Marketing & Sales\n\n• Monitoraggio e analisi dell'indagine sulla soddisfazione del cliente e elaborazione del feedback dei clienti\n\n• Sviluppo di raccomandazioni per azioni e misure basate sui risultati dell'indagine sulla soddisfazione del cliente\n\n• Sviluppo e sviluppo continuo dei viaggi dei clienti e della segmentazione insieme a tutti gli stakeholder\n\n• Monitoraggio e reporting in corso dei risultati, nonché analisi della campagna e dei dati con raccomandazioni corrispondenti per l'azione\n\n• Partecipazione a progetti e assumendo il ruolo di Process Manager\n\n• Rappresentanza del dipartimento come rappresentante dell'utente per le applicazioni di vendita e marketing di MS Dynamics, tra cui garantire un uso ottimale e un ulteriore sviluppo dei sistemi\n\n• Responsabilità per la comunicazione interna del team CRM\nPorta con te\n\n• Istruzione commerciale di base o equivalente\n\n• Esperienza in Microsoft Dynamics 365 Vendite & Marketing o con altri sistemi CRM\n\n• Conoscenza operativa molto buona nella gestione delle campagne, soprattutto con MS Dynamics, tramite vari canali on- & offline\n\n• L'esperienza nel trattare i progetti agili è vantaggiosa\n\n• Molto buona pianificazione e capacità organizzative\n\n• Obiettivo e orientamento della soluzione\n\n• Capacità di lavorare con diverse personalità e stakeholder\nQuesto è ciò che vi aspetta\n\n• Piccolo team in cui è possibile partecipare attivamente\n\n• Posizione nel cuore di Zurigo\n\n• Lavoro responsabile\n\n• Lavori moderni e 1/3 del tempo di lavoro nell'ufficio\n\n• Orari di lavoro flessibili e almeno cinque settimane di vacanza, nonché la possibilità di due settimane supplementari di acquisto di vacanza\n\n• Vantaggi sociali molto buoni, è fornito per voi\n\n• Biglietti gratuiti per vari eventi\n\n• Frutta e bevande gratis - sentirsi bene\nInteressante?\nNadja è impaziente per il tuo\nApplicazione online\nNadja Minola\nHR Business Partner\n+41 58 220 71 55",
-        "en": "CRM Manager:\n\n• 80-100%\n\n•\n\n• Permanent employment\nYour tasks\n\n• Planning and operational execution of CRM campaigns in close cooperation with the Marketing & Sales Team\n\n• Monitoring and analysis of customer satisfaction survey and processing of customer feedback\n\n• Development of recommendations for action and measures based on the results of the customer satisfaction survey\n\n• Development and continuous development of customer journeys and segmentation together with all stakeholders\n\n• Ongoing monitoring and reporting of results as well as campaign and data analysis with corresponding recommendations for action\n\n• Participation in projects and assuming the role of Process Manager\n\n• Representation of the department as user representative for the MS Dynamics sales and marketing applications, including ensuring optimal use and further development of the systems\n\n• Responsibility for internal communication of the CRM team\nYou bring with you\n\n• Basic commercial education or equivalent\n\n• Experience in Microsoft Dynamics 365 Sales & Marketing or with other CRM systems\n\n• Very good operational knowledge in campaign management, especially with MS Dynamics, via various channels on- & offline\n\n• Experience in dealing with agile projects is advantageous\n\n• Very good planning and organizational skills\n\n• Purpose and solution orientation\n\n• Ability to work with different personalities and stakeholders\nThis is what awaits you\n\n• Small team in which you can actively participate\n\n• Top location in the heart of Zurich\n\n• Responsible job\n\n• Modern jobs and 1/3 of working time in the home office\n\n• Flexible working hours and at least five weeks of holidays as well as the possibility of two additional weeks of holiday purchase\n\n• Very good social benefits, it is provided for you\n\n• Free tickets to various events\n\n• Free fruits and drinks - feel good\nInterested?\nNadja is looking forward to your\nOnline application\nNadja Minola\nHR Business Partner\n+41 58 220 71 55",
-        "de": "CRM Manager:in\n\n• 80-100%\n\n•\n\n• Festanstellung\n Deine Aufgaben\n\n• Planung und operative Ausführung von CRM-Kampagnen in enger Zusammenarbeit mit dem Marketing & Sales Team\n\n• Überwachung sowie Analyse der Kundenzufriedenheitsbefragung und Verarbeitung der Kundenfeedbacks\n\n• Erarbeiten von Handlungsempfehlungen und Massnahmen aufgrund der Resultate aus der Kundenzufriedenheitsbefragung\n\n• Aufbau und stetige Weiterentwicklung von Customer Journeys und Segmentierung zusammen mit allen Stakeholdern\n\n• Laufende Überwachung und Reporting der Resultate sowie Durchführung von Kampagnen- und Daten Analysen mit entsprechenden Handlungsempfehlungen\n\n• Mitarbeit in Projekten und Übernahme der Rolle als Process Manager\n\n• Vertretung des Fachbereichs als Anwendervertreter für die MS Dynamics Sales- und Marketing-Applikationen, inklusive Sicherstellung der optimalen Nutzung und Weiterentwicklung der Systeme\n\n• Verantwortung für die interne Kommunikation des CRM-Teams\n Du bringst mit\n\n• Abgeschlossene kaufmännische Grundausbildung oder gleichwertige Grundausbildung\n\n• Erfahrungen im Bereich Microsoft Dynamics 365 Sales & Marketing oder mit anderen CRM-Systemen\n\n• Sehr gute operative Kenntnisse im Kampagnenmanagement, insbesondere mit MS Dynamics, über verschiedene Kanäle on- & offline\n\n• Erfahrung im Umgang mit agilen Projekten von Vorteil\n\n• Sehr gute Planungs- und Organisationsfähigkeiten\n\n• Zielstrebigkeit und Lösungsorientierung\n\n• Die Fähigkeit mit unterschiedlichen Persönlichkeiten und Anspruchsgruppen zusammenzuarbeiten\n Das erwartet dich\n\n• Kleines Team, in welchem du dich aktiv einbringen kannst\n\n• Top Standort im Herzen von Zürich\n\n• Verantwortungsvoller Job\n\n• Moderne Arbeitsplätze und 1/3 der Arbeitszeit im Homeoffice\n\n• Flexible Arbeitszeiten und mindestens fünf Wochen Ferien sowie die Möglichkeit von zwei zusätzlichen Wochen Ferienkauf\n\n• Sehr gute Sozialleistungen, es wird für dich vorgesorgt\n\n• Gratis Tickets zu diversen Veranstaltungen\n\n• Gratis Früchte und Getränke - feel good\n Interessiert?\n Nadja freut sich auf deine\n Online-Bewerbung\n Nadja Minola\n HR Business Partner\n +41 58 220 71 55",
-        "fr": "Gestionnaire CRM :\n\n• 80-100%\n\n•\n\n• Emploi permanent\nVos tâches\n\n• Planification et exécution opérationnelle des campagnes CRM en étroite collaboration avec l'équipe Marketing & Ventes\n\n• Suivi et analyse de l'enquête sur la satisfaction des clients et traitement de la rétroaction des clients\n\n• Élaboration de recommandations d'action et de mesures fondées sur les résultats de l'enquête sur la satisfaction des clients\n\n• Développement et développement continu des parcours et de la segmentation avec toutes les parties prenantes\n\n• Suivi et communication continus des résultats ainsi que des campagnes et des analyses de données et recommandations d ' action correspondantes\n\n• Participation aux projets et prise en charge du gestionnaire de processus\n\n• Représentation du département en tant que représentant de l'utilisateur pour les applications de vente et de marketing MS Dynamics, y compris en assurant une utilisation optimale et le développement des systèmes\n\n• Responsabilité de la communication interne de l'équipe CRM\nTu amènes avec toi\n\n• Enseignement commercial de base ou équivalent\n\n• Expérience dans Microsoft Dynamics 365 Ventes & Marketing ou avec d'autres systèmes CRM\n\n• Très bonne connaissance opérationnelle en gestion de campagne, en particulier avec MS Dynamics, via différents canaux sur- & hors ligne\n\n• L'expérience des projets agiles est avantageuse\n\n• Très bonnes compétences en planification et en organisation\n\n• Objectif et orientation de la solution\n\n• Capacité de travailler avec différentes personnalités et parties prenantes\nC'est ce qui vous attend\n\n• Petite équipe à laquelle vous pouvez participer activement\n\n• Meilleur emplacement au cœur de Zurich\n\n• Travail responsable\n\n• Emplois modernes et 1/3 du temps de travail dans les bureaux à domicile\n\n• Des horaires de travail flexibles et au moins cinq semaines de vacances ainsi que la possibilité de deux semaines supplémentaires d'achat de vacances\n\n• Très bons avantages sociaux, il est fourni pour vous\n\n• Billets gratuits pour divers événements\n\n• Fruits et boissons gratuits - se sentir bien\nIntéressé ?\nNadja est impatient de votre\nDemande en ligne\nNadja Minola\nPartenaire d'affaires RH\n+41 58 220 71 55"
-      },
-      "location": "8027 Zürich",
-      "canton": "ZH",
-      "url": "https://jobs.apgsga.ch/publication/crm-manager-in-zuerich/257vd61wfejffr6hvrys2vhxobz74m5bs2hxdxcrs7bd4lymbmc52gdexvquncni",
-      "source": "APG|SGA Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:28:08.950Z",
-      "addressLocality": "8027 Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Pubblicità / Media esterni",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-09",
-      "postedDate": "2026-11-09",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.apgsga.ch/publication/crm-manager-in-zuerich/257vd61wfejffr6hvrys2vhxobz74m5bs2hxdxcrs7bd4lymbmc52gdexvquncni",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "crm-manager-in-80-100-zurich-apg-sga-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "crm-manager-in-80-100-zurich-apg-sga-ch"
-        ],
-        "fr": [
-          "crm-manager-in-80-100-zurich-apg-sga-ch"
-        ]
-      },
-      "firstSeenAt": "2026-11-17T08:23:00.929Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "8027 Zürich",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T09:28:08.950Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     }
   ]
 }
