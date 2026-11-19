@@ -2535,12 +2535,12 @@
     },
     {
       "id": "audemars-piguet-cd8e78505965",
-      "slug": "accounting-manager-audemars-piguet-le-brassus-vd-switzerland",
+      "slug": "gestione-account-audemars-piguet-le-brassus-vd-switzerland",
       "slugByLocale": {
         "fr": "accounting-manager-audemars-piguet-le-brassus-vd-switzerland",
-        "it": "accounting-manager-audemars-piguet-le-brassus-vd-switzerland",
+        "it": "gestione-account-audemars-piguet-le-brassus-vd-switzerland",
         "en": "accounting-manager-audemars-piguet-le-brassus-vd-switzerland",
-        "de": "accounting-manager-audemars-piguet-le-brassus-vd-switzerland"
+        "de": "leiter-buchhaltung-audemars-piguet-le-brassus-vd-switzerland"
       },
       "company": "Audemars Piguet",
       "companyKey": "audemars-piguet",
@@ -2604,7 +2604,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T09:29:25.788Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T09:29:25.788Z"
+      "firstSeenAt": "2026-11-19T09:29:25.788Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "accounting-manager-audemars-piguet-le-brassus-vd-switzerland"
+        ],
+        "de": [
+          "accounting-manager-audemars-piguet-le-brassus-vd-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "accounting-manager-audemars-piguet-le-brassus-vd-switzerland"
+      ]
     },
     {
       "id": "audemars-piguet-8ef465c3b951",

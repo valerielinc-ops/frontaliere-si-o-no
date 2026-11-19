@@ -2835,11 +2835,11 @@
     },
     {
       "id": "novartis-60fbce775a0d",
-      "slug": "robotics-engineer-m-f-d-novartis-ch",
+      "slug": "robotics-ingegnere-m-f-d-novartis-basel-city",
       "slugByLocale": {
         "en": "robotics-engineer-m-f-d-novartis-ch",
-        "it": "robotics-engineer-m-f-d-novartis-ch",
-        "de": "robotics-engineer-m-f-d-novartis-ch",
+        "it": "robotics-ingegnere-m-f-d-novartis-basel-city",
+        "de": "robotics-ingenieur-m-f-d-novartis-basel-city",
         "fr": "robotics-engineer-m-f-d-novartis-ch"
       },
       "company": "Novartis",
@@ -2902,16 +2902,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T09:47:45.753Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T09:47:45.753Z"
+      "firstSeenAt": "2026-11-19T09:47:45.753Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "robotics-engineer-m-f-d-novartis-ch"
+        ],
+        "de": [
+          "robotics-engineer-m-f-d-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "robotics-engineer-m-f-d-novartis-ch"
+      ]
     },
     {
       "id": "novartis-239d3a1345d4",
-      "slug": "principal-scientist-ii-lab-head-allergy-and-plasma-cell-research-novartis-ch",
+      "slug": "scienziato-principale-ii-responsabile-del-laboratorio-ricerca-sulle-allergie-e-sulle-cellule-plasmatiche-novartis-basel",
       "slugByLocale": {
         "en": "principal-scientist-ii-lab-head-allergy-and-plasma-cell-research-novartis-ch",
-        "it": "principal-scientist-ii-lab-head-allergy-and-plasma-cell-research-novartis-ch",
-        "de": "principal-scientist-ii-lab-head-allergy-and-plasma-cell-research-novartis-ch",
-        "fr": "principal-scientist-ii-lab-head-allergy-and-plasma-cell-research-novartis-ch"
+        "it": "scienziato-principale-ii-responsabile-del-laboratorio-ricerca-sulle-allergie-e-sulle-cellule-plasmatiche-novartis-basel",
+        "de": "leitender-wissenschaftler-ii-leitung-des-labors-allergie-und-plasmazellforschung-novartis-basel-city",
+        "fr": "scientifique-principal-ii-responsable-de-laboratoire-recherche-sur-les-allergies-et-les-plasmocytes-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -2973,7 +2984,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T09:47:33.239Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T09:47:33.239Z"
+      "firstSeenAt": "2026-11-19T09:47:33.239Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "principal-scientist-ii-lab-head-allergy-and-plasma-cell-research-novartis-ch"
+        ],
+        "de": [
+          "principal-scientist-ii-lab-head-allergy-and-plasma-cell-research-novartis-ch"
+        ],
+        "fr": [
+          "principal-scientist-ii-lab-head-allergy-and-plasma-cell-research-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "principal-scientist-ii-lab-head-allergy-and-plasma-cell-research-novartis-ch"
+      ]
     },
     {
       "id": "novartis-d60b691008f3",

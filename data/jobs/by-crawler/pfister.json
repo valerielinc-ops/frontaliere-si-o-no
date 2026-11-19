@@ -699,12 +699,12 @@
     },
     {
       "id": "pfister-93ac48c061d3",
-      "slug": "wohnberaterin-w-m-d-pfister-spreitenbach",
+      "slug": "home-consulente-m-f-d-mobel-pfister-ag-spreitenbach",
       "slugByLocale": {
         "de": "wohnberaterin-w-m-d-pfister-spreitenbach",
-        "it": "wohnberaterin-w-m-d-pfister-spreitenbach",
-        "en": "wohnberaterin-w-m-d-pfister-spreitenbach",
-        "fr": "wohnberaterin-w-m-d-pfister-spreitenbach"
+        "it": "home-consulente-m-f-d-mobel-pfister-ag-spreitenbach",
+        "en": "home-consultant-m-f-d-mobel-pfister-ag-spreitenbach",
+        "fr": "consultant-a-domicile-h-f-d-mobel-pfister-ag-spreitenbach"
       },
       "company": "Möbel Pfister AG",
       "companyKey": "pfister",
@@ -770,7 +770,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T09:29:46.753Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T09:29:46.753Z"
+      "firstSeenAt": "2026-11-19T09:29:46.753Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "wohnberaterin-w-m-d-pfister-spreitenbach"
+        ],
+        "en": [
+          "wohnberaterin-w-m-d-pfister-spreitenbach"
+        ],
+        "fr": [
+          "wohnberaterin-w-m-d-pfister-spreitenbach"
+        ]
+      },
+      "previousSlugs": [
+        "wohnberaterin-w-m-d-pfister-spreitenbach"
+      ]
     },
     {
       "id": "pfister-eff459b32730",

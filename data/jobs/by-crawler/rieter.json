@@ -317,10 +317,10 @@
     },
     {
       "id": "rieter-5215b2610c52",
-      "slug": "sap-technical-service-delivery-lead-100-f-m-d-rieter-winterthur",
+      "slug": "responsabile-della-fornitura-dei-servizi-tecnici-sap-100-m-f-d-rieter-winterthur",
       "slugByLocale": {
         "en": "sap-technical-service-delivery-lead-100-f-m-d-rieter-winterthur",
-        "it": "sap-technical-service-delivery-lead-100-f-m-d-rieter-winterthur",
+        "it": "responsabile-della-fornitura-dei-servizi-tecnici-sap-100-m-f-d-rieter-winterthur",
         "de": "sap-technical-service-delivery-lead-100-f-m-d-rieter-winterthur",
         "fr": "sap-technical-service-delivery-lead-100-f-m-d-rieter-winterthur"
       },
@@ -384,7 +384,15 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-03T09:24:33.464Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "sap-technical-service-delivery-lead-100-f-m-d-rieter-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "sap-technical-service-delivery-lead-100-f-m-d-rieter-winterthur"
+      ]
     },
     {
       "id": "rieter-cacf243c01cb",

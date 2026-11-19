@@ -4530,9 +4530,9 @@
     },
     {
       "id": "etat-de-fribourg-45332515c92c",
-      "slug": "wissenschaftliche-r-collaboratore-trice-etat-de-fribourg",
+      "slug": "gestione-della-conoscenza-e-della-tecnologia-etat-de-fribourg-fribourg",
       "slugByLocale": {
-        "it": "wissenschaftliche-r-collaboratore-trice-etat-de-fribourg",
+        "it": "gestione-della-conoscenza-e-della-tecnologia-etat-de-fribourg-fribourg",
         "en": "research-associate-etat-de-fribourg-fribourg-cebbe5",
         "de": "knowledge-and-technology-transfer-manager-etat-de-fribourg-ch",
         "fr": "collaborateur-rice-scientifique-etat-de-fribourg-fribourg-cebbe5"
@@ -4587,7 +4587,8 @@
         ],
         "it": [
           "wissenschaftliche-r-mitarbeiter-in-etat-de-fribourg-ch",
-          "knowledge-and-technology-transfer-manager-etat-de-fribourg-ch"
+          "knowledge-and-technology-transfer-manager-etat-de-fribourg-ch",
+          "wissenschaftliche-r-collaboratore-trice-etat-de-fribourg"
         ],
         "en": [
           "wissenschaftliche-r-mitarbeiter-in-etat-de-fribourg-ch"
@@ -4598,7 +4599,8 @@
       },
       "previousSlugs": [
         "wissenschaftliche-r-mitarbeiter-in-etat-de-fribourg-ch",
-        "knowledge-and-technology-transfer-manager-etat-de-fribourg-ch"
+        "knowledge-and-technology-transfer-manager-etat-de-fribourg-ch",
+        "wissenschaftliche-r-collaboratore-trice-etat-de-fribourg"
       ],
       "firstSeenAt": "2026-09-10T23:21:48.929Z",
       "salaryMin": 94500,
@@ -4622,11 +4624,11 @@
     },
     {
       "id": "etat-de-fribourg-0d236eab815b",
-      "slug": "collaboratore-scientifico-etat-de-fribourg-fribourg-e83111",
+      "slug": "gestione-della-conoscenza-e-della-tecnologia-etat-de-fribourg-fribourg-e83111",
       "slugByLocale": {
-        "it": "collaboratore-scientifico-etat-de-fribourg-fribourg-e83111",
+        "it": "gestione-della-conoscenza-e-della-tecnologia-etat-de-fribourg-fribourg-e83111",
         "en": "scientific-collaborator-etat-de-fribourg-fribourg-e83111",
-        "de": "wissenschaftlicher-mitarbeiter-etat-de-fribourg-fribourg-e83111",
+        "de": "wissens-und-technologietransfer-manager-etat-de-fribourg-fribourg",
         "fr": "knowledge-and-technology-transfer-manager-etat-de-fribourg-ch"
       },
       "company": "Etat de Fribourg",
@@ -4681,20 +4683,24 @@
         "it": [
           "collaborateur-trice-scientifique-etat-de-fribourg-ch-5",
           "collaborateur-trice-scientifique-etat-de-fribourg-ch-4",
-          "knowledge-and-technology-transfer-manager-etat-de-fribourg-ch-2"
+          "knowledge-and-technology-transfer-manager-etat-de-fribourg-ch-2",
+          "collaboratore-scientifico-etat-de-fribourg-fribourg-e83111"
         ],
         "en": [
           "collaborateur-trice-scientifique-etat-de-fribourg-ch-5"
         ],
         "de": [
-          "collaborateur-trice-scientifique-etat-de-fribourg-ch-5"
+          "collaborateur-trice-scientifique-etat-de-fribourg-ch-5",
+          "wissenschaftlicher-mitarbeiter-etat-de-fribourg-fribourg-e83111"
         ]
       },
       "previousSlugs": [
         "collaborateur-trice-scientifique-etat-de-fribourg-ch-5",
         "collaborateur-trice-scientifique-etat-de-fribourg-ch-4",
         "collaborateur-trice-scientifique-etat-de-fribourg-ch",
-        "knowledge-and-technology-transfer-manager-etat-de-fribourg-ch-2"
+        "knowledge-and-technology-transfer-manager-etat-de-fribourg-ch-2",
+        "collaboratore-scientifico-etat-de-fribourg-fribourg-e83111",
+        "wissenschaftlicher-mitarbeiter-etat-de-fribourg-fribourg-e83111"
       ],
       "firstSeenAt": "2026-09-10T23:21:46.330Z",
       "salaryMin": 94500,
@@ -4718,12 +4724,12 @@
     },
     {
       "id": "etat-de-fribourg-03cc21f9e4b2",
-      "slug": "wissenschaftliche-r-collaboratore-trice-im-sektor-provinzialromische-archaologie-etat-de-fribourg",
+      "slug": "collaboratore-trice-scientifico-a-nel-settore-dell-archeologia-provinciale-romana-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "de": "wissenschaftliche-r-mitarbeiter-in-im-sektor-provinzialromische-archaologie-etat-de",
-        "it": "wissenschaftliche-r-collaboratore-trice-im-sektor-provinzialromische-archaologie-etat-de-fribourg",
-        "en": "wissenschaftliche-r-mitarbeiter-in-im-sektor-provinzialromische-archaologie-etat-de",
-        "fr": "wissenschaftliche-r-mitarbeiter-in-im-sektor-provinzialromische-archaologie-etat-de"
+        "it": "collaboratore-trice-scientifico-a-nel-settore-dell-archeologia-provinciale-romana-etat-de-fribourg-fribourg",
+        "en": "research-associate-in-the-provincial-roman-archaeology-sector-etat-de-fribourg-fribourg",
+        "fr": "collaborateur-rice-scientifique-dans-le-secteur-de-l-archeologie-provinciale-romaine-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -4773,11 +4779,19 @@
       "pensum": "40-50%",
       "previousSlugsByLocale": {
         "it": [
+          "wissenschaftliche-r-mitarbeiter-in-im-sektor-provinzialromische-archaologie-etat-de",
+          "wissenschaftliche-r-collaboratore-trice-im-sektor-provinzialromische-archaologie-etat-de-fribourg"
+        ],
+        "en": [
+          "wissenschaftliche-r-mitarbeiter-in-im-sektor-provinzialromische-archaologie-etat-de"
+        ],
+        "fr": [
           "wissenschaftliche-r-mitarbeiter-in-im-sektor-provinzialromische-archaologie-etat-de"
         ]
       },
       "previousSlugs": [
-        "wissenschaftliche-r-mitarbeiter-in-im-sektor-provinzialromische-archaologie-etat-de"
+        "wissenschaftliche-r-mitarbeiter-in-im-sektor-provinzialromische-archaologie-etat-de",
+        "wissenschaftliche-r-collaboratore-trice-im-sektor-provinzialromische-archaologie-etat-de-fribourg"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -4801,12 +4815,12 @@
     },
     {
       "id": "etat-de-fribourg-2d7b5164e9be",
-      "slug": "assistant-e-scientifique-aupres-du-secteur-epoque-romaine-et-antiquite-tardive-etat-de",
+      "slug": "assistente-scientifico-al-settore-romano-dell-epochia-e-dell-antichita-tardiva-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "fr": "assistant-e-scientifique-aupres-du-secteur-epoque-romaine-et-antiquite-tardive-etat-de",
-        "it": "assistant-e-scientifique-aupres-du-secteur-epoque-romaine-et-antiquite-tardive-etat-de",
-        "en": "assistant-e-scientifique-aupres-du-secteur-epoque-romaine-et-antiquite-tardive-etat-de",
-        "de": "assistant-e-scientifique-aupres-du-secteur-epoque-romaine-et-antiquite-tardive-etat-de"
+        "it": "assistente-scientifico-al-settore-romano-dell-epochia-e-dell-antichita-tardiva-etat-de-fribourg-fribourg",
+        "en": "scientific-assistant-to-the-roman-epoch-and-late-antiquity-sector-etat-de-fribourg-fribourg",
+        "de": "wissenschaftliche-assistenz-im-bereich-romische-epoche-und-spatantike-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -4872,7 +4886,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-09T09:46:42.111Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T09:46:42.111Z"
+      "firstSeenAt": "2026-11-19T09:46:42.111Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-scientifique-aupres-du-secteur-epoque-romaine-et-antiquite-tardive-etat-de"
+        ],
+        "en": [
+          "assistant-e-scientifique-aupres-du-secteur-epoque-romaine-et-antiquite-tardive-etat-de"
+        ],
+        "de": [
+          "assistant-e-scientifique-aupres-du-secteur-epoque-romaine-et-antiquite-tardive-etat-de"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-scientifique-aupres-du-secteur-epoque-romaine-et-antiquite-tardive-etat-de"
+      ]
     },
     {
       "id": "etat-de-fribourg-c352caf33438",

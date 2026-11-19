@@ -1509,8 +1509,8 @@
       "slugByLocale": {
         "en": "head-of-it-architecture-security-quality-m-f-x-hilti-ch",
         "it": "head-of-it-architecture-security-quality-m-f-x-hilti-ch",
-        "de": "head-of-it-architecture-security-quality-m-f-x-hilti-ch",
-        "fr": "head-of-it-architecture-security-quality-m-f-x-hilti-ch"
+        "de": "leiter-it-architecture-security-qualitat-m-f-x-hilti-buchs-st-gallen",
+        "fr": "responsable-it-architecture-security-qualite-m-f-x-hilti-buchs-st-gallen"
       },
       "company": "Hilti",
       "companyKey": "hilti",
@@ -1572,7 +1572,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T09:25:24.915Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T09:25:24.915Z"
+      "firstSeenAt": "2026-11-19T09:25:24.915Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "head-of-it-architecture-security-quality-m-f-x-hilti-ch"
+        ],
+        "fr": [
+          "head-of-it-architecture-security-quality-m-f-x-hilti-ch"
+        ]
+      },
+      "previousSlugs": [
+        "head-of-it-architecture-security-quality-m-f-x-hilti-ch"
+      ]
     },
     {
       "id": "hilti-21465-de",

@@ -8461,12 +8461,12 @@
     },
     {
       "id": "emmi-c47270104859",
-      "slug": "anlagenfuhrer-in-team-butter-emmi-ch-2",
+      "slug": "conduttore-trice-di-impianti-team-butter-emmi-bischofszell-thurgau",
       "slugByLocale": {
         "de": "anlagenfuhrer-in-team-butter-emmi-ch",
-        "it": "anlagenfuhrer-in-team-butter-emmi-ch-2",
-        "en": "anlagenfuhrer-in-team-butter-emmi-ch-2",
-        "fr": "anlagenfuhrer-in-team-butter-emmi-ch-2"
+        "it": "conduttore-trice-di-impianti-team-butter-emmi-bischofszell-thurgau",
+        "en": "machine-operator-butter-team-emmi-bischofszell-thurgau",
+        "fr": "conducteur-rice-d-installation-equipe-beurre-emmi-bischofszell-thurgau"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -8539,7 +8539,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-17T09:29:51.497Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-03T09:16:47.909Z"
+      "firstSeenAt": "2026-10-03T09:16:47.909Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "anlagenfuhrer-in-team-butter-emmi-ch-2"
+        ],
+        "en": [
+          "anlagenfuhrer-in-team-butter-emmi-ch-2"
+        ],
+        "fr": [
+          "anlagenfuhrer-in-team-butter-emmi-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "anlagenfuhrer-in-team-butter-emmi-ch-2"
+      ]
     },
     {
       "id": "emmi-7fdde2872f4f",

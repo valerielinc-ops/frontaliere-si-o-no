@@ -643,12 +643,12 @@
     },
     {
       "id": "galliker-78a20e1abd73",
-      "slug": "hilfskraft-schlosserei-60-a-galliker-altishofen",
+      "slug": "fabbro-ausiliario-60-a-galliker-transport-ag-altishofen",
       "slugByLocale": {
         "de": "hilfskraft-schlosserei-60-a-galliker-altishofen",
-        "it": "hilfskraft-schlosserei-60-a-galliker-altishofen",
-        "en": "hilfskraft-schlosserei-60-a-galliker-altishofen",
-        "fr": "hilfskraft-schlosserei-60-a-galliker-altishofen"
+        "it": "fabbro-ausiliario-60-a-galliker-transport-ag-altishofen",
+        "en": "auxiliary-locksmith-60-a-galliker-transport-ag-altishofen",
+        "fr": "serrurier-auxiliaire-60-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -711,7 +711,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-17T10:23:42.061Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T10:23:42.061Z"
+      "firstSeenAt": "2026-11-19T10:23:42.061Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hilfskraft-schlosserei-60-a-galliker-altishofen"
+        ],
+        "en": [
+          "hilfskraft-schlosserei-60-a-galliker-altishofen"
+        ],
+        "fr": [
+          "hilfskraft-schlosserei-60-a-galliker-altishofen"
+        ]
+      },
+      "previousSlugs": [
+        "hilfskraft-schlosserei-60-a-galliker-altishofen"
+      ]
     },
     {
       "id": "galliker-e6ae1fedbc41",
@@ -875,12 +889,12 @@
     },
     {
       "id": "galliker-3d6dd857f8dd",
-      "slug": "betriebselektriker-a-galliker-transport-ag-altishofen",
+      "slug": "elettricisti-commerciali-a-galliker-transport-ag-altishofen-7e4997",
       "slugByLocale": {
         "de": "betriebselektriker-a-galliker-altishofen",
-        "it": "betriebselektriker-a-galliker-transport-ag-altishofen",
+        "it": "elettricisti-commerciali-a-galliker-transport-ag-altishofen-7e4997",
         "en": "betriebselektriker-a-galliker-transport-ag-altishofen",
-        "fr": "betriebselektriker-a-galliker-transport-ag-altishofen"
+        "fr": "electriciens-d-affaires-a-galliker-transport-ag-altishofen-7e4997"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -929,11 +943,16 @@
       "externalId": "0382",
       "previousSlugsByLocale": {
         "it": [
-          "betriebselektriker-a-galliker-altishofen"
+          "betriebselektriker-a-galliker-altishofen",
+          "betriebselektriker-a-galliker-transport-ag-altishofen"
+        ],
+        "fr": [
+          "betriebselektriker-a-galliker-transport-ag-altishofen"
         ]
       },
       "previousSlugs": [
-        "betriebselektriker-a-galliker-altishofen"
+        "betriebselektriker-a-galliker-altishofen",
+        "betriebselektriker-a-galliker-transport-ag-altishofen"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -5500,9 +5519,9 @@
     },
     {
       "id": "galliker-830c075b6482",
-      "slug": "specialista-automotive-ingegnere-meccatronico-nfz-servizio-tardivo-a-galliker-transport-ag-altishofen-53a809ed8b",
+      "slug": "specialista-automotive-ingegnere-meccatronico-nfz-servizio-tardivo-a-galliker-transport-ag-altishofen",
       "slugByLocale": {
-        "it": "specialista-automotive-ingegnere-meccatronico-nfz-servizio-tardivo-a-galliker-transport-ag-altishofen-53a809ed8b",
+        "it": "specialista-automotive-ingegnere-meccatronico-nfz-servizio-tardivo-a-galliker-transport-ag-altishofen",
         "en": "automotive-specialist-mechatronics-engineer-nfz-late-service-a-galliker-transport-ag-altishofen",
         "de": "automobilfachmann-mechatroniker-nfz-spatdienst-a-galliker-altishofen",
         "fr": "specialiste-automobile-ingenieur-mechatronics-nfz-service-tardif-a-galliker-transport-ag-altishofen"
@@ -5553,12 +5572,12 @@
       "externalId": "0451",
       "previousSlugs": [
         "automobilfachmann-mechatroniker-nfz-spatdienst-a-galliker-altishofen",
-        "specialista-automotive-ingegnere-meccatronico-nfz-servizio-tardivo-a-galliker-transport-ag-altishofen"
+        "specialista-automotive-ingegnere-meccatronico-nfz-servizio-tardivo-a-galliker-transport-ag-altishofen-53a809ed8b"
       ],
       "previousSlugsByLocale": {
         "it": [
           "automobilfachmann-mechatroniker-nfz-spatdienst-a-galliker-altishofen",
-          "specialista-automotive-ingegnere-meccatronico-nfz-servizio-tardivo-a-galliker-transport-ag-altishofen"
+          "specialista-automotive-ingegnere-meccatronico-nfz-servizio-tardivo-a-galliker-transport-ag-altishofen-53a809ed8b"
         ]
       },
       "firstSeenAt": "2026-09-23T23:38:01.757Z",
@@ -5582,9 +5601,9 @@
     },
     {
       "id": "galliker-b29101210b9f",
-      "slug": "assistente-automobilistico-specialista-nfz-a-servizio-in-ritardo-galliker-transport-ag-altishofen-6562e44ccf",
+      "slug": "assistente-automobilistico-specialista-nfz-a-servizio-in-ritardo-galliker-transport-ag-altishofen",
       "slugByLocale": {
-        "it": "assistente-automobilistico-specialista-nfz-a-servizio-in-ritardo-galliker-transport-ag-altishofen-6562e44ccf",
+        "it": "assistente-automobilistico-specialista-nfz-a-servizio-in-ritardo-galliker-transport-ag-altishofen",
         "en": "automotive-assistant-specialist-nfz-a-late-service-galliker-transport-ag-altishofen",
         "de": "automobilassistent-fachmann-nfz-a-spatdienst-galliker-altishofen",
         "fr": "assistant-automobile-specialiste-nfz-a-service-en-retard-galliker-transport-ag-altishofen"
@@ -5635,12 +5654,12 @@
       "externalId": "0452",
       "previousSlugs": [
         "automobilassistent-fachmann-nfz-a-spatdienst-galliker-altishofen",
-        "assistente-automobilistico-specialista-nfz-a-servizio-in-ritardo-galliker-transport-ag-altishofen"
+        "assistente-automobilistico-specialista-nfz-a-servizio-in-ritardo-galliker-transport-ag-altishofen-6562e44ccf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "automobilassistent-fachmann-nfz-a-spatdienst-galliker-altishofen",
-          "assistente-automobilistico-specialista-nfz-a-servizio-in-ritardo-galliker-transport-ag-altishofen"
+          "assistente-automobilistico-specialista-nfz-a-servizio-in-ritardo-galliker-transport-ag-altishofen-6562e44ccf"
         ]
       },
       "firstSeenAt": "2026-09-23T23:38:01.370Z",
@@ -5745,9 +5764,9 @@
     },
     {
       "id": "galliker-affb6a72e726",
-      "slug": "logisticista-congelato-a-galliker-transport-ag-altishofen-a32da525b0",
+      "slug": "logisticista-congelato-a-galliker-transport-ag-altishofen",
       "slugByLocale": {
-        "it": "logisticista-congelato-a-galliker-transport-ag-altishofen-a32da525b0",
+        "it": "logisticista-congelato-a-galliker-transport-ag-altishofen",
         "en": "logistician-frozen-a-galliker-transport-ag-altishofen",
         "de": "logistiker-tiefkuhl-a-galliker-altishofen",
         "fr": "logisticien-congele-a-galliker-transport-ag-altishofen"
@@ -5798,13 +5817,13 @@
       "previousSlugs": [
         "logistiker-tiefkuhl-a-galliker-transport-ag-altishofen",
         "logistiker-tiefkuhl-a-galliker-altishofen",
-        "logisticista-congelato-a-galliker-transport-ag-altishofen"
+        "logisticista-congelato-a-galliker-transport-ag-altishofen-a32da525b0"
       ],
       "previousSlugsByLocale": {
         "it": [
           "logistiker-tiefkuhl-a-galliker-transport-ag-altishofen",
           "logistiker-tiefkuhl-a-galliker-altishofen",
-          "logisticista-congelato-a-galliker-transport-ag-altishofen"
+          "logisticista-congelato-a-galliker-transport-ag-altishofen-a32da525b0"
         ]
       },
       "firstSeenAt": "2026-07-15T10:59:13.016Z",

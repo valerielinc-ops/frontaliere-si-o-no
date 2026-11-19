@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "microsoft-200067082",
-      "slug": "data-science-phd-internship-opportunities-microsoft-zurich",
+      "slug": "scienza-dei-dati-opportunita-di-stage-di-dottorato-microsoft-zurich",
       "slugByLocale": {
         "en": "data-science-phd-internship-opportunities-microsoft-zurich",
-        "it": "data-science-phd-internship-opportunities-microsoft-zurich",
+        "it": "scienza-dei-dati-opportunita-di-stage-di-dottorato-microsoft-zurich",
         "de": "data-science-phd-internship-opportunities-microsoft-zurich",
-        "fr": "data-science-phd-internship-opportunities-microsoft-zurich"
+        "fr": "data-science-possibilites-de-stage-au-doctorat-microsoft-zurich"
       },
       "company": "Microsoft",
       "companyKey": "microsoft",
@@ -72,7 +72,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-17T09:35:21.330Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T09:35:21.330Z"
+      "firstSeenAt": "2026-11-19T09:35:21.330Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "data-science-phd-internship-opportunities-microsoft-zurich"
+        ],
+        "fr": [
+          "data-science-phd-internship-opportunities-microsoft-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "data-science-phd-internship-opportunities-microsoft-zurich"
+      ]
     },
     {
       "id": "microsoft-200067703",
@@ -164,7 +175,7 @@
         "en": "researcher-pretraining-data-team-microsoft-zurich",
         "it": "researcher-pretraining-data-team-microsoft-zurich",
         "de": "researcher-pretraining-data-team-microsoft-zurich",
-        "fr": "researcher-pretraining-data-team-microsoft-zurich"
+        "fr": "chercheur-equipe-de-donnees-preformation-microsoft-zurich"
       },
       "company": "Microsoft",
       "companyKey": "microsoft",
@@ -226,7 +237,15 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-17T09:35:21.328Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T09:35:21.328Z"
+      "firstSeenAt": "2026-11-19T09:35:21.328Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "researcher-pretraining-data-team-microsoft-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "researcher-pretraining-data-team-microsoft-zurich"
+      ]
     },
     {
       "id": "microsoft-200055947",

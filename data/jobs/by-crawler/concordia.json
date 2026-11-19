@@ -3470,12 +3470,12 @@
     },
     {
       "id": "concordia-cee3c4e4831f",
-      "slug": "kundenberater-in-100-in-rapperswil-concordia-rapperswil-jona",
+      "slug": "consulente-alla-clientela-100-a-rapperswil-concordia-rapperswil-jona",
       "slugByLocale": {
         "de": "kundenberater-in-100-in-rapperswil-concordia-rapperswil-jona",
-        "it": "kundenberater-in-100-in-rapperswil-concordia-rapperswil-jona",
-        "en": "kundenberater-in-100-in-rapperswil-concordia-rapperswil-jona",
-        "fr": "kundenberater-in-100-in-rapperswil-concordia-rapperswil-jona"
+        "it": "consulente-alla-clientela-100-a-rapperswil-concordia-rapperswil-jona",
+        "en": "customer-advisor-100-in-rapperswil-concordia-rapperswil-jona",
+        "fr": "conseiller-ere-a-la-clientele-100-a-rapperswil-concordia-rapperswil-jona"
       },
       "company": "Concordia",
       "companyKey": "concordia",
@@ -3537,16 +3537,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-17T09:35:34.551Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T09:35:34.551Z"
+      "firstSeenAt": "2026-11-19T09:35:34.551Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-in-100-in-rapperswil-concordia-rapperswil-jona"
+        ],
+        "en": [
+          "kundenberater-in-100-in-rapperswil-concordia-rapperswil-jona"
+        ],
+        "fr": [
+          "kundenberater-in-100-in-rapperswil-concordia-rapperswil-jona"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-in-100-in-rapperswil-concordia-rapperswil-jona"
+      ]
     },
     {
       "id": "concordia-b901b466d284",
-      "slug": "apprentissage-d-employe-de-commerce-f-h-nb-avec-cfc-d-assurances-maladie-et-sociale-agence-de-geneve-concordia-geneve",
+      "slug": "impresa-dei-dipendenti-f-h-nb-con-assicurazione-sanitaria-cfc-agenzia-di-ginevra-concordia-geneve",
       "slugByLocale": {
         "fr": "apprentissage-d-39-employe-de-commerce-f-h-nb-avec-cfc-d-39-assurances-maladie-et-sociale",
-        "it": "apprentissage-d-employe-de-commerce-f-h-nb-avec-cfc-d-assurances-maladie-et-sociale-agence-de-geneve-concordia-geneve",
-        "en": "apprentissage-d-39-employe-de-commerce-f-h-nb-avec-cfc-d-39-assurances-maladie-et-sociale",
-        "de": "apprentissage-d-39-employe-de-commerce-f-h-nb-avec-cfc-d-39-assurances-maladie-et-sociale"
+        "it": "impresa-dei-dipendenti-f-h-nb-con-assicurazione-sanitaria-cfc-agenzia-di-ginevra-concordia-geneve",
+        "en": "business-employee-learning-f-h-nb-with-health-and-social-insurance-cfc-geneva-agency-concordia-geneve",
+        "de": "business-mitarbeiter-lernen-w-h-nb-mit-kranken-und-sozialversicherung-cfc-genf-agentur-concordia-geneve"
       },
       "company": "Concordia",
       "companyKey": "concordia",
@@ -3594,11 +3608,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "apprentissage-d-39-employe-de-commerce-f-h-nb-avec-cfc-d-39-assurances-maladie-et-sociale",
+          "apprentissage-d-employe-de-commerce-f-h-nb-avec-cfc-d-assurances-maladie-et-sociale-agence-de-geneve-concordia-geneve"
+        ],
+        "en": [
+          "apprentissage-d-39-employe-de-commerce-f-h-nb-avec-cfc-d-39-assurances-maladie-et-sociale"
+        ],
+        "de": [
           "apprentissage-d-39-employe-de-commerce-f-h-nb-avec-cfc-d-39-assurances-maladie-et-sociale"
         ]
       },
       "previousSlugs": [
-        "apprentissage-d-39-employe-de-commerce-f-h-nb-avec-cfc-d-39-assurances-maladie-et-sociale"
+        "apprentissage-d-39-employe-de-commerce-f-h-nb-avec-cfc-d-39-assurances-maladie-et-sociale",
+        "apprentissage-d-employe-de-commerce-f-h-nb-avec-cfc-d-assurances-maladie-et-sociale-agence-de-geneve-concordia-geneve"
       ],
       "salaryMin": 51100,
       "salaryMax": 94500,

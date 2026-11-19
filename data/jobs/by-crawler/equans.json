@@ -9916,10 +9916,10 @@
     },
     {
       "id": "equans-1a9997e366af",
-      "slug": "collaboratore-trice-empfang-equans-switzerland-zurich",
+      "slug": "addetto-a-alla-reception-equans-switzerland-zurich",
       "slugByLocale": {
         "de": "mitarbeiter-in-empfang-equans-zurich",
-        "it": "collaboratore-trice-empfang-equans-switzerland-zurich",
+        "it": "addetto-a-alla-reception-equans-switzerland-zurich",
         "en": "mitarbeiter-in-empfang-equans-zurich",
         "fr": "mitarbeiter-in-empfang-equans-zurich"
       },
@@ -9970,11 +9970,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-empfang-equans-zurich"
+          "mitarbeiter-in-empfang-equans-zurich",
+          "collaboratore-trice-empfang-equans-switzerland-zurich"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-empfang-equans-zurich"
+        "mitarbeiter-in-empfang-equans-zurich",
+        "collaboratore-trice-empfang-equans-switzerland-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -9996,12 +9998,12 @@
     },
     {
       "id": "equans-615c97dc6bbb",
-      "slug": "installateur-electricien-en-signalisation-lumineuse-equans-le-mont-sur-lausanne",
+      "slug": "installatore-elettrico-di-segnale-luminoso-equans-switzerland-le-mont-sur-lausanne",
       "slugByLocale": {
         "fr": "installateur-electricien-en-signalisation-lumineuse-equans-le-mont-sur-lausanne",
-        "it": "installateur-electricien-en-signalisation-lumineuse-equans-le-mont-sur-lausanne",
-        "en": "installateur-electricien-en-signalisation-lumineuse-equans-le-mont-sur-lausanne",
-        "de": "installateur-electricien-en-signalisation-lumineuse-equans-le-mont-sur-lausanne"
+        "it": "installatore-elettrico-di-segnale-luminoso-equans-switzerland-le-mont-sur-lausanne",
+        "en": "light-signalling-electrical-installer-equans-switzerland-le-mont-sur-lausanne",
+        "de": "elektrisches-lichtsignalinstallationsgerat-equans-switzerland-le-mont-sur-lausanne"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -10063,7 +10065,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-17T09:26:38.838Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T09:26:38.838Z"
+      "firstSeenAt": "2026-11-19T09:26:38.838Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "installateur-electricien-en-signalisation-lumineuse-equans-le-mont-sur-lausanne"
+        ],
+        "en": [
+          "installateur-electricien-en-signalisation-lumineuse-equans-le-mont-sur-lausanne"
+        ],
+        "de": [
+          "installateur-electricien-en-signalisation-lumineuse-equans-le-mont-sur-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "installateur-electricien-en-signalisation-lumineuse-equans-le-mont-sur-lausanne"
+      ]
     },
     {
       "id": "equans-ff56ce1083ac",

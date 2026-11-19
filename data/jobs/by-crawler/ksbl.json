@@ -3064,7 +3064,7 @@
     },
     {
       "id": "ksbl-e26f60c459c8",
-      "slug": "infermiera-a-kantonsspital-baselland-ksbl-liestal-11c54b95e1",
+      "slug": "infermiera-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
         "it": "infermiera-a-kantonsspital-baselland-ksbl-liestal",
         "en": "dipl-nurse-a-kantonsspital-baselland-ksbl-liestal",
@@ -3115,13 +3115,15 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
         "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal",
-        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-d9d0683b62"
+        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-d9d0683b62",
+        "infermiera-a-kantonsspital-baselland-ksbl-liestal-11c54b95e1"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
           "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal",
-          "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-d9d0683b62"
+          "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-d9d0683b62",
+          "infermiera-a-kantonsspital-baselland-ksbl-liestal-11c54b95e1"
         ],
         "de": [
           "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal"
@@ -5138,9 +5140,9 @@
     },
     {
       "id": "ksbl-cd14c6154336",
-      "slug": "infermiera-a-kantonsspital-baselland-ksbl-liestal-a67061767f",
+      "slug": "infermiera-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
-        "it": "infermiera-a-kantonsspital-baselland-ksbl-liestal-a67061767f",
+        "it": "infermiera-a-kantonsspital-baselland-ksbl-liestal",
         "en": "dipl-nurse-a-kantonsspital-baselland-ksbl-liestal",
         "de": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-tiu1kw",
         "fr": "infirmiere-diplomee-a-kantonsspital-baselland-ksbl-liestal"
@@ -5189,12 +5191,14 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
         "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal",
-        "infermiera-a-kantonsspital-baselland-ksbl-liestal"
+        "infermiera-a-kantonsspital-baselland-ksbl-liestal",
+        "infermiera-a-kantonsspital-baselland-ksbl-liestal-a67061767f"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
-          "infermiera-a-kantonsspital-baselland-ksbl-liestal"
+          "infermiera-a-kantonsspital-baselland-ksbl-liestal",
+          "infermiera-a-kantonsspital-baselland-ksbl-liestal-a67061767f"
         ],
         "de": [
           "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal"
@@ -8861,10 +8865,10 @@
     },
     {
       "id": "ksbl-93ccb3cef727",
-      "slug": "fage-akutgeriatrie-a-ksbl-liestal",
+      "slug": "fage-acute-care-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
         "de": "fage-akutgeriatrie-a-ksbl-liestal",
-        "it": "fage-akutgeriatrie-a-ksbl-liestal",
+        "it": "fage-acute-care-a-kantonsspital-baselland-ksbl-liestal",
         "en": "fage-akutgeriatrie-a-ksbl-liestal",
         "fr": "fage-akutgeriatrie-a-ksbl-liestal"
       },
@@ -8928,7 +8932,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-19T10:14:08.665Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-08T23:41:16.273Z"
+      "firstSeenAt": "2026-09-08T23:41:16.273Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fage-akutgeriatrie-a-ksbl-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "fage-akutgeriatrie-a-ksbl-liestal"
+      ]
     },
     {
       "id": "ksbl-7bb0ab72c072",

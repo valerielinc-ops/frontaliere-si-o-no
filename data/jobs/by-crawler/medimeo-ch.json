@@ -88,12 +88,12 @@
     },
     {
       "id": "medimeo-ch-e484964db0de",
-      "slug": "oberarztin-oberarzt-gynakologie-e-geburtshilfe-80-100-schwerpunkt-senologie-medimeo-ag-olten",
+      "slug": "medica-capoclinica-medico-capoclinica-ginecologia-e-ostetricia-80-100-specializzazione-in-senologia-medimeo-ag-olten",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-gynakologie-und-geburtshilfe-80-100-schwerpunkt-senologie-olten-aargau",
-        "it": "oberarztin-oberarzt-gynakologie-e-geburtshilfe-80-100-schwerpunkt-senologie-medimeo-ag-olten",
-        "en": "oberarztin-oberarzt-gynakologie-und-geburtshilfe-80-100-schwerpunkt-senologie-olten-aargau",
-        "fr": "oberarztin-oberarzt-gynakologie-und-geburtshilfe-80-100-schwerpunkt-senologie-olten-aargau"
+        "it": "medica-capoclinica-medico-capoclinica-ginecologia-e-ostetricia-80-100-specializzazione-in-senologia-medimeo-ag-olten",
+        "en": "senior-physician-gynecology-and-obstetrics-80-100-focus-on-senology-medimeo-ag-olten-aargau",
+        "fr": "medecin-principal-gynecologie-et-obstetrique-80-100-focus-sur-la-senologie-medimeo-ag-olten-aargau"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo-ch",
@@ -139,11 +139,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "oberarztin-oberarzt-gynakologie-und-geburtshilfe-80-100-schwerpunkt-senologie-olten-aargau",
+          "oberarztin-oberarzt-gynakologie-e-geburtshilfe-80-100-schwerpunkt-senologie-medimeo-ag-olten"
+        ],
+        "en": [
+          "oberarztin-oberarzt-gynakologie-und-geburtshilfe-80-100-schwerpunkt-senologie-olten-aargau"
+        ],
+        "fr": [
           "oberarztin-oberarzt-gynakologie-und-geburtshilfe-80-100-schwerpunkt-senologie-olten-aargau"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-gynakologie-und-geburtshilfe-80-100-schwerpunkt-senologie-olten-aargau"
+        "oberarztin-oberarzt-gynakologie-und-geburtshilfe-80-100-schwerpunkt-senologie-olten-aargau",
+        "oberarztin-oberarzt-gynakologie-e-geburtshilfe-80-100-schwerpunkt-senologie-medimeo-ag-olten"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,

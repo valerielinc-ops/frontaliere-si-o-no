@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "caritas-schweiz-41d37a49c14d",
-      "slug": "projektleiter-in-20-caritas-schweiz-luzern",
+      "slug": "responsabile-di-progetto-20-caritas-schweiz-luzern",
       "slugByLocale": {
         "de": "projektleiter-in-20-caritas-schweiz-luzern",
-        "it": "projektleiter-in-20-caritas-schweiz-luzern",
-        "en": "projektleiter-in-20-caritas-schweiz-luzern",
-        "fr": "projektleiter-in-20-caritas-schweiz-luzern"
+        "it": "responsabile-di-progetto-20-caritas-schweiz-luzern",
+        "en": "project-manager-20-caritas-schweiz-luzern",
+        "fr": "chef-fe-de-projet-20-caritas-schweiz-luzern"
       },
       "company": "Caritas Schweiz",
       "companyKey": "caritas-schweiz",
@@ -75,7 +75,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T09:30:48.687Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T09:30:48.687Z"
+      "firstSeenAt": "2026-11-19T09:30:48.687Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "projektleiter-in-20-caritas-schweiz-luzern"
+        ],
+        "en": [
+          "projektleiter-in-20-caritas-schweiz-luzern"
+        ],
+        "fr": [
+          "projektleiter-in-20-caritas-schweiz-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "projektleiter-in-20-caritas-schweiz-luzern"
+      ]
     },
     {
       "id": "caritas-schweiz-0e067aefd94b",

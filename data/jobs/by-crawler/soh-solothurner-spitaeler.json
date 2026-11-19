@@ -15353,7 +15353,7 @@
         "de": "case-managerin-case-manager-w-m-d-soh-solothurner-spitaeler-olten",
         "it": "case-managerin-case-manager-w-m-d-soh-solothurner-spitaeler-olten",
         "en": "case-managerin-case-manager-w-m-d-soh-solothurner-spitaeler-olten",
-        "fr": "case-managerin-case-manager-w-m-d-soh-solothurner-spitaeler-olten"
+        "fr": "gestionnaire-de-cas-gestionnaire-de-cas-h-f-d-solothurner-spitaler-ag-soh-olten"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -15415,16 +15415,24 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T09:30:32.508Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T09:30:32.508Z"
+      "firstSeenAt": "2026-11-19T09:30:32.508Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "case-managerin-case-manager-w-m-d-soh-solothurner-spitaeler-olten"
+        ]
+      },
+      "previousSlugs": [
+        "case-managerin-case-manager-w-m-d-soh-solothurner-spitaeler-olten"
+      ]
     },
     {
       "id": "soh-solothurner-spitaeler-a5fe6befa584",
-      "slug": "sozialarbeiterin-sozialarbeiter-w-m-d-soh-solothurner-spitaeler-olten",
+      "slug": "social-worker-social-worker-m-f-d-solothurner-spitaler-ag-soh-olten",
       "slugByLocale": {
         "de": "sozialarbeiterin-sozialarbeiter-w-m-d-soh-solothurner-spitaeler-olten",
-        "it": "sozialarbeiterin-sozialarbeiter-w-m-d-soh-solothurner-spitaeler-olten",
+        "it": "social-worker-social-worker-m-f-d-solothurner-spitaler-ag-soh-olten",
         "en": "sozialarbeiterin-sozialarbeiter-w-m-d-soh-solothurner-spitaeler-olten",
-        "fr": "sozialarbeiterin-sozialarbeiter-w-m-d-soh-solothurner-spitaeler-olten"
+        "fr": "travailleur-social-travailleur-social-h-f-d-solothurner-spitaler-ag-soh-olten"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -15486,7 +15494,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T09:30:31.973Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T09:30:31.973Z"
+      "firstSeenAt": "2026-11-19T09:30:31.973Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialarbeiterin-sozialarbeiter-w-m-d-soh-solothurner-spitaeler-olten"
+        ],
+        "fr": [
+          "sozialarbeiterin-sozialarbeiter-w-m-d-soh-solothurner-spitaeler-olten"
+        ]
+      },
+      "previousSlugs": [
+        "sozialarbeiterin-sozialarbeiter-w-m-d-soh-solothurner-spitaeler-olten"
+      ]
     },
     {
       "id": "soh-solothurner-spitaeler-5ee08f1c0349",

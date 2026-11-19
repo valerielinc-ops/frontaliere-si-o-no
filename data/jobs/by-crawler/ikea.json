@@ -1955,8 +1955,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-ikea-kuche-80-ikea-ch",
         "it": "collaboratore-trice-ikea-kuche-80-ikea-dietlikon",
-        "en": "collaboratore-trice-ikea-kuche-80-ikea-dietlikon",
-        "fr": "collaboratore-trice-ikea-kuche-80-ikea-dietlikon"
+        "en": "ikea-kitchen-employee-80-ikea-dietlikon-zurich",
+        "fr": "collaborateur-trice-ikea-cuisine-80-ikea-dietlikon-zurich"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -2004,10 +2004,17 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-ikea-kuche-80-ikea-ch"
+        ],
+        "en": [
+          "collaboratore-trice-ikea-kuche-80-ikea-dietlikon"
+        ],
+        "fr": [
+          "collaboratore-trice-ikea-kuche-80-ikea-dietlikon"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-ikea-kuche-80-ikea-ch"
+        "mitarbeiter-in-ikea-kuche-80-ikea-ch",
+        "collaboratore-trice-ikea-kuche-80-ikea-dietlikon"
       ],
       "salaryMin": 58800,
       "salaryMax": 89200,
@@ -2034,8 +2041,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-ikea-bistro-schwedenshop-80-ikea-ch",
         "it": "collaboratore-trice-ikea-bistro-schwedenshop-80-ikea-spreitenbach",
-        "en": "mitarbeiter-in-ikea-bistro-schwedenshop-80-ikea-ch",
-        "fr": "mitarbeiter-in-ikea-bistro-schwedenshop-80-ikea-ch"
+        "en": "ikea-bistro-swedish-shop-employee-80-ikea-spreitenbach-aargau",
+        "fr": "collaborateur-trice-ikea-bistro-boutique-suedoise-80-ikea-spreitenbach-aargau"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -2082,6 +2089,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-ikea-bistro-schwedenshop-80-ikea-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-ikea-bistro-schwedenshop-80-ikea-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-ikea-bistro-schwedenshop-80-ikea-ch"
         ]
       },
