@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-19T19:11:36.028Z",
+  "generatedAt": "2026-11-19T20:38:27.710Z",
   "totalEvents": 17597,
   "events": [
     {
@@ -62282,7 +62282,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento di Porrentruy esplora il rapporto tra Coghuf e i paesaggi delle Franches-Montagnes. La presentazione si svolge al Musée de l’Hôtel-Dieu.",
+      "descriptionByLocale": {
+        "it": "L’evento di Porrentruy esplora il rapporto tra Coghuf e i paesaggi delle Franches-Montagnes. La presentazione si svolge al Musée de l’Hôtel-Dieu.",
+        "en": "This event in Porrentruy examines the landscapes of the Franches-Montagnes in relation to Coghuf’s artistic work. The presentation takes place at the Musée de l’Hôtel-Dieu.",
+        "de": "Die Veranstaltung in Porrentruy widmet sich den Landschaften der Freiberge im Zusammenhang mit dem Schaffen von Coghuf. Schauplatz ist das Musée de l’Hôtel-Dieu.",
+        "fr": "À Porrentruy, l’événement s’intéresse aux paysages des Franches-Montagnes dans l’œuvre de Coghuf. Il se tient au Musée de l’Hôtel-Dieu."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:63413",
