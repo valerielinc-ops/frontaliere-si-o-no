@@ -329,6 +329,10 @@ export function reconcileLoopFleetLedger({
     for (const run of runList(definition, positiveInt(maxRunsPerLoop, 12))) {
       if (!eligibleSourceRun(run, definition)) continue;
       const runId = String(run.databaseId || run.id || '');
+      if (definition.loopId === 'L8') {
+        scanned.push({ loopId: 'L8', runId, reason: 'L8 canonical evidence is runner-local; durable recovery is unavailable', missing: null });
+        continue;
+      }
       const download = downloadEvidence(definition, run, tempRoot);
       const result = download.ok
         ? missingEvidenceRecordIds(download.inputDir, ledgerDir, {

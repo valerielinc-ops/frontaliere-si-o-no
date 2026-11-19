@@ -42,35 +42,23 @@ jobs:
 
       - name: Load secrets from Remote Config
         continue-on-error: true
-        run: node scripts/load-rc-env.mjs
+        run: |
+          umask 077
+          node scripts/load-rc-env.mjs > "$RUNNER_TEMP/report-config.log" 2>&1
 
       - name: Run revenue monitor (save report)
-        run: node scripts/revenue-monitor.mjs --save --markdown > /tmp/revenue-monitor.md
-
-      - name: Print summary to job log
         run: |
-          echo "## Revenue monitor" >> "$GITHUB_STEP_SUMMARY"
-          cat /tmp/revenue-monitor.md >> "$GITHUB_STEP_SUMMARY"
-
-      - name: Upload report artifact
-        if: always()
-        uses: actions/upload-artifact@v7
-        with:
-          name: revenue-monitor-report
-          path: |
-            reports/revenue-*.json
-            reports/revenue-*.md
-          retention-days: 90
-          if-no-files-found: warn
+          umask 077
+          node scripts/revenue-monitor.mjs --save --markdown > "$RUNNER_TEMP/revenue-monitor.md" 2> "$RUNNER_TEMP/revenue-monitor.err"
+          echo 'Revenue monitor completed. Report values are private.' >> "$GITHUB_STEP_SUMMARY"
 
       - name: Commit revenue monitor history
         run: |
+          umask 077
+          exec > "$RUNNER_TEMP/revenue-history.log" 2>&1
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          # Full reports live under reports/ which is gitignored (preserved as
-          # build artifacts only, see "Upload report artifact" above). Only the
-          # compact append-only history file is committed so the next weekly
-          # run can compute the trend (mirrors ai-visibility-check.yml, #2741).
+          # Stage only the history used by the next run.
           git add data/revenue-monitor-history.jsonl
           if git diff --cached --quiet; then
             echo "No history changes to commit."
@@ -84,7 +72,7 @@ jobs:
           # regenerating.
           bash scripts/lib/git-push-with-retry.sh \
             --branch "$GITHUB_REF_NAME" \
-            --in-place-resolver-cmd "source scripts/lib/resolve-append-conflicts.sh && resolve_append_conflicts && git add -A"
+            --in-place-resolver-cmd "source scripts/lib/resolve-append-conflicts.sh && resolve_append_conflicts"
 
       - name: Cleanup credentials
         if: always()

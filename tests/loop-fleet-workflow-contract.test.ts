@@ -526,16 +526,18 @@ describe('loop fleet workflow contract', () => {
     expect(source).not.toContain('data/loop-health-history.jsonl');
   });
 
-  it('uploads lifecycle evidence for every loop', () => {
+  it('uploads lifecycle evidence for loops with a public ledger', () => {
     for (const name of loopWorkflows) {
+      if (name === 'loop-l8-revenue-attribution.yml') continue;
       const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
       const uploadsWholeDirectory = /path:\s+\$\{\{\s*runner\.temp\s*\}\}\/loop-fleet-[^/]+\/\s*$/mu.test(source);
       expect(uploadsWholeDirectory || source.includes('lifecycle-events.jsonl'), name).toBe(true);
     }
   });
 
-  it('uploads one canonical outcome artifact for every loop', () => {
+  it('uploads canonical outcomes for loops with public evidence', () => {
     for (const name of loopWorkflows) {
+      if (name === 'loop-l8-revenue-attribution.yml') continue;
       const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
       const uploadsWholeDirectory = /path:\s+\$\{\{\s*runner\.temp\s*\}\}\/loop-fleet-[^/]+\/\s*$/mu.test(source);
       expect(uploadsWholeDirectory || source.includes('loop-fleet-outcome.json'), name).toBe(true);

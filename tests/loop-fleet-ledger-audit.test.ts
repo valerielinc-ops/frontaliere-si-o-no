@@ -119,10 +119,14 @@ describe('loop-fleet-ledger-audit', () => {
     });
   });
 
-  it('checks every source workflow for 90-day artifacts and lifecycle transport', () => {
+  it('checks 90-day artifacts and recognizes L8 runner-local evidence', () => {
     const audit = auditWorkflowRetention({ workflowDir: '.github/workflows' });
     expect(audit.summary).toMatchObject({ loopCount: 12, compliantCount: 12, noncompliantCount: 0 });
     expect(audit.errors).toEqual([]);
+    expect(audit.loops.find((row: { loopId: string }) => row.loopId === 'L8')).toMatchObject({
+      privateEvidence: true, uploadsExecutionStatus: true,
+      uploadsEvidence: false, uploadsLifecycle: false, uploadsOutcome: false,
+    });
   });
 
   it('reports live retention from paginated artifact metadata without mutating it', () => {

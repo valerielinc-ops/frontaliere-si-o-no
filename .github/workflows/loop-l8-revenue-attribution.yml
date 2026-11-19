@@ -121,6 +121,7 @@ jobs:
             echo 'L8 live attribution unavailable: FIREBASE_SERVICE_ACCOUNT_JSON is not set; continuing as unmeasurable.' | tee -a "$GITHUB_STEP_SUMMARY"
             exit 0
           fi
+          umask 077
           printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/firebase-sa.json"
           chmod 600 "$RUNNER_TEMP/firebase-sa.json"
           echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/firebase-sa.json" >> "$GITHUB_ENV"
@@ -131,8 +132,9 @@ jobs:
             echo 'L8 Remote Config unavailable; GA4 export will use the fail-closed fallback.' | tee -a "$GITHUB_STEP_SUMMARY"
             exit 0
           fi
+          umask 077
           set +e
-          node scripts/load-rc-env.mjs
+          node scripts/load-rc-env.mjs > "$RUNNER_TEMP/l8-config.log" 2>&1
           rc_code=$?
           set -e
           if [ "$rc_code" -ne 0 ]; then
@@ -141,6 +143,8 @@ jobs:
       - name: Export fresh L8 attribution outcome
         if: github.event_name != 'pull_request'
         run: |
+          umask 077
+          exec > "$RUNNER_TEMP/l8-export.log" 2>&1
           set +e
           node scripts/ci/fetch-authorized-affiliate-export.mjs --out "$RUNNER_TEMP/l8-commercial-export.json"
           fetch_code=$?
@@ -164,14 +168,17 @@ jobs:
           fi
       - name: Build unavailable L8 attribution input for pull requests
         if: github.event_name == 'pull_request'
-        run: node scripts/ci/export-l8-affiliate-outcomes.mjs --unavailable --days 8 --reason 'pull_request runs do not access live analytics or commercial credentials' --out "$RUNNER_TEMP/l8-affiliate-outcomes.json"
+        run: |
+          umask 077
+          node scripts/ci/export-l8-affiliate-outcomes.mjs --unavailable --days 8 --reason 'pull_request runs do not access live analytics or commercial credentials' --out "$RUNNER_TEMP/l8-affiliate-outcomes.json" > "$RUNNER_TEMP/l8-pr-export.log" 2>&1
       - name: Audit revenue attribution
+        id: audit_l8
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_ENABLED: ${{ github.event_name == 'schedule' || github.event_name == 'push' || inputs.issue == true }}
           REPORT_DIR: ${{ runner.temp }}/loop-fleet-l8
         run: |
-          set -o pipefail
+          umask 077
           mkdir -p "$REPORT_DIR"
           affiliate_path="$RUNNER_TEMP/l8-affiliate-outcomes.json"
           args=(--json --apply --report-dir "$REPORT_DIR" --registry data/loop-fleet/loop-registry.json --history data/revenue-monitor-history.jsonl --affiliate "$affiliate_path")
@@ -181,13 +188,15 @@ jobs:
             args+=(--dry-run)
           fi
           set +e
-          node scripts/ci/loop-l8-revenue-attribution.mjs "${args[@]}" | tee "$REPORT_DIR/cli-output.log" | tee -a "$GITHUB_STEP_SUMMARY"
-          run_code=${PIPESTATUS[0]}
+          node scripts/ci/loop-l8-revenue-attribution.mjs "${args[@]}" > "$REPORT_DIR/cli-output.log" 2> "$REPORT_DIR/cli-error.log"
+          run_code=$?
           set -e
           if [ "$run_code" -ne 0 ] && jq -e '(.issued == true and .ok == false)' "$REPORT_DIR/l8-result.json" >/dev/null 2>&1; then
             echo 'L8 finding persisted; approved/pending/reversed states remain separate and no commercial mutation was performed.' | tee -a "$GITHUB_STEP_SUMMARY"
           elif [ "$run_code" -ne 0 ]; then
             exit "$run_code"
+          else
+            echo 'L8 audit completed. Report values are private.' >> "$GITHUB_STEP_SUMMARY"
           fi
       - name: Validate runner-local L8 outcome export
         id: validate_l8_outcome
@@ -195,18 +204,53 @@ jobs:
         env:
           REPORT_DIR: ${{ runner.temp }}/loop-fleet-l8
         run: |
+          umask 077
+          exec > "$RUNNER_TEMP/l8-validation.log" 2>&1
           test -s "$REPORT_DIR/l8-outcome.json"
           jq -e '(.loopId == "L8" and (.status | type) == "string" and (.independent | type) == "boolean" and (.metrics | type) == "object" and .safeToAct == false and .autoAdsUntouched == true and .externalCommercialStateUntouched == true and .publishedDataUntouched == true and .partnerStateUntouched == true and .pricesUntouched == true and .recipientsUntouched == true)' "$REPORT_DIR/l8-outcome.json" >/dev/null
       - name: Record canonical L8 evidence
+        id: record_l8
         if: ${{ always() && steps.validate_l8_outcome.outcome == 'success' }}
         env:
           REPORT_DIR: ${{ runner.temp }}/loop-fleet-l8
-        run: node scripts/ci/record-loop-fleet-evidence.mjs --loop L8 --report-dir "$REPORT_DIR" --registry data/loop-fleet/loop-registry.json
-      - name: Upload L8 observation and actions
+        run: |
+          umask 077
+          LOOP_FLEET_LEDGER_DIR='' node scripts/ci/record-loop-fleet-evidence.mjs --loop L8 --report-dir "$REPORT_DIR" --registry data/loop-fleet/loop-registry.json > "$RUNNER_TEMP/l8-evidence.log" 2>&1
+      - name: Write public L8 execution status
+        id: public_l8
         if: always()
+        env:
+          AUDIT_STATUS: ${{ steps.audit_l8.outcome }}
+          VALIDATION_STATUS: ${{ steps.validate_l8_outcome.outcome }}
+          EVIDENCE_STATUS: ${{ steps.record_l8.outcome }}
+        run: |
+          umask 077
+          mkdir -p "$RUNNER_TEMP/l8-public"
+          jq -n '{
+            schemaVersion: 1,
+            loopId: "L8",
+            run: {
+              runId: env.GITHUB_RUN_ID,
+              runAttempt: env.GITHUB_RUN_ATTEMPT,
+              sha: env.GITHUB_SHA
+            },
+            auditStatus: env.AUDIT_STATUS,
+            validationStatus: env.VALIDATION_STATUS,
+            runnerEvidenceStatus: env.EVIDENCE_STATUS,
+            privateEvidence: true,
+            evidenceComplete: false,
+            quality: "unmeasurable",
+            outcome: {
+              status: "unmeasurable",
+              independent: false,
+              reason: "Economic values and canonical evidence are private and cannot be verified from this artifact."
+            }
+          }' > "$RUNNER_TEMP/l8-public/loop-fleet-evidence.json"
+      - name: Upload L8 execution status
+        if: ${{ always() && steps.public_l8.outcome == 'success' }}
         uses: actions/upload-artifact@v7
         with:
           name: loop-l8-revenue-attribution-${{ github.run_id }}
-          path: ${{ runner.temp }}/loop-fleet-l8/
+          path: ${{ runner.temp }}/l8-public/loop-fleet-evidence.json
           retention-days: 90
           if-no-files-found: error

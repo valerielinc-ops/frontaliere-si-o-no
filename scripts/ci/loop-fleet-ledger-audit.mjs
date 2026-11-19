@@ -355,15 +355,23 @@ function sourceWorkflowRows({ workflowDir, sourceLoops, expectedRetentionDays })
     const source = fs.readFileSync(file, 'utf8');
     const retentionDays = [...source.matchAll(/\bretention-days:\s*(\d+)/gu)].map((match) => Number(match[1]));
     const uploadsWholeDirectory = /path:\s+\$\{\{\s*runner\.temp\s*\}\}\/loop-fleet-[^/]+\/\s*$/mu.test(source);
-    const uploadsEvidence = uploadsWholeDirectory || source.includes('loop-fleet-evidence.json');
+    const privateEvidence = definition.loopId === 'L8';
+    const uploadsExecutionStatus = privateEvidence
+      && source.includes('path: ${{ runner.temp }}/l8-public/loop-fleet-evidence.json');
+    const uploadsEvidence = !privateEvidence && (uploadsWholeDirectory || source.includes('loop-fleet-evidence.json'));
     const uploadsLifecycle = uploadsWholeDirectory || source.includes('lifecycle-events.jsonl');
     const uploadsOutcome = uploadsWholeDirectory || source.includes('loop-fleet-outcome.json');
     const artifactNaming = source.includes(`${definition.artifactPrefix}-`) && /\$\{\{\s*github\.run_id\s*\}\}/u.test(source);
     if (!retentionDays.length) issues.push('artifact retention-days is missing');
     if (retentionDays.some((days) => days !== expectedRetentionDays)) issues.push(`retention-days is not uniformly ${expectedRetentionDays}`);
-    if (!uploadsEvidence) issues.push('canonical loop-fleet-evidence.json is not uploaded');
-    if (!uploadsLifecycle) issues.push('lifecycle-events.jsonl is not uploaded');
-    if (!uploadsOutcome) issues.push('canonical loop-fleet-outcome.json is not uploaded');
+    if (privateEvidence) {
+      if (!uploadsExecutionStatus) issues.push('public L8 execution status is not uploaded');
+      if (uploadsLifecycle || uploadsOutcome || uploadsWholeDirectory) issues.push('private L8 evidence is exposed by the workflow');
+    } else {
+      if (!uploadsEvidence) issues.push('canonical loop-fleet-evidence.json is not uploaded');
+      if (!uploadsLifecycle) issues.push('lifecycle-events.jsonl is not uploaded');
+      if (!uploadsOutcome) issues.push('canonical loop-fleet-outcome.json is not uploaded');
+    }
     if (!artifactNaming) issues.push('artifact name/run identity is not recognizable');
     return {
       ...definition,
@@ -371,6 +379,7 @@ function sourceWorkflowRows({ workflowDir, sourceLoops, expectedRetentionDays })
       exists: true,
       retentionDays,
       uploadsEvidence,
+      ...(privateEvidence ? { uploadsExecutionStatus, privateEvidence } : {}),
       uploadsLifecycle,
       uploadsOutcome,
       artifactNaming,

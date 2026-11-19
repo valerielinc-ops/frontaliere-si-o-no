@@ -173,12 +173,18 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           EVENT_NAME: ${{ github.event_name }}
+          SOURCE_LOOP: ${{ steps.source.outputs.loop }}
           SOURCE_CONCLUSION: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.conclusion || '' }}
           SOURCE_RUN_ID: ${{ steps.source.outputs.run_id }}
           SOURCE_ARTIFACT: ${{ steps.source.outputs.artifact }}
           INPUT_DIR: ${{ runner.temp }}/loop-fleet-ledger-input
         run: |
           set -euo pipefail
+          if [ "$SOURCE_LOOP" = 'L8' ]; then
+            echo 'L8 canonical evidence is runner-local. Durable persistence is unavailable.' >> "$GITHUB_STEP_SUMMARY"
+            echo 'available=false' >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
           mkdir -p "$INPUT_DIR"
           artifacts_json="$(gh api --paginate --slurp "repos/${GITHUB_REPOSITORY}/actions/runs/${SOURCE_RUN_ID}/artifacts?per_page=100")"
           artifact_count="$(jq -r --arg artifact "$SOURCE_ARTIFACT" '[.[].artifacts[]? | select(.name == $artifact and .expired == false)] | length' <<<"$artifacts_json")"

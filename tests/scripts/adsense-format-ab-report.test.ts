@@ -305,7 +305,7 @@ describe('adsense-format-ab-report / weekly plan gates the tracking issue', () =
     expect(planStep).not.toHaveProperty('if');
     expect(plan).not.toHaveProperty('continue-on-error');
     expect(plan.outputs?.active).toBe('${{ steps.plan.outputs.active }}');
-    expect(plan.outputs?.experiments).toBe('${{ steps.plan.outputs.experiments }}');
+    expect(plan.outputs).not.toHaveProperty('experiments');
     // The gate itself never installs, loads credentials or touches the tracking issue.
     for (const step of plan.steps) {
       expect(String(step.run ?? '')).not.toMatch(/npm ci|load-rc-env|firebase-sa/);
@@ -324,21 +324,11 @@ describe('adsense-format-ab-report / weekly plan gates the tracking issue', () =
     }
   });
 
-  it('the tracking-issue body comes from the report script, never from a fixed sentence', () => {
-    const steps = Object.values(jobs()).flatMap((job) => job.steps);
-    const reportStep = steps.find((step) => /adsense-format-ab-report\.mjs --experiment/.test(String(step.run ?? '')));
-    expect(reportStep?.run).toContain('--markdown');
-    expect(reportStep?.run).toContain('/tmp/adsense-format-ab-report.md');
-    // Only that step writes the file, and besides truncating it and adding a
-    // blank separator, every write into it is the report script's own output.
-    const writesReportFile = />{1,2}\s*\/tmp\/adsense-format-ab-report\.md/;
-    expect(steps.filter((step) => writesReportFile.test(String(step.run ?? '')))).toEqual([reportStep]);
-    const contentWrites = String(reportStep?.run ?? '')
-      .split('\n')
-      .map((line) => line.trim())
-      .filter((line) => writesReportFile.test(line) && !/^(:|echo)\s*>{1,2}/.test(line));
-    expect(contentWrites.length).toBeGreaterThan(0);
-    expect(contentWrites.filter((line) => !line.startsWith('node scripts/adsense-format-ab-report.mjs '))).toEqual([]);
+  it('keeps the tracking issue conditional on report production and posts a fixed status', () => {
+    const [tracking] = trackingIssueCalls(true);
+    expect(tracking.run).toContain('[ ! -s "$RUNNER_TEMP/adsense-format-ab-report.md" ]');
+    expect(tracking.run).toContain('--description "AdSense format A/B report output is available only on the runner.');
+    expect(tracking.run).not.toContain('--description-file');
   });
 });
 

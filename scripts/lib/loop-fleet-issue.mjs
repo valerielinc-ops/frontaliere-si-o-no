@@ -201,7 +201,7 @@ export function renderLoopStateBlock(state) {
   };
   const lines = [
     LOOP_STATE_START,
-    `**Stato corrente del loop${state.loopId ? ` ${state.loopId}` : ''}** (riscritto a ogni run; la cronologia sotto resta com'era all'apertura)`,
+    `**Stato corrente del loop${state.loopId ? ` ${state.loopId}` : ''}** ${state.loopId === 'L8' ? '(riscritto a ogni run)' : "(riscritto a ogni run; la cronologia sotto resta com'era all'apertura)"}`,
     '',
     `- Verdetto: ${state.ok ? 'ok' : 'non ok'}`,
     `- state: ${loopState}`,
@@ -515,7 +515,7 @@ export async function reportLoopIssue(params = {}, deps = {}) {
         'issue', 'comment', String(existing.number),
         '--body', [
           `${LOOP_STATE_CHANGE_MARKER} Stato cambiato${loopId ? ` (${loopId})` : ''}: ${oneLine(reason) || 'motivo non dichiarato'}`,
-          previous?.signature ? `Firma precedente: \`${previous.signature}\`` : '',
+          loopId !== 'L8' && previous?.signature ? `Firma precedente: \`${previous.signature}\`` : '',
           `Firma corrente: \`${signature}\``,
           state.runUrl ? `Run: ${state.runUrl}` : '',
           description,
@@ -526,7 +526,7 @@ export async function reportLoopIssue(params = {}, deps = {}) {
       persisted = editBody(
         ctx,
         existing.number,
-        upsertLoopStateBlock(existing.body, { ...state, pinnedByLoopLib: plan.pinnedByLoopLib }),
+        upsertLoopStateBlock(loopId === 'L8' ? description : existing.body, { ...state, pinnedByLoopLib: plan.pinnedByLoopLib }),
         labelArgs(plan),
       );
     }
@@ -617,7 +617,7 @@ function reconcileCreatedIssue(ctx, number, state, { reopened = false } = {}) {
   return editBody(
     ctx,
     number,
-    upsertLoopStateBlock(issue?.body, { ...state, pinnedByLoopLib: plan.pinnedByLoopLib }),
+    upsertLoopStateBlock(state.loopId === 'L8' ? state.reason : issue?.body, { ...state, pinnedByLoopLib: plan.pinnedByLoopLib }),
     labelArgs(plan),
   );
 }
@@ -676,11 +676,11 @@ export async function resolveLoopIssue(params = {}, deps = {}) {
       }
       continue;
     }
-    const written = editBody(ctx, issue.number, upsertLoopStateBlock(issue.body, {
+    const written = editBody(ctx, issue.number, upsertLoopStateBlock(loopId === 'L8' ? '' : issue.body, {
       loopId: loopId ?? previous?.loopId ?? null,
       ok: true,
       reason: `verdetto ok (${okStreak} di ${LOOP_OK_STREAK}); la issue resta aperta fino al terzo consecutivo`,
-      signature: previous?.signature ?? null,
+      signature: loopId === 'L8' ? null : previous?.signature ?? null,
       okStreak,
       pinnedByLoopLib: plan.pinnedByLoopLib,
       runUrl,

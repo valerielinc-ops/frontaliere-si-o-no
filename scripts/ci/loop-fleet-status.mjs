@@ -281,6 +281,7 @@ function readDurableHealth(ledgerDir, registry) {
         if (!health || health.recordType !== 'health' || !text(health.loopId)) {
           throw new Error(`${path.basename(file)} line ${index + 1} is not a health record`);
         }
+        if (health.loopId === 'L8') continue;
         validateActionClassAgainstPolicy(registry, health.loopId, health.actionClass);
         validateHistoricalOutcomeAgainstPolicy(registry, health.loopId, health.outcome);
         if (!health.execution?.runId || !/^[0-9a-f]{40}$/iu.test(String(health.execution.sha))) {
@@ -318,6 +319,7 @@ function readDurableLifecycle(ledgerDir, registry, now = new Date()) {
         } catch (error) {
           throw new Error(`${path.basename(file)} line ${index + 1} is invalid JSON: ${error.message}`);
         }
+        if (event?.loopId === 'L8') continue;
         validateHistoricalLifecycleEvent(registry, event.loopId, event);
         if (!object(event.execution) || !text(event.execution.runId) || !/^[0-9a-f]{40}$/iu.test(String(event.execution.sha || ''))) {
           throw new Error(`${path.basename(file)} line ${index + 1} has no durable execution identity`);
@@ -373,7 +375,7 @@ function downloadEvidence(loopId, run, tempRoot, registry, now = new Date()) {
   try {
     const evidence = readJson(file);
     if (evidence.loopId !== loopId) {
-      return { evidence: null, error: `canonical evidence belongs to ${evidence.loopId || 'unknown'}, expected ${loopId}` };
+      return { evidence: null, error: loopId === 'L8' ? 'L8 artifact provenance mismatch' : `canonical evidence belongs to ${evidence.loopId || 'unknown'}, expected ${loopId}` };
     }
     if (String(evidence.run?.runId || '') !== String(runId)) {
       return { evidence: null, error: `canonical evidence belongs to run ${evidence.run?.runId || 'unknown'}, expected ${runId}` };
@@ -381,6 +383,7 @@ function downloadEvidence(loopId, run, tempRoot, registry, now = new Date()) {
     if (run?.headSha && evidence.run?.sha && run.headSha !== evidence.run.sha) {
       return { evidence: null, error: 'canonical evidence SHA does not match the selected run' };
     }
+    if (loopId === 'L8') return { evidence, error: null };
     const healthFile = findFile(target, 'loop-health-history.jsonl');
     const health = healthFile ? readLastJsonl(healthFile) : null;
     if (health && (health.loopId !== loopId || String(health.execution?.runId || '') !== String(runId))) {
@@ -410,15 +413,36 @@ function downloadEvidence(loopId, run, tempRoot, registry, now = new Date()) {
       error: null,
     };
   } catch (error) {
-    return { evidence: null, error: `canonical evidence is invalid JSON: ${error.message}` };
+    return { evidence: null, error: loopId === 'L8' ? 'L8 execution artifact is invalid' : `canonical evidence is invalid JSON: ${error.message}` };
   }
+}
+
+function publicL8Evidence(evidence, run) {
+  const status = (value) => ['success', 'failure', 'cancelled', 'skipped'].includes(value) ? value : null;
+  return {
+    run: evidence && run ? { runId: run.databaseId, sha: run.headSha } : null,
+    executionStatus: evidence?.privateEvidence === true ? {
+      audit: status(evidence.auditStatus),
+      validation: status(evidence.validationStatus),
+      runnerEvidence: status(evidence.runnerEvidenceStatus),
+    } : null,
+    outcome: {
+      status: 'unmeasurable',
+      independent: false,
+      reason: 'Economic values and canonical evidence are private.',
+    },
+  };
 }
 
 export function buildStatusRows(registry, runResults = {}, evidenceResults = {}, { now = new Date() } = {}) {
   const validated = validateLoopRegistry(registry);
   return validated.loops.map((policy) => {
     const runResult = runResults[policy.loopId] || { run: null, error: 'run not inspected' };
-    const evidenceResult = evidenceResults[policy.loopId] || { evidence: null, error: 'evidence not inspected' };
+    const rawEvidenceResult = evidenceResults[policy.loopId] || { evidence: null, error: 'evidence not inspected' };
+    const evidenceResult = policy.loopId === 'L8' ? {
+      evidence: publicL8Evidence(rawEvidenceResult.evidence, runResult.run),
+      error: 'L8 canonical evidence is runner-local; durable evidence is unavailable',
+    } : rawEvidenceResult;
     const durableHealth = evidenceResult.canonicalHealth || null;
     const lifecycleEvents = evidenceResult.canonicalLifecycle || evidenceResult.lifecycleEvents || null;
     const durableEvidence = evidenceFromDurableHealth(durableHealth);
@@ -553,6 +577,7 @@ export function buildStatusRows(registry, runResults = {}, evidenceResults = {},
       warningCount,
       operationalMetrics,
       outcome,
+      ...(policy.loopId === 'L8' ? { executionStatus: evidence.executionStatus } : {}),
       outcomePolicyCompliant,
       lifecycleEvents,
       lifecycleState: lifecycleEvents?.state || 'unavailable',

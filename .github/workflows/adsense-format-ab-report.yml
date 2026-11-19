@@ -41,7 +41,6 @@ jobs:
       issues: write
     outputs:
       active: ${{ steps.plan.outputs.active }}
-      experiments: ${{ steps.plan.outputs.experiments }}
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -80,7 +79,18 @@ jobs:
       # No `npm ci`: the plan module has no npm dependency by contract.
       - name: Resolve active experiments
         id: plan
-        run: node scripts/lib/adsense-format-ab-plan.mjs
+        run: |
+          umask 077
+          GITHUB_OUTPUT="$RUNNER_TEMP/adsense-plan.outputs" GITHUB_STEP_SUMMARY='' \
+            node scripts/lib/adsense-format-ab-plan.mjs > "$RUNNER_TEMP/adsense-plan.log" 2>&1
+          if grep -Fxq 'active=true' "$RUNNER_TEMP/adsense-plan.outputs"; then
+            echo 'active=true' >> "$GITHUB_OUTPUT"
+            echo 'AdSense format A/B reporting is active.' >> "$GITHUB_STEP_SUMMARY"
+          else
+            grep -Fxq 'active=false' "$RUNNER_TEMP/adsense-plan.outputs"
+            echo 'active=false' >> "$GITHUB_OUTPUT"
+            echo 'AdSense format A/B reporting is paused.' >> "$GITHUB_STEP_SUMMARY"
+          fi
 
       - name: Report failure to GitHub Issues
         if: failure()
@@ -127,44 +137,28 @@ jobs:
 
       - name: Load secrets from Remote Config
         continue-on-error: true
-        run: node scripts/load-rc-env.mjs
+        run: |
+          umask 077
+          node scripts/load-rc-env.mjs > "$RUNNER_TEMP/report-config.log" 2>&1
 
       - name: Run AdSense format A/B report (save)
-        env:
-          ACTIVE_EXPERIMENT_IDS: ${{ needs.plan.outputs.experiments }}
         run: |
-          : > /tmp/adsense-format-ab-report.md
-          for id in $ACTIVE_EXPERIMENT_IDS; do
-            node scripts/adsense-format-ab-report.mjs --experiment "$id" --save --markdown >> /tmp/adsense-format-ab-report.md
-            echo >> /tmp/adsense-format-ab-report.md
+          umask 077
+          active_ids=$(node --input-type=module -e 'import { buildReportPlan } from "./scripts/lib/adsense-format-ab-plan.mjs"; console.log(buildReportPlan().experimentIds.join(" "));' 2> "$RUNNER_TEMP/adsense-plan.err")
+          : > "$RUNNER_TEMP/adsense-format-ab-report.md"
+          for id in $active_ids; do
+            node scripts/adsense-format-ab-report.mjs --experiment "$id" --save --markdown >> "$RUNNER_TEMP/adsense-format-ab-report.md" 2>> "$RUNNER_TEMP/adsense-format-ab-report.err"
+            echo >> "$RUNNER_TEMP/adsense-format-ab-report.md"
           done
-
-      - name: Print summary to job log
-        run: |
-          echo "## AdSense format A/B reports" >> "$GITHUB_STEP_SUMMARY"
-          cat /tmp/adsense-format-ab-report.md >> "$GITHUB_STEP_SUMMARY"
-
-      - name: Upload report artifact
-        if: always()
-        uses: actions/upload-artifact@v7
-        with:
-          name: adsense-format-ab-report
-          path: |
-            reports/adsense-format-ab-*.json
-            reports/adsense-format-ab-*.md
-          retention-days: 90
-          if-no-files-found: warn
+          echo 'AdSense format A/B reporting completed. Report values are private.' >> "$GITHUB_STEP_SUMMARY"
 
       - name: Commit AdSense format A/B history
         run: |
+          umask 077
+          exec > "$RUNNER_TEMP/adsense-history.log" 2>&1
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          # Full reports live under reports/ which is gitignored (preserved as
-          # build artifacts only, see "Upload report artifact" above). Only the
-          # compact append-only history file is committed so the next weekly
-          # run can compute each experiment's separate cumulative-sample trend
-          # (one tagged JSONL row per pair; same pattern as
-          # data/revenue-monitor-history.jsonl, see revenue-monitor.yml).
+          # Stage only the history used by the next run.
           git add data/adsense-format-ab-history.jsonl
           if git diff --cached --quiet; then
             echo "No history changes to commit."
@@ -178,7 +172,7 @@ jobs:
           # regenerating.
           bash scripts/lib/git-push-with-retry.sh \
             --branch "$GITHUB_REF_NAME" \
-            --in-place-resolver-cmd "source scripts/lib/resolve-append-conflicts.sh && resolve_append_conflicts && git add -A"
+            --in-place-resolver-cmd "source scripts/lib/resolve-append-conflicts.sh && resolve_append_conflicts"
 
       - name: Open/update the weekly tracking issue
         if: always()
@@ -187,13 +181,13 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
-          if [ ! -s /tmp/adsense-format-ab-report.md ]; then
+          if [ ! -s "$RUNNER_TEMP/adsense-format-ab-report.md" ]; then
             echo "No report was produced this run: the tracking issue is left untouched."
             exit 0
           fi
           # Stable title → github-issue-creator.mjs dedups on it: week 1 opens
-          # the issue, every following week posts a 🔁 comment with the fresh
-          # report on the SAME issue instead of minting a new one — this is
+          # the issue, every following week posts a 🔁 comment with the run
+          # status on the SAME issue instead of minting a new one — this is
           # the "one place to see week-over-week" the owner asked for.
           #
           # Priority 4 (`priority:low`) + a custom, non-matching label
@@ -207,7 +201,7 @@ jobs:
           # `category: other` / `fu-prio: low`.
           node scripts/lib/github-issue-creator.mjs \
             --title "AdSense in-feed A/B: monitor settimanale" \
-            --description-file /tmp/adsense-format-ab-report.md \
+            --description "AdSense format A/B report output is available only on the runner. See the run status for completion." \
             --priority 4 \
             --label adsense-ab-test \
             --workflow "${{ github.workflow }}"
