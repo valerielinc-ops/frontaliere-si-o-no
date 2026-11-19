@@ -355,7 +355,7 @@ export function dedupSlugSegmentRepeats(slug = '') {
   return tokens.join('-');
 }
 
-function slugifyLocalizedLabel(value = '') {
+export function slugifyLocalizedLabel(value = '') {
   const canonical = canonicalizeGenderTrigraph(value);
   const base = String(canonical || '')
     .trim()

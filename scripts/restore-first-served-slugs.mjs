@@ -169,6 +169,9 @@ async function main() {
   if (options.apply && options.ledger) {
     throw new Error('--apply always uses the canonical served-URL ledger');
   }
+  if (options.apply && process.env.URL_FIRST_SEEN_PATH_OVERRIDE) {
+    throw new Error('--apply rejects URL_FIRST_SEEN_PATH_OVERRIDE; unset it to use the canonical served-URL ledger');
+  }
   if (options.ledger) {
     process.env.URL_FIRST_SEEN_PATH_OVERRIDE = path.resolve(options.ledger);
   }

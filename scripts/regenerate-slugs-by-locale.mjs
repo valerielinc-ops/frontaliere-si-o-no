@@ -43,6 +43,7 @@ import {
   getRegisteredSlug,
   loadSlugRegistry,
   registryPinnedLocaleSlug,
+  slugifyLocalizedLabel,
 } from './lib/dedicated-crawler-common.mjs';
 import {
   appendDisambiguatorTail,
@@ -94,9 +95,8 @@ export function servedSlugCandidates(job, locale) {
   // Mirror hardenJobLocaleFields: losslessSlugTitle substitutes the source
   // title for a truncated translation and addressLocality wins over location.
   const location = String(job.addressLocality || job.location || '');
-  const disambiguator = String(job.slugDisambiguator || '').trim();
   if (title.length >= 3) {
-    add(buildSlug(title, company, location, disambiguator), 'title-derived');
+    add(slugifyLocalizedLabel([title, company, location].filter(Boolean).join(' ')), 'title-derived');
   }
 
   return [...candidates].map(([slug, origin]) => ({ slug, origin }));
