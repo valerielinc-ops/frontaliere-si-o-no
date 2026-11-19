@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1172,
+      "5": 1173,
       "6": 5062
     },
-    "publishedCovers": 7915,
+    "publishedCovers": 7916,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -218689,6 +218689,39 @@
       "provider": null,
       "status": "no-credit",
       "currentlyPublished": true
+    },
+    "article-simon-graf-medico-cantonale": {
+      "cover": "/images/blog/article-simon-graf-medico-cantonale.webp",
+      "hash": "65afff2fcd097a07aee95e7cc6effa61bef481fbc3d4ba0d2dc281d422d30086",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-appenzello",
+          "id": "simon-graf-medico-cantonale",
+          "category": "novita",
+          "date": "2026-11-19T08:14:27.826Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-simon-graf-medico-cantonale.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1795,
+      "verifiedAt": "2026-11-19",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-simon-graf-medico-cantonale",
+        "imageUrl": "/images/blog/article-simon-graf-medico-cantonale.webp",
+        "evidence": "generated-engine-record"
+      }
     }
   },
   "repair": {
