@@ -24,6 +24,10 @@ describe('COGESTIM SA crawler parser', () => {
       expect(isCogestimChJob({ company: 'COGESTIM SA' })).toBe(true);
     });
 
+    it('rejects lookalike company names', () => {
+      expect(isCogestimChJob({ company: 'Not COGESTIM SA' })).toBe(false);
+    });
+
     it('matches by URL domain', () => {
       expect(isCogestimChJob({ url: 'https://cogestim.ch/jobs/123' })).toBe(true);
     });

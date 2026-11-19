@@ -7,6 +7,7 @@ import path from 'node:path';
 import {
   assertJobCanonV2ShardWithinLimit,
   assertMaxShardGrowthWithinPercent,
+  assertUniqueJobCanonV1Key,
   jobCanonRedirectMapPlugin,
 } from '../build-plugins/jobCanonRedirectMapPlugin';
 import {
@@ -142,6 +143,13 @@ describe('jobCanonRedirectMapPlugin', () => {
   const readV2Shard = (slug: string): Record<string, Record<string, string>> =>
     JSON.parse(fs.readFileSync(path.join(tmp, 'dist', 'job-canon', 'v2', `${jobCanonV2ShardKey(slug)}.json`), 'utf-8'));
 
+  it('fails closed before a second v1 fragment can duplicate a JSON key', () => {
+    const emittedSlugs = new Set<string>();
+    assertUniqueJobCanonV1Key(emittedSlugs, 'duplicate-v1-key', 'du');
+    expect(() => assertUniqueJobCanonV1Key(emittedSlugs, 'duplicate-v1-key', 'du'))
+      .toThrow('[job-canon-redirect-map] duplicate v1 key "duplicate-v1-key" in shard du');
+  });
+
   it('maps the IT localized slug to its canonical section prefix', () => {
     const shard = readShard('capo-ottimizzazione-portafoglio-ffs-zollikofen');
     expect(shard['capo-ottimizzazione-portafoglio-ffs-zollikofen'].it).toBe('/cerca-lavoro-berna');
@@ -155,7 +163,7 @@ describe('jobCanonRedirectMapPlugin', () => {
     expect(v2Files.every((file) => /^[0-9a-f]{3}\.json$/.test(file))).toBe(true);
   });
 
-  it('emits a schema 1 release manifest with raw and canonical digests from the shard pass', () => {
+  it('emits a schema 2 release manifest with raw and emitted-order canonical digests', () => {
     const outputDir = path.join(tmp, 'dist', 'job-canon');
     const manifest = JSON.parse(fs.readFileSync(path.join(outputDir, 'manifest.json'), 'utf8')) as {
       schemaVersion: number;
@@ -178,9 +186,19 @@ describe('jobCanonRedirectMapPlugin', () => {
       }
       return result;
     };
-    const digestEntries = (map: Record<string, Record<string, unknown>>) => {
+    const digestEntries = (
+      map: Record<string, Record<string, unknown>>,
+      emittedV1Order = false,
+    ) => {
       const digest = createHash('sha256');
-      for (const slug of Object.keys(map).sort()) {
+      const slugs = Object.keys(map);
+      slugs.sort((left, right) => {
+        const leftBucket = emittedV1Order ? jobCanonV2ShardKey(left) : '';
+        const rightBucket = emittedV1Order ? jobCanonV2ShardKey(right) : '';
+        if (leftBucket !== rightBucket) return leftBucket < rightBucket ? -1 : 1;
+        return left < right ? -1 : left > right ? 1 : 0;
+      });
+      for (const slug of slugs) {
         digest.update(JSON.stringify(slug));
         digest.update(':');
         digest.update(JSON.stringify(canonicalEntry(map[slug])));
@@ -188,7 +206,11 @@ describe('jobCanonRedirectMapPlugin', () => {
       }
       return digest.digest('hex');
     };
-    const readFiles = (directory: string, files: typeof manifest.v1.files) => {
+    const readFiles = (
+      directory: string,
+      files: typeof manifest.v1.files,
+      emittedV1Order = false,
+    ) => {
       const maps = new Map<string, Record<string, unknown>>();
       let entries = 0;
       let aliases = 0;
@@ -201,7 +223,7 @@ describe('jobCanonRedirectMapPlugin', () => {
         const aliasCount = Object.values(map).reduce((total, entry) =>
           total + (entry.alias && typeof entry.alias === 'object' ? Object.keys(entry.alias).length : 0), 0);
         expect(aliasCount).toBe(spec.aliases);
-        expect(digestEntries(map)).toBe(spec.canonicalEntriesSha256);
+        expect(digestEntries(map, emittedV1Order)).toBe(spec.canonicalEntriesSha256);
         entries += spec.entries;
         aliases += spec.aliases;
         for (const [slug, entry] of Object.entries(map)) maps.set(slug, entry);
@@ -209,12 +231,12 @@ describe('jobCanonRedirectMapPlugin', () => {
       return { maps, entries, aliases };
     };
 
-    expect(manifest.schemaVersion).toBe(1);
+    expect(manifest.schemaVersion).toBe(2);
     expect(Object.keys(manifest.logical).sort()).toEqual(['aliases', 'canonicalEntriesSha256', 'entries']);
     expect(manifest.logical.canonicalEntriesSha256).toMatch(/^[0-9a-f]{64}$/);
     expect(fs.readFileSync(path.join(outputDir, 'manifest.json'), 'utf8')).not.toContain('stale');
 
-    const v1 = readFiles(outputDir, manifest.v1.files);
+    const v1 = readFiles(outputDir, manifest.v1.files, true);
     const v2 = readFiles(path.join(outputDir, 'v2'), manifest.v2.files);
     expect(v1.maps).toEqual(v2.maps);
     expect(v1.entries).toBe(manifest.logical.entries);
@@ -354,6 +376,16 @@ describe('active job aliases in the IT /job-canon publishing leg', () => {
         en: ['legacy-en-v1', 'cross-foreign-en-v1', 'registry-collision-old-v1'],
         de: ['legacy-de-v1'],
         fr: ['legacy-fr-v1'],
+      },
+    }),
+    job('cross-bucket-projection', 'AG', {
+      it: 'cross-bucket-current-it', en: 'cross-bucket-current-en',
+      de: 'cross-bucket-current-de', fr: 'cross-bucket-current-fr',
+    }, {
+      previousSlugsByLocale: {
+        it: ['bucket-cross-a'],
+        en: ['bucket-cross-b'],
+        fr: ['bucket-cross-c'],
       },
     }),
     job('flat-claimant', 'GE', {
@@ -606,6 +638,21 @@ ${duplicateShardEntries.join(',\n')}
     ] as const;
     for (const [slug, locale, target] of cases) {
       expect(readEntry(slug)?.alias?.[locale]).toBe(target);
+    }
+  });
+
+  it('projects active aliases into the bucket that owns each previous slug', () => {
+    const previousSlugs = ['bucket-cross-a', 'bucket-cross-b', 'bucket-cross-c'];
+    expect(new Set(previousSlugs.map(jobCanonV2ShardKey)).size).toBe(previousSlugs.length);
+    const cases = [
+      ['bucket-cross-a', 'it'],
+      ['bucket-cross-b', 'en'],
+      ['bucket-cross-c', 'fr'],
+    ] as const;
+    for (const [slug, locale] of cases) {
+      const entry = readEntry(slug);
+      expect(entry?.alias?.[locale]).toMatch(/^\//);
+      expect(readV2Entry(slug)).toEqual(entry);
     }
   });
 

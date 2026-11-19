@@ -2663,10 +2663,6 @@
           "postdoc-at-the-digital-and-cognitive-musicology-lab-epfl-lausanne-epfl-lausanne"
         ]
       },
-      "needsRetranslation": true,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 2026,
-      "retranslationAttempts": 3,
       "firstSeenAt": "2026-05-10T21:32:10.707Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -2686,7 +2682,11 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-29T21:23:22.792Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "retranslationAttempts": 4,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 2026,
+      "needsRetranslation": true
     },
     {
       "id": "epfl-722976eb1d65",

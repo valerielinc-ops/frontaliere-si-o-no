@@ -24,6 +24,10 @@ describe('HP Job GmbH crawler parser', () => {
       expect(isHpjobChJob({ company: 'HP Job GmbH' })).toBe(true);
     });
 
+    it('rejects lookalike company names', () => {
+      expect(isHpjobChJob({ company: 'Not HP Job GmbH' })).toBe(false);
+    });
+
     it('matches by URL domain', () => {
       expect(isHpjobChJob({ url: 'https://hpjob.ch/jobs/123' })).toBe(true);
     });

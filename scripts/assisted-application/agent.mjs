@@ -19,6 +19,7 @@ import { appendFileSync, writeFileSync } from 'node:fs';
 import { parseArgs } from 'node:util';
 import { ASSISTED_APPLICATION_STORAGE_BUCKET, detectCvFileType } from '../../functions/src/assistedApplicationCvCheck.js';
 import { ASSISTED_APPLICATION_ORDER_ID_RE } from '../../functions/src/assistedApplicationConstants.js';
+import { aliasLocalPart } from '../../functions/src/assistedApplicationAlias.js';
 import { getFirestoreDb } from '../lib/firestore-admin.mjs';
 import { buildDraft, DraftAbort } from './lib/draft.mjs';
 import { saveCachedJobQuestions } from './lib/preharvest.mjs';
@@ -218,14 +219,23 @@ async function main() {
     try {
       const documentOrder = await withRegisteredCandidateEmail(order);
       if (documentOrder.documentAccountEmail) maskValues([documentOrder.documentAccountEmail]);
+      const aliasActive = order.candidateAlias?.active === true && Boolean(aliasLocalPart(order.candidateAlias?.address));
       const draft = await buildDraft({
         db, order: documentOrder, orderId, flow: executionFlow, previousDraft, cvBuffer, cvType, bucket, runKey,
         intake: intakeSnapshot.exists ? intakeSnapshot.data() : null,
         codex: (request) => requestCodexBrokerJson(request),
         // A portal form read ahead: its questions and required file fields reach the first review.
+        // Only pass portal account credentials when the order's routing alias is active so any
+        // ATS account verification/reminder e-mails land on our alias and never on the user.
+        accounts: aliasActive ? portalAccountStore({ db, orderId, key: runKey, mask: (value) => maskValues([value]) }) : null,
+        knowledge: aliasActive ? portalKnowledgeStore({ db }) : null,
         readPortalRequirements,
       });
       await writeDraft({ orderRef, bucket, draft, previousDraft });
+      const discoveredPortalQuestions = (draft.questions || []).filter((question) => question?.source === 'portal');
+      if (discoveredPortalQuestions.length) {
+        await saveCachedJobQuestions(db, order.jobUrl, discoveredPortalQuestions, { source: 'portal_preread' }).catch(() => {});
+      }
       summary(`draft ready in ${Math.round((Date.now() - started) / 1000)}s: verdict=${draft.verdict} channel=${draft.channel?.type} questions=${draft.questions.length} factWarnings=${draft.factCheck.unsupported.length}`);
       await report({ type: 'draft_ready' });
     } catch (error) {

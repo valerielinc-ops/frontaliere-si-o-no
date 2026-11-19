@@ -431,6 +431,7 @@ async function main() {
             statePath: path.join(stateDir, 'instagram-community-state.json'),
             reservationRepoRoot: repoDir,
             mode: communityMode,
+            now: robotStartedAt,
             log: console,
           });
         } else if (communitySource === 'browser') {

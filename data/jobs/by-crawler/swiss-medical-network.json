@@ -3708,10 +3708,9 @@
         "location": "Echandens"
       },
       "sourceLang": "fr",
-      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 3861,
-      "retranslationAttempts": 23,
+      "retranslationAttempts": 24,
       "firstSeenAt": "2026-09-26T13:56:03.166Z",
       "streetAddress": "Echandens",
       "streetAddressSource": "to-enrich",
@@ -3730,7 +3729,8 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139058930-gynakologe-in-und-geburtshelfer-in",
@@ -4209,7 +4209,7 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 20,
+      "retranslationAttempts": 21,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 2733,
       "needsRetranslation": true,

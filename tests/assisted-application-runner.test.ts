@@ -1,4 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
+import { existsSync } from 'node:fs';
 import { isDeepStrictEqual } from 'node:util';
 import { extractCvText, renderPdf } from '../functions/src/assistedApplicationAiDocuments.js';
 import { JOB_ACTIVE_IDS_URL, JOB_DETAIL_BASE } from '../functions/src/assistedApplicationAiJob.js';
@@ -838,6 +839,47 @@ describe('draft mode', () => {
     })).rejects.toMatchObject({ eventType: 'posting_closed' });
     expect(codex).not.toHaveBeenCalled();
     expect(new DraftAbort('draft_failed', 'x').eventType).toBe('draft_failed');
+  });
+
+  it('forwards accounts, knowledge, cvText, and temporary upload files to portal pre-read and cleans up afterwards', async () => {
+    const accounts = { load: vi.fn(async () => null) };
+    const knowledge = { read: vi.fn(async () => null) };
+    let seenCvPath = '';
+    let existedDuringRead = false;
+    const readPortalRequirements = vi.fn(async (ctx: any) => {
+      seenCvPath = String(ctx?.files?.cv || '');
+      existedDuringRead = Boolean(seenCvPath && existsSync(seenCvPath));
+      return { questions: [], documents: [] };
+    });
+
+    const draft = await buildDraft({
+      order: { ...order, candidateAlias: { active: true, address: 'c-wd23456789@candidature.frontaliereticino.ch' } },
+      orderId: ORDER_ID,
+      flow: { round: 1, answers: {} },
+      previousDraft: null,
+      cvBuffer: cvPdf(),
+      cvType: 'pdf',
+      codex: fakeCodex(),
+      bucket: fakeBucket(),
+      runKey: KEY,
+      resolve: publicDns,
+      fetchImpl: fakeFetch(),
+      accounts,
+      knowledge,
+      readPortalRequirements,
+      nowMs: Date.UTC(2026, 8, 30),
+      log: quiet,
+    } as any);
+
+    expect(draft.status).toBe('ready');
+    expect(readPortalRequirements).toHaveBeenCalledWith(expect.objectContaining({
+      accounts,
+      knowledge,
+      cvText: expect.stringContaining('Maria'),
+      files: expect.objectContaining({ cv: expect.stringMatching(/\.pdf$/) }),
+    }));
+    expect(existedDuringRead).toBe(true);
+    expect(existsSync(seenCvPath)).toBe(false);
   });
 });
 

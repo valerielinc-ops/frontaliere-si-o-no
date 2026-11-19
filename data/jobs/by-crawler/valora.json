@@ -1,7 +1,7 @@
 {
   "crawlerKey": "valora",
-  "assembledAt": "2026-11-18T09:20:52.151Z",
-  "runId": "44272815385",
+  "assembledAt": "2026-11-18T21:18:34.849Z",
+  "runId": "44397966701",
   "jobs": [
     {
       "id": "valora-8f50a504dbf4",
@@ -34,7 +34,7 @@
       "url": "https://career.valora.com/en/job/12939/agenturpartnerin-agenturpartner-kanton-graubunden",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:20:18.983Z",
+      "crawledAt": "2026-11-18T21:17:53.441Z",
       "addressLocality": "Graubünden",
       "addressRegion": "Graubünden",
       "streetAddress": "Graubünden",
@@ -84,7 +84,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:20:18.983Z",
+      "validThrough": "2026-12-18T21:17:53.441Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -118,7 +118,7 @@
       "url": "https://career.valora.com/en/job/20001/agenturpartnerin-agenturpartner-prattigau",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:20:18.981Z",
+      "crawledAt": "2026-11-18T21:17:53.439Z",
       "addressLocality": "Graubünden",
       "addressRegion": "Graubünden",
       "streetAddress": "Graubünden",
@@ -169,7 +169,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:20:18.981Z",
+      "validThrough": "2026-12-18T21:17:53.439Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -203,7 +203,7 @@
       "url": "https://career.valora.com/en/job/21041/verkauferin-verkaufer-k-kiosk-15-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:20:18.979Z",
+      "crawledAt": "2026-11-18T21:17:53.437Z",
       "addressLocality": "Uetendorf",
       "addressRegion": "Bern",
       "streetAddress": "Dorfstrasse 32",
@@ -263,7 +263,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-18T09:20:18.979Z",
+      "validThrough": "2026-12-18T21:17:53.437Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -297,7 +297,7 @@
       "url": "https://career.valora.com/en/job/21161/mitarbeiter-instandhaltung-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:20:18.977Z",
+      "crawledAt": "2026-11-18T21:17:53.436Z",
       "addressLocality": "Emmenbrücke",
       "addressRegion": "Luzern",
       "streetAddress": "Neuenkirchstrasse 91",
@@ -341,7 +341,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-18T09:20:18.977Z",
+      "validThrough": "2026-12-18T21:17:53.436Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -375,7 +375,7 @@
       "url": "https://career.valora.com/en/job/12937/agenturpartnerin-agenturpartner-kanton-bern",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:20:18.972Z",
+      "crawledAt": "2026-11-18T21:17:53.431Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "streetAddress": "Bahnhof",
@@ -425,7 +425,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:20:18.972Z",
+      "validThrough": "2026-12-18T21:17:53.431Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -459,7 +459,7 @@
       "url": "https://career.valora.com/en/job/12938/agenturpartnerin-agenturpartner-kanton-solothurn",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:20:18.971Z",
+      "crawledAt": "2026-11-18T21:17:53.430Z",
       "addressLocality": "Solothurn",
       "addressRegion": "Solothurn",
       "streetAddress": "Bahnhof",
@@ -511,173 +511,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:20:18.971Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "valora-99fef9aece64",
-      "slug": "expansion-lease-svizzera-valora-group-muttenz",
-      "slugByLocale": {
-        "it": "expansion-lease-svizzera-valora-group-muttenz",
-        "en": "lead-expansion-lease-switzerland-valora-muttenz",
-        "de": "lead-expansion-lease-switzerland-valora-muttenz",
-        "fr": "expansion-et-location-de-plomb-suisse-valora-group-muttenz"
-      },
-      "company": "Valora Group",
-      "companyKey": "valora",
-      "companyDomain": "valora.com",
-      "title": "Lead Expansion & Lease Switzerland",
-      "titleByLocale": {
-        "it": "Expansion & Lease Svizzera",
-        "en": "Lead Expansion & Lease Switzerland",
-        "de": "Lead Expansion & Lease Switzerland",
-        "fr": "Expansion et location de plomb Suisse"
-      },
-      "description": "Aufgaben, die Dir gefallen werden\n• Umsetzung der Expansionsstrategie mit Schwerpunkt auf Neueröffnungen und Optimierung bestehender Standorte für unsere Retail und Food Service Formate in der Schweiz\n• Suche, Analyse und Bewertung neuer Standorte hinsichtlich ihrer Wirtschaftlichkeit und Eignung\n• Führen der Mietabteilung, Überwachung der SOX-Kontrollen und Pflege der Verträge im Tradenet-System\n• Verhandlung und Abschluss von Mietverträgen mit Vermietern und Eigentümern zur Sicherstellung optimaler Konditionen\n• Fachliche und disziplinarische Führung des Expansions- und Mietteams (Expansion sowie administrative Unterstützung im Leasemanagement) zur Umsetzung der Expansionsstrategie\n• Koordination und Management von Projekten im Zusammenhang mit der Eröffnung neuer Verkaufsstellen\n• Durchführung von Marktanalysen und Wettbewerbsbeobachtung, um Trends und Expansionsmöglichkeiten zu identifizieren\n• Erstellung und Überwachung von Budgets für Expansionsprojekte sowie Sicherstellung der Einhaltung finanzieller Vorgaben\n• Zusammenarbeit mit internen Abteilungen (u.a. Bau, Verkauf, Facility Management und Controlling), externen Partnern und Behörden, um den Expansionsprozess effizient zu unterstützen Voraussetzungen, die Du mitbringst\n• Nachgewiesene Erfahrung in einer vergleichbaren Position mit Schwerpunkt auf Expansion und Leasemanagement im Detailhandel und Convenience Geschäft\n• Ausgeprägter Unternehmergeist, hohe Kundenorientierung und Durchsetzungsstärke sowie Erfahrung in der Führung von Teams\n• Selbstständige, strukturierte Arbeitsweise sowie strategisches und vernetztes Denken\n• Freude, sich immer wieder neuen Herausforderungen zu stellen und in einem dynamischen Umfeld zu arbeiten\n• Verhandlungssichere Deutsch- sowie gute Englischkenntnisse, Französisch von Vorteil Vorteile, die wir Dir bieten\n• Ein dynamisches Arbeitsumfeld mit Freiraum für Ideen und Kreativität\n• Eine DU-Kultur\n• Persönliche Entwicklungs- und Weiterbildungsmöglichkeiten\n• Mitarbeitervergünstigungen und Rabatte bei den Valora Formaten\n• Faire Anstellungsbedingungen\n• Homeofficeregelung",
-      "descriptionByLocale": {
-        "it": "Compiti che ti piacerà\n• Attuazione della strategia di espansione con focus sulle nuove aperture e l'ottimizzazione delle sedi esistenti per i nostri formati di servizi al dettaglio e alimentare in Svizzera\n• Ricerca, analisi e valutazione di nuove sedi per quanto riguarda l'efficienza economica e l'idoneità\n• Gestione del reparto noleggio, monitoraggio dei controlli SOX e mantenimento dei contratti nel sistema Tradenet\n• Negoziazione e conclusione di contratti di locazione con proprietari e proprietari per garantire condizioni ottimali\n• Gestione professionale e disciplinare del team di espansione e noleggio (espansione e supporto amministrativo nella gestione delle locazioni) per implementare la strategia di espansione\n• Coordinamento e gestione dei progetti relativi all'apertura di nuovi punti vendita\n• Condurre l'analisi del mercato e l'osservazione competitiva per identificare le tendenze e le opportunità di espansione\n• Preparazione e monitoraggio dei bilanci per i progetti di espansione e garantire il rispetto dei requisiti finanziari\n• Collaborazione con i dipartimenti interni (compresa la costruzione, le vendite, la gestione delle strutture e il controllo), partner esterni e autorità per sostenere efficacemente il processo di espansione\n• Esperienza comprovata in una posizione paragonabile con un focus sull'espansione e la gestione del contratto di vendita al dettaglio e convenienza\n• Forte spirito imprenditoriale, alto orientamento e assertività del cliente e l'esperienza nei principali team\n• Metodo di lavoro indipendente, strutturato e pensiero strategico e in rete\n• Il piacere di affrontare costantemente nuove sfide e di lavorare in un ambiente dinamico\n• A prova di negoziazione tedesco e buone abilità inglese, francese vantaggi vantaggiosi che vi offriamo\n• Un ambiente di lavoro dinamico con libertà di idee e creatività\n• Una cultura DU\n• Opportunità di sviluppo personale e formazione\n• Vantaggi e sconti dei dipendenti nei formati Valora\n• Condizioni dell'occupazione\n• Home Ufficio Scheme",
-        "en": "Tasks you will like\n• Implementation of the expansion strategy with focus on new openings and optimization of existing locations for our retail and food service formats in Switzerland\n• Search, analysis and evaluation of new locations with regard to their economic efficiency and suitability\n• Managing the rental department, monitoring SOX controls and maintaining contracts in the Tradenet system\n• Negotiation and conclusion of lease contracts with landlords and owners to ensure optimal conditions\n• Professional and disciplinary management of the expansion and rental team (expansion and administrative support in lease management) to implement the expansion strategy\n• Coordination and management of projects related to the opening of new outlets\n• Conducting market analysis and competitive observation to identify trends and expansion opportunities\n• Preparation and monitoring of budgets for expansion projects and ensuring compliance with financial requirements\n• Collaboration with internal departments (including construction, sales, facility management and controlling), external partners and authorities to efficiently support the expansion process\n• Proven experience in a comparable position with a focus on expansion and lease management in the retail and convenience business\n• Strong entrepreneurial spirit, high customer orientation and assertiveness as well as experience in leading teams\n• Independent, structured working method as well as strategic and networked thinking\n• The pleasure of constantly facing new challenges and working in a dynamic environment\n• Negotiation-proof German and good English skills, French advantageous advantages that we offer you\n• A dynamic working environment with freedom for ideas and creativity\n• A DU culture\n• Personal development and training opportunities\n• Employee benefits and discounts in the Valora formats\n• Fair employment conditions\n• Home Office Scheme",
-        "de": "Aufgaben, die Dir gefallen werden\n• Umsetzung der Expansionsstrategie mit Schwerpunkt auf Neueröffnungen und Optimierung bestehender Standorte für unsere Retail und Food Service Formate in der Schweiz\n• Suche, Analyse und Bewertung neuer Standorte hinsichtlich ihrer Wirtschaftlichkeit und Eignung\n• Führen der Mietabteilung, Überwachung der SOX-Kontrollen und Pflege der Verträge im Tradenet-System\n• Verhandlung und Abschluss von Mietverträgen mit Vermietern und Eigentümern zur Sicherstellung optimaler Konditionen\n• Fachliche und disziplinarische Führung des Expansions- und Mietteams (Expansion sowie administrative Unterstützung im Leasemanagement) zur Umsetzung der Expansionsstrategie\n• Koordination und Management von Projekten im Zusammenhang mit der Eröffnung neuer Verkaufsstellen\n• Durchführung von Marktanalysen und Wettbewerbsbeobachtung, um Trends und Expansionsmöglichkeiten zu identifizieren\n• Erstellung und Überwachung von Budgets für Expansionsprojekte sowie Sicherstellung der Einhaltung finanzieller Vorgaben\n• Zusammenarbeit mit internen Abteilungen (u.a. Bau, Verkauf, Facility Management und Controlling), externen Partnern und Behörden, um den Expansionsprozess effizient zu unterstützen Voraussetzungen, die Du mitbringst\n• Nachgewiesene Erfahrung in einer vergleichbaren Position mit Schwerpunkt auf Expansion und Leasemanagement im Detailhandel und Convenience Geschäft\n• Ausgeprägter Unternehmergeist, hohe Kundenorientierung und Durchsetzungsstärke sowie Erfahrung in der Führung von Teams\n• Selbstständige, strukturierte Arbeitsweise sowie strategisches und vernetztes Denken\n• Freude, sich immer wieder neuen Herausforderungen zu stellen und in einem dynamischen Umfeld zu arbeiten\n• Verhandlungssichere Deutsch- sowie gute Englischkenntnisse, Französisch von Vorteil Vorteile, die wir Dir bieten\n• Ein dynamisches Arbeitsumfeld mit Freiraum für Ideen und Kreativität\n• Eine DU-Kultur\n• Persönliche Entwicklungs- und Weiterbildungsmöglichkeiten\n• Mitarbeitervergünstigungen und Rabatte bei den Valora Formaten\n• Faire Anstellungsbedingungen\n• Homeofficeregelung",
-        "fr": "Tâches que vous aimerez\n• Mise en œuvre de la stratégie d'expansion en mettant l'accent sur les nouvelles ouvertures et l'optimisation des emplacements existants pour nos formats de vente et de services alimentaires en Suisse\n• Recherche, analyse et évaluation de nouveaux sites en ce qui concerne leur efficacité économique et leur adéquation\n• Gestion du service de location, surveillance des contrôles SOX et maintien des contrats dans le système Tradenet\n• Négociation et conclusion de contrats de location avec les propriétaires et les propriétaires pour assurer des conditions optimales\n• Gestion professionnelle et disciplinaire de l ' équipe chargée de l ' expansion et de la location (appui administratif à la gestion des contrats de location) pour mettre en œuvre la stratégie d ' expansion\n• Coordination et gestion des projets liés à l'ouverture de nouveaux points de vente\n• Analyse du marché et observation de la concurrence pour identifier les tendances et les possibilités d'expansion\n• Élaboration et suivi des budgets des projets d'expansion et respect des exigences financières\n• Collaboration avec les ministères internes (y compris la construction, les ventes, la gestion et le contrôle des installations), les partenaires externes et les autorités pour appuyer efficacement le processus d'expansion\n• Expérience éprouvée dans une position comparable avec un accent sur l'expansion et la gestion de la location dans le commerce de détail et de commodité\n• Un esprit d'entreprise fort, une grande orientation client et une assurance ainsi qu'une expérience dans les équipes dirigeantes\n• Méthode de travail indépendante et structurée ainsi que pensée stratégique et en réseau\n• Le plaisir de faire constamment face à de nouveaux défis et de travailler dans un environnement dynamique\n• L'allemand résistant aux négociations et les bonnes compétences en anglais, le français avantages que nous vous offrons\n• Un environnement de travail dynamique avec liberté d'idées et de créativité\n• Une culture du DU\n• Possibilités de perfectionnement personnel et de formation\n• Avantages sociaux et réductions en format Valora\n• Conditions d'emploi équitables\n• Régime des bureaux extérieurs"
-      },
-      "location": "Muttenz",
-      "canton": "BL",
-      "url": "https://career.valora.com/en/job/21864/lead-expansion-lease-switzerland",
-      "source": "Valora Group Dedicated Parser (Custom)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:20:18.970Z",
-      "addressLocality": "Muttenz",
-      "addressRegion": "Baselland",
-      "streetAddress": "Hofackerstr. 40",
-      "postalCode": "4132",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Facility Management",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Retail / Foodvenience",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-01",
-      "postedDate": "2026-09-01",
-      "postingDateSource": "reported",
-      "applyUrl": "https://recruitingapp-2538.umantis.com/Vacancies/21864/Application/CheckLogin/1?lang=ger&DesignID=10004",
-      "jobReqId": "21864",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lead-expansion-lease-switzerland-valora-muttenz"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lead-expansion-lease-switzerland-valora-muttenz"
-        ],
-        "fr": [
-          "lead-expansion-lease-switzerland-valora-muttenz"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-29T14:33:01.447Z",
-      "salaryMin": 65500,
-      "salaryMax": 88500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 65500,
-          "maxValue": 88500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-18T09:20:18.970Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "valora-dc72b28c60d7",
-      "slug": "agenzia-partner-agenzia-partner-regione-berner-oberland-valora-group-bern",
-      "slugByLocale": {
-        "it": "agenzia-partner-agenzia-partner-regione-berner-oberland-valora-group-bern",
-        "en": "agency-partner-agency-partner-region-berner-oberland-valora-group-bern",
-        "de": "agenturpartnerin-agenturpartner-region-berner-oberland-valora-bern",
-        "fr": "agence-partenaire-agence-partenaire-region-berner-oberland-valora-group-bern"
-      },
-      "company": "Valora Group",
-      "companyKey": "valora",
-      "companyDomain": "valora.com",
-      "title": "Agenturpartnerin / Agenturpartner Region Berner Oberland",
-      "titleByLocale": {
-        "it": "Agenzia Partner / Agenzia Partner Regione Berner Oberland",
-        "en": "Agency Partner / Agency Partner Region Berner Oberland",
-        "de": "Agenturpartnerin / Agenturpartner Region Berner Oberland",
-        "fr": "Agence Partenaire / Agence Partenaire Région Berner Oberland"
-      },
-      "description": "Suchst Du den Einstieg in die Selbständigkeit? Valora als etablierte Convenience- und Food-Service-Anbieterin bietet Dir dazu ein schlüsselfertiges und über Jahre erprobtes sowie erfolgreiches Geschäftsmodell. Wir begleiten Dich unterstützend über die Neueröffnung Deines Stores hinaus, damit Du nicht nur den Start erfolgreich meisterst, sondern Dich langfristig als Agenturpartner/in an unserer Seite wohlfühlst. Dabei kannst Du wählen, welches unserer erstklassigen Formate: avec, Press & Books oder k kiosk (an hochfrequenten Standorten wie Bahnhöfen, Flughäfen oder Tankstellen) am besten zu Dir passt. Aufgaben, die Dir gefallen werden\n• Führen eines oder mehrerer, gut frequentierter Valora Stores als selbständige/r Unternehmer/in in eigener Verantwortung\n• Personalführung inkl. Einsatzplanung, Rekrutierung, Aus- und Weiterbildung der Mitarbeitenden\n• Warenbewirtschaftung (Inventur, Lagerbestand, Bestellungen)\n• Proaktive Beratung der Kunden und Aufbau / Pflege der Kundenbeziehungen\n• Enge Zusammenarbeit mit den Zulieferern und der zuständigen Verkaufsleitung\n• Laufende Optimierung der Prozesse und Servicequalität im Store\n• Sicherstellen eines professionellen Auftritts des Stores und der Umsetzung von verkaufsfördernden Massnahmen Voraussetzungen, die Du mitbringst\n• Eine Ausbildung als Detailhandelsfachmann/-frau EFZ und/oder relevante Erfahrung im Detailhandel, der Hotellerie oder Gastronomie\n• Interesse an der Selbständigkeit und der Führung eines oder mehrerer Stores\n• Bereitschaft – vor allem in der Anfangszeit – viel Zeit, Arbeit und Durchhaltevermögen zu investieren\n• Unternehmerisches Denken sowie Handeln, Teamgeist und organisatorisches Talent\n• Freude am Umgang mit Menschen sowie ausgeprägte Kunden- und Serviceorientierung\n• Mindestens 30'000 CHF (je nach Format) Eigenkapital für die Gründung einer GmbH sowie für den Eintritt als Agenturpartner/in Vorteile, die wir Dir bieten\n• Schlüsselfertiger Ladenbau im einheitlichen Marken-Corporate Design plus Werbe- und Kommunikationsmittel\n• Gut eingeführte Standorte an hochfrequenter Lage\n• Überregionale Marketingmassnahmen\n• Beratung bei der Umsatz- & Kostenplanung\n• Eine ausführliche Einarbeitung sowie Vorbereitung auf die zukünftigen Aufgaben\n• Umfassende Programme zu Schulung und Training, Aus- und Weiterbildung sowie Seminare und Fachvorträge\n• Zentraler Einkauf\n• Warenwirtschaftssystem und Category Management (Strukturierung der Warengruppen)\n• Attraktive Entwicklungsperspektiven und die Möglichkeit mehrere Stores zu übernehmen",
-      "descriptionByLocale": {
-        "it": "Stai cercando un ingresso nel lavoro autonomo? Valora come fornitore di servizi e servizi alimentari consolidato Un chiavi in mano e nel corso degli anni collaudato e modello di business di successo. Vi sosteniamo oltre la nuova apertura del vostro negozio, in modo che non solo si padroneggia con successo l'inizio, ma anche sentirsi a proprio agio come partner agenzia al nostro fianco a lungo termine. È possibile scegliere quale dei nostri formati di prima classe: avec, Press & Books o k kiosk (in luoghi ad alta frequenza come stazioni ferroviarie, aeroporti o stazioni di servizio) si adatta meglio. Compiti che ti piacerà\n• Gestire uno o più negozi Valora ben frequentati come imprenditore indipendente sotto la vostra responsabilità\n• Gestione del personale incl. Pianificazione delle assegnazioni, reclutamento, formazione e formazione dei dipendenti\n• Gestione delle merci (inventario, stock, ordini)\n• Consulenza e sviluppo/manutenzione proattivi dei rapporti con i clienti\n• Una stretta collaborazione con i fornitori e la gestione responsabile delle vendite\n• Ottimizzazione continua dei processi e della qualità dei servizi nel negozio\n• Assicurare un aspetto professionale del negozio e l'attuazione delle misure di promozione delle vendite\n• Un apprendistato come specialista al dettaglio EFZ e/o esperienza rilevante nel settore del retail, dell'hotel o della ristorazione\n• Interessato al lavoro autonomo e alla gestione di uno o più negozi\n• Volontà – soprattutto nei primi giorni – per investire molto tempo, lavoro e perseveranza\n• pensiero e recitazione imprenditoriali, spirito di squadra e talento organizzativo\n• Gioia nel trattare con le persone e un forte orientamento al cliente e al servizio\n• Almeno 30.000 CHF (a seconda del formato) equità per la creazione di una GmbH e per l'ingresso come partner di agenzia\n• Shopfitting chiavi in mano in un design aziendale di marca uniforme più pubblicità e strumenti di comunicazione\n• Luoghi di alta frequenza ben consolidati\n• Misure di marketing regionale\n• Consulenza per la pianificazione delle vendite e dei costi\n• Una conoscenza dettagliata e preparazione dei compiti futuri\n• Programmi di formazione e formazione completi, seminari e conferenze\n• Acquisto centrale\n• Sistema di gestione delle materie prime e gestione delle categorie (struttura dei gruppi di prodotti)\n• Prospettive di sviluppo attraenti e possibilità di assumere diversi negozi",
-        "en": "Are you looking for an entry into self-employment? Valora as an established convenience and food service provider A turnkey and over years proven and successful business model. We support you beyond the new opening of your store, so that you not only successfully master the start, but also feel comfortable as an agency partner at our side in the long term. You can choose which of our first-class formats: avec, Press & Books or k kiosk (at high-frequency locations such as train stations, airports or petrol stations) suits you best. Tasks you will like\n• Managing one or more well-frequented Valora stores as an independent entrepreneur under your own responsibility\n• Staff management incl. Assignment planning, recruitment, training and training of employees\n• Goods management (inventory, stock, orders)\n• Proactive customer advice and development / maintenance of customer relationships\n• Close cooperation with the suppliers and the responsible sales management\n• Ongoing optimization of processes and service quality in the store\n• Ensuring a professional appearance of the store and the implementation of sales promotion measures\n• An apprenticeship as a retail specialist EFZ and/or relevant experience in the retail, hotel or catering industry\n• Interested in self-employment and the management of one or more stores\n• Willingness – especially in the early days – to invest a lot of time, work and perseverance\n• Entrepreneurial thinking and acting, team spirit and organizational talent\n• Joy in dealing with people as well as a strong customer and service orientation\n• At least 30,000 CHF (depending on the format) equity for the establishment of a GmbH and for entering as an agency partner\n• Turnkey shopfitting in uniform brand corporate design plus advertising and communication tools\n• Well-established high-frequency locations\n• Regional marketing measures\n• Advice on sales and cost planning\n• A detailed familiarization and preparation for future tasks\n• Comprehensive training and training programmes, seminars and lectures\n• Central purchasing\n• Commodity management system and category management (structure of product groups)\n• Attractive development prospects and the possibility to take over several stores",
-        "de": "Suchst Du den Einstieg in die Selbständigkeit? Valora als etablierte Convenience- und Food-Service-Anbieterin bietet Dir dazu ein schlüsselfertiges und über Jahre erprobtes sowie erfolgreiches Geschäftsmodell. Wir begleiten Dich unterstützend über die Neueröffnung Deines Stores hinaus, damit Du nicht nur den Start erfolgreich meisterst, sondern Dich langfristig als Agenturpartner/in an unserer Seite wohlfühlst. Dabei kannst Du wählen, welches unserer erstklassigen Formate: avec, Press & Books oder k kiosk (an hochfrequenten Standorten wie Bahnhöfen, Flughäfen oder Tankstellen) am besten zu Dir passt. Aufgaben, die Dir gefallen werden\n• Führen eines oder mehrerer, gut frequentierter Valora Stores als selbständige/r Unternehmer/in in eigener Verantwortung\n• Personalführung inkl. Einsatzplanung, Rekrutierung, Aus- und Weiterbildung der Mitarbeitenden\n• Warenbewirtschaftung (Inventur, Lagerbestand, Bestellungen)\n• Proaktive Beratung der Kunden und Aufbau / Pflege der Kundenbeziehungen\n• Enge Zusammenarbeit mit den Zulieferern und der zuständigen Verkaufsleitung\n• Laufende Optimierung der Prozesse und Servicequalität im Store\n• Sicherstellen eines professionellen Auftritts des Stores und der Umsetzung von verkaufsfördernden Massnahmen Voraussetzungen, die Du mitbringst\n• Eine Ausbildung als Detailhandelsfachmann/-frau EFZ und/oder relevante Erfahrung im Detailhandel, der Hotellerie oder Gastronomie\n• Interesse an der Selbständigkeit und der Führung eines oder mehrerer Stores\n• Bereitschaft – vor allem in der Anfangszeit – viel Zeit, Arbeit und Durchhaltevermögen zu investieren\n• Unternehmerisches Denken sowie Handeln, Teamgeist und organisatorisches Talent\n• Freude am Umgang mit Menschen sowie ausgeprägte Kunden- und Serviceorientierung\n• Mindestens 30'000 CHF (je nach Format) Eigenkapital für die Gründung einer GmbH sowie für den Eintritt als Agenturpartner/in Vorteile, die wir Dir bieten\n• Schlüsselfertiger Ladenbau im einheitlichen Marken-Corporate Design plus Werbe- und Kommunikationsmittel\n• Gut eingeführte Standorte an hochfrequenter Lage\n• Überregionale Marketingmassnahmen\n• Beratung bei der Umsatz- & Kostenplanung\n• Eine ausführliche Einarbeitung sowie Vorbereitung auf die zukünftigen Aufgaben\n• Umfassende Programme zu Schulung und Training, Aus- und Weiterbildung sowie Seminare und Fachvorträge\n• Zentraler Einkauf\n• Warenwirtschaftssystem und Category Management (Strukturierung der Warengruppen)\n• Attraktive Entwicklungsperspektiven und die Möglichkeit mehrere Stores zu übernehmen",
-        "fr": "Vous cherchez un travail indépendant? Valora en tant que fournisseur établi de services de commodité et d'alimentation Un modèle d'affaires clé en main et éprouvé et réussi au fil des ans. Nous vous accompagnons au-delà de la nouvelle ouverture de votre magasin, de sorte que vous ne maîtrisez pas seulement avec succès le départ, mais vous vous sentez également à l'aise en tant que partenaire d'agence à nos côtés à long terme. Vous pouvez choisir parmi nos formats de première classe: avec, Press & Books ou k borne (à des endroits à haute fréquence tels que gares, aéroports ou stations-service) vous convient le mieux. Tâches que vous aimerez\n• Gérer un ou plusieurs magasins Valora bien fréquentés en tant qu'entrepreneur indépendant sous votre propre responsabilité\n• Gestion du personnel, y compris Planification des affectations, recrutement, formation et formation des employés\n• Gestion des biens (inventaire, stocks, commandes)\n• Conseils proactifs et développement / entretien des relations client\n• Coopération étroite avec les fournisseurs et gestion responsable des ventes\n• Optimisation continue des processus et de la qualité du service dans le magasin\n• Assurer une apparence professionnelle du magasin et la mise en œuvre de mesures de promotion des ventes\n• Un apprentissage en tant que spécialiste du commerce de détail EFZ et/ou une expérience pertinente dans l'industrie du commerce de détail, de l'hôtellerie ou de la restauration\n• Intéressé par le travail indépendant et la gestion d'un ou de plusieurs magasins\n• La volonté – surtout dans les premiers jours – d'investir beaucoup de temps, de travail et de persévérance\n• Pensée entrepreneuriale et agir, esprit d'équipe et talent organisationnel\n• La joie de traiter avec les gens ainsi qu'une forte orientation client et service\n• Au moins 30 000 CHF (selon le format) capitaux propres pour la création d'une GmbH et pour entrer en tant que partenaire d'agence\n• Boutique clé en main dans un design d'entreprise de marque uniforme plus des outils de publicité et de communication\n• Emplacements à haute fréquence bien établis\n• Mesures de commercialisation régionales\n• Conseils sur les ventes et la planification des coûts\n• Une familiarisation et une préparation détaillées pour les tâches futures\n• Programmes complets de formation, séminaires et conférences\n• Achats centraux\n• Système de gestion des produits et gestion des catégories (structure des groupes de produits)\n• Perspectives de développement attractives et possibilité de reprendre plusieurs magasins"
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://career.valora.com/en/job/17836/agenturpartnerin-agenturpartner-region-berner-oberland",
-      "source": "Valora Group Dedicated Parser (Custom)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:20:18.969Z",
-      "addressLocality": "Bern",
-      "addressRegion": "Bern",
-      "streetAddress": "Bern",
-      "postalCode": "3004",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Vendita",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Retail / Foodvenience",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-23",
-      "postedDate": "2026-09-23",
-      "postingDateSource": "reported",
-      "applyUrl": "https://recruitingapp-2538.umantis.com/Vacancies/17836/Application/CheckLogin/1?lang=ger&DesignID=10004",
-      "jobReqId": "17836",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "agenturpartnerin-agenturpartner-region-berner-oberland-valora-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "agenturpartnerin-agenturpartner-region-berner-oberland-valora-bern"
-        ],
-        "en": [
-          "agenturpartnerin-agenturpartner-region-berner-oberland-valora-bern"
-        ],
-        "fr": [
-          "agenturpartnerin-agenturpartner-region-berner-oberland-valora-bern"
-        ]
-      },
-      "firstSeenAt": "2026-10-29T14:33:01.445Z",
-      "salaryMin": 77500,
-      "salaryMax": 118500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 77500,
-          "maxValue": 118500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:20:18.969Z",
+      "validThrough": "2026-12-18T21:17:53.430Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -711,7 +545,7 @@
       "url": "https://career.valora.com/en/job/21148/verkauferin-verkaufer-k-kiosk-8-6-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:20:18.969Z",
+      "crawledAt": "2026-11-18T21:17:53.429Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "streetAddress": "Murtenstrasse 1",
@@ -761,7 +595,173 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-18T09:20:18.969Z",
+      "validThrough": "2026-12-18T21:17:53.429Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "valora-99fef9aece64",
+      "slug": "expansion-lease-svizzera-valora-group-muttenz",
+      "slugByLocale": {
+        "it": "expansion-lease-svizzera-valora-group-muttenz",
+        "en": "lead-expansion-lease-switzerland-valora-muttenz",
+        "de": "lead-expansion-lease-switzerland-valora-muttenz",
+        "fr": "expansion-et-location-de-plomb-suisse-valora-group-muttenz"
+      },
+      "company": "Valora Group",
+      "companyKey": "valora",
+      "companyDomain": "valora.com",
+      "title": "Lead Expansion & Lease Switzerland",
+      "titleByLocale": {
+        "it": "Expansion & Lease Svizzera",
+        "en": "Lead Expansion & Lease Switzerland",
+        "de": "Lead Expansion & Lease Switzerland",
+        "fr": "Expansion et location de plomb Suisse"
+      },
+      "description": "Aufgaben, die Dir gefallen werden\n• Umsetzung der Expansionsstrategie mit Schwerpunkt auf Neueröffnungen und Optimierung bestehender Standorte für unsere Retail und Food Service Formate in der Schweiz\n• Suche, Analyse und Bewertung neuer Standorte hinsichtlich ihrer Wirtschaftlichkeit und Eignung\n• Führen der Mietabteilung, Überwachung der SOX-Kontrollen und Pflege der Verträge im Tradenet-System\n• Verhandlung und Abschluss von Mietverträgen mit Vermietern und Eigentümern zur Sicherstellung optimaler Konditionen\n• Fachliche und disziplinarische Führung des Expansions- und Mietteams (Expansion sowie administrative Unterstützung im Leasemanagement) zur Umsetzung der Expansionsstrategie\n• Koordination und Management von Projekten im Zusammenhang mit der Eröffnung neuer Verkaufsstellen\n• Durchführung von Marktanalysen und Wettbewerbsbeobachtung, um Trends und Expansionsmöglichkeiten zu identifizieren\n• Erstellung und Überwachung von Budgets für Expansionsprojekte sowie Sicherstellung der Einhaltung finanzieller Vorgaben\n• Zusammenarbeit mit internen Abteilungen (u.a. Bau, Verkauf, Facility Management und Controlling), externen Partnern und Behörden, um den Expansionsprozess effizient zu unterstützen Voraussetzungen, die Du mitbringst\n• Nachgewiesene Erfahrung in einer vergleichbaren Position mit Schwerpunkt auf Expansion und Leasemanagement im Detailhandel und Convenience Geschäft\n• Ausgeprägter Unternehmergeist, hohe Kundenorientierung und Durchsetzungsstärke sowie Erfahrung in der Führung von Teams\n• Selbstständige, strukturierte Arbeitsweise sowie strategisches und vernetztes Denken\n• Freude, sich immer wieder neuen Herausforderungen zu stellen und in einem dynamischen Umfeld zu arbeiten\n• Verhandlungssichere Deutsch- sowie gute Englischkenntnisse, Französisch von Vorteil Vorteile, die wir Dir bieten\n• Ein dynamisches Arbeitsumfeld mit Freiraum für Ideen und Kreativität\n• Eine DU-Kultur\n• Persönliche Entwicklungs- und Weiterbildungsmöglichkeiten\n• Mitarbeitervergünstigungen und Rabatte bei den Valora Formaten\n• Faire Anstellungsbedingungen\n• Homeofficeregelung",
+      "descriptionByLocale": {
+        "it": "Compiti che ti piacerà\n• Attuazione della strategia di espansione con focus sulle nuove aperture e l'ottimizzazione delle sedi esistenti per i nostri formati di servizi al dettaglio e alimentare in Svizzera\n• Ricerca, analisi e valutazione di nuove sedi per quanto riguarda l'efficienza economica e l'idoneità\n• Gestione del reparto noleggio, monitoraggio dei controlli SOX e mantenimento dei contratti nel sistema Tradenet\n• Negoziazione e conclusione di contratti di locazione con proprietari e proprietari per garantire condizioni ottimali\n• Gestione professionale e disciplinare del team di espansione e noleggio (espansione e supporto amministrativo nella gestione delle locazioni) per implementare la strategia di espansione\n• Coordinamento e gestione dei progetti relativi all'apertura di nuovi punti vendita\n• Condurre l'analisi del mercato e l'osservazione competitiva per identificare le tendenze e le opportunità di espansione\n• Preparazione e monitoraggio dei bilanci per i progetti di espansione e garantire il rispetto dei requisiti finanziari\n• Collaborazione con i dipartimenti interni (compresa la costruzione, le vendite, la gestione delle strutture e il controllo), partner esterni e autorità per sostenere efficacemente il processo di espansione\n• Esperienza comprovata in una posizione paragonabile con un focus sull'espansione e la gestione del contratto di vendita al dettaglio e convenienza\n• Forte spirito imprenditoriale, alto orientamento e assertività del cliente e l'esperienza nei principali team\n• Metodo di lavoro indipendente, strutturato e pensiero strategico e in rete\n• Il piacere di affrontare costantemente nuove sfide e di lavorare in un ambiente dinamico\n• A prova di negoziazione tedesco e buone abilità inglese, francese vantaggi vantaggiosi che vi offriamo\n• Un ambiente di lavoro dinamico con libertà di idee e creatività\n• Una cultura DU\n• Opportunità di sviluppo personale e formazione\n• Vantaggi e sconti dei dipendenti nei formati Valora\n• Condizioni dell'occupazione\n• Home Ufficio Scheme",
+        "en": "Tasks you will like\n• Implementation of the expansion strategy with focus on new openings and optimization of existing locations for our retail and food service formats in Switzerland\n• Search, analysis and evaluation of new locations with regard to their economic efficiency and suitability\n• Managing the rental department, monitoring SOX controls and maintaining contracts in the Tradenet system\n• Negotiation and conclusion of lease contracts with landlords and owners to ensure optimal conditions\n• Professional and disciplinary management of the expansion and rental team (expansion and administrative support in lease management) to implement the expansion strategy\n• Coordination and management of projects related to the opening of new outlets\n• Conducting market analysis and competitive observation to identify trends and expansion opportunities\n• Preparation and monitoring of budgets for expansion projects and ensuring compliance with financial requirements\n• Collaboration with internal departments (including construction, sales, facility management and controlling), external partners and authorities to efficiently support the expansion process\n• Proven experience in a comparable position with a focus on expansion and lease management in the retail and convenience business\n• Strong entrepreneurial spirit, high customer orientation and assertiveness as well as experience in leading teams\n• Independent, structured working method as well as strategic and networked thinking\n• The pleasure of constantly facing new challenges and working in a dynamic environment\n• Negotiation-proof German and good English skills, French advantageous advantages that we offer you\n• A dynamic working environment with freedom for ideas and creativity\n• A DU culture\n• Personal development and training opportunities\n• Employee benefits and discounts in the Valora formats\n• Fair employment conditions\n• Home Office Scheme",
+        "de": "Aufgaben, die Dir gefallen werden\n• Umsetzung der Expansionsstrategie mit Schwerpunkt auf Neueröffnungen und Optimierung bestehender Standorte für unsere Retail und Food Service Formate in der Schweiz\n• Suche, Analyse und Bewertung neuer Standorte hinsichtlich ihrer Wirtschaftlichkeit und Eignung\n• Führen der Mietabteilung, Überwachung der SOX-Kontrollen und Pflege der Verträge im Tradenet-System\n• Verhandlung und Abschluss von Mietverträgen mit Vermietern und Eigentümern zur Sicherstellung optimaler Konditionen\n• Fachliche und disziplinarische Führung des Expansions- und Mietteams (Expansion sowie administrative Unterstützung im Leasemanagement) zur Umsetzung der Expansionsstrategie\n• Koordination und Management von Projekten im Zusammenhang mit der Eröffnung neuer Verkaufsstellen\n• Durchführung von Marktanalysen und Wettbewerbsbeobachtung, um Trends und Expansionsmöglichkeiten zu identifizieren\n• Erstellung und Überwachung von Budgets für Expansionsprojekte sowie Sicherstellung der Einhaltung finanzieller Vorgaben\n• Zusammenarbeit mit internen Abteilungen (u.a. Bau, Verkauf, Facility Management und Controlling), externen Partnern und Behörden, um den Expansionsprozess effizient zu unterstützen Voraussetzungen, die Du mitbringst\n• Nachgewiesene Erfahrung in einer vergleichbaren Position mit Schwerpunkt auf Expansion und Leasemanagement im Detailhandel und Convenience Geschäft\n• Ausgeprägter Unternehmergeist, hohe Kundenorientierung und Durchsetzungsstärke sowie Erfahrung in der Führung von Teams\n• Selbstständige, strukturierte Arbeitsweise sowie strategisches und vernetztes Denken\n• Freude, sich immer wieder neuen Herausforderungen zu stellen und in einem dynamischen Umfeld zu arbeiten\n• Verhandlungssichere Deutsch- sowie gute Englischkenntnisse, Französisch von Vorteil Vorteile, die wir Dir bieten\n• Ein dynamisches Arbeitsumfeld mit Freiraum für Ideen und Kreativität\n• Eine DU-Kultur\n• Persönliche Entwicklungs- und Weiterbildungsmöglichkeiten\n• Mitarbeitervergünstigungen und Rabatte bei den Valora Formaten\n• Faire Anstellungsbedingungen\n• Homeofficeregelung",
+        "fr": "Tâches que vous aimerez\n• Mise en œuvre de la stratégie d'expansion en mettant l'accent sur les nouvelles ouvertures et l'optimisation des emplacements existants pour nos formats de vente et de services alimentaires en Suisse\n• Recherche, analyse et évaluation de nouveaux sites en ce qui concerne leur efficacité économique et leur adéquation\n• Gestion du service de location, surveillance des contrôles SOX et maintien des contrats dans le système Tradenet\n• Négociation et conclusion de contrats de location avec les propriétaires et les propriétaires pour assurer des conditions optimales\n• Gestion professionnelle et disciplinaire de l ' équipe chargée de l ' expansion et de la location (appui administratif à la gestion des contrats de location) pour mettre en œuvre la stratégie d ' expansion\n• Coordination et gestion des projets liés à l'ouverture de nouveaux points de vente\n• Analyse du marché et observation de la concurrence pour identifier les tendances et les possibilités d'expansion\n• Élaboration et suivi des budgets des projets d'expansion et respect des exigences financières\n• Collaboration avec les ministères internes (y compris la construction, les ventes, la gestion et le contrôle des installations), les partenaires externes et les autorités pour appuyer efficacement le processus d'expansion\n• Expérience éprouvée dans une position comparable avec un accent sur l'expansion et la gestion de la location dans le commerce de détail et de commodité\n• Un esprit d'entreprise fort, une grande orientation client et une assurance ainsi qu'une expérience dans les équipes dirigeantes\n• Méthode de travail indépendante et structurée ainsi que pensée stratégique et en réseau\n• Le plaisir de faire constamment face à de nouveaux défis et de travailler dans un environnement dynamique\n• L'allemand résistant aux négociations et les bonnes compétences en anglais, le français avantages que nous vous offrons\n• Un environnement de travail dynamique avec liberté d'idées et de créativité\n• Une culture du DU\n• Possibilités de perfectionnement personnel et de formation\n• Avantages sociaux et réductions en format Valora\n• Conditions d'emploi équitables\n• Régime des bureaux extérieurs"
+      },
+      "location": "Muttenz",
+      "canton": "BL",
+      "url": "https://career.valora.com/en/job/21864/lead-expansion-lease-switzerland",
+      "source": "Valora Group Dedicated Parser (Custom)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-18T21:17:53.429Z",
+      "addressLocality": "Muttenz",
+      "addressRegion": "Baselland",
+      "streetAddress": "Hofackerstr. 40",
+      "postalCode": "4132",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Facility Management",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Retail / Foodvenience",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-01",
+      "postedDate": "2026-09-01",
+      "postingDateSource": "reported",
+      "applyUrl": "https://recruitingapp-2538.umantis.com/Vacancies/21864/Application/CheckLogin/1?lang=ger&DesignID=10004",
+      "jobReqId": "21864",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "lead-expansion-lease-switzerland-valora-muttenz"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lead-expansion-lease-switzerland-valora-muttenz"
+        ],
+        "fr": [
+          "lead-expansion-lease-switzerland-valora-muttenz"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-29T14:33:01.447Z",
+      "salaryMin": 65500,
+      "salaryMax": 88500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 65500,
+          "maxValue": 88500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-18T21:17:53.429Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "valora-dc72b28c60d7",
+      "slug": "agenzia-partner-agenzia-partner-regione-berner-oberland-valora-group-bern",
+      "slugByLocale": {
+        "it": "agenzia-partner-agenzia-partner-regione-berner-oberland-valora-group-bern",
+        "en": "agency-partner-agency-partner-region-berner-oberland-valora-group-bern",
+        "de": "agenturpartnerin-agenturpartner-region-berner-oberland-valora-bern",
+        "fr": "agence-partenaire-agence-partenaire-region-berner-oberland-valora-group-bern"
+      },
+      "company": "Valora Group",
+      "companyKey": "valora",
+      "companyDomain": "valora.com",
+      "title": "Agenturpartnerin / Agenturpartner Region Berner Oberland",
+      "titleByLocale": {
+        "it": "Agenzia Partner / Agenzia Partner Regione Berner Oberland",
+        "en": "Agency Partner / Agency Partner Region Berner Oberland",
+        "de": "Agenturpartnerin / Agenturpartner Region Berner Oberland",
+        "fr": "Agence Partenaire / Agence Partenaire Région Berner Oberland"
+      },
+      "description": "Suchst Du den Einstieg in die Selbständigkeit? Valora als etablierte Convenience- und Food-Service-Anbieterin bietet Dir dazu ein schlüsselfertiges und über Jahre erprobtes sowie erfolgreiches Geschäftsmodell. Wir begleiten Dich unterstützend über die Neueröffnung Deines Stores hinaus, damit Du nicht nur den Start erfolgreich meisterst, sondern Dich langfristig als Agenturpartner/in an unserer Seite wohlfühlst. Dabei kannst Du wählen, welches unserer erstklassigen Formate: avec, Press & Books oder k kiosk (an hochfrequenten Standorten wie Bahnhöfen, Flughäfen oder Tankstellen) am besten zu Dir passt. Aufgaben, die Dir gefallen werden\n• Führen eines oder mehrerer, gut frequentierter Valora Stores als selbständige/r Unternehmer/in in eigener Verantwortung\n• Personalführung inkl. Einsatzplanung, Rekrutierung, Aus- und Weiterbildung der Mitarbeitenden\n• Warenbewirtschaftung (Inventur, Lagerbestand, Bestellungen)\n• Proaktive Beratung der Kunden und Aufbau / Pflege der Kundenbeziehungen\n• Enge Zusammenarbeit mit den Zulieferern und der zuständigen Verkaufsleitung\n• Laufende Optimierung der Prozesse und Servicequalität im Store\n• Sicherstellen eines professionellen Auftritts des Stores und der Umsetzung von verkaufsfördernden Massnahmen Voraussetzungen, die Du mitbringst\n• Eine Ausbildung als Detailhandelsfachmann/-frau EFZ und/oder relevante Erfahrung im Detailhandel, der Hotellerie oder Gastronomie\n• Interesse an der Selbständigkeit und der Führung eines oder mehrerer Stores\n• Bereitschaft – vor allem in der Anfangszeit – viel Zeit, Arbeit und Durchhaltevermögen zu investieren\n• Unternehmerisches Denken sowie Handeln, Teamgeist und organisatorisches Talent\n• Freude am Umgang mit Menschen sowie ausgeprägte Kunden- und Serviceorientierung\n• Mindestens 30'000 CHF (je nach Format) Eigenkapital für die Gründung einer GmbH sowie für den Eintritt als Agenturpartner/in Vorteile, die wir Dir bieten\n• Schlüsselfertiger Ladenbau im einheitlichen Marken-Corporate Design plus Werbe- und Kommunikationsmittel\n• Gut eingeführte Standorte an hochfrequenter Lage\n• Überregionale Marketingmassnahmen\n• Beratung bei der Umsatz- & Kostenplanung\n• Eine ausführliche Einarbeitung sowie Vorbereitung auf die zukünftigen Aufgaben\n• Umfassende Programme zu Schulung und Training, Aus- und Weiterbildung sowie Seminare und Fachvorträge\n• Zentraler Einkauf\n• Warenwirtschaftssystem und Category Management (Strukturierung der Warengruppen)\n• Attraktive Entwicklungsperspektiven und die Möglichkeit mehrere Stores zu übernehmen",
+      "descriptionByLocale": {
+        "it": "Stai cercando un ingresso nel lavoro autonomo? Valora come fornitore di servizi e servizi alimentari consolidato Un chiavi in mano e nel corso degli anni collaudato e modello di business di successo. Vi sosteniamo oltre la nuova apertura del vostro negozio, in modo che non solo si padroneggia con successo l'inizio, ma anche sentirsi a proprio agio come partner agenzia al nostro fianco a lungo termine. È possibile scegliere quale dei nostri formati di prima classe: avec, Press & Books o k kiosk (in luoghi ad alta frequenza come stazioni ferroviarie, aeroporti o stazioni di servizio) si adatta meglio. Compiti che ti piacerà\n• Gestire uno o più negozi Valora ben frequentati come imprenditore indipendente sotto la vostra responsabilità\n• Gestione del personale incl. Pianificazione delle assegnazioni, reclutamento, formazione e formazione dei dipendenti\n• Gestione delle merci (inventario, stock, ordini)\n• Consulenza e sviluppo/manutenzione proattivi dei rapporti con i clienti\n• Una stretta collaborazione con i fornitori e la gestione responsabile delle vendite\n• Ottimizzazione continua dei processi e della qualità dei servizi nel negozio\n• Assicurare un aspetto professionale del negozio e l'attuazione delle misure di promozione delle vendite\n• Un apprendistato come specialista al dettaglio EFZ e/o esperienza rilevante nel settore del retail, dell'hotel o della ristorazione\n• Interessato al lavoro autonomo e alla gestione di uno o più negozi\n• Volontà – soprattutto nei primi giorni – per investire molto tempo, lavoro e perseveranza\n• pensiero e recitazione imprenditoriali, spirito di squadra e talento organizzativo\n• Gioia nel trattare con le persone e un forte orientamento al cliente e al servizio\n• Almeno 30.000 CHF (a seconda del formato) equità per la creazione di una GmbH e per l'ingresso come partner di agenzia\n• Shopfitting chiavi in mano in un design aziendale di marca uniforme più pubblicità e strumenti di comunicazione\n• Luoghi di alta frequenza ben consolidati\n• Misure di marketing regionale\n• Consulenza per la pianificazione delle vendite e dei costi\n• Una conoscenza dettagliata e preparazione dei compiti futuri\n• Programmi di formazione e formazione completi, seminari e conferenze\n• Acquisto centrale\n• Sistema di gestione delle materie prime e gestione delle categorie (struttura dei gruppi di prodotti)\n• Prospettive di sviluppo attraenti e possibilità di assumere diversi negozi",
+        "en": "Are you looking for an entry into self-employment? Valora as an established convenience and food service provider A turnkey and over years proven and successful business model. We support you beyond the new opening of your store, so that you not only successfully master the start, but also feel comfortable as an agency partner at our side in the long term. You can choose which of our first-class formats: avec, Press & Books or k kiosk (at high-frequency locations such as train stations, airports or petrol stations) suits you best. Tasks you will like\n• Managing one or more well-frequented Valora stores as an independent entrepreneur under your own responsibility\n• Staff management incl. Assignment planning, recruitment, training and training of employees\n• Goods management (inventory, stock, orders)\n• Proactive customer advice and development / maintenance of customer relationships\n• Close cooperation with the suppliers and the responsible sales management\n• Ongoing optimization of processes and service quality in the store\n• Ensuring a professional appearance of the store and the implementation of sales promotion measures\n• An apprenticeship as a retail specialist EFZ and/or relevant experience in the retail, hotel or catering industry\n• Interested in self-employment and the management of one or more stores\n• Willingness – especially in the early days – to invest a lot of time, work and perseverance\n• Entrepreneurial thinking and acting, team spirit and organizational talent\n• Joy in dealing with people as well as a strong customer and service orientation\n• At least 30,000 CHF (depending on the format) equity for the establishment of a GmbH and for entering as an agency partner\n• Turnkey shopfitting in uniform brand corporate design plus advertising and communication tools\n• Well-established high-frequency locations\n• Regional marketing measures\n• Advice on sales and cost planning\n• A detailed familiarization and preparation for future tasks\n• Comprehensive training and training programmes, seminars and lectures\n• Central purchasing\n• Commodity management system and category management (structure of product groups)\n• Attractive development prospects and the possibility to take over several stores",
+        "de": "Suchst Du den Einstieg in die Selbständigkeit? Valora als etablierte Convenience- und Food-Service-Anbieterin bietet Dir dazu ein schlüsselfertiges und über Jahre erprobtes sowie erfolgreiches Geschäftsmodell. Wir begleiten Dich unterstützend über die Neueröffnung Deines Stores hinaus, damit Du nicht nur den Start erfolgreich meisterst, sondern Dich langfristig als Agenturpartner/in an unserer Seite wohlfühlst. Dabei kannst Du wählen, welches unserer erstklassigen Formate: avec, Press & Books oder k kiosk (an hochfrequenten Standorten wie Bahnhöfen, Flughäfen oder Tankstellen) am besten zu Dir passt. Aufgaben, die Dir gefallen werden\n• Führen eines oder mehrerer, gut frequentierter Valora Stores als selbständige/r Unternehmer/in in eigener Verantwortung\n• Personalführung inkl. Einsatzplanung, Rekrutierung, Aus- und Weiterbildung der Mitarbeitenden\n• Warenbewirtschaftung (Inventur, Lagerbestand, Bestellungen)\n• Proaktive Beratung der Kunden und Aufbau / Pflege der Kundenbeziehungen\n• Enge Zusammenarbeit mit den Zulieferern und der zuständigen Verkaufsleitung\n• Laufende Optimierung der Prozesse und Servicequalität im Store\n• Sicherstellen eines professionellen Auftritts des Stores und der Umsetzung von verkaufsfördernden Massnahmen Voraussetzungen, die Du mitbringst\n• Eine Ausbildung als Detailhandelsfachmann/-frau EFZ und/oder relevante Erfahrung im Detailhandel, der Hotellerie oder Gastronomie\n• Interesse an der Selbständigkeit und der Führung eines oder mehrerer Stores\n• Bereitschaft – vor allem in der Anfangszeit – viel Zeit, Arbeit und Durchhaltevermögen zu investieren\n• Unternehmerisches Denken sowie Handeln, Teamgeist und organisatorisches Talent\n• Freude am Umgang mit Menschen sowie ausgeprägte Kunden- und Serviceorientierung\n• Mindestens 30'000 CHF (je nach Format) Eigenkapital für die Gründung einer GmbH sowie für den Eintritt als Agenturpartner/in Vorteile, die wir Dir bieten\n• Schlüsselfertiger Ladenbau im einheitlichen Marken-Corporate Design plus Werbe- und Kommunikationsmittel\n• Gut eingeführte Standorte an hochfrequenter Lage\n• Überregionale Marketingmassnahmen\n• Beratung bei der Umsatz- & Kostenplanung\n• Eine ausführliche Einarbeitung sowie Vorbereitung auf die zukünftigen Aufgaben\n• Umfassende Programme zu Schulung und Training, Aus- und Weiterbildung sowie Seminare und Fachvorträge\n• Zentraler Einkauf\n• Warenwirtschaftssystem und Category Management (Strukturierung der Warengruppen)\n• Attraktive Entwicklungsperspektiven und die Möglichkeit mehrere Stores zu übernehmen",
+        "fr": "Vous cherchez un travail indépendant? Valora en tant que fournisseur établi de services de commodité et d'alimentation Un modèle d'affaires clé en main et éprouvé et réussi au fil des ans. Nous vous accompagnons au-delà de la nouvelle ouverture de votre magasin, de sorte que vous ne maîtrisez pas seulement avec succès le départ, mais vous vous sentez également à l'aise en tant que partenaire d'agence à nos côtés à long terme. Vous pouvez choisir parmi nos formats de première classe: avec, Press & Books ou k borne (à des endroits à haute fréquence tels que gares, aéroports ou stations-service) vous convient le mieux. Tâches que vous aimerez\n• Gérer un ou plusieurs magasins Valora bien fréquentés en tant qu'entrepreneur indépendant sous votre propre responsabilité\n• Gestion du personnel, y compris Planification des affectations, recrutement, formation et formation des employés\n• Gestion des biens (inventaire, stocks, commandes)\n• Conseils proactifs et développement / entretien des relations client\n• Coopération étroite avec les fournisseurs et gestion responsable des ventes\n• Optimisation continue des processus et de la qualité du service dans le magasin\n• Assurer une apparence professionnelle du magasin et la mise en œuvre de mesures de promotion des ventes\n• Un apprentissage en tant que spécialiste du commerce de détail EFZ et/ou une expérience pertinente dans l'industrie du commerce de détail, de l'hôtellerie ou de la restauration\n• Intéressé par le travail indépendant et la gestion d'un ou de plusieurs magasins\n• La volonté – surtout dans les premiers jours – d'investir beaucoup de temps, de travail et de persévérance\n• Pensée entrepreneuriale et agir, esprit d'équipe et talent organisationnel\n• La joie de traiter avec les gens ainsi qu'une forte orientation client et service\n• Au moins 30 000 CHF (selon le format) capitaux propres pour la création d'une GmbH et pour entrer en tant que partenaire d'agence\n• Boutique clé en main dans un design d'entreprise de marque uniforme plus des outils de publicité et de communication\n• Emplacements à haute fréquence bien établis\n• Mesures de commercialisation régionales\n• Conseils sur les ventes et la planification des coûts\n• Une familiarisation et une préparation détaillées pour les tâches futures\n• Programmes complets de formation, séminaires et conférences\n• Achats centraux\n• Système de gestion des produits et gestion des catégories (structure des groupes de produits)\n• Perspectives de développement attractives et possibilité de reprendre plusieurs magasins"
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://career.valora.com/en/job/17836/agenturpartnerin-agenturpartner-region-berner-oberland",
+      "source": "Valora Group Dedicated Parser (Custom)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-18T21:17:53.428Z",
+      "addressLocality": "Bern",
+      "addressRegion": "Bern",
+      "streetAddress": "Bern",
+      "postalCode": "3004",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Vendita",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Retail / Foodvenience",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-23",
+      "postedDate": "2026-09-23",
+      "postingDateSource": "reported",
+      "applyUrl": "https://recruitingapp-2538.umantis.com/Vacancies/17836/Application/CheckLogin/1?lang=ger&DesignID=10004",
+      "jobReqId": "17836",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "agenturpartnerin-agenturpartner-region-berner-oberland-valora-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "agenturpartnerin-agenturpartner-region-berner-oberland-valora-bern"
+        ],
+        "en": [
+          "agenturpartnerin-agenturpartner-region-berner-oberland-valora-bern"
+        ],
+        "fr": [
+          "agenturpartnerin-agenturpartner-region-berner-oberland-valora-bern"
+        ]
+      },
+      "firstSeenAt": "2026-10-29T14:33:01.445Z",
+      "salaryMin": 77500,
+      "salaryMax": 118500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 77500,
+          "maxValue": 118500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-22T21:17:53.428Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -795,7 +795,7 @@
       "url": "https://career.valora.com/en/job/18331/agenturpartnerin-agenturpartner-region-oberwallis",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:20:18.968Z",
+      "crawledAt": "2026-11-18T21:17:53.427Z",
       "addressLocality": "Wallis",
       "addressRegion": "Wallis",
       "streetAddress": "Wallis",
@@ -845,91 +845,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:20:18.968Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "valora-63d0961b39a4",
-      "slug": "agenzia-partner-agenzia-partner-imboden-valora-group-graubunden",
-      "slugByLocale": {
-        "it": "agenzia-partner-agenzia-partner-imboden-valora-group-graubunden",
-        "en": "agency-partner-agency-partner-imboden-valora-group-graubunden",
-        "de": "agenturpartnerin-agenturpartner-imboden-valora-graubunden",
-        "fr": "partenaire-de-l-agence-partenaire-de-l-agence-imboden-valora-group-graubunden"
-      },
-      "company": "Valora Group",
-      "companyKey": "valora",
-      "companyDomain": "valora.com",
-      "title": "Agenturpartnerin / Agenturpartner Imboden",
-      "titleByLocale": {
-        "it": "Agenzia Partner / Agenzia Partner Imboden",
-        "en": "Agency Partner / Agency Partner Imboden",
-        "de": "Agenturpartnerin / Agenturpartner Imboden",
-        "fr": "Partenaire de l'Agence / Partenaire de l'Agence Imboden"
-      },
-      "description": "Suchst Du den Einstieg in die Selbständigkeit? Valora als etablierte Convenience- und Food-Service-Anbieterin bietet Dir dazu ein schlüsselfertiges und über Jahre erprobtes sowie erfolgreiches Geschäftsmodell. Wir begleiten Dich unterstützend über die Übernahme Deines Stores hinaus, damit Du nicht nur den Start erfolgreich meisterst, sondern Dich langfristig als Agenturpartner/in an unserer Seite wohlfühlst. Dabei kannst Du wählen, welches unserer erstklassigen Formate: avec, Press & Books oder k kiosk (an hochfrequenten Standorten wie Bahnhöfen, Flughäfen oder Tankstellen) am besten zu Dir passt. Aufgaben, die Dir gefallen werden\n• Führen eines oder mehrerer, gut frequentierter Valora Stores als selbständige/r Unternehmer/in in eigener Verantwortung\n• Personalführung inkl. Einsatzplanung, Rekrutierung, Aus- und Weiterbildung der Mitarbeitenden\n• Warenbewirtschaftung (Inventur, Lagerbestand, Bestellungen)\n• Proaktive Beratung der Kunden und Aufbau / Pflege der Kundenbeziehungen\n• Enge Zusammenarbeit mit den Zulieferern und der zuständigen Verkaufsleitung\n• Laufende Optimierung der Prozesse und Servicequalität im Store\n• Sicherstellen eines professionellen Auftritts des Stores und der Umsetzung von verkaufsfördernden Massnahmen Voraussetzungen, die Du mitbringst\n• Eine Ausbildung als Detailhandelsfachmann/-frau EFZ und/oder relevante Erfahrung im Detailhandel, der Hotellerie oder Gastronomie\n• Interesse an der Selbständigkeit und der Führung eines oder mehrerer Stores\n• Bereitschaft – vor allem in der Anfangszeit – viel Zeit, Arbeit und Durchhaltevermögen zu investieren\n• Unternehmerisches Denken sowie Handeln, Teamgeist und organisatorisches Talent\n• Freude am Umgang mit Menschen sowie ausgeprägte Kunden- und Serviceorientierung\n• Mindestens 30'000 CHF (je nach Format) Eigenkapital für die Gründung einer GmbH sowie für den Eintritt als Agenturpartner/in Vorteile, die wir Dir bieten\n• Schlüsselfertiger Ladenbau im einheitlichen Marken-Corporate Design plus Werbe- und Kommunikationsmittel\n• Gut eingeführte Standorte an hochfrequenter Lage\n• Überregionale Marketingmassnahmen\n• Beratung bei der Umsatz- & Kostenplanung\n• Eine ausführliche Einarbeitung sowie Vorbereitung auf die zukünftigen Aufgaben\n• Umfassende Programme zu Schulung und Training, Aus- und Weiterbildung sowie Seminare und Fachvorträge\n• Zentraler Einkauf\n• Warenwirtschaftssystem und Category Management (Strukturierung der Warengruppen)\n• Attraktive Entwicklungsperspektiven und die Möglichkeit mehrere Stores zu übernehmen Unsere Kontaktdaten Bewirb Dich noch heute, ganz einfach online und werde selbständiger Unternehmer! Solltest Du noch Fragen haben, nimm sehr gerne Kontakt mit uns auf: bewerbung.agp@valora.com",
-      "descriptionByLocale": {
-        "it": "Stai cercando un ingresso nel lavoro autonomo? Valora come fornitore di servizi e servizi alimentari consolidato Un chiavi in mano e nel corso degli anni collaudato e modello di business di successo. Vi sosteniamo oltre l'acquisizione del vostro negozio, in modo che non solo si padroneggia con successo l'inizio, ma anche sentirsi a proprio agio come partner agenzia al nostro fianco a lungo termine. È possibile scegliere quale dei nostri formati di prima classe: avec, Press & Books o k kiosk (in luoghi ad alta frequenza come stazioni ferroviarie, aeroporti o stazioni di servizio) si adatta meglio. Compiti che ti piacerà\n• Gestire uno o più negozi Valora ben frequentati come imprenditore indipendente sotto la vostra responsabilità\n• Gestione del personale incl. Pianificazione delle assegnazioni, reclutamento, formazione e formazione dei dipendenti\n• Gestione delle merci (inventario, stock, ordini)\n• Consulenza e sviluppo/manutenzione proattivi dei rapporti con i clienti\n• Una stretta collaborazione con i fornitori e la gestione responsabile delle vendite\n• Ottimizzazione continua dei processi e della qualità dei servizi nel negozio\n• Assicurare un aspetto professionale del negozio e l'attuazione delle misure di promozione delle vendite\n• Un apprendistato come specialista al dettaglio EFZ e/o esperienza rilevante nel settore del retail, dell'hotel o della ristorazione\n• Interessato al lavoro autonomo e alla gestione di uno o più negozi\n• Volontà – soprattutto nei primi giorni – per investire molto tempo, lavoro e perseveranza\n• pensiero e recitazione imprenditoriali, spirito di squadra e talento organizzativo\n• Gioia nel trattare con le persone e un forte orientamento al cliente e al servizio\n• Almeno 30.000 CHF (a seconda del formato) equità per la creazione di una GmbH e per l'ingresso come partner di agenzia\n• Shopfitting chiavi in mano in un design aziendale di marca uniforme più pubblicità e strumenti di comunicazione\n• Luoghi di alta frequenza ben consolidati\n• Misure di marketing regionale\n• Consulenza per la pianificazione delle vendite e dei costi\n• Una conoscenza dettagliata e preparazione dei compiti futuri\n• Programmi di formazione e formazione completi, seminari e conferenze\n• Acquisto centrale\n• Sistema di gestione delle materie prime e gestione delle categorie (struttura dei gruppi di prodotti)\n• Prospettive di sviluppo attraenti e possibilità di assumere diversi negozi I nostri dati di contatto Applicare oggi, facilmente online e diventare un imprenditore indipendente! Se avete domande, vi preghiamo di contattarci: bewerbung.agp@valora.com",
-        "en": "Are you looking for an entry into self-employment? Valora as an established convenience and food service provider A turnkey and over years proven and successful business model. We support you beyond the takeover of your store, so that you not only successfully master the start, but also feel comfortable as an agency partner at our side in the long term. You can choose which of our first-class formats: avec, Press & Books or k kiosk (at high-frequency locations such as train stations, airports or petrol stations) suits you best. Tasks you will like\n• Managing one or more well-frequented Valora stores as an independent entrepreneur under your own responsibility\n• Staff management incl. Assignment planning, recruitment, training and training of employees\n• Goods management (inventory, stock, orders)\n• Proactive customer advice and development / maintenance of customer relationships\n• Close cooperation with the suppliers and the responsible sales management\n• Ongoing optimization of processes and service quality in the store\n• Ensuring a professional appearance of the store and the implementation of sales promotion measures\n• An apprenticeship as a retail specialist EFZ and/or relevant experience in the retail, hotel or catering industry\n• Interested in self-employment and the management of one or more stores\n• Willingness – especially in the early days – to invest a lot of time, work and perseverance\n• Entrepreneurial thinking and acting, team spirit and organizational talent\n• Joy in dealing with people as well as a strong customer and service orientation\n• At least 30,000 CHF (depending on the format) equity for the establishment of a GmbH and for entering as an agency partner\n• Turnkey shopfitting in uniform brand corporate design plus advertising and communication tools\n• Well-established high-frequency locations\n• Regional marketing measures\n• Advice on sales and cost planning\n• A detailed familiarization and preparation for future tasks\n• Comprehensive training and training programmes, seminars and lectures\n• Central purchasing\n• Commodity management system and category management (structure of product groups)\n• Attractive development prospects and the possibility to take over several stores Our contact data Apply today, easily online and become an independent entrepreneur! If you have any questions, please contact us: bewerbung.agp@valora.com",
-        "de": "Suchst Du den Einstieg in die Selbständigkeit? Valora als etablierte Convenience- und Food-Service-Anbieterin bietet Dir dazu ein schlüsselfertiges und über Jahre erprobtes sowie erfolgreiches Geschäftsmodell. Wir begleiten Dich unterstützend über die Übernahme Deines Stores hinaus, damit Du nicht nur den Start erfolgreich meisterst, sondern Dich langfristig als Agenturpartner/in an unserer Seite wohlfühlst. Dabei kannst Du wählen, welches unserer erstklassigen Formate: avec, Press & Books oder k kiosk (an hochfrequenten Standorten wie Bahnhöfen, Flughäfen oder Tankstellen) am besten zu Dir passt. Aufgaben, die Dir gefallen werden\n• Führen eines oder mehrerer, gut frequentierter Valora Stores als selbständige/r Unternehmer/in in eigener Verantwortung\n• Personalführung inkl. Einsatzplanung, Rekrutierung, Aus- und Weiterbildung der Mitarbeitenden\n• Warenbewirtschaftung (Inventur, Lagerbestand, Bestellungen)\n• Proaktive Beratung der Kunden und Aufbau / Pflege der Kundenbeziehungen\n• Enge Zusammenarbeit mit den Zulieferern und der zuständigen Verkaufsleitung\n• Laufende Optimierung der Prozesse und Servicequalität im Store\n• Sicherstellen eines professionellen Auftritts des Stores und der Umsetzung von verkaufsfördernden Massnahmen Voraussetzungen, die Du mitbringst\n• Eine Ausbildung als Detailhandelsfachmann/-frau EFZ und/oder relevante Erfahrung im Detailhandel, der Hotellerie oder Gastronomie\n• Interesse an der Selbständigkeit und der Führung eines oder mehrerer Stores\n• Bereitschaft – vor allem in der Anfangszeit – viel Zeit, Arbeit und Durchhaltevermögen zu investieren\n• Unternehmerisches Denken sowie Handeln, Teamgeist und organisatorisches Talent\n• Freude am Umgang mit Menschen sowie ausgeprägte Kunden- und Serviceorientierung\n• Mindestens 30'000 CHF (je nach Format) Eigenkapital für die Gründung einer GmbH sowie für den Eintritt als Agenturpartner/in Vorteile, die wir Dir bieten\n• Schlüsselfertiger Ladenbau im einheitlichen Marken-Corporate Design plus Werbe- und Kommunikationsmittel\n• Gut eingeführte Standorte an hochfrequenter Lage\n• Überregionale Marketingmassnahmen\n• Beratung bei der Umsatz- & Kostenplanung\n• Eine ausführliche Einarbeitung sowie Vorbereitung auf die zukünftigen Aufgaben\n• Umfassende Programme zu Schulung und Training, Aus- und Weiterbildung sowie Seminare und Fachvorträge\n• Zentraler Einkauf\n• Warenwirtschaftssystem und Category Management (Strukturierung der Warengruppen)\n• Attraktive Entwicklungsperspektiven und die Möglichkeit mehrere Stores zu übernehmen Unsere Kontaktdaten Bewirb Dich noch heute, ganz einfach online und werde selbständiger Unternehmer! Solltest Du noch Fragen haben, nimm sehr gerne Kontakt mit uns auf: bewerbung.agp@valora.com",
-        "fr": "Vous cherchez un travail indépendant? Valora en tant que fournisseur établi de services de commodité et d'alimentation Un modèle d'affaires clé en main et éprouvé et réussi au fil des ans. Nous vous soutenons au-delà de la prise en charge de votre magasin, de sorte que non seulement vous maîtrisez avec succès le départ, mais vous vous sentez également à l'aise en tant que partenaire d'agence à nos côtés à long terme. Vous pouvez choisir parmi nos formats de première classe: avec, Press & Books ou k borne (à des endroits à haute fréquence tels que gares, aéroports ou stations-service) vous convient le mieux. Tâches que vous aimerez\n• Gérer un ou plusieurs magasins Valora bien fréquentés en tant qu'entrepreneur indépendant sous votre propre responsabilité\n• Gestion du personnel, y compris Planification des affectations, recrutement, formation et formation des employés\n• Gestion des biens (inventaire, stocks, commandes)\n• Conseils proactifs et développement / entretien des relations client\n• Coopération étroite avec les fournisseurs et gestion responsable des ventes\n• Optimisation continue des processus et de la qualité du service dans le magasin\n• Assurer une apparence professionnelle du magasin et la mise en œuvre de mesures de promotion des ventes\n• Un apprentissage en tant que spécialiste du commerce de détail EFZ et/ou une expérience pertinente dans l'industrie du commerce de détail, de l'hôtellerie ou de la restauration\n• Intéressé par le travail indépendant et la gestion d'un ou de plusieurs magasins\n• La volonté – surtout dans les premiers jours – d'investir beaucoup de temps, de travail et de persévérance\n• Pensée entrepreneuriale et agir, esprit d'équipe et talent organisationnel\n• La joie de traiter avec les gens ainsi qu'une forte orientation client et service\n• Au moins 30 000 CHF (selon le format) capitaux propres pour la création d'une GmbH et pour entrer en tant que partenaire d'agence\n• Boutique clé en main dans un design d'entreprise de marque uniforme plus des outils de publicité et de communication\n• Emplacements à haute fréquence bien établis\n• Mesures de commercialisation régionales\n• Conseils sur les ventes et la planification des coûts\n• Une familiarisation et une préparation détaillées pour les tâches futures\n• Programmes complets de formation, séminaires et conférences\n• Achats centraux\n• Système de gestion des produits et gestion des catégories (structure des groupes de produits)\n• Perspectives de développement attractives et possibilité de reprendre plusieurs magasins Nos coordonnées Postulez dès aujourd'hui, en ligne et devenez un entrepreneur indépendant ! Si vous avez des questions, veuillez nous contacter: bewerbung.agp@valora.com"
-      },
-      "location": "Graubünden",
-      "canton": "GR",
-      "url": "https://career.valora.com/en/job/20004/agenturpartnerin-agenturpartner-imboden",
-      "source": "Valora Group Dedicated Parser (Custom)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:20:18.967Z",
-      "addressLocality": "Graubünden",
-      "addressRegion": "Graubünden",
-      "streetAddress": "Graubünden",
-      "postalCode": "7000",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Vendita",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Retail / Foodvenience",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-23",
-      "postedDate": "2026-09-23",
-      "postingDateSource": "reported",
-      "applyUrl": "https://recruitingapp-2538.umantis.com/Vacancies/20004/Application/CheckLogin/1?lang=ger&DesignID=10004",
-      "jobReqId": "20004",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "agenturpartnerin-agenturpartner-imboden-valora-graubunden"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "agenturpartnerin-agenturpartner-imboden-valora-graubunden"
-        ],
-        "en": [
-          "agenturpartnerin-agenturpartner-imboden-valora-graubunden"
-        ],
-        "fr": [
-          "agenturpartnerin-agenturpartner-imboden-valora-graubunden"
-        ]
-      },
-      "firstSeenAt": "2026-10-29T14:33:01.444Z",
-      "salaryMin": 68500,
-      "salaryMax": 105000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 105000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:20:18.967Z",
+      "validThrough": "2026-12-22T21:17:53.427Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -963,7 +879,7 @@
       "url": "https://career.valora.com/en/job/20005/agenturpartnerin-agenturpartner-sarganserland",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:20:18.966Z",
+      "crawledAt": "2026-11-18T21:17:53.426Z",
       "addressLocality": "St.Gallen",
       "addressRegion": "St.Gallen",
       "streetAddress": "St.Gallen",
@@ -1013,7 +929,91 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:20:18.966Z",
+      "validThrough": "2026-12-22T21:17:53.426Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "valora-63d0961b39a4",
+      "slug": "agenzia-partner-agenzia-partner-imboden-valora-group-graubunden",
+      "slugByLocale": {
+        "it": "agenzia-partner-agenzia-partner-imboden-valora-group-graubunden",
+        "en": "agency-partner-agency-partner-imboden-valora-group-graubunden",
+        "de": "agenturpartnerin-agenturpartner-imboden-valora-graubunden",
+        "fr": "partenaire-de-l-agence-partenaire-de-l-agence-imboden-valora-group-graubunden"
+      },
+      "company": "Valora Group",
+      "companyKey": "valora",
+      "companyDomain": "valora.com",
+      "title": "Agenturpartnerin / Agenturpartner Imboden",
+      "titleByLocale": {
+        "it": "Agenzia Partner / Agenzia Partner Imboden",
+        "en": "Agency Partner / Agency Partner Imboden",
+        "de": "Agenturpartnerin / Agenturpartner Imboden",
+        "fr": "Partenaire de l'Agence / Partenaire de l'Agence Imboden"
+      },
+      "description": "Suchst Du den Einstieg in die Selbständigkeit? Valora als etablierte Convenience- und Food-Service-Anbieterin bietet Dir dazu ein schlüsselfertiges und über Jahre erprobtes sowie erfolgreiches Geschäftsmodell. Wir begleiten Dich unterstützend über die Übernahme Deines Stores hinaus, damit Du nicht nur den Start erfolgreich meisterst, sondern Dich langfristig als Agenturpartner/in an unserer Seite wohlfühlst. Dabei kannst Du wählen, welches unserer erstklassigen Formate: avec, Press & Books oder k kiosk (an hochfrequenten Standorten wie Bahnhöfen, Flughäfen oder Tankstellen) am besten zu Dir passt. Aufgaben, die Dir gefallen werden\n• Führen eines oder mehrerer, gut frequentierter Valora Stores als selbständige/r Unternehmer/in in eigener Verantwortung\n• Personalführung inkl. Einsatzplanung, Rekrutierung, Aus- und Weiterbildung der Mitarbeitenden\n• Warenbewirtschaftung (Inventur, Lagerbestand, Bestellungen)\n• Proaktive Beratung der Kunden und Aufbau / Pflege der Kundenbeziehungen\n• Enge Zusammenarbeit mit den Zulieferern und der zuständigen Verkaufsleitung\n• Laufende Optimierung der Prozesse und Servicequalität im Store\n• Sicherstellen eines professionellen Auftritts des Stores und der Umsetzung von verkaufsfördernden Massnahmen Voraussetzungen, die Du mitbringst\n• Eine Ausbildung als Detailhandelsfachmann/-frau EFZ und/oder relevante Erfahrung im Detailhandel, der Hotellerie oder Gastronomie\n• Interesse an der Selbständigkeit und der Führung eines oder mehrerer Stores\n• Bereitschaft – vor allem in der Anfangszeit – viel Zeit, Arbeit und Durchhaltevermögen zu investieren\n• Unternehmerisches Denken sowie Handeln, Teamgeist und organisatorisches Talent\n• Freude am Umgang mit Menschen sowie ausgeprägte Kunden- und Serviceorientierung\n• Mindestens 30'000 CHF (je nach Format) Eigenkapital für die Gründung einer GmbH sowie für den Eintritt als Agenturpartner/in Vorteile, die wir Dir bieten\n• Schlüsselfertiger Ladenbau im einheitlichen Marken-Corporate Design plus Werbe- und Kommunikationsmittel\n• Gut eingeführte Standorte an hochfrequenter Lage\n• Überregionale Marketingmassnahmen\n• Beratung bei der Umsatz- & Kostenplanung\n• Eine ausführliche Einarbeitung sowie Vorbereitung auf die zukünftigen Aufgaben\n• Umfassende Programme zu Schulung und Training, Aus- und Weiterbildung sowie Seminare und Fachvorträge\n• Zentraler Einkauf\n• Warenwirtschaftssystem und Category Management (Strukturierung der Warengruppen)\n• Attraktive Entwicklungsperspektiven und die Möglichkeit mehrere Stores zu übernehmen Unsere Kontaktdaten Bewirb Dich noch heute, ganz einfach online und werde selbständiger Unternehmer! Solltest Du noch Fragen haben, nimm sehr gerne Kontakt mit uns auf: bewerbung.agp@valora.com",
+      "descriptionByLocale": {
+        "it": "Stai cercando un ingresso nel lavoro autonomo? Valora come fornitore di servizi e servizi alimentari consolidato Un chiavi in mano e nel corso degli anni collaudato e modello di business di successo. Vi sosteniamo oltre l'acquisizione del vostro negozio, in modo che non solo si padroneggia con successo l'inizio, ma anche sentirsi a proprio agio come partner agenzia al nostro fianco a lungo termine. È possibile scegliere quale dei nostri formati di prima classe: avec, Press & Books o k kiosk (in luoghi ad alta frequenza come stazioni ferroviarie, aeroporti o stazioni di servizio) si adatta meglio. Compiti che ti piacerà\n• Gestire uno o più negozi Valora ben frequentati come imprenditore indipendente sotto la vostra responsabilità\n• Gestione del personale incl. Pianificazione delle assegnazioni, reclutamento, formazione e formazione dei dipendenti\n• Gestione delle merci (inventario, stock, ordini)\n• Consulenza e sviluppo/manutenzione proattivi dei rapporti con i clienti\n• Una stretta collaborazione con i fornitori e la gestione responsabile delle vendite\n• Ottimizzazione continua dei processi e della qualità dei servizi nel negozio\n• Assicurare un aspetto professionale del negozio e l'attuazione delle misure di promozione delle vendite\n• Un apprendistato come specialista al dettaglio EFZ e/o esperienza rilevante nel settore del retail, dell'hotel o della ristorazione\n• Interessato al lavoro autonomo e alla gestione di uno o più negozi\n• Volontà – soprattutto nei primi giorni – per investire molto tempo, lavoro e perseveranza\n• pensiero e recitazione imprenditoriali, spirito di squadra e talento organizzativo\n• Gioia nel trattare con le persone e un forte orientamento al cliente e al servizio\n• Almeno 30.000 CHF (a seconda del formato) equità per la creazione di una GmbH e per l'ingresso come partner di agenzia\n• Shopfitting chiavi in mano in un design aziendale di marca uniforme più pubblicità e strumenti di comunicazione\n• Luoghi di alta frequenza ben consolidati\n• Misure di marketing regionale\n• Consulenza per la pianificazione delle vendite e dei costi\n• Una conoscenza dettagliata e preparazione dei compiti futuri\n• Programmi di formazione e formazione completi, seminari e conferenze\n• Acquisto centrale\n• Sistema di gestione delle materie prime e gestione delle categorie (struttura dei gruppi di prodotti)\n• Prospettive di sviluppo attraenti e possibilità di assumere diversi negozi I nostri dati di contatto Applicare oggi, facilmente online e diventare un imprenditore indipendente! Se avete domande, vi preghiamo di contattarci: bewerbung.agp@valora.com",
+        "en": "Are you looking for an entry into self-employment? Valora as an established convenience and food service provider A turnkey and over years proven and successful business model. We support you beyond the takeover of your store, so that you not only successfully master the start, but also feel comfortable as an agency partner at our side in the long term. You can choose which of our first-class formats: avec, Press & Books or k kiosk (at high-frequency locations such as train stations, airports or petrol stations) suits you best. Tasks you will like\n• Managing one or more well-frequented Valora stores as an independent entrepreneur under your own responsibility\n• Staff management incl. Assignment planning, recruitment, training and training of employees\n• Goods management (inventory, stock, orders)\n• Proactive customer advice and development / maintenance of customer relationships\n• Close cooperation with the suppliers and the responsible sales management\n• Ongoing optimization of processes and service quality in the store\n• Ensuring a professional appearance of the store and the implementation of sales promotion measures\n• An apprenticeship as a retail specialist EFZ and/or relevant experience in the retail, hotel or catering industry\n• Interested in self-employment and the management of one or more stores\n• Willingness – especially in the early days – to invest a lot of time, work and perseverance\n• Entrepreneurial thinking and acting, team spirit and organizational talent\n• Joy in dealing with people as well as a strong customer and service orientation\n• At least 30,000 CHF (depending on the format) equity for the establishment of a GmbH and for entering as an agency partner\n• Turnkey shopfitting in uniform brand corporate design plus advertising and communication tools\n• Well-established high-frequency locations\n• Regional marketing measures\n• Advice on sales and cost planning\n• A detailed familiarization and preparation for future tasks\n• Comprehensive training and training programmes, seminars and lectures\n• Central purchasing\n• Commodity management system and category management (structure of product groups)\n• Attractive development prospects and the possibility to take over several stores Our contact data Apply today, easily online and become an independent entrepreneur! If you have any questions, please contact us: bewerbung.agp@valora.com",
+        "de": "Suchst Du den Einstieg in die Selbständigkeit? Valora als etablierte Convenience- und Food-Service-Anbieterin bietet Dir dazu ein schlüsselfertiges und über Jahre erprobtes sowie erfolgreiches Geschäftsmodell. Wir begleiten Dich unterstützend über die Übernahme Deines Stores hinaus, damit Du nicht nur den Start erfolgreich meisterst, sondern Dich langfristig als Agenturpartner/in an unserer Seite wohlfühlst. Dabei kannst Du wählen, welches unserer erstklassigen Formate: avec, Press & Books oder k kiosk (an hochfrequenten Standorten wie Bahnhöfen, Flughäfen oder Tankstellen) am besten zu Dir passt. Aufgaben, die Dir gefallen werden\n• Führen eines oder mehrerer, gut frequentierter Valora Stores als selbständige/r Unternehmer/in in eigener Verantwortung\n• Personalführung inkl. Einsatzplanung, Rekrutierung, Aus- und Weiterbildung der Mitarbeitenden\n• Warenbewirtschaftung (Inventur, Lagerbestand, Bestellungen)\n• Proaktive Beratung der Kunden und Aufbau / Pflege der Kundenbeziehungen\n• Enge Zusammenarbeit mit den Zulieferern und der zuständigen Verkaufsleitung\n• Laufende Optimierung der Prozesse und Servicequalität im Store\n• Sicherstellen eines professionellen Auftritts des Stores und der Umsetzung von verkaufsfördernden Massnahmen Voraussetzungen, die Du mitbringst\n• Eine Ausbildung als Detailhandelsfachmann/-frau EFZ und/oder relevante Erfahrung im Detailhandel, der Hotellerie oder Gastronomie\n• Interesse an der Selbständigkeit und der Führung eines oder mehrerer Stores\n• Bereitschaft – vor allem in der Anfangszeit – viel Zeit, Arbeit und Durchhaltevermögen zu investieren\n• Unternehmerisches Denken sowie Handeln, Teamgeist und organisatorisches Talent\n• Freude am Umgang mit Menschen sowie ausgeprägte Kunden- und Serviceorientierung\n• Mindestens 30'000 CHF (je nach Format) Eigenkapital für die Gründung einer GmbH sowie für den Eintritt als Agenturpartner/in Vorteile, die wir Dir bieten\n• Schlüsselfertiger Ladenbau im einheitlichen Marken-Corporate Design plus Werbe- und Kommunikationsmittel\n• Gut eingeführte Standorte an hochfrequenter Lage\n• Überregionale Marketingmassnahmen\n• Beratung bei der Umsatz- & Kostenplanung\n• Eine ausführliche Einarbeitung sowie Vorbereitung auf die zukünftigen Aufgaben\n• Umfassende Programme zu Schulung und Training, Aus- und Weiterbildung sowie Seminare und Fachvorträge\n• Zentraler Einkauf\n• Warenwirtschaftssystem und Category Management (Strukturierung der Warengruppen)\n• Attraktive Entwicklungsperspektiven und die Möglichkeit mehrere Stores zu übernehmen Unsere Kontaktdaten Bewirb Dich noch heute, ganz einfach online und werde selbständiger Unternehmer! Solltest Du noch Fragen haben, nimm sehr gerne Kontakt mit uns auf: bewerbung.agp@valora.com",
+        "fr": "Vous cherchez un travail indépendant? Valora en tant que fournisseur établi de services de commodité et d'alimentation Un modèle d'affaires clé en main et éprouvé et réussi au fil des ans. Nous vous soutenons au-delà de la prise en charge de votre magasin, de sorte que non seulement vous maîtrisez avec succès le départ, mais vous vous sentez également à l'aise en tant que partenaire d'agence à nos côtés à long terme. Vous pouvez choisir parmi nos formats de première classe: avec, Press & Books ou k borne (à des endroits à haute fréquence tels que gares, aéroports ou stations-service) vous convient le mieux. Tâches que vous aimerez\n• Gérer un ou plusieurs magasins Valora bien fréquentés en tant qu'entrepreneur indépendant sous votre propre responsabilité\n• Gestion du personnel, y compris Planification des affectations, recrutement, formation et formation des employés\n• Gestion des biens (inventaire, stocks, commandes)\n• Conseils proactifs et développement / entretien des relations client\n• Coopération étroite avec les fournisseurs et gestion responsable des ventes\n• Optimisation continue des processus et de la qualité du service dans le magasin\n• Assurer une apparence professionnelle du magasin et la mise en œuvre de mesures de promotion des ventes\n• Un apprentissage en tant que spécialiste du commerce de détail EFZ et/ou une expérience pertinente dans l'industrie du commerce de détail, de l'hôtellerie ou de la restauration\n• Intéressé par le travail indépendant et la gestion d'un ou de plusieurs magasins\n• La volonté – surtout dans les premiers jours – d'investir beaucoup de temps, de travail et de persévérance\n• Pensée entrepreneuriale et agir, esprit d'équipe et talent organisationnel\n• La joie de traiter avec les gens ainsi qu'une forte orientation client et service\n• Au moins 30 000 CHF (selon le format) capitaux propres pour la création d'une GmbH et pour entrer en tant que partenaire d'agence\n• Boutique clé en main dans un design d'entreprise de marque uniforme plus des outils de publicité et de communication\n• Emplacements à haute fréquence bien établis\n• Mesures de commercialisation régionales\n• Conseils sur les ventes et la planification des coûts\n• Une familiarisation et une préparation détaillées pour les tâches futures\n• Programmes complets de formation, séminaires et conférences\n• Achats centraux\n• Système de gestion des produits et gestion des catégories (structure des groupes de produits)\n• Perspectives de développement attractives et possibilité de reprendre plusieurs magasins Nos coordonnées Postulez dès aujourd'hui, en ligne et devenez un entrepreneur indépendant ! Si vous avez des questions, veuillez nous contacter: bewerbung.agp@valora.com"
+      },
+      "location": "Graubünden",
+      "canton": "GR",
+      "url": "https://career.valora.com/en/job/20004/agenturpartnerin-agenturpartner-imboden",
+      "source": "Valora Group Dedicated Parser (Custom)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-18T21:17:53.426Z",
+      "addressLocality": "Graubünden",
+      "addressRegion": "Graubünden",
+      "streetAddress": "Graubünden",
+      "postalCode": "7000",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Vendita",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Retail / Foodvenience",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-23",
+      "postedDate": "2026-09-23",
+      "postingDateSource": "reported",
+      "applyUrl": "https://recruitingapp-2538.umantis.com/Vacancies/20004/Application/CheckLogin/1?lang=ger&DesignID=10004",
+      "jobReqId": "20004",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "agenturpartnerin-agenturpartner-imboden-valora-graubunden"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "agenturpartnerin-agenturpartner-imboden-valora-graubunden"
+        ],
+        "en": [
+          "agenturpartnerin-agenturpartner-imboden-valora-graubunden"
+        ],
+        "fr": [
+          "agenturpartnerin-agenturpartner-imboden-valora-graubunden"
+        ]
+      },
+      "firstSeenAt": "2026-10-29T14:33:01.444Z",
+      "salaryMin": 68500,
+      "salaryMax": 105000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 105000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-22T21:17:53.426Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1047,7 +1047,7 @@
       "url": "https://career.valora.com/en/job/20569/agenturpartnerin-agenturpartner-kanton-st-gallen",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:20:18.965Z",
+      "crawledAt": "2026-11-18T21:17:53.425Z",
       "addressLocality": "St.Gallen",
       "addressRegion": "St.Gallen",
       "streetAddress": "St.Gallen",
@@ -1097,7 +1097,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:20:18.965Z",
+      "validThrough": "2026-12-22T21:17:53.425Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1131,7 +1131,7 @@
       "url": "https://career.valora.com/en/job/21083/agenturpartnerin-agenturpartner-kanton-basel-stadt-baselland",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:20:18.964Z",
+      "crawledAt": "2026-11-18T21:17:53.424Z",
       "addressLocality": "Basel",
       "addressRegion": "Basel-Stadt",
       "streetAddress": "Bahnhof",
@@ -1183,7 +1183,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:20:18.964Z",
+      "validThrough": "2026-12-22T21:17:53.424Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1217,7 +1217,7 @@
       "url": "https://career.valora.com/en/job/20945/it-program-manager-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:20:18.963Z",
+      "crawledAt": "2026-11-18T21:17:53.423Z",
       "addressLocality": "Muttenz",
       "addressRegion": "Baselland",
       "streetAddress": "Hofackerstrasse 40",
@@ -1253,7 +1253,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T09:20:18.963Z",
+      "validThrough": "2026-12-27T21:17:53.423Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1287,7 +1287,7 @@
       "url": "https://career.valora.com/en/job/21039/verkauferin-verkaufer-k-kiosk-10-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:20:18.962Z",
+      "crawledAt": "2026-11-18T21:17:53.422Z",
       "addressLocality": "Uetendorf",
       "addressRegion": "Bern",
       "streetAddress": "Dorfstrasse 21",
@@ -1347,7 +1347,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-30T09:20:18.962Z",
+      "validThrough": "2026-12-30T21:17:53.422Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1381,7 +1381,7 @@
       "url": "https://career.valora.com/en/job/22063/geschaftsfuhrerin-geschaftsfuhrer-k-kiosk-100",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:20:18.959Z",
+      "crawledAt": "2026-11-18T21:17:53.420Z",
       "addressLocality": "Kandersteg",
       "addressRegion": "Bern",
       "streetAddress": "Bahnhofstrasse 2",
@@ -1431,7 +1431,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-17T09:20:18.959Z",
+      "validThrough": "2027-01-17T21:17:53.420Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1465,7 +1465,7 @@
       "url": "https://career.valora.com/en/job/21758/strategischer-einkaufer-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:20:18.957Z",
+      "crawledAt": "2026-11-18T21:17:53.418Z",
       "addressLocality": "Muttenz",
       "addressRegion": "Baselland",
       "streetAddress": "Hofackerstr. 40",
@@ -1515,7 +1515,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-18T09:20:18.957Z",
+      "validThrough": "2027-01-18T21:17:53.418Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1549,7 +1549,7 @@
       "url": "https://career.valora.com/en/job/22043/verkauferin-verkaufer-k-kiosk-10-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:20:18.955Z",
+      "crawledAt": "2026-11-18T21:17:53.417Z",
       "addressLocality": "Thun",
       "addressRegion": "Bern",
       "streetAddress": "Bälliz 15",
@@ -1599,7 +1599,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-19T09:20:18.955Z",
+      "validThrough": "2027-01-19T21:17:53.417Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1633,7 +1633,7 @@
       "url": "https://career.valora.com/en/job/22105/service-delivery-pos-specialist-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:20:18.954Z",
+      "crawledAt": "2026-11-18T21:17:53.416Z",
       "addressLocality": "Muttenz",
       "addressRegion": "Baselland",
       "streetAddress": "Hofackerstrasse 40",
@@ -1680,7 +1680,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-21T09:20:18.954Z",
+      "validThrough": "2027-01-21T21:17:53.416Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1714,7 +1714,7 @@
       "url": "https://career.valora.com/en/job/21040/verkauferin-verkaufer-k-kiosk-10-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:20:18.952Z",
+      "crawledAt": "2026-11-18T21:17:53.415Z",
       "addressLocality": "Uetendorf",
       "addressRegion": "Bern",
       "streetAddress": "Dorfstrasse 21",
@@ -1762,7 +1762,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-24T09:20:18.952Z",
+      "validThrough": "2027-01-24T21:17:53.415Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1796,7 +1796,7 @@
       "url": "https://career.valora.com/en/job/21042/verkauferin-verkaufer-k-kiosk-15-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:20:18.951Z",
+      "crawledAt": "2026-11-18T21:17:53.413Z",
       "addressLocality": "Uetendorf",
       "addressRegion": "Bern",
       "streetAddress": "Dorfstrasse 32",
@@ -1844,7 +1844,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-24T09:20:18.951Z",
+      "validThrough": "2027-01-24T21:17:53.413Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1878,7 +1878,7 @@
       "url": "https://career.valora.com/en/job/21220/verkauferin-verkaufer-press-books-21-5-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:20:18.949Z",
+      "crawledAt": "2026-11-18T21:17:53.411Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "streetAddress": "Bahnhofplatz 10",
@@ -1928,7 +1928,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-24T09:20:18.949Z",
+      "validThrough": "2027-01-24T21:17:53.411Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1962,7 +1962,7 @@
       "url": "https://career.valora.com/en/job/21622/verkauferin-verkaufer-k-kiosk-10-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:20:18.948Z",
+      "crawledAt": "2026-11-18T21:17:53.410Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "streetAddress": "Bubenbergplatz 11",
@@ -2012,7 +2012,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-24T09:20:18.948Z",
+      "validThrough": "2027-01-24T21:17:53.410Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2046,7 +2046,7 @@
       "url": "https://career.valora.com/en/job/21701/verkauferin-verkaufer-backwerk-24-6-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:20:18.946Z",
+      "crawledAt": "2026-11-18T21:17:53.408Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Sihlquai C5",
@@ -2096,7 +2096,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-24T09:20:18.946Z",
+      "validThrough": "2027-01-24T21:17:53.408Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2130,7 +2130,7 @@
       "url": "https://career.valora.com/en/job/21847/verkauferin-verkaufer-press-books-22-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:20:18.941Z",
+      "crawledAt": "2026-11-18T21:17:53.404Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "streetAddress": "Bahnhofplatz 10",
@@ -2180,7 +2180,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-24T09:20:18.941Z",
+      "validThrough": "2027-01-24T21:17:53.404Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2214,7 +2214,7 @@
       "url": "https://career.valora.com/en/job/21923/verkauferin-verkaufer-k-kiosk-30-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:20:18.940Z",
+      "crawledAt": "2026-11-18T21:17:53.402Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "streetAddress": "Bahnhofplatz 10",
@@ -2264,7 +2264,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-24T09:20:18.940Z",
+      "validThrough": "2027-01-24T21:17:53.402Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2298,7 +2298,7 @@
       "url": "https://career.valora.com/en/job/21265/produktionsmitarbeiter-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:20:18.938Z",
+      "crawledAt": "2026-11-18T21:17:53.401Z",
       "addressLocality": "Emmenbrücke",
       "addressRegion": "Luzern",
       "streetAddress": "Neuenkirchstrasse 91",
@@ -2353,7 +2353,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-31T09:20:18.938Z",
+      "validThrough": "2027-01-31T21:17:53.401Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2387,7 +2387,7 @@
       "url": "https://career.valora.com/en/job/22072/verkauferin-verkaufer-avec-20-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:20:18.915Z",
+      "crawledAt": "2026-11-18T21:17:53.380Z",
       "addressLocality": "Ittigen",
       "addressRegion": "Bern",
       "streetAddress": "Worblentalstrasse 103",
@@ -2437,7 +2437,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T09:20:18.915Z",
+      "validThrough": "2027-02-01T21:17:53.380Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2471,7 +2471,7 @@
       "url": "https://career.valora.com/en/job/21792/internal-control-risk-specialist-80-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:20:18.913Z",
+      "crawledAt": "2026-11-18T21:17:53.377Z",
       "addressLocality": "Muttenz",
       "addressRegion": "Baselland",
       "streetAddress": "Hofackerstrasse 40",
@@ -2532,7 +2532,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-14T09:20:18.913Z",
+      "validThrough": "2027-01-14T21:17:53.377Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2566,7 +2566,7 @@
       "url": "https://career.valora.com/en/job/22004/consumer-finance-specialist-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:20:18.911Z",
+      "crawledAt": "2026-11-18T21:17:53.375Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Hardturmstrasse 161",
@@ -2613,7 +2613,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T09:20:18.911Z",
+      "validThrough": "2027-02-02T21:17:53.375Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2647,7 +2647,7 @@
       "url": "https://career.valora.com/en/job/22005/specialist-collections-payments-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:20:18.909Z",
+      "crawledAt": "2026-11-18T21:17:53.373Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Hardturmstrasse 161",
@@ -2694,7 +2694,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T09:20:18.909Z",
+      "validThrough": "2027-02-02T21:17:53.373Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2728,7 +2728,7 @@
       "url": "https://career.valora.com/en/job/22064/compliance-officer-legal-counsel-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:20:18.907Z",
+      "crawledAt": "2026-11-18T21:17:53.371Z",
       "addressLocality": "Muttenz",
       "addressRegion": "Baselland",
       "streetAddress": "Hofackerstrasse 40",
@@ -2776,7 +2776,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T09:20:18.907Z",
+      "validThrough": "2027-02-02T21:17:53.371Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2810,7 +2810,7 @@
       "url": "https://career.valora.com/en/job/22203/it-manager-finance-hr-applications-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:20:18.905Z",
+      "crawledAt": "2026-11-18T21:17:53.369Z",
       "addressLocality": "Muttenz",
       "addressRegion": "Baselland",
       "streetAddress": "Hofackerstrasse 40",
@@ -2854,7 +2854,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-07T09:20:18.905Z",
+      "validThrough": "2027-02-07T21:17:53.369Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2888,7 +2888,7 @@
       "url": "https://career.valora.com/en/job/21602/verkauferin-verkaufer-k-kiosk-10-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:20:18.904Z",
+      "crawledAt": "2026-11-18T21:17:53.368Z",
       "addressLocality": "Oberhofen",
       "addressRegion": "Bern",
       "streetAddress": "Staatsstrasse 4",
@@ -2938,7 +2938,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T09:20:18.904Z",
+      "validThrough": "2027-02-10T21:17:53.368Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2972,7 +2972,7 @@
       "url": "https://career.valora.com/en/job/22035/it-pos-coordinator-ch-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:20:18.876Z",
+      "crawledAt": "2026-11-18T21:17:53.343Z",
       "addressLocality": "Muttenz",
       "addressRegion": "Baselland",
       "streetAddress": "Hofackerstrasse 40",
@@ -3019,7 +3019,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-11T09:20:18.876Z",
+      "validThrough": "2027-02-11T21:17:53.343Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3053,7 +3053,7 @@
       "url": "https://career.valora.com/en/job/21711/verkauferin-verkaufer-k-kiosk-20-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:20:18.872Z",
+      "crawledAt": "2026-11-18T21:17:53.339Z",
       "addressLocality": "Kandersteg",
       "addressRegion": "Bern",
       "streetAddress": "Bahnhofstrasse 7",
@@ -3105,7 +3105,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-15T09:20:18.872Z",
+      "validThrough": "2027-02-15T21:17:53.339Z",
       "validThroughSource": "last-observed-window"
     }
   ]
