@@ -166,7 +166,7 @@ _publish_cdn_r2() {
   local stage="$1"
   local og_changed_files="${2:-}" og_manifest_candidate="${3:-}"
   local job_canon_affected_file="${4:-${RUNNER_TEMP}/job-canon-affected.txt}"
-  local job_canon_log="${RUNNER_TEMP}/r2-job-canon-${DEPLOY_BUILD_ID:-local}.jsonl"
+  local job_canon_log="$stage/.r2-job-canon.jsonl"
   rm -f "$job_canon_log" "$job_canon_affected_file"
   if [ -z "${R2_ACCESS_KEY_ID:-}" ] || [ -z "${R2_SECRET_ACCESS_KEY:-}" ] \
      || [ -z "${R2_S3_ENDPOINT:-}" ] || [ -z "${R2_BUCKET:-}" ]; then
@@ -412,7 +412,8 @@ _publish_cdn_r2() {
   }
   _r2_sync_og_delta() { # <limit-s> <source-dir> <changed-list> <candidate> <completed-list> <published-manifest>
     local limit="$1" source_dir="$2" changed_list="$3" candidate="$4"
-    local completed_list="$5" published_manifest="$6" batch_dir="$rtmp/r2-og-batches-$$"
+    local completed_list="$5" published_manifest="$6"
+    local batch_dir="${completed_list%/*}/.r2-og-batches"
     local batch_size=1000 batch_index=0 total_files=0
     local relative_path batch_file completed_tmp
     local -a batch_paths=()
@@ -658,7 +659,7 @@ _publish_cdn_r2() {
   # driven by TTL expiry per PoP, not by request arrival. Scaling that way,
   # max-age=600 would be ~100x the hops and max-age=86400 ~3x; the root alias
   # policy is now 600s because the executable graph no longer uses those names.
-  local _assets_log="$(mktemp -t r2-assets-XXXXXX.jsonl 2>/dev/null || echo "${RUNNER_TEMP:-/tmp}/r2-assets.jsonl")"
+  local _assets_log="$stage/.r2-assets.jsonl"
   local assets_sync_ok=0 assets_sync_status=0
   # ── Purge ledger, read BEFORE the assets sync (NX-SKEW-2b, Refs #9465/#8612)
   # The purge below diffs this build's assets against purge-ledger/assets.json
@@ -668,8 +669,7 @@ _publish_cdn_r2() {
   # Every step here is fail-open: a missing, invalid or unreadable ledger
   # starts empty, so all current stage keys stay dirty until purged. If the
   # stage itself is unavailable, the purge falls back to this run's upload log.
-  local _pdir _ledger_key="purge-ledger/assets.json" _ledger_state=unreadable _rrc=0
-  _pdir="$(mktemp -d "${RUNNER_TEMP:-/tmp}/r2-purge.XXXXXX" 2>/dev/null || echo "${RUNNER_TEMP:-/tmp}/r2-purge.$$")"
+  local _pdir="$stage/.r2-purge" _ledger_key="purge-ledger/assets.json" _ledger_state=unreadable _rrc=0
   mkdir -p "$_pdir"
   if [ -d "$stage/assets" ]; then
     # rclone exits 0 and writes NOTHING when the object does not exist
@@ -792,7 +792,7 @@ _publish_cdn_r2() {
     # and source-hash validation both succeeded. The complete candidate is
     # promoted immediately after the last batch, before images/data can fail.
     if ! _r2_sync_og_delta "$_t_og" "$PREP_CWD/dist/og" "$og_changed_files" \
-      "$og_manifest_candidate" "$rtmp/r2-og-completed-files.txt" \
+      "$og_manifest_candidate" "$stage/.r2-og-completed-files.txt" \
       "$PREP_CWD/.cache/r2-og-published-manifest.json"; then
       ok=0
     fi
@@ -1716,22 +1716,18 @@ step_push_cdn() {
   # applied inside each branch below (fail-closed): r2 → R2_* creds, pages →
   # CDN_DEPLOY_KEY.
   local cdn_target="${CDN_TARGET:-pages}"
-  local stage="${CDN_STAGE_DIR:-${RUNNER_TEMP}/cdn-stage}"
+  local attempt_dir stage
+  attempt_dir="$(mktemp -d "${RUNNER_TEMP:-/tmp}/cdn-stage.XXXXXX")" || return 1
+  # A timed-out publisher can still be unwinding when its retry starts.
+  # Keep both the payload and its working files private to this invocation.
+  trap 'trap - RETURN; rm -rf "$attempt_dir"' RETURN
+  stage="$attempt_dir/payload"
+  mkdir -p "$stage" || return 1
   if [ -n "${DEPLOY_BUILD_ID:-}" ] && [ "$cdn_target" != "r2" ]; then
     unset CDN_PAGES_BUILD_ID
   fi
-  local job_canon_affected_file="${RUNNER_TEMP}/job-canon-affected.txt"
-  rm -f "${RUNNER_TEMP}/job-canon-publish.ok" "$job_canon_affected_file"
-  # Same leaked-staging-dir class fixed for push-locale-shard.sh /
-  # push-section-shard.sh (issue #4734): $stage holds up to ~950 MB
-  # (og+data+assets+images) and is never read again after this function
-  # returns, on any of its several exit paths (no-offloadable-assets,
-  # r2-only, missing CDN_DEPLOY_KEY, or the normal push-then-fallthrough
-  # path). trap RETURN frees it on every path instead of duplicating
-  # rm -rf at each return.
-  # shellcheck disable=SC2064
-  trap "rm -rf '$stage'" RETURN
-  rm -rf "$stage" && mkdir -p "$stage"
+  local job_canon_affected_file="$attempt_dir/job-canon-affected.txt"
+  rm -f "${RUNNER_TEMP}/job-canon-publish.ok"
   : > "$stage/.nojekyll"                              # serve every path verbatim, skip Jekyll
   printf 'cdn.frontaliereticino.ch' > "$stage/CNAME"  # keep custom domain (force-push would else wipe it)
   # Offloadable dirs: og cards, ALL runtime data JSON, the bundler assets
@@ -1743,10 +1739,9 @@ step_push_cdn() {
   # them; generate-article.yml commits each new one), so the public/images/blog
   # copy below ALREADY pushes them to ${CDN}/images/blog/thumbnails/ — the offload
   # script then deletes the dist copy of dist/images/blog/thumbnails.
-  local r2_og_changed_files="${RUNNER_TEMP:-/tmp}/r2-og-changed-files.txt"
-  local r2_og_candidate="${RUNNER_TEMP:-/tmp}/r2-og-published-manifest.next.json"
+  local r2_og_changed_files="$attempt_dir/r2-og-changed-files.txt"
+  local r2_og_candidate="$attempt_dir/r2-og-published-manifest.next.json"
   local r2_og_delta_ready=0
-  rm -f "$r2_og_changed_files" "$r2_og_candidate"
   if { [ "$cdn_target" = "r2" ] || [ "$cdn_target" = "both" ]; } && [ -d dist/og ]; then
     local r2_og_summary=""
     if r2_og_summary="$(node scripts/ci/prepare-r2-og-delta.mjs dist/og .cache/r2-og-published-manifest.json "$r2_og_changed_files" "$r2_og_candidate" .cache/og-jobs/.deferred-r2-og.json)"; then
@@ -1761,8 +1756,7 @@ step_push_cdn() {
       esac
     else
       echo "::warning::[r2-og-manifest] delta preparation failed; falling back to full OG stage"
-      rm -f "$r2_og_changed_files" "$r2_og_candidate"
-    fi
+        fi
     # `both` also sends the complete OG tree to the legacy Pages publish below;
     # keep that stage while R2 consumes the exact manifest delta.
     if [ "$r2_og_delta_ready" -ne 1 ] || [ "$cdn_target" = "both" ]; then
@@ -1970,8 +1964,7 @@ step_push_cdn() {
   # complete job-canon/ namespace because rollback and older consumers need it.
   local prev=""
   if [ -d "$stage/assets" ] || [ "$pages_production_release" = 1 ]; then
-    prev="$RUNNER_TEMP/cdn-prev"
-    rm -rf "$prev"
+    prev="$attempt_dir/cdn-prev"
     if git clone --depth 1 --filter=blob:none --sparse \
       git@github.com:valerielinc-ops/frontaliere-cdn.git "$prev" 2>/dev/null; then
       if [ "$pages_production_release" = 1 ]; then
@@ -2096,7 +2089,7 @@ step_push_cdn() {
     && _pages_build_publish_acknowledged; then
     # Pages can serve this build while R2 stays last-known-good if its publish
     # fails; the Pages acknowledgement never stands in for the R2 marker.
-    _publish_cdn_r2 "$stage" "$r2_og_changed_files" "$r2_og_candidate"
+    _publish_cdn_r2 "$stage" "$r2_og_changed_files" "$r2_og_candidate" "$job_canon_affected_file"
     cd "$PREP_CWD"
   fi
 }
