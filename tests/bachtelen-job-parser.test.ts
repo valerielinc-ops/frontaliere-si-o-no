@@ -1,4 +1,11 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
+
+const { fetchViaJinaWithRetry } = vi.hoisted(() => ({ fetchViaJinaWithRetry: vi.fn() }));
+vi.mock('../scripts/lib/jina-proxy.mjs', async (importOriginal) => {
+  const actual = (await importOriginal()) as Record<string, unknown>;
+  return { ...actual, fetchViaJinaWithRetry };
+});
+
 import {
   BACHTELEN_COMPANY_NAME,
   fetchAllBachtelenJobs,
@@ -20,16 +27,19 @@ const CAREER_PAGE = `
   </div>
 `;
 
-function response(body: string) {
+function response(body: string, status = 200) {
   return {
-    ok: true,
-    status: 200,
+    ok: status >= 200 && status < 300,
+    status,
     text: () => Promise.resolve(body),
   };
 }
 
 describe('Bachtelen job parser', () => {
-  afterEach(() => vi.unstubAllGlobals());
+  afterEach(() => {
+    vi.unstubAllGlobals();
+    fetchViaJinaWithRetry.mockReset();
+  });
 
   it('extracts locations from the job cards and ignores unrelated links', () => {
     const locations = parseBachtelenListingPage(CAREER_PAGE);
@@ -79,6 +89,80 @@ describe('Bachtelen job parser', () => {
       expect.stringContaining('/wp-json/wp/v2/stelle?per_page=50&status=publish'),
       expect.any(Object),
     );
+  });
+
+  it('rescues a direct HTTP 403 through the Jina clean-IP proxy as raw JSON', async () => {
+    const listing = [{
+      id: 12,
+      date: '2026-10-15T10:00:00',
+      date_gmt: '2026-10-15T08:00:00',
+      link: 'https://www.bachtelen.ch/stelle/sozialpaedagogik/',
+      title: { rendered: 'Sozialpädagog:in FH / HF 70-80%' },
+      content: {
+        rendered: `<p>${'Begleitung von Kindern und Jugendlichen im Huus am Schärme in Hägendorf. '.repeat(5)}</p>`,
+      },
+      meta: {},
+    }];
+    const fetchMock = vi.fn(async (rawUrl: string) => {
+      const url = String(rawUrl);
+      if (url.includes('/wp-json/wp/v2/stelle?')) return response('', 403);
+      if (url === 'https://www.bachtelen.ch/arbeiten-bei-uns/') return response(CAREER_PAGE);
+      throw new Error(`unexpected fetch: ${url}`);
+    });
+    vi.stubGlobal('fetch', fetchMock);
+    fetchViaJinaWithRetry.mockResolvedValue({
+      ok: true,
+      status: 200,
+      text: async () => JSON.stringify(listing),
+    });
+
+    const jobs = await fetchAllBachtelenJobs();
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]).toMatchObject({ title: 'Sozialpädagog:in FH / HF 70-80%', location: 'Hägendorf' });
+    expect(fetchViaJinaWithRetry).toHaveBeenCalledOnce();
+    expect(fetchViaJinaWithRetry).toHaveBeenCalledWith(
+      expect.stringContaining('/wp-json/wp/v2/stelle?per_page=50&status=publish'),
+      expect.objectContaining({ format: 'text', validateBody: expect.any(Function) }),
+    );
+  });
+
+  it('accepts an authoritative empty JSON array from the Jina raw-text response', async () => {
+    vi.stubGlobal('fetch', vi.fn(async (rawUrl: string) => {
+      const url = String(rawUrl);
+      if (url.includes('/wp-json/wp/v2/stelle?')) return response('', 403);
+      if (url === 'https://www.bachtelen.ch/arbeiten-bei-uns/') return response(CAREER_PAGE);
+      throw new Error(`unexpected fetch: ${url}`);
+    }));
+    fetchViaJinaWithRetry.mockResolvedValue({
+      ok: true,
+      status: 200,
+      text: async () => '[]',
+    });
+
+    await expect(fetchAllBachtelenJobs()).resolves.toEqual([]);
+    const options = fetchViaJinaWithRetry.mock.calls[0]?.[1];
+    expect(options?.validateBody('[]')).toBeNull();
+    expect(options?.validateBody(JSON.stringify({ code: 'rest_forbidden' }))).toMatch(/not an array/);
+  });
+
+  it.each([
+    ['a challenge body', 'Just a moment...'],
+    ['an invalid JSON body', `<html><body>${'not json '.repeat(30)}</body></html>`],
+    ['a JSON error envelope', JSON.stringify({ code: 'rest_forbidden' })],
+  ])('rethrows the original HTTP 403 when Jina returns %s', async (_label, proxyBody) => {
+    vi.stubGlobal('fetch', vi.fn(async (rawUrl: string) => {
+      if (String(rawUrl).includes('/wp-json/wp/v2/stelle?')) return response('', 403);
+      throw new Error(`unexpected fetch: ${rawUrl}`);
+    }));
+    fetchViaJinaWithRetry.mockResolvedValue({
+      ok: true,
+      status: 200,
+      text: async () => proxyBody,
+    });
+
+    await expect(fetchAllBachtelenJobs()).rejects.toThrow(/Failed to fetch Bachtelen WP REST stelle: HTTP 403/);
+    expect(fetchViaJinaWithRetry).toHaveBeenCalledOnce();
   });
 
   it('trusts only Bachtelen domains', () => {

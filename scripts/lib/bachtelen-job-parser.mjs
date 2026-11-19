@@ -24,7 +24,15 @@
 import { sourcePostingDateCandidatesFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, warnIfListingAtCap, fetchHtml, fetchJson } from './crawler-template.mjs';
+import {
+  slugify,
+  warnIfListingAtCap,
+  fetchHtml,
+  fetchJson,
+  WAF_IP_BLOCK_STATUS,
+  isConnectionLevelFetchError,
+} from './crawler-template.mjs';
+import { fetchViaJinaWithRetry, detectJinaErrorBody } from './jina-proxy.mjs';
 import {
   decodeEntities,
   normalizeSpace,
@@ -67,22 +75,66 @@ export function isTrustedDomain(rawUrl = '') {
   }
 }
 
-// Uses the shared fetchJson() (crawler-template.mjs): retries transient
-// failures (5xx/429, network blips, and a 200-but-non-JSON WAF "challenge"
-// body — the same class of intermittent block that broke the Bucher + Suter
-// WP REST listing, #4247) via exponential backoff instead of hard-failing
-// the whole crawler on one blip. Site-specific headers (Accept/Referer) are
-// preserved as-is via `options.headers`.
-function fetchBachtelenListingJson(url, timeoutMs = 20000) {
-  return fetchJson(url, {
-    timeoutMs,
-    label: 'Bachtelen wp-json stelle',
-    headers: {
-      Accept: 'application/json,text/html;q=0.9,*/*;q=0.5',
-      'Accept-Language': 'de-CH,de;q=0.9,en;q=0.5',
-      Referer: PUBLIC_CAREER_URL,
-    },
-  });
+/**
+ * Fetch the Bachtelen WP REST listing, with a source-specific clean-IP rescue.
+ *
+ * The direct request remains the primary path. A 403/406/415/451 WAF response
+ * or a connection-level failure can be an IP-reputation block from the CI
+ * egress, so retry the same endpoint through Jina with raw text. Never accept
+ * Jina's own challenge/error page or anything other than a JSON array: the
+ * original direct error is rethrown so the crawler cannot turn an unverified
+ * response into an empty listing.
+ */
+function validateBachtelenListingBody(body) {
+  const proxyError = detectJinaErrorBody(body, { minLength: 0 });
+  if (proxyError) return proxyError;
+
+  try {
+    return Array.isArray(JSON.parse(body)) ? null : 'JSON payload is not an array';
+  } catch (err) {
+    return `invalid JSON: ${err?.message || err}`;
+  }
+}
+
+async function fetchBachtelenListingJson(url, timeoutMs = 20000) {
+  try {
+    return await fetchJson(url, {
+      timeoutMs,
+      label: 'Bachtelen wp-json stelle',
+      headers: {
+        Accept: 'application/json,text/html;q=0.9,*/*;q=0.5',
+        'Accept-Language': 'de-CH,de;q=0.9,en;q=0.5',
+        Referer: PUBLIC_CAREER_URL,
+      },
+    });
+  } catch (err) {
+    if (!(isConnectionLevelFetchError(err) || WAF_IP_BLOCK_STATUS.has(err?.status))) throw err;
+
+    console.warn(`⚠️ Direct fetch to Bachtelen WP REST stelle blocked (${err?.message || err}) — retrying via Jina clean-IP proxy...`);
+    const res = await fetchViaJinaWithRetry(url, {
+      timeoutMs,
+      format: 'text',
+      validateBody: validateBachtelenListingBody,
+    });
+    if (!res.ok) {
+      console.warn(`⚠️ Jina proxy returned HTTP ${res.status} for Bachtelen WP REST stelle — falling back to original error.`);
+      throw err;
+    }
+
+    const body = await res.text();
+    const reason = validateBachtelenListingBody(body);
+    if (reason) {
+      console.warn(`⚠️ Jina-proxied Bachtelen WP REST stelle body looks like a challenge/non-target page (${reason}) — falling back to original error.`);
+      throw err;
+    }
+
+    try {
+      return JSON.parse(body);
+    } catch (parseErr) {
+      console.warn(`⚠️ Jina-proxied Bachtelen WP REST stelle body was not valid JSON (${parseErr?.message || parseErr}) — falling back to original error.`);
+      throw err;
+    }
+  }
 }
 
 function fetchBachtelenCareerPage(timeoutMs = 20000) {
