@@ -33,6 +33,7 @@ import { openRequiredDocuments } from './assistedApplicationExtraDocuments.js';
 import { fitNoticeOf, fitNoticeWording } from './assistedApplicationFitNotice.js';
 import { candidateWithEdits, questionsForCandidate, requiredPortalConsentAffirmed } from './assistedApplicationCandidateEdits.js';
 import { withOperationalQuestionAnswers } from './assistedApplicationOperationalAnswers.js';
+import { isPortalNeedsCandidateHold } from './lib/portalStopCodes.js';
 
 const SUBMITTABLE_STATUSES = new Set(['awaiting_upload', 'ready_for_manual_submission', 'in_progress']);
 const VERDICT_LABELS = { strong: 'forte', good: 'buono', weak: 'debole', poor: 'scarso' };
@@ -63,7 +64,7 @@ export function automationEmailKey(effect, flow) {
   if (effect.kind === 'owner_takeover') {
     // A known code names the message; a raw runner error only its step.
     const reason = String(effect.reason || 'x');
-    const retryablePortalStop = reason === 'portal:portal_needs_candidate';
+    const retryablePortalStop = isPortalNeedsCandidateHold(reason);
     const code = retryablePortalStop
       ? 'portal_needs_candidate'
       : (/^[a-z_]{1,40}$/.test(reason) ? reason : `${effect.stage || 'run'}_error`);

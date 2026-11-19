@@ -12,6 +12,7 @@
  */
 
 import { isCaptchaHandoffReason, isInfrastructureRetryHold } from './assistedApplicationPortalRetryPolicy.js';
+import { isPortalNeedsCandidateHold } from './lib/portalStopCodes.js';
 import {
   brandButton,
   brandCallout,
@@ -818,7 +819,7 @@ export function buildOwnerAutomationEmail(kind, vars) {
     html.push(brandInfoCard('Sintesi', esc(vars.summary || '—')), brandParagraph(esc(facts.join(' · '))));
     text.push(`Sintesi: ${vars.summary || '—'}`, facts.join(' · '));
   } else if (kind === 'owner_takeover') {
-    const retryPending = (String(vars.reason || '') === 'portal:portal_needs_candidate'
+    const retryPending = (isPortalNeedsCandidateHold(vars.reason)
       || isInfrastructureRetryHold({ heldBy: [String(vars.reason || '')] })) && Number(vars.portalAutoRetryAt) > 0;
     subject = retryPending
       ? `[Candidatura] Nuovo tentativo automatico previsto: ${job} — ${company}`

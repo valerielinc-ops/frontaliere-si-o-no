@@ -4,11 +4,15 @@ import { REASONS } from '../scripts/assisted-application/lib/portal/stop-report.
 import { SAFE_REPORT_CODES } from '../scripts/assisted-application/portal-replay.mjs';
 import {
   PORTAL_STOP_CODES,
+  PORTAL_STOP_CLASSES,
   PORTAL_STOP_HINTS,
   PORTAL_STOP_REASONS,
   PORTAL_STOP_REDISCOVERY_HOLDS,
   PORTAL_STOP_RECOVERY_HOLDS,
   PORTAL_STOP_REPLAY_CODES,
+  isPortalNeedsCandidateHold,
+  normalizePortalStopReason,
+  portalStopContract,
 } from '../functions/src/lib/portalStopCodes.js';
 
 describe('portal stop code contract', () => {
@@ -32,5 +36,20 @@ describe('portal stop code contract', () => {
 
   it('keeps question-label rediscovery narrow and unchanged', () => {
     expect([...PORTAL_STOP_REDISCOVERY_HOLDS]).toEqual(['portal:question_label_unreadable']);
+  });
+
+  it('normalizes namespaced candidate holds before applying retry behavior', () => {
+    expect(normalizePortalStopReason('  PORTAL : PORTAL_NEEDS_CANDIDATE  ')).toBe('portal:portal_needs_candidate');
+    expect(portalStopContract('  PORTAL : PORTAL_NEEDS_CANDIDATE  ')).toMatchObject({
+      normalized: 'portal:portal_needs_candidate',
+      code: 'portal_needs_candidate',
+      known: true,
+      category: PORTAL_STOP_CLASSES.PORTAL_RETRY,
+      sourceRecovery: true,
+      retryLane: 'portal',
+      automaticRetry: true,
+    });
+    expect(isPortalNeedsCandidateHold('  PORTAL : PORTAL_NEEDS_CANDIDATE  ')).toBe(true);
+    expect(isPortalNeedsCandidateHold('portal_needs_candidate')).toBe(false);
   });
 });

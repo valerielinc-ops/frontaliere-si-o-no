@@ -1,25 +1,14 @@
+import { PORTAL_STOP_CLASSES, portalStopContract } from './lib/portalStopCodes.js';
+
+/** Keep the contract import stable for existing portal-stop consumers. */
+export { PORTAL_STOP_CLASSES, portalStopContract };
+
 /** Shared by the state machine, scheduler and owner queue. No I/O. */
 export const PORTAL_AUTO_RETRY_DELAYS_MS = Object.freeze([6 * 60 * 60 * 1000, 24 * 60 * 60 * 1000]);
 export const PORTAL_FINAL_REVIEW_AMBIGUOUS_RECOVERY_VERSION = 'portal-final-review-ambiguous-v1';
 export const TRANSPORT_AUTO_RETRY_DELAYS_MS = Object.freeze([5 * 60 * 1000, 30 * 60 * 1000, 2 * 60 * 60 * 1000]);
 // SHA-256 of "assisted-application:swiss-egress-network-recovery:v1". Bump the suffix when this one-shot repair changes.
 export const SWISS_EGRESS_NETWORK_RECOVERY_VERSION = '0c6b24bcb58d7e92fed5d94f37f8f918449a57a1428ea10eb342bb0fca47cbf1';
-// Stops caused by where and how the runner connects, not by the portal form
-// or the candidate. `application_region_unsupported` belongs here: the
-// employer geolocates the visitor's IP, i.e. the GitHub runner's, not the
-// candidate's (Yellowshark, order 1EpmkrDu: 13 of 19 runs got the regional
-// notice, the other 6 reached the form; from a Swiss connection the same
-// posting serves its form). Another run usually gets another address.
-const TRANSPORT_HOLDS = new Set([
-  'portal:navigation_unavailable',
-  'transport:email_provider_unavailable',
-  'portal:question_localization_unavailable',
-  'portal:application_region_unsupported',
-  // The order needs the Swiss runner and none was alive to take the run
-  // (assistedApplicationSwissRunner.js): each retry queues it there again.
-  'portal:swiss_runner_offline',
-]);
-
 /** CAPTCHA holds belong to the owner and never enter automatic retry or candidate handoff. */
 export function isCaptchaHandoffReason(reason) {
   // Legacy JOIN outcome explicitly names its invisible reCAPTCHA, but predates
@@ -32,7 +21,7 @@ export function isCaptchaPortalHold(flow) {
 }
 
 export function isInfrastructureRetryHold(flow) {
-  return (flow?.heldBy || []).some(reason => TRANSPORT_HOLDS.has(reason));
+  return (flow?.heldBy || []).some(reason => portalStopContract(reason).retryLane === 'transport');
 }
 
 export function autoRetryDelaysForFlow(flow) {
@@ -43,9 +32,12 @@ export function autoRetryDelaysForFlow(flow) {
 export function isAutoRetryablePortalHold(flow) {
   const swissNetworkHold = flow?.egress?.required === 'ch'
     && flow.egress.source === 'repeated_network_failure'
-    && (flow?.heldBy || []).some(reason => reason === 'portal:posting_mismatch' || reason === 'portal:access_blocked');
-  return swissNetworkHold || (flow?.heldBy || []).some(reason => TRANSPORT_HOLDS.has(reason)
-    || reason === 'portal:portal_needs_candidate') || portalFinalReviewAmbiguousRecoveryPending(flow);
+    && (flow?.heldBy || []).some(reason => {
+      const normalized = portalStopContract(reason).normalized;
+      return normalized === 'portal:posting_mismatch' || normalized === 'portal:access_blocked';
+    });
+  return swissNetworkHold || (flow?.heldBy || []).some(reason => portalStopContract(reason).automaticRetry)
+    || portalFinalReviewAmbiguousRecoveryPending(flow);
 }
 
 /** Parse the persisted portal retry counter without coercing malformed values. */

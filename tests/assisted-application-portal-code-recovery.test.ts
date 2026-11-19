@@ -8,7 +8,7 @@ import { reconcilePortalCode } from '../scripts/assisted-application/reconcile-p
 import { currentPortalCodeVersion, portalCodeFingerprintFiles } from '../scripts/assisted-application/lib/portal-code-version.mjs';
 import { transition } from '../functions/src/assistedApplicationFlow.js';
 import { candidateQuestionAnswerKey, ORDER_QUESTION_ANSWER_EVIDENCE_VERSION } from '../functions/src/assistedApplicationCandidateEdits.js';
-import { operationalPortalRecoveryReady } from '../functions/src/assistedApplicationPortalRecoveryPolicy.js';
+import { operationalPortalRecoveryReady, portalRecoveryDefinitelyUnsent } from '../functions/src/assistedApplicationPortalRecoveryPolicy.js';
 
 const now = Date.now();
 const version = 'b'.repeat(64);
@@ -22,6 +22,28 @@ function fixture() {
     [`${base}/automation/submission`]: { r1: { state: 'failed', channel: 'portal', releasedAt: now - 1000, clickedAt: null } },
   });
 }
+
+describe('portal recovery send fence', () => {
+  it.each([' PORTAL:PORTAL_NEEDS_CANDIDATE ', 'portal : portal_needs_candidate'])
+    ('keeps recovery blocked for a normalized candidate hold while any version is sending: %j', hold => {
+      expect(portalRecoveryDefinitelyUnsent({
+        order: { paymentStatus: 'paid', submissionStatus: 'in_progress' },
+        flow: {
+          state: 'owner_takeover',
+          round: 1,
+          heldBy: [hold],
+          portalCodeVersion: 'a'.repeat(64),
+        },
+        draft: { status: 'ready', round: 1 },
+        submission: {
+          r1: { state: 'failed', channel: 'portal', releasedAt: now - 1, clickedAt: null },
+          r2: { state: 'sending' },
+        },
+        version,
+      })).toBe(false);
+    });
+});
+
 describe('automatic recovery after a portal fix', () => {
   it.each(['text', ' Email ', 'EMAIL', 'email_address'])('requeues an unsent portal email confirmation with question type %j', async questionType => {
     const store = fixture();
