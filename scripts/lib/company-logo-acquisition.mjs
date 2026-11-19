@@ -93,6 +93,8 @@ export const DOMAIN_OVERRIDES = {
   'gim-architekten': ['gim.ch'],
   imerys: ['imerys.com'],
   mediamarkt: ['mediamarkt.ch'],
+  // The official Metzgerei Meyer site matches the employer's JobRoom contact domain.
+  'metzgerei-wursterei-viehhandel-rene-meyer': ['metzgerei-meyer.ch'],
   // mpa-praxisstellen.ch is a PKS Personal AG microsite; use the employer
   // domain declared by its dedicated crawler in audit mode.
   'mpa-praxisstellen-ch': ['pks-personal.ch'],
