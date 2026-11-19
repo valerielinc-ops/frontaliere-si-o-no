@@ -65,6 +65,20 @@ describe('partizione test dataset-dipendenti', () => {
     expect(dependent).toContain('tests/job-locale-completeness.test.ts');
   });
 
+  it('segue una import dinamica verso una funzione che legge il dataset', () => {
+    // Questi test caricano runRelocalization con `await import(...)` dentro il
+    // caso di test. Il modulo non legge jobs.json a livello top-level, ma la
+    // funzione invocata lo fa: devono quindi aspettare Assemble + migrate.
+    expect(dependent).toEqual(expect.arrayContaining([
+      'tests/relocalize-cascade-artifact.test.ts',
+      'tests/relocalize-company-batching.test.ts',
+    ]));
+    expect(independent).not.toEqual(expect.arrayContaining([
+      'tests/relocalize-cascade-artifact.test.ts',
+      'tests/relocalize-company-batching.test.ts',
+    ]));
+  });
+
   it('non tratta un JSON statico importato come output dell’assemble', () => {
     expect(dependent).not.toContain('tests/verdict-owner-reporters.test.ts');
     expect(independent).toContain('tests/verdict-owner-reporters.test.ts');
