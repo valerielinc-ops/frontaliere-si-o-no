@@ -51,6 +51,14 @@ function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
 }
 
+function firstNonEmptyValue(...values) {
+  return values.map((value) => String(value ?? '').trim()).find(Boolean) || '';
+}
+
+function firstNonEmptyNormalized(...values) {
+  return values.map((value) => normalizeSpace(value)).find(Boolean) || '';
+}
+
 /* ── Company Matchers ──────────────────────────────────────── */
 
 /**
@@ -254,9 +262,7 @@ async function fetchJobListings() {
         );
       }
 
-      const identity = [fields.jobNumber, fields.id, listing.id]
-        .map((value) => String(value ?? '').trim())
-        .find(Boolean);
+      const identity = firstNonEmptyValue(fields.jobNumber, fields.id, listing.id);
       if (!identity) {
         throw new Error(
           `Weisse Arena listing row ${index + 1} at offset ${offset} has no stable identity; refusing a partial crawl.`,
@@ -269,14 +275,14 @@ async function fetchJobListings() {
       }
       seenListingIds.add(identity);
 
-      const title = normalizeSpace(fields.jobTitle || fields.sJobTitle || '');
+      const title = firstNonEmptyNormalized(fields.jobTitle, fields.sJobTitle);
       if (title.length < 3) {
         throw new Error(
           `Weisse Arena listing ${identity} at offset ${offset} has no usable job title; refusing a partial crawl.`,
         );
       }
 
-      allJobs.push(listing);
+      allJobs.push({ listing, identity, title });
     }
 
     if (allJobs.length > declaredTotal) {
@@ -356,18 +362,17 @@ export async function fetchAllWeisseArenaJobs() {
 
   const jobs = [];
 
-  for (const listing of listings) {
+  for (const { listing, identity, title } of listings) {
     const fields = listing.jobFields || {};
-    const title = normalizeSpace(fields.jobTitle || fields.sJobTitle || '');
     if (title.length < 3) {
       throw new Error('Weisse Arena listing reached the builder without a usable job title.');
     }
 
-    const jobId = fields.id || listing.id;
+    const jobId = firstNonEmptyValue(fields.id, listing.id, identity);
     const department = normalizeSpace(fields.SLOVLIST10 || '');
     const pensumStr = fields.SLOVLIST17 || '100%';
     const contractLabel = fields.CONTRACTTYPLABEL || '';
-    const jobNumber = fields.jobNumber || '';
+    const jobNumber = firstNonEmptyValue(fields.jobNumber);
     const applicationUrl = fields.applicationUrl || '';
 
     // All Weisse Arena jobs are in Laax, GR
@@ -381,8 +386,8 @@ export async function fetchAllWeisseArenaJobs() {
     // Public detail URL on weissearena.com
     const publicUrl = buildDetailUrl(jobId, title);
 
-    // ID: use jobNumber for stability (e.g. "WAG02350")
-    const idSource = jobNumber || String(jobId);
+    // ID: use the validated listing identity for stability (e.g. "WAG02350").
+    const idSource = identity;
     const urlHash = createHash('sha1').update(idSource).digest('hex').slice(0, 12);
 
     const sourceLang = 'de';

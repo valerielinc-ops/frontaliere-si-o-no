@@ -348,6 +348,7 @@ describe('TalentLink pagination completeness', () => {
       id,
       jobNumber: `WAG${String(id).padStart(5, '0')}`,
       jobTitle: title,
+      sJobTitle: title,
       SLOVLIST10: 'Marketing',
       SLOVLIST17: '100%',
       CONTRACTTYPLABEL: 'Festanstellung',
@@ -416,6 +417,38 @@ describe('TalentLink pagination completeness', () => {
 
     expect(jobs).toHaveLength(1);
     expect(jobs[0].url).toContain('jobId=A-1');
+  });
+
+  it('keeps distinct output IDs when jobNumber is whitespace-only', async () => {
+    const first = listing(1, 'First role');
+    const second = listing(2, 'Second role');
+    first.jobFields.jobNumber = ' ';
+    first.jobFields.id = 'A-1';
+    second.jobFields.jobNumber = ' ';
+    second.jobFields.id = 'B-2';
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify({
+      globals: { jobsCount: 2 },
+      jobs: [first, second],
+    }), { headers: { 'Content-Type': 'application/json' } })));
+
+    const jobs = await fetchAllWeisseArenaJobs();
+
+    expect(jobs.map(({ id }) => id)).toHaveLength(2);
+    expect(new Set(jobs.map(({ id }) => id)).size).toBe(2);
+  });
+
+  it('uses the first non-empty normalized title fallback', async () => {
+    const fallbackTitleListing = listing(1, ' ');
+    fallbackTitleListing.jobFields.sJobTitle = 'Chef';
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify({
+      globals: { jobsCount: 1 },
+      jobs: [fallbackTitleListing],
+    }), { headers: { 'Content-Type': 'application/json' } })));
+
+    const jobs = await fetchAllWeisseArenaJobs();
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].title).toBe('Chef');
   });
 });
 
