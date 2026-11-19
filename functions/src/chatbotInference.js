@@ -7,7 +7,8 @@
  * Provider chain:
  * 1. Codex Luna Max with the ChatGPT login in Remote Config — primary
  * 2. Groq GPT-OSS 120B — first OpenAI-compatible fallback
- * 3. Groq GPT-OSS 20B — second OpenAI-compatible fallback
+ * 3. NVIDIA Gemma 4 31B — independent OpenAI-compatible fallback
+ * 4. Groq GPT-OSS 20B — final OpenAI-compatible fallback
  *
  * Tools (searchJobs) are embedded as text in the system prompt; no native
  * function-calling API is used, so OpenAI-compatible providers work identically.
