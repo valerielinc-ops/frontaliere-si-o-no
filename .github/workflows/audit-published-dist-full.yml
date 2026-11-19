@@ -165,6 +165,7 @@ jobs:
       deploy_ref: ${{ needs.source-identity.outputs.source_sha }}
       full_scan: true
       prune_source_images: true
+      rehydrate_max_parallel: '1'
       audit_sample_rate: '1'
       audit_sample_salt: '0'
       audits: >-

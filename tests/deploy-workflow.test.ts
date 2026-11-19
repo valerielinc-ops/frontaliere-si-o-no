@@ -275,14 +275,26 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
     }
   });
 
-  it('bounds disk-bound rehydration within one locale after source-only images are pruned', () => {
+  it('lets each replay caller choose its disk-bound rehydrate contract', () => {
     const workflow = YAML.parse(AUDIT_REPORT_YML) as any;
     const rehydrateStep = workflow.jobs.audit.steps.find((step: any) => (
       step.name === 'Rehydrate locale then section shards into dist/ (when sharding active)'
     ));
 
+    expect(workflow.on.workflow_dispatch.inputs.rehydrate_max_parallel).toMatchObject({
+      default: '1',
+      type: 'string',
+    });
+    expect(workflow.on.workflow_call.inputs.rehydrate_max_parallel).toMatchObject({
+      default: '1',
+      type: 'string',
+    });
     expect(rehydrateStep?.env?.REHYDRATE_MAX_PARALLEL)
-      .toBe('2');
+      .toBe('${{ inputs.rehydrate_max_parallel }}');
+    const full = YAML.parse(AUDIT_FULL_YML) as any;
+    const published = YAML.parse(AUDIT_PUBLISHED_YML) as any;
+    expect(full.jobs['full-audit'].with.rehydrate_max_parallel).toBe('1');
+    expect(published.jobs.report.with.rehydrate_max_parallel).toBe('2');
     expect(REHYDRATE_SECTION_SCRIPT).toContain(
       'for REHYDRATE_CURRENT_LOCALE in it en de fr; do',
     );
@@ -357,7 +369,7 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
     expect(pruneIndex).toBeLessThan(rehydrateIndex);
     expect(full.jobs['full-audit'].with.prune_source_images).toBe(true);
     expect(steps[rehydrateIndex]?.env?.REHYDRATE_MAX_PARALLEL)
-      .toBe('2');
+      .toBe('${{ inputs.rehydrate_max_parallel }}');
     expect(installIndex).toBeGreaterThan(rehydrateIndex);
     expect(installIndex).toBeLessThan(reconcileIndex);
     expect(published.jobs.report.with.prune_source_images).toBe(true);

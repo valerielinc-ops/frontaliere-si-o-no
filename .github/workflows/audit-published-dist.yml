@@ -51,6 +51,7 @@ jobs:
       shard_artifact_run_id: ${{ inputs.shard_artifact_run_id }}
       deploy_ref: ${{ inputs.deploy_ref }}
       prune_source_images: true
+      rehydrate_max_parallel: '2'
       audit_sample_rate: '0.25'
       audit_sample_salt: ${{ inputs.audit_sample_salt }}
       audits: >-
