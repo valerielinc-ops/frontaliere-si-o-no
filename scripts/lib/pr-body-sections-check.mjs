@@ -505,7 +505,10 @@ const PERF_DEFERRED_CLAIM_RE = new RegExp(
   'i',
 );
 const PERF_CONTEXT_RE = new RegExp(`${PERF_RESOURCE}|${PERF_BENEFIT}|${PERF_QTY}`, 'i');
-const PERF_CONCRETE_JOB_WORKFLOW_RE = /(?:\/actions\/runs\/\d+|\.ya?ml\b|\b(?:workflow|job|run|deploy)\s+(?:["'`][^"'`]+["'`]|[A-Za-z0-9]+[A-Za-z0-9_.:\/-]*(?:[._:\/-][A-Za-z0-9_.:\/-]*|\d+)))/i;
+const PERF_CONCRETE_JOB_WORKFLOW_RE = /\b(?:workflow|job|run|deploy)\b\s*(?::|=)?\s*(?:(['"`])([^'"`]+)\1|([A-Za-z0-9][A-Za-z0-9_.:\/-]*))/gi;
+const PERF_REFERENCE_NAME_RE = /^(?=[A-Za-z0-9][A-Za-z0-9_.:\/-]*$)(?=.*[._:\/-]|\d)[A-Za-z0-9][A-Za-z0-9_.:\/-]*$/;
+const PERF_PROSE_REFERENCE_PREFIX_RE = /^(?:is|are|was|were|be|been|being|has|have|had|will|would|should|could|can|may|might|must|defined|configured|available|pending|ready|running|completed?|failed|successful|scheduled|used|tracked|monitored|measured|validated)(?:[._:\/-]|$)/i;
+const PERF_ACTIONS_URL_RE = /https?:\/\/[^\s<>()]+\/actions\/(?:runs\/\d+|workflows\/[^/?#\s<>()]+(?:\/runs\/\d+)?)(?:[?#][^\s<>()]*)?/i;
 const PERF_PAIR_RE = new RegExp(
   String.raw`${PERF_QTY}[^.\n]{0,40}(?:\bcontro\b|\bvs\.?(?!\w)|→|->)[^.\n]{0,20}?${PERF_QTY}`
   + String.raw`|\bda\s+(?:circa\s+|~)?${PERF_QTY}\s+a\s+(?:circa\s+|~)?${PERF_QTY}`,
@@ -528,6 +531,15 @@ function hasSubstantialEvidenceTail(match) {
   return match ? hasSubstantialEvidenceValue(match[1]) : false;
 }
 
+function urlContainingIndex(source, index) {
+  const urlRe = /https?:\/\/[^\s<>()]+/gi;
+  for (const url of source.matchAll(urlRe)) {
+    const start = url.index ?? -1;
+    if (index >= start && index < start + url[0].length) return url[0];
+  }
+  return null;
+}
+
 /**
  * True when `text` contains measured evidence with a real value/result/command.
  * A revert trigger or a declaration that a claim is not validated is not a
@@ -545,6 +557,36 @@ function hasSubstantialPerfEvidence(text) {
     if (hasSubstantialEvidenceTail(PERF_EVIDENCE_BASELINE_RE.exec(line))) return true;
     return false;
   });
+}
+
+/**
+ * True when `text` names a concrete Actions workflow/job reference.
+ *
+ * A bare `.yml` token is not evidence by itself: in prose such as
+ * `workflow is monitored by tests.yml` it names a file somewhere in the
+ * sentence, not the workflow being tracked. Read the token immediately after
+ * the ownership word and require either an explicit quoted name or the same
+ * structured shape accepted for unquoted workflow/job identifiers. Ambiguous
+ * prose prefixes remain unknown by construction.
+ */
+export function isConcreteJobWorkflowReference(text = '') {
+  const source = stripNonContent(text);
+  if (PERF_EVIDENCE_RUN_RE.test(source)) return true;
+
+  for (const match of source.matchAll(PERF_CONCRETE_JOB_WORKFLOW_RE)) {
+    const containingUrl = urlContainingIndex(source, match.index ?? -1);
+    if (containingUrl && !PERF_ACTIONS_URL_RE.test(containingUrl)) continue;
+
+    const quotedName = match[2]?.trim();
+    if (quotedName) return true;
+
+    const name = match[3] ?? '';
+    if (/^[A-Za-z][A-Za-z0-9+.-]*:\/\//.test(name) && !PERF_ACTIONS_URL_RE.test(name)) continue;
+    if (!PERF_REFERENCE_NAME_RE.test(name) || PERF_PROSE_REFERENCE_PREFIX_RE.test(name)) continue;
+    return true;
+  }
+
+  return false;
 }
 
 /**
@@ -571,7 +613,7 @@ function hasDeferredPerfTracking(body) {
       && hasSubstantialEvidenceTail(trigger)
       && /\b(?:revert|rollback|ripristin\w*)\b/i.test(trigger[1]);
     const hasThreshold = new RegExp(PERF_QTY, 'i').test(clean);
-    const hasJobOrWorkflow = PERF_CONCRETE_JOB_WORKFLOW_RE.test(source);
+    const hasJobOrWorkflow = isConcreteJobWorkflowReference(source);
     return Boolean(hasRevertAction && hasThreshold && hasJobOrWorkflow);
   });
 }
