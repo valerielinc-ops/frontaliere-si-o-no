@@ -2531,8 +2531,7 @@
       "previousSlugs": [
         "buyer-agie-charmilles-sa-losone"
       ],
-      "sourceIdentity": "url:https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-buyer",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-buyer"
     },
     {
       "title": "Technicien de service - Suisse romande (d/f/m)",
@@ -2847,7 +2846,8 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
       "crawledAt": "2026-11-18T21:23:32.202Z",
-      "crawledAtSource": "slice-writer"
+      "crawledAtSource": "slice-writer",
+      "needsRetranslation": true
     },
     {
       "title": "Senior IT Project Manager",

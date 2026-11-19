@@ -1093,7 +1093,6 @@
       "url": "https://careers.sbb.ch/job/Bern-Ausgebildete-Lokf%C3%BChrerin-Kat_-B100/1458513333",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-18T21:27:21.093Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -1563,7 +1562,8 @@
       "streetAddress": "Ticino",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:27:21.447Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-dc8816741a3b",
@@ -1764,7 +1764,6 @@
       "url": "https://careers.sbb.ch/job/Bern-Fachspezialistin-Human-and-Organisational-Factors-in-der-Bahnproduktion/1458379233",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-18T21:27:21.570Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -2450,7 +2449,8 @@
       "streetAddress": "Ticino",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:27:22.057Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-beb64dd74712",
@@ -2516,7 +2516,8 @@
       "streetAddress": "Ticino",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:27:22.219Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-9634e780d4e6",
@@ -2566,7 +2567,6 @@
       "url": "https://careers.sbb.ch/job/Bern-Linux-System-und-Automation-Engineer-%28mwd%29-Bern/1458470133",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-18T21:27:22.227Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "linux-system-und-automation-engineer-m-w-d-ffs-officine-ferrovie-federali-ticino"
@@ -2803,7 +2803,6 @@
       "url": "https://careers.sbb.ch/job/Bern-Pilote-de-locomotive-cat_-B100-d%C3%A9j%C3%A0-form%C3%A9-%28hfd%29/1458513233",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-18T21:27:22.342Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -3064,7 +3063,8 @@
       "streetAddress": "Ticino",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:27:22.536Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-f8dc7300b3bf",
@@ -3221,7 +3221,8 @@
       "streetAddress": "Ticino",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:27:22.610Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-e2be1ca19061",
@@ -3894,7 +3895,6 @@
       "url": "https://careers.sbb.ch/job/Bern-Stage-als-Produktmanagerin-Drittgesch%C3%A4ft/1458524033",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-18T21:27:23.140Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "stage-als-produktmanager-in-drittgeschaft-ffs-officine-ferrovie-federali-ticino"
@@ -5252,7 +5252,6 @@
       "url": "https://careers.sbb.ch/job/Brig-Quereinstieg-Lokf%C3%BChrerin-Kategorie-B100-Cargo/1458570333",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-18T21:27:24.164Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -10225,7 +10224,7 @@
         "it": "impiegata-impiegato-in-logistica-ffs-officine-ferrovie-federali-ticino",
         "en": "logistics-specialist-ffs-officine-ferrovie-federali-ticino",
         "de": "logistiker-in-ffs-officine-ferrovie-federali-ticino",
-        "fr": "logisticien-ne-ffs-officine-ferrovie-federali-ticino"
+        "fr": "logisticien-ne-ffs-officine-ferrovie-federali-ticino-l2oasb"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -10262,7 +10261,8 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-18T21:27:27.531Z",
       "previousSlugs": [
-        "logistiker-in-ffs-officine-ferrovie-federali-ticino"
+        "logistiker-in-ffs-officine-ferrovie-federali-ticino",
+        "logisticien-ne-ffs-officine-ferrovie-federali-ticino"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10272,7 +10272,8 @@
           "logistiker-in-ffs-officine-ferrovie-federali-ticino"
         ],
         "fr": [
-          "logistiker-in-ffs-officine-ferrovie-federali-ticino"
+          "logistiker-in-ffs-officine-ferrovie-federali-ticino",
+          "logisticien-ne-ffs-officine-ferrovie-federali-ticino"
         ]
       },
       "firstSeenAt": "2026-11-17T08:20:33.400Z",
@@ -12496,7 +12497,6 @@
       "url": "https://careers.sbb.ch/job/St_-Gallen-Offizierin-St_/1447635233",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-18T21:27:28.948Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -13873,7 +13873,8 @@
       "streetAddress": "Elektrofachpersonal in der Welt der technischen Bahnberufe",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:27:29.833Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-2d2f876914dd",
@@ -14033,7 +14034,8 @@
       "streetAddress": "Netzelektriker:in im Bereich Bahnstrom",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:27:29.899Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-7942968f0813",
@@ -15444,7 +15446,6 @@
       "url": "https://careers.sbb.ch/job/Z%C3%BCrich-Stage-Spezialistin-Abweichung-&-Kundeninfo-L4-Z%C3%BCri/1447193133",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-18T21:27:30.870Z",
-      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -16247,7 +16248,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:29:51.249Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-2f763e13139a",

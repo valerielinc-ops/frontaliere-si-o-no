@@ -1887,7 +1887,8 @@
       "crawledAtSource": "slice-writer",
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-22T21:20:58.983Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "title": "Apotheker / Apothekerin – Fortbildung und pharmazeutische Dienstleistungen Grundversorgung bei medinform (w/m/d)",
@@ -1930,7 +1931,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-1010e553ef32",
       "previousSlugsByLocale": {
         "it": [
@@ -2845,7 +2845,8 @@
       "crawledAtSource": "slice-writer",
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-05T21:20:58.983Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "title": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
@@ -3549,7 +3550,8 @@
       "crawledAtSource": "slice-writer",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-18T21:20:58.983Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "title": "Assistenzjahr für Pharmaziestudierende (w/m/d)",
@@ -6244,7 +6246,7 @@
       "slugByLocale": {
         "it": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-galenica-zurich",
         "en": "pharmaceutical-assistant-pharmaceutical-assistant-m-f-d-galenica-galenica-zurich",
-        "de": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-zurich",
+        "de": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-zurich-nw144g",
         "fr": "assistant-pharmaceutique-assistant-pharmaceutique-h-f-d-galenica-galenica-zurich"
       },
       "titleByLocale": {
@@ -6267,6 +6269,9 @@
           "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-zurich"
         ],
         "fr": [
+          "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-zurich"
+        ],
+        "de": [
           "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-zurich"
         ]
       },
@@ -7693,7 +7698,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-7921eed9e439",
       "salaryMin": 94500,
       "salaryMax": 143000,

@@ -159,9 +159,6 @@
           "kauffrau-kaufmann-bank-in-poschiavo-lehrbeginn-2027-gkb-jobservice-ch"
         ]
       },
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 1224,
-      "retranslationAttempts": 3,
       "firstSeenAt": "2026-08-25T09:52:47.045Z",
       "salaryMin": 69000,
       "salaryMax": 121000,
@@ -261,9 +258,6 @@
           "kauffrau-kaufmann-bank-in-arosa-lehrbeginn-2027-gkb-jobservice-ch"
         ]
       },
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 1188,
-      "retranslationAttempts": 3,
       "firstSeenAt": "2026-08-23T21:29:52.442Z",
       "salaryMin": 69000,
       "salaryMax": 121000,
@@ -363,9 +357,6 @@
           "kauffrau-kaufmann-bank-in-scuol-lehrbeginn-2027-gkb-jobservice-ch"
         ]
       },
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 1188,
-      "retranslationAttempts": 3,
       "firstSeenAt": "2026-08-23T21:29:52.138Z",
       "salaryMin": 69000,
       "salaryMax": 121000,
@@ -467,7 +458,6 @@
         ]
       },
       "firstSeenAt": "2026-08-23T21:29:50.923Z",
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 76000,
       "salarySource": "estimated",
@@ -572,7 +562,6 @@
         ]
       },
       "firstSeenAt": "2026-08-23T21:29:50.619Z",
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 76000,
       "salarySource": "estimated",
@@ -673,7 +662,6 @@
         ]
       },
       "firstSeenAt": "2026-08-23T21:29:50.315Z",
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 76000,
       "salarySource": "estimated",
@@ -880,7 +868,6 @@
         "berater-in-firmenkunden-recovery-80-100-gkb-ch"
       ],
       "firstSeenAt": "2026-07-30T11:16:56.532Z",
-      "needsRetranslation": true,
       "salaryMin": 165000,
       "salaryMax": 290000,
       "salarySource": "estimated",
@@ -1109,7 +1096,7 @@
       "slugByLocale": {
         "it": "senior-product-manager-finanziamenti-60-100-graubundner-kantonalbank-chur",
         "en": "senior-product-manager-financing-60-100-graubundner-kantonalbank-chur",
-        "de": "senior-produktmanager-in-finanzieren-60-100-gkb-ch",
+        "de": "senior-produktmanager-in-finanzieren-60-100-gkb-ch-70p3c6",
         "fr": "senior-product-manager-financement-60-100-graubundner-kantonalbank-chur"
       },
       "company": "Graubündner Kantonalbank",
@@ -1167,13 +1154,13 @@
           "senior-produktmanager-in-finanzieren-60-100-gkb-ch"
         ],
         "de": [
-          "senior-produktmanager-in-finanzieren-60-100-graubundner-kantonalbank-chur"
+          "senior-produktmanager-in-finanzieren-60-100-graubundner-kantonalbank-chur",
+          "senior-produktmanager-in-finanzieren-60-100-gkb-ch"
         ],
         "fr": [
           "senior-produktmanager-in-finanzieren-60-100-gkb-ch"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 165000,
       "salaryMax": 290000,
       "salarySource": "estimated",
@@ -1275,7 +1262,6 @@
         ]
       },
       "firstSeenAt": "2026-10-08T09:14:21.495Z",
-      "needsRetranslation": true,
       "salaryMin": 99000,
       "salaryMax": 174000,
       "salarySource": "estimated",
@@ -2219,7 +2205,6 @@
       "pensumMin": 60,
       "pensumMax": 100,
       "pensum": "60 - 100%",
-      "needsRetranslation": true,
       "salaryMin": 165000,
       "salaryMax": 290000,
       "salarySource": "estimated",

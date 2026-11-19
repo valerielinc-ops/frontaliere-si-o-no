@@ -311,7 +311,6 @@
         "fr": "piastrellista-qualificato-pemsa-montreux"
       },
       "id": "pemsa-55ff2bd32e70",
-      "needsRetranslation": true,
       "salaryMin": 74500,
       "salaryMax": 94000,
       "currency": "CHF",
@@ -972,7 +971,6 @@
         "fr": "tecnico-della-sicurezza-elettronica-m-f-d-pemsa-geneve"
       },
       "id": "pemsa-7174ee119a6b",
-      "needsRetranslation": true,
       "salaryMin": 74500,
       "salaryMax": 94000,
       "currency": "CHF",
@@ -1435,7 +1433,6 @@
         "fr": "saldatore-tubista-pemsa-lugano"
       },
       "id": "pemsa-d2807a2ff55e",
-      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -12580,9 +12577,9 @@
       },
       "slugByLocale": {
         "it": "saldatore-tubista-pemsa-lugano-1a7cc67111",
-        "en": "saldatore-tubista-pemsa-lugano",
-        "de": "saldatore-tubista-pemsa-lugano",
-        "fr": "saldatore-tubista-pemsa-lugano"
+        "en": "saldatore-tubista-pemsa-lugano-uq96lw",
+        "de": "saldatore-tubista-pemsa-lugano-uq96lw",
+        "fr": "saldatore-tubista-pemsa-lugano-uq96lw"
       },
       "id": "pemsa-a4ed741e0c2c",
       "salaryMin": 55500,
@@ -12603,21 +12600,20 @@
       "firstSeenAt": "2026-09-08T13:41:50.002Z",
       "previousSlugsByLocale": {
         "en": [
-          "saldatore-tubista-pemsa-lugano-uq96lw"
+          "saldatore-tubista-pemsa-lugano"
         ],
         "de": [
-          "saldatore-tubista-pemsa-lugano-uq96lw"
+          "saldatore-tubista-pemsa-lugano"
         ],
         "fr": [
-          "saldatore-tubista-pemsa-lugano-uq96lw"
+          "saldatore-tubista-pemsa-lugano"
         ],
         "it": [
           "saldatore-tubista-pemsa-lugano"
         ]
       },
       "previousSlugs": [
-        "saldatore-tubista-pemsa-lugano",
-        "saldatore-tubista-pemsa-lugano-uq96lw"
+        "saldatore-tubista-pemsa-lugano"
       ],
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",

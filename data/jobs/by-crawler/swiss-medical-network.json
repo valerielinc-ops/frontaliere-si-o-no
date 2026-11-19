@@ -29,7 +29,10 @@
         "fr": "Docteur assistant en chirurgie"
       },
       "slugByLocale": {
-        "it": "medico-assistente-in-formazione-in-chirurgia-swiss-medical-network"
+        "it": "medico-assistente-in-formazione-in-chirurgia-swiss-medical-network",
+        "en": "medico-assistente-in-formazione-in-chirurgia-swiss-medical-network",
+        "de": "medico-assistente-in-formazione-in-chirurgia-swiss-medical-network",
+        "fr": "medico-assistente-in-formazione-in-chirurgia-swiss-medical-network"
       },
       "slug": "medico-assistente-in-formazione-in-chirurgia-swiss-medical-network",
       "category": "medical",
@@ -92,7 +95,10 @@
         "fr": "Réception des employés 40-50 %"
       },
       "slugByLocale": {
-        "de": "mitarbeitende-kundenempfang-40-50-swiss-medical-network"
+        "de": "mitarbeitende-kundenempfang-40-50-swiss-medical-network",
+        "it": "mitarbeitende-kundenempfang-40-50-swiss-medical-network",
+        "en": "mitarbeitende-kundenempfang-40-50-swiss-medical-network",
+        "fr": "mitarbeitende-kundenempfang-40-50-swiss-medical-network"
       },
       "slug": "mitarbeitende-kundenempfang-40-50-swiss-medical-network",
       "category": "healthcare",
@@ -156,7 +162,9 @@
       },
       "slugByLocale": {
         "de": "team-lead-hr-administration-payroll-de-swiss-medical-network",
-        "it": "amministrazione-e-retribuzione-delle-risorse-umane-del-team-di-guida-it-swiss-medical-network-zurich-6aada63fd9"
+        "it": "amministrazione-e-retribuzione-delle-risorse-umane-del-team-di-guida-it-swiss-medical-network-zurich-6aada63fd9",
+        "en": "amministrazione-e-retribuzione-delle-risorse-umane-del-team-di-guida-it-swiss-medical-network-zurich-6aada63fd9",
+        "fr": "amministrazione-e-retribuzione-delle-risorse-umane-del-team-di-guida-it-swiss-medical-network-zurich-6aada63fd9"
       },
       "slug": "amministrazione-e-retribuzione-delle-risorse-umane-del-team-di-guida-it-swiss-medical-network-zurich-6aada63fd9",
       "category": "admin",
@@ -199,7 +207,8 @@
         "it": [
           "team-lead-hr-administration-payroll-de-swiss-medical-network"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000162076153-facharztin-facharzt-fur-allgemeine-innere-medizin-60-100-",
