@@ -1,7 +1,7 @@
 {
   "crawlerKey": "elite-interim",
-  "assembledAt": "2026-11-18T21:22:56.586Z",
-  "runId": "44399833930",
+  "assembledAt": "2026-11-19T09:26:07.335Z",
+  "runId": "44494932351",
   "jobs": [
     {
       "id": "elite-interim-3587",
@@ -35,7 +35,7 @@
       "applyUrl": "https://eliteinterim.ch/installateur-electricien-cfc-h-f/",
       "source": "Elite Interim Dedicated Parser (official WordPress detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T21:22:48.832Z",
+      "crawledAt": "2026-11-19T09:25:59.407Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -81,7 +81,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:22:48.832Z",
+      "validThrough": "2027-02-16T09:25:59.407Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -117,7 +117,7 @@
       "applyUrl": "https://eliteinterim.ch/electricien-de-montage-cfc-h-f/",
       "source": "Elite Interim Dedicated Parser (official WordPress detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T21:22:48.832Z",
+      "crawledAt": "2026-11-19T09:25:59.407Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -166,7 +166,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:22:48.832Z",
+      "validThrough": "2027-02-16T09:25:59.407Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -253,7 +253,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-13T09:23:34.913Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "elite-interim-3551",
@@ -339,7 +339,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-13T09:23:34.913Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "elite-interim-2975",
@@ -425,7 +425,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-18T09:23:34.913Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "elite-interim-2939",
@@ -511,7 +511,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-18T09:23:34.913Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "elite-interim-2882",
@@ -597,7 +597,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-18T09:23:34.913Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "elite-interim-2864",
@@ -683,7 +683,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-18T09:23:34.913Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
