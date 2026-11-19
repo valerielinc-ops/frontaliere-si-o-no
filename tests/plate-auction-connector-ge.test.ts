@@ -38,7 +38,7 @@ function listWithSession(now: Date, startInDays: number, endInDays: number) {
 
 const AUCTION_PAGE_DURING_SESSION = `<html><head><title>Vente aux enchères de plaques | ge.ch</title></head><body>
   <div class="body rich-content"><p>Prochaine vente :&nbsp; du 11 au 20 mai 2026</p>
-  <p><a href="/node/22794">Liste des numéros proposés à la vente</a></p>
+  <p><a href="/node/22794">Liste des num&#233;ros propos&#233;s &#224; la vente</a></p>
   <p><a href="/node/15061">Règlement sur la vente aux enchères de plaques d'immatriculation</a></p>
   <p>Pour miser : <a href="https://www.ricardo.ch/fr/s/ENCHERES-PLAQUES-GE/">cliquez ici jusqu'au 20 mai 2026, 11h00.</a></p></div></body></html>`;
 const AUCTION_PAGE_BETWEEN_SESSIONS = '<html><head><title>Vente aux enchères de plaques | ge.ch</title></head><body><p>Prochaine vente : automne 2026.</p></body></html>';
@@ -51,9 +51,9 @@ function fakeGeCh({ auctionPage = AUCTION_PAGE_DURING_SESSION, pdfTexts = { [MAY
   const requested: string[] = [];
   const pages: Record<string, string> = {
     [GE_PLATE_AUCTION_SOURCE.pageUrl]: auctionPage,
-    'https://www.ge.ch/node/22794': documentPage('Liste numéros de plaques mis aux enchères', '2026-04-15T17:13:47+0200', 22794),
-    'https://www.ge.ch/document/liste-numeros-plaques-mis-aux-encheres': documentPage('Liste numéros de plaques mis aux enchères', '2026-04-15T17:13:47+0200', 22794),
-    'https://www.ge.ch/document/liste-plaques-aux-encheres': documentPage('Liste des plaques aux enchères', '2025-10-17T14:30:06+0200', 15062),
+    'https://www.ge.ch/node/22794': documentPage('Liste num&#233;ros de plaques mis aux ench&#232;res', '2026-04-15T17:13:47+0200', 22794),
+    'https://www.ge.ch/document/liste-numeros-plaques-mis-aux-encheres': documentPage('Liste num&#233;ros de plaques mis aux ench&#232;res', '2026-04-15T17:13:47+0200', 22794),
+    'https://www.ge.ch/document/liste-plaques-aux-encheres': documentPage('Liste des plaques aux ench&#232;res', '2025-10-17T14:30:06+0200', 15062),
   };
   const fetcher = async (url: string, options: { responseType?: string } = {}) => {
     requested.push(url);

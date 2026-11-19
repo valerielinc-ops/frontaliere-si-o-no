@@ -2,6 +2,7 @@ import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import https from 'node:https';
 import tls from 'node:tls';
+import { decode as decodeHtmlEntities } from 'html-entities';
 import { normalizePlateAuctionUrl } from './plateAuctionUrlNormalization.js';
 
 export const SWISSSIGN_RSA_TLS_OV_ICA_2022_1 = readFileSync(
@@ -233,11 +234,12 @@ export function explicitlyEmptyCatalogue() {
 }
 
 function htmlText(value) {
-  return String(value || '')
+  return decodeHtmlEntities(String(value || '')
     .replace(/<[^>]+>/g, ' ')
     .replace(/&nbsp;/gi, ' ')
     .replace(/&#160;/gi, ' ')
-    .replace(/&amp;/gi, '&')
+    .replace(/\s+/g, ' '), { level: 'html5', scope: 'strict' })
+    .replace(/\u00a0/g, ' ')
     .replace(/\s+/g, ' ')
     .trim();
 }
@@ -1186,7 +1188,7 @@ function frenchMonth(value) {
 }
 
 function decodeHtmlAttribute(value) {
-  return String(value || '').replace(/&amp;/gi, '&').replace(/&#0?39;/g, "'");
+  return decodeHtmlEntities(String(value || ''), { level: 'html5', scope: 'strict' }).replace(/\u00a0/g, ' ');
 }
 
 /**
