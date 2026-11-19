@@ -1,4 +1,4 @@
-import { describe, expect, it, beforeEach, afterEach } from 'vitest';
+import { describe, expect, it, beforeEach, afterEach, vi } from 'vitest';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -172,6 +172,52 @@ describe('writeCompatPaths — shard write minimization', () => {
   it('rejects a post-merge count that does not match the resolver preflight', () => {
     writeCompatPaths({ paths: ['/post-merge-count/'] }, rootDir);
     expect(() => readCompatPathsStrictAfterMerge(rootDir, 2)).toThrow(/expected 2/);
+  });
+
+  it('heals an exact duplicate inside the same shard and reports it', () => {
+    writeCompatPaths({ paths: ['/dup-a/', '/dup-b/', '/dup-c/'] }, rootDir);
+    const index = compatShardIndex('/dup-a/');
+    const file = compatShardFile(index, rootDir);
+    const shard = JSON.parse(fs.readFileSync(file, 'utf-8'));
+    shard.paths.push('/dup-a/');
+    fs.writeFileSync(file, JSON.stringify(shard));
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    try {
+      const data = readCompatPathsStrict(rootDir);
+      expect(data.duplicatesRemoved).toBe(1);
+      expect(data.paths).toHaveLength(3);
+      expect(new Set(data.paths)).toEqual(new Set(['/dup-a/', '/dup-b/', '/dup-c/']));
+      expect(Object.keys(data)).not.toContain('duplicatesRemoved');
+      expect(warn).toHaveBeenCalledTimes(1);
+      expect(String(warn.mock.calls[0][0])).toContain(`dropped 1 exact duplicate path(s) in shard(s) part-${String(index).padStart(2, '0')}.json`);
+
+      // The manifest repair counts unique paths and the rewrite persists them deduplicated.
+      const repaired = readCompatPathsStrictWithManifestRepair(rootDir);
+      expect(repaired.totalPaths).toBe(3);
+      writeCompatPaths(repaired.data, rootDir);
+      expect(JSON.parse(fs.readFileSync(file, 'utf-8')).paths.filter((p: string) => p === '/dup-a/')).toHaveLength(1);
+      const manifest = JSON.parse(fs.readFileSync(compatManifestFile(rootDir), 'utf-8'));
+      expect(manifest.totalPaths).toBe(3);
+      expect(manifest.duplicatesRemoved).toBeUndefined();
+      expect(readCompatPathsStrict(rootDir).duplicatesRemoved).toBe(0);
+    } finally {
+      warn.mockRestore();
+    }
+  });
+
+  it('validates the resolver expected total against the deduplicated count', () => {
+    writeCompatPaths({ paths: ['/dup-x/', '/dup-y/'] }, rootDir);
+    const file = compatShardFile(compatShardIndex('/dup-x/'), rootDir);
+    const shard = JSON.parse(fs.readFileSync(file, 'utf-8'));
+    shard.paths.push('/dup-x/');
+    fs.writeFileSync(file, JSON.stringify(shard));
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    try {
+      expect(readCompatPathsStrictAfterMerge(rootDir, 2).paths).toHaveLength(2);
+      expect(() => readCompatPathsStrictAfterMerge(rootDir, 3)).toThrow(/expected 3/);
+    } finally {
+      warn.mockRestore();
+    }
   });
 
   it('refuses duplicate paths spread across shards', () => {
