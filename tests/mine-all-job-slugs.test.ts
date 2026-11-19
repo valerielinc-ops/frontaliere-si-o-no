@@ -18,12 +18,17 @@
  * in mine-all-job-slugs.mjs).
  */
 import { spawnSync } from 'node:child_process';
-import { describe, expect, it } from 'vitest';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import { describe, expect, it, vi } from 'vitest';
 import {
   buildLocalePathsForCanton,
   buildLocalePathsForJob,
   fillMissingLocalePaths,
   measureSerializedJsonObjectLength,
+  mergeMinedSources,
+  mineGitRemovedSlugs,
 } from '../scripts/mine-all-job-slugs.mjs';
 
 describe('measureSerializedJsonObjectLength', () => {
@@ -54,6 +59,73 @@ describe('measureSerializedJsonObjectLength', () => {
     );
 
     expect(result.status, `${result.stderr}\n${result.stdout}`).toBe(0);
+  });
+});
+
+describe('mine-all-job-slugs bounded source handling', () => {
+  it('streams compat validation and git history instead of capturing the full store or diff', () => {
+    const source = fs.readFileSync(new URL('../scripts/mine-all-job-slugs.mjs', import.meta.url), 'utf8');
+    expect(source).toContain('forEachCompatPathsStrict(ROOT');
+    expect(source).toContain('prepareCompatPathsForTracking(tracking');
+    expect(source).toContain("{ name: 'Compat paths', stream: mineCompatPaths }");
+    expect(source).toContain('Skipping destructive size pruning because mining was incomplete');
+    expect(source).toContain("spawn('git'");
+    expect(source).toContain('createInterface({ input: child.stdout');
+    expect(source).not.toContain('execSync(');
+    expect(source).not.toMatch(/readCompatPathsStrict(?:WithManifestRepair)?\s*\(/);
+    const compatSource = source.match(/async function mineCompatPaths\([\s\S]*?\n}\n/);
+    expect(compatSource?.[0]).toContain('onSlugPath(slug, locale, p)');
+    expect(compatSource?.[0]).not.toMatch(/new (?:Map|Set)\s*\(/);
+    expect(compatSource?.[0]).not.toMatch(/\b(?:paths|slugs)\s*=\s*\[\]/);
+  });
+
+  it('merges streamed compat paths directly while preserving source precedence and last compat locale path', async () => {
+    const primary = new Map([
+      ['shared-job-slug', { locales: { it: '/primary/it/' } }],
+    ]);
+    const result = await mergeMinedSources([
+      { name: 'Active jobs', fn: async () => primary },
+      {
+        name: 'Compat paths',
+        stream: async (onPath: (slug: string, locale: string, value: string) => void) => {
+          onPath('shared-job-slug', 'it', '/compat/it/');
+          onPath('shared-job-slug', 'en', '/en/first/');
+          onPath('shared-job-slug', 'en', '/en/last/');
+          onPath('compat-only-job', 'fr', '/fr/compat-only/');
+          return 4;
+        },
+      },
+    ]);
+
+    expect(result.allSlugs.get('shared-job-slug')?.locales).toEqual({
+      it: '/primary/it/',
+      en: '/en/last/',
+    });
+    expect(result.allSlugs.get('compat-only-job')?.locales).toEqual({ fr: '/fr/compat-only/' });
+    expect(result.nonGitSourceSlugs).toEqual(new Set(['shared-job-slug', 'compat-only-job']));
+    expect(result.highValueSlugs).toEqual(new Set(['shared-job-slug']));
+  });
+
+  it('marks incomplete sources so the caller can avoid destructive pruning', async () => {
+    const partialHistory = new Map();
+    Object.defineProperty(partialHistory, 'miningIncomplete', { value: true });
+    const result = await mergeMinedSources([
+      { name: 'Git history (removed slugs)', fn: async () => partialHistory },
+    ]);
+    expect(result.incompleteSources.has('Git history (removed slugs)')).toBe(true);
+  });
+
+  it('keeps git-history read failures explicit for the conservative pruning fallback', async () => {
+    const cwd = fs.mkdtempSync(path.join(os.tmpdir(), 'mine-job-slugs-no-git-'));
+    const warning = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    try {
+      const mined = await mineGitRemovedSlugs({ cwd });
+      expect(mined.miningIncomplete).toBe(true);
+      expect(warning).toHaveBeenCalledWith(expect.stringContaining('Git history mining incomplete'));
+    } finally {
+      warning.mockRestore();
+      fs.rmSync(cwd, { recursive: true, force: true });
+    }
   });
 });
 
