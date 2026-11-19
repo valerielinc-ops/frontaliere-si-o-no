@@ -1,7 +1,7 @@
 {
   "crawlerKey": "talan",
-  "assembledAt": "2026-11-18T21:19:13.059Z",
-  "runId": "44397966701",
+  "assembledAt": "2026-11-19T09:42:49.542Z",
+  "runId": "44493286749",
   "jobs": [
     {
       "id": "talan-838cc2a04384",
@@ -35,7 +35,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000126717821-developpeur-abap-s-4hana?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T21:19:05.532Z",
+      "crawledAt": "2026-11-19T09:42:39.602Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -79,7 +79,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-18T21:19:05.532Z",
+      "validThrough": "2026-12-19T09:42:39.602Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -114,7 +114,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T21:19:05.530Z",
+      "crawledAt": "2026-11-19T09:42:39.598Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -158,7 +158,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-18T21:19:05.530Z",
+      "validThrough": "2026-12-19T09:42:39.598Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -192,7 +192,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000144774739-business-analyste-core-banking?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T21:19:05.529Z",
+      "crawledAt": "2026-11-19T09:42:39.596Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -236,7 +236,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-18T21:19:05.529Z",
+      "validThrough": "2026-12-19T09:42:39.596Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -271,7 +271,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000148235109-business-analyst-enterprise-data-management-edm-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T21:19:05.528Z",
+      "crawledAt": "2026-11-19T09:42:39.593Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -315,7 +315,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-18T21:19:05.528Z",
+      "validThrough": "2026-12-19T09:42:39.593Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -350,7 +350,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000151868230-consultant-power-bi-microsoft-fabric?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T21:19:05.527Z",
+      "crawledAt": "2026-11-19T09:42:39.591Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "postalCode": "1003",
@@ -410,7 +410,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T21:19:05.527Z",
+      "validThrough": "2026-12-25T09:42:39.591Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -445,7 +445,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000153113299-consultant-sap-basis?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T21:19:05.526Z",
+      "crawledAt": "2026-11-19T09:42:39.590Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -492,7 +492,86 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-31T21:19:05.526Z",
+      "validThrough": "2026-12-31T09:42:39.590Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "talan-61c9acf4f11b",
+      "slug": "consulente-expert-sap-crm-f-h-talan-geneva",
+      "slugByLocale": {
+        "it": "consulente-expert-sap-crm-f-h-talan-geneva",
+        "en": "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland",
+        "de": "berater-expert-sap-crm-f-h-talan-geneva",
+        "fr": "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Consultant Expert SAP CRM F/H",
+      "titleByLocale": {
+        "it": "Consulente Expert SAP CRM F/H",
+        "en": "Consultant Expert SAP CRM M/F",
+        "de": "Berater Expert SAP CRM F/H",
+        "fr": "Consultant Expert SAP CRM F/H"
+      },
+      "description": "Nous recherchons un Expert SAP CRM7 capable d’intervenir sur les aspects fonctionnels, techniques et d’intégration de la solution.\n Le poste nécessite une maîtrise importante de l’écosystème SAP , ainsi qu’une connaissance approfondie des composants CRM7 et de leurs interactions avec des solutions SAP et non-SAP.\n Missions principales\n\n• Participer à la maintenance de SAP CRM7\n\n• Analyser les besoins fonctionnels liés à la gestion de la relation client et aux processus métiers associés.\n\n• Paramétrer et faire évoluer la solution\n\n• Intervenir sur les fonctionnalités de :\n• Case Management\n\n• Activity Management\n\n• Service\n\n• Social Services Management\n\n• Master Data\n\n• Concevoir et maintenir les interfaces entre SAP CRM7, SAP S/4 et les applications tierces.\n\n• Participer à l’intégration de SAP CRM7 avec Microsoft Office et des solutions non-SAP.\n\n• Développer ou adapter les services d’échange de données.\n\n• Contribuer à la sécurisation des flux et des intégrations.\n\n• Assurer le support technique et fonctionnel des solutions mises en place.\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n Compétences techniques recherchées\n SAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Activity Management\n Environnement\n\n• Solutions SAP On Premise\n\n• Environnements Cloud\n\n• Cybersécurité appliquée aux intégrations SAP\n\n• Capacité à intervenir sur des sujets fonctionnels et techniques.\n\n• Bonne connaissance de l’intégration de SAP CRM7 avec SAP S/4 .\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n\n• Maîtrise des technologies d’intégration\n\n• Expérience des interfaces avec des applications non-SAP.\n\n• Capacité à travailler avec des équipes fonctionnelles, techniques et métiers.\n\n• Expérience significative sur la solution SAP CRM7 .\n\nPourquoi rejoindre Talan Suisse ?\n\n• Participer à la croissance d'une practice Data & AI en forte expansion.\n\n• Jouer un rôle clé dans la structuration de notre offre Data Management.\n\n• Intervenir sur des programmes stratégiques auprès de grands comptes suisses.\n\n• Bénéficier d'un environnement entrepreneurial offrant autonomie, impact et perspectives d'évolution.\n\n• Collaborer avec des experts Data, Analytics, Gouvernance des données et Intelligence Artificielle.",
+      "descriptionByLocale": {
+        "it": "Stiamo cercando un esperto SAP CRM7 che possa intervenire sugli aspetti funzionali, tecnici e di integrazione della soluzione.\nLa posizione richiede un controllo significativo dell'ecosistema SAP, nonché una conoscenza approfondita dei componenti CRM7 e delle loro interazioni con le soluzioni SAP e non-SAP.\nPrincipali missioni\n\n• Partecipa alla manutenzione SAP CRM7\n\n• Analizzare le esigenze funzionali relative alla gestione dei rapporti con i clienti e ai processi aziendali associati.\n\n• Impostare e modificare la soluzione\n\n• Intervening sulle caratteristiche di:\n• Gestione dei casi\n\n• Gestione delle attività\n\n• Servizio\n\n• Gestione dei servizi sociali\n\n• Dati master\n\n• Progettazione e manutenzione di interfacce tra SAP CRM7, SAP S/4 e applicazioni di terze parti.\n\n• Partecipa all'integrazione di SAP CRM7 con soluzioni Microsoft Office e non SAP.\n\n• Sviluppare o adattare i servizi di scambio dati.\n\n• Contribuire a garantire flussi e integrazioni.\n\n• Fornire supporto tecnico e funzionale alle soluzioni implementate.\n\n• Esperienza desiderata nella conversazione di SAP CRM7 verso nuove soluzioni SAP (S/4 HANA Services, CX, C4C)\nCompetenza tecnica\nSAP CRM\n\n• SAP CRM\n\n• SSM / Gestione dei servizi sociali\n\n• Gestione dei casi\n\n• Gestione delle attività\nAmbiente\n\n• SAP Soluzioni locali\n\n• Ambienti cloud\n\n• Cybersecurity applicata alle integrazioni SAP\n\n• Capacità di intervenire su temi funzionali e tecnici.\n\n• Buona conoscenza dell'integrazione SAP CRM7 con SAP S/4 .\n\n• Esperienza desiderata nella conversazione di SAP CRM7 verso nuove soluzioni SAP (S/4 HANA Services, CX, C4C)\n\n• Masterizzazione delle tecnologie di integrazione\n\n• Interfacce di esperienza con applicazioni non SAP.\n\n• Capacità di lavorare con team funzionali, tecnici e commerciali.\n\n• Esperienza significativa sulla soluzione SAP CRM7.\n\nPerché unirsi a Talan Svizzera?\n\n• Partecipa alla crescita di una pratica di Data & AI in rapida espansione.\n\n• Gioca un ruolo chiave nella strutturazione della nostra offerta di Gestione dati.\n\n• Intervento sui programmi strategici con i principali conti svizzeri.\n\n• Approfittate di un ambiente imprenditoriale che offre autonomia, impatto e opportunità di cambiamento.\n\n• Collabora con esperti Data, Analytics, Data Governance e Artificial Intelligence.",
+        "en": "We are looking for a SAP CRM7 Expert who can intervene on the functional, technical and integration aspects of the solution.\nThe position requires significant control of the SAP ecosystem, as well as a thorough knowledge of CRM7 components and their interactions with SAP and non-SAP solutions.\nMain missions\n\n• Participate in SAP CRM7 maintenance\n\n• Analyze functional needs related to client relationship management and associated business processes.\n\n• Set and change the solution\n\n• Intervening on the features of:\n• Case Management\n\n• Activity Management\n\n• Service\n\n• Social Services Management\n\n• Master Data\n\n• Design and maintain interfaces between SAP CRM7, SAP S/4 and third-party applications.\n\n• Participate in the integration of SAP CRM7 with Microsoft Office and non-SAP solutions.\n\n• Develop or adapt data exchange services.\n\n• Contribute to securing flows and integrations.\n\n• Provide technical and functional support for the solutions implemented.\n\n• Desired experience in the conversation of SAP CRM7 towards new SAP solutions (S/4 HANA Services, CX, C4C)\nTechnical expertise sought\nSAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Activity Management\nEnvironment\n\n• SAP On Premise Solutions\n\n• Cloud environments\n\n• Cybersecurity applied to SAP integrations\n\n• Ability to intervene on functional and technical topics.\n\n• Good knowledge of SAP CRM7 integration with SAP S/4 .\n\n• Desired experience in the conversation of SAP CRM7 towards new SAP solutions (S/4 HANA Services, CX, C4C)\n\n• Mastery of integration technologies\n\n• Experience interfaces with non-SAP applications.\n\n• Ability to work with functional, technical and trade teams.\n\n• Significant experience on SAP CRM7 solution.\n\nWhy join Talan Switzerland?\n\n• Participate in the growth of a rapidly expanding Data & AI practice.\n\n• Play a key role in structuring our Data Management offer.\n\n• Intervention on strategic programs with major Swiss accounts.\n\n• Benefit from an entrepreneurial environment offering autonomy, impact and opportunities for change.\n\n• Collaborate with experts Data, Analytics, Data Governance and Artificial Intelligence.",
+        "de": "Wir suchen einen SAP CRM7 Experten, der in die funktionalen, technischen und Integrationsaspekte der Lösung eingreifen kann.\nDie Position erfordert eine erhebliche Kontrolle des SAP-Ökosystems sowie eine gründliche Kenntnis der CRM7-Komponenten und ihrer Interaktionen mit SAP- und Nicht-SAP-Lösungen.\nHauptmissionen\n\n• Teilnahme an SAP CRM7 Maintenance\n\n• Analysieren Sie funktionale Anforderungen im Zusammenhang mit dem Kundenbeziehungsmanagement und den damit verbundenen Geschäftsprozessen.\n\n• Setzen und Ändern der Lösung\n\n• Eingriff in die Merkmale von:\n• Case Management\n\n• Tätigkeitsmanagement\n\n• Dienst\n\n• Social Services Management\n\n• Stammdaten\n\n• Design und Pflege von Schnittstellen zwischen SAP CRM7, SAP S/4 und Anwendungen von Drittanbietern.\n\n• Nehmen Sie an der Integration von SAP CRM7 mit Microsoft Office und Nicht-SAP-Lösungen teil.\n\n• Entwicklung oder Anpassung von Datenaustauschdiensten.\n\n• Beitrag zur Sicherung von Flüssen und Integrationen.\n\n• Bereitstellung technischer und funktionaler Unterstützung für die implementierten Lösungen.\n\n• Gewünschte Erfahrung im Gespräch von SAP CRM7 zu neuen SAP-Lösungen (S/4 HANA Services, CX, C4C)\nGefragtes technisches Fachwissen\nSAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Tätigkeitsmanagement\nUmwelt\n\n• SAP On Premise Lösungen\n\n• Cloud-Umgebungen\n\n• Cybersecurity für SAP Integrationen\n\n• Fähigkeit, in funktionale und technische Themen einzugreifen.\n\n• Gute Kenntnisse der SAP CRM7 Integration mit SAP S/4 .\n\n• Gewünschte Erfahrung im Gespräch von SAP CRM7 zu neuen SAP-Lösungen (S/4 HANA Services, CX, C4C)\n\n• Beherrschung der Integrationstechnologien\n\n• Erleben Sie Schnittstellen mit Nicht-SAP-Anwendungen.\n\n• Fähigkeit, mit funktionalen, technischen und Handelsteams zu arbeiten.\n\n• Bedeutende Erfahrung mit SAP CRM7 Lösung.\n\nWarum bei Talan Schweiz?\n\n• Beteiligen Sie sich am Wachstum einer schnell wachsenden Data & AI-Praxis.\n\n• Spielen Sie eine Schlüsselrolle bei der Strukturierung unseres Datenmanagement-Angebots.\n\n• Intervention zu strategischen Programmen mit großen Schweizer Konten.\n\n• Profitieren Sie von einem unternehmerischen Umfeld, das Autonomie, Wirkung und Veränderungsmöglichkeiten bietet.\n\n• Arbeiten Sie mit den Experten Data, Analytics, Data Governance und Künstliche Intelligenz zusammen.",
+        "fr": "Nous recherchons un Expert SAP CRM7 capable d’intervenir sur les aspects fonctionnels, techniques et d’intégration de la solution.\nLe poste nécessite une maîtrise importante de l’écosystème SAP , ainsi qu’une connaissance approfondie des composants CRM7 et de leurs interactions avec des solutions SAP et non-SAP.\nMissions principales\n\n• Participer à la maintenance de SAP CRM7\n\n• Analyser les besoins fonctionnels liés à la gestion de la relation client et aux processus métiers associés.\n\n• Paramétrer et faire évoluer la solution\n\n• Intervenir sur les fonctionnalités de :\n• Case Management\n\n• Activity Management\n\n• Service\n\n• Social Services Management\n\n• Master Data\n\n• Concevoir et maintenir les interfaces entre SAP CRM7, SAP S/4 et les applications tierces.\n\n• Participer à l’intégration de SAP CRM7 avec Microsoft Office et des solutions non-SAP.\n\n• Développer ou adapter les services d’échange de données.\n\n• Contribuer à la sécurisation des flux et des intégrations.\n\n• Assurer le support technique et fonctionnel des solutions mises en place.\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\nCompétences techniques recherchées\nSAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Activity Management\nEnvironnement\n\n• Solutions SAP On Premise\n\n• Environnements Cloud\n\n• Cybersécurité appliquée aux intégrations SAP\n\n• Capacité à intervenir sur des sujets fonctionnels et techniques.\n\n• Bonne connaissance de l’intégration de SAP CRM7 avec SAP S/4 .\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n\n• Maîtrise des technologies d’intégration\n\n• Expérience des interfaces avec des applications non-SAP.\n\n• Capacité à travailler avec des équipes fonctionnelles, techniques et métiers.\n\n• Expérience significative sur la solution SAP CRM7 .\n\nPourquoi rejoindre Talan Suisse ?\n\n• Participer à la croissance d'une practice Data & AI en forte expansion.\n\n• Jouer un rôle clé dans la structuration de notre offre Data Management.\n\n• Intervenir sur des programmes stratégiques auprès de grands comptes suisses.\n\n• Bénéficier d'un environnement entrepreneurial offrant autonomie, impact et perspectives d'évolution.\n\n• Collaborer avec des experts Data, Analytics, Gouvernance des données et Intelligence Artificielle."
+      },
+      "needsRetranslation": false,
+      "location": "Geneva, GE, Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000153133249-consultant-expert-sap-crm-f-h?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-19T09:42:39.588Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-02T09:11:46.418Z",
+      "postedDate": "2026-10-02T09:11:46.418Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000153133249-consultant-expert-sap-crm-f-h?oga=true",
+      "jobReqId": "744000153133249",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-10-03T09:10:26.715Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-31T09:42:39.588Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -526,7 +605,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000153192441-developpeur-sap-full-stack-abap-fiori-btp-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T21:19:05.525Z",
+      "crawledAt": "2026-11-19T09:42:39.587Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -581,86 +660,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-31T21:19:05.525Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "talan-61c9acf4f11b",
-      "slug": "consulente-expert-sap-crm-f-h-talan-geneva",
-      "slugByLocale": {
-        "it": "consulente-expert-sap-crm-f-h-talan-geneva",
-        "en": "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland",
-        "de": "berater-expert-sap-crm-f-h-talan-geneva",
-        "fr": "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Consultant Expert SAP CRM F/H",
-      "titleByLocale": {
-        "it": "Consulente Expert SAP CRM F/H",
-        "en": "Consultant Expert SAP CRM M/F",
-        "de": "Berater Expert SAP CRM F/H",
-        "fr": "Consultant Expert SAP CRM F/H"
-      },
-      "description": "Nous recherchons un Expert SAP CRM7 capable d’intervenir sur les aspects fonctionnels, techniques et d’intégration de la solution.\n Le poste nécessite une maîtrise importante de l’écosystème SAP , ainsi qu’une connaissance approfondie des composants CRM7 et de leurs interactions avec des solutions SAP et non-SAP.\n Missions principales\n\n• Participer à la maintenance de SAP CRM7\n\n• Analyser les besoins fonctionnels liés à la gestion de la relation client et aux processus métiers associés.\n\n• Paramétrer et faire évoluer la solution\n\n• Intervenir sur les fonctionnalités de :\n• Case Management\n\n• Activity Management\n\n• Service\n\n• Social Services Management\n\n• Master Data\n\n• Concevoir et maintenir les interfaces entre SAP CRM7, SAP S/4 et les applications tierces.\n\n• Participer à l’intégration de SAP CRM7 avec Microsoft Office et des solutions non-SAP.\n\n• Développer ou adapter les services d’échange de données.\n\n• Contribuer à la sécurisation des flux et des intégrations.\n\n• Assurer le support technique et fonctionnel des solutions mises en place.\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n Compétences techniques recherchées\n SAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Activity Management\n Environnement\n\n• Solutions SAP On Premise\n\n• Environnements Cloud\n\n• Cybersécurité appliquée aux intégrations SAP\n\n• Capacité à intervenir sur des sujets fonctionnels et techniques.\n\n• Bonne connaissance de l’intégration de SAP CRM7 avec SAP S/4 .\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n\n• Maîtrise des technologies d’intégration\n\n• Expérience des interfaces avec des applications non-SAP.\n\n• Capacité à travailler avec des équipes fonctionnelles, techniques et métiers.\n\n• Expérience significative sur la solution SAP CRM7 .\n\nPourquoi rejoindre Talan Suisse ?\n\n• Participer à la croissance d'une practice Data & AI en forte expansion.\n\n• Jouer un rôle clé dans la structuration de notre offre Data Management.\n\n• Intervenir sur des programmes stratégiques auprès de grands comptes suisses.\n\n• Bénéficier d'un environnement entrepreneurial offrant autonomie, impact et perspectives d'évolution.\n\n• Collaborer avec des experts Data, Analytics, Gouvernance des données et Intelligence Artificielle.",
-      "descriptionByLocale": {
-        "it": "Stiamo cercando un esperto SAP CRM7 che possa intervenire sugli aspetti funzionali, tecnici e di integrazione della soluzione.\nLa posizione richiede un controllo significativo dell'ecosistema SAP, nonché una conoscenza approfondita dei componenti CRM7 e delle loro interazioni con le soluzioni SAP e non-SAP.\nPrincipali missioni\n\n• Partecipa alla manutenzione SAP CRM7\n\n• Analizzare le esigenze funzionali relative alla gestione dei rapporti con i clienti e ai processi aziendali associati.\n\n• Impostare e modificare la soluzione\n\n• Intervening sulle caratteristiche di:\n• Gestione dei casi\n\n• Gestione delle attività\n\n• Servizio\n\n• Gestione dei servizi sociali\n\n• Dati master\n\n• Progettazione e manutenzione di interfacce tra SAP CRM7, SAP S/4 e applicazioni di terze parti.\n\n• Partecipa all'integrazione di SAP CRM7 con soluzioni Microsoft Office e non SAP.\n\n• Sviluppare o adattare i servizi di scambio dati.\n\n• Contribuire a garantire flussi e integrazioni.\n\n• Fornire supporto tecnico e funzionale alle soluzioni implementate.\n\n• Esperienza desiderata nella conversazione di SAP CRM7 verso nuove soluzioni SAP (S/4 HANA Services, CX, C4C)\nCompetenza tecnica\nSAP CRM\n\n• SAP CRM\n\n• SSM / Gestione dei servizi sociali\n\n• Gestione dei casi\n\n• Gestione delle attività\nAmbiente\n\n• SAP Soluzioni locali\n\n• Ambienti cloud\n\n• Cybersecurity applicata alle integrazioni SAP\n\n• Capacità di intervenire su temi funzionali e tecnici.\n\n• Buona conoscenza dell'integrazione SAP CRM7 con SAP S/4 .\n\n• Esperienza desiderata nella conversazione di SAP CRM7 verso nuove soluzioni SAP (S/4 HANA Services, CX, C4C)\n\n• Masterizzazione delle tecnologie di integrazione\n\n• Interfacce di esperienza con applicazioni non SAP.\n\n• Capacità di lavorare con team funzionali, tecnici e commerciali.\n\n• Esperienza significativa sulla soluzione SAP CRM7.\n\nPerché unirsi a Talan Svizzera?\n\n• Partecipa alla crescita di una pratica di Data & AI in rapida espansione.\n\n• Gioca un ruolo chiave nella strutturazione della nostra offerta di Gestione dati.\n\n• Intervento sui programmi strategici con i principali conti svizzeri.\n\n• Approfittate di un ambiente imprenditoriale che offre autonomia, impatto e opportunità di cambiamento.\n\n• Collabora con esperti Data, Analytics, Data Governance e Artificial Intelligence.",
-        "en": "We are looking for a SAP CRM7 Expert who can intervene on the functional, technical and integration aspects of the solution.\nThe position requires significant control of the SAP ecosystem, as well as a thorough knowledge of CRM7 components and their interactions with SAP and non-SAP solutions.\nMain missions\n\n• Participate in SAP CRM7 maintenance\n\n• Analyze functional needs related to client relationship management and associated business processes.\n\n• Set and change the solution\n\n• Intervening on the features of:\n• Case Management\n\n• Activity Management\n\n• Service\n\n• Social Services Management\n\n• Master Data\n\n• Design and maintain interfaces between SAP CRM7, SAP S/4 and third-party applications.\n\n• Participate in the integration of SAP CRM7 with Microsoft Office and non-SAP solutions.\n\n• Develop or adapt data exchange services.\n\n• Contribute to securing flows and integrations.\n\n• Provide technical and functional support for the solutions implemented.\n\n• Desired experience in the conversation of SAP CRM7 towards new SAP solutions (S/4 HANA Services, CX, C4C)\nTechnical expertise sought\nSAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Activity Management\nEnvironment\n\n• SAP On Premise Solutions\n\n• Cloud environments\n\n• Cybersecurity applied to SAP integrations\n\n• Ability to intervene on functional and technical topics.\n\n• Good knowledge of SAP CRM7 integration with SAP S/4 .\n\n• Desired experience in the conversation of SAP CRM7 towards new SAP solutions (S/4 HANA Services, CX, C4C)\n\n• Mastery of integration technologies\n\n• Experience interfaces with non-SAP applications.\n\n• Ability to work with functional, technical and trade teams.\n\n• Significant experience on SAP CRM7 solution.\n\nWhy join Talan Switzerland?\n\n• Participate in the growth of a rapidly expanding Data & AI practice.\n\n• Play a key role in structuring our Data Management offer.\n\n• Intervention on strategic programs with major Swiss accounts.\n\n• Benefit from an entrepreneurial environment offering autonomy, impact and opportunities for change.\n\n• Collaborate with experts Data, Analytics, Data Governance and Artificial Intelligence.",
-        "de": "Wir suchen einen SAP CRM7 Experten, der in die funktionalen, technischen und Integrationsaspekte der Lösung eingreifen kann.\nDie Position erfordert eine erhebliche Kontrolle des SAP-Ökosystems sowie eine gründliche Kenntnis der CRM7-Komponenten und ihrer Interaktionen mit SAP- und Nicht-SAP-Lösungen.\nHauptmissionen\n\n• Teilnahme an SAP CRM7 Maintenance\n\n• Analysieren Sie funktionale Anforderungen im Zusammenhang mit dem Kundenbeziehungsmanagement und den damit verbundenen Geschäftsprozessen.\n\n• Setzen und Ändern der Lösung\n\n• Eingriff in die Merkmale von:\n• Case Management\n\n• Tätigkeitsmanagement\n\n• Dienst\n\n• Social Services Management\n\n• Stammdaten\n\n• Design und Pflege von Schnittstellen zwischen SAP CRM7, SAP S/4 und Anwendungen von Drittanbietern.\n\n• Nehmen Sie an der Integration von SAP CRM7 mit Microsoft Office und Nicht-SAP-Lösungen teil.\n\n• Entwicklung oder Anpassung von Datenaustauschdiensten.\n\n• Beitrag zur Sicherung von Flüssen und Integrationen.\n\n• Bereitstellung technischer und funktionaler Unterstützung für die implementierten Lösungen.\n\n• Gewünschte Erfahrung im Gespräch von SAP CRM7 zu neuen SAP-Lösungen (S/4 HANA Services, CX, C4C)\nGefragtes technisches Fachwissen\nSAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Tätigkeitsmanagement\nUmwelt\n\n• SAP On Premise Lösungen\n\n• Cloud-Umgebungen\n\n• Cybersecurity für SAP Integrationen\n\n• Fähigkeit, in funktionale und technische Themen einzugreifen.\n\n• Gute Kenntnisse der SAP CRM7 Integration mit SAP S/4 .\n\n• Gewünschte Erfahrung im Gespräch von SAP CRM7 zu neuen SAP-Lösungen (S/4 HANA Services, CX, C4C)\n\n• Beherrschung der Integrationstechnologien\n\n• Erleben Sie Schnittstellen mit Nicht-SAP-Anwendungen.\n\n• Fähigkeit, mit funktionalen, technischen und Handelsteams zu arbeiten.\n\n• Bedeutende Erfahrung mit SAP CRM7 Lösung.\n\nWarum bei Talan Schweiz?\n\n• Beteiligen Sie sich am Wachstum einer schnell wachsenden Data & AI-Praxis.\n\n• Spielen Sie eine Schlüsselrolle bei der Strukturierung unseres Datenmanagement-Angebots.\n\n• Intervention zu strategischen Programmen mit großen Schweizer Konten.\n\n• Profitieren Sie von einem unternehmerischen Umfeld, das Autonomie, Wirkung und Veränderungsmöglichkeiten bietet.\n\n• Arbeiten Sie mit den Experten Data, Analytics, Data Governance und Künstliche Intelligenz zusammen.",
-        "fr": "Nous recherchons un Expert SAP CRM7 capable d’intervenir sur les aspects fonctionnels, techniques et d’intégration de la solution.\nLe poste nécessite une maîtrise importante de l’écosystème SAP , ainsi qu’une connaissance approfondie des composants CRM7 et de leurs interactions avec des solutions SAP et non-SAP.\nMissions principales\n\n• Participer à la maintenance de SAP CRM7\n\n• Analyser les besoins fonctionnels liés à la gestion de la relation client et aux processus métiers associés.\n\n• Paramétrer et faire évoluer la solution\n\n• Intervenir sur les fonctionnalités de :\n• Case Management\n\n• Activity Management\n\n• Service\n\n• Social Services Management\n\n• Master Data\n\n• Concevoir et maintenir les interfaces entre SAP CRM7, SAP S/4 et les applications tierces.\n\n• Participer à l’intégration de SAP CRM7 avec Microsoft Office et des solutions non-SAP.\n\n• Développer ou adapter les services d’échange de données.\n\n• Contribuer à la sécurisation des flux et des intégrations.\n\n• Assurer le support technique et fonctionnel des solutions mises en place.\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\nCompétences techniques recherchées\nSAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Activity Management\nEnvironnement\n\n• Solutions SAP On Premise\n\n• Environnements Cloud\n\n• Cybersécurité appliquée aux intégrations SAP\n\n• Capacité à intervenir sur des sujets fonctionnels et techniques.\n\n• Bonne connaissance de l’intégration de SAP CRM7 avec SAP S/4 .\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n\n• Maîtrise des technologies d’intégration\n\n• Expérience des interfaces avec des applications non-SAP.\n\n• Capacité à travailler avec des équipes fonctionnelles, techniques et métiers.\n\n• Expérience significative sur la solution SAP CRM7 .\n\nPourquoi rejoindre Talan Suisse ?\n\n• Participer à la croissance d'une practice Data & AI en forte expansion.\n\n• Jouer un rôle clé dans la structuration de notre offre Data Management.\n\n• Intervenir sur des programmes stratégiques auprès de grands comptes suisses.\n\n• Bénéficier d'un environnement entrepreneurial offrant autonomie, impact et perspectives d'évolution.\n\n• Collaborer avec des experts Data, Analytics, Gouvernance des données et Intelligence Artificielle."
-      },
-      "needsRetranslation": false,
-      "location": "Geneva, GE, Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000153133249-consultant-expert-sap-crm-f-h?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-18T21:19:05.524Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-02T09:11:46.418Z",
-      "postedDate": "2026-10-02T09:11:46.418Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000153133249-consultant-expert-sap-crm-f-h?oga=true",
-      "jobReqId": "744000153133249",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-10-03T09:10:26.715Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-31T21:19:05.524Z",
+      "validThrough": "2027-01-01T09:42:39.587Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -695,7 +695,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000157480029-tech-lead-fullstack-net-c-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T21:19:05.523Z",
+      "crawledAt": "2026-11-19T09:42:39.585Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -742,7 +742,175 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-21T21:19:05.523Z",
+      "validThrough": "2027-01-22T09:42:39.585Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "talan-8ff6fd31afaa",
+      "slug": "senior-business-analista-orchestrade-talan-geneva",
+      "slugByLocale": {
+        "it": "senior-business-analista-orchestrade-talan-geneva",
+        "en": "senior-business-analyst-orchestra-talan-geneva",
+        "de": "senior-business-analyst-orchester-talan-geneva",
+        "fr": "senior-business-analyst-orchestrade-talan-geneva-ge-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Senior Business Analyst – Orchestrade",
+      "titleByLocale": {
+        "it": "Senior Business Analista – Orchestrade",
+        "en": "Senior Business Analyst – Orchestra",
+        "de": "Senior Business Analyst – Orchester",
+        "fr": "Senior Business Analyst – Orchestrade"
+      },
+      "description": "Contexte du poste\n Dans le cadre de la transformation de son système d'information dédié au trading d'énergie, notre client recherche un Senior Business Analyst pour accompagner ses équipes métiers et IT dans la modernisation de ses applications.\n Un projet stratégique de migration vers une nouvelle plateforme ETRM est en cours afin de remplacer le système historique par une solution moderne et évolutive.\n Vous interviendrez à l'interface entre les équipes métiers, les développeurs et les éditeurs afin de recueillir les besoins, formaliser les exigences fonctionnelles et accompagner leur implémentation.\n Responsabilités\n Analyse métier et conception fonctionnelle\n\n• Recueillir, analyser et formaliser les besoins métiers.\n\n• Rédiger les spécifications fonctionnelles, fonctionnalités et User Stories.\n\n• Comprendre les processus de trading et proposer des solutions adaptées aux besoins opérationnels.\n\n• Participer au paramétrage de la plateforme ETRM : configurations, workflows, templates et pricing.\n\n• Collaborer avec les équipes techniques et les éditeurs pour assurer la bonne implémentation des solutions.\n Tests et migration\n\n• Préparer et exécuter les plans de tests fonctionnels.\n\n• Vérifier la conformité des développements avec les spécifications et besoins utilisateurs.\n\n• Participer aux phases de recette utilisateur (UAT).\n\n• Contribuer au projet de migration vers la nouvelle plateforme ETRM.\n\n• Collaborer avec les autres Business Analysts et équipes IT sur les activités de migration.\n Gestion de projet et support\n\n• Participer à la gestion des évolutions applicatives et au suivi du backlog.\n\n• Identifier les opportunités d'amélioration des processus métiers.\n\n• Accompagner les utilisateurs dans la prise en main des solutions.\n\n• Assurer le support fonctionnel et contribuer à la résolution des incidents.\n\n• Documenter les processus et partager les connaissances avec les équipes.\n\n• Minimum 5 ans d'expérience dans le secteur de l'énergie ou du Commodity Trading.\n\n• Expérience sur des plateformes ETRM ( Orchestrade , Calypso, Murex, Endur…).\n\n• Bonne compréhension des marchés de l'énergie et du cycle de vie des transactions.\n\n• Connaissance des flux Front-to-Risk , des instruments physiques et financiers et des calculs de P&L .\n\n• Maîtrise du recueil des besoins, de la rédaction de spécifications fonctionnelles et des User Stories.\n\n• Expérience en tests fonctionnels, UAT et projets de migration ETRM.\n\n• Connaissance des méthodologies Agile et DevOps.\n\n• Une connaissance des processus Back-Office et Finance est un plus.\n\n• Formation supérieure en informatique ou ingénierie.\n\n• Français et anglais courants.",
+      "descriptionByLocale": {
+        "it": "Contesto\nNell'ambito della trasformazione del suo sistema di informazioni sul trading energetico, il nostro cliente sta cercando un Senior Business Analyst per supportare i suoi team di business e IT nella modernizzazione delle sue applicazioni.\nUn progetto strategico per migrare a una nuova piattaforma ETRM è in corso per sostituire il sistema storico con una soluzione moderna e scalabile.\nInterverrete all'interfaccia tra team aziendali, sviluppatori ed editori per raccogliere le esigenze, formalizzare i requisiti funzionali e supportare la loro implementazione.\nresponsabilità\nAnalisi aziendale e design funzionale\n\n• Raccogliere, analizzare e formalizzare le esigenze aziendali.\n\n• Scrivere specifiche funzionali, caratteristiche e Storie utente.\n\n• Comprendere i processi di trading e proporre soluzioni su misura per le esigenze operative.\n\n• Partecipa alle impostazioni della piattaforma ETRM: configurazioni, flussi di lavoro, modelli e prezzi.\n\n• Collabora con team tecnici ed editori per garantire la corretta implementazione delle soluzioni.\nTest e migrazione\n\n• Preparare ed eseguire piani di test funzionali.\n\n• Verificare la conformità degli sviluppi con le specifiche e i requisiti degli utenti.\n\n• Partecipa alle Fasi di Ricetta dell'Utente (UAT).\n\n• Contribuisci al progetto di migrazione alla nuova piattaforma ETRM.\n\n• Collabora con altri Business Analysts e team IT sulle attività di migrazione.\nGestione e supporto dei progetti\n\n• Partecipa alla gestione delle evoluzioni applicative e del monitoraggio backlog.\n\n• Identificare le opportunità per migliorare i processi aziendali.\n\n• Supporta gli utenti nella gestione delle soluzioni.\n\n• Fornire supporto funzionale e aiutare a risolvere gli incidenti.\n\n• Processi di documenti e condivisione delle conoscenze con i team.\n\n• Minimo 5 anni di esperienza nel settore energetico o nel Commodity Trading.\n\n• Esperienza sulle piattaforme ETRM (Orchestra, Calypso, Murex, Endur...).\n\n• Buona comprensione dei mercati energetici e del ciclo di vita delle transazioni.\n\n• Conoscenza dei flussi Front-to-Risk, strumenti fisici e finanziari e calcoli P&L.\n\n• Mastery di raccolta delle esigenze, scrittura delle specifiche funzionali e storie degli utenti.\n\n• Esperienza nei progetti di test funzionali, UAT e ETRM migrazione.\n\n• Conoscenza delle metodologie Agile e DevOps.\n\n• La conoscenza dei processi Back-Office e Finance è un plus.\n\n• Formazione avanzata di computer o ingegneria.\n\n• Inglese comune e francese.",
+        "en": "Background\nAs part of the transformation of its energy trading information system, our customer is looking for a Senior Business Analyst to support its business and IT teams in modernizing its applications.\nA strategic project to migrate to a new ETRM platform is underway to replace the historical system with a modern and scalable solution.\nYou will intervene at the interface between business teams, developers and publishers to collect needs, formalize functional requirements and support their implementation.\nResponsibilities\nBusiness analysis and functional design\n\n• Collect, analyse and formalize business needs.\n\n• Write functional specifications, features and User Stories.\n\n• Understand trading processes and propose solutions tailored to operational needs.\n\n• Participate in the ETRM platform settings: configurations, workflows, templates and pricing.\n\n• Collaborate with technical teams and publishers to ensure the correct implementation of solutions.\nTests and migration\n\n• Prepare and execute functional test plans.\n\n• Verify the compliance of developments with user specifications and requirements.\n\n• Participate in User Recipe Phases (UAT).\n\n• Contribute to the migration project to the new ETRM platform.\n\n• Collaborate with other Business Analysts and IT teams on migration activities.\nProject management and support\n\n• Participate in the management of application evolutions and backlog monitoring.\n\n• Identify opportunities for improving business processes.\n\n• Support users in the management of solutions.\n\n• Provide functional support and help resolve incidents.\n\n• Document processes and share knowledge with teams.\n\n• Minimum 5 years of experience in the energy sector or the Commodity Trading.\n\n• Experience on ETRM platforms ( Orchestra, Calypso, Murex, Endur...).\n\n• Good understanding of energy markets and transaction life cycle.\n\n• Knowledge of Front-to-Risk flows, physical and financial instruments and P&L calculations.\n\n• Mastery of needs collection, functional specification writing and User Stories.\n\n• Experience in functional testing, UAT and ETRM migration projects.\n\n• Knowledge of Agile and DevOps methodologies.\n\n• Knowledge of the Back-Office and Finance processes is a plus.\n\n• Advanced computer or engineering training.\n\n• Common English and French.",
+        "de": "Hintergrund\nIm Rahmen der Transformation seines Energiehandelsinformationssystems sucht unser Kunde einen Senior Business Analysten, der seine Geschäfts- und IT-Teams bei der Modernisierung seiner Anwendungen unterstützt.\nEin strategisches Projekt zur Migration auf eine neue ETRM-Plattform ist im Gange, um das historische System durch eine moderne und skalierbare Lösung zu ersetzen.\nSie intervenieren an der Schnittstelle zwischen Business-Teams, Entwicklern und Publishern, um Bedürfnisse zu sammeln, funktionale Anforderungen zu formalisieren und deren Umsetzung zu unterstützen.\nZuständigkeiten\nBusiness Analyse und Functional Design\n\n• Sammeln, Analysieren und Formalisieren von Geschäftsanforderungen.\n\n• Schreiben Sie funktionale Spezifikationen, Features und User Stories.\n\n• Verstehen Sie Handelsprozesse und schlagen Sie Lösungen vor, die auf die operativen Bedürfnisse zugeschnitten sind.\n\n• Nehmen Sie an den ETRM-Plattformeinstellungen teil: Konfigurationen, Workflows, Vorlagen und Preise.\n\n• Arbeiten Sie mit technischen Teams und Publishern zusammen, um die korrekte Implementierung von Lösungen sicherzustellen.\nTests und Migration\n\n• Erstellen und Ausführen von Funktionstestplänen.\n\n• Überprüfung der Übereinstimmung der Entwicklungen mit den Benutzerspezifikationen und -anforderungen.\n\n• Nehmen Sie an User Recipe Phasen (UAT) teil.\n\n• Tragen Sie zum Migrationsprojekt zur neuen ETRM-Plattform bei.\n\n• Arbeiten Sie mit anderen Business Analysten und IT-Teams bei Migrationsaktivitäten zusammen.\nProjektmanagement und Support\n\n• Beteiligen Sie sich am Management von Anwendungsentwicklungen und Backlog-Monitoring.\n\n• Identifizieren Sie Möglichkeiten zur Verbesserung von Geschäftsprozessen.\n\n• Unterstützen Sie Benutzer beim Management von Lösungen.\n\n• Bieten Sie funktionale Unterstützung und helfen Sie, Vorfälle zu lösen.\n\n• Prozesse dokumentieren und Wissen mit Teams teilen.\n\n• Mindestens 5 Jahre Erfahrung im Energiesektor oder im Rohstoffhandel.\n\n• Erfahrung auf ETRM-Plattformen (Orchester, Calypso, Murex, Endur...).\n\n• Gutes Verständnis der Energiemärkte und des Transaktionslebenszyklus.\n\n• Kenntnis von Front-to-Risk-Flows, physischen und Finanzinstrumenten und P&L-Berechnungen.\n\n• Beherrschung der Bedürfnisse Sammlung, funktionale Spezifikation Schreiben und User Stories.\n\n• Erfahrung in Funktionstests, UAT- und ETRM-Migrationsprojekten.\n\n• Kenntnisse der Agile- und DevOps-Methoden.\n\n• Die Kenntnis der Back-Office- und Finanzprozesse ist ein Plus.\n\n• Fortgeschrittene Computer- oder Ingenieurausbildung.\n\n• Englisch und Französisch.",
+        "fr": "Contexte du poste\nDans le cadre de la transformation de son système d'information dédié au trading d'énergie, notre client recherche un Senior Business Analyst pour accompagner ses équipes métiers et IT dans la modernisation de ses applications.\nUn projet stratégique de migration vers une nouvelle plateforme ETRM est en cours afin de remplacer le système historique par une solution moderne et évolutive.\nVous interviendrez à l'interface entre les équipes métiers, les développeurs et les éditeurs afin de recueillir les besoins, formaliser les exigences fonctionnelles et accompagner leur implémentation.\nResponsabilités\nAnalyse métier et conception fonctionnelle\n\n• Recueillir, analyser et formaliser les besoins métiers.\n\n• Rédiger les spécifications fonctionnelles, fonctionnalités et User Stories.\n\n• Comprendre les processus de trading et proposer des solutions adaptées aux besoins opérationnels.\n\n• Participer au paramétrage de la plateforme ETRM : configurations, workflows, templates et pricing.\n\n• Collaborer avec les équipes techniques et les éditeurs pour assurer la bonne implémentation des solutions.\nTests et migration\n\n• Préparer et exécuter les plans de tests fonctionnels.\n\n• Vérifier la conformité des développements avec les spécifications et besoins utilisateurs.\n\n• Participer aux phases de recette utilisateur (UAT).\n\n• Contribuer au projet de migration vers la nouvelle plateforme ETRM.\n\n• Collaborer avec les autres Business Analysts et équipes IT sur les activités de migration.\nGestion de projet et support\n\n• Participer à la gestion des évolutions applicatives et au suivi du backlog.\n\n• Identifier les opportunités d'amélioration des processus métiers.\n\n• Accompagner les utilisateurs dans la prise en main des solutions.\n\n• Assurer le support fonctionnel et contribuer à la résolution des incidents.\n\n• Documenter les processus et partager les connaissances avec les équipes.\n\n• Minimum 5 ans d'expérience dans le secteur de l'énergie ou du Commodity Trading.\n\n• Expérience sur des plateformes ETRM ( Orchestrade , Calypso, Murex, Endur…).\n\n• Bonne compréhension des marchés de l'énergie et du cycle de vie des transactions.\n\n• Connaissance des flux Front-to-Risk , des instruments physiques et financiers et des calculs de P&L .\n\n• Maîtrise du recueil des besoins, de la rédaction de spécifications fonctionnelles et des User Stories.\n\n• Expérience en tests fonctionnels, UAT et projets de migration ETRM.\n\n• Connaissance des méthodologies Agile et DevOps.\n\n• Une connaissance des processus Back-Office et Finance est un plus.\n\n• Formation supérieure en informatique ou ingénierie.\n\n• Français et anglais courants."
+      },
+      "location": "Geneva, GE, Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000160297169-senior-business-analyst-orchestrade?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-19T09:42:39.583Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-06T20:43:15.202Z",
+      "postedDate": "2026-11-06T20:43:15.202Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000160297169-senior-business-analyst-orchestrade?oga=true",
+      "jobReqId": "744000160297169",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "senior-business-analyst-orchestrade-talan-geneva-ge-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-business-analyst-orchestrade-talan-geneva-ge-switzerland"
+        ],
+        "en": [
+          "senior-business-analyst-orchestrade-talan-geneva-ge-switzerland"
+        ],
+        "de": [
+          "senior-business-analyst-orchestrade-talan-geneva-ge-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-11-06T21:21:13.160Z",
+      "salaryMin": 97500,
+      "salaryMax": 165500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 97500,
+          "maxValue": 165500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-05T09:42:39.583Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "talan-b740a61fb78b",
+      "slug": "technical-analista-power-trading-systems-talan-geneva",
+      "slugByLocale": {
+        "it": "technical-analista-power-trading-systems-talan-geneva",
+        "en": "technical-analyst-powertrade-systems-talan-geneva",
+        "de": "technischer-analyst-power-trading-systems-talan-geneva",
+        "fr": "technical-analyst-power-trading-systems-talan-geneva-ge-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Technical Analyst – Power Trading Systems",
+      "titleByLocale": {
+        "it": "Technical Analista – Power Trading Systems",
+        "en": "Technical Analyst – PowerTrade Systems",
+        "de": "Technischer Analyst - Power Trading Systems",
+        "fr": "Technical Analyst – Power Trading Systems"
+      },
+      "description": "Contexte du poste\n Dans le cadre de la modernisation de son système d'information dédié au trading d'énergie, notre client recherche un Technical Analyst spécialisé dans les plateformes ETRM.\n Vous serez responsable de la conception, du développement et de la maintenance des composants techniques de la plateforme, ainsi que de leur intégration dans l'écosystème IT existant.\n Vous contribuerez à garantir la performance, la fiabilité et l'évolutivité des solutions soutenant les processus de trading, de gestion des risques et de règlement.\n Responsabilités\n Développement et intégration\n\n• Développer de nouvelles fonctionnalités et personnaliser la plateforme ETRM à l'aide des API éditeur et frameworks internes.\n\n• Concevoir et développer des composants applicatifs en C#, .NET et Python.\n\n• Développer et maintenir des interfaces utilisateur avec Angular, KendoUI et AG Grid.\n\n• Concevoir et maintenir les interfaces entre la plateforme ETRM et les systèmes périphériques : EDM, Risk Engines, Scheduling, Settlement et Finance.\n\n• Garantir l'intégrité des données et la performance des flux en temps réel.\n Tests et déploiement\n\n• Préparer et exécuter les tests unitaires, d'intégration et de non-régression.\n\n• Participer aux phases UAT et aux tests de performance.\n\n• Gérer les déploiements sur les différents environnements.\n\n• Collaborer avec les équipes DevOps sur les pipelines CI/CD.\n\n• Surveiller et optimiser les performances applicatives, notamment les calculs complexes de valorisation et de P&L.\n Support et collaboration\n\n• Collaborer avec les Business Analysts, Product Owners et équipes techniques des éditeurs.\n\n• Traduire les exigences fonctionnelles en solutions techniques robustes.\n\n• Assurer le support de niveau 3 (L3) sur les incidents critiques.\n\n• Participer aux analyses de causes racines et mettre en œuvre des corrections pérennes.\n\n• Documenter les développements et les évolutions techniques.\n\n• Minimum 10 ans d'expérience en développement dans des environnements de trading ou financiers.\n\n• Maîtrise d'Orchestrade impérative.\n\n• Excellente maîtrise de C#, .NET Core et Python.\n\n• Bonne connaissance des REST APIs, SQL et Open APIs.\n\n• Expérience avec Docker et maîtrise de Kubernetes (OpenShift est un plus).\n\n• Connaissance d'Angular, KendoUI et AG Grid.\n\n• Expérience des environnements AWS et On-Premise.\n\n• Bonne compréhension des processus de trading d'énergie, Risk Management et P&L.\n\n• Maîtrise des pratiques DevOps, CI/CD et Agile/Scrum.\n\n• Formation supérieure en informatique ou ingénierie.\n\n• Anglais courant, français apprécié.",
+      "descriptionByLocale": {
+        "it": "Contesto\nNell'ambito della modernizzazione del suo sistema di informazione sul trading energetico, il nostro cliente sta cercando un analista tecnico specializzato nelle piattaforme ETRM.\nSarete responsabili della progettazione, dello sviluppo e della manutenzione dei componenti tecnici della piattaforma, nonché della loro integrazione nell'ecosistema IT esistente.\nTi aiuterà a garantire le prestazioni, l'affidabilità e la scalabilità di soluzioni che supportano i processi di trading, gestione dei rischi e insediamento.\nresponsabilità\nSviluppo e integrazione\n\n• Sviluppa nuove funzionalità e personalizza la piattaforma ETRM utilizzando API di editor e framework interni.\n\n• Progettare e sviluppare componenti applicativi in C#, .NET e Python.\n\n• Sviluppare e mantenere le interfacce utente con Angular, KendoUI e AG Grid.\n\n• Progettare e mantenere le interfacce tra la piattaforma ETRM e i sistemi periferici: EDM, Risk Engines, Pianificazione, Settlement e Finanza.\n\n• Assicurare l'integrità dei dati e le prestazioni di flusso in tempo reale.\nTest e distribuzione\n\n• Preparare ed eseguire test di unità, integrazione e non regressione.\n\n• Partecipa a fasi UAT e test di prestazione.\n\n• Gestisci le implementazioni su diversi ambienti.\n\n• Collabora con i team DevOps sulle tubazioni CI/CD.\n\n• Monitorare e ottimizzare le prestazioni delle applicazioni, inclusi i calcoli complessi di valutazione e P&L.\nSupporto e collaborazione\n\n• Collabora con Business Analysts, Product Owners e team tecnici di editori.\n\n• Traduci i requisiti funzionali in soluzioni tecniche robuste.\n\n• Fornire il supporto Livello 3 (L3) per incidenti critici.\n\n• Partecipare alle analisi delle cause principali e implementare correzioni in corso.\n\n• Documenti sviluppi e sviluppi tecnici.\n\n• Minimo 10 anni di esperienza di sviluppo negli ambienti commerciali o finanziari.\n\n• Laurea magistrale in Orchestra.\n\n• Eccellente padronanza di C#, .NET Core e Python.\n\n• Buona conoscenza delle API REST, SQL e Open API.\n\n• Esperienza con Docker e Master of Kubernetes (OpenShift è un plus).\n\n• Conoscenza di Angular, KendoUI e AG Grid.\n\n• Esperienza in ambienti AWS e On-Premise.\n\n• Buona comprensione dei processi di trading energetico, Risk Management e P&L.\n\n• Mastery delle pratiche DevOps, CI/CD e Agile/Scrum.\n\n• Formazione avanzata di computer o ingegneria.\n\n• Inglese comune, francese apprezzato.",
+        "en": "Background\nAs part of the modernization of its energy trading information system, our customer is looking for a Technical Analyst specializing in ETRM platforms.\nYou will be responsible for the design, development and maintenance of the platform's technical components, as well as their integration into the existing IT ecosystem.\nYou will help ensure the performance, reliability and scalability of solutions supporting trading, risk management and settlement processes.\nResponsibilities\nDevelopment and integration\n\n• Develop new features and customize the ETRM platform using editor APIs and internal frameworks.\n\n• Design and develop application components in C#, .NET and Python.\n\n• Develop and maintain user interfaces with Angular, KendoUI and AG Grid.\n\n• Design and maintain interfaces between the ETRM platform and peripheral systems: EDM, Risk Engines, Schedule, Settlement and Finance.\n\n• Ensure data integrity and real-time flow performance.\nTests and deployment\n\n• Prepare and perform unit, integration and non-regression tests.\n\n• Participate in UAT phases and performance tests.\n\n• Manage deployments on different environments.\n\n• Collaborate with DevOps teams on CI/CD pipelines.\n\n• Monitor and optimize application performance, including complex valuation and P&L calculations.\nSupport and collaboration\n\n• Collaborate with Business Analysts, Product Owners and technical teams of publishers.\n\n• Translate functional requirements into robust technical solutions.\n\n• Provide Level 3 (L3) support for critical incidents.\n\n• Participate in root cause analyses and implement ongoing corrections.\n\n• Document technical developments and developments.\n\n• Minimum 10 years of development experience in trading or financial environments.\n\n• Master's degree in Orchestra.\n\n• Excellent mastery of C#, .NET Core and Python.\n\n• Good knowledge of REST APIs, SQL and Open APIs.\n\n• Experience with Docker and Master of Kubernetes (OpenShift is a plus).\n\n• Knowledge of Angular, KendoUI and AG Grid.\n\n• Experience in AWS and On-Premise environments.\n\n• Good understanding of energy trading processes, Risk Management and P&L.\n\n• Mastery of DevOps, CI/CD and Agile/Scrum practices.\n\n• Advanced computer or engineering training.\n\n• Common English, French appreciated.",
+        "de": "Hintergrund\nIm Rahmen der Modernisierung seines Energiehandelsinformationssystems sucht unser Kunde einen auf ETRM-Plattformen spezialisierten technischen Analysten.\nSie sind verantwortlich für Design, Entwicklung und Wartung der technischen Komponenten der Plattform sowie deren Integration in das bestehende IT-Ökosystem.\nSie tragen dazu bei, die Leistung, Zuverlässigkeit und Skalierbarkeit von Lösungen sicherzustellen, die den Handel, das Risikomanagement und die Abwicklungsprozesse unterstützen.\nZuständigkeiten\nEntwicklung und Integration\n\n• Entwickeln Sie neue Funktionen und passen Sie die ETRM-Plattform mit Editor-APIs und internen Frameworks an.\n\n• Design und Entwicklung von Anwendungskomponenten in C#, .NET und Python.\n\n• Entwicklung und Pflege von Benutzeroberflächen mit Angular, KendoUI und AG Grid.\n\n• Design und Pflege von Schnittstellen zwischen der ETRM-Plattform und Peripheriesystemen: EDM, Risk Engines, Schedule, Settlement und Finance.\n\n• Gewährleistung der Datenintegrität und der Echtzeit-Flow-Performance.\nTests und Einsatz\n\n• Vorbereitung und Durchführung von Unit-, Integrations- und Nicht-Regressionstests.\n\n• Nehmen Sie an UAT-Phasen und Leistungstests teil.\n\n• Verwalten Sie Bereitstellungen in verschiedenen Umgebungen.\n\n• Arbeiten Sie mit DevOps-Teams an CI/CD-Pipelines zusammen.\n\n• Überwachung und Optimierung der Anwendungsleistung, einschließlich komplexer Bewertungs- und P&L-Berechnungen.\nUnterstützung und Zusammenarbeit\n\n• Arbeiten Sie mit Business Analysten, Product Ownern und technischen Publisher-Teams zusammen.\n\n• Übersetzen Sie funktionale Anforderungen in robuste technische Lösungen.\n\n• Geben Sie Level 3 (L3) Unterstützung für kritische Vorfälle.\n\n• Beteiligen Sie sich an Wurzelursachenanalysen und implementieren Sie laufende Korrekturen.\n\n• Dokumentation technischer Entwicklungen und Entwicklungen.\n\n• Mindestens 10 Jahre Entwicklungserfahrung im Handel oder finanziellen Umfeld.\n\n• Master in Orchester.\n\n• Hervorragende Beherrschung von C#, .NET Core und Python.\n\n• Gute Kenntnisse von REST APIs, SQL und Open APIs.\n\n• Erfahrung mit Docker und Master of Kubernetes (OpenShift ist ein Plus).\n\n• Kenntnisse von Angular, KendoUI und AG Grid.\n\n• Erfahrung in AWS und On-Premise-Umgebungen.\n\n• Gutes Verständnis von Energiehandelsprozessen, Risikomanagement und P&L.\n\n• Beherrschung von DevOps, CI/CD und Agile/Scrum Praktiken.\n\n• Fortgeschrittene Computer- oder Ingenieurausbildung.\n\n• Englisch, Französisch geschätzt.",
+        "fr": "Contexte du poste\nDans le cadre de la modernisation de son système d'information dédié au trading d'énergie, notre client recherche un Technical Analyst spécialisé dans les plateformes ETRM.\nVous serez responsable de la conception, du développement et de la maintenance des composants techniques de la plateforme, ainsi que de leur intégration dans l'écosystème IT existant.\nVous contribuerez à garantir la performance, la fiabilité et l'évolutivité des solutions soutenant les processus de trading, de gestion des risques et de règlement.\nResponsabilités\nDéveloppement et intégration\n\n• Développer de nouvelles fonctionnalités et personnaliser la plateforme ETRM à l'aide des API éditeur et frameworks internes.\n\n• Concevoir et développer des composants applicatifs en C#, .NET et Python.\n\n• Développer et maintenir des interfaces utilisateur avec Angular, KendoUI et AG Grid.\n\n• Concevoir et maintenir les interfaces entre la plateforme ETRM et les systèmes périphériques : EDM, Risk Engines, Scheduling, Settlement et Finance.\n\n• Garantir l'intégrité des données et la performance des flux en temps réel.\nTests et déploiement\n\n• Préparer et exécuter les tests unitaires, d'intégration et de non-régression.\n\n• Participer aux phases UAT et aux tests de performance.\n\n• Gérer les déploiements sur les différents environnements.\n\n• Collaborer avec les équipes DevOps sur les pipelines CI/CD.\n\n• Surveiller et optimiser les performances applicatives, notamment les calculs complexes de valorisation et de P&L.\nSupport et collaboration\n\n• Collaborer avec les Business Analysts, Product Owners et équipes techniques des éditeurs.\n\n• Traduire les exigences fonctionnelles en solutions techniques robustes.\n\n• Assurer le support de niveau 3 (L3) sur les incidents critiques.\n\n• Participer aux analyses de causes racines et mettre en œuvre des corrections pérennes.\n\n• Documenter les développements et les évolutions techniques.\n\n• Minimum 10 ans d'expérience en développement dans des environnements de trading ou financiers.\n\n• Maîtrise d'Orchestrade impérative.\n\n• Excellente maîtrise de C#, .NET Core et Python.\n\n• Bonne connaissance des REST APIs, SQL et Open APIs.\n\n• Expérience avec Docker et maîtrise de Kubernetes (OpenShift est un plus).\n\n• Connaissance d'Angular, KendoUI et AG Grid.\n\n• Expérience des environnements AWS et On-Premise.\n\n• Bonne compréhension des processus de trading d'énergie, Risk Management et P&L.\n\n• Maîtrise des pratiques DevOps, CI/CD et Agile/Scrum.\n\n• Formation supérieure en informatique ou ingénierie.\n\n• Anglais courant, français apprécié."
+      },
+      "location": "Geneva, GE, Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000160297069-technical-analyst-power-trading-systems?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-19T09:42:39.581Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-06T20:42:38.333Z",
+      "postedDate": "2026-11-06T20:42:38.333Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000160297069-technical-analyst-power-trading-systems?oga=true",
+      "jobReqId": "744000160297069",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "technical-analyst-power-trading-systems-talan-geneva-ge-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "technical-analyst-power-trading-systems-talan-geneva-ge-switzerland"
+        ],
+        "en": [
+          "technical-analyst-power-trading-systems-talan-geneva-ge-switzerland"
+        ],
+        "de": [
+          "technical-analyst-power-trading-systems-talan-geneva-ge-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-11-06T21:21:13.157Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-05T09:42:39.581Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -776,7 +944,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000160297119-senior-business-analyst-pricing-modelling?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T21:19:05.522Z",
+      "crawledAt": "2026-11-19T09:42:39.579Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -828,175 +996,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-04T21:19:05.522Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "talan-b740a61fb78b",
-      "slug": "technical-analista-power-trading-systems-talan-geneva",
-      "slugByLocale": {
-        "it": "technical-analista-power-trading-systems-talan-geneva",
-        "en": "technical-analyst-powertrade-systems-talan-geneva",
-        "de": "technischer-analyst-power-trading-systems-talan-geneva",
-        "fr": "technical-analyst-power-trading-systems-talan-geneva-ge-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Technical Analyst – Power Trading Systems",
-      "titleByLocale": {
-        "it": "Technical Analista – Power Trading Systems",
-        "en": "Technical Analyst – PowerTrade Systems",
-        "de": "Technischer Analyst - Power Trading Systems",
-        "fr": "Technical Analyst – Power Trading Systems"
-      },
-      "description": "Contexte du poste\n Dans le cadre de la modernisation de son système d'information dédié au trading d'énergie, notre client recherche un Technical Analyst spécialisé dans les plateformes ETRM.\n Vous serez responsable de la conception, du développement et de la maintenance des composants techniques de la plateforme, ainsi que de leur intégration dans l'écosystème IT existant.\n Vous contribuerez à garantir la performance, la fiabilité et l'évolutivité des solutions soutenant les processus de trading, de gestion des risques et de règlement.\n Responsabilités\n Développement et intégration\n\n• Développer de nouvelles fonctionnalités et personnaliser la plateforme ETRM à l'aide des API éditeur et frameworks internes.\n\n• Concevoir et développer des composants applicatifs en C#, .NET et Python.\n\n• Développer et maintenir des interfaces utilisateur avec Angular, KendoUI et AG Grid.\n\n• Concevoir et maintenir les interfaces entre la plateforme ETRM et les systèmes périphériques : EDM, Risk Engines, Scheduling, Settlement et Finance.\n\n• Garantir l'intégrité des données et la performance des flux en temps réel.\n Tests et déploiement\n\n• Préparer et exécuter les tests unitaires, d'intégration et de non-régression.\n\n• Participer aux phases UAT et aux tests de performance.\n\n• Gérer les déploiements sur les différents environnements.\n\n• Collaborer avec les équipes DevOps sur les pipelines CI/CD.\n\n• Surveiller et optimiser les performances applicatives, notamment les calculs complexes de valorisation et de P&L.\n Support et collaboration\n\n• Collaborer avec les Business Analysts, Product Owners et équipes techniques des éditeurs.\n\n• Traduire les exigences fonctionnelles en solutions techniques robustes.\n\n• Assurer le support de niveau 3 (L3) sur les incidents critiques.\n\n• Participer aux analyses de causes racines et mettre en œuvre des corrections pérennes.\n\n• Documenter les développements et les évolutions techniques.\n\n• Minimum 10 ans d'expérience en développement dans des environnements de trading ou financiers.\n\n• Maîtrise d'Orchestrade impérative.\n\n• Excellente maîtrise de C#, .NET Core et Python.\n\n• Bonne connaissance des REST APIs, SQL et Open APIs.\n\n• Expérience avec Docker et maîtrise de Kubernetes (OpenShift est un plus).\n\n• Connaissance d'Angular, KendoUI et AG Grid.\n\n• Expérience des environnements AWS et On-Premise.\n\n• Bonne compréhension des processus de trading d'énergie, Risk Management et P&L.\n\n• Maîtrise des pratiques DevOps, CI/CD et Agile/Scrum.\n\n• Formation supérieure en informatique ou ingénierie.\n\n• Anglais courant, français apprécié.",
-      "descriptionByLocale": {
-        "it": "Contesto\nNell'ambito della modernizzazione del suo sistema di informazione sul trading energetico, il nostro cliente sta cercando un analista tecnico specializzato nelle piattaforme ETRM.\nSarete responsabili della progettazione, dello sviluppo e della manutenzione dei componenti tecnici della piattaforma, nonché della loro integrazione nell'ecosistema IT esistente.\nTi aiuterà a garantire le prestazioni, l'affidabilità e la scalabilità di soluzioni che supportano i processi di trading, gestione dei rischi e insediamento.\nresponsabilità\nSviluppo e integrazione\n\n• Sviluppa nuove funzionalità e personalizza la piattaforma ETRM utilizzando API di editor e framework interni.\n\n• Progettare e sviluppare componenti applicativi in C#, .NET e Python.\n\n• Sviluppare e mantenere le interfacce utente con Angular, KendoUI e AG Grid.\n\n• Progettare e mantenere le interfacce tra la piattaforma ETRM e i sistemi periferici: EDM, Risk Engines, Pianificazione, Settlement e Finanza.\n\n• Assicurare l'integrità dei dati e le prestazioni di flusso in tempo reale.\nTest e distribuzione\n\n• Preparare ed eseguire test di unità, integrazione e non regressione.\n\n• Partecipa a fasi UAT e test di prestazione.\n\n• Gestisci le implementazioni su diversi ambienti.\n\n• Collabora con i team DevOps sulle tubazioni CI/CD.\n\n• Monitorare e ottimizzare le prestazioni delle applicazioni, inclusi i calcoli complessi di valutazione e P&L.\nSupporto e collaborazione\n\n• Collabora con Business Analysts, Product Owners e team tecnici di editori.\n\n• Traduci i requisiti funzionali in soluzioni tecniche robuste.\n\n• Fornire il supporto Livello 3 (L3) per incidenti critici.\n\n• Partecipare alle analisi delle cause principali e implementare correzioni in corso.\n\n• Documenti sviluppi e sviluppi tecnici.\n\n• Minimo 10 anni di esperienza di sviluppo negli ambienti commerciali o finanziari.\n\n• Laurea magistrale in Orchestra.\n\n• Eccellente padronanza di C#, .NET Core e Python.\n\n• Buona conoscenza delle API REST, SQL e Open API.\n\n• Esperienza con Docker e Master of Kubernetes (OpenShift è un plus).\n\n• Conoscenza di Angular, KendoUI e AG Grid.\n\n• Esperienza in ambienti AWS e On-Premise.\n\n• Buona comprensione dei processi di trading energetico, Risk Management e P&L.\n\n• Mastery delle pratiche DevOps, CI/CD e Agile/Scrum.\n\n• Formazione avanzata di computer o ingegneria.\n\n• Inglese comune, francese apprezzato.",
-        "en": "Background\nAs part of the modernization of its energy trading information system, our customer is looking for a Technical Analyst specializing in ETRM platforms.\nYou will be responsible for the design, development and maintenance of the platform's technical components, as well as their integration into the existing IT ecosystem.\nYou will help ensure the performance, reliability and scalability of solutions supporting trading, risk management and settlement processes.\nResponsibilities\nDevelopment and integration\n\n• Develop new features and customize the ETRM platform using editor APIs and internal frameworks.\n\n• Design and develop application components in C#, .NET and Python.\n\n• Develop and maintain user interfaces with Angular, KendoUI and AG Grid.\n\n• Design and maintain interfaces between the ETRM platform and peripheral systems: EDM, Risk Engines, Schedule, Settlement and Finance.\n\n• Ensure data integrity and real-time flow performance.\nTests and deployment\n\n• Prepare and perform unit, integration and non-regression tests.\n\n• Participate in UAT phases and performance tests.\n\n• Manage deployments on different environments.\n\n• Collaborate with DevOps teams on CI/CD pipelines.\n\n• Monitor and optimize application performance, including complex valuation and P&L calculations.\nSupport and collaboration\n\n• Collaborate with Business Analysts, Product Owners and technical teams of publishers.\n\n• Translate functional requirements into robust technical solutions.\n\n• Provide Level 3 (L3) support for critical incidents.\n\n• Participate in root cause analyses and implement ongoing corrections.\n\n• Document technical developments and developments.\n\n• Minimum 10 years of development experience in trading or financial environments.\n\n• Master's degree in Orchestra.\n\n• Excellent mastery of C#, .NET Core and Python.\n\n• Good knowledge of REST APIs, SQL and Open APIs.\n\n• Experience with Docker and Master of Kubernetes (OpenShift is a plus).\n\n• Knowledge of Angular, KendoUI and AG Grid.\n\n• Experience in AWS and On-Premise environments.\n\n• Good understanding of energy trading processes, Risk Management and P&L.\n\n• Mastery of DevOps, CI/CD and Agile/Scrum practices.\n\n• Advanced computer or engineering training.\n\n• Common English, French appreciated.",
-        "de": "Hintergrund\nIm Rahmen der Modernisierung seines Energiehandelsinformationssystems sucht unser Kunde einen auf ETRM-Plattformen spezialisierten technischen Analysten.\nSie sind verantwortlich für Design, Entwicklung und Wartung der technischen Komponenten der Plattform sowie deren Integration in das bestehende IT-Ökosystem.\nSie tragen dazu bei, die Leistung, Zuverlässigkeit und Skalierbarkeit von Lösungen sicherzustellen, die den Handel, das Risikomanagement und die Abwicklungsprozesse unterstützen.\nZuständigkeiten\nEntwicklung und Integration\n\n• Entwickeln Sie neue Funktionen und passen Sie die ETRM-Plattform mit Editor-APIs und internen Frameworks an.\n\n• Design und Entwicklung von Anwendungskomponenten in C#, .NET und Python.\n\n• Entwicklung und Pflege von Benutzeroberflächen mit Angular, KendoUI und AG Grid.\n\n• Design und Pflege von Schnittstellen zwischen der ETRM-Plattform und Peripheriesystemen: EDM, Risk Engines, Schedule, Settlement und Finance.\n\n• Gewährleistung der Datenintegrität und der Echtzeit-Flow-Performance.\nTests und Einsatz\n\n• Vorbereitung und Durchführung von Unit-, Integrations- und Nicht-Regressionstests.\n\n• Nehmen Sie an UAT-Phasen und Leistungstests teil.\n\n• Verwalten Sie Bereitstellungen in verschiedenen Umgebungen.\n\n• Arbeiten Sie mit DevOps-Teams an CI/CD-Pipelines zusammen.\n\n• Überwachung und Optimierung der Anwendungsleistung, einschließlich komplexer Bewertungs- und P&L-Berechnungen.\nUnterstützung und Zusammenarbeit\n\n• Arbeiten Sie mit Business Analysten, Product Ownern und technischen Publisher-Teams zusammen.\n\n• Übersetzen Sie funktionale Anforderungen in robuste technische Lösungen.\n\n• Geben Sie Level 3 (L3) Unterstützung für kritische Vorfälle.\n\n• Beteiligen Sie sich an Wurzelursachenanalysen und implementieren Sie laufende Korrekturen.\n\n• Dokumentation technischer Entwicklungen und Entwicklungen.\n\n• Mindestens 10 Jahre Entwicklungserfahrung im Handel oder finanziellen Umfeld.\n\n• Master in Orchester.\n\n• Hervorragende Beherrschung von C#, .NET Core und Python.\n\n• Gute Kenntnisse von REST APIs, SQL und Open APIs.\n\n• Erfahrung mit Docker und Master of Kubernetes (OpenShift ist ein Plus).\n\n• Kenntnisse von Angular, KendoUI und AG Grid.\n\n• Erfahrung in AWS und On-Premise-Umgebungen.\n\n• Gutes Verständnis von Energiehandelsprozessen, Risikomanagement und P&L.\n\n• Beherrschung von DevOps, CI/CD und Agile/Scrum Praktiken.\n\n• Fortgeschrittene Computer- oder Ingenieurausbildung.\n\n• Englisch, Französisch geschätzt.",
-        "fr": "Contexte du poste\nDans le cadre de la modernisation de son système d'information dédié au trading d'énergie, notre client recherche un Technical Analyst spécialisé dans les plateformes ETRM.\nVous serez responsable de la conception, du développement et de la maintenance des composants techniques de la plateforme, ainsi que de leur intégration dans l'écosystème IT existant.\nVous contribuerez à garantir la performance, la fiabilité et l'évolutivité des solutions soutenant les processus de trading, de gestion des risques et de règlement.\nResponsabilités\nDéveloppement et intégration\n\n• Développer de nouvelles fonctionnalités et personnaliser la plateforme ETRM à l'aide des API éditeur et frameworks internes.\n\n• Concevoir et développer des composants applicatifs en C#, .NET et Python.\n\n• Développer et maintenir des interfaces utilisateur avec Angular, KendoUI et AG Grid.\n\n• Concevoir et maintenir les interfaces entre la plateforme ETRM et les systèmes périphériques : EDM, Risk Engines, Scheduling, Settlement et Finance.\n\n• Garantir l'intégrité des données et la performance des flux en temps réel.\nTests et déploiement\n\n• Préparer et exécuter les tests unitaires, d'intégration et de non-régression.\n\n• Participer aux phases UAT et aux tests de performance.\n\n• Gérer les déploiements sur les différents environnements.\n\n• Collaborer avec les équipes DevOps sur les pipelines CI/CD.\n\n• Surveiller et optimiser les performances applicatives, notamment les calculs complexes de valorisation et de P&L.\nSupport et collaboration\n\n• Collaborer avec les Business Analysts, Product Owners et équipes techniques des éditeurs.\n\n• Traduire les exigences fonctionnelles en solutions techniques robustes.\n\n• Assurer le support de niveau 3 (L3) sur les incidents critiques.\n\n• Participer aux analyses de causes racines et mettre en œuvre des corrections pérennes.\n\n• Documenter les développements et les évolutions techniques.\n\n• Minimum 10 ans d'expérience en développement dans des environnements de trading ou financiers.\n\n• Maîtrise d'Orchestrade impérative.\n\n• Excellente maîtrise de C#, .NET Core et Python.\n\n• Bonne connaissance des REST APIs, SQL et Open APIs.\n\n• Expérience avec Docker et maîtrise de Kubernetes (OpenShift est un plus).\n\n• Connaissance d'Angular, KendoUI et AG Grid.\n\n• Expérience des environnements AWS et On-Premise.\n\n• Bonne compréhension des processus de trading d'énergie, Risk Management et P&L.\n\n• Maîtrise des pratiques DevOps, CI/CD et Agile/Scrum.\n\n• Formation supérieure en informatique ou ingénierie.\n\n• Anglais courant, français apprécié."
-      },
-      "location": "Geneva, GE, Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000160297069-technical-analyst-power-trading-systems?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-18T21:19:05.519Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-06T20:42:38.333Z",
-      "postedDate": "2026-11-06T20:42:38.333Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000160297069-technical-analyst-power-trading-systems?oga=true",
-      "jobReqId": "744000160297069",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "technical-analyst-power-trading-systems-talan-geneva-ge-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "technical-analyst-power-trading-systems-talan-geneva-ge-switzerland"
-        ],
-        "en": [
-          "technical-analyst-power-trading-systems-talan-geneva-ge-switzerland"
-        ],
-        "de": [
-          "technical-analyst-power-trading-systems-talan-geneva-ge-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-11-06T21:21:13.157Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-04T21:19:05.519Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "talan-8ff6fd31afaa",
-      "slug": "senior-business-analista-orchestrade-talan-geneva",
-      "slugByLocale": {
-        "it": "senior-business-analista-orchestrade-talan-geneva",
-        "en": "senior-business-analyst-orchestra-talan-geneva",
-        "de": "senior-business-analyst-orchester-talan-geneva",
-        "fr": "senior-business-analyst-orchestrade-talan-geneva-ge-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Senior Business Analyst – Orchestrade",
-      "titleByLocale": {
-        "it": "Senior Business Analista – Orchestrade",
-        "en": "Senior Business Analyst – Orchestra",
-        "de": "Senior Business Analyst – Orchester",
-        "fr": "Senior Business Analyst – Orchestrade"
-      },
-      "description": "Contexte du poste\n Dans le cadre de la transformation de son système d'information dédié au trading d'énergie, notre client recherche un Senior Business Analyst pour accompagner ses équipes métiers et IT dans la modernisation de ses applications.\n Un projet stratégique de migration vers une nouvelle plateforme ETRM est en cours afin de remplacer le système historique par une solution moderne et évolutive.\n Vous interviendrez à l'interface entre les équipes métiers, les développeurs et les éditeurs afin de recueillir les besoins, formaliser les exigences fonctionnelles et accompagner leur implémentation.\n Responsabilités\n Analyse métier et conception fonctionnelle\n\n• Recueillir, analyser et formaliser les besoins métiers.\n\n• Rédiger les spécifications fonctionnelles, fonctionnalités et User Stories.\n\n• Comprendre les processus de trading et proposer des solutions adaptées aux besoins opérationnels.\n\n• Participer au paramétrage de la plateforme ETRM : configurations, workflows, templates et pricing.\n\n• Collaborer avec les équipes techniques et les éditeurs pour assurer la bonne implémentation des solutions.\n Tests et migration\n\n• Préparer et exécuter les plans de tests fonctionnels.\n\n• Vérifier la conformité des développements avec les spécifications et besoins utilisateurs.\n\n• Participer aux phases de recette utilisateur (UAT).\n\n• Contribuer au projet de migration vers la nouvelle plateforme ETRM.\n\n• Collaborer avec les autres Business Analysts et équipes IT sur les activités de migration.\n Gestion de projet et support\n\n• Participer à la gestion des évolutions applicatives et au suivi du backlog.\n\n• Identifier les opportunités d'amélioration des processus métiers.\n\n• Accompagner les utilisateurs dans la prise en main des solutions.\n\n• Assurer le support fonctionnel et contribuer à la résolution des incidents.\n\n• Documenter les processus et partager les connaissances avec les équipes.\n\n• Minimum 5 ans d'expérience dans le secteur de l'énergie ou du Commodity Trading.\n\n• Expérience sur des plateformes ETRM ( Orchestrade , Calypso, Murex, Endur…).\n\n• Bonne compréhension des marchés de l'énergie et du cycle de vie des transactions.\n\n• Connaissance des flux Front-to-Risk , des instruments physiques et financiers et des calculs de P&L .\n\n• Maîtrise du recueil des besoins, de la rédaction de spécifications fonctionnelles et des User Stories.\n\n• Expérience en tests fonctionnels, UAT et projets de migration ETRM.\n\n• Connaissance des méthodologies Agile et DevOps.\n\n• Une connaissance des processus Back-Office et Finance est un plus.\n\n• Formation supérieure en informatique ou ingénierie.\n\n• Français et anglais courants.",
-      "descriptionByLocale": {
-        "it": "Contesto\nNell'ambito della trasformazione del suo sistema di informazioni sul trading energetico, il nostro cliente sta cercando un Senior Business Analyst per supportare i suoi team di business e IT nella modernizzazione delle sue applicazioni.\nUn progetto strategico per migrare a una nuova piattaforma ETRM è in corso per sostituire il sistema storico con una soluzione moderna e scalabile.\nInterverrete all'interfaccia tra team aziendali, sviluppatori ed editori per raccogliere le esigenze, formalizzare i requisiti funzionali e supportare la loro implementazione.\nresponsabilità\nAnalisi aziendale e design funzionale\n\n• Raccogliere, analizzare e formalizzare le esigenze aziendali.\n\n• Scrivere specifiche funzionali, caratteristiche e Storie utente.\n\n• Comprendere i processi di trading e proporre soluzioni su misura per le esigenze operative.\n\n• Partecipa alle impostazioni della piattaforma ETRM: configurazioni, flussi di lavoro, modelli e prezzi.\n\n• Collabora con team tecnici ed editori per garantire la corretta implementazione delle soluzioni.\nTest e migrazione\n\n• Preparare ed eseguire piani di test funzionali.\n\n• Verificare la conformità degli sviluppi con le specifiche e i requisiti degli utenti.\n\n• Partecipa alle Fasi di Ricetta dell'Utente (UAT).\n\n• Contribuisci al progetto di migrazione alla nuova piattaforma ETRM.\n\n• Collabora con altri Business Analysts e team IT sulle attività di migrazione.\nGestione e supporto dei progetti\n\n• Partecipa alla gestione delle evoluzioni applicative e del monitoraggio backlog.\n\n• Identificare le opportunità per migliorare i processi aziendali.\n\n• Supporta gli utenti nella gestione delle soluzioni.\n\n• Fornire supporto funzionale e aiutare a risolvere gli incidenti.\n\n• Processi di documenti e condivisione delle conoscenze con i team.\n\n• Minimo 5 anni di esperienza nel settore energetico o nel Commodity Trading.\n\n• Esperienza sulle piattaforme ETRM (Orchestra, Calypso, Murex, Endur...).\n\n• Buona comprensione dei mercati energetici e del ciclo di vita delle transazioni.\n\n• Conoscenza dei flussi Front-to-Risk, strumenti fisici e finanziari e calcoli P&L.\n\n• Mastery di raccolta delle esigenze, scrittura delle specifiche funzionali e storie degli utenti.\n\n• Esperienza nei progetti di test funzionali, UAT e ETRM migrazione.\n\n• Conoscenza delle metodologie Agile e DevOps.\n\n• La conoscenza dei processi Back-Office e Finance è un plus.\n\n• Formazione avanzata di computer o ingegneria.\n\n• Inglese comune e francese.",
-        "en": "Background\nAs part of the transformation of its energy trading information system, our customer is looking for a Senior Business Analyst to support its business and IT teams in modernizing its applications.\nA strategic project to migrate to a new ETRM platform is underway to replace the historical system with a modern and scalable solution.\nYou will intervene at the interface between business teams, developers and publishers to collect needs, formalize functional requirements and support their implementation.\nResponsibilities\nBusiness analysis and functional design\n\n• Collect, analyse and formalize business needs.\n\n• Write functional specifications, features and User Stories.\n\n• Understand trading processes and propose solutions tailored to operational needs.\n\n• Participate in the ETRM platform settings: configurations, workflows, templates and pricing.\n\n• Collaborate with technical teams and publishers to ensure the correct implementation of solutions.\nTests and migration\n\n• Prepare and execute functional test plans.\n\n• Verify the compliance of developments with user specifications and requirements.\n\n• Participate in User Recipe Phases (UAT).\n\n• Contribute to the migration project to the new ETRM platform.\n\n• Collaborate with other Business Analysts and IT teams on migration activities.\nProject management and support\n\n• Participate in the management of application evolutions and backlog monitoring.\n\n• Identify opportunities for improving business processes.\n\n• Support users in the management of solutions.\n\n• Provide functional support and help resolve incidents.\n\n• Document processes and share knowledge with teams.\n\n• Minimum 5 years of experience in the energy sector or the Commodity Trading.\n\n• Experience on ETRM platforms ( Orchestra, Calypso, Murex, Endur...).\n\n• Good understanding of energy markets and transaction life cycle.\n\n• Knowledge of Front-to-Risk flows, physical and financial instruments and P&L calculations.\n\n• Mastery of needs collection, functional specification writing and User Stories.\n\n• Experience in functional testing, UAT and ETRM migration projects.\n\n• Knowledge of Agile and DevOps methodologies.\n\n• Knowledge of the Back-Office and Finance processes is a plus.\n\n• Advanced computer or engineering training.\n\n• Common English and French.",
-        "de": "Hintergrund\nIm Rahmen der Transformation seines Energiehandelsinformationssystems sucht unser Kunde einen Senior Business Analysten, der seine Geschäfts- und IT-Teams bei der Modernisierung seiner Anwendungen unterstützt.\nEin strategisches Projekt zur Migration auf eine neue ETRM-Plattform ist im Gange, um das historische System durch eine moderne und skalierbare Lösung zu ersetzen.\nSie intervenieren an der Schnittstelle zwischen Business-Teams, Entwicklern und Publishern, um Bedürfnisse zu sammeln, funktionale Anforderungen zu formalisieren und deren Umsetzung zu unterstützen.\nZuständigkeiten\nBusiness Analyse und Functional Design\n\n• Sammeln, Analysieren und Formalisieren von Geschäftsanforderungen.\n\n• Schreiben Sie funktionale Spezifikationen, Features und User Stories.\n\n• Verstehen Sie Handelsprozesse und schlagen Sie Lösungen vor, die auf die operativen Bedürfnisse zugeschnitten sind.\n\n• Nehmen Sie an den ETRM-Plattformeinstellungen teil: Konfigurationen, Workflows, Vorlagen und Preise.\n\n• Arbeiten Sie mit technischen Teams und Publishern zusammen, um die korrekte Implementierung von Lösungen sicherzustellen.\nTests und Migration\n\n• Erstellen und Ausführen von Funktionstestplänen.\n\n• Überprüfung der Übereinstimmung der Entwicklungen mit den Benutzerspezifikationen und -anforderungen.\n\n• Nehmen Sie an User Recipe Phasen (UAT) teil.\n\n• Tragen Sie zum Migrationsprojekt zur neuen ETRM-Plattform bei.\n\n• Arbeiten Sie mit anderen Business Analysten und IT-Teams bei Migrationsaktivitäten zusammen.\nProjektmanagement und Support\n\n• Beteiligen Sie sich am Management von Anwendungsentwicklungen und Backlog-Monitoring.\n\n• Identifizieren Sie Möglichkeiten zur Verbesserung von Geschäftsprozessen.\n\n• Unterstützen Sie Benutzer beim Management von Lösungen.\n\n• Bieten Sie funktionale Unterstützung und helfen Sie, Vorfälle zu lösen.\n\n• Prozesse dokumentieren und Wissen mit Teams teilen.\n\n• Mindestens 5 Jahre Erfahrung im Energiesektor oder im Rohstoffhandel.\n\n• Erfahrung auf ETRM-Plattformen (Orchester, Calypso, Murex, Endur...).\n\n• Gutes Verständnis der Energiemärkte und des Transaktionslebenszyklus.\n\n• Kenntnis von Front-to-Risk-Flows, physischen und Finanzinstrumenten und P&L-Berechnungen.\n\n• Beherrschung der Bedürfnisse Sammlung, funktionale Spezifikation Schreiben und User Stories.\n\n• Erfahrung in Funktionstests, UAT- und ETRM-Migrationsprojekten.\n\n• Kenntnisse der Agile- und DevOps-Methoden.\n\n• Die Kenntnis der Back-Office- und Finanzprozesse ist ein Plus.\n\n• Fortgeschrittene Computer- oder Ingenieurausbildung.\n\n• Englisch und Französisch.",
-        "fr": "Contexte du poste\nDans le cadre de la transformation de son système d'information dédié au trading d'énergie, notre client recherche un Senior Business Analyst pour accompagner ses équipes métiers et IT dans la modernisation de ses applications.\nUn projet stratégique de migration vers une nouvelle plateforme ETRM est en cours afin de remplacer le système historique par une solution moderne et évolutive.\nVous interviendrez à l'interface entre les équipes métiers, les développeurs et les éditeurs afin de recueillir les besoins, formaliser les exigences fonctionnelles et accompagner leur implémentation.\nResponsabilités\nAnalyse métier et conception fonctionnelle\n\n• Recueillir, analyser et formaliser les besoins métiers.\n\n• Rédiger les spécifications fonctionnelles, fonctionnalités et User Stories.\n\n• Comprendre les processus de trading et proposer des solutions adaptées aux besoins opérationnels.\n\n• Participer au paramétrage de la plateforme ETRM : configurations, workflows, templates et pricing.\n\n• Collaborer avec les équipes techniques et les éditeurs pour assurer la bonne implémentation des solutions.\nTests et migration\n\n• Préparer et exécuter les plans de tests fonctionnels.\n\n• Vérifier la conformité des développements avec les spécifications et besoins utilisateurs.\n\n• Participer aux phases de recette utilisateur (UAT).\n\n• Contribuer au projet de migration vers la nouvelle plateforme ETRM.\n\n• Collaborer avec les autres Business Analysts et équipes IT sur les activités de migration.\nGestion de projet et support\n\n• Participer à la gestion des évolutions applicatives et au suivi du backlog.\n\n• Identifier les opportunités d'amélioration des processus métiers.\n\n• Accompagner les utilisateurs dans la prise en main des solutions.\n\n• Assurer le support fonctionnel et contribuer à la résolution des incidents.\n\n• Documenter les processus et partager les connaissances avec les équipes.\n\n• Minimum 5 ans d'expérience dans le secteur de l'énergie ou du Commodity Trading.\n\n• Expérience sur des plateformes ETRM ( Orchestrade , Calypso, Murex, Endur…).\n\n• Bonne compréhension des marchés de l'énergie et du cycle de vie des transactions.\n\n• Connaissance des flux Front-to-Risk , des instruments physiques et financiers et des calculs de P&L .\n\n• Maîtrise du recueil des besoins, de la rédaction de spécifications fonctionnelles et des User Stories.\n\n• Expérience en tests fonctionnels, UAT et projets de migration ETRM.\n\n• Connaissance des méthodologies Agile et DevOps.\n\n• Une connaissance des processus Back-Office et Finance est un plus.\n\n• Formation supérieure en informatique ou ingénierie.\n\n• Français et anglais courants."
-      },
-      "location": "Geneva, GE, Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000160297169-senior-business-analyst-orchestrade?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-18T21:19:05.517Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-06T20:43:15.202Z",
-      "postedDate": "2026-11-06T20:43:15.202Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000160297169-senior-business-analyst-orchestrade?oga=true",
-      "jobReqId": "744000160297169",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "senior-business-analyst-orchestrade-talan-geneva-ge-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-business-analyst-orchestrade-talan-geneva-ge-switzerland"
-        ],
-        "en": [
-          "senior-business-analyst-orchestrade-talan-geneva-ge-switzerland"
-        ],
-        "de": [
-          "senior-business-analyst-orchestrade-talan-geneva-ge-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-11-06T21:21:13.160Z",
-      "salaryMin": 97500,
-      "salaryMax": 165500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 97500,
-          "maxValue": 165500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-04T21:19:05.517Z",
+      "validThrough": "2027-02-05T09:42:39.579Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1031,7 +1031,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000161839349-sales-manager-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T21:19:05.514Z",
+      "crawledAt": "2026-11-19T09:42:39.573Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -1078,7 +1078,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-14T21:19:05.514Z",
+      "validThrough": "2027-02-15T09:42:39.573Z",
       "validThroughSource": "last-observed-window"
     }
   ]

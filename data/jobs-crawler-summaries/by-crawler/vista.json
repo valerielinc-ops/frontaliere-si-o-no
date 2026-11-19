@@ -1,7 +1,7 @@
 {
   "key": "vista",
   "label": "Vista Augenpraxen & Kliniken",
-  "generatedAt": "2026-11-18T21:17:40.052Z",
+  "generatedAt": "2026-11-19T09:46:34.372Z",
   "total": 11,
   "discovered": null,
   "parsed": 10,
@@ -13,30 +13,31 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 10,
-  "durationMs": 12977,
-  "avgDurationMs": 12977,
+  "durationMs": 12923,
+  "avgDurationMs": 12923,
   "durationHistory": [
-    12977
+    12923
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "vista-4f4c2c69bc9d",
-      "slug": "augenoptiker-in-100-vista-liestal",
+      "slug": "ottico-a-100-vista-augenpraxen-kliniken-liestal",
       "company": "Vista Augenpraxen & Kliniken",
       "companyKey": "vista",
       "companyDomain": "vista.ch",
       "title": "Augenoptiker/in 100%",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Liestal",
       "canton": "BL",
       "url": "https://link.ostendis.com/publication/augenoptiker-in/dgslcit25yh4ut1nb2dlozpnv1ic7iz5gx6kov0mtqdd72kkyyy4r9eo6nmiu3qo",
       "source": "Vista Augenpraxen & Kliniken Dedicated Parser (Ostendis JobPublisher)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:17:15.064Z",
+      "crawledAt": "2026-11-19T09:46:08.016Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -58,23 +59,22 @@
       "pensum": "100%",
       "pensumMin": 100,
       "pensumMax": 100,
+      "firstSeenAt": "2026-11-18T21:17:15.064Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-16T21:17:15.064Z",
+      "validThrough": "2027-02-16T09:46:08.016Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T21:17:15.064Z",
-      "_qualityScore": 84,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -89,7 +89,7 @@
       "url": "https://link.ostendis.com/publication/orthoptist-in/n64ag35vocrpflez4aqf57l6kbam6e65z3i8d23pycrzs27za6g5k4jlori7ixjb",
       "source": "Vista Augenpraxen & Kliniken Dedicated Parser (Ostendis JobPublisher)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:17:21.782Z",
+      "crawledAt": "2026-11-19T09:46:15.093Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -116,7 +116,7 @@
       "salaryMax": 22800,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-18T21:17:21.782Z",
+      "validThrough": "2026-12-19T09:46:15.093Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -138,7 +138,7 @@
       "url": "https://link.ostendis.com/publication/orthoptist-in/zubonpx8e5gtjyws5ehwfzllwb0pz74o72rpd7h661kw1moxkb05npdwyvqh4od4",
       "source": "Vista Augenpraxen & Kliniken Dedicated Parser (Ostendis JobPublisher)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:17:21.043Z",
+      "crawledAt": "2026-11-19T09:46:14.178Z",
       "addressLocality": "Pfäffikon SZ",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -165,7 +165,7 @@
       "salaryMax": 48200,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-18T21:17:21.043Z",
+      "validThrough": "2026-12-19T09:46:14.178Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -187,7 +187,7 @@
       "url": "https://link.ostendis.com/publication/orthoptist-in/q1uxhlk4ugvk4qm56pfcdmyzk70dlxq304kjsmjl5mnxajod6w58p5tcjwozc73c",
       "source": "Vista Augenpraxen & Kliniken Dedicated Parser (Ostendis JobPublisher)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:17:20.299Z",
+      "crawledAt": "2026-11-19T09:46:13.415Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -214,7 +214,7 @@
       "salaryMax": 25600,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-18T21:17:20.299Z",
+      "validThrough": "2026-12-19T09:46:13.415Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -237,7 +237,7 @@
       "url": "https://link.ostendis.com/publication/leiter-in-linsen-biometrie-sprechstunde/7dep13y4glk16fb1wl1y6sdwdh272d750gw0m8c6d1egjn340hykcxeh438li0ag",
       "source": "Vista Augenpraxen & Kliniken Dedicated Parser (Ostendis JobPublisher)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:17:19.563Z",
+      "crawledAt": "2026-11-19T09:46:12.665Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -263,7 +263,7 @@
       "salaryMax": 166000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-18T21:17:19.563Z",
+      "validThrough": "2026-12-19T09:46:12.665Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -286,7 +286,7 @@
       "url": "https://link.ostendis.com/publication/dipl-fachfrau-mann-operationstechnik-hf-oder-toa/kiorj6xxjbhk53gmo2ptd7wzeoaqcxlqfhz7muvc0xx8gi2nps4wbayzhvw6bjsg",
       "source": "Vista Augenpraxen & Kliniken Dedicated Parser (Ostendis JobPublisher)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:17:18.815Z",
+      "crawledAt": "2026-11-19T09:46:11.860Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -313,7 +313,7 @@
       "salaryMax": 93200,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:17:18.815Z",
+      "validThrough": "2026-12-20T09:46:11.860Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -336,7 +336,7 @@
       "url": "https://link.ostendis.com/publication/technische-operationsassistent-in-toa-poa-oder-fage/nmkkzdaug4sji5lkrio24jke23rey3665iyjf6reb3ket9rppc425wk44qbkbic8",
       "source": "Vista Augenpraxen & Kliniken Dedicated Parser (Ostendis JobPublisher)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:17:18.066Z",
+      "crawledAt": "2026-11-19T09:46:11.104Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -363,7 +363,7 @@
       "salaryMax": 68400,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-29T21:17:18.066Z",
+      "validThrough": "2026-12-29T09:46:11.104Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -385,7 +385,7 @@
       "url": "https://link.ostendis.com/publication/orthoptist-in/34wjhugkhodmc81hx5zfo4hnm7szw0psytab6xo5ii0qnqvuv5tck25owck6k7di",
       "source": "Vista Augenpraxen & Kliniken Dedicated Parser (Ostendis JobPublisher)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:17:17.317Z",
+      "crawledAt": "2026-11-19T09:46:10.343Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -412,7 +412,7 @@
       "salaryMax": 61500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-07T21:17:17.317Z",
+      "validThrough": "2027-01-07T09:46:10.343Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -435,7 +435,7 @@
       "url": "https://link.ostendis.com/publication/leitung-qualitaetsmanagement-prozesse/6j75dohgfr77obbshkef21ywvo2bfdv3xijwvzq5p8rtlcz7axcwrtdxszow3l0i",
       "source": "Vista Augenpraxen & Kliniken Dedicated Parser (Ostendis JobPublisher)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:17:16.574Z",
+      "crawledAt": "2026-11-19T09:46:09.585Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -461,7 +461,7 @@
       "salaryMax": 166000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-04T21:17:16.574Z",
+      "validThrough": "2027-02-04T09:46:09.585Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -483,7 +483,7 @@
       "url": "https://link.ostendis.com/publication/orthoptist-in/dul5dxoy8qyz33zid7e8ifz7mskrulow1xewdr5vt1hp73iji0coq12ehvrmbyq5",
       "source": "Vista Augenpraxen & Kliniken Dedicated Parser (Ostendis JobPublisher)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:17:15.814Z",
+      "crawledAt": "2026-11-19T09:46:08.783Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -510,7 +510,7 @@
       "salaryMax": 73800,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T21:17:15.814Z",
+      "validThrough": "2027-02-09T09:46:08.783Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -562,7 +562,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-18T09:19:26.402Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -572,5 +572,5 @@
       }
     }
   ],
-  "codeCommit": "8862042892397f4dcea90f48fbc2dc028da23eec"
+  "codeCommit": "af8f978c37a7f89c95dd40500d2ac0a67c1ede33"
 }
