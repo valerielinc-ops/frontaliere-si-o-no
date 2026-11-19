@@ -374,7 +374,10 @@ function validCommunityInteraction(interaction) {
     ].includes(interaction.escalationReason));
 }
 
-export function loadCommunityState(file) {
+export function loadCommunityState(file, { asOf = new Date() } = {}) {
+  const asOfMs = timestamp(asOf);
+  if (asOfMs === null) throw new TypeError('community state asOf must be a valid date');
+  const asOfDate = new Date(asOfMs);
   const fallback = emptyCommunityState();
   if (!file || !existsSync(file)) return fallback;
   try {
@@ -395,7 +398,7 @@ export function loadCommunityState(file) {
         .filter(validCommunityInteraction)
         .slice(-MAX_STORED_COMMUNITY_INTERACTIONS),
       interactionsTruncated: parsed.interactionsTruncated === true,
-      topicSignals: normalizeInstagramCommunityTopicSignals(parsed.topicSignals),
+      topicSignals: normalizeInstagramCommunityTopicSignals(parsed.topicSignals, { asOf: asOfDate }),
     };
   } catch {
     return fallback;
@@ -716,7 +719,7 @@ export async function runInstagramCommunityAutomation({
   }
 
   const nowMs = timestamp(now) || Date.now();
-  const state = loadCommunityState(statePath);
+  const state = loadCommunityState(statePath, { asOf: new Date(nowMs) });
   state.trackingStartedAt ||= new Date(nowMs).toISOString();
   const persist = (key, kind, status = 'sent', at = nowMs) => recordAction(state, statePath, { key, kind, at, status });
   let media = [];
