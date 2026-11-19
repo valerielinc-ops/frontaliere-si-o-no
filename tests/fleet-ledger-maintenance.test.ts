@@ -33,7 +33,7 @@ function git(repo: string, args: string[]) {
 
 const sha256 = (data: string) => createHash('sha256').update(data).digest('hex');
 
-function fixture(variant?: 'invalid-json' | 'missing-lf' | 'wrong-type' | 'unprojectable' | 'symlink' | 'noncanonical') {
+function fixture(variant?: 'invalid-json' | 'missing-lf' | 'wrong-type' | 'unprojectable' | 'symlink' | 'noncanonical', withIntermediate = false) {
   const root = fs.mkdtempSync(path.join(fs.realpathSync.native(os.tmpdir()), 'maintenance-'));
   roots.push(root);
   const repo = path.join(root, 'source');
@@ -75,14 +75,15 @@ function fixture(variant?: 'invalid-json' | 'missing-lf' | 'wrong-type' | 'unpro
   };
   fs.writeFileSync(path.join(repo, 'outside.txt'), 'preserved\n');
   const archiveSha = commit();
+  const intermediate = withIntermediate ? commit(archiveSha) : undefined;
   fs.writeFileSync(path.join(repo, 'outside.txt'), 'preserved from parent\n');
-  const expected = commit(archiveSha);
+  const expected = commit(intermediate ?? archiveSha);
   git(repo, ['update-ref', pin, expected]);
   const inventoryEntries = [[decision, decisions], [observation, observations]].map(([name, data]) =>
     [ledger + '/' + name, oid(name), sha256(data), Buffer.byteLength(data), 1]);
   const attestationSha256 = sha256(JSON.stringify([archiveSha, inventoryEntries]));
   const request = { repo, archiveSha, output, ordinals: '3,4', attestationSha256 };
-  return { root, repo, output, expected, request, inventoryEntries, decision, observation, decisions, observations, index, manifest };
+  return { root, repo, output, expected, intermediate, request, inventoryEntries, decision, observation, decisions, observations, index, manifest };
 }
 
 const counts = { files: 2, records: 2 };
@@ -175,14 +176,67 @@ it('rejects malformed dispatch input before starting Git and emits a fixed error
   });
   expect(result.status).toBe(1);
   expect(result.stdout).toBe('');
-  expect(result.stderr).toBe('ERROR ledger maintenance\n');
+  expect(result.stderr).toBe('ERROR ledger maintenance arguments\n');
   expect(fs.existsSync(marker)).toBe(false);
   expect(fs.existsSync(f.output)).toBe(false);
 });
 
-function prepareTransport(shallow: boolean) {
+it.each([
+  ['exit 2', 'ERROR ledger maintenance tip-fetch'],
+  ['exit 0', 'ERROR ledger maintenance tip-verify'],
+  ['exit 0', 'ERROR stale ledger tip'],
+])('reports a fixed tip diagnostic for %s (%s)', (fetch, diagnostic) => {
   const f = fixture();
-  attest(f.request, counts);
+  const bin = path.join(f.root, 'bin');
+  fs.mkdirSync(bin);
+  const verify = diagnostic === 'ERROR stale ledger tip' ? "printf '%040d\\n' 0" : 'exit 2';
+  fs.writeFileSync(path.join(bin, 'timeout'), `#!/bin/sh
+echo 'fixture-sensitive fetch stderr' >&2
+${fetch}
+`, { mode: 0o700 });
+  fs.writeFileSync(path.join(bin, 'git'), `#!/bin/sh
+echo 'fixture-sensitive Git stderr' >&2
+${verify}
+`, { mode: 0o700 });
+  const result = spawnSync(process.execPath, [fileURLToPath(script), 'prepare', f.root], {
+    env: {
+      PATH: bin, EXPECTED_SHA: f.expected, CANDIDATE_SHA: 'a'.repeat(40), READ_TOKEN: 'fixture',
+      ORDINALS: Array.from({ length: 152 }, (_, index) => index + 1).join(','),
+      ATTESTATION_SHA256: f.request.attestationSha256,
+    },
+    encoding: 'utf8',
+  });
+  expect(result.status).toBe(1);
+  expect(result.stdout).toBe('');
+  expect(result.stderr).toBe(diagnostic + '\n');
+});
+
+it.each([
+  ['invalid', 'receipt'],
+  ['different-sha', 'receipt-candidate-mismatch'],
+  ['valid', 'application'],
+])('reports a fixed diagnostic for the %s receipt fixture', (variant, stage) => {
+  const f = fixture();
+  const candidate = 'a'.repeat(40);
+  fs.mkdirSync(path.join(f.root, 'stage'));
+  fs.writeFileSync(path.join(f.root, 'stage/receipt.json'), variant === 'invalid'
+    ? 'fixture-sensitive invalid JSON'
+    : JSON.stringify({
+      archiveSha: '1c6010d0791d4e8de3125c4f7637319da2ff70fd', expectedSha: f.expected,
+      candidateSha: variant === 'different-sha' ? 'b'.repeat(40) : candidate,
+      files: 152, records: 374, indexEntries: 374,
+    }), { mode: 0o600 });
+  const result = spawnSync(process.execPath, [fileURLToPath(script), 'app', f.root], {
+    env: { PATH: process.env.PATH, EXPECTED_SHA: f.expected, CANDIDATE_SHA: candidate, READ_TOKEN: 'fixture' },
+    encoding: 'utf8',
+  });
+  expect(result.status).toBe(1);
+  expect(result.stdout).toBe('');
+  expect(result.stderr).toBe(`ERROR ledger maintenance ${stage}\n`);
+});
+
+function prepareTransport(shallow: boolean) {
+  const f = fixture(undefined, true);
   const remote = path.join(f.root, 'remote.git');
   fs.mkdirSync(remote);
   git(remote, ['init', '--bare', '--quiet', '--object-format=sha1', '--template=']);
@@ -191,7 +245,13 @@ function prepareTransport(shallow: boolean) {
   fs.mkdirSync(source);
   git(source, ['init', '--quiet', '--object-format=sha1', '--template=']);
   git(source, ['fetch', '--no-tags', ...(shallow ? ['--depth=1'] : []), remote, ref + ':' + pin]);
-  if (shallow) git(source, ['fetch', '--no-tags', '--depth=1', remote, f.request.archiveSha]);
+  if (shallow) {
+    git(source, ['fetch', '--no-tags', '--depth=1', remote, f.request.archiveSha]);
+    expect(git(remote, ['rev-parse', f.expected + '^'])).toBe(f.intermediate);
+    const missing = spawnSync('git', ['-C', source, 'cat-file', '-e', f.intermediate!], { env });
+    expect(missing.status).toBe(1);
+  }
+  attest({ ...f.request, repo: source }, counts);
   const stage = path.join(f.root, 'stage');
   execFileSync(process.execPath, [candidateTool, '--repo', source, '--archive-sha', f.request.archiveSha,
     '--expected-sha', f.expected, '--inventory', f.output, '--output', stage], { env, stdio: 'pipe' });

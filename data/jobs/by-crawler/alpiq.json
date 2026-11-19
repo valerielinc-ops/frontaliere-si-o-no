@@ -274,7 +274,6 @@
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
       "crawledAt": "2026-11-19T10:26:00.865Z",
-      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 3103,
       "retranslationAttempts": 22,
@@ -295,6 +294,7 @@
           "unitText": "YEAR"
         }
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "technische-r-betriebsmitarbeiter-in-wasserkraftwerk-gosgen-alpiq-niedergosgen"

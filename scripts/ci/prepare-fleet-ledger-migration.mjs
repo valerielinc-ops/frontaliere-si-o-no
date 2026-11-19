@@ -224,28 +224,37 @@ async function materializeLedger(repo, expected, ledgerDir) {
 }
 
 async function prepare(argv) {
-  const { repo, 'archive-sha': archive, 'expected-sha': expected, inventory: inventoryFile, output } = optionsFrom(argv);
-  checkOutput(output);
-  requireThat(fs.realpathSync.native(repo) === repo
-    && git(repo, ['rev-parse', '--show-toplevel']).toString().trim() === repo);
-  const checkPin = () => requireThat(git(repo, ['show-ref', '--verify', '--hash', REF]).toString().trim() === expected);
-  checkPin();
-  const objects = fs.realpathSync.native(git(repo, ['rev-parse', '--path-format=absolute', '--git-path', 'objects']).toString().trim());
-  requireThat(!/[\r\n]/u.test(objects) && fs.statSync(objects).isDirectory());
-  const inventory = readInventory(inventoryFile, archive);
-  const indexFile = LEDGER + '/' + LOOP_FLEET_LEDGER_INDEX_FILE;
-  const manifestFile = LEDGER + '/' + LOOP_FLEET_LEDGER_MANIFEST_FILE;
-  const current = preflight(repo, archive, expected, inventory, indexFile, manifestFile);
-  checkPin();
-
-  fs.mkdirSync(output, { mode: 0o700 });
+  let stage = 'arguments';
+  let createdOutput;
   try {
+    const { repo, 'archive-sha': archive, 'expected-sha': expected, inventory: inventoryFile, output } = optionsFrom(argv);
+    stage = 'staging';
+    checkOutput(output);
+    stage = 'source';
+    requireThat(fs.realpathSync.native(repo) === repo
+      && git(repo, ['rev-parse', '--show-toplevel']).toString().trim() === repo);
+    const checkPin = () => requireThat(git(repo, ['show-ref', '--verify', '--hash', REF]).toString().trim() === expected);
+    checkPin();
+    const objects = fs.realpathSync.native(git(repo, ['rev-parse', '--path-format=absolute', '--git-path', 'objects']).toString().trim());
+    requireThat(!/[\r\n]/u.test(objects) && fs.statSync(objects).isDirectory());
+    stage = 'inventory';
+    const inventory = readInventory(inventoryFile, archive);
+    const indexFile = LEDGER + '/' + LOOP_FLEET_LEDGER_INDEX_FILE;
+    const manifestFile = LEDGER + '/' + LOOP_FLEET_LEDGER_MANIFEST_FILE;
+    stage = 'preflight';
+    const current = preflight(repo, archive, expected, inventory, indexFile, manifestFile);
+    checkPin();
+
+    stage = 'staging';
+    fs.mkdirSync(output, { mode: 0o700 });
+    createdOutput = output;
     const candidateRepo = path.join(output, 'candidate');
     fs.mkdirSync(candidateRepo, { mode: 0o700 });
     git(candidateRepo, ['init', '--quiet', '--object-format=sha1', '--template=']);
     write(path.join(candidateRepo, '.git/objects/info/alternates'), objects + '\n');
     git(candidateRepo, ['read-tree', expected]);
     const ledgerDir = path.join(candidateRepo, LEDGER);
+    stage = 'materialization';
     await materializeLedger(candidateRepo, expected, ledgerDir);
     const work = fs.mkdtempSync(path.join(output, 'inputs-'));
     const restored = path.join(work, 'restored');
@@ -262,12 +271,14 @@ async function prepare(argv) {
       }
     }
     write(rebasedInventory, JSON.stringify({ source: expected, files: [...inventory.values()] }));
+    stage = 'projection';
     const result = command(process.execPath, [projection, '--sha', expected, '--inventory', rebasedInventory,
       '--restored', restored, '--index', indexInput, '--output', projected]).toString();
     const counts = /^OK files=(\d+) records=(\d+) indexEntries=(\d+)\n$/u.exec(result);
     requireThat(counts && counts[0] === result);
     const [, files, records, indexEntries] = counts.map(Number);
 
+    stage = 'writer-diff';
     const changes = new Map([[manifestFile, 'D']]);
     const projectedNames = new Set(fs.readdirSync(projected));
     requireThat(projectedNames.has(LOOP_FLEET_LEDGER_INDEX_FILE) && projectedNames.size === files + 1);
@@ -299,8 +310,9 @@ async function prepare(argv) {
       requireThat(changes.get(diff[i + 1]) === diff[i]);
       changes.delete(diff[i + 1]);
     }
+    stage = 'commit';
     const tree = git(candidateRepo, ['write-tree']).toString().trim();
-    const timestamp = git(candidateRepo, ['show', '-s', '--format=%ct', expected]).toString().trim();
+    const timestamp = git(repo, ['show', '-s', '--format=%ct', expected]).toString().trim();
     requireThat(/^\d+$/u.test(timestamp));
     const date = '@' + timestamp + ' +0000';
     const candidate = git(candidateRepo, ['commit-tree', tree, '-p', expected, '-m', 'Prepare fleet ledger migration'],
@@ -308,23 +320,26 @@ async function prepare(argv) {
     requireThat(SHA.test(candidate)
       && git(candidateRepo, ['rev-list', '--parents', '-n', '1', candidate]).toString().trim() === candidate + ' ' + expected);
     checkPin();
+    stage = 'receipt';
     fs.rmSync(work, { recursive: true });
     write(path.join(output, 'receipt.json'), JSON.stringify({
       archiveSha: archive, expectedSha: expected, candidateSha: candidate, files, records, indexEntries,
     }) + '\n');
     process.stdout.write(result);
-  } catch (error) {
-    fs.rmSync(output, { recursive: true, force: true });
-    throw error;
+  } catch {
+    if (createdOutput) {
+      try {
+        fs.rmSync(createdOutput, { recursive: true, force: true });
+      } catch {
+        stage = 'cleanup';
+      }
+    }
+    process.stderr.write(`ERROR migration ${stage}\n`);
+    process.exitCode = 1;
   }
 }
 
 if (isInvokedDirectly(import.meta.url)) {
   process.umask(0o077);
-  try {
-    await prepare(process.argv.slice(2));
-  } catch {
-    process.stderr.write('ERROR migration\n');
-    process.exitCode = 1;
-  }
+  await prepare(process.argv.slice(2));
 }

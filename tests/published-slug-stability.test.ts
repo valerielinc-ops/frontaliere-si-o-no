@@ -12,8 +12,10 @@
  * writers that re-derive from titles.
  */
 import fs from 'node:fs';
+import { spawnSync } from 'node:child_process';
 import os from 'node:os';
 import path from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { afterEach, describe, expect, it } from 'vitest';
 import { buildCanonicalJobDetailPath } from '../build-plugins/shared/jobDetailPath';
 import { hardenJobLocaleFields } from '../scripts/lib/dedicated-crawler-common.mjs';
@@ -99,6 +101,35 @@ afterEach(() => {
   else process.env.SLUG_REGISTRY_PATH_OVERRIDE = previousRegistryOverride;
   if (previousLedgerOverride === undefined) delete process.env.URL_FIRST_SEEN_PATH_OVERRIDE;
   else process.env.URL_FIRST_SEEN_PATH_OVERRIDE = previousLedgerOverride;
+});
+
+describe('script-only published-slug imports', () => {
+  it('does not load the route classifier until a served ledger needs route parsing', () => {
+    const loaderPath = path.join(os.tmpdir(), `published-slug-route-core-guard-${process.pid}-${seq++}.mjs`);
+    const moduleUrl = pathToFileURL(path.resolve(process.cwd(), 'scripts/lib/published-slug-stability.mjs')).href;
+    fs.writeFileSync(loaderPath, `
+export async function resolve(specifier, context, nextResolve) {
+  if (specifier.endsWith('/job-board-detail-path-core.mjs')) {
+    throw new Error('route classifier was loaded eagerly');
+  }
+  return nextResolve(specifier, context);
+}
+`, 'utf8');
+    try {
+      const result = spawnSync(process.execPath, [
+        '--experimental-loader', pathToFileURL(loaderPath).href,
+        '--input-type=module',
+        '--eval',
+        `import { publishedSlugKeepsIdentity } from ${JSON.stringify(moduleUrl)};
+if (!publishedSlugKeepsIdentity('cippa-trasporti-sa-chiasso', { company: 'Cippà Trasporti SA', location: 'Chiasso' })) process.exit(2);`,
+      ], { encoding: 'utf8' });
+      expect(result.error).toBeUndefined();
+      expect(result.status).toBe(0);
+      expect(result.stderr).not.toContain('route classifier was loaded eagerly');
+    } finally {
+      fs.rmSync(loaderPath, { force: true });
+    }
+  });
 });
 
 /** Served-URL ledger fixture (data/url-first-seen.json shape); null = absent. */

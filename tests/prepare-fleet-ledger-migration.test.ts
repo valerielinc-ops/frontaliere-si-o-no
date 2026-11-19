@@ -100,7 +100,7 @@ function fixture(delta: 'safe' | 'economic' | 'remove' | 'symlink' | 'modify' | 
     script, '--repo', repo, '--archive-sha', archive, '--expected-sha', pin,
     '--inventory', inventoryFile, '--output', staging, ...extra,
   ], { encoding: 'utf8' });
-  return { repo, output, archive, expected, original, manifest, decision, inventory, saveInventory, run };
+  return { repo, output, inventoryFile, archive, expected, original, manifest, decision, inventory, saveInventory, run };
 }
 
 afterEach(() => {
@@ -165,26 +165,26 @@ it('reproduces the candidate SHA across fresh staging directories using the pare
     .toBe(timestamp + ' ' + timestamp);
 });
 
-function expectRejected(result: ReturnType<ReturnType<typeof fixture>['run']>) {
+function expectRejected(result: ReturnType<ReturnType<typeof fixture>['run']>, stage: string) {
   expect(result.status).toBe(1);
   expect(result.stdout).toBe('');
-  expect(result.stderr).toBe('ERROR migration\n');
+  expect(result.stderr).toBe(`ERROR migration ${stage}\n`);
 }
 
 it.each(['economic', 'economic-update', 'remove', 'symlink', 'modify', 'noncanonical'] as const)('rejects the %s delta before staging', (delta) => {
   const f = fixture(delta);
-  expectRejected(f.run());
+  expectRejected(f.run(), 'preflight');
   expect(fs.existsSync(f.output)).toBe(false);
   expect(fs.readFileSync(path.join(f.repo, ledger, manifestName), 'utf8')).toBe(f.manifest);
 });
 
 it('rejects a stale expected SHA, duplicate flags and an unattested OID', () => {
   const f = fixture();
-  expectRejected(f.run(f.archive));
-  expectRejected(f.run(f.expected, ['--expected-sha', f.expected]));
+  expectRejected(f.run(f.archive), 'source');
+  expectRejected(f.run(f.expected, ['--expected-sha', f.expected]), 'arguments');
   f.inventory.files[0].gitOid = 'a'.repeat(40);
   f.saveInventory();
-  expectRejected(f.run());
+  expectRejected(f.run(), 'preflight');
   expect(fs.existsSync(f.output)).toBe(false);
 });
 
@@ -192,12 +192,19 @@ it('preserves an existing staging directory and rejects staging inside Git', () 
   const f = fixture();
   fs.mkdirSync(f.output, { mode: 0o700 });
   fs.writeFileSync(path.join(f.output, 'sentinel'), 'keep');
-  expectRejected(f.run());
+  expectRejected(f.run(), 'staging');
   expect(fs.readdirSync(f.output)).toEqual(['sentinel']);
   const result = spawnSync(process.execPath, [
     script, '--repo', f.repo, '--archive-sha', f.archive, '--expected-sha', f.expected,
     '--inventory', path.join(path.dirname(f.repo), 'inventory.json'), '--output', path.join(f.repo, '.git', 'new'),
   ], { encoding: 'utf8' });
-  expectRejected(result);
+  expectRejected(result, 'staging');
   expect(fs.existsSync(path.join(f.repo, '.git', 'new'))).toBe(false);
+});
+
+it('reports malformed inventory JSON without exposing its content', () => {
+  const f = fixture();
+  fs.writeFileSync(f.inventoryFile, 'fixture-sensitive invalid JSON');
+  expectRejected(f.run(), 'inventory');
+  expect(fs.existsSync(f.output)).toBe(false);
 });
