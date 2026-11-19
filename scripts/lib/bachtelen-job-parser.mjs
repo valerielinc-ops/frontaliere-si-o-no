@@ -24,7 +24,15 @@
 import { sourcePostingDateCandidatesFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, warnIfListingAtCap, fetchHtml, fetchJson } from './crawler-template.mjs';
+import {
+  slugify,
+  warnIfListingAtCap,
+  fetchHtml,
+  fetchJson,
+  WAF_IP_BLOCK_STATUS,
+  isConnectionLevelFetchError,
+} from './crawler-template.mjs';
+import { fetchViaJinaWithRetry, detectJinaErrorBody } from './jina-proxy.mjs';
 import {
   decodeEntities,
   normalizeSpace,
@@ -73,16 +81,40 @@ export function isTrustedDomain(rawUrl = '') {
 // WP REST listing, #4247) via exponential backoff instead of hard-failing
 // the whole crawler on one blip. Site-specific headers (Accept/Referer) are
 // preserved as-is via `options.headers`.
-function fetchBachtelenListingJson(url, timeoutMs = 20000) {
-  return fetchJson(url, {
-    timeoutMs,
-    label: 'Bachtelen wp-json stelle',
-    headers: {
-      Accept: 'application/json,text/html;q=0.9,*/*;q=0.5',
-      'Accept-Language': 'de-CH,de;q=0.9,en;q=0.5',
-      Referer: PUBLIC_CAREER_URL,
-    },
-  });
+async function fetchBachtelenListingJson(url, timeoutMs = 20000) {
+  try {
+    const { data } = await fetchJson(url, {
+      timeoutMs,
+      label: 'Bachtelen wp-json stelle',
+      returnResponse: true,
+      headers: {
+        Accept: 'application/json,text/html;q=0.9,*/*;q=0.5',
+        'Accept-Language': 'de-CH,de;q=0.9,en;q=0.5',
+        Referer: PUBLIC_CAREER_URL,
+      },
+    });
+    return data;
+  } catch (err) {
+    if (!(isConnectionLevelFetchError(err) || WAF_IP_BLOCK_STATUS.has(err?.status))) throw err;
+    console.warn(`   ⚠️ Direct fetch to Bachtelen WP REST stelle blocked (${err?.message || err}) — retrying via Jina clean-IP proxy...`);
+    const res = await fetchViaJinaWithRetry(url, { format: 'text' });
+    if (!res.ok) {
+      console.warn(`   ⚠️ Jina proxy returned HTTP ${res.status} for Bachtelen WP REST stelle — falling back to original error.`);
+      throw err;
+    }
+    const body = await res.text();
+    const reason = detectJinaErrorBody(body);
+    if (reason) {
+      console.warn(`   ⚠️ Jina-proxied Bachtelen WP REST stelle body looks like a challenge/non-target page (${reason}) — falling back to original error.`);
+      throw err;
+    }
+    try {
+      return JSON.parse(body);
+    } catch (parseErr) {
+      console.warn(`   ⚠️ Jina-proxied Bachtelen WP REST stelle body was not valid JSON (${parseErr?.message || parseErr}) — falling back to original error.`);
+      throw err;
+    }
+  }
 }
 
 function fetchBachtelenCareerPage(timeoutMs = 20000) {
