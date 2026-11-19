@@ -34,10 +34,20 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import os from 'node:os';
 import { fnv1a32Mod } from './fnv1a.mjs';
 import { shardFileName, listShardFilesIn, SHARD_FILE_RE } from './shard-file-naming.mjs';
 import { writeShardFileIfChanged, writeFileAtomic } from './atomic-shard-write.mjs';
 import { filterCompatPaths } from './compat-path-safety.mjs';
+import streamJson from 'stream-json';
+import PickModule from 'stream-json/filters/Pick.js';
+import ReplaceModule from 'stream-json/filters/Replace.js';
+import StreamArrayModule from 'stream-json/streamers/StreamArray.js';
+import StreamObjectModule from 'stream-json/streamers/StreamObject.js';
+import { PassThrough } from 'node:stream';
+import { finished, pipeline } from 'node:stream/promises';
+import { once } from 'node:events';
+import { createInterface } from 'node:readline';
 
 /** Legacy single-file location (kept for read-fallback during/after migration). */
 export const COMPAT_LEGACY_FILE = 'data/seo-404-compat-paths.json';
@@ -188,6 +198,447 @@ export function* iterateCompatPaths(rootDir = process.cwd()) {
   } catch {
     /* no accumulator on disk */
   }
+}
+
+/**
+ * Strictly inspect the complete accumulator while retaining only one shard at
+ * a time. A path in a noncanonical shard is either an exact duplicate of its
+ * FNV-owned copy (repairable only when requested) or a hard ownership error.
+ * This makes a global duplicate set unnecessary: two copies in different
+ * shards cannot both have the same deterministic owner.
+ *
+ * For sharded stores, the callback receives canonical paths in the same
+ * shard/order sequence as readCompatPathsStrict(). Legacy paths are streamed
+ * in their original order, including duplicates; totalPaths is unique. An
+ * async callback is awaited so a consumer can apply bounded backpressure.
+ */
+export async function forEachCompatPathsStrict(
+  rootDir = process.cwd(),
+  onPath = null,
+  {
+    allowStaleManifest = false,
+    repairExactCrossShardDuplicates = false,
+    warnDuplicates = true,
+  } = {},
+) {
+  const dir = path.resolve(rootDir, COMPAT_SHARD_DIR);
+  let shardNames;
+  try {
+    shardNames = fs.readdirSync(dir).filter((name) => SHARD_FILE_RE.test(name)).sort();
+  } catch (err) {
+    if (err?.code !== 'ENOENT') {
+      throw new Error(`[compat-paths-store] cannot list shards: ${err?.message ?? err}`);
+    }
+    return forEachLegacyCompatPathsStrict(rootDir, onPath);
+  }
+
+  const expectedShardNames = Array.from({ length: COMPAT_SHARD_COUNT }, (_, i) => shardFileName(i));
+  const shardNameSet = new Set(shardNames);
+  const missingShards = expectedShardNames.filter((name) => !shardNameSet.has(name));
+  if (shardNames.length !== COMPAT_SHARD_COUNT || missingShards.length > 0) {
+    throw new Error(
+      `[compat-paths-store] incomplete shard set (${shardNames.length}/${COMPAT_SHARD_COUNT}); `
+      + `missing: ${missingShards.slice(0, 5).join(', ') || '(unexpected shard names)'}`,
+    );
+  }
+
+  const manifest = readStrictCompatManifest(rootDir);
+  let totalPaths = 0;
+  let duplicatesRemoved = 0;
+  const duplicateShards = [];
+  const duplicateExamples = [];
+  const recordDuplicate = (name, value) => {
+    duplicatesRemoved++;
+    if (!duplicateShards.includes(name)) duplicateShards.push(name);
+    if (duplicateExamples.length < 5) duplicateExamples.push(value);
+  };
+
+  for (let shardIndex = 0; shardIndex < COMPAT_SHARD_COUNT; shardIndex++) {
+    const name = shardFileName(shardIndex);
+    const rawPaths = readStrictCompatShard(rootDir, name).paths;
+    const seenInShard = new Set();
+    const canonicalPaths = [];
+    const wrongByTarget = new Map();
+
+    for (const value of rawPaths) {
+      if (seenInShard.has(value)) {
+        recordDuplicate(name, value);
+        continue;
+      }
+      seenInShard.add(value);
+      const expectedIndex = compatShardIndex(value);
+      if (expectedIndex === shardIndex) {
+        canonicalPaths.push(value);
+      } else {
+        if (!wrongByTarget.has(expectedIndex)) wrongByTarget.set(expectedIndex, []);
+        wrongByTarget.get(expectedIndex).push(value);
+      }
+    }
+
+    for (const [expectedIndex, wrongPaths] of wrongByTarget) {
+      const expectedName = shardFileName(expectedIndex);
+      const expectedPaths = new Set(readStrictCompatShard(rootDir, expectedName).paths);
+      for (const value of wrongPaths) {
+        if (!expectedPaths.has(value)) {
+          throw new Error(
+            `[compat-paths-store] ${name} contains path assigned to shard ${expectedIndex}: ${value}; `
+            + 'refusing destructive rewrite',
+          );
+        }
+        if (!repairExactCrossShardDuplicates) {
+          throw new Error(
+            `[compat-paths-store] duplicate path ${value} across shards; refusing destructive rewrite`,
+          );
+        }
+        recordDuplicate(name, value);
+      }
+    }
+
+    totalPaths += canonicalPaths.length;
+    if (onPath) {
+      for (const value of canonicalPaths) await onPath(value);
+    }
+  }
+
+  if (!allowStaleManifest && totalPaths !== manifest.totalPaths) {
+    throw new Error(
+      `[compat-paths-store] manifest declares ${manifest.totalPaths} paths, `
+      + `but complete shards contain ${totalPaths}; refusing destructive rewrite`,
+    );
+  }
+  if (warnDuplicates && duplicatesRemoved > 0) {
+    console.warn(
+      `[compat-paths-store] dropped ${duplicatesRemoved} exact duplicate path(s) in shard(s) `
+      + `${duplicateShards.join(', ')} (kept canonical occurrence; examples: `
+      + `${JSON.stringify(duplicateExamples)})`,
+    );
+  }
+
+  const meta = { ...manifest };
+  delete meta.paths;
+  delete meta.shardCount;
+  delete meta.totalPaths;
+  return {
+    meta,
+    totalPaths,
+    previousTotalPaths: manifest.totalPaths,
+    duplicatesRemoved,
+    changed: allowStaleManifest && totalPaths !== manifest.totalPaths,
+    sharded: true,
+  };
+}
+
+async function forEachLegacyCompatPathsStrict(rootDir, onPath) {
+  const file = path.resolve(rootDir, COMPAT_LEGACY_FILE);
+  let meta;
+  try {
+    meta = await readLegacyCompatMetadata(file);
+  } catch (err) {
+    if (err?.code === 'ENOENT') {
+      throw new Error(
+        '[compat-paths-store] compatibility accumulator is missing; '
+        + 'refusing to bootstrap a destructive rewrite from an empty checkout',
+      );
+    }
+    throw new Error(`[compat-paths-store] cannot read legacy accumulator: ${err?.message ?? err}`);
+  }
+
+  // A legacy monolith has no shard ownership or manifest count. Count its
+  // unique paths using one deterministic shard-sized Set per pass.
+  let totalPaths = 0;
+  for (let shardIndex = 0; shardIndex < COMPAT_SHARD_COUNT; shardIndex++) {
+    const pathsInShard = new Set();
+    for await (const value of streamLegacyCompatPaths(file)) {
+      if (compatShardIndex(value) === shardIndex) pathsInShard.add(value);
+    }
+    totalPaths += pathsInShard.size;
+  }
+
+  if (onPath) {
+    for await (const value of streamLegacyCompatPaths(file)) await onPath(value);
+  }
+  return {
+    meta,
+    totalPaths,
+    previousTotalPaths: totalPaths,
+    duplicatesRemoved: 0,
+    changed: false,
+    sharded: false,
+  };
+}
+
+function readStrictCompatManifest(rootDir) {
+  let manifest;
+  try {
+    manifest = JSON.parse(fs.readFileSync(compatManifestFile(rootDir), 'utf-8'));
+  } catch (err) {
+    throw new Error(`[compat-paths-store] cannot read shard manifest: ${err?.message ?? err}`);
+  }
+  if (!manifest || typeof manifest !== 'object' || Array.isArray(manifest)
+    || manifest.shardCount !== COMPAT_SHARD_COUNT
+    || !Number.isSafeInteger(manifest.totalPaths) || manifest.totalPaths < 0) {
+    throw new Error('[compat-paths-store] invalid shard manifest; refusing destructive rewrite');
+  }
+  return manifest;
+}
+
+function readStrictCompatShard(rootDir, name) {
+  const shardIndex = Number(name.slice('part-'.length, -'.json'.length));
+  if (!Number.isSafeInteger(shardIndex) || shardIndex < 0 || shardIndex >= COMPAT_SHARD_COUNT) {
+    throw new Error(`[compat-paths-store] invalid shard name ${name}; refusing destructive rewrite`);
+  }
+  let shard;
+  try {
+    shard = JSON.parse(fs.readFileSync(path.join(rootDir, COMPAT_SHARD_DIR, name), 'utf-8'));
+  } catch (err) {
+    throw new Error(`[compat-paths-store] cannot read ${name}: ${err?.message ?? err}`);
+  }
+  if (!shard || typeof shard !== 'object' || Array.isArray(shard) || !Array.isArray(shard.paths)
+    || shard.paths.some((value) => typeof value !== 'string')) {
+    throw new Error(`[compat-paths-store] invalid ${name}; refusing destructive rewrite`);
+  }
+  return { shardIndex, paths: shard.paths };
+}
+
+async function readLegacyCompatMetadata(file) {
+  const parser = streamJson.parser();
+  const replacement = ReplaceModule.replace({
+    filter: 'paths',
+    replacement: [{ name: 'startArray' }, { name: 'endArray' }],
+  });
+  const objectStream = StreamObjectModule.streamObject();
+  const output = new PassThrough({ objectMode: true });
+  const running = pipeline(fs.createReadStream(file), parser, replacement, objectStream, output);
+  const metadata = Object.create(null);
+  let pathsSeen = false;
+  try {
+    for await (const { key, value } of output) {
+      if (key === 'paths') {
+        if (pathsSeen) throw new Error('legacy accumulator has duplicate paths keys');
+        pathsSeen = true;
+      } else {
+        metadata[key] = value;
+      }
+    }
+    await running;
+  } catch (err) {
+    output.destroy();
+    await running.catch(() => {});
+    throw err;
+  }
+  if (!pathsSeen) throw new Error('invalid legacy accumulator; refusing destructive rewrite');
+  delete metadata.shardCount;
+  delete metadata.totalPaths;
+  return metadata;
+}
+
+async function* streamLegacyCompatPaths(file) {
+  const parser = streamJson.parser();
+  let depth = 0;
+  let rootSeen = false;
+  let pathsSeen = false;
+  let awaitingPathsValue = false;
+  let invalidShape = null;
+  parser.on('data', (token) => {
+    if (!rootSeen) {
+      rootSeen = true;
+      if (token.name !== 'startObject') invalidShape = new Error('invalid legacy accumulator; refusing destructive rewrite');
+      else depth = 1;
+      return;
+    }
+    if (token.name === 'keyValue' && depth === 1 && token.value === 'paths') {
+      if (pathsSeen) invalidShape = new Error('legacy accumulator has duplicate paths keys');
+      pathsSeen = true;
+      awaitingPathsValue = true;
+      return;
+    }
+    if (awaitingPathsValue) {
+      awaitingPathsValue = false;
+      if (token.name !== 'startArray') {
+        invalidShape = new Error('invalid legacy accumulator; refusing destructive rewrite');
+      }
+    }
+    if (token.name === 'startObject' || token.name === 'startArray') depth++;
+    else if (token.name === 'endObject' || token.name === 'endArray') depth--;
+  });
+
+  const picked = PickModule.pick({ filter: 'paths', once: true });
+  const arrayStream = StreamArrayModule.streamArray();
+  const output = new PassThrough({ objectMode: true });
+  const running = pipeline(fs.createReadStream(file), parser, picked, arrayStream, output);
+  try {
+    for await (const item of output) {
+      if (typeof item.value !== 'string') {
+        throw new Error('[compat-paths-store] invalid legacy accumulator; refusing destructive rewrite');
+      }
+      if (invalidShape) throw invalidShape;
+      yield item.value;
+    }
+    await running;
+  } catch (err) {
+    output.destroy();
+    await running.catch(() => {});
+    throw err;
+  }
+  if (invalidShape) throw invalidShape;
+  if (!rootSeen || !pathsSeen || awaitingPathsValue) {
+    throw new Error('[compat-paths-store] invalid legacy accumulator; refusing destructive rewrite');
+  }
+}
+
+/**
+ * Prepare the miner's additive tracking-path merge without building a global
+ * compat-path array or Set. The prepared shard files live in an OS temp dir;
+ * callers commit them only after their other write prerequisites succeed.
+ */
+export async function prepareCompatPathsForTracking(
+  tracking,
+  {
+    rootDir = process.cwd(),
+    dryRun = false,
+    lastUpdated = new Date().toISOString().split('T')[0],
+  } = {},
+) {
+  const workDir = fs.mkdtempSync(path.join(os.tmpdir(), 'compat-paths-miner-'));
+  const stageDir = dryRun ? null : workDir;
+  let store;
+  let compatAdded = 0;
+  let totalPaths = 0;
+  let filteredPaths = 0;
+  const nonStringTrackingPaths = new Set();
+  const existingFiles = Array.from({ length: COMPAT_SHARD_COUNT }, (_, i) =>
+    path.join(workDir, `existing-${shardFileName(i)}.jsonl`),
+  );
+  const incomingFiles = Array.from({ length: COMPAT_SHARD_COUNT }, (_, i) =>
+    path.join(workDir, `incoming-${shardFileName(i)}.jsonl`),
+  );
+  const existingStreams = existingFiles.map((file) => fs.createWriteStream(file, { encoding: 'utf8' }));
+  const incomingStreams = incomingFiles.map((file) => fs.createWriteStream(file, { encoding: 'utf8' }));
+
+  try {
+    // Bucket tracking paths once on disk. The stream high-water marks bound
+    // pending writes; this avoids rescanning/hashing every tracking path once
+    // for each of the 16 shards and avoids a global in-memory bucket array.
+    for (const slug in tracking) {
+      if (!Object.hasOwn(tracking, slug)) continue;
+      const localePaths = tracking[slug];
+      for (const locale of ['it', 'en', 'de', 'fr']) {
+        const value = localePaths?.[locale];
+        if (!value) continue;
+        if (typeof value !== 'string') {
+          if (!nonStringTrackingPaths.has(value)) {
+            nonStringTrackingPaths.add(value);
+            compatAdded++;
+          }
+          continue;
+        }
+        const shardIndex = compatShardIndex(value);
+        const stream = incomingStreams[shardIndex];
+        if (!stream.write(`${JSON.stringify(value)}\n`)) await once(stream, 'drain');
+      }
+    }
+    for (const stream of incomingStreams) stream.end();
+    await Promise.all(incomingStreams.map((stream) => finished(stream)));
+
+    // Validate and spool the existing store in the same read pass. This keeps
+    // the staged union tied to the exact shard contents that passed strict
+    // ownership/manifest validation, without a second raceable store read.
+    store = await forEachCompatPathsStrict(rootDir, async (value) => {
+      const stream = existingStreams[compatShardIndex(value)];
+      if (!stream.write(`${JSON.stringify(value)}\n`)) await once(stream, 'drain');
+    }, {
+      allowStaleManifest: !dryRun,
+      repairExactCrossShardDuplicates: !dryRun,
+    });
+    for (const stream of existingStreams) stream.end();
+    await Promise.all(existingStreams.map((stream) => finished(stream)));
+
+    for (let shardIndex = 0; shardIndex < COMPAT_SHARD_COUNT; shardIndex++) {
+      const paths = new Set();
+      const existing = fs.createReadStream(existingFiles[shardIndex], { encoding: 'utf8' });
+      const existingLines = createInterface({ input: existing, crlfDelay: Infinity });
+      for await (const line of existingLines) paths.add(JSON.parse(line));
+
+      const incoming = fs.createReadStream(incomingFiles[shardIndex], { encoding: 'utf8' });
+      const incomingLines = createInterface({ input: incoming, crlfDelay: Infinity });
+      for await (const line of incomingLines) {
+        const value = JSON.parse(line);
+        if (!paths.has(value)) {
+          paths.add(value);
+          compatAdded++;
+        }
+      }
+
+      const slashPaths = [];
+      let nonSlashPaths = 0;
+      for (const value of paths) {
+        if (value.startsWith('/')) slashPaths.push(value);
+        else nonSlashPaths++;
+      }
+      slashPaths.sort();
+      const filtered = filterCompatPaths(slashPaths);
+      filteredPaths += nonSlashPaths + filtered.dropped.length;
+      totalPaths += filtered.paths.length;
+      if (stageDir) {
+        fs.writeFileSync(
+          path.join(stageDir, shardFileName(shardIndex)),
+          JSON.stringify({ paths: filtered.paths }, null, 2) + '\n',
+        );
+      }
+    }
+  } catch (err) {
+    for (const stream of existingStreams) stream.destroy();
+    for (const stream of incomingStreams) stream.destroy();
+    await Promise.allSettled(existingStreams.map((stream) => finished(stream)));
+    await Promise.allSettled(incomingStreams.map((stream) => finished(stream)));
+    fs.rmSync(workDir, { recursive: true, force: true });
+    throw err;
+  }
+
+  if (filteredPaths > 0) {
+    console.warn(`[compat-paths-store] dropped ${filteredPaths} unsafe path(s) before persist`);
+  }
+  const temporaryBytes = fs.readdirSync(workDir)
+    .reduce((total, name) => total + fs.statSync(path.join(workDir, name)).size, 0);
+
+  let committed = false;
+  return {
+    previousTotalPaths: store.totalPaths,
+    previousManifestTotalPaths: store.previousTotalPaths,
+    totalPaths,
+    compatAdded,
+    filteredPaths,
+    temporaryBytes,
+    changed: store.changed,
+    commit(committedLastUpdated = lastUpdated) {
+      if (dryRun || committed) return;
+      const dir = path.resolve(rootDir, COMPAT_SHARD_DIR);
+      fs.mkdirSync(dir, { recursive: true });
+      for (let shardIndex = 0; shardIndex < COMPAT_SHARD_COUNT; shardIndex++) {
+        const content = fs.readFileSync(path.join(stageDir, shardFileName(shardIndex)), 'utf-8');
+        writeShardFileIfChanged(compatShardFile(shardIndex, rootDir), content);
+      }
+      writeFileAtomic(
+        compatManifestFile(rootDir),
+        JSON.stringify({
+          ...store.meta,
+          lastUpdated: committedLastUpdated,
+          shardCount: COMPAT_SHARD_COUNT,
+          totalPaths,
+        }, null, 2) + '\n',
+      );
+      try {
+        const legacy = path.resolve(rootDir, COMPAT_LEGACY_FILE);
+        if (fs.existsSync(legacy)) fs.rmSync(legacy);
+      } catch {
+        /* best-effort, matching writeCompatPaths */
+      }
+      committed = true;
+    },
+    cleanup() {
+      fs.rmSync(workDir, { recursive: true, force: true });
+    },
+  };
 }
 
 /**

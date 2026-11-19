@@ -9,6 +9,8 @@ import {
   readCompatPathsStrict,
   readCompatPathsStrictAfterMerge,
   readCompatPathsStrictWithManifestRepair,
+  forEachCompatPathsStrict,
+  prepareCompatPathsForTracking,
   repairCompatManifest,
   writeCompatPaths,
   compatShardFile,
@@ -17,6 +19,7 @@ import {
   normalizeCompatShardEntries,
   COMPAT_SHARD_COUNT,
 } from '../scripts/lib/compat-paths-store.mjs';
+import { assertCompatFloor } from '../scripts/lib/compat-paths-floor-guard.mjs';
 
 // Guards issue #6384: writeCompatPaths used to unconditionally rewrite all 16
 // shards on every persist (146 commits/30d touching data/seo-404-compat/, most
@@ -94,6 +97,116 @@ describe('writeCompatPaths — shard write minimization', () => {
 
     expect([...iterateCompatPaths(rootDir)]).toEqual(['/legacy-a/', '/legacy-b/']);
   });
+
+  it('strictly streams shards and prepares an equivalent deduplicated tracking union', async () => {
+    writeCompatPaths({ source: 'miner-fixture', lastUpdated: '2026-01-01', paths: ['/existing/', '/duplicate-old/'] }, rootDir);
+    const duplicateIndex = compatShardIndex('/existing/');
+    const duplicateFile = compatShardFile(duplicateIndex, rootDir);
+    const duplicateShard = JSON.parse(fs.readFileSync(duplicateFile, 'utf-8'));
+    duplicateShard.paths.push('/existing/');
+    fs.writeFileSync(duplicateFile, JSON.stringify(duplicateShard));
+
+    const strictPaths: string[] = [];
+    const strict = await forEachCompatPathsStrict(rootDir, (value) => strictPaths.push(value), {
+      allowStaleManifest: true,
+      repairExactCrossShardDuplicates: true,
+    });
+    expect(new Set(strictPaths)).toEqual(new Set(['/existing/', '/duplicate-old/']));
+    expect(strict.totalPaths).toBe(2);
+
+    const tracking = {
+      first: { it: '/existing/', en: '/new-a/', de: '/new-b/', fr: '/new-a/' },
+      second: { it: '/new-b/', en: '/new-c/', de: '/duplicate-old/', fr: '/new-d/' },
+    };
+    const expected = new Set([
+      ...strictPaths,
+      ...Object.values(tracking).flatMap((paths) => Object.values(paths)),
+    ]);
+    const prepared = await prepareCompatPathsForTracking(tracking, { rootDir, lastUpdated: '2026-01-02' });
+    try {
+      expect(prepared.compatAdded).toBe(4);
+      expect(prepared.previousTotalPaths).toBe(2);
+      expect(prepared.totalPaths).toBe(expected.size);
+      expect(prepared.temporaryBytes).toBeGreaterThan(0);
+      // The staged merge does not modify the canonical store before commit.
+      expect(readCompatPathsStrict(rootDir).paths).toHaveLength(2);
+
+      prepared.commit();
+      const written = readCompatPathsStrict(rootDir);
+      expect(new Set(written.paths)).toEqual(expected);
+      expect(written.paths).toHaveLength(expected.size);
+      expect(written.source).toBe('miner-fixture');
+      expect(written.lastUpdated).toBe('2026-01-02');
+      expect(readCompatPathsStrict(rootDir).duplicatesRemoved).toBe(0);
+    } finally {
+      prepared.cleanup();
+    }
+  });
+
+  it('streams a legacy accumulator, preserves metadata, and migrates its union on commit', async () => {
+    const legacyFile = path.join(rootDir, 'data', 'seo-404-compat-paths.json');
+    fs.mkdirSync(path.dirname(legacyFile), { recursive: true });
+    fs.writeFileSync(legacyFile, JSON.stringify({
+      source: 'legacy-fixture',
+      lastUpdated: '2025-12-31',
+      paths: ['/legacy-a/', '/legacy-b/', '/legacy-a/'],
+    }));
+
+    const strictPaths: string[] = [];
+    const strict = await forEachCompatPathsStrict(rootDir, (value) => strictPaths.push(value));
+    expect(strict.sharded).toBe(false);
+    expect(strict.totalPaths).toBe(2);
+    expect(strictPaths).toEqual(['/legacy-a/', '/legacy-b/', '/legacy-a/']);
+
+    const prepared = await prepareCompatPathsForTracking({ job: { it: '/legacy-c/' } }, { rootDir });
+    try {
+      expect(prepared.previousTotalPaths).toBe(2);
+      expect(prepared.compatAdded).toBe(1);
+      prepared.commit();
+      expect(fs.existsSync(legacyFile)).toBe(false);
+      const written = readCompatPathsStrict(rootDir);
+      expect(new Set(written.paths)).toEqual(new Set(['/legacy-a/', '/legacy-b/', '/legacy-c/']));
+      expect(written.source).toBe('legacy-fixture');
+    } finally {
+      prepared.cleanup();
+    }
+  });
+
+  it('fails closed on a malformed legacy path without changing the legacy store', async () => {
+    const legacyFile = path.join(rootDir, 'data', 'seo-404-compat-paths.json');
+    fs.mkdirSync(path.dirname(legacyFile), { recursive: true });
+    const original = '{"source":"legacy-fixture","paths":["/valid/",17]}';
+    fs.writeFileSync(legacyFile, original);
+
+    await expect(prepareCompatPathsForTracking({ job: { it: '/tracking/' } }, { rootDir }))
+      .rejects.toThrow(/invalid legacy accumulator/);
+    expect(fs.readFileSync(legacyFile, 'utf-8')).toBe(original);
+    expect(fs.existsSync(path.join(rootDir, 'data', 'seo-404-compat'))).toBe(false);
+  });
+
+  it('keeps the shared floor guard active when the merged safe set would truncate', async () => {
+    const shardDir = path.join(rootDir, 'data', 'seo-404-compat');
+    fs.mkdirSync(shardDir, { recursive: true });
+    const buckets = Array.from({ length: COMPAT_SHARD_COUNT }, () => [] as string[]);
+    for (let i = 0; i < 150_000; i++) {
+      const value = `/%27%29unsafe-${i}/`;
+      buckets[compatShardIndex(value)].push(value);
+    }
+    for (let i = 0; i < COMPAT_SHARD_COUNT; i++) {
+      fs.writeFileSync(compatShardFile(i, rootDir), JSON.stringify({ paths: buckets[i] }));
+    }
+    fs.writeFileSync(compatManifestFile(rootDir), JSON.stringify({
+      source: 'floor-fixture',
+      shardCount: COMPAT_SHARD_COUNT,
+      totalPaths: 150_000,
+    }));
+
+    const prepared = await prepareCompatPathsForTracking({}, { rootDir, dryRun: true });
+    expect(prepared.previousTotalPaths).toBe(150_000);
+    expect(prepared.totalPaths).toBe(0);
+    expect(() => assertCompatFloor(prepared.previousTotalPaths, prepared.totalPaths)).toThrow(/floor 150000/);
+    prepared.cleanup();
+  }, 30_000);
 
   it('propagates a non-ENOENT error reading a shard instead of silently forcing a write (issue #6696)', () => {
     // A directory where a shard file is expected makes readFileSync throw
@@ -248,6 +361,28 @@ describe('writeCompatPaths — shard write minimization', () => {
     expect(repaired.data.duplicatesRemoved).toBe(1);
     expect(JSON.parse(fs.readFileSync(targetFile, 'utf8')).paths).not.toContain('/duplicate/');
     expect(readCompatPathsStrict(rootDir).paths).toEqual(['/duplicate/']);
+  });
+
+  it('repairs an exact cross-shard duplicate in the bounded miner merge', async () => {
+    writeCompatPaths({ source: 'cross-duplicate', paths: ['/duplicate/'] }, rootDir);
+    const sourceIndex = compatShardIndex('/duplicate/');
+    const wrongIndex = (sourceIndex + 1) % COMPAT_SHARD_COUNT;
+    const wrongFile = compatShardFile(wrongIndex, rootDir);
+    const wrongShard = JSON.parse(fs.readFileSync(wrongFile, 'utf-8'));
+    wrongShard.paths.push('/duplicate/');
+    fs.writeFileSync(wrongFile, JSON.stringify(wrongShard));
+
+    await expect(forEachCompatPathsStrict(rootDir)).rejects.toThrow(/duplicate path/);
+    const prepared = await prepareCompatPathsForTracking({ job: { it: '/added/' } }, { rootDir });
+    try {
+      expect(prepared.previousTotalPaths).toBe(1);
+      expect(prepared.totalPaths).toBe(2);
+      prepared.commit();
+      expect(readCompatPathsStrict(rootDir).paths.sort()).toEqual(['/added/', '/duplicate/']);
+      expect(JSON.parse(fs.readFileSync(wrongFile, 'utf-8')).paths).not.toContain('/duplicate/');
+    } finally {
+      prepared.cleanup();
+    }
   });
 
   it('refuses a path stored in the wrong shard', () => {
