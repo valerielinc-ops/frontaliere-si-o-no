@@ -85,19 +85,16 @@ export function servedSlugCandidates(job, locale) {
   add(currentSlug, 'active');
   for (const slug of job.previousSlugsByLocale?.[locale] || []) add(slug, 'locale-history');
 
-  const sourceLang = jobTitleSourceLang(job, job.sourceLang || 'it');
   const title = String(job.titleByLocale?.[locale] || '').trim();
-  const sourceTitle = String(job.titleByLocale?.[sourceLang] || '').trim();
-  const employerTitle = String(job.title || sourceTitle || '').trim();
   const company = String(job.company || '');
-  const location = String(job.location || job.addressLocality || '');
+  // This is the deploy-time slot contract in hardenJobLocaleFields: the
+  // localized title feeds the route and addressLocality wins over location.
+  // Do not substitute an employer title for a truncated localization here:
+  // FU-007 reconciles the URL that deploy actually served.
+  const location = String(job.addressLocality || job.location || '');
   const disambiguator = String(job.slugDisambiguator || '').trim();
   if (title.length >= 3) {
-    const truncated = Boolean(employerTitle)
-      && localeTitleDropsSourceWords(title, employerTitle);
-    if (locale === sourceLang || truncated || !sourceTitle || !isLikelyUntranslated(title, sourceTitle)) {
-      add(buildSlug(truncated ? employerTitle : title, company, location, disambiguator), 'title-derived');
-    }
+    add(buildSlug(title, company, location, disambiguator), 'title-derived');
   }
 
   return [...candidates].map(([slug, origin]) => ({ slug, origin }));

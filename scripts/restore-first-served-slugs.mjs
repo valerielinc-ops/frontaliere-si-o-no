@@ -19,9 +19,15 @@ import {
   indexServedSlugCandidateClaims,
   servedSlugSliceWriter,
 } from './regenerate-slugs-by-locale.mjs';
+import { jobDetailPathsFor, normalizeServedPath } from './lib/published-slug-stability.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DEFAULT_SLICES_DIR = path.join(ROOT, 'data', 'jobs', 'by-crawler');
+// This file is deliberately checked in only after the GSC export has been
+// reviewed. A generated plan or a caller-selected ledger is evidence of a
+// possible change, never authority to rewrite an indexed URL.
+const GSC_ALLOWLIST_PATH = path.join(ROOT, 'data', 'gsc-first-served-slug-allowlist.json');
+const GSC_ALLOWLIST_COUNT = 40;
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 function optionValue(args, name) {
@@ -40,19 +46,13 @@ function parseOptions(args) {
   if (apply && alignUnserved) {
     throw new Error('--align-unserved is measured here and applied by regenerate-slugs-by-locale.mjs');
   }
-  const expectedCount = Number(optionValue(args, '--expected-count') || 40);
-  if (!Number.isSafeInteger(expectedCount) || expectedCount < 0) {
-    throw new Error('--expected-count must be a non-negative integer');
-  }
   return {
     apply,
     dryRun,
     alignUnserved,
-    expectedCount,
     slicesDir: path.resolve(optionValue(args, '--slices-dir') || DEFAULT_SLICES_DIR),
     ledger: optionValue(args, '--ledger'),
     planOut: optionValue(args, '--plan-out'),
-    approvedPlan: optionValue(args, '--approved-plan'),
   };
 }
 
@@ -71,27 +71,72 @@ function stablePlan(changes) {
   };
 }
 
+function canonicalPathFromUrl(url) {
+  const parsed = new URL(String(url || ''));
+  if (parsed.protocol !== 'https:' || parsed.hostname !== 'frontaliereticino.ch') {
+    throw new Error(`allowlist URL is not a canonical frontaliereticino.ch URL: ${url}`);
+  }
+  return normalizeServedPath(parsed.pathname);
+}
+
+function readCanonicalGscAllowlist() {
+  if (!fs.existsSync(GSC_ALLOWLIST_PATH)) {
+    throw new Error(`--apply requires the versioned GSC allowlist at ${GSC_ALLOWLIST_PATH}`);
+  }
+  const source = readJson(GSC_ALLOWLIST_PATH);
+  if (source?.schema !== 1 || !Array.isArray(source.entries)) {
+    throw new Error('GSC allowlist must have schema=1 and an entries array');
+  }
+  if (source.entries.length !== GSC_ALLOWLIST_COUNT) {
+    throw new Error(`GSC allowlist must contain exactly ${GSC_ALLOWLIST_COUNT} entries`);
+  }
+  const bySlot = new Map();
+  for (const entry of source.entries) {
+    const slice = String(entry?.slice || '');
+    const jobId = String(entry?.jobId || '');
+    const locale = String(entry?.locale || '');
+    const previousSlug = String(entry?.previousSlug || '');
+    const nextSlug = String(entry?.nextSlug || '');
+    const url = String(entry?.url || '');
+    if (!slice || !jobId || !LOCALES.includes(locale) || !previousSlug || !nextSlug || !url) {
+      throw new Error('each GSC allowlist entry requires slice, jobId, locale, previousSlug, nextSlug, and url');
+    }
+    const key = `${slice}\u0000${jobId}\u0000${locale}`;
+    if (bySlot.has(key)) throw new Error(`duplicate GSC allowlist slot: ${key}`);
+    bySlot.set(key, { slice, jobId, locale, previousSlug, nextSlug, url });
+  }
+  return bySlot;
+}
+
+function assertGscAllowlistIdentity(entry, change, job) {
+  if (
+    entry.slice !== change.slice
+    || entry.jobId !== change.jobId
+    || entry.locale !== change.locale
+    || entry.previousSlug !== change.previousSlug
+    || entry.nextSlug !== change.nextSlug
+  ) {
+    throw new Error(`GSC allowlist identity changed for ${change.slice}:${change.jobId}:${change.locale}`);
+  }
+  const servedPath = canonicalPathFromUrl(entry.url);
+  const expectedPaths = jobDetailPathsFor(change.locale, change.nextSlug, job);
+  if (!expectedPaths.includes(servedPath)) {
+    throw new Error(`GSC allowlist URL does not identify ${change.locale}:${change.nextSlug} for ${change.jobId}`);
+  }
+}
+
 async function main() {
   const options = parseOptions(process.argv.slice(2));
+  if (options.apply && options.ledger) {
+    throw new Error('--apply always uses the canonical served-URL ledger');
+  }
   if (options.ledger) {
     process.env.URL_FIRST_SEEN_PATH_OVERRIDE = path.resolve(options.ledger);
   }
   if (options.apply && options.slicesDir !== DEFAULT_SLICES_DIR) {
     throw new Error('--apply is restricted to the canonical data/jobs/by-crawler directory');
   }
-  if (options.apply && !options.approvedPlan) {
-    throw new Error('--apply requires --approved-plan from a reviewed dry run');
-  }
-
-  const approved = options.approvedPlan
-    ? stablePlan(readJson(path.resolve(options.approvedPlan)).changes || [])
-    : null;
-  const approvedBySlot = approved
-    ? new Map(approved.changes.map((entry) => [
-        `${entry.slice}\u0000${entry.jobId}\u0000${entry.locale}`,
-        entry,
-      ]))
-    : null;
+  const gscAllowlistBySlot = options.apply ? readCanonicalGscAllowlist() : null;
 
   const files = listSliceFileNames(options.slicesDir).sort();
   if (files.length === 0) {
@@ -126,8 +171,6 @@ async function main() {
     for (const job of jobs) {
       let jobChanged = false;
       for (const locale of LOCALES) {
-        const approvedEntry = approvedBySlot?.get(`${file}\u0000${job.id}\u0000${locale}`);
-        if (approvedBySlot && !approvedEntry) continue;
         const result = servedSlugSliceWriter(job, locale, {
           usedSlugs: usedSlugs.get(locale),
           candidateClaims: candidateClaims.get(locale),
@@ -149,8 +192,12 @@ async function main() {
           firstServedAt: result.firstServedAt,
           candidateOrigin: result.candidateOrigin,
         };
-        if (approvedEntry && JSON.stringify(change) !== JSON.stringify(approvedEntry)) {
-          throw new Error(`approved source evidence changed for ${file}:${job.id}:${locale}`);
+        if (gscAllowlistBySlot) {
+          const entry = gscAllowlistBySlot.get(`${file}\u0000${job.id}\u0000${locale}`);
+          if (!entry) {
+            throw new Error(`change is not in the canonical GSC allowlist: ${file}:${job.id}:${locale}`);
+          }
+          assertGscAllowlistIdentity(entry, change, job);
         }
         changes.push(change);
       }
@@ -160,15 +207,15 @@ async function main() {
   }
 
   const plan = stablePlan(changes);
-  if (approved && JSON.stringify(approved) !== JSON.stringify(plan)) {
-    throw new Error(`approved plan no longer resolves exactly (${plan.changes.length}/${approved.changes.length} entries)`);
+  if (gscAllowlistBySlot && plan.changes.length !== gscAllowlistBySlot.size) {
+    throw new Error(`GSC allowlist no longer resolves exactly (${plan.changes.length}/${gscAllowlistBySlot.size} entries)`);
   }
   if (options.planOut) writeJson(path.resolve(options.planOut), plan);
-  const countMatches = plan.changes.length === options.expectedCount;
+  const countMatches = plan.changes.length === GSC_ALLOWLIST_COUNT;
 
   if (options.apply) {
     if (!countMatches) {
-      throw new Error(`approved restoration count changed: expected ${options.expectedCount}, measured ${plan.changes.length}`);
+      throw new Error(`GSC restoration count changed: expected ${GSC_ALLOWLIST_COUNT}, measured ${plan.changes.length}`);
     }
     for (const [slicePath, sliceData] of changedSlices) writeJson(slicePath, sliceData);
   }
@@ -181,7 +228,7 @@ async function main() {
         ? 'dry-run-align-unserved'
         : 'dry-run-first-served',
     selected: plan.changes.length,
-    expected: options.expectedCount,
+    expected: GSC_ALLOWLIST_COUNT,
     countMatches,
     changedSlices: changedSlices.size,
     skipped: skippedSummary,
