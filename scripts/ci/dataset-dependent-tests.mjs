@@ -404,6 +404,17 @@ function analyzeFile(file) {
         if (spec) exports.set('*', { spec, star: true });
         continue;
       }
+      if (ts.isNamespaceExport(statement.exportClause)) {
+        if (spec) {
+          exports.set(statement.exportClause.name.text, {
+            spec,
+            imported: '*',
+            reexport: true,
+            namespace: true,
+          });
+        }
+        continue;
+      }
       if (!ts.isNamedExports(statement.exportClause)) continue;
       for (const element of statement.exportClause.elements) {
         if (element.isTypeOnly) continue;
@@ -612,6 +623,12 @@ function exportReadsDataset(file, name, stack = new Set(), state = { cyclic: fal
   }
   if (binding.reexport) {
     const target = resolveSpecifier(binding.spec, file);
+    if (binding.namespace) {
+      const result = target
+        ? dynamicModuleReadsDataset(target, nextStack)
+        : true;
+      return rememberDatasetEffect(key, result, state);
+    }
     const result = target
       ? exportReadsDataset(target, binding.imported, nextStack, state)
       : true;
@@ -677,16 +694,23 @@ function functionReadsDataset(file, name, stack = new Set(), state = { cyclic: f
   return rememberDatasetEffect(key, false, state);
 }
 
-function dynamicModuleReadsDataset(file) {
+function dynamicModuleReadsDataset(file, stack = new Set()) {
   if (moduleHasTopLevelDatasetRead(file)) return true;
+  const key = 'dynamic:' + file;
+  if (stack.has(key)) return false;
+  const nextStack = new Set(stack).add(key);
   const analysis = analyzeFile(file);
   // A dynamic import has no static binding for the test walker to follow. It
   // is nevertheless a real runtime edge: conservatively inspect the module's
   // exported functions so a test that imports `runRelocalization` dynamically
   // is not scheduled before the assembled jobs.json exists.
-  for (const name of analysis.exports.keys()) {
-    if (name === '*') continue;
-    if (exportReadsDataset(file, name)) return true;
+  for (const [name, binding] of analysis.exports) {
+    if (name === '*') {
+      const target = resolveSpecifier(binding.spec, file);
+      if (!target || dynamicModuleReadsDataset(target, nextStack)) return true;
+      continue;
+    }
+    if (exportReadsDataset(file, name, nextStack)) return true;
   }
   return false;
 }
