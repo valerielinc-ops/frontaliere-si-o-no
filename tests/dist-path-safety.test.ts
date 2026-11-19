@@ -398,7 +398,19 @@ describe('raw URL-to-dist writers apply the guard before filesystem joins', () =
     expect(RECENCY_SOURCE).toContain("flatOutcome === 'allow-write'");
     expect(RECENCY_SOURCE.indexOf('const ownsOutput')).toBeLessThan(RECENCY_SOURCE.indexOf('sitemapEntries.push('));
     expect(RECENCY_SOURCE).toContain('JSON.stringify(claimedByOtherWriterExamples)');
-    expect(SECTOR_SOURCE).toContain('hasClaimedOrReservedPath(safeTargets.indexPath)');
+    // Sector hubs own their URL family just like recency hubs: only alias
+    // redirects and retained bridges may suppress the page, otherwise a prior
+    // claim must not make the sitemap outrun the emitted page.
+    expect(SECTOR_SOURCE).toContain('isJobAliasRedirectPath(safeTargets.indexPath)');
+    expect(SECTOR_SOURCE).toContain('isRetainedJobBridgeOutputPath(safeTargets.indexPath)');
+    expect(SECTOR_SOURCE).not.toContain('hasClaimedOrReservedPath');
+    expect(SECTOR_SOURCE).toContain('declareSharedPath({');
+    expect(SECTOR_SOURCE).toContain('winner: JOB_SECTOR_WRITER');
+    expect(SECTOR_SOURCE).toContain("claim(safeTargets.indexPath, JOB_SECTOR_WRITER, html)");
+    expect(SECTOR_SOURCE).toContain("claim(safeTargets.flatPath, JOB_SECTOR_WRITER, html)");
+    expect(SECTOR_SOURCE).toContain("indexOutcome === 'allow-write'");
+    expect(SECTOR_SOURCE).toContain("flatOutcome === 'allow-write'");
+    expect(SECTOR_SOURCE.indexOf('const ownsOutput')).toBeLessThan(SECTOR_SOURCE.indexOf('sitemapEntries.push('));
     expect(PHARMACY_SOURCE).toContain('hasClaimedOrReservedPath(safeTargets.indexPath)');
     expect(JOBS_SOURCE).toContain('const pathWasClaimed = (filePath: string): boolean => hasClaimedPath(filePath);');
     expect(JOBS_SOURCE).toContain('const pathIsClaimedOrReserved = (filePath: string): boolean => hasClaimedOrReservedPath(filePath);');

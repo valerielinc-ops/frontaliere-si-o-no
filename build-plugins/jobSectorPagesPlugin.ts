@@ -79,7 +79,14 @@ import { buildSectorHubPagePath } from './shared/jobSectorPaths';
 import { SECTOR_HUB_EMOJI } from './shared/sectorHubEmoji';
 import { JOB_BOARD_NOINDEX_TARGET_MARKER } from './shared/jobBoardNoindexTargetMarker.mjs';
 import { getSafeDistPageTargets } from './shared/distPathSafety';
-import { hasClaimedOrReservedPath } from './sharedWriteRegistry';
+import {
+  claim,
+  declareSharedPath,
+  getLatestClaimVersion,
+  hashContent,
+  isJobAliasRedirectPath,
+  isRetainedJobBridgeOutputPath,
+} from './sharedWriteRegistry';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
 import {
   professionLandingsFlushed,
@@ -103,6 +110,27 @@ import {
 } from './shared/cantonSection';
 
 const LOCALES: ReadonlyArray<JobBoardLocale> = ['it', 'en', 'de', 'fr'];
+
+const JOB_SECTOR_WRITER = 'job-sector-pages';
+const escapeRegExp = (value: string): string => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+/**
+ * The TI sector hubs own their URL family and its sitemap. A prior claim from
+ * another writer must not make the sector page disappear while its sitemap
+ * still advertises the URL; the canonical writer is allowed to replace that
+ * claim just as the recency-hub writer is.
+ */
+declareSharedPath({
+  pattern: new RegExp(
+    `(?:${SECTOR_HUB_KEYS.flatMap((sector) => LOCALES.map((locale) =>
+      escapeRegExp(`${SECTOR_HUB_LOCALE_PREFIX[locale]}/${SECTOR_HUB_SECTION[locale]}/${SECTOR_HUB_SLUG[locale][sector]}`),
+    )).join('|')})(?:/page-\\d+)?(?:/index\\.html|\\.html)$`,
+  ),
+  winner: JOB_SECTOR_WRITER,
+  reason:
+    'job-sector-pages owns the Ticino sector hubs and lists them in sitemap-sector.xml. '
+    + 'Another writer claiming one of these outputs must not make the canonical page disappear from its sitemap.',
+});
 
 type ProfessionJourneyTarget = {
   professionKey: string;
@@ -1111,12 +1139,31 @@ export function jobSectorPagesPlugin(rootDir: string): Plugin {
             if (!safeTargets?.flatPath) {
               throw new Error(`[job-sector-pages] refusing unsafe sector page path ${canonicalPath}`);
             }
-            if (hasClaimedOrReservedPath(safeTargets.indexPath)
-              || hasClaimedOrReservedPath(safeTargets.flatPath)) continue;
-            ensureDir(safeTargets.directoryPath);
-            fs.writeFileSync(safeTargets.indexPath, html, 'utf-8');
-            ensureDir(np.dirname(safeTargets.flatPath));
-            fs.writeFileSync(safeTargets.flatPath, html, 'utf-8');
+            if (isJobAliasRedirectPath(safeTargets.indexPath)
+              || isJobAliasRedirectPath(safeTargets.flatPath)
+              || isRetainedJobBridgeOutputPath(safeTargets.indexPath)
+              || isRetainedJobBridgeOutputPath(safeTargets.flatPath)) continue;
+
+            const indexOutcome = claim(safeTargets.indexPath, JOB_SECTOR_WRITER, html);
+            const flatOutcome = claim(safeTargets.flatPath, JOB_SECTOR_WRITER, html);
+            if (indexOutcome === 'allow-write') {
+              ensureDir(safeTargets.directoryPath);
+              fs.writeFileSync(safeTargets.indexPath, html, 'utf-8');
+            }
+            if (flatOutcome === 'allow-write') {
+              ensureDir(np.dirname(safeTargets.flatPath));
+              fs.writeFileSync(safeTargets.flatPath, html, 'utf-8');
+            }
+
+            // Keep the sitemap in lockstep with the final registry owner. An
+            // identical claim is also safe: the existing bytes are the page
+            // we are about to advertise.
+            const htmlHash = hashContent(html);
+            const ownsOutput = (outputPath: string): boolean => {
+              const latest = getLatestClaimVersion(outputPath);
+              return latest?.plugin === JOB_SECTOR_WRITER || latest?.contentHash === htmlHash;
+            };
+            if (!ownsOutput(safeTargets.indexPath) || !ownsOutput(safeTargets.flatPath)) continue;
           }
         }
 
