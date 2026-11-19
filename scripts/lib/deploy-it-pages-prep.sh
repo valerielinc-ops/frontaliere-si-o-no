@@ -1716,12 +1716,21 @@ step_push_cdn() {
   # applied inside each branch below (fail-closed): r2 → R2_* creds, pages →
   # CDN_DEPLOY_KEY.
   local cdn_target="${CDN_TARGET:-pages}"
-  local stage="${CDN_STAGE_DIR:-${RUNNER_TEMP}/cdn-stage}"
   if [ -n "${DEPLOY_BUILD_ID:-}" ] && [ "$cdn_target" != "r2" ]; then
     unset CDN_PAGES_BUILD_ID
   fi
   local job_canon_affected_file="${RUNNER_TEMP}/job-canon-affected.txt"
   rm -f "${RUNNER_TEMP}/job-canon-publish.ok" "$job_canon_affected_file"
+  # A timed-out attempt can still run cleanup while its retry is staging.
+  # Give each runner invocation its own directory so that cleanup only
+  # removes the payload owned by that invocation.
+  local stage
+  if [ -n "${CDN_STAGE_DIR:-}" ]; then
+    stage="$CDN_STAGE_DIR"
+    rm -rf -- "$stage" && mkdir -p -- "$stage" || return 1
+  else
+    stage="$(mktemp -d "${RUNNER_TEMP}/cdn-stage.XXXXXXXX")" || return 1
+  fi
   # Same leaked-staging-dir class fixed for push-locale-shard.sh /
   # push-section-shard.sh (issue #4734): $stage holds up to ~950 MB
   # (og+data+assets+images) and is never read again after this function
@@ -1731,7 +1740,6 @@ step_push_cdn() {
   # rm -rf at each return.
   # shellcheck disable=SC2064
   trap "rm -rf '$stage'" RETURN
-  rm -rf "$stage" && mkdir -p "$stage"
   : > "$stage/.nojekyll"                              # serve every path verbatim, skip Jekyll
   printf 'cdn.frontaliereticino.ch' > "$stage/CNAME"  # keep custom domain (force-push would else wipe it)
   # Offloadable dirs: og cards, ALL runtime data JSON, the bundler assets

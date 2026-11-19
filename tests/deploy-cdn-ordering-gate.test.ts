@@ -2029,6 +2029,43 @@ describe('deploy-it-pages-prep.sh — DEPLOY_CDN_PUSH_ONLY runs the CDN push and
     }
   });
 
+  it('keeps retry assets intact when a previous attempt cleans up late', () => {
+    const workspace = mkdtempSync(join(tmpdir(), 'prep-cdn-late-cleanup-'));
+    try {
+      const shellSetup = join(workspace, 'stage-observer.sh');
+      const stageLog = join(workspace, 'stages.txt');
+      writeFileSync(shellSetup, [
+        'cp() {',
+        '  command cp "$@" || return',
+        '  if [ "$2" = dist/assets ]; then',
+        '    if [ -s "$TEST_STAGE_LOG" ]; then',
+        '      rm -rf -- "$(head -1 "$TEST_STAGE_LOG")"',
+        '    fi',
+        '    dirname "$3" >> "$TEST_STAGE_LOG"',
+        '    test -d "$3" || echo "retry assets removed by previous cleanup"',
+        '  fi',
+        '}',
+      ].join('\n'));
+      const env = {
+        DEPLOY_CDN_PUSH_ONLY: '1',
+        CDN_TARGET: 'pages',
+        BASH_ENV: shellSetup,
+        TEST_STAGE_LOG: stageLog,
+      };
+
+      runPrep(env, workspace);
+      const retry = runPrep(env, workspace);
+      const [firstStage, retryStage] = readFileSync(stageLog, 'utf8').trim().split('\n');
+      expect(retryStage).toBeTruthy();
+      expect(retryStage).not.toBe(firstStage);
+      expect(retry.stdout).not.toMatch(/retry assets removed by previous cleanup/);
+      expect(retry.stdout).toMatch(/no CDN_DEPLOY_KEY secret — skipping CDN push/);
+      expect(existsSync(retryStage)).toBe(false);
+    } finally {
+      rmSync(workspace, { recursive: true, force: true });
+    }
+  });
+
   it('NEGATIVE CASE — without CDN_BASE the full prep still performs the push itself', () => {
     // The pre-hoist behaviour must survive verbatim, so a failed early push
     // degrades to "pushed at the original position", never to "never pushed".
