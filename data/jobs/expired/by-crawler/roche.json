@@ -495,14 +495,13 @@
     },
     "slugByLocale": {
       "it": "principale-ingegnere-principale-principale-roche-basel",
-      "en": "principal-senior-principal-software-engineer-roche-ch",
+      "en": "principal-senior-principal-software-engineer-roche-ch-2ad66547",
       "de": "principal-senior-principal-software-ingenieur-roche-basel",
       "fr": "directeur-principal-ingenieur-principal-principal-en-logiciels-roche-basel"
     },
     "sector": "Farmaceutico",
     "expiredAt": "2026-11-11T21:19:55.988Z",
     "previousSlugs": [
-      "principal-senior-principal-software-engineer-roche-ch",
       "principal-senior-principal-software-ingegnere-roche-basel",
       "principal-senior-principal-software-ingenieur-roche-basel",
       "ingegnere-principale-di-affidabilita-del-sito-roche-basel",
@@ -511,12 +510,14 @@
       "ingenieur-principal-de-fiabilite-du-site-roche-basel",
       "principal-software-ingegnere-ii-roche-mississauga",
       "principal-software-engineer-ii-roche-ch",
-      "principal-software-ingenieur-ii-roche-mississauga"
+      "principal-software-ingenieur-ii-roche-mississauga",
+      "principal-senior-principal-software-engineer-roche-ch"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "principal-senior-principal-software-engineer-roche-ch",
-        "principal-senior-principal-software-ingegnere-roche-basel"
+        "principal-senior-principal-software-engineer-roche-ch-2ad66547",
+        "principal-senior-principal-software-ingegnere-roche-basel",
+        "principal-senior-principal-software-engineer-roche-ch"
       ],
       "de": [
         "principal-senior-principal-software-engineer-roche-ch"
@@ -524,6 +525,9 @@
       "fr": [
         "principal-senior-principal-software-engineer-roche-ch",
         "principal-senior-principal-software-ingenieur-roche-basel"
+      ],
+      "en": [
+        "principal-senior-principal-software-engineer-roche-ch-2ad66547"
       ]
     },
     "postalCode": "4001",
