@@ -459,6 +459,12 @@ const JOB_CANON_ALIAS_MAX_CONCURRENCY = 4;
 const JOB_CANON_ALIAS_FETCH_TIMEOUT_MS = 5_000;
 const JOB_DETAIL_RE =
   /^(?:\/(?:en|de|fr))?\/(?:cerca-lavoro|find-jobs|jobs-im|jobs-in|trouver-emploi|job-search|jobsuche|recherche-emploi)-[a-z-]+\/([^/]+)(?:\/(\d+))?\/?$/;
+const JOB_DETAIL_PREFIXES_BY_LOCALE = {
+  it: ['/cerca-lavoro-'],
+  en: ['/en/find-jobs-'],
+  de: ['/de/jobs-in-', '/de/jobs-im-'],
+  fr: ['/fr/trouver-emploi-'],
+};
 
 function isValidJobCanonBuildId(value) {
   return typeof value === 'string' && value.length > 0 && value.length <= 20
@@ -487,6 +493,11 @@ function jobCanonV2MapUrl(buildId, bucket) {
   return new URL(`/job-canon/releases/${buildId}/v2/${bucket}.json`, JOB_CANON_CDN_BASE).toString();
 }
 
+function isLocaleCanonicalJobDetail(path, locale) {
+  return JOB_DETAIL_RE.test(path)
+    && (JOB_DETAIL_PREFIXES_BY_LOCALE[locale] || []).some((prefix) => path.startsWith(prefix));
+}
+
 function jobCanonAliasTarget(aliasPath, locale) {
   if (typeof aliasPath !== 'string' || !['it', 'en', 'de', 'fr'].includes(locale)) return null;
   const trimmed = aliasPath.replace(/\/+$/, '');
@@ -495,7 +506,9 @@ function jobCanonAliasTarget(aliasPath, locale) {
     : trimmed.startsWith(`/${locale}/`);
   if (!trimmed || !inLocale || trimmed.includes('//') || trimmed.includes('?') || trimmed.includes('#')) return null;
   const normalized = normPath(`${trimmed}/`);
-  return localeOf(normalized) === locale ? normalized : null;
+  return localeOf(normalized) === locale && isLocaleCanonicalJobDetail(normalized, locale)
+    ? normalized
+    : null;
 }
 
 function jobCanonAliasCandidate(path) {
@@ -503,6 +516,7 @@ function jobCanonAliasCandidate(path) {
   const match = JOB_DETAIL_RE.exec(normalized);
   if (!match) return null;
   const locale = localeOf(normalized);
+  if (!isLocaleCanonicalJobDetail(normalized, locale)) return null;
   // This recovery is intentionally non-IT only. IT paths must remain audit
   // offenders even if a future map happens to contain an alias.it value.
   if (locale === 'it') return null;

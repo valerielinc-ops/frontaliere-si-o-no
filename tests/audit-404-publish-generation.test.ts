@@ -82,6 +82,7 @@ function loadHelpers(env: Record<string, string> = {}) {
     ${pick('lowerSegment')}
     ${pick('jobCanonV2ShardKey')}
     ${pick('jobCanonV2MapUrl')}
+    ${pick('isLocaleCanonicalJobDetail')}
     ${pick('jobCanonAliasTarget')}
     ${pick('jobCanonAliasCandidate')}
     ${pick('recoverJobCanonAliases')}
@@ -164,6 +165,34 @@ describe('job-canon v2 alias recovery — bounded and fail-closed', () => {
       remaining: [],
     });
     expect(recoverJobCanonAliases([source], new Set(), maps)).toEqual({
+      recovered: [],
+      remaining: [source],
+    });
+  });
+
+  it('keeps a cross-locale job-section prefix in the offender set', () => {
+    const { recoverJobCanonAliases, jobCanonV2ShardKey } = loadHelpers();
+    const source = '/en/jobs-im-tessin/old-slug';
+    const target = '/en/find-jobs-ticino/new-slug';
+    const slug = 'old-slug';
+    const bucket = jobCanonV2ShardKey(slug);
+    const maps = new Map([[bucket, { [slug]: { alias: { en: target } } }]]);
+
+    expect(recoverJobCanonAliases([source], new Set([target]), maps)).toEqual({
+      recovered: [],
+      remaining: [source],
+    });
+  });
+
+  it('keeps a served non-job target in the offender set', () => {
+    const { recoverJobCanonAliases, jobCanonV2ShardKey } = loadHelpers();
+    const source = '/en/find-jobs-ticino/old-slug';
+    const target = '/en/company/acme';
+    const slug = 'old-slug';
+    const bucket = jobCanonV2ShardKey(slug);
+    const maps = new Map([[bucket, { [slug]: { alias: { en: target } } }]]);
+
+    expect(recoverJobCanonAliases([source], new Set([target]), maps)).toEqual({
       recovered: [],
       remaining: [source],
     });
