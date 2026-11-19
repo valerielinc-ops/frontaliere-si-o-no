@@ -5,13 +5,13 @@ import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
 import { homedir, tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { pathToFileURL } from 'node:url';
 import {
   ASSISTED_APPLICATIONS_COLLECTION,
   ASSISTED_APPLICATION_ORDER_ID_RE,
 } from '../../functions/src/assistedApplicationConstants.js';
 import { FLOW_STATES } from '../../functions/src/assistedApplicationFlow.js';
 import { isCaptchaPortalHold } from '../../functions/src/assistedApplicationPortalRetryPolicy.js';
+import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 import { withSingleFlightLockAsync } from '../lib/single-flight-lock.mjs';
 
 const HOUR_MS = 3_600_000;
@@ -286,7 +286,7 @@ async function main() {
   }
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isInvokedDirectly(import.meta.url)) {
   main().catch(error => {
     // SDK/CLI errors can contain document paths or task payloads.
     console.error(error instanceof ReportError ? error.message : 'SLA report failed');

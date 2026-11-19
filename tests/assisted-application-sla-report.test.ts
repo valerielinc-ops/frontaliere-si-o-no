@@ -222,7 +222,7 @@ describe('assisted application SLA report I/O', () => {
     const gh = vi.fn();
     const options = parseArgs(['--record', '--notify', '--private-repo', repo], {});
     const tooMany = fixture(Array.from({ length: 2_001 }, () => baseLate));
-    await expect(runReport(options, { ...tooMany, gh })).rejects.toThrow('exceeds cap');
+    await expect(runReport(options, { ...tooMany, env: {}, gh })).rejects.toThrow('exceeds cap');
     expect(tooMany.pages).toEqual([...Array(10).fill(200), 1]);
     expect(tooMany.set).not.toHaveBeenCalled();
     expect(gh).not.toHaveBeenCalled();
