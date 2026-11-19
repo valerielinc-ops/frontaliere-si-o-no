@@ -232,6 +232,23 @@ describe('writeCompatPaths — shard write minimization', () => {
     expect(() => readCompatPathsStrict(rootDir)).toThrow(/duplicate path/);
   });
 
+  it('repairs an exact cross-shard duplicate when the canonical copy exists', () => {
+    writeCompatPaths({ paths: ['/duplicate/'] }, rootDir);
+    const sourceIndex = compatShardIndex('/duplicate/');
+    const targetIndex = (sourceIndex + 1) % COMPAT_SHARD_COUNT;
+    const targetFile = compatShardFile(targetIndex, rootDir);
+    const target = JSON.parse(fs.readFileSync(targetFile, 'utf8'));
+    target.paths.push('/duplicate/');
+    fs.writeFileSync(targetFile, JSON.stringify(target));
+
+    const repaired = readCompatPathsStrictWithManifestRepair(rootDir);
+
+    expect(repaired.data.paths).toEqual(['/duplicate/']);
+    expect(repaired.data.duplicatesRemoved).toBe(1);
+    expect(JSON.parse(fs.readFileSync(targetFile, 'utf8')).paths).not.toContain('/duplicate/');
+    expect(readCompatPathsStrict(rootDir).paths).toEqual(['/duplicate/']);
+  });
+
   it('refuses a path stored in the wrong shard', () => {
     writeCompatPaths({ paths: ['/wrong-shard/'] }, rootDir);
     const sourceIndex = compatShardIndex('/wrong-shard/');

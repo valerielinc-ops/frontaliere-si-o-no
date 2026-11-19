@@ -60,6 +60,7 @@ import {
   COMPAT_SHARD_COUNT,
   COMPAT_LEGACY_FILE,
   compatManifestFile,
+  normalizeCompatShardEntries,
 } from './compat-paths-store.mjs';
 import { shardFileName, SHARD_FILE_RE } from './shard-file-naming.mjs';
 import { filterCompatPaths } from './compat-path-safety.mjs';
@@ -246,31 +247,24 @@ function expectedMergedShardEntries(mergedFiles, shardConflicts) {
 }
 
 function validateShardEntries(entries) {
-  const seen = new Set();
-  const paths = [];
-  for (const { file, paths: shardPaths } of entries) {
+  const normalizedEntries = entries.map(({ file, paths: shardPaths }) => {
     const shardName = path.posix.basename(file);
     const shardIndex = Number(shardName.slice('part-'.length, -'.json'.length));
     if (!Number.isSafeInteger(shardIndex) || shardIndex < 0 || shardIndex >= COMPAT_SHARD_COUNT) {
       throw new Error(`[resolve-404-compat] invalid shard name ${file}`);
     }
-    for (const p of shardPaths) {
-      if (typeof p !== 'string') {
-        throw new Error(`[resolve-404-compat] ${file} contains a non-string path`);
-      }
-      if (seen.has(p)) {
-        throw new Error(`[resolve-404-compat] duplicate path ${p} across merged shards`);
-      }
-      if (compatShardIndex(p) !== shardIndex) {
-        throw new Error(
-          `[resolve-404-compat] ${file} contains path assigned to shard ${compatShardIndex(p)}: ${p}`,
-        );
-      }
-      seen.add(p);
-      paths.push(p);
-    }
-  }
-  return paths;
+    return { name: file, shardIndex, paths: shardPaths };
+  });
+
+  // An exact duplicate can survive in a historical checkout when a writer
+  // merged shard files without re-normalising the complete store. Preserve
+  // the same recovery rule as the repair readers: only the copy with the
+  // deterministic hash ownership is retained. A unique wrong-shard path still
+  // fails closed.
+  return normalizeCompatShardEntries(normalizedEntries, {
+    repairExactCrossShardDuplicates: true,
+    errorPrefix: '[resolve-404-compat]',
+  }).paths;
 }
 
 function readLegacyCandidate(mergedFiles) {

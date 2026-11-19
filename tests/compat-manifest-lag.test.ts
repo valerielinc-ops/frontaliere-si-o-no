@@ -132,17 +132,35 @@ describe('readCompatPathsStrict — manifest total versus validated shards', () 
     expect(fs.readFileSync(compatManifestFile(rootDir), 'utf8')).toBe(manifestBefore);
   });
 
-  it('rejects a path duplicated across shards in the strict reader and both repair APIs', () => {
-    const [duplicate] = seedStore(rootDir, 12);
+  it('keeps strict reads fail-closed while repair readers heal an exact canonical duplicate', () => {
+    const paths = seedStore(rootDir, 12);
+    const [duplicate] = paths;
     const targetIndex = (compatShardIndex(duplicate) + 1) % COMPAT_SHARD_COUNT;
     const targetPath = compatShardFile(targetIndex, rootDir);
     const target = JSON.parse(fs.readFileSync(targetPath, 'utf8'));
     target.paths.push(duplicate);
     fs.writeFileSync(targetPath, JSON.stringify(target));
-    const manifestBefore = fs.readFileSync(compatManifestFile(rootDir), 'utf8');
 
-    expectStrictAndRepairReadersToReject(rootDir, /duplicate path/);
-    expect(fs.readFileSync(compatManifestFile(rootDir), 'utf8')).toBe(manifestBefore);
+    expect(() => readCompatPathsStrict(rootDir)).toThrow(/duplicate path/);
+    expect(repairCompatManifest(rootDir)).toMatchObject({
+      changed: false,
+      totalPaths: paths.length,
+    });
+    expect(readCompatPathsStrict(rootDir).paths).toHaveLength(paths.length);
+
+    const repairedTarget = JSON.parse(fs.readFileSync(targetPath, 'utf8'));
+    repairedTarget.paths.push(duplicate);
+    fs.writeFileSync(targetPath, JSON.stringify(repairedTarget));
+    setManifestTotal(rootDir, 2);
+
+    const prepared = readCompatPathsStrictWithManifestRepair(rootDir);
+    expect(prepared).toMatchObject({
+      changed: true,
+      previousTotalPaths: 2,
+      totalPaths: paths.length,
+    });
+    expect(JSON.parse(fs.readFileSync(targetPath, 'utf8')).paths).not.toContain(duplicate);
+    expect(readCompatPathsStrict(rootDir).paths).toHaveLength(paths.length);
   });
 
   it('rejects a path in the wrong shard in the strict reader and both repair APIs', () => {
