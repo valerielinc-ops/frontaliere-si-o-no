@@ -96,12 +96,16 @@ export const DOMAIN_OVERRIDES = {
   'mcm-group': ['mcm-group.ch'],
   christinavassalli: ['christinavassalli.ch'],
   clariant: ['clariant.com'],
+  // The official brand site identifies collardi as a Bellini Personal AG brand.
+  collardi: ['collardi.ch'],
   neoproconseils: ['neoproconseils.ch'],
   '1a-hunkeler': ['1a-hunkeler.ch'],
   anicura: ['anicura.ch'],
   apply: ['leitpuls.ch'],
   artificialy: ['artificialy.com'],
   'atec-personal': ['atec-personal.ch'],
+  // The official company page identifies the audited legal entity and UID.
+  'avec-competence-gmbh': ['avecco.ch'],
   'buersten-technik': ['buersten-technik.ch'],
   elprom: ['elprom.ch'],
   'farmacia-internazionale-dr-merloni': ['internationalpharmacy.swiss'],
@@ -110,7 +114,12 @@ export const DOMAIN_OVERRIDES = {
   // Recurrence measured on 2026-10-18. Keep these domains explicit: audit
   // mode must never turn a company key or an ATS URL into a logo source.
   'opus-personal': ['opus-personal.ch'],
+  // The official Accès Personnel site identifies the Swiss staffing company.
+  'acces-personnel-sa': ['acces-personnel.ch'],
+  // The official AGAT site lists both audited branches at Sion and Martigny.
   agat: ['agat-job.com'],
+  'agat-martigny': ['agat-job.com'],
+  'agat-sion-gare': ['agat-job.com'],
   'elite-interim': ['eliteinterim.ch'],
   physioswiss: ['physioswiss.ch'],
   'rehaklinik-seewis': ['vitrea-gesundheit.ch'],
@@ -134,6 +143,8 @@ export const DOMAIN_OVERRIDES = {
   // so the acquisition source must be switch.ch rather than the ATS host.
   'recruitingapp-2563': ['switch.ch'],
   'proman-fleurier': ['proman-group.ch'],
+  // The official imprint identifies United Machining SA at machining.com.
+  'united-machining': ['machining.com'],
   switch: ['switch.ch'],
   wokin: ['wokin.ch'],
   // Keep both the canonical and legacy keys source-backed while the audit
