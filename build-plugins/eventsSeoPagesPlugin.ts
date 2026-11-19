@@ -206,8 +206,16 @@ function isEphemeralEvent(event: SiteEvent): boolean {
   return event.ephemeral === true;
 }
 
+type EventImageAsset = {
+  assetId: string;
+  imageUrl: string;
+  scope: string;
+  license: string;
+  [key: string]: unknown;
+};
+
 type EventImageRegistry = {
-  assets: SiteEvent[];
+  assets: EventImageAsset[];
   legacyVision?: {
     schema: number;
     scope?: string;
