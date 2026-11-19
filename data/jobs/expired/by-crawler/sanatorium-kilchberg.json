@@ -845,21 +845,29 @@
     "slugByLocale": {
       "it": "cuciniere-sanatorium-kilchberg-kilchberg",
       "en": "chef-sanatorium-kilchberg-kilchberg",
-      "de": "koch-kochin-sanatorium-kilchberg-kilchberg",
+      "de": "koch-kochin-sanatorium-kilchberg-kilchberg-26f441cf",
       "fr": "cuisinier-sanatorium-kilchberg-kilchberg"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-09-26T23:39:46.082Z",
     "previousSlugs": [
-      "koch-kochin-sanatorium-kilchberg-kilchberg",
-      "koch-kochin-sanatorium-kilchberg"
+      "koch-kochin-sanatorium-kilchberg",
+      "koch-kochin-sanatorium-kilchberg-kilchberg"
     ],
     "previousSlugsByLocale": {
       "it": [
+        "koch-kochin-sanatorium-kilchberg-kilchberg-26f441cf",
         "koch-kochin-sanatorium-kilchberg-kilchberg"
       ],
       "en": [
-        "koch-kochin-sanatorium-kilchberg"
+        "koch-kochin-sanatorium-kilchberg",
+        "koch-kochin-sanatorium-kilchberg-kilchberg"
+      ],
+      "de": [
+        "koch-kochin-sanatorium-kilchberg-kilchberg-26f441cf"
+      ],
+      "fr": [
+        "koch-kochin-sanatorium-kilchberg-kilchberg"
       ]
     },
     "postalCode": "8802",
