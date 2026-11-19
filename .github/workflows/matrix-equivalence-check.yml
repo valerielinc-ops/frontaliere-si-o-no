@@ -107,6 +107,7 @@ jobs:
         working-directory: build
         env:
           JOBS_SKIP_URL_VALIDATION: '1'
+          NODE_OPTIONS: --max-old-space-size=12288
         run: |
           set -eo pipefail
           test -f scripts/assemble-jobs-dataset.mjs
