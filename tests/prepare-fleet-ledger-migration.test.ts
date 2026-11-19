@@ -16,6 +16,7 @@ const observations = 'loop-observations.jsonl';
 const decisions = 'loop-decisions-run-1.jsonl';
 const indexName = 'ledger-record-index.jsonl';
 const manifestName = 'ledger-record-index-manifest.jsonl';
+const untouched = Buffer.from([0, 0xff, 0x0a, 0x0d, 0x80]);
 const ref = 'refs/remotes/origin/ledger/loop-fleet';
 const roots: string[] = [];
 const fixtureDate = '@' + (Math.floor(Date.now() / 1000) - 86400) + ' +0530';
@@ -69,7 +70,8 @@ function fixture(delta: 'safe' | 'economic' | 'remove' | 'symlink' | 'modify' | 
     entries.push(indexEntry(oldDecision, decisions));
   }
   writeIndex(entries);
-  fs.writeFileSync(path.join(repo, 'outside.txt'), 'keep this path\n');
+  fs.writeFileSync(path.join(repo, 'outside.txt'), untouched);
+  fs.writeFileSync(path.join(repo, ledger, 'untouched.bin'), untouched, { mode: 0o700 });
   const makeCommit = (parent?: string) => {
     git(repo, ['add', '-A']);
     const tree = git(repo, ['write-tree']);
@@ -96,10 +98,10 @@ function fixture(delta: 'safe' | 'economic' | 'remove' | 'symlink' | 'modify' | 
   const expected = makeCommit(archive);
   git(repo, ['update-ref', ref, expected]);
   git(repo, ['checkout', '--quiet', '--detach', expected]);
-  const run = (pin = expected, extra: string[] = [], staging = output) => spawnSync(process.execPath, [
+  const run = (pin = expected, extra: string[] = [], staging = output, runEnv = process.env) => spawnSync(process.execPath, [
     script, '--repo', repo, '--archive-sha', archive, '--expected-sha', pin,
     '--inventory', inventoryFile, '--output', staging, ...extra,
-  ], { encoding: 'utf8' });
+  ], { encoding: 'utf8', env: runEnv });
   return { repo, output, inventoryFile, archive, expected, original, manifest, decision, inventory, saveInventory, run };
 }
 
@@ -107,11 +109,13 @@ afterEach(() => {
   for (const root of roots.splice(0)) fs.rmSync(root, { recursive: true, force: true });
 });
 
-it('creates a single isolated candidate preserving the rest of the pinned tree', () => {
+it('materializes raw ledger blobs even when tar fails, preserving the rest of the pinned tree', () => {
   const f = fixture();
   const refs = git(f.repo, ['show-ref']);
   const sourceIndex = fs.readFileSync(path.join(f.repo, '.git/index'));
-  const result = f.run();
+  const trapDir = fs.mkdtempSync(path.join(path.dirname(f.output), 'trap-'));
+  fs.writeFileSync(path.join(trapDir, 'tar'), '#!/bin/sh\nexit 99\n', { mode: 0o700 });
+  const result = f.run(f.expected, [], f.output, { ...process.env, PATH: trapDir + path.delimiter + env.PATH });
   expect(result.stderr).toBe('');
   expect(result.status).toBe(0);
   expect(result.stdout).toBe('OK files=1 records=1 indexEntries=2\n');
@@ -131,16 +135,23 @@ it('creates a single isolated candidate preserving the rest of the pinned tree',
   expect(git(candidate, ['diff', '--name-status', f.expected, receipt.candidateSha]).split('\n')).toEqual([
     'D\t' + ledger + '/' + manifestName, 'M\t' + ledger + '/' + indexName, 'M\t' + ledger + '/' + observations,
   ]);
-  expect(git(candidate, ['show', receipt.candidateSha + ':outside.txt'])).toBe('keep this path');
+  for (const file of ['outside.txt', ledger + '/untouched.bin', ledger + '/' + decisions]) {
+    const readBlob = (repo: string, sha: string) =>
+      execFileSync('git', ['-C', repo, 'cat-file', 'blob', sha + ':' + file], { env });
+    expect(readBlob(candidate, receipt.candidateSha)).toEqual(readBlob(f.repo, f.expected));
+  }
   expect(fs.existsSync(path.join(candidate, 'outside.txt'))).toBe(false);
 
   const materialized = path.join(candidate, ledger);
+  expect(fs.readFileSync(path.join(materialized, 'untouched.bin'))).toEqual(untouched);
+  expect(fs.statSync(path.join(materialized, 'untouched.bin')).mode & 0o777).toBe(0o700);
+  expect(fs.statSync(path.join(materialized, decisions)).mode & 0o777).toBe(0o600);
   const record = JSON.parse(fs.readFileSync(path.join(materialized, observations), 'utf8'));
   expect(record.sourceSnapshot).toEqual({ history: { adsense: { impressions: 123 } }, economicFieldsRemoved: true });
   const { index, trackedFileOids } = loadLedgerIndexForWriter(materialized);
   expect(index.entries.map((entry: { digest: string }) => entry.digest))
     .toEqual([digestDocument(record), digestDocument(f.decision)]);
-  expect(trackedFileOids?.size).toBe(2);
+  expect([...trackedFileOids?.keys() ?? []].sort()).toEqual([decisions, observations, 'untouched.bin']);
   expect(git(f.repo, ['show-ref'])).toBe(refs);
   expect(fs.readFileSync(path.join(f.repo, '.git/index'))).toEqual(sourceIndex);
   expect(git(f.repo, ['status', '--porcelain', '--untracked-files=all'])).toBe('');
