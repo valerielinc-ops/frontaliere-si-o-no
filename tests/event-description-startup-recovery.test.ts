@@ -153,7 +153,8 @@ describe('bounded event-description startup recovery', () => {
     const loadRecoveryToken = steps.find((step: any) => step.name === 'Load recovery API token from Remote Config');
     expect(loadRecoveryToken?.run).toContain('node scripts/load-rc-env.mjs --only-env=GITHUB_PAT');
     const recovery = steps.at(-1).with.script;
-    expect(recovery).toContain("getOctokit(recoveryToken)");
+    expect(recovery).toContain("const { getOctokit: createOctokit } = require('@actions/github');");
+    expect(recovery).toContain('createOctokit(recoveryToken)');
     expect(recovery).toContain('process.env.GITHUB_PAT');
     expect(recovery).toContain('recoveryGithub.rest.actions.listJobsForWorkflowRunAttempt');
     expect(recovery).toContain('recoveryGithub.rest.actions.reRunWorkflow');
@@ -162,5 +163,14 @@ describe('bounded event-description startup recovery', () => {
     expect(recovery).toContain('listRecentEventDescriptionRuns');
     expect(recovery).toContain('shouldRetryEventDescriptionRun');
     expect(recovery).toContain('reRunWorkflow');
+  });
+
+  it('compiles with github-script v9 getOctokit injection without shadowing it', () => {
+    const workflow = parse(fs.readFileSync(RECOVERY_WORKFLOW_PATH, 'utf8')) as any;
+    const recovery = workflow.jobs.retry.steps.at(-1).with.script;
+    const AsyncFunction = Object.getPrototypeOf(async function () {}).constructor;
+
+    expect(recovery).not.toMatch(/const\s+\{\s*getOctokit\s*\}\s*=/);
+    expect(() => new AsyncFunction('getOctokit', recovery)).not.toThrow();
   });
 });
