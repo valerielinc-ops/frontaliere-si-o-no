@@ -238,6 +238,7 @@ import { resolveJobCanton } from '@/build-plugins/shared/cantonSection';
 import { isKnownCityHub } from '@/build-plugins/cityJobsHub';
 import { normalizeCitySlug } from '@/build-plugins/shared/cantonCities';
 import { firstPageIndexFileName } from '@/build-plugins/shared/slimJobIndex';
+import { TI_HUB_LATEST_JOBS_LIMIT } from '@/build-plugins/shared/tiHubLatestJobs';
 import { buildJobTitleWithLocation, buildTitleWithBrand } from '@/build-plugins/shared/titleSuffix';
 import { buildJobPostingFacts, buildJobPostingSchema, type JobInput } from '@/build-plugins/shared/jobPostingSchema';
 import { isFullyRemoteListing } from '@/scripts/lib/jobposting-field-provenance.mjs';
@@ -3569,8 +3570,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }, []);
  // Counter incremented on page/search changes to force ad slot remount
  const [adRefreshKey, setAdRefreshKey] = useState(0);
- // Mobile load-more: accumulate jobs instead of paginating
- const [mobileJobLimit, setMobileJobLimit] = useState(10);
  const currentJobBoardResumeRouteSlug = useMemo(() => {
   if (!initialJobSlug || isSeededExpiredDetail || readBridgeTargetSlug()) return null;
   return parseLocationSlugFilter(initialJobSlug) ? initialJobSlug : null;
@@ -6330,10 +6329,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }, [deferJobBoardCatalogUntilInteraction, fullLoadPending, jobBoardInteractionObserved, jobs.length, jobsLoading, onInitialContentReady, resultsResolving]);
 
  // The canonical unfiltered TI/aggregate listing has a deterministic first
- // viewport: its first-page asset is `pageSize` cards. Reserve that footprint
- // while the asset is pending so the cards and in-feed ad slots do not arrive
- // into an empty rail. Once the first response settles, use the known count so
- // a short/empty result does not get a full-page reserve and then collapse.
+ // viewport: its static fallback emits the shared latest-jobs limit. Reserve
+ // that same footprint while the asset is pending so the cards and in-feed ad
+ // slots do not arrive into an empty rail. Once the first response settles,
+ // use the known count so a short/empty result does not get a full-page reserve
+ // and then collapse.
  // Filtered, editorial, and other canton views keep their existing loader
  // footprint because their first response is not the canonical first page.
  const isUnfilteredListing = activeFilterCount === 0
@@ -6344,13 +6344,17 @@ const JobBoard: React.FC<JobBoardProps> = ({
   && !editorialLandingDescriptor
   && !clusterSeedApplies;
  const isCanonicalFirstPageListing = isUnfilteredListing
-  && (initialFilterCanton === null
-   || initialFilterCanton === 'TI'
-   || initialFilterCanton === AGGREGATE_CANTON_CODE);
+ && (initialFilterCanton === null
+  || initialFilterCanton === 'TI'
+  || initialFilterCanton === AGGREGATE_CANTON_CODE);
+ const firstPageCardCount = isCanonicalFirstPageListing ? TI_HUB_LATEST_JOBS_LIMIT : pageSize;
+ // Mobile load-more accumulates jobs instead of paginating. The canonical
+ // static handoff starts with the same card count as its external snapshot.
+ const [mobileJobLimit, setMobileJobLimit] = useState(firstPageCardCount);
  const loadingCardCount = isUnfilteredListing
   ? isCanonicalFirstPageListing && jobsLoading && filteredJobs.length === 0
-   ? pageSize
-   : Math.min(pageSize, filteredJobs.length)
+   ? firstPageCardCount
+   : Math.min(firstPageCardCount, filteredJobs.length)
   : 6;
 
  // True when the result set is the in-canton OR-fallback (Tier 2). Keeps
@@ -6704,9 +6708,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  setAdRefreshKey((k) => k + 1);
  if (skipPageReset.current) { skipPageReset.current = false; return; }
  setPage(1);
- setMobileJobLimit(10);
+ setMobileJobLimit(firstPageCardCount);
  syncQueryParamsToUrl({ page: null });
- }, [deferredSearchQuery, selectedCategory, selectedContract, selectedCompany, selectedDateRange, showNewOnly, showSinceLastVisitOnly, showSavedOnly]);
+ }, [deferredSearchQuery, firstPageCardCount, selectedCategory, selectedContract, selectedCompany, selectedDateRange, showNewOnly, showSinceLastVisitOnly, showSavedOnly]);
 
  // Sync search query to URL (?q=) and track in GA4
  useEffect(() => {

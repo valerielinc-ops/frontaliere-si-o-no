@@ -5859,7 +5859,7 @@ ${staticAnalyticsHtml}
      ? filterFastLaneHubInventory(cantonInventory, visibleIds)
      : cantonInventory)
      .sort((a, b) => _jobRecency(b) - _jobRecency(a))
-     .slice(0, 12);
+     .slice(0, TI_HUB_LATEST_JOBS_LIMIT);
     const linkable = latest
      .map((job) => ({ job, href: activeCanonicalJobHref(job, locale) }))
      .filter((item): item is { job: any; href: string } => item.href !== null);
@@ -12758,7 +12758,7 @@ ${staticAnalyticsHtml}
      const cantonJobsAll = selectJobBoardInventory(validJobs, entry.key);
      const cantonJobs = [...cantonJobsAll]
        .sort((a, b) => _jobRecency(b) - _jobRecency(a))
-       .slice(0, 12);
+       .slice(0, TI_HUB_LATEST_JOBS_LIMIT);
      const realDataJobPool = cantonJobsAll;
      const collectionListJobs = cantonJobs;
      const collectionListTotal = cantonCount;
@@ -12825,8 +12825,8 @@ ${staticAnalyticsHtml}
          : '') +
        `</section>`;
 
-     // Listing grid: 12 most recent canton jobs. Each card uses the shared
-     // `renderJobCardHtml` helper so the static-HTML cards match the SPA
+     // Listing grid: the shared latest-job limit of recent canton jobs. Each
+     // card uses `renderJobCardHtml` so the static-HTML cards match the SPA
      // `<JobCard>` pixel-for-pixel (logo + title + salary + contract chip
      // + relative posted date + "Nuovo" badge). Previously the canton-
      // index emit used a thin custom <article> (title + company + city
