@@ -669,23 +669,7 @@ function writeResult(reportDir, { verdict, issued, actionsWritten, outcome }) {
   return file;
 }
 
-function issueBody(verdict, decision) {
-  const commercial = verdict.snapshot?.commercial || {};
-  return [
-    'L8 non può dichiarare contributo economico netto senza una snapshot fresca e un export commerciale autorizzato riconciliato.',
-    '',
-    `- Source history: ${verdict.sourcePath}`,
-    `- Commercial applicability: ${commercial.applicability || 'applicable'}`,
-    `- Commercial export: ${commercial.path || 'missing'}`,
-    `- Quality: ${verdict.quality}`,
-    `- Reason: ${verdict.reason}`,
-    `- Decision: ${decision.decision} / ${decision.actionClass}`,
-    '',
-    'Stati distinti: click, pending, approved e reversed non vengono sommati. Nessuna modifica a Auto Ads, partner, prezzi, pubblicazione o destinatari; le correzioni restano candidate a issue/PR revisionabile.',
-    '',
-    'Comando di verifica: `node scripts/ci/loop-l8-revenue-attribution.mjs --json --dry-run`',
-  ].join('\n');
-}
+const PUBLIC_FINDING = 'L8 ha rilevato un problema nella riconciliazione economica. Valori e diagnostica sono disponibili solo sul runner.';
 
 export async function runL8({
   now = new Date(),
@@ -833,12 +817,12 @@ export async function runL8({
   if (issue && !verdict.ok) {
     await createIssueImpl({
       title: ISSUE_TITLE,
-      description: issueBody(verdict, decision),
+      description: PUBLIC_FINDING,
       priority: 2,
       labels: ['monitoring', 'revenue', 'loop-l8'],
       workflow: ISSUE_WORKFLOW,
       loopId: LOOP_ID,
-      reason: verdict.reason,
+      reason: PUBLIC_FINDING,
       loopTitles: [ISSUE_TITLE],
     });
     issued = true;

@@ -21,6 +21,7 @@ on:
       - 'scripts/ci/loop-fleet-ledger-audit.mjs'
       - 'scripts/ci/loop-fleet-ledger-reconcile.mjs'
       - 'scripts/ci/overlay-durable-loop-fleet-ledger.sh'
+      - 'scripts/lib/l9-artifact-privacy.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/loop-fleet-ledger-files.mjs'
       - '.github/workflows/loop-fleet-ledger-audit.yml'
@@ -54,6 +55,7 @@ jobs:
             /scripts/ci/lib/run-listing-window.mjs
             /scripts/lib/canonical-json-digest.mjs
             /scripts/lib/loop-fleet-contract.mjs
+            /scripts/lib/l9-artifact-privacy.mjs
             /scripts/lib/loop-fleet-ledger-files.mjs
             /.github/workflows/
           sparse-checkout-cone-mode: false

@@ -297,6 +297,33 @@ describe('L8 Revenue & Attribution', () => {
       .toMatchObject({ loopId: 'L8', safeToAct: false, autoAdsUntouched: true, externalCommercialStateUntouched: true });
   });
 
+  it('keeps commercial amounts and source diagnostics in the local finding only', async () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l8-private-'));
+    const amount = 987654;
+    const diagnostic = 'SYNTHETIC_PRIVATE_BUCKET';
+    try {
+      const historyPath = writeHistory(dir, [historyRow({ gsc: { ctrByBucket: { [diagnostic]: 101 } } })]);
+      const source = affiliate();
+      source.transactions[0].amount = amount;
+      const affiliatePath = writeJson(dir, 'commercial.json', source);
+      const issues: unknown[] = [];
+      const result = await runL8({
+        now: NOW, historyPath, affiliatePath, reportDir: dir, issue: true,
+        createIssueImpl: async (payload) => { issues.push(payload); },
+        logger: { log() {} },
+      });
+      expect(result.issued).toBe(true);
+      expect(issues).toHaveLength(1);
+      expect(JSON.stringify(issues)).not.toContain(diagnostic);
+      expect(JSON.stringify(issues)).not.toContain(String(amount));
+      const local = fs.readFileSync(path.join(dir, 'l8-report.md'), 'utf8');
+      expect(local).toContain(diagnostic);
+      expect(local).toContain(String(amount));
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
   it('does not persist a result when issue creation fails', async () => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l8-test-'));
     const historyPath = writeHistory(dir);

@@ -1,13 +1,19 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import {
   l9FindingKind,
+  main,
   runL9,
   validateEmployerActivation,
   validateEmployerProfiles,
 } from '../scripts/ci/loop-l9-employer-activation.mjs';
+
+import { validateFleetControl } from '../scripts/ci/loop-l10-fleet-control.mjs';
+import { recordLoopEvidence } from '../scripts/ci/record-loop-fleet-evidence.mjs';
+import { mergeLoopFleetLedger } from '../scripts/ci/merge-loop-fleet-ledger.mjs';
+import { missingEvidenceRecordIds } from '../scripts/ci/loop-fleet-ledger-reconcile.mjs';
 
 const NOW = new Date('2026-09-12T12:00:00.000Z');
 
@@ -88,7 +94,7 @@ describe('L9 Employer Supply → Paid Activation', () => {
     expect(verdict).toMatchObject({ ok: true, quality: 'observed' });
     expect(verdict.snapshot).toMatchObject({
       profiles: { profileCount: 1, validProfileCount: 1 },
-      outcomes: { eligibleEmployerAccounts: 100, paidActivations: 10, mrrRecognizedChf: 1200 },
+      outcomes: { eligibleEmployerAccounts: 100, paidActivations: 10 },
     });
   });
 
@@ -141,6 +147,19 @@ describe('L9 Employer Supply → Paid Activation', () => {
     expect(verdict.quality).toBe('partial');
     expect(verdict.observation).toBeUndefined();
     expect(verdict.issues.join(' ')).toContain('outcomes.checkoutStartAccounts exceeds outcomes.leadAccounts');
+  });
+
+  it('rejects paid activations beyond the eligible cohort when anonymous stages are excluded', () => {
+    const verdict = validateEmployerActivation({
+      profiles: profiles(),
+      outcomes: outcomes({
+        checkoutStartAccounts: 102,
+        paidActivations: 101,
+        export: { ...outcomes().export, anonymousFunnelExcluded: true, anonymousFunnelReason: 'fixture' },
+      }),
+    }, { now: NOW });
+    expect(verdict.quality).toBe('partial');
+    expect(verdict.issues).toContain('outcomes.paidActivations exceeds outcomes.eligibleEmployerAccounts');
   });
 
   it('rejects a paid ledger without an attested profile scope', () => {
@@ -226,6 +245,129 @@ describe('L9 Employer Supply → Paid Activation', () => {
       expect(verdict.issues.join(' ')).toMatch(/employer profiles are [\d.]+h old \(max 240h\)/);
       expect(verdict.issues.join(' ')).not.toMatch(/apart/);
     });
+  });
+
+  it('publishes count evidence through the fleet bridge and rejects a historical economic artifact', async () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l9-public-evidence-'));
+    const reportDir = path.join(dir, 'artifact');
+    const ledgerDir = path.join(dir, 'ledger');
+    const sha = 'a'.repeat(40);
+    const privateAmount = 987654.321;
+    const rawField = 'SYNTHETIC_PRIVATE_PAYLOAD';
+    const generatedAt = new Date(Date.now() - 3_600_000).toISOString();
+    const profilesInput = profiles();
+    profilesInput._meta.generatedAt = generatedAt;
+    const profilesPath = writeJson(dir, 'profiles.json', profilesInput);
+    const outcomePath = writeJson(dir, 'outcomes.json', outcomes({
+      generatedAt,
+      mrrRecognizedChf: privateAmount,
+      inventoryScope: { ...outcomes().inventoryScope, profileGeneratedAt: generatedAt, profileSource: profilesPath, cohortKey: rawField },
+      export: { ...outcomes().export, extra: { rawField }, accountIdentity: rawField },
+    }));
+    const cli: string[] = [];
+    vi.stubEnv('GITHUB_SHA', sha);
+    vi.stubEnv('GITHUB_RUN_ID', '123456');
+    vi.stubEnv('GITHUB_RUN_ATTEMPT', '1');
+    vi.stubEnv('LOOP_FLEET_QUOTA_UNITS', '0');
+    vi.stubEnv('LOOP_FLEET_COLLISIONS', '0');
+    vi.stubEnv('LOOP_FLEET_GATE_BYPASS', 'false');
+    vi.stubEnv('LOOP_FLEET_VALIDATOR_OUTCOME', undefined);
+    vi.stubEnv('LOOP_FLEET_LEDGER_DIR', undefined);
+    try {
+      await main({
+        argv: ['--json', '--profiles', profilesPath, '--outcomes', outcomePath, '--report-dir', reportDir],
+        logger: { log: (value: string) => cli.push(value) } as Console,
+      });
+      expect(JSON.parse(cli[0]).observation).toMatchObject({ numerator: 10, denominator: 100 });
+      const evidence = recordLoopEvidence({ loopId: 'L9', reportDir, now: new Date() });
+      expect(evidence.summary).toMatchObject({
+        evidenceComplete: true,
+        policyCompliant: true,
+        outcome: { numerator: 10, denominator: 100 },
+      });
+      expect(evidence.health).toMatchObject({ loopId: 'L9', recordType: 'health', operationalMetricsComplete: true });
+      const registry = JSON.parse(fs.readFileSync('data/loop-fleet/loop-registry.json', 'utf8'));
+      const fleet = validateFleetControl({ registry, quota: null, health: { records: [evidence.health] } });
+      expect(fleet.snapshot.health).toMatchObject({ validRowCount: 1, verifiedDecisions: 1 });
+      for (const output of [...cli, ...fs.readdirSync(reportDir).map((name) => fs.readFileSync(path.join(reportDir, name), 'utf8'))]) {
+        expect(output).not.toContain(String(privateAmount));
+        expect(output).not.toContain(rawField);
+        expect(output).not.toMatch(/mrr/iu);
+      }
+
+      const source = { loopId: 'L9', runId: '123456', sha };
+      const merge = () => mergeLoopFleetLedger({ ...source, inputDir: reportDir, ledgerDir });
+      expect(merge().inputRecords).toMatchObject({ observation: 1, decision: 1, health: 1 });
+      expect(missingEvidenceRecordIds(reportDir, ledgerDir, source)).toMatchObject({ ok: true, missing: [] });
+
+      fs.writeFileSync(path.join(reportDir, 'l9-report.md'), `> - **Ｒecognized MRR CHF**: ${privateAmount}\n`);
+      expect(() => merge()).toThrow(/^l9-private-economic-evidence$/u);
+      expect(missingEvidenceRecordIds(reportDir, ledgerDir, source)).toEqual({
+        ok: false, reason: 'l9-private-economic-evidence', missing: [],
+      });
+      fs.unlinkSync(path.join(reportDir, 'l9-report.md'));
+
+      const logPath = path.join(reportDir, 'cli-output.log');
+      fs.writeFileSync(logPath, 'Recognized MRR CHF status: unavailable\n');
+      expect(merge().inputRecords).toMatchObject({ observation: 1, decision: 1, health: 1 });
+      expect(missingEvidenceRecordIds(reportDir, ledgerDir, source)).toMatchObject({ ok: true, missing: [] });
+
+      for (const log of [
+        `Recognized MRR CHF: ${privateAmount}\n`,
+        JSON.stringify({ recognizedMrrChf: privateAmount }),
+      ]) {
+        fs.writeFileSync(logPath, log);
+        expect(() => merge()).toThrow(/^l9-private-economic-evidence$/u);
+        expect(missingEvidenceRecordIds(reportDir, ledgerDir, source)).toEqual({
+          ok: false, reason: 'l9-private-economic-evidence', missing: [],
+        });
+      }
+      fs.unlinkSync(logPath);
+
+      writeJson(reportDir, 'l9-decision.json', { sourceSnapshot: { metrics: { recognizedMrrChf: privateAmount } } });
+      expect(() => merge()).toThrow(/^l9-private-economic-evidence$/u);
+    } finally {
+      vi.unstubAllEnvs();
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('keeps malformed input and surplus source fields out of issue and draft output', async () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l9-private-diagnostics-'));
+    const reportDir = path.join(dir, 'report');
+    const rawField = 'SYNTHETIC_PRIVATE_PAYLOAD';
+    const profilesPath = writeJson(dir, 'profiles.json', profiles(profile({
+      cantons: [{ name: 'TI', count: 8, extra: rawField }],
+    })));
+    const outcomePath = path.join(dir, 'outcomes.json');
+    const issues: unknown[] = [];
+    try {
+      fs.writeFileSync(outcomePath, `{"${rawField}"`);
+      const options = {
+        now: NOW,
+        profilesPath,
+        outcomePath,
+        reportDir,
+        apply: true,
+        issue: true,
+        createIssueImpl: async (payload: unknown) => { issues.push(payload); },
+        logger: { log() {} } as Console,
+      };
+      const malformed = await runL9(options);
+      expect(malformed.verdict.reason).toBe('l9-input-unreadable');
+      writeJson(dir, 'outcomes.json', outcomes({ mrrRecognizedChf: { rawField } }));
+      const invalid = await runL9(options);
+      expect(invalid.verdict.quality).toBe('partial');
+      expect(invalid.observation.numerator).toBeNull();
+      expect(issues).toHaveLength(2);
+      for (const issue of issues) expect(issue).toMatchObject({ reason: 'l9-ledger-failure', description: 'l9-ledger-failure' });
+      expect(JSON.stringify([malformed, invalid, issues])).not.toContain(rawField);
+      for (const name of fs.readdirSync(reportDir)) {
+        expect(fs.readFileSync(path.join(reportDir, name), 'utf8')).not.toContain(rawField);
+      }
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
   });
 
   it('keeps stale employer evidence out of the paid metric', async () => {

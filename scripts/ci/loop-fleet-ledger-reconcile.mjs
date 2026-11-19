@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { hasL9PrivateEvidence, L9_PRIVATE_EVIDENCE } from '../lib/l9-artifact-privacy.mjs';
 import { realpathSync } from 'node:fs';
 
 /**
@@ -153,6 +154,9 @@ export function durableRecordIds(ledgerDir) {
  * incomplete artifacts are reported as unavailable, never as already saved.
  */
 export function missingEvidenceRecordIds(inputDir, ledgerDir, { loopId, runId, sha } = {}) {
+  if (loopId === 'L9' && hasL9PrivateEvidence(inputDir)) {
+    return { ok: false, reason: L9_PRIVATE_EVIDENCE, missing: [] };
+  }
   const summaryFile = findFile(inputDir, 'loop-fleet-evidence.json');
   if (!summaryFile) return { ok: false, reason: 'loop-fleet-evidence.json is missing', missing: [] };
   const summary = parseJson(fs.readFileSync(summaryFile, 'utf8'));
@@ -329,6 +333,10 @@ export function reconcileLoopFleetLedger({
     for (const run of runList(definition, positiveInt(maxRunsPerLoop, 12))) {
       if (!eligibleSourceRun(run, definition)) continue;
       const runId = String(run.databaseId || run.id || '');
+      if (definition.loopId === 'L8') {
+        scanned.push({ loopId: 'L8', runId, reason: 'L8 canonical evidence is runner-local; durable recovery is unavailable', missing: null });
+        continue;
+      }
       const download = downloadEvidence(definition, run, tempRoot);
       const result = download.ok
         ? missingEvidenceRecordIds(download.inputDir, ledgerDir, {

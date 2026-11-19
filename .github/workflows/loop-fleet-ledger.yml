@@ -72,6 +72,7 @@ jobs:
             /scripts/lib/is-invoked-directly.mjs
             /scripts/lib/canonical-json-digest.mjs
             /scripts/lib/loop-fleet-ledger-index.mjs
+            /scripts/lib/l9-artifact-privacy.mjs
             /scripts/lib/loop-fleet-ledger-files.mjs
             /scripts/ci/mint-app-token.mjs
             /scripts/lib/loop-fleet-contract.mjs
@@ -173,12 +174,19 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           EVENT_NAME: ${{ github.event_name }}
+          SOURCE_LOOP: ${{ steps.source.outputs.loop }}
           SOURCE_CONCLUSION: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.conclusion || '' }}
           SOURCE_RUN_ID: ${{ steps.source.outputs.run_id }}
           SOURCE_ARTIFACT: ${{ steps.source.outputs.artifact }}
           INPUT_DIR: ${{ runner.temp }}/loop-fleet-ledger-input
         run: |
           set -euo pipefail
+          if [ "$SOURCE_LOOP" = 'L9' ]; then umask 077; fi
+          if [ "$SOURCE_LOOP" = 'L8' ]; then
+            echo 'L8 canonical evidence is runner-local. Durable persistence is unavailable.' >> "$GITHUB_STEP_SUMMARY"
+            echo 'available=false' >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
           mkdir -p "$INPUT_DIR"
           artifacts_json="$(gh api --paginate --slurp "repos/${GITHUB_REPOSITORY}/actions/runs/${SOURCE_RUN_ID}/artifacts?per_page=100")"
           artifact_count="$(jq -r --arg artifact "$SOURCE_ARTIFACT" '[.[].artifacts[]? | select(.name == $artifact and .expired == false)] | length' <<<"$artifacts_json")"
@@ -229,16 +237,35 @@ jobs:
                 grep -Fqi -- 'no valid artifacts found' <<<"$download_output"
             }
             if download_is_confirmed_missing_artifact; then
-              echo "$download_output"
+              if [ "$SOURCE_LOOP" != 'L9' ]; then echo "$download_output"; fi
               echo "::notice::source artifact $SOURCE_ARTIFACT was listed but was not downloadable after the successful source run; treating it as absent"
               echo "- Durable ledger: source run $SOURCE_RUN_ID had no downloadable immutable evidence artifact; nothing to persist." >> "$GITHUB_STEP_SUMMARY"
               echo 'available=false' >> "$GITHUB_OUTPUT"
               exit 0
             fi
-            echo "$download_output"
+            if [ "$SOURCE_LOOP" = 'L9' ]; then
+              echo '::error::L9 artifact download failed.'
+            else
+              echo "$download_output"
+            fi
             exit "$download_status"
           fi
           echo 'available=true' >> "$GITHUB_OUTPUT"
+
+      - name: Reject historical L9 economic evidence
+        if: ${{ steps.source_artifact.outputs.available == 'true' && steps.source.outputs.loop == 'L9' }}
+        env:
+          INPUT_DIR: ${{ runner.temp }}/loop-fleet-ledger-input
+        run: |
+          node --input-type=module -e '
+            import { hasL9PrivateEvidence, L9_PRIVATE_EVIDENCE } from "./scripts/lib/l9-artifact-privacy.mjs";
+            try {
+              if (hasL9PrivateEvidence(process.env.INPUT_DIR)) throw new Error(L9_PRIVATE_EVIDENCE);
+            } catch {
+              console.log("::error::" + L9_PRIVATE_EVIDENCE);
+              process.exitCode = 1;
+            }
+          ' 2>/dev/null
 
       - name: Initialize trusted ledger benchmark
         if: ${{ steps.source_artifact.outputs.available == 'true' }}

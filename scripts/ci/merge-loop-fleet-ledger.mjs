@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { hasL9PrivateEvidence, L9_PRIVATE_EVIDENCE } from '../lib/l9-artifact-privacy.mjs';
 import { realpathSync } from 'node:fs';
 
 /**
@@ -243,6 +244,7 @@ export function mergeLoopFleetLedger({
   if (!/^[0-9a-f]{40}$/iu.test(String(sha || ''))) throw new Error('sha must be a 40-character commit SHA');
   if (!inputDir) throw new Error('inputDir is required');
   if (!ledgerDir) throw new Error('ledgerDir is required');
+  if (loopId === 'L9' && hasL9PrivateEvidence(inputDir)) throw new Error(L9_PRIVATE_EVIDENCE);
   const registry = validateLoopRegistry(readJson(registryPath, 'loop registry'));
   const policy = registry.loops.find((loop) => loop.loopId === loopId);
   if (!policy) throw new Error(`registry has no policy for ${loopId}`);

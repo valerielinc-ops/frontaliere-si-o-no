@@ -303,6 +303,28 @@ describe('loop fleet workflow contract', () => {
     expect(auditStep).toContain('awaiting the first eligible account');
   });
 
+  it('publishes only the explicit L9 report and fleet evidence files', () => {
+    const source = fs.readFileSync(path.join(workflowDir, 'loop-l9-employer-activation.yml'), 'utf8');
+    const uploaded = source.split('path: |\n').at(-1)?.match(/loop-fleet-l9\/[^\s]+/gu);
+    expect(uploaded).toEqual([
+      'loop-fleet-l9/l9-observation.json',
+      'loop-fleet-l9/l9-decision.json',
+      'loop-fleet-l9/l9-outcome.json',
+      'loop-fleet-l9/l9-actions.json',
+      'loop-fleet-l9/l9-result.json',
+      'loop-fleet-l9/l9-report.md',
+      'loop-fleet-l9/loop-fleet-evidence.json',
+      'loop-fleet-l9/loop-fleet-outcome.json',
+      'loop-fleet-l9/loop-observations.jsonl',
+      'loop-fleet-l9/loop-decisions.jsonl',
+      'loop-fleet-l9/loop-health-history.jsonl',
+      'loop-fleet-l9/lifecycle-events.jsonl',
+    ]);
+    for (const kind of ['export', 'audit', 'evidence']) {
+      expect(source).toContain(`> "$RUNNER_TEMP/l9-${kind}.log" 2>&1`);
+    }
+  });
+
   it('starts every loop with explicit operational telemetry declarations', () => {
     for (const name of loopWorkflows) {
       const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
@@ -526,16 +548,18 @@ describe('loop fleet workflow contract', () => {
     expect(source).not.toContain('data/loop-health-history.jsonl');
   });
 
-  it('uploads lifecycle evidence for every loop', () => {
+  it('uploads lifecycle evidence for loops with a public ledger', () => {
     for (const name of loopWorkflows) {
+      if (name === 'loop-l8-revenue-attribution.yml') continue;
       const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
       const uploadsWholeDirectory = /path:\s+\$\{\{\s*runner\.temp\s*\}\}\/loop-fleet-[^/]+\/\s*$/mu.test(source);
       expect(uploadsWholeDirectory || source.includes('lifecycle-events.jsonl'), name).toBe(true);
     }
   });
 
-  it('uploads one canonical outcome artifact for every loop', () => {
+  it('uploads canonical outcomes for loops with public evidence', () => {
     for (const name of loopWorkflows) {
+      if (name === 'loop-l8-revenue-attribution.yml') continue;
       const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
       const uploadsWholeDirectory = /path:\s+\$\{\{\s*runner\.temp\s*\}\}\/loop-fleet-[^/]+\/\s*$/mu.test(source);
       expect(uploadsWholeDirectory || source.includes('loop-fleet-outcome.json'), name).toBe(true);
