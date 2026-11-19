@@ -886,7 +886,9 @@ export function collectMissingAssembledBridges(sliceJob, assembled, { skipBridge
   // pre-existing slice entry). `known` already deduplicates every slug the
   // job currently holds anywhere, so its size is exactly the flat union size.
   const headroom = Math.max(0, LEGACY_PREV_SLUGS_CAP - known.size);
-  if (headroom === 0) return [];
+  // Do not return when the flat union is full: an already-known bridge can
+  // still need locale reattribution without increasing that union. The two
+  // candidate passes below keep new bridges out when `headroom` is zero.
 
   // `addPreviousSlugForLocale` also caps each locale bucket at 20. A flat
   // union can still have room while a particular locale bucket is full. New
