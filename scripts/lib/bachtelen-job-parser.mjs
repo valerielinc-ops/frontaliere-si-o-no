@@ -109,6 +109,7 @@ async function fetchBachtelenListingJson(url, timeoutMs = 20000) {
         Referer: PUBLIC_CAREER_URL,
       },
     });
+    return data;
   } catch (err) {
     if (!(isConnectionLevelFetchError(err) || WAF_IP_BLOCK_STATUS.has(err?.status))) throw err;
 
