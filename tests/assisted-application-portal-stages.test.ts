@@ -160,6 +160,26 @@ describe('application stage ownership', () => {
     });
   });
 
+  it('keeps the UBS privacy gate unresolved when two Agree controls are enabled', () => {
+    const applyUrl = 'https://jobs.ubs.com/TGNewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&PageType=JobDetails&jobid=46';
+    const scope = { frame: 0, dialogId: 'privacy-popup', applicationScopeId: 'application' };
+    const agree = { id: 'agree', text: 'Agree', ...scope };
+    const otherAgree = { id: 'other-agree', text: 'Agree', frame: 0, dialogId: 'other-popup', applicationScopeId: 'other' };
+    const snapshot = {
+      url: `${applyUrl}#privacy`,
+      fields: [
+        { id: 'processing', kind: 'checkbox', inputType: 'checkbox', label: 'UBS processing your Personal Data', ...scope },
+        { id: 'transfer', kind: 'checkbox', inputType: 'checkbox', label: 'The cross-border transfer of your Personal Data', ...scope },
+        { id: 'notice', kind: 'radio', inputType: 'radio', label: 'You must AGREE to proceed.', ...scope },
+      ],
+      buttons: [agree, otherAgree],
+      text: 'UBS processing your Personal Data. The cross-border transfer of your Personal Data. You must AGREE to proceed.',
+    };
+
+    expect(applicationStage(snapshot, { applyUrl, brassRingApplicationEntryProven: true }).kind)
+      .not.toBe('application_start');
+  });
+
   it('keeps the UBS privacy gate unresolved when consent controls span forms', () => {
     const applyUrl = 'https://jobs.ubs.com/TGNewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&PageType=JobDetails&jobid=45';
     const agree = { id: 'agree', text: 'Agree', frame: 0, disabled: false };

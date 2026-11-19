@@ -156,6 +156,9 @@ export function brassRingPrivacyGateControl(snapshot, {
   ].filter(Boolean).map(normalizeBrassRingText).join(' ').toLowerCase();
   const agree = (snapshot.buttons || []).filter(button => !button?.chrome && !button?.disabled
     && mainFrame(button?.frame) && /^agree$/iu.test(brassRingControlText(button)));
+  // Multiple enabled main-frame Agree controls are ambiguous even when one
+  // happens to have a valid-looking consent cluster.
+  if (agree.length !== 1) return null;
   const validAgree = agree.filter((button) => {
     const fields = brassRingActiveFields(snapshot, button);
     if (!hasSingleBrassRingOwnershipCluster(fields)) return false;
