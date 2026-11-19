@@ -123,17 +123,24 @@
     },
     "slugByLocale": {
       "it": "sap-servizio-tecnico-consegna-lead-100-m-f-d-rieter-winterthur",
-      "en": "sap-technical-service-delivery-lead-100-f-m-d-rieter-winterthur",
+      "en": "sap-technical-service-delivery-lead-100-f-m-d-rieter-winterthur-d4b48df7",
       "de": "sap-technischer-service-lieferleitung-100-m-w-d-rieter-winterthur",
       "fr": "service-technique-sap-responsable-100-h-f-d-rieter-winterthur"
     },
     "sector": "Industria / Macchinari Tessili",
     "expiredAt": "2026-11-08T09:18:28.712Z",
-    "previousSlugs": [
-      "sap-technical-service-delivery-lead-100-f-m-d-rieter-winterthur"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "sap-technical-service-delivery-lead-100-f-m-d-rieter-winterthur-d4b48df7",
+        "sap-technical-service-delivery-lead-100-f-m-d-rieter-winterthur"
+      ],
+      "en": [
+        "sap-technical-service-delivery-lead-100-f-m-d-rieter-winterthur-d4b48df7"
+      ],
+      "de": [
+        "sap-technical-service-delivery-lead-100-f-m-d-rieter-winterthur"
+      ],
+      "fr": [
         "sap-technical-service-delivery-lead-100-f-m-d-rieter-winterthur"
       ]
     },
@@ -143,7 +150,10 @@
     "salaryMax": 206500,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://live.solique.ch/rieter/en/jobs/sap-technical-service-delivery-lead-100-fmd---4082051"
+    "sourceIdentity": "url:https://live.solique.ch/rieter/en/jobs/sap-technical-service-delivery-lead-100-fmd---4082051",
+    "previousSlugs": [
+      "sap-technical-service-delivery-lead-100-f-m-d-rieter-winterthur"
+    ]
   },
   {
     "slug": "azienda-elettricista-installatore-elettrico-m-f-d-80-100-rieter-rapperswil",
