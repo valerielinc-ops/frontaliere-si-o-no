@@ -12,11 +12,12 @@
  *   - Trusted domain detection (weissearena.com + recruitmentplatform.com)
  *   - Slug generation
  */
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
 import {
   WEISSE_ARENA_KEY,
   WEISSE_ARENA_COMPANY_NAME,
   WEISSE_ARENA_COMPANY_DOMAIN,
+  fetchAllWeisseArenaJobs,
   isWeisseArenaJob,
   isTrustedDomain,
   detectCategory,
@@ -25,6 +26,8 @@ import {
   buildDetailUrl,
 } from '../scripts/lib/weisse-arena-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+
+afterEach(() => vi.unstubAllGlobals());
 
 // ─── Constants ──────────────────────────────────────────────────────────────────
 
@@ -335,6 +338,55 @@ describe('TalentLink API response structure', () => {
 
   it('seasonal listing has different contract type', () => {
     expect(SAMPLE_SEASONAL_LISTING.jobFields.CONTRACTTYPLABEL).toBe('Saisonanstellung');
+  });
+});
+
+describe('TalentLink pagination completeness', () => {
+  const listing = (id: number, title: string) => ({
+    id,
+    jobFields: {
+      id,
+      jobNumber: `WAG${String(id).padStart(5, '0')}`,
+      jobTitle: title,
+      SLOVLIST10: 'Marketing',
+      SLOVLIST17: '100%',
+      CONTRACTTYPLABEL: 'Festanstellung',
+    },
+    customFields: [],
+  });
+
+  it('continues after a short page until globals.jobsCount is reached', async () => {
+    const pages = new Map([
+      [0, [listing(1, 'First role')]],
+      [1, [listing(2, 'Second role'), listing(3, 'Third role')]],
+    ]);
+    const offsets: number[] = [];
+    vi.stubGlobal('fetch', vi.fn(async (input: string | URL) => {
+      const url = new URL(String(input));
+      const offset = Number(url.searchParams.get('firstResult'));
+      offsets.push(offset);
+      return new Response(JSON.stringify({ globals: { jobsCount: 3 }, jobs: pages.get(offset) || [] }), {
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }));
+
+    const jobs = await fetchAllWeisseArenaJobs();
+
+    expect(offsets).toEqual([0, 1]);
+    expect(jobs).toHaveLength(3);
+    expect(jobs.map(({ title }) => title)).toEqual(['First role', 'Second role', 'Third role']);
+  });
+
+  it('fails closed when an empty page arrives before the declared total', async () => {
+    vi.stubGlobal('fetch', vi.fn(async (input: string | URL) => {
+      const offset = Number(new URL(String(input)).searchParams.get('firstResult'));
+      return new Response(JSON.stringify({
+        globals: { jobsCount: 2 },
+        jobs: offset === 0 ? [listing(1, 'Only role')] : [],
+      }), { headers: { 'Content-Type': 'application/json' } });
+    }));
+
+    await expect(fetchAllWeisseArenaJobs()).rejects.toThrow(/pagination incomplete.*1\/2/i);
   });
 });
 

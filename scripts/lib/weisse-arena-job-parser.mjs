@@ -193,10 +193,14 @@ async function callTalentLinkApi(url, body = null) {
 
 /**
  * Fetch all job listings from the TalentLink API.
- * Returns the full API response with { globals, jobs }.
+ * Uses the source-declared count as the completeness boundary. TalentLink can
+ * return a short page before that boundary (for example when its configured
+ * page size changes), so page length alone is not an end-of-list signal.
  */
 async function fetchJobListings() {
   const allJobs = [];
+  const seenListingIds = new Set();
+  let declaredTotal = null;
   let offset = 0;
 
   while (true) {
@@ -204,15 +208,85 @@ async function fetchJobListings() {
     const url = `${API_BASE}?firstResult=${offset}&maxResults=${PAGE_SIZE}&sortBy=DPOSTINGSTART&sortOrder=desc`;
     const data = await callTalentLinkApi(url, { searchCriteria: {} });
 
-    const jobs = assertJsonListShape(data, { key: 'jobs', source: WEISSE_ARENA_KEY });
-    if (jobs.length === 0) break;
+    const jobs = assertJsonListShape(data, {
+      key: 'jobs',
+      source: WEISSE_ARENA_KEY,
+      rowShapeOk: (row) => row && typeof row === 'object' && !Array.isArray(row),
+    });
+    if (!Array.isArray(data?.jobs)) {
+      throw new Error('Weisse Arena source response did not expose a jobs array; refusing an unverified partial crawl.');
+    }
 
-    allJobs.push(...jobs);
+    const rawTotal = data?.globals?.jobsCount;
+    const totalCount = typeof rawTotal === 'number' || typeof rawTotal === 'string'
+      ? Number(rawTotal)
+      : Number.NaN;
+    if (!Number.isSafeInteger(totalCount) || totalCount < 0) {
+      throw new Error(
+        'Weisse Arena source response did not expose a valid globals.jobsCount; '
+        + 'refusing an unverified partial crawl.',
+      );
+    }
+    if (declaredTotal === null) {
+      declaredTotal = totalCount;
+    } else if (totalCount !== declaredTotal) {
+      throw new Error(
+        `Weisse Arena source changed its declared job count from ${declaredTotal} to ${totalCount} during pagination.`,
+      );
+    }
 
-    const totalCount = data?.globals?.jobsCount || 0;
-    if (allJobs.length >= totalCount || jobs.length < PAGE_SIZE) break;
+    if (jobs.length === 0) {
+      if (allJobs.length !== declaredTotal) {
+        throw new Error(
+          `Weisse Arena pagination incomplete: fetched ${allJobs.length}/${declaredTotal} declared jobs before an empty page.`,
+        );
+      }
+      break;
+    }
 
-    offset += PAGE_SIZE;
+    for (const [index, listing] of jobs.entries()) {
+      const fields = listing?.jobFields;
+      if (!fields || typeof fields !== 'object' || Array.isArray(fields)) {
+        throw new Error(
+          `Weisse Arena listing row ${index + 1} at offset ${offset} has no jobFields object; refusing a partial crawl.`,
+        );
+      }
+
+      const listingId = fields.jobNumber ?? fields.id ?? listing.id;
+      const identity = String(listingId ?? '').trim();
+      if (!identity) {
+        throw new Error(
+          `Weisse Arena listing row ${index + 1} at offset ${offset} has no stable identity; refusing a partial crawl.`,
+        );
+      }
+      if (seenListingIds.has(identity)) {
+        throw new Error(
+          `Weisse Arena pagination repeated listing ${identity} at offset ${offset}; refusing a partial crawl.`,
+        );
+      }
+      seenListingIds.add(identity);
+
+      const title = normalizeSpace(fields.jobTitle || fields.sJobTitle || '');
+      if (title.length < 3) {
+        throw new Error(
+          `Weisse Arena listing ${identity} at offset ${offset} has no usable job title; refusing a partial crawl.`,
+        );
+      }
+
+      allJobs.push(listing);
+    }
+
+    if (allJobs.length > declaredTotal) {
+      throw new Error(
+        `Weisse Arena pagination returned ${allJobs.length} jobs for a declared total of ${declaredTotal}.`,
+      );
+    }
+    if (allJobs.length === declaredTotal) break;
+
+    // firstResult is a record offset, not a page number. Advance by what the
+    // source actually returned so a provider-side short page cannot skip the
+    // records that follow it.
+    offset += jobs.length;
     await new Promise((r) => setTimeout(r, 500));
   }
 
@@ -282,7 +356,9 @@ export async function fetchAllWeisseArenaJobs() {
   for (const listing of listings) {
     const fields = listing.jobFields || {};
     const title = normalizeSpace(fields.jobTitle || fields.sJobTitle || '');
-    if (!title || title.length < 3) continue;
+    if (title.length < 3) {
+      throw new Error('Weisse Arena listing reached the builder without a usable job title.');
+    }
 
     const jobId = fields.id || listing.id;
     const department = normalizeSpace(fields.SLOVLIST10 || '');
