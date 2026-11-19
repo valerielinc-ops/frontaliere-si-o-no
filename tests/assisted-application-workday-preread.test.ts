@@ -427,7 +427,7 @@ describe('Workday and ATS question readability & profile completeness', () => {
     expect(result.event.questions[0].applicationOptions).toEqual(['Single', 'Married']);
   });
 
-  it('detects searchablePrompt when a hidden duplicate searchBox precedes a visible searchBox', async () => {
+  it('detects searchablePrompt when 11 hidden duplicate searchBoxes precede a 12th visible searchBox', async () => {
     const html = `<!doctype html><html><body><form><fieldset><legend>Phone</legend>
       <label id="lbl-code" for="phone-code">Country Phone Code *</label>
       <button id="phone-code" aria-haspopup="listbox" aria-labelledby="lbl-code" aria-required="true">Select One</button>
@@ -440,8 +440,8 @@ describe('Workday and ATS question readability & profile completeness', () => {
     const noOptions = { first: () => ({ waitFor: async () => { throw new Error('timeout'); } }) };
     const trigger = { click: vi.fn(async () => {}), press: vi.fn(async () => {}) };
     const searchLocator = {
-      count: async () => 2,
-      nth: (index: number) => ({ isVisible: async () => index === 1 }),
+      count: async () => 12,
+      nth: (index: number) => ({ isVisible: async () => index === 11 }),
       first: () => ({ isVisible: async () => false }),
     };
     const frame = {

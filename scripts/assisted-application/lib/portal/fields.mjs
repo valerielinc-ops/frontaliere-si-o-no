@@ -1864,7 +1864,7 @@ async function visibleLocator(locator) {
   if (!locator) return false;
   if (typeof locator.count === 'function' && typeof locator.nth === 'function') {
     const count = await locator.count().catch(() => 0);
-    for (let index = 0; index < Math.min(count, 10); index += 1) {
+    for (let index = 0; index < count; index += 1) {
       const node = locator.nth(index);
       if (typeof node?.isVisible === 'function') {
         if (await node.isVisible().catch(() => false)) return true;
