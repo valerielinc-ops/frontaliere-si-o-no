@@ -210,6 +210,31 @@ describe('generation slot dispatch', () => {
     expect(fetchImpl).toHaveBeenCalledTimes(3);
   });
 
+  it('admits a delayed runner only with the current, unconsumed hourly claim', async () => {
+    const db = memoryDb();
+    const key = 'generate-article/svizzera/2026-11-19T08:37Z';
+    const dispatch = Date.parse('2026-11-19T08:40:00Z');
+    const queued = Date.parse('2026-11-19T09:18:43Z');
+    const old = await claimGenerationSlot(db, key, { now: dispatch });
+    const current = await claimGenerationSlot(db, key, { now: dispatch + 6 * 60_000 });
+    expect(current.claimToken).not.toBe(old.claimToken);
+    expect(await admitGenerationSlotClaim(db, key, old.claimToken, '101', { now: queued }))
+      .toMatchObject({ admitted: false, reason: 'claim_not_current' });
+    expect(await admitGenerationSlotClaim(db, key, current.claimToken, '102', { now: queued }))
+      .toMatchObject({ admitted: true, reason: 'admitted' });
+    expect(await admitGenerationSlotClaim(db, key, current.claimToken, '103', { now: queued }))
+      .toMatchObject({ admitted: false, reason: 'claim_not_current' });
+  });
+
+  it('expires unused admission at the next hourly slot', async () => {
+    const db = memoryDb();
+    const key = 'generate-article/svizzera/2026-11-19T08:37Z';
+    const claim = await claimGenerationSlot(db, key, { now: Date.parse('2026-11-19T08:40:00Z') });
+    expect(await admitGenerationSlotClaim(db, key, claim.claimToken, '102', {
+      now: Date.parse('2026-11-19T09:37:00Z'),
+    })).toMatchObject({ admitted: false, reason: 'claim_not_current' });
+  });
+
   it('bounds expired-claim reconciliation to runs created on the nominal slot day', async () => {
     const entry = GENERATION_SLOT_ENTRIES.find((candidate) => candidate.generationSlot === 'frontaliere')!;
     const db = memoryDb();

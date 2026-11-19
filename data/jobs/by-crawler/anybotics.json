@@ -1,7 +1,7 @@
 {
   "crawlerKey": "anybotics",
-  "assembledAt": "2026-11-18T21:18:14.443Z",
-  "runId": "44397777882",
+  "assembledAt": "2026-11-19T09:27:33.811Z",
+  "runId": "44493121578",
   "jobs": [
     {
       "id": "anybotics-702b013708b6",
@@ -34,7 +34,7 @@
       "url": "https://jobs.lever.co/anybotics/dfae4234-0ca9-4ea9-85ff-7d1ec557540b",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-18T21:18:05.285Z",
+      "crawledAt": "2026-11-19T09:27:24.337Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -77,7 +77,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T21:18:05.285Z",
+      "validThrough": "2026-12-28T09:27:24.337Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -111,7 +111,7 @@
       "url": "https://jobs.lever.co/anybotics/d5ae4dd1-c48d-41da-ba50-60ce3b44ceb0",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-18T21:18:04.743Z",
+      "crawledAt": "2026-11-19T09:27:23.875Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -154,7 +154,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T21:18:04.743Z",
+      "validThrough": "2026-12-19T09:27:23.875Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -188,7 +188,7 @@
       "url": "https://jobs.lever.co/anybotics/63f0c6db-0a1f-4a4a-87dd-9a43c9c2bdd2",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-18T21:18:03.426Z",
+      "crawledAt": "2026-11-19T09:27:23.425Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -231,7 +231,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich, Switzerland",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T21:18:03.426Z",
+      "validThrough": "2026-12-19T09:27:23.425Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -265,7 +265,7 @@
       "url": "https://jobs.lever.co/anybotics/e893a06a-66ad-4068-a95b-3d26fa2e52a1",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-18T21:18:02.063Z",
+      "crawledAt": "2026-11-19T09:27:22.982Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -308,8 +308,80 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich, Switzerland",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T21:18:02.063Z",
+      "validThrough": "2026-12-19T09:27:22.982Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "anybotics-29b6d719d330",
+      "slug": "senior-industrialization-engineer-anybotics-ch",
+      "slugByLocale": {
+        "en": "senior-industrialization-engineer-anybotics-ch",
+        "it": "senior-industrialization-engineer-anybotics-ch",
+        "de": "senior-industrialization-engineer-anybotics-ch",
+        "fr": "senior-industrialization-engineer-anybotics-ch"
+      },
+      "company": "ANYbotics",
+      "companyKey": "anybotics",
+      "companyDomain": "anybotics.com",
+      "title": "Senior Industrialization Engineer",
+      "titleByLocale": {
+        "en": "Senior Industrialization Engineer",
+        "it": "Senior Industrialization Ingegnere",
+        "de": "Senior Industrialization Ingenieur",
+        "fr": "Senior Industrialization Ingénieur"
+      },
+      "description": "ANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Join our highly talented and motivated team of more than 200 people and work on cutting-edge robot technology.\n\nThe Opportunity\n\nAs a Senior Industrialization Engineer, you will own the transition of our advanced robotic systems from R&D into scalable, high-quality production. Right now, this means spearheading Design for Excellence (DFX) initiatives and ensuring our next-generation quadruped robots are optimized for manufacturing and assembly. You'll work in close collaboration with our Hardware Engineering, Supply Chain, and Production teams to bridge the gap between complex engineering concepts and robust manufacturing realities.\n\nThe Market & Our Technology\n\nANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. We build quadruped robots designed to perform autonomous inspections in the world's most challenging industrial environments, from offshore energy platforms to complex chemical plants. Moving beyond prototyping, our hardware must meet rigorous standards for reliability, ingress protection, and durability while remaining feasible for efficient, scalable assembly.\n\nYour Impact\n\n• Own and lead the Design for Manufacturing (DFM) and Design for Assembly (DFA) strategy across new hardware programs\n\n• Collaborate closely with R&D during the early design phases to embed Design for Excellence (DFX) principles into every mechanical component\n\n• Optimize complex mechanical designs for manufacturability without compromising the robot's performance or ruggedness in harsh environments\n\n• Drive continuous improvement in production processes by identifying design bottlenecks and engineering scalable solutions\n\n• Serve as the technical authority on industrialization, guiding hardware teams and setting the standard for how we transition products from prototype to production\n\n• Define GD&T and tolerance stack-ups with R&D, derive measurement requirements, and lead First Article Inspections with suppliers and ISO/IEC 17025-accredited labs through to part release\n\n• Qualify assembly processes and suppliers: control plans, work instructions, fixtures and technical transfer to manufacturing partners\n\n• Own engineering changes and production master data (BOM, PDM/ERP/MES), and drive root cause analysis on non-conformities\n\nYour Profile\n\n• Demonstrated experience owning industrialization or manufacturing engineering for complex, high-reliability electromechanical products\n\n• Deep, hands-on expertise in DFM, DFA, and DFX for precision mechanical components and assemblies\n\n• Proven expertise in applying GD&T (ASME Y14.5 / ISO 1101) and tolerance stack-up analysis, with hands-on experience deriving measurement requirements and leading First Article Inspections with suppliers and external labs\n\n• Proven background in industries such as aerospace, automotive, or specialized robotics, with a focus on high-complexity rather than mass manufacturing\n\n• Strong proficiency in CAD software (SolidWorks preferred) to evaluate, review, and modify mechanical designs for manufacturability\n\n• Willingness to work on-site in our Zurich headquarters 4 days a week to closely collaborate with hardware and production teams\n\nBonus Points\n\n• Fluency in German or Italian to effectively collaborate with our regional manufacturing partners\n\n• Prior experience scaling the production of autonomous robots or advanced capital equipment\n\n• Familiarity with setting up advanced quality control processes for low-volume, high-mix manufacturing\n\nWe offer you a very exciting and dynamic work environment, the opportunity to become part of a fast-growing company and an ambitious team that is on a mission to change the industrial inspection market, a chance to leverage your experience and bring in your own ideas, a fair market salary, an attractive employee stock ownership plan, and a job in the city of Zurich.\n\nAgency Policy: We are not currently partnering with external search firms or recruitment agencies. Any profiles or resumes submitted to ANYbotics employees without a prior written agreement will be considered public disclosure and the property of ANYbotics, involving no liability or fee for subsequent hiring.",
+      "descriptionByLocale": {
+        "en": "ANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Join our highly talented and motivated team of more than 200 people and work on cutting-edge robot technology.\n\nThe Opportunity\n\nAs a Senior Industrialization Engineer, you will own the transition of our advanced robotic systems from R&D into scalable, high-quality production. Right now, this means spearheading Design for Excellence (DFX) initiatives and ensuring our next-generation quadruped robots are optimized for manufacturing and assembly. You'll work in close collaboration with our Hardware Engineering, Supply Chain, and Production teams to bridge the gap between complex engineering concepts and robust manufacturing realities.\n\nThe Market & Our Technology\n\nANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. We build quadruped robots designed to perform autonomous inspections in the world's most challenging industrial environments, from offshore energy platforms to complex chemical plants. Moving beyond prototyping, our hardware must meet rigorous standards for reliability, ingress protection, and durability while remaining feasible for efficient, scalable assembly.\n\nYour Impact\n\n• Own and lead the Design for Manufacturing (DFM) and Design for Assembly (DFA) strategy across new hardware programs\n\n• Collaborate closely with R&D during the early design phases to embed Design for Excellence (DFX) principles into every mechanical component\n\n• Optimize complex mechanical designs for manufacturability without compromising the robot's performance or ruggedness in harsh environments\n\n• Drive continuous improvement in production processes by identifying design bottlenecks and engineering scalable solutions\n\n• Serve as the technical authority on industrialization, guiding hardware teams and setting the standard for how we transition products from prototype to production\n\n• Define GD&T and tolerance stack-ups with R&D, derive measurement requirements, and lead First Article Inspections with suppliers and ISO/IEC 17025-accredited labs through to part release\n\n• Qualify assembly processes and suppliers: control plans, work instructions, fixtures and technical transfer to manufacturing partners\n\n• Own engineering changes and production master data (BOM, PDM/ERP/MES), and drive root cause analysis on non-conformities\n\nYour Profile\n\n• Demonstrated experience owning industrialization or manufacturing engineering for complex, high-reliability electromechanical products\n\n• Deep, hands-on expertise in DFM, DFA, and DFX for precision mechanical components and assemblies\n\n• Proven expertise in applying GD&T (ASME Y14.5 / ISO 1101) and tolerance stack-up analysis, with hands-on experience deriving measurement requirements and leading First Article Inspections with suppliers and external labs\n\n• Proven background in industries such as aerospace, automotive, or specialized robotics, with a focus on high-complexity rather than mass manufacturing\n\n• Strong proficiency in CAD software (SolidWorks preferred) to evaluate, review, and modify mechanical designs for manufacturability\n\n• Willingness to work on-site in our Zurich headquarters 4 days a week to closely collaborate with hardware and production teams\n\nBonus Points\n\n• Fluency in German or Italian to effectively collaborate with our regional manufacturing partners\n\n• Prior experience scaling the production of autonomous robots or advanced capital equipment\n\n• Familiarity with setting up advanced quality control processes for low-volume, high-mix manufacturing\n\nWe offer you a very exciting and dynamic work environment, the opportunity to become part of a fast-growing company and an ambitious team that is on a mission to change the industrial inspection market, a chance to leverage your experience and bring in your own ideas, a fair market salary, an attractive employee stock ownership plan, and a job in the city of Zurich.\n\nAgency Policy: We are not currently partnering with external search firms or recruitment agencies. Any profiles or resumes submitted to ANYbotics employees without a prior written agreement will be considered public disclosure and the property of ANYbotics, involving no liability or fee for subsequent hiring.",
+        "it": "ANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Join our highly talented and motivated team of more than 200 people and work on cutting-edge robot technology.\n\nThe Opportunity\n\nAs a Senior Industrialization Engineer, you will own the transition of our advanced robotic systems from R&D into scalable, high-quality production. Right now, this means spearheading Design for Excellence (DFX) initiatives and ensuring our next-generation quadruped robots are optimized for manufacturing and assembly. You'll work in close collaboration with our Hardware Engineering, Supply Chain, and Production teams to bridge the gap between complex engineering concepts and robust manufacturing realities.\n\nThe Market & Our Technology\n\nANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. We build quadruped robots designed to perform autonomous inspections in the world's most challenging industrial environments, from offshore energy platforms to complex chemical plants. Moving beyond prototyping, our hardware must meet rigorous standards for reliability, ingress protection, and durability while remaining feasible for efficient, scalable assembly.\n\nYour Impact\n\n• Own and lead the Design for Manufacturing (DFM) and Design for Assembly (DFA) strategy across new hardware programs\n\n• Collaborate closely with R&D during the early design phases to embed Design for Excellence (DFX) principles into every mechanical component\n\n• Optimize complex mechanical designs for manufacturability without compromising the robot's performance or ruggedness in harsh environments\n\n• Drive continuous improvement in production processes by identifying design bottlenecks and engineering scalable solutions\n\n• Serve as the technical authority on industrialization, guiding hardware teams and setting the standard for how we transition products from prototype to production\n\n• Define GD&T and tolerance stack-ups with R&D, derive measurement requirements, and lead First Article Inspections with suppliers and ISO/IEC 17025-accredited labs through to part release\n\n• Qualify assembly processes and suppliers: control plans, work instructions, fixtures and technical transfer to manufacturing partners\n\n• Own engineering changes and production master data (BOM, PDM/ERP/MES), and drive root cause analysis on non-conformities\n\nYour Profile\n\n• Demonstrated experience owning industrialization or manufacturing engineering for complex, high-reliability electromechanical products\n\n• Deep, hands-on expertise in DFM, DFA, and DFX for precision mechanical components and assemblies\n\n• Proven expertise in applying GD&T (ASME Y14.5 / ISO 1101) and tolerance stack-up analysis, with hands-on experience deriving measurement requirements and leading First Article Inspections with suppliers and external labs\n\n• Proven background in industries such as aerospace, automotive, or specialized robotics, with a focus on high-complexity rather than mass manufacturing\n\n• Strong proficiency in CAD software (SolidWorks preferred) to evaluate, review, and modify mechanical designs for manufacturability\n\n• Willingness to work on-site in our Zurich headquarters 4 days a week to closely collaborate with hardware and production teams\n\nBonus Points\n\n• Fluency in German or Italian to effectively collaborate with our regional manufacturing partners\n\n• Prior experience scaling the production of autonomous robots or advanced capital equipment\n\n• Familiarity with setting up advanced quality control processes for low-volume, high-mix manufacturing\n\nWe offer you a very exciting and dynamic work environment, the opportunity to become part of a fast-growing company and an ambitious team that is on a mission to change the industrial inspection market, a chance to leverage your experience and bring in your own ideas, a fair market salary, an attractive employee stock ownership plan, and a job in the city of Zurich.\n\nAgency Policy: We are not currently partnering with external search firms or recruitment agencies. Any profiles or resumes submitted to ANYbotics employees without a prior written agreement will be considered public disclosure and the property of ANYbotics, involving no liability or fee for subsequent hiring.",
+        "de": "ANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Join our highly talented and motivated team of more than 200 people and work on cutting-edge robot technology.\n\nThe Opportunity\n\nAs a Senior Industrialization Engineer, you will own the transition of our advanced robotic systems from R&D into scalable, high-quality production. Right now, this means spearheading Design for Excellence (DFX) initiatives and ensuring our next-generation quadruped robots are optimized for manufacturing and assembly. You'll work in close collaboration with our Hardware Engineering, Supply Chain, and Production teams to bridge the gap between complex engineering concepts and robust manufacturing realities.\n\nThe Market & Our Technology\n\nANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. We build quadruped robots designed to perform autonomous inspections in the world's most challenging industrial environments, from offshore energy platforms to complex chemical plants. Moving beyond prototyping, our hardware must meet rigorous standards for reliability, ingress protection, and durability while remaining feasible for efficient, scalable assembly.\n\nYour Impact\n\n• Own and lead the Design for Manufacturing (DFM) and Design for Assembly (DFA) strategy across new hardware programs\n\n• Collaborate closely with R&D during the early design phases to embed Design for Excellence (DFX) principles into every mechanical component\n\n• Optimize complex mechanical designs for manufacturability without compromising the robot's performance or ruggedness in harsh environments\n\n• Drive continuous improvement in production processes by identifying design bottlenecks and engineering scalable solutions\n\n• Serve as the technical authority on industrialization, guiding hardware teams and setting the standard for how we transition products from prototype to production\n\n• Define GD&T and tolerance stack-ups with R&D, derive measurement requirements, and lead First Article Inspections with suppliers and ISO/IEC 17025-accredited labs through to part release\n\n• Qualify assembly processes and suppliers: control plans, work instructions, fixtures and technical transfer to manufacturing partners\n\n• Own engineering changes and production master data (BOM, PDM/ERP/MES), and drive root cause analysis on non-conformities\n\nYour Profile\n\n• Demonstrated experience owning industrialization or manufacturing engineering for complex, high-reliability electromechanical products\n\n• Deep, hands-on expertise in DFM, DFA, and DFX for precision mechanical components and assemblies\n\n• Proven expertise in applying GD&T (ASME Y14.5 / ISO 1101) and tolerance stack-up analysis, with hands-on experience deriving measurement requirements and leading First Article Inspections with suppliers and external labs\n\n• Proven background in industries such as aerospace, automotive, or specialized robotics, with a focus on high-complexity rather than mass manufacturing\n\n• Strong proficiency in CAD software (SolidWorks preferred) to evaluate, review, and modify mechanical designs for manufacturability\n\n• Willingness to work on-site in our Zurich headquarters 4 days a week to closely collaborate with hardware and production teams\n\nBonus Points\n\n• Fluency in German or Italian to effectively collaborate with our regional manufacturing partners\n\n• Prior experience scaling the production of autonomous robots or advanced capital equipment\n\n• Familiarity with setting up advanced quality control processes for low-volume, high-mix manufacturing\n\nWe offer you a very exciting and dynamic work environment, the opportunity to become part of a fast-growing company and an ambitious team that is on a mission to change the industrial inspection market, a chance to leverage your experience and bring in your own ideas, a fair market salary, an attractive employee stock ownership plan, and a job in the city of Zurich.\n\nAgency Policy: We are not currently partnering with external search firms or recruitment agencies. Any profiles or resumes submitted to ANYbotics employees without a prior written agreement will be considered public disclosure and the property of ANYbotics, involving no liability or fee for subsequent hiring.",
+        "fr": "ANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Join our highly talented and motivated team of more than 200 people and work on cutting-edge robot technology.\n\nThe Opportunity\n\nAs a Senior Industrialization Engineer, you will own the transition of our advanced robotic systems from R&D into scalable, high-quality production. Right now, this means spearheading Design for Excellence (DFX) initiatives and ensuring our next-generation quadruped robots are optimized for manufacturing and assembly. You'll work in close collaboration with our Hardware Engineering, Supply Chain, and Production teams to bridge the gap between complex engineering concepts and robust manufacturing realities.\n\nThe Market & Our Technology\n\nANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. We build quadruped robots designed to perform autonomous inspections in the world's most challenging industrial environments, from offshore energy platforms to complex chemical plants. Moving beyond prototyping, our hardware must meet rigorous standards for reliability, ingress protection, and durability while remaining feasible for efficient, scalable assembly.\n\nYour Impact\n\n• Own and lead the Design for Manufacturing (DFM) and Design for Assembly (DFA) strategy across new hardware programs\n\n• Collaborate closely with R&D during the early design phases to embed Design for Excellence (DFX) principles into every mechanical component\n\n• Optimize complex mechanical designs for manufacturability without compromising the robot's performance or ruggedness in harsh environments\n\n• Drive continuous improvement in production processes by identifying design bottlenecks and engineering scalable solutions\n\n• Serve as the technical authority on industrialization, guiding hardware teams and setting the standard for how we transition products from prototype to production\n\n• Define GD&T and tolerance stack-ups with R&D, derive measurement requirements, and lead First Article Inspections with suppliers and ISO/IEC 17025-accredited labs through to part release\n\n• Qualify assembly processes and suppliers: control plans, work instructions, fixtures and technical transfer to manufacturing partners\n\n• Own engineering changes and production master data (BOM, PDM/ERP/MES), and drive root cause analysis on non-conformities\n\nYour Profile\n\n• Demonstrated experience owning industrialization or manufacturing engineering for complex, high-reliability electromechanical products\n\n• Deep, hands-on expertise in DFM, DFA, and DFX for precision mechanical components and assemblies\n\n• Proven expertise in applying GD&T (ASME Y14.5 / ISO 1101) and tolerance stack-up analysis, with hands-on experience deriving measurement requirements and leading First Article Inspections with suppliers and external labs\n\n• Proven background in industries such as aerospace, automotive, or specialized robotics, with a focus on high-complexity rather than mass manufacturing\n\n• Strong proficiency in CAD software (SolidWorks preferred) to evaluate, review, and modify mechanical designs for manufacturability\n\n• Willingness to work on-site in our Zurich headquarters 4 days a week to closely collaborate with hardware and production teams\n\nBonus Points\n\n• Fluency in German or Italian to effectively collaborate with our regional manufacturing partners\n\n• Prior experience scaling the production of autonomous robots or advanced capital equipment\n\n• Familiarity with setting up advanced quality control processes for low-volume, high-mix manufacturing\n\nWe offer you a very exciting and dynamic work environment, the opportunity to become part of a fast-growing company and an ambitious team that is on a mission to change the industrial inspection market, a chance to leverage your experience and bring in your own ideas, a fair market salary, an attractive employee stock ownership plan, and a job in the city of Zurich.\n\nAgency Policy: We are not currently partnering with external search firms or recruitment agencies. Any profiles or resumes submitted to ANYbotics employees without a prior written agreement will be considered public disclosure and the property of ANYbotics, involving no liability or fee for subsequent hiring."
+      },
+      "location": "Zurich, Switzerland",
+      "canton": "ZH",
+      "url": "https://jobs.lever.co/anybotics/9cf13987-8abc-4678-a0f0-c524dcf08c3e",
+      "source": "ANYbotics Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-19T09:27:22.503Z",
+      "addressLocality": "Zurich, Switzerland",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Robotica / Automazione",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-06",
+      "postedDate": "2026-11-06",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.lever.co/anybotics/9cf13987-8abc-4678-a0f0-c524dcf08c3e",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 113500,
+      "salaryMax": 172000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 113500,
+          "maxValue": 172000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "8001",
+      "addressRegion": "ZH",
+      "streetAddress": "Zurich, Switzerland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-04T09:27:22.503Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-19T09:27:22.503Z"
     },
     {
       "id": "anybotics-c9a3ed6ee0f2",
@@ -342,7 +414,7 @@
       "url": "https://jobs.lever.co/anybotics/f13a84f8-23ff-489f-ad1a-aa56a8c7eb6d",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-18T21:18:01.556Z",
+      "crawledAt": "2026-11-19T09:27:21.647Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -385,7 +457,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich, Switzerland",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T21:18:01.556Z",
+      "validThrough": "2026-12-19T09:27:21.647Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -419,7 +491,7 @@
       "url": "https://jobs.lever.co/anybotics/3b337f71-7867-45a7-9efa-ad08cbe84cd5",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-18T21:17:58.661Z",
+      "crawledAt": "2026-11-19T09:27:21.203Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -462,7 +534,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T21:17:58.661Z",
+      "validThrough": "2026-12-24T09:27:21.203Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -496,7 +568,7 @@
       "url": "https://jobs.lever.co/anybotics/9498fa1c-791c-472f-9a01-6d144713d498",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-18T21:17:58.202Z",
+      "crawledAt": "2026-11-19T09:27:06.241Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -546,7 +618,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich, Switzerland",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:17:58.202Z",
+      "validThrough": "2027-02-01T09:27:06.241Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -580,7 +652,7 @@
       "url": "https://jobs.lever.co/anybotics/53462ccd-2b76-4cd5-b8c5-32c329e3c05d",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-18T21:17:57.403Z",
+      "crawledAt": "2026-11-19T09:27:05.811Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -623,7 +695,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich, Switzerland",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T21:17:57.403Z",
+      "validThrough": "2026-12-19T09:27:05.811Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -657,7 +729,7 @@
       "url": "https://jobs.lever.co/anybotics/41220f43-53f8-4336-94a1-eaed97c34784",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-18T21:17:56.616Z",
+      "crawledAt": "2026-11-19T09:27:05.326Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -704,7 +776,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich, Switzerland",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T21:17:56.616Z",
+      "validThrough": "2026-12-19T09:27:05.326Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -738,7 +810,7 @@
       "url": "https://jobs.lever.co/anybotics/f687dc6d-d6d4-4111-a564-ae3369cca6b4",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-18T21:17:56.128Z",
+      "crawledAt": "2026-11-19T09:27:04.885Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -781,7 +853,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T21:17:56.128Z",
+      "validThrough": "2026-12-19T09:27:04.885Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -815,7 +887,7 @@
       "url": "https://jobs.lever.co/anybotics/06e5edc9-4092-4518-8ee4-cc02a2ee4c3e",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-18T21:17:55.592Z",
+      "crawledAt": "2026-11-19T09:27:04.428Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -861,7 +933,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich, Switzerland",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T21:17:55.592Z",
+      "validThrough": "2026-12-19T09:27:04.428Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -895,7 +967,7 @@
       "url": "https://jobs.lever.co/anybotics/9d34ce1f-0dae-4cf3-85b0-d231dfb4851b",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-18T21:17:55.075Z",
+      "crawledAt": "2026-11-19T09:27:03.979Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -944,7 +1016,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich, Switzerland",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T21:17:55.075Z",
+      "validThrough": "2026-12-19T09:27:03.979Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -978,7 +1050,7 @@
       "url": "https://jobs.lever.co/anybotics/b8d4bf79-20ea-44b0-84e2-cd644dc8e58a",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-18T21:17:54.620Z",
+      "crawledAt": "2026-11-19T09:26:59.584Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1022,7 +1094,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T21:17:54.620Z",
+      "validThrough": "2026-12-19T09:26:59.584Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1056,7 +1128,7 @@
       "url": "https://jobs.lever.co/anybotics/df94dc1d-e83d-4008-a6ee-46c7a54d5572",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-18T21:17:53.882Z",
+      "crawledAt": "2026-11-19T09:26:59.128Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -1101,7 +1173,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich, Switzerland",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T21:17:53.882Z",
+      "validThrough": "2026-12-19T09:26:59.128Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1135,7 +1207,7 @@
       "url": "https://jobs.lever.co/anybotics/ea142002-be6c-4832-95ec-85687b0b90e8",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-18T21:17:53.130Z",
+      "crawledAt": "2026-11-19T09:26:42.351Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1184,7 +1256,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T21:17:53.130Z",
+      "validThrough": "2027-01-11T09:26:42.351Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1218,7 +1290,7 @@
       "url": "https://jobs.lever.co/anybotics/a9b799c5-61d9-41a2-a093-9529edcd9bd4",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-18T21:17:52.621Z",
+      "crawledAt": "2026-11-19T09:26:41.903Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1267,7 +1339,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:17:52.621Z",
+      "validThrough": "2027-02-10T09:26:41.903Z",
       "validThroughSource": "last-observed-window"
     }
   ]

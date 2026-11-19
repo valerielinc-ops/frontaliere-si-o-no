@@ -1,9 +1,9 @@
 {
   "key": "recruitingapp-2677",
   "label": "E-Recruiting LLB-Gruppe Stellen",
-  "generatedAt": "2026-11-18T21:20:21.230Z",
+  "generatedAt": "2026-11-19T09:50:10.010Z",
   "total": 1,
-  "discovered": 21,
+  "discovered": 22,
   "parsed": 1,
   "lastFetchOutcome": null,
   "fetchReceipt": null,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 27244,
-  "avgDurationMs": 27244,
+  "durationMs": 28314,
+  "avgDurationMs": 28314,
   "durationHistory": [
-    27244
+    28314
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://recruitingapp-2677.umantis.com/Vacancies/2013/Description/1",
       "source": "E-Recruiting LLB-Gruppe Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:20:07.661Z",
+      "crawledAt": "2026-11-19T09:49:59.373Z",
       "addressLocality": "Vaduz oder Uznach",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -61,7 +61,7 @@
       "postalCode": "9000",
       "streetAddress": "Vaduz oder Uznach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:20:07.661Z",
+      "validThrough": "2027-02-04T09:49:59.373Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -72,5 +72,5 @@
       }
     }
   ],
-  "codeCommit": "8862042892397f4dcea90f48fbc2dc028da23eec"
+  "codeCommit": "af8f978c37a7f89c95dd40500d2ac0a67c1ede33"
 }
