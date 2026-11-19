@@ -216,7 +216,7 @@ describe('translation observability workflow', () => {
       const failureReporter = steps.find((step) => step.name === 'Report failure to GitHub Issues');
       expect(failureReporter, `${label}: workflow failure reporter missing`).toMatchObject({
         if: label === 'portable artifact'
-          ? "always() && (failure() || steps.repair_stale_descriptions.outcome == 'failure') && (steps.site_checkout_primary.outcome == 'success' || steps.site_checkout_retry.outcome == 'success')"
+          ? `always() && (failure() || steps.repair_stale_descriptions.outcome == 'failure') && (steps.site_checkout_primary.outcome == 'success' || steps.site_checkout_retry.outcome == 'success') && ${RECOVERY_READY}`
           : "always() && (failure() || steps.repair_stale_descriptions.outcome == 'failure')",
       });
       expect(failureReporter?.with, `${label}: stale prepass failure must enter the alert path`)
