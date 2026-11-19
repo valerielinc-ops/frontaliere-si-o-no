@@ -348,6 +348,29 @@ describe('parseSbbDetailPage — body location override', () => {
     expect(parseSbbDetailPage(fixture).location).toBe('Aarau');
   });
 
+  it('ignores an unscoped locality meta and keeps the JobPosting JSON-LD locality', () => {
+    const fixture = '<meta itemprop="addressLocality" content="Bern">'
+      + '<script type="application/ld+json">'
+      + JSON.stringify({
+        '@type': 'JobPosting',
+        title: 'Project Manager',
+        jobLocation: { address: { addressLocality: 'Aarau' } },
+      })
+      + '</script>';
+
+    expect(extractSbbStrongMarkupLocation(fixture)).toBe('');
+    expect(parseSbbDetailPage(fixture).location).toBe('Aarau');
+  });
+
+  it('lets a verified detail JobPosting locality outrank login and AEM fallbacks', () => {
+    expect(resolveSbbJobLocation({
+      sourceLoginData: { location: 'Bern' },
+      sbbParsed: { location: 'Ticino' },
+      jobPosting: { jobLocation: { address: { addressLocality: 'Aarau' } } },
+      apiMeta: { city: 'Ticino', region: 'Ticino (TI)' },
+    })).toBe('Aarau');
+  });
+
   it('extracts a city when the current metadata template splits it across sibling blocks', () => {
     const fixture = `<!DOCTYPE html><html lang="de"><head>
       <script type="application/ld+json">{"@type":"JobPosting","title":"Automatiker:in",

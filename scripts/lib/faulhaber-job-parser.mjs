@@ -20,7 +20,7 @@
  * boundary; it returns the parsed detail that the caller can reuse.
  */
 import { sourcePostingDateFields } from './source-posting-date.mjs';
-import { extractJobPostingLd, jobPostingAddress } from './jsonld-jobposting.mjs';
+import { extractJobPostingsLd, jobPostingAddress, selectJobPostingLd } from './jsonld-jobposting.mjs';
 import { createHash } from 'node:crypto';
 import { meetsSourceBodyFloor, sourceBodyWordCount } from './source-body-floor.mjs';
 import { JSDOM } from 'jsdom';
@@ -38,7 +38,7 @@ import { fetchHtmlViaJinaWithRetry, looksLikeAntiBotChallenge } from './jina-pro
 import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 import { isSpontaneousApplicationTitle } from './spontaneous-application.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
-import { inferAnyCanton } from './target-swiss-locations.mjs';
+import { inferAnyCanton, isCantonOnlyLabel, isKnownSwissCity } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -69,6 +69,14 @@ function normalizeFaulhaberLocation(value = '') {
   return normalizeSpace(value)
     .replace(/^(?:CH|Schweiz|Suisse|Svizzera|Switzerland)\s*[-:]\s*/i, '')
     .trim();
+}
+
+function isConcreteSwissLocality(value = '') {
+  const locality = normalizeFaulhaberLocation(value);
+  if (!locality || isCantonOnlyLabel(locality)) return false;
+  // A canton token is not enough: "Paris, Ticino" and "Switzerland" must not
+  // become a Swiss vacancy merely because a fuzzy canton matcher fires.
+  return isKnownSwissCity(locality, '', { allowOfficialLocality: true });
 }
 
 /** Only keep Swiss jobs from the Croglio site */
@@ -219,11 +227,11 @@ function parseListingData(body = '') {
  * Parse a Faulhaber detail page for description and location.
  * HPv3 detail pages have the job description in structured sections.
  */
-function parseDetailPage(html = '', document = null) {
+function parseDetailPage(html = '', document = null, jobPosting = null) {
   if (!html) return { description: '', location: '' };
 
   const parsedDocument = document || new JSDOM(html).window.document;
-  const jsonLdAddress = jobPostingAddress(extractJobPostingLd(html));
+  const jsonLdAddress = jobPostingAddress(jobPosting);
 
   // Prefer the detail page's structured JobPosting address. The listing can
   // retain an obsolete site label after a vacancy moves between Swiss offices.
@@ -281,13 +289,15 @@ function parseDetailPage(html = '', document = null) {
   };
 }
 
-export function validateDetailHtml(html = '') {
+export function validateDetailHtml(html = '', identity = {}) {
   if (!html) throw new Error('Faulhaber: empty detail response');
   const { document } = new JSDOM(html).window;
   if (!document.querySelector('.annonce #position')) {
     throw new Error('Faulhaber: detail response has no supported vacancy boundary');
   }
-  const detail = parseDetailPage(html, document);
+  const postings = extractJobPostingsLd(html);
+  const posting = selectJobPostingLd(postings, identity);
+  const detail = parseDetailPage(html, document, posting);
   // A page without any vacancy text is not a detail page (outage, template
   // change): the caller retries it through the proxy or fails the run. Whether
   // a real text is long enough to publish is decided by the shared 50-word
@@ -295,7 +305,7 @@ export function validateDetailHtml(html = '') {
   if (!sourceBodyWordCount(detail.description)) {
     throw new Error('Faulhaber: detail response has no vacancy text');
   }
-  return detail;
+  return { ...detail, jobPosting: posting };
 }
 
 /* ── Category / Employment helpers ────────────────────────── */
@@ -441,8 +451,8 @@ export async function fetchAllFaulhaberJobs({
           timeoutMs: 15000,
           validateRedirectUrl: detailRedirectValidator(listing.url),
           parseBody: (html) => {
-            const detail = validateDetailHtml(html);
-            const posting = extractJobPostingLd(html);
+            const detail = validateDetailHtml(html, { title: listing.title, url: listing.url });
+            const posting = detail.jobPosting;
             let sameUrl = !posting?.url;
             if (posting?.url) {
               try { sameUrl = new URL(posting.url, listing.url).href === new URL(listing.url).href; }
@@ -465,10 +475,10 @@ export async function fetchAllFaulhaberJobs({
     }
 
     // The detail page is authoritative once it has been read. Keep only a
-    // concrete Swiss locality (or an explicit Swiss label) so a vacancy moved
-    // outside Switzerland is not retained merely because the old listing row
-    // still said "CH - Croglio".
-    if (!detailLocation || (!inferAnyCanton(detailLocation) && !SWISS_LOCATION_RE.test(detailLocation))) continue;
+    // concrete validated Swiss locality so a vacancy moved outside Switzerland
+    // is not retained merely because the old listing row still said
+    // "CH - Croglio". A country token alone ("Switzerland") is not a city.
+    if (!isConcreteSwissLocality(detailLocation)) continue;
 
     // The shared 50-word floor (source-body-floor.mjs): a shorter text is not
     // published this run (the standard pipeline keeps the stored record for

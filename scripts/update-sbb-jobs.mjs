@@ -1286,12 +1286,17 @@ export function resolveSbbJobLocation({
   html = '',
   apiMeta = null,
 } = {}) {
-  const resolvedDetailLocation = extractLocationFromJobPosting(jobPosting, html, apiMeta);
+  // Resolve rendered-detail signals separately from AEM metadata. The latter
+  // is a fallback only: a stale API city must not outrank a current vacancy
+  // body or JobPosting node.
+  const resolvedDetailLocation = extractLocationFromJobPosting(jobPosting, html, null);
+  const apiFallbackLocation = String(apiMeta?.city || '').trim();
   return String(
     vacancySummaryLocation ||
+    resolvedDetailLocation ||
     sourceLoginData.location ||
     sbbParsed?.location ||
-    resolvedDetailLocation ||
+    apiFallbackLocation ||
     ''
   ).trim();
 }

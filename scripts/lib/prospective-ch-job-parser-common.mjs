@@ -23,7 +23,7 @@
  */
 import { createHash } from 'node:crypto';
 import { sourcePostingDateFields } from './source-posting-date.mjs';
-import { extractJobPostingLd } from './jsonld-jobposting.mjs';
+import { extractJobPostingsLd, selectJobPostingLd } from './jsonld-jobposting.mjs';
 import { JSDOM, VirtualConsole } from 'jsdom';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
@@ -647,9 +647,9 @@ export async function enrichProspectiveJobsFromDetailPages(jobs, {
       }
       if (!page.html) { miss(page.notHtml ? 'not-html' : `http-${page.status}`); continue; }
       if (page.url !== url && !isTrustedDomain(page.url)) { miss('untrusted-redirect'); continue; }
-      const posting = (includePostingDate || typeof onDetailPage === 'function')
-        ? extractJobPostingLd(page.html)
-        : null;
+      const postings = (includePostingDate || typeof onDetailPage === 'function')
+        ? extractJobPostingsLd(page.html)
+        : [];
       const sourceLang = job.sourceLang || 'de';
       const listingText = job.descriptionByLocale?.[sourceLang] || job.description || '';
       const { text, reason } = selectProspectiveDetailDescription(page.html, {
@@ -657,6 +657,11 @@ export async function enrichProspectiveJobsFromDetailPages(jobs, {
         listingText,
       });
       if (!text) { miss(reason); continue; }
+      // Select the posting only after the rendered detail has been proven to
+      // contain this vacancy's listing text. Related-job JSON-LD blocks are
+      // allowed on the same page, but may never mutate this job's location or
+      // posting date merely because they appear first in the document.
+      const posting = selectJobPostingLd(postings, { title: job.title, url });
       if (typeof onDetailPage === 'function') {
         const detailFields = onDetailPage({ job, html: page.html, posting });
         if (detailFields && typeof detailFields === 'object') Object.assign(job, detailFields);

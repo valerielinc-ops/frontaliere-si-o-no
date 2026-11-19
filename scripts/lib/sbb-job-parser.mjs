@@ -278,14 +278,59 @@ function canonicalSbbLocality(value = '') {
  * template. The page can omit JSON-LD while still publishing an authoritative
  * `itemprop="addressLocality"` value inside the JobPosting markup.
  */
+function itempropTokens(tag = '') {
+  const value = tag.match(/\bitemprop\s*=\s*["']([^"']+)["']/i)?.[1] || '';
+  return value.toLowerCase().split(/\s+/).filter(Boolean);
+}
+
+/**
+ * Return the contents of every element carrying one requested itemprop.
+ * A small balanced-tag reader keeps nested spans (jobLocation > address) in
+ * scope without letting unrelated header/footer metadata leak into the
+ * vacancy's structured address.
+ */
+function itempropElementContents(html = '', wantedProp = '') {
+  const source = stripScriptsAndStyles(String(html || ''));
+  const openingTag = /<([a-z][\w:-]*)\b[^>]*>/gi;
+  const results = [];
+  let match;
+  while ((match = openingTag.exec(source))) {
+    if (!itempropTokens(match[0]).includes(wantedProp.toLowerCase())) continue;
+    const tagName = match[1];
+    const sameTag = new RegExp(`<${tagName}\\b[^>]*>|</${tagName}\\s*>`, 'gi');
+    sameTag.lastIndex = openingTag.lastIndex;
+    let depth = 1;
+    let end = source.length;
+    let nested;
+    while ((nested = sameTag.exec(source))) {
+      if (/^<\//.test(nested[0])) {
+        depth -= 1;
+        if (depth === 0) {
+          end = nested.index;
+          break;
+        }
+      } else if (!/\/\s*>$/.test(nested[0])) {
+        depth += 1;
+      }
+    }
+    results.push(source.slice(openingTag.lastIndex, end));
+    openingTag.lastIndex = end;
+  }
+  return results;
+}
+
 export function extractSbbStrongMarkupLocation(html = '') {
-  const tags = [...String(html || '').matchAll(/<meta\b[^>]*>/gi)].map((match) => match[0]);
-  for (const tag of tags) {
-    const itemprop = tag.match(/\bitemprop\s*=\s*["']([^"']+)["']/i)?.[1] || '';
-    if (itemprop.toLowerCase() !== 'addresslocality') continue;
-    const content = tag.match(/\bcontent\s*=\s*["']([^"']*)["']/i)?.[1] || '';
-    const locality = canonicalSbbLocality(content);
-    if (locality) return locality;
+  // Only read addressLocality inside the current JobPosting's jobLocation
+  // itemprop. A bare meta itemprop in a header or related-job card is not a
+  // workplace and must never outrank the vacancy JSON-LD.
+  for (const scope of itempropElementContents(html, 'jobLocation')) {
+    const tags = [...scope.matchAll(/<meta\b[^>]*>/gi)].map((match) => match[0]);
+    for (const tag of tags) {
+      if (!itempropTokens(tag).includes('addresslocality')) continue;
+      const content = tag.match(/\bcontent\s*=\s*["']([^"']*)["']/i)?.[1] || '';
+      const locality = canonicalSbbLocality(content);
+      if (locality) return locality;
+    }
   }
   return '';
 }

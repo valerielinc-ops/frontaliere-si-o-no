@@ -62,6 +62,20 @@ const DETAIL_HTML_SOURCE_LOCATION = `
       </div>
     </div>
   </div>`;
+const DETAIL_HTML_MULTIPLE_POSTINGS = DETAIL_HTML_SOURCE_LOCATION.replace(
+  /<script type="application\/ld\+json">[\s\S]*?<\/script>/,
+  `<script type="application/ld+json">${JSON.stringify({
+    '@type': 'JobPosting',
+    title: 'Other vacancy',
+    url: 'https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/99999/Other',
+    jobLocation: { address: { addressLocality: 'München', addressCountry: 'DE' } },
+  })}</script><script type="application/ld+json">${JSON.stringify({
+    '@type': 'JobPosting',
+    title: 'Tecnico di misura',
+    url: DETAIL_URL,
+    jobLocation: { address: { addressLocality: 'Grenchen', addressCountry: 'CH' } },
+  })}</script>`,
+);
 
 function httpError(status: number) {
   return Object.assign(new Error(`HTTP ${status}`), { status });
@@ -162,6 +176,33 @@ describe('Faulhaber crawler parser', () => {
       canton: 'SO',
       slug: 'tecnico-di-misura-grenchen-faulhaber',
     });
+  });
+
+  it('selects the identity-matching JobPosting when a related vacancy comes first', async () => {
+    const jobs = await fetchAllFaulhaberJobs({
+      fetchHtmlImpl: vi.fn(async (url: string) => (
+        url === LISTING_DATA_URL ? LISTING_JSON : DETAIL_HTML_MULTIPLE_POSTINGS
+      )),
+      fetchJinaImpl: vi.fn(),
+    });
+
+    expect(jobs[0]).toMatchObject({
+      location: 'Grenchen',
+      canton: 'SO',
+      slug: 'tecnico-di-misura-grenchen-faulhaber',
+    });
+  });
+
+  it('drops a detail whose locality is only a foreign city plus the country word', async () => {
+    const foreignDetail = DETAIL_HTML_SOURCE_LOCATION.replace('Grenchen', 'Paris');
+    const jobs = await fetchAllFaulhaberJobs({
+      fetchHtmlImpl: vi.fn(async (url: string) => (
+        url === LISTING_DATA_URL ? LISTING_JSON : foreignDetail
+      )),
+      fetchJinaImpl: vi.fn(),
+    });
+
+    expect(jobs).toEqual([]);
   });
 
   describe('spontaneous-application entry (corpus run 36790878741)', () => {

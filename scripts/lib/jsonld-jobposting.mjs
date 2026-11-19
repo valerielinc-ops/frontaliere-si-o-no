@@ -27,6 +27,52 @@ export function extractJobPostingsLd(html) {
   return postings;
 }
 
+function postingIdentityKey(value = '') {
+  return normalizeSpace(String(value || ''))
+    .toLowerCase()
+    .normalize('NFKC')
+    .replace(/[^\p{L}\p{N}]+/gu, ' ')
+    .trim();
+}
+
+function postingUrlKey(value = '', baseUrl = '') {
+  if (!value) return '';
+  try {
+    const url = new URL(String(value), baseUrl || undefined);
+    return `${url.origin}${url.pathname.replace(/\/$/, '')}`.toLowerCase();
+  } catch {
+    return '';
+  }
+}
+
+/**
+ * Select the JobPosting that identifies the current vacancy.
+ *
+ * Detail pages may include related-job JSON-LD blocks before the current
+ * vacancy. A single candidate is safe after the caller's detail boundary has
+ * accepted the page; when there are several candidates, require the current
+ * URL or exact normalized title instead of silently trusting the first node.
+ */
+export function selectJobPostingLd(postings, { title = '', url = '' } = {}) {
+  const candidates = Array.isArray(postings) ? postings.filter(Boolean) : [];
+  if (candidates.length === 0) return null;
+  if (candidates.length === 1) return candidates[0];
+
+  const expectedUrl = postingUrlKey(url, url);
+  if (expectedUrl) {
+    const byUrl = candidates.find((posting) => postingUrlKey(posting.url, url) === expectedUrl);
+    if (byUrl) return byUrl;
+  }
+
+  const expectedTitle = postingIdentityKey(title);
+  if (expectedTitle) {
+    const byTitle = candidates.find((posting) => postingIdentityKey(posting.title) === expectedTitle);
+    if (byTitle) return byTitle;
+  }
+
+  return null;
+}
+
 /** Find the first JobPosting object; preserves the existing caller contract. */
 export function extractJobPostingLd(html) {
   return extractJobPostingsLd(html)[0] ?? null;
