@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-11-18T19:22:42.643Z",
+  "generatedAt": "2026-11-19T00:22:26.962Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -69250,6 +69250,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-09T19:27:39.512Z"
     },
+    "myswitzerland:07d3220bf73948bdbb760863a5433a96::99a8bee384bc17d2614ecac7d7f8929615a0f59a4d8e9a772d629e7630565350": {
+      "id": "myswitzerland:07d3220bf73948bdbb760863a5433a96",
+      "sourceDescriptionHash": "99a8bee384bc17d2614ecac7d7f8929615a0f59a4d8e9a772d629e7630565350",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Kantonale Gartenbauschule Oeschberg; comune: Koppigen; cantone: BE; categoria: Event; data: 2027-03-24; ora: 01:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Kantonale Gartenbauschule Oeschberg; comune: Koppigen; cantone: BE; categoria: Event; data: 2027-03-24; ora: 01:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Kantonale Gartenbauschule Oeschberg; municipality: Koppigen; canton: BE; category: Event; date: 2027-03-24; time: 01:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Kantonale Gartenbauschule Oeschberg; gemeinde: Koppigen; kanton: BE; kategorie: Event; datum: 2027-03-24; uhrzeit: 01:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Kantonale Gartenbauschule Oeschberg; commune: Koppigen; canton: BE; catégorie: Event; date: 2027-03-24; heure: 01:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-19T00:17:28.021Z"
+    },
     "myswitzerland:07d6f20ac3904d48bd904c79314ef567::7a680c9c33533b252c95d3778a2b71885ade895b9d1feadd323e0a27749c94de": {
       "id": "myswitzerland:07d6f20ac3904d48bd904c79314ef567",
       "sourceDescriptionHash": "7a680c9c33533b252c95d3778a2b71885ade895b9d1feadd323e0a27749c94de",
@@ -96731,6 +96745,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T06:24:17.195Z"
+    },
+    "myswitzerland:452c60e6c76b4ff69778a5e72cc0fb92::147141c273ad54dddd1965fc58604c10c52642c0d7a5b62e601426543801a3a2": {
+      "id": "myswitzerland:452c60e6c76b4ff69778a5e72cc0fb92",
+      "sourceDescriptionHash": "147141c273ad54dddd1965fc58604c10c52642c0d7a5b62e601426543801a3a2",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Tonhalle; comune: Zürich; cantone: ZH; categoria: Music; data: 2027-03-27; ora: 18:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Tonhalle; comune: Zürich; cantone: ZH; categoria: Music; data: 2027-03-27; ora: 18:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Tonhalle; municipality: Zürich; canton: ZH; category: Music; date: 2027-03-27; time: 18:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Tonhalle; gemeinde: Zürich; kanton: ZH; kategorie: Music; datum: 2027-03-27; uhrzeit: 18:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Tonhalle; commune: Zürich; canton: ZH; catégorie: Music; date: 2027-03-27; heure: 18:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-19T00:17:28.031Z"
     },
     "myswitzerland:454b1afa1a94497daced8874a2004654::8b3d5769f9564de1acd81d09ecc47a18bcfa70f71217475704ff05c6974fac2a": {
       "id": "myswitzerland:454b1afa1a94497daced8874a2004654",
@@ -170862,6 +170890,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-12T14:15:18.164Z"
     },
+    "myswitzerland:e9ab054bb5164c7b9b11b9b63b041a76::e1fef9fb9da00449f2f3f158513ae8bc0cc27b84ebc1b622928928b607221c93": {
+      "id": "myswitzerland:e9ab054bb5164c7b9b11b9b63b041a76",
+      "sourceDescriptionHash": "e1fef9fb9da00449f2f3f158513ae8bc0cc27b84ebc1b622928928b607221c93",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Anne-Marie Kiener; comune: Fischenthal; cantone: ZH; categoria: Event; data: 2027-03-27; ora: 13:30. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Anne-Marie Kiener; comune: Fischenthal; cantone: ZH; categoria: Event; data: 2027-03-27; ora: 13:30. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Anne-Marie Kiener; municipality: Fischenthal; canton: ZH; category: Event; date: 2027-03-27; time: 13:30. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Anne-Marie Kiener; gemeinde: Fischenthal; kanton: ZH; kategorie: Event; datum: 2027-03-27; uhrzeit: 13:30. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Anne-Marie Kiener; commune: Fischenthal; canton: ZH; catégorie: Event; date: 2027-03-27; heure: 13:30. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-19T00:17:28.041Z"
+    },
     "myswitzerland:e9ab376ae1504d16a9ffa029a5d13b06::85281f5320c2383a4dd94222cc012aeb350b28445e5f5ea2188be01a058b62d9": {
       "id": "myswitzerland:e9ab376ae1504d16a9ffa029a5d13b06",
       "sourceDescriptionHash": "85281f5320c2383a4dd94222cc012aeb350b28445e5f5ea2188be01a058b62d9",
@@ -196735,15 +196777,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "myswitzerland:07d3220bf73948bdbb760863a5433a96::99a8bee384bc17d2614ecac7d7f8929615a0f59a4d8e9a772d629e7630565350": {
-      "id": "myswitzerland:07d3220bf73948bdbb760863a5433a96",
-      "sourceDescriptionHash": "99a8bee384bc17d2614ecac7d7f8929615a0f59a4d8e9a772d629e7630565350",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-15T11:21:30.646Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "myswitzerland:0809b2eee36f48beb505ed29292fed60::9556b9a891ca131fca15d54943f178378e671d9011a8af1f8932d79c803f4b40": {
       "id": "myswitzerland:0809b2eee36f48beb505ed29292fed60",
       "sourceDescriptionHash": "9556b9a891ca131fca15d54943f178378e671d9011a8af1f8932d79c803f4b40",
@@ -197857,15 +197890,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-17T18:25:52.877Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "myswitzerland:452c60e6c76b4ff69778a5e72cc0fb92::147141c273ad54dddd1965fc58604c10c52642c0d7a5b62e601426543801a3a2": {
-      "id": "myswitzerland:452c60e6c76b4ff69778a5e72cc0fb92",
-      "sourceDescriptionHash": "147141c273ad54dddd1965fc58604c10c52642c0d7a5b62e601426543801a3a2",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-15T11:20:51.405Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -200611,15 +200635,6 @@
       "code": "source-ngram-8",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-14T03:26:43.969Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "myswitzerland:e9ab054bb5164c7b9b11b9b63b041a76::e1fef9fb9da00449f2f3f158513ae8bc0cc27b84ebc1b622928928b607221c93": {
-      "id": "myswitzerland:e9ab054bb5164c7b9b11b9b63b041a76",
-      "sourceDescriptionHash": "e1fef9fb9da00449f2f3f158513ae8bc0cc27b84ebc1b622928928b607221c93",
-      "code": "promotional-language",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-15T11:25:53.768Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
