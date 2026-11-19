@@ -611,15 +611,13 @@ export function parseDeferredPerfEvidence(text = '') {
   const codeEvidence = extractCodeSpanEvidence(source);
   const evidence = [prose, ...codeEvidence].join('\n');
   const blocked = PERF_EVIDENCE_BLOCKED_RE.test(prose);
-  const revertMarker = PERF_EVIDENCE_REVERT_RE.exec(prose);
-  const codeHasRevertAction = codeEvidence.some((value) =>
-    /\b(?:revert|rollback|ripristin\w*)\b/i.test(value));
+  const revertMarkerInProse = PERF_EVIDENCE_REVERT_RE.exec(prose);
+  const sourceWithInlineCode = source.replace(/`([^`\n]+)`/g, ' $1 ');
+  const revertMarkerWithInlineCode = PERF_EVIDENCE_REVERT_RE.exec(sourceWithInlineCode);
   const hasRevertAction = Boolean(
-    revertMarker
-    && (
-      /\b(?:revert|rollback|ripristin\w*)\b/i.test(revertMarker[1])
-      || codeHasRevertAction
-    ),
+    revertMarkerInProse
+    && revertMarkerWithInlineCode
+    && /\b(?:revert|rollback|ripristin\w*)\b/i.test(revertMarkerWithInlineCode[1]),
   );
   const hasThreshold = new RegExp(PERF_QTY, 'i').test(evidence);
   const hasJobOrWorkflow = isConcreteJobWorkflowReference(source);

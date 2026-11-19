@@ -139,6 +139,18 @@ describe('unvalidated-perf-claim: le prove accettate e i numeri che non sono pre
     expect(parseDeferredPerfEvidence(residual).complete).toBe(false);
   });
 
+  it('non usa un code span di rollback estraneo al testo del trigger', () => {
+    const residual = 'blocked: post-merge measurement on workflow tests.yml; threshold 30 min. Revert-trigger: observe only; unrelated note: `rollback`.';
+    expect(extractCodeSpanEvidence(residual)).toEqual(['rollback']);
+    expect(parseDeferredPerfEvidence(residual)).toMatchObject({
+      blocked: true,
+      hasRevertAction: false,
+      hasThreshold: true,
+      hasJobOrWorkflow: true,
+      complete: false,
+    });
+  });
+
   it('riconosce gli ausiliari stato e been nei claim non misurati pre-merge', () => {
     for (const claim of [
       '- Il tempo di build non è stato misurato pre-merge.',
