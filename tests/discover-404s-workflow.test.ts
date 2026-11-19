@@ -64,7 +64,8 @@ describe('404 discovery workflows publish protected data through PRs', () => {
     expect(compareBaseHelper).toContain('COMPARE_MERGE_BASE_DEEPEN_STEPS=(64 256 1024)');
     expect(compareBaseHelper).toContain('COMPARE_MERGE_BASE_MAX_DEEPEN=1344');
     expect(compareBaseHelper).toContain('git fetch --no-tags --filter=blob:none --deepen="$deepen" "$remote_url"');
-    expect(compareBaseHelper).toContain('GIT_NO_LAZY_FETCH=1 git merge-base "$left" "$right"');
+    expect(compareBaseHelper).toContain('node "$COMPARE_MERGE_BASE_LIB_DIR/git-no-lazy.mjs" --supports');
+    expect(compareBaseHelper).toContain('GIT_NO_LAZY_FETCH=1 git --no-lazy-fetch merge-base "$left" "$right"');
     expect(compareBaseHelper).toContain('[[ "$1" =~ ^[0-9a-fA-F]{40}$ ]]');
     expect(compareBaseHelper).toContain('if ! compare_merge_base_is_sha1 "$base"; then');
     expect(publisher).toContain(

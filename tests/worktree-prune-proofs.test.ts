@@ -33,6 +33,7 @@ import {
   removeTreeNoFollow,
   splitFileChunks,
 } from '../scripts/lib/merged-content-proof.mjs';
+import { noLazyGitInvocation } from '../scripts/lib/git-no-lazy.mjs';
 import { classifyDirtyEntries, isNodeModulesLinkEntry } from '../scripts/lib/worktree-dirty.mjs';
 
 // Le prove nate dallo smaltimento manuale del 2026-10-02: per ognuna il caso
@@ -479,10 +480,11 @@ describe('fatti letti da git', () => {
     g('checkout', '-q', 'main');
   });
 
-  it('un HEAD che arriva dopo un fetch è visto: in memoria solo i commit presenti', () => {
+  it('un HEAD è verificabile solo quando Git supporta una sonda no-lazy-fetch', () => {
     const missing = 'f'.repeat(40);
     expect(prover.hasCommit(missing)).toBe(false);
-    expect(prover.hasCommit(g('rev-parse', 'HEAD'))).toBe(true);
+    const head = g('rev-parse', 'HEAD');
+    expect(prover.hasCommit(head)).toBe(Boolean(noLazyGitInvocation(['cat-file', '-e', `${head}^{commit}`])));
   });
 
   it('il probe di presenza evita lazy fetch, memorizza l’assenza e la rivaluta dopo un fetch', () => {
@@ -493,16 +495,20 @@ describe('fatti letti da git', () => {
       mainRef: 'origin/main',
       git: (args: string[], options?: { env?: Record<string, string> }) => {
         calls.push({ args, options });
-        if (args[0] !== 'cat-file') return null;
+        if (args[1] !== 'cat-file') return null;
         return available ? '' : null;
       },
+      noLazyGitInvocation: (args: string[]) => ({
+        args: ['--no-lazy-fetch', ...args],
+        env: { GIT_NO_LAZY_FETCH: '1' },
+      }),
     });
 
     expect(isolated.hasCommit(sha)).toBe(false);
     expect(isolated.hasCommit(sha)).toBe(false);
     expect(calls).toHaveLength(1);
     expect(calls[0]).toMatchObject({
-      args: ['cat-file', '-e', `${sha}^{commit}`],
+      args: ['--no-lazy-fetch', 'cat-file', '-e', `${sha}^{commit}`],
       options: { env: { GIT_NO_LAZY_FETCH: '1' } },
     });
 
@@ -553,6 +559,10 @@ describe('fatti letti da git', () => {
       const isolated = makeContentProver({ git, mainRef: 'origin/main' });
 
       expect(isolated.hasCommit('e'.repeat(40))).toBe(false);
+      if (!noLazyGitInvocation(['cat-file', '-e', `${'e'.repeat(40)}^{commit}`])) {
+        expect(fs.existsSync(trace)).toBe(false);
+        return;
+      }
       const traceEvents = fs.readFileSync(trace, 'utf8').split('\n').filter(Boolean).map((line) => JSON.parse(line));
       expect(traceEvents.some((event) => event.event === 'cmd_name' && event.name === 'cat-file')).toBe(true);
       expect(traceEvents.some((event) => event.event === 'child_start' && event.argv?.[0] === 'git' && event.argv?.[1] === 'fetch')).toBe(false);

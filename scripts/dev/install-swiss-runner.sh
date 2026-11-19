@@ -135,6 +135,19 @@ write_plist() {
     return 1
   fi
   node_dir=$(/usr/bin/dirname "$node_bin")
+  git_dir=''
+  for known_git in "$home_dir"/.local/git-*/bin/git "$home_dir/.local/bin/git"; do
+    [ -x "$known_git" ] || continue
+    if node "$script_dir/../lib/git-no-lazy.mjs" --supports "$known_git"; then
+      git_dir=$(/usr/bin/dirname "$known_git")
+      break
+    fi
+  done
+  runner_path="$home_dir/.local/bin"
+  if [ -n "$git_dir" ] && [ "$git_dir" != "$home_dir/.local/bin" ]; then
+    runner_path="$runner_path:$git_dir"
+  fi
+  runner_path="$runner_path:$node_dir:/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin"
   headed_env=''
   if [ -n "$headed" ]; then
     headed_env="    <key>SWISS_RUNNER_HEADED</key><string>1</string>"
@@ -155,7 +168,7 @@ write_plist() {
   <key>WorkingDirectory</key><string>$(xml_escape "$site")</string>
   <key>EnvironmentVariables</key>
   <dict>
-    <key>PATH</key><string>$(xml_escape "$node_dir"):/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin</string>
+    <key>PATH</key><string>$(xml_escape "$runner_path")</string>
     <key>HOME</key><string>$(xml_escape "$home_dir")</string>
     <key>SWISS_RUNNER_SITE</key><string>$(xml_escape "$site")</string>
     <key>GOOGLE_APPLICATION_CREDENTIALS</key><string>$(xml_escape "$sa_file")</string>
@@ -168,7 +181,7 @@ $headed_env
 </dict>
 </plist>
 EOF
-  /usr/bin/plutil -lint "$tmp" >/dev/null || { /bin/rm -f "$tmp"; echo '✖ invalid plist' >&2; return 1; }
+  "${SWISS_RUNNER_PLUTIL:-/usr/bin/plutil}" -lint "$tmp" >/dev/null || { /bin/rm -f "$tmp"; echo '✖ invalid plist' >&2; return 1; }
   /bin/mv "$tmp" "$out"
 }
 
