@@ -39,6 +39,7 @@ describe('Bachtelen job parser', () => {
   afterEach(() => {
     vi.unstubAllGlobals();
     fetchViaJinaWithRetry.mockReset();
+    delete process.env.JOBS_CRAWLER_RETRIES;
   });
 
   it('extracts locations from the job cards and ignores unrelated links', () => {
@@ -143,7 +144,7 @@ describe('Bachtelen job parser', () => {
     await expect(fetchAllBachtelenJobs()).resolves.toEqual([]);
     const options = fetchViaJinaWithRetry.mock.calls[0]?.[1];
     expect(options?.validateBody('[]')).toBeNull();
-    expect(options?.validateBody(JSON.stringify({ code: 'rest_forbidden' }))).toMatch(/not an array/);
+    expect(options?.validateBody(JSON.stringify({ code: 'rest_forbidden' }))).toMatch(/JSON array/);
   });
 
   it.each([

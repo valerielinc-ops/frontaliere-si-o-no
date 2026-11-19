@@ -85,12 +85,13 @@ export function isTrustedDomain(rawUrl = '') {
  * original direct error is rethrown so the crawler cannot turn an unverified
  * response into an empty listing.
  */
-function validateBachtelenListingBody(body) {
+function validateBachtelenRestBody(body = '') {
   const proxyError = detectJinaErrorBody(body, { minLength: 0 });
   if (proxyError) return proxyError;
 
   try {
-    return Array.isArray(JSON.parse(body)) ? null : 'JSON payload is not an array';
+    const payload = JSON.parse(body);
+    return Array.isArray(payload) ? null : 'expected a JSON array from WP REST stelle';
   } catch (err) {
     return `invalid JSON: ${err?.message || err}`;
   }
@@ -98,15 +99,17 @@ function validateBachtelenListingBody(body) {
 
 async function fetchBachtelenListingJson(url, timeoutMs = 20000) {
   try {
-    return await fetchJson(url, {
+    const { data } = await fetchJson(url, {
       timeoutMs,
       label: 'Bachtelen wp-json stelle',
+      returnResponse: true,
       headers: {
         Accept: 'application/json,text/html;q=0.9,*/*;q=0.5',
         'Accept-Language': 'de-CH,de;q=0.9,en;q=0.5',
         Referer: PUBLIC_CAREER_URL,
       },
     });
+    return data;
   } catch (err) {
     if (!(isConnectionLevelFetchError(err) || WAF_IP_BLOCK_STATUS.has(err?.status))) throw err;
 
@@ -114,7 +117,7 @@ async function fetchBachtelenListingJson(url, timeoutMs = 20000) {
     const res = await fetchViaJinaWithRetry(url, {
       timeoutMs,
       format: 'text',
-      validateBody: validateBachtelenListingBody,
+      validateBody: validateBachtelenRestBody,
     });
     if (!res.ok) {
       console.warn(`⚠️ Jina proxy returned HTTP ${res.status} for Bachtelen WP REST stelle — falling back to original error.`);
@@ -122,7 +125,7 @@ async function fetchBachtelenListingJson(url, timeoutMs = 20000) {
     }
 
     const body = await res.text();
-    const reason = validateBachtelenListingBody(body);
+    const reason = validateBachtelenRestBody(body);
     if (reason) {
       console.warn(`⚠️ Jina-proxied Bachtelen WP REST stelle body looks like a challenge/non-target page (${reason}) — falling back to original error.`);
       throw err;
