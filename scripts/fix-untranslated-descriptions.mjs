@@ -11,7 +11,7 @@ import { realpathSync } from 'node:fs';
  * Does NOT modify titles, slugs, or needsRetranslation flags.
  *
  * Usage:
- *   node scripts/fix-untranslated-descriptions.mjs [--dry-run] [--max N] [--slice <basename>]
+ *   node scripts/fix-untranslated-descriptions.mjs [--dry-run] [--stale-only] [--max N] [--slice <basename>]
  *
  *   --slice limits the run to a single by-crawler slice (basename with or without
  *   .json, e.g. `banca-cler`) for surgical, single-company fixes.
@@ -21,6 +21,8 @@ import { realpathSync } from 'node:fs';
  *     measured from the translate-pending run marker (default 300*60*1000).
  *     Standalone runs without a marker use this process's start time; the
  *     workflow fails closed if its marker is missing.
+ *   UNTRANSLATED_DESCRIPTION_FIX_STALE_ONLY=1 — only repair source-copy
+ *     descriptions older than the shared translation-queue stale threshold.
  */
 
 import fs from 'node:fs';
@@ -57,6 +59,8 @@ export {
   isAcceptableTranslation,
 } from './lib/translation-quality.mjs';
 const DRY_RUN = process.argv.includes('--dry-run');
+const STALE_ONLY = process.argv.includes('--stale-only')
+  || process.env.UNTRANSLATED_DESCRIPTION_FIX_STALE_ONLY === '1';
 const MAX = (() => {
   const idx = process.argv.indexOf('--max');
   if (idx !== -1 && process.argv[idx + 1]) return Number(process.argv[idx + 1]);
@@ -166,9 +170,13 @@ export function orderDescriptionFixTasksAcrossSlices(
   return orderDescriptionFixTasks(tasks, popularity, { now });
 }
 
-export function collectDescriptionFixTasks(jobs, { popularity = {}, now = Date.now() } = {}) {
+export function collectDescriptionFixTasks(
+  jobs,
+  { popularity = {}, now = Date.now(), staleOnly = false } = {},
+) {
   const tasks = [];
   for (const job of Array.isArray(jobs) ? jobs : []) {
+    if (staleOnly && !isTranslationQueueStale(job, now)) continue;
     const sl = normalizeJobLocale(job?.sourceLang) || 'it';
     const sourceDescriptions = sourceLocaleTextCandidates(job, 'description');
     const sourceDesc = sourceLocaleTextForTranslation(job, 'description', 120);
@@ -286,6 +294,7 @@ async function main() {
     console.log(`   descriptions in flight: up to ${poolLimit} (Codex lane ${stats?.lanePresent ? 'present' : 'absent'}${stats?.stopReason ? `, stopped: ${stats.stopReason}` : ''})`);
   }
   if (DRY_RUN) console.log('   (DRY RUN — no files will be modified)');
+  if (STALE_ONLY) console.log('   (STALE ONLY — jobs younger than the shared queue-stale threshold stay queued)');
   if (MAX < Infinity) console.log(`   (MAX: ${MAX} descriptions)`);
   console.log('');
 
@@ -297,6 +306,7 @@ async function main() {
   // globally ordered pool can still persist completed work incrementally.
   const sliceStates = [];
   const sliceTaskGroups = [];
+  const candidateNow = Date.now();
   if (!budgetOk()) {
     deadlineReached = true;
   } else {
@@ -323,14 +333,18 @@ async function main() {
       sliceStates.push(state);
       sliceTaskGroups.push({
         sliceState: state,
-        tasks: collectDescriptionFixTasks(jobs, { popularity }),
+        tasks: collectDescriptionFixTasks(jobs, {
+          popularity,
+          now: candidateNow,
+          staleOnly: STALE_ONLY,
+        }),
       });
     }
   }
 
   const orderedTasks = deadlineReached
     ? []
-    : orderDescriptionFixTasksAcrossSlices(sliceTaskGroups, popularity);
+    : orderDescriptionFixTasksAcrossSlices(sliceTaskGroups, popularity, { now: candidateNow });
 
   const persistSlice = (state) => {
     if (!state?.sliceChanged || DRY_RUN) return;

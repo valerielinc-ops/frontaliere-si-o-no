@@ -308,6 +308,20 @@ jobs:
           console.log(`Translation run clock initialized at ${startMs}.`);
           NODE
 
+      # Source-copy descriptions older than the shared queue-stale threshold
+      # are already serving the wrong language. Give a small, deterministic
+      # repair pass a place before the long Argos/cascade phases: the late 2e
+      # lane remains the complete backstop, but its run-wide budget gate may
+      # correctly skip it when the persistence queue needs the remaining time.
+      - name: "Phase 2 pre: Repair stale source-copy descriptions (bounded)"
+        if: inputs.skip_translate != true && inputs.dry_run != true && (github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && env.TRANSLATION_MANUAL_OVERRIDE != 'true'))
+        continue-on-error: true
+        env:
+          UNTRANSLATED_DESCRIPTION_FIX_STALE_ONLY: '1'
+          UNTRANSLATED_DESCRIPTION_FIX_DEADLINE_MS: '900000' # 15min from the shared run clock
+          UNTRANSLATED_DESCRIPTION_FIX_MAX: ${{ vars.UNTRANSLATED_DESCRIPTION_FIX_PREPASS_MAX || '100' }}
+        run: node scripts/fix-untranslated-descriptions.mjs --stale-only --max "$UNTRANSLATED_DESCRIPTION_FIX_MAX"
+
       - name: Assemble dataset
         if: inputs.skip_translate != true
         env:

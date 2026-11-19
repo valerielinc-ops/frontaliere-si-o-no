@@ -188,6 +188,23 @@ describe('translation observability workflow', () => {
       expect(clock).not.toHaveProperty('continue-on-error');
       expect(steps.findIndex((step) => step.name === 'Initialize translation run clock'))
         .toBeLessThan(steps.findIndex((step) => step.name === 'Phase 2a: Local MT bulk translate (Argos)'));
+      const stalePrepass = steps.find((step) => step.name === 'Phase 2 pre: Repair stale source-copy descriptions (bounded)');
+      expect(stalePrepass, `${label}: stale description prepass missing`).toMatchObject({
+        if: "inputs.skip_translate != true && inputs.dry_run != true && (github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && env.TRANSLATION_MANUAL_OVERRIDE != 'true'))",
+        'continue-on-error': true,
+        env: {
+          UNTRANSLATED_DESCRIPTION_FIX_STALE_ONLY: '1',
+          UNTRANSLATED_DESCRIPTION_FIX_DEADLINE_MS: label === 'portable artifact' ? '900000' : '900000',
+          UNTRANSLATED_DESCRIPTION_FIX_MAX: label === 'portable artifact'
+            ? "${{ vars.UNTRANSLATED_DESCRIPTION_FIX_PREPASS_MAX || '100' }}"
+            : "${{ vars.UNTRANSLATED_DESCRIPTION_FIX_PREPASS_MAX || '100' }}",
+        },
+        run: 'node scripts/fix-untranslated-descriptions.mjs --stale-only --max "$UNTRANSLATED_DESCRIPTION_FIX_MAX"',
+      });
+      expect(steps.findIndex((step) => step.name === 'Initialize translation run clock'))
+        .toBeLessThan(steps.findIndex((step) => step.name === 'Phase 2 pre: Repair stale source-copy descriptions (bounded)'));
+      expect(steps.findIndex((step) => step.name === 'Phase 2 pre: Repair stale source-copy descriptions (bounded)'))
+        .toBeLessThan(steps.findIndex((step) => step.name === 'Assemble dataset'));
       const mopup = steps.find((step) => step.name === 'Phase 2c mop-up: local MT (Argos Translate, in-process)');
       const titleFix = steps.find((step) => step.name === 'Phase 2d: Fix untranslated titles (free cascade)');
       const titleCommit = steps.find((step) => step.name === 'Commit title fixes');
@@ -248,8 +265,9 @@ describe('translation observability workflow', () => {
     // globally ordered candidate queue; the pool still checks the shared
     // deadline before starting each task.
     expect(descriptionPopulation).toContain('const sliceTaskGroups = []');
-    expect(descriptionPopulation).toContain('tasks: collectDescriptionFixTasks(jobs, { popularity })');
-    expect(descriptionPopulation).toContain('orderDescriptionFixTasksAcrossSlices(sliceTaskGroups, popularity)');
+    expect(descriptionPopulation).toContain('tasks: collectDescriptionFixTasks(jobs, {');
+    expect(descriptionPopulation).toContain('staleOnly: STALE_ONLY');
+    expect(descriptionPopulation).toContain('orderDescriptionFixTasksAcrossSlices(sliceTaskGroups, popularity, { now: candidateNow })');
     expect(descriptionPopulation).toMatch(/for \(const file of files\) \{[\s\S]*?if \(!budgetOk\(\)\) \{\s+deadlineReached = true;\s+break;\s+\}\s+const slicePath/);
     expect(descriptionLoop.match(/if \(!budgetOk\(\)\)/g)?.length).toBeGreaterThanOrEqual(1);
     const descriptionPool = descriptionFixScript.slice(
