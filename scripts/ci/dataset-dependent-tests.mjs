@@ -677,6 +677,20 @@ function functionReadsDataset(file, name, stack = new Set(), state = { cyclic: f
   return rememberDatasetEffect(key, false, state);
 }
 
+function dynamicModuleReadsDataset(file) {
+  if (moduleHasTopLevelDatasetRead(file)) return true;
+  const analysis = analyzeFile(file);
+  // A dynamic import has no static binding for the test walker to follow. It
+  // is nevertheless a real runtime edge: conservatively inspect the module's
+  // exported functions so a test that imports `runRelocalization` dynamically
+  // is not scheduled before the assembled jobs.json exists.
+  for (const name of analysis.exports.keys()) {
+    if (name === '*') continue;
+    if (exportReadsDataset(file, name)) return true;
+  }
+  return false;
+}
+
 function testReadsDataset(file) {
   const analysis = analyzeFile(file);
   if (analysis.unknown || analysis.allDirect) return true;
@@ -686,8 +700,11 @@ function testReadsDataset(file) {
       ? analysis.usedIdentifiers.has(entry.namespace)
       : analysis.usedIdentifiers.has(entry.local));
     if (!used) continue;
+    if (entry.side) {
+      if (dynamicModuleReadsDataset(entry.to)) return true;
+      continue;
+    }
     if (moduleHasTopLevelDatasetRead(entry.to)) return true;
-    if (entry.side) continue;
     if (entry.namespace) {
       const properties = analysis.namespaceProperties.get(entry.namespace) || new Set();
       if ([...properties].some((property) => exportReadsDataset(entry.to, property))) return true;
