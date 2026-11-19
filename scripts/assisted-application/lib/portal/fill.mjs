@@ -314,6 +314,7 @@ const quoteAttributeSelectorValue = (value) => String(value || '').replace(/["\\
  * container at all.
  */
 async function openedListbox(frame, field) {
+  if (field?.ownedListAmbiguous) return { list: null, options: frame.locator('[role="option"]:visible'), blocked: true };
   const ownedList = field?.ownedList
     ? frame.locator(`[id="${quoteAttributeSelectorValue(field.ownedList)}"]`)
     : null;
@@ -322,10 +323,14 @@ async function openedListbox(frame, field) {
     const visible = typeof list.waitFor === 'function'
       ? await list.waitFor({ state: 'visible', timeout: 2500 }).then(() => true, () => false)
       : true;
-    return visible ? { list, options: list.locator('[role="option"]:visible') } : null;
+    if (!visible) return null;
+    const options = list.locator('[role="option"]:visible');
+    const hasOptions = typeof options.first === 'function' && typeof options.first().waitFor === 'function'
+      ? await options.first().waitFor({ state: 'visible', timeout: 8000 }).then(() => true, () => false)
+      : true;
+    return hasOptions ? { list, options } : null;
   }
-  const owned = await usable(ownedList);
-  if (owned) return owned;
+  if (ownedList) return (await usable(ownedList)) || { list: null, options: frame.locator('[role="option"]:visible'), blocked: true };
   const visibleLists = frame.locator('[role="listbox"]:visible');
   const list = typeof visibleLists.last === 'function' ? visibleLists.last() : null;
   const active = await usable(list);
@@ -1068,6 +1073,7 @@ export async function applyActions(page, fields, actions, files, {
         await setChoice(await radioLocator(page, field, option), true);
       } else if (['select', 'listbox', 'combobox'].includes(field.kind || field.inputType)) {
         const effectiveKind = field.kind || field.inputType;
+        if (field.ownedListAmbiguous) throw new Error('option_owner_ambiguous');
         let selectedLabel = action.value;
         if (effectiveKind === 'select') {
           const exact = (field.options || []).find((option) => normalizedChoice(option.label) === normalizedChoice(action.value));

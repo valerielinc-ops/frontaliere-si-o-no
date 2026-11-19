@@ -139,6 +139,65 @@ describe('application stage ownership', () => {
       .not.toBe('application_start');
   });
 
+  it('binds the UBS privacy gate to the active popup instead of stale fields', () => {
+    const applyUrl = 'https://jobs.ubs.com/TGNewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&PageType=JobDetails&jobid=44';
+    const scope = { frame: 0, dialogId: 'privacy-popup', applicationScopeId: 'application' };
+    const staleScope = { frame: 0, dialogId: 'other-popup', applicationScopeId: 'other' };
+    const agree = { id: 'agree', text: 'Agree', ...scope };
+    const snapshot = {
+      url: `${applyUrl}#privacy`,
+      fields: [
+        { id: 'processing', kind: 'checkbox', inputType: 'checkbox', label: 'UBS processing your Personal Data', ...scope },
+        { id: 'transfer', kind: 'checkbox', inputType: 'checkbox', label: 'The cross-border transfer of your Personal Data', ...scope },
+        { id: 'notice', kind: 'radio', inputType: 'radio', label: 'You must AGREE to proceed.', ...scope },
+        { id: 'stale', kind: 'text', inputType: 'text', label: 'Unrelated stale field', ...staleScope },
+      ],
+      buttons: [agree],
+      text: 'UBS processing your Personal Data. The cross-border transfer of your Personal Data. You must AGREE to proceed.',
+    };
+    expect(applicationStage(snapshot, { applyUrl, brassRingApplicationEntryProven: true })).toMatchObject({
+      kind: 'application_start', control: agree,
+    });
+  });
+
+  it('keeps the UBS privacy gate unresolved when two Agree controls are enabled', () => {
+    const applyUrl = 'https://jobs.ubs.com/TGNewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&PageType=JobDetails&jobid=46';
+    const scope = { frame: 0, dialogId: 'privacy-popup', applicationScopeId: 'application' };
+    const agree = { id: 'agree', text: 'Agree', ...scope };
+    const otherAgree = { id: 'other-agree', text: 'Agree', frame: 0, dialogId: 'other-popup', applicationScopeId: 'other' };
+    const snapshot = {
+      url: `${applyUrl}#privacy`,
+      fields: [
+        { id: 'processing', kind: 'checkbox', inputType: 'checkbox', label: 'UBS processing your Personal Data', ...scope },
+        { id: 'transfer', kind: 'checkbox', inputType: 'checkbox', label: 'The cross-border transfer of your Personal Data', ...scope },
+        { id: 'notice', kind: 'radio', inputType: 'radio', label: 'You must AGREE to proceed.', ...scope },
+      ],
+      buttons: [agree, otherAgree],
+      text: 'UBS processing your Personal Data. The cross-border transfer of your Personal Data. You must AGREE to proceed.',
+    };
+
+    expect(applicationStage(snapshot, { applyUrl, brassRingApplicationEntryProven: true }).kind)
+      .not.toBe('application_start');
+  });
+
+  it('keeps the UBS privacy gate unresolved when consent controls span forms', () => {
+    const applyUrl = 'https://jobs.ubs.com/TGNewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&PageType=JobDetails&jobid=45';
+    const agree = { id: 'agree', text: 'Agree', frame: 0, disabled: false };
+    const snapshot = {
+      url: `${applyUrl}#privacy`,
+      fields: [
+        { id: 'processing', kind: 'checkbox', inputType: 'checkbox', formId: 'privacy-a', label: 'UBS processing your Personal Data' },
+        { id: 'transfer', kind: 'checkbox', inputType: 'checkbox', formId: 'privacy-a', label: 'The cross-border transfer of your Personal Data' },
+        { id: 'notice', kind: 'radio', inputType: 'radio', formId: 'privacy-b', label: 'You must AGREE to proceed.' },
+      ],
+      buttons: [agree],
+      text: 'UBS processing your Personal Data. The cross-border transfer of your Personal Data. You must AGREE to proceed.',
+    };
+
+    expect(applicationStage(snapshot, { applyUrl, brassRingApplicationEntryProven: true }).kind)
+      .not.toBe('application_start');
+  });
+
   it('recognizes a UBS privacy gate when the radio notice is exposed as an option', () => {
     const applyUrl = 'https://jobs.ubs.com/TGNewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&PageType=JobDetails&jobid=43';
     const agree = { id: 'agree', text: 'Agree', frame: 0, disabled: false };

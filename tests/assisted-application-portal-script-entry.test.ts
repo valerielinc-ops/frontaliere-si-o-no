@@ -92,6 +92,21 @@ describe('verified posting script entry (#17253)', () => {
     })).toMatchObject({ submit: null, next: null });
   });
 
+  it('binds the fieldless UBS opener to its active popup and rejects another vacancy identity', () => {
+    const ubsUrl = 'https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=348358&PageType=jobdetails';
+    const apply = { text: 'Apply now', frame: 0, dialogId: 'active-popup', applicationScopeId: 'application' };
+    const staleField = { id: 'old-question', kind: 'listbox', inputType: 'listbox', frame: 0, dialogId: 'old-popup', applicationScopeId: 'old-application' };
+    const context = {
+      applyUrl: ubsUrl,
+      postingUrl: ubsUrl,
+      selectedPostingIsApplicationUrl: true,
+      allowSingleExternalApplicationEntry: true,
+    };
+
+    expect(applicationEntryControls({ url: ubsUrl, fields: [staleField], buttons: [apply] }, context)).toEqual([apply]);
+    expect(applicationEntryControls({ url: ubsUrl, fields: [], buttons: [{ ...apply, postingId: '999999' }] }, context)).toEqual([]);
+  });
+
   it('rejects a BrassRing fieldless Apply now control from an unknown frame', () => {
     const ubsUrl = 'https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=348358&PageType=jobdetails';
     const apply = { text: 'Apply now', frame: 'unknown' };

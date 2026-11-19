@@ -1,7 +1,7 @@
 /** Application stages are proved by the page's controls and instructions, never its URL alone. */
 import { avaturePortalDirectory, avaturePostingJobKey, sameAvaturePortal } from './protocol.mjs';
 import { isCvDocumentLabel } from './document-labels.mjs';
-import { brassRingPrivacyGateControl, sameBrassRingPostingAddress } from './brass-ring-route.mjs';
+import { brassRingActiveFields, brassRingPrivacyGateControl, sameBrassRingPostingAddress } from './brass-ring-route.mjs';
 import { isWorkdayApplicationRouteBound, isWorkdayJobRouteBound, isWorkdayTenantAccountRoute, isWorkdayTenantUrl, sameWorkdayJobRoute, workdayJobRoute } from './workday-route.mjs';
 import { POSTING_BINDING_STATUS, resolvePostingBinding, samePostingRouteAddress } from './posting-binding.mjs';
 import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE } from './fill.mjs';
@@ -227,14 +227,12 @@ function workdayApplicationFormSurface(snapshot, { url = snapshot?.url, applyUrl
 
 function brassRingApplicationStartControl(snapshot, applicationEntryProven = false) {
   if (applicationEntryProven !== true) return null;
-  const fields = (snapshot?.fields || []).filter(field => !field?.chrome && !field?.disabled
-    && !['hidden', 'submit', 'button', 'reset', 'image'].includes(String(field?.inputType || '').toLowerCase()));
-  if (fields.length > 0) return null;
   const controls = (snapshot?.buttons || []).filter(button => !button?.chrome && !button?.disabled);
   const applyNow = controls.filter((button) => !button?.href && !button?.formId
     && validFrameIndex(button?.frame) === 0 && !button?.leavesDocument
     && /^apply now$/iu.test(String(button?.text || button?.label || button?.ariaLabel || '').normalize('NFKC').trim()));
-  return applyNow.length === 1 ? applyNow[0] : null;
+  if (applyNow.length !== 1 || brassRingActiveFields(snapshot, applyNow[0]).length > 0) return null;
+  return applyNow[0];
 }
 
 function validFrameIndex(value) {
