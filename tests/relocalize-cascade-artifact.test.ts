@@ -57,6 +57,7 @@ async function installCascadeRuntime(
   vi.resetModules();
   const runtimeFs = (await import('node:fs')).default;
   const originalExistsSync = runtimeFs.existsSync.bind(runtimeFs);
+  const originalStatSync = runtimeFs.statSync.bind(runtimeFs);
   const originalReadFileSync = runtimeFs.readFileSync.bind(runtimeFs);
   const originalWriteFileSync = runtimeFs.writeFileSync.bind(runtimeFs);
   const originalRenameSync = runtimeFs.renameSync.bind(runtimeFs);
@@ -70,6 +71,10 @@ async function installCascadeRuntime(
     if (filePath === dataJobsPath) return true;
     if (filePath === byCrawlerPath) return false;
     return originalExistsSync(file);
+  });
+  vi.spyOn(runtimeFs, 'statSync').mockImplementation((file) => {
+    if (String(file) === dataJobsPath) return { size: 0 } as never;
+    return originalStatSync(file);
   });
   vi.spyOn(runtimeFs, 'readFileSync').mockImplementation((file, options) => {
     const filePath = String(file);

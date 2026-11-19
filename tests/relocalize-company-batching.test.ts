@@ -155,6 +155,7 @@ describe('relocalize company invocation batching', () => {
     let crawlerCompanyKeys = '';
 
     const originalExistsSync = fs.existsSync.bind(fs);
+    const originalStatSync = fs.statSync.bind(fs);
     const originalReadFileSync = fs.readFileSync.bind(fs);
     const originalWriteFileSync = fs.writeFileSync.bind(fs);
     const originalRenameSync = fs.renameSync.bind(fs);
@@ -169,6 +170,10 @@ describe('relocalize company invocation batching', () => {
       if (filePath === dataJobsPath) return true;
       if (filePath === byCrawlerPath) return false;
       return originalExistsSync(file);
+    });
+    vi.spyOn(fs, 'statSync').mockImplementation((file) => {
+      if (String(file) === dataJobsPath) return { size: 0 } as never;
+      return originalStatSync(file);
     });
     vi.spyOn(fs, 'readFileSync').mockImplementation((file, options) => {
       const filePath = String(file);
@@ -322,6 +327,7 @@ describe('relocalize company invocation batching', () => {
     };
 
     const originalExistsSync = fs.existsSync.bind(fs);
+    const originalStatSync = fs.statSync.bind(fs);
     const originalReadFileSync = fs.readFileSync.bind(fs);
     const originalWriteFileSync = fs.writeFileSync.bind(fs);
     const originalRenameSync = fs.renameSync.bind(fs);
@@ -336,6 +342,10 @@ describe('relocalize company invocation batching', () => {
       if (filePath === dataJobsPath) return true;
       if (filePath === byCrawlerPath) return false;
       return originalExistsSync(file);
+    });
+    vi.spyOn(fs, 'statSync').mockImplementation((file) => {
+      if (String(file) === dataJobsPath) return { size: 0 } as never;
+      return originalStatSync(file);
     });
     vi.spyOn(fs, 'readFileSync').mockImplementation((file, options) => {
       const filePath = String(file);
@@ -459,6 +469,7 @@ describe('relocalize company invocation batching', () => {
     const crawlerFilePath = path.join(byCrawlerPath, 'retry-company.json');
 
     const originalExistsSync = fs.existsSync.bind(fs);
+    const originalStatSync = fs.statSync.bind(fs);
     const originalReadFileSync = fs.readFileSync.bind(fs);
     const originalWriteFileSync = fs.writeFileSync.bind(fs);
     const originalRenameSync = fs.renameSync.bind(fs);
@@ -475,6 +486,10 @@ describe('relocalize company invocation batching', () => {
       if (filePath === byCrawlerPath) return false;
       if (filePath === crawlerFilePath) return true;
       return originalExistsSync(file);
+    });
+    vi.spyOn(fs, 'statSync').mockImplementation((file) => {
+      if (String(file) === dataJobsPath) return { size: 0 } as never;
+      return originalStatSync(file);
     });
     vi.spyOn(fs, 'readFileSync').mockImplementation((file, options) => {
       const filePath = String(file);
