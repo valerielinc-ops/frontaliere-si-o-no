@@ -3,8 +3,9 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { promisify } from 'node:util';
 import { readFile } from 'node:fs/promises';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { fileURLToPath } from 'node:url';
 import { getServiceAccountAccessToken } from './lib/google-service-account-token.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { withSingleFlightLockAsync } from './lib/single-flight-lock.mjs';
 import { fetchRemoteConfigTemplate } from './load-rc-env.mjs';
 import { readPaymentRecords, reconcilePayments, writePaymentsHealth } from './lib/payments-health-data.mjs';
@@ -467,7 +468,7 @@ export function paymentsHealthExitCode({ incomplete }) {
   return incomplete.some((code) => code !== 'reconciliation.insufficient_evidence') ? 1 : 0;
 }
 
-if (process.argv[1] && pathToFileURL(process.argv[1]).href === import.meta.url) {
+if (isInvokedDirectly(import.meta.url)) {
   const flags = process.argv.slice(2);
   try {
     if (flags.some((flag) => !['--record', '--notify'].includes(flag))) throw new Error('invalid_arguments');
