@@ -1,5 +1,5 @@
 // @vitest-environment node
-import { mkdtempSync, readFileSync, rmSync } from 'node:fs';
+import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
@@ -17,6 +17,7 @@ import {
 } from '../scripts/lib/instagram-community-automation.mjs';
 import { mergeInstagramCommunityOutcomeSnapshots } from '../scripts/lib/instagram-community-outcomes.mjs';
 import { socialCopyRevisionId } from '../scripts/lib/social-copy-revision.mjs';
+import { instagramCommunityTopicSignalKey } from '../scripts/lib/instagram-community-topics.mjs';
 
 const NOW = new Date('2026-10-10T12:00:00.000Z');
 const STORY_PUBLISHED_AT = new Date('2026-10-10T12:15:00.000Z');
@@ -126,6 +127,43 @@ describe('Instagram community automation', () => {
     expect(resolveInstagramCommunityMode({})).toBe('dry');
     expect(resolveInstagramCommunityMode({ SOCIAL_ROBOT_MODE: 'live' })).toBe('live');
     expect(resolveInstagramCommunityMode({ SOCIAL_ROBOT_MODE: 'off' })).toBe('off');
+  });
+
+  it('loads state as of a replay instant, while the omitted asOf stays realtime and invalid dates fail', () => {
+    const temp = mkdtempSync(path.join(os.tmpdir(), 'instagram-community-state-as-of-'));
+    const statePath = path.join(temp, 'state.json');
+    const now = new Date();
+    const expiredAt = new Date(now.getTime() - 36 * 24 * 60 * 60 * 1000);
+    const replayAsOf = new Date(now.getTime() - 34 * 24 * 60 * 60 * 1000);
+    const recentAt = new Date(now.getTime() - 60 * 1000);
+    const historicalKey = instagramCommunityTopicSignalKey('historical-comment');
+    const recentKey = instagramCommunityTopicSignalKey('recent-comment');
+    writeFileSync(statePath, JSON.stringify({
+      actions: [],
+      topicSignals: [
+        {
+          key: historicalKey,
+          category: 'permessi-amministrazione',
+          receivedAt: expiredAt.toISOString(),
+        },
+        {
+          key: recentKey,
+          category: 'permessi-amministrazione',
+          receivedAt: recentAt.toISOString(),
+        },
+      ],
+    }));
+
+    expect(loadCommunityState(statePath, { asOf: replayAsOf }).topicSignals).toEqual([
+      expect.objectContaining({ key: historicalKey }),
+    ]);
+    expect(loadCommunityState(statePath).topicSignals).toEqual([
+      expect.objectContaining({ key: recentKey }),
+    ]);
+    expect(() => loadCommunityState(statePath, { asOf: 'not-a-date' })).toThrow(
+      'community state asOf must be a valid date',
+    );
+    rmSync(temp, { recursive: true, force: true });
   });
 
   it('rejects ambiguous timestamp joins instead of replying under the wrong post', () => {
@@ -264,11 +302,47 @@ describe('Instagram community automation', () => {
       status: 'available',
       categories: [{ category: 'permessi-amministrazione', countBand: '10-24' }],
     });
-    expect(loadCommunityState(statePath).topicSignals).toHaveLength(10);
+    expect(loadCommunityState(statePath, { asOf: NOW }).topicSignals).toHaveLength(10);
     expect(persisted).not.toContain(question);
     expect(persisted).not.toContain('topic-comment-0');
     expect(persisted).not.toContain('person-0');
     expect(JSON.stringify(result.outcomes.questionTopicDemand)).not.toContain('topic-comment');
+    rmSync(temp, { recursive: true, force: true });
+  });
+
+  it('keeps pre-existing topic demand when replaying a historical run', async () => {
+    const temp = mkdtempSync(path.join(os.tmpdir(), 'instagram-community-replay-'));
+    const statePath = path.join(temp, 'state.json');
+    writeFileSync(statePath, JSON.stringify({
+      actions: [],
+      topicSignals: Array.from({ length: 10 }, (_, index) => ({
+        key: instagramCommunityTopicSignalKey(`replay-comment-${index}`),
+        category: 'permessi-amministrazione',
+        receivedAt: '2026-10-10T11:00:00.000Z',
+      })),
+    }));
+    const run = fakeInstagramFetch({ comments: [], messages: [] });
+
+    const result = await runInstagramCommunityAutomation({
+      accountId: 'account-1',
+      accessToken: 'token-never-printed',
+      pageId: '',
+      pageAccessToken: '',
+      ledger: { posted: [] },
+      statePath,
+      mode: 'live',
+      now: NOW,
+      fetchImpl: run.fetchImpl,
+      sleepImpl: async () => {},
+      log: { log: () => {}, warn: () => {} },
+      socialPublishReservations: storyReservationClient().client,
+    });
+
+    expect(result.outcomes.questionTopicDemand).toMatchObject({
+      status: 'available',
+      categories: [{ category: 'permessi-amministrazione', countBand: '10-24' }],
+    });
+    expect(loadCommunityState(statePath, { asOf: NOW }).topicSignals).toHaveLength(10);
     rmSync(temp, { recursive: true, force: true });
   });
 
@@ -298,7 +372,7 @@ describe('Instagram community automation', () => {
       socialPublishReservations: storyReservationClient().client,
     });
     const persisted = readFileSync(statePath, 'utf8');
-    const state = loadCommunityState(statePath);
+    const state = loadCommunityState(statePath, { asOf: NOW });
 
     expect(state.topicSignals).toHaveLength(1);
     expect(state.topicSignals[0]).toMatchObject({
