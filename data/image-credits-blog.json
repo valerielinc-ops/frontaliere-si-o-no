@@ -97024,6 +97024,80 @@
         "attributionRequired": true
       },
       "fetchedAt": "2026-10-04"
+    },
+    "generated:article-simon-graf-medico-cantonale": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-19T08:14:12.333Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-19",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-simon-graf-medico-cantonale",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "fb212a908da05cfb39a78af155b2d7b414ccff7f2fa296d21845e82bf932cd4a",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "65afff2fcd097a07aee95e7cc6effa61bef481fbc3d4ba0d2dc281d422d30086",
+        "bytes": 179494,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-19T08:14:12.333Z",
+        "verifiedAt": "2026-11-19T08:14:27.706Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-simon-graf-medico-cantonale.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Original generic synthetic illustration of a Swiss public-health-style building and Appenzell landscape; no people, text, logos, or event-specific cues."
+        }
+      }
     }
   },
   "covers": {
@@ -138612,6 +138686,10 @@
       "provider": null,
       "verifiedAt": "2026-11-17",
       "status": "no-credit"
+    },
+    "article-simon-graf-medico-cantonale": {
+      "file": "generated:article-simon-graf-medico-cantonale",
+      "modified": "resized"
     }
   }
 }
