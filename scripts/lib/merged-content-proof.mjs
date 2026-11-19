@@ -12,6 +12,7 @@ import { existsSync, lstatSync, readdirSync, readFileSync, readlinkSync, rmdirSy
 import { join } from 'node:path';
 
 import { DELETED, isCommitContained, isDirtyContained, isMergeContained } from './branch-purge-policy.mjs';
+import { noLazyGitInvocation as defaultNoLazyGitInvocation } from './git-no-lazy.mjs';
 import { classifyDirtyEntries, symlinkProbe } from './worktree-dirty.mjs';
 
 const DEFAULT_LIMITS = Object.freeze({
@@ -94,7 +95,7 @@ export function splitFileChunks(patchText) {
   return chunks;
 }
 
-export function makeContentProver({ git, mainRef, limits = {} }) {
+export function makeContentProver({ git, mainRef, limits = {}, noLazyGitInvocation = defaultNoLazyGitInvocation }) {
   const L = { ...DEFAULT_LIMITS, ...limits };
   const memo = new Map();
   const cached = (key, fn) => {
@@ -108,7 +109,9 @@ export function makeContentProver({ git, mainRef, limits = {} }) {
   // parziali: quando un commit manca, il percorso promisor può scandire tutti
   // i pack per stabilire se l'oggetto è promesso. L'assenza è memoizzata per
   // evitare di ripetere quel probe nello stesso sweep; dopo un fetch chiamare
-  // hasCommit(rev, { refresh: true }) per rileggere l'object database.
+  // hasCommit(rev, { refresh: true }) per rileggere l'object database. Git
+  // <2.44 non offre una sonda garantita senza rete, quindi l'OID resta
+  // sconosciuto/assente e il chiamante può solo tentare il fetch esplicito.
   const present = new Set();
   const absent = new Set();
   const hasCommit = (rev, { refresh = false } = {}) => {
@@ -117,9 +120,10 @@ export function makeContentProver({ git, mainRef, limits = {} }) {
       if (present.has(rev)) return true;
       if (absent.has(rev)) return false;
     }
-    const found = out(['cat-file', '-e', `${rev}^{commit}`], {
-      env: { GIT_NO_LAZY_FETCH: '1' },
-    }) !== null;
+    const invocation = noLazyGitInvocation(['cat-file', '-e', `${rev}^{commit}`]);
+    const found = invocation
+      ? out(invocation.args, { env: invocation.env }) !== null
+      : false;
     if (found) {
       present.add(rev);
       absent.delete(rev);

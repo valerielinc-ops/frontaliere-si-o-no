@@ -229,6 +229,7 @@ const WRITER_FILES = [
   'scripts/lib/git-push-with-retry.sh',
   // Il wrapper fail-closed verifica il candidato prima del push su main.
   'scripts/lib/main-push-guard.mjs',
+  'scripts/lib/git-no-lazy.mjs',
   'scripts/lib/is-invoked-directly.mjs',
   // Il push con retry lancia ogni comando di rete attraverso questo wrapper.
   'scripts/lib/run-bounded-command.mjs',

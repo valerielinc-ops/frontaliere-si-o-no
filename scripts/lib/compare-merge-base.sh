@@ -6,6 +6,19 @@
 COMPARE_MERGE_BASE_FETCH_TIMEOUT_SECONDS=60
 COMPARE_MERGE_BASE_DEEPEN_STEPS=(64 256 1024)
 COMPARE_MERGE_BASE_MAX_DEEPEN=1344
+COMPARE_MERGE_BASE_LIB_DIR=$(CDPATH='' cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)
+COMPARE_MERGE_BASE_NO_LAZY_AVAILABLE=''
+
+compare_merge_base_has_no_lazy_fetch() {
+  if [ -z "$COMPARE_MERGE_BASE_NO_LAZY_AVAILABLE" ]; then
+    if node "$COMPARE_MERGE_BASE_LIB_DIR/git-no-lazy.mjs" --supports >/dev/null 2>&1; then
+      COMPARE_MERGE_BASE_NO_LAZY_AVAILABLE=true
+    else
+      COMPARE_MERGE_BASE_NO_LAZY_AVAILABLE=false
+    fi
+  fi
+  [ "$COMPARE_MERGE_BASE_NO_LAZY_AVAILABLE" = true ]
+}
 
 compare_merge_base_is_sha1() {
   [[ "$1" =~ ^[0-9a-fA-F]{40}$ ]]
@@ -13,7 +26,12 @@ compare_merge_base_is_sha1() {
 
 compare_merge_base_from_local_graph() {
   local remote_url="$1" left="$2" right="$3" label="$4" base deepen
-  base="$(GIT_NO_LAZY_FETCH=1 git merge-base "$left" "$right" 2>/dev/null || true)"
+  if ! compare_merge_base_has_no_lazy_fetch; then
+    base=''
+    echo "::error::No merge base found within the ${COMPARE_MERGE_BASE_MAX_DEEPEN}-commit history-depth cap for ${label} (local Git cannot disable lazy fetch)" >&2
+    return 1
+  fi
+  base="$(GIT_NO_LAZY_FETCH=1 git --no-lazy-fetch merge-base "$left" "$right" 2>/dev/null || true)"
   if compare_merge_base_is_sha1 "$base"; then
     printf '%s\n' "$base"
     return 0
@@ -27,7 +45,7 @@ compare_merge_base_from_local_graph() {
       echo "::error::Could not deepen merge base graph for ${label}" >&2
       return 1
     fi
-    base="$(GIT_NO_LAZY_FETCH=1 git merge-base "$left" "$right" 2>/dev/null || true)"
+    base="$(GIT_NO_LAZY_FETCH=1 git --no-lazy-fetch merge-base "$left" "$right" 2>/dev/null || true)"
     if compare_merge_base_is_sha1 "$base"; then
       printf '%s\n' "$base"
       return 0
