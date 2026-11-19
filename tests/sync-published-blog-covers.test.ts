@@ -265,6 +265,10 @@ function fixture({ withImage = true, key = 'new-cover', image = IMAGE, imageByte
   fs.mkdirSync(path.join(root, 'packages/articles/content'), { recursive: true });
   fs.mkdirSync(path.join(root, 'data'), { recursive: true });
   fs.mkdirSync(path.join(root, 'public/images/blog'), { recursive: true });
+  fs.copyFileSync(
+    path.join(ROOT, 'data/generated-image-registry.json'),
+    path.join(root, 'data/generated-image-registry.json'),
+  );
   fs.writeFileSync(path.join(root, 'packages/articles/content/blog-articles-data.ts'), `export const ARTICLES = [
   {
     id: '${key}',

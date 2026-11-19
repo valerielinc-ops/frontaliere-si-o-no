@@ -448,26 +448,30 @@ function makeCheckout(opts: {
   currentBlogSitemap?: string;
   articleIndexExclusions?: Array<{ section: 'frontaliere' | 'svizzera'; id: string }>;
   localBlogSlugs?: Record<string, Record<string, string>>;
-  generatedImageRegistries?: boolean;
+  sharedGeneratedImageRegistry?: boolean;
 } = {}) {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'pull-articles-'));
   const pub = path.join(dir, 'public');
+  const dataDir = path.join(dir, 'data');
   fs.mkdirSync(pub, { recursive: true });
+  fs.mkdirSync(dataDir, { recursive: true });
+  fs.copyFileSync(
+    path.join(REPO_ROOT, 'data/blog-generated-image-registry.json'),
+    path.join(dataDir, 'blog-generated-image-registry.json'),
+  );
   // The script reads the news window out of this file rather than re-typing 48.
   // `null` models the post-cutover checkout where main no longer carries it.
   if (opts.windowHours !== null) {
-    fs.mkdirSync(path.join(dir, 'data'), { recursive: true });
     fs.writeFileSync(
-      path.join(dir, 'data', 'news-sitemap-whitelist.ts'),
+      path.join(dataDir, 'news-sitemap-whitelist.ts'),
       `export const NEWS_SITEMAP_WINDOW_HOURS = ${opts.windowHours ?? 48};\n`,
     );
   }
-  if (opts.generatedImageRegistries) {
-    const dataDir = path.join(dir, 'data');
-    fs.mkdirSync(dataDir, { recursive: true });
-    for (const registry of ['blog-generated-image-registry.json', 'generated-image-registry.json']) {
-      fs.copyFileSync(path.join(REPO_ROOT, 'data', registry), path.join(dataDir, registry));
-    }
+  if (opts.sharedGeneratedImageRegistry) {
+    fs.copyFileSync(
+      path.join(REPO_ROOT, 'data/generated-image-registry.json'),
+      path.join(dataDir, 'generated-image-registry.json'),
+    );
   }
   if (opts.frontaliereShadowedSlugs?.length) {
     const overridesDir = path.join(dir, 'packages', 'articles', 'engine', 'shared');
@@ -1182,7 +1186,7 @@ describe('pull-articles-api: generated cover evidence', () => {
       commit: API_COMMIT,
       generated: { [generated.imageUrl]: generated },
     }));
-    const dir = makeCheckout({ generatedImageRegistries: true });
+    const dir = makeCheckout();
 
     const { code } = await run(dir);
 
@@ -1203,7 +1207,7 @@ describe('pull-articles-api: generated cover evidence', () => {
       commit: API_COMMIT,
       generated: { [generated.imageUrl]: generated },
     }));
-    const dir = makeCheckout({ generatedImageRegistries: true });
+    const dir = makeCheckout();
 
     const { code, out } = await run(dir);
 
@@ -1221,7 +1225,7 @@ describe('pull-articles-api: generated cover evidence', () => {
       commit: API_COMMIT,
       generated: { [record.imageUrl]: record },
     }));
-    const dir = makeCheckout({ generatedImageRegistries: true });
+    const dir = makeCheckout({ sharedGeneratedImageRegistry: true });
 
     const { code, out } = await run(dir);
 
@@ -1242,7 +1246,7 @@ describe('pull-articles-api: generated cover evidence', () => {
       commit: API_COMMIT,
       generated: { [record.imageUrl]: record },
     }));
-    const dir = makeCheckout({ generatedImageRegistries: true });
+    const dir = makeCheckout();
 
     const { code, out } = await run(dir);
 
@@ -1261,7 +1265,7 @@ describe('pull-articles-api: generated cover evidence', () => {
       commit: API_COMMIT,
       generated: { [wrongKey]: generated },
     }));
-    const dir = makeCheckout({ generatedImageRegistries: true });
+    const dir = makeCheckout();
 
     const { code, out } = await run(dir);
 
@@ -1280,7 +1284,7 @@ describe('pull-articles-api: generated cover evidence', () => {
       commit: API_COMMIT,
       generated: { [record.imageUrl]: record },
     }));
-    const dir = makeCheckout({ generatedImageRegistries: true });
+    const dir = makeCheckout();
 
     const { code, out } = await run(dir);
 

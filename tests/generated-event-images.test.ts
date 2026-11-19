@@ -288,6 +288,7 @@ describe('generated event image policy', () => {
     expect(contract.scope).toBe('article-hero');
     expect(contract.promptVersion).toBe(GENERATED_IMAGE_PROMPT_VERSION);
     expect(contract.restrictions).toEqual([...GENERATED_IMAGE_RESTRICTIONS]);
+    // cron-count-ok: intentional legacy allowlist size, matched to the source registry contract.
     expect(contract.assetIds).toHaveLength(107);
     expect([...contract.assetIds].sort()).toEqual(eligibleIds);
     expect(legacyVisionAssetIdsForRegistry(registry)).toEqual(contract.assetIds);
@@ -405,10 +406,12 @@ describe('generated event image policy', () => {
     expect(contract.scope).toBe('event-library');
     expect(contract.promptVersion).toBe(GENERATED_IMAGE_PROMPT_VERSION);
     expect(contract.restrictions).toEqual([...GENERATED_IMAGE_RESTRICTIONS]);
+    // cron-count-ok: intentional generated event allowlist size, matched to the source registry contract.
     expect(contract.assetIds).toHaveLength(112);
     expect([...contract.assetIds].sort()).toEqual(eligibleIds);
     expect(eligible.every((record) => validateGeneratedImageRecordWithRegistry(record, registry).valid)).toBe(true);
     expect(registry.assets.filter((record) => record.vision?.contains_recognizable_foreground_person === true)).toHaveLength(0);
+    // cron-count-ok: intentionally tracked photo records still missing a foreground verdict.
     expect(photosMissingForeground).toHaveLength(8);
     expect(photosMissingForeground.every((record) => !contract.assetIds.includes(record.assetId))).toBe(true);
     expect(photosMissingForeground.every((record) => validateGeneratedImageRecordWithRegistry(record, registry).errors
@@ -418,6 +421,7 @@ describe('generated event image policy', () => {
       allowLegacyVision: true,
     });
     expect(validation.valid).toBe(false);
+    // cron-count-ok: one validation error is expected for each incomplete licensed photo.
     expect(validation.errors).toHaveLength(8);
     expect(validation.errors.every((error) => error.includes('licensed-photo vision gate verdict is missing or rejected'))).toBe(true);
 
