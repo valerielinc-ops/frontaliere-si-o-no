@@ -81,10 +81,21 @@ export function isTrustedDomain(rawUrl = '') {
  * The direct request remains the primary path. A 403/406/415/451 WAF response
  * or a connection-level failure can be an IP-reputation block from the CI
  * egress, so retry the same endpoint through Jina with raw text. Never accept
- * Jina's own challenge/error page or a non-JSON body: the original direct
- * error is rethrown so the crawler cannot turn an unverified response into an
- * empty listing.
+ * Jina's own challenge/error page or anything other than a JSON array: the
+ * original direct error is rethrown so the crawler cannot turn an unverified
+ * response into an empty listing.
  */
+function validateBachtelenListingBody(body) {
+  const proxyError = detectJinaErrorBody(body, { minLength: 0 });
+  if (proxyError) return proxyError;
+
+  try {
+    return Array.isArray(JSON.parse(body)) ? null : 'JSON payload is not an array';
+  } catch (err) {
+    return `invalid JSON: ${err?.message || err}`;
+  }
+}
+
 async function fetchBachtelenListingJson(url, timeoutMs = 20000) {
   try {
     return await fetchJson(url, {
@@ -100,14 +111,18 @@ async function fetchBachtelenListingJson(url, timeoutMs = 20000) {
     if (!(isConnectionLevelFetchError(err) || WAF_IP_BLOCK_STATUS.has(err?.status))) throw err;
 
     console.warn(`⚠️ Direct fetch to Bachtelen WP REST stelle blocked (${err?.message || err}) — retrying via Jina clean-IP proxy...`);
-    const res = await fetchViaJinaWithRetry(url, { timeoutMs, format: 'text' });
+    const res = await fetchViaJinaWithRetry(url, {
+      timeoutMs,
+      format: 'text',
+      validateBody: validateBachtelenListingBody,
+    });
     if (!res.ok) {
       console.warn(`⚠️ Jina proxy returned HTTP ${res.status} for Bachtelen WP REST stelle — falling back to original error.`);
       throw err;
     }
 
     const body = await res.text();
-    const reason = detectJinaErrorBody(body);
+    const reason = validateBachtelenListingBody(body);
     if (reason) {
       console.warn(`⚠️ Jina-proxied Bachtelen WP REST stelle body looks like a challenge/non-target page (${reason}) — falling back to original error.`);
       throw err;

@@ -123,13 +123,33 @@ describe('Bachtelen job parser', () => {
     expect(fetchViaJinaWithRetry).toHaveBeenCalledOnce();
     expect(fetchViaJinaWithRetry).toHaveBeenCalledWith(
       expect.stringContaining('/wp-json/wp/v2/stelle?per_page=50&status=publish'),
-      expect.objectContaining({ format: 'text' }),
+      expect.objectContaining({ format: 'text', validateBody: expect.any(Function) }),
     );
+  });
+
+  it('accepts an authoritative empty JSON array from the Jina raw-text response', async () => {
+    vi.stubGlobal('fetch', vi.fn(async (rawUrl: string) => {
+      const url = String(rawUrl);
+      if (url.includes('/wp-json/wp/v2/stelle?')) return response('', 403);
+      if (url === 'https://www.bachtelen.ch/arbeiten-bei-uns/') return response(CAREER_PAGE);
+      throw new Error(`unexpected fetch: ${url}`);
+    }));
+    fetchViaJinaWithRetry.mockResolvedValue({
+      ok: true,
+      status: 200,
+      text: async () => '[]',
+    });
+
+    await expect(fetchAllBachtelenJobs()).resolves.toEqual([]);
+    const options = fetchViaJinaWithRetry.mock.calls[0]?.[1];
+    expect(options?.validateBody('[]')).toBeNull();
+    expect(options?.validateBody(JSON.stringify({ code: 'rest_forbidden' }))).toMatch(/not an array/);
   });
 
   it.each([
     ['a challenge body', 'Just a moment...'],
     ['an invalid JSON body', `<html><body>${'not json '.repeat(30)}</body></html>`],
+    ['a JSON error envelope', JSON.stringify({ code: 'rest_forbidden' })],
   ])('rethrows the original HTTP 403 when Jina returns %s', async (_label, proxyBody) => {
     vi.stubGlobal('fetch', vi.fn(async (rawUrl: string) => {
       if (String(rawUrl).includes('/wp-json/wp/v2/stelle?')) return response('', 403);
