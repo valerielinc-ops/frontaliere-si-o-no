@@ -94,11 +94,15 @@ async function extractRemovedJobs(file, sinceRef) {
         pendingUrl = null;
       }
     }
-    const { code } = await closePromise;
-    if (spawnError || code !== 0) return [];
+    const { code, signal } = await closePromise;
+    if (spawnError) throw spawnError;
+    if (code !== 0) {
+      const reason = signal ? `signal ${signal}` : `exit code ${code}`;
+      throw new Error(`git log failed for ${rel}: ${reason}`);
+    }
     if (pendingSlug && pendingUrl) removed.push({ slug: pendingSlug, url: pendingUrl });
-  } catch {
-    return [];
+  } catch (error) {
+    throw new Error(`Failed to scan git history for ${rel}: ${error?.message || String(error)}`, { cause: error });
   }
   return removed;
 }
