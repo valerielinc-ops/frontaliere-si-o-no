@@ -1,9 +1,9 @@
 {
   "key": "unidistance-ch",
   "label": "UniDistance Suisse",
-  "generatedAt": "2026-11-18T21:54:55.637Z",
-  "total": 7,
-  "discovered": 8,
+  "generatedAt": "2026-11-19T21:44:52.170Z",
+  "total": 6,
+  "discovered": 9,
   "parsed": 6,
   "lastFetchOutcome": null,
   "fetchReceipt": {
@@ -12,11 +12,15 @@
       "https://fernuni.ch/jobs"
     ],
     "phase": "detail",
-    "pages": 9,
+    "pages": 10,
     "httpStatuses": [
       {
         "status": 200,
         "url": "https://fernuni.ch/jobs"
+      },
+      {
+        "status": 200,
+        "url": "https://fernuni.ch/jobs/mehr/collaborateurtrice-en-communication-interne-francophone-40"
       },
       {
         "status": 200,
@@ -57,26 +61,24 @@
   },
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 7,
-  "detailCandidates": 8,
+  "written": 6,
+  "detailCandidates": 9,
   "detailGone": 0,
-  "detailRejected": 2,
+  "detailRejected": 3,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 0,
-  "removedCount": 0,
-  "unchangedCount": 7,
-  "durationMs": 16159,
-  "avgDurationMs": 16159,
+  "updatedCount": 6,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 108302,
+  "avgDurationMs": 108302,
   "durationHistory": [
-    16159
+    108302
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "unidistance-ch-589b7e149684",
       "slug": "due-cattedre-di-diritto-pubblico-d-f-80-100-open-rank-unidistance-suisse-brig-arbeitsbeginn-01",
@@ -89,7 +91,7 @@
       "url": "https://fernuni.ch/jobs/mehr/professuren-oeffentliches-recht",
       "source": "UniDistance Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:54:27.286Z",
+      "crawledAt": "2026-11-19T21:42:20.661Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -113,7 +115,7 @@
       "salaryMax": 118000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T21:54:27.286Z",
+      "validThrough": "2027-02-07T21:42:20.661Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -135,7 +137,7 @@
       "url": "https://fernuni.ch/jobs/mehr/wissenschaftliche-mitarbeiterin-lift",
       "source": "UniDistance Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:54:27.281Z",
+      "crawledAt": "2026-11-19T21:42:20.653Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -159,7 +161,7 @@
       "salaryMax": 64000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T21:54:27.281Z",
+      "validThrough": "2027-02-07T21:42:20.653Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -181,7 +183,7 @@
       "url": "https://fernuni.ch/jobs/mehr/doctoral-student-business-economics",
       "source": "UniDistance Suisse Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-18T21:54:27.279Z",
+      "crawledAt": "2026-11-19T21:42:20.646Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -204,7 +206,7 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T21:54:27.279Z",
+      "validThrough": "2027-02-14T21:42:20.646Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -226,7 +228,7 @@
       "url": "https://fernuni.ch/jobs/mehr/postdoc-in-experimental-and-behavioral-economics-80-100",
       "source": "UniDistance Suisse Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-18T21:54:27.270Z",
+      "crawledAt": "2026-11-19T21:42:20.641Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -249,7 +251,7 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T21:54:27.270Z",
+      "validThrough": "2027-02-14T21:42:20.641Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -271,7 +273,7 @@
       "url": "https://fernuni.ch/jobs/mehr/spezialisierte-mitarbeiterin-spezialisierter-mitarbeiter-faculty-services",
       "source": "UniDistance Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:54:27.266Z",
+      "crawledAt": "2026-11-19T21:42:20.628Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -295,7 +297,7 @@
       "salaryMax": 45800,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T21:54:27.266Z",
+      "validThrough": "2027-02-07T21:42:20.628Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -317,7 +319,7 @@
       "url": "https://fernuni.ch/jobs/mehr/faculty-manager-geschichte-befristet",
       "source": "UniDistance Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:54:27.252Z",
+      "crawledAt": "2026-11-19T21:42:20.608Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -341,7 +343,7 @@
       "salaryMax": 75900,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T21:54:27.252Z",
+      "validThrough": "2027-02-07T21:42:20.608Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -350,7 +352,9 @@
         "translation": 25,
         "completeness": 23
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "id": "unidistance-ch-d0f71cac635f",
       "slug": "assistente-o-borsista-post-dottorato-in-diritto-privato-unidistance-suisse-brig-arbeitsbeginn-sofort-oder-nach",
@@ -399,5 +403,6 @@
       }
     }
   ],
-  "codeCommit": "8862042892397f4dcea90f48fbc2dc028da23eec"
+  "unchangedJobs": [],
+  "codeCommit": "07c2e8305c6747f1893222ba4bfdddc597008157"
 }

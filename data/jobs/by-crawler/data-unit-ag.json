@@ -1,7 +1,7 @@
 {
   "crawlerKey": "data-unit-ag",
-  "assembledAt": "2026-11-18T21:55:24.529Z",
-  "runId": "44401507333",
+  "assembledAt": "2026-11-19T21:46:07.704Z",
+  "runId": "44618984283",
   "jobs": [
     {
       "id": "data-unit-ag-ef1949b9ab6f",
@@ -34,7 +34,7 @@
       "url": "https://dataunit.jobs.personio.de/job/2422130?language=de",
       "source": "DATA UNIT AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:55:10.720Z",
+      "crawledAt": "2026-11-19T21:45:52.541Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -103,7 +103,7 @@
         "checkedAt": "2026-11-16T15:22:34.121Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-09T21:55:10.720Z",
+      "validThrough": "2027-02-09T21:45:52.541Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -137,7 +137,7 @@
       "url": "https://dataunit.jobs.personio.de/job/2550441?language=de",
       "source": "DATA UNIT AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:55:10.719Z",
+      "crawledAt": "2026-11-19T21:45:52.537Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -186,7 +186,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T21:55:10.719Z",
+      "validThrough": "2027-02-09T21:45:52.537Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -220,7 +220,7 @@
       "url": "https://dataunit.jobs.personio.de/job/2319938?language=de",
       "source": "DATA UNIT AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:55:10.711Z",
+      "crawledAt": "2026-11-19T21:45:52.535Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -277,7 +277,7 @@
         "checkedAt": "2026-11-16T15:22:34.121Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-09T21:55:10.711Z",
+      "validThrough": "2027-02-09T21:45:52.535Z",
       "validThroughSource": "last-observed-window"
     }
   ]

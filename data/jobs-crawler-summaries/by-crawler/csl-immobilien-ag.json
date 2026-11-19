@@ -1,7 +1,7 @@
 {
   "key": "csl-immobilien-ag",
   "label": "CSL Immobilien AG",
-  "generatedAt": "2026-11-18T21:53:31.453Z",
+  "generatedAt": "2026-11-19T21:42:03.219Z",
   "total": 2,
   "discovered": 2,
   "parsed": 2,
@@ -44,10 +44,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 8975,
-  "avgDurationMs": 8975,
+  "durationMs": 9964,
+  "avgDurationMs": 9964,
   "durationHistory": [
-    8975
+    9964
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -65,7 +65,7 @@
       "url": "https://app.jobportal.abaservices.ch/job-advertisement/cslimmobilien/60f30749-e92e-f98c-fab8-ecf4fbf29579?jp=ABACUS",
       "source": "CSL Immobilien AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:52:59.656Z",
+      "crawledAt": "2026-11-19T21:41:05.465Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -88,7 +88,7 @@
       "salaryMax": 203000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-07T21:52:59.656Z",
+      "validThrough": "2027-02-07T21:41:05.465Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -110,7 +110,7 @@
       "url": "https://app.jobportal.abaservices.ch/job-advertisement/cslimmobilien/7fdb40d6-c3ba-5548-b8ad-e55232c8a90b?jp=ABACUS",
       "source": "CSL Immobilien AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:52:59.654Z",
+      "crawledAt": "2026-11-19T21:41:05.456Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -133,7 +133,7 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:52:59.654Z",
+      "validThrough": "2027-01-26T21:41:05.456Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -144,5 +144,5 @@
       }
     }
   ],
-  "codeCommit": "8862042892397f4dcea90f48fbc2dc028da23eec"
+  "codeCommit": "07c2e8305c6747f1893222ba4bfdddc597008157"
 }

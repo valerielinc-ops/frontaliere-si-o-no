@@ -1,14 +1,14 @@
 {
   "crawlerKey": "skan",
-  "assembledAt": "2026-11-18T21:54:34.675Z",
-  "runId": "44401507333",
+  "assembledAt": "2026-11-19T21:45:21.201Z",
+  "runId": "44618984283",
   "jobs": [
     {
       "id": "skan-4ebca8c52ac9",
       "slug": "process-validation-ingegnere-skan-ag-allschwil",
       "slugByLocale": {
         "it": "process-validation-ingegnere-skan-ag-allschwil",
-        "en": "process-validation-engineer-allschwil-skan-ch",
+        "en": "process-validation-engineer-allschwil-skan-com-ch",
         "de": "process-validation-ingenieur-skan-ag-allschwil",
         "fr": "process-validation-ingenieur-skan-ag-allschwil"
       },
@@ -34,7 +34,7 @@
       "url": "https://jobs.skan.com/job/Allschwil-Process-Validation-Engineer/1348986457/",
       "source": "Skan AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-18T21:54:23.705Z",
+      "crawledAt": "2026-11-19T21:45:03.740Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -56,13 +56,16 @@
         "process-validation-engineer-allschwil-skan-ch"
       ],
       "previousSlugsByLocale": {
-        "it": [
-          "process-validation-engineer-allschwil-skan-ch"
-        ],
         "de": [
           "process-validation-engineer-allschwil-skan-ch"
         ],
         "fr": [
+          "process-validation-engineer-allschwil-skan-ch"
+        ],
+        "en": [
+          "process-validation-engineer-allschwil-skan-ch"
+        ],
+        "it": [
           "process-validation-engineer-allschwil-skan-ch"
         ]
       },
@@ -97,7 +100,7 @@
       },
       "streetAddress": "Kreuzstrasse 5",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-14T21:54:23.705Z",
+      "validThrough": "2027-02-14T21:45:03.740Z",
       "validThroughSource": "last-observed-window"
     }
   ]
