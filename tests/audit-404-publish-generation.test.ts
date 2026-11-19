@@ -68,12 +68,23 @@ function loadHelpers(env: Record<string, string> = {}) {
     ${sectionUsesHashFanout.toString()}
     ${legacyTicinoTreeBucket.toString()}
     const process = { env: ${JSON.stringify(env)} };
+    const log = () => {};
+    const fetchText = async () => { throw new Error('offline'); };
+    const HOST = 'https://frontaliereticino.ch';
     const flatString = (value) => value;
     const slugifyCompanyName = (name) => String(name || '').toLowerCase()
       .normalize('NFD').replace(/[\\u0300-\\u036f]/g, '')
       .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').trim();
     ${pick('localeOf')}
     ${pick('normPath')}
+    ${constBlock('JOB_CANON_CDN_BASE')}
+    ${pick('isValidJobCanonBuildId')}
+    ${pick('lowerSegment')}
+    ${pick('jobCanonV2ShardKey')}
+    ${pick('jobCanonV2MapUrl')}
+    ${pick('jobCanonAliasTarget')}
+    ${pick('jobCanonAliasCandidate')}
+    ${pick('recoverJobCanonAliases')}
     ${pick('treeEntryToRoute')}
     ${pick('extractAlternateHrefs')}
     ${constBlock('SECTION_BY_ROUTE_PREFIX')}
@@ -87,7 +98,7 @@ function loadHelpers(env: Record<string, string> = {}) {
     ${pick('splitHubOffenders')}
     ${constBlock('SHARD_MAX_AGE_H')}
     ${pick('generationSummary')}
-    return { treeEntryToRoute, extractAlternateHrefs, shardOwnerOf, classifyOffender, splitByGeneration, isUnservedHubLink, splitHubOffenders, generationSummary };
+    return { treeEntryToRoute, extractAlternateHrefs, shardOwnerOf, classifyOffender, splitByGeneration, isUnservedHubLink, splitHubOffenders, generationSummary, jobCanonAliasTarget, jobCanonV2ShardKey, jobCanonV2MapUrl, recoverJobCanonAliases };
   `;
   // eslint-disable-next-line no-new-func
   return new Function(src)() as {
@@ -112,10 +123,93 @@ function loadHelpers(env: Record<string, string> = {}) {
       offGeneration: Array<{ shard: string }>;
       staleShards: Array<{ shard: string; ageHours: number }>;
     };
+    jobCanonAliasTarget: (alias: string, locale: string) => string | null;
+    jobCanonV2ShardKey: (slug: string) => string;
+    jobCanonV2MapUrl: (buildId: string, bucket: string) => string | null;
+    recoverJobCanonAliases: (
+      offenders: string[],
+      served: Set<string>,
+      mapsByBucket: Map<string, Record<string, unknown>>,
+    ) => {
+      recovered: Array<{ source: string; locale: string; slug: string; target: string; bucket: string }>;
+      remaining: string[];
+    };
   };
 }
 
 const APEX = 'b4ece24cbb661929f597d667fe3a507a5aa1c8ee';
+
+describe('job-canon v2 alias recovery — bounded and fail-closed', () => {
+  const source = '/en/find-jobs-zurich/flexible-aushilfe-tally-weijl-winterthur';
+  const target = '/en/find-jobs-zurich/flexible-assistance-tally-weijl-winterthur';
+  const slug = 'flexible-aushilfe-tally-weijl-winterthur';
+
+  it('validates the alias against the request locale', () => {
+    const { jobCanonAliasTarget } = loadHelpers();
+
+    expect(jobCanonAliasTarget(target, 'en')).toBe(target);
+    expect(jobCanonAliasTarget(target, 'de')).toBeNull();
+    expect(jobCanonAliasTarget('/en/find-jobs-zurich//wrong', 'en')).toBeNull();
+    expect(jobCanonAliasTarget('/en/../de/other', 'en')).toBeNull();
+    expect(jobCanonAliasTarget('https://example.test/en/other', 'en')).toBeNull();
+  });
+
+  it('recovers only an alias whose destination is already served', () => {
+    const { jobCanonV2ShardKey, recoverJobCanonAliases } = loadHelpers();
+    const bucket = jobCanonV2ShardKey(slug);
+    const maps = new Map([[bucket, { [slug]: { alias: { en: target } } }]]);
+
+    expect(recoverJobCanonAliases([source], new Set([target]), maps)).toEqual({
+      recovered: [{ source, locale: 'en', slug, target, bucket }],
+      remaining: [],
+    });
+    expect(recoverJobCanonAliases([source], new Set(), maps)).toEqual({
+      recovered: [],
+      remaining: [source],
+    });
+  });
+
+  it('keeps the offender when the marker/map/network lookup is unavailable', () => {
+    const { recoverJobCanonAliases, jobCanonV2ShardKey } = loadHelpers();
+    const bucket = jobCanonV2ShardKey(slug);
+    const served = new Set([target]);
+
+    expect(recoverJobCanonAliases([source], served, new Map())).toEqual({
+      recovered: [],
+      remaining: [source],
+    });
+    expect(SCRIPT).toContain("status: 'marker-unavailable'");
+    expect(SCRIPT).toContain('mapsUnavailable');
+    expect(bucket).toMatch(/^[0-9a-f]{3}$/);
+  });
+
+  it('does not exempt IT offenders', () => {
+    const { recoverJobCanonAliases, jobCanonV2ShardKey } = loadHelpers();
+    const italianSource = '/cerca-lavoro-zurigo/flexible-aushilfe-tally-weijl-winterthur';
+    const italianTarget = '/cerca-lavoro-zurigo/flexible-assistenza-tally-weijl-winterthur';
+    const maps = new Map([[
+      jobCanonV2ShardKey(slug),
+      { [slug]: { alias: { it: italianTarget } } },
+    ]]);
+
+    expect(recoverJobCanonAliases([italianSource], new Set([italianTarget]), maps)).toEqual({
+      recovered: [],
+      remaining: [italianSource],
+    });
+  });
+
+  it('uses the immutable release marker and deduplicates bounded v2 bucket requests', () => {
+    const { jobCanonV2MapUrl } = loadHelpers();
+
+    expect(jobCanonV2MapUrl('1795023342371', 'abc'))
+      .toBe('https://cdn.frontaliereticino.ch/job-canon/releases/1795023342371/v2/abc.json');
+    expect(jobCanonV2MapUrl('invalid', 'abc')).toBeNull();
+    expect(SCRIPT).toContain('/cdn-build-id.txt');
+    expect(SCRIPT).toContain('const buckets = [...new Set(candidates.map(({ bucket }) => bucket))];');
+    expect(SCRIPT).toContain('JOB_CANON_ALIAS_MAX_BUCKETS');
+    expect(SCRIPT).toContain('mapPool(buckets, JOB_CANON_ALIAS_MAX_CONCURRENCY');
+  });
+});
 
 describe('deployed sitemap inventory — locale alternates are part of the set', () => {
   it('extracts xhtml alternate hrefs without changing the <loc> coverage count', () => {

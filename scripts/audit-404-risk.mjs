@@ -447,6 +447,164 @@ async function mapPool(items, limit, fn) {
   return results;
 }
 
+// The Worker can recover a non-IT job-detail orphan with a registry alias. The
+// audit mirrors only the v2 contract here: the release marker selects immutable
+// bytes and the djb2-xor bucket key keeps the lookup bounded to the buckets
+// represented by this run's offenders. A missing marker/map is deliberately
+// not evidence of a redirect, so the original offender remains visible.
+const JOB_CANON_CDN_BASE = 'https://cdn.frontaliereticino.ch';
+const JOB_CANON_V2_SHARD_COUNT = 4096;
+const JOB_CANON_ALIAS_MAX_BUCKETS = 64;
+const JOB_CANON_ALIAS_MAX_CONCURRENCY = 4;
+const JOB_CANON_ALIAS_FETCH_TIMEOUT_MS = 5_000;
+const JOB_DETAIL_RE =
+  /^(?:\/(?:en|de|fr))?\/(?:cerca-lavoro|find-jobs|jobs-im|jobs-in|trouver-emploi|job-search|jobsuche|recherche-emploi)-[a-z-]+\/([^/]+)(?:\/(\d+))?\/?$/;
+
+function isValidJobCanonBuildId(value) {
+  return typeof value === 'string' && value.length > 0 && value.length <= 20
+    && /^[0-9]+$/.test(value);
+}
+
+// Mirrors the Worker/plugin's lowerSegment rule for a single path segment.
+function lowerSegment(seg) {
+  try {
+    return decodeURIComponent(seg).toLowerCase();
+  } catch {
+    return seg.toLowerCase();
+  }
+}
+
+function jobCanonV2ShardKey(slug) {
+  let hash = 5381;
+  for (let i = 0; i < slug.length; i++) {
+    hash = ((hash * 33) ^ slug.charCodeAt(i)) >>> 0;
+  }
+  return (hash % JOB_CANON_V2_SHARD_COUNT).toString(16).padStart(3, '0');
+}
+
+function jobCanonV2MapUrl(buildId, bucket) {
+  if (!isValidJobCanonBuildId(buildId) || !/^[0-9a-f]{3}$/.test(bucket)) return null;
+  return new URL(`/job-canon/releases/${buildId}/v2/${bucket}.json`, JOB_CANON_CDN_BASE).toString();
+}
+
+function jobCanonAliasTarget(aliasPath, locale) {
+  if (typeof aliasPath !== 'string' || !['it', 'en', 'de', 'fr'].includes(locale)) return null;
+  const trimmed = aliasPath.replace(/\/+$/, '');
+  const inLocale = locale === 'it'
+    ? trimmed.startsWith('/') && !/^\/(?:en|de|fr)\//.test(trimmed)
+    : trimmed.startsWith(`/${locale}/`);
+  if (!trimmed || !inLocale || trimmed.includes('//') || trimmed.includes('?') || trimmed.includes('#')) return null;
+  const normalized = normPath(`${trimmed}/`);
+  return localeOf(normalized) === locale ? normalized : null;
+}
+
+function jobCanonAliasCandidate(path) {
+  const normalized = normPath(path);
+  const match = JOB_DETAIL_RE.exec(normalized);
+  if (!match) return null;
+  const locale = localeOf(normalized);
+  // This recovery is intentionally non-IT only. IT paths must remain audit
+  // offenders even if a future map happens to contain an alias.it value.
+  if (locale === 'it') return null;
+  const slug = lowerSegment(match[1]);
+  if (!slug) return null;
+  return { path: normalized, locale, slug, bucket: jobCanonV2ShardKey(slug) };
+}
+
+function recoverJobCanonAliases(offenders, served, mapsByBucket) {
+  const recovered = [];
+  const remaining = [];
+  for (const original of offenders) {
+    const candidate = jobCanonAliasCandidate(original);
+    if (!candidate) {
+      remaining.push(original);
+      continue;
+    }
+    const map = mapsByBucket instanceof Map ? mapsByBucket.get(candidate.bucket) : null;
+    const entry = map && typeof map === 'object' && !Array.isArray(map)
+      ? map[candidate.slug]
+      : null;
+    const alias = entry && typeof entry === 'object' && !Array.isArray(entry)
+      && entry.alias && typeof entry.alias === 'object' && !Array.isArray(entry.alias)
+      ? entry.alias[candidate.locale]
+      : null;
+    const target = jobCanonAliasTarget(alias, candidate.locale);
+    if (!target || target === candidate.path || !served?.has(target)) {
+      remaining.push(original);
+      continue;
+    }
+    recovered.push({
+      source: original,
+      locale: candidate.locale,
+      slug: candidate.slug,
+      target,
+      bucket: candidate.bucket,
+    });
+  }
+  return { recovered, remaining };
+}
+
+async function lookupJobCanonAliases(offenders, served) {
+  const candidates = offenders.map(jobCanonAliasCandidate).filter(Boolean);
+  const buckets = [...new Set(candidates.map(({ bucket }) => bucket))];
+  const noRecovery = (lookup) => ({ recovered: [], remaining: offenders, lookup });
+  if (buckets.length === 0) {
+    return noRecovery({ status: 'not-needed', bucketsRequested: 0, mapsLoaded: 0, mapsUnavailable: 0 });
+  }
+  if (buckets.length > JOB_CANON_ALIAS_MAX_BUCKETS) {
+    log(`[404]   WARN job-canon v2 lookup skipped: ${buckets.length} unique buckets exceeds the bound of ${JOB_CANON_ALIAS_MAX_BUCKETS}`);
+    return noRecovery({
+      status: 'too-many-buckets',
+      bucketsRequested: buckets.length,
+      mapsLoaded: 0,
+      mapsUnavailable: buckets.length,
+      maxBuckets: JOB_CANON_ALIAS_MAX_BUCKETS,
+    });
+  }
+
+  let buildId;
+  try {
+    buildId = (await fetchText(
+      `${JOB_CANON_CDN_BASE}/cdn-build-id.txt`,
+      JOB_CANON_ALIAS_FETCH_TIMEOUT_MS,
+    )).trim();
+  } catch (error) {
+    log(`[404]   WARN job-canon v2 marker unavailable (${error.message}) — keeping ${offenders.length} offender(s)`);
+    return noRecovery({ status: 'marker-unavailable', bucketsRequested: buckets.length, mapsLoaded: 0, mapsUnavailable: buckets.length });
+  }
+  if (!isValidJobCanonBuildId(buildId)) {
+    log('[404]   WARN job-canon v2 marker invalid — keeping sitemap offender(s)');
+    return noRecovery({ status: 'marker-invalid', bucketsRequested: buckets.length, mapsLoaded: 0, mapsUnavailable: buckets.length });
+  }
+
+  const mapResults = await mapPool(buckets, JOB_CANON_ALIAS_MAX_CONCURRENCY, async (bucket) => {
+    try {
+      const raw = await fetchText(jobCanonV2MapUrl(buildId, bucket), JOB_CANON_ALIAS_FETCH_TIMEOUT_MS);
+      const map = JSON.parse(raw);
+      if (!map || typeof map !== 'object' || Array.isArray(map)) return { bucket, map: null };
+      return { bucket, map };
+    } catch {
+      return { bucket, map: null };
+    }
+  });
+  const maps = new Map();
+  for (const { bucket, map } of mapResults) {
+    if (map) maps.set(bucket, map);
+  }
+  const recovered = recoverJobCanonAliases(offenders, served, maps);
+  return {
+    ...recovered,
+    lookup: {
+      status: 'available',
+      buildId,
+      bucketsRequested: buckets.length,
+      mapsLoaded: maps.size,
+      mapsUnavailable: buckets.length - maps.size,
+      maxConcurrency: JOB_CANON_ALIAS_MAX_CONCURRENCY,
+    },
+  };
+}
+
 // ── Deploy-generation provenance (issue #4079) ──────────────────────────────
 // Every shard push stamps the SOURCE repo's commit into its own commit
 // subject: push-section-shard.sh writes "<section>-<loc> shard <sha8> (run
@@ -1041,10 +1199,21 @@ async function main() {
     log(`[404]   FATAL: sitemap inventory incomplete; child fetch failed for ${failedSitemapChildren.join(', ')}`);
     process.exit(2);
   }
+  const sitemapOffendersBeforeAliasRecovery = sitemapOffenders;
+  const jobCanonAliasRecovery = await lookupJobCanonAliases(sitemapOffenders, served);
+  sitemapOffenders = jobCanonAliasRecovery.remaining;
+  report.checks.jobCanonAliasRecovery = {
+    ...jobCanonAliasRecovery.lookup,
+    recovered: jobCanonAliasRecovery.recovered.length,
+    sample: jobCanonAliasRecovery.recovered.slice(0, LIMIT),
+  };
   const sitemapSplit = splitByGeneration(sitemapOffenders, meta.generation);
   report.checks.publishGeneration = generationSummary(meta.generation);
   report.checks.sitemapCoverage = {
     totalUrls: sitemapTotal,
+    offendersBeforeAliasRecovery: sitemapOffendersBeforeAliasRecovery.length,
+    jobCanonAliasesRecovered: jobCanonAliasRecovery.recovered.length,
+    jobCanonAliasesRecoveredSample: jobCanonAliasRecovery.recovered.slice(0, LIMIT),
     // Only same-generation offenders are a sound "no served page" verdict —
     // see classifyOffender()'s comment for the measurement behind this.
     wouldBe404: sitemapSplit.unserved.length,
@@ -1145,6 +1314,10 @@ async function main() {
     }
   }
   process.stdout.write(`\n(A) Sitemap coverage:       ${a.wouldBe404} / ${a.totalUrls} URLs would 404\n`);
+  process.stdout.write(`    + ${a.jobCanonAliasesRecovered} non-IT job-canon alias(es) verified against the served set (${report.checks.jobCanonAliasRecovery.status})\n`);
+  for (const alias of a.jobCanonAliasesRecoveredSample) {
+    process.stdout.write(`      ↪ [${alias.locale}] ${alias.source}  →  ${alias.target}\n`);
+  }
   for (const u of a.sample) process.stdout.write(`      ✗ ${u}\n`);
   if (a.publishSkew) {
     process.stdout.write(`    + ${a.publishSkew} URL(s) on an off-generation shard — snapshot skew, not a verdict:\n`);
