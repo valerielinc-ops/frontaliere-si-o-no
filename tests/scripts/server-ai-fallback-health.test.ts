@@ -43,14 +43,14 @@ it('puts an independent configured provider inside the bounded matching attempt 
   expect(SERVER_TEXT_FALLBACKS.slice(0, 2).map(provider => provider.rcKey)).toEqual(['GROQ_API_KEY', 'NVIDIA_API_KEY']);
 });
 
-it('uses each provider output-budget contract without changing the shared model', () => {
-  const input = { model: 'openai/gpt-oss-20b', messages: [{ role: 'user', content: 'test' }], maxTokens: 8192, temperature: 1.5 };
-  expect(serverTextFallbackBody({ ...input, apiFamily: 'nvidia' })).toEqual({ model: input.model, messages: input.messages, max_tokens: 4096, temperature: 1, reasoning_effort: 'low' });
+it('uses each provider output-budget contract without leaking provider-specific parameters', () => {
+  const input = { model: 'google/gemma-4-31b-it', messages: [{ role: 'user', content: 'test' }], maxTokens: 8192, temperature: 1.5 };
+  expect(serverTextFallbackBody({ ...input, apiFamily: 'nvidia' })).toEqual({ model: input.model, messages: input.messages, max_tokens: 4096, temperature: 1 });
   expect(serverTextFallbackBody({ ...input, apiFamily: 'groq' })).toEqual({ model: input.model, messages: input.messages, max_completion_tokens: 8192, temperature: 1.5, reasoning_effort: 'low' });
 });
 
 it('verifies the independent provider catalog and reports its retirement separately', async () => {
-  const fetchImpl = vi.fn(async (url: string) => catalog(url.includes('nvidia.com') ? [{ id: 'openai/gpt-oss-20b' }] : [{ id: 'openai/gpt-oss-120b' }, { id: 'openai/gpt-oss-20b' }]));
+  const fetchImpl = vi.fn(async (url: string) => catalog(url.includes('nvidia.com') ? [{ id: 'google/gemma-4-31b-it' }] : [{ id: 'openai/gpt-oss-120b' }, { id: 'openai/gpt-oss-20b' }]));
   const result = await checkServerAiFallbacks({ env: { ...env, NVIDIA_API_KEY: 'test-nvidia-key' }, fetchImpl });
   expect(result).toEqual({ ok: true, providers: [{ provider: 'GROQ_API_KEY', status: 'available', missingModels: [] }, { provider: 'NVIDIA_API_KEY', status: 'available', missingModels: [] }] });
   expect(fetchImpl).toHaveBeenCalledWith('https://integrate.api.nvidia.com/v1/models', expect.objectContaining({ headers: { Authorization: 'Bearer test-nvidia-key' } }));

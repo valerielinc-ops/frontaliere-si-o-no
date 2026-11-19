@@ -491,12 +491,13 @@ describe('handleGeminiGenerate — Codex primary e fallback compatibili', () => 
     fetchMock.mockImplementation(async (url: string, init: any) => {
       if (!String(url).startsWith('https://integrate.api.nvidia.com/')) return new Response('quota', { status: 429 });
       const body = JSON.parse(init.body);
-      expect(body).toMatchObject({ model: 'openai/gpt-oss-20b', max_tokens: 4096, reasoning_effort: 'low', messages: [{ role: 'system', content: 'sys' }, { role: 'user', content: 'scrivi' }] });
+      expect(body).toMatchObject({ model: 'google/gemma-4-31b-it', max_tokens: 4096, messages: [{ role: 'system', content: 'sys' }, { role: 'user', content: 'scrivi' }] });
+      expect(body.reasoning_effort).toBeUndefined();
       expect(body.max_completion_tokens).toBeUndefined();
       return new Response(JSON.stringify({ choices: [{ message: { content: '{"verified":true}' } }] }));
     });
     const { generateServerText } = await import('../../functions/src/geminiGenerate.js');
-    expect(await generateServerText({ systemPrompt: 'sys', userPrompt: 'scrivi', maxTokens: 8192, temperature: 0, maxProviderAttempts: 3, allowCodexFallback: false })).toMatchObject({ status: 200, body: { text: '{"verified":true}', provider: 'nvidia-gpt-oss-20b' } });
+    expect(await generateServerText({ systemPrompt: 'sys', userPrompt: 'scrivi', maxTokens: 8192, temperature: 0, maxProviderAttempts: 3, allowCodexFallback: false })).toMatchObject({ status: 200, body: { text: '{"verified":true}', provider: 'nvidia-gemma-4-31b-it' } });
     expect(fetchMock).toHaveBeenCalledTimes(2);
     expect(codexCalls()).toHaveLength(0);
   });
@@ -515,7 +516,7 @@ describe('handleGeminiGenerate — Codex primary e fallback compatibili', () => 
     expect(result.body.providerFailures).toEqual([
       { provider: 'codex', cause: 'provider_http', status: 500 },
       { provider: 'groq-gpt-oss-120b', cause: 'rate_limited', status: 429 },
-      { provider: 'nvidia-gpt-oss-20b', cause: 'rate_limited', status: 429 },
+      { provider: 'nvidia-gemma-4-31b-it', cause: 'rate_limited', status: 429 },
     ]);
     expect(JSON.stringify(result.body.providerFailures)).not.toContain('quota detail');
   });
@@ -586,12 +587,13 @@ describe('handleChatbotInference — rung Codex', () => {
     fetchMock.mockImplementation(async (url: string, init: any) => {
       if (!String(url).startsWith('https://integrate.api.nvidia.com/')) return new Response('down', { status: 500 });
       const body = JSON.parse(init.body);
-      expect(body).toMatchObject({ model: 'openai/gpt-oss-20b', max_tokens: 1024, reasoning_effort: 'low' });
+      expect(body).toMatchObject({ model: 'google/gemma-4-31b-it', max_tokens: 1024 });
+      expect(body.reasoning_effort).toBeUndefined();
       expect(body.max_completion_tokens).toBeUndefined();
       return new Response(JSON.stringify({ choices: [{ message: { content: 'Independent fallback' } }] }));
     });
     const { handleChatbotInference } = await import('../../functions/src/chatbotInference.js');
-    expect(await handleChatbotInference(params)).toMatchObject({ text: 'Independent fallback', model: 'openai/gpt-oss-20b', source: 'openai-compat' });
+    expect(await handleChatbotInference(params)).toMatchObject({ text: 'Independent fallback', model: 'google/gemma-4-31b-it', source: 'openai-compat' });
     expect(codexCalls()).toHaveLength(0);
   });
 

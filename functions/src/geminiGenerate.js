@@ -47,8 +47,8 @@ function providerFailure(provider, value) {
 
 // OpenAI-compatible fallbacks, tried in order after Codex. Keys are already
 // present in Remote Config (hydrated into CI via load-rc-env.mjs).
-// The shared catalog uses current Groq models with independent model budgets.
-// NVIDIA’s previous hosted model is retired (HTTP 410); do not retry that dead ID.
+// The shared catalog keeps the NVIDIA model aligned with the live NIM catalog;
+// its request body is deliberately standard (max_tokens, no GPT-OSS extras).
 
 /** Single-shot OpenAI-compatible chat call. Returns trimmed text, throws on failure. */
 async function callOpenAiCompatible({ base, apiKey, model, systemPrompt, userPrompt, maxTokens, temperature, apiFamily, background, signal }) {
