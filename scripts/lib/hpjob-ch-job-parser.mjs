@@ -61,7 +61,7 @@ export function isHpjobChJob(job) {
   return (
     key === HPJOB_CH_KEY ||
     key.startsWith('hpjob-ch-') ||
-    company.includes('hp job gmbh') ||
+    company === 'hp job gmbh' ||
     isTrustedDomain(url)
   );
 }
