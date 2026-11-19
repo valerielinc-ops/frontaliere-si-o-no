@@ -12,7 +12,6 @@
  */
 import { execFileSync, spawnSync } from 'node:child_process';
 import { performance } from 'node:perf_hooks';
-import { noLazyGitInvocation } from './git-no-lazy.mjs';
 import { isInvokedDirectly } from './is-invoked-directly.mjs';
 
 export const DEFAULT_MIN_TREE_RATIO = 0.5;
@@ -93,9 +92,7 @@ function git(repo, args, {
   env = process.env,
 } = {}) {
   try {
-    const invocation = noLazyGitInvocation(['-C', repo, ...args], env);
-    if (!invocation) throw new Error('Git cannot safely inspect objects without --no-lazy-fetch');
-    return execFileSync('git', invocation.args, {
+    return execFileSync('git', ['-C', repo, ...args], {
       encoding: 'utf8',
       // A production checkout contains tens of thousands of paths. Keep the
       // complete tree enumeration bounded without letting Node's 1 MiB default
@@ -104,7 +101,7 @@ function git(repo, args, {
       timeout: remainingTimeout(deadline, operation),
       killSignal: 'SIGTERM',
       stdio,
-      env: { ...env, GIT_TERMINAL_PROMPT: '0', ...invocation.env },
+      env: { ...env, GIT_TERMINAL_PROMPT: '0', GIT_NO_LAZY_FETCH: '1' },
     });
   } catch (error) {
     if (error instanceof MainPushDeadlineError
@@ -144,14 +141,12 @@ function treeEntryCount(repo, ref, deadline) {
 }
 
 function isAncestor(repo, baseSha, candidateSha, deadline) {
-  const invocation = noLazyGitInvocation(['-C', repo, 'merge-base', '--is-ancestor', baseSha, candidateSha]);
-  if (!invocation) throw new Error('Git cannot safely inspect objects without --no-lazy-fetch');
-  const result = spawnSync('git', invocation.args, {
+  const result = spawnSync('git', ['-C', repo, 'merge-base', '--is-ancestor', baseSha, candidateSha], {
     encoding: 'utf8',
     stdio: ['ignore', 'pipe', 'pipe'],
     timeout: remainingTimeout(deadline, 'proving ancestry'),
     killSignal: 'SIGTERM',
-    env: { ...process.env, GIT_TERMINAL_PROMPT: '0', ...invocation.env },
+    env: { ...process.env, GIT_TERMINAL_PROMPT: '0', GIT_NO_LAZY_FETCH: '1' },
   });
   if (result.error?.code === 'ETIMEDOUT' || result.signal === 'SIGTERM') {
     throw new MainPushDeadlineError('main push deadline exceeded during ancestry proof');

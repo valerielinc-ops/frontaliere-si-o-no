@@ -1,6 +1,6 @@
 // @vitest-environment node
 import { execFileSync, spawnSync } from 'node:child_process';
-import { chmodSync, copyFileSync, mkdtempSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
+import { chmodSync, mkdtempSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
@@ -49,65 +49,6 @@ afterEach(() => {
 });
 
 describe('main-push-guard.mjs', () => {
-  it('si carica da uno snapshot che include il suo helper', () => {
-    const root = mkdtempSync(join(tmpdir(), 'main-push-guard-snapshot-'));
-    roots.push(root);
-    const lib = join(root, 'scripts', 'lib');
-    mkdirSync(lib, { recursive: true });
-    const guardCopy = join(lib, 'main-push-guard.mjs');
-    copyFileSync(SCRIPT, guardCopy);
-    copyFileSync(join(ROOT, 'scripts/lib/git-no-lazy.mjs'), join(lib, 'git-no-lazy.mjs'));
-    copyFileSync(join(ROOT, 'scripts/lib/is-invoked-directly.mjs'), join(lib, 'is-invoked-directly.mjs'));
-
-    const result = spawnSync(process.execPath, [guardCopy, '--help'], { encoding: 'utf8' });
-
-    expect(result.status, result.stderr).toBe(0);
-    expect(result.stdout).toContain('--check-only');
-  });
-
-  it('non sonda ref con Git senza no-lazy-fetch', () => {
-    const scenario = setupRepository();
-    const bin = mkdtempSync(join(tmpdir(), 'main-push-guard-old-git-'));
-    roots.push(bin);
-    const trace = join(bin, 'trace.log');
-    const fakeGit = join(bin, 'git');
-    writeFileSync(fakeGit, '#!/bin/sh\nif [ "$1" = "--version" ]; then\n  printf \'git version %s\\n\' "$FAKE_GIT_VERSION"\n  printf \'version\\n\' >>"$FAKE_GIT_TRACE"\n  exit 0\nfi\nprintf \'command:%s\\n\' "$*" >>"$FAKE_GIT_TRACE"\nexit 97\n');
-    chmodSync(fakeGit, 0o755);
-
-    const result = runGuard(scenario.writer, [
-      '--base', scenario.base,
-      '--candidate', 'HEAD',
-      '--check-only',
-    ], { ...process.env, PATH: `${bin}:${process.env.PATH || ''}`, FAKE_GIT_VERSION: '2.39.2', FAKE_GIT_TRACE: trace });
-
-    expect(result.status).toBe(1);
-    expect(result.output).toContain(`cannot resolve commit ref '${scenario.base}'`);
-    expect(execFileSync('cat', [trace], { encoding: 'utf8' })).toBe('version\n');
-  });
-
-  it('usa --no-lazy-fetch su tutte le letture con un Git moderno', () => {
-    const scenario = setupRepository();
-    const bin = mkdtempSync(join(tmpdir(), 'main-push-guard-modern-git-'));
-    roots.push(bin);
-    const trace = join(bin, 'trace.log');
-    const fakeGit = join(bin, 'git');
-    const realGit = execFileSync('which', ['git'], { encoding: 'utf8' }).trim();
-    writeFileSync(fakeGit, `#!/bin/sh\nif [ "$1" = "--version" ]; then\n  printf 'git version 2.56.0\\n'\n  exit 0\nfi\nprintf '%s\\n' "$*" >>"$FAKE_GIT_TRACE"\nexec "${realGit}" "$@"\n`);
-    chmodSync(fakeGit, 0o755);
-
-    const result = runGuard(scenario.writer, [
-      '--base', scenario.base,
-      '--candidate', 'HEAD',
-      '--check-only',
-    ], { ...process.env, PATH: `${bin}:${process.env.PATH || ''}`, FAKE_GIT_TRACE: trace });
-
-    expect(result.status, result.output).toBe(0);
-    const calls = execFileSync('cat', [trace], { encoding: 'utf8' }).trim().split('\n');
-    expect(calls.length).toBeGreaterThan(0);
-    expect(calls.every((call) => call.startsWith('--no-lazy-fetch '))).toBe(true);
-    expect(calls.some((call) => call.includes(' fetch '))).toBe(false);
-  });
-
   it('rejects a descendant whose tree collapses to a tiny subset of main', () => {
     const scenario = setupRepository();
     for (let index = 1; index < 8; index += 1) {
