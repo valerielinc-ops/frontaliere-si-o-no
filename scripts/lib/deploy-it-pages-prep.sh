@@ -1756,7 +1756,8 @@ step_push_cdn() {
       esac
     else
       echo "::warning::[r2-og-manifest] delta preparation failed; falling back to full OG stage"
-        fi
+      rm -f "$r2_og_changed_files" "$r2_og_candidate"
+    fi
     # `both` also sends the complete OG tree to the legacy Pages publish below;
     # keep that stage while R2 consumes the exact manifest delta.
     if [ "$r2_og_delta_ready" -ne 1 ] || [ "$cdn_target" = "both" ]; then
@@ -1944,7 +1945,7 @@ step_push_cdn() {
     cd "${PREP_CWD:-$PWD}"
     return 1
   fi
-  keyfile="$RUNNER_TEMP/cdn_deploy_key"
+  local keyfile="$attempt_dir/cdn_deploy_key"
   printf '%s\n' "$CDN_DEPLOY_KEY" > "$keyfile" && chmod 600 "$keyfile"
   export GIT_SSH_COMMAND="ssh -i $keyfile -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new -o ServerAliveInterval=30 -o ServerAliveCountMax=6 -o TCPKeepAlive=yes"
   # ── Additive assets/ (anti-clobber) ──────────────────────────────────
