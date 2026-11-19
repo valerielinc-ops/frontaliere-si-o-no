@@ -1,7 +1,7 @@
 {
   "key": "opacc-software-ag",
   "label": "Opacc Software AG",
-  "generatedAt": "2026-11-19T09:29:57.512Z",
+  "generatedAt": "2026-11-19T21:25:45.662Z",
   "total": 7,
   "discovered": 7,
   "parsed": 7,
@@ -62,77 +62,16 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 42233,
-  "avgDurationMs": 42233,
+  "durationMs": 39280,
+  "avgDurationMs": 39280,
   "durationHistory": [
-    42233
+    39280
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "opacc-software-ag-27085837572e",
-      "slug": "supporto-leader-di-squadra-opacc-software-ag-rothenburg",
-      "company": "Opacc Software AG",
-      "companyKey": "opacc-software-ag",
-      "companyDomain": "jobs.opacc.ch",
-      "title": "TeamleiterIn Support",
-      "location": "Rothenburg",
-      "canton": "LU",
-      "url": "https://jobs.opacc.ch/kunden-bedienen/teamleiterin-support-128.html",
-      "source": "Opacc Software AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-17T21:23:38.656Z",
-      "addressLocality": "Rothenburg",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6023",
-      "streetAddress": "Wahligenpark 1",
-      "category": "Altro",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.opacc.ch/kunden-bedienen/teamleiterin-support-128.html",
-      "firstSeenAt": "2026-11-06T09:18:48.461Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "salarySource": "estimated",
-      "companyRegisteredAddress": {
-        "status": "matched",
-        "source": "zefix-lindas",
-        "companyName": "Opacc Software AG",
-        "streetAddress": "Wahligenpark 1",
-        "postalCode": "6023",
-        "registeredName": "Opacc Software AG",
-        "matchType": "exact",
-        "streetAddressSource": "zefix-registry",
-        "jobPostalCode": "6023",
-        "addressLocality": "Rothenburg",
-        "addressRegion": "LU",
-        "checkedAt": "2026-11-09T15:44:14.359Z"
-      },
-      "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-04T21:23:38.656Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 23
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "opacc-software-ag-5dc715b8242c",
@@ -146,7 +85,7 @@
       "url": "https://jobs.opacc.ch/fundament-ausbauen/system-engineer-junior-professional.html",
       "source": "Opacc Software AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:29:01.390Z",
+      "crawledAt": "2026-11-19T21:24:59.189Z",
       "addressLocality": "Rothenburg",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -183,7 +122,7 @@
         "checkedAt": "2026-11-09T15:44:14.359Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-04T09:29:01.390Z",
+      "validThrough": "2027-02-04T21:24:59.189Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -205,7 +144,7 @@
       "url": "https://jobs.opacc.ch/fundament-ausbauen/software-eningeer-mobile-applications-software-mit-teamleitungsfunktion.html",
       "source": "Opacc Software AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:29:01.389Z",
+      "crawledAt": "2026-11-19T21:24:59.188Z",
       "addressLocality": "Rothenburg",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -243,7 +182,7 @@
         "checkedAt": "2026-11-09T15:44:14.359Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-04T09:29:01.389Z",
+      "validThrough": "2027-02-04T21:24:59.188Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -265,7 +204,7 @@
       "url": "https://jobs.opacc.ch/fundament-ausbauen/teamleiterin-support.html",
       "source": "Opacc Software AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:29:01.387Z",
+      "crawledAt": "2026-11-19T21:24:59.186Z",
       "addressLocality": "Rothenburg",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -302,7 +241,7 @@
         "checkedAt": "2026-11-09T15:44:14.359Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-04T09:29:01.387Z",
+      "validThrough": "2027-02-04T21:24:59.186Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -324,7 +263,7 @@
       "url": "https://jobs.opacc.ch/kunden-bedienen/wirtschaftsinformatikerin-erp-80-100.html",
       "source": "Opacc Software AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:29:01.386Z",
+      "crawledAt": "2026-11-19T21:24:59.184Z",
       "addressLocality": "Rothenburg",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -361,7 +300,7 @@
         "checkedAt": "2026-11-09T15:44:14.359Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-04T09:29:01.386Z",
+      "validThrough": "2027-02-04T21:24:59.184Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -383,7 +322,7 @@
       "url": "https://jobs.opacc.ch/kunden-bedienen/system-engineer-82.html",
       "source": "Opacc Software AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:29:01.385Z",
+      "crawledAt": "2026-11-19T21:24:59.183Z",
       "addressLocality": "Rothenburg",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -421,7 +360,7 @@
         "checkedAt": "2026-11-09T15:44:14.359Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-09T09:29:01.385Z",
+      "validThrough": "2027-02-09T21:24:59.183Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -443,7 +382,7 @@
       "url": "https://jobs.opacc.ch/kunden-bedienen/projektleiterin-erp-junior-senior.html",
       "source": "Opacc Software AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:29:01.383Z",
+      "crawledAt": "2026-11-19T21:24:59.181Z",
       "addressLocality": "Rothenburg",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -480,7 +419,7 @@
         "checkedAt": "2026-11-09T15:44:14.359Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-04T09:29:01.383Z",
+      "validThrough": "2027-02-04T21:24:59.181Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -502,7 +441,7 @@
       "url": "https://jobs.opacc.ch/kunden-bedienen/projektleiterin-erp-junior-senior-89.html",
       "source": "Opacc Software AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:29:01.381Z",
+      "crawledAt": "2026-11-19T21:24:59.179Z",
       "addressLocality": "Münchenstein",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -539,7 +478,7 @@
         "checkedAt": "2026-11-09T15:44:17.709Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-04T09:29:01.381Z",
+      "validThrough": "2027-02-04T21:24:59.179Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -550,5 +489,5 @@
       }
     }
   ],
-  "codeCommit": "af8f978c37a7f89c95dd40500d2ac0a67c1ede33"
+  "codeCommit": "07c2e8305c6747f1893222ba4bfdddc597008157"
 }

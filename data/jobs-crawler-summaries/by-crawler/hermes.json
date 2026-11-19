@@ -1,7 +1,7 @@
 {
   "key": "hermes",
   "label": "Hermès",
-  "generatedAt": "2026-11-19T09:24:31.623Z",
+  "generatedAt": "2026-11-19T21:18:22.077Z",
   "total": 6,
   "discovered": null,
   "parsed": 6,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 19117,
-  "avgDurationMs": 19117,
+  "durationMs": 19975,
+  "avgDurationMs": 19975,
   "durationHistory": [
-    19117
+    19975
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/23533",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T09:24:10.739Z",
+      "crawledAt": "2026-11-19T21:18:00.829Z",
       "addressLocality": "Brügg BE",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -60,7 +60,7 @@
       "postalCode": "3001",
       "streetAddress": "Brügg BE",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:24:10.739Z",
+      "validThrough": "2027-01-18T21:18:00.829Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -82,7 +82,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/24713",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T09:24:10.079Z",
+      "crawledAt": "2026-11-19T21:18:00.127Z",
       "addressLocality": "Brügg BE",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -105,7 +105,7 @@
       "postalCode": "3001",
       "streetAddress": "Brügg BE",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:24:10.079Z",
+      "validThrough": "2027-02-01T21:18:00.127Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -127,7 +127,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/24858",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T09:24:09.441Z",
+      "crawledAt": "2026-11-19T21:17:59.392Z",
       "addressLocality": "Brügg BE",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -150,7 +150,7 @@
       "postalCode": "3001",
       "streetAddress": "Brügg BE",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T09:24:09.441Z",
+      "validThrough": "2027-02-10T21:17:59.392Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -172,7 +172,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/24867",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T09:24:08.771Z",
+      "crawledAt": "2026-11-19T21:17:58.721Z",
       "addressLocality": "Le Noirmont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -195,7 +195,7 @@
       "postalCode": "2340",
       "streetAddress": "Le Noirmont",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T09:24:08.771Z",
+      "validThrough": "2027-02-14T21:17:58.721Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -217,7 +217,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/24863",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T09:24:08.074Z",
+      "crawledAt": "2026-11-19T21:17:58.057Z",
       "addressLocality": "Brügg BE",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -241,7 +241,7 @@
       "postalCode": "3001",
       "streetAddress": "Brügg BE",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T09:24:08.074Z",
+      "validThrough": "2027-02-14T21:17:58.057Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -263,7 +263,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/24934",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:24:07.425Z",
+      "crawledAt": "2026-11-19T21:17:57.364Z",
       "addressLocality": "Gstaad",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -286,7 +286,7 @@
       "postalCode": "3780",
       "streetAddress": "Gstaad",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T09:24:07.425Z",
+      "validThrough": "2027-02-15T21:17:57.364Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -297,5 +297,5 @@
       }
     }
   ],
-  "codeCommit": "af8f978c37a7f89c95dd40500d2ac0a67c1ede33"
+  "codeCommit": "07c2e8305c6747f1893222ba4bfdddc597008157"
 }
