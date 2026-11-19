@@ -176,9 +176,63 @@ it('rejects malformed dispatch input before starting Git and emits a fixed error
   });
   expect(result.status).toBe(1);
   expect(result.stdout).toBe('');
-  expect(result.stderr).toBe('ERROR ledger maintenance\n');
+  expect(result.stderr).toBe('ERROR ledger maintenance arguments\n');
   expect(fs.existsSync(marker)).toBe(false);
   expect(fs.existsSync(f.output)).toBe(false);
+});
+
+it.each([
+  ['exit 2', 'ERROR ledger maintenance tip-fetch'],
+  ['exit 0', 'ERROR ledger maintenance tip-verify'],
+  ['exit 0', 'ERROR stale ledger tip'],
+])('reports a fixed tip diagnostic for %s (%s)', (fetch, diagnostic) => {
+  const f = fixture();
+  const bin = path.join(f.root, 'bin');
+  fs.mkdirSync(bin);
+  const verify = diagnostic === 'ERROR stale ledger tip' ? "printf '%040d\\n' 0" : 'exit 2';
+  fs.writeFileSync(path.join(bin, 'timeout'), `#!/bin/sh
+echo 'fixture-sensitive fetch stderr' >&2
+${fetch}
+`, { mode: 0o700 });
+  fs.writeFileSync(path.join(bin, 'git'), `#!/bin/sh
+echo 'fixture-sensitive Git stderr' >&2
+${verify}
+`, { mode: 0o700 });
+  const result = spawnSync(process.execPath, [fileURLToPath(script), 'prepare', f.root], {
+    env: {
+      PATH: bin, EXPECTED_SHA: f.expected, CANDIDATE_SHA: 'a'.repeat(40), READ_TOKEN: 'fixture',
+      ORDINALS: Array.from({ length: 152 }, (_, index) => index + 1).join(','),
+      ATTESTATION_SHA256: f.request.attestationSha256,
+    },
+    encoding: 'utf8',
+  });
+  expect(result.status).toBe(1);
+  expect(result.stdout).toBe('');
+  expect(result.stderr).toBe(diagnostic + '\n');
+});
+
+it.each([
+  ['invalid', 'receipt'],
+  ['different-sha', 'receipt-candidate-mismatch'],
+  ['valid', 'application'],
+])('reports a fixed diagnostic for the %s receipt fixture', (variant, stage) => {
+  const f = fixture();
+  const candidate = 'a'.repeat(40);
+  fs.mkdirSync(path.join(f.root, 'stage'));
+  fs.writeFileSync(path.join(f.root, 'stage/receipt.json'), variant === 'invalid'
+    ? 'fixture-sensitive invalid JSON'
+    : JSON.stringify({
+      archiveSha: '1c6010d0791d4e8de3125c4f7637319da2ff70fd', expectedSha: f.expected,
+      candidateSha: variant === 'different-sha' ? 'b'.repeat(40) : candidate,
+      files: 152, records: 374, indexEntries: 374,
+    }), { mode: 0o600 });
+  const result = spawnSync(process.execPath, [fileURLToPath(script), 'app', f.root], {
+    env: { PATH: process.env.PATH, EXPECTED_SHA: f.expected, CANDIDATE_SHA: candidate, READ_TOKEN: 'fixture' },
+    encoding: 'utf8',
+  });
+  expect(result.status).toBe(1);
+  expect(result.stdout).toBe('');
+  expect(result.stderr).toBe(`ERROR ledger maintenance ${stage}\n`);
 });
 
 function prepareTransport(shallow: boolean) {

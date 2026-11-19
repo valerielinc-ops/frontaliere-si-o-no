@@ -17,6 +17,12 @@ const LEDGER = 'data/loop-fleet/ledger';
 const SHA = /^[a-f0-9]{40}$/u;
 const DIGEST = /^[a-f0-9]{64}$/u;
 const RECORD_FILE = /^loop-(observation|decision)s(?:-run-[0-9]+)?\.jsonl$/u;
+const MIGRATION_STAGES = [
+  'arguments', 'source', 'inventory', 'preflight', 'staging', 'materialization',
+  'projection', 'writer-diff', 'commit', 'receipt', 'cleanup',
+];
+const STALE_TIP = Symbol('stale tip');
+const CANDIDATE_MISMATCH = Symbol('candidate mismatch');
 const MiB = 1024 * 1024;
 const TREE_LIMIT = 8 * MiB;
 const FILE_LIMIT = 72 * MiB;
@@ -221,8 +227,10 @@ function receipt(root, expected, candidate) {
   requireThat(stat.isFile() && stat.size <= 1024 && (stat.mode & 0o7777) === 0o600);
   const data = JSON.parse(fs.readFileSync(file, 'utf8'));
   requireThat(Object.keys(data).length === 6 && data.archiveSha === ARCHIVE && data.expectedSha === expected
-    && data.candidateSha === candidate && data.files === COUNTS.files && data.records === COUNTS.records
+    && typeof data.candidateSha === 'string' && SHA.test(data.candidateSha)
+    && data.files === COUNTS.files && data.records === COUNTS.records
     && Number.isSafeInteger(data.indexEntries) && data.indexEntries >= data.records);
+  if (data.candidateSha !== candidate) throw CANDIDATE_MISMATCH;
 }
 
 function stepSecret(file, key, capability) {
@@ -238,64 +246,85 @@ function stepSecret(file, key, capability) {
   return lines.length === 1 ? lines[0].slice(prefix.length) : '';
 }
 
-function run([operation, root]) {
-  const {
-    EXPECTED_SHA: expected, CANDIDATE_SHA: candidate, ORDINALS: ordinals,
-    ATTESTATION_SHA256: attestationSha256, READ_TOKEN: readToken,
-  } = process.env;
-  requireThat(process.versions.node.split('.')[0] === '22' && SHA.test(expected)
-    && SHA.test(candidate) && expected !== candidate);
-  privateDirectory(root);
-  requireThat(readToken);
-  const source = fs.realpathSync.native(process.cwd());
-  if (operation === 'prepare') {
-    requireThat(DIGEST.test(attestationSha256));
-    parseOrdinals(ordinals, COUNTS.files);
-    git(source, ['fetch', '--no-tags', '--no-recurse-submodules', '--depth=1', '--filter=blob:limit=1g',
-      REMOTE, REF + ':' + PIN], { remote: REMOTE, token: readToken });
-    if (git(source, ['show-ref', '--verify', '--hash', PIN]).toString() !== expected + '\n') {
-      throw new Error('stale');
-    }
-    git(source, ['fetch', '--no-tags', '--no-recurse-submodules', '--depth=1', '--filter=blob:limit=1g',
-      REMOTE, ARCHIVE], { remote: REMOTE, token: readToken });
-    const inventory = path.join(root, 'inventory.json');
-    const staging = path.join(root, 'stage');
-    attest({ repo: source, archiveSha: ARCHIVE, ordinals, attestationSha256, output: inventory }, COUNTS);
-    const tool = fileURLToPath(new URL('./prepare-fleet-ledger-migration.mjs', import.meta.url));
-    const result = spawnSync(process.execPath, [tool, '--repo', source, '--archive-sha', ARCHIVE,
-      '--expected-sha', expected, '--inventory', inventory, '--output', staging], {
-      env: gitEnv, timeout: 300_000, killSignal: 'SIGKILL', stdio: 'ignore',
-    });
-    requireThat(result.status === 0);
-    receipt(root, expected, candidate);
-    return 'verified';
-  }
-
-  requireThat(operation === 'app' || operation === 'fallback');
-  receipt(root, expected, candidate);
-  const allowFallback = operation === 'app';
-  const writeToken = allowFallback
-    ? stepSecret(path.join(root, 'app.env'), 'APP_TOKEN', 'APP_TOKEN_DATA_REFRESH')
-    : stepSecret(path.join(root, 'fallback.env'), 'GITHUB_PAT');
-  return pushCandidate({
-    repo: path.join(root, 'stage/candidate'), source, remote: REMOTE, expected, candidate,
-    readToken, writeToken, allowFallback,
-  });
-}
-
-if (isInvokedDirectly(import.meta.url)) {
-  process.umask(0o077);
+function run() {
+  let stage = 'arguments';
   try {
     requireThat(process.argv.length === 4);
-    const result = run(process.argv.slice(2));
+    const [, , operation, root] = process.argv;
+    requireThat(operation === 'prepare' || operation === 'app' || operation === 'fallback');
+    const {
+      EXPECTED_SHA: expected, CANDIDATE_SHA: candidate, ORDINALS: ordinals,
+      ATTESTATION_SHA256: attestationSha256, READ_TOKEN: readToken,
+    } = process.env;
+    requireThat(process.versions.node.split('.')[0] === '22' && SHA.test(expected)
+      && SHA.test(candidate) && expected !== candidate);
+    requireThat(readToken);
+    stage = 'root';
+    privateDirectory(root);
+    const source = fs.realpathSync.native(process.cwd());
+    if (operation === 'prepare') {
+      stage = 'arguments';
+      requireThat(DIGEST.test(attestationSha256));
+      parseOrdinals(ordinals, COUNTS.files);
+      stage = 'tip-fetch';
+      git(source, ['fetch', '--no-tags', '--no-recurse-submodules', '--depth=1', '--filter=blob:limit=1g',
+        REMOTE, REF + ':' + PIN], { remote: REMOTE, token: readToken });
+      stage = 'tip-verify';
+      if (git(source, ['show-ref', '--verify', '--hash', PIN]).toString() !== expected + '\n') {
+        throw STALE_TIP;
+      }
+      stage = 'archive-fetch';
+      git(source, ['fetch', '--no-tags', '--no-recurse-submodules', '--depth=1', '--filter=blob:limit=1g',
+        REMOTE, ARCHIVE], { remote: REMOTE, token: readToken });
+      const inventory = path.join(root, 'inventory.json');
+      const staging = path.join(root, 'stage');
+      stage = 'inventory';
+      attest({ repo: source, archiveSha: ARCHIVE, ordinals, attestationSha256, output: inventory }, COUNTS);
+      stage = 'candidate';
+      const tool = fileURLToPath(new URL('./prepare-fleet-ledger-migration.mjs', import.meta.url));
+      const result = spawnSync(process.execPath, [tool, '--repo', source, '--archive-sha', ARCHIVE,
+        '--expected-sha', expected, '--inventory', inventory, '--output', staging], {
+        env: gitEnv, timeout: 300_000, killSignal: 'SIGKILL',
+        stdio: ['ignore', 'ignore', 'pipe'], maxBuffer: 1024, encoding: 'utf8',
+      });
+      // Accept only the preparer's exact single-line failure protocol.
+      if (!result.error && result.status === 1) {
+        const code = MIGRATION_STAGES.find((code) => result.stderr === 'ERROR migration ' + code + '\n');
+        if (code) stage = 'candidate-' + code;
+      }
+      requireThat(!result.error && result.status === 0);
+    }
+
+    stage = 'receipt';
+    receipt(root, expected, candidate);
+    let result = 'verified';
+    if (operation !== 'prepare') {
+      stage = 'application';
+      const allowFallback = operation === 'app';
+      const writeToken = allowFallback
+        ? stepSecret(path.join(root, 'app.env'), 'APP_TOKEN', 'APP_TOKEN_DATA_REFRESH')
+        : stepSecret(path.join(root, 'fallback.env'), 'GITHUB_PAT');
+      result = pushCandidate({
+        repo: path.join(root, 'stage/candidate'), source, remote: REMOTE, expected, candidate,
+        readToken, writeToken, allowFallback,
+      });
+    }
+
+    stage = 'summary';
     if (result !== 'fallback') {
-      const summary = result + ' archive=' + ARCHIVE + ' parent=' + process.env.EXPECTED_SHA
-        + ' candidate=' + process.env.CANDIDATE_SHA + ' files=' + COUNTS.files + ' records=' + COUNTS.records;
+      const summary = result + ' archive=' + ARCHIVE + ' parent=' + expected
+        + ' candidate=' + candidate + ' files=' + COUNTS.files + ' records=' + COUNTS.records;
       fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, summary + '\n');
     }
     process.stdout.write(result + '\n');
   } catch (error) {
-    process.stderr.write(error.message === 'stale' ? 'ERROR stale ledger tip\n' : 'ERROR ledger maintenance\n');
+    const code = error === CANDIDATE_MISMATCH ? 'receipt-candidate-mismatch' : stage;
+    process.stderr.write(error === STALE_TIP ? 'ERROR stale ledger tip\n' : `ERROR ledger maintenance ${code}\n`);
     process.exitCode = 1;
   }
+}
+
+if (isInvokedDirectly(import.meta.url)) {
+  process.umask(0o077);
+  run();
 }
