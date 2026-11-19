@@ -60,6 +60,29 @@ describe('portal field extraction', () => {
     expect(candidateAnswerForField({ profile: { workPermit: 'Permesso C' } }, field)?.value).toBeUndefined();
   });
 
+  it('binds an Umantis standalone required marker to its own policy checkbox', () => {
+    const consent = "Dichiaro di aver letto e compreso la Dichiarazione sulla protezione dei dati dell'EOC. Acconsento che i miei dati personali vengano trattati e conservati in conformità con tale Dichiarazione.";
+    const snapshot = extract(`<form>
+      <div class="form_content_row">
+        <div class="form_content_left_boundary">
+          <div class="form_content_left"><span class="form_content_label_mustsign">*</span><span class="form_content_label_colon">:</span></div>
+        </div>
+        <div class="form_content_right_boundary">
+          <input type="checkbox" name="consent" id="consent"><label for="consent">${consent}</label>
+        </div>
+      </div>
+      <div class="form_content_row">
+        <input type="checkbox" name="marketing" id="marketing"><label for="marketing">Acconsento a ricevere offerte promozionali</label>
+      </div>
+    </form>`);
+    const [checkbox, marketing] = snapshot.fields;
+    expect(checkbox).toMatchObject({ label: consent, required: true });
+    expect(marketing.required).toBe(false);
+    const plan = guardPlan({ actions: [], missingRequired: [] }, snapshot.fields, { identity: {}, profile: {}, answers: {} });
+    expect(plan.actions).toContainEqual(expect.objectContaining({ fieldId: checkbox.id, action: 'check', source: 'consent' }));
+    expect(plan.actions).not.toContainEqual(expect.objectContaining({ fieldId: marketing.id, action: 'check' }));
+  });
+
   it('keeps repeated Workday profile names out of planner field identity', () => {
     const rows = Array.from({ length: 5 }, (_, index) => `<fieldset><legend>Work Experience ${index + 1}</legend>
       <label for="job-${index}">Job Title*</label><input id="job-${index}" name="name" required>
