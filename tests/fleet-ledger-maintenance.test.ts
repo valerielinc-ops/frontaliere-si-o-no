@@ -182,6 +182,22 @@ it('rejects malformed dispatch input before starting Git and emits a fixed error
 });
 
 it.each([
+  [false, '', ''],
+  [false, 'a'.repeat(40), ''],
+  [false, '', 'b'.repeat(40)],
+  [true, 'a'.repeat(40), ''],
+  [true, '', 'b'.repeat(40)],
+  [true, 'a'.repeat(40), 'b'.repeat(40)],
+])('rejects invalid SHA input combinations (auto_pin=%s, expected=%j, candidate=%j)', (autoPin, expected, candidate) => {
+  const result = spawnSync(process.execPath, [fileURLToPath(script), 'prepare', '/unused'], {
+    env: { AUTO_PIN: String(autoPin), EXPECTED_SHA: expected, CANDIDATE_SHA: candidate, READ_TOKEN: 'fixture' },
+    encoding: 'utf8',
+  });
+  expect(result.status).toBe(1);
+  expect(result.stderr).toBe('ERROR ledger maintenance arguments\n');
+});
+
+it.each([
   ['exit 2', 'ERROR ledger maintenance tip-fetch'],
   ['exit 0', 'ERROR ledger maintenance tip-verify'],
   ['exit 0', 'ERROR stale ledger tip'],
@@ -265,6 +281,73 @@ function prepareTransport(shallow: boolean) {
   return { ...f, repo, source, remote, candidate };
 }
 
+it.each(['explicit', 'explicit-mismatch', 'auto', 'auto-parent-mismatch', 'auto-zero-tip', 'auto-special-tip'])(
+  'validates the receipt and emits only verified SHAs in prepare (%s)', (variant) => {
+    const f = prepareTransport(true);
+    fs.rmSync(path.join(f.root, 'stage'), { recursive: true });
+    fs.unlinkSync(f.output);
+
+    // Use the real runner and preparer with synthetic archive constants and an offline transport.
+    const runner = path.join(f.root, 'scripts/ci');
+    fs.mkdirSync(runner, { recursive: true });
+    fs.symlinkSync(fileURLToPath(new URL('../scripts/lib', import.meta.url)), path.join(runner, '../lib'));
+    fs.symlinkSync(fileURLToPath(new URL('./prepare-fleet-ledger-projection.mjs', script)), path.join(runner, 'prepare-fleet-ledger-projection.mjs'));
+    const runnerScript = path.join(runner, 'attest-fleet-ledger-maintenance.mjs');
+    fs.writeFileSync(runnerScript, fs.readFileSync(script, 'utf8')
+      .replace("const ARCHIVE = '1c6010d0791d4e8de3125c4f7637319da2ff70fd';", `const ARCHIVE = '${f.request.archiveSha}';`)
+      .replace('Object.freeze({ files: 152, records: 374 })', 'Object.freeze({ files: 2, records: 2 })'));
+    const stagedTool = path.join(runner, 'prepare-fleet-ledger-migration.mjs');
+    if (variant === 'auto-parent-mismatch') {
+      fs.writeFileSync(stagedTool, `
+        import { execFileSync } from 'node:child_process';
+        import fs from 'node:fs';
+        const args = process.argv.slice(2);
+        execFileSync(process.execPath, [${JSON.stringify(candidateTool)}, ...args]);
+        const file = args.at(-1) + '/receipt.json';
+        const receipt = JSON.parse(fs.readFileSync(file, 'utf8'));
+        receipt.candidateSha = ${JSON.stringify(f.request.archiveSha)};
+        fs.writeFileSync(file, JSON.stringify(receipt));
+      `);
+    } else {
+      fs.symlinkSync(candidateTool, stagedTool);
+    }
+    const bin = path.join(f.root, 'bin');
+    fs.mkdirSync(bin);
+    // The fixture source already contains the two fetched objects.
+    fs.writeFileSync(path.join(bin, 'timeout'), '#!/bin/sh\nexit 0\n', { mode: 0o700 });
+    const badTip = variant === 'auto-zero-tip' ? '0'.repeat(40) : variant === 'auto-special-tip' ? 'HEAD' : '';
+    if (badTip) {
+      fs.writeFileSync(path.join(bin, 'git'), `#!/bin/sh\nprintf '%s\\n' '${badTip}'\n`, { mode: 0o700 });
+    }
+    const output = path.join(f.root, 'github-output');
+    const summary = path.join(f.root, 'github-summary');
+    const autoPin = variant.startsWith('auto');
+    const result = spawnSync(process.execPath, [runnerScript, 'prepare', f.root], {
+      cwd: f.source,
+      env: {
+        PATH: bin + path.delimiter + process.env.PATH, READ_TOKEN: 'fixture',
+        AUTO_PIN: String(autoPin), EXPECTED_SHA: autoPin ? '' : f.expected,
+        CANDIDATE_SHA: autoPin ? '' : variant === 'explicit-mismatch' ? 'a'.repeat(40) : f.candidate,
+        ORDINALS: f.request.ordinals, ATTESTATION_SHA256: f.request.attestationSha256,
+        GITHUB_OUTPUT: output, GITHUB_STEP_SUMMARY: summary,
+      },
+      encoding: 'utf8',
+    });
+    if (variant === 'auto' || variant === 'explicit') {
+      expect(result.stderr).toBe('');
+      expect(result.status).toBe(0);
+      expect(fs.readFileSync(output, 'utf8')).toBe(`expected_sha=${f.expected}\ncandidate_sha=${f.candidate}\n`);
+      expect(fs.readFileSync(summary, 'utf8')).toContain(`parent=${f.expected} candidate=${f.candidate} files=2 records=2\n`);
+    } else {
+      const stage = badTip ? 'tip-verify' : variant === 'explicit-mismatch' ? 'receipt-candidate-mismatch' : 'receipt';
+      expect(result.status).toBe(1);
+      expect(result.stderr).toBe(`ERROR ledger maintenance ${stage}\n`);
+      expect(fs.existsSync(output)).toBe(false);
+      expect(fs.existsSync(summary)).toBe(false);
+    }
+  },
+);
+
 it.each([false, true])('publishes the candidate with shallow=%s and handles an already published SHA', (shallow) => {
   const f = prepareTransport(shallow);
   expect(pushCandidate({ ...f, writeToken: '', allowFallback: true })).toBe('fallback');
@@ -333,12 +416,30 @@ it('pins the reviewed dispatch and gates all write secrets behind the dry-run an
   const workflow = parse(fs.readFileSync(new URL('../.github/workflows/fleet-ledger-maintenance.yml', import.meta.url), 'utf8'));
   expect(Object.keys(workflow.on)).toEqual(['workflow_dispatch']);
   expect(workflow.on.workflow_dispatch.inputs.dry_run).toMatchObject({ type: 'boolean', default: true });
+  expect(workflow.on.workflow_dispatch.inputs.auto_pin).toMatchObject({ type: 'boolean', default: false });
+  for (const input of ['expected_sha', 'candidate_sha']) {
+    expect(workflow.on.workflow_dispatch.inputs[input]).toMatchObject({ type: 'string', required: false });
+  }
   expect(workflow.permissions).toEqual({ contents: 'read' });
   const job = workflow.jobs.maintenance;
   expect(job.if).toContain("github.ref == 'refs/heads/main'");
   expect(job.if).toContain('github.workflow_sha == github.sha');
   expect(job.steps[0].with).toMatchObject({ ref: '${{ github.sha }}', 'persist-credentials': false });
-  const [app, fallback] = job.steps.slice(-2);
+  expect(job.env).toBeUndefined();
+  const [prepare, app, fallback] = job.steps.slice(-3);
+  expect(prepare.env).toMatchObject({
+    AUTO_PIN: '${{ inputs.auto_pin }}',
+    EXPECTED_SHA: '${{ inputs.expected_sha }}',
+    CANDIDATE_SHA: '${{ inputs.candidate_sha }}',
+  });
+  for (const step of [app, fallback]) {
+    expect(step.env).toMatchObject({
+      ROOT: '${{ steps.prepare.outputs.root }}',
+      EXPECTED_SHA: '${{ steps.prepare.outputs.expected_sha }}',
+      CANDIDATE_SHA: '${{ steps.prepare.outputs.candidate_sha }}',
+    });
+    expect(step.env.AUTO_PIN).toBeUndefined();
+  }
   expect(app.if).toContain('success() && !inputs.dry_run');
   expect(fallback.if).toContain("success() && !inputs.dry_run && steps.app.outputs.result == 'fallback'");
   expect(fallback.run).toContain('--only-env=GITHUB_PAT');

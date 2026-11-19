@@ -176,9 +176,13 @@ function readback(repo, remote, readToken) {
   return sha;
 }
 
-export function pushCandidate({ repo, source, remote, expected, candidate, readToken, writeToken, allowFallback }) {
+function assertCandidateParent(repo, expected, candidate) {
   requireThat(SHA.test(expected) && SHA.test(candidate) && expected !== candidate);
   requireThat(git(repo, ['rev-list', '--parents', '-n', '1', candidate]).toString() === candidate + ' ' + expected + '\n');
+}
+
+export function pushCandidate({ repo, source, remote, expected, candidate, readToken, writeToken, allowFallback }) {
+  assertCandidateParent(repo, expected, candidate);
   const before = readback(repo, remote, readToken);
   if (before === candidate) return 'published';
   requireThat(before === expected);
@@ -230,7 +234,8 @@ function receipt(root, expected, candidate) {
     && typeof data.candidateSha === 'string' && SHA.test(data.candidateSha)
     && data.files === COUNTS.files && data.records === COUNTS.records
     && Number.isSafeInteger(data.indexEntries) && data.indexEntries >= data.records);
-  if (data.candidateSha !== candidate) throw CANDIDATE_MISMATCH;
+  if (candidate !== undefined && data.candidateSha !== candidate) throw CANDIDATE_MISMATCH;
+  return data.candidateSha;
 }
 
 function stepSecret(file, key, capability) {
@@ -253,12 +258,15 @@ function run() {
     const [, , operation, root] = process.argv;
     requireThat(operation === 'prepare' || operation === 'app' || operation === 'fallback');
     const {
-      EXPECTED_SHA: expected, CANDIDATE_SHA: candidate, ORDINALS: ordinals,
+      AUTO_PIN: autoPinInput = 'false', ORDINALS: ordinals,
       ATTESTATION_SHA256: attestationSha256, READ_TOKEN: readToken,
     } = process.env;
-    requireThat(process.versions.node.split('.')[0] === '22' && SHA.test(expected)
-      && SHA.test(candidate) && expected !== candidate);
-    requireThat(readToken);
+    let { EXPECTED_SHA: expected = '', CANDIDATE_SHA: candidate = '' } = process.env;
+    const autoPin = operation === 'prepare' && autoPinInput === 'true';
+    requireThat(process.versions.node.split('.')[0] === '22' && readToken);
+    requireThat(operation !== 'prepare' || autoPinInput === 'true' || autoPinInput === 'false');
+    requireThat(autoPin ? !expected && !candidate
+      : SHA.test(expected) && SHA.test(candidate) && expected !== candidate);
     stage = 'root';
     privateDirectory(root);
     const source = fs.realpathSync.native(process.cwd());
@@ -270,9 +278,14 @@ function run() {
       git(source, ['fetch', '--no-tags', '--no-recurse-submodules', '--depth=1', '--filter=blob:limit=1g',
         REMOTE, REF + ':' + PIN], { remote: REMOTE, token: readToken });
       stage = 'tip-verify';
-      if (git(source, ['show-ref', '--verify', '--hash', PIN]).toString() !== expected + '\n') {
+      const tip = git(source, ['show-ref', '--verify', '--hash', PIN]).toString();
+      if (!autoPin && tip !== expected + '\n') {
         throw STALE_TIP;
       }
+      const tipSha = tip.slice(0, 40);
+      requireThat(SHA.test(tipSha) && tip === tipSha + '\n' && tipSha !== '0'.repeat(40));
+      assertCommit(source, tipSha);
+      expected = tipSha;
       stage = 'archive-fetch';
       git(source, ['fetch', '--no-tags', '--no-recurse-submodules', '--depth=1', '--filter=blob:limit=1g',
         REMOTE, ARCHIVE], { remote: REMOTE, token: readToken });
@@ -296,9 +309,11 @@ function run() {
     }
 
     stage = 'receipt';
-    receipt(root, expected, candidate);
+    candidate = receipt(root, expected, autoPin ? undefined : candidate);
     let result = 'verified';
-    if (operation !== 'prepare') {
+    if (operation === 'prepare') {
+      assertCandidateParent(path.join(root, 'stage/candidate'), expected, candidate);
+    } else {
       stage = 'application';
       const allowFallback = operation === 'app';
       const writeToken = allowFallback
@@ -315,6 +330,10 @@ function run() {
       const summary = result + ' archive=' + ARCHIVE + ' parent=' + expected
         + ' candidate=' + candidate + ' files=' + COUNTS.files + ' records=' + COUNTS.records;
       fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, summary + '\n');
+    }
+    if (operation === 'prepare') {
+      stage = 'output';
+      fs.appendFileSync(process.env.GITHUB_OUTPUT, 'expected_sha=' + expected + '\ncandidate_sha=' + candidate + '\n');
     }
     process.stdout.write(result + '\n');
   } catch (error) {
