@@ -153,7 +153,7 @@ function readOriginalIndex(dir) {
   return { original, declared };
 }
 
-function projectRecord(record) {
+export function projectRecord(record) {
   if (record.loopId !== 'L8' || !object(record.sourceSnapshot)) return null;
   const { sourceSnapshot } = record;
   const { history } = sourceSnapshot;
