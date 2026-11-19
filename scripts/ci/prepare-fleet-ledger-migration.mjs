@@ -300,7 +300,7 @@ async function prepare(argv) {
       changes.delete(diff[i + 1]);
     }
     const tree = git(candidateRepo, ['write-tree']).toString().trim();
-    const timestamp = git(candidateRepo, ['show', '-s', '--format=%ct', expected]).toString().trim();
+    const timestamp = git(repo, ['show', '-s', '--format=%ct', expected]).toString().trim();
     requireThat(/^\d+$/u.test(timestamp));
     const date = '@' + timestamp + ' +0000';
     const candidate = git(candidateRepo, ['commit-tree', tree, '-p', expected, '-m', 'Prepare fleet ledger migration'],
