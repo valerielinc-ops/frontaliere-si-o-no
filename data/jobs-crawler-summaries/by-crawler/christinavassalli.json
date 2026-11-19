@@ -1,7 +1,7 @@
 {
   "key": "christinavassalli",
   "label": "CHRISTINA VASSALLI Services, Inhaberin Denise Tschäppät",
-  "generatedAt": "2026-11-18T21:54:24.573Z",
+  "generatedAt": "2026-11-19T10:08:52.981Z",
   "total": 2,
   "discovered": 2,
   "parsed": 2,
@@ -44,10 +44,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 5869,
-  "avgDurationMs": 5869,
+  "durationMs": 6194,
+  "avgDurationMs": 6194,
   "durationHistory": [
-    5869
+    6194
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -65,7 +65,7 @@
       "url": "https://christinavassalli.ch/job/telefonistin-20-40-zuerich/",
       "source": "CHRISTINA VASSALLI Services, Inhaberin Denise Tschäppät Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:54:09.115Z",
+      "crawledAt": "2026-11-19T10:08:41.136Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -88,7 +88,7 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-26T14:25:57.444Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-18T21:54:09.115Z",
+      "validThrough": "2026-12-19T10:08:41.136Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -110,7 +110,7 @@
       "url": "https://christinavassalli.ch/job/telefonistin-40-wollerau-2-2/",
       "source": "CHRISTINA VASSALLI Services, Inhaberin Denise Tschäppät Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:54:09.114Z",
+      "crawledAt": "2026-11-19T10:08:41.135Z",
       "addressLocality": "Wollerau",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -133,7 +133,7 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-26T14:25:57.443Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-18T21:54:09.114Z",
+      "validThrough": "2026-12-19T10:08:41.135Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -144,5 +144,5 @@
       }
     }
   ],
-  "codeCommit": "8862042892397f4dcea90f48fbc2dc028da23eec"
+  "codeCommit": "af8f978c37a7f89c95dd40500d2ac0a67c1ede33"
 }
