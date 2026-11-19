@@ -2,6 +2,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { compareMonthlyRefresh } from '../scripts/compare-border-inventory-refresh.mjs';
 import { buildFuelStationInventory } from '../scripts/update-fuel-station-inventory.mjs';
 import { ITALY_PHARMACY_DATASET_PAGE, TICINO_PHARMACY_PDF_URL } from '../scripts/lib/pharmacy-border-parser.mjs';
+import { OFCT_REGIONS } from '../scripts/lib/pharmacy-ticino-parser.mjs';
 
 const first = '2026-11-01T00:00:00Z';
 
@@ -139,9 +140,24 @@ describe('monthly inventory refresh evidence', () => {
     expect(report).toContain('aggiunti 1, rimossi 1');
   });
 
+  it.each([TICINO_PHARMACY_PDF_URL, OFCT_REGIONS[0].url])('counts a new official Ticino identity from %s', (sourceUrl) => {
+    const addition = { ...ticino, id: 'ti-official-2', sourceUrl };
+    const report = compareMonthlyRefresh('pharmacies', first, (path) => path.includes('ticino') ? {
+      previous: pharmacyCatalogue(ticino),
+      candidate: pharmacyCatalogue(ticino, addition),
+    } : {
+      previous: pharmacyCatalogue(italy),
+      candidate: pharmacyCatalogue(italy),
+    });
+    expect(report).toMatch(/Farmacie Ticino[^\n]*aggiunti 1, rimossi 0, non valutabili 0, invariati 1/);
+  });
+
   it.each([
     { sourceUrl: 'https://www.openstreetmap.org/' },
     { sourceUrl: 'https://www4.ti.ch.example.invalid/Lista_Farmacie.pdf' },
+    { sourceUrl: ` ${TICINO_PHARMACY_PDF_URL}` },
+    { sourceUrl: TICINO_PHARMACY_PDF_URL.replace('https://', 'https://user:pass@') },
+    { sourceUrl: TICINO_PHARMACY_PDF_URL.replace('/fileadmin/', ':444/fileadmin/') },
     { sourceType: 'directory' },
     { canton: 'Geneva' },
   ])('rejects a new Ticino record with unsupported evidence %j', (overrides) => {

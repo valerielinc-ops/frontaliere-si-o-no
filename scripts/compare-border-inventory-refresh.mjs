@@ -29,10 +29,12 @@ function hasIdentity(value) {
 }
 
 function isOfficialTicinoSource(url) {
+  // Official OFCT directory URLs remain valid sources alongside the cantonal PDF.
   if (OFCT_URLS.has(url)) return true;
   try {
     const parsed = new URL(url);
-    return !parsed.username && !parsed.password && !parsed.port && parsed.href === isTicinoPharmacyPdfUrl(url);
+    return !parsed.username && !parsed.password && !parsed.port
+      && parsed.href === url && Boolean(isTicinoPharmacyPdfUrl(parsed.href));
   } catch {
     return false;
   }
