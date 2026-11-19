@@ -56,7 +56,7 @@ import { applyDeclaredBrandRelabel, declaredBrandLabels } from './lib/crawler-br
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { hasUsableJobId } from './lib/job-match-key.mjs';
 import { decontaminateSliceDirectory } from './decontaminate-prev-slugs.mjs';
-import { localeTitleDropsSourceWords } from './lib/job-title-identity.mjs';
+import { localeTitleDropsSourceWords, losslessSlugTitle } from './lib/job-title-identity.mjs';
 import {
   loadServedSlugLedger,
   mayReplacePublishedSlug,
@@ -85,12 +85,14 @@ export function servedSlugCandidates(job, locale) {
   add(currentSlug, 'active');
   for (const slug of job.previousSlugsByLocale?.[locale] || []) add(slug, 'locale-history');
 
-  const title = String(job.titleByLocale?.[locale] || '').trim();
+  const sourceLang = jobTitleSourceLang(job, job.sourceLang || 'it');
+  const sourceTitle = String(job.title || job.titleByLocale?.[sourceLang] || '').trim();
+  const title = locale === sourceLang
+    ? String(job.titleByLocale?.[locale] || '').trim()
+    : losslessSlugTitle(String(job.titleByLocale?.[locale] || '').trim(), sourceTitle).trim();
   const company = String(job.company || '');
-  // This is the deploy-time slot contract in hardenJobLocaleFields: the
-  // localized title feeds the route and addressLocality wins over location.
-  // Do not substitute an employer title for a truncated localization here:
-  // FU-007 reconciles the URL that deploy actually served.
+  // Mirror hardenJobLocaleFields: losslessSlugTitle substitutes the source
+  // title for a truncated translation and addressLocality wins over location.
   const location = String(job.addressLocality || job.location || '');
   const disambiguator = String(job.slugDisambiguator || '').trim();
   if (title.length >= 3) {

@@ -4,11 +4,12 @@
  *
  * A dry run derives every change from two versioned sources: the exact job
  * detail URL in url-first-seen and that job's locale-aware slug history. Apply
- * requires the exact dry-run plan plus the expected item count, so a later
- * crawler or ledger refresh cannot silently widen the approved backfill.
+ * requires a fixed GSC allowlist and its hashed Search Console receipt, so a
+ * later crawler or ledger refresh cannot silently widen the approved backfill.
  */
 
 import fs from 'node:fs';
+import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
@@ -27,6 +28,7 @@ const DEFAULT_SLICES_DIR = path.join(ROOT, 'data', 'jobs', 'by-crawler');
 // reviewed. A generated plan or a caller-selected ledger is evidence of a
 // possible change, never authority to rewrite an indexed URL.
 const GSC_ALLOWLIST_PATH = path.join(ROOT, 'data', 'gsc-first-served-slug-allowlist.json');
+const GSC_RECEIPT_PATH = path.join(ROOT, 'data', 'gsc-first-served-slug-receipt.json');
 const GSC_ALLOWLIST_COUNT = 40;
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
@@ -84,9 +86,10 @@ function readCanonicalGscAllowlist() {
     throw new Error(`--apply requires the versioned GSC allowlist at ${GSC_ALLOWLIST_PATH}`);
   }
   const source = readJson(GSC_ALLOWLIST_PATH);
-  if (source?.schema !== 1 || !Array.isArray(source.entries)) {
-    throw new Error('GSC allowlist must have schema=1 and an entries array');
+  if (source?.schema !== 1 || !Array.isArray(source.entries) || typeof source.receiptSha256 !== 'string') {
+    throw new Error('GSC allowlist must have schema=1, receiptSha256, and an entries array');
   }
+  const receipt = readCanonicalGscReceipt(source.receiptSha256);
   if (source.entries.length !== GSC_ALLOWLIST_COUNT) {
     throw new Error(`GSC allowlist must contain exactly ${GSC_ALLOWLIST_COUNT} entries`);
   }
@@ -101,11 +104,47 @@ function readCanonicalGscAllowlist() {
     if (!slice || !jobId || !LOCALES.includes(locale) || !previousSlug || !nextSlug || !url) {
       throw new Error('each GSC allowlist entry requires slice, jobId, locale, previousSlug, nextSlug, and url');
     }
+    const gscRow = receipt.rowsByUrl.get(canonicalPathFromUrl(url));
+    if (!gscRow || !Number.isFinite(gscRow.impressions) || gscRow.impressions <= 0) {
+      throw new Error(`GSC receipt has no positive-impression row for ${url}`);
+    }
     const key = `${slice}\u0000${jobId}\u0000${locale}`;
     if (bySlot.has(key)) throw new Error(`duplicate GSC allowlist slot: ${key}`);
     bySlot.set(key, { slice, jobId, locale, previousSlug, nextSlug, url });
   }
   return bySlot;
+}
+
+function readCanonicalGscReceipt(expectedSha256) {
+  if (!fs.existsSync(GSC_RECEIPT_PATH)) {
+    throw new Error(`--apply requires the versioned GSC receipt at ${GSC_RECEIPT_PATH}`);
+  }
+  const raw = fs.readFileSync(GSC_RECEIPT_PATH);
+  const actualSha256 = createHash('sha256').update(raw).digest('hex');
+  if (actualSha256 !== expectedSha256) {
+    throw new Error('GSC receipt digest does not match the canonical allowlist');
+  }
+  const receipt = JSON.parse(raw.toString('utf8'));
+  if (
+    receipt?.schema !== 1
+    || receipt.provider !== 'google-search-console'
+    || typeof receipt.property !== 'string'
+    || !/^https:\/\/frontaliereticino\.ch\/?$/.test(receipt.property)
+    || !/^\d{4}-\d{2}-\d{2}T/.test(String(receipt.exportedAt || ''))
+    || !Array.isArray(receipt.rows)
+  ) {
+    throw new Error('GSC receipt must identify the canonical property, export time, and page rows');
+  }
+  const rowsByUrl = new Map();
+  for (const row of receipt.rows) {
+    const url = canonicalPathFromUrl(row?.url);
+    const impressions = Number(row?.impressions);
+    if (!url || !Number.isFinite(impressions) || impressions < 0 || rowsByUrl.has(url)) {
+      throw new Error('GSC receipt contains an invalid or duplicate page row');
+    }
+    rowsByUrl.set(url, { impressions });
+  }
+  return { rowsByUrl };
 }
 
 function assertGscAllowlistIdentity(entry, change, job) {
