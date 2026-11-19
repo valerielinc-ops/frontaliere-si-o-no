@@ -540,6 +540,11 @@ function nativeQuestionText(value, counter = null) {
       if (node) labels.add(node);
     }
     const group = element.closest(QUESTION_GROUP_SELECTOR);
+    // Umantis can put the required marker in the caption column while
+    // the single control within the row carries its own label.
+    const umantisMarker = group?.matches('.form_content_row')
+      && group.querySelector(':scope > .form_content_left_boundary > .form_content_left > .form_content_label_mustsign');
+    if (umantisMarker && clean(umantisMarker.textContent) === '*' && oneQuestionGroup(group, element)) return true;
     for (const groupLabel of ownedGroupLabels(group, QUESTION_LABEL_SELECTOR, element)) {
       if (!groupLabel.contains(element)
         && clean(groupLabel.innerText || groupLabel.textContent) === labelText) labels.add(groupLabel);
