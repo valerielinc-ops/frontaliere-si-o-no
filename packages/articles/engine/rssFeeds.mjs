@@ -600,7 +600,7 @@ export function buildSectionFeeds({ fs, path, rootDir, section, registry = [], l
   const imageCredits = createImageCreditReader(fs, [
     path.join(rootDir, 'packages/articles/content/image-credits'),
     path.join(rootDir, 'content/image-credits'),
-  ]);
+  ], { legacyVisionRegistryRoot: rootDir });
   const images = new Map();
   const credits = new Map();
   for (const a of registry) {

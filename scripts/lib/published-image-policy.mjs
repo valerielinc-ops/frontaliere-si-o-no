@@ -372,7 +372,7 @@ export function loadPublishedImagePolicy({
       path.join(root, 'packages', 'articles', 'content', 'image-credits'),
       path.join(root, 'content', 'image-credits'),
     ],
-    { warn, legacyVisionRegistry },
+    { warn, legacyVisionRegistryRoot: root },
   );
   const check = (imageUrl, options = {}) => checkPublishedImageUrl(imageUrl, {
     ...options,
