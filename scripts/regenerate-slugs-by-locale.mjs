@@ -57,8 +57,156 @@ import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { hasUsableJobId } from './lib/job-match-key.mjs';
 import { decontaminateSliceDirectory } from './decontaminate-prev-slugs.mjs';
 import { localeTitleDropsSourceWords } from './lib/job-title-identity.mjs';
-import { mayReplacePublishedSlug } from './lib/published-slug-stability.mjs';
+import {
+  loadServedSlugLedger,
+  mayReplacePublishedSlug,
+  slugFirstServedAt,
+} from './lib/published-slug-stability.mjs';
 import { jobTitleSourceLang } from './lib/job-locale-utils.mjs';
+
+function servedSlugClaimKey(locale, slug) {
+  return `${locale}\u0000${String(slug || '').trim()}`;
+}
+
+/**
+ * Source-backed candidates for a locale slot. Flat `previousSlugs` are
+ * deliberately excluded because they do not prove which locale owned a URL.
+ */
+export function servedSlugCandidates(job, locale) {
+  if (!job || typeof job !== 'object' || !LOCALES.includes(locale)) return [];
+  const candidates = new Map();
+  const add = (slug, origin) => {
+    const clean = String(slug || '').trim();
+    if (clean && !candidates.has(clean)) candidates.set(clean, origin);
+  };
+
+  const localeSlugs = job.slugByLocale || {};
+  const currentSlug = String(localeSlugs[locale] || (locale === 'it' ? job.slug : '') || '').trim();
+  add(currentSlug, 'active');
+  for (const slug of job.previousSlugsByLocale?.[locale] || []) add(slug, 'locale-history');
+
+  const sourceLang = jobTitleSourceLang(job, job.sourceLang || 'it');
+  const title = String(job.titleByLocale?.[locale] || '').trim();
+  const sourceTitle = String(job.titleByLocale?.[sourceLang] || '').trim();
+  const employerTitle = String(job.title || sourceTitle || '').trim();
+  const company = String(job.company || '');
+  const location = String(job.location || job.addressLocality || '');
+  const disambiguator = String(job.slugDisambiguator || '').trim();
+  if (title.length >= 3) {
+    const truncated = Boolean(employerTitle)
+      && localeTitleDropsSourceWords(title, employerTitle);
+    if (locale === sourceLang || truncated || !sourceTitle || !isLikelyUntranslated(title, sourceTitle)) {
+      add(buildSlug(truncated ? employerTitle : title, company, location, disambiguator), 'title-derived');
+    }
+  }
+
+  return [...candidates].map(([slug, origin]) => ({ slug, origin }));
+}
+
+/**
+ * Index every source-backed claim so a historical slug shared by two jobs is
+ * never promoted by guesswork. The active-owner map remains a second guard.
+ */
+export function indexServedSlugCandidateClaims(job, claimsByLocale) {
+  if (!hasUsableJobId(job)) return;
+  for (const locale of LOCALES) {
+    const localeClaims = claimsByLocale.get(locale);
+    for (const candidate of servedSlugCandidates(job, locale)) {
+      const key = servedSlugClaimKey(locale, candidate.slug);
+      const owners = localeClaims.get(key) || new Set();
+      owners.add(job.id);
+      localeClaims.set(key, owners);
+    }
+  }
+}
+
+/**
+ * Move one locale slot to an exact URL already present in the served ledger.
+ *
+ * By default this only aligns a never-served slice slug to a served candidate
+ * (FU-007). `allowFirstServedRestore` enables the separately reviewed one-shot
+ * repair that restores an earlier locale-history URL over a later served slug
+ * (FU-005). The function mutates only after provenance and ownership pass.
+ */
+export function servedSlugSliceWriter(job, locale, {
+  usedSlugs = null,
+  candidateClaims = null,
+  allowFirstServedRestore = false,
+  requireCurrentServed = false,
+} = {}) {
+  if (!job || typeof job !== 'object' || !LOCALES.includes(locale)) {
+    return { changed: false, reason: 'invalid-input' };
+  }
+  if (!hasUsableJobId(job)) return { changed: false, reason: 'missing-job-id' };
+  if (!loadServedSlugLedger()) return { changed: false, reason: 'missing-ledger' };
+
+  const localeSlugs = job.slugByLocale || {};
+  const currentSlug = String(localeSlugs[locale] || (locale === 'it' ? job.slug : '') || '').trim();
+  const currentServedAt = currentSlug ? slugFirstServedAt(locale, currentSlug, job) : null;
+  if (requireCurrentServed && !currentServedAt) {
+    return { changed: false, reason: 'current-unserved' };
+  }
+  if (currentServedAt && !allowFirstServedRestore) {
+    return { changed: false, reason: 'current-served' };
+  }
+
+  const servedCandidates = servedSlugCandidates(job, locale)
+    // FU-007 is specifically the title-derived URL that the deploy already
+    // served while the slice retained a never-served value. Historical
+    // candidates belong to the separately approved FU-005 restoration.
+    .filter((candidate) => (
+      currentServedAt
+        ? candidate.origin !== 'title-derived'
+        : candidate.origin === 'title-derived'
+    ))
+    .map((candidate) => ({
+      ...candidate,
+      firstServedAt: slugFirstServedAt(locale, candidate.slug, job),
+    }))
+    .filter((candidate) => candidate.firstServedAt)
+    .sort((left, right) => (
+      left.firstServedAt.localeCompare(right.firstServedAt)
+      || left.slug.localeCompare(right.slug)
+    ));
+  const selected = servedCandidates[0];
+  if (!selected || selected.slug === currentSlug) {
+    return { changed: false, reason: selected ? 'already-first-served' : 'no-served-candidate' };
+  }
+  if (currentServedAt && selected.firstServedAt >= currentServedAt) {
+    return { changed: false, reason: 'current-is-earliest' };
+  }
+
+  const activeOwner = usedSlugs?.get(selected.slug);
+  if (activeOwner && activeOwner !== job.id) {
+    return { changed: false, reason: 'active-owner-conflict', conflictingJobId: activeOwner };
+  }
+  const historicalOwners = candidateClaims?.get(servedSlugClaimKey(locale, selected.slug));
+  if (historicalOwners && (historicalOwners.size !== 1 || !historicalOwners.has(job.id))) {
+    return { changed: false, reason: 'ambiguous-history' };
+  }
+
+  if (currentSlug) {
+    addPreviousSlugForLocale(job, locale, currentSlug, 20, 'servedSlugSliceWriter');
+  }
+  if (!job.slugByLocale || typeof job.slugByLocale !== 'object') job.slugByLocale = {};
+  job.slugByLocale[locale] = selected.slug;
+  if (locale === 'it') syncItalianMasterSlug(job, currentSlug, selected.slug);
+
+  if (usedSlugs) {
+    if (currentSlug && usedSlugs.get(currentSlug) === job.id) usedSlugs.delete(currentSlug);
+    usedSlugs.set(selected.slug, job.id);
+  }
+  return {
+    changed: true,
+    reason: currentServedAt ? 'restore-first-served' : 'align-served-candidate',
+    jobId: job.id,
+    locale,
+    previousSlug: currentSlug,
+    nextSlug: selected.slug,
+    firstServedAt: selected.firstServedAt,
+    candidateOrigin: selected.origin,
+  };
+}
 
 /**
  * True when `slug`, company/location/disambiguator tokens removed, only drops
@@ -118,6 +266,8 @@ async function main() {
   // form.
   const usedSlugs = new Map(); // locale → Map<slug, jobId>
   for (const locale of LOCALES) usedSlugs.set(locale, new Map());
+  const candidateClaims = new Map(); // locale → Map<locale+slug, Set<jobId>>
+  for (const locale of LOCALES) candidateClaims.set(locale, new Map());
   let preScanJobs = 0;
   let preScanMappings = 0;
   for (const file of files) {
@@ -127,9 +277,10 @@ async function main() {
     for (const job of jobs) {
       preScanJobs++;
       if (!hasUsableJobId(job)) continue;
+      indexServedSlugCandidateClaims(job, candidateClaims);
       const sbl = job.slugByLocale || {};
       for (const locale of LOCALES) {
-        const slug = (sbl[locale] || '').trim();
+        const slug = String(sbl[locale] || (locale === 'it' ? job.slug : '') || '').trim();
         if (!slug) continue;
         const slugMap = usedSlugs.get(locale);
         // First-write wins for the pre-scan: if two jobs in CURRENT data
@@ -158,6 +309,7 @@ async function main() {
   let totalDisambiguated = 0;
   let totalPinned = 0;
   let totalKeptPublished = 0;
+  let totalServedAligned = 0;
   let slicesChanged = 0;
   let totalRelabelled = 0;
   let totalSourceRefreshed = 0;
@@ -201,7 +353,26 @@ async function main() {
           disambiguator,
         });
         const sourceBrandRefresh = locale === sourceLang && brandRefresh;
-        if (locale === sourceLang && !sourceBrandRefresh) continue;
+
+        // The existing regeneration intentionally leaves the source locale to
+        // its crawler. FU-007 is narrower: when the deploy has already served
+        // the exact title-derived source URL, persist that proven URL in the
+        // slice before returning to the crawler-owned path.
+        if (locale === sourceLang && !sourceBrandRefresh) {
+          const sourceAlignment = servedSlugSliceWriter(job, locale, {
+            usedSlugs: usedSlugs.get(locale),
+            candidateClaims: candidateClaims.get(locale),
+          });
+          if (sourceAlignment.changed) {
+            if (sbl !== job.slugByLocale) {
+              Object.assign(sbl, job.slugByLocale);
+              job.slugByLocale = sbl;
+            }
+            sliceChanged = true;
+            totalServedAligned++;
+          }
+          continue;
+        }
 
         // ── Registry pin ────────────────────────────────────────────────────
         // If this job is registered with a real translation for this locale,
@@ -249,6 +420,22 @@ async function main() {
             sliceChanged = true;
           }
           continue;
+        }
+
+        if (!brandRefresh) {
+          const servedAlignment = servedSlugSliceWriter(job, locale, {
+            usedSlugs: usedSlugs.get(locale),
+            candidateClaims: candidateClaims.get(locale),
+          });
+          if (servedAlignment.changed) {
+            if (sbl !== job.slugByLocale) {
+              Object.assign(sbl, job.slugByLocale);
+              job.slugByLocale = sbl;
+            }
+            sliceChanged = true;
+            totalServedAligned++;
+            continue;
+          }
         }
 
         // No title → can't generate slug
@@ -431,6 +618,9 @@ async function main() {
   }
   if (totalKeptPublished > 0) {
     console.log(`🔒 Published slugs kept: ${totalKeptPublished} locale slug(s) whose title moved on a served slug with unchanged company and location`);
+  }
+  if (totalServedAligned > 0) {
+    console.log(`🧭 Served slug alignment: ${totalServedAligned} never-served slice slug(s) replaced by an exact URL already present in the served ledger`);
   }
   if (totalPinned > 0) {
     console.log(`🔒 Registry pin: ${totalPinned} locale slug(s) restored to the immutable registry value (drift demoted to previousSlugs)`);

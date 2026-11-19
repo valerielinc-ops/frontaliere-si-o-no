@@ -259,9 +259,36 @@ export function loadServedSlugLedger() {
  * @returns {boolean | null}
  */
 export function slugWasServed(locale, slug, job = null) {
+  const firstServedAt = slugFirstServedAt(locale, slug, job);
+  if (firstServedAt === undefined) return null;
+  return firstServedAt !== null;
+}
+
+/**
+ * Earliest date on which one of the job's exact canonical detail paths was
+ * served. `undefined` means the ledger is unavailable; `null` means the
+ * ledger is present and none of the exact paths was served.
+ *
+ * Keeping those states distinct is required by the source-backed repair
+ * writers: an absent ledger must stop the repair, while a present ledger may
+ * prove that the slice slug was never public.
+ *
+ * @param {string} locale
+ * @param {string} slug
+ * @param {object | null} [job]
+ * @returns {string | null | undefined}
+ */
+export function slugFirstServedAt(locale, slug, job = null) {
   const ledger = loadServedSlugLedger();
-  if (!ledger) return null;
-  return jobDetailPathsFor(locale, slug, job).some((p) => ledger.has(p));
+  if (!ledger) return undefined;
+  let earliest = null;
+  for (const detailPath of jobDetailPathsFor(locale, slug, job)) {
+    const servedAt = ledger.get(detailPath);
+    if (servedAt && (!earliest || String(servedAt) < earliest)) {
+      earliest = String(servedAt);
+    }
+  }
+  return earliest;
 }
 
 /**
