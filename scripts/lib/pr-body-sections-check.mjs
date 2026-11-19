@@ -619,15 +619,14 @@ export function parseDeferredPerfEvidence(text = '') {
   const proseWithInlineEvidence = source.replace(/`([^`\n]+)`/g, (full, content) =>
     revertTriggerMatches(content).length > 0 ? ' '.repeat(full.length) : ` ${content} `);
   const quantity = new RegExp(PERF_QTY, 'i');
-  const proseHasThreshold = quantity.test(proseWithInlineEvidence);
   const triggerEvidence = [
     ...revertTriggerMatches(proseWithInlineEvidence).map((match) => ({
       tail: match[1],
-      hasThreshold: proseHasThreshold,
+      hasThreshold: quantity.test(match[1]),
     })),
     ...triggerSpans.flatMap((content) => revertTriggerMatches(content).map((match) => ({
       tail: match[1],
-      hasThreshold: proseHasThreshold || quantity.test(content),
+      hasThreshold: quantity.test(match[1]),
     }))),
   ];
   const blocked = PERF_EVIDENCE_BLOCKED_RE.test(prose);

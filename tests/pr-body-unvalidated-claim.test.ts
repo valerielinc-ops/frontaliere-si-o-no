@@ -107,7 +107,7 @@ describe('unvalidated-perf-claim: le prove accettate e i numeri che non sono pre
   });
 
   it('preserva soglia e azione di rollback espresse in code span', () => {
-    const residual = '- blocked: verifica post-merge sul workflow `tests.yml`; soglia `30 minuti`. **Trigger di revert:** `rollback` di questa PR.';
+    const residual = '- blocked: verifica post-merge sul workflow `tests.yml`. **Trigger di revert:** se supera `30 minuti`, `rollback` di questa PR.';
     const res = strict(body('- La riduzione wall-clock non è validata pre-merge.', residual));
     expect(extractCodeSpanEvidence(residual)).toEqual(['30 minuti', 'rollback']);
     expect(parseDeferredPerfEvidence(residual)).toMatchObject({
@@ -121,9 +121,9 @@ describe('unvalidated-perf-claim: le prove accettate e i numeri che non sono pre
   });
 
   it.each([
-    'blocked: misurazione dopo il merge sul workflow tests.yml; soglia 30 minuti. Trigger di revert: rollback.',
-    'blocked: post-merge measurement on workflow tests.yml; threshold 30 min. Revert-trigger: rollback.',
-    'blocked: post-merge validation on job build-test; threshold 2 GB. Rollback-trigger: revert.',
+    'blocked: misurazione dopo il merge sul workflow tests.yml. Trigger di revert: rollback oltre 30 minuti.',
+    'blocked: post-merge measurement on workflow tests.yml. Revert-trigger: rollback above 30 min.',
+    'blocked: post-merge validation on job build-test. Rollback-trigger: revert above 2 GB.',
   ])('normalizza una variante ammessa della misura differita: %s', (residual) => {
     expect(parseDeferredPerfEvidence(residual).complete).toBe(true);
     const res = strict(body('- La memoria del build non è stata misurata pre-merge.', `- ${residual}`));
@@ -145,19 +145,19 @@ describe('unvalidated-perf-claim: le prove accettate e i numeri che non sono pre
     expect(parseDeferredPerfEvidence(residual)).toMatchObject({
       blocked: true,
       hasRevertAction: false,
-      hasThreshold: true,
+      hasThreshold: false,
       hasJobOrWorkflow: true,
       complete: false,
     });
   });
 
   it('accetta un trigger in code span quando contiene la propria azione', () => {
-    const residual = 'blocked: post-merge measurement on workflow tests.yml; threshold 30 min. `Revert-trigger: rollback on failure`. ';
+    const residual = 'blocked: post-merge measurement on workflow tests.yml. `Revert-trigger: rollback on failure above 30 min`. ';
     expect(parseDeferredPerfEvidence(residual).complete).toBe(true);
   });
 
   it('non combina un trigger valido in code span con un trigger in prosa senza azione', () => {
-    const residual = 'blocked: post-merge measurement on workflow tests.yml; threshold 30 min. Revert-trigger: observe only; `Revert-trigger: rollback on failure`. ';
+    const residual = 'blocked: post-merge measurement on workflow tests.yml. Revert-trigger: observe only above 30 min; `Revert-trigger: rollback on failure above 30 min`. ';
     expect(parseDeferredPerfEvidence(residual)).toMatchObject({
       blocked: true,
       hasRevertAction: false,
@@ -170,6 +170,42 @@ describe('unvalidated-perf-claim: le prove accettate e i numeri che non sono pre
   it('accetta soglia e rollback in code span appartenenti allo stesso trigger', () => {
     const residual = 'blocked: post-merge measurement on workflow tests.yml. Revert-trigger: if the job exceeds `30 min`, `rollback` this PR.';
     expect(parseDeferredPerfEvidence(residual).complete).toBe(true);
+  });
+
+  it('non condivide la soglia fra due trigger in prosa', () => {
+    const residual = 'blocked: post-merge measurement on workflow tests.yml. Revert-trigger: rollback above 30 min; Revert-trigger: rollback on failure.';
+    expect(parseDeferredPerfEvidence(residual)).toMatchObject({
+      hasRevertAction: true,
+      hasThreshold: false,
+      complete: false,
+    });
+  });
+
+  it('non condivide la soglia da un trigger in prosa a un trigger in code span', () => {
+    const residual = 'blocked: post-merge measurement on workflow tests.yml. Revert-trigger: rollback above 30 min; `Revert-trigger: rollback on failure`. ';
+    expect(parseDeferredPerfEvidence(residual)).toMatchObject({
+      hasRevertAction: true,
+      hasThreshold: false,
+      complete: false,
+    });
+  });
+
+  it('non condivide la soglia da un trigger in code span a un trigger in prosa', () => {
+    const residual = 'blocked: post-merge measurement on workflow tests.yml. `Revert-trigger: rollback above 30 min`; Revert-trigger: rollback on failure.';
+    expect(parseDeferredPerfEvidence(residual)).toMatchObject({
+      hasRevertAction: true,
+      hasThreshold: false,
+      complete: false,
+    });
+  });
+
+  it('non condivide la soglia fra più trigger in code span', () => {
+    const residual = 'blocked: post-merge measurement on workflow tests.yml. `Revert-trigger: rollback above 30 min`; `Revert-trigger: rollback on failure`. ';
+    expect(parseDeferredPerfEvidence(residual)).toMatchObject({
+      hasRevertAction: true,
+      hasThreshold: false,
+      complete: false,
+    });
   });
 
   it('riconosce gli ausiliari stato e been nei claim non misurati pre-merge', () => {
