@@ -609,6 +609,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'usi-universita-della-svizzera-italiana': gFavicon('usi.ch'),
  'usz': cLogo('usz.ch'),
  'uzh': cLogo('uzh.ch'),
+ 'vatel-ch': 'https://www.vatel.ch/favicon.svg',
  'vaudoise': cLogo('vaudoise.ch'),
  'vaxcyte': '/images/brands/vaxcyte.png',
  'vereinaklosters': 'https://vereinaklosters.ch/wp-content/uploads/2021/01/cropped-vereina_favicon-192x192.png',

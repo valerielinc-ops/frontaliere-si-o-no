@@ -4,27 +4,27 @@
   "generatorSha256": "340371d083e0836e23b2f39df8dea876d32c7a1ec690a1afeb2dffbf7761c79c",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "76059d113271a7c93c722da7d011597492a471a4",
-  "sourceCommitVerified": true,
+  "sourceCommit": "6b1670578ff38105f03f70dd9fabf7146e413aff",
+  "sourceCommitVerified": false,
   "artifactObservation": {
     "generatorSha256": "340371d083e0836e23b2f39df8dea876d32c7a1ec690a1afeb2dffbf7761c79c",
     "sourceRef": "main",
-    "sourceCommit": "76059d113271a7c93c722da7d011597492a471a4"
+    "sourceCommit": "6b1670578ff38105f03f70dd9fabf7146e413aff"
   },
   "groupCount": 25,
   "artifactCount": 26,
   "observerCount": 8,
-  "crawlerCount": 711,
+  "crawlerCount": 712,
   "crawlerRosterCardinality": {
-    "sourceCommit": "76059d113271a7c93c722da7d011597492a471a4",
+    "sourceCommit": "6b1670578ff38105f03f70dd9fabf7146e413aff",
     "groupCount": 25,
     "artifactCount": 26,
-    "crawlerCount": 711
+    "crawlerCount": 712
   },
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:bc9c810a6a4f7363db08084daa7be0626f9867de6f592f7be9f25ff80e2535c1",
+    "rosterDigest": "sha256:fada256fe7fe013e16cf74d68de696a90cbb0bff9483789cbc7bd163fd53416e",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -646,6 +646,7 @@
     "scripts/update-uzh-jobs.mjs",
     "scripts/update-valiant-bank-jobs.mjs",
     "scripts/update-valora-jobs.mjs",
+    "scripts/update-vatel-ch-jobs.mjs",
     "scripts/update-vaudoise-jobs.mjs",
     "scripts/update-vaxcyte-jobs.mjs",
     "scripts/update-veeam-jobs.mjs",
@@ -872,8 +873,8 @@
     {
       "file": "crawler-group-05.yml",
       "sourceLogic": "crawler-group-05-logic.yml",
-      "sourceSha256": "bdab3cba5e5109c141b61b961fa1d426cfb2036d7c3e3af5f625f4e88c1b75aa",
-      "artifactSha256": "63f1a9c5cb7c3fd63cfd00b3b0e9a88eae6a9e035f9e2747167ca4cde546409a",
+      "sourceSha256": "e505096d24e170cb322233cb8ba7e8fbe692571d53433854111985a981fe6688",
+      "artifactSha256": "1a0b322d7f3bbc86ce7e76736bc34bb67876996c58efe18b07cfac5d04f1c0f7",
       "generatorSha256": "340371d083e0836e23b2f39df8dea876d32c7a1ec690a1afeb2dffbf7761c79c",
       "members": [
         "klinik-schuetzen",
@@ -905,7 +906,8 @@
         "rituals-cosmetics",
         "vista",
         "fmi",
-        "conservatorio"
+        "conservatorio",
+        "vatel-ch"
       ]
     },
     {
