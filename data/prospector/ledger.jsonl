@@ -64697,3 +64697,4 @@
 {"eventType":"candidate_attempt","key":"cogestim@lausanne","status":"awaiting_first_crawl","outcome":"updated","at":"2026-11-19T15:02:08.554Z","runId":"44517911953","runAttempt":1,"phase":"promote","eventId":"92625b1a76397f6702509f8e"}
 {"eventType":"candidate_transition","key":"hp-job@au-sg","from":"awaiting_first_crawl","to":"production","at":"2026-11-19T15:02:08.554Z","runId":"44517911953","runAttempt":1,"phase":"promote","eventId":"dfcdf3f860c9c8ef13257dbd"}
 {"eventType":"candidate_attempt","key":"sintio.ch","status":"awaiting_first_crawl","outcome":"updated","at":"2026-11-19T15:02:08.554Z","runId":"44517911953","runAttempt":1,"phase":"promote","eventId":"9ad06be21189ce8b0edfbdf8"}
+{"eventType":"candidate_transition","key":"restaurant-hotel-vatel@martigny","from":"promoted","to":"promoting","at":"2026-11-19T15:02:38.497Z","runId":"44517911953","runAttempt":1,"phase":"promote","eventId":"eed8e3663475f7ecabdc1445"}
