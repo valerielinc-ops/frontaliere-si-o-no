@@ -27,9 +27,9 @@
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-11-19T09:30:38.421Z",
     "previousSlugs": [
+      "infermieristica-professionale-hemato-oncology-60-100-universitatsspital-zurich-usz-zurich-6787764c",
       "pflegefachperson-hamato-onkologie-60-100-usz-ch",
       "infermieristica-professionale-hemato-oncology-60-100-universitatsspital-zurich-usz-zurich",
-      "infermieristica-professionale-hemato-oncology-60-100-universitatsspital-zurich-usz-zurich-6787764c",
       "nursing-professional-hemato-oncology-60-100-universitatsspital-zurich-usz-zurich",
       "specialiste-des-soins-infirmiers-hemato-oncologie-60-100-universitatsspital-zurich-usz-zurich"
     ],
@@ -37,21 +37,29 @@
       "it": [
         "pflegefachperson-hamato-onkologie-60-100-usz-ch-96acaaf5",
         "infermieristica-professionale-hemato-oncology-60-100-universitatsspital-zurich-usz-zurich-6787764c",
+        "nursing-professional-hemato-oncology-60-100-universitatsspital-zurich-usz-zurich",
+        "specialiste-des-soins-infirmiers-hemato-oncologie-60-100-universitatsspital-zurich-usz-zurich",
         "pflegefachperson-hamato-onkologie-60-100-usz-ch",
         "infermieristica-professionale-hemato-oncology-60-100-universitatsspital-zurich-usz-zurich"
       ],
       "en": [
         "pflegefachperson-hamato-onkologie-60-100-usz-ch",
         "infermieristica-professionale-hemato-oncology-60-100-universitatsspital-zurich-usz-zurich",
+        "nursing-professional-hemato-oncology-60-100-universitatsspital-zurich-usz-zurich-f8a820c9",
+        "specialiste-des-soins-infirmiers-hemato-oncologie-60-100-universitatsspital-zurich-usz-zurich",
         "nursing-professional-hemato-oncology-60-100-universitatsspital-zurich-usz-zurich"
       ],
       "de": [
         "pflegefachperson-hamato-onkologie-60-100-usz-ch-96acaaf5",
-        "infermieristica-professionale-hemato-oncology-60-100-universitatsspital-zurich-usz-zurich"
+        "infermieristica-professionale-hemato-oncology-60-100-universitatsspital-zurich-usz-zurich",
+        "nursing-professional-hemato-oncology-60-100-universitatsspital-zurich-usz-zurich",
+        "specialiste-des-soins-infirmiers-hemato-oncologie-60-100-universitatsspital-zurich-usz-zurich"
       ],
       "fr": [
         "pflegefachperson-hamato-onkologie-60-100-usz-ch",
         "infermieristica-professionale-hemato-oncology-60-100-universitatsspital-zurich-usz-zurich",
+        "specialiste-des-soins-infirmiers-hemato-oncologie-60-100-universitatsspital-zurich-usz-zurich-5251da77",
+        "nursing-professional-hemato-oncology-60-100-universitatsspital-zurich-usz-zurich",
         "specialiste-des-soins-infirmiers-hemato-oncologie-60-100-universitatsspital-zurich-usz-zurich"
       ]
     },
@@ -91,22 +99,23 @@
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-11-19T09:30:38.420Z",
-    "previousSlugs": [
-      "mpa-fage-pour-l-ambulateurium-a-l-aeroport-usz-g4-60-100-universitatsspital-zurich-usz-zurich"
-    ],
     "previousSlugsByLocale": {
       "it": [
-        "mpa-fage-fur-das-ambulatorium-am-usz-flughafen-g4-60-100-usz-ch-b8750906"
+        "mpa-fage-fur-das-ambulatorium-am-usz-flughafen-g4-60-100-usz-ch-b8750906",
+        "mpa-fage-pour-l-ambulateurium-a-l-aeroport-usz-g4-60-100-universitatsspital-zurich-usz-zurich"
       ],
       "fr": [
         "mpa-fage-fur-das-ambulatorium-am-usz-flughafen-g4-60-100-usz-ch",
+        "mpa-fage-pour-l-ambulateurium-a-l-aeroport-usz-g4-60-100-universitatsspital-zurich-usz-zurich-e21a8e81",
         "mpa-fage-pour-l-ambulateurium-a-l-aeroport-usz-g4-60-100-universitatsspital-zurich-usz-zurich"
       ],
       "en": [
-        "mpa-fage-fur-das-ambulatorium-am-usz-flughafen-g4-60-100-usz-ch"
+        "mpa-fage-fur-das-ambulatorium-am-usz-flughafen-g4-60-100-usz-ch",
+        "mpa-fage-pour-l-ambulateurium-a-l-aeroport-usz-g4-60-100-universitatsspital-zurich-usz-zurich"
       ],
       "de": [
-        "mpa-fage-fur-das-ambulatorium-am-usz-flughafen-g4-60-100-usz-ch-b8750906"
+        "mpa-fage-fur-das-ambulatorium-am-usz-flughafen-g4-60-100-usz-ch-b8750906",
+        "mpa-fage-pour-l-ambulateurium-a-l-aeroport-usz-g4-60-100-universitatsspital-zurich-usz-zurich"
       ]
     },
     "postalCode": "8001",
@@ -116,7 +125,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.usz.ch/offene-stellen/mpa-fage-fuer-das-ambulatorium-am-usz-flughafen-g4/f69aba20-33f9-45e5-8b7b-f67594ff257d",
-    "firstSeenAt": "2026-10-12T09:16:37.172Z"
+    "firstSeenAt": "2026-10-12T09:16:37.172Z",
+    "previousSlugs": [
+      "mpa-fage-pour-l-ambulateurium-a-l-aeroport-usz-g4-60-100-universitatsspital-zurich-usz-zurich"
+    ]
   },
   {
     "slug": "infermiera-per-la-stazione-staminale-e-terapia-cellulare-immunitaria-80-100-universitatsspital-zurich-usz-b8073b9b",
