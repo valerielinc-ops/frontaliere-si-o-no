@@ -1,7 +1,7 @@
 {
   "key": "climeworks",
   "label": "Climeworks",
-  "generatedAt": "2026-11-19T10:21:01.559Z",
+  "generatedAt": "2026-11-19T21:15:47.540Z",
   "total": 7,
   "discovered": null,
   "parsed": 7,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 4013,
-  "avgDurationMs": 4013,
+  "durationMs": 3547,
+  "avgDurationMs": 3547,
   "durationHistory": [
-    4013
+    3547
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://climeworks.recruitee.com/o/lead-electrical-engineer-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T10:20:41.274Z",
+      "crawledAt": "2026-11-19T21:15:32.091Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -62,7 +62,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T10:20:41.274Z",
+      "validThrough": "2027-01-10T21:15:32.091Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -84,7 +84,7 @@
       "url": "https://climeworks.recruitee.com/o/filtration-module-product-owner-80-100-101",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T10:20:41.271Z",
+      "crawledAt": "2026-11-19T21:15:32.089Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -109,7 +109,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T10:20:41.271Z",
+      "validThrough": "2027-01-14T21:15:32.089Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -131,7 +131,7 @@
       "url": "https://climeworks.recruitee.com/o/intern-in-sorbent-structures-80-100-104",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T10:20:41.269Z",
+      "crawledAt": "2026-11-19T21:15:32.087Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -155,7 +155,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T10:20:41.269Z",
+      "validThrough": "2027-01-26T21:15:32.087Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -177,7 +177,7 @@
       "url": "https://climeworks.recruitee.com/o/science-manager-nature-based-solutions-80-100-101",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T10:20:41.266Z",
+      "crawledAt": "2026-11-19T21:15:32.085Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -202,7 +202,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T10:20:41.266Z",
+      "validThrough": "2027-02-11T21:15:32.085Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -224,7 +224,7 @@
       "url": "https://climeworks.recruitee.com/o/principal-design-engineer-mechanical-equipment-80-100-101",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T10:20:41.264Z",
+      "crawledAt": "2026-11-19T21:15:32.083Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -249,7 +249,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T10:20:41.264Z",
+      "validThrough": "2026-12-19T21:15:32.083Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -271,7 +271,7 @@
       "url": "https://climeworks.recruitee.com/o/senior-konstruktionsingenieur-wmx-80-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:20:41.260Z",
+      "crawledAt": "2026-11-19T21:15:32.079Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -296,7 +296,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T10:20:41.260Z",
+      "validThrough": "2027-02-08T21:15:32.079Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -318,7 +318,7 @@
       "url": "https://climeworks.recruitee.com/o/human-resources-intern-recruiting-hr-projects-80-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T10:20:41.251Z",
+      "crawledAt": "2026-11-19T21:15:32.072Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -342,7 +342,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T10:20:41.251Z",
+      "validThrough": "2027-02-16T21:15:32.072Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -353,5 +353,5 @@
       }
     }
   ],
-  "codeCommit": "af8f978c37a7f89c95dd40500d2ac0a67c1ede33"
+  "codeCommit": "07c2e8305c6747f1893222ba4bfdddc597008157"
 }

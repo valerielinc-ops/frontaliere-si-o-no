@@ -1,15 +1,15 @@
 {
   "crawlerKey": "galliker",
-  "assembledAt": "2026-11-19T10:24:50.286Z",
-  "runId": "44492967364",
+  "assembledAt": "2026-11-19T21:21:33.356Z",
+  "runId": "44615185527",
   "jobs": [
     {
       "id": "galliker-06747ed5ef5d",
       "slug": "team-leader-a-galliker-transport-ag-altishofen-31b11d3606",
       "slugByLocale": {
-        "de": "teamleiter-a-galliker-altishofen",
         "it": "team-leader-a-galliker-transport-ag-altishofen-31b11d3606",
         "en": "team-leader-a-galliker-transport-ag-altishofen",
+        "de": "teamleiter-a-galliker-altishofen",
         "fr": "chef-d-equipe-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
@@ -34,7 +34,7 @@
       "url": "https://apply.refline.ch/878019/0470/pub/2/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:47.230Z",
+      "crawledAt": "2026-11-19T21:20:47.593Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -55,16 +55,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "externalId": "0470",
+      "previousSlugs": [
+        "teamleiter-a-galliker-altishofen",
+        "team-leader-a-galliker-transport-ag-altishofen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "teamleiter-a-galliker-altishofen",
           "team-leader-a-galliker-transport-ag-altishofen"
         ]
       },
-      "previousSlugs": [
-        "teamleiter-a-galliker-altishofen",
-        "team-leader-a-galliker-transport-ag-altishofen"
-      ],
+      "firstSeenAt": "2026-10-01T09:14:03.236Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -79,17 +80,16 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-30T10:23:47.230Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-01T09:14:03.236Z"
+      "validThrough": "2026-12-30T21:20:47.593Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "galliker-70efa752eabb",
       "slug": "impiegato-di-impiantistica-per-edifici-galliker-transport-ag-altishofen-69da126e15",
       "slugByLocale": {
-        "de": "mitarbeiter-gebaudetechnik-galliker-altishofen",
         "it": "impiegato-di-impiantistica-per-edifici-galliker-transport-ag-altishofen-69da126e15",
         "en": "building-technology-employees-galliker-transport-ag-altishofen",
+        "de": "mitarbeiter-gebaudetechnik-galliker-altishofen",
         "fr": "employes-de-la-technologie-du-batiment-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
@@ -109,12 +109,13 @@
         "de": "Mitarbeiter Gebäudetechnik\nUnsere vielfältigen Logistikbauten und Gebäudetechnikanlagen werden durch eine zentrale Abteilung am Standort Altishofen überwacht und gesteuert. Für die Betreuung der diversen Systeme sowie die Bearbeitung von Projekten in diesem Bereich suchen wir zur Verstärkung des Teams dich als Mitarbeiter Gebäudetechnik.\nAufgabengebiet\n\n• Pflegen und verwalten der verschiedenen Gebäudetechniksysteme\n• Fehlersuche und Fehlerbehebung von diversen Gebäudetechnikanlagen\n• Überwachung der Gebäudetechnikanlagen in enger Zusammenarbeit mit der eigenen Betriebstechnik\n• Erfassen und pflegen von Anlage- und Gebäudedokumentationen\n• Unterstützung des Projektleiters Gebäudetechnik\nAnforderungsprofil\n\n• Begeisterung für die Gebäudetechnik\n• Ausbildung in der Gebäudetechnik (GA, Elektro, Heizung oder Kälte)\n• Selbstständige Arbeitsweise\n• Führerausweis Kat. B\n• Gute IT-Anwenderkenntnisse\n• Teamplayer\nAngebot\n\n• Abwechslungsreiche Aufgabe in einem innovativen Logistikumfeld mit schweizweiter Tätigkeit\n• Grosser eigener Handlungsspielraum und autonomes Arbeiten\n• Gestaltungsspielraum bei technischen Projekten und Optimierungen\n• Moderne Infrastruktur und kollegiales Arbeitsumfeld\n• Möglichkeit, dich zum Projektleiter zu entwickeln mit Wahrnehmung der Bauherrenvertretung bei Neu- und Umbauprojekte\nHaben wir dein Interesse geweckt?\nDann freuen wir uns auf dein Bewerbungsdossier.\nChristoph Jeannerat, Leiterin HR, Telefon: +41 62 748 82 03.",
         "fr": "Employés de la technologie du bâtiment\nNos divers bâtiments logistiques et installations technologiques sont surveillés et contrôlés par un département central du site Altishofen. Pour le soutien des différents systèmes ainsi que le traitement des projets dans ce domaine, nous vous recherchons en tant qu'employé de technologie du bâtiment pour renforcer l'équipe.\nDomaine d ' activité\n\n• Maintenir et gérer les divers systèmes technologiques de construction\n• Dépannage et dépannage de divers systèmes technologiques de construction\n• Supervision des installations techniques de construction en étroite collaboration avec la société propre technologie d'exploitation\n• Collecte et entretien de la documentation relative aux installations et aux bâtiments\n• Appui au gestionnaire de projet\nProfil des besoins\n\n• Enthousiasme pour la technologie du bâtiment\n• Formation à la technologie du bâtiment (GA, électricité, chauffage ou refroidissement)\n• Travail indépendant\n• Permis de conduire Cat. B\n• Bonne connaissance de l'utilisateur informatique\n• Joueur d'équipe\nOffre\n\n• Tâche variée dans un environnement logistique innovant avec une activité à l'échelle suisse\n• Grandes possibilités d'action et de travail autonome\n• Salle de design pour projets techniques et optimisations\n• Infrastructure moderne et environnement de travail collégial\n• Possibilité de devenir gestionnaire de projet avec la perception du représentant du propriétaire pour les projets nouveaux et de rénovation\nOn a eu votre intérêt ?\nNous attendons avec impatience votre candidature.\nChristoph Jeannerat, chef des RH, téléphone: +41 62 748 82 03."
       },
+      "needsRetranslation": false,
       "location": "Altishofen",
       "canton": "LU",
       "url": "https://apply.refline.ch/878019/0416/pub/13/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:46.855Z",
+      "crawledAt": "2026-11-19T21:20:47.211Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -135,16 +136,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "externalId": "0416",
+      "previousSlugs": [
+        "mitarbeiter-gebaudetechnik-galliker-altishofen",
+        "impiegato-di-impiantistica-per-edifici-galliker-transport-ag-altishofen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-gebaudetechnik-galliker-altishofen",
           "impiegato-di-impiantistica-per-edifici-galliker-transport-ag-altishofen"
         ]
       },
-      "previousSlugs": [
-        "mitarbeiter-gebaudetechnik-galliker-altishofen",
-        "impiegato-di-impiantistica-per-edifici-galliker-transport-ag-altishofen"
-      ],
+      "firstSeenAt": "2026-09-23T23:38:07.960Z",
       "salaryMin": 78500,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -159,17 +161,16 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T10:23:46.855Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-23T23:38:07.960Z"
+      "validThrough": "2026-12-19T21:20:47.211Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "galliker-f8dbe0ef2430",
       "slug": "dipendente-magazzino-ricambi-autocarri-a-galliker-transport-ag-altishofen-e11f417865",
       "slugByLocale": {
-        "de": "mitarbeiter-ersatzteillager-lkw-a-galliker-altishofen",
         "it": "dipendente-magazzino-ricambi-autocarri-a-galliker-transport-ag-altishofen-e11f417865",
         "en": "employee-spare-parts-warehouse-truck-a-galliker-transport-ag-altishofen",
+        "de": "mitarbeiter-ersatzteillager-lkw-a-galliker-altishofen",
         "fr": "camion-d-entrepot-de-pieces-de-rechange-pour-employes-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
@@ -189,12 +190,13 @@
         "de": "Mitarbeiter Ersatzteillager LKW (a)\nVom Schrauben ins Büro – dein Wissen bleibt gefragt!\nDu kennst Lastwagen nicht nur vom Sehen, sondern weisst, was unter der Motorhaube passiert? Du hast als Lastwagen-, Landmaschinen- oder Automechaniker gearbeitet und möchtest dich beruflich weiterentwickeln? Oder bist du ein erfahrener LKW-Fahrer, der die Technik seiner Fahrzeuge aus dem Effeff kennt und Lust auf eine neue Herausforderung hat?\nDann könnte dein nächster Schritt von der Werkstatt oder der Strasse ins Büro führen.\nZur Ergänzung unseres Teams suchen wir - per sofort oder nach Vereinbarung - dich als Unterstützung für unser LKW Ersatzteillager (a).\nAufgabengebiet\n\n• Bewirtschaftung des Ersatzteillagers\n• Ein- und Auslagerung wie auch die Bewirtschaftung der Ware\n• Kommissionierung und Bearbeitung der Werkstattaufträge\n• Verbuchung aller Bewegungen auf den Service- und Reparaturaufträgen\n• Unterstützen und Beraten der Werkstatt- und Lackierereimitarbeiter\nAnforderungsprofil\n\n• Ausgebildeter Lastwagen-, Landmaschinen- oder Automechaniker oder\n• Erfahrener und technikaffiner Lastwagenfahrer\n• Gründliche Kenntnissen der Fahrzeugtechnik LKW\n• Belastbar und flexibel\n• Teamplayer\n• Sehr gute Deutschkenntnisse in Wort und Schrift\nAngebot\n\n• Markenvielfalt mit abwechslungsreicher Tätigkeit\n• Stets am Puls der neusten Technologie und Digitalisierung\n• Persönliche Entwicklungsmöglichkeiten in einem vielseitigen Unternehmen\n• Mindestens 5 Wochen Ferien\n• Kostenlose Mitarbeiterparkplätze\nWir bieten dir eine abwechslungsreiche und interessante Tätigkeit in einem zukunftsorientierten Team.\nHaben wir dein Interesse geweckt?\nDann freuen wir uns auf dein Bewerbungsdossier.\nChristoph Jeannerat, Human Resources, Telefon: +41 62 748 80 80.",
         "fr": "Camion d'entrepôt de pièces de rechange pour employés (a)\nDes vis au bureau – vos connaissances restent en demande !\nVous connaissez les camions non seulement de voir, mais aussi de savoir ce qui se passe sous le capot ? Vous avez travaillé comme camion, machines agricoles ou mécanicien automobile et souhaitez vous développer professionnellement? Ou êtes-vous un conducteur de camion expérimenté qui connaît la technologie de ses véhicules de l'Effet et est d'humeur pour un nouveau défi?\nEnsuite, votre prochaine étape pourrait mener de l'atelier ou de la rue au bureau.\nPour compléter notre équipe, nous vous recherchons - immédiatement ou par accord - comme support pour notre entrepôt de pièces détachées de camion (a).\nDomaine d ' activité\n\n• Gestion de l'entrepôt de pièces détachées\n• Entrée et sortie du stockage ainsi que la gestion des marchandises\n• Cueillette et traitement des commandes d'atelier\n• Réservation de tous les mouvements sur les commandes de service et de réparation\n• Accompagner et conseiller le personnel des ateliers et des ateliers de peinture\nProfil des besoins\n\n• des camions, machines agricoles ou mécaniciens spécialisés; ou\n• Conducteur de camion expérimenté et technologique\n• Connaissance approfondie des camions de technologie automobile\n• Résilience et flexibilité\n• Joueur d'équipe\n• Très bonne connaissance de l'allemand en paroles et en écriture\nOffre\n\n• Diversité de la marque avec une activité variée\n• Toujours sur le pouls des dernières technologies et de la numérisation\n• Possibilités de développement personnel dans une entreprise polyvalente\n• Au moins 5 semaines de vacances\n• Parking gratuit pour les employés\nNous vous proposons un travail varié et intéressant dans une équipe orientée vers l'avenir.\nOn a eu votre intérêt ?\nNous attendons avec impatience votre candidature.\nChristoph Jeannerat, Ressources humaines, téléphone: +41 62 748 80 80."
       },
+      "needsRetranslation": false,
       "location": "Altishofen",
       "canton": "LU",
       "url": "https://apply.refline.ch/878019/0380/pub/23/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:44.317Z",
+      "crawledAt": "2026-11-19T21:20:46.842Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -215,16 +217,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "externalId": "0380",
+      "previousSlugs": [
+        "mitarbeiter-ersatzteillager-lkw-a-galliker-altishofen",
+        "dipendente-magazzino-ricambi-autocarri-a-galliker-transport-ag-altishofen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-ersatzteillager-lkw-a-galliker-altishofen",
           "dipendente-magazzino-ricambi-autocarri-a-galliker-transport-ag-altishofen"
         ]
       },
-      "previousSlugs": [
-        "mitarbeiter-ersatzteillager-lkw-a-galliker-altishofen",
-        "dipendente-magazzino-ricambi-autocarri-a-galliker-transport-ag-altishofen"
-      ],
+      "firstSeenAt": "2026-09-23T23:38:07.572Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -239,17 +242,16 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T10:23:44.317Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-23T23:38:07.572Z"
+      "validThrough": "2026-12-19T21:20:46.842Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "galliker-b8fc273a2c70",
       "slug": "logisticista-congelato-a-galliker-transport-ag-altishofen-c532a1bda6",
       "slugByLocale": {
-        "de": "logistiker-tiefkuhl-a-galliker-altishofen",
         "it": "logisticista-congelato-a-galliker-transport-ag-altishofen-c532a1bda6",
         "en": "logistician-frozen-a-galliker-transport-ag-altishofen",
+        "de": "logistiker-tiefkuhl-a-galliker-altishofen",
         "fr": "logisticien-congele-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
@@ -274,7 +276,7 @@
       "url": "https://apply.refline.ch/878019/0231/pub/11/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:43.942Z",
+      "crawledAt": "2026-11-19T21:20:46.471Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -295,16 +297,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "externalId": "0231",
+      "previousSlugs": [
+        "logistiker-tiefkuhl-a-galliker-altishofen",
+        "logisticista-congelato-a-galliker-transport-ag-altishofen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "logistiker-tiefkuhl-a-galliker-altishofen",
           "logisticista-congelato-a-galliker-transport-ag-altishofen"
         ]
       },
-      "previousSlugs": [
-        "logistiker-tiefkuhl-a-galliker-altishofen",
-        "logisticista-congelato-a-galliker-transport-ag-altishofen"
-      ],
+      "firstSeenAt": "2026-07-15T10:59:13.016Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -319,17 +322,16 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T10:23:43.942Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-07-15T10:59:13.016Z"
+      "validThrough": "2026-12-19T21:20:46.471Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "galliker-84b1c3a5d1ae",
       "slug": "diagnostica-per-camion-a-galliker-transport-ag-altishofen-33f823dcd1",
       "slugByLocale": {
-        "de": "lkw-diagnostiker-a-galliker-altishofen",
         "it": "diagnostica-per-camion-a-galliker-transport-ag-altishofen-33f823dcd1",
         "en": "truck-diagnostician-a-galliker-transport-ag-altishofen",
+        "de": "lkw-diagnostiker-a-galliker-altishofen",
         "fr": "diagnosticien-du-camion-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
@@ -349,12 +351,13 @@
         "de": "LKW Diagnostiker (a)\nUnsere Lastwagen sind eines der wichtigsten Markenzeichen von Galliker. Auf Unterhalt und Reparaturen wird deshalb grossen Wert gelegt. Die meisten Aufgaben werden in unseren eigenen modernen Werkstätten durchgeführt.\nZur Ergänzung unseres Teams suchen wir - per sofort oder nach Vereinbarung – dich als LKW Diagnostiker (a).\nAufgabengebiet\n\n• Erstellen von Fahrzeugdiagnosen\n• Ausführen von Reparaturaufträgen und Revisionen\n• Einbau von Zubehör\n• Unterstützung des Werkstattteamleiters\n• Mithilfe Pannen- + Abschleppdienst (Galliker Action Service)\nAnforderungsprofil\n\n• LKW-Mechaniker oder verwandte Richtung (Land-/ Baumaschinen-/ Automechaniker)\n• Weiterbildung zum LKW-Diagnostiker oder gleichwertig Ausbildung\n• Führerausweis Kat. C zwingend\n• Selbständig, initiativ, belastbar und flexibel\n• Motiviert, teamfähig und pflichtbewusst\n• Sehr gute Deutschkenntnisse in Schrift und Sprache\nAngebot\n\n• Kollegiales und engagiertes Team\n• Abwechslungsreiche Arbeiten mit den neusten Werkzeugen und Geräten\n• Stets am Puls der neusten Technologie und Digitalisierung\n• Persönliche Entwicklungsmöglichkeiten in einem vielseitigen Unternehmen\n• Markenspezifische- und persönliche Weiterbildungen\nWir bieten dir eine abwechslungsreiche und interessante Tätigkeit in einem zukunftsorientierten Team.\nHaben wir dein Interesse geweckt?\nDann freuen wir uns auf dein Bewerbungsdossier.\nChristoph Jeannerat, Human Resources, Telefon: +41 62 748 82 03.",
         "fr": "Diagnosticien du camion (a)\nNos camions sont l'une des marques les plus importantes de Galliker. L'entretien et les réparations sont donc d'une grande importance. La plupart des tâches sont accomplies dans nos propres ateliers modernes.\nPour compléter notre équipe, nous vous recherchons en tant que diagnostiqueur de camion (a) soit immédiatement, soit d'un commun accord.\nDomaine d ' activité\n\n• Préparation du diagnostic du véhicule\n• Exécution des ordonnances de réparation et révisions\n• Installation d'accessoires\n• Appui au chef de l'équipe de l'atelier\n• Avec l'aide de la panne + service de remorquage (Galliker Action Service)\nProfil des besoins\n\n• Mécanicien de camion ou direction connexe (matériel agricole/de construction/mécanicien automobile)\n• Formation en tant que diagnostiqueur de camion ou équivalent\n• Permis de conduire Cat C obligatoire\n• Indépendant, proactif, résilient et flexible\n• Motivé, capable d'équipe et digne\n• Très bonne connaissance de l'allemand par écrit et par langue\nOffre\n\n• Équipe collégiale et dévouée\n• Travail varié avec les derniers outils et appareils\n• Toujours sur le pouls des dernières technologies et de la numérisation\n• Possibilités de développement personnel dans une entreprise polyvalente\n• Formation spécifique et personnelle\nNous vous proposons un travail varié et intéressant dans une équipe orientée vers l'avenir.\nOn a eu votre intérêt ?\nNous attendons avec impatience votre candidature.\nChristoph Jeannerat, Ressources humaines, téléphone: +41 62 748 82 03."
       },
+      "needsRetranslation": false,
       "location": "Altishofen",
       "canton": "LU",
       "url": "https://apply.refline.ch/878019/0150/pub/27/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:43.569Z",
+      "crawledAt": "2026-11-19T21:20:46.099Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -375,16 +378,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "externalId": "0150",
+      "previousSlugs": [
+        "lkw-diagnostiker-a-galliker-altishofen",
+        "diagnostica-per-camion-a-galliker-transport-ag-altishofen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "lkw-diagnostiker-a-galliker-altishofen",
           "diagnostica-per-camion-a-galliker-transport-ag-altishofen"
         ]
       },
-      "previousSlugs": [
-        "lkw-diagnostiker-a-galliker-altishofen",
-        "diagnostica-per-camion-a-galliker-transport-ag-altishofen"
-      ],
+      "firstSeenAt": "2026-09-23T23:38:07.185Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -399,17 +403,16 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T10:23:43.569Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-23T23:38:07.185Z"
+      "validThrough": "2026-12-19T21:20:46.099Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "galliker-e74e7e517bbc",
       "slug": "pulitore-del-camion-10-30-a-galliker-transport-ag-altishofen",
       "slugByLocale": {
-        "de": "lastwagenreiniger-10-30-a-galliker-altishofen",
         "it": "pulitore-del-camion-10-30-a-galliker-transport-ag-altishofen",
         "en": "truck-cleaner-10-30-a-galliker-transport-ag-altishofen",
+        "de": "lastwagenreiniger-10-30-a-galliker-altishofen",
         "fr": "nettoyeur-de-camions-10-30-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
@@ -429,12 +432,13 @@
         "de": "Lastwagenreiniger 10-30% (a)\nUnsere Lastwagen sind eines der wichtigsten Markenzeichen der Galliker Transport AG. Auf Unterhalt und Reparaturen wird deshalb grossen Wert gelegt. Die meisten Aufgaben werden in-house in unseren modernen Werkstätten durchgeführt.\nZur Verstärkung unseres Teams suchen wir per sofort eine flexible und zuverlässige Unterstützung für unsere moderne Waschanlage. Deine Einsätze finden jeweils am Donnerstagnachmittag und Freitag statt. Du sorgst dafür, dass unsere Lastwagen sauber und gepflegt auf die Strasse zurückkehren.\nAufgabengebiet\n\n• Fachgerechte Aussenreinigung unserer Lastwagen in der betriebseigenen Waschanlage\n• Sicherstellung eines gepflegten Erscheinungsbildes sowie der Sauberkeit und Hygiene von Fahrzeugen und Felgen\nAnforderungsprofil\n\n• Motivierte Quereinsteiger sind willkommen\n• Du bist flexibel und kannst bei Bedarf kurzfristig auf Abruf eingesetzt werden\n• Deine Einsätze finden jeweils am Donnerstagnachmittag und Freitag statt\n• Du bist körperlich fit, belastbar und bereit, auch anspruchsvolle und körperlich anstrengende Arbeiten anzupacken\nAngebot\n\n• Kollegiales und engagiertes Team\n• Berufsspezifische Arbeitskleidung\nEine fantastische Gelegenheit, um nebenbei aktiv zu werden. Auch Pensionäre sind herzlich w illkommen.\nHaben wir dein Interesse geweckt?\nDann freuen wir uns auf dein Bewerbungsdossier.\nChristoph Jeannerat, , Telefon: +41 62 748 82 03.",
         "fr": "Nettoyeur de camions 10-30 % (a)\nNos camions sont l'une des marques les plus importantes de Galliker Transport AG. L'entretien et les réparations sont donc d'une grande importance. La plupart des tâches sont effectuées en interne dans nos ateliers modernes.\nPour renforcer notre équipe, nous recherchons immédiatement un support flexible et fiable pour notre système de lavage moderne. Vos missions ont lieu jeudi après-midi et vendredi. Assurez-vous que nos camions retournent à la route propre et bien entretenu.\nDomaine d ' activité\n\n• Nettoyage externe professionnel de nos camions dans la société propre usine de lavage\n• Assurer un aspect et une propreté bien entretenus des véhicules et des roues\nProfil des besoins\n\n• La première expérience professionnelle est un avantage, mais pas un must – les changements de carrière motivés sont les bienvenus\n• Vous êtes flexible et peut être utilisé sur demande à bref délai si nécessaire\n• Vos missions ont lieu jeudi après-midi et vendredi\n• Vous êtes physiquement en forme, résilient et prêt à s'attaquer à un travail exigeant et physiquement exigeant\nOffre\n\n• Équipe collégiale et dévouée\n• Vêtements de travail\nUne occasion fantastique d'être actif sur le côté. Les retraités sont également les bienvenus.\nOn a eu votre intérêt ?\nNous attendons avec impatience votre candidature.\nChristoph Jeannerat, , Téléphone: +41 62 748 82 03."
       },
+      "needsRetranslation": false,
       "location": "Altishofen",
       "canton": "LU",
       "url": "https://apply.refline.ch/878019/0225/pub/24/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:43.198Z",
+      "crawledAt": "2026-11-19T21:20:45.721Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -455,14 +459,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "externalId": "0225",
+      "previousSlugs": [
+        "lastwagenreiniger-10-30-a-galliker-altishofen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "lastwagenreiniger-10-30-a-galliker-altishofen"
         ]
       },
-      "previousSlugs": [
-        "lastwagenreiniger-10-30-a-galliker-altishofen"
-      ],
+      "firstSeenAt": "2026-11-05T09:16:42.422Z",
       "salaryMin": 20900,
       "salaryMax": 31800,
       "salarySource": "estimated",
@@ -477,17 +482,16 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T10:23:43.198Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T09:16:42.422Z"
+      "validThrough": "2026-12-19T21:20:45.721Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "galliker-32c0699e8616",
       "slug": "junior-project-manager-building-technology-a-galliker-transport-ag-altishofen-8d35436b69",
       "slugByLocale": {
-        "de": "junior-projektleiter-gebaudetechnik-a-galliker-altishofen",
         "it": "junior-project-manager-building-technology-a-galliker-transport-ag-altishofen-8d35436b69",
         "en": "junior-project-manager-building-technology-a-galliker-transport-ag-altishofen",
+        "de": "junior-projektleiter-gebaudetechnik-a-galliker-altishofen",
         "fr": "gestionnaire-de-projet-subalterne-technologie-du-batiment-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
@@ -512,7 +516,7 @@
       "url": "https://apply.refline.ch/878019/0417/pub/10/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:42.824Z",
+      "crawledAt": "2026-11-19T21:20:45.352Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -533,16 +537,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "externalId": "0417",
+      "previousSlugs": [
+        "junior-projektleiter-gebaudetechnik-a-galliker-altishofen",
+        "junior-project-manager-building-technology-a-galliker-transport-ag-altishofen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "junior-projektleiter-gebaudetechnik-a-galliker-altishofen",
           "junior-project-manager-building-technology-a-galliker-transport-ag-altishofen"
         ]
       },
-      "previousSlugs": [
-        "junior-projektleiter-gebaudetechnik-a-galliker-altishofen",
-        "junior-project-manager-building-technology-a-galliker-transport-ag-altishofen"
-      ],
+      "firstSeenAt": "2026-09-23T23:38:06.799Z",
       "salaryMin": 54000,
       "salaryMax": 82000,
       "salarySource": "estimated",
@@ -557,17 +562,16 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T10:23:42.824Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-23T23:38:06.799Z"
+      "validThrough": "2026-12-19T21:20:45.352Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "galliker-3211049afaed",
       "slug": "junior-project-manager-edilizia-e-manutenzione-galliker-transport-ag-altishofen-395d9d538e",
       "slugByLocale": {
-        "de": "junior-projektleiter-bau-und-unterhalt-galliker-altishofen",
         "it": "junior-project-manager-edilizia-e-manutenzione-galliker-transport-ag-altishofen-395d9d538e",
         "en": "junior-project-manager-construction-and-maintenance-galliker-transport-ag-altishofen",
+        "de": "junior-projektleiter-bau-und-unterhalt-galliker-altishofen",
         "fr": "chef-de-projet-subalterne-construction-et-entretien-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
@@ -592,7 +596,7 @@
       "url": "https://apply.refline.ch/878019/0414/pub/12/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:42.434Z",
+      "crawledAt": "2026-11-19T21:20:44.981Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -613,16 +617,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "externalId": "0414",
+      "previousSlugs": [
+        "junior-projektleiter-bau-und-unterhalt-galliker-altishofen",
+        "junior-project-manager-edilizia-e-manutenzione-galliker-transport-ag-altishofen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "junior-projektleiter-bau-und-unterhalt-galliker-altishofen",
           "junior-project-manager-edilizia-e-manutenzione-galliker-transport-ag-altishofen"
         ]
       },
-      "previousSlugs": [
-        "junior-projektleiter-bau-und-unterhalt-galliker-altishofen",
-        "junior-project-manager-edilizia-e-manutenzione-galliker-transport-ag-altishofen"
-      ],
+      "firstSeenAt": "2026-09-23T23:38:06.413Z",
       "salaryMin": 54000,
       "salaryMax": 82000,
       "salarySource": "estimated",
@@ -637,17 +642,16 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T10:23:42.434Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-23T23:38:06.413Z"
+      "validThrough": "2026-12-19T21:20:44.981Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "galliker-78a20e1abd73",
       "slug": "fabbro-ausiliario-60-a-galliker-transport-ag-altishofen",
       "slugByLocale": {
-        "de": "hilfskraft-schlosserei-60-a-galliker-altishofen",
         "it": "fabbro-ausiliario-60-a-galliker-transport-ag-altishofen",
         "en": "auxiliary-locksmith-60-a-galliker-transport-ag-altishofen",
+        "de": "hilfskraft-schlosserei-60-a-galliker-altishofen",
         "fr": "serrurier-auxiliaire-60-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
@@ -655,24 +659,24 @@
       "companyDomain": "galliker.com",
       "title": "Hilfskraft Schlosserei 60% (a)",
       "titleByLocale": {
-        "de": "Hilfskraft Schlosserei 60% (a)",
         "it": "Fabbro ausiliario 60% (a)",
         "en": "Auxiliary Locksmith 60% (a)",
+        "de": "Hilfskraft Schlosserei 60% (a)",
         "fr": "Serrurier auxiliaire 60 % (a)"
       },
       "description": "Hilfskraft Schlosserei 60% (a)\n Um unsere moderne und gepflegte Fahrzeugflotte sowie unsere Gebäudeinfrastrukturen jederzeit in einem top Zustand zu halten und erweitern zu können, suchen wir dich als Unterstützung in unserer betriebseigenen Fahrzeugbauabteilung am Hauptsitz in Altishofen.\n Aufgabengebiet\n Als Hilfskraft packst du mit an und unterstützt unser Team bei abwechslungsreichen Arbeiten in der Schlosserei.\n Anforderungsprofil\n\n• Du bist handwerklich geschickt\n• Du arbeitest gerne mit Metall\n• Du bist lernfähig und teambewusst\n• Vorkenntnisse sind von Vorteil aber nicht zwingend\n Angebot\n\n• Seriöse, umfangreiche Einarbeitung in das spannende Aufgabengebiet\n• Kollegiales und engagiertes Team\n• Berufsspezifische Arbeitskleidung\n Eine tolle Gelegenheit, sich nebenbei aktiv einzubringen und etwas dazuzuverdienen.\n Auch Pensionäre sind herzlich willkommen!\n Haben wir dein Interesse geweckt?\nDann freuen wir uns auf dein Bewerbungsdossier.\nChristoph Jeannerat, HR Business Partner, Telefon: +41 62 748 80 80.",
       "descriptionByLocale": {
-        "de": "Hilfskraft Schlosserei 60% (a)\n Um unsere moderne und gepflegte Fahrzeugflotte sowie unsere Gebäudeinfrastrukturen jederzeit in einem top Zustand zu halten und erweitern zu können, suchen wir dich als Unterstützung in unserer betriebseigenen Fahrzeugbauabteilung am Hauptsitz in Altishofen.\n Aufgabengebiet\n Als Hilfskraft packst du mit an und unterstützt unser Team bei abwechslungsreichen Arbeiten in der Schlosserei.\n Anforderungsprofil\n\n• Du bist handwerklich geschickt\n• Du arbeitest gerne mit Metall\n• Du bist lernfähig und teambewusst\n• Vorkenntnisse sind von Vorteil aber nicht zwingend\n Angebot\n\n• Seriöse, umfangreiche Einarbeitung in das spannende Aufgabengebiet\n• Kollegiales und engagiertes Team\n• Berufsspezifische Arbeitskleidung\n Eine tolle Gelegenheit, sich nebenbei aktiv einzubringen und etwas dazuzuverdienen.\n Auch Pensionäre sind herzlich willkommen!\n Haben wir dein Interesse geweckt?\nDann freuen wir uns auf dein Bewerbungsdossier.\nChristoph Jeannerat, HR Business Partner, Telefon: +41 62 748 80 80.",
-        "it": "Fabbro ausiliario 60% (a)\n Al fine di mantenere ed espandere la nostra flotta di veicoli moderna e ben tenuta, così come la nostra infrastruttura di costruzione in ogni momento in condizioni ottimali, siamo alla ricerca di voi come supporto nel nostro reparto di costruzione del veicolo interno presso la sede di Altishofen.\n Settore\n Come assistente, ti unirai a noi e supporterai il nostro team in un lavoro vario nel negozio di fabbri.\n Profilo di richiesta\n\n• Voi siete abili artigiani\n• Ti piace lavorare con il metallo\n• Siete in grado di imparare e di collaborare\n• La conoscenza precedente è vantaggiosa ma non obbligatoria\n Offerta\n\n• Serious, conoscenza completa con l'emozionante area di attività\n• Squadra Collegiale e dedicata\n• Abbigliamento da lavoro\n Una grande opportunità di partecipare attivamente e guadagnare qualcosa.\n I pensionati sono anche benvenuti!\n Abbiamo avuto il tuo interesse?\nAttendiamo con ansia la vostra applicazione.\nChristoph Jeannerat, HR Business Partner, telefono: +41 62 748 80 80.",
-        "en": "Auxiliary Locksmith 60% (a)\n In order to keep and expand our modern and well-maintained vehicle fleet as well as our building infrastructure at all times in top condition, we are looking for you as support in our in-house vehicle construction department at the headquarters in Altishofen.\n Task area\n As an assistant, you will join us and support our team in varied work in the locksmith shop.\n Requirement profile\n\n• You are artisanally skilled\n• You like working with metal\n• You are capable of learning and team-conscious\n• Previous knowledge is advantageous but not mandatory\n Offer\n\n• Serious, comprehensive familiarization with the exciting task area\n• Collegial and dedicated team\n• Occupational workwear\n A great opportunity to actively participate and earn something.\n Pensioners are also welcome!\n Did we get your interest?\nWe look forward to your application.\nChristoph Jeannerat, HR Business Partner, telephone: +41 62 748 80 80.",
-        "fr": "Serrurier auxiliaire 60 % (a)\n Afin de maintenir et d'étendre notre parc de véhicules moderne et bien entretenu ainsi que notre infrastructure de construction en tout temps en état, nous vous recherchons comme soutien dans notre service de construction de véhicules à l'interne au siège social à Altishofen.\n Domaine d ' activité\n En tant qu'assistant, vous vous joindrez à nous et accompagnerez notre équipe dans des travaux variés dans le magasin de serrurier.\n Profil des besoins\n\n• Vous êtes habile\n• Tu aimes travailler avec le métal\n• Vous êtes capable d'apprendre et conscient de l'équipe\n• Les connaissances antérieures sont avantageuses mais non obligatoires\n Offre\n\n• Connaissance sérieuse et complète du domaine de travail passionnant\n• Équipe collégiale et dévouée\n• Vêtements de travail\n Une excellente occasion de participer activement et de gagner quelque chose.\n Les retraités sont également les bienvenus!\n On a eu votre intérêt ?\nNous attendons avec impatience votre candidature.\nChristoph Jeannerat, HR Business Partner, téléphone: +41 62 748 80 80."
+        "it": "Fabbro ausiliario 60% (a)\nAl fine di mantenere ed espandere la nostra flotta di veicoli moderna e ben tenuta, così come la nostra infrastruttura di costruzione in ogni momento in condizioni ottimali, siamo alla ricerca di voi come supporto nel nostro reparto di costruzione del veicolo interno presso la sede di Altishofen.\nSettore\nCome assistente, ti unirai a noi e supporterai il nostro team in un lavoro vario nel negozio di fabbri.\nProfilo di richiesta\n\n• Voi siete abili artigiani\n• Ti piace lavorare con il metallo\n• Siete in grado di imparare e di collaborare\n• La conoscenza precedente è vantaggiosa ma non obbligatoria\nOfferta\n\n• Serious, conoscenza completa con l'emozionante area di attività\n• Squadra Collegiale e dedicata\n• Abbigliamento da lavoro\nUna grande opportunità di partecipare attivamente e guadagnare qualcosa.\nI pensionati sono anche benvenuti!\nAbbiamo avuto il tuo interesse?\nAttendiamo con ansia la vostra applicazione.\nChristoph Jeannerat, HR Business Partner, telefono: +41 62 748 80 80.",
+        "en": "Auxiliary Locksmith 60% (a)\nIn order to keep and expand our modern and well-maintained vehicle fleet as well as our building infrastructure at all times in top condition, we are looking for you as support in our in-house vehicle construction department at the headquarters in Altishofen.\nTask area\nAs an assistant, you will join us and support our team in varied work in the locksmith shop.\nRequirement profile\n\n• You are artisanally skilled\n• You like working with metal\n• You are capable of learning and team-conscious\n• Previous knowledge is advantageous but not mandatory\nOffer\n\n• Serious, comprehensive familiarization with the exciting task area\n• Collegial and dedicated team\n• Occupational workwear\nA great opportunity to actively participate and earn something.\nPensioners are also welcome!\nDid we get your interest?\nWe look forward to your application.\nChristoph Jeannerat, HR Business Partner, telephone: +41 62 748 80 80.",
+        "de": "Hilfskraft Schlosserei 60% (a)\nUm unsere moderne und gepflegte Fahrzeugflotte sowie unsere Gebäudeinfrastrukturen jederzeit in einem top Zustand zu halten und erweitern zu können, suchen wir dich als Unterstützung in unserer betriebseigenen Fahrzeugbauabteilung am Hauptsitz in Altishofen.\nAufgabengebiet\nAls Hilfskraft packst du mit an und unterstützt unser Team bei abwechslungsreichen Arbeiten in der Schlosserei.\nAnforderungsprofil\n\n• Du bist handwerklich geschickt\n• Du arbeitest gerne mit Metall\n• Du bist lernfähig und teambewusst\n• Vorkenntnisse sind von Vorteil aber nicht zwingend\nAngebot\n\n• Seriöse, umfangreiche Einarbeitung in das spannende Aufgabengebiet\n• Kollegiales und engagiertes Team\n• Berufsspezifische Arbeitskleidung\nEine tolle Gelegenheit, sich nebenbei aktiv einzubringen und etwas dazuzuverdienen.\nAuch Pensionäre sind herzlich willkommen!\nHaben wir dein Interesse geweckt?\nDann freuen wir uns auf dein Bewerbungsdossier.\nChristoph Jeannerat, HR Business Partner, Telefon: +41 62 748 80 80.",
+        "fr": "Serrurier auxiliaire 60 % (a)\nAfin de maintenir et d'étendre notre parc de véhicules moderne et bien entretenu ainsi que notre infrastructure de construction en tout temps en état, nous vous recherchons comme soutien dans notre service de construction de véhicules à l'interne au siège social à Altishofen.\nDomaine d ' activité\nEn tant qu'assistant, vous vous joindrez à nous et accompagnerez notre équipe dans des travaux variés dans le magasin de serrurier.\nProfil des besoins\n\n• Vous êtes habile\n• Tu aimes travailler avec le métal\n• Vous êtes capable d'apprendre et conscient de l'équipe\n• Les connaissances antérieures sont avantageuses mais non obligatoires\nOffre\n\n• Connaissance sérieuse et complète du domaine de travail passionnant\n• Équipe collégiale et dévouée\n• Vêtements de travail\nUne excellente occasion de participer activement et de gagner quelque chose.\nLes retraités sont également les bienvenus!\nOn a eu votre intérêt ?\nNous attendons avec impatience votre candidature.\nChristoph Jeannerat, HR Business Partner, téléphone: +41 62 748 80 80."
       },
       "location": "Altishofen",
       "canton": "LU",
       "url": "https://apply.refline.ch/878019/0487/pub/3/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:42.061Z",
+      "crawledAt": "2026-11-19T21:20:44.613Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -691,10 +695,23 @@
       "postingDateSource": "reported",
       "applyUrl": "https://apply.refline.ch/878019/0487/pub/3/index.html",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "externalId": "0487",
+      "previousSlugs": [
+        "hilfskraft-schlosserei-60-a-galliker-altishofen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "hilfskraft-schlosserei-60-a-galliker-altishofen"
+        ],
+        "en": [
+          "hilfskraft-schlosserei-60-a-galliker-altishofen"
+        ],
+        "fr": [
+          "hilfskraft-schlosserei-60-a-galliker-altishofen"
+        ]
+      },
+      "firstSeenAt": "2026-11-19T10:23:42.061Z",
       "salaryMin": 47100,
       "salaryMax": 71400,
       "salarySource": "estimated",
@@ -709,31 +726,16 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-17T10:23:42.061Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T10:23:42.061Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "hilfskraft-schlosserei-60-a-galliker-altishofen"
-        ],
-        "en": [
-          "hilfskraft-schlosserei-60-a-galliker-altishofen"
-        ],
-        "fr": [
-          "hilfskraft-schlosserei-60-a-galliker-altishofen"
-        ]
-      },
-      "previousSlugs": [
-        "hilfskraft-schlosserei-60-a-galliker-altishofen"
-      ]
+      "validThrough": "2027-02-17T21:20:44.613Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "galliker-e6ae1fedbc41",
       "slug": "veicolo-piu-vicino-a-galliker-transport-ag-altishofen-5c2d4d5063",
       "slugByLocale": {
-        "de": "fahrzeugschlosser-a-galliker-altishofen",
         "it": "veicolo-piu-vicino-a-galliker-transport-ag-altishofen-5c2d4d5063",
         "en": "vehicle-closer-a-galliker-transport-ag-altishofen",
+        "de": "fahrzeugschlosser-a-galliker-altishofen",
         "fr": "plus-pres-du-vehicule-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
@@ -758,7 +760,7 @@
       "url": "https://apply.refline.ch/878019/0403/pub/17/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:41.688Z",
+      "crawledAt": "2026-11-19T21:20:44.216Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -779,16 +781,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "externalId": "0403",
+      "previousSlugs": [
+        "fahrzeugschlosser-a-galliker-altishofen",
+        "veicolo-piu-vicino-a-galliker-transport-ag-altishofen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "fahrzeugschlosser-a-galliker-altishofen",
           "veicolo-piu-vicino-a-galliker-transport-ag-altishofen"
         ]
       },
-      "previousSlugs": [
-        "fahrzeugschlosser-a-galliker-altishofen",
-        "veicolo-piu-vicino-a-galliker-transport-ag-altishofen"
-      ],
+      "firstSeenAt": "2026-09-23T23:38:05.250Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -803,17 +806,16 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T10:23:41.688Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-23T23:38:05.250Z"
+      "validThrough": "2026-12-19T21:20:44.216Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "galliker-30d9b90b7c3b",
       "slug": "specialista-in-impiantistica-per-edifici-a-focus-sui-sistemi-di-accesso-e-monitoraggio-galliker-transport-ag-altishofen-3b9106381f",
       "slugByLocale": {
-        "de": "fachspezialist-gebaudetechnik-a-schwerpunkt-zutritts-und-monitoring-systeme-galliker",
         "it": "specialista-in-impiantistica-per-edifici-a-focus-sui-sistemi-di-accesso-e-monitoraggio-galliker-transport-ag-altishofen-3b9106381f",
         "en": "specialist-building-technology-a-focus-on-access-and-monitoring-systems-galliker-transport-ag-altishofen",
+        "de": "fachspezialist-gebaudetechnik-a-schwerpunkt-zutritts-und-monitoring-systeme-galliker",
         "fr": "specialiste-de-la-technologie-du-batiment-a-accent-sur-les-systemes-d-acces-et-de-surveillance-galliker-transport-ag"
       },
       "company": "Galliker Transport AG",
@@ -833,12 +835,13 @@
         "de": "Fachspezialist Gebäudetechnik (a) - Schwerpunkt Zutritts- und Monitoring-Systeme\nUnsere vielfältigen Logistikbauten und Gebäudetechnikanlagen werden durch eine zentrale Abteilung am Standort Altishofen überwacht und gesteuert. Für die Betreuung der diversen Systeme sowie die Bearbeitung von Projekten in diesem Bereich suchen wir zur Verstärkung des Teams dich als Fachspezialist Gebäudetechnik (a) mit Schwerpunkt Zutritts- und Monitoring-Systeme.\nAufgabengebiet\n\n• Betreuung und Weiterentwicklung von Zutritts- und Berechtigungssystemen\n• Überwachung, Optimierung und Sicherstellung des Betriebs von Temperatur- und Monitoringsystemen\n• Pflege, Verwaltung und Steuerung verschiedener Gebäudetechniksysteme\n• Durchführung von Fehlersuchen und Behebung von Störungen an gebäudetechnischen Anlagen\n• Planung, Koordination und Umsetzung von Projekten sowie Unterstützung der Projektleitung\nAnforderungsprofil\n\n• Abgeschlossene Ausbildung in der Gebäudetechnik, idealerweise mit Schwerpunkt Elektro- oder Zutrittskontrollsysteme\n• Begeisterung für Gebäudetechnik und technische Zusammenhänge\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise\n• Verantwortungsbewusste, zuverlässige und teamfähige Persönlichkeit\n• Gute IT-Anwenderkenntnisse von Vorteil\nAngebot\n\n• Abwechslungsreiche Aufgabe in einem innovativen Logistikumfeld mit schweizweiter Tätigkeit\n• Grosser eigener Handlungsspielraum und autonomes Arbeiten\n• Gestaltungsspielraum bei technischen Projekten und Optimierungen\n• Moderne Infrastruktur und kollegiales Arbeitsumfeld\n• Möglichkeit, dich zum Projektleiter zu entwickeln mit Wahrnehmung der Bauherrenvertretung bei Neu- und Umbauprojekte\nHaben wir dein Interesse geweckt?\nDann freuen wir uns auf dein Bewerbungsdossier.\nChristoph Jeannerat, HR Business Partner, Telefon: +41 62 748 82 03.",
         "fr": "Spécialiste de la technologie du bâtiment (a) - Accent sur les systèmes d'accès et de surveillance\nNos divers bâtiments logistiques et installations technologiques sont surveillés et contrôlés par un département central du site Altishofen. Pour le soutien des différents systèmes ainsi que le traitement des projets dans ce domaine, nous vous recherchons comme une technologie de construction spécialisée (a) avec un accent sur les systèmes d'accès et de surveillance.\nDomaine d ' activité\n\n• Appui et développement des systèmes d ' accès et d ' autorisation\n• Surveillance, optimisation et assurance du fonctionnement des systèmes de température et de surveillance\n• Entretien, gestion et contrôle de divers systèmes technologiques de construction\n• Dépannage et dépannage d'installations techniques de construction\n• Planification, coordination et exécution des projets et appui à la gestion des projets\nProfil des besoins\n\n• Formation complète en technologie du bâtiment, idéalement axée sur les systèmes électriques ou de contrôle d'accès\n• Enthousiasme pour la technologie du bâtiment et les connexions techniques\n• Méthode de travail indépendante, structurée et axée sur les solutions\n• Personnalité responsable, fiable et capable d'équipe\n• Une bonne connaissance des utilisateurs de TI est bénéfique\nOffre\n\n• Tâche variée dans un environnement logistique innovant avec une activité à l'échelle suisse\n• Grandes possibilités d'action et de travail autonome\n• Salle de design pour projets techniques et optimisations\n• Infrastructure moderne et environnement de travail collégial\n• Possibilité de devenir gestionnaire de projet avec la perception du représentant du propriétaire pour les projets nouveaux et de rénovation\nOn a eu votre intérêt ?\nNous attendons avec impatience votre candidature.\nChristoph Jeannerat, HR Business Partner, téléphone: +41 62 748 82 03."
       },
+      "needsRetranslation": false,
       "location": "Altishofen",
       "canton": "LU",
       "url": "https://apply.refline.ch/878019/0413/pub/18/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:41.313Z",
+      "crawledAt": "2026-11-19T21:20:43.846Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -859,16 +862,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "externalId": "0413",
+      "previousSlugs": [
+        "fachspezialist-gebaudetechnik-a-schwerpunkt-zutritts-und-monitoring-systeme-galliker",
+        "specialista-in-impiantistica-per-edifici-a-focus-sui-sistemi-di-accesso-e-monitoraggio-galliker-transport-ag-altishofen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "fachspezialist-gebaudetechnik-a-schwerpunkt-zutritts-und-monitoring-systeme-galliker",
           "specialista-in-impiantistica-per-edifici-a-focus-sui-sistemi-di-accesso-e-monitoraggio-galliker-transport-ag-altishofen"
         ]
       },
-      "previousSlugs": [
-        "fachspezialist-gebaudetechnik-a-schwerpunkt-zutritts-und-monitoring-systeme-galliker",
-        "specialista-in-impiantistica-per-edifici-a-focus-sui-sistemi-di-accesso-e-monitoraggio-galliker-transport-ag-altishofen"
-      ],
+      "firstSeenAt": "2026-09-02T23:07:44.885Z",
       "salaryMin": 78500,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -883,17 +887,97 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T10:23:41.313Z",
+      "validThrough": "2026-12-19T21:20:43.846Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "galliker-f983808128bd",
+      "slug": "chauffeur-ce-tour-notturni-a-galliker-transport-ag-mohlin-0c88e25068",
+      "slugByLocale": {
+        "de": "chauffeur-ce-nachttouren-a-galliker-mohlin",
+        "it": "chauffeur-ce-tour-notturni-a-galliker-transport-ag-mohlin-0c88e25068",
+        "en": "chauffeur-ce-night-tours-a-galliker-transport-ag-mohlin",
+        "fr": "chauffeur-ce-tours-de-nuit-a-galliker-transport-ag-mohlin"
+      },
+      "company": "Galliker Transport AG",
+      "companyKey": "galliker",
+      "companyDomain": "galliker.com",
+      "title": "Chauffeur CE / Nachttouren (a)",
+      "titleByLocale": {
+        "it": "Chauffeur CE / Tour notturni (a)",
+        "en": "Chauffeur CE / Night Tours (a)",
+        "de": "Chauffeur CE / Nachttouren (a)",
+        "fr": "Chauffeur CE / Tours de nuit (a)"
+      },
+      "description": "Chauffeur CE / Nachttouren (a)\n Unsere Niederlassung in Möhlin AG ist ein Kompetenzzentrum für Transport und Logistik innerhalb des nationalen Galliker-Netzwerks. Dank der grenznahen Lage betreiben wir hier den Umschlag von Früchten & Gemüse, Schnittblumen & Pflanzen und etwa den Just-in-Time Service von Automobil-Ersatzteilen.\n Zur Ergänzung unseres Fahrerteams suchen wir motivierte Chauffeure (a).\n Aufgabengebiet\n\n• Durchführen von Kühltransporten mit Sattelzug in der ganzen Schweiz\n• Shuttle-Verkehr zwischen den verschiedenen Gallikerstandorten in der Schweiz\n• Abholungen von Blumen und Pflanzen\n• Einsatz jeweils von Montag bis Freitag mit Arbeitsbeginn zwischen 13.00 und 17.00 Uhr\n Anforderungsprofil\n\n• Führerausweis CE und gültiger Führerqualifizierungsnachweis\n• Zuverlässig, pflichtbewusst, professionell und passioniert\n• Flexibel, zielstrebig und selbständig\n• Freude an einem modernem Fahrzeugpark\n• Sehr gute Deutschkenntnisse, Französisch von Vorteil\n Angebot\n\n• Sorgfältige und gründliche Einarbeitung in das Aufgabengebiet\n• Spannender und abwechslungsreicher Arbeitsplatz mit viel Eigenverantwortung\n• Modernste Fahrzeugtechnologie\n• asa-anerkannte Weiterbildungsstätte für CZV\n Wir bieten dir eine abwechslungsreiche und interessante Tätigkeit in einem zukunftsorientierten und aufgeschlossenen Team.\n Haben wir dein Interesse geweckt?\nDann freuen wir uns auf dein Bewerbungsdossier.\nKevin Trotta, Human Resources, Telefon: +41 61 855 28 63.",
+      "descriptionByLocale": {
+        "it": "Chauffeur CE / Tour notturni (a)\nLa nostra filiale di Möhlin AG è un centro di eccellenza per trasporti e logistica all'interno della rete nazionale Galliker. Grazie alla nostra posizione vicino al confine, gestiamo frutta e verdura, fiori e piante tagliate e forniamo un servizio puntuale per pezzi di ricambio automobilistici.\nPer completare il nostro team di autisti, cerchiamo autisti motivati.\nResponsabilità\n\n• Effettuare trasporti refrigerati con camion semirimorchio in tutta la Svizzera\n• Servizio navetta tra le varie località della Svizzera\n• Ritiro di fiori e piante\n• Assegnazione dal lunedì al venerdì, inizio del lavoro tra le 13:00 e le 17:00.\nProfilo dei requisiti\n\n• Patente di guida CE e certificato valido di qualificazione alla guida\n• Affidabile, coscienzioso, professionale e appassionato\n• Flessibile, determinato e indipendente\n• Divertimento di una flotta di veicoli moderna\n• Ottima conoscenza del tedesco, il francese è un vantaggio\nOfferta\n\n• Una familiarizzazione attenta e approfondita con l'area di responsabilità\n• Ambiente di lavoro entusiasmante e vario, con molta responsabilità personale\n• Tecnologia veicolare all'avanguardia\n• Centro di addestramento riconosciuto dall'ASA per la CZV\nTi offriamo un lavoro vario e interessante in un team orientato al futuro e aperto mentalmente.\nAbbiamo suscitato il tuo interesse?\nAllora attendiamo con interesse il tuo dossier di domanda.\nKevin Trotta, Risorse Umane, Telefono: +41 61 855 28 63.",
+        "en": "Chauffeur CE / Night Tours (a)\nOur branch in Möhlin AG is a centre of excellence for transport and logistics within the national Galliker network. Thanks to our location close to the border, we handle fruit and vegetables, cut flowers and plants and provide just-in-time service for automotive spare parts.\nTo complement our team of drivers, we are looking for motivated chauffeurs.\nResponsibilities\n\n• Carrying out refrigerated transports with semitrailer trucks throughout Switzerland\n• Shuttle service between the various locations in Switzerland\n• Pick-ups of flowers and plants\n• Assignment from Monday to Friday, start of work between 1:00 p.m. and 5:00 p.m.\nRequirements profile\n\n• CE driving licence and valid driver qualification certificate\n• Reliable, conscientious, professional and passionate\n• Flexible, determined and independent\n• Enjoyment of a modern vehicle fleet\n• Very good knowledge of German, French is an advantage\nOffer\n\n• Careful and thorough familiarization with the area of responsibility\n• Exciting and varied workplace with a lot of personal responsibility\n• State-of-the-art vehicle technology\n• asa-recognized training center for CZV\nWe offer you a varied and interesting job in a future-oriented and open-minded team.\nHave we aroused your interest?\nThen we look forward to receiving your application dossier.\nKevin Trotta, Human Resources, Phone: +41 61 855 28 63.",
+        "de": "Chauffeur CE / Nachttouren (a)\nUnsere Niederlassung in Möhlin AG ist ein Kompetenzzentrum für Transport und Logistik innerhalb des nationalen Galliker-Netzwerks. Dank der grenznahen Lage betreiben wir hier den Umschlag von Früchten & Gemüse, Schnittblumen & Pflanzen und etwa den Just-in-Time Service von Automobil-Ersatzteilen.\nZur Ergänzung unseres Fahrerteams suchen wir motivierte Chauffeure (a).\nAufgabengebiet\n\n• Durchführen von Kühltransporten mit Sattelzug in der ganzen Schweiz\n• Shuttle-Verkehr zwischen den verschiedenen Gallikerstandorten in der Schweiz\n• Abholungen von Blumen und Pflanzen\n• Einsatz jeweils von Montag bis Freitag mit Arbeitsbeginn zwischen 13.00 und 17.00 Uhr\nAnforderungsprofil\n\n• Führerausweis CE und gültiger Führerqualifizierungsnachweis\n• Zuverlässig, pflichtbewusst, professionell und passioniert\n• Flexibel, zielstrebig und selbständig\n• Freude an einem modernem Fahrzeugpark\n• Sehr gute Deutschkenntnisse, Französisch von Vorteil\nAngebot\n\n• Sorgfältige und gründliche Einarbeitung in das Aufgabengebiet\n• Spannender und abwechslungsreicher Arbeitsplatz mit viel Eigenverantwortung\n• Modernste Fahrzeugtechnologie\n• asa-anerkannte Weiterbildungsstätte für CZV\nWir bieten dir eine abwechslungsreiche und interessante Tätigkeit in einem zukunftsorientierten und aufgeschlossenen Team.\nHaben wir dein Interesse geweckt?\nDann freuen wir uns auf dein Bewerbungsdossier.\nKevin Trotta, Human Resources, Telefon: +41 61 855 28 63.",
+        "fr": "Chauffeur CE / Visites nocturnes (a)\nNotre agence de Möhlin AG est un centre d'excellence pour le transport et la logistique au sein du réseau national Galliker. Grâce à notre proximité frontalière, nous gérons des fruits et légumes, des fleurs et plantes coupées, et fournissons un service juste à temps pour les pièces détachées automobiles.\nPour compléter notre équipe de chauffeurs, nous recherchons des chauffeurs motivés.\nResponsabilités\n\n• Effectuer des transports réfrigérés avec des semi-remorques à travers toute la Suisse\n• Service de navette entre les différents sites en Suisse\n• Ramassage de fleurs et de plantes\n• Devoir du lundi au vendredi, début du travail entre 13h00 et 17h00.\nProfil des exigences\n\n• Permis de conduire CE et certificat de qualification de conduite valide\n• Fiable, consciencieux, professionnel et passionné\n• Flexible, déterminé et indépendant\n• Plaisir d'une flotte de véhicules moderne\n• Très bonne connaissance de l'allemand, le français est un avantage\nOffre\n\n• Une familiarisation attentive et approfondie avec la zone de responsabilité\n• Un environnement de travail passionnant et varié, avec beaucoup de responsabilités personnelles\n• Technologie de pointe des véhicules\n• Centre de formation reconnu par l'ASA pour la CZV\nNous vous proposons un poste varié et intéressant dans une équipe tournée vers l'avenir et ouverte d'esprit.\nAvons-nous éveillé votre intérêt?\nNous attendons alors avec impatience votre dossier de candidature.\nKevin Trotta, Ressources Humaines, Téléphone : +41 61 855 28 63."
+      },
+      "needsRetranslation": true,
+      "location": "Möhlin",
+      "canton": "AG",
+      "url": "https://apply.refline.ch/878019/0158/pub/14/index.html",
+      "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-19T21:20:43.480Z",
+      "addressLocality": "Möhlin",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4313",
+      "streetAddress": "Bäumlimattstrasse 7",
+      "category": "Autisti / Chauffeur",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Logistica / Trasporti",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2024-09-12T14:30:24.031867+00:00",
+      "postedDate": "2024-09-12T14:30:24.031867+00:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://apply.refline.ch/878019/0158/pub/14/index.html",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "externalId": "0158",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-ce-nachttouren-a-galliker-mohlin",
+          "chauffeur-ce-tour-notturni-a-galliker-transport-ag-mohlin"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-ce-nachttouren-a-galliker-mohlin",
+        "chauffeur-ce-tour-notturni-a-galliker-transport-ag-mohlin"
+      ],
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-19T21:20:43.480Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-02T23:07:44.885Z"
+      "firstSeenAt": "2026-10-24T21:13:05.391Z"
     },
     {
       "id": "galliker-3d6dd857f8dd",
       "slug": "elettricisti-commerciali-a-galliker-transport-ag-altishofen-7e4997",
       "slugByLocale": {
-        "de": "betriebselektriker-a-galliker-altishofen",
         "it": "elettricisti-commerciali-a-galliker-transport-ag-altishofen-7e4997",
         "en": "betriebselektriker-a-galliker-transport-ag-altishofen",
+        "de": "betriebselektriker-a-galliker-altishofen",
         "fr": "electriciens-d-affaires-a-galliker-transport-ag-altishofen-7e4997"
       },
       "company": "Galliker Transport AG",
@@ -901,24 +985,25 @@
       "companyDomain": "galliker.com",
       "title": "Betriebselektriker (a)",
       "titleByLocale": {
-        "de": "Betriebselektriker (a)",
         "it": "Elettricisti commerciali (a)",
         "en": "Business electricians (a)",
+        "de": "Betriebselektriker (a)",
         "fr": "Électriciens d'affaires a)"
       },
       "description": "Betriebselektriker (a)\n Als führendes Transportunternehmen setzen wir auf Qualität, Zuverlässigkeit und Innovation in all unseren Dienstleistungen. Dies widerspiegelt sich auch in unseren vielfältigen Logistikbauten und Gebäudetechnikanlagen. Diese werden durch eine zentrale Abteilung am Standort Altishofen geplant, überwacht und gesteuert. Zur Verstärkung unseres Teams in der Betriebstechnik suchen wir dich als Betriebselektriker (a).\n Aufgabengebiet\n\n• I nstandhaltung und Wartung von elektrischen und mechanischen Einrichtungen in den Bereichen Gebäudehülle, Heizung, Lüftung, Klima, Kälte und Fördertechnik\n• I nstandhaltung der wachsenden E-Mobility Infrastruktur\n• Beheben von auftretenden Störungen\n• Bedienen und Betreuen des modernen Gebäude leitsystems\n• Durchführen von einfachen Montage- und Revisionsarbeiten\n• Selbständiges Umsetzen von kleineren Projekten\n• Zusammenarbeiten mit Drittdienstleistern\n Anforderungsprofil\n\n• Grundausbildung als Elektromonteur EFZ / Elektroinstallateur EFZ\n• Kenntnisse der Mess-, Steuer- und Regeltechnik sind von Vorteil\n• Erfahrung in Erstprüfungen nach NIN\n• Mindestens 3 Jahre praktische Berufserfahrung\n• Erfahrung als PC-Anwender\n• Bereitschaft für alternierenden Pikettdienst\n• Eigeninitiative, teamorientierte und vertrauenswürdige Persönlichkeit\n Angebot\n\n• Ein cooles, schlagkräftiges, motiviertes, kollegiales Betriebstechnikteam\n• Seriöse, umfangreiche Einarbeitung in das spannende Aufgabengebiet\n• Topmoderne Infrastrukturen mit eigenem Servicefahrzeug\n• Abwechslungsreiches, breites Einsatzgebiet in der Welt von Transport und Logistik\n• Innovative Bauprojekte mit vielen neuen Anlagen im Bereich alternativer, nachhaltiger Energieträger\n Haben wir dein Interesse geweckt?\nDann freuen wir uns auf dein Bewerbungsdossier.\nChristoph Jeannerat, Human Resources, Telefon: +41 62 748 82 03.",
       "descriptionByLocale": {
-        "de": "Betriebselektriker (a)\n Als führendes Transportunternehmen setzen wir auf Qualität, Zuverlässigkeit und Innovation in all unseren Dienstleistungen. Dies widerspiegelt sich auch in unseren vielfältigen Logistikbauten und Gebäudetechnikanlagen. Diese werden durch eine zentrale Abteilung am Standort Altishofen geplant, überwacht und gesteuert. Zur Verstärkung unseres Teams in der Betriebstechnik suchen wir dich als Betriebselektriker (a).\n Aufgabengebiet\n\n• I nstandhaltung und Wartung von elektrischen und mechanischen Einrichtungen in den Bereichen Gebäudehülle, Heizung, Lüftung, Klima, Kälte und Fördertechnik\n• I nstandhaltung der wachsenden E-Mobility Infrastruktur\n• Beheben von auftretenden Störungen\n• Bedienen und Betreuen des modernen Gebäude leitsystems\n• Durchführen von einfachen Montage- und Revisionsarbeiten\n• Selbständiges Umsetzen von kleineren Projekten\n• Zusammenarbeiten mit Drittdienstleistern\n Anforderungsprofil\n\n• Grundausbildung als Elektromonteur EFZ / Elektroinstallateur EFZ\n• Kenntnisse der Mess-, Steuer- und Regeltechnik sind von Vorteil\n• Erfahrung in Erstprüfungen nach NIN\n• Mindestens 3 Jahre praktische Berufserfahrung\n• Erfahrung als PC-Anwender\n• Bereitschaft für alternierenden Pikettdienst\n• Eigeninitiative, teamorientierte und vertrauenswürdige Persönlichkeit\n Angebot\n\n• Ein cooles, schlagkräftiges, motiviertes, kollegiales Betriebstechnikteam\n• Seriöse, umfangreiche Einarbeitung in das spannende Aufgabengebiet\n• Topmoderne Infrastrukturen mit eigenem Servicefahrzeug\n• Abwechslungsreiches, breites Einsatzgebiet in der Welt von Transport und Logistik\n• Innovative Bauprojekte mit vielen neuen Anlagen im Bereich alternativer, nachhaltiger Energieträger\n Haben wir dein Interesse geweckt?\nDann freuen wir uns auf dein Bewerbungsdossier.\nChristoph Jeannerat, Human Resources, Telefon: +41 62 748 82 03.",
-        "it": "Elettricisti commerciali (a)\n Come azienda di trasporto leader, ci concentriamo sulla qualità, l'affidabilità e l'innovazione in tutti i nostri servizi. Questo si riflette anche nei nostri diversi edifici logistici e strutture tecnologiche per l'edilizia. Questi sono progettati, monitorati e controllati da un dipartimento centrale del sito Altishofen. Per rafforzare il nostro team nell'ingegneria operativa, ti stiamo cercando come elettricista aziendale (a).\n Settore\n\n• Manutenzione e manutenzione di apparecchiature elettriche e meccaniche per la costruzione di buste, riscaldamento, ventilazione, aria condizionata, refrigerazione e trasporto attrezzature\n• Manutenzione della crescente infrastruttura di e-mobility\n• Risolvere gli incidenti\n• Funzionamento e manutenzione del moderno sistema di controllo degli edifici\n• Eseguire semplici lavori di assemblaggio e ispezione\n• Realizzazione indipendente di progetti più piccoli\n• Cooperazione con fornitori di servizi terzi\n Profilo di richiesta\n\n• Formazione di base come installatore elettrico EFZ / installatore elettrico EFZ\n• La conoscenza della tecnologia di misura, controllo e regolazione è un vantaggio\n• Esperienza negli esami iniziali dopo NIN\n• Almeno 3 anni di esperienza professionale pratica\n• Esperienza come utente PC\n• Prontezza per la cura alternativa\n• Auto-iniziativa, personalità orientata al team e affidabile\n Offerta\n\n• Un team di ingegneria operativa cool, potente, motivato e collaborativo\n• Serious, conoscenza completa con l'emozionante area di attività\n• Infrastrutture all'avanguardia con il proprio veicolo di servizio\n• Ampia applicazione nel mondo dei trasporti e della logistica\n• Progetti di costruzione innovativi con molti nuovi impianti nel settore delle fonti energetiche alternative e sostenibili\n Abbiamo avuto il tuo interesse?\nAttendiamo con ansia la vostra applicazione.\nChristoph Jeannerat, Risorse Umane, telefono: +41 62 748 82 03.",
-        "en": "Business electricians (a)\n As a leading transport company, we focus on quality, reliability and innovation in all our services. This is also reflected in our diverse logistics buildings and building technology facilities. These are planned, monitored and controlled by a central department at the Altishofen site. To strengthen our team in operational engineering, we are looking for you as a company electrician (a).\n Task area\n\n• Maintenance and maintenance of electrical and mechanical equipment for building envelope, heating, ventilation, air conditioning, refrigeration and conveying equipment\n• Maintenance of the growing e-mobility infrastructure\n• Resolving incidents\n• Operation and maintenance of the modern building control system\n• Performing simple assembly and inspection work\n• Independent implementation of smaller projects\n• Cooperation with third-party service providers\n Requirement profile\n\n• Basic training as an electrical installer EFZ / electrical installer EFZ\n• Knowledge of measurement, control and regulation technology is an advantage\n• Experience in initial examinations after NIN\n• At least 3 years of practical professional experience\n• Experience as a PC user\n• Readiness for alternate care\n• Self-initiative, team-oriented and trustworthy personality\n Offer\n\n• A cool, powerful, motivated, collaborative operational engineering team\n• Serious, comprehensive familiarization with the exciting task area\n• State-of-the-art infrastructure with its own service vehicle\n• Varied, broad application in the world of transport and logistics\n• Innovative construction projects with many new plants in the area of alternative, sustainable energy sources\n Did we get your interest?\nWe look forward to your application.\nChristoph Jeannerat, Human Resources, telephone: +41 62 748 82 03.",
-        "fr": "Électriciens d'affaires a)\n En tant que société de transport leader, nous nous concentrons sur la qualité, la fiabilité et l'innovation dans tous nos services. Cela se reflète également dans nos divers bâtiments logistiques et installations technologiques. Elles sont planifiées, surveillées et contrôlées par un service central du site Altishofen. Pour renforcer notre équipe en ingénierie opérationnelle, nous vous recherchons comme électricien d'entreprise (a).\n Domaine d ' activité\n\n• Entretien et entretien des équipements électriques et mécaniques pour l'enveloppe du bâtiment, le chauffage, la ventilation, la climatisation, la réfrigération et le transport\n• Entretien de l'infrastructure de mobilité électronique croissante\n• Résolution des incidents\n• Fonctionnement et entretien du système moderne de contrôle des bâtiments\n• Effectuer des travaux simples de montage et d'inspection\n• Mise en œuvre indépendante de petits projets\n• Coopération avec des fournisseurs de services tiers\n Profil des besoins\n\n• Formation de base comme installateur électrique EFZ / installateur électrique EFZ\n• La connaissance de la technologie de mesure, de contrôle et de régulation est un avantage\n• Expérience des examens initiaux après le NIN\n• Au moins 3 ans d'expérience professionnelle pratique\n• Expérience en tant qu'utilisateur PC\n• Préparation aux soins alternatifs\n• Personnalité auto-initiative, axée sur l'équipe et digne de confiance\n Offre\n\n• Une équipe d'ingénierie opérationnelle cool, puissante, motivée et collaborative\n• Connaissance sérieuse et complète du domaine de travail passionnant\n• Infrastructure de pointe avec son propre véhicule de service\n• Varié, large application dans le monde du transport et de la logistique\n• Projets de construction innovants avec de nombreuses nouvelles installations dans le domaine des sources d'énergie alternatives et durables\n On a eu votre intérêt ?\nNous attendons avec impatience votre candidature.\nChristoph Jeannerat, Ressources humaines, téléphone: +41 62 748 82 03."
+        "it": "Elettricisti commerciali (a)\nCome azienda di trasporto leader, ci concentriamo sulla qualità, l'affidabilità e l'innovazione in tutti i nostri servizi. Questo si riflette anche nei nostri diversi edifici logistici e strutture tecnologiche per l'edilizia. Questi sono progettati, monitorati e controllati da un dipartimento centrale del sito Altishofen. Per rafforzare il nostro team nell'ingegneria operativa, ti stiamo cercando come elettricista aziendale (a).\nSettore\n\n• Manutenzione e manutenzione di apparecchiature elettriche e meccaniche per la costruzione di buste, riscaldamento, ventilazione, aria condizionata, refrigerazione e trasporto attrezzature\n• Manutenzione della crescente infrastruttura di e-mobility\n• Risolvere gli incidenti\n• Funzionamento e manutenzione del moderno sistema di controllo degli edifici\n• Eseguire semplici lavori di assemblaggio e ispezione\n• Realizzazione indipendente di progetti più piccoli\n• Cooperazione con fornitori di servizi terzi\nProfilo di richiesta\n\n• Formazione di base come installatore elettrico EFZ / installatore elettrico EFZ\n• La conoscenza della tecnologia di misura, controllo e regolazione è un vantaggio\n• Esperienza negli esami iniziali dopo NIN\n• Almeno 3 anni di esperienza professionale pratica\n• Esperienza come utente PC\n• Prontezza per la cura alternativa\n• Auto-iniziativa, personalità orientata al team e affidabile\nOfferta\n\n• Un team di ingegneria operativa cool, potente, motivato e collaborativo\n• Serious, conoscenza completa con l'emozionante area di attività\n• Infrastrutture all'avanguardia con il proprio veicolo di servizio\n• Ampia applicazione nel mondo dei trasporti e della logistica\n• Progetti di costruzione innovativi con molti nuovi impianti nel settore delle fonti energetiche alternative e sostenibili\nAbbiamo avuto il tuo interesse?\nAttendiamo con ansia la vostra applicazione.\nChristoph Jeannerat, Risorse Umane, telefono: +41 62 748 82 03.",
+        "en": "Business electricians (a)\nAs a leading transport company, we focus on quality, reliability and innovation in all our services. This is also reflected in our diverse logistics buildings and building technology facilities. These are planned, monitored and controlled by a central department at the Altishofen site. To strengthen our team in operational engineering, we are looking for you as a company electrician (a).\nTask area\n\n• Maintenance and maintenance of electrical and mechanical equipment for building envelope, heating, ventilation, air conditioning, refrigeration and conveying equipment\n• Maintenance of the growing e-mobility infrastructure\n• Resolving incidents\n• Operation and maintenance of the modern building control system\n• Performing simple assembly and inspection work\n• Independent implementation of smaller projects\n• Cooperation with third-party service providers\nRequirement profile\n\n• Basic training as an electrical installer EFZ / electrical installer EFZ\n• Knowledge of measurement, control and regulation technology is an advantage\n• Experience in initial examinations after NIN\n• At least 3 years of practical professional experience\n• Experience as a PC user\n• Readiness for alternate care\n• Self-initiative, team-oriented and trustworthy personality\nOffer\n\n• A cool, powerful, motivated, collaborative operational engineering team\n• Serious, comprehensive familiarization with the exciting task area\n• State-of-the-art infrastructure with its own service vehicle\n• Varied, broad application in the world of transport and logistics\n• Innovative construction projects with many new plants in the area of alternative, sustainable energy sources\nDid we get your interest?\nWe look forward to your application.\nChristoph Jeannerat, Human Resources, telephone: +41 62 748 82 03.",
+        "de": "Betriebselektriker (a)\nAls führendes Transportunternehmen setzen wir auf Qualität, Zuverlässigkeit und Innovation in all unseren Dienstleistungen. Dies widerspiegelt sich auch in unseren vielfältigen Logistikbauten und Gebäudetechnikanlagen. Diese werden durch eine zentrale Abteilung am Standort Altishofen geplant, überwacht und gesteuert. Zur Verstärkung unseres Teams in der Betriebstechnik suchen wir dich als Betriebselektriker (a).\nAufgabengebiet\n\n• I nstandhaltung und Wartung von elektrischen und mechanischen Einrichtungen in den Bereichen Gebäudehülle, Heizung, Lüftung, Klima, Kälte und Fördertechnik\n• I nstandhaltung der wachsenden E-Mobility Infrastruktur\n• Beheben von auftretenden Störungen\n• Bedienen und Betreuen des modernen Gebäude leitsystems\n• Durchführen von einfachen Montage- und Revisionsarbeiten\n• Selbständiges Umsetzen von kleineren Projekten\n• Zusammenarbeiten mit Drittdienstleistern\nAnforderungsprofil\n\n• Grundausbildung als Elektromonteur EFZ / Elektroinstallateur EFZ\n• Kenntnisse der Mess-, Steuer- und Regeltechnik sind von Vorteil\n• Erfahrung in Erstprüfungen nach NIN\n• Mindestens 3 Jahre praktische Berufserfahrung\n• Erfahrung als PC-Anwender\n• Bereitschaft für alternierenden Pikettdienst\n• Eigeninitiative, teamorientierte und vertrauenswürdige Persönlichkeit\nAngebot\n\n• Ein cooles, schlagkräftiges, motiviertes, kollegiales Betriebstechnikteam\n• Seriöse, umfangreiche Einarbeitung in das spannende Aufgabengebiet\n• Topmoderne Infrastrukturen mit eigenem Servicefahrzeug\n• Abwechslungsreiches, breites Einsatzgebiet in der Welt von Transport und Logistik\n• Innovative Bauprojekte mit vielen neuen Anlagen im Bereich alternativer, nachhaltiger Energieträger\nHaben wir dein Interesse geweckt?\nDann freuen wir uns auf dein Bewerbungsdossier.\nChristoph Jeannerat, Human Resources, Telefon: +41 62 748 82 03.",
+        "fr": "Électriciens d'affaires a)\nEn tant que société de transport leader, nous nous concentrons sur la qualité, la fiabilité et l'innovation dans tous nos services. Cela se reflète également dans nos divers bâtiments logistiques et installations technologiques. Elles sont planifiées, surveillées et contrôlées par un service central du site Altishofen. Pour renforcer notre équipe en ingénierie opérationnelle, nous vous recherchons comme électricien d'entreprise (a).\nDomaine d ' activité\n\n• Entretien et entretien des équipements électriques et mécaniques pour l'enveloppe du bâtiment, le chauffage, la ventilation, la climatisation, la réfrigération et le transport\n• Entretien de l'infrastructure de mobilité électronique croissante\n• Résolution des incidents\n• Fonctionnement et entretien du système moderne de contrôle des bâtiments\n• Effectuer des travaux simples de montage et d'inspection\n• Mise en œuvre indépendante de petits projets\n• Coopération avec des fournisseurs de services tiers\nProfil des besoins\n\n• Formation de base comme installateur électrique EFZ / installateur électrique EFZ\n• La connaissance de la technologie de mesure, de contrôle et de régulation est un avantage\n• Expérience des examens initiaux après le NIN\n• Au moins 3 ans d'expérience professionnelle pratique\n• Expérience en tant qu'utilisateur PC\n• Préparation aux soins alternatifs\n• Personnalité auto-initiative, axée sur l'équipe et digne de confiance\nOffre\n\n• Une équipe d'ingénierie opérationnelle cool, puissante, motivée et collaborative\n• Connaissance sérieuse et complète du domaine de travail passionnant\n• Infrastructure de pointe avec son propre véhicule de service\n• Varié, large application dans le monde du transport et de la logistique\n• Projets de construction innovants avec de nombreuses nouvelles installations dans le domaine des sources d'énergie alternatives et durables\nOn a eu votre intérêt ?\nNous attendons avec impatience votre candidature.\nChristoph Jeannerat, Ressources humaines, téléphone: +41 62 748 82 03."
       },
+      "needsRetranslation": false,
       "location": "Altishofen",
       "canton": "LU",
       "url": "https://apply.refline.ch/878019/0382/pub/24/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:40.934Z",
+      "crawledAt": "2026-11-19T21:20:43.110Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -937,10 +1022,12 @@
       "postingDateSource": "reported",
       "applyUrl": "https://apply.refline.ch/878019/0382/pub/24/index.html",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "externalId": "0382",
+      "previousSlugs": [
+        "betriebselektriker-a-galliker-altishofen",
+        "betriebselektriker-a-galliker-transport-ag-altishofen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "betriebselektriker-a-galliker-altishofen",
@@ -950,10 +1037,7 @@
           "betriebselektriker-a-galliker-transport-ag-altishofen"
         ]
       },
-      "previousSlugs": [
-        "betriebselektriker-a-galliker-altishofen",
-        "betriebselektriker-a-galliker-transport-ag-altishofen"
-      ],
+      "firstSeenAt": "2026-09-23T23:38:03.309Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -968,17 +1052,16 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T10:23:40.934Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-23T23:38:03.309Z"
+      "validThrough": "2026-12-19T21:20:43.110Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "galliker-9e7116dd71dc",
       "slug": "specialista-automobilistico-nf-principiante-trasversale-a-galliker-transport-ag-altishofen-8db9ea9a0f",
       "slugByLocale": {
-        "de": "automobilfachmann-nf-quereinsteiger-a-galliker-altishofen",
         "it": "specialista-automobilistico-nf-principiante-trasversale-a-galliker-transport-ag-altishofen-8db9ea9a0f",
         "en": "automotive-specialist-nf-lateral-entrant-a-galliker-transport-ag-altishofen",
+        "de": "automobilfachmann-nf-quereinsteiger-a-galliker-altishofen",
         "fr": "automobile-specialiste-nf-entree-laterale-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
@@ -998,12 +1081,13 @@
         "de": "Automobilfachmann NF Quereinsteiger (a)\nBist du an einem Wechsel in die mechanische Welt der LKW‘s interessiert und traust dich etwas Neues zu wagen? Dann steige bei uns ein und werde mit allen notwendigen Werkzeugen ausgestattet, die ein waschechter Mechaniker benötigt. Zudem erwirbst du berufsbegleitend die Ausbildung zum Automobilfachmann NF EFZ.\nBist du bereit und motiviert den nächsten Schritt zu wagen, dann steige ein und bewirb dich jetzt als Automobilfachmann NF Quereinsteiger.\nAufgabengebiet\nMithilfe bei\n\n• Erstellen von Fahrzeugdiagnosen\n• Ausführen von Reparaturaufträgen und Revisionen\n• Installieren von Zusatzgeräte\n• Durchführen von Elektro-Installationen\n• Beschaffen der erforderlichen Ersatzteile im betriebseigenen Lager\n\nAnforderungsprofil\n\n• Mindestens 25 Jahre alt\n• Abgeschlossene Berufsausbildung auf Niveau EFZ\n• Motivation und Freude, Neues zu lernen\n• Gute EDV-Anwenderkenntnisse\n• Zuverlässig, flexibel, selbständig, teamfähig, speditiv, qualitätsbewusst\n• Sehr gute Deutschkenntnisse (Wort / Schrift)\nAngebot\n\n• Du erlangst die Ausbildung zum Automobilfachmann NF EFZ\n• Alle Schulkosten/Schultage werden vollumfänglich übernommen\n• Top moderne Infrastruktur\n• 5 Wochen Ferien\nWir bieten dir eine abwechslungsreiche und interessante Tätigkeit in einem super starken Team in einer topmodernen Werkstatt.\nHaben wir dein Interesse geweckt?\nDann freuen wir uns auf dein Bewerbungsdossier.\nChristoph Jeannerat, Human Resources, Telefon: +41 62 748 82 03.",
         "fr": "Automobile spécialiste NF entrée latérale (a)\nÊtes-vous intéressé par un changement au monde mécanique des camions et osez oser quelque chose de nouveau? Alors entrez avec nous et soyez équipés de tous les outils nécessaires dont un vrai mécanicien a besoin. De plus, vous acquerrez une formation à temps partiel en tant que spécialiste de l'automobile NF EFZ.\nSi vous êtes prêt et motivé à faire l'étape suivante, alors entrez et appliquez maintenant en tant que spécialiste de l'automobile NF débutant latéral.\nDomaine d ' activité\nAssistance pour:\n\n• Préparation du diagnostic du véhicule\n• Exécution des ordonnances de réparation et révisions\n• Installation d'équipements auxiliaires\n• Réalisation d'installations électriques\n• Achat des pièces de rechange nécessaires dans l ' entrepôt sur place\n\nProfil des besoins\n\n• Au moins 25 ans\n• Formation professionnelle terminée au niveau de l'EFZ\n• Motivation et joie d'apprendre de nouvelles choses\n• Bonne connaissance de l'utilisateur d'ordinateur\n• Fiable, flexible, indépendant, capable de travailler en équipe, tourné vers l'avenir, soucieux de la qualité\n• Très bonne connaissance de l'allemand (mot / écriture)\nOffre\n\n• Vous recevrez une formation de spécialiste de l'automobile NF EFZ\n• Tous les frais de scolarité/jours scolaires sont entièrement couverts\n• Meilleure infrastructure moderne\n• 5 semaines de vacances\nNous vous proposons un travail varié et intéressant dans une équipe super forte dans un atelier de pointe.\nOn a eu votre intérêt ?\nNous attendons avec impatience votre candidature.\nChristoph Jeannerat, Ressources humaines, téléphone: +41 62 748 82 03."
       },
+      "needsRetranslation": false,
       "location": "Altishofen",
       "canton": "LU",
       "url": "https://apply.refline.ch/878019/0046/pub/29/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:40.558Z",
+      "crawledAt": "2026-11-19T21:20:42.745Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1024,16 +1108,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "externalId": "0046",
+      "previousSlugs": [
+        "automobilfachmann-nf-quereinsteiger-a-galliker-altishofen",
+        "specialista-automobilistico-nf-principiante-trasversale-a-galliker-transport-ag-altishofen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "automobilfachmann-nf-quereinsteiger-a-galliker-altishofen",
           "specialista-automobilistico-nf-principiante-trasversale-a-galliker-transport-ag-altishofen"
         ]
       },
-      "previousSlugs": [
-        "automobilfachmann-nf-quereinsteiger-a-galliker-altishofen",
-        "specialista-automobilistico-nf-principiante-trasversale-a-galliker-transport-ag-altishofen"
-      ],
+      "firstSeenAt": "2026-09-23T23:38:02.533Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -1048,17 +1133,16 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T10:23:40.558Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-23T23:38:02.533Z"
+      "validThrough": "2026-12-19T21:20:42.745Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "galliker-ba071a556f73",
       "slug": "specialista-automotive-ingegnere-meccatronico-nfz-servizio-tardivo-a-galliker-transport-ag-altishofen-c739169767",
       "slugByLocale": {
-        "de": "automobilfachmann-mechatroniker-nfz-spatdienst-a-galliker-altishofen",
         "it": "specialista-automotive-ingegnere-meccatronico-nfz-servizio-tardivo-a-galliker-transport-ag-altishofen-c739169767",
         "en": "automotive-specialist-mechatronics-engineer-nfz-late-service-a-galliker-transport-ag-altishofen",
+        "de": "automobilfachmann-mechatroniker-nfz-spatdienst-a-galliker-altishofen",
         "fr": "specialiste-automobile-ingenieur-mechatronics-nfz-service-tardif-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
@@ -1078,12 +1162,13 @@
         "de": "Automobilfachmann / -mechatroniker NFZ Spätdienst (a)\nUnsere Lastwagen sind eines der wichtigsten Markenzeichen von Galliker. Auf Unterhalt und Reparaturen wird deshalb grossen Wert gelegt. Die meisten Aufgaben werden in-house in unseren modernen Werkstätten durchgeführt.\nZur Ergänzung unseres Teams suchen wir per sofort oder nach Vereinbarung einen Automobilfachmann / -mechatroniker NFZ Spätdienst (a).\nAufgabengebiet\n\n• Spätdienst 13.00 Uhr bis 22.15 Uhr\n• Diagnosearbeiten mit Markenspezifischen Testern\n• Ausführen von Reparatur- & Wartungsarbeiten an diversen Marken\n• Unterstützung der Teamleiter\n• Mithilfe von Pannen- + Abschleppdienst\nAnforderungsprofil\n\n• Gelernter Automobil-Mechatroniker / Automobil-Fachmann\n• Selbständig, zuverlässig, teamfähig, motiviert und flexibel\n• Einwandfreies Deutsch in Wort und Schrift\n• Führerausweis Kat. B / C oder CE oder Bereitschaft diesen zu absolvieren\nAngebot\n\n• Abwechslungsreiche Arbeiten mit den neusten Werkzeugen und Geräten\n• Stets am Puls der neusten Technologie und Digitalisierung\n• Persönliche Entwicklungsmöglichkeiten in einem vielseitigen Unternehmen\n• Kollegiales und engagiertes Team\n• Mehrstunden können kompensiert werden\n• Extra Vergütung für Spätdienst\nHaben wir dein Interesse geweckt?\nDann freuen wir uns auf dein Bewerbungsdossier.\nChristoph Jeannerat, HR Business Partner, Telefon: +41 62 748 82 03.",
         "fr": "Spécialiste automobile / ingénieur mechatronics NFZ Service tardif (a) Nos camions sont l'une des marques les plus importantes de Galliker. Par conséquent, une grande importance est attachée à l'entretien et aux réparations. La plupart des tâches sont effectuées en interne dans nos ateliers modernes. Pour compléter notre équipe, nous recherchons un spécialiste automobile / ingénieur mechatronics NFZ Service tardif (a) sur rendez-vous ou immédiat.\n\n• Service tardif 13h00 à 22h15\n• Travail diagnostique avec des expérimentations spécifiques à la marque\n• Entretien et réparation de différentes marques\n• Soutien des chefs d'équipe\n• Utilisation de la panne + service de remorquage Profil des exigences\n\n• Technicien/spécialiste automobile de la méchamatique automobile\n• Travailleur indépendant, fiable, capable d'équiper, motivé et flexible\n• Allemand impeccable en paroles et en écriture\n• Guide ID Cat. B / C ou CE ou volonté de compléter cette offre\n\n• Un travail varié avec les derniers outils et appareils\n• Toujours au cœur des dernières technologies et de la numérisation\n• Possibilités de développement personnel dans une entreprise polyvalente\n• Équipe collégiale et engagée\n• Des heures supplémentaires peuvent être compensées\n• Compensation supplémentaire pour service tardif Nous avons suscité votre intérêt? Ensuite, nous attendons avec impatience votre dossier d'application. Christoph Jeannerat, HR Business Partner, Téléphone : +41 62 748 82 03."
       },
+      "needsRetranslation": false,
       "location": "Altishofen",
       "canton": "LU",
       "url": "https://apply.refline.ch/878019/0451/pub/11/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:40.185Z",
+      "crawledAt": "2026-11-19T21:20:42.376Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1104,16 +1189,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "externalId": "0451",
+      "previousSlugs": [
+        "automobilfachmann-mechatroniker-nfz-spatdienst-a-galliker-altishofen",
+        "specialista-automotive-ingegnere-meccatronico-nfz-servizio-tardivo-a-galliker-transport-ag-altishofen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "automobilfachmann-mechatroniker-nfz-spatdienst-a-galliker-altishofen",
           "specialista-automotive-ingegnere-meccatronico-nfz-servizio-tardivo-a-galliker-transport-ag-altishofen"
         ]
       },
-      "previousSlugs": [
-        "automobilfachmann-mechatroniker-nfz-spatdienst-a-galliker-altishofen",
-        "specialista-automotive-ingegnere-meccatronico-nfz-servizio-tardivo-a-galliker-transport-ag-altishofen"
-      ],
+      "firstSeenAt": "2026-09-23T23:38:01.757Z",
       "salaryMin": 78500,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -1128,17 +1214,16 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T10:23:40.185Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-23T23:38:01.757Z"
+      "validThrough": "2026-12-19T21:20:42.376Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "galliker-c450121b9d5a",
       "slug": "assistente-automobilistico-specialista-nfz-a-servizio-in-ritardo-galliker-transport-ag-altishofen-4d84c8eca2",
       "slugByLocale": {
-        "de": "automobilassistent-fachmann-nfz-a-spatdienst-galliker-altishofen",
         "it": "assistente-automobilistico-specialista-nfz-a-servizio-in-ritardo-galliker-transport-ag-altishofen-4d84c8eca2",
         "en": "automotive-assistant-specialist-nfz-a-late-service-galliker-transport-ag-altishofen",
+        "de": "automobilassistent-fachmann-nfz-a-spatdienst-galliker-altishofen",
         "fr": "assistant-automobile-specialiste-nfz-a-service-en-retard-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
@@ -1158,12 +1243,13 @@
         "de": "Automobilassistent / -fachmann NFZ (a) Spätdienst\nUnsere Lastwagen sind eines der wichtigsten Markenzeichen von Galliker. Auf Unterhalt und Reparaturen wird deshalb grossen Wert gelegt. Die meisten Aufgaben werden in-house in unseren modernen Werkstätten durchgeführt.\nZur Ergänzung unseres Teams suchen wir per sofort oder nach Vereinbarung einen Automobilassistent / -fachmann NFZ (a) Spätdienst.\nAufgabengebiet\n\n• Spätdienst 13.00 Uhr bis 22.15 Uhr\n• Ausführen von Wartungsarbeiten an diversen Marken\n• Ausführen von kleinen Reparaturen\nAnforderungsprofil\n\n• Gelernter Automobilassistent oder Automobil-Fachmann\n• Selbständig, zuverlässig, teamfähig, motiviert und flexibel\n• Einwandfreies Deutsch in Wort und Schrift\n• Führerausweis Kat. B / C oder CE oder Bereitschaft diesen zu absolvieren\nAngebot\n\n• Abwechslungsreiche Arbeiten mit den neusten Werkzeugen und Geräten\n• Stets am Puls der neusten Technologie und Digitalisierung\n• Persönliche Entwicklungsmöglichkeiten in einem vielseitigen Unternehmen\n• Kollegiales und engagiertes Team\n• Mehrstunden können kompensiert werden\n• Extra Vergütung für Spätdienst\nHaben wir dein Interesse geweckt?\nDann freuen wir uns auf dein Bewerbungsdossier.\nChristoph Jeannerat, HR Business Partner, Telefon: +41 62 748 82 03.",
         "fr": "Assistant automobile / spécialiste NFZ (a) service en retard\nNos camions sont l'une des marques les plus importantes de Galliker. L'entretien et les réparations sont donc d'une grande importance. La plupart des tâches sont effectuées en interne dans nos ateliers modernes.\nPour compléter notre équipe, nous recherchons un assistant automobile / spécialiste NFZ (a) service en retard immédiatement ou sur rendez-vous.\nDomaine d ' activité\n\n• Service en retard 13h00 22h15\n• Réalisation de travaux de maintenance sur différentes marques\n• Effectuer de petites réparations\nProfil des besoins\n\n• Assistant automobile qualifié ou spécialiste de l'automobile\n• Indépendant, fiable, capable de travailler en équipe, motivé et flexible\n• L'allemand impeccable dans la parole et l'écriture\n• Permis de conduire Cat. B / C ou CE ou volonté de le compléter\nOffre\n\n• Travail varié avec les derniers outils et appareils\n• Toujours sur le pouls des dernières technologies et de la numérisation\n• Possibilités de développement personnel dans une entreprise polyvalente\n• Équipe collégiale et dévouée\n• Plus d'heures peuvent être compensées\n• Indemnité supplémentaire pour service en retard\nOn a eu votre intérêt ?\nNous attendons avec impatience votre candidature.\nChristoph Jeannerat, HR Business Partner, téléphone: +41 62 748 82 03."
       },
+      "needsRetranslation": false,
       "location": "Altishofen",
       "canton": "LU",
       "url": "https://apply.refline.ch/878019/0452/pub/8/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:39.810Z",
+      "crawledAt": "2026-11-19T21:20:42.005Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1184,16 +1270,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "externalId": "0452",
+      "previousSlugs": [
+        "automobilassistent-fachmann-nfz-a-spatdienst-galliker-altishofen",
+        "assistente-automobilistico-specialista-nfz-a-servizio-in-ritardo-galliker-transport-ag-altishofen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "automobilassistent-fachmann-nfz-a-spatdienst-galliker-altishofen",
           "assistente-automobilistico-specialista-nfz-a-servizio-in-ritardo-galliker-transport-ag-altishofen"
         ]
       },
-      "previousSlugs": [
-        "automobilassistent-fachmann-nfz-a-spatdienst-galliker-altishofen",
-        "assistente-automobilistico-specialista-nfz-a-servizio-in-ritardo-galliker-transport-ag-altishofen"
-      ],
+      "firstSeenAt": "2026-09-23T23:38:01.370Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -1208,9 +1295,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T10:23:39.810Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-23T23:38:01.370Z"
+      "validThrough": "2026-12-19T21:20:42.005Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "galliker-6a2c770d68de",
@@ -1244,7 +1330,7 @@
       "url": "https://apply.refline.ch/878019/0486/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:39.437Z",
+      "crawledAt": "2026-11-19T21:20:41.637Z",
       "addressLocality": "Schachen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1296,7 +1382,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-12T10:23:39.437Z",
+      "validThrough": "2027-02-11T21:20:41.637Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1330,7 +1416,7 @@
       "url": "https://apply.refline.ch/878019/0456/pub/2/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:37.761Z",
+      "crawledAt": "2026-11-19T21:20:41.266Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1374,7 +1460,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T10:23:37.761Z",
+      "validThrough": "2026-12-19T21:20:41.266Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1409,7 +1495,7 @@
       "url": "https://apply.refline.ch/878019/0459/pub/2/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:37.388Z",
+      "crawledAt": "2026-11-19T21:20:40.895Z",
       "addressLocality": "Jona",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1459,7 +1545,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T10:23:37.388Z",
+      "validThrough": "2026-12-19T21:20:40.895Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1493,7 +1579,7 @@
       "url": "https://apply.refline.ch/878019/0482/pub/2/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:37.016Z",
+      "crawledAt": "2026-11-19T21:20:40.527Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1543,7 +1629,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T10:23:37.016Z",
+      "validThrough": "2027-02-01T21:20:40.527Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1577,7 +1663,7 @@
       "url": "https://apply.refline.ch/878019/0264/pub/3/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:36.642Z",
+      "crawledAt": "2026-11-19T21:20:40.164Z",
       "addressLocality": "Schachen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1623,7 +1709,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T10:23:36.642Z",
+      "validThrough": "2026-12-19T21:20:40.164Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1658,7 +1744,7 @@
       "url": "https://apply.refline.ch/878019/0476/pub/4/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:36.270Z",
+      "crawledAt": "2026-11-19T21:20:39.795Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1708,7 +1794,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-30T10:23:36.270Z",
+      "validThrough": "2027-01-29T21:20:39.795Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1743,7 +1829,7 @@
       "url": "https://apply.refline.ch/878019/0484/pub/2/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:35.897Z",
+      "crawledAt": "2026-11-19T21:20:39.424Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1789,7 +1875,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T10:23:35.897Z",
+      "validThrough": "2027-02-02T21:20:39.424Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1823,7 +1909,7 @@
       "url": "https://apply.refline.ch/878019/0294/pub/3/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:35.463Z",
+      "crawledAt": "2026-11-19T21:20:37.969Z",
       "addressLocality": "Pfungen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1873,7 +1959,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T10:23:35.463Z",
+      "validThrough": "2026-12-19T21:20:37.969Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1908,7 +1994,7 @@
       "url": "https://apply.refline.ch/878019/0445/pub/3/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:35.090Z",
+      "crawledAt": "2026-11-19T21:20:37.600Z",
       "addressLocality": "Jona",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1962,7 +2048,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T10:23:35.090Z",
+      "validThrough": "2026-12-19T21:20:37.600Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1997,7 +2083,7 @@
       "url": "https://apply.refline.ch/878019/0485/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:34.717Z",
+      "crawledAt": "2026-11-19T21:20:37.229Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2047,7 +2133,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T10:23:34.717Z",
+      "validThrough": "2027-02-02T21:20:37.229Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2082,7 +2168,7 @@
       "url": "https://apply.refline.ch/878019/0483/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:34.323Z",
+      "crawledAt": "2026-11-19T21:20:36.856Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2132,7 +2218,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T10:23:34.323Z",
+      "validThrough": "2027-02-02T21:20:36.856Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2167,7 +2253,7 @@
       "url": "https://apply.refline.ch/878019/0477/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:33.951Z",
+      "crawledAt": "2026-11-19T21:20:36.486Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2217,7 +2303,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T10:23:33.951Z",
+      "validThrough": "2027-01-31T21:20:36.486Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2252,7 +2338,7 @@
       "url": "https://apply.refline.ch/878019/0479/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:33.579Z",
+      "crawledAt": "2026-11-19T21:20:36.115Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2302,7 +2388,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T10:23:33.579Z",
+      "validThrough": "2027-01-31T21:20:36.115Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2336,7 +2422,7 @@
       "url": "https://apply.refline.ch/878019/0478/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:33.207Z",
+      "crawledAt": "2026-11-19T21:20:35.750Z",
       "addressLocality": "Pfungen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2386,7 +2472,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T10:23:33.207Z",
+      "validThrough": "2027-01-31T21:20:35.750Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2421,7 +2507,7 @@
       "url": "https://apply.refline.ch/878019/0480/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:32.797Z",
+      "crawledAt": "2026-11-19T21:20:35.379Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2465,7 +2551,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T10:23:32.797Z",
+      "validThrough": "2027-01-31T21:20:35.379Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2500,7 +2586,7 @@
       "url": "https://apply.refline.ch/878019/0471/pub/2/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:32.425Z",
+      "crawledAt": "2026-11-19T21:20:35.009Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2548,7 +2634,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-04T10:23:32.425Z",
+      "validThrough": "2027-01-04T21:20:35.009Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2583,7 +2669,7 @@
       "url": "https://apply.refline.ch/878019/0475/pub/3/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:32.049Z",
+      "crawledAt": "2026-11-19T21:20:34.638Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2637,7 +2723,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-13T10:23:32.049Z",
+      "validThrough": "2027-01-13T21:20:34.638Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2671,7 +2757,7 @@
       "url": "https://apply.refline.ch/878019/0454/pub/7/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:31.676Z",
+      "crawledAt": "2026-11-19T21:20:34.267Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2720,8 +2806,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "felgenlackierer-a-galliker-altishofen",
-          "betriebselektriker-a-galliker-altishofen",
           "electriciens-d-affaires-a-galliker-transport-ag-altishofen",
           "business-electricians-a-galliker-transport-ag-altishofen-effed0",
           "electriciens-d-affaires-a-galliker-transport-ag-altishofen-effed0",
@@ -2739,7 +2823,9 @@
           "vehicle-closer-a-galliker-transport-ag-altishofen",
           "elettricisti-commerciali-a-galliker-transport-ag-altishofen",
           "rim-pittore-a-galliker-transport-ag-altishofen-5a3090",
-          "vehicule-plus-pres-a-galliker-transport-ag-altishofen"
+          "vehicule-plus-pres-a-galliker-transport-ag-altishofen",
+          "felgenlackierer-a-galliker-altishofen",
+          "betriebselektriker-a-galliker-altishofen"
         ],
         "en": [
           "felgenlackierer-a-galliker-transport-ag-altishofen",
@@ -2766,7 +2852,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T10:23:31.676Z",
+      "validThrough": "2026-12-19T21:20:34.267Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2801,7 +2887,7 @@
       "url": "https://apply.refline.ch/878019/0126/pub/34/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:31.282Z",
+      "crawledAt": "2026-11-19T21:20:33.893Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2864,7 +2950,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T10:23:31.282Z",
+      "validThrough": "2026-12-19T21:20:33.893Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2899,7 +2985,7 @@
       "url": "https://apply.refline.ch/878019/0032/pub/29/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:30.907Z",
+      "crawledAt": "2026-11-19T21:20:33.514Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2983,7 +3069,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T10:23:30.907Z",
+      "validThrough": "2026-12-19T21:20:33.514Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3018,7 +3104,7 @@
       "url": "https://apply.refline.ch/878019/0219/pub/21/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:30.533Z",
+      "crawledAt": "2026-11-19T21:20:33.145Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3066,7 +3152,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T10:23:30.533Z",
+      "validThrough": "2026-12-19T21:20:33.145Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3101,7 +3187,7 @@
       "url": "https://apply.refline.ch/878019/0468/pub/4/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:30.160Z",
+      "crawledAt": "2026-11-19T21:20:32.781Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3149,88 +3235,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-24T10:23:30.160Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "galliker-df067a9c1456",
-      "slug": "chauffeur-ce-tour-notturni-a-galliker-transport-ag-mohlin",
-      "slugByLocale": {
-        "it": "chauffeur-ce-tour-notturni-a-galliker-transport-ag-mohlin",
-        "en": "chauffeur-ce-night-tours-a-galliker-transport-ag-mohlin",
-        "de": "chauffeur-ce-nachttouren-a-galliker-mohlin",
-        "fr": "chauffeur-ce-tours-de-nuit-a-galliker-transport-ag-mohlin"
-      },
-      "company": "Galliker Transport AG",
-      "companyKey": "galliker",
-      "companyDomain": "galliker.com",
-      "title": "Chauffeur CE / Nachttouren (a)",
-      "titleByLocale": {
-        "it": "Chauffeur CE / Tour notturni (a)",
-        "en": "Chauffeur CE / Night Tours (a)",
-        "de": "Chauffeur CE / Nachttouren (a)",
-        "fr": "Chauffeur CE / Tours de nuit (a)"
-      },
-      "description": "Chauffeur CE / Nachttouren (a)\n Unsere Niederlassung in Möhlin AG ist ein Kompetenzzentrum für Transport und Logistik innerhalb des nationalen Galliker-Netzwerks. Dank der grenznahen Lage betreiben wir hier den Umschlag von Früchten & Gemüse, Schnittblumen & Pflanzen und etwa den Just-in-Time Service von Automobil-Ersatzteilen.\n Zur Ergänzung unseres Fahrerteams suchen wir motivierte Chauffeure (a).\n Aufgabengebiet\n\n• Durchführen von Kühltransporten mit Sattelzug in der ganzen Schweiz\n• Shuttle-Verkehr zwischen den verschiedenen Gallikerstandorten in der Schweiz\n• Abholungen von Blumen und Pflanzen\n• Einsatz jeweils von Montag bis Freitag mit Arbeitsbeginn zwischen 13.00 und 17.00 Uhr\n Anforderungsprofil\n\n• Führerausweis CE und gültiger Führerqualifizierungsnachweis\n• Zuverlässig, pflichtbewusst, professionell und passioniert\n• Flexibel, zielstrebig und selbständig\n• Freude an einem modernem Fahrzeugpark\n• Sehr gute Deutschkenntnisse, Französisch von Vorteil\n Angebot\n\n• Sorgfältige und gründliche Einarbeitung in das Aufgabengebiet\n• Spannender und abwechslungsreicher Arbeitsplatz mit viel Eigenverantwortung\n• Modernste Fahrzeugtechnologie\n• asa-anerkannte Weiterbildungsstätte für CZV\n Wir bieten dir eine abwechslungsreiche und interessante Tätigkeit in einem zukunftsorientierten und aufgeschlossenen Team.\n Haben wir dein Interesse geweckt?\nDann freuen wir uns auf dein Bewerbungsdossier.\nKevin Trotta, Human Resources, Telefon: +41 61 855 28 63.",
-      "descriptionByLocale": {
-        "it": "Chauffeur CE / Tour notturni (a)\nLa nostra filiale di Möhlin AG è un centro di eccellenza per trasporti e logistica all'interno della rete nazionale Galliker. Grazie alla nostra posizione vicino al confine, gestiamo frutta e verdura, fiori e piante tagliate e forniamo un servizio puntuale per pezzi di ricambio automobilistici.\nPer completare il nostro team di autisti, cerchiamo autisti motivati.\nResponsabilità\n\n• Effettuare trasporti refrigerati con camion semirimorchio in tutta la Svizzera\n• Servizio navetta tra le varie località della Svizzera\n• Ritiro di fiori e piante\n• Assegnazione dal lunedì al venerdì, inizio del lavoro tra le 13:00 e le 17:00.\nProfilo dei requisiti\n\n• Patente di guida CE e certificato valido di qualificazione alla guida\n• Affidabile, coscienzioso, professionale e appassionato\n• Flessibile, determinato e indipendente\n• Divertimento di una flotta di veicoli moderna\n• Ottima conoscenza del tedesco, il francese è un vantaggio\nOfferta\n\n• Una familiarizzazione attenta e approfondita con l'area di responsabilità\n• Ambiente di lavoro entusiasmante e vario, con molta responsabilità personale\n• Tecnologia veicolare all'avanguardia\n• Centro di addestramento riconosciuto dall'ASA per la CZV\nTi offriamo un lavoro vario e interessante in un team orientato al futuro e aperto mentalmente.\nAbbiamo suscitato il tuo interesse?\nAllora attendiamo con interesse il tuo dossier di domanda.\nKevin Trotta, Risorse Umane, Telefono: +41 61 855 28 63.",
-        "en": "Chauffeur CE / Night Tours (a)\nOur branch in Möhlin AG is a centre of excellence for transport and logistics within the national Galliker network. Thanks to our location close to the border, we handle fruit and vegetables, cut flowers and plants and provide just-in-time service for automotive spare parts.\nTo complement our team of drivers, we are looking for motivated chauffeurs.\nResponsibilities\n\n• Carrying out refrigerated transports with semitrailer trucks throughout Switzerland\n• Shuttle service between the various locations in Switzerland\n• Pick-ups of flowers and plants\n• Assignment from Monday to Friday, start of work between 1:00 p.m. and 5:00 p.m.\nRequirements profile\n\n• CE driving licence and valid driver qualification certificate\n• Reliable, conscientious, professional and passionate\n• Flexible, determined and independent\n• Enjoyment of a modern vehicle fleet\n• Very good knowledge of German, French is an advantage\nOffer\n\n• Careful and thorough familiarization with the area of responsibility\n• Exciting and varied workplace with a lot of personal responsibility\n• State-of-the-art vehicle technology\n• asa-recognized training center for CZV\nWe offer you a varied and interesting job in a future-oriented and open-minded team.\nHave we aroused your interest?\nThen we look forward to receiving your application dossier.\nKevin Trotta, Human Resources, Phone: +41 61 855 28 63.",
-        "de": "Chauffeur CE / Nachttouren (a)\nUnsere Niederlassung in Möhlin AG ist ein Kompetenzzentrum für Transport und Logistik innerhalb des nationalen Galliker-Netzwerks. Dank der grenznahen Lage betreiben wir hier den Umschlag von Früchten & Gemüse, Schnittblumen & Pflanzen und etwa den Just-in-Time Service von Automobil-Ersatzteilen.\nZur Ergänzung unseres Fahrerteams suchen wir motivierte Chauffeure (a).\nAufgabengebiet\n\n• Durchführen von Kühltransporten mit Sattelzug in der ganzen Schweiz\n• Shuttle-Verkehr zwischen den verschiedenen Gallikerstandorten in der Schweiz\n• Abholungen von Blumen und Pflanzen\n• Einsatz jeweils von Montag bis Freitag mit Arbeitsbeginn zwischen 13.00 und 17.00 Uhr\nAnforderungsprofil\n\n• Führerausweis CE und gültiger Führerqualifizierungsnachweis\n• Zuverlässig, pflichtbewusst, professionell und passioniert\n• Flexibel, zielstrebig und selbständig\n• Freude an einem modernem Fahrzeugpark\n• Sehr gute Deutschkenntnisse, Französisch von Vorteil\nAngebot\n\n• Sorgfältige und gründliche Einarbeitung in das Aufgabengebiet\n• Spannender und abwechslungsreicher Arbeitsplatz mit viel Eigenverantwortung\n• Modernste Fahrzeugtechnologie\n• asa-anerkannte Weiterbildungsstätte für CZV\nWir bieten dir eine abwechslungsreiche und interessante Tätigkeit in einem zukunftsorientierten und aufgeschlossenen Team.\nHaben wir dein Interesse geweckt?\nDann freuen wir uns auf dein Bewerbungsdossier.\nKevin Trotta, Human Resources, Telefon: +41 61 855 28 63.",
-        "fr": "Chauffeur CE / Visites nocturnes (a)\nNotre agence de Möhlin AG est un centre d'excellence pour le transport et la logistique au sein du réseau national Galliker. Grâce à notre proximité frontalière, nous gérons des fruits et légumes, des fleurs et plantes coupées, et fournissons un service juste à temps pour les pièces détachées automobiles.\nPour compléter notre équipe de chauffeurs, nous recherchons des chauffeurs motivés.\nResponsabilités\n\n• Effectuer des transports réfrigérés avec des semi-remorques à travers toute la Suisse\n• Service de navette entre les différents sites en Suisse\n• Ramassage de fleurs et de plantes\n• Devoir du lundi au vendredi, début du travail entre 13h00 et 17h00.\nProfil des exigences\n\n• Permis de conduire CE et certificat de qualification de conduite valide\n• Fiable, consciencieux, professionnel et passionné\n• Flexible, déterminé et indépendant\n• Plaisir d'une flotte de véhicules moderne\n• Très bonne connaissance de l'allemand, le français est un avantage\nOffre\n\n• Une familiarisation attentive et approfondie avec la zone de responsabilité\n• Un environnement de travail passionnant et varié, avec beaucoup de responsabilités personnelles\n• Technologie de pointe des véhicules\n• Centre de formation reconnu par l'ASA pour la CZV\nNous vous proposons un poste varié et intéressant dans une équipe tournée vers l'avenir et ouverte d'esprit.\nAvons-nous éveillé votre intérêt?\nNous attendons alors avec impatience votre dossier de candidature.\nKevin Trotta, Ressources Humaines, Téléphone : +41 61 855 28 63."
-      },
-      "needsRetranslation": false,
-      "location": "Möhlin",
-      "canton": "AG",
-      "url": "https://apply.refline.ch/878019/0158/pub/12/index.html",
-      "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:29.787Z",
-      "addressLocality": "Möhlin",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4313",
-      "streetAddress": "Bäumlimattstrasse 7",
-      "category": "Autisti / Chauffeur",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Logistica / Trasporti",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2024-09-12T14:30:24.031867+00:00",
-      "postedDate": "2024-09-12T14:30:24.031867+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply.refline.ch/878019/0158/pub/12/index.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "0158",
-      "previousSlugs": [
-        "chauffeur-ce-nachttouren-a-galliker-mohlin",
-        "chauffeur-ce-tour-notturni-a-galliker-transport-ag-mohlin-3896861dd2"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "chauffeur-ce-nachttouren-a-galliker-mohlin",
-          "chauffeur-ce-tour-notturni-a-galliker-transport-ag-mohlin-3896861dd2"
-        ]
-      },
-      "firstSeenAt": "2026-10-24T21:13:05.391Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T10:23:29.787Z",
+      "validThrough": "2026-12-23T21:20:32.781Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3265,7 +3270,7 @@
       "url": "https://apply.refline.ch/878019/0125/pub/18/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:29.414Z",
+      "crawledAt": "2026-11-19T21:20:32.410Z",
       "addressLocality": "Landquart",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -3312,7 +3317,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T10:23:29.414Z",
+      "validThrough": "2026-12-19T21:20:32.410Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3346,7 +3351,7 @@
       "url": "https://apply.refline.ch/878019/0155/pub/2/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:28.970Z",
+      "crawledAt": "2026-11-19T21:20:32.038Z",
       "addressLocality": "Staad",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -3398,7 +3403,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T10:23:28.970Z",
+      "validThrough": "2026-12-19T21:20:32.038Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3432,7 +3437,7 @@
       "url": "https://apply.refline.ch/878019/0204/pub/8/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:27.958Z",
+      "crawledAt": "2026-11-19T21:20:31.669Z",
       "addressLocality": "Staad",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -3478,7 +3483,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T10:23:27.958Z",
+      "validThrough": "2026-12-19T21:20:31.669Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3513,7 +3518,7 @@
       "url": "https://apply.refline.ch/878019/0404/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:27.583Z",
+      "crawledAt": "2026-11-19T21:20:31.299Z",
       "addressLocality": "Schachen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3565,7 +3570,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T10:23:27.583Z",
+      "validThrough": "2026-12-19T21:20:31.299Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3600,7 +3605,7 @@
       "url": "https://apply.refline.ch/878019/0295/pub/12/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:27.211Z",
+      "crawledAt": "2026-11-19T21:20:30.927Z",
       "addressLocality": "Pfungen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3654,7 +3659,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T10:23:27.211Z",
+      "validThrough": "2026-12-19T21:20:30.927Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3689,7 +3694,7 @@
       "url": "https://apply.refline.ch/878019/0474/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:26.836Z",
+      "crawledAt": "2026-11-19T21:20:30.553Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3725,7 +3730,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-13T10:23:26.836Z",
+      "validThrough": "2027-01-12T21:20:30.553Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3760,7 +3765,7 @@
       "url": "https://apply.refline.ch/878019/0472/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:26.462Z",
+      "crawledAt": "2026-11-19T21:20:30.182Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3810,7 +3815,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-10T10:23:26.462Z",
+      "validThrough": "2027-01-10T21:20:30.182Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3845,7 +3850,7 @@
       "url": "https://apply.refline.ch/878019/0178/pub/2/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:26.090Z",
+      "crawledAt": "2026-11-19T21:20:29.811Z",
       "addressLocality": "Pfungen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3891,7 +3896,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T10:23:26.090Z",
+      "validThrough": "2026-12-19T21:20:29.811Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3926,7 +3931,7 @@
       "url": "https://apply.refline.ch/878019/0466/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:25.717Z",
+      "crawledAt": "2026-11-19T21:20:29.439Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3972,7 +3977,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-24T10:23:25.717Z",
+      "validThrough": "2026-12-23T21:20:29.439Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4007,7 +4012,7 @@
       "url": "https://apply.refline.ch/878019/0407/pub/8/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:25.343Z",
+      "crawledAt": "2026-11-19T21:20:27.754Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -4067,7 +4072,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T10:23:25.343Z",
+      "validThrough": "2026-12-19T21:20:27.754Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4102,7 +4107,7 @@
       "url": "https://apply.refline.ch/878019/0409/pub/2/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:24.971Z",
+      "crawledAt": "2026-11-19T21:20:27.383Z",
       "addressLocality": "Schachen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -4146,7 +4151,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T10:23:24.971Z",
+      "validThrough": "2026-12-19T21:20:27.383Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4180,7 +4185,7 @@
       "url": "https://apply.refline.ch/878019/0056/pub/12/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:24.597Z",
+      "crawledAt": "2026-11-19T21:20:27.011Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -4234,7 +4239,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T10:23:24.597Z",
+      "validThrough": "2026-12-19T21:20:27.011Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4268,7 +4273,7 @@
       "url": "https://apply.refline.ch/878019/0458/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:24.221Z",
+      "crawledAt": "2026-11-19T21:20:26.636Z",
       "addressLocality": "Schachen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -4314,7 +4319,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T10:23:24.221Z",
+      "validThrough": "2026-12-19T21:20:26.636Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4349,7 +4354,7 @@
       "url": "https://apply.refline.ch/878019/0457/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:23.843Z",
+      "crawledAt": "2026-11-19T21:20:26.241Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -4393,7 +4398,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T10:23:23.843Z",
+      "validThrough": "2026-12-19T21:20:26.241Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4428,7 +4433,7 @@
       "url": "https://apply.refline.ch/878019/0039/pub/55/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:23.470Z",
+      "crawledAt": "2026-11-19T21:20:25.869Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -4472,7 +4477,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T10:23:23.470Z",
+      "validThrough": "2026-12-19T21:20:25.869Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4507,7 +4512,7 @@
       "url": "https://apply.refline.ch/878019/0042/pub/42/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:23.095Z",
+      "crawledAt": "2026-11-19T21:20:25.498Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -4551,7 +4556,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T10:23:23.095Z",
+      "validThrough": "2026-12-19T21:20:25.498Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4586,7 +4591,7 @@
       "url": "https://apply.refline.ch/878019/0043/pub/38/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:23:22.717Z",
+      "crawledAt": "2026-11-19T21:20:25.125Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -4630,8 +4635,92 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T10:23:22.717Z",
+      "validThrough": "2026-12-19T21:20:25.125Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "galliker-df067a9c1456",
+      "slug": "chauffeur-ce-tour-notturni-a-galliker-transport-ag-mohlin-ed633380af",
+      "slugByLocale": {
+        "it": "chauffeur-ce-tour-notturni-a-galliker-transport-ag-mohlin-ed633380af",
+        "en": "chauffeur-ce-night-tours-a-galliker-transport-ag-mohlin",
+        "de": "chauffeur-ce-nachttouren-a-galliker-mohlin",
+        "fr": "chauffeur-ce-tours-de-nuit-a-galliker-transport-ag-mohlin"
+      },
+      "company": "Galliker Transport AG",
+      "companyKey": "galliker",
+      "companyDomain": "galliker.com",
+      "title": "Chauffeur CE / Nachttouren (a)",
+      "titleByLocale": {
+        "it": "Chauffeur CE / Tour notturni (a)",
+        "en": "Chauffeur CE / Night Tours (a)",
+        "de": "Chauffeur CE / Nachttouren (a)",
+        "fr": "Chauffeur CE / Tours de nuit (a)"
+      },
+      "description": "Chauffeur CE / Nachttouren (a)\n Unsere Niederlassung in Möhlin AG ist ein Kompetenzzentrum für Transport und Logistik innerhalb des nationalen Galliker-Netzwerks. Dank der grenznahen Lage betreiben wir hier den Umschlag von Früchten & Gemüse, Schnittblumen & Pflanzen und etwa den Just-in-Time Service von Automobil-Ersatzteilen.\n Zur Ergänzung unseres Fahrerteams suchen wir motivierte Chauffeure (a).\n Aufgabengebiet\n\n• Durchführen von Kühltransporten mit Sattelzug in der ganzen Schweiz\n• Shuttle-Verkehr zwischen den verschiedenen Gallikerstandorten in der Schweiz\n• Abholungen von Blumen und Pflanzen\n• Einsatz jeweils von Montag bis Freitag mit Arbeitsbeginn zwischen 13.00 und 17.00 Uhr\n Anforderungsprofil\n\n• Führerausweis CE und gültiger Führerqualifizierungsnachweis\n• Zuverlässig, pflichtbewusst, professionell und passioniert\n• Flexibel, zielstrebig und selbständig\n• Freude an einem modernem Fahrzeugpark\n• Sehr gute Deutschkenntnisse, Französisch von Vorteil\n Angebot\n\n• Sorgfältige und gründliche Einarbeitung in das Aufgabengebiet\n• Spannender und abwechslungsreicher Arbeitsplatz mit viel Eigenverantwortung\n• Modernste Fahrzeugtechnologie\n• asa-anerkannte Weiterbildungsstätte für CZV\n Wir bieten dir eine abwechslungsreiche und interessante Tätigkeit in einem zukunftsorientierten und aufgeschlossenen Team.\n Haben wir dein Interesse geweckt?\nDann freuen wir uns auf dein Bewerbungsdossier.\nKevin Trotta, Human Resources, Telefon: +41 61 855 28 63.",
+      "descriptionByLocale": {
+        "it": "Chauffeur CE / Tour notturni (a)\nLa nostra filiale di Möhlin AG è un centro di eccellenza per trasporti e logistica all'interno della rete nazionale Galliker. Grazie alla nostra posizione vicino al confine, gestiamo frutta e verdura, fiori e piante tagliate e forniamo un servizio puntuale per pezzi di ricambio automobilistici.\nPer completare il nostro team di autisti, cerchiamo autisti motivati.\nResponsabilità\n\n• Effettuare trasporti refrigerati con camion semirimorchio in tutta la Svizzera\n• Servizio navetta tra le varie località della Svizzera\n• Ritiro di fiori e piante\n• Assegnazione dal lunedì al venerdì, inizio del lavoro tra le 13:00 e le 17:00.\nProfilo dei requisiti\n\n• Patente di guida CE e certificato valido di qualificazione alla guida\n• Affidabile, coscienzioso, professionale e appassionato\n• Flessibile, determinato e indipendente\n• Divertimento di una flotta di veicoli moderna\n• Ottima conoscenza del tedesco, il francese è un vantaggio\nOfferta\n\n• Una familiarizzazione attenta e approfondita con l'area di responsabilità\n• Ambiente di lavoro entusiasmante e vario, con molta responsabilità personale\n• Tecnologia veicolare all'avanguardia\n• Centro di addestramento riconosciuto dall'ASA per la CZV\nTi offriamo un lavoro vario e interessante in un team orientato al futuro e aperto mentalmente.\nAbbiamo suscitato il tuo interesse?\nAllora attendiamo con interesse il tuo dossier di domanda.\nKevin Trotta, Risorse Umane, Telefono: +41 61 855 28 63.",
+        "en": "Chauffeur CE / Night Tours (a)\nOur branch in Möhlin AG is a centre of excellence for transport and logistics within the national Galliker network. Thanks to our location close to the border, we handle fruit and vegetables, cut flowers and plants and provide just-in-time service for automotive spare parts.\nTo complement our team of drivers, we are looking for motivated chauffeurs.\nResponsibilities\n\n• Carrying out refrigerated transports with semitrailer trucks throughout Switzerland\n• Shuttle service between the various locations in Switzerland\n• Pick-ups of flowers and plants\n• Assignment from Monday to Friday, start of work between 1:00 p.m. and 5:00 p.m.\nRequirements profile\n\n• CE driving licence and valid driver qualification certificate\n• Reliable, conscientious, professional and passionate\n• Flexible, determined and independent\n• Enjoyment of a modern vehicle fleet\n• Very good knowledge of German, French is an advantage\nOffer\n\n• Careful and thorough familiarization with the area of responsibility\n• Exciting and varied workplace with a lot of personal responsibility\n• State-of-the-art vehicle technology\n• asa-recognized training center for CZV\nWe offer you a varied and interesting job in a future-oriented and open-minded team.\nHave we aroused your interest?\nThen we look forward to receiving your application dossier.\nKevin Trotta, Human Resources, Phone: +41 61 855 28 63.",
+        "de": "Chauffeur CE / Nachttouren (a)\nUnsere Niederlassung in Möhlin AG ist ein Kompetenzzentrum für Transport und Logistik innerhalb des nationalen Galliker-Netzwerks. Dank der grenznahen Lage betreiben wir hier den Umschlag von Früchten & Gemüse, Schnittblumen & Pflanzen und etwa den Just-in-Time Service von Automobil-Ersatzteilen.\nZur Ergänzung unseres Fahrerteams suchen wir motivierte Chauffeure (a).\nAufgabengebiet\n\n• Durchführen von Kühltransporten mit Sattelzug in der ganzen Schweiz\n• Shuttle-Verkehr zwischen den verschiedenen Gallikerstandorten in der Schweiz\n• Abholungen von Blumen und Pflanzen\n• Einsatz jeweils von Montag bis Freitag mit Arbeitsbeginn zwischen 13.00 und 17.00 Uhr\nAnforderungsprofil\n\n• Führerausweis CE und gültiger Führerqualifizierungsnachweis\n• Zuverlässig, pflichtbewusst, professionell und passioniert\n• Flexibel, zielstrebig und selbständig\n• Freude an einem modernem Fahrzeugpark\n• Sehr gute Deutschkenntnisse, Französisch von Vorteil\nAngebot\n\n• Sorgfältige und gründliche Einarbeitung in das Aufgabengebiet\n• Spannender und abwechslungsreicher Arbeitsplatz mit viel Eigenverantwortung\n• Modernste Fahrzeugtechnologie\n• asa-anerkannte Weiterbildungsstätte für CZV\nWir bieten dir eine abwechslungsreiche und interessante Tätigkeit in einem zukunftsorientierten und aufgeschlossenen Team.\nHaben wir dein Interesse geweckt?\nDann freuen wir uns auf dein Bewerbungsdossier.\nKevin Trotta, Human Resources, Telefon: +41 61 855 28 63.",
+        "fr": "Chauffeur CE / Visites nocturnes (a)\nNotre agence de Möhlin AG est un centre d'excellence pour le transport et la logistique au sein du réseau national Galliker. Grâce à notre proximité frontalière, nous gérons des fruits et légumes, des fleurs et plantes coupées, et fournissons un service juste à temps pour les pièces détachées automobiles.\nPour compléter notre équipe de chauffeurs, nous recherchons des chauffeurs motivés.\nResponsabilités\n\n• Effectuer des transports réfrigérés avec des semi-remorques à travers toute la Suisse\n• Service de navette entre les différents sites en Suisse\n• Ramassage de fleurs et de plantes\n• Devoir du lundi au vendredi, début du travail entre 13h00 et 17h00.\nProfil des exigences\n\n• Permis de conduire CE et certificat de qualification de conduite valide\n• Fiable, consciencieux, professionnel et passionné\n• Flexible, déterminé et indépendant\n• Plaisir d'une flotte de véhicules moderne\n• Très bonne connaissance de l'allemand, le français est un avantage\nOffre\n\n• Une familiarisation attentive et approfondie avec la zone de responsabilité\n• Un environnement de travail passionnant et varié, avec beaucoup de responsabilités personnelles\n• Technologie de pointe des véhicules\n• Centre de formation reconnu par l'ASA pour la CZV\nNous vous proposons un poste varié et intéressant dans une équipe tournée vers l'avenir et ouverte d'esprit.\nAvons-nous éveillé votre intérêt?\nNous attendons alors avec impatience votre dossier de candidature.\nKevin Trotta, Ressources Humaines, Téléphone : +41 61 855 28 63."
+      },
+      "needsRetranslation": false,
+      "location": "Möhlin",
+      "canton": "AG",
+      "url": "https://apply.refline.ch/878019/0158/pub/12/index.html",
+      "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-19T10:23:29.787Z",
+      "addressLocality": "Möhlin",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4313",
+      "streetAddress": "Bäumlimattstrasse 7",
+      "category": "Autisti / Chauffeur",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Logistica / Trasporti",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2024-09-12T14:30:24.031867+00:00",
+      "postedDate": "2024-09-12T14:30:24.031867+00:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://apply.refline.ch/878019/0158/pub/12/index.html",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "externalId": "0158",
+      "previousSlugs": [
+        "chauffeur-ce-nachttouren-a-galliker-mohlin",
+        "chauffeur-ce-tour-notturni-a-galliker-transport-ag-mohlin-3896861dd2",
+        "chauffeur-ce-tour-notturni-a-galliker-transport-ag-mohlin"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-ce-nachttouren-a-galliker-mohlin",
+          "chauffeur-ce-tour-notturni-a-galliker-transport-ag-mohlin-3896861dd2",
+          "chauffeur-ce-tour-notturni-a-galliker-transport-ag-mohlin"
+        ]
+      },
+      "firstSeenAt": "2026-10-24T21:13:05.391Z",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-19T10:23:29.787Z",
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     },
     {
       "id": "galliker-c4a1e4560d7a",
@@ -4716,7 +4805,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-18T21:16:32.522Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "galliker-917b734e7b60",
@@ -4806,7 +4895,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-18T21:16:29.413Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "galliker-35409cba24dc",
@@ -4896,7 +4985,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-18T21:16:28.969Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "galliker-e015029bf100",
@@ -4984,7 +5073,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-18T21:16:28.003Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "galliker-c313b7dcd508",
@@ -5073,7 +5162,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-18T21:16:27.220Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "galliker-ec0e7d1b24e0",
@@ -5162,7 +5251,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-18T21:16:26.831Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "galliker-1a46e75f7f16",
@@ -5251,7 +5340,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-18T21:16:26.443Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "galliker-fe27c4981311",
@@ -5341,7 +5430,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-18T21:16:26.054Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "galliker-7de7bf746bae",
@@ -5429,7 +5518,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-18T21:16:25.277Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "galliker-b3adfc7dfcde",
@@ -5515,7 +5604,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-18T21:16:24.886Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "galliker-830c075b6482",
@@ -5597,7 +5686,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-18T21:16:23.720Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "galliker-b29101210b9f",
@@ -5679,7 +5768,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-18T21:16:23.322Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "galliker-20c96e31a974",
@@ -5760,7 +5849,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-30T21:16:14.829Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "galliker-affb6a72e726",
@@ -5843,7 +5932,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-18T21:16:11.701Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
