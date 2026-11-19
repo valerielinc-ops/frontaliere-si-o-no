@@ -223,7 +223,10 @@ function cleanWorkdayLocation(raw = '') {
   if (!trimmed) return '';
   if (/\d+\s+location/i.test(trimmed)) return '';
   const noSuffix = trimmed.replace(/,?\s*(switzerland|schweiz|suisse|svizzera)\s*$/i, '').trim();
-  const parts = noSuffix.split(/\s*[-,]\s*/).map((p) => p.trim()).filter(Boolean);
+  // Split only on a comma or a dash used as a spaced qualifier separator;
+  // hyphens inside a locality are part of the name (`Saint-Prex`,
+  // `Yverdon-les-Bains`) and must reach the Swiss locality resolver intact.
+  const parts = noSuffix.split(/\s*,\s*|\s+[-–—]\s+/).map((p) => p.trim()).filter(Boolean);
   if (parts.length === 0) return '';
   for (let index = 0; index < parts.length; index += 1) {
     const p = parts[index];

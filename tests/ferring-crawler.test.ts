@@ -71,6 +71,34 @@ describe('Ferring — source-proven Swiss zero instead of an EMPTY_OK_CRAWLERS e
     expect(runner).toContain("authoritativeSnapshotScope: 'empty-only'");
     expect(EMPTY_OK_CRAWLERS.has('ferring')).toBe(false);
   });
+
+  it('publishes a current St-Prex listing with the tenant spelling', async () => {
+    const roleBody = '<p>Coordinate logistics activities, maintain accurate stock records, support warehouse operations, collaborate with the local team, follow safety procedures, and contribute to continuous improvement. The successful candidate brings care, reliability, communication skills, and a structured approach to daily work. Ferring offers training, a modern workplace, supportive colleagues, and a clear application process.</p>';
+    vi.stubGlobal('fetch', vi.fn(async (_input: unknown, init: any = {}) => {
+      if (init.method === 'POST') {
+        return new Response(JSON.stringify({
+          total: 1,
+          jobPostings: [{
+            title: 'Apprenti.e Logisticien.ne (stockage) CFC',
+            externalPath: '/job/St-Prex-Switzerland/Apprentie-Logisticienne--stockage--CFC_R0038728',
+            locationsText: 'St-Prex, Switzerland',
+          }],
+        }), { status: 200 });
+      }
+      return new Response(JSON.stringify({
+        jobPostingInfo: {
+          location: 'St-Prex, Switzerland',
+          country: { descriptor: 'Switzerland' },
+          jobDescription: roleBody,
+        },
+      }), { status: 200 });
+    }));
+
+    const jobs = await fetchAllFerringJobs();
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]).toMatchObject({ location: 'Saint-Prex', canton: 'VD' });
+  });
 });
 
 
