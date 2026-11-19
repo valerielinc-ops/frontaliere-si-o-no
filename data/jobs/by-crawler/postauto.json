@@ -1,7 +1,7 @@
 {
   "crawlerKey": "postauto",
-  "assembledAt": "2026-11-19T10:10:00.449Z",
-  "runId": "44496239571",
+  "assembledAt": "2026-11-19T21:45:01.982Z",
+  "runId": "44618811249",
   "jobs": [
     {
       "id": "postauto-d95f40df02dd",
@@ -34,7 +34,7 @@
       "url": "https://job.post.ch/default/job/Auxiliaire-ConductriceConducteur-CarPostal-Transport-scolaire%2C-Aubonne/75188-fr_FR",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T10:09:39.160Z",
+      "crawledAt": "2026-11-19T21:44:29.151Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "streetAddress": "Aubonne",
@@ -121,7 +121,7 @@
       "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74963-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:09:37.181Z",
+      "crawledAt": "2026-11-19T21:44:24.628Z",
       "addressLocality": "Brugg AG",
       "addressRegion": "AG",
       "streetAddress": "Brugg AG",
@@ -208,7 +208,7 @@
       "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/75093-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:09:36.217Z",
+      "crawledAt": "2026-11-19T21:44:23.111Z",
       "addressLocality": "Interlaken",
       "addressRegion": "BE",
       "streetAddress": "Interlaken",
@@ -256,6 +256,511 @@
           "@type": "QuantitativeValue",
           "minValue": 68500,
           "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
+    },
+    {
+      "id": "postauto-e96c5afd4743",
+      "slug": "specialista-in-materia-di-sicurezza-nei-trasporti-pubblici-postauto-ag-wallisellen",
+      "slugByLocale": {
+        "it": "specialista-in-materia-di-sicurezza-nei-trasporti-pubblici-postauto-ag-wallisellen",
+        "en": "public-transport-security-specialist-postauto-ag-wallisellen",
+        "de": "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen",
+        "fr": "specialiste-securite-transports-publics-postauto-ag-wallisellen"
+      },
+      "company": "PostAuto AG",
+      "companyKey": "postauto",
+      "companyDomain": "postauto.ch",
+      "title": "Sicherheitsspezialist:in Öffentlicher Verkehr",
+      "titleByLocale": {
+        "it": "Specialista in materia di sicurezza: nei trasporti pubblici",
+        "en": "Public Transport Security Specialist",
+        "de": "Sicherheitsspezialist:in Öffentlicher Verkehr",
+        "fr": "Spécialiste Sécurité Transports Publics"
+      },
+      "description": "In dieser Position verbindest du Kundenservice mit einem sicheren Gespür für anspruchsvolle Situationen. Als Sicherheitsspezialist:in berätst du unsere Fahrgäste mit Herz und Fachwissen und findest auch dann die richtigen Worte, wenn es herausfordernd wird. Bewirb dich jetzt. Mit dir sorgen wir dafür, dass sich unsere Fahrgäste sicher und gut begleitet fühlen.\n\nDas kannst du bewirken\n\n- Du führst im Netz des Zürcher Verkehrsverbunds professionelle Fahrausweiskontrollen für verschiedene Transportunternehmen durch und begegnest den Fahrgästen respektvoll und auf Augenhöhe.\n\n- Bei Auseinandersetzungen oder angespannten Situationen wirkst du deeskalierend und greifst im Rahmen deines Auftrags ein, wenn es die Situation erfordert.\n\n- Du berätst unsere Fahrgäste zu Tarifen, Fahrplan und Anschlüssen und schaffst so positive Erlebnisse.\n\n- Gemeinsam mit deinem Team bist du auf wechselnden Linien unterwegs – auch nachts sowie an Wochenenden und Feiertagen.\n\n- Bei Bedarf unterstützt du dein Team bei zusätzlichen Sicherheitsaufgaben und Spezialeinsätzen.\n\nDas bringst du mit\n\n- Erfahrung im Sicherheitsbereich – oder ausgeprägtes, nachweisbares Deeskalationsgeschick auch ohne Vorerfahrung.\n\n- Für die körperlichen Anforderungen der Einsätze bist du gut vorbereitet. Auch wenn es hektisch wird, bleibst du aufmerksam und handlungsfähig.\n\n- Du gehst offen auf unterschiedliche Fahrgäste zu, beantwortest ihre Fragen und sprichst Konflikte respektvoll an.\n\n- Du bist bereit für unregelmässige Einsätze, auch nachts, an Wochenenden und Feiertagen\n\n- Du besitzt den Führerausweis der Kategorie B.",
+      "descriptionByLocale": {
+        "it": "Sei interessato al tema della sicurezza? Vuoi sostenere PostAuto nell'esecuzione dei controlli dei biglietti di varie compagnie di trasporto pubblico, principalmente nel cantone di Zurigo (Zurich Verkehrsv) e poi applicalo subito perché con te ogni passeggero guiderà con un biglietto valido.\n\nPuoi farlo fare.\n\n- Insieme ai tuoi compagni di squadra: All'interno sei responsabile per l'esecuzione professionale dei controlli dei biglietti e per il mantenimento della sicurezza su molte compagnie di trasporto della rete di trasporto di Zurigo.\n\n- In caso di azioni disturbanti, conflitti o violenze durante la guida passa, si deescalate e intervenire se necessario.\n\n- Esegui un'ampia gamma di attività di sicurezza nel contesto dei controlli dei biglietti e fornisci sicurezza e ordine con la tua presenza.\n\n- Il vostro consiglio competente e amichevole dei nostri passeggeri nei veicoli dei trasporti pubblici è richiesto.\n\n- State contribuendo così a un contributo significativo alla sicurezza delle entrate e dei trasporti pubblici.\n\nPorta questo con te\n\n- Conoscete un apprendistato professionale completato e avete il pass guida cat. B o sono pronti a completarlo.\n\n- Si agisce indipendentemente, hanno poteri assertivi e sono mentalmente e fisicamente resilienti.\n\n- La tua esperienza nel campo della sicurezza ti faciliterà il lavoro quotidiano.\n\n- Apprezzerete i vantaggi degli orari di lavoro irregolari, compresi la domenica e i giorni festivi e di notte e sarete flessibili.\n\n- Come una buona personalità di comunicazione è possibile regolare abilmente nella conversazione. Hai anche un forte orientamento di squadra.\n\n- Le vostre eccellenti competenze tedesche e buone competenze in francese e/o italiano vi aiutano a svolgere questa attività in modo ottimale. Ogni altra lingua straniera è di beneficio.",
+        "en": "Are you interested in the topic of safety? Do you want to support PostAuto in carrying out ticket checks of various public transport companies, mainly in the canton of Zurich (Zurich Verkehrsverbund). Then apply now, because with you every passenger will drive with a valid ticket.\n\nYou Can Make That Do\n\n- Together with your teammates:Inside you are responsible for the professional conduct of ticket checks and the maintenance of safety on many transport companies in the Zurich transport network.\n\n- In the event of disturbing actions, conflicts or violence during driving passes, you deescalate and intervene if necessary.\n\n- You perform a wide range of security tasks in the context of ticket controls and provide security and order with your presence.\n\n- Your competent and friendly advice of our passengers in the vehicles of public transport is asked.\n\n- You are thus contributing to a significant contribution to the security of revenue and public transport.\n\nYou bring this with you\n\n- You know a completed vocational apprenticeship and have the guide pass cat. B or are ready to complete it.\n\n- You act independently, have assertive powers and are mentally and physically resilient.\n\n- Your experience in the security field will make your daily work easier.\n\n- You appreciate the advantages of irregular working hours including Sundays and holidays and at night and you are flexible.\n\n- As a good communication personality you can skillfully adjust in conversation. You also have a strong team orientation.\n\n- Your excellent German skills and good French and/or Italian skills help you to perform this activity optimally. Any other foreign language is of benefit.",
+        "de": "In dieser Position verbindest du Kundenservice mit einem sicheren Gespür für anspruchsvolle Situationen. Als Sicherheitsspezialist:in berätst du unsere Fahrgäste mit Herz und Fachwissen und findest auch dann die richtigen Worte, wenn es herausfordernd wird. Bewirb dich jetzt. Mit dir sorgen wir dafür, dass sich unsere Fahrgäste sicher und gut begleitet fühlen.\n\nDas kannst du bewirken\n\n- Du führst im Netz des Zürcher Verkehrsverbunds professionelle Fahrausweiskontrollen für verschiedene Transportunternehmen durch und begegnest den Fahrgästen respektvoll und auf Augenhöhe.\n\n- Bei Auseinandersetzungen oder angespannten Situationen wirkst du deeskalierend und greifst im Rahmen deines Auftrags ein, wenn es die Situation erfordert.\n\n- Du berätst unsere Fahrgäste zu Tarifen, Fahrplan und Anschlüssen und schaffst so positive Erlebnisse.\n\n- Gemeinsam mit deinem Team bist du auf wechselnden Linien unterwegs – auch nachts sowie an Wochenenden und Feiertagen.\n\n- Bei Bedarf unterstützt du dein Team bei zusätzlichen Sicherheitsaufgaben und Spezialeinsätzen.\n\nDas bringst du mit\n\n- Erfahrung im Sicherheitsbereich – oder ausgeprägtes, nachweisbares Deeskalationsgeschick auch ohne Vorerfahrung.\n\n- Für die körperlichen Anforderungen der Einsätze bist du gut vorbereitet. Auch wenn es hektisch wird, bleibst du aufmerksam und handlungsfähig.\n\n- Du gehst offen auf unterschiedliche Fahrgäste zu, beantwortest ihre Fragen und sprichst Konflikte respektvoll an.\n\n- Du bist bereit für unregelmässige Einsätze, auch nachts, an Wochenenden und Feiertagen\n\n- Du besitzt den Führerausweis der Kategorie B.",
+        "fr": "Vous êtes intéressé par le thème de la sécurité? Voulez-vous soutenir PostAuto dans la réalisation des contrôles de billets de diverses compagnies de transport public, principalement dans le canton de Zurich (Zurich Verkehrsverbund). Puis postuler maintenant, car avec vous chaque passager conduira avec un billet valide.\n\nTu peux faire ça\n\n- Avec vos coéquipiers :Vous êtes à l'intérieur responsable de la conduite professionnelle des contrôles de billets et du maintien de la sécurité sur de nombreuses entreprises de transport du réseau de transport de Zurich.\n\n- En cas d'actions, de conflits ou de violence pendant la conduite, vous désamorcez et intervenez si nécessaire.\n\n- Vous effectuez une large gamme de tâches de sécurité dans le cadre des contrôles de billets et vous assurez la sécurité et l'ordre avec votre présence.\n\n- Vous avez besoin de conseils compétents et amicaux de nos passagers dans les véhicules des transports en commun.\n\n- Vous contribuez ainsi à une contribution significative à la sécurité des revenus et des transports publics.\n\nApporte ça avec toi.\n\n- Vous connaissez un apprentissage professionnel terminé et avez le guide pass cat. B ou êtes prêt à le compléter.\n\n- Vous agissez de manière indépendante, vous avez des pouvoirs d'affirmation et vous êtes mentalement et physiquement résilient.\n\n- Votre expérience dans le domaine de la sécurité vous facilitera le travail quotidien.\n\n- Vous appréciez les avantages des horaires irréguliers de travail, y compris les dimanches et les jours fériés et la nuit et vous êtes flexible.\n\n- En tant que bonne personnalité de communication, vous pouvez vous adapter habilement à la conversation. Vous avez également une forte orientation de l'équipe.\n\n- Vos excellentes compétences en allemand et en français et/ou en italien vous aident à réaliser cette activité de manière optimale."
+      },
+      "location": "Wallisellen",
+      "canton": "ZH",
+      "url": "https://job.post.ch/default/job/Sicherheitsspezialistin-%C3%96ffentlicher-Verkehr/75095-de_DE",
+      "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-19T21:44:21.632Z",
+      "addressLocality": "Wallisellen",
+      "addressRegion": "ZH",
+      "streetAddress": "Wallisellen",
+      "postalCode": "8304",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sicurezza",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Trasporti pubblici / Autobus",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-27",
+      "postedDate": "2026-10-27",
+      "postingDateSource": "reported",
+      "validThrough": "2026-11-26T23:59:59.999Z",
+      "pensum": "60-100%",
+      "applyUrl": "https://job.post.ch/default/job/Sicherheitsspezialistin-%C3%96ffentlicher-Verkehr/75095-de_DE",
+      "jobReqId": "75095",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen"
+        ],
+        "en": [
+          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen"
+        ],
+        "fr": [
+          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen"
+        ]
+      },
+      "firstSeenAt": "2026-10-27T09:58:02.143Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
+    },
+    {
+      "id": "postauto-c9dfc5cd0bb6",
+      "slug": "cambio-di-carriera-come-autista-di-postbus-postauto-ag-sarnen",
+      "slugByLocale": {
+        "it": "cambio-di-carriera-come-autista-di-postbus-postauto-ag-sarnen",
+        "en": "career-changer-as-a-postbus-driver-postauto-ag-sarnen",
+        "de": "quereinsteiger-in-als-postauto-fahrer-in-postauto-sarnen",
+        "fr": "changement-de-carriere-en-tant-que-chauffeur-postbus-postauto-ag-sarnen"
+      },
+      "company": "PostAuto AG",
+      "companyKey": "postauto",
+      "companyDomain": "postauto.ch",
+      "title": "Quereinsteiger:in als PostAuto-Fahrer:in",
+      "titleByLocale": {
+        "it": "Cambio di carriera come autista di PostBus",
+        "en": "Career changer as a PostBus driver",
+        "de": "Quereinsteiger:in als PostAuto-Fahrer:in",
+        "fr": "Changement de carrière en tant que chauffeur PostBus"
+      },
+      "description": "Möchtest du ganz vorne links Platz nehmen und unsere Postautos lenken? Dann lasse dich bei uns als PostAuto-Fahrer:in ausbilden und begleite uns auf unserer Erfolgsgeschichte. Denn mit dir dir bringen wir nicht nur Menschen ans Ziel, sondern sorgen für erstklassigen Service auf der Strasse.\n\nDas kannst du bewirken\n\n- In den ersten vier Monaten erhältst du theoretischen und praktischen Fahrunterricht, um dich optimal auf die Prüfungen der Kategorie D vorzubereiten. Nach erfolgreich absolvierter Prüfung führen wir dich als Fahrer:in auf unseren Linien ein.\n\n- Danach bist du startklar und wir bieten dir eine unbefristete Festanstellung an.\n\n- Im Alltag bringst du dann unsere Fahrgäste sicher und pünktlich von Montag bis Sonntag auf unseren abwechslungsreichen regionalen Linien an ihr Ziel.\n\n- Du bist Gastgeber:in in unseren Postautos und berätst unsere Kundschaft in Tarif- und Fahrplanfragen.\n\n- Als Fahrer:in bewegst du weit mehr als nur dein Fahrzeug - auf der Strasse und im direkten Kundenkontakt schaffst du jeden Tag positive Erlebnisse für unsere Kundschaft.\n\nDas bringst du mit\n\n- Du verfügst über eine Grundausbildung und bist bereit, den Führerausweis der Kategorie D zu erlangen - wir übernehmen die Kosten der Ausbildung!\n\n- Um den Führerausweis der Kategorie D zu erlangen, bringst du den Führerausweis der Kategorie B (mind. 2 Jahre) oder C (mind. 3 Monate) mit.\n\n- Zuverlässigkeit ist eine deiner Stärken, und du schätzt die Abwechslung, die unregelmässige Arbeitszeiten (inkl. Sonn- und Feiertage) mit sich bringen.\n\n- Du verfügst über sehr gute Deutschkenntnisse und bist versiert im Umgang mit digitalen Geräten.\n\nWährend des laufenden Ausbildungsvertrages liegt der Jahresgrundlohn für Quereinsteiger:innen leicht unter dem Ziel Lohn und wird nach erfolgreichem Abschluss angepasst.",
+      "descriptionByLocale": {
+        "it": "Volete sedervi davanti a sinistra e guidare i nostri autobus postali? Allora ti formiamo come autista PostBus:in e ci accompagniamo nella nostra storia di successo. Perché con voi non solo portiamo le persone a destinazione, ma anche garantire il servizio di prima classe sulla strada.\n\nPuoi farlo.\n\n- Nei primi quattro mesi riceverai lezioni di guida teoriche e pratiche per prepararti in modo ottimale agli esami di categoria D. Dopo aver completato con successo l'esame, vi presentiamo come autista: nelle nostre linee.\n\n- Dopo di che siete pronti e vi offriamo un lavoro permanente.\n\n- Nella vita di tutti i giorni portate i nostri passeggeri in modo sicuro e puntualmente da lunedì a domenica sulle nostre varie linee regionali alla loro destinazione.\n\n- Lei è l'ospite: nei nostri autobus postali e consiglia i nostri clienti su questioni tariffarie e orari.\n\n- Come autista: ti muovi molto di più del tuo veicolo - sulla strada e nel contatto diretto con i clienti, crei esperienze positive per i nostri clienti ogni giorno.\n\nLo porti con te.\n\n- Avete una formazione di base e siete pronti ad ottenere la patente di guida di categoria D - copriremo i costi della formazione!\n\n- Per ottenere il titolo di guida di categoria D, portare la categoria B (minimo 2 anni) o C (minimo 3 mesi) patente di guida.\n\n- L'affidabilità è uno dei vostri punti di forza, e apprezzi la varietà che le ore di lavoro irregolari (comprese le domeniche e le festività pubbliche) portano.\n\n- Hai una buona conoscenza del tedesco e sono ben versi nell'uso di dispositivi digitali.\n\nDurante l'attuale contratto di formazione, il salario annuo di base per i partecipanti laterali è leggermente inferiore al salario di destinazione ed è regolato dopo il completamento di successo.",
+        "en": "Would you like to sit at the front left and drive our postal buses? Then let us train you as a PostBus driver:in and accompany us on our success story. Because with you we not only bring people to their destination, but also ensure first-class service on the road.\n\nYou can do that.\n\n- In the first four months, you will receive theoretical and practical driving lessons in order to optimally prepare for the category D exams. After successfully completing the exam, we introduce you as a driver:in on our lines.\n\n- After that you are ready and we offer you a permanent job.\n\n- In everyday life you bring our passengers safely and punctually from Monday to Sunday on our varied regional lines to their destination.\n\n- You are the host: in our post buses and advise our customers on tariff and timetable issues.\n\n- As a driver: you move much more than just your vehicle - on the road and in direct customer contact, you create positive experiences for our customers every day.\n\nYou bring that with you\n\n- You have basic training and are ready to obtain the category D driving licence - we will cover the costs of the training!\n\n- To obtain the category D driving licence, bring the category B (minimum 2 years) or C (minimum 3 months) driving licence.\n\n- Reliability is one of your strengths, and you appreciate the variety that irregular working hours (including Sundays and public holidays) bring.\n\n- You have very good knowledge of German and are well versed in using digital devices.\n\nDuring the current training contract, the basic annual wage for lateral entrants is slightly below the target wage and is adjusted after successful completion.",
+        "de": "Möchtest du ganz vorne links Platz nehmen und unsere Postautos lenken? Dann lasse dich bei uns als PostAuto-Fahrer:in ausbilden und begleite uns auf unserer Erfolgsgeschichte. Denn mit dir dir bringen wir nicht nur Menschen ans Ziel, sondern sorgen für erstklassigen Service auf der Strasse.\n\nDas kannst du bewirken\n\n- In den ersten vier Monaten erhältst du theoretischen und praktischen Fahrunterricht, um dich optimal auf die Prüfungen der Kategorie D vorzubereiten. Nach erfolgreich absolvierter Prüfung führen wir dich als Fahrer:in auf unseren Linien ein.\n\n- Danach bist du startklar und wir bieten dir eine unbefristete Festanstellung an.\n\n- Im Alltag bringst du dann unsere Fahrgäste sicher und pünktlich von Montag bis Sonntag auf unseren abwechslungsreichen regionalen Linien an ihr Ziel.\n\n- Du bist Gastgeber:in in unseren Postautos und berätst unsere Kundschaft in Tarif- und Fahrplanfragen.\n\n- Als Fahrer:in bewegst du weit mehr als nur dein Fahrzeug - auf der Strasse und im direkten Kundenkontakt schaffst du jeden Tag positive Erlebnisse für unsere Kundschaft.\n\nDas bringst du mit\n\n- Du verfügst über eine Grundausbildung und bist bereit, den Führerausweis der Kategorie D zu erlangen - wir übernehmen die Kosten der Ausbildung!\n\n- Um den Führerausweis der Kategorie D zu erlangen, bringst du den Führerausweis der Kategorie B (mind. 2 Jahre) oder C (mind. 3 Monate) mit.\n\n- Zuverlässigkeit ist eine deiner Stärken, und du schätzt die Abwechslung, die unregelmässige Arbeitszeiten (inkl. Sonn- und Feiertage) mit sich bringen.\n\n- Du verfügst über sehr gute Deutschkenntnisse und bist versiert im Umgang mit digitalen Geräten.\n\nWährend des laufenden Ausbildungsvertrages liegt der Jahresgrundlohn für Quereinsteiger:innen leicht unter dem Ziel Lohn und wird nach erfolgreichem Abschluss angepasst.",
+        "fr": "Voulez-vous vous asseoir à l'avant à gauche et conduire nos bus postaux? Laissez-nous alors vous entraîner comme chauffeur PostBus:in et nous accompagner dans notre histoire de réussite. Parce qu'avec vous nous amenons non seulement les gens à destination, mais aussi assurer un service de première classe sur la route.\n\nTu peux le faire.\n\n- Dans les quatre premiers mois, vous recevrez des cours de conduite théoriques et pratiques afin de vous préparer de manière optimale aux examens de catégorie D. Après avoir réussi l'examen, nous vous présentons en tant que pilote: en ligne.\n\n- Après cela, vous êtes prêt et nous vous offrons un emploi permanent.\n\n- Dans la vie quotidienne, vous apportez nos passagers en toute sécurité et ponctuellement du lundi au dimanche sur nos lignes régionales variées à leur destination.\n\n- Vous êtes l'hôte: dans nos bus postaux et conseillez nos clients sur les questions de tarif et d'horaire.\n\n- En tant que conducteur: vous déplacez beaucoup plus que votre véhicule - sur la route et en contact direct avec le client, vous créez des expériences positives pour nos clients chaque jour.\n\nApporte ça avec toi.\n\n- Vous avez une formation de base et êtes prêt à obtenir le permis de conduire de catégorie D - nous allons couvrir les coûts de la formation!\n\n- Pour obtenir le permis de conduire de catégorie D, apportez le permis de conduire de catégorie B (minimum 2 ans) ou C (minimum 3 mois).\n\n- La fiabilité est l'un de vos atouts, et vous appréciez la variété que les heures de travail irrégulières (y compris les dimanches et les jours fériés) apportent.\n\n- Vous avez une très bonne connaissance de l'allemand et êtes bien au courant de l'utilisation des appareils numériques.\n\nPendant le contrat de formation actuel, le salaire annuel de base des entrants latéraux est légèrement inférieur au salaire cible et est ajusté après avoir réussi."
+      },
+      "location": "Sarnen",
+      "canton": "OW",
+      "url": "https://job.post.ch/default/job/Quereinsteigerin-als-PostAuto-Fahrerin/75104-de_DE",
+      "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-19T21:44:18.539Z",
+      "addressLocality": "Sarnen",
+      "addressRegion": "OW",
+      "streetAddress": "Sarnen",
+      "postalCode": "6060",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Autisti / Conducenti",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Trasporti pubblici / Autobus",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-31",
+      "postedDate": "2026-10-31",
+      "postingDateSource": "reported",
+      "validThrough": "2026-11-30T23:59:59.999Z",
+      "pensum": "80-100%",
+      "applyUrl": "https://job.post.ch/default/job/Quereinsteigerin-als-PostAuto-Fahrerin/75104-de_DE",
+      "jobReqId": "75104",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "quereinsteiger-in-als-postauto-fahrer-in-postauto-sarnen",
+        "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-ag-sarnen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "quereinsteiger-in-als-postauto-fahrer-in-postauto-sarnen",
+          "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-ag-sarnen"
+        ],
+        "en": [
+          "quereinsteiger-in-als-postauto-fahrer-in-postauto-sarnen"
+        ],
+        "fr": [
+          "quereinsteiger-in-als-postauto-fahrer-in-postauto-sarnen"
+        ]
+      },
+      "firstSeenAt": "2026-11-01T09:47:16.301Z",
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
+    },
+    {
+      "id": "postauto-b7094063a992",
+      "slug": "autista-postauto-postauto-ag-heiden",
+      "slugByLocale": {
+        "it": "autista-postauto-postauto-ag-heiden",
+        "en": "postauto-driver-postauto-ag-heiden",
+        "de": "postauto-fahrer-in-postauto-heiden",
+        "fr": "conducteur-rice-postauto-postauto-ag-heiden"
+      },
+      "company": "PostAuto AG",
+      "companyKey": "postauto",
+      "companyDomain": "postauto.ch",
+      "title": "PostAuto-Fahrer:in",
+      "titleByLocale": {
+        "it": "Autista PostAuto",
+        "en": "PostAuto Driver",
+        "de": "PostAuto-Fahrer:in",
+        "fr": "Conducteur·rice PostAuto"
+      },
+      "description": "Hast du Freude am persönlichen Kundenkontakt und suchst eine Aufgabe, bei der du eigenständig unterwegs bist? Bringst du eine Qualifikation zum Busfahren mit? Dann suchen wir genau dich, denn mit dir am Steuer kommen unsere Fahrgäste pünktlich und sicher ans Ziel.\n\nDas kannst du bewirken\n\n- Auf unseren abwechslungsreichen regionalen Linien bringst du unsere Fahrgäste von Montag bis Sonntag an ihr Ziel.\n\n- Du bist Gastgeber:in in unseren Postautos und berätst unsere Kundschaft in Tarif- und Fahrplanfragen.\n\n- Der tägliche Kontakt mit deinen Fahrgästen bereichert deinen Alltag mit spannenden Begegnungen und du schaffst positive Erlebnisse für unsere Kundschaft.\n\n- Als Fahrer:in bewegst du weit mehr als nur dein Fahrzeug auf der Strasse. Im direkten Kundenkontakt erlebst du jeden Tag neue und abwechslungsreiche Situationen.\n\n- Du verkaufst Billette und unterstützt unsere Fahrgäste bei Tarif- und Fahrplanfragen.\n\nDas bringst du mit\n\n- Du verfügst über Fahrpraxis im Personentransport und geniesst die Abwechslung, die unregelmässige Arbeitszeiten (inkl. Sonn- und Feiertage) mit sich bringen.\n\n- Für diese Stelle benötigst du einen Führerausweis der Kategorie D und einen gültigen Fahrerqualifizierungsnachweis.\n\n- Zuverlässigkeit und Freude am täglichen Kundenkontakt gehören zu deinen Stärken.\n\n- Du verfügst über gute Deutschkenntnisse und bist versiert im Umgang mit digitalen Geräten.",
+      "descriptionByLocale": {
+        "it": "Ti piace il contatto personale del cliente e stai cercando un compito in cui sei indipendente sulla strada? Porti una qualifica per la guida degli autobus? Allora stiamo cercando esattamente voi, perché con voi al volante i nostri passeggeri arrivano in tempo e in modo sicuro alla loro destinazione.\n\nPuoi farlo.\n\n- Nelle nostre varie linee regionali porti i nostri passeggeri a destinazione da lunedì a domenica.\n\n- Lei è l'ospite: nei nostri autobus postali e consiglia i nostri clienti su questioni tariffarie e orari.\n\n- Il contatto quotidiano con i vostri passeggeri arricchisce la vostra vita quotidiana con incontri emozionanti e crei esperienze positive per i nostri clienti.\n\n- Come autista: ti muovi molto di più del tuo veicolo sulla strada. In contatto diretto con il cliente, si verificano situazioni nuove e varie ogni giorno.\n\n- Si vendono biglietti e supportano i nostri passeggeri con problemi tariffari e orari.\n\nLo porti con te.\n\n- Avete pratica di guida nel trasporto passeggeri e godere della varietà che ore di lavoro irregolari (comprese le domeniche e le festività pubbliche) portare con loro.\n\n- Per questo lavoro, è necessario una licenza del driver di categoria D e un certificato di qualifica del conducente valido.\n\n- Affidabilità e godimento del contatto quotidiano del cliente sono tra i vostri punti di forza.\n\n- Avete una buona conoscenza del tedesco e sono ben versi nell'uso di dispositivi digitali.",
+        "en": "Do you enjoy personal customer contact and are looking for a task where you are independently on the road? Do you bring a qualification for bus driving? Then we are looking for exactly you, because with you at the wheel our passengers arrive on time and safely to their destination.\n\nYou can do that.\n\n- On our varied regional lines you bring our passengers to their destination from Monday to Sunday.\n\n- You are the host: in our post buses and advise our customers on tariff and timetable issues.\n\n- The daily contact with your passengers enriches your everyday life with exciting encounters and you create positive experiences for our customers.\n\n- As a driver: you move much more than just your vehicle on the road. In direct customer contact, you experience new and varied situations every day.\n\n- You sell tickets and support our passengers with tariff and timetable issues.\n\nYou bring that with you\n\n- You have driving practice in passenger transport and enjoy the variety that irregular working hours (including Sundays and public holidays) bring with them.\n\n- For this job, you need a category D driver’s license and a valid driver qualification certificate.\n\n- Reliability and enjoyment of daily customer contact are among your strengths.\n\n- You have a good knowledge of German and are well versed in using digital devices.",
+        "de": "Hast du Freude am persönlichen Kundenkontakt und suchst eine Aufgabe, bei der du eigenständig unterwegs bist? Bringst du eine Qualifikation zum Busfahren mit? Dann suchen wir genau dich, denn mit dir am Steuer kommen unsere Fahrgäste pünktlich und sicher ans Ziel.\n\nDas kannst du bewirken\n\n- Auf unseren abwechslungsreichen regionalen Linien bringst du unsere Fahrgäste von Montag bis Sonntag an ihr Ziel.\n\n- Du bist Gastgeber:in in unseren Postautos und berätst unsere Kundschaft in Tarif- und Fahrplanfragen.\n\n- Der tägliche Kontakt mit deinen Fahrgästen bereichert deinen Alltag mit spannenden Begegnungen und du schaffst positive Erlebnisse für unsere Kundschaft.\n\n- Als Fahrer:in bewegst du weit mehr als nur dein Fahrzeug auf der Strasse. Im direkten Kundenkontakt erlebst du jeden Tag neue und abwechslungsreiche Situationen.\n\n- Du verkaufst Billette und unterstützt unsere Fahrgäste bei Tarif- und Fahrplanfragen.\n\nDas bringst du mit\n\n- Du verfügst über Fahrpraxis im Personentransport und geniesst die Abwechslung, die unregelmässige Arbeitszeiten (inkl. Sonn- und Feiertage) mit sich bringen.\n\n- Für diese Stelle benötigst du einen Führerausweis der Kategorie D und einen gültigen Fahrerqualifizierungsnachweis.\n\n- Zuverlässigkeit und Freude am täglichen Kundenkontakt gehören zu deinen Stärken.\n\n- Du verfügst über gute Deutschkenntnisse und bist versiert im Umgang mit digitalen Geräten.",
+        "fr": "Vous aimez les contacts personnels avec les clients et recherchez une tâche où vous êtes en toute indépendance sur la route? Apportez-vous une qualification pour la conduite en autobus ? Ensuite, nous cherchons exactement vous, car avec vous au volant nos passagers arrivent à temps et en toute sécurité à leur destination.\n\nTu peux le faire.\n\n- Sur nos lignes régionales variées, vous apportez nos passagers à leur destination du lundi au dimanche.\n\n- Vous êtes l'hôte: dans nos bus postaux et conseillez nos clients sur les questions de tarif et d'horaire.\n\n- Le contact quotidien avec vos passagers enrichit votre vie quotidienne de rencontres passionnantes et vous créez des expériences positives pour nos clients.\n\n- En tant que conducteur, vous déplacez beaucoup plus que votre véhicule sur la route. En contact direct avec le client, vous ressentez chaque jour des situations nouvelles et variées.\n\n- Vous vendez des billets et soutenez nos passagers avec des questions de tarif et de calendrier.\n\nApporte ça avec toi.\n\n- Vous pratiquez la conduite dans le transport de passagers et profitez de la variété que les horaires de travail irréguliers (y compris le dimanche et les jours fériés) apportent avec eux.\n\n- Pour ce travail, vous avez besoin d'un permis de conduire de catégorie D et d'un certificat de qualification de conducteur valide.\n\n- Fiabilité et plaisir du contact quotidien avec le client sont parmi vos points forts.\n\n- Vous avez une bonne connaissance de l'allemand et vous connaissez bien l'utilisation des appareils numériques."
+      },
+      "location": "Heiden",
+      "canton": "AR",
+      "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/75144-de_DE",
+      "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-19T21:44:17.026Z",
+      "addressLocality": "Heiden",
+      "addressRegion": "AR",
+      "streetAddress": "Heiden",
+      "postalCode": "9410",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Autisti / Conducenti",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Trasporti pubblici / Autobus",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-02",
+      "postedDate": "2026-11-02",
+      "postingDateSource": "reported",
+      "validThrough": "2026-12-01T23:59:59.999Z",
+      "pensum": "80-100%",
+      "applyUrl": "https://job.post.ch/default/job/PostAuto-Fahrerin/75144-de_DE",
+      "jobReqId": "75144",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "postauto-fahrer-in-postauto-heiden"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "postauto-fahrer-in-postauto-heiden"
+        ],
+        "en": [
+          "postauto-fahrer-in-postauto-heiden"
+        ],
+        "fr": [
+          "postauto-fahrer-in-postauto-heiden"
+        ]
+      },
+      "firstSeenAt": "2026-11-02T11:26:47.327Z",
+      "salaryMin": 65000,
+      "salaryMax": 98500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 65000,
+          "maxValue": 98500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
+    },
+    {
+      "id": "postauto-9e66d50ec27c",
+      "slug": "autista-di-postauto-postauto-ag-bad-ragaz",
+      "slugByLocale": {
+        "it": "autista-di-postauto-postauto-ag-bad-ragaz",
+        "en": "postauto-driver-postauto-ag-bad-ragaz",
+        "de": "postauto-fahrer-in-postauto-bad-ragaz",
+        "fr": "conducteur-trice-postauto-postauto-ag-bad-ragaz"
+      },
+      "company": "PostAuto AG",
+      "companyKey": "postauto",
+      "companyDomain": "postauto.ch",
+      "title": "PostAuto-Fahrer:in",
+      "titleByLocale": {
+        "it": "Autista di PostAuto",
+        "en": "PostAuto driver",
+        "de": "PostAuto-Fahrer:in",
+        "fr": "Conducteur/trice PostAuto"
+      },
+      "description": "Hast du Freude am persönlichen Kundenkontakt und suchst eine Aufgabe, bei der du eigenständig unterwegs bist? Bringst du eine Qualifikation zum Busfahren mit? Dann suchen wir genau dich, denn mit dir am Steuer kommen unsere Fahrgäste pünktlich und sicher ans Ziel.\n\nDas kannst du bewirken\n\n- Auf unseren abwechslungsreichen regionalen Linien bringst du unsere Fahrgäste von Montag bis Sonntag an ihr Ziel.\n\n- Du bist Gastgeber:in in unseren Postautos und berätst unsere Kundschaft in Tarif- und Fahrplanfragen.\n\n- Der tägliche Kontakt mit deinen Fahrgästen bereichert deinen Alltag mit spannenden Begegnungen und du schaffst positive Erlebnisse für unsere Kundschaft.\n\n- Als Fahrer:in bewegst du weit mehr als nur dein Fahrzeug auf der Strasse. Im direkten Kundenkontakt erlebst du jeden Tag neue und abwechslungsreiche Situationen.\n\n- Du verkaufst Billette und unterstützt unsere Fahrgäste bei Tarif- und Fahrplanfragen.\n\nDas bringst du mit\n\n- Du verfügst über Fahrpraxis im Personentransport und geniesst die Abwechslung, die unregelmässige Arbeitszeiten (inkl. Sonn- und Feiertage) mit sich bringen.\n\n- Für diese Stelle benötigst du einen Führerausweis der Kategorie D und einen gültigen Fahrerqualifizierungsnachweis.\n\n- Zuverlässigkeit und Freude am täglichen Kundenkontakt gehören zu deinen Stärken.\n\n- Du verfügst über gute Deutschkenntnisse und bist versiert im Umgang mit digitalen Geräten.",
+      "descriptionByLocale": {
+        "it": "Ti piace il contatto personale del cliente e stai cercando un compito in cui sei indipendente sulla strada? Porti una qualifica per la guida degli autobus? Allora stiamo cercando esattamente voi, perché con voi al volante i nostri passeggeri arrivano in tempo e in modo sicuro alla loro destinazione.\n\nPuoi farlo.\n\n- Nelle nostre varie linee regionali porti i nostri passeggeri a destinazione da lunedì a domenica.\n\n- Lei è l'ospite: nei nostri autobus postali e consiglia i nostri clienti su questioni tariffarie e orari.\n\n- Il contatto quotidiano con i vostri passeggeri arricchisce la vostra vita quotidiana con incontri emozionanti e crei esperienze positive per i nostri clienti.\n\n- Come autista: ti muovi molto di più del tuo veicolo sulla strada. In contatto diretto con il cliente, si verificano situazioni nuove e varie ogni giorno.\n\n- Si vendono biglietti e supportano i nostri passeggeri con problemi tariffari e orari.\n\nLo porti con te.\n\n- Hai la pratica di guida nel trasporto passeggeri e godere della varietà che ore di lavoro irregolari (comprese le domeniche e festivi) portare con loro.\n\n- Per questo lavoro, è necessario una licenza del driver di categoria D e un certificato di qualifica del conducente valido.\n\n- Affidabilità e godimento del contatto quotidiano del cliente sono tra i vostri punti di forza.\n\n- Avete una buona conoscenza del tedesco e sono ben versi nell'uso di dispositivi digitali.",
+        "en": "Do you enjoy personal customer contact and are looking for a task where you are independently on the road? Do you bring a qualification for bus driving? Then we are looking for exactly you, because with you at the wheel our passengers arrive on time and safely to their destination.\n\nYou can do that.\n\n- On our varied regional lines you bring our passengers to their destination from Monday to Sunday.\n\n- You are the host: in our post buses and advise our customers on tariff and timetable issues.\n\n- The daily contact with your passengers enriches your everyday life with exciting encounters and you create positive experiences for our customers.\n\n- As a driver: you move much more than just your vehicle on the road. In direct customer contact, you experience new and varied situations every day.\n\n- You sell tickets and support our passengers with tariff and timetable issues.\n\nYou bring that with you\n\n- You have driving practice in passenger transport and enjoy the variety that irregular working hours (including Sundays and public holidays) bring with them.\n\n- For this job, you need a category D driver’s license and a valid driver qualification certificate.\n\n- Reliability and enjoyment of daily customer contact are among your strengths.\n\n- You have a good knowledge of German and are well versed in using digital devices.",
+        "de": "Hast du Freude am persönlichen Kundenkontakt und suchst eine Aufgabe, bei der du eigenständig unterwegs bist? Bringst du eine Qualifikation zum Busfahren mit? Dann suchen wir genau dich, denn mit dir am Steuer kommen unsere Fahrgäste pünktlich und sicher ans Ziel.\n\nDas kannst du bewirken\n\n- Auf unseren abwechslungsreichen regionalen Linien bringst du unsere Fahrgäste von Montag bis Sonntag an ihr Ziel.\n\n- Du bist Gastgeber:in in unseren Postautos und berätst unsere Kundschaft in Tarif- und Fahrplanfragen.\n\n- Der tägliche Kontakt mit deinen Fahrgästen bereichert deinen Alltag mit spannenden Begegnungen und du schaffst positive Erlebnisse für unsere Kundschaft.\n\n- Als Fahrer:in bewegst du weit mehr als nur dein Fahrzeug auf der Strasse. Im direkten Kundenkontakt erlebst du jeden Tag neue und abwechslungsreiche Situationen.\n\n- Du verkaufst Billette und unterstützt unsere Fahrgäste bei Tarif- und Fahrplanfragen.\n\nDas bringst du mit\n\n- Du verfügst über Fahrpraxis im Personentransport und geniesst die Abwechslung, die unregelmässige Arbeitszeiten (inkl. Sonn- und Feiertage) mit sich bringen.\n\n- Für diese Stelle benötigst du einen Führerausweis der Kategorie D und einen gültigen Fahrerqualifizierungsnachweis.\n\n- Zuverlässigkeit und Freude am täglichen Kundenkontakt gehören zu deinen Stärken.\n\n- Du verfügst über gute Deutschkenntnisse und bist versiert im Umgang mit digitalen Geräten.",
+        "fr": "Vous aimez les contacts personnels avec les clients et êtes à la recherche d'une tâche où vous êtes indépendant sur la route? Apportez-vous une qualification pour la conduite en autobus ? Ensuite, nous recherchons exactement vous, car avec vous au volant nos passagers arrivent à temps et en toute sécurité à leur destination.\n\nTu peux le faire.\n\n- Sur nos lignes régionales variées, vous amènez nos passagers à destination du lundi au dimanche.\n\n- Vous êtes l'hôte: dans nos bus postaux et conseillez nos clients sur les questions de tarif et d'horaire.\n\n- Le contact quotidien avec vos passagers enrichit votre vie quotidienne de rencontres passionnantes et vous créez des expériences positives pour nos clients.\n\n- En tant que conducteur, vous déplacez beaucoup plus que votre véhicule sur la route. En contact direct avec le client, vous ressentez des situations nouvelles et variées chaque jour.\n\n- Vous vendez des billets et soutenez nos passagers avec des questions de tarif et de calendrier.\n\nApporte ça avec toi.\n\n- Vous pratiquez la conduite dans le transport de voyageurs et profitez de la variété que les horaires irréguliers (y compris le dimanche et les jours fériés) apportent avec eux.\n\n- Pour ce travail, vous avez besoin d'un permis de conduire de catégorie D et d'un certificat de qualification valide.\n\n- La fiabilité et la jouissance du contact quotidien avec le client sont parmi vos points forts.\n\n- Vous avez une bonne connaissance de l'allemand et vous connaissez bien l'utilisation des appareils numériques."
+      },
+      "location": "Bad Ragaz",
+      "canton": "SG",
+      "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/75118-de_DE",
+      "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-19T21:44:15.544Z",
+      "addressLocality": "Bad Ragaz",
+      "addressRegion": "SG",
+      "streetAddress": "Bad Ragaz",
+      "postalCode": "7310",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Autisti / Conducenti",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Trasporti pubblici / Autobus",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-14",
+      "postedDate": "2026-11-14",
+      "postingDateSource": "reported",
+      "validThrough": "2026-12-14T23:59:59.999Z",
+      "pensum": "80-100%",
+      "applyUrl": "https://job.post.ch/default/job/PostAuto-Fahrerin/75118-de_DE",
+      "jobReqId": "75118",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "postauto-fahrer-in-postauto-bad-ragaz"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "postauto-fahrer-in-postauto-bad-ragaz"
+        ],
+        "en": [
+          "postauto-fahrer-in-postauto-bad-ragaz"
+        ],
+        "fr": [
+          "postauto-fahrer-in-postauto-bad-ragaz"
+        ]
+      },
+      "firstSeenAt": "2026-11-15T09:52:42.835Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
+    },
+    {
+      "id": "postauto-ea34851b616b",
+      "slug": "specialista-del-servizio-clienti-incasso-postauto-ag-zurich",
+      "slugByLocale": {
+        "it": "specialista-del-servizio-clienti-incasso-postauto-ag-zurich",
+        "en": "fachspezialist-in-kundenservice-inkasso-postauto-zurich",
+        "de": "fachspezialist-in-kundenservice-inkasso-postauto-zurich",
+        "fr": "fachspezialist-in-kundenservice-inkasso-postauto-zurich"
+      },
+      "company": "PostAuto AG",
+      "companyKey": "postauto",
+      "companyDomain": "postauto.ch",
+      "title": "Fachspezialist:in Kundenservice Inkasso",
+      "titleByLocale": {
+        "it": "Specialista del servizio clienti Incasso",
+        "en": "Customer Service Debt Collection Specialist",
+        "de": "Fachspezialist:in Kundenservice Inkasso",
+        "fr": "Spécialiste du service client – Recouvrement"
+      },
+      "description": "Steht für dich ein positives Kundenerlebnis auch an oberster Stelle? Willst du etwas bewegen und an der Erfolgsgeschichte von PostAuto teilhaben? Dann bist du bei uns im Kundenservice Inkasso genau richtig! Mit dir haben Ausstände keine Chancen. PostAuto AG betreibt für verschiedene Transportunternehmen eine Inkassostelle für Fahren ohne gültigen Fahrausweis, mit entsprechendem Kundendienst.\n\nDas kannst du bewirken\n\n- In dieser spannenden Funktion bearbeitest du anspruchsvolle schriftliche und telefonische Anfragen von Fahrgästen ohne Fahrausweis.\n\n- Du korrespondierst mit internen und externen Kunden und mit Strafverfolgungsbehörden.\n\n- Du vereinbarst Ratenzahlungen, Zahlungsfristverlängerungen und erledigst selbständig den Rechnungs-, Mahn und Betreibungsversand.\n\n- Aktuelle Zahlungseingänge verbuchst du selbständig im SAP und überwachst den täglichen Datentransfer mit anderen Inkassostellen.\n\n- Du übernimmst Spezialaufgaben wie zum Beispiel Einleitungen von Strafanträgen oder hilfst bei der Entwicklung im rechtlichen Inkasso.\n\n- Du bedienst unsere Inkassosoftware NewPink, eSchKG und den digitalen Posteingang.\n\nDas bringst du mit\n\n- Du bringst eine berufliche Grundausbildung im kaufmännischen Bereich oder als Fachfrau oder Fachmann Kundendialog mit.\n\n- Idealerweise konntest du bereits erste Berufserfahrung im öffentlichen Verkehr sammeln.\n\n- Zudem hast du sehr gute zwischenmenschliche und kommunikative Fähigkeiten.Auch in herausfordernden Telefongesprächen lässt du dich nicht aus der Ruhe bringen und bewahrst deine Freundlichkeit und Geduld.\n\n- Du bringst gute MS-Office sowie SAP Kenntnisse mit.\n\n- Du kommunizierst mündlich und schriftlich stilsicher auf Deutsch, Französisch oder Italienisch. Jede weitere Fremdsprache ist von Vorteil.",
+      "descriptionByLocale": {
+        "it": "Un'esperienza di cliente positiva è anche una priorità assoluta per voi? Vuoi fare la differenza e partecipare alla storia di successo di PostBus? Allora hai esattamente ragione con noi nella raccolta del debito del servizio clienti! Non ci sono possibilità con te. PostAuto AG gestisce un'agenzia di raccolta per diverse compagnie di trasporto per la guida senza un biglietto valido, con servizio clienti corrispondente.\n\nPuoi farlo.\n\n- In questa funzione emozionante, elaborerai richieste scritte e telefoniche esigenti da passeggeri senza biglietto.\n\n- Corrisponde a clienti interni ed esterni e alle agenzie di polizia.\n\n- Si organizzano pagamenti di rate, le estensioni di periodo di pagamento e gestire in modo indipendente la fattura, promemoria e spedizione di funzionamento.\n\n- Prenoti pagamenti correnti indipendentemente da SAP e monitori il trasferimento di dati giornaliero con altre agenzie di raccolta.\n\n- Si assume compiti speciali come l'avvio di casi penali o l'aiuto con lo sviluppo della raccolta del debito legale.\n\n- Servite il nostro software di raccolta del debito NewPink, eSchKG e la casella di posta digitale.\n\nLo porti con te.\n\n- Si porta una formazione professionale di base nel settore commerciale o come un dialogo cliente specializzato o esperto.\n\n- Idealmente, si potrebbe già ottenere la vostra prima esperienza professionale nei trasporti pubblici.\n\n- Inoltre, hai ottime capacità interpersonali e comunicative. Anche nelle conversazioni telefoniche impegnative, non vi lascerete uscire dalla pace e mantenere la vostra cordialità e pazienza.\n\n- Porti buone conoscenze MS-Office e SAP.\n\n- Comunichi verbalmente e per iscritto con stile in tedesco, francese o italiano. Qualsiasi altra lingua straniera è benefica.",
+        "en": "Is a positive customer experience also a top priority for you? Do you want to make a difference and participate in the success story of PostBus? Then you are exactly right with us in customer service debt collection! There are no chances with you. PostAuto AG operates a collection agency for various transport companies for driving without a valid ticket, with corresponding customer service.\n\nYou can do that.\n\n- In this exciting function, you will process demanding written and telephone requests from passengers without a ticket.\n\n- You correspond with internal and external customers and with law enforcement agencies.\n\n- You arrange installment payments, payment period extensions and independently handle the invoice, reminder and operation shipping.\n\n- You book current payments independently in SAP and monitor the daily data transfer with other collection agencies.\n\n- You take on special tasks such as initiating criminal cases or helping with the development of legal debt collection.\n\n- You serve our debt collection software NewPink, eSchKG and the digital inbox.\n\nYou bring that with you\n\n- You bring a basic vocational training in the commercial sector or as a specialist or expert customer dialogue.\n\n- Ideally, you could already gain your first professional experience in public transport.\n\n- In addition, you have very good interpersonal and communicative skills.Even in challenging telephone conversations, you will not let yourself get out of peace and maintain your friendliness and patience.\n\n- You bring good MS-Office and SAP knowledge.\n\n- You communicate verbally and in writing stylishly in German, French or Italian. Any other foreign language is beneficial.",
+        "de": "Steht für dich ein positives Kundenerlebnis auch an oberster Stelle? Willst du etwas bewegen und an der Erfolgsgeschichte von PostAuto teilhaben? Dann bist du bei uns im Kundenservice Inkasso genau richtig! Mit dir haben Ausstände keine Chancen. PostAuto AG betreibt für verschiedene Transportunternehmen eine Inkassostelle für Fahren ohne gültigen Fahrausweis, mit entsprechendem Kundendienst.\n\nDas kannst du bewirken\n\n- In dieser spannenden Funktion bearbeitest du anspruchsvolle schriftliche und telefonische Anfragen von Fahrgästen ohne Fahrausweis.\n\n- Du korrespondierst mit internen und externen Kunden und mit Strafverfolgungsbehörden.\n\n- Du vereinbarst Ratenzahlungen, Zahlungsfristverlängerungen und erledigst selbständig den Rechnungs-, Mahn und Betreibungsversand.\n\n- Aktuelle Zahlungseingänge verbuchst du selbständig im SAP und überwachst den täglichen Datentransfer mit anderen Inkassostellen.\n\n- Du übernimmst Spezialaufgaben wie zum Beispiel Einleitungen von Strafanträgen oder hilfst bei der Entwicklung im rechtlichen Inkasso.\n\n- Du bedienst unsere Inkassosoftware NewPink, eSchKG und den digitalen Posteingang.\n\nDas bringst du mit\n\n- Du bringst eine berufliche Grundausbildung im kaufmännischen Bereich oder als Fachfrau oder Fachmann Kundendialog mit.\n\n- Idealerweise konntest du bereits erste Berufserfahrung im öffentlichen Verkehr sammeln.\n\n- Zudem hast du sehr gute zwischenmenschliche und kommunikative Fähigkeiten.Auch in herausfordernden Telefongesprächen lässt du dich nicht aus der Ruhe bringen und bewahrst deine Freundlichkeit und Geduld.\n\n- Du bringst gute MS-Office sowie SAP Kenntnisse mit.\n\n- Du kommunizierst mündlich und schriftlich stilsicher auf Deutsch, Französisch oder Italienisch. Jede weitere Fremdsprache ist von Vorteil.",
+        "fr": "Une expérience client positive est-elle également une priorité pour vous ? Voulez-vous faire une différence et participer à la réussite de PostBus? Alors vous avez exactement raison avec nous dans le service à la clientèle de recouvrement de dettes! Il n'y a aucune chance avec toi. PostAuto AG exploite une agence de collecte pour diverses entreprises de transport pour conduire sans billet valide, avec le service client correspondant.\n\nTu peux le faire.\n\n- Dans cette fonction passionnante, vous traiterez les demandes écrites et téléphoniques exigeantes des passagers sans billet.\n\n- Vous correspondez avec des clients internes et externes et avec des organismes d'application de la loi.\n\n- Vous organisez les paiements d'acompte, les prolongations de délai de paiement et traitez indépendamment la facture, le rappel et l'expédition de l'opération.\n\n- Vous réservez les paiements en cours indépendamment dans SAP et surveillez le transfert quotidien de données avec d'autres agences de collecte.\n\n- Vous assumez des tâches spéciales telles que l'ouverture d'affaires criminelles ou l'aide au développement du recouvrement légal de la dette.\n\n- Vous servez notre logiciel de recouvrement de dettes NewPink, eSchKG et la boîte de réception numérique.\n\nApporte ça avec toi.\n\n- Vous apportez une formation professionnelle de base dans le secteur commercial ou en tant que spécialiste ou expert du dialogue client.\n\n- Idéalement, vous pourriez déjà acquérir votre première expérience professionnelle dans les transports en commun.\n\n- De plus, vous avez de très bonnes compétences interpersonnelles et communicatives. Même dans les conversations téléphoniques difficiles, vous ne vous laisserez pas sortir de la paix et maintenir votre amitié et votre patience.\n\n- Vous apportez de bonnes connaissances MS-Office et SAP.\n\n- Vous communiquez verbalement et par écrit avec style en allemand, français ou italien. Toute autre langue étrangère est bénéfique."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://job.post.ch/default/job/Fachspezialistin-Kundenservice-Inkasso/75246-de_DE",
+      "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-19T21:44:13.955Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "streetAddress": "Zürich",
+      "postalCode": "8001",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Assistenza clienti",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Trasporti pubblici / Autobus",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-17",
+      "postedDate": "2026-11-17",
+      "postingDateSource": "reported",
+      "validThrough": "2026-12-16T23:59:59.999Z",
+      "pensum": "80-100%",
+      "applyUrl": "https://job.post.ch/default/job/Fachspezialistin-Kundenservice-Inkasso/75246-de_DE",
+      "jobReqId": "75246",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "fachspezialist-in-kundenservice-inkasso-postauto-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-in-kundenservice-inkasso-postauto-zurich"
+        ]
+      },
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
+    },
+    {
+      "id": "postauto-7960c793677f",
+      "slug": "responsabile-del-team-personale-viaggiante-postauto-ag-freienbach",
+      "slugByLocale": {
+        "it": "responsabile-del-team-personale-viaggiante-postauto-ag-freienbach",
+        "en": "team-leader-driving-staff-postauto-ag-freienbach",
+        "de": "teamleiter-in-fahrpersonal-postauto-freienbach",
+        "fr": "chef-fe-d-equipe-personnel-de-conduite-postauto-ag-freienbach"
+      },
+      "company": "PostAuto AG",
+      "companyKey": "postauto",
+      "companyDomain": "postauto.ch",
+      "title": "Teamleiter:in Fahrpersonal",
+      "titleByLocale": {
+        "it": "Responsabile del team: personale viaggiante",
+        "en": "Team Leader: Driving Staff",
+        "de": "Teamleiter:in Fahrpersonal",
+        "fr": "Chef·fe d’équipe : personnel de conduite"
+      },
+      "description": "Möchtest du die strategischen Führungsziele mitgestalten und die Weiterentwicklung von PostAuto aktiv vorantreiben? In dieser vielfältigen Rolle führst und entwickelst du dein Fahrpersonal, stellst einen reibungslosen Fahrdienst sicher und koordinierst Anpassungen im Haltestellen- und Baustellenmanagement. PostAuto stellt seine Flotte bis 2035 auf elektrische Antriebe um. Mit deinem Beitrag und deiner vollen Überzeugung trägst du entscheidend dazu bei, dass diese Transformation gelingt.\n\nDas kannst du bewirken\n\n- Du führst, motivierst und entwickelst dein Fahrpersonal, sorgst für ein positives Arbeitsumfeld und stärkst die Leistungsfähigkeit sowie Einsatzbereitschaft deines Teams durch regelmässige Einzelgespräche und Teambesprechungen.\n\n- Du stellst sicher, dass die Personalressourcen für den Fahrdienst termingerecht und in hoher Qualität bereitgestellt werden. Deine Mitarbeitenden begleitest du über den gesamten HR-Lifecycle hinweg – von der Rekrutierung und Einführung über die individuelle Weiterentwicklung bis hin zum Austritt. Auch in herausfordernden Situationen wie Krankheit oder Ausfällen stehst du ihnen unterstützend zur Seite. Relevante Kennzahlen wie Absenzen, Fluktuation und Zeitsaldi hast du stets im Blick und leitest daraus Optimierungsmassnahmen ab.\n\n- Du verantwortest das Funktionieren des Betriebs vor Ort und sorgst für einen reibungslosen Ablauf. Bei Bedarf intervenierst du bei der Leitstelle, deiner Ansprechperson in der Personaldisposition und Betriebsplanung sowie im operativen Flottenmanagement, um eine effiziente und koordinierte Betriebsführung sicherzustellen.\n\n- Du planst und koordinierst Massnahmen im Haltestellen- und Baustellenmanagement, berücksichtigst Umleitungen und Haltestellenänderungen, arbeitest mit internen und externen Partnerinnen und Partnern zusammen und führst das Haltestellenmanagementsystem. Neben deinen Führungsaufgaben übernimmst du selbst Fahrdienste, sei es fix eingeplant oder zur Überbrückung von Engpässen.\n\nDas bringst du mit\n\n- Du verfügst über eine abgeschlossene Berufsausbildung (EFZ) und hast eine Weiterbildung als Führungsfachfrau oder Führungsfachmann mit eidg. Fachausweis oder eine vergleichbare Qualifikation abgeschlossen – oder bist bereit, diese in naher Zukunft zu absolvieren. Führungserfahrung ist ein Plus – aber kein Muss! Wichtig ist uns dein Engagement und deine Bereitschaft, dich in der Führung weiterzuentwickeln.\n\n- Du bringst Erfahrung in Infrastrukturaufgaben (baulich, betrieblich, prozessual) mit und hast ein gutes Verständnis für Sicherheitsaspekte im öffentlichen Raum. Mit deinen Kommunikationsfähigkeiten bringst du Menschen zusammen, führst Dialoge auf Augenhöhe und findest auch in schwierigen Situationen tragfähige Lösungen.\n\n- Du bist konfliktfähig und trittst in Verhandlungen sowie Gesprächen mit Mitarbeitenden, Vorgesetzten, Vertreter:innen der PEKO und/oder Sozialpartner:innen stets professionell und souverän auf.\n\n- Du verfügst über den Führerausweis der Kategorie D oder bist bereit, diesen zu erlangen.\n\n- Du kommunizierst mündlich und schriftlich sehr gut auf Deutsch und verfügst über gute (mündliche) Kenntnisse in einer zweiten Landessprache.",
+      "descriptionByLocale": {
+        "it": "Vuoi contribuire a plasmare gli obiettivi strategici di leadership e promuovere attivamente l'ulteriore sviluppo di PostBus? In questo ruolo diverso, guiderai e svilupperai il tuo personale di guida, garantirai un servizio di guida fluido e coordina le regolazioni nella gestione dei siti di arresto e costruzione. PostBus commuta la sua flotta a unità elettriche entro il 2035. Con il vostro contributo e la vostra piena convinzione, apportate un contributo decisivo al successo di questa trasformazione.\n\nPuoi farlo.\n\n- Guidate, motivate e sviluppate il vostro personale di guida, assicurate un ambiente di lavoro positivo e rafforzate le prestazioni e l'impegno del vostro team attraverso regolari incontri one-on-one e riunioni di squadra.\n\n- Assicurarsi che le risorse del personale di guida sono fornite in tempo e in alta qualità. Accompagnate i vostri dipendenti in tutto il ciclo di vita HR – dal reclutamento e dall'introduzione allo sviluppo e all'uscita individuali. Anche in situazioni difficili come malattie o guasti, li supporta. Hai sempre un occhio sulle cifre chiave rilevanti come assenze, fluttuazioni e bilanciamento del tempo e derivano misure di ottimizzazione da loro.\n\n- Sei responsabile per l'operazione sul sito e assicurarsi che funzioni senza problemi. Se necessario, interverrai con il centro di controllo, il tuo referente nella pianificazione del personale e nella gestione operativa della flotta per garantire una gestione operativa efficiente e coordinata.\n\n- Pianifichi e coordina le misure nella gestione dei siti di arresto e costruzione, consideri diversioni e arresti cambiamenti, lavori con partner interni ed esterni e gestisci il sistema di gestione degli arresti. Oltre ai vostri compiti di gestione, si prende su servizi di guida da soli, se è pianificato o ponte colli di bottiglia.\n\nLo porti con te.\n\n- Ha una formazione professionale completa (EFZ) e ha un'ulteriore formazione come manager o manager con la legge federale. Completato un certificato professionale o una qualifica paragonabile – o sono pronti a completarlo nel prossimo futuro. L'esperienza di leadership è un plus – ma non un must! Ciò che è importante per noi è il vostro impegno e la vostra volontà di sviluppare ulteriormente nella leadership.\n\n- Porti esperienza nei compiti infrastrutturali (costruttivi, operativi, procedurali) e hai una buona comprensione degli aspetti di sicurezza negli spazi pubblici. Con le vostre capacità di comunicazione, riunite le persone, dialogate a livello degli occhi e trovate soluzioni valide anche in situazioni difficili.\n\n- Siete in grado di contrastare e agire sempre professionalmente e sovranamente nei negoziati e nelle discussioni con dipendenti, superiori, rappresentanti di PEKO e/o partner sociali.\n\n- Avete una patente di guida di categoria D o siete pronti per ottenerla.\n\n- Si comunica molto bene per via orale e per iscritto in tedesco e avere buone conoscenze (orali) in una seconda lingua nazionale.",
+        "en": "Do you want to help shape the strategic leadership goals and actively promote the further development of PostBus? In this diverse role, you will lead and develop your driving staff, ensure a smooth driving service and coordinate adjustments in stop and construction site management. PostBus will switch its fleet to electric drives by 2035. With your contribution and your full conviction, you make a decisive contribution to the success of this transformation.\n\nYou can do that.\n\n- You lead, motivate and develop your driving staff, ensure a positive working environment and strengthen the performance and commitment of your team through regular one-on-one meetings and team meetings.\n\n- You ensure that the driving service personnel resources are provided on time and in high quality. You accompany your employees throughout the entire HR lifecycle – from recruitment and introduction to individual development and exit. Even in challenging situations such as illness or failures, you support them. You always have an eye on relevant key figures such as absences, fluctuations and time balance and derive optimization measures from them.\n\n- You are responsible for the operation on site and ensure that it runs smoothly. If necessary, you will intervene with the control centre, your contact person in personnel planning and operational fleet management to ensure efficient and coordinated operational management.\n\n- You plan and coordinate measures in stop and construction site management, consider diversions and stop changes, work with internal and external partners and manage the stop management system. In addition to your management tasks, you take on driving services yourself, whether it is planned or to bridge bottlenecks.\n\nYou bring that with you\n\n- You have a completed vocational training (EFZ) and have a further education as a manager or manager with federal law. Completed a professional certificate or a comparable qualification – or are ready to complete it in the near future. Leadership experience is a plus – but not a must! What is important to us is your commitment and your willingness to develop further in leadership.\n\n- You bring experience in infrastructure tasks (constructive, operational, procedural) and have a good understanding of security aspects in public spaces. With your communication skills, you bring people together, engage in dialogue at eye level and find viable solutions even in difficult situations.\n\n- You are capable of conflict and always act professionally and sovereignly in negotiations and discussions with employees, superiors, representatives of PEKO and/or social partners.\n\n- You have a category D driving licence or are ready to obtain it.\n\n- You communicate very well orally and in writing in German and have good (oral) knowledge in a second national language.",
+        "de": "Möchtest du die strategischen Führungsziele mitgestalten und die Weiterentwicklung von PostAuto aktiv vorantreiben? In dieser vielfältigen Rolle führst und entwickelst du dein Fahrpersonal, stellst einen reibungslosen Fahrdienst sicher und koordinierst Anpassungen im Haltestellen- und Baustellenmanagement. PostAuto stellt seine Flotte bis 2035 auf elektrische Antriebe um. Mit deinem Beitrag und deiner vollen Überzeugung trägst du entscheidend dazu bei, dass diese Transformation gelingt.\n\nDas kannst du bewirken\n\n- Du führst, motivierst und entwickelst dein Fahrpersonal, sorgst für ein positives Arbeitsumfeld und stärkst die Leistungsfähigkeit sowie Einsatzbereitschaft deines Teams durch regelmässige Einzelgespräche und Teambesprechungen.\n\n- Du stellst sicher, dass die Personalressourcen für den Fahrdienst termingerecht und in hoher Qualität bereitgestellt werden. Deine Mitarbeitenden begleitest du über den gesamten HR-Lifecycle hinweg – von der Rekrutierung und Einführung über die individuelle Weiterentwicklung bis hin zum Austritt. Auch in herausfordernden Situationen wie Krankheit oder Ausfällen stehst du ihnen unterstützend zur Seite. Relevante Kennzahlen wie Absenzen, Fluktuation und Zeitsaldi hast du stets im Blick und leitest daraus Optimierungsmassnahmen ab.\n\n- Du verantwortest das Funktionieren des Betriebs vor Ort und sorgst für einen reibungslosen Ablauf. Bei Bedarf intervenierst du bei der Leitstelle, deiner Ansprechperson in der Personaldisposition und Betriebsplanung sowie im operativen Flottenmanagement, um eine effiziente und koordinierte Betriebsführung sicherzustellen.\n\n- Du planst und koordinierst Massnahmen im Haltestellen- und Baustellenmanagement, berücksichtigst Umleitungen und Haltestellenänderungen, arbeitest mit internen und externen Partnerinnen und Partnern zusammen und führst das Haltestellenmanagementsystem. Neben deinen Führungsaufgaben übernimmst du selbst Fahrdienste, sei es fix eingeplant oder zur Überbrückung von Engpässen.\n\nDas bringst du mit\n\n- Du verfügst über eine abgeschlossene Berufsausbildung (EFZ) und hast eine Weiterbildung als Führungsfachfrau oder Führungsfachmann mit eidg. Fachausweis oder eine vergleichbare Qualifikation abgeschlossen – oder bist bereit, diese in naher Zukunft zu absolvieren. Führungserfahrung ist ein Plus – aber kein Muss! Wichtig ist uns dein Engagement und deine Bereitschaft, dich in der Führung weiterzuentwickeln.\n\n- Du bringst Erfahrung in Infrastrukturaufgaben (baulich, betrieblich, prozessual) mit und hast ein gutes Verständnis für Sicherheitsaspekte im öffentlichen Raum. Mit deinen Kommunikationsfähigkeiten bringst du Menschen zusammen, führst Dialoge auf Augenhöhe und findest auch in schwierigen Situationen tragfähige Lösungen.\n\n- Du bist konfliktfähig und trittst in Verhandlungen sowie Gesprächen mit Mitarbeitenden, Vorgesetzten, Vertreter:innen der PEKO und/oder Sozialpartner:innen stets professionell und souverän auf.\n\n- Du verfügst über den Führerausweis der Kategorie D oder bist bereit, diesen zu erlangen.\n\n- Du kommunizierst mündlich und schriftlich sehr gut auf Deutsch und verfügst über gute (mündliche) Kenntnisse in einer zweiten Landessprache.",
+        "fr": "Voulez-vous aider à façonner les objectifs stratégiques de leadership et promouvoir activement le développement de PostBus? Dans ce rôle diversifié, vous dirigerez et développerez votre personnel de conduite, assurerez un service de conduite en douceur et coordonnerez les ajustements dans la gestion des arrêts et des chantiers de construction. PostBus changera sa flotte en entraînements électriques d'ici 2035. Avec votre contribution et votre conviction, vous contribuez de façon décisive au succès de cette transformation.\n\nTu peux le faire.\n\n- Vous dirigez, motivez et développez votre personnel de conduite, assurez un environnement de travail positif et renforcez le rendement et l'engagement de votre équipe grâce à des réunions individuelles et des réunions d'équipe régulières.\n\n- Vous assurez que les ressources en personnel du service de conduite sont fournies à temps et en haute qualité. Vous accompagnez vos employés tout au long du cycle de vie des RH – du recrutement et de l'introduction au développement individuel et à la sortie. Même dans des situations difficiles comme la maladie ou les échecs, vous les soutenez. Vous avez toujours un œil sur les chiffres clés pertinents tels que les absences, les fluctuations et l'équilibre dans le temps et en tirer des mesures d'optimisation.\n\n- Vous êtes responsable de l'opération sur place et vous assurez qu'elle fonctionne bien. Au besoin, vous interviendrez avec le centre de contrôle, votre personne-ressource dans la planification du personnel et la gestion opérationnelle de la flotte afin d'assurer une gestion opérationnelle efficace et coordonnée.\n\n- Vous planifiez et coordonnez les mesures de gestion des arrêts et des chantiers, envisagez les détournements et arrêtez les changements, travaillez avec des partenaires internes et externes et gérez le système de gestion des arrêts. En plus de vos tâches de gestion, vous prenez vous-même les services de conduite, qu'il soit prévu ou de combler les goulets d'étranglement.\n\nApporte ça avec toi.\n\n- Vous avez une formation professionnelle terminée (EFZ) et avez une formation complémentaire en tant que gestionnaire ou gestionnaire en droit fédéral. A complété un certificat professionnel ou une qualification comparable – ou sont prêts à le compléter dans un proche avenir. L'expérience de leadership est un plus – mais pas un must! Ce qui est important pour nous, c'est votre engagement et votre volonté de poursuivre votre leadership.\n\n- Vous apportez de l'expérience dans les tâches d'infrastructure (constructives, opérationnelles, procédurales) et avez une bonne compréhension des aspects de sécurité dans les espaces publics. Avec vos compétences en communication, vous rassemblez les gens, vous engagez dans le dialogue au niveau des yeux et trouvez des solutions viables même dans des situations difficiles.\n\n- Vous êtes capable de conflit et agissez toujours de manière professionnelle et souveraine dans les négociations et les discussions avec les employés, les supérieurs, les représentants de PEKO et/ou les partenaires sociaux.\n\n- Vous avez un permis de conduire de catégorie D ou êtes prêt à l'obtenir.\n\n- Vous communiquez très bien oralement et par écrit en allemand et avez une bonne (orale) connaissance dans une deuxième langue nationale."
+      },
+      "location": "Freienbach",
+      "canton": "SZ",
+      "url": "https://job.post.ch/default/job/Teamleiterin-Fahrpersonal/75248-de_DE",
+      "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-19T21:44:12.508Z",
+      "addressLocality": "Freienbach",
+      "addressRegion": "SZ",
+      "streetAddress": "Freienbach",
+      "postalCode": "8807",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Trasporti pubblici / Autobus",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-18",
+      "postedDate": "2026-11-18",
+      "postingDateSource": "reported",
+      "validThrough": "2026-12-17T23:59:59.999Z",
+      "pensum": "80-100%",
+      "applyUrl": "https://job.post.ch/default/job/Teamleiterin-Fahrpersonal/75248-de_DE",
+      "jobReqId": "75248",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "teamleiter-in-fahrpersonal-postauto-freienbach"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-fahrpersonal-postauto-freienbach"
+        ],
+        "en": [
+          "teamleiter-in-fahrpersonal-postauto-freienbach"
+        ],
+        "fr": [
+          "teamleiter-in-fahrpersonal-postauto-freienbach"
+        ]
+      },
+      "firstSeenAt": "2026-11-18T09:53:17.879Z",
+      "salaryMin": 96000,
+      "salaryMax": 146000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 96000,
+          "maxValue": 146000,
           "unitText": "YEAR"
         }
       },
@@ -345,512 +850,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "source"
-    },
-    {
-      "id": "postauto-e96c5afd4743",
-      "slug": "specialista-in-materia-di-sicurezza-nei-trasporti-pubblici-postauto-ag-wallisellen",
-      "slugByLocale": {
-        "it": "specialista-in-materia-di-sicurezza-nei-trasporti-pubblici-postauto-ag-wallisellen",
-        "en": "public-transport-security-specialist-postauto-ag-wallisellen",
-        "de": "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen",
-        "fr": "specialiste-securite-transports-publics-postauto-ag-wallisellen"
-      },
-      "company": "PostAuto AG",
-      "companyKey": "postauto",
-      "companyDomain": "postauto.ch",
-      "title": "Sicherheitsspezialist:in Öffentlicher Verkehr",
-      "titleByLocale": {
-        "it": "Specialista in materia di sicurezza: nei trasporti pubblici",
-        "en": "Public Transport Security Specialist",
-        "de": "Sicherheitsspezialist:in Öffentlicher Verkehr",
-        "fr": "Spécialiste Sécurité Transports Publics"
-      },
-      "description": "In dieser Position verbindest du Kundenservice mit einem sicheren Gespür für anspruchsvolle Situationen. Als Sicherheitsspezialist:in berätst du unsere Fahrgäste mit Herz und Fachwissen und findest auch dann die richtigen Worte, wenn es herausfordernd wird. Bewirb dich jetzt. Mit dir sorgen wir dafür, dass sich unsere Fahrgäste sicher und gut begleitet fühlen.\n\nDas kannst du bewirken\n\n- Du führst im Netz des Zürcher Verkehrsverbunds professionelle Fahrausweiskontrollen für verschiedene Transportunternehmen durch und begegnest den Fahrgästen respektvoll und auf Augenhöhe.\n\n- Bei Auseinandersetzungen oder angespannten Situationen wirkst du deeskalierend und greifst im Rahmen deines Auftrags ein, wenn es die Situation erfordert.\n\n- Du berätst unsere Fahrgäste zu Tarifen, Fahrplan und Anschlüssen und schaffst so positive Erlebnisse.\n\n- Gemeinsam mit deinem Team bist du auf wechselnden Linien unterwegs – auch nachts sowie an Wochenenden und Feiertagen.\n\n- Bei Bedarf unterstützt du dein Team bei zusätzlichen Sicherheitsaufgaben und Spezialeinsätzen.\n\nDas bringst du mit\n\n- Erfahrung im Sicherheitsbereich – oder ausgeprägtes, nachweisbares Deeskalationsgeschick auch ohne Vorerfahrung.\n\n- Für die körperlichen Anforderungen der Einsätze bist du gut vorbereitet. Auch wenn es hektisch wird, bleibst du aufmerksam und handlungsfähig.\n\n- Du gehst offen auf unterschiedliche Fahrgäste zu, beantwortest ihre Fragen und sprichst Konflikte respektvoll an.\n\n- Du bist bereit für unregelmässige Einsätze, auch nachts, an Wochenenden und Feiertagen\n\n- Du besitzt den Führerausweis der Kategorie B.",
-      "descriptionByLocale": {
-        "it": "Sei interessato al tema della sicurezza? Vuoi sostenere PostAuto nell'esecuzione dei controlli dei biglietti di varie compagnie di trasporto pubblico, principalmente nel cantone di Zurigo (Zurich Verkehrsv) e poi applicalo subito perché con te ogni passeggero guiderà con un biglietto valido.\n\nPuoi farlo fare.\n\n- Insieme ai tuoi compagni di squadra: All'interno sei responsabile per l'esecuzione professionale dei controlli dei biglietti e per il mantenimento della sicurezza su molte compagnie di trasporto della rete di trasporto di Zurigo.\n\n- In caso di azioni disturbanti, conflitti o violenze durante la guida passa, si deescalate e intervenire se necessario.\n\n- Esegui un'ampia gamma di attività di sicurezza nel contesto dei controlli dei biglietti e fornisci sicurezza e ordine con la tua presenza.\n\n- Il vostro consiglio competente e amichevole dei nostri passeggeri nei veicoli dei trasporti pubblici è richiesto.\n\n- State contribuendo così a un contributo significativo alla sicurezza delle entrate e dei trasporti pubblici.\n\nPorta questo con te\n\n- Conoscete un apprendistato professionale completato e avete il pass guida cat. B o sono pronti a completarlo.\n\n- Si agisce indipendentemente, hanno poteri assertivi e sono mentalmente e fisicamente resilienti.\n\n- La tua esperienza nel campo della sicurezza ti faciliterà il lavoro quotidiano.\n\n- Apprezzerete i vantaggi degli orari di lavoro irregolari, compresi la domenica e i giorni festivi e di notte e sarete flessibili.\n\n- Come una buona personalità di comunicazione è possibile regolare abilmente nella conversazione. Hai anche un forte orientamento di squadra.\n\n- Le vostre eccellenti competenze tedesche e buone competenze in francese e/o italiano vi aiutano a svolgere questa attività in modo ottimale. Ogni altra lingua straniera è di beneficio.",
-        "en": "Are you interested in the topic of safety? Do you want to support PostAuto in carrying out ticket checks of various public transport companies, mainly in the canton of Zurich (Zurich Verkehrsverbund). Then apply now, because with you every passenger will drive with a valid ticket.\n\nYou Can Make That Do\n\n- Together with your teammates:Inside you are responsible for the professional conduct of ticket checks and the maintenance of safety on many transport companies in the Zurich transport network.\n\n- In the event of disturbing actions, conflicts or violence during driving passes, you deescalate and intervene if necessary.\n\n- You perform a wide range of security tasks in the context of ticket controls and provide security and order with your presence.\n\n- Your competent and friendly advice of our passengers in the vehicles of public transport is asked.\n\n- You are thus contributing to a significant contribution to the security of revenue and public transport.\n\nYou bring this with you\n\n- You know a completed vocational apprenticeship and have the guide pass cat. B or are ready to complete it.\n\n- You act independently, have assertive powers and are mentally and physically resilient.\n\n- Your experience in the security field will make your daily work easier.\n\n- You appreciate the advantages of irregular working hours including Sundays and holidays and at night and you are flexible.\n\n- As a good communication personality you can skillfully adjust in conversation. You also have a strong team orientation.\n\n- Your excellent German skills and good French and/or Italian skills help you to perform this activity optimally. Any other foreign language is of benefit.",
-        "de": "In dieser Position verbindest du Kundenservice mit einem sicheren Gespür für anspruchsvolle Situationen. Als Sicherheitsspezialist:in berätst du unsere Fahrgäste mit Herz und Fachwissen und findest auch dann die richtigen Worte, wenn es herausfordernd wird. Bewirb dich jetzt. Mit dir sorgen wir dafür, dass sich unsere Fahrgäste sicher und gut begleitet fühlen.\n\nDas kannst du bewirken\n\n- Du führst im Netz des Zürcher Verkehrsverbunds professionelle Fahrausweiskontrollen für verschiedene Transportunternehmen durch und begegnest den Fahrgästen respektvoll und auf Augenhöhe.\n\n- Bei Auseinandersetzungen oder angespannten Situationen wirkst du deeskalierend und greifst im Rahmen deines Auftrags ein, wenn es die Situation erfordert.\n\n- Du berätst unsere Fahrgäste zu Tarifen, Fahrplan und Anschlüssen und schaffst so positive Erlebnisse.\n\n- Gemeinsam mit deinem Team bist du auf wechselnden Linien unterwegs – auch nachts sowie an Wochenenden und Feiertagen.\n\n- Bei Bedarf unterstützt du dein Team bei zusätzlichen Sicherheitsaufgaben und Spezialeinsätzen.\n\nDas bringst du mit\n\n- Erfahrung im Sicherheitsbereich – oder ausgeprägtes, nachweisbares Deeskalationsgeschick auch ohne Vorerfahrung.\n\n- Für die körperlichen Anforderungen der Einsätze bist du gut vorbereitet. Auch wenn es hektisch wird, bleibst du aufmerksam und handlungsfähig.\n\n- Du gehst offen auf unterschiedliche Fahrgäste zu, beantwortest ihre Fragen und sprichst Konflikte respektvoll an.\n\n- Du bist bereit für unregelmässige Einsätze, auch nachts, an Wochenenden und Feiertagen\n\n- Du besitzt den Führerausweis der Kategorie B.",
-        "fr": "Vous êtes intéressé par le thème de la sécurité? Voulez-vous soutenir PostAuto dans la réalisation des contrôles de billets de diverses compagnies de transport public, principalement dans le canton de Zurich (Zurich Verkehrsverbund). Puis postuler maintenant, car avec vous chaque passager conduira avec un billet valide.\n\nTu peux faire ça\n\n- Avec vos coéquipiers :Vous êtes à l'intérieur responsable de la conduite professionnelle des contrôles de billets et du maintien de la sécurité sur de nombreuses entreprises de transport du réseau de transport de Zurich.\n\n- En cas d'actions, de conflits ou de violence pendant la conduite, vous désamorcez et intervenez si nécessaire.\n\n- Vous effectuez une large gamme de tâches de sécurité dans le cadre des contrôles de billets et vous assurez la sécurité et l'ordre avec votre présence.\n\n- Vous avez besoin de conseils compétents et amicaux de nos passagers dans les véhicules des transports en commun.\n\n- Vous contribuez ainsi à une contribution significative à la sécurité des revenus et des transports publics.\n\nApporte ça avec toi.\n\n- Vous connaissez un apprentissage professionnel terminé et avez le guide pass cat. B ou êtes prêt à le compléter.\n\n- Vous agissez de manière indépendante, vous avez des pouvoirs d'affirmation et vous êtes mentalement et physiquement résilient.\n\n- Votre expérience dans le domaine de la sécurité vous facilitera le travail quotidien.\n\n- Vous appréciez les avantages des horaires irréguliers de travail, y compris les dimanches et les jours fériés et la nuit et vous êtes flexible.\n\n- En tant que bonne personnalité de communication, vous pouvez vous adapter habilement à la conversation. Vous avez également une forte orientation de l'équipe.\n\n- Vos excellentes compétences en allemand et en français et/ou en italien vous aident à réaliser cette activité de manière optimale."
-      },
-      "location": "Wallisellen",
-      "canton": "ZH",
-      "url": "https://job.post.ch/default/job/Sicherheitsspezialistin-%C3%96ffentlicher-Verkehr/75095-de_DE",
-      "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:09:34.199Z",
-      "addressLocality": "Wallisellen",
-      "addressRegion": "ZH",
-      "streetAddress": "Wallisellen",
-      "postalCode": "8304",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sicurezza",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Trasporti pubblici / Autobus",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-27",
-      "postedDate": "2026-10-27",
-      "postingDateSource": "reported",
-      "validThrough": "2026-11-26T23:59:59.999Z",
-      "pensum": "60-100%",
-      "applyUrl": "https://job.post.ch/default/job/Sicherheitsspezialistin-%C3%96ffentlicher-Verkehr/75095-de_DE",
-      "jobReqId": "75095",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen"
-        ],
-        "en": [
-          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen"
-        ],
-        "fr": [
-          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen"
-        ]
-      },
-      "firstSeenAt": "2026-10-27T09:58:02.143Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "source"
-    },
-    {
-      "id": "postauto-c9dfc5cd0bb6",
-      "slug": "cambio-di-carriera-come-autista-di-postbus-postauto-ag-sarnen",
-      "slugByLocale": {
-        "it": "cambio-di-carriera-come-autista-di-postbus-postauto-ag-sarnen",
-        "en": "career-changer-as-a-postbus-driver-postauto-ag-sarnen",
-        "de": "quereinsteiger-in-als-postauto-fahrer-in-postauto-sarnen",
-        "fr": "changement-de-carriere-en-tant-que-chauffeur-postbus-postauto-ag-sarnen"
-      },
-      "company": "PostAuto AG",
-      "companyKey": "postauto",
-      "companyDomain": "postauto.ch",
-      "title": "Quereinsteiger:in als PostAuto-Fahrer:in",
-      "titleByLocale": {
-        "it": "Cambio di carriera come autista di PostBus",
-        "en": "Career changer as a PostBus driver",
-        "de": "Quereinsteiger:in als PostAuto-Fahrer:in",
-        "fr": "Changement de carrière en tant que chauffeur PostBus"
-      },
-      "description": "Möchtest du ganz vorne links Platz nehmen und unsere Postautos lenken? Dann lasse dich bei uns als PostAuto-Fahrer:in ausbilden und begleite uns auf unserer Erfolgsgeschichte. Denn mit dir dir bringen wir nicht nur Menschen ans Ziel, sondern sorgen für erstklassigen Service auf der Strasse.\n\nDas kannst du bewirken\n\n- In den ersten vier Monaten erhältst du theoretischen und praktischen Fahrunterricht, um dich optimal auf die Prüfungen der Kategorie D vorzubereiten. Nach erfolgreich absolvierter Prüfung führen wir dich als Fahrer:in auf unseren Linien ein.\n\n- Danach bist du startklar und wir bieten dir eine unbefristete Festanstellung an.\n\n- Im Alltag bringst du dann unsere Fahrgäste sicher und pünktlich von Montag bis Sonntag auf unseren abwechslungsreichen regionalen Linien an ihr Ziel.\n\n- Du bist Gastgeber:in in unseren Postautos und berätst unsere Kundschaft in Tarif- und Fahrplanfragen.\n\n- Als Fahrer:in bewegst du weit mehr als nur dein Fahrzeug - auf der Strasse und im direkten Kundenkontakt schaffst du jeden Tag positive Erlebnisse für unsere Kundschaft.\n\nDas bringst du mit\n\n- Du verfügst über eine Grundausbildung und bist bereit, den Führerausweis der Kategorie D zu erlangen - wir übernehmen die Kosten der Ausbildung!\n\n- Um den Führerausweis der Kategorie D zu erlangen, bringst du den Führerausweis der Kategorie B (mind. 2 Jahre) oder C (mind. 3 Monate) mit.\n\n- Zuverlässigkeit ist eine deiner Stärken, und du schätzt die Abwechslung, die unregelmässige Arbeitszeiten (inkl. Sonn- und Feiertage) mit sich bringen.\n\n- Du verfügst über sehr gute Deutschkenntnisse und bist versiert im Umgang mit digitalen Geräten.\n\nWährend des laufenden Ausbildungsvertrages liegt der Jahresgrundlohn für Quereinsteiger:innen leicht unter dem Ziel Lohn und wird nach erfolgreichem Abschluss angepasst.",
-      "descriptionByLocale": {
-        "it": "Volete sedervi davanti a sinistra e guidare i nostri autobus postali? Allora ti formiamo come autista PostBus:in e ci accompagniamo nella nostra storia di successo. Perché con voi non solo portiamo le persone a destinazione, ma anche garantire il servizio di prima classe sulla strada.\n\nPuoi farlo.\n\n- Nei primi quattro mesi riceverai lezioni di guida teoriche e pratiche per prepararti in modo ottimale agli esami di categoria D. Dopo aver completato con successo l'esame, vi presentiamo come autista: nelle nostre linee.\n\n- Dopo di che siete pronti e vi offriamo un lavoro permanente.\n\n- Nella vita di tutti i giorni portate i nostri passeggeri in modo sicuro e puntualmente da lunedì a domenica sulle nostre varie linee regionali alla loro destinazione.\n\n- Lei è l'ospite: nei nostri autobus postali e consiglia i nostri clienti su questioni tariffarie e orari.\n\n- Come autista: ti muovi molto di più del tuo veicolo - sulla strada e nel contatto diretto con i clienti, crei esperienze positive per i nostri clienti ogni giorno.\n\nLo porti con te.\n\n- Avete una formazione di base e siete pronti ad ottenere la patente di guida di categoria D - copriremo i costi della formazione!\n\n- Per ottenere il titolo di guida di categoria D, portare la categoria B (minimo 2 anni) o C (minimo 3 mesi) patente di guida.\n\n- L'affidabilità è uno dei vostri punti di forza, e apprezzi la varietà che le ore di lavoro irregolari (comprese le domeniche e le festività pubbliche) portano.\n\n- Hai una buona conoscenza del tedesco e sono ben versi nell'uso di dispositivi digitali.\n\nDurante l'attuale contratto di formazione, il salario annuo di base per i partecipanti laterali è leggermente inferiore al salario di destinazione ed è regolato dopo il completamento di successo.",
-        "en": "Would you like to sit at the front left and drive our postal buses? Then let us train you as a PostBus driver:in and accompany us on our success story. Because with you we not only bring people to their destination, but also ensure first-class service on the road.\n\nYou can do that.\n\n- In the first four months, you will receive theoretical and practical driving lessons in order to optimally prepare for the category D exams. After successfully completing the exam, we introduce you as a driver:in on our lines.\n\n- After that you are ready and we offer you a permanent job.\n\n- In everyday life you bring our passengers safely and punctually from Monday to Sunday on our varied regional lines to their destination.\n\n- You are the host: in our post buses and advise our customers on tariff and timetable issues.\n\n- As a driver: you move much more than just your vehicle - on the road and in direct customer contact, you create positive experiences for our customers every day.\n\nYou bring that with you\n\n- You have basic training and are ready to obtain the category D driving licence - we will cover the costs of the training!\n\n- To obtain the category D driving licence, bring the category B (minimum 2 years) or C (minimum 3 months) driving licence.\n\n- Reliability is one of your strengths, and you appreciate the variety that irregular working hours (including Sundays and public holidays) bring.\n\n- You have very good knowledge of German and are well versed in using digital devices.\n\nDuring the current training contract, the basic annual wage for lateral entrants is slightly below the target wage and is adjusted after successful completion.",
-        "de": "Möchtest du ganz vorne links Platz nehmen und unsere Postautos lenken? Dann lasse dich bei uns als PostAuto-Fahrer:in ausbilden und begleite uns auf unserer Erfolgsgeschichte. Denn mit dir dir bringen wir nicht nur Menschen ans Ziel, sondern sorgen für erstklassigen Service auf der Strasse.\n\nDas kannst du bewirken\n\n- In den ersten vier Monaten erhältst du theoretischen und praktischen Fahrunterricht, um dich optimal auf die Prüfungen der Kategorie D vorzubereiten. Nach erfolgreich absolvierter Prüfung führen wir dich als Fahrer:in auf unseren Linien ein.\n\n- Danach bist du startklar und wir bieten dir eine unbefristete Festanstellung an.\n\n- Im Alltag bringst du dann unsere Fahrgäste sicher und pünktlich von Montag bis Sonntag auf unseren abwechslungsreichen regionalen Linien an ihr Ziel.\n\n- Du bist Gastgeber:in in unseren Postautos und berätst unsere Kundschaft in Tarif- und Fahrplanfragen.\n\n- Als Fahrer:in bewegst du weit mehr als nur dein Fahrzeug - auf der Strasse und im direkten Kundenkontakt schaffst du jeden Tag positive Erlebnisse für unsere Kundschaft.\n\nDas bringst du mit\n\n- Du verfügst über eine Grundausbildung und bist bereit, den Führerausweis der Kategorie D zu erlangen - wir übernehmen die Kosten der Ausbildung!\n\n- Um den Führerausweis der Kategorie D zu erlangen, bringst du den Führerausweis der Kategorie B (mind. 2 Jahre) oder C (mind. 3 Monate) mit.\n\n- Zuverlässigkeit ist eine deiner Stärken, und du schätzt die Abwechslung, die unregelmässige Arbeitszeiten (inkl. Sonn- und Feiertage) mit sich bringen.\n\n- Du verfügst über sehr gute Deutschkenntnisse und bist versiert im Umgang mit digitalen Geräten.\n\nWährend des laufenden Ausbildungsvertrages liegt der Jahresgrundlohn für Quereinsteiger:innen leicht unter dem Ziel Lohn und wird nach erfolgreichem Abschluss angepasst.",
-        "fr": "Voulez-vous vous asseoir à l'avant à gauche et conduire nos bus postaux? Laissez-nous alors vous entraîner comme chauffeur PostBus:in et nous accompagner dans notre histoire de réussite. Parce qu'avec vous nous amenons non seulement les gens à destination, mais aussi assurer un service de première classe sur la route.\n\nTu peux le faire.\n\n- Dans les quatre premiers mois, vous recevrez des cours de conduite théoriques et pratiques afin de vous préparer de manière optimale aux examens de catégorie D. Après avoir réussi l'examen, nous vous présentons en tant que pilote: en ligne.\n\n- Après cela, vous êtes prêt et nous vous offrons un emploi permanent.\n\n- Dans la vie quotidienne, vous apportez nos passagers en toute sécurité et ponctuellement du lundi au dimanche sur nos lignes régionales variées à leur destination.\n\n- Vous êtes l'hôte: dans nos bus postaux et conseillez nos clients sur les questions de tarif et d'horaire.\n\n- En tant que conducteur: vous déplacez beaucoup plus que votre véhicule - sur la route et en contact direct avec le client, vous créez des expériences positives pour nos clients chaque jour.\n\nApporte ça avec toi.\n\n- Vous avez une formation de base et êtes prêt à obtenir le permis de conduire de catégorie D - nous allons couvrir les coûts de la formation!\n\n- Pour obtenir le permis de conduire de catégorie D, apportez le permis de conduire de catégorie B (minimum 2 ans) ou C (minimum 3 mois).\n\n- La fiabilité est l'un de vos atouts, et vous appréciez la variété que les heures de travail irrégulières (y compris les dimanches et les jours fériés) apportent.\n\n- Vous avez une très bonne connaissance de l'allemand et êtes bien au courant de l'utilisation des appareils numériques.\n\nPendant le contrat de formation actuel, le salaire annuel de base des entrants latéraux est légèrement inférieur au salaire cible et est ajusté après avoir réussi."
-      },
-      "location": "Sarnen",
-      "canton": "OW",
-      "url": "https://job.post.ch/default/job/Quereinsteigerin-als-PostAuto-Fahrerin/75104-de_DE",
-      "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:09:32.216Z",
-      "addressLocality": "Sarnen",
-      "addressRegion": "OW",
-      "streetAddress": "Sarnen",
-      "postalCode": "6060",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Autisti / Conducenti",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Trasporti pubblici / Autobus",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-31",
-      "postedDate": "2026-10-31",
-      "postingDateSource": "reported",
-      "validThrough": "2026-11-30T23:59:59.999Z",
-      "pensum": "80-100%",
-      "applyUrl": "https://job.post.ch/default/job/Quereinsteigerin-als-PostAuto-Fahrerin/75104-de_DE",
-      "jobReqId": "75104",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "quereinsteiger-in-als-postauto-fahrer-in-postauto-sarnen",
-        "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-ag-sarnen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "quereinsteiger-in-als-postauto-fahrer-in-postauto-sarnen",
-          "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-ag-sarnen"
-        ],
-        "en": [
-          "quereinsteiger-in-als-postauto-fahrer-in-postauto-sarnen"
-        ],
-        "fr": [
-          "quereinsteiger-in-als-postauto-fahrer-in-postauto-sarnen"
-        ]
-      },
-      "firstSeenAt": "2026-11-01T09:47:16.301Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "source"
-    },
-    {
-      "id": "postauto-b7094063a992",
-      "slug": "autista-postauto-postauto-ag-heiden",
-      "slugByLocale": {
-        "it": "autista-postauto-postauto-ag-heiden",
-        "en": "postauto-driver-postauto-ag-heiden",
-        "de": "postauto-fahrer-in-postauto-heiden",
-        "fr": "conducteur-rice-postauto-postauto-ag-heiden"
-      },
-      "company": "PostAuto AG",
-      "companyKey": "postauto",
-      "companyDomain": "postauto.ch",
-      "title": "PostAuto-Fahrer:in",
-      "titleByLocale": {
-        "it": "Autista PostAuto",
-        "en": "PostAuto Driver",
-        "de": "PostAuto-Fahrer:in",
-        "fr": "Conducteur·rice PostAuto"
-      },
-      "description": "Hast du Freude am persönlichen Kundenkontakt und suchst eine Aufgabe, bei der du eigenständig unterwegs bist? Bringst du eine Qualifikation zum Busfahren mit? Dann suchen wir genau dich, denn mit dir am Steuer kommen unsere Fahrgäste pünktlich und sicher ans Ziel.\n\nDas kannst du bewirken\n\n- Auf unseren abwechslungsreichen regionalen Linien bringst du unsere Fahrgäste von Montag bis Sonntag an ihr Ziel.\n\n- Du bist Gastgeber:in in unseren Postautos und berätst unsere Kundschaft in Tarif- und Fahrplanfragen.\n\n- Der tägliche Kontakt mit deinen Fahrgästen bereichert deinen Alltag mit spannenden Begegnungen und du schaffst positive Erlebnisse für unsere Kundschaft.\n\n- Als Fahrer:in bewegst du weit mehr als nur dein Fahrzeug auf der Strasse. Im direkten Kundenkontakt erlebst du jeden Tag neue und abwechslungsreiche Situationen.\n\n- Du verkaufst Billette und unterstützt unsere Fahrgäste bei Tarif- und Fahrplanfragen.\n\nDas bringst du mit\n\n- Du verfügst über Fahrpraxis im Personentransport und geniesst die Abwechslung, die unregelmässige Arbeitszeiten (inkl. Sonn- und Feiertage) mit sich bringen.\n\n- Für diese Stelle benötigst du einen Führerausweis der Kategorie D und einen gültigen Fahrerqualifizierungsnachweis.\n\n- Zuverlässigkeit und Freude am täglichen Kundenkontakt gehören zu deinen Stärken.\n\n- Du verfügst über gute Deutschkenntnisse und bist versiert im Umgang mit digitalen Geräten.",
-      "descriptionByLocale": {
-        "it": "Ti piace il contatto personale del cliente e stai cercando un compito in cui sei indipendente sulla strada? Porti una qualifica per la guida degli autobus? Allora stiamo cercando esattamente voi, perché con voi al volante i nostri passeggeri arrivano in tempo e in modo sicuro alla loro destinazione.\n\nPuoi farlo.\n\n- Nelle nostre varie linee regionali porti i nostri passeggeri a destinazione da lunedì a domenica.\n\n- Lei è l'ospite: nei nostri autobus postali e consiglia i nostri clienti su questioni tariffarie e orari.\n\n- Il contatto quotidiano con i vostri passeggeri arricchisce la vostra vita quotidiana con incontri emozionanti e crei esperienze positive per i nostri clienti.\n\n- Come autista: ti muovi molto di più del tuo veicolo sulla strada. In contatto diretto con il cliente, si verificano situazioni nuove e varie ogni giorno.\n\n- Si vendono biglietti e supportano i nostri passeggeri con problemi tariffari e orari.\n\nLo porti con te.\n\n- Avete pratica di guida nel trasporto passeggeri e godere della varietà che ore di lavoro irregolari (comprese le domeniche e le festività pubbliche) portare con loro.\n\n- Per questo lavoro, è necessario una licenza del driver di categoria D e un certificato di qualifica del conducente valido.\n\n- Affidabilità e godimento del contatto quotidiano del cliente sono tra i vostri punti di forza.\n\n- Avete una buona conoscenza del tedesco e sono ben versi nell'uso di dispositivi digitali.",
-        "en": "Do you enjoy personal customer contact and are looking for a task where you are independently on the road? Do you bring a qualification for bus driving? Then we are looking for exactly you, because with you at the wheel our passengers arrive on time and safely to their destination.\n\nYou can do that.\n\n- On our varied regional lines you bring our passengers to their destination from Monday to Sunday.\n\n- You are the host: in our post buses and advise our customers on tariff and timetable issues.\n\n- The daily contact with your passengers enriches your everyday life with exciting encounters and you create positive experiences for our customers.\n\n- As a driver: you move much more than just your vehicle on the road. In direct customer contact, you experience new and varied situations every day.\n\n- You sell tickets and support our passengers with tariff and timetable issues.\n\nYou bring that with you\n\n- You have driving practice in passenger transport and enjoy the variety that irregular working hours (including Sundays and public holidays) bring with them.\n\n- For this job, you need a category D driver’s license and a valid driver qualification certificate.\n\n- Reliability and enjoyment of daily customer contact are among your strengths.\n\n- You have a good knowledge of German and are well versed in using digital devices.",
-        "de": "Hast du Freude am persönlichen Kundenkontakt und suchst eine Aufgabe, bei der du eigenständig unterwegs bist? Bringst du eine Qualifikation zum Busfahren mit? Dann suchen wir genau dich, denn mit dir am Steuer kommen unsere Fahrgäste pünktlich und sicher ans Ziel.\n\nDas kannst du bewirken\n\n- Auf unseren abwechslungsreichen regionalen Linien bringst du unsere Fahrgäste von Montag bis Sonntag an ihr Ziel.\n\n- Du bist Gastgeber:in in unseren Postautos und berätst unsere Kundschaft in Tarif- und Fahrplanfragen.\n\n- Der tägliche Kontakt mit deinen Fahrgästen bereichert deinen Alltag mit spannenden Begegnungen und du schaffst positive Erlebnisse für unsere Kundschaft.\n\n- Als Fahrer:in bewegst du weit mehr als nur dein Fahrzeug auf der Strasse. Im direkten Kundenkontakt erlebst du jeden Tag neue und abwechslungsreiche Situationen.\n\n- Du verkaufst Billette und unterstützt unsere Fahrgäste bei Tarif- und Fahrplanfragen.\n\nDas bringst du mit\n\n- Du verfügst über Fahrpraxis im Personentransport und geniesst die Abwechslung, die unregelmässige Arbeitszeiten (inkl. Sonn- und Feiertage) mit sich bringen.\n\n- Für diese Stelle benötigst du einen Führerausweis der Kategorie D und einen gültigen Fahrerqualifizierungsnachweis.\n\n- Zuverlässigkeit und Freude am täglichen Kundenkontakt gehören zu deinen Stärken.\n\n- Du verfügst über gute Deutschkenntnisse und bist versiert im Umgang mit digitalen Geräten.",
-        "fr": "Vous aimez les contacts personnels avec les clients et recherchez une tâche où vous êtes en toute indépendance sur la route? Apportez-vous une qualification pour la conduite en autobus ? Ensuite, nous cherchons exactement vous, car avec vous au volant nos passagers arrivent à temps et en toute sécurité à leur destination.\n\nTu peux le faire.\n\n- Sur nos lignes régionales variées, vous apportez nos passagers à leur destination du lundi au dimanche.\n\n- Vous êtes l'hôte: dans nos bus postaux et conseillez nos clients sur les questions de tarif et d'horaire.\n\n- Le contact quotidien avec vos passagers enrichit votre vie quotidienne de rencontres passionnantes et vous créez des expériences positives pour nos clients.\n\n- En tant que conducteur, vous déplacez beaucoup plus que votre véhicule sur la route. En contact direct avec le client, vous ressentez chaque jour des situations nouvelles et variées.\n\n- Vous vendez des billets et soutenez nos passagers avec des questions de tarif et de calendrier.\n\nApporte ça avec toi.\n\n- Vous pratiquez la conduite dans le transport de passagers et profitez de la variété que les horaires de travail irréguliers (y compris le dimanche et les jours fériés) apportent avec eux.\n\n- Pour ce travail, vous avez besoin d'un permis de conduire de catégorie D et d'un certificat de qualification de conducteur valide.\n\n- Fiabilité et plaisir du contact quotidien avec le client sont parmi vos points forts.\n\n- Vous avez une bonne connaissance de l'allemand et vous connaissez bien l'utilisation des appareils numériques."
-      },
-      "location": "Heiden",
-      "canton": "AR",
-      "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/75144-de_DE",
-      "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:09:31.179Z",
-      "addressLocality": "Heiden",
-      "addressRegion": "AR",
-      "streetAddress": "Heiden",
-      "postalCode": "9410",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Autisti / Conducenti",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Trasporti pubblici / Autobus",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-02",
-      "postedDate": "2026-11-02",
-      "postingDateSource": "reported",
-      "validThrough": "2026-12-01T23:59:59.999Z",
-      "pensum": "80-100%",
-      "applyUrl": "https://job.post.ch/default/job/PostAuto-Fahrerin/75144-de_DE",
-      "jobReqId": "75144",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "postauto-fahrer-in-postauto-heiden"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "postauto-fahrer-in-postauto-heiden"
-        ],
-        "en": [
-          "postauto-fahrer-in-postauto-heiden"
-        ],
-        "fr": [
-          "postauto-fahrer-in-postauto-heiden"
-        ]
-      },
-      "firstSeenAt": "2026-11-02T11:26:47.327Z",
-      "salaryMin": 65000,
-      "salaryMax": 98500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 65000,
-          "maxValue": 98500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "source"
-    },
-    {
-      "id": "postauto-9e66d50ec27c",
-      "slug": "autista-di-postauto-postauto-ag-bad-ragaz",
-      "slugByLocale": {
-        "it": "autista-di-postauto-postauto-ag-bad-ragaz",
-        "en": "postauto-driver-postauto-ag-bad-ragaz",
-        "de": "postauto-fahrer-in-postauto-bad-ragaz",
-        "fr": "conducteur-trice-postauto-postauto-ag-bad-ragaz"
-      },
-      "company": "PostAuto AG",
-      "companyKey": "postauto",
-      "companyDomain": "postauto.ch",
-      "title": "PostAuto-Fahrer:in",
-      "titleByLocale": {
-        "it": "Autista di PostAuto",
-        "en": "PostAuto driver",
-        "de": "PostAuto-Fahrer:in",
-        "fr": "Conducteur/trice PostAuto"
-      },
-      "description": "Hast du Freude am persönlichen Kundenkontakt und suchst eine Aufgabe, bei der du eigenständig unterwegs bist? Bringst du eine Qualifikation zum Busfahren mit? Dann suchen wir genau dich, denn mit dir am Steuer kommen unsere Fahrgäste pünktlich und sicher ans Ziel.\n\nDas kannst du bewirken\n\n- Auf unseren abwechslungsreichen regionalen Linien bringst du unsere Fahrgäste von Montag bis Sonntag an ihr Ziel.\n\n- Du bist Gastgeber:in in unseren Postautos und berätst unsere Kundschaft in Tarif- und Fahrplanfragen.\n\n- Der tägliche Kontakt mit deinen Fahrgästen bereichert deinen Alltag mit spannenden Begegnungen und du schaffst positive Erlebnisse für unsere Kundschaft.\n\n- Als Fahrer:in bewegst du weit mehr als nur dein Fahrzeug auf der Strasse. Im direkten Kundenkontakt erlebst du jeden Tag neue und abwechslungsreiche Situationen.\n\n- Du verkaufst Billette und unterstützt unsere Fahrgäste bei Tarif- und Fahrplanfragen.\n\nDas bringst du mit\n\n- Du verfügst über Fahrpraxis im Personentransport und geniesst die Abwechslung, die unregelmässige Arbeitszeiten (inkl. Sonn- und Feiertage) mit sich bringen.\n\n- Für diese Stelle benötigst du einen Führerausweis der Kategorie D und einen gültigen Fahrerqualifizierungsnachweis.\n\n- Zuverlässigkeit und Freude am täglichen Kundenkontakt gehören zu deinen Stärken.\n\n- Du verfügst über gute Deutschkenntnisse und bist versiert im Umgang mit digitalen Geräten.",
-      "descriptionByLocale": {
-        "it": "Ti piace il contatto personale del cliente e stai cercando un compito in cui sei indipendente sulla strada? Porti una qualifica per la guida degli autobus? Allora stiamo cercando esattamente voi, perché con voi al volante i nostri passeggeri arrivano in tempo e in modo sicuro alla loro destinazione.\n\nPuoi farlo.\n\n- Nelle nostre varie linee regionali porti i nostri passeggeri a destinazione da lunedì a domenica.\n\n- Lei è l'ospite: nei nostri autobus postali e consiglia i nostri clienti su questioni tariffarie e orari.\n\n- Il contatto quotidiano con i vostri passeggeri arricchisce la vostra vita quotidiana con incontri emozionanti e crei esperienze positive per i nostri clienti.\n\n- Come autista: ti muovi molto di più del tuo veicolo sulla strada. In contatto diretto con il cliente, si verificano situazioni nuove e varie ogni giorno.\n\n- Si vendono biglietti e supportano i nostri passeggeri con problemi tariffari e orari.\n\nLo porti con te.\n\n- Hai la pratica di guida nel trasporto passeggeri e godere della varietà che ore di lavoro irregolari (comprese le domeniche e festivi) portare con loro.\n\n- Per questo lavoro, è necessario una licenza del driver di categoria D e un certificato di qualifica del conducente valido.\n\n- Affidabilità e godimento del contatto quotidiano del cliente sono tra i vostri punti di forza.\n\n- Avete una buona conoscenza del tedesco e sono ben versi nell'uso di dispositivi digitali.",
-        "en": "Do you enjoy personal customer contact and are looking for a task where you are independently on the road? Do you bring a qualification for bus driving? Then we are looking for exactly you, because with you at the wheel our passengers arrive on time and safely to their destination.\n\nYou can do that.\n\n- On our varied regional lines you bring our passengers to their destination from Monday to Sunday.\n\n- You are the host: in our post buses and advise our customers on tariff and timetable issues.\n\n- The daily contact with your passengers enriches your everyday life with exciting encounters and you create positive experiences for our customers.\n\n- As a driver: you move much more than just your vehicle on the road. In direct customer contact, you experience new and varied situations every day.\n\n- You sell tickets and support our passengers with tariff and timetable issues.\n\nYou bring that with you\n\n- You have driving practice in passenger transport and enjoy the variety that irregular working hours (including Sundays and public holidays) bring with them.\n\n- For this job, you need a category D driver’s license and a valid driver qualification certificate.\n\n- Reliability and enjoyment of daily customer contact are among your strengths.\n\n- You have a good knowledge of German and are well versed in using digital devices.",
-        "de": "Hast du Freude am persönlichen Kundenkontakt und suchst eine Aufgabe, bei der du eigenständig unterwegs bist? Bringst du eine Qualifikation zum Busfahren mit? Dann suchen wir genau dich, denn mit dir am Steuer kommen unsere Fahrgäste pünktlich und sicher ans Ziel.\n\nDas kannst du bewirken\n\n- Auf unseren abwechslungsreichen regionalen Linien bringst du unsere Fahrgäste von Montag bis Sonntag an ihr Ziel.\n\n- Du bist Gastgeber:in in unseren Postautos und berätst unsere Kundschaft in Tarif- und Fahrplanfragen.\n\n- Der tägliche Kontakt mit deinen Fahrgästen bereichert deinen Alltag mit spannenden Begegnungen und du schaffst positive Erlebnisse für unsere Kundschaft.\n\n- Als Fahrer:in bewegst du weit mehr als nur dein Fahrzeug auf der Strasse. Im direkten Kundenkontakt erlebst du jeden Tag neue und abwechslungsreiche Situationen.\n\n- Du verkaufst Billette und unterstützt unsere Fahrgäste bei Tarif- und Fahrplanfragen.\n\nDas bringst du mit\n\n- Du verfügst über Fahrpraxis im Personentransport und geniesst die Abwechslung, die unregelmässige Arbeitszeiten (inkl. Sonn- und Feiertage) mit sich bringen.\n\n- Für diese Stelle benötigst du einen Führerausweis der Kategorie D und einen gültigen Fahrerqualifizierungsnachweis.\n\n- Zuverlässigkeit und Freude am täglichen Kundenkontakt gehören zu deinen Stärken.\n\n- Du verfügst über gute Deutschkenntnisse und bist versiert im Umgang mit digitalen Geräten.",
-        "fr": "Vous aimez les contacts personnels avec les clients et êtes à la recherche d'une tâche où vous êtes indépendant sur la route? Apportez-vous une qualification pour la conduite en autobus ? Ensuite, nous recherchons exactement vous, car avec vous au volant nos passagers arrivent à temps et en toute sécurité à leur destination.\n\nTu peux le faire.\n\n- Sur nos lignes régionales variées, vous amènez nos passagers à destination du lundi au dimanche.\n\n- Vous êtes l'hôte: dans nos bus postaux et conseillez nos clients sur les questions de tarif et d'horaire.\n\n- Le contact quotidien avec vos passagers enrichit votre vie quotidienne de rencontres passionnantes et vous créez des expériences positives pour nos clients.\n\n- En tant que conducteur, vous déplacez beaucoup plus que votre véhicule sur la route. En contact direct avec le client, vous ressentez des situations nouvelles et variées chaque jour.\n\n- Vous vendez des billets et soutenez nos passagers avec des questions de tarif et de calendrier.\n\nApporte ça avec toi.\n\n- Vous pratiquez la conduite dans le transport de voyageurs et profitez de la variété que les horaires irréguliers (y compris le dimanche et les jours fériés) apportent avec eux.\n\n- Pour ce travail, vous avez besoin d'un permis de conduire de catégorie D et d'un certificat de qualification valide.\n\n- La fiabilité et la jouissance du contact quotidien avec le client sont parmi vos points forts.\n\n- Vous avez une bonne connaissance de l'allemand et vous connaissez bien l'utilisation des appareils numériques."
-      },
-      "location": "Bad Ragaz",
-      "canton": "SG",
-      "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/75118-de_DE",
-      "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:09:30.295Z",
-      "addressLocality": "Bad Ragaz",
-      "addressRegion": "SG",
-      "streetAddress": "Bad Ragaz",
-      "postalCode": "7310",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Autisti / Conducenti",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Trasporti pubblici / Autobus",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-14",
-      "postedDate": "2026-11-14",
-      "postingDateSource": "reported",
-      "validThrough": "2026-12-14T23:59:59.999Z",
-      "pensum": "80-100%",
-      "applyUrl": "https://job.post.ch/default/job/PostAuto-Fahrerin/75118-de_DE",
-      "jobReqId": "75118",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "postauto-fahrer-in-postauto-bad-ragaz"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "postauto-fahrer-in-postauto-bad-ragaz"
-        ],
-        "en": [
-          "postauto-fahrer-in-postauto-bad-ragaz"
-        ],
-        "fr": [
-          "postauto-fahrer-in-postauto-bad-ragaz"
-        ]
-      },
-      "firstSeenAt": "2026-11-15T09:52:42.835Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "source"
-    },
-    {
-      "id": "postauto-ea34851b616b",
-      "slug": "specialista-del-servizio-clienti-incasso-postauto-ag-zurich",
-      "slugByLocale": {
-        "it": "specialista-del-servizio-clienti-incasso-postauto-ag-zurich",
-        "en": "fachspezialist-in-kundenservice-inkasso-postauto-zurich",
-        "de": "fachspezialist-in-kundenservice-inkasso-postauto-zurich",
-        "fr": "fachspezialist-in-kundenservice-inkasso-postauto-zurich"
-      },
-      "company": "PostAuto AG",
-      "companyKey": "postauto",
-      "companyDomain": "postauto.ch",
-      "title": "Fachspezialist:in Kundenservice Inkasso",
-      "titleByLocale": {
-        "it": "Specialista del servizio clienti Incasso",
-        "en": "Customer Service Debt Collection Specialist",
-        "de": "Fachspezialist:in Kundenservice Inkasso",
-        "fr": "Spécialiste du service client – Recouvrement"
-      },
-      "description": "Steht für dich ein positives Kundenerlebnis auch an oberster Stelle? Willst du etwas bewegen und an der Erfolgsgeschichte von PostAuto teilhaben? Dann bist du bei uns im Kundenservice Inkasso genau richtig! Mit dir haben Ausstände keine Chancen. PostAuto AG betreibt für verschiedene Transportunternehmen eine Inkassostelle für Fahren ohne gültigen Fahrausweis, mit entsprechendem Kundendienst.\n\nDas kannst du bewirken\n\n- In dieser spannenden Funktion bearbeitest du anspruchsvolle schriftliche und telefonische Anfragen von Fahrgästen ohne Fahrausweis.\n\n- Du korrespondierst mit internen und externen Kunden und mit Strafverfolgungsbehörden.\n\n- Du vereinbarst Ratenzahlungen, Zahlungsfristverlängerungen und erledigst selbständig den Rechnungs-, Mahn und Betreibungsversand.\n\n- Aktuelle Zahlungseingänge verbuchst du selbständig im SAP und überwachst den täglichen Datentransfer mit anderen Inkassostellen.\n\n- Du übernimmst Spezialaufgaben wie zum Beispiel Einleitungen von Strafanträgen oder hilfst bei der Entwicklung im rechtlichen Inkasso.\n\n- Du bedienst unsere Inkassosoftware NewPink, eSchKG und den digitalen Posteingang.\n\nDas bringst du mit\n\n- Du bringst eine berufliche Grundausbildung im kaufmännischen Bereich oder als Fachfrau oder Fachmann Kundendialog mit.\n\n- Idealerweise konntest du bereits erste Berufserfahrung im öffentlichen Verkehr sammeln.\n\n- Zudem hast du sehr gute zwischenmenschliche und kommunikative Fähigkeiten.Auch in herausfordernden Telefongesprächen lässt du dich nicht aus der Ruhe bringen und bewahrst deine Freundlichkeit und Geduld.\n\n- Du bringst gute MS-Office sowie SAP Kenntnisse mit.\n\n- Du kommunizierst mündlich und schriftlich stilsicher auf Deutsch, Französisch oder Italienisch. Jede weitere Fremdsprache ist von Vorteil.",
-      "descriptionByLocale": {
-        "it": "Un'esperienza di cliente positiva è anche una priorità assoluta per voi? Vuoi fare la differenza e partecipare alla storia di successo di PostBus? Allora hai esattamente ragione con noi nella raccolta del debito del servizio clienti! Non ci sono possibilità con te. PostAuto AG gestisce un'agenzia di raccolta per diverse compagnie di trasporto per la guida senza un biglietto valido, con servizio clienti corrispondente.\n\nPuoi farlo.\n\n- In questa funzione emozionante, elaborerai richieste scritte e telefoniche esigenti da passeggeri senza biglietto.\n\n- Corrisponde a clienti interni ed esterni e alle agenzie di polizia.\n\n- Si organizzano pagamenti di rate, le estensioni di periodo di pagamento e gestire in modo indipendente la fattura, promemoria e spedizione di funzionamento.\n\n- Prenoti pagamenti correnti indipendentemente da SAP e monitori il trasferimento di dati giornaliero con altre agenzie di raccolta.\n\n- Si assume compiti speciali come l'avvio di casi penali o l'aiuto con lo sviluppo della raccolta del debito legale.\n\n- Servite il nostro software di raccolta del debito NewPink, eSchKG e la casella di posta digitale.\n\nLo porti con te.\n\n- Si porta una formazione professionale di base nel settore commerciale o come un dialogo cliente specializzato o esperto.\n\n- Idealmente, si potrebbe già ottenere la vostra prima esperienza professionale nei trasporti pubblici.\n\n- Inoltre, hai ottime capacità interpersonali e comunicative. Anche nelle conversazioni telefoniche impegnative, non vi lascerete uscire dalla pace e mantenere la vostra cordialità e pazienza.\n\n- Porti buone conoscenze MS-Office e SAP.\n\n- Comunichi verbalmente e per iscritto con stile in tedesco, francese o italiano. Qualsiasi altra lingua straniera è benefica.",
-        "en": "Is a positive customer experience also a top priority for you? Do you want to make a difference and participate in the success story of PostBus? Then you are exactly right with us in customer service debt collection! There are no chances with you. PostAuto AG operates a collection agency for various transport companies for driving without a valid ticket, with corresponding customer service.\n\nYou can do that.\n\n- In this exciting function, you will process demanding written and telephone requests from passengers without a ticket.\n\n- You correspond with internal and external customers and with law enforcement agencies.\n\n- You arrange installment payments, payment period extensions and independently handle the invoice, reminder and operation shipping.\n\n- You book current payments independently in SAP and monitor the daily data transfer with other collection agencies.\n\n- You take on special tasks such as initiating criminal cases or helping with the development of legal debt collection.\n\n- You serve our debt collection software NewPink, eSchKG and the digital inbox.\n\nYou bring that with you\n\n- You bring a basic vocational training in the commercial sector or as a specialist or expert customer dialogue.\n\n- Ideally, you could already gain your first professional experience in public transport.\n\n- In addition, you have very good interpersonal and communicative skills.Even in challenging telephone conversations, you will not let yourself get out of peace and maintain your friendliness and patience.\n\n- You bring good MS-Office and SAP knowledge.\n\n- You communicate verbally and in writing stylishly in German, French or Italian. Any other foreign language is beneficial.",
-        "de": "Steht für dich ein positives Kundenerlebnis auch an oberster Stelle? Willst du etwas bewegen und an der Erfolgsgeschichte von PostAuto teilhaben? Dann bist du bei uns im Kundenservice Inkasso genau richtig! Mit dir haben Ausstände keine Chancen. PostAuto AG betreibt für verschiedene Transportunternehmen eine Inkassostelle für Fahren ohne gültigen Fahrausweis, mit entsprechendem Kundendienst.\n\nDas kannst du bewirken\n\n- In dieser spannenden Funktion bearbeitest du anspruchsvolle schriftliche und telefonische Anfragen von Fahrgästen ohne Fahrausweis.\n\n- Du korrespondierst mit internen und externen Kunden und mit Strafverfolgungsbehörden.\n\n- Du vereinbarst Ratenzahlungen, Zahlungsfristverlängerungen und erledigst selbständig den Rechnungs-, Mahn und Betreibungsversand.\n\n- Aktuelle Zahlungseingänge verbuchst du selbständig im SAP und überwachst den täglichen Datentransfer mit anderen Inkassostellen.\n\n- Du übernimmst Spezialaufgaben wie zum Beispiel Einleitungen von Strafanträgen oder hilfst bei der Entwicklung im rechtlichen Inkasso.\n\n- Du bedienst unsere Inkassosoftware NewPink, eSchKG und den digitalen Posteingang.\n\nDas bringst du mit\n\n- Du bringst eine berufliche Grundausbildung im kaufmännischen Bereich oder als Fachfrau oder Fachmann Kundendialog mit.\n\n- Idealerweise konntest du bereits erste Berufserfahrung im öffentlichen Verkehr sammeln.\n\n- Zudem hast du sehr gute zwischenmenschliche und kommunikative Fähigkeiten.Auch in herausfordernden Telefongesprächen lässt du dich nicht aus der Ruhe bringen und bewahrst deine Freundlichkeit und Geduld.\n\n- Du bringst gute MS-Office sowie SAP Kenntnisse mit.\n\n- Du kommunizierst mündlich und schriftlich stilsicher auf Deutsch, Französisch oder Italienisch. Jede weitere Fremdsprache ist von Vorteil.",
-        "fr": "Une expérience client positive est-elle également une priorité pour vous ? Voulez-vous faire une différence et participer à la réussite de PostBus? Alors vous avez exactement raison avec nous dans le service à la clientèle de recouvrement de dettes! Il n'y a aucune chance avec toi. PostAuto AG exploite une agence de collecte pour diverses entreprises de transport pour conduire sans billet valide, avec le service client correspondant.\n\nTu peux le faire.\n\n- Dans cette fonction passionnante, vous traiterez les demandes écrites et téléphoniques exigeantes des passagers sans billet.\n\n- Vous correspondez avec des clients internes et externes et avec des organismes d'application de la loi.\n\n- Vous organisez les paiements d'acompte, les prolongations de délai de paiement et traitez indépendamment la facture, le rappel et l'expédition de l'opération.\n\n- Vous réservez les paiements en cours indépendamment dans SAP et surveillez le transfert quotidien de données avec d'autres agences de collecte.\n\n- Vous assumez des tâches spéciales telles que l'ouverture d'affaires criminelles ou l'aide au développement du recouvrement légal de la dette.\n\n- Vous servez notre logiciel de recouvrement de dettes NewPink, eSchKG et la boîte de réception numérique.\n\nApporte ça avec toi.\n\n- Vous apportez une formation professionnelle de base dans le secteur commercial ou en tant que spécialiste ou expert du dialogue client.\n\n- Idéalement, vous pourriez déjà acquérir votre première expérience professionnelle dans les transports en commun.\n\n- De plus, vous avez de très bonnes compétences interpersonnelles et communicatives. Même dans les conversations téléphoniques difficiles, vous ne vous laisserez pas sortir de la paix et maintenir votre amitié et votre patience.\n\n- Vous apportez de bonnes connaissances MS-Office et SAP.\n\n- Vous communiquez verbalement et par écrit avec style en allemand, français ou italien. Toute autre langue étrangère est bénéfique."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://job.post.ch/default/job/Fachspezialistin-Kundenservice-Inkasso/75246-de_DE",
-      "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:09:29.251Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "streetAddress": "Zürich",
-      "postalCode": "8001",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Assistenza clienti",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Trasporti pubblici / Autobus",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-17",
-      "postedDate": "2026-11-17",
-      "postingDateSource": "reported",
-      "validThrough": "2026-12-16T23:59:59.999Z",
-      "pensum": "80-100%",
-      "applyUrl": "https://job.post.ch/default/job/Fachspezialistin-Kundenservice-Inkasso/75246-de_DE",
-      "jobReqId": "75246",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "fachspezialist-in-kundenservice-inkasso-postauto-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachspezialist-in-kundenservice-inkasso-postauto-zurich"
-        ]
-      },
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "source"
-    },
-    {
-      "id": "postauto-7960c793677f",
-      "slug": "responsabile-del-team-personale-viaggiante-postauto-ag-freienbach",
-      "slugByLocale": {
-        "it": "responsabile-del-team-personale-viaggiante-postauto-ag-freienbach",
-        "en": "team-leader-driving-staff-postauto-ag-freienbach",
-        "de": "teamleiter-in-fahrpersonal-postauto-freienbach",
-        "fr": "chef-fe-d-equipe-personnel-de-conduite-postauto-ag-freienbach"
-      },
-      "company": "PostAuto AG",
-      "companyKey": "postauto",
-      "companyDomain": "postauto.ch",
-      "title": "Teamleiter:in Fahrpersonal",
-      "titleByLocale": {
-        "it": "Responsabile del team: personale viaggiante",
-        "en": "Team Leader: Driving Staff",
-        "de": "Teamleiter:in Fahrpersonal",
-        "fr": "Chef·fe d’équipe : personnel de conduite"
-      },
-      "description": "Möchtest du die strategischen Führungsziele mitgestalten und die Weiterentwicklung von PostAuto aktiv vorantreiben? In dieser vielfältigen Rolle führst und entwickelst du dein Fahrpersonal, stellst einen reibungslosen Fahrdienst sicher und koordinierst Anpassungen im Haltestellen- und Baustellenmanagement. PostAuto stellt seine Flotte bis 2035 auf elektrische Antriebe um. Mit deinem Beitrag und deiner vollen Überzeugung trägst du entscheidend dazu bei, dass diese Transformation gelingt.\n\nDas kannst du bewirken\n\n- Du führst, motivierst und entwickelst dein Fahrpersonal, sorgst für ein positives Arbeitsumfeld und stärkst die Leistungsfähigkeit sowie Einsatzbereitschaft deines Teams durch regelmässige Einzelgespräche und Teambesprechungen.\n\n- Du stellst sicher, dass die Personalressourcen für den Fahrdienst termingerecht und in hoher Qualität bereitgestellt werden. Deine Mitarbeitenden begleitest du über den gesamten HR-Lifecycle hinweg – von der Rekrutierung und Einführung über die individuelle Weiterentwicklung bis hin zum Austritt. Auch in herausfordernden Situationen wie Krankheit oder Ausfällen stehst du ihnen unterstützend zur Seite. Relevante Kennzahlen wie Absenzen, Fluktuation und Zeitsaldi hast du stets im Blick und leitest daraus Optimierungsmassnahmen ab.\n\n- Du verantwortest das Funktionieren des Betriebs vor Ort und sorgst für einen reibungslosen Ablauf. Bei Bedarf intervenierst du bei der Leitstelle, deiner Ansprechperson in der Personaldisposition und Betriebsplanung sowie im operativen Flottenmanagement, um eine effiziente und koordinierte Betriebsführung sicherzustellen.\n\n- Du planst und koordinierst Massnahmen im Haltestellen- und Baustellenmanagement, berücksichtigst Umleitungen und Haltestellenänderungen, arbeitest mit internen und externen Partnerinnen und Partnern zusammen und führst das Haltestellenmanagementsystem. Neben deinen Führungsaufgaben übernimmst du selbst Fahrdienste, sei es fix eingeplant oder zur Überbrückung von Engpässen.\n\nDas bringst du mit\n\n- Du verfügst über eine abgeschlossene Berufsausbildung (EFZ) und hast eine Weiterbildung als Führungsfachfrau oder Führungsfachmann mit eidg. Fachausweis oder eine vergleichbare Qualifikation abgeschlossen – oder bist bereit, diese in naher Zukunft zu absolvieren. Führungserfahrung ist ein Plus – aber kein Muss! Wichtig ist uns dein Engagement und deine Bereitschaft, dich in der Führung weiterzuentwickeln.\n\n- Du bringst Erfahrung in Infrastrukturaufgaben (baulich, betrieblich, prozessual) mit und hast ein gutes Verständnis für Sicherheitsaspekte im öffentlichen Raum. Mit deinen Kommunikationsfähigkeiten bringst du Menschen zusammen, führst Dialoge auf Augenhöhe und findest auch in schwierigen Situationen tragfähige Lösungen.\n\n- Du bist konfliktfähig und trittst in Verhandlungen sowie Gesprächen mit Mitarbeitenden, Vorgesetzten, Vertreter:innen der PEKO und/oder Sozialpartner:innen stets professionell und souverän auf.\n\n- Du verfügst über den Führerausweis der Kategorie D oder bist bereit, diesen zu erlangen.\n\n- Du kommunizierst mündlich und schriftlich sehr gut auf Deutsch und verfügst über gute (mündliche) Kenntnisse in einer zweiten Landessprache.",
-      "descriptionByLocale": {
-        "it": "Vuoi contribuire a plasmare gli obiettivi strategici di leadership e promuovere attivamente l'ulteriore sviluppo di PostBus? In questo ruolo diverso, guiderai e svilupperai il tuo personale di guida, garantirai un servizio di guida fluido e coordina le regolazioni nella gestione dei siti di arresto e costruzione. PostBus commuta la sua flotta a unità elettriche entro il 2035. Con il vostro contributo e la vostra piena convinzione, apportate un contributo decisivo al successo di questa trasformazione.\n\nPuoi farlo.\n\n- Guidate, motivate e sviluppate il vostro personale di guida, assicurate un ambiente di lavoro positivo e rafforzate le prestazioni e l'impegno del vostro team attraverso regolari incontri one-on-one e riunioni di squadra.\n\n- Assicurarsi che le risorse del personale di guida sono fornite in tempo e in alta qualità. Accompagnate i vostri dipendenti in tutto il ciclo di vita HR – dal reclutamento e dall'introduzione allo sviluppo e all'uscita individuali. Anche in situazioni difficili come malattie o guasti, li supporta. Hai sempre un occhio sulle cifre chiave rilevanti come assenze, fluttuazioni e bilanciamento del tempo e derivano misure di ottimizzazione da loro.\n\n- Sei responsabile per l'operazione sul sito e assicurarsi che funzioni senza problemi. Se necessario, interverrai con il centro di controllo, il tuo referente nella pianificazione del personale e nella gestione operativa della flotta per garantire una gestione operativa efficiente e coordinata.\n\n- Pianifichi e coordina le misure nella gestione dei siti di arresto e costruzione, consideri diversioni e arresti cambiamenti, lavori con partner interni ed esterni e gestisci il sistema di gestione degli arresti. Oltre ai vostri compiti di gestione, si prende su servizi di guida da soli, se è pianificato o ponte colli di bottiglia.\n\nLo porti con te.\n\n- Ha una formazione professionale completa (EFZ) e ha un'ulteriore formazione come manager o manager con la legge federale. Completato un certificato professionale o una qualifica paragonabile – o sono pronti a completarlo nel prossimo futuro. L'esperienza di leadership è un plus – ma non un must! Ciò che è importante per noi è il vostro impegno e la vostra volontà di sviluppare ulteriormente nella leadership.\n\n- Porti esperienza nei compiti infrastrutturali (costruttivi, operativi, procedurali) e hai una buona comprensione degli aspetti di sicurezza negli spazi pubblici. Con le vostre capacità di comunicazione, riunite le persone, dialogate a livello degli occhi e trovate soluzioni valide anche in situazioni difficili.\n\n- Siete in grado di contrastare e agire sempre professionalmente e sovranamente nei negoziati e nelle discussioni con dipendenti, superiori, rappresentanti di PEKO e/o partner sociali.\n\n- Avete una patente di guida di categoria D o siete pronti per ottenerla.\n\n- Si comunica molto bene per via orale e per iscritto in tedesco e avere buone conoscenze (orali) in una seconda lingua nazionale.",
-        "en": "Do you want to help shape the strategic leadership goals and actively promote the further development of PostBus? In this diverse role, you will lead and develop your driving staff, ensure a smooth driving service and coordinate adjustments in stop and construction site management. PostBus will switch its fleet to electric drives by 2035. With your contribution and your full conviction, you make a decisive contribution to the success of this transformation.\n\nYou can do that.\n\n- You lead, motivate and develop your driving staff, ensure a positive working environment and strengthen the performance and commitment of your team through regular one-on-one meetings and team meetings.\n\n- You ensure that the driving service personnel resources are provided on time and in high quality. You accompany your employees throughout the entire HR lifecycle – from recruitment and introduction to individual development and exit. Even in challenging situations such as illness or failures, you support them. You always have an eye on relevant key figures such as absences, fluctuations and time balance and derive optimization measures from them.\n\n- You are responsible for the operation on site and ensure that it runs smoothly. If necessary, you will intervene with the control centre, your contact person in personnel planning and operational fleet management to ensure efficient and coordinated operational management.\n\n- You plan and coordinate measures in stop and construction site management, consider diversions and stop changes, work with internal and external partners and manage the stop management system. In addition to your management tasks, you take on driving services yourself, whether it is planned or to bridge bottlenecks.\n\nYou bring that with you\n\n- You have a completed vocational training (EFZ) and have a further education as a manager or manager with federal law. Completed a professional certificate or a comparable qualification – or are ready to complete it in the near future. Leadership experience is a plus – but not a must! What is important to us is your commitment and your willingness to develop further in leadership.\n\n- You bring experience in infrastructure tasks (constructive, operational, procedural) and have a good understanding of security aspects in public spaces. With your communication skills, you bring people together, engage in dialogue at eye level and find viable solutions even in difficult situations.\n\n- You are capable of conflict and always act professionally and sovereignly in negotiations and discussions with employees, superiors, representatives of PEKO and/or social partners.\n\n- You have a category D driving licence or are ready to obtain it.\n\n- You communicate very well orally and in writing in German and have good (oral) knowledge in a second national language.",
-        "de": "Möchtest du die strategischen Führungsziele mitgestalten und die Weiterentwicklung von PostAuto aktiv vorantreiben? In dieser vielfältigen Rolle führst und entwickelst du dein Fahrpersonal, stellst einen reibungslosen Fahrdienst sicher und koordinierst Anpassungen im Haltestellen- und Baustellenmanagement. PostAuto stellt seine Flotte bis 2035 auf elektrische Antriebe um. Mit deinem Beitrag und deiner vollen Überzeugung trägst du entscheidend dazu bei, dass diese Transformation gelingt.\n\nDas kannst du bewirken\n\n- Du führst, motivierst und entwickelst dein Fahrpersonal, sorgst für ein positives Arbeitsumfeld und stärkst die Leistungsfähigkeit sowie Einsatzbereitschaft deines Teams durch regelmässige Einzelgespräche und Teambesprechungen.\n\n- Du stellst sicher, dass die Personalressourcen für den Fahrdienst termingerecht und in hoher Qualität bereitgestellt werden. Deine Mitarbeitenden begleitest du über den gesamten HR-Lifecycle hinweg – von der Rekrutierung und Einführung über die individuelle Weiterentwicklung bis hin zum Austritt. Auch in herausfordernden Situationen wie Krankheit oder Ausfällen stehst du ihnen unterstützend zur Seite. Relevante Kennzahlen wie Absenzen, Fluktuation und Zeitsaldi hast du stets im Blick und leitest daraus Optimierungsmassnahmen ab.\n\n- Du verantwortest das Funktionieren des Betriebs vor Ort und sorgst für einen reibungslosen Ablauf. Bei Bedarf intervenierst du bei der Leitstelle, deiner Ansprechperson in der Personaldisposition und Betriebsplanung sowie im operativen Flottenmanagement, um eine effiziente und koordinierte Betriebsführung sicherzustellen.\n\n- Du planst und koordinierst Massnahmen im Haltestellen- und Baustellenmanagement, berücksichtigst Umleitungen und Haltestellenänderungen, arbeitest mit internen und externen Partnerinnen und Partnern zusammen und führst das Haltestellenmanagementsystem. Neben deinen Führungsaufgaben übernimmst du selbst Fahrdienste, sei es fix eingeplant oder zur Überbrückung von Engpässen.\n\nDas bringst du mit\n\n- Du verfügst über eine abgeschlossene Berufsausbildung (EFZ) und hast eine Weiterbildung als Führungsfachfrau oder Führungsfachmann mit eidg. Fachausweis oder eine vergleichbare Qualifikation abgeschlossen – oder bist bereit, diese in naher Zukunft zu absolvieren. Führungserfahrung ist ein Plus – aber kein Muss! Wichtig ist uns dein Engagement und deine Bereitschaft, dich in der Führung weiterzuentwickeln.\n\n- Du bringst Erfahrung in Infrastrukturaufgaben (baulich, betrieblich, prozessual) mit und hast ein gutes Verständnis für Sicherheitsaspekte im öffentlichen Raum. Mit deinen Kommunikationsfähigkeiten bringst du Menschen zusammen, führst Dialoge auf Augenhöhe und findest auch in schwierigen Situationen tragfähige Lösungen.\n\n- Du bist konfliktfähig und trittst in Verhandlungen sowie Gesprächen mit Mitarbeitenden, Vorgesetzten, Vertreter:innen der PEKO und/oder Sozialpartner:innen stets professionell und souverän auf.\n\n- Du verfügst über den Führerausweis der Kategorie D oder bist bereit, diesen zu erlangen.\n\n- Du kommunizierst mündlich und schriftlich sehr gut auf Deutsch und verfügst über gute (mündliche) Kenntnisse in einer zweiten Landessprache.",
-        "fr": "Voulez-vous aider à façonner les objectifs stratégiques de leadership et promouvoir activement le développement de PostBus? Dans ce rôle diversifié, vous dirigerez et développerez votre personnel de conduite, assurerez un service de conduite en douceur et coordonnerez les ajustements dans la gestion des arrêts et des chantiers de construction. PostBus changera sa flotte en entraînements électriques d'ici 2035. Avec votre contribution et votre conviction, vous contribuez de façon décisive au succès de cette transformation.\n\nTu peux le faire.\n\n- Vous dirigez, motivez et développez votre personnel de conduite, assurez un environnement de travail positif et renforcez le rendement et l'engagement de votre équipe grâce à des réunions individuelles et des réunions d'équipe régulières.\n\n- Vous assurez que les ressources en personnel du service de conduite sont fournies à temps et en haute qualité. Vous accompagnez vos employés tout au long du cycle de vie des RH – du recrutement et de l'introduction au développement individuel et à la sortie. Même dans des situations difficiles comme la maladie ou les échecs, vous les soutenez. Vous avez toujours un œil sur les chiffres clés pertinents tels que les absences, les fluctuations et l'équilibre dans le temps et en tirer des mesures d'optimisation.\n\n- Vous êtes responsable de l'opération sur place et vous assurez qu'elle fonctionne bien. Au besoin, vous interviendrez avec le centre de contrôle, votre personne-ressource dans la planification du personnel et la gestion opérationnelle de la flotte afin d'assurer une gestion opérationnelle efficace et coordonnée.\n\n- Vous planifiez et coordonnez les mesures de gestion des arrêts et des chantiers, envisagez les détournements et arrêtez les changements, travaillez avec des partenaires internes et externes et gérez le système de gestion des arrêts. En plus de vos tâches de gestion, vous prenez vous-même les services de conduite, qu'il soit prévu ou de combler les goulets d'étranglement.\n\nApporte ça avec toi.\n\n- Vous avez une formation professionnelle terminée (EFZ) et avez une formation complémentaire en tant que gestionnaire ou gestionnaire en droit fédéral. A complété un certificat professionnel ou une qualification comparable – ou sont prêts à le compléter dans un proche avenir. L'expérience de leadership est un plus – mais pas un must! Ce qui est important pour nous, c'est votre engagement et votre volonté de poursuivre votre leadership.\n\n- Vous apportez de l'expérience dans les tâches d'infrastructure (constructives, opérationnelles, procédurales) et avez une bonne compréhension des aspects de sécurité dans les espaces publics. Avec vos compétences en communication, vous rassemblez les gens, vous engagez dans le dialogue au niveau des yeux et trouvez des solutions viables même dans des situations difficiles.\n\n- Vous êtes capable de conflit et agissez toujours de manière professionnelle et souveraine dans les négociations et les discussions avec les employés, les supérieurs, les représentants de PEKO et/ou les partenaires sociaux.\n\n- Vous avez un permis de conduire de catégorie D ou êtes prêt à l'obtenir.\n\n- Vous communiquez très bien oralement et par écrit en allemand et avez une bonne (orale) connaissance dans une deuxième langue nationale."
-      },
-      "location": "Freienbach",
-      "canton": "SZ",
-      "url": "https://job.post.ch/default/job/Teamleiterin-Fahrpersonal/75248-de_DE",
-      "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:09:28.409Z",
-      "addressLocality": "Freienbach",
-      "addressRegion": "SZ",
-      "streetAddress": "Freienbach",
-      "postalCode": "8807",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Trasporti pubblici / Autobus",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-18",
-      "postedDate": "2026-11-18",
-      "postingDateSource": "reported",
-      "validThrough": "2026-12-17T23:59:59.999Z",
-      "pensum": "80-100%",
-      "applyUrl": "https://job.post.ch/default/job/Teamleiterin-Fahrpersonal/75248-de_DE",
-      "jobReqId": "75248",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "teamleiter-in-fahrpersonal-postauto-freienbach"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "teamleiter-in-fahrpersonal-postauto-freienbach"
-        ],
-        "en": [
-          "teamleiter-in-fahrpersonal-postauto-freienbach"
-        ],
-        "fr": [
-          "teamleiter-in-fahrpersonal-postauto-freienbach"
-        ]
-      },
-      "firstSeenAt": "2026-11-18T09:53:17.879Z",
-      "salaryMin": 96000,
-      "salaryMax": 146000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 96000,
-          "maxValue": 146000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "source"
+      "validThroughSource": "source",
+      "crawlerMissStreak": 1
     },
     {
       "id": "postauto-8f190253e14a",
@@ -936,7 +937,7 @@
       },
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

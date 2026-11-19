@@ -1,8 +1,8 @@
 {
   "key": "christinavassalli",
   "label": "CHRISTINA VASSALLI Services, Inhaberin Denise Tschäppät",
-  "generatedAt": "2026-11-19T10:08:52.981Z",
-  "total": 2,
+  "generatedAt": "2026-11-19T21:45:49.535Z",
+  "total": 3,
   "discovered": 2,
   "parsed": 2,
   "lastFetchOutcome": null,
@@ -20,11 +20,11 @@
       },
       {
         "status": 200,
-        "url": "https://christinavassalli.ch/job/telefonistin-40-wollerau-2-2/"
+        "url": "https://christinavassalli.ch/job/telefonistin-20-40-zuerich/"
       },
       {
         "status": 200,
-        "url": "https://christinavassalli.ch/job/telefonistin-20-40-zuerich/"
+        "url": "https://christinavassalli.ch/job/telefonistin-40-wollerau/"
       }
     ],
     "proxiedBy": [],
@@ -33,23 +33,70 @@
   },
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 2,
+  "written": 3,
   "detailCandidates": 2,
   "detailGone": 0,
   "detailRejected": 0,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 6194,
-  "avgDurationMs": 6194,
+  "durationMs": 28150,
+  "avgDurationMs": 28150,
   "durationHistory": [
-    6194
+    28150
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "christinavassalli-071b4a3c9bc3",
+      "slug": "telefonassistentin-20-40-plus-ferienvertretung-christina-vassalli-services-inhaberin-denise-tschappat-wollerau",
+      "company": "CHRISTINA VASSALLI Services, Inhaberin Denise Tschäppät",
+      "companyKey": "christinavassalli",
+      "companyDomain": "christinavassalli.ch",
+      "title": "Telefonassistentin 20% - 40% plus Ferienvertretung",
+      "location": "Wollerau",
+      "canton": "SZ",
+      "url": "https://christinavassalli.ch/job/telefonistin-40-wollerau/",
+      "source": "CHRISTINA VASSALLI Services, Inhaberin Denise Tschäppät Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-19T21:45:13.248Z",
+      "addressLocality": "Wollerau",
+      "addressRegion": "SZ",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8832",
+      "streetAddress": "Wilenstrasse 4",
+      "category": "Altro",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2024-02-25T08:00:03+01:00",
+      "postedDate": "2024-02-25T08:00:03+01:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://christinavassalli.ch/job/telefonistin-40-wollerau/",
+      "salaryMin": 27800,
+      "salaryMax": 42400,
+      "salarySource": "estimated",
+      "needsRetranslation": true,
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-19T21:45:13.248Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-19T21:45:13.248Z",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 16,
+        "completeness": 25
+      }
+    }
+  ],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
@@ -65,7 +112,7 @@
       "url": "https://christinavassalli.ch/job/telefonistin-20-40-zuerich/",
       "source": "CHRISTINA VASSALLI Services, Inhaberin Denise Tschäppät Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:08:41.136Z",
+      "crawledAt": "2026-11-19T21:45:13.247Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -88,7 +135,7 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-26T14:25:57.444Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T10:08:41.136Z",
+      "validThrough": "2026-12-19T21:45:13.247Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -135,6 +182,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-19T10:08:41.135Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -144,5 +192,5 @@
       }
     }
   ],
-  "codeCommit": "af8f978c37a7f89c95dd40500d2ac0a67c1ede33"
+  "codeCommit": "07c2e8305c6747f1893222ba4bfdddc597008157"
 }
