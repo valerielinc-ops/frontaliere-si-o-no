@@ -491,8 +491,8 @@ const IO_BOUND_CLAIM_RE = new RegExp(
 const PERF_EVIDENCE_LABEL_RE = /\b(?:misura|comando|measure(?:ment)?|command)(?:\*\*)?\s*:\s*(.*)$/i;
 const PERF_EVIDENCE_RUN_RE = /\/actions\/runs\/\d+/i;
 const PERF_EVIDENCE_MEASURE_RE = /\bmisur[ae]\s+(?:pre\/post|prima\/dopo|prima e dopo|pre-?merge)\b([^\n.;]*)/i;
-const PERF_EVIDENCE_REVERT_RE = /\b(?:trigger\s+di\s+revert|revert[- ]trigger|rischio\s+di\s+revert)\b\s*(?::|[-–—])?\s*([^\n.;]*)/i;
-const PERF_EVIDENCE_BLOCKED_RE = /\bblocked\s*:\s*misura\s+post-?merge\b([^\n.;]*)/i;
+const PERF_EVIDENCE_REVERT_RE = /\b(?:trigger\s+di\s+revert|revert[- ]trigger|rischio\s+di\s+revert|rollback[- ]trigger)\b\s*(?::|[-–—])?\s*([^\n.;]*)/i;
+const PERF_EVIDENCE_BLOCKED_RE = /\bblocked\s*:\s*(?:(?:misur(?:a|azione)|verifica|measurement|validation)\s+(?:post-?merge|dopo\s+(?:il\s+)?merge)|post-?merge\s+(?:misur(?:a|azione)|verifica|measurement|validation))\b([^\n.;]*)/i;
 const PERF_EVIDENCE_BASELINE_RE = /\bbaseline\b\s*(?::|[-–—])?\s*([^\n.;]*)/i;
 const PERF_DEFERRED_NEGATION = String.raw`(?:non|(?:(?:has|have)\s+)?not)`;
 const PERF_DEFERRED_QUALIFIERS = String.raw`(?:(?:(?:stato|stata|stati|state|been)\s+(?:ancora|yet)\s+|(?:ancora|yet)\s+(?:(?:stato|stata|stati|state|been)\s+)?|(?:stato|stata|stati|state|been)\s+|(?:ancora|yet)\s+))?`;
@@ -598,24 +598,45 @@ export function isConcreteJobWorkflowReference(text = '') {
  * in one residual bullet: the blocked measurement, a job/workflow and a
  * quantitative threshold plus an actionable revert trigger.
  */
+export function extractCodeSpanEvidence(text = '') {
+  const quantity = new RegExp(PERF_QTY, 'i');
+  return [...stripNonContent(text).matchAll(/`([^`\n]+)`/g)]
+    .map((match) => match[1].trim())
+    .filter((content) => quantity.test(content) || /\b(?:revert|rollback|ripristin\w*)\b/i.test(content));
+}
+
+export function parseDeferredPerfEvidence(text = '') {
+  const source = stripNonContent(text);
+  const prose = stripCode(source);
+  const codeEvidence = extractCodeSpanEvidence(source);
+  const evidence = [prose, ...codeEvidence].join('\n');
+  const blocked = PERF_EVIDENCE_BLOCKED_RE.test(prose);
+  const revertMarker = PERF_EVIDENCE_REVERT_RE.exec(prose);
+  const codeHasRevertAction = codeEvidence.some((value) =>
+    /\b(?:revert|rollback|ripristin\w*)\b/i.test(value));
+  const hasRevertAction = Boolean(
+    revertMarker
+    && (
+      /\b(?:revert|rollback|ripristin\w*)\b/i.test(revertMarker[1])
+      || codeHasRevertAction
+    ),
+  );
+  const hasThreshold = new RegExp(PERF_QTY, 'i').test(evidence);
+  const hasJobOrWorkflow = isConcreteJobWorkflowReference(source);
+  return {
+    blocked,
+    hasRevertAction,
+    hasThreshold,
+    hasJobOrWorkflow,
+    complete: blocked && hasRevertAction && hasThreshold && hasJobOrWorkflow,
+  };
+}
+
 function hasDeferredPerfTracking(body) {
   const residual = extractSection(body, NON_IMPL_ANCORA_RE) ?? '';
   const units = topLevelBullets(residual, { includePreamble: true });
   const candidates = units.length > 0 ? units.map((unit) => unit.text) : [residual];
-  return candidates.some((unit) => {
-    const source = stripNonContent(unit);
-    const clean = stripCode(source);
-    const blocked = PERF_EVIDENCE_BLOCKED_RE.exec(clean);
-    if (!blocked) return false;
-
-    const trigger = PERF_EVIDENCE_REVERT_RE.exec(clean);
-    const hasRevertAction = trigger
-      && hasSubstantialEvidenceTail(trigger)
-      && /\b(?:revert|rollback|ripristin\w*)\b/i.test(trigger[1]);
-    const hasThreshold = new RegExp(PERF_QTY, 'i').test(clean);
-    const hasJobOrWorkflow = isConcreteJobWorkflowReference(source);
-    return Boolean(hasRevertAction && hasThreshold && hasJobOrWorkflow);
-  });
+  return candidates.some((unit) => parseDeferredPerfEvidence(unit).complete);
 }
 
 function stripCode(text) {

@@ -9,7 +9,9 @@
 import { describe, it, expect } from 'vitest';
 import {
   checkPrBodySections,
+  extractCodeSpanEvidence,
   isConcreteJobWorkflowReference,
+  parseDeferredPerfEvidence,
   unvalidatedPerfClaims,
 } from '../scripts/lib/pr-body-sections-check.mjs';
 
@@ -102,6 +104,39 @@ describe('unvalidated-perf-claim: le prove accettate e i numeri che non sono pre
       '- blocked: misura post-merge sulla run `tests.yml`; soglia 30 minuti. **Trigger di revert:** se il job supera 30 minuti, revert di questa PR.',
     ));
     expect(res.violations.some(isClaimViolation)).toBe(false);
+  });
+
+  it('preserva soglia e azione di rollback espresse in code span', () => {
+    const residual = '- blocked: verifica post-merge sul workflow `tests.yml`; soglia `30 minuti`. **Trigger di revert:** `rollback` di questa PR.';
+    const res = strict(body('- La riduzione wall-clock non è validata pre-merge.', residual));
+    expect(extractCodeSpanEvidence(residual)).toEqual(['30 minuti', 'rollback']);
+    expect(parseDeferredPerfEvidence(residual)).toMatchObject({
+      blocked: true,
+      hasRevertAction: true,
+      hasThreshold: true,
+      hasJobOrWorkflow: true,
+      complete: true,
+    });
+    expect(res.violations.some(isClaimViolation)).toBe(false);
+  });
+
+  it.each([
+    'blocked: misurazione dopo il merge sul workflow tests.yml; soglia 30 minuti. Trigger di revert: rollback.',
+    'blocked: post-merge measurement on workflow tests.yml; threshold 30 min. Revert-trigger: rollback.',
+    'blocked: post-merge validation on job build-test; threshold 2 GB. Rollback-trigger: revert.',
+  ])('normalizza una variante ammessa della misura differita: %s', (residual) => {
+    expect(parseDeferredPerfEvidence(residual).complete).toBe(true);
+    const res = strict(body('- La memoria del build non è stata misurata pre-merge.', `- ${residual}`));
+    expect(res.violations.some(isClaimViolation)).toBe(false);
+  });
+
+  it.each([
+    'blocked: nessuna misura post-merge sul workflow tests.yml; soglia 30 minuti. Trigger di revert: rollback.',
+    'blocked: misura pre-merge sul workflow tests.yml; soglia 30 minuti. Trigger di revert: rollback.',
+    'blocked: post-merge measurement on workflow tests.yml; threshold pending. Revert-trigger: rollback.',
+    'blocked: post-merge measurement on workflow tests.yml; threshold 30 min. Revert-trigger: osservare.',
+  ])('rifiuta una misura differita ambigua o incompleta: %s', (residual) => {
+    expect(parseDeferredPerfEvidence(residual).complete).toBe(false);
   });
 
   it('riconosce gli ausiliari stato e been nei claim non misurati pre-merge', () => {

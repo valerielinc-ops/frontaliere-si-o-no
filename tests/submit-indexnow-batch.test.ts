@@ -14,6 +14,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
+  buildLiveSitemapCacheBust,
   extractAlternateUrls,
   extractUrls,
   getUrlsFromSitemaps,
@@ -226,7 +227,7 @@ describe('getUrlsFromSitemaps (live mode branches)', () => {
   it('fetches and includes sitemap-farmacie.xml without submitting anything', async () => {
     const pharmacyXml = '<urlset><url><loc>https://frontaliereticino.ch/farmacie/</loc></url></urlset>';
     const fetchMock = vi.fn().mockImplementation((input: string) => new Response(
-      input.endsWith('/sitemap-farmacie.xml')
+      new URL(String(input)).pathname.endsWith('/sitemap-farmacie.xml')
         ? pharmacyXml
         : '<urlset></urlset>',
       { status: 200, headers: { 'Content-Type': 'application/xml' } },
@@ -243,6 +244,27 @@ describe('getUrlsFromSitemaps (live mode branches)', () => {
     );
     expect(urls).toContain('https://frontaliereticino.ch/farmacie/');
     expect(fetchMock.mock.calls.every(([input]) => !String(input).includes('/indexnow'))).toBe(true);
+  });
+
+  it('cache-busts both the primary and compatibility live sitemap crawls with the run attempt', async () => {
+    vi.stubEnv('GITHUB_RUN_ID', 'indexnow-run-42');
+    vi.stubEnv('GITHUB_RUN_ATTEMPT', '3');
+    const fetchMock = vi.fn().mockImplementation(() => new Response(
+      '<urlset><url><loc>https://frontaliereticino.ch/cache-bust-proof/</loc></url></urlset>',
+      { status: 200, headers: { 'Content-Type': 'application/xml' } },
+    ));
+    vi.stubGlobal('fetch', fetchMock);
+    vi.spyOn(console, 'log').mockImplementation(() => {});
+
+    await getUrlsFromSitemaps();
+
+    const rootRequests = fetchMock.mock.calls
+      .map(([input]) => new URL(String(input)))
+      .filter((url) => url.pathname === '/sitemap.xml');
+    expect(rootRequests).toHaveLength(2);
+    expect(rootRequests.every((url) => url.searchParams.get('cb') === 'indexnow-run-42-3')).toBe(true);
+    expect(fetchMock.mock.calls.every(([input]) =>
+      new URL(String(input)).searchParams.get('cb') === 'indexnow-run-42-3')).toBe(true);
   });
 
   // Prende l'alternate atteso da `public/sitemap-blog.xml` (e il collector legge `public/sitemap-guides.xml`), sitemap che `sync-articles-sitemaps.yml` ripubblica su main.
@@ -262,6 +284,23 @@ describe('getUrlsFromSitemaps (live mode branches)', () => {
 
     const urls = await getUrlsFromSitemaps();
     expect(urls).toContain(enAlternate);
+  });
+});
+
+describe('buildLiveSitemapCacheBust', () => {
+  it('uses a run-scoped discriminator and keeps local crawls query-free', () => {
+    expect(buildLiveSitemapCacheBust({
+      useLocal: false,
+      env: { GITHUB_RUN_ID: 'run-7', GITHUB_RUN_ATTEMPT: '2' },
+    })).toBe('run-7-2');
+    expect(buildLiveSitemapCacheBust({
+      useLocal: false,
+      env: { GITHUB_RUN_ID: 'run-7' },
+    })).toBe('run-7-1');
+    expect(buildLiveSitemapCacheBust({
+      useLocal: true,
+      env: { GITHUB_RUN_ID: 'run-7', GITHUB_RUN_ATTEMPT: '2' },
+    })).toBeUndefined();
   });
 });
 
