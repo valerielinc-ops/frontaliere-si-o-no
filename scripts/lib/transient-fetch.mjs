@@ -318,7 +318,7 @@ export function isRetryBudgetExhausted(value) {
  *   JOBS_CRAWLER_RETRY_BASE_MS  — base backoff ms (default 1000)
  *
  * @param {() => Promise<T>} attemptFn — performs one fetch attempt
- * @param {Object} [opts] — { retries, retryBaseMs, label, isTransient }
+ * @param {Object} [opts] — { retries, retryBaseMs, label, isTransient, onTransientFailure }
  *
  * When a retryable failure exhausts its retry budget, the thrown error is
  * tagged with `retryExhausted = true`. This separates the terminal outcome
@@ -343,6 +343,18 @@ export async function fetchWithRetry(attemptFn, opts = {}) {
       lastErr = err;
       const retryable = transient(err);
       if (!retryable) throw err;
+      // Let a caller that owns a wider request scope (for example a per-tenant
+      // ATS limiter) observe every transient response, including a 429 that is
+      // later recovered by this same retry loop. The hook is observational:
+      // failures in it must not change the retry decision or hide the source
+      // error.
+      if (typeof opts.onTransientFailure === 'function') {
+        try {
+          await opts.onTransientFailure(err, { attempt, maxRetries });
+        } catch {
+          // An instrumentation/limiter hook is never allowed to break fetch.
+        }
+      }
       if (attempt >= maxRetries) {
         throw markRetryExhaustedError(err);
       }

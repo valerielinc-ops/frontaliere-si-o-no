@@ -13,6 +13,7 @@ vi.mock('../scripts/lib/stealth-browser.mjs', () => ({
 import { createWorkdaySwissParser } from '../scripts/lib/workday-swiss-job-parser-common.mjs';
 import { fetchAllKsbJobs } from '../scripts/lib/ksb-job-parser.mjs';
 import {
+  createWorkdayRequestContext,
   fetchWorkdayJobDetail,
   fetchWorkdayJsonWithRetry,
   fetchWorkdayJobs,
@@ -236,6 +237,141 @@ describe('Workday JSON transport', () => {
     expect(directFetch).toHaveBeenCalledTimes(3);
     expect(page.evaluate).toHaveBeenCalledOnce();
     expect(browser.close).toHaveBeenCalledOnce();
+  });
+
+  it('serializes tenant requests and carries Retry-After across rate-limited details', async () => {
+    vi.useFakeTimers();
+    vi.stubEnv('JOBS_CRAWLER_RETRIES', '0');
+    const directFetch = vi.fn().mockResolvedValue(
+      new Response('', { status: 429, headers: { 'Retry-After': '5' } }),
+    );
+    vi.stubGlobal('fetch', directFetch);
+    const { page, browser } = browserTransport({
+      jobPostingInfo: { jobDescription: '<p>Recovered detail</p>' },
+    });
+    const context = createWorkdayRequestContext(API_BASE);
+
+    try {
+      const firstPending = context.request(`${API_BASE}/job/Zurich/Swiss_R1`);
+      await vi.advanceTimersByTimeAsync(4_999);
+      expect(directFetch).toHaveBeenCalledOnce();
+      expect(page.evaluate).not.toHaveBeenCalled();
+
+      const first = await vi.advanceTimersByTimeAsync(1).then(() => firstPending);
+      expect(first?.jobPostingInfo?.jobDescription).toBe('<p>Recovered detail</p>');
+      expect(page.evaluate).toHaveBeenCalledOnce();
+
+      const second = context.request(`${API_BASE}/job/Zurich/Swiss_R2`);
+      await vi.advanceTimersByTimeAsync(4_999);
+      expect(directFetch).toHaveBeenCalledTimes(2);
+      expect(page.evaluate).toHaveBeenCalledOnce();
+
+      await vi.advanceTimersByTimeAsync(1);
+      await expect(second).resolves.toEqual({
+        jobPostingInfo: { jobDescription: '<p>Recovered detail</p>' },
+      });
+      expect(directFetch).toHaveBeenCalledTimes(2);
+      expect(page.evaluate).toHaveBeenCalledTimes(2);
+      expect(browser.close).not.toHaveBeenCalled();
+    } finally {
+      await context.close();
+      expect(browser.close).toHaveBeenCalledOnce();
+      vi.useRealTimers();
+    }
+  });
+
+  it('waits out a terminal direct rate limit before starting browser fallback', async () => {
+    vi.useFakeTimers();
+    vi.stubEnv('JOBS_CRAWLER_RETRIES', '0');
+    const directFetch = vi.fn().mockResolvedValue(
+      new Response('', { status: 429, headers: { 'Retry-After': '30' } }),
+    );
+    const browserFallback = vi.fn().mockResolvedValue({ recovered: true });
+    vi.stubGlobal('fetch', directFetch);
+    const context = createWorkdayRequestContext(API_BASE, { browserFallback });
+
+    try {
+      const pending = context.request(`${API_BASE}/job/Zurich/Swiss_R1`);
+      await vi.advanceTimersByTimeAsync(0);
+      expect(browserFallback).not.toHaveBeenCalled();
+
+      await vi.advanceTimersByTimeAsync(29_999);
+      expect(browserFallback).not.toHaveBeenCalled();
+
+      await vi.advanceTimersByTimeAsync(1);
+      await expect(pending).resolves.toEqual({ recovered: true });
+      expect(browserFallback).toHaveBeenCalledOnce();
+    } finally {
+      await context.close();
+      vi.useRealTimers();
+    }
+  });
+
+  it('carries browser Retry-After to the next queued tenant request', async () => {
+    vi.useFakeTimers();
+    vi.stubEnv('JOBS_CRAWLER_RETRIES', '0');
+    const directFetch = vi.fn().mockRejectedValue(new TypeError('fetch failed'));
+    vi.stubGlobal('fetch', directFetch);
+    const { page, browser } = browserTransport({ recovered: true });
+    page.evaluate
+      .mockResolvedValueOnce({ status: 429, retryAfter: '30', body: '' })
+      .mockResolvedValueOnce({ status: 200, body: JSON.stringify({ recovered: true }) });
+    const context = createWorkdayRequestContext(API_BASE);
+
+    try {
+      const first = context.request(`${API_BASE}/job/Zurich/Swiss_R1`);
+      await expect(first).rejects.toMatchObject({ statusCode: 429, retryAfter: '30' });
+      expect(page.evaluate).toHaveBeenCalledOnce();
+
+      const second = context.request(`${API_BASE}/job/Zurich/Swiss_R2`);
+      await vi.advanceTimersByTimeAsync(29_999);
+      expect(page.evaluate).toHaveBeenCalledOnce();
+
+      await vi.advanceTimersByTimeAsync(1);
+      await expect(second).resolves.toEqual({ recovered: true });
+      expect(page.evaluate).toHaveBeenCalledTimes(2);
+    } finally {
+      await context.close();
+      expect(browser.close).toHaveBeenCalledOnce();
+      vi.useRealTimers();
+    }
+  });
+
+  it('preserves browser 429 metadata after direct retry exhaustion', async () => {
+    vi.useFakeTimers();
+    vi.stubEnv('JOBS_CRAWLER_RETRIES', '0');
+    const directFetch = vi.fn().mockResolvedValue(new Response('', { status: 503 }));
+    vi.stubGlobal('fetch', directFetch);
+    const { page, browser } = browserTransport({ recovered: true });
+    page.evaluate
+      .mockResolvedValueOnce({ status: 429, retryAfter: '30', body: '' })
+      .mockResolvedValueOnce({ status: 200, body: JSON.stringify({ recovered: true }) });
+    const context = createWorkdayRequestContext(API_BASE);
+
+    try {
+      const first = context.request(`${API_BASE}/job/Zurich/Swiss_R1`);
+      await expect(first).rejects.toMatchObject({
+        statusCode: 429,
+        status: 429,
+        retryAfter: '30',
+        retryExhausted: true,
+      });
+      expect(page.evaluate).toHaveBeenCalledOnce();
+
+      const second = context.request(`${API_BASE}/job/Zurich/Swiss_R2`);
+      await vi.advanceTimersByTimeAsync(29_999);
+      expect(directFetch).toHaveBeenCalledOnce();
+      expect(page.evaluate).toHaveBeenCalledOnce();
+
+      await vi.advanceTimersByTimeAsync(1);
+      await expect(second).resolves.toEqual({ recovered: true });
+      expect(directFetch).toHaveBeenCalledTimes(2);
+      expect(page.evaluate).toHaveBeenCalledTimes(2);
+    } finally {
+      await context.close();
+      expect(browser.close).toHaveBeenCalledOnce();
+      vi.useRealTimers();
+    }
   });
 
   it('uses one browser session for two KSB detail requests after rate limiting', async () => {
