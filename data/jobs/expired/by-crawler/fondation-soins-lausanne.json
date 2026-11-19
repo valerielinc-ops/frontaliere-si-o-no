@@ -413,8 +413,8 @@
     },
     "slugByLocale": {
       "it": "icls-infermiera-clinica-specializzata-m-f-fondation-soins-lausanne-lausanne-0c3d2e18",
-      "en": "icls-specialized-clinician-nurse-m-f-fondation-soins-lausanne-lausanne",
-      "de": "icls-spezialisierte-krankenschwester-m-w-fondation-soins-lausanne-lausanne",
+      "en": "icls-specialized-clinician-nurse-m-f-fondation-soins-lausanne-lausanne-b2a7141c",
+      "de": "icls-spezialisierte-krankenschwester-m-w-fondation-soins-lausanne-lausanne-2e9284ee",
       "fr": "icls-infirmier-clinicien-specialise-h-f-fondation-soins-lausanne-lausanne-22c43326"
     },
     "sector": "Sanità / Ospedali",
@@ -424,10 +424,12 @@
         "icls-infirmier-clinicien-specialise-h-f-fondation-soins-lausanne-lausanne-22c43326"
       ],
       "en": [
-        "icls-infirmier-clinicien-specialise-h-f-fondation-soins-lausanne-lausanne-22c43326"
+        "icls-infirmier-clinicien-specialise-h-f-fondation-soins-lausanne-lausanne-22c43326",
+        "icls-specialized-clinician-nurse-m-f-fondation-soins-lausanne-lausanne"
       ],
       "de": [
-        "icls-infirmier-clinicien-specialise-h-f-fondation-soins-lausanne-lausanne-22c43326"
+        "icls-infirmier-clinicien-specialise-h-f-fondation-soins-lausanne-lausanne-22c43326",
+        "icls-spezialisierte-krankenschwester-m-w-fondation-soins-lausanne-lausanne"
       ],
       "fr": [
         "icls-infirmier-clinicien-specialise-h-f-fondation-soins-lausanne-lausanne-22c43326"
@@ -440,7 +442,11 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/e6698032-dcf0-4f85-a33c-f16480b5169e",
-    "firstSeenAt": "2026-10-28T20:15:36.488Z"
+    "firstSeenAt": "2026-10-28T20:15:36.488Z",
+    "previousSlugs": [
+      "icls-specialized-clinician-nurse-m-f-fondation-soins-lausanne-lausanne",
+      "icls-spezialisierte-krankenschwester-m-w-fondation-soins-lausanne-lausanne"
+    ]
   },
   {
     "slug": "infermiera-di-campo-m-f-fondation-soins-lausanne-lausanne-e8b33266",

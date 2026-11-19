@@ -13936,23 +13936,26 @@
     "slugByLocale": {
       "it": "capo-della-ricevuta-aggiunto-fust-oberburen",
       "en": "deputy-head-of-receipt-fust-oberburen",
-      "de": "stellvertretung-leitung-wareneingang-fust-oberburen",
+      "de": "stellvertretung-leitung-wareneingang-fust-oberburen-48d58abf",
       "fr": "chef-adjoint-de-reception-fust-oberburen"
     },
     "sector": "",
     "expiredAt": "2026-11-19T10:10:42.215Z",
-    "previousSlugs": [
-      "stellvertretung-leitung-wareneingang-fust-oberburen"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "stellvertretung-leitung-wareneingang-fust-oberburen-48d58abf",
         "stellvertretung-leitung-wareneingang-fust-oberburen"
       ],
       "en": [
+        "stellvertretung-leitung-wareneingang-fust-oberburen-48d58abf",
         "stellvertretung-leitung-wareneingang-fust-oberburen"
       ],
       "fr": [
+        "stellvertretung-leitung-wareneingang-fust-oberburen-48d58abf",
         "stellvertretung-leitung-wareneingang-fust-oberburen"
+      ],
+      "de": [
+        "stellvertretung-leitung-wareneingang-fust-oberburen-48d58abf"
       ]
     },
     "postalCode": "9245",
@@ -13962,6 +13965,9 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.fust.ch/offene-stellen/stellvertretung-leitung-wareneingang/c6756d19-95c9-406c-b4cf-f74ba24aa1d5",
-    "firstSeenAt": "2026-09-07T15:24:19.786Z"
+    "firstSeenAt": "2026-09-07T15:24:19.786Z",
+    "previousSlugs": [
+      "stellvertretung-leitung-wareneingang-fust-oberburen"
+    ]
   }
 ]
