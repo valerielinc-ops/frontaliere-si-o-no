@@ -103,8 +103,9 @@ function explicitCandidateAnswerReadyForDiscovery(question, answer) {
 
 /** This lane only schedules native discovery of resolved operational fields. */
 export function operationalPortalRecoveryReady({ order, flow, draft }) {
-  if (!isPortalNeedsCandidateHold(flow?.heldBy?.[0])) return true;
-  if (flow.heldBy.length !== 1) return false;
+  const heldBy = Array.isArray(flow?.heldBy) ? flow.heldBy : [];
+  if (!heldBy.some(isPortalNeedsCandidateHold)) return true;
+  if (heldBy.length !== 1) return false;
   const questions = (Array.isArray(draft?.questions) ? draft.questions : []).filter(question => {
     if (provenOptionalOperationalPortalQuestion(question, draft)) return false;
     return question?.source === 'portal' || question?.required !== false;
