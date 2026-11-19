@@ -235,6 +235,9 @@ describe('main() — GA4 is the only source (H9)', () => {
       if (skip.includes(page.path)) continue;
       rows.push({ path: page.path, device: 'mobile', metric: 'CLS', value: cls, count });
       rows.push({ path: page.path, device: 'mobile', metric: 'INP', value: inp, count });
+      if (page.inpDevices?.includes('desktop')) {
+        rows.push({ path: page.path, device: 'desktop', metric: 'INP', value: inp, count });
+      }
     }
     return Object.assign(rows, { coverage: { timeZone: 'Europe/Zurich' } });
   }

@@ -268,10 +268,16 @@ describe('main(): la riconciliazione gira anche senza regressioni', () => {
 
   /** GA4 sotto ogni soglia per tutte le pagine target, campione sufficiente. */
   const ga4Rows = () => {
-    const rows = TARGET_PAGES.flatMap((p: { path: string }) => [
-      { path: p.path, device: 'mobile', metric: 'CLS', value: 0.02, count: N },
-      { path: p.path, device: 'mobile', metric: 'INP', value: 120, count: N },
-    ]);
+    const rows = TARGET_PAGES.flatMap((p: { path: string; inpDevices?: string[] }) => {
+      const pageRows = [
+        { path: p.path, device: 'mobile', metric: 'CLS', value: 0.02, count: N },
+        { path: p.path, device: 'mobile', metric: 'INP', value: 120, count: N },
+      ];
+      if (p.inpDevices?.includes('desktop')) {
+        pageRows.push({ path: p.path, device: 'desktop', metric: 'INP', value: 120, count: N });
+      }
+      return pageRows;
+    });
     return Object.assign(rows, { coverage: { timeZone: 'Europe/Zurich' } });
   };
   /** La finestra della settimana prima, già registrata e sotto soglia. */
@@ -281,9 +287,13 @@ describe('main(): la riconciliazione gira anche senza regressioni', () => {
     const prev = ga4DateRange(7, 2, prevNow);
     expect(prev.endDate < current.startDate).toBe(true);
     const pages: Record<string, Row> = {};
-    for (const p of TARGET_PAGES) {
+    for (const p of TARGET_PAGES as Array<{ key: string; path: string; inpDevices?: string[] }>) {
       const dev = { cls_p75: 0.02, cls_n: N, inp_p75: 120, inp_n: N };
-      pages[p.key] = { path: p.path, weeks: [week(prev.startDate, prev.endDate, { date: prevNow.toISOString().slice(0, 10), cls_p75: 0.02, inp_p75: 120 }, { mobile: dev })] };
+      const devices: Record<string, Row> = { mobile: dev };
+      if (p.inpDevices?.includes('desktop')) {
+        devices.desktop = { inp_p75: 120, inp_n: N };
+      }
+      pages[p.key] = { path: p.path, weeks: [week(prev.startDate, prev.endDate, { date: prevNow.toISOString().slice(0, 10), cls_p75: 0.02, inp_p75: 120 }, devices)] };
     }
     saveHistory(historyFile, { pages });
   };
