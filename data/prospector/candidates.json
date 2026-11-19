@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-11-19T15:00:55.995Z",
+  "updatedAt": "2026-11-19T15:02:08.654Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -347896,12 +347896,12 @@
     },
     "cogestim@lausanne": {
       "key": "cogestim@lausanne",
-      "status": "promoting",
+      "status": "awaiting_first_crawl",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:30:49.607Z",
-      "updatedAt": "2026-11-18T16:04:53.464Z",
+      "updatedAt": "2026-11-19T15:02:08.554Z",
       "name": "COGESTIM SA",
       "city": "Lausanne",
       "zip": "1003",
@@ -348207,7 +348207,13 @@
         }
       ],
       "promotionPr": "19361",
-      "promotionBranch": "prospector/promote-2026-11-18"
+      "promotionBranch": "prospector/promote-2026-11-18",
+      "promotedAt": "2026-11-18T16:39:19Z",
+      "firstCrawlerOutputStatus": "missing",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": null,
+      "firstCrawlerJobCount": 0
     },
     "cogestra.ch": {
       "key": "cogestra.ch",
@@ -734750,12 +734756,12 @@
     },
     "hp-job@au-sg": {
       "key": "hp-job@au-sg",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:25:27.644Z",
-      "updatedAt": "2026-11-18T16:04:53.463Z",
+      "updatedAt": "2026-11-19T15:02:08.554Z",
       "name": "HP Job GmbH",
       "city": "Au SG",
       "zip": "9434",
@@ -735130,7 +735136,13 @@
         }
       ],
       "promotionPr": "19361",
-      "promotionBranch": "prospector/promote-2026-11-18"
+      "promotionBranch": "prospector/promote-2026-11-18",
+      "promotedAt": "2026-11-18T16:39:19Z",
+      "firstCrawlerOutputStatus": "published",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": "2026-11-18T21:24:49.598Z",
+      "firstCrawlerJobCount": 4
     },
     "hpa-handel-planung-ausfuhrung@st-margrethen-sg": {
       "key": "hpa-handel-planung-ausfuhrung@st-margrethen-sg",
@@ -1391796,7 +1391808,7 @@
         "web"
       ],
       "firstSeenAt": "2026-10-19T21:46:32.730Z",
-      "updatedAt": "2026-11-18T16:04:20.248Z",
+      "updatedAt": "2026-11-19T15:02:08.554Z",
       "name": "sintio",
       "domain": "sintio.ch",
       "careersUrl": "https://join.com/companies/sintio/16868238-technische-r-verkaufsberater-in-und-projektleiter-in-e-mobility",
@@ -1392017,7 +1392029,7 @@
       "firstCrawlerOutputStatus": "empty",
       "firstCrawlerOutputAttention": true,
       "firstCrawlerOutputReason": null,
-      "firstCrawlerOutputAt": "2026-11-18T09:38:27.170Z",
+      "firstCrawlerOutputAt": "2026-11-18T21:53:03.475Z",
       "firstCrawlerJobCount": 0,
       "firstCrawlerOutputAttentionAt": "2026-11-04T13:55:58.168Z"
     },
