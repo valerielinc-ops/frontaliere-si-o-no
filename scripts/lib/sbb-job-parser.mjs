@@ -273,6 +273,23 @@ function canonicalSbbLocality(value = '') {
   return isKnownSwissCity(candidate) ? canonicalSwissCityName(candidate) : '';
 }
 
+/**
+ * Read the locality from the schema.org microdata emitted by the current SBB
+ * template. The page can omit JSON-LD while still publishing an authoritative
+ * `itemprop="addressLocality"` value inside the JobPosting markup.
+ */
+export function extractSbbStrongMarkupLocation(html = '') {
+  const tags = [...String(html || '').matchAll(/<meta\b[^>]*>/gi)].map((match) => match[0]);
+  for (const tag of tags) {
+    const itemprop = tag.match(/\bitemprop\s*=\s*["']([^"']+)["']/i)?.[1] || '';
+    if (itemprop.toLowerCase() !== 'addresslocality') continue;
+    const content = tag.match(/\bcontent\s*=\s*["']([^"']*)["']/i)?.[1] || '';
+    const locality = canonicalSbbLocality(content);
+    if (locality) return locality;
+  }
+  return '';
+}
+
 // ─── Main parser ───────────────────────────────────────────────────────────────
 
 /**
@@ -327,6 +344,9 @@ export function parseSbbDetailPage(html = '') {
   const location = (() => {
     const bodyLocation = extractSbbBodyLocation(html);
     if (bodyLocation) return bodyLocation;
+
+    const strongMarkupLocation = extractSbbStrongMarkupLocation(html);
+    if (strongMarkupLocation) return strongMarkupLocation;
 
     const locations = Array.isArray(jobPosting?.jobLocation)
       ? jobPosting.jobLocation

@@ -40,6 +40,28 @@ const DETAIL_HTML = `
       </div>
     </div>
   </div>`;
+const DETAIL_HTML_SOURCE_LOCATION = `
+  <div class="annonce">
+    <script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting',
+      jobLocation: {
+        address: {
+          addressLocality: 'Grenchen',
+          addressCountry: 'CH',
+        },
+      },
+    })}</script>
+    <h1>Tecnico di misura</h1>
+    <div id="position" class="content">
+      <div class="location">CH - Croglio</div>
+      <div class="annonce-row">
+        Per il nostro team Quality Management cerchiamo un tecnico di misura con esperienza nella metrologia,
+        nel controllo qualità e nella documentazione dei risultati. La posizione collabora con produzione e ingegneria.
+        Pianifichi le misure sui micromotori, programmi le macchine di misura a coordinate, analizzi le deviazioni
+        con i reparti coinvolti e proponi azioni correttive documentate secondo le norme ISO in vigore nello stabilimento.
+      </div>
+    </div>
+  </div>`;
 
 function httpError(status: number) {
   return Object.assign(new Error(`HTTP ${status}`), { status });
@@ -122,6 +144,23 @@ describe('Faulhaber crawler parser', () => {
       expect(job.sourceLang).toBe('it');
       expect(Object.keys(job.descriptionByLocale)).toEqual(['it']);
       expect(Object.keys(job.titleByLocale)).toEqual(['it']);
+    });
+  });
+
+  it('prefers the structured detail workplace over a stale listing site', async () => {
+    const jobs = await fetchAllFaulhaberJobs({
+      fetchHtmlImpl: vi.fn(async (url: string) => {
+        if (url === LISTING_DATA_URL) return LISTING_JSON;
+        return DETAIL_HTML_SOURCE_LOCATION;
+      }),
+      fetchJinaImpl: vi.fn(),
+    });
+
+    expect(jobs[0]).toMatchObject({
+      location: 'Grenchen',
+      addressLocality: 'Grenchen',
+      canton: 'SO',
+      slug: 'tecnico-di-misura-grenchen-faulhaber',
     });
   });
 

@@ -605,7 +605,8 @@ async function fetchDetailHtml(url, { fetchImpl = fetch, timeoutMs } = {}) {
  *
  * @param {object[]} jobs  crawler jobs ({ url, title, description, descriptionByLocale, sourceLang })
  * @param {{ isTrustedDomain?: (url: string) => boolean, label?: string, concurrency?: number,
- *   delayMs?: number, fetchImpl?: DetailFetch, includePostingDate?: boolean }} [opts]
+ *   delayMs?: number, fetchImpl?: DetailFetch, includePostingDate?: boolean,
+ *   onDetailPage?: (context: { job: object, html: string, posting: object|null }) => object|void }} [opts]
  * @returns {Promise<{ used: number, fallback: Record<string, number>, pageDescribed: Set<object> }>}
  */
 export async function enrichProspectiveJobsFromDetailPages(jobs, {
@@ -615,6 +616,7 @@ export async function enrichProspectiveJobsFromDetailPages(jobs, {
   delayMs = 250,
   fetchImpl = fetch,
   includePostingDate = false,
+  onDetailPage,
 } = {}) {
   const list = Array.isArray(jobs) ? jobs : [];
   const fallback = {};
@@ -645,6 +647,9 @@ export async function enrichProspectiveJobsFromDetailPages(jobs, {
       }
       if (!page.html) { miss(page.notHtml ? 'not-html' : `http-${page.status}`); continue; }
       if (page.url !== url && !isTrustedDomain(page.url)) { miss('untrusted-redirect'); continue; }
+      const posting = (includePostingDate || typeof onDetailPage === 'function')
+        ? extractJobPostingLd(page.html)
+        : null;
       const sourceLang = job.sourceLang || 'de';
       const listingText = job.descriptionByLocale?.[sourceLang] || job.description || '';
       const { text, reason } = selectProspectiveDetailDescription(page.html, {
@@ -652,8 +657,11 @@ export async function enrichProspectiveJobsFromDetailPages(jobs, {
         listingText,
       });
       if (!text) { miss(reason); continue; }
+      if (typeof onDetailPage === 'function') {
+        const detailFields = onDetailPage({ job, html: page.html, posting });
+        if (detailFields && typeof detailFields === 'object') Object.assign(job, detailFields);
+      }
       if (includePostingDate) {
-        const posting = extractJobPostingLd(page.html);
         // The structured posting must identify this vacancy, not a related-job widget.
         const sameTitle = normalize(normalizeSpace(stripHtml(posting?.title || '')))
           === normalize(normalizeSpace(stripHtml(job.title || '')));

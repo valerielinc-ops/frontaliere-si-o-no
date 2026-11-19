@@ -16,11 +16,13 @@ import {
   parseSbbDetailPage,
   buildJsonLdDescription,
   extractSbbBodyLocation,
+  extractSbbStrongMarkupLocation,
   extractSbbHtmlSections,
   extractSbbJsonLd,
   stripHtml,
   MIN_SBB_DESC_LENGTH,
 } from '@/scripts/lib/sbb-job-parser.mjs';
+import { resolveSbbJobLocation } from '@/scripts/update-sbb-jobs.mjs';
 
 // ─── Fixtures ─────────────────────────────────────────────────────────────────
 
@@ -328,6 +330,22 @@ describe('parseSbbDetailPage — body location override', () => {
   it('prefers the body location over generic JSON-LD headquarters', () => {
     const result = parseSbbDetailPage(FIXTURE_BODY_LOCATION_WINS_HTML);
     expect(result.location).toBe('Chur');
+  });
+
+  it('prefers the rendered detail locality over stale AEM city metadata', () => {
+    expect(resolveSbbJobLocation({
+      sbbParsed: { location: 'Aarau' },
+      apiMeta: { city: 'Ticino', region: 'Ticino (TI)' },
+    })).toBe('Aarau');
+  });
+
+  it('reads the current SBB JobPosting microdata when JSON-LD is absent', () => {
+    const fixture = '<span itemprop="jobLocation"><span itemprop="address">'
+      + '<meta itemprop="addressLocality" content="Aarau">'
+      + '<meta itemprop="addressRegion" content="Bern">'
+      + '</span></span>';
+    expect(extractSbbStrongMarkupLocation(fixture)).toBe('Aarau');
+    expect(parseSbbDetailPage(fixture).location).toBe('Aarau');
   });
 
   it('extracts a city when the current metadata template splits it across sibling blocks', () => {

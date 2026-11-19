@@ -1247,14 +1247,14 @@ function getJobPostingFromHtml(html = '') {
 }
 
 function extractLocationFromJobPosting(jobPosting, html, apiMeta) {
-  const apiCity = String(apiMeta?.city || '').trim();
-  if (apiCity) return apiCity;
-
   const locations = Array.isArray(jobPosting?.jobLocation) ? jobPosting.jobLocation : [jobPosting?.jobLocation];
   for (const place of locations) {
     const locality = String(place?.address?.addressLocality || '').trim();
     if (locality) return locality;
   }
+
+  const apiCity = String(apiMeta?.city || '').trim();
+  if (apiCity) return apiCity;
 
   const h1 = (() => {
     const m = String(html || '').match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
@@ -1270,6 +1270,30 @@ function extractLocationFromJobPosting(jobPosting, html, apiMeta) {
   // derives the canton from apiMeta.region and uses the canton display name as
   // the locality when no city is available.
   return '';
+}
+
+/**
+ * Resolve a posting locality with the rendered detail page as the source of
+ * truth. AEM metadata is still useful as a fallback for pages that omit a
+ * city, but it can contain a stale/generic region label after a vacancy moves
+ * to another Swiss office.
+ */
+export function resolveSbbJobLocation({
+  vacancySummaryLocation = '',
+  sourceLoginData = {},
+  sbbParsed = null,
+  jobPosting = null,
+  html = '',
+  apiMeta = null,
+} = {}) {
+  const resolvedDetailLocation = extractLocationFromJobPosting(jobPosting, html, apiMeta);
+  return String(
+    vacancySummaryLocation ||
+    sourceLoginData.location ||
+    sbbParsed?.location ||
+    resolvedDetailLocation ||
+    ''
+  ).trim();
 }
 
 /**
@@ -1477,15 +1501,15 @@ async function parseSbbJobFromDetailUrl(detailUrl, apiMetaByUrl, apiMetaByTitle 
     : (sbbParsed?.requirements?.length
       ? sbbParsed.requirements
       : parseBullets(jobPosting?.qualifications, 14));
-  const resolvedDetailLocation = extractLocationFromJobPosting(jobPosting, html, apiMeta);
   const vacancySummaryLocation = isLoginOrgDetail ? '' : extractSbbBodyLocation(html);
-  let location = String(
-    vacancySummaryLocation ||
-    sourceLoginData.location ||
-    resolvedDetailLocation ||
-    sbbParsed?.location ||
-    ''
-  ).trim();
+  let location = resolveSbbJobLocation({
+    vacancySummaryLocation,
+    sourceLoginData,
+    sbbParsed,
+    jobPosting,
+    html,
+    apiMeta,
+  });
   // Canton: prefer the concrete city, else the region label's PRIMARY canton
   // (cantonFromSbbRegion avoids the parens-code mis-match), else the default.
   // location is '' for city-less postings so it can't force a regional default.

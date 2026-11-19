@@ -20,7 +20,7 @@
  * boundary; it returns the parsed detail that the caller can reuse.
  */
 import { sourcePostingDateFields } from './source-posting-date.mjs';
-import { extractJobPostingLd } from './jsonld-jobposting.mjs';
+import { extractJobPostingLd, jobPostingAddress } from './jsonld-jobposting.mjs';
 import { createHash } from 'node:crypto';
 import { meetsSourceBodyFloor, sourceBodyWordCount } from './source-body-floor.mjs';
 import { JSDOM } from 'jsdom';
@@ -38,6 +38,7 @@ import { fetchHtmlViaJinaWithRetry, looksLikeAntiBotChallenge } from './jina-pro
 import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 import { isSpontaneousApplicationTitle } from './spontaneous-application.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
+import { inferAnyCanton } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -63,6 +64,12 @@ export const FAULHABER_COMPANY_DOMAIN = 'faulhaber.com';
  * decided by the shared 50-word floor (source-body-floor.mjs).
  */
 export const MIN_DESC_LENGTH = 100;
+
+function normalizeFaulhaberLocation(value = '') {
+  return normalizeSpace(value)
+    .replace(/^(?:CH|Schweiz|Suisse|Svizzera|Switzerland)\s*[-:]\s*/i, '')
+    .trim();
+}
 
 /** Only keep Swiss jobs from the Croglio site */
 const SWISS_LOCATION_RE = /\bCH\b|croglio|schweiz|svizzera|switzerland/i;
@@ -216,15 +223,19 @@ function parseDetailPage(html = '', document = null) {
   if (!html) return { description: '', location: '' };
 
   const parsedDocument = document || new JSDOM(html).window.document;
+  const jsonLdAddress = jobPostingAddress(extractJobPostingLd(html));
 
-  // Extract location from meta or detail fields
-  let location = '';
+  // Prefer the detail page's structured JobPosting address. The listing can
+  // retain an obsolete site label after a vacancy moves between Swiss offices.
+  let location = normalizeFaulhaberLocation(jsonLdAddress.addressLocality);
   const locationEls = parsedDocument.querySelectorAll('.tag, .detail-field, [class*="location"]');
-  for (const el of locationEls) {
-    const text = normalizeSpace(el.textContent || '');
-    if (SWISS_LOCATION_RE.test(text)) {
-      location = text;
-      break;
+  if (!location) {
+    for (const el of locationEls) {
+      const text = normalizeSpace(el.textContent || '');
+      if (SWISS_LOCATION_RE.test(text)) {
+        location = text;
+        break;
+      }
     }
   }
 
@@ -261,7 +272,13 @@ function parseDetailPage(html = '', document = null) {
     }
   }
 
-  return { description: body, location };
+  return {
+    description: body,
+    location,
+    addressRegion: jsonLdAddress.addressRegion,
+    postalCode: jsonLdAddress.postalCode,
+    streetAddress: jsonLdAddress.streetAddress,
+  };
 }
 
 export function validateDetailHtml(html = '') {
@@ -415,7 +432,8 @@ export async function fetchAllFaulhaberJobs({
   for (const listing of listings) {
     let description = '';
     let publication = sourcePostingDateFields();
-    let detailLocation = listing.location;
+    let detailLocation = normalizeFaulhaberLocation(listing.location);
+    let detailAddress = {};
 
     if (listing.url) {
       try {
@@ -439,14 +457,18 @@ export async function fetchAllFaulhaberJobs({
         });
         description = detail.description;
         publication = sourcePostingDateFields(detail.datePosted);
-        if (!detailLocation && detail.location) detailLocation = detail.location;
+        if (detail.location) detailLocation = normalizeFaulhaberLocation(detail.location);
+        detailAddress = detail;
       } catch (err) {
         throw new Error(`Faulhaber: failed to fetch a trusted detail page: ${err.message}`, { cause: err });
       }
     }
 
-    // If we got no location from listing and detail didn't confirm Swiss, skip
-    if (!listing.location && !SWISS_LOCATION_RE.test(detailLocation)) continue;
+    // The detail page is authoritative once it has been read. Keep only a
+    // concrete Swiss locality (or an explicit Swiss label) so a vacancy moved
+    // outside Switzerland is not retained merely because the old listing row
+    // still said "CH - Croglio".
+    if (!detailLocation || (!inferAnyCanton(detailLocation) && !SWISS_LOCATION_RE.test(detailLocation))) continue;
 
     // The shared 50-word floor (source-body-floor.mjs): a shorter text is not
     // published this run (the standard pipeline keeps the stored record for
@@ -463,7 +485,9 @@ export async function fetchAllFaulhaberJobs({
     // Specialist", "Guest Experience Specialist") and filed the body under a
     // foreign source slot. The title is only the fallback when no body exists.
     const sourceLang = detectLang(description || listing.title, 'de');
-    const jobSlug = buildJobSlug(`${listing.title} Croglio`, 'faulhaber');
+    const location = detailLocation || HQ.city;
+    const canton = inferAnyCanton(location) || inferAnyCanton(detailAddress.addressRegion) || HQ.canton;
+    const jobSlug = buildJobSlug(`${listing.title} ${location}`, 'faulhaber');
     const urlHash = createHash('sha1').update(listing.url).digest('hex').slice(0, 12);
     const empType = inferEmploymentType(listing.title, description);
 
@@ -478,13 +502,14 @@ export async function fetchAllFaulhaberJobs({
       titleByLocale: { [sourceLang]: listing.title },
       description,
       descriptionByLocale: { [sourceLang]: description },
-      location: 'Croglio',
-      canton: HQ.canton,
-      addressLocality: 'Croglio',
-      addressRegion: HQ.addressRegion,
+      location,
+      canton,
+      addressLocality: location,
+      addressRegion: detailAddress.addressRegion || canton || HQ.addressRegion,
       addressCountry: 'CH',
       country: 'CH',
-      postalCode: HQ.postalCode,
+      postalCode: detailAddress.postalCode || (location === HQ.city ? HQ.postalCode : ''),
+      streetAddress: detailAddress.streetAddress || '',
       category: detectCategory(listing.title, listing.department),
       sector: 'Meccanica di precisione / Motori elettrici',
       contract: empType === 'PART_TIME' ? 'part-time' : 'full-time',
