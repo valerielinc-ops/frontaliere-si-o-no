@@ -424,6 +424,7 @@ const App: React.FC = () => {
   : null;
  const contextualPath = typeof window !== 'undefined' ? window.location.pathname : '/';
  const keepJobBoardSnapshotOutsideRoot = typeof window === 'undefined'
+  || activeTab === 'job-board'
   || shouldWaitForJobBoardLcp(window.innerWidth);
  const isArticleDetailForAuth = activeTab === 'blog' && Boolean(
   blogArticle || swissArticle || cantonArticle || articleStaticFallbackKey

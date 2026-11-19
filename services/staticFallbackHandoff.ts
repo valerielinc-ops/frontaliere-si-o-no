@@ -8,8 +8,10 @@
  * `#root` right before `createRoot().render()`, so React replaces it in place
  * under the reserved height instead of App.tsx collapsing it from outside.
  * Bare canton and Switzerland-wide listings keep their external
- * `.job-board-static-content` main outside the root until the first real
- * result set is ready on the sub-desktop LCP path.
+ * `.job-board-static-content` main outside the root until the first
+ * authoritative result set is ready at every viewport: their SEO body is
+ * intentionally much taller than the interactive first-page list and must
+ * never become the `#root` min-height floor.
  *
  * Legacy generic hub fallbacks can also emit the static hub sub-nav
  * `nav.seo-hub-subnav` as a BODY-DIRECT sibling BETWEEN `#root` and the
@@ -30,7 +32,7 @@ import type { ArticleSection } from '@/services/articleSections';
 export type StaticFallbackKind = 'article' | 'canton-topic' | 'job-board' | 'generic';
 
 export interface StaticFallbackOwnershipOptions {
-  /** Keep the bare job-board snapshot outside #root for the sub-desktop LCP handoff. */
+  /** Keep the bare job-board snapshot outside #root through the authoritative-list handoff. */
   keepJobBoardOutsideRoot?: boolean;
 }
 
