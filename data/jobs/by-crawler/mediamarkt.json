@@ -1782,10 +1782,10 @@
     },
     {
       "id": "mediamarkt-101342",
-      "slug": "payroll-expert-80-100-m-w-d-mediamarkt-dietikon-ch",
+      "slug": "esperto-di-pagamento-80-100-m-f-d-mediamarkt-dietikon",
       "slugByLocale": {
         "de": "payroll-expert-80-100-m-w-d-mediamarkt-dietikon-ch",
-        "it": "payroll-expert-80-100-m-w-d-mediamarkt-dietikon-ch",
+        "it": "esperto-di-pagamento-80-100-m-f-d-mediamarkt-dietikon",
         "en": "payroll-expert-80-100-m-w-d-mediamarkt-dietikon-ch",
         "fr": "payroll-expert-80-100-m-w-d-mediamarkt-dietikon-ch"
       },
@@ -1851,7 +1851,15 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-17T10:18:14.164Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T10:18:14.164Z"
+      "firstSeenAt": "2026-11-19T10:18:14.164Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "payroll-expert-80-100-m-w-d-mediamarkt-dietikon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "payroll-expert-80-100-m-w-d-mediamarkt-dietikon-ch"
+      ]
     },
     {
       "id": "mediamarkt-99066",

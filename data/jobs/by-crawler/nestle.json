@@ -326,12 +326,12 @@
     },
     {
       "id": "nestle-1442896533",
-      "slug": "senior-key-account-manager-nestle-ch",
+      "slug": "responsabile-account-chiave-senior-nestle-la-tour-de-peilz",
       "slugByLocale": {
         "en": "senior-key-account-manager-nestle-ch",
-        "it": "senior-key-account-manager-nestle-ch",
+        "it": "responsabile-account-chiave-senior-nestle-la-tour-de-peilz",
         "de": "senior-key-account-manager-nestle-ch",
-        "fr": "senior-key-account-manager-nestle-ch"
+        "fr": "gestionnaire-principal-de-comptes-cles-nestle-la-tour-de-peilz"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -394,7 +394,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-27T10:18:36.864Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T10:18:36.864Z"
+      "firstSeenAt": "2026-11-19T10:18:36.864Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-key-account-manager-nestle-ch"
+        ],
+        "fr": [
+          "senior-key-account-manager-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-key-account-manager-nestle-ch"
+      ]
     },
     {
       "id": "nestle-1440128933",

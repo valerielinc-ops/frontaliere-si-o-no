@@ -5914,9 +5914,9 @@
     },
     {
       "id": "spital-thurgau-8eb65bcfa7cb",
-      "slug": "specialista-in-radiologia-hf-spital-thurgau-stgag-kantonsspital-frauenfeld-bd7fed8b42",
+      "slug": "dipl-radiologiefachfrau-mann-hf-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
-        "it": "specialista-in-radiologia-hf-spital-thurgau-stgag-kantonsspital-frauenfeld-bd7fed8b42",
+        "it": "dipl-radiologiefachfrau-mann-hf-spital-thurgau-stgag-munsterlingen",
         "en": "dipl-radiologiefachfrau-mann-hf-stgag-munsterlingen",
         "de": "dipl-radiologiefachfrau-mann-hf-stgag-ch",
         "fr": "dipl-radiologiefachfrau-mann-hf-stgag-munsterlingen"
@@ -5968,14 +5968,14 @@
         "dipl-radiologiefachfrau-mann-hf-stgag-ch",
         "dipl-radiologiefachfrau-mann-hf-spital-thurgau-stgag-kantonsspital-frauenfeld",
         "dipl-radiologiefachfrau-mann-hf-stgag-munsterlingen",
-        "dipl-radiologiefachfrau-mann-hf-spital-thurgau-stgag-munsterlingen"
+        "specialista-in-radiologia-hf-spital-thurgau-stgag-kantonsspital-frauenfeld-bd7fed8b42"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-radiologiefachfrau-mann-hf-stgag-ch",
           "dipl-radiologiefachfrau-mann-hf-spital-thurgau-stgag-kantonsspital-frauenfeld",
           "dipl-radiologiefachfrau-mann-hf-stgag-munsterlingen",
-          "dipl-radiologiefachfrau-mann-hf-spital-thurgau-stgag-munsterlingen"
+          "specialista-in-radiologia-hf-spital-thurgau-stgag-kantonsspital-frauenfeld-bd7fed8b42"
         ],
         "en": [
           "dipl-radiologiefachfrau-mann-hf-stgag-ch"
@@ -14810,12 +14810,12 @@
     },
     {
       "id": "spital-thurgau-35336ae2e2eb",
-      "slug": "fachspezialist-in-datenmanagement-spital-thurgau-stgag-kantonsspital-frauenfeld",
+      "slug": "specialista-nella-gestione-dei-dati-spital-thurgau-stgag-kantonsspital-frauenfeld",
       "slugByLocale": {
         "de": "fachspezialist-in-datenmanagement-stgag-ch",
-        "it": "fachspezialist-in-datenmanagement-spital-thurgau-stgag-kantonsspital-frauenfeld",
-        "en": "fachspezialist-in-datenmanagement-spital-thurgau-stgag-kantonsspital-frauenfeld",
-        "fr": "fachspezialist-in-datenmanagement-spital-thurgau-stgag-kantonsspital-frauenfeld"
+        "it": "specialista-nella-gestione-dei-dati-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "en": "data-management-specialist-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "fr": "specialiste-en-gestion-des-donnees-spital-thurgau-stgag-kantonsspital-frauenfeld"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -14864,11 +14864,19 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialist-in-datenmanagement-stgag-ch"
+          "fachspezialist-in-datenmanagement-stgag-ch",
+          "fachspezialist-in-datenmanagement-spital-thurgau-stgag-kantonsspital-frauenfeld"
+        ],
+        "en": [
+          "fachspezialist-in-datenmanagement-spital-thurgau-stgag-kantonsspital-frauenfeld"
+        ],
+        "fr": [
+          "fachspezialist-in-datenmanagement-spital-thurgau-stgag-kantonsspital-frauenfeld"
         ]
       },
       "previousSlugs": [
-        "fachspezialist-in-datenmanagement-stgag-ch"
+        "fachspezialist-in-datenmanagement-stgag-ch",
+        "fachspezialist-in-datenmanagement-spital-thurgau-stgag-kantonsspital-frauenfeld"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -14891,12 +14899,12 @@
     },
     {
       "id": "spital-thurgau-f604b75c968a",
-      "slug": "fellow-ausbildungsstelle-entwicklungspadiatrie-stgag-ch",
+      "slug": "centro-fellow-training-per-la-didattica-dello-sviluppo-spital-thurgau-stgag-kantonsspital-munsterlingen",
       "slugByLocale": {
         "de": "fellow-ausbildungsstelle-entwicklungspadiatrie-stgag-ch",
-        "it": "fellow-ausbildungsstelle-entwicklungspadiatrie-stgag-ch",
-        "en": "fellow-ausbildungsstelle-entwicklungspadiatrie-stgag-ch",
-        "fr": "fellow-ausbildungsstelle-entwicklungspadiatrie-stgag-ch"
+        "it": "centro-fellow-training-per-la-didattica-dello-sviluppo-spital-thurgau-stgag-kantonsspital-munsterlingen",
+        "en": "fellow-training-centre-for-developmental-paediatrics-spital-thurgau-stgag-kantonsspital-munsterlingen",
+        "fr": "fellow-centre-de-formation-pour-la-pediatrie-du-developpement-spital-thurgau-stgag-kantonsspital-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -14960,16 +14968,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T09:29:15.363Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T09:29:15.363Z"
+      "firstSeenAt": "2026-11-19T09:29:15.363Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fellow-ausbildungsstelle-entwicklungspadiatrie-stgag-ch"
+        ],
+        "en": [
+          "fellow-ausbildungsstelle-entwicklungspadiatrie-stgag-ch"
+        ],
+        "fr": [
+          "fellow-ausbildungsstelle-entwicklungspadiatrie-stgag-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fellow-ausbildungsstelle-entwicklungspadiatrie-stgag-ch"
+      ]
     },
     {
       "id": "spital-thurgau-c55a7bfbbf3b",
-      "slug": "dipl-radiologiefachfrau-mann-hf-spital-thurgau-stgag-munsterlingen-6535284814",
+      "slug": "tecnico-a-di-radiologia-medica-dipl-sss-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
         "de": "dipl-radiologiefachfrau-mann-hf-stgag-ch",
-        "it": "dipl-radiologiefachfrau-mann-hf-spital-thurgau-stgag-munsterlingen-6535284814",
-        "en": "dipl-radiologiefachfrau-mann-hf-stgag-ch",
-        "fr": "dipl-radiologiefachfrau-mann-hf-stgag-ch"
+        "it": "tecnico-a-di-radiologia-medica-dipl-sss-spital-thurgau-stgag-munsterlingen",
+        "en": "dipl-radiologic-technologist-hf-spital-thurgau-stgag-munsterlingen",
+        "fr": "technicien-ne-diplome-e-en-radiologie-medicale-es-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -15019,12 +15041,20 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-radiologiefachfrau-mann-hf-stgag-ch",
-          "dipl-radiologiefachfrau-mann-hf-spital-thurgau-stgag-munsterlingen"
+          "dipl-radiologiefachfrau-mann-hf-spital-thurgau-stgag-munsterlingen",
+          "dipl-radiologiefachfrau-mann-hf-spital-thurgau-stgag-munsterlingen-6535284814"
+        ],
+        "en": [
+          "dipl-radiologiefachfrau-mann-hf-stgag-ch"
+        ],
+        "fr": [
+          "dipl-radiologiefachfrau-mann-hf-stgag-ch"
         ]
       },
       "previousSlugs": [
         "dipl-radiologiefachfrau-mann-hf-stgag-ch",
-        "dipl-radiologiefachfrau-mann-hf-spital-thurgau-stgag-munsterlingen"
+        "dipl-radiologiefachfrau-mann-hf-spital-thurgau-stgag-munsterlingen",
+        "dipl-radiologiefachfrau-mann-hf-spital-thurgau-stgag-munsterlingen-6535284814"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,

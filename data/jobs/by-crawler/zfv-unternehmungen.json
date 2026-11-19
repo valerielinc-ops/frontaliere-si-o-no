@@ -7449,12 +7449,12 @@
     },
     {
       "id": "zfv-unternehmungen-b0bfa10064c9",
-      "slug": "catering-collaboratore-trice-con-stv-funktion-zfv-unternehmungen-bern",
+      "slug": "addetto-a-al-catering-con-funzione-di-sostituto-a-zfv-unternehmungen-bern",
       "slugByLocale": {
         "de": "catering-mitarbeiter-in-mit-stv-funktion-zfv-unternehmungen-bern",
-        "it": "catering-collaboratore-trice-con-stv-funktion-zfv-unternehmungen-bern",
-        "en": "catering-mitarbeiter-in-mit-stv-funktion-zfv-unternehmungen-bern",
-        "fr": "catering-mitarbeiter-in-mit-stv-funktion-zfv-unternehmungen-bern"
+        "it": "addetto-a-al-catering-con-funzione-di-sostituto-a-zfv-unternehmungen-bern",
+        "en": "catering-staff-member-with-deputy-responsibilities-zfv-unternehmungen-bern",
+        "fr": "collaborateur-rice-de-catering-avec-fonction-de-suppleance-zfv-unternehmungen-bern"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -7502,11 +7502,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "catering-mitarbeiter-in-mit-stv-funktion-zfv-unternehmungen-bern",
+          "catering-collaboratore-trice-con-stv-funktion-zfv-unternehmungen-bern"
+        ],
+        "en": [
+          "catering-mitarbeiter-in-mit-stv-funktion-zfv-unternehmungen-bern"
+        ],
+        "fr": [
           "catering-mitarbeiter-in-mit-stv-funktion-zfv-unternehmungen-bern"
         ]
       },
       "previousSlugs": [
-        "catering-mitarbeiter-in-mit-stv-funktion-zfv-unternehmungen-bern"
+        "catering-mitarbeiter-in-mit-stv-funktion-zfv-unternehmungen-bern",
+        "catering-collaboratore-trice-con-stv-funktion-zfv-unternehmungen-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -7528,12 +7536,12 @@
     },
     {
       "id": "zfv-unternehmungen-c74389ca1b89",
-      "slug": "kochin-koch-zfv-unternehmungen-bern",
+      "slug": "cucinare-cucinare-zfv-unternehmungen-bern",
       "slugByLocale": {
         "de": "kochin-koch-zfv-unternehmungen-bern",
-        "it": "kochin-koch-zfv-unternehmungen-bern",
-        "en": "kochin-koch-zfv-unternehmungen-bern",
-        "fr": "kochin-koch-zfv-unternehmungen-bern"
+        "it": "cucinare-cucinare-zfv-unternehmungen-bern",
+        "en": "cook-cook-zfv-unternehmungen-bern",
+        "fr": "cuisiniere-cuisiniere-zfv-unternehmungen-bern"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -7595,7 +7603,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T09:48:57.969Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T09:48:57.969Z"
+      "firstSeenAt": "2026-11-19T09:48:57.969Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kochin-koch-zfv-unternehmungen-bern"
+        ],
+        "en": [
+          "kochin-koch-zfv-unternehmungen-bern"
+        ],
+        "fr": [
+          "kochin-koch-zfv-unternehmungen-bern"
+        ]
+      },
+      "previousSlugs": [
+        "kochin-koch-zfv-unternehmungen-bern"
+      ]
     },
     {
       "id": "zfv-unternehmungen-d6c68d432405",
@@ -7667,12 +7689,12 @@
     },
     {
       "id": "zfv-unternehmungen-11c798854f9c",
-      "slug": "service-collaboratore-trice-fruhstuck-80-zfv-unternehmungen-zurich",
+      "slug": "addetto-a-al-servizio-colazioni-80-zfv-unternehmungen-zurich",
       "slugByLocale": {
         "de": "service-mitarbeiter-in-fruhstuck-80-zfv-unternehmungen-zurich",
-        "it": "service-collaboratore-trice-fruhstuck-80-zfv-unternehmungen-zurich",
-        "en": "service-mitarbeiter-in-fruhstuck-80-zfv-unternehmungen-zurich",
-        "fr": "service-mitarbeiter-in-fruhstuck-80-zfv-unternehmungen-zurich"
+        "it": "addetto-a-al-servizio-colazioni-80-zfv-unternehmungen-zurich",
+        "en": "breakfast-service-staff-80-zfv-unternehmungen-zurich",
+        "fr": "collaborateur-rice-de-service-au-petit-dejeuner-80-zfv-unternehmungen-zurich"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -7720,11 +7742,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "service-mitarbeiter-in-fruhstuck-80-zfv-unternehmungen-zurich",
+          "service-collaboratore-trice-fruhstuck-80-zfv-unternehmungen-zurich"
+        ],
+        "en": [
+          "service-mitarbeiter-in-fruhstuck-80-zfv-unternehmungen-zurich"
+        ],
+        "fr": [
           "service-mitarbeiter-in-fruhstuck-80-zfv-unternehmungen-zurich"
         ]
       },
       "previousSlugs": [
-        "service-mitarbeiter-in-fruhstuck-80-zfv-unternehmungen-zurich"
+        "service-mitarbeiter-in-fruhstuck-80-zfv-unternehmungen-zurich",
+        "service-collaboratore-trice-fruhstuck-80-zfv-unternehmungen-zurich"
       ],
       "salaryMin": 58800,
       "salaryMax": 89200,

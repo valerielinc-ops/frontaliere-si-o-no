@@ -1090,7 +1090,7 @@
     },
     {
       "title": "Empfang, 50%",
-      "slug": "empfang-50-berit-klinik",
+      "slug": "accoglienza-50-berit-klinik-wattwil",
       "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_sachbearbeiter_in_empfang_50__26b59428aa.pdf",
       "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
       "company": "Berit Klinik",
@@ -1128,8 +1128,8 @@
       },
       "slugByLocale": {
         "de": "empfang-50-berit-klinik-wattwil",
-        "it": "empfang-50-berit-klinik",
-        "en": "empfang-50-berit-klinik",
+        "it": "accoglienza-50-berit-klinik-wattwil",
+        "en": "reception-50-berit-klinik-wattwil",
         "fr": "empfang-50-berit-klinik"
       },
       "_meta": {
@@ -1138,6 +1138,12 @@
       "id": "berit-klinik-8856de5a3491",
       "previousSlugsByLocale": {
         "de": [
+          "empfang-50-berit-klinik"
+        ],
+        "it": [
+          "empfang-50-berit-klinik"
+        ],
+        "en": [
           "empfang-50-berit-klinik"
         ]
       },

@@ -580,12 +580,12 @@
     },
     {
       "id": "imad-fb79b66c847c",
-      "slug": "apprenties-et-apprentis-assistante-et-assistant-en-soins-et-sante-communautaire-assc-cfc",
+      "slug": "apprendisti-e-apprendisti-assistenza-e-assistente-per-la-salute-chs-cfc-imad-geneva",
       "slugByLocale": {
         "fr": "apprenties-et-apprentis-assistante-et-assistant-en-soins-et-sante-communautaire-assc-cfc",
-        "it": "apprenties-et-apprentis-assistante-et-assistant-en-soins-et-sante-communautaire-assc-cfc",
-        "en": "apprenties-et-apprentis-assistante-et-assistant-en-soins-et-sante-communautaire-assc-cfc",
-        "de": "apprenties-et-apprentis-assistante-et-assistant-en-soins-et-sante-communautaire-assc-cfc"
+        "it": "apprendisti-e-apprendisti-assistenza-e-assistente-per-la-salute-chs-cfc-imad-geneva",
+        "en": "apprenticeships-and-apprentices-community-care-and-health-assistant-chs-cfc-imad-geneva",
+        "de": "lernende-fachfrauen-und-fachmanner-gesundheit-fage-efz-imad-geneva"
       },
       "company": "imad",
       "companyKey": "imad",
@@ -648,7 +648,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-03T09:59:55.600Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T09:59:55.600Z"
+      "firstSeenAt": "2026-11-19T09:59:55.600Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenties-et-apprentis-assistante-et-assistant-en-soins-et-sante-communautaire-assc-cfc"
+        ],
+        "en": [
+          "apprenties-et-apprentis-assistante-et-assistant-en-soins-et-sante-communautaire-assc-cfc"
+        ],
+        "de": [
+          "apprenties-et-apprentis-assistante-et-assistant-en-soins-et-sante-communautaire-assc-cfc"
+        ]
+      },
+      "previousSlugs": [
+        "apprenties-et-apprentis-assistante-et-assistant-en-soins-et-sante-communautaire-assc-cfc"
+      ]
     },
     {
       "id": "imad-1dff910478eb",

@@ -4244,8 +4244,8 @@
       "slugByLocale": {
         "it": "responsabile-del-team-pharma-international-fp-a-centro-di-eccellenza-aziendale-ecoe-roche-basel",
         "en": "team-lead-pharma-international-fp-a-enterprise-center-of-excellence-ecoe-roche-ch",
-        "de": "team-lead-pharma-international-fp-a-enterprise-center-of-excellence-ecoe-roche-ch",
-        "fr": "team-lead-pharma-international-fp-a-enterprise-center-of-excellence-ecoe-roche-ch"
+        "de": "teamleitung-fp-a-pharma-international-unternehmensweites-kompetenzzentrum-ecoe-roche-basel",
+        "fr": "responsable-d-equipe-fp-a-pharma-international-centre-d-excellence-de-l-entreprise-ecoe-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -4291,6 +4291,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "team-lead-pharma-international-fp-a-enterprise-center-of-excellence-ecoe-roche-ch"
+        ],
+        "de": [
+          "team-lead-pharma-international-fp-a-enterprise-center-of-excellence-ecoe-roche-ch"
+        ],
+        "fr": [
           "team-lead-pharma-international-fp-a-enterprise-center-of-excellence-ecoe-roche-ch"
         ]
       },

@@ -1165,12 +1165,12 @@
     },
     {
       "id": "tally-weijl-5e3272eb8c60",
-      "slug": "flexible-aushilfe-m-w-d-tally-weijl-zurich",
+      "slug": "ausiliante-flessibile-m-w-d-tally-weijl-zurich",
       "slugByLocale": {
         "de": "flexible-aushilfe-m-w-d-tally-weijl-zurich",
-        "it": "flexible-aushilfe-m-w-d-tally-weijl-zurich",
-        "en": "flexible-aushilfe-m-w-d-tally-weijl-zurich",
-        "fr": "flexible-aushilfe-m-w-d-tally-weijl-zurich"
+        "it": "ausiliante-flessibile-m-w-d-tally-weijl-zurich",
+        "en": "flexible-auxiliary-m-w-d-tally-weijl-zurich",
+        "fr": "auxiliaires-flexibles-m-w-d-tally-weijl-zurich"
       },
       "company": "TALLY WEiJL",
       "companyKey": "tally-weijl",
@@ -1232,7 +1232,21 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T09:54:35.108Z"
+      "firstSeenAt": "2026-11-19T09:54:35.108Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "flexible-aushilfe-m-w-d-tally-weijl-zurich"
+        ],
+        "en": [
+          "flexible-aushilfe-m-w-d-tally-weijl-zurich"
+        ],
+        "fr": [
+          "flexible-aushilfe-m-w-d-tally-weijl-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "flexible-aushilfe-m-w-d-tally-weijl-zurich"
+      ]
     },
     {
       "id": "tally-weijl-1f4bede8f068",

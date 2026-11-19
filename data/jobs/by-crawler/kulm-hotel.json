@@ -591,7 +591,7 @@
       "slugByLocale": {
         "en": "chef-de-partie-gardemanger-m-w-d-kulm-hotel-st-moritz",
         "it": "chef-de-partie-gardemanger-m-w-d-kulm-hotel-st-moritz",
-        "de": "chef-de-partie-gardemanger-m-w-d-kulm-hotel-st-moritz",
+        "de": "postenchef-gardemanger-m-w-d-kulm-hotel-st-moritz-pontresina",
         "fr": "chef-de-partie-gardemanger-m-w-d-kulm-hotel-st-moritz"
       },
       "company": "Kulm Hotel St. Moritz",
@@ -659,7 +659,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-23T09:28:25.888Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-23T23:46:07.964Z"
+      "firstSeenAt": "2026-09-23T23:46:07.964Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "chef-de-partie-gardemanger-m-w-d-kulm-hotel-st-moritz"
+        ]
+      },
+      "previousSlugs": [
+        "chef-de-partie-gardemanger-m-w-d-kulm-hotel-st-moritz"
+      ]
     },
     {
       "id": "kulm-hotel-435470f943ce",

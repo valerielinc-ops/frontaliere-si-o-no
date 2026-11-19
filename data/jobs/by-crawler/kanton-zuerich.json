@@ -3231,12 +3231,12 @@
     },
     {
       "id": "kanton-zuerich-a0c989d78bb3",
-      "slug": "gruppenchef-in-einsatzdisposition-kantonale-verwaltung-zurich-zurich-flughafen",
+      "slug": "responsabile-di-gruppo-per-la-pianificazione-degli-interventi-kantonale-verwaltung-zurich-zurich-flughafen",
       "slugByLocale": {
         "de": "gruppenchef-in-einsatzdisposition-kanton-zuerich-zurich-flughafen",
-        "it": "gruppenchef-in-einsatzdisposition-kantonale-verwaltung-zurich-zurich-flughafen",
-        "en": "gruppenchef-in-einsatzdisposition-kantonale-verwaltung-zurich-zurich-flughafen",
-        "fr": "gruppenchef-in-einsatzdisposition-kantonale-verwaltung-zurich-zurich-flughafen"
+        "it": "responsabile-di-gruppo-per-la-pianificazione-degli-interventi-kantonale-verwaltung-zurich-zurich-flughafen",
+        "en": "group-leader-deployment-scheduling-kantonale-verwaltung-zurich-zurich-flughafen",
+        "fr": "chef-fe-de-groupe-planification-des-interventions-kantonale-verwaltung-zurich-zurich-flughafen"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -3287,11 +3287,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "gruppenchef-in-einsatzdisposition-kanton-zuerich-zurich-flughafen"
+          "gruppenchef-in-einsatzdisposition-kanton-zuerich-zurich-flughafen",
+          "gruppenchef-in-einsatzdisposition-kantonale-verwaltung-zurich-zurich-flughafen"
+        ],
+        "en": [
+          "gruppenchef-in-einsatzdisposition-kantonale-verwaltung-zurich-zurich-flughafen"
+        ],
+        "fr": [
+          "gruppenchef-in-einsatzdisposition-kantonale-verwaltung-zurich-zurich-flughafen"
         ]
       },
       "previousSlugs": [
-        "gruppenchef-in-einsatzdisposition-kanton-zuerich-zurich-flughafen"
+        "gruppenchef-in-einsatzdisposition-kanton-zuerich-zurich-flughafen",
+        "gruppenchef-in-einsatzdisposition-kantonale-verwaltung-zurich-zurich-flughafen"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -4129,8 +4137,8 @@
       "slugByLocale": {
         "de": "ikt-und-isds-professional-kanton-zuerich-zurich",
         "it": "ikt-e-isds-professional-kantonale-verwaltung-zurich",
-        "en": "ikt-und-isds-professional-kanton-zuerich-zurich",
-        "fr": "ikt-und-isds-professional-kanton-zuerich-zurich"
+        "en": "ict-and-isds-professional-kantonale-verwaltung-zurich-zurich",
+        "fr": "specialiste-des-tic-et-du-rdie-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -4181,6 +4189,12 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
+          "ikt-und-isds-professional-kanton-zuerich-zurich"
+        ],
+        "en": [
+          "ikt-und-isds-professional-kanton-zuerich-zurich"
+        ],
+        "fr": [
           "ikt-und-isds-professional-kanton-zuerich-zurich"
         ]
       },
@@ -8502,8 +8516,8 @@
       "slugByLocale": {
         "de": "wissenschaftliche-r-mitarbeiter-in-sap-fi-co-pscd-kanton-zuerich-zurich",
         "it": "wissenschaftliche-r-collaboratore-trice-in-sap-fi-co-pscd-kantonale-verwaltung-zurich",
-        "en": "wissenschaftliche-r-mitarbeiter-in-sap-fi-co-pscd-kantonale-verwaltung-zurich-zurich",
-        "fr": "wissenschaftliche-r-mitarbeiter-in-sap-fi-co-pscd-kantonale-verwaltung-zurich-zurich"
+        "en": "research-associate-sap-fi-co-pscd-kantonale-verwaltung-zurich-zurich",
+        "fr": "collaborateur-trice-scientifique-sap-fi-co-pscd-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -8555,10 +8569,17 @@
       "previousSlugsByLocale": {
         "it": [
           "wissenschaftliche-r-mitarbeiter-in-sap-fi-co-pscd-kanton-zuerich-zurich"
+        ],
+        "en": [
+          "wissenschaftliche-r-mitarbeiter-in-sap-fi-co-pscd-kantonale-verwaltung-zurich-zurich"
+        ],
+        "fr": [
+          "wissenschaftliche-r-mitarbeiter-in-sap-fi-co-pscd-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "wissenschaftliche-r-mitarbeiter-in-sap-fi-co-pscd-kanton-zuerich-zurich"
+        "wissenschaftliche-r-mitarbeiter-in-sap-fi-co-pscd-kanton-zuerich-zurich",
+        "wissenschaftliche-r-mitarbeiter-in-sap-fi-co-pscd-kantonale-verwaltung-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -10638,8 +10659,8 @@
       "slugByLocale": {
         "de": "aufseher-in-betreuer-in-befristet-kanton-zuerich-regensdorf",
         "it": "aufseher-in-betreuer-in-befristet-kantonale-verwaltung-zurich-regensdorf",
-        "en": "aufseher-in-betreuer-in-befristet-kanton-zuerich-regensdorf",
-        "fr": "aufseher-in-betreuer-in-befristet-kanton-zuerich-regensdorf"
+        "en": "supervisor-caregiver-fixed-term-kantonale-verwaltung-zurich-regensdorf",
+        "fr": "surveillant-e-et-accompagnateur-rice-a-duree-determinee-kantonale-verwaltung-zurich-regensdorf"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -10690,6 +10711,12 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
+          "aufseher-in-betreuer-in-befristet-kanton-zuerich-regensdorf"
+        ],
+        "en": [
+          "aufseher-in-betreuer-in-befristet-kanton-zuerich-regensdorf"
+        ],
+        "fr": [
           "aufseher-in-betreuer-in-befristet-kanton-zuerich-regensdorf"
         ]
       },

@@ -13784,12 +13784,12 @@
     },
     {
       "id": "stadler-rail-10c2b15c7491",
-      "slug": "werkstudent-in-einkauf-business-analytics-stadler-rail-ch",
+      "slug": "studente-ssa-lavoratore-trice-acquisti-business-analytics-stadler-rail-st-margrethen",
       "slugByLocale": {
         "de": "werkstudent-in-einkauf-business-analytics-stadler-rail-ch",
-        "it": "werkstudent-in-einkauf-business-analytics-stadler-rail-ch",
-        "en": "werkstudent-in-einkauf-business-analytics-stadler-rail-ch",
-        "fr": "werkstudent-in-einkauf-business-analytics-stadler-rail-ch"
+        "it": "studente-ssa-lavoratore-trice-acquisti-business-analytics-stadler-rail-st-margrethen",
+        "en": "working-student-procurement-business-analytics-stadler-rail-st-margrethen",
+        "fr": "etudiant-e-salarie-e-en-achats-business-analytics-stadler-rail-st-margrethen"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -13851,16 +13851,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T10:32:49.528Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T10:32:49.528Z"
+      "firstSeenAt": "2026-11-19T10:32:49.528Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "werkstudent-in-einkauf-business-analytics-stadler-rail-ch"
+        ],
+        "en": [
+          "werkstudent-in-einkauf-business-analytics-stadler-rail-ch"
+        ],
+        "fr": [
+          "werkstudent-in-einkauf-business-analytics-stadler-rail-ch"
+        ]
+      },
+      "previousSlugs": [
+        "werkstudent-in-einkauf-business-analytics-stadler-rail-ch"
+      ]
     },
     {
       "id": "stadler-rail-e29446e4e3b1",
-      "slug": "recruiting-stadler-rail-ch",
+      "slug": "reclutamento-stadler-rail-frauenfeld",
       "slugByLocale": {
         "en": "recruiting-stadler-rail-ch",
-        "it": "recruiting-stadler-rail-ch",
-        "de": "recruiting-stadler-rail-ch",
-        "fr": "recruiting-stadler-rail-ch"
+        "it": "reclutamento-stadler-rail-frauenfeld",
+        "de": "einstellung-stadler-rail-frauenfeld",
+        "fr": "recrutement-stadler-rail-frauenfeld"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -13922,16 +13936,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T10:32:37.263Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-27T09:40:41.667Z"
+      "firstSeenAt": "2026-10-27T09:40:41.667Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "recruiting-stadler-rail-ch"
+        ],
+        "de": [
+          "recruiting-stadler-rail-ch"
+        ],
+        "fr": [
+          "recruiting-stadler-rail-ch"
+        ]
+      },
+      "previousSlugs": [
+        "recruiting-stadler-rail-ch"
+      ]
     },
     {
       "id": "stadler-rail-f93e358ae009",
-      "slug": "team-leader-battery-maintenance-engineering-stadler-rail-ch",
+      "slug": "capo-squadra-battery-maintenance-engineering-stadler-rail-frauenfeld",
       "slugByLocale": {
         "en": "team-leader-battery-maintenance-engineering-stadler-rail-ch",
-        "it": "team-leader-battery-maintenance-engineering-stadler-rail-ch",
-        "de": "team-leader-battery-maintenance-engineering-stadler-rail-ch",
-        "fr": "team-leader-battery-maintenance-engineering-stadler-rail-ch"
+        "it": "capo-squadra-battery-maintenance-engineering-stadler-rail-frauenfeld",
+        "de": "teamleiter-batteriewartungstechnik-stadler-rail-frauenfeld",
+        "fr": "chef-d-equipe-genie-de-maintenance-des-batteries-stadler-rail-frauenfeld"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -13992,16 +14020,30 @@
       "streetAddress": "Frauenfeld",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T10:32:24.240Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "team-leader-battery-maintenance-engineering-stadler-rail-ch"
+        ],
+        "de": [
+          "team-leader-battery-maintenance-engineering-stadler-rail-ch"
+        ],
+        "fr": [
+          "team-leader-battery-maintenance-engineering-stadler-rail-ch"
+        ]
+      },
+      "previousSlugs": [
+        "team-leader-battery-maintenance-engineering-stadler-rail-ch"
+      ]
     },
     {
       "id": "stadler-rail-fb2efad5f31a",
-      "slug": "facility-manager-in-stadler-rail-ch",
+      "slug": "responsabile-della-gestione-delle-strutture-stadler-rail-winterthur",
       "slugByLocale": {
         "de": "facility-manager-in-stadler-rail-ch",
-        "it": "facility-manager-in-stadler-rail-ch",
+        "it": "responsabile-della-gestione-delle-strutture-stadler-rail-winterthur",
         "en": "facility-manager-in-stadler-rail-ch",
-        "fr": "facility-manager-in-stadler-rail-ch"
+        "fr": "gestionnaire-des-installations-stadler-rail-winterthur"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -14063,7 +14105,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T10:32:12.156Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T10:32:12.156Z"
+      "firstSeenAt": "2026-11-19T10:32:12.156Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "facility-manager-in-stadler-rail-ch"
+        ],
+        "fr": [
+          "facility-manager-in-stadler-rail-ch"
+        ]
+      },
+      "previousSlugs": [
+        "facility-manager-in-stadler-rail-ch"
+      ]
     },
     {
       "id": "stadler-rail-04b6062d8780",

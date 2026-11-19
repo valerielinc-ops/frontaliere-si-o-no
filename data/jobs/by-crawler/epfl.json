@@ -6398,12 +6398,12 @@
     },
     {
       "id": "epfl-3bb80ef33135",
-      "slug": "ingenieur-e-ia-senior-epfl-lausanne",
+      "slug": "ingegnere-senior-epfl-lausanne",
       "slugByLocale": {
         "fr": "ingenieur-e-ia-senior-epfl-lausanne",
-        "it": "ingenieur-e-ia-senior-epfl-lausanne",
-        "en": "ingenieur-e-ia-senior-epfl-lausanne",
-        "de": "ingenieur-e-ia-senior-epfl-lausanne"
+        "it": "ingegnere-senior-epfl-lausanne",
+        "en": "senior-engineer-epfl-lausanne",
+        "de": "leitender-ingenieur-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -6468,16 +6468,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T09:56:18.712Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T09:56:18.712Z"
+      "firstSeenAt": "2026-11-19T09:56:18.712Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ingenieur-e-ia-senior-epfl-lausanne"
+        ],
+        "en": [
+          "ingenieur-e-ia-senior-epfl-lausanne"
+        ],
+        "de": [
+          "ingenieur-e-ia-senior-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "ingenieur-e-ia-senior-epfl-lausanne"
+      ]
     },
     {
       "id": "epfl-cad7e48438a8",
-      "slug": "postdoctoral-research-fellow-in-ultrafast-laser-matter-interaction-epfl-neuchatel",
+      "slug": "ricercatore-post-dottorato-nell-interazione-ultrarapida-tra-laser-e-materia-epfl-neuchatel",
       "slugByLocale": {
         "en": "postdoctoral-research-fellow-in-ultrafast-laser-matter-interaction-epfl-neuchatel",
-        "it": "postdoctoral-research-fellow-in-ultrafast-laser-matter-interaction-epfl-neuchatel",
-        "de": "postdoctoral-research-fellow-in-ultrafast-laser-matter-interaction-epfl-neuchatel",
-        "fr": "postdoctoral-research-fellow-in-ultrafast-laser-matter-interaction-epfl-neuchatel"
+        "it": "ricercatore-post-dottorato-nell-interazione-ultrarapida-tra-laser-e-materia-epfl-neuchatel",
+        "de": "postdoktoraler-forschungsstipendiat-fur-ultraschnelle-laser-materie-wechselwirkung-epfl-neuchatel",
+        "fr": "chercheur-postdoctoral-en-interaction-ultrarapide-entre-le-laser-et-la-matiere-epfl-neuchatel"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -6542,7 +6556,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T09:56:18.109Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T09:56:18.109Z"
+      "firstSeenAt": "2026-11-19T09:56:18.109Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "postdoctoral-research-fellow-in-ultrafast-laser-matter-interaction-epfl-neuchatel"
+        ],
+        "de": [
+          "postdoctoral-research-fellow-in-ultrafast-laser-matter-interaction-epfl-neuchatel"
+        ],
+        "fr": [
+          "postdoctoral-research-fellow-in-ultrafast-laser-matter-interaction-epfl-neuchatel"
+        ]
+      },
+      "previousSlugs": [
+        "postdoctoral-research-fellow-in-ultrafast-laser-matter-interaction-epfl-neuchatel"
+      ]
     },
     {
       "id": "epfl-84910af98cd0",

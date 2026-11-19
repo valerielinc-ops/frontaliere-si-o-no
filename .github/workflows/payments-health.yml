@@ -2,7 +2,7 @@ name: Payments Health
 
 on:
   schedule:
-    - cron: '58 * * * *'
+    - cron: '32 * * * *'
   workflow_dispatch:
     inputs:
       dry_run:

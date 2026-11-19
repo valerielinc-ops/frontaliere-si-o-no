@@ -1693,12 +1693,12 @@
     },
     {
       "id": "ksw-e6338ba901db",
-      "slug": "stv-leiterin-stv-leiter-information-telefonzentrale-kantonsspital-winterthur-ksw-winterthur",
+      "slug": "vice-responsabile-del-servizio-informazioni-del-centralino-telefonico-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "stv-leiterin-stv-leiter-information-telefonzentrale-ksw-ch",
-        "it": "stv-leiterin-stv-leiter-information-telefonzentrale-kantonsspital-winterthur-ksw-winterthur",
-        "en": "stv-leiterin-stv-leiter-information-telefonzentrale-ksw-ch",
-        "fr": "stv-leiterin-stv-leiter-information-telefonzentrale-ksw-ch"
+        "it": "vice-responsabile-del-servizio-informazioni-del-centralino-telefonico-kantonsspital-winterthur-ksw-winterthur",
+        "en": "deputy-head-information-telephone-switchboard-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "responsable-adjoint-e-du-service-d-information-de-la-centrale-telephonique-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -1746,11 +1746,19 @@
       "department": "Information",
       "previousSlugsByLocale": {
         "it": [
+          "stv-leiterin-stv-leiter-information-telefonzentrale-ksw-ch",
+          "stv-leiterin-stv-leiter-information-telefonzentrale-kantonsspital-winterthur-ksw-winterthur"
+        ],
+        "en": [
+          "stv-leiterin-stv-leiter-information-telefonzentrale-ksw-ch"
+        ],
+        "fr": [
           "stv-leiterin-stv-leiter-information-telefonzentrale-ksw-ch"
         ]
       },
       "previousSlugs": [
-        "stv-leiterin-stv-leiter-information-telefonzentrale-ksw-ch"
+        "stv-leiterin-stv-leiter-information-telefonzentrale-ksw-ch",
+        "stv-leiterin-stv-leiter-information-telefonzentrale-kantonsspital-winterthur-ksw-winterthur"
       ],
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -5110,12 +5118,12 @@
     },
     {
       "id": "ksw-c88f6e658a66",
-      "slug": "fachfrau-fachmann-gesundheit-notfallbettenstation-ksw-ch",
+      "slug": "specialista-stazione-del-letto-di-emergenza-sanitaria-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-notfallbettenstation-ksw-ch",
-        "it": "fachfrau-fachmann-gesundheit-notfallbettenstation-ksw-ch",
-        "en": "fachfrau-fachmann-gesundheit-notfallbettenstation-ksw-ch",
-        "fr": "fachfrau-fachmann-gesundheit-notfallbettenstation-ksw-ch"
+        "it": "specialista-stazione-del-letto-di-emergenza-sanitaria-kantonsspital-winterthur-ksw-winterthur",
+        "en": "specialist-health-emergency-bed-station-kantonsspital-winterthur-ksw-winterthur-f9ff8d",
+        "fr": "specialiste-poste-de-lits-d-urgence-sante-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -5178,7 +5186,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-19T09:33:20.875Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-20T21:15:12.599Z"
+      "firstSeenAt": "2026-10-20T21:15:12.599Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-notfallbettenstation-ksw-ch"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-notfallbettenstation-ksw-ch"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-notfallbettenstation-ksw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-notfallbettenstation-ksw-ch"
+      ]
     },
     {
       "id": "ksw-c1ec037863d3",
@@ -5910,12 +5932,12 @@
     },
     {
       "id": "ksw-6c153c7c193d",
-      "slug": "case-manager-in-sozialarbeiter-in-nachsorge-e-sozialberatung-kantonsspital-winterthur-ksw-winterthur",
+      "slug": "case-manager-assistente-sociale-per-l-assistenza-post-cura-e-la-consulenza-sociale-kantonsspital-winterthur-ksw",
       "slugByLocale": {
         "de": "case-manager-in-sozialarbeiter-in-nachsorge-und-sozialberatung-ksw-ch",
-        "it": "case-manager-in-sozialarbeiter-in-nachsorge-e-sozialberatung-kantonsspital-winterthur-ksw-winterthur",
-        "en": "case-manager-in-sozialarbeiter-in-nachsorge-und-sozialberatung-ksw-ch",
-        "fr": "case-manager-in-sozialarbeiter-in-nachsorge-und-sozialberatung-ksw-ch"
+        "it": "case-manager-assistente-sociale-per-l-assistenza-post-cura-e-la-consulenza-sociale-kantonsspital-winterthur-ksw",
+        "en": "case-manager-social-worker-aftercare-and-social-counseling-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "gestionnaire-de-cas-assistant-e-social-e-suivi-et-conseil-social-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -5963,11 +5985,19 @@
       "department": "Nachsorge- und Sozialberatung",
       "previousSlugsByLocale": {
         "it": [
+          "case-manager-in-sozialarbeiter-in-nachsorge-und-sozialberatung-ksw-ch",
+          "case-manager-in-sozialarbeiter-in-nachsorge-e-sozialberatung-kantonsspital-winterthur-ksw-winterthur"
+        ],
+        "en": [
+          "case-manager-in-sozialarbeiter-in-nachsorge-und-sozialberatung-ksw-ch"
+        ],
+        "fr": [
           "case-manager-in-sozialarbeiter-in-nachsorge-und-sozialberatung-ksw-ch"
         ]
       },
       "previousSlugs": [
-        "case-manager-in-sozialarbeiter-in-nachsorge-und-sozialberatung-ksw-ch"
+        "case-manager-in-sozialarbeiter-in-nachsorge-und-sozialberatung-ksw-ch",
+        "case-manager-in-sozialarbeiter-in-nachsorge-e-sozialberatung-kantonsspital-winterthur-ksw-winterthur"
       ],
       "salaryMin": 124000,
       "salaryMax": 173000,

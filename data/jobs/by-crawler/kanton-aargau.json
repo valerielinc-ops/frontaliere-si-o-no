@@ -5545,12 +5545,12 @@
     },
     {
       "id": "kanton-aargau-20560c25dd50",
-      "slug": "nebenamtliche-r-fachrichter-in-architekt-in-htl-eth-fh-dipl-immobilientreuhander-in",
+      "slug": "giudice-specializzato-a-a-titolo-accessorio-architetto-a-htl-eth-fh-fiduciario-a-immobiliare-diplomato-a-perito-a",
       "slugByLocale": {
         "de": "nebenamtliche-r-fachrichter-in-architekt-in-htl-eth-fh-dipl-immobilientreuhander-in",
-        "it": "nebenamtliche-r-fachrichter-in-architekt-in-htl-eth-fh-dipl-immobilientreuhander-in",
-        "en": "nebenamtliche-r-fachrichter-in-architekt-in-htl-eth-fh-dipl-immobilientreuhander-in",
-        "fr": "nebenamtliche-r-fachrichter-in-architekt-in-htl-eth-fh-dipl-immobilientreuhander-in"
+        "it": "giudice-specializzato-a-a-titolo-accessorio-architetto-a-htl-eth-fh-fiduciario-a-immobiliare-diplomato-a-perito-a",
+        "en": "part-time-expert-judge-architect-htl-eth-fh-certified-real-estate-fiduciary-real-estate-appraiser-5-10-kanton-aargau",
+        "fr": "juge-specialise-e-a-titre-accessoire-architecte-htl-eth-fh-fiduciaire-immobilier-ere-diplome-e-expert-e-en-estimation"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -5613,16 +5613,30 @@
       },
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-19T09:32:19.302Z"
+      "firstSeenAt": "2026-11-19T09:32:19.302Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "nebenamtliche-r-fachrichter-in-architekt-in-htl-eth-fh-dipl-immobilientreuhander-in"
+        ],
+        "en": [
+          "nebenamtliche-r-fachrichter-in-architekt-in-htl-eth-fh-dipl-immobilientreuhander-in"
+        ],
+        "fr": [
+          "nebenamtliche-r-fachrichter-in-architekt-in-htl-eth-fh-dipl-immobilientreuhander-in"
+        ]
+      },
+      "previousSlugs": [
+        "nebenamtliche-r-fachrichter-in-architekt-in-htl-eth-fh-dipl-immobilientreuhander-in"
+      ]
     },
     {
       "id": "kanton-aargau-e49cb1dfe5ca",
-      "slug": "juristin-jurist-100-kanton-aargau-ch",
+      "slug": "avvocato-avvocato-100-kanton-aargau-aarau",
       "slugByLocale": {
         "de": "juristin-jurist-100-kanton-aargau-ch",
-        "it": "juristin-jurist-100-kanton-aargau-ch",
-        "en": "juristin-jurist-100-kanton-aargau-ch",
-        "fr": "juristin-jurist-100-kanton-aargau-ch"
+        "it": "avvocato-avvocato-100-kanton-aargau-aarau",
+        "en": "lawyer-lawyer-100-kanton-aargau-aarau",
+        "fr": "avocat-avocat-100-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -5685,7 +5699,21 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-19T09:32:17.405Z"
+      "firstSeenAt": "2026-11-19T09:32:17.405Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "juristin-jurist-100-kanton-aargau-ch"
+        ],
+        "en": [
+          "juristin-jurist-100-kanton-aargau-ch"
+        ],
+        "fr": [
+          "juristin-jurist-100-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "juristin-jurist-100-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-a290952d8d01",

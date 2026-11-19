@@ -431,12 +431,12 @@
     },
     {
       "id": "sro-512177a0ee72",
-      "slug": "pflegeexperte-pflegeexpertin-mit-master-of-science-in-nursing-mscn-50-sro-langenthal",
+      "slug": "esperto-esperta-in-cure-infermieristiche-con-master-of-science-in-nursing-mscn-50-sro-ag-spital-region-oberaargau",
       "slugByLocale": {
         "de": "pflegeexperte-pflegeexpertin-mit-master-of-science-in-nursing-mscn-50-sro-langenthal",
-        "it": "pflegeexperte-pflegeexpertin-mit-master-of-science-in-nursing-mscn-50-sro-langenthal",
+        "it": "esperto-esperta-in-cure-infermieristiche-con-master-of-science-in-nursing-mscn-50-sro-ag-spital-region-oberaargau",
         "en": "pflegeexperte-pflegeexpertin-mit-master-of-science-in-nursing-mscn-50-sro-langenthal",
-        "fr": "pflegeexperte-pflegeexpertin-mit-master-of-science-in-nursing-mscn-50-sro-langenthal"
+        "fr": "expert-en-soins-infirmiers-avec-maitrise-en-sciences-infirmieres-mscn-50-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -502,7 +502,18 @@
       "streetAddress": "Langenthal",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-19T09:29:26.164Z"
+      "firstSeenAt": "2026-11-19T09:29:26.164Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegeexperte-pflegeexpertin-mit-master-of-science-in-nursing-mscn-50-sro-langenthal"
+        ],
+        "fr": [
+          "pflegeexperte-pflegeexpertin-mit-master-of-science-in-nursing-mscn-50-sro-langenthal"
+        ]
+      },
+      "previousSlugs": [
+        "pflegeexperte-pflegeexpertin-mit-master-of-science-in-nursing-mscn-50-sro-langenthal"
+      ]
     },
     {
       "id": "sro-7784c6ce0b8a",
@@ -2437,12 +2448,12 @@
     },
     {
       "id": "sro-7ffc35cc416f",
-      "slug": "dipl-pflegefachfrau-mann-hf-fh-70-100-im-nachtdienst-abteilung-allgemein-medizin-geriatrische-akutrehabilitation-sro-ag-spital-region-oberaargau-langenthal",
+      "slug": "infermiere-a-diplomato-a-hf-fh-70-100-nel-turno-notturno-reparto-di-medicina-generale-riabilitazione-geriatrica-acuta",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-hf-fh-70-100-im-nachtdienst-abteilung-allgemein-medizin",
-        "it": "dipl-pflegefachfrau-mann-hf-fh-70-100-im-nachtdienst-abteilung-allgemein-medizin-geriatrische-akutrehabilitation-sro-ag-spital-region-oberaargau-langenthal",
-        "en": "dipl-pflegefachfrau-mann-hf-fh-70-100-im-nachtdienst-abteilung-allgemein-medizin",
-        "fr": "dipl-pflegefachfrau-mann-hf-fh-70-100-im-nachtdienst-abteilung-allgemein-medizin"
+        "it": "infermiere-a-diplomato-a-hf-fh-70-100-nel-turno-notturno-reparto-di-medicina-generale-riabilitazione-geriatrica-acuta",
+        "en": "registered-nurse-hf-fh-70-100-on-night-duty-department-of-general-medicine-geriatric-acute-rehabilitation-sro-ag-spital",
+        "fr": "infirmier-ere-diplome-e-es-hes-70-100-en-service-de-nuit-departement-de-medecine-generale-readaptation-aigue-geriatrique"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -2494,11 +2505,19 @@
       "department": "Gesundheitswesen",
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-mann-hf-fh-70-100-im-nachtdienst-abteilung-allgemein-medizin",
+          "dipl-pflegefachfrau-mann-hf-fh-70-100-im-nachtdienst-abteilung-allgemein-medizin-geriatrische-akutrehabilitation-sro-ag-spital-region-oberaargau-langenthal"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-hf-fh-70-100-im-nachtdienst-abteilung-allgemein-medizin"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-mann-hf-fh-70-100-im-nachtdienst-abteilung-allgemein-medizin"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-fh-70-100-im-nachtdienst-abteilung-allgemein-medizin"
+        "dipl-pflegefachfrau-mann-hf-fh-70-100-im-nachtdienst-abteilung-allgemein-medizin",
+        "dipl-pflegefachfrau-mann-hf-fh-70-100-im-nachtdienst-abteilung-allgemein-medizin-geriatrische-akutrehabilitation-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,

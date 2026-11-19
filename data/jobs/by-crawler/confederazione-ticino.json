@@ -5,7 +5,7 @@
   "jobs": [
     {
       "title": "Hochschulpraktikant/-in Datenintegration Sozialstatistik",
-      "slug": "hochschulpraktikant-in-datenintegration-sozialstatistik-confederazione-neuenburg",
+      "slug": "tirocinante-universitario-a-integrazione-dei-dati-della-statistica-sociale-confederazione-svizzera-neuenburg",
       "url": "https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-datenintegration-sozialstatistik/508fa33c-7071-48cc-82e4-87c1deadd07f",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=21099",
       "company": "Confederazione Svizzera",
@@ -42,9 +42,9 @@
       },
       "slugByLocale": {
         "de": "hochschulpraktikant-in-datenintegration-sozialstatistik-confederazione-neuenburg",
-        "it": "hochschulpraktikant-in-datenintegration-sozialstatistik-confederazione-neuenburg",
-        "en": "hochschulpraktikant-in-datenintegration-sozialstatistik-confederazione-neuenburg",
-        "fr": "hochschulpraktikant-in-datenintegration-sozialstatistik-confederazione-neuenburg"
+        "it": "tirocinante-universitario-a-integrazione-dei-dati-della-statistica-sociale-confederazione-svizzera-neuenburg",
+        "en": "university-intern-data-integration-in-social-statistics-confederazione-svizzera-neuenburg",
+        "fr": "stagiaire-universitaire-en-integration-des-donnees-de-statistique-sociale-confederazione-svizzera-neuenburg"
       },
       "id": "confederazione-ticino-368decf1fa2a",
       "salaryMin": 60500,
@@ -67,11 +67,25 @@
       "streetAddress": "Neuenburg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-19T10:21:03.283Z"
+      "firstSeenAt": "2026-11-19T10:21:03.283Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hochschulpraktikant-in-datenintegration-sozialstatistik-confederazione-neuenburg"
+        ],
+        "en": [
+          "hochschulpraktikant-in-datenintegration-sozialstatistik-confederazione-neuenburg"
+        ],
+        "fr": [
+          "hochschulpraktikant-in-datenintegration-sozialstatistik-confederazione-neuenburg"
+        ]
+      },
+      "previousSlugs": [
+        "hochschulpraktikant-in-datenintegration-sozialstatistik-confederazione-neuenburg"
+      ]
     },
     {
       "title": "ICT-Berater/-in Professional",
-      "slug": "ict-berater-in-professional-confederazione-bern",
+      "slug": "consulente-ict-professional-confederazione-svizzera-bern",
       "url": "https://jobs.admin.ch/posti-vacanti/ict-berater-in-professional/e46dfa2c-5b36-4c89-b614-a2f226492d79",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19796",
       "company": "Confederazione Svizzera",
@@ -108,9 +122,9 @@
       },
       "slugByLocale": {
         "de": "ict-berater-in-professional-swiss-armed-forces-vtg-bern-19ax8d",
-        "it": "ict-berater-in-professional-swiss-armed-forces-vtg-bern-19ax8d",
-        "en": "ict-berater-in-professional-swiss-armed-forces-vtg-bern-19ax8d",
-        "fr": "ict-berater-in-professional-swiss-armed-forces-vtg-bern-19ax8d"
+        "it": "consulente-ict-professional-confederazione-svizzera-bern",
+        "en": "ict-consultant-professional-confederazione-svizzera-bern",
+        "fr": "conseiller-ere-ict-professional-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-8b09faa76203",
       "salaryMin": 73000,
@@ -135,17 +149,24 @@
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-19T10:21:03.283Z",
       "previousSlugs": [
-        "ict-berater-in-professional-confederazione-bern"
+        "ict-berater-in-professional-confederazione-bern",
+        "ict-berater-in-professional-swiss-armed-forces-vtg-bern-19ax8d"
       ],
       "previousSlugsByLocale": {
-        "en": [
+        "it": [
+          "ict-berater-in-professional-swiss-armed-forces-vtg-bern-19ax8d",
           "ict-berater-in-professional-confederazione-bern"
+        ],
+        "en": [
+          "ict-berater-in-professional-confederazione-bern",
+          "ict-berater-in-professional-swiss-armed-forces-vtg-bern-19ax8d"
         ],
         "de": [
           "ict-berater-in-professional-confederazione-bern"
         ],
         "fr": [
-          "ict-berater-in-professional-confederazione-bern"
+          "ict-berater-in-professional-confederazione-bern",
+          "ict-berater-in-professional-swiss-armed-forces-vtg-bern-19ax8d"
         ]
       }
     },
@@ -189,27 +210,32 @@
       "slugByLocale": {
         "de": "wissenschaftliche-r-mitarbeiter-in-prospektivplanung-swiss-armed-forces-vtg-bern-q1r8cq",
         "it": "wissenschaftliche-r-collaboratore-trice-in-prospektivplanung-swiss-armed-forces-vtg-bern-q1r8cq",
-        "en": "wissenschaftliche-r-mitarbeiter-in-prospektivplanung-swiss-armed-forces-vtg-bern-q1r8cq",
-        "fr": "wissenschaftliche-r-mitarbeiter-in-prospektivplanung-swiss-armed-forces-vtg-bern-q1r8cq"
+        "en": "research-associate-prospective-planning-confederazione-svizzera-bern",
+        "fr": "collaborateur-trice-scientifique-en-planification-prospective-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-1708378e75bc",
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "wissenschaftliche-r-mitarbeiter-in-prospektivplanung-confederazione-bern"
+          "wissenschaftliche-r-mitarbeiter-in-prospektivplanung-confederazione-bern",
+          "wissenschaftliche-r-collaboratore-trice-in-prospektivplanung-swiss-armed-forces-vtg-bern-q1r8cq"
         ],
         "en": [
-          "wissenschaftliche-r-mitarbeiter-in-prospektivplanung-confederazione-bern"
+          "wissenschaftliche-r-mitarbeiter-in-prospektivplanung-confederazione-bern",
+          "wissenschaftliche-r-mitarbeiter-in-prospektivplanung-swiss-armed-forces-vtg-bern-q1r8cq"
         ],
         "de": [
           "wissenschaftliche-r-mitarbeiter-in-prospektivplanung-confederazione-bern"
         ],
         "fr": [
-          "wissenschaftliche-r-mitarbeiter-in-prospektivplanung-confederazione-bern"
+          "wissenschaftliche-r-mitarbeiter-in-prospektivplanung-confederazione-bern",
+          "wissenschaftliche-r-mitarbeiter-in-prospektivplanung-swiss-armed-forces-vtg-bern-q1r8cq"
         ]
       },
       "previousSlugs": [
-        "wissenschaftliche-r-mitarbeiter-in-prospektivplanung-confederazione-bern"
+        "wissenschaftliche-r-mitarbeiter-in-prospektivplanung-confederazione-bern",
+        "wissenschaftliche-r-collaboratore-trice-in-prospektivplanung-swiss-armed-forces-vtg-bern-q1r8cq",
+        "wissenschaftliche-r-mitarbeiter-in-prospektivplanung-swiss-armed-forces-vtg-bern-q1r8cq"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -235,7 +261,7 @@
     },
     {
       "title": "Sachbearbeiter/-in Stab",
-      "slug": "sachbearbeiter-in-stab-confederazione-othmarsingen",
+      "slug": "addetto-a-amministrativo-a-di-staff-confederazione-svizzera-othmarsingen",
       "url": "https://jobs.admin.ch/posti-vacanti/sachbearbeiter-in-stab/6e281256-e406-4b68-b5ce-e054f3c6610b",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=21121",
       "company": "Confederazione Svizzera",
@@ -272,9 +298,9 @@
       },
       "slugByLocale": {
         "de": "sachbearbeiter-in-stab-swiss-armed-forces-vtg-othmarsingen-kpj1p1",
-        "it": "sachbearbeiter-in-stab-swiss-armed-forces-vtg-othmarsingen-kpj1p1",
-        "en": "sachbearbeiter-in-stab-swiss-armed-forces-vtg-othmarsingen-kpj1p1",
-        "fr": "sachbearbeiter-in-stab-swiss-armed-forces-vtg-othmarsingen-kpj1p1"
+        "it": "addetto-a-amministrativo-a-di-staff-confederazione-svizzera-othmarsingen",
+        "en": "staff-officer-confederazione-svizzera-othmarsingen",
+        "fr": "collaborateur-trice-specialise-e-d-etat-major-confederazione-svizzera-othmarsingen"
       },
       "id": "confederazione-ticino-65931205ddcd",
       "salaryMin": 62000,
@@ -299,23 +325,30 @@
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-19T10:21:03.283Z",
       "previousSlugs": [
-        "sachbearbeiter-in-stab-confederazione-othmarsingen"
+        "sachbearbeiter-in-stab-confederazione-othmarsingen",
+        "sachbearbeiter-in-stab-swiss-armed-forces-vtg-othmarsingen-kpj1p1"
       ],
       "previousSlugsByLocale": {
-        "en": [
+        "it": [
+          "sachbearbeiter-in-stab-swiss-armed-forces-vtg-othmarsingen-kpj1p1",
           "sachbearbeiter-in-stab-confederazione-othmarsingen"
+        ],
+        "en": [
+          "sachbearbeiter-in-stab-confederazione-othmarsingen",
+          "sachbearbeiter-in-stab-swiss-armed-forces-vtg-othmarsingen-kpj1p1"
         ],
         "de": [
           "sachbearbeiter-in-stab-confederazione-othmarsingen"
         ],
         "fr": [
-          "sachbearbeiter-in-stab-confederazione-othmarsingen"
+          "sachbearbeiter-in-stab-confederazione-othmarsingen",
+          "sachbearbeiter-in-stab-swiss-armed-forces-vtg-othmarsingen-kpj1p1"
         ]
       }
     },
     {
       "title": "Hochschulpraktikant/in Counterproliferation",
-      "slug": "hochschulpraktikant-in-counterproliferation-confederazione-bern",
+      "slug": "tirocinante-universitario-a-controproliferazione-confederazione-svizzera-bern",
       "url": "https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-counterproliferation/6ae5e741-1a9e-4594-9b55-f93673eff673",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20911",
       "company": "Confederazione Svizzera",
@@ -352,9 +385,9 @@
       },
       "slugByLocale": {
         "de": "hochschulpraktikant-in-counterproliferation-confederazione-bern",
-        "it": "hochschulpraktikant-in-counterproliferation-confederazione-bern",
-        "en": "hochschulpraktikant-in-counterproliferation-confederazione-bern",
-        "fr": "hochschulpraktikant-in-counterproliferation-confederazione-bern"
+        "it": "tirocinante-universitario-a-controproliferazione-confederazione-svizzera-bern",
+        "en": "university-intern-counterproliferation-confederazione-svizzera-bern",
+        "fr": "stagiaire-universitaire-en-contre-proliferation-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-5b637435d4cb",
       "salaryMin": 68500,
@@ -377,11 +410,25 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-19T10:21:03.283Z"
+      "firstSeenAt": "2026-11-19T10:21:03.283Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hochschulpraktikant-in-counterproliferation-confederazione-bern"
+        ],
+        "en": [
+          "hochschulpraktikant-in-counterproliferation-confederazione-bern"
+        ],
+        "fr": [
+          "hochschulpraktikant-in-counterproliferation-confederazione-bern"
+        ]
+      },
+      "previousSlugs": [
+        "hochschulpraktikant-in-counterproliferation-confederazione-bern"
+      ]
     },
     {
       "title": "Fachspezialist/-in Geschiebehaushalt",
-      "slug": "fachspezialist-in-geschiebehaushalt-confederazione-ittigen",
+      "slug": "specialista-del-bilancio-del-trasporto-solido-confederazione-svizzera-ittigen",
       "url": "https://jobs.admin.ch/posti-vacanti/fachspezialist-in-geschiebehaushalt/7cbd11c5-1a57-4455-bf3d-614cdfac6cbf",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=21106",
       "company": "Confederazione Svizzera",
@@ -418,9 +465,9 @@
       },
       "slugByLocale": {
         "de": "fachspezialist-in-geschiebehaushalt-confederazione-ittigen",
-        "it": "fachspezialist-in-geschiebehaushalt-confederazione-ittigen",
-        "en": "fachspezialist-in-geschiebehaushalt-confederazione-ittigen",
-        "fr": "fachspezialist-in-geschiebehaushalt-confederazione-ittigen"
+        "it": "specialista-del-bilancio-del-trasporto-solido-confederazione-svizzera-ittigen",
+        "en": "bedload-balance-specialist-confederazione-svizzera-ittigen",
+        "fr": "specialiste-du-regime-de-charriage-confederazione-svizzera-ittigen"
       },
       "id": "confederazione-ticino-cf1349709773",
       "salaryMin": 89000,
@@ -443,7 +490,21 @@
       "streetAddress": "Ittigen",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-19T10:21:03.283Z"
+      "firstSeenAt": "2026-11-19T10:21:03.283Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-in-geschiebehaushalt-confederazione-ittigen"
+        ],
+        "en": [
+          "fachspezialist-in-geschiebehaushalt-confederazione-ittigen"
+        ],
+        "fr": [
+          "fachspezialist-in-geschiebehaushalt-confederazione-ittigen"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-in-geschiebehaushalt-confederazione-ittigen"
+      ]
     },
     {
       "title": "Product Owner RM-Plattform - Betrieb und Leistungen",
@@ -5367,7 +5428,7 @@
     },
     {
       "title": "Mitarbeiter/-in HR Services und Support",
-      "slug": "collaboratore-trice-in-risorse-umane-services-e-support-confederazione-svizzera-st-gallen",
+      "slug": "collaboratore-trice-servizi-hr-e-supporto-confederazione-svizzera-st-gallen",
       "url": "https://jobs.admin.ch/posti-vacanti/mitarbeiter-in-hr-services-und-support/9ab779e0-4b98-432e-a262-dfb5fea63e0c",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20780",
       "company": "Confederazione Svizzera",
@@ -5404,18 +5465,23 @@
       },
       "slugByLocale": {
         "de": "mitarbeiter-in-hr-services-und-support-confederazione-st-gallen",
-        "it": "collaboratore-trice-in-risorse-umane-services-e-support-confederazione-svizzera-st-gallen",
+        "it": "collaboratore-trice-servizi-hr-e-supporto-confederazione-svizzera-st-gallen",
         "en": "mitarbeiter-in-hr-services-und-support-confederazione-st-gallen",
-        "fr": "mitarbeiter-in-hr-services-und-support-confederazione-st-gallen"
+        "fr": "collaborateur-trice-services-rh-et-support-confederazione-svizzera-st-gallen"
       },
       "id": "confederazione-ticino-c490043414fe",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-hr-services-und-support-confederazione-st-gallen",
+          "collaboratore-trice-in-risorse-umane-services-e-support-confederazione-svizzera-st-gallen"
+        ],
+        "fr": [
           "mitarbeiter-in-hr-services-und-support-confederazione-st-gallen"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-hr-services-und-support-confederazione-st-gallen"
+        "mitarbeiter-in-hr-services-und-support-confederazione-st-gallen",
+        "collaboratore-trice-in-risorse-umane-services-e-support-confederazione-svizzera-st-gallen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -5479,8 +5545,8 @@
       "slugByLocale": {
         "de": "gerichtsschreiber-in-abt-i-mit-hauptsprache-franzosisch-confederazione-st-gallen",
         "it": "gerichtsschreiber-in-abt-i-mit-hauptsprache-franzosisch-confederazione-st-gallen",
-        "en": "gerichtsschreiber-in-abt-i-mit-hauptsprache-franzosisch-confederazione-st-gallen",
-        "fr": "gerichtsschreiber-in-abt-i-mit-hauptsprache-franzosisch-confederazione-st-gallen"
+        "en": "court-clerk-division-i-with-french-as-the-primary-language-confederazione-svizzera-st-gallen",
+        "fr": "greffier-iere-de-la-division-i-de-langue-principale-francaise-confederazione-svizzera-st-gallen"
       },
       "id": "confederazione-ticino-d34a9d464088",
       "salaryMin": 60000,
@@ -5503,7 +5569,18 @@
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-19T10:21:03.283Z"
+      "firstSeenAt": "2026-11-19T10:21:03.283Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "gerichtsschreiber-in-abt-i-mit-hauptsprache-franzosisch-confederazione-st-gallen"
+        ],
+        "fr": [
+          "gerichtsschreiber-in-abt-i-mit-hauptsprache-franzosisch-confederazione-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "gerichtsschreiber-in-abt-i-mit-hauptsprache-franzosisch-confederazione-st-gallen"
+      ]
     },
     {
       "title": "Hochschulpraktikant/in AFWA",
@@ -11046,12 +11123,13 @@
         "en": "real-estate-project-manager-confederazione-svizzera-bern",
         "de": "projektleiter-in-immobilien-confederazione-bern",
         "fr": "chef-fe-de-projet-immobilier-confederazione-svizzera-bern",
-        "it": "responsabile-di-progetto-nel-settore-immobiliare-confederazione-svizzera-bern"
+        "it": "projektleiter-in-immobilien-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-576bb222693c",
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-immobilien-confederazione-bern"
+          "projektleiter-in-immobilien-confederazione-bern",
+          "responsabile-di-progetto-nel-settore-immobiliare-confederazione-svizzera-bern"
         ],
         "en": [
           "projektleiter-in-immobilien-confederazione-bern"
@@ -11061,7 +11139,8 @@
         ]
       },
       "previousSlugs": [
-        "projektleiter-in-immobilien-confederazione-bern"
+        "projektleiter-in-immobilien-confederazione-bern",
+        "responsabile-di-progetto-nel-settore-immobiliare-confederazione-svizzera-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -15917,12 +15996,13 @@
         "en": "apprentice-kauffrau-mann-efz-confederazione-svizzera-altstatten",
         "de": "lernende-r-kauffrau-mann-efz-confederazione-altstatten",
         "fr": "apprenti-e-kauffrau-mann-efz-confederazione-svizzera-altstatten",
-        "it": "apprendista-impiegato-a-di-commercio-afc-confederazione-svizzera-altstatten"
+        "it": "apprendista-kauffrau-mann-cfc-confederazione-svizzera-altstatten"
       },
       "id": "confederazione-ticino-4fb5290f45ac",
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-kauffrau-mann-efz-confederazione-altstatten"
+          "lernende-r-kauffrau-mann-efz-confederazione-altstatten",
+          "apprendista-impiegato-a-di-commercio-afc-confederazione-svizzera-altstatten"
         ],
         "en": [
           "lernende-r-kauffrau-mann-efz-confederazione-altstatten"
@@ -15932,7 +16012,8 @@
         ]
       },
       "previousSlugs": [
-        "lernende-r-kauffrau-mann-efz-confederazione-altstatten"
+        "lernende-r-kauffrau-mann-efz-confederazione-altstatten",
+        "apprendista-impiegato-a-di-commercio-afc-confederazione-svizzera-altstatten"
       ],
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -17372,19 +17453,21 @@
         "en": "bim-manager-in-und-projektleiter-in-confederazione-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930-visp",
         "de": "bim-manager-in-und-projektleiter-in-confederazione-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930-visp",
         "fr": "gestionnaire-bim-et-chef-de-projet-confederazione-svizzera-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930-visp",
-        "it": "responsabile-bim-e-responsabile-di-progetto-confederazione-svizzera-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930"
+        "it": "bim-manager-in-e-projektleiter-in-confederazione-svizzera-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930-visp"
       },
       "id": "confederazione-ticino-47ced81b7cdc",
       "previousSlugsByLocale": {
         "it": [
-          "bim-manager-in-und-projektleiter-in-confederazione-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930-visp"
+          "bim-manager-in-und-projektleiter-in-confederazione-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930-visp",
+          "responsabile-bim-e-responsabile-di-progetto-confederazione-svizzera-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930"
         ],
         "fr": [
           "bim-manager-in-und-projektleiter-in-confederazione-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930-visp"
         ]
       },
       "previousSlugs": [
-        "bim-manager-in-und-projektleiter-in-confederazione-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930-visp"
+        "bim-manager-in-und-projektleiter-in-confederazione-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930-visp",
+        "responsabile-bim-e-responsabile-di-progetto-confederazione-svizzera-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930"
       ],
       "salaryMin": 105500,
       "salaryMax": 160000,
@@ -17928,7 +18011,7 @@
         "en": "apprenticeship-professional-cleaning-technology-efz-confederazione-svizzera-bern",
         "de": "lehrstelle-fachmann-frau-reinigungstechnik-efz-confederazione-bern",
         "fr": "apprentissage-professionnel-technologie-de-nettoyage-efz-confederazione-svizzera-bern",
-        "it": "apprendistato-professionale-tecnologia-di-pulizia-efz-confederazione-svizzera-bern"
+        "it": "apprendistato-fachmann-frau-reinigungstechnik-cfc-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-272d8fe2025d",
       "previousSlugsByLocale": {
@@ -17936,7 +18019,8 @@
           "apprenticeship-professional-cleaning-technology-efz-confederazione-svizzera-bern",
           "apprentissage-professionnel-technologie-de-nettoyage-efz-confederazione-svizzera-bern",
           "apprendistato-fachmann-frau-reinigungstechnik-cfc-confederazione-svizzera-bern-xd010j",
-          "lehrstelle-fachmann-frau-reinigungstechnik-efz-confederazione-bern"
+          "lehrstelle-fachmann-frau-reinigungstechnik-efz-confederazione-bern",
+          "apprendistato-professionale-tecnologia-di-pulizia-efz-confederazione-svizzera-bern"
         ],
         "en": [
           "lehrstelle-fachmann-frau-reinigungstechnik-efz-confederazione-bern"
@@ -17949,7 +18033,8 @@
         "apprenticeship-professional-cleaning-technology-efz-confederazione-svizzera-bern",
         "apprentissage-professionnel-technologie-de-nettoyage-efz-confederazione-svizzera-bern",
         "apprendistato-fachmann-frau-reinigungstechnik-cfc-confederazione-svizzera-bern-xd010j",
-        "lehrstelle-fachmann-frau-reinigungstechnik-efz-confederazione-bern"
+        "lehrstelle-fachmann-frau-reinigungstechnik-efz-confederazione-bern",
+        "apprendistato-professionale-tecnologia-di-pulizia-efz-confederazione-svizzera-bern"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -18794,16 +18879,18 @@
         "en": "apprenticeship-professional-female-maintenance-efz-confederazione-svizzera-bern",
         "de": "lehrstelle-fachmann-frau-betriebsunterhalt-efz-confederazione-bern",
         "fr": "apprentissage-professionnel-female-maintenance-efz-confederazione-svizzera-bern",
-        "it": "posto-di-apprendistato-come-specialista-nella-manutenzione-aziendale-efz-confederazione-svizzera-bern"
+        "it": "apprendistato-fachmann-frau-betriebsunterhalt-cfc-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-f3aa7fcaa234",
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-fachmann-frau-betriebsunterhalt-efz-confederazione-bern"
+          "lehrstelle-fachmann-frau-betriebsunterhalt-efz-confederazione-bern",
+          "posto-di-apprendistato-come-specialista-nella-manutenzione-aziendale-efz-confederazione-svizzera-bern"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-fachmann-frau-betriebsunterhalt-efz-confederazione-bern"
+        "lehrstelle-fachmann-frau-betriebsunterhalt-efz-confederazione-bern",
+        "posto-di-apprendistato-come-specialista-nella-manutenzione-aziendale-efz-confederazione-svizzera-bern"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

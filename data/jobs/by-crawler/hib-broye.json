@@ -4448,12 +4448,12 @@
     },
     {
       "id": "hib-broye-e22f15b2e2de",
-      "slug": "secretaire-medical-e-au-ctr-a-60-hib-broye-estavayer-le-lac",
+      "slug": "sottosegretario-medico-alla-rtc-al-60-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
       "slugByLocale": {
         "fr": "secretaire-medical-e-au-ctr-a-60-hib-broye-estavayer-le-lac",
-        "it": "secretaire-medical-e-au-ctr-a-60-hib-broye-estavayer-le-lac",
-        "en": "secretaire-medical-e-au-ctr-a-60-hib-broye-estavayer-le-lac",
-        "de": "secretaire-medical-e-au-ctr-a-60-hib-broye-estavayer-le-lac"
+        "it": "sottosegretario-medico-alla-rtc-al-60-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+        "en": "medical-secretary-to-the-rtc-at-60-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+        "de": "medizinischer-sekretar-des-rtc-bei-60-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
       },
       "company": "Hôpital Intercantonal de la Broye (HIB)",
       "companyKey": "hib-broye",
@@ -4515,14 +4515,28 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T10:20:06.304Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T10:20:06.304Z"
+      "firstSeenAt": "2026-11-19T10:20:06.304Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-medical-e-au-ctr-a-60-hib-broye-estavayer-le-lac"
+        ],
+        "en": [
+          "secretaire-medical-e-au-ctr-a-60-hib-broye-estavayer-le-lac"
+        ],
+        "de": [
+          "secretaire-medical-e-au-ctr-a-60-hib-broye-estavayer-le-lac"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-medical-e-au-ctr-a-60-hib-broye-estavayer-le-lac"
+      ]
     },
     {
       "id": "hib-broye-018078f37769",
-      "slug": "assistant-e-medical-e-policlnique-moudon-a-80-hib-broye-maison-medicalisee-de-moudon",
+      "slug": "assistente-medico-e-policlnique-moudon-all-80-hopital-intercantonal-de-la-broye-hib-maison-medicalisee-de-moudon",
       "slugByLocale": {
         "fr": "assistant-e-medical-e-policlnique-moudon-a-80-hib-broye-maison-medicalisee-de-moudon",
-        "it": "assistant-e-medical-e-policlnique-moudon-a-80-hib-broye-maison-medicalisee-de-moudon",
+        "it": "assistente-medico-e-policlnique-moudon-all-80-hopital-intercantonal-de-la-broye-hib-maison-medicalisee-de-moudon",
         "en": "assistant-e-medical-e-policlnique-moudon-a-80-hib-broye-maison-medicalisee-de-moudon",
         "de": "assistant-e-medical-e-policlnique-moudon-a-80-hib-broye-maison-medicalisee-de-moudon"
       },
@@ -4586,7 +4600,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T10:20:06.294Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T10:20:06.294Z"
+      "firstSeenAt": "2026-11-19T10:20:06.294Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-medical-e-policlnique-moudon-a-80-hib-broye-maison-medicalisee-de-moudon"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-medical-e-policlnique-moudon-a-80-hib-broye-maison-medicalisee-de-moudon"
+      ]
     }
   ]
 }

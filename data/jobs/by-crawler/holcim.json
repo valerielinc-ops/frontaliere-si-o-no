@@ -102,12 +102,12 @@
     },
     {
       "id": "holcim-0574c8ca098c",
-      "slug": "planer-in-elektrische-instandhaltung-holcim-ch",
+      "slug": "pianificatore-trice-della-manutenzione-elettrica-holcim-group-wurenlingen",
       "slugByLocale": {
         "de": "planer-in-elektrische-instandhaltung-holcim-ch",
-        "it": "planer-in-elektrische-instandhaltung-holcim-ch",
-        "en": "planer-in-elektrische-instandhaltung-holcim-ch",
-        "fr": "planer-in-elektrische-instandhaltung-holcim-ch"
+        "it": "pianificatore-trice-della-manutenzione-elettrica-holcim-group-wurenlingen",
+        "en": "electrical-maintenance-planner-holcim-group-wurenlingen",
+        "fr": "planificateur-rice-de-maintenance-electrique-holcim-group-wurenlingen"
       },
       "company": "Holcim Group",
       "companyKey": "holcim",
@@ -169,7 +169,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T09:26:48.539Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T09:26:48.539Z"
+      "firstSeenAt": "2026-11-19T09:26:48.539Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "planer-in-elektrische-instandhaltung-holcim-ch"
+        ],
+        "en": [
+          "planer-in-elektrische-instandhaltung-holcim-ch"
+        ],
+        "fr": [
+          "planer-in-elektrische-instandhaltung-holcim-ch"
+        ]
+      },
+      "previousSlugs": [
+        "planer-in-elektrische-instandhaltung-holcim-ch"
+      ]
     },
     {
       "id": "holcim-408ddee49d0d",

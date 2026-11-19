@@ -14821,7 +14821,7 @@
       "firstSeenAt": "2026-05-21T11:53:54.295Z",
       "slugByLocale": {
         "it": "tirocinio-formativo-pre-supsi-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "stage-formativo-pre-supsi-eoc-ente-ospedaliero-cantonale-novaggio-fef0d4",
+        "en": "stage-formativo-pre-supsi-eoc-ente-ospedaliero-cantonale-novaggio",
         "de": "praktikum-vor-der-supsi-ausbildung-eoc-ente-ospedaliero-cantonale-novaggio",
         "fr": "stage-de-formation-pre-supsi-eoc-ente-ospedaliero-cantonale-novaggio"
       },
@@ -14862,11 +14862,11 @@
       "validThroughSource": "last-observed-window",
       "previousSlugsByLocale": {
         "en": [
-          "stage-formativo-pre-supsi-eoc-ente-ospedaliero-cantonale-novaggio"
+          "stage-formativo-pre-supsi-eoc-ente-ospedaliero-cantonale-novaggio-fef0d4"
         ]
       },
       "previousSlugs": [
-        "stage-formativo-pre-supsi-eoc-ente-ospedaliero-cantonale-novaggio"
+        "stage-formativo-pre-supsi-eoc-ente-ospedaliero-cantonale-novaggio-fef0d4"
       ]
     },
     {
@@ -20426,9 +20426,9 @@
       },
       "slugByLocale": {
         "it": "medico-assistente-100-eoc-ente-ospedaliero-cantonale-lugano",
-        "en": "medico-assistente-100-eoc-ente-ospedaliero-cantonale-bellinzona-fefqeu",
-        "de": "medico-assistente-100-eoc-ente-ospedaliero-cantonale-bellinzona-fefqeu",
-        "fr": "medico-assistente-100-eoc-ente-ospedaliero-cantonale-bellinzona-fefqeu"
+        "en": "medical-assistant-100-eoc-ente-ospedaliero-cantonale-lugano",
+        "de": "medizinische-assistenz-100-eoc-ente-ospedaliero-cantonale-lugano",
+        "fr": "assistant-medical-100-eoc-ente-ospedaliero-cantonale-lugano"
       },
       "requirementsByLocale": {
         "it": [
@@ -20445,6 +20445,15 @@
       "previousSlugsByLocale": {
         "it": [
           "medico-assistente-100-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "medico-assistente-100-eoc-ente-ospedaliero-cantonale-bellinzona-fefqeu"
+        ],
+        "en": [
+          "medico-assistente-100-eoc-ente-ospedaliero-cantonale-bellinzona-fefqeu"
+        ],
+        "de": [
+          "medico-assistente-100-eoc-ente-ospedaliero-cantonale-bellinzona-fefqeu"
+        ],
+        "fr": [
           "medico-assistente-100-eoc-ente-ospedaliero-cantonale-bellinzona-fefqeu"
         ]
       },

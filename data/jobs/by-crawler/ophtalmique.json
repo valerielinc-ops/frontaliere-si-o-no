@@ -5,10 +5,10 @@
   "jobs": [
     {
       "id": "ophtalmique-52bb3650db41",
-      "slug": "optometriste-ophtalmique-lausanne",
+      "slug": "optometria-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne",
       "slugByLocale": {
         "fr": "optometriste-ophtalmique-lausanne",
-        "it": "optometriste-ophtalmique-lausanne",
+        "it": "optometria-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne",
         "en": "optometriste-ophtalmique-lausanne",
         "de": "optometriste-ophtalmique-lausanne"
       },
@@ -73,7 +73,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-19T10:00:48.286Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-07-01T22:50:35.171Z"
+      "firstSeenAt": "2026-07-01T22:50:35.171Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "optometriste-ophtalmique-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "optometriste-ophtalmique-lausanne"
+      ]
     },
     {
       "id": "ophtalmique-6cd4ed91b4f3",

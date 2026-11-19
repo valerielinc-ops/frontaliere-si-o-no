@@ -11400,10 +11400,10 @@
     },
     {
       "id": "raiffeisen-66f9fed84514",
-      "slug": "kundenberater-basis-w-m-d-raiffeisen-steinhausen",
+      "slug": "consulente-clienti-basis-m-f-d-raiffeisen-steinhausen",
       "slugByLocale": {
         "de": "kundenberater-basis-w-m-d-raiffeisen-steinhausen",
-        "it": "kundenberater-basis-w-m-d-raiffeisen-steinhausen",
+        "it": "consulente-clienti-basis-m-f-d-raiffeisen-steinhausen",
         "en": "kundenberater-basis-w-m-d-raiffeisen-steinhausen",
         "fr": "kundenberater-basis-w-m-d-raiffeisen-steinhausen"
       },
@@ -11466,16 +11466,24 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T10:06:16.314Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-basis-w-m-d-raiffeisen-steinhausen"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-basis-w-m-d-raiffeisen-steinhausen"
+      ]
     },
     {
       "id": "raiffeisen-705eaba4ef48",
-      "slug": "finanzplaner-w-m-d-raiffeisen-bern",
+      "slug": "pianifica-finanziaria-m-f-d-raiffeisen-bern",
       "slugByLocale": {
         "de": "finanzplaner-w-m-d-raiffeisen-bern",
-        "it": "finanzplaner-w-m-d-raiffeisen-bern",
-        "en": "finanzplaner-w-m-d-raiffeisen-bern",
-        "fr": "finanzplaner-w-m-d-raiffeisen-bern"
+        "it": "pianifica-finanziaria-m-f-d-raiffeisen-bern",
+        "en": "financial-planner-m-f-d-raiffeisen-bern-8c7414",
+        "fr": "planificateur-financier-h-f-d-raiffeisen-bern-8c7414"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -11537,16 +11545,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-17T10:06:16.295Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-19T21:18:02.077Z"
+      "firstSeenAt": "2026-10-19T21:18:02.077Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "finanzplaner-w-m-d-raiffeisen-bern"
+        ],
+        "en": [
+          "finanzplaner-w-m-d-raiffeisen-bern"
+        ],
+        "fr": [
+          "finanzplaner-w-m-d-raiffeisen-bern"
+        ]
+      },
+      "previousSlugs": [
+        "finanzplaner-w-m-d-raiffeisen-bern"
+      ]
     },
     {
       "id": "raiffeisen-803d5d2d404a",
-      "slug": "senior-spezialist-risiko-amp-compliance-solutions-w-m-d-raiffeisen-st-gallen",
+      "slug": "soluzioni-di-rischio-e-conformita-specialistici-senior-m-f-d-raiffeisen-st-gallen",
       "slugByLocale": {
         "de": "senior-spezialist-risiko-amp-compliance-solutions-w-m-d-raiffeisen-st-gallen",
-        "it": "senior-spezialist-risiko-amp-compliance-solutions-w-m-d-raiffeisen-st-gallen",
-        "en": "senior-spezialist-risiko-amp-compliance-solutions-w-m-d-raiffeisen-st-gallen",
-        "fr": "senior-spezialist-risiko-amp-compliance-solutions-w-m-d-raiffeisen-st-gallen"
+        "it": "soluzioni-di-rischio-e-conformita-specialistici-senior-m-f-d-raiffeisen-st-gallen",
+        "en": "senior-specialist-risk-compliance-solutions-m-f-d-raiffeisen-st-gallen",
+        "fr": "specialiste-principal-des-solutions-de-risque-et-de-conformite-h-f-d-raiffeisen-st-gallen"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -11608,7 +11630,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-17T10:06:16.294Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T10:06:16.294Z"
+      "firstSeenAt": "2026-11-19T10:06:16.294Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-spezialist-risiko-amp-compliance-solutions-w-m-d-raiffeisen-st-gallen"
+        ],
+        "en": [
+          "senior-spezialist-risiko-amp-compliance-solutions-w-m-d-raiffeisen-st-gallen"
+        ],
+        "fr": [
+          "senior-spezialist-risiko-amp-compliance-solutions-w-m-d-raiffeisen-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "senior-spezialist-risiko-amp-compliance-solutions-w-m-d-raiffeisen-st-gallen"
+      ]
     },
     {
       "id": "raiffeisen-2f3a8abc5c7c",
@@ -11616,8 +11652,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-bancomatenbetreuung-w-m-d-raiffeisen-berikon-birmensdorf-zh-fislisbach",
         "it": "collaboratore-trice-bancomatenbetreuung-m-w-d-raiffeisen-berikon-birmensdorf-zh-fislisbach-niederrohrdorf-oberrohrdorf-uitikon-waldegg-zufikon",
-        "en": "mitarbeiter-bancomatenbetreuung-w-m-d-raiffeisen-berikon-birmensdorf-zh-fislisbach",
-        "fr": "mitarbeiter-bancomatenbetreuung-w-m-d-raiffeisen-berikon-birmensdorf-zh-fislisbach"
+        "en": "atm-support-employee-m-f-d-raiffeisen-argovia",
+        "fr": "collaborateur-trice-charge-e-de-la-gestion-des-bancomats-h-f-d-raiffeisen-argovia"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -11665,6 +11701,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-bancomatenbetreuung-w-m-d-raiffeisen-berikon-birmensdorf-zh-fislisbach"
+        ],
+        "en": [
+          "mitarbeiter-bancomatenbetreuung-w-m-d-raiffeisen-berikon-birmensdorf-zh-fislisbach"
+        ],
+        "fr": [
           "mitarbeiter-bancomatenbetreuung-w-m-d-raiffeisen-berikon-birmensdorf-zh-fislisbach"
         ]
       },
