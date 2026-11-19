@@ -208,6 +208,33 @@ describe('unvalidated-perf-claim: le prove accettate e i numeri che non sono pre
     });
   });
 
+  it('separa due trigger in prosa anche senza punteggiatura fra i marker', () => {
+    const residual = 'blocked: post-merge measurement on workflow tests.yml. Revert-trigger: observe only AND Revert-trigger: rollback above 30 min.';
+    expect(parseDeferredPerfEvidence(residual)).toMatchObject({
+      hasRevertAction: false,
+      hasThreshold: false,
+      complete: false,
+    });
+  });
+
+  it('separa due trigger nello stesso code span anche senza punteggiatura fra i marker', () => {
+    const residual = 'blocked: post-merge measurement on workflow tests.yml. `Revert-trigger: observe only AND Revert-trigger: rollback above 30 min`. ';
+    expect(parseDeferredPerfEvidence(residual)).toMatchObject({
+      hasRevertAction: false,
+      hasThreshold: false,
+      complete: false,
+    });
+  });
+
+  it('mantiene valido un singolo marker con azione e soglia proprie', () => {
+    const residual = 'blocked: post-merge measurement on workflow tests.yml. Revert-trigger: rollback above 30 min.';
+    expect(parseDeferredPerfEvidence(residual)).toMatchObject({
+      hasRevertAction: true,
+      hasThreshold: true,
+      complete: true,
+    });
+  });
+
   it('riconosce gli ausiliari stato e been nei claim non misurati pre-merge', () => {
     for (const claim of [
       '- Il tempo di build non è stato misurato pre-merge.',

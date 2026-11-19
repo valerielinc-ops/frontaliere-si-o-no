@@ -491,7 +491,11 @@ const IO_BOUND_CLAIM_RE = new RegExp(
 const PERF_EVIDENCE_LABEL_RE = /\b(?:misura|comando|measure(?:ment)?|command)(?:\*\*)?\s*:\s*(.*)$/i;
 const PERF_EVIDENCE_RUN_RE = /\/actions\/runs\/\d+/i;
 const PERF_EVIDENCE_MEASURE_RE = /\bmisur[ae]\s+(?:pre\/post|prima\/dopo|prima e dopo|pre-?merge)\b([^\n.;]*)/i;
-const PERF_EVIDENCE_REVERT_RE = /\b(?:trigger\s+di\s+revert|revert[- ]trigger|rischio\s+di\s+revert|rollback[- ]trigger)\b\s*(?::|[-–—])?\s*([^\n.;]*)/i;
+const PERF_EVIDENCE_REVERT_MARKER = String.raw`(?:trigger\s+di\s+revert|revert[- ]trigger|rischio\s+di\s+revert|rollback[- ]trigger)`;
+const PERF_EVIDENCE_REVERT_RE = new RegExp(
+  String.raw`\b${PERF_EVIDENCE_REVERT_MARKER}\b\s*(?::|[-–—])?\s*([^\n.;]*?)(?=\b${PERF_EVIDENCE_REVERT_MARKER}\b|[\n.;]|$)`,
+  'i',
+);
 const PERF_EVIDENCE_BLOCKED_RE = /\bblocked\s*:\s*(?:(?:misur(?:a|azione)|verifica|measurement|validation)\s+(?:post-?merge|dopo\s+(?:il\s+)?merge)|post-?merge\s+(?:misur(?:a|azione)|verifica|measurement|validation))\b([^\n.;]*)/i;
 const PERF_EVIDENCE_BASELINE_RE = /\bbaseline\b\s*(?::|[-–—])?\s*([^\n.;]*)/i;
 const PERF_DEFERRED_NEGATION = String.raw`(?:non|(?:(?:has|have)\s+)?not)`;
