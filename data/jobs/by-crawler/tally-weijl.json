@@ -574,7 +574,7 @@
       "slug": "direttore-100-m-w-d-tally-weijl-bern",
       "slugByLocale": {
         "it": "direttore-100-m-w-d-tally-weijl-bern",
-        "en": "direttore-100-m-w-d-tally-weijl-bern",
+        "en": "store-manager-100-m-w-d-tally-weijl-bern",
         "de": "store-manager-100-m-w-d-tally-weijl-bern",
         "fr": "gestionnaire-a-100-m-w-d-tally-weijl-bern"
       },
@@ -619,11 +619,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "store-manager-100-m-w-d-tally-weijl-bern"
+        "store-manager-100-m-w-d-tally-weijl-bern",
+        "direttore-100-m-w-d-tally-weijl-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "store-manager-100-m-w-d-tally-weijl-bern"
+        ],
+        "en": [
+          "direttore-100-m-w-d-tally-weijl-bern"
         ]
       },
       "firstSeenAt": "2026-08-03T12:35:25.243Z",

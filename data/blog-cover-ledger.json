@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1175,
+      "5": 1176,
       "6": 5062
     },
-    "publishedCovers": 7918,
+    "publishedCovers": 7919,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -218786,6 +218786,39 @@
         "provider": "openai-codex",
         "assetId": "article-bollettino-frontaliere-2026-11-20",
         "imageUrl": "/images/blog/article-bollettino-frontaliere-2026-11-20.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-a2-rodi-lavori-finiti": {
+      "cover": "/images/blog/article-a2-rodi-lavori-finiti.webp",
+      "hash": "722b2b19882e8519b71bb5245f104847f018cc595853e3c4e8e7b9ecb9c1ff62",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "a2-rodi-lavori-finiti",
+          "category": "novita",
+          "date": "2026-11-20T14:32:05.948Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-a2-rodi-lavori-finiti.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1795,
+      "verifiedAt": "2026-11-20",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-a2-rodi-lavori-finiti",
+        "imageUrl": "/images/blog/article-a2-rodi-lavori-finiti.webp",
         "evidence": "generated-engine-record"
       }
     }

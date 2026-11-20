@@ -608,6 +608,7 @@ jobs:
           PREPASS_OUTCOME: ${{ steps.repair_stale_descriptions.outcome }}
           PREPASS_MAX: ${{ steps.repair_stale_descriptions.outputs.max }}
         run: |-
+          # shellcheck disable=SC2016 # Markdown backticks are literal in this summary format.
           printf '### Stale-description prepass\n\n- outcome: `%s`\n- bounded max: `%s`\n' "$PREPASS_OUTCOME" "${PREPASS_MAX:-unavailable}" >> "$GITHUB_STEP_SUMMARY"
           if [ "$PREPASS_OUTCOME" = 'failure' ]; then
             echo "::warning title=Translation stale-description prepass failed::The bounded prepass failed (max=${PREPASS_MAX:-unavailable}); the later description-repair lane remains available and this outcome is recorded in the run summary."

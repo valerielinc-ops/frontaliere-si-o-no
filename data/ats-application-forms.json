@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-19T14:46:17.709Z",
+  "updatedAt": "2026-11-20T14:26:30.773Z",
   "snapshots": {
     "teamtailor:mks-pamp-74eaacf6a62f:773e8366508c": {
       "provider": "teamtailor",
@@ -4988,102 +4988,6 @@
           },
           {
             "label": "Yes, ANYbotics can contact me about future job opportunities for up to 2 years",
-            "type": "checkbox",
-            "required": false,
-            "kind": "consent"
-          }
-        ]
-      }
-    },
-    "teamtailor:axpo-group-6de15f5c49f9:a6fd8fcdddd0": {
-      "provider": "teamtailor",
-      "jobId": "axpo-group-6de15f5c49f9",
-      "jobSlug": "capo-montatore-trice-per-la-realizzazione-m-f-d-ckw-luzern",
-      "jobUrl": "https://ckw.teamtailor.com/jobs/8521056-chefmonteur-in-realisierung-w-m-d",
-      "snapshot": {
-        "provider": "teamtailor",
-        "sourceUrl": "https://ckw.teamtailor.com/jobs/8521056-chefmonteur-in-realisierung-w-m-d/applications/new",
-        "jobUrl": "https://ckw.teamtailor.com/jobs/8521056-chefmonteur-in-realisierung-w-m-d",
-        "checkedAt": "2026-11-17T14:58:49.560Z",
-        "stage": "Diese Website verwendet Cookies, um dir das beste Erlebnis bieten zu können.",
-        "fields": [
-          {
-            "label": "Mit welchem Geschlecht identifizierst du dich? Bei CKW schätzen wir Vielfalt und Inklusion. Um uns kontinuierlich bei der stetigen Sicherstellung einer vielfältigen Belegschaft zu unterstützen, bitten wir Bewerberinnen und Bewerber freundli",
-            "type": "radio",
-            "required": false,
-            "kind": "question",
-            "options": [
-              "Weiblich",
-              "Männlich",
-              "Divers"
-            ]
-          },
-          {
-            "label": "Wurde dir die Stelle von einem CKW/Axpo Group Mitarbeitenden empfohlen?",
-            "type": "radio",
-            "required": true,
-            "kind": "question",
-            "options": [
-              "Ja",
-              "Nein"
-            ]
-          },
-          {
-            "label": "Nenne uns deine jährliche Salärerwartung in CHF für ein 100% Pensum inkl. allfälligen Bonuszahlungen",
-            "type": "number",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Nenne uns deine Kündigungsfrist resp. deine Verfügbarkeit.",
-            "type": "text",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Vorname",
-            "type": "text",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Nachname",
-            "type": "text",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "E-Mail",
-            "type": "email",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Telefon",
-            "type": "tel",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Bewerbungsschreiben",
-            "type": "textarea",
-            "required": false,
-            "kind": "question"
-          },
-          {
-            "label": "Ich habe die Datenschutzerklärung gelesen bin mit der Datenschutzerklärung einverstanden.",
-            "type": "checkbox",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Ich bin damit einverstanden, dass meine Daten auch über eine konkrete Stellenbesetzung hinaus gespeichert werden und ich auf interessante Stellenangebote hingewiesen werde.",
-            "type": "checkbox",
-            "required": false,
-            "kind": "question"
-          },
-          {
-            "label": "CKW darf meine Telefonnummer für die Kommunikation per SMS im Zusammenhang mit der Personalbeschaffung verwenden.",
             "type": "checkbox",
             "required": false,
             "kind": "consent"
@@ -27640,87 +27544,6 @@
         ]
       }
     },
-    "lever:engel-voelkers-aa68475ac16c:dbc915357ebd": {
-      "provider": "lever",
-      "jobId": "engel-voelkers-aa68475ac16c",
-      "jobSlug": "agente-immobiliare-junior-50-100-buutiq-immobilien-ag-st-gallen",
-      "jobUrl": "https://jobs.eu.lever.co/engelvoelkers/557bf4f6-cce2-4bd1-92fd-7228c45dafb7/apply",
-      "snapshot": {
-        "provider": "lever",
-        "sourceUrl": "https://jobs.eu.lever.co/engelvoelkers/557bf4f6-cce2-4bd1-92fd-7228c45dafb7/apply",
-        "jobUrl": "https://jobs.eu.lever.co/engelvoelkers/557bf4f6-cce2-4bd1-92fd-7228c45dafb7/apply",
-        "checkedAt": "2026-11-18T14:38:41.983Z",
-        "stage": "Junior Immobilienmakler/in 50-100%",
-        "fields": [
-          {
-            "label": "Resume/CV",
-            "type": "file",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Full name",
-            "type": "text",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Email",
-            "type": "email",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Phone",
-            "type": "text",
-            "required": false,
-            "kind": "question"
-          },
-          {
-            "label": "Current location",
-            "type": "text",
-            "required": false,
-            "kind": "question"
-          },
-          {
-            "label": "Current company",
-            "type": "text",
-            "required": false,
-            "kind": "question"
-          },
-          {
-            "label": "file 1",
-            "type": "file",
-            "required": false,
-            "kind": "question"
-          },
-          {
-            "label": "file 2",
-            "type": "file",
-            "required": false,
-            "kind": "question"
-          },
-          {
-            "label": "file 3",
-            "type": "file",
-            "required": false,
-            "kind": "question"
-          },
-          {
-            "label": "file 4",
-            "type": "file",
-            "required": false,
-            "kind": "question"
-          },
-          {
-            "label": "file 5",
-            "type": "file",
-            "required": false,
-            "kind": "question"
-          }
-        ]
-      }
-    },
     "lever:engel-voelkers-dc86f06ac0d9:2a1e342a8adf": {
       "provider": "lever",
       "jobId": "engel-voelkers-dc86f06ac0d9",
@@ -32070,102 +31893,6 @@
         ]
       }
     },
-    "teamtailor:axpo-group-7ddd83823166:a8020c3f018e": {
-      "provider": "teamtailor",
-      "jobId": "axpo-group-7ddd83823166",
-      "jobSlug": "elettricista-di-rete-m-f-d-ckw-luzern",
-      "jobUrl": "https://ckw.teamtailor.com/jobs/8518829-netzelektriker-in-w-m-d",
-      "snapshot": {
-        "provider": "teamtailor",
-        "sourceUrl": "https://ckw.teamtailor.com/jobs/8518829-netzelektriker-in-w-m-d/applications/new",
-        "jobUrl": "https://ckw.teamtailor.com/jobs/8518829-netzelektriker-in-w-m-d",
-        "checkedAt": "2026-11-19T14:46:03.537Z",
-        "stage": "Diese Website verwendet Cookies, um dir das beste Erlebnis bieten zu können.",
-        "fields": [
-          {
-            "label": "Mit welchem Geschlecht identifizierst du dich? Bei CKW schätzen wir Vielfalt und Inklusion. Um uns kontinuierlich bei der stetigen Sicherstellung einer vielfältigen Belegschaft zu unterstützen, bitten wir Bewerberinnen und Bewerber freundli",
-            "type": "radio",
-            "required": false,
-            "kind": "question",
-            "options": [
-              "Weiblich",
-              "Männlich",
-              "Divers"
-            ]
-          },
-          {
-            "label": "Wurde dir die Stelle von einem CKW/Axpo Group Mitarbeitenden empfohlen?",
-            "type": "radio",
-            "required": true,
-            "kind": "question",
-            "options": [
-              "Ja",
-              "Nein"
-            ]
-          },
-          {
-            "label": "Nenne uns deine jährliche Salärerwartung in CHF für ein 100% Pensum inkl. allfälligen Bonuszahlungen",
-            "type": "number",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Nenne uns deine Kündigungsfrist resp. deine Verfügbarkeit.",
-            "type": "date",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Vorname",
-            "type": "text",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Nachname",
-            "type": "text",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "E-Mail",
-            "type": "email",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Telefon",
-            "type": "tel",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Bewerbungsschreiben",
-            "type": "textarea",
-            "required": false,
-            "kind": "question"
-          },
-          {
-            "label": "Ich habe die Datenschutzerklärung gelesen bin mit der Datenschutzerklärung einverstanden.",
-            "type": "checkbox",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Ich bin damit einverstanden, dass meine Daten auch über eine konkrete Stellenbesetzung hinaus gespeichert werden und ich auf interessante Stellenangebote hingewiesen werde.",
-            "type": "checkbox",
-            "required": false,
-            "kind": "question"
-          },
-          {
-            "label": "CKW darf meine Telefonnummer für die Kommunikation per SMS im Zusammenhang mit der Personalbeschaffung verwenden.",
-            "type": "checkbox",
-            "required": false,
-            "kind": "consent"
-          }
-        ]
-      }
-    },
     "lever:tsmg-c8a8c7b3131c:3a7f072ed670": {
       "provider": "lever",
       "jobId": "tsmg-c8a8c7b3131c",
@@ -32434,6 +32161,612 @@
             "type": "checkbox",
             "required": false,
             "kind": "consent"
+          }
+        ]
+      }
+    },
+    "lever:engel-voelkers-746d369d82ae:9a9f1b6f5291": {
+      "provider": "lever",
+      "jobId": "engel-voelkers-746d369d82ae",
+      "jobSlug": "consultant-anlageimmobilien-mehrfamilienhauser-100-m-w-d-basel-nordwestschweiz-ev-basel-commercial-immobilien-ag-basel",
+      "jobUrl": "https://jobs.eu.lever.co/engelvoelkers/02b1b02a-d94f-4ad9-8ad2-47f602bb0ec6/apply",
+      "snapshot": {
+        "provider": "lever",
+        "sourceUrl": "https://jobs.eu.lever.co/engelvoelkers/02b1b02a-d94f-4ad9-8ad2-47f602bb0ec6/apply",
+        "jobUrl": "https://jobs.eu.lever.co/engelvoelkers/02b1b02a-d94f-4ad9-8ad2-47f602bb0ec6/apply",
+        "checkedAt": "2026-11-20T14:26:27.777Z",
+        "stage": "Consultant Anlageimmobilien / Mehrfamilienhäuser 100% (m/w/d) | Basel & Nordwestschweiz",
+        "fields": [
+          {
+            "label": "Resume/CV",
+            "type": "file",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Full name",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Email",
+            "type": "email",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Phone",
+            "type": "text",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Current location",
+            "type": "text",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Current company",
+            "type": "text",
+            "required": false,
+            "kind": "question"
+          }
+        ]
+      }
+    },
+    "greenhouse:vaxcyte-31f5fba6f298:e94fa67d072e": {
+      "provider": "greenhouse",
+      "jobId": "vaxcyte-31f5fba6f298",
+      "jobSlug": "senior-bioprocess-engineer-proteins-vaxcyte-ch",
+      "jobUrl": "https://boards.greenhouse.io/vaxcyte/jobs/5481965008",
+      "snapshot": {
+        "provider": "greenhouse",
+        "sourceUrl": "https://boards.greenhouse.io/vaxcyte/jobs/5481965008",
+        "jobUrl": "https://boards.greenhouse.io/vaxcyte/jobs/5481965008",
+        "checkedAt": "2026-11-20T14:26:27.778Z",
+        "stage": "Senior Bioprocess Engineer, Proteins",
+        "fields": [
+          {
+            "label": "First Name",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Last Name",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Preferred First Name",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Email",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Phone",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Resume/CV",
+            "type": "file",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Resume/CV",
+            "type": "textarea",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Cover Letter",
+            "type": "file",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Cover Letter",
+            "type": "textarea",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "LinkedIn Profile",
+            "type": "text",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Are you willing to relocate?",
+            "type": "select",
+            "required": false,
+            "kind": "question",
+            "options": [
+              "Yes",
+              "No"
+            ]
+          },
+          {
+            "label": "Do you have any non-compete, non-solicitation, or confidentiality/non-disclosure agreements with a current or former employer?",
+            "type": "select",
+            "required": true,
+            "kind": "question",
+            "options": [
+              "Yes",
+              "No"
+            ]
+          },
+          {
+            "label": "If yes, please briefly describe the nature of the restriction(s), including the employer, general scope, and expiration date (if known):",
+            "type": "text",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Where did you hear about this job?",
+            "type": "select",
+            "required": false,
+            "kind": "question",
+            "options": [
+              "Career Site",
+              "Job Board (Linkedin, Indeed, etc)",
+              "Employee Referral",
+              "Vaxcyte Talent Acquisition Team",
+              "Previous Employee"
+            ]
+          },
+          {
+            "label": "VeteranStatus",
+            "type": "select",
+            "required": false,
+            "kind": "consent",
+            "section": "eeoc",
+            "options": [
+              "I don't wish to answer",
+              "I identify as one or more of the classifications of a protected veteran",
+              "I am not a protected veteran"
+            ]
+          },
+          {
+            "label": "Race",
+            "type": "select",
+            "required": false,
+            "kind": "consent",
+            "section": "eeoc",
+            "options": [
+              "Decline To Self Identify",
+              "Two or More Races",
+              "Native Hawaiian or Other Pacific Islander",
+              "White",
+              "Hispanic or Latino",
+              "Black or African American",
+              "Asian",
+              "American Indian or Alaskan Native"
+            ]
+          },
+          {
+            "label": "Gender",
+            "type": "select",
+            "required": false,
+            "kind": "consent",
+            "section": "eeoc",
+            "options": [
+              "Decline To Self Identify",
+              "Female",
+              "Male"
+            ]
+          }
+        ]
+      }
+    },
+    "teamtailor:axpo-group-1a047844961c:b005e5c7bf63": {
+      "provider": "teamtailor",
+      "jobId": "axpo-group-1a047844961c",
+      "jobSlug": "responsabile-di-progetto-solar-m-w-d-ckw-burgdorf",
+      "jobUrl": "https://ckw.teamtailor.com/jobs/8763980-projektleiter-in-solar-w-m-d",
+      "snapshot": {
+        "provider": "teamtailor",
+        "sourceUrl": "https://ckw.teamtailor.com/jobs/8763980-projektleiter-in-solar-w-m-d/applications/new",
+        "jobUrl": "https://ckw.teamtailor.com/jobs/8763980-projektleiter-in-solar-w-m-d",
+        "checkedAt": "2026-11-20T14:26:27.758Z",
+        "stage": "Diese Website verwendet Cookies, um dir das beste Erlebnis bieten zu können.",
+        "fields": [
+          {
+            "label": "Wurde dir die Stelle von einem CKW/Axpo Group Mitarbeitenden empfohlen?",
+            "type": "radio",
+            "required": true,
+            "kind": "question",
+            "options": [
+              "Ja",
+              "Nein"
+            ]
+          },
+          {
+            "label": "E-Mail der Person, die dich empfohlen hat:",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Wie viel Erfahrung konntest du in der Solarbranche sammeln?",
+            "type": "radio",
+            "required": true,
+            "kind": "question",
+            "options": [
+              "keine",
+              "weniger als 3 Jahre",
+              "mehr als 3 Jahre"
+            ]
+          },
+          {
+            "label": "Wo liegt deine jährliche Lohnvorstellung bei 100% (inkl. 13. Monatslohn und Bonus)?",
+            "type": "number",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Mit welchem Geschlecht identifizierst du dich? Bei CKW schätzen wir Vielfalt und Inklusion. Um uns kontinuierlich bei der stetigen Sicherstellung einer vielfältigen Belegschaft zu unterstützen, bitten wir Bewerberinnen und Bewerber freundli",
+            "type": "radio",
+            "required": true,
+            "kind": "question",
+            "options": [
+              "Weiblich",
+              "Männlich",
+              "Divers"
+            ]
+          },
+          {
+            "label": "Vorname",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Nachname",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "E-Mail",
+            "type": "email",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Telefon",
+            "type": "tel",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Bewerbungsschreiben",
+            "type": "textarea",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Ich habe die Datenschutzerklärung gelesen bin mit der Datenschutzerklärung einverstanden.",
+            "type": "checkbox",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Ich bin damit einverstanden, dass meine Daten auch über eine konkrete Stellenbesetzung hinaus gespeichert werden und ich auf interessante Stellenangebote hingewiesen werde.",
+            "type": "checkbox",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "CKW darf meine Telefonnummer für die Kommunikation per SMS im Zusammenhang mit der Personalbeschaffung verwenden.",
+            "type": "checkbox",
+            "required": false,
+            "kind": "consent"
+          }
+        ]
+      }
+    },
+    "recruitee:tether-d13b432788ec:25d99c22edea": {
+      "provider": "recruitee",
+      "jobId": "tether-d13b432788ec",
+      "jobSlug": "head-of-financial-infrastructure-partnerships-expansion-digital-assets-expertise-tether-ch",
+      "jobUrl": "https://tether.recruitee.com/o/head-of-financial-infrastructure-partnerships-expansion-digital-assets-expertise-2/c/new",
+      "snapshot": {
+        "provider": "recruitee",
+        "sourceUrl": "https://tether.recruitee.com/o/head-of-financial-infrastructure-partnerships-expansion-digital-assets-expertise-2/c/new",
+        "jobUrl": "https://tether.recruitee.com/o/head-of-financial-infrastructure-partnerships-expansion-digital-assets-expertise-2/c/new",
+        "checkedAt": "2026-11-20T14:26:27.776Z",
+        "stage": "",
+        "fields": [
+          {
+            "label": "Full name",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Email",
+            "type": "email",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "CV",
+            "type": "file",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Cover letter",
+            "type": "file",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Phone",
+            "type": "tel",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Why are you interested in working at Tether?",
+            "type": "video",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Considering this is a remote role, from which country will you be working?",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "What's your expected annual salary for this role? (in USD)",
+            "type": "salary",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Linkedin profile",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Useful links (e.g. GitHub)",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "How did you hear about this opportunity?",
+            "type": "select",
+            "required": true,
+            "kind": "question",
+            "options": [
+              "Company website",
+              "LinkedIn",
+              "HackerNews",
+              "Wellfound",
+              "Networking event or conference",
+              "Referral",
+              "Other"
+            ]
+          },
+          {
+            "label": "How would you describe your experience with payments, digital assets, wallets, tokenization and your ability to develop multi-product solutions for large financial institutions or enterprise clients?",
+            "type": "text",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Can you provide an example of a major strategic partnership you personally originated, structured, and successfully closed? Please briefly describe your role and the outcome.",
+            "type": "text",
+            "required": false,
+            "kind": "question"
+          }
+        ]
+      }
+    },
+    "teamtailor:axpo-group-d8265cc0aa10:f468173c633e": {
+      "provider": "teamtailor",
+      "jobId": "axpo-group-d8265cc0aa10",
+      "jobSlug": "fachmitarbeiter-in-backoffice-alarm-security-m-w-d-ckw-stansstad",
+      "jobUrl": "https://ckw.teamtailor.com/jobs/8744001-fachmitarbeiter-in-backoffice-alarm-security-m-w-d",
+      "snapshot": {
+        "provider": "teamtailor",
+        "sourceUrl": "https://ckw.teamtailor.com/jobs/8744001-fachmitarbeiter-in-backoffice-alarm-security-m-w-d/applications/new",
+        "jobUrl": "https://ckw.teamtailor.com/jobs/8744001-fachmitarbeiter-in-backoffice-alarm-security-m-w-d",
+        "checkedAt": "2026-11-20T14:26:29.958Z",
+        "stage": "Diese Website verwendet Cookies, um dir das beste Erlebnis bieten zu können.",
+        "fields": [
+          {
+            "label": "Wurde dir die Stelle von einem CKW/Axpo Group Mitarbeitenden empfohlen?",
+            "type": "radio",
+            "required": true,
+            "kind": "question",
+            "options": [
+              "Ja",
+              "Nein"
+            ]
+          },
+          {
+            "label": "E-Mail der Person, die dich empfohlen hat:",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Hast du Erfahrung in der Disposition?",
+            "type": "radio",
+            "required": true,
+            "kind": "question",
+            "options": [
+              "Ja",
+              "Nein"
+            ]
+          },
+          {
+            "label": "Wo liegt deine jährliche Lohnvorstellung bei 100% (inkl. 13. Monatslohn und Bonus)?",
+            "type": "number",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Startdatum/Kündigungsfrist",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Mit welchem Geschlecht identifizierst du dich? Bei CKW schätzen wir Vielfalt und Inklusion. Um uns kontinuierlich bei der stetigen Sicherstellung einer vielfältigen Belegschaft zu unterstützen, bitten wir Bewerberinnen und Bewerber freundli",
+            "type": "radio",
+            "required": false,
+            "kind": "question",
+            "options": [
+              "Weiblich",
+              "Männlich",
+              "Divers"
+            ]
+          },
+          {
+            "label": "Vorname",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Nachname",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "E-Mail",
+            "type": "email",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Telefon",
+            "type": "tel",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Bewerbungsschreiben",
+            "type": "textarea",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Ich habe die Datenschutzerklärung gelesen bin mit der Datenschutzerklärung einverstanden.",
+            "type": "checkbox",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Ich bin damit einverstanden, dass meine Daten auch über eine konkrete Stellenbesetzung hinaus gespeichert werden und ich auf interessante Stellenangebote hingewiesen werde.",
+            "type": "checkbox",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "CKW darf meine Telefonnummer für die Kommunikation per SMS im Zusammenhang mit der Personalbeschaffung verwenden.",
+            "type": "checkbox",
+            "required": false,
+            "kind": "consent"
+          }
+        ]
+      }
+    },
+    "teamtailor:axpo-group-588c32c5b574:fc131d12e619": {
+      "provider": "teamtailor",
+      "jobId": "axpo-group-588c32c5b574",
+      "jobSlug": "netzwerk-architekt-in-w-m-d-b5d32ca8-1b37-458c-9c89-fd6d732bd9a0",
+      "jobUrl": "https://axposystemsag.teamtailor.com/jobs/8743968-netzwerk-architekt-in-w-m-d",
+      "snapshot": {
+        "provider": "teamtailor",
+        "sourceUrl": "https://axposystemsag.teamtailor.com/jobs/8743968-netzwerk-architekt-in-w-m-d/applications/new",
+        "jobUrl": "https://axposystemsag.teamtailor.com/jobs/8743968-netzwerk-architekt-in-w-m-d",
+        "checkedAt": "2026-11-20T14:26:29.947Z",
+        "stage": "Diese Website verwendet Cookies, um Ihnen das beste Erlebnis bieten zu können.",
+        "fields": [
+          {
+            "label": "Bewirbst du dich aufgrund einer Empfehlung eines Mitarbeiters der Axpo Gruppe? Wenn du mit \"Ja\" antwortest, senden wir dir eine Email mit Anweisungen zum weiteren Ablauf unseres Empfehlungsprozesses.",
+            "type": "radio",
+            "required": true,
+            "kind": "question",
+            "options": [
+              "ja",
+              "nein"
+            ]
+          },
+          {
+            "label": "Nenne uns deine jährliche Salärerwartung in CHF für ein 100% Pensum inkl. allfälligen Bonuszahlungen",
+            "type": "number",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Nenne uns deine Kündigungsfrist resp. deine Verfügbarkeit",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Vorname",
+            "type": "text",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Nachname",
+            "type": "text",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "E-Mail",
+            "type": "email",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Telefon",
+            "type": "tel",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Motivationsschreiben",
+            "type": "textarea",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Mit dem Absenden meiner Bewerbung bestätige ich, dass ich die Datenschutzerklärung gelesen habe. Weiterhin bestätige ich, dass Axpo Systems AG meine personenbezogenen Daten zum Zweck der Bearbeitung meiner Bewerbung speichern darf.",
+            "type": "checkbox",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Ja, Axpo Systems AG kann mich direkt über bestimmte zukünftige Stellen informieren.",
+            "type": "checkbox",
+            "required": false,
+            "kind": "question"
           }
         ]
       }
@@ -32825,14 +33158,6 @@
       "jobUrl": "https://jobs.lever.co/anybotics/b8d4bf79-20ea-44b0-84e2-cd644dc8e58a",
       "attemptedAt": "2026-11-17T14:58:48.917Z",
       "nextAttemptAt": "2026-12-17T14:58:52.076Z",
-      "attemptCount": 1,
-      "outcome": "captured"
-    },
-    "teamtailor:axpo-group-6de15f5c49f9:a6fd8fcdddd0": {
-      "provider": "teamtailor",
-      "jobUrl": "https://ckw.teamtailor.com/jobs/8521056-chefmonteur-in-realisierung-w-m-d",
-      "attemptedAt": "2026-11-17T14:58:49.560Z",
-      "nextAttemptAt": "2026-12-17T14:58:52.182Z",
       "attemptCount": 1,
       "outcome": "captured"
     },
@@ -33274,14 +33599,6 @@
       "attemptedAt": "2026-11-17T14:59:32.667Z",
       "nextAttemptAt": "2026-12-17T14:59:37.626Z",
       "attemptCount": 1,
-      "outcome": "captured"
-    },
-    "lever:engel-voelkers-aa68475ac16c:dbc915357ebd": {
-      "provider": "lever",
-      "jobUrl": "https://jobs.eu.lever.co/engelvoelkers/557bf4f6-cce2-4bd1-92fd-7228c45dafb7/apply",
-      "attemptedAt": "2026-11-18T14:38:41.983Z",
-      "nextAttemptAt": "2026-12-18T14:38:44.076Z",
-      "attemptCount": 2,
       "outcome": "captured"
     },
     "lever:engel-voelkers-69d281786dc4:462beb34e3e1": {
@@ -34701,11 +35018,51 @@
       "attemptCount": 1,
       "outcome": "captured"
     },
-    "teamtailor:axpo-group-7ddd83823166:a8020c3f018e": {
+    "lever:engel-voelkers-746d369d82ae:9a9f1b6f5291": {
+      "provider": "lever",
+      "jobUrl": "https://jobs.eu.lever.co/engelvoelkers/02b1b02a-d94f-4ad9-8ad2-47f602bb0ec6/apply",
+      "attemptedAt": "2026-11-20T14:26:27.777Z",
+      "nextAttemptAt": "2026-12-20T14:26:29.947Z",
+      "attemptCount": 1,
+      "outcome": "captured"
+    },
+    "greenhouse:vaxcyte-31f5fba6f298:e94fa67d072e": {
+      "provider": "greenhouse",
+      "jobUrl": "https://boards.greenhouse.io/vaxcyte/jobs/5481965008",
+      "attemptedAt": "2026-11-20T14:26:27.778Z",
+      "nextAttemptAt": "2026-12-20T14:26:29.958Z",
+      "attemptCount": 1,
+      "outcome": "captured"
+    },
+    "teamtailor:axpo-group-1a047844961c:b005e5c7bf63": {
       "provider": "teamtailor",
-      "jobUrl": "https://ckw.teamtailor.com/jobs/8518829-netzelektriker-in-w-m-d",
-      "attemptedAt": "2026-11-19T14:46:03.537Z",
-      "nextAttemptAt": "2026-12-19T14:46:13.954Z",
+      "jobUrl": "https://ckw.teamtailor.com/jobs/8763980-projektleiter-in-solar-w-m-d",
+      "attemptedAt": "2026-11-20T14:26:27.758Z",
+      "nextAttemptAt": "2026-12-20T14:26:30.119Z",
+      "attemptCount": 1,
+      "outcome": "captured"
+    },
+    "recruitee:tether-d13b432788ec:25d99c22edea": {
+      "provider": "recruitee",
+      "jobUrl": "https://tether.recruitee.com/o/head-of-financial-infrastructure-partnerships-expansion-digital-assets-expertise-2/c/new",
+      "attemptedAt": "2026-11-20T14:26:27.776Z",
+      "nextAttemptAt": "2026-12-20T14:26:30.165Z",
+      "attemptCount": 1,
+      "outcome": "captured"
+    },
+    "teamtailor:axpo-group-d8265cc0aa10:f468173c633e": {
+      "provider": "teamtailor",
+      "jobUrl": "https://ckw.teamtailor.com/jobs/8744001-fachmitarbeiter-in-backoffice-alarm-security-m-w-d",
+      "attemptedAt": "2026-11-20T14:26:29.958Z",
+      "nextAttemptAt": "2026-12-20T14:26:30.350Z",
+      "attemptCount": 1,
+      "outcome": "captured"
+    },
+    "teamtailor:axpo-group-588c32c5b574:fc131d12e619": {
+      "provider": "teamtailor",
+      "jobUrl": "https://axposystemsag.teamtailor.com/jobs/8743968-netzwerk-architekt-in-w-m-d",
+      "attemptedAt": "2026-11-20T14:26:29.947Z",
+      "nextAttemptAt": "2026-12-20T14:26:30.763Z",
       "attemptCount": 1,
       "outcome": "captured"
     }

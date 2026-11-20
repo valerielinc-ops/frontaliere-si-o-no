@@ -2101,7 +2101,7 @@
       "slugByLocale": {
         "it": "data-project-management-intern-richemont-meyrin",
         "en": "data-project-management-intern-richemont-meyrin",
-        "de": "data-project-management-intern-richemont-meyrin",
+        "de": "data-project-management-praktikant-richemont-meyrin",
         "fr": "data-project-management-intern-richemont-meyrin"
       },
       "company": "Richemont",
@@ -2164,7 +2164,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-19T09:39:33.054Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://careers.richemont.com/en/jobs/jr131779/data-project-management-intern"
+      "sourceIdentity": "url:https://careers.richemont.com/en/jobs/jr131779/data-project-management-intern",
+      "previousSlugsByLocale": {
+        "de": [
+          "data-project-management-intern-richemont-meyrin"
+        ]
+      },
+      "previousSlugs": [
+        "data-project-management-intern-richemont-meyrin"
+      ]
     },
     {
       "id": "richemont-583961b8a877",
@@ -3624,7 +3632,7 @@
       "slug": "associate-watch-consulente-a-lange-und-sohne-geneva",
       "slugByLocale": {
         "it": "associate-watch-consulente-a-lange-und-sohne-geneva",
-        "en": "associate-watch-advisor-richemont-geneva",
+        "en": "associate-watch-advisor-a-lange-und-sohne-geneva",
         "de": "associate-watch-berater-a-lange-und-sohne-geneva",
         "fr": "associate-watch-conseiller-a-lange-und-sohne-geneva"
       },
@@ -3705,6 +3713,9 @@
           "gestionnaire-des-clients-d-accueil-vacheron-constantin-plan-les-ouates",
           "consigliere-di-vigilanza-associato-a-lange-und-sohne-geneva",
           "assoziierter-beobachterberater-a-lange-und-sohne-geneva"
+        ],
+        "en": [
+          "associate-watch-advisor-richemont-geneva"
         ]
       },
       "firstSeenAt": "2026-09-04T13:42:09.700Z",
@@ -7468,7 +7479,7 @@
         "it": "responsabile-della-qualita-operativa-valfleurier-buttes",
         "en": "operational-quality-officer-valfleurier-buttes",
         "de": "betriebsqualitatsbeauftragter-valfleurier-buttes",
-        "fr": "charge-de-qualite-operationnelle-richemont-buttes"
+        "fr": "charge-de-qualite-operationnelle-valfleurier-buttes"
       },
       "company": "ValFleurier",
       "companyKey": "richemont",
@@ -7522,6 +7533,9 @@
           "charge-de-qualite-operationnelle-richemont-buttes"
         ],
         "de": [
+          "charge-de-qualite-operationnelle-richemont-buttes"
+        ],
+        "fr": [
           "charge-de-qualite-operationnelle-richemont-buttes"
         ]
       },
@@ -14511,7 +14525,7 @@
       "slug": "product-marketing-tirocinante-vacheron-constantin-plan-les-ouates",
       "slugByLocale": {
         "it": "product-marketing-tirocinante-vacheron-constantin-plan-les-ouates",
-        "en": "product-marketing-intern-richemont-plan-les-ouates",
+        "en": "product-marketing-intern-vacheron-constantin-plan-les-ouates",
         "de": "product-marketing-praktikant-vacheron-constantin-plan-les-ouates",
         "fr": "product-marketing-stagiaire-vacheron-constantin-plan-les-ouates"
       },
@@ -14567,6 +14581,9 @@
           "product-marketing-intern-richemont-plan-les-ouates"
         ],
         "fr": [
+          "product-marketing-intern-richemont-plan-les-ouates"
+        ],
+        "en": [
           "product-marketing-intern-richemont-plan-les-ouates"
         ]
       },
@@ -15597,7 +15614,7 @@
       "id": "richemont-403b1107b0fa",
       "slug": "gestione-del-progetto-di-pianificazione-del-negozio-vacheron-constantin-plan-les-ouates",
       "slugByLocale": {
-        "en": "store-planning-project-manager-richemont-plan-les-ouates",
+        "en": "store-planning-project-manager-vacheron-constantin-plan-les-ouates",
         "it": "gestione-del-progetto-di-pianificazione-del-negozio-vacheron-constantin-plan-les-ouates",
         "de": "store-planning-projektmanager-vacheron-constantin-plan-les-ouates",
         "fr": "gestionnaire-de-projet-de-planification-des-magasins-vacheron-constantin-plan-les-ouates"
@@ -15672,6 +15689,9 @@
           "store-planning-project-manager-richemont-plan-les-ouates"
         ],
         "fr": [
+          "store-planning-project-manager-richemont-plan-les-ouates"
+        ],
+        "en": [
           "store-planning-project-manager-richemont-plan-les-ouates"
         ]
       },

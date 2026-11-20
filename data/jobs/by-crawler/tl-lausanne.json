@@ -695,12 +695,12 @@
     },
     {
       "id": "tl-lausanne-b83c088bc461",
-      "slug": "agente-metodo-leb-tl-transports-publics-de-la-region-lausannoise-lausanne",
+      "slug": "agente-metodo-leb-tl-transports-publics-de-la-region-lausannoise-yverdon-les-bains",
       "slugByLocale": {
-        "it": "agente-metodo-leb-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "it": "agente-metodo-leb-tl-transports-publics-de-la-region-lausannoise-yverdon-les-bains",
         "en": "leb-method-agent-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "de": "leb-verfahrensmittel-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "fr": "agent-methode-leb-tl-lausanne-yverdon-les-bains"
+        "fr": "agent-methode-leb-tl-transports-publics-de-la-region-lausannoise-yverdon-les-bains"
       },
       "company": "tl (Transports publics de la région lausannoise)",
       "companyKey": "tl-lausanne",
@@ -747,12 +747,14 @@
       "streetAddress": "Chemin du Closel 15-17",
       "previousSlugs": [
         "agent-methode-leb-tl-lausanne-lausanne",
-        "agent-methode-leb-tl-lausanne-yverdon-les-bains"
+        "agent-methode-leb-tl-lausanne-yverdon-les-bains",
+        "agente-metodo-leb-tl-transports-publics-de-la-region-lausannoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "agent-methode-leb-tl-lausanne-lausanne",
-          "agent-methode-leb-tl-lausanne-yverdon-les-bains"
+          "agent-methode-leb-tl-lausanne-yverdon-les-bains",
+          "agente-metodo-leb-tl-transports-publics-de-la-region-lausannoise-lausanne"
         ],
         "en": [
           "agent-methode-leb-tl-lausanne-lausanne"
@@ -761,7 +763,8 @@
           "agent-methode-leb-tl-lausanne-lausanne"
         ],
         "fr": [
-          "agent-methode-leb-tl-lausanne-lausanne"
+          "agent-methode-leb-tl-lausanne-lausanne",
+          "agent-methode-leb-tl-lausanne-yverdon-les-bains"
         ]
       },
       "firstSeenAt": "2026-11-09T09:53:56.006Z",
@@ -785,12 +788,12 @@
     },
     {
       "id": "tl-lausanne-b0ccb471d1dc",
-      "slug": "computer-per-lavori-ferroviari-leb-tl-transports-publics-de-la-region-lausannoise-lausanne",
+      "slug": "computer-per-lavori-ferroviari-leb-tl-transports-publics-de-la-region-lausannoise-yverdon-les-bains",
       "slugByLocale": {
-        "it": "computer-per-lavori-ferroviari-leb-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "it": "computer-per-lavori-ferroviari-leb-tl-transports-publics-de-la-region-lausannoise-yverdon-les-bains",
         "en": "computers-for-railway-works-leb-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "de": "computer-fur-eisenbahnarbeiten-leb-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "fr": "coordinateurs-travaux-ferroviaires-leb-tl-lausanne-yverdon-les-bains"
+        "fr": "coordinateurs-travaux-ferroviaires-leb-tl-transports-publics-de-la-region-lausannoise-yverdon-les-bains"
       },
       "company": "tl (Transports publics de la région lausannoise)",
       "companyKey": "tl-lausanne",
@@ -837,12 +840,14 @@
       "streetAddress": "Chemin du Closel 15-17",
       "previousSlugs": [
         "coordinateurs-travaux-ferroviaires-leb-tl-lausanne-lausanne",
-        "coordinateurs-travaux-ferroviaires-leb-tl-lausanne-yverdon-les-bains"
+        "coordinateurs-travaux-ferroviaires-leb-tl-lausanne-yverdon-les-bains",
+        "computer-per-lavori-ferroviari-leb-tl-transports-publics-de-la-region-lausannoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "coordinateurs-travaux-ferroviaires-leb-tl-lausanne-lausanne",
-          "coordinateurs-travaux-ferroviaires-leb-tl-lausanne-yverdon-les-bains"
+          "coordinateurs-travaux-ferroviaires-leb-tl-lausanne-yverdon-les-bains",
+          "computer-per-lavori-ferroviari-leb-tl-transports-publics-de-la-region-lausannoise-lausanne"
         ],
         "en": [
           "coordinateurs-travaux-ferroviaires-leb-tl-lausanne-lausanne"
@@ -851,7 +856,8 @@
           "coordinateurs-travaux-ferroviaires-leb-tl-lausanne-lausanne"
         ],
         "fr": [
-          "coordinateurs-travaux-ferroviaires-leb-tl-lausanne-lausanne"
+          "coordinateurs-travaux-ferroviaires-leb-tl-lausanne-lausanne",
+          "coordinateurs-travaux-ferroviaires-leb-tl-lausanne-yverdon-les-bains"
         ]
       },
       "firstSeenAt": "2026-11-09T09:53:55.437Z",

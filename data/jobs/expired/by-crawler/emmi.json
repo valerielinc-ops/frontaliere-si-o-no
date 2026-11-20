@@ -1002,7 +1002,7 @@
     "slugByLocale": {
       "it": "operatore-trice-di-logistica-emmi-dagmersellen-luzern",
       "en": "logistics-operations-employee-emmi-dagmersellen-luzern",
-      "de": "betriebsmitarbeiter-in-logistik-emmi-dagmersellen",
+      "de": "betriebsmitarbeiter-in-logistik-emmi-dagmersellen-79590211",
       "fr": "collaborateur-trice-d-exploitation-logistique-emmi-dagmersellen-luzern"
     },
     "sector": "Food & Beverage (dairy)",
@@ -1020,7 +1020,8 @@
         "betriebsmitarbeiter-in-logistik-emmi-dagmersellen"
       ],
       "de": [
-        "betriebsmitarbeiter-in-logistik-emmi-ch-417b00ae"
+        "betriebsmitarbeiter-in-logistik-emmi-ch-417b00ae",
+        "betriebsmitarbeiter-in-logistik-emmi-dagmersellen-79590211"
       ],
       "fr": [
         "betriebsmitarbeiter-in-logistik-emmi-dagmersellen"
@@ -2922,12 +2923,12 @@
     "sector": "Food & Beverage (dairy)",
     "expiredAt": "2026-10-29T21:34:16.020Z",
     "previousSlugs": [
-      "betriebsmechaniker-in-emmi-ch",
-      "betriebsmechaniker-in-emmi-ch-2",
-      "meccanico-a-di-manutenzione-emmi-emmen",
       "betriebsmechaniker-in-emmi-ch-060c624a",
       "betriebsmechaniker-in-emmi-ch-2-b6065f1f",
       "meccanico-a-di-manutenzione-emmi-emmen-2858343c",
+      "betriebsmechaniker-in-emmi-ch",
+      "betriebsmechaniker-in-emmi-ch-2",
+      "meccanico-a-di-manutenzione-emmi-emmen",
       "operational-mechanic-emmi-emmen",
       "betriebsmechaniker-in-emmi-emmen",
       "mecanicien-ne-d-exploitation-emmi-emmen"
@@ -2937,6 +2938,9 @@
         "betriebsmechaniker-in-emmi-ch-060c624a",
         "betriebsmechaniker-in-emmi-ch-2-b6065f1f",
         "meccanico-a-di-manutenzione-emmi-emmen-2858343c",
+        "operational-mechanic-emmi-emmen",
+        "betriebsmechaniker-in-emmi-emmen",
+        "mecanicien-ne-d-exploitation-emmi-emmen",
         "betriebsmechaniker-in-emmi-ch",
         "betriebsmechaniker-in-emmi-ch-2",
         "meccanico-a-di-manutenzione-emmi-emmen"
@@ -2945,6 +2949,9 @@
         "betriebsmechaniker-in-emmi-ch-060c624a",
         "betriebsmechaniker-in-emmi-ch-2",
         "meccanico-a-di-manutenzione-emmi-emmen",
+        "betriebsmechaniker-in-emmi-emmen-955c9d0b",
+        "operational-mechanic-emmi-emmen",
+        "mecanicien-ne-d-exploitation-emmi-emmen",
         "betriebsmechaniker-in-emmi-ch",
         "betriebsmechaniker-in-emmi-emmen"
       ],
@@ -2952,12 +2959,18 @@
         "betriebsmechaniker-in-emmi-ch",
         "betriebsmechaniker-in-emmi-ch-2",
         "meccanico-a-di-manutenzione-emmi-emmen",
+        "operational-mechanic-emmi-emmen-0ade92e7",
+        "betriebsmechaniker-in-emmi-emmen",
+        "mecanicien-ne-d-exploitation-emmi-emmen",
         "operational-mechanic-emmi-emmen"
       ],
       "fr": [
         "betriebsmechaniker-in-emmi-ch",
         "betriebsmechaniker-in-emmi-ch-2",
         "meccanico-a-di-manutenzione-emmi-emmen",
+        "mecanicien-ne-d-exploitation-emmi-emmen-d8027e73",
+        "operational-mechanic-emmi-emmen",
+        "betriebsmechaniker-in-emmi-emmen",
         "mecanicien-ne-d-exploitation-emmi-emmen"
       ]
     },
@@ -5190,11 +5203,11 @@
       "tecnico-lattiero-caseario-emmi-landquart-6s079b",
       "tecnico-lattiero-caseario-emmi-landquart",
       "milchtechnologin-oder-milchtechnologe-emmi-landquart",
+      "milk-technologist-or-dairy-technologist-emmi-landquart-6eaed91f",
+      "technologue-du-lait-ou-technologue-du-lait-emmi-landquart-78f3a851",
       "technologue-du-lait-ou-technologue-du-lait-emmi-landquart",
       "milk-technologist-or-dairy-technologist-emmi-landquart",
       "milchtechnologin-oder-milchtechnologe-emmi-ch",
-      "milk-technologist-or-dairy-technologist-emmi-landquart-6eaed91f",
-      "technologue-du-lait-ou-technologue-du-lait-emmi-landquart-78f3a851",
       "milchtechnologin-o-milchtechnologe-emmi-landquart"
     ],
     "previousSlugsByLocale": {
@@ -5206,6 +5219,7 @@
         "milk-technologist-or-dairy-technologist-emmi-landquart",
         "tecnico-lattiero-caseario-emmi-landquart",
         "milchtechnologin-oder-milchtechnologe-emmi-ch-923b3578",
+        "milchtechnologin-o-milchtechnologe-emmi-landquart-08829cfc",
         "milchtechnologin-oder-milchtechnologe-emmi-ch",
         "milchtechnologin-o-milchtechnologe-emmi-landquart"
       ],
@@ -5214,6 +5228,7 @@
         "milchtechnologin-oder-milchtechnologe-emmi-landquart",
         "milchtechnologin-oder-milchtechnologe-emmi-ch",
         "technologue-du-lait-ou-technologue-du-lait-emmi-landquart",
+        "milchtechnologin-o-milchtechnologe-emmi-landquart",
         "milk-technologist-or-dairy-technologist-emmi-landquart"
       ],
       "fr": [
@@ -5221,12 +5236,14 @@
         "milchtechnologin-oder-milchtechnologe-emmi-landquart",
         "milchtechnologin-oder-milchtechnologe-emmi-ch",
         "milk-technologist-or-dairy-technologist-emmi-landquart",
+        "milchtechnologin-o-milchtechnologe-emmi-landquart",
         "technologue-du-lait-ou-technologue-du-lait-emmi-landquart"
       ],
       "de": [
         "milchtechnologin-oder-milchtechnologe-emmi-ch-923b3578",
         "milk-technologist-or-dairy-technologist-emmi-landquart",
-        "technologue-du-lait-ou-technologue-du-lait-emmi-landquart"
+        "technologue-du-lait-ou-technologue-du-lait-emmi-landquart",
+        "milchtechnologin-o-milchtechnologe-emmi-landquart"
       ]
     },
     "postalCode": "7302",
@@ -18733,7 +18750,6 @@
       "plant-manager-in-impianto-misto-emmi-suhr-aargau",
       "gestionnaire-de-la-plante-en-usine-mixte-emmi-suhr-aargau",
       "filling-plant-operator-emmi-suhr",
-      "anlagenfuhrer-in-abfullung-emmi-suhr",
       "operatore-di-sistema-in-imbottigliamento-emmi-suhr-aargau",
       "imbottigliamento-dell-operatore-degli-impianti-emmi-suhr-aargau",
       "anlagenfuhrer-in-abfullung-emmi-ch-cbcifb",
@@ -18748,6 +18764,7 @@
       "responsable-d-installation-de-remplissage-emmi-suhr",
       "plant-manager-in-mixed-plant-emmi-suhr-aargau",
       "operateur-d-installations-mixtes-emmi-suhr-aargau",
+      "anlagenfuhrer-in-abfullung-emmi-suhr",
       "anlagenfuhrer-in-abfullung-emmi-ch"
     ],
     "previousSlugsByLocale": {
@@ -23925,7 +23942,6 @@
         "anlagenfuhrer-in-mischerei-emmi-suhr-d56ed90d",
         "anlagenfuhrer-in-abfullung-emmi-ch-057e7604",
         "anlagenfuhrer-in-abfullung-emmi-ch-cbcifb",
-        "anlagenfuhrer-in-abfullung-emmi-suhr",
         "anlagenfuhrer-in-pet-emmi-ch",
         "conducteur-d-installation-en-melange-emmi-suhr-097578f5",
         "conduttore-dell-impianto-in-miscelazione-emmi-suhr",
@@ -24206,7 +24222,8 @@
         "conducteur-d-installation-en-melange-emmi-suhr",
         "anlagenfuhrer-in-mischerei-emmi-ch",
         "anlagenfuhrer-in-mischerei-emmi-suhr",
-        "anlagenfuhrer-in-abfullung-emmi-ch"
+        "anlagenfuhrer-in-abfullung-emmi-ch",
+        "anlagenfuhrer-in-abfullung-emmi-suhr"
       ],
       "fr": [
         "operateur-d-installations-mixtes-emmi-suhr-d8a2d120",
@@ -32867,9 +32884,9 @@
     "sector": "Food & Beverage (dairy)",
     "expiredAt": "2026-10-06T09:25:13.522Z",
     "previousSlugs": [
-      "spezialist-in-rohrleitungsbau-instandhaltung-emmi-ch",
       "spezialist-in-rohrleitungsbau-instandhaltung-emmi-ch-9f351315",
-      "spezialist-in-rohrleitungsbau-instandhaltung-emmi-ch-b21a19e9"
+      "spezialist-in-rohrleitungsbau-instandhaltung-emmi-ch-b21a19e9",
+      "spezialist-in-rohrleitungsbau-instandhaltung-emmi-ch"
     ],
     "previousSlugsByLocale": {
       "it": [

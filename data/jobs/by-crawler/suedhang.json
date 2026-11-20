@@ -183,7 +183,7 @@
       "slugByLocale": {
         "it": "dipl-professionista-hf-fh-klinik-sudhang-kirchlindach",
         "en": "dipl-care-professional-hf-fh-klinik-sudhang-kirchlindach",
-        "de": "dipl-pflegefachperson-hf-fh-suedhang-ch",
+        "de": "dipl-pflegefachperson-hf-fh-klinik-sudhang-kirchlindach",
         "fr": "dipl-soins-professionnels-hf-fh-klinik-sudhang-kirchlindach"
       },
       "company": "Klinik Südhang",
@@ -244,6 +244,9 @@
         ],
         "fr": [
           "dipl-pflegefachperson-hf-fh-klinik-sudhang-kirchlindach"
+        ],
+        "de": [
+          "dipl-pflegefachperson-hf-fh-suedhang-ch"
         ]
       },
       "firstSeenAt": "2026-09-24T14:20:34.256Z",

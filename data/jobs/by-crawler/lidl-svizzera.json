@@ -1100,7 +1100,7 @@
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-landquart-7bemoh",
         "en": "all-rounder-sale-m-f-d-20-40-landquart-lidl-svizzera-landquart",
-        "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-landquart-7bemoh",
+        "de": "allrounder-verkauf-m-w-d-20-40-landquart-lidl-svizzera-landquart",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-landquart-7bemoh"
       },
       "requirementsByLocale": {},
@@ -1111,6 +1111,9 @@
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-landquart"
         ],
         "en": [
+          "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-landquart-7bemoh"
+        ],
+        "de": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-landquart-7bemoh"
         ]
       },
@@ -1184,7 +1187,7 @@
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-adliswil-doevsd",
         "en": "all-rounder-sale-m-f-d-20-40-adliswil-lidl-svizzera-adliswil",
-        "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-adliswil-doevsd",
+        "de": "allrounder-verkauf-m-w-d-20-40-adliswil-lidl-svizzera-adliswil",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-adliswil-doevsd"
       },
       "requirementsByLocale": {},
@@ -1195,6 +1198,9 @@
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-adliswil"
         ],
         "en": [
+          "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-adliswil-doevsd"
+        ],
+        "de": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-adliswil-doevsd"
         ]
       },

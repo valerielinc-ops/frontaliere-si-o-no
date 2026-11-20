@@ -8956,9 +8956,12 @@ export function restoreLocaleSlug(job, locale, slug, source = 'restoreLocaleSlug
  * @param {string} expectedSlug exact active value observed by the caller
  * @param {string} slug source-backed replacement
  * @param {string} source explicit caller and evidence tag
+ * @param {string} rendererFallbackSlug active renderer route observed by the
+ *   caller when the locale has no stored slug; used to validate and archive
+ *   master/title fallback routes before replacing the locale slot
  * @returns {boolean} true only when the expected slot was replaced
  */
-export function replaceActiveLocaleSlug(job, locale, expectedSlug, slug, source) {
+export function replaceActiveLocaleSlug(job, locale, expectedSlug, slug, source, rendererFallbackSlug = '') {
   const sourceTag = String(source || '').trim();
   if (!job || typeof job !== 'object' || !job.id || !DEFAULT_LOCALES.includes(locale) || !sourceTag) return false;
   const expected = normalizeSpace(String(expectedSlug || ''));
@@ -8966,7 +8969,7 @@ export function replaceActiveLocaleSlug(job, locale, expectedSlug, slug, source)
   if (!next) return false;
 
   const active = normalizeSpace(String(
-    job.slugByLocale?.[locale] || (locale === 'it' ? job.slug : '') || '',
+    job.slugByLocale?.[locale] || (locale === 'it' ? job.slug : '') || rendererFallbackSlug || '',
   ));
   if (active !== expected || active === next) return false;
 

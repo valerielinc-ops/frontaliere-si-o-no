@@ -60,6 +60,7 @@ import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { hasUsableJobId } from './lib/job-match-key.mjs';
 import { decontaminateSliceDirectory } from './decontaminate-prev-slugs.mjs';
 import { localeTitleDropsSourceWords, losslessSlugTitle } from './lib/job-title-identity.mjs';
+import { localizedActiveJobSlug } from '../build-plugins/shared/activeJobPageSelection.ts';
 import {
   loadServedSlugLedger,
   mayReplacePublishedSlug,
@@ -69,6 +70,23 @@ import { jobTitleSourceLang } from './lib/job-locale-utils.mjs';
 
 function servedSlugClaimKey(locale, slug) {
   return `${locale}\u0000${String(slug || '').trim()}`;
+}
+
+function servedSlugOwnershipConflict(job, locale, slug, {
+  usedSlugs = null,
+  candidateClaims = null,
+} = {}) {
+  const activeOwner = usedSlugs?.get(slug);
+  if (activeOwner && activeOwner !== job.id) {
+    return { reason: 'active-owner-conflict', conflictingJobId: activeOwner };
+  }
+
+  const historicalOwners = candidateClaims?.get(servedSlugClaimKey(locale, slug));
+  if (historicalOwners && (historicalOwners.size !== 1 || !historicalOwners.has(job.id))) {
+    return { reason: 'ambiguous-history' };
+  }
+
+  return null;
 }
 
 /**
@@ -83,8 +101,9 @@ export function servedSlugCandidates(job, locale) {
     if (clean && !candidates.has(clean)) candidates.set(clean, origin);
   };
 
-  const localeSlugs = job.slugByLocale || {};
-  const currentSlug = String(localeSlugs[locale] || (locale === 'it' ? job.slug : '') || '').trim();
+  // Ownership must mirror the renderer, including its master-slug fallback
+  // for EN/DE/FR and its title fallback when no stored slug exists.
+  const currentSlug = localizedActiveJobSlug(job, locale);
   add(currentSlug, 'active');
   for (const slug of job.previousSlugsByLocale?.[locale] || []) add(slug, 'locale-history');
 
@@ -144,8 +163,7 @@ export function servedSlugSliceWriter(job, locale, {
   const mutationSource = String(source || '').trim();
   if (!mutationSource) return { changed: false, reason: 'missing-mutation-source' };
 
-  const localeSlugs = job.slugByLocale || {};
-  const currentSlug = String(localeSlugs[locale] || (locale === 'it' ? job.slug : '') || '').trim();
+  const currentSlug = localizedActiveJobSlug(job, locale);
   const currentServedAt = currentSlug ? slugFirstServedAt(locale, currentSlug, job) : null;
   if (requireCurrentServed && !currentServedAt) {
     return { changed: false, reason: 'current-unserved' };
@@ -180,16 +198,13 @@ export function servedSlugSliceWriter(job, locale, {
     return { changed: false, reason: 'current-is-earliest' };
   }
 
-  const activeOwner = usedSlugs?.get(selected.slug);
-  if (activeOwner && activeOwner !== job.id) {
-    return { changed: false, reason: 'active-owner-conflict', conflictingJobId: activeOwner };
-  }
-  const historicalOwners = candidateClaims?.get(servedSlugClaimKey(locale, selected.slug));
-  if (historicalOwners && (historicalOwners.size !== 1 || !historicalOwners.has(job.id))) {
-    return { changed: false, reason: 'ambiguous-history' };
-  }
+  const ownershipConflict = servedSlugOwnershipConflict(job, locale, selected.slug, {
+    usedSlugs,
+    candidateClaims,
+  });
+  if (ownershipConflict) return { changed: false, ...ownershipConflict };
 
-  if (!replaceActiveLocaleSlug(job, locale, currentSlug, selected.slug, mutationSource)) {
+  if (!replaceActiveLocaleSlug(job, locale, currentSlug, selected.slug, mutationSource, currentSlug)) {
     return { changed: false, reason: 'active-slot-changed' };
   }
   if (locale === 'it') syncItalianMasterSlug(job, currentSlug, selected.slug, mutationSource);
@@ -244,11 +259,81 @@ function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
 }
 
+function flatOnlyPreviousSlugs(job) {
+  const localeAware = new Set();
+  for (const values of Object.values(job?.previousSlugsByLocale || {})) {
+    if (Array.isArray(values)) {
+      for (const value of values) localeAware.add(String(value || '').trim());
+    }
+  }
+  return [...new Set((Array.isArray(job?.previousSlugs) ? job.previousSlugs : [])
+    .map((value) => String(value || '').trim())
+    .filter((value) => value && !localeAware.has(value)))];
+}
+
+/**
+ * Preserve only ledger-proven locale routes for a selected FU-007 slug that
+ * existed as an unattributed flat alias before the alignment. The assembler
+ * removes flat aliases that now equal any active locale slug; adding proven,
+ * non-active locale buckets first keeps those routes without guessing locale
+ * ownership from the slug text. Every target locale uses the same active and
+ * historical ownership guard as the canonical slice writer.
+ */
+function attributeSelectedFlatSlugAliases(job, flatLegacyBefore, selectedSlugs, {
+  usedSlugs = null,
+  candidateClaims = null,
+} = {}) {
+  if (!job || flatLegacyBefore.length === 0 || selectedSlugs.size === 0) return 0;
+  if (!loadServedSlugLedger()) return 0;
+
+  const flatLegacy = new Set(flatLegacyBefore);
+  const activeLocalesBySlug = new Map();
+  for (const locale of LOCALES) {
+    const activeSlug = localizedActiveJobSlug(job, locale);
+    if (!activeSlug) continue;
+    const activeLocales = activeLocalesBySlug.get(activeSlug) || new Set();
+    activeLocales.add(locale);
+    activeLocalesBySlug.set(activeSlug, activeLocales);
+  }
+
+  let attributed = 0;
+  for (const slug of selectedSlugs) {
+    if (!flatLegacy.has(slug)) continue;
+    const activeLocales = activeLocalesBySlug.get(slug);
+    if (!activeLocales) continue;
+
+    for (const locale of LOCALES) {
+      if (activeLocales.has(locale) || !slugFirstServedAt(locale, slug, job)) continue;
+      if (job.previousSlugsByLocale?.[locale]?.includes(slug)) continue;
+      const ownershipConflict = servedSlugOwnershipConflict(job, locale, slug, {
+        usedSlugs: usedSlugs?.get(locale),
+        candidateClaims: candidateClaims?.get(locale),
+      });
+      if (ownershipConflict) continue;
+      addPreviousSlugForLocale(
+        job,
+        locale,
+        slug,
+        20,
+        'regenerate-slugs-by-locale/FU-007-ledger-attribution',
+      );
+      attributed++;
+    }
+  }
+  return attributed;
+}
+
 async function main() {
+  // FU-007's one-time data alignment uses the same canonical slice writer and
+  // registry precedence as the full regeneration, while skipping every other
+  // regeneration and ownership cleanup in the corpus.
+  const alignUnservedOnly = process.argv.includes('--align-unserved-only');
   const files = listSliceFileNames(BY_CRAWLER_DIR).sort();
   const slicePaths = files.map((file) => path.join(BY_CRAWLER_DIR, file));
-  const beforeSnapshot = snapshotSlugCorpus(slicePaths, { root: ROOT });
-  console.log(`🔗 Regenerating slugByLocale across ${files.length} per-crawler slices...\n`);
+  const beforeSnapshot = alignUnservedOnly ? null : snapshotSlugCorpus(slicePaths, { root: ROOT });
+  console.log(alignUnservedOnly
+    ? `🧭 Applying FU-007 served-slug alignment across ${files.length} per-crawler slices...\n`
+    : `🔗 Regenerating slugByLocale across ${files.length} per-crawler slices...\n`);
 
   // ── Pre-pass: cross-job slug uniqueness map ────────────────────────────
   // Walks every slice and records the CURRENT mapping `slug → owning jobId`
@@ -274,9 +359,8 @@ async function main() {
       preScanJobs++;
       if (!hasUsableJobId(job)) continue;
       indexServedSlugCandidateClaims(job, candidateClaims);
-      const sbl = job.slugByLocale || {};
       for (const locale of LOCALES) {
-        const slug = String(sbl[locale] || (locale === 'it' ? job.slug : '') || '').trim();
+        const slug = localizedActiveJobSlug(job, locale);
         if (!slug) continue;
         const slugMap = usedSlugs.get(locale);
         // First-write wins for the pre-scan: if two jobs in CURRENT data
@@ -306,6 +390,7 @@ async function main() {
   let totalPinned = 0;
   let totalKeptPublished = 0;
   let totalServedAligned = 0;
+  let totalServedLegacyAliasesAttributed = 0;
   let slicesChanged = 0;
   let totalRelabelled = 0;
   let totalSourceRefreshed = 0;
@@ -319,7 +404,7 @@ async function main() {
 
     let sliceChanged = false;
     const brandRelabelledKey = brandLabels.has(file.replace(/\.json$/, ''));
-    if (brandRelabelledKey) {
+    if (brandRelabelledKey && !alignUnservedOnly) {
       const { relabelled } = applyDeclaredBrandRelabel(jobs, brandLabels);
       if (relabelled > 0) {
         totalRelabelled += relabelled;
@@ -334,6 +419,8 @@ async function main() {
       const company = job.company || '';
       const location = job.location || job.addressLocality || '';
       const disambiguator = String(job.slugDisambiguator || '').trim();
+      const flatLegacyOnlyBefore = alignUnservedOnly ? flatOnlyPreviousSlugs(job) : [];
+      const selectedAlignmentSlugs = new Set();
 
       totalJobs++;
 
@@ -350,6 +437,11 @@ async function main() {
         });
         const sourceBrandRefresh = locale === sourceLang && brandRefresh;
 
+        // A declared brand refresh is a separate repair path. FU-007 only
+        // persists the served title-derived URL when no refresh is taking
+        // precedence.
+        if (alignUnservedOnly && sourceBrandRefresh) continue;
+
         // The existing regeneration intentionally leaves the source locale to
         // its crawler. FU-007 is narrower: when the deploy has already served
         // the exact title-derived source URL, persist that proven URL in the
@@ -364,6 +456,7 @@ async function main() {
             sbl = job.slugByLocale;
             sliceChanged = true;
             totalServedAligned++;
+            selectedAlignmentSlugs.add(sourceAlignment.nextSlug);
           }
           continue;
         }
@@ -385,6 +478,20 @@ async function main() {
             location,
             disambiguator,
           });
+        if (alignUnservedOnly && (brandRefresh || (locale !== sourceLang && pinnedSlug))) {
+          // Preserve the full regeneration's ownership map effect without
+          // writing the registry-pinned slug in this narrow mode. This keeps
+          // later writer calls from claiming a pin-owned slug.
+          if (locale !== sourceLang && pinnedSlug) {
+            const slugMap = usedSlugs.get(locale);
+            if (slugMap.get(pinnedSlug) && slugMap.get(pinnedSlug) !== job.id) {
+              console.warn(`[registry-pin] ${locale} slug "${pinnedSlug}" registered to ${job.id} also owned by ${slugMap.get(pinnedSlug)} — canonical split (pre-existing registry collision)`);
+            }
+            if (currentSlug && slugMap.get(currentSlug) === job.id) slugMap.delete(currentSlug);
+            slugMap.set(pinnedSlug, job.id);
+          }
+          continue;
+        }
         if (pinnedSlug) {
           // Defense-in-depth: the registry pin bypasses the cross-job
           // disambiguator the title-derivation path applies below, so surface a
@@ -426,9 +533,12 @@ async function main() {
             sbl = job.slugByLocale;
             sliceChanged = true;
             totalServedAligned++;
+            selectedAlignmentSlugs.add(servedAlignment.nextSlug);
             continue;
           }
         }
+
+        if (alignUnservedOnly) continue;
 
         // No title → can't generate slug
         if (!title || title.length < 3) continue;
@@ -546,16 +656,29 @@ async function main() {
         totalFixed++;
         if (sourceBrandRefresh) totalSourceRefreshed++;
       }
+
+      if (alignUnservedOnly && selectedAlignmentSlugs.size > 0) {
+        totalServedLegacyAliasesAttributed += attributeSelectedFlatSlugAliases(
+          job,
+          flatLegacyOnlyBefore,
+          selectedAlignmentSlugs,
+          { usedSlugs, candidateClaims },
+        );
+      }
     }
 
     if (sliceChanged) {
       slicesChanged++;
       const crawlerKey = file.replace('.json', '');
 
-      // Per-locale safety net: only strip a previousSlug if it matches the
-      // SAME locale's active slug. Cross-locale matches are preserved.
-      for (const job of jobs) {
-        cleanPreviousSlugsPerLocale(job);
+      // The regular regeneration runs a cleanup over every job in a changed
+      // slice. FU-007 keeps all existing flat legacy aliases: the renderer
+      // already suppresses a bridge where that alias equals the active slug,
+      // while the flat value may still be the only evidence for another locale.
+      if (!alignUnservedOnly) {
+        for (const job of jobs) {
+          cleanPreviousSlugsPerLocale(job);
+        }
       }
 
       console.log(`  ✅ ${crawlerKey}`);
@@ -563,45 +686,49 @@ async function main() {
     }
   }
 
-  // This script is another direct slice writer in the canonical translation
-  // workflow. Slug regeneration can capture a bridge while it changes the
-  // active slug, so perform the same fleet-wide ownership pass before its
-  // phase is committed.
-  const ownership = decontaminateSliceDirectory(BY_CRAWLER_DIR, { apply: true });
-  if (ownership.moved > 0 || ownership.emptyLocaleBucketsPruned > 0) {
-    console.log(`🧭 prev-slug ownership: redirected ${ownership.moved} slug(s), pruned ${ownership.emptyLocaleBucketsPruned} empty locale bucket(s) across ${ownership.affected.length} slice(s).`);
-  }
-
-  // The ownership pass is a writer too. A second dry-run is the convergence
-  // proof: if it still finds a redirect or an empty bucket, the bytes that
-  // would be committed are not canonical yet and the phase must fail closed.
-  const residualOwnership = decontaminateSliceDirectory(BY_CRAWLER_DIR, { apply: false });
-  const afterSnapshot = snapshotSlugCorpus(slicePaths, { root: ROOT });
-  const verification = assertSlugRegenerationPostRun({
-    before: beforeSnapshot,
-    after: afterSnapshot,
-    ownership: residualOwnership,
-  });
-
-  const proofPath = process.env.SLUG_REGENERATION_PROOF_PATH
-    || (process.env.RUNNER_TEMP
-      ? path.join(process.env.RUNNER_TEMP, 'slug-regeneration-proof.json')
-      : null);
-  if (proofPath) {
-    const generationToken = resolveCrawlerGenerationToken();
-    if (!generationToken) {
-      throw new Error('Slug regeneration proof requires CRAWLER_GENERATION_TOKEN or GitHub run coordinates');
+  if (!alignUnservedOnly) {
+    // This script is another direct slice writer in the canonical translation
+    // workflow. Slug regeneration can capture a bridge while it changes the
+    // active slug, so perform the same fleet-wide ownership pass before its
+    // phase is committed.
+    const ownership = decontaminateSliceDirectory(BY_CRAWLER_DIR, { apply: true });
+    if (ownership.moved > 0 || ownership.emptyLocaleBucketsPruned > 0) {
+      console.log(`🧭 prev-slug ownership: redirected ${ownership.moved} slug(s), pruned ${ownership.emptyLocaleBucketsPruned} empty locale bucket(s) across ${ownership.affected.length} slice(s).`);
     }
-    writeJson(proofPath, createSlugRegenerationProof({
-      generationToken,
+
+    // The ownership pass is a writer too. A second dry-run is the convergence
+    // proof: if it still finds a redirect or an empty bucket, the bytes that
+    // would be committed are not canonical yet and the phase must fail closed.
+    const residualOwnership = decontaminateSliceDirectory(BY_CRAWLER_DIR, { apply: false });
+    const afterSnapshot = snapshotSlugCorpus(slicePaths, { root: ROOT });
+    const verification = assertSlugRegenerationPostRun({
       before: beforeSnapshot,
       after: afterSnapshot,
-      verification,
-    }));
-    console.log(`🧾 Slug regeneration proof: ${path.basename(proofPath)} (${generationToken})`);
+      ownership: residualOwnership,
+    });
+
+    const proofPath = process.env.SLUG_REGENERATION_PROOF_PATH
+      || (process.env.RUNNER_TEMP
+        ? path.join(process.env.RUNNER_TEMP, 'slug-regeneration-proof.json')
+        : null);
+    if (proofPath) {
+      const generationToken = resolveCrawlerGenerationToken();
+      if (!generationToken) {
+        throw new Error('Slug regeneration proof requires CRAWLER_GENERATION_TOKEN or GitHub run coordinates');
+      }
+      writeJson(proofPath, createSlugRegenerationProof({
+        generationToken,
+        before: beforeSnapshot,
+        after: afterSnapshot,
+        verification,
+      }));
+      console.log(`🧾 Slug regeneration proof: ${path.basename(proofPath)} (${generationToken})`);
+    }
   }
 
-  console.log(`\n📊 Slug regeneration complete: ${totalFixed} locale slugs fixed across ${slicesChanged} slices (${totalJobs} total jobs)`);
+  console.log(alignUnservedOnly
+    ? `\n📊 FU-007 alignment complete: ${totalServedAligned} locale slugs aligned across ${slicesChanged} slices (${totalJobs} total jobs)`
+    : `\n📊 Slug regeneration complete: ${totalFixed} locale slugs fixed across ${slicesChanged} slices (${totalJobs} total jobs)`);
   if (totalRelabelled > 0) {
     console.log(`🏷️  Brand relabel: ${totalRelabelled} record riallineati all'etichetta dichiarata dal parser`);
   }
@@ -613,6 +740,9 @@ async function main() {
   }
   if (totalServedAligned > 0) {
     console.log(`🧭 Served slug alignment: ${totalServedAligned} never-served slice slug(s) replaced by an exact URL already present in the served ledger`);
+  }
+  if (totalServedLegacyAliasesAttributed > 0) {
+    console.log(`🗂️  FU-007 legacy attribution: ${totalServedLegacyAliasesAttributed} ledger-proven locale route(s) preserved before assembler cleanup`);
   }
   if (totalPinned > 0) {
     console.log(`🔒 Registry pin: ${totalPinned} locale slug(s) restored to the immutable registry value (drift demoted to previousSlugs)`);

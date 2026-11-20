@@ -859,15 +859,21 @@
       "it": [
         "pflegehelfer-w-m-d-hochgebirgsklinik-davos-ch",
         "assistente-infermieristico-f-m-d-hochgebirgsklinik-davos-davos",
-        "assistente-infermieristico-m-f-d-hochgebirgsklinik-davos-davos"
+        "assistente-infermieristico-m-f-d-hochgebirgsklinik-davos-davos",
+        "aide-soignant-m-f-d-hochgebirgsklinik-davos-davos"
       ],
       "en": [
         "pflegehelfer-w-m-d-hochgebirgsklinik-davos-ch",
-        "nursing-assistant-f-m-d-hochgebirgsklinik-davos-davos"
+        "nursing-assistant-f-m-d-hochgebirgsklinik-davos-davos",
+        "aide-soignant-m-f-d-hochgebirgsklinik-davos-davos"
       ],
       "fr": [
         "pflegehelfer-w-m-d-hochgebirgsklinik-davos-ch",
         "assistant-infirmier-f-m-d-hochgebirgsklinik-davos-davos",
+        "aide-soignant-m-f-d-hochgebirgsklinik-davos-davos-371adf7c",
+        "aide-soignant-m-f-d-hochgebirgsklinik-davos-davos"
+      ],
+      "de": [
         "aide-soignant-m-f-d-hochgebirgsklinik-davos-davos"
       ]
     },
@@ -1582,16 +1588,6 @@
     "sector": "Sanità / Assistenza",
     "expiredAt": "2026-05-19T11:53:39.500Z",
     "previousSlugs": [
-      "medizinischer-praxisassistenz-m-w-d-80-100-hochgebirgsklinik-davos-ch",
-      "assistant-e-medical-e-60-100-spital-davos-davos",
-      "assistant-e-medical-e-pediatrique-60-90-spital-davos-davos",
-      "assistant-medical-d-urgence-mpa-60-80-spital-davos-davos",
-      "assistente-medico-a-60-100-spital-davos-davos",
-      "assistente-medico-di-emergenza-mpa-60-80-spital-davos-davos",
-      "assistente-medico-pediatra-60-90-spital-davos-davos",
-      "emergency-medical-assistant-mpa-60-80-spital-davos-davos",
-      "medical-practice-assistant-60-100-spital-davos-davos",
-      "medical-practice-assistant-pediatrics-60-90-spital-davos-davos",
       "spitex-assistente-sanitario-50-100-spital-davos-davos",
       "assistant-e-medical-e-60-100-spital-davos-davos-3ca42564",
       "assistant-e-medical-e-pediatrique-60-90-spital-davos-davos-45688a84",
@@ -1603,6 +1599,16 @@
       "medical-practice-assistant-60-100-spital-davos-davos-239aacd2",
       "medical-practice-assistant-pediatrics-60-90-spital-davos-davos-66fc7566",
       "spitex-assistente-sanitario-50-100-spital-davos-davos-21829e38",
+      "medizinischer-praxisassistenz-m-w-d-80-100-hochgebirgsklinik-davos-ch",
+      "assistant-e-medical-e-60-100-spital-davos-davos",
+      "assistant-e-medical-e-pediatrique-60-90-spital-davos-davos",
+      "assistant-medical-d-urgence-mpa-60-80-spital-davos-davos",
+      "assistente-medico-a-60-100-spital-davos-davos",
+      "assistente-medico-di-emergenza-mpa-60-80-spital-davos-davos",
+      "assistente-medico-pediatra-60-90-spital-davos-davos",
+      "emergency-medical-assistant-mpa-60-80-spital-davos-davos",
+      "medical-practice-assistant-60-100-spital-davos-davos",
+      "medical-practice-assistant-pediatrics-60-90-spital-davos-davos",
       "medical-practice-assistant-m-f-d-80-100-hochgebirgsklinik-davos-davos",
       "assistant-e-medical-e-m-f-d-80-100-hochgebirgsklinik-davos-davos"
     ],
@@ -1619,6 +1625,8 @@
         "medical-practice-assistant-60-100-spital-davos-davos-239aacd2",
         "medical-practice-assistant-pediatrics-60-90-spital-davos-davos-66fc7566",
         "spitex-assistente-sanitario-50-100-spital-davos-davos",
+        "medical-practice-assistant-m-f-d-80-100-hochgebirgsklinik-davos-davos",
+        "assistant-e-medical-e-m-f-d-80-100-hochgebirgsklinik-davos-davos",
         "medizinischer-praxisassistenz-m-w-d-80-100-hochgebirgsklinik-davos-ch"
       ],
       "en": [
@@ -1633,6 +1641,8 @@
         "medical-practice-assistant-60-100-spital-davos-davos-239aacd2",
         "medical-practice-assistant-pediatrics-60-90-spital-davos-davos-66fc7566",
         "spitex-assistente-sanitario-50-100-spital-davos-davos-21829e38",
+        "medical-practice-assistant-m-f-d-80-100-hochgebirgsklinik-davos-davos-76d72b44",
+        "assistant-e-medical-e-m-f-d-80-100-hochgebirgsklinik-davos-davos",
         "medical-practice-assistant-m-f-d-80-100-hochgebirgsklinik-davos-davos"
       ],
       "de": [
@@ -1646,7 +1656,9 @@
         "emergency-medical-assistant-mpa-60-80-spital-davos-davos-d2cf8ec9",
         "medical-practice-assistant-60-100-spital-davos-davos-239aacd2",
         "medical-practice-assistant-pediatrics-60-90-spital-davos-davos-66fc7566",
-        "spitex-assistente-sanitario-50-100-spital-davos-davos-21829e38"
+        "spitex-assistente-sanitario-50-100-spital-davos-davos-21829e38",
+        "medical-practice-assistant-m-f-d-80-100-hochgebirgsklinik-davos-davos",
+        "assistant-e-medical-e-m-f-d-80-100-hochgebirgsklinik-davos-davos"
       ],
       "fr": [
         "medizinischer-praxisassistenz-m-w-d-80-100-hochgebirgsklinik-davos-ch",
@@ -1660,6 +1672,8 @@
         "medical-practice-assistant-60-100-spital-davos-davos-239aacd2",
         "medical-practice-assistant-pediatrics-60-90-spital-davos-davos-66fc7566",
         "spitex-assistente-sanitario-50-100-spital-davos-davos-21829e38",
+        "assistant-e-medical-e-m-f-d-80-100-hochgebirgsklinik-davos-davos-1bdbcdd3",
+        "medical-practice-assistant-m-f-d-80-100-hochgebirgsklinik-davos-davos",
         "assistant-e-medical-e-m-f-d-80-100-hochgebirgsklinik-davos-davos"
       ]
     },

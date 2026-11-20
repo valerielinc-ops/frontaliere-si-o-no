@@ -5,9 +5,9 @@
   "jobs": [
     {
       "id": "benisasa-ch-4bcebb0ad8b7",
-      "slug": "pianificatore-elettricista-afc-cadempino-ti-benisasa-ch-ch",
+      "slug": "pianificatore-elettricista-afc-benisa-sa-cadempino",
       "slugByLocale": {
-        "it": "pianificatore-elettricista-afc-cadempino-ti-benisasa-ch-ch",
+        "it": "pianificatore-elettricista-afc-benisa-sa-cadempino",
         "en": "afc-electricity-planner-benisa-sa-cadempino-ti",
         "de": "afc-stromplaner-benisa-sa-cadempino-ti",
         "fr": "afc-planificateur-d-electricite-benisa-sa-cadempino-ti"
@@ -71,13 +71,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-10T21:46:15.198Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.benisasa.ch/jobs/pianificatore-elettricista-afc"
+      "sourceIdentity": "url:https://www.benisasa.ch/jobs/pianificatore-elettricista-afc",
+      "previousSlugsByLocale": {
+        "it": [
+          "pianificatore-elettricista-afc-cadempino-ti-benisasa-ch-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pianificatore-elettricista-afc-cadempino-ti-benisasa-ch-ch"
+      ]
     },
     {
       "id": "benisasa-ch-d8eb338e295f",
-      "slug": "installatore-elettricista-afc-cadempino-ti-benisasa-ch-ch",
+      "slug": "installatore-elettricista-afc-benisa-sa-cadempino",
       "slugByLocale": {
-        "it": "installatore-elettricista-afc-cadempino-ti-benisasa-ch-ch",
+        "it": "installatore-elettricista-afc-benisa-sa-cadempino",
         "en": "electrical-installation-afc-benisa-sa-cadempino-ti",
         "de": "elektrische-anlage-afc-benisa-sa-cadempino-ti",
         "fr": "installation-electrique-afc-benisa-sa-cadempino-ti"
@@ -141,13 +149,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-10T21:46:15.197Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.benisasa.ch/jobs/installatore-elettricista-afc"
+      "sourceIdentity": "url:https://www.benisasa.ch/jobs/installatore-elettricista-afc",
+      "previousSlugsByLocale": {
+        "it": [
+          "installatore-elettricista-afc-cadempino-ti-benisasa-ch-ch"
+        ]
+      },
+      "previousSlugs": [
+        "installatore-elettricista-afc-cadempino-ti-benisasa-ch-ch"
+      ]
     },
     {
       "id": "benisasa-ch-5608d9f669c0",
-      "slug": "capo-progetto-in-installazione-e-sicurezza-cadempino-ti-benisasa-ch-ch",
+      "slug": "capo-progetto-in-installazione-e-sicurezza-benisa-sa-cadempino",
       "slugByLocale": {
-        "it": "capo-progetto-in-installazione-e-sicurezza-cadempino-ti-benisasa-ch-ch",
+        "it": "capo-progetto-in-installazione-e-sicurezza-benisa-sa-cadempino",
         "en": "project-leader-in-installation-and-safety-benisa-sa-cadempino-ti",
         "de": "projektleiter-fur-installation-und-sicherheit-benisa-sa-cadempino-ti",
         "fr": "chef-de-projet-en-installation-et-securite-benisa-sa-cadempino-ti"
@@ -211,7 +227,15 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-10T21:46:15.187Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.benisasa.ch/jobs/capo-progetto-in-installazione-e-sicurezza"
+      "sourceIdentity": "url:https://www.benisasa.ch/jobs/capo-progetto-in-installazione-e-sicurezza",
+      "previousSlugsByLocale": {
+        "it": [
+          "capo-progetto-in-installazione-e-sicurezza-cadempino-ti-benisasa-ch-ch"
+        ]
+      },
+      "previousSlugs": [
+        "capo-progetto-in-installazione-e-sicurezza-cadempino-ti-benisasa-ch-ch"
+      ]
     }
   ]
 }

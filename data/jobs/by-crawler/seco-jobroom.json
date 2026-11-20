@@ -5895,9 +5895,9 @@
     },
     {
       "id": "seco-jobroom-0d19c136-5881-4b3b-b3f2-c9924d444788",
-      "slug": "venditore-venditore-m-f-d-volg-detailhandels-ag-trin-0d19c136",
+      "slug": "venditore-m-w-d-volg-detailhandels-ag-trin",
       "slugByLocale": {
-        "it": "venditore-venditore-m-f-d-volg-detailhandels-ag-trin-0d19c136",
+        "it": "venditore-m-w-d-volg-detailhandels-ag-trin",
         "en": "seller-seller-m-f-d-volg-detailhandels-ag-trin-0d19c136",
         "de": "verkauferin-verkaufer-w-m-d-volg-detailhandels-ag-trin-0d19c136",
         "fr": "vendeur-vendeur-h-f-d-volg-detailhandels-ag-trin-0d19c136"
@@ -5948,12 +5948,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "verkauferin-verkaufer-w-m-d-volg-detailhandels-ag-trin-0d19c136",
-        "verkauferin-verkaufer-m-w-d-volg-detailhandels-ag-trin"
+        "verkauferin-verkaufer-m-w-d-volg-detailhandels-ag-trin",
+        "venditore-venditore-m-f-d-volg-detailhandels-ag-trin-0d19c136"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkauferin-verkaufer-w-m-d-volg-detailhandels-ag-trin-0d19c136",
-          "verkauferin-verkaufer-m-w-d-volg-detailhandels-ag-trin"
+          "verkauferin-verkaufer-m-w-d-volg-detailhandels-ag-trin",
+          "venditore-venditore-m-f-d-volg-detailhandels-ag-trin-0d19c136"
         ],
         "en": [
           "verkauferin-verkaufer-w-m-d-volg-detailhandels-ag-trin-0d19c136"
@@ -25986,7 +25988,7 @@
         "it": "polyvalent-immobility-manager-agence-immobiliere-agival-2c-v-sarl-martigny-cc85f2c4",
         "en": "polyvalent-immobility-manager-agence-immobiliere-agival-2c-v-sarl-martigny-cc85f2c4",
         "de": "polyvalenter-unbewegungsverwalter-agence-immobiliere-agival-2c-v-sarl-martigny-cc85f2c4",
-        "fr": "gestionnaire-immobilier-polyvalent-agence-immobiliere-agival-2c-v-sarl-martigny-cc85f2c4"
+        "fr": "gestionnaire-immobilier-polyvalent-agence-immobiliere-agival-2c-v-sarl-martigny"
       },
       "slugDisambiguator": "cc85f2c4",
       "company": "Agence immobilière AGIVAL 2C&V Sàrl",
@@ -26046,6 +26048,9 @@
           "gestionnaire-immobilier-polyvalent-agence-immobiliere-agival-2c-v-sarl-martigny-cc85f2c4"
         ],
         "de": [
+          "gestionnaire-immobilier-polyvalent-agence-immobiliere-agival-2c-v-sarl-martigny-cc85f2c4"
+        ],
+        "fr": [
           "gestionnaire-immobilier-polyvalent-agence-immobiliere-agival-2c-v-sarl-martigny-cc85f2c4"
         ]
       },
@@ -28077,7 +28082,7 @@
       "slugByLocale": {
         "it": "senior-product-owner-applicazioni-professionali-centri-sportivi-80-100-bundesamt-fur-sport-baspo-tenero-6d5e7d035f",
         "en": "senior-product-owner-professional-applications-sports-centers-80-100-bundesamt-fur-sport-baspo-tenero-1d060cf4",
-        "de": "senior-product-owner-fachapplikationen-sportzentren-80-100-bundesamt-fur-sport-1d060cf4",
+        "de": "senior-product-owner-fachapplikationen-sportzentren-80-100-bundesamt-fur-sport-baspo-tenero",
         "fr": "proprietaire-principal-de-produits-applications-professionnelles-centres-sportifs-80-100-bundesamt-fur-sport-1d060cf4"
       },
       "slugDisambiguator": "1d060cf4",
@@ -28132,6 +28137,9 @@
         "it": [
           "senior-product-owner-fachapplikationen-sportzentren-80-100-bundesamt-fur-sport-1d060cf4",
           "senior-product-owner-applicazioni-professionali-centri-sportivi-80-100-bundesamt-fur-sport-baspo-tenero"
+        ],
+        "de": [
+          "senior-product-owner-fachapplikationen-sportzentren-80-100-bundesamt-fur-sport-1d060cf4"
         ]
       },
       "firstSeenAt": "2026-11-12T22:01:37.271Z",
@@ -39215,7 +39223,7 @@
       "slugByLocale": {
         "it": "project-manager-grid-construction-projects-svizzera-orientale-grigioni-energy-technology-sottostrutture-kurath-2aac7850",
         "en": "project-manager-grid-construction-projects-eastern-switzerland-graubunden-energy-technology-substructures-2aac7850",
-        "de": "projektleiter-netzbauprojekte-ostschweiz-graubunden-energietechnik-bereich-2aac7850",
+        "de": "projektleiter-netzbauprojekte-ostschweiz-graubunden-energietechnik-bereich-unterwerke-kurath-engineering-ag-landquart",
         "fr": "chef-de-projet-grille-projets-de-construction-suisse-orientale-graubunden-technologie-de-l-energie-2aac7850"
       },
       "slugDisambiguator": "2aac7850",
@@ -39267,6 +39275,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "projektleiter-netzbauprojekte-ostschweiz-graubunden-energietechnik-bereich-2aac7850"
+        ],
+        "de": [
           "projektleiter-netzbauprojekte-ostschweiz-graubunden-energietechnik-bereich-2aac7850"
         ]
       },
@@ -85740,7 +85751,7 @@
       "slugByLocale": {
         "it": "servizio-tecnico-m-f-d-in-grigio-adecco-chur-e280fc8c",
         "en": "service-technician-m-f-d-in-graubunden-adecco-chur-e280fc8c",
-        "de": "servicetechniker-m-w-d-in-graubunden-adecco-chur-e280fc8c",
+        "de": "servicetechniker-m-w-d-in-graubunden-adecco-chur",
         "fr": "technicien-de-service-h-f-d-a-graubunden-adecco-chur-e280fc8c"
       },
       "slugDisambiguator": "e280fc8c",
@@ -85792,6 +85803,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "servicetechniker-m-w-d-in-graubunden-adecco-chur-e280fc8c"
+        ],
+        "de": [
           "servicetechniker-m-w-d-in-graubunden-adecco-chur-e280fc8c"
         ]
       },
@@ -107154,7 +107168,7 @@
         "it": "collaboratore-amministrativo-o-collaboratore-amministrativo-hes-so-valais-wallis-sion-a0f026a9",
         "en": "administrative-collaborator-or-administrative-collaborator-hes-so-valais-wallis-sion-a0f026a9",
         "de": "verwaltungsmitarbeiter-oder-verwaltungsmitarbeiter-hes-so-valais-wallis-sion-a0f026a9",
-        "fr": "collaborateur-administratif-ou-collaboratrice-administrative-hes-so-valais-a0f026a9"
+        "fr": "collaborateur-administratif-ou-collaboratrice-administrative-hes-so-valais-wallis-sion"
       },
       "slugDisambiguator": "a0f026a9",
       "company": "HES-SO Valais-Wallis",
@@ -107212,6 +107226,9 @@
           "collaborateur-administratif-ou-collaboratrice-administrative-hes-so-valais-a0f026a9"
         ],
         "de": [
+          "collaborateur-administratif-ou-collaboratrice-administrative-hes-so-valais-a0f026a9"
+        ],
+        "fr": [
           "collaborateur-administratif-ou-collaboratrice-administrative-hes-so-valais-a0f026a9"
         ]
       },
@@ -148295,7 +148312,7 @@
       "id": "seco-jobroom-d68e61b5-20f0-4a87-b6ae-4ce9db5f6699",
       "slug": "lehrperson-lohnadministration-im-lehrgang-hr-assistent-in-genossenschaft-migros-d68e61b5",
       "slugByLocale": {
-        "de": "lehrperson-lohnadministration-im-lehrgang-hr-assistent-in-genossenschaft-migros-d68e61b5",
+        "de": "lehrperson-lohnadministration-im-lehrgang-hr-assistent-in-genossenschaft-migros-ostschweiz-chur",
         "it": "lehrperson-lohnadministration-im-lehrgang-hr-assistent-in-genossenschaft-migros-d68e61b5",
         "en": "lehrperson-lohnadministration-im-lehrgang-hr-assistent-in-genossenschaft-migros-d68e61b5",
         "fr": "lehrperson-lohnadministration-im-lehrgang-hr-assistent-in-genossenschaft-migros-d68e61b5"
@@ -148364,7 +148381,15 @@
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-19T21:41:00.028Z",
       "translationHoldSince": "2026-11-19T21:45:38.837Z",
-      "sourceIdentity": "url:https://www.job-room.ch/job-search/d68e61b5-20f0-4a87-b6ae-4ce9db5f6699"
+      "sourceIdentity": "url:https://www.job-room.ch/job-search/d68e61b5-20f0-4a87-b6ae-4ce9db5f6699",
+      "previousSlugsByLocale": {
+        "de": [
+          "lehrperson-lohnadministration-im-lehrgang-hr-assistent-in-genossenschaft-migros-d68e61b5"
+        ]
+      },
+      "previousSlugs": [
+        "lehrperson-lohnadministration-im-lehrgang-hr-assistent-in-genossenschaft-migros-d68e61b5"
+      ]
     },
     {
       "id": "seco-jobroom-da128f68-e453-49dc-b43e-e6d525e715b1",
@@ -164394,7 +164419,7 @@
         "it": "istruttore-capo-culinario-u-c-cesar-ritz-colleges-ag-glis-b3c2efb6",
         "en": "culinary-chief-instructor-u-c-cesar-ritz-colleges-ag-glis-b3c2efb6",
         "de": "kulinarischer-cheflehrer-u-c-cesar-ritz-colleges-ag-glis-b3c2efb6",
-        "fr": "culinary-chef-instructor-u-c-cesar-ritz-colleges-ag-glis-b3c2efb6"
+        "fr": "culinary-chef-instructor-u-c-cesar-ritz-colleges-ag-glis"
       },
       "slugDisambiguator": "b3c2efb6",
       "company": "U.C. César Ritz Colleges AG",
@@ -164451,6 +164476,9 @@
         ],
         "de": [
           "culinary-chef-instructor-u-c-cesar-ritz-colleges-ag-glis"
+        ],
+        "fr": [
+          "culinary-chef-instructor-u-c-cesar-ritz-colleges-ag-glis-b3c2efb6"
         ]
       },
       "firstSeenAt": "2026-10-31T22:00:02.073Z",
@@ -169811,7 +169839,7 @@
       "slug": "controllore-united-machining-losone-9dc76c46",
       "slugByLocale": {
         "it": "controllore-united-machining-losone-9dc76c46",
-        "en": "controller-united-machining-losone-9dc76c46",
+        "en": "controller-united-machining-losone",
         "de": "regler-united-machining-losone-9dc76c46",
         "fr": "controleur-united-machining-losone-9dc76c46"
       },
@@ -169872,6 +169900,9 @@
         ],
         "fr": [
           "controller-united-machining-losone"
+        ],
+        "en": [
+          "controller-united-machining-losone-9dc76c46"
         ]
       },
       "firstSeenAt": "2026-10-31T22:00:02.073Z",

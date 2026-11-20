@@ -2454,9 +2454,9 @@
     },
     {
       "id": "pdgr-3bfaa76fd4a5",
-      "slug": "assistente-medico-assistente-medico-psychiatrische-dienste-graubunden-chur",
+      "slug": "assistente-medico-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
-        "it": "assistente-medico-assistente-medico-psychiatrische-dienste-graubunden-chur",
+        "it": "assistente-medico-psychiatrische-dienste-graubunden-chur",
         "en": "assistant-doctor-assistant-doctor-psychiatrische-dienste-graubunden-chur",
         "de": "assistenzarztin-assistenzarzt-pdgr-ch",
         "fr": "assistant-medecin-assistant-medecin-psychiatrische-dienste-graubunden-chur"
@@ -2508,12 +2508,14 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "assistenzarztin-assistenzarzt-pdgr-ch",
-        "assistenzarztin-assistenzarzt-psychiatrische-dienste-graubunden-chur"
+        "assistenzarztin-assistenzarzt-psychiatrische-dienste-graubunden-chur",
+        "assistente-medico-assistente-medico-psychiatrische-dienste-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenzarztin-assistenzarzt-pdgr-ch",
-          "assistenzarztin-assistenzarzt-psychiatrische-dienste-graubunden-chur"
+          "assistenzarztin-assistenzarzt-psychiatrische-dienste-graubunden-chur",
+          "assistente-medico-assistente-medico-psychiatrische-dienste-graubunden-chur"
         ],
         "en": [
           "assistenzarztin-assistenzarzt-psychiatrische-dienste-graubunden-chur"
