@@ -108,10 +108,10 @@ describe('deploy-publish.yml — il CDN IT precede entrambi i fan-out (#5251)', 
     expect(early.env.DEPLOY_CDN_PUSH_ONLY).toBe('1');
     expect(early.env.DEPLOY_BUILD_ID).toContain('outputs.build_id');
     expect(early.env.R2_TIMEOUT_OG_S).toBe('900');
-    expect(early['timeout-minutes']).toBe(45);
+    expect(early['timeout-minutes']).toBe(90);
     expect(retry.if).toBe("steps.cdn-push-early.outcome == 'failure'");
     expect(retry.env.DEPLOY_CDN_PUSH_ONLY).toBe('1');
-    expect(retry['timeout-minutes']).toBe(45);
+    expect(retry['timeout-minutes']).toBe(90);
     expect(ready.if).toBe('always()');
     expect(ready.run).toContain('EARLY_OUTCOME');
     expect(ready.run).toContain('RETRY_OUTCOME');
