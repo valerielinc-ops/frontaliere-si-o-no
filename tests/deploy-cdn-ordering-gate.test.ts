@@ -28,7 +28,7 @@ import { describe, it, expect, beforeAll } from 'vitest';
 import { createHash } from 'node:crypto';
 import { execFile, execFileSync } from 'node:child_process';
 import { resolve, join } from 'node:path';
-import { cpSync, existsSync, mkdtempSync, mkdirSync, writeFileSync, readFileSync, rmSync, symlinkSync } from 'node:fs';
+import { cpSync, existsSync, mkdtempSync, mkdirSync, writeFileSync, readdirSync, readFileSync, rmSync, symlinkSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import YAML from 'yaml';
 import { IT_SHARD_GROUP_IDS } from '../scripts/ci/it-shard-group-plan.mjs';
@@ -1549,7 +1549,7 @@ describe('job-canon CDN releases keep the build marker after the complete payloa
 });
 
 // ── scripts/lib/deploy-it-pages-prep.sh — the two phases ─────────────────────
-function runPrep(env: Record<string, string>, workspace = mkdtempSync(join(tmpdir(), 'prep-'))): { code: number; stdout: string } {
+function runPrep(env: Record<string, string>, workspace = mkdtempSync(join(tmpdir(), 'prep-')), bashArgs = [PREP_SH]): { code: number; stdout: string } {
   const dir = workspace;
   // The CDN push now requires each global shell stable alias and its current
   // content-addressed target, plus stable references in generated HTML.
@@ -1567,7 +1567,7 @@ function runPrep(env: Record<string, string>, workspace = mkdtempSync(join(tmpdi
     writeFileSync(join(dir, 'dist', 'assets', `${name}-0a1b2c3d4e5f.js`), `${name} bytes`);
   }
   try {
-    const stdout = execFileSync('bash', [PREP_SH], {
+    const stdout = execFileSync('bash', bashArgs, {
       cwd: dir,
       env: { PATH: process.env.PATH ?? '', RUNNER_TEMP: dir, ...env },
       encoding: 'utf8',
@@ -2024,6 +2024,42 @@ describe('deploy-it-pages-prep.sh — DEPLOY_CDN_PUSH_ONLY runs the CDN push and
       expect(readFileSync(join(interruptedStage, 'assets', 'partial-file.js'), 'utf8')).toBe('partial attempt');
       expect(readFileSync(join(workspace, 'dist', 'assets', 'gtag-init.js'), 'utf8')).toBe('gtag-init bytes');
       expect(readFileSync(join(workspace, 'dist', 'assets', 'gtag-init-0a1b2c3d4e5f.js'), 'utf8')).toBe('gtag-init bytes');
+    } finally {
+      rmSync(workspace, { recursive: true, force: true });
+    }
+  });
+
+  it('a retry can finish and clean up while another attempt still needs its stage', () => {
+    const workspace = mkdtempSync(join(tmpdir(), 'prep-cdn-retry-'));
+    try {
+      mkdirSync(join(workspace, 'dist', 'job-canon'), { recursive: true });
+      writeFileSync(join(workspace, 'dist', 'job-canon', 'map.json'), '{}');
+      const harness = [
+        'source "$PREP_SCRIPT"',
+        'PREP_CWD="$PWD"',
+        'node() { [ "$1" = scripts/ci/check-house-ad-images.mjs ]; }',
+        '_publish_cdn_r2() {',
+        '  local payload="$1"',
+        '  [ -s "$payload/assets/gtag-init.js" ] || return 1',
+        '  [ -s "$payload/job-canon/map.json" ] || return 1',
+        '  if [ -z "${FIRST_PAYLOAD:-}" ]; then',
+        '    ( FIRST_PAYLOAD="$payload"; step_push_cdn ) || return 1',
+        '    [ ! -e "$(cat retry-payload.txt)" ] || return 1',
+        '    [ -s "$payload/assets/gtag-init.js" ] || return 1',
+        '    [ -s "$payload/job-canon/map.json" ] || return 1',
+        '  else',
+        '    [ "$payload" != "$FIRST_PAYLOAD" ] || return 1',
+        '    printf "%s" "$payload" > retry-payload.txt',
+        '  fi',
+        '  CDN_BASE=https://cdn.frontaliereticino.ch',
+        '}',
+        'step_push_cdn',
+      ].join('\n');
+
+      const result = runPrep({ CDN_TARGET: 'r2', PREP_SCRIPT: PREP_SH }, workspace, ['-c', harness]);
+
+      expect(result.code, result.stdout).toBe(0);
+      expect(readdirSync(workspace).filter((name) => name.startsWith('cdn-stage.'))).toEqual([]);
     } finally {
       rmSync(workspace, { recursive: true, force: true });
     }
