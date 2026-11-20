@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1174,
+      "5": 1175,
       "6": 5062
     },
-    "publishedCovers": 7917,
+    "publishedCovers": 7918,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -218753,6 +218753,39 @@
         "provider": "openai-codex",
         "assetId": "article-bollettino-frontaliere-2026-11-19",
         "imageUrl": "/images/blog/article-bollettino-frontaliere-2026-11-19.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-bollettino-frontaliere-2026-11-20": {
+      "cover": "/images/blog/article-bollettino-frontaliere-2026-11-20.webp",
+      "hash": "8c202a45a638caa62cdb9a872e96ca9b7830fa521435a3cb8acc5ad9432c7f04",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "bollettino-frontaliere-2026-11-20",
+          "category": "novita",
+          "date": "2026-11-20T13:58:11.410Z",
+          "updatedAt": null,
+          "authorSlug": "samuele-valente"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-bollettino-frontaliere-2026-11-20.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1795,
+      "verifiedAt": "2026-11-20",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-bollettino-frontaliere-2026-11-20",
+        "imageUrl": "/images/blog/article-bollettino-frontaliere-2026-11-20.webp",
         "evidence": "generated-engine-record"
       }
     }
