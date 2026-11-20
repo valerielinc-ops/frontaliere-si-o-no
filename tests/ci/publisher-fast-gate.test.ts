@@ -458,6 +458,22 @@ describe('publisher fast provenance gate', () => {
     expect(fixture().result).toMatchObject({ passed: true, errorCount: 0, sampleRate: 1 });
   });
 
+  it('accepts prior publisher evidence only for the selected run and source build', () => {
+    const f = fixture();
+    const manifest = f.sectionManifests.find((entry) => entry.locale === 'en')!;
+    const priorRunId = '111';
+    const priorName = `section-page-manifest-en-${priorRunId}`;
+    manifest.artifactRunId = priorRunId;
+    manifest.manifestArtifactName = priorName;
+    const priorArtifacts = { [priorRunId]: { artifacts: [artifact(priorName, 'a'.repeat(64))] } };
+
+    expect(f.validate({ priorArtifacts }).passed).toBe(false);
+    const options = { priorArtifacts, sectionOrigins: { en: priorRunId } };
+    expect(f.validate(options).passed).toBe(true);
+    manifest.sourceSha = 'b'.repeat(40);
+    expect(f.validate(options).passed).toBe(false);
+  });
+
   it('reports ONE root-cause error, not one per page, when the current sitemap snapshot is missing', () => {
     const f = fixture();
     fs.rmSync(path.join(f.sitemapDir, 'new-sitemap-urls.json'));
@@ -686,11 +702,11 @@ describe('publisher fast provenance gate', () => {
     en.artifactRefs.push({ runId, name: artifactName, digest, purpose: 'section-shard-tar-batch' });
     const artifacts = [{ ...receipt, name: en.manifestArtifactName }, artifact(artifactName, digest)];
     const options = {
-      localeArtifactRunIds: { en: runId },
-      reusedPublisherArtifacts: { [runId]: { artifacts } },
+      sectionOrigins: { en: runId },
+      priorArtifacts: { [runId]: { artifacts } },
     };
     expect(base.validate(options).errors).toEqual([]);
-    expect(base.validate({ localeArtifactRunIds: { en: runId } }).errors)
+    expect(base.validate({ sectionOrigins: { en: runId } }).errors)
       .toContain(`${en.manifestArtifactName}: artifact is absent from run ${runId}`);
     artifacts[1].expired = true;
     expect(base.validate(options).errors).toContain(`${artifactName}: artifact is expired`);

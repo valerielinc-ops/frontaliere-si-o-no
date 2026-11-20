@@ -160,9 +160,9 @@ export function resolvePublishReceipts({ statuses = [], sourceRunId, locales = L
     // IT always regenerates its combined manifest from the restored group results.
     if (locale === 'it') return true;
     const runId = publisherRunIdOf(status);
-    // Legacy receipts linked to the source build and cannot locate shard evidence.
-    if (!runId || runId === String(sourceRunId)) return false;
-    localeArtifactRunIds[locale] = runId;
+    if (!runId) return false;
+    // The gate can recover historical evidence by the exact source-run title.
+    localeArtifactRunIds[locale] = runId === String(sourceRunId) ? null : runId;
     return true;
   });
   const pendingLocales = requestedLocales.filter((locale) => !publishedLocales.includes(locale));

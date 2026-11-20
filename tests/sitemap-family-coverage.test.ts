@@ -573,6 +573,7 @@ describe('sitemap family URL coverage ratchet', () => {
     const source = readFileSync(workflowPath, 'utf8');
     const workflow = YAML.parse(source, { logLevel: 'silent' }) as any;
     const steps = workflow.jobs?.['fast-gate']?.steps ?? [];
+    const download = steps.find((step: any) => step.name === 'Resolve non-IT validation artifact runs');
     const build = steps.find((step: any) => step.name === 'Build non-IT sitemap family bridge evidence');
     const gate = steps.find((step: any) => step.name === 'Run fail-closed publisher fast gate');
     const checkout = steps.find((step: any) => String(step.uses ?? '').startsWith('actions/checkout@'));
@@ -580,34 +581,35 @@ describe('sitemap family URL coverage ratchet', () => {
       .split('\n')
       .map((entry: string) => entry.trim());
 
-    for (const locale of ['it', 'en', 'de', 'fr']) {
-      const runId = '${{ fromJSON(inputs.locale_artifact_run_ids).' + locale + ' }}';
-      const manifests = steps.find((step: any) => step.name === `Download publisher section manifests (${locale})`);
-      expect(manifests?.uses).toBe('actions/download-artifact@v8');
-      expect(manifests?.with).toMatchObject({
-        name: `section-page-manifest-${locale}-${runId}`,
-        'run-id': runId,
-        'github-token': '${{ github.token }}',
-      });
-      expect(manifests?.['continue-on-error']).toBeUndefined();
-      expect(steps.indexOf(manifests)).toBeLessThan(steps.indexOf(gate));
-      if (locale === 'it') continue;
-      const download = steps.find((step: any) => step.name === `Download non-IT locale dist (${locale})`);
-      expect(download?.uses).toBe('actions/download-artifact@v8');
-      expect(download?.with).toMatchObject({
-        name: `locale-dist-${locale}-${runId}`,
-        path: '${{ runner.temp }}/publisher-fast-gate/locale-dist',
-        'run-id': runId,
-        'github-token': '${{ github.token }}',
-      });
-      expect(download?.['continue-on-error']).toBeUndefined();
-      expect(steps.indexOf(download)).toBeLessThan(steps.indexOf(build));
+    expect(download?.env?.PUBLISHER_RUN_ID).toBe('${{ inputs.shard_artifact_run_id || github.run_id }}');
+    expect(download?.run).toContain('Publish Pages build $SOURCE_RUN_ID @ $SOURCE_SHA');
+    expect(download?.run).toContain('candidate_runs=${receipt_run:-$prior_runs}');
+    expect(download?.run).toContain('Missing or expired section-page-manifest or locale-dist');
+    for (const locale of ['en', 'de', 'fr']) {
+      const run = '${{ steps.artifact-runs.outputs.' + locale + ' }}';
+      for (const [stepName, artifact] of [
+        ['Download publisher section manifests', 'section-page-manifest'],
+        ['Download non-IT locale dist', 'locale-dist'],
+      ]) {
+        const step = steps.find((entry: any) => entry.name === `${stepName} (${locale})`);
+        expect(step?.uses).toBe('actions/download-artifact@v8');
+        expect(step?.with).toMatchObject({
+          name: `${artifact}-${locale}-${run}`,
+          'run-id': run,
+          'github-token': '${{ github.token }}',
+        });
+        expect(step?.['continue-on-error']).toBeUndefined();
+        expect(steps.indexOf(step)).toBeGreaterThan(steps.indexOf(download));
+        expect(steps.indexOf(step)).toBeLessThan(steps.indexOf(build));
+      }
     }
     expect(build?.['continue-on-error']).toBeUndefined();
+    expect(build?.run).toContain('$locale_dist_root/locale-dist-$locale.tar');
     expect(String(build?.run ?? '')).not.toContain('${{');
     expect(String(build?.run ?? '')).toContain('for locale in en de fr');
     expect(String(build?.run ?? '')).toContain('rm -f "$tar_file"');
     expect(sparsePaths).toContain('scripts/ci/build-sitemap-family-bridge-evidence.mjs');
+    expect(steps.indexOf(download)).toBeLessThan(steps.indexOf(build));
     expect(steps.indexOf(build)).toBeLessThan(steps.indexOf(gate));
   });
 });

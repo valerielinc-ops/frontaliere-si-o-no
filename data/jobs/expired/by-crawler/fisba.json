@@ -117,7 +117,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://fisba.com/en/jobs/betriebsmechaniker-mw-0",
-    "firstSeenAt": "2026-10-26T09:40:20.757Z"
+    "firstSeenAt": "2026-10-26T09:40:20.757Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://fisba.com/en/jobs/betriebsmechaniker-mw",
+        "firstSeenAt": "2026-10-26T09:40:20.757Z",
+        "title": "Betriebsmechaniker (m/w)"
+      },
+      {
+        "sourceIdentity": "url:https://fisba.com/en/jobs/betriebsmechaniker-mw-0",
+        "firstSeenAt": "2026-10-26T09:40:20.757Z",
+        "title": "Betriebsmechaniker (m/w)"
+      }
+    ]
   },
   {
     "slug": "applicazione-spontanea-non-richiesta-fisba-ag-st-gallen",

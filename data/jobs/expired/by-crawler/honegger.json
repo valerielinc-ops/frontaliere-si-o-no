@@ -991,7 +991,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://honegger.ch/job/mitarbeiter-in-reinigung-m-w-d-stans-20-30",
-    "firstSeenAt": "2026-07-04T11:11:33.747Z"
+    "firstSeenAt": "2026-07-04T11:11:33.747Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://honegger.ch/job/mitarbeiter-in-reinigung-m-w-d-stans-20-30",
+        "firstSeenAt": "2026-07-04T11:11:33.747Z",
+        "title": "Mitarbeiter/in Reinigung (m/w/d)"
+      },
+      {
+        "sourceIdentity": "url:https://honegger.ch/job/mitarbeiter-in-reinigung-m-w-d-stans-30",
+        "firstSeenAt": "2026-07-04T11:11:33.747Z",
+        "title": "Mitarbeiter/-in Reinigung (m/w/d)"
+      }
+    ]
   },
   {
     "slug": "ispettore-manutenzione-pulizia-lunedi-f-d-honegger-ag-horgen",
@@ -1087,7 +1099,9 @@
     "salaryMin": 52000,
     "salaryMax": 70000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://honegger.ch/job/teamleiter-in-unterhaltsreinigung-m-w-d-langenthal-ca-40",
+    "firstSeenAt": "2026-07-04T11:11:31.034Z"
   },
   {
     "slug": "capo-operazioni-manutenzione-pulizia-m-f-d-honegger-ag-boudry",

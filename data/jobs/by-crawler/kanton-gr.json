@@ -930,7 +930,6 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80-100%",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "bevolkerungsschutz-koordinator-in-kanton-gr-ch"
@@ -1015,7 +1014,6 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80-100%",
-      "needsRetranslation": true,
       "previousSlugs": [
         "strassenwart-in-kanton-gr-ch-2",
         "custode-a-stradale-kantonale-verwaltung-graubunden-thusis",
@@ -1356,7 +1354,6 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80-100%",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-administration-kanton-gr-ch"
@@ -1481,7 +1478,7 @@
       "slugByLocale": {
         "it": "addetto-a-alla-manutenzione-stradale-kantonale-verwaltung-graubunden-ilanz",
         "en": "road-maintenance-worker-kantonale-verwaltung-graubunden-ilanz",
-        "de": "strassenwart-in-kanton-gr-ch",
+        "de": "strassenwart-in-kanton-gr-ch-4n24mv",
         "fr": "cantonnier-ere-kantonale-verwaltung-graubunden-ilanz"
       },
       "company": "Kantonale Verwaltung Graubünden",
@@ -1542,6 +1539,9 @@
           "strassenwart-in-kanton-gr-ch"
         ],
         "fr": [
+          "strassenwart-in-kanton-gr-ch"
+        ],
+        "de": [
           "strassenwart-in-kanton-gr-ch"
         ]
       },

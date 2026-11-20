@@ -67,9 +67,9 @@ describe('durable build -> publish receipts', () => {
         localeReceipt('39606182062', 'fr'),
       ],
     });
-    expect(state.localeArtifactRunIds).toEqual({ it: currentRunId, en: priorRunId, de: currentRunId, fr: currentRunId });
-    expect(state.pendingLocales).toEqual(['de', 'fr']);
-    expect(state.pendingNonItLocales).toEqual(['de', 'fr']);
+    expect(state.localeArtifactRunIds).toEqual({ it: currentRunId, en: priorRunId, de: null, fr: currentRunId });
+    expect(state.pendingLocales).toEqual(['fr']);
+    expect(state.pendingNonItLocales).toEqual(['fr']);
   });
 
   it('deduplicates the requested matrix and ignores unsupported locale contexts', () => {

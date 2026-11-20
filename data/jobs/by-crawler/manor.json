@@ -378,7 +378,6 @@
         "fr": "Employé·e de vente 50%"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "id": "manor-6ef4c01396b3",
       "salaryMin": 39500,
       "salaryMax": 60800,
@@ -564,7 +563,6 @@
         "fr": "Collaborateur·rice logistique, expédition 100%"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "manor-mitarbeiter-in-logistik-warenausgang-100-hochdorf"
@@ -634,7 +632,6 @@
         "fr": "Responsable de supermarché 100 %"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "id": "manor-e9132bd5bd15",
       "salaryMin": 103500,
       "salaryMax": 159500,
@@ -9941,7 +9938,7 @@
       "slugByLocale": {
         "it": "addetto-a-alle-vendite-50-manor-ag-emmen",
         "en": "sales-assistant-50-manor-ag-emmen",
-        "de": "manor-mitarbeiter-in-verkauf-50-emmen",
+        "de": "manor-mitarbeiter-in-verkauf-50-emmen-fhaz7e",
         "fr": "employe-e-vente-50-manor-ag-emmen"
       },
       "titleByLocale": {
@@ -9972,6 +9969,9 @@
         "fr": [
           "manor-mitarbeiter-in-verkauf-50-emmen",
           "mitarbeiter-in-vente-50-manor-ag-emmen"
+        ],
+        "de": [
+          "manor-mitarbeiter-in-verkauf-50-emmen"
         ]
       },
       "firstSeenAt": "2026-10-05T21:46:14.997Z",

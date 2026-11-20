@@ -90,7 +90,8 @@
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:42:37.930Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://fisba.com/en/jobs/lernender-mechanikpraktikerin-eba-werkstoff-glas-fur-2027"
     },
     {
       "id": "fisba-6e6c38da2f51",
@@ -179,7 +180,8 @@
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:42:37.929Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://fisba.com/en/jobs/lernender-feinwerkoptikerin-efz-fur-2027"
     },
     {
       "id": "fisba-f7f790a8715d",
@@ -262,7 +264,8 @@
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-19T21:42:37.928Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://fisba.com/en/jobs/einkaufer-mw-100"
     },
     {
       "id": "fisba-38f165b06b5e",
@@ -333,7 +336,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-24T21:42:37.927Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T21:42:37.927Z"
+      "firstSeenAt": "2026-11-19T21:42:37.927Z",
+      "sourceIdentity": "url:https://fisba.com/en/jobs/betriebsmechaniker-instandhaltungsmechaniker-mw"
     },
     {
       "id": "fisba-b2eec155a7bd",
@@ -416,7 +420,8 @@
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:42:37.925Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://fisba.com/en/jobs/operator-beschichtung-mw-100"
     },
     {
       "id": "fisba-00d676ea5138",
@@ -496,7 +501,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-24T10:17:17.750Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "sourceIdentity": "url:https://fisba.com/en/jobs/betriebsmechaniker-mw"
     }
   ]
 }

@@ -480,15 +480,20 @@
           "controller-d-f-m-agie-charmilles-losone"
         ],
         "de": [
-          "controller-d-f-m-agie-charmilles-losone"
+          "controller-d-f-m-agie-charmilles-losone",
+          "steuerung-d-w-m-agie-charmilles-sa-losone"
         ],
         "it": [
-          "controller-d-f-m-agie-charmilles-losone"
+          "controller-d-f-m-agie-charmilles-losone",
+          "controllore-d-f-m-agie-charmilles-sa-losone-xi5h86",
+          "steuerung-d-w-m-agie-charmilles-sa-losone"
         ]
       },
       "previousSlugs": [
         "controller-d-f-m-agie-charmilles-sa-losone",
-        "controller-d-f-m-agie-charmilles-losone"
+        "controller-d-f-m-agie-charmilles-losone",
+        "controllore-d-f-m-agie-charmilles-sa-losone-xi5h86",
+        "steuerung-d-w-m-agie-charmilles-sa-losone"
       ],
       "streetAddressSource": "listing-source",
       "validThroughSource": "last-observed-window",
@@ -1555,12 +1560,14 @@
       "previousSlugsByLocale": {
         "it": [
           "fachspezialist-service-hotline-100-agie-charmilles-langnau-im-emmental",
-          "fachspezialist-service-hotline-100-agie-charmilles-langnau-i-e"
+          "fachspezialist-service-hotline-100-agie-charmilles-langnau-i-e",
+          "servizio-specialistico-hotline-100-agie-charmilles-sa-langnau-im-emmental-4565es"
         ]
       },
       "previousSlugs": [
         "fachspezialist-service-hotline-100-agie-charmilles-langnau-i-e",
-        "fachspezialist-service-hotline-100-agie-charmilles-langnau-im-emmental"
+        "fachspezialist-service-hotline-100-agie-charmilles-langnau-im-emmental",
+        "servizio-specialistico-hotline-100-agie-charmilles-sa-langnau-im-emmental-4565es"
       ],
       "streetAddress": "Langnau im Emmental",
       "streetAddressSource": "to-enrich",
@@ -2240,8 +2247,7 @@
       "previousSlugs": [
         "buyer-agie-charmilles-sa-losone"
       ],
-      "sourceIdentity": "url:https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-buyer",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-buyer"
     },
     {
       "title": "Facility Technician",
@@ -2435,12 +2441,16 @@
           "montagemechaniker-agie-charmilles-biel-bienne"
         ],
         "it": [
-          "montagemechaniker-agie-charmilles-biel-bienne"
+          "montagemechaniker-agie-charmilles-biel-bienne",
+          "montagemechaniker-agie-charmilles-biel",
+          "meccanica-di-assemblaggio-agie-charmilles-sa-biel-bienne-12su8k"
         ]
       },
       "previousSlugs": [
         "montagemechaniker-agie-charmilles-sa-biel-bienne",
-        "montagemechaniker-agie-charmilles-biel-bienne"
+        "montagemechaniker-agie-charmilles-biel-bienne",
+        "montagemechaniker-agie-charmilles-biel",
+        "meccanica-di-assemblaggio-agie-charmilles-sa-biel-bienne-12su8k"
       ],
       "salaryMin": 77000,
       "salaryMax": 116500,
