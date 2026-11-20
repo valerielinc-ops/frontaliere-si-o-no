@@ -141,7 +141,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T09:44:58.045Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.supsi.ch/bando26_4001"
     },
     {
       "id": "company-59ix8c",
@@ -174,7 +175,7 @@
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
       "crawledAt": "2026-11-20T09:44:58.045Z",
-      "firstSeenAt": "2026-10-05T09:36:12.464Z",
+      "firstSeenAt": "2026-09-04T13:40:19.667Z",
       "titleByLocale": {
         "it": "Stagista 52 settimane",
         "en": "Stagist 52 weeks",
@@ -259,7 +260,8 @@
       ],
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-03T09:44:58.045Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.supsi.ch/stagista-52-settimane-supsi-26_9001-"
     },
     {
       "id": "company-l4u55x",
@@ -425,7 +427,8 @@
       ],
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-26T09:44:58.045Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.supsi.ch/bando26_5040"
     },
     {
       "id": "company-l4u561",
@@ -591,7 +594,8 @@
       "previousSlugs": [
         "phd-phd-in-kunstlicher-intelligenz-kausalmodellierung-und-multiagentensysteme-supsi-dti-manno",
         "dottoranda-dottorando-in-intelligenza-artificiale-modellazione-causale-e-sistemi-multi-agente-supsi-dti-manno"
-      ]
+      ],
+      "sourceIdentity": "url:https://www.supsi.ch/bando26_5044"
     },
     {
       "id": "company-l4rl5f",
@@ -730,7 +734,8 @@
       "previousSlugs": [
         "assistant-avec-baccalaureat-ou-maitrise-en-architecture-supsi-dti-manno",
         "assistente-con-bachelor-o-master-per-il-corso-di-laurea-in-architettura-supsi-dti-manno"
-      ]
+      ],
+      "sourceIdentity": "url:https://www.supsi.ch/bando26_1017"
     },
     {
       "id": "company-l4rl5g",
@@ -883,7 +888,8 @@
         "dozent-forscher-dozent-forscher-in-konservierung-und-restaurierung-von-wandgemalden-supsi-dti-mendrisio",
         "enseignant-chercheur-enseignant-chercheur-en-conservation-et-restauration-de-peintures-murales-supsi-dti-mendrisio",
         "docente-ricercatore-docente-ricercatrice-in-conservazione-e-restauro-delle-pitture-murali-supsi-dti-mendrisio"
-      ]
+      ],
+      "sourceIdentity": "url:https://www.supsi.ch/bando26_1018"
     },
     {
       "id": "company-l4rl5e",
@@ -1018,7 +1024,8 @@
         "assistante-titulaire-d-un-baccalaureat-es-sciences-en-communication-visuelle-supsi-dti-manno",
         "assistente-con-bachelor-presso-il-corso-di-laurea-in-comunicazione-visiva-supsi-dti-manno"
       ],
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "sourceIdentity": "url:https://www.supsi.ch/bando26_1016"
     },
     {
       "id": "company-l4ti3z",
@@ -1181,7 +1188,8 @@
       "previousSlugs": [
         "collaboratore-collaboratrice-tecnico-a-facility-management-supsi-dti-manno"
       ],
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "sourceIdentity": "url:https://www.supsi.ch/bando26_4016"
     },
     {
       "id": "company-l4u563",
@@ -1326,7 +1334,8 @@
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-25T09:44:58.045Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.supsi.ch/bando26_5046"
     }
   ]
 }
