@@ -20,10 +20,14 @@ on:
         type: string
         default: ''
       shard_artifact_run_id:
-        description: 'Publisher run containing the non-IT section receipts.'
+        description: 'Publisher run containing the combined IT evidence and sitemaps.'
         required: false
         type: string
         default: ''
+      locale_artifact_run_ids:
+        description: 'JSON map of locale to publisher run. A null entry identifies a legacy receipt.'
+        required: true
+        type: string
     outputs:
       integrity_ok:
         description: 'True only when source identity, sitemap coverage, shard layout and artifact digests all match.'
@@ -200,7 +204,7 @@ jobs:
       - name: Download publisher section manifests
         uses: actions/download-artifact@v8
         with:
-          pattern: section-page-manifest-*
+          name: section-page-manifest-it-${{ inputs.shard_artifact_run_id || github.run_id }}
           path: ${{ runner.temp }}/publisher-fast-gate/section-manifests
           merge-multiple: true
           github-token: ${{ github.token }}
@@ -222,44 +226,148 @@ jobs:
             | jq '{artifacts: [ .[] | .artifacts[] | {name, digest, expired} ]}' \
             > "$RUNNER_TEMP/publisher-fast-gate/publisher-artifacts.json"
 
-      - name: Download non-IT locale dists for bridge evidence
+      - name: Resolve non-IT validation artifact runs
+        id: artifact-runs
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          SOURCE_RUN_ID: ${{ inputs.deploy_run_id }}
+          SOURCE_SHA: ${{ inputs.deploy_ref }}
+          PUBLISHER_RUN_ID: ${{ inputs.shard_artifact_run_id || github.run_id }}
+          LOCALE_ARTIFACT_RUN_IDS: ${{ inputs.locale_artifact_run_ids }}
+        run: |
+          set -euo pipefail
+          gate="$RUNNER_TEMP/publisher-fast-gate"
+          echo '{}' > "$gate/section-origins.json"
+          echo '{}' > "$gate/prior-artifacts.json"
+
+          if ! jq -e --arg it "$PUBLISHER_RUN_ID" '
+            .it == $it and has("en") and has("de") and has("fr") and
+            ([.en, .de, .fr] | all(. == null or (type == "string" and test("^[0-9]+$"))))
+          ' <<< "$LOCALE_ARTIFACT_RUN_IDS" > /dev/null; then
+            echo "::error::Invalid locale artifact run map for publisher run $PUBLISHER_RUN_ID"
+            exit 1
+          fi
+
+          # Old receipts pointed to the source run. Preserve the bounded
+          # same-source recovery for those receipts, using both locale artifacts.
+          prior_runs=
+          if jq -e 'any(.en, .de, .fr; . == null)' <<< "$LOCALE_ARTIFACT_RUN_IDS" > /dev/null; then
+            created_since=$(date -u -d "7 days ago" +%F)
+            prior_runs=$(gh api --paginate --slurp "repos/$GH_REPO/actions/workflows/deploy-publish.yml/runs?branch=main&created=%3E%3D$created_since&per_page=100" |
+              jq -r --arg title "Publish Pages build $SOURCE_RUN_ID @ $SOURCE_SHA" --argjson current "$PUBLISHER_RUN_ID" '
+                [.[].workflow_runs[] | select(.display_title == $title and .id < $current and .status == "completed")] |
+                sort_by(.id) | reverse | .[].id
+              ')
+          fi
+
+          for locale in en de fr; do
+            receipt_run=$(jq -r --arg locale "$locale" '.[$locale] // empty' <<< "$LOCALE_ARTIFACT_RUN_IDS")
+            candidate_runs=${receipt_run:-$prior_runs}
+            selected=
+            for run_id in $candidate_runs; do
+              listing="$gate/artifacts-$run_id.json"
+              if [ "$run_id" = "$PUBLISHER_RUN_ID" ]; then
+                listing="$gate/publisher-artifacts.json"
+              elif [ ! -f "$listing" ]; then
+                gh api --paginate --slurp "repos/$GH_REPO/actions/runs/$run_id/artifacts?per_page=100" |
+                  jq '{artifacts: [.[].artifacts[] | {name, digest, expired}]}' > "$listing"
+              fi
+              manifest="section-page-manifest-$locale-$run_id"
+              dist="locale-dist-$locale-$run_id"
+              if ! jq -e --arg manifest "$manifest" --arg dist "$dist" '
+                any(.artifacts[]; .name == $manifest and .expired == false) and
+                any(.artifacts[]; .name == $dist and .expired == false)
+              ' "$listing" > /dev/null; then
+                continue
+              fi
+              selected=$run_id
+              if [ "$run_id" != "$PUBLISHER_RUN_ID" ]; then
+                jq --arg locale "$locale" --arg run "$run_id" '.[$locale] = $run' "$gate/section-origins.json" > "$gate/section-origins.tmp"
+                mv "$gate/section-origins.tmp" "$gate/section-origins.json"
+                jq --arg run "$run_id" --slurpfile listing "$listing" '.[$run] = $listing[0]' "$gate/prior-artifacts.json" > "$gate/prior-artifacts.tmp"
+                mv "$gate/prior-artifacts.tmp" "$gate/prior-artifacts.json"
+              fi
+              break
+            done
+            if [ -z "$selected" ]; then
+              echo "::error::Missing or expired section-page-manifest or locale-dist for $locale (run ${receipt_run:-unknown, legacy receipt for source $SOURCE_RUN_ID})"
+              exit 1
+            fi
+            echo "${locale}=$selected" >> "$GITHUB_OUTPUT"
+          done
+
+      - name: Download publisher section manifests (en)
         uses: actions/download-artifact@v8
         with:
-          pattern: locale-dist-*-${{ inputs.shard_artifact_run_id || github.run_id }}
+          name: section-page-manifest-en-${{ steps.artifact-runs.outputs.en }}
+          path: ${{ runner.temp }}/publisher-fast-gate/section-manifests
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: ${{ steps.artifact-runs.outputs.en }}
+
+      - name: Download non-IT locale dist (en)
+        uses: actions/download-artifact@v8
+        with:
+          name: locale-dist-en-${{ steps.artifact-runs.outputs.en }}
           path: ${{ runner.temp }}/publisher-fast-gate/locale-dist
           github-token: ${{ github.token }}
           repository: ${{ github.repository }}
-          run-id: ${{ inputs.shard_artifact_run_id || github.run_id }}
-        continue-on-error: true
+          run-id: ${{ steps.artifact-runs.outputs.en }}
+
+      - name: Download publisher section manifests (de)
+        uses: actions/download-artifact@v8
+        with:
+          name: section-page-manifest-de-${{ steps.artifact-runs.outputs.de }}
+          path: ${{ runner.temp }}/publisher-fast-gate/section-manifests
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: ${{ steps.artifact-runs.outputs.de }}
+
+      - name: Download non-IT locale dist (de)
+        uses: actions/download-artifact@v8
+        with:
+          name: locale-dist-de-${{ steps.artifact-runs.outputs.de }}
+          path: ${{ runner.temp }}/publisher-fast-gate/locale-dist
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: ${{ steps.artifact-runs.outputs.de }}
+
+      - name: Download publisher section manifests (fr)
+        uses: actions/download-artifact@v8
+        with:
+          name: section-page-manifest-fr-${{ steps.artifact-runs.outputs.fr }}
+          path: ${{ runner.temp }}/publisher-fast-gate/section-manifests
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: ${{ steps.artifact-runs.outputs.fr }}
+
+      - name: Download non-IT locale dist (fr)
+        uses: actions/download-artifact@v8
+        with:
+          name: locale-dist-fr-${{ steps.artifact-runs.outputs.fr }}
+          path: ${{ runner.temp }}/publisher-fast-gate/locale-dist
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: ${{ steps.artifact-runs.outputs.fr }}
 
       - name: Build non-IT sitemap family bridge evidence
-        env:
-          PUBLISHER_RUN_ID: ${{ inputs.shard_artifact_run_id || github.run_id }}
-        continue-on-error: true
         run: |
           set -euo pipefail
-          build_failed=0
           locale_dist_root="$RUNNER_TEMP/publisher-fast-gate/locale-dist"
           sitemaps_dir="$RUNNER_TEMP/publisher-fast-gate/sitemaps"
+          trap 'rm -f "$locale_dist_root"/locale-dist-{en,de,fr}.tar' EXIT
           for locale in en de fr; do
-            tar_file="$locale_dist_root/locale-dist-$locale-$PUBLISHER_RUN_ID/locale-dist-$locale.tar"
+            tar_file="$locale_dist_root/locale-dist-$locale.tar"
             evidence_file="$sitemaps_dir/sitemap-family-bridge-evidence-$locale.json"
-            rm -f "$evidence_file"
-            if [ ! -f "$tar_file" ]; then
-              echo "::warning::Missing locale dist tar for $locale: $tar_file"
-              continue
-            fi
-            if ! node scripts/ci/build-sitemap-family-bridge-evidence.mjs \
+            node scripts/ci/build-sitemap-family-bridge-evidence.mjs \
               --locale "$locale" \
               --previous "$sitemaps_dir/pre-deploy-sitemap-urls.json" \
               --current "$sitemaps_dir/new-sitemap-urls.json" \
               --dist-tar "$tar_file" \
-              --out "$evidence_file"; then
-              build_failed=1
-            fi
+              --out "$evidence_file"
             rm -f "$tar_file"
           done
-          exit "$build_failed"
 
       - name: Run fail-closed publisher fast gate
         id: publisher-fast-gate
@@ -282,6 +390,8 @@ jobs:
             --archive-evidence-dir "$RUNNER_TEMP/publisher-fast-gate/archive-evidence" \
             --source-artifacts "$RUNNER_TEMP/publisher-fast-gate/source-artifacts.json" \
             --publisher-artifacts "$RUNNER_TEMP/publisher-fast-gate/publisher-artifacts.json" \
+            --section-origins "$RUNNER_TEMP/publisher-fast-gate/section-origins.json" \
+            --prior-artifacts "$RUNNER_TEMP/publisher-fast-gate/prior-artifacts.json" \
             --out "$REPORT_OUT"
           result=$?
           gate_ms=$(( $(date +%s%3N) - GATE_START_MS ))

@@ -67,7 +67,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://juliusbaer.wd3.myworkdayjobs.com/en-us/external/job/zurich/senior-non-financial-risk-expert-100---f-m-d-_r-19790-2",
-    "firstSeenAt": "2026-10-23T09:17:11.105Z"
+    "firstSeenAt": "2026-10-22T21:15:40.376Z"
   },
   {
     "slug": "account-manager-private-banking-maternity-coverage-for-10-to-12-months-geneva-100-f-m-d-julius-baer",
@@ -308,7 +308,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://juliusbaer.wd3.myworkdayjobs.com/en-us/external/job/zurich/data-scientist-100---f-m-d-_r-17167-2",
-    "firstSeenAt": "2026-10-23T21:11:23.814Z"
+    "firstSeenAt": "2026-09-17T03:45:19.250Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://juliusbaer.wd3.myworkdayjobs.com/en-us/external/job/zurich/data-scientist-100---f-m-d-_r-17167-2",
+        "firstSeenAt": "2026-09-17T03:45:19.250Z",
+        "title": "Data Scientist 100% (f/m/d)"
+      },
+      {
+        "sourceIdentity": "url:https://juliusbaer.wd3.myworkdayjobs.com/en-us/external/job/zurich/data-scientist-100---f-m-d-_r-19596",
+        "firstSeenAt": "2026-09-17T03:45:19.250Z",
+        "title": "Data Scientist 100% (f/m/d)"
+      }
+    ]
   },
   {
     "slug": "front-arena-upgrade-expert-100-f-m-d-contract-through-our-external-payroll-partner-with-immediate-start-for-12-months-possible-extension-julius-baer",
@@ -643,6 +655,18 @@
         "remote-access-engineer-citrix-netscaler-zscaler-private-access-100-f-m-d-julius-baer-99712353",
         "remote-access-engineer-citrix-netscaler-zscaler-private-access-100-f-m-d-julius-baer"
       ]
-    }
+    },
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://juliusbaer.wd3.myworkdayjobs.com/en-us/external/job/zurich/citrix-netscaler-engineer-100---f-m-d-_r-16579-2",
+        "firstSeenAt": "2026-06-29T22:17:29.935Z",
+        "title": "Remote Access Engineer (Citrix NetScaler & Zscaler Private Access) 100% (f/m/d)"
+      },
+      {
+        "sourceIdentity": "url:https://juliusbaer.wd3.myworkdayjobs.com/en-us/external/job/zurich/remote-access-engineer--citrix-netscaler---zscaler-private-access--100---f-m-d-_r-19599-1",
+        "firstSeenAt": "2026-06-29T22:17:29.935Z",
+        "title": "Remote Access Engineer (Citrix NetScaler & Zscaler Private Access) 100% (f/m/d)"
+      }
+    ]
   }
 ]

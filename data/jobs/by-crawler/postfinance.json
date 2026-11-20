@@ -1420,12 +1420,12 @@
         "en": "Customer advisor PostFinance Corner",
         "fr": "Conseiller/ère à la clientèle PostFinance Corner"
       },
-      "slug": "kundenberater-in-postfinance-corner-postfinance-baden",
+      "slug": "consulente-alla-clientela-postfinance-corner-postfinance-baden",
       "slugByLocale": {
         "de": "kundenberater-in-postfinance-corner-postfinance",
-        "it": "kundenberater-in-postfinance-corner-postfinance-baden",
-        "en": "kundenberater-in-postfinance-corner-postfinance-baden",
-        "fr": "kundenberater-in-postfinance-corner-postfinance-baden"
+        "it": "consulente-alla-clientela-postfinance-corner-postfinance-baden",
+        "en": "customer-advisor-postfinance-corner-postfinance-baden",
+        "fr": "conseiller-ere-a-la-clientele-postfinance-corner-postfinance-baden"
       },
       "sourceLang": "de",
       "department": [
@@ -1448,15 +1448,22 @@
         "canton": "AG",
         "location": "Baden"
       },
-      "needsRetranslation": true,
       "id": "postfinance-50df3386614a",
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-in-postfinance-corner-postfinance"
+          "kundenberater-in-postfinance-corner-postfinance",
+          "kundenberater-in-postfinance-corner-postfinance-baden"
+        ],
+        "en": [
+          "kundenberater-in-postfinance-corner-postfinance-baden"
+        ],
+        "fr": [
+          "kundenberater-in-postfinance-corner-postfinance-baden"
         ]
       },
       "previousSlugs": [
-        "kundenberater-in-postfinance-corner-postfinance"
+        "kundenberater-in-postfinance-corner-postfinance",
+        "kundenberater-in-postfinance-corner-postfinance-baden"
       ],
       "salaryMin": 74000,
       "salaryMax": 113500,

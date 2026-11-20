@@ -202,12 +202,12 @@
     },
     {
       "id": "salina-reha-29fb7e41bea4",
-      "slug": "facharzt-arztin-dermatologie-salina-rheinfelden",
+      "slug": "dermatologia-medica-specialistica-salina-rehaklinik-rheinfelden-rheinfelden",
       "slugByLocale": {
         "de": "facharzt-arztin-dermatologie-salina-rheinfelden",
-        "it": "facharzt-arztin-dermatologie-salina-rheinfelden",
-        "en": "facharzt-arztin-dermatologie-salina-rheinfelden",
-        "fr": "facharzt-arztin-dermatologie-salina-rheinfelden"
+        "it": "dermatologia-medica-specialistica-salina-rehaklinik-rheinfelden-rheinfelden",
+        "en": "specialist-doctor-dermatology-salina-rehaklinik-rheinfelden-rheinfelden",
+        "fr": "dermatologie-medecin-specialiste-salina-rehaklinik-rheinfelden-rheinfelden"
       },
       "company": "Salina Rehaklinik Rheinfelden",
       "companyKey": "salina-reha",
@@ -269,7 +269,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T21:15:55.230Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T21:15:55.230Z"
+      "firstSeenAt": "2026-11-19T21:15:55.230Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "facharzt-arztin-dermatologie-salina-rheinfelden"
+        ],
+        "en": [
+          "facharzt-arztin-dermatologie-salina-rheinfelden"
+        ],
+        "fr": [
+          "facharzt-arztin-dermatologie-salina-rheinfelden"
+        ]
+      },
+      "previousSlugs": [
+        "facharzt-arztin-dermatologie-salina-rheinfelden"
+      ]
     },
     {
       "id": "salina-reha-cc6535b31b6f",

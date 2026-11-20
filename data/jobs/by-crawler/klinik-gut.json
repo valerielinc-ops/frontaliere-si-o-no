@@ -90,7 +90,8 @@
       "streetAddress": "Chur",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-19T21:25:58.497Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.klinik-gut.ch/de/offene-stellen"
     },
     {
       "id": "klinik-gut-5387-75d551e2529b",
@@ -173,7 +174,8 @@
       "streetAddress": "Fläsch",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T21:25:58.494Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.klinik-gut.ch/de/offene-stellen"
     },
     {
       "id": "klinik-gut-1581-00c45976f0f5",
@@ -259,7 +261,8 @@
       "streetAddress": "Fläsch",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-19T21:25:58.491Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.klinik-gut.ch/de/offene-stellen"
     },
     {
       "id": "klinik-gut-1575-03ea5beb51fc",
@@ -338,7 +341,8 @@
       "streetAddress": "Fläsch",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-19T21:25:58.488Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.klinik-gut.ch/de/offene-stellen"
     },
     {
       "id": "klinik-gut-2110-1176e329961f",
@@ -427,7 +431,8 @@
       "streetAddress": "Via Paracelsus 2a",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-19T21:25:58.472Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.klinik-gut.ch/de/offene-stellen"
     }
   ]
 }

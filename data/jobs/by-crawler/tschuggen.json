@@ -494,12 +494,12 @@
     },
     {
       "id": "tschuggen-c45f1c829896",
-      "slug": "front-office-agent-m-w-d-tschuggen-ch",
+      "slug": "agente-di-ufficio-anteriore-m-f-d-tschuggen-collection-ascona",
       "slugByLocale": {
         "de": "front-office-agent-m-w-d-tschuggen-ch",
-        "it": "front-office-agent-m-w-d-tschuggen-ch",
+        "it": "agente-di-ufficio-anteriore-m-f-d-tschuggen-collection-ascona",
         "en": "front-office-agent-m-w-d-tschuggen-ch",
-        "fr": "front-office-agent-m-w-d-tschuggen-ch"
+        "fr": "agent-du-bureau-principal-h-f-d-tschuggen-collection-ascona"
       },
       "company": "Tschuggen Collection",
       "companyKey": "tschuggen",
@@ -563,16 +563,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T21:40:50.415Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T21:40:50.415Z"
+      "firstSeenAt": "2026-11-19T21:40:50.415Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "front-office-agent-m-w-d-tschuggen-ch"
+        ],
+        "fr": [
+          "front-office-agent-m-w-d-tschuggen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "front-office-agent-m-w-d-tschuggen-ch"
+      ]
     },
     {
       "id": "tschuggen-d1b965997ee1",
-      "slug": "housekeeping-attendant-m-w-d-tschuggen-ch",
+      "slug": "assistente-di-pulizia-m-f-d-tschuggen-collection-ascona",
       "slugByLocale": {
         "de": "housekeeping-attendant-m-w-d-tschuggen-ch",
-        "it": "housekeeping-attendant-m-w-d-tschuggen-ch",
+        "it": "assistente-di-pulizia-m-f-d-tschuggen-collection-ascona",
         "en": "housekeeping-attendant-m-w-d-tschuggen-ch",
-        "fr": "housekeeping-attendant-m-w-d-tschuggen-ch"
+        "fr": "agent-de-menage-h-f-d-tschuggen-collection-ascona"
       },
       "company": "Tschuggen Collection",
       "companyKey": "tschuggen",
@@ -636,7 +647,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T21:40:49.739Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T21:40:49.739Z"
+      "firstSeenAt": "2026-11-19T21:40:49.739Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "housekeeping-attendant-m-w-d-tschuggen-ch"
+        ],
+        "fr": [
+          "housekeeping-attendant-m-w-d-tschuggen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "housekeeping-attendant-m-w-d-tschuggen-ch"
+      ]
     }
   ]
 }

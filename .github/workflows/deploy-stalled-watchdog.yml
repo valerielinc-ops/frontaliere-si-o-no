@@ -119,6 +119,9 @@ jobs:
           REARM_BRANCH: main
           REARM_MAX_BUILDS_PER_SHA: '2'
           REARM_SKIP_LOCALE_RECOVERY: '1'
+          REARM_FINISHED_RUN_ID: ${{ github.event.workflow_run.id }}
+          REARM_FINISHED_SHA: ${{ github.event.workflow_run.head_sha }}
+          REARM_FINISHED_ATTEMPT: ${{ github.event.workflow_run.run_attempt }}
         run: node scripts/ci/rearm-deploy-build.mjs
 
   # A healthy workflow_run still creates a watchdog event because the trigger

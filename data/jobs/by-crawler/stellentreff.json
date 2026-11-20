@@ -24387,8 +24387,8 @@
       "slugByLocale": {
         "de": "metallbauer-in-projektleiter-in-fur-fassadenbau-luzern-luzern-stellentreff-ch",
         "it": "metallbauer-in-responsabile-di-progetto-per-fassadenbau-stellentreff-ag-luzern",
-        "en": "metallbauer-in-projektleiter-in-fur-fassadenbau-luzern-luzern-stellentreff-ch",
-        "fr": "metallbauer-in-projektleiter-in-fur-fassadenbau-luzern-luzern-stellentreff-ch"
+        "en": "metallbauer-in-project-manager-fur-fassadenbau-stellentreff-ag-luzern-luzern",
+        "fr": "metallbauer-in-chef-de-projet-fur-fassadenbau-stellentreff-ag-luzern-luzern"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -24435,6 +24435,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "metallbauer-in-projektleiter-in-fur-fassadenbau-luzern-luzern-stellentreff-ch"
+        ],
+        "en": [
+          "metallbauer-in-projektleiter-in-fur-fassadenbau-luzern-luzern-stellentreff-ch"
+        ],
+        "fr": [
           "metallbauer-in-projektleiter-in-fur-fassadenbau-luzern-luzern-stellentreff-ch"
         ]
       },
@@ -33467,12 +33473,12 @@
     },
     {
       "id": "stellentreff-e34f486c4888",
-      "slug": "gartner-in-garten-e-landschaftsbau-per-neuanlagen-e-unterhalt-stellentreff-ag-luzern",
+      "slug": "giardiniere-a-giardinaggio-e-paesaggistica-per-nuove-realizzazioni-e-manutenzione-stellentreff-ag-luzern-luzern",
       "slugByLocale": {
         "de": "gartner-in-garten-und-landschaftsbau-fur-neuanlagen-und-unterhalt-luzern-luzern",
-        "it": "gartner-in-garten-e-landschaftsbau-per-neuanlagen-e-unterhalt-stellentreff-ag-luzern",
-        "en": "gartner-in-garten-und-landschaftsbau-fur-neuanlagen-und-unterhalt-luzern-luzern",
-        "fr": "gartner-in-garten-und-landschaftsbau-fur-neuanlagen-und-unterhalt-luzern-luzern"
+        "it": "giardiniere-a-giardinaggio-e-paesaggistica-per-nuove-realizzazioni-e-manutenzione-stellentreff-ag-luzern-luzern",
+        "en": "gardener-garden-and-landscape-construction-for-new-installations-and-maintenance-stellentreff-ag-luzern-luzern",
+        "fr": "jardinier-ere-amenagement-de-jardins-et-paysagisme-pour-nouvelles-installations-et-entretien-stellentreff-ag-luzern"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -33516,29 +33522,28 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugs": [
         "giardiniere-a-giardinaggio-e-paesaggistica-per-nuove-realizzazioni-e-manutenzione-stellentreff-ag-luzern",
         "gardener-gardening-and-landscaping-for-new-landscaping-and-maintenance-stellentreff-ag-luzern-luzern",
         "jardinier-iere-amenagement-paysager-pour-les-nouvelles-installations-et-l-entretien-stellentreff-ag-luzern-luzern",
         "gartner-in-garten-und-landschaftsbau-fur-neuanlagen-und-unterhalt-luzern-luzern",
-        "giardiniere-a-giardinaggio-e-paesaggistica-per-nuove-realizzazioni-e-manutenzione-stellentreff-ag-luzern-luzern",
-        "gardener-garden-and-landscape-construction-for-new-installations-and-maintenance-stellentreff-ag-luzern-luzern",
-        "jardinier-ere-amenagement-paysager-pour-nouvelles-installations-et-entretien-stellentreff-ag-luzern-luzern"
+        "jardinier-ere-amenagement-paysager-pour-nouvelles-installations-et-entretien-stellentreff-ag-luzern-luzern",
+        "gartner-in-garten-e-landschaftsbau-per-neuanlagen-e-unterhalt-stellentreff-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "giardiniere-a-giardinaggio-e-paesaggistica-per-nuove-realizzazioni-e-manutenzione-stellentreff-ag-luzern",
-          "giardiniere-a-giardinaggio-e-paesaggistica-per-nuove-realizzazioni-e-manutenzione-stellentreff-ag-luzern-luzern",
-          "gartner-in-garten-und-landschaftsbau-fur-neuanlagen-und-unterhalt-luzern-luzern"
+          "gartner-in-garten-und-landschaftsbau-fur-neuanlagen-und-unterhalt-luzern-luzern",
+          "gartner-in-garten-e-landschaftsbau-per-neuanlagen-e-unterhalt-stellentreff-ag-luzern"
         ],
         "en": [
           "gardener-gardening-and-landscaping-for-new-landscaping-and-maintenance-stellentreff-ag-luzern-luzern",
-          "gardener-garden-and-landscape-construction-for-new-installations-and-maintenance-stellentreff-ag-luzern-luzern"
+          "gartner-in-garten-und-landschaftsbau-fur-neuanlagen-und-unterhalt-luzern-luzern"
         ],
         "fr": [
           "jardinier-iere-amenagement-paysager-pour-les-nouvelles-installations-et-l-entretien-stellentreff-ag-luzern-luzern",
-          "jardinier-ere-amenagement-paysager-pour-nouvelles-installations-et-entretien-stellentreff-ag-luzern-luzern"
+          "jardinier-ere-amenagement-paysager-pour-nouvelles-installations-et-entretien-stellentreff-ag-luzern-luzern",
+          "gartner-in-garten-und-landschaftsbau-fur-neuanlagen-und-unterhalt-luzern-luzern"
         ]
       },
       "salaryMin": 69500,
@@ -37358,8 +37363,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-in-fur-vielseitige-installationsarbeiten-zug-zug-stellentreff-ch",
         "it": "installatore-trice-elettrico-a-in-per-vielseitige-installationsarbeiten-stellentreff-ag-zug",
-        "en": "elektroinstallateur-in-fur-vielseitige-installationsarbeiten-zug-zug-stellentreff-ch",
-        "fr": "elektroinstallateur-in-fur-vielseitige-installationsarbeiten-zug-zug-stellentreff-ch"
+        "en": "electrical-installer-fur-vielseitige-installationsarbeiten-stellentreff-ag-zug-zug",
+        "fr": "installateur-trice-electricien-ne-fur-vielseitige-installationsarbeiten-stellentreff-ag-zug-zug"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -37406,6 +37411,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-in-fur-vielseitige-installationsarbeiten-zug-zug-stellentreff-ch"
+        ],
+        "en": [
+          "elektroinstallateur-in-fur-vielseitige-installationsarbeiten-zug-zug-stellentreff-ch"
+        ],
+        "fr": [
           "elektroinstallateur-in-fur-vielseitige-installationsarbeiten-zug-zug-stellentreff-ch"
         ]
       },
@@ -37695,8 +37706,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-in-fur-servicearbeiten-luzern-luzern-stellentreff-ch",
         "it": "installatore-trice-elettrico-a-in-per-servicearbeiten-stellentreff-ag-luzern",
-        "en": "elektroinstallateur-in-fur-servicearbeiten-luzern-luzern-stellentreff-ch",
-        "fr": "elektroinstallateur-in-fur-servicearbeiten-luzern-luzern-stellentreff-ch"
+        "en": "electrical-installer-fur-servicearbeiten-stellentreff-ag-luzern-luzern",
+        "fr": "installateur-trice-electricien-ne-fur-servicearbeiten-stellentreff-ag-luzern-luzern"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -37743,6 +37754,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-in-fur-servicearbeiten-luzern-luzern-stellentreff-ch"
+        ],
+        "en": [
+          "elektroinstallateur-in-fur-servicearbeiten-luzern-luzern-stellentreff-ch"
+        ],
+        "fr": [
           "elektroinstallateur-in-fur-servicearbeiten-luzern-luzern-stellentreff-ch"
         ]
       },
@@ -38044,8 +38061,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-in-fur-service-und-reparaturauftrage-willisau-luzern-stellentreff-ch",
         "it": "installatore-trice-elettrico-a-in-per-service-e-reparaturauftrage-stellentreff-ag-willisau",
-        "en": "elektroinstallateur-in-fur-service-und-reparaturauftrage-willisau-luzern-stellentreff-ch",
-        "fr": "elektroinstallateur-in-fur-service-und-reparaturauftrage-willisau-luzern-stellentreff-ch"
+        "en": "electrical-installer-fur-service-und-reparaturauftrage-stellentreff-ag-willisau-luzern",
+        "fr": "installateur-trice-electricien-ne-fur-service-und-reparaturauftrage-stellentreff-ag-willisau-luzern"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -38093,6 +38110,12 @@
       "previousSlugsByLocale": {
         "it": [
           "elektroinstallateur-in-fur-service-und-reparaturauftrage-willisau-luzern-stellentreff-ch"
+        ],
+        "en": [
+          "elektroinstallateur-in-fur-service-und-reparaturauftrage-willisau-luzern-stellentreff-ch"
+        ],
+        "fr": [
+          "elektroinstallateur-in-fur-service-und-reparaturauftrage-willisau-luzern-stellentreff-ch"
         ]
       },
       "previousSlugs": [
@@ -38124,8 +38147,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-in-fur-schaltschrankbau-und-industrieanlagen-luzern-luzern",
         "it": "installatore-trice-elettrico-a-in-per-schaltschrankbau-e-industrieanlagen-stellentreff-ag-luzern",
-        "en": "elektroinstallateur-in-fur-schaltschrankbau-und-industrieanlagen-luzern-luzern",
-        "fr": "elektroinstallateur-in-fur-schaltschrankbau-und-industrieanlagen-luzern-luzern"
+        "en": "electrical-installer-fur-schaltschrankbau-und-industrieanlagen-stellentreff-ag-luzern-luzern",
+        "fr": "installateur-trice-electricien-ne-fur-schaltschrankbau-und-industrieanlagen-stellentreff-ag-luzern-luzern"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -38172,6 +38195,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-in-fur-schaltschrankbau-und-industrieanlagen-luzern-luzern"
+        ],
+        "en": [
+          "elektroinstallateur-in-fur-schaltschrankbau-und-industrieanlagen-luzern-luzern"
+        ],
+        "fr": [
           "elektroinstallateur-in-fur-schaltschrankbau-und-industrieanlagen-luzern-luzern"
         ]
       },
@@ -38574,8 +38603,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-in-fur-produktionsanlagen-3-schicht-luzern-luzern-stellentreff-ch",
         "it": "installatore-trice-elettrico-a-in-per-produktionsanlagen-3-schicht-stellentreff-ag-luzern",
-        "en": "elektroinstallateur-in-fur-produktionsanlagen-3-schicht-luzern-luzern-stellentreff-ch",
-        "fr": "elektroinstallateur-in-fur-produktionsanlagen-3-schicht-luzern-luzern-stellentreff-ch"
+        "en": "electrical-installer-fur-produktionsanlagen-3-schicht-stellentreff-ag-luzern-luzern",
+        "fr": "installateur-trice-electricien-ne-fur-produktionsanlagen-3-schicht-stellentreff-ag-luzern-luzern"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -38622,6 +38651,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-in-fur-produktionsanlagen-3-schicht-luzern-luzern-stellentreff-ch"
+        ],
+        "en": [
+          "elektroinstallateur-in-fur-produktionsanlagen-3-schicht-luzern-luzern-stellentreff-ch"
+        ],
+        "fr": [
           "elektroinstallateur-in-fur-produktionsanlagen-3-schicht-luzern-luzern-stellentreff-ch"
         ]
       },
@@ -38928,8 +38963,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-in-fur-installationsprojekte-bischofszell-thurgau-stellentreff-ch",
         "it": "installatore-trice-elettrico-a-in-per-installationsprojekte-stellentreff-ag-bischofszell",
-        "en": "elektroinstallateur-in-fur-installationsprojekte-bischofszell-thurgau-stellentreff-ch",
-        "fr": "elektroinstallateur-in-fur-installationsprojekte-bischofszell-thurgau-stellentreff-ch"
+        "en": "electrical-installer-fur-installationsprojekte-stellentreff-ag-bischofszell-thurgau",
+        "fr": "installateur-trice-electricien-ne-fur-installationsprojekte-stellentreff-ag-bischofszell-thurgau"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -38976,6 +39011,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-in-fur-installationsprojekte-bischofszell-thurgau-stellentreff-ch"
+        ],
+        "en": [
+          "elektroinstallateur-in-fur-installationsprojekte-bischofszell-thurgau-stellentreff-ch"
+        ],
+        "fr": [
           "elektroinstallateur-in-fur-installationsprojekte-bischofszell-thurgau-stellentreff-ch"
         ]
       },
@@ -39107,8 +39148,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-in-fur-emsr-systeme-luzern-luzern-stellentreff-ch",
         "it": "installatore-trice-elettrico-a-in-per-emsr-systeme-stellentreff-ag-luzern",
-        "en": "elektroinstallateur-in-fur-emsr-systeme-luzern-luzern-stellentreff-ch",
-        "fr": "elektroinstallateur-in-fur-emsr-systeme-luzern-luzern-stellentreff-ch"
+        "en": "electrical-installer-fur-emsr-systeme-stellentreff-ag-luzern-luzern",
+        "fr": "installateur-trice-electricien-ne-fur-emsr-systeme-stellentreff-ag-luzern-luzern"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -39155,6 +39196,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-in-fur-emsr-systeme-luzern-luzern-stellentreff-ch"
+        ],
+        "en": [
+          "elektroinstallateur-in-fur-emsr-systeme-luzern-luzern-stellentreff-ch"
+        ],
+        "fr": [
           "elektroinstallateur-in-fur-emsr-systeme-luzern-luzern-stellentreff-ch"
         ]
       },
@@ -51778,12 +51825,12 @@
     },
     {
       "id": "stellentreff-432b063ba308",
-      "slug": "maler-in-per-fassadenarbeiten-stellentreff-ag-luzern",
+      "slug": "pittore-trice-per-lavori-di-facciata-stellentreff-ag-luzern-luzern",
       "slugByLocale": {
         "de": "maler-in-fur-fassadenarbeiten-luzern-luzern-stellentreff-ch",
-        "it": "maler-in-per-fassadenarbeiten-stellentreff-ag-luzern",
-        "en": "maler-in-fur-fassadenarbeiten-luzern-luzern-stellentreff-ch",
-        "fr": "maler-in-fur-fassadenarbeiten-luzern-luzern-stellentreff-ch"
+        "it": "pittore-trice-per-lavori-di-facciata-stellentreff-ag-luzern-luzern",
+        "en": "painter-for-facade-work-stellentreff-ag-luzern-luzern",
+        "fr": "peintre-pour-travaux-de-facades-stellentreff-ag-luzern-luzern"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -51827,14 +51874,21 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "maler-in-fur-fassadenarbeiten-luzern-luzern-stellentreff-ch",
+          "maler-in-per-fassadenarbeiten-stellentreff-ag-luzern"
+        ],
+        "en": [
+          "maler-in-fur-fassadenarbeiten-luzern-luzern-stellentreff-ch"
+        ],
+        "fr": [
           "maler-in-fur-fassadenarbeiten-luzern-luzern-stellentreff-ch"
         ]
       },
       "previousSlugs": [
-        "maler-in-fur-fassadenarbeiten-luzern-luzern-stellentreff-ch"
+        "maler-in-fur-fassadenarbeiten-luzern-luzern-stellentreff-ch",
+        "maler-in-per-fassadenarbeiten-stellentreff-ag-luzern"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -51855,7 +51909,7 @@
       "validThrough": "2027-02-17T21:47:35.306Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-10-06T09:38:19.975Z",
-      "translationHoldSince": "2026-11-19T21:48:34.495Z"
+      "translationHoldReleasedAt": "2026-11-20T05:59:14.586Z"
     },
     {
       "id": "stellentreff-5837f2348f15",
@@ -52897,12 +52951,12 @@
     },
     {
       "id": "stellentreff-1b1de37a40d0",
-      "slug": "bauarbeiter-in-per-erdsondenbohrungen-stellentreff-ag-sursee",
+      "slug": "operaio-a-edile-per-perforazioni-di-sonde-geotermiche-stellentreff-ag-sursee-luzern",
       "slugByLocale": {
         "de": "bauarbeiter-in-fur-erdsondenbohrungen-sursee-luzern-stellentreff-ch",
-        "it": "bauarbeiter-in-per-erdsondenbohrungen-stellentreff-ag-sursee",
-        "en": "bauarbeiter-in-fur-erdsondenbohrungen-sursee-luzern-stellentreff-ch",
-        "fr": "bauarbeiter-in-fur-erdsondenbohrungen-sursee-luzern-stellentreff-ch"
+        "it": "operaio-a-edile-per-perforazioni-di-sonde-geotermiche-stellentreff-ag-sursee-luzern",
+        "en": "construction-worker-for-geothermal-probe-drilling-stellentreff-ag-sursee-luzern",
+        "fr": "ouvrier-ere-de-chantier-pour-forages-de-sondes-geothermiques-stellentreff-ag-sursee-luzern"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -52946,14 +53000,21 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "bauarbeiter-in-fur-erdsondenbohrungen-sursee-luzern-stellentreff-ch",
+          "bauarbeiter-in-per-erdsondenbohrungen-stellentreff-ag-sursee"
+        ],
+        "en": [
+          "bauarbeiter-in-fur-erdsondenbohrungen-sursee-luzern-stellentreff-ch"
+        ],
+        "fr": [
           "bauarbeiter-in-fur-erdsondenbohrungen-sursee-luzern-stellentreff-ch"
         ]
       },
       "previousSlugs": [
-        "bauarbeiter-in-fur-erdsondenbohrungen-sursee-luzern-stellentreff-ch"
+        "bauarbeiter-in-fur-erdsondenbohrungen-sursee-luzern-stellentreff-ch",
+        "bauarbeiter-in-per-erdsondenbohrungen-stellentreff-ag-sursee"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -52988,7 +53049,7 @@
       "validThrough": "2027-02-17T21:47:35.301Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-09-29T09:52:07.105Z",
-      "translationHoldSince": "2026-11-19T21:48:34.495Z"
+      "translationHoldReleasedAt": "2026-11-20T05:59:14.586Z"
     },
     {
       "id": "stellentreff-2d079790becf",

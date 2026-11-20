@@ -61,7 +61,10 @@
         "operatore-arxada-visp",
         "operator-arxada-ch",
         "operateur-arxada-visp",
-        "operator-in-80-100-arxada-ch"
+        "operator-in-80-100-arxada-ch",
+        "operator-80-100-arxada-visp",
+        "operateur-80-100-arxada-visp",
+        "betreiber-in-80-100-arxada-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -73,13 +76,20 @@
           "operatore-arxada-visp",
           "operator-arxada-ch",
           "operateur-arxada-visp",
-          "operator-in-80-100-arxada-ch"
+          "operator-in-80-100-arxada-ch",
+          "operator-80-100-arxada-visp",
+          "operateur-80-100-arxada-visp",
+          "betreiber-in-80-100-arxada-visp"
         ],
         "de": [
           "operator-arxada-ch"
         ],
         "fr": [
-          "operateur-arxada-visp"
+          "operateur-arxada-visp",
+          "operateur-80-100-arxada-visp"
+        ],
+        "en": [
+          "operator-80-100-arxada-visp"
         ]
       },
       "localeMismatchSuppressed": true,
@@ -370,18 +380,117 @@
       "jobReqId": "R54071",
       "previousSlugs": [
         "lehrstelle-elektroinstallateur-in-efz-arxada-ch",
-        "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp"
+        "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp",
+        "lehrstelle-electrical-installer-efz-arxada-visp-95c47a53",
+        "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp-d97e0ef1",
+        "lehrstelle-electrical-installer-efz-arxada-visp-54eecdb7",
+        "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp-e329f549",
+        "lehrstelle-electrical-installer-efz-arxada-visp-48f0d7de",
+        "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp-8642db94",
+        "lehrstelle-electrical-installer-efz-arxada-visp-022d0bde",
+        "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp-537ff056",
+        "lehrstelle-electrical-installer-efz-arxada-visp-de31b9b6",
+        "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp-0c5b30a6",
+        "lehrstelle-electrical-installer-efz-arxada-visp-2194ee74",
+        "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp-06240570",
+        "lehrstelle-electrical-installer-efz-arxada-visp-d74393c8",
+        "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp-ccc4aa72",
+        "lehrstelle-electrical-installer-efz-arxada-visp-ded910aa",
+        "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp-0f156f78",
+        "lehrstelle-electrical-installer-efz-arxada-visp-0648edc0",
+        "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp-33ab4abf",
+        "lehrstelle-electrical-installer-efz-arxada-visp-f575654a",
+        "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp-91f6a018",
+        "lehrstelle-electrical-installer-efz-arxada-visp-e881d753",
+        "lehrstelle-elektroinstallateur-in-efz-arxada-ch-e06c09e5",
+        "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp-0b5cf790",
+        "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp-c24f4678",
+        "lehrstelle-electrical-installer-efz-arxada-visp-2b2a28b3",
+        "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp-484b42f8",
+        "lehrstelle-electrical-installer-efz-arxada-visp-cdcb1b1d",
+        "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp-31965305",
+        "lehrstelle-electrical-installer-efz-arxada-visp-7529d5ad",
+        "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp-90052400",
+        "lehrstelle-electrical-installer-efz-arxada-visp-558de22b",
+        "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp-4f76d188",
+        "lehrstelle-electrical-installer-efz-arxada-visp-dfd62e6c",
+        "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp-6426457b",
+        "lehrstelle-electrical-installer-efz-arxada-visp-8d71d30c",
+        "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp-6fca7190",
+        "lehrstelle-electrical-installer-efz-arxada-visp-4b86f1f6",
+        "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp-1958af00",
+        "lehrstelle-electrical-installer-efz-arxada-visp-672d725b",
+        "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp-3297a15a",
+        "lehrstelle-electrical-installer-efz-arxada-visp-bfb8d693",
+        "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp-9b66a90d",
+        "lehrstelle-electrical-installer-efz-arxada-visp-9bb713e9",
+        "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp-b8eda1d3",
+        "lehrstelle-electrical-installer-efz-arxada-visp-fd3ae37b",
+        "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp-492b4e82",
+        "lehrstelle-electrical-installer-efz-arxada-visp-f5640dee",
+        "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp-fbc3b9f4",
+        "lehrstelle-electrical-installer-efz-arxada-visp-4d9cde5d",
+        "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp-958eb3bc",
+        "lehrstelle-electrical-installer-efz-arxada-visp-b134f954",
+        "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp-ac260dd4",
+        "lehrstelle-electrical-installer-efz-arxada-visp-1ea02f55",
+        "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp-b9313268",
+        "lehrstelle-electrical-installer-efz-arxada-visp-1ca7bebb",
+        "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp-0ea73308",
+        "lehrstelle-electrical-installer-efz-arxada-visp-7a8c7b73",
+        "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp-0c560fb4",
+        "lehrstelle-electrical-installer-efz-arxada-visp-ae422e15",
+        "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp-3e664535",
+        "lehrstelle-electrical-installer-efz-arxada-visp-39e4b78f",
+        "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp-0d4a6595",
+        "lehrstelle-electrical-installer-efz-arxada-visp-1c3d46d4",
+        "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp-8e6773a4",
+        "lehrstelle-electrical-installer-efz-arxada-visp-6a3e3bc3",
+        "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp-a496d1c1",
+        "lehrstelle-electrical-installer-efz-arxada-visp-00c4a7ec",
+        "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp-c53db7f5",
+        "lehrstelle-electrical-installer-efz-arxada-visp-8848b8ad",
+        "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp-18fe0c6c",
+        "lehrstelle-electrical-installer-efz-arxada-visp-6b17a1ee",
+        "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp-e6d1482c",
+        "lehrstelle-electrical-installer-efz-arxada-visp-dc66f4c9",
+        "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp-30c6285c",
+        "lehrstelle-electrical-installer-efz-arxada-visp-c53533c9"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-elektroinstallateur-in-efz-arxada-ch"
+          "lehrstelle-elektroinstallateur-in-efz-arxada-ch",
+          "lehrstelle-electrical-installer-efz-arxada-visp-95c47a53",
+          "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp-d97e0ef1",
+          "lehrstelle-electrical-installer-efz-arxada-visp-54eecdb7",
+          "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp-e329f549",
+          "lehrstelle-electrical-installer-efz-arxada-visp-48f0d7de",
+          "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp-8642db94",
+          "lehrstelle-electrical-installer-efz-arxada-visp-022d0bde",
+          "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp-537ff056",
+          "lehrstelle-electrical-installer-efz-arxada-visp-de31b9b6",
+          "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp-0c5b30a6",
+          "lehrstelle-electrical-installer-efz-arxada-visp-2194ee74",
+          "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp-06240570",
+          "lehrstelle-electrical-installer-efz-arxada-visp-d74393c8",
+          "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp-ccc4aa72",
+          "lehrstelle-electrical-installer-efz-arxada-visp-ded910aa",
+          "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp-0f156f78",
+          "lehrstelle-electrical-installer-efz-arxada-visp-0648edc0",
+          "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp-33ab4abf",
+          "lehrstelle-electrical-installer-efz-arxada-visp-f575654a"
         ],
         "en": [
-          "lehrstelle-elektroinstallateur-in-efz-arxada-ch"
+          "lehrstelle-elektroinstallateur-in-efz-arxada-ch",
+          "lehrstelle-electrical-installer-efz-arxada-visp-e881d753"
         ],
         "fr": [
           "lehrstelle-elektroinstallateur-in-efz-arxada-ch",
-          "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp"
+          "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp",
+          "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp-0b5cf790"
+        ],
+        "de": [
+          "lehrstelle-elektroinstallateur-in-efz-arxada-ch-e06c09e5"
         ]
       },
       "firstSeenAt": "2026-04-16T09:22:32.498Z",
@@ -703,9 +812,9 @@
     },
     {
       "id": "arxada-2dd20ab359c2",
-      "slug": "collaboratore-trice-ab-e-beladecenter-site-support-arxada-visp-f502f5a5dd",
+      "slug": "collaboratore-trice-ab-e-beladecenter-site-support-arxada-visp",
       "slugByLocale": {
-        "it": "collaboratore-trice-ab-e-beladecenter-site-support-arxada-visp-f502f5a5dd",
+        "it": "collaboratore-trice-ab-e-beladecenter-site-support-arxada-visp",
         "en": "employee-unloading-and-loading-center-site-support-arxada-visp",
         "de": "mitarbeiter-in-ab-und-beladecenter-site-support-arxada-ch",
         "fr": "centre-de-dechargement-et-de-chargement-soutien-du-site-arxada-visp"
@@ -752,12 +861,12 @@
       "jobReqId": "R54003",
       "previousSlugs": [
         "mitarbeiter-in-ab-und-beladecenter-site-support-arxada-ch",
-        "collaboratore-trice-ab-e-beladecenter-site-support-arxada-visp"
+        "collaboratore-trice-ab-e-beladecenter-site-support-arxada-visp-f502f5a5dd"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-ab-und-beladecenter-site-support-arxada-ch",
-          "collaboratore-trice-ab-e-beladecenter-site-support-arxada-visp"
+          "collaboratore-trice-ab-e-beladecenter-site-support-arxada-visp-f502f5a5dd"
         ]
       },
       "firstSeenAt": "2026-09-19T23:07:58.989Z",

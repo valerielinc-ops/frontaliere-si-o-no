@@ -118,6 +118,32 @@ describe('targeted build-locale recovery — host loss/timeout only', () => {
     expect(decision.detail).toContain('build-locale (en)');
   });
 
+  it('recovers both lost runners and the dependent Italian hreflang leg in one attempt', () => {
+    const english = localeJob({
+      id: 101,
+      name: 'build-locale (en)',
+      steps: [{ name: 'Build (BUILD_LOCALE=en)', status: 'in_progress', conclusion: null }],
+    });
+    const italian = localeJob({
+      id: 102,
+      name: 'build-locale (it)',
+      steps: [{ name: 'Exchange same-run hreflang manifests', status: 'completed', conclusion: 'failure' }],
+    });
+    const input = {
+      run: RECOVERY_RUN, workflow: RECOVERY_WORKFLOW,
+      artifacts: [PREPARED_SNAPSHOT], expectedSha: HEAD, nowMs: RECOVERY_NOW, allowFailedMatrix: true,
+    };
+    expect(decideBuildLocaleRecovery({ ...input, jobs: [localeJob(), english, italian] })).toMatchObject({
+      action: 'rerun-failed-matrix',
+      detail: 'build-locale (de), build-locale (en), build-locale (it)',
+    });
+    const ordinaryFailure = { ...italian, steps: [{ name: 'Build (BUILD_LOCALE=it)', status: 'completed', conclusion: 'failure' }] };
+    expect(decideBuildLocaleRecovery({ ...input, jobs: [localeJob(), english, ordinaryFailure] })).toMatchObject({
+      action: 'skip',
+      reason: 'sibling-locale-leg-failed',
+    });
+  });
+
   it('ignores a sibling that failed in an earlier attempt', () => {
     const decision = decideBuildLocaleRecovery({
       run: { ...RECOVERY_RUN, run_attempt: 2 },

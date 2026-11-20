@@ -1060,12 +1060,12 @@
     },
     {
       "id": "sonova-88bc135db0d3",
-      "slug": "senior-project-manager-m-f-d-sonova-ch",
+      "slug": "responsabile-senior-di-progetto-m-f-d-sonova-staefa-switzerland",
       "slugByLocale": {
         "en": "senior-project-manager-m-f-d-sonova-ch",
-        "it": "senior-project-manager-m-f-d-sonova-ch",
-        "de": "senior-project-manager-m-f-d-sonova-ch",
-        "fr": "senior-project-manager-m-f-d-sonova-ch"
+        "it": "responsabile-senior-di-progetto-m-f-d-sonova-staefa-switzerland",
+        "de": "senior-projektmanager-m-w-d-sonova-staefa-switzerland",
+        "fr": "directeur-principal-de-projet-h-f-d-sonova-staefa-switzerland"
       },
       "company": "Sonova",
       "companyKey": "sonova",
@@ -1108,7 +1108,6 @@
       "requirementsByLocale": {
         "en": []
       },
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -1126,16 +1125,30 @@
       "streetAddress": "Staefa",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T21:18:39.023Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-project-manager-m-f-d-sonova-ch"
+        ],
+        "de": [
+          "senior-project-manager-m-f-d-sonova-ch"
+        ],
+        "fr": [
+          "senior-project-manager-m-f-d-sonova-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-project-manager-m-f-d-sonova-ch"
+      ]
     },
     {
       "id": "sonova-9ebfcf350481",
-      "slug": "operational-buyer-m-f-d-sonova-ch",
+      "slug": "acquirente-operativo-m-f-d-sonova-staefa-switzerland",
       "slugByLocale": {
         "en": "operational-buyer-m-f-d-sonova-ch",
-        "it": "operational-buyer-m-f-d-sonova-ch",
-        "de": "operational-buyer-m-f-d-sonova-ch",
-        "fr": "operational-buyer-m-f-d-sonova-ch"
+        "it": "acquirente-operativo-m-f-d-sonova-staefa-switzerland",
+        "de": "operativer-kaufer-m-w-d-sonova-staefa-switzerland",
+        "fr": "acheteur-operationnel-h-f-d-sonova-staefa-switzerland"
       },
       "company": "Sonova",
       "companyKey": "sonova",
@@ -1196,7 +1209,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T21:18:39.004Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T21:18:39.004Z"
+      "firstSeenAt": "2026-11-19T21:18:39.004Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "operational-buyer-m-f-d-sonova-ch"
+        ],
+        "de": [
+          "operational-buyer-m-f-d-sonova-ch"
+        ],
+        "fr": [
+          "operational-buyer-m-f-d-sonova-ch"
+        ]
+      },
+      "previousSlugs": [
+        "operational-buyer-m-f-d-sonova-ch"
+      ]
     }
   ]
 }

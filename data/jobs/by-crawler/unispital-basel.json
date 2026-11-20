@@ -10142,12 +10142,12 @@
     },
     {
       "id": "unispital-basel-55da1f162818",
-      "slug": "arztsekretar-in-innere-medizin-6-2-unispital-basel-ch",
+      "slug": "segretario-a-medico-a-medicina-interna-6-2-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "arztsekretar-in-innere-medizin-6-2-unispital-basel-ch",
-        "it": "arztsekretar-in-innere-medizin-6-2-unispital-basel-ch",
-        "en": "arztsekretar-in-innere-medizin-6-2-unispital-basel-ch",
-        "fr": "arztsekretar-in-innere-medizin-6-2-unispital-basel-ch"
+        "it": "segretario-a-medico-a-medicina-interna-6-2-universitatsspital-basel-basel",
+        "en": "physician-s-secretary-internal-medicine-6-2-universitatsspital-basel-basel",
+        "fr": "secretaire-de-medecin-medecine-interne-6-2-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -10192,7 +10192,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -10210,7 +10209,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T21:33:15.228Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T21:33:15.228Z"
+      "firstSeenAt": "2026-11-19T21:33:15.228Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretar-in-innere-medizin-6-2-unispital-basel-ch"
+        ],
+        "en": [
+          "arztsekretar-in-innere-medizin-6-2-unispital-basel-ch"
+        ],
+        "fr": [
+          "arztsekretar-in-innere-medizin-6-2-unispital-basel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekretar-in-innere-medizin-6-2-unispital-basel-ch"
+      ]
     },
     {
       "id": "unispital-basel-d9bde812be70",
@@ -10291,12 +10304,12 @@
     },
     {
       "id": "unispital-basel-9707f9a5e4e4",
-      "slug": "medizinische-r-sekretar-in-arztsekretar-in-augenklinik-unispital-basel-ch",
+      "slug": "segretario-a-medico-a-segretario-a-di-studio-medico-clinica-oculistica-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "medizinische-r-sekretar-in-arztsekretar-in-augenklinik-unispital-basel-ch",
-        "it": "medizinische-r-sekretar-in-arztsekretar-in-augenklinik-unispital-basel-ch",
-        "en": "medizinische-r-sekretar-in-arztsekretar-in-augenklinik-unispital-basel-ch",
-        "fr": "medizinische-r-sekretar-in-arztsekretar-in-augenklinik-unispital-basel-ch"
+        "it": "segretario-a-medico-a-segretario-a-di-studio-medico-clinica-oculistica-universitatsspital-basel-basel",
+        "en": "medical-secretary-physician-s-secretary-ophthalmology-clinic-universitatsspital-basel-basel",
+        "fr": "secretaire-medical-e-secretaire-de-medecin-clinique-ophtalmologique-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -10341,7 +10354,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -10359,7 +10371,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T21:33:15.227Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T21:33:15.227Z"
+      "firstSeenAt": "2026-11-19T21:33:15.227Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-r-sekretar-in-arztsekretar-in-augenklinik-unispital-basel-ch"
+        ],
+        "en": [
+          "medizinische-r-sekretar-in-arztsekretar-in-augenklinik-unispital-basel-ch"
+        ],
+        "fr": [
+          "medizinische-r-sekretar-in-arztsekretar-in-augenklinik-unispital-basel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-r-sekretar-in-arztsekretar-in-augenklinik-unispital-basel-ch"
+      ]
     },
     {
       "id": "unispital-basel-b56728125589",
@@ -10440,12 +10466,12 @@
     },
     {
       "id": "unispital-basel-ffba8a85ad1a",
-      "slug": "teamleitung-kardiologie-herzkatheterlabor-universitatsspital-basel-basel",
+      "slug": "team-leader-cardiologia-heart-catheter-lab-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "teamleitung-kardiologie-herzkatheterlabor-unispital-basel-ch",
-        "it": "teamleitung-kardiologie-herzkatheterlabor-universitatsspital-basel-basel",
-        "en": "teamleitung-kardiologie-herzkatheterlabor-universitatsspital-basel-basel",
-        "fr": "teamleitung-kardiologie-herzkatheterlabor-universitatsspital-basel-basel"
+        "it": "team-leader-cardiologia-heart-catheter-lab-universitatsspital-basel-basel",
+        "en": "team-leader-cardiology-heart-catheter-laboratory-universitatsspital-basel-basel",
+        "fr": "cardiologie-chef-d-equipe-laboratoire-de-catheter-cardiaque-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -10492,11 +10518,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "teamleitung-kardiologie-herzkatheterlabor-unispital-basel-ch"
+          "teamleitung-kardiologie-herzkatheterlabor-unispital-basel-ch",
+          "teamleitung-kardiologie-herzkatheterlabor-universitatsspital-basel-basel"
+        ],
+        "en": [
+          "teamleitung-kardiologie-herzkatheterlabor-universitatsspital-basel-basel"
+        ],
+        "fr": [
+          "teamleitung-kardiologie-herzkatheterlabor-universitatsspital-basel-basel"
         ]
       },
       "previousSlugs": [
-        "teamleitung-kardiologie-herzkatheterlabor-unispital-basel-ch"
+        "teamleitung-kardiologie-herzkatheterlabor-unispital-basel-ch",
+        "teamleitung-kardiologie-herzkatheterlabor-universitatsspital-basel-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,

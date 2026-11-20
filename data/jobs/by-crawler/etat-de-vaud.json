@@ -4759,12 +4759,12 @@
     },
     {
       "id": "etat-de-vaud-6179",
-      "slug": "directeur-trice-transformation-et-prestations-transversales-etat-de-vaud-lausanne",
+      "slug": "direttore-servizi-di-trasformazione-e-di-taglio-incrociato-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "directeur-trice-transformation-et-prestations-transversales-etat-de-vaud-lausanne",
-        "it": "directeur-trice-transformation-et-prestations-transversales-etat-de-vaud-lausanne",
-        "en": "directeur-trice-transformation-et-prestations-transversales-etat-de-vaud-lausanne",
-        "de": "directeur-trice-transformation-et-prestations-transversales-etat-de-vaud-lausanne"
+        "it": "direttore-servizi-di-trasformazione-e-di-taglio-incrociato-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "en": "director-transformation-and-cross-cutting-services-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "de": "direktor-transformations-und-querschnittsdienstleistungen-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -4827,7 +4827,21 @@
       "validThrough": "2027-02-17T21:40:01.758Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-19T21:40:01.758Z",
-      "sourceIdentity": "url:https://offres-emploi.vd.ch/"
+      "sourceIdentity": "url:https://offres-emploi.vd.ch/",
+      "previousSlugsByLocale": {
+        "it": [
+          "directeur-trice-transformation-et-prestations-transversales-etat-de-vaud-lausanne"
+        ],
+        "en": [
+          "directeur-trice-transformation-et-prestations-transversales-etat-de-vaud-lausanne"
+        ],
+        "de": [
+          "directeur-trice-transformation-et-prestations-transversales-etat-de-vaud-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "directeur-trice-transformation-et-prestations-transversales-etat-de-vaud-lausanne"
+      ]
     },
     {
       "id": "etat-de-vaud-6112",

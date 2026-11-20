@@ -2694,12 +2694,12 @@
     },
     {
       "id": "cnp-8b5fcddb2ecc",
-      "slug": "psychologue-assistant-e-70-cnp-la-chaux-de-fonds",
+      "slug": "psicologo-assistant-70-centre-neuchatelois-de-psychiatrie-cnp-la-chaux-de-fonds",
       "slugByLocale": {
         "fr": "psychologue-assistant-e-70-cnp-la-chaux-de-fonds",
-        "it": "psychologue-assistant-e-70-cnp-la-chaux-de-fonds",
-        "en": "psychologue-assistant-e-70-cnp-la-chaux-de-fonds",
-        "de": "psychologue-assistant-e-70-cnp-la-chaux-de-fonds"
+        "it": "psicologo-assistant-70-centre-neuchatelois-de-psychiatrie-cnp-la-chaux-de-fonds",
+        "en": "psychologist-assistant-70-centre-neuchatelois-de-psychiatrie-cnp-la-chaux-de-fonds",
+        "de": "psychologue-assistent-e-70-centre-neuchatelois-de-psychiatrie-cnp-la-chaux-de-fonds"
       },
       "company": "Centre Neuchâtelois de Psychiatrie (CNP)",
       "companyKey": "cnp",
@@ -2762,7 +2762,21 @@
       "validThrough": "2027-02-17T21:24:23.715Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-19T21:24:23.715Z",
-      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/deb70091-ead0-4a77-ad29-3b3876577983"
+      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/deb70091-ead0-4a77-ad29-3b3876577983",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologue-assistant-e-70-cnp-la-chaux-de-fonds"
+        ],
+        "en": [
+          "psychologue-assistant-e-70-cnp-la-chaux-de-fonds"
+        ],
+        "de": [
+          "psychologue-assistant-e-70-cnp-la-chaux-de-fonds"
+        ]
+      },
+      "previousSlugs": [
+        "psychologue-assistant-e-70-cnp-la-chaux-de-fonds"
+      ]
     }
   ]
 }

@@ -2841,8 +2841,8 @@
       "slugByLocale": {
         "de": "fachexpertin-fachexperte-pflege-fur-unsere-chirurgische-abteilung-80-100-spital-lachen",
         "it": "fachexpertin-fachexperte-pflege-per-unsere-chirurgische-abteilung-80-100-spital-lachen",
-        "en": "fachexpertin-fachexperte-pflege-fur-unsere-chirurgische-abteilung-80-100-spital-lachen",
-        "fr": "fachexpertin-fachexperte-pflege-fur-unsere-chirurgische-abteilung-80-100-spital-lachen"
+        "en": "specialist-care-for-our-surgical-department-80-100-spital-lachen-lachen",
+        "fr": "soins-specialises-pour-notre-departement-chirurgical-80-100-spital-lachen-lachen"
       },
       "company": "Spital Lachen",
       "companyKey": "spital-lachen",
@@ -2892,9 +2892,7 @@
         "esperto-in-cure-per-il-nostro-reparto-chirurgico-80-100-spital-lachen-lachen",
         "fachexpertin-fachexperte-pflege-fur-unsere-chirurgische-abteilung-80-100-spital-lachen",
         "esperta-esperto-in-cure-infermieristiche-per-il-nostro-reparto-di-chirurgia-80-100-spital-lachen-lachen",
-        "esperta-esperto-in-cure-infermieristiche-per-il-nostro-reparto-chirurgico-80-100-spital-lachen-lachen",
-        "specialist-care-for-our-surgical-department-80-100-spital-lachen-lachen",
-        "soins-specialises-pour-notre-departement-chirurgical-80-100-spital-lachen-lachen"
+        "esperta-esperto-in-cure-infermieristiche-per-il-nostro-reparto-chirurgico-80-100-spital-lachen-lachen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2904,10 +2902,10 @@
           "fachexpertin-fachexperte-pflege-fur-unsere-chirurgische-abteilung-80-100-spital-lachen"
         ],
         "en": [
-          "specialist-care-for-our-surgical-department-80-100-spital-lachen-lachen"
+          "fachexpertin-fachexperte-pflege-fur-unsere-chirurgische-abteilung-80-100-spital-lachen"
         ],
         "fr": [
-          "soins-specialises-pour-notre-departement-chirurgical-80-100-spital-lachen-lachen"
+          "fachexpertin-fachexperte-pflege-fur-unsere-chirurgische-abteilung-80-100-spital-lachen"
         ]
       },
       "salaryMin": 86500,
@@ -3358,8 +3356,8 @@
       "slugByLocale": {
         "de": "assistenzarztinnen-und-assistenzarzte-chirurgie-100-spital-lachen-lachen",
         "it": "assistenzarztinnen-e-assistenzarzte-chirurgie-100-spital-lachen",
-        "en": "assistenzarztinnen-und-assistenzarzte-chirurgie-100-spital-lachen-lachen",
-        "fr": "assistenzarztinnen-und-assistenzarzte-chirurgie-100-spital-lachen-lachen"
+        "en": "assistant-doctors-surgery-100-spital-lachen-lachen",
+        "fr": "medecins-adjoints-chirurgie-100-spital-lachen-lachen"
       },
       "company": "Spital Lachen",
       "companyKey": "spital-lachen",
@@ -3407,6 +3405,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "assistenzarztinnen-und-assistenzarzte-chirurgie-100-spital-lachen-lachen"
+        ],
+        "en": [
+          "assistenzarztinnen-und-assistenzarzte-chirurgie-100-spital-lachen-lachen"
+        ],
+        "fr": [
           "assistenzarztinnen-und-assistenzarzte-chirurgie-100-spital-lachen-lachen"
         ]
       },

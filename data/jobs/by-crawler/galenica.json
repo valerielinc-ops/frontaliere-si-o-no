@@ -627,7 +627,7 @@
       "sourceLang": "de",
       "slug": "projektleiter-projektleiterin-logistik-supply-chain-w-m-d-galenica-galenica-burgdorf",
       "slugByLocale": {
-        "it": "project-manager-project-manager-logistica-supply-chain-m-f-d-galenica-galenica-burgdorf",
+        "it": "projektleiter-projektleiterin-logistik-supply-chain-w-m-d-galenica-galenica-burgdorf",
         "en": "project-manager-project-manager-logistics-supply-chain-m-f-d-galenica-galenica-burgdorf",
         "de": "galenica-galenica-projektleiter-projektleiterin-logistik-supply-chain-w-m-d-burgdorf",
         "fr": "chef-de-projet-cheffe-de-projet-logistique-chaine-d-approvisionnement-h-f-d-galenica-galenica-burgdorf"
@@ -643,12 +643,14 @@
       "id": "galenica-70edf8af43c1",
       "previousSlugs": [
         "galenica-galenica-projektleiter-projektleiterin-logistik-supply-chain-w-m-d-burgdorf",
-        "projektleiter-projektleiterin-logistik-supply-chain-m-w-d-galenica-burgdorf"
+        "projektleiter-projektleiterin-logistik-supply-chain-m-w-d-galenica-burgdorf",
+        "project-manager-project-manager-logistica-supply-chain-m-f-d-galenica-galenica-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "galenica-galenica-projektleiter-projektleiterin-logistik-supply-chain-w-m-d-burgdorf",
-          "projektleiter-projektleiterin-logistik-supply-chain-m-w-d-galenica-burgdorf"
+          "projektleiter-projektleiterin-logistik-supply-chain-m-w-d-galenica-burgdorf",
+          "project-manager-project-manager-logistica-supply-chain-m-f-d-galenica-galenica-burgdorf"
         ],
         "en": [
           "galenica-galenica-projektleiter-projektleiterin-logistik-supply-chain-w-m-d-burgdorf"
@@ -1012,7 +1014,7 @@
         "it": "galenica-galenica-ag-technical-lead-solution-architect-dynamics-365-w-m-d-bern",
         "en": "galenica-galenica-ag-technical-lead-solution-architect-dynamics-365-w-m-d-bern",
         "de": "galenica-galenica-ag-technical-lead-solution-architect-dynamics-365-w-m-d-bern",
-        "fr": "galenica-galenica-ag-technical-lead-solution-architect-dynamics-365-w-m-d-bern"
+        "fr": "responsable-technique-solution-architecte-dynamics-365-w-m-d-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
         "it": "Technical Lead & Solution Architetto Dynamics 365 (w/m/d)",
@@ -1045,7 +1047,15 @@
       "validThrough": "2027-02-17T21:16:41.127Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-19T21:16:41.127Z",
-      "sourceIdentity": "url:https://jobs.galenica.com/it/jobs"
+      "sourceIdentity": "url:https://jobs.galenica.com/it/jobs",
+      "previousSlugsByLocale": {
+        "fr": [
+          "galenica-galenica-ag-technical-lead-solution-architect-dynamics-365-w-m-d-bern"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-galenica-ag-technical-lead-solution-architect-dynamics-365-w-m-d-bern"
+      ]
     },
     {
       "title": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
@@ -1831,7 +1841,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-22T21:16:41.127Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.galenica.com/it/jobs"
+      "sourceIdentity": "url:https://jobs.galenica.com/it/jobs",
+      "needsRetranslation": true
     },
     {
       "title": "Apotheker / Apothekerin – Fortbildung und pharmazeutische Dienstleistungen Grundversorgung bei medinform (w/m/d)",
@@ -2743,7 +2754,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-17T21:16:41.127Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.galenica.com/it/jobs"
+      "sourceIdentity": "url:https://jobs.galenica.com/it/jobs",
+      "needsRetranslation": true
     },
     {
       "title": "IT Operations Specialist Data & Reporting (w/m/d)",
@@ -2808,7 +2820,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-05T21:16:41.127Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.galenica.com/it/jobs"
+      "sourceIdentity": "url:https://jobs.galenica.com/it/jobs",
+      "needsRetranslation": true
     },
     {
       "title": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
@@ -3532,7 +3545,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-19T21:16:41.127Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.galenica.com/it/jobs"
+      "sourceIdentity": "url:https://jobs.galenica.com/it/jobs",
+      "needsRetranslation": true
     },
     {
       "title": "Assistenzjahr für Pharmaziestudierende (w/m/d)",
@@ -3676,7 +3690,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-15T21:16:41.127Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.galenica.com/it/jobs"
+      "sourceIdentity": "url:https://jobs.galenica.com/it/jobs",
+      "needsRetranslation": true
     },
     {
       "title": "Instandhaltungstechnikerin / Instandhaltungstechniker Produktion Pharma (w/m/d)",
@@ -4629,7 +4644,9 @@
       "id": "galenica-77f01b9d5174",
       "previousSlugsByLocale": {
         "it": [
-          "galenica-galenica-ag-senior-it-operations-specialist-mit-teamfuhrungsfunktion-w-m-d-oensingen"
+          "galenica-galenica-ag-senior-it-operations-specialist-mit-teamfuhrungsfunktion-w-m-d-oensingen",
+          "specialista-senior-delle-operazioni-it-con-funzione-di-coordinamento-del-team-m-f-d-nw1tb8",
+          "specialista-senior-delle-operazioni-it-con-funzione-di-coordinamento-del-team-m-f-d-nwj0b0"
         ],
         "en": [
           "galenica-galenica-ag-senior-it-operations-specialist-mit-teamfuhrungsfunktion-w-m-d-oensingen"
@@ -4639,7 +4656,9 @@
         ]
       },
       "previousSlugs": [
-        "galenica-galenica-ag-senior-it-operations-specialist-mit-teamfuhrungsfunktion-w-m-d-oensingen"
+        "galenica-galenica-ag-senior-it-operations-specialist-mit-teamfuhrungsfunktion-w-m-d-oensingen",
+        "specialista-senior-delle-operazioni-it-con-funzione-di-coordinamento-del-team-m-f-d-nw1tb8",
+        "specialista-senior-delle-operazioni-it-con-funzione-di-coordinamento-del-team-m-f-d-nwj0b0"
       ],
       "salaryMin": 113000,
       "salaryMax": 192000,
@@ -5973,12 +5992,12 @@
       "postedDate": "",
       "source": "company-website",
       "sourceLang": "de",
-      "slug": "galenica-galenica-ag-category-manager-komplementarmedizin-w-m-d-bern",
+      "slug": "categoria-manager-medicina-complementare-m-f-d-galenica-ag-galenica-bern",
       "slugByLocale": {
-        "it": "galenica-galenica-ag-category-manager-komplementarmedizin-w-m-d-bern",
-        "en": "galenica-galenica-ag-category-manager-komplementarmedizin-w-m-d-bern",
+        "it": "categoria-manager-medicina-complementare-m-f-d-galenica-ag-galenica-bern",
+        "en": "category-manager-complementary-medicine-m-f-d-galenica-ag-galenica-bern",
         "de": "galenica-galenica-ag-category-manager-komplementarmedizin-w-m-d-bern",
-        "fr": "galenica-galenica-ag-category-manager-komplementarmedizin-w-m-d-bern"
+        "fr": "gestionnaire-de-categorie-medecine-complementaire-h-f-d-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
         "it": "Categoria Manager Medicina complementare, (m/f/d)",
@@ -6010,7 +6029,21 @@
       "validThrough": "2027-02-17T21:16:41.127Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-19T21:16:41.127Z",
-      "sourceIdentity": "url:https://jobs.galenica.com/it/jobs"
+      "sourceIdentity": "url:https://jobs.galenica.com/it/jobs",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-galenica-ag-category-manager-komplementarmedizin-w-m-d-bern"
+        ],
+        "en": [
+          "galenica-galenica-ag-category-manager-komplementarmedizin-w-m-d-bern"
+        ],
+        "fr": [
+          "galenica-galenica-ag-category-manager-komplementarmedizin-w-m-d-bern"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-galenica-ag-category-manager-komplementarmedizin-w-m-d-bern"
+      ]
     },
     {
       "title": "Projektleiterin / Projektleiter Strategische Projekte (w/m/d)",
@@ -6867,7 +6900,7 @@
       "sourceLang": "fr",
       "slug": "pharmacien-adjoint-pharmacienne-adjointe-f-m-d-galenica-galenica-nyon",
       "slugByLocale": {
-        "it": "assistente-farmacista-assistente-farmacista-m-f-d-galenica-galenica-nyon",
+        "it": "pharmacien-adjoint-pharmacienne-adjointe-f-m-d-galenica-galenica-nyon",
         "en": "assistant-pharmacist-assistant-pharmacist-m-f-d-galenica-galenica-nyon",
         "de": "assistenzapotheker-assistenzapotheker-m-w-d-galenica-galenica-nyon",
         "fr": "galenica-galenica-pharmacien-adjoint-pharmacienne-adjointe-f-h-d-nyon"
@@ -6883,12 +6916,14 @@
       "id": "galenica-4b8a3441a5ae",
       "previousSlugs": [
         "galenica-galenica-pharmacien-adjoint-pharmacienne-adjointe-f-h-d-nyon",
-        "pharmacien-adjoint-pharmacienne-adjointe-m-w-d-galenica-nyon"
+        "pharmacien-adjoint-pharmacienne-adjointe-m-w-d-galenica-nyon",
+        "assistente-farmacista-assistente-farmacista-m-f-d-galenica-galenica-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "galenica-galenica-pharmacien-adjoint-pharmacienne-adjointe-f-h-d-nyon",
-          "pharmacien-adjoint-pharmacienne-adjointe-m-w-d-galenica-nyon"
+          "pharmacien-adjoint-pharmacienne-adjointe-m-w-d-galenica-nyon",
+          "assistente-farmacista-assistente-farmacista-m-f-d-galenica-galenica-nyon"
         ],
         "en": [
           "galenica-galenica-pharmacien-adjoint-pharmacienne-adjointe-f-h-d-nyon"

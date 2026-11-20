@@ -12359,7 +12359,6 @@
         ]
       },
       "firstSeenAt": "2026-11-05T21:20:31.526Z",
-      "needsRetranslation": true,
       "salaryMin": 58800,
       "salaryMax": 89200,
       "salarySource": "estimated",
@@ -18706,7 +18705,7 @@
         "de": "spezialpflege-fage-fur-die-chest-pain-unit-40-usz-ch",
         "it": "spezialpflege-fage-per-la-chest-pain-unit-40-universitatsspital-zurich-usz-zurich",
         "en": "spezialpflege-fage-fur-die-chest-pain-unit-40-usz-ch",
-        "fr": "spezialpflege-fage-fur-die-chest-pain-unit-40-usz-ch"
+        "fr": "soins-speciaux-fage-pour-l-unite-de-douleur-thoracique-40-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -18751,9 +18750,11 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "spezialpflege-fage-fur-die-chest-pain-unit-40-usz-ch"
+        ],
+        "fr": [
           "spezialpflege-fage-fur-die-chest-pain-unit-40-usz-ch"
         ]
       },

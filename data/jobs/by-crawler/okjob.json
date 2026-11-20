@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "okjob-3cfb91330f79",
-      "slug": "chauffeur-pl-multi-bennes-multi-lift-ok-job-sa-succursale-di-mendrisio-1201-geneve-3cfb9133",
+      "slug": "driver-pl-multi-bath-multi-lift-ok-job-sa-succursale-di-mendrisio-1201-geneve-3cfb9133",
       "slugByLocale": {
         "fr": "chauffeur-pl-multi-bennes-multi-lift-ok-job-sa-succursale-di-mendrisio-1201-geneve-3cfb9133",
-        "it": "chauffeur-pl-multi-bennes-multi-lift-ok-job-sa-succursale-di-mendrisio-1201-geneve-3cfb9133",
-        "en": "chauffeur-pl-multi-bennes-multi-lift-ok-job-sa-succursale-di-mendrisio-1201-geneve-3cfb9133",
-        "de": "chauffeur-pl-multi-bennes-multi-lift-ok-job-sa-succursale-di-mendrisio-1201-geneve-3cfb9133"
+        "it": "driver-pl-multi-bath-multi-lift-ok-job-sa-succursale-di-mendrisio-1201-geneve-3cfb9133",
+        "en": "multi-bath-multi-lift-pl-driver-ok-job-sa-succursale-di-mendrisio-1201-geneve-3cfb9133",
+        "de": "mehrbad-mehrhubfahrer-ok-job-sa-succursale-di-mendrisio-1201-geneve-3cfb9133"
       },
       "slugDisambiguator": "3cfb9133",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -73,7 +73,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T21:40:25.970Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T21:40:25.970Z"
+      "firstSeenAt": "2026-11-19T21:40:25.970Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-pl-multi-bennes-multi-lift-ok-job-sa-succursale-di-mendrisio-1201-geneve-3cfb9133"
+        ],
+        "en": [
+          "chauffeur-pl-multi-bennes-multi-lift-ok-job-sa-succursale-di-mendrisio-1201-geneve-3cfb9133"
+        ],
+        "de": [
+          "chauffeur-pl-multi-bennes-multi-lift-ok-job-sa-succursale-di-mendrisio-1201-geneve-3cfb9133"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-pl-multi-bennes-multi-lift-ok-job-sa-succursale-di-mendrisio-1201-geneve-3cfb9133"
+      ]
     },
     {
       "id": "okjob-8072f59185f9",

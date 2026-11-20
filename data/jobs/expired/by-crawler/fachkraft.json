@@ -11234,6 +11234,13 @@
     },
     "sector": "Altro",
     "expiredAt": "2026-11-14T22:53:49.446Z",
+    "previousSlugs": [
+      "maler-in-per-umbauten-con-kundenberatung-fachkraft-ch-gmbh-baden",
+      "maler-in-fur-umbauten-mit-kundenberatung-fachkraft-ch-gmbh-baden",
+      "maler-in-fur-umbauten-mit-kundenberatung-baden-aargau-fachkraft-ch",
+      "maler-in-per-umbauten-con-kundenberatung-fachkraft-ch-gmbh-baden-c31a75c9",
+      "maler-in-fur-umbauten-mit-kundenberatung-fachkraft-ch-gmbh-baden-3d3cce71"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "maler-in-fur-umbauten-mit-kundenberatung-baden-aargau-fachkraft-ch-3aebaa16",
@@ -11269,13 +11276,6 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.fachkraft.ch/stellen/maler-in-baden-dauerstelle-312475",
     "firstSeenAt": "2026-10-28T20:27:54.340Z",
-    "previousSlugs": [
-      "maler-in-per-umbauten-con-kundenberatung-fachkraft-ch-gmbh-baden",
-      "maler-in-fur-umbauten-mit-kundenberatung-fachkraft-ch-gmbh-baden",
-      "maler-in-fur-umbauten-mit-kundenberatung-baden-aargau-fachkraft-ch",
-      "maler-in-per-umbauten-con-kundenberatung-fachkraft-ch-gmbh-baden-c31a75c9",
-      "maler-in-fur-umbauten-mit-kundenberatung-fachkraft-ch-gmbh-baden-3d3cce71"
-    ],
     "sourceIdentityHistory": [
       {
         "sourceIdentity": "url:https://www.fachkraft.ch/stellen/maler-in-baden-dauerstelle-312475",
@@ -19337,6 +19337,11 @@
     },
     "sector": "Altro",
     "expiredAt": "2026-11-14T11:58:21.656Z",
+    "previousSlugs": [
+      "bauarbeiter-in-fur-erdsondenbohrungen-fachkraft-ch-gmbh-sursee",
+      "bauarbeiter-in-fur-erdsondenbohrungen-sursee-luzern-fachkraft-ch",
+      "bauarbeiter-in-fur-erdsondenbohrungen-fachkraft-ch-gmbh-sursee-51524200"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "bauarbeiter-in-fur-erdsondenbohrungen-sursee-luzern-fachkraft-ch-bd3626eb",
@@ -19367,11 +19372,6 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.fachkraft.ch/stellen/bauarbeiter-in-sursee-temporaer-307935",
     "firstSeenAt": "2026-09-29T22:24:17.516Z",
-    "previousSlugs": [
-      "bauarbeiter-in-fur-erdsondenbohrungen-fachkraft-ch-gmbh-sursee",
-      "bauarbeiter-in-fur-erdsondenbohrungen-sursee-luzern-fachkraft-ch",
-      "bauarbeiter-in-fur-erdsondenbohrungen-fachkraft-ch-gmbh-sursee-51524200"
-    ],
     "sourceIdentityHistory": [
       {
         "sourceIdentity": "url:https://www.fachkraft.ch/stellen/bauarbeiter-in-sursee-temporaer-304435",
@@ -19703,6 +19703,14 @@
     },
     "sector": "Altro",
     "expiredAt": "2026-11-14T11:58:21.656Z",
+    "previousSlugs": [
+      "maler-in-per-fassadenarbeiten-fachkraft-ch-gmbh-luzern",
+      "maler-in-fur-fassadenarbeiten-luzern-luzern-fachkraft-ch",
+      "maler-in-per-fassadenarbeiten-fachkraft-ch-gmbh-luzern-2eac91f1",
+      "maler-in-fur-fassadenarbeiten-luzern-luzern-fachkraft-ch-76a6b8c1",
+      "maler-in-fur-fassadenarbeiten-luzern-luzern-fachkraft-ch-1cef0e44",
+      "facade-painter-fachkraft-ch-gmbh-luzern-luzern"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "maler-in-fur-fassadenarbeiten-luzern-luzern-fachkraft-ch-76a6b8c1",
@@ -19738,14 +19746,6 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.fachkraft.ch/stellen/maler-in-luzern-temporaer-310581",
     "firstSeenAt": "2026-09-29T22:24:17.567Z",
-    "previousSlugs": [
-      "maler-in-per-fassadenarbeiten-fachkraft-ch-gmbh-luzern",
-      "maler-in-fur-fassadenarbeiten-luzern-luzern-fachkraft-ch",
-      "maler-in-per-fassadenarbeiten-fachkraft-ch-gmbh-luzern-2eac91f1",
-      "maler-in-fur-fassadenarbeiten-luzern-luzern-fachkraft-ch-76a6b8c1",
-      "maler-in-fur-fassadenarbeiten-luzern-luzern-fachkraft-ch-1cef0e44",
-      "facade-painter-fachkraft-ch-gmbh-luzern-luzern"
-    ],
     "sourceIdentityHistory": [
       {
         "sourceIdentity": "url:https://www.fachkraft.ch/stellen/maler-in-luzern-temporaer-297454",
@@ -39856,7 +39856,8 @@
         "installatore-trice-elettrico-a-in-per-stark-e-schwachstrominstallationen-fachkraft-ch-gmbh-luzern",
         "installatore-trice-elettrico-a-per-installazioni-di-corrente-forte-e-debole-fachkraft-ch-gmbh-luzern-luzern",
         "installatori-elettrici-per-installazioni-ad-alta-e-bassa-corrente-fachkraft-ch-gmbh-luzern-luzern",
-        "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-luzern-luzern-fachkraft-ch"
+        "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-luzern-luzern-fachkraft-ch",
+        "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-luzern-luzern-fachkraft-ch-38ee5c79"
       ],
       "en": [
         "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-luzern-luzern-fachkraft-ch-d2c12c9a",
@@ -39871,7 +39872,8 @@
         "installatore-trice-elettrico-a-in-per-stark-e-schwachstrominstallationen-fachkraft-ch-gmbh-luzern",
         "electrical-installers-for-high-and-low-current-installations-fachkraft-ch-gmbh-luzern-luzern",
         "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-luzern-luzern-fachkraft-ch",
-        "electrical-installer-for-high-and-low-voltage-installations-fachkraft-ch-gmbh-luzern"
+        "electrical-installer-for-high-and-low-voltage-installations-fachkraft-ch-gmbh-luzern",
+        "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-luzern-luzern-fachkraft-ch-38ee5c79"
       ],
       "de": [
         "installatore-trice-elettrico-a-in-per-stark-e-schwachstrominstallationen-fachkraft-ch-gmbh-luzern"
@@ -39890,7 +39892,8 @@
         "installateurs-electriques-pour-installations-a-courant-eleve-et-faible-fachkraft-ch-gmbh-luzern-luzern",
         "installateur-trice-electricien-ne-fur-stark-und-schwachstrominstallationen-fachkraft-ch-gmbh-luzern",
         "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-luzern-luzern-fachkraft-ch",
-        "installateur-trice-electricien-ne-pour-installations-a-courant-fort-et-a-courant-faible-fachkraft-ch-gmbh-luzern"
+        "installateur-trice-electricien-ne-pour-installations-a-courant-fort-et-a-courant-faible-fachkraft-ch-gmbh-luzern",
+        "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-luzern-luzern-fachkraft-ch-38ee5c79"
       ]
     },
     "postalCode": "6003",
@@ -42005,6 +42008,13 @@
     },
     "sector": "Altro",
     "expiredAt": "2026-11-08T22:48:36.724Z",
+    "previousSlugs": [
+      "logistiker-in-per-tiefkuhllager-fachkraft-ch-gmbh-willisau",
+      "logistiker-in-fur-tiefkuhllager-fachkraft-ch-gmbh-willisau",
+      "logistiker-in-fur-tiefkuhllager-willisau-luzern-fachkraft-ch",
+      "logistiker-in-per-tiefkuhllager-fachkraft-ch-gmbh-willisau-d48adb33",
+      "logistiker-in-fur-tiefkuhllager-fachkraft-ch-gmbh-willisau-0286c2a7"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "logistiker-in-fur-tiefkuhllager-willisau-luzern-fachkraft-ch-14fadbe7",
@@ -42042,13 +42052,6 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.fachkraft.ch/stellen/logistiker-in-willisau-dauerstelle-306663",
     "firstSeenAt": "2026-10-07T10:21:20.358Z",
-    "previousSlugs": [
-      "logistiker-in-per-tiefkuhllager-fachkraft-ch-gmbh-willisau",
-      "logistiker-in-fur-tiefkuhllager-fachkraft-ch-gmbh-willisau",
-      "logistiker-in-fur-tiefkuhllager-willisau-luzern-fachkraft-ch",
-      "logistiker-in-per-tiefkuhllager-fachkraft-ch-gmbh-willisau-d48adb33",
-      "logistiker-in-fur-tiefkuhllager-fachkraft-ch-gmbh-willisau-0286c2a7"
-    ],
     "sourceIdentityHistory": [
       {
         "sourceIdentity": "url:https://www.fachkraft.ch/stellen/logistiker-in-willisau-dauerstelle-306663",
@@ -77706,10 +77709,6 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.fachkraft.ch/stellen/schreiner-in-zofingen-dauerstelle-296454",
     "firstSeenAt": "2026-09-01T12:12:49.922Z",
-    "previousSlugs": [
-      "schreiner-in-fur-holzkonstruktionen-zofingen-aargau-fachkraft-ch",
-      "carpenter-for-wooden-structures-fachkraft-ch-gmbh-zofingen-aargau"
-    ],
     "sourceIdentityHistory": [
       {
         "sourceIdentity": "url:https://www.fachkraft.ch/stellen/schreiner-in-zofingen-dauerstelle-296454",
@@ -77721,6 +77720,10 @@
         "firstSeenAt": "2026-09-01T12:12:49.922Z",
         "title": "Schreiner/in für Holzkonstruktionen"
       }
+    ],
+    "previousSlugs": [
+      "schreiner-in-fur-holzkonstruktionen-zofingen-aargau-fachkraft-ch",
+      "carpenter-for-wooden-structures-fachkraft-ch-gmbh-zofingen-aargau"
     ]
   },
   {
@@ -89700,7 +89703,8 @@
         "metallbauer-in-allrounder-werkstatt-kreuzlingen-thurgau-fachkraft-ch-3c4261ca",
         "metallbauer-in-allrounder-werkstatt-kreuzlingen-thurgau-fachkraft-ch-d24150dc",
         "metallbauer-in-allrounder-werkstatt-kreuzlingen-thurgau-fachkraft-ch-ec1c70b5",
-        "metallbauer-in-allrounder-werkstatt-kreuzlingen-thurgau-fachkraft-ch-c47994e6"
+        "metallbauer-in-allrounder-werkstatt-kreuzlingen-thurgau-fachkraft-ch-c47994e6",
+        "metallbauer-in-allrounder-werkstatt-kreuzlingen-thurgau-fachkraft-ch-6137e678"
       ],
       "fr": [
         "metallbauer-in-allrounder-werkstatt-kreuzlingen-thurgau-fachkraft-ch-9ce35eb5",
@@ -89759,7 +89763,8 @@
         "metallbauer-in-allrounder-werkstatt-kreuzlingen-thurgau-fachkraft-ch-3c4261ca",
         "metallbauer-in-allrounder-werkstatt-kreuzlingen-thurgau-fachkraft-ch-d24150dc",
         "metallbauer-in-allrounder-werkstatt-kreuzlingen-thurgau-fachkraft-ch-ec1c70b5",
-        "metallbauer-in-allrounder-werkstatt-kreuzlingen-thurgau-fachkraft-ch-c47994e6"
+        "metallbauer-in-allrounder-werkstatt-kreuzlingen-thurgau-fachkraft-ch-c47994e6",
+        "metallbauer-in-allrounder-werkstatt-kreuzlingen-thurgau-fachkraft-ch-6137e678"
       ],
       "en": [
         "metallbauer-in-allrounder-werkstatt-kreuzlingen-thurgau-fachkraft-ch-9ce35eb5",
@@ -89816,7 +89821,8 @@
         "metallbauer-in-allrounder-werkstatt-kreuzlingen-thurgau-fachkraft-ch-3c4261ca",
         "metallbauer-in-allrounder-werkstatt-kreuzlingen-thurgau-fachkraft-ch-d24150dc",
         "metallbauer-in-allrounder-werkstatt-kreuzlingen-thurgau-fachkraft-ch-ec1c70b5",
-        "metallbauer-in-allrounder-werkstatt-kreuzlingen-thurgau-fachkraft-ch-c47994e6"
+        "metallbauer-in-allrounder-werkstatt-kreuzlingen-thurgau-fachkraft-ch-c47994e6",
+        "metallbauer-in-allrounder-werkstatt-kreuzlingen-thurgau-fachkraft-ch-6137e678"
       ],
       "de": [
         "metallbauer-in-allrounder-werkstatt-kreuzlingen-thurgau-fachkraft-ch-9ce35eb5",
@@ -121831,6 +121837,14 @@
     },
     "sector": "Altro",
     "expiredAt": "2026-10-27T10:19:15.819Z",
+    "previousSlugs": [
+      "schreiner-in-per-innenausbau-e-montagen-fachkraft-ch-gmbh-zurich",
+      "schreiner-in-fur-innenausbau-und-montagen-zurich-zurich-fachkraft-ch",
+      "schreiner-in-per-innenausbau-e-montagen-fachkraft-ch-gmbh-zurich-abb93b2a",
+      "schreiner-in-fur-innenausbau-und-montagen-zurich-zurich-fachkraft-ch-d877c501",
+      "carpenter-for-interior-design-and-assembly-fachkraft-ch-gmbh-zurich-zurich-dffb5ba1",
+      "menuisier-ere-pour-l-amenagement-interieur-et-le-montage-fachkraft-ch-gmbh-zurich-zurich-2c5f036d"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "schreiner-in-fur-innenausbau-und-montagen-zurich-zurich-fachkraft-ch-d877c501",
@@ -121863,14 +121877,6 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.fachkraft.ch/stellen/schreiner-in-zuerich-temporaer-307803",
     "firstSeenAt": "2026-09-26T15:25:37.460Z",
-    "previousSlugs": [
-      "schreiner-in-per-innenausbau-e-montagen-fachkraft-ch-gmbh-zurich",
-      "schreiner-in-fur-innenausbau-und-montagen-zurich-zurich-fachkraft-ch",
-      "schreiner-in-per-innenausbau-e-montagen-fachkraft-ch-gmbh-zurich-abb93b2a",
-      "schreiner-in-fur-innenausbau-und-montagen-zurich-zurich-fachkraft-ch-d877c501",
-      "carpenter-for-interior-design-and-assembly-fachkraft-ch-gmbh-zurich-zurich-dffb5ba1",
-      "menuisier-ere-pour-l-amenagement-interieur-et-le-montage-fachkraft-ch-gmbh-zurich-zurich-2c5f036d"
-    ],
     "sourceIdentityHistory": [
       {
         "sourceIdentity": "url:https://www.fachkraft.ch/stellen/schreiner-in-zuerich-temporaer-301629",
@@ -293375,13 +293381,10 @@
       "polymechanic-cnc-manufacturing-with-programming-fachkraft-ch-gmbh-schaffhausen-schaffhausen-588579bd",
       "polymechanic-cnc-manufacturing-with-programming-fachkraft-ch-gmbh-schaffhausen-schaffhausen-d27e27b9",
       "polymechanic-cnc-manufacturing-with-programming-fachkraft-ch-gmbh-schaffhausen-schaffhausen-184b8a67",
-      "polymechanic-cnc-manufacturing-with-programming-fachkraft-ch-gmbh-schaffhausen-schaffhausen-24357ee6"
+      "polymechanic-cnc-manufacturing-with-programming-fachkraft-ch-gmbh-schaffhausen-schaffhausen-24357ee6",
+      "polymechaniker-in-8211-cnc-fertigung-mit-programmierung-schaffhausen-schaffhausen"
     ],
     "previousSlugsByLocale": {
-      "de": [
-        "polymechaniker-in-cnc-fertigung-mit-programmierung-schaffhausen-schaffhausen-fachkraft-ch",
-        "polymechaniker-in-8211-cnc-fertigung-mit-programmierung-schaffhausen-schaffhausen-mm2tte"
-      ],
       "it": [
         "polymechaniker-in-cnc-fertigung-mit-programmierung-schaffhausen-schaffhausen-fachkraft-ch"
       ],
@@ -293440,16 +293443,21 @@
         "polymechanic-cnc-manufacturing-with-programming-fachkraft-ch-gmbh-schaffhausen-schaffhausen-588579bd",
         "polymechanic-cnc-manufacturing-with-programming-fachkraft-ch-gmbh-schaffhausen-schaffhausen-d27e27b9",
         "polymechanic-cnc-manufacturing-with-programming-fachkraft-ch-gmbh-schaffhausen-schaffhausen-184b8a67",
-        "polymechanic-cnc-manufacturing-with-programming-fachkraft-ch-gmbh-schaffhausen-schaffhausen-24357ee6"
+        "polymechanic-cnc-manufacturing-with-programming-fachkraft-ch-gmbh-schaffhausen-schaffhausen-24357ee6",
+        "polymechaniker-in-8211-cnc-fertigung-mit-programmierung-schaffhausen-schaffhausen"
+      ],
+      "de": [
+        "polymechaniker-in-cnc-fertigung-mit-programmierung-schaffhausen-schaffhausen-fachkraft-ch",
+        "polymechaniker-in-8211-cnc-fertigung-mit-programmierung-schaffhausen-schaffhausen-mm2tte"
       ]
     },
-    "postalCode": "8200",
     "salaryMin": 60000,
     "salaryMax": 102000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.fachkraft.ch/stellen/polymechaniker-in-cnc-fertigung-schaffhausen-dauerstelle-298417",
     "firstSeenAt": "2026-09-07T23:56:28.746Z",
+    "postalCode": "8200",
     "sourceIdentityHistory": [
       {
         "sourceIdentity": "url:https://www.fachkraft.ch/stellen/polymechaniker-in-cnc-fertigung-schaffhausen-dauerstelle-298417",
@@ -293858,7 +293866,8 @@
       "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-2338c25d",
       "polymechanic-cnc-manufacturing-with-grinding-experience-fachkraft-ch-gmbh-weinfelden-thurgau-15ba9873",
       "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden",
-      "polymechanic-cnc-manufacturing-with-grinding-experience-fachkraft-ch-gmbh-weinfelden-thurgau-52e90d59"
+      "polymechanic-cnc-manufacturing-with-grinding-experience-fachkraft-ch-gmbh-weinfelden-thurgau-52e90d59",
+      "polymechaniker-in-8211-cnc-fertigung-mit-schleiferfahrung-weinfelden-thurgau-fachkraft-ch"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -293919,51 +293928,9 @@
         "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-ca887486",
         "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-fe82a774",
         "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-2338c25d",
-        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden"
-      ],
-      "de": [
-        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-weinfelden-thurgau-fachkraft-ch",
-        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-e2861444",
-        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-b310a131",
-        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-c351aa68",
-        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-33b82cb9",
-        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-9badae77",
-        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-5c66e419",
-        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-283307a4",
-        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-ca4d99e2",
-        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-fb411947",
-        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-d89ee2fb",
-        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-1955ba7c",
-        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-14b1ae94",
-        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-b8d20390",
-        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-3b1822bb",
-        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-0655a1fd",
-        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-a3e1deea",
-        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-5d877270",
-        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-22ae544d",
-        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-0e178eef",
-        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-5be86189",
-        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-1fbc5d55",
-        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-99b2829c",
-        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-027672ca",
-        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-2751c2b5",
-        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-920f1a40",
-        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-2f924759",
-        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-7045c86c",
-        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-fea0416f",
-        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-e9da47e8",
-        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-584b8423",
-        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-d24fd4c2",
-        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-6b3ca411",
-        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-264cffb1",
-        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-9f312083",
-        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-1032cb1e",
-        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-4c171860",
-        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-c5061144",
-        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-82ee3940",
-        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-64a1d76c",
-        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-277cd679",
-        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden"
+        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden",
+        "polymechaniker-in-8211-cnc-fertigung-mit-schleiferfahrung-weinfelden-thurgau-fachkraft-ch",
+        "polymechanic-cnc-manufacturing-with-grinding-experience-fachkraft-ch-gmbh-weinfelden-thurgau"
       ],
       "en": [
         "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-e2861444",
@@ -294136,16 +294103,62 @@
         "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-ca887486",
         "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-fe82a774",
         "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-2338c25d",
-        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden"
+        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden",
+        "polymechanic-cnc-manufacturing-with-grinding-experience-fachkraft-ch-gmbh-weinfelden-thurgau"
+      ],
+      "de": [
+        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-weinfelden-thurgau-fachkraft-ch",
+        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-e2861444",
+        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-b310a131",
+        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-c351aa68",
+        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-33b82cb9",
+        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-9badae77",
+        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-5c66e419",
+        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-283307a4",
+        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-ca4d99e2",
+        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-fb411947",
+        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-d89ee2fb",
+        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-1955ba7c",
+        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-14b1ae94",
+        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-b8d20390",
+        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-3b1822bb",
+        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-0655a1fd",
+        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-a3e1deea",
+        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-5d877270",
+        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-22ae544d",
+        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-0e178eef",
+        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-5be86189",
+        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-1fbc5d55",
+        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-99b2829c",
+        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-027672ca",
+        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-2751c2b5",
+        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-920f1a40",
+        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-2f924759",
+        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-7045c86c",
+        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-fea0416f",
+        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-e9da47e8",
+        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-584b8423",
+        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-d24fd4c2",
+        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-6b3ca411",
+        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-264cffb1",
+        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-9f312083",
+        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-1032cb1e",
+        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-4c171860",
+        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-c5061144",
+        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-82ee3940",
+        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-64a1d76c",
+        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden-277cd679",
+        "polymechaniker-in-cnc-fertigung-mit-schleiferfahrung-fachkraft-ch-gmbh-weinfelden",
+        "polymechanic-cnc-manufacturing-with-grinding-experience-fachkraft-ch-gmbh-weinfelden-thurgau"
       ]
     },
-    "postalCode": "8570",
     "salaryMin": 57500,
     "salaryMax": 87000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.fachkraft.ch/stellen/polymechaniker-in-cnc-fertigung-weinfelden-dauerstelle-298236",
     "firstSeenAt": "2026-09-07T23:56:28.747Z",
+    "postalCode": "8570",
     "sourceIdentityHistory": [
       {
         "sourceIdentity": "url:https://www.fachkraft.ch/stellen/polymechaniker-in-cnc-fertigung-weinfelden-dauerstelle-298236",
@@ -325168,9 +325181,6 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.fachkraft.ch/stellen/automatikmonteur-in-herisau-dauerstelle-297773",
     "firstSeenAt": "2026-09-04T13:54:58.534Z",
-    "previousSlugs": [
-      "automatikmonteur-in-fur-schaltschrankbau-herisau-appenzell-ausserrhoden-fachkraft-ch"
-    ],
     "sourceIdentityHistory": [
       {
         "sourceIdentity": "url:https://www.fachkraft.ch/stellen/automatikmonteur-in-herisau-dauerstelle-297773",
@@ -325182,6 +325192,9 @@
         "firstSeenAt": "2026-09-28T04:32:46.189Z",
         "title": "Automatikmonteur/in für Schaltschrankbau"
       }
+    ],
+    "previousSlugs": [
+      "automatikmonteur-in-fur-schaltschrankbau-herisau-appenzell-ausserrhoden-fachkraft-ch"
     ]
   },
   {
@@ -486205,5 +486218,346 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.fachkraft.ch/stellen/38609-stssu",
     "firstSeenAt": "2026-08-23T21:54:47.839Z"
+  },
+  {
+    "slug": "schreiner-in-per-kuchenmontage-fachkraft-ch-gmbh-wil-sg-4e18eb4b",
+    "title": "Schreiner/in für Küchenmontage",
+    "titleByLocale": {
+      "it": "Falegname per l'installazione della cucina",
+      "en": "Carpenter for kitchen assembly",
+      "de": "Schreiner/in für Küchenmontage",
+      "fr": "Charpentier pour l'assemblage de cuisine"
+    },
+    "company": "fachkraft.ch GmbH",
+    "companyKey": "fachkraft",
+    "location": "Wil SG, St. Gallen",
+    "addressLocality": "Wil SG",
+    "descriptionByLocale": {
+      "it": "Attività - Assemblaggio professionale cucine - Utilizzare armadi incorporati perfettamente in forma - Consegnare mobili e installarlo in loco - Fare regolazioni al completamento\n• Requisiti - Insegnamento come carpentiere - Diversi anni di pratica nell'assemblaggio della cucina - È richiesta una buona conoscenza del tedesco - È richiesta la licenza di guida della categoria B - Metodo di lavoro orientato al cliente Offerta - Veicolo di montaggio proprio con attrezzature di alta qualità - Attrezzature di lavoro contemporanee - Opportunità per lo sviluppo professionale L'assemblea professionale delle cucine è al centro dell'attività. L'azienda fornisce il proprio veicolo di assemblaggio e attrezzature di lavoro moderne. Si beneficia di una vasta gamma di ulteriori opportunità di istruzione. Per il nostro cliente stiamo cercando un",
+      "en": "Activities - Professionally assemble kitchens - Use built-in cabinets precisely fit - Deliver furniture and install it on site - Make adjustments at completion\n• Requirements - Teaching as a carpenter - Several years of practice in kitchen assembly - Good knowledge of German is required - Category B driving licence is required - Customer-oriented and efficient working method Offer - Own assembly vehicle with high-quality equipment - Contemporary work equipment - Opportunities for professional development The professional assembly of kitchens is the focus of the activity. The company provides its own assembly vehicle and modern work equipment. You benefit from a wide range of further education opportunities. For our client we are looking for a",
+      "de": "Tätigkeiten - Küchen fachgerecht montieren - Einbauschränke passgenau einsetzen - Möbel liefern und vor Ort einbauen - Anpassungen bei der Fertigstellung ausführen\n• Anforderungen - Lehre als Schreinerin oder Schreiner - Mehrjährige Praxis in der Küchenmontage - Gute Deutschkenntnisse werden vorausgesetzt - Führerausweis Kategorie B ist erforderlich - Kundenorientierte und effiziente Arbeitsweise Angebot - Eigenes Montagefahrzeug mit hochwertiger Ausstattung - Zeitgemässe Arbeitsmittel - Möglichkeiten zur fachlichen Weiterentwicklung Die fachgerechte Montage von Küchen steht im Mittelpunkt der Tätigkeit. Der Betrieb stellt ein eigenes Montagefahrzeug und moderne Arbeitsmittel zur Verfügung. Du profitierst von vielseitigen Weiterbildungsmöglichkeiten. Für unseren Auftraggeber suchen wir eine/n",
+      "fr": "Activités - Monter les cuisines de façon professionnelle - Utiliser des armoires intégrées exactement en forme - Livrer le mobilier et l'installer sur place - Régler à la fin\n• Exigences - L'enseignement en tant que menuisier - Plusieurs années de pratique dans l'assemblage de cuisine - Bonne connaissance de l'allemand est requise - Le permis de conduire de catégorie B est requis - Méthode de travail efficace et orientée vers le client Offre - Véhicule d'assemblage propre avec un équipement de haute qualité - Équipement de travail contemporain - Possibilités de développement professionnel L'assemblage professionnel des cuisines est au centre de l'activité. L'entreprise fournit son propre véhicule de montage et de l'équipement de travail moderne. Vous bénéficiez d'un large éventail de possibilités de formation continue. Pour notre client, nous cherchons"
+    },
+    "slugByLocale": {
+      "it": "schreiner-in-per-kuchenmontage-fachkraft-ch-gmbh-wil-sg-4e18eb4b",
+      "en": "carpenter-for-kitchen-assembly-fachkraft-ch-gmbh-wil-sg-st-gallen",
+      "de": "schreiner-in-fur-kuchenmontage-wil-sg-st-gallen-fachkraft-ch-344262b8",
+      "fr": "charpentier-pour-l-assemblage-de-cuisine-fachkraft-ch-gmbh-wil-sg-st-gallen"
+    },
+    "sector": "Altro",
+    "expiredAt": "2026-11-13T22:57:10.206Z",
+    "previousSlugsByLocale": {
+      "it": [
+        "schreiner-in-fur-kuchenmontage-wil-sg-st-gallen-fachkraft-ch-344262b8"
+      ],
+      "en": [
+        "schreiner-in-fur-kuchenmontage-wil-sg-st-gallen-fachkraft-ch-344262b8"
+      ],
+      "fr": [
+        "schreiner-in-fur-kuchenmontage-wil-sg-st-gallen-fachkraft-ch-344262b8"
+      ],
+      "de": [
+        "schreiner-in-fur-kuchenmontage-wil-sg-st-gallen-fachkraft-ch-344262b8"
+      ]
+    },
+    "postalCode": "9000",
+    "streetAddress": "Wil SG",
+    "salaryMin": 57500,
+    "salaryMax": 87000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://www.fachkraft.ch/stellen/schreiner-in-wil-sg-dauerstelle-301706",
+    "firstSeenAt": "2026-09-26T15:25:37.844Z"
+  },
+  {
+    "slug": "metallbauer-in-hilfsarbeiter-in-per-glasdacher-e-wintergarten-fachkraft-ch-gmbh-baden-988e3916",
+    "title": "Metallbauer/in (Hilfsarbeiter/in) für Glasdächer und Wintergärten",
+    "titleByLocale": {
+      "it": "Lavoratore dei metalli (lavoratore non qualificato) per tetti in vetro e verande",
+      "en": "Metalworker (auxiliary worker) for glass roofs and conservatories",
+      "de": "Metallbauer/in (Hilfsarbeiter/in) für Glasdächer und Wintergärten",
+      "fr": "Constructeur/constructrice de métal (ouvrier/-trice auxiliaire) pour toits en verre et jardins d'hiver"
+    },
+    "company": "fachkraft.ch GmbH",
+    "companyKey": "fachkraft",
+    "location": "Baden, Aargau",
+    "addressLocality": "Baden",
+    "descriptionByLocale": {
+      "it": "Attività - lavorazione di profili in alluminio e acciaio - produzione di pezzi piegati - saldatura e montaggio - giunzione di profili con vetro e materiali aggiuntivi - produzione di elementi per tetti in vetro e conservatori\n• Requisiti - Pratica come metalworker - Conoscenza completa nella costruzione del metallo - Dedicazione pronunciata nel lavoro quotidiano - Natura aperta e socievole - La categoria di licenza del conducente B offerta - Ambiente vivo con versatile\n• Compiti - Retribuzione attraente nel salario orario - Opzione per un lavoro permanente successivo Si lavorerà su questo compito\n• profili in alluminio e acciaio e svolge attività di saldatura e montaggio. L'azienda offre un ambiente di lavoro vivace con varie attività. Per il nostro cliente stiamo cercando un",
+      "en": "Activities - machining of aluminium and steel profiles - production of workpieces by folding - welding and assembly - joining of profiles with glass and additional materials - production of elements for glass roofs and conservatories\n• Requirements - Practice as a metalworker - Comprehensive knowledge in metal construction - Pronounced dedication in everyday work - Open and sociable nature - Driver's license category B available offer - Lively environment with versatile\n• Tasks - Attractive remuneration in the hourly wage - Option for a later permanent job You will work on this task\n• profiles made of aluminium and steel and performs welding and assembly activities. The company offers you a lively working environment with varied activities. For our client we are looking for a",
+      "de": "Tätigkeiten - Bearbeitung von Profilen aus Aluminium und Stahl - Fertigung von Werkstücken durch Abkanten - Ausführung von Schweissarbeiten und Montagen - Verbindung von Profilen mit Glas und Zusatzmaterialien - Herstellung von Elementen für Glasdächer und Wintergärten\n• Anforderungen - Praxis als Metallbauerin oder Metallbauer - Umfassende Kenntnisse im Metallbau - Ausgeprägte Einsatzfreude im Arbeitsalltag - Offene und kontaktfreudige Art - Führerausweis Kategorie B vorhanden Angebot - Lebendiges Umfeld mit vielseitigen\n• Aufgaben - Attraktive Entlöhnung im Stundenlohn - Option auf eine spätere Festanstellung Bei dieser Aufgabe bearbeitest du\n• Profile aus Aluminium und Stahl und führst Schweisstätigkeiten sowie Montagen aus. Der Betrieb bietet dir ein lebendiges Arbeitsumfeld mit abwechslungsreichen Tätigkeiten. Für unseren Auftraggeber suchen wir eine/n",
+      "fr": "Activités - usinage de profilés en aluminium et en acier - production de pièces par pliage - soudage et assemblage - assemblage de profilés avec du verre et des matériaux supplémentaires - production d'éléments pour toitures et réservoirs en verre\n• Exigences - Pratique en tant que métallurgique - Connaissance complète de la construction en métal - Dévouement prononcé dans le travail quotidien - Nature ouverte et sociable - Offre de licence de conducteur de catégorie B - Un environnement animé et polyvalent\n• Tâches - Rémunération attractive dans le salaire horaire - Option pour un emploi permanent ultérieur Vous travaillerez sur cette tâche\n• profilés en aluminium et en acier et effectue des activités de soudage et de montage. L'entreprise vous offre un environnement de travail animé avec des activités variées. Pour notre client, nous cherchons"
+    },
+    "slugByLocale": {
+      "it": "metallbauer-in-hilfsarbeiter-in-per-glasdacher-e-wintergarten-fachkraft-ch-gmbh-baden-988e3916",
+      "en": "metalworker-auxiliary-worker-for-glass-roofs-and-conservatories-fachkraft-ch-gmbh-baden-aargau",
+      "de": "metallbauer-in-hilfsarbeiter-in-fur-glasdacher-und-wintergarten-baden-aargau-fachkraft-ch-17a239c5",
+      "fr": "constructeur-constructrice-de-metal-ouvrier-trice-auxiliaire-pour-toits-en-verre-et-jardins-d-hiver-fachkraft-ch-gmbh"
+    },
+    "sector": "Altro",
+    "expiredAt": "2026-10-25T22:09:01.574Z",
+    "previousSlugsByLocale": {
+      "it": [
+        "metallbauer-in-hilfsarbeiter-in-fur-glasdacher-und-wintergarten-baden-aargau-fachkraft-ch-17a239c5"
+      ],
+      "en": [
+        "metallbauer-in-hilfsarbeiter-in-fur-glasdacher-und-wintergarten-baden-aargau-fachkraft-ch-17a239c5"
+      ],
+      "fr": [
+        "metallbauer-in-hilfsarbeiter-in-fur-glasdacher-und-wintergarten-baden-aargau-fachkraft-ch-17a239c5"
+      ],
+      "de": [
+        "metallbauer-in-hilfsarbeiter-in-fur-glasdacher-und-wintergarten-baden-aargau-fachkraft-ch-17a239c5"
+      ]
+    },
+    "postalCode": "5400",
+    "salaryMin": 62000,
+    "salaryMax": 94000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://www.fachkraft.ch/stellen/metallbauer-in-hilfsarbeiter-in-baden-temporaer-301464",
+    "firstSeenAt": "2026-09-26T15:25:37.520Z"
+  },
+  {
+    "slug": "schreiner-in-hilfsarbeiter-in-per-mobel-e-kuchenmontagen-fachkraft-ch-gmbh-bulach-cd513afd",
+    "title": "Schreiner/in (Hilfsarbeiter/in) für Möbel- und Küchenmontagen",
+    "titleByLocale": {
+      "it": "Falegname (operaio ausiliario) per il montaggio di mobili e cucine",
+      "en": "Carpenter (unskilled worker) for furniture and kitchen assembly",
+      "de": "Schreiner/in (Hilfsarbeiter/in) für Möbel- und Küchenmontagen",
+      "fr": "Menuisier-ère (ouvrier-ère auxiliaire) pour le montage de meubles et de cuisines"
+    },
+    "company": "fachkraft.ch GmbH",
+    "companyKey": "fachkraft",
+    "location": "Bülach, Zürich",
+    "addressLocality": "Bülach",
+    "descriptionByLocale": {
+      "it": "Attività - realizzare mobili e impianti cucina in loco - implementare progetti di interior design indipendentemente - utilizzare materiali di assemblaggio e strumenti professionalmente\n• Requisiti - Prontezza di rimanere durante la notte durante le assegnazioni - Ampia competenza in legno e costruzione d'interni - Alto impegno e disponibilità a svolgere - Persona comunicativa e amichevole Offerta - Eccitante e varia\n• Compiti - Condizioni di lavoro moderato con spirito di squadra - Viene fornito uno strumento di assemblaggio moderno In loco, mobili e cucine sono professionalmente assemblati e progetti di interior design sono implementati. Un moderno strumento di assemblaggio supporta il lavoro in un team dinamico. Portate uno stile comunicativo e siete altamente motivati? Per il nostro cliente stiamo cercando un",
+      "en": "Activities - carry out furniture and kitchen installations on site - implement interior design projects independently - use assembly materials and tools professionally\n• Requirements - Readiness to stay overnight during the assignments - Extensive expertise in wood and interior construction - High commitment and willingness to perform - Communicative and friendly personality Offer - Exciting and varied\n• Tasks - Moderate employment conditions with team spirit - Modern assembly tool is provided On site, furniture and kitchens are professionally assembled and interior design projects are implemented. A modern assembly tool supports work in a dynamic team. Do you bring a communicative style and are highly motivated? For our client we are looking for a",
+      "de": "Tätigkeiten - Möbel- und Küchenmontagen vor Ort durchführen - Innenausbauprojekte selbstständig realisieren - Montagematerial und Werkzeuge fachgerecht einsetzen\n• Anforderungen - Bereitschaft zu Übernachtungen während der Einsätze - Umfangreiche Fachkenntnisse im Holz- und Innenausbau - Hohe Einsatzbereitschaft und Leistungswillen - Kommunikative und freundliche Persönlichkeit Angebot - Spannende und abwechslungsreiche\n• Aufgaben - Moderate Anstellungsbedingungen mit Teamspirit - Modernes Montagewerkzeug wird bereitgestellt Vor Ort werden Möbel und Küchen professionell montiert und Innenausbauprojekte umgesetzt. Ein modernes Montagewerkzeug unterstützt die Arbeit in einem dynamischen Team. Du bringst eine kommunikative Art mit und bist hoch motiviert? Für unseren Auftraggeber suchen wir eine/n",
+      "fr": "Activités - réalisation de meubles et d'installations de cuisine sur place - mise en œuvre indépendante de projets de design d'intérieur - utilisation professionnelle des matériaux et outils d'assemblage\n• Besoins - Prêt à passer la nuit durant les travaux - Expertise étendue en bois et en construction intérieure - Engagement et volonté d'accomplir - Personnalité communicative et amicale Offre - Excitant et varié\n• Tâches - Conditions d'emploi modérées avec esprit d'équipe - L'outil de montage moderne est fourni Sur place, les meubles et les cuisines sont assemblés professionnellement et des projets d'aménagement intérieur sont mis en œuvre. Un outil d'assemblage moderne soutient le travail dans une équipe dynamique. Apportez-vous un style communicatif et êtes-vous très motivé ? Pour notre client, nous cherchons"
+    },
+    "slugByLocale": {
+      "it": "schreiner-in-hilfsarbeiter-in-per-mobel-e-kuchenmontagen-fachkraft-ch-gmbh-bulach-cd513afd",
+      "en": "carpenter-unskilled-worker-for-furniture-and-kitchen-assembly-fachkraft-ch-gmbh-bulach-zurich",
+      "de": "schreiner-in-hilfsarbeiter-in-fur-mobel-und-kuchenmontagen-bulach-zurich-fachkraft-ch-fc1350a8",
+      "fr": "menuisier-ere-ouvrier-ere-auxiliaire-pour-le-montage-de-meubles-et-de-cuisines-fachkraft-ch-gmbh-bulach-zurich"
+    },
+    "sector": "Altro",
+    "expiredAt": "2026-10-19T22:21:18.316Z",
+    "previousSlugs": [
+      "schreiner-in-hilfsarbeiter-in-per-mobel-e-kuchenmontagen-fachkraft-ch-gmbh-lugano",
+      "schreiner-in-hilfsarbeiter-in-fur-mobel-und-kuchenmontagen-fachkraft-ch",
+      "schreiner-in-hilfsarbeiter-in-per-mobel-e-kuchenmontagen-fachkraft-ch-gmbh-lugano-8tzrpe",
+      "carpenter-auxiliary-worker-for-furniture-and-kitchen-assemblies-fachkraft-ch-gmbh-lugano",
+      "charpentier-ouvrier-auxiliaire-pour-meubles-et-ensembles-de-cuisine-fachkraft-ch-gmbh-lugano",
+      "schreiner-in-hilfsarbeiter-in-kuchenmontagen-fachkraft-ch",
+      "schreiner-in-hilfsarbeiter-in-kuchenmontagen-winterthur-zurich-fachkraft-ch",
+      "carpenter-lavoratore-ausiliario-cucina-assemblee-fachkraft-ch-gmbh-lugano",
+      "carpenter-auxiliary-worker-kitchen-assemblies-fachkraft-ch-gmbh-lugano",
+      "schreiner-in-hilfsarbeiter-in-kuchenmontagen-fachkraft-ch-sit62r",
+      "charpentier-ouvrier-auxiliaire-assemblages-de-cuisine-fachkraft-ch-gmbh-lugano",
+      "schreiner-in-hilfsarbeiter-in-8211-kuchenmontagen-winterthur-zurich-fachkraft-ch",
+      "carpenter-auxiliary-worker-for-furniture-and-kitchen-assemblies-fachkraft-ch-gmbh-bulach-zurich",
+      "charpentier-ouvrier-auxiliaire-pour-meubles-et-cuisines-fachkraft-ch-gmbh-bulach-zurich",
+      "carpenter-unskilled-worker-for-furniture-and-kitchen-assembly-fachkraft-ch-gmbh-bulach",
+      "menuisier-ere-ouvrier-ere-auxiliaire-pour-le-montage-de-meubles-et-de-cuisines-fachkraft-ch-gmbh-bulach"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "schreiner-in-hilfsarbeiter-in-fur-mobel-und-kuchenmontagen-bulach-zurich-fachkraft-ch-fc1350a8",
+        "schreiner-in-hilfsarbeiter-in-per-mobel-e-kuchenmontagen-fachkraft-ch-gmbh-lugano",
+        "schreiner-in-hilfsarbeiter-in-fur-mobel-und-kuchenmontagen-fachkraft-ch",
+        "schreiner-in-hilfsarbeiter-in-per-mobel-e-kuchenmontagen-fachkraft-ch-gmbh-lugano-8tzrpe",
+        "carpenter-auxiliary-worker-for-furniture-and-kitchen-assemblies-fachkraft-ch-gmbh-lugano",
+        "charpentier-ouvrier-auxiliaire-pour-meubles-et-ensembles-de-cuisine-fachkraft-ch-gmbh-lugano",
+        "schreiner-in-hilfsarbeiter-in-kuchenmontagen-fachkraft-ch",
+        "schreiner-in-hilfsarbeiter-in-kuchenmontagen-winterthur-zurich-fachkraft-ch",
+        "carpenter-lavoratore-ausiliario-cucina-assemblee-fachkraft-ch-gmbh-lugano",
+        "carpenter-auxiliary-worker-kitchen-assemblies-fachkraft-ch-gmbh-lugano",
+        "schreiner-in-hilfsarbeiter-in-kuchenmontagen-fachkraft-ch-sit62r",
+        "charpentier-ouvrier-auxiliaire-assemblages-de-cuisine-fachkraft-ch-gmbh-lugano",
+        "schreiner-in-hilfsarbeiter-in-8211-kuchenmontagen-winterthur-zurich-fachkraft-ch",
+        "carpenter-auxiliary-worker-for-furniture-and-kitchen-assemblies-fachkraft-ch-gmbh-bulach-zurich",
+        "charpentier-ouvrier-auxiliaire-pour-meubles-et-cuisines-fachkraft-ch-gmbh-bulach-zurich"
+      ],
+      "en": [
+        "schreiner-in-hilfsarbeiter-in-fur-mobel-und-kuchenmontagen-bulach-zurich-fachkraft-ch-fc1350a8",
+        "carpenter-unskilled-worker-for-furniture-and-kitchen-assembly-fachkraft-ch-gmbh-bulach"
+      ],
+      "fr": [
+        "schreiner-in-hilfsarbeiter-in-fur-mobel-und-kuchenmontagen-bulach-zurich-fachkraft-ch-fc1350a8",
+        "menuisier-ere-ouvrier-ere-auxiliaire-pour-le-montage-de-meubles-et-de-cuisines-fachkraft-ch-gmbh-bulach"
+      ],
+      "de": [
+        "schreiner-in-hilfsarbeiter-in-fur-mobel-und-kuchenmontagen-bulach-zurich-fachkraft-ch-fc1350a8"
+      ]
+    },
+    "postalCode": "8180",
+    "salaryMin": 73500,
+    "salaryMax": 111500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://www.fachkraft.ch/stellen/schreiner-in-hilfsarbeiter-in-buelach-temporaer-299190",
+    "firstSeenAt": "2026-08-23T21:53:41.934Z"
+  },
+  {
+    "slug": "schreiner-in-per-montage-e-service-fachkraft-ch-gmbh-zofingen-0c4a816c",
+    "title": "Schreiner/in für Montage und Service",
+    "titleByLocale": {
+      "it": "Falegname per assemblaggio e servizio",
+      "en": "Carpenter for assembly and service",
+      "de": "Schreiner/in für Montage und Service",
+      "fr": "Menuisier/menuisière pour le montage et le service"
+    },
+    "company": "fachkraft.ch GmbH",
+    "companyKey": "fachkraft",
+    "location": "Zofingen, Aargau",
+    "addressLocality": "Zofingen",
+    "descriptionByLocale": {
+      "it": "Attività - Assemblaggio di finestre - Lavoro di adattamento - Serice e riparazione\n• Requisiti - apprendistato completato come carpentiere - Esperienza di settore approfondita - Metodi di lavoro esatti e avanzati - Aspetto del cliente - Gioia e interesse per la professione Offerta Il nostro cliente vi offre un ambiente dinamico con un sacco di entusiasmo e un contenuto di lavoro più vario. Si beneficia anche di un ottimo salario orario. Il lavoro comprende l'installazione di finestre, nonché l'adattamento e il lavoro di riparazione. Un ambiente dinamico fornisce un sacco di varietà e incarichi interessanti. A nome del nostro cliente stiamo cercando un",
+      "en": "Activities - Assembly of windows - Adaptation work - Serice and repair work\n• Requirements - apprenticeship completed as carpenter - In-depth industry experience - Exact and forward working methods - Customer-friendly appearance - Joy and interest in the profession Offer Our client offers you a dynamic environment with a lot of enthusiasm as well as a more varied work content. You also benefit from an excellent hourly wage. The work includes the installation of windows as well as adaptation and repair work. A dynamic environment provides a lot of variety and exciting assignments. On behalf of our client we are looking for a",
+      "de": "Tätigkeiten - Montage von Fenstern - Anpassungsarbeiten - Serice- und Reparaturarbeiten\n• Anforderungen - Lehre als Schreiner abgeschlossen - Fundierte Branchenerfahrung - Exakte und speditive Arbeitsweise - Kundenfreundliches Auftreten - Freude und Interesse am Beruf Angebot Unser Auftraggeber bietet Ihnen ein dynamisches Umfeld mit viel Elan sowie einen abwechslungsreicheren Arbeitsinhalt. Zudem profitieren Sie von einem ausgezeichneten Stundenlohn. Die Arbeit umfasst die Montage von Fenstern sowie Anpassungs- und Reparaturarbeiten. Ein dynamisches Umfeld sorgt für viel Abwechslung und spannende Einsätze. Im Auftrag unseres Kunden suchen wir eine/n",
+      "fr": "Activités - Montage de fenêtres - Travaux d'adaptation - Travaux de serçage et de réparation\n• Exigences - apprentissage effectué comme charpentier - Expérience industrielle approfondie - Méthodes de travail précises et avancées - Aspect convivial du client - Joy et intérêt pour la profession Offre Notre client vous offre un environnement dynamique avec beaucoup d'enthousiasme ainsi qu'un contenu de travail plus varié. Vous bénéficiez également d'un excellent salaire horaire. Le travail comprend l'installation de fenêtres ainsi que des travaux d'adaptation et de réparation. Un environnement dynamique offre beaucoup de variété et des missions passionnantes. Au nom de notre client, nous cherchons"
+    },
+    "slugByLocale": {
+      "it": "schreiner-in-per-montage-e-service-fachkraft-ch-gmbh-zofingen-0c4a816c",
+      "en": "carpenter-for-assembly-and-service-fachkraft-ch-gmbh-zofingen-aargau",
+      "de": "schreiner-in-fur-montage-und-service-zofingen-aargau-fachkraft-ch-97228bfe",
+      "fr": "menuisier-menuisiere-pour-le-montage-et-le-service-fachkraft-ch-gmbh-zofingen-aargau"
+    },
+    "sector": "Altro",
+    "expiredAt": "2026-10-19T22:21:18.316Z",
+    "previousSlugsByLocale": {
+      "it": [
+        "schreiner-in-fur-montage-und-service-zofingen-aargau-fachkraft-ch-97228bfe"
+      ],
+      "en": [
+        "schreiner-in-fur-montage-und-service-zofingen-aargau-fachkraft-ch-97228bfe"
+      ],
+      "fr": [
+        "schreiner-in-fur-montage-und-service-zofingen-aargau-fachkraft-ch-97228bfe"
+      ],
+      "de": [
+        "schreiner-in-fur-montage-und-service-zofingen-aargau-fachkraft-ch-97228bfe"
+      ]
+    },
+    "postalCode": "4800",
+    "salaryMin": 62000,
+    "salaryMax": 94000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://www.fachkraft.ch/stellen/schreiner-in-zofingen-temporaer-301826",
+    "firstSeenAt": "2026-09-29T22:24:17.592Z"
+  },
+  {
+    "slug": "maler-in-per-vielseitige-malerarbeiten-fachkraft-ch-gmbh-baden-b1703343",
+    "title": "Maler/in für vielseitige Malerarbeiten",
+    "titleByLocale": {
+      "it": "Pittore/pittrice per lavori di pittura versatili",
+      "en": "Painter for versatile painting work",
+      "de": "Maler/in für vielseitige Malerarbeiten",
+      "fr": "Peintre pour un travail de peinture polyvalent"
+    },
+    "company": "fachkraft.ch GmbH",
+    "companyKey": "fachkraft",
+    "location": "Baden, Aargau",
+    "addressLocality": "Baden",
+    "descriptionByLocale": {
+      "it": "Attività - Dipingere professionalmente facciate esterne - Rivestire pareti e soffitti interni - Verniciare porte, finestre e altri elementi\n• Requisiti - Completato l'apprendistato come pittore - Pratica con solida esperienza nel settore pittorico - Esecuzione del lavoro pulita e allo stesso tempo efficiente - Comportamento sicuro e piacevole nei contatti con i clienti - Piacere della professione di pittore Offerta - Gamma variegata di compiti nel settore pittorico - Ambiente di lavoro personale in un'azienda familiare - Condizioni adeguate Il tuo compito include la pittura delle facciate esterne e la finitura delle pareti interne. L'azienda attribuisce grande importanza a un'atmosfera piacevole e ti offre un ambiente di lavoro personale. Stiamo cercando un",
+      "en": "Activities - Paint exterior facades professionally - Coated interior walls and ceilings - Paint doors, windows and other elements\n• Requirements - Completed apprenticeship as a painter - Practice with a solid background in the painting industry - Clean and at the same time efficient work execution - Safe and pleasant behavior in customer contact - Pleasure in the profession as a painter or painter Offer - Various tasks in the painting sector - Personal working environment in a family company - Appropriate conditions Your task includes painting exterior facades and finishing interior walls. The company attaches importance to a pleasant cooperation and offers you a personal working environment. For our client we are looking for a",
+      "de": "Tätigkeiten - Aussenfassaden fachgerecht streichen - Innenwände und Decken mit Beschichtungen versehen - Türen, Fenster und weitere Elemente lackieren\n• Anforderungen - Abgeschlossene Lehre als Malerin oder Maler - Praxis mit solidem Hintergrund im Malergewerbe - Saubere und zugleich effiziente Arbeitsausführung - Sicheres und angenehmes Verhalten im Kundenkontakt - Freude am Beruf als Malerin oder Maler Angebot - Vielseitiges Aufgabengebiet im Malerbereich - Persönliches Arbeitsumfeld in einem familiären Betrieb - Angemessene Konditionen Deine Aufgabe umfasst das Streichen von Aussenfassaden und das Veredeln von Innenwänden. Der Betrieb legt Wert auf ein angenehmes Miteinander und bietet dir ein persönliches Arbeitsumfeld. Für unseren Auftraggeber suchen wir eine/n",
+      "fr": "Activités - Peinture façades extérieures professionnelles - Murs intérieurs et plafonds enduits - Portes de peinture, fenêtres et autres éléments\n• Exigences - Apprentissage complet en tant que peintre - Pratique avec un fond solide dans l'industrie de la peinture - Exécution propre et en même temps efficace du travail - Comportement sûr et agréable en contact avec le client - Plaisir dans la profession en tant que peintre ou peintre Offre - Diverses tâches dans le secteur de la peinture - Environnement de travail personnel dans une entreprise familiale - Conditions appropriées Votre tâche comprend la peinture des façades extérieures et la finition des murs intérieurs. L'entreprise attache de l'importance à une coopération agréable et vous offre un environnement de travail personnel. Pour notre client, nous cherchons"
+    },
+    "slugByLocale": {
+      "it": "maler-in-per-vielseitige-malerarbeiten-fachkraft-ch-gmbh-baden-b1703343",
+      "en": "painter-for-versatile-painting-work-fachkraft-ch-gmbh-baden-aargau",
+      "de": "maler-in-fur-vielseitige-malerarbeiten-baden-aargau-fachkraft-ch-14fca772",
+      "fr": "peintre-pour-un-travail-de-peinture-polyvalent-fachkraft-ch-gmbh-baden-aargau"
+    },
+    "sector": "Altro",
+    "expiredAt": "2026-10-14T21:59:47.045Z",
+    "previousSlugsByLocale": {
+      "it": [
+        "maler-in-fur-vielseitige-malerarbeiten-baden-aargau-fachkraft-ch-14fca772"
+      ],
+      "en": [
+        "maler-in-fur-vielseitige-malerarbeiten-baden-aargau-fachkraft-ch-14fca772"
+      ],
+      "fr": [
+        "maler-in-fur-vielseitige-malerarbeiten-baden-aargau-fachkraft-ch-14fca772"
+      ],
+      "de": [
+        "maler-in-fur-vielseitige-malerarbeiten-baden-aargau-fachkraft-ch-14fca772"
+      ]
+    },
+    "postalCode": "5400",
+    "salaryMin": 62000,
+    "salaryMax": 94000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://www.fachkraft.ch/stellen/maler-in-baden-temporaer-304882",
+    "firstSeenAt": "2026-10-03T10:07:24.293Z"
+  },
+  {
+    "slug": "zimmermann-zimmerin-hilfsarbeiter-in-per-montage-von-holzfassaden-fachkraft-ch-gmbh-winterthur-77c76983",
+    "title": "Zimmermann/Zimmerin (Hilfsarbeiter/in) für Montage von Holzfassaden",
+    "titleByLocale": {
+      "it": "Carpentiere (manovale) per il montaggio di facciate in legno",
+      "en": "Carpenter (auxiliary worker) for the installation of wooden facades",
+      "de": "Zimmermann/Zimmerin (Hilfsarbeiter/in) für Montage von Holzfassaden",
+      "fr": "Charpentier/charpentière (ouvrier/-ère auxiliaire) pour le montage de façades en bois"
+    },
+    "company": "fachkraft.ch GmbH",
+    "companyKey": "fachkraft",
+    "location": "Winterthur, Zürich",
+    "addressLocality": "Winterthur",
+    "descriptionByLocale": {
+      "it": "Attività - Montaggio di facciate in legno - Costruzione di elementi - Costruzione di oggetti - Costruzione di interni\n• Requisiti - Competenze versatili - Alta disponibilità a svolgere - Personalità fondata, comunicativa - Patente di guida B di vantaggio Offerta Si prevede di avere un team esperto con molti anni di know-how, un lavoro emozionante con progetti impegnativi e un attraente salario orario. Il lavoro di assemblaggio sulle facciate in legno è al centro del vostro lavoro. L'azienda attribuisce importanza a un team impegnato e a progetti entusiasmanti. Per il nostro cliente stiamo cercando un",
+      "en": "Activities - Assembly of wooden facades - Element construction - Object construction - Interior construction\n• Requirements - Versatile expertise - High willingness to perform - Established, communicative personality - Driver's license B of advantage Offer It is expected You have an experienced team with many years of know-how, an exciting job with challenging projects and an attractive hourly wage. Assembly work on wooden facades is the focus of your work. The company attaches importance to a committed team and exciting projects. For our client we are looking for a",
+      "de": "Tätigkeiten - Montage von Holzfassaden - Elementbau - Objektbau - Innenausbau\n• Anforderungen - Vielseitige Fachkenntnisse - Hohe Leistungsbereitschaft - Aufgestellte, kommunikative Persönlichkeit - Führerausweis B von Vorteil Angebot Es erwartet Sie ein eingespieltes Team mit langjährigem Know-how, eine spannende Tätigkeit mit anspruchsvollen Projekten und ein attraktiver Stundenlohn. Montagearbeiten an Holzfassaden stehen im Mittelpunkt deiner Tätigkeit. Der Betrieb legt Wert auf ein engagiertes Team und spannende Projekte. Für unseren Auftraggeber suchen wir eine/n",
+      "fr": "Activités - Montage de façades en bois - Construction d'éléments - Construction d'objets - Construction intérieure\n• Exigences - Expertise polyvalente - Haute volonté d'exécuter - Personnalité de communication établie - Licence de conducteur B d'avantage Offre Il est attendu Vous avez une équipe expérimentée avec de nombreuses années de savoir-faire, un travail passionnant avec des projets difficiles et un salaire horaire attrayant. Le travail d'assemblage sur façades en bois est au centre de votre travail. L'entreprise attache de l'importance à une équipe engagée et à des projets passionnants. Pour notre client, nous cherchons"
+    },
+    "slugByLocale": {
+      "it": "zimmermann-zimmerin-hilfsarbeiter-in-per-montage-von-holzfassaden-fachkraft-ch-gmbh-winterthur-77c76983",
+      "en": "carpenter-auxiliary-worker-for-the-installation-of-wooden-facades-fachkraft-ch-gmbh-winterthur-zurich",
+      "de": "zimmermann-zimmerin-hilfsarbeiter-in-fur-montage-von-holzfassaden-winterthur-zurich-e82aa940",
+      "fr": "charpentier-charpentiere-ouvrier-ere-auxiliaire-pour-le-montage-de-facades-en-bois-fachkraft-ch-gmbh-winterthur-zurich"
+    },
+    "sector": "Altro",
+    "expiredAt": "2026-10-11T10:34:25.951Z",
+    "previousSlugs": [
+      "zimmermann-zimmerin-hilfsarbeiter-in-per-montage-von-holzfassaden-fachkraft-ch-gmbh-lugano",
+      "zimmermann-zimmerin-hilfsarbeiter-in-fur-montage-von-holzfassaden-fachkraft-ch",
+      "zimmermann-zimmerin-hilfsarbeiter-in-per-montage-von-holzfassaden-fachkraft-ch-gmbh-yb6t1j",
+      "zimmermann-zimmerin-auxiliary-worker-for-the-assembly-of-wooden-facades-fachkraft-ch-gmbh-lugano",
+      "zimmermann-zimmerin-ouvrier-auxiliaire-pour-l-assemblage-de-facades-en-bois-fachkraft-ch-gmbh-lugano"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "zimmermann-zimmerin-hilfsarbeiter-in-fur-montage-von-holzfassaden-winterthur-zurich-e82aa940",
+        "zimmermann-zimmerin-hilfsarbeiter-in-per-montage-von-holzfassaden-fachkraft-ch-gmbh-lugano",
+        "zimmermann-zimmerin-hilfsarbeiter-in-fur-montage-von-holzfassaden-fachkraft-ch",
+        "zimmermann-zimmerin-hilfsarbeiter-in-per-montage-von-holzfassaden-fachkraft-ch-gmbh-yb6t1j",
+        "zimmermann-zimmerin-auxiliary-worker-for-the-assembly-of-wooden-facades-fachkraft-ch-gmbh-lugano",
+        "zimmermann-zimmerin-ouvrier-auxiliaire-pour-l-assemblage-de-facades-en-bois-fachkraft-ch-gmbh-lugano"
+      ],
+      "en": [
+        "zimmermann-zimmerin-hilfsarbeiter-in-fur-montage-von-holzfassaden-winterthur-zurich-e82aa940"
+      ],
+      "fr": [
+        "zimmermann-zimmerin-hilfsarbeiter-in-fur-montage-von-holzfassaden-winterthur-zurich-e82aa940"
+      ],
+      "de": [
+        "zimmermann-zimmerin-hilfsarbeiter-in-fur-montage-von-holzfassaden-winterthur-zurich-e82aa940"
+      ]
+    },
+    "postalCode": "8400",
+    "salaryMin": 73500,
+    "salaryMax": 111500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://www.fachkraft.ch/stellen/zimmermann-zimmerin-hilfsarbeiter-in-winterthur-temporaer-296824",
+    "firstSeenAt": "2026-08-23T21:55:57.671Z"
   }
 ]

@@ -2092,7 +2092,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-11-19T21:40:22.955Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Sihlstrasse 9",
@@ -3634,12 +3633,12 @@
     },
     {
       "id": "zfv-unternehmungen-e59bd56a99d9",
-      "slug": "kochin-koch-cfc-apprendistato-2027-zfv-unternehmungen-zurich-9a04bb65bb",
+      "slug": "cuoca-cuoco-posto-di-apprendistato-afc-2027-zfv-unternehmungen-zurich",
       "slugByLocale": {
         "de": "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-zurich",
-        "it": "kochin-koch-cfc-apprendistato-2027-zfv-unternehmungen-zurich-9a04bb65bb",
-        "en": "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-zurich",
-        "fr": "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-zurich"
+        "it": "cuoca-cuoco-posto-di-apprendistato-afc-2027-zfv-unternehmungen-zurich",
+        "en": "chef-cook-efz-apprenticeship-2027-zfv-unternehmungen-zurich-1ab9e5",
+        "fr": "chef-cuisinier-efz-apprentissage-2027-zfv-unternehmungen-zurich-1ab9e5"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -3664,7 +3663,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-11-19T21:40:11.903Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Museumstrasse 1 / 3. Stock",
@@ -3688,12 +3686,20 @@
       "previousSlugsByLocale": {
         "it": [
           "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-zurich",
-          "kochin-koch-cfc-apprendistato-2027-zfv-unternehmungen-zurich"
+          "kochin-koch-cfc-apprendistato-2027-zfv-unternehmungen-zurich",
+          "kochin-koch-cfc-apprendistato-2027-zfv-unternehmungen-zurich-9a04bb65bb"
+        ],
+        "en": [
+          "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-zurich"
+        ],
+        "fr": [
+          "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-zurich"
         ]
       },
       "previousSlugs": [
         "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-zurich",
-        "kochin-koch-cfc-apprendistato-2027-zfv-unternehmungen-zurich"
+        "kochin-koch-cfc-apprendistato-2027-zfv-unternehmungen-zurich",
+        "kochin-koch-cfc-apprendistato-2027-zfv-unternehmungen-zurich-9a04bb65bb"
       ],
       "salaryMin": 58000,
       "salaryMax": 73000,
@@ -7400,9 +7406,9 @@
     },
     {
       "id": "zfv-unternehmungen-3aff0a69f615",
-      "slug": "chef-cook-apprendistato-efz-2027-zfv-unternehmungen-zurich-b1fef87251",
+      "slug": "kochin-koch-cfc-apprendistato-2027-zfv-unternehmungen-zurich",
       "slugByLocale": {
-        "it": "chef-cook-apprendistato-efz-2027-zfv-unternehmungen-zurich-b1fef87251",
+        "it": "kochin-koch-cfc-apprendistato-2027-zfv-unternehmungen-zurich",
         "en": "chef-cook-efz-apprenticeship-2027-zfv-unternehmungen-zurich",
         "de": "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-zurich",
         "fr": "chef-cuisinier-efz-apprentissage-2027-zfv-unternehmungen-zurich"
@@ -7450,12 +7456,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-zurich",
-        "kochin-koch-cfc-apprendistato-2027-zfv-unternehmungen-zurich"
+        "chef-cook-apprendistato-efz-2027-zfv-unternehmungen-zurich-b1fef87251"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-zurich",
-          "kochin-koch-cfc-apprendistato-2027-zfv-unternehmungen-zurich"
+          "chef-cook-apprendistato-efz-2027-zfv-unternehmungen-zurich-b1fef87251"
         ],
         "en": [
           "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-zurich"
@@ -7568,9 +7574,9 @@
     },
     {
       "id": "zfv-unternehmungen-20cb0ed2f895",
-      "slug": "chef-di-cucina-zfv-unternehmungen-zurich-8f92a7ae55",
+      "slug": "chef-di-cucina-zfv-unternehmungen-zurich",
       "slugByLocale": {
-        "it": "chef-di-cucina-zfv-unternehmungen-zurich-8f92a7ae55",
+        "it": "chef-di-cucina-zfv-unternehmungen-zurich",
         "en": "head-chef-zfv-unternehmungen-zurich",
         "de": "kuchenchef-in-zfv-unternehmungen-zurich",
         "fr": "chef-fe-de-cuisine-zfv-unternehmungen-zurich"
@@ -7626,7 +7632,7 @@
         "chef-in-zfv-unternehmungen-zurich",
         "chef-zfv-unternehmungen-zurich",
         "kuchenchef-in-zfv-unternehmungen-zurich",
-        "chef-di-cucina-zfv-unternehmungen-zurich"
+        "chef-di-cucina-zfv-unternehmungen-zurich-8f92a7ae55"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7637,7 +7643,7 @@
           "head-of-service-zfv-unternehmungen-zurich",
           "chef-in-zfv-unternehmungen-zurich",
           "kuchenchef-in-zfv-unternehmungen-zurich",
-          "chef-di-cucina-zfv-unternehmungen-zurich"
+          "chef-di-cucina-zfv-unternehmungen-zurich-8f92a7ae55"
         ],
         "en": [
           "chief-de-service-zfv-unternehmungen-zurich",

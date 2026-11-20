@@ -80,12 +80,39 @@
     "expiredAt": "2026-11-11T21:33:48.957Z",
     "previousSlugs": [
       "dipl-pflegefachperson-in-der-epileptologie-a-im-fruh-und-spatdienst-klinik-lengg-zurich",
-      "infermiere-diplomato-in-epilessia-a-in-servizio-anticipato-e-posticipato-klinik-lengg-zurich"
+      "infermiere-diplomato-in-epilessia-a-in-servizio-anticipato-e-posticipato-klinik-lengg-zurich",
+      "infermiere-diplomato-in-epilessia-a-in-servizio-anticipato-e-posticipato-klinik-lengg-zurich-71547d0e",
+      "dipl-pflegefachperson-in-der-epileptologie-a-im-fruh-und-spatdienst-klinik-lengg-zurich-f1c4bef1",
+      "dipl-infermiera-in-epileptologia-a-in-servizio-anticipato-e-tardivo-klinik-lengg-zurich",
+      "dipl-pflegefachperson-in-der-epileptologie-a-im-fruh-e-spatdienst-klinik-lengg-zurich",
+      "infermiere-diplomato-in-epilessia-a-in-servizio-anticipato-e-posticipato-klinik-lengg-zurich-412f293734",
+      "qualified-nurse-in-epileptology-a-in-early-and-late-service-klinik-lengg-zurich-6f803ec0",
+      "dipl-nurse-in-epileptology-a-in-early-and-late-service-klinik-lengg-zurich",
+      "infirmier-diplome-en-epileptologie-a-en-service-matinal-et-tardif-klinik-lengg-zurich-36c1c8c8",
+      "dipl-infirmiere-en-epileptologie-a-en-debut-et-en-fin-de-service-klinik-lengg-zurich"
     ],
     "previousSlugsByLocale": {
       "it": [
         "dipl-pflegefachperson-in-der-epileptologie-a-im-fruh-und-spatdienst-klinik-lengg-zurich",
-        "infermiere-diplomato-in-epilessia-a-in-servizio-anticipato-e-posticipato-klinik-lengg-zurich"
+        "infermiere-diplomato-in-epilessia-a-in-servizio-anticipato-e-posticipato-klinik-lengg-zurich",
+        "infermiere-diplomato-in-epilessia-a-in-servizio-anticipato-e-posticipato-klinik-lengg-zurich-71547d0e",
+        "dipl-pflegefachperson-in-der-epileptologie-a-im-fruh-und-spatdienst-klinik-lengg-zurich-f1c4bef1",
+        "dipl-infermiera-in-epileptologia-a-in-servizio-anticipato-e-tardivo-klinik-lengg-zurich",
+        "dipl-pflegefachperson-in-der-epileptologie-a-im-fruh-e-spatdienst-klinik-lengg-zurich",
+        "infermiere-diplomato-in-epilessia-a-in-servizio-anticipato-e-posticipato-klinik-lengg-zurich-412f293734"
+      ],
+      "en": [
+        "qualified-nurse-in-epileptology-a-in-early-and-late-service-klinik-lengg-zurich-6f803ec0",
+        "dipl-nurse-in-epileptology-a-in-early-and-late-service-klinik-lengg-zurich",
+        "dipl-pflegefachperson-in-der-epileptologie-a-im-fruh-und-spatdienst-klinik-lengg-zurich"
+      ],
+      "de": [
+        "dipl-pflegefachperson-in-der-epileptologie-a-im-fruh-und-spatdienst-klinik-lengg-zurich-f1c4bef1"
+      ],
+      "fr": [
+        "infirmier-diplome-en-epileptologie-a-en-service-matinal-et-tardif-klinik-lengg-zurich-36c1c8c8",
+        "dipl-infirmiere-en-epileptologie-a-en-debut-et-en-fin-de-service-klinik-lengg-zurich",
+        "dipl-pflegefachperson-in-der-epileptologie-a-im-fruh-und-spatdienst-klinik-lengg-zurich"
       ]
     },
     "postalCode": "8001",
@@ -95,7 +122,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.kliniklengg.ch/offene-stellen/dipl-pflegefachperson-in-der-epileptologie-a-im-frueh-und-spaetdienst/56a7b4d6-a4a9-4bb3-9bb9-0c974caba4c0",
-    "firstSeenAt": "2026-08-19T09:51:02.915Z"
+    "firstSeenAt": "2026-08-19T09:51:02.915Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.kliniklengg.ch/offene-stellen/dipl-pflegefachperson-in-der-epileptologie-a-im-frueh-und-spaetdienst/2e98e869-f0d9-4180-af07-397f7bf3f762",
+        "firstSeenAt": "2026-08-19T09:51:02.915Z",
+        "title": "Dipl. Pflegefachperson in der Epileptologie (a) im Früh- und Spätdienst"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.kliniklengg.ch/offene-stellen/dipl-pflegefachperson-in-der-epileptologie-a-im-frueh-und-spaetdienst/56a7b4d6-a4a9-4bb3-9bb9-0c974caba4c0",
+        "firstSeenAt": "2026-08-19T09:51:02.915Z",
+        "title": "Dipl. Pflegefachperson in der Epileptologie (a) im Früh- und Spätdienst"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.kliniklengg.ch/offene-stellen/dipl-pflegefachperson-in-der-epileptologie-a-im-frueh-und-spaetdienst/ccab9860-04f6-4a79-9a85-03efb56f4fb1",
+        "firstSeenAt": "2026-08-19T09:51:02.915Z",
+        "title": "Dipl. Pflegefachperson in der Epileptologie (a) im Früh- und Spätdienst"
+      }
+    ]
   },
   {
     "slug": "formazione-professionale-in-dipl-infermiera-hf-fh-a-klinik-lengg-zurich",
@@ -147,67 +191,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.kliniklengg.ch/offene-stellen/berufsbildner-in-dipl-pflegefachperson-hf-fh-a/a27ec7d8-c538-4651-baee-80aea18b6e20",
-    "firstSeenAt": "2026-08-18T21:39:16.304Z"
-  },
-  {
-    "slug": "infermiere-diplomato-in-epilessia-a-in-servizio-anticipato-e-posticipato-klinik-lengg-zurich-71547d0e",
-    "title": "Dipl. Pflegefachperson in der Epileptologie (a) im Früh- und Spätdienst",
-    "titleByLocale": {
-      "it": "Infermiere diplomato in epilessia (a) in servizio anticipato e posticipato",
-      "en": "Qualified nurse in epileptology (a) in early and late service",
-      "de": "Dipl. Pflegefachperson in der Epileptologie (a) im Früh- und Spätdienst",
-      "fr": "Infirmier diplômé en épileptologie (a) en service matinal et tardif"
-    },
-    "company": "Klinik Lengg",
-    "companyKey": "klinik-lengg",
-    "location": "Zürich",
-    "addressLocality": "Zürich",
-    "descriptionByLocale": {
-      "it": "Compiti:\n• Sei responsabile del processo di cura dei pazienti assegnati a te, nel campo dell'epilessologia, sulla base dei modelli di cura applicati nella clinica di Lengg\n\n• Lavorano insieme con i professionisti della salute così come i nostri studenti, studenti e tirocinanti.\n\n• Si preoccupano e curano per i nostri pazienti con competenza in un team di trattamento interprofessionale composto da terapisti, medici e dipendenti dell'industria alberghiera\n\n• Accompagnare, consigliare e sostenere i parenti dei nostri pazienti completa l'area di responsabilità\n\nRequisiti\n• Hai completato con successo la formazione come Dipl. Infermiera / Infermiera specialista HF/FH\n\n• Prima esperienza professionale nell'epileptologia e nel trattare con pazienti gravemente diversi: all'interno sono un vantaggio\n\n• Esse eccellono come una personalità resiliente, comunicativa e aperta e godono di lavorare in un team\n\n• Essi dimostrano un alto livello di competenza sociale nel trattare con i pazienti e i loro parenti\n\n• Buon talento organizzativo e godimento della cooperazione interdisciplinare completano il loro profilo\n\nOffriamo:\n• Scegli tra FIX, FLEX o SUPERFLEX il modello di lavoro che più si adatta. I contratti Flex offrono la comodità di un contratto di lavoro fisso e vantaggi aggiuntivi interessanti sotto forma di incarichi di lavoro flessibili (progetto pilota dal 1o giugno 2025).\n\n• Ulteriori modelli con solo servizio anticipato o servizio tardivo così come il modello di lavoro con, senza o solo turno di notte sono stati stabiliti con noi per molto tempo.\n\nKlinik Lengg AG di Zurigo è il centro di eccellenza per l'epilessologia e la riabilitazione neurologica.\n\nIl nostro obiettivo è quello di fornire ai pazienti malattie neurologiche la più ampia riabilitazione possibile e garantire una diagnosi accurata e un trattamento sostenibile dei pazienti con epilessia. Circa 300 dipendenti si impegnano in modo umano, competente, innovativo e affidabile per garantire che i nostri pazienti riacquistano la massima indipendenza possibile - e quindi la loro qualità di vita. Diventa parte di una delle nostre squadre interdisciplinari e interprofessionali.",
-      "en": "Tasks:\n• You are responsible for the care process of the patients assigned to you, in the field of epileptology, based on the care models applied in the Lengg Clinic\n\n• They work together with the health professionals as well as our students, learners and interns.\n\n• They care for and care for our patients competently in an interprofessional treatment team consisting of therapists, doctors and employees of the hotel industry\n\n• Accompanying, advising and supporting the relatives of our patients completes the area of responsibility\n\nRequirements\n• You have successfully completed training as a Dipl. Nurse / Nurse specialist HF/FH\n\n• First professional experience in epileptology and in dealing with severely multiple impaired patients: inside are an advantage\n\n• They excel as a resilient, communicative and open personality and enjoy working in a team\n\n• They demonstrate a high level of social competence in dealing with patients and their relatives\n\n• Good organizational talent and enjoyment of interdisciplinary cooperation round off their profile\n\nWe offer:\n• Choose between FIX, FLEX or SUPERFLEX the working model that suits you best. Flex contracts offer you the convenience of a fixed employment contract and additional attractive advantages in the form of flexible work assignments (pilot project from 1 June 2025).\n\n• Further models with only early service or late service as well as the working model with, without or only night shift have been established with us for a long time.\n\nKlinik Lengg AG in Zurich is the centre of excellence for epileptology and neurological rehabilitation.\n\nIt is our aim to provide patients with neurological diseases with the widest possible rehabilitation and to ensure an accurate diagnosis and sustainable treatment of patients with epilepsy. Around 300 employees are committed to humanely, competently, innovatively and reliably ensuring that our patients regain the greatest possible independence - and thus their quality of life. Become part of one of our interdisciplinary and interprofessional teams.",
-      "de": "Aufgaben:\n• Sie tragen die Verantwortung für den Pflegeprozess der Ihnen zugeteilten Patientinnen und Patienten, im Fachbereich der Epileptologie, anhand der in der Klinik Lengg angewandten Pflegemodelle\n\n• Sie sind gemeinsam mit den Fachpersonen Gesundheit sowie unseren Studierenden, Lernenden und Praktikanten tätig.\n\n• Sie pflegen und betreuen unsere Patientinnen und Patienten kompetent in einem interprofessionellen Behandlungsteam bestehend aus Therapeuten, Ärzten sowie Mitarbeitenden der Hotellerie\n\n• Die Begleitung, Beratung und Unterstützung der Angehörigen unserer Patientinnen und Patienten runden das Aufgabengebiet ab\n\nAnforderungen:\n• Sie verfügen über eine erfolgreich abgeschlossene Ausbildung als Dipl. Pflegefachfrau / Pflegefachmann HF/FH\n\n• Erste Berufserfahrungen in der Epileptologie und im Umgang mit schwerst mehrfachbeeinträchtigten Patient:innen sind von Vorteil\n\n• Sie zeichnen sich als belastbare, kommunikative und offene Persönlichkeit aus und arbeiten gerne im Team\n\n• Sie beweisen eine hohe Sozialkompetenz im Umgang mit Patienten und deren Angehörigen\n\n• Gutes Organisationstalent sowie Freude an interdisziplinärer Zusammenarbeit runden ihr Profil ab\n\nWir bieten:\n• Wählen Sie zwischen FIX, FLEX oder SUPERFLEX das Arbeitsmodell, das am besten zu Ihnen passt. Die Flexverträge bieten Ihnen den Komfort eines festen Arbeitsvertrages und zusätzlich attraktive Vorteile in Form von flexiblen Arbeitseinsätzen (Pilotprojekt ab 1.Juni 2025).\n\n• Weitere Modelle mit ausschliesslich Frühdienst oder Spätdienst sowie das Arbeitsmodell mit, ohne oder nur Nachtschicht sind bereits seit langem bei uns etabliert.\n\nDie Klinik Lengg AG in Zürich ist das Kompetenzzentrum für Epileptologie und neurologische Rehabilitation.\n\nEs ist unser Anspruch, Patientinnen und Patienten mit neurologischen Erkrankungen eine möglichst weitgehende Rehabilitation zu ermöglichen und eine genaue Diagnose und nachhaltige Behandlung von Patientinnen und Patienten mit Epilepsie sicherzustellen. Rund 300 Mitarbeitende engagieren sich menschlich, kompetent, innovativ und zuverlässig dafür, dass unsere Patientinnen und Patienten grösstmögliche Selbständigkeit - und damit ihre Lebensqualität - wiedererlangen. Werden Sie Teil eines unserer interdisziplinären und interprofessionellen Teams.",
-      "fr": "Tâches :\n• Vous êtes responsable du processus de soins des patients qui vous sont assignés, dans le domaine de l'épileptologie, sur la base des modèles de soins appliqués dans la clinique Lengg\n\n• Ils collaborent avec les professionnels de la santé ainsi qu'avec nos étudiants, nos apprenants et nos stagiaires.\n\n• Ils s'occupent de nos patients avec compétence dans une équipe interprofessionnelle composée de thérapeutes, de médecins et d'employés de l'industrie hôtelière.\n\n• Accompagner, conseiller et soutenir les proches de nos patients complète la zone de responsabilité\n\nExigences\n• Vous avez terminé avec succès la formation en tant que Dipl. Infirmière/infirmière spécialiste HF/FH\n\n• Première expérience professionnelle en épileptologie et en traitement de patients gravement atteints de déficiences multiples: l'intérieur est un avantage\n\n• Ils excellent comme une personnalité résiliente, communicative et ouverte et aiment travailler en équipe\n\n• Ils démontrent un haut niveau de compétence sociale dans le traitement des patients et de leurs proches\n\n• Un bon talent organisationnel et une coopération interdisciplinaire enrichissent leur profil\n\nNous offrons:\n• Choisissez entre FIX, FLEX ou SUPERFLEX le modèle de travail qui vous convient le mieux. Les contrats Flex vous offrent la commodité d'un contrat de travail fixe et des avantages intéressants supplémentaires sous forme d'affectations flexibles (projet pilote à partir du 1er juin 2025).\n\n• D'autres modèles avec seulement le service précoce ou le service tardif ainsi que le modèle de travail avec, sans ou seulement le travail de nuit ont été établis avec nous depuis longtemps.\n\nKlinik Lengg AG à Zurich est le centre d'excellence en épileptologie et en réadaptation neurologique.\n\nNotre objectif est de fournir aux patients atteints de maladies neurologiques la réadaptation la plus large possible et d'assurer un diagnostic précis et un traitement durable des patients atteints d'épilepsie. Environ 300 employés s'engagent à faire preuve d'humanité, de compétence, d'innovation et de fiabilité pour que nos patients retrouvent la plus grande indépendance possible et donc leur qualité de vie. Faites partie d'une de nos équipes interdisciplinaires et interprofessionnelles."
-    },
-    "slugByLocale": {
-      "it": "infermiere-diplomato-in-epilessia-a-in-servizio-anticipato-e-posticipato-klinik-lengg-zurich-71547d0e",
-      "en": "qualified-nurse-in-epileptology-a-in-early-and-late-service-klinik-lengg-zurich-6f803ec0",
-      "de": "dipl-pflegefachperson-in-der-epileptologie-a-im-fruh-und-spatdienst-klinik-lengg-zurich-f1c4bef1",
-      "fr": "infirmier-diplome-en-epileptologie-a-en-service-matinal-et-tardif-klinik-lengg-zurich-36c1c8c8"
-    },
-    "sector": "Sanità / Ospedali",
-    "expiredAt": "2026-11-11T09:44:39.653Z",
-    "previousSlugs": [
-      "dipl-nurse-in-epileptology-a-in-early-and-late-service-klinik-lengg-zurich",
-      "dipl-infirmiere-en-epileptologie-a-en-debut-et-en-fin-de-service-klinik-lengg-zurich",
-      "dipl-infermiera-in-epileptologia-a-in-servizio-anticipato-e-tardivo-klinik-lengg-zurich",
-      "dipl-pflegefachperson-in-der-epileptologie-a-im-fruh-e-spatdienst-klinik-lengg-zurich",
-      "infermiere-diplomato-in-epilessia-a-in-servizio-anticipato-e-posticipato-klinik-lengg-zurich-412f293734",
-      "dipl-pflegefachperson-in-der-epileptologie-a-im-fruh-und-spatdienst-klinik-lengg-zurich"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "dipl-pflegefachperson-in-der-epileptologie-a-im-fruh-und-spatdienst-klinik-lengg-zurich-f1c4bef1",
-        "dipl-infermiera-in-epileptologia-a-in-servizio-anticipato-e-tardivo-klinik-lengg-zurich",
-        "dipl-pflegefachperson-in-der-epileptologie-a-im-fruh-e-spatdienst-klinik-lengg-zurich",
-        "infermiere-diplomato-in-epilessia-a-in-servizio-anticipato-e-posticipato-klinik-lengg-zurich-412f293734"
-      ],
-      "en": [
-        "dipl-nurse-in-epileptology-a-in-early-and-late-service-klinik-lengg-zurich",
-        "dipl-pflegefachperson-in-der-epileptologie-a-im-fruh-und-spatdienst-klinik-lengg-zurich"
-      ],
-      "fr": [
-        "dipl-infirmiere-en-epileptologie-a-en-debut-et-en-fin-de-service-klinik-lengg-zurich",
-        "dipl-pflegefachperson-in-der-epileptologie-a-im-fruh-und-spatdienst-klinik-lengg-zurich"
-      ]
-    },
-    "postalCode": "8001",
-    "streetAddress": "Bleulerstrasse 60",
-    "salaryMin": 91500,
-    "salaryMax": 128000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://jobs.kliniklengg.ch/offene-stellen/dipl-pflegefachperson-in-der-epileptologie-a-im-frueh-und-spaetdienst/ccab9860-04f6-4a79-9a85-03efb56f4fb1",
-    "firstSeenAt": "2026-08-19T09:51:02.915Z"
+    "firstSeenAt": "2026-08-18T21:39:16.304Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.kliniklengg.ch/offene-stellen/berufsbildner-in-dipl-pflegefachperson-hf-fh-a/a27ec7d8-c538-4651-baee-80aea18b6e20",
+        "firstSeenAt": "2026-08-18T21:39:16.304Z",
+        "title": "Berufsbildner:in Dipl. Pflegefachperson HF/ FH (a)"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.kliniklengg.ch/offene-stellen/berufsbildner-in-dipl-pflegefachperson-hf-fh-a/fdb6cd80-7731-441b-a3a6-a3e579578c88",
+        "firstSeenAt": "2026-08-18T21:39:16.304Z",
+        "title": "Berufsbildner:in Dipl. Pflegefachperson HF/ FH (a)"
+      }
+    ]
   },
   {
     "slug": "psicoterapeuta-in-regime-stazionario-e-ambulatoriale-con-specializzazione-in-neuropsicosomatica-a-klinik-lengg-zurich",
@@ -345,12 +341,28 @@
     "expiredAt": "2026-11-11T09:44:39.653Z",
     "previousSlugs": [
       "medizinische-sekretarin-medizinischer-sekretar-klinik-lengg-zurich",
-      "segretario-medico-segretario-medico-klinik-lengg-zurich"
+      "segretario-medico-segretario-medico-klinik-lengg-zurich",
+      "segretaria-medica-segretario-medico-klinik-lengg-zurich",
+      "segreto-medico-segretario-medico-klinik-lengg-zurich",
+      "medical-secretary-klinik-lengg-zurich",
+      "secretaire-medical-secretaire-medicale-klinik-lengg-zurich",
+      "segretario-medico-segretario-medico-klinik-lengg-zurich-c97cf0691a"
     ],
     "previousSlugsByLocale": {
       "it": [
         "medizinische-sekretarin-medizinischer-sekretar-klinik-lengg-zurich",
-        "segretario-medico-segretario-medico-klinik-lengg-zurich"
+        "segretario-medico-segretario-medico-klinik-lengg-zurich",
+        "segretaria-medica-segretario-medico-klinik-lengg-zurich",
+        "segreto-medico-segretario-medico-klinik-lengg-zurich",
+        "medical-secretary-klinik-lengg-zurich",
+        "secretaire-medical-secretaire-medicale-klinik-lengg-zurich",
+        "segretario-medico-segretario-medico-klinik-lengg-zurich-c97cf0691a"
+      ],
+      "en": [
+        "medizinische-sekretarin-medizinischer-sekretar-klinik-lengg-zurich"
+      ],
+      "fr": [
+        "medizinische-sekretarin-medizinischer-sekretar-klinik-lengg-zurich"
       ]
     },
     "postalCode": "8001",
@@ -360,7 +372,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.kliniklengg.ch/offene-stellen/medizinische-sekretaerin-medizinischer-sekretaer/e4f96ef8-2700-4d94-9bc9-59b9c697fe30",
-    "firstSeenAt": "2026-09-11T23:20:28.509Z"
+    "firstSeenAt": "2026-09-11T23:20:28.509Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.kliniklengg.ch/offene-stellen/medizinische-sekretaerin-medizinischer-sekretaer/b3d652a6-0693-4a14-a272-60d5c9a7546c",
+        "firstSeenAt": "2026-09-11T23:20:28.509Z",
+        "title": "Medizinische Sekretärin / Medizinischer Sekretär"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.kliniklengg.ch/offene-stellen/medizinische-sekretaerin-medizinischer-sekretaer/e4f96ef8-2700-4d94-9bc9-59b9c697fe30",
+        "firstSeenAt": "2026-09-11T23:20:28.509Z",
+        "title": "Medizinische Sekretärin / Medizinischer Sekretär"
+      }
+    ]
   },
   {
     "slug": "capo-infermieristica-a-klinik-lengg-zurich",
@@ -413,6 +437,88 @@
     "firstSeenAt": "2026-08-11T10:28:15.233Z"
   },
   {
+    "slug": "dipl-carriera-come-uccello-precoce-o-gufo-notturno-a-klinik-lengg-zurich",
+    "title": "Dipl. Pflegefachperson als Early Bird oder Night Owl (a)",
+    "titleByLocale": {
+      "it": "Dipl. Carriera come Uccello precoce o Gufo notturno (a)",
+      "en": "Dipl. Caregiver as Early Bird or Night Owl (a)",
+      "de": "Dipl. Pflegefachperson als Early Bird oder Night Owl (a)",
+      "fr": "Diplome aidant en tant qu'oiseau précoce ou hiboux de nuit a)"
+    },
+    "company": "Klinik Lengg",
+    "companyKey": "klinik-lengg",
+    "location": "Zürich",
+    "addressLocality": "Zürich",
+    "descriptionByLocale": {
+      "it": "Anticipi o gufi notturni? Con noi in cura hai esattamente ragione!\n\nCompiti:\n• Responsabilità per la cura e la cura individuale, orientata al bisogno e alle risorse dei nostri pazienti dalle 7:00 alle 11:15 (Early Bird) o dalle 5:00 alle 9:15 (Night Owl)\n\n• Assumere e garantire i compiti come prima persona di riferimento in tutte le attività di cura\n\n• Gestione dei turni in un team di dipendenti con formazione diversa nel settore sanitario\n\n• Cooperazione interdisciplinare\n\nRequisiti\n• Allenamento completo per Dipl. Cura professionale HF o FH\n\n• Empatia, energia positiva e creatività\n\n• Alto senso di responsabilità\n\n• Forte capacità sociali e di comunicazione\n\nKlinik Lengg AG di Zurigo è il centro di eccellenza per l'epilessologia e la riabilitazione neurologica.\n\nIl nostro obiettivo è quello di fornire ai pazienti malattie neurologiche la più ampia riabilitazione possibile e garantire una diagnosi accurata e un trattamento sostenibile dei pazienti con epilessia. Circa 300 dipendenti si impegnano in modo umano, competente, innovativo e affidabile per garantire che i nostri pazienti riacquistano la massima indipendenza possibile - e quindi la loro qualità di vita. Diventa parte di una delle nostre squadre interdisciplinari e interprofessionali.",
+      "en": "Early risers or night owls? With us in care you are exactly right!\n\nTasks:\n• Responsibility for individual, need- and resource-oriented care and care of our patients from 7:00 a.m. to 11:15 a.m. (Early Bird) or from 5:00 p.m. to 9:15 p.m. (Night Owl)\n\n• Assuming and securing the tasks as first reference person in all nursing activities\n\n• Shift management in a team of employees with different training in the health sector\n\n• Interdisciplinary cooperation\n\nRequirements\n• Completed training for Dipl. Care professional HF or FH\n\n• Empathy, positive energy and creativity\n\n• High sense of responsibility\n\n• Strong social and communication skills\n\nKlinik Lengg AG in Zurich is the centre of excellence for epileptology and neurological rehabilitation.\n\nIt is our aim to provide patients with neurological diseases with the widest possible rehabilitation and to ensure an accurate diagnosis and sustainable treatment of patients with epilepsy. Around 300 employees are committed to humanely, competently, innovatively and reliably ensuring that our patients regain the greatest possible independence - and thus their quality of life. Become part of one of our interdisciplinary and interprofessional teams.",
+      "de": "Frühaufsteher oder Nachteule? Bei uns in der Pflege sind Sie genau richtig!\n\nAufgaben:\n• Verantwortung für eine individuelle, bedürfnis- und ressourcenorientierte Pflege und Betreuung unserer Patientinnen und Patienten in der Zeit von 7:00Uhr bis 11:15 Uhr (Early Bird) oder von 17:00 bis 21:15 Uhr (Night Owl)\n\n• Übernahme und Sicherstellung der Aufgaben als erste Bezugsperson bei sämtlichen pflegerischen Tätigkeiten\n\n• Schichtleitung in einem Team von Mitarbeitenden mit unterschiedlichen Ausbildungen im Gesundheitsbereich\n\n• Interdisziplinäre Zusammenarbeit\n\nAnforderungen:\n• Abgeschlossene Ausbildung zur Dipl. Pflegefachperson HF oder FH\n\n• Einfühlungsvermögen, positive Energie und Kreativität\n\n• Hohes Verantwortungsbewusstsein\n\n• Ausgeprägte soziale und kommunikative Fähigkeiten\n\nDie Klinik Lengg AG in Zürich ist das Kompetenzzentrum für Epileptologie und neurologische Rehabilitation.\n\nEs ist unser Anspruch, Patientinnen und Patienten mit neurologischen Erkrankungen eine möglichst weitgehende Rehabilitation zu ermöglichen und eine genaue Diagnose und nachhaltige Behandlung von Patientinnen und Patienten mit Epilepsie sicherzustellen. Rund 300 Mitarbeitende engagieren sich menschlich, kompetent, innovativ und zuverlässig dafür, dass unsere Patientinnen und Patienten grösstmögliche Selbständigkeit - und damit ihre Lebensqualität - wiedererlangen. Werden Sie Teil eines unserer interdisziplinären und interprofessionellen Teams.",
+      "fr": "Des éveils ou des hiboux de nuit ? Avec nous, vous avez raison.\n\nTâches :\n• Responsabilité des soins individuels, axés sur les besoins et les ressources de nos patients de 7 h à 11 h 15 (Oiseau précoce) ou de 17 h à 21 h 15 (Ombre nocturne)\n\n• Prise en charge et sécurisation des tâches en tant que première personne de référence dans toutes les activités de soins infirmiers\n\n• La gestion des postes dans une équipe d'employés ayant une formation différente dans le secteur de la santé\n\n• Coopération interdisciplinaire\n\nExigences\n• Formation terminée pour Dipl. Soins professionnels HF ou FH\n\n• Empathie, énergie positive et créativité\n\n• Haut sens des responsabilités\n\n• Compétences sociales et de communication fortes\n\nKlinik Lengg AG à Zurich est le centre d'excellence en épileptologie et en réadaptation neurologique.\n\nNotre objectif est de fournir aux patients atteints de maladies neurologiques la réadaptation la plus large possible et d'assurer un diagnostic précis et un traitement durable des patients atteints d'épilepsie. Environ 300 employés s'engagent à faire preuve d'humanité, de compétence, d'innovation et de fiabilité pour que nos patients retrouvent la plus grande indépendance possible et donc leur qualité de vie. Faites partie d'une de nos équipes interdisciplinaires et interprofessionnelles."
+    },
+    "slugByLocale": {
+      "it": "dipl-carriera-come-uccello-precoce-o-gufo-notturno-a-klinik-lengg-zurich",
+      "en": "dipl-pflegefachperson-als-early-bird-oder-night-owl-a-klinik-lengg-zurich",
+      "de": "dipl-pflegefachperson-als-early-bird-oder-night-owl-a-klinik-lengg-zurich",
+      "fr": "diplome-aidant-en-tant-qu-oiseau-precoce-ou-hiboux-de-nuit-a-klinik-lengg-zurich"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-11-04T21:40:31.093Z",
+    "previousSlugs": [
+      "dipl-pflegefachperson-als-early-bird-oder-night-owl-a-klinik-lengg-zurich",
+      "dipl-pflegefachperson-come-early-bird-o-night-owl-a-klinik-lengg-zurich",
+      "diplome-aidant-en-tant-qu-oiseau-precoce-ou-hiboux-de-nuit-a-klinik-lengg-zurich-db5eb8",
+      "dipl-infermiere-come-early-bird-o-night-owl-klinik-lengg-zurich",
+      "dipl-pflegefachperson-als-fruhaufsteher-oder-nachteule-a-klinik-lengg-zurich",
+      "diplome-e-en-soins-infirmiers-en-tant-qu-oiseau-de-nuit-ou-matinal-klinik-lengg-zurich"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "dipl-pflegefachperson-als-early-bird-oder-night-owl-a-klinik-lengg-zurich",
+        "dipl-pflegefachperson-come-early-bird-o-night-owl-a-klinik-lengg-zurich",
+        "diplome-aidant-en-tant-qu-oiseau-precoce-ou-hiboux-de-nuit-a-klinik-lengg-zurich-db5eb8",
+        "dipl-infermiere-come-early-bird-o-night-owl-klinik-lengg-zurich"
+      ],
+      "de": [
+        "dipl-pflegefachperson-als-fruhaufsteher-oder-nachteule-a-klinik-lengg-zurich"
+      ],
+      "fr": [
+        "diplome-aidant-en-tant-qu-oiseau-precoce-ou-hiboux-de-nuit-a-klinik-lengg-zurich-db5eb8",
+        "dipl-pflegefachperson-als-early-bird-oder-night-owl-a-klinik-lengg-zurich",
+        "diplome-e-en-soins-infirmiers-en-tant-qu-oiseau-de-nuit-ou-matinal-klinik-lengg-zurich"
+      ]
+    },
+    "postalCode": "8001",
+    "streetAddress": "Bleulerstrasse 60",
+    "salaryMin": 91500,
+    "salaryMax": 128000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.kliniklengg.ch/offene-stellen/dipl-pflegefachperson-als-early-bird-oder-night-owl-a/1635881d-9a65-4a14-a51c-6e9ffec256de",
+    "firstSeenAt": "2026-07-17T22:36:11.261Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.kliniklengg.ch/offene-stellen/dipl-pflegefachperson-als-early-bird-oder-night-owl-a/1635881d-9a65-4a14-a51c-6e9ffec256de",
+        "firstSeenAt": "2026-07-17T22:36:11.261Z",
+        "title": "Dipl. Pflegefachperson als Early Bird oder Night Owl (a)"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.kliniklengg.ch/offene-stellen/dipl-pflegefachperson-als-early-bird-oder-night-owl-a/25477e81-7fb0-4485-b16e-848a92f4eadc",
+        "firstSeenAt": "2026-07-17T22:36:11.261Z",
+        "title": "Dipl. Pflegefachperson als Early Bird oder Night Owl (a)"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.kliniklengg.ch/offene-stellen/dipl-pflegefachperson-als-early-bird-oder-night-owl-a/574c91c2-e4a5-403c-a38a-5be2d9d8ae7e",
+        "firstSeenAt": "2026-07-17T22:36:11.261Z",
+        "title": "Dipl. Pflegefachperson als Early Bird oder Night Owl (a)"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.kliniklengg.ch/offene-stellen/dipl-pflegefachperson-als-early-bird-oder-night-owl-a/c7023c41-3d84-4c4f-942b-ae030054a3ec",
+        "firstSeenAt": "2026-07-17T22:36:11.261Z",
+        "title": "Dipl. Pflegefachperson als Early Bird oder Night Owl (a)"
+      }
+    ]
+  },
+  {
     "slug": "dipl-carriera-come-uccello-precoce-o-gufo-notturno-a-klinik-lengg-zurich-4a410669",
     "title": "Dipl. Pflegefachperson als Early Bird oder Night Owl (a)",
     "titleByLocale": {
@@ -457,7 +563,7 @@
     "firstSeenAt": "2026-07-17T22:36:11.261Z"
   },
   {
-    "slug": "infermiera-diplomatica-hf-fh-neuroriabilitazione-a-come-turno-notturno-permanente-klinik-lengg-zurich-14d60651",
+    "slug": "infermiera-diplomatica-hf-fh-neuroriabilitazione-a-come-turno-notturno-permanente-klinik-lengg-zurich",
     "title": "Dipl. Pflegefachperson HF / FH Neurorehabilitation (a) als Dauernachtwache",
     "titleByLocale": {
       "it": "Infermiera diplomatica HF / FH Neuroriabilitazione (a) come turno notturno permanente",
@@ -476,32 +582,47 @@
       "fr": "Tâches :\n• Vous êtes responsable du processus de soins des patients qui vous sont assignés, dans les domaines spécialisés de la neuroréadaptation, sur la base des modèles de soins appliqués à la clinique Lengg\n\n• Ils travaillent avec les professionnels de la santé ainsi qu'avec nos étudiants, nos apprenants et nos stagiaires.\n\n• Ils s'occupent de nos patients avec compétence dans une équipe de traitement interprofessionnelle composée de thérapeutes, de médecins et d'employés de l'industrie hôtelière.\n\n• Accompagner, conseiller et soutenir les proches de nos patients complète la zone de responsabilité\n\nExigences\n• Vous avez réussi votre formation en tant que Dipl. Infirmière / Infirmière spécialiste HF/FH\n\n• Une première expérience spécialisée dans la réadaptation ou dans les services médicaux, ainsi que l'intérêt pour la réadaptation neurologique sont bénéfiques\n\n• Ils excellent comme une personnalité résiliente, communicative et ouverte et aiment travailler en équipe\n\n• Ils démontrent un haut niveau de compétence sociale dans le traitement des patients et de leurs proches\n\n• Un bon talent organisationnel et une coopération interdisciplinaire enrichissent leur profil\n\nKlinik Lengg AG à Zurich est le centre d'excellence en épileptologie et en réadaptation neurologique.\n\nNotre objectif est de fournir aux patients atteints de maladies neurologiques la réadaptation la plus large possible et d'assurer un diagnostic précis et un traitement durable des patients atteints d'épilepsie. Environ 300 employés s'engagent à faire preuve d'humanité, de compétence, d'innovation et de fiabilité pour que nos patients retrouvent la plus grande indépendance possible et donc leur qualité de vie. Devenez membre d'une de nos équipes interdisciplinaires et interprofessionnelles."
     },
     "slugByLocale": {
-      "it": "infermiera-diplomatica-hf-fh-neuroriabilitazione-a-come-turno-notturno-permanente-klinik-lengg-zurich-14d60651",
-      "en": "dipl-nurse-hf-fh-neurorehabilitation-a-as-a-permanent-night-watch-klinik-lengg-zurich-2749caff",
-      "de": "dipl-pflegefachperson-hf-fh-neurorehabilitation-a-als-dauernachtwache-klinik-lengg-zurich-ae7d1f67",
-      "fr": "dipl-infirmiere-hf-fh-neuroreadaptation-a-comme-une-veille-nocturne-permanente-klinik-lengg-zurich-5b93011d"
+      "it": "infermiera-diplomatica-hf-fh-neuroriabilitazione-a-come-turno-notturno-permanente-klinik-lengg-zurich",
+      "en": "dipl-nurse-hf-fh-neurorehabilitation-a-as-a-permanent-night-watch-klinik-lengg-zurich",
+      "de": "dipl-pflegefachperson-hf-fh-neurorehabilitation-a-als-dauernachtwache-klinik-lengg-zurich",
+      "fr": "dipl-infirmiere-hf-fh-neuroreadaptation-a-comme-une-veille-nocturne-permanente-klinik-lengg-zurich"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-11-02T11:07:43.149Z",
     "previousSlugs": [
-      "dipl-pflegefachperson-hf-fh-neurorehabilitation-a-als-dauernachtwache-klinik-lengg-zurich-ae7d1f67",
+      "dipl-pflegefachperson-hf-fh-neurorehabilitation-a-als-dauernachtwache-klinik-lengg-zurich",
       "infermiera-hf-fh-neurorehabilitation-a-come-guardia-notturna-permanente-klinik-lengg-zurich",
+      "dipl-nurse-hf-fh-neurorehabilitation-a-as-a-permanent-night-watch-klinik-lengg-zurich",
+      "dipl-infirmiere-hf-fh-neuroreadaptation-a-comme-une-veille-nocturne-permanente-klinik-lengg-zurich",
+      "dipl-pflegefachperson-hf-fh-neurorehabilitation-a-come-dauernachtwache-klinik-lengg-zurich",
+      "infermiera-diplomatica-hf-fh-neuroriabilitazione-a-come-turno-notturno-permanente-klinik-lengg-zurich-14d60651",
+      "dipl-pflegefachperson-hf-fh-neurorehabilitation-a-als-dauernachtwache-klinik-lengg-zurich-ae7d1f67",
       "dipl-nurse-hf-fh-neurorehabilitation-a-as-a-permanent-night-watch-klinik-lengg-zurich-2749caff",
-      "dipl-infirmiere-hf-fh-neuroreadaptation-a-comme-une-veille-nocturne-permanente-klinik-lengg-zurich-5b93011d",
-      "dipl-pflegefachperson-hf-fh-neurorehabilitation-a-come-dauernachtwache-klinik-lengg-zurich"
+      "dipl-infirmiere-hf-fh-neuroreadaptation-a-comme-une-veille-nocturne-permanente-klinik-lengg-zurich-5b93011d"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "dipl-pflegefachperson-hf-fh-neurorehabilitation-a-als-dauernachtwache-klinik-lengg-zurich-ae7d1f67",
+        "dipl-pflegefachperson-hf-fh-neurorehabilitation-a-als-dauernachtwache-klinik-lengg-zurich",
         "infermiera-hf-fh-neurorehabilitation-a-come-guardia-notturna-permanente-klinik-lengg-zurich",
+        "dipl-nurse-hf-fh-neurorehabilitation-a-as-a-permanent-night-watch-klinik-lengg-zurich",
+        "dipl-infirmiere-hf-fh-neuroreadaptation-a-comme-une-veille-nocturne-permanente-klinik-lengg-zurich",
+        "dipl-pflegefachperson-hf-fh-neurorehabilitation-a-come-dauernachtwache-klinik-lengg-zurich",
+        "infermiera-diplomatica-hf-fh-neuroriabilitazione-a-come-turno-notturno-permanente-klinik-lengg-zurich-14d60651",
+        "dipl-pflegefachperson-hf-fh-neurorehabilitation-a-als-dauernachtwache-klinik-lengg-zurich-ae7d1f67",
         "dipl-nurse-hf-fh-neurorehabilitation-a-as-a-permanent-night-watch-klinik-lengg-zurich-2749caff",
-        "dipl-infirmiere-hf-fh-neuroreadaptation-a-comme-une-veille-nocturne-permanente-klinik-lengg-zurich-5b93011d",
-        "dipl-pflegefachperson-hf-fh-neurorehabilitation-a-come-dauernachtwache-klinik-lengg-zurich"
+        "dipl-infirmiere-hf-fh-neuroreadaptation-a-comme-une-veille-nocturne-permanente-klinik-lengg-zurich-5b93011d"
       ],
       "en": [
+        "dipl-pflegefachperson-hf-fh-neurorehabilitation-a-als-dauernachtwache-klinik-lengg-zurich",
+        "dipl-nurse-hf-fh-neurorehabilitation-a-as-a-permanent-night-watch-klinik-lengg-zurich-2749caff",
         "dipl-pflegefachperson-hf-fh-neurorehabilitation-a-als-dauernachtwache-klinik-lengg-zurich-ae7d1f67"
       ],
       "fr": [
+        "dipl-pflegefachperson-hf-fh-neurorehabilitation-a-als-dauernachtwache-klinik-lengg-zurich",
+        "dipl-infirmiere-hf-fh-neuroreadaptation-a-comme-une-veille-nocturne-permanente-klinik-lengg-zurich-5b93011d",
+        "dipl-pflegefachperson-hf-fh-neurorehabilitation-a-als-dauernachtwache-klinik-lengg-zurich-ae7d1f67"
+      ],
+      "de": [
         "dipl-pflegefachperson-hf-fh-neurorehabilitation-a-als-dauernachtwache-klinik-lengg-zurich-ae7d1f67"
       ]
     },
@@ -512,7 +633,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.kliniklengg.ch/offene-stellen/dipl-pflegefachperson-hf-fh-neurorehabilitation-a-als-dauernachtwache/98e3e2cc-d421-4d64-818b-11c03e9466b1",
-    "firstSeenAt": "2026-08-27T00:51:21.044Z"
+    "firstSeenAt": "2026-08-27T00:51:21.044Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.kliniklengg.ch/offene-stellen/dipl-pflegefachperson-hf-fh-neurorehabilitation-a-als-dauernachtwache/2af62822-8a1f-4cba-873a-aa12687aadcc",
+        "firstSeenAt": "2026-08-27T00:51:21.044Z",
+        "title": "Dipl. Pflegefachperson HF / FH Neurorehabilitation (a) als Dauernachtwache"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.kliniklengg.ch/offene-stellen/dipl-pflegefachperson-hf-fh-neurorehabilitation-a-als-dauernachtwache/98e3e2cc-d421-4d64-818b-11c03e9466b1",
+        "firstSeenAt": "2026-08-27T00:51:21.044Z",
+        "title": "Dipl. Pflegefachperson HF / FH Neurorehabilitation (a) als Dauernachtwache"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.kliniklengg.ch/offene-stellen/dipl-pflegefachperson-hf-fh-neurorehabilitation-a-als-dauernachtwache/afab174e-b7c1-4a0d-91a1-0d824e3e7bfb",
+        "firstSeenAt": "2026-08-27T00:51:21.044Z",
+        "title": "Dipl. Pflegefachperson HF / FH Neurorehabilitation (a) als Dauernachtwache"
+      }
+    ]
   },
   {
     "slug": "psychotherapeutin-psychotherapeut-per-vielseitige-tatigkeit-con-schwerpunkt-neuropsychosomatik-a-klinik-lengg-ce3abf40",
@@ -2887,7 +3025,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.kliniklengg.ch/offene-stellen/dipl-pflegefachperson-hf-fh-neurorehabilitation-a-im-frueh-und-spaetdienst/e0f1ae71-fa1f-4967-b44c-bbed2a30c85c",
-    "firstSeenAt": "2026-07-17T22:36:11.281Z"
+    "firstSeenAt": "2026-07-17T22:36:11.281Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.kliniklengg.ch/offene-stellen/dipl-pflegefachperson-hf-fh-neurorehabilitation-a-im-frueh-und-spaetdienst/bb27206d-e50d-41c4-aaad-272173e48026",
+        "firstSeenAt": "2026-07-17T22:36:11.281Z",
+        "title": "Dipl. Pflegefachperson HF / FH Neurorehabilitation (a) im Früh- und Spätdienst"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.kliniklengg.ch/offene-stellen/dipl-pflegefachperson-hf-fh-neurorehabilitation-a-im-frueh-und-spaetdienst/e0f1ae71-fa1f-4967-b44c-bbed2a30c85c",
+        "firstSeenAt": "2026-07-17T22:36:11.281Z",
+        "title": "Dipl. Pflegefachperson HF / FH Neurorehabilitation (a) im Früh- und Spätdienst"
+      }
+    ]
   },
   {
     "slug": "assistente-paziente-a-klinik-lengg-zurich",
@@ -2940,7 +3090,7 @@
     "firstSeenAt": "2026-09-30T21:24:52.895Z"
   },
   {
-    "slug": "neuroreabilitazione-membro-del-consiglio-di-amministrazione-a-klinik-lengg-zurich-ae4b92c2",
+    "slug": "neuroreabilitazione-membro-del-consiglio-di-amministrazione-a-klinik-lengg-zurich",
     "title": "Chefärztin/ Chefarzt Neurorehabilitation, Mitglied der Geschäftsleitung (a)",
     "titleByLocale": {
       "it": "Neuroreabilitazione, Membro del consiglio di amministrazione (a)",
@@ -2959,26 +3109,39 @@
       "fr": "Tâches :\n• Responsabilité globale de la gestion professionnelle, organisationnelle et du personnel de la neuroréadaptation\n\n• Poursuite du développement de la clinique Lengg en coopération avec l'épileptologie dans le sens d'un centre de compétence en neurologie avec une offre médicale-thérapeutique de haute qualité\n\n• Promotion et développement de l'équipe interdisciplinaire\n\n• Créer une culture de collaboration ouverte et axée sur l'équipe\n\n• Coopération interdisciplinaire avec d'autres domaines spécialisés et fournisseurs de services, gestion active des aiguillages et coopération étroite avec les médecins et les établissements de référence.\n\n• Participation active et réalisation des objectifs stratégiques en tant que membre de la direction de Klinik Lengg.\n\nExigences\n• Entrepreneuriel, leader innovant avec plaisir dans la coopération interprofessionnelle et interdisciplinaire\n\n• Titre du spécialiste Neurologie (FMH) ou équivalent\n\n• Plusieurs années d'expérience en tant que médecin cadre en neuroréadaptation et/ou neurologie hospitalisée, y compris le traitement de maladies neurologiques complexes\n\n• Expertise clinique éprouvée dans les domaines des troubles du mouvement (en particulier la maladie et les tremblements de Parkinson) et du traitement des accidents cérébraux (phase aiguë et réadaptation)\n\n• Intérêt scientifique, publications dans des revues pertinentes évaluées par des pairs. Idéalement adapté ou peu avant la maturité de l'habilitation avec intérêt pour la poursuite de l'activité scientifique.\n\n• Réflexion et action en réseau, orientée vers la solution et l'entreprise\n\nKlinik Lengg AG à Zurich est le centre d'excellence en épileptologie et en réadaptation neurologique.\n\nNotre objectif est de fournir aux patients atteints de maladies neurologiques la réadaptation la plus large possible et d'assurer un diagnostic précis et un traitement durable des patients atteints d'épilepsie. Environ 300 employés s'engagent à faire preuve d'humanité, de compétence, d'innovation et de fiabilité pour que nos patients retrouvent la plus grande indépendance possible et donc leur qualité de vie. Faites partie d'une de nos équipes interdisciplinaires et interprofessionnelles."
     },
     "slugByLocale": {
-      "it": "neuroreabilitazione-membro-del-consiglio-di-amministrazione-a-klinik-lengg-zurich-ae4b92c2",
-      "en": "chief-physician-neurorehabilitation-member-of-the-management-board-a-klinik-lengg-zurich-d12c8b35",
-      "de": "chefarztin-chefarzt-neurorehabilitation-mitglied-der-geschaftsleitung-a-klinik-lengg-fe562c09",
-      "fr": "medecin-en-chef-neuroreadaptation-membre-du-conseil-d-administration-a-klinik-lengg-zurich-37866b29"
+      "it": "neuroreabilitazione-membro-del-consiglio-di-amministrazione-a-klinik-lengg-zurich",
+      "en": "chief-physician-neurorehabilitation-member-of-the-management-board-a-klinik-lengg-zurich",
+      "de": "chefarztin-chefarzt-neurorehabilitation-mitglied-der-geschaftsleitung-a-klinik-lengg",
+      "fr": "medecin-en-chef-neuroreadaptation-membre-du-conseil-d-administration-a-klinik-lengg-zurich"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-10-20T21:41:39.100Z",
     "previousSlugs": [
+      "chefarztin-chefarzt-neurorehabilitation-mitglied-der-geschaftsleitung-a-klinik-lengg",
+      "neuroreabilitazione-membro-del-consiglio-di-amministrazione-a-klinik-lengg-zurich-3ba17740ab",
+      "neuroreabilitazione-membro-del-consiglio-di-amministrazione-a-klinik-lengg-zurich-ae4b92c2",
       "chefarztin-chefarzt-neurorehabilitation-mitglied-der-geschaftsleitung-a-klinik-lengg-fe562c09",
-      "neuroreabilitazione-membro-del-consiglio-di-amministrazione-a-klinik-lengg-zurich-3ba17740ab"
+      "chief-physician-neurorehabilitation-member-of-the-management-board-a-klinik-lengg-zurich-d12c8b35",
+      "medecin-en-chef-neuroreadaptation-membre-du-conseil-d-administration-a-klinik-lengg-zurich-37866b29"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "chefarztin-chefarzt-neurorehabilitation-mitglied-der-geschaftsleitung-a-klinik-lengg-fe562c09",
-        "neuroreabilitazione-membro-del-consiglio-di-amministrazione-a-klinik-lengg-zurich-3ba17740ab"
+        "chefarztin-chefarzt-neurorehabilitation-mitglied-der-geschaftsleitung-a-klinik-lengg",
+        "neuroreabilitazione-membro-del-consiglio-di-amministrazione-a-klinik-lengg-zurich-3ba17740ab",
+        "neuroreabilitazione-membro-del-consiglio-di-amministrazione-a-klinik-lengg-zurich-ae4b92c2",
+        "chefarztin-chefarzt-neurorehabilitation-mitglied-der-geschaftsleitung-a-klinik-lengg-fe562c09"
       ],
       "en": [
+        "chefarztin-chefarzt-neurorehabilitation-mitglied-der-geschaftsleitung-a-klinik-lengg",
+        "chief-physician-neurorehabilitation-member-of-the-management-board-a-klinik-lengg-zurich-d12c8b35",
         "chefarztin-chefarzt-neurorehabilitation-mitglied-der-geschaftsleitung-a-klinik-lengg-fe562c09"
       ],
       "fr": [
+        "chefarztin-chefarzt-neurorehabilitation-mitglied-der-geschaftsleitung-a-klinik-lengg",
+        "medecin-en-chef-neuroreadaptation-membre-du-conseil-d-administration-a-klinik-lengg-zurich-37866b29",
+        "chefarztin-chefarzt-neurorehabilitation-mitglied-der-geschaftsleitung-a-klinik-lengg-fe562c09"
+      ],
+      "de": [
         "chefarztin-chefarzt-neurorehabilitation-mitglied-der-geschaftsleitung-a-klinik-lengg-fe562c09"
       ]
     },
@@ -2989,10 +3152,86 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.kliniklengg.ch/offene-stellen/chefaerztin-chefarzt-neurorehabilitation-mitglied-der-geschaeftsleitung-a/183fe7fa-ee59-40c4-9471-b0e15cdf99e6",
-    "firstSeenAt": "2026-10-14T09:41:55.324Z"
+    "firstSeenAt": "2026-10-14T09:41:55.324Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.kliniklengg.ch/offene-stellen/chefaerztin-chefarzt-neurorehabilitation-mitglied-der-geschaeftsleitung-a/183fe7fa-ee59-40c4-9471-b0e15cdf99e6",
+        "firstSeenAt": "2026-10-14T09:41:55.324Z",
+        "title": "Chefärztin/ Chefarzt Neurorehabilitation, Mitglied der Geschäftsleitung (a)"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.kliniklengg.ch/offene-stellen/chefaerztin-chefarzt-neurorehabilitation-mitglied-der-geschaeftsleitung-a/d8361cd8-eed7-423f-8d43-1cdfa2c25108",
+        "firstSeenAt": "2026-10-14T09:41:55.324Z",
+        "title": "Chefärztin/ Chefarzt Neurorehabilitation, Mitglied der Geschäftsleitung (a)"
+      }
+    ]
   },
   {
-    "slug": "fachfrau-fachmann-gesundheit-neurorehabilitation-a-im-fruh-e-spatdienst-klinik-lengg-zurich-8092304c",
+    "slug": "gestione-delle-stazioni-neuroriabilitazione-a-klinik-lengg-zurich",
+    "title": "Stationsleitung Pflege Neurorehabilitation (a)",
+    "titleByLocale": {
+      "it": "Gestione delle stazioni Neuroriabilitazione (a)",
+      "en": "Station Management Care Neurorehabilitation (a)",
+      "de": "Stationsleitung Pflege Neurorehabilitation (a)",
+      "fr": "Neuroréhabilitation (a)"
+    },
+    "company": "Klinik Lengg",
+    "companyKey": "klinik-lengg",
+    "location": "Zürich",
+    "addressLocality": "Zürich",
+    "descriptionByLocale": {
+      "it": "Compiti:\n• Gestione professionale, personale e organizzativa di un reparto di allattamento, oltre a garantire la cura del paziente di alta qualità\n\n• Pianificazione e coordinamento dei processi delle stazioni, oltre a garantire una distribuzione del personale basata sulle esigenze e sulle competenze\n\n• Leadership, promozione e sviluppo dei dipendenti e supporto ai processi di cambiamento\n\n• Partecipazione attiva all'assistenza diretta e partecipazione a visite interdisciplinari, relazioni e incontri\n\n• Promuovere la cooperazione interprofessionale costruttiva e garantire un flusso di informazioni trasparente\n\n• Partecipazione all'ulteriore sviluppo della qualità della cura, dei processi e degli obiettivi delle stazioni\n\nRequisiti\n• Allenamento completato come Dipl. Cura professionale HF o FH\n\n• Diversi anni di esperienza professionale e comprovata esperienza di leadership nel settore della cura\n\n• Formazione di leadership o gestione completata\n\n• Alte competenze sociali e di comunicazione, nonché un leader apprezzativo e chiaro\n\n• Forte senso di responsabilità, capacità organizzative e metodi di lavoro orientati alla soluzione\n\n• Sfruttamento nell'ulteriore sviluppo della cura e della cooperazione interprofessionale\n\nKlinik Lengg AG di Zurigo è il centro di eccellenza per l'epilessologia e la riabilitazione neurologica.\n\nIl nostro obiettivo è quello di fornire ai pazienti malattie neurologiche la più ampia riabilitazione possibile e garantire una diagnosi accurata e un trattamento sostenibile dei pazienti con epilessia. Circa 300 dipendenti si impegnano in modo umano, competente, innovativo e affidabile per garantire che i nostri pazienti riacquistano la massima indipendenza possibile - e quindi la loro qualità di vita. Diventa parte di una delle nostre squadre interdisciplinari e interprofessionali.",
+      "en": "Tasks:\n• Professional, personnel and organizational management of a nursing ward as well as ensuring high-quality patient care\n\n• Planning and coordination of station processes as well as ensuring a needs-based and competence-based personnel deployment\n\n• Leadership, promotion and development of employees as well as support for change processes\n\n• Active participation in direct care and participation in interdisciplinary visits, reports and meetings\n\n• Promoting constructive interprofessional cooperation and ensuring transparent information flow\n\n• Participation in the further development of care quality, processes and station targets\n\nRequirements\n• Completed training as a Dipl. Care professional HF or FH\n\n• Several years of professional experience and proven leadership experience in the care sector\n\n• Leadership or management training completed\n\n• High social and communication skills as well as an appreciative and clear leader\n\n• Strong sense of responsibility, organisational skills and solution-oriented working methods\n\n• Enjoyment in the further development of care and interprofessional cooperation\n\nKlinik Lengg AG in Zurich is the centre of excellence for epileptology and neurological rehabilitation.\n\nIt is our aim to provide patients with neurological diseases with the widest possible rehabilitation and to ensure an accurate diagnosis and sustainable treatment of patients with epilepsy. Around 300 employees are committed to humanely, competently, innovatively and reliably ensuring that our patients regain the greatest possible independence - and thus their quality of life. Become part of one of our interdisciplinary and interprofessional teams.",
+      "de": "Aufgaben:\n• Fachliche, personelle und organisatorische Führung einer Pflegestation sowie Sicherstellung einer qualitativ hochwertigen Patientenversorgung\n\n• Planung und Koordination der Stationsabläufe sowie Sicherstellung eines bedarfsgerechten und kompetenzgerechten Personaleinsatzes\n\n• Führung, Förderung und Entwicklung der Mitarbeitenden sowie Begleitung von Veränderungsprozessen\n\n• Aktive Mitarbeit in der direkten Pflege und Teilnahme an interdisziplinären Visiten, Rapporten und Besprechungen\n\n• Förderung einer konstruktiven interprofessionellen Zusammenarbeit sowie Sicherstellung eines transparenten Informationsflusses\n\n• Mitwirkung an der Weiterentwicklung der Pflegequalität, Prozesse und Stationsziele\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Dipl. Pflegefachperson HF oder FH\n\n• Mehrjährige Berufserfahrung sowie ausgewiesene Führungserfahrung im Pflegebereich\n\n• Weiterbildung im Bereich Führung oder Management abgeschlossen\n\n• Hohe Sozial- und Kommunikationskompetenz sowie eine wertschätzende und klare Führungspersönlichkeit\n\n• Ausgeprägtes Verantwortungsbewusstsein, Organisationsgeschick und lösungsorientierte Arbeitsweise\n\n• Freude an der Weiterentwicklung der Pflege und an der interprofessionellen Zusammenarbeit\n\nDie Klinik Lengg AG in Zürich ist das Kompetenzzentrum für Epileptologie und neurologische Rehabilitation.\n\nEs ist unser Anspruch, Patientinnen und Patienten mit neurologischen Erkrankungen eine möglichst weitgehende Rehabilitation zu ermöglichen und eine genaue Diagnose und nachhaltige Behandlung von Patientinnen und Patienten mit Epilepsie sicherzustellen. Rund 300 Mitarbeitende engagieren sich menschlich, kompetent, innovativ und zuverlässig dafür, dass unsere Patientinnen und Patienten grösstmögliche Selbständigkeit - und damit ihre Lebensqualität - wiedererlangen. Werden Sie Teil eines unserer interdisziplinären und interprofessionellen Teams.",
+      "fr": "Tâches :\n• Gestion professionnelle, du personnel et de l'organisation d'un service de soins infirmiers et soins de qualité\n\n• Planification et coordination des processus des stations et mise en place d ' un personnel fondé sur les besoins et les compétences\n\n• Leadership, promotion et perfectionnement des employés et soutien aux processus de changement\n\n• Participation active aux soins directs et participation aux visites, rapports et réunions interdisciplinaires\n\n• Promouvoir une coopération interprofessionnelle constructive et assurer un flux d'informations transparent\n\n• Participation au développement de la qualité des soins, des processus et des objectifs des stations\n\nExigences\n• Formation terminée en tant que diplômé. Soins professionnels HF ou FH\n\n• Plusieurs années d'expérience professionnelle et de leadership prouvé dans le secteur des soins\n\n• Formation en leadership ou en gestion terminée\n\n• Des compétences sociales et de communication élevées ainsi qu'un leader apprécié et clair\n\n• Un fort sens des responsabilités, des compétences organisationnelles et des méthodes de travail axées sur la solution\n\n• Appréciation du développement des soins et de la coopération interprofessionnelle\n\nKlinik Lengg AG à Zurich est le centre d'excellence en épileptologie et en réadaptation neurologique.\n\nNotre objectif est de fournir aux patients atteints de maladies neurologiques la réadaptation la plus large possible et d'assurer un diagnostic précis et un traitement durable des patients atteints d'épilepsie. Environ 300 employés s'engagent à faire preuve d'humanité, de compétence, d'innovation et de fiabilité pour que nos patients retrouvent la plus grande indépendance possible et donc leur qualité de vie. Faites partie d'une de nos équipes interdisciplinaires et interprofessionnelles."
+    },
+    "slugByLocale": {
+      "it": "gestione-delle-stazioni-neuroriabilitazione-a-klinik-lengg-zurich",
+      "en": "station-management-care-neurorehabilitation-a-klinik-lengg-zurich",
+      "de": "stationsleitung-pflege-neurorehabilitation-a-klinik-lengg-zurich",
+      "fr": "neurorehabilitation-a-klinik-lengg-zurich"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-10-14T15:28:51.127Z",
+    "previousSlugs": [
+      "stationsleitung-pflege-neurorehabilitation-a-klinik-lengg-zurich",
+      "gestione-delle-stazioni-neuroriabilitazione-a-klinik-lengg-zurich-b5c05b4557"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "stationsleitung-pflege-neurorehabilitation-a-klinik-lengg-zurich",
+        "gestione-delle-stazioni-neuroriabilitazione-a-klinik-lengg-zurich-b5c05b4557"
+      ],
+      "en": [
+        "stationsleitung-pflege-neurorehabilitation-a-klinik-lengg-zurich"
+      ],
+      "fr": [
+        "stationsleitung-pflege-neurorehabilitation-a-klinik-lengg-zurich"
+      ]
+    },
+    "postalCode": "8001",
+    "streetAddress": "Bleulerstrasse 60",
+    "salaryMin": 91500,
+    "salaryMax": 128000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.kliniklengg.ch/offene-stellen/stationsleitung-pflege-neurorehabilitation-a/a6cb2500-6efd-42c8-b94b-b79f8f068b59",
+    "firstSeenAt": "2026-09-10T23:18:08.587Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.kliniklengg.ch/offene-stellen/stationsleitung-pflege-neurorehabilitation-a/8443830a-8b4d-40ab-8245-6ae7f109ecf9",
+        "firstSeenAt": "2026-09-10T23:18:08.587Z",
+        "title": "Stationsleitung Pflege Neurorehabilitation (a)"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.kliniklengg.ch/offene-stellen/stationsleitung-pflege-neurorehabilitation-a/a6cb2500-6efd-42c8-b94b-b79f8f068b59",
+        "firstSeenAt": "2026-09-10T23:18:08.587Z",
+        "title": "Stationsleitung Pflege Neurorehabilitation (a)"
+      }
+    ]
+  },
+  {
+    "slug": "fachfrau-fachmann-gesundheit-neurorehabilitation-a-im-fruh-e-spatdienst-klinik-lengg-zurich",
     "title": "Fachfrau / Fachmann Gesundheit Neurorehabilitation (a) im Früh- und Spätdienst",
     "titleByLocale": {
       "it": "Fachfrau / Fachmann Gesundheit Neurorehabilitation (a) im Früh- e Spätdienst",
@@ -3011,10 +3250,10 @@
       "fr": "Aufgaben:\n• Mitwirkung in den individuellen und zielgerichteten Betreuungs- und Pflegeaufgaben, sodass die Bedürfnisse unserer Patienten und Patientinnen erfüllt werden\n\n• Übernahme von Verantwortung für die administrativen, logistischen und hauswirtschaftlichen Belange der Station, um einen reibungslosen Ablauf zu gewährleisten\n\n• Mitverantwortung für das soziale Wohlbefinden unserer Patienten und Patientinnen um sicherzustellen, dass sie sich bei uns wohl und gut betreut fühlen\n\nAnforderungen:\n• Abgeschlossene Ausbildung zur Fachperson Gesundheit\n\n• Erste Berufserfahrung wünschenswert\n\n• Interesse am Fachbereich Neurorehabilitation\n\n• Hervorragende Sozialkompetenzen sowie eine hohe Belastbarkeit\n\nWir bieten:\n• Wählen Sie zwischen FIX, FLEX oder SUPERFLEX das Arbeitsmodell, das am besten zu Ihnen passt. Die Flexverträge bieten Ihnen den Komfort eines festen Arbeitsvertrages und zusätzlich attraktive Vorteile in Form von flexiblen Arbeitseinsätzen (Pilotprojekt ab 1.Juni 2025).\n\n• Weitere Modelle mit ausschliesslich Frühdienst oder Spätdienst sowie das Arbeitsmodell mit, ohne oder nur Nachtschicht sind bereits seit langem bei uns etabliert.\n\nDie Klinik Lengg AG in Zürich ist das Kompetenzzentrum für Epileptologie und neurologische Rehabilitation.\n\nEs ist unser Anspruch, Patientinnen und Patienten mit neurologischen Erkrankungen eine möglichst weitgehende Rehabilitation zu ermöglichen und eine genaue Diagnose und nachhaltige Behandlung von Patientinnen und Patienten mit Epilepsie sicherzustellen. Rund 300 Mitarbeitende engagieren sich menschlich, kompetent, innovativ und zuverlässig dafür, dass unsere Patientinnen und Patienten grösstmögliche Selbständigkeit - und damit ihre Lebensqualität - wiedererlangen. Werden Sie Teil eines unserer interdisziplinären und interprofessionellen Teams."
     },
     "slugByLocale": {
-      "it": "fachfrau-fachmann-gesundheit-neurorehabilitation-a-im-fruh-e-spatdienst-klinik-lengg-zurich-8092304c",
-      "en": "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-4e0a4e0d",
+      "it": "fachfrau-fachmann-gesundheit-neurorehabilitation-a-im-fruh-e-spatdienst-klinik-lengg-zurich",
+      "en": "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich",
       "de": "fachfrau-fachmann-gesundheit-neurorehabilitation-a-im-fruh-und-spatdienst-klinik-lengg-18cdbe24",
-      "fr": "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-67a43ad3"
+      "fr": "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-10-05T09:32:30.391Z",
@@ -3022,96 +3261,84 @@
       "specialista-in-salute-neuroriabilitazione-a-in-turni-mattina-e-sera-klinik-lengg-zurich",
       "healthcare-specialist-neurorehabilitation-a-in-early-and-late-shifts-klinik-lengg-zurich",
       "specialiste-en-sante-readaptation-neurologique-a-en-quarts-de-travail-matin-et-soir-klinik-lengg-zurich",
+      "fachfrau-fachmann-gesundheit-neurorehabilitation-a-im-fruh-und-spatdienst-klinik-lengg",
+      "fachfrau-fachmann-gesundheit-neurorehabilitation-a-im-fruh-und-spatdienst-klinik-lengg-18cdbe24",
+      "fachfrau-fachmann-gesundheit-neurorehabilitation-a-im-fruh-e-spatdienst-klinik-lengg-zurich-8092304c",
       "fachfrau-fachmann-gesundheit-neurorehabilitation-a-im-fruh-und-spatdienst-klinik-lengg-fe13bcf2",
-      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-c344221f",
-      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-6ad44df3",
-      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-ecb7bd59",
-      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-6bd44a7a",
-      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-a73a161e",
-      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-56dc963d",
-      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-a154b0bd",
-      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-3fe5f29f",
-      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-c018e72c",
-      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-e383d25c",
-      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-1e36e6e5",
-      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-f833b197",
-      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-ce18c3a2",
-      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-c7423e98",
-      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-b20f1d8b",
-      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-15fa534c",
-      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-d1301b8e",
-      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-33187035",
-      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-e87de423",
-      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-c2d419ef",
-      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-ee4eb932",
-      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-cc8523bf",
-      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-afe7fb30",
-      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-b5301488",
-      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-f0e253fd",
-      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-a4344c1e",
-      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-a442d7b6",
-      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-b30e1496",
-      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-21e0570e",
-      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-2f3da8e5",
-      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-79b202eb",
-      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-cdf1be21",
-      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-6ab5917a",
-      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-2affaba3",
-      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-891292a7",
-      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-f27a55b1",
-      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-60116e21",
-      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-c8059bc3",
-      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-0782fd3f",
-      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-4ebcdd3e",
-      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-284f0b59",
-      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-9ca49b8b",
-      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-ec06cb72",
-      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-f0f295e5",
-      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-8d4a8bec",
-      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-2e3c6651",
-      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-99f734a8",
-      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-cca9d7b3",
-      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-77ed8053",
-      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-f158d6a9",
-      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-aa68ca3e",
-      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-c94794bc",
-      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-32d764f8",
-      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-95736abd",
-      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-f6499ba7",
-      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-457498db",
-      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-a79693fc",
-      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-3556357d",
-      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-36d257cd",
-      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-26286521",
-      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-ec92d09b",
-      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-984de2a0",
       "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich",
-      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich"
+      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich",
+      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-4e0a4e0d",
+      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-c344221f",
+      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-ecb7bd59",
+      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-a73a161e",
+      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-a154b0bd",
+      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-c018e72c",
+      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-1e36e6e5",
+      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-ce18c3a2",
+      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-b20f1d8b",
+      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-d1301b8e",
+      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-e87de423",
+      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-ee4eb932",
+      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-afe7fb30",
+      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-f0e253fd",
+      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-a442d7b6",
+      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-21e0570e",
+      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-79b202eb",
+      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-6ab5917a",
+      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-891292a7",
+      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-60116e21",
+      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-0782fd3f",
+      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-284f0b59",
+      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-ec06cb72",
+      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-8d4a8bec",
+      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-99f734a8",
+      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-77ed8053",
+      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-aa68ca3e",
+      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-32d764f8",
+      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-f6499ba7",
+      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-a79693fc",
+      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-36d257cd",
+      "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-ec92d09b",
+      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-67a43ad3",
+      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-6ad44df3",
+      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-6bd44a7a",
+      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-56dc963d",
+      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-3fe5f29f",
+      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-e383d25c",
+      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-f833b197",
+      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-c7423e98",
+      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-15fa534c",
+      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-33187035",
+      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-c2d419ef",
+      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-cc8523bf",
+      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-b5301488",
+      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-a4344c1e",
+      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-b30e1496",
+      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-2f3da8e5",
+      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-cdf1be21",
+      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-2affaba3",
+      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-f27a55b1",
+      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-c8059bc3",
+      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-4ebcdd3e",
+      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-9ca49b8b",
+      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-f0f295e5",
+      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-2e3c6651",
+      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-cca9d7b3",
+      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-f158d6a9",
+      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-c94794bc",
+      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-95736abd",
+      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-457498db",
+      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-3556357d",
+      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-26286521",
+      "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-984de2a0"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "fachfrau-fachmann-gesundheit-neurorehabilitation-a-im-fruh-und-spatdienst-klinik-lengg-18cdbe24",
         "specialista-in-salute-neuroriabilitazione-a-in-turni-mattina-e-sera-klinik-lengg-zurich",
-        "fachfrau-fachmann-gesundheit-neurorehabilitation-a-im-fruh-und-spatdienst-klinik-lengg-fe13bcf2",
-        "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich",
-        "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich"
+        "fachfrau-fachmann-gesundheit-neurorehabilitation-a-im-fruh-e-spatdienst-klinik-lengg-zurich-8092304c",
+        "fachfrau-fachmann-gesundheit-neurorehabilitation-a-im-fruh-und-spatdienst-klinik-lengg-fe13bcf2"
       ],
       "en": [
-        "fachfrau-fachmann-gesundheit-neurorehabilitation-a-im-fruh-und-spatdienst-klinik-lengg-18cdbe24",
-        "healthcare-specialist-neurorehabilitation-a-in-early-and-late-shifts-klinik-lengg-zurich",
-        "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-c344221f",
-        "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich",
-        "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-ecb7bd59",
-        "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-a73a161e",
-        "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-a154b0bd",
-        "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-c018e72c",
-        "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-1e36e6e5",
-        "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-ce18c3a2",
-        "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-b20f1d8b",
-        "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-d1301b8e",
-        "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-e87de423",
-        "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-ee4eb932",
-        "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-afe7fb30",
         "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-f0e253fd",
         "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-a442d7b6",
         "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-21e0570e",
@@ -3131,25 +3358,9 @@
         "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-a79693fc",
         "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-36d257cd",
         "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-ec92d09b",
-        "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-4e0a4e0d",
-        "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich"
+        "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich-4e0a4e0d"
       ],
       "fr": [
-        "fachfrau-fachmann-gesundheit-neurorehabilitation-a-im-fruh-und-spatdienst-klinik-lengg-18cdbe24",
-        "specialiste-en-sante-readaptation-neurologique-a-en-quarts-de-travail-matin-et-soir-klinik-lengg-zurich",
-        "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-6ad44df3",
-        "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich",
-        "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-6bd44a7a",
-        "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-56dc963d",
-        "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-3fe5f29f",
-        "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-e383d25c",
-        "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-f833b197",
-        "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-c7423e98",
-        "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-15fa534c",
-        "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-33187035",
-        "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-c2d419ef",
-        "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-cc8523bf",
-        "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-b5301488",
         "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-a4344c1e",
         "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-b30e1496",
         "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-2f3da8e5",
@@ -3169,13 +3380,10 @@
         "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-3556357d",
         "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-26286521",
         "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-984de2a0",
-        "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-67a43ad3",
-        "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich"
+        "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich-67a43ad3"
       ],
       "de": [
-        "fachfrau-fachmann-gesundheit-neurorehabilitation-a-im-fruh-und-spatdienst-klinik-lengg-fe13bcf2",
-        "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich",
-        "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich"
+        "fachfrau-fachmann-gesundheit-neurorehabilitation-a-im-fruh-und-spatdienst-klinik-lengg-fe13bcf2"
       ]
     },
     "postalCode": "8008",
@@ -3185,7 +3393,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.kliniklengg.ch/offene-stellen/fachfrau-fachmann-gesundheit-neurorehabilitation-a-im-frueh-und-spaetdienst/38a560d9-934b-4c43-8d79-6558238a709e",
-    "firstSeenAt": "2026-07-17T22:36:11.277Z"
+    "firstSeenAt": "2026-07-17T22:36:11.277Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.kliniklengg.ch/offene-stellen/fachfrau-fachmann-gesundheit-neurorehabilitation-a-im-frueh-und-spaetdienst/38a560d9-934b-4c43-8d79-6558238a709e",
+        "firstSeenAt": "2026-07-17T22:36:11.277Z",
+        "title": "Fachfrau / Fachmann Gesundheit Neurorehabilitation (a) im Früh- und Spätdienst"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.kliniklengg.ch/offene-stellen/fachfrau-fachmann-gesundheit-neurorehabilitation-a-im-frueh-und-spaetdienst/a8c5aaea-cf79-464d-ac5a-e69d362df9ec",
+        "firstSeenAt": "2026-07-17T22:36:11.277Z",
+        "title": "Fachfrau / Fachmann Gesundheit Neurorehabilitation (a) im Früh- und Spätdienst"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.kliniklengg.ch/offene-stellen/fachfrau-fachmann-gesundheit-neurorehabilitation-a-im-frueh-und-spaetdienst/ef5f2610-8726-4951-ab1c-1cb92ab578d5",
+        "firstSeenAt": "2026-07-17T22:36:11.277Z",
+        "title": "Fachfrau / Fachmann Gesundheit Neurorehabilitation (a) im Früh- und Spätdienst"
+      }
+    ]
   },
   {
     "slug": "neuropsicologia-di-stage-a-klinik-lengg-zurich",
@@ -3288,6 +3513,88 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.kliniklengg.ch/offene-stellen/lehrstelle-als-fachfrau-fachmann-gesundheit-efz-a-2027/105cb5fb-a23f-49fa-89f8-01d9cd2f3cce",
     "firstSeenAt": "2026-09-02T13:49:45.167Z"
+  },
+  {
+    "slug": "psicoterapeuta-per-una-varieta-di-attivita-con-un-focus-su-neuropsicosomatica-a-klinik-lengg-zurich",
+    "title": "Psychotherapeutin / Psychotherapeut für vielseitige Tätigkeit mit Schwerpunkt Neuropsychosomatik (a)",
+    "titleByLocale": {
+      "it": "Psicoterapeuta per una varietà di attività con un focus su neuropsicosomatica (a)",
+      "en": "Psychotherapist for a variety of activities with a focus on neuropsychosomatics (a)",
+      "de": "Psychotherapeutin / Psychotherapeut für vielseitige Tätigkeit mit Schwerpunkt Neuropsychosomatik (a)",
+      "fr": "Psychothérapie pour diverses activités mettant l'accent sur la neuropsychosomatique (a)"
+    },
+    "company": "Klinik Lengg",
+    "companyKey": "klinik-lengg",
+    "location": "Zürich",
+    "addressLocality": "Zürich",
+    "descriptionByLocale": {
+      "it": "Compiti:\n• Esami clinici-psicologici e trattamenti psicoterapeutici in ambiente ambulatorio, concentrarsi su neuropsicosomatica con pazienti adulti\n\n• Valutazione e cura psicologica degli inpatici, principalmente con epilessia o convulsioni dissociative\n\n• Cooperazione interdisciplinare all'interno della clinica\n\n• Documentazione dei casi, reportistica e scambio di casi con allocatori, assicurazioni e altri organismi specializzati\n\n• Lavorare con giovani e giovani adulti\n\n• Trattamento psicoterapeutico dei pazienti con alterazione cognitiva o supervisione del loro ambiente\n\nRequisiti\n• Studi di psicologia completa e formazione psicoterapia completa o avanzata\n\n• Esperienza professionale con pazienti psicosomatici/somatici è benefica\n\n• Capacità di lavorare in modo indipendente, alto livello di competenza sociale, resilienza e capacità di squadra\n\nKlinik Lengg AG di Zurigo è il centro di eccellenza per l'epilessologia e la riabilitazione neurologica.\n\nIl nostro obiettivo è quello di fornire ai pazienti malattie neurologiche la più ampia riabilitazione possibile e garantire una diagnosi accurata e un trattamento sostenibile dei pazienti con epilessia. Circa 300 dipendenti si impegnano in modo umano, competente, innovativo e affidabile a garantire che i nostri pazienti riacquistano la massima indipendenza possibile - e quindi la loro qualità di vita. Diventa parte di una delle nostre squadre interdisciplinari e interprofessionali.",
+      "en": "Tasks:\n• Clinical-psychological examinations and psychotherapeutic treatments in outpatient setting, focus on neuropsychosomatics with adult patients\n\n• Assessment and psychological care of inpatients, mostly with epilepsy or dissociative seizures\n\n• Interdisciplinary cooperation within the clinic\n\n• Case documentation, reporting and case-related exchange with allocators, insurance companies and other specialist bodies\n\n• Working with young people and young adults\n\n• Psychotherapeutic treatment of patients with cognitive impairment or supervision of their environment\n\nRequirements\n• Completed psychology studies and completed or advanced psychotherapy training\n\n• Professional experience with psychosomatic/somatic patients is beneficial\n\n• Ability to work independently, high level of social competence, resilience and team capacity\n\nKlinik Lengg AG in Zurich is the centre of excellence for epileptology and neurological rehabilitation.\n\nIt is our aim to provide patients with neurological diseases with the widest possible rehabilitation and to ensure an accurate diagnosis and sustainable treatment of patients with epilepsy. Around 300 employees are committed to humanely, competently, innovatively and reliably ensuring that our patients regain the greatest possible independence - and thus their quality of life. Become part of one of our interdisciplinary and interprofessional teams.",
+      "de": "Aufgaben:\n• Klinisch-psychologische Abklärungen und psychotherapeutische Behandlungen im ambulanten Setting, Schwerpunkt Neuropsychosomatik mit erwachsenen Patienten\n\n• Beurteilung und psychologische Betreuung der stationären Patienten, mehrheitlich mit Epilepsie oder dissoziativen Anfällen\n\n• Interdisziplinäre Zusammenarbeit innerhalb der Klinik\n\n• Falldokumentation, Berichterstellung und fallbezogener Austausch mit Zuweisern, Versicherungen und weiteren Fachstellen\n\n• Arbeit mit Jugendlichen und jungen Erwachsenen\n\n• Psychotherapeutische Behandlung von Patienten mit kognitiver Beeinträchtigung oder Supervision für deren Umfeld\n\nAnforderungen:\n• Abgeschlossenes Psychologie-Studium sowie abgeschlossene oder fortgeschrittene Psychotherapieausbildung\n\n• Berufserfahrung mit psychosomatischen/somatischen Patienten von Vorteil\n\n• Fähigkeit zu selbständigem Arbeiten, hohe Sozialkompetenz, Belastbarkeit und Team-fähigkeit\n\nDie Klinik Lengg AG in Zürich ist das Kompetenzzentrum für Epileptologie und neurologische Rehabilitation.\n\nEs ist unser Anspruch, Patientinnen und Patienten mit neurologischen Erkrankungen eine möglichst weitgehende Rehabilitation zu ermöglichen und eine genaue Diagnose und nachhaltige Behandlung von Patientinnen und Patienten mit Epilepsie sicherzustellen. Rund 300 Mitarbeitende engagieren sich menschlich, kompetent, innovativ und zuverlässig dafür, dass unsere Patientinnen und Patienten grösstmögliche Selbständigkeit - und damit ihre Lebensqualität - wiedererlangen. Werden Sie Teil eines unserer interdisziplinären und interprofessionellen Teams.",
+      "fr": "Tâches :\n• Examens cliniques-psychologiques et traitements psychothérapeutiques en consultation externe, focalisation sur la neuropsychosomatique avec des patients adultes\n\n• Évaluation et soins psychologiques des malades hospitalisés, principalement avec épilepsie ou convulsions dissociatives\n\n• Coopération interdisciplinaire au sein de la clinique\n\n• Documentation, rapports et échanges de cas avec les allocataires, les compagnies d'assurance et d'autres organismes spécialisés\n\n• Travailler avec les jeunes et les jeunes adultes\n\n• Traitement psychothérapeutique des patients présentant une déficience cognitive ou une surveillance de leur environnement\n\nExigences\n• Études de psychologie terminées et formation approfondie en psychothérapie\n\n• L'expérience professionnelle avec les patients psychosomatiques/somatiques est bénéfique\n\n• Capacité de travailler de manière indépendante, haut niveau de compétence sociale, résilience et capacité d'équipe\n\nKlinik Lengg AG à Zurich est le centre d'excellence en épileptologie et en réadaptation neurologique.\n\nNotre objectif est de fournir aux patients atteints de maladies neurologiques la réadaptation la plus large possible et d'assurer un diagnostic précis et un traitement durable des patients atteints d'épilepsie. Environ 300 employés s'engagent à faire preuve d'humanité, de compétence, d'innovation et de fiabilité pour que nos patients retrouvent la plus grande indépendance possible et donc leur qualité de vie. Devenez membre d'une de nos équipes interdisciplinaires et interprofessionnelles."
+    },
+    "slugByLocale": {
+      "it": "psicoterapeuta-per-una-varieta-di-attivita-con-un-focus-su-neuropsicosomatica-a-klinik-lengg-zurich",
+      "en": "psychotherapist-for-a-variety-of-activities-with-a-focus-on-neuropsychosomatics-a-klinik-lengg-zurich-f4b04640",
+      "de": "psychotherapeutin-psychotherapeut-fur-vielseitige-tatigkeit-mit-schwerpunkt-a39c723c",
+      "fr": "psychotherapie-pour-diverses-activites-mettant-l-accent-sur-la-neuropsychosomatique-a-klinik-lengg-zurich-ff9d4836"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-09-24T14:41:19.946Z",
+    "previousSlugs": [
+      "psicoterapeuta-per-una-varieta-di-attivita-con-un-focus-su-neuropsicosomatica-a-klinik-lengg-zurich",
+      "psychotherapeutin-psychotherapeut-per-vielseitige-tatigkeit-con-schwerpunkt-neuropsychosomatik-klinik-lengg-zurich",
+      "psychotherapist-for-versatile-role-with-a-focus-on-neuropsychosomatics-klinik-lengg-zurich",
+      "psychotherapist-psychotherapist-for-versatile-activity-with-focus-on-neuropsychosomatics-klinik-lengg-zurich",
+      "psychotherapeute-pour-une-activite-polyvalente-axee-sur-la-neuro-psychosomatique-klinik-lengg-zurich",
+      "psychotherapie-psychotherapie-pour-une-activite-polyvalente-avec-un-accent-sur-la-neuropsychosomatique-klinik-lengg",
+      "psychotherapeutin-psychotherapeut-per-vielseitige-tatigkeit-con-schwerpunkt-neuropsychosomatik-a-klinik-lengg-9aadaa8a",
+      "psychotherapeutin-psychotherapeut-per-vielseitige-tatigkeit-con-schwerpunkt-neuropsychosomatik-a-klinik-lengg-zurich"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "psychotherapeutin-psychotherapeut-fur-vielseitige-tatigkeit-mit-schwerpunkt-a39c723c",
+        "psychotherapeutin-psychotherapeut-per-vielseitige-tatigkeit-con-schwerpunkt-neuropsychosomatik-a-klinik-lengg-9aadaa8a",
+        "psicoterapeuta-per-una-varieta-di-attivita-con-un-focus-su-neuropsicosomatica-a-klinik-lengg-zurich",
+        "psychotherapeutin-psychotherapeut-per-vielseitige-tatigkeit-con-schwerpunkt-neuropsychosomatik-klinik-lengg-zurich"
+      ],
+      "en": [
+        "psychotherapeutin-psychotherapeut-fur-vielseitige-tatigkeit-mit-schwerpunkt-a39c723c",
+        "psychotherapist-for-versatile-role-with-a-focus-on-neuropsychosomatics-klinik-lengg-zurich",
+        "psychotherapist-psychotherapist-for-versatile-activity-with-focus-on-neuropsychosomatics-klinik-lengg-zurich",
+        "psychotherapeutin-psychotherapeut-per-vielseitige-tatigkeit-con-schwerpunkt-neuropsychosomatik-a-klinik-lengg-zurich"
+      ],
+      "fr": [
+        "psychotherapeutin-psychotherapeut-fur-vielseitige-tatigkeit-mit-schwerpunkt-a39c723c",
+        "psychotherapeute-pour-une-activite-polyvalente-axee-sur-la-neuro-psychosomatique-klinik-lengg-zurich",
+        "psychotherapie-psychotherapie-pour-une-activite-polyvalente-avec-un-accent-sur-la-neuropsychosomatique-klinik-lengg",
+        "psychotherapeutin-psychotherapeut-per-vielseitige-tatigkeit-con-schwerpunkt-neuropsychosomatik-a-klinik-lengg-zurich"
+      ],
+      "de": [
+        "psychotherapeutin-psychotherapeut-fur-vielseitige-tatigkeit-mit-schwerpunkt-a39c723c",
+        "psychotherapeutin-psychotherapeut-per-vielseitige-tatigkeit-con-schwerpunkt-neuropsychosomatik-a-klinik-lengg-zurich"
+      ]
+    },
+    "postalCode": "8008",
+    "streetAddress": "Bleulerstrasse 60",
+    "salaryMin": 91500,
+    "salaryMax": 128000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.kliniklengg.ch/offene-stellen/psychotherapeutin-psychotherapeut-fuer-vielseitige-taetigkeit-mit-schwerpunkt-neuropsychosomatik-a/c6fa28ff-9083-4526-9329-a2faa26b450e",
+    "firstSeenAt": "2026-09-11T13:51:59.211Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.kliniklengg.ch/offene-stellen/psychotherapeutin-psychotherapeut-fuer-vielseitige-taetigkeit-mit-schwerpunkt-neuropsychosomatik-a/c6fa28ff-9083-4526-9329-a2faa26b450e",
+        "firstSeenAt": "2026-09-11T13:51:59.211Z",
+        "title": "Psychotherapeutin / Psychotherapeut für vielseitige Tätigkeit mit Schwerpunkt Neuropsychosomatik (a)"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.kliniklengg.ch/offene-stellen/psychotherapeutin-psychotherapeut-fuer-vielseitige-taetigkeit-mit-schwerpunkt-neuropsychosomatik-a/f060ef8e-77d7-4c57-a89b-bb2dc33fd6e9",
+        "firstSeenAt": "2026-09-11T13:51:59.211Z",
+        "title": "Psychotherapeutin / Psychotherapeut für vielseitige Tätigkeit mit Schwerpunkt Neuropsychosomatik (a)"
+      }
+    ]
   },
   {
     "slug": "capo-della-terapia-occupazionale-klinik-lengg-zurich",
@@ -3662,6 +3969,58 @@
     "salaryPeriod": "YEAR"
   },
   {
+    "slug": "psychotherapeutin-psychotherapeut-per-vielseitige-tatigkeit-con-schwerpunkt-neuropsychosomatik-klinik-lengg-zurich",
+    "title": "Psychotherapeutin / Psychotherapeut für vielseitige Tätigkeit mit Schwerpunkt Neuropsychosomatik",
+    "titleByLocale": {
+      "it": "Psychotherapeutin / Psychotherapeut per vielseitige Tätigkeit con Schwerpunkt Neuropsychosomatik",
+      "en": "Psychotherapist for versatile role with a focus on neuropsychosomatics",
+      "de": "Psychotherapeutin / Psychotherapeut für vielseitige Tätigkeit mit Schwerpunkt Neuropsychosomatik",
+      "fr": "Psychothérapeute pour une activité polyvalente axée sur la neuro-psychosomatique"
+    },
+    "company": "Klinik Lengg",
+    "companyKey": "klinik-lengg",
+    "location": "Zürich",
+    "addressLocality": "Zürich",
+    "descriptionByLocale": {
+      "it": "Descrizione La Klinik Lengg AG di Zurigo è il centro di competenza per l'epilessologia e la riabilitazione neurologica. Il nostro obiettivo è quello di consentire ai pazienti affetti da malattie neurologiche di sottoporsi al più ampio risanamento possibile e di garantire una diagnosi accurata e un trattamento sostenibile dei pazienti con epilessia. Circa 300 dipendenti sono impegnati in modo umano, competente, innovativo e affidabile nel riconquistare il più grande possibile lavoro autonomo - e quindi la loro qualità di vita - dei nostri pazienti. Partecipa a una delle nostre squadre interdisciplinari e interprofessionali. Compiti - Chiarifiche cliniche-psicologiche e trattamenti psicoterapeutici in ambienti ambulatoriali, concentrandosi su neuropsicosomatica con pazienti adulti - Valutazione e cura psicologica dei pazienti stazionari, principalmente con epilessia o convulsioni dissociative. Trattamento psicoterapeutico dei pazienti con alterazione cognitiva o supervisione per il loro ambiente - Lavorare con giovani e giovani adulti - Cooperazione interdisciplinare all'interno della clinica - Documentazione, reportistica e scambio di casi con istruttori, compagnie di assicurazione e altri dipartimenti\n• Requisiti - Studi di psicologia completi e formazione psicoterapia completa o avanzata - Esperienza professionale con pazienti psicosomatici/somatopsichici - capacità di lavorare in modo indipendente, alta competenza sociale, resilienza e abilità di squadra",
+      "en": "Descrizione The Klinik Lengg AG in Zurich is the competence center for epileptology and neurological rehabilitation. It is our goal to enable patients with neurological diseases to undergo as extensive rehabilitation as possible and to ensure accurate diagnosis and sustainable treatment of patients with epilepsy. Around 300 employees are engaged humanly, competently, innovatively and reliably in regaining the greatest possible self-employment - and thus their quality of life - of our patients. Be part of one of our interdisciplinary and interprofessional teams. Tasks - Clinical-psychological clarifications and psychotherapeutic treatments in outpatient settings, focusing on neuropsychosomatics with adult patients - Assessment and psychological care of stationary patients, mostly with epilepsy or dissociative seizures. Psychotherapeutic treatment of patients with cognitive impairment or supervision for their environment - Work with young people and young adults - Interdisciplinary cooperation within the clinic - Case documentation, reporting and case-related exchange with instructors, insurance companies and other departments\n• Requirements - Complete psychology studies as well as completed or advanced psychotherapy training - Professional experience with psychosomatic/somatopsychic patients - ability to work independently, high social competence, resilience and team skills",
+      "de": "Aufgaben:\n• Klinisch-psychologische Abklärungen und psychotherapeutische Behandlungen im ambulanten Setting, schwerpunktmässig im Bereich der Neuropsychosomatik mit erwachsenen Patienten\n• Beurteilung und psychologische Betreuung der stationären Patienten, mehrheitlich mit Epilepsie oder dissoziativen Anfällen\n• Psychotherapeutische Behandlung von Patienten mit kognitiver Beeinträchtigung oder Supervision für deren Umfeld\n• Arbeit mit Jugendlichen und jungen Erwachsenen\n• Interdisziplinäre Zusammenarbeit innerhalb der Klinik\n• Falldokumentation, Berichterstellung und fallbezogener Austausch mit Zuweisern, Versicherungen und weiteren Fachstellen Anforderungen:\n• Abgeschlossenes Psychologie-Studium sowie abgeschlossene oder fortgeschrittene Psychotherapieausbildung\n• Berufserfahrung mit psychosomatischen / somatopsychischen Patienten\n• Fähigkeit zu selbständigem Arbeiten, hohe Sozialkompetenz, Belastbarkeit und Team-fähigkeit Die Klinik Lengg AG in Zürich ist das Kompetenzzentrum für Epileptologie und neurologische Rehabilitation. Es ist unser Anspruch, Patientinnen und Patienten mit neurologischen Erkrankungen eine möglichst weitgehende Rehabilitation zu ermöglichen und eine genaue Diagnose und nachhaltige Behandlung von Patientinnen und Patienten mit Epilepsie sicherzustellen. Rund 300 Mitarbeitende engagieren sich menschlich, kompetent, innovativ und zuverlässig dafür, dass unsere Patientinnen und Patienten grösstmögliche Selbständigkeit - und damit ihre Lebensqualität - wiedererlangen. Werden Sie Teil eines unserer interdisziplinären und interprofessionellen Teams.",
+      "fr": "Descrizione Le Klinik Lengg AG de Zurich est le centre de compétence pour l'épileptologie et la réhabilitation neurologique. Notre objectif est de permettre aux patients atteints de maladies neurologiques de subir une réadaptation aussi complète que possible et d'assurer un diagnostic précis et un traitement durable des patients atteints d'épilepsie. Environ 300 employés sont engagés humainement, de manière compétente, innovatrice et fiable dans la récupération du plus grand travail indépendant possible - et donc de leur qualité de vie - de nos patients. Faites partie d'une de nos équipes interdisciplinaires et interprofessionnelles. Tâche - Clarifications cliniques-psychologiques et traitements psychothérapeutiques en consultation externe, en mettant l'accent sur la neuropsychosomatique chez les patients adultes - Évaluation et soins psychologiques des patients en situation stationnaire, principalement avec épilepsie ou convulsions dissociatives. Traitement psychothérapeutique des patients présentant une déficience cognitive ou une surveillance de leur environnement - Travailler avec les jeunes et les jeunes adultes - Coopération interdisciplinaire au sein de la clinique - Documentation, rapports et échanges de cas avec des instructeurs, des compagnies d'assurance et d'autres services\n• Exigences - Études de psychologie complètes ainsi que de psychothérapie complète ou avancée - Expérience professionnelle avec les patients psychosomatiques/somatopsychiques - capacité de travailler de manière indépendante, haute compétence sociale, résilience et compétences d'équipe"
+    },
+    "slugByLocale": {
+      "it": "psychotherapeutin-psychotherapeut-per-vielseitige-tatigkeit-con-schwerpunkt-neuropsychosomatik-klinik-lengg-zurich",
+      "en": "psychotherapist-for-versatile-role-with-a-focus-on-neuropsychosomatics-klinik-lengg-zurich",
+      "de": "psychotherapeutin-psychotherapeut-fur-vielseitige-tatigkeit-mit-schwerpunkt",
+      "fr": "psychotherapeute-pour-une-activite-polyvalente-axee-sur-la-neuro-psychosomatique-klinik-lengg-zurich"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-07-08T10:57:14.182Z",
+    "previousSlugs": [
+      "psychotherapeutin-psychotherapeut-fur-vielseitige-tatigkeit-mit-schwerpunkt",
+      "psychotherapist-psychotherapist-for-versatile-activity-with-focus-on-neuropsychosomatics-klinik-lengg-zurich",
+      "psychotherapie-psychotherapie-pour-une-activite-polyvalente-avec-un-accent-sur-la-neuropsychosomatique-klinik-lengg"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "psychotherapeutin-psychotherapeut-fur-vielseitige-tatigkeit-mit-schwerpunkt"
+      ],
+      "en": [
+        "psychotherapeutin-psychotherapeut-fur-vielseitige-tatigkeit-mit-schwerpunkt",
+        "psychotherapist-psychotherapist-for-versatile-activity-with-focus-on-neuropsychosomatics-klinik-lengg-zurich"
+      ],
+      "fr": [
+        "psychotherapeutin-psychotherapeut-fur-vielseitige-tatigkeit-mit-schwerpunkt",
+        "psychotherapie-psychotherapie-pour-une-activite-polyvalente-avec-un-accent-sur-la-neuropsychosomatique-klinik-lengg"
+      ]
+    },
+    "postalCode": "8008",
+    "streetAddress": "Bleulerstrasse 60",
+    "salaryMin": 73500,
+    "salaryMax": 111500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
     "slug": "stage-in-terapia-sportiva-klinik-lengg-zurich",
     "title": "Praktikantin / Praktikant Sporttherapie",
     "titleByLocale": {
@@ -4001,7 +4360,9 @@
     "salaryMin": 49500,
     "salaryMax": 75000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.kliniklengg.ch/offene-stellen/assistenzaerztin-assistenzarzt-neurorehabilitation-a/d0c4c59f-98b3-42d6-96ec-2c212b3cf589",
+    "firstSeenAt": "2026-08-26T10:10:52.054Z"
   },
   {
     "slug": "medico-neurorehabilitazione-a-capo-dipartimento-klinik-lengg-zurich",

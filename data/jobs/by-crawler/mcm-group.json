@@ -173,12 +173,12 @@
     },
     {
       "id": "mcm-group-4e76e1e8f0b4",
-      "slug": "med-praxisassistent-in-mpa-80-100-allg-medizin-chur-medizinisches-center-bonaduz-chur",
+      "slug": "assistente-di-studio-medico-mpa-80-100-medicina-generale-chur-medizinisches-center-bonaduz-chur",
       "slugByLocale": {
         "de": "med-praxisassistent-in-mpa-80-100-allg-medizin-chur-chur-mcm-group-ch",
-        "it": "med-praxisassistent-in-mpa-80-100-allg-medizin-chur-medizinisches-center-bonaduz-chur",
-        "en": "med-praxisassistent-in-mpa-80-100-allg-medizin-chur-medizinisches-center-bonaduz-chur",
-        "fr": "med-praxisassistent-in-mpa-80-100-allg-medizin-chur-medizinisches-center-bonaduz-chur"
+        "it": "assistente-di-studio-medico-mpa-80-100-medicina-generale-chur-medizinisches-center-bonaduz-chur",
+        "en": "medical-practice-assistant-mpa-80-100-general-medicine-chur-medizinisches-center-bonaduz-chur",
+        "fr": "assistant-e-medical-e-mpa-80-100-medecine-generale-coire-medizinisches-center-bonaduz-chur"
       },
       "company": "Medizinisches Center Bonaduz",
       "companyKey": "mcm-group",
@@ -222,14 +222,21 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "med-praxisassistent-in-mpa-80-100-allg-medizin-chur-chur-mcm-group-ch"
+          "med-praxisassistent-in-mpa-80-100-allg-medizin-chur-chur-mcm-group-ch",
+          "med-praxisassistent-in-mpa-80-100-allg-medizin-chur-medizinisches-center-bonaduz-chur"
+        ],
+        "en": [
+          "med-praxisassistent-in-mpa-80-100-allg-medizin-chur-medizinisches-center-bonaduz-chur"
+        ],
+        "fr": [
+          "med-praxisassistent-in-mpa-80-100-allg-medizin-chur-medizinisches-center-bonaduz-chur"
         ]
       },
       "previousSlugs": [
-        "med-praxisassistent-in-mpa-80-100-allg-medizin-chur-chur-mcm-group-ch"
+        "med-praxisassistent-in-mpa-80-100-allg-medizin-chur-chur-mcm-group-ch",
+        "med-praxisassistent-in-mpa-80-100-allg-medizin-chur-medizinisches-center-bonaduz-chur"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

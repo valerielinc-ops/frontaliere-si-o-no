@@ -67,9 +67,9 @@ function assertArtifactRef(ref, expectedRunId, apiArtifacts, errors) {
   else if (SHA_RE.test(digest) && actualDigest !== digest) errors.push(`${name}: artifact digest differs from the receipt`);
 }
 
-function readArtifactMetadata(sourceRunId, publisherRunId, sourcePayload, publisherPayload) {
+function readArtifactMetadata(sourceRunId, publisherRunId, sourcePayload, publisherPayload, priorArtifacts) {
   const map = new Map();
-  for (const [runId, payload] of [[sourceRunId, sourcePayload], [publisherRunId, publisherPayload]]) {
+  for (const [runId, payload] of [...Object.entries(priorArtifacts), [sourceRunId, sourcePayload], [publisherRunId, publisherPayload]]) {
     for (const artifact of artifactList(payload)) {
       const name = String(artifact?.name ?? '');
       if (!name) continue;
@@ -278,13 +278,15 @@ export function validatePublisherFastGate({
   sourceArtifacts,
   publisherArtifacts,
   manifestArtifactNames = [],
+  sectionOrigins = {},
+  priorArtifacts = {},
 }) {
   const errors = [];
   const pageByUrl = new Map();
   const pageManifestByLocale = new Map();
   const archiveEvidenceByUrl = new Map();
   const expected = { sourceRunId, sourceSha, kind: 'publisher-page-manifest', schemaVersion: 2, validatorVersion: 'publisher-page-index-v2' };
-  const artifactMetadata = readArtifactMetadata(sourceRunId, publisherRunId, sourceArtifacts, publisherArtifacts);
+  const artifactMetadata = readArtifactMetadata(sourceRunId, publisherRunId, sourceArtifacts, publisherArtifacts, priorArtifacts);
 
   const archiveEvidenceByLocale = new Map();
   for (const manifest of archiveEvidenceManifests ?? []) {
@@ -376,7 +378,7 @@ export function validatePublisherFastGate({
   const shardUrlOwners = new Map();
   for (const manifest of sectionManifests) {
     const locale = manifest?.locale;
-    const expectedArtifactRunId = String(publisherRunId);
+    const expectedArtifactRunId = String(locale !== 'it' && Object.hasOwn(sectionOrigins, locale) ? sectionOrigins[locale] : publisherRunId);
     const label = `section manifest ${String(locale)}`;
     assertManifestHeader(manifest, {
       sourceRunId,
@@ -533,7 +535,9 @@ export function validatePublisherFastGate({
     errors,
   });
   for (const name of manifestArtifactNames) {
-    const runId = name.startsWith('section-page-manifest-') || name.startsWith('sitemap-page-manifest-it-') ? String(publisherRunId)
+    const section = sectionManifests.find((manifest) => manifest.manifestArtifactName === name);
+    const runId = section ? String(section.locale !== 'it' && Object.hasOwn(sectionOrigins, section.locale) ? sectionOrigins[section.locale] : publisherRunId)
+        : name.startsWith('sitemap-page-manifest-it-') ? String(publisherRunId)
         : String(sourceRunId);
     assertArtifactRef({ runId, name, digest: artifactMetadata.get(`${runId}:${name}`)?.digest }, runId, artifactMetadata, errors);
   }
@@ -681,6 +685,8 @@ function main() {
     sourceArtifacts: readJson(args['source-artifacts']),
     publisherArtifacts: readJson(args['publisher-artifacts']),
     manifestArtifactNames,
+    sectionOrigins: args['section-origins'] ? readJson(args['section-origins']) : {},
+    priorArtifacts: args['prior-artifacts'] ? readJson(args['prior-artifacts']) : {},
   });
   if (args.out) {
     fs.mkdirSync(path.dirname(args.out), { recursive: true });

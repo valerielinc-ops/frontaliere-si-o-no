@@ -7178,12 +7178,12 @@
     },
     {
       "id": "vz-vermoegenszentrum-ce1cf8f2de94",
-      "slug": "premiere-experience-en-financial-consulting-vz-vermogenszentrum-lausanne",
+      "slug": "prima-esperienza-in-financial-consulting-vz-vermogenszentrum-lausanne-vaud",
       "slugByLocale": {
         "fr": "premiere-experience-en-financial-consulting-vz-vermoegenszentrum-ch",
-        "it": "premiere-experience-en-financial-consulting-vz-vermogenszentrum-lausanne",
+        "it": "prima-esperienza-in-financial-consulting-vz-vermogenszentrum-lausanne-vaud",
         "en": "premiere-experience-en-financial-consulting-vz-vermogenszentrum-lausanne",
-        "de": "premiere-experience-en-financial-consulting-vz-vermoegenszentrum-ch"
+        "de": "erste-erfahrungen-in-der-finanzberatung-vz-vermogenszentrum-lausanne-vaud"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -7242,11 +7242,16 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "premiere-experience-en-financial-consulting-vz-vermoegenszentrum-ch",
+          "premiere-experience-en-financial-consulting-vz-vermogenszentrum-lausanne"
+        ],
+        "de": [
           "premiere-experience-en-financial-consulting-vz-vermoegenszentrum-ch"
         ]
       },
       "previousSlugs": [
-        "premiere-experience-en-financial-consulting-vz-vermoegenszentrum-ch"
+        "premiere-experience-en-financial-consulting-vz-vermoegenszentrum-ch",
+        "premiere-experience-en-financial-consulting-vz-vermogenszentrum-lausanne"
       ],
       "salaryMin": 104500,
       "salaryMax": 183500,

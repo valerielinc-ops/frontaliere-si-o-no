@@ -522,7 +522,20 @@ export function readBackfillProgress(filePath) {
   const validWorksetHash = /^[0-9a-f]{40}$/iu.test(fields[0] || '');
   const validCursor = fields[1] === '-'
     || /^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$/u.test(fields[1] || '');
-  if (fields.length !== 3 || !validWorksetHash || !validCursor || !['active', 'complete'].includes(fields[2])) {
+  const hasLegacyShape = fields.length === 3;
+  const hasCanonicalShape = fields.length === 5;
+  const validRequestScopeHash = hasCanonicalShape && /^[0-9a-f]{40}$/u.test(fields[3] || '');
+  const historySince = fields[4] || '';
+  const historySinceDate = new Date(historySince);
+  const validHistorySince = historySince === 'all'
+    || (/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/u.test(historySince)
+      && Number.isFinite(historySinceDate.getTime())
+      && historySinceDate.toISOString() === `${historySince.slice(0, -1)}.000Z`);
+  if ((!hasLegacyShape && !hasCanonicalShape)
+    || !validWorksetHash
+    || !validCursor
+    || !['active', 'complete'].includes(fields[2])
+    || (hasCanonicalShape && (!validRequestScopeHash || !validHistorySince))) {
     throw new Error(`invalid backfill progress file: ${filePath}`);
   }
   return { worksetHash: fields[0], lastCompletedKey: fields[1], status: fields[2] };

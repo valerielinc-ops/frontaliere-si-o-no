@@ -574,7 +574,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.publicjobs.ch/jobs/behinderung-beeintr%c3%a4chtigung-agogik/~job161595?ext",
-    "firstSeenAt": "2026-08-05T22:43:24.350Z"
+    "firstSeenAt": "2026-08-05T22:43:24.350Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://www.publicjobs.ch/jobs/behinderung-beeintr%c3%a4chtigung-agogik/~job161595?ext",
+        "firstSeenAt": "2026-08-05T22:43:24.350Z",
+        "title": "Fachfrau/Fachmann Betreuung (FaBe) / Gesundheit (FaGe) EFZ (50 % - 70 %)"
+      },
+      {
+        "sourceIdentity": "url:https://www.publicjobs.ch/jobs/behinderung-beeintr%c3%a4chtigung-agogik/~job168872?ext",
+        "firstSeenAt": "2026-11-06T21:52:08.733Z",
+        "title": "Fachfrau/Fachmann Betreuung (FaBe) / Gesundheit (FaGe) EFZ (50 % - 70 %)"
+      }
+    ]
   },
   {
     "slug": "stage-nella-vita-assistita-interessengemeinschaft-sozialpsychiatrie-bern-bern",
@@ -735,7 +747,9 @@
     "salaryMin": 57500,
     "salaryMax": 80000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://www.publicjobs.ch/jobs/erwachsenenbildung/~job164767?ext",
+    "firstSeenAt": "2026-09-17T03:47:53.701Z"
   },
   {
     "slug": "servizio-di-guardia-notturna-ca-30-40-interessengemeinschaft-sozialpsychiatrie-bern-bern",

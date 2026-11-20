@@ -6605,12 +6605,12 @@
     },
     {
       "id": "nestle-1458799533",
-      "slug": "technicien-ne-de-maintenance-en-horaire-d-equipe-4x8-nestle-ch",
+      "slug": "tecnico-di-manutenzione-del-programma-di-squadra-4x8-nestle-romont",
       "slugByLocale": {
         "fr": "technicien-ne-de-maintenance-en-horaire-d-equipe-4x8-nestle-ch",
-        "it": "technicien-ne-de-maintenance-en-horaire-d-equipe-4x8-nestle-ch",
-        "en": "technicien-ne-de-maintenance-en-horaire-d-equipe-4x8-nestle-ch",
-        "de": "technicien-ne-de-maintenance-en-horaire-d-equipe-4x8-nestle-ch"
+        "it": "tecnico-di-manutenzione-del-programma-di-squadra-4x8-nestle-romont",
+        "en": "4x8-team-schedule-maintenance-technician-nestle-romont",
+        "de": "4x8-team-schedule-wartungstechniker-nestle-romont"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -6672,7 +6672,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T21:48:15.602Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-05-25T13:33:55.578Z"
+      "firstSeenAt": "2026-05-25T13:33:55.578Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-ne-de-maintenance-en-horaire-d-equipe-4x8-nestle-ch"
+        ],
+        "en": [
+          "technicien-ne-de-maintenance-en-horaire-d-equipe-4x8-nestle-ch"
+        ],
+        "de": [
+          "technicien-ne-de-maintenance-en-horaire-d-equipe-4x8-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-ne-de-maintenance-en-horaire-d-equipe-4x8-nestle-ch"
+      ]
     },
     {
       "id": "nestle-1458769833",

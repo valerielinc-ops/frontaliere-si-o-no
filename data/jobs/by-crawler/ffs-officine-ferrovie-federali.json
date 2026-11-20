@@ -1510,7 +1510,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:38:50.254Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://careers.sbb.ch/job/bern-embedded-software-und-hardware-engineer-%28mwd%29-bern/1455997133"
+      "sourceIdentity": "url:https://careers.sbb.ch/job/bern-embedded-software-und-hardware-engineer-%28mwd%29-bern/1455997133",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-dc8816741a3b",
@@ -2508,7 +2509,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:38:50.890Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://careers.sbb.ch/job/bern-linux-system-und-automation-engineer-%28mwd%29-bern/1456123633"
+      "sourceIdentity": "url:https://careers.sbb.ch/job/bern-linux-system-und-automation-engineer-%28mwd%29-bern/1456123633",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-beb64dd74712",
@@ -2575,7 +2577,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:38:50.922Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://careers.sbb.ch/job/bern-microsoft-365-copilot-&-agent-engineer-%28mwd%29-bern/1454832233"
+      "sourceIdentity": "url:https://careers.sbb.ch/job/bern-microsoft-365-copilot-&-agent-engineer-%28mwd%29-bern/1454832233",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-9634e780d4e6",
@@ -3216,7 +3219,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:38:51.199Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://careers.sbb.ch/job/bern-product-manager-application-platform-%28mwd%29-bern/1428630433"
+      "sourceIdentity": "url:https://careers.sbb.ch/job/bern-product-manager-application-platform-%28mwd%29-bern/1428630433",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-6c1791ffd119",
@@ -3294,7 +3298,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:38:51.222Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://careers.sbb.ch/job/bern-product-manager-cloud-foundation-%28mwd%29-bern/1433831333"
+      "sourceIdentity": "url:https://careers.sbb.ch/job/bern-product-manager-cloud-foundation-%28mwd%29-bern/1433831333",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-6578bd3d0123",
@@ -6529,11 +6534,11 @@
     },
     {
       "id": "sbb-d6e4aaaad724",
-      "slug": "agent-e-de-nettoyage-ffs-officine-ferrovie-federali-ticino",
+      "slug": "agente-di-pulizia-ffs-officine-ferrovie-federali-ticino",
       "slugByLocale": {
-        "it": "agent-e-de-nettoyage-ffs-officine-ferrovie-federali-ticino",
-        "en": "agent-e-de-nettoyage-ffs-officine-ferrovie-federali-ticino",
-        "de": "agent-e-de-nettoyage-ffs-officine-ferrovie-federali-ticino",
+        "it": "agente-di-pulizia-ffs-officine-ferrovie-federali-ticino",
+        "en": "cleaning-agent-ffs-officine-ferrovie-federali-ticino",
+        "de": "reinigungsmittel-ffs-officine-ferrovie-federali-ticino",
         "fr": "agent-e-de-nettoyage-ffs-officine-ferrovie-federali-ticino"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -6597,7 +6602,21 @@
       "validThrough": "2027-02-17T21:38:52.914Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-19T21:38:52.914Z",
-      "sourceIdentity": "url:https://careers.sbb.ch/job/gen%c3%a8ve-agent%c2%b7e-de-nettoyage/1458905233"
+      "sourceIdentity": "url:https://careers.sbb.ch/job/gen%c3%a8ve-agent%c2%b7e-de-nettoyage/1458905233",
+      "previousSlugsByLocale": {
+        "it": [
+          "agent-e-de-nettoyage-ffs-officine-ferrovie-federali-ticino"
+        ],
+        "en": [
+          "agent-e-de-nettoyage-ffs-officine-ferrovie-federali-ticino"
+        ],
+        "de": [
+          "agent-e-de-nettoyage-ffs-officine-ferrovie-federali-ticino"
+        ]
+      },
+      "previousSlugs": [
+        "agent-e-de-nettoyage-ffs-officine-ferrovie-federali-ticino"
+      ]
     },
     {
       "id": "sbb-b015e664350a",
@@ -13639,7 +13658,7 @@
       "slug": "grundstuckspezialist-in-ffs-officine-ferrovie-federali-ticino",
       "slugByLocale": {
         "it": "grundstuckspezialist-in-ffs-officine-ferrovie-federali-ticino",
-        "en": "grundstuckspezialist-in-ffs-officine-ferrovie-federali-ticino",
+        "en": "land-specialist-ffs-officine-ferrovie-federali-ticino",
         "de": "grundstuckspezialist-in-ffs-officine-ferrovie-federali-ticino",
         "fr": "grundstuckspezialist-in-ffs-officine-ferrovie-federali-ticino"
       },
@@ -13705,7 +13724,15 @@
       "validThrough": "2027-02-17T21:38:56.377Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-19T21:38:56.377Z",
-      "sourceIdentity": "url:https://careers.sbb.ch/job/z%c3%bcrich-altstetten-grundst%c3%bcckspezialistin/1458852633"
+      "sourceIdentity": "url:https://careers.sbb.ch/job/z%c3%bcrich-altstetten-grundst%c3%bcckspezialistin/1458852633",
+      "previousSlugsByLocale": {
+        "en": [
+          "grundstuckspezialist-in-ffs-officine-ferrovie-federali-ticino"
+        ]
+      },
+      "previousSlugs": [
+        "grundstuckspezialist-in-ffs-officine-ferrovie-federali-ticino"
+      ]
     },
     {
       "id": "sbb-fa5226d89228",
@@ -14272,7 +14299,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:38:56.729Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://careers.sbb.ch/job/z%c3%bcrich-elektroinstallateurin%2c-elektrofachpersonal-in-der-welt-der-technischen-bahnberufe-z%c3%bcri/1278579601"
+      "sourceIdentity": "url:https://careers.sbb.ch/job/z%c3%bcrich-elektroinstallateurin%2c-elektrofachpersonal-in-der-welt-der-technischen-bahnberufe-z%c3%bcri/1278579601",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-7942968f0813",
@@ -14357,12 +14385,12 @@
     },
     {
       "id": "sbb-6232b83e076b",
-      "slug": "fachexperte-in-engineering-ffs-officine-ferrovie-federali-ticino",
+      "slug": "esperto-in-ingegneria-ffs-officine-ferrovie-federali-ticino",
       "slugByLocale": {
-        "it": "fachexperte-in-engineering-ffs-officine-ferrovie-federali-ticino",
-        "en": "fachexperte-in-engineering-ffs-officine-ferrovie-federali-ticino",
+        "it": "esperto-in-ingegneria-ffs-officine-ferrovie-federali-ticino",
+        "en": "expert-in-engineering-ffs-officine-ferrovie-federali-ticino",
         "de": "fachexperte-in-engineering-ffs-officine-ferrovie-federali-ticino",
-        "fr": "fachexperte-in-engineering-ffs-officine-ferrovie-federali-ticino"
+        "fr": "expert-en-ingenierie-ffs-officine-ferrovie-federali-ticino"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -14426,7 +14454,21 @@
       "validThrough": "2027-02-17T21:38:56.803Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-19T21:38:56.803Z",
-      "sourceIdentity": "url:https://careers.sbb.ch/job/z%c3%bcrich-fachexpertein-engineering/1458826933"
+      "sourceIdentity": "url:https://careers.sbb.ch/job/z%c3%bcrich-fachexpertein-engineering/1458826933",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachexperte-in-engineering-ffs-officine-ferrovie-federali-ticino"
+        ],
+        "en": [
+          "fachexperte-in-engineering-ffs-officine-ferrovie-federali-ticino"
+        ],
+        "fr": [
+          "fachexperte-in-engineering-ffs-officine-ferrovie-federali-ticino"
+        ]
+      },
+      "previousSlugs": [
+        "fachexperte-in-engineering-ffs-officine-ferrovie-federali-ticino"
+      ]
     },
     {
       "id": "sbb-148b00592405",
@@ -14507,7 +14549,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:38:56.813Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://careers.sbb.ch/job/z%c3%bcrich-elektroinstallateurin%2c-netzelektrikerin-im-bereich-bahnstrom-infr/1451816133"
+      "sourceIdentity": "url:https://careers.sbb.ch/job/z%c3%bcrich-elektroinstallateurin%2c-netzelektrikerin-im-bereich-bahnstrom-infr/1451816133",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-cca567b12324",
@@ -15408,7 +15451,7 @@
         "it": "addetto-a-alle-pulizie-ffs-officine-ferrovie-federali-ticino",
         "en": "cleaner-ffs-officine-ferrovie-federali-ticino",
         "de": "reiniger-in-ffs-officine-ferrovie-federali-ticino",
-        "fr": "agent-e-de-nettoyage-ffs-officine-ferrovie-federali-ticino"
+        "fr": "agent-e-de-nettoyage-ffs-officine-ferrovie-federali-ticino-7i6a4c"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -15445,7 +15488,8 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-19T21:38:57.302Z",
       "previousSlugs": [
-        "reiniger-in-ffs-officine-ferrovie-federali-ticino"
+        "reiniger-in-ffs-officine-ferrovie-federali-ticino",
+        "agent-e-de-nettoyage-ffs-officine-ferrovie-federali-ticino"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -15455,7 +15499,8 @@
           "reiniger-in-ffs-officine-ferrovie-federali-ticino"
         ],
         "fr": [
-          "reiniger-in-ffs-officine-ferrovie-federali-ticino"
+          "reiniger-in-ffs-officine-ferrovie-federali-ticino",
+          "agent-e-de-nettoyage-ffs-officine-ferrovie-federali-ticino"
         ]
       },
       "firstSeenAt": "2026-11-17T21:30:43.655Z",

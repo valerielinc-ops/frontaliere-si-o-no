@@ -4735,12 +4735,12 @@
     },
     {
       "id": "see-spital-9fe688455fc7",
-      "slug": "collaboratore-trice-in-gerateaufbereitung-endoskopie-see-spital-horgen",
+      "slug": "addetto-a-al-ricondizionamento-degli-strumenti-di-endoscopia-see-spital-horgen",
       "slugByLocale": {
         "de": "mitarbeiter-in-gerateaufbereitung-endoskopie-see-spital-ch",
-        "it": "collaboratore-trice-in-gerateaufbereitung-endoskopie-see-spital-horgen",
-        "en": "mitarbeiter-in-gerateaufbereitung-endoskopie-see-spital-ch",
-        "fr": "mitarbeiter-in-gerateaufbereitung-endoskopie-see-spital-ch"
+        "it": "addetto-a-al-ricondizionamento-degli-strumenti-di-endoscopia-see-spital-horgen",
+        "en": "endoscopy-equipment-reprocessing-employee-see-spital-horgen",
+        "fr": "collaborateur-trice-au-retraitement-des-appareils-d-endoscopie-see-spital-horgen"
       },
       "company": "See-Spital",
       "companyKey": "see-spital",
@@ -4764,7 +4764,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1271/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-11-19T21:22:12.207Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -4789,11 +4788,19 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-gerateaufbereitung-endoskopie-see-spital-ch",
+          "collaboratore-trice-in-gerateaufbereitung-endoskopie-see-spital-horgen"
+        ],
+        "en": [
+          "mitarbeiter-in-gerateaufbereitung-endoskopie-see-spital-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-gerateaufbereitung-endoskopie-see-spital-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-gerateaufbereitung-endoskopie-see-spital-ch"
+        "mitarbeiter-in-gerateaufbereitung-endoskopie-see-spital-ch",
+        "collaboratore-trice-in-gerateaufbereitung-endoskopie-see-spital-horgen"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

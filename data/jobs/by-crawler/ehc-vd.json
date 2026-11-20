@@ -5839,12 +5839,12 @@
     },
     {
       "id": "ehc-vd-a21791a20e7e",
-      "slug": "medecins-de-permanence-f-h-ehc-vd-morges",
+      "slug": "dottori-permanenti-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
       "slugByLocale": {
         "fr": "medecins-de-permanence-f-h-ehc-vd-morges",
-        "it": "medecins-de-permanence-f-h-ehc-vd-morges",
-        "en": "medecins-de-permanence-f-h-ehc-vd-morges",
-        "de": "medecins-de-permanence-f-h-ehc-vd-morges"
+        "it": "dottori-permanenti-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "en": "permanent-doctors-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "de": "standige-arzte-m-w-ensemble-hospitalier-de-la-cote-ehc-morges"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
       "companyKey": "ehc-vd",
@@ -5907,14 +5907,28 @@
       "validThrough": "2027-02-17T21:17:00.070Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-19T21:17:00.070Z",
-      "sourceIdentity": "url:https://emploi.ehc-vd.ch/fr/nos-offres/medecins-de-permanence-fh-3834"
+      "sourceIdentity": "url:https://emploi.ehc-vd.ch/fr/nos-offres/medecins-de-permanence-fh-3834",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecins-de-permanence-f-h-ehc-vd-morges"
+        ],
+        "en": [
+          "medecins-de-permanence-f-h-ehc-vd-morges"
+        ],
+        "de": [
+          "medecins-de-permanence-f-h-ehc-vd-morges"
+        ]
+      },
+      "previousSlugs": [
+        "medecins-de-permanence-f-h-ehc-vd-morges"
+      ]
     },
     {
       "id": "ehc-vd-8f08ecf52d2a",
-      "slug": "infirmier-en-chirurgie-f-h-ehc-vd-morges",
+      "slug": "infermiera-chirurgica-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
       "slugByLocale": {
         "fr": "infirmier-en-chirurgie-f-h-ehc-vd-morges",
-        "it": "infirmier-en-chirurgie-f-h-ehc-vd-morges",
+        "it": "infermiera-chirurgica-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
         "en": "infirmier-en-chirurgie-f-h-ehc-vd-morges",
         "de": "infirmier-en-chirurgie-f-h-ehc-vd-morges"
       },
@@ -5979,7 +5993,15 @@
       "validThrough": "2026-12-28T21:17:00.067Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-09-29T21:11:56.245Z",
-      "sourceIdentity": "url:https://emploi.ehc-vd.ch/fr/nos-offres/infirmier-en-chirurgie-fh-3835"
+      "sourceIdentity": "url:https://emploi.ehc-vd.ch/fr/nos-offres/infirmier-en-chirurgie-fh-3835",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-en-chirurgie-f-h-ehc-vd-morges"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-en-chirurgie-f-h-ehc-vd-morges"
+      ]
     },
     {
       "id": "ehc-vd-dd75978b622a",

@@ -36,7 +36,11 @@
       "infermiera-man-hf-medicina-kantonsspital-glarus-ksgl-glarus-90bfddeb5a",
       "dipl-nurse-hf-medicine-kantonsspital-glarus-ksgl-glarus",
       "infirmier-ere-dipl-hf-medecine-kantonsspital-glarus-ksgl-glarus",
-      "dipl-pflegefachfrau-mann-hf-medizin-ksgl-glarus"
+      "dipl-pflegefachfrau-mann-hf-medizin-ksgl-glarus",
+      "dipl-pflegefachfrau-mann-hf-medizin-ksgl-glarus-61d5c755",
+      "infermiera-man-hf-medicina-kantonsspital-glarus-ksgl-glarus",
+      "dipl-nurse-man-hf-medicine-kantonsspital-glarus-ksgl-glarus",
+      "infirmiere-diplomee-en-medecine-hf-kantonsspital-glarus-ksgl-glarus"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -47,20 +51,25 @@
         "infirmiere-diplomee-en-oncologie-kantonsspital-glarus-ksgl-glarus",
         "dipl-pflegefachfrau-mann-hf-onkologie-kantonsspital-glarus-ksgl-glarus",
         "dipl-pflegefachfrau-mann-hf-medizin-kantonsspital-glarus-ksgl-glarus",
-        "infermiera-man-hf-medicina-kantonsspital-glarus-ksgl-glarus-90bfddeb5a"
+        "infermiera-man-hf-medicina-kantonsspital-glarus-ksgl-glarus-90bfddeb5a",
+        "infermiera-man-hf-medicina-kantonsspital-glarus-ksgl-glarus",
+        "dipl-pflegefachfrau-mann-hf-medizin-ksgl-glarus"
       ],
       "en": [
         "dipl-pflegefachfrau-mann-hf-medizin-ksgl-glarus",
         "dipl-nurse-man-hf-oncology-kantonsspital-glarus-ksgl-glarus",
-        "dipl-nurse-hf-medicine-kantonsspital-glarus-ksgl-glarus"
+        "dipl-nurse-hf-medicine-kantonsspital-glarus-ksgl-glarus",
+        "dipl-nurse-man-hf-medicine-kantonsspital-glarus-ksgl-glarus"
       ],
       "de": [
-        "dipl-pflegefachfrau-mann-hf-onkologie-ksgl-glarus"
+        "dipl-pflegefachfrau-mann-hf-onkologie-ksgl-glarus",
+        "dipl-pflegefachfrau-mann-hf-medizin-ksgl-glarus"
       ],
       "fr": [
         "dipl-pflegefachfrau-mann-hf-medizin-ksgl-glarus",
         "infirmiere-diplomee-en-oncologie-kantonsspital-glarus-ksgl-glarus",
-        "infirmier-ere-dipl-hf-medecine-kantonsspital-glarus-ksgl-glarus"
+        "infirmier-ere-dipl-hf-medecine-kantonsspital-glarus-ksgl-glarus",
+        "infirmiere-diplomee-en-medecine-hf-kantonsspital-glarus-ksgl-glarus"
       ]
     },
     "postalCode": "8750",
@@ -70,7 +79,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.ksgl.ch/offene-stellen/dipl-pflegefachfrau-mann-hf-medizin/e328429d-fc17-49d1-bab7-7aee9f948de9",
-    "firstSeenAt": "2026-08-14T10:20:56.004Z"
+    "firstSeenAt": "2026-08-14T10:20:56.004Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.ksgl.ch/offene-stellen/dipl-pflegefachfrau-mann-hf-medizin/4c7311a1-07e0-4245-88ca-3da5a51ad737",
+        "firstSeenAt": "2026-08-14T10:20:56.004Z",
+        "title": "Dipl. Pflegefachfrau*mann HF Medizin"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.ksgl.ch/offene-stellen/dipl-pflegefachfrau-mann-hf-medizin/e328429d-fc17-49d1-bab7-7aee9f948de9",
+        "firstSeenAt": "2026-08-14T10:20:56.004Z",
+        "title": "Dipl. Pflegefachfrau*mann HF Medizin"
+      }
+    ]
   },
   {
     "slug": "apprendistato-come-cuoco-cuoco-efz-kantonsspital-glarus-ksgl-glarus-3500e2d8",
@@ -102,18 +123,29 @@
     "previousSlugs": [
       "apprendistato-come-kochin-koch-cfc-kantonsspital-glarus-ksgl-glarus",
       "apprendistato-come-cuoco-cuoco-efz-kantonsspital-glarus-ksgl-glarus-fc62d578e8",
-      "lehrstelle-als-kochin-koch-efz-ksgl-glarus"
+      "lehrstelle-als-kochin-koch-efz-ksgl-glarus",
+      "lehrstelle-als-kochin-koch-efz-ksgl-glarus-9109db06",
+      "apprendistato-come-cuoco-cuoco-efz-kantonsspital-glarus-ksgl-glarus",
+      "apprenticeship-as-cook-cook-efz-kantonsspital-glarus-ksgl-glarus",
+      "apprentissage-comme-cuisinier-cuisinier-efz-kantonsspital-glarus-ksgl-glarus"
     ],
     "previousSlugsByLocale": {
       "it": [
         "lehrstelle-als-kochin-koch-efz-ksgl-glarus-9109db06",
         "apprendistato-come-kochin-koch-cfc-kantonsspital-glarus-ksgl-glarus",
-        "apprendistato-come-cuoco-cuoco-efz-kantonsspital-glarus-ksgl-glarus-fc62d578e8"
-      ],
-      "en": [
+        "apprendistato-come-cuoco-cuoco-efz-kantonsspital-glarus-ksgl-glarus-fc62d578e8",
+        "apprendistato-come-cuoco-cuoco-efz-kantonsspital-glarus-ksgl-glarus",
         "lehrstelle-als-kochin-koch-efz-ksgl-glarus"
       ],
+      "en": [
+        "lehrstelle-als-kochin-koch-efz-ksgl-glarus",
+        "apprenticeship-as-cook-cook-efz-kantonsspital-glarus-ksgl-glarus"
+      ],
       "fr": [
+        "lehrstelle-als-kochin-koch-efz-ksgl-glarus",
+        "apprentissage-comme-cuisinier-cuisinier-efz-kantonsspital-glarus-ksgl-glarus"
+      ],
+      "de": [
         "lehrstelle-als-kochin-koch-efz-ksgl-glarus"
       ]
     },
@@ -124,7 +156,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.ksgl.ch/offene-stellen/lehrstelle-als-koechin-koch-efz/d2c532bd-a558-4433-a319-aaa638b321ee",
-    "firstSeenAt": "2026-08-12T22:21:51.579Z"
+    "firstSeenAt": "2026-08-12T22:21:51.579Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.ksgl.ch/offene-stellen/lehrstelle-als-koechin-koch-efz/d2c532bd-a558-4433-a319-aaa638b321ee",
+        "firstSeenAt": "2026-08-12T22:21:51.579Z",
+        "title": "Lehrstelle als Köchin / Koch EFZ"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.ksgl.ch/offene-stellen/lehrstelle-als-koechin-koch-efz/ea8a7919-6428-4f73-8d0d-f4a581b7c885",
+        "firstSeenAt": "2026-08-12T22:21:51.579Z",
+        "title": "Lehrstelle als Köchin / Koch EFZ"
+      }
+    ]
   },
   {
     "slug": "apprendistato-come-informatico-scienziato-efz-sviluppo-della-piattaforma-kantonsspital-glarus-ksgl-glarus-4f55680c",
@@ -156,18 +200,29 @@
     "previousSlugs": [
       "apprendistato-come-informatiker-in-cfc-plattformentwicklung-kantonsspital-glarus-ksgl-glarus",
       "apprendistato-come-informatico-scienziato-efz-sviluppo-della-piattaforma-kantonsspital-glarus-ksgl-glarus-afa5e0af68",
-      "lehrstelle-als-informatiker-in-efz-plattformentwicklung-ksgl-glarus"
+      "lehrstelle-als-informatiker-in-efz-plattformentwicklung-ksgl-glarus",
+      "lehrstelle-als-informatiker-in-efz-plattformentwicklung-ksgl-glarus-4610aea6",
+      "apprendistato-come-informatico-scienziato-efz-sviluppo-della-piattaforma-kantonsspital-glarus-ksgl-glarus",
+      "apprenticeship-as-computer-scientist-efz-platform-development-kantonsspital-glarus-ksgl-glarus",
+      "apprentissage-en-informatique-efz-developpement-d-une-plateforme-kantonsspital-glarus-ksgl-glarus"
     ],
     "previousSlugsByLocale": {
       "it": [
         "lehrstelle-als-informatiker-in-efz-plattformentwicklung-ksgl-glarus-4610aea6",
         "apprendistato-come-informatiker-in-cfc-plattformentwicklung-kantonsspital-glarus-ksgl-glarus",
-        "apprendistato-come-informatico-scienziato-efz-sviluppo-della-piattaforma-kantonsspital-glarus-ksgl-glarus-afa5e0af68"
-      ],
-      "en": [
+        "apprendistato-come-informatico-scienziato-efz-sviluppo-della-piattaforma-kantonsspital-glarus-ksgl-glarus-afa5e0af68",
+        "apprendistato-come-informatico-scienziato-efz-sviluppo-della-piattaforma-kantonsspital-glarus-ksgl-glarus",
         "lehrstelle-als-informatiker-in-efz-plattformentwicklung-ksgl-glarus"
       ],
+      "en": [
+        "lehrstelle-als-informatiker-in-efz-plattformentwicklung-ksgl-glarus",
+        "apprenticeship-as-computer-scientist-efz-platform-development-kantonsspital-glarus-ksgl-glarus"
+      ],
       "fr": [
+        "lehrstelle-als-informatiker-in-efz-plattformentwicklung-ksgl-glarus",
+        "apprentissage-en-informatique-efz-developpement-d-une-plateforme-kantonsspital-glarus-ksgl-glarus"
+      ],
+      "de": [
         "lehrstelle-als-informatiker-in-efz-plattformentwicklung-ksgl-glarus"
       ]
     },
@@ -178,10 +233,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.ksgl.ch/offene-stellen/lehrstelle-als-informatiker-in-efz-plattformentwicklung/7b33f1c5-6571-40dd-8a80-57efc71a9c61",
-    "firstSeenAt": "2026-08-13T10:22:54.331Z"
+    "firstSeenAt": "2026-08-13T10:22:54.331Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.ksgl.ch/offene-stellen/lehrstelle-als-informatiker-in-efz-plattformentwicklung/7b33f1c5-6571-40dd-8a80-57efc71a9c61",
+        "firstSeenAt": "2026-08-13T10:22:54.331Z",
+        "title": "Lehrstelle als Informatiker*in EFZ (Plattformentwicklung)"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.ksgl.ch/offene-stellen/lehrstelle-als-informatiker-in-efz-plattformentwicklung/bc5a2588-ff9d-43e8-b6b5-31da7a4f2586",
+        "firstSeenAt": "2026-08-13T10:22:54.331Z",
+        "title": "Lehrstelle als Informatiker*in EFZ (Plattformentwicklung)"
+      }
+    ]
   },
   {
-    "slug": "sub-assistante-kantonsspital-glarus-ksgl-glarus-1a176150",
+    "slug": "sub-assistante-kantonsspital-glarus-ksgl-glarus",
     "title": "Unterassistent*in",
     "titleByLocale": {
       "it": "Sub-assistante*",
@@ -200,10 +267,10 @@
       "fr": "## Sans lettre de motivation en 2 minutes\nÀ partir de maintenant\n100%\nAu cœur de la vu dr Regiuu\nAu cœur de la région de Glarus se trouve le centre social de notre canton - il y a tout pour la vie quotidienne et une offre culturelle polyvalente.\nD Friiziit i dr Umgäbig gnüüsse\nQui apprécie les loisirs dans la nature, est dans l'or Glarnerland droit – actif ou relaxant.\nE guete ÖV\nBonnes liaisons de transport en commun La capitale cantonale est accessible depuis Zurich et Rapperswil toutes les demi-heures et se caractérise par de courtes distances.\nToujours e Pargplatz haa\nAvoir toujours une place de parking Dans notre parking il y a assez de stationnement pour les employés à des prix équitables.\nFit bliibe\nDans notre centre de formation, les employés s'entraînent avec des personnes en bonne santé et des patients dans une atmosphère décontractée.\nJ'ai un hôpital.\nDans notre hôpital Notre nourriture est bonne et bon marché. Nos desserts et nos sommets de la noix sont les meilleurs de la région.\nJe vais gagner.\nNotre hébergement peu coûteux du personnel dans la maison en terrasse offre meublé studios individuels dans les environs immédiats.\nÇa marchera toujours.\nÇa avance toujours. En tant que plus grand fournisseur de soins de santé du canton de Glarus, nous sommes toujours à jour.\nFamille et friiziitfrüntli\nFamille et loisirs Des modèles de travail flexibles en soins, à temps partiel à tous les niveaux et une coopération avec la crèche sont établis dans nos locaux.\nFamilleääri Stimmig\nAmbiance familiale Dans notre hôpital, tout le monde se réunit amicalement et au niveau des yeux. Cela convient aux gens de Glarnerland, où vous vous connaissez.\nL'hôpital cantonal Glarus est situé au milieu des montagnes spectaculaires de Glarner – à une heure de Zurich. Ici, la haute qualité de vie est combinée avec de nombreuses possibilités de sports de montagne et d'activités de plein air. Avec 65 lits médicaux actifs et six lits dans l'unité de soins intensifs, la Kantonsspital Glarus AG offre un large éventail de disciplines. En tant que centre de compétence médicale, l'hôpital offre des soins de base prolongés au canton de Glarus et aux régions adjacentes.\nPour les étudiants en médecine humaine, nous offrons des stages intéressants dans les domaines de la clinique chirurgicale, clinique médicale, clinique pour femmes, anesthésie et radiologie comme\n100%\n\n## Vos opportunités avec nous\n• Vous êtes responsable de l'admission et des soins hospitaliers des patients sous la supervision d'un médecin adjoint ou d'un médecin cadre.\n• Vous aidez dans la salle d'opération avec des interventions dans le domaine spécialisé respectif\n• Ils participent à tous les rapports, formations, conseils et études spéciales\n\n## Ils nous conviennent si\n• Vous êtes inscrit comme étudiant en médecine humaine à une université (année élective ou au moins faculté)\n• Vous avez un grand intérêt pour les processus opérationnels et aimez participer activement à la vie quotidienne des hôpitaux\n• Ils se caractérisent par leur grande volonté d'assumer leurs responsabilités, leur propre initiative et leur pensée en réseau.\n• Vous êtes une personnalité ouverte, flexible et résistante\n• Vous avez la citoyenneté suisse ou un pays UE-AELE et votre connaissance de l'allemand est au moins C1\n\n## Nous récompensons votre passion\n• avec un soutien structuré et compétent pendant la formation\n• avec une zone de responsabilité intéressante et polyvalente\n• avec une période de stage de 2 à 12 mois\n• avec un environnement de travail collégial et dynamique\n\n## Lieu de travail\nNous sommes impatients de vous rencontrer. Veuillez utiliser le bouton \"Appliquer maintenant\". Nous vous demandons d'indiquer dans votre candidature dans quel domaine vous souhaitez compléter votre stage.\nCuire / Cuire 100%\nDipl. Spécialiste en radiologie HF (RFP) 100%\nNutritionniste 90-100 %\nDipl. Soins d'anesthésie experts NDS HF 80-100%: aperçu de l'emploi"
     },
     "slugByLocale": {
-      "it": "sub-assistante-kantonsspital-glarus-ksgl-glarus-1a176150",
-      "en": "sub-assistant-kantonsspital-glarus-ksgl-glarus-823ac21e",
+      "it": "sub-assistante-kantonsspital-glarus-ksgl-glarus",
+      "en": "sub-assistant-kantonsspital-glarus-ksgl-glarus",
       "de": "unterassistent-in-ksgl-glarus-451427d1",
-      "fr": "sous-assistant-kantonsspital-glarus-ksgl-glarus-db75ccda"
+      "fr": "sous-assistant-kantonsspital-glarus-ksgl-glarus"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-11-10T09:26:33.446Z",
@@ -212,7 +279,11 @@
       "junior-assistant-kantonsspital-glarus-ksgl-glarus",
       "unterassistent-in-kantonsspital-glarus-ksgl-glarus",
       "assistant-junior-kantonsspital-glarus-ksgl-glarus",
-      "unterassistent-in-ksgl-glarus"
+      "unterassistent-in-ksgl-glarus-451427d1",
+      "sub-assistante-kantonsspital-glarus-ksgl-glarus-1a176150",
+      "unterassistent-in-ksgl-glarus",
+      "sub-assistant-kantonsspital-glarus-ksgl-glarus-823ac21e",
+      "sous-assistant-kantonsspital-glarus-ksgl-glarus-db75ccda"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -220,18 +291,22 @@
         "junior-assistant-kantonsspital-glarus-ksgl-glarus",
         "unterassistent-in-kantonsspital-glarus-ksgl-glarus",
         "assistant-junior-kantonsspital-glarus-ksgl-glarus",
-        "unterassistent-in-ksgl-glarus-451427d1"
+        "unterassistent-in-ksgl-glarus-451427d1",
+        "sub-assistante-kantonsspital-glarus-ksgl-glarus-1a176150"
       ],
       "en": [
         "junior-assistant-kantonsspital-glarus-ksgl-glarus",
-        "unterassistent-in-ksgl-glarus"
+        "unterassistent-in-ksgl-glarus",
+        "sub-assistant-kantonsspital-glarus-ksgl-glarus-823ac21e"
       ],
       "de": [
-        "unterassistent-in-kantonsspital-glarus-ksgl-glarus"
+        "unterassistent-in-kantonsspital-glarus-ksgl-glarus",
+        "unterassistent-in-ksgl-glarus-451427d1"
       ],
       "fr": [
         "assistant-junior-kantonsspital-glarus-ksgl-glarus",
-        "unterassistent-in-ksgl-glarus"
+        "unterassistent-in-ksgl-glarus",
+        "sous-assistant-kantonsspital-glarus-ksgl-glarus-db75ccda"
       ]
     },
     "postalCode": "8750",
@@ -241,7 +316,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.ksgl.ch/offene-stellen/unterassistent-in/51401092-5096-49b4-b448-0e3a7238a726",
-    "firstSeenAt": "2026-08-11T10:23:25.252Z"
+    "firstSeenAt": "2026-08-11T10:23:25.252Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.ksgl.ch/offene-stellen/unterassistent-in/51401092-5096-49b4-b448-0e3a7238a726",
+        "firstSeenAt": "2026-08-11T10:23:25.252Z",
+        "title": "Unterassistent*in"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.ksgl.ch/offene-stellen/unterassistent-in/b2ad68be-1548-4021-bb3c-d5fdc4f78a07",
+        "firstSeenAt": "2026-08-11T10:23:25.252Z",
+        "title": "Unterassistent*in"
+      }
+    ]
   },
   {
     "slug": "dipl-expert-expert-nds-hf-emergency-care-e-o-dipl-infermieristica-professionale-hf-emergenza-kantonsspital-glarus-ksgl",
@@ -593,7 +680,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.ksgl.ch/offene-stellen/dipl-expertin-experte-nds-hf-notfallpflege-und-oder-dipl-pflegefachfrau-mann-hf-notfall/c909c928-27cc-422a-b933-02b38e2cc299",
-    "firstSeenAt": "2026-08-10T21:49:54.962Z"
+    "firstSeenAt": "2026-08-10T21:49:54.962Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.ksgl.ch/offene-stellen/dipl-expertin-experte-nds-hf-notfallpflege-und-oder-dipl-pflegefachfrau-mann-hf-notfall/879ac325-5664-4103-ae81-48e0b8e7af3e",
+        "firstSeenAt": "2026-08-10T21:49:54.962Z",
+        "title": "Dipl. Expertin/Experte NDS HF Notfallpflege und/oder Dipl. Pflegefachfrau*mann HF Notfall"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.ksgl.ch/offene-stellen/dipl-expertin-experte-nds-hf-notfallpflege-und-oder-dipl-pflegefachfrau-mann-hf-notfall/c909c928-27cc-422a-b933-02b38e2cc299",
+        "firstSeenAt": "2026-08-10T21:49:54.962Z",
+        "title": "Dipl. Expertin/Experte NDS HF Notfallpflege und/oder Dipl. Pflegefachfrau*mann HF Notfall"
+      }
+    ]
   },
   {
     "slug": "capo-dipartimento-dei-servizi-medici-membro-del-consiglio-direttivo-kantonsspital-glarus-ksgl-glarus",
@@ -1030,7 +1129,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.ksgl.ch/offene-stellen/oberaerztin-oberarzt-paediatrie/e3011190-cef2-48b2-8187-7d74cd0e48c0",
-    "firstSeenAt": "2026-08-07T01:18:12.270Z"
+    "firstSeenAt": "2026-08-07T01:18:12.270Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.ksgl.ch/offene-stellen/oberaerztin-oberarzt-paediatrie/de78add4-cfc5-4da8-a7c7-f2f6f870b62c",
+        "firstSeenAt": "2026-08-07T01:18:12.270Z",
+        "title": "Oberärztin / Oberarzt Pädiatrie"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.ksgl.ch/offene-stellen/oberaerztin-oberarzt-paediatrie/e3011190-cef2-48b2-8187-7d74cd0e48c0",
+        "firstSeenAt": "2026-08-07T01:18:12.270Z",
+        "title": "Oberärztin / Oberarzt Pädiatrie"
+      }
+    ]
   },
   {
     "slug": "apprendistato-come-un-commerciante-commerciante-efz-kantonsspital-glarus-ksgl-glarus",
@@ -1127,11 +1238,17 @@
       "dipl-pflegefachfrau-mann-hf-fh-hamodialyse-ksgl-glarus",
       "dipl-pflegefachfrau-mann-hf-fh-hamodialyse-kantonsspital-glarus-ksgl-glarus",
       "dipl-nurse-mann-hf-fh-hemodialyse-kantonsspital-glarus-ksgl-glarus",
-      "dipl-infirmiere-mann-hf-fh-hemodialyse-kantonsspital-glarus-ksgl-glarus"
+      "dipl-infirmiere-mann-hf-fh-hemodialyse-kantonsspital-glarus-ksgl-glarus",
+      "infermiera-mann-hf-fh-chirurgia-kantonsspital-glarus-ksgl-glarus",
+      "dipl-pflegefachfrau-mann-hf-fh-chirurgie-ksgl-glarus",
+      "dipl-nurse-mann-hf-fh-surgery-kantonsspital-glarus-ksgl-glarus",
+      "dipl-nursing-professional-hf-or-dipl-midwife-fh-at-the-family-department-kantonsspital-glarus-ksgl-glarus",
+      "dipl-pflegefachfrau-mann-hf-oder-dipl-hebamme-fh-auf-der-familienabteilung-ksgl-glarus",
+      "dipl-soins-infirmiers-professionnels-hf-ou-dipl-la-sage-femme-fh-au-departement-de-la-famille-kantonsspital-glarus-ksgl",
+      "dipl-pflegefachfrau-mann-hf-o-dipl-hebamme-fh-auf-der-familienabteilung-kantonsspital-glarus-ksgl-glarus"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "dipl-pflegefachfrau-mann-hf-fh-chirurgie-ksgl-glarus-c073fe6f",
         "diplomata-infermiere-ore-hf-fh-chirurgia-kantonsspital-glarus-ksgl-glarus",
         "dipl-nurse-mann-hf-fh-surgery-kantonsspital-glarus-ksgl-glarus-f471c47e",
         "diplome-e-en-soins-infirmiers-hf-fh-chirurgie-kantonsspital-glarus-ksgl-glarus",
@@ -1144,25 +1261,38 @@
         "infermiera-mann-hf-fh-chirurgia-kantonsspital-glarus-ksgl-glarus-297dcade31",
         "infermiera-mann-hf-fh-hemodialyse-kantonsspital-glarus-ksgl-glarus",
         "dipl-pflegefachfrau-mann-hf-fh-hamodialyse-ksgl-glarus",
-        "dipl-pflegefachfrau-mann-hf-fh-hamodialyse-kantonsspital-glarus-ksgl-glarus"
+        "dipl-pflegefachfrau-mann-hf-fh-hamodialyse-kantonsspital-glarus-ksgl-glarus",
+        "infermiera-mann-hf-fh-chirurgia-kantonsspital-glarus-ksgl-glarus",
+        "dipl-pflegefachfrau-mann-hf-fh-chirurgie-ksgl-glarus",
+        "dipl-nurse-mann-hf-fh-surgery-kantonsspital-glarus-ksgl-glarus",
+        "dipl-nursing-professional-hf-or-dipl-midwife-fh-at-the-family-department-kantonsspital-glarus-ksgl-glarus",
+        "dipl-pflegefachfrau-mann-hf-oder-dipl-hebamme-fh-auf-der-familienabteilung-ksgl-glarus",
+        "dipl-soins-infirmiers-professionnels-hf-ou-dipl-la-sage-femme-fh-au-departement-de-la-famille-kantonsspital-glarus-ksgl",
+        "dipl-pflegefachfrau-mann-hf-o-dipl-hebamme-fh-auf-der-familienabteilung-kantonsspital-glarus-ksgl-glarus"
       ],
       "en": [
-        "dipl-pflegefachfrau-mann-hf-fh-chirurgie-ksgl-glarus-c073fe6f",
         "dipl-nursing-professional-hf-or-dipl-midwife-fh-at-the-family-department-kantonsspital-glarus-ksgl-glarus-8552c5aa",
         "dipl-pflegefachfrau-mann-hf-oder-dipl-hebamme-fh-auf-der-familienabteilung-ksgl-glarus-1ea6b6f4",
         "dipl-nurse-mann-hf-fh-hemodialyse-kantonsspital-glarus-ksgl-glarus",
-        "dipl-pflegefachfrau-mann-hf-fh-hamodialyse-ksgl-glarus"
+        "dipl-pflegefachfrau-mann-hf-fh-hamodialyse-ksgl-glarus",
+        "dipl-nurse-mann-hf-fh-surgery-kantonsspital-glarus-ksgl-glarus",
+        "dipl-pflegefachfrau-mann-hf-fh-chirurgie-ksgl-glarus",
+        "dipl-nursing-professional-hf-or-dipl-midwife-fh-at-the-family-department-kantonsspital-glarus-ksgl-glarus"
       ],
       "de": [
         "dipl-pflegefachfrau-mann-hf-oder-dipl-hebamme-fh-auf-der-familienabteilung-ksgl-glarus-1ea6b6f4",
-        "dipl-pflegefachfrau-mann-hf-fh-hamodialyse-ksgl-glarus"
+        "dipl-pflegefachfrau-mann-hf-fh-hamodialyse-ksgl-glarus",
+        "dipl-pflegefachfrau-mann-hf-fh-chirurgie-ksgl-glarus",
+        "dipl-pflegefachfrau-mann-hf-oder-dipl-hebamme-fh-auf-der-familienabteilung-ksgl-glarus"
       ],
       "fr": [
         "diplome-e-en-soins-infirmiers-hf-fh-chirurgie-kantonsspital-glarus-ksgl-glarus",
         "dipl-soins-infirmiers-professionnels-hf-ou-dipl-la-sage-femme-fh-au-departement-de-la-famille-kantonsspital-acec40ac",
         "dipl-pflegefachfrau-mann-hf-oder-dipl-hebamme-fh-auf-der-familienabteilung-ksgl-glarus-1ea6b6f4",
         "dipl-infirmiere-mann-hf-fh-hemodialyse-kantonsspital-glarus-ksgl-glarus",
-        "dipl-pflegefachfrau-mann-hf-fh-hamodialyse-ksgl-glarus"
+        "dipl-pflegefachfrau-mann-hf-fh-hamodialyse-ksgl-glarus",
+        "dipl-pflegefachfrau-mann-hf-fh-chirurgie-ksgl-glarus",
+        "dipl-soins-infirmiers-professionnels-hf-ou-dipl-la-sage-femme-fh-au-departement-de-la-famille-kantonsspital-glarus-ksgl"
       ]
     },
     "postalCode": "8750",
@@ -1595,7 +1725,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.ksgl.ch/offene-stellen/praktikant-in-pflege-medizin/4866d502-33d6-469b-bcb1-c4ccac72bb09",
-    "firstSeenAt": "2026-08-03T22:18:22.158Z"
+    "firstSeenAt": "2026-08-03T22:18:22.158Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.ksgl.ch/offene-stellen/praktikant-in-pflege-medizin/4866d502-33d6-469b-bcb1-c4ccac72bb09",
+        "firstSeenAt": "2026-08-03T22:18:22.158Z",
+        "title": "Praktikant*in Pflege Medizin"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.ksgl.ch/offene-stellen/praktikant-in-pflege-medizin/552538e8-7536-41e4-83b6-0828a988d79c",
+        "firstSeenAt": "2026-11-03T09:16:10.439Z",
+        "title": "Praktikant*in Pflege Medizin"
+      }
+    ]
   },
   {
     "slug": "dipl-expert-expert-cura-intensiva-nds-hf-kantonsspital-glarus-ksgl-glarus",
@@ -2865,17 +3007,51 @@
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-10-10T09:22:51.577Z",
     "previousSlugs": [
-      "assistenzarztin-assistenzarzt-medizin-ksgl-glarus"
+      "assistenzarztin-assistenzarzt-medizin-ksgl-glarus",
+      "assistente-medico-assistente-medico-medicina-kantonsspital-glarus-ksgl-glarus",
+      "assistente-medico-in-cardiologia-kantonsspital-glarus-ksgl-glarus",
+      "medical-practice-assistant-in-cardiology-kantonsspital-glarus-ksgl-glarus",
+      "medizinische-r-praxisassistent-in-kardiologie-ksgl-glarus",
+      "assistant-de-medecine-en-cardiologie-kantonsspital-glarus-ksgl-glarus",
+      "segretario-medico-in-medicina-kantonsspital-glarus-ksgl-glarus",
+      "medical-secretary-in-medicine-kantonsspital-glarus-ksgl-glarus",
+      "arztsekretar-in-medizin-ksgl-glarus",
+      "secretaire-medical-en-medecine-kantonsspital-glarus-ksgl-glarus",
+      "assistant-doctor-assistant-doctor-medicine-kantonsspital-glarus-ksgl-glarus",
+      "assistenzarztin-assistenzarzt-medizin-ksgl-glarus-asrn7m",
+      "assistant-medecin-assistant-medecin-medecine-kantonsspital-glarus-ksgl-glarus"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "assistenzarztin-assistenzarzt-medizin-ksgl-glarus"
+        "assistenzarztin-assistenzarzt-medizin-ksgl-glarus",
+        "assistente-medico-assistente-medico-medicina-kantonsspital-glarus-ksgl-glarus",
+        "assistente-medico-in-cardiologia-kantonsspital-glarus-ksgl-glarus",
+        "medical-practice-assistant-in-cardiology-kantonsspital-glarus-ksgl-glarus",
+        "medizinische-r-praxisassistent-in-kardiologie-ksgl-glarus",
+        "assistant-de-medecine-en-cardiologie-kantonsspital-glarus-ksgl-glarus",
+        "segretario-medico-in-medicina-kantonsspital-glarus-ksgl-glarus",
+        "medical-secretary-in-medicine-kantonsspital-glarus-ksgl-glarus",
+        "arztsekretar-in-medizin-ksgl-glarus",
+        "secretaire-medical-en-medecine-kantonsspital-glarus-ksgl-glarus"
       ],
       "en": [
-        "assistenzarztin-assistenzarzt-medizin-ksgl-glarus"
+        "assistenzarztin-assistenzarzt-medizin-ksgl-glarus",
+        "assistant-doctor-assistant-doctor-medicine-kantonsspital-glarus-ksgl-glarus",
+        "medical-practice-assistant-in-cardiology-kantonsspital-glarus-ksgl-glarus",
+        "medical-secretary-in-medicine-kantonsspital-glarus-ksgl-glarus",
+        "arztsekretar-in-medizin-ksgl-glarus"
       ],
       "fr": [
-        "assistenzarztin-assistenzarzt-medizin-ksgl-glarus"
+        "assistenzarztin-assistenzarzt-medizin-ksgl-glarus",
+        "assistant-medecin-assistant-medecin-medecine-kantonsspital-glarus-ksgl-glarus",
+        "assistant-de-medecine-en-cardiologie-kantonsspital-glarus-ksgl-glarus",
+        "secretaire-medical-en-medecine-kantonsspital-glarus-ksgl-glarus",
+        "arztsekretar-in-medizin-ksgl-glarus"
+      ],
+      "de": [
+        "medizinische-r-praxisassistent-in-kardiologie-ksgl-glarus",
+        "arztsekretar-in-medizin-ksgl-glarus",
+        "assistenzarztin-assistenzarzt-medizin-ksgl-glarus-asrn7m"
       ]
     },
     "postalCode": "8750",
@@ -2884,7 +3060,72 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.ksgl.ch/offene-stellen/assistenzaerztin-assistenzarzt-medizin/dd7c289b-e9ee-49dd-90f5-25c292b92bfe",
-    "firstSeenAt": "2026-07-08T11:27:36.957Z"
+    "firstSeenAt": "2026-07-08T11:27:36.957Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.ksgl.ch/offene-stellen/assistenzaerztin-assistenzarzt-medizin/c623e221-a5d2-478f-809a-42f44753e5ba",
+        "firstSeenAt": "2026-07-08T11:27:36.957Z",
+        "title": "Assistenzärztin / Assistenzarzt Medizin"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.ksgl.ch/offene-stellen/assistenzaerztin-assistenzarzt-medizin/dd7c289b-e9ee-49dd-90f5-25c292b92bfe",
+        "firstSeenAt": "2026-07-08T11:27:36.957Z",
+        "title": "Assistenzärztin / Assistenzarzt Medizin"
+      }
+    ]
+  },
+  {
+    "slug": "farmacista-kantonsspital-glarus-ksgl-glarus",
+    "title": "Apotheker*in",
+    "titleByLocale": {
+      "it": "Farmacista*",
+      "en": "Pharmacist*",
+      "de": "Apotheker*in",
+      "fr": "Pharmacienne*"
+    },
+    "company": "Kantonsspital Glarus (KSGL)",
+    "companyKey": "ksgl",
+    "location": "Glarus",
+    "addressLocality": "Glarus",
+    "descriptionByLocale": {
+      "de": "## Ohne Anschreiben in 2 Minuten\nab sofort\n40 - 50%\nIm Herz vu dr Regiuu\nIm Herzen der Region Glarus ist das gesellschaftliche Zentrum unseres Kantons - hier gibt es alles für den Alltag und ein vielseitiges kulturelles Angebot.\nD Friiziit i dr Umgäbig gnüüsse\nFreizeit in der Umgebung geniessen Wer die Freizeit in der Natur schätzt, ist im Glarnerland goldrichtig – aktiv oder entspannend.\nE guete ÖV\nGute ÖV-Anbindung Der Kantonshauptort ist von Zürich und Rapperswil im Halbstundentakt erreichbar und zeichnet sich durch kurze Wege aus.\nImmer e Parggplatz haa\nImmer ein Parkplatz vorhanden In unserem Parkhaus gibt es genügend Parkplätze für Mitarbeitende zu fairen Preisen.\nFit bliibe\nFit bleiben In unserem Trainingscenter trainieren Mitarbeitende gemeinsam mit gesunden Personen und Patienten in ungezwungener Atmosphäre.\nI üüserem Spital\nIn unserem Spital Unsere Verpflegung ist gut und günstig. Unsere Desserts und «Nussgipfel» sind die besten der Umgebung.\nBi üüs wone\nBei uns wohnen Unsere preiswerten Personalunterkünfte im Terrassenhaus bieten möblierte Einzelstudios in unmittelbarer Nähe.\nEs gaat immer fürschi\nEs geht immer vorwärts Als grösster Gesundheitsdienstleister im Kanton Glarus sind wir stets auf dem neusten Stand.\nFamilie- und friiziitfrüntli\nFamilien- und freizeitfreundlich Bei uns sind flexible Arbeitsmodelle in der Pflege, Teilzeit auf allen Stufen und die Zusammenarbeit mit der Kinderkrippe in unseren Räumlichkeiten etabliert.\nFamiliääri Stimmig\nFamiliäre Atmosphäre In unserem Spital begegnen sich alle freundlich und auf Augenhöhe. Das passt zu den Menschen im Glarnerland, wo man sich kennt.\nDas Kantonsspital Glarus liegt inmitten der spektakulären Glarner Bergwelt – nur eine Stunde von Zürich entfernt. Hier verbindet sich die hohe Lebensqualität mit zahlreichen Möglichkeiten für Bergsport und Outdoor-Aktivitäten. Mit 65 akutmedizinischen Betten und sechs Betten auf der Intensivstation bietet die Kantonsspital Glarus AG ein breit abgestütztes Angebot an Fachdisziplinen. Als medizinisches Kompetenzzentrum gewährleistet das Spital die erweiterte Grundversorgung für den Kanton Glarus und die angrenzenden Regionen.\nFür unsere moderne, öffentliche Apotheke im Kantonsspital Glarus suchen wir Sie als neues Teammitglied als\n40 - 50%\n\n## Ihre Möglichkeiten bei uns\n• Sie sind für die Medikamentenversorgung und Betreuung unserer Patientinnen und Patienten bei Spitalaustritt zuständig\n• Sie stellen eine ganzheitliche und kompetente Beratung der Kundinnen und Kunden sicher\n• Sie unterstützen aktiv die interdisziplinäre Zusammenarbeit\n\n## Sie passen zu uns, wenn\n• Sie über ein abgeschlossenes Studium der Pharmazie mit eidg. Diplom oder als EU-Bürger*in über ein Äquivalent verfügen\n• Sie von Vorteil Berufserfahrung in der Offizin sammeln konnten und ProPharma X Kenntnisse mitbringen\n• Sie mit Begeisterung und Fokus auf das Wohlergehen unserer Patientinnen und Patienten den Medikationsprozess an der wichtigen Schnittstelle (Austritt) optimal gestalten möchten\n• Sie an einem interdisziplinären Umfeld zwischen Spital, Publikumsapotheke und Spitalapotheke interessiert sind und einen wichtigen Beitrag zur Erhöhung der Arzneimittelsicherheit leisten möchten\n\n## Ihre Leidenschaft belohnen wir\n• mit einem motivierten und dynamischen Team in einem lebhaften Betrieb\n• mit einer spannenden Tätigkeit, in der Sie Verantwortung übernehmen können\n• mit einer modernen Infrastruktur, inkl. einem Warenroboter\n• mit vielfältigen Weiterbildungsangeboten\n\n## Arbeitsort\nWir freuen uns, Sie kennenzulernen. Bitte nutzen Sie den Button «Jetzt Bewerben».\nKöchin / Koch 100%\nDipl. Radiologiefachfrau*mann HF (RFP) 100%\nErnährungsberater*in 90-100%\nDipl. Expertin/Experte Anästhesiepflege NDS HF 80-100%: Stellenübersicht",
+      "it": "## Senza una lettera di copertura in 2 minuti\nda ora in poi\n40 - 50%\nNel cuore del vu dr Regiuu\nNel cuore della regione del Glarus è il centro sociale del nostro cantone - c'è tutto per la vita quotidiana e un'offerta culturale versatile.\nD Diritto di stabilimento\nChi apprezza il tempo libero in natura, è nel Glarnerland oro diritto – attivo o rilassante.\nE guete ÖV\nBuone connessioni di trasporto pubblico La capitale cantonale è raggiungibile da Zurigo e Rapperswil ogni mezz'ora ed è caratterizzata da brevi distanze.\nSempre a Pargplatz haa\nAvere sempre un parcheggio Nel nostro parcheggio c'è abbastanza parcheggio per i dipendenti a prezzi equi.\nFit bliibe\nNel nostro centro di formazione, i dipendenti si allenano insieme a persone sane e pazienti in un'atmosfera informale.\nHo un ospedale.\nNel nostro ospedale Il nostro cibo è buono ed economico. I nostri dolci e le cime delle noci sono i migliori della zona.\nTi daro' una possibilita'.\nIl nostro alloggio personale economico nella casa terrazza offre monolocali individuali arredati nelle immediate vicinanze.\nFunziona sempre.\nSta sempre andando avanti Come il più grande fornitore di assistenza sanitaria nel Canton Glarus, siamo sempre aggiornati.\nFamiglia e friiziitfrüntli\nFamiglia e svago Modelli di lavoro flessibili nella cura, part-time a tutti i livelli e la collaborazione con il crèche sono stabiliti nella nostra sede.\nFamiliäääri Stimi\nAmbiente familiare Nel nostro ospedale tutti incontrano amichevole e a livello degli occhi. Questo si adatta alle persone del Glarnerland, dove vi conoscete.\nL'Ospedale cantonale Glarus si trova nel mezzo delle spettacolari montagne Glarner, a un'ora da Zurigo. Qui l'alta qualità della vita è combinata con numerose opportunità per gli sport di montagna e attività all'aperto. Con 65 letti medici acuti e sei letti nell'unità di assistenza intensiva, l'Ospedale cantonale Glarus AG offre una vasta gamma di discipline. Come centro di competenza medica, l'ospedale fornisce un'assistenza di base estesa per il Canton Glarus e le regioni adiacenti.\nPer la nostra moderna farmacia pubblica nel Glarus Ospedale cantonale ti stiamo cercando come nuovo membro del team come\n40 - 50%\n\n## Le tue opportunità con noi\n• Lei è responsabile per l'alimentazione e la cura dei farmaci dei nostri pazienti quando lascia l'ospedale\n• Garantiscono consulenza olistica e competente per i clienti\n• Essi sostengono attivamente la cooperazione interdisciplinare\n\n## Ci si adatta se\n• Si tratta di uno studio completato di farmacia con eidg. Avere un diploma o un equivalente come cittadino dell'UE\n• Sei stato in grado di acquisire esperienza professionale in ufficio e portare la conoscenza ProPharma X\n• Con entusiasmo e attenzione al benessere dei nostri pazienti, si desidera modellare in modo ottimale il processo farmaco all'interfaccia importante (uscita)\n• Sei interessato a un ambiente interdisciplinare tra ospedale, farmacia pubblica e farmacia ospedaliera e vorrebbe dare un contributo importante per aumentare la sicurezza della droga\n\n## Ricompenseremo la tua passione\n• con un team motivato e dinamico in un'operazione vivace\n• con un lavoro emozionante in cui puoi assumerti la responsabilità\n• con un'infrastruttura moderna, tra cui un robot di materie prime\n• Con una vasta gamma di offerte di formazione\n\n## Luogo di lavoro\nNon vediamo l'ora di incontrarti. Si prega di utilizzare il pulsante \"Applica ora\".\nCuocere / cucinare 100%\nDipl. Specialista di radiologia HF (RFP) 100%\nNutrizionista 90-100 %\nDipl. Anestesia esperto NDS HF 80-100%: panoramica del lavoro",
+      "en": "## Without a cover letter in 2 minutes\nfrom now on\n40 - 50%\nIn the heart of the vu dr Regiuu\nIn the heart of the Glarus region is the social center of our canton - there is everything for everyday life and a versatile cultural offer.\nD Friiziit i dr Umgäbig gnüüsse\nWho appreciates the leisure in nature, is in the Glarnerland gold right – active or relaxing.\nE guete ÖV\nGood public transport connections The cantonal capital is reachable from Zurich and Rapperswil every half hour and is characterized by short distances.\nAlways e Pargplatz haa\nAlways have a parking space In our car park there is enough parking for employees at fair prices.\nFit bliibe\nIn our training center, employees train together with healthy people and patients in a casual atmosphere.\nI have a hospital\nIn our hospital Our food is good and cheap. Our desserts and “nut summits” are the best in the area.\nI'm going to give you a chance.\nOur inexpensive staff accommodation in the terrace house offers furnished individual studios in the immediate vicinity.\nIt's always going to work.\nIt's always going forward As the largest healthcare provider in the Canton of Glarus, we are always up to date.\nFamily and friiziitfrüntli\nFamily and leisure friendly Flexible working models in care, part-time at all levels and cooperation with the crèche are established in our premises.\nFamiliääri Stimmi\nFamily atmosphere In our hospital everyone meets friendly and at eye level. This suits the people in Glarnerland, where you know each other.\nThe Cantonal Hospital Glarus is located in the middle of the spectacular Glarner mountains – just one hour from Zurich. Here the high quality of life is combined with numerous opportunities for mountain sports and outdoor activities. With 65 acute medical beds and six beds in the intensive care unit, the Cantonal Hospital Glarus AG offers a broad range of disciplines. As a medical competence centre, the hospital provides extended basic care for the Canton of Glarus and the adjacent regions.\nFor our modern, public pharmacy in the Cantonal Hospital Glarus we are looking for you as a new team member as\n40 - 50%\n\n## Your opportunities with us\n• You are responsible for the medication supply and care of our patients when leaving hospital\n• They ensure holistic and competent advice for customers\n• They actively support interdisciplinary cooperation\n\n## They suit us if\n• You about a completed study of pharmacy with eidg. Have a diploma or equivalent as an EU citizen\n• You have been able to gain professional experience in the office and bring ProPharma X knowledge\n• With enthusiasm and focus on the well-being of our patients, you want to optimally shape the medication process at the important interface (exit)\n• You are interested in an interdisciplinary environment between hospital, public pharmacy and hospital pharmacy and would like to make an important contribution to increasing drug safety\n\n## We reward your passion\n• with a motivated and dynamic team in a lively operation\n• with an exciting job in which you can take on responsibility\n• with a modern infrastructure, including a commodity robot\n• With a wide range of training offers\n\n## Place of work\nWe look forward to meeting you. Please use the button \"Apply now\".\nCook / Cook 100%\nDipl. Radiology specialist HF (RFP) 100%\nNutritionist 90-100 %\nDipl. Expert anesthesia care NDS HF 80-100%: job overview",
+      "fr": "## Sans lettre de motivation en 2 minutes\nA partir de maintenant\n40 - 50%\nAu coeur de la vu dr Regiuu\nAu cœur de la région de Glarus se trouve le centre social de notre canton - il y a tout pour la vie quotidienne et une offre culturelle polyvalente.\nD Friiziit i dr Umgäbig gnüüsse\nQui apprécie les loisirs dans la nature, est dans l'or Glarnerland droit – actif ou relaxant.\nE guete ÖV\nBonnes liaisons de transport public La capitale cantonale est accessible depuis Zurich et Rapperswil toutes les demi-heures et se caractérise par de courtes distances.\nToujours e Pargplatz haa\nAvoir toujours une place de parking Dans notre parking il y a suffisamment de stationnement pour les employés à des prix équitables.\nFit bliibe\nDans notre centre de formation, les employés s'entraînent avec des personnes en bonne santé et des patients dans une atmosphère décontractée.\nJ'ai un hôpital.\nDans notre hôpital Notre nourriture est bonne et bon marché. Nos desserts et nos sommets de Noix sont les meilleurs de la région.\nJe vais vous donner une chance.\nNotre logement peu coûteux du personnel dans la maison en terrasse offre meublé studios individuels dans les environs immédiats.\nÇa marchera toujours.\nÇa avance toujours. En tant que plus grand fournisseur de soins de santé du canton de Glarus, nous sommes toujours à jour.\nFamille et friiziitfrüntli\nDes modèles de travail flexibles en soins, à temps partiel à tous les niveaux et une coopération avec la crèche sont établis dans nos locaux.\nFamilleääri Stimmi\nAmbiance familiale Dans notre hôpital, tout le monde se réunit amicalement et au niveau des yeux. Cela convient aux gens de Glarnerland, où vous vous connaissez.\nL'hôpital cantonal Glarus est situé au milieu des spectaculaires montagnes de Glarner – à seulement une heure de Zurich. Ici, la haute qualité de vie est combinée avec de nombreuses opportunités pour les sports de montagne et les activités de plein air. Avec 65 lits médicaux actifs et six lits dans l'unité de soins intensifs, l'hôpital cantonal Glarus AG offre un large éventail de disciplines. En tant que centre de compétence médicale, l'hôpital offre des soins de base prolongés au canton de Glarus et aux régions adjacentes.\nPour notre pharmacie publique moderne à l'hôpital cantonal Glarus, nous vous recherchons comme nouveau membre de l'équipe\n40 - 50%\n\n## Vos opportunités avec nous\n• Vous êtes responsable de l'approvisionnement en médicaments et des soins de nos patients lorsqu'ils quittent l'hôpital\n• Ils assurent des conseils holistiques et compétents aux clients\n• Ils soutiennent activement la coopération interdisciplinaire\n\n## Ils nous conviennent si\n• Vous concernant une étude complète de pharmacie avec eidg. Avoir un diplôme ou un équivalent en tant que citoyen de l'UE\n• Vous avez pu acquérir une expérience professionnelle dans le bureau et apporter des connaissances ProPharma X\n• Avec enthousiasme et concentration sur le bien-être de nos patients, vous voulez façonner le processus médicamenteux de manière optimale à l'interface importante (sortie)\n• Vous êtes intéressé par un environnement interdisciplinaire entre l'hôpital, la pharmacie publique et la pharmacie hospitalière et souhaitez apporter une contribution importante à l'amélioration de l'innocuité des médicaments.\n\n## Nous récompensons votre passion\n• avec une équipe motivée et dynamique dans une opération animée\n• avec un travail passionnant dans lequel vous pouvez prendre la responsabilité\n• avec une infrastructure moderne, y compris un robot de marchandises\n• Avec une large gamme d'offres de formation\n\n## Lieu de travail\nNous avons hâte de vous rencontrer. Veuillez utiliser le bouton \"Appliquer maintenant\".\nCuire / Cuire 100%\nDipl. Spécialiste en radiologie HF (RFP) 100%\nNutritionniste 90-100 %\nDipl. Soins d'anesthésie experts NDS HF 80-100%: aperçu de l'emploi"
+    },
+    "slugByLocale": {
+      "it": "farmacista-kantonsspital-glarus-ksgl-glarus",
+      "en": "pharmacist-kantonsspital-glarus-ksgl-glarus",
+      "de": "apotheker-in-ksgl-glarus",
+      "fr": "pharmacienne-kantonsspital-glarus-ksgl-glarus"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-10-01T01:48:32.961Z",
+    "previousSlugs": [
+      "pharmacist-kantonsspital-glarus-ksgl-glarus",
+      "pharmacienne-kantonsspital-glarus-ksgl-glarus",
+      "apotheker-in-ksgl-glarus"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "pharmacist-kantonsspital-glarus-ksgl-glarus",
+        "pharmacienne-kantonsspital-glarus-ksgl-glarus",
+        "apotheker-in-ksgl-glarus"
+      ],
+      "en": [
+        "apotheker-in-ksgl-glarus"
+      ],
+      "fr": [
+        "apotheker-in-ksgl-glarus"
+      ]
+    },
+    "postalCode": "8750",
+    "salaryMin": 81000,
+    "salaryMax": 113000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.ksgl.ch/offene-stellen/apotheker-in/8393bb8b-ae00-458e-884f-7b861b0ac321",
+    "firstSeenAt": "2026-09-07T15:10:55.010Z"
   },
   {
     "slug": "farmacista-kantonsspital-glarus-ksgl-glarus-51cee397",
@@ -3041,7 +3282,9 @@
     "salaryMin": 65000,
     "salaryMax": 98500,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.ksgl.ch/offene-stellen/sachbearbeiter-in-einkauf-und-logistik/9cb5c3ea-a6b8-4a78-9e8d-517662a5ff3a",
+    "firstSeenAt": "2026-09-01T23:14:34.017Z"
   },
   {
     "slug": "dipendenti-nell-industria-alberghiera-della-stazione-kantonsspital-glarus-ksgl-glarus",
@@ -3133,6 +3376,253 @@
       ],
       "fr": [
         "dipl-radiologiefachfrau-mann-hf-rfp-ksgl-glarus"
+      ]
+    },
+    "postalCode": "8750",
+    "salaryMin": 81000,
+    "salaryMax": 113000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.ksgl.ch/offene-stellen/dipl-radiologiefachfrau-mann-hf-rfp/61a266af-b272-4609-95b0-43617fed18df",
+    "firstSeenAt": "2026-09-23T23:43:58.545Z"
+  },
+  {
+    "slug": "segretario-medico-in-medicina-kantonsspital-glarus-ksgl-glarus",
+    "title": "Arztsekretär*in Medizin",
+    "titleByLocale": {
+      "it": "Segretario medico",
+      "en": "Medical secretary",
+      "de": "Arztsekretär*in Medizin",
+      "fr": "Secrétaire médical* en médecine"
+    },
+    "company": "Kantonsspital Glarus (KSGL)",
+    "companyKey": "ksgl",
+    "location": "Glarus",
+    "addressLocality": "Glarus",
+    "descriptionByLocale": {
+      "it": "Le tue opportunità con noi\n\n• Si organizzano le ore di consultazione di gastroenterologia e reumatologia; incl. Relazione\n\n• Fai il lavoro di segretariato generale\n\n• fornire la rappresentazione di vacanza in altre specialità mediche\n\nSei adatto per noi se\n\n• si porta la formazione come assistente medico (MPA) o si proviene dal settore commerciale e hanno completato la formazione aggiuntiva come segretario medico\n\n• Si può beneficiare di diversi anni di esperienza\n\n• Hai una buona conoscenza dell'applicazione del PC (Word, Excel) e una buona conoscenza della terminologia medica\n\n• distinguere il vostro talento organizzativo e il vostro piacere di comunicazione\n\n• completare i vostri compiti in modo indipendente ed efficiente in una giornata di lavoro variegata\n\nRicompenseremo la tua passione\n\n• con un'attività diversificata e responsabile\n\n• con un team dedicato e motivato\n\n• Con condizioni di lavoro attraenti\n\n• con una vasta gamma di opportunità di formazione\n\nL'Ospedale cantonale Glarus si trova nel mezzo delle spettacolari montagne Glarner, a un'ora da Zurigo. Qui l'alta qualità della vita è combinata con numerose opportunità per gli sport di montagna e attività all'aperto. Con 65 letti medicinali acuti e sei nell'unità di assistenza intensiva, l'Ospedale cantonale Glarus AG offre una vasta gamma di discipline. Come centro di competenza medica, l'ospedale fornisce un'assistenza di base estesa per il Canton Glarus e le regioni adiacenti.\n\nCompiti:\n• Si organizzano le ore di consultazione di gastroenterologia e reumatologia; incl. Relazione\n\nRequisiti\n• si porta la formazione come assistente medico (MPA) o si proviene dal settore commerciale e hanno completato la formazione aggiuntiva come segretario medico",
+      "en": "Your opportunities with us\n\n• You organize the gastroenterology and rheumatology consultation hours; incl. Reporting\n\n• You do general secretarial work\n\n• you provide the holiday representation in other medical specialties\n\nYou are fit for us if\n\n• you bring the training as medical practice assistant (MPA) or you come from the commercial sector and have completed the additional training as medical secretary\n\n• You can advantageously have several years of experience\n\n• You have very good PC application knowledge (Word, Excel) and good knowledge of medical terminology\n\n• distinguish your organizational talent and your communication pleasure\n\n• you complete your tasks independently and efficiently in a varied work day\n\nWe reward your passion\n\n• with a diverse and responsible activity\n\n• with a dedicated and motivated team\n\n• With attractive employment conditions\n\n• with a wide range of training opportunities\n\nThe Cantonal Hospital Glarus is located in the middle of the spectacular Glarner mountains – just one hour from Zurich. Here the high quality of life is combined with numerous opportunities for mountain sports and outdoor activities. With 65 acute medicine beds and six in the intensive care unit, the Cantonal Hospital Glarus AG offers a broad range of disciplines. As a medical competence centre, the hospital provides extended basic care for the Canton of Glarus and the adjacent regions.\n\nTasks:\n• You organize the gastroenterology and rheumatology consultation hours; incl. Reporting\n\nRequirements\n• you bring the training as medical practice assistant (MPA) or you come from the commercial sector and have completed the additional training as medical secretary",
+      "de": "Deine Möglichkeiten bei uns\n\n• du organisierst die Gastroenterologie- und Rheumatologie-Sprechstunden; inkl. Berichtswesen\n\n• du erledigst allgemeine Sekretariatsarbeiten\n\n• du stellst die Ferienvertretung in anderen medizinischen Fachgebieten sich\n\nDu passt zu uns, wenn\n\n• du die Ausbildung als medizinische*r Praxisassistent*in (MPA) mitbringst oder du aus dem kaufmännischen Bereich kommst und die Zusatzausbildung als Arztsekretär*in absolviert hast\n\n• du von Vorteil mehrjährige Erfahrung vorweisen kannst\n\n• du über sehr gute PC-Anwendungskenntnisse (Word, Excel) und gute Kenntnisse der medizinischen Terminologie verfügst\n\n• dich dein Organisationstalent und deine Kommunikationsfreude auszeichnen\n\n• du deine Aufgaben selbstständig und effizient in einem abwechslungsreichen Arbeitsalltag erledigst\n\nDeine Leidenschaft belohnen wir\n\n• mit einer vielseitigen und verantwortungsvollen Tätigkeit\n\n• mit einem engagierten und motivierten Team\n\n• mit attraktiven Anstellungsbedingungen\n\n• mit einem vielfältigen Weiterbildungsangebot\n\nDas Kantonsspital Glarus liegt inmitten der spektakulären Glarner Bergwelt – nur eine Stunde von Zürich entfernt. Hier verbindet sich die hohe Lebensqualität mit zahlreichen Möglichkeiten für Bergsport und Outdoor-Aktivitäten. Mit 65 akutmedizinischen und sechs Betten auf der Intensivstation bietet die Kantonsspital Glarus AG ein breit abgestütztes Angebot an Fachdisziplinen. Als medizinisches Kompetenzzentrum gewährleistet das Spital die erweiterte Grundversorgung für den Kanton Glarus und die angrenzenden Regionen.\n\nAufgaben:\n• du organisierst die Gastroenterologie- und Rheumatologie-Sprechstunden; inkl. Berichtswesen\n\nAnforderungen:\n• du die Ausbildung als medizinische*r Praxisassistent*in (MPA) mitbringst oder du aus dem kaufmännischen Bereich kommst und die Zusatzausbildung als Arztsekretär*in absolviert hast",
+      "fr": "Vos opportunités avec nous\n\n• Vous organisez les heures de consultation en gastroentérologie et en rhumatologie, y compris : Rapports\n\n• Vous faites un travail de secrétariat général\n\n• vous fournissez la représentation des vacances dans d'autres spécialités médicales\n\nTu es digne de nous si\n\n• vous apportez la formation en tant qu'assistant de pratique médicale (APM) ou vous venez du secteur commercial et avez terminé la formation supplémentaire en tant que secrétaire médical\n\n• Vous pouvez bénéficier de plusieurs années d'expérience\n\n• Vous avez une très bonne connaissance des applications PC (Word, Excel) et une bonne connaissance de la terminologie médicale\n\n• distinguer votre talent organisationnel et votre plaisir de communication\n\n• vous accomplissez vos tâches de manière indépendante et efficace dans une journée de travail variée\n\nNous récompensons votre passion\n\n• avec une activité diversifiée et responsable\n\n• avec une équipe dévouée et motivée\n\n• Avec des conditions d'emploi attrayantes\n\n• avec un large éventail de possibilités de formation\n\nL'hôpital cantonal Glarus est situé au milieu des montagnes spectaculaires de Glarner – à une heure de Zurich. Ici, la haute qualité de vie est combinée avec de nombreuses possibilités de sports de montagne et d'activités de plein air. Avec 65 lits de médecine aiguë et six lits dans l'unité de soins intensifs, l'Hôpital cantonal Glarus AG offre un large éventail de disciplines. En tant que centre de compétence médicale, l'hôpital fournit des soins de base prolongés au canton de Glarus et aux régions adjacentes.\n\nTâches :\n• Vous organisez les heures de consultation en gastroentérologie et en rhumatologie, y compris : Rapports\n\nExigences\n• vous apportez la formation en tant qu'assistant de pratique médicale (APM) ou vous venez du secteur commercial et avez terminé la formation supplémentaire en tant que secrétaire médical"
+    },
+    "slugByLocale": {
+      "it": "segretario-medico-in-medicina-kantonsspital-glarus-ksgl-glarus",
+      "en": "medical-secretary-in-medicine-kantonsspital-glarus-ksgl-glarus",
+      "de": "arztsekretar-in-medizin-ksgl-glarus",
+      "fr": "secretaire-medical-en-medecine-kantonsspital-glarus-ksgl-glarus"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-09-17T18:34:18.205Z",
+    "previousSlugs": [
+      "arztsekretar-in-medizin-ksgl-glarus"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "arztsekretar-in-medizin-ksgl-glarus"
+      ],
+      "en": [
+        "arztsekretar-in-medizin-ksgl-glarus"
+      ],
+      "fr": [
+        "arztsekretar-in-medizin-ksgl-glarus"
+      ]
+    },
+    "postalCode": "8750",
+    "salaryMin": 81000,
+    "salaryMax": 113000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "dipl-expert-expert-anesthesia-care-nds-hf-kantonsspital-glarus-ksgl-glarus-596cf799",
+    "title": "Dipl. Expertin/Experte Anästhesiepflege NDS HF",
+    "titleByLocale": {
+      "it": "Dipl. Expert/Expert Anesthesia Care NDS HF",
+      "en": "Dipl. Expert/Expert Anesthesia Care NDS HF",
+      "de": "Dipl. Expertin/Experte Anästhesiepflege NDS HF",
+      "fr": "Dipl. Soins d'anesthésie expert/expert NDS HF"
+    },
+    "company": "Kantonsspital Glarus (KSGL)",
+    "companyKey": "ksgl",
+    "location": "Glarus",
+    "addressLocality": "Glarus",
+    "descriptionByLocale": {
+      "it": "Le tue opzioni con noi\n• effettui anestesia in procedure chirurgiche e diagnostiche sapientemente sotto la direzione medica\n• sei responsabile della preparazione e manutenzione della nostra moderna tecnologia medica\n• mantieni una panoramica in situazioni di emergenza e avvii immediatamente le giuste misure\n• accompagni i nostri studenti con passione e garantisci così la qualità della cura di domani Ci si adatta se\n• si porta il diploma come un dipl. Anestesia esperta cura NDS HF con\n• si pensa connessi e sono resilienti e flessibili\n• si combinano abilità tecniche con una grande porzione di empatia\n• sei un vero giocatore di squadra – aperto, affidabile e pronto ad assumersi la responsabilità Ricompenseremo la vostra passione\n• con un modello di 12 ore; così vi godrete di un tempo di svago più coerente per i vostri hobby nelle Alpi Glarner\n• con varietà reale; perché una gamma estremamente ampia di professionisti vi aspetta, che esclude definitivamente la noia\n• con opportunità di sviluppo; con noi sarete sostenuti sul vostro percorso professionale con un'ulteriore formazione individuale\n• con ulteriori vantaggi; Tra le altre cose, uno spirito di squadra vivace, condizioni di lavoro e un crèche interno per la perfetta compatibilità del lavoro e della famiglia L'Ospedale cantonale Glarus si trova nel mezzo delle spettacolari montagne Glarner – a un'ora da Zurigo. Qui l'alta qualità della vita è combinata con numerose opportunità per gli sport di montagna e attività all'aperto. Con 65 letti di medicina acuta e sei nell'unità di cura intensiva, l'Ospedale cantonale Glarus AG offre una vasta gamma di discipline. Come centro di competenza medica, l'ospedale fornisce un'assistenza di base estesa per il Canton Glarus e le regioni adiacenti. Compiti:\n• conducete anestesia in procedure chirurgiche e diagnostiche sapientemente sotto la direzione medica attraverso i requisiti:\n• portate il diploma come dipl. Cura dell'anestesia esperto/esperto NDS HF con",
+      "en": "Your options with us\n• you carry out anesthesias in surgical and diagnostic procedures expertly under medical direction\n• you are responsible for the preparation and maintenance of our modern medical technology\n• you keep an overview in emergency situations and initiate the right measures immediately\n• you accompany our students with passion and thus ensure the quality of care of tomorrow You suit us if\n• you bring the diploma as a dipl. Expert anesthesia care NDS HF with\n• you think connected and are resilient and flexible\n• you combine technical skill with a large portion of empathy\n• you are a real team player – open, reliable and ready to take on responsibility We reward your passion\n• with a 12-hour model; so you enjoy more coherent leisure time for your hobbies in the Glarner Alps\n• with real variety; because an extremely wide range of professionals awaits you, which definitely excludes boredom\n• with development opportunities; with us you will be supported on your professional path with individual further education\n• with further advantages; Among other things, a lively team spirit, top employment conditions and an in-house crèche for the perfect compatibility of work and family The Cantonal Hospital Glarus is located in the middle of the spectacular Glarner mountains – just one hour from Zurich. Here the high quality of life is combined with numerous opportunities for mountain sports and outdoor activities. With 65 acute medicine beds and six in the intensive care unit, the Cantonal Hospital Glarus AG offers a broad range of disciplines. As a medical competence centre, the hospital provides extended basic care for the Canton of Glarus and the adjacent regions. Tasks:\n• you conduct anesthesias in surgical and diagnostic procedures expertly under medical direction through requirements:\n• you bring the diploma as a dipl. Expert/Expert Anesthesia Care NDS HF with",
+      "de": "Deine Möglichkeiten bei uns\n\n• du führst Anästhesien bei operativen und diagnostischen Eingriffen fachkundig unter ärztlicher Leitung durch\n\n• du bist für die Vorbereitung und Wartung unserer modernen Medizinaltechnik verantwortlich\n\n• du behältst in Notfallsituationen den Überblick und leitest sofort die richtigen Massnahmen ein\n\n• du begleitest unsere Studierenden mit Herzblut und sicherst so die Pflegequalität von morgen\n\nDu passt zu uns, wenn\n\n• du bringst das Diplom als Dipl. Expertin/Experte Anästhesiepflege NDS HF mit\n\n• du denkst vernetzt und bist belastbar sowie flexibel\n\n• du kombinierst technisches Geschick mit einer grossen Portion Empathie\n\n• du bist ein echter Teamplayer – offen, zuverlässig und bereit, Verantwortung zu übernehmen\n\nDeine Leidenschaft belohnen wir\n\n• mit einem 12-Stunden-Modell; so geniesst du mehr zusammenhängende Freizeit für deine Hobbys in den Glarner Alpen\n\n• mit echter Abwechslung; da dich ein extrem breites fachliches Spektrum erwartet, das Langeweile definitiv ausschliesst\n\n• mit Entwicklungsmöglichkeiten; bei uns wirst du auf deinem beruflichen Weg mit individuellen Weiterbildungen unterstützt\n\n• mit weiteren Pluspunkten; u.a. ein gelebter Teamspirit, Top-Anstellungsbedingungen und eine betriebsinterne Kinderkrippe für die perfekte Vereinbarkeit von Beruf und Familie\n\nDas Kantonsspital Glarus liegt inmitten der spektakulären Glarner Bergwelt – nur eine Stunde von Zürich entfernt. Hier verbindet sich die hohe Lebensqualität mit zahlreichen Möglichkeiten für Bergsport und Outdoor-Aktivitäten. Mit 65 akutmedizinischen und sechs Betten auf der Intensivstation bietet die Kantonsspital Glarus AG ein breit abgestütztes Angebot an Fachdisziplinen. Als medizinisches Kompetenzzentrum gewährleistet das Spital die erweiterte Grundversorgung für den Kanton Glarus und die angrenzenden Regionen.\n\nAufgaben:\n• du führst Anästhesien bei operativen und diagnostischen Eingriffen fachkundig unter ärztlicher Leitung durch\n\nAnforderungen:\n• du bringst das Diplom als Dipl. Expertin/Experte Anästhesiepflege NDS HF mit",
+      "fr": "Vos options avec nous\n• vous effectuez des anesthésies dans des interventions chirurgicales et diagnostiques expertement sous direction médicale\n• vous êtes responsable de la préparation et de l'entretien de notre technologie médicale moderne\n• vous gardez une vue d'ensemble dans les situations d'urgence et initiez immédiatement les bonnes mesures\n• vous accompagnez nos étudiants avec passion et ainsi assurer la qualité des soins de demain Vous nous convenez si\n• vous apportez le diplôme comme un dipl. Soins d'anesthésie d'experts NDS HF avec\n• vous pensez connecté et sont résilients et flexibles\n• vous combinez compétence technique avec une grande partie d'empathie\n• vous êtes un vrai joueur d'équipe – ouvert, fiable et prêt à assumer la responsabilité Nous récompensons votre passion\n• avec un modèle de 12 heures; ainsi vous profitez d'un temps de loisir plus cohérent pour vos loisirs dans les Alpes de Glarner\n• avec une vraie variété; parce qu'un très large éventail de professionnels vous attend, ce qui exclut définitivement l'ennui\n• avec des opportunités de développement; avec nous vous serez soutenu sur votre parcours professionnel avec une formation complémentaire individuelle\n• avec d'autres avantages; Entre autres, un esprit d'équipe animé, des conditions d'emploi optimales et une crèche à l'interne pour une parfaite compatibilité entre travail et famille L'hôpital cantonal Glarus est situé au milieu des spectaculaires montagnes de Glarner, à une heure de Zurich. Ici, la haute qualité de vie est combinée avec de nombreuses possibilités de sports de montagne et d'activités de plein air. Avec 65 lits de médecine aiguë et six lits dans l'unité de soins intensifs, l'Hôpital cantonal Glarus AG offre un large éventail de disciplines. En tant que centre de compétence médicale, l'hôpital fournit des soins de base prolongés au canton de Glarus et aux régions adjacentes. Tâches:\n• vous effectuez des anesthésies dans les procédures chirurgicales et diagnostiques avec expertise sous la direction médicale à travers les exigences:\n• vous apportez le diplôme comme un dipl. Soins d'anesthésie expert/expert NDS HF avec"
+    },
+    "slugByLocale": {
+      "de": "dipl-expertin-experte-anasthesiepflege-nds-hf-ksgl-glarus-cq1h2c-d0f1af53",
+      "fr": "dipl-soins-d-anesthesie-expert-expert-nds-hf-kantonsspital-glarus-ksgl-glarus-2d617cf1"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-09-16T22:03:50.611Z",
+    "previousSlugsByLocale": {
+      "it": [
+        "dipl-expertin-experte-anasthesiepflege-nds-hf-ksgl-glarus-3cfaaa17",
+        "dipl-expertin-experte-anasthesiepflege-nds-hf-kantonsspital-glarus-ksgl-glarus-ca775bcf",
+        "dipl-expert-expert-cura-intensiva-nds-hf-kantonsspital-glarus-ksgl-glarus-d6df72e6",
+        "dipl-expert-expert-intensive-care-nds-hf-kantonsspital-glarus-ksgl-glarus-95a0af2b",
+        "dipl-expertin-experte-intensivpflege-nds-hf-ksgl-glarus-7db35a22",
+        "dipl-expert-expert-soins-intensifs-nds-hf-kantonsspital-glarus-ksgl-glarus-84bffbe8"
+      ],
+      "en": [
+        "dipl-expertin-experte-anasthesiepflege-nds-hf-ksgl-glarus-3cfaaa17",
+        "dipl-expert-expert-intensive-care-nds-hf-kantonsspital-glarus-ksgl-glarus-95a0af2b",
+        "dipl-expertin-experte-anasthesiepflege-nds-hf-kantonsspital-glarus-ksgl-glarus-ca775bcf",
+        "dipl-expert-expert-cura-intensiva-nds-hf-kantonsspital-glarus-ksgl-glarus",
+        "dipl-expertin-experte-intensivpflege-nds-hf-ksgl-glarus-7db35a22",
+        "dipl-expert-expert-soins-intensifs-nds-hf-kantonsspital-glarus-ksgl-glarus"
+      ],
+      "de": [
+        "dipl-expertin-experte-intensivpflege-nds-hf-ksgl-glarus-7db35a22",
+        "dipl-expertin-experte-anasthesiepflege-nds-hf-ksgl-glarus-3cfaaa17",
+        "dipl-expertin-experte-anasthesiepflege-nds-hf-kantonsspital-glarus-ksgl-glarus-ca775bcf",
+        "dipl-expert-expert-cura-intensiva-nds-hf-kantonsspital-glarus-ksgl-glarus",
+        "dipl-expert-expert-intensive-care-nds-hf-kantonsspital-glarus-ksgl-glarus",
+        "dipl-expert-expert-soins-intensifs-nds-hf-kantonsspital-glarus-ksgl-glarus"
+      ],
+      "fr": [
+        "dipl-expertin-experte-anasthesiepflege-nds-hf-ksgl-glarus-3cfaaa17",
+        "dipl-expert-expert-soins-intensifs-nds-hf-kantonsspital-glarus-ksgl-glarus-84bffbe8",
+        "dipl-expertin-experte-anasthesiepflege-nds-hf-kantonsspital-glarus-ksgl-glarus-ca775bcf",
+        "dipl-expert-expert-cura-intensiva-nds-hf-kantonsspital-glarus-ksgl-glarus",
+        "dipl-expert-expert-intensive-care-nds-hf-kantonsspital-glarus-ksgl-glarus",
+        "dipl-expertin-experte-intensivpflege-nds-hf-ksgl-glarus-7db35a22"
+      ]
+    },
+    "postalCode": "8750",
+    "salaryMin": 81000,
+    "salaryMax": 113000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.ksgl.ch/offene-stellen/dipl-expertin-experte-anaesthesiepflege-nds-hf/2ffdb301-e835-4321-9f87-ba59eec8d1d2",
+    "firstSeenAt": "2026-09-16T09:21:23.121Z",
+    "previousSlugs": [
+      "dipl-expertin-experte-anasthesiepflege-nds-hf-ksgl-glarus-3cfaaa17",
+      "dipl-expertin-experte-anasthesiepflege-nds-hf-kantonsspital-glarus-ksgl-glarus-ca775bcf",
+      "dipl-expert-expert-cura-intensiva-nds-hf-kantonsspital-glarus-ksgl-glarus-d6df72e6",
+      "dipl-expert-expert-intensive-care-nds-hf-kantonsspital-glarus-ksgl-glarus-95a0af2b",
+      "dipl-expertin-experte-intensivpflege-nds-hf-ksgl-glarus-7db35a22",
+      "dipl-expert-expert-soins-intensifs-nds-hf-kantonsspital-glarus-ksgl-glarus-84bffbe8",
+      "dipl-expert-expert-cura-intensiva-nds-hf-kantonsspital-glarus-ksgl-glarus",
+      "dipl-expert-expert-soins-intensifs-nds-hf-kantonsspital-glarus-ksgl-glarus",
+      "dipl-expert-expert-intensive-care-nds-hf-kantonsspital-glarus-ksgl-glarus"
+    ]
+  },
+  {
+    "slug": "dipl-infermieristica-professionale-hf-o-dipl-midwife-fh-al-dipartimento-della-famiglia-kantonsspital-glarus-dab488bc",
+    "title": "Dipl. Pflegefachfrau*mann HF oder Dipl. Hebamme FH auf der Familienabteilung",
+    "titleByLocale": {
+      "it": "Dipl. Infermieristica professionale HF o Dipl. Midwife FH al Dipartimento della Famiglia",
+      "en": "Dipl. Nursing professional HF or Dipl. Midwife FH at the Family Department",
+      "de": "Dipl. Pflegefachfrau*mann HF oder Dipl. Hebamme FH auf der Familienabteilung",
+      "fr": "Dipl. Soins infirmiers professionnels HF ou Dipl. La sage-femme FH au Département de la famille"
+    },
+    "company": "Kantonsspital Glarus (KSGL)",
+    "companyKey": "ksgl",
+    "location": "Glarus",
+    "addressLocality": "Glarus",
+    "descriptionByLocale": {
+      "it": "Le tue opportunità con noi\n\n• fornire una cura professionale e familiare e cura dei nostri sposi nel dipartimento di famiglia\n\n• lavori strettamente interdisciplinari con infermieri, ostetriche, medici, terapeuti e altri gruppi professionali\n\n• si forma attivamente l'ambiente di lavoro in evoluzione\n\n• Si assume la responsabilità nella vita quotidiana (ad esempio cura, gestione dei farmaci, organizzazione e coordinamento)\n\n• Esecuzione di compiti organizzativi e amministrativi\n\nSei adatto per noi se\n\n• si circa il diploma come specialista in allattamento HF o come Dipl. Midwife FH o un equivalente straniero con riconoscimento SRK\n\n• hai un'esperienza approfondita e un'esperienza professionale nel campo della madre e del bambino\n\n• Sei flessibile e goditi una giornata di lavoro diversificata\n\n• siete capaci di squadra e resilienti e hanno un metodo di lavoro indipendente\n\n• distinguere il vostro senso di responsabilità e la vostra comunicazione apprezzata\n\nRicompenseremo la tua passione\n\n• con un lavoro responsabile in un ambiente vario\n\n• con un team motivato e collegiale e un'atmosfera di lavoro di supporto\n\n• con un'infrastruttura moderna e brevi percorsi decisionali\n\n• con interessanti condizioni di lavoro e opportunità di formazione\n\nL'Ospedale cantonale Glarus si trova nel mezzo delle spettacolari montagne Glarner, a un'ora da Zurigo. Qui l'alta qualità della vita è combinata con numerose opportunità per gli sport di montagna e attività all'aperto. Con 65 letti medicinali acuti e sei nell'unità di assistenza intensiva, l'Ospedale cantonale Glarus AG offre una vasta gamma di discipline. Come centro di competenza medica, l'ospedale fornisce un'assistenza di base estesa per il Canton Glarus e le regioni adiacenti.\n\nCompiti:\n• fornire una cura professionale e familiare e cura dei nostri sposi nel dipartimento di famiglia\n\nRequisiti\n• si circa il diploma come specialista in allattamento HF o come Dipl. Midwife FH o un equivalente straniero con riconoscimento SRK",
+      "en": "Your opportunities with us\n\n• you provide a professional and family-oriented care and care of our newlyweds in the family department\n\n• you work closely interdisciplinary with nurses, midwives, doctors, therapists and other professional groups\n\n• you actively shape the evolving working environment\n\n• You take on responsibility in everyday life (e.g. care, medication management, organization and coordination)\n\n• You perform organizational and administrative tasks\n\nYou are fit for us if\n\n• you about the diploma as a nursing specialist HF or as a Dipl. Midwife FH or a foreign equivalent with SRK recognition\n\n• you have in-depth expertise and professional experience in the field of mother and child\n\n• You are flexible and enjoy a diverse work day\n\n• you are team-capable and resilient and have an independent working method\n\n• distinguish your sense of responsibility and your appreciative communication\n\nWe reward your passion\n\n• with a responsible job in a varied environment\n\n• with a motivated, collegial team and a supportive working atmosphere\n\n• with a modern infrastructure and short decision paths\n\n• with attractive employment conditions and training opportunities\n\nThe Cantonal Hospital Glarus is located in the middle of the spectacular Glarner mountains – just one hour from Zurich. Here the high quality of life is combined with numerous opportunities for mountain sports and outdoor activities. With 65 acute medicine beds and six in the intensive care unit, the Cantonal Hospital Glarus AG offers a broad range of disciplines. As a medical competence centre, the hospital provides extended basic care for the Canton of Glarus and the adjacent regions.\n\nTasks:\n• you provide a professional and family-oriented care and care of our newlyweds in the family department\n\nRequirements\n• you about the diploma as a nursing specialist HF or as a Dipl. Midwife FH or a foreign equivalent with SRK recognition",
+      "de": "Deine Möglichkeiten bei uns\n\n• du stellst eine professionelle und familienorientierte Pflege und Betreuung unserer Wöchnerinnen auf der Familienabteilung sicher\n\n• du arbeitest eng interdisziplinär mit Pflegefachpersonen, Hebammen, Ärztinnen/Ärzten, Therapeuten und weiteren Berufsgruppen zusammen\n\n• du gestaltest das sich weiterentwickelnde Arbeitsumfeld aktiv mit\n\n• du übernimmst die Verantwortung im Alltag (z.B. Bezugspflege, Medikamentenmanagement, Organisation und Koordination)\n\n• du erledigst organisatorische und administrative Aufgaben\n\nDu passt zu uns, wenn\n\n• du über das Diplom als Pflegefachfrau*mann HF oder als Dipl. Hebamme FH oder ein ausländisches Äquivalent mit SRK-Anerkennung verfügst\n\n• du fundierte Fachkenntnisse und Berufserfahrung im Bereich Mutter und Kind mitbringst\n\n• du flexibel bist und Freude an einem vielfältigen Arbeitsalltag hast\n\n• du teamfähig und belastbar bist sowie eine selbstständige Arbeitsweise mitbringst\n\n• dich dein Verantwortungsbewusstsein und deine wertschätzende Kommunikation auszeichnen\n\nDeine Leidenschaft belohnen wir\n\n• mit einer verantwortungsvollen Tätigkeit in einem abwechslungsreichen Umfeld\n\n• mit einem motivierten, kollegialen Team und einem unterstützenden Arbeitsklima\n\n• mit einer modernen Infrastruktur und kurzen Entscheidungswegen\n\n• mit attraktiven Anstellungsbedingungen und Weiterbildungsmöglichkeiten\n\nDas Kantonsspital Glarus liegt inmitten der spektakulären Glarner Bergwelt – nur eine Stunde von Zürich entfernt. Hier verbindet sich die hohe Lebensqualität mit zahlreichen Möglichkeiten für Bergsport und Outdoor-Aktivitäten. Mit 65 akutmedizinischen und sechs Betten auf der Intensivstation bietet die Kantonsspital Glarus AG ein breit abgestütztes Angebot an Fachdisziplinen. Als medizinisches Kompetenzzentrum gewährleistet das Spital die erweiterte Grundversorgung für den Kanton Glarus und die angrenzenden Regionen.\n\nAufgaben:\n• du stellst eine professionelle und familienorientierte Pflege und Betreuung unserer Wöchnerinnen auf der Familienabteilung sicher\n\nAnforderungen:\n• du über das Diplom als Pflegefachfrau*mann HF oder als Dipl. Hebamme FH oder ein ausländisches Äquivalent mit SRK-Anerkennung verfügst",
+      "fr": "Vos opportunités avec nous\n\n• vous fournissez des soins professionnels et familiaux à nos jeunes mariés dans le département familial\n\n• vous travaillez en étroite collaboration interdisciplinaire avec des infirmières, sages-femmes, médecins, thérapeutes et autres groupes professionnels\n\n• vous façonnez activement l'environnement de travail en évolution\n\n• Vous assumez des responsabilités dans la vie quotidienne (p. ex. soins, gestion des médicaments, organisation et coordination)\n\n• Vous exécutez des tâches organisationnelles et administratives\n\nTu es digne de nous si\n\n• vous concernant le diplôme en tant que spécialiste en soins infirmiers HF ou en tant que Dipl. Sage-femme FH ou équivalent étranger avec reconnaissance SRK\n\n• vous avez une expertise approfondie et une expérience professionnelle dans le domaine de la mère et de l'enfant\n\n• Vous êtes flexible et profitez d'une journée de travail diversifiée\n\n• vous êtes capable d'équipe et résistant et avez une méthode de travail indépendante\n\n• distinguer votre sens des responsabilités et votre communication reconnaissante\n\nNous récompensons votre passion\n\n• avec un emploi responsable dans un environnement varié\n\n• avec une équipe motivée et collégiale et une atmosphère de travail favorable\n\n• avec une infrastructure moderne et des pistes de décision courtes\n\n• avec des conditions d'emploi attrayantes et des possibilités de formation\n\nL'hôpital cantonal Glarus est situé au milieu des montagnes spectaculaires de Glarner – à une heure de Zurich. Ici, la haute qualité de vie est combinée avec de nombreuses possibilités de sports de montagne et d'activités de plein air. Avec 65 lits de médecine aiguë et six lits dans l'unité de soins intensifs, l'Hôpital cantonal Glarus AG offre un large éventail de disciplines. En tant que centre de compétence médicale, l'hôpital fournit des soins de base prolongés au canton de Glarus et aux régions adjacentes.\n\nTâches :\n• vous fournissez des soins professionnels et familiaux à nos jeunes mariés dans le département familial\n\nExigences\n• vous concernant le diplôme en tant que spécialiste en soins infirmiers HF ou en tant que Dipl. Sage-femme FH ou équivalent étranger avec reconnaissance SRK"
+    },
+    "slugByLocale": {
+      "it": "dipl-infermieristica-professionale-hf-o-dipl-midwife-fh-al-dipartimento-della-famiglia-kantonsspital-glarus-dab488bc",
+      "en": "dipl-nursing-professional-hf-or-dipl-midwife-fh-at-the-family-department-kantonsspital-glarus-ksgl-glarus-afc2a99e",
+      "de": "dipl-pflegefachfrau-mann-hf-oder-dipl-hebamme-fh-auf-der-familienabteilung-ksgl-glarus-dee3d9c5",
+      "fr": "dipl-soins-infirmiers-professionnels-hf-ou-dipl-la-sage-femme-fh-au-departement-de-la-famille-kantonsspital-7d37b184"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-09-16T22:03:50.611Z",
+    "previousSlugsByLocale": {
+      "it": [
+        "dipl-pflegefachfrau-mann-hf-oder-dipl-hebamme-fh-auf-der-familienabteilung-ksgl-glarus-dee3d9c5",
+        "dipl-pflegefachfrau-mann-hf-o-dipl-hebamme-fh-auf-der-familienabteilung-kantonsspital-glarus-ksgl-glarus-f5e0b7ce"
+      ],
+      "en": [
+        "dipl-pflegefachfrau-mann-hf-oder-dipl-hebamme-fh-auf-der-familienabteilung-ksgl-glarus",
+        "dipl-pflegefachfrau-mann-hf-o-dipl-hebamme-fh-auf-der-familienabteilung-kantonsspital-glarus-ksgl-glarus"
+      ],
+      "fr": [
+        "dipl-pflegefachfrau-mann-hf-oder-dipl-hebamme-fh-auf-der-familienabteilung-ksgl-glarus",
+        "dipl-pflegefachfrau-mann-hf-o-dipl-hebamme-fh-auf-der-familienabteilung-kantonsspital-glarus-ksgl-glarus"
+      ],
+      "de": [
+        "dipl-pflegefachfrau-mann-hf-oder-dipl-hebamme-fh-auf-der-familienabteilung-ksgl-glarus-dee3d9c5",
+        "dipl-pflegefachfrau-mann-hf-o-dipl-hebamme-fh-auf-der-familienabteilung-kantonsspital-glarus-ksgl-glarus"
+      ]
+    },
+    "postalCode": "8750",
+    "salaryMin": 81000,
+    "salaryMax": 113000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.ksgl.ch/offene-stellen/dipl-pflegefachfrau-mann-hf-oder-dipl-hebamme-fh-auf-der-familienabteilung/b566f89d-0403-48ff-ba11-ad52632d3d63",
+    "firstSeenAt": "2026-11-02T11:27:53.293Z",
+    "previousSlugs": [
+      "dipl-pflegefachfrau-mann-hf-o-dipl-hebamme-fh-auf-der-familienabteilung-kantonsspital-glarus-ksgl-glarus-f5e0b7ce",
+      "dipl-pflegefachfrau-mann-hf-oder-dipl-hebamme-fh-auf-der-familienabteilung-ksgl-glarus",
+      "dipl-pflegefachfrau-mann-hf-o-dipl-hebamme-fh-auf-der-familienabteilung-kantonsspital-glarus-ksgl-glarus"
+    ]
+  },
+  {
+    "slug": "infermiera-mann-hf-fh-hemodialyse-kantonsspital-glarus-ksgl-glarus",
+    "title": "Dipl. Pflegefachfrau*mann HF/FH Hämodialyse",
+    "titleByLocale": {
+      "it": "Infermiera*mann HF/FH Hemodialyse",
+      "en": "Dipl. Nurse*mann HF/FH Hemodialyse",
+      "de": "Dipl. Pflegefachfrau*mann HF/FH Hämodialyse",
+      "fr": "Dipl. Infirmière*mann HF/FH Hémodialyse"
+    },
+    "company": "Kantonsspital Glarus (KSGL)",
+    "companyKey": "ksgl",
+    "location": "Glarus",
+    "addressLocality": "Glarus",
+    "descriptionByLocale": {
+      "it": "Le tue opportunità con noi\n\n• Stai conducendo trattamenti di emodialisi\n\n• Monitorare e curare i pazienti durante la dialisi\n\n• ti interessano i pazienti renali cronici a lungo termine\n\n• Sei responsabile della corretta documentazione nel KISIM\n\n• sostenere attivamente la cooperazione interprofessionale con altri servizi del nostro ospedale\n\nSei adatto per noi se\n\n• Hai completato un apprendistato da/per Dipl. HF / FH infermieristica professionista ha almeno 1-2 anni di esperienza professionale in un ospedale\n\n• avete la formazione supplementare nel campo dell'emodialisi o la volontà di completarlo\n\n• le tue abilità manuali e il fascino tecnico sono tra i tuoi punti di forza\n\n• sei una persona empatica e aperta con piacere nel contatto interpersonale\n\n• Lavori in team, responsabile e flessibile\n\n• si apprezza la sfida di situazioni di cura esigente e costruire relazioni di fiducia\n\nRicompenseremo la tua passione\n\n• con un'attività emozionante e variegata\n\n• con una squadra impegnata e familiare con un sacco di cuore e anima\n\n• con infrastrutture moderne e attrezzature\n\n• con orari di lavoro regolari (lunedì, mercoledì e venerdì), un crèche interno e un buon equilibrio tra vita e lavoro\n\n• con una vasta gamma di opportunità di formazione\n\nL'Ospedale cantonale Glarus si trova nel mezzo delle spettacolari montagne Glarner, a un'ora da Zurigo. Qui l'alta qualità della vita è combinata con numerose opportunità per gli sport di montagna e attività all'aperto. Con 65 letti medicinali acuti e sei nell'unità di assistenza intensiva, l'Ospedale cantonale Glarus AG offre una vasta gamma di discipline. Come centro di competenza medica, l'ospedale fornisce un'assistenza di base estesa per il Canton Glarus e le regioni adiacenti.\n\nCompiti:\n• Stai conducendo trattamenti di emodialisi\n\nRequisiti\n• Hai completato un apprendistato da/per Dipl. HF / FH infermieristica professionista ha almeno 1-2 anni di esperienza professionale in un ospedale",
+      "en": "Your opportunities with us\n\n• You are conducting hemodialysis treatments\n\n• You monitor and care for patients during dialysis\n\n• you care for long-term chronic kidney patients\n\n• You are responsible for the correct documentation in the KISIM\n\n• you actively support interprofessional cooperation with other services of our hospital\n\nYou are fit for us if\n\n• You have completed an apprenticeship to/from Dipl. HF/FH nursing professional has at least 1-2 years of professional experience in a hospital\n\n• you have the additional training in the field of hemodialysis or the willingness to complete it\n\n• your manual skills and technical flair are among your strengths\n\n• you are an empathetic and open person with pleasure in interpersonal contact\n\n• You work team-oriented, responsible and flexible\n\n• you appreciate the challenge of demanding care situations and building trusting relationships\n\nWe reward your passion\n\n• with an exciting and varied activity\n\n• with a committed and family team with a lot of heart and soul\n\n• with modern infrastructure and equipment\n\n• with regular working hours (Monday, Wednesday and Friday), an in-house crèche and a good work-life balance\n\n• with a wide range of training opportunities\n\nThe Cantonal Hospital Glarus is located in the middle of the spectacular Glarner mountains – just one hour from Zurich. Here the high quality of life is combined with numerous opportunities for mountain sports and outdoor activities. With 65 acute medicine beds and six in the intensive care unit, the Cantonal Hospital Glarus AG offers a broad range of disciplines. As a medical competence centre, the hospital provides extended basic care for the Canton of Glarus and the adjacent regions.\n\nTasks:\n• You are conducting hemodialysis treatments\n\nRequirements\n• You have completed an apprenticeship to/from Dipl. HF/FH nursing professional has at least 1-2 years of professional experience in a hospital",
+      "de": "Deine Möglichkeiten bei uns\n\n• du führst Hämodialysebehandlungen durch\n\n• du überwachst und betreust die Patientinnen und Patienten während der Dialyse\n\n• du betreust langjährig chronisch erkrankte Nierenpatientinnen und -patienten\n\n• du bist für die korrekte Dokumentation im KISIM verantwortlich\n\n• du unterstützt aktiv die interprofessionelle Zusammenarbeit mit anderen Diensten unseres Spitals\n\nDu passt zu uns, wenn\n\n• du über eine abgeschlossene Ausbildung zur/zum Dipl. Pflegefachfrau*mann HF/FH verfügst und mindestens 1-2 Jahre Berufserfahrung in einem Spital vorweisen kannst\n\n• du die Zusatzausbildung im Fachgebiet Hämodialyse mitbringst oder die Bereitschaft hast diese zu absolvieren\n\n• dein manuelles Geschick und technisches Flair zu deinen Stärken gehören\n\n• du eine empathische und offene Person mit Freude am zwischenmenschlichen Kontakt bist\n\n• du teamorientiert, verantwortungsbewusst und flexibel arbeitest\n\n• du die Herausforderung von anspruchsvollen Betreuungssituationen und den Aufbau von vertrauensvollen Beziehungen schätzt\n\nDeine Leidenschaft belohnen wir\n\n• mit einer spannenden und vielseitigen Tätigkeit\n\n• mit einem engagierten und familiären Team mit viel Herzblut\n\n• mit einer modernen Infrastruktur und entsprechenden Gerätschaften\n\n• mit geregelten Arbeitszeiten (Montag, Mittwoch und Freitag), einer hausinternen Kinderkrippe und guter Vereinbarkeit von Berufs- und Privatleben\n\n• mit einem vielfältigen Weiterbildungsangebot\n\nDas Kantonsspital Glarus liegt inmitten der spektakulären Glarner Bergwelt – nur eine Stunde von Zürich entfernt. Hier verbindet sich die hohe Lebensqualität mit zahlreichen Möglichkeiten für Bergsport und Outdoor-Aktivitäten. Mit 65 akutmedizinischen und sechs Betten auf der Intensivstation bietet die Kantonsspital Glarus AG ein breit abgestütztes Angebot an Fachdisziplinen. Als medizinisches Kompetenzzentrum gewährleistet das Spital die erweiterte Grundversorgung für den Kanton Glarus und die angrenzenden Regionen.\n\nAufgaben:\n• du führst Hämodialysebehandlungen durch\n\nAnforderungen:\n• du über eine abgeschlossene Ausbildung zur/zum Dipl. Pflegefachfrau*mann HF/FH verfügst und mindestens 1-2 Jahre Berufserfahrung in einem Spital vorweisen kannst",
+      "fr": "Vos opportunités avec nous\n\n• Vous effectuez des traitements d'hémodialyse\n\n• Vous surveillez et soignez les patients pendant la dialyse\n\n• vous prenez soin de patients rénaux chroniques à long terme\n\n• Vous êtes responsable de la documentation correcte dans le KISIM\n\n• vous soutenez activement la coopération interprofessionnelle avec d'autres services de notre hôpital\n\nTu es digne de nous si\n\n• Vous avez suivi un apprentissage depuis/vers Dipl. HF/FH professionnel des soins infirmiers a au moins 1-2 ans d'expérience professionnelle dans un hôpital\n\n• vous avez la formation supplémentaire dans le domaine de l'hémodialyse ou la volonté de l'achever\n\n• vos compétences manuelles et votre style technique sont parmi vos forces\n\n• vous êtes une personne empathique et ouverte avec plaisir dans le contact interpersonnel\n\n• Vous travaillez en équipe, responsable et flexible\n\n• vous appréciez le défi des situations de soins exigeants et l'établissement de relations de confiance\n\nNous récompensons votre passion\n\n• avec une activité passionnante et variée\n\n• avec une équipe engagée et familiale avec beaucoup de cœur et d'âme\n\n• avec une infrastructure et des équipements modernes\n\n• avec des horaires de travail réguliers (lundi, mercredi et vendredi), une crèche en maison et un bon équilibre travail-vie personnelle\n\n• avec un large éventail de possibilités de formation\n\nL'hôpital cantonal Glarus est situé au milieu des montagnes spectaculaires de Glarner – à une heure de Zurich. Ici, la haute qualité de vie est combinée avec de nombreuses possibilités de sports de montagne et d'activités de plein air. Avec 65 lits de médecine aiguë et six lits dans l'unité de soins intensifs, l'Hôpital cantonal Glarus AG offre un large éventail de disciplines. En tant que centre de compétence médicale, l'hôpital fournit des soins de base prolongés au canton de Glarus et aux régions adjacentes.\n\nTâches :\n• Vous effectuez des traitements d'hémodialyse\n\nExigences\n• Vous avez suivi un apprentissage depuis/vers Dipl. HF/FH professionnel des soins infirmiers a au moins 1-2 ans d'expérience professionnelle dans un hôpital"
+    },
+    "slugByLocale": {
+      "it": "infermiera-mann-hf-fh-hemodialyse-kantonsspital-glarus-ksgl-glarus",
+      "en": "dipl-nurse-mann-hf-fh-hemodialyse-kantonsspital-glarus-ksgl-glarus",
+      "de": "dipl-pflegefachfrau-mann-hf-fh-hamodialyse-ksgl-glarus",
+      "fr": "dipl-infirmiere-mann-hf-fh-hemodialyse-kantonsspital-glarus-ksgl-glarus"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-09-16T22:03:50.611Z",
+    "previousSlugs": [
+      "dipl-pflegefachfrau-mann-hf-fh-hamodialyse-ksgl-glarus",
+      "dipl-pflegefachfrau-mann-hf-fh-hamodialyse-kantonsspital-glarus-ksgl-glarus",
+      "diplomata-infermiere-ore-hf-fh-chirurgia-kantonsspital-glarus-ksgl-glarus",
+      "dipl-nurse-mann-hf-fh-surgery-kantonsspital-glarus-ksgl-glarus",
+      "dipl-pflegefachfrau-mann-hf-fh-chirurgie-ksgl-glarus",
+      "diplome-e-en-soins-infirmiers-hf-fh-chirurgie-kantonsspital-glarus-ksgl-glarus"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "dipl-pflegefachfrau-mann-hf-fh-hamodialyse-ksgl-glarus",
+        "dipl-pflegefachfrau-mann-hf-fh-hamodialyse-kantonsspital-glarus-ksgl-glarus",
+        "diplomata-infermiere-ore-hf-fh-chirurgia-kantonsspital-glarus-ksgl-glarus",
+        "dipl-nurse-mann-hf-fh-surgery-kantonsspital-glarus-ksgl-glarus",
+        "dipl-pflegefachfrau-mann-hf-fh-chirurgie-ksgl-glarus",
+        "diplome-e-en-soins-infirmiers-hf-fh-chirurgie-kantonsspital-glarus-ksgl-glarus"
+      ],
+      "en": [
+        "dipl-pflegefachfrau-mann-hf-fh-hamodialyse-ksgl-glarus",
+        "dipl-nurse-mann-hf-fh-surgery-kantonsspital-glarus-ksgl-glarus"
+      ],
+      "de": [
+        "dipl-pflegefachfrau-mann-hf-fh-chirurgie-ksgl-glarus"
+      ],
+      "fr": [
+        "dipl-pflegefachfrau-mann-hf-fh-hamodialyse-ksgl-glarus",
+        "diplome-e-en-soins-infirmiers-hf-fh-chirurgie-kantonsspital-glarus-ksgl-glarus"
       ]
     },
     "postalCode": "8750",
@@ -3406,7 +3896,8 @@
     "salaryMin": 81000,
     "salaryMax": 113000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.ksgl.ch/offene-stellen/dipl-biomedizinische-r-analytiker-in-hf/08ea1016-b3ae-4f45-a757-871cd433d5ae"
   },
   {
     "slug": "fachfrau-mann-apotheke-pharma-assistent-in-spitalapotheke-kantonsspital-glarus-ksgl-glarus",

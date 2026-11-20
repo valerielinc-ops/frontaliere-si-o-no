@@ -95842,8 +95842,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-in-fur-serviceeinsatze-in-luzern-und-agglo-luzern-luzern-sta-ch",
         "it": "installatore-trice-elettrico-a-in-per-serviceeinsatze-in-luzern-e-agglo-sta-personal-ag-luzern",
-        "en": "elektroinstallateur-in-fur-serviceeinsatze-in-luzern-und-agglo-luzern-luzern-sta-ch",
-        "fr": "elektroinstallateur-in-fur-serviceeinsatze-in-luzern-und-agglo-luzern-luzern-sta-ch"
+        "en": "electrical-installer-fur-serviceeinsatze-in-luzern-und-agglo-sta-personal-ag-luzern-luzern",
+        "fr": "installateur-trice-electricien-ne-fur-serviceeinsatze-in-luzern-und-agglo-sta-personal-ag-luzern-luzern"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -95890,6 +95890,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-in-fur-serviceeinsatze-in-luzern-und-agglo-luzern-luzern-sta-ch"
+        ],
+        "en": [
+          "elektroinstallateur-in-fur-serviceeinsatze-in-luzern-und-agglo-luzern-luzern-sta-ch"
+        ],
+        "fr": [
           "elektroinstallateur-in-fur-serviceeinsatze-in-luzern-und-agglo-luzern-luzern-sta-ch"
         ]
       },
@@ -96266,8 +96272,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-in-fur-servicearbeiten-sta-personal-ag-dietikon",
         "it": "installatore-trice-elettrico-a-in-per-servicearbeiten-sta-personal-ag-dietikon",
-        "en": "elektroinstallateur-in-fur-servicearbeiten-sta-personal-ag-dietikon",
-        "fr": "elektroinstallateur-in-fur-servicearbeiten-sta-personal-ag-dietikon"
+        "en": "electrical-installer-fur-servicearbeiten-sta-personal-ag-dietikon-zurich",
+        "fr": "installateur-trice-electricien-ne-fur-servicearbeiten-sta-personal-ag-dietikon-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -96318,10 +96324,17 @@
         ],
         "de": [
           "elektroinstallateur-in-fur-servicearbeiten-dietikon-zurich-sta-ch"
+        ],
+        "en": [
+          "elektroinstallateur-in-fur-servicearbeiten-sta-personal-ag-dietikon"
+        ],
+        "fr": [
+          "elektroinstallateur-in-fur-servicearbeiten-sta-personal-ag-dietikon"
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-in-fur-servicearbeiten-dietikon-zurich-sta-ch"
+        "elektroinstallateur-in-fur-servicearbeiten-dietikon-zurich-sta-ch",
+        "elektroinstallateur-in-fur-servicearbeiten-sta-personal-ag-dietikon"
       ],
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -98584,7 +98597,7 @@
         "de": "elektroinstallateur-in-fur-robotik-montage-und-service-sta-personal-ag-rorschach",
         "it": "installatore-trice-elettrico-a-in-per-robotik-montage-e-service-sta-personal-ag-rorschach",
         "en": "elektroinstallateur-in-fur-robotik-montage-und-service-sta-personal-ag-rorschach",
-        "fr": "elektroinstallateur-in-fur-robotik-montage-und-service-sta-personal-ag-rorschach"
+        "fr": "installateur-trice-electricien-ne-fur-robotik-montage-und-service-sta-personal-ag-rorschach-st-gallen"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -98635,10 +98648,14 @@
         ],
         "de": [
           "elektroinstallateur-in-fur-robotik-montage-und-service-rorschach-st-gallen-sta-ch"
+        ],
+        "fr": [
+          "elektroinstallateur-in-fur-robotik-montage-und-service-sta-personal-ag-rorschach"
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-in-fur-robotik-montage-und-service-rorschach-st-gallen-sta-ch"
+        "elektroinstallateur-in-fur-robotik-montage-und-service-rorschach-st-gallen-sta-ch",
+        "elektroinstallateur-in-fur-robotik-montage-und-service-sta-personal-ag-rorschach"
       ],
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -101986,8 +102003,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-in-fur-industrie-und-gewerbeinstallationen-zurich-zurich-sta-ch",
         "it": "installatore-trice-elettrico-a-in-per-industrie-e-gewerbeinstallationen-sta-personal-ag-zurich",
-        "en": "elektroinstallateur-in-fur-industrie-und-gewerbeinstallationen-zurich-zurich-sta-ch",
-        "fr": "elektroinstallateur-in-fur-industrie-und-gewerbeinstallationen-zurich-zurich-sta-ch"
+        "en": "electrical-installer-fur-industrie-und-gewerbeinstallationen-sta-personal-ag-zurich-zurich",
+        "fr": "installateur-trice-electricien-ne-fur-industrie-und-gewerbeinstallationen-sta-personal-ag-zurich-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -102040,8 +102057,6 @@
         "installateur-trice-electricien-ne-pour-les-installations-industrielles-et-commerciales-sta-personal-ag-zurich-zurich",
         "elektroinstallateur-in-fur-industrie-und-gewerbeinstallationen-zurich-zurich-sta-ch",
         "installateur-electricien-pour-les-installations-industrielles-et-commerciales-sta-personal-ag-zurich-zurich",
-        "electrical-installer-fur-industrie-und-gewerbeinstallationen-sta-personal-ag-zurich-zurich",
-        "installateur-trice-electricien-ne-fur-industrie-und-gewerbeinstallationen-sta-personal-ag-zurich-zurich",
         "electrical-installer-for-industrial-and-commercial-installations-sta-personal-ag-zurich-zurich",
         "electricien-ne-pour-installations-industrielles-et-commerciales-sta-personal-ag-zurich-zurich"
       ],
@@ -102051,8 +102066,8 @@
         ],
         "en": [
           "industrial-and-commercial-electrical-installers-sta-personal-ag-zurich-zurich",
-          "electrical-installer-fur-industrie-und-gewerbeinstallationen-sta-personal-ag-zurich-zurich",
-          "electrical-installer-for-industrial-and-commercial-installations-sta-personal-ag-zurich-zurich"
+          "electrical-installer-for-industrial-and-commercial-installations-sta-personal-ag-zurich-zurich",
+          "elektroinstallateur-in-fur-industrie-und-gewerbeinstallationen-zurich-zurich-sta-ch"
         ],
         "fr": [
           "installateur-trice-electricien-ne-fur-industrie-und-gewerbeinstallationen-sta-personal-ag-zurich",
@@ -102060,8 +102075,8 @@
           "installateurs-electriques-industriels-et-commerciaux-sta-personal-ag-zurich-zurich",
           "installateur-trice-electricien-ne-pour-les-installations-industrielles-et-commerciales-sta-personal-ag-zurich-zurich",
           "installateur-electricien-pour-les-installations-industrielles-et-commerciales-sta-personal-ag-zurich-zurich",
-          "installateur-trice-electricien-ne-fur-industrie-und-gewerbeinstallationen-sta-personal-ag-zurich-zurich",
-          "electricien-ne-pour-installations-industrielles-et-commerciales-sta-personal-ag-zurich-zurich"
+          "electricien-ne-pour-installations-industrielles-et-commerciales-sta-personal-ag-zurich-zurich",
+          "elektroinstallateur-in-fur-industrie-und-gewerbeinstallationen-zurich-zurich-sta-ch"
         ]
       },
       "salaryMin": 83000,
@@ -106343,8 +106358,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-in-teamleiter-in-mit-leadermentalitat-luzern-luzern-sta-ch",
         "it": "installatore-trice-elettrico-a-in-teamleiter-in-con-leadermentalitat-sta-personal-ag-luzern",
-        "en": "elektroinstallateur-in-teamleiter-in-mit-leadermentalitat-luzern-luzern-sta-ch",
-        "fr": "elektroinstallateur-in-teamleiter-in-mit-leadermentalitat-luzern-luzern-sta-ch"
+        "en": "electrical-installer-teamleiter-in-mit-leadermentalitat-sta-personal-ag-luzern-luzern",
+        "fr": "installateur-trice-electricien-ne-teamleiter-in-mit-leadermentalitat-sta-personal-ag-luzern-luzern"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -106392,6 +106407,12 @@
       "previousSlugsByLocale": {
         "it": [
           "elektroinstallateur-in-teamleiter-in-mit-leadermentalitat-luzern-luzern-sta-ch"
+        ],
+        "en": [
+          "elektroinstallateur-in-teamleiter-in-mit-leadermentalitat-luzern-luzern-sta-ch"
+        ],
+        "fr": [
+          "elektroinstallateur-in-teamleiter-in-mit-leadermentalitat-luzern-luzern-sta-ch"
         ]
       },
       "previousSlugs": [
@@ -106423,8 +106444,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-in-betriebselektriker-in-sta-personal-ag-weinfelden",
         "it": "installatore-trice-elettrico-a-in-betriebselektriker-in-sta-personal-ag-weinfelden",
-        "en": "elektroinstallateur-in-betriebselektriker-in-sta-personal-ag-weinfelden",
-        "fr": "elektroinstallateur-in-betriebselektriker-in-sta-personal-ag-weinfelden"
+        "en": "electrical-installer-betriebselektriker-in-sta-personal-ag-weinfelden-thurgau",
+        "fr": "installateur-trice-electricien-ne-betriebselektriker-in-sta-personal-ag-weinfelden-thurgau"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -106475,10 +106496,17 @@
         ],
         "de": [
           "elektroinstallateur-in-betriebselektriker-in-weinfelden-thurgau-sta-ch"
+        ],
+        "en": [
+          "elektroinstallateur-in-betriebselektriker-in-sta-personal-ag-weinfelden"
+        ],
+        "fr": [
+          "elektroinstallateur-in-betriebselektriker-in-sta-personal-ag-weinfelden"
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-in-betriebselektriker-in-weinfelden-thurgau-sta-ch"
+        "elektroinstallateur-in-betriebselektriker-in-weinfelden-thurgau-sta-ch",
+        "elektroinstallateur-in-betriebselektriker-in-sta-personal-ag-weinfelden"
       ],
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -106850,8 +106878,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-in-projektleiter-in-mit-wohnbauprojekten-sta-personal-ag-baden",
         "it": "installatore-trice-elettrico-a-in-responsabile-di-progetto-con-wohnbauprojekten-sta-personal-ag-baden",
-        "en": "elektroinstallateur-in-projektleiter-in-mit-wohnbauprojekten-sta-personal-ag-baden",
-        "fr": "elektroinstallateur-in-projektleiter-in-mit-wohnbauprojekten-sta-personal-ag-baden"
+        "en": "electrical-installer-project-manager-mit-wohnbauprojekten-sta-personal-ag-baden-aargau",
+        "fr": "installateur-trice-electricien-ne-chef-de-projet-mit-wohnbauprojekten-sta-personal-ag-baden-aargau"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -106902,10 +106930,17 @@
         ],
         "de": [
           "elektroinstallateur-in-projektleiter-in-mit-wohnbauprojekten-baden-aargau-sta-ch"
+        ],
+        "en": [
+          "elektroinstallateur-in-projektleiter-in-mit-wohnbauprojekten-sta-personal-ag-baden"
+        ],
+        "fr": [
+          "elektroinstallateur-in-projektleiter-in-mit-wohnbauprojekten-sta-personal-ag-baden"
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-in-projektleiter-in-mit-wohnbauprojekten-baden-aargau-sta-ch"
+        "elektroinstallateur-in-projektleiter-in-mit-wohnbauprojekten-baden-aargau-sta-ch",
+        "elektroinstallateur-in-projektleiter-in-mit-wohnbauprojekten-sta-personal-ag-baden"
       ],
       "salaryMin": 99500,
       "salaryMax": 151000,
@@ -139065,12 +139100,12 @@
     },
     {
       "id": "sta-55b7ee24e9c3",
-      "slug": "maler-in-per-umbauten-con-kundenberatung-sta-personal-ag-baden",
+      "slug": "pittore-trice-per-ristrutturazioni-con-consulenza-alla-clientela-sta-personal-ag-baden-aargau",
       "slugByLocale": {
         "de": "maler-in-fur-umbauten-mit-kundenberatung-baden-aargau-sta-ch",
-        "it": "maler-in-per-umbauten-con-kundenberatung-sta-personal-ag-baden",
-        "en": "maler-in-fur-umbauten-mit-kundenberatung-baden-aargau-sta-ch",
-        "fr": "maler-in-fur-umbauten-mit-kundenberatung-baden-aargau-sta-ch"
+        "it": "pittore-trice-per-ristrutturazioni-con-consulenza-alla-clientela-sta-personal-ag-baden-aargau",
+        "en": "painter-for-renovations-with-customer-consultation-sta-personal-ag-baden-aargau",
+        "fr": "peintre-pour-travaux-de-transformation-avec-conseil-a-la-clientele-sta-personal-ag-baden-aargau"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -139114,18 +139149,25 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "maler-in-fur-umbauten-mit-kundenberatung-sta-personal-ag-baden"
         ],
         "it": [
+          "maler-in-fur-umbauten-mit-kundenberatung-baden-aargau-sta-ch",
+          "maler-in-per-umbauten-con-kundenberatung-sta-personal-ag-baden"
+        ],
+        "en": [
+          "maler-in-fur-umbauten-mit-kundenberatung-baden-aargau-sta-ch"
+        ],
+        "fr": [
           "maler-in-fur-umbauten-mit-kundenberatung-baden-aargau-sta-ch"
         ]
       },
       "previousSlugs": [
         "maler-in-fur-umbauten-mit-kundenberatung-sta-personal-ag-baden",
-        "maler-in-fur-umbauten-mit-kundenberatung-baden-aargau-sta-ch"
+        "maler-in-fur-umbauten-mit-kundenberatung-baden-aargau-sta-ch",
+        "maler-in-per-umbauten-con-kundenberatung-sta-personal-ag-baden"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -139146,7 +139188,7 @@
       "validThrough": "2027-02-17T22:06:13.889Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-10-28T20:46:59.756Z",
-      "translationHoldSince": "2026-11-19T22:07:06.590Z"
+      "translationHoldReleasedAt": "2026-11-20T05:59:14.586Z"
     },
     {
       "id": "sta-d316bab7d58d",
@@ -149361,9 +149403,9 @@
     },
     {
       "id": "sta-963d53fe23a6",
-      "slug": "installatore-trice-elettrico-a-in-per-service-e-unterhalt-sta-personal-ag-dietikon-7c914ada37",
+      "slug": "installatore-trice-elettrico-a-in-per-service-e-unterhalt-sta-personal-ag-dietikon",
       "slugByLocale": {
-        "it": "installatore-trice-elettrico-a-in-per-service-e-unterhalt-sta-personal-ag-dietikon-7c914ada37",
+        "it": "installatore-trice-elettrico-a-in-per-service-e-unterhalt-sta-personal-ag-dietikon",
         "en": "electrical-installer-for-service-and-maintenance-sta-personal-ag-dietikon-zurich",
         "de": "elektroinstallateur-in-fur-service-und-unterhalt-dietikon-zurich-sta-ch",
         "fr": "installateur-trice-electricien-ne-pour-le-service-et-l-entretien-sta-personal-ag-dietikon-zurich"
@@ -149411,12 +149453,12 @@
       "previousSlugs": [
         "elektroinstallateur-in-fur-service-und-unterhalt-dietikon-zurich-sta-ch",
         "elektroinstallateur-in-fur-service-und-unterhalt-sta-personal-ag-dietikon",
-        "installatore-trice-elettrico-a-in-per-service-e-unterhalt-sta-personal-ag-dietikon"
+        "installatore-trice-elettrico-a-in-per-service-e-unterhalt-sta-personal-ag-dietikon-7c914ada37"
       ],
       "previousSlugsByLocale": {
         "it": [
           "elektroinstallateur-in-fur-service-und-unterhalt-dietikon-zurich-sta-ch",
-          "installatore-trice-elettrico-a-in-per-service-e-unterhalt-sta-personal-ag-dietikon"
+          "installatore-trice-elettrico-a-in-per-service-e-unterhalt-sta-personal-ag-dietikon-7c914ada37"
         ],
         "en": [
           "elektroinstallateur-in-fur-service-und-unterhalt-sta-personal-ag-dietikon"
