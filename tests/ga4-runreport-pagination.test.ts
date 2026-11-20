@@ -187,7 +187,12 @@ describe('fetchAttribution (cwv-attribution)', () => {
       },
     );
     const report = await fetchAttribution({ token: 't', startDate: '2026-09-01', endDate: '2026-09-28', fetchImpl });
-    expect(report.coverage).toEqual({ attributionTruncated: false, selectorsTruncated: false, templatesTruncated: false });
+    expect(report.coverage).toEqual({
+      attributionTruncated: false,
+      selectorsTruncated: false,
+      templatesTruncated: false,
+      valuedSelectorsTruncated: false,
+    });
     expect(report.selectors).toHaveLength(450);
     const selectorCalls = fetchImpl.mock.calls.filter(([, init]) => isSelector(JSON.parse(init.body)));
     expect(selectorCalls).toHaveLength(3);
