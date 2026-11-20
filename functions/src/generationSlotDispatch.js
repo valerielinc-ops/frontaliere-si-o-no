@@ -9,19 +9,18 @@ import {
   releaseGenerationSlotClaim,
   renewGenerationSlotClaim,
 } from './generationSlotLedger.js';
-import { generationSlotDateForEntry } from './generationSlotSchedule.js';
+import { generationSlotDateForEntry, generationSlotWorkflow } from './generationSlotSchedule.js';
 import { LOOP_CLOCK_INPUT, loopClockInputValue } from './loopClockTable.js';
 import { GENERATION_WORKFLOW_CONTRACT_MARKER, inspectGenerationWorkflowContract } from './generationWorkflowContract.js';
 
 export { GENERATION_WORKFLOW_CONTRACT_MARKER, inspectGenerationWorkflowContract };
 export const GENERATION_WORKFLOW_PATH = '.github/workflows/generate-article.yml';
-const GENERATION_WORKFLOW_ID = 'generate-article.yml';
 const GENERATION_RUN_MARKER = '[generation-slot ';
 const DISPATCH_TIMEOUT_MS = 20_000;
 const ACTIVE_RUN_STATUSES = new Set(['queued', 'pending', 'in_progress', 'waiting', 'requested']);
 
-async function readGenerationWorkflow({ owner, repo, token, fetchImpl }) {
-  const url = `${GITHUB_API}/repos/${owner}/${repo}/contents/${GENERATION_WORKFLOW_PATH}?ref=main`;
+async function readGenerationWorkflow({ owner, repo, token, workflow, fetchImpl }) {
+  const url = `${GITHUB_API}/repos/${owner}/${repo}/contents/.github/workflows/${workflow}?ref=main`;
   const response = await fetchImpl(url, {
     method: 'GET',
     headers: githubApiHeaders(token),
@@ -35,9 +34,9 @@ async function readGenerationWorkflow({ owner, repo, token, fetchImpl }) {
   return Buffer.from(payload.content.replace(/\s+/gu, ''), 'base64').toString('utf8');
 }
 
-async function listMatchingRuns({ owner, repo, token, slotKey, nominalSlot, fetchImpl }) {
+async function listMatchingRuns({ owner, repo, token, workflow, slotKey, nominalSlot, fetchImpl }) {
   const createdSince = `>=${new Date(nominalSlot).toISOString().slice(0, 10)}`;
-  const url = `${GITHUB_API}/repos/${owner}/${repo}/actions/workflows/${GENERATION_WORKFLOW_ID}/runs?branch=main&per_page=100&created=${encodeURIComponent(createdSince)}`;
+  const url = `${GITHUB_API}/repos/${owner}/${repo}/actions/workflows/${workflow}/runs?branch=main&per_page=100&created=${encodeURIComponent(createdSince)}`;
   const response = await fetchImpl(url, {
     method: 'GET',
     headers: githubApiHeaders(token),
@@ -86,7 +85,11 @@ export async function dispatchGenerationSlot({
 } = {}) {
   const nominalSlot = generationSlotDateForEntry(entry, scheduledAt);
   if (!nominalSlot) return result(entry, { dispatched: false, reason: 'slot_not_due' });
-  const slotKey = generationSlotKey(entry.generationSlot, nominalSlot);
+  const workflow = generationSlotWorkflow(entry.generationSlot);
+  if (!workflow || workflow !== entry.workflow) {
+    return result(entry, { dispatched: false, failed: true, reason: 'generation_workflow_mismatch' });
+  }
+  const slotKey = generationSlotKey(entry.generationSlot, nominalSlot, entry);
   const { pat: token, owner, repo } = context ?? {};
   if (!token || !owner || !repo) {
     return result(entry, { dispatched: false, failed: true, reason: 'corpus_token_missing' });
@@ -94,7 +97,7 @@ export async function dispatchGenerationSlot({
 
   let workflowText;
   try {
-    workflowText = await readGenerationWorkflow({ owner, repo, token, fetchImpl });
+    workflowText = await readGenerationWorkflow({ owner, repo, token, workflow, fetchImpl });
   } catch (error) {
     const reason = error instanceof Error && /^generation_contract_lookup_/u.test(error.message)
       ? error.message
@@ -137,7 +140,7 @@ export async function dispatchGenerationSlot({
   if (previous?.status === 'claimed') {
     let matchingRuns;
     try {
-      matchingRuns = await listMatchingRuns({ owner, repo, token, slotKey, nominalSlot, fetchImpl });
+      matchingRuns = await listMatchingRuns({ owner, repo, token, workflow, slotKey, nominalSlot, fetchImpl });
     } catch (error) {
       const reason = error instanceof Error && /^generation_run_lookup_/u.test(error.message)
         ? error.message
@@ -179,7 +182,7 @@ export async function dispatchGenerationSlot({
   }
   if (!claim.claimed) return result(entry, { dispatched: false, reason: claim.reason, slotKey });
 
-  const url = `${GITHUB_API}/repos/${owner}/${repo}/actions/workflows/${GENERATION_WORKFLOW_ID}/dispatches`;
+  const url = `${GITHUB_API}/repos/${owner}/${repo}/actions/workflows/${workflow}/dispatches`;
   const inputs = {
     section: entry.generationSlot,
     dry_run: 'false',

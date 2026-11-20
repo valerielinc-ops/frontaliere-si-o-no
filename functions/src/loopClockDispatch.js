@@ -2,7 +2,7 @@ import { GITHUB_API, getRepoConfig } from './githubProxy.js';
 import { githubApiHeaders } from './githubApiHeaders.js';
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
 import { dispatchGenerationSlot } from './generationSlotDispatch.js';
-import { dueGenerationSlotEntries } from './generationSlotSchedule.js';
+import { dueGenerationSlotEntries, generationSlotDateForEntry, parseCantonGenerationSchedule } from './generationSlotSchedule.js';
 import {
   LOOP_CLOCK_CORPUS_REPOSITORY,
   LOOP_CLOCK_ENTRIES,
@@ -19,6 +19,18 @@ export { LOOP_CLOCK_ENTRIES } from './loopClockTable.js';
 
 export const LOOP_CLOCK_TICK_MINUTES = 5;
 export const LOOP_CLOCK_CLOUD_SCHEDULE = '*/5 * * * *';
+
+async function readCantonGenerationSchedule(token, fetchImpl) {
+  const url = `${GITHUB_API}/repos/${LOOP_CLOCK_CORPUS_REPOSITORY}/contents/generator/data/canton-generation-slots.json?ref=main`;
+  const response = await fetchImpl(url, {
+    headers: githubApiHeaders(token, { Accept: 'application/vnd.github.raw+json' }),
+    signal: AbortSignal.timeout(10_000),
+  });
+  // The site and corpus can be deployed independently.
+  if (response.status === 404) return [];
+  if (!response.ok) throw new Error('canton_generation_schedule_unavailable');
+  return parseCantonGenerationSchedule(await response.json());
+}
 
 const MINUTE_MS = 60_000;
 const DISPATCH_TIMEOUT_MS = 20_000;
@@ -247,8 +259,17 @@ export async function dispatchLoopClock({
   }
 
   let corpusToken = '';
-  if (due.some((entry) => entry.repo === 'corpus' && !isDisabled(disabled, entry.id))) {
+  if (includeGenerationSlots || due.some((entry) => entry.repo === 'corpus' && !isDisabled(disabled, entry.id))) {
     corpusToken = await readRemoteConfig('GITHUB_PAT_NANAKO', getRemoteConfigValueImpl, warnings);
+  }
+
+  if (includeGenerationSlots && corpusToken) {
+    try {
+      const cantonSchedule = await readCantonGenerationSchedule(corpusToken, fetchImpl);
+      due.push(...cantonSchedule.filter((entry) => generationSlotDateForEntry(entry, tick)));
+    } catch {
+      warnings.push('canton_generation_schedule_unavailable');
+    }
   }
 
   const conditionCache = new Map();

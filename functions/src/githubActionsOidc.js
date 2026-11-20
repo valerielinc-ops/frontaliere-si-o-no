@@ -1,4 +1,5 @@
 import { createPublicKey, verify } from 'node:crypto';
+import { generationSlotWorkflow } from './generationSlotSchedule.js';
 
 export const GITHUB_ACTIONS_OIDC_ISSUER = 'https://token.actions.githubusercontent.com';
 export const GITHUB_ACTIONS_OIDC_JWKS_URL = `${GITHUB_ACTIONS_OIDC_ISSUER}/.well-known/jwks`;
@@ -7,7 +8,21 @@ export const GENERATION_CLAIM_REQUESTS_PER_IP = 20;
 export const GENERATION_CLAIM_RATE_WINDOW_MS = 60_000;
 
 const EXPECTED_REPOSITORY = 'nanakokyobashi-rgb/frontaliere-articles';
-const EXPECTED_WORKFLOW_REF = `${EXPECTED_REPOSITORY}/.github/workflows/generate-article.yml@refs/heads/main`;
+const WORKFLOW_REF_PREFIX = `${EXPECTED_REPOSITORY}/.github/workflows/`;
+const WORKFLOW_REF_SUFFIX = '@refs/heads/main';
+
+export function generationClaimWorkflowRef(section) {
+  const workflow = generationSlotWorkflow(section);
+  return workflow ? `${WORKFLOW_REF_PREFIX}${workflow}${WORKFLOW_REF_SUFFIX}` : null;
+}
+
+function isGenerationClaimWorkflowRef(ref) {
+  if (typeof ref !== 'string' || !ref.startsWith(WORKFLOW_REF_PREFIX) || !ref.endsWith(WORKFLOW_REF_SUFFIX)) return false;
+  const filename = ref.slice(WORKFLOW_REF_PREFIX.length, -WORKFLOW_REF_SUFFIX.length);
+  if (filename === 'generate-article.yml') return true;
+  const canton = /^generate-article-([a-z]+)\.yml$/u.exec(filename);
+  return !!canton && ref === generationClaimWorkflowRef(`canton-${canton[1]}`);
+}
 const JWKS_CACHE_MS = 10 * 60_000;
 const JWKS_TIMEOUT_MS = 5_000;
 const MAX_RATE_BUCKETS = 2048;
@@ -41,7 +56,7 @@ async function loadJwks(fetchImpl, nowMs, forceRefresh = false) {
   return keys;
 }
 
-/** Verify a GitHub Actions ID token for the corpus generator's main workflow. */
+/** Verify a GitHub Actions ID token for a corpus generation workflow on main. */
 export async function verifyGithubActionsIdToken(token, {
   audience,
   now = Date.now(),
@@ -65,7 +80,7 @@ export async function verifyGithubActionsIdToken(token, {
     || !claims.sub.endsWith(':ref:refs/heads/main')
     || claims.repository !== EXPECTED_REPOSITORY
     || claims.ref !== 'refs/heads/main'
-    || claims.workflow_ref !== EXPECTED_WORKFLOW_REF
+    || !isGenerationClaimWorkflowRef(claims.workflow_ref)
     || claims.event_name !== 'workflow_dispatch'
     || !/^\d{1,24}$/u.test(String(claims.run_id ?? ''))
     || !Number.isFinite(claims.exp) || claims.exp < nowSeconds - 30
