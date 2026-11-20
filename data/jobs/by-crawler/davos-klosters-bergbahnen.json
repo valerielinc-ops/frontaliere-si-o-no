@@ -1,7 +1,7 @@
 {
   "crawlerKey": "davos-klosters-bergbahnen",
-  "assembledAt": "2026-11-20T09:38:28.824Z",
-  "runId": "44709560584",
+  "assembledAt": "2026-11-20T22:25:24.397Z",
+  "runId": "44819300030",
   "jobs": [
     {
       "id": "davos-klosters-bergbahnen-4ebcfb661afd",
@@ -46,7 +46,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Service-Bar-Restaurant-Bolgen-Plaza-100_j_3958627",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:38:22.442Z",
+      "crawledAt": "2026-11-20T22:25:18.362Z",
       "previousSlugs": [
         "service-bar-restaurant-bolgen-plaza-100-davos-klosters-bergbahnen-davos"
       ],
@@ -75,7 +75,7 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:38:22.442Z",
+      "validThrough": "2026-12-26T22:25:18.362Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.davosklostersmountains.ch/de/mountains/stellenangebote/service-bar-restaurant-bolgen-plaza-100_j_3958627"
     },
@@ -122,7 +122,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Seilbahnmechatroniker-in-Parsenn-100_j_3958639",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:38:22.243Z",
+      "crawledAt": "2026-11-20T22:25:18.220Z",
       "previousSlugs": [
         "seilbahnmechatroniker-in-parsenn-100-davos-klosters-bergbahnen-davos",
         "meccatronico-funiviario-a-parsenn-100-davos-klosters-bergbahnen-ag-davos-761809",
@@ -188,7 +188,7 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:38:22.243Z",
+      "validThrough": "2026-12-20T22:25:18.220Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.davosklostersmountains.ch/de/mountains/stellenangebote/seilbahnmechatroniker-in-parsenn-100_j_3958639"
     },
@@ -235,7 +235,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebselektriker-in-Immobilienunterhalt-100_j_3958640",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:38:22.041Z",
+      "crawledAt": "2026-11-20T22:25:17.937Z",
       "previousSlugs": [
         "betriebselektriker-in-immobilienunterhalt-100-davos-klosters-bergbahnen-davos",
         "industrial-electrician-realestate-maintenance-100-davos-klosters-bergbahnen-ag-davos",
@@ -283,7 +283,7 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:38:22.041Z",
+      "validThrough": "2026-12-20T22:25:17.937Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.davosklostersmountains.ch/de/mountains/stellenangebote/betriebselektriker-in-immobilienunterhalt-100_j_3958640"
     },
@@ -330,7 +330,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebs-Mechaniker-in-Parsenn-100_j_3958638",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:38:21.841Z",
+      "crawledAt": "2026-11-20T22:25:17.794Z",
       "previousSlugs": [
         "betriebs-mechaniker-in-parsenn-100-davos-klosters-bergbahnen-davos",
         "betriebs-mechaniker-in-parsenn-100-davos-klosters-bergbahnen-davos-7038e2eb",
@@ -409,9 +409,78 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:38:21.841Z",
+      "validThrough": "2026-12-20T22:25:17.794Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.davosklostersmountains.ch/de/mountains/stellenangebote/betriebs-mechaniker-in-parsenn-100_j_3958638"
+    },
+    {
+      "id": "davos-klosters-bergbahnen-848315af8423",
+      "slug": "front-office-hotel-bernina-100-davos-klosters-bergbahnen-davos",
+      "slugByLocale": {
+        "de": "front-office-hotel-bernina-100-davos-klosters-bergbahnen-davos",
+        "it": "front-office-hotel-bernina-100-davos-klosters-bergbahnen-davos",
+        "en": "front-office-hotel-bernina-100-davos-klosters-bergbahnen-davos",
+        "fr": "front-office-hotel-bernina-100-davos-klosters-bergbahnen-davos"
+      },
+      "company": "Davos Klosters Bergbahnen AG",
+      "companyKey": "davos-klosters-bergbahnen-ag",
+      "companyDomain": "davosklosters.ch",
+      "title": "Front Office Hotel Bernina - 100%",
+      "titleByLocale": {
+        "de": "Front Office Hotel Bernina - 100%",
+        "it": "Front Office Hotel Bernina - 100%",
+        "en": "Front Office Hotel Bernina - 100%",
+        "fr": "Front Office Hotel Bernina - 100%"
+      },
+      "description": "Die Davos Klosters Mountains sind fünf Berg- und Skigebiete in den Bündner Alpen. Neben den Bergbahnen betreibt die Davos Klosters Bergbahnen AG unter der Marke Mountain Hotels und Resorts über 23 Unterkünfte vom einfachen Gruppenhaus bis zum gehobenen Vier-Sterne-Superior Hotel.\nDas Hotel\nDas Hotel Bernina verbindet modernes Design mit unkompliziertem Komfort im Herzen von Davos Platz. Gemütliche Doppelzimmer mit hochwertigen Boxspringbetten, ein abwechslungsreiches Frühstücksbuffet und die zentrale Lage machen das Haus zum idealen Ausgangspunkt für aktive Ferientage. Ob Wandern, Mountainbiken, Skifahren oder Snowboarden hier stehen die Berge und das persönliche Ferienerlebnis im Mittelpunkt\nUm das Video anzusehen, müssen Sie die Cookies akzeptieren!\nCookies akzeptieren\nPer sofort oder nach Vereinbarung suchen wir eine Person als:\nFront Office Hotel Bernina - 100%\nAufgaben\n• Check-In und Check-Out der Gäste\n• Betreuung der Gäste vor Ort und Information zum Angebot der Davos Klosters Mountains\n• Handling der Reservierungen mit der Hotel Software Protel\n• Sicherstellung von reibungslosen Abläufen und Koordination mit dem Housekeeping\n• Gästekorrespondenz von E-Mails und Telefongesprächen\n• Ausstellen von Skipässen der Davos Klosters Mountains\nProfil\n• Ausbildung: Du hast eine kaufmännische oder gleichwertige Ausbildung und Erfahrungen im Front Office Bereich\n• Arbeitsweise: Du hast eine schnelle Auffassungsgabe, arbeitest gerne selbstständig, bist zuverlässig und stressresistent. Zudem hast du Freude am Umgang mit Gästen und ein freundliches und kompetentes Auftreten\n• Teamplayer: Du arbeitest gerne im Team und bist hilfsbereit\n• Sprache: Du verfügst über sehr gute Deutsch Kenntnisse in Wort und Schrift sowie gute Englisch Kenntnisse\n• Von Vorteil: Protel-Kenntnisse oder ähnliche Hotelsysteme und jede weitere Sprache\nWir bieten\n• Aufgestelltes, junges Team mit positivem Arbeitsklima\n• Saisonkarte der Davos Klosters Bergbahnen\n• Vermittlung von Personalwohnungen- oder zimmer\n• Fitnessraum zu Spezialkonditionen\n• Attraktive Benefits für interne Angebote und Leistungen\nJetzt bewerben\nSo finden Sie uns\nAdresse\nDavos Klosters Bergbahnen AG\nBrämabüelstrasse 11\nCH - 7270 Davos Platz\nKontakt\n• +41 81 417 62 22\n• mountains@davosklosters.ch",
+      "descriptionByLocale": {
+        "de": "Die Davos Klosters Mountains sind fünf Berg- und Skigebiete in den Bündner Alpen. Neben den Bergbahnen betreibt die Davos Klosters Bergbahnen AG unter der Marke Mountain Hotels und Resorts über 23 Unterkünfte vom einfachen Gruppenhaus bis zum gehobenen Vier-Sterne-Superior Hotel.\nDas Hotel\nDas Hotel Bernina verbindet modernes Design mit unkompliziertem Komfort im Herzen von Davos Platz. Gemütliche Doppelzimmer mit hochwertigen Boxspringbetten, ein abwechslungsreiches Frühstücksbuffet und die zentrale Lage machen das Haus zum idealen Ausgangspunkt für aktive Ferientage. Ob Wandern, Mountainbiken, Skifahren oder Snowboarden hier stehen die Berge und das persönliche Ferienerlebnis im Mittelpunkt\nUm das Video anzusehen, müssen Sie die Cookies akzeptieren!\nCookies akzeptieren\nPer sofort oder nach Vereinbarung suchen wir eine Person als:\nFront Office Hotel Bernina - 100%\nAufgaben\n• Check-In und Check-Out der Gäste\n• Betreuung der Gäste vor Ort und Information zum Angebot der Davos Klosters Mountains\n• Handling der Reservierungen mit der Hotel Software Protel\n• Sicherstellung von reibungslosen Abläufen und Koordination mit dem Housekeeping\n• Gästekorrespondenz von E-Mails und Telefongesprächen\n• Ausstellen von Skipässen der Davos Klosters Mountains\nProfil\n• Ausbildung: Du hast eine kaufmännische oder gleichwertige Ausbildung und Erfahrungen im Front Office Bereich\n• Arbeitsweise: Du hast eine schnelle Auffassungsgabe, arbeitest gerne selbstständig, bist zuverlässig und stressresistent. Zudem hast du Freude am Umgang mit Gästen und ein freundliches und kompetentes Auftreten\n• Teamplayer: Du arbeitest gerne im Team und bist hilfsbereit\n• Sprache: Du verfügst über sehr gute Deutsch Kenntnisse in Wort und Schrift sowie gute Englisch Kenntnisse\n• Von Vorteil: Protel-Kenntnisse oder ähnliche Hotelsysteme und jede weitere Sprache\nWir bieten\n• Aufgestelltes, junges Team mit positivem Arbeitsklima\n• Saisonkarte der Davos Klosters Bergbahnen\n• Vermittlung von Personalwohnungen- oder zimmer\n• Fitnessraum zu Spezialkonditionen\n• Attraktive Benefits für interne Angebote und Leistungen\nJetzt bewerben\nSo finden Sie uns\nAdresse\nDavos Klosters Bergbahnen AG\nBrämabüelstrasse 11\nCH - 7270 Davos Platz\nKontakt\n• +41 81 417 62 22\n• mountains@davosklosters.ch",
+        "it": "Die Davos Klosters Mountains sind fünf Berg- und Skigebiete in den Bündner Alpen. Neben den Bergbahnen betreibt die Davos Klosters Bergbahnen AG unter der Marke Mountain Hotels und Resorts über 23 Unterkünfte vom einfachen Gruppenhaus bis zum gehobenen Vier-Sterne-Superior Hotel.\nDas Hotel\nDas Hotel Bernina verbindet modernes Design mit unkompliziertem Komfort im Herzen von Davos Platz. Gemütliche Doppelzimmer mit hochwertigen Boxspringbetten, ein abwechslungsreiches Frühstücksbuffet und die zentrale Lage machen das Haus zum idealen Ausgangspunkt für aktive Ferientage. Ob Wandern, Mountainbiken, Skifahren oder Snowboarden hier stehen die Berge und das persönliche Ferienerlebnis im Mittelpunkt\nUm das Video anzusehen, müssen Sie die Cookies akzeptieren!\nCookies akzeptieren\nPer sofort oder nach Vereinbarung suchen wir eine Person als:\nFront Office Hotel Bernina - 100%\nAufgaben\n• Check-In und Check-Out der Gäste\n• Betreuung der Gäste vor Ort und Information zum Angebot der Davos Klosters Mountains\n• Handling der Reservierungen mit der Hotel Software Protel\n• Sicherstellung von reibungslosen Abläufen und Koordination mit dem Housekeeping\n• Gästekorrespondenz von E-Mails und Telefongesprächen\n• Ausstellen von Skipässen der Davos Klosters Mountains\nProfil\n• Ausbildung: Du hast eine kaufmännische oder gleichwertige Ausbildung und Erfahrungen im Front Office Bereich\n• Arbeitsweise: Du hast eine schnelle Auffassungsgabe, arbeitest gerne selbstständig, bist zuverlässig und stressresistent. Zudem hast du Freude am Umgang mit Gästen und ein freundliches und kompetentes Auftreten\n• Teamplayer: Du arbeitest gerne im Team und bist hilfsbereit\n• Sprache: Du verfügst über sehr gute Deutsch Kenntnisse in Wort und Schrift sowie gute Englisch Kenntnisse\n• Von Vorteil: Protel-Kenntnisse oder ähnliche Hotelsysteme und jede weitere Sprache\nWir bieten\n• Aufgestelltes, junges Team mit positivem Arbeitsklima\n• Saisonkarte der Davos Klosters Bergbahnen\n• Vermittlung von Personalwohnungen- oder zimmer\n• Fitnessraum zu Spezialkonditionen\n• Attraktive Benefits für interne Angebote und Leistungen\nJetzt bewerben\nSo finden Sie uns\nAdresse\nDavos Klosters Bergbahnen AG\nBrämabüelstrasse 11\nCH - 7270 Davos Platz\nKontakt\n• +41 81 417 62 22\n• mountains@davosklosters.ch",
+        "en": "Die Davos Klosters Mountains sind fünf Berg- und Skigebiete in den Bündner Alpen. Neben den Bergbahnen betreibt die Davos Klosters Bergbahnen AG unter der Marke Mountain Hotels und Resorts über 23 Unterkünfte vom einfachen Gruppenhaus bis zum gehobenen Vier-Sterne-Superior Hotel.\nDas Hotel\nDas Hotel Bernina verbindet modernes Design mit unkompliziertem Komfort im Herzen von Davos Platz. Gemütliche Doppelzimmer mit hochwertigen Boxspringbetten, ein abwechslungsreiches Frühstücksbuffet und die zentrale Lage machen das Haus zum idealen Ausgangspunkt für aktive Ferientage. Ob Wandern, Mountainbiken, Skifahren oder Snowboarden hier stehen die Berge und das persönliche Ferienerlebnis im Mittelpunkt\nUm das Video anzusehen, müssen Sie die Cookies akzeptieren!\nCookies akzeptieren\nPer sofort oder nach Vereinbarung suchen wir eine Person als:\nFront Office Hotel Bernina - 100%\nAufgaben\n• Check-In und Check-Out der Gäste\n• Betreuung der Gäste vor Ort und Information zum Angebot der Davos Klosters Mountains\n• Handling der Reservierungen mit der Hotel Software Protel\n• Sicherstellung von reibungslosen Abläufen und Koordination mit dem Housekeeping\n• Gästekorrespondenz von E-Mails und Telefongesprächen\n• Ausstellen von Skipässen der Davos Klosters Mountains\nProfil\n• Ausbildung: Du hast eine kaufmännische oder gleichwertige Ausbildung und Erfahrungen im Front Office Bereich\n• Arbeitsweise: Du hast eine schnelle Auffassungsgabe, arbeitest gerne selbstständig, bist zuverlässig und stressresistent. Zudem hast du Freude am Umgang mit Gästen und ein freundliches und kompetentes Auftreten\n• Teamplayer: Du arbeitest gerne im Team und bist hilfsbereit\n• Sprache: Du verfügst über sehr gute Deutsch Kenntnisse in Wort und Schrift sowie gute Englisch Kenntnisse\n• Von Vorteil: Protel-Kenntnisse oder ähnliche Hotelsysteme und jede weitere Sprache\nWir bieten\n• Aufgestelltes, junges Team mit positivem Arbeitsklima\n• Saisonkarte der Davos Klosters Bergbahnen\n• Vermittlung von Personalwohnungen- oder zimmer\n• Fitnessraum zu Spezialkonditionen\n• Attraktive Benefits für interne Angebote und Leistungen\nJetzt bewerben\nSo finden Sie uns\nAdresse\nDavos Klosters Bergbahnen AG\nBrämabüelstrasse 11\nCH - 7270 Davos Platz\nKontakt\n• +41 81 417 62 22\n• mountains@davosklosters.ch",
+        "fr": "Die Davos Klosters Mountains sind fünf Berg- und Skigebiete in den Bündner Alpen. Neben den Bergbahnen betreibt die Davos Klosters Bergbahnen AG unter der Marke Mountain Hotels und Resorts über 23 Unterkünfte vom einfachen Gruppenhaus bis zum gehobenen Vier-Sterne-Superior Hotel.\nDas Hotel\nDas Hotel Bernina verbindet modernes Design mit unkompliziertem Komfort im Herzen von Davos Platz. Gemütliche Doppelzimmer mit hochwertigen Boxspringbetten, ein abwechslungsreiches Frühstücksbuffet und die zentrale Lage machen das Haus zum idealen Ausgangspunkt für aktive Ferientage. Ob Wandern, Mountainbiken, Skifahren oder Snowboarden hier stehen die Berge und das persönliche Ferienerlebnis im Mittelpunkt\nUm das Video anzusehen, müssen Sie die Cookies akzeptieren!\nCookies akzeptieren\nPer sofort oder nach Vereinbarung suchen wir eine Person als:\nFront Office Hotel Bernina - 100%\nAufgaben\n• Check-In und Check-Out der Gäste\n• Betreuung der Gäste vor Ort und Information zum Angebot der Davos Klosters Mountains\n• Handling der Reservierungen mit der Hotel Software Protel\n• Sicherstellung von reibungslosen Abläufen und Koordination mit dem Housekeeping\n• Gästekorrespondenz von E-Mails und Telefongesprächen\n• Ausstellen von Skipässen der Davos Klosters Mountains\nProfil\n• Ausbildung: Du hast eine kaufmännische oder gleichwertige Ausbildung und Erfahrungen im Front Office Bereich\n• Arbeitsweise: Du hast eine schnelle Auffassungsgabe, arbeitest gerne selbstständig, bist zuverlässig und stressresistent. Zudem hast du Freude am Umgang mit Gästen und ein freundliches und kompetentes Auftreten\n• Teamplayer: Du arbeitest gerne im Team und bist hilfsbereit\n• Sprache: Du verfügst über sehr gute Deutsch Kenntnisse in Wort und Schrift sowie gute Englisch Kenntnisse\n• Von Vorteil: Protel-Kenntnisse oder ähnliche Hotelsysteme und jede weitere Sprache\nWir bieten\n• Aufgestelltes, junges Team mit positivem Arbeitsklima\n• Saisonkarte der Davos Klosters Bergbahnen\n• Vermittlung von Personalwohnungen- oder zimmer\n• Fitnessraum zu Spezialkonditionen\n• Attraktive Benefits für interne Angebote und Leistungen\nJetzt bewerben\nSo finden Sie uns\nAdresse\nDavos Klosters Bergbahnen AG\nBrämabüelstrasse 11\nCH - 7270 Davos Platz\nKontakt\n• +41 81 417 62 22\n• mountains@davosklosters.ch"
+      },
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "location": "Davos",
+      "canton": "GR",
+      "addressLocality": "Davos",
+      "addressCountry": "CH",
+      "category": "tourism",
+      "contract": "full-time",
+      "employmentType": "TEMPORARY",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Front-Office-Hotel-Bernina-100_j_3981806",
+      "source": "Davos Klosters Bergbahnen Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-20T22:25:18.078Z",
+      "needsRetranslation": true,
+      "salaryMin": 62000,
+      "salaryMax": 78000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "7270",
+      "applyUrl": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Front-Office-Hotel-Bernina-100_j_3981806",
+      "addressRegion": "GR",
+      "streetAddress": "Davos",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-04T22:25:18.078Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-20T22:25:18.078Z"
     }
   ]
 }
