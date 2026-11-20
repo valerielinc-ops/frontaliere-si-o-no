@@ -13,6 +13,7 @@
 // Changing either side without the other turns that test red on purpose.
 import { runGa4ReportPaged, weightedQuantile } from './ga4-service-account.mjs';
 import { withAutomationFleetExclusion } from './ga4-automation-fleet.mjs';
+import { SECTION_LEGACY_TI_PATH } from '../../build-plugins/shared/cantonResolvers.mjs';
 
 export const ATTRIBUTION_PAGE = 'web_vitals';
 export const ATTRIBUTION_SECTIONS = ['cls', 'inp'];
@@ -32,7 +33,7 @@ export const JOB_PAGE_TEMPLATES = Object.freeze([
 export const SELECTOR_PAGE_SIZE = 200;
 export const TOP_SELECTORS = 5;
 export const TOP_VALUED_INP_TARGETS = 10;
-export const PRIORITY_INP_PATH = '/cerca-lavoro-ticino/';
+export const PRIORITY_INP_PATH = SECTION_LEGACY_TI_PATH.it;
 const TEMPLATE_LIMIT = 100000;
 const TEMPLATE_METRICS = ['CLS', 'INP'];
 const ALL_DEVICES = 'tutti';
