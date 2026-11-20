@@ -57,7 +57,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4068602",
-    "firstSeenAt": "2026-09-29T21:16:37.417Z"
+    "firstSeenAt": "2026-09-29T21:16:37.417Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4068602",
+        "firstSeenAt": "2026-09-29T21:16:37.417Z",
+        "title": "MPA, MPK für Teamleiterin/Teamleiter Sprechstunden Medizin"
+      },
+      {
+        "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4099741",
+        "firstSeenAt": "2026-09-29T21:16:37.417Z",
+        "title": "MPA, MPK für Teamleiterin/Teamleiter Sprechstunden Medizin"
+      }
+    ]
   },
   {
     "slug": "assistente-assistente-sanitaria-e-sociale-spital-muri-muri-ag",
@@ -106,7 +118,7 @@
     "firstSeenAt": "2026-09-29T21:16:34.613Z"
   },
   {
-    "slug": "dipl-infermieristica-specialista-hf-fh-stazione-privata-spital-muri-muri-ag-5318d9f0",
+    "slug": "dipl-infermieristica-specialista-hf-fh-stazione-privata-spital-muri-muri-ag",
     "title": "Dipl. Pflegefachfrau/Pflegefachmann HF/FH Privatstation",
     "titleByLocale": {
       "it": "Dipl. Infermieristica specialista HF/FH stazione privata",
@@ -125,25 +137,38 @@
       "fr": "Leurs tâches\n• Soins professionnels et soutien de nos patients privés\n• Partager la responsabilité d'une qualité des soins fondée sur des données probantes et la participation au processus d'amélioration continue\n• Coopération interdisciplinaire et interprofessionnelle constructive\n• Accompagnement et soutien de nos étudiants et apprenants en coopération avec la formation professionnelle\n\nVotre profil\n• La formation terminée en tant que dipl. Infirmière HF/FH (pour les diplômes étrangers, la reconnaissance SRK est nécessaire)\n• Expérience professionnelle en soins actifs, idéalement sur une station privée\n• Bonne connaissance du processus de prise en charge et de l'expérience acquise dans le traitement de situations de soins complexes\n• Compétences sociales et de communication élevées\n• Orientation forte du patient et du service\n• Responsabilité et méthodes de travail indépendantes\n\nVotre chance\nIl vous attend immédiatement ou sur rendez-vous une activité intéressante et variée dans un hôpital moderne et tourné vers l'avenir avec une large gamme de services. La coopération dans les différents domaines, l'esprit d'équipe et un sentiment d'unité entre divisions sont consciemment vécus dans notre entreprise.\n\nLeurs avantages\n• Jours fériés: Vous bénéficiez de jours fériés entre 25 et 30 jours ouvrables (selon l'âge) et 13 jours fériés payés. Pour cela, vous avez la possibilité d'acheter 5 jours de vacances.\n• Heures de travail: Les heures normales de travail de l'entreprise pour une charge de travail à plein temps sont de 42 heures par semaine (à l'exclusion des médecins). Le temps de travail annuel s'applique, ce qui assure la plus grande flexibilité possible dans l'organisation du temps de travail. Les demandes de service sont mises en œuvre si possible et un emploi à temps partiel est possible dans de nombreuses fonctions – aussi dans les postes de direction.\n• Éducation et perfectionnement : Votre perfectionnement personnel et professionnel est important pour nous. Nous soutenons la participation à l'enseignement et à la formation complémentaires internes et externes par une participation généreuse sous forme d'heures de travail et/ou de frais de cours.\n• Nourriture: Dans notre restaurant du personnel – nominé avec le prix \"Best of Swiss Gastro\" – vous pouvez profiter de menus de la cuisine fraîche du marché dans des conditions très attrayantes.\n• Arrivée / stationnement: Les employés de Spital Muri bénéficient d'un parking bon marché. Le parking est situé dans la zone de l'hôpital. Si vous venez travailler en transports en commun, en vélo, en moto ou à pied, nous vous récompenserons par un éco-bonus mensuel.\n• Assurance sociale: Nous attachons de l'importance à des prestations sociales adéquates. Pour le travail de nuit, le week-end et les vacances, nous vous payons des indemnités équitables. Nous assurons votre salaire au fonds de pension Profond sans déduction de coordination (à l'exclusion des médecins). Le salaire des médecins est assuré par la fondation de prévention VSAO.\n\nPensum: 60%"
     },
     "slugByLocale": {
-      "it": "dipl-infermieristica-specialista-hf-fh-stazione-privata-spital-muri-muri-ag-5318d9f0",
-      "en": "dipl-nursing-specialist-hf-fh-private-station-spital-muri-muri-ag-5b267607",
-      "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-privatstation-spital-muri-muri-ag-e53655e0",
-      "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-poste-prive-spital-muri-muri-ag-62047f92"
+      "it": "dipl-infermieristica-specialista-hf-fh-stazione-privata-spital-muri-muri-ag",
+      "en": "dipl-nursing-specialist-hf-fh-private-station-spital-muri-muri-ag",
+      "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-privatstation-spital-muri-muri-ag",
+      "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-poste-prive-spital-muri-muri-ag"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-11-08T09:15:54.609Z",
     "previousSlugs": [
       "qualified-nurse-nurse-hf-fh-private-ward-spital-muri-muri-ag",
       "dipl-pflegefachfrau-pflegefachmann-hf-fh-privatstation-spital-muri-ag",
-      "dipl-pflegefachfrau-pflegefachmann-hf-fh-privatstation-spital-muri-muri-ag"
+      "dipl-pflegefachfrau-pflegefachmann-hf-fh-privatstation-spital-muri-muri-ag",
+      "dipl-infermieristica-specialista-hf-fh-stazione-privata-spital-muri-muri-ag-5318d9f0",
+      "dipl-nursing-specialist-hf-fh-private-station-spital-muri-muri-ag-5b267607",
+      "dipl-pflegefachfrau-pflegefachmann-hf-fh-privatstation-spital-muri-muri-ag-e53655e0",
+      "dipl-specialiste-des-soins-infirmiers-hf-fh-poste-prive-spital-muri-muri-ag-62047f92"
     ],
     "previousSlugsByLocale": {
+      "it": [
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-privatstation-spital-muri-muri-ag",
+        "dipl-infermieristica-specialista-hf-fh-stazione-privata-spital-muri-muri-ag-5318d9f0"
+      ],
       "en": [
         "qualified-nurse-nurse-hf-fh-private-ward-spital-muri-muri-ag",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-privatstation-spital-muri-ag",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-privatstation-spital-muri-muri-ag"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-privatstation-spital-muri-muri-ag",
+        "dipl-nursing-specialist-hf-fh-private-station-spital-muri-muri-ag-5b267607"
+      ],
+      "de": [
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-privatstation-spital-muri-muri-ag-e53655e0"
       ],
       "fr": [
+        "dipl-specialiste-des-soins-infirmiers-hf-fh-poste-prive-spital-muri-muri-ag-62047f92",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-privatstation-spital-muri-muri-ag"
       ]
     },
@@ -154,7 +179,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4064861",
-    "firstSeenAt": "2026-09-29T21:16:38.734Z"
+    "firstSeenAt": "2026-09-29T21:16:38.734Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4064861",
+        "firstSeenAt": "2026-09-29T21:16:38.734Z",
+        "title": "Dipl. Pflegefachfrau/Pflegefachmann HF/FH Privatstation"
+      },
+      {
+        "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4096140",
+        "firstSeenAt": "2026-09-29T21:16:38.734Z",
+        "title": "Dipl. Pflegefachfrau/Pflegefachmann HF/FH Privatstation"
+      }
+    ]
   },
   {
     "slug": "case-handler-ricezione-di-emergenza-spital-muri-muri-ag",
@@ -242,6 +279,61 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4063318",
     "firstSeenAt": "2026-09-29T21:16:40.710Z"
+  },
+  {
+    "slug": "lavoro-sociale-bsc-spital-muri-muri-ag",
+    "title": "Sozialarbeiterin/Sozialarbeiter BSc",
+    "titleByLocale": {
+      "it": "Lavoro sociale BSc",
+      "en": "Social worker BSc",
+      "de": "Sozialarbeiterin/Sozialarbeiter BSc",
+      "fr": "Travailleur social BSc"
+    },
+    "company": "Spital Muri",
+    "companyKey": "spital-muri",
+    "location": "Muri AG",
+    "addressLocality": "Muri AG",
+    "descriptionByLocale": {
+      "it": "Il team di gestione dei casi è composto da case manager e operatori sociali. Accompagna i pazienti affetti da pazienti affetti da epatie e i loro parenti nelle problematiche sociali e psicosociali. Si tratta di argomenti quali la protezione degli adulti, l'assicurazione sociale, le questioni finanziarie e sociali, nonché l'organizzazione di soluzioni di assistenza ambulatoriale su misura o ambulatoriale.\n\nI loro compiti\n• Consulenza e supporto dei pazienti in problemi sociali complessi e la gestione dei casi\n• Organizzazione di soluzioni di aftercare e di uscita individuali e basate sulle esigenze, nonché collocamento di assistenza e triage a uffici specializzati idonei, se necessario\n• Cooperazione interdisciplinare con medici, infermieri e altri gruppi professionali per garantire una cura coordinata dei pazienti\n• Formazione pratica degli studenti di lavoro sociale (BSc) o volontà di completare la formazione corrispondente\n\nIl tuo profilo\n• Studi completi nel lavoro sociale (BSc FH)\n• Idealmente, formazione supplementare nell'assistenza sanitaria (ad esempio FaGe, cura HF o FH)\n• Allenamento pratico o volontà di completarlo\n• Alte competenze sociali e di consulenza nonché il godimento della cooperazione interdisciplinare\n• Metodo di lavoro indipendente, strutturato e orientato alla soluzione\n• Interessato a lavorare nell'ambiente dinamico di un ospedale acuto\n\nLa tua opportunità\nÈ atteso da 1. 2026 o su appuntamento un'attività versatile, responsabile e significativa in un ospedale moderno e orientato al futuro. Goditi un team impegnato, brevi percorsi decisionali e una cooperazione apprezzativa e interdisciplinare. Lo spirito di squadra, il sostegno reciproco e la cooperazione trasversale sono attivamente vissuti qui.\n\nI loro vantaggi\n• Vacanze: Si beneficia di vacanze tra 25 e 30 giorni lavorativi (a seconda dell'età) e 13 giorni festivi. Per questo avete la possibilità di acquistare 5 giorni di vacanza.\n• Ore lavorative: Le normali ore di lavoro della società per un carico di lavoro a tempo pieno sono 42 ore alla settimana (esclusi i medici). L'orario di lavoro annuale si applica, che garantisce la massima flessibilità possibile nell'organizzazione del tempo di lavoro. Le richieste di assistenza vengono implementate se possibile e l'occupazione a tempo parziale è possibile in molte funzioni – anche in posizioni di gestione.\n• Istruzione e formazione: il vostro sviluppo personale e professionale è importante per noi. Sosteniamo la partecipazione all'istruzione e alla formazione interna ed esterna attraverso una partecipazione generosa alla forma di orari di lavoro e/o costi di corso.\n• Cibo: Nel nostro ristorante personale – nominato con il premio “Best of Swiss Gastro” – potrete gustare menu della cucina fresca di mercato in condizioni molto interessanti.\n• Arrivo/parcheggio: I dipendenti di Spital Muri beneficiano di un parcheggio economico. Il parcheggio si trova nella zona ospedaliera. Se si arriva a lavorare con i mezzi pubblici, bici, moto o a piedi, vi ricompenseremo con un mensile eco-bonus.\n• Assicurazione sociale: attribuiamo importanza alle prestazioni sociali adeguate. Per la notte, il fine settimana e il lavoro di vacanza, ti paghiamo le indennità eque. Garantiamo il vostro stipendio al fondo pensione Profond senza deduzione di coordinamento (esclusi i medici). I salari dei medici sono assicurati dalla fondazione preventiva VSAO.\n\nPensum: 80-100 %",
+      "en": "The case management team consists of case managers and social workers. It accompanies inpatient and outpatient patients and their relatives in challenging social and psychosocial issues. This includes topics such as adult protection, social insurance, financial and social issues, as well as the organization of tailor-made outpatient or inpatient aftercare solutions.\n\nTheir tasks\n• Counselling and support of patients in complex social issues as well as taking over the case management\n• Organization of individual and needs-based aftercare and exit solutions, as well as placement of assistance and triage to suitable specialist offices if necessary\n• Interdisciplinary cooperation with doctors, nurses and other professional groups to ensure coordinated patient care\n• Practical training of social work students (BSc) or willingness to complete the corresponding training\n\nYour profile\n• Completed studies in social work (BSc FH)\n• Ideally, additional training in health care (e.g. FaGe, care HF or FH)\n• Practical trainer training or willingness to complete it\n• High social and consulting skills as well as enjoyment of interdisciplinary cooperation\n• Independent, structured and solution-oriented working method\n• Interested in working in the dynamic environment of an acute hospital\n\nYour opportunity\nHe is expected by 1. 2026 or by appointment a versatile, responsible and meaningful activity in a modern and future-oriented hospital. Enjoy a committed team, short decision-making paths and an appreciative and interdisciplinary cooperation. Team spirit, mutual support and cross-divisional cooperation are actively lived here.\n\nTheir advantages\n• Holidays: You benefit from holidays between 25 and 30 working days (depending on age) and 13 paid holidays. For this you have the possibility to buy 5 holiday days.\n• Working hours: The company’s normal working hours for a full-time workload are 42 hours per week (excluding doctors). The annual working time applies, which ensures the highest possible flexibility in the organization of working time. Service requests are implemented if possible and part-time employment is possible in many functions – also in management positions.\n• Education and further education: Your personal and professional development is important to us. We support participation in internal and external further education and training through generous participation in the form of working hours and/or course costs.\n• Food: In our staff restaurant – nominated with the “Best of Swiss Gastro” award – you can enjoy menus from the market-fresh cuisine at very attractive conditions.\n• Arrival/parking: Employees of Spital Muri benefit from cheap parking. The car park is located on the hospital area. If you come to work by public transport, bike, motorcycle or on foot, we will reward you with a monthly eco-bonus.\n• Social insurance: We attach importance to adequate social benefits. For night, weekend and holiday work, we pay you fair allowances. We insure your salary at the pension fund Profond without coordination deduction (excluding doctors). The wages of doctors are insured by the VSAO preventive foundation.\n\nPensum: 80-100 %",
+      "de": "Das Team des Case Managements besteht aus Case Managerinnen und Sozialarbeitenden. Es begleitet stationäre und ambulante Patientinnen und Patienten sowie deren Angehörige in anspruchsvollen sozialen und psychosozialen Fragestellungen. Dazu gehören unter anderem Themen wie Erwachsenenschutz, Sozialversicherungen, finanzielle und soziale Fragestellungen, sowie die Organisation von massgeschneiderten ambulanten oder stationären Nachsorgelösungen.\n\nIhre Aufgaben\n• Beratung und Begleitung von Patientinnen und Patienten in komplexen sozialen Fragestellungen sowie Übernahme der Fallführung\n• Organisation individueller und bedarfsgerechter Nachsorge- und Austrittslösungen, sowie Vermittlung bei Bedarf von Sachhilfen und Triage an passende Fachstellen\n• Interdisziplinäre Zusammenarbeit mit Ärztinnen und Ärzten, Pflegefachpersonen sowie weiteren Berufsgruppen zur Sicherstellung einer koordinierten Patientenversorgung\n• Praxisausbildung von Studierenden der Sozialen Arbeit (BSc) oder Bereitschaft, die entsprechende Weiterbildung zu absolvieren\n\nIhr Profil\n• Abgeschlossenes Studium in Sozialer Arbeit (BSc FH)\n• Idealerweise zusätzliche Ausbildung im Gesundheitswesen (z. B. FaGe, Pflege HF oder FH)\n• Ausbildung als Praxisausbildnerin/Praxisausbildner oder Bereitschaft, diese zu absolvieren\n• Hohe Sozial- und Beratungskompetenz sowie Freude an der interdisziplinären Zusammenarbeit\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise\n• Interesse an der Arbeit im dynamischen Umfeld eines Akutspitals\n\nIhre Chance\nSie erwartet per 1. Oktober 2026 oder nach Vereinbarung eine vielseitige, verantwortungsvolle und sinnstiftende Tätigkeit in einem modernen und zukunftsorientierten Spital. Freuen Sie sich auf ein engagiertes Team, kurze Entscheidungswege sowie eine wertschätzende und interdisziplinäre Zusammenarbeit. Teamgeist, gegenseitige Unterstützung und ein bereichsübergreifendes Miteinander werden bei uns aktiv gelebt.\n\nIhre Vorteile\n• Ferien: Sie profitieren von Ferien zwischen 25 und 30 Arbeitstagen (je nach Alter) sowie von 13 bezahlten Feiertagen. Dazu haben Sie die Möglichkeit, 5 Ferientage zu kaufen.\n• Arbeitszeiten: Die betriebliche Normalarbeitszeit beträgt bei einem Vollzeitpensum 42 Stunden pro Woche (ausgenommen Ärzte). Es gilt die Jahresarbeitszeit, welche eine möglichst hohe Flexibilität bei der Gestaltung der Arbeitszeit gewährleistet. Dienstwünsche werden nach Möglichkeit umgesetzt und Teilzeitbeschäftigung ist in vielen Funktionen möglich – auch in Führungspositionen.\n• Aus- und Weiterbildung: Ihre persönliche und fachliche Weiterentwicklung ist uns wichtig. Wir unterstützen die Teilnahme an internen und externen Fort- und Weiterbildungen durch grosszügige Beteiligung in Form von Arbeitszeit und/oder Kurskosten.\n• Verpflegung: In unserem Personalrestaurant – nominiert mit dem «Best of Swiss Gastro»-Award – geniessen Sie Menüs aus der marktfrischen Küche zu sehr attraktiven Konditionen.\n• Anreise/Parkplatz: Mitarbeitende des Spital Muri profitieren von günstigen Parkmöglichkeiten. Das Parkhaus befindet sich auf dem Spitalareal. Falls Sie mit dem öffentlichen Verkehr, dem Velo, Motorrad oder zu Fuss zur Arbeit kommen, vergüten wir Ihnen einen monatlichen Ökobonus.\n• Sozialversicherungen: Wir legen Wert auf adäquate Sozialleistungen. Für Nacht-, Wochenend- und Feiertagsarbeit vergüten wir Ihnen faire Zulagen. Ihr Gehalt versichern wir bei der Pensionskasse Profond ohne Koordinationsabzug (ausgenommen Ärzte). Die Löhne der Ärztinnen und Ärzte sind bei der Vorsorgestiftung VSAO versichert.\n\nPensum: 80-100%",
+      "fr": "L'équipe de gestion de cas est composée de gestionnaires de cas et de travailleurs sociaux. Il accompagne les patients hospitalisés et externes et leurs proches dans des problèmes sociaux et psychosociaux difficiles. Cela comprend des sujets tels que la protection des adultes, l'assurance sociale, les questions financières et sociales, ainsi que l'organisation de solutions de soins ambulatoires ou de soins post-hospitalisation sur mesure.\n\nLeurs tâches\n• Conseils et soutien aux patients dans des domaines sociaux complexes et prise en charge des cas\n• Organisation de solutions de suivi et de sortie individuelles et axées sur les besoins, ainsi que placement de l'assistance et triage dans des bureaux spécialisés appropriés, si nécessaire\n• Coopération interdisciplinaire avec les médecins, les infirmières et les autres groupes professionnels pour assurer la coordination des soins aux patients\n• Formation pratique des étudiants en travail social (BSc) ou volonté de compléter la formation correspondante\n\nVotre profil\n• Études terminées en travail social (BSc FH)\n• Idéalement, une formation supplémentaire en soins de santé (p. ex. FaGe, soins HF ou FH)\n• Formation de formateur pratique ou volonté de le compléter\n• Compétences sociales et de conseil élevées ainsi que jouissance de la coopération interdisciplinaire\n• Méthode de travail indépendante, structurée et axée sur les solutions\n• Intéressé à travailler dans l'environnement dynamique d'un hôpital aigu\n\nVotre chance\nIl est attendu pour 1. 2026 ou sur rendez-vous une activité polyvalente, responsable et significative dans un hôpital moderne et tourné vers l'avenir. Profitez d'une équipe engagée, de courtes voies de décision et d'une coopération appréciatrice et interdisciplinaire. L'esprit d'équipe, le soutien mutuel et la coopération interdivisions y sont activement représentés.\n\nLeurs avantages\n• Jours fériés: Vous bénéficiez de jours fériés entre 25 et 30 jours ouvrables (selon l'âge) et 13 jours fériés payés. Pour cela, vous avez la possibilité d'acheter 5 jours de vacances.\n• Heures de travail: Les heures normales de travail de l'entreprise pour une charge de travail à plein temps sont de 42 heures par semaine (à l'exclusion des médecins). Le temps de travail annuel s'applique, ce qui assure la plus grande flexibilité possible dans l'organisation du temps de travail. Les demandes de service sont mises en œuvre si possible et un emploi à temps partiel est possible dans de nombreuses fonctions – aussi dans les postes de direction.\n• Éducation et perfectionnement : Votre perfectionnement personnel et professionnel est important pour nous. Nous soutenons la participation à l'enseignement et à la formation complémentaires internes et externes par une participation généreuse sous forme d'heures de travail et/ou de frais de cours.\n• Nourriture: Dans notre restaurant du personnel – nominé avec le prix \"Best of Swiss Gastro\" – vous pouvez profiter de menus de la cuisine fraîche du marché dans des conditions très attrayantes.\n• Arrivée / stationnement: Les employés de Spital Muri bénéficient d'un parking bon marché. Le parking est situé dans la zone de l'hôpital. Si vous venez travailler en transports en commun, en vélo, en moto ou à pied, nous vous récompenserons par un éco-bonus mensuel.\n• Assurance sociale: Nous attachons de l'importance à des prestations sociales adéquates. Pour le travail de nuit, le week-end et les vacances, nous vous payons des indemnités équitables. Nous assurons votre salaire au fonds de pension Profond sans déduction de coordination (à l'exclusion des médecins). Le salaire des médecins est assuré par la fondation de prévention VSAO.\n\nRécipient: 80-100 %"
+    },
+    "slugByLocale": {
+      "it": "lavoro-sociale-bsc-spital-muri-muri-ag",
+      "en": "social-worker-bsc-spital-muri-muri-ag",
+      "de": "sozialarbeiterin-sozialarbeiter-bsc-spital-muri-muri-ag",
+      "fr": "travailleur-social-bsc-spital-muri-muri-ag"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-10-30T09:19:16.253Z",
+    "previousSlugs": [
+      "sozialarbeiterin-sozialarbeiter-bsc-spital-muri-muri-ag"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "sozialarbeiterin-sozialarbeiter-bsc-spital-muri-muri-ag"
+      ]
+    },
+    "postalCode": "5630",
+    "salaryMin": 88000,
+    "salaryMax": 123000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4060033",
+    "firstSeenAt": "2026-09-29T21:16:41.366Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4060033",
+        "firstSeenAt": "2026-09-29T21:16:41.366Z",
+        "title": "Sozialarbeiterin/Sozialarbeiter BSc"
+      },
+      {
+        "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4091366",
+        "firstSeenAt": "2026-09-29T21:16:41.366Z",
+        "title": "Sozialarbeiterin/Sozialarbeiter BSc"
+      }
+    ]
   },
   {
     "slug": "lavoro-sociale-bsc-spital-muri-muri-ag-0880b559",
@@ -416,6 +508,61 @@
     "firstSeenAt": "2026-09-29T21:16:39.391Z"
   },
   {
+    "slug": "dipl-infermiera-specialista-hf-fh-akutgeriatrie-spital-muri-muri-ag",
+    "title": "Dipl. Pflegefachfrau/Pflegefachmann HF/FH Akutgeriatrie",
+    "titleByLocale": {
+      "it": "Dipl. Infermiera / specialista HF / FH Akutgeriatrie",
+      "en": "Dipl. Nurse/nurse specialist HF/FH Akutgeriatrie",
+      "de": "Dipl. Pflegefachfrau/Pflegefachmann HF/FH Akutgeriatrie",
+      "fr": "Dipl. Infirmière/infirmière spécialiste HF/FH Akutgeriatrie"
+    },
+    "company": "Spital Muri",
+    "companyKey": "spital-muri",
+    "location": "Muri AG",
+    "addressLocality": "Muri AG",
+    "descriptionByLocale": {
+      "it": "Con cuore, competenza ed empatia - il vostro ruolo in medicina cura acuta Stai cercando un compito che abbia senso e in cui puoi contribuire pienamente alle tue abilità ed empatia? Poi diventare parte del nostro team dedicato in medicina cura acuta e accompagnare i pazienti anziani sulla loro strada per una maggiore indipendenza e qualità della vita.\n\nI loro compiti\n• Cura olistica: accompagnano persone acutamente ammalate dall'ingresso alla scarica, con l'obiettivo di ripristinare la loro indipendenza passo dopo passo\n• Cooperazione interdisciplinare: Insieme a medici, terapisti (physio, ergo, logo) e al servizio sociale si garantisce un trattamento ottimale e olistico\n• Cura complessa: Si applica la vostra esperienza in cura acuta, cura palliativa e cura riabilitativa in modo mirato e lo sviluppano continuamente ulteriormente\n• Co-creazione: Contribuisci attivamente le tue idee allo sviluppo della cura e alle discussioni interdisciplinari sui casi\n• Supporto e guida: accompagni studenti e studenti nella vita di tutti i giorni e passi le tue conoscenze con piacere\n\nIl tuo profilo\n• Formazione: Formazione completa come Dipl. Infermiera HF/FH (per diploma straniero con riconoscimento SRC)\n• Esperienza: Esperienza professionale in cura acuta o idealmente in cura acuta o cura a lungo termine\n• Competenza sociale: personalità empatica, resiliente e comunicativa con un cuore per le persone anziane\n• Competenza: alto livello di competenza nella pianificazione, valutazione e documentazione della cura\n• Metodo di lavoro: lavoro autonomo, senso di responsabilità e capacità di priorità in situazioni dinamiche\n\nPerché hai ragione con noi\nOgni giorno in cura acuta, si verifica come la cura efficace può essere. Vedete come la mobilità, l'indipendenza e la qualità della vita dei vostri pazienti migliorano direttamente – e come piccoli progressi sono di grande importanza. Il momento in cui qualcuno può tornare a casa o visibilmente recuperare rende il vostro lavoro significativo e motivante allo stesso tempo.\n\nI loro vantaggi\n• Vacanze: Si beneficia di vacanze tra 25 e 30 giorni lavorativi (a seconda dell'età) e 13 giorni festivi. Per questo avete la possibilità di acquistare 5 giorni di vacanza.\n• Ore lavorative: Le normali ore di lavoro della società per un carico di lavoro a tempo pieno sono 42 ore alla settimana (esclusi i medici). L'orario di lavoro annuale si applica, che garantisce la massima flessibilità possibile nell'organizzazione del tempo di lavoro. Le richieste di assistenza vengono implementate se possibile e l'occupazione a tempo parziale è possibile in molte funzioni – anche in posizioni di gestione.\n• Istruzione e formazione: il vostro sviluppo personale e professionale è importante per noi. Sosteniamo la partecipazione all'istruzione e alla formazione interna ed esterna attraverso una partecipazione generosa alla forma di orari di lavoro e/o costi di corso.\n• Cibo: Nel nostro ristorante personale – nominato con il premio “Best of Swiss Gastro” – potrete gustare menu della cucina fresca di mercato in condizioni molto interessanti.\n• Arrivo/parcheggio: I dipendenti di Spital Muri beneficiano di un parcheggio economico. Il parcheggio si trova nella zona ospedaliera. Se si arriva a lavorare con i mezzi pubblici, bici, moto o a piedi, vi ricompenseremo con un mensile eco-bonus.\n• Assicurazione sociale: attribuiamo importanza alle prestazioni sociali adeguate. Per la notte, il fine settimana e il lavoro di vacanza, ti paghiamo le indennità eque. Garantiamo il vostro stipendio al fondo pensione Profond senza deduzione di coordinamento (esclusi i medici). I salari dei medici sono assicurati dalla fondazione preventiva VSAO.\n\nPensum: 60-100 %",
+      "en": "With heart, expertise and empathy - your role in acute care medicine You are looking for a task that makes sense and in which you can fully contribute your skills and empathy? Then become part of our dedicated team in acute care medicine and accompany older patients on their way to greater independence and quality of life.\n\nTheir tasks\n• Holistic care: They accompany acutely ill elderly people from entry to discharge, with the aim of restoring their independence step by step\n• Interdisciplinary cooperation: Together with doctors, therapists (physio, ergo, logo) and the social service you ensure an optimal, holistic treatment\n• Complex care: You apply your expertise in acute care, palliative care and rehabilitative care in a targeted manner and continuously develop it further\n• Co-creation: You actively contribute your ideas to nursing development and interdisciplinary case discussions\n• Support & guidance: You accompany learners and students in everyday life and pass on your knowledge with pleasure\n\nYour profile\n• Training: Completed training as a Dipl. Nurse HF/FH (for foreign diploma with SRC recognition)\n• Experience: Professional experience in acute care or ideally in acute care or long-term care\n• Social Competence: Empathetic, resilient and communicative personality with a heart for older people\n• Expertise: High level of expertise in care planning, assessment and documentation\n• Working method: self-employment, sense of responsibility and the ability to prioritize in dynamic situations\n\nWhy you are right with us\nEvery day in acute care, you experience how effective care can be. You see how mobility, independence and quality of life of your patients directly improve – and how small advances are of great importance. The moment someone can return home or visibly recover makes your work meaningful and motivating at the same time.\n\nTheir advantages\n• Holidays: You benefit from holidays between 25 and 30 working days (depending on age) and 13 paid holidays. For this you have the possibility to buy 5 holiday days.\n• Working hours: The company’s normal working hours for a full-time workload are 42 hours per week (excluding doctors). The annual working time applies, which ensures the highest possible flexibility in the organization of working time. Service requests are implemented if possible and part-time employment is possible in many functions – also in management positions.\n• Education and further education: Your personal and professional development is important to us. We support participation in internal and external further education and training through generous participation in the form of working hours and/or course costs.\n• Food: In our staff restaurant – nominated with the “Best of Swiss Gastro” award – you can enjoy menus from the market-fresh cuisine at very attractive conditions.\n• Arrival/parking: Employees of Spital Muri benefit from cheap parking. The car park is located on the hospital area. If you come to work by public transport, bike, motorcycle or on foot, we will reward you with a monthly eco-bonus.\n• Social insurance: We attach importance to adequate social benefits. For night, weekend and holiday work, we pay you fair allowances. We insure your salary at the pension fund Profond without coordination deduction (excluding doctors). The wages of doctors are insured by the VSAO preventive foundation.\n\nPensum: 60-100 %",
+      "de": "Mit Herz, Fachwissen und Empathie - Ihre Rolle in der Akutgeriatrie Sie suchen eine Aufgabe, die Sinn stiftet und bei der Sie Ihr Können und Ihr Einfühlungsvermögen voll einbringen können? Dann werden Sie Teil unseres engagierten Teams in der Akutgeriatrie und begleiten Sie ältere Patientinnen und Patienten auf ihrem Weg zu mehr Selbstständigkeit und Lebensqualität.\n\nIhre Aufgaben\n• Ganzheitliche Pflege: Sie begleiten akut erkrankte, ältere Menschen vom Eintritt bis zur Entlassung, mit dem Ziel, ihre Selbstständigkeit Schritt für Schritt wiederherzustellen\n• Interdisziplinäre Zusammenarbeit: Gemeinsam mit Ärzt:innen, Therapeut:innen (Physio, Ergo, Logo) und dem Sozialdienst sorgen Sie für eine optimale, ganzheitliche Behandlung\n• Komplexe Pflege: Sie wenden Ihr Fachwissen in der Akutgeriatrie, palliativen Versorgung und rehabilitativen Pflege gezielt an und entwickeln es kontinuierlich weiter\n• Mitgestaltung: Sie bringen Ihre Ideen aktiv in die Pflegeentwicklung und in interdisziplinäre Fallbesprechungen ein\n• Fördern & Anleiten: Sie begleiten Lernende und Studierende im Alltag und geben Ihr Wissen mit Freude weiter\n\nIhr Profil\n• Ausbildung: Abgeschlossene Ausbildung als Dipl. Pflegefachperson HF/FH (bei ausländischem Diplom mit SRK-Anerkennung)\n• Erfahrung: Berufserfahrung in der Akutpflege oder idealerweise in der Akutgeriatrie oder Langzeitpflege\n• Soziale Kompetenz: Empathische, belastbare und kommunikative Persönlichkeit mit einem Herz für ältere Menschen\n• Fachwissen: Hohe Fachkompetenz in der Pflegeplanung, Assessment und Dokumentation\n• Arbeitsweise: Selbstständigkeit, Verantwortungsbewusstsein und die Fähigkeit, in dynamischen Situationen Prioritäten zu setzen\n\nWarum Sie bei uns richtig sind\nIn der Akutgeriatrie erleben Sie jeden Tag, wie wirkungsvoll Pflege sein kann. Sie sehen, wie sich Mobilität, Selbstständigkeit und Lebensqualität Ihrer Patient:innen direkt verbessern – und wie kleine Fortschritte grosse Bedeutung haben. Der Moment, in dem jemand wieder nach Hause zurückkehren kann oder sich sichtbar erholt, macht Ihre Arbeit sinnstiftend und motivierend zugleich.\n\nIhre Vorteile\n• Ferien: Sie profitieren von Ferien zwischen 25 und 30 Arbeitstagen (je nach Alter) sowie von 13 bezahlten Feiertagen. Dazu haben Sie die Möglichkeit, 5 Ferientage zu kaufen.\n• Arbeitszeiten: Die betriebliche Normalarbeitszeit beträgt bei einem Vollzeitpensum 42 Stunden pro Woche (ausgenommen Ärzte). Es gilt die Jahresarbeitszeit, welche eine möglichst hohe Flexibilität bei der Gestaltung der Arbeitszeit gewährleistet. Dienstwünsche werden nach Möglichkeit umgesetzt und Teilzeitbeschäftigung ist in vielen Funktionen möglich – auch in Führungspositionen.\n• Aus- und Weiterbildung: Ihre persönliche und fachliche Weiterentwicklung ist uns wichtig. Wir unterstützen die Teilnahme an internen und externen Fort- und Weiterbildungen durch grosszügige Beteiligung in Form von Arbeitszeit und/oder Kurskosten.\n• Verpflegung: In unserem Personalrestaurant – nominiert mit dem «Best of Swiss Gastro»-Award – geniessen Sie Menüs aus der marktfrischen Küche zu sehr attraktiven Konditionen.\n• Anreise/Parkplatz: Mitarbeitende des Spital Muri profitieren von günstigen Parkmöglichkeiten. Das Parkhaus befindet sich auf dem Spitalareal. Falls Sie mit dem öffentlichen Verkehr, dem Velo, Motorrad oder zu Fuss zur Arbeit kommen, vergüten wir Ihnen einen monatlichen Ökobonus.\n• Sozialversicherungen: Wir legen Wert auf adäquate Sozialleistungen. Für Nacht-, Wochenend- und Feiertagsarbeit vergüten wir Ihnen faire Zulagen. Ihr Gehalt versichern wir bei der Pensionskasse Profond ohne Koordinationsabzug (ausgenommen Ärzte). Die Löhne der Ärztinnen und Ärzte sind bei der Vorsorgestiftung VSAO versichert.\n\nPensum: 60-100%",
+      "fr": "Avec cœur, expertise et empathie - votre rôle dans la médecine de soins actifs Vous cherchez une tâche qui a du sens et dans laquelle vous pouvez contribuer pleinement à vos compétences et à votre empathie? Faites ensuite partie de notre équipe dédiée en médecine aiguë et accompagnez les patients plus âgés sur leur chemin vers une plus grande indépendance et une meilleure qualité de vie.\n\nLeurs tâches\n• Soins holistiques: ils accompagnent les personnes âgées gravement malades de l'entrée à la sortie, dans le but de rétablir leur indépendance étape par étape\n• Coopération interdisciplinaire: Avec les médecins, les thérapeutes (physio, ergo, logo) et le service social vous assure un traitement optimal et holistique\n• Soins complexes : vous appliquez votre expertise en soins actifs, en soins palliatifs et en soins de réadaptation de manière ciblée et vous l'avez continuellement développée.\n• Co-création: Vous apportez activement vos idées au développement des soins infirmiers et aux discussions interdisciplinaires de cas\n• Support & orientation: Vous accompagnez les apprenants et les étudiants dans la vie quotidienne et transmettez vos connaissances avec plaisir\n\nVotre profil\n• Formation : Formation terminée en tant que diplômé. Infirmière HF/FH (pour diplôme étranger avec reconnaissance SRC)\n• Expérience : Expérience professionnelle en soins actifs ou idéalement en soins actifs ou de longue durée\n• Compétence sociale: Personnalité empathique, résiliente et communicative avec un cœur pour les personnes âgées\n• Expertise : Haute expertise en planification, évaluation et documentation des soins\n• Méthode de travail : travail indépendant, sens des responsabilités et aptitude à établir des priorités dans des situations dynamiques\n\nPourquoi tu as raison avec nous\nChaque jour en soins actifs, vous ressentez l'efficacité des soins. Vous voyez comment la mobilité, l'indépendance et la qualité de vie de vos patients s'améliorent directement – et comment les petits progrès sont d'une grande importance. Le moment où quelqu'un peut rentrer chez lui ou se rétablir visiblement rend votre travail significatif et motivant en même temps.\n\nLeurs avantages\n• Jours fériés: Vous bénéficiez de jours fériés entre 25 et 30 jours ouvrables (selon l'âge) et 13 jours fériés payés. Pour cela, vous avez la possibilité d'acheter 5 jours de vacances.\n• Heures de travail: Les heures normales de travail de l'entreprise pour une charge de travail à plein temps sont de 42 heures par semaine (à l'exclusion des médecins). Le temps de travail annuel s'applique, ce qui assure la plus grande flexibilité possible dans l'organisation du temps de travail. Les demandes de service sont mises en œuvre si possible et un emploi à temps partiel est possible dans de nombreuses fonctions – aussi dans les postes de direction.\n• Éducation et perfectionnement : Votre perfectionnement personnel et professionnel est important pour nous. Nous soutenons la participation à l'enseignement et à la formation complémentaires internes et externes par une participation généreuse sous forme d'heures de travail et/ou de frais de cours.\n• Nourriture: Dans notre restaurant du personnel – nominé avec le prix \"Best of Swiss Gastro\" – vous pouvez profiter de menus de la cuisine fraîche du marché dans des conditions très attrayantes.\n• Arrivée / stationnement: Les employés de Spital Muri bénéficient d'un parking bon marché. Le parking est situé dans la zone de l'hôpital. Si vous venez travailler en transports en commun, en vélo, en moto ou à pied, nous vous récompenserons par un éco-bonus mensuel.\n• Assurance sociale: Nous attachons de l'importance à des prestations sociales adéquates. Pour le travail de nuit, le week-end et les vacances, nous vous payons des indemnités équitables. Nous assurons votre salaire au fonds de pension Profond sans déduction de coordination (à l'exclusion des médecins). Le salaire des médecins est assuré par la fondation de prévention VSAO.\n\nPensum: 60-100 %"
+    },
+    "slugByLocale": {
+      "it": "dipl-infermiera-specialista-hf-fh-akutgeriatrie-spital-muri-muri-ag",
+      "en": "dipl-nurse-nurse-specialist-hf-fh-akutgeriatrie-spital-muri-muri-ag",
+      "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutgeriatrie-spital-muri-muri-ag",
+      "fr": "dipl-infirmiere-infirmiere-specialiste-hf-fh-akutgeriatrie-spital-muri-muri-ag"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-10-26T09:15:39.865Z",
+    "previousSlugs": [
+      "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutgeriatrie-spital-muri-muri-ag"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutgeriatrie-spital-muri-muri-ag"
+      ]
+    },
+    "postalCode": "5630",
+    "salaryMin": 88000,
+    "salaryMax": 123000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4053331",
+    "firstSeenAt": "2026-09-29T21:16:42.024Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4053331",
+        "firstSeenAt": "2026-09-29T21:16:42.024Z",
+        "title": "Dipl. Pflegefachfrau/Pflegefachmann HF/FH Akutgeriatrie"
+      },
+      {
+        "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4065956",
+        "firstSeenAt": "2026-09-29T21:16:42.024Z",
+        "title": "Dipl. Pflegefachfrau/Pflegefachmann HF/FH Akutgeriatrie"
+      }
+    ]
+  },
+  {
     "slug": "dipl-infermiera-specialista-hf-fh-akutgeriatrie-spital-muri-muri-ag-927a1a67",
     "title": "Dipl. Pflegefachfrau/Pflegefachmann HF/FH Akutgeriatrie",
     "titleByLocale": {
@@ -457,6 +604,61 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4053331",
     "firstSeenAt": "2026-09-29T21:16:42.024Z"
+  },
+  {
+    "slug": "infermiere-di-tirocinio-spital-muri-muri-ag",
+    "title": "Praktikantin/Praktikant Pflege",
+    "titleByLocale": {
+      "it": "Infermiere di tirocinio",
+      "en": "Intern/Internship nurse",
+      "de": "Praktikantin/Praktikant Pflege",
+      "fr": "Infirmière stagiaire"
+    },
+    "company": "Spital Muri",
+    "companyKey": "spital-muri",
+    "location": "Muri AG",
+    "addressLocality": "Muri AG",
+    "descriptionByLocale": {
+      "it": "Stai cercando un team aperto, disponibile e impegnato con un pizzico di umorismo che ti avvicina alla vita quotidiana dell'ospedale? L'ospedale Muri non riguarda solo l'assistenza olistica, basata sulle esigenze e competente per i nostri pazienti, ma anche – e questo è molto importante per noi – sugli incontri apprezzati. Vi offriamo una prima intuizione indimenticabile durante uno stage.\n\nI tuoi compiti\n• Si ottiene una visione approfondita del giorno professionale di cura.\n• Sostieni le infermiere nella cura e nella cura dei pazienti.\n• Si fa il lavoro domestico e portare le proprie capacità di sopportare.\n\nIl tuo profilo\n• Sei una persona aperta e comunicativa. È facile per voi raggiungere persone diverse.\n• Con le tue capacità di squadra e l'atteggiamento positivo, contribuisci ad una piacevole atmosfera di lavoro nel nostro team motivato.\n• Buona conoscenza del tedesco e la volontà di lavorare irregolarmente, presupponiamo.\n\nLa tua occasione\nUn lavoro interessante e vario vi aspetta immediatamente o su appuntamento in un ospedale moderno e orientato al futuro con una vasta gamma di servizi. Sarete completamente introdotti alla cura quotidiana e può implementare immediatamente ciò che avete imparato in una grande atmosfera di squadra.\n\nI loro vantaggi\n• Vacanze: Si beneficia di vacanze tra 25 e 30 giorni lavorativi (a seconda dell'età) e 13 giorni festivi. Per questo avete la possibilità di acquistare 5 giorni di vacanza.\n• Ore lavorative: Le normali ore di lavoro della società per un carico di lavoro a tempo pieno sono 42 ore alla settimana (esclusi i medici). L'orario di lavoro annuale si applica, che garantisce la massima flessibilità possibile nell'organizzazione del tempo di lavoro. Le richieste di assistenza vengono implementate se possibile e l'occupazione a tempo parziale è possibile in molte funzioni – anche in posizioni di gestione.\n• Istruzione e formazione: il vostro sviluppo personale e professionale è importante per noi. Sosteniamo la partecipazione all'istruzione e alla formazione interna ed esterna attraverso una partecipazione generosa alla forma di orari di lavoro e/o costi di corso.\n• Cibo: Nel nostro ristorante personale – nominato con il premio “Best of Swiss Gastro” – potrete gustare menu della cucina fresca di mercato in condizioni molto interessanti.\n• Arrivo/parcheggio: I dipendenti di Spital Muri beneficiano di un parcheggio economico. Il parcheggio si trova nella zona ospedaliera. Se si arriva a lavorare con i mezzi pubblici, bici, moto o a piedi, vi ricompenseremo con un mensile eco-bonus.\n• Assicurazione sociale: attribuiamo importanza alle prestazioni sociali adeguate. Per la notte, il fine settimana e il lavoro di vacanza, ti paghiamo le indennità eque. Garantiamo il vostro stipendio al fondo pensione Profond senza deduzione di coordinamento (esclusi i medici). I salari dei medici sono assicurati dalla fondazione preventiva VSAO.\n\nPensum: 80-100 %",
+      "en": "Are you looking for an open, helpful and committed team with a pinch of humor that brings you closer to everyday hospital life? Hospital Muri is not only about holistic, needs-based and competent care for our patients, but also – and this is very important to us – about appreciative encounters. We offer you an unforgettable first insight during an internship.\n\nYour tasks\n• You get an in-depth insight into the professional day of care.\n• You support the nurses in the care and care of the patients.\n• You do domestic work and bring your own skills to bear.\n\nYour profile\n• You are an open and communicative person. It is easy for you to reach out to different people.\n• With your team skills and positive attitude, you contribute to a pleasant working atmosphere in our motivated team.\n• Good knowledge of German and the willingness to work irregularly, we presuppose.\n\nYour chance\nAn interesting and varied job awaits you immediately or by appointment in a modern and future-oriented hospital with a wide range of services. You will be comprehensively introduced to the day-to-day care and can immediately implement what you have learned in a great team atmosphere.\n\nTheir advantages\n• Holidays: You benefit from holidays between 25 and 30 working days (depending on age) and 13 paid holidays. For this you have the possibility to buy 5 holiday days.\n• Working hours: The company’s normal working hours for a full-time workload are 42 hours per week (excluding doctors). The annual working time applies, which ensures the highest possible flexibility in the organization of working time. Service requests are implemented if possible and part-time employment is possible in many functions – also in management positions.\n• Education and further education: Your personal and professional development is important to us. We support participation in internal and external further education and training through generous participation in the form of working hours and/or course costs.\n• Food: In our staff restaurant – nominated with the “Best of Swiss Gastro” award – you can enjoy menus from the market-fresh cuisine at very attractive conditions.\n• Arrival/parking: Employees of Spital Muri benefit from cheap parking. The car park is located on the hospital area. If you come to work by public transport, bike, motorcycle or on foot, we will reward you with a monthly eco-bonus.\n• Social insurance: We attach importance to adequate social benefits. For night, weekend and holiday work, we pay you fair allowances. We insure your salary at the pension fund Profond without coordination deduction (excluding doctors). The wages of doctors are insured by the VSAO preventive foundation.\n\nPensum: 80-100 %",
+      "de": "Suchst du ein offenes, hilfsbereites und engagiertes Team mit einer Prise Humor, welches dir den Spital-Alltag näher bringt? Im Spital Muri geht es nicht nur um eine ganzheitliche, bedarfsgerechte und fachkompetente Pflege unserer Patientinnen und Patienten, sondern auch – und das ist uns sehr wichtig – um wertschätzende Begegnungen. Wir bieten dir einen unvergesslichen ersten Einblick im Rahmen eines Praktikums.\n\nDeine Aufgaben\n• Du erhältst einen vertieften Einblick in der Berufsalltag der Pflege.\n• Du unterstützt die Pflegefachpersonen bei der Pflege und Betreuung der Patientinnen und Patienten.\n• Du verrichtest hauswirtschaftliche Tätigkeiten und bringst deine eigenen Fähigkeiten mit ein.\n\nDein Profil\n• Du bist eine offene und kommunikative Person. Dir fällt es leicht, auf verschiedene Menschen zuzugehen.\n• Mit deiner Teamfähigkeit und positiver Grundhaltung trägst du zu einem angenehmen Arbeitsklima in unserem motivierten Team bei.\n• Gute Deutschkenntnisse und die Bereitschaft unregelmässig zu arbeiten, setzen wir voraus.\n\nDeine Chance\nEs erwartet dich per sofort oder nach Vereinbarung eine interessante und abwechslungsreiche Tätigkeit in einem modernen und zukunftsgerichteten Spital mit breitem Leistungsspektrum. Du wirst umfassend in den Pflege-Berufsalltag eingeführt und kannst das Gelernte umgehend in einer tollen Team-Atmosphäre umsetzen.\n\nIhre Vorteile\n• Ferien: Sie profitieren von Ferien zwischen 25 und 30 Arbeitstagen (je nach Alter) sowie von 13 bezahlten Feiertagen. Dazu haben Sie die Möglichkeit, 5 Ferientage zu kaufen.\n• Arbeitszeiten: Die betriebliche Normalarbeitszeit beträgt bei einem Vollzeitpensum 42 Stunden pro Woche (ausgenommen Ärzte). Es gilt die Jahresarbeitszeit, welche eine möglichst hohe Flexibilität bei der Gestaltung der Arbeitszeit gewährleistet. Dienstwünsche werden nach Möglichkeit umgesetzt und Teilzeitbeschäftigung ist in vielen Funktionen möglich – auch in Führungspositionen.\n• Aus- und Weiterbildung: Ihre persönliche und fachliche Weiterentwicklung ist uns wichtig. Wir unterstützen die Teilnahme an internen und externen Fort- und Weiterbildungen durch grosszügige Beteiligung in Form von Arbeitszeit und/oder Kurskosten.\n• Verpflegung: In unserem Personalrestaurant – nominiert mit dem «Best of Swiss Gastro»-Award – geniessen Sie Menüs aus der marktfrischen Küche zu sehr attraktiven Konditionen.\n• Anreise/Parkplatz: Mitarbeitende des Spital Muri profitieren von günstigen Parkmöglichkeiten. Das Parkhaus befindet sich auf dem Spitalareal. Falls Sie mit dem öffentlichen Verkehr, dem Velo, Motorrad oder zu Fuss zur Arbeit kommen, vergüten wir Ihnen einen monatlichen Ökobonus.\n• Sozialversicherungen: Wir legen Wert auf adäquate Sozialleistungen. Für Nacht-, Wochenend- und Feiertagsarbeit vergüten wir Ihnen faire Zulagen. Ihr Gehalt versichern wir bei der Pensionskasse Profond ohne Koordinationsabzug (ausgenommen Ärzte). Die Löhne der Ärztinnen und Ärzte sind bei der Vorsorgestiftung VSAO versichert.\n\nPensum: 80-100%",
+      "fr": "Vous cherchez une équipe ouverte, serviable et engagée avec une pincée d'humour qui vous rapproche de la vie quotidienne de l'hôpital? L'hôpital Muri ne concerne pas seulement les soins holistiques, axés sur les besoins et compétents pour nos patients, mais aussi – et c'est très important pour nous – les rencontres reconnaissantes. Nous vous offrons un premier aperçu inoubliable lors d'un stage.\n\nVos tâches\n• Vous avez un aperçu approfondi de la journée de soins professionnels.\n• Vous aidez les infirmières dans les soins des patients.\n• Vous faites du travail domestique et apportez vos propres compétences.\n\nVotre profil\n• Vous êtes une personne ouverte et communicative. Il est facile pour vous de contacter différentes personnes.\n• Avec vos compétences en équipe et votre attitude positive, vous contribuez à une atmosphère de travail agréable dans notre équipe motivée.\n• Une bonne connaissance de l'allemand et la volonté de travailler irrégulièrement, nous supposons.\n\nVotre chance\nUn emploi intéressant et varié vous attend immédiatement ou sur rendez-vous dans un hôpital moderne et tourné vers l'avenir avec un large éventail de services. Vous serez présenté de façon exhaustive aux soins quotidiens et pourrez immédiatement mettre en œuvre ce que vous avez appris dans une grande ambiance d'équipe.\n\nLeurs avantages\n• Jours fériés: Vous bénéficiez de jours fériés entre 25 et 30 jours ouvrables (selon l'âge) et 13 jours fériés payés. Pour cela, vous avez la possibilité d'acheter 5 jours de vacances.\n• Heures de travail: Les heures normales de travail de l'entreprise pour une charge de travail à plein temps sont de 42 heures par semaine (à l'exclusion des médecins). Le temps de travail annuel s'applique, ce qui assure la plus grande flexibilité possible dans l'organisation du temps de travail. Les demandes de service sont mises en œuvre si possible et un emploi à temps partiel est possible dans de nombreuses fonctions – aussi dans les postes de direction.\n• Éducation et perfectionnement : Votre perfectionnement personnel et professionnel est important pour nous. Nous soutenons la participation à l'enseignement et à la formation complémentaires internes et externes par une participation généreuse sous forme d'heures de travail et/ou de frais de cours.\n• Nourriture: Dans notre restaurant du personnel – nominé avec le prix \"Best of Swiss Gastro\" – vous pouvez profiter de menus de la cuisine fraîche du marché dans des conditions très attrayantes.\n• Arrivée / stationnement: Les employés de Spital Muri bénéficient d'un parking bon marché. Le parking est situé dans la zone de l'hôpital. Si vous venez travailler en transports en commun, en vélo, en moto ou à pied, nous vous récompenserons par un éco-bonus mensuel.\n• Assurance sociale: Nous attachons de l'importance à des prestations sociales adéquates. Pour le travail de nuit, le week-end et les vacances, nous vous payons des indemnités équitables. Nous assurons votre salaire au fonds de pension Profond sans déduction de coordination (à l'exclusion des médecins). Le salaire des médecins est assuré par la fondation de prévention VSAO.\n\nRécipient: 80-100 %"
+    },
+    "slugByLocale": {
+      "it": "infermiere-di-tirocinio-spital-muri-muri-ag",
+      "en": "intern-internship-nurse-spital-muri-muri-ag",
+      "de": "praktikantin-praktikant-pflege-spital-muri-muri-ag",
+      "fr": "infirmiere-stagiaire-spital-muri-muri-ag"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-10-25T09:24:12.144Z",
+    "previousSlugs": [
+      "praktikantin-praktikant-pflege-spital-muri-muri-ag"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "praktikantin-praktikant-pflege-spital-muri-muri-ag"
+      ]
+    },
+    "postalCode": "5630",
+    "salaryMin": 79000,
+    "salaryMax": 110500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4058038",
+    "firstSeenAt": "2026-09-29T21:16:42.685Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4058038",
+        "firstSeenAt": "2026-09-29T21:16:42.685Z",
+        "title": "Praktikantin/Praktikant Pflege"
+      },
+      {
+        "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4088528",
+        "firstSeenAt": "2026-09-29T21:16:42.685Z",
+        "title": "Praktikantin/Praktikant Pflege"
+      }
+    ]
   },
   {
     "slug": "infermiere-di-tirocinio-spital-muri-muri-ag-8ddfd940",
@@ -502,6 +704,61 @@
     "firstSeenAt": "2026-09-29T21:16:42.685Z"
   },
   {
+    "slug": "student-student-dipl-infermiera-care-professional-hf-spital-muri-muri-ag",
+    "title": "Studierende/Studierender Dipl. Pflegefachfrau/Pflegefachmann HF",
+    "titleByLocale": {
+      "it": "Student/Student Dipl. Infermiera/Care Professional HF",
+      "en": "Student/Student Dipl. Nurse/Care Professional HF",
+      "de": "Studierende/Studierender Dipl. Pflegefachfrau/Pflegefachmann HF",
+      "fr": "Étudiante/étudiante Dipl. Infirmière/professeure HF"
+    },
+    "company": "Spital Muri",
+    "companyKey": "spital-muri",
+    "location": "Muri AG",
+    "addressLocality": "Muri AG",
+    "descriptionByLocale": {
+      "it": "Cercare una formazione pratica e ampia come Dipl. Infermieristica professionale HF? Vi forniamo una vasta visione della vita quotidiana dell'ospedale. Ci preoccupiamo della vostra crescita e sviluppo.\n\nI loro compiti\n• Garantire la cura e la cura professionale dei nostri pazienti in un'unità di cura interdisciplinare\n• Consulenza, progettazione e realizzazione del processo di cura in collaborazione con i team di assistenza\n• Programmazione, coordinamento, attuazione e valutazione delle misure di assistenza\n• Comunicazione e collaborazione con il team interdisciplinare\n• Prendere e affrontare compiti complessi e impegnativi\n\nIl tuo profilo\n• Formazione professionale completa EFZ, diploma di scuola secondaria o maturità\n• Un apprendistato completato come medico specializzato EFZ è ammissibile Si studierà abbreviato di 2 anni\n• Analisi della conformità Salute HF\n• Formazione presso l'Ospedale Muri (3 giorni)\n• Procedura di ammissibilità effettuata dalla HFGS o dal Centro di formazione professionale\n• Un alto livello di competenza sociale nel trattare con i nostri pazienti e nel lavorare con dipendenti e medici\n• L'orientamento del cliente e del servizio, un forte senso di responsabilità e di lavoro autonomo\n\nLa tua opportunità\nSi può aspettare uno studio vario in un ospedale vivace e in crescita. Sono impiegati direttamente all'ospedale Muri e si alternano tra scuola e pratica ogni sei mesi. Accompagnato dal vostro allenatore professionale, si acquisirà informazioni su vari campi di medicina e chirurgia durante le vostre mansioni pratiche.\n\nI loro vantaggi\n• Vacanze: Si beneficia di vacanze tra 25 e 30 giorni lavorativi (a seconda dell'età) e 13 giorni festivi. Per questo avete la possibilità di acquistare 5 giorni di vacanza.\n• Ore lavorative: Le normali ore di lavoro della società per un carico di lavoro a tempo pieno sono 42 ore alla settimana (esclusi i medici). L'orario di lavoro annuale si applica, che garantisce la massima flessibilità possibile nell'organizzazione del tempo di lavoro. Le richieste di assistenza vengono implementate se possibile e l'occupazione a tempo parziale è possibile in molte funzioni – anche in posizioni di gestione.\n• Istruzione e formazione: il vostro sviluppo personale e professionale è importante per noi. Sosteniamo la partecipazione all'istruzione e alla formazione interna ed esterna attraverso una partecipazione generosa alla forma di orari di lavoro e/o costi di corso.\n• Cibo: Nel nostro ristorante personale – nominato con il premio “Best of Swiss Gastro” – potrete gustare menu della cucina fresca di mercato in condizioni molto interessanti.\n• Arrivo/parcheggio: I dipendenti di Spital Muri beneficiano di un parcheggio economico. Il parcheggio si trova nella zona ospedaliera. Se si arriva a lavorare con i mezzi pubblici, bici, moto o a piedi, vi ricompenseremo con un mensile eco-bonus.\n• Assicurazione sociale: attribuiamo importanza alle prestazioni sociali adeguate. Per la notte, il fine settimana e il lavoro di vacanza, ti paghiamo le indennità eque. Garantiamo il vostro stipendio al fondo pensione Profond senza deduzione di coordinamento (esclusi i medici). I salari dei medici sono assicurati dalla fondazione preventiva VSAO.\n\nPensum: 100%",
+      "en": "Look for a practical and broad education as a Dipl. Nursing professional HF? We provide you with an extensive insight into everyday hospital life. We care about your growth and development.\n\nTheir tasks\n• Ensuring professional care and care of our patients on an interdisciplinary care unit\n• Consulting, design and implementation of the care process in cooperation with the care teams\n• Planning, coordinating, implementing and evaluating care measures\n• Communication and collaboration with the interdisciplinary team\n• Taking on and coping with complex and demanding tasks\n\nYour profile\n• Completed vocational apprenticeship EFZ, graduation of secondary school or maturity\n• A completed apprenticeship as a specialist health EFZ is eligible You will study shortened by 2 years\n• Competence analysis Health HF\n• Traineeship at Muri Hospital (3 days)\n• Eligibility procedure carried out by the HFGS or the Careum Education Centre\n• A high level of social competence in dealing with our patients as well as in working with employees and doctors\n• Customer and service orientation, a strong sense of responsibility and self-employment\n\nYour opportunity\nYou can expect a varied study in a lively and growing hospital. They are employed directly at the Hospital Muri and alternate between school and practice every six months. Accompanied by your vocational trainer, you will gain insight into various fields of medicine and surgery during your practical assignments.\n\nTheir advantages\n• Holidays: You benefit from holidays between 25 and 30 working days (depending on age) and 13 paid holidays. For this you have the possibility to buy 5 holiday days.\n• Working hours: The company’s normal working hours for a full-time workload are 42 hours per week (excluding doctors). The annual working time applies, which ensures the highest possible flexibility in the organization of working time. Service requests are implemented if possible and part-time employment is possible in many functions – also in management positions.\n• Education and further education: Your personal and professional development is important to us. We support participation in internal and external further education and training through generous participation in the form of working hours and/or course costs.\n• Food: In our staff restaurant – nominated with the “Best of Swiss Gastro” award – you can enjoy menus from the market-fresh cuisine at very attractive conditions.\n• Arrival/parking: Employees of Spital Muri benefit from cheap parking. The car park is located on the hospital area. If you come to work by public transport, bike, motorcycle or on foot, we will reward you with a monthly eco-bonus.\n• Social insurance: We attach importance to adequate social benefits. For night, weekend and holiday work, we pay you fair allowances. We insure your salary at the pension fund Profond without coordination deduction (excluding doctors). The wages of doctors are insured by the VSAO preventive foundation.\n\nPensum: 100%",
+      "de": "Suchen Sie eine praxisnahe und breite Ausbildung als Dipl. Pflegefachfrau/-mann HF? Wir ermöglichen Ihnen einen umfangreichen Einblick in den Spitalalltag. Dabei liegt uns Ihr Wachstum und Ihre Entwicklung am Herzen.\n\nIhre Aufgaben\n• Sicherstellen einer professionellen Pflege und Betreuung unserer Patientinnen und Patienten auf einer interdisziplinären Pflegestation\n• Beratung, Gestaltung und Durchführung des Pflegeprozesses in Zusammenarbeit mit den Pflegeteams\n• Pflegemassnahmen planen, koordinieren, durchführen und evaluieren\n• Kommunikation und Zusammenarbeit mit dem interdisziplinären Team\n• Komplexe und anspruchsvolle Aufgaben übernehmen und bewältigen\n\nIhr Profil\n• Abgeschlossene Berufslehre EFZ, Abschluss Fachmittelschule oder Maturität\n• Eine abgeschlossene Lehre als Fachfrau/-mann Gesundheit EFZ berechtigt Sie zum verkürzten Studium von 2 Jahren\n• Kompetenzanalyse Gesundheit HF\n• Eignungspraktikum im Spital Muri (3Tage)\n• Durchgeführtes Eignungsverfahren der HFGS oder des Careum Bildungszentrums\n• Eine hohe Sozialkompetenz im Umgang mit unseren Patientinnen und Patienten wie auch in der Zusammenarbeit mit Mitarbeitenden und Ärzten\n• Kunden- sowie Dienstleistungsorientierung, ein ausgeprägtes Verantwortungsbewusstsein sowie Selbstständigkeit\n\nIhre Chance\nEs erwartet Sie ein abwechslungsreiches Studium in einem lebhaften und sich im Wachstum befindenden Spital. Sie sind direkt im Spital Muri angestellt und wechseln halbjährlich zwischen Schule und Praxis. In Begleitung Ihres Berufsbildners erhalten Sie während Ihrer praktischen Einsätze Einsicht in verschiedene Fachgebiete der Medizin und Chirurgie.\n\nIhre Vorteile\n• Ferien: Sie profitieren von Ferien zwischen 25 und 30 Arbeitstagen (je nach Alter) sowie von 13 bezahlten Feiertagen. Dazu haben Sie die Möglichkeit, 5 Ferientage zu kaufen.\n• Arbeitszeiten: Die betriebliche Normalarbeitszeit beträgt bei einem Vollzeitpensum 42 Stunden pro Woche (ausgenommen Ärzte). Es gilt die Jahresarbeitszeit, welche eine möglichst hohe Flexibilität bei der Gestaltung der Arbeitszeit gewährleistet. Dienstwünsche werden nach Möglichkeit umgesetzt und Teilzeitbeschäftigung ist in vielen Funktionen möglich – auch in Führungspositionen.\n• Aus- und Weiterbildung: Ihre persönliche und fachliche Weiterentwicklung ist uns wichtig. Wir unterstützen die Teilnahme an internen und externen Fort- und Weiterbildungen durch grosszügige Beteiligung in Form von Arbeitszeit und/oder Kurskosten.\n• Verpflegung: In unserem Personalrestaurant – nominiert mit dem «Best of Swiss Gastro»-Award – geniessen Sie Menüs aus der marktfrischen Küche zu sehr attraktiven Konditionen.\n• Anreise/Parkplatz: Mitarbeitende des Spital Muri profitieren von günstigen Parkmöglichkeiten. Das Parkhaus befindet sich auf dem Spitalareal. Falls Sie mit dem öffentlichen Verkehr, dem Velo, Motorrad oder zu Fuss zur Arbeit kommen, vergüten wir Ihnen einen monatlichen Ökobonus.\n• Sozialversicherungen: Wir legen Wert auf adäquate Sozialleistungen. Für Nacht-, Wochenend- und Feiertagsarbeit vergüten wir Ihnen faire Zulagen. Ihr Gehalt versichern wir bei der Pensionskasse Profond ohne Koordinationsabzug (ausgenommen Ärzte). Die Löhne der Ärztinnen und Ärzte sind bei der Vorsorgestiftung VSAO versichert.\n\nPensum: 100%",
+      "fr": "Cherchez une éducation pratique et large comme un Dipl. Un professionnel des soins infirmiers ? Nous vous fournissons un aperçu complet de la vie quotidienne des hôpitaux. Nous nous soucions de votre croissance et de votre développement.\n\nLeurs tâches\n• Assurer les soins et les soins professionnels de nos patients dans une unité de soins interdisciplinaires\n• Conseils, conception et mise en œuvre du processus de soins en coopération avec les équipes de soins\n• Planification, coordination, mise en œuvre et évaluation des mesures de soins\n• Communication et collaboration avec l'équipe interdisciplinaire\n• Prise en charge et gestion de tâches complexes et exigeantes\n\nVotre profil\n• Apprentissage professionnel terminé EFZ, diplôme d'études secondaires ou maturité\n• Un apprentissage complété en tant que spécialiste de la santé EFZ est éligible Vous étudierez raccourci de 2 ans\n• Analyse des compétences Santé HF\n• Stage à l ' hôpital Muri (3 jours)\n• Procédure d'éligibilité menée par le HFGS ou le Centre d'éducation des soins\n• Un haut niveau de compétence sociale pour traiter nos patients ainsi que pour travailler avec les employés et les médecins\n• Orientation client et service, sens fort des responsabilités et travail indépendant\n\nVotre chance\nVous pouvez vous attendre à une étude variée dans un hôpital en pleine croissance. Ils sont employés directement à l'hôpital Muri et alternent entre l'école et la pratique tous les six mois. Accompagné de votre formateur professionnel, vous aurez un aperçu des différents domaines de la médecine et de la chirurgie pendant vos travaux pratiques.\n\nLeurs avantages\n• Jours fériés: Vous bénéficiez de jours fériés entre 25 et 30 jours ouvrables (selon l'âge) et 13 jours fériés payés. Pour cela, vous avez la possibilité d'acheter 5 jours de vacances.\n• Heures de travail: Les heures normales de travail de l'entreprise pour une charge de travail à plein temps sont de 42 heures par semaine (à l'exclusion des médecins). Le temps de travail annuel s'applique, ce qui assure la plus grande flexibilité possible dans l'organisation du temps de travail. Les demandes de service sont mises en œuvre si possible et un emploi à temps partiel est possible dans de nombreuses fonctions – aussi dans les postes de direction.\n• Éducation et perfectionnement : Votre perfectionnement personnel et professionnel est important pour nous. Nous soutenons la participation à l'enseignement et à la formation complémentaires internes et externes par une participation généreuse sous forme d'heures de travail et/ou de frais de cours.\n• Nourriture: Dans notre restaurant du personnel – nominé avec le prix \"Best of Swiss Gastro\" – vous pouvez profiter de menus de la cuisine fraîche du marché dans des conditions très attrayantes.\n• Arrivée / stationnement: Les employés de Spital Muri bénéficient d'un parking bon marché. Le parking est situé dans la zone de l'hôpital. Si vous venez travailler en transports en commun, en vélo, en moto ou à pied, nous vous récompenserons par un éco-bonus mensuel.\n• Assurance sociale: Nous attachons de l'importance à des prestations sociales adéquates. Pour le travail de nuit, le week-end et les vacances, nous vous payons des indemnités équitables. Nous assurons votre salaire au fonds de pension Profond sans déduction de coordination (à l'exclusion des médecins). Le salaire des médecins est assuré par la fondation de prévention VSAO.\n\nPensum: 100%"
+    },
+    "slugByLocale": {
+      "it": "student-student-dipl-infermiera-care-professional-hf-spital-muri-muri-ag",
+      "en": "student-student-dipl-nurse-care-professional-hf-spital-muri-muri-ag",
+      "de": "studierende-studierender-dipl-pflegefachfrau-pflegefachmann-hf-spital-muri-muri-ag",
+      "fr": "etudiante-etudiante-dipl-infirmiere-professeure-hf-spital-muri-muri-ag"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-10-25T09:24:12.144Z",
+    "previousSlugs": [
+      "studierende-studierender-dipl-pflegefachfrau-pflegefachmann-hf-spital-muri-muri-ag"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "studierende-studierender-dipl-pflegefachfrau-pflegefachmann-hf-spital-muri-muri-ag"
+      ]
+    },
+    "postalCode": "5630",
+    "salaryMin": 88000,
+    "salaryMax": 123000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4057986",
+    "firstSeenAt": "2026-09-29T21:16:43.340Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4057986",
+        "firstSeenAt": "2026-09-29T21:16:43.340Z",
+        "title": "Studierende/Studierender Dipl. Pflegefachfrau/Pflegefachmann HF"
+      },
+      {
+        "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4088739",
+        "firstSeenAt": "2026-09-29T21:16:43.340Z",
+        "title": "Studierende/Studierender Dipl. Pflegefachfrau/Pflegefachmann HF"
+      }
+    ]
+  },
+  {
     "slug": "student-student-dipl-infermiera-care-professional-hf-spital-muri-muri-ag-34a389a0",
     "title": "Studierende/Studierender Dipl. Pflegefachfrau/Pflegefachmann HF",
     "titleByLocale": {
@@ -543,6 +800,61 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4057986",
     "firstSeenAt": "2026-09-29T21:16:43.340Z"
+  },
+  {
+    "slug": "geriatria-professionale-della-salute-spital-muri-muri-ag",
+    "title": "Fachfrau/Fachmann Gesundheit Akutgeriatrie",
+    "titleByLocale": {
+      "it": "Geriatria professionale della salute",
+      "en": "Professional Health Acute Geriatrics",
+      "de": "Fachfrau/Fachmann Gesundheit Akutgeriatrie",
+      "fr": "Santé professionnelle Gériatrie aiguë"
+    },
+    "company": "Spital Muri",
+    "companyKey": "spital-muri",
+    "location": "Muri AG",
+    "addressLocality": "Muri AG",
+    "descriptionByLocale": {
+      "it": "Stai cercando un compito che abbia senso e in cui puoi contribuire pienamente alle tue abilità ed empatia? Poi diventare parte del nostro team dedicato in medicina cura acuta e accompagnare i pazienti anziani sulla loro strada per una maggiore indipendenza e qualità della vita.\n\nI loro compiti\n• Responsabile per la cura e la cura professionale dei nostri pazienti in collaborazione con i professionisti della cura\n• Co-responsabile per le questioni amministrative, logistiche e interne della stazione\n• Sostenere il team di assistenza nella formazione dei nostri studenti FaGe\n\nIl tuo profilo\n• Formazione completa come specialista Health EFZ\n• Esperienza professionale in cura acuta o idealmente in cura acuta o cura a lungo termine\n• Pratiche di lavoro autonome e responsabili\n• Lavoro di squadra e atteggiamento positivo\n\nPerché hai ragione con noi\nOgni giorno in cura acuta, si verifica come la cura efficace può essere. Vedete come la mobilità, l'indipendenza e la qualità della vita dei vostri pazienti migliorano direttamente – e come piccoli progressi sono di grande importanza. Il momento in cui qualcuno può tornare a casa o visibilmente recuperare rende il vostro lavoro significativo e motivante allo stesso tempo.\n\nI loro vantaggi\n• Vacanze: Si beneficia di vacanze tra 25 e 30 giorni lavorativi (a seconda dell'età) e 13 giorni festivi. Per questo avete la possibilità di acquistare 5 giorni di vacanza.\n• Ore lavorative: Le normali ore di lavoro della società per un carico di lavoro a tempo pieno sono 42 ore alla settimana (esclusi i medici). L'orario di lavoro annuale si applica, che garantisce la massima flessibilità possibile nell'organizzazione del tempo di lavoro. Le richieste di assistenza vengono implementate se possibile e l'occupazione a tempo parziale è possibile in molte funzioni – anche in posizioni di gestione.\n• Istruzione e formazione: il vostro sviluppo personale e professionale è importante per noi. Sosteniamo la partecipazione all'istruzione e alla formazione interna ed esterna attraverso una partecipazione generosa alla forma di orari di lavoro e/o costi di corso.\n• Cibo: Nel nostro ristorante personale – nominato con il premio “Best of Swiss Gastro” – potrete gustare menu della cucina fresca di mercato in condizioni molto interessanti.\n• Arrivo/parcheggio: I dipendenti di Spital Muri beneficiano di un parcheggio economico. Il parcheggio si trova nella zona ospedaliera. Se si arriva a lavorare con i mezzi pubblici, bici, moto o a piedi, vi ricompenseremo con un mensile eco-bonus.\n• Assicurazione sociale: attribuiamo importanza alle prestazioni sociali adeguate. Per la notte, il fine settimana e il lavoro di vacanza, ti paghiamo le indennità eque. Garantiamo il vostro stipendio al fondo pensione Profond senza deduzione di coordinamento (esclusi i medici). I salari dei medici sono assicurati dalla fondazione preventiva VSAO.\n\nPensum: 60-100 %",
+      "en": "Are you looking for a task that makes sense and in which you can fully contribute your skills and empathy? Then become part of our dedicated team in acute care medicine and accompany older patients on their way to greater independence and quality of life.\n\nTheir tasks\n• Responsible for the professional care and care of our patients in cooperation with the care professionals\n• Co-responsible for the administrative, logistical and domestic matters of the station\n• Support the care team in the training of our FaGe learners\n\nYour profile\n• Completed training as a specialist Health EFZ\n• Professional experience in acute care or ideally in acute care or long-term care\n• Self-employed and responsible working practices\n• Teamwork and a positive attitude\n\nWhy you are right with us\nEvery day in acute care, you experience how effective care can be. You see how mobility, independence and quality of life of your patients directly improve – and how small advances are of great importance. The moment someone can return home or visibly recover makes your work meaningful and motivating at the same time.\n\nTheir advantages\n• Holidays: You benefit from holidays between 25 and 30 working days (depending on age) and 13 paid holidays. For this you have the possibility to buy 5 holiday days.\n• Working hours: The company’s normal working hours for a full-time workload are 42 hours per week (excluding doctors). The annual working time applies, which ensures the highest possible flexibility in the organization of working time. Service requests are implemented if possible and part-time employment is possible in many functions – also in management positions.\n• Education and further education: Your personal and professional development is important to us. We support participation in internal and external further education and training through generous participation in the form of working hours and/or course costs.\n• Food: In our staff restaurant – nominated with the “Best of Swiss Gastro” award – you can enjoy menus from the market-fresh cuisine at very attractive conditions.\n• Arrival/parking: Employees of Spital Muri benefit from cheap parking. The car park is located on the hospital area. If you come to work by public transport, bike, motorcycle or on foot, we will reward you with a monthly eco-bonus.\n• Social insurance: We attach importance to adequate social benefits. For night, weekend and holiday work, we pay you fair allowances. We insure your salary at the pension fund Profond without coordination deduction (excluding doctors). The wages of doctors are insured by the VSAO preventive foundation.\n\nPensum: 60-100 %",
+      "de": "Sie suchen eine Aufgabe, die Sinn stiftet und bei der Sie Ihr Können und Ihr Einfühlungsvermögen voll einbringen können? Dann werden Sie Teil unseres engagierten Teams in der Akutgeriatrie und begleiten Sie ältere Patientinnen und Patienten auf ihrem Weg zu mehr Selbstständigkeit und Lebensqualität.\n\nIhre Aufgaben\n• Verantwortlich für eine professionelle Pflege und Betreuung unserer Patientinnen und Patienten in Zusammenarbeit mit den Pflegefachpersonen\n• Mitverantwortlich für die administrativen, logistischen und hauswirtschaftlichen Belange der Station\n• Unterstützen des Pflegeteams bei der Ausbildung unserer FaGe-Lernenden\n\nIhr Profil\n• Abgeschlossene Ausbildung als Fachfrau/Fachmann Gesundheit EFZ\n• Berufserfahrung in der Akutpflege oder idealerweise in der Akutgeriatrie oder Langzeitpflege\n• Selbstständige und verantwortungsbewusste Arbeitsweise\n• Teamfähigkeit und eine positive Grundhaltung\n\nWarum Sie bei uns richtig sind\nIn der Akutgeriatrie erleben Sie jeden Tag, wie wirkungsvoll Pflege sein kann. Sie sehen, wie sich Mobilität, Selbstständigkeit und Lebensqualität Ihrer Patient:innen direkt verbessern – und wie kleine Fortschritte grosse Bedeutung haben. Der Moment, in dem jemand wieder nach Hause zurückkehren kann oder sich sichtbar erholt, macht Ihre Arbeit sinnstiftend und motivierend zugleich.\n\nIhre Vorteile\n• Ferien: Sie profitieren von Ferien zwischen 25 und 30 Arbeitstagen (je nach Alter) sowie von 13 bezahlten Feiertagen. Dazu haben Sie die Möglichkeit, 5 Ferientage zu kaufen.\n• Arbeitszeiten: Die betriebliche Normalarbeitszeit beträgt bei einem Vollzeitpensum 42 Stunden pro Woche (ausgenommen Ärzte). Es gilt die Jahresarbeitszeit, welche eine möglichst hohe Flexibilität bei der Gestaltung der Arbeitszeit gewährleistet. Dienstwünsche werden nach Möglichkeit umgesetzt und Teilzeitbeschäftigung ist in vielen Funktionen möglich – auch in Führungspositionen.\n• Aus- und Weiterbildung: Ihre persönliche und fachliche Weiterentwicklung ist uns wichtig. Wir unterstützen die Teilnahme an internen und externen Fort- und Weiterbildungen durch grosszügige Beteiligung in Form von Arbeitszeit und/oder Kurskosten.\n• Verpflegung: In unserem Personalrestaurant – nominiert mit dem «Best of Swiss Gastro»-Award – geniessen Sie Menüs aus der marktfrischen Küche zu sehr attraktiven Konditionen.\n• Anreise/Parkplatz: Mitarbeitende des Spital Muri profitieren von günstigen Parkmöglichkeiten. Das Parkhaus befindet sich auf dem Spitalareal. Falls Sie mit dem öffentlichen Verkehr, dem Velo, Motorrad oder zu Fuss zur Arbeit kommen, vergüten wir Ihnen einen monatlichen Ökobonus.\n• Sozialversicherungen: Wir legen Wert auf adäquate Sozialleistungen. Für Nacht-, Wochenend- und Feiertagsarbeit vergüten wir Ihnen faire Zulagen. Ihr Gehalt versichern wir bei der Pensionskasse Profond ohne Koordinationsabzug (ausgenommen Ärzte). Die Löhne der Ärztinnen und Ärzte sind bei der Vorsorgestiftung VSAO versichert.\n\nPensum: 60-100%",
+      "fr": "Cherchez-vous une tâche qui a du sens et dans laquelle vous pouvez contribuer pleinement à vos compétences et à votre empathie? Faites ensuite partie de notre équipe dédiée en médecine aiguë et accompagnez les patients plus âgés sur leur chemin vers une plus grande indépendance et une meilleure qualité de vie.\n\nLeurs tâches\n• Responsable des soins et soins professionnels de nos patients en collaboration avec les professionnels de soins\n• Co-responsable des questions administratives, logistiques et domestiques de la station\n• Soutenir l'équipe de soins dans la formation de nos apprenants FaGe\n\nVotre profil\n• Formation complétée en tant que spécialiste de la santé EFZ\n• Expérience professionnelle en soins actifs ou idéalement en soins actifs ou de longue durée\n• Travailleurs indépendants et pratiques de travail responsables\n• Travail d'équipe et attitude positive\n\nPourquoi tu as raison avec nous\nChaque jour en soins actifs, vous ressentez l'efficacité des soins. Vous voyez comment la mobilité, l'indépendance et la qualité de vie de vos patients s'améliorent directement – et comment les petits progrès sont d'une grande importance. Le moment où quelqu'un peut rentrer chez lui ou se rétablir visiblement rend votre travail significatif et motivant en même temps.\n\nLeurs avantages\n• Jours fériés: Vous bénéficiez de jours fériés entre 25 et 30 jours ouvrables (selon l'âge) et 13 jours fériés payés. Pour cela, vous avez la possibilité d'acheter 5 jours de vacances.\n• Heures de travail: Les heures normales de travail de l'entreprise pour une charge de travail à plein temps sont de 42 heures par semaine (à l'exclusion des médecins). Le temps de travail annuel s'applique, ce qui assure la plus grande flexibilité possible dans l'organisation du temps de travail. Les demandes de service sont mises en œuvre si possible et un emploi à temps partiel est possible dans de nombreuses fonctions – aussi dans les postes de direction.\n• Éducation et perfectionnement : Votre perfectionnement personnel et professionnel est important pour nous. Nous soutenons la participation à l'enseignement et à la formation complémentaires internes et externes par une participation généreuse sous forme d'heures de travail et/ou de frais de cours.\n• Nourriture: Dans notre restaurant du personnel – nominé avec le prix \"Best of Swiss Gastro\" – vous pouvez profiter de menus de la cuisine fraîche du marché dans des conditions très attrayantes.\n• Arrivée / stationnement: Les employés de Spital Muri bénéficient d'un parking bon marché. Le parking est situé dans la zone de l'hôpital. Si vous venez travailler en transports en commun, en vélo, en moto ou à pied, nous vous récompenserons par un éco-bonus mensuel.\n• Assurance sociale: Nous attachons de l'importance à des prestations sociales adéquates. Pour le travail de nuit, le week-end et les vacances, nous vous payons des indemnités équitables. Nous assurons votre salaire au fonds de pension Profond sans déduction de coordination (à l'exclusion des médecins). Le salaire des médecins est assuré par la fondation de prévention VSAO.\n\nPensum: 60-100 %"
+    },
+    "slugByLocale": {
+      "it": "geriatria-professionale-della-salute-spital-muri-muri-ag",
+      "en": "professional-health-acute-geriatrics-spital-muri-muri-ag",
+      "de": "fachfrau-fachmann-gesundheit-akutgeriatrie-spital-muri-muri-ag",
+      "fr": "sante-professionnelle-geriatrie-aigue-spital-muri-muri-ag"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-10-24T09:43:44.286Z",
+    "previousSlugs": [
+      "fachfrau-fachmann-gesundheit-akutgeriatrie-spital-muri-muri-ag"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "fachfrau-fachmann-gesundheit-akutgeriatrie-spital-muri-muri-ag"
+      ]
+    },
+    "postalCode": "5630",
+    "salaryMin": 88000,
+    "salaryMax": 123000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4055130",
+    "firstSeenAt": "2026-09-29T21:16:43.996Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4055130",
+        "firstSeenAt": "2026-09-29T21:16:43.996Z",
+        "title": "Fachfrau/Fachmann Gesundheit Akutgeriatrie"
+      },
+      {
+        "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4087634",
+        "firstSeenAt": "2026-09-29T21:16:43.996Z",
+        "title": "Fachfrau/Fachmann Gesundheit Akutgeriatrie"
+      }
+    ]
   },
   {
     "slug": "geriatria-professionale-della-salute-spital-muri-muri-ag-bf6c2ac2",
@@ -676,6 +988,66 @@
     "firstSeenAt": "2026-09-29T21:16:44.654Z"
   },
   {
+    "slug": "fisioterapista-fh-spital-muri-muri-ag",
+    "title": "Physiotherapeutin/Physiotherapeut FH",
+    "titleByLocale": {
+      "it": "Fisioterapista FH",
+      "en": "Physiotherapist FH",
+      "de": "Physiotherapeutin/Physiotherapeut FH",
+      "fr": "Physiothérapeute FH"
+    },
+    "company": "Spital Muri",
+    "companyKey": "spital-muri",
+    "location": "Muri AG",
+    "addressLocality": "Muri AG",
+    "descriptionByLocale": {
+      "it": "La fisioterapia tratta i pazienti affetti da ambulatorio e ambulatorio in una vasta gamma di servizi. Volete partecipare attivamente e diventare parte di un team specializzato che è interprofessionalmente in rete? Volete partecipare attivamente e diventare parte di un team specializzato che è interprofessionalmente in rete?\n\nI loro compiti\n• Trattamento di pazienti affetti da inpatia nei campi di ortopedia, chirurgia e medicina\n• Trattamento e cura degli espatriati dall'area ortopedica e muscoloscheletrica postoperatoria\n• Assegnazioni orientate alla domanda nella riabilitazione acuta-geriatrica in paziente\n• Documentazione e registrazione delle prestazioni nel sistema informativo della clinica\n\nIl tuo profilo\n• Formazione completa come fisioterapista/in FH/HF/BSc (con riconoscimento SRK)\n• Hai un alto livello di competenza sociale e apprezzi la comunicazione aperta in un team multidisciplinare\n• Hai un modo di lavorare indipendente, consapevole e paziente\n• La variegata attività nella zona ambulatoria e stazionaria è vicina al loro cuore\n\nLa tua opportunità\nTi aspetta a 1. Novembre 2026 o su appuntamento un'attività emozionante e varia in un ospedale moderno e orientato al futuro. La cooperazione all'interno dei vari dipartimenti, lo spirito di squadra e un sentimento trasversale di insieme sono attivamente vissuti nella nostra azienda.\n\nI loro vantaggi\n• Vacanze: Si beneficia di vacanze tra 25 e 30 giorni lavorativi (a seconda dell'età) e 13 giorni festivi. Per questo avete la possibilità di acquistare 5 giorni di vacanza.\n• Ore lavorative: Le normali ore di lavoro della società per un carico di lavoro a tempo pieno sono 42 ore alla settimana (esclusi i medici). L'orario di lavoro annuale si applica, che garantisce la massima flessibilità possibile nell'organizzazione del tempo di lavoro. Le richieste di assistenza vengono implementate se possibile e l'occupazione a tempo parziale è possibile in molte funzioni – anche in posizioni di gestione.\n• Istruzione e formazione: il vostro sviluppo personale e professionale è importante per noi. Sosteniamo la partecipazione all'istruzione e alla formazione interna ed esterna attraverso una partecipazione generosa alla forma di orari di lavoro e/o costi di corso.\n• Cibo: Nel nostro ristorante personale – nominato con il premio “Best of Swiss Gastro” – potrete gustare menu della cucina fresca di mercato in condizioni molto interessanti.\n• Arrivo/parcheggio: I dipendenti di Spital Muri beneficiano di un parcheggio economico. Il parcheggio si trova nella zona ospedaliera. Se si arriva a lavorare con i mezzi pubblici, bici, moto o a piedi, vi ricompenseremo con un mensile eco-bonus.\n• Assicurazione sociale: attribuiamo importanza alle prestazioni sociali adeguate. Per la notte, il fine settimana e il lavoro di vacanza, ti paghiamo le indennità eque. Garantiamo il vostro stipendio al fondo pensione Profond senza deduzione di coordinamento (esclusi i medici). I salari dei medici sono assicurati dalla fondazione preventiva VSAO.\n\nPensum: 40-100 %",
+      "en": "Physiotherapy treats inpatient and outpatient patients in a broad range of services. Would you like to actively participate and become part of a specialist team that is interprofessionally networked? Would you like to actively participate and become part of a specialist team that is interprofessionally networked?\n\nTheir tasks\n• Treatment of inpatient patients in the fields of orthopaedics, surgery and medicine\n• Treatment and care of outpatients from the postoperative orthopaedic and musculoskeletal area\n• Demand-oriented assignments in inpatient acute-geriatric rehabilitation\n• Documentation and performance recording in the clinic information system\n\nYour profile\n• Completed training as a physiotherapist/in FH/HF/BSc (with SRK recognition)\n• You have a high level of social competence and appreciate open communication in a multidisciplinary team\n• You have an independent, quality-conscious and patient-centered way of working\n• The varied activity in the ambulatory and stationary area is close to their hearts\n\nYour opportunity\nIt awaits you at 1. November 2026 or by appointment an exciting and varied activity in a modern and future-oriented hospital. The cooperation within the various departments, team spirit and a cross-divisional feeling of togetherness are actively lived in our company.\n\nTheir advantages\n• Holidays: You benefit from holidays between 25 and 30 working days (depending on age) and 13 paid holidays. For this you have the possibility to buy 5 holiday days.\n• Working hours: The company’s normal working hours for a full-time workload are 42 hours per week (excluding doctors). The annual working time applies, which ensures the highest possible flexibility in the organization of working time. Service requests are implemented if possible and part-time employment is possible in many functions – also in management positions.\n• Education and further education: Your personal and professional development is important to us. We support participation in internal and external further education and training through generous participation in the form of working hours and/or course costs.\n• Food: In our staff restaurant – nominated with the “Best of Swiss Gastro” award – you can enjoy menus from the market-fresh cuisine at very attractive conditions.\n• Arrival/parking: Employees of Spital Muri benefit from cheap parking. The car park is located on the hospital area. If you come to work by public transport, bike, motorcycle or on foot, we will reward you with a monthly eco-bonus.\n• Social insurance: We attach importance to adequate social benefits. For night, weekend and holiday work, we pay you fair allowances. We insure your salary at the pension fund Profond without coordination deduction (excluding doctors). The wages of doctors are insured by the VSAO preventive foundation.\n\nPensum: 40-100 %",
+      "de": "Die Physiotherapie behandelt stationäre und ambulante Patientinnen und Patienten in einem breiten Leistungsspektrum. Möchten Sie sich aktiv einbringen und Teil eines Fachteams werden, welches interprofessionell vernetzt ist? Möchten Sie sich aktiv einbringen und Teil eines Fachteams werden, welches interprofessionell vernetzt ist?\n\nIhre Aufgaben\n• Behandlung stationäre Patienten der Bereiche Orthopädie, Chirurgie und Medizin\n• Behandlung und Betreuung von ambulanten Patienten aus dem postoperativen orthopädischen und muskuloskelettalen Bereich\n• Bedarfsorientierte Einsätze in der stationären akutgeriatrischen Rehabilitation\n• Dokumentation und Leistungserfassung im Klinikinformationssystem\n\nIhr Profil\n• Abgeschlossene Ausbildung als Physiotherapeut/in FH/HF/BSc (mit SRK-Anerkennung)\n• Sie haben eine hohe Sozialkompetenz und schätzen die offene Kommunikation in einem multidisziplinären Team\n• Sie haben eine selbständige, qualitätsbewusste und patientenzentrierte Arbeitsweise\n• Die abwechslungsreiche Tätigkeit im ambulanten und stationären Bereich liegt ihnen am Herzen\n\nIhre Chance\nEs erwartet Sie per 1. November 2026 oder nach Vereinbarung eine spannende und abwechslungsreiche Tätigkeit in einem modernen und zukunftsgerichteten Spital. Die Zusammenarbeit innerhalb der verschiedenen Abteilungen, Teamgeist und ein bereichsübergreifendes grosses Zusammengehörigkeitsgefühl werden bei uns aktiv gelebt.\n\nIhre Vorteile\n• Ferien: Sie profitieren von Ferien zwischen 25 und 30 Arbeitstagen (je nach Alter) sowie von 13 bezahlten Feiertagen. Dazu haben Sie die Möglichkeit, 5 Ferientage zu kaufen.\n• Arbeitszeiten: Die betriebliche Normalarbeitszeit beträgt bei einem Vollzeitpensum 42 Stunden pro Woche (ausgenommen Ärzte). Es gilt die Jahresarbeitszeit, welche eine möglichst hohe Flexibilität bei der Gestaltung der Arbeitszeit gewährleistet. Dienstwünsche werden nach Möglichkeit umgesetzt und Teilzeitbeschäftigung ist in vielen Funktionen möglich – auch in Führungspositionen.\n• Aus- und Weiterbildung: Ihre persönliche und fachliche Weiterentwicklung ist uns wichtig. Wir unterstützen die Teilnahme an internen und externen Fort- und Weiterbildungen durch grosszügige Beteiligung in Form von Arbeitszeit und/oder Kurskosten.\n• Verpflegung: In unserem Personalrestaurant – nominiert mit dem «Best of Swiss Gastro»-Award – geniessen Sie Menüs aus der marktfrischen Küche zu sehr attraktiven Konditionen.\n• Anreise/Parkplatz: Mitarbeitende des Spital Muri profitieren von günstigen Parkmöglichkeiten. Das Parkhaus befindet sich auf dem Spitalareal. Falls Sie mit dem öffentlichen Verkehr, dem Velo, Motorrad oder zu Fuss zur Arbeit kommen, vergüten wir Ihnen einen monatlichen Ökobonus.\n• Sozialversicherungen: Wir legen Wert auf adäquate Sozialleistungen. Für Nacht-, Wochenend- und Feiertagsarbeit vergüten wir Ihnen faire Zulagen. Ihr Gehalt versichern wir bei der Pensionskasse Profond ohne Koordinationsabzug (ausgenommen Ärzte). Die Löhne der Ärztinnen und Ärzte sind bei der Vorsorgestiftung VSAO versichert.\n\nPensum: 40-100%",
+      "fr": "La physiothérapie traite les patients hospitalisés et externes dans un large éventail de services. Souhaitez-vous participer activement et faire partie d'une équipe spécialisée en réseau interprofessionnel? Souhaitez-vous participer activement et faire partie d'une équipe spécialisée en réseau interprofessionnel?\n\nLeurs tâches\n• Traitement des patients hospitalisés dans les domaines de l'orthopédie, de la chirurgie et de la médecine\n• Traitement et soins des patients externes de la zone orthopédique et musculo-squelettique postopératoire\n• Affectations axées sur la demande dans le cadre de la réadaptation aiguë et gériatrique des malades hospitalisés\n• Documentation et enregistrement des performances dans le système d'information des cliniques\n\nVotre profil\n• Formation terminée en tant que physiothérapeute/en FH/HF/BSc (avec reconnaissance SRK)\n• Vous avez un haut niveau de compétence sociale et appréciez la communication ouverte dans une équipe multidisciplinaire\n• Vous avez une façon de travailler indépendante, consciente de la qualité et centrée sur le patient\n• L'activité variée dans la zone ambulatoire et stationnaire est proche de leur cœur\n\nVotre chance\nIl vous attend à 1. Novembre 2026 ou sur rendez-vous une activité passionnante et variée dans un hôpital moderne et tourné vers l'avenir. La coopération au sein des différents départements, l'esprit d'équipe et un sentiment interdivisionnel d'unité sont activement vécus dans notre entreprise.\n\nLeurs avantages\n• Jours fériés: Vous bénéficiez de jours fériés entre 25 et 30 jours ouvrables (selon l'âge) et 13 jours fériés payés. Pour cela, vous avez la possibilité d'acheter 5 jours de vacances.\n• Heures de travail: Les heures normales de travail de l'entreprise pour une charge de travail à plein temps sont de 42 heures par semaine (à l'exclusion des médecins). Le temps de travail annuel s'applique, ce qui assure la plus grande flexibilité possible dans l'organisation du temps de travail. Les demandes de service sont mises en œuvre si possible et un emploi à temps partiel est possible dans de nombreuses fonctions – aussi dans les postes de direction.\n• Éducation et perfectionnement : Votre perfectionnement personnel et professionnel est important pour nous. Nous soutenons la participation à l'enseignement et à la formation complémentaires internes et externes par une participation généreuse sous forme d'heures de travail et/ou de frais de cours.\n• Nourriture: Dans notre restaurant du personnel – nominé avec le prix \"Best of Swiss Gastro\" – vous pouvez profiter de menus de la cuisine fraîche du marché dans des conditions très attrayantes.\n• Arrivée / stationnement: Les employés de Spital Muri bénéficient d'un parking bon marché. Le parking est situé dans la zone de l'hôpital. Si vous venez travailler en transports en commun, en vélo, en moto ou à pied, nous vous récompenserons par un éco-bonus mensuel.\n• Assurance sociale: Nous attachons de l'importance à des prestations sociales adéquates. Pour le travail de nuit, le week-end et les vacances, nous vous payons des indemnités équitables. Nous assurons votre salaire au fonds de pension Profond sans déduction de coordination (à l'exclusion des médecins). Le salaire des médecins est assuré par la fondation de prévention VSAO.\n\nPensum: 40-100 %"
+    },
+    "slugByLocale": {
+      "it": "fisioterapista-fh-spital-muri-muri-ag",
+      "en": "physiotherapist-fh-spital-muri-muri-ag",
+      "de": "physiotherapeutin-physiotherapeut-fh-spital-muri-muri-ag",
+      "fr": "physiotherapeute-fh-spital-muri-muri-ag"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-10-18T09:26:05.290Z",
+    "previousSlugs": [
+      "physiotherapeutin-physiotherapeut-fh-spital-muri-muri-ag",
+      "physiotherapeutin-physiotherapeut-fh-spital-muri-ag"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "physiotherapeutin-physiotherapeut-fh-spital-muri-muri-ag"
+      ],
+      "en": [
+        "physiotherapeutin-physiotherapeut-fh-spital-muri-muri-ag",
+        "physiotherapeutin-physiotherapeut-fh-spital-muri-ag"
+      ]
+    },
+    "postalCode": "5630",
+    "salaryMin": 88000,
+    "salaryMax": 123000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4056595",
+    "firstSeenAt": "2026-09-29T21:16:45.311Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4056595",
+        "firstSeenAt": "2026-09-29T21:16:45.311Z",
+        "title": "Physiotherapeutin/Physiotherapeut FH"
+      },
+      {
+        "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4084762",
+        "firstSeenAt": "2026-09-29T21:16:45.311Z",
+        "title": "Physiotherapeutin/Physiotherapeut FH"
+      }
+    ]
+  },
+  {
     "slug": "fisioterapista-fh-spital-muri-muri-ag-c5314b6e",
     "title": "Physiotherapeutin/Physiotherapeut FH",
     "titleByLocale": {
@@ -769,7 +1141,7 @@
     "firstSeenAt": "2026-09-29T21:16:46.029Z"
   },
   {
-    "slug": "primario-ginecologia-e-ostetricia-spital-muri-muri-ag-43961938",
+    "slug": "primario-ginecologia-e-ostetricia-spital-muri-muri-ag",
     "title": "Oberärztin/Oberarzt Gynäkologie und Geburtshilfe",
     "titleByLocale": {
       "it": "Primario ginecologia e ostetricia",
@@ -788,21 +1160,36 @@
       "fr": "Le Département de gynécologie offre des soins ambulatoires et hospitaliers et couvre un large éventail de services médicaux. En plus des opérations gynécologiques classiques, nous offrons également des procédures spécialisées telles que les opérations d'incontinence et les procédures endoscopiques. Dans le secteur ambulatoire, nous offrons, entre autres, des échographies de grossesse, une consultation urogynécologique spéciale, des colposcopes ainsi qu'une consultation anticonceptionnelle et notre propre consultation d'urgence. Dans notre réseau de formation continue avec l'Hôpital Limmattal, nos médecins adjoints sont formés en pratique et ont la possibilité de se développer davantage. En outre, nous sommes un partenaire de coopération de l'hôpital cantonal Baden et nous faisons partie du Centre Breast Aargau certifié Q-label. Sur le site de Muri, nous effectuons des opérations, des enquêtes radiologiques et des thérapies oncologiques. Nous cherchons à renforcer notre équipe.\n\nLeurs tâches\n• Assurer le fonctionnement de l'hôpital et le service ambulatoire dans le département de gynécologie avec l'équipe dans le service de jour\n• Prise en charge indépendante des soins professionnels de nos patients\n• Prendre soin de vos propres heures de bureau\n• Effectuer des opérations gynécologiques\n• Participation active à la formation continue de nos médecins adjoints\n• Possibilité de spécialisation ou de spécialisation en gynécologie chirurgicale et obstétrique (pas d'obstétrique hospitalisée à l'hôpital de Muri)\n\nVotre profil\n• Formation spécialisée en gynécologie et obstétrique\n• Expérience dans tout le domaine de la gynécologie et de l'obstétrique dans la vie quotidienne des hôpitaux\n• Haute indépendance et sens des responsabilités\n• attitude positive et plaisir dans un partenariat, coopération interprofessionnelle\n• Méthodes de travail axées sur le patient et la qualité\n\nVotre chance\nIl vous attend immédiatement ou sur rendez-vous une activité responsable et variée dans un hôpital animé. Vous travaillez dans un département moderne et inondé de lumière avec les dernières technologies. Nous offrons des heures de travail régulières dans le service de jour dans une 46h semaine et de tenir compte des besoins spéciaux afin que leur équilibre travail-vie personnelle soit rendu possible. Nous vivons la culture familiale à l'hôpital et sommes tous pour vous. De plus, vous bénéficiez d'espaces de stationnement pour les employés directement à côté de l'hôpital et d'aliments frais du marché dans le restaurant des employés à des conditions avantageuses. Dans le bâtiment du personnel sur la zone de l'hôpital, nous vous offrons des studios du personnel à des prix équitables. Vos enfants de moins de 4 ans peuvent être soignés professionnellement par le centre de jour Wichtelburg dans la zone hospitalier pour des conditions spéciales.\n\nLeurs avantages\n• Jours fériés: Vous bénéficiez de jours fériés entre 25 et 30 jours ouvrables (selon l'âge) et 13 jours fériés payés. Pour cela, vous avez la possibilité d'acheter 5 jours de vacances.\n• Heures de travail: Les heures normales de travail de l'entreprise pour une charge de travail à plein temps sont de 42 heures par semaine (à l'exclusion des médecins). Le temps de travail annuel s'applique, ce qui assure la plus grande flexibilité possible dans l'organisation du temps de travail. Les demandes de service sont mises en œuvre si possible et un emploi à temps partiel est possible dans de nombreuses fonctions – aussi dans les postes de direction.\n• Éducation et perfectionnement : Votre perfectionnement personnel et professionnel est important pour nous. Nous soutenons la participation à l'enseignement et à la formation complémentaires internes et externes par une participation généreuse sous forme d'heures de travail et/ou de frais de cours.\n• Nourriture: Dans notre restaurant du personnel – nominé avec le prix \"Best of Swiss Gastro\" – vous pouvez profiter de menus de la cuisine fraîche du marché dans des conditions très attrayantes.\n• Arrivée / stationnement: Les employés de Spital Muri bénéficient d'un parking bon marché. Le parking est situé dans la zone de l'hôpital. Si vous venez travailler en transports en commun, en vélo, en moto ou à pied, nous vous récompenserons par un éco-bonus mensuel.\n• Assurance sociale: Nous attachons de l'importance à des prestations sociales adéquates. Pour le travail de nuit, le week-end et les vacances, nous vous payons des indemnités équitables. Nous assurons votre salaire au fonds de pension Profond sans déduction de coordination (à l'exclusion des médecins). Le salaire des médecins est assuré par la fondation de prévention VSAO.\n\nPensum: 50-80 %"
     },
     "slugByLocale": {
-      "it": "primario-ginecologia-e-ostetricia-spital-muri-muri-ag-43961938",
-      "en": "senior-physician-gynecology-and-obstetrics-spital-muri-muri-ag-8973c7b4",
-      "de": "oberarztin-oberarzt-gynakologie-und-geburtshilfe-spital-muri-muri-ag-8bbd965e",
-      "fr": "medecin-principal-gynecologie-et-obstetrique-spital-muri-muri-ag-1830dc50"
+      "it": "primario-ginecologia-e-ostetricia-spital-muri-muri-ag",
+      "en": "senior-physician-gynecology-and-obstetrics-spital-muri-muri-ag",
+      "de": "oberarztin-oberarzt-gynakologie-und-geburtshilfe-spital-muri-muri-ag",
+      "fr": "medecin-principal-gynecologie-et-obstetrique-spital-muri-muri-ag"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-10-14T09:19:08.480Z",
     "previousSlugs": [
       "oberarztin-oberarzt-gynakologie-e-geburtshilfe-spital-muri-ag",
-      "oberarztin-oberarzt-gynakologie-und-geburtshilfe-spital-muri-muri-ag-8bbd965e"
+      "oberarztin-oberarzt-gynakologie-und-geburtshilfe-spital-muri-muri-ag",
+      "primario-ginecologia-e-ostetricia-spital-muri-muri-ag-43961938",
+      "oberarztin-oberarzt-gynakologie-und-geburtshilfe-spital-muri-muri-ag-8bbd965e",
+      "senior-physician-gynecology-and-obstetrics-spital-muri-muri-ag-8973c7b4",
+      "medecin-principal-gynecologie-et-obstetrique-spital-muri-muri-ag-1830dc50"
     ],
     "previousSlugsByLocale": {
       "it": [
         "oberarztin-oberarzt-gynakologie-e-geburtshilfe-spital-muri-ag",
+        "oberarztin-oberarzt-gynakologie-und-geburtshilfe-spital-muri-muri-ag",
+        "primario-ginecologia-e-ostetricia-spital-muri-muri-ag-43961938",
         "oberarztin-oberarzt-gynakologie-und-geburtshilfe-spital-muri-muri-ag-8bbd965e"
+      ],
+      "en": [
+        "senior-physician-gynecology-and-obstetrics-spital-muri-muri-ag-8973c7b4"
+      ],
+      "de": [
+        "oberarztin-oberarzt-gynakologie-und-geburtshilfe-spital-muri-muri-ag-8bbd965e"
+      ],
+      "fr": [
+        "medecin-principal-gynecologie-et-obstetrique-spital-muri-muri-ag-1830dc50"
       ]
     },
     "postalCode": "5630",
@@ -811,10 +1198,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4054372",
-    "firstSeenAt": "2026-09-29T21:16:46.721Z"
+    "firstSeenAt": "2026-09-29T21:16:46.721Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4054372",
+        "firstSeenAt": "2026-09-29T21:16:46.721Z",
+        "title": "Oberärztin/Oberarzt Gynäkologie und Geburtshilfe"
+      },
+      {
+        "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4082857",
+        "firstSeenAt": "2026-09-29T21:16:46.721Z",
+        "title": "Oberärztin/Oberarzt Gynäkologie und Geburtshilfe"
+      }
+    ]
   },
   {
-    "slug": "dipl-expert-expert-emergency-care-nds-hf-spital-muri-muri-ag-3801ac43",
+    "slug": "dipl-expert-expert-emergency-care-nds-hf-spital-muri-muri-ag",
     "title": "Dipl. Expertin/Experte Notfallpflege NDS HF",
     "titleByLocale": {
       "it": "Dipl. Expert/Expert Emergency Care NDS HF",
@@ -833,23 +1232,35 @@
       "fr": "Notre station d'urgence avec 16 places garantit environ. 19 000 patients par an fournissent des soins d'urgence professionnels 24 heures sur 24. Vous brûlez pour une urgence ? Alors vous avez raison avec nous. Continuez à lire !\n\nLeurs tâches\n• Triage professionnel et soins de tous les patients d'urgence, y compris les patients instables dans la salle de choc\n• Assurer des soins de qualité adaptés aux besoins des patients\n• Initiation indépendante de mesures diagnostiques et thérapeutiques conformément aux lignes directrices et en coopération avec les médecins\n• Création de plâtres (post-traumatiques)\n\nVotre profil\n• La formation continue en tant que dipl. Expert/Expert Soins d'urgence NDS HF\n• L'allemand styliste dans la parole et l'écriture\n• Pratiques de travail indépendantes, compétentes et responsables\n\nVotre chance\nIl vous attend immédiatement ou sur rendez-vous une activité responsable et variée dans un hôpital animé et en pleine croissance. Dans notre équipe d'urgence, ils contribuent au développement continu du ministère. Nous vous offrons également des opportunités de conception et de développement dans une équipe engagée et collaborative.\n\nLeurs avantages\n• Jours fériés: Vous bénéficiez de jours fériés entre 25 et 30 jours ouvrables (selon l'âge) et 13 jours fériés payés. Pour cela, vous avez la possibilité d'acheter 5 jours de vacances.\n• Heures de travail: Les heures normales de travail de l'entreprise pour une charge de travail à plein temps sont de 42 heures par semaine (à l'exclusion des médecins). Le temps de travail annuel s'applique, ce qui assure la plus grande flexibilité possible dans l'organisation du temps de travail. Les demandes de service sont mises en œuvre si possible et un emploi à temps partiel est possible dans de nombreuses fonctions – aussi dans les postes de direction.\n• Éducation et perfectionnement : Votre perfectionnement personnel et professionnel est important pour nous. Nous soutenons la participation à l'enseignement et à la formation complémentaires internes et externes par une participation généreuse sous forme d'heures de travail et/ou de frais de cours.\n• Nourriture: Dans notre restaurant du personnel – nominé avec le prix \"Best of Swiss Gastro\" – vous pouvez profiter de menus de la cuisine fraîche du marché dans des conditions très attrayantes.\n• Arrivée / stationnement: Les employés de Spital Muri bénéficient d'un parking bon marché. Le parking est situé dans la zone de l'hôpital. Si vous venez travailler en transports en commun, en vélo, en moto ou à pied, nous vous récompenserons par un éco-bonus mensuel.\n• Assurance sociale: Nous attachons de l'importance à des prestations sociales adéquates. Pour le travail de nuit, le week-end et les vacances, nous vous payons des indemnités équitables. Nous assurons votre salaire au fonds de pension Profond sans déduction de coordination (à l'exclusion des médecins). Le salaire des médecins est assuré par la fondation de prévention VSAO.\n\nPensum: 40-100 %"
     },
     "slugByLocale": {
-      "it": "dipl-expert-expert-emergency-care-nds-hf-spital-muri-muri-ag-3801ac43",
-      "en": "dipl-expertin-experte-notfallpflege-nds-hf-spital-muri-muri-ag-a7a4d762",
-      "de": "dipl-expertin-experte-notfallpflege-nds-hf-spital-muri-muri-ag-a7a4d762",
-      "fr": "dipl-expert-expert-soins-d-urgence-nds-hf-spital-muri-muri-ag-f0d89ea4"
+      "it": "dipl-expert-expert-emergency-care-nds-hf-spital-muri-muri-ag",
+      "en": "dipl-expertin-experte-notfallpflege-nds-hf-spital-muri-muri-ag",
+      "de": "dipl-expertin-experte-notfallpflege-nds-hf-spital-muri-muri-ag",
+      "fr": "dipl-expert-expert-soins-d-urgence-nds-hf-spital-muri-muri-ag"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-10-11T09:18:08.175Z",
     "previousSlugs": [
+      "dipl-expertin-experte-notfallpflege-nds-hf-spital-muri-muri-ag",
+      "dipl-expert-in-emergency-care-nds-hf-spital-muri-muri-ag",
+      "dipl-expert-expert-emergency-care-nds-hf-spital-muri-muri-ag-3801ac43",
       "dipl-expertin-experte-notfallpflege-nds-hf-spital-muri-muri-ag-a7a4d762",
-      "dipl-expert-in-emergency-care-nds-hf-spital-muri-muri-ag"
+      "dipl-expert-expert-soins-d-urgence-nds-hf-spital-muri-muri-ag-f0d89ea4"
     ],
     "previousSlugsByLocale": {
       "it": [
+        "dipl-expertin-experte-notfallpflege-nds-hf-spital-muri-muri-ag",
+        "dipl-expert-expert-emergency-care-nds-hf-spital-muri-muri-ag-3801ac43",
         "dipl-expertin-experte-notfallpflege-nds-hf-spital-muri-muri-ag-a7a4d762"
       ],
       "en": [
-        "dipl-expert-in-emergency-care-nds-hf-spital-muri-muri-ag"
+        "dipl-expert-in-emergency-care-nds-hf-spital-muri-muri-ag",
+        "dipl-expertin-experte-notfallpflege-nds-hf-spital-muri-muri-ag-a7a4d762"
+      ],
+      "de": [
+        "dipl-expertin-experte-notfallpflege-nds-hf-spital-muri-muri-ag-a7a4d762"
+      ],
+      "fr": [
+        "dipl-expert-expert-soins-d-urgence-nds-hf-spital-muri-muri-ag-f0d89ea4"
       ]
     },
     "postalCode": "5630",
@@ -858,7 +1269,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4050586",
-    "firstSeenAt": "2026-09-29T21:16:47.442Z"
+    "firstSeenAt": "2026-09-29T21:16:47.442Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4050586",
+        "firstSeenAt": "2026-09-29T21:16:47.442Z",
+        "title": "Dipl. Expertin/Experte Notfallpflege NDS HF"
+      },
+      {
+        "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4080281",
+        "firstSeenAt": "2026-09-29T21:16:47.442Z",
+        "title": "Dipl. Expertin/Experte Notfallpflege NDS HF"
+      }
+    ]
   },
   {
     "slug": "student-student-dipl-specialist-operations-engineering-hf-spital-muri-muri-ag",
@@ -2375,7 +2798,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4050605",
-    "firstSeenAt": "2026-09-29T21:16:48.765Z"
+    "firstSeenAt": "2026-09-29T21:16:48.765Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4050605",
+        "firstSeenAt": "2026-09-29T21:16:48.765Z",
+        "title": "Dipl. Pflegefachfrau/Pflegefachmann HF Notfall"
+      },
+      {
+        "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4078548",
+        "firstSeenAt": "2026-09-29T21:16:48.765Z",
+        "title": "Dipl. Pflegefachfrau/Pflegefachmann HF Notfall"
+      }
+    ]
   },
   {
     "slug": "gestione-integrata-delle-capacita-di-group-manager-ikm-spital-muri-muri-ag",
@@ -2517,5 +2952,40 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4068184",
     "firstSeenAt": "2026-09-29T21:16:38.077Z"
+  },
+  {
+    "slug": "arbeiten-im-pflegepool-dipl-pflegefachperson-fachperson-gesundheit-spital-muri-muri-ag",
+    "title": "Arbeiten im Pflegepool - Dipl. Pflegefachperson / Fachperson Gesundheit",
+    "titleByLocale": {
+      "de": "Arbeiten im Pflegepool - Dipl. Pflegefachperson / Fachperson Gesundheit",
+      "it": "Lavorare nella piscina di cura - Dipl. Infermiera/Salute professionale",
+      "en": "Working in the care pool - Dipl. Nurse/Health professional",
+      "fr": "Travailler dans la piscine de soins - Dipl. Infirmier/professionnel de la santé"
+    },
+    "company": "Spital Muri",
+    "companyKey": "spital-muri",
+    "location": "Muri AG",
+    "addressLocality": "Muri AG",
+    "descriptionByLocale": {
+      "de": "Sie bestimmen selbst wann Sie arbeiten möchten - der Pool im Spital Muri ermöglicht es Ihnen, Ihre Arbeitszeit gemäss Ihren persönlichen Bedürfnissen flexibel einzuteilen.\n\nIhre Aufgaben\n• Unterstützung des Kern-Pflegeteams auf unseren interdisziplinären Bettenstationen\n• Individuelle und kompetente Pflege und Betreuung unserer Patientinnen und Patienten mit Unterstützung des Lean Managements\n• Sicherstellung einer hochstehenden Pflegequalität sowie Kundenzufriedenheit\n\nIhr Profil\n• Abschluss als Dipl. Pflegefachperson HF/FH oder als Fachperson Gesundheit\n• Berufserfahrung in einem Akutspital\n• Gute Deutsch- und PC-Kenntnisse (KISIM)\n• Hohe Selbständigkeit und rasche Auffassungsgabe\n• Bei ausländischen Diplomen ist die SRK Anerkennung zwingend erforderlich\n\nIhre Chance\nFlexibilität pur - Sie bestimmen wann und wie oft Sie arbeiten möchten. Dazu bieten wir Ihnen attraktive Pool Anstellungsbedingungen. In unserem interdisziplinären Pflegesetting ist Abwechslung garantiert. Unseren familiären Zusammenhalt pflegen wir mit verschiedenen Aktivitäten.\n\nIhre Vorteile\n• Ferien: Sie profitieren von Ferien zwischen 25 und 30 Arbeitstagen (je nach Alter) sowie von 13 bezahlten Feiertagen. Dazu haben Sie die Möglichkeit, 5 Ferientage zu kaufen.\n• Arbeitszeiten: Die betriebliche Normalarbeitszeit beträgt bei einem Vollzeitpensum 42 Stunden pro Woche (ausgenommen Ärzte). Es gilt die Jahresarbeitszeit, welche eine möglichst hohe Flexibilität bei der Gestaltung der Arbeitszeit gewährleistet. Dienstwünsche werden nach Möglichkeit umgesetzt und Teilzeitbeschäftigung ist in vielen Funktionen möglich – auch in Führungspositionen.\n• Aus- und Weiterbildung: Ihre persönliche und fachliche Weiterentwicklung ist uns wichtig. Wir unterstützen die Teilnahme an internen und externen Fort- und Weiterbildungen durch grosszügige Beteiligung in Form von Arbeitszeit und/oder Kurskosten.\n• Verpflegung: In unserem Personalrestaurant – nominiert mit dem «Best of Swiss Gastro»-Award – geniessen Sie Menüs aus der marktfrischen Küche zu sehr attraktiven Konditionen.\n• Anreise/Parkplatz: Mitarbeitende des Spital Muri profitieren von günstigen Parkmöglichkeiten. Das Parkhaus befindet sich auf dem Spitalareal. Falls Sie mit dem öffentlichen Verkehr, dem Velo, Motorrad oder zu Fuss zur Arbeit kommen, vergüten wir Ihnen einen monatlichen Ökobonus.\n• Sozialversicherungen: Wir legen Wert auf adäquate Sozialleistungen. Für Nacht-, Wochenend- und Feiertagsarbeit vergüten wir Ihnen faire Zulagen. Ihr Gehalt versichern wir bei der Pensionskasse Profond ohne Koordinationsabzug (ausgenommen Ärzte). Die Löhne der Ärztinnen und Ärzte sind bei der Vorsorgestiftung VSAO versichert.\n\nPensum: 10-20%",
+      "it": "Essi stessi determinano quando si desidera lavorare - la piscina a Spital Muri consente di organizzare il vostro tempo di lavoro in modo flessibile secondo le vostre esigenze personali.\n\nI loro compiti\n• Supporto del core team di cura nelle nostre stazioni interdisciplinari\n• Cura e supporto individuale e competente dei nostri pazienti con il supporto di Lean Management\n• Garantire un'alta qualità della cura e della soddisfazione del cliente\n\nIl tuo profilo\n• Laurea come Dipl. Infermieristica professionale HF/FH o salute professionale\n• Esperienza professionale in un ospedale acuto\n• Buona conoscenza del tedesco e del PC (KISIM)\n• Alta indipendenza e rapida comprensione\n• Per i diplomi stranieri, il riconoscimento SRC è obbligatorio\n\nLa tua opportunità\nFlessibilità pura - si determina quando e quanto spesso si desidera lavorare. Per questo vi offriamo interessanti condizioni di lavoro piscina. Nel nostro ambiente di cura interdisciplinare, la varietà è garantita. Manteniamo la nostra coesione familiare con varie attività.\n\nI loro vantaggi\n• Vacanze: Si beneficia di vacanze tra 25 e 30 giorni lavorativi (a seconda dell'età) e 13 giorni festivi. Per questo avete la possibilità di acquistare 5 giorni di vacanza.\n• Ore lavorative: Le normali ore di lavoro della società per un carico di lavoro a tempo pieno sono 42 ore alla settimana (esclusi i medici). L'orario di lavoro annuale si applica, che garantisce la massima flessibilità possibile nell'organizzazione del tempo di lavoro. Le richieste di assistenza vengono implementate se possibile e l'occupazione a tempo parziale è possibile in molte funzioni – anche in posizioni di gestione.\n• Istruzione e formazione: il vostro sviluppo personale e professionale è importante per noi. Sosteniamo la partecipazione all'istruzione e alla formazione interna ed esterna attraverso una partecipazione generosa alla forma di orari di lavoro e/o costi di corso.\n• Cibo: Nel nostro ristorante personale – nominato con il premio “Best of Swiss Gastro” – potrete gustare menu della cucina fresca di mercato in condizioni molto interessanti.\n• Arrivo/parcheggio: I dipendenti di Spital Muri beneficiano di un parcheggio economico. Il parcheggio si trova nella zona ospedaliera. Se si arriva a lavorare con i mezzi pubblici, bici, moto o a piedi, vi ricompenseremo con un mensile eco-bonus.\n• Assicurazione sociale: attribuiamo importanza alle prestazioni sociali adeguate. Per la notte, il fine settimana e il lavoro di vacanza, ti paghiamo le indennità eque. Garantiamo il vostro stipendio al fondo pensione Profond senza deduzione di coordinamento (esclusi i medici). I salari dei medici sono assicurati dalla fondazione preventiva VSAO.\n\nPenso: 10-20 %",
+      "en": "They themselves determine when You want to work - the pool at Spital Muri allows you to organize your working time flexibly according to your personal needs.\n\nTheir tasks\n• Support of the core nursing team on our interdisciplinary bed stations\n• Individual and competent care and support of our patients with the support of Lean Management\n• Ensuring a high quality of care and customer satisfaction\n\nYour profile\n• Degree as a Dipl. Nursing professional HF/FH or health professional\n• Professional experience in an acute hospital\n• Good knowledge of German and PC (KISIM)\n• High independence and rapid understanding\n• For foreign diplomas, SRC recognition is mandatory\n\nYour opportunity\nPure flexibility - you determine when and how often you want to work. For this we offer you attractive pool employment conditions. In our interdisciplinary care setting, variety is guaranteed. We maintain our family cohesion with various activities.\n\nTheir advantages\n• Holidays: You benefit from holidays between 25 and 30 working days (depending on age) and 13 paid holidays. For this you have the possibility to buy 5 holiday days.\n• Working hours: The company’s normal working hours for a full-time workload are 42 hours per week (excluding doctors). The annual working time applies, which ensures the highest possible flexibility in the organization of working time. Service requests are implemented if possible and part-time employment is possible in many functions – also in management positions.\n• Education and further education: Your personal and professional development is important to us. We support participation in internal and external further education and training through generous participation in the form of working hours and/or course costs.\n• Food: In our staff restaurant – nominated with the “Best of Swiss Gastro” award – you can enjoy menus from the market-fresh cuisine at very attractive conditions.\n• Arrival/parking: Employees of Spital Muri benefit from cheap parking. The car park is located on the hospital area. If you come to work by public transport, bike, motorcycle or on foot, we will reward you with a monthly eco-bonus.\n• Social insurance: We attach importance to adequate social benefits. For night, weekend and holiday work, we pay you fair allowances. We insure your salary at the pension fund Profond without coordination deduction (excluding doctors). The wages of doctors are insured by the VSAO preventive foundation.\n\nPensum: 10-20 %",
+      "fr": "Ils déterminent eux-mêmes quand vous voulez travailler - la piscine de Spital Muri vous permet d'organiser votre temps de travail de façon flexible en fonction de vos besoins personnels.\n\nLeurs tâches\n• Soutien de l'équipe de soins infirmiers sur nos postes de lit interdisciplinaires\n• Soins individuels et compétents et soutien de nos patients avec le soutien de Lean Management\n• Assurer une haute qualité de soins et la satisfaction des clients\n\nVotre profil\n• Diplôme de diplômé. Professionnels des soins infirmiers HF/FH ou professionnels de la santé\n• Expérience professionnelle dans un hôpital aigu\n• Bonne connaissance de l'allemand et du PC (KISIM)\n• Haute indépendance et compréhension rapide\n• Pour les diplômes étrangers, la reconnaissance SRC est obligatoire\n\nVotre chance\nFlexibilité pure - vous déterminez quand et à quelle fréquence vous voulez travailler. Pour cela, nous vous offrons des conditions d'emploi attrayantes. Dans notre milieu de soins interdisciplinaires, la variété est garantie. Nous maintenons notre cohésion familiale avec diverses activités.\n\nLeurs avantages\n• Jours fériés: Vous bénéficiez de jours fériés entre 25 et 30 jours ouvrables (selon l'âge) et 13 jours fériés payés. Pour cela, vous avez la possibilité d'acheter 5 jours de vacances.\n• Heures de travail: Les heures normales de travail de l'entreprise pour une charge de travail à plein temps sont de 42 heures par semaine (à l'exclusion des médecins). Le temps de travail annuel s'applique, ce qui assure la plus grande flexibilité possible dans l'organisation du temps de travail. Les demandes de service sont mises en œuvre si possible et un emploi à temps partiel est possible dans de nombreuses fonctions – aussi dans les postes de direction.\n• Éducation et perfectionnement : Votre perfectionnement personnel et professionnel est important pour nous. Nous soutenons la participation à l'enseignement et à la formation complémentaires internes et externes par une participation généreuse sous forme d'heures de travail et/ou de frais de cours.\n• Nourriture: Dans notre restaurant du personnel – nominé avec le prix \"Best of Swiss Gastro\" – vous pouvez profiter de menus de la cuisine fraîche du marché dans des conditions très attrayantes.\n• Arrivée / stationnement: Les employés de Spital Muri bénéficient d'un parking bon marché. Le parking est situé dans la zone de l'hôpital. Si vous venez travailler en transports en commun, en vélo, en moto ou à pied, nous vous récompenserons par un éco-bonus mensuel.\n• Assurance sociale: Nous attachons de l'importance à des prestations sociales adéquates. Pour le travail de nuit, le week-end et les vacances, nous vous payons des indemnités équitables. Nous assurons votre salaire au fonds de pension Profond sans déduction de coordination (à l'exclusion des médecins). Le salaire des médecins est assuré par la fondation de prévention VSAO.\n\nPensum: 10-20 %"
+    },
+    "slugByLocale": {
+      "de": "arbeiten-im-pflegepool-dipl-pflegefachperson-fachperson-gesundheit-spital-muri-muri-ag",
+      "it": "arbeiten-im-pflegepool-dipl-pflegefachperson-fachperson-gesundheit-spital-muri-muri-ag",
+      "en": "arbeiten-im-pflegepool-dipl-pflegefachperson-fachperson-gesundheit-spital-muri-muri-ag",
+      "fr": "arbeiten-im-pflegepool-dipl-pflegefachperson-fachperson-gesundheit-spital-muri-muri-ag"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-09-29T21:16:49.433Z",
+    "postalCode": "5630",
+    "salaryMin": 88000,
+    "salaryMax": 123000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4048131",
+    "firstSeenAt": "2026-09-29T21:16:49.433Z"
   }
 ]
