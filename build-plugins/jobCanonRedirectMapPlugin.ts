@@ -29,6 +29,10 @@ import { getSafeDistPageTargets, isDistPathOverFilesystemLimits, isSafeDistPath 
 import { buildCanonicalJobDetailPath } from './shared/jobDetailPath';
 import { localizedActiveJobSlug } from './shared/activeJobPageSelection';
 import {
+  JOB_PAGES_MANIFEST_FILE,
+  createJobPagesManifestLookup,
+} from './shared/jobPagesManifest.mjs';
+import {
   clearJobCanonOrderingFields,
   getJobCanonOrderingFields,
   restoreJobCanonOrderingFields,
@@ -44,6 +48,7 @@ import {
 import {
   jobsSeoPagesFlushed,
   shouldAwaitJobsSeoPagesFlushed,
+  shouldRequireJobsSeoActivePageManifest,
 } from './shared/buildSignals';
 
 const OUT_SUBDIR = 'job-canon';
@@ -54,7 +59,14 @@ const V2_MAX_SHARD_BYTES = 256 * 1024;
 // writing instead of rebuilding a complete shard to sort it after emission.
 const MANIFEST_SCHEMA_VERSION = 2;
 const MANIFEST_LOCALE_ORDER = ['it', 'en', 'de', 'fr'] as const satisfies readonly JobCanonLocale[];
-const STAGE_OPERATIONS = ['prefix', 'registry-alias', 'active-alias', 'active-prefix', 'active-job'] as const;
+const STAGE_OPERATIONS = [
+  'prefix',
+  'registry-alias',
+  'active-alias',
+  'active-prefix',
+  'active-prefix-remove',
+  'active-job',
+] as const;
 const LOCALE_INDEX = new Map<JobCanonLocale, number>(JOB_CANON_LOCALES.map((locale, index) => [locale, index]));
 const WORKER_LOCALE_MASK = (1 << JOB_CANON_LOCALES.length) - 1;
 const WORKER_CANDIDATE_FLAG = 1 << 12;
@@ -530,7 +542,9 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
         return;
       }
 
-      if (shouldAwaitJobsSeoPagesFlushed()) {
+      const jobsSeoProducerExpected = shouldAwaitJobsSeoPagesFlushed();
+      const activePagesManifestExpected = shouldRequireJobsSeoActivePageManifest();
+      if (jobsSeoProducerExpected) {
         console.log('[job-canon-redirect-map] waiting for jobs SEO to flush the reconciled Worker slug map');
         await jobsSeoPagesFlushed;
       }
@@ -554,6 +568,29 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
         return;
       }
       console.log(`[job-canon-redirect-map] Worker map owner=${buildLocale || 'all-locale'}`);
+
+      // Production runs after jobsSeoPagesPlugin and consumes its exact active
+      // page inventory.  This prevents a current slug from overwriting the
+      // registry with a canton prefix whose destination was not published.
+      // Isolated plugin fixtures have no registered producer and retain their
+      // self-contained input contract. Fast-lane producers register only the
+      // flush barrier and are handled below without granting new prefixes.
+      let activeJobPageLookup: ReturnType<typeof createJobPagesManifestLookup> | null = null;
+      if (activePagesManifestExpected) {
+        const activePagesManifestPath = path.join(distDir, JOB_PAGES_MANIFEST_FILE);
+        if (!fs.existsSync(activePagesManifestPath)) {
+          throw new Error(
+            `[job-canon-redirect-map] jobs SEO completed without ${path.relative(rootDir, activePagesManifestPath)}`,
+          );
+        }
+        const activePagesManifest = JSON.parse(fs.readFileSync(activePagesManifestPath, 'utf8')) as unknown;
+        activeJobPageLookup = createJobPagesManifestLookup(activePagesManifest);
+        if (!activeJobPageLookup) {
+          throw new Error(
+            `[job-canon-redirect-map] ${path.relative(rootDir, activePagesManifestPath)} is malformed`,
+          );
+        }
+      }
 
       let orderingFieldsById = getJobCanonOrderingFields();
       if (!orderingFieldsById && process.env.BUILD_STAGE === 'ssg') {
@@ -768,6 +805,7 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
         const activePrefixStats = {
           changedByLocale: { it: 0, en: 0, de: 0, fr: 0 },
           addedByLocale: { it: 0, en: 0, de: 0, fr: 0 },
+          removedUnpublishedByLocale: { it: 0, en: 0, de: 0, fr: 0 },
           nonRoutableGermanChanged: 0,
           activeSlugPrefixConflict: 0,
           conflictExamples: [] as Array<{ locale: JobCanonLocale; slug: string; prefixes: string[] }>,
@@ -875,7 +913,20 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
                 const currentPath = buildCanonicalJobDetailPath(locale, job, currentSlug, canton);
                 const prefix = sectionPrefix(currentPath);
                 if (prefix) {
-                  pushRecord(stageBuffer, 'active-prefix', currentSlug, locale, prefix);
+                  // A full jobs SEO producer must prove the route through its
+                  // manifest. A registered fast-lane/fixture producer has no
+                  // shared manifest contract, so it may synchronize registry
+                  // reads but cannot add a new permanent active prefix.
+                  const activeRoutePublished = activeJobPageLookup !== null
+                    ? activeJobPageLookup.has(currentPath)
+                    : !jobsSeoProducerExpected;
+                  pushRecord(
+                    stageBuffer,
+                    activeRoutePublished ? 'active-prefix' : 'active-prefix-remove',
+                    currentSlug,
+                    locale,
+                    prefix,
+                  );
                   activePrefixRows += 1;
                   activePrefixBufferRows += 1;
                   if (activePrefixBufferRows >= 8192) {
@@ -1166,6 +1217,7 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
           activePrefixes: {
             changedByLocale: { it: 0, en: 0, de: 0, fr: 0 },
             addedByLocale: { it: 0, en: 0, de: 0, fr: 0 },
+            removedUnpublishedByLocale: { it: 0, en: 0, de: 0, fr: 0 },
             nonRoutableGermanChanged: 0,
             activeSlugPrefixConflict: 0,
             conflictExamples: [] as Array<{ locale: JobCanonLocale; slug: string; prefixes: string[] }>,
@@ -1275,6 +1327,23 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
             }
             currentPrefixes.set(slug, prior);
           });
+          const unpublishedPrefixes = new Map<string, Set<JobCanonLocale>>();
+          forEachStagedLine(operationPath('active-prefix-remove'), (slug, locale) => {
+            const locales = unpublishedPrefixes.get(slug) ?? new Set<JobCanonLocale>();
+            locales.add(locale);
+            unpublishedPrefixes.set(slug, locales);
+          });
+          for (const [slug, locales] of unpublishedPrefixes) {
+            const current = currentPrefixes.get(slug);
+            for (const locale of locales) {
+              const publishedPrefix = current?.[locale];
+              if (publishedPrefix && publishedPrefix !== '\u0000active-prefix-conflict') continue;
+              const entry = bucket[slug];
+              if (!entry || typeof entry[locale] !== 'string') continue;
+              delete entry[locale];
+              logicalStats.activePrefixes.removedUnpublishedByLocale[locale] += 1;
+            }
+          }
           for (const [slug, prefixes] of currentPrefixes) {
             for (const locale of JOB_CANON_LOCALES) {
               const prefix = prefixes[locale];
@@ -1420,6 +1489,7 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
 
         activePrefixStats.changedByLocale = logicalStats.activePrefixes.changedByLocale;
         activePrefixStats.addedByLocale = logicalStats.activePrefixes.addedByLocale;
+        activePrefixStats.removedUnpublishedByLocale = logicalStats.activePrefixes.removedUnpublishedByLocale;
         activePrefixStats.nonRoutableGermanChanged = logicalStats.activePrefixes.nonRoutableGermanChanged;
         activePrefixStats.activeSlugPrefixConflict = logicalStats.activePrefixes.activeSlugPrefixConflict;
         activePrefixStats.conflictExamples = logicalStats.activePrefixes.conflictExamples;

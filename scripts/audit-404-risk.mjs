@@ -454,6 +454,10 @@ async function mapPool(items, limit, fn) {
 // not evidence of a redirect, so the original offender remains visible.
 const JOB_CANON_CDN_BASE = 'https://cdn.frontaliereticino.ch';
 const JOB_CANON_V2_SHARD_COUNT = 4096;
+// Keep each release-map batch small enough to bound transient response bytes,
+// while processing every requested bucket.  The former all-or-nothing cap
+// skipped alias recovery entirely as soon as a large sitemap crossed 64
+// buckets, turning verified redirects into thousands of false 404s.
 const JOB_CANON_ALIAS_MAX_BUCKETS = 64;
 const JOB_CANON_ALIAS_MAX_CONCURRENCY = 4;
 const JOB_CANON_ALIAS_FETCH_TIMEOUT_MS = 5_000;
@@ -538,11 +542,20 @@ function recoverJobCanonAliases(offenders, served, mapsByBucket) {
     const entry = map && typeof map === 'object' && !Array.isArray(map)
       ? map[candidate.slug]
       : null;
+    // Mirror jobCanonTarget() in the Worker: a current slug stores a section
+    // prefix directly on entry[locale], while a localized-slug migration
+    // stores the complete destination under entry.alias[locale].
+    const prefix = entry && typeof entry === 'object' && !Array.isArray(entry)
+      ? entry[candidate.locale]
+      : null;
     const alias = entry && typeof entry === 'object' && !Array.isArray(entry)
       && entry.alias && typeof entry.alias === 'object' && !Array.isArray(entry.alias)
       ? entry.alias[candidate.locale]
       : null;
-    const target = jobCanonAliasTarget(alias, candidate.locale);
+    const rawTarget = typeof prefix === 'string' && prefix
+      ? `${prefix.replace(/\/+$/, '')}/${candidate.slug}/`
+      : alias;
+    const target = jobCanonAliasTarget(rawTarget, candidate.locale);
     if (!target || target === candidate.path || !served?.has(target)) {
       remaining.push(original);
       continue;
@@ -565,17 +578,6 @@ async function lookupJobCanonAliases(offenders, served) {
   if (buckets.length === 0) {
     return noRecovery({ status: 'not-needed', bucketsRequested: 0, mapsLoaded: 0, mapsUnavailable: 0 });
   }
-  if (buckets.length > JOB_CANON_ALIAS_MAX_BUCKETS) {
-    log(`[404]   WARN job-canon v2 lookup skipped: ${buckets.length} unique buckets exceeds the bound of ${JOB_CANON_ALIAS_MAX_BUCKETS}`);
-    return noRecovery({
-      status: 'too-many-buckets',
-      bucketsRequested: buckets.length,
-      mapsLoaded: 0,
-      mapsUnavailable: buckets.length,
-      maxBuckets: JOB_CANON_ALIAS_MAX_BUCKETS,
-    });
-  }
-
   let buildId;
   try {
     buildId = (await fetchText(
@@ -591,7 +593,7 @@ async function lookupJobCanonAliases(offenders, served) {
     return noRecovery({ status: 'marker-invalid', bucketsRequested: buckets.length, mapsLoaded: 0, mapsUnavailable: buckets.length });
   }
 
-  const mapResults = await mapPool(buckets, JOB_CANON_ALIAS_MAX_CONCURRENCY, async (bucket) => {
+  const loadBatch = (buckets) => mapPool(buckets, JOB_CANON_ALIAS_MAX_CONCURRENCY, async (bucket) => {
     try {
       const raw = await fetchText(jobCanonV2MapUrl(buildId, bucket), JOB_CANON_ALIAS_FETCH_TIMEOUT_MS);
       const map = JSON.parse(raw);
@@ -601,6 +603,11 @@ async function lookupJobCanonAliases(offenders, served) {
       return { bucket, map: null };
     }
   });
+  const mapResults = [];
+  for (let offset = 0; offset < buckets.length; offset += JOB_CANON_ALIAS_MAX_BUCKETS) {
+    const batch = buckets.slice(offset, offset + JOB_CANON_ALIAS_MAX_BUCKETS);
+    mapResults.push(...await loadBatch(batch));
+  }
   const maps = new Map();
   for (const { bucket, map } of mapResults) {
     if (map) maps.set(bucket, map);
@@ -614,6 +621,7 @@ async function lookupJobCanonAliases(offenders, served) {
       bucketsRequested: buckets.length,
       mapsLoaded: maps.size,
       mapsUnavailable: buckets.length - maps.size,
+      batchSize: JOB_CANON_ALIAS_MAX_BUCKETS,
       maxConcurrency: JOB_CANON_ALIAS_MAX_CONCURRENCY,
     },
   };

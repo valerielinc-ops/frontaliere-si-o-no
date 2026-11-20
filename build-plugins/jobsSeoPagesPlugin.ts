@@ -1936,7 +1936,7 @@ export function readFinalWorkerSlugMap(distDir: string): ActiveJobSlugMapRow[] {
 }
 
 export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginOptions = {}): Plugin {
- registerJobsSeoPagesProducer();
+ registerJobsSeoPagesProducer({ activePageManifest: !options.fastLane });
  return {
  name: 'jobs-seo-pages',
  apply: 'build',
@@ -1944,7 +1944,7 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  // closeBundle hooks run in parallel, so reset the signal before each build
  // generation when Vite reuses this plugin instance in watch mode.
  buildStart() {
-  registerJobsSeoPagesProducer();
+  registerJobsSeoPagesProducer({ activePageManifest: !options.fastLane });
  },
  async closeBundle() {
  let expiredSliceOverflow: ExpiredSliceOverflow<any> | undefined;
@@ -1974,6 +1974,13 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  const distDir = options.fastLane && options.fastLaneDistDir
   ? np.resolve(rootDir, options.fastLaneDistDir)
   : np.resolve(rootDir, 'dist');
+ // prepareOutDirPlugin deliberately preserves generated root files during an
+ // incremental build. Invalidate the prior active-page inventory before this
+ // generation starts: if the current write below fails, job-canon must see a
+ // missing manifest and fail closed instead of trusting stale route evidence.
+ if (!options.fastLane && shouldEmitLocale('it')) {
+  fs.rmSync(np.join(distDir, JOB_PAGES_MANIFEST_FILE), { force: true });
+ }
  const jobOgLogoFingerprint = createJobOgLogoFingerprintResolver(rootDir);
  const knownEmployerProfileSlugs = loadKnownEmployerProfileSlugs(rootDir);
  const jobsPath = np.resolve(rootDir, 'data/jobs.json');
