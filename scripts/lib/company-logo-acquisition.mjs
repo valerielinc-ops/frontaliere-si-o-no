@@ -61,6 +61,11 @@ export const DOMAIN_OVERRIDES = {
   'apleona-schweiz-ag': ['apleona.com'],
   'badrutts-palace': ['badruttspalace.com'],
   cippatrasporti: ['cippatrasporti.ch', 'cippa.ch'],
+  // The official contact page identifies Crans-Montana Food & Beverage SA;
+  // the employer's vacancy page uses the same mycma.ch identity.
+  // https://www.mycma.ch/contact/
+  // https://www.mycma.ch/emplois/specialiste-communication-senior/
+  'crans-montana-food-and-beverage-sa': ['mycma.ch'],
   // The dedicated employer crawler identifies csc-sa.ch as CSC's official site;
   // NCore is only the linked publishing platform for the vacancies.
   'csc-costruzioni-sa': ['csc-sa.ch'],
@@ -205,6 +210,11 @@ export const DOMAIN_OVERRIDES = {
 // verified ZAUGG Group logo on the employer's own domain; use it as an
 // explicit acquisition source, never as a runtime URL.
 export const VERIFIED_LOGO_SOURCE_URLS = Object.freeze({
+  // Both official mycma.ch pages above declare this Spotlio CDN asset as
+  // their og:logo. The external CDN is an acquisition input only.
+  'crans-montana-food-and-beverage-sa': Object.freeze([
+    'https://public-assets.spotliodata.com/facdb621-d9f0-4e43-a3dc-6c5e34de60d7.png',
+  ]),
   'das-team-ag': Object.freeze([
     'https://team.jobs/favicon/apple-touch-icon.png',
   ]),
