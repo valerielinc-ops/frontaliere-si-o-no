@@ -643,8 +643,8 @@ jobs:
       - name: Push generated assets to CDN (early — ahead of the shard pushes)
         id: cdn-push-early
         continue-on-error: true
-        # Run 44629531624 exhausted 45 minutes on the full OG and purge path;
-        # leave the CDN handshake enough time to finish before the shard gate.
+        # Run 44629531624 exceeded 45 min with full OG (32k files, 1.2 GB,
+        # ~24 min), job-canon validation and 189 Cloudflare purge batches.
         timeout-minutes: 90
         env:
           CDN_DEPLOY_KEY: ${{ secrets.CDN_DEPLOY_KEY }}
