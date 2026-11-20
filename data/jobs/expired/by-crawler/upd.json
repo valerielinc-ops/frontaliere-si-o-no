@@ -180,24 +180,33 @@
       "senior-physician-children-and-adolescents-universitare-psychiatrische-dienste-bern-upd-bern-ac2be942",
       "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern-6dd26384",
       "medecin-superieur-enfants-et-adolescents-universitare-psychiatrische-dienste-bern-upd-bern-33b0c1c6",
-      "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern"
+      "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern",
+      "oberarztin-oberarzt-kinder-e-jugendliche-universitare-psychiatrische-dienste-bern-upd-bern",
+      "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern-d6593398",
+      "senior-physician-children-and-adolescents-universitare-psychiatrische-dienste-bern-upd-bern-8aec06b2",
+      "medecin-superieur-enfants-et-adolescents-universitare-psychiatrische-dienste-bern-upd-bern-223997c8"
     ],
     "previousSlugsByLocale": {
       "it": [
         "senior-physician-children-and-adolescents-universitare-psychiatrische-dienste-bern-upd-bern-ac2be942",
         "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern-6dd26384",
-        "medecin-superieur-enfants-et-adolescents-universitare-psychiatrische-dienste-bern-upd-bern-33b0c1c6"
+        "medecin-superieur-enfants-et-adolescents-universitare-psychiatrische-dienste-bern-upd-bern-33b0c1c6",
+        "oberarztin-oberarzt-kinder-e-jugendliche-universitare-psychiatrische-dienste-bern-upd-bern",
+        "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern-d6593398"
       ],
       "en": [
         "senior-physician-children-and-adolescents-universitare-psychiatrische-dienste-bern-upd-bern-ac2be942",
-        "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern"
+        "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern",
+        "senior-physician-children-and-adolescents-universitare-psychiatrische-dienste-bern-upd-bern-8aec06b2"
       ],
       "de": [
-        "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern-6dd26384"
+        "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern-6dd26384",
+        "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern-d6593398"
       ],
       "fr": [
         "medecin-superieur-enfants-et-adolescents-universitare-psychiatrische-dienste-bern-upd-bern-33b0c1c6",
-        "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern"
+        "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern",
+        "medecin-superieur-enfants-et-adolescents-universitare-psychiatrische-dienste-bern-upd-bern-223997c8"
       ]
     },
     "postalCode": "3004",
@@ -207,7 +216,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/d869756f-c15e-4c74-9ef6-f1ea53ae5e0f",
-    "firstSeenAt": "2026-10-17T09:26:20.143Z"
+    "firstSeenAt": "2026-10-16T09:29:44.963Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/2f2d7e45-014b-4330-a164-a21c5dcc5dde",
+        "firstSeenAt": "2026-10-16T09:29:44.963Z",
+        "title": "Oberärztin / Oberarzt Kinder und Jugendliche"
+      },
+      {
+        "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/d869756f-c15e-4c74-9ef6-f1ea53ae5e0f",
+        "firstSeenAt": "2026-10-16T09:29:44.963Z",
+        "title": "Oberärztin / Oberarzt Kinder und Jugendliche"
+      }
+    ]
   },
   {
     "slug": "vice-responsabile-di-reparto-demenza-e-delirium-universitare-psychiatrische-dienste-bern-upd-munsingen",
@@ -625,6 +646,18 @@
       "oberarztin-oberarzt-forensik-upd-bern-1dc76e93",
       "oberarztin-oberarzt-forensik-upd-bern-9f7e6855",
       "oberarztin-oberarzt-forensik-upd-bern"
+    ],
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/390c697f-f6c1-4494-92eb-cd41c5aafd2c",
+        "firstSeenAt": "2026-09-29T21:25:33.540Z",
+        "title": "Oberärztin / Oberarzt Forensik"
+      },
+      {
+        "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/dcde2f31-ca38-4c10-94e3-96553d6be38b",
+        "firstSeenAt": "2026-09-29T21:25:33.540Z",
+        "title": "Oberärztin / Oberarzt Forensik"
+      }
     ]
   },
   {
@@ -679,7 +712,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/50761ce1-056b-4172-9cba-68ed340001ed",
-    "firstSeenAt": "2026-08-18T21:56:43.123Z"
+    "firstSeenAt": "2026-08-18T21:56:43.123Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/50761ce1-056b-4172-9cba-68ed340001ed",
+        "firstSeenAt": "2026-08-18T21:56:43.123Z",
+        "title": "Oberpsychologin / Oberpsychologe Forensik"
+      },
+      {
+        "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/ae4535e3-f530-4028-aac2-ea1f349630be",
+        "firstSeenAt": "2026-08-18T21:56:43.123Z",
+        "title": "Oberpsychologin / Oberpsychologe Forensik"
+      },
+      {
+        "sourceIdentity": "url:https://recruitingapp-2908.umantis.com/vacancies/3357/description/1",
+        "firstSeenAt": "2026-08-18T21:56:43.123Z",
+        "title": "Oberpsychologin / Oberpsychologe Forensik"
+      }
+    ]
   },
   {
     "slug": "psicologo-senior-psicologo-senior-forense-universitare-psychiatrische-dienste-bern-upd-bern-bc86b1",
@@ -1173,6 +1223,120 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/a6983060-dc63-4cab-ba16-5cf3b10c5e5a",
     "firstSeenAt": "2026-09-29T21:25:33.623Z"
+  },
+  {
+    "slug": "dipl-specialista-di-cura-stazione-marbach-universitare-psychiatrische-dienste-bern-upd-bern",
+    "title": "Dipl. Pflegefachperson Station Marbach",
+    "titleByLocale": {
+      "it": "Dipl. Specialista di cura Stazione Marbach",
+      "en": "Dipl. Care specialist Station Marbach",
+      "de": "Dipl. Pflegefachperson Station Marbach",
+      "fr": "Dipl. Spécialiste des soins Station Marbach"
+    },
+    "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
+    "companyKey": "upd",
+    "location": "Bern",
+    "addressLocality": "Bern",
+    "descriptionByLocale": {
+      "it": "## Ospedale Universitario per Psichiatria Adulta e Psicoterapia\nTi stiamo cercando! Insieme a un team dinamico, vuoi impostare una pietra miliare significativa nella Clinica Universitaria per la Psichiatria Adulta e la Psicoterapia? Allora applicaci. Noi, la Stazione Marbach, ci distinguono nella cura delle persone in situazioni di crisi. Il nostro core business è il supporto di 20 pazienti nell'esperienza psicotica e con malattie psichiatriche generali. Inoltre, offriamo un programma di psicoterapia individualizzata per le persone del cerchio di forma schizofrenica. Il focus del nostro lavoro è il lavoro di relazione attiva e il design dell'ambiente nella vita quotidiana. Stai cercando un team interdisciplinare professionale ad alto livello, dove la stretta collaborazione e la comunità sono centrali? Attendiamo con ansia la vostra applicazione.\n\n## I tuoi compiti\n• Sei la persona di contatto affidabile per le persone in situazioni di crisi e creare uno spazio in cui i pazienti si sentono sicuri e rispettati\n• Con la vostra esperienza, si assume compiti centrali nel trattamento terapeutico-allattamento e contribuiscono in modo significativo al recupero.\n• Insieme nel team interdisciplinare, si implementano gli ultimi standard di assistenza basati su prove e forniscono impulsi per concetti di assistenza innovativi\n• Si gioca un ruolo attivo nello sviluppo cura della UPZ e portare idee fresche per sviluppare ulteriormente i nostri standard\n• Creare accuratamente piani di assistenza individuale e documentare il progresso dei nostri pazienti per rendere trasparente il loro sviluppo\n\n## Il tuo profilo\n• Hai un diploma come infermiera HF / FH e portare esperienza in psichiatria o sono pronti ad aprire questo mondo affascinante per voi e approfondire la vostra conoscenza\n• Siete motivati a contribuire attivamente a migliorare la salute mentale e fare una differenza positiva insieme a noi\n• Apprezzi la stretta collaborazione con professionisti di diversi settori professionali e goditi lo scambio di idee ed esperienze\n• In situazioni difficili, si mantiene la calma e mostrare il vostro equilibrio in modo che siete un ancoraggio stabile per i nostri pazienti.\n• Il vostro interesse e la vostra ambizione vi spingono a sviluppare costantemente personalmente e professionalmente e a scoprire nuove prospettive\n• Hai una buona conoscenza del tedesco in parola e scrittura\n\n## L'UPZ\nLa Universitäre Psychiatrische Zentrum Bern (UPZ) è il centro di eccellenza per la psichiatria e la psicoterapia nella regione capitale. Garantisce cure psichiatriche nel cantone di Berna lungo tutta la catena di approvvigionamento, dalla diagnosi precoce alle terapie ospedaliere, diurne e ospedaliere alla riabilitazione e alla forense. Con oltre 30 sedi, UPZ offre una rete di approvvigionamento completa. Inoltre, l'UPZ offre un importante contributo nei settori dell'insegnamento, della formazione e dell'ulteriore istruzione e della ricerca.\n\n## Il tuo posto di lavoro\nCentro psichiatrico universitario Berna (UPZ)\nBolligenstrasse 111, 3000 Bern 60",
+      "en": "## University Hospital for Adult Psychiatry and Psychotherapy\nWe are looking for you! Together with a dynamic team, do you want to set a significant milestone in the University Clinic for Adult Psychiatry and Psychotherapy? Then apply to us. We, the Station Marbach, distinguish ourselves in the care of people in crisis situations. Our core business is the support of 20 patients in the psychotic experience as well as with general psychiatric diseases. In addition, we offer an individualized psychotherapy program for people from the schizophrenic form circle. The focus of our work is active relationship work and the design of the milieu in everyday life. Are you looking for a professional interdisciplinary team at a high level, where close cooperation and community are central? We look forward to your application.\n\n## Your tasks\n• You are the trusted contact person for people in crisis situations and create a space in which patients feel safe and respected\n• With your expertise, you take on central tasks in nursing-therapeutic treatment and contribute significantly to recovery.\n• Together in the interdisciplinary team, you implement the latest, evidence-based care standards and provide impulses for innovative care concepts\n• You play an active role in the care development of the UPZ and bring fresh ideas to further develop our standards\n• Carefully create individual care plans and document the progress of our patients to make their development transparent\n\n## Your profile\n• You have a diploma as a nurse HF / FH and bring experience in psychiatry or are ready to open up this fascinating world for you and deepen your knowledge\n• You are motivated to actively contribute to improving mental health care and make a positive difference together with us\n• You appreciate the close cooperation with professionals from different professional fields and enjoy the exchange of ideas and experiences\n• In challenging situations, you keep calm and show your balance so that you are a stable anchor for our patients.\n• Your interest and ambition drive you to constantly develop personally and professionally and to discover new perspectives\n• You have very good knowledge of German in word and writing\n\n## The UPZ\nThe Universitäre Psychiatrische Zentrum Bern (UPZ) is the leading centre of excellence for psychiatry and psychotherapy in the capital region. It ensures psychiatric care in the canton of Bern along the entire supply chain, from early diagnosis to outpatient, day-care and inpatient therapies to rehabilitation and forensics. With more than 30 locations, the UPZ offers a comprehensive supply network. In addition, the UPZ makes an important contribution in the areas of teaching, training and further education as well as research.\n\n## Your place of work\nUniversity Psychiatric Center Bern (UPZ)\nBolligenstrasse 111, 3000 Bern 60",
+      "de": "## Universitätsklinik für Erwachsenenpsychiatrie und Psychotherapie\nDich suchen wir! Möchtest du gemeinsam mit einem dynamischen Team einen bedeutenden Meilenstein in der Universitätsklinik für Erwachsenenpsychiatrie und Psychotherapie setzen? Dann bewirb dich bei uns. Wir, die Station Marbach, zeichnen uns in der Betreuung von Menschen in Krisensituationen aus. Unser Kerngeschäft ist die Begleitung von 20 Patientinnen und Patienten im psychotischen Erleben sowie mit allgemeinpsychiatrischen Erkrankungen. Zudem bieten wir ein individualisiertes Psychotherapieprogramm für Menschen aus dem schizophrenen Formkreis an. Im Mittelpunkt unserer Arbeit steht die aktive Beziehungsarbeit sowie die Gestaltung des Milieus im Alltag. Suchst du ein professionelles interdisziplinäres Team auf hohem Niveau, in dem enge Zusammenarbeit und Gemeinschaft zentral sind? Dann freuen wir uns auf deine Bewerbung.\n\n## Deine Aufgaben\n• Du bist die vertrauensvolle Ansprechperson für Menschen in Krisensituationen und schaffst einen Raum, in dem sich Patientinnen und Patienten sicher und respektiert fühlen\n• Mit deiner Expertise übernimmst du zentrale Aufgaben in der pflegerisch-therapeutischen Behandlung und trägst massgeblich zur Genesung bei\n• Gemeinsam im interdisziplinären Team setzt du neuste, evidenzbasierte Pflegestandards um und setzt Impulse für innovative Pflegekonzepte\n• Du spielst eine aktive Rolle in der Pflegeentwicklung des UPZ und bringst frische Ideen ein, um unsere Standards weiterzuentwickeln\n• Mit Sorgfalt erstellst du individuelle Pflegepläne und dokumentierst die Fortschritte unserer Patient*innen, um ihre Entwicklung transparent zu machen\n\n## Dein Profil\n• Du verfügst über ein Diplom als Pflegefachperson HF / FH und bringst Erfahrungen in der Psychiatrie mit oder bist bereit, diese faszinierende Welt für dich zu erschliessen und deine Kenntnisse zu vertiefen\n• Du bist motiviert, aktiv zur Verbesserung der psychischen Gesundheitsversorgung beizutragen und gemeinsam mit uns einen positiven Unterschied zu bewirken\n• Du schätzt die enge Zusammenarbeit mit Profis aus verschiedenen Berufsfeldern und hast Freude am Austausch von Ideen und Erfahrungen\n• In herausfordernden Situationen bewahrst du die Ruhe und zeigst deine Ausgeglichenheit, sodass du ein stabiler Anker für unsere Patientinnen und Patienten bist\n• Dein Interesse und Ehrgeiz treiben dich an, dich ständig persönlich und fachlich weiterzuentwickeln und neue Perspektiven zu entdecken\n• Du verfügst über sehr gute Deutschkenntnisse in Wort und Schrift\n\n## Das UPZ\nDas Universitäre Psychiatrische Zentrum Bern (UPZ) ist als universitäre Klinik das führende Kompetenzzentrum für Psychiatrie und Psychotherapie in der Hauptstadtregion. Es gewährleistet die psychiatrische Versorgung im Kanton Bern entlang der gesamten Versorgungskette, von der Früherkennung über ambulante, tagesklinische und stationäre Therapien bis hin zu Rehabilitation und Forensik. Mit über 30 Standorten bietet das UPZ ein flächendeckendes Versorgungsnetz. Darüber hinaus leistet das UPZ einen wichtigen Beitrag in den Bereichen Lehre, Aus- und Weiterbildung sowie Forschung.\n\n## Dein Arbeitsort\nUniversitäres Psychiatrisches Zentrum Bern (UPZ)\nBolligenstrasse 111, 3000 Bern 60",
+      "fr": "## Hôpital universitaire de psychiatrie et de psychothérapie pour adultes\nNous vous cherchons ! Avec une équipe dynamique, voulez-vous fixer une étape importante dans la clinique universitaire de psychiatrie et de psychothérapie adultes? Alors appliquez-nous. Nous, la Station Marbach, nous distinguons dans le soin des personnes en situation de crise. Notre activité principale est le soutien de 20 patients dans l'expérience psychotique ainsi que des maladies psychiatriques générales. En outre, nous offrons un programme individualisé de psychothérapie pour les personnes du cercle de forme schizophrène. Notre travail est axé sur la relation active et la conception du milieu dans la vie quotidienne. Vous recherchez une équipe interdisciplinaire professionnelle de haut niveau, où la coopération étroite et la communauté sont centrales? Nous attendons avec impatience votre candidature.\n\n## Vos tâches\n• Vous êtes la personne de confiance pour les personnes en situation de crise et créez un espace dans lequel les patients se sentent en sécurité et respectés\n• Avec votre expertise, vous assumez des tâches centrales en soins infirmiers-thérapeutiques et contribuez de manière significative à la récupération.\n• Ensemble, au sein de l'équipe interdisciplinaire, vous appliquez les dernières normes de soins fondées sur des données probantes et donnez des impulsions à des concepts de soins novateurs.\n• Vous jouez un rôle actif dans le développement des soins de l'UPZ et apportez de nouvelles idées pour développer nos normes\n• Créer soigneusement des plans de soins individuels et documenter les progrès de nos patients pour rendre leur développement transparent\n\n## Votre profil\n• Vous avez un diplôme d'infirmière HF / FH et apportez de l'expérience en psychiatrie ou êtes prêt à ouvrir ce monde fascinant pour vous et approfondir vos connaissances\n• Vous êtes motivé à contribuer activement à améliorer les soins de santé mentale et à faire une différence positive avec nous\n• Vous appréciez la coopération étroite avec des professionnels de différents domaines professionnels et profitez de l'échange d'idées et d'expériences\n• Dans les situations difficiles, vous restez calme et montrez votre équilibre afin que vous soyez une ancre stable pour nos patients.\n• Votre intérêt et votre ambition vous poussent à se développer en permanence et professionnellement et à découvrir de nouvelles perspectives\n• Vous avez une très bonne connaissance de l'allemand dans la parole et l'écriture\n\n## L'UPZ\nL'Université Psychiatrische Zentrum Bern (UPZ) est le centre d'excellence en psychiatrie et en psychothérapie de la capitale. Il assure les soins psychiatriques dans le canton de Berne tout au long de la chaîne d ' approvisionnement, depuis le diagnostic précoce jusqu ' aux consultations externes, aux garderies et aux soins hospitaliers jusqu ' à la réadaptation et à la médecine légale. Avec plus de 30 emplacements, l'UPZ offre un réseau d'approvisionnement complet. En outre, l'UPZ apporte une contribution importante dans les domaines de l'enseignement, de la formation et de la formation continue ainsi que de la recherche.\n\n## Votre lieu de travail\nCentre psychiatrique universitaire de Berne (UPZ)\nBolligenstrasse 111, 3000 Berne 60"
+    },
+    "slugByLocale": {
+      "it": "dipl-specialista-di-cura-stazione-marbach-universitare-psychiatrische-dienste-bern-upd-bern",
+      "en": "dipl-care-specialist-station-marbach-universitare-psychiatrische-dienste-bern-upd-bern",
+      "de": "dipl-pflegefachperson-station-marbach-upd-bern",
+      "fr": "dipl-specialiste-des-soins-station-marbach-universitare-psychiatrische-dienste-bern-upd-bern"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-11-04T21:28:33.482Z",
+    "previousSlugs": [
+      "dipl-pflegefachperson-station-marbach-upd-bern",
+      "dipl-cura-professionale-hf-fh-universitare-psychiatrische-dienste-bern-upd-bern",
+      "ausbildung-dipl-pflegefachperson-hf-in-betriebsanstellung-upd-bern",
+      "training-dipl-nursing-professional-hf-in-employment-universitare-psychiatrische-dienste-bern-upd-bern",
+      "formation-dipl-infirmiere-hf-en-emploi-universitare-psychiatrische-dienste-bern-upd-bern",
+      "formazione-dipl-infermieristica-professionale-hf-nel-lavoro-universitare-psychiatrische-dienste-bern-upd-bern",
+      "dipl-pflegefachperson-hf-fh-upd-bern",
+      "dipl-infermieristica-professionale-universitare-psychiatrische-dienste-bern-upd-bern",
+      "dipl-pflegefachperson-upd-bern",
+      "dipl-nursing-professional-universitare-psychiatrische-dienste-bern-upd-bern",
+      "dipl-professionnels-des-soins-infirmiers-universitare-psychiatrische-dienste-bern-upd-bern",
+      "dipl-pflegefachperson-stazione-marbach-universitare-psychiatrische-dienste-bern-upd-bern",
+      "gare-dipl-pflegefachperson-de-marbach-universitare-psychiatrische-dienste-bern-upd-bern",
+      "dipl-pflegefachperson-hf-fh-o-dipl-sozialpadagogin-sozialpadagoge-universitare-psychiatrische-dienste-bern-upd-bern",
+      "dipl-care-specialist-hf-fh-or-dipl-social-pedagogue-universitare-psychiatrische-dienste-bern-upd-bern",
+      "dipl-pflegefachperson-hf-fh-oder-dipl-sozialpadagogin-sozialpadagoge-upd-bern",
+      "dipl-specialiste-des-soins-hf-fh-ou-dipl-pedagogue-sociale-universitare-psychiatrische-dienste-bern-upd-bern",
+      "dipl-specialista-hf-fh-o-dipl-social-pedagogue-universitare-psychiatrische-dienste-bern-upd-bern",
+      "dipl-care-professional-hf-fh-universitare-psychiatrische-dienste-bern-upd-bern",
+      "dipl-soins-professionnels-hf-fh-universitare-psychiatrische-dienste-bern-upd-bern"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "dipl-pflegefachperson-station-marbach-upd-bern",
+        "dipl-cura-professionale-hf-fh-universitare-psychiatrische-dienste-bern-upd-bern",
+        "ausbildung-dipl-pflegefachperson-hf-in-betriebsanstellung-upd-bern",
+        "training-dipl-nursing-professional-hf-in-employment-universitare-psychiatrische-dienste-bern-upd-bern",
+        "formation-dipl-infirmiere-hf-en-emploi-universitare-psychiatrische-dienste-bern-upd-bern",
+        "formazione-dipl-infermieristica-professionale-hf-nel-lavoro-universitare-psychiatrische-dienste-bern-upd-bern",
+        "dipl-pflegefachperson-hf-fh-upd-bern",
+        "dipl-infermieristica-professionale-universitare-psychiatrische-dienste-bern-upd-bern",
+        "dipl-pflegefachperson-upd-bern",
+        "dipl-nursing-professional-universitare-psychiatrische-dienste-bern-upd-bern",
+        "dipl-professionnels-des-soins-infirmiers-universitare-psychiatrische-dienste-bern-upd-bern",
+        "dipl-pflegefachperson-stazione-marbach-universitare-psychiatrische-dienste-bern-upd-bern",
+        "gare-dipl-pflegefachperson-de-marbach-universitare-psychiatrische-dienste-bern-upd-bern",
+        "dipl-pflegefachperson-hf-fh-o-dipl-sozialpadagogin-sozialpadagoge-universitare-psychiatrische-dienste-bern-upd-bern",
+        "dipl-care-specialist-hf-fh-or-dipl-social-pedagogue-universitare-psychiatrische-dienste-bern-upd-bern",
+        "dipl-pflegefachperson-hf-fh-oder-dipl-sozialpadagogin-sozialpadagoge-upd-bern",
+        "dipl-specialiste-des-soins-hf-fh-ou-dipl-pedagogue-sociale-universitare-psychiatrische-dienste-bern-upd-bern",
+        "dipl-specialista-hf-fh-o-dipl-social-pedagogue-universitare-psychiatrische-dienste-bern-upd-bern"
+      ],
+      "en": [
+        "dipl-pflegefachperson-station-marbach-upd-bern",
+        "dipl-care-professional-hf-fh-universitare-psychiatrische-dienste-bern-upd-bern",
+        "training-dipl-nursing-professional-hf-in-employment-universitare-psychiatrische-dienste-bern-upd-bern",
+        "dipl-pflegefachperson-hf-fh-upd-bern",
+        "dipl-nursing-professional-universitare-psychiatrische-dienste-bern-upd-bern",
+        "dipl-care-specialist-hf-fh-or-dipl-social-pedagogue-universitare-psychiatrische-dienste-bern-upd-bern"
+      ],
+      "fr": [
+        "dipl-pflegefachperson-station-marbach-upd-bern",
+        "dipl-soins-professionnels-hf-fh-universitare-psychiatrische-dienste-bern-upd-bern",
+        "formation-dipl-infirmiere-hf-en-emploi-universitare-psychiatrische-dienste-bern-upd-bern",
+        "dipl-pflegefachperson-hf-fh-upd-bern",
+        "dipl-professionnels-des-soins-infirmiers-universitare-psychiatrische-dienste-bern-upd-bern",
+        "dipl-specialiste-des-soins-hf-fh-ou-dipl-pedagogue-sociale-universitare-psychiatrische-dienste-bern-upd-bern"
+      ],
+      "de": [
+        "dipl-pflegefachperson-hf-fh-upd-bern",
+        "ausbildung-dipl-pflegefachperson-hf-in-betriebsanstellung-upd-bern",
+        "dipl-pflegefachperson-upd-bern",
+        "dipl-pflegefachperson-hf-fh-oder-dipl-sozialpadagogin-sozialpadagoge-upd-bern"
+      ]
+    },
+    "postalCode": "3004",
+    "streetAddress": "Bolligenstrasse 111",
+    "salaryMin": 85000,
+    "salaryMax": 119000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/2bb055fb-c3a5-4e50-8fe9-77f60549d86f",
+    "firstSeenAt": "2026-09-29T21:25:33.568Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/2bb055fb-c3a5-4e50-8fe9-77f60549d86f",
+        "firstSeenAt": "2026-09-29T21:25:33.568Z",
+        "title": "Dipl. Pflegefachperson Station Marbach"
+      },
+      {
+        "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/fd71969b-ad4c-4c7a-8936-71867053fbf2",
+        "firstSeenAt": "2026-09-29T21:25:33.568Z",
+        "title": "Dipl. Pflegefachperson Station Marbach"
+      }
+    ]
   },
   {
     "slug": "dipl-specialista-di-cura-stazione-marbach-universitare-psychiatrische-dienste-bern-upd-bern-512486f5",
@@ -1682,6 +1846,70 @@
     "firstSeenAt": "2026-10-13T21:19:06.817Z"
   },
   {
+    "slug": "segretario-medico-segretario-medico-universitare-psychiatrische-dienste-bern-upd-munsingen",
+    "title": "Arztsekretärin / Arztsekretär",
+    "titleByLocale": {
+      "it": "Segretario medico / Segretario medico",
+      "en": "Arztsekretärin / Arztsekretär",
+      "de": "Arztsekretärin / Arztsekretär",
+      "fr": "Secrétaire médical / Secrétaire médical"
+    },
+    "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
+    "companyKey": "upd",
+    "location": "Münsingen",
+    "addressLocality": "Münsingen",
+    "descriptionByLocale": {
+      "it": "## Clinica per psicosi e dipendenza\nVuoi lavorare in un versatile segretariato clinica e assicurarti che tutto funzioni senza problemi con la tua organizzazione? Nel Segretariato della Clinica per la Psicologia e la Dipendenza presso il luogo Münsingen, riempiamo due vacanzie con un peso di 50-70% e 100%.\nNel vostro lavoro quotidiano, siete un importante hub tra i vari gruppi professionali, pazienti e altri contatti interni ed esterni. Si lavora indipendentemente, tenere una panoramica anche per una varietà di preoccupazioni e dare un contributo importante a una routine quotidiana liscia con il vostro lavoro attento e orientato al servizio. Puoi aspettarti un team dedicato, una variegata area di responsabilità e l'opportunità di contribuire alla tua esperienza e alle tue idee.\n\n## I tuoi compiti\n• Prendere il controllo della corrispondenza di entrata e uscita nel nostro team interprofessionale e dedicato, leggere report e report, formattarli e garantire la loro spedizione\n• Tieni d'occhio le date e le scadenze e le coordinate intorno a lingue di costo, reclami e rinuncia alla riservatezza\n• Lei sostiene il team di lavoro medico, psicologico e sociale in materia amministrativa\n• Garantisci una posta e una triage affidabile e assicurati che le richieste e i documenti arrivino ai posti giusti\n• Con il vostro impegno e la natura apprezzativa, mettete le persone al centro delle vostre azioni.\n• Contribuisci attivamente il tuo know-how e l'esperienza e forma l'ulteriore sviluppo del nostro segretariato\n• Con il vostro impegno orientato al cliente, contribuite internamente ed esternamente a garantire che la UPZ sia percepita come punto di contatto e centro di trattamento competente per i nostri pazienti.\n\n## Il tuo profilo\n• Hai una formazione commerciale completa o una qualifica simile. Idealmente, si porterà ulteriore formazione nel segretariato medico o avere formazione come assistente di pratica medica.\n• Sei resiliente, orientato al servizio e alla soluzione e convinci con umorismo, empatia e un elevato senso di responsabilità e qualità\n• Apprezzi anche il contatto personale con diversi gruppi professionali e hai empatia per i pazienti in situazioni di vita difficili.\n• Si padroneggia la lingua tedesca non solo nella parola e nella scrittura, ma anche distinguersi attraverso una buona conoscenza grammaticale\n• L'uso esperto dei soliti programmi MS-Office completa il tuo profilo\n\n## L'UPZ\nL'University Psychiatric Center Bern (UPZ) è il principale centro di eccellenza per la psichiatria e la psicoterapia nella regione capitale. Garantisce cure psichiatriche nel cantone di Berna lungo tutta la catena di approvvigionamento, dalla diagnosi precoce alle terapie ambulatoriale, diurne e inpatie alla riabilitazione e alla forense. Con oltre 30 sedi, UPZ offre una rete di fornitura completa. Inoltre, l'UPZ offre un importante contributo nei settori dell'insegnamento, della formazione e dell'ulteriore istruzione e della ricerca.\n\n## Il tuo posto di lavoro\nCentro psichiatrico universitario Berna (UPZ)\n1, 3110 Münsingen",
+      "en": "## Clinic for Psychosis and Dependence\nYou want to work in a versatile clinic secretariat and make sure that everything runs smoothly in the background with your organization? In the Secretariat of the Clinic for Psychosis and Dependence at the Münsingen location, we fill two vacancies with a burden of 50–70% and 100%.\nIn your daily work, you are an important hub between the various professional groups, patients and other internal and external contacts. You work independently, keep an overview even for a variety of concerns and make an important contribution to a smooth daily routine with your careful and service-oriented work. You can expect a dedicated team, a varied area of responsibility and the opportunity to contribute your experience and ideas.\n\n## Your tasks\n• You take over the entry and exit correspondence in our interprofessional and dedicated team, read reports and reports, format them and ensure their dispatch\n• You keep an eye on dates and deadlines and coordinate them around cost languages, complaints and waivers of confidentiality\n• You support the medical, psychological and social work team in administrative matters\n• You ensure reliable post and mail triage and ensure that requests and documents get to the right places\n• With your commitment and appreciative nature, you put people at the center of your actions.\n• You actively contribute your know-how and experience and shape the further development of our secretariat\n• With your customer-oriented commitment, you contribute internally and externally to ensuring that the UPZ is perceived as a competent contact point and treatment center for our patients.\n\n## Your profile\n• You have a completed commercial education or a comparable qualification. Ideally, you will bring further training in the medical secretariat or have training as a medical practice assistant.\n• You are resilient, service- and solution-oriented and convince with humor, empathy and a high sense of responsibility and quality\n• You also appreciate personal contact with different professional groups and have empathy for patients in difficult life situations.\n• You master the German language not only in word and writing, but also distinguish yourself through very good grammatical knowledge\n• The experienced use of the usual MS-Office programs round off your profile\n\n## The UPZ\nThe University Psychiatric Center Bern (UPZ) is the leading centre of excellence for psychiatry and psychotherapy in the capital region. It ensures psychiatric care in the canton of Bern along the entire supply chain, from early diagnosis to outpatient, day-care and inpatient therapies to rehabilitation and forensics. With more than 30 locations, the UPZ offers a comprehensive supply network. In addition, the UPZ makes an important contribution in the areas of teaching, training and further education as well as research.\n\n## Your place of work\nUniversity Psychiatric Center Bern (UPZ)\nHunzigenallee 1, 3110 Münsingen",
+      "de": "## Klinik für Psychose und Abhängigkeit\nDu möchtest in einem vielseitigen Kliniksekretariat arbeiten und mit deiner Organisation dafür sorgen, dass im Hintergrund alles rundläuft? Im Sekretariat der Klinik für Psychose und Abhängigkeit am Standort Münsingen besetzen wir zwei Vakanzen mit einem Pensum von 50–70% und 100%.\nIn deinem Arbeitsalltag bist du eine wichtige Drehscheibe zwischen den verschiedenen Berufsgruppen, Patientinnen und Patienten sowie weiteren internen und externen Ansprechpersonen. Du arbeitest selbstständig, behältst auch bei vielfältigen Anliegen den Überblick und leistest mit deiner sorgfältigen und dienstleistungsorientierten Arbeitsweise einen wichtigen Beitrag zu einem reibungslosen Klinikalltag. Dabei erwartet dich ein engagiertes Team, ein abwechslungsreiches Aufgabengebiet und die Möglichkeit, deine Erfahrung und Ideen einzubringen.\n\n## Deine Aufgaben\n• Du übernimmst in unserem interprofessionellen und engagierten Team die Ein- und Austrittskorrespondenz, liest Berichte und Gutachten gegen, formatierst sie und stellst deren Versand sicher\n• Du behältst Termine und Fristen im Blick und koordinierst diese rund um Kostengutsprachen, Beschwerden und Schweigepflichtentbindungen\n• Du unterstützt das ärztliche, psychologische und sozialarbeiterische Team in administrativen Belangen\n• Du stellst eine zuverlässige Post- und Mailtriage sicher und sorgst dafür, dass Anfragen und Unterlagen an die richtigen Stellen gelangen\n• Mit deinem Engagement und deiner wertschätzenden Art stellst du die Menschen ins Zentrum deines Handelns\n• Dein Know-how und deine Erfahrung bringst du aktiv ein und gestaltest die Weiterentwicklung unseres Sekretariates mit\n• Mit deinem kundenorientierten Einsatz trägst du intern wie extern dazu bei, dass das UPZ als kompetente Anlaufstelle und Behandlungszentrum für unsere Patientinnen und Patienten wahrgenommen wird\n\n## Dein Profil\n• Du verfügst über eine abgeschlossene kaufmännische Ausbildung oder eine vergleichbare Qualifikation. Idealerweise bringst du eine Weiterbildung im Bereich Arztsekretariat mit oder hast eine Ausbildung als medizinische Praxisassistenz\n• Du bist belastbar, dienstleistungs- und lösungsorientiert und überzeugst mit Humor, Einfühlungsvermögen sowie einem hohen Verantwortungs- und Qualitätsbewusstsein\n• Zudem schätzt du den persönlichen Kontakt zu verschiedenen Berufsgruppen und verfügst über Empathie für Patientinnen und Patienten in schwierigen Lebenssituationen\n• Du beherrschst die deutsche Sprache nicht nur in Wort und Schrift, sondern zeichnest dich durch sehr gute grammatikalische Kenntnisse aus\n• Die versierte Nutzung der üblichen MS-Office-Programme runden dein Profil ab\n\n## Das UPZ\nDas Universitäre Psychiatrische Zentrum Bern (UPZ) ist als universitäre Klinik das führende Kompetenzzentrum für Psychiatrie und Psychotherapie in der Hauptstadtregion. Es gewährleistet die psychiatrische Versorgung im Kanton Bern entlang der gesamten Versorgungskette, von der Früherkennung über ambulante, tagesklinische und stationäre Therapien bis hin zu Rehabilitation und Forensik. Mit über 30 Standorten bietet das UPZ ein flächendeckendes Versorgungsnetz. Darüber hinaus leistet das UPZ einen wichtigen Beitrag in den Bereichen Lehre, Aus- und Weiterbildung sowie Forschung.\n\n## Dein Arbeitsort\nUniversitäres Psychiatrisches Zentrum Bern (UPZ)\nHunzigenallee 1, 3110 Münsingen",
+      "fr": "## Clinique de psychose et de dépendance\nVous voulez travailler dans un secrétariat de clinique polyvalent et vous assurer que tout fonctionne bien dans le contexte de votre organisation? Dans le secrétariat de la clinique de psychose et de dépendance à l'emplacement de Münsingen, nous remplissons deux postes vacants avec un fardeau de 50 à 70 % et 100 %.\nDans votre travail quotidien, vous êtes un carrefour important entre les différents groupes professionnels, patients et autres contacts internes et externes. Vous travaillez de façon indépendante, gardez un aperçu même pour une variété de préoccupations et contribuez de façon importante à une routine quotidienne harmonieuse avec votre travail soigné et axé sur le service. Vous pouvez vous attendre à une équipe dévouée, à un domaine de responsabilité varié et à la possibilité de partager votre expérience et vos idées.\n\n## Vos tâches\n• Vous prenez en charge la correspondance d'entrée et de sortie dans notre équipe interprofessionnelle et dédiée, lire les rapports et les rapports, les formater et assurer leur expédition\n• Vous gardez un œil sur les dates et les délais et les coordonnez autour des langues de coût, des plaintes et des renonciations à la confidentialité\n• Vous aidez l'équipe médicale, psychologique et sociale en matière administrative\n• Vous assurez un triage postal et postal fiable et vous assurez que les demandes et les documents se rendent aux bons endroits\n• Avec votre engagement et votre gratitude, vous mettez les gens au centre de vos actions.\n• Vous apportez activement votre savoir-faire et votre expérience et façonnez le développement futur de notre secrétariat\n• Avec votre engagement axé sur le client, vous contribuez de manière interne et externe à garantir que l'UPZ est perçu comme un point de contact compétent et un centre de traitement pour nos patients.\n\n## Votre profil\n• Vous avez une formation commerciale ou une qualification comparable. Idéalement, vous bénéficierez d'une formation complémentaire au sein du secrétariat médical ou d'une formation d'assistant en médecine.\n• Vous êtes résilient, orienté vers le service et la solution et convainquez avec humour, empathie et un haut sens des responsabilités et de la qualité\n• Vous appréciez également le contact personnel avec différents groupes professionnels et avez de l'empathie pour les patients dans des situations de vie difficiles.\n• Vous maîtrisez la langue allemande non seulement en paroles et en écriture, mais vous vous distinguez également par de très bonnes connaissances grammaticales\n• L'utilisation expérimentée des programmes habituels MS-Office complète votre profil\n\n## L'UPZ\nLe Centre psychiatrique de l'Université de Berne (UPZ) est le centre d'excellence en psychiatrie et en psychothérapie de la capitale. Il assure des soins psychiatriques dans le canton de Berne tout au long de la chaîne d'approvisionnement, depuis le diagnostic précoce jusqu'au traitement ambulatoire, aux garderies et aux soins hospitaliers jusqu'à la réadaptation et à la médecine légale. Avec plus de 30 emplacements, l'UPZ offre un réseau d'approvisionnement complet. En outre, l'UPZ apporte une contribution importante dans les domaines de l'enseignement, de la formation et de la formation continue ainsi que de la recherche.\n\n## Votre lieu de travail\nCentre psychiatrique universitaire de Berne (UPZ)\nHunzigenallee 1, 3110 Münsingen"
+    },
+    "slugByLocale": {
+      "it": "segretario-medico-segretario-medico-universitare-psychiatrische-dienste-bern-upd-munsingen",
+      "en": "arztsekretarin-arztsekretar-universitare-psychiatrische-dienste-bern-upd-munsingen",
+      "de": "arztsekretarin-arztsekretar-upd-munsingen",
+      "fr": "secretaire-medical-secretaire-medical-universitare-psychiatrische-dienste-bern-upd-munsingen"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-10-29T14:37:51.602Z",
+    "previousSlugs": [
+      "arztsekretarin-arztsekretar-upd-munsingen",
+      "medical-secretary-medical-secretary-universitare-psychiatrische-dienste-bern-upd-munsingen"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "arztsekretarin-arztsekretar-upd-munsingen"
+      ],
+      "en": [
+        "arztsekretarin-arztsekretar-upd-munsingen",
+        "medical-secretary-medical-secretary-universitare-psychiatrische-dienste-bern-upd-munsingen"
+      ],
+      "fr": [
+        "arztsekretarin-arztsekretar-upd-munsingen"
+      ]
+    },
+    "postalCode": "3110",
+    "streetAddress": "Hunzigenallee 1",
+    "salaryMin": 85000,
+    "salaryMax": 119000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/d80c90c3-c08d-4267-b35d-51d36c9bceb2",
+    "firstSeenAt": "2026-10-02T09:20:37.721Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/d80c90c3-c08d-4267-b35d-51d36c9bceb2",
+        "firstSeenAt": "2026-10-02T09:20:37.721Z",
+        "title": "Arztsekretärin / Arztsekretär"
+      },
+      {
+        "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/fd7efa94-d13a-4a37-9939-181f96d23e32",
+        "firstSeenAt": "2026-10-03T09:24:10.345Z",
+        "title": "Arztsekretärin / Arztsekretär"
+      }
+    ]
+  },
+  {
     "slug": "segretario-medico-segretario-medico-universitare-psychiatrische-dienste-bern-upd-munsingen-c9cacb95",
     "title": "Arztsekretärin / Arztsekretär",
     "titleByLocale": {
@@ -1944,7 +2172,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/d80c90c3-c08d-4267-b35d-51d36c9bceb2",
-    "firstSeenAt": "2026-10-03T09:24:10.345Z"
+    "firstSeenAt": "2026-10-02T09:20:37.721Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/d80c90c3-c08d-4267-b35d-51d36c9bceb2",
+        "firstSeenAt": "2026-10-02T09:20:37.721Z",
+        "title": "Arztsekretärin / Arztsekretär"
+      },
+      {
+        "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/fd7efa94-d13a-4a37-9939-181f96d23e32",
+        "firstSeenAt": "2026-10-03T09:24:10.345Z",
+        "title": "Arztsekretärin / Arztsekretär"
+      }
+    ]
   },
   {
     "slug": "personale-di-accoglienza-universitare-psychiatrische-dienste-bern-upd-munsingen",
@@ -2101,6 +2341,68 @@
     "firstSeenAt": "2026-09-29T21:25:33.600Z"
   },
   {
+    "slug": "dipl-specialita-infermieristica-guardia-notturna-permanente-stazione-speciale-wernicke-universitare-psychiatrische",
+    "title": "Dipl. Pflegefachperson Dauernachtwache Spezialstation Wernicke",
+    "titleByLocale": {
+      "it": "Dipl. Specialità infermieristica Guardia notturna permanente Stazione speciale Wernicke",
+      "en": "Dipl. Nursing specialist Permanent night watch Special station Wernicke",
+      "de": "Dipl. Pflegefachperson Dauernachtwache Spezialstation Wernicke",
+      "fr": "Dipl. Spécialiste des soins infirmiers Veille nocturne permanente Station spéciale Wernicke"
+    },
+    "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
+    "companyKey": "upd",
+    "location": "Bern",
+    "addressLocality": "Bern",
+    "descriptionByLocale": {
+      "it": "## Ospedale Universitario per Psichiatria Adulta e Psicoterapia\nAl Centro Psichiatrico dell'Università di Berna, ci occupiamo di 18 persone con malattie psichiatriche complesse e crisi di stress acute. Il nostro team è specializzato nel trattamento di disturbi del movimento psichiatrico come la catatonia e la depressione resistente alla terapia e ha una profonda esperienza sia nella cura somatica che psichiatrica. Grazie alla nostra vicinanza alla medicina somatica, forniamo ai nostri pazienti una cura completa e olistica.\nCome guardia notturna, si assume un compito responsabile e garantire la cura professionale e sicura dei nostri pazienti durante la notte. Con la tua natura calma, attenta ed empatica, crei un'atmosfera di fiducia e riconosci i cambiamenti nello stato psicologico e somatico in una fase iniziale. Vorresti entrare a far parte del nostro team dedicato e, con la tua esperienza e l'empatia, contribuire anche al recupero dei nostri pazienti durante la notte?\n\n## I tuoi compiti\n• Fornite cure individuali e professionali durante la notte e accompagnate i nostri pazienti attraverso processi di recupero complessi\n• Nelle situazioni di crisi acuta, agisci con fiducia e con empatia – la tua competenza calma e professionale fa la differenza\n• Durante la notte si assume la responsabilità del processo di cura e contribuisce in modo significativo alla continuità della terapia\n• Porti le tue idee e le tue competenze all'ulteriore sviluppo dei nostri concetti di cura – la tua voce conta!\n• Nel team interdisciplinare, si lavora a stretto contatto con specialisti di diverse discipline per ottenere il miglior risultato possibile per i nostri pazienti.\n\n## Il tuo profilo\n• Hai un diploma come infermiera HF / FH e idealmente portare esperienza professionale nella cura somatica e/o psichiatrica dei pazienti o vorrei continuare la tua formazione in questo settore\n• La vostra empatia e l'alto livello di competenza vi rendono un prezioso supporto per i nostri pazienti e i loro parenti.\n• Anche in situazioni difficili, si rimane calma e calma, mostrare l'iniziativa e prendere la responsabilità\n• Valori la collaborazione del team e contribuisci attivamente alle tue idee – il successo congiunto ti motiva\n• Un modo attento e indipendente di lavorare è una questione naturalmente per voi, e ti piace padroneggiare la vita quotidiana con un livello di umorismo sano.\n\n## L'UPZ\nLa Universitäre Psychiatrische Zentrum Bern (UPZ) è il centro di eccellenza per la psichiatria e la psicoterapia nella regione capitale. Garantisce cure psichiatriche nel cantone di Berna lungo tutta la catena di approvvigionamento, dalla diagnosi precoce alle terapie ospedaliere, diurne e ospedaliere alla riabilitazione e alla forense. Con oltre 30 sedi, UPZ offre una rete di approvvigionamento completa. Inoltre, l'UPZ offre un importante contributo nei settori dell'insegnamento, della formazione e dell'ulteriore istruzione e della ricerca.\n\n## Il tuo posto di lavoro\nCentro psichiatrico universitario Berna (UPZ)\nUniversità Psichiatria Servizi Berna, Murtenstrasse 21, 3008 Berna",
+      "en": "## University Hospital for Adult Psychiatry and Psychotherapy\nAt the University Psychiatric Center in Bern, we look after 18 people with complex psychiatric diseases and acute stress crises. Our team specializes in the treatment of psychiatric movement disorders such as catatonia and therapy-resistant depression and has in-depth expertise in both somatic and psychiatric care. Thanks to our proximity to somatic medicine, we provide our patients with comprehensive and holistic care.\nAs a night watch, you take on a responsible task and ensure the professional and safe care of our patients during the night. With your calm, attentive and empathetic nature, you create an atmosphere of trust and recognize changes in the psychological and somatic state at an early stage. Would you like to become part of our dedicated team and, with your expertise and empathy, also contribute to the recovery of our patients during the night?\n\n## Your tasks\n• You provide individual, professional care during the night and accompany our patients through complex recovery processes\n• In acute crisis situations, you act confidently and with empathy – your calm and professional competence make the difference\n• During the night you take responsibility for the care process and contribute significantly to the continuity in therapy\n• You bring your ideas and expertise to the further development of our care concepts – your voice counts!\n• In the interdisciplinary team, you work closely with specialists from different disciplines to achieve the best possible result for our patients.\n\n## Your profile\n• You have a diploma as a nurse HF / FH and ideally bring professional experience in the somatic and/or psychiatric care of patients or would like to continue your education in this area\n• Your empathy and high level of expertise make you a valuable support for our patients and their relatives.\n• Even in challenging situations, you remain calm and calm, show initiative and take responsibility\n• You value team collaboration and actively contribute your ideas – joint success motivates you\n• A careful, independent way of working is a matter of course for you, and you enjoy mastering everyday life with a healthy level of humor.\n\n## The UPZ\nThe Universitäre Psychiatrische Zentrum Bern (UPZ) is the leading centre of excellence for psychiatry and psychotherapy in the capital region. It ensures psychiatric care in the canton of Bern along the entire supply chain, from early diagnosis to outpatient, day-care and inpatient therapies to rehabilitation and forensics. With more than 30 locations, the UPZ offers a comprehensive supply network. In addition, the UPZ makes an important contribution in the areas of teaching, training and further education as well as research.\n\n## Your place of work\nUniversity Psychiatric Center Bern (UPZ)\nUniversity Psychiatric Services Bern, Murtenstrasse 21, 3008 Bern",
+      "de": "## Universitätsklinik für Erwachsenenpsychiatrie und Psychotherapie\nBeim Universitären Psychiatrischen Zentrum Bern betreuen wir auf der Station Wernicke 18 Menschen mit komplexen psychiatrischen Erkrankungen und akuten Belastungskrisen. Unser Team ist spezialisiert auf die Behandlung von psychiatrischen Bewegungsstörungen wie Katatonie und therapieresistenten Depressionen und verfügt über fundierte Kompetenzen sowohl in der somatischen als auch in der psychiatrischen Pflege. Dank unserer Nähe zur somatischen Medizin ermöglichen wir unseren Patientinnen und Patienten eine umfassende und ganzheitliche Betreuung.\nAls Nachtwache übernimmst du eine verantwortungsvolle Aufgabe und sorgst während der Nacht für die professionelle und sichere Betreuung unserer Patientinnen und Patienten. Mit deiner ruhigen, aufmerksamen und empathischen Art schaffst du eine vertrauensvolle Atmosphäre und erkennst Veränderungen des psychischen und somatischen Zustands frühzeitig. Möchtest du Teil unseres engagierten Teams werden und mit deiner Fachkompetenz sowie Empathie auch während der Nacht zur Genesung unserer Patientinnen und Patienten beitragen?\n\n## Deine Aufgaben\n• Du sorgst während der Nacht für eine individuelle, professionelle Pflege und begleitest unsere Patientinnen und Patienten durch komplexe Genesungsprozesse\n• In akuten Krisensituationen agierst du souverän und mit Empathie – deine Ruhe und Fachkompetenz machen den Unterschied\n• Du übernimmst während der Nacht Verantwortung für den Pflegeprozess und trägst massgeblich zur Kontinuität in der Therapie bei\n• Du bringst deine Ideen und Expertise in die Weiterentwicklung unserer Pflegekonzepte ein – deine Stimme zählt!\n• Im interdisziplinären Team arbeitest du eng mit Fachkräften aus verschiedenen Disziplinen zusammen, um das bestmögliche Ergebnis für unsere Patientinnen und Patienten zu erreichen\n\n## Dein Profil\n• Du verfügst über ein Diplom als Pflegefachperson HF / FH und bringst idealerweise Berufserfahrung in der somatischen und/oder psychiatrischen Versorgung von Patientinnen und Patienten mit oder möchtest dich in diesem Bereich weiterbilden\n• Dein Einfühlungsvermögen und deine hohe Fachkompetenz machen dich zu einer wertvollen Stütze für unsere Patientinnen und Patienten und deren Angehörige\n• Auch in herausfordernden Situationen bleibst du ruhig und gelassen, zeigst Eigeninitiative und übernimmst Verantwortung\n• Du schätzt die Zusammenarbeit im Team und bringst deine Ideen aktiv ein – gemeinsame Erfolge motivieren dich\n• Eine sorgfältige, eigenständige Arbeitsweise ist für dich selbstverständlich, und du hast Freude daran, den Alltag mit einem gesunden Mass an Humor zu meistern\n\n## Das UPZ\nDas Universitäre Psychiatrische Zentrum Bern (UPZ) ist als universitäre Klinik das führende Kompetenzzentrum für Psychiatrie und Psychotherapie in der Hauptstadtregion. Es gewährleistet die psychiatrische Versorgung im Kanton Bern entlang der gesamten Versorgungskette, von der Früherkennung über ambulante, tagesklinische und stationäre Therapien bis hin zu Rehabilitation und Forensik. Mit über 30 Standorten bietet das UPZ ein flächendeckendes Versorgungsnetz. Darüber hinaus leistet das UPZ einen wichtigen Beitrag in den Bereichen Lehre, Aus- und Weiterbildung sowie Forschung.\n\n## Dein Arbeitsort\nUniversitäres Psychiatrisches Zentrum Bern (UPZ)\nUniversitäre Psychiatrische Dienste Bern, Murtenstrasse 21, 3008 Bern",
+      "fr": "## Hôpital universitaire de psychiatrie et de psychothérapie pour adultes\nAu Centre psychiatrique universitaire de Berne, nous prenons soin de 18 personnes atteintes de maladies psychiatriques complexes et de crises de stress aigu. Notre équipe est spécialisée dans le traitement des troubles du mouvement psychiatriques tels que la catatonia et la dépression résistante au traitement et possède une expertise approfondie en soins somatiques et psychiatriques. Grâce à notre proximité de la médecine somatique, nous fournissons à nos patients des soins complets et holistiques.\nEn tant que veilleur de nuit, vous assumez une tâche responsable et assurez les soins professionnels et sécuritaires de nos patients pendant la nuit. Avec votre nature calme, attentive et empathique, vous créez une atmosphère de confiance et reconnaissez les changements dans l'état psychologique et somatique à un stade précoce. Aimeriez-vous faire partie de notre équipe dévouée et, avec votre expertise et votre empathie, contribuer à la guérison de nos patients pendant la nuit?\n\n## Vos tâches\n• Vous fournissez des soins individuels et professionnels pendant la nuit et accompagnez nos patients par des processus de récupération complexes\n• Dans les situations de crise aiguë, vous agissez avec confiance et empathie – votre calme et votre compétence professionnelle font la différence\n• Pendant la nuit, vous prenez la responsabilité du processus de soins et contribuez significativement à la continuité de la thérapie\n• Vous apportez vos idées et votre expertise au développement de nos concepts de soins – votre voix compte!\n• Dans l'équipe interdisciplinaire, vous travaillez en étroite collaboration avec des spécialistes de différentes disciplines pour obtenir le meilleur résultat possible pour nos patients.\n\n## Votre profil\n• Vous avez un diplôme d'infirmière HF / FH et apportez idéalement une expérience professionnelle dans les soins somatiques et/ou psychiatriques des patients ou souhaitez poursuivre vos études dans ce domaine\n• Votre empathie et votre expertise vous apportent un soutien précieux pour nos patients et leurs proches.\n• Même dans des situations difficiles, vous restez calme et calme, faites preuve d'initiative et prenez vos responsabilités\n• Vous appréciez la collaboration de l'équipe et contribuez activement à vos idées.\n• Une façon de travailler prudente et indépendante est une question bien sûr pour vous, et vous aimez maîtriser la vie quotidienne avec un niveau d'humour sain.\n\n## L'UPZ\nL'Université Psychiatrische Zentrum Bern (UPZ) est le centre d'excellence en psychiatrie et en psychothérapie de la capitale. Il assure les soins psychiatriques dans le canton de Berne tout au long de la chaîne d ' approvisionnement, depuis le diagnostic précoce jusqu ' aux consultations externes, aux garderies et aux soins hospitaliers jusqu ' à la réadaptation et à la médecine légale. Avec plus de 30 emplacements, l'UPZ offre un réseau d'approvisionnement complet. En outre, l'UPZ apporte une contribution importante dans les domaines de l'enseignement, de la formation et de la formation continue ainsi que de la recherche.\n\n## Votre lieu de travail\nCentre psychiatrique universitaire de Berne (UPZ)\nServices psychiatriques universitaires Bern, Murtenstrasse 21, 3008 Berne"
+    },
+    "slugByLocale": {
+      "it": "dipl-specialita-infermieristica-guardia-notturna-permanente-stazione-speciale-wernicke-universitare-psychiatrische",
+      "en": "dipl-nursing-specialist-permanent-night-watch-special-station-wernicke-universitare-psychiatrische-dienste-bern-upd-bern",
+      "de": "dipl-pflegefachperson-dauernachtwache-spezialstation-wernicke-upd-bern",
+      "fr": "dipl-specialiste-des-soins-infirmiers-veille-nocturne-permanente-station-speciale-wernicke-universitare-psychiatrische"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-10-27T21:30:45.297Z",
+    "previousSlugs": [
+      "dipl-pflegefachperson-dauernachtwache-spezialstation-wernicke-upd-bern"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "dipl-pflegefachperson-dauernachtwache-spezialstation-wernicke-upd-bern"
+      ],
+      "en": [
+        "dipl-pflegefachperson-dauernachtwache-spezialstation-wernicke-upd-bern"
+      ],
+      "fr": [
+        "dipl-pflegefachperson-dauernachtwache-spezialstation-wernicke-upd-bern"
+      ]
+    },
+    "postalCode": "3004",
+    "streetAddress": "Murtenstrasse 21",
+    "salaryMin": 85000,
+    "salaryMax": 119000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/03381e4f-3998-46b9-8ab9-a1cae9b27048",
+    "firstSeenAt": "2026-09-29T21:25:33.600Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/0296da24-91ed-4082-a3b2-005b45b519f0",
+        "firstSeenAt": "2026-09-29T21:25:33.600Z",
+        "title": "Dipl. Pflegefachperson Dauernachtwache Spezialstation Wernicke"
+      },
+      {
+        "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/03381e4f-3998-46b9-8ab9-a1cae9b27048",
+        "firstSeenAt": "2026-09-29T21:25:33.600Z",
+        "title": "Dipl. Pflegefachperson Dauernachtwache Spezialstation Wernicke"
+      }
+    ]
+  },
+  {
     "slug": "fachspezialistin-fachspezialist-patienten-e-leistungsmanagement-plm-universitare-psychiatrische-dienste-bern-upd-bern",
     "title": "Fachspezialistin / Fachspezialist Patienten- und Leistungsmanagement (PLM)",
     "titleByLocale": {
@@ -2198,7 +2500,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/726e43e5-c624-49cc-a985-2c98b4d19ddb",
-    "firstSeenAt": "2026-09-28T04:59:22.838Z"
+    "firstSeenAt": "2026-09-28T04:59:22.838Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/726e43e5-c624-49cc-a985-2c98b4d19ddb",
+        "firstSeenAt": "2026-09-28T04:59:22.838Z",
+        "title": "Sozialarbeiter*in (m/w/d) als Mutterschaftsvertretung"
+      },
+      {
+        "sourceIdentity": "url:https://recruitingapp-2908.umantis.com/vacancies/3535/description/1",
+        "firstSeenAt": "2026-09-28T04:59:22.838Z",
+        "title": "Sozialarbeiter*in (m/w/d) als Mutterschaftsvertretung"
+      }
+    ]
   },
   {
     "slug": "medico-senior-medico-senior-focus-sulla-dipendenza-universitare-psychiatrische-dienste-bern-upd-bern",
@@ -2397,6 +2711,68 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/0b7c8c04-fa8c-404d-a627-e495b918c7cf",
     "firstSeenAt": "2026-09-29T21:25:33.557Z"
+  },
+  {
+    "slug": "dipl-cura-del-giorno-professionale-opm-universitare-psychiatrische-dienste-bern-upd-munsingen",
+    "title": "Dipl. Pflegefachperson im Tagdienst OPM",
+    "titleByLocale": {
+      "it": "Dipl. Cura del giorno professionale OPM",
+      "en": "Dipl. Day care professional OPM",
+      "de": "Dipl. Pflegefachperson im Tagdienst OPM",
+      "fr": "Dipl. Spécialiste des garderies"
+    },
+    "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
+    "companyKey": "upd",
+    "location": "Münsingen",
+    "addressLocality": "Münsingen",
+    "descriptionByLocale": {
+      "it": "Clinica per psicosi e dipendenza\n\n## I tuoi compiti\n• Aiuta a costruire un team di cura motivato con assegnazione di formazione e supporto nella formazione professionale come persona di contatto per studenti e studenti HF\n• Come caregiver, motivare e rafforzare i pazienti per contribuire a modellare il loro processo di recupero e perseguire i loro obiettivi.\n• Porti la tua preziosa esperienza e la tua prospettiva al team interprofessionale e contribuisci ad un'alta qualità del trattamento\n• Come fornitore di assistenza alla cura, accompagni e supporti i pazienti e sei in contatto con i loro parenti\n• Progettare una variegata struttura quotidiana e partecipare attivamente alle attività settimanali (ad esempio gruppo sportivo o gruppo di discussione)\n• Sei responsabile dell'intera pianificazione del trattamento dall'ingresso all'uscita\n\n## Il tuo profilo\n• Lei è Dipl. HF/FH infermiera (o ha un diploma equivalente dall'estero, che è riconosciuto in Svizzera)\n• Sei interessato a domande complesse e discussioni orientate ai risultati\n• Ti piace il lavoro di caregiver e il design del processo di cura dall'ingresso all'uscita\n\n## L'UPZ\nLa Universitäre Psychiatrische Zentrum Bern (UPZ) è il centro di eccellenza per la psichiatria e la psicoterapia nella regione capitale. Garantisce cure psichiatriche nel cantone di Berna lungo tutta la catena di approvvigionamento, dalla diagnosi precoce alle terapie ospedaliere, diurne e ospedaliere alla riabilitazione e alla forense. Con oltre 30 sedi, UPZ offre una rete di approvvigionamento completa. Inoltre, l'UPZ offre un importante contributo nei settori dell'insegnamento, della formazione e dell'ulteriore istruzione e della ricerca.\n\n## Il tuo posto di lavoro\nCentro psichiatrico universitario Berna (UPZ)\n1, 3110 Münsingen",
+      "en": "Clinic for Psychosis and Dependence\n\n## Your tasks\n• You help to build a motivated nursing team with training assignment and support in vocational training as a contact person for learners and students HF\n• As a caregiver, you motivate and empower patients to help shape their recovery process and pursue their goals.\n• You bring your valuable experience and perspective to the interprofessional team and contribute to a high quality of treatment\n• As a nursing care provider, you accompany and support the patients and are in contact with their relatives\n• You design a varied daily structure and actively participate in the weekly activities (e.g. sports group or discussion group)\n• You are responsible for the entire treatment planning from entry to exit\n\n## Your profile\n• You are Dipl. HF/FH nurse (or have an equivalent diploma from abroad, which is recognised in Switzerland)\n• You are interested in complex questions and result-oriented discussions\n• You enjoy the caregiver work and design of the care process from admission to exit\n\n## The UPZ\nThe Universitäre Psychiatrische Zentrum Bern (UPZ) is the leading centre of excellence for psychiatry and psychotherapy in the capital region. It ensures psychiatric care in the canton of Bern along the entire supply chain, from early diagnosis to outpatient, day-care and inpatient therapies to rehabilitation and forensics. With more than 30 locations, the UPZ offers a comprehensive supply network. In addition, the UPZ makes an important contribution in the areas of teaching, training and further education as well as research.\n\n## Your place of work\nUniversity Psychiatric Center Bern (UPZ)\nHunzigenallee 1, 3110 Münsingen",
+      "de": "Klinik für Psychose und Abhängigkeit\n\n## Deine Aufgaben\n• Du hilfst mit beim Aufbau eines motivierten Pflegeteams mit Ausbildungsauftrag und unterstützt bei der Berufsbildung als Ansprechperson für Lernende und Studierende HF\n• Als Bezugsperson motivierst und befähigst du die Patientinnen und Patienten, ihren Genesungsprozess mitzugestalten und ihre Ziele zu verfolgen\n• Du bringst deine wertvolle Erfahrung und deine Perspektive im interprofessionellen Team ein und trägst damit zu einer hohen Behandlungsqualität bei\n• Als pflegerische Bezugsperson begleitest und unterstützt du die Patientinnen und Patienten und stehst im Kontakt zu ihren Angehörigen\n• Du gestaltest eine abwechslungsreiche Tagesstruktur und nimmst aktiv an den wöchentlichen Aktivitäten teil (bspw. Sportgruppe oder Gesprächsgruppe)\n• Du bist zuständig für die gesamte Behandlungsplanung vom Eintritt bis zum Austritt\n\n## Dein Profil\n• Du bist Dipl. Pflegefachperson HF/FH (oder verfügst über ein gleichwertiges Diplom aus dem Ausland, welches in der Schweiz anerkannt ist)\n• Du hast Interesse an komplexen Fragestellungen und ergebnisorientierten Fachgesprächen\n• Du hast Freude an der Bezugspersonenarbeit und Gestaltung des Pflegeprozesses von der Aufnahme bis zum Austritt\n\n## Das UPZ\nDas Universitäre Psychiatrische Zentrum Bern (UPZ) ist als universitäre Klinik das führende Kompetenzzentrum für Psychiatrie und Psychotherapie in der Hauptstadtregion. Es gewährleistet die psychiatrische Versorgung im Kanton Bern entlang der gesamten Versorgungskette, von der Früherkennung über ambulante, tagesklinische und stationäre Therapien bis hin zu Rehabilitation und Forensik. Mit über 30 Standorten bietet das UPZ ein flächendeckendes Versorgungsnetz. Darüber hinaus leistet das UPZ einen wichtigen Beitrag in den Bereichen Lehre, Aus- und Weiterbildung sowie Forschung.\n\n## Dein Arbeitsort\nUniversitäres Psychiatrisches Zentrum Bern (UPZ)\nHunzigenallee 1, 3110 Münsingen",
+      "fr": "Clinique de psychose et de dépendance\n\n## Vos tâches\n• Vous aidez à construire une équipe de soins infirmiers motivée avec une mission de formation et un soutien en formation professionnelle en tant que personne de contact pour les apprenants et les étudiants HF\n• En tant que soignant, vous motivez et donnez aux patients les moyens de façonner leur processus de rétablissement et de poursuivre leurs objectifs.\n• Vous apportez votre précieuse expérience et perspective à l'équipe interprofessionnelle et contribuez à une qualité de traitement élevée\n• En tant que dispensateur de soins infirmiers, vous accompagnez et soutenez les patients et êtes en contact avec leurs proches.\n• Vous concevez une structure quotidienne variée et participez activement aux activités hebdomadaires (p. ex. groupe sportif ou groupe de discussion)\n• Vous êtes responsable de toute la planification du traitement de l'entrée à la sortie\n\n## Votre profil\n• Vous êtes infirmière diplômée HF/FH (ou avez un diplôme équivalent de l'étranger, reconnu en Suisse)\n• Vous êtes intéressé par des questions complexes et des discussions axées sur les résultats\n• Vous appréciez le travail de soignant et la conception du processus de soins de l'admission à la sortie\n\n## L'UPZ\nL'Université Psychiatrische Zentrum Bern (UPZ) est le centre d'excellence en psychiatrie et en psychothérapie de la capitale. Il assure les soins psychiatriques dans le canton de Berne tout au long de la chaîne d ' approvisionnement, depuis le diagnostic précoce jusqu ' aux consultations externes, aux garderies et aux soins hospitaliers jusqu ' à la réadaptation et à la médecine légale. Avec plus de 30 emplacements, l'UPZ offre un réseau d'approvisionnement complet. En outre, l'UPZ apporte une contribution importante dans les domaines de l'enseignement, de la formation et de la formation continue ainsi que de la recherche.\n\n## Votre lieu de travail\nCentre psychiatrique universitaire de Berne (UPZ)\nHunzigenallee 1, 3110 Münsingen"
+    },
+    "slugByLocale": {
+      "it": "dipl-cura-del-giorno-professionale-opm-universitare-psychiatrische-dienste-bern-upd-munsingen",
+      "en": "dipl-day-care-professional-opm-universitare-psychiatrische-dienste-bern-upd-munsingen",
+      "de": "dipl-pflegefachperson-im-tagdienst-opm-upd-munsingen",
+      "fr": "dipl-specialiste-des-garderies-universitare-psychiatrische-dienste-bern-upd-munsingen"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-10-22T09:51:21.058Z",
+    "previousSlugs": [
+      "dipl-pflegefachperson-im-tagdienst-opm-upd-munsingen"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "dipl-pflegefachperson-im-tagdienst-opm-upd-munsingen"
+      ],
+      "en": [
+        "dipl-pflegefachperson-im-tagdienst-opm-upd-munsingen"
+      ],
+      "fr": [
+        "dipl-pflegefachperson-im-tagdienst-opm-upd-munsingen"
+      ]
+    },
+    "postalCode": "3110",
+    "streetAddress": "Hunzigenallee 1",
+    "salaryMin": 85000,
+    "salaryMax": 119000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/cdf6e67e-8857-44f7-9ce0-29ade801b069",
+    "firstSeenAt": "2026-09-29T21:25:33.587Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/3f5812dd-9821-4366-8863-470d64b2200b",
+        "firstSeenAt": "2026-09-29T21:25:33.587Z",
+        "title": "Dipl. Pflegefachperson im Tagdienst OPM"
+      },
+      {
+        "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/cdf6e67e-8857-44f7-9ce0-29ade801b069",
+        "firstSeenAt": "2026-09-29T21:25:33.587Z",
+        "title": "Dipl. Pflegefachperson im Tagdienst OPM"
+      }
+    ]
   },
   {
     "slug": "dipl-cura-del-giorno-professionale-opm-universitare-psychiatrische-dienste-bern-upd-munsingen-bc44b262",
@@ -2654,7 +3030,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/687ee663-828d-4d68-83b0-1cda5a9d5ae9",
-    "firstSeenAt": "2026-08-20T09:48:27.551Z"
+    "firstSeenAt": "2026-08-20T09:48:27.551Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/687ee663-828d-4d68-83b0-1cda5a9d5ae9",
+        "firstSeenAt": "2026-08-20T09:48:27.551Z",
+        "title": "Diplomierte Pflegefachperson Ambulatorium Bern"
+      },
+      {
+        "sourceIdentity": "url:https://recruitingapp-2908.umantis.com/vacancies/3395/description/1",
+        "firstSeenAt": "2026-08-20T09:48:27.551Z",
+        "title": "Diplomierte Pflegefachperson Ambulatorium Bern"
+      }
+    ]
   },
   {
     "slug": "impiegata-amministrativa-impiegato-amministrativo-in-segreteria-medica-universitare-psychiatrische-dienste-bern-upd-bern",
@@ -3230,7 +3618,7 @@
     "firstSeenAt": "2026-09-29T21:25:33.524Z"
   },
   {
-    "slug": "segretario-medico-segretario-medico-universitare-psychiatrische-dienste-bern-upd-bern-7bf4debc",
+    "slug": "segretario-medico-segretario-medico-universitare-psychiatrische-dienste-bern-upd-bern",
     "title": "Medizinische Sekretärin / Medizinischer Sekretär",
     "titleByLocale": {
       "it": "Segretario medico / Segretario medico",
@@ -3249,10 +3637,10 @@
       "fr": "## Clinique universitaire de psychiatrie et de psychothérapie des enfants et des adolescents\nLe Centre psychiatrique de Berne est le principal centre de compétence en santé mentale. Dans l'ambulatoire de la psychiatrie des enfants et des adolescents à Hallerstrasse 10, nous offrons des soins ambulatoires aux enfants, aux adolescents et à leur famille dans des situations difficiles. En tant que secrétaire médical, vous êtes le centre d'organisation qui soutient notre équipe interdisciplinaire en matière administrative et aide nos patients à recevoir les meilleurs soins possibles.\n\n## Vos tâches\n• Vous compléterez le travail général de secrétariat et d'écriture et soutenirz notre équipe de traitement interdisciplinaire dans les tâches administratives\n• Vous êtes la première personne-ressource au téléphone et aux demandes de triage des patients, des gardiens, des employés et des partenaires du réseau\n• Vous êtes responsable de l'organisation et de la coordination des heures de consultation ambulatoire dans l'Ambulatoire de Berne\n• Vous maintenez des dossiers patients (ORBIS) et des services d'enregistrement (IBI-Care) en étroite collaboration avec notre personnel spécialisé\n• Vous gérez l'enregistrement du temps (PEP) pour les employés de l'Ambulatorium Bern\n• Vous travaillez sur des projets ainsi que des mesures d'assurance qualité et de promotion\n\n## Votre profil\n• Vous avez terminé une formation commerciale, idéalement avec une expérience médicale ou une fonction similaire\n• Idéalement, vous avez une formation continue en tant que médecin ou secrétaire d'hôpital*\n• Votre fiabilité, votre engagement et votre flexibilité vous distinguent\n• Vous êtes en sécurité avec les enfants, les adolescents et les parents et avez d'excellentes manières\n• Vous fixez des priorités et accomplissez des tâches de manière efficace et indépendante – même dans les moments agités, vous restez calme et professionnel\n• Vous avez d'excellentes compétences linguistiques en allemand et en français (C1) et avez un talent pour écrire des textes\n• De bonnes compétences informatiques (Word, Excel, Outlook) font partie de votre répertoire\n\n## L'UPZ\nL'Université Psychiatrische Zentrum Bern (UPZ) est le centre d'excellence en psychiatrie et en psychothérapie de la capitale. Il assure les soins psychiatriques dans le canton de Berne tout au long de la chaîne d ' approvisionnement, depuis le diagnostic précoce jusqu ' aux consultations externes, aux garderies et aux soins hospitaliers jusqu ' à la réadaptation et à la médecine légale. Avec plus de 30 emplacements, l'UPZ offre un réseau d'approvisionnement complet. En outre, l'UPZ apporte une contribution importante dans les domaines de l'enseignement, de la formation et de la formation continue ainsi que de la recherche.\n\n## Votre lieu de travail\nCentre psychiatrique universitaire de Berne (UPZ)\nHallerstrasse 10, 3012 Berne"
     },
     "slugByLocale": {
-      "it": "segretario-medico-segretario-medico-universitare-psychiatrische-dienste-bern-upd-bern-7bf4debc",
-      "en": "medical-secretary-medical-secretary-universitare-psychiatrische-dienste-bern-upd-bern-a2355627",
+      "it": "segretario-medico-segretario-medico-universitare-psychiatrische-dienste-bern-upd-bern",
+      "en": "medical-secretary-medical-secretary-universitare-psychiatrische-dienste-bern-upd-bern",
       "de": "medizinische-sekretarin-medizinischer-sekretar-upd-bern-f58d468d",
-      "fr": "secretaire-medical-secretaire-medical-universitare-psychiatrische-dienste-bern-upd-bern-a354da6e"
+      "fr": "secretaire-medical-secretaire-medical-universitare-psychiatrische-dienste-bern-upd-bern"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-10-12T12:39:37.193Z",
@@ -3317,44 +3705,16 @@
       "nachtarztin-nachtarzt-upd-bern-207eb5e0",
       "nachtarztin-nachtarzt-upd-bern-fb27f909",
       "medizinische-sekretarin-medizinischer-sekretar-upd-bern-47e2f23c",
+      "nachtarztin-nachtarzt-upd-bern",
+      "medizinische-sekretarin-medizinischer-sekretar-upd-bern",
+      "segretario-medico-segretario-medico-universitare-psychiatrische-dienste-bern-upd-bern-7bf4debc",
       "nachtarztin-nachtarzt-upd-bern-f14ed54e",
-      "medizinische-sekretarin-medizinischer-sekretar-upd-bern-7a1788ea"
+      "medical-secretary-medical-secretary-universitare-psychiatrische-dienste-bern-upd-bern-a2355627",
+      "medizinische-sekretarin-medizinischer-sekretar-upd-bern-7a1788ea",
+      "secretaire-medical-secretaire-medical-universitare-psychiatrische-dienste-bern-upd-bern-a354da6e"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "medico-notturno-universitare-psychiatrische-dienste-bern-upd-bern",
-        "nachtarztin-nachtarzt-upd-bern-37456694",
-        "nachtarztin-nachtarzt-upd-bern-00d4a0cb",
-        "nachtarztin-nachtarzt-upd-bern-50977ee0",
-        "nachtarztin-nachtarzt-upd-bern-e7b33ec5",
-        "nachtarztin-nachtarzt-upd-bern-e1a38909",
-        "nachtarztin-nachtarzt-upd-bern-28f44ac8",
-        "nachtarztin-nachtarzt-upd-bern-f5a38b81",
-        "nachtarztin-nachtarzt-upd-bern-e094be0f",
-        "nachtarztin-nachtarzt-upd-bern-705109e7",
-        "nachtarztin-nachtarzt-upd-bern-07807033",
-        "nachtarztin-nachtarzt-upd-bern-60f3d656",
-        "nachtarztin-nachtarzt-upd-bern-35637861",
-        "nachtarztin-nachtarzt-upd-bern-f9ee91fa",
-        "nachtarztin-nachtarzt-upd-bern-fa5e3b84",
-        "nachtarztin-nachtarzt-upd-bern-cd807488",
-        "nachtarztin-nachtarzt-upd-bern-1578baff",
-        "nachtarztin-nachtarzt-upd-bern-e8073b61",
-        "nachtarztin-nachtarzt-upd-bern-0bd30400",
-        "nachtarztin-nachtarzt-upd-bern-6888a3ee",
-        "nachtarztin-nachtarzt-upd-bern-30d5cf53",
-        "nachtarztin-nachtarzt-upd-bern-60faea86",
-        "nachtarztin-nachtarzt-upd-bern-9256df45",
-        "nachtarztin-nachtarzt-upd-bern-ee72e9bb",
-        "nachtarztin-nachtarzt-upd-bern-87ea80de",
-        "nachtarztin-nachtarzt-upd-bern-2cff15a2",
-        "nachtarztin-nachtarzt-upd-bern-f4865eaf",
-        "nachtarztin-nachtarzt-upd-bern-e12d236e",
-        "nachtarztin-nachtarzt-upd-bern-7aa8e0b2",
-        "nachtarztin-nachtarzt-upd-bern-b9038c12",
-        "nachtarztin-nachtarzt-upd-bern-ba894aa6",
-        "nachtarztin-nachtarzt-upd-bern-c7a4bfac",
-        "nachtarztin-nachtarzt-upd-bern-6563d219",
         "nachtarztin-nachtarzt-upd-bern-ba91c477",
         "nachtarztin-nachtarzt-upd-bern-f2653427",
         "nachtarztin-nachtarzt-upd-bern-41a10e95",
@@ -3372,42 +3732,10 @@
         "nachtarztin-nachtarzt-upd-bern-b502e72d",
         "nachtarztin-nachtarzt-upd-bern-207eb5e0",
         "nachtarztin-nachtarzt-upd-bern-fb27f909",
-        "nachtarztin-nachtarzt-upd-bern-f14ed54e"
+        "nachtarztin-nachtarzt-upd-bern-f14ed54e",
+        "segretario-medico-segretario-medico-universitare-psychiatrische-dienste-bern-upd-bern-7bf4debc"
       ],
       "en": [
-        "night-doctor-universitare-psychiatrische-dienste-bern-upd-bern",
-        "nachtarztin-nachtarzt-upd-bern-37456694",
-        "nachtarztin-nachtarzt-upd-bern-00d4a0cb",
-        "nachtarztin-nachtarzt-upd-bern-50977ee0",
-        "nachtarztin-nachtarzt-upd-bern-e7b33ec5",
-        "nachtarztin-nachtarzt-upd-bern-e1a38909",
-        "nachtarztin-nachtarzt-upd-bern-28f44ac8",
-        "nachtarztin-nachtarzt-upd-bern-f5a38b81",
-        "nachtarztin-nachtarzt-upd-bern-e094be0f",
-        "nachtarztin-nachtarzt-upd-bern-705109e7",
-        "nachtarztin-nachtarzt-upd-bern-07807033",
-        "nachtarztin-nachtarzt-upd-bern-60f3d656",
-        "nachtarztin-nachtarzt-upd-bern-35637861",
-        "nachtarztin-nachtarzt-upd-bern-f9ee91fa",
-        "nachtarztin-nachtarzt-upd-bern-fa5e3b84",
-        "nachtarztin-nachtarzt-upd-bern-cd807488",
-        "nachtarztin-nachtarzt-upd-bern-1578baff",
-        "nachtarztin-nachtarzt-upd-bern-e8073b61",
-        "nachtarztin-nachtarzt-upd-bern-0bd30400",
-        "nachtarztin-nachtarzt-upd-bern-6888a3ee",
-        "nachtarztin-nachtarzt-upd-bern-30d5cf53",
-        "nachtarztin-nachtarzt-upd-bern-60faea86",
-        "nachtarztin-nachtarzt-upd-bern-9256df45",
-        "nachtarztin-nachtarzt-upd-bern-ee72e9bb",
-        "nachtarztin-nachtarzt-upd-bern-87ea80de",
-        "nachtarztin-nachtarzt-upd-bern-2cff15a2",
-        "nachtarztin-nachtarzt-upd-bern-f4865eaf",
-        "nachtarztin-nachtarzt-upd-bern-e12d236e",
-        "nachtarztin-nachtarzt-upd-bern-7aa8e0b2",
-        "nachtarztin-nachtarzt-upd-bern-b9038c12",
-        "nachtarztin-nachtarzt-upd-bern-ba894aa6",
-        "nachtarztin-nachtarzt-upd-bern-c7a4bfac",
-        "nachtarztin-nachtarzt-upd-bern-6563d219",
         "nachtarztin-nachtarzt-upd-bern-ba91c477",
         "nachtarztin-nachtarzt-upd-bern-f2653427",
         "nachtarztin-nachtarzt-upd-bern-41a10e95",
@@ -3428,39 +3756,6 @@
         "nachtarztin-nachtarzt-upd-bern-f14ed54e"
       ],
       "fr": [
-        "docteur-de-nuit-universitare-psychiatrische-dienste-bern-upd-bern",
-        "nachtarztin-nachtarzt-upd-bern-37456694",
-        "nachtarztin-nachtarzt-upd-bern-00d4a0cb",
-        "nachtarztin-nachtarzt-upd-bern-50977ee0",
-        "nachtarztin-nachtarzt-upd-bern-e7b33ec5",
-        "nachtarztin-nachtarzt-upd-bern-e1a38909",
-        "nachtarztin-nachtarzt-upd-bern-28f44ac8",
-        "nachtarztin-nachtarzt-upd-bern-f5a38b81",
-        "nachtarztin-nachtarzt-upd-bern-e094be0f",
-        "nachtarztin-nachtarzt-upd-bern-705109e7",
-        "nachtarztin-nachtarzt-upd-bern-07807033",
-        "nachtarztin-nachtarzt-upd-bern-60f3d656",
-        "nachtarztin-nachtarzt-upd-bern-35637861",
-        "nachtarztin-nachtarzt-upd-bern-f9ee91fa",
-        "nachtarztin-nachtarzt-upd-bern-fa5e3b84",
-        "nachtarztin-nachtarzt-upd-bern-cd807488",
-        "nachtarztin-nachtarzt-upd-bern-1578baff",
-        "nachtarztin-nachtarzt-upd-bern-e8073b61",
-        "nachtarztin-nachtarzt-upd-bern-0bd30400",
-        "nachtarztin-nachtarzt-upd-bern-6888a3ee",
-        "nachtarztin-nachtarzt-upd-bern-30d5cf53",
-        "nachtarztin-nachtarzt-upd-bern-60faea86",
-        "nachtarztin-nachtarzt-upd-bern-9256df45",
-        "nachtarztin-nachtarzt-upd-bern-ee72e9bb",
-        "nachtarztin-nachtarzt-upd-bern-87ea80de",
-        "nachtarztin-nachtarzt-upd-bern-2cff15a2",
-        "nachtarztin-nachtarzt-upd-bern-f4865eaf",
-        "nachtarztin-nachtarzt-upd-bern-e12d236e",
-        "nachtarztin-nachtarzt-upd-bern-7aa8e0b2",
-        "nachtarztin-nachtarzt-upd-bern-b9038c12",
-        "nachtarztin-nachtarzt-upd-bern-ba894aa6",
-        "nachtarztin-nachtarzt-upd-bern-c7a4bfac",
-        "nachtarztin-nachtarzt-upd-bern-6563d219",
         "nachtarztin-nachtarzt-upd-bern-ba91c477",
         "nachtarztin-nachtarzt-upd-bern-f2653427",
         "nachtarztin-nachtarzt-upd-bern-41a10e95",
@@ -3481,38 +3776,6 @@
         "nachtarztin-nachtarzt-upd-bern-f14ed54e"
       ],
       "de": [
-        "nachtarztin-nachtarzt-upd-bern-37456694",
-        "nachtarztin-nachtarzt-upd-bern-00d4a0cb",
-        "nachtarztin-nachtarzt-upd-bern-50977ee0",
-        "nachtarztin-nachtarzt-upd-bern-e7b33ec5",
-        "nachtarztin-nachtarzt-upd-bern-e1a38909",
-        "nachtarztin-nachtarzt-upd-bern-28f44ac8",
-        "nachtarztin-nachtarzt-upd-bern-f5a38b81",
-        "nachtarztin-nachtarzt-upd-bern-e094be0f",
-        "nachtarztin-nachtarzt-upd-bern-705109e7",
-        "nachtarztin-nachtarzt-upd-bern-07807033",
-        "nachtarztin-nachtarzt-upd-bern-60f3d656",
-        "nachtarztin-nachtarzt-upd-bern-35637861",
-        "nachtarztin-nachtarzt-upd-bern-f9ee91fa",
-        "nachtarztin-nachtarzt-upd-bern-fa5e3b84",
-        "nachtarztin-nachtarzt-upd-bern-cd807488",
-        "nachtarztin-nachtarzt-upd-bern-1578baff",
-        "nachtarztin-nachtarzt-upd-bern-e8073b61",
-        "nachtarztin-nachtarzt-upd-bern-0bd30400",
-        "nachtarztin-nachtarzt-upd-bern-6888a3ee",
-        "nachtarztin-nachtarzt-upd-bern-30d5cf53",
-        "nachtarztin-nachtarzt-upd-bern-60faea86",
-        "nachtarztin-nachtarzt-upd-bern-9256df45",
-        "nachtarztin-nachtarzt-upd-bern-ee72e9bb",
-        "nachtarztin-nachtarzt-upd-bern-87ea80de",
-        "nachtarztin-nachtarzt-upd-bern-2cff15a2",
-        "nachtarztin-nachtarzt-upd-bern-f4865eaf",
-        "nachtarztin-nachtarzt-upd-bern-e12d236e",
-        "nachtarztin-nachtarzt-upd-bern-7aa8e0b2",
-        "nachtarztin-nachtarzt-upd-bern-b9038c12",
-        "nachtarztin-nachtarzt-upd-bern-ba894aa6",
-        "nachtarztin-nachtarzt-upd-bern-c7a4bfac",
-        "nachtarztin-nachtarzt-upd-bern-6563d219",
         "nachtarztin-nachtarzt-upd-bern-ba91c477",
         "nachtarztin-nachtarzt-upd-bern-f2653427",
         "nachtarztin-nachtarzt-upd-bern-41a10e95",
@@ -3542,7 +3805,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/b8f43731-327f-48b7-9b0a-ee06762f4a65",
-    "firstSeenAt": "2026-09-29T21:25:33.591Z"
+    "firstSeenAt": "2026-09-29T21:25:33.591Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/038dde35-5944-481c-a71c-e20ad17fdee7",
+        "firstSeenAt": "2026-10-28T09:20:54.827Z",
+        "title": "Medizinische Sekretärin / Medizinischer Sekretär"
+      },
+      {
+        "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/b8f43731-327f-48b7-9b0a-ee06762f4a65",
+        "firstSeenAt": "2026-09-29T21:25:33.591Z",
+        "title": "Medizinische Sekretärin / Medizinischer Sekretär"
+      }
+    ]
   },
   {
     "slug": "stage-nella-ricerca-suicidi-universitare-psychiatrische-dienste-bern-upd-bern",
@@ -4120,7 +4395,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/376497db-a7a8-400a-9d85-1cda70f05102",
-    "firstSeenAt": "2026-09-30T21:19:34.091Z"
+    "firstSeenAt": "2026-09-30T21:19:34.091Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/376497db-a7a8-400a-9d85-1cda70f05102",
+        "firstSeenAt": "2026-09-30T21:19:34.091Z",
+        "title": "Teamleitung Textilmanagement"
+      },
+      {
+        "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/a3dd1154-0ab6-4c0b-b753-ebf5fdd61b42",
+        "firstSeenAt": "2026-11-02T22:04:54.536Z",
+        "title": "Teamleitung Textilmanagement"
+      }
+    ]
   },
   {
     "slug": "apprendistato-fachperson-betreuung-cfc-kinder-universitare-psychiatrische-dienste-bern-upd-munsingen",
@@ -4267,7 +4554,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/b8fc04fa-202e-4b05-939b-ab458c53b487",
-    "firstSeenAt": "2026-10-03T09:24:10.397Z"
+    "firstSeenAt": "2026-10-02T21:20:40.661Z"
   },
   {
     "slug": "dipl-pflegefachperson-come-nachtwache-jugendstation-tremola-universitare-psychiatrische-dienste-bern-upd-bern",
@@ -4418,7 +4705,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/2b380fb6-d810-4b24-b0ca-a011fd38e3cb",
-    "firstSeenAt": "2026-10-03T09:24:10.347Z"
+    "firstSeenAt": "2026-10-01T21:19:26.297Z"
   },
   {
     "slug": "interno-interno-universitare-psychiatrische-dienste-bern-upd-bern",
@@ -4615,6 +4902,57 @@
     "salaryPeriod": "YEAR"
   },
   {
+    "slug": "gestione-o-cogestione-pulizia-e-gestione-del-tessuto-universitare-psychiatrische-dienste-bern-upd-bern",
+    "title": "Leitung oder Co-Leitung Reinigung & Textilmanagement",
+    "titleByLocale": {
+      "de": "Leitung oder Co-Leitung Reinigung & Textilmanagement",
+      "it": "Gestione o cogestione Pulizia e gestione del tessuto",
+      "en": "Management or co-management Cleaning & Textile Management",
+      "fr": "Gestion ou cogestion Nettoyage et gestion des textiles"
+    },
+    "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
+    "companyKey": "upd",
+    "location": "Bern",
+    "addressLocality": "Bern",
+    "descriptionByLocale": {
+      "de": "Leitung oder Co-Leitung Reinigung & Textilmanagement bei Universitäres Psychiatrisches Zentrum Bern AG in Bern (3000, BE), Schweiz.\n\n• Bereich: Facility Services | Hotellerie | Technik und Handwerk\n• Art: Teilzeit, Vollzeit möglich\n• Befristung: Unbefristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
+      "it": "Responsabile Gestione della Pulizia e del Tessile presso Universitäres Psychiatrisches Zentrum Bern AG a Berna (3000, BE), Svizzera.\n\n• Area: Servizi di Facility | Industria alberghiera | Tecnologia e Artigianato\n• Tipo: Part-time, tempo pieno possibile\n• Termine temporaneo: perpetuo\n• Posizione: Berna (BE)\n• Applicazione tramite il Portale Umantis Career dell'Università Psichiatria Servizi Berna (UPD)",
+      "en": "Head of Cleaning & Textile Management at Universitäres Psychiatrisches Zentrum Bern AG in Bern (3000, BE), Switzerland.\n\n• Area: Facility Services | Hotel Industry | Technology and Craftsmanship\n• Type: Part-time, full-time possible\n• Temporary term: perpetual\n• Location: Bern (BE)\n• Application via the Umantis Career Portal of the University Psychiatric Services Bern (UPD)",
+      "fr": "Responsable du nettoyage et de la gestion textile chez Universitäres Psychiatrisches Zentrum Bern AG à Berne (3000, BE), Suisse.\n\n• Domaine: Services d'installation\n• Type: Temps partiel, temps plein possible\n• Terme temporaire : perpétuel\n• Lieu: Berne (BE)\n• Application via le portail de carrière Umantis de l'Université Services psychiatriques Bern (UPD)"
+    },
+    "slugByLocale": {
+      "de": "leitung-oder-co-leitung-reinigung-textilmanagement-upd-bern",
+      "it": "gestione-o-cogestione-pulizia-e-gestione-del-tessuto-universitare-psychiatrische-dienste-bern-upd-bern",
+      "en": "management-or-co-management-cleaning-textile-management-universitare-psychiatrische-dienste-bern-upd-bern",
+      "fr": "gestion-ou-cogestion-nettoyage-et-gestion-des-textiles-universitare-psychiatrische-dienste-bern-upd-bern"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-09-01T10:16:30.363Z",
+    "previousSlugs": [
+      "leitung-oder-co-leitung-reinigung-textilmanagement-upd-bern",
+      "leitung-o-co-leitung-reinigung-textilmanagement-universitare-psychiatrische-dienste-bern-upd-bern"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "leitung-oder-co-leitung-reinigung-textilmanagement-upd-bern",
+        "leitung-o-co-leitung-reinigung-textilmanagement-universitare-psychiatrische-dienste-bern-upd-bern"
+      ],
+      "en": [
+        "leitung-oder-co-leitung-reinigung-textilmanagement-upd-bern"
+      ],
+      "fr": [
+        "leitung-oder-co-leitung-reinigung-textilmanagement-upd-bern"
+      ]
+    },
+    "postalCode": "3000",
+    "salaryMin": 77000,
+    "salaryMax": 116500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://recruitingapp-2908.umantis.com/vacancies/3484/description/1",
+    "firstSeenAt": "2026-09-01T10:16:30.363Z"
+  },
+  {
     "slug": "mitarbeiterin-collaboratore-trice-patientenaufnahme-universitare-psychiatrische-dienste-bern-upd-bern",
     "title": "Mitarbeiterin / Mitarbeiter Patientenaufnahme",
     "titleByLocale": {
@@ -4778,6 +5116,151 @@
     "salaryMax": 104000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "dipl-cura-professionale-hf-fh-universitare-psychiatrische-dienste-bern-upd-bern-e31cd1db",
+    "title": "Dipl. Pflegefachperson HF/FH",
+    "titleByLocale": {
+      "de": "Dipl. Pflegefachperson HF/FH",
+      "it": "Dipl. Cura professionale HF/FH",
+      "en": "Dipl. Care professional HF/FH",
+      "fr": "Dipl. Soins professionnels HF/FH"
+    },
+    "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
+    "companyKey": "upd",
+    "location": "Bern",
+    "addressLocality": "Bern",
+    "descriptionByLocale": {
+      "de": "Dipl. Pflegefachperson HF/FH bei Universitäres Psychiatrisches Zentrum Bern AG in Bern (3000, BE), Schweiz.\n\n• Bereich: Pflege\n• Art: Vollzeit\n• Befristung: Unbefristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
+      "it": "Dipl. Specialista HF/FH presso Universitäres Psychiatrisches Zentrum Bern AG a Berna (3000, BE), Svizzera.\n\n• Area: Cura\n• Tipo: Tempo pieno\n• Termine temporaneo: perpetuo\n• Posizione: Berna (BE)\n• Applicazione tramite il Portale Umantis Career dell'Università Psichiatria Servizi Berna (UPD)",
+      "en": "Dipl. Nursing specialist HF/FH at Universitäres Psychiatrisches Zentrum Bern AG in Bern (3000, BE), Switzerland.\n\n• Area: Care\n• Type: Full-time\n• Temporary term: perpetual\n• Location: Bern (BE)\n• Application via the Umantis Career Portal of the University Psychiatric Services Bern (UPD)",
+      "fr": "Dipl. Spécialiste des soins infirmiers HF/FH à Universitäres Psychiatrisches Zentrum Bern AG à Berne (3000, BE), Suisse.\n\n• Domaine: Soins\n• Type: Temps plein\n• Terme temporaire : perpétuel\n• Lieu: Berne (BE)\n• Application via le portail de carrière Umantis de l'Université Services psychiatriques Bern (UPD)"
+    },
+    "slugByLocale": {
+      "de": "dipl-pflegefachperson-hf-fh-upd-bern-20ab973f",
+      "it": "dipl-cura-professionale-hf-fh-universitare-psychiatrische-dienste-bern-upd-bern-e31cd1db",
+      "en": "dipl-care-professional-hf-fh-universitare-psychiatrische-dienste-bern-upd-bern-22fa229e",
+      "fr": "dipl-soins-professionnels-hf-fh-universitare-psychiatrische-dienste-bern-upd-bern-5fa1340c"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-08-12T22:00:27.638Z",
+    "previousSlugsByLocale": {
+      "it": [
+        "ausbildung-dipl-pflegefachperson-hf-in-betriebsanstellung-upd-bern-dcdd6bca",
+        "training-dipl-nursing-professional-hf-in-employment-universitare-psychiatrische-dienste-bern-upd-bern-1dd7f436",
+        "formation-dipl-infirmiere-hf-en-emploi-universitare-psychiatrische-dienste-bern-upd-bern-8db2810f",
+        "formazione-dipl-infermieristica-professionale-hf-nel-lavoro-universitare-psychiatrische-dienste-bern-upd-bern-ffb07509",
+        "dipl-pflegefachperson-hf-fh-upd-bern-20ab973f",
+        "dipl-infermieristica-professionale-universitare-psychiatrische-dienste-bern-upd-bern-417f1330",
+        "dipl-pflegefachperson-upd-bern-c34b79a6",
+        "dipl-nursing-professional-universitare-psychiatrische-dienste-bern-upd-bern-5e3d7d15",
+        "dipl-professionnels-des-soins-infirmiers-universitare-psychiatrische-dienste-bern-upd-bern-a0ac7e84",
+        "dipl-pflegefachperson-stazione-marbach-universitare-psychiatrische-dienste-bern-upd-bern-3f3c650f",
+        "dipl-pflegefachperson-station-marbach-upd-bern-30d99a35",
+        "gare-dipl-pflegefachperson-de-marbach-universitare-psychiatrische-dienste-bern-upd-bern-9e12db7f",
+        "dipl-pflegefachperson-hf-fh-o-dipl-sozialpadagogin-sozialpadagoge-universitare-psychiatrische-dienste-bern-upd-5738de6a",
+        "dipl-care-specialist-hf-fh-or-dipl-social-pedagogue-universitare-psychiatrische-dienste-bern-upd-bern-6b444baa",
+        "dipl-pflegefachperson-hf-fh-oder-dipl-sozialpadagogin-sozialpadagoge-upd-bern-255fa0f6",
+        "dipl-specialiste-des-soins-hf-fh-ou-dipl-pedagogue-sociale-universitare-psychiatrische-dienste-bern-upd-bern-9f71dfdd",
+        "dipl-specialista-hf-fh-o-dipl-social-pedagogue-universitare-psychiatrische-dienste-bern-upd-bern-2b5e21c0"
+      ],
+      "en": [
+        "training-dipl-nursing-professional-hf-in-employment-universitare-psychiatrische-dienste-bern-upd-bern-1dd7f436",
+        "dipl-pflegefachperson-hf-fh-upd-bern-20ab973f",
+        "dipl-nursing-professional-universitare-psychiatrische-dienste-bern-upd-bern-5e3d7d15",
+        "dipl-care-specialist-hf-fh-or-dipl-social-pedagogue-universitare-psychiatrische-dienste-bern-upd-bern-6b444baa",
+        "ausbildung-dipl-pflegefachperson-hf-in-betriebsanstellung-upd-bern",
+        "formation-dipl-infirmiere-hf-en-emploi-universitare-psychiatrische-dienste-bern-upd-bern",
+        "formazione-dipl-infermieristica-professionale-hf-nel-lavoro-universitare-psychiatrische-dienste-bern-upd-bern",
+        "dipl-infermieristica-professionale-universitare-psychiatrische-dienste-bern-upd-bern",
+        "dipl-pflegefachperson-upd-bern",
+        "dipl-professionnels-des-soins-infirmiers-universitare-psychiatrische-dienste-bern-upd-bern",
+        "dipl-pflegefachperson-stazione-marbach-universitare-psychiatrische-dienste-bern-upd-bern",
+        "dipl-pflegefachperson-station-marbach-upd-bern-30d99a35",
+        "gare-dipl-pflegefachperson-de-marbach-universitare-psychiatrische-dienste-bern-upd-bern",
+        "dipl-pflegefachperson-hf-fh-o-dipl-sozialpadagogin-sozialpadagoge-universitare-psychiatrische-dienste-bern-upd-bern",
+        "dipl-pflegefachperson-hf-fh-oder-dipl-sozialpadagogin-sozialpadagoge-upd-bern",
+        "dipl-specialiste-des-soins-hf-fh-ou-dipl-pedagogue-sociale-universitare-psychiatrische-dienste-bern-upd-bern",
+        "dipl-specialista-hf-fh-o-dipl-social-pedagogue-universitare-psychiatrische-dienste-bern-upd-bern"
+      ],
+      "de": [
+        "ausbildung-dipl-pflegefachperson-hf-in-betriebsanstellung-upd-bern-dcdd6bca",
+        "dipl-pflegefachperson-upd-bern-c34b79a6",
+        "dipl-pflegefachperson-hf-fh-oder-dipl-sozialpadagogin-sozialpadagoge-upd-bern-255fa0f6",
+        "training-dipl-nursing-professional-hf-in-employment-universitare-psychiatrische-dienste-bern-upd-bern",
+        "formation-dipl-infirmiere-hf-en-emploi-universitare-psychiatrische-dienste-bern-upd-bern",
+        "formazione-dipl-infermieristica-professionale-hf-nel-lavoro-universitare-psychiatrische-dienste-bern-upd-bern",
+        "dipl-pflegefachperson-hf-fh-upd-bern-20ab973f",
+        "dipl-infermieristica-professionale-universitare-psychiatrische-dienste-bern-upd-bern",
+        "dipl-nursing-professional-universitare-psychiatrische-dienste-bern-upd-bern",
+        "dipl-professionnels-des-soins-infirmiers-universitare-psychiatrische-dienste-bern-upd-bern",
+        "dipl-pflegefachperson-stazione-marbach-universitare-psychiatrische-dienste-bern-upd-bern",
+        "dipl-pflegefachperson-station-marbach-upd-bern-30d99a35",
+        "gare-dipl-pflegefachperson-de-marbach-universitare-psychiatrische-dienste-bern-upd-bern",
+        "dipl-pflegefachperson-hf-fh-o-dipl-sozialpadagogin-sozialpadagoge-universitare-psychiatrische-dienste-bern-upd-bern",
+        "dipl-care-specialist-hf-fh-or-dipl-social-pedagogue-universitare-psychiatrische-dienste-bern-upd-bern",
+        "dipl-specialiste-des-soins-hf-fh-ou-dipl-pedagogue-sociale-universitare-psychiatrische-dienste-bern-upd-bern",
+        "dipl-specialista-hf-fh-o-dipl-social-pedagogue-universitare-psychiatrische-dienste-bern-upd-bern"
+      ],
+      "fr": [
+        "formation-dipl-infirmiere-hf-en-emploi-universitare-psychiatrische-dienste-bern-upd-bern-8db2810f",
+        "dipl-pflegefachperson-hf-fh-upd-bern-20ab973f",
+        "dipl-professionnels-des-soins-infirmiers-universitare-psychiatrische-dienste-bern-upd-bern-a0ac7e84",
+        "dipl-specialiste-des-soins-hf-fh-ou-dipl-pedagogue-sociale-universitare-psychiatrische-dienste-bern-upd-bern-9f71dfdd",
+        "ausbildung-dipl-pflegefachperson-hf-in-betriebsanstellung-upd-bern",
+        "training-dipl-nursing-professional-hf-in-employment-universitare-psychiatrische-dienste-bern-upd-bern",
+        "formazione-dipl-infermieristica-professionale-hf-nel-lavoro-universitare-psychiatrische-dienste-bern-upd-bern",
+        "dipl-infermieristica-professionale-universitare-psychiatrische-dienste-bern-upd-bern",
+        "dipl-pflegefachperson-upd-bern",
+        "dipl-nursing-professional-universitare-psychiatrische-dienste-bern-upd-bern",
+        "dipl-pflegefachperson-stazione-marbach-universitare-psychiatrische-dienste-bern-upd-bern",
+        "dipl-pflegefachperson-station-marbach-upd-bern-30d99a35",
+        "gare-dipl-pflegefachperson-de-marbach-universitare-psychiatrische-dienste-bern-upd-bern",
+        "dipl-pflegefachperson-hf-fh-o-dipl-sozialpadagogin-sozialpadagoge-universitare-psychiatrische-dienste-bern-upd-bern",
+        "dipl-care-specialist-hf-fh-or-dipl-social-pedagogue-universitare-psychiatrische-dienste-bern-upd-bern",
+        "dipl-pflegefachperson-hf-fh-oder-dipl-sozialpadagogin-sozialpadagoge-upd-bern",
+        "dipl-specialista-hf-fh-o-dipl-social-pedagogue-universitare-psychiatrische-dienste-bern-upd-bern"
+      ]
+    },
+    "postalCode": "3000",
+    "salaryMin": 68500,
+    "salaryMax": 104000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/886ade66-5a60-416c-b275-16c642a3b08f",
+    "previousSlugs": [
+      "ausbildung-dipl-pflegefachperson-hf-in-betriebsanstellung-upd-bern-dcdd6bca",
+      "training-dipl-nursing-professional-hf-in-employment-universitare-psychiatrische-dienste-bern-upd-bern-1dd7f436",
+      "formation-dipl-infirmiere-hf-en-emploi-universitare-psychiatrische-dienste-bern-upd-bern-8db2810f",
+      "formazione-dipl-infermieristica-professionale-hf-nel-lavoro-universitare-psychiatrische-dienste-bern-upd-bern-ffb07509",
+      "dipl-infermieristica-professionale-universitare-psychiatrische-dienste-bern-upd-bern-417f1330",
+      "dipl-pflegefachperson-upd-bern-c34b79a6",
+      "dipl-nursing-professional-universitare-psychiatrische-dienste-bern-upd-bern-5e3d7d15",
+      "dipl-professionnels-des-soins-infirmiers-universitare-psychiatrische-dienste-bern-upd-bern-a0ac7e84",
+      "dipl-pflegefachperson-stazione-marbach-universitare-psychiatrische-dienste-bern-upd-bern-3f3c650f",
+      "dipl-pflegefachperson-station-marbach-upd-bern-30d99a35",
+      "gare-dipl-pflegefachperson-de-marbach-universitare-psychiatrische-dienste-bern-upd-bern-9e12db7f",
+      "dipl-pflegefachperson-hf-fh-o-dipl-sozialpadagogin-sozialpadagoge-universitare-psychiatrische-dienste-bern-upd-5738de6a",
+      "dipl-care-specialist-hf-fh-or-dipl-social-pedagogue-universitare-psychiatrische-dienste-bern-upd-bern-6b444baa",
+      "dipl-pflegefachperson-hf-fh-oder-dipl-sozialpadagogin-sozialpadagoge-upd-bern-255fa0f6",
+      "dipl-specialiste-des-soins-hf-fh-ou-dipl-pedagogue-sociale-universitare-psychiatrische-dienste-bern-upd-bern-9f71dfdd",
+      "dipl-specialista-hf-fh-o-dipl-social-pedagogue-universitare-psychiatrische-dienste-bern-upd-bern-2b5e21c0",
+      "ausbildung-dipl-pflegefachperson-hf-in-betriebsanstellung-upd-bern",
+      "formation-dipl-infirmiere-hf-en-emploi-universitare-psychiatrische-dienste-bern-upd-bern",
+      "formazione-dipl-infermieristica-professionale-hf-nel-lavoro-universitare-psychiatrische-dienste-bern-upd-bern",
+      "dipl-infermieristica-professionale-universitare-psychiatrische-dienste-bern-upd-bern",
+      "dipl-pflegefachperson-upd-bern",
+      "dipl-professionnels-des-soins-infirmiers-universitare-psychiatrische-dienste-bern-upd-bern",
+      "dipl-pflegefachperson-stazione-marbach-universitare-psychiatrische-dienste-bern-upd-bern",
+      "gare-dipl-pflegefachperson-de-marbach-universitare-psychiatrische-dienste-bern-upd-bern",
+      "dipl-pflegefachperson-hf-fh-o-dipl-sozialpadagogin-sozialpadagoge-universitare-psychiatrische-dienste-bern-upd-bern",
+      "dipl-pflegefachperson-hf-fh-oder-dipl-sozialpadagogin-sozialpadagoge-upd-bern",
+      "dipl-specialiste-des-soins-hf-fh-ou-dipl-pedagogue-sociale-universitare-psychiatrische-dienste-bern-upd-bern",
+      "dipl-specialista-hf-fh-o-dipl-social-pedagogue-universitare-psychiatrische-dienste-bern-upd-bern",
+      "training-dipl-nursing-professional-hf-in-employment-universitare-psychiatrische-dienste-bern-upd-bern",
+      "dipl-nursing-professional-universitare-psychiatrische-dienste-bern-upd-bern",
+      "dipl-care-specialist-hf-fh-or-dipl-social-pedagogue-universitare-psychiatrische-dienste-bern-upd-bern"
+    ]
   },
   {
     "slug": "msc-psicologo-psicologo-pedagoga-sociale-pedagoga-sociale-dipl-infermiera-in-ass-ifi-universitare-psychiatrische-dienste",
@@ -5042,6 +5525,97 @@
     "salaryPeriod": "YEAR"
   },
   {
+    "slug": "medico-notturno-universitare-psychiatrische-dienste-bern-upd-bern-ec09b344",
+    "title": "Nachtärztin / Nachtarzt",
+    "titleByLocale": {
+      "it": "Medico notturno",
+      "en": "Night doctor",
+      "de": "Nachtärztin / Nachtarzt",
+      "fr": "Docteur de nuit"
+    },
+    "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
+    "companyKey": "upd",
+    "location": "Bern",
+    "addressLocality": "Bern",
+    "descriptionByLocale": {
+      "it": "Mansioni\nmedico notturno / medico notturno\n\nSettore\nMedici | Medici\n\nTipo di impiego\nA tempo pieno, tempo parziale possibile\n\nDurata\nTemporaneo",
+      "en": "Mansioni\nNight doctor / Night doctor\n\nArea\nDoctors | Doctors\n\nTipo di impiego\nFull-time, part-time possible\n\nDurata\nTemporary",
+      "de": "Wir suchen eine Nachtärztin / Nachtarzt\n\n• Bereich: Ärztinnen | Ärzte\n• Art: Vollzeit, Teilzeit möglich\n• Befristung: Befristet",
+      "fr": "Mansioni\nDocteur de nuit / Docteur de nuit\n\nDomaine\nMédecins\n\nTipo di impiego\nTemps plein, temps partiel possible\n\nDurata\ntemporaire"
+    },
+    "slugByLocale": {
+      "it": "medico-notturno-universitare-psychiatrische-dienste-bern-upd-bern-ec09b344",
+      "en": "night-doctor-universitare-psychiatrische-dienste-bern-upd-bern-fbb9aa3a",
+      "de": "nachtarztin-nachtarzt-upd-bern-d8f70f41",
+      "fr": "docteur-de-nuit-universitare-psychiatrische-dienste-bern-upd-bern-e33c62e0"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-07-18T22:07:10.319Z",
+    "previousSlugsByLocale": {
+      "it": [
+        "nachtarztin-nachtarzt-upd-bern-d8f70f41",
+        "professionista-infermieristico-di-notte-universitare-psychiatrische-dienste-bern-upd-bern-3def40e6",
+        "night-nurse-professional-universitare-psychiatrische-dienste-bern-upd-bern-f2e011eb",
+        "dipl-pflegefachperson-nachtwache-upd-bern-c6a11d38",
+        "professionnel-infirmier-de-nuit-universitare-psychiatrische-dienste-bern-upd-bern-3164693d",
+        "segretaria-o-medico-universitare-psychiatrische-dienste-bern-upd-bern-0d93e3f0",
+        "medical-secretary-universitare-psychiatrische-dienste-bern-upd-bern-087f765b",
+        "medizinische-sekretarin-medizinischer-sekretar-upd-bern-1e269d8e",
+        "secretaire-medical-universitare-psychiatrische-dienste-bern-upd-bern-863f31b6"
+      ],
+      "en": [
+        "nachtarztin-nachtarzt-upd-bern-d8f70f41",
+        "professionista-infermieristico-di-notte-universitare-psychiatrische-dienste-bern-upd-bern-3def40e6",
+        "night-nurse-professional-universitare-psychiatrische-dienste-bern-upd-bern-f2e011eb",
+        "dipl-pflegefachperson-nachtwache-upd-bern-c6a11d38",
+        "professionnel-infirmier-de-nuit-universitare-psychiatrische-dienste-bern-upd-bern-3164693d",
+        "segretaria-o-medico-universitare-psychiatrische-dienste-bern-upd-bern-0d93e3f0",
+        "medical-secretary-universitare-psychiatrische-dienste-bern-upd-bern-087f765b",
+        "medizinische-sekretarin-medizinischer-sekretar-upd-bern-1e269d8e",
+        "secretaire-medical-universitare-psychiatrische-dienste-bern-upd-bern-863f31b6"
+      ],
+      "fr": [
+        "nachtarztin-nachtarzt-upd-bern-d8f70f41",
+        "professionista-infermieristico-di-notte-universitare-psychiatrische-dienste-bern-upd-bern-3def40e6",
+        "night-nurse-professional-universitare-psychiatrische-dienste-bern-upd-bern-f2e011eb",
+        "dipl-pflegefachperson-nachtwache-upd-bern-c6a11d38",
+        "professionnel-infirmier-de-nuit-universitare-psychiatrische-dienste-bern-upd-bern-3164693d",
+        "segretaria-o-medico-universitare-psychiatrische-dienste-bern-upd-bern-0d93e3f0",
+        "medical-secretary-universitare-psychiatrische-dienste-bern-upd-bern-087f765b",
+        "medizinische-sekretarin-medizinischer-sekretar-upd-bern-1e269d8e",
+        "secretaire-medical-universitare-psychiatrische-dienste-bern-upd-bern-863f31b6"
+      ],
+      "de": [
+        "nachtarztin-nachtarzt-upd-bern-d8f70f41",
+        "professionista-infermieristico-di-notte-universitare-psychiatrische-dienste-bern-upd-bern-3def40e6",
+        "night-nurse-professional-universitare-psychiatrische-dienste-bern-upd-bern-f2e011eb",
+        "dipl-pflegefachperson-nachtwache-upd-bern-c6a11d38",
+        "professionnel-infirmier-de-nuit-universitare-psychiatrische-dienste-bern-upd-bern-3164693d",
+        "segretaria-o-medico-universitare-psychiatrische-dienste-bern-upd-bern-0d93e3f0",
+        "medical-secretary-universitare-psychiatrische-dienste-bern-upd-bern-087f765b",
+        "medizinische-sekretarin-medizinischer-sekretar-upd-bern-1e269d8e",
+        "secretaire-medical-universitare-psychiatrische-dienste-bern-upd-bern-863f31b6"
+      ]
+    },
+    "postalCode": "3000",
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/87e62f6d-7d5f-4f40-b139-fed33c95aff1",
+    "firstSeenAt": "2026-10-12T21:16:40.187Z",
+    "previousSlugs": [
+      "professionista-infermieristico-di-notte-universitare-psychiatrische-dienste-bern-upd-bern-3def40e6",
+      "night-nurse-professional-universitare-psychiatrische-dienste-bern-upd-bern-f2e011eb",
+      "dipl-pflegefachperson-nachtwache-upd-bern-c6a11d38",
+      "professionnel-infirmier-de-nuit-universitare-psychiatrische-dienste-bern-upd-bern-3164693d",
+      "segretaria-o-medico-universitare-psychiatrische-dienste-bern-upd-bern-0d93e3f0",
+      "medical-secretary-universitare-psychiatrische-dienste-bern-upd-bern-087f765b",
+      "medizinische-sekretarin-medizinischer-sekretar-upd-bern-1e269d8e",
+      "secretaire-medical-universitare-psychiatrische-dienste-bern-upd-bern-863f31b6"
+    ]
+  },
+  {
     "slug": "medico-specialista-in-psichiatria-geriatrica-stazionaria-universitare-psychiatrische-dienste-bern-upd-bern",
     "title": "Oberärztin / Oberarzt Stationäre Alterspsychiatrie",
     "titleByLocale": {
@@ -5086,7 +5660,8 @@
     "salaryMin": 68000,
     "salaryMax": 103000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/82f018f5-1ce2-43cb-a3e3-bfa69dfa2813"
   },
   {
     "slug": "specialista-specialista-paziente-e-gestione-delle-prestazioni-universitare-psychiatrische-dienste-bern-upd-bern",
