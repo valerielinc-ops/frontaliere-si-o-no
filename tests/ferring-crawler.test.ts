@@ -88,7 +88,10 @@ describe('Ferring — source-proven Swiss zero instead of an EMPTY_OK_CRAWLERS e
       return new Response(JSON.stringify({
         jobPostingInfo: {
           location: 'St-Prex, Switzerland',
-          country: { descriptor: 'Switzerland' },
+          jobRequisitionLocation: {
+            descriptor: 'St-Prex, Switzerland',
+            country: { descriptor: 'Switzerland' },
+          },
           jobDescription: roleBody,
         },
       }), { status: 200 });

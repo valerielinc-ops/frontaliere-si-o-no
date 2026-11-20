@@ -1312,8 +1312,13 @@ describe('resolveWorkdayPrimarySwissLocation — locality directory, gated on th
     })).toBe('');
   });
 
-  it('reads the structured country: requisition alpha-2 first, then the posting country id or name', () => {
+  it('reads the structured country: requisition signal first, then the posting country id or name', () => {
     expect(workdayStructuredPrimaryCountryIsSwiss({ jobRequisitionLocation: { country: { alpha2Code: 'ch' } } })).toBe(true);
+    expect(workdayStructuredPrimaryCountryIsSwiss({ jobRequisitionLocation: { country: { descriptor: 'Switzerland' } } })).toBe(true);
+    expect(workdayStructuredPrimaryCountryIsSwiss({
+      jobRequisitionLocation: { country: { descriptor: 'Germany' } },
+      country: { descriptor: 'Switzerland' },
+    })).toBe(false);
     expect(workdayStructuredPrimaryCountryIsSwiss({ country: { id: '187134fccb084a0ea9b4b95f23890dbe' } })).toBe(true);
     expect(workdayStructuredPrimaryCountryIsSwiss({ country: { descriptor: 'Schweiz' } })).toBe(true);
     expect(workdayStructuredPrimaryCountryIsSwiss({ country: { descriptor: 'Zürich, Switzerland' } })).toBe(false);
