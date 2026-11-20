@@ -114966,6 +114966,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-a2-rodi-lavori-finiti': {
+    title: 'A2 a Rodi: lavori finiti, tratta libera | Frontaliere Ticino',
+    description: 'USTRA comunica la fine dei lavori sull\'A2 a Rodi: risanamento fonico e fotovoltaico completati. La tratta è libera e il finanziamento è a carico della Confederazione.',
+    keywords: 'A2 Rodi, USTRA, risanamento fonico, impianti fotovoltaici, Confederazione, tratta libera',
+    ogTitle: 'A2 Rodi: lavori finiti tratta libera',
+    ogDescription: 'USTRA comunica la fine dei lavori sull\'A2 a Rodi, inclusi risanamento fonico e nuovi impianti fotovoltaici. La tratta è libera e l\'intervento è interamente a carico della Confederazione.',
+    canonicalPath: '/articoli-frontaliere/a2-rodi-lavori-finiti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "A2 a Rodi: lavori finiti, tratta libera",
+      "description": "USTRA comunica la fine dei lavori sull'A2 a Rodi: risanamento fonico e fotovoltaico completati. La tratta è libera e il finanziamento è a carico della Confederazione.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-a2-rodi-lavori-finiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-11-20T14:32:07+00:00",
+      "dateModified": "2026-11-20T14:32:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/a2-rodi-lavori-finiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

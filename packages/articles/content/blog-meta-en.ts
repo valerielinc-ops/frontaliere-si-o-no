@@ -13739,6 +13739,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-11-20.imageAlt': 'Illustrative image relevant to the article topic',
     'blog.article.bollettino-frontaliere-2026-11-20.seoDescription': 'Cross-border daily brief for workers, November 20, 2026: latest waits, fuel prices, CHF/EUR rate and active jobs in Switzerland.',
     'blog.article.bollettino-frontaliere-2026-11-20.ogDescription': 'Daily figures for cross-border commuters, November 20, 2026: measured waits at each crossing, where fuel costs least, the latest franc-euro rate and active Swiss job listings on our board, with links to live pages.',
+    'blog.article.a2-rodi-lavori-finiti.title': 'A2 at Rodi: works completed, route clear',
+    'blog.article.a2-rodi-lavori-finiti.excerpt': 'The Federal Roads Office USTRA announces the completion of works on the A2 at Rodi.',
+    'blog.article.a2-rodi-lavori-finiti.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaEn;
