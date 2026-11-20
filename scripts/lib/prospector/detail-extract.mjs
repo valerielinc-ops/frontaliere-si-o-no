@@ -22,6 +22,7 @@ import {
 import { extractPageExecutiveDetailFields } from './pageexecutive-detail.mjs';
 import { extractUmantisDetailFields, umantisDetailFallbackUrl } from './umantis-detail.mjs';
 import { readAttr } from '../html-attr.mjs';
+import { extractBalancedTagBlockWithStatus } from '../hospital-custom-html-helpers.mjs';
 import {
   resolveSwissPostalCodeCanton,
   resolveSwissPostalCodePlace,
@@ -31,7 +32,7 @@ import { parseYoustyApprenticeshipHtml } from '../yousty-job-parser.mjs';
 
 const PHYSIOSWISS_ACCESSIBLE_TITLE_RX = /^Stellenanzeige\s+(.+?)\s+öffnen\.?$/iu;
 const EQE_COMPANY_KEY = 'eqe-ch';
-const EQE_VACANCY_CONTENT_RX = /<div\b[^>]*\bclass\s*=\s*(["'])[^"']*\bcontentblock-contenttext\b[^"']*\1[^>]*>([\s\S]*?)<\/div>/giu;
+const EQE_VACANCY_CONTENT_OPEN_RX = /<div\b[^>]*\bclass\s*=\s*(["'])[^"']*\bcontentblock-contenttext\b[^"']*\1[^>]*>/giu;
 const EQE_OLTEN_WORKPLACE_RX = /\bzur\s+Verstärkung\s+unserer\s+Fertigung\s+in\s+Olten\b/iu;
 const EQE_NORTHWEST_REGION_RX = /\bin\s+der\s+Region\s+Nordwestschweiz\b/iu;
 
@@ -87,14 +88,28 @@ function normalizedEqeVacancyTitle(value = '') {
 function extractEqeVacancyLocation(html = '', recordTitle = '') {
   const source = String(html || '');
   const expectedTitle = normalizedEqeVacancyTitle(recordTitle);
-  EQE_VACANCY_CONTENT_RX.lastIndex = 0;
+  // The listing title is the vacancy identity. An empty title cannot select a
+  // page block: treating it as a wildcard lets the first generic content block
+  // lend its location to an unrelated record.
+  if (!expectedTitle) return { matched: false, locationCandidates: [] };
+
+  EQE_VACANCY_CONTENT_OPEN_RX.lastIndex = 0;
   let block;
-  while ((block = EQE_VACANCY_CONTENT_RX.exec(source))) {
-    const content = block[2];
+  while ((block = EQE_VACANCY_CONTENT_OPEN_RX.exec(source))) {
+    const rest = source.slice(block.index + block[0].length);
+    const balanced = extractBalancedTagBlockWithStatus(rest, 'div', rest.length);
+    if (!balanced.complete) continue;
+    const content = balanced.html;
+    // Resume after this block's own closing tag. This avoids re-reading nested
+    // content blocks and keeps the next candidate at the same page depth.
+    EQE_VACANCY_CONTENT_OPEN_RX.lastIndex = block.index
+      + block[0].length
+      + content.length
+      + '</div>'.length;
     const heading = /<h2\b[^>]*>([\s\S]{1,500}?)<\/h2>/iu.exec(content);
     if (!heading) continue;
     const observedTitle = normalizedEqeVacancyTitle(heading[1]);
-    if (expectedTitle && observedTitle !== expectedTitle) continue;
+    if (!observedTitle || observedTitle !== expectedTitle) continue;
     const vacancyText = textOf(content.replace(/&nbsp;/giu, ' '));
     if (EQE_OLTEN_WORKPLACE_RX.test(vacancyText)) {
       return {
@@ -327,7 +342,8 @@ export function extractRuntimeDetailFields(spec, html, url, opts = {}) {
   if (pdfApplyUrl) detail.applyUrl = pdfApplyUrl;
   // Yousty's parser owns the source-scoped workplace result, including an
   // empty result, so generic label extraction cannot repopulate or overwrite it.
-  const labelledLocation = spec?.platform === 'yousty.ch'
+  const labelledLocation = (spec?.platform === 'yousty.ch'
+    || spec?.companyKey === EQE_COMPANY_KEY)
     ? ''
     : extractLabelledDetailValue(html, spec?.detailLocationLabel);
   if (labelledLocation) {
