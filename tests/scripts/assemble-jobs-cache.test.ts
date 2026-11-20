@@ -45,6 +45,7 @@ let tmpScriptUrl;
 let computeAssembleInputFingerprint;
 let listAssembleCodeClosure;
 let computeAssembleCacheKey;
+let shouldSkipSlugReconciliation;
 let isAssembleCacheManifestValid;
 let assembleOutputCacheVersion;
 
@@ -114,6 +115,7 @@ beforeAll(async () => {
   computeAssembleInputFingerprint = mod.computeAssembleInputFingerprint;
   listAssembleCodeClosure = mod.listAssembleCodeClosure;
   computeAssembleCacheKey = mod.computeAssembleCacheKey;
+  shouldSkipSlugReconciliation = mod.shouldSkipSlugReconciliation;
   isAssembleCacheManifestValid = mod.isAssembleCacheManifestValid;
   assembleOutputCacheVersion = mod.ASSEMBLE_OUTPUT_CACHE_VERSION;
 });
@@ -277,12 +279,27 @@ describe('computeAssembleInputFingerprint — non-slice inputs', () => {
     expect(closure).toContain(path.join(root, 'scripts', 'lib', 'parse-job-slices-worker.mjs'));
   });
 
-  it('keys the run mode so a --no-summaries, --active-only, or --stats snapshot is never restored for a default run', () => {
+  it('keys the run mode so a projection, --no-summaries, --active-only, or --stats snapshot is never restored for a default run', () => {
     const fp = computeAssembleInputFingerprint();
-    expect(computeAssembleCacheKey().cacheKey).toBe(`${fp}_nostats`);
-    expect(computeAssembleCacheKey({ withStats: true }).cacheKey).toBe(`${fp}_stats`);
-    expect(computeAssembleCacheKey({ withSummaries: false }).cacheKey).toBe(`${fp}_nostats_nosummaries`);
-    expect(computeAssembleCacheKey({ withExpired: false }).cacheKey).toBe(`${fp}_nostats_activeonly`);
+    const previous = process.env.JOBS_SKIP_RECONCILIATION;
+    try {
+      delete process.env.JOBS_SKIP_RECONCILIATION;
+      expect(shouldSkipSlugReconciliation()).toBe(false);
+      expect(shouldSkipSlugReconciliation({ projectionOnly: true })).toBe(true);
+      expect(computeAssembleCacheKey().cacheKey).toBe(`${fp}_nostats`);
+      expect(computeAssembleCacheKey({ withStats: true }).cacheKey).toBe(`${fp}_stats`);
+      expect(computeAssembleCacheKey({ withSummaries: false }).cacheKey).toBe(`${fp}_nostats_nosummaries`);
+      expect(computeAssembleCacheKey({ withExpired: false }).cacheKey).toBe(`${fp}_nostats_activeonly`);
+      expect(computeAssembleCacheKey({ projectionOnly: true }).cacheKey)
+        .toBe(`${fp}_nostats_projection_noreconcile`);
+
+      process.env.JOBS_SKIP_RECONCILIATION = '1';
+      expect(shouldSkipSlugReconciliation()).toBe(true);
+      expect(computeAssembleCacheKey().cacheKey).toBe(`${fp}_nostats_noreconcile`);
+    } finally {
+      if (previous === undefined) delete process.env.JOBS_SKIP_RECONCILIATION;
+      else process.env.JOBS_SKIP_RECONCILIATION = previous;
+    }
   });
 
   it('separates snapshots that include translation-held jobs from publishing snapshots', () => {
