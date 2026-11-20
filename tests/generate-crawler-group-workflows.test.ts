@@ -2007,7 +2007,7 @@ describe('#6380 — one atomic commit per crawler group', () => {
         .filter(({ step }) => step.name === 'Commit crawler group data atomically');
       expect(batchIndexes).toHaveLength(1);
       expect(batchIndexes[0].index).toBeGreaterThan(Math.max(...results.map((step) => job.steps.indexOf(step))));
-      expect(batchIndexes[0].step.if).toBe("always() && job.status == 'success' && steps.crawler_group_setup.outcome == 'success' && steps.crawler_aggregate.outcome == 'success' && (steps.crawler_aggregate.outputs.wait_outcome == 'success' || steps.crawler_aggregate.outputs.wait_outcome == 'failure')");
+      expect(batchIndexes[0].step.if).toBe("always() && steps.crawler_group_setup.outcome == 'success' && steps.crawler_aggregate.outcome == 'success' && (steps.crawler_aggregate.outputs.wait_outcome == 'success' || steps.crawler_aggregate.outputs.wait_outcome == 'failure')");
       expect(batchIndexes[0].step.run).toContain('git-commit-data.sh --group-batch');
       const cleanupIndex = job.steps.findIndex((step) => step.name === 'Cleanup Codex auth broker');
       if (cleanupIndex >= 0) expect(cleanupIndex).toBeGreaterThan(batchIndexes[0].index);
@@ -4703,10 +4703,10 @@ describe('generated crawler workflows stay under the GitHub size budget', () => 
     const bytes = Buffer.byteLength(content, 'utf8');
     // Without compact result waiter, 29 members add ~10.1 KB bringing size to ~488.9 KB (> 480000 budget).
     // With the safe Git-metadata retry and empty-workspace cleanup, size is
-    // 473881 bytes (<= 480000 budget) after the common Git-dir guard,
+    // 473854 bytes (<= 480000 budget) after the common Git-dir guard,
     // success-sibling commit gate, and two new hash-bound runtime paths are emitted.
     expect(bytes).toBeLessThanOrEqual(GENERATED_WORKFLOW_SIZE_BUDGET_BYTES);
-    expect(bytes).toBe(473881);
+    expect(bytes).toBe(473854);
   });
 
   it('the aggregate defines the per-member classification once instead of unrolling it', () => {
