@@ -633,6 +633,13 @@ jobs:
           (( ${#root_parts[@]} > 0 )) || { echo '::error::IT root source archive parts are missing'; exit 1; }
           source scripts/lib/parallel-tar.sh
           ptar_extract "$GITHUB_WORKSPACE" "${root_parts[@]}"
+      - name: Record IT early CDN push start
+        id: cdn-push-early-start
+        continue-on-error: true
+        run: |
+          set -euo pipefail
+          echo "started_at=$(date +%s)" >> "$GITHUB_OUTPUT"
+          echo 'r2_timeout_og_s=900' >> "$GITHUB_OUTPUT"
       - name: Push generated assets to CDN (early — ahead of the shard pushes)
         id: cdn-push-early
         continue-on-error: true
@@ -642,9 +649,10 @@ jobs:
           CDN_TARGET: ${{ vars.CDN_TARGET || 'pages' }}
           DEPLOY_BUILD_ID: ${{ needs.resolve-publish-plan.outputs.build_id }}
           DEPLOY_CDN_PUSH_ONLY: '1'
-          R2_TIMEOUT_OG_S: '900'
+          R2_TIMEOUT_OG_S: ${{ steps.cdn-push-early-start.outputs.r2_timeout_og_s }}
+          CDN_EARLY_STARTED_AT: ${{ steps.cdn-push-early-start.outputs.started_at }}
         run: |
-          started_at="$(date +%s)"
+          started_at="${CDN_EARLY_STARTED_AT:-$(date +%s)}"
           set +e
           bash scripts/lib/deploy-it-pages-prep.sh
           status=$?
@@ -664,6 +672,13 @@ jobs:
         with:
           path: .cache/r2-og-published-manifest.json
           key: r2-og-published-${{ github.run_id }}-${{ hashFiles('.cache/r2-og-published-manifest.json') }}
+      - name: Record IT early CDN retry start
+        id: cdn-push-early-retry-start
+        if: steps.cdn-push-early.outcome == 'failure'
+        continue-on-error: true
+        run: |
+          set -euo pipefail
+          echo "started_at=$(date +%s)" >> "$GITHUB_OUTPUT"
       - name: Retry early CDN push (before the section shards give up)
         id: cdn-push-early-retry
         if: steps.cdn-push-early.outcome == 'failure'
@@ -674,8 +689,10 @@ jobs:
           CDN_TARGET: ${{ vars.CDN_TARGET || 'pages' }}
           DEPLOY_BUILD_ID: ${{ needs.resolve-publish-plan.outputs.build_id }}
           DEPLOY_CDN_PUSH_ONLY: '1'
+          R2_TIMEOUT_OG_S: ${{ steps.cdn-push-early-start.outputs.r2_timeout_og_s }}
+          CDN_EARLY_RETRY_STARTED_AT: ${{ steps.cdn-push-early-retry-start.outputs.started_at }}
         run: |
-          started_at="$(date +%s)"
+          started_at="${CDN_EARLY_RETRY_STARTED_AT:-$(date +%s)}"
           set +e
           bash scripts/lib/deploy-it-pages-prep.sh
           status=$?
@@ -701,14 +718,14 @@ jobs:
         continue-on-error: true
         env:
           EARLY_OUTCOME: ${{ steps.cdn-push-early.outcome }}
-          EARLY_STARTED_AT: ${{ steps.cdn-push-early.outputs.started_at }}
+          EARLY_STARTED_AT: ${{ steps.cdn-push-early.outputs.started_at || steps.cdn-push-early-start.outputs.started_at }}
           EARLY_ENDED_AT: ${{ steps.cdn-push-early.outputs.ended_at }}
           EARLY_DURATION_S: ${{ steps.cdn-push-early.outputs.duration_s }}
           RETRY_OUTCOME: ${{ steps.cdn-push-early-retry.outcome }}
-          RETRY_STARTED_AT: ${{ steps.cdn-push-early-retry.outputs.started_at }}
+          RETRY_STARTED_AT: ${{ steps.cdn-push-early-retry.outputs.started_at || steps.cdn-push-early-retry-start.outputs.started_at }}
           RETRY_ENDED_AT: ${{ steps.cdn-push-early-retry.outputs.ended_at }}
           RETRY_DURATION_S: ${{ steps.cdn-push-early-retry.outputs.duration_s }}
-          R2_TIMEOUT_OG_S: ${{ steps.cdn-push-early.outputs.r2_timeout_og_s || steps.cdn-push-early-retry.outputs.r2_timeout_og_s || '900' }}
+          R2_TIMEOUT_OG_S: ${{ steps.cdn-push-early.outputs.r2_timeout_og_s || steps.cdn-push-early-retry.outputs.r2_timeout_og_s || steps.cdn-push-early-start.outputs.r2_timeout_og_s || 'unknown' }}
         run: |
           set -euo pipefail
           cdnEarlyPushBudgetObserved() {
@@ -721,20 +738,60 @@ jobs:
             local retry_seconds=0
             local early_recorded=0
             local retry_recorded=0
+            local early_outcome_display="$early_outcome"
+            local retry_outcome_display="$retry_outcome"
+            local early_timeout_bounded=0
+            local retry_timeout_bounded=0
 
             if [[ "$early_duration" =~ ^[0-9]+$ ]]; then
               early_seconds="$early_duration"
               early_recorded=1
+            elif [[ "${EARLY_STARTED_AT:-}" =~ ^[0-9]+$ ]] && [[ "${EARLY_ENDED_AT:-}" =~ ^[0-9]+$ ]]; then
+              early_seconds=$((EARLY_ENDED_AT - EARLY_STARTED_AT))
+              (( early_seconds < 0 )) && early_seconds=0
+              early_recorded=1
+            elif [[ "${EARLY_STARTED_AT:-}" =~ ^[0-9]+$ ]]; then
+              if [[ "$early_outcome" == 'failure' ]]; then
+                # The step itself is capped at 45 minutes. A failed attempt
+                # without an end output was killed before its shell could
+                # persist one, so report the configured bound rather than
+                # counting later cache/retry steps as part of this duration.
+                early_seconds="$cap_seconds"
+                early_recorded=1
+                early_timeout_bounded=1
+                early_outcome_display='failure (45-minute step timeout; exact end unavailable)'
+              fi
             fi
             if [[ "$retry_duration" =~ ^[0-9]+$ ]]; then
               retry_seconds="$retry_duration"
               retry_recorded=1
+            elif [[ "${RETRY_STARTED_AT:-}" =~ ^[0-9]+$ ]] && [[ "${RETRY_ENDED_AT:-}" =~ ^[0-9]+$ ]]; then
+              retry_seconds=$((RETRY_ENDED_AT - RETRY_STARTED_AT))
+              (( retry_seconds < 0 )) && retry_seconds=0
+              retry_recorded=1
+            elif [[ "${RETRY_STARTED_AT:-}" =~ ^[0-9]+$ ]]; then
+              if [[ "$retry_outcome" == 'failure' ]]; then
+                retry_seconds="$cap_seconds"
+                retry_recorded=1
+                retry_timeout_bounded=1
+                retry_outcome_display='failure (45-minute step timeout; exact end unavailable)'
+              fi
             fi
 
             local early_display='unknown'
             local retry_display='unknown'
-            if (( early_recorded )); then early_display="${early_seconds}s"; fi
-            if (( retry_recorded )); then retry_display="${retry_seconds}s"; fi
+            if (( early_recorded )); then
+              early_display="${early_seconds}s"
+              if (( early_timeout_bounded )); then
+                early_display="≥${cap_seconds}s (45-minute step limit; exact end unavailable)"
+              fi
+            fi
+            if (( retry_recorded )); then
+              retry_display="${retry_seconds}s"
+              if (( retry_timeout_bounded )); then
+                retry_display="≥${cap_seconds}s (45-minute step limit; exact end unavailable)"
+              fi
+            fi
 
             local max_seconds=0
             local max_display='unknown'
@@ -743,8 +800,11 @@ jobs:
               max_seconds="$early_seconds"
               if (( retry_recorded && retry_seconds > max_seconds )); then max_seconds="$retry_seconds"; fi
               max_display="${max_seconds}s"
-              if (( max_seconds <= cap_seconds )); then
+              if (( early_timeout_bounded || retry_timeout_bounded )); then max_display="≥${max_seconds}s"; fi
+              if (( max_seconds < cap_seconds )); then
                 comparison="within 45 min by $((cap_seconds - max_seconds))s"
+              elif (( max_seconds == cap_seconds )); then
+                comparison='at 45-minute cap'
               else
                 comparison="over 45 min by $((max_seconds - cap_seconds))s"
               fi
@@ -755,10 +815,16 @@ jobs:
               local tail_seconds=$((RETRY_ENDED_AT - EARLY_STARTED_AT))
               (( tail_seconds < 0 )) && tail_seconds=0
               tail_display="${tail_seconds}s"
+            elif [[ "${EARLY_STARTED_AT:-}" =~ ^[0-9]+$ ]] && [[ "${RETRY_STARTED_AT:-}" =~ ^[0-9]+$ ]] && (( retry_timeout_bounded )); then
+              local tail_seconds=$((RETRY_STARTED_AT + cap_seconds - EARLY_STARTED_AT))
+              (( tail_seconds < 0 )) && tail_seconds=0
+              tail_display="≥${tail_seconds}s (retry reached 45-minute limit; exact end unavailable)"
             elif [[ "${EARLY_STARTED_AT:-}" =~ ^[0-9]+$ ]] && [[ "${EARLY_ENDED_AT:-}" =~ ^[0-9]+$ ]]; then
               local tail_seconds=$((EARLY_ENDED_AT - EARLY_STARTED_AT))
               (( tail_seconds < 0 )) && tail_seconds=0
               tail_display="${tail_seconds}s"
+            elif [[ "${EARLY_STARTED_AT:-}" =~ ^[0-9]+$ ]] && (( early_timeout_bounded )); then
+              tail_display="≥${cap_seconds}s (early push reached 45-minute limit; exact tail unavailable)"
             fi
 
             {
@@ -766,13 +832,13 @@ jobs:
               echo
               echo '| Attempt | Outcome | Duration | R2_TIMEOUT_OG_S | Comparison with 45-minute cap |'
               echo '| --- | --- | ---: | ---: | --- |'
-              printf '| early push | `%s` | `%s` | `%s` | `%s` |\n' "$early_outcome" "$early_display" "${R2_TIMEOUT_OG_S:-unknown}" "$comparison"
-              printf '| retry | `%s` | `%s` | `%s` | `%s` |\n' "$retry_outcome" "$retry_display" "${R2_TIMEOUT_OG_S:-unknown}" "$comparison"
+              printf '| early push | `%s` | `%s` | `%s` | `%s` |\n' "$early_outcome_display" "$early_display" "${R2_TIMEOUT_OG_S:-unknown}" "$comparison"
+              printf '| retry | `%s` | `%s` | `%s` | `%s` |\n' "$retry_outcome_display" "$retry_display" "${R2_TIMEOUT_OG_S:-unknown}" "$comparison"
               printf '| measured early-push tail span | — | `%s` | — | max attempt `%s` |\n' "$tail_display" "$max_display"
               echo
               echo '_Read-only observer: this summary does not change the 45-minute step timeout, retry, or `cdn-ready` gate._'
             } >> "$GITHUB_STEP_SUMMARY"
-            echo "cdnEarlyPushBudgetObserved: early=${early_outcome}/${early_display} retry=${retry_outcome}/${retry_display} tail=${tail_display} cap=2700s R2_TIMEOUT_OG_S=${R2_TIMEOUT_OG_S:-unknown}"
+            echo "cdnEarlyPushBudgetObserved: early=${early_outcome_display}/${early_display} retry=${retry_outcome_display}/${retry_display} tail=${tail_display} cap=2700s R2_TIMEOUT_OG_S=${R2_TIMEOUT_OG_S:-unknown}"
           }
           cdnEarlyPushBudgetObserved
       - name: Require IT CDN build id before shard pushes
