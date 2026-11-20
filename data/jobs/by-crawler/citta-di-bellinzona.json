@@ -1,7 +1,7 @@
 {
   "crawlerKey": "citta-di-bellinzona",
-  "assembledAt": "2026-11-19T21:18:57.330Z",
-  "runId": "44615547699",
+  "assembledAt": "2026-11-20T09:22:32.896Z",
+  "runId": "44707887994",
   "jobs": [
     {
       "id": "citta-di-bellinzona-impiegato-a-amministrativo-a-addetto-a-alla-formazione-del-personale-presso-il-bellinzona",
@@ -51,10 +51,10 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=IS#position,id=76648689-f8a1-4fee-a1dd-7b7214db47c6,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-19T21:18:49.425Z",
+      "crawledAt": "2026-11-20T09:22:26.288Z",
       "firstSeenAt": "2026-10-30T09:48:40.338Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T21:18:49.425Z",
+      "validThrough": "2027-01-28T09:22:26.288Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -139,6 +139,128 @@
       },
       "crawlerMissStreak": 2,
       "sourceIdentity": "url:https://bellinz.pi-asp.de/bewerber-web?company=*-firma-id&tenant=&lang=is"
+    },
+    {
+      "id": "citta-di-bellinzona-governante-presso-l-ente-autonomo-bellinzonaanziani-bellinzona",
+      "slug": "governante-presso-l-ente-autonomo-bellinzonaanziani-bellinzona",
+      "slugByLocale": {
+        "it": "governante-presso-l-ente-autonomo-bellinzonaanziani-bellinzona"
+      },
+      "company": "Città di Bellinzona",
+      "companyKey": "citta-di-bellinzona",
+      "companyDomain": "bellinzona.ch",
+      "title": "Governante, presso l’Ente Autonomo BellinzonaAnziani",
+      "titleByLocale": {
+        "it": "Governante, presso l’Ente Autonomo BellinzonaAnziani"
+      },
+      "description": "Dicastero amministrazione generale Risorse umane In Piazza 10 6528 Camorino AVVISO DI CONCORSO PER L’ASSUNZIONE DI PERSONALE Il Municipio di Bellinzona apre un pubblico concorso per la nomina, con grado occupazionale dall’80% al 100%, di: un/a Governante presso l’ Ente Autonomo BellinzonaAnziani, sedi Casa Anziani Comunale, Sementina, Greina, Residenza Pedemonte e Centro Somen.\n\nCompiti principali:\n\n- gestire il Servizio alberghiero Economia domestica, coordinandone le attività e assicurando un\n\nimpiego appropriato delle risorse umane, finanziarie e materiali, nonché delle infrastrutture e degli inventari;\n\n- pianificare, organizzare e supervisionare il lavoro dei collaboratori e delle collaboratrici del servizio,\n\ncurandone l’inserimento, la formazione e la motivazione, promuovendo un clima di lavoro fondato sul rispetto, sulla fiducia reciproca e sulla collaborazione;\n\n- gestire il budget del servizio secondo le indicazioni della Direzione, pianificando e coordinando gli\n\nacquisti di materiali, prodotti e attrezzature di competenza, assicurandone un utilizzo appropriato e parsimonioso;\n\n- organizzare e supervisionare la gestione della biancheria e degli indumenti, in collaborazione con il\n\nServizio infermieristico, nonché i servizi di lavanderia, stiratura e sartoria;\n\n- gestire e supervisionare le attività di pulizia degli spazi e delle infrastrutture, assicurando il rispetto\n\ndelle norme igieniche e delle procedure applicabili;\n\n- assicurare la corretta gestione della sala da pranzo durante i pasti;\n\n- collaborare con le altre figure professionali e i servizi degli Istituti, favorendo il coordinamento delle\n\nattività e un approccio multidisciplinare;\n\n- monitorare la qualità delle prestazioni e dei processi di competenza, gestire le segnalazioni e i\n\nreclami e proporre interventi di miglioramento, nel rispetto delle disposizioni in materia di sicurezza e salute sul lavoro e sostenibilità;\n\n- svolgere ulteriori compiti coerenti con la funzione e con le necessità del servizio.\n\nRequisiti formali:\n\n- maturità o altri titoli di studio equivalenti/superiori coerenti con la funzione a concorso;\n\n- attestato professionale federale (APF) quale Responsabile del settore alberghiero -economia\n\ndomestica o altri titoli di studio equivalenti/superiori.\n\nRequisiti preferenziali:\n\n- diploma federale (DF) quale Capo del settore alberghiero -economia domestica o titolo equipollente;\n\n- almeno 2 anni di esperienza professionale con ruolo di coordinamento, gestione e leadership presso\n\norganizzazioni pubbliche o private di medio -grandi dimensioni;\n\n- ottime conoscenze delle norme igieniche e capacità di garantirne l’applicazione;\n\n- buone conoscenze informatiche, in particolare degli applicativi Office e degli strumenti di ricerca in\n\nrete;\n\n- conoscenza delle lingue nazional i.\n\nRequisiti attitudinali:\n\n- spiccate capacità relazionali, comunicative e di ascolto, unite a riservatezza e discrezione;\n\n- capacità di motivare, valorizzare e sviluppare le competenze dei collaboratori e delle collaboratrici;\n\n- capacità di favorire il dialogo e individuare soluzioni costruttive nelle situazioni complesse;\n\n- spiccate capacità organizzative e di pianificazione delle attività e delle risorse assegnate;\n\n- capacità di analisi, di risoluzione dei problemi e di gestione delle priorità;\n\n- orientamento agli obiettivi, ai risultati e al miglioramento continuo della qualità delle prestazioni;\n\n- capacità di collaborare efficacemente in un contesto multidisciplinare;\n\n- affidabilità, senso di responsabilità ed equilibrio personale;\n\n- adattabilità, flessibilità e capacità di lavorare anche sotto pressione in un ambiente sfidante.\n\nOffriamo:\n\n- struttura orientata alla progettualità, all’innovazione e all’eccellenza;\n\n- volontà di costituire un team di lavoro multidisciplinare dinamico, motivato e pronto a cogliere le\n\nsfide future con un’attitudine proattiva e collaborativa;\n\n- centralità della persona anziana e care -giver nella costruzione di un percorso individualizzato basato\n\nsulle evidenze e nel pieno rispetto della volontà della persona anziana stessa.\n\nDocumenti da produrre:\n\n1. lettera accompagnatoria; 2. curriculum vitae; 3. copia del documento di identità; 4. copia del permesso, se stranieri; 5. fotografia formato jpg; 6. copia dei certificati di studio (con note d’esame) e di lavoro; 7. autocertificazione * relativa al casellario giudiziale; 8. autocertificazione * relativa al certificato di solvibilità (UEF); 9. autocertificazione * relativa allo stato di salute. *Le autocertificazioni sono ottenibili sul sito www.bellinzona.ch/assunzioni.\n\nEntrata in servizio:\n\n- data da convenire.\n\nCondizioni particolari:\n\n- l’assunzione fa riferimento al Regolamento organico dei dipendenti della Città di Bellinzona (ROD);\n\n- la decisione di assunzione compete, fino al 31 dicembre 2026, al Municipio e, a decorrere dal 1. gennaio\n\n2027, al Consiglio direttivo del nuovo Ente autonomo BellinzonaAnziani;\n\n- candidature supportate da documentazione incompleta non saranno prese in considerazione;\n\n- non saranno considerati valevoli offerte e documenti trasmessi in formato cartaceo, via fax o via e -\n\nmail.\n\nCondizioni salariali:\n\n- valgono le condizioni del ROD, in particolare le seguenti classi e stipendio annuo (compresa\n\n13ª mensilità): o Governante 2: 9 -10-11 / CHF 65'200.00 – CHF 85'650.00 o Governante 1: 12-13-14 / CHF 74'550.00 – CHF 99'500.00\n\nScadenza del concorso:\n\n- le offerte d’impiego corredate dai documenti richiesti devono pervenire tramite il modulo di\n\ncandidatura online entro venerdì 18 dicembre 2026, alle ore 23:59. Il presente bando di concorso è pure visibile sul sito www.bellinzona.ch/assunzioni e reperibile presso gli sportelli multifunzionali dei quartieri. Per ulteriori informazioni rivolgersi al Servizio Risorse umane del Settore Anziani (tel. 058 203 41 94). Il Municipio /Il Consiglio direttivo dell ’Ente autonomo BellinzonaAnziani si riserva il diritto di non procedere con l’assunzione in assenza di candidati/e ritenuti/e idonei/e nella funzione. IL MUNICIPIO Bellinzona, 20 novembre 2026",
+      "descriptionByLocale": {
+        "it": "Dicastero amministrazione generale Risorse umane In Piazza 10 6528 Camorino AVVISO DI CONCORSO PER L’ASSUNZIONE DI PERSONALE Il Municipio di Bellinzona apre un pubblico concorso per la nomina, con grado occupazionale dall’80% al 100%, di: un/a Governante presso l’ Ente Autonomo BellinzonaAnziani, sedi Casa Anziani Comunale, Sementina, Greina, Residenza Pedemonte e Centro Somen.\n\nCompiti principali:\n\n- gestire il Servizio alberghiero Economia domestica, coordinandone le attività e assicurando un\n\nimpiego appropriato delle risorse umane, finanziarie e materiali, nonché delle infrastrutture e degli inventari;\n\n- pianificare, organizzare e supervisionare il lavoro dei collaboratori e delle collaboratrici del servizio,\n\ncurandone l’inserimento, la formazione e la motivazione, promuovendo un clima di lavoro fondato sul rispetto, sulla fiducia reciproca e sulla collaborazione;\n\n- gestire il budget del servizio secondo le indicazioni della Direzione, pianificando e coordinando gli\n\nacquisti di materiali, prodotti e attrezzature di competenza, assicurandone un utilizzo appropriato e parsimonioso;\n\n- organizzare e supervisionare la gestione della biancheria e degli indumenti, in collaborazione con il\n\nServizio infermieristico, nonché i servizi di lavanderia, stiratura e sartoria;\n\n- gestire e supervisionare le attività di pulizia degli spazi e delle infrastrutture, assicurando il rispetto\n\ndelle norme igieniche e delle procedure applicabili;\n\n- assicurare la corretta gestione della sala da pranzo durante i pasti;\n\n- collaborare con le altre figure professionali e i servizi degli Istituti, favorendo il coordinamento delle\n\nattività e un approccio multidisciplinare;\n\n- monitorare la qualità delle prestazioni e dei processi di competenza, gestire le segnalazioni e i\n\nreclami e proporre interventi di miglioramento, nel rispetto delle disposizioni in materia di sicurezza e salute sul lavoro e sostenibilità;\n\n- svolgere ulteriori compiti coerenti con la funzione e con le necessità del servizio.\n\nRequisiti formali:\n\n- maturità o altri titoli di studio equivalenti/superiori coerenti con la funzione a concorso;\n\n- attestato professionale federale (APF) quale Responsabile del settore alberghiero -economia\n\ndomestica o altri titoli di studio equivalenti/superiori.\n\nRequisiti preferenziali:\n\n- diploma federale (DF) quale Capo del settore alberghiero -economia domestica o titolo equipollente;\n\n- almeno 2 anni di esperienza professionale con ruolo di coordinamento, gestione e leadership presso\n\norganizzazioni pubbliche o private di medio -grandi dimensioni;\n\n- ottime conoscenze delle norme igieniche e capacità di garantirne l’applicazione;\n\n- buone conoscenze informatiche, in particolare degli applicativi Office e degli strumenti di ricerca in\n\nrete;\n\n- conoscenza delle lingue nazional i.\n\nRequisiti attitudinali:\n\n- spiccate capacità relazionali, comunicative e di ascolto, unite a riservatezza e discrezione;\n\n- capacità di motivare, valorizzare e sviluppare le competenze dei collaboratori e delle collaboratrici;\n\n- capacità di favorire il dialogo e individuare soluzioni costruttive nelle situazioni complesse;\n\n- spiccate capacità organizzative e di pianificazione delle attività e delle risorse assegnate;\n\n- capacità di analisi, di risoluzione dei problemi e di gestione delle priorità;\n\n- orientamento agli obiettivi, ai risultati e al miglioramento continuo della qualità delle prestazioni;\n\n- capacità di collaborare efficacemente in un contesto multidisciplinare;\n\n- affidabilità, senso di responsabilità ed equilibrio personale;\n\n- adattabilità, flessibilità e capacità di lavorare anche sotto pressione in un ambiente sfidante.\n\nOffriamo:\n\n- struttura orientata alla progettualità, all’innovazione e all’eccellenza;\n\n- volontà di costituire un team di lavoro multidisciplinare dinamico, motivato e pronto a cogliere le\n\nsfide future con un’attitudine proattiva e collaborativa;\n\n- centralità della persona anziana e care -giver nella costruzione di un percorso individualizzato basato\n\nsulle evidenze e nel pieno rispetto della volontà della persona anziana stessa.\n\nDocumenti da produrre:\n\n1. lettera accompagnatoria; 2. curriculum vitae; 3. copia del documento di identità; 4. copia del permesso, se stranieri; 5. fotografia formato jpg; 6. copia dei certificati di studio (con note d’esame) e di lavoro; 7. autocertificazione * relativa al casellario giudiziale; 8. autocertificazione * relativa al certificato di solvibilità (UEF); 9. autocertificazione * relativa allo stato di salute. *Le autocertificazioni sono ottenibili sul sito www.bellinzona.ch/assunzioni.\n\nEntrata in servizio:\n\n- data da convenire.\n\nCondizioni particolari:\n\n- l’assunzione fa riferimento al Regolamento organico dei dipendenti della Città di Bellinzona (ROD);\n\n- la decisione di assunzione compete, fino al 31 dicembre 2026, al Municipio e, a decorrere dal 1. gennaio\n\n2027, al Consiglio direttivo del nuovo Ente autonomo BellinzonaAnziani;\n\n- candidature supportate da documentazione incompleta non saranno prese in considerazione;\n\n- non saranno considerati valevoli offerte e documenti trasmessi in formato cartaceo, via fax o via e -\n\nmail.\n\nCondizioni salariali:\n\n- valgono le condizioni del ROD, in particolare le seguenti classi e stipendio annuo (compresa\n\n13ª mensilità): o Governante 2: 9 -10-11 / CHF 65'200.00 – CHF 85'650.00 o Governante 1: 12-13-14 / CHF 74'550.00 – CHF 99'500.00\n\nScadenza del concorso:\n\n- le offerte d’impiego corredate dai documenti richiesti devono pervenire tramite il modulo di\n\ncandidatura online entro venerdì 18 dicembre 2026, alle ore 23:59. Il presente bando di concorso è pure visibile sul sito www.bellinzona.ch/assunzioni e reperibile presso gli sportelli multifunzionali dei quartieri. Per ulteriori informazioni rivolgersi al Servizio Risorse umane del Settore Anziani (tel. 058 203 41 94). Il Municipio /Il Consiglio direttivo dell ’Ente autonomo BellinzonaAnziani si riserva il diritto di non procedere con l’assunzione in assenza di candidati/e ritenuti/e idonei/e nella funzione. IL MUNICIPIO Bellinzona, 20 novembre 2026"
+      },
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": []
+      },
+      "location": "Bellinzona",
+      "canton": "TI",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6500",
+      "streetAddress": "Piazza Nosetto",
+      "category": "public-admin",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-20",
+      "postedDate": "2026-11-20",
+      "postingDateSource": "reported",
+      "url": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=IS#position,id=c63f2847-2a77-4dfd-95e3-79a55833ca60,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "pdfUrl": "https://www.bellinzona.ch/una-Governante-presso-l-Ente-Autonomo-BellinzonaAnziani-a44c2800",
+      "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=IS#position,id=c63f2847-2a77-4dfd-95e3-79a55833ca60,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "source": "Bellinzona Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-11-20T09:22:26.526Z",
+      "needsRetranslation": true,
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-18T09:22:26.526Z",
+      "validThroughSource": "last-observed-window",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-11-20T09:22:26.526Z"
+    },
+    {
+      "id": "citta-di-bellinzona-ricerca-di-pattugliatori-trici-presso-la-polizia-comunale-bellinzona",
+      "slug": "ricerca-di-pattugliatori-trici-presso-la-polizia-comunale-bellinzona",
+      "slugByLocale": {
+        "it": "ricerca-di-pattugliatori-trici-presso-la-polizia-comunale-bellinzona"
+      },
+      "company": "Città di Bellinzona",
+      "companyKey": "citta-di-bellinzona",
+      "companyDomain": "bellinzona.ch",
+      "title": "Ricerca di pattugliatori/trici, presso la Polizia comunale",
+      "titleByLocale": {
+        "it": "Ricerca di pattugliatori/trici, presso la Polizia comunale"
+      },
+      "description": "Dicastero amministrazione generale Risorse umane In Piazza 10 6528 Camorino RICERCA DI PERSONALE\n\nIl Municipio di Bellinzona ricerca personale ad ore, a tempo indeterminato, in qualità di:\n\nPattugliatori/trici presso la Polizia comunale (quartieri di Giubiasco, Sementina, Gudo e Claro).\n\nCompiti principali:\n\n- garantire il transito sicuro degli allievi sui passaggi pedonali nelle vicinanze delle scuole elementari e\n\ndell’infanzia durante gli orari di entrata e uscita dagli istituti scolastici, nelle seguenti fasce orarie: 07.00/ 09.00 - 11.00/12.00 - 13.00/14.00 - 16.00/17.00 (per un massimo di 9.5 ore settimanali, secondo calendario scolastico).\n\nRequisiti attitudinali:\n\n- facilità al lavoro a contatto con bambini in età scolastica;\n\n- senso di responsabilità;\n\n- stato psicofisico compatibile con la funzione;\n\n- idoneità fisica a eseguire il lavoro previsto;\n\n- cortesia e disponibilità.\n\nRequisiti preferenziali:\n\n- disponibilità a frequentare il corso d’istruzione sull’educazione stradale;\n\n- persona domiciliata o residente a Bellinzona.\n\nDocumenti da produrre:\n\n1. lettera accompagnatoria; 2. curriculum vitae; 3. copia del documento di identità; 4. copia del permesso, se stranieri; 5. fotografia formato jpg; 6. autocertificazione * relativa al casellario giudiziale; 7. autocertificazione * relativa al certificato di solvibilità (UEF); 8. autocertificazione * relativa allo stato di salute. *Le autocertificazioni sono ottenibili sul sito www.bellinzona.ch/assunzioni. L’estratto specifico per privati del casellario giudiziale, verr à richiest o in sede di assunzione.\n\nEntrata in servizio:\n\n- data da convenire.\n\nCondizioni particolari:\n\n- il personale è assunto quale personale ausiliario (art. 1 cifra 6 del Regolamento organico dei dipendenti\n\ndella Città di Bellinzona ). Il rapporto d’impiego del personale ausiliario è retto, di principio, dal diritto privato (art. 319 segg. CO);\n\n- candidature con documentazione incompleta non saranno prese in considerazione;\n\n- non saranno considerat i valevoli offerte e documenti trasmessi in formato cartaceo, via fax o via e -\n\nmail;\n\n- il numero delle persone assunte e il luogo d’impiego saranno determinati in base al fabbisogno\n\ndel la Polizia comunale.\n\nCondizioni salariali:\n\n- CHF 23.51 lordi orari (omnicomprensivi, incluse in particolare le indennità vacanze e festività\n\ninfrasettimanali ).\n\nScadenza:\n\n- le offerte d’impiego corredate dai documenti richiesti devono pervenire tramite il modulo di\n\ncandidatura online entro venerdì 04 dicembre 202 6, alle ore 23.59. Il presente documento è pure visibile sul sito www.bellinzona.ch/assunzioni e reperibile presso gli sportelli multifunzionali dei quartieri. Per ulteriori informazioni rivolgersi al Ten. Massimo Scandolara ( tel. 058 203 12 03). Il Municipio si riserva il diritto di non procedere all’assunzione in assenza di candidati /e ritenuti /e idonei /e nella funzione. IL MUNICIPIO Bellinzona, 20 novembre 2026",
+      "descriptionByLocale": {
+        "it": "Dicastero amministrazione generale Risorse umane In Piazza 10 6528 Camorino RICERCA DI PERSONALE\n\nIl Municipio di Bellinzona ricerca personale ad ore, a tempo indeterminato, in qualità di:\n\nPattugliatori/trici presso la Polizia comunale (quartieri di Giubiasco, Sementina, Gudo e Claro).\n\nCompiti principali:\n\n- garantire il transito sicuro degli allievi sui passaggi pedonali nelle vicinanze delle scuole elementari e\n\ndell’infanzia durante gli orari di entrata e uscita dagli istituti scolastici, nelle seguenti fasce orarie: 07.00/ 09.00 - 11.00/12.00 - 13.00/14.00 - 16.00/17.00 (per un massimo di 9.5 ore settimanali, secondo calendario scolastico).\n\nRequisiti attitudinali:\n\n- facilità al lavoro a contatto con bambini in età scolastica;\n\n- senso di responsabilità;\n\n- stato psicofisico compatibile con la funzione;\n\n- idoneità fisica a eseguire il lavoro previsto;\n\n- cortesia e disponibilità.\n\nRequisiti preferenziali:\n\n- disponibilità a frequentare il corso d’istruzione sull’educazione stradale;\n\n- persona domiciliata o residente a Bellinzona.\n\nDocumenti da produrre:\n\n1. lettera accompagnatoria; 2. curriculum vitae; 3. copia del documento di identità; 4. copia del permesso, se stranieri; 5. fotografia formato jpg; 6. autocertificazione * relativa al casellario giudiziale; 7. autocertificazione * relativa al certificato di solvibilità (UEF); 8. autocertificazione * relativa allo stato di salute. *Le autocertificazioni sono ottenibili sul sito www.bellinzona.ch/assunzioni. L’estratto specifico per privati del casellario giudiziale, verr à richiest o in sede di assunzione.\n\nEntrata in servizio:\n\n- data da convenire.\n\nCondizioni particolari:\n\n- il personale è assunto quale personale ausiliario (art. 1 cifra 6 del Regolamento organico dei dipendenti\n\ndella Città di Bellinzona ). Il rapporto d’impiego del personale ausiliario è retto, di principio, dal diritto privato (art. 319 segg. CO);\n\n- candidature con documentazione incompleta non saranno prese in considerazione;\n\n- non saranno considerat i valevoli offerte e documenti trasmessi in formato cartaceo, via fax o via e -\n\nmail;\n\n- il numero delle persone assunte e il luogo d’impiego saranno determinati in base al fabbisogno\n\ndel la Polizia comunale.\n\nCondizioni salariali:\n\n- CHF 23.51 lordi orari (omnicomprensivi, incluse in particolare le indennità vacanze e festività\n\ninfrasettimanali ).\n\nScadenza:\n\n- le offerte d’impiego corredate dai documenti richiesti devono pervenire tramite il modulo di\n\ncandidatura online entro venerdì 04 dicembre 202 6, alle ore 23.59. Il presente documento è pure visibile sul sito www.bellinzona.ch/assunzioni e reperibile presso gli sportelli multifunzionali dei quartieri. Per ulteriori informazioni rivolgersi al Ten. Massimo Scandolara ( tel. 058 203 12 03). Il Municipio si riserva il diritto di non procedere all’assunzione in assenza di candidati /e ritenuti /e idonei /e nella funzione. IL MUNICIPIO Bellinzona, 20 novembre 2026"
+      },
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": []
+      },
+      "location": "Bellinzona",
+      "canton": "TI",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6500",
+      "streetAddress": "Piazza Nosetto",
+      "category": "public-admin",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-20",
+      "postedDate": "2026-11-20",
+      "postingDateSource": "reported",
+      "url": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=IS#position,id=6854e5d6-a43d-4166-b0cf-c8239799bdd0,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "pdfUrl": "https://www.bellinzona.ch/Ricerca-di-pattugliatoritrici-presso-la-Polizia-comunale-916f0100",
+      "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=IS#position,id=6854e5d6-a43d-4166-b0cf-c8239799bdd0,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "source": "Bellinzona Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-11-20T09:22:26.729Z",
+      "needsRetranslation": true,
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-18T09:22:26.729Z",
+      "validThroughSource": "last-observed-window",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-11-20T09:22:26.729Z"
     }
   ]
 }
