@@ -571,9 +571,6 @@ export async function fetchWorkdayJsonWithRetry(apiBase, url, options = {}) {
  * @property {string} [userAgent] Override User-Agent header.
  * @property {number} [minDelayMs] Polite delay between paginated calls (default 2000ms).
  * @property {number} [timeoutMs] Per-request timeout (default 20000ms).
- * @property {{ request: (url: string, options?: object) => Promise<any> }} [requestContext]
- *   Shared tenant transport. When present, listing pages use its serialized
- *   browser session and Retry-After cooldown instead of owning a new session.
  * @property {(args: {url: string, method: string, body?: string, userAgent: string, timeoutMs: number}) => Promise<any>|null} [browserFallback] Test or caller-supplied browser transport for connection-level failures. `null` disables the default browser transport.
  * @property {WorkdayFetchStats} [stats] Optional mutable object the iterator
  *   fills with how pagination ended. Read-only signal: passing it never changes
@@ -636,14 +633,12 @@ export async function* fetchWorkdayJobs(apiBase, options = {}) {
     : {};
 
   const endpoint = `${apiBase.replace(/\/+$/, '')}/jobs`;
-  const requestContext = options.requestContext ?? null;
-  const browserSession = !requestContext && options.browserFallback === undefined
+  const browserSession = options.browserFallback === undefined
     ? createWorkdayBrowserJsonFallback(apiBase)
     : null;
-  const browserFallback = !requestContext && options.browserFallback === undefined
+  const browserFallback = options.browserFallback === undefined
     ? browserSession.request
     : options.browserFallback;
-  const transport = requestContext ? { requestContext } : { browserFallback };
 
   let offset = 0;
   let yielded = 0;
@@ -669,13 +664,13 @@ export async function* fetchWorkdayJobs(apiBase, options = {}) {
 
       let data;
       try {
-        data = await fetchWorkdayJsonWithRetry(apiBase, endpoint, {
+        data = await fetchJsonWithRetry(endpoint, {
           method: 'POST',
           body,
           userAgent,
           timeoutMs,
           retries: 1,
-          ...transport,
+          browserFallback,
         });
       } catch (err) {
         // Surface auth errors verbatim; for other failures on the first page,
@@ -753,7 +748,7 @@ export async function* fetchWorkdayJobs(apiBase, options = {}) {
  * errors (404 for a renamed or retired site) → `WorkdayApiError`.
  *
  * @param {string} apiBase Output of `buildWorkdayApiBase`.
- * @param {{ appliedFacets?: Record<string, string[]>, userAgent?: string, timeoutMs?: number, requestContext?: { request: Function }, browserFallback?: Function|null }} [options]
+ * @param {{ appliedFacets?: Record<string, string[]>, userAgent?: string, timeoutMs?: number, browserFallback?: Function|null }} [options]
  * @returns {Promise<WorkdayBoardSummary>}
  */
 export async function fetchWorkdayBoardSummary(apiBase, options = {}) {
@@ -764,22 +759,20 @@ export async function fetchWorkdayBoardSummary(apiBase, options = {}) {
     timeoutMs = DEFAULT_TIMEOUT_MS,
   } = options;
   const endpoint = `${apiBase.replace(/\/+$/, '')}/jobs`;
-  const requestContext = options.requestContext ?? null;
-  const browserSession = !requestContext && options.browserFallback === undefined
+  const browserSession = options.browserFallback === undefined
     ? createWorkdayBrowserJsonFallback(apiBase)
     : null;
-  const browserFallback = !requestContext && options.browserFallback === undefined
+  const browserFallback = options.browserFallback === undefined
     ? browserSession.request
     : options.browserFallback;
-  const transport = requestContext ? { requestContext } : { browserFallback };
   try {
-    const data = await fetchWorkdayJsonWithRetry(apiBase, endpoint, {
+    const data = await fetchJsonWithRetry(endpoint, {
       method: 'POST',
       body: JSON.stringify({ appliedFacets, limit: DEFAULT_PAGE_SIZE, offset: 0, searchText: '' }),
       userAgent,
       timeoutMs,
       retries: 1,
-      ...transport,
+      browserFallback,
     });
     const postings = assertJsonListShape(data, { key: 'jobPostings', source: `workday:${apiBase}` });
     return {
@@ -852,8 +845,6 @@ export function workdayFacetLeafValues(facets, facetParameter) {
  * @param {number} [options.timeoutMs] Per-request timeout. Default 15000ms.
  * @param {string} [options.userAgent] Override User-Agent header.
  * @param {number} [options.retries] Override the shared transient retry count.
- * @param {{ request: (url: string, options?: object) => Promise<any> }} [options.requestContext]
- *   Shared tenant transport for listing, detail and summary requests.
  * @param {(args: {url: string, method: string, body?: string, userAgent: string, timeoutMs: number}) => Promise<any>|null} [options.browserFallback] Alternate browser transport after direct retries are exhausted. Omit to use the lazy default browser transport; pass `null` to disable it.
  * @returns {Promise<any|null>} The detail JSON, or `null` on failure.
  *
@@ -869,14 +860,12 @@ export async function fetchWorkdayJobDetail(apiBase, externalPath, options = {})
     userAgent = DEFAULT_USER_AGENT,
     retries,
   } = options;
-  const requestContext = options.requestContext ?? null;
-  const browserSession = !requestContext && options.browserFallback === undefined
+  const browserSession = options.browserFallback === undefined
     ? createWorkdayBrowserJsonFallback(apiBase)
     : null;
-  const browserFallback = !requestContext && options.browserFallback === undefined
+  const browserFallback = options.browserFallback === undefined
     ? browserSession.request
     : options.browserFallback;
-  const transport = requestContext ? { requestContext } : { browserFallback };
 
   const url = `${String(apiBase).replace(/\/+$/, '')}${externalPath}`;
 
@@ -884,12 +873,12 @@ export async function fetchWorkdayJobDetail(apiBase, externalPath, options = {})
   // kept without enriched detail) but retry TRANSIENT blips so a network
   // hiccup doesn't silently drop the description on a single attempt.
   try {
-    return await fetchWorkdayJsonWithRetry(apiBase, url, {
+    return await fetchJsonWithRetry(url, {
       method: 'GET',
       userAgent,
       timeoutMs,
       retries,
-      ...transport,
+      browserFallback,
     });
   } catch {
     return null;

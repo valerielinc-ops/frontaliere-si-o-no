@@ -1,7 +1,7 @@
 {
   "crawlerKey": "citta-di-mendrisio",
-  "assembledAt": "2026-11-20T21:19:43.165Z",
-  "runId": "44817524642",
+  "assembledAt": "2026-11-20T09:19:05.377Z",
+  "runId": "44707887994",
   "jobs": [
     {
       "url": "https://mendrisio.ch/downloadConcorsiPdf?uuid=2c54b20f-7155-43ef-833d-21c92b6aaa78",
@@ -28,16 +28,16 @@
       "slug": "apprendisti-afc-impiegati-di-commercio-mendrisio",
       "slugByLocale": {
         "it": "apprendisti-afc-impiegati-di-commercio-mendrisio",
-        "en": "apprendisti-afc-impiegati-di-commercio-mendrisio",
-        "de": "apprendisti-afc-impiegati-di-commercio-mendrisio",
-        "fr": "apprendisti-afc-impiegati-di-commercio-mendrisio"
+        "en": "afc-businesses-citta-di-mendrisio-mendrisio",
+        "de": "afc-unternehmen-citta-di-mendrisio-mendrisio",
+        "fr": "entreprises-afc-citta-di-mendrisio-mendrisio"
       },
       "sourceLang": "it",
       "category": "apprenticeship",
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-20T21:19:25.121Z",
+      "crawledAt": "2026-11-20T09:18:51.845Z",
       "validThrough": "2027-01-04T23:59:59.999Z",
       "source": "mendrisio-concorsi-crawler",
       "employmentType": "FULL_TIME",
@@ -71,19 +71,17 @@
       "validThroughSource": "source",
       "previousSlugsByLocale": {
         "en": [
-          "afc-businesses-citta-di-mendrisio-mendrisio"
+          "apprendisti-afc-impiegati-di-commercio-mendrisio"
         ],
         "de": [
-          "afc-unternehmen-citta-di-mendrisio-mendrisio"
+          "apprendisti-afc-impiegati-di-commercio-mendrisio"
         ],
         "fr": [
-          "entreprises-afc-citta-di-mendrisio-mendrisio"
+          "apprendisti-afc-impiegati-di-commercio-mendrisio"
         ]
       },
       "previousSlugs": [
-        "afc-businesses-citta-di-mendrisio-mendrisio",
-        "afc-unternehmen-citta-di-mendrisio-mendrisio",
-        "entreprises-afc-citta-di-mendrisio-mendrisio"
+        "apprendisti-afc-impiegati-di-commercio-mendrisio"
       ],
       "sourceIdentity": "url:https://mendrisio.ch/downloadconcorsipdf?uuid=2c54b20f-7155-43ef-833d-21c92b6aaa78"
     },
@@ -112,16 +110,16 @@
       "slug": "apprendista-afc-informatico-in-gestione-infrastrutture-mendrisio",
       "slugByLocale": {
         "it": "apprendista-afc-informatico-in-gestione-infrastrutture-mendrisio",
-        "en": "apprendista-afc-informatico-in-gestione-infrastrutture-mendrisio",
-        "de": "apprendista-afc-informatico-in-gestione-infrastrutture-mendrisio",
-        "fr": "apprendista-afc-informatico-in-gestione-infrastrutture-mendrisio"
+        "en": "apprentice-afc-informatico-in-management-infrastrutture-citta-di-mendrisio-mendrisio",
+        "de": "lernende-r-afc-informatico-in-verwaltung-infrastrutture-citta-di-mendrisio-mendrisio",
+        "fr": "apprenti-e-afc-informatico-in-gestion-infrastrutture-citta-di-mendrisio-mendrisio"
       },
       "sourceLang": "it",
       "category": "apprenticeship",
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-20T21:19:25.167Z",
+      "crawledAt": "2026-11-20T09:18:51.868Z",
       "validThrough": "2027-02-26T23:59:59.999Z",
       "source": "mendrisio-concorsi-crawler",
       "employmentType": "FULL_TIME",
@@ -155,19 +153,17 @@
       "validThroughSource": "source",
       "previousSlugsByLocale": {
         "en": [
-          "apprentice-afc-informatico-in-management-infrastrutture-citta-di-mendrisio-mendrisio"
+          "apprendista-afc-informatico-in-gestione-infrastrutture-mendrisio"
         ],
         "de": [
-          "lernende-r-afc-informatico-in-verwaltung-infrastrutture-citta-di-mendrisio-mendrisio"
+          "apprendista-afc-informatico-in-gestione-infrastrutture-mendrisio"
         ],
         "fr": [
-          "apprenti-e-afc-informatico-in-gestion-infrastrutture-citta-di-mendrisio-mendrisio"
+          "apprendista-afc-informatico-in-gestione-infrastrutture-mendrisio"
         ]
       },
       "previousSlugs": [
-        "apprentice-afc-informatico-in-management-infrastrutture-citta-di-mendrisio-mendrisio",
-        "lernende-r-afc-informatico-in-verwaltung-infrastrutture-citta-di-mendrisio-mendrisio",
-        "apprenti-e-afc-informatico-in-gestion-infrastrutture-citta-di-mendrisio-mendrisio"
+        "apprendista-afc-informatico-in-gestione-infrastrutture-mendrisio"
       ],
       "sourceIdentity": "url:https://mendrisio.ch/downloadconcorsipdf?uuid=e1621104-771a-475a-be31-d834c7ff772b"
     },
@@ -205,7 +201,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-20T21:19:24.993Z",
+      "crawledAt": "2026-11-20T09:18:51.796Z",
       "validThrough": "2027-02-26T23:59:59.999Z",
       "source": "mendrisio-concorsi-crawler",
       "employmentType": "FULL_TIME",
@@ -281,16 +277,16 @@
       "slug": "stagista-52-settimane-citta-di-mendrisio-mendrisio",
       "slugByLocale": {
         "it": "stagista-52-settimane-citta-di-mendrisio-mendrisio",
-        "en": "stagista-52-settimane-mendrisio",
-        "de": "stagista-52-settimane-mendrisio",
-        "fr": "stagista-52-settimane-mendrisio"
+        "en": "stagist-52-weeks-citta-di-mendrisio-mendrisio",
+        "de": "stagist-52-wochen-citta-di-mendrisio-mendrisio",
+        "fr": "stagiaire-52-semaines-citta-di-mendrisio-mendrisio"
       },
       "sourceLang": "it",
       "category": "general",
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-20T21:19:25.012Z",
+      "crawledAt": "2026-11-20T09:18:51.828Z",
       "validThrough": "2027-01-04T23:59:59.999Z",
       "source": "mendrisio-concorsi-crawler",
       "employmentType": "FULL_TIME",
@@ -327,21 +323,17 @@
           "stagista-52-settimane-mendrisio"
         ],
         "en": [
-          "stagist-52-weeks-citta-di-mendrisio-mendrisio"
+          "stagista-52-settimane-mendrisio"
         ],
         "de": [
-          "stagist-52-wochen-citta-di-mendrisio-mendrisio"
+          "stagista-52-settimane-mendrisio"
         ],
         "fr": [
-          "stagiaire-52-semaines-citta-di-mendrisio-mendrisio"
+          "stagista-52-settimane-mendrisio"
         ]
       },
       "previousSlugs": [
-        "stagista-52-settimane-mendrisio",
-        "stagista-52-settimane-citta-di-mendrisio-mendrisio",
-        "stagist-52-weeks-citta-di-mendrisio-mendrisio",
-        "stagist-52-wochen-citta-di-mendrisio-mendrisio",
-        "stagiaire-52-semaines-citta-di-mendrisio-mendrisio"
+        "stagista-52-settimane-mendrisio"
       ],
       "sourceIdentity": "url:https://mendrisio.ch/downloadconcorsipdf?uuid=c7309ca1-2c66-4d29-8a82-cfb8bd9916bb"
     },
@@ -379,7 +371,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-20T21:19:24.665Z",
+      "crawledAt": "2026-11-20T09:18:51.737Z",
       "validThrough": "2027-01-04T23:59:59.999Z",
       "source": "mendrisio-concorsi-crawler",
       "employmentType": "FULL_TIME",
@@ -447,7 +439,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-20T21:19:24.585Z",
+      "crawledAt": "2026-11-20T09:18:51.720Z",
       "validThrough": "2027-01-04T23:59:59.999Z",
       "source": "mendrisio-concorsi-crawler",
       "employmentType": "FULL_TIME",
@@ -523,16 +515,16 @@
       "slug": "assistente-sociale-a-tempo-determinato-all-80-mendrisio",
       "slugByLocale": {
         "it": "assistente-sociale-a-tempo-determinato-all-80-mendrisio",
-        "en": "assistente-sociale-a-tempo-determinato-all-80-mendrisio",
-        "de": "assistente-sociale-a-tempo-determinato-all-80-mendrisio",
-        "fr": "assistente-sociale-a-tempo-determinato-all-80-mendrisio"
+        "en": "social-worker-at-80-citta-di-mendrisio-mendrisio",
+        "de": "sozialarbeiter-bei-80-citta-di-mendrisio-mendrisio",
+        "fr": "travailleurs-sociaux-a-80-citta-di-mendrisio-mendrisio"
       },
       "sourceLang": "it",
       "category": "social",
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-20T21:19:24.429Z",
+      "crawledAt": "2026-11-20T09:18:51.609Z",
       "validThrough": "2026-11-30T23:59:59.999Z",
       "source": "mendrisio-concorsi-crawler",
       "employmentType": "CONTRACTOR",
@@ -566,19 +558,17 @@
       "firstSeenAt": "2026-11-13T21:16:43.409Z",
       "previousSlugsByLocale": {
         "en": [
-          "social-worker-at-80-citta-di-mendrisio-mendrisio"
+          "assistente-sociale-a-tempo-determinato-all-80-mendrisio"
         ],
         "de": [
-          "sozialarbeiter-bei-80-citta-di-mendrisio-mendrisio"
+          "assistente-sociale-a-tempo-determinato-all-80-mendrisio"
         ],
         "fr": [
-          "travailleurs-sociaux-a-80-citta-di-mendrisio-mendrisio"
+          "assistente-sociale-a-tempo-determinato-all-80-mendrisio"
         ]
       },
       "previousSlugs": [
-        "social-worker-at-80-citta-di-mendrisio-mendrisio",
-        "sozialarbeiter-bei-80-citta-di-mendrisio-mendrisio",
-        "travailleurs-sociaux-a-80-citta-di-mendrisio-mendrisio"
+        "assistente-sociale-a-tempo-determinato-all-80-mendrisio"
       ],
       "sourceIdentity": "url:https://mendrisio.ch/downloadconcorsipdf?uuid=2822f311-1bfc-46d9-8318-c22bb19d2399"
     }
