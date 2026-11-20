@@ -667,6 +667,58 @@ jobs:
             echo "r2_timeout_og_s=${R2_TIMEOUT_OG_S:-unknown}"
           } >> "$GITHUB_OUTPUT"
           exit "$status"
+      - name: Observe early CDN push timing from Actions API
+        id: cdn-push-early-timing-api
+        if: always()
+        continue-on-error: true
+        timeout-minutes: 2
+        uses: actions/github-script@v9
+        env:
+          OBSERVED_STEP_NAME: Push generated assets to CDN (early — ahead of the shard pushes)
+        with:
+          script: |
+            // This endpoint also returns in-progress jobs with completed-step timings.
+            // Missing, ambiguous, or incomplete API data leaves all timing outputs unset.
+            const jobs = await github.paginate(github.rest.actions.listJobsForWorkflowRun, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              run_id: context.runId,
+              filter: 'latest',
+              per_page: 100,
+            });
+            const matchingJobs = jobs.filter((job) => job.name === 'Publish IT CDN assets first');
+            const publisherJob = matchingJobs[0];
+            const currentAttempt = Number(process.env.GITHUB_RUN_ATTEMPT);
+            const attemptMismatch = publisherJob?.run_attempt !== undefined &&
+              Number.isSafeInteger(currentAttempt) &&
+              Number(publisherJob.run_attempt) !== currentAttempt;
+            if (matchingJobs.length !== 1 || attemptMismatch) {
+              core.notice(`CDN timing API unavailable: expected one current publisher job for attempt ${process.env.GITHUB_RUN_ATTEMPT}, found ${matchingJobs.length}`);
+              return;
+            }
+            const matchingSteps = (publisherJob.steps ?? []).filter((step) =>
+              step.name === process.env.OBSERVED_STEP_NAME
+            );
+            if (matchingSteps.length !== 1) {
+              core.notice(`CDN timing API unavailable: expected one matching step, found ${matchingSteps.length}`);
+              return;
+            }
+            const step = matchingSteps[0];
+            const startedMs = Date.parse(step.started_at ?? '');
+            const completedMs = Date.parse(step.completed_at ?? '');
+            const allowedConclusions = new Set(['success', 'failure', 'cancelled', 'skipped']);
+            if (step.status !== 'completed' || !Number.isFinite(startedMs) ||
+                !Number.isFinite(completedMs) || completedMs < startedMs ||
+                !allowedConclusions.has(step.conclusion)) {
+              core.notice('CDN timing API returned incomplete or invalid step timing; duration remains unknown');
+              return;
+            }
+            core.setOutput('started_at', String(Math.floor(startedMs / 1000)));
+            core.setOutput('ended_at', String(Math.floor(completedMs / 1000)));
+            core.setOutput('duration_s', String(Math.floor((completedMs - startedMs) / 1000)));
+            core.setOutput('started_at_iso', step.started_at);
+            core.setOutput('completed_at_iso', step.completed_at);
+            core.setOutput('conclusion', step.conclusion);
       - name: Save R2 OG manifest after early CDN push
         if: ${{ always() && (vars.CDN_TARGET == 'r2' || vars.CDN_TARGET == 'both') && hashFiles('.cache/r2-og-published-manifest.json') != '' }}
         uses: actions/cache/save@v6
@@ -709,6 +761,58 @@ jobs:
             echo "r2_timeout_og_s=${R2_TIMEOUT_OG_S:-unknown}"
           } >> "$GITHUB_OUTPUT"
           exit "$status"
+      - name: Observe early CDN retry timing from Actions API
+        id: cdn-push-early-retry-timing-api
+        if: ${{ always() && steps.cdn-push-early-retry.outcome != 'skipped' }}
+        continue-on-error: true
+        timeout-minutes: 2
+        uses: actions/github-script@v9
+        env:
+          OBSERVED_STEP_NAME: Retry early CDN push (before the section shards give up)
+        with:
+          script: |
+            // This endpoint also returns in-progress jobs with completed-step timings.
+            // Missing, ambiguous, or incomplete API data leaves all timing outputs unset.
+            const jobs = await github.paginate(github.rest.actions.listJobsForWorkflowRun, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              run_id: context.runId,
+              filter: 'latest',
+              per_page: 100,
+            });
+            const matchingJobs = jobs.filter((job) => job.name === 'Publish IT CDN assets first');
+            const publisherJob = matchingJobs[0];
+            const currentAttempt = Number(process.env.GITHUB_RUN_ATTEMPT);
+            const attemptMismatch = publisherJob?.run_attempt !== undefined &&
+              Number.isSafeInteger(currentAttempt) &&
+              Number(publisherJob.run_attempt) !== currentAttempt;
+            if (matchingJobs.length !== 1 || attemptMismatch) {
+              core.notice(`CDN timing API unavailable: expected one current publisher job for attempt ${process.env.GITHUB_RUN_ATTEMPT}, found ${matchingJobs.length}`);
+              return;
+            }
+            const matchingSteps = (publisherJob.steps ?? []).filter((step) =>
+              step.name === process.env.OBSERVED_STEP_NAME
+            );
+            if (matchingSteps.length !== 1) {
+              core.notice(`CDN timing API unavailable: expected one matching step, found ${matchingSteps.length}`);
+              return;
+            }
+            const step = matchingSteps[0];
+            const startedMs = Date.parse(step.started_at ?? '');
+            const completedMs = Date.parse(step.completed_at ?? '');
+            const allowedConclusions = new Set(['success', 'failure', 'cancelled', 'skipped']);
+            if (step.status !== 'completed' || !Number.isFinite(startedMs) ||
+                !Number.isFinite(completedMs) || completedMs < startedMs ||
+                !allowedConclusions.has(step.conclusion)) {
+              core.notice('CDN timing API returned incomplete or invalid step timing; duration remains unknown');
+              return;
+            }
+            core.setOutput('started_at', String(Math.floor(startedMs / 1000)));
+            core.setOutput('ended_at', String(Math.floor(completedMs / 1000)));
+            core.setOutput('duration_s', String(Math.floor((completedMs - startedMs) / 1000)));
+            core.setOutput('started_at_iso', step.started_at);
+            core.setOutput('completed_at_iso', step.completed_at);
+            core.setOutput('conclusion', step.conclusion);
       - name: Save R2 OG manifest after early CDN retry
         if: ${{ always() && steps.cdn-push-early-retry.outcome != 'skipped' && (vars.CDN_TARGET == 'r2' || vars.CDN_TARGET == 'both') && hashFiles('.cache/r2-og-published-manifest.json') != '' }}
         uses: actions/cache/save@v6
@@ -722,13 +826,15 @@ jobs:
         continue-on-error: true
         env:
           EARLY_OUTCOME: ${{ steps.cdn-push-early.outcome }}
-          EARLY_STARTED_AT: ${{ steps.cdn-push-early.outputs.started_at || steps.cdn-push-early-start.outputs.started_at }}
-          EARLY_ENDED_AT: ${{ steps.cdn-push-early.outputs.ended_at }}
-          EARLY_DURATION_S: ${{ steps.cdn-push-early.outputs.duration_s }}
+          EARLY_STARTED_AT: ${{ steps.cdn-push-early-timing-api.outputs.started_at || steps.cdn-push-early.outputs.started_at || steps.cdn-push-early-start.outputs.started_at }}
+          EARLY_ENDED_AT: ${{ steps.cdn-push-early-timing-api.outputs.ended_at || steps.cdn-push-early.outputs.ended_at }}
+          EARLY_DURATION_S: ${{ steps.cdn-push-early-timing-api.outputs.duration_s || steps.cdn-push-early.outputs.duration_s }}
+          EARLY_API_CONCLUSION: ${{ steps.cdn-push-early-timing-api.outputs.conclusion || 'unknown' }}
           RETRY_OUTCOME: ${{ steps.cdn-push-early-retry.outcome }}
-          RETRY_STARTED_AT: ${{ steps.cdn-push-early-retry.outputs.started_at || steps.cdn-push-early-retry-start.outputs.started_at }}
-          RETRY_ENDED_AT: ${{ steps.cdn-push-early-retry.outputs.ended_at }}
-          RETRY_DURATION_S: ${{ steps.cdn-push-early-retry.outputs.duration_s }}
+          RETRY_STARTED_AT: ${{ steps.cdn-push-early-retry-timing-api.outputs.started_at || steps.cdn-push-early-retry.outputs.started_at || steps.cdn-push-early-retry-start.outputs.started_at }}
+          RETRY_ENDED_AT: ${{ steps.cdn-push-early-retry-timing-api.outputs.ended_at || steps.cdn-push-early-retry.outputs.ended_at }}
+          RETRY_DURATION_S: ${{ steps.cdn-push-early-retry-timing-api.outputs.duration_s || steps.cdn-push-early-retry.outputs.duration_s }}
+          RETRY_API_CONCLUSION: ${{ steps.cdn-push-early-retry-timing-api.outputs.conclusion || 'unknown' }}
           R2_TIMEOUT_OG_S: ${{ steps.cdn-push-early.outputs.r2_timeout_og_s || steps.cdn-push-early-retry.outputs.r2_timeout_og_s || steps.cdn-push-early-start.outputs.r2_timeout_og_s || 'unknown' }}
         run: |
           set -euo pipefail
@@ -806,7 +912,7 @@ jobs:
                 if (( max_seconds < cap_seconds )); then
                   comparison="within 90 min by $((cap_seconds - max_seconds))s"
                 elif (( max_seconds == cap_seconds )); then
-                  comparison='at 90-minute cap'
+                  comparison='measured duration equals 90 min (timeout unconfirmed)'
                 else
                   comparison="over 90 min by $((max_seconds - cap_seconds))s"
                 fi
@@ -834,11 +940,11 @@ jobs:
             {
               echo '### IT early CDN push budget (advisory)'
               echo
-              echo '| Attempt | Outcome | Duration | R2_TIMEOUT_OG_S | Comparison with 90-minute cap |'
-              echo '| --- | --- | ---: | ---: | --- |'
-              printf '| early push | `%s` | `%s` | `%s` | `%s` |\n' "$early_outcome_display" "$early_display" "${R2_TIMEOUT_OG_S:-unknown}" "$comparison"
-              printf '| retry | `%s` | `%s` | `%s` | `%s` |\n' "$retry_outcome_display" "$retry_display" "${R2_TIMEOUT_OG_S:-unknown}" "$comparison"
-              printf '| measured early-push tail span | — | `%s` | — | max attempt `%s` |\n' "$tail_display" "$max_display"
+              echo '| Attempt | Outcome | Actions API conclusion | Duration | R2_TIMEOUT_OG_S | Comparison with 90-minute cap |'
+              echo '| --- | --- | --- | ---: | ---: | --- |'
+              printf '| early push | `%s` | `%s` | `%s` | `%s` | `%s` |\n' "$early_outcome_display" "${EARLY_API_CONCLUSION:-unknown}" "$early_display" "${R2_TIMEOUT_OG_S:-unknown}" "$comparison"
+              printf '| retry | `%s` | `%s` | `%s` | `%s` | `%s` |\n' "$retry_outcome_display" "${RETRY_API_CONCLUSION:-unknown}" "$retry_display" "${R2_TIMEOUT_OG_S:-unknown}" "$comparison"
+              printf '| measured early-push tail span | — | — | `%s` | — | max attempt `%s` |\n' "$tail_display" "$max_display"
               echo
               echo '_Read-only observer: this summary does not change the 90-minute step timeout, retry, or `cdn-ready` gate._'
             } >> "$GITHUB_STEP_SUMMARY"
