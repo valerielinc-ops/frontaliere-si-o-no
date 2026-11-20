@@ -621,6 +621,11 @@ jobs:
       # did not change keeps the same bytes and the delta shard push stops
       # rewriting it on every deploy. Unset keeps the marker byte-for-byte.
       STATIC_BUILD_ID_META: ${{ vars.STATIC_BUILD_ID_META == 'off' && 'off' || '' }}
+      # The IT bundle and the staged-build handoff are shared with the three
+      # SEO-only legs. The path is runner-local: the artifact carries its
+      # contents across runners and the non-IT restore repopulates this exact
+      # contract before starting Vite's SSG process.
+      BUILD_STAGE_HANDOFF_DIR: ${{ runner.temp }}/build-stage-handoff
     steps:
       # #7106 — anchors the CDN gate's job-deadline safety margin (see "WHY A
       # THIRD CLOCK" in scripts/lib/wait-cdn-build-id.sh) to this leg's REAL
@@ -1010,6 +1015,144 @@ jobs:
           df -h /
           echo "::endgroup::"
 
+      # Build the Rollup graph exactly once. The IT leg is the owner of the
+      # executable SPA bundle; non-IT legs must never construct a second graph
+      # from the same source snapshot because that is the memory peak this
+      # pipeline is trying to remove.
+      - name: Build IT Rollup bundle
+        if: matrix.locale == 'it'
+        id: bundle_stage
+        shell: bash
+        env:
+          PROFILE_GC_MIN_GROWTH_MB: '256'
+          BUILD_EXTRA_NODE_OPTIONS: ${{ vars.BUILD_EXTRA_NODE_OPTIONS }}
+          MALLOC_ARENA_MAX: '2'
+          INCREMENTAL_MANIFEST: ${{ vars.INCREMENTAL_MANIFEST == '1' && '1' || '' }}
+          JOBS_SEO_HTML_GC_INTERVAL_MB: '512'
+          JOBPOSTING_COVERAGE_OUT: ${{ runner.temp }}/jobposting-coverage.json
+          BUILD_STAGED_PHASE: bundle
+        run: |
+          set -o pipefail
+          npm run build:ci 2>&1 | tee /tmp/build-bundle.log
+          build_exit="${PIPESTATUS[0]}"
+          echo "bundle_wall_seconds=$SECONDS" >> "$GITHUB_OUTPUT"
+          exit "$build_exit"
+
+      - name: Package IT Rollup bundle and staged handoff
+        if: matrix.locale == 'it' && steps.bundle_stage.outcome == 'success'
+        shell: bash
+        run: |
+          set -euo pipefail
+          payload="$RUNNER_TEMP/it-rollup-bundle-payload"
+          archive="$RUNNER_TEMP/it-rollup-bundle.tgz"
+          rm -rf "$payload" "$archive"
+          mkdir -p "$payload/stage-handoff" "$payload/metadata"
+          cp -a dist "$payload/dist"
+          cp -a "$BUILD_STAGE_HANDOFF_DIR/." "$payload/stage-handoff/"
+          if [ -f content-manifest-bundle.tsv ]; then
+            cp content-manifest-bundle.tsv "$payload/metadata/"
+          fi
+          test -s "$payload/stage-handoff/route-chunks.json"
+          test -s "$payload/stage-handoff/job-canon-ordering-fields.json"
+          GZ="$(command -v pigz || command -v gzip)"
+          tar -I "$GZ" -cf "$archive" -C "$payload" dist stage-handoff metadata
+          test -s "$archive"
+          ls -lh "$archive"
+
+      - name: Upload IT Rollup bundle artifact
+        if: matrix.locale == 'it' && steps.bundle_stage.outcome == 'success'
+        id: upload-it-rollup-bundle
+        uses: actions/upload-artifact@v7
+        with:
+          name: it-rollup-bundle-${{ github.run_id }}
+          path: ${{ runner.temp }}/it-rollup-bundle.tgz
+          retention-days: 1
+          if-no-files-found: error
+          compression-level: 0
+
+      - name: Retry upload IT Rollup bundle artifact
+        if: (matrix.locale == 'it' && steps.bundle_stage.outcome == 'success') && steps.upload-it-rollup-bundle.outcome == 'failure'
+        uses: actions/upload-artifact@v7
+        with:
+          name: it-rollup-bundle-${{ github.run_id }}
+          path: ${{ runner.temp }}/it-rollup-bundle.tgz
+          retention-days: 1
+          if-no-files-found: error
+          compression-level: 0
+          overwrite: true
+
+      # Matrix legs start together, so a non-IT leg cannot express a dependency
+      # on only build-locale(it) in GitHub's matrix DAG. Poll the same-run
+      # artifact and the IT job identity instead: an IT failure fails closed,
+      # while a transient Actions API response keeps the bounded wait alive.
+      - name: Wait for IT Rollup bundle artifact
+        if: matrix.locale != 'it'
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BUNDLE_ARTIFACT_NAME: it-rollup-bundle-${{ github.run_id }}
+          SOURCE_RUN_ID: ${{ github.run_id }}
+          SOURCE_REPOSITORY: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          for attempt in $(seq 1 720); do
+            artifact_id="$(
+              gh api "repos/${SOURCE_REPOSITORY}/actions/runs/${SOURCE_RUN_ID}/artifacts?per_page=100" 2>/dev/null \
+                | jq -r --arg name "$BUNDLE_ARTIFACT_NAME" '[.artifacts[] | select(.name == $name and .expired == false)] | first | .id // empty' \
+                || true
+            )"
+            if [ -n "$artifact_id" ]; then
+              echo "IT Rollup bundle artifact is available (id=$artifact_id, attempt=$attempt)"
+              exit 0
+            fi
+
+            it_state="$(
+              gh api "repos/${SOURCE_REPOSITORY}/actions/runs/${SOURCE_RUN_ID}/jobs?per_page=100" 2>/dev/null \
+                | jq -r '[.jobs[] | select(.name == "build-locale (it)")] | first | if . == null then "missing" else (.status + ":" + (.conclusion // "")) end' \
+                || true
+            )"
+            case "$it_state" in
+              completed:success) ;;
+              completed:*)
+                echo "::error::build-locale (it) ended as $it_state before publishing $BUNDLE_ARTIFACT_NAME"
+                exit 1
+                ;;
+            esac
+            echo "Waiting for $BUNDLE_ARTIFACT_NAME (attempt $attempt/720; IT job=$it_state)"
+            sleep 15
+          done
+          echo "::error::Timed out waiting for $BUNDLE_ARTIFACT_NAME"
+          exit 1
+
+      - name: Download IT Rollup bundle artifact
+        if: matrix.locale != 'it'
+        uses: actions/download-artifact@v8
+        with:
+          name: it-rollup-bundle-${{ github.run_id }}
+          path: ${{ runner.temp }}/it-rollup-bundle-download
+
+      - name: Restore IT Rollup bundle and staged handoff
+        if: matrix.locale != 'it'
+        shell: bash
+        run: |
+          set -euo pipefail
+          archive="$(find "$RUNNER_TEMP/it-rollup-bundle-download" -maxdepth 2 -type f -name '*.tgz' -print -quit)"
+          test -n "$archive"
+          extracted="$RUNNER_TEMP/it-rollup-bundle-extracted"
+          rm -rf "$extracted" dist "$BUILD_STAGE_HANDOFF_DIR" content-manifest-bundle.tsv
+          mkdir -p "$extracted" "$BUILD_STAGE_HANDOFF_DIR"
+          GZ="$(command -v pigz || command -v gzip)"
+          tar -I "$GZ" -xf "$archive" -C "$extracted"
+          test -d "$extracted/dist/assets"
+          test -s "$extracted/stage-handoff/route-chunks.json"
+          test -s "$extracted/stage-handoff/job-canon-ordering-fields.json"
+          cp -a "$extracted/dist" .
+          cp -a "$extracted/stage-handoff/." "$BUILD_STAGE_HANDOFF_DIR/"
+          if [ -f "$extracted/metadata/content-manifest-bundle.tsv" ]; then
+            cp "$extracted/metadata/content-manifest-bundle.tsv" .
+          fi
+          test -s dist/build-id.txt
+
       - name: Build (BUILD_LOCALE=${{ matrix.locale }})
         id: build_step
         shell: bash
@@ -1054,6 +1197,10 @@ jobs:
           # The jobs SEO plugin lists every active job detail it writes here;
           # "Assert active JobPosting coverage" re-checks them in the final dist.
           JOBPOSTING_COVERAGE_OUT: ${{ runner.temp }}/jobposting-coverage.json
+          # The bundle stage ran once on IT and is either still in this
+          # workspace (IT) or was restored from the same-run artifact (other
+          # locales). This invocation is deliberately SEO-only.
+          BUILD_STAGED_PHASE: ssg
         run: |
           set -o pipefail
 

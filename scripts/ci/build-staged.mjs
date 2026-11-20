@@ -27,7 +27,17 @@ const HANDOFF_ENV = 'BUILD_STAGE_HANDOFF_DIR';
 // handoff directory, so there is one location and one cleanup (the `finally` below).
 const JOB_CANON_HANDOFF_ENV = 'BUILD_JOB_CANON_ORDERING_HANDOFF_PATH';
 const JOB_CANON_HANDOFF_FILE = 'job-canon-ordering-fields.json';
-const handoffDir = fs.mkdtempSync(path.join(os.tmpdir(), 'build-stage-handoff-'));
+const stagedPhase = String(process.env.BUILD_STAGED_PHASE || 'all').trim().toLowerCase();
+if (!['all', 'bundle', 'ssg'].includes(stagedPhase)) {
+  throw new Error(`[build-staged] BUILD_STAGED_PHASE must be one of all, bundle, ssg; received ${stagedPhase || '<empty>'}`);
+}
+
+const configuredHandoffDir = String(process.env[HANDOFF_ENV] || '').trim();
+const ownsHandoffDir = !configuredHandoffDir;
+const handoffDir = configuredHandoffDir
+  ? path.resolve(configuredHandoffDir)
+  : fs.mkdtempSync(path.join(os.tmpdir(), 'build-stage-handoff-'));
+fs.mkdirSync(handoffDir, { recursive: true });
 
 function cleanupHandoff() {
   try {
@@ -94,15 +104,6 @@ function runStage(stage) {
   }
   console.log(`[build-staged] complete stage=${stage}`);
   return 0;
-}
-
-function copyReport(source, target) {
-  if (!fs.existsSync(source)) return;
-  try {
-    fs.copyFileSync(source, target);
-  } catch (error) {
-    console.warn(`[build-staged] could not publish memory report: ${error.message}`);
-  }
 }
 
 function readReport(file) {
@@ -173,34 +174,56 @@ async function mergeManifests() {
   }
 }
 
-const stages = ['bundle', 'ssg'];
-removeGeneratedFile(reportBase);
-for (const stage of stages) {
+const stages = stagedPhase === 'all' ? ['bundle', 'ssg'] : [stagedPhase];
+const stagesToReset = stagedPhase === 'ssg' ? ['ssg'] : ['bundle', 'ssg'];
+if (stagedPhase !== 'ssg') removeGeneratedFile(reportBase);
+for (const stage of stagesToReset) {
   removeGeneratedFile(stageReportPath(stage));
   if (manifestEnabled) removeGeneratedFile(stageManifestPath(stage));
 }
 if (manifestEnabled) removeGeneratedFile(path.resolve(ROOT, 'content-manifest.tsv'));
 
+if (stagedPhase === 'ssg') {
+  const distDir = path.resolve(ROOT, 'dist');
+  if (!configuredHandoffDir) {
+    throw new Error(`[build-staged] BUILD_STAGED_PHASE=ssg requires ${HANDOFF_ENV} to carry the bundle handoff`);
+  }
+  if (!fs.existsSync(path.join(distDir, 'assets'))) {
+    throw new Error(`[build-staged] BUILD_STAGED_PHASE=ssg requires the bundle dist at ${distDir}`);
+  }
+}
+
+const previousReport = stagedPhase === 'ssg' ? readReport(reportBase) : null;
+
+function mergeSelectedReports(selectedStages) {
+  const reports = [
+    ...(previousReport ? [previousReport] : []),
+    ...selectedStages.map(stageReportPath).map(readReport).filter(Boolean),
+  ];
+  mergeReports(reports);
+}
+
 let failedStatus = 0;
 try {
-  for (const stage of stages) {
+  for (let index = 0; index < stages.length; index += 1) {
+    const stage = stages[index];
     const status = runStage(stage);
     if (status !== 0) {
-      copyReport(stageReportPath(stage), reportBase);
+      mergeSelectedReports(stages.slice(0, index + 1));
       failedStatus = status;
       break;
     }
   }
 
   if (failedStatus === 0) {
-    mergeReports(stages.map(stageReportPath).map(readReport).filter(Boolean));
+    mergeSelectedReports(stages);
     await mergeManifests();
 
-    for (const stage of stages) {
+    for (const stage of ['bundle', 'ssg']) {
       try { fs.unlinkSync(stageReportPath(stage)); } catch { /* generated telemetry only */ }
     }
   }
 } finally {
-  cleanupHandoff();
+  if (ownsHandoffDir) cleanupHandoff();
 }
 if (failedStatus !== 0) process.exit(failedStatus);
