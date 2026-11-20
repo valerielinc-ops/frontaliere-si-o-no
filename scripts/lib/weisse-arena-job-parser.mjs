@@ -252,7 +252,7 @@ async function fetchJobListings() {
     }
 
     if (jobs.length === 0) {
-      if (allJobs.length !== declaredTotal) {
+      if (allJobs.length < declaredTotal) {
         throw new Error(
           `Weisse Arena pagination incomplete: fetched ${allJobs.length}/${declaredTotal} declared jobs before an empty page.`,
         );
