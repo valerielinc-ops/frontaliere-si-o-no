@@ -30,6 +30,10 @@ import { normalizeSwissCantonCode } from '../target-swiss-locations.mjs';
 import { parseYoustyApprenticeshipHtml } from '../yousty-job-parser.mjs';
 
 const PHYSIOSWISS_ACCESSIBLE_TITLE_RX = /^Stellenanzeige\s+(.+?)\s+öffnen\.?$/iu;
+const EQE_COMPANY_KEY = 'eqe-ch';
+const EQE_VACANCY_CONTENT_RX = /<div\b[^>]*\bclass\s*=\s*(["'])[^"']*\bcontentblock-contenttext\b[^"']*\1[^>]*>([\s\S]*?)<\/div>/giu;
+const EQE_OLTEN_WORKPLACE_RX = /\bzur\s+Verstärkung\s+unserer\s+Fertigung\s+in\s+Olten\b/iu;
+const EQE_NORTHWEST_REGION_RX = /\bin\s+der\s+Region\s+Nordwestschweiz\b/iu;
 
 /**
  * Remove Physioswiss's accessible action wrapper from a listing title before
@@ -58,6 +62,59 @@ function normalizedLabel(value) {
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/\s+/g, ' ')
     .trim();
+}
+
+function normalizedEqeVacancyTitle(value = '') {
+  return normalizedLabel(value).replace(/\s+mehr\s+erfahren\s*$/u, '').trim();
+}
+
+/**
+ * Read only EQE's vacancy-owned content block. Its detail pages print the
+ * company seat (Olten) again in the footer, while the actual workplace is
+ * declared in the role prose. Keeping this source contract here means runtime
+ * and validation see the same evidence and the footer can never become the
+ * vacancy location.
+ *
+ * The broad "Region Nordwestschweiz" declaration is retained as unresolved
+ * evidence. It blocks an employer-address fallback without inventing a canton.
+ * The municipality Olten is accepted only in EQE's reviewed manufacturing
+ * sentence inside the title-matched vacancy block.
+ *
+ * @param {string} html
+ * @param {string} recordTitle
+ * @returns {{ matched: boolean, locationCandidates: Array<Record<string, string>> }}
+ */
+function extractEqeVacancyLocation(html = '', recordTitle = '') {
+  const source = String(html || '');
+  const expectedTitle = normalizedEqeVacancyTitle(recordTitle);
+  EQE_VACANCY_CONTENT_RX.lastIndex = 0;
+  let block;
+  while ((block = EQE_VACANCY_CONTENT_RX.exec(source))) {
+    const content = block[2];
+    const heading = /<h2\b[^>]*>([\s\S]{1,500}?)<\/h2>/iu.exec(content);
+    if (!heading) continue;
+    const observedTitle = normalizedEqeVacancyTitle(heading[1]);
+    if (expectedTitle && observedTitle !== expectedTitle) continue;
+    const vacancyText = textOf(content.replace(/&nbsp;/giu, ' '));
+    if (EQE_OLTEN_WORKPLACE_RX.test(vacancyText)) {
+      return {
+        matched: true,
+        locationCandidates: [{
+          location: 'Olten',
+          addressLocality: 'Olten',
+          addressCountry: 'CH',
+        }],
+      };
+    }
+    if (EQE_NORTHWEST_REGION_RX.test(vacancyText)) {
+      return {
+        matched: true,
+        locationCandidates: [{ location: 'Region Nordwestschweiz' }],
+      };
+    }
+    return { matched: true, locationCandidates: [] };
+  }
+  return { matched: false, locationCandidates: [] };
 }
 
 /**
@@ -229,6 +286,24 @@ export function extractRuntimeDetailFields(spec, html, url, opts = {}) {
     allowPostalCodeOnly: spec?.detailPostalCodeLocation === true,
   });
   detail = normalizeSourcePostalLocation(detail, spec);
+  if (spec?.companyKey === EQE_COMPANY_KEY) {
+    const eqeLocation = extractEqeVacancyLocation(html, recordTitle);
+    if (eqeLocation.matched) {
+      const [candidate] = eqeLocation.locationCandidates;
+      // This source-specific result is authoritative, including an empty or
+      // unresolved result. Drop generic page-wide candidates so the footer's
+      // corporate address cannot outrank the role prose.
+      detail.locationCandidates = eqeLocation.locationCandidates;
+      detail.location = candidate?.location || '';
+      detail.addressLocality = candidate?.addressLocality || '';
+      detail.addressRegion = candidate?.addressRegion || '';
+      detail.addressCountry = candidate?.addressCountry || '';
+      detail.country = candidate?.addressCountry || '';
+      detail.postalCode = '';
+      detail.streetAddress = '';
+      detail.authoritativeLocationConflict = false;
+    }
+  }
   if (spec?.platform === 'yousty.ch') {
     const yousty = parseYoustyApprenticeshipHtml(html, url);
     if (isSufficientVacancyDescription(yousty.description)) {
