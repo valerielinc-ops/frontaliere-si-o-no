@@ -67,7 +67,7 @@
           "hw-engineer-elettra-1938-ch"
         ]
       },
-      "firstSeenAt": "2026-11-17T09:44:02.367Z",
+      "firstSeenAt": "2026-11-17T09:19:51.821Z",
       "salaryMin": 58000,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -84,7 +84,8 @@
       "streetAddress": "Sede Stabio Svizzera",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:39:24.757Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://inrecruiting.intervieweb.it/fiammcomponents/jobs/hw-engineer-740162/it"
     }
   ]
 }
