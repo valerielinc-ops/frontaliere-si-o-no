@@ -293,7 +293,9 @@ describe('SuccessFactors password field signals', () => {
   it.each([
     ['a sectioned autocomplete token list', '<input id="token" type="text" autocomplete="section-login new-password" value="secret">', 'token', 'password', ''],
     ['a camelCase identifier', '<input id="newPassword" type="text" value="secret">', 'newPassword', 'password', ''],
+    ['an explicit confirmation identifier suffix', '<input id="passwordConfirm" type="text" value="secret">', 'passwordConfirm', 'password', ''],
     ['an ordinary password hint label', '<label for="hint">Password hint</label><input id="hint" type="text" value="answer">', 'hint', 'text', 'answer'],
+    ['an identifier that only prefixes a neutral hint', '<label for="passwordHint">Security hint</label><input id="passwordHint" type="text" value="answer">', 'passwordHint', 'text', 'answer'],
   ])('classifies %s identically in both collectors', (_name, markup, domId, inputType, value) => {
     for (const snapshot of passwordSnapshots(markup)) {
       const field = snapshot.fields.find((entry: any) => entry.domId === domId);

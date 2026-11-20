@@ -1283,7 +1283,7 @@ function nativeQuestionText(value, counter = null) {
   // affordance. Preserve the semantic type so account detection and the
   // planner never treat that control as a candidate answer.
   const PASSWORD_FIELD_LABEL_RE = /^(?:[\p{L}\d][\p{L}\d'’.-]*\s+)*(?:password|passwort|kennwort|mot\s+de\s+passe|contraseña|senha|parola\s+(?:d['’]ordine|chiave))(?:\s+(?:again|confirmation|confirm|repeat|retype|verify|wiederholen|bestätigen|bestatigen|di\s+nuovo|conferma|confermare|verifica|vérifier|répéter|confirmer))?(?:\s*[*:!?]|\s*\((?:required|mandatory|erforderlich|obbligatorio|obligatoire|obligatorisch)\))*\s*$/iu;
-  const PASSWORD_IDENTIFIER_RE = /(?:^|[^\p{L}\d])(?:password|passwort|kennwort|mot\s+de\s+passe|contraseña|senha|parola\s+(?:d['’]ordine|chiave))(?:$|[^\p{L}\d])/iu;
+  const PASSWORD_IDENTIFIER_RE = /(?:^|[^\p{L}\d])(?:password|passwort|kennwort|mot\s+de\s+passe|contraseña|senha|parola\s+(?:d['’]ordine|chiave))(?:(?:[^\p{L}\d](?:again|confirmation|confirm|repeat|retype|verify|wiederholen|bestätigen|bestatigen|di\s+nuovo|conferma|confermare|verifica|vérifier|répéter|confirmer))?[^\p{L}\d]*)$/iu;
   const normalizeIdentifier = (value) => clean(value)
     .replace(/([a-z\d])([A-Z])/g, '$1 $2')
     .replace(/([\p{L}])([\d])/gu, '$1 $2')
