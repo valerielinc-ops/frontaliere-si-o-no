@@ -2668,7 +2668,7 @@
       "slugByLocale": {
         "it": "assistente-medico-m-f-d-80-100-clienia-ag-pfaffikon-zh",
         "en": "assistant-physician-m-f-d-80-100-clienia-ag-pfaffikon-zh",
-        "de": "assistenzarzt-arztin-m-w-d-80-100-clienia-ag-pfaffikon",
+        "de": "assistenzarzt-arztin-m-w-d-80-100-clienia-ag-zurich",
         "fr": "medecin-adjoint-h-f-d-80-100-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
@@ -2718,7 +2718,8 @@
         "medizinische-r-praxisassistent-in-oder-fage-m-w-d-80-100-clienia-ag-zurich",
         "assistant-medical-ou-fage-m-f-j-80-100-clienia-ag-pfaffikon-zh",
         "medizinische-r-praxisassistent-in-oder-fage-m-w-d-80-100-clienia-ag-pfaffikon",
-        "assistenzarzt-arztin-m-w-d-80-100-clienia-ag-zurich"
+        "assistenzarzt-arztin-m-w-d-80-100-clienia-ag-zurich",
+        "assistenzarzt-arztin-m-w-d-80-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2734,7 +2735,7 @@
         ],
         "de": [
           "medizinische-r-praxisassistent-in-oder-fage-m-w-d-80-100-clienia-ag-zurich",
-          "assistenzarzt-arztin-m-w-d-80-100-clienia-ag-zurich"
+          "assistenzarzt-arztin-m-w-d-80-100-clienia-ag-pfaffikon"
         ],
         "fr": [
           "assistant-medical-ou-fage-m-f-j-80-100-clienia-ag-pfaffikon-zh"
@@ -2935,7 +2936,7 @@
       "slugByLocale": {
         "it": "medico-senior-m-f-d-60-100-clienia-ag-pfaffikon-zh-762990",
         "en": "senior-physician-m-f-d-60-100-clienia-ag-pfaffikon-zh-762990",
-        "de": "oberarztin-oberarzt-m-w-d-60-100-clienia-ag-pfaffikon",
+        "de": "oberarztin-oberarzt-m-w-d-60-100-clienia-ag-zurich",
         "fr": "medecin-principal-h-f-d-60-100-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
@@ -2981,7 +2982,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "medecin-principal-80-100-clienia-ag-pfaffikon-zh",
-        "oberarztin-oberarzt-m-w-d-60-100-clienia-ag-zurich"
+        "oberarztin-oberarzt-m-w-d-60-100-clienia-ag-zurich",
+        "oberarztin-oberarzt-m-w-d-60-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2989,7 +2991,7 @@
           "oberarztin-oberarzt-m-w-d-60-100-clienia-ag-zurich"
         ],
         "de": [
-          "oberarztin-oberarzt-m-w-d-60-100-clienia-ag-zurich"
+          "oberarztin-oberarzt-m-w-d-60-100-clienia-ag-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-08-25T10:19:56.023Z",
@@ -5142,7 +5144,7 @@
       "slugByLocale": {
         "it": "apprendistato-come-kochin-koch-cfc-100-clienia-ag-pfaffikon",
         "en": "apprenticeship-as-cook-cook-efz-100-clienia-ag-pfaffikon-zh",
-        "de": "lehrstelle-als-kochin-koch-efz-100-clienia-ag-pfaffikon",
+        "de": "lehrstelle-als-kochin-koch-efz-100-clienia-ag-zurich",
         "fr": "apprentissage-en-tant-que-cuisinier-cuisinier-efz-100-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
@@ -5187,7 +5189,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-kochin-koch-efz-100-clienia-ag-zurich"
+        "lehrstelle-als-kochin-koch-efz-100-clienia-ag-zurich",
+        "lehrstelle-als-kochin-koch-efz-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5200,7 +5203,7 @@
           "lehrstelle-als-kochin-koch-efz-100-clienia-ag-zurich"
         ],
         "de": [
-          "lehrstelle-als-kochin-koch-efz-100-clienia-ag-zurich"
+          "lehrstelle-als-kochin-koch-efz-100-clienia-ag-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-06-30T22:00:33.733Z",
@@ -6952,7 +6955,7 @@
       "slugByLocale": {
         "it": "infermiera-certificata-80-100-clienia-ag-pfaffikon",
         "en": "certified-nurse-80-100-clienia-ag-pfaffikon",
-        "de": "diplomierte-pflegefachperson-80-100-clienia-ag-pfaffikon",
+        "de": "diplomierte-pflegefachperson-80-100-clienia-ag-zurich",
         "fr": "infirmiere-agreee-80-100-clienia-ag-pfaffikon"
       },
       "company": "Clienia AG",
@@ -6998,14 +7001,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "diplomierte-pflegefachperson-80-100-clienia-ag-zurich"
+        "diplomierte-pflegefachperson-80-100-clienia-ag-zurich",
+        "diplomierte-pflegefachperson-80-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "diplomierte-pflegefachperson-80-100-clienia-ag-zurich"
         ],
         "de": [
-          "diplomierte-pflegefachperson-80-100-clienia-ag-zurich"
+          "diplomierte-pflegefachperson-80-100-clienia-ag-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-08-27T00:42:58.508Z",

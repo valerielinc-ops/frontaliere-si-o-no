@@ -12424,7 +12424,7 @@
       "id": "jumbo-2895c90e-900",
       "slug": "consulente-di-vendita-deco-jumbo-chur-8ba1d08990",
       "slugByLocale": {
-        "de": "verkaufsberater-in-deco-jumbo-chur-ld390m",
+        "de": "verkaufsberater-in-deco-jumbo-chur",
         "it": "consulente-di-vendita-deco-jumbo-chur-8ba1d08990",
         "en": "sales-advisor-deco-jumbo-chur",
         "fr": "conseiller-conseillere-de-vente-deco-jumbo-chur"
@@ -12500,7 +12500,8 @@
         "sales-consultant-deco-jumbo-chur-055c7c7a",
         "consultant-commercial-deco-jumbo-chur-2df5069e",
         "verkaufsberater-in-deco-jumbo-chur-2",
-        "verkaufsberater-in-deco-jumbo-chur-graubunden-0nd86w"
+        "verkaufsberater-in-deco-jumbo-chur-graubunden-0nd86w",
+        "verkaufsberater-in-deco-jumbo-chur-ld390m"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -12519,8 +12520,8 @@
           "verkaufsberater-in-deco-jumbo-chur-graubunden-0nd86w"
         ],
         "de": [
-          "verkaufsberater-in-deco-jumbo-chur",
-          "verkaufsberater-in-deco-jumbo-chur-pkl1fu"
+          "verkaufsberater-in-deco-jumbo-chur-pkl1fu",
+          "verkaufsberater-in-deco-jumbo-chur-ld390m"
         ]
       },
       "firstSeenAt": "2026-09-23T23:42:44.350Z",
@@ -21050,12 +21051,33 @@
       "previousSlugsByLocale": {
         "it": [
           "addetto-a-alle-vendite-casse-servizi-jumbo-winterthur",
-          "verkaufer-in-kassen-services-jumbo-winterthur"
+          "verkaufer-in-kassen-services-jumbo-winterthur",
+          "verkaufer-in-kassen-services-jumbo-winterthur-7a4bc457",
+          "sales-assistant-checkout-services-jumbo-winterthur",
+          "vendeur-vendeuse-caisses-services-jumbo-winterthur",
+          "vendita-cassa-servizi-jumbo-winterthur",
+          "seller-cash-register-services-jumbo-winterthur",
+          "caisse-enregistreuse-services-du-vendeur-jumbo-winterthur"
+        ],
+        "en": [
+          "sales-assistant-checkout-services-jumbo-winterthur"
+        ],
+        "de": [
+          "verkaufer-in-kassen-services-jumbo-winterthur-7a4bc457"
+        ],
+        "fr": [
+          "vendeur-vendeuse-caisses-services-jumbo-winterthur"
         ]
       },
       "previousSlugs": [
         "addetto-a-alle-vendite-casse-servizi-jumbo-winterthur",
-        "verkaufer-in-kassen-services-jumbo-winterthur"
+        "verkaufer-in-kassen-services-jumbo-winterthur",
+        "verkaufer-in-kassen-services-jumbo-winterthur-7a4bc457",
+        "sales-assistant-checkout-services-jumbo-winterthur",
+        "vendeur-vendeuse-caisses-services-jumbo-winterthur",
+        "vendita-cassa-servizi-jumbo-winterthur",
+        "seller-cash-register-services-jumbo-winterthur",
+        "caisse-enregistreuse-services-du-vendeur-jumbo-winterthur"
       ],
       "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-kassen-services/b9d9f57b-5111-4484-86c8-0a58f4e7639a"
     },
@@ -21145,22 +21167,16 @@
       "firstSeenAt": "2026-11-20T09:26:04.808Z",
       "previousSlugsByLocale": {
         "it": [
-          "consulente-di-vendita-garden-jumbo-rumlang-9c60d7",
           "verkaufberater-in-garden-jumbo-rumlang"
         ],
         "en": [
-          "sales-advisor-garden-jumbo-rumlang",
           "verkaufberater-in-garden-jumbo-rumlang"
         ],
         "fr": [
-          "conseiller-ere-de-vente-garden-jumbo-rumlang-9c60d7",
           "verkaufberater-in-garden-jumbo-rumlang"
         ]
       },
       "previousSlugs": [
-        "consulente-di-vendita-garden-jumbo-rumlang-9c60d7",
-        "sales-advisor-garden-jumbo-rumlang",
-        "conseiller-ere-de-vente-garden-jumbo-rumlang-9c60d7",
         "verkaufberater-in-garden-jumbo-rumlang"
       ],
       "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaufberater-in-garden/93508ad8-da4d-4372-8295-6abf18ad510c"
