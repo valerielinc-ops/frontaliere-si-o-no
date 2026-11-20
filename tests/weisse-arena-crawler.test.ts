@@ -356,7 +356,7 @@ describe('TalentLink pagination completeness', () => {
     customFields: [],
   });
 
-  it('continues after a short page until globals.jobsCount is reached', async () => {
+  it('continues after a short page until an empty page proves completeness', async () => {
     const pages = new Map([
       [0, [listing(1, 'First role')]],
       [1, [listing(2, 'Second role'), listing(3, 'Third role')]],
@@ -373,7 +373,28 @@ describe('TalentLink pagination completeness', () => {
 
     const jobs = await fetchAllWeisseArenaJobs();
 
-    expect(offsets).toEqual([0, 1]);
+    expect(offsets).toEqual([0, 1, 3]);
+    expect(jobs).toHaveLength(3);
+    expect(jobs.map(({ title }) => title)).toEqual(['First role', 'Second role', 'Third role']);
+  });
+
+  it('continues past an underreported globals.jobsCount', async () => {
+    const pages = new Map([
+      [0, [listing(1, 'First role'), listing(2, 'Second role')]],
+      [2, [listing(3, 'Third role')]],
+    ]);
+    const offsets: number[] = [];
+    vi.stubGlobal('fetch', vi.fn(async (input: string | URL) => {
+      const offset = Number(new URL(String(input)).searchParams.get('firstResult'));
+      offsets.push(offset);
+      return new Response(JSON.stringify({ globals: { jobsCount: 2 }, jobs: pages.get(offset) || [] }), {
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }));
+
+    const jobs = await fetchAllWeisseArenaJobs();
+
+    expect(offsets).toEqual([0, 2, 3]);
     expect(jobs).toHaveLength(3);
     expect(jobs.map(({ title }) => title)).toEqual(['First role', 'Second role', 'Third role']);
   });
@@ -408,10 +429,13 @@ describe('TalentLink pagination completeness', () => {
       },
       customFields: [],
     };
-    vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify({
-      globals: { jobsCount: 1 },
-      jobs: [fallbackListing],
-    }), { headers: { 'Content-Type': 'application/json' } })));
+    vi.stubGlobal('fetch', vi.fn(async (input: string | URL) => {
+      const offset = Number(new URL(String(input)).searchParams.get('firstResult'));
+      return new Response(JSON.stringify({
+        globals: { jobsCount: 1 },
+        jobs: offset === 0 ? [fallbackListing] : [],
+      }), { headers: { 'Content-Type': 'application/json' } });
+    }));
 
     const jobs = await fetchAllWeisseArenaJobs();
 
@@ -426,10 +450,13 @@ describe('TalentLink pagination completeness', () => {
     first.jobFields.id = 'A-1';
     second.jobFields.jobNumber = ' ';
     second.jobFields.id = 'B-2';
-    vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify({
-      globals: { jobsCount: 2 },
-      jobs: [first, second],
-    }), { headers: { 'Content-Type': 'application/json' } })));
+    vi.stubGlobal('fetch', vi.fn(async (input: string | URL) => {
+      const offset = Number(new URL(String(input)).searchParams.get('firstResult'));
+      return new Response(JSON.stringify({
+        globals: { jobsCount: 2 },
+        jobs: offset === 0 ? [first, second] : [],
+      }), { headers: { 'Content-Type': 'application/json' } });
+    }));
 
     const jobs = await fetchAllWeisseArenaJobs();
 
@@ -440,10 +467,13 @@ describe('TalentLink pagination completeness', () => {
   it('uses the first non-empty normalized title fallback', async () => {
     const fallbackTitleListing = listing(1, ' ');
     fallbackTitleListing.jobFields.sJobTitle = 'Chef';
-    vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify({
-      globals: { jobsCount: 1 },
-      jobs: [fallbackTitleListing],
-    }), { headers: { 'Content-Type': 'application/json' } })));
+    vi.stubGlobal('fetch', vi.fn(async (input: string | URL) => {
+      const offset = Number(new URL(String(input)).searchParams.get('firstResult'));
+      return new Response(JSON.stringify({
+        globals: { jobsCount: 1 },
+        jobs: offset === 0 ? [fallbackTitleListing] : [],
+      }), { headers: { 'Content-Type': 'application/json' } });
+    }));
 
     const jobs = await fetchAllWeisseArenaJobs();
 
