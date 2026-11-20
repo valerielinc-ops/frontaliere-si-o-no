@@ -48258,6 +48258,16 @@ const RAW_ARTICLES_CHUNK_19: Article[] = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'bollettino-frontaliere-2026-11-20',
+ category: 'novita',
+ date: '2026-11-20T13:58:11.410Z',
+ image: '/images/blog/article-bollettino-frontaliere-2026-11-20.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'samuele-valente',
+ authorName: 'Samuele Valente',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

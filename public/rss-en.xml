@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides for cross-border workers in Ticino</description>
     <language>en</language>
-    <lastBuildDate>Thu, 19 Nov 2026 14:21:02 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 20 Nov 2026 13:58:12 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — English</title>
@@ -17,6 +17,101 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Cross-border workers: today&apos;s verified readings — November 20, 2026</title>
+      <link>https://frontaliereticino.ch/en/cross-border-articles/cross-border-daily-brief-2026-11-20/</link>
+      <description><![CDATA[Today's numbers, November 20, 2026, for cross-border commuters: the latest crossing waits, cheapest fuel municipalities, the franc-euro rate]]></description>
+      <content:encoded><![CDATA[No like-for-like comparison clears the threshold for a lead finding today. The edition reports the available readings and the period each source covers.
+
+Hello — it's Friday, November 20, 2026. This is the daily brief for people who live on one side of the border and work on the other: four topics tracked by our monitoring — border queues, fuel, the exchange rate and jobs — each with a link to its live page.
+
+## Border waits: available readings
+
+The available readings show smooth crossings: of 141 monitored crossings, 140 report no queue and the longest recorded wait is just **8 minutes** (Ferney-Voltaire / Grand-Saconnex).
+
+### Comparison with the previous edition
+Ferney-Voltaire / Grand-Saconnex: 8 → 8 min (2026-11-19 → 2026-11-20).
+
+Traffic shifts by the hour — every crossing's live status is on the [border traffic page](/en/border-wait/).
+## Fuel: reported prices near the border
+
+| Municipality (IT) | Unleaded, reported minimum |
+|---|---|
+| Livigno (SO) | €1.165/L |
+| Ardenno (SO) | €1.789/L |
+| Sondrio (SO) | €1.789/L |
+| Talamona (SO) | €1.789/L |
+| Gera Lario (CO) | €1.799/L |
+
+In **Livigno** (SO), the reported prices differ by **€45.40 for 50 litres** (€1.165/L in Italy vs €2.073/L at the nearest Swiss station).
+
+### Reported prices at the same stations
+| Company / location | Petrol EUR/L | Diesel EUR/L | Last report |
+|---|---|---|---|
+| Ardenno | 1.789 | 2.099 | 2026-11-18 |
+| Talamona | 1.789 | 2.099 | 2026-11-14 |
+| Gera Lario | 1.799 | 2.129 | 2026-11-19 |
+
+Observation: 2026-11-20T09:03:52.728Z.
+
+Prices town by town, updated daily: [border fuel prices today](/en/gasoline-price-switzerland/today/).
+## CHF–EUR exchange rate
+
+One franc buys **€1.0812** (reported on 2026-11-19). Versus the previous reading it loses 0.0007 €; against the available weekly reference the move is -0.0021 €.
+
+### Exchange-only illustration for CHF 4,000
+Gross euro equivalent: **4'324.80 EUR** (2026-11-19).
+
+Difference from the available weekly exchange-rate reference: **-8.40 EUR**.
+
+💡 If you earn francs and spend euros, the rate IS part of your salary: on CHF 4,000, one cent of movement is worth €40 a month. The [net salary calculator](/en/calculate-salary/) and the [currency-exchange comparison](/en/service-comparison/chf-eur-exchange-rate/) run the numbers for your case.
+## Jobs: active listings
+
+Our job board currently carries **35'534 active Swiss job listings** from 1'846 companies.
+
+Filter by canton, sector and city: [find jobs in Ticino and Switzerland](/en/find-jobs-ticino/).
+
+### Companies with the most active listings in Switzerland
+| Company / location | Active listings |
+|---|---|
+| fachkraft.ch GmbH | 3'501 |
+| STA Personal AG | 1'855 |
+| Coop Genossenschaft | 1'117 |
+| yellowshark AG | 940 |
+| Stellentreff AG | 828 |
+
+### Locations with the most active listings
+| Company / location | Active listings |
+|---|---|
+| Zurich | 4'061 |
+| Lucerne | 1'391 |
+| Bern | 1'318 |
+| Basel | 840 |
+| Winterthur | 820 |
+
+## Topics readers search for
+2026-11-11 → 2026-11-17
+
+| Topic | Google Search impressions | Site search events |
+|---|---|---|
+| Jobs | 3'280 | 6'439 |
+| Fuel | 435 | 0 |
+| Net salary | 40 | 0 |
+| Border crossings and mobility | 24 | 0 |
+
+Aggregated topics only: individual searches are never published. Impressions measure Google exposure. Site events may include search updates; these are not counts of people or unique searches.
+
+Source: Google Search Console, Firebase Analytics / GA4 (partial sample).
+
+## How this brief is made
+
+None of the numbers above come from an agency feed — they are our own monitoring: border queues sampled several times an hour at every Swiss crossing, fuel prices across Italian border municipalities and nearby Swiss stations, the official daily CHF/EUR series, and our job-board crawlers. The brief is published daily and may be refreshed during the day; observation periods depend on the source, the linked pages stay live all day.]]></content:encoded>
+      <pubDate>Fri, 20 Nov 2026 13:58:12 GMT</pubDate>
+      <dc:creator><![CDATA[Samuele Valente]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/bollettino-frontaliere-2026-11-20</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-bollettino-frontaliere-2026-11-20.webp" medium="image"/>
+    </item>
     <item>
       <title>Cross-border workers: today&apos;s verified readings — November 19, 2026</title>
       <link>https://frontaliereticino.ch/en/cross-border-articles/cross-border-daily-brief-2026-11-19/</link>
@@ -3394,61 +3489,6 @@ Anyone who wants to keep the pension topic separate from other calculations can 
       <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/voto-iva-2028-pensione</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-voto-iva-2028-pensione.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Bellinzona inaugurates the first cycle path</title>
-      <link>https://frontaliereticino.ch/en/cross-border-articles/bellinzona-new-cycle-path/</link>
-      <description><![CDATA[Three kilometres mark Bellinzona's first official entry into the world of «cycle streets».]]></description>
-      <content:encoded><![CDATA[## TL;DR
-- Bellinzona inaugurates its first cycle street
-- The route is three kilometers long
-- The route runs from Giubiasco to Bellinzona
-- Bicycles and motorized traffic share the carriageway
-
-## Key facts
-- Project → first cycle street in the City
-- Length → three kilometres
-- Start → via Golena in Giubiasco
-- Finish → intersection of via Chicherio and viale Franscini
-- Roads along the route → via Maestri Comacini and via Raggi
-- Purpose → connect the neighbourhoods and facilitate daily travel
-
-### A route between Giubiasco and Bellinzona
-Three kilometres mark Bellinzona's first official entry into the world of «cycle streets». The City has inaugurated a cycle street that starts from via Golena, in Giubiasco, and reaches the intersection of via Chicherio and viale Franscini, in Bellinzona. The route also passes along via Maestri Comacini and via Raggi.
-
-The project is not limited to opening a connection: on the roadway, bicycles and motor traffic share the space, according to a coexistence model that places safety and the quality of the cycling route at the centre. The trial therefore also concerns how different users make use of the same area.
-
-The initiative is also a test bed for new cycling mobility solutions in Bellinzona. It also forms part of the City's efforts to consolidate the active mobility network and gradually improve connections between the neighbourhoods.
-
-The new cycle street aims to connect Giubiasco and Bellinzona within the municipal territory and make the bicycle a choice for everyday journeys as well, not just for leisure. The destinations considered include schools, services and workplaces. The project is associated with these daily journeys.
-### Intersections at the heart of the trial
-The most tangible part of the intervention concerns right-of-way rules. The change required modifications to several intersections that, on sections with a 30 km/h limit, had until then been governed by right-hand priority. According to the source, this arrangement often gives rise to misunderstandings and risky situations, especially on roads used by many cyclists and pedestrians.
-
-The first change described is right at the starting point on via Golena, in Giubiasco. Two intersections now have a Stop sign for those arriving from the right. The change is presented as a solution for making the flow of bicycle traffic safer, by intervening directly at the point where the paths cross.
-
-Heading toward Bellinzona, the text then points to the complicated intersection between via Golena and via della Rongia. Here, the change is not described as another Stop sign, but as much clearer and more binding right-of-way signage. Cyclists and pedestrians on via Golena always have priority.
-
-The comparison between the two locations makes the content of the trial clear: in one case, the rule is made explicit through a Stop sign for those arriving from the right; in the other, the right-of-way signage along via Golena is reinforced. The source therefore documents two distinct interventions within the same connection, both concerning the management of intersections.
-
-These changes are connected to the everyday function assigned to the cycle street. If the route is meant to facilitate travel to schools, services and workplaces, the City also intervenes at points where sharing the carriageway can create misunderstandings. However, the text presents the works as a trial and does not report subsequent data on use of the route.
-### A piece in the active mobility network
-
-The project is presented as part of a broader municipal plan, not as a standalone project. Within this framework, the City aims to strengthen the active mobility network and gradually make cycling connections between neighborhoods more effective. The section between Giubiasco and Bellinzona is therefore one element of this network, even though its route remains defined by specific roads and intersections.
-
-The connection emphasized by the City also concerns the quality of public space. Under this approach, strengthening cycling mobility gives people more practical, functional and sustainable travel options. The project is therefore both a road-traffic intervention and a test of an alternative use of the roadway.
-
-There is also a reference to the timeline of safety requests. The changes at the intersections come nearly ten years after the interpellation submitted in 2017 by Ronnie David, then a municipal councillor for the Greens. Through that interpellation, David called for measures to improve the safety of cyclists and pedestrians. The source notes the temporal connection, but does not claim that the interpellation alone caused the works described today.
-
-The text does not provide the cost of the project, the expected or recorded number of cyclists, any change in travel times, or data on the effect of the new signage. Nor does it indicate any changes to motor traffic beyond coexistence on the roadway and interventions concerning right of way.
-
-No changes on these issues can be inferred from this announcement.
-
-*Source: [laregione.ch](https://www.laregione.ch/cantone/bellinzonese/1957946/bellinzona-pedala-verso-una-mobilita-piu-sicura)*]]></content:encoded>
-      <pubDate>Thu, 22 Oct 2026 00:55:35 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/bellinzona-nuova-strada-ciclabile</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-bellinzona-nuova-strada-ciclabile.webp" medium="image"/>
     </item>
   </channel>
 </rss>
