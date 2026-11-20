@@ -399,6 +399,61 @@ describe('TalentLink pagination completeness', () => {
     expect(jobs.map(({ title }) => title)).toEqual(['First role', 'Second role', 'Third role']);
   });
 
+  it('retries a short listing snapshot against the persisted baseline before publishing a shrink', async () => {
+    const fullListings = Array.from({ length: 11 }, (_, index) => listing(index + 1, `Role ${index + 1}`));
+    const existingJobs = Array.from({ length: 11 }, (_, index) => ({
+      id: `existing-${index + 1}`,
+      companyKey: 'weisse-arena',
+    }));
+    const requests: number[] = [];
+
+    vi.stubGlobal('fetch', vi.fn(async (input: string | URL) => {
+      const offset = Number(new URL(String(input)).searchParams.get('firstResult'));
+      requests.push(offset);
+
+      const response = requests.length <= 2
+        ? {
+          jobs: offset === 0 ? fullListings.slice(0, 2) : [],
+          globals: { jobsCount: 2 },
+        }
+        : {
+          jobs: offset === 0 ? fullListings : [],
+          globals: { jobsCount: fullListings.length },
+        };
+
+      return new Response(JSON.stringify(response), {
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }));
+
+    const jobs = await fetchAllWeisseArenaJobs({ existingJobs });
+
+    expect(requests).toEqual([0, 2, 0, 11]);
+    expect(jobs).toHaveLength(11);
+  });
+
+  it('fails closed after three persistently short listing snapshots', async () => {
+    const shortListings = Array.from({ length: 2 }, (_, index) => listing(index + 1, `Role ${index + 1}`));
+    const existingJobs = Array.from({ length: 11 }, (_, index) => ({
+      id: `existing-${index + 1}`,
+      companyKey: 'weisse-arena',
+    }));
+    const requests: number[] = [];
+
+    vi.stubGlobal('fetch', vi.fn(async (input: string | URL) => {
+      const offset = Number(new URL(String(input)).searchParams.get('firstResult'));
+      requests.push(offset);
+      return new Response(JSON.stringify({
+        globals: { jobsCount: 2 },
+        jobs: offset === 0 ? shortListings : [],
+      }), { headers: { 'Content-Type': 'application/json' } });
+    }));
+
+    await expect(fetchAllWeisseArenaJobs({ existingJobs }))
+      .rejects.toThrow(/snapshot remained incomplete after 3 attempts.*2\/11.*refusing a partial crawl/i);
+    expect(requests).toEqual([0, 2, 0, 2, 0, 2]);
+  });
+
   it('fails closed when an empty page arrives before the declared total', async () => {
     vi.stubGlobal('fetch', vi.fn(async (input: string | URL) => {
       const offset = Number(new URL(String(input)).searchParams.get('firstResult'));
