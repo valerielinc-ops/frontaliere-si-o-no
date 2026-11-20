@@ -84,12 +84,13 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://joblink.allibo.com/ats3/job-offer.aspx?DM=1818&ID=105719&LN=IT&FT=465&SG=2",
-      "firstSeenAt": "2026-10-02T09:20:13.498Z",
+      "firstSeenAt": "2026-07-06T15:24:11.535Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-19T21:41:17.143Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://joblink.allibo.com/ats3/job-offer.aspx?dm=1818&id=105719&ln=it&ft=465&sg=2"
     },
     {
       "id": "medacta-105591",
@@ -167,7 +168,8 @@
       "streetAddress": "Rancate",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-19T21:41:15.231Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://joblink.allibo.com/ats3/job-offer.aspx?dm=1818&id=105591&ln=it&ft=458&sg=2"
     },
     {
       "id": "medacta-104173",
@@ -255,7 +257,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-19T21:41:12.613Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://joblink.allibo.com/ats3/job-offer.aspx?dm=1818&id=104173&ln=it&ft=455&sg=2"
     },
     {
       "id": "medacta-104622",
@@ -347,7 +350,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-19T21:41:12.328Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://joblink.allibo.com/ats3/job-offer.aspx?dm=1818&id=104622&ln=it&ft=455&sg=2"
     },
     {
       "id": "medacta-96190",
@@ -456,7 +460,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-19T21:41:11.149Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://joblink.allibo.com/ats3/job-offer.aspx?dm=1818&id=111165&ln=it&ft=455&sg=2"
     }
   ]
 }

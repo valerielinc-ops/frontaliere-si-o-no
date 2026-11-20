@@ -84,7 +84,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T21:25:04.892Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://medimeo.ch/job/oberaerztin-oberarzt-psychiatrie-stationaer-80-100-wo-ihr-feierabend-in-den-bergen-beginnt-3773"
     },
     {
       "id": "medimeo-4eca5895891f",
@@ -169,7 +170,8 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T21:25:04.891Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://medimeo.ch/job/arbeiten-nahe-der-grenze-fachaerztin-facharzt-fuer-allgemeine-innere-medizin-3774"
     },
     {
       "id": "medimeo-87c3cf8f1f8b",
@@ -254,7 +256,8 @@
       "streetAddress": "Solothurn",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T21:25:04.890Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://medimeo.ch/job/fachaerztin-facharzt-gynaekologie-und-geburtshilfe-60-90-mittelland-3776"
     },
     {
       "id": "medimeo-ee23496661cc",
@@ -339,7 +342,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T21:25:04.889Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://medimeo.ch/job/fachaerztin-facharzt-kinder-und-jugendmedizin-50-100-ihr-einstieg-in-die-schweiz-im-kinderarztteam-3777"
     },
     {
       "id": "medimeo-b39f94bb2bd7",
@@ -426,7 +430,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T21:25:04.888Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T21:25:04.888Z"
+      "firstSeenAt": "2026-11-19T21:25:04.888Z",
+      "sourceIdentity": "url:https://medimeo.ch/job/fachaerztin-facharzt-kinder-und-jugendmedizin-60-100-mit-ihrem-patientenstamm-in-ein-interdisziplinaeres-zentrum-wechseln-3778"
     },
     {
       "id": "medimeo-ad393de96d6e",
@@ -513,7 +518,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T21:25:04.886Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T21:25:04.886Z"
+      "firstSeenAt": "2026-11-19T21:25:04.886Z",
+      "sourceIdentity": "url:https://medimeo.ch/job/fachaerztin-facharzt-allgemeinmedizin-oder-allgemeine-innere-medizin-50-100-mit-flexiblen-arbeitszeiten-3780"
     },
     {
       "id": "medimeo-fb8556e347d3",
@@ -600,7 +606,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T21:25:04.885Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T21:25:04.885Z"
+      "firstSeenAt": "2026-11-19T21:25:04.885Z",
+      "sourceIdentity": "url:https://medimeo.ch/job/oberaerztin-oberarzt-forensische-psychiatrie-ambulant-60-100-mit-raum-fuer-echte-therapie-in-bern-3788"
     },
     {
       "id": "medimeo-1b5a5d92be79",
@@ -685,7 +692,8 @@
       },
       "previousSlugs": [
         "oberarztin-oberarzt-radiologie-80-100-das-ganze-spektrum-ohne-nachtdienste-biel-solothurn"
-      ]
+      ],
+      "sourceIdentity": "url:https://medimeo.ch/job/oberaerztin-oberarzt-radiologie-80-100-das-ganze-spektrum-ohne-nachtdienste-3789"
     },
     {
       "id": "medimeo-2ae303175b0d",
@@ -769,7 +777,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T09:29:32.004Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "sourceIdentity": "url:https://medimeo.ch/job/hausarzt-allgemeinmedizinerin-60-100-eigenstaendig-arbeiten-ohne-betriebliches-risiko-3767"
     },
     {
       "id": "medimeo-d23ca2966d4e",
@@ -855,7 +864,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-13T09:21:23.771Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "sourceIdentity": "url:https://medimeo.ch/job/facharzt-fachaerztin-fuer-ophthalmologie-60-100-grossraum-zuerich-3762"
     },
     {
       "id": "medimeo-fc8383c1aebb",
@@ -941,7 +951,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-13T09:21:23.769Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "sourceIdentity": "url:https://medimeo.ch/job/fachaerztin-facharzt-innere-medizin-60-100-hochmodern-und-effiziente-struktur-mehr-zeit-fuer-sie-3764"
     },
     {
       "id": "medimeo-a703cc686019",
@@ -1027,7 +1038,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T09:21:23.768Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "sourceIdentity": "url:https://medimeo.ch/job/facharzt-fachaerztin-fuer-ophthalmologie-40-100-flexibel-in-modernen-sturkturen-3609"
     },
     {
       "id": "medimeo-37716dbf5a3b",
@@ -1113,7 +1125,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T09:21:23.767Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "sourceIdentity": "url:https://medimeo.ch/job/oberaerztin-oberarzt-gynaekologie-und-geburtshilfe-80-100-begleitet-in-ihre-erste-oberarztrolle-3613"
     },
     {
       "id": "medimeo-f326093249fc",
@@ -1201,7 +1214,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T09:21:23.766Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "sourceIdentity": "url:https://medimeo.ch/job/allgemeinmedizinerin-hausarzt-60-100-angestellt-oder-infrastrukturnutzung-3763"
     }
   ]
 }
