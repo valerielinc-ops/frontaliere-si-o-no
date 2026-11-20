@@ -696,23 +696,32 @@ jobs:
         shell: bash
         run: node scripts/ci/jobs-seo-html-cache-fingerprint.mjs >> "$GITHUB_OUTPUT"
 
+      - name: Hash restored incremental manifest
+        if: env.JOBS_SEO_REUSE == '1'
+        id: previous-manifest-key
+        timeout-minutes: 5
+        continue-on-error: true
+        uses: ./.github/actions/incremental-manifest-cache-key
+        with:
+          locale: ${{ matrix.locale }}
+
       - name: Restore chained jobs SEO HTML cache
-        if: env.JOBS_SEO_REUSE == '1' && inputs.chain != ''
+        if: env.JOBS_SEO_REUSE == '1' && inputs.chain != '' && steps.previous-manifest-key.outputs.digest != ''
         id: bench-jobs-seo-html-cache
         uses: actions/cache/restore@v6
         with:
           path: .cache/incremental-html
           # Keep the production exact-hash contract: the restored manifest and
           # current renderer fingerprint identify the HTML input for this run.
-          key: bench-${{ inputs.chain }}-${{ matrix.variant }}-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}-${{ steps.jobs-seo-html-fingerprint.outputs.fingerprint }}
+          key: bench-${{ inputs.chain }}-${{ matrix.variant }}-${{ matrix.locale }}-${{ steps.previous-manifest-key.outputs.digest }}-${{ steps.jobs-seo-html-fingerprint.outputs.fingerprint }}
 
       - name: Restore previous jobs SEO HTML cache
-        if: env.JOBS_SEO_REUSE == '1' && (inputs.chain == '' || steps.bench-jobs-seo-html-cache.outputs.cache-matched-key == '')
+        if: env.JOBS_SEO_REUSE == '1' && steps.previous-manifest-key.outputs.digest != '' && (inputs.chain == '' || steps.bench-jobs-seo-html-cache.outputs.cache-matched-key == '')
         id: jobs-seo-html-cache
         uses: actions/cache/restore@v6
         with:
           path: .cache/incremental-html
-          key: jobs-seo-html-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}-${{ steps.jobs-seo-html-fingerprint.outputs.fingerprint }}
+          key: jobs-seo-html-${{ matrix.locale }}-${{ steps.previous-manifest-key.outputs.digest }}-${{ steps.jobs-seo-html-fingerprint.outputs.fingerprint }}
 
       - name: Document chained cache restores
         if: always()
@@ -1060,6 +1069,15 @@ jobs:
       # Persist validated chain inputs before optional diagnostic artifact
       # uploads. A failed artifact upload must not force the next benchmark in
       # the same chain to rebuild the jobs SEO corpus.
+      - name: Inspect current incremental manifest
+        if: always()
+        id: current-manifest-key
+        timeout-minutes: 5
+        continue-on-error: true
+        uses: ./.github/actions/incremental-manifest-cache-key
+        with:
+          locale: ${{ matrix.locale }}
+
       - name: Check chained jobs SEO HTML cache contents
         if: success() && inputs.chain != '' && env.JOBS_SEO_REUSE == '1'
         id: bench-jobs-seo-html-content
@@ -1074,17 +1092,17 @@ jobs:
 
       # Save only benchmark-namespaced cache keys.
       - name: Save chained jobs SEO HTML cache
-        if: success() && inputs.chain != '' && env.JOBS_SEO_REUSE == '1' && steps.bench-jobs-seo-html-content.outputs.has_files == 'true' && hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) != ''
+        if: success() && inputs.chain != '' && env.JOBS_SEO_REUSE == '1' && steps.bench-jobs-seo-html-content.outputs.has_files == 'true' && steps.current-manifest-key.outputs.digest != ''
         id: bench-jobs-seo-html-save
         timeout-minutes: 30
         continue-on-error: true
         uses: actions/cache/save@v6
         with:
           path: .cache/incremental-html
-          key: bench-${{ inputs.chain }}-${{ matrix.variant }}-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}-${{ steps.jobs-seo-html-fingerprint.outputs.fingerprint }}
+          key: bench-${{ inputs.chain }}-${{ matrix.variant }}-${{ matrix.locale }}-${{ steps.current-manifest-key.outputs.digest }}-${{ steps.jobs-seo-html-fingerprint.outputs.fingerprint }}
 
       - name: Save chained incremental manifest
-        if: success() && inputs.chain != '' && hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) != ''
+        if: success() && inputs.chain != '' && steps.current-manifest-key.outputs.present == 'true'
         id: bench-incremental-manifest-save
         timeout-minutes: 30
         continue-on-error: true
@@ -1236,7 +1254,7 @@ jobs:
           LOCALE: ${{ matrix.locale }}
           RUN_ID: ${{ github.run_id }}
           JOBS_SEO_REUSE: ${{ env.JOBS_SEO_REUSE }}
-          HTML_HASH: ${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}
+          HTML_HASH: ${{ steps.current-manifest-key.outputs.digest }}
           HTML_FINGERPRINT: ${{ steps.jobs-seo-html-fingerprint.outputs.fingerprint }}
           HTML_SAVE_OUTCOME: ${{ steps.bench-jobs-seo-html-save.outcome }}
           MANIFEST_SAVE_OUTCOME: ${{ steps.bench-incremental-manifest-save.outcome }}
