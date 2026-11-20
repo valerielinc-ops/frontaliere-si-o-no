@@ -632,7 +632,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.arsante.ch/emploi/assistant-e-medical-e-100",
-    "firstSeenAt": "2026-09-05T22:49:34.246Z"
+    "firstSeenAt": "2026-08-28T05:19:23.816Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://www.arsante.ch/emploi/assistant-e-medical-e-100",
+        "firstSeenAt": "2026-08-28T05:19:23.816Z",
+        "title": "Assistant·e médical·e"
+      },
+      {
+        "sourceIdentity": "url:https://www.arsante.ch/emploi/assistant-e-medical-e-102",
+        "firstSeenAt": "2026-09-11T13:35:53.884Z",
+        "title": "Assistant·e médical·e"
+      },
+      {
+        "sourceIdentity": "url:https://www.arsante.ch/emploi/assistant-e-medical-e-98",
+        "firstSeenAt": "2026-08-28T05:19:23.816Z",
+        "title": "Assistant·e médical·e"
+      }
+    ]
   },
   {
     "slug": "farmaceutici-gmo-1213-onex-69ead8a8",

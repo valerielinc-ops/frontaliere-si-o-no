@@ -870,7 +870,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://fielmann.wd3.myworkdayjobs.com/en/external/job/la-chaux-de-fonds/opticien--f-h-_r-6201-1",
-    "firstSeenAt": "2026-09-04T13:28:36.795Z"
+    "firstSeenAt": "2026-09-04T13:28:36.795Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://fielmann.wd3.myworkdayjobs.com/en/external/job/fribourg/opticien--f-h-_r-6239",
+        "firstSeenAt": "2026-09-04T13:28:36.795Z",
+        "title": "Opticien(ne) (h/f/d)"
+      },
+      {
+        "sourceIdentity": "url:https://fielmann.wd3.myworkdayjobs.com/en/external/job/la-chaux-de-fonds/opticien--f-h-_r-6201-1",
+        "firstSeenAt": "2026-09-04T13:28:36.795Z",
+        "title": "Opticien(ne) (h/f/d)"
+      }
+    ]
   },
   {
     "slug": "hr-ufficiale-m-f-d-100-fielmann-group-basel",
