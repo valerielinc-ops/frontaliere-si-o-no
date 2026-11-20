@@ -74,6 +74,14 @@ function identityFallback(job = {}) {
   });
 }
 
+function normalizeDeclaredSourceIdentity(value = '') {
+  const sourceIdentity = normalizeSpace(value);
+  if (!sourceIdentity) return '';
+  return /^id:/iu.test(sourceIdentity)
+    ? `id:${sourceIdentity.slice(3).trim().toLowerCase()}`
+    : sourceIdentity;
+}
+
 export function buildStableJobIdentity(job = {}) {
   const rawUrl = normalizeIdentityUrl(job.url || '');
   if (rawUrl) return `url:${rawUrl}`;
@@ -96,10 +104,8 @@ function addStableIdentityForRecord(ids, record = {}) {
   const rawId = normalizeSpace(record.id || record.externalId || record.jobId || '');
   if (rawId) ids.add(`id:${rawId.toLowerCase()}`);
 
-  const sourceIdentity = normalizeSpace(record.sourceIdentity ?? '');
-  if (sourceIdentity) {
-    ids.add(/^id:/iu.test(sourceIdentity) ? `id:${sourceIdentity.slice(3).trim().toLowerCase()}` : sourceIdentity);
-  }
+  const sourceIdentity = normalizeDeclaredSourceIdentity(record.sourceIdentity);
+  if (sourceIdentity) ids.add(sourceIdentity);
 }
 
 /** Stable posting identities explicitly carried by an active or archived row. */
@@ -126,24 +132,54 @@ export function archiveRecordSourceIdentities(expiredJob = {}) {
 }
 
 /**
+ * Explicit source-posting identities declared by a record and its merge
+ * history. Raw `id` fields and URLs are auxiliary stable identities, not
+ * declarations; source identities retain the same `id:` normalization used
+ * by stablePostingIdentities, while other declared values remain exact.
+ *
+ * @param {object} record
+ * @returns {Set<string>}
+ */
+function declaredSourcePostingIdentities(record = {}) {
+  const identities = new Set();
+  if (!record || typeof record !== 'object' || Array.isArray(record)) return identities;
+
+  const add = (value) => {
+    const identity = normalizeDeclaredSourceIdentity(value);
+    if (identity) identities.add(identity);
+  };
+
+  add(record.sourceIdentity);
+  const history = Array.isArray(record.sourceIdentityHistory) ? record.sourceIdentityHistory : [];
+  for (const entry of history) add(entry?.sourceIdentity);
+  return identities;
+}
+
+/**
  * Whether an expired archive record may describe `activeJob`'s posting.
  *
  * Merging an archive record's routes into an active job is only correct when
- * both describe the SAME posting. A record that names its source posting and
- * does not name the active job is a different posting that merely shares
- * title/company/location (typically a sibling vacancy archived as a dedup
- * duplicate); merging it hands the active job another posting's routes,
- * hash-tailed slug included (#11596). If either side carries stable identity,
- * the two identity sets must intersect. The legacy fallback remains only for
- * records where neither side has stable identity, because the caller's exact
- * route/title/company/location evidence is the only available proof in that
- * deliberately bounded case.
+ * both describe the SAME posting. Explicit `sourceIdentity` declarations on
+ * either record and in its sourceIdentityHistory are stronger than auxiliary
+ * URL/raw-id identities: when both sides declare source identities, they must
+ * intersect, even if an auxiliary identity overlaps. If only one side declares
+ * source identities, preserve the established stable-identity matching so a
+ * current URL or raw id can still confirm that one-sided declaration. The
+ * legacy fallback remains only for records where neither side has any stable
+ * identity, because the caller's exact route/title/company/location evidence
+ * is the only available proof in that deliberately bounded case.
  *
  * @param {object} expiredJob archive record
  * @param {object} activeJob candidate active owner
  * @returns {boolean}
  */
 export function archiveRecordNamesPosting(expiredJob = {}, activeJob = {}) {
+  const expiredDeclaredIds = declaredSourcePostingIdentities(expiredJob);
+  const activeDeclaredIds = declaredSourcePostingIdentities(activeJob);
+  if (expiredDeclaredIds.size > 0 && activeDeclaredIds.size > 0) {
+    return [...expiredDeclaredIds].some((identity) => activeDeclaredIds.has(identity));
+  }
+
   const expiredIds = archiveRecordSourceIdentities(expiredJob);
   const activeIds = stablePostingIdentities(activeJob);
   if (expiredIds.size === 0 && activeIds.size === 0) return true;

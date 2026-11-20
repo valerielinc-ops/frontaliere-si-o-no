@@ -159,6 +159,27 @@ describe('reconcileGhostExpired — source identity guard (#11596)', () => {
     expect(archiveRecordNamesPosting({ id: 'posting-42' }, { title: 'Same title' })).toBe(false);
   });
 
+  it('rejects a shared auxiliary id when explicit source identities disagree', () => {
+    expect(archiveRecordNamesPosting(
+      { sourceIdentity: 'url:https://jobs/a', id: 'same' },
+      { sourceIdentity: 'url:https://jobs/b', id: 'same' },
+    )).toBe(false);
+  });
+
+  it('rejects disjoint history and current source identities despite a shared id', () => {
+    expect(archiveRecordNamesPosting(
+      { sourceIdentityHistory: [{ sourceIdentity: 'url:https://jobs/a' }], id: 'same' },
+      { sourceIdentity: 'url:https://jobs/b', id: 'same' },
+    )).toBe(false);
+  });
+
+  it('keeps an explicit source identity match despite different auxiliary ids', () => {
+    expect(archiveRecordNamesPosting(
+      { sourceIdentity: 'url:https://jobs/a', id: 'archive-id' },
+      { sourceIdentity: 'url:https://jobs/a', id: 'active-id' },
+    )).toBe(true);
+  });
+
   it('reorders stale hash-tailed bridges after ghost merge and converges on rerun', () => {
     const active = activeSibling();
     const foreignOwner = {
