@@ -190,6 +190,62 @@
       ],
       "createdAt": "2026-11-19T17:26:58.678Z",
       "expiresAt": "2026-11-21T05:26:58.678Z"
+    },
+    {
+      "id": "reel-2026-11-19",
+      "channel": "instagram",
+      "kind": "reel",
+      "day": "2026-11-19",
+      "caption": "Lavoro oltreconfine: il contesto da leggere con chiarezza\n\n📌 Addetto/a al magazzino (m/w/d) — Rituals Cosmetics Switzerland — 73 visualizzazioni ieri.\n\nSegui Frontaliere per capire il lavoro oltreconfine.\nFonte e dettagli sono nel link in bio.\nTesto verificato mostrato nel video; fonti e dettagli nel link in bio.\n\n#frontalieri #ticino #svizzera #italia #lavoro",
+      "imageUrls": [
+        "https://cdn.frontaliereticino.ch/images/social/instagram/reel-job-2026-11-19-reel-follow-0.jpg"
+      ],
+      "video": {
+        "url": "https://cdn.frontaliereticino.ch/images/social/instagram/reel-job-2026-11-19-reel-follow.mp4",
+        "bytes": 262057,
+        "sha256": "95ba950201a590079e11646c270443795c2744ce328c41bf46704d4926b1b0b3",
+        "durationMs": 11500,
+        "width": 1080,
+        "height": 1920,
+        "creativeVariant": "reel-follow"
+      },
+      "ledgerEntries": [
+        {
+          "id": "job:addetto-a-al-magazzino-m-w-d-rituals-cosmetics-ch-r30973",
+          "kind": "reel",
+          "sourceKind": "job",
+          "sourceId": "addetto-a-al-magazzino-m-w-d-rituals-cosmetics-ch-r30973",
+          "url": "https://frontaliereticino.ch/cerca-lavoro-ticino/addetto-a-al-magazzino-m-w-d-rituals-cosmetics-ch-r30973/?utm_source=instagram&utm_medium=social&utm_campaign=instagram_reel_experiment&utm_content=reel-follow-addetto-a-al-magazzino-m-w-d-rituals-cosmetics-ch-r30973--cpe1e656e043e06845-reel.ig-reel-follow-context.acontesto-chiaro.d",
+          "day": "2026-11-19",
+          "views": 73,
+          "creativeId": "reel-follow",
+          "creativeBaseId": "reel",
+          "creativeVariant": "reel-follow",
+          "creativeLabel": "Aggiornamento da seguire",
+          "creativeObjective": "follow",
+          "primaryMetric": "follows",
+          "engagementMechanic": "profile-follow",
+          "hookType": "useful-update",
+          "attentionMechanic": "verified-update",
+          "engagementLoop": "follow-for-reliable-updates",
+          "followUpFormat": "none",
+          "creativeFormat": "reel",
+          "copyMode": "codex",
+          "copySlot": "reel",
+          "copyPromptVersion": "frontaliere-social-copy-v5",
+          "copyPackId": "e1e656e043e06845",
+          "copyTemplateId": "ig-reel-follow-context",
+          "copyAssignmentMode": "deterministic",
+          "copyObjective": "follow",
+          "copyAngleId": "contesto-chiaro",
+          "copyPillarId": "vita-oltreconfine",
+          "copyAngleIntent": "searchable",
+          "copyHook": "Lavoro oltreconfine: il contesto da leggere con chiarezza",
+          "copyCta": "Segui Frontaliere per capire il lavoro oltreconfine."
+        }
+      ],
+      "createdAt": "2026-11-20T16:22:23.831Z",
+      "expiresAt": "2026-11-22T16:22:23.831Z"
     }
   ]
 }
