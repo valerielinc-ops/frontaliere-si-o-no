@@ -81,6 +81,28 @@ type LocaleEntry = Partial<Record<JobCanonLocale, string>> & {
 };
 type StageBuffer = Record<StageOperation, Map<string, string[]>> & { rows: number };
 
+function isPlainRecord(value: unknown): value is Record<string, unknown> {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return false;
+  const prototype = Object.getPrototypeOf(value);
+  return prototype === Object.prototype || prototype === null;
+}
+
+/** Only the complete build artifact may prove that an active route is absent. */
+function isCompleteActivePageManifest(value: unknown): value is Record<string, unknown> {
+  if (!isPlainRecord(value) || !isPlainRecord(value.pages) || !isPlainRecord(value.counts)) return false;
+  const counts = value.counts;
+  return typeof value.generatedAt === 'string'
+    && typeof value.buildCommit === 'string'
+    && typeof value.contentSha256 === 'string'
+    && /^[0-9a-f]{64}$/u.test(value.contentSha256)
+    && typeof counts.pages === 'number'
+    && Number.isSafeInteger(counts.pages)
+    && counts.pages >= 0
+    && typeof counts.sections === 'number'
+    && Number.isSafeInteger(counts.sections)
+    && counts.sections >= 0;
+}
+
 type CompactRegistryIndex = {
   hashes: Uint32Array;
   orders: Uint32Array;
@@ -584,6 +606,11 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
           );
         }
         const activePagesManifest = JSON.parse(fs.readFileSync(activePagesManifestPath, 'utf8')) as unknown;
+        if (!isCompleteActivePageManifest(activePagesManifest)) {
+          throw new Error(
+            `[job-canon-redirect-map] ${path.relative(rootDir, activePagesManifestPath)} is incomplete`,
+          );
+        }
         activeJobPageLookup = createJobPagesManifestLookup(activePagesManifest);
         if (!activeJobPageLookup) {
           throw new Error(
