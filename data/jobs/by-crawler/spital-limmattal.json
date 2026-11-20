@@ -81,7 +81,6 @@
       "validThrough": "2026-12-20T09:18:38.038Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-09-19T22:48:51.011Z",
-      "needsRetranslation": true,
       "sourceIdentity": "url:https://apply.refline.ch/486538/0616/pub/11/index.html"
     },
     {
@@ -1001,18 +1000,33 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-fur-eine-chirurgische-oder-medizinische-bettenstation-spital",
-        "dipl-pflegefachperson-hf-fh-per-eine-chirurgische-o-medizinische-bettenstation-spital-limmattal-schlieren"
+        "dipl-pflegefachperson-hf-fh-per-eine-chirurgische-o-medizinische-bettenstation-spital-limmattal-schlieren",
+        "dipl-nursing-professional-hf-fh-for-a-surgical-or-medical-ward-spital-limmattal-schlieren",
+        "dipl-pflegefachperson-hf-fh-fur-eine-chirurgische-oder-medizinische-bettenstation-spital-96d217d5",
+        "dipl-infirmier-ere-hf-fh-pour-un-service-de-lits-chirurgical-ou-medical-spital-limmattal-schlieren",
+        "dipl-pflegefachperson-hf-fh-per-eine-chirurgische-o-medizinische-bettenstation-spital-limmattal-schlieren-380632e8",
+        "dipl-pflegefachperson-hf-fh-fur-eine-chirurgische-oder-medizinische-bettenstation-spital-dc80e433"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-fur-eine-chirurgische-oder-medizinische-bettenstation-spital",
-          "dipl-pflegefachperson-hf-fh-per-eine-chirurgische-o-medizinische-bettenstation-spital-limmattal-schlieren"
+          "dipl-pflegefachperson-hf-fh-per-eine-chirurgische-o-medizinische-bettenstation-spital-limmattal-schlieren",
+          "dipl-nursing-professional-hf-fh-for-a-surgical-or-medical-ward-spital-limmattal-schlieren",
+          "dipl-pflegefachperson-hf-fh-fur-eine-chirurgische-oder-medizinische-bettenstation-spital-96d217d5",
+          "dipl-infirmier-ere-hf-fh-pour-un-service-de-lits-chirurgical-ou-medical-spital-limmattal-schlieren",
+          "dipl-pflegefachperson-hf-fh-per-eine-chirurgische-o-medizinische-bettenstation-spital-limmattal-schlieren-380632e8",
+          "dipl-pflegefachperson-hf-fh-fur-eine-chirurgische-oder-medizinische-bettenstation-spital-dc80e433"
         ],
         "en": [
-          "dipl-pflegefachperson-hf-fh-fur-eine-chirurgische-oder-medizinische-bettenstation-spital"
+          "dipl-pflegefachperson-hf-fh-fur-eine-chirurgische-oder-medizinische-bettenstation-spital",
+          "dipl-nursing-professional-hf-fh-for-a-surgical-or-medical-ward-spital-limmattal-schlieren"
         ],
         "fr": [
-          "dipl-pflegefachperson-hf-fh-fur-eine-chirurgische-oder-medizinische-bettenstation-spital"
+          "dipl-pflegefachperson-hf-fh-fur-eine-chirurgische-oder-medizinische-bettenstation-spital",
+          "dipl-infirmier-ere-hf-fh-pour-un-service-de-lits-chirurgical-ou-medical-spital-limmattal-schlieren"
+        ],
+        "de": [
+          "dipl-pflegefachperson-hf-fh-fur-eine-chirurgische-oder-medizinische-bettenstation-spital-96d217d5"
         ]
       },
       "firstSeenAt": "2026-08-11T21:48:37.258Z",
@@ -1440,21 +1454,63 @@
         "operatrice-operatore-sociosanitario-afc-per-un-reparto-di-degenza-medica-o-chirurgica-spital-limmattal-schlieren",
         "healthcare-specialist-efz-for-a-medical-or-surgical-inpatient-ward-spital-limmattal-schlieren",
         "assistant-e-en-soins-et-sante-communautaire-cfc-pour-un-service-de-medecine-ou-de-chirurgie-spital-limmattal-schlieren",
-        "fachfrau-mann-gesundheit-cfc-per-eine-medizinische-o-chirurgische-bettenstation-spital-limmattal-schlieren"
+        "fachfrau-mann-gesundheit-cfc-per-eine-medizinische-o-chirurgische-bettenstation-spital-limmattal-schlieren",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-591c6933",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-784c41a3",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-457af45e",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-ad672ef1",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-2b0f5837",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-18084389",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-858a9f8b",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-ea196f34",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-99fc6fb8",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-4577d234",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-495ff726",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-19430d90",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-7b44558d",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-1e7ac960",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-e0ebf562",
+        "fachfrau-mann-gesundheit-cfc-per-eine-medizinische-o-chirurgische-bettenstation-spital-limmattal-schlieren-4132b47e",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-5d04f9e1",
+        "professional-mann-health-efz-for-a-medical-or-surgical-bed-station-spital-limmattal-schlieren",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-e4942f29",
+        "professionnel-sante-efz-pour-un-lit-medical-ou-chirurgical-spital-limmattal-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital",
           "operatrice-operatore-sociosanitario-afc-per-un-reparto-di-degenza-medica-o-chirurgica-spital-limmattal-schlieren",
-          "fachfrau-mann-gesundheit-cfc-per-eine-medizinische-o-chirurgische-bettenstation-spital-limmattal-schlieren"
+          "fachfrau-mann-gesundheit-cfc-per-eine-medizinische-o-chirurgische-bettenstation-spital-limmattal-schlieren",
+          "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-591c6933",
+          "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-784c41a3",
+          "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-457af45e",
+          "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-ad672ef1",
+          "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-2b0f5837",
+          "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-18084389",
+          "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-858a9f8b",
+          "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-ea196f34",
+          "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-99fc6fb8",
+          "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-4577d234",
+          "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-495ff726",
+          "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-19430d90",
+          "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-7b44558d",
+          "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-1e7ac960",
+          "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-e0ebf562",
+          "fachfrau-mann-gesundheit-cfc-per-eine-medizinische-o-chirurgische-bettenstation-spital-limmattal-schlieren-4132b47e",
+          "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-5d04f9e1"
         ],
         "en": [
           "healthcare-specialist-efz-for-a-medical-or-surgical-inpatient-ward-spital-limmattal-schlieren",
-          "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital"
+          "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital",
+          "professional-mann-health-efz-for-a-medical-or-surgical-bed-station-spital-limmattal-schlieren"
         ],
         "fr": [
           "assistant-e-en-soins-et-sante-communautaire-cfc-pour-un-service-de-medecine-ou-de-chirurgie-spital-limmattal-schlieren",
-          "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital"
+          "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital",
+          "professionnel-sante-efz-pour-un-lit-medical-ou-chirurgical-spital-limmattal-schlieren"
+        ],
+        "de": [
+          "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-e4942f29"
         ]
       },
       "firstSeenAt": "2026-08-31T17:00:54.874Z",
@@ -1614,11 +1670,29 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-notfallstation-spital-limmattal-ch"
+        "dipl-pflegefachperson-hf-fh-notfallstation-spital-limmattal-ch",
+        "dipl-infermiera-hf-fh-per-oncologia-ematologia-spital-limmattal-schlieren-8bd127d8",
+        "dipl-nurse-hf-fh-for-oncology-haematology-spital-limmattal-schlieren",
+        "dipl-pflegefachperson-hf-fh-fur-onkologie-hamatologie-spital-limmattal-ch-2aacb148",
+        "dipl-infirmiere-hf-fh-pour-l-oncologie-hematologie-spital-limmattal-schlieren",
+        "dipl-pflegefachperson-hf-fh-per-onkologie-hamatologie-spital-limmattal-schlieren-a8697865",
+        "dipl-nurse-hf-fh-for-oncology-haematology-spital-limmattal-schlieren-7c9da6be",
+        "dipl-infermiera-hf-fh-per-oncologia-ematologia-spital-limmattal-schlieren",
+        "dipl-pflegefachperson-hf-fh-per-onkologie-hamatologie-spital-limmattal-schlieren",
+        "dipl-infirmiere-hf-fh-pour-l-oncologie-hematologie-spital-limmattal-schlieren-9f06095a"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-notfallstation-spital-limmattal-ch"
+          "dipl-pflegefachperson-hf-fh-notfallstation-spital-limmattal-ch",
+          "dipl-infermiera-hf-fh-per-oncologia-ematologia-spital-limmattal-schlieren-8bd127d8",
+          "dipl-nurse-hf-fh-for-oncology-haematology-spital-limmattal-schlieren",
+          "dipl-pflegefachperson-hf-fh-fur-onkologie-hamatologie-spital-limmattal-ch-2aacb148",
+          "dipl-infirmiere-hf-fh-pour-l-oncologie-hematologie-spital-limmattal-schlieren",
+          "dipl-pflegefachperson-hf-fh-per-onkologie-hamatologie-spital-limmattal-schlieren-a8697865",
+          "dipl-nurse-hf-fh-for-oncology-haematology-spital-limmattal-schlieren-7c9da6be",
+          "dipl-infermiera-hf-fh-per-oncologia-ematologia-spital-limmattal-schlieren",
+          "dipl-pflegefachperson-hf-fh-per-onkologie-hamatologie-spital-limmattal-schlieren",
+          "dipl-infirmiere-hf-fh-pour-l-oncologie-hematologie-spital-limmattal-schlieren-9f06095a"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-notfallstation-spital-limmattal-ch"
@@ -3292,18 +3366,23 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-expertin-oder-experte-nds-hf-notfallpflege-spital-limmattal-ch",
-        "professional-in-dipl-expert-in-nds-soins-d-urgence-hf-spital-limmattal-schlieren"
+        "professional-in-dipl-expert-in-nds-soins-d-urgence-hf-spital-limmattal-schlieren",
+        "dipl-expert-o-esperto-nds-hf-emergency-care-spital-limmattal-schlieren",
+        "dipl-expert-ou-expert-nds-hf-emergency-care-spital-limmattal-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-expertin-oder-experte-nds-hf-notfallpflege-spital-limmattal-ch",
-          "professional-in-dipl-expert-in-nds-soins-d-urgence-hf-spital-limmattal-schlieren"
+          "professional-in-dipl-expert-in-nds-soins-d-urgence-hf-spital-limmattal-schlieren",
+          "dipl-expert-o-esperto-nds-hf-emergency-care-spital-limmattal-schlieren",
+          "dipl-expert-ou-expert-nds-hf-emergency-care-spital-limmattal-schlieren"
         ],
         "en": [
           "dipl-expertin-oder-experte-nds-hf-notfallpflege-spital-limmattal-ch"
         ],
         "fr": [
-          "dipl-expertin-oder-experte-nds-hf-notfallpflege-spital-limmattal-ch"
+          "dipl-expertin-oder-experte-nds-hf-notfallpflege-spital-limmattal-ch",
+          "dipl-expert-ou-expert-nds-hf-emergency-care-spital-limmattal-schlieren"
         ]
       },
       "firstSeenAt": "2026-08-26T09:53:38.555Z",
@@ -3847,22 +3926,32 @@
       "previousSlugs": [
         "berufsbildner-in-dipl-pflegefachperson-hf-fh-mo-fr-und-1-wochenende-im-monat-spital",
         "berufsbildner-in-dipl-pflegefachperson-hf-fh-mo-fr-e-1-wochenende-im-monat-spital-l-kcfz3a",
-        "berufsbildner-in-dipl-pflegefachperson-hf-fh-mo-fr-und-1-wochenende-im-monat-spital-limmattal-schlieren"
+        "berufsbildner-in-dipl-pflegefachperson-hf-fh-mo-fr-und-1-wochenende-im-monat-spital-limmattal-schlieren",
+        "professionista-in-dipl-carriera-hf-fh-mo-fr-e-1-fine-settimana-al-mese-spital-limmattal-schlieren",
+        "professional-in-dipl-career-hf-fh-mo-fr-and-1-weekend-per-month-spital-limmattal-schlieren",
+        "professionnel-en-diplome-carriere-hf-fh-mo-fr-et-1-week-end-par-mois-spital-limmattal-schlieren",
+        "berufsbildner-in-dipl-pflegefachperson-hf-fh-mo-fr-und-1-wochenende-im-monat-spital-limmat"
       ],
       "previousSlugsByLocale": {
         "it": [
           "berufsbildner-in-dipl-pflegefachperson-hf-fh-mo-fr-und-1-wochenende-im-monat-spital",
           "berufsbildner-in-dipl-pflegefachperson-hf-fh-mo-fr-e-1-wochenende-im-monat-spital-l-kcfz3a",
-          "berufsbildner-in-dipl-pflegefachperson-hf-fh-mo-fr-und-1-wochenende-im-monat-spital-limmattal-schlieren"
+          "berufsbildner-in-dipl-pflegefachperson-hf-fh-mo-fr-und-1-wochenende-im-monat-spital-limmattal-schlieren",
+          "professionista-in-dipl-carriera-hf-fh-mo-fr-e-1-fine-settimana-al-mese-spital-limmattal-schlieren",
+          "professional-in-dipl-career-hf-fh-mo-fr-and-1-weekend-per-month-spital-limmattal-schlieren",
+          "professionnel-en-diplome-carriere-hf-fh-mo-fr-et-1-week-end-par-mois-spital-limmattal-schlieren",
+          "berufsbildner-in-dipl-pflegefachperson-hf-fh-mo-fr-und-1-wochenende-im-monat-spital-limmat"
         ],
         "en": [
-          "berufsbildner-in-dipl-pflegefachperson-hf-fh-mo-fr-und-1-wochenende-im-monat-spital"
+          "berufsbildner-in-dipl-pflegefachperson-hf-fh-mo-fr-und-1-wochenende-im-monat-spital",
+          "professional-in-dipl-career-hf-fh-mo-fr-and-1-weekend-per-month-spital-limmattal-schlieren"
         ],
         "de": [
           "berufsbildner-in-dipl-pflegefachperson-hf-fh-mo-fr-und-1-wochenende-im-monat-spital-limmattal-schlieren"
         ],
         "fr": [
-          "berufsbildner-in-dipl-pflegefachperson-hf-fh-mo-fr-und-1-wochenende-im-monat-spital"
+          "berufsbildner-in-dipl-pflegefachperson-hf-fh-mo-fr-und-1-wochenende-im-monat-spital",
+          "professionnel-en-diplome-carriere-hf-fh-mo-fr-et-1-week-end-par-mois-spital-limmattal-schlieren"
         ]
       },
       "firstSeenAt": "2026-07-24T22:06:37.931Z",
@@ -4127,14 +4216,16 @@
         "dipl-expertin-oder-experte-intensivpflege-nds-hf-spital-limmattal-ch",
         "dipl-expertin-oder-experte-intensivpflege-nds-hf-spital-limmattal-schlieren",
         "dipl-specialiste-des-soins-hf-fh-expert-expert-soins-intensifs-nds-hf-spital-limmattal-schlieren",
-        "dipl-expertin-oder-experte-nds-hf-notfallpflege-spital-limmattal-schlieren"
+        "dipl-expertin-oder-experte-nds-hf-notfallpflege-spital-limmattal-schlieren",
+        "dipl-assistenza-intensiva-esperta-o-esperta-nds-hf-spital-limmattal-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-expertin-oder-experte-intensivpflege-nds-hf-spital-limmattal-ch",
           "dipl-expertin-oder-experte-intensivpflege-nds-hf-spital-limmattal-schlieren",
           "dipl-specialiste-des-soins-hf-fh-expert-expert-soins-intensifs-nds-hf-spital-limmattal-schlieren",
-          "dipl-expertin-oder-experte-nds-hf-notfallpflege-spital-limmattal-schlieren"
+          "dipl-expertin-oder-experte-nds-hf-notfallpflege-spital-limmattal-schlieren",
+          "dipl-assistenza-intensiva-esperta-o-esperta-nds-hf-spital-limmattal-schlieren"
         ],
         "en": [
           "dipl-expertin-oder-experte-intensivpflege-nds-hf-spital-limmattal-ch"
@@ -4224,7 +4315,10 @@
         "fachfrau-mann-gesundheit-cfc-f-u00fcr-eine-medizinische-o-chirurgische-bettenstation-spital-limmattal-schlieren",
         "professional-mann-health-efz-f-u00fcr-a-medical-or-surgical-bed-station-spital-limmattal-schlieren",
         "fachfrau-mann-gesundheit-efz-f-u00fcr-eine-medizinische-oder-chirurgische-bettenstation-sp",
-        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital"
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital",
+        "specialista-stazione-di-emergenza-efz-spital-limmattal-schlieren",
+        "specialist-mann-health-efz-emergency-station-spital-limmattal-schlieren",
+        "specialiste-mann-sante-efz-emergency-station-spital-limmattal-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4237,16 +4331,21 @@
           "fachfrau-mann-gesundheit-cfc-f-u00fcr-eine-medizinische-o-chirurgische-bettenstation-spital-limmattal-schlieren",
           "professional-mann-health-efz-f-u00fcr-a-medical-or-surgical-bed-station-spital-limmattal-schlieren",
           "fachfrau-mann-gesundheit-efz-f-u00fcr-eine-medizinische-oder-chirurgische-bettenstation-sp",
-          "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital"
+          "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital",
+          "specialista-stazione-di-emergenza-efz-spital-limmattal-schlieren",
+          "specialist-mann-health-efz-emergency-station-spital-limmattal-schlieren",
+          "specialiste-mann-sante-efz-emergency-station-spital-limmattal-schlieren"
         ],
         "en": [
-          "professional-mann-health-efz-fur-a-medical-or-surgical-bed-station-spital-limmattal-schlieren"
+          "professional-mann-health-efz-fur-a-medical-or-surgical-bed-station-spital-limmattal-schlieren",
+          "specialist-mann-health-efz-emergency-station-spital-limmattal-schlieren"
         ],
         "de": [
           "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-limmattal-schlieren"
         ],
         "fr": [
-          "professionnel-sante-efz-spital-limmattal-schlieren"
+          "professionnel-sante-efz-spital-limmattal-schlieren",
+          "specialiste-mann-sante-efz-emergency-station-spital-limmattal-schlieren"
         ]
       },
       "firstSeenAt": "2026-05-10T22:26:08.275Z",
@@ -5048,17 +5147,26 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-fachmann-operationstechnik-hf-spital-limmattal-ch"
+        "fachfrau-fachmann-operationstechnik-hf-spital-limmattal-ch",
+        "professional-specialiste-genie-operationnel-hf-spital-limmattal-schlieren",
+        "specialista-in-ingegneria-operativa-hf-spital-limmattal-schlieren",
+        "specialist-in-operations-engineering-hf-spital-limmattal-schlieren",
+        "specialiste-en-ingenierie-des-operations-hf-spital-limmattal-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-operationstechnik-hf-spital-limmattal-ch"
+          "fachfrau-fachmann-operationstechnik-hf-spital-limmattal-ch",
+          "professional-specialiste-genie-operationnel-hf-spital-limmattal-schlieren",
+          "specialista-in-ingegneria-operativa-hf-spital-limmattal-schlieren",
+          "specialist-in-operations-engineering-hf-spital-limmattal-schlieren",
+          "specialiste-en-ingenierie-des-operations-hf-spital-limmattal-schlieren"
         ],
         "en": [
           "fachfrau-fachmann-operationstechnik-hf-spital-limmattal-ch"
         ],
         "fr": [
-          "fachfrau-fachmann-operationstechnik-hf-spital-limmattal-ch"
+          "fachfrau-fachmann-operationstechnik-hf-spital-limmattal-ch",
+          "professional-specialiste-genie-operationnel-hf-spital-limmattal-schlieren"
         ]
       },
       "salaryMin": 91500,
@@ -5083,9 +5191,9 @@
     },
     {
       "id": "spital-limmattal-6729f59c8e92",
-      "slug": "operatore-trice-sociosanitario-a-del-centro-di-cura-spital-limmattal-schlieren-9f3f6fa15a",
+      "slug": "operatore-trice-sociosanitario-a-del-centro-di-cura-spital-limmattal-schlieren",
       "slugByLocale": {
-        "it": "operatore-trice-sociosanitario-a-del-centro-di-cura-spital-limmattal-schlieren-9f3f6fa15a",
+        "it": "operatore-trice-sociosanitario-a-del-centro-di-cura-spital-limmattal-schlieren",
         "en": "healthcare-specialist-care-center-spital-limmattal-schlieren",
         "de": "fachfrau-mann-gesundheit-pflegezentrum-spital-limmattal-ch",
         "fr": "assistant-en-soins-et-sante-communautaire-centre-de-soins-spital-limmattal-schlieren"
@@ -5135,19 +5243,29 @@
       "previousSlugs": [
         "fachfrau-mann-gesundheit-pflegezentrum-spital-limmattal-ch",
         "fachfrau-mann-gesundheit-pflegezentrum-spital-limmattal-schlieren",
-        "operatore-trice-sociosanitario-a-del-centro-di-cura-spital-limmattal-schlieren"
+        "operatore-trice-sociosanitario-a-del-centro-di-cura-spital-limmattal-schlieren",
+        "professionale-mann-health-care-center-spital-limmattal-schlieren",
+        "professional-mann-health-care-center-spital-limmattal-schlieren",
+        "professionnel-centre-de-soins-de-santemann-spital-limmattal-schlieren",
+        "operatore-trice-sociosanitario-a-del-centro-di-cura-spital-limmattal-schlieren-9f3f6fa15a"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-mann-gesundheit-pflegezentrum-spital-limmattal-ch",
           "fachfrau-mann-gesundheit-pflegezentrum-spital-limmattal-schlieren",
-          "operatore-trice-sociosanitario-a-del-centro-di-cura-spital-limmattal-schlieren"
+          "operatore-trice-sociosanitario-a-del-centro-di-cura-spital-limmattal-schlieren",
+          "professionale-mann-health-care-center-spital-limmattal-schlieren",
+          "professional-mann-health-care-center-spital-limmattal-schlieren",
+          "professionnel-centre-de-soins-de-santemann-spital-limmattal-schlieren",
+          "operatore-trice-sociosanitario-a-del-centro-di-cura-spital-limmattal-schlieren-9f3f6fa15a"
         ],
         "en": [
-          "fachfrau-mann-gesundheit-pflegezentrum-spital-limmattal-ch"
+          "fachfrau-mann-gesundheit-pflegezentrum-spital-limmattal-ch",
+          "professional-mann-health-care-center-spital-limmattal-schlieren"
         ],
         "fr": [
-          "fachfrau-mann-gesundheit-pflegezentrum-spital-limmattal-ch"
+          "fachfrau-mann-gesundheit-pflegezentrum-spital-limmattal-ch",
+          "professionnel-centre-de-soins-de-santemann-spital-limmattal-schlieren"
         ]
       },
       "firstSeenAt": "2026-09-19T22:48:51.435Z",
@@ -5173,9 +5291,9 @@
     },
     {
       "id": "spital-limmattal-b65b195b414f",
-      "slug": "collaboratore-trice-del-centro-diurno-e-dell-attivazione-lunedi-giovedi-a-tempo-determinato-per-6-mesi-50-60-spital-limmattal-6cdf2effd4",
+      "slug": "collaboratore-trice-del-centro-diurno-e-dell-attivazione-lunedi-giovedi-a-tempo-determinato-per-6-mesi-50-60-spital",
       "slugByLocale": {
-        "it": "collaboratore-trice-del-centro-diurno-e-dell-attivazione-lunedi-giovedi-a-tempo-determinato-per-6-mesi-50-60-spital-limmattal-6cdf2effd4",
+        "it": "collaboratore-trice-del-centro-diurno-e-dell-attivazione-lunedi-giovedi-a-tempo-determinato-per-6-mesi-50-60-spital",
         "en": "staff-member-day-center-activities-monday-thursday-fixed-term-for-6-months-50-60-spital-limmattal-schlieren",
         "de": "mitarbeiter-in-tageszentrum-aktivierung-montag-donnerstag-befristet-fur-6-monate-50-60",
         "fr": "collaborateur-trice-du-centre-de-jour-activation-lundi-jeudi-en-contrat-a-duree-determinee-de-6-mois-50-60-spital"
@@ -5231,14 +5349,14 @@
         "day-centre-activation-staff-member-monday-thursday-fixed-term-for-6-months-50-60-spital-limmattal-schlieren",
         "collaborateur-trice-du-centre-de-jour-activation-lundi-jeudi-a-duree-determinee-pour-6-mois-50-60-spital-limmattal",
         "collaboratore-trice-tageszentrum-aktivierung-montag-donnerstag-befristet-per-6-monate-50-60-spital-limmattal-schlieren",
-        "collaboratore-trice-del-centro-diurno-e-dell-attivazione-lunedi-giovedi-a-tempo-determinato-per-6-mesi-50-60-spital"
+        "collaboratore-trice-del-centro-diurno-e-dell-attivazione-lunedi-giovedi-a-tempo-determinato-per-6-mesi-50-60-spital-limmattal-6cdf2effd4"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-tageszentrum-aktivierung-montag-donnerstag-befristet-fur-6-monate-50-60",
           "collaboratore-trice-centro-diurno-attivita-lunedi-giovedi-a-tempo-determinato-per-6-mesi-50-60-spital-limmattal",
           "collaboratore-trice-tageszentrum-aktivierung-montag-donnerstag-befristet-per-6-monate-50-60-spital-limmattal-schlieren",
-          "collaboratore-trice-del-centro-diurno-e-dell-attivazione-lunedi-giovedi-a-tempo-determinato-per-6-mesi-50-60-spital"
+          "collaboratore-trice-del-centro-diurno-e-dell-attivazione-lunedi-giovedi-a-tempo-determinato-per-6-mesi-50-60-spital-limmattal-6cdf2effd4"
         ],
         "en": [
           "day-centre-activation-staff-member-monday-thursday-fixed-term-for-6-months-50-60-spital-limmattal-schlieren",
@@ -5622,9 +5740,9 @@
     },
     {
       "id": "spital-limmattal-77c7c890a47c",
-      "slug": "dipl-centro-di-assistenza-professionale-hf-o-fh-spital-limmattal-schlieren-4cd0fc1668",
+      "slug": "dipl-centro-di-assistenza-professionale-hf-o-fh-spital-limmattal-schlieren",
       "slugByLocale": {
-        "it": "dipl-centro-di-assistenza-professionale-hf-o-fh-spital-limmattal-schlieren-4cd0fc1668",
+        "it": "dipl-centro-di-assistenza-professionale-hf-o-fh-spital-limmattal-schlieren",
         "en": "dipl-care-professional-hf-or-fh-care-centre-spital-limmattal-schlieren",
         "de": "dipl-pflegefachperson-hf-oder-fh-pflegezentrum-spital-limmattal-ch",
         "fr": "dipl-centre-de-soins-professionnels-hf-ou-fh-spital-limmattal-schlieren"
@@ -5699,8 +5817,8 @@
         "dipl-infermiera-hf-fh-nella-piscina-flex-spital-limmattal-schlieren",
         "dipl-pflegefachperson-hf-fh-im-flex-pool-spital-limmattal-ch",
         "dipl-pflegefachperson-hf-o-fh-pflegezentrum-spital-limmattal-schlieren",
-        "dipl-centro-di-assistenza-professionale-hf-o-fh-spital-limmattal-schlieren-4cd0fc1668",
-        "dipl-centro-di-assistenza-professionale-hf-o-fh-spital-limmattal-schlieren"
+        "dipl-centro-di-assistenza-professionale-hf-o-fh-spital-limmattal-schlieren",
+        "dipl-centro-di-assistenza-professionale-hf-o-fh-spital-limmattal-schlieren-4cd0fc1668"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5723,8 +5841,8 @@
           "dipl-pflegefachperson-hf-o-fh-pflegezentrum-spital-limmattal-schlieren",
           "dipl-pflegefachperson-hf-oder-fh-pflegezentrum-spital-limmattal-ch",
           "dipl-pflegefachperson-hf-fh-fur-onkologie-hamatologie-80-spital-limmattal-ch",
-          "dipl-centro-di-assistenza-professionale-hf-o-fh-spital-limmattal-schlieren-4cd0fc1668",
-          "dipl-centro-di-assistenza-professionale-hf-o-fh-spital-limmattal-schlieren"
+          "dipl-centro-di-assistenza-professionale-hf-o-fh-spital-limmattal-schlieren",
+          "dipl-centro-di-assistenza-professionale-hf-o-fh-spital-limmattal-schlieren-4cd0fc1668"
         ],
         "en": [
           "dipl-pflegefachperson-hf-oder-fh-pflegezentrum-spital-limmattal-ch"
@@ -5871,7 +5989,6 @@
         "de": "Nach Vereinbarung\nWir betreuen unsere Bewohnenden und ihre Angehörigen mit Fachkompetenz und viel menschlichem Engagement in oftmals komplexen Situationen. Die Behandlung, Pflege und Betreuung in hoher Qualität erfordern daher spezifische Kenntnisse im Bereich Geriatrie sowie individuell angepasste Unterstützung in gesundheitlichen, sozialen oder seelischen Belangen.\nDarum arbeitet unser multiprofessionelles Team eng zusammen. Es besteht aus Ärzt:innen, Pflegefachpersonen, einer Sozialarbeiterin, Aktivierungsfachpersonen, Therapeut:innen sowie Seelsorgenden.\nDirektbewerbungen werden bevorzugt, externe Stellenvermittlungsbüros werden nicht berücksichtigt.\nHier engagieren Sie sich\n• in individuellen, oft niederschwelligen angepassten Gruppen- und Einzelangeboten\n• in der selbstständigen Planung, Organisation und Durchführung von abwechslungsreichen Aktivierungs-, Beschäftigungs- und Alltagsgestaltungen\n• im Fördern der Ressourcen\n• in der Mitgestaltung der aktiven Lebenssituation, Interaktion und Beziehungsgestaltung\n• in leicht pflegerischen und hauswirtschaftlichen Verrichtungen\nSie\n• verfügen über eine abgeschlossene Ausbildung als Fachperson Betreuung oder Aktivierungsfachperson\n• arbeiten engagiert mit Professionalität und hoher Wertschätzung\n• haben ein vielseitiges handwerkliches, hauswirtschaftliches und kognitives Können in der Aktivierungs- und Alltagsgestaltung\n• handeln initiativ und haben ein hohes Verantwortungsbewusstsein\n• sind ein unkompliziertes, flexibles und humorvolles Teammitglied\nIhr neuer Arbeitsort\nUnsere Top-Lage (Limmattalbahn, 4 S-Bahnen, 1 Buslinie in unmittelbarer Nähe) wird durch das LIMMI-Mobilitätskonzept ergänzt:\n• vergünstigte Mitarbeitenden-Parkplätze\n• Motorradparkplätze, abschliessbare Veloparkplätze\n• Wir bieten mit dem ZVV-Bonus Pass / Z-Bonus Pass ein attraktives ÖV-Abonnement für Mitarbeitende an\ns'LIMMI: Ihr Partner fürs Leben\nAls grösstes Pflegezentrum im Westen von Zürich bieten wir ein stationäres Zuhause für 126 betreuungs- und pflegebedürftige Menschen. Unser umfassendes und interprofessionelles Angebot beinhaltet die Langzeitpflege, Rehabilitation, Begleitung von demenzkranken Menschen sowie ein Tageszentrum. Dank der direkten Anbindung an das Akutspital Limmattal ist die medizinische Betreuung rund um die Uhr gewährleistet. Das Pflegezentrum Spital Limmattal befindet sich in unmittelbarer Stadtnähe von Zürich, nur drei S-Bahn-Stationen vom Hauptbahnhof entfernt.",
         "fr": "Par accord\nNous nous occupons de nos résidents et de leurs proches avec expertise et beaucoup d'engagement humain dans des situations souvent complexes. Le traitement, les soins et les soins de haute qualité nécessitent donc des connaissances spécifiques dans le domaine de la gériatrie ainsi qu'un soutien individuel adapté en matière de santé, sociale ou mentale.\nC'est pourquoi notre équipe multiprofessionnelle travaille en étroite collaboration. Il se compose de médecins : femmes, infirmières, assistante sociale, spécialistes de l'activation, thérapeute : femmes et travailleurs pastoraux.\nLes candidatures directes sont privilégiées, les bureaux de recrutement externes ne sont pas pris en considération.\nIci ils s'engagent\n• dans des offres individuelles, souvent adaptées à un bas seuil\n• dans la planification, l'organisation et la mise en œuvre indépendantes de divers arrangements d'activation, d'emploi et de vie quotidienne\n• Promotion des ressources\n• dans la co-création de la situation de vie active, de l'interaction et de la formation de relations\n• En soins infirmiers et en services domestiques\nTaille\n• avoir suivi une formation de superviseur professionnel ou de spécialiste de l'activation\n• travail engagé avec professionnalisme et haute appréciation\n• posséder un savoir-faire polyvalent en artisanat, ménagère et cognitive en activation et conception quotidienne\n• agir de manière proactive et avoir un haut sens des responsabilités\n• sont un membre d'équipe simple, flexible et humoristique\nVotre nouveau lieu de travail\nNotre top emplacement (Limmattalbahn, 4 S-Bahn, 1 ligne de bus dans les environs immédiats) est complété par le concept de mobilité LIMMI:\n• Stationnement réduit des employés\n• Parking moto, parking vélo verrouillable\n• Avec le ZVV Bonus Pass / Z-Bonus Pass nous offrons un abonnement de transport public attrayant pour les employés\ns'LIMMI: Votre partenaire pour la vie\nEn tant que plus grand centre de soins dans l'ouest de Zurich, nous offrons une maison fixe pour 126 personnes ayant besoin de soins. Notre offre complète et interprofessionnelle comprend des soins de longue durée, la réadaptation, le soutien aux personnes atteintes de démence et un centre de jour. Grâce à la connexion directe avec l'hôpital aigu de Limmattal, les soins médicaux sont garantis 24 heures sur 24. Le centre de soins Spital Limmattal est situé à proximité immédiate de Zurich, à seulement trois stations de S-Bahn de la station principale."
       },
-      "needsRetranslation": true,
       "location": "Schlieren",
       "canton": "ZH",
       "url": "https://apply.refline.ch/486538/0893/pub/3/index.html",
@@ -5931,12 +6048,12 @@
     },
     {
       "id": "spital-limmattal-8472f38cda3f",
-      "slug": "apprendistato-fachfrau-mann-gesundheit-fage-im-pflegezentrum-spital-limmattal-schlieren",
+      "slug": "posto-di-apprendistato-per-operatrice-tore-sociosanitario-oss-presso-il-centro-di-cura-spital-limmattal-schlieren",
       "slugByLocale": {
         "de": "lehrstelle-fachfrau-mann-gesundheit-fage-im-pflegezentrum-spital-limmattal-ch",
-        "it": "apprendistato-fachfrau-mann-gesundheit-fage-im-pflegezentrum-spital-limmattal-schlieren",
-        "en": "lehrstelle-fachfrau-mann-gesundheit-fage-im-pflegezentrum-spital-limmattal-ch",
-        "fr": "lehrstelle-fachfrau-mann-gesundheit-fage-im-pflegezentrum-spital-limmattal-ch"
+        "it": "posto-di-apprendistato-per-operatrice-tore-sociosanitario-oss-presso-il-centro-di-cura-spital-limmattal-schlieren",
+        "en": "apprenticeship-professional-health-fage-in-the-nursing-center-spital-limmattal-schlieren",
+        "fr": "sante-professionnelle-de-l-apprentissage-fage-dans-le-centre-de-soins-infirmiers-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -5955,7 +6072,6 @@
         "en": "100%, start of teaching 09.08.2027\nYour training at the Limmattal Hospital – versatile, practical and future-oriented\nWe are pleased that you are applying for a vocational apprenticeship in our nursing centre. During your three-year training as a specialist in health EFZ, you will be part of our dedicated nursing team. You take on tasks in the care center in care, everyday life design and administration. They accompany our residents with joy, empathy and expertise. You can use the learned skills on a daily basis and take responsibility for your actions.\nWe work closely in the interprofessional team with the activation specialists, therapists and other specialists. They are actively involved in the maintenance of reference.\nDuring their training, You have the opportunity to complete an internship in the acute hospital. Insight days at activation and therapies complement your education.\nHere they engage\nSchool and supplementary services\n• Lessons at the ZAG in Winterthur\n• Possibility for professional maturity after passing the entrance examination:\nBMS (3-year model)\no BM1 flex (4-year model)\n• Optional: Bilingual lessons (German / English)\nTheir advantages\n• Flexible holiday arrangements\no 1st year of training: 25 + 5 additional holidays\no 2nd year of training: 25 + 3 additional holidays\no 3rd year of training: 25 days of holiday\n• ZVV Bonus Pass or Z Pass\n• Participation of CHF 600 in compulsory school materials\n• Extensive Introduction Week\n• Teaching ceremony for recognition of your performance\n• Various benefits / offers that change regularly\nSize\n• have dealt intensively with the profession FaGe\n• have completed at least one trial internship as FaGe and consolidated your career aspiration\n• are committed, responsible and enjoy working in a team\nYour application file – please submit it in full\n• Application and motivation letter – why I choose this profession, hobbies, interests, etc.\n• CVC\n• Current photo\n• School certificates Certificates upper school from the 6th year of secondary level A & B\n• Current Multicheck – Health/Social, all 4 pages\n• Evidence of trial internships already completed as FaGe\n• Provide 2 reference persons with e-mail and telephone number\nNote: Incomplete applications will not be considered\nYour new place of work\nOur top location (Limmattalbahn, 4 S-Bahn, 1 bus line in the immediate vicinity) is complemented by the LIMMI mobility concept:\n• Reduced employee parking\n• Motorcycle parking, lockable bicycle parking\n• With the ZVV Bonus Pass / Z-Bonus Pass we offer an attractive public transport subscription for employees\ns'LIMMI: Your partner for life\nAs an important health partner with a comprehensive training mandate, the Hospital Association Limmattal takes over the extended basic medical care of more than 100,000 patients annually, in all phases of life. The LIMMI is broadly specialized and offers high-quality medical care as well as in-depth expert knowledge in numerous surgical, medical and nursing specialist and specialist disciplines. The hospital association has 188 beds in the acute care sector, 126 beds in long-term care, a hospital-bound emergency service as well as nine operating rooms and eight intensive care facilities. More than 1,700 employees from 58 nations provide excellent and diverse services every day.",
         "fr": "100%, début de l'enseignement 09.08.2027\nVotre formation à l'hôpital Limmattal – polyvalente, pratique et orientée vers l'avenir\nNous sommes heureux que vous postuliez à un apprentissage professionnel dans notre centre de soins infirmiers. Au cours de votre formation de trois ans en tant que spécialiste de la santé EFZ, vous ferez partie de notre équipe infirmière dédiée. Vous assumez des tâches dans le centre de soins en soins, conception de la vie quotidienne et l'administration. Ils accompagnent nos résidents avec joie, empathie et expertise. Vous pouvez utiliser les compétences acquises au quotidien et prendre la responsabilité de vos actions.\nNous travaillons en étroite collaboration avec les spécialistes de l'activation, les thérapeutes et d'autres spécialistes. Ils participent activement au maintien des références.\nAu cours de leur formation, vous avez la possibilité de terminer un stage à l'hôpital aigu. Les journées d'activation et les thérapies viennent compléter votre éducation.\nIci ils s'engagent\nServices scolaires et complémentaires\n• Leçons au ZAG à Winterthur\n• Possibilité de maturité professionnelle après avoir réussi l'examen d'entrée:\nModèle BMS (3 ans)\no Flex BM1 (modèle de 4 ans)\n• Facultatif: Cours bilingues (allemand / anglais)\nLeurs avantages\n• Régimes de vacances flexibles\no 1ère année de formation : 25 + 5 jours fériés supplémentaires\no 2e année de formation : 25 + 3 jours fériés supplémentaires\no 3e année de formation : 25 jours de congé\n• ZVV Bonus Pass ou Z Pass\n• Participation de CHF 600 au matériel scolaire obligatoire\n• Semaine d'introduction étendue\n• Cérémonie d'enseignement pour la reconnaissance de votre performance\n• Divers avantages / offres qui changent régulièrement\nTaille\n• ont travaillé intensivement avec la profession FaGe\n• avoir complété au moins un stage d'essai comme FaGe et consolidé votre aspiration de carrière\n• sont engagés, responsables et aiment travailler en équipe\nVotre dossier de candidature – veuillez le soumettre en entier\n• Lettre d'application et de motivation – pourquoi je choisis cette profession, hobbies, intérêts, etc.\n• CVC\n• Photo actuelle\n• Certificats scolaires Certificats d'études supérieures à partir de la sixième année du secondaire A & B\n• Multicheck actuel – Santé/Social, les 4 pages\n• Preuve de stages d'essai déjà terminés en FaGe\n• Fournir 2 personnes de référence avec courriel et numéro de téléphone\nRemarque : Les demandes incomplètes ne seront pas prises en considération\nVotre nouveau lieu de travail\nNotre top emplacement (Limmattalbahn, 4 S-Bahn, 1 ligne de bus dans les environs immédiats) est complété par le concept de mobilité LIMMI:\n• Stationnement réduit des employés\n• Parking moto, parking vélo verrouillable\n• Avec le ZVV Bonus Pass / Z-Bonus Pass nous offrons un abonnement de transport public attrayant pour les employés\ns'LIMMI: Votre partenaire pour la vie\nEn tant que partenaire important de la santé ayant un mandat de formation complet, l'Association hospitalière Limmattal prend en charge les soins médicaux de base prolongés de plus de 100 000 patients chaque année, à toutes les phases de la vie. Le LIMMI est largement spécialisé et offre des soins médicaux de haute qualité ainsi que des connaissances spécialisées approfondies dans de nombreuses disciplines spécialisées en chirurgie, médecine et soins infirmiers. L'association hospitalière compte 188 lits dans le secteur des soins actifs, 126 lits dans les soins de longue durée, un service d'urgence en milieu hospitalier ainsi que neuf salles d'opération et huit centres de soins intensifs. Plus de 1 700 employés de 58 pays offrent chaque jour des services excellents et diversifiés."
       },
-      "needsRetranslation": true,
       "location": "Schlieren",
       "canton": "ZH",
       "url": "https://apply.refline.ch/486538/0783/pub/2/index.html",
@@ -5984,11 +6100,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-fachfrau-mann-gesundheit-fage-im-pflegezentrum-spital-limmattal-ch",
+          "apprendistato-fachfrau-mann-gesundheit-fage-im-pflegezentrum-spital-limmattal-schlieren"
+        ],
+        "en": [
+          "lehrstelle-fachfrau-mann-gesundheit-fage-im-pflegezentrum-spital-limmattal-ch"
+        ],
+        "fr": [
           "lehrstelle-fachfrau-mann-gesundheit-fage-im-pflegezentrum-spital-limmattal-ch"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-fachfrau-mann-gesundheit-fage-im-pflegezentrum-spital-limmattal-ch"
+        "lehrstelle-fachfrau-mann-gesundheit-fage-im-pflegezentrum-spital-limmattal-ch",
+        "apprendistato-fachfrau-mann-gesundheit-fage-im-pflegezentrum-spital-limmattal-schlieren"
       ],
       "salaryMin": 82000,
       "salaryMax": 114500,
@@ -6012,12 +6136,12 @@
     },
     {
       "id": "spital-limmattal-6f47ec5b6c50",
-      "slug": "fachperson-apotheke-efz-medikamentenabgabe-60-100-spital-limmattal-ch",
+      "slug": "specialista-di-farmacia-afc-dispensazione-di-medicamenti-60-100-spital-limmattal-schlieren",
       "slugByLocale": {
         "de": "fachperson-apotheke-efz-medikamentenabgabe-60-100-spital-limmattal-ch",
-        "it": "fachperson-apotheke-efz-medikamentenabgabe-60-100-spital-limmattal-ch",
-        "en": "fachperson-apotheke-efz-medikamentenabgabe-60-100-spital-limmattal-ch",
-        "fr": "fachperson-apotheke-efz-medikamentenabgabe-60-100-spital-limmattal-ch"
+        "it": "specialista-di-farmacia-afc-dispensazione-di-medicamenti-60-100-spital-limmattal-schlieren",
+        "en": "specialist-pharmacy-efz-medication-delivery-60-100-spital-limmattal-schlieren",
+        "fr": "pharmacie-specialisee-efz-livraison-de-medicaments-60-100-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -6036,7 +6160,6 @@
         "en": "From April 2027 or by appointment | No weekend service\nWe are expanding our internal medication delivery office for outpatient and exiting patients. As a central pillar in the hospital Limmattal and in the care center, we ensure effective, safe and economical medication – from the selection of medicines and the distribution in-house via the directional and application process on the stations to the hospital exit. To strengthen our well-established team, we are looking for a committed, communicative personality with pleasure in patient counselling.\nDirect applications are preferred, external recruitment offices are not treated as a priority.\nHere they engage\n• Care and expert advice of outpatient and outgoing patients in our medication delivery\n• Management and maintenance of the pharmaceutical warehouse at the delivery point\n• Competent contact person for medical and nursing inquiries\n• Designing and updating work instructions and helping to shape the extended area\nSize\n• Completed training as a specialist Pharmacy EFZ (former Pharma Assistant)\n• Ideally, professional experience in official or hospital pharmacy\n• Independent, structured and exact working method – even if it gets hectic\n• Very good IT knowledge and interest in interdisciplinary cooperation\nYour new place of work\nOur top location (Limmattalbahn, 4 S-Bahn, 1 bus line in the immediate vicinity) is complemented by the LIMMI mobility concept:\n• Reduced employee parking\n• Motorcycle parking, lockable bicycle parking\n• With the ZVV Bonus Pass / Z-Bonus Pass we offer an attractive public transport subscription for employees\ns'LIMMI: Your partner for life\nAs an important health partner with a comprehensive training mandate, the Hospital Association Limmattal takes over the extended basic medical care of more than 100,000 patients annually, in all phases of life. The LIMMI is broadly specialized and offers high-quality medical care as well as in-depth expert knowledge in numerous surgical, medical and nursing specialist and specialist disciplines. The hospital association has 188 beds in the acute care sector, 126 beds in long-term care, a hospital-bound emergency service as well as nine operating rooms and eight intensive care facilities. More than 1,700 employees from 58 nations provide excellent and diverse services every day.",
         "fr": "A partir d'avril 2027 ou sur rendez-vous\nNous élargissons notre bureau interne de distribution de médicaments aux patients externes et sortants. En tant que pilier central de l'hôpital Limmattal et du centre de soins, nous assurons des médicaments efficaces, sûrs et économiques – de la sélection des médicaments et de la distribution en interne via le processus directionnel et d'application sur les stations à la sortie de l'hôpital. Pour renforcer notre équipe bien établie, nous recherchons une personnalité engagée et communicative avec plaisir dans le conseil aux patients.\nLes candidatures directes sont privilégiées, les bureaux de recrutement externes ne sont pas considérés comme prioritaires.\nIci ils s'engagent\n• Soins et conseils d'experts des patients externes et sortants dans notre distribution de médicaments\n• Gestion et entretien de l'entrepôt pharmaceutique au point de livraison\n• Personne-ressource compétente pour les demandes de renseignements médicaux et infirmiers\n• Conception et mise à jour des instructions de travail et aide à façonner la zone étendue\nTaille\n• Formation complète en pharmacie EFZ (anciennement Assistant Pharma)\n• Idéalement, expérience professionnelle en pharmacie officielle ou hospitalière\n• Méthode de travail indépendante, structurée et exacte – même si elle devient agitée\n• Très bonne connaissance et intérêt pour la coopération interdisciplinaire\nVotre nouveau lieu de travail\nNotre top emplacement (Limmattalbahn, 4 S-Bahn, 1 ligne de bus dans les environs immédiats) est complété par le concept de mobilité LIMMI:\n• Stationnement réduit des employés\n• Parking moto, parking vélo verrouillable\n• Avec le ZVV Bonus Pass / Z-Bonus Pass nous offrons un abonnement de transport public attrayant pour les employés\ns'LIMMI: Votre partenaire pour la vie\nEn tant que partenaire important de la santé ayant un mandat de formation complet, l'Association hospitalière Limmattal prend en charge les soins médicaux de base prolongés de plus de 100 000 patients chaque année, à toutes les phases de la vie. Le LIMMI est largement spécialisé et offre des soins médicaux de haute qualité ainsi que des connaissances spécialisées approfondies dans de nombreuses disciplines spécialisées en chirurgie, médecine et soins infirmiers. L'association hospitalière compte 188 lits dans le secteur des soins actifs, 126 lits dans les soins de longue durée, un service d'urgence en milieu hospitalier ainsi que neuf salles d'opération et huit centres de soins intensifs. Plus de 1 700 employés de 58 pays offrent chaque jour des services excellents et diversifiés."
       },
-      "needsRetranslation": true,
       "location": "Schlieren",
       "canton": "ZH",
       "url": "https://apply.refline.ch/486538/0907/pub/1/index.html",
@@ -6084,7 +6207,21 @@
       "validThrough": "2027-02-18T09:18:38.909Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-20T09:18:38.909Z",
-      "sourceIdentity": "url:https://apply.refline.ch/486538/0907/pub/1/index.html"
+      "sourceIdentity": "url:https://apply.refline.ch/486538/0907/pub/1/index.html",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-apotheke-efz-medikamentenabgabe-60-100-spital-limmattal-ch"
+        ],
+        "en": [
+          "fachperson-apotheke-efz-medikamentenabgabe-60-100-spital-limmattal-ch"
+        ],
+        "fr": [
+          "fachperson-apotheke-efz-medikamentenabgabe-60-100-spital-limmattal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-apotheke-efz-medikamentenabgabe-60-100-spital-limmattal-ch"
+      ]
     },
     {
       "id": "spital-limmattal-53f844703fd1",
@@ -6112,7 +6249,6 @@
         "de": "50% - 100%, nach Vereinbarung\nWir betreuen unsere Bewohnenden und ihre Angehörigen mit Fachkompetenz und viel menschlichem Engagement in oftmals komplexen Situationen. Die Behandlung, Pflege und Betreuung in hoher Qualität erfordern daher spezifische Kenntnisse im Bereich Geriatrie sowie individuell angepasste Unterstützung in gesundheitlichen, sozialen oder seelischen Belangen.\nDarum arbeitet unser multiprofessionelles Team eng zusammen. Es besteht aus Ärzt:innen, Pflegefachpersonen, einer Sozialarbeiterin, Aktivierungsfachpersonen, Therapeut:innen sowie Seelsorgenden.\nDirektbewerbungen werden bevorzugt, externe Stellenvermittlungsbüros werden nicht prioritär behandelt.\nHier engagieren Sie sich\n• Ganzheitliches Pflegen und Betreuen der Bewohnenden im interprofessionellen Team\n• Begleitung und Förderung von Auszubildenden\n• Anleiten und Fördern des Pflegehilfspersonals\n• Allgemeine Mithilfe in allen Bereichen der Station\nUnterstützung in Ihrem Arbeitsalltag erhalten Sie durch eine fachkompetente Stationsleitung, eine Kinästhetics-Trainerin und eine Pflegeexpertin.\nSie\n• verfügen über eine abgeschlossene Berufsausbildung als Fachperson Gesundheit\n• verfügen über Fachwissen und Fachkönnen im Bereich der Geriatrie und Palliative Care\n• sind eine motivierte und empathische Persönlichkeit\n• bringen die Bereitschaft mit, in verschiedenen Schichten (Früh- und Spätdienst) zu arbeiten\nIhr neuer Arbeitsort\nUnsere Top-Lage (Limmattalbahn, 4 S-Bahnen, 1 Buslinie in unmittelbarer Nähe) wird durch das LIMMI-Mobilitätskonzept ergänzt:\n• vergünstigte Mitarbeitenden-Parkplätze\n• Motorradparkplätze, abschliessbare Veloparkplätze\n• Wir bieten mit dem ZVV-Bonus Pass / Z-Bonus Pass ein attraktives ÖV-Abonnement für Mitarbeitende an\ns'LIMMI: Ihr Partner fürs Leben\nAls grösstes Pflegezentrum im Westen von Zürich bieten wir ein stationäres Zuhause für 126 betreuungs- und pflegebedürftige Menschen. Unser umfassendes und interprofessionelles Angebot beinhaltet die Langzeitpflege, Rehabilitation, Begleitung von demenzkranken Menschen sowie ein Tageszentrum. Dank der direkten Anbindung an das Akutspital Limmattal ist die medizinische Betreuung rund um die Uhr gewährleistet. Das Pflegezentrum Spital Limmattal befindet sich in unmittelbarer Stadtnähe von Zürich, nur drei S-Bahn-Stationen vom Hauptbahnhof entfernt.",
         "fr": "50% - 100%, par accord\nNous prenons soin de nos résidents et de leurs proches avec expertise et beaucoup d'engagement humain dans des situations souvent complexes. Le traitement, les soins et les soins de haute qualité nécessitent donc des connaissances spécifiques dans le domaine de la gériatrie ainsi qu'un soutien individuel adapté en matière de santé, sociale ou mentale.\nC'est pourquoi notre équipe multiprofessionnelle travaille en étroite collaboration. Elle se compose de médecins : femmes, infirmières, assistante sociale, spécialistes de l'activation, thérapeute : femmes et aumônier.\nLes candidatures directes sont privilégiées, les bureaux de recrutement externes ne sont pas considérés comme prioritaires.\nIci ils s'engagent\n• Soins holistiques et supervision des résidents de l'équipe interprofessionnelle\n• Accompagnement et promotion des apprentis\n• Orientation et soutien au personnel infirmier\n• Assistance générale dans tous les domaines de la station\nLe soutien dans votre travail quotidien est fourni par un gestionnaire de station compétent, un formateur en kinéthétique et un expert en soins.\nVoir aussi:\n• ont suivi une formation professionnelle en tant que professionnel de la santé\n• possèdent une expertise en gériatrie et en soins palliatifs\n• sont une personnalité motivée et empathique\n• amener la volonté de travailler dans différents postes (début et fin de service)\nVotre nouveau lieu de travail\nNotre emplacement privilégié (Limmattalbahn, 4 S-Bahn, 1 ligne de bus à proximité immédiate) est complété par le concept de mobilité LIMMI :\n• Stationnement réduit des employés\n• Parking moto, parking vélo verrouillable\n• Avec le ZVV Bonus Pass / Z-Bonus Pass nous offrons un abonnement de transport public attrayant pour les employés\ns'LIMMI: Votre partenaire pour la vie\nEn tant que plus grand centre de soins dans l'ouest de Zurich, nous offrons une maison fixe pour 126 personnes ayant besoin de soins. Notre offre complète et interprofessionnelle comprend des soins de longue durée, la réadaptation, le soutien aux personnes atteintes de démence et un centre de jour. Grâce à la connexion directe avec l'hôpital aigu limmattal, les soins médicaux sont garantis 24 heures sur 24. Le centre de soins Spital Limmattal est situé à proximité immédiate de Zurich, à seulement trois stations S-Bahn de la gare principale."
       },
-      "needsRetranslation": true,
       "location": "Schlieren",
       "canton": "ZH",
       "url": "https://apply.refline.ch/486538/0730/pub/8/index.html",

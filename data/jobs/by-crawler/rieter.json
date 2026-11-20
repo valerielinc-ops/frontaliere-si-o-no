@@ -56,11 +56,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "trainer-customer-training-rieter-winterthur"
+        "trainer-customer-training-rieter-winterthur",
+        "trainer-formation-a-la-clientele-rieter-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "trainer-customer-training-rieter-winterthur"
+          "trainer-customer-training-rieter-winterthur",
+          "trainer-formation-a-la-clientele-rieter-winterthur"
+        ],
+        "fr": [
+          "trainer-formation-a-la-clientele-rieter-winterthur"
         ]
       },
       "salaryMin": 83000,
@@ -470,7 +475,15 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T09:17:22.342Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://live.solique.ch/rieter/en/jobs/sap-senior-consultant-service-and-repair-cs-100-wmd---4094537"
+      "sourceIdentity": "url:https://live.solique.ch/rieter/en/jobs/sap-senior-consultant-service-and-repair-cs-100-wmd---4094537",
+      "previousSlugs": [
+        "service-et-reparation-de-consultants-principaux-sap-cs-100-p-m-j-rieter-winterthur"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "service-et-reparation-de-consultants-principaux-sap-cs-100-p-m-j-rieter-winterthur"
+        ]
+      }
     },
     {
       "id": "rieter-8e0d285ac5af",
@@ -612,17 +625,32 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "it-project-manager-rieter-winterthur"
+        "it-project-manager-rieter-winterthur",
+        "it-project-manager-rieter-winterthur-3172d329",
+        "it-project-manager-rieter-winterthur-2916251c",
+        "responsabile-del-progetto-it-rieter-winterthur-ff1fc341",
+        "it-project-manager-rieter-winterthur-d950a829",
+        "it-projektmanager-rieter-winterthur-5ed89ede",
+        "gestionnaire-de-projet-informatique-rieter-winterthur-c3c6241a"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "it-project-manager-rieter-winterthur"
+          "it-project-manager-rieter-winterthur",
+          "it-project-manager-rieter-winterthur-3172d329",
+          "it-project-manager-rieter-winterthur-2916251c",
+          "responsabile-del-progetto-it-rieter-winterthur-ff1fc341",
+          "it-project-manager-rieter-winterthur-d950a829",
+          "it-projektmanager-rieter-winterthur-5ed89ede",
+          "gestionnaire-de-projet-informatique-rieter-winterthur-c3c6241a"
         ],
         "de": [
           "it-project-manager-rieter-winterthur"
         ],
         "fr": [
           "it-project-manager-rieter-winterthur"
+        ],
+        "en": [
+          "it-project-manager-rieter-winterthur-3172d329"
         ]
       },
       "firstSeenAt": "2026-08-27T00:41:07.404Z",
@@ -646,10 +674,10 @@
     },
     {
       "id": "rieter-83408f18a6a2",
-      "slug": "head-supply-chain-operations-graf-group-100-m-w-d-rieter-rapperswil",
+      "slug": "catena-di-alimentazione-e-operazioni-graf-gruppo-100-m-f-d-rieter-rapperswil",
       "slugByLocale": {
         "de": "head-supply-chain-operations-graf-group-100-m-w-d-rieter-rapperswil",
-        "it": "head-supply-chain-operations-graf-group-100-m-w-d-rieter-rapperswil",
+        "it": "catena-di-alimentazione-e-operazioni-graf-gruppo-100-m-f-d-rieter-rapperswil",
         "en": "head-supply-chain-operations-graf-group-100-m-w-d-rieter-rapperswil",
         "fr": "head-supply-chain-operations-graf-group-100-m-w-d-rieter-rapperswil"
       },
@@ -718,13 +746,13 @@
       "firstSeenAt": "2026-11-03T21:27:53.883Z",
       "previousSlugsByLocale": {
         "it": [
-          "head-supply-chain-operations-graf-group-100-m-w-d-rieter-rapperswil",
-          "catena-di-alimentazione-e-operazioni-graf-gruppo-100-m-f-d-rieter-rapperswil"
+          "catena-di-alimentazione-e-operazioni-graf-gruppo-100-m-f-d-rieter-rapperswil",
+          "head-supply-chain-operations-graf-group-100-m-w-d-rieter-rapperswil"
         ]
       },
       "previousSlugs": [
-        "head-supply-chain-operations-graf-group-100-m-w-d-rieter-rapperswil",
-        "catena-di-alimentazione-e-operazioni-graf-gruppo-100-m-f-d-rieter-rapperswil"
+        "catena-di-alimentazione-e-operazioni-graf-gruppo-100-m-f-d-rieter-rapperswil",
+        "head-supply-chain-operations-graf-group-100-m-w-d-rieter-rapperswil"
       ],
       "sourceIdentity": "url:https://live.solique.ch/rieter/en/jobs/head-supply-chain-operations-graf-group-100-mwd---4105133"
     },

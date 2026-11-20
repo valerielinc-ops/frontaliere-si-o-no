@@ -52,6 +52,144 @@ function removalRange(source, sourceFile, property) {
   return { start: property.getFullStart(), end };
 }
 
+function quoted(value) {
+  return `'${String(value).replace(/\\/gu, '\\\\').replace(/'/gu, "\\'")}'`;
+}
+
+function insertAfterProperty(source, property, value) {
+  const propertyStart = property.getStart();
+  const lineStart = source.lastIndexOf('\n', propertyStart - 1) + 1;
+  const indent = source.slice(lineStart, propertyStart).match(/^[ \t]*/u)?.[0] ?? '';
+  const commaEnd = source[property.end] === ',' ? property.end + 1 : property.end;
+  const nextMemberStart = source.slice(commaEnd).search(/\S/u);
+  const between = nextMemberStart < 0 ? '' : source.slice(commaEnd, commaEnd + nextMemberStart);
+  const separator = source[property.end] === ',' ? '' : ',';
+
+  if (/\r?\n/u.test(between)) {
+    return {
+      offset: commaEnd,
+      text: `${separator}\n${indent}updatedAt: ${quoted(value)},`,
+    };
+  }
+  return {
+    offset: commaEnd,
+    text: `${separator} updatedAt: ${quoted(value)},`,
+  };
+}
+
+function timestamp(value) {
+  const parsed = Date.parse(value ?? '');
+  return Number.isFinite(parsed) ? parsed : null;
+}
+
+/**
+ * Project the pinned publisher API's enriched `updatedAt` field onto a mirrored
+ * TypeScript registry without changing the publication `date`.
+ *
+ * API rows absent from this source are ignored: the site may carry explicitly
+ * preserved local-only articles. Rows shared by both sides must retain the
+ * exact publication date, while freshness may only move forward.
+ *
+ * @returns {{source: string, updatedIds: string[]}}
+ */
+export function applyPublishedArticleUpdates(
+  source,
+  publishedRows,
+  fileName = 'article-registry.ts',
+) {
+  const sourceFile = parseStaticSource(source, fileName, {
+    errorPrefix: '[article-registry-date-coherence]',
+  });
+  if (!Array.isArray(publishedRows)) {
+    throw new Error(`[article-registry-date-coherence] ${fileName}: published registry is not an array`);
+  }
+  const publishedById = new Map();
+  for (const row of publishedRows) {
+    if (!row || typeof row !== 'object' || Array.isArray(row)) {
+      throw new Error(`[article-registry-date-coherence] ${fileName}: published row is not an object`);
+    }
+    if (typeof row.id !== 'string' || row.id.length === 0) {
+      throw new Error(`[article-registry-date-coherence] ${fileName}: published row has no article id`);
+    }
+    if (publishedById.has(row.id)) {
+      throw new Error(`[article-registry-date-coherence] ${fileName}: duplicate published article '${row.id}'`);
+    }
+    if (typeof row.date !== 'string' || timestamp(row.date) === null) {
+      throw new Error(`[article-registry-date-coherence] ${fileName}: article '${row.id}' has invalid published date`);
+    }
+    if (row.updatedAt !== undefined
+      && (typeof row.updatedAt !== 'string' || timestamp(row.updatedAt) === null)) {
+      throw new Error(`[article-registry-date-coherence] ${fileName}: article '${row.id}' has invalid updatedAt`);
+    }
+    publishedById.set(row.id, row);
+  }
+
+  const edits = [];
+  const seenPublishedIds = new Set();
+  const updatedIds = [];
+  for (const object of findTopLevelStaticObjectLiterals(sourceFile)) {
+    const properties = readStaticObjectProperties(object, `${fileName} article row`);
+    const idProperty = directProperty(properties, 'id', fileName, '<unknown>');
+    if (!idProperty) continue;
+    const id = literalValue(idProperty, sourceFile, fileName, '<unknown>', 'id');
+    const published = publishedById.get(id);
+    if (!published) continue;
+    if (seenPublishedIds.has(id)) {
+      throw new Error(`[article-registry-date-coherence] ${fileName}: duplicate source article '${id}'`);
+    }
+    seenPublishedIds.add(id);
+
+    const dateProperty = directProperty(properties, 'date', fileName, id);
+    if (!dateProperty) {
+      throw new Error(`[article-registry-date-coherence] ${fileName}: article '${id}' has no date`);
+    }
+    const date = literalValue(dateProperty, sourceFile, fileName, id, 'date');
+    if (date !== published.date) {
+      throw new Error(
+        `[article-registry-date-coherence] ${fileName}: article '${id}' publication date `
+        + `${JSON.stringify(date)} disagrees with pinned API ${JSON.stringify(published.date)}`,
+      );
+    }
+    if (published.updatedAt === undefined) continue;
+
+    const updatedAtProperty = directProperty(properties, 'updatedAt', fileName, id);
+    const current = literalValue(updatedAtProperty, sourceFile, fileName, id, 'updatedAt');
+    if (current === published.updatedAt) continue;
+    if (current && timestamp(current) > timestamp(published.updatedAt)) {
+      throw new Error(
+        `[article-registry-date-coherence] ${fileName}: article '${id}' would regress updatedAt `
+        + `from ${current} to ${published.updatedAt}`,
+      );
+    }
+
+    if (updatedAtProperty) {
+      edits.push({
+        start: updatedAtProperty.initializer.getStart(sourceFile),
+        end: updatedAtProperty.initializer.end,
+        text: quoted(published.updatedAt),
+      });
+    } else {
+      const insertion = insertAfterProperty(source, dateProperty, published.updatedAt);
+      edits.push({ start: insertion.offset, end: insertion.offset, text: insertion.text });
+    }
+    updatedIds.push(id);
+  }
+
+  const missing = [...publishedById.keys()].filter((id) => !seenPublishedIds.has(id));
+  if (missing.length > 0) {
+    throw new Error(
+      `[article-registry-date-coherence] ${fileName}: ${missing.length} pinned API article(s) `
+      + `are absent from the mirrored registry: ${missing.slice(0, 5).join(', ')}`,
+    );
+  }
+
+  let projected = source;
+  for (const edit of edits.sort((a, b) => b.start - a.start)) {
+    projected = projected.slice(0, edit.start) + edit.text + projected.slice(edit.end);
+  }
+  return { source: projected, updatedIds };
+}
+
 /**
  * Remove only date-only `updatedAt` values that are provably before a
  * timestamped publication date.

@@ -3272,12 +3272,12 @@
     },
     {
       "id": "decathlon-e1eee7a0b27d",
-      "slug": "conseiller-ere-randonnee-ski-h-f-cdd-20-a-50-granges-paccot-decathlon-ch",
+      "slug": "advisor-escursionismo-ski-m-f-cdd-20-al-50-granges-paccot-decathlon-granges-paccot",
       "slugByLocale": {
         "fr": "conseiller-ere-randonnee-ski-h-f-cdd-20-a-50-granges-paccot-decathlon-ch",
-        "it": "conseiller-ere-randonnee-ski-h-f-cdd-20-a-50-granges-paccot-decathlon-ch",
-        "en": "conseiller-ere-randonnee-ski-h-f-cdd-20-a-50-granges-paccot-decathlon-ch",
-        "de": "conseiller-ere-randonnee-ski-h-f-cdd-20-a-50-granges-paccot-decathlon-ch"
+        "it": "advisor-escursionismo-ski-m-f-cdd-20-al-50-granges-paccot-decathlon-granges-paccot",
+        "en": "advisor-hiking-ski-m-f-cdd-20-to-50-granges-paccot-decathlon-granges-paccot",
+        "de": "advisor-hiking-ski-m-w-cdd-20-bis-50-granges-paccot-decathlon-granges-paccot"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -3342,23 +3342,23 @@
       "sourceIdentity": "url:https://joinus.decathlon.ch/fr_ch/annonce/4701239-conseiller-ere-randonneeski-hf-cdd-20-a-50-granges-paccot-1763-granges-paccot",
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-ere-randonnee-ski-h-f-cdd-20-a-50-granges-paccot-decathlon-ch",
-          "advisor-escursionismo-ski-m-f-cdd-20-al-50-granges-paccot-decathlon-granges-paccot"
+          "advisor-escursionismo-ski-m-f-cdd-20-al-50-granges-paccot-decathlon-granges-paccot",
+          "conseiller-ere-randonnee-ski-h-f-cdd-20-a-50-granges-paccot-decathlon-ch"
         ],
         "en": [
-          "conseiller-ere-randonnee-ski-h-f-cdd-20-a-50-granges-paccot-decathlon-ch",
-          "advisor-hiking-ski-m-f-cdd-20-to-50-granges-paccot-decathlon-granges-paccot"
+          "advisor-hiking-ski-m-f-cdd-20-to-50-granges-paccot-decathlon-granges-paccot",
+          "conseiller-ere-randonnee-ski-h-f-cdd-20-a-50-granges-paccot-decathlon-ch"
         ],
         "de": [
-          "conseiller-ere-randonnee-ski-h-f-cdd-20-a-50-granges-paccot-decathlon-ch",
-          "advisor-hiking-ski-m-w-cdd-20-bis-50-granges-paccot-decathlon-granges-paccot"
+          "advisor-hiking-ski-m-w-cdd-20-bis-50-granges-paccot-decathlon-granges-paccot",
+          "conseiller-ere-randonnee-ski-h-f-cdd-20-a-50-granges-paccot-decathlon-ch"
         ]
       },
       "previousSlugs": [
-        "conseiller-ere-randonnee-ski-h-f-cdd-20-a-50-granges-paccot-decathlon-ch",
         "advisor-escursionismo-ski-m-f-cdd-20-al-50-granges-paccot-decathlon-granges-paccot",
         "advisor-hiking-ski-m-f-cdd-20-to-50-granges-paccot-decathlon-granges-paccot",
-        "advisor-hiking-ski-m-w-cdd-20-bis-50-granges-paccot-decathlon-granges-paccot"
+        "advisor-hiking-ski-m-w-cdd-20-bis-50-granges-paccot-decathlon-granges-paccot",
+        "conseiller-ere-randonnee-ski-h-f-cdd-20-a-50-granges-paccot-decathlon-ch"
       ]
     },
     {
@@ -3531,12 +3531,12 @@
     },
     {
       "id": "decathlon-f820308c4d47",
-      "slug": "befristet-sport-leader-verkaufsberater-m-w-d-80-decathlon-zurich",
+      "slug": "temporary-sport-leader-sales-advisor-m-f-d-80-decathlon-zurich",
       "slugByLocale": {
         "de": "befristet-sport-leader-verkaufsberater-m-w-d-80-decathlon-ch",
-        "it": "befristet-sport-leader-verkaufsberater-m-w-d-80-decathlon-zurich",
+        "it": "temporary-sport-leader-sales-advisor-m-f-d-80-decathlon-zurich",
         "en": "befristet-sport-leader-verkaufsberater-m-w-d-80-decathlon-ch",
-        "fr": "befristet-sport-leader-verkaufsberater-m-w-d-80-decathlon-ch"
+        "fr": "temporaire-leader-sportif-conseiller-en-ventes-h-f-d-80-decathlon-zurich"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -3582,11 +3582,16 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "befristet-sport-leader-verkaufsberater-m-w-d-80-decathlon-ch",
+          "befristet-sport-leader-verkaufsberater-m-w-d-80-decathlon-zurich"
+        ],
+        "fr": [
           "befristet-sport-leader-verkaufsberater-m-w-d-80-decathlon-ch"
         ]
       },
       "previousSlugs": [
-        "befristet-sport-leader-verkaufsberater-m-w-d-80-decathlon-ch"
+        "befristet-sport-leader-verkaufsberater-m-w-d-80-decathlon-ch",
+        "befristet-sport-leader-verkaufsberater-m-w-d-80-decathlon-zurich"
       ],
       "salaryMin": 66400,
       "salaryMax": 102000,

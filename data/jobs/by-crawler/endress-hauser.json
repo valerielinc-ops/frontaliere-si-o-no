@@ -4191,17 +4191,16 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T09:36:26.215Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-project-manager-gas-measurement-cems-%28fmd%29-100-4153/1458520933",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-project-manager-gas-measurement-cems-%28fmd%29-100-4153/1458520933"
     },
     {
       "id": "endress-hauser-340307d94942",
-      "slug": "head-of-corporate-logistics-f-m-d-endress-hauser-reinach",
+      "slug": "responsabile-corporate-logistica-f-m-d-endress-hauser-reinach",
       "slugByLocale": {
         "en": "head-of-corporate-logistics-f-m-d-endress-hauser-reinach",
-        "it": "head-of-corporate-logistics-f-m-d-endress-hauser-reinach",
-        "de": "head-of-corporate-logistics-f-m-d-endress-hauser-reinach",
-        "fr": "head-of-corporate-logistics-f-m-d-endress-hauser-reinach"
+        "it": "responsabile-corporate-logistica-f-m-d-endress-hauser-reinach",
+        "de": "leiter-corporate-logistik-f-m-d-endress-hauser-reinach",
+        "fr": "responsable-corporate-logistique-f-m-d-endress-hauser-reinach"
       },
       "company": "Endress+Hauser",
       "companyKey": "endress-hauser",
@@ -4267,23 +4266,23 @@
       "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-head-of-corporate-logistics-%28fmd%29-4153/1458852033",
       "previousSlugsByLocale": {
         "it": [
-          "head-of-corporate-logistics-f-m-d-endress-hauser-reinach",
-          "responsabile-corporate-logistica-f-m-d-endress-hauser-reinach"
+          "responsabile-corporate-logistica-f-m-d-endress-hauser-reinach",
+          "head-of-corporate-logistics-f-m-d-endress-hauser-reinach"
         ],
         "de": [
-          "head-of-corporate-logistics-f-m-d-endress-hauser-reinach",
-          "leiter-corporate-logistik-f-m-d-endress-hauser-reinach"
+          "leiter-corporate-logistik-f-m-d-endress-hauser-reinach",
+          "head-of-corporate-logistics-f-m-d-endress-hauser-reinach"
         ],
         "fr": [
-          "head-of-corporate-logistics-f-m-d-endress-hauser-reinach",
-          "responsable-corporate-logistique-f-m-d-endress-hauser-reinach"
+          "responsable-corporate-logistique-f-m-d-endress-hauser-reinach",
+          "head-of-corporate-logistics-f-m-d-endress-hauser-reinach"
         ]
       },
       "previousSlugs": [
-        "head-of-corporate-logistics-f-m-d-endress-hauser-reinach",
         "responsabile-corporate-logistica-f-m-d-endress-hauser-reinach",
         "leiter-corporate-logistik-f-m-d-endress-hauser-reinach",
-        "responsable-corporate-logistique-f-m-d-endress-hauser-reinach"
+        "responsable-corporate-logistique-f-m-d-endress-hauser-reinach",
+        "head-of-corporate-logistics-f-m-d-endress-hauser-reinach"
       ]
     }
   ]

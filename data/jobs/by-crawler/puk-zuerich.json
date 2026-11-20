@@ -134,7 +134,8 @@
         "dipl-pflegefachfrau-pflegefachmann-c1-psychiatrische-universitatsklinik-zurich-zurich",
         "infirmiere-en-pratique-avancee-apn-psychiatrie-de-la-retraite-service-de-liaison-et-de-liaison-psychiatrische",
         "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-b1-psychiatrische-universitatsklinik-zurich-zurich",
-        "dipl-nursing-professional-dipl-nursing-professional-hf-fh-b1-psychiatrische-universitatsklinik-zurich-zurich"
+        "dipl-nursing-professional-dipl-nursing-professional-hf-fh-b1-psychiatrische-universitatsklinik-zurich-zurich",
+        "dipl-pflegefachfrau-dipl-pflegefachmann-puk-zuerich-zurich-226d535a"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -373,12 +374,12 @@
     },
     {
       "id": "puk-zuerich-921b86ac5e6c",
-      "slug": "psychologin-psychologen-zentrum-per-abhangigkeitserkrankungen-psychiatrische-universitatsklinik-zurich",
+      "slug": "psicologa-psicologo-centro-per-le-dipendenze-psychiatrische-universitatsklinik-zurich-zurich",
       "slugByLocale": {
         "de": "psychologin-psychologen-zentrum-fur-abhangigkeitserkrankungen-puk-zuerich-zurich",
-        "it": "psychologin-psychologen-zentrum-per-abhangigkeitserkrankungen-psychiatrische-universitatsklinik-zurich",
-        "en": "psychologin-psychologen-zentrum-fur-abhangigkeitserkrankungen-psychiatrische-universitatsklinik-zurich-zurich",
-        "fr": "psychologin-psychologen-zentrum-fur-abhangigkeitserkrankungen-psychiatrische-universitatsklinik-zurich-zurich"
+        "it": "psicologa-psicologo-centro-per-le-dipendenze-psychiatrische-universitatsklinik-zurich-zurich",
+        "en": "psychologist-center-for-dependency-diseases-psychiatrische-universitatsklinik-zurich-zurich",
+        "fr": "psychologue-centre-des-maladies-de-la-dependance-psychiatrische-universitatsklinik-zurich-zurich"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
       "companyKey": "puk-zuerich",
@@ -430,25 +431,25 @@
       "previousSlugsByLocale": {
         "it": [
           "psychologin-psychologen-zentrum-fur-abhangigkeitserkrankungen-puk-zuerich-zurich",
-          "psychologin-psychologen-zentrum-per-abhangigkeitserkrankungen-psychiatrische-universitatsklinik-zurich",
-          "psicologa-psicologo-centro-per-i-disturbi-da-dipendenza-psychiatrische-universitatsklinik-zurich-zurich"
+          "psicologa-psicologo-centro-per-i-disturbi-da-dipendenza-psychiatrische-universitatsklinik-zurich-zurich",
+          "psychologin-psychologen-zentrum-per-abhangigkeitserkrankungen-psychiatrische-universitatsklinik-zurich"
         ],
         "en": [
-          "psychologin-psychologen-zentrum-fur-abhangigkeitserkrankungen-psychiatrische-universitatsklinik-zurich-zurich",
-          "psychologist-center-for-dependency-diseases-psychiatrische-universitatsklinik-zurich-zurich"
+          "psychologist-center-for-dependency-diseases-psychiatrische-universitatsklinik-zurich-zurich",
+          "psychologin-psychologen-zentrum-fur-abhangigkeitserkrankungen-psychiatrische-universitatsklinik-zurich-zurich"
         ],
         "fr": [
-          "psychologin-psychologen-zentrum-fur-abhangigkeitserkrankungen-psychiatrische-universitatsklinik-zurich-zurich",
-          "psychologue-centre-des-maladies-de-la-dependance-psychiatrische-universitatsklinik-zurich-zurich"
+          "psychologue-centre-des-maladies-de-la-dependance-psychiatrische-universitatsklinik-zurich-zurich",
+          "psychologin-psychologen-zentrum-fur-abhangigkeitserkrankungen-psychiatrische-universitatsklinik-zurich-zurich"
         ]
       },
       "previousSlugs": [
         "psychologin-psychologen-zentrum-fur-abhangigkeitserkrankungen-puk-zuerich-zurich",
-        "psychologin-psychologen-zentrum-per-abhangigkeitserkrankungen-psychiatrische-universitatsklinik-zurich",
-        "psychologin-psychologen-zentrum-fur-abhangigkeitserkrankungen-psychiatrische-universitatsklinik-zurich-zurich",
         "psicologa-psicologo-centro-per-i-disturbi-da-dipendenza-psychiatrische-universitatsklinik-zurich-zurich",
         "psychologist-center-for-dependency-diseases-psychiatrische-universitatsklinik-zurich-zurich",
-        "psychologue-centre-des-maladies-de-la-dependance-psychiatrische-universitatsklinik-zurich-zurich"
+        "psychologue-centre-des-maladies-de-la-dependance-psychiatrische-universitatsklinik-zurich-zurich",
+        "psychologin-psychologen-zentrum-per-abhangigkeitserkrankungen-psychiatrische-universitatsklinik-zurich",
+        "psychologin-psychologen-zentrum-fur-abhangigkeitserkrankungen-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -468,8 +469,7 @@
       "validThrough": "2027-02-18T09:25:08.038Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-20T09:25:08.038Z",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2837/pub/1/index.html",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://apply.refline.ch/163206/2837/pub/1/index.html"
     },
     {
       "id": "puk-zuerich-a59747abc6a5",
@@ -709,11 +709,17 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "projektleiterin-bau-projektleiter-bau-als-bauherrenvertretung-puk-zuerich-zurich"
+        "projektleiterin-bau-projektleiter-bau-als-bauherrenvertretung-puk-zuerich-zurich",
+        "project-manager-edilizia-project-manager-edilizia-come-rappresentante-del-committente-psychiatrische-universitatsklinik",
+        "project-manager-construction-project-manager-construction-as-client-representative-psychiatrische-universitatsklinik",
+        "responsable-de-projet-construction-responsable-de-projet-construction-en-tant-que-representant-du-client-psychiatrische"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiterin-bau-projektleiter-bau-als-bauherrenvertretung-puk-zuerich-zurich"
+          "projektleiterin-bau-projektleiter-bau-als-bauherrenvertretung-puk-zuerich-zurich",
+          "project-manager-edilizia-project-manager-edilizia-come-rappresentante-del-committente-psychiatrische-universitatsklinik",
+          "project-manager-construction-project-manager-construction-as-client-representative-psychiatrische-universitatsklinik",
+          "responsable-de-projet-construction-responsable-de-projet-construction-en-tant-que-representant-du-client-psychiatrische"
         ]
       },
       "salaryMin": 124000,
@@ -4000,18 +4006,21 @@
       "previousSlugs": [
         "gruppenleiterin-gruppenleiter-als-berufsbildnerin-berufsbildner-kinderkrippe-puk-zuerich",
         "gruppenleiterin-gruppenleiter-come-berufsbildnerin-berufsbildner-kinderkrippe-psychiatrische-universitatsklinik-zurich",
-        "gruppenleiterin-gruppenleiter-als-berufsbildnerin-berufsbildner-kinderkrippe-psychiatrische-universitatsklinik-zurich"
+        "gruppenleiterin-gruppenleiter-als-berufsbildnerin-berufsbildner-kinderkrippe-psychiatrische-universitatsklinik-zurich",
+        "chef-de-groupe-chef-de-groupe-en-tant-que-formateur-professionnel-formateur-professionnel-creche-psychiatrische"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gruppenleiterin-gruppenleiter-als-berufsbildnerin-berufsbildner-kinderkrippe-puk-zuerich",
-          "gruppenleiterin-gruppenleiter-come-berufsbildnerin-berufsbildner-kinderkrippe-psychiatrische-universitatsklinik-zurich"
+          "gruppenleiterin-gruppenleiter-come-berufsbildnerin-berufsbildner-kinderkrippe-psychiatrische-universitatsklinik-zurich",
+          "chef-de-groupe-chef-de-groupe-en-tant-que-formateur-professionnel-formateur-professionnel-creche-psychiatrische"
         ],
         "en": [
           "gruppenleiterin-gruppenleiter-als-berufsbildnerin-berufsbildner-kinderkrippe-psychiatrische-universitatsklinik-zurich"
         ],
         "fr": [
-          "gruppenleiterin-gruppenleiter-als-berufsbildnerin-berufsbildner-kinderkrippe-psychiatrische-universitatsklinik-zurich"
+          "gruppenleiterin-gruppenleiter-als-berufsbildnerin-berufsbildner-kinderkrippe-psychiatrische-universitatsklinik-zurich",
+          "chef-de-groupe-chef-de-groupe-en-tant-que-formateur-professionnel-formateur-professionnel-creche-psychiatrische"
         ],
         "de": [
           "gruppenleiterin-gruppenleiter-als-berufsbildnerin-berufsbildner-kinderkrippe-puk-zuerich"
@@ -4446,11 +4455,35 @@
       "pensumMax": 60,
       "pensum": "60%",
       "previousSlugs": [
-        "fachfrau-betreuung-fachmann-betreuung-efz-oder-fachfrau-gesundheit-fachmann-gesundheit-efz"
+        "fachfrau-betreuung-fachmann-betreuung-efz-oder-fachfrau-gesundheit-fachmann-gesundheit-efz",
+        "operatrice-di-assistenza-operatore-di-assistenza-efz-o-operatrice-di-salute-operatore-di-salute-efz-psychiatrische",
+        "care-assistant-care-assistant-efz-or-health-care-assistant-health-care-assistant-efz-psychiatrische-universitatsklinik",
+        "assistante-en-soins-assistant-en-soins-efz-ou-assistante-en-sante-assistante-en-sante-efz-psychiatrische",
+        "specialista-della-salute-stazione-f1-psychiatrische-universitatsklinik-zurich-zurich",
+        "fachfrau-fachmann-gesundheit-station-f1-psychiatrische-universitatsklinik-zurich-zurich",
+        "healthcare-specialist-station-f1-psychiatrische-universitatsklinik-zurich-zurich",
+        "specialiste-en-sante-station-f1-psychiatrische-universitatsklinik-zurich-zurich",
+        "fachfrau-fachmann-gesundheit-station-f1-puk-zuerich-zurich",
+        "lehrstellen-come-fachfrau-fachmann-gesundheit-cfc-psychiatrische-universitatsklinik-zurich",
+        "apprenticeships-as-a-specialist-health-professional-efz-psychiatrische-universitatsklinik-zurich-zurich",
+        "lehrstellen-als-fachfrau-fachmann-gesundheit-efz-puk-zuerich-zurich",
+        "apprentissage-en-tant-que-specialiste-professionnel-de-la-sante-efz-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-betreuung-fachmann-betreuung-efz-oder-fachfrau-gesundheit-fachmann-gesundheit-efz"
+          "fachfrau-betreuung-fachmann-betreuung-efz-oder-fachfrau-gesundheit-fachmann-gesundheit-efz",
+          "operatrice-di-assistenza-operatore-di-assistenza-efz-o-operatrice-di-salute-operatore-di-salute-efz-psychiatrische",
+          "care-assistant-care-assistant-efz-or-health-care-assistant-health-care-assistant-efz-psychiatrische-universitatsklinik",
+          "assistante-en-soins-assistant-en-soins-efz-ou-assistante-en-sante-assistante-en-sante-efz-psychiatrische",
+          "specialista-della-salute-stazione-f1-psychiatrische-universitatsklinik-zurich-zurich",
+          "fachfrau-fachmann-gesundheit-station-f1-psychiatrische-universitatsklinik-zurich-zurich",
+          "healthcare-specialist-station-f1-psychiatrische-universitatsklinik-zurich-zurich",
+          "specialiste-en-sante-station-f1-psychiatrische-universitatsklinik-zurich-zurich",
+          "fachfrau-fachmann-gesundheit-station-f1-puk-zuerich-zurich",
+          "lehrstellen-come-fachfrau-fachmann-gesundheit-cfc-psychiatrische-universitatsklinik-zurich",
+          "apprenticeships-as-a-specialist-health-professional-efz-psychiatrische-universitatsklinik-zurich-zurich",
+          "lehrstellen-als-fachfrau-fachmann-gesundheit-efz-puk-zuerich-zurich",
+          "apprentissage-en-tant-que-specialiste-professionnel-de-la-sante-efz-psychiatrische-universitatsklinik-zurich-zurich"
         ],
         "en": [
           "fachfrau-betreuung-fachmann-betreuung-efz-oder-fachfrau-gesundheit-fachmann-gesundheit-efz"
@@ -7103,18 +7136,37 @@
       "pensum": "80%",
       "previousSlugs": [
         "assistenzpsychologin-assistenzpsychologen-puk-zuerich-rheinau",
-        "assistenzpsychologin-assistenzpsychologen-psychiatrische-universitatsklinik-zurich-rheinau"
+        "assistenzpsychologin-assistenzpsychologen-psychiatrische-universitatsklinik-zurich-rheinau",
+        "assistenzpsychologin-assistenzpsychologen-puk-zuerich-rheinau-c24fab34",
+        "assistenzpsychologin-assistenzpsychologen-psychiatrische-universitatsklinik-zurich-rheinau-36478e83",
+        "psicologo-psicologo-psychiatrische-universitatsklinik-zurich-rheinau",
+        "assistenzpsychologin-assistenzpsychologen-puk-zuerich-rheinau-3670d069",
+        "assistente-psicologo-assistente-psicologo-psychiatrische-universitatsklinik-zurich-rheinau-006b65e3",
+        "assistenzpsychologin-assistenzpsychologen-psychiatrische-universitatsklinik-zurich-rheinau-62c8e378",
+        "assistenzpsychologin-assistenzpsychologen-puk-zuerich-rheinau-6dd4e2a0",
+        "assistant-psychologist-assistant-psychologist-psychiatrische-universitatsklinik-zurich-rheinau-8bbb6ccc",
+        "assistant-psychologue-assistant-psychologue-psychiatrische-universitatsklinik-zurich-rheinau-5cb103dd"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenzpsychologin-assistenzpsychologen-puk-zuerich-rheinau",
-          "assistenzpsychologin-assistenzpsychologen-psychiatrische-universitatsklinik-zurich-rheinau"
+          "assistenzpsychologin-assistenzpsychologen-psychiatrische-universitatsklinik-zurich-rheinau",
+          "assistenzpsychologin-assistenzpsychologen-puk-zuerich-rheinau-c24fab34",
+          "assistenzpsychologin-assistenzpsychologen-psychiatrische-universitatsklinik-zurich-rheinau-36478e83",
+          "psicologo-psicologo-psychiatrische-universitatsklinik-zurich-rheinau",
+          "assistenzpsychologin-assistenzpsychologen-puk-zuerich-rheinau-3670d069",
+          "assistente-psicologo-assistente-psicologo-psychiatrische-universitatsklinik-zurich-rheinau-006b65e3",
+          "assistenzpsychologin-assistenzpsychologen-psychiatrische-universitatsklinik-zurich-rheinau-62c8e378",
+          "assistenzpsychologin-assistenzpsychologen-puk-zuerich-rheinau-6dd4e2a0",
+          "assistant-psychologist-assistant-psychologist-psychiatrische-universitatsklinik-zurich-rheinau-8bbb6ccc",
+          "assistant-psychologue-assistant-psychologue-psychiatrische-universitatsklinik-zurich-rheinau-5cb103dd"
         ],
         "en": [
           "assistenzpsychologin-assistenzpsychologen-psychiatrische-universitatsklinik-zurich-rheinau"
         ],
         "de": [
-          "assistenzpsychologin-assistenzpsychologen-psychiatrische-universitatsklinik-zurich-rheinau"
+          "assistenzpsychologin-assistenzpsychologen-psychiatrische-universitatsklinik-zurich-rheinau",
+          "assistenzpsychologin-assistenzpsychologen-puk-zuerich-rheinau-c24fab34"
         ],
         "fr": [
           "assistenzpsychologin-assistenzpsychologen-psychiatrische-universitatsklinik-zurich-rheinau"
@@ -7196,12 +7248,20 @@
       "pensum": "50%",
       "previousSlugs": [
         "assistenzarztinnen-assistenzarzte-psychiatrische-universitatsklinik-zurich-zurich",
-        "assistenzarztinnen-assistenzarzte-puk-zuerich-zurich"
+        "assistenzarztinnen-assistenzarzte-puk-zuerich-zurich",
+        "assistenzarztinnen-assistenzarzte-psychiatrische-universitatsklinik-zurich-zurich-43po4b",
+        "medici-assistenti-psychiatrische-universitatsklinik-zurich-zurich",
+        "assistant-physicians-psychiatrische-universitatsklinik-zurich-zurich",
+        "medecins-assistants-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenzarztinnen-assistenzarzte-psychiatrische-universitatsklinik-zurich-zurich",
-          "assistenzarztinnen-assistenzarzte-puk-zuerich-zurich"
+          "assistenzarztinnen-assistenzarzte-puk-zuerich-zurich",
+          "assistenzarztinnen-assistenzarzte-psychiatrische-universitatsklinik-zurich-zurich-43po4b",
+          "medici-assistenti-psychiatrische-universitatsklinik-zurich-zurich",
+          "assistant-physicians-psychiatrische-universitatsklinik-zurich-zurich",
+          "medecins-assistants-psychiatrische-universitatsklinik-zurich-zurich"
         ],
         "en": [
           "assistenzarztinnen-assistenzarzte-psychiatrische-universitatsklinik-zurich-zurich"

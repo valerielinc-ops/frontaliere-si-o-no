@@ -1,20 +1,24 @@
 import ts from 'typescript';
 
 /**
- * The article registries mirrored from the corpus. Keep this list next to the
- * generic transformer so the pull and its invariant test share one source of
- * truth about which growing arrays need the TypeScript-safe representation.
+ * The article registries mirrored from the corpus. Keep their TypeScript
+ * declaration and pinned API artifact together so the pull, projector and
+ * chunker share one source of truth about every growing registry.
  */
 export const ARTICLE_REGISTRY_CHUNK_CONFIGS = [
   {
     file: 'blog-articles-data.ts',
     declarationName: 'RAW_ARTICLES',
     chunkPrefix: 'RAW_ARTICLES_CHUNK',
+    apiArtifact: 'articles.json',
+    manifestCountKey: 'articles',
   },
   {
     file: 'swiss-articles-data.ts',
     declarationName: 'RAW_SWISS_ARTICLES',
     chunkPrefix: 'RAW_SWISS_ARTICLES_CHUNK',
+    apiArtifact: 'swiss-articles.json',
+    manifestCountKey: 'swissArticles',
   },
 ];
 

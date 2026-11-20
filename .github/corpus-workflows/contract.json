@@ -4,27 +4,27 @@
   "generatorSha256": "3b3227d746c759c7ae54401aad174ac404f5d3bb1f89947c61c112b1ed7d36ac",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "b72bf2ec6744fe1b46e6e504e1231a775c071385",
+  "sourceCommit": "2d1cd39df9a29904d979df906939130ea2a3ee64",
   "sourceCommitVerified": true,
   "artifactObservation": {
     "generatorSha256": "3b3227d746c759c7ae54401aad174ac404f5d3bb1f89947c61c112b1ed7d36ac",
     "sourceRef": "main",
-    "sourceCommit": "b72bf2ec6744fe1b46e6e504e1231a775c071385"
+    "sourceCommit": "2d1cd39df9a29904d979df906939130ea2a3ee64"
   },
   "groupCount": 25,
   "artifactCount": 26,
   "observerCount": 8,
-  "crawlerCount": 712,
+  "crawlerCount": 713,
   "crawlerRosterCardinality": {
-    "sourceCommit": "b72bf2ec6744fe1b46e6e504e1231a775c071385",
+    "sourceCommit": "2d1cd39df9a29904d979df906939130ea2a3ee64",
     "groupCount": 25,
     "artifactCount": 26,
-    "crawlerCount": 712
+    "crawlerCount": 713
   },
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:fada256fe7fe013e16cf74d68de696a90cbb0bff9483789cbc7bd163fd53416e",
+    "rosterDigest": "sha256:cc60fdd844012e5eb708b0c23695f36f14cc3d5d7253e52e62c6736fd02b8d48",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -272,6 +272,7 @@
     "scripts/update-forel-klinik-jobs.mjs",
     "scripts/update-franklin-university-jobs.mjs",
     "scripts/update-freestarinformatik-jobs.mjs",
+    "scripts/update-frutiger-com-jobs.mjs",
     "scripts/update-fusalp-jobs.mjs",
     "scripts/update-galderma-jobs.mjs",
     "scripts/update-galliker-jobs.mjs",
@@ -1591,8 +1592,8 @@
     {
       "file": "crawler-group-23.yml",
       "sourceLogic": "crawler-group-23-logic.yml",
-      "sourceSha256": "7fdefdf17804a03c7b64dd96ad2f1dbd6c3d50a930d0b20509f849282add1e9a",
-      "artifactSha256": "96777827cd6ecd2e94f9aff2487edd4e77560a33c072cce4f61b35e996eca0db",
+      "sourceSha256": "3691e509a44c9f0cfecfc4ba54a1a053e8af14da4bb7ee64dcb80a405f2285ec",
+      "artifactSha256": "4e3b6c34f045a554984931054dff02354db2a49981f4d87293ceca819a1f31e4",
       "generatorSha256": "3b3227d746c759c7ae54401aad174ac404f5d3bb1f89947c61c112b1ed7d36ac",
       "members": [
         "albergo-gardenia",
@@ -1624,7 +1625,8 @@
         "my",
         "zaugg",
         "physioswiss",
-        "elektriker-elektromonteur-jobs-ch"
+        "elektriker-elektromonteur-jobs-ch",
+        "frutiger-com"
       ]
     },
     {

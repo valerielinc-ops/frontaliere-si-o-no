@@ -2128,12 +2128,12 @@
     },
     {
       "id": "tether-d13b432788ec",
-      "slug": "head-of-financial-infrastructure-partnerships-expansion-digital-assets-expertise-tether-ch",
+      "slug": "responsabile-delle-partnership-e-dell-espansione-dell-infrastruttura-finanziaria-specializzazione-in-asset-digitali",
       "slugByLocale": {
         "en": "head-of-financial-infrastructure-partnerships-expansion-digital-assets-expertise-tether-ch",
-        "it": "head-of-financial-infrastructure-partnerships-expansion-digital-assets-expertise-tether-ch",
-        "de": "head-of-financial-infrastructure-partnerships-expansion-digital-assets-expertise-tether-ch",
-        "fr": "head-of-financial-infrastructure-partnerships-expansion-digital-assets-expertise-tether-ch"
+        "it": "responsabile-delle-partnership-e-dell-espansione-dell-infrastruttura-finanziaria-specializzazione-in-asset-digitali",
+        "de": "leitung-partnerschaften-und-expansion-im-bereich-finanzinfrastruktur-expertise-im-bereich-digitaler-vermogenswerte",
+        "fr": "responsable-des-partenariats-et-de-l-expansion-de-l-infrastructure-financiere-expertise-en-actifs-numeriques-tether"
       },
       "company": "Tether Operations",
       "companyKey": "tether",
@@ -2180,7 +2180,6 @@
       "requirementsByLocale": {
         "en": []
       },
-      "needsRetranslation": true,
       "salaryMin": 174500,
       "salaryMax": 306000,
       "salarySource": "estimated",
@@ -2199,7 +2198,21 @@
       "validThrough": "2027-01-14T09:23:16.876Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-10-15T21:14:52.106Z",
-      "sourceIdentity": "url:https://tether.recruitee.com/o/head-of-financial-infrastructure-partnerships-expansion-digital-assets-expertise-2"
+      "sourceIdentity": "url:https://tether.recruitee.com/o/head-of-financial-infrastructure-partnerships-expansion-digital-assets-expertise-2",
+      "previousSlugsByLocale": {
+        "it": [
+          "head-of-financial-infrastructure-partnerships-expansion-digital-assets-expertise-tether-ch"
+        ],
+        "de": [
+          "head-of-financial-infrastructure-partnerships-expansion-digital-assets-expertise-tether-ch"
+        ],
+        "fr": [
+          "head-of-financial-infrastructure-partnerships-expansion-digital-assets-expertise-tether-ch"
+        ]
+      },
+      "previousSlugs": [
+        "head-of-financial-infrastructure-partnerships-expansion-digital-assets-expertise-tether-ch"
+      ]
     }
   ]
 }

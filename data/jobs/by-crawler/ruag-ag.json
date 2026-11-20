@@ -1357,7 +1357,8 @@
       "previousSlugs": [
         "senior-finance-business-partner-100-w-m-d-ruag-ag-emmen"
       ],
-      "sourceIdentity": "url:https://jobs.ruag.ch/offene-stellen/senior-finance-business-partner/4fdcbd8a-d36f-4a8c-9dad-793cee604725"
+      "sourceIdentity": "url:https://jobs.ruag.ch/offene-stellen/senior-finance-business-partner/4fdcbd8a-d36f-4a8c-9dad-793cee604725",
+      "needsRetranslation": true
     },
     {
       "title": "ICT Application Manager 80-100% (w/m/d)",
@@ -2972,7 +2973,8 @@
       "previousSlugs": [
         "manager-communications-external-affairs-80-100-80-100-w-m-d-ruag-ag-bern"
       ],
-      "sourceIdentity": "url:https://jobs.ruag.ch/offene-stellen/manager-communications-external-affairs-80/0f0566cc-a0a1-42c7-b63a-b1ddc1fe277f"
+      "sourceIdentity": "url:https://jobs.ruag.ch/offene-stellen/manager-communications-external-affairs-80/0f0566cc-a0a1-42c7-b63a-b1ddc1fe277f",
+      "needsRetranslation": true
     },
     {
       "title": "System Manager 100% (w/m/d)",
@@ -3728,7 +3730,27 @@
       "streetAddressSource": "zefix-registry",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-08T21:42:45.415Z",
-      "sourceIdentity": "url:https://jobs.ruag.ch/offene-stellen/sr-ict-service-manager/be1ef054-11b2-498a-a737-a90dea8cedb7"
+      "sourceIdentity": "url:https://jobs.ruag.ch/offene-stellen/sr-ict-service-manager/be1ef054-11b2-498a-a737-a90dea8cedb7",
+      "previousSlugs": [
+        "sr-ict-service-manager-100-w-m-d-ruag-ag-emmen-c35fbe89",
+        "sr-gestionnaire-de-services-tic-100-h-f-d-ruag-ag-emmen-40b9c46a",
+        "sr-ict-service-manager-100-w-m-d-ruag-ag-emmen-dbb3b69b",
+        "sr-gestionnaire-de-services-tic-100-h-f-d-ruag-ag-emmen-4b67aa70",
+        "sr-ict-service-manager-100-m-f-d-ruag-ag-emmen-ef6443e6a1",
+        "sr-ict-service-manager-100-w-m-d-ruag-ag-emmen-839e8b6c95",
+        "sr-gestionnaire-de-services-tic-100-h-f-d-ruag-ag-emmen-40c860"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sr-ict-service-manager-100-w-m-d-ruag-ag-emmen-c35fbe89",
+          "sr-gestionnaire-de-services-tic-100-h-f-d-ruag-ag-emmen-40b9c46a",
+          "sr-ict-service-manager-100-w-m-d-ruag-ag-emmen-dbb3b69b",
+          "sr-gestionnaire-de-services-tic-100-h-f-d-ruag-ag-emmen-4b67aa70",
+          "sr-ict-service-manager-100-m-f-d-ruag-ag-emmen-ef6443e6a1",
+          "sr-ict-service-manager-100-w-m-d-ruag-ag-emmen-839e8b6c95",
+          "sr-gestionnaire-de-services-tic-100-h-f-d-ruag-ag-emmen-40c860"
+        ]
+      }
     },
     {
       "title": "Apprendista operatore in automazione AFC 2027 100% (f/m/d)",
@@ -4027,19 +4049,51 @@
         "it": [
           "logistiker-in-cfc-100-w-m-d-ruag-ag-zweisimmen",
           "logistiker-in-cfc-100-m-w-d-ruag-ag-zweisimmen",
-          "logistiker-in-efz-100-w-m-d-ruag-ag-zweisimmen"
+          "logistiker-in-efz-100-w-m-d-ruag-ag-zweisimmen",
+          "logistics-specialist-efz-100-m-f-d-ruag-ag-zweisimmen",
+          "logisticien-ne-cfc-100-h-f-d-ruag-ag-zweisimmen",
+          "logista-efz-100-m-f-d-ruag-ag-zweisimmen",
+          "logistiker-in-efz-100-w-m-d-ruag-ag-zweisimmen-6c46f8d9",
+          "logistiker-in-cfc-100-w-m-d-ruag-ag-zweisimmen-9598dc81",
+          "logistics-specialist-efz-100-m-f-d-ruag-ag-zweisimmen-b6c396cc",
+          "logisticien-ne-cfc-100-h-f-d-ruag-ag-zweisimmen-08585af0",
+          "impiegato-a-in-logistica-afc-100-m-f-d-ruag-ag-zweisimmen",
+          "logistiker-in-efz-100-w-m-d-ruag-ag-zweisimmen-6fbd970a",
+          "addetto-a-alla-logistica-efz-100-m-f-d-ruag-ag-zweisimmen",
+          "logistiker-in-efz-100-w-m-d-ruag-ag-zweisimmen-4bd034ef",
+          "logisticista-efz-100-m-f-d-ruag-ag-zweisimmen",
+          "logistician-efz-100-m-f-d-ruag-ag-zweisimmen",
+          "logistiker-in-efz-100-w-m-d-ruag-ag-zweisimmen-2292875a",
+          "logisticien-efz-100-h-f-d-ruag-ag-zweisimmen"
         ],
         "en": [
-          "logistiker-in-efz-100-w-m-d-ruag-ag-zweisimmen"
+          "logistiker-in-efz-100-w-m-d-ruag-ag-zweisimmen",
+          "logistics-specialist-efz-100-m-f-d-ruag-ag-zweisimmen"
         ],
         "fr": [
-          "logistiker-in-efz-100-w-m-d-ruag-ag-zweisimmen"
+          "logistiker-in-efz-100-w-m-d-ruag-ag-zweisimmen",
+          "logisticien-ne-cfc-100-h-f-d-ruag-ag-zweisimmen"
         ]
       },
       "previousSlugs": [
         "logistiker-in-efz-100-w-m-d-ruag-ag-zweisimmen",
         "logistiker-in-cfc-100-w-m-d-ruag-ag-zweisimmen",
-        "logistiker-in-cfc-100-m-w-d-ruag-ag-zweisimmen"
+        "logistiker-in-cfc-100-m-w-d-ruag-ag-zweisimmen",
+        "logistics-specialist-efz-100-m-f-d-ruag-ag-zweisimmen",
+        "logisticien-ne-cfc-100-h-f-d-ruag-ag-zweisimmen",
+        "logista-efz-100-m-f-d-ruag-ag-zweisimmen",
+        "logistiker-in-efz-100-w-m-d-ruag-ag-zweisimmen-6c46f8d9",
+        "logistiker-in-cfc-100-w-m-d-ruag-ag-zweisimmen-9598dc81",
+        "logistics-specialist-efz-100-m-f-d-ruag-ag-zweisimmen-b6c396cc",
+        "logisticien-ne-cfc-100-h-f-d-ruag-ag-zweisimmen-08585af0",
+        "impiegato-a-in-logistica-afc-100-m-f-d-ruag-ag-zweisimmen",
+        "logistiker-in-efz-100-w-m-d-ruag-ag-zweisimmen-6fbd970a",
+        "addetto-a-alla-logistica-efz-100-m-f-d-ruag-ag-zweisimmen",
+        "logistiker-in-efz-100-w-m-d-ruag-ag-zweisimmen-4bd034ef",
+        "logisticista-efz-100-m-f-d-ruag-ag-zweisimmen",
+        "logistician-efz-100-m-f-d-ruag-ag-zweisimmen",
+        "logistiker-in-efz-100-w-m-d-ruag-ag-zweisimmen-2292875a",
+        "logisticien-efz-100-h-f-d-ruag-ag-zweisimmen"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -4655,7 +4709,8 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-16T21:25:53.182Z",
-      "sourceIdentity": "url:https://jobs.ruag.ch/offene-stellen/head-of-system-project-management/38722103-0768-448c-b869-8449c967f652"
+      "sourceIdentity": "url:https://jobs.ruag.ch/offene-stellen/head-of-system-project-management/38722103-0768-448c-b869-8449c967f652",
+      "needsRetranslation": true
     },
     {
       "title": "Projekt Manager 80 - 100 (w/m/d)",
@@ -5050,7 +5105,7 @@
     },
     {
       "title": "Business Development & Partner Manager 100 (w/m/d)",
-      "slug": "business-development-partner-manager-100-w-m-d-ruag-ag-bern",
+      "slug": "responsabile-dello-sviluppo-commerciale-e-dei-partner-100-m-f-d-ruag-ag-bern",
       "url": "https://jobs.ruag.ch/offene-stellen/business-development-partner-manager/5ca93206-b73f-4c31-abaa-b3f447b0eabc",
       "applyUrl": "https://jobs.ruag.ch/apply/ats/5ca93206-b73f-4c31-abaa-b3f447b0eabc",
       "company": "RUAG AG",
@@ -5087,10 +5142,10 @@
         "fr": "Chaque jour, environ 3 000 employés de RUAG et de RUAG Real Estate contribuent de manière significative à la sécurité de la Suisse. Ils veillent à ce que l'Armée suisse et d'autres organisations opérationnelles et de sécurité puissent s'acquitter de leurs tâches de manière exhaustive à tout moment.\n\n## Tu peux bouger ça.\n\nÊtes-vous un réseau stratégique avec un sentiment de nouvelles opportunités d'affaires et la jouissance de construire des partenariats à long terme? Déplacez-vous en toute sécurité dans l'environnement des autorités, des organismes de sécurité et des partenaires technologiques et comprenez-vous comment réunir les différents intérêts? Vous pouvez alors vous attendre à une position clé polyvalente à RUAG avec une grande marge de manœuvre créative et une influence directe sur le développement des entreprises.\n\n- Vous construisez des partenariats stratégiques en matière de technologie et de produits et vous les développez continuellement.\n- Vous entretenirez des relations avec des personnes clés de la VBS, de l'Association suisse de sécurité (SVS), des infrastructures critiques (KRITIS) et des autorités fédérales et cantonales compétentes.\n- Vous reconnaîtrez les besoins et les nouvelles occasions d'affaires, développerez les domaines d'affaires existants et ouvrirez de nouveaux marchés.\n- Vous concevez le portefeuille de produits et de services en collaboration avec Sales, Product Management et les unités techniques et opérationnelles.\n- Vous dirigerez des processus de vente et de développement commercial difficiles, négocierez des contrats et construirons des accords-cadres à long terme.\n- Vous contribuerez au développement de la stratégie d'entreprise et assumerez la fonction de gestionnaire de capture pour certains projets en collaboration avec l'équipe de candidature.\n- Vous coordonnez et soutenez les activités d'acquisition de contrats transversaux, y compris les processus d'offre et les réunions de clients et de partenaires.\n- Vous représentez RUAG auprès des autorités, des organisations politiques et des partenaires stratégiques, ainsi que lors de manifestations commerciales, de salons, de réseaux industriels et de commissions fédérales et cantonales.\n\n## Apporte ça avec toi.\n\n- Vous avez suivi une formation dans un collège ou une université technique, idéalement avec une formation technique et une formation en affaires (p. ex. CAS, MAS ou MBA).\n- Vous apporterez de préférence une connaissance approfondie de l'industrie et/ou un cadre militaire ou une formation policière.\n- Vous convainquez par la fiabilité, la discrétion et l'intégrité ainsi qu'un haut degré d'indépendance et d'initiative.\n- Vous êtes une personnalité fiable, structurée et positionnée avec une forte compréhension des relations complexes et des questions entrepreneuriales.\n- Vous avez de solides compétences en consultation et en modération ainsi que les compétences de négociation nécessaires et le pouvoir de persuasion dans le traitement avec différents groupes d'intervenants.\n- Vous communiquez avec style en allemand et avez une bonne connaissance de l'anglais. La connaissance du français est un avantage.\n\nTu ne réponds pas à toutes les exigences à cent pour cent ? Appliquer quand même. Nous cherchons toujours des gens talentueux et motivés qui veulent enrichir notre équipe. Nous attachons une grande importance à la diversité et à l'égalité des chances, et notre objectif est de bâtir une équipe diversifiée dans laquelle chacun puisse développer pleinement ses forces personnelles. Nous encourageons particulièrement toutes les personnes, quel que soit leur sexe, qui pourraient avoir des préoccupations à accepter un emploi dans un environnement lié à l'armée à postuler.\n\n## Lieu de travail\n\nRUAG MRO Holding AG, Stauffacherstrasse 65, 3014 Berne\n\n## Au-dessus de la zone\n\nVous pouvez vous attendre à un environnement passionnant et polyvalent à l'interface entre la technologie, la sécurité, les entreprises et les institutions publiques. Dans cette position clé, vous influerez activement sur le développement des entreprises et contribuerez de façon significative à l'établissement et au maintien de partenariats stratégiques.\n\n## Vos avantages\n\nVotre bien-être est important pour nous. C'est pourquoi vous avez beaucoup d'avantages avec nous. Il s'agit, par exemple :\n\n- Salaire et avantages accessoires : Nous vous offrons un salaire axé sur la performance et le marché, 13 salaires mensuels et des primes et allocations généreuses. Avec d'autres services auxiliaires, il en résulte un ensemble global attrayant.\n- Travail flexible: Nous attachons une grande importance à ce que nos employés trouvent un équilibre sain entre le travail et la vie privée. C'est pourquoi nous offrons des horaires de travail flexibles et des options de bureau à domicile, entre autres.\n- Avantages: Chez RUAG vous bénéficiez de avantages dans les domaines de la mobilité et de la nourriture. En outre, vous bénéficiez d'offres attrayantes sur notre portail de prestations et avez des réductions de flotte dans différentes marques de voitures renommées.\n- Possibilités de carrière et de formation continue : La promotion et le développement du potentiel de nos employés sont importants pour nous. Grâce à la formation, aux cours et à la formation continue, nous les soutenons dans le développement continu de leurs compétences afin d'atteindre leurs objectifs professionnels.\n- Loisirs : Nos employés sont proches de notre cœur. C'est pourquoi nous leur donnons un jour de congé pour leur anniversaire, offrons une offre sportive diversifiée et la possibilité de recevoir des jours de congé supplémentaires contre la retenue salariale en plus du crédit annuel pour vacances.\n\n## Voici comment fonctionne notre processus de demande\n\nRenseignements importants sur le processus de demande :\n\n- Avant le début de l'emploi, on vous demandera de fournir un dossier pénal et d'exécution.\n- Nous acceptons les candidatures exclusivement via notre portail emploi jobs.ruag.ch. Malheureusement, nous ne pouvons accepter tant les demandes de courrier électronique que les demandes de lettre.\n\n## Votre personne à contacter\n\nLars Thomann\nSpécialiste en acquisition de talents\nLars.thomann@ruag.ch"
       },
       "slugByLocale": {
-        "it": "business-development-partner-manager-100-w-m-d-ruag-ag-bern",
+        "it": "responsabile-dello-sviluppo-commerciale-e-dei-partner-100-m-f-d-ruag-ag-bern",
         "en": "business-development-partner-manager-100-w-m-d-ruag-ag-bern",
         "de": "business-development-partner-manager-100-w-m-d-ruag-ag-bern",
-        "fr": "business-development-partner-manager-100-w-m-d-ruag-ag-bern"
+        "fr": "developpement-des-affaires-et-gestionnaire-de-partenaires-100-h-f-d-ruag-ag-bern"
       },
       "id": "ruag-ag-a688f713fd88",
       "needsRetranslation": true,
@@ -5113,7 +5168,18 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-20T09:26:43.719Z",
-      "sourceIdentity": "url:https://jobs.ruag.ch/offene-stellen/business-development-partner-manager/5ca93206-b73f-4c31-abaa-b3f447b0eabc"
+      "sourceIdentity": "url:https://jobs.ruag.ch/offene-stellen/business-development-partner-manager/5ca93206-b73f-4c31-abaa-b3f447b0eabc",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-development-partner-manager-100-w-m-d-ruag-ag-bern"
+        ],
+        "fr": [
+          "business-development-partner-manager-100-w-m-d-ruag-ag-bern"
+        ]
+      },
+      "previousSlugs": [
+        "business-development-partner-manager-100-w-m-d-ruag-ag-bern"
+      ]
     }
   ]
 }

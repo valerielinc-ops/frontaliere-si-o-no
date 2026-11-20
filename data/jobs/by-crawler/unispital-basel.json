@@ -1900,7 +1900,7 @@
       "slugByLocale": {
         "it": "dipl-infermieristica-hf-fh-neurological-bed-station-stroke-unit-universitatsspital-basel-basel",
         "en": "dipl-nursing-specialist-hf-fh-neurological-bed-station-stroke-unit-universitatsspital-basel-basel",
-        "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit",
+        "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit-qqx0dp",
         "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-unite-de-la-station-de-lit-neurologique-et-des-accidents-cerebrovasculaires"
       },
       "company": "Universitätsspital Basel",
@@ -1963,7 +1963,8 @@
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit"
         ],
         "de": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit-unisp"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit-unisp",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit"
         ],
         "fr": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-stroke-unit-universitatsspital-basel-basel"
@@ -10260,12 +10261,12 @@
     },
     {
       "id": "unispital-basel-55da1f162818",
-      "slug": "arztsekretar-in-innere-medizin-6-2-unispital-basel-ch",
+      "slug": "segretario-a-medico-a-medicina-interna-6-2-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "arztsekretar-in-innere-medizin-6-2-unispital-basel-ch",
-        "it": "arztsekretar-in-innere-medizin-6-2-unispital-basel-ch",
-        "en": "arztsekretar-in-innere-medizin-6-2-unispital-basel-ch",
-        "fr": "arztsekretar-in-innere-medizin-6-2-unispital-basel-ch"
+        "it": "segretario-a-medico-a-medicina-interna-6-2-universitatsspital-basel-basel",
+        "en": "medical-secretary-internal-medicine-6-2-universitatsspital-basel-basel",
+        "fr": "secretaire-de-medecin-medecine-interne-6-2-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -10330,25 +10331,24 @@
       "firstSeenAt": "2026-11-19T21:33:15.228Z",
       "previousSlugsByLocale": {
         "it": [
-          "arztsekretar-in-innere-medizin-6-2-unispital-basel-ch",
-          "segretario-a-medico-a-medicina-interna-6-2-universitatsspital-basel-basel"
+          "segretario-a-medico-a-medicina-interna-6-2-universitatsspital-basel-basel",
+          "arztsekretar-in-innere-medizin-6-2-unispital-basel-ch"
         ],
         "en": [
-          "arztsekretar-in-innere-medizin-6-2-unispital-basel-ch",
-          "physician-s-secretary-internal-medicine-6-2-universitatsspital-basel-basel"
+          "physician-s-secretary-internal-medicine-6-2-universitatsspital-basel-basel",
+          "arztsekretar-in-innere-medizin-6-2-unispital-basel-ch"
         ],
         "fr": [
-          "arztsekretar-in-innere-medizin-6-2-unispital-basel-ch",
-          "secretaire-de-medecin-medecine-interne-6-2-universitatsspital-basel-basel"
+          "secretaire-de-medecin-medecine-interne-6-2-universitatsspital-basel-basel",
+          "arztsekretar-in-innere-medizin-6-2-unispital-basel-ch"
         ]
       },
       "previousSlugs": [
-        "arztsekretar-in-innere-medizin-6-2-unispital-basel-ch",
         "segretario-a-medico-a-medicina-interna-6-2-universitatsspital-basel-basel",
         "physician-s-secretary-internal-medicine-6-2-universitatsspital-basel-basel",
-        "secretaire-de-medecin-medecine-interne-6-2-universitatsspital-basel-basel"
+        "secretaire-de-medecin-medecine-interne-6-2-universitatsspital-basel-basel",
+        "arztsekretar-in-innere-medizin-6-2-unispital-basel-ch"
       ],
-      "needsRetranslation": true,
       "sourceIdentity": "url:https://job.unispital-basel.ch/offene-stellen/arztsekretaer-in-innere-medizin-6-2/7ea1f0ac-718c-4c16-ba63-bd53eba5f609"
     },
     {
@@ -10431,12 +10431,12 @@
     },
     {
       "id": "unispital-basel-9707f9a5e4e4",
-      "slug": "medizinische-r-sekretar-in-arztsekretar-in-augenklinik-unispital-basel-ch",
+      "slug": "segretario-a-medico-a-segretario-a-di-studio-medico-clinica-oculistica-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "medizinische-r-sekretar-in-arztsekretar-in-augenklinik-unispital-basel-ch",
-        "it": "medizinische-r-sekretar-in-arztsekretar-in-augenklinik-unispital-basel-ch",
-        "en": "medizinische-r-sekretar-in-arztsekretar-in-augenklinik-unispital-basel-ch",
-        "fr": "medizinische-r-sekretar-in-arztsekretar-in-augenklinik-unispital-basel-ch"
+        "it": "segretario-a-medico-a-segretario-a-di-studio-medico-clinica-oculistica-universitatsspital-basel-basel",
+        "en": "medical-secretary-doctor-s-secretary-ophthalmology-clinic-universitatsspital-basel-basel",
+        "fr": "secretaire-medical-e-secretaire-de-medecin-clinique-ophtalmologique-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -10501,25 +10501,24 @@
       "firstSeenAt": "2026-11-19T21:33:15.227Z",
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-r-sekretar-in-arztsekretar-in-augenklinik-unispital-basel-ch",
-          "segretario-a-medico-a-segretario-a-di-studio-medico-clinica-oculistica-universitatsspital-basel-basel"
+          "segretario-a-medico-a-segretario-a-di-studio-medico-clinica-oculistica-universitatsspital-basel-basel",
+          "medizinische-r-sekretar-in-arztsekretar-in-augenklinik-unispital-basel-ch"
         ],
         "en": [
-          "medizinische-r-sekretar-in-arztsekretar-in-augenklinik-unispital-basel-ch",
-          "medical-secretary-physician-s-secretary-ophthalmology-clinic-universitatsspital-basel-basel"
+          "medical-secretary-physician-s-secretary-ophthalmology-clinic-universitatsspital-basel-basel",
+          "medizinische-r-sekretar-in-arztsekretar-in-augenklinik-unispital-basel-ch"
         ],
         "fr": [
-          "medizinische-r-sekretar-in-arztsekretar-in-augenklinik-unispital-basel-ch",
-          "secretaire-medical-e-secretaire-de-medecin-clinique-ophtalmologique-universitatsspital-basel-basel"
+          "secretaire-medical-e-secretaire-de-medecin-clinique-ophtalmologique-universitatsspital-basel-basel",
+          "medizinische-r-sekretar-in-arztsekretar-in-augenklinik-unispital-basel-ch"
         ]
       },
       "previousSlugs": [
-        "medizinische-r-sekretar-in-arztsekretar-in-augenklinik-unispital-basel-ch",
         "segretario-a-medico-a-segretario-a-di-studio-medico-clinica-oculistica-universitatsspital-basel-basel",
         "medical-secretary-physician-s-secretary-ophthalmology-clinic-universitatsspital-basel-basel",
-        "secretaire-medical-e-secretaire-de-medecin-clinique-ophtalmologique-universitatsspital-basel-basel"
+        "secretaire-medical-e-secretaire-de-medecin-clinique-ophtalmologique-universitatsspital-basel-basel",
+        "medizinische-r-sekretar-in-arztsekretar-in-augenklinik-unispital-basel-ch"
       ],
-      "needsRetranslation": true,
       "sourceIdentity": "url:https://job.unispital-basel.ch/offene-stellen/medizinische-r-sekretaer-in-arztsekretaer-in-augenklinik/3755863b-2387-4381-9e85-c10699334833"
     },
     {
@@ -10602,12 +10601,12 @@
     },
     {
       "id": "unispital-basel-ffba8a85ad1a",
-      "slug": "teamleitung-kardiologie-herzkatheterlabor-universitatsspital-basel-basel",
+      "slug": "team-leader-cardiologia-heart-catheter-lab-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "teamleitung-kardiologie-herzkatheterlabor-unispital-basel-ch",
-        "it": "teamleitung-kardiologie-herzkatheterlabor-universitatsspital-basel-basel",
-        "en": "teamleitung-kardiologie-herzkatheterlabor-universitatsspital-basel-basel",
-        "fr": "teamleitung-kardiologie-herzkatheterlabor-universitatsspital-basel-basel"
+        "it": "team-leader-cardiologia-heart-catheter-lab-universitatsspital-basel-basel",
+        "en": "team-leader-cardiology-heart-catheter-laboratory-universitatsspital-basel-basel",
+        "fr": "cardiologie-chef-d-equipe-laboratoire-de-catheter-cardiaque-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -10655,24 +10654,24 @@
       "previousSlugsByLocale": {
         "it": [
           "teamleitung-kardiologie-herzkatheterlabor-unispital-basel-ch",
-          "teamleitung-kardiologie-herzkatheterlabor-universitatsspital-basel-basel",
-          "team-leader-cardiologia-heart-catheter-lab-universitatsspital-basel-basel"
+          "team-leader-cardiologia-heart-catheter-lab-universitatsspital-basel-basel",
+          "teamleitung-kardiologie-herzkatheterlabor-universitatsspital-basel-basel"
         ],
         "en": [
-          "teamleitung-kardiologie-herzkatheterlabor-universitatsspital-basel-basel",
-          "team-leader-cardiology-heart-catheter-laboratory-universitatsspital-basel-basel"
+          "team-leader-cardiology-heart-catheter-laboratory-universitatsspital-basel-basel",
+          "teamleitung-kardiologie-herzkatheterlabor-universitatsspital-basel-basel"
         ],
         "fr": [
-          "teamleitung-kardiologie-herzkatheterlabor-universitatsspital-basel-basel",
-          "cardiologie-chef-d-equipe-laboratoire-de-catheter-cardiaque-universitatsspital-basel-basel"
+          "cardiologie-chef-d-equipe-laboratoire-de-catheter-cardiaque-universitatsspital-basel-basel",
+          "teamleitung-kardiologie-herzkatheterlabor-universitatsspital-basel-basel"
         ]
       },
       "previousSlugs": [
         "teamleitung-kardiologie-herzkatheterlabor-unispital-basel-ch",
-        "teamleitung-kardiologie-herzkatheterlabor-universitatsspital-basel-basel",
         "team-leader-cardiologia-heart-catheter-lab-universitatsspital-basel-basel",
         "team-leader-cardiology-heart-catheter-laboratory-universitatsspital-basel-basel",
-        "cardiologie-chef-d-equipe-laboratoire-de-catheter-cardiaque-universitatsspital-basel-basel"
+        "cardiologie-chef-d-equipe-laboratoire-de-catheter-cardiaque-universitatsspital-basel-basel",
+        "teamleitung-kardiologie-herzkatheterlabor-universitatsspital-basel-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -10778,12 +10777,12 @@
     },
     {
       "id": "unispital-basel-2ccdb29cc835",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit",
+      "slug": "dipl-infermieristica-hf-fh-neurological-bed-station-stroke-unit-universitatsspital-basel-basel-68bbc8",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit",
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit"
+        "it": "dipl-infermieristica-hf-fh-neurological-bed-station-stroke-unit-universitatsspital-basel-basel-68bbc8",
+        "en": "dipl-nursing-specialist-hf-fh-neurological-bed-station-stroke-unit-universitatsspital-basel-basel-68bbc8",
+        "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-unite-de-la-station-de-lits-et-des-accidents-vasculaires-cerebraux"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -10846,7 +10845,21 @@
       "validThrough": "2026-12-20T09:44:39.321Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-09-17T06:56:59.080Z",
-      "sourceIdentity": "url:https://job.unispital-basel.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-stroke-unit/cd12ffd6-baf5-413d-a1bf-b052d515995b"
+      "sourceIdentity": "url:https://job.unispital-basel.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-stroke-unit/cd12ffd6-baf5-413d-a1bf-b052d515995b",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit"
+      ]
     },
     {
       "id": "unispital-basel-f2bf838bcfe9",
@@ -10855,7 +10868,7 @@
         "de": "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-unispital-basel-ch",
         "it": "radiologiefachperson-mtra-o-pflegefachperson-hf-fh-universitatsspital-basel",
         "en": "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-universitatsspital-basel-basel",
-        "fr": "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-universitatsspital-basel-basel"
+        "fr": "specialiste-de-radiologie-mtra-ou-infirmiere-hf-fh-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -10900,14 +10913,17 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-unispital-basel-ch"
+        ],
+        "fr": [
+          "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-universitatsspital-basel-basel"
         ]
       },
       "previousSlugs": [
-        "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-unispital-basel-ch"
+        "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-unispital-basel-ch",
+        "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-universitatsspital-basel-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,

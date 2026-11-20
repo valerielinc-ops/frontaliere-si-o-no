@@ -1068,20 +1068,6 @@ describe('deploy.yml — incremental manifest shadow observation (PR 1b)', () =>
   });
 });
 
-describe('deploy.yml — non-IT V8 heap cap', () => {
-  it('appends the 12288 MB cap after the default 14336 MB only for non-IT builds', () => {
-    const steps: Array<Record<string, any>> = YAML.parse(DEPLOY_YML).jobs['build-locale'].steps;
-    const build = steps.find((step) => step.id === 'build_step');
-    expect(build?.env?.BUILD_EXTRA_NODE_OPTIONS).toBe(
-      "${{ format('{0}{1}', vars.BUILD_EXTRA_NODE_OPTIONS, matrix.locale != 'it' && ' --max-old-space-size=12288' || '') }}",
-    );
-    expect(build?.run).toContain('npm run build:ci');
-    expect(PACKAGE_JSON.scripts['build:ci:stage']).toContain(
-      'NODE_OPTIONS="--max-old-space-size=14336 --expose-gc --max-semi-space-size=64 ${BUILD_EXTRA_NODE_OPTIONS:-}" node scripts/ci/build-staged.mjs',
-    );
-  });
-});
-
 describe('deploy.yml — non-IT legs reuse the IT Rollup bundle (#19575)', () => {
   const workflow = YAML.parse(DEPLOY_YML) as any;
   const job = workflow.jobs['build-locale'];
@@ -1108,6 +1094,7 @@ describe('deploy.yml — non-IT legs reuse the IT Rollup bundle (#19575)', () =>
     expect(bundle.run).not.toContain('publish-versioned-cdn-assets.mjs');
     expect(bundle.run).not.toContain('verify-spa-entry-assets.mjs');
     expect(build.env?.BUILD_STAGED_PHASE).toBe('ssg');
+    expect(build.env?.BUILD_EXTRA_NODE_OPTIONS).toBe('${{ vars.BUILD_EXTRA_NODE_OPTIONS }}');
     expect(build.env?.BUILD_STAGE_HANDOFF_DIR).toBe('${{ runner.temp }}/build-stage-handoff');
     expect(steps.indexOf(bundle)).toBeLessThan(steps.indexOf(build));
   });

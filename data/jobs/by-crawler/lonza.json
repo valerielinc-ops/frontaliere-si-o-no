@@ -7919,18 +7919,26 @@
       "jobReqId": "R79900",
       "previousSlugs": [
         "cqv-ingenieur-qualifizierungs-und-validierungsspezialist-80-100-m-w-d-lonza-ch",
-        "cqv-ingenieur-qualifizierungs-e-validierungsspezialist-80-100-m-w-d-lonza-visp"
+        "cqv-ingenieur-qualifizierungs-e-validierungsspezialist-80-100-m-w-d-lonza-visp",
+        "cqv-ingenieur-qualifizierungs-e-validierungsspezialist-80-100-m-w-d-lonza-ch",
+        "cqv-engineer-qualification-and-validation-specialist-80-100-m-f-d-lonza-ch",
+        "ingenieur-du-vqc-specialiste-de-la-qualification-et-de-la-validation-80-100-m-f-d-lonza-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "cqv-ingenieur-qualifizierungs-und-validierungsspezialist-80-100-m-w-d-lonza-ch",
-          "cqv-ingenieur-qualifizierungs-e-validierungsspezialist-80-100-m-w-d-lonza-visp"
+          "cqv-ingenieur-qualifizierungs-e-validierungsspezialist-80-100-m-w-d-lonza-visp",
+          "cqv-ingenieur-qualifizierungs-e-validierungsspezialist-80-100-m-w-d-lonza-ch",
+          "cqv-engineer-qualification-and-validation-specialist-80-100-m-f-d-lonza-ch",
+          "ingenieur-du-vqc-specialiste-de-la-qualification-et-de-la-validation-80-100-m-f-d-lonza-ch"
         ],
         "en": [
-          "cqv-ingenieur-qualifizierungs-und-validierungsspezialist-80-100-m-w-d-lonza-ch"
+          "cqv-ingenieur-qualifizierungs-und-validierungsspezialist-80-100-m-w-d-lonza-ch",
+          "cqv-engineer-qualification-and-validation-specialist-80-100-m-f-d-lonza-ch"
         ],
         "fr": [
-          "cqv-ingenieur-qualifizierungs-und-validierungsspezialist-80-100-m-w-d-lonza-ch"
+          "cqv-ingenieur-qualifizierungs-und-validierungsspezialist-80-100-m-w-d-lonza-ch",
+          "ingenieur-du-vqc-specialiste-de-la-qualification-et-de-la-validation-80-100-m-f-d-lonza-ch"
         ]
       },
       "firstSeenAt": "2026-06-15T23:26:06.520Z",
@@ -8289,11 +8297,18 @@
       "crawledAt": "2026-11-15T21:45:57.923Z",
       "jobReqId": "R78781",
       "previousSlugs": [
-        "praktikant-quality-control-bioanalytics-80-100-m-w-d-lonza-ch"
+        "praktikant-quality-control-bioanalytics-80-100-m-w-d-lonza-ch",
+        "controllo-della-qualita-interno-bioanalisi-80-100-m-f-d-lonza-ch",
+        "controle-de-la-qualite-interne-bioanalytique-80-100-h-f-d-lonza-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-quality-control-bioanalytics-80-100-m-w-d-lonza-ch"
+          "praktikant-quality-control-bioanalytics-80-100-m-w-d-lonza-ch",
+          "controllo-della-qualita-interno-bioanalisi-80-100-m-f-d-lonza-ch",
+          "controle-de-la-qualite-interne-bioanalytique-80-100-h-f-d-lonza-ch"
+        ],
+        "fr": [
+          "controle-de-la-qualite-interne-bioanalytique-80-100-h-f-d-lonza-ch"
         ]
       },
       "firstSeenAt": "2026-08-25T20:15:30.713Z",
@@ -11525,11 +11540,19 @@
       "crawledAt": "2026-11-15T21:45:27.179Z",
       "jobReqId": "R73820",
       "previousSlugs": [
-        "operator-senior-operator-production-support-m-w-d-lonza-ch"
+        "operator-senior-operator-production-support-m-w-d-lonza-ch",
+        "operatore-operatore-senior-lonza-ch",
+        "operator-senior-operator-lonza-ch",
+        "betreiber-senior-operator-lonza-ch",
+        "operateur-senior-operateur-lonza-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "operator-senior-operator-production-support-m-w-d-lonza-ch"
+          "operator-senior-operator-production-support-m-w-d-lonza-ch",
+          "operatore-operatore-senior-lonza-ch",
+          "operator-senior-operator-lonza-ch",
+          "betreiber-senior-operator-lonza-ch",
+          "operateur-senior-operateur-lonza-ch"
         ]
       },
       "firstSeenAt": "2026-06-29T13:30:10.805Z",
@@ -12210,11 +12233,13 @@
       "jobReqId": "R79913",
       "previousSlugs": [
         "senior-scientist-qc-lonza-ch",
-        "senior-scientist-qc-lonza-visp"
+        "senior-scientist-qc-lonza-visp",
+        "scientifique-senior-controle-qualite-lonza-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-scientist-qc-lonza-ch"
+          "senior-scientist-qc-lonza-ch",
+          "scientifique-senior-controle-qualite-lonza-visp"
         ],
         "fr": [
           "senior-scientist-qc-lonza-visp"
@@ -14853,13 +14878,23 @@
       "previousSlugs": [
         "automatiker-efz-80-100-m-w-d-lonza-ch",
         "automatic-efz-80-100-m-w-d-lonza-ch",
-        "efz-automatique-80-100-m-p-j-lonza-ch"
+        "efz-automatique-80-100-m-p-j-lonza-ch",
+        "automatiker-efz-80-100-m-w-d-lonza-ch-2",
+        "automatiker-cfc-80-100-m-w-d-lonza-ch-esvwkp",
+        "automatista-efz-80-100-lonza-ch",
+        "automation-technician-efz-80-100-lonza-ch",
+        "technicien-automatisation-efz-80-100-lonza-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "automatiker-efz-80-100-m-w-d-lonza-ch",
           "automatic-efz-80-100-m-w-d-lonza-ch",
-          "efz-automatique-80-100-m-p-j-lonza-ch"
+          "efz-automatique-80-100-m-p-j-lonza-ch",
+          "automatiker-efz-80-100-m-w-d-lonza-ch-2",
+          "automatiker-cfc-80-100-m-w-d-lonza-ch-esvwkp",
+          "automatista-efz-80-100-lonza-ch",
+          "automation-technician-efz-80-100-lonza-ch",
+          "technicien-automatisation-efz-80-100-lonza-ch"
         ],
         "en": [
           "automatiker-efz-80-100-m-w-d-lonza-ch"
@@ -15250,12 +15285,32 @@
       "jobReqId": "R79169",
       "previousSlugs": [
         "elektroinstallateur-efz-80-100-m-w-d-lonza-ch",
-        "installatore-trice-elettrico-a-cfc-80-100-m-w-d-lonza-visp-j4cd5z"
+        "installatore-trice-elettrico-a-cfc-80-100-m-w-d-lonza-visp-j4cd5z",
+        "installatore-trice-elettrico-a-cfc-80-100-m-w-d-lonza-ch",
+        "electrical-installer-efz-80-100-m-w-d-lonza-ch",
+        "installateur-electrique-efz-80-100-m-w-d-lonza-ch",
+        "electrical-installer-efz-80-100-lonza-ch",
+        "installateur-electrique-efz-80-100-lonza-ch",
+        "electrical-installer-efz-80-100-m-f-d-lonza-visp",
+        "installation-electrique-efz-80-100-h-f-d-lonza-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
           "elektroinstallateur-efz-80-100-m-w-d-lonza-ch",
-          "installatore-trice-elettrico-a-cfc-80-100-m-w-d-lonza-visp-j4cd5z"
+          "installatore-trice-elettrico-a-cfc-80-100-m-w-d-lonza-visp-j4cd5z",
+          "installatore-trice-elettrico-a-cfc-80-100-m-w-d-lonza-ch",
+          "electrical-installer-efz-80-100-m-w-d-lonza-ch",
+          "installateur-electrique-efz-80-100-m-w-d-lonza-ch",
+          "electrical-installer-efz-80-100-lonza-ch",
+          "installateur-electrique-efz-80-100-lonza-ch",
+          "electrical-installer-efz-80-100-m-f-d-lonza-visp",
+          "installation-electrique-efz-80-100-h-f-d-lonza-visp"
+        ],
+        "en": [
+          "electrical-installer-efz-80-100-m-w-d-lonza-ch"
+        ],
+        "fr": [
+          "installateur-electrique-efz-80-100-m-w-d-lonza-ch"
         ]
       },
       "firstSeenAt": "2026-08-07T21:51:49.630Z",
@@ -16824,7 +16879,25 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-08T21:44:38.961Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://lonza.wd3.myworkdayjobs.com/en/lonza_careers/job/ch---visp/operations-support-specialist_r80540-1"
+      "sourceIdentity": "url:https://lonza.wd3.myworkdayjobs.com/en/lonza_careers/job/ch---visp/operations-support-specialist_r80540-1",
+      "previousSlugs": [
+        "operations-support-specialista-lonza-ch",
+        "operations-support-spezialist-lonza-ch",
+        "operations-support-specialiste-lonza-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "operations-support-specialista-lonza-ch",
+          "operations-support-spezialist-lonza-ch",
+          "operations-support-specialiste-lonza-ch"
+        ],
+        "de": [
+          "operations-support-spezialist-lonza-ch"
+        ],
+        "fr": [
+          "operations-support-specialiste-lonza-ch"
+        ]
+      }
     },
     {
       "id": "lonza-ac270e6ccc8b",
@@ -17615,11 +17688,37 @@
       "crawledAt": "2026-11-15T21:44:24.825Z",
       "jobReqId": "R76014",
       "previousSlugs": [
-        "betriebs-anlagemeister-in-der-pharmazeutischen-industrie-80-100-m-w-d-lonza-ch"
+        "betriebs-anlagemeister-in-der-pharmazeutischen-industrie-80-100-m-w-d-lonza-ch",
+        "master-aziendale-pianta-nell-industria-farmaceutica-80-100-m-w-d-lonza-ch",
+        "business-plant-master-in-industria-farmaceutica-80-100-m-w-d-lonza-ch",
+        "capo-impianto-tecnico-di-impianto-nell-industria-farmaceutica-m-f-d-lonza-ch",
+        "anlagemeister-in-plant-technician-in-der-pharmazeutischen-industrie-m-w-d-lonza-ch",
+        "responsabile-impianti-in-produzione-farmaceutica-m-f-d-lonza-ch",
+        "business-plant-master-in-pharmaceutical-industry-80-100-m-w-d-lonza-ch",
+        "maitrise-d-entreprise-d-usine-dans-l-industrie-pharmaceutique-80-100-m-p-j-lonza-ch",
+        "maitrise-d-entreprise-plante-dans-l-industrie-pharmaceutique-80-100-m-p-j-lonza-ch",
+        "technicien-d-installation-dans-l-industrie-pharmaceutique-h-f-d-lonza-ch",
+        "responsable-d-installation-en-production-pharmaceutique-m-f-d-lonza-ch",
+        "anlagemeister-in-anlagentechniker-in-der-pharmazeutischen-industrie-m-w-d-lonza-ch",
+        "anlagemeister-in-der-pharmazeutischen-produktion-w-m-d-lonza-ch",
+        "plant-master-in-pharmaceutical-production-m-f-d-lonza-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betriebs-anlagemeister-in-der-pharmazeutischen-industrie-80-100-m-w-d-lonza-ch"
+          "betriebs-anlagemeister-in-der-pharmazeutischen-industrie-80-100-m-w-d-lonza-ch",
+          "master-aziendale-pianta-nell-industria-farmaceutica-80-100-m-w-d-lonza-ch",
+          "business-plant-master-in-industria-farmaceutica-80-100-m-w-d-lonza-ch",
+          "capo-impianto-tecnico-di-impianto-nell-industria-farmaceutica-m-f-d-lonza-ch",
+          "anlagemeister-in-plant-technician-in-der-pharmazeutischen-industrie-m-w-d-lonza-ch",
+          "responsabile-impianti-in-produzione-farmaceutica-m-f-d-lonza-ch",
+          "business-plant-master-in-pharmaceutical-industry-80-100-m-w-d-lonza-ch",
+          "maitrise-d-entreprise-d-usine-dans-l-industrie-pharmaceutique-80-100-m-p-j-lonza-ch",
+          "maitrise-d-entreprise-plante-dans-l-industrie-pharmaceutique-80-100-m-p-j-lonza-ch",
+          "technicien-d-installation-dans-l-industrie-pharmaceutique-h-f-d-lonza-ch",
+          "responsable-d-installation-en-production-pharmaceutique-m-f-d-lonza-ch",
+          "anlagemeister-in-anlagentechniker-in-der-pharmazeutischen-industrie-m-w-d-lonza-ch",
+          "anlagemeister-in-der-pharmazeutischen-produktion-w-m-d-lonza-ch",
+          "plant-master-in-pharmaceutical-production-m-f-d-lonza-ch"
         ]
       },
       "firstSeenAt": "2026-08-31T17:29:14.896Z",

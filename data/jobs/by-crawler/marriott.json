@@ -612,11 +612,21 @@
       },
       "previousSlugs": [
         "spa-therapist-welcome-agent-spa-winter-26-27-w-verbier-marriott-verbier",
-        "spa-terapeuta-welcome-agent-spa-inverno-26-27-w-verbier-marriott-international-verbier"
+        "spa-terapeuta-welcome-agent-spa-inverno-26-27-w-verbier-marriott-international-verbier",
+        "terapeuta-spa-welcome-agent-spa-inverno-26-27-w-verbier-marriott-international-verbier",
+        "terapista-del-benessere-e-addetto-all-accoglienza-spa-stagione-estiva-e-invernale-26-27-w-verbier-marriott-international",
+        "spa-therapist-welcome-agent-spa-summer-winter-26-27-w-verbier-marriott-verbier",
+        "therapeute-spa-et-agent-d-accueil-spa-saison-d-ete-et-d-hiver-26-27-w-verbier-marriott-international-verbier",
+        "therapeute-spa-agent-d-accueil-spa-hiver-26-27-w-verbier-marriott-international-verbier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "spa-therapist-welcome-agent-spa-winter-26-27-w-verbier-marriott-verbier"
+          "spa-therapist-welcome-agent-spa-winter-26-27-w-verbier-marriott-verbier",
+          "terapeuta-spa-welcome-agent-spa-inverno-26-27-w-verbier-marriott-international-verbier",
+          "terapista-del-benessere-e-addetto-all-accoglienza-spa-stagione-estiva-e-invernale-26-27-w-verbier-marriott-international",
+          "spa-therapist-welcome-agent-spa-summer-winter-26-27-w-verbier-marriott-verbier",
+          "therapeute-spa-et-agent-d-accueil-spa-saison-d-ete-et-d-hiver-26-27-w-verbier-marriott-international-verbier",
+          "therapeute-spa-agent-d-accueil-spa-hiver-26-27-w-verbier-marriott-international-verbier"
         ],
         "de": [
           "spa-terapeuta-welcome-agent-spa-inverno-26-27-w-verbier-marriott-international-verbier"
@@ -644,12 +654,12 @@
     },
     {
       "id": "marriott-0a1549786a1b",
-      "slug": "sales-executive-marriott-zurich",
+      "slug": "direzione-vendite-marriott-international-zurich",
       "slugByLocale": {
         "en": "sales-executive-marriott-zurich",
-        "it": "sales-executive-marriott-zurich",
-        "de": "sales-executive-marriott-zurich",
-        "fr": "sales-executive-marriott-zurich"
+        "it": "direzione-vendite-marriott-international-zurich",
+        "de": "vertriebsleiter-marriott-international-zurich",
+        "fr": "direction-generale-des-ventes-marriott-international-zurich"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -723,18 +733,21 @@
       "firstSeenAt": "2026-11-20T09:48:10.724Z",
       "previousSlugsByLocale": {
         "it": [
-          "sales-executive-marriott-zurich",
-          "direzione-vendite-marriott-international-zurich"
+          "direzione-vendite-marriott-international-zurich",
+          "sales-executive-marriott-zurich"
         ],
         "fr": [
-          "sales-executive-marriott-zurich",
-          "direction-generale-des-ventes-marriott-international-zurich"
+          "direction-generale-des-ventes-marriott-international-zurich",
+          "sales-executive-marriott-zurich"
+        ],
+        "de": [
+          "sales-executive-marriott-zurich"
         ]
       },
       "previousSlugs": [
-        "sales-executive-marriott-zurich",
         "direzione-vendite-marriott-international-zurich",
-        "direction-generale-des-ventes-marriott-international-zurich"
+        "direction-generale-des-ventes-marriott-international-zurich",
+        "sales-executive-marriott-zurich"
       ],
       "sourceIdentity": "url:https://careers.marriott.com/sales-executive/job/p1-7735748-0"
     },
@@ -1342,11 +1355,57 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "spa-attendant-50-winter-26-27-w-verbier-marriott-verbier"
+          "spa-attendant-50-winter-26-27-w-verbier-marriott-verbier",
+          "spa-hostess-50-inverno-26-27-w-verbier-marriott-international-verbier-224c7545",
+          "spa-attendant-50-winter-26-27-w-verbier-marriott-verbier-2f49188a",
+          "kurbegleiter-50-winter-26-27-w-verbier-marriott-international-verbier-9affd559",
+          "porteur-de-spa-50-hiver-26-27-w-verbier-marriott-international-verbier-8c2a83e2",
+          "spa-hostess-50-inverno-26-27-w-verbier-marriott-international-verbier-7736ec18",
+          "spa-attendant-50-winter-26-27-w-verbier-marriott-verbier-a6ff84e5",
+          "kurbegleiter-50-winter-26-27-w-verbier-marriott-international-verbier-6ecebd37",
+          "porteur-de-spa-50-hiver-26-27-w-verbier-marriott-international-verbier-9cf1c3fa",
+          "spa-hostess-50-inverno-26-27-w-verbier-marriott-international-verbier-3475af44",
+          "spa-attendant-50-winter-26-27-w-verbier-marriott-verbier-3dc82264",
+          "kurbegleiter-50-winter-26-27-w-verbier-marriott-international-verbier-16e39109",
+          "porteur-de-spa-50-hiver-26-27-w-verbier-marriott-international-verbier-2ff97beb",
+          "multifunktionsmitarbeiter-winter-26-27-w-verbier-marriott-international-verbier",
+          "allrounder-winter-26-27-w-verbier-marriott-international-verbier",
+          "polyvalent-equipier-winter-26-27-w-verbier-marriott-verbier-86d14e4b",
+          "polyvalent-equipier-inverno-26-27-w-verbier-marriott-international-verbier",
+          "polyvalent-equipier-inverno-26-27-w-verbier-marriott-international-verbier-cd9dc443",
+          "equipement-polyvalent-hiver-26-27-w-verbier-marriott-international-verbier-74e11ca5",
+          "equipement-polyvalent-hiver-26-27-w-verbier-marriott-international-verbier"
         ]
       },
       "previousSlugs": [
-        "spa-attendant-50-winter-26-27-w-verbier-marriott-verbier"
+        "spa-attendant-50-winter-26-27-w-verbier-marriott-verbier",
+        "spa-hostess-50-inverno-26-27-w-verbier-marriott-international-verbier-224c7545",
+        "spa-attendant-50-winter-26-27-w-verbier-marriott-verbier-2f49188a",
+        "kurbegleiter-50-winter-26-27-w-verbier-marriott-international-verbier-9affd559",
+        "porteur-de-spa-50-hiver-26-27-w-verbier-marriott-international-verbier-8c2a83e2",
+        "spa-hostess-50-inverno-26-27-w-verbier-marriott-international-verbier-7736ec18",
+        "spa-attendant-50-winter-26-27-w-verbier-marriott-verbier-a6ff84e5",
+        "kurbegleiter-50-winter-26-27-w-verbier-marriott-international-verbier-6ecebd37",
+        "porteur-de-spa-50-hiver-26-27-w-verbier-marriott-international-verbier-9cf1c3fa",
+        "spa-hostess-50-inverno-26-27-w-verbier-marriott-international-verbier-3475af44",
+        "spa-attendant-50-winter-26-27-w-verbier-marriott-verbier-3dc82264",
+        "kurbegleiter-50-winter-26-27-w-verbier-marriott-international-verbier-16e39109",
+        "porteur-de-spa-50-hiver-26-27-w-verbier-marriott-international-verbier-2ff97beb",
+        "multifunktionsmitarbeiter-winter-26-27-w-verbier-marriott-international-verbier",
+        "allrounder-winter-26-27-w-verbier-marriott-international-verbier",
+        "polyvalent-equipier-winter-26-27-w-verbier-marriott-verbier-86d14e4b",
+        "polyvalent-equipier-inverno-26-27-w-verbier-marriott-international-verbier",
+        "polyvalent-equipier-inverno-26-27-w-verbier-marriott-international-verbier-cd9dc443",
+        "equipement-polyvalent-hiver-26-27-w-verbier-marriott-international-verbier-74e11ca5",
+        "equipement-polyvalent-hiver-26-27-w-verbier-marriott-international-verbier",
+        "polyvalent-equipier-winter-26-27-w-verbier-marriott-verbier",
+        "addetto-polivalente-inverno-26-27-w-verbier-marriott-international-verbier",
+        "spa-hostess-50-inverno-26-27-w-verbier-marriott-international-verbier-833b1f11",
+        "spa-attendant-50-winter-26-27-w-verbier-marriott-verbier-92990f5f",
+        "kurbegleiter-50-winter-26-27-w-verbier-marriott-international-verbier-57ddfcc5",
+        "porteur-de-spa-50-hiver-26-27-w-verbier-marriott-international-verbier-e2cb335b",
+        "kurbesucher-50-winter-26-27-w-verbier-marriott-international-verbier",
+        "accompagneur-de-spa-50-hiver-26-27-w-verbier-marriott-international-verbier"
       ],
       "salaryMin": 26800,
       "salaryMax": 33500,
