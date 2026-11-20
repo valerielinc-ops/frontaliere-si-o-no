@@ -51,8 +51,11 @@ describe('portal field extraction', () => {
     const uncommitted = render();
     expect(uncommitted.fields[0]).toMatchObject({ widget: 'umantis-date', inputType: 'date', required: true, value: '' });
     expect(render('1990', '12', '13').fields[0].value).toBe('1990-12-13');
+    expect(render('2026', '0', '0').fields[0].value).toBe('');
+    expect(render('2026', '2', '29').fields[0].value).toBe('');
     const rejected = { ...uncommitted, url, text: 'Compilare questa sezione. Data di nascita\nDati personali' };
     expect(umantisBirthDateRejected(rejected, url)).toBe(true);
+    expect(umantisBirthDateRejected({ ...rejected, fields: render('2026', '0', '0').fields }, url)).toBe(true);
     expect(umantisBirthDateRejected({ ...rejected, fields: render('1990', '12', '13').fields }, url)).toBe(false);
     expect(umantisBirthDateRejected(rejected, url.replace('/1/', '/2/'))).toBe(false);
   });

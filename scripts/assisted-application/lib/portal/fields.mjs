@@ -1337,8 +1337,12 @@ function nativeQuestionText(value, counter = null) {
     const umantisDate = Array.isArray(dateParts) && dateParts.every(part => part && part.form === element.form)
       && dateParts.every(part => part.name === dateParts[0].name)
       && /^#[\w-]+$/.test(dateTrigger || '') && picker.querySelector(`button[type="button"]${dateTrigger}`);
-    const committedDate = umantisDate && dateParts.every(part => /^\d{1,4}$/.test(part.value))
+    const submittedDate = umantisDate && dateParts.every((part, index) =>
+      (index === 0 ? /^\d{4}$/ : /^\d{1,2}$/).test(part.value))
       ? dateParts.map((part, index) => part.value.padStart(index === 0 ? 4 : 2, '0')).join('-') : '';
+    const dateMs = Date.parse(submittedDate + 'T00:00:00Z');
+    const committedDate = submittedDate && Number.isFinite(dateMs)
+      && new Date(dateMs).toISOString().slice(0, 10) === submittedDate ? submittedDate : '';
     const field = {
       id: idFor(element),
       kind: type === 'checkbox' ? 'checkbox' : type === 'file' ? 'file' : tag === 'select' ? 'select' : tag === 'textarea' ? 'textarea' : element.getAttribute('role') === 'combobox' ? 'combobox' : 'text',
