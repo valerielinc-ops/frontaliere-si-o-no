@@ -1,7 +1,7 @@
 {
   "key": "pianorm",
   "label": "pianorm",
-  "generatedAt": "2026-11-19T21:44:45.604Z",
+  "generatedAt": "2026-11-20T22:04:52.261Z",
   "total": 3,
   "discovered": 4,
   "parsed": 3,
@@ -52,10 +52,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 8257,
-  "avgDurationMs": 8257,
+  "durationMs": 8508,
+  "avgDurationMs": 8508,
   "durationHistory": [
-    8257
+    8508
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -73,7 +73,7 @@
       "url": "https://www.pianorm.ch/job/projektleiter-avor-m-w-100-2-2/",
       "source": "pianorm Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:44:27.072Z",
+      "crawledAt": "2026-11-20T22:04:34.490Z",
       "addressLocality": "Illnau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -96,7 +96,7 @@
       "salaryMax": 154000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T21:44:27.072Z",
+      "validThrough": "2026-12-20T22:04:34.490Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -118,7 +118,7 @@
       "url": "https://www.pianorm.ch/job/cnc-maschinist-m-w-100/",
       "source": "pianorm Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:44:27.071Z",
+      "crawledAt": "2026-11-20T22:04:34.489Z",
       "addressLocality": "Illnau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -141,7 +141,7 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T21:44:27.071Z",
+      "validThrough": "2026-12-20T22:04:34.489Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -163,7 +163,7 @@
       "url": "https://www.pianorm.ch/job/kalkulator-verkaeufer-m-w-100-2-2-2/",
       "source": "pianorm Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:44:27.070Z",
+      "crawledAt": "2026-11-20T22:04:34.488Z",
       "addressLocality": "Illnau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -186,7 +186,7 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T21:44:27.070Z",
+      "validThrough": "2027-02-02T22:04:34.488Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
