@@ -1,7 +1,7 @@
 {
   "crawlerKey": "amina-bank",
-  "assembledAt": "2026-11-20T09:57:55.468Z",
-  "runId": "44709857684",
+  "assembledAt": "2026-11-20T21:58:10.842Z",
+  "runId": "44819632919",
   "jobs": [
     {
       "id": "amina-bank-cb420a3c2317",
@@ -34,7 +34,7 @@
       "url": "https://amina.jobs.personio.com/job/2840347",
       "source": "AMINA Bank Dedicated Parser (Personio JSON)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T09:57:47.848Z",
+      "crawledAt": "2026-11-20T21:58:03.099Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressCountry": "CH",
@@ -94,7 +94,7 @@
       },
       "streetAddress": "Kolinplatz 15",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-12T09:57:47.848Z",
+      "validThrough": "2027-01-11T21:58:03.099Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://amina.jobs.personio.com/job/2840347"
     },
@@ -129,7 +129,7 @@
       "url": "https://amina.jobs.personio.com/job/2752820",
       "source": "AMINA Bank Dedicated Parser (Personio JSON)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T09:57:47.217Z",
+      "crawledAt": "2026-11-20T21:58:02.893Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressCountry": "CH",
@@ -218,7 +218,7 @@
       },
       "streetAddress": "Kolinplatz 15",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-20T09:57:47.217Z",
+      "validThrough": "2026-12-20T21:58:02.893Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://amina.jobs.personio.com/job/2752820"
     },
@@ -253,7 +253,7 @@
       "url": "https://amina.jobs.personio.com/job/2558847",
       "source": "AMINA Bank Dedicated Parser (Personio JSON)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T09:57:46.549Z",
+      "crawledAt": "2026-11-20T21:58:02.304Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressCountry": "CH",
@@ -320,7 +320,7 @@
       },
       "streetAddress": "Kolinplatz 15",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-20T09:57:46.549Z",
+      "validThrough": "2026-12-20T21:58:02.304Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://amina.jobs.personio.com/job/2558847"
     }
