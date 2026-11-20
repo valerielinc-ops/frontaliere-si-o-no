@@ -354,9 +354,9 @@ async function fetchJobListings() {
  */
 export async function fetchAllRolexJobs() {
   console.log(`🔍 Fetching Rolex jobs`);
-  console.log(`   Source: ${CAREER_URL}\n`);
 
   const { listings, sourceUrl } = await fetchJobListings();
+  console.log(`   Source: ${sourceUrl}\n`);
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No job listings returned.');
     return [];
