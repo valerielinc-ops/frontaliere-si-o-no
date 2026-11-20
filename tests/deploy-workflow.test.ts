@@ -1143,7 +1143,7 @@ describe('deploy.yml — shard push mode and advisory delta verification', () =>
     }
   });
 
-  it('derives the IT section timeout from its job deadline and preserves the non-IT cap', () => {
+  it('derives the IT section timeout from its job deadline and bounds non-IT workers with a larger zurigo-fr budget', () => {
     for (const name of sectionSteps) {
       const run = String(pushStep(name).run ?? '');
       if (name.startsWith('Push and package IT')) {
@@ -1157,20 +1157,15 @@ describe('deploy.yml — shard push mode and advisory delta verification', () =>
         expect(helper, `${name}: keep cleanup and post-push reserves`).toContain('post_push_reserve_seconds=1200');
         expect(helper, `${name}: keep per-section timeout telemetry`).toContain('timeout_seconds=$timeout_seconds cleanup_grace_seconds=$cleanup_grace_seconds');
       } else {
-        const timeoutMatch = run.match(
-          /timeout --verbose --signal=TERM --kill-after=(\d+)s (\d+)s/,
-        );
-        expect(timeoutMatch, `${name}: keep its separate bounded worker`).not.toBeNull();
-        expect(Number(timeoutMatch![1]), `${name}: preserve signal-cleanup grace`).toBe(600);
-        // Run 37728960699 completed a non-IT full-overlay push in 2,524s;
-        // that leg retains its independent 60-minute cap.
-        expect(Number(timeoutMatch![2]), `${name}: preserve its reviewed 60 min cap`).toBe(3600);
-        expect(run).toContain('timeout_seconds=3600 cleanup_grace_seconds=600');
+        expect(run).toContain('timeout_seconds=3600');
+        expect(run).toMatch(/if \[\[ "\$section-\$loc" == "zurigo-fr" \]\]; then[^]*?timeout_seconds=5400\s+fi/u);
+        expect(run).toContain('timeout --verbose --signal=TERM --kill-after=600s "${timeout_seconds}s"');
+        expect(run).toContain('timeout_seconds=$timeout_seconds cleanup_grace_seconds=600');
         expect(run, `${name}: serialize each section shard through the shared lease`).toContain(
           'node scripts/ci/with-shard-writer-lock.mjs',
         );
         expect(run, `${name}: wait for an active full-deploy writer`).toContain('--policy wait');
-        expect(run, `${name}: keep the lock wait bounded to the worker deadline`).toContain(
+        expect(run, `${name}: keep the lock wait bounded to one hour`).toContain(
           '--timeout-ms 3600000',
         );
         expect(run, `${name}: wrap the existing checkpointed section push`).toContain(
