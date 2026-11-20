@@ -70,7 +70,8 @@
       },
       "streetAddress": "Mendrisio",
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "source"
+      "validThroughSource": "source",
+      "sourceIdentity": "url:https://www.ecam.swiss/wp-content/uploads/2026/01/concorso-generale-sito-ecam-2026.pdf"
     }
   ]
 }
