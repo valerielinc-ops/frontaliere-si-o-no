@@ -37,7 +37,10 @@ import { shouldAssembleForRelatedTests } from './dataset-dependent-tests.mjs';
 import { selectMaxWorkers, vitestChildEnv } from './lib/select-max-workers.mjs';
 import { missingFullCheckoutArtifacts } from './lib/typecheck-sparse.mjs';
 import { GRAPH_IGNORED_RE, GRAPH_SOURCE_RE, isGraphSourceFile } from './lib/related-graph-scope.mjs';
-import { CRAWLER_GENERATION_RUNTIME_PATHS } from '../lib/crawler-generation-runtime-paths.mjs';
+import {
+  CRAWLER_GENERATION_OBSERVER_RUNTIME_PATHS,
+  CRAWLER_GENERATION_RUNTIME_PATHS,
+} from '../lib/crawler-generation-runtime-paths.mjs';
 import {
   isArticlePublisherCodePath,
   isArticlePublisherWorkflowPath,
@@ -116,6 +119,10 @@ const isTransportScope = (file) => {
 // un file cancellato o non materializzato fa scattare il guard fail-closed.
 const crawlerGenerationRuntimePaths = new Set([
   ...CRAWLER_GENERATION_RUNTIME_PATHS,
+  'scripts/lib/crawler-generation-runtime-paths.mjs',
+]);
+const crawlerGenerationObserverRuntimePaths = new Set([
+  ...CRAWLER_GENERATION_OBSERVER_RUNTIME_PATHS,
   'scripts/lib/crawler-generation-runtime-paths.mjs',
 ]);
 // `tests/social-robot.test.ts` walks the launchd snapshot closure from disk,
@@ -315,10 +322,9 @@ const sourceTreeLintTests = new Map([
   // moduli della chiusura. Sulla PR 11262 un import nuovo in
   // `crawler-grace-policy.mjs` e' uscito dalla lista e main e' rimasto rosso
   // in latenza. I moduli JS della chiusura vivono in `scripts/` e
-  // `functions/` (githubApiHeaders.js); l'unico file fuori
-  // (`data/canton-municipalities.json`) e' un JSON foglia e non puo'
-  // aggiungere import. Il test costa meno di un secondo.
-  ['tests/crawler-generation-observer-workflow.test.ts', (file) => crawlerGenerationRuntimePaths.has(file) || file === 'scripts/crawler-generation-observer.mjs'],
+  // `functions/` (githubApiHeaders.js); i due JSON in `data/` sono foglie.
+  // Il test costa meno di un secondo.
+  ['tests/crawler-generation-observer-workflow.test.ts', (file) => crawlerGenerationObserverRuntimePaths.has(file)],
   // La lista sparse di housekeeping sta in un file, non nel YAML (il corpus
   // pinna il YAML, il codice e' quello di main): il test calcola la chiusura
   // degli import degli entrypoint, quindi nessun import lo collega al modulo

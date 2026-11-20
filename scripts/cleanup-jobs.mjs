@@ -272,6 +272,7 @@ const EXPIRED_JOBS_CAP = 5000;
 function buildExpiredEntry(job) {
   const sourceIdentity = job?.sourceIdentity || (job?.url ? buildStableJobIdentity(job) : '');
   const entry = {
+    id: job?.id || job?.externalId || job?.jobId || undefined,
     slug: job.slug,
     title: job.title || '',
     titleByLocale: { ...(job.titleByLocale || {}) },
@@ -316,6 +317,7 @@ function buildExpiredEntry(job) {
   if (!entry.streetAddress) delete entry.streetAddress;
   if (!entry.salaryMin) delete entry.salaryMin;
   if (!entry.salaryMax) delete entry.salaryMax;
+  if (!entry.id) delete entry.id;
   if (entry.dedupArchive !== true) delete entry.dedupArchive;
   if (sourceIdentity) entry.sourceIdentity = sourceIdentity;
   if (job.firstSeenAt) entry.firstSeenAt = job.firstSeenAt;

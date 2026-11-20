@@ -838,6 +838,43 @@ describe('issue #6759 reconciliation', () => {
     expect(result.jobs.map((entry) => entry.sourceIdentity).sort()).toEqual(['source:A', 'source:B']);
   });
 
+  it('keeps distinct source postings separate when disjoint source identity histories collide', () => {
+    const canonical = {
+      ...job('canonical', '1', 'same'),
+      expiredAt: '2026-10-02T00:00:00.000Z',
+      slugByLocale: { it: 'same' },
+      previousSlugs: [],
+      previousSlugsByLocale: {},
+      sourceIdentityHistory: [
+        { sourceIdentity: 'source:A-current' },
+        { sourceIdentity: 'source:A-prior' },
+      ],
+    };
+    const retired = {
+      ...job('retired', '2', 'same'),
+      expiredAt: '2026-10-01T00:00:00.000Z',
+      slugByLocale: { it: 'same' },
+      previousSlugs: [],
+      previousSlugsByLocale: {},
+      sourceIdentityHistory: [
+        { sourceIdentity: 'source:B-current' },
+        { sourceIdentity: 'source:B-prior' },
+      ],
+    };
+
+    const result = mergeRetiredCrawlerArchive([canonical], [retired], 'canonical');
+
+    expect(result).toMatchObject({ collapsed: 0, repairedRoutes: 1 });
+    expect(result.jobs).toHaveLength(2);
+    expect(() => assertNoDuplicateRoutesWithin(result.jobs, 'distinct archive source histories')).not.toThrow();
+    expect(result.jobs.map((entry) => entry.sourceIdentityHistory).sort((a, b) => (
+      String(a?.[0]?.sourceIdentity).localeCompare(String(b?.[0]?.sourceIdentity))
+    ))).toEqual([
+      [{ sourceIdentity: 'source:A-current' }, { sourceIdentity: 'source:A-prior' }],
+      [{ sourceIdentity: 'source:B-current' }, { sourceIdentity: 'source:B-prior' }],
+    ]);
+  });
+
   it('keeps a cap-refused legacy archive route-unique without losing routes', () => {
     const sharedHistory = 'shared-history-route';
     const deep = (companyKey: string, slug: string, expiredAt: string, prefix: string) => ({

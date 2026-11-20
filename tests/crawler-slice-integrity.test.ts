@@ -926,6 +926,7 @@ describe('crawler slice integrity guard', () => {
     };
     const removed = {
       slug: 'store-manager-zurich-old',
+      sourceIdentity: `url:${activeMatch.url}`,
       title: activeMatch.title,
       company: activeMatch.company,
       location: activeMatch.location,
@@ -1067,6 +1068,77 @@ describe('crawler slice integrity guard', () => {
     }).reason).toBe('proven-ghost-expired-prune');
   });
 
+  it('rejects legacy ghost proof when several active postings share the metadata key', () => {
+    const shared = {
+      title: 'Store Manager',
+      company: 'Rituals Cosmetics',
+      location: 'Zürich',
+    };
+    const legacyRoute = 'store-manager-zurich-old';
+    const activeJobs = [
+      { ...shared, slugByLocale: { it: 'store-manager-zurich-a' }, previousSlugs: [legacyRoute] },
+      { ...shared, slugByLocale: { it: 'store-manager-zurich-b' } },
+      { ...shared, slugByLocale: { it: 'store-manager-zurich-c' } },
+    ];
+    const removed = {
+      slug: legacyRoute,
+      title: shared.title,
+      company: shared.company,
+      location: shared.location,
+      slugByLocale: { it: legacyRoute },
+      description: 'x'.repeat(1_400_000),
+    };
+    const retained = {
+      slug: 'visual-merchandiser-lugano',
+      title: 'Visual Merchandiser',
+      company: 'Rituals Cosmetics',
+      location: 'Lugano',
+    };
+    const prettyJson = (value: unknown) => `${JSON.stringify(value, null, 2)}\n`;
+    const previous = prettyJson([removed, retained]);
+    const next = prettyJson([retained]);
+    const filePath = 'data/jobs/expired/by-crawler/rituals-cosmetics.json';
+    const proof = { activeJobs, ghostEntryIds: [removed.slug] };
+
+    expect(isProvenGhostExpiredPrune(filePath, previous, next, proof)).toBe(false);
+  });
+
+  it('rejects legacy ghost proof when the matched route has multiple active owners', () => {
+    const shared = {
+      title: 'Store Manager',
+      company: 'Rituals Cosmetics',
+      location: 'Zürich',
+    };
+    const postingUrl = 'https://careers.example.test/jobs/store-manager/one';
+    const sharedRoute = 'store-manager-zurich-transferred';
+    const activeJobs = [
+      { ...shared, url: postingUrl, slugByLocale: { it: 'store-manager-zurich-a' }, previousSlugs: [sharedRoute] },
+      { ...shared, url: 'https://careers.example.test/jobs/store-manager/two', slugByLocale: { it: 'store-manager-zurich-b' }, previousSlugs: [sharedRoute] },
+    ];
+    const removed = {
+      slug: sharedRoute,
+      sourceIdentity: `url:${postingUrl}`,
+      title: shared.title,
+      company: shared.company,
+      location: shared.location,
+      slugByLocale: { it: sharedRoute },
+      description: 'x'.repeat(1_400_000),
+    };
+    const retained = {
+      slug: 'visual-merchandiser-lugano',
+      title: 'Visual Merchandiser',
+      company: 'Rituals Cosmetics',
+      location: 'Lugano',
+    };
+    const prettyJson = (value: unknown) => `${JSON.stringify(value, null, 2)}\n`;
+    const previous = prettyJson([removed, retained]);
+    const next = prettyJson([retained]);
+    const filePath = 'data/jobs/expired/by-crawler/rituals-cosmetics.json';
+    const proof = { activeJobs, ghostEntryIds: [removed.slug] };
+
+    expect(isProvenGhostExpiredPrune(filePath, previous, next, proof)).toBe(false);
+  });
+
   it('rejects a top-level slug owned by a different active posting', () => {
     const activeOwner = {
       slug: 'shared-slug',
@@ -1128,6 +1200,7 @@ describe('crawler slice integrity guard', () => {
     };
     const removed = {
       url: 'https://example.test/expired',
+      sourceIdentity: 'url:https://example.test/active-a',
       title: activeMatch.title,
       company: activeMatch.company,
       location: activeMatch.location,
@@ -1177,6 +1250,7 @@ describe('crawler slice integrity guard', () => {
     };
     const removed = {
       url: 'https://example.test/expired',
+      sourceIdentity: 'url:https://example.test/active-a',
       title: activeMatch.title,
       company: activeMatch.company,
       location: activeMatch.location,

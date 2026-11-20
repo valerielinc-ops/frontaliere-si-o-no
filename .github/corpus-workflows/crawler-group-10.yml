@@ -14,12 +14,14 @@
 # - scripts/lib/crawler-slice-integrity.mjs
 # - scripts/lib/detail-failure-reuse-policy.mjs
 # - scripts/lib/global-data-pipeline-lease.mjs
+# - scripts/lib/job-identity.mjs
 # - scripts/lib/job-match-key.mjs
 # - scripts/lib/job-url-key.mjs
 # - scripts/lib/locale-map-diff.mjs
 # - scripts/lib/prospector/country-inventory.mjs
 # - scripts/lib/slug-history-journal.mjs
 # - scripts/lib/slug-preservation-guard.mjs
+# - scripts/lib/stable-stringify.mjs
 # - scripts/lib/target-swiss-locations.mjs
 name: Crawler Group 10 (sparse cross-repo execution)
 run-name: crawler-generation-${{ inputs.generation_token || format('{0}-{1}', github.run_id, github.run_attempt) }}-group-10

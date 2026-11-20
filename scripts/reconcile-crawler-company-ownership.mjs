@@ -221,6 +221,7 @@ export function mergeRetiredCrawlerArchive(canonicalJobs, retiredJobs, canonical
   const normalized = [...normalizedCanonical, ...normalizedRetired];
   const routeRepair = repairExpiredRoutesWithinArchive(normalized, {
     source: `${canonicalKey}.archive-route-repair`,
+    sourceIdentityOnly: true,
   });
   let repairedRoutes = routeRepair.repairedRoutes;
   let capRefused = 0;
