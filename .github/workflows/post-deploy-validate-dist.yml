@@ -303,6 +303,7 @@ jobs:
           name: section-page-manifest-en-${{ steps.artifact-runs.outputs.en }}
           path: ${{ runner.temp }}/publisher-fast-gate/section-manifests
           github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
           run-id: ${{ steps.artifact-runs.outputs.en }}
 
       - name: Download non-IT locale dist (en)
@@ -311,6 +312,7 @@ jobs:
           name: locale-dist-en-${{ steps.artifact-runs.outputs.en }}
           path: ${{ runner.temp }}/publisher-fast-gate/locale-dist
           github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
           run-id: ${{ steps.artifact-runs.outputs.en }}
 
       - name: Download publisher section manifests (de)
@@ -319,6 +321,7 @@ jobs:
           name: section-page-manifest-de-${{ steps.artifact-runs.outputs.de }}
           path: ${{ runner.temp }}/publisher-fast-gate/section-manifests
           github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
           run-id: ${{ steps.artifact-runs.outputs.de }}
 
       - name: Download non-IT locale dist (de)
@@ -327,6 +330,7 @@ jobs:
           name: locale-dist-de-${{ steps.artifact-runs.outputs.de }}
           path: ${{ runner.temp }}/publisher-fast-gate/locale-dist
           github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
           run-id: ${{ steps.artifact-runs.outputs.de }}
 
       - name: Download publisher section manifests (fr)
@@ -335,6 +339,7 @@ jobs:
           name: section-page-manifest-fr-${{ steps.artifact-runs.outputs.fr }}
           path: ${{ runner.temp }}/publisher-fast-gate/section-manifests
           github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
           run-id: ${{ steps.artifact-runs.outputs.fr }}
 
       - name: Download non-IT locale dist (fr)
@@ -343,6 +348,7 @@ jobs:
           name: locale-dist-fr-${{ steps.artifact-runs.outputs.fr }}
           path: ${{ runner.temp }}/publisher-fast-gate/locale-dist
           github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
           run-id: ${{ steps.artifact-runs.outputs.fr }}
 
       - name: Build non-IT sitemap family bridge evidence
@@ -350,6 +356,7 @@ jobs:
           set -euo pipefail
           locale_dist_root="$RUNNER_TEMP/publisher-fast-gate/locale-dist"
           sitemaps_dir="$RUNNER_TEMP/publisher-fast-gate/sitemaps"
+          trap 'rm -f "$locale_dist_root"/locale-dist-{en,de,fr}.tar' EXIT
           for locale in en de fr; do
             tar_file="$locale_dist_root/locale-dist-$locale.tar"
             evidence_file="$sitemaps_dir/sitemap-family-bridge-evidence-$locale.json"

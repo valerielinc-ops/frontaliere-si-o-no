@@ -597,6 +597,7 @@ describe('sitemap family URL coverage ratchet', () => {
           name: `${artifact}-${locale}-${run}`,
           'run-id': run,
           'github-token': '${{ github.token }}',
+          repository: '${{ github.repository }}',
         });
         expect(step?.['continue-on-error']).toBeUndefined();
         expect(steps.indexOf(step)).toBeGreaterThan(steps.indexOf(download));
