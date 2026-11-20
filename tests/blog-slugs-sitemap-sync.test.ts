@@ -452,10 +452,10 @@ describe('SWISS_SLUGS ↔ sitemap-blog-ch.xml / sitemap-news.xml sync (gate: pre
 // ─── The backstop that keeps the transit window from going blind ─────────────
 //
 // The window excuses items beyond the opposing frontier. If a producer STOPS,
-// its frontier freezes and every subsequent article sits beyond it — tolerated
-// forever, gate blind, exactly the outcome #5298 says not to accept. This
-// bounds the whole arrangement: the two producers may be minutes or hours
-// apart, never days. Only the two COMPLETE sitemaps are checked;
+// its freshness frontier freezes and every subsequent publication or material
+// update sits beyond it — tolerated forever, gate blind, exactly the outcome
+// #5298 says not to accept. This bounds the whole arrangement: the two producers
+// may be minutes or hours apart, never days. Only the two COMPLETE sitemaps are checked;
 // sitemap-news.xml is a rolling recency window whose frontier legitimately
 // lags whenever nothing news-shaped has been published.
 describe('registry ↔ sitemap producer skew stays inside the sync cadence (gate: keeps the #5298 window bounded)', () => {
@@ -468,10 +468,10 @@ describe('registry ↔ sitemap producer skew stays inside the sync cadence (gate
       ? (await import('../data/blog-articles-data')).ARTICLES
       : (await import('../data/swiss-articles-data')).SWISS_ARTICLES;
 
-    const registryFrontier = frontierOf(articles.map(a => a.date));
+    const registryFrontier = frontierOf(articles.map(a => a.updatedAt ?? a.date));
     const mapFrontier = sitemapFrontier(parseSitemapEntries(readSitemap(sitemapName)), patterns.it);
 
-    expect(registryFrontier, `${section} registry carries no parseable publication date`).toBeTruthy();
+    expect(registryFrontier, `${section} registry carries no parseable freshness date`).toBeTruthy();
     expect(mapFrontier, `${sitemapName} carries no parseable ${section} entry timestamp`).toBeTruthy();
 
     const lag = Math.abs(skewMs(registryFrontier, mapFrontier));
