@@ -24,6 +24,7 @@ import { describe, it, expect } from 'vitest';
 import { reconcileGhostExpired } from '../scripts/assemble-jobs-dataset.mjs';
 import { reconcileExpiredSlugs } from '../scripts/reconcile-job-slugs.mjs';
 import { stableSlugHash } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { archiveRecordNamesPosting, archiveRecordSourceIdentities } from '../scripts/lib/job-identity.mjs';
 
 const BASE = 'https://careers.example-hospital.test/jobs/sub-assistant-medicine';
 const ACTIVE_URL = `${BASE}/11111111-1111-4111-8111-111111111111`;
@@ -135,11 +136,27 @@ describe('reconcileGhostExpired — source identity guard (#11596)', () => {
   it('keeps the bounded legacy fallback only when both postings lack stable identity', () => {
     const active = activeSibling();
     delete active.url;
+    delete active.id;
     const expired = [archivedDuplicate({ sourceIdentity: undefined, dedupArchive: undefined })];
 
     const { ghostCount } = reconcileGhostExpired([active], expired);
 
     expect(ghostCount).toBe(1);
+  });
+
+  it('uses the archived job id to compare postings when neither record has a URL', () => {
+    const archived = { id: 'posting-42', title: 'Same title' };
+    const active = { id: 'posting-42', title: 'Same title' };
+
+    expect(archiveRecordSourceIdentities(archived)).toEqual(new Set(['id:posting-42']));
+    expect(archiveRecordNamesPosting(archived, active)).toBe(true);
+    expect(archiveRecordNamesPosting(archived, { id: 'posting-43' })).toBe(false);
+    expect(archiveRecordNamesPosting({ sourceIdentity: 'id:POSTING-42' }, active)).toBe(true);
+  });
+
+  it('does not use the legacy fallback when either record has a stable job id', () => {
+    expect(archiveRecordNamesPosting({ title: 'Same title' }, { id: 'posting-42', title: 'Same title' })).toBe(false);
+    expect(archiveRecordNamesPosting({ id: 'posting-42' }, { title: 'Same title' })).toBe(false);
   });
 
   it('reorders stale hash-tailed bridges after ghost merge and converges on rerun', () => {

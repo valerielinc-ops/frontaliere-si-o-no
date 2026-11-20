@@ -376,6 +376,7 @@ export function buildBackfillExpiredEntry(job, expiredAt, overrideSlug = null) {
     : inheritedPrev;
 
   const entry = {
+    id: job.id || job.externalId || job.jobId || undefined,
     slug: finalSlug,
     title: job.title,
     titleByLocale,
@@ -400,6 +401,7 @@ export function buildBackfillExpiredEntry(job, expiredAt, overrideSlug = null) {
     salaryCurrency,
     salaryPeriod,
   };
+  if (!entry.id) delete entry.id;
   if (job?.sourceIdentity || job?.url) entry.sourceIdentity = job.sourceIdentity || buildStableJobIdentity(job);
   if (job?.firstSeenAt) entry.firstSeenAt = job.firstSeenAt;
   if (Array.isArray(job?.sourceIdentityHistory) && job.sourceIdentityHistory.length > 0) {

@@ -53,6 +53,7 @@ interface CleanupSliceJob {
 }
 
 interface ExpiredEntry {
+  id?: string;
   slug: string;
   title: string;
   company: string;
@@ -356,6 +357,8 @@ describe('cleanup-jobs slice mode — archives within-slice slug-dedup losers', 
     expect(archivedLosers.length).toBe(1);
 
     const archived = archivedLosers[0];
+
+    expect(archived.id).toBe('job-loser-001');
 
     // The disambiguated slug must NOT equal the original colliding slug.
     expect(archived.slug).not.toBe('engineer-lugano');

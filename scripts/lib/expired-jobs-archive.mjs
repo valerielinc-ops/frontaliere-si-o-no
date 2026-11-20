@@ -37,6 +37,7 @@ import {
   archiveRecordNamesPosting,
   archiveRecordSourceIdentities,
   buildStableJobIdentity,
+  stablePostingIdentities,
 } from './job-identity.mjs';
 import { isHeldFromPublication } from './translation-publication-hold.mjs';
 import { assertByteSizeCeiling } from './assert-file-size-ceiling.mjs';
@@ -59,6 +60,7 @@ const DEFAULT_EXPIRED_SLICES_DIR = path.join(ROOT, 'data', 'jobs', 'expired', 'b
 export function buildExpiredEntry(job) {
   const sourceIdentity = job?.sourceIdentity || (job?.url ? buildStableJobIdentity(job) : '');
   const entry = {
+    id: job?.id || job?.externalId || job?.jobId || undefined,
     slug: job.slug,
     title: job.title || '',
     titleByLocale: { ...(job.titleByLocale || {}) },
@@ -99,6 +101,7 @@ export function buildExpiredEntry(job) {
   if (!entry.streetAddress) delete entry.streetAddress;
   if (!entry.salaryMin) delete entry.salaryMin;
   if (!entry.salaryMax) delete entry.salaryMax;
+  if (!entry.id) delete entry.id;
   if (entry.dedupArchive !== true) delete entry.dedupArchive;
   if (!entry.sourceIdentity) delete entry.sourceIdentity;
   if (!entry.firstSeenAt) delete entry.firstSeenAt;
@@ -226,26 +229,14 @@ export function normalizeExpiredAtEntries(entries, opts = {}) {
 }
 
 function hasExplicitlyDifferentSourceIdentity(expiredJob, activeJob) {
-  const activeUrl = String(activeJob?.url ?? '').trim();
-  if (!activeUrl) return false;
   const expiredIdentities = archiveRecordSourceIdentities(expiredJob);
-  if (expiredIdentities.size === 0) return false;
-  return !expiredIdentities.has(buildStableJobIdentity(activeJob));
+  const activeIdentities = stablePostingIdentities(activeJob);
+  if (expiredIdentities.size === 0 || activeIdentities.size === 0) return false;
+  return ![...expiredIdentities].some((identity) => activeIdentities.has(identity));
 }
 
 function explicitArchiveSourceIdentities(record = {}) {
-  const identities = new Set();
-  const add = (value) => {
-    const identity = String(value ?? '').trim();
-    if (identity) identities.add(identity);
-  };
-  add(record.sourceIdentity);
-  for (const history of Array.isArray(record.sourceIdentityHistory)
-    ? record.sourceIdentityHistory
-    : []) {
-    add(history?.sourceIdentity);
-  }
-  return identities;
+  return archiveRecordSourceIdentities(record);
 }
 
 function collisionRouteSuffix(entry, route, attempt) {

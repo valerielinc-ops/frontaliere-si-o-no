@@ -12,6 +12,11 @@ import { CRAWLER_GRACE_PERIOD_MAX_MISSES } from './crawler-grace-policy.mjs';
 import { ISO_ALPHA2_COUNTRY_CODES } from './prospector/country-inventory.mjs';
 import { isKnownSwissMunicipality } from './target-swiss-locations.mjs';
 import { localeMapKey } from './locale-map-diff.mjs';
+import {
+  archiveRecordNamesPosting,
+  archiveRecordSourceIdentities,
+  stablePostingIdentities,
+} from './job-identity.mjs';
 
 const JOB_SLICE_PATH_RE = /(?:^|\/)data\/jobs\/(?:by-crawler|expired\/by-crawler)\/[^/]+\.json$/;
 const ACTIVE_JOB_SLICE_PATH_RE = /(?:^|\/)data\/jobs\/by-crawler\/[^/]+\.json$/;
@@ -453,14 +458,22 @@ function buildGhostActiveIndex(activeJobs) {
   const activeByProofTCL = new Map();
   const activeSlugOwners = new Map();
   const registerActiveSlug = (slug, job) => {
-    if (typeof slug !== 'string' || !slug) return;
-    if (!activeSlugOwners.has(slug)) activeSlugOwners.set(slug, job);
+    if (typeof slug !== 'string' || !slug.trim()) return;
+    const owners = activeSlugOwners.get(slug) || new Set();
+    owners.add(job);
+    activeSlugOwners.set(slug, owners);
+  };
+  const addCandidate = (map, key, job) => {
+    if (!key) return;
+    const candidates = map.get(key) || [];
+    candidates.push(job);
+    map.set(key, candidates);
   };
   for (const job of activeJobs) {
     const key = `${(job?.title || '').toLowerCase().trim()}||${(job?.company || '').toLowerCase().trim()}||${(job?.location || '').toLowerCase().trim()}`;
-    if (!activeByTCL.has(key)) activeByTCL.set(key, job);
+    addCandidate(activeByTCL, key, job);
     const proofKey = titleCompanyLocationKey(job);
-    if (proofKey && !activeByProofTCL.has(proofKey)) activeByProofTCL.set(proofKey, job);
+    addCandidate(activeByProofTCL, proofKey, job);
     registerActiveSlug(job?.slug, job);
     if (job?.slugByLocale && typeof job.slugByLocale === 'object') {
       for (const slug of Object.values(job.slugByLocale)) registerActiveSlug(slug, job);
@@ -488,15 +501,34 @@ function isGhostExpiredEntry(entry, activeIndex) {
     ? localeSlugs
     : [entry?.slug];
   const key = `${(entry?.title || '').toLowerCase().trim()}||${(entry?.company || '').toLowerCase().trim()}||${(entry?.location || '').toLowerCase().trim()}`;
-  const hasSlugOverlap = expiredSlugs.some((slug) => {
-    const owner = activeIndex.activeSlugOwners.get(slug);
-    if (!owner) return false;
-    const ownerKey = `${(owner?.title || '').toLowerCase().trim()}||${(owner?.company || '').toLowerCase().trim()}||${(owner?.location || '').toLowerCase().trim()}`;
-    return ownerKey === key;
-  });
-  const match = activeIndex.activeByTCL.get(key);
+  const candidates = activeIndex.activeByTCL.get(key) || [];
+  const match = selectGhostActiveMatch(entry, candidates);
+  if (!match) return false;
+  const routeOwners = ghostRouteOwners(expiredSlugs, activeIndex, match);
+  if (!routeOwners) return false;
   const sameItSlug = match && entry?.slugByLocale?.it === match?.slugByLocale?.it;
-  return Boolean(match && (hasSlugOverlap || sameItSlug));
+  return Boolean(routeOwners.length > 0 || sameItSlug || hasEqualNonEmptyLocaleSlug(entry, match));
+}
+
+function selectGhostActiveMatch(entry, candidates) {
+  if (!Array.isArray(candidates) || candidates.length === 0) return null;
+  const expiredIdentities = archiveRecordSourceIdentities(entry);
+  const matches = candidates.filter((candidate) => archiveRecordNamesPosting(entry, candidate));
+  if (expiredIdentities.size > 0) return matches.length === 1 ? matches[0] : null;
+  if (candidates.length !== 1 || matches.length !== 1) return null;
+  return stablePostingIdentities(candidates[0]).size === 0 ? candidates[0] : null;
+}
+
+/** null means a route is ambiguous or owned by a different active posting. */
+function ghostRouteOwners(slugs, activeIndex, match) {
+  const overlaps = [];
+  for (const slug of slugs) {
+    const owners = activeIndex.activeSlugOwners.get(slug);
+    if (!owners?.size) continue;
+    if (owners.size !== 1 || !owners.has(match)) return null;
+    overlaps.push(slug);
+  }
+  return overlaps;
 }
 
 function terminalCountryCodes(location) {
@@ -1189,16 +1221,14 @@ function hasEqualNonEmptyLocaleSlug(left, right) {
 export function findGhostExpiredReconciliationMatch(entry, activeIndex) {
   const expiredKey = titleCompanyLocationKey(entry);
   if (!expiredKey || !activeIndex) return null;
-
-  for (const slug of expiredGhostOverlapSlugs(entry)) {
-    const owner = activeIndex.activeSlugOwners.get(slug);
-    if (owner && titleCompanyLocationKey(owner) === expiredKey) {
-      return { match: owner, overlapSlug: slug, overlapJob: owner };
-    }
-  }
-
-  const match = activeIndex.activeByProofTCL?.get(expiredKey);
+  const candidates = activeIndex.activeByProofTCL?.get(expiredKey) || [];
+  const match = selectGhostActiveMatch(entry, candidates);
   if (!match) return null;
+  const overlaps = ghostRouteOwners(expiredGhostOverlapSlugs(entry), activeIndex, match);
+  if (!overlaps) return null;
+  if (overlaps.length > 0) {
+    return { match, overlapSlug: overlaps[0], overlapJob: match };
+  }
   const expiredItSlug = String(entry?.slugByLocale?.it ?? '').trim();
   const matchItSlug = String(match?.slugByLocale?.it ?? '').trim();
   if (expiredItSlug || matchItSlug) {
@@ -1220,6 +1250,7 @@ function isValidGhostExpiredProofEntry(entry, removedJob) {
 
   const expiredKey = titleCompanyLocationKey(expired);
   if (!expiredKey || expiredKey !== titleCompanyLocationKey(match)) return false;
+  if (!archiveRecordNamesPosting(expired, match)) return false;
 
   const overlapSlug = String(entry.overlapSlug ?? '').trim();
   if (overlapSlug) {

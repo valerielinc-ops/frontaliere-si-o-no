@@ -194,6 +194,7 @@ describe('buildExpiredEntry', () => {
     const entry = buildExpiredEntry(removedUpdJob);
     expect(entry.slug).toBe(removedUpdJob.slug);
     expect(entry.slugByLocale).toEqual(removedUpdJob.slugByLocale);
+    expect(entry.id).toBe(removedUpdJob.id);
     expect(entry.previousSlugs).toEqual(removedUpdJob.previousSlugs);
     expect(entry.previousSlugsByLocale).toEqual(removedUpdJob.previousSlugsByLocale);
     expect(entry.descriptionByLocale).toEqual(removedUpdJob.descriptionByLocale);

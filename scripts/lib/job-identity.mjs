@@ -87,25 +87,42 @@ export function buildStableJobIdentity(job = {}) {
   return `fallback:${identityFallback(job)}`;
 }
 
+function addStableIdentityForRecord(ids, record = {}) {
+  if (!record || typeof record !== 'object' || Array.isArray(record)) return;
+
+  const url = normalizeSpace(record.url ?? '');
+  if (url) ids.add(buildStableJobIdentity({ url }));
+
+  const rawId = normalizeSpace(record.id || record.externalId || record.jobId || '');
+  if (rawId) ids.add(`id:${rawId.toLowerCase()}`);
+
+  const sourceIdentity = normalizeSpace(record.sourceIdentity ?? '');
+  if (sourceIdentity) {
+    ids.add(/^id:/iu.test(sourceIdentity) ? `id:${sourceIdentity.slice(3).trim().toLowerCase()}` : sourceIdentity);
+  }
+}
+
+/** Stable posting identities explicitly carried by an active or archived row. */
+export function stablePostingIdentities(record = {}) {
+  const ids = new Set();
+  addStableIdentityForRecord(ids, record);
+
+  const history = Array.isArray(record?.sourceIdentityHistory) ? record.sourceIdentityHistory : [];
+  for (const entry of history) addStableIdentityForRecord(ids, entry);
+
+  return ids;
+}
+
 /**
  * Source-posting identities an expired archive record declares: its own URL
- * when present, the `sourceIdentity` written by the archivers, and every
- * identity a dedup merge recorded in `sourceIdentityHistory`.
+ * or job id when present, the `sourceIdentity` written by the archivers, and
+ * every identity a dedup merge recorded in `sourceIdentityHistory`.
  *
  * @param {object} expiredJob archive record
  * @returns {Set<string>} stable-job identities (possibly empty)
  */
 export function archiveRecordSourceIdentities(expiredJob = {}) {
-  const ids = new Set();
-  const add = (value) => {
-    const id = normalizeSpace(value ?? '');
-    if (id) ids.add(id);
-  };
-  if (normalizeSpace(expiredJob?.url ?? '')) add(buildStableJobIdentity(expiredJob));
-  add(expiredJob?.sourceIdentity);
-  const history = Array.isArray(expiredJob?.sourceIdentityHistory) ? expiredJob.sourceIdentityHistory : [];
-  for (const entry of history) add(entry?.sourceIdentity);
-  return ids;
+  return stablePostingIdentities(expiredJob);
 }
 
 /**
@@ -116,11 +133,11 @@ export function archiveRecordSourceIdentities(expiredJob = {}) {
  * does not name the active job is a different posting that merely shares
  * title/company/location (typically a sibling vacancy archived as a dedup
  * duplicate); merging it hands the active job another posting's routes,
- * hash-tailed slug included (#11596). When the active job has a URL but the
- * archive has no source identity, the evidence is ambiguous and must fail
- * closed. The legacy fallback remains only for records where neither side has
- * a stable identity, because the caller's exact route/title/company/location
- * evidence is the only available proof in that deliberately bounded case.
+ * hash-tailed slug included (#11596). If either side carries stable identity,
+ * the two identity sets must intersect. The legacy fallback remains only for
+ * records where neither side has stable identity, because the caller's exact
+ * route/title/company/location evidence is the only available proof in that
+ * deliberately bounded case.
  *
  * @param {object} expiredJob archive record
  * @param {object} activeJob candidate active owner
@@ -128,10 +145,9 @@ export function archiveRecordSourceIdentities(expiredJob = {}) {
  */
 export function archiveRecordNamesPosting(expiredJob = {}, activeJob = {}) {
   const expiredIds = archiveRecordSourceIdentities(expiredJob);
-  const activeUrl = normalizeSpace(activeJob?.url ?? '');
-  if (expiredIds.size === 0) return !activeUrl;
-  if (!activeUrl) return true;
-  return expiredIds.has(buildStableJobIdentity(activeJob));
+  const activeIds = stablePostingIdentities(activeJob);
+  if (expiredIds.size === 0 && activeIds.size === 0) return true;
+  return [...expiredIds].some((identity) => activeIds.has(identity));
 }
 
 /**
