@@ -27,6 +27,7 @@ import { tenantHostOwner } from './coverage.mjs';
 import { qualityContractVersionOf } from './quality-contract.mjs';
 import { KNOWN_AGGREGATOR_DOMAINS } from '../known-aggregator-domains.mjs';
 import { normalizeHost, registrableDomain } from './registrable.mjs';
+import { recordedSourceAdapterVersion } from './source-adapter-version.mjs';
 
 /**
  * The aggregator domain a candidate reads from, if any. The `aggregator` flag
@@ -213,16 +214,15 @@ export function evaluatePromotion(candidate, ctx = {}, opts = {}) {
   const qualityContractVersion = qualityContractVersionOf(candidate);
   const compatibleHistory = validationHistory.filter((entry) =>
     qualityContractVersionOf(entry) === qualityContractVersion);
-  const sourceAdapterVersion = String(candidate.sourceAdapterVersion || '').trim();
+  const sourceAdapterVersion = recordedSourceAdapterVersion(candidate);
   // A re-keyed candidate starts over: its earlier gradings may have measured
   // another employer's spec written under the same key.
   const rekeyedAt = String(candidate.rekeyedAt || '');
   const currentSpecHistory = rekeyedAt
     ? compatibleHistory.filter((entry) => String(entry?.at || '') > rekeyedAt)
     : compatibleHistory;
-  const history = sourceAdapterVersion
-    ? currentSpecHistory.filter((entry) => entry.sourceAdapterVersion === sourceAdapterVersion)
-    : currentSpecHistory;
+  const history = currentSpecHistory.filter((entry) =>
+    recordedSourceAdapterVersion(entry) === sourceAdapterVersion);
   const lastIncompleteIndex = history.findLastIndex((entry) => entry.runtimeSnapshotComplete === false);
   const stabilityHistory = history.slice(lastIncompleteIndex + 1);
   const good = stabilityHistory.filter((h) => h.verdict === 'good');

@@ -47,6 +47,7 @@ import {
   sourceCrawlerAdapterFor,
   sourceAdapterRuntimeObservationFor,
 } from './lib/prospector/source-adapters.mjs';
+import { sourceAdapterVersionFor } from './lib/prospector/source-adapter-version.mjs';
 import { matchExistingCrawlerForCompleteSnapshot } from './lib/prospector/runtime-duplicate.mjs';
 import { employerLogoDomain, probeCompanyLogo } from './lib/prospector/logo-probe.mjs';
 import { DATA_ROOT, PROSPECTOR_DIR, VALIDATION_PATH, ROOT } from './lib/prospector/config.mjs';
@@ -283,7 +284,7 @@ for (const spec of specs) {
     if (!otherOwner
       && needsProductionQualityAudit(spec, candidate, {
         date: scheduledAt,
-        adapterVersionFor: (item) => sourceCrawlerAdapterFor(item)?.version || null,
+        adapterVersionFor: (item) => sourceAdapterVersionFor(sourceCrawlerAdapterFor(item)),
         previousValidationForSpec,
       })) productionAuditCandidates.push(spec);
     continue;
@@ -293,15 +294,15 @@ for (const spec of specs) {
   }
 }
 const productionAuditSpecs = prioritizeProductionAuditSpecs(productionAuditCandidates, candidateForSpec, {
-  adapterVersionFor: (spec) => sourceCrawlerAdapterFor(spec)?.version || null,
+  adapterVersionFor: (spec) => sourceAdapterVersionFor(sourceCrawlerAdapterFor(spec)),
   previousValidationForSpec,
 }).slice(0, PRODUCTION_AUDIT_LIMIT);
 const deferredForBackoff = specs.filter((spec) => {
   const retryState = validationRetryStateForSpec(spec);
-  const adapterVersion = sourceCrawlerAdapterFor(spec)?.version || undefined;
+  const adapterVersion = sourceAdapterVersionFor(sourceCrawlerAdapterFor(spec));
   return retryState && !isValidationRetryDue(retryState, scheduledAt, {
     qualityContractVersion: qualityContractVersionOf(spec),
-    ...(adapterVersion ? { sourceAdapterVersion: adapterVersion } : {}),
+    sourceAdapterVersion: adapterVersion,
   });
 }).length;
 specs = [
@@ -309,7 +310,7 @@ specs = [
   ...prioritizeValidationSpecs(regularSpecs, candidateForSpec, {
   limit,
   date: scheduledAt,
-  adapterVersionFor: (spec) => sourceCrawlerAdapterFor(spec)?.version || null,
+  adapterVersionFor: (spec) => sourceAdapterVersionFor(sourceCrawlerAdapterFor(spec)),
   previousValidationForSpec,
   }),
 ];
@@ -323,6 +324,7 @@ let duplicates = 0;
 
 for (const spec of specs) {
   const adapter = sourceCrawlerAdapterFor(spec);
+  const sourceAdapterVersion = sourceAdapterVersionFor(adapter);
   // A tenant we already read is a duplicate whatever its vacancies look like.
   // The URL comparison below is blind when the spec reads a page other than
   // the ATS: `im-bethesda-spital` read the hospital's own jobs page, whose
@@ -490,7 +492,7 @@ for (const spec of specs) {
   report.companyHost = spec.companyHost;
   report.platform = spec.platform || null;
   report.mode = spec.mode;
-  report.sourceAdapterVersion = adapter?.version || null;
+  report.sourceAdapterVersion = sourceAdapterVersion;
   report.runErrors = errors;
   report.runtimeObservation = runtimeObservation;
   report.validationStartedAt = validationStartedAt;
@@ -605,7 +607,7 @@ for (const spec of specs) {
         logoSourceUrl: report.logoSourceUrl,
         employerSiteName: report.employerSiteName,
       } : {}),
-      ...(adapter ? { sourceAdapterVersion: adapter.version } : {}),
+      sourceAdapterVersion,
     };
     history.push(validationEntry);
     const handoffCandidate = {
@@ -618,7 +620,7 @@ for (const spec of specs) {
       validationHistory: history.slice(-8),
       // The gate filters that history by the candidate's adapter version.
       // Evaluate the entry just written, never a stale version from candidate.
-      sourceAdapterVersion: validationEntry.sourceAdapterVersion ?? null,
+      sourceAdapterVersion: validationEntry.sourceAdapterVersion,
     };
     const handoffContext = { existingKeys: coverage.keys, hostOwners: coverage.hostOwners };
     const next = productionAudit ? 'production' : candidateStatusAfterValidation(
@@ -669,7 +671,9 @@ for (const spec of specs) {
       vacancyCount: report.vacancyCount,
       validationHistory: history.slice(-8),
       validationAnomalyIds: candidate.validationAnomalyIds,
-      ...(adapter ? { sourceAdapterVersion: adapter.version } : {}),
+      // setStatus merges patches: write the generic identity too, replacing a
+      // stale dedicated version when the spec returns to the generic runner.
+      sourceAdapterVersion,
     };
     if (productionAudit) {
       setStatus(store, candidate.key, 'production', statusPatch, dryRun ? null : undefined);
