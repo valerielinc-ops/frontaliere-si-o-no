@@ -618,7 +618,7 @@ describe('assisted portal account navigation', () => {
       }
       : {
         url,
-        fields: loginFields.map((field) => ({ ...field, value: values.get(field.id) || '' })),
+        fields: loginFields.map((field) => ({ ...field, value: field.inputType === 'password' ? '' : values.get(field.id) || '' })),
         buttons: [
           { id: 'login', text: 'Anmelden', disabled: false, frame: 0, formId: 'login-form' },
           ...(showRegistration ? [{ id: 'register', text: 'Registrieren', disabled: false, frame: 0, formId: 'login-form' }] : []),
@@ -644,6 +644,8 @@ describe('assisted portal account navigation', () => {
           }),
           fill: vi.fn(async (value: string) => { values.set(id, value); }),
           inputValue: vi.fn(async () => values.get(id) || ''),
+          evaluate: vi.fn(async (read: (element: { value: string }, expected: string) => boolean, expected: string) =>
+            read({ value: values.get(id) || '' }, expected)),
           count: vi.fn(async () => 0),
         };
         return locator;
