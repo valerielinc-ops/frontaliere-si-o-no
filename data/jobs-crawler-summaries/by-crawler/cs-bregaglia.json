@@ -1,7 +1,7 @@
 {
   "key": "cs-bregaglia",
   "label": "Centro Sanitario Bregaglia",
-  "generatedAt": "2026-11-19T21:18:24.314Z",
+  "generatedAt": "2026-11-20T09:18:45.587Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 4622,
-  "avgDurationMs": 4622,
+  "durationMs": 4547,
+  "avgDurationMs": 4547,
   "durationHistory": [
-    4622
+    4547
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -39,7 +39,7 @@
       "url": "https://www.csbregaglia.ch/it/centro-sanitario/offerte-di-lavoro/419-offerta-di-lavoro-medico-di-medicina-generale-o-internista",
       "source": "CS Bregaglia Dedicated Parser (Joomla RSS feed)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-19T21:18:01.643Z",
+      "crawledAt": "2026-11-20T09:18:27.822Z",
       "addressLocality": "Promontogno",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -73,7 +73,7 @@
       },
       "streetAddress": "Flin 5",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-19T21:18:01.643Z",
+      "validThrough": "2026-12-20T09:18:27.822Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
