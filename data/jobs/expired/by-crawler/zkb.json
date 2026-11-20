@@ -201,6 +201,23 @@
       "kundenberater-in-privatkunden-affluent-zurcher-kantonalbank-dubendorf-40c352ab",
       "kundenberater-in-privatkunden-affluent-zkb-dubendorf",
       "kundenberater-in-privatkunden-affluent-zurcher-kantonalbank-dubendorf"
+    ],
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/792841/11314/pub/3",
+        "firstSeenAt": "2026-08-11T10:08:11.684Z",
+        "title": "Kundenberater:in Privatkunden Affluent"
+      },
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/792841/11314/pub/5",
+        "firstSeenAt": "2026-08-11T10:08:11.684Z",
+        "title": "Kundenberater:in Privatkunden Affluent"
+      },
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/792841/11315/pub/1",
+        "firstSeenAt": "2026-08-11T10:08:11.684Z",
+        "title": "Kundenberater:in Privatkunden Affluent"
+      }
     ]
   },
   {
@@ -265,6 +282,18 @@
       "consulente-clienti-in-clienti-privati-zurcher-kantonalbank-witikon",
       "kundenberater-in-privatkunden-zkb-ruti",
       "kundenberater-in-privatkunden-zurcher-kantonalbank-ruti"
+    ],
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/792841/11232/pub/1",
+        "firstSeenAt": "2026-07-06T22:14:35.848Z",
+        "title": "Kundenberater:in Privatkunden"
+      },
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/792841/11232/pub/3",
+        "firstSeenAt": "2026-07-06T22:14:35.848Z",
+        "title": "Kundenberater:in Privatkunden"
+      }
     ]
   },
   {
@@ -323,6 +352,18 @@
       "kundenberater-in-privatkunden-zurcher-kantonalbank-meilen-cdd3b486",
       "kundenberater-in-privatkunden-zkb-meilen",
       "kundenberater-in-privatkunden-zurcher-kantonalbank-meilen"
+    ],
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/792841/11424/pub/1",
+        "firstSeenAt": "2026-10-09T09:12:32.114Z",
+        "title": "Kundenberater:in Privatkunden"
+      },
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/792841/11424/pub/3",
+        "firstSeenAt": "2026-10-09T09:12:32.114Z",
+        "title": "Kundenberater:in Privatkunden"
+      }
     ]
   },
   {
@@ -381,6 +422,18 @@
       "kundenberater-in-privatkunden-affluent-zurcher-kantonalbank-dielsdorf-ce5b6c28",
       "kundenberater-in-privatkunden-affluent-zkb-dielsdorf",
       "kundenberater-in-privatkunden-affluent-zurcher-kantonalbank-dielsdorf"
+    ],
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/792841/11371/pub/1",
+        "firstSeenAt": "2026-09-18T13:41:06.842Z",
+        "title": "Kundenberater:in Privatkunden Affluent"
+      },
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/792841/11371/pub/5",
+        "firstSeenAt": "2026-09-18T13:41:06.842Z",
+        "title": "Kundenberater:in Privatkunden Affluent"
+      }
     ]
   },
   {
@@ -479,7 +532,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/792841/11383/pub/3",
-    "firstSeenAt": "2026-10-23T09:27:33.562Z"
+    "firstSeenAt": "2026-10-22T21:15:55.842Z"
   },
   {
     "slug": "ai-ingegnere-m-w-d-zurcher-kantonalbank-zurich",
@@ -670,7 +723,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/792841/11220/pub/7",
-    "firstSeenAt": "2026-10-08T21:16:08.972Z"
+    "firstSeenAt": "2026-10-08T21:16:08.972Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/792841/11220/pub/5",
+        "firstSeenAt": "2026-10-08T21:16:08.972Z",
+        "title": "Frontend Engineer – UI Frameworks & Designsysteme (m/w/d)"
+      },
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/792841/11220/pub/7",
+        "firstSeenAt": "2026-10-08T21:16:08.972Z",
+        "title": "Frontend Engineer – UI Frameworks & Designsysteme (m/w/d)"
+      }
+    ]
   },
   {
     "slug": "devops-ingegnere-linux-platform-engineering-m-w-d-zurcher-kantonalbank-zurich",
@@ -1359,18 +1424,27 @@
     "expiredAt": "2026-11-07T21:17:56.441Z",
     "previousSlugs": [
       "firmenkundenberater-in-direktbank-zkb-zurich",
-      "firmenkundenberater-in-direktbank-zurcher-kantonalbank-zurich"
+      "firmenkundenberater-in-direktbank-zurcher-kantonalbank-zurich",
+      "firmenkundenberater-in-direktbank-zkb-zurich-9f9ff190",
+      "firmenkundenberater-in-direktbank-zkb-zurich-96f2b67d",
+      "firmenkundenberater-in-direktbank-zurcher-kantonalbank-zurich-d36e1475"
     ],
     "previousSlugsByLocale": {
       "it": [
         "firmenkundenberater-in-direktbank-zkb-zurich",
-        "firmenkundenberater-in-direktbank-zurcher-kantonalbank-zurich"
+        "firmenkundenberater-in-direktbank-zurcher-kantonalbank-zurich",
+        "firmenkundenberater-in-direktbank-zkb-zurich-9f9ff190",
+        "firmenkundenberater-in-direktbank-zkb-zurich-96f2b67d",
+        "firmenkundenberater-in-direktbank-zurcher-kantonalbank-zurich-d36e1475"
       ],
       "en": [
         "firmenkundenberater-in-direktbank-zurcher-kantonalbank-zurich"
       ],
       "fr": [
         "firmenkundenberater-in-direktbank-zurcher-kantonalbank-zurich"
+      ],
+      "de": [
+        "firmenkundenberater-in-direktbank-zkb-zurich-9f9ff190"
       ]
     },
     "postalCode": "8001",
@@ -1380,7 +1454,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/792841/11429/pub/3",
-    "firstSeenAt": "2026-10-13T09:13:42.823Z"
+    "firstSeenAt": "2026-10-13T09:13:42.823Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/792841/11428/pub/1",
+        "firstSeenAt": "2026-10-13T09:13:42.823Z",
+        "title": "Firmenkundenberater:in Direktbank"
+      },
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/792841/11429/pub/3",
+        "firstSeenAt": "2026-10-13T09:13:42.823Z",
+        "title": "Firmenkundenberater:in Direktbank"
+      }
+    ]
   },
   {
     "slug": "specialista-in-finanziamenti-alle-imprese-zurcher-kantonalbank-zurich",
@@ -1522,7 +1608,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/792841/11255/pub/7",
-    "firstSeenAt": "2026-09-21T15:55:00.635Z"
+    "firstSeenAt": "2026-09-21T15:55:00.635Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/792841/11255/pub/5",
+        "firstSeenAt": "2026-09-21T15:55:00.635Z",
+        "title": "Technical Lead & SaaS Manager Digital Asset Hub (m/w/d)"
+      },
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/792841/11255/pub/7",
+        "firstSeenAt": "2026-09-21T15:55:00.635Z",
+        "title": "Technical Lead & SaaS Manager Digital Asset Hub (m/w/d)"
+      }
+    ]
   },
   {
     "slug": "specialista-di-parametrizzazione-avaloq-sviluppatore-trice-backend-java-m-f-d-zurcher-kantonalbank-zurich",
@@ -1963,7 +2061,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/792841/11349/pub/3",
-    "firstSeenAt": "2026-09-04T13:26:24.871Z"
+    "firstSeenAt": "2026-09-04T13:26:24.871Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/792841/11349/pub/1",
+        "firstSeenAt": "2026-09-04T13:26:24.871Z",
+        "title": "DevOps Engineer Java/Kotlin Zahlungsverkehr (m/w/d)"
+      },
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/792841/11349/pub/3",
+        "firstSeenAt": "2026-09-04T13:26:24.871Z",
+        "title": "Fullstack DevOps Engineer Java/Kotlin Zahlungsverkehr (m/w/d)"
+      }
+    ]
   },
   {
     "slug": "ai-devops-solution-ingegnere-ai-ingegnere-w-m-d-zurcher-kantonalbank-zurich",
@@ -2108,7 +2218,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/792841/11407/pub/5",
-    "firstSeenAt": "2026-10-03T09:13:46.280Z"
+    "firstSeenAt": "2026-10-03T09:13:46.280Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/792841/11407/pub/1",
+        "firstSeenAt": "2026-10-03T09:13:46.280Z",
+        "title": "Filialleiter:in"
+      },
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/792841/11407/pub/3",
+        "firstSeenAt": "2026-10-03T09:13:46.280Z",
+        "title": "Filialleiter:in"
+      },
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/792841/11407/pub/5",
+        "firstSeenAt": "2026-10-03T09:13:46.280Z",
+        "title": "Filialleiter:in"
+      }
+    ]
   },
   {
     "slug": "werkstudent-in-finanzierungszentrum-zurcher-kantonalbank-zurich",
@@ -2249,7 +2376,7 @@
     "firstSeenAt": "2026-10-12T21:14:26.323Z"
   },
   {
-    "slug": "senior-product-manager-business-ingegnere-servicenow-m-w-d-zurcher-kantonalbank-zurich-ef035dcf",
+    "slug": "senior-product-manager-business-ingegnere-servicenow-m-w-d-zurcher-kantonalbank-zurich",
     "title": "Senior Product Manager / Business Engineer ServiceNow (m/w/d)",
     "titleByLocale": {
       "it": "Responsabile prodotto senior / Ingegnere di business ServiceNow (tutti i generi)",
@@ -2268,10 +2395,10 @@
       "fr": "80% - 100% | Pilotage bancaire | Zurich | Professionnels expérimentés\n\nDescription\n\nLa complexité fait partie de notre activité. Ton ambition est d’en faire des solutions numériques simples. Au sein de l’équipe Gestion de projet & Business Engineering du sous-portefeuille Risk, Legal & Compliance et Direction générale, tu conçois des processus centraux de pilotage, de gestion des risques et de conformité de la Zürcher Kantonalbank, en reliant les exigences réglementaires, les processus métier et la technologie. ServiceNow est l’une de nos plateformes stratégiques, dont nous allons étendre l’utilisation de manière ciblée au cours des prochaines années, notamment dans la gestion des risques liés aux tiers, la gestion des processus, la protection des données et la gestion de la qualité des données.\n\nPour cela, nous ne recherchons pas un profil administratif, mais une personnalité capable de structurer la complexité, de remettre en question de manière critique l’existant et de développer des solutions solides à partir de besoins différents.\n\nTes missions\n\n- Assumer le rôle de Product Manager et de Business Engineer selon SAFe pour certains produits ServiceNow\n- Analyser des processus métier et des exigences complexes, remettre en question de manière critique les procédures existantes et en déduire des visions cibles fonctionnelles ainsi que des concepts de solutions réalisables, en collaboration avec les équipes métier et l’architecture IT\n- Structurer les intérêts divergents des parties prenantes et les faire converger vers des décisions solides\n- Concevoir le modèle opérationnel cible pour ServiceNow et faire évoluer les rôles, les responsabilités, la gouvernance et les modèles de collaboration\n- Évaluer les nouvelles exigences et les cas d’utilisation au regard de la valeur métier, de la faisabilité, de la standardisation et de l’adéquation stratégique, ainsi que garantir une évolution durable de la plateforme plutôt qu’une collection de solutions isolées\n\nTon profil\n\n- Diplôme universitaire ou d’une haute école spécialisée, par exemple en informatique de gestion, en banque et finance ou en gestion d’entreprise, ou formation équivalente\n- Plusieurs années d’expérience en tant que SAFe Product Manager, Business Engineer, Solution Consultant ou dans un rôle comparable à l’interface entre le métier et l’informatique\n- Très bonnes connaissances de ServiceNow et de la logique de sa plateforme, ainsi que capacité à situer les exigences métier sur le plan technologique ; tu ne dois pas nécessairement développer toi-même, mais tu devrais comprendre ce qui se cache techniquement derrière\n- Capacité à agir avec assurance à l’interface entre le métier, l’informatique et l’architecture, ainsi qu’à relier différentes perspectives\n- Tu as tes points forts dans la pensée stratégique, analytique et en réseau et tu es un précieux partenaire de réflexion pour ton équipe et tes parties prenantes\n- Très bonnes connaissances de l’allemand et de l’anglais\n\nNotre offre\n\n- L’entraide et l’esprit d’équipe sont des valeurs essentielles chez nous\n- Nous t’offrons un espace pour tes idées et façonnons ainsi la banque de demain\n- En tant qu’employeuse, ta carrière nous tient à cœur et c’est pourquoi nous t’encourageons et t’accompagnons dans ton parcours et te soutenons grâce à de nombreuses offres\n- Lieu de travail moderne dans le Kreis 5 avec une très bonne desserte par les transports publics (gare de Hardbrücke)\n- Ensemble complet qui, outre un salaire de base attrayant et une rémunération variable, offre de nombreux avantages et réductions – de A comme prévoyance vieillesse à Z comme ZVV-Bonuspass\n\nContact\n\nFatima Malik\nse réjouit de t'aider.\nTéléphone : 044 292 30 24"
     },
     "slugByLocale": {
-      "it": "senior-product-manager-business-ingegnere-servicenow-m-w-d-zurcher-kantonalbank-zurich-ef035dcf",
+      "it": "senior-product-manager-business-ingegnere-servicenow-m-w-d-zurcher-kantonalbank-zurich",
       "en": "senior-product-manager-business-engineer-servicenow-m-w-d-zkb-zurich-a21a1f6e",
       "de": "senior-product-manager-business-engineer-servicenow-m-w-d-zkb-zurich-a21a1f6e",
-      "fr": "senior-product-manager-business-ingenieur-servicenow-m-w-d-zurcher-kantonalbank-zurich-f54d3e46"
+      "fr": "senior-product-manager-business-ingenieur-servicenow-m-w-d-zurcher-kantonalbank-zurich"
     },
     "sector": "Finanza / Banca",
     "expiredAt": "2026-10-30T21:16:16.018Z",
@@ -2283,7 +2410,10 @@
       "senior-product-manager-business-engineer-servicenow-m-w-d-zkb-zurich-f6f203ee",
       "senior-product-manager-business-engineer-servicenow-m-w-d-zkb-zurich-2027db73",
       "senior-product-manager-business-engineer-servicenow-m-w-d-zkb-zurich-051f2858",
-      "senior-product-manager-business-engineer-servicenow-m-w-d-zkb-zurich-971e6f19"
+      "senior-product-manager-business-engineer-servicenow-m-w-d-zkb-zurich",
+      "senior-product-manager-business-ingegnere-servicenow-m-w-d-zurcher-kantonalbank-zurich-ef035dcf",
+      "senior-product-manager-business-engineer-servicenow-m-w-d-zkb-zurich-971e6f19",
+      "senior-product-manager-business-ingenieur-servicenow-m-w-d-zurcher-kantonalbank-zurich-f54d3e46"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -2294,7 +2424,18 @@
         "senior-product-manager-business-engineer-servicenow-m-w-d-zkb-zurich-f6f203ee",
         "senior-product-manager-business-engineer-servicenow-m-w-d-zkb-zurich-2027db73",
         "senior-product-manager-business-engineer-servicenow-m-w-d-zkb-zurich-051f2858",
+        "senior-product-manager-business-engineer-servicenow-m-w-d-zkb-zurich",
+        "senior-product-manager-business-ingegnere-servicenow-m-w-d-zurcher-kantonalbank-zurich-ef035dcf",
         "senior-product-manager-business-engineer-servicenow-m-w-d-zkb-zurich-971e6f19"
+      ],
+      "fr": [
+        "senior-product-manager-business-ingenieur-servicenow-m-w-d-zurcher-kantonalbank-zurich-f54d3e46"
+      ],
+      "en": [
+        "senior-product-manager-business-engineer-servicenow-m-w-d-zkb-zurich"
+      ],
+      "de": [
+        "senior-product-manager-business-engineer-servicenow-m-w-d-zkb-zurich"
       ]
     },
     "postalCode": "8001",
@@ -2303,7 +2444,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/792841/11410/pub/1",
-    "firstSeenAt": "2026-10-05T09:10:59.197Z"
+    "firstSeenAt": "2026-10-05T09:10:59.197Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/792841/11410/pub/1",
+        "firstSeenAt": "2026-10-05T09:10:59.197Z",
+        "title": "Senior Product Manager / Business Engineer ServiceNow (m/w/d)"
+      },
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/792841/11410/pub/3",
+        "firstSeenAt": "2026-11-01T09:16:31.663Z",
+        "title": "Senior Product Manager / Business Engineer ServiceNow (m/w/d)"
+      }
+    ]
   },
   {
     "slug": "specialista-in-sviluppo-commerciale-gestione-patrimoniale-zurcher-kantonalbank-zurich",
@@ -2533,22 +2686,50 @@
     "previousSlugs": [
       "kundenberater-in-privatkunden-affluent-zurcher-kantonalbank-oerlikon",
       "consulente-clienti-in-clienti-privati-affluente-zurcher-kantonalbank-altstetten",
-      "kundenberater-in-privatkunden-affluent-zkb-oerlikon"
+      "kundenberater-in-privatkunden-affluent-zkb-oerlikon",
+      "consulente-clienti-in-clienti-privati-affluente-zurcher-kantonalbank-winterthur-c5247c0c",
+      "kundenberater-in-privatkunden-affluent-zkb-winterthur-a209f935",
+      "kundenberater-in-privatkunden-affluent-zurcher-kantonalbank-winterthur-8eec6727",
+      "consulente-clienti-in-clienti-privati-affluente-zurcher-kantonalbank-dietikon-e5696df5",
+      "customer-consultant-in-private-customers-affluent-zurcher-kantonalbank-winterthur-a1e6bc87",
+      "consulente-clienti-in-clienti-privati-affluente-zurcher-kantonalbank-winterthur",
+      "kundenberater-in-privatkunden-affluent-zkb-winterthur",
+      "consulente-clienti-in-clienti-privati-affluente-zurcher-kantonalbank-dietikon",
+      "kundenberater-in-privatkunden-affluent-zurcher-kantonalbank-winterthur",
+      "consultant-client-chez-les-clients-prives-affluent-zurcher-kantonalbank-winterthur-e01b2627"
     ],
     "previousSlugsByLocale": {
       "it": [
         "kundenberater-in-privatkunden-affluent-zurcher-kantonalbank-oerlikon",
         "consulente-clienti-in-clienti-privati-affluente-zurcher-kantonalbank-altstetten",
-        "kundenberater-in-privatkunden-affluent-zkb-oerlikon"
+        "kundenberater-in-privatkunden-affluent-zkb-oerlikon",
+        "consulente-clienti-in-clienti-privati-affluente-zurcher-kantonalbank-winterthur-c5247c0c",
+        "kundenberater-in-privatkunden-affluent-zkb-winterthur-a209f935",
+        "kundenberater-in-privatkunden-affluent-zurcher-kantonalbank-winterthur-8eec6727",
+        "consulente-clienti-in-clienti-privati-affluente-zurcher-kantonalbank-dietikon-e5696df5"
       ],
       "en": [
-        "kundenberater-in-privatkunden-affluent-zurcher-kantonalbank-oerlikon"
+        "kundenberater-in-privatkunden-affluent-zurcher-kantonalbank-oerlikon",
+        "customer-consultant-in-private-customers-affluent-zurcher-kantonalbank-winterthur-a1e6bc87",
+        "kundenberater-in-privatkunden-affluent-zurcher-kantonalbank-winterthur-8eec6727",
+        "consulente-clienti-in-clienti-privati-affluente-zurcher-kantonalbank-winterthur",
+        "kundenberater-in-privatkunden-affluent-zkb-winterthur",
+        "consulente-clienti-in-clienti-privati-affluente-zurcher-kantonalbank-dietikon"
       ],
       "de": [
-        "kundenberater-in-privatkunden-affluent-zurcher-kantonalbank-oerlikon"
+        "kundenberater-in-privatkunden-affluent-zurcher-kantonalbank-oerlikon",
+        "kundenberater-in-privatkunden-affluent-zkb-winterthur-a209f935",
+        "consulente-clienti-in-clienti-privati-affluente-zurcher-kantonalbank-winterthur",
+        "kundenberater-in-privatkunden-affluent-zurcher-kantonalbank-winterthur",
+        "consulente-clienti-in-clienti-privati-affluente-zurcher-kantonalbank-dietikon"
       ],
       "fr": [
-        "kundenberater-in-privatkunden-affluent-zurcher-kantonalbank-oerlikon"
+        "kundenberater-in-privatkunden-affluent-zurcher-kantonalbank-oerlikon",
+        "consultant-client-chez-les-clients-prives-affluent-zurcher-kantonalbank-winterthur-e01b2627",
+        "kundenberater-in-privatkunden-affluent-zurcher-kantonalbank-winterthur-8eec6727",
+        "consulente-clienti-in-clienti-privati-affluente-zurcher-kantonalbank-winterthur",
+        "kundenberater-in-privatkunden-affluent-zkb-winterthur",
+        "consulente-clienti-in-clienti-privati-affluente-zurcher-kantonalbank-dietikon"
       ]
     },
     "postalCode": "8001",
@@ -2923,7 +3104,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/792841/11401/pub/1",
-    "firstSeenAt": "2026-10-03T09:13:48.392Z"
+    "firstSeenAt": "2026-10-02T21:11:38.316Z"
   },
   {
     "slug": "sachbearbeiter-in-wealth-planning-w-m-d-zurcher-kantonalbank-zurich",
@@ -3052,7 +3233,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/792841/11403/pub/3",
-    "firstSeenAt": "2026-10-03T09:13:47.969Z"
+    "firstSeenAt": "2026-10-02T09:10:57.818Z"
   },
   {
     "slug": "devops-ingegnere-java-cyber-security-m-w-d-zurcher-kantonalbank-zurich-b229cc17",
@@ -3247,7 +3428,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/792841/11414/pub/3",
-    "firstSeenAt": "2026-10-06T09:12:03.412Z"
+    "firstSeenAt": "2026-10-06T09:12:03.412Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/792841/11414/pub/2",
+        "firstSeenAt": "2026-10-06T09:12:03.412Z",
+        "title": "Projektleiter strategisches Flächenmanagement (m/w/d)"
+      },
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/792841/11414/pub/3",
+        "firstSeenAt": "2026-10-06T09:12:03.412Z",
+        "title": "Projektleiter strategisches Flächenmanagement (m/w/d)"
+      }
+    ]
   },
   {
     "slug": "devops-ingegnere-java-kotlin-handel-m-w-d-zurcher-kantonalbank-zurich",
@@ -4220,7 +4413,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/792841/11407/pub/1",
-    "firstSeenAt": "2026-10-03T09:13:46.280Z"
+    "firstSeenAt": "2026-10-02T21:11:36.218Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/792841/11407/pub/1",
+        "firstSeenAt": "2026-10-02T21:11:36.218Z",
+        "title": "Filialleiter:in"
+      },
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/792841/11407/pub/3",
+        "firstSeenAt": "2026-10-03T09:13:46.280Z",
+        "title": "Filialleiter:in"
+      },
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/792841/11407/pub/5",
+        "firstSeenAt": "2026-10-03T09:13:46.280Z",
+        "title": "Filialleiter:in"
+      }
+    ]
   },
   {
     "slug": "junior-portfolio-manager-immobiliare-zurcher-kantonalbank-zurich",
@@ -4267,6 +4477,55 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/792841/11435/pub/1",
     "firstSeenAt": "2026-10-15T21:13:40.004Z"
+  },
+  {
+    "slug": "responsabile-del-team-clienti-privati-kusnacht-zumikon-zurcher-kantonalbank-kusnacht",
+    "title": "Teamleiter:in Privatkunden Küsnacht, Zumikon",
+    "titleByLocale": {
+      "de": "Teamleiter:in Privatkunden Küsnacht, Zumikon",
+      "it": "Responsabile del team clienti privati Küsnacht, Zumikon",
+      "en": "Team Leader Private Customers Küsnacht, Zumikon",
+      "fr": "Responsable d’équipe clientèle privée Küsnacht, Zumikon"
+    },
+    "company": "Zürcher Kantonalbank",
+    "companyKey": "zkb",
+    "location": "Küsnacht",
+    "addressLocality": "Küsnacht",
+    "descriptionByLocale": {
+      "de": "80% - 100% | Vertrieb und Kundenberatung | Küsnacht ZH | Berufserfahrene mit Personalverantwortung\nAls lokal stark verankerte Bank in der Region Küsnacht und Zumikon verbinden wir persönliche Nähe mit moderner Beratung und digitalen Lösungen – und bieten dir ein Umfeld, in dem du mit deinem Team sichtbar etwas für unsere Kundschaft und die Region bewirken kannst.\nAls Teamleiter:in Privatkunden begeisterst du unsere Kundschaft in der Region Küsnacht und Zumikon und entwickelst deine Mitarbeitenden weiter. Gemeinsam mit deinem Team prägst du das Kundenerlebnis in unseren Filialen und übernimmst die Verantwortung für die Kundinnen und Kunden im Segment Privatkunden.\nDu förderst eine kundenorientierte Verkaufs- und Beratungskultur und motivierst dein Team zu Höchstleistungen. Dein Team begrüsst alle Besucherinnen und Besucher der Filialen und ist für die Beratung und Entwicklung unserer Privatkundschaft zuständig.\nNeben der ganzheitlichen Beratung in den Bereichen Vorsorge, Zahlen, Sparen und Anlegen – mit einem besonderen Fokus auf das Alltagsbanking und den systematischen Vermögensaufbau – erkennst du gemeinsam mit deinem Team weitergehende Kundenbedürfnisse und leitest gezielt Vermittlungen an Spezialist:innen ein.\nDeine Aufgaben\nDeine Aufgaben\n• Führung, Förderung und Entwicklung deiner Mitarbeitenden (Team von 9-10 Mitarbeitenden an den Standorten Küsnacht und Zumikon)\n• Sicherstellen einer qualitativ hochwertigen Ausbildung und Begleitung der Mitarbeitenden und Young Talents\n• Aktives Führen und Begleiten von Vertriebs- und Marktbearbeitungskampagnen in den Regionen Küsnacht und Zumikon\n• Beratung von Privatkundinnen und Privatkunden in den Bereichen Zahlen (Konto- und Kartensortiment), Sparen, Anlegen und Vorsorgen\n• Erkennen des Kundenpotenzials, Erfassen der Kundenbedürfnisse und Ausarbeiten passender Lösungen\n• Begleiten unserer Kundschaft in die digitale Welt (E-Banking, Mobile Banking, digitale Services) und die Selbstbedienung (Automatenzone)\n• Akquisition von Neukundinnen und Neukunden sowie Erkennen und Vermitteln weitergehender Kundenbedürfnisse an interne Fachspezialist:innen\n• Abwicklung von Bargeldverkehr, Geldwechsel und Edelmetallgeschäften in der Filiale\n• Ressourcen- und Einsatzplanung für dein Team\nDein Profil\nDein Profil\n• Abgeschlossene Bankfachausbildung oder gleichwertige Ausbildung sowie abgeschlossene oder laufende Weiterbildung (z.B. Bachelor in Banking & Finance, HF Betriebswirtschaft o.Ä.)\n• Mehrjährige Erfahrung im Vertrieb in der Bankbranche, erste Führungserfahrung von Vorteil\n• Ausgeprägte Verkaufs- und Dienstleistungsorientierung mit Freude an der aktiven Kundenberatung\n• Begeisterung für Führung, Coaching und Weiterentwicklung von Menschen\n• Vertrauensvolle, kommunikative und empathische Persönlichkeit, die gut ins regionale Umfeld von Küsnacht und Zumikon passt\n• Hohe Eigenmotivation, Selbstverantwortung und ausgeprägtes Organisationstalent\n• Gepflegtes, sicheres Auftreten und sehr gute Umgangsformen\nUnser Angebot\n• Motiviertes, selbstorganisiertes und aufgestelltes Team, das sich auf dich freut\n• Wir arbeiten in einer Du-Kultur und fördern eine unterstützende sowie wertschätzende Atmosphäre im Team\n• Abwechslungsreiche Tätigkeit mit spannender und herausfordernder Kundschaft mit viel Potenzial\n• Deine Karriere liegt uns als Arbeitgeberin am Herzen und deshalb fördern und begleiten wir dich auf deinem Weg\n• Attraktives Gesamtpaket mit interessanten Nebenleistungen und Mitarbeitervergünstigungen (ÖV, Sport, Freizeit, Kinderbetreuung, Krankenkasse uvm.)\nKristin Müller\nfreut sich, dir zu helfen.\nTelefon: 044 292 27 74",
+      "it": "80% - 100% | Vendite e servizio clienti | Küsnacht ZH | Professionisti esperti con responsabilità del personale\nCome banca con forti radici locali nelle regioni di Küsnacht e Zumikon, uniamo la vicinanza personale con la consulenza moderna e le soluzioni digitali – e vi offriamo un ambiente in cui voi e il vostro team potete fare un impatto visibile sui nostri clienti e sulla regione.\nCome leader del team: nei clienti privati, ispiri i nostri clienti nella regione di Küsnacht e Zumikon e sviluppi ulteriormente i tuoi dipendenti. Insieme al vostro team, plasmate l'esperienza del cliente nei nostri rami e assumete la responsabilità per i clienti nel segmento dei clienti privati.\nPromuovi una cultura di vendita e consulenza orientata al cliente e motiva il tuo team a svolgere al meglio. Il vostro team accoglie tutti i visitatori delle filiali ed è responsabile della consulenza e dello sviluppo dei nostri clienti privati.\nOltre alla consulenza olistica nei settori delle pensioni, dei pagamenti, dei risparmi e degli investimenti – con particolare attenzione al quotidiano bancario e all'accumulazione di asset – si riconoscono ulteriori esigenze del cliente insieme al team e si avviano riferimenti mirati agli specialisti.\nI tuoi compiti\nI tuoi compiti\n• Leadership, promozione e sviluppo dei vostri dipendenti (team di 9-10 dipendenti nelle sedi di Küsnacht e Zumikon)\n• Garantire formazione e supporto di alta qualità per dipendenti e giovani talenti\n• Gestione attiva e sostegno delle campagne di vendita e sviluppo del mercato nelle regioni di Küsnacht e Zumikon\n• Consulenza clienti privati nei settori delle cifre (assortimento conto e carta), risparmio, investimento e provisioning\n• Riconoscere il potenziale del cliente, catturare le esigenze del cliente e sviluppare soluzioni adeguate\n• Accompagnamento dei nostri clienti nel mondo digitale (e-banking, mobile banking, servizi digitali) e self-service (zona automatica)\n• Acquisizione di nuovi clienti, riconoscimento e comunicazione di ulteriori esigenze del cliente a specialisti interni:\n• Regolazione di cassa, cambio valuta e operazioni metalliche preziose nel ramo\n• Risorse e pianificazione operativa per il vostro team\nIl tuo profilo\nIl tuo profilo\n• Formazione specialistica bancaria completata o formazione equivalente, nonché formazione complementare completa o continua (ad esempio Bachelor in Banking & Finance, HF Business Administration o simili)\n• Diversi anni di esperienza nelle vendite nel settore bancario, prima esperienza di gestione di vantaggio\n• Pronunciato orientamento vendite e servizio con piacere nella consulenza attiva del cliente\n• Entusiasmo per leadership, coaching e ulteriore sviluppo delle persone\n• Personalità affidabile, comunicativa ed empatica che si adatta bene all'ambiente regionale di Küsnacht e Zumikon\n• Alta auto-motivazione, auto-responsabilità e forte talento organizzativo\n• Attenzione, aspetto sicuro e buone maniere\nLa nostra offerta\n• Squadra motivata, auto-organizzata e consolidata che vi aspetta\n• Lavoriamo in una du-culture e promuoviamo un'atmosfera solida e apprezzata nel team\n• Attività variegata con una clientela eccitante e stimolante con un sacco di potenziale\n• La tua carriera è importante per noi come datore di lavoro e quindi ti sosteniamo e ti accompagniamo sulla tua strada\n• Pacchetto complessivo attraente con interessanti servizi accessori e prestazioni dei dipendenti (trasporti pubblici, sport, tempo libero, assistenza all'infanzia, assicurazione sanitaria e così via)\nKristin Müller\nSono felice di aiutarti.\nTelefono: 044 292 27 74",
+      "en": "80% - 100% | Sales and customer service | Küsnacht ZH | Experienced professionals with personnel responsibility\nAs a bank with strong local roots in the Küsnacht and Zumikon regions, we combine personal proximity with modern consulting and digital solutions – and offer you an environment in which you and your team can make a visible impact on our customers and the region.\nAs a team leader: in private customers, you inspire our customers in the Küsnacht and Zumikon region and develop your employees further. Together with your team, you shape the customer experience in our branches and take responsibility for customers in the private customer segment.\nYou promote a customer-oriented sales and consulting culture and motivate your team to perform at its best. Your team welcomes all visitors to the branches and is responsible for advising and developing our private customers.\nIn addition to holistic advice in the areas of pensions, payments, savings and investing – with a special focus on everyday banking and systematic asset accumulation – you recognize further customer needs together with your team and initiate targeted referrals to specialists.\nYour tasks\nYour tasks\n• Leadership, promotion and development of your employees (team of 9-10 employees at the Küsnacht and Zumikon locations)\n• Ensuring high-quality training and support for employees and young talents\n• Active management and support of sales and market development campaigns in the regions of Küsnacht and Zumikon\n• Advising private customers in the areas of figures (account and card assortment), saving, investing and provisioning\n• Recognizing customer potential, capturing customer needs and developing suitable solutions\n• Accompanying our customers in the digital world (e-banking, mobile banking, digital services) and self-service (automaton zone)\n• Acquisition of new customers as well as recognizing and communicating further customer needs to internal specialists:\n• Settlement of cash, currency exchange and precious metal transactions in the branch\n• Resource and operational planning for your team\nYour profile\nYour profile\n• Completed banking specialist training or equivalent training as well as completed or ongoing further education (e.g. Bachelor in Banking & Finance, HF Business Administration or similar)\n• Several years of experience in sales in the banking industry, first management experience of advantage\n• Pronounced sales and service orientation with pleasure in active customer advice\n• Enthusiasm for leadership, coaching and further development of people\n• Trustworthy, communicative and empathetic personality that fits well into the regional environment of Küsnacht and Zumikon\n• High self-motivation, self-responsibility and strong organizational talent\n• Careful, safe appearance and very good manners\nOur offer\n• Motivated, self-organized and established team that looks forward to you\n• We work in a du-culture and promote a supportive and appreciative atmosphere in the team\n• Varied activity with an exciting and challenging clientele with a lot of potential\n• Your career is important to us as an employer and therefore we support and accompany you on your way\n• Attractive overall package with interesting ancillary services and employee benefits (public transport, sports, leisure, childcare, health insurance and so on)\nKristin Müller\nI am glad to help you.\nTelephone: 044 292 27 74",
+      "fr": "80 % - 100 % de ventes et de service à la clientèle\nEn tant que banque aux racines locales fortes dans les régions de Küsnacht et Zumikon, nous combinons proximité personnelle avec des solutions de conseil modernes et numériques – et vous offrons un environnement dans lequel vous et votre équipe pouvez faire un impact visible sur nos clients et la région.\nEn tant que chef d'équipe : chez les clients privés, vous inspirez nos clients dans la région de Küsnacht et Zumikon et développez vos collaborateurs. Avec votre équipe, vous façonnez l'expérience client dans nos succursales et prenez en charge les clients du segment client privé.\nVous faites la promotion d'une culture de vente et de consultation axée sur le client et motivez votre équipe à se comporter au mieux. Votre équipe accueille tous les visiteurs dans les succursales et est chargée de conseiller et de développer nos clients privés.\nEn plus des conseils holistiques dans les domaines des pensions, des paiements, de l'épargne et de l'investissement – avec un accent particulier sur la banque quotidienne et l'accumulation systématique d'actifs – vous reconnaissez d'autres besoins des clients avec votre équipe et lancez des aiguillages ciblés vers des spécialistes.\nVos tâches\nVos tâches\n• Leadership, promotion et perfectionnement de vos employés (équipe de 9 à 10 employés dans les localités de Küsnacht et Zumikon)\n• Assurer une formation et un soutien de qualité aux employés et aux jeunes talents\n• Gestion active et soutien des campagnes de vente et de développement du marché dans les régions de Küsnacht et Zumikon\n• Conseils aux clients privés en matière de chiffres (assortiment de comptes et de cartes), d'épargne, d'investissement et de fourniture\n• Reconnaître le potentiel du client, saisir les besoins du client et développer des solutions appropriées\n• Accompagner nos clients dans le monde numérique (banque électronique, banque mobile, services numériques) et en libre-service (zone automate)\n• L'acquisition de nouveaux clients ainsi que la reconnaissance et la communication des nouveaux besoins des clients aux spécialistes internes :\n• Règlement des opérations de trésorerie, de change et de métaux précieux dans la succursale\n• Planification des ressources et des opérations de votre équipe\nVotre profil\nVotre profil\n• Formation de spécialistes des services bancaires terminée ou formation équivalente ainsi que formation continue complète ou continue (p. ex. baccalauréat en banque et finances, administration des affaires HF ou similaire)\n• Plusieurs années d'expérience dans les ventes dans le secteur bancaire, première expérience de gestion d'avantage\n• Prononcé vente et orientation de service avec plaisir dans le conseil actif de la clientèle\n• Enthousiasme pour le leadership, le coaching et le développement ultérieur des personnes\n• Personnalité fiable, communicative et empathique qui s'intègre bien dans l'environnement régional de Küsnacht et Zumikon\n• Motivation élevée, autoresponsabilité et talent organisationnel fort\n• Aspect prudent et sûr et très bonnes manières\nNotre offre\n• Équipe motivée, auto-organisée et établie qui vous attend avec impatience\n• Nous travaillons dans une du-culture et faisons la promotion d'une atmosphère de soutien et d'appréciation dans l'équipe\n• Activité variée avec une clientèle passionnante et stimulante avec beaucoup de potentiel\n• Votre carrière est importante pour nous en tant qu'employeur et donc nous vous soutenons et vous accompagnons sur votre chemin\n• Ensemble attrayant avec services annexes intéressants et avantages sociaux (transports publics, sports, loisirs, garde d'enfants, assurance maladie, etc.)\nKristin Müller\nJe suis heureux de vous aider.\nTéléphone : 044 292 27 74"
+    },
+    "slugByLocale": {
+      "de": "teamleiter-in-privatkunden-kusnacht-zumikon-zkb-kusnacht",
+      "it": "responsabile-del-team-clienti-privati-kusnacht-zumikon-zurcher-kantonalbank-kusnacht",
+      "en": "team-leader-private-customers-kusnacht-zumikon-zurcher-kantonalbank-kusnacht",
+      "fr": "responsable-d-equipe-clientele-privee-kusnacht-zumikon-zurcher-kantonalbank-kusnacht"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-10-21T09:15:41.856Z",
+    "previousSlugs": [
+      "teamleiter-in-privatkunden-kusnacht-zumikon-zkb-kusnacht"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "teamleiter-in-privatkunden-kusnacht-zumikon-zkb-kusnacht"
+      ],
+      "en": [
+        "teamleiter-in-privatkunden-kusnacht-zumikon-zkb-kusnacht"
+      ],
+      "fr": [
+        "teamleiter-in-privatkunden-kusnacht-zumikon-zkb-kusnacht"
+      ]
+    },
+    "postalCode": "8700",
+    "salaryMin": 91500,
+    "salaryMax": 128000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://apply.refline.ch/792841/11440/pub/1",
+    "firstSeenAt": "2026-10-20T21:19:00.547Z"
   },
   {
     "slug": "responsabile-del-team-clienti-privati-kusnacht-zumikon-zurcher-kantonalbank-kusnacht-555edb63",
@@ -5243,7 +5502,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/792841/11409/pub/1",
-    "firstSeenAt": "2026-10-03T09:13:47.547Z"
+    "firstSeenAt": "2026-10-02T21:11:37.475Z"
   },
   {
     "slug": "specialista-nelle-indagini-sui-pagamenti-zurcher-kantonalbank-zurich",
@@ -5386,48 +5645,6 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/792841/11209/pub/5",
     "firstSeenAt": "2026-09-16T23:43:19.518Z"
-  },
-  {
-    "slug": "firmenkundenberater-in-direktbank-zurcher-kantonalbank-zurich-d36e1475",
-    "title": "Firmenkundenberater:in Direktbank",
-    "titleByLocale": {
-      "it": "Consulente per clienti aziendali presso una banca diretta",
-      "en": "Corporate client advisor Direct Bank",
-      "de": "Firmenkundenberater:in Direktbank",
-      "fr": "Conseiller·ère clientèle entreprises en banque directe"
-    },
-    "company": "Zürcher Kantonalbank",
-    "companyKey": "zkb",
-    "location": "Zürich",
-    "addressLocality": "Zürich",
-    "descriptionByLocale": {
-      "it": "80% - 100% | Operazioni bancarie, Vendite e Customer Consulting | Zurich | Professionisti esperti\nInsieme ai vostri colleghi, siete appassionati di sostenere più di 70.000 clienti aziendali lungo i loro più importanti eventi aziendali. Potrai accompagnare le PMI dall'avvio attraverso la fase di crescita alla successione aziendale e anche consigliare sulle preoccupazioni private degli imprenditori. Si comporta come una persona di contatto affidabile e combinare la competenza professionale con la vicinanza ai clienti. Il vostro posto di lavoro è situato in posizione centrale nel vivace quartiere 5 vicino alla stazione Hardbrücke, alternandosi con incarichi regolari nei nostri rami Oerlikon e Dietikon. Se ti piace lavorare con i clienti aziendali e vuoi plasmare attivamente il futuro della nostra zona, allora sei una buona soluzione per noi.\nI tuoi compiti\n• Consulere i fondatori per un rapido e regolare inizio di auto-occupazione\n• Fornitura di consultazioni telefoniche e personali sia per i clienti aziendali (finanziamento societario e immobiliare, transazioni monetarie, investimenti, regimi pensionistici) sia per le preoccupazioni private degli imprenditori (finanziamento immobiliare, investimenti, regimi pensionistici) Esaminare, richiedere e approvare il finanziamento (compresi mutui, leasing e prestiti) nonché il monitoraggio degli impegni di credito\n• Le esigenze attive e la potenziale scoperta, nonché il potenziale riconoscimento e lo sfruttamento strutturato con l'aiuto della nostra piattaforma di consulenza digitale\nIl tuo profilo\n• Completato l'istruzione bancaria o equivalente con un'esperienza bancaria appropriata\n• Istruzione superiore o formazione (certificato specialistico, liceo, laurea o grado comparabile in amministrazione aziendale o bancario e finanziario)\n• Esperienza nel finanziamento e nel business degli investimenti\n• Godere delle idee e delle sfide delle aziende e dei loro proprietari\n• Forte capacità di comunicazione e esperienza nella consulenza clienti per telefono e nella conversazione personale\n• Conoscenza molto buona di tedesco e inglese, ulteriori competenze linguistiche sono un plus\nLa nostra offerta\n• Squadra motivata, auto-organizzata e consolidata che vi aspetta\n• Il nostro modo di lavorare è autodeterminato – questo comporta responsabilità, offre possibilità di progettazione e libertà\n• Investiamo molto nei nostri dipendenti e offriamo opportunità di formazione individuali\n• Diversi eventi e reti interne offrono la possibilità di rete rapidamente\n• Il pacchetto complessivo attraente, che oltre all'attrattivo stipendio base e ad una remunerazione variabile offre molti vantaggi e vantaggi – da A come il risparmio di pensione a Z come i biglietti dello zoo\nFabian Herzig\nSono felice di aiutarti.\nTelefono: 044 292 27 96",
-      "en": "80% - 100% | Banking Operations, Sales and Customer Consulting | Zurich | Experienced Professionals\nTogether with your colleagues, you are passionate about supporting more than 70,000 corporate customers along their most important corporate events. You will accompany SMEs from start-up through the growth phase to company succession and also advise on private concerns of entrepreneurs. You act as a reliable contact person and combine professional competence with proximity to customers. Your workplace is centrally located in the lively district 5 near the station Hardbrücke, alternating with regular assignments in our branches Oerlikon and Dietikon. If you enjoy working with corporate customers and want to actively shape the future of our area, then you are a good fit for us.\nYour tasks\n• Advising founders for a quick and smooth start to self-employment\n• Provision of telephone and personal consultations both for corporate customers (corporate and real estate financing, money transactions, investments, pension schemes) and for private concerns of entrepreneurs (real estate financing, investments, pension schemes) Examining, applying for and approving financing (including mortgages, leasing and loans) as well as monitoring credit commitments\n• Active needs and potential discovery as well as structured potential recognition and exploitation with the help of our digital consulting platform\nYour profile\n• Completed banking or equivalent education with appropriate banking experience\n• Higher education or training (specialist certificate, high school, bachelor or comparable degree in business administration or banking and finance)\n• Experience in financing and investment business\n• Enjoying the ideas and challenges of companies and their owners\n• Strong communication skills and experience in customer advice by telephone and in personal conversation\n• Very good knowledge of German and English, further language skills are a plus\nOur offer\n• Motivated, self-organized and established team that looks forward to you\n• Our way of working is self-determined – this entails responsibility, offers design possibilities and freedom\n• We invest a lot in our employees and offer individual training opportunities\n• Various events and internal networks offer you the opportunity to network quickly\n• Attractive overall package, which in addition to the attractive basic salary and a variable remuneration offers many benefits and perks – from A such as retirement savings to Z such as zoo tickets\nFabian Herzig\nI am happy to help you.\nTelephone: 044 292 27 96",
-      "de": "80% - 100% | Banking Operations, Vertrieb und Kundenberatung | Zürich | Berufserfahrene\nMit viel Leidenschaft unterstützt du gemeinsam mit deinen Kolleginnen und Kollegen mehr als 70'000 Firmenkundinnen und Firmenkunden entlang ihrer wichtigsten Unternehmensereignisse. Du begleitest KMU von der Gründung über die Wachstumsphase bis zur Unternehmensnachfolge und berätst auch bei privaten Anliegen der Unternehmerinnen und Unternehmer. Dabei trittst du als verlässliche Ansprechperson auf und verbindest fachliche Kompetenz mit Nähe zur Kundschaft. Dein Arbeitsplatz befindet sich zentral im lebendigen Kreis 5 nahe dem Bahnhof Hardbrücke, im Wechsel mit regelmässigen Einsätzen in unseren Filialen Oerlikon und Dietikon. Wenn du Freude an der Zusammenarbeit mit Firmenkundschaft hast und die Zukunft unseres Bereichs aktiv mitgestalten möchtest, dann passt du gut zu uns.\nDeine Aufgaben\n• Beraten von Gründerinnen und Gründern für einen schnellen und reibungslosen Start in die Selbstständigkeit\n• Erbringung von telefonischen und persönlichen Beratungen sowohl für Firmenkunden (Unternehmens- und Immobilienfinanzierungen, Geldverkehr, Anlagen, Vorsorge) als auch für private Anliegen der Unternehmerinnen und Unternehmer (Immobilienfinanzierungen, Anlagen, Vorsorge) Prüfen, Beantragen und Bewilligen von Finanzierungen (inkl. Hypotheken, Leasing und Kredite) sowie Überwachen der Kreditengagements\n• Aktive Bedürfnis- und Potenzialergründung sowie strukturierte Potenzialerkennung und -ausschöpfung mit Hilfe unserer digitalen Beratungsplattform\nDein Profil\n• Abgeschlossene Banklehre oder gleichwertige Ausbildung mit entsprechender Bankerfahrung\n• Höhere Weiterbildung oder in Ausbildung dazu (Fachausweis, Höhere Fachschule, Bachelor oder vergleichbarer Abschluss im Bereich Betriebswirtschaft oder Banking and Finance)\n• Erfahrung im Finanzierungs- und Anlagegeschäft\n• Freude an den Ideen und Herausforderungen von Unternehmen und deren Inhaberinnen und Inhabern\n• Ausgeprägte kommunikative Fähigkeiten und Erfahrung in der Kundenberatung per Telefon und im persönlichen Gespräch\n• Sehr gute Deutsch- und Englischkenntnisse, weitere Sprachkenntnisse sind ein Pluspunkt\nUnser Angebot\n• Motiviertes, selbstorganisiertes und aufgestelltes Team, das sich auf dich freut\n• Unsere Arbeitsweise ist selbstbestimmt – das bringt Verantwortung mit sich, bietet Gestaltungsmöglichkeiten und Freiräume\n• Wir investieren viel in unsere Mitarbeitenden und bieten individuelle Weiterbildungsangebote\n• Verschiedene Anlässe und interne Netzwerke bieten dir die Möglichkeit, dich schnell zu vernetzen\n• Attraktives Gesamtpaket, welches neben dem attraktiven Grundsalär und einer variablen Vergütung viele Benefits und Vergünstigungen bietet – von A wie Altersvorsorge bis Z wie Zoo-Tickets\nFabian Herzig\nfreut sich, dir zu helfen.\nTelefon: 044 292 27 96",
-      "fr": "80% - 100% de services bancaires, de vente et de conseil à la clientèle de Zurich\nAvec vos collègues, vous êtes passionnés par le soutien à plus de 70 000 clients d'entreprise tout au long de leurs événements les plus importants. Vous accompagnerez les PME de la phase de démarrage à la phase de croissance jusqu'à la succession d'entreprises et vous conseillerez sur les préoccupations privées des entrepreneurs. Vous agissez comme une personne de contact fiable et combinez compétence professionnelle et proximité avec les clients. Votre lieu de travail est situé dans le quartier animé 5 près de la station Hardbrücke, en alternance avec des affectations régulières dans nos succursales Oerlikon et Dietikon. Si vous aimez travailler avec des clients d'entreprise et voulez façonner activement l'avenir de notre région, alors vous êtes un bon ajustement pour nous.\nVos tâches\n• Conseiller les fondateurs pour un démarrage rapide et en douceur au travail indépendant\n• Fourniture de consultations téléphoniques et personnelles à la fois pour les entreprises (financement des sociétés et de l'immobilier, transactions monétaires, investissements, régimes de retraite) et pour les intérêts privés des entrepreneurs (financement immobilier, investissements, régimes de retraite) Examen, demande et approbation du financement (y compris les prêts hypothécaires, le crédit-bail et les prêts) ainsi que suivi des engagements de crédit\n• Besoins actifs et découverte potentielle ainsi que reconnaissance et exploitation potentielles structurées avec l'aide de notre plateforme de conseil numérique\nVotre profil\n• Études bancaires terminées ou équivalentes avec une expérience bancaire appropriée\n• Enseignement supérieur ou formation (certificat spécialisé, lycée, baccalauréat ou diplôme comparable en administration des affaires ou en banque et finance)\n• Expérience en matière de financement et d'investissement\n• Profiter des idées et des défis des entreprises et de leurs propriétaires\n• Fortes compétences en communication et expérience en conseil à la clientèle par téléphone et en conversation personnelle\n• Très bonne connaissance de l'allemand et de l'anglais, d'autres compétences linguistiques sont un plus\nNotre offre\n• Équipe motivée, auto-organisée et établie qui vous attend avec impatience\n• Notre façon de travailler est auto-déterminée – cela implique des responsabilités, offre des possibilités de conception et de liberté\n• Nous investissons beaucoup dans nos employés et offrons des possibilités de formation individuelle\n• Divers événements et réseaux internes vous offrent la possibilité de réseauter rapidement\n• Un forfait global attrayant, qui, en plus du salaire de base attractif et d'une rémunération variable offre de nombreux avantages et avantages – de A comme l'épargne-retraite à Z comme les tickets zoo\nFabian Herzig\nJe suis heureux de vous aider.\nTéléphone : 044 292 27 96"
-    },
-    "slugByLocale": {
-      "de": "firmenkundenberater-in-direktbank-zkb-zurich-9f9ff190"
-    },
-    "sector": "Finanza / Banca",
-    "expiredAt": "2026-10-14T21:13:40.255Z",
-    "previousSlugs": [
-      "firmenkundenberater-in-direktbank-zkb-zurich-9f9ff190",
-      "firmenkundenberater-in-direktbank-zkb-zurich-96f2b67d"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "firmenkundenberater-in-direktbank-zkb-zurich-9f9ff190",
-        "firmenkundenberater-in-direktbank-zkb-zurich-96f2b67d"
-      ]
-    },
-    "postalCode": "8001",
-    "salaryMin": 79000,
-    "salaryMax": 134500,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://apply.refline.ch/792841/11428/pub/1",
-    "firstSeenAt": "2026-10-13T09:13:42.823Z"
   },
   {
     "slug": "platform-ingegnere-backup-cyber-disaster-recovery-m-w-d-zurcher-kantonalbank-zurich",
@@ -6191,7 +6408,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/792841/11315/pub/1",
-    "firstSeenAt": "2026-08-11T10:08:11.684Z"
+    "firstSeenAt": "2026-08-11T10:08:11.684Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/792841/11314/pub/3",
+        "firstSeenAt": "2026-08-11T10:08:11.684Z",
+        "title": "Kundenberater:in Privatkunden Affluent"
+      },
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/792841/11314/pub/5",
+        "firstSeenAt": "2026-08-11T10:08:11.684Z",
+        "title": "Kundenberater:in Privatkunden Affluent"
+      },
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/792841/11315/pub/1",
+        "firstSeenAt": "2026-08-11T10:08:11.684Z",
+        "title": "Kundenberater:in Privatkunden Affluent"
+      }
+    ]
   },
   {
     "slug": "senior-full-stack-ingegnere-billing-payments-m-w-d-zurcher-kantonalbank-zurich",
@@ -8542,7 +8776,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/792841/11398/pub/1",
-    "firstSeenAt": "2026-10-03T09:13:45.842Z"
+    "firstSeenAt": "2026-10-02T09:10:57.356Z"
   },
   {
     "slug": "senior-product-manager-pension-solutions-m-f-d-zurcher-kantonalbank-zurich",
@@ -9123,6 +9357,131 @@
     "firstSeenAt": "2026-08-20T09:46:37.905Z"
   },
   {
+    "slug": "devops-ingegnere-fullstack-m-w-d-zurcher-kantonalbank-zurich-ff027ca1",
+    "title": "DevOps Engineer Fullstack (m/w/d)",
+    "titleByLocale": {
+      "de": "DevOps Ingenieur Fullstack (m/w/d)",
+      "en": "DevOps Engineer Fullstack (m/w/d)",
+      "it": "DevOps Ingegnere Fullstack (m/w/d)",
+      "fr": "DevOps Ingénieur Fullstack (m/w/d)"
+    },
+    "company": "Zürcher Kantonalbank",
+    "companyKey": "zkb",
+    "location": "Zürich",
+    "addressLocality": "Zürich",
+    "descriptionByLocale": {
+      "de": "• DevOps Engineer Fullstack (m/w/d)\n\n80% - 100% | IT / Business Engineering | Zürich | Berufserfahrene\n\nJetzt online bewerben\n\nDiese Rekrutierung erfolgt im Rahmen eines Exklusivauftrages in Zusammenarbeit mit Consult & Pepper AG. Bitte bewerben Sie direkt bei Natalie Kämpfer ( natalie.kaempfer@consultandpepper.com / +41 52 369 20 24) via: jetzt online bewerben\n\nBei uns in der IT der Zürcher Kantonalbank entwickeln wir mit über 1'000 Kolleginnen und Kollegen die Technologie von morgen und das im Herzen von Zürich. Gemeinsam mit dir wollen wir Erfolge feiern und unsere Werte leben: handle mutig, bringe Ideen ein, liefere mit dem Blick aufs Ganze und lebe deine Begeisterung.\nGestalte die Zukunft der digitalen Plattform für Onboarding- und Produkteeröffnungsprozesse für die ZKB mit. Werde Teil des Teams mit der Vision, die Kundenzufriedenheit durch ein nahtloses und innovatives Eröffnungs-Erlebnis zu steigern, dies über alle Kundenkanäle hinweg. Fühlst du dich angesprochen? Dann bist du perfekt für unser interdisziplinäres DevOps Team, denn wir suchen dich als DevOps Engineer mit starkem, agilen Mindset.\n\nDeine Aufgaben\n\n• Neu- und Weiterentwickeln sowie Betreiben unserer selbst entwickelten Services im DevOps-Team\n• Verifizieren von entwickelten Lösungen anhand von internen und externen Sicherheitsstandards\n• Verbessern und Weiterentwickeln der Betriebsprozesse\n• Konzeptionelles Mitarbeiten und Möglichkeit zum Mitgestalten der Services\n• Beraten des Fachbereichs bezüglich Machbarkeit, Varianten- und Meinungsbildung\n• Enges Zusammenarbeiten mit Product Owner, Business Engineers und Architektur zwecks Erarbeitung optimaler Lösungen\n• Abgeschlossenes Studium im Bereich Informatik oder gleichwertige Berufserfahrung\n• Erfahrung und sehr gute Kenntnisse in der Java- und Angular-Entwicklung sowie mit Spring, JPA (Hibernate), Maven und SQL (Oracle)\n• Ausgewiesene Erfahrung im Bereich Client Onboarding, digitaler Produktabschlüsse oder Client Lifecycle Management in den letzten 3 Jahren\n• Know-how mit Kotlin und Cloud – sind ein Pluspunkt\n• Kenntnisse in der Verwendung von Git, IntelliJ, Jenkins, Sonar und JIRA\n• Du überzeugst mit deiner kommunikativen und teamorientierten Art\n• Sehr gute Deutsch- und gute Englischkenntnisse\n• Motiviertes, selbstorganisiertes und aufgestelltes Team, das sich auf dich freut\n• Interessante und abwechslungsreiche Aufgaben im zukunftsträchtigen Bereich der digitalen Kundenschnittstelle\n• Technische Verantwortung in einem sich schnell wandelnden Bereich\n• Wir bieten eine kollegiale und wertschätzende Zusammenarbeit auf Augenhöhe mit der Möglichkeit aktiv mitzugestalten\n• Kultur der Wertschätzung und stetigen (Weiter-) Entwicklung – persönlich, technisch und fachlich\n• Zentral gelegener, gut erreichbarer und attraktiver Arbeitsplatz (Bahnhof Hardbrücke) mit der Möglichkeit, deine Arbeit flexibel zu organisieren (hybrid)\n• Deine Karriere liegt uns als Arbeitgeberin am Herzen und deshalb fördern und begleiten wir dich auf deinem Weg und unterstützen dich mit vielen Angeboten",
+      "it": "• DevOps Engineer Fullstack (m/f/d)\n\n80% - 100% | IT / Business Engineering | Zurich | Professionisti esperti\n\nApplicare online ora\n\nTale assunzione avviene nell'ambito di un ordine esclusivo in collaborazione con Consult & Pepper AG. Si prega di rivolgersi direttamente a Natalie Kämpfer (natalie.kaempfer@consultandpepper.com / +41 52 369 20 24) via:\n\nQui al dipartimento IT della Banca cantonale di Zurigo, insieme a oltre 1.000 colleghi, sviluppiamo la tecnologia di domani nel cuore di Zurigo. Insieme a voi, vogliamo celebrare il successo e vivere i nostri valori: agire coraggiosamente, portare in idee, consegnare con la prospettiva di tutto e vivere il vostro entusiasmo.\nFormare il futuro della piattaforma digitale per i processi di imbarco e apertura dei prodotti per ZKB. Entra a far parte del team con la visione di aumentare la soddisfazione del cliente attraverso un'esperienza di apertura senza soluzione di continuità e innovativa in tutti i canali del cliente. Ti senti in appello? Allora sei perfetto per il nostro team interdisciplinare DevOps, perché ti stiamo cercando come un DevOps Engineer con una mentalità forte e agile.\n\nI tuoi compiti\n\n• Nuovo e ulteriore sviluppo e funzionamento dei nostri servizi auto-sviluppati nel team DevOps\n• Verificare soluzioni sviluppate contro gli standard di sicurezza interni ed esterni\n• Migliorare e sviluppare ulteriormente i processi operativi\n• Cooperazione concettuale e opportunità di contribuire a modellare i servizi\n• Consultare il dipartimento di fattibilità, varianti e formazione di opinioni\n• Lavorare a stretto contatto con i proprietari di prodotti, gli ingegneri aziendali e l'architettura per sviluppare soluzioni ottimali\n• Laurea completa in informatica o esperienza professionale equivalente\n• Esperienza e conoscenza molto buona nello sviluppo Java e Angular e con Spring, JPA (Hibernate), Maven e SQL (Oracle)\n• Esperienza comprovata nella gestione del ciclo di vita del cliente negli ultimi 3 anni\n• Know-how con Kotlin e Cloud – sono un plus\n• Conoscenza dell'uso di Git, IntelliJ, Jenkins, Sonar e JIRA\n• Convinci con il tuo modo comunicativo e di squadra\n• Molto buone competenze in tedesco e inglese\n• Squadra motivata, auto-organizzata e consolidata che vi aspetta\n• Attività interessanti e varie nell'area promettente dell'interfaccia digitale del cliente\n• Responsabilità tecnica in un settore in rapida evoluzione\n• Offriamo una collaborazione collaborativa e apprezzativa a livello degli occhi con l'opportunità di formarsi attivamente\n• Cultura di apprezzamento e sviluppo continuo (più avanti) – personale, tecnico e professionale\n• Posto centrale, facilmente accessibile e attraente sul posto di lavoro (stazione del ponte rigido) con la possibilità di organizzare il vostro lavoro in modo flessibile (ibrido)\n• La tua carriera è importante per noi come datore di lavoro e quindi ti sosteniamo e ti accompagniamo sul tuo cammino e ti sosteniamo con molte offerte",
+      "en": "• DevOps Engineer Fullstack (m/f/d)\n\n80% - 100% | IT / Business Engineering | Zurich | Experienced professionals\n\nApply online now\n\nThis recruitment takes place as part of an exclusive order in cooperation with Consult & Pepper AG. Please apply directly to Natalie Kämpfer (natalie.kaempfer@consultandpepper.com / +41 52 369 20 24) via: Apply now online\n\nHere at the Zurich Cantonal Bank’s IT department, together with more than 1,000 colleagues, we are developing tomorrow’s technology in the heart of Zurich. Together with you, we want to celebrate success and live our values: act courageously, bring in ideas, deliver with a view to the whole and live your enthusiasm.\nShape the future of the digital platform for onboarding and product opening processes for ZKB. Become part of the team with the vision to increase customer satisfaction through a seamless and innovative opening experience across all customer channels. Do you feel appealed to? Then you are perfect for our interdisciplinary DevOps team, because we are looking for you as a DevOps Engineer with a strong, agile mindset.\n\nYour tasks\n\n• New and further development and operation of our self-developed services in the DevOps team\n• Verify developed solutions against internal and external security standards\n• Improve and further develop operational processes\n• Conceptual cooperation and opportunity to help shape the services\n• Advising the department on feasibility, variants and opinion formation\n• Working closely with product owners, business engineers and architecture to develop optimal solutions\n• Completed degree in computer science or equivalent professional experience\n• Experience and very good knowledge in Java and Angular development as well as with Spring, JPA (Hibernate), Maven and SQL (Oracle)\n• Proven experience in client onboarding, digital product deals or client lifecycle management in the last 3 years\n• Know-how with Kotlin and Cloud – are a plus\n• Knowledge of the use of Git, IntelliJ, Jenkins, Sonar and JIRA\n• You convince with your communicative and team-oriented way\n• Very good German and English skills\n• Motivated, self-organized and established team that looks forward to you\n• Interesting and varied tasks in the promising area of the digital customer interface\n• Technical responsibility in a rapidly changing area\n• We offer a collaborative and appreciative cooperation at eye level with the opportunity to actively shape\n• Culture of appreciation and continuous (further) development – personal, technical and professional\n• Centrally located, easily accessible and attractive workplace (hard bridge station) with the possibility to organize your work flexibly (hybrid)\n• Your career is important to us as an employer and therefore we support and accompany you on your way and support you with many offers",
+      "fr": "• Ingénieur DevOps Fullstack (h/f/d)\n\n80 % - 100 % de l'informatique / Ingénierie d'affaires\n\nPostulez en ligne maintenant\n\nCe recrutement s'inscrit dans le cadre d'une commande exclusive en coopération avec Consult & Pepper AG. Veuillez postuler directement à Natalie Kämpfer (natalie.kaempfer@consultandpepper.com / +41 52 369 20 24) via: Postuler maintenant en ligne\n\nIci à la banque cantonale de Zurich, avec plus de 1000 collègues, nous développons demain la technologie au cœur de Zurich. Avec vous, nous voulons célébrer le succès et vivre nos valeurs: agir courageusement, apporter des idées, livrer en vue de l'ensemble et vivre votre enthousiasme.\nFormez l'avenir de la plate-forme numérique pour les processus d'embarquement et d'ouverture des produits pour ZKB. Faites partie de l'équipe avec la vision d'augmenter la satisfaction des clients grâce à une expérience d'ouverture transparente et innovante sur tous les canaux clients. Vous sentez - vous attiré? Ensuite, vous êtes parfait pour notre équipe de DevOps interdisciplinaire, car nous vous recherchons en tant qu'ingénieur DevOps avec un état d'esprit fort et agile.\n\nVos tâches\n\n• Nouveau développement et exploitation de nos services autodéveloppés dans l'équipe DevOps\n• Vérifier les solutions développées par rapport aux normes de sécurité internes et externes\n• Améliorer et développer les processus opérationnels\n• Coopération conceptuelle et possibilité d'aider à façonner les services\n• Conseils au département sur la faisabilité, les variantes et la formation d'opinions\n• Travailler en étroite collaboration avec les propriétaires de produits, les ingénieurs d'affaires et l'architecture pour développer des solutions optimales\n• Diplômé en informatique ou expérience professionnelle équivalente\n• Expérience et très bonne connaissance en Java et développement angulaire ainsi qu'avec Spring, JPA (Hibernate), Maven et SQL (Oracle)\n• Expérience éprouvée dans la gestion du cycle de vie du client depuis 3 ans\n• Savoir-faire avec Kotlin et Cloud – sont un plus\n• Connaissance de l'utilisation de Git, IntelliJ, Jenkins, Sonar et JIRA\n• Vous convainquez avec votre manière communicative et axée sur l'équipe\n• Très bonnes compétences en allemand et anglais\n• Équipe motivée, auto-organisée et établie qui vous attend avec impatience\n• Des tâches intéressantes et variées dans le domaine prometteur de l'interface client numérique\n• La responsabilité technique dans un domaine en évolution rapide\n• Nous offrons une coopération collaborative et reconnaissante au niveau des yeux avec la possibilité de façonner activement\n• Culture d'appréciation et de développement continu – personnel, technique et professionnel\n• Un lieu de travail central, facilement accessible et attrayant (station de pont dure) avec la possibilité d'organiser votre travail de manière flexible (hybride)\n• Votre carrière est importante pour nous en tant qu'employeur et donc nous vous accompagnons et nous vous accompagnons sur votre chemin et vous soutenons avec de nombreuses offres"
+    },
+    "slugByLocale": {
+      "de": "devops-engineer-fullstack-m-w-d-zkb-zurich",
+      "it": "devops-ingegnere-fullstack-m-w-d-zurcher-kantonalbank-zurich-ff027ca1",
+      "en": "devops-engineer-fullstack-m-w-d-zurcher-kantonalbank-zurich-68e4cfbd",
+      "fr": "devops-engineer-fullstack-m-w-d-zkb-zurich-56fca810"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-09-26T23:31:39.245Z",
+    "previousSlugsByLocale": {
+      "it": [
+        "devops-engineer-fullstack-m-w-d-zkb-zurich-56fca810"
+      ],
+      "en": [
+        "devops-engineer-fullstack-m-w-d-zkb-zurich"
+      ],
+      "de": [
+        "devops-engineer-fullstack-m-w-d-zkb-zurich"
+      ],
+      "fr": [
+        "devops-engineer-fullstack-m-w-d-zkb-zurich-56fca810"
+      ]
+    },
+    "postalCode": "8001",
+    "salaryMin": 83000,
+    "salaryMax": 126000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://apply.refline.ch/792841/11111/pub/7"
+  },
+  {
+    "slug": "consulente-clienti-in-clienti-privati-zurcher-kantonalbank-dietikon",
+    "title": "Kundenberater:in Privatkunden",
+    "titleByLocale": {
+      "it": "Consulenti privati dei clienti",
+      "en": "Private client advisors",
+      "de": "Kundenberater:in Privatkunden",
+      "fr": "Conseiller client: chez les clients privés"
+    },
+    "company": "Zürcher Kantonalbank",
+    "companyKey": "zkb",
+    "location": "Dietikon",
+    "addressLocality": "Dietikon",
+    "descriptionByLocale": {
+      "it": "• Consulente clienti: in clienti privati\n\n80% - 100% | Vendite e servizio clienti | Dietikon | Professionisti esperti\n\nApplicare online ora\n\nIl nostro team nei rami Dietikon, Altstetten e Schlieren ha una grande richiesta di consigli per i nostri clienti. In questo modo, vogliamo dare un contributo significativo affinché i nostri clienti ci percepiscano come la loro \"banca vicina\" per tutta la vita e che si possano creare relazioni sostenibili. Così viviamo i valori della Zürcher Kantonalbank in tutto ciò che facciamo: guida, responsabile e appassionato!\n\nI tuoi compiti\n\n• Ricevimento dei nostri clienti nella sala clienti\n• Determinazione delle esigenze tenendo conto dei desideri e degli obiettivi individuali e del riconoscimento del potenziale\n• Accompagnamento dei nostri clienti nel mondo digitale\n• Condurre consultazioni olistiche con i clienti privati nei settori dei numeri, dei risparmi, degli investimenti e della fornitura\n• Ottenere nuovi clienti, nonché riconoscere e comunicare ulteriori esigenze del cliente\n• Regolazione delle transazioni in contanti, cambio valuta e operazioni metalli preziosi e gestione di strutture sicure\n• Opzione di agire come addestratore di pratica\n• Banca commerciale completa (EFZ) o formazione equivalente in materia bancaria come offerto dal CYP o da altre istituzioni riconosciute\n• Diversi anni di esperienza professionale nella consulenza e vendita di prodotti finanziari e di base in una banca\n• Divertimento della consulenza e dell'affinità dei clienti attivi per i canali digitali\n• L'aspetto sicuro nel contatto con il cliente attraverso un modo comunicativo e affidabile\n• Alta acquisizione, vendita e orientamento di servizio\n• Supporto flessibilità in altri luoghi\n• Appassionato e impegnato team con molta esperienza e aperto a nuove cose – il nostro successo sta nel lavoro di squadra\n• Attività variegata con una clientela eccitante e stimolante con un sacco di potenziale\n• Varie opportunità di sviluppo personale e professionale\n• La tua carriera è importante per noi come datore di lavoro e quindi ti sosteniamo e ti accompagniamo sulla tua strada\n• Il pacchetto completo, che oltre all'attrattivo stipendio base e ad una remunerazione variabile offre molti vantaggi e vantaggi – da A come la fornitura di pensione a Z come il bonus pass ZVV",
+      "en": "• Customer advisor: in private clients\n\n80% - 100% | Sales and customer service | Dietikon | Experienced professionals\n\nApply online now\n\nOur team in the branches Dietikon, Altstetten and Schlieren has a high demand for top advice for our customers. In this way, we want to make a significant contribution to ensuring that our customers perceive us as their \"near bank\" throughout their lives and that sustainable relationships can be created. This is how we live the values of the Zürcher Kantonalbank in everything we do: driving, responsible and passionate!\n\nYour tasks\n\n• Reception of our customers in the customer hall\n• Determination of needs taking into account individual wishes and goals as well as recognition of potential\n• Accompanying our customers into the digital world\n• Conducting holistic consultations with private customers in the areas of numbers, savings, investing and provision\n• Gaining new customers as well as recognizing and communicating further customer needs\n• Settlement of cash transactions, currency exchange and precious metals transactions and management of safe facilities\n• Option to act as a practice trainer\n• Completed commercial banking (EFZ) or equivalent banking subject training as offered by CYP or other recognised institutions\n• Several years of professional experience in consulting and selling financial and basic products in a bank\n• Enjoyment of active customer advice and affinity for digital channels\n• Secure appearance in customer contact through a communicative and trustworthy manner\n• High acquisition, sales and service orientation\n• Support flexibility at other locations\n• Passionate and committed team with a lot of experience and open to new things – our success lies in teamwork\n• Varied activity with an exciting and challenging clientele with a lot of potential\n• Various opportunities to develop personally and professionally\n• Your career is important to us as an employer and therefore we support and accompany you on your way\n• Comprehensive package, which in addition to the attractive basic salary and a variable remuneration offers many benefits and perks – from A such as retirement provision to Z such as ZVV bonus pass",
+      "de": "• Kundenberater:in Privatkunden\n\n80% - 100% | Vertrieb und Kundenberatung | Dietikon | Berufserfahrene\n\nJetzt online bewerben\n\nUnser Team in den Filialen Dietikon, Altstetten und Schlieren hat einen hohen Anspruch an eine top Beratung für unsere Kundschaft. Damit möchten wir einen wesentlichen Beitrag leisten, dass wir von unseren Kundinnen und Kunden ein Leben lang als ihre \"nahe Bank\" wahrgenommen werden und dabei nachhaltige Beziehungen entstehen können. So leben wir die Werte der Zürcher Kantonalbank bei allem, was wir tun: Impulsgebend, verantwortungsvoll und leidenschaftlich!\n\nDeine Aufgaben\n\n• Empfangen unserer Kundschaft in der Kundenhalle\n• Ermitteln der Bedürfnisse unter Einbezug der individuellen Wünsche und Ziele sowie Erkennen von Potenzial\n• Begleiten unserer Kundschaft in die digitale Welt\n• Durchführen von ganzheitlichen Beratungsgesprächen bei Privatkundinnen und Privatkunden in den Bereichen Zahlen, Sparen, Anlegen und Vorsorge\n• Gewinnen von Neukundschaft sowie Erkennen und Vermitteln weitergehender Kundenbedürfnisse\n• Abwickeln von Bargeldverkehr, Geldwechsel und Edelmetallgeschäften sowie Bewirtschaften von Safe-Anlagen\n• Option zur Übernahme der Tätigkeit als Praxisausbildnerin oder Praxisausbildner\n• Abgeschlossene kaufmännische Banklehre (EFZ) oder gleichwertige Bankfach-Ausbildung, wie sie durch CYP oder andere anerkannte Institute angeboten wird\n• Mehrjährige Berufserfahrung in der Beratung und im Verkauf von Finanz- und Basisprodukten in einer Bank\n• Freude an der aktiven Kundenberatung und Affinität für digitale Kanäle\n• Sicheres Auftreten im Kundenkontakt durch eine kommunikative und vertrauenswürdige Art\n• Hohe Akquise-, Verkaufs- und Dienstleistungsorientierung\n• Flexibilität an anderen Standorten zu unterstützen\n• Leidenschaftliches und engagiertes Team mit viel Erfahrung und offen für Neues – unser Erfolg liegt im Teamwork\n• Abwechslungsreiche Tätigkeit mit spannender und herausfordernder Kundschaft mit viel Potenzial\n• Vielfältige Möglichkeiten, dich persönlich und fachlich weiterzuentwickeln\n• Deine Karriere liegt uns als Arbeitgeberin am Herzen und deshalb fördern und begleiten wir dich auf deinem Weg\n• Umfassendes Gesamtpaket, welches neben dem attraktiven Grundsalär und einer variablen Vergütung viele Benefits und Vergünstigungen bietet – von A wie Altersvorsorge bis Z wie ZVV-Bonuspass",
+      "fr": "• Conseiller client: chez les clients privés\n\n80 % - 100 % de ventes et de service à la clientèle de Dietikon\n\nPostulez en ligne maintenant\n\nNotre équipe dans les branches Dietikon, Altstetten et Schlieren a une forte demande de conseils pour nos clients. De cette façon, nous voulons contribuer de manière significative à faire en sorte que nos clients nous perçoivent comme leur « banque proche » tout au long de leur vie et que des relations durables puissent être créées. C'est ainsi que nous vivons les valeurs de la Zürcher Kantonalbank dans tout ce que nous faisons : conduite, responsabilité et passion !\n\nVos tâches\n\n• Réception de nos clients dans la salle des clients\n• Détermination des besoins en tenant compte des souhaits et des objectifs individuels ainsi que de la reconnaissance du potentiel\n• Accompagner nos clients dans le monde numérique\n• Mener des consultations globales avec les clients privés dans les domaines du nombre, de l'épargne, de l'investissement et de l'offre\n• Obtenir de nouveaux clients et reconnaître et communiquer d'autres besoins du client\n• Règlement des opérations de trésorerie, de change et de métaux précieux et gestion des installations sûres\n• Option pour agir comme formateur pratique\n• Terminé la formation en banque commerciale (EFZ) ou en matière bancaire équivalente offerte par le CYP ou d'autres institutions reconnues\n• Plusieurs années d'expérience professionnelle dans le conseil et la vente de produits financiers et de base dans une banque\n• Appréciation des conseils clients actifs et affinité pour les canaux numériques\n• L'apparence sécurisée dans le contact avec le client par une manière communicative et fiable\n• Haute orientation en matière d'acquisition, de vente et de service\n• Souplesse d ' appui dans d ' autres lieux\n• Équipe passionnée et engagée avec beaucoup d'expérience et ouverte à de nouvelles choses – notre succès réside dans le travail d'équipe\n• Activité variée avec une clientèle passionnante et stimulante avec beaucoup de potentiel\n• Diverses possibilités de développement personnel et professionnel\n• Votre carrière est importante pour nous en tant qu'employeur et donc nous vous soutenons et vous accompagnons sur votre chemin\n• Ensemble complet, qui, en plus du salaire de base attrayant et d'une rémunération variable offre de nombreux avantages et avantages – de A comme la disposition de retraite à Z comme ZV bonus pass"
+    },
+    "slugByLocale": {
+      "it": "consulente-clienti-in-clienti-privati-zurcher-kantonalbank-dietikon",
+      "en": "private-client-advisors-zurcher-kantonalbank-dietikon",
+      "de": "kundenberater-in-privatkunden-zurcher-kantonalbank-dietikon",
+      "fr": "conseiller-client-chez-les-clients-prives-zurcher-kantonalbank-dietikon"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-09-26T13:51:34.041Z",
+    "previousSlugs": [
+      "kundenberater-in-privatkunden-zurcher-kantonalbank-dietikon",
+      "consulente-clienti-in-clienti-privati-affluente-zurcher-kantonalbank-dietikon",
+      "kundenberater-in-privatkunden-zkb-dietikon",
+      "customer-advisor-in-private-clients-zurcher-kantonalbank-dietikon",
+      "consulente-clienti-in-clienti-privati-affluente-zurcher-kantonalbank-winterthur",
+      "kundenberater-in-privatkunden-affluent-zkb-winterthur",
+      "kundenberater-in-privatkunden-affluent-zurcher-kantonalbank-winterthur",
+      "customer-consultant-in-private-customers-affluent-zurcher-kantonalbank-winterthur",
+      "consultant-client-chez-les-clients-prives-affluent-zurcher-kantonalbank-winterthur",
+      "consulente-clienti-in-clienti-privati-affluente-zurcher-kantonalbank-altstetten",
+      "consulente-clienti-in-clienti-privati-affluente-zurcher-kantonalbank-altstetten-5cc32dc8"
+    ],
+    "previousSlugsByLocale": {
+      "de": [
+        "kundenberater-in-privatkunden-zkb-dietikon",
+        "kundenberater-in-privatkunden-affluent-zkb-winterthur",
+        "consulente-clienti-in-clienti-privati-affluente-zurcher-kantonalbank-altstetten"
+      ],
+      "it": [
+        "kundenberater-in-privatkunden-zurcher-kantonalbank-dietikon",
+        "consulente-clienti-in-clienti-privati-affluente-zurcher-kantonalbank-dietikon",
+        "kundenberater-in-privatkunden-zkb-dietikon",
+        "consulente-clienti-in-clienti-privati-affluente-zurcher-kantonalbank-winterthur",
+        "kundenberater-in-privatkunden-affluent-zkb-winterthur",
+        "kundenberater-in-privatkunden-affluent-zurcher-kantonalbank-winterthur",
+        "consulente-clienti-in-clienti-privati-affluente-zurcher-kantonalbank-altstetten-5cc32dc8"
+      ],
+      "en": [
+        "kundenberater-in-privatkunden-zurcher-kantonalbank-dietikon",
+        "customer-advisor-in-private-clients-zurcher-kantonalbank-dietikon",
+        "customer-consultant-in-private-customers-affluent-zurcher-kantonalbank-winterthur",
+        "kundenberater-in-privatkunden-affluent-zurcher-kantonalbank-winterthur",
+        "consulente-clienti-in-clienti-privati-affluente-zurcher-kantonalbank-altstetten"
+      ],
+      "fr": [
+        "kundenberater-in-privatkunden-zurcher-kantonalbank-dietikon",
+        "consultant-client-chez-les-clients-prives-affluent-zurcher-kantonalbank-winterthur",
+        "kundenberater-in-privatkunden-affluent-zurcher-kantonalbank-winterthur",
+        "consulente-clienti-in-clienti-privati-affluente-zurcher-kantonalbank-altstetten"
+      ]
+    },
+    "postalCode": "8001",
+    "salaryMin": 91500,
+    "salaryMax": 128000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://apply.refline.ch/792841/11335/pub/1",
+    "firstSeenAt": "2026-08-27T19:48:48.720Z"
+  },
+  {
     "slug": "funzionario-di-conformita-comunicazioni-monitoraggio-m-f-d-zurcher-kantonalbank-zurich",
     "title": "Compliance Officer Kommunikationsüberwachung (m/w/d)",
     "titleByLocale": {
@@ -9178,6 +9537,49 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/792841/11298/pub/4",
     "firstSeenAt": "2026-09-11T13:41:49.723Z"
+  },
+  {
+    "slug": "input-engineer-dokumentenmanagement-m-w-d-zurcher-kantonalbank-zurich",
+    "title": "Input Engineer Dokumentenmanagement (m/w/d)",
+    "titleByLocale": {
+      "it": "Input Ingegnere Dokumentenmanagement (m/w/d)",
+      "en": "Input Engineer Document Management (m/f/d)",
+      "de": "Input Ingenieur Dokumentenmanagement (m/w/d)",
+      "fr": "Input Ingénieur Dokumentenmanagement (m/w/d)"
+    },
+    "company": "Zürcher Kantonalbank",
+    "companyKey": "zkb",
+    "location": "Zürich",
+    "addressLocality": "Zürich",
+    "descriptionByLocale": {
+      "it": "• Gestione del documento dell'ingegnere di ingresso (m/f/d)\n\n100% | IT / Business Engineering | Zurich | Professionisti esperti\n\nApplicare online ora\n\nCome ingegnere di input nel campo della gestione dei documenti, sei responsabile della digitalizzazione fluida, efficiente e sicura, nonché del trattamento e dell'integrazione dei documenti nel nostro panorama di sistema. Porti il tuo tocco per l'integrazione delle applicazioni e delle tue conoscenze Java per sviluppare ulteriormente i nostri processi di input e documenti. Lavorando a stretto contatto con IT, dipartimenti e partner esterni, si progetta soluzioni che velocizzano l'intero ciclo di vita del documento, aumentano la qualità e riducono lo sforzo manuale.\n\nI tuoi compiti\n\n• Pianificazione, installazione, configurazione e mantenimento di soluzioni di gestione di input e documenti (Kodak Capture Pro e DocProStar/OCTO)\n• Integrare le applicazioni di gestione dei documenti nel panorama del sistema esistente (interfacce, servizi web, API)\n• Analizzare e risolvere i problemi tecnici nelle linee di input e di elaborazione e assistere alla bonifica nei sistemi circostanti\n• Progettazione e sviluppo di soluzioni di automazione e self-service (ad esempio per l'importazione di documenti, classificazione, routing) per accelerare la catena di processo end-to-end\n• Ulteriori sviluppi e manutenzione dei componenti basati su Java nel campo della gestione dei documenti e dell'integrazione del sistema\n• Collabora con i team agili interni di aree specialistiche, IT e partner esterni per sviluppare soluzioni integrate per le esigenze dei clienti\n• Assicurare l'operazione in corso incl. Monitoraggio delle rotte di ingresso e gestione delle indennità, licenze e accessi tecnici\n• Formazione completa e/o formazione in informatica, informatica aziendale o formazione comparabile\n• Esperienza rilevante nell'integrazione di applicazioni e sistemi (interfacce, servizi web, API) e idealmente nell'ambiente di gestione dei documenti\n• Buona conoscenza di Java o grande interesse a svilupparsi nello sviluppo Java\n• Conoscenza delle lingue SQL e scripting (ad esempio Linux Shell; Python benefico) e familiarità con i principi DevOps e i metodi di sviluppo agili\n• Esperienza iniziale con l'automazione dei processi di costruzione e distribuzione (ad esempio Jenkins, GitLab CI/CD o strumenti simili) e conoscenze di base in cloud e containerizzazione sono vantaggiose\n• Convinci con forti capacità analitiche e un modo di lavoro strutturato e orientato alla soluzione\n• Segnate con la vostra gioia di lavorare insieme nella squadra e la vostra comunicazione chiara\n• Molto buone competenze in tedesco e buona inglese in parola e scrittura\n• Il supporto reciproco e lo spirito di squadra sono importanti per noi\n• Ampia e diversificata gamma di attività con molte possibilità di rete nel campo della gestione dei documenti e degli input\n• Vi offriamo spazio per le vostre idee e quindi progettare la banca di domani\n• La tua carriera è importante per noi come datore di lavoro e quindi ti sosteniamo sulla tua strada e ti sosteniamo con molte offerte\n• Posto di lavoro moderno nel distretto 5 con collegamenti di trasporto molto buoni (stanza di ponte duro)\n• È possibile organizzare in modo flessibile il vostro lavoro in consultazione con il vostro team (ad esempio il lavoro mobile, orari di lavoro flessibili)\n• Offriamo una collaborazione collaborativa e apprezzativa a livello degli occhi con l'opportunità di formarsi attivamente\n• Pacchetto completo con uno stipendio base attraente, compensazione variabile e vantaggi versatili",
+      "en": "• Input Engineer Document Management (m/f/d)\n\n100% | IT / Business Engineering | Zurich | Experienced professionals\n\nApply online now\n\nAs an input engineer in the field of document management, you are responsible for the smooth, efficient and secure digitization as well as the processing and integration of documents into our system landscape. You bring your flair for the integration of applications and your Java knowledge to further develop our input and document processes. Working closely with IT, departments and external partners, you will design solutions that speed up the entire document lifecycle, increase quality and reduce manual effort.\n\nYour tasks\n\n• Planning, installing, configuring and maintaining input and document management solutions (Kodak Capture Pro and DocProStar/OCTO)\n• Integrating document management applications into the existing system landscape (interfaces, web services, APIs)\n• Analyzing and resolving technical issues in the input and processing lines and assisting in remediation in surrounding systems\n• Design and develop automation and self-service solutions (e.g. for document import, classification, routing) to accelerate the end-to-end process chain\n• Further development and maintenance of Java-based components in the field of document management and system integration\n• Collaborate with internal agile teams from specialist areas, IT and external partners to develop integrated solutions for customer needs\n• Ensuring the ongoing operation incl. Monitoring input routes and managing allowances, licenses and technical accesses\n• Completed education and/or training in computer science, business informatics or comparable training\n• Relevant experience in the integration of applications and systems (interfaces, web services, APIs) and ideally in the document management environment\n• Good knowledge of Java or great interest in developing yourself in Java development\n• Knowledge of SQL and scripting languages (e.g. Linux Shell; beneficial Python) as well as familiarity with DevOps principles and agile development methods\n• Initial experience with the automation of build and deployment processes (e.g. Jenkins, GitLab CI/CD or similar tools) as well as basic knowledge in cloud and containerization are advantageous\n• You convince with strong analytical skills and a structured, solution-oriented way of working\n• You score with your joy of working together in the team and your clear communication\n• Very good German and good English skills in word and writing\n• Mutual support and team spirit are important to us\n• Exciting and diverse range of tasks with many network possibilities in the field of document and input management\n• We offer you space for your ideas and thus design the bank of tomorrow\n• Your career is important to us as an employer and therefore we support you on your way and support you with many offers\n• Modern workplace in district 5 with very good transport connections (hard bridge station)\n• You can flexibly organize your work in consultation with your team (e.g. mobile work, flexible working hours)\n• We offer a collaborative and appreciative cooperation at eye level with the opportunity to actively shape\n• Comprehensive package with attractive basic salary, variable compensation and versatile benefits",
+      "de": "• Input Engineer Dokumentenmanagement (m/w/d)\n\n100% | IT / Business Engineering | Zürich | Berufserfahrene\n\nJetzt online bewerben\n\nAls Input Engineer im Bereich Dokumentenmanagement bist du verantwortlich für die reibungslose, effiziente und sichere Digitalisierung sowie die Verarbeitung und Integration von Dokumenten in unsere Systemlandschaft. Du bringst dein Flair für die Integration von Applikationen und deine Java-Kenntnisse ein, um unsere Input- und Dokumentenprozesse gezielt weiterzuentwickeln. In enger Zusammenarbeit mit IT, Fachbereichen und externen Partnern gestaltest du Lösungen, die den gesamten Dokumenten-Lebenszyklus beschleunigen, die Qualität erhöhen und manuelle Aufwände reduzieren.\n\nDeine Aufgaben\n\n• Planen, Installieren, Konfigurieren und Warten der Input- und Dokumentenmanagement-Lösungen (Kodak Capture Pro und DocProStar/OCTO)\n• Integrieren von Dokumentenmanagement-Applikationen in die bestehende Systemlandschaft (Schnittstellen, Webservices, APIs)\n• Analysieren und Beheben von technischen Problemen in den Input- und Verarbeitungsstrecken sowie Unterstützen bei der Fehlerbehebung in Umsystemen\n• Designen und Entwickeln von Automatisierungs- und Self-Service-Lösungen (z.B. für Dokumenten-Import, Klassifikation, Routing) zur Beschleunigung der End-to-End-Prozesskette\n• Weiterentwickeln und Pflegen von Java-basierten Komponenten im Umfeld Dokumentenmanagement und Systemintegration\n• Zusammenarbeiten mit internen agilen Teams aus Fachbereichen, IT und externen Partnern zur Erarbeitung integrierter Lösungen für Kundenbedürfnisse\n• Sicherstellen des laufenden Betriebes inkl. Überwachen der Input-Strecken sowie Handhaben von Zertifikaten, Lizenzen und technischen Zugängen\n• Abgeschlossene Aus- und/oder Weiterbildung in Informatik, Wirtschaftsinformatik oder eine vergleichbare Ausbildung\n• Einschlägige Erfahrung in der Integration von Applikationen und Systemen (Schnittstellen, Webservices, APIs) sowie idealerweise im Dokumentenmanagement-Umfeld\n• Gute Kenntnisse in Java oder grosses Interesse, dich in der Java-Entwicklung weiterzuentwickeln\n• Kenntnisse in SQL und Skriptsprachen (z.B. Linux Shell; von Vorteil Python) sowie Vertrautheit mit DevOps-Prinzipien und agilen Entwicklungsmethoden\n• Erste Erfahrungen mit der Automatisierung von Build- und Deployment-Prozessen (z.B. Jenkins, GitLab CI/CD oder ähnlichen Tools) sowie Basiskenntnisse in Cloud und Containerisierung sind von Vorteil\n• Du überzeugst durch ausgeprägte analytische Fähigkeiten und eine strukturierte, lösungsorientierte Arbeitsweise\n• Du punktest mit deiner Freude an der Zusammenarbeit im Team und deiner klaren Kommunikation\n• Sehr gute Deutsch- und gute Englischkenntnisse in Wort und Schrift\n• Gegenseitige Unterstützung und Teamspirit werden bei uns grossgeschrieben\n• Spannendes und vielfältiges Aufgabenspektrum mit vielen Netzwerkmöglichkeiten im Umfeld Dokumenten- und Input-Management\n• Wir bieten dir Raum für deine Ideen und gestalten so die Bank von morgen\n• Deine Karriere liegt uns als Arbeitgeberin am Herzen und deshalb fördern und begleiten wir dich auf deinem Weg und unterstützen dich mit vielen Angeboten\n• Moderner Arbeitsplatz im Kreis 5 mit sehr guter Verkehrsanbindung (Bahnhof Hardbrücke)\n• Du kannst deine Arbeit in Absprache mit deinem Team flexibel organisieren (z.B. mobiles Arbeiten, flexible Arbeitszeiten)\n• Wir bieten eine kollegiale und wertschätzende Zusammenarbeit auf Augenhöhe mit der Möglichkeit, aktiv mitzugestalten\n• Umfassendes Paket mit attraktivem Grundsalär, variabler Vergütung und vielseitigen Benefits",
+      "fr": "• Ingénieur d'entrée Gestion des documents (m/f/d)\n\n100% de l'informatique / Ingénierie d'affaires de Zurich\n\nPostulez en ligne maintenant\n\nEn tant qu'ingénieur en entrée dans le domaine de la gestion des documents, vous êtes responsable de la numérisation fluide, efficace et sécurisée ainsi que du traitement et de l'intégration des documents dans notre paysage système. Vous apportez votre flair pour l'intégration des applications et vos connaissances Java pour développer davantage nos processus d'entrée et de document. En étroite collaboration avec les TI, les départements et les partenaires externes, vous concevrez des solutions qui accélèrent l'ensemble du cycle de vie du document, augmentent la qualité et réduisent l'effort manuel.\n\nVos tâches\n\n• Planification, installation, configuration et maintenance des solutions de gestion des entrées et des documents (Kodak Capture Pro et DocProStar/OCTO)\n• Intégrer les applications de gestion de documents dans le paysage système existant (interfaces, services web, API)\n• Analyser et résoudre les problèmes techniques dans les lignes d'entrée et de traitement et aider à la remise en état des systèmes environnants\n• Conception et développement de solutions d'automatisation et de libre-service (p. ex. pour l'importation de documents, la classification, l'acheminement) pour accélérer la chaîne de processus de bout en bout\n• Développement et maintenance de composants basés sur Java dans le domaine de la gestion des documents et de l ' intégration des systèmes\n• Collaborer avec des équipes internes agiles de domaines spécialisés, IT et partenaires externes pour développer des solutions intégrées pour les besoins des clients\n• Assurer l'opération en cours, y compris : Surveillance des itinéraires d'entrée et gestion des quotas, licences et accès techniques\n• Études et/ou formation terminées en informatique, informatique des entreprises ou formation comparable\n• Expérience pertinente dans l'intégration des applications et des systèmes (interfaces, services web, API) et idéalement dans l'environnement de gestion de documents\n• Bonne connaissance de Java ou grand intérêt pour vous développer dans le développement Java\n• Connaissance des langages SQL et scripts (par exemple Linux Shell; Python bénéfique) ainsi que connaissance des principes DevOps et des méthodes de développement agile\n• L'expérience initiale de l'automatisation des processus de construction et de déploiement (p. ex. Jenkins, GitLab CI/CD ou outils similaires) ainsi que les connaissances de base en nuage et en conteneurisation sont avantageuses\n• Vous convainquez avec de solides compétences analytiques et une façon structurée, orientée vers la solution de travail\n• Vous marquez avec votre joie de travailler ensemble dans l'équipe et votre communication claire\n• Très bonnes compétences en allemand et en anglais en paroles et en écriture\n• Le soutien mutuel et l'esprit d'équipe sont importants pour nous\n• Excitant et varié gamme de tâches avec de nombreuses possibilités de réseau dans le domaine de la gestion des documents et des entrées\n• Nous vous offrons un espace pour vos idées et ainsi concevoir la banque de demain\n• Votre carrière est importante pour nous en tant qu'employeur et donc nous vous soutenons sur votre chemin et vous soutenons avec de nombreuses offres\n• Un lieu de travail moderne dans le quartier 5 avec de très bonnes liaisons de transport (pont dur)\n• Vous pouvez organiser votre travail avec souplesse en consultation avec votre équipe (p. ex. travail mobile, horaires de travail flexibles)\n• Nous offrons une coopération collaborative et reconnaissante au niveau des yeux avec la possibilité de façonner activement\n• Ensemble complet avec salaire de base attrayant, rémunération variable et avantages polyvalents"
+    },
+    "slugByLocale": {
+      "it": "input-engineer-dokumentenmanagement-m-w-d-zurcher-kantonalbank-zurich",
+      "en": "input-engineer-document-management-m-f-d-zurcher-kantonalbank-zurich",
+      "de": "input-engineer-dokumentenmanagement-m-w-d-zkb-zurich",
+      "fr": "input-engineer-dokumentenmanagement-m-w-d-zurcher-kantonalbank-zurich"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-09-25T14:44:00.853Z",
+    "previousSlugs": [
+      "input-engineer-dokumentenmanagement-m-w-d-zkb-zurich"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "input-engineer-dokumentenmanagement-m-w-d-zkb-zurich"
+      ]
+    },
+    "postalCode": "8001",
+    "salaryMin": 91500,
+    "salaryMax": 128000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://apply.refline.ch/792841/11284/pub/1",
+    "firstSeenAt": "2026-07-17T10:52:43.447Z"
   },
   {
     "slug": "marketing-data-analytics-specialista-m-w-d-zurcher-kantonalbank-zurich",
@@ -9471,7 +9873,58 @@
     "salaryMin": 91500,
     "salaryMax": 128000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://apply.refline.ch/792841/11364/pub/1",
+    "firstSeenAt": "2026-09-17T14:23:10.670Z"
+  },
+  {
+    "slug": "business-engineer-digitalisierung-anlagegeschaft-m-w-d-zurcher-kantonalbank-zurich-e5e3417b",
+    "title": "Business Engineer Digitalisierung Anlagegeschäft (m/w/d)",
+    "titleByLocale": {
+      "it": "Business Engineer Digitalization Investment Business (m/f/d)",
+      "en": "Business Engineer Digitalization Investment Business (m/f/d)",
+      "de": "Business Engineer Digitalisierung Anlagegeschäft (m/w/d)",
+      "fr": "Ingénieur d'affaires Digitalisation Investissement Entreprise (h/f/d)"
+    },
+    "company": "Zürcher Kantonalbank",
+    "companyKey": "zkb",
+    "location": "Zürich",
+    "addressLocality": "Zürich",
+    "descriptionByLocale": {
+      "it": "• Business Engineer Digitalization Investment Business (m/f/d)\n\n80% - 100% | IT / Business Engineering | Zurich | Professionisti esperti\n\nApplicare online ora\n\nInsieme formiamo le soluzioni di investimento del futuro!\nNella gestione dei prodotti, sviluppiamo e implementiamo soluzioni di investimento su misura per le esigenze dei nostri clienti. Il team Projects & Engineering Plants è coinvolto nell'ulteriore sviluppo delle nostre soluzioni di investimento e, come interfaccia per l'IT, garantisce l'efficace implementazione dei progetti di cambiamento. In qualità di ingegnere d’impresa, si dà un contributo importante per consolidare la forte posizione di mercato della nostra banca nel business degli investimenti – soprattutto per quanto riguarda l’ulteriore sviluppo della digitalizzazione.\nSei alla ricerca di un lavoro emozionante e basato su ampio e vorresti usare le tue abilità nell'analisi aziendale e cogliere l'opportunità di contribuire alle tue idee e portarle in vita con colleghi motivati?\n\nI tuoi compiti\n\n• Analisi esatta delle esigenze del cliente e sviluppo concreto dei requisiti specialistici per soluzioni di investimento e processi di consulenza\n• Organizzare, moderare e implementare workshop di requisiti con le parti interessate pertinenti\n• Partecipazione alla concezione tecnica e alle specifiche di epiche, caratteristiche e storie per lo sviluppo IT\n• Sviluppo di prototipi GUI che tengono conto del viaggio del cliente e degli approcci di esperienza dell'utente\n• Accompagnate attivamente i vostri requisiti di cambiamento dalla creazione all'introduzione - siete un garante per l'implementazione end-to-end e fate i test e le misure di formazione necessarie\n• Funzione di interfaccia nell'organizzazione tra i dipartimenti specializzati (ad esempio gestione dei prodotti, vendite, dipartimento legale, progettista di interazione) e IT con la garanzia di coordinamento e comunicazione overarching\n• Studi completi in amministrazione aziendale o informatica aziendale\n• Almeno cinque anni di esperienza nel business del progetto per il settore degli investimenti presso le istituzioni finanziarie, la conoscenza dei requisiti normativi nel settore bancario è un vantaggio\n• Forti competenze concettuali e analitiche, nonché competenze metodologiche, ad esempio prototipazione GUI, BPMN, UX design, scrittura storia utente, modellazione caso uso, ecc.\n• La conoscenza dell'implementazione del progetto agile (SAFe, SCRUM, Kanban) è un vantaggio\n• Alta responsabilità personale, flessibilità e pensiero imprenditoriale e azione\n• Orientamento del servizio pronunciato, qualità del creatore, volontà di imparare e lavoro di squadra Vincere e garantire l'aspetto e la comunicazione eloquente in tedesco\n• Un lavoro impegnativo e vario in un'azienda innovativa e orientata al futuro\n• Un team motivato e orientato alle prestazioni che aspetta la vostra collaborazione\n• Opportunità di svilupparsi personalmente e professionalmente e un'area di attività che ti dà la possibilità di portare avanti i tuoi argomenti sulla tua responsabilità\n• Il pacchetto completo, che oltre all'attrattivo stipendio base e ad una remunerazione variabile offre molti vantaggi e vantaggi – da A come la fornitura di pensione a Z come il bonus pass ZVV\n• Un posto di lavoro centrale nel vivace quartiere 5 con ottimi collegamenti di trasporto e la possibilità di organizzare il vostro lavoro in modo flessibile",
+      "en": "• Business Engineer Digitalization Investment Business (m/f/d)\n\n80% - 100% | IT / Business Engineering | Zurich | Experienced professionals\n\nApply online now\n\nTogether we shape the investment solutions of the future!\nIn product management, we develop and implement investment solutions tailored to the needs of our customers. The Projects & Engineering Plants team is involved in the further development of our investment solutions and, as an interface to IT, ensures the effective implementation of the change projects. As a business engineer, you make an important contribution to consolidating our bank’s strong market position in the investment business – especially with regard to the further development of digitalization.\nAre you looking for an exciting and broad-based job and would like to use your skills in business analysis and take the opportunity to contribute your ideas and bring them to life with motivated colleagues?\n\nYour tasks\n\n• Exact analysis of customer needs and concrete development of the specialist requirements for investment solutions and consulting processes\n• Organizing, moderating and implementing requirements workshops with the relevant stakeholders\n• Participation in the technical conception and specification of epics, features and stories for IT development\n• Developing GUI prototypes taking into account customer journey and user experience approaches\n• Actively accompany your change requirements from creation to introduction - you are a guarantor for the end-to-end implementation and carry out the necessary tests and training measures\n• Interface function in the organization between specialist departments (e.g. product management, sales, legal department, interaction designer) as well as IT with ensuring overarching coordination and communication\n• Completed studies in business administration or business informatics\n• At least five years of experience in project business for the investment sector at financial institutions, knowledge of regulatory requirements in the banking sector is an advantage\n• Strong conceptual and analytical skills as well as methodological competencies, e.g. GUI prototyping, BPMN, UX design, user story writing, use case modeling, etc.\n• Knowledge of agile project implementation (SAFe, SCRUM, Kanban) is an advantage\n• High personal responsibility, flexibility and entrepreneurial thinking and action\n• Pronounced service orientation, creator qualities, willingness to learn and teamwork Winning and secure appearance and eloquent communication in German\n• A challenging and varied job in an innovative and future-oriented company\n• A motivated and performance-oriented team that looks forward to your cooperation\n• Opportunities to develop yourself personally and professionally and a task area that gives you the chance to take your topics forward on your own responsibility\n• Comprehensive package, which in addition to the attractive basic salary and a variable remuneration offers many benefits and perks – from A such as retirement provision to Z such as ZVV bonus pass\n• A centrally located workplace in the lively district 5 with very good transport connections and the possibility to organize your work flexibly",
+      "de": "• Business Engineer Digitalisierung Anlagegeschäft (m/w/d)\n\n80% - 100% | IT / Business Engineering | Zürich | Berufserfahrene\n\nJetzt online bewerben\n\nGemeinsam gestalten wir die Anlagelösungen der Zukunft!\nIm Produktmanagement Anlagen entwickeln und realisieren wir auf die Bedürfnisse unserer Kundinnen und Kunden zugeschnittene Anlagelösungen. Das Team Projekte & Engineering Anlagen wirkt mit bei der Weiterentwicklung unserer Anlagelösungen und stellt als Schnittstelle zur IT eine effektive Umsetzung der Change-Vorhaben sicher. Als Business Engineer leistest du einen wichtigen Beitrag zur Festigung der starken Marktposition unserer Bank im Anlagegeschäft – insbesondere hinsichtlich der Weiterentwicklung in der Digitalisierung.\nDu suchst eine spannende sowie breit angelegte Tätigkeit und möchtest deine Fähigkeiten in der Business-Analyse einsetzen sowie die Chance ergreifen, deine Ideen einzubringen und diese mit motivierten Kolleginnen und Kollegen zum Leben zu erwecken und umzusetzen?\n\nDeine Aufgaben\n\n• Exaktes Analysieren der Kundenbedürfnisse und konkrete Ausarbeitung von den Fachanforderungen für die Anlagelösungen und Beratungsprozesse\n• Organisieren, Moderieren und Durchführen von Anforderungsworkshops mit den relevanten Stakeholdern\n• Mitwirken bei der fachlichen Konzeption und Spezifizieren von Epics, Features und Stories für die IT-Entwicklung\n• Entwickeln von GUI-Prototypen unter Berücksichtigung von Customer Journey- und User Experience-Ansätzen\n• Aktives Begleiten deiner Change-Anforderungen von der Entstehung bis zur Einführung - du bist ein Garant für die End-to-End-Umsetzung und führst die notwendigen Tests und Ausbildungsmassnahmen durch\n• Schnittstellenfunktion in der Organisation zwischen Fachabteilungen (bspw. Produktmanagement, Vertrieb, Rechtsabteilung, Interaction Designer) sowie der IT mit Sicherstellung einer übergreifenden Abstimmung und Kommunikation\n• Abgeschlossenes Studium im Bereich Betriebswirtschaft oder Wirtschaftsinformatik\n• Mindestens fünf Jahre Erfahrung im Projektgeschäft für den Anlagebereich bei Finanzinstituten, Kenntnisse der regulatorischen Anforderungen im Bankensektor sind von Vorteil\n• Starke konzeptionelle und analytische Fähigkeiten sowie methodische Kompetenzen, z.B. GUI-Prototyping, BPMN, UX-Design, User Story Writing, Use Case-Modellierung etc.\n• Kenntnisse in der agilen Projektumsetzung (SAFe, SCRUM, Kanban) sind von Vorteil\n• Hohe Eigenverantwortung, Flexibilität sowie unternehmerisches Denken und Handeln\n• Ausgeprägte Dienstleistungsorientierung, Macherqualitäten, Lernbereitschaft und Teamfähigkeit Gewinnender und sicherer Auftritt und eloquente Kommunikation in Deutscher Sprache\n• Eine herausfordernde und abwechslungsreiche Tätigkeit in einem innovativen und zukunftsorientierten Unternehmen\n• Ein motiviertes und leistungsorientiertes Team, das sich auf deine Mitarbeit freut\n• Möglichkeiten, dich persönlich und fachlich weiterzuentwickeln und einen Aufgabenbereich, der dir die Chance gibt, eigenverantwortlich deine Themen weiterzubringen\n• Umfassendes Gesamtpaket, welches neben dem attraktiven Grundsalär und einer variablen Vergütung viele Benefits und Vergünstigungen bietet – von A wie Altersvorsorge bis Z wie ZVV-Bonuspass\n• Ein zentral gelegener Arbeitsplatz im lebendigen Kreis 5 mit sehr guter Verkehrsanbindung und der Möglichkeit, deine Arbeit flexibel zu organisieren",
+      "fr": "• Ingénieur d'affaires Investissement en numérisation (m/f/d)\n\n80 % - 100 % de TI / Ingénierie d'affaires\n\nPostulez en ligne maintenant\n\nEnsemble, nous façonnons les solutions d'investissement du futur !\nDans la gestion des produits, nous développons et mettons en œuvre des solutions d'investissement adaptées aux besoins de nos clients. L'équipe de Projects & Engineering Plants participe au développement de nos solutions d'investissement et, en tant qu'interface avec l'informatique, assure la mise en œuvre efficace des projets de changement. En tant qu'ingénieur en affaires, vous contribuez grandement à consolider la position de notre banque sur le marché de l'investissement, notamment en ce qui concerne le développement de la numérisation.\nCherchez-vous un emploi passionnant et diversifié et aimeriez-vous utiliser vos compétences dans l'analyse des affaires et profiter de l'occasion pour contribuer à vos idées et les faire vivre avec des collègues motivés?\n\nVos tâches\n\n• Analyse exacte des besoins des clients et développement concret des exigences de spécialistes pour les solutions d'investissement et les processus de consultation\n• Organiser, modérer et mettre en œuvre des ateliers sur les exigences avec les parties prenantes concernées\n• Participation à la conception technique et à la spécification d'épopées, de caractéristiques et d'histoires pour le développement informatique\n• Développer des prototypes d'interface utilisateur en tenant compte du parcours client et de l'expérience utilisateur\n• Accompagnez activement vos exigences de changement de la création à l'introduction - vous êtes un garant pour la mise en œuvre de bout en bout et effectuez les tests et mesures de formation nécessaires\n• Fonction d'interface dans l'organisation entre les départements spécialisés (p. ex. gestion des produits, ventes, service juridique, concepteur d'interactions) ainsi que la TI pour assurer une coordination et une communication globales\n• Études terminées en administration des affaires ou en informatique des affaires\n• Au moins cinq ans d'expérience dans le domaine des projets d'investissement dans les institutions financières, la connaissance des exigences réglementaires dans le secteur bancaire est un avantage\n• De solides compétences conceptuelles et analytiques ainsi que des compétences méthodologiques, p. ex. prototypage GUI, BPMN, conception UX, rédaction d'histoires utilisateur, modélisation de cas d'utilisation, etc.\n• La connaissance de la mise en œuvre du projet agile (SAFe, SCRUM, Kanban) est un avantage\n• Haute responsabilité personnelle, flexibilité et esprit d'entreprise et action\n• Prononcé orientation service, qualités créatrices, volonté d'apprendre et de travailler en équipe Gagner et assurer l'apparence et la communication éloquente en allemand\n• Un travail stimulant et varié dans une entreprise innovante et tournée vers l'avenir\n• Une équipe motivée et axée sur la performance qui attend avec impatience votre coopération\n• Possibilités de se développer personnellement et professionnellement et un domaine de travail qui vous donne la possibilité de faire avancer vos sujets sur votre propre responsabilité\n• Ensemble complet, qui, en plus du salaire de base attrayant et d'une rémunération variable offre de nombreux avantages et avantages – de A comme la disposition de retraite à Z comme ZV bonus pass\n• Un lieu de travail central dans le quartier animé 5 avec de très bonnes connexions de transport et la possibilité d'organiser votre travail avec souplesse"
+    },
+    "slugByLocale": {
+      "de": "business-engineer-digitalisierung-anlagegeschaft-m-w-d-zkb-zurich-072089de"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-09-21T15:55:01.499Z",
+    "previousSlugsByLocale": {
+      "it": [
+        "business-engineer-digitalisierung-anlagegeschaft-m-w-d-zkb-zurich-072089de"
+      ],
+      "en": [
+        "business-engineer-digitalisierung-anlagegeschaft-m-w-d-zkb-zurich"
+      ],
+      "de": [
+        "business-engineer-digitalisierung-anlagegeschaft-m-w-d-zkb-zurich-072089de"
+      ],
+      "fr": [
+        "business-engineer-digitalisierung-anlagegeschaft-m-w-d-zkb-zurich"
+      ]
+    },
+    "postalCode": "8001",
+    "salaryMin": 91500,
+    "salaryMax": 128000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://apply.refline.ch/792841/11311/pub/1",
+    "firstSeenAt": "2026-08-07T01:06:22.256Z",
+    "previousSlugs": [
+      "business-engineer-digitalisierung-anlagegeschaft-m-w-d-zkb-zurich"
+    ]
   },
   {
     "slug": "assistente-in-private-banking-clienti-di-occhio-zurcher-kantonalbank-zurich",
@@ -9555,7 +10008,8 @@
     "salaryMin": 79000,
     "salaryMax": 134500,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://apply.refline.ch/792841/10968/pub/7"
   },
   {
     "slug": "firmenkundenbetreuer-in-markt-schweiz-zurcher-kantonalbank-zurich",
@@ -9595,7 +10049,8 @@
     "salaryMin": 91500,
     "salaryMax": 128000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://apply.refline.ch/792841/10967/pub/7"
   },
   {
     "slug": "universita-tirocinante-t-shaped-zurcher-kantonalbank-zurich",
@@ -9684,6 +10139,157 @@
       ],
       "fr": [
         "software-engineer-siebel-crm-m-w-d-zkb-zurich"
+      ]
+    },
+    "postalCode": "8001",
+    "salaryMin": 91500,
+    "salaryMax": 128000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "business-ingegnere-billing-payments-m-w-d-zurcher-kantonalbank-zurich-4a468d59",
+    "title": "Business Engineer Billing & Payments (m/w/d)",
+    "titleByLocale": {
+      "it": "Business Ingegnere Billing & Payments (m/w/d)",
+      "en": "Business Engineer Bill & Payments (m/f/d)",
+      "de": "Business Ingenieur Billing & Payments (m/w/d)",
+      "fr": "Business Ingénieur Billing & Payments (m/w/d)"
+    },
+    "company": "Zürcher Kantonalbank",
+    "companyKey": "zkb",
+    "location": "Zürich",
+    "addressLocality": "Zürich",
+    "descriptionByLocale": {
+      "it": "• Fatturazione e pagamenti dell'ingegnere commerciale (m/f/d) 80% - 100% | IT / Business Engineering | Zurich | Professionisti esperti con responsabilità del progetto Applicare online ora Progetti e Ingegneria in Billing & Payments è responsabile per lo sviluppo strategico e l'implementazione di digitalizzazione, automazione e modernizzazione dei nostri servizi e soluzioni. Il nostro obiettivo è quello di creare un valore aggiunto sostenibile per i nostri clienti e la banca. In qualità di unità centrale, accompagniamo progetti dal concepimento all'implementazione di successo e progetti innovativi nell'intero ambiente di fatturazione e pagamento. Questi includono argomenti come pagamento istantaneo, SIC, SWIFT, TWINT, eBill e altre tecnologie all'avanguardia. Entrate a far parte del nostro team e plasmate il futuro dei pagamenti con noi, migrando moduli applicativi a uno stack di applicazioni moderno e creando così la base per soluzioni future-proof. I tuoi compiti\n• Creazione di specifiche esigenze o Creazione di EPIC, Storie e Caratteristiche, Prototipi UI\n• Una stretta collaborazione con i proprietari di prodotti, gli ingegneri dei treni di rilascio (RTE) e i team interdisciplinari\n• Collaborazione nella creazione di concetti EPIC in stretta collaborazione con la gestione dei prodotti\n• Sviluppo e valutazione degli approcci di soluzione\n• Creazione di analisi e sviluppo di soluzioni nonché la loro presentazione agli organismi specializzati e di gestione\n• Laurea in informatica aziendale, amministrazione aziendale o disciplina comparabile, idealmente con ulteriore formazione in project management o portfolio\n• Almeno 3 anni di esperienza in ingegneria aziendale in un ambiente agile (ad esempio SAFe) e la certificazione ideale in ingegneria aziendale (ad esempio IREB)\n• Convincere competenze di comunicazione, presentazione e negoziazione\n• Il pensiero analitico, strategico e in rete\n• Familiarità con la collaborazione trasversale e la gestione complessa degli stakeholder\n• Molto buona conoscenza del tedesco\n• Un'area di lavoro con argomenti entusiasmanti che puoi avanzare con la tua conoscenza ed energia\n• colleghi impegnati, altamente motivati e competenti che non vedono l'ora di raggiungere obiettivi comuni con voi\n• Vi sosteniamo nel riconciliare il lavoro e la vita privata - sia attraverso lavoro a tempo parziale, ibrido, congedo non retribuito o ore di lavoro flessibili\n• Diversi eventi e reti interne offrono la possibilità di rete rapidamente\n• La tua carriera è importante per noi come datore di lavoro e quindi ti sosteniamo sulla tua strada e ti sosteniamo con molte offerte\n• Il pacchetto completo, che oltre all'attrattivo stipendio base e ad una remunerazione variabile offre molti vantaggi e vantaggi – da A come la fornitura di pensione a Z come il bonus pass ZVV",
+      "en": "• Business Engineer Billing & Payments (m/f/d) 80% - 100% | IT / Business Engineering | Zurich | Experienced professionals with project responsibility Apply online now Projects and Engineering in Billing & Payments is responsible for the strategic development and implementation of digitalization, automation and modernization of our services and solutions. Our focus is on creating sustainable added value for our customers and the bank. As a central unit, we accompany projects from conception to successful implementation and drive innovative projects in the entire billing and payments environment. These include topics such as Instant Payment, SIC, SWIFT, TWINT, eBill and other forward-looking technologies. Become part of our team and shape the future of payments with us by migrating application modules to a modern application stack and thus creating the basis for future-proof solutions. Your tasks\n• Creating requirements specifications or Creating EPICs, Stories and Features, UI Prototypes\n• Close cooperation with product owners, release train engineers (RTEs) and interdisciplinary teams\n• Collaboration in the creation of EPIC concepts in close cooperation with product management\n• Development and evaluation of solution approaches\n• Creation of analyses and development of solutions as well as their presentation to specialist and management bodies\n• University degree in business informatics, business administration or a comparable discipline, ideally with further training in project or portfolio management\n• At least 3 years of experience in business engineering in an agile environment (e.g. SAFe) and ideally certification in business engineering (e.g. IREB)\n• Convincing communication, presentation and negotiation skills\n• Analytical, strategic and networked thinking\n• Familiarity with cross-divisional collaboration and complex stakeholder management\n• Very good knowledge of German\n• A task area with exciting topics that you can advance with your knowledge and energy\n• Engaged, highly motivated and competent colleagues who look forward to achieving common goals with you\n• We support you in reconciling work and private life - whether through part-time, hybrid work, unpaid leave or flexible working hours\n• Various events and internal networks offer you the opportunity to network quickly\n• Your career is important to us as an employer and therefore we support you on your way and support you with many offers\n• Comprehensive package, which in addition to the attractive basic salary and a variable remuneration offers many benefits and perks – from A such as retirement provision to Z such as ZVV bonus pass",
+      "de": "• Business Engineer Billing & Payments (m/w/d)\n\n80% - 100% | IT / Business Engineering | Zürich | Berufserfahrene mit Projektverantwortung\n\nJetzt online bewerben\n\nDer Bereich Projekte und Engineering im Billing & Payments verantwortet die strategische Weiterentwicklung und Umsetzung von Digitalisierung, Automatisierung und Modernisierung unserer Services und Lösungen. Unser Fokus liegt darauf, nachhaltige Mehrwerte für unsere Kunden und die Bank zu schaffen. Als zentrale Einheit begleiten wir Projekte von der Konzeption bis zur erfolgreichen Implementierung und treiben innovative Vorhaben im gesamten Billing und Payments Umfeld voran. Dazu gehören Themen wie Instant Payment, SIC, SWIFT, TWINT, eBill und weitere zukunftsweisende Technologien. Werden ein Teil unseres Teams und gestalte mit uns die Zukunft des Zahlungsverkehrs, indem wir Applikationsmodule auf einen modernen Application Stack migrieren und so die Basis für zukunftssichere Lösungen schaffen.\n\nDeine Aufgaben\n\n• Erstellen von Anforderungsspezifikationen bzw. Erstellen von EPICs, Stories und Features, UI-Prototypen\n• Enge Zusammenarbeit mit Product Ownern, Release Train Engineers (RTEs) und interdisziplinären Teams\n• Mitarbeit bei der Erstellung von EPIC-Konzepten in enger Zusammenarbeit mit dem Produktmanagement\n• Erarbeiten und Bewertung von Lösungsansätzen\n• Erstellung von Analysen und Ausarbeitung von Lösungen sowie deren Präsentation vor Fach- und Führungsgremien\n• Hochschulabschluss in Wirtschaftsinformatik, Betriebswirtschaft oder einer vergleichbaren Fachrichtung, idealerweise mit Weiterbildung im Projekt- oder Portfoliomanagement\n• Mindestens 3 Jahre Erfahrung im Business Engineering im agilen Umfeld (z.B. SAFe) und idealerweise Zertifizierung im Business Engineering (z.B. IREB)\n• Überzeugende Kommunikations-, Präsentations- und Verhandlungsfähigkeiten\n• Analytisches, strategisches und vernetztes Denken\n• Vertrautheit mit bereichsübergreifender Zusammenarbeit und komplexem Stakeholder-Management\n• sehr gute Deutschkenntnisse\n• Ein Aufgabenbereich mit spannenden Themen, die du mit deinem Wissen und deiner Energie weiterbringen kannst\n• Engagierte, hochmotivierte und kompetente Kolleginnen und Kollegen, die sich darauf freuen, mit dir gemeinsame Ziele zu erreichen\n• Wir unterstützen dich bei der Vereinbarkeit von Beruf und Privatleben - ob anhand von Teilzeit, hybridem Arbeiten, unbezahltem Urlaub oder flexiblen Arbeitszeiten\n• Verschiedene Anlässe und interne Netzwerke bieten dir die Möglichkeit, dich schnell zu vernetzen\n• Deine Karriere liegt uns als Arbeitgeberin am Herzen und deshalb fördern und begleiten wir dich auf deinem Weg und unterstützen dich mit vielen Angeboten\n• Umfassendes Gesamtpaket, welches neben dem attraktiven Grundsalär und einer variablen Vergütung viele Benefits und Vergünstigungen bietet – von A wie Altersvorsorge bis Z wie ZVV-Bonuspass",
+      "fr": "• Ingénieur d'affaires Facturation et paiements (m/f/d) 80 % - 100 % de l'informatique / Ingénierie d'affaires Postulez en ligne maintenant Projets et Ingénierie en Facturation & Paiements est responsable du développement stratégique et de la mise en œuvre de la numérisation, de l'automatisation et de la modernisation de nos services et solutions. Notre objectif est de créer une valeur ajoutée durable pour nos clients et la banque. En tant qu'unité centrale, nous accompagnons les projets depuis leur conception jusqu'à leur mise en œuvre réussie et nous conduisons des projets innovants dans l'ensemble de l'environnement de facturation et de paiement. Il s'agit de sujets tels que le paiement instantané, SIC, SWIFT, TWINT, eBill et d'autres technologies prospectives. Faites partie de notre équipe et façonnez l'avenir des paiements avec nous en migrant des modules d'application vers une pile d'application moderne et créant ainsi la base pour des solutions à l'épreuve du futur. Vos tâches\n• Créer des spécifications d'exigences ou Créer des EPIC, des histoires et des fonctionnalités, des prototypes d'interface utilisateur\n• Une coopération étroite avec les propriétaires de produits, les ingénieurs de formation à la libération et les équipes interdisciplinaires\n• Collaboration à la création de concepts EPIC en étroite collaboration avec la gestion des produits\n• Développement et évaluation des approches de solution\n• Création d'analyses et développement de solutions ainsi que leur présentation aux organismes spécialisés et de gestion\n• Diplôme universitaire en informatique des affaires, administration des affaires ou une discipline comparable, idéalement avec une formation complémentaire en gestion de projets ou de portefeuilles\n• Au moins 3 ans d'expérience en ingénierie des affaires dans un environnement agile (p. ex. SAFe) et idéalement certification en ingénierie des affaires (p. ex. IREB)\n• Compétences de communication, de présentation et de négociation convaincantes\n• Réflexion analytique, stratégique et en réseau\n• Familiarisation avec la collaboration interdivisions et la gestion complexe des parties prenantes\n• Très bonne connaissance de l'allemand\n• Un domaine de travail avec des sujets passionnants que vous pouvez avancer avec vos connaissances et votre énergie\n• Collaborateurs engagés, très motivés et compétents qui espèrent atteindre des objectifs communs avec vous\n• Nous vous soutenons dans la conciliation du travail et de la vie privée - que ce soit par le travail à temps partiel, le travail hybride, le congé non rémunéré ou la flexibilité des horaires de travail\n• Divers événements et réseaux internes vous offrent la possibilité de réseauter rapidement\n• Votre carrière est importante pour nous en tant qu'employeur et donc nous vous soutenons sur votre chemin et vous soutenons avec de nombreuses offres\n• Ensemble complet, qui, en plus du salaire de base attrayant et d'une rémunération variable offre de nombreux avantages et avantages – de A comme la disposition de retraite à Z comme ZV bonus pass"
+    },
+    "slugByLocale": {
+      "it": "business-ingegnere-billing-payments-m-w-d-zurcher-kantonalbank-zurich-4a468d59",
+      "en": "business-engineer-billing-payments-m-w-d-zurcher-kantonalbank-zurich-5e3b1eb1",
+      "de": "business-engineer-billing-payments-m-w-d-zkb-zurich-64d1feaf",
+      "fr": "business-ingenieur-billing-payments-m-w-d-zurcher-kantonalbank-zurich-9ff99061"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-09-18T13:41:07.277Z",
+    "previousSlugsByLocale": {
+      "it": [
+        "business-engineer-billing-payments-m-w-d-zkb-zurich-64d1feaf",
+        "business-ingegnere-erp-m-w-d-zurcher-kantonalbank-zurich-27720f15",
+        "business-engineer-erp-m-w-d-zurcher-kantonalbank-zurich-e6a839ba",
+        "business-engineer-erp-m-w-d-zkb-zurich-3fbba7a2",
+        "business-ingegnere-ai-genai-w-m-d-zurcher-kantonalbank-zurich-b2f10d96",
+        "business-engineer-ai-genai-w-m-d-zurcher-kantonalbank-zurich-d91cc23a",
+        "business-engineer-ai-genai-w-m-d-zkb-zurich-83bb3113",
+        "business-ingegnere-finanzierungen-m-w-d-zurcher-kantonalbank-zurich-38b6dbdc",
+        "business-engineer-finanzierungen-m-w-d-zurcher-kantonalbank-zurich-01730057",
+        "business-engineer-finanzierungen-m-w-d-zkb-zurich-7c418683",
+        "business-engineer-financements-h-f-d-zurcher-kantonalbank-zurich-6d12543b"
+      ],
+      "en": [
+        "business-engineer-erp-m-w-d-zurcher-kantonalbank-zurich-e6a839ba",
+        "business-engineer-finanzierungen-m-w-d-zurcher-kantonalbank-zurich-01730057",
+        "business-engineer-billing-payments-m-w-d-zkb-zurich-64d1feaf",
+        "business-ingegnere-erp-m-w-d-zurcher-kantonalbank-zurich",
+        "business-engineer-erp-m-w-d-zkb-zurich",
+        "business-ingegnere-ai-genai-w-m-d-zurcher-kantonalbank-zurich",
+        "business-engineer-ai-genai-w-m-d-zurcher-kantonalbank-zurich",
+        "business-engineer-ai-genai-w-m-d-zkb-zurich",
+        "business-ingegnere-finanzierungen-m-w-d-zurcher-kantonalbank-zurich",
+        "business-engineer-finanzierungen-m-w-d-zkb-zurich",
+        "business-engineer-financements-h-f-d-zurcher-kantonalbank-zurich"
+      ],
+      "de": [
+        "business-engineer-finanzierungen-m-w-d-zkb-zurich-7c418683",
+        "business-engineer-billing-payments-m-w-d-zkb-zurich-64d1feaf",
+        "business-ingegnere-erp-m-w-d-zurcher-kantonalbank-zurich",
+        "business-engineer-erp-m-w-d-zurcher-kantonalbank-zurich",
+        "business-engineer-erp-m-w-d-zkb-zurich",
+        "business-ingegnere-ai-genai-w-m-d-zurcher-kantonalbank-zurich",
+        "business-engineer-ai-genai-w-m-d-zurcher-kantonalbank-zurich",
+        "business-engineer-ai-genai-w-m-d-zkb-zurich",
+        "business-ingegnere-finanzierungen-m-w-d-zurcher-kantonalbank-zurich",
+        "business-engineer-finanzierungen-m-w-d-zurcher-kantonalbank-zurich",
+        "business-engineer-financements-h-f-d-zurcher-kantonalbank-zurich"
+      ],
+      "fr": [
+        "business-engineer-billing-payments-m-w-d-zkb-zurich-64d1feaf",
+        "business-engineer-erp-m-w-d-zkb-zurich-3fbba7a2",
+        "business-engineer-financements-h-f-d-zurcher-kantonalbank-zurich-6d12543b",
+        "business-ingegnere-erp-m-w-d-zurcher-kantonalbank-zurich",
+        "business-engineer-erp-m-w-d-zurcher-kantonalbank-zurich",
+        "business-ingegnere-ai-genai-w-m-d-zurcher-kantonalbank-zurich",
+        "business-engineer-ai-genai-w-m-d-zurcher-kantonalbank-zurich",
+        "business-engineer-ai-genai-w-m-d-zkb-zurich",
+        "business-ingegnere-finanzierungen-m-w-d-zurcher-kantonalbank-zurich",
+        "business-engineer-finanzierungen-m-w-d-zurcher-kantonalbank-zurich",
+        "business-engineer-finanzierungen-m-w-d-zkb-zurich"
+      ]
+    },
+    "postalCode": "8001",
+    "salaryMin": 91500,
+    "salaryMax": 128000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://apply.refline.ch/792841/11394/pub/1",
+    "previousSlugs": [
+      "business-ingegnere-erp-m-w-d-zurcher-kantonalbank-zurich-27720f15",
+      "business-engineer-erp-m-w-d-zurcher-kantonalbank-zurich-e6a839ba",
+      "business-engineer-erp-m-w-d-zkb-zurich-3fbba7a2",
+      "business-ingegnere-ai-genai-w-m-d-zurcher-kantonalbank-zurich-b2f10d96",
+      "business-engineer-ai-genai-w-m-d-zurcher-kantonalbank-zurich-d91cc23a",
+      "business-engineer-ai-genai-w-m-d-zkb-zurich-83bb3113",
+      "business-ingegnere-finanzierungen-m-w-d-zurcher-kantonalbank-zurich-38b6dbdc",
+      "business-engineer-finanzierungen-m-w-d-zurcher-kantonalbank-zurich-01730057",
+      "business-engineer-finanzierungen-m-w-d-zkb-zurich-7c418683",
+      "business-engineer-financements-h-f-d-zurcher-kantonalbank-zurich-6d12543b",
+      "business-ingegnere-erp-m-w-d-zurcher-kantonalbank-zurich",
+      "business-engineer-erp-m-w-d-zkb-zurich",
+      "business-ingegnere-ai-genai-w-m-d-zurcher-kantonalbank-zurich",
+      "business-engineer-ai-genai-w-m-d-zurcher-kantonalbank-zurich",
+      "business-engineer-ai-genai-w-m-d-zkb-zurich",
+      "business-ingegnere-finanzierungen-m-w-d-zurcher-kantonalbank-zurich",
+      "business-engineer-finanzierungen-m-w-d-zkb-zurich",
+      "business-engineer-financements-h-f-d-zurcher-kantonalbank-zurich",
+      "business-engineer-erp-m-w-d-zurcher-kantonalbank-zurich",
+      "business-engineer-finanzierungen-m-w-d-zurcher-kantonalbank-zurich"
+    ]
+  },
+  {
+    "slug": "devops-ingegnere-ms-dynamics-m-w-d-zurcher-kantonalbank-zurich",
+    "title": "DevOps Engineer MS Dynamics (m/w/d)",
+    "titleByLocale": {
+      "it": "DevOps Ingegnere MS Dynamics (m/w/d)",
+      "en": "DevOps Engineer MS Dynamics (m/w/d)",
+      "de": "DevOps Ingenieur MS Dynamics (m/w/d)",
+      "fr": "DevOps Ingénieur MS Dynamics (m/w/d)"
+    },
+    "company": "Zürcher Kantonalbank",
+    "companyKey": "zkb",
+    "location": "Zürich",
+    "addressLocality": "Zürich",
+    "descriptionByLocale": {
+      "it": "• DevOps Engineer MS Dynamics (m/f/d)\n\n100% | IT / Business Engineering | Zurich | Professionisti esperti\n\nApplicare online ora\n\nCon noi nel reparto IT della Zürcher Kantonalbank, insieme a più di 1.000 colleghi, si sviluppa la tecnologia di domani nel cuore di Zurigo. Insieme a voi, vogliamo celebrare il successo e vivere i nostri valori: agire con coraggio, contribuire alle idee, consegnare con la prospettiva di tutto e far sentire l'entusiasmo.\nLa nostra soluzione CRM per i clienti complessi della Zürcher Kantonalbank e Swisscanto sta per essere ricostruita nel cloud. Formare questo futuro e diventare parte di un team che utilizza tecnologie innovative per rafforzare l'efficienza e l'efficacia dei processi di vendita e quindi creare valore aggiunto sostenibile.\n\nI vostri compiti – modellare di più\n\n• Sviluppare ed estendere soluzioni basate su MS Dynamics 365, inclusi plugin, workflow e applicazioni personalizzate\n• Analizzare i requisiti aziendali e tradurre in soluzioni tecniche adeguate all'interno di MS Dynamics 365\n• Pianificare e implementare i releases, nonché stabilire e mantenere le tubazioni CI/CD per le nostre soluzioni CRM e i loro sistemi di implementazione\n• Assicurare il funzionamento delle nostre soluzioni CRM esistenti nel cloud e sul prem\n• Lavorare a stretto contatto con Product Manager, Product Owner, Business Engineers e Architettura per sviluppare soluzioni ottimali\n• Istruzione completa o formazione nel calcolo (business) o esperienza professionale comparabile\n• Esperienza profonda nello sviluppo con MS Dynamics 365\n• Esperienza ideale per integrare D365 con altri sistemi, preferibilmente utilizzando Java/Kotlin e Kafka\n• Si segna con una mentalità positiva, il lavoro di squadra e la forza di comunicazione e affrontare le sfide con entusiasmo e un senso di responsabilità\n• Molto buona conoscenza del tedesco in parola e scrittura\n• Il supporto reciproco e lo spirito di squadra sono importanti per noi\n• Contiamo sulle vostre idee e vi offriamo spazio per i vostri impulsi\n• Varie opportunità di sviluppo personale e professionale\n• Posto centrale, facilmente accessibile e attraente sul posto di lavoro con la possibilità di organizzare il vostro lavoro in modo flessibile (ibrido all'interno della Svizzera)\n• Il pacchetto completo, che oltre all'attrattivo stipendio base e ad una remunerazione variabile offre molti vantaggi e vantaggi – da A come la fornitura di pensione a Z come il bonus pass ZVV",
+      "en": "• DevOps Engineer MS Dynamics (m/f/d)\n\n100% | IT / Business Engineering | Zurich | Experienced professionals\n\nApply online now\n\nWith us in the IT department of the Zürcher Kantonalbank, together with more than 1,000 colleagues, you develop the technology of tomorrow in the heart of Zurich. Together with you, we want to celebrate success and live our values: act courageously, contribute ideas, deliver with a view to the whole and make enthusiasm felt.\nOur CRM solution for complex customers of the Zürcher Kantonalbank and Swisscanto is about to be rebuilt in the cloud. Shape this future and become part of a team that uses innovative technology to strengthen the efficiency and effectiveness of sales processes and thus create sustainable added value.\n\nYour tasks – shaping more\n\n• Develop and extend solutions based on MS Dynamics 365, including plugins, workflows and custom applications\n• Analyze business requirements and translate into suitable technical solutions within MS Dynamics 365\n• Planning and implementing releases as well as establishing and maintaining CI/CD pipelines for our CRM solutions and their implementation systems\n• Ensure the operation of our existing CRM solutions in the cloud and on prem\n• Working closely with Product Manager, Product Owner, Business Engineers and Architecture to develop optimal solutions\n• Completed education or training in (business) computing or comparable professional experience\n• Deep experience in development with MS Dynamics 365\n• Ideally experience in integrating D365 with other systems, preferably using Java/Kotlin and Kafka\n• You score with a positive mindset, teamwork and communication strength and tackle challenges with enthusiasm and a sense of responsibility\n• Very good knowledge of German in word and writing\n• Mutual support and team spirit are important to us\n• We count on your ideas and offer you space for your impulses\n• Various opportunities to develop personally and professionally\n• Centrally located, easily accessible and attractive workplace with the possibility to organize your work flexibly (hybrid within Switzerland)\n• Comprehensive package, which in addition to the attractive basic salary and a variable remuneration offers many benefits and perks – from A such as retirement provision to Z such as ZVV bonus pass",
+      "de": "• DevOps Engineer MS Dynamics (m/w/d)\n\n100% | IT / Business Engineering | Zürich | Berufserfahrene\n\nJetzt online bewerben\n\nBei uns in der IT der Zürcher Kantonalbank entwickelst du gemeinsam mit über 1'000 Kolleginnen und Kollegen die Technologie von morgen und das im Herzen von Zürich. Gemeinsam mit dir wollen wir Erfolge feiern und unsere Werte leben: mutig handeln, Ideen einbringen, mit dem Blick aufs Ganze liefern und Begeisterung spürbar machen.\nUnsere CRM-Lösung für komplexe Kundschaft der Zürcher Kantonalbank und Swisscanto steht vor dem Neuaufbau in der Cloud. Gestalte diese Zukunft mit und werde Teil eines Teams, das mit innovativer Technologie die Effizienz und Effektivität der Vertriebsprozesse stärkt und damit nachhaltigen Mehrwert schafft.\n\nDeine Aufgaben\n\n• Entwickeln und erweitern von Lösungen auf Basis von MS Dynamics 365, inklusive Plugins, Workflows und benutzerdefinierten Anwendungen\n• Analysieren von Business-Anforderungen und Übersetzen in passende technische Lösungen innerhalb von MS Dynamics 365\n• Planen und umsetzen von Releases sowie Aufbauen und Pflegen von CI/CD-Pipelines für unsere CRM-Lösungen und deren Umsysteme\n• Sicherstellen des Betriebs unserer bestehenden CRM-Lösungen in der Cloud und on prem\n• Enges Zusammenarbeiten mit Product Manager, Product Owner, Business Engineers und Architektur zur Erarbeitung optimaler Lösungen\n• Abgeschlossene Aus- oder Weiterbildung im Bereich (Wirtschafts-)Informatik oder vergleichbare Berufserfahrung\n• Fundierte Erfahrung in der Entwicklung mit MS Dynamics 365\n• Idealerweise Erfahrung in der Integration von D365 mit anderen Systemen, vorzugsweise unter Einsatz von Java/Kotlin und Kafka\n• Du punktest mit einem positiven Mindset, Teamfähigkeit und Kommunikationsstärke und gehst Herausforderungen mit Begeisterung und Verantwortungsbewusstsein an\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Gegenseitige Unterstützung und Teamspirit werden bei uns grossgeschrieben\n• Wir zählen auf deine Ideen und bieten dir Freiraum für deine Impulse\n• Vielfältige Möglichkeiten, dich persönlich und fachlich weiterzuentwickeln\n• Zentral gelegener, gut erreichbarer und attraktiver Arbeitsplatz mit der Möglichkeit, deine Arbeit flexibel zu organisieren (hybrid innerhalb der Schweiz)\n• Umfassendes Gesamtpaket, welches neben dem attraktiven Grundsalär und einer variablen Vergütung viele Benefits und Vergünstigungen bietet – von A wie Altersvorsorge bis Z wie ZVV-Bonuspass",
+      "fr": "• DevOps Ingénieur MS Dynamics (m/f/d)\n\n100% de l'informatique / Ingénierie d'affaires\n\nPostulez en ligne maintenant\n\nAvec nous dans le département informatique de la Zürcher Kantonalbank, avec plus de 1000 collègues, vous développez la technologie de demain au cœur de Zurich. Avec vous, nous voulons célébrer le succès et vivre nos valeurs : agir courageusement, contribuer aux idées, livrer en vue de l'ensemble et faire sentir l'enthousiasme.\nNotre solution CRM pour les clients complexes de la Zürcher Kantonalbank et Swisscanto est sur le point d'être reconstruite dans le cloud. Façonner cet avenir et faire partie d'une équipe qui utilise des technologies innovantes pour renforcer l'efficience et l'efficacité des processus de vente et ainsi créer une valeur ajoutée durable.\n\nVos tâches – façonner plus\n\n• Développer et étendre des solutions basées sur MS Dynamics 365, y compris des plugins, des workflows et des applications personnalisées\n• Analyser les besoins opérationnels et traduire en solutions techniques appropriées dans MS Dynamics 365\n• Planification et mise en oeuvre des rejets et établissement et entretien de pipelines CI/CD pour nos solutions CRM et leurs systèmes de mise en oeuvre\n• Assurer le fonctionnement de nos solutions CRM existantes dans le cloud et sur prem\n• Travailler en étroite collaboration avec le gestionnaire de produits, le propriétaire de produits, les ingénieurs d'affaires et l'architecture pour développer des solutions optimales\n• Études ou formation terminées en informatique (entreprise) ou expérience professionnelle comparable\n• Expérience approfondie en développement avec MS Dynamics 365\n• Idéalement l'expérience dans l'intégration D365 avec d'autres systèmes, de préférence en utilisant Java/Kotlin et Kafka\n• Vous marquez avec un état d'esprit positif, le travail d'équipe et la force de communication et de relever les défis avec enthousiasme et un sens des responsabilités\n• Très bonne connaissance de l'allemand en paroles et en écriture\n• Le soutien mutuel et l'esprit d'équipe sont importants pour nous\n• Nous comptons sur vos idées et vous offrons de l'espace pour vos impulsions\n• Diverses possibilités de développement personnel et professionnel\n• Un lieu de travail central, facilement accessible et attrayant avec la possibilité d'organiser votre travail de manière flexible (hybride en Suisse)\n• Ensemble complet, qui, en plus du salaire de base attractif et d'une rémunération variable offre de nombreux avantages et avantages – de A comme la disposition de retraite à Z comme la carte de bonus ZVV"
+    },
+    "slugByLocale": {
+      "it": "devops-ingegnere-ms-dynamics-m-w-d-zurcher-kantonalbank-zurich",
+      "en": "devops-engineer-ms-dynamics-m-w-d-zurcher-kantonalbank-zurich",
+      "de": "devops-engineer-ms-dynamics-m-w-d-zkb-zurich",
+      "fr": "devops-engineer-ms-dynamics-m-w-d-zkb-zurich"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-09-18T13:41:07.277Z",
+    "previousSlugs": [
+      "devops-engineer-ms-dynamics-m-w-d-zkb-zurich"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "devops-engineer-ms-dynamics-m-w-d-zkb-zurich"
       ]
     },
     "postalCode": "8001",
@@ -9937,6 +10543,63 @@
       "fr": [
         "senior-business-engineer-api-banking-id-management-m-w-d-zkb-zurich",
         "senior-business-ingenieur-digitales-banking-m-w-d-zurcher-kantonalbank-zurich"
+      ]
+    },
+    "postalCode": "8001",
+    "salaryMin": 124000,
+    "salaryMax": 173000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "senior-business-ingegnere-security-digitale-kanale-m-w-d-zurcher-kantonalbank-zurich",
+    "title": "Senior Business Engineer Security – Digitale Kanäle (m/w/d)",
+    "titleByLocale": {
+      "it": "Sicurezza degli ingegneri aziendali senior - Canali digitali (m/f/d)",
+      "en": "Senior Business Engineer Security – Digital Channels (m/f/d)",
+      "de": "Senior Business Ingenieur Security – Digitale Kanäle (m/w/d)",
+      "fr": "Senior Business Ingénieur Security – Digitale Kanäle (m/w/d)"
+    },
+    "company": "Zürcher Kantonalbank",
+    "companyKey": "zkb",
+    "location": "Zürich",
+    "addressLocality": "Zürich",
+    "descriptionByLocale": {
+      "it": "• Sicurezza degli ingegneri senior – Canali digitali (m/f/d) 80% - 100% | IT / Business Engineering | Zurich | Professionisti esperti con responsabilità del progetto Applicare online ora L'area \"canali clienti\" è responsabile per il design futuro e sicuro dei nostri canali digitali e fisici o dell'interfaccia cliente per un'esperienza clienti efficiente ed efficace. Nell'area dei \"canali finali\", si gioca un ruolo centrale all'interno del reparto concept per le interfacce digitali dei clienti. Insieme ai nostri esperti e in stretta collaborazione con l'eChannel Security Centre, avanzerai lo sviluppo strategico e la concezione tecnica degli argomenti di sicurezza nei nostri canali digitali. Con la tua comprovata esperienza, assicurati che i requisiti di sicurezza e la facilità d'uso siano combinati in modo ottimale per creare un'esperienza clienti sostenibile e affidabile. I tuoi compiti\n• Responsabilità strategica per le questioni di sicurezza nei canali digitali (eBanking, Mobile Banking) con un focus sullo sviluppo di concetti che combinano alta sicurezza e ottima usabilità\n• Gestione di complesse iniziative di sicurezza e progetti in canali digitali, tra cui il controllo di team interdisciplinari\n• Chiudere la cooperazione e risparmiare su un piano di parità con i canali digitali, l'architettura IT e altri stakeholder\n• Analizzare i processi di sicurezza esistenti, tra cui l'identificazione del rischio e la definizione e la concezione delle misure di ottimizzazione\n• Assicurare l'attuazione dei requisiti normativi e di sicurezza interna\n• Osservazione attiva degli sviluppi tecnologici e il loro trasferimento in roadmap concrete\n• Laurea universitaria (Uni/FH) in informatica aziendale, informatica, amministrazione aziendale o disciplina comparabile\n• Almeno 10 anni di esperienza professionale nel campo dei canali digitali, della sicurezza informatica/informazione o del digital banking, una parte significativa di cui si concentra sulla sicurezza in eBanking/Mobile Banking o applicazioni simili\n• Esperienza dimostrata nella progettazione e realizzazione di soluzioni di sicurezza nei canali digitali (compresi progetti concreti/iniziativa)\n• Diversi anni di esperienza nella gestione di progetti complessi (idealmente in configurazioni agili e ibride)\n• Profonda comprensione tecnica delle architetture di sicurezza IT e dei processi digitali (in piedi architettura e design senza svilupparsi da soli) (spostato)\n• Conoscenza molto buona del tedesco in parola e scrittura, l'inglese è un vantaggio\n• Cultura aperta della cooperazione in cui il sostegno reciproco e lo scambio sono ovviamente una questione\n• Vi sosteniamo nel riconciliare il lavoro e la vita privata - sia attraverso lavoro a tempo parziale, ibrido, congedo non retribuito o ore di lavoro flessibili\n• Promozione del vostro sviluppo professionale e personale con numerose altre offerte di istruzione\n• Il nostro moderno ufficio nel vivace Kreis 5 di Zurigo vi offre l'ambiente ideale per lavorare in modo creativo e produttivo.\n• Vi offriamo una compensazione equa e trasparente basata su bande paga chiaramente definite\n• Pacchetto completo, che oltre allo stipendio base offre molti servizi e benefici aggiuntivi (ad esempio offerte sportive, assistenza per bambini, assicurazione sanitaria, ecc.)",
+      "en": "• Senior Business Engineer Security – Digital Channels (m/f/d) 80% - 100% | IT / Business Engineering | Zurich | Experienced professionals with project responsibility Apply online now The area \"client channels\" is responsible for the future-proof and secure design of our digital and physical channels or the customer interface for an efficient and effective customer experience. In the area of \"client channels\", you play a central role within the concept department for digital customer interfaces. Together with our dedicated experts and in close cooperation with the eChannel Security Centre, you will advance the strategic development and technical conception of security topics in our digital channels. With your proven experience, you ensure that security requirements and user-friendliness are optimally combined to create a sustainable and trustworthy customer experience. Your tasks\n• Strategic responsibility for security issues in digital channels (eBanking, Mobile Banking) with a focus on the development of concepts that combine high security and excellent usability\n• Managing complex security initiatives and projects in digital channels, including controlling interdisciplinary teams\n• Close cooperation and sparring on an equal footing with digital channels, IT architecture and other stakeholders\n• Analyze existing security processes including risk identification and definition and conception of optimization measures\n• Ensure implementation of regulatory and internal security requirements\n• Active observation of technological developments and their transfer into concrete roadmaps\n• University degree (Uni/FH) in business informatics, computer science, business administration or comparable discipline\n• At least 10 years of professional experience in the field of digital channels, IT/information security or digital banking, a significant part of which focuses on security in eBanking/Mobile Banking or similar applications\n• Demonstrated experience in the design and implementation of security solutions in digital channels (including concrete projects/initiatives)\n• Several years of experience in managing complex projects (ideally in agile and hybrid setups)\n• Deep technical understanding of IT security architectures and digital processes (understanding architecture and design without developing on your own) (shifted down)\n• Very good knowledge of German in word and writing, English is an advantage\n• Open culture of cooperation in which mutual support and exchange are a matter of course\n• We support you in reconciling work and private life - whether through part-time, hybrid work, unpaid leave or flexible working hours\n• Promotion of your professional and personal development with numerous further education offers\n• Our modern office in the vibrant Kreis 5 in Zurich offers you the ideal environment to work creatively and productively.\n• We offer you a fair and transparent compensation based on clearly defined pay bands\n• Comprehensive package, which in addition to the basic salary offers many additional services and benefits (e.g. sports offers, child care, health insurance, etc.)",
+      "de": "• Senior Business Engineer Security – Digitale Kanäle (m/w/d)\n\n80% - 100% | IT / Business Engineering | Zürich | Berufserfahrene mit Projektverantwortung\n\nJetzt online bewerben\n\nDer Bereich \"Client Channels\" verantwortet die zukunftsfähige und sichere Ausgestaltung unserer digitalen und physischen Kanäle respektive der Kundenschnittstelle für ein effizientes und effektives Kundenerlebnis.\nDu übernimmst im Bereich \"Client Channels\" eine zentrale Rolle innerhalb der Konzeptabteilung für digitale Kundenschnittstellen. Gemeinsam mit unseren engagierten Expertinnen und Experten sowie in enger Zusammenarbeit mit der eChannel-Sicherheitsfachstelle treibst du die strategische Weiterentwicklung und fachliche Konzeption von Sicherheitsthemen in unseren digitalen Kanälen voran. Dabei sorgst du mit deiner ausgewiesenen Erfahrung dafür, dass Sicherheitsanforderungen und Benutzerfreundlichkeit optimal miteinander vereint werden, um ein zukunftsfähiges und vertrauenswürdiges Kundenerlebnis zu schaffen.\n\nDeine Aufgaben\n\n• Strategisches Verantworten von Sicherheitsthemen in digitalen Kanälen (eBanking, Mobile Banking) mit Fokus auf die Entwicklung von Konzepten, die hohe Sicherheit und exzellente Usability verbinden\n• Leiten von komplexer Security-Initiativen und Projekte in digitalen Kanälen, inkl. Steuerung von interdisziplinären Teams\n• Enges Zusammenarbeiten und Sparring auf Augenhöhe mit Sicherheitsfachstelle Digitale Kanäle, IT-Architektur und weiteren Stakeholdern\n• Analysieren bestehender Sicherheitsprozesse inklusive Identifikation von Risiken sowie Definition und Konzeption von Optimierungs-Massnahmen\n• Sicherstellen der Umsetzung regulatorischer und interner Sicherheitsanforderungen\n• Aktives Beobachten technologischer Entwicklungen und deren Überführung in konkrete Roadmaps\n• Hochschulabschluss (Uni/FH) in Wirtschaftsinformatik, Informatik, Betriebswirtschaft oder vergleichbar Fachrichtung\n• Mindestens 10 Jahre Berufserfahrung im Umfeld digitaler Kanäle, IT-/Informationssicherheit oder Digital Banking, davon ein wesentlicher Teil mit Fokus auf Sicherheit in eBanking/Mobile Banking oder ähnlichen Anwendungen\n• Nachweisliche Erfahrung in der Konzeption und Umsetzung von Sicherheitslösungen in digitalen Kanälen (inkl. konkreter Projekte/Initiativen)\n• Mehrjährige Erfahrung in der Leitung komplexer Projekte (idealerweise in agilen und hybriden Setups)\n• Tiefes technisches Verständnis von IT-Sicherheitsarchitekturen und digitalen Prozessen (Architektur- und Designverständnis, ohne selbst zu entwickeln) (nach unten verschoben)\n• Sehr gute Deutschkenntnisse in Wort und Schrift, Englisch von Vorteil\n• Offene Kultur der Zusammenarbeit, in der gegenseitige Unterstützung und Austausch selbstverständlich sind\n• Wir unterstützen dich bei der Vereinbarkeit von Beruf und Privatleben - ob anhand von Teilzeit, hybridem Arbeiten, unbezahltem Urlaub oder flexiblen Arbeitszeiten\n• Förderung deiner fachlichen und persönlichen Weiterentwicklung mit zahlreichen Weiterbildungsangeboten\n• Unser modernes Büro im pulsierenden Kreis 5 in Zürich bietet dir die ideale Umgebung, um kreativ und produktiv zu arbeiten\n• Wir bieten dir eine faire und transparente Vergütung, die auf klar definierten Lohnbändern basiert\n• Umfassendes Gesamtpaket, welches neben dem Grundsalär viele Nebenleistungen und Vergünstigungen bietet (bspw. Sportangebote, Kinderbetreuung, Krankenkasse, uvm.)",
+      "fr": "• Sécurité de l'ingénieur principal en affaires – canaux numériques (m/f/d) 80 % - 100 % de l'informatique / Ingénierie d'affaires Postulez en ligne maintenant La zone \"canaux clients\" est responsable de la conception future et sécurisée de nos canaux numériques et physiques ou de l'interface client pour une expérience client efficace et efficiente. Dans le domaine des \"canaux clients\", vous jouez un rôle central au sein du département concept pour les interfaces client numériques. Avec nos experts dévoués et en étroite collaboration avec le Centre de sécurité eChannel, vous progresserez dans le développement stratégique et la conception technique des sujets de sécurité dans nos canaux numériques. Avec votre expérience éprouvée, vous veillez à ce que les exigences de sécurité et la convivialité soient combinées de manière optimale pour créer une expérience client durable et digne de confiance. Vos tâches\n• Responsabilité stratégique pour les questions de sécurité dans les canaux numériques (eBanking, Mobile Banking) en mettant l'accent sur le développement de concepts qui allient haute sécurité et excellente convivialité\n• Gestion d'initiatives et de projets complexes de sécurité sur les canaux numériques, y compris le contrôle des équipes interdisciplinaires\n• Coopération étroite et partage sur un pied d'égalité avec les canaux numériques, l'architecture informatique et les autres parties prenantes\n• Analyser les processus de sécurité existants, y compris l'identification et la définition des risques et la conception des mesures d'optimisation\n• Assurer la mise en œuvre des exigences réglementaires et de sécurité intérieure\n• Observation active des évolutions technologiques et de leur transfert vers des feuilles de route concrètes\n• Diplôme universitaire (Uni/FH) en informatique des affaires, informatique, administration des affaires ou discipline comparable\n• Au moins 10 ans d'expérience professionnelle dans le domaine des canaux numériques, de la sécurité informatique et de l'information ou de la banque numérique, dont une partie importante est axée sur la sécurité dans le domaine de la banque électronique/banque mobile ou des applications similaires\n• Expérience démontrée dans la conception et la mise en œuvre de solutions de sécurité sur les canaux numériques (y compris des projets/initiatives concrets)\n• Plusieurs années d'expérience dans la gestion de projets complexes (idéalement dans les configurations agiles et hybrides)\n• Compréhension technique approfondie des architectures de sécurité informatique et des processus numériques (comprendre l'architecture et le design sans se développer seul) (déplacement)\n• Très bonne connaissance de l'allemand dans la parole et l'écriture, l'anglais est un avantage\n• Une culture ouverte de coopération dans laquelle l'entraide et l'échange sont une question bien sûr\n• Nous vous soutenons dans la conciliation du travail et de la vie privée - que ce soit par le travail à temps partiel, le travail hybride, le congé non rémunéré ou la flexibilité des horaires de travail\n• Promotion de votre développement professionnel et personnel avec de nombreuses offres de formation complémentaire\n• Notre bureau moderne dans le Kreis 5 animé à Zurich vous offre l'environnement idéal pour travailler de manière créative et productive.\n• Nous vous offrons une rémunération équitable et transparente basée sur des fourchettes de rémunération clairement définies\n• Ensemble complet qui, en plus du salaire de base, offre de nombreux services et avantages supplémentaires (p. ex., offres sportives, garde d'enfants, assurance maladie, etc.)"
+    },
+    "slugByLocale": {
+      "it": "senior-business-ingegnere-security-digitale-kanale-m-w-d-zurcher-kantonalbank-zurich",
+      "en": "senior-business-engineer-security-digitale-kanale-m-w-d-zurcher-kantonalbank-zurich",
+      "de": "senior-business-ingenieur-security-digitale-kanale-m-w-d-zurcher-kantonalbank-zurich",
+      "fr": "senior-business-ingenieur-security-digitale-kanale-m-w-d-zurcher-kantonalbank-zurich-6aa0cc"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-09-18T13:41:07.277Z",
+    "previousSlugs": [
+      "senior-business-engineer-security-u2013-digitale-kan-u00e4le-m-w-d-zkb-zurich",
+      "senior-business-ingegnere-security-u2013-digitale-kan-u00e4le-m-w-d-zurcher-kantonalbank-zurich",
+      "senior-business-ingenieur-security-u2013-digitale-kan-u00e4le-m-w-d-zurcher-kantonalbank-zurich",
+      "senior-business-engineer-security-digitale-kanale-m-w-d-zkb-zurich"
+    ],
+    "previousSlugsByLocale": {
+      "de": [
+        "senior-business-engineer-security-u2013-digitale-kan-u00e4le-m-w-d-zkb-zurich",
+        "senior-business-engineer-security-digitale-kanale-m-w-d-zkb-zurich"
+      ],
+      "it": [
+        "senior-business-engineer-security-u2013-digitale-kan-u00e4le-m-w-d-zkb-zurich",
+        "senior-business-ingegnere-security-u2013-digitale-kan-u00e4le-m-w-d-zurcher-kantonalbank-zurich",
+        "senior-business-engineer-security-digitale-kanale-m-w-d-zkb-zurich"
+      ],
+      "en": [
+        "senior-business-engineer-security-u2013-digitale-kan-u00e4le-m-w-d-zkb-zurich"
+      ],
+      "fr": [
+        "senior-business-engineer-security-u2013-digitale-kan-u00e4le-m-w-d-zkb-zurich",
+        "senior-business-ingenieur-security-u2013-digitale-kan-u00e4le-m-w-d-zurcher-kantonalbank-zurich"
       ]
     },
     "postalCode": "8001",
@@ -10616,7 +11279,9 @@
     "salaryMin": 91500,
     "salaryMax": 128000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://apply.refline.ch/792841/11377/pub/1",
+    "firstSeenAt": "2026-09-23T23:37:15.176Z"
   },
   {
     "slug": "scrum-master-m-w-d-zkb-zurich",
@@ -10689,7 +11354,8 @@
     "salaryMin": 124000,
     "salaryMax": 173000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://apply.refline.ch/792841/11264/pub/5"
   },
   {
     "slug": "kundenberater-in-kundenservice-direktbank-zurcher-kantonalbank-zurich",
@@ -12498,6 +13164,50 @@
     "postalCode": "8001",
     "salaryMin": 101500,
     "salaryMax": 154000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "java-kotlin-software-ingegnere-f-u00fcr-den-handel-m-w-d-zurcher-kantonalbank-zurich",
+    "title": "Java / Kotlin Software-Engineer für den Handel (m/w/d)",
+    "titleByLocale": {
+      "it": "Java / Kotlin Software-Ingegnere für den Handel (m/w/d)",
+      "en": "Java / Kotlin software engineer für the trade (m/f/d)",
+      "de": "Java / Kotlin Software-Ingenieur für den Handel (m/w/d)",
+      "fr": "Java / Kotlin Software-Ingénieur für den Handel (m/w/d)"
+    },
+    "company": "Zürcher Kantonalbank",
+    "companyKey": "zkb",
+    "location": "Zürich",
+    "addressLocality": "Zürich",
+    "descriptionByLocale": {
+      "it": "• Java / Kotlin Software Engineer per il commercio (m/f/d) 80% - 100% | IT / Business Engineering | Zurich | Professionisti esperti Applicare online ora Il trading di ZKB è la zona più vivace della banca con costantemente nuove innovazioni e idee. Solo grazie alle nostre applicazioni questo business è reso possibile. Siamo responsabili per l'integrazione e lo sviluppo di applicazioni nel settore dei prodotti strutturati e supportano l'azienda con le nostre soluzioni software. Per l'ulteriore sviluppo e la progettazione del nostro paesaggio di applicazione per il commercio e per rafforzare il nostro team, stiamo cercando un Java/Kotlin Software Engineer. Vuoi usare le tue abilità in un ambiente agile e migliorare costantemente te stesso? Sei pronto a gestire e sviluppare la nostra piattaforma con noi? Allora applica ora. Il nostro team motivato è felice di conoscerti. I tuoi compiti\n• Cooperazione nell'ulteriore sviluppo della nostra piattaforma per i prodotti di strumentazione e il frontend web associato\n• Sviluppo di componenti backend con Java e Kotlin\n• Attuazione di interfacce di fornitori esterni e sviluppo ulteriore della nostra API per la comunicazione con i nostri partner\n• Consulenza e supporto del dipartimento per la progettazione e l'implementazione di prodotti tecnici\n• Collaborazione in progetti IT agili di negoziazione di titoli\n• Completato l'istruzione tecnica superiore o la formazione in informatica\n• Diversi anni di esperienza pratica nella progettazione, progettazione e sviluppo di applicazioni e sistemi\n• Esperienza con strumenti di automazione di costruzione e integrazione continua e consegna (Jenkins, Maven, Tomcat, Nexus, GitLab)\n• Esperienza pratica in Azure Cloud (Kubernetes, Docker, Helm) è un plus\n• La conoscenza di Kotlin e/o angolare è benefica\n• Buona conoscenza della lingua tedesca e inglese\n• Con noi ci si può aspettare un ambiente moderno, professionale, emozionante e stimolante in informatica.\n• Un team professionale motivato di auto-organizzazione Scrum nel contesto SAFe con sviluppatori e ingegneri aziendali\n• Una stretta cooperazione con le varie discipline commerciali\n• Ambiente variabile in informatica proprio accanto al piano di trading\n• Il vostro carico di lavoro è negoziabile dall'80% e può essere pianificato in modo flessibile grazie alle ore di lavoro annuali e alla possibilità di lavoro mobile. Lavoro e vita privata si combinano così bene",
+      "en": "• Java / Kotlin Software Engineer for Commerce (m/f/d) 80% - 100% | IT / Business Engineering | Zurich | Experienced professionals Apply online now ZKB’s trading is the most lively area of the bank with constantly new innovations and ideas. Only thanks to our applications this business is made possible. We are responsible for the integration and development of applications in the area of structured products and support the business with our software solutions. For the further development and design of our application landscape for trade and to strengthen our team, we are looking for a Java/Kotlin Software Engineer. Do you want to use your skills in an agile environment and constantly improve yourself? Are you ready to operate and develop our platform with us? Then apply now. Our motivated team is happy to meet you. Your tasks\n• Cooperation in the further development of our platform for Structuring Products and the associated web frontend\n• Development of backend components with Java and Kotlin\n• Implementation of interfaces of external providers and further development of our own API for communication with our partners\n• Advice and support of the department in technical product design and implementation matters\n• Collaboration in agile IT projects of securities trading\n• Completed higher technical education or training in computer science\n• Several years of practical experience in the design, design and development of applications and systems\n• Experience with Build Automation Tools and Continuous Integration & Delivery (Jenkins, Maven, Tomcat, Nexus, GitLab)\n• Practical experience in Azure Cloud (Kubernetes, Docker, Helm) is a plus\n• Knowledge of Kotlin and/or Angular is beneficial\n• Good knowledge of German and English\n• With us you can expect a modern, professional, exciting and challenging environment in computer science.\n• A motivated professional self-organizing Scrum Team in the SAFe context with developers and business engineers\n• Close cooperation with the various trade disciplines\n• Varied environment in computer science right next to the trading floor\n• Your workload is negotiable from 80% and can be planned flexibly thanks to annual working hours and the possibility of mobile work. Work and private life you combine so well",
+      "de": "• Java / Kotlin Software-Engineer für den Handel (m/w/d)\n\n80% - 100% | IT / Business Engineering | Zürich | Berufserfahrene\n\nJetzt online bewerben\n\nDer Handel der ZKB ist der lebendigste Bereich der Bank mit permanent neuen Innovationen und Ideen. Erst dank unseren Applikationen wird dieses Geschäft ermöglicht. Wir sind für die Integration und die Entwicklung der Applikationen im Bereich Strukturierte Produkte verantwortlich und unterstützen das Business mit unseren Softwarelösungen.\n\nFür die Weiterentwicklung und Gestaltung unserer Applikationslandschaft für den Handel und zur Verstärkung unseres Teams suchen wir ein Java/Kotlin Software Engineer.\n\nHast du Lust, deine Fähigkeiten in einem agilen Umfeld einzubringen und dich stetig zu verbessern? Bist du bereit mit uns unsere Plattform zu betreiben und weiterzuentwickeln? Dann bewerbe dich jetzt. Unser motiviertes Team freut sich dich kennenzulernen.\n\nDeine Aufgaben\n\n• Mitarbeit bei der Weiterentwicklung unserer Plattform für Strukturiere Produkte und dem dazugehörenden Web-Frontend\n• Entwicklung von Backend-Komponenten mit Java und Kotlin\n• Implementierung von Schnittstellen externer Anbieter und Weiterentwicklung unserer eigenen API zur Kommunikation mit unseren Partnern\n• Beratung und Unterstützung des Fachbereichs in fachlichen Produkt-Design- und Umsetzungsbelangen\n• Mitarbeit in agilen IT-Projekten des Wertschriftenhandels\n• Abgeschlossene höhere technische Ausbildung oder Weiterbildung im Bereich Informatik\n• Mehrjähriger praktischer Erfahrung in der Konzeption, Design und Entwicklung von Applikationen und Systemen\n• Erfahrungen mit Build Automation Tools und Continuous Integration & Delivery (Jenkins, Maven, Tomcat, Nexus, GitLab)\n• Praxiserfahrung in Azure Cloud (Kubernetes, Docker, Helm) ist ein Plus\n• Kenntnisse in Kotlin und / oder Angular sind von Vorteil\n• Gute Deutsch- und Englischkenntnisse\n• Bei uns erwartet dich ein modernes, professionelles, spannendes und herausforderndes Umfeld in der Informatik\n• Ein motiviertes professionelles selbstorganisierendes Scrum Team im SAFe Kontext mit Entwicklern und Business Engineers\n• Eine enge Zusammenarbeit mit den verschiedenen Fachbereichen des Handels\n• Abwechslungsreiches Umfeld in der Informatik direkt neben dem Trading-Floor\n• Dein Arbeitspensum ist ab 80% verhandelbar und dank Jahresarbeitszeit und Möglichkeit zur mobilen Arbeit flexibel planbar. Beruf und Privatleben bringst Du so gut unter einen Hut",
+      "fr": "• Java / Ingénieur logiciel Kotlin pour le commerce (m/f/d) 80 % - 100 % de TI / Ingénierie d'affaires Postulez en ligne maintenant Le trading ZKB est le secteur le plus animé de la banque avec des innovations et des idées constamment nouvelles. Ce n'est que grâce à nos applications que cette activité est rendue possible. Nous sommes responsables de l'intégration et du développement d'applications dans le domaine des produits structurés et soutenons l'entreprise avec nos solutions logicielles. Pour le développement et la conception de notre environnement d'application pour le commerce et pour renforcer notre équipe, nous sommes à la recherche d'un ingénieur logiciel Java/Kotlin. Voulez-vous utiliser vos compétences dans un environnement agile et vous améliorer constamment? Êtes-vous prêt à exploiter et développer notre plateforme avec nous ? Alors appliquez maintenant. Notre équipe motivée est heureuse de vous rencontrer. Vos tâches\n• Coopération dans le développement de notre plateforme pour les produits de structuring et la façade web associée\n• Développement de composants backend avec Java et Kotlin\n• Mise en place d'interfaces de fournisseurs externes et développement de notre propre API pour la communication avec nos partenaires\n• Conseils et soutien du Département en matière de conception et de mise en œuvre de produits techniques\n• Collaboration dans des projets informatiques agiles de négociation de valeurs mobilières\n• Enseignement supérieur technique ou formation en informatique\n• Plusieurs années d'expérience pratique dans la conception, la conception et le développement des applications et des systèmes\n• Expérience avec les outils d'automatisation de construction et d'intégration et de livraison continue (Jenkins, Maven, Tomcat, Nexus, GitLab)\n• Expérience pratique à Azure Cloud (Kubernetes, Docker, Helm) est un plus\n• La connaissance de Kotlin et/ou Angulaire est bénéfique\n• Bonne connaissance de l'allemand et de l'anglais\n• Avec nous, vous pouvez vous attendre à un environnement moderne, professionnel, passionnant et difficile en informatique.\n• Une équipe d'auto-organisation professionnelle motivée dans le contexte de Safe avec des développeurs et des ingénieurs d'affaires\n• Coopération étroite avec les différentes disciplines commerciales\n• Environnement varié en informatique juste à côté du plancher de négociation\n• Votre charge de travail est négociable à partir de 80% et peut être planifiée avec souplesse grâce aux heures de travail annuelles et à la possibilité de travail mobile. Travail et vie privée que vous combinez si bien"
+    },
+    "slugByLocale": {
+      "it": "java-kotlin-software-ingegnere-f-u00fcr-den-handel-m-w-d-zurcher-kantonalbank-zurich",
+      "en": "java-kotlin-software-engineer-f-u00fcr-den-handel-m-w-d-zkb-zurich",
+      "de": "java-kotlin-software-engineer-f-u00fcr-den-handel-m-w-d-zkb-zurich",
+      "fr": "java-kotlin-software-ingenieur-f-u00fcr-den-handel-m-w-d-zurcher-kantonalbank-zurich"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-07-11T21:48:52.381Z",
+    "previousSlugs": [
+      "java-kotlin-software-engineer-f-u00fcr-den-handel-m-w-d-zkb-zurich"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "java-kotlin-software-engineer-f-u00fcr-den-handel-m-w-d-zkb-zurich"
+      ],
+      "fr": [
+        "java-kotlin-software-engineer-f-u00fcr-den-handel-m-w-d-zkb-zurich"
+      ]
+    },
+    "postalCode": "8001",
+    "salaryMin": 73500,
+    "salaryMax": 111500,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR"
   },
