@@ -1,8 +1,15 @@
 import { describe, expect, it, vi } from 'vitest';
 import { generateKeyPairSync, sign as signJwt } from 'node:crypto';
 import { dispatchGenerationSlot, inspectGenerationWorkflowContract } from '../functions/src/generationSlotDispatch.js';
-import { getGenerationSlotClaim } from '../functions/src/generationSlotLedger.js';
-import { admitGenerationSlotClaim, claimGenerationSlot, handleGenerationSlotClaimRequest } from '../functions/src/generationSlotLedger.js';
+import {
+  admitGenerationSlotClaim,
+  claimGenerationSlot,
+  generationSlotKey,
+  getGenerationSlotClaim,
+  handleGenerationSlotClaimRequest,
+  releaseGenerationSlotClaim,
+  renewGenerationSlotClaim,
+} from '../functions/src/generationSlotLedger.js';
 import { GENERATION_SLOT_ENTRIES, parseCantonGenerationSchedule } from '../functions/src/generationSlotSchedule.js';
 import { dispatchLoopClock } from '../functions/src/loopClockDispatch.js';
 import {
@@ -165,6 +172,126 @@ describe('generation claim endpoint authentication', () => {
 });
 
 describe('generation slot dispatch', () => {
+  const minute = 60_000;
+  const hour = 60 * minute;
+  const nominal = new Date('2001-02-03T23:14:00Z');
+  const slotMs = nominal.getTime();
+  const dispatchMs = slotMs + 6 * minute;
+  const cantonEntry = (cron: string) => parseCantonGenerationSchedule({
+    schema: 1,
+    entries: [{ section: 'canton-ti', workflow: 'generate-article-ti.yml', cron }],
+  })[0];
+
+  it.each([
+    { hours: '2,11,23', duration: 3 * hour, offset: -1, admitted: true },
+    { hours: '2,11,23', duration: 3 * hour, offset: 0, admitted: false },
+    { hours: '2,11,23', duration: 3 * hour, offset: 1, admitted: false },
+    { hours: '*', duration: hour, offset: -1, admitted: true },
+    { hours: '*', duration: hour, offset: 0, admitted: false },
+  ])('dispatches canton hours $hours and admits at deadline offset $offset ms: $admitted', async ({
+    hours, duration, offset, admitted,
+  }) => {
+    const entry = cantonEntry(`14 ${hours} * * *`);
+    const db = memoryDb();
+    const fetchImpl = vi.fn(async (_url: string, init?: RequestInit) => init?.method === 'POST'
+      ? new Response(null, { status: 204 })
+      : responseForWorkflow(cantonWorkflow));
+    const result = await dispatchGenerationSlot({
+      entry,
+      scheduledAt: new Date(dispatchMs),
+      now: dispatchMs,
+      context: { pat: 'test-token', owner: 'test-owner', repo: 'test-corpus' },
+      fetchImpl,
+      getAdminDbImpl: () => db,
+    });
+    const key = generationSlotKey(entry.generationSlot, nominal, entry);
+    expect(result).toMatchObject({ dispatched: true, slotKey: key });
+    const { inputs } = JSON.parse(String(fetchImpl.mock.calls[1][1]?.body));
+    const token = inputs.recovery_claim;
+    const deadline = new Date(slotMs + duration);
+    expect(await getGenerationSlotClaim(db, key)).toMatchObject({ admitBefore: deadline, claimToken: token });
+    expect(await renewGenerationSlotClaim(db, key, token, { now: dispatchMs + 6 * minute })).toBe(true);
+    expect(await getGenerationSlotClaim(db, key)).toMatchObject({ admitBefore: deadline });
+
+    const now = deadline.getTime() + offset;
+    expect(await admitGenerationSlotClaim(db, key, token, '1', { now })).toEqual({
+      admitted, reason: admitted ? 'admitted' : 'claim_not_current',
+    });
+    if (admitted) {
+      expect(await admitGenerationSlotClaim(db, key, token, '1', { now: deadline.getTime() }))
+        .toEqual({ admitted: true, reason: 'already_admitted' });
+      expect(await admitGenerationSlotClaim(db, key, token, '2', { now }))
+        .toEqual({ admitted: false, reason: 'claim_not_current' });
+    }
+  });
+
+  it.each(['legacy', 'national', 'remint'])('keeps the hourly deadline for %s claims', async (scenario) => {
+    const db = memoryDb();
+    const entry = cantonEntry('14 2,11,23 * * *');
+    const slot = new Date(slotMs - 7 * minute);
+    const key = scenario === 'national'
+      ? generationSlotKey('frontaliere', slot)
+      : generationSlotKey(entry.generationSlot, nominal, entry);
+    const deadline = new Date(slotMs + 3 * hour);
+    const previous = await claimGenerationSlot(db, key, {
+      now: dispatchMs,
+      ...(scenario === 'remint' && { admitBefore: deadline }),
+    });
+    let token = previous.claimToken;
+    if (scenario === 'remint') {
+      const current = await claimGenerationSlot(db, key, { now: dispatchMs + 6 * minute });
+      token = current.claimToken;
+      expect(token).not.toBe(previous.claimToken);
+      expect(await getGenerationSlotClaim(db, key)).toMatchObject({ admitBefore: null });
+      expect(await admitGenerationSlotClaim(db, key, previous.claimToken, '1', { now: dispatchMs + 7 * minute }))
+        .toEqual({ admitted: false, reason: 'claim_not_current' });
+    } else {
+      const record = await getGenerationSlotClaim(db, key);
+      if (scenario === 'legacy') delete record.admitBefore;
+      else record.admitBefore = deadline;
+    }
+    const now = (scenario === 'national' ? slot.getTime() : slotMs) + hour;
+    expect(await admitGenerationSlotClaim(db, key, token, '1', { now }))
+      .toEqual({ admitted: false, reason: 'claim_not_current' });
+    expect(await admitGenerationSlotClaim(db, key, token, '1', { now: now - 1 }))
+      .toEqual({ admitted: true, reason: 'admitted' });
+  });
+
+  it('rejects invalid deadlines on write and fails closed on corrupt stored values', async () => {
+    const db = memoryDb();
+    const entry = cantonEntry('14 23 * * *');
+    const key = generationSlotKey(entry.generationSlot, nominal, entry);
+    const tooLong = new Date(slotMs + 24 * hour + 1);
+    for (const admitBefore of [new Date(NaN), nominal, tooLong]) {
+      await expect(claimGenerationSlot(db, key, { now: dispatchMs, admitBefore }))
+        .rejects.toThrow('generation slot admission deadline is invalid');
+    }
+    const deadline = new Date(slotMs + 24 * hour);
+    const national = generationSlotKey('frontaliere', new Date(slotMs - 7 * minute));
+    await expect(claimGenerationSlot(db, national, { now: dispatchMs, admitBefore: deadline }))
+      .rejects.toThrow('generation slot admission deadline is invalid');
+
+    const claim = await claimGenerationSlot(db, key, { now: dispatchMs, admitBefore: deadline });
+    const record = await getGenerationSlotClaim(db, key);
+    for (const invalid of [deadline.toISOString(), NaN, nominal, tooLong]) {
+      record.admitBefore = invalid;
+      expect(await admitGenerationSlotClaim(db, key, claim.claimToken, '1', { now: dispatchMs }))
+        .toEqual({ admitted: false, reason: 'claim_not_current' });
+    }
+    record.admitBefore = { toMillis: () => deadline.getTime() };
+    expect(await admitGenerationSlotClaim(db, key, claim.claimToken, '1', { now: deadline.getTime() - 1 }))
+      .toEqual({ admitted: true, reason: 'admitted' });
+  });
+
+  it('rejects a released canton token during the extended admission window', async () => {
+    const db = memoryDb();
+    const entry = cantonEntry('14 2,11,23 * * *');
+    const key = generationSlotKey(entry.generationSlot, nominal, entry);
+    const claim = await claimGenerationSlot(db, key, { now: dispatchMs, admitBefore: new Date(slotMs + 3 * hour) });
+    expect(await releaseGenerationSlotClaim(db, key, claim.claimToken, { now: dispatchMs + minute })).toBe(true);
+    expect(await admitGenerationSlotClaim(db, key, claim.claimToken, '1', { now: slotMs + 2 * hour }))
+      .toEqual({ admitted: false, reason: 'claim_not_current' });
+  });
   it('dispatches a nominal UTC slot once and fences the slot after workflow admission', async () => {
     const entry = GENERATION_SLOT_ENTRIES.find((candidate) => candidate.generationSlot === 'frontaliere')!;
     const db = memoryDb();

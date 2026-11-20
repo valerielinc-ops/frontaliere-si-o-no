@@ -9,7 +9,11 @@ import {
   releaseGenerationSlotClaim,
   renewGenerationSlotClaim,
 } from './generationSlotLedger.js';
-import { generationSlotDateForEntry, generationSlotWorkflow } from './generationSlotSchedule.js';
+import {
+  generationSlotDateForEntry,
+  generationSlotWorkflow,
+  nextGenerationSlotDateForEntry,
+} from './generationSlotSchedule.js';
 import { LOOP_CLOCK_INPUT, loopClockInputValue } from './loopClockTable.js';
 import { GENERATION_WORKFLOW_CONTRACT_MARKER, inspectGenerationWorkflowContract } from './generationWorkflowContract.js';
 
@@ -104,7 +108,8 @@ export async function dispatchGenerationSlot({
       : 'generation_contract_lookup_failed:network';
     return result(entry, { dispatched: false, failed: true, reason, slotKey });
   }
-  const contract = inspectGenerationWorkflowContract(workflowText, { canton: entry.generationSlot.startsWith('canton-') });
+  const canton = entry.generationSlot.startsWith('canton-');
+  const contract = inspectGenerationWorkflowContract(workflowText, { canton });
   if (!contract.ready) {
     return result(entry, { dispatched: false, reason: `shadow:${contract.reason}`, slotKey });
   }
@@ -176,7 +181,10 @@ export async function dispatchGenerationSlot({
 
   let claim;
   try {
-    claim = await claimGenerationSlot(db, slotKey, { now: nowMs });
+    claim = await claimGenerationSlot(db, slotKey, {
+      now: nowMs,
+      ...(canton && { admitBefore: nextGenerationSlotDateForEntry(entry, nominalSlot) }),
+    });
   } catch {
     return result(entry, { dispatched: false, failed: true, reason: 'generation_slot_claim_failed', slotKey });
   }

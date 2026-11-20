@@ -5,9 +5,15 @@ import { generationClaimWorkflowRef } from './githubActionsOidc.js';
 export const GENERATION_SLOT_COLLECTION = 'generationSlotClaims';
 export const GENERATION_SLOT_CLAIM_LEASE_MS = 5 * 60 * 1000;
 export const GENERATION_SLOT_RETRY_DELAY_MS = 2 * 60 * 1000;
-// Each section gets one nominal slot per hour. GitHub may assign a runner
-// well after the scheduler's short lease for dispatch retries.
+// National and legacy claims allow an hour for GitHub to assign a runner.
+// New canton claims use their calendar deadline, independent of the dispatch lease.
 const GENERATION_SLOT_ADMISSION_WINDOW_MS = 60 * 60 * 1000;
+const MAX_CANTON_ADMISSION_WINDOW_MS = 24 * GENERATION_SLOT_ADMISSION_WINDOW_MS;
+
+function isValidCantonAdmissionDeadline(slotMs, deadlineMs) {
+  return Number.isFinite(deadlineMs) && deadlineMs > slotMs
+    && deadlineMs <= slotMs + MAX_CANTON_ADMISSION_WINDOW_MS;
+}
 
 function dateMs(value) {
   if (value instanceof Date) return value.getTime();
@@ -73,12 +79,22 @@ export async function claimGenerationSlot(db, slotKey, {
   leaseMs = GENERATION_SLOT_CLAIM_LEASE_MS,
   retryDelayMs = GENERATION_SLOT_RETRY_DELAY_MS,
   claimTokenFactory = randomUUID,
+  admitBefore = /** @type {Date | undefined} */ (undefined),
 } = {}) {
   const parsed = parseGenerationSlotKey(slotKey);
   if (!parsed) throw new TypeError('generation slot key is invalid');
   const nowMs = dateMs(now);
   if (!Number.isFinite(nowMs) || !Number.isFinite(leaseMs) || leaseMs <= 0) {
     throw new TypeError('generation slot claim timing is invalid');
+  }
+  let admissionDeadline = null;
+  if (admitBefore !== undefined) {
+    const deadlineMs = admitBefore instanceof Date ? admitBefore.getTime() : NaN;
+    if (!parsed.section.startsWith('canton-')
+      || !isValidCantonAdmissionDeadline(parsed.slot.getTime(), deadlineMs)) {
+      throw new TypeError('generation slot admission deadline is invalid');
+    }
+    admissionDeadline = new Date(deadlineMs);
   }
   const ref = slotReference(db, slotKey);
   return db.runTransaction(async (transaction) => {
@@ -106,6 +122,7 @@ export async function claimGenerationSlot(db, slotKey, {
       claimToken,
       attempt,
       leaseUntil: new Date(nowMs + leaseMs),
+      admitBefore: admissionDeadline,
       retryAfter: null,
       admittedRunId: null,
       createdAt: previous?.createdAt || nowDate,
@@ -171,7 +188,21 @@ export async function admitGenerationSlotClaim(db, slotKey, claimToken, runId, {
     // Rotation or release invalidates the token transactionally. Expiry of
     // the dispatch lease alone does not revoke a run that is already queued.
     if (current?.status !== 'claimed' || !tokensEqual(current.claimToken, claimToken)
-      || !Number.isFinite(nowMs) || nowMs >= parsed.slot.getTime() + GENERATION_SLOT_ADMISSION_WINDOW_MS) {
+      || !Number.isFinite(nowMs)) {
+      return { admitted: false, reason: 'claim_not_current' };
+    }
+    const slotMs = parsed.slot.getTime();
+    let deadlineMs = slotMs + GENERATION_SLOT_ADMISSION_WINDOW_MS;
+    if (parsed.section.startsWith('canton-') && current.admitBefore != null) {
+      const storedDeadline = current.admitBefore;
+      deadlineMs = storedDeadline instanceof Date || typeof storedDeadline?.toMillis === 'function'
+        ? dateMs(storedDeadline)
+        : NaN;
+      if (!isValidCantonAdmissionDeadline(slotMs, deadlineMs)) {
+        return { admitted: false, reason: 'claim_not_current' };
+      }
+    }
+    if (nowMs >= deadlineMs) {
       return { admitted: false, reason: 'claim_not_current' };
     }
     transaction.update(ref, {
