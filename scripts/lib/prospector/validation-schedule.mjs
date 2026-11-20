@@ -4,7 +4,7 @@ import {
   selectWithRestCantonQuota,
 } from './coverage-priority.mjs';
 import {
-  GENERIC_SOURCE_ADAPTER_VERSION,
+  CURRENT_GENERIC_SOURCE_ADAPTER_VERSION,
   recordedSourceAdapterVersion,
 } from './source-adapter-version.mjs';
 
@@ -31,7 +31,7 @@ function historyFor(spec, candidate, adapterVersionFor, previousValidationForSpe
   history.sort((a, b) => String(a?.at || a?.validationStartedAt || '')
     .localeCompare(String(b?.at || b?.validationStartedAt || '')));
   const adapterVersion = String(adapterVersionFor?.(spec) || '').trim()
-    || GENERIC_SOURCE_ADAPTER_VERSION;
+    || CURRENT_GENERIC_SOURCE_ADAPTER_VERSION;
   const contractVersion = qualityContractVersionOf(spec);
   const currentContract = history.filter((entry) => qualityContractVersionOf(entry) === contractVersion);
   return currentContract.filter((entry) => recordedSourceAdapterVersion(entry) === adapterVersion);
@@ -108,7 +108,7 @@ export function applyValidationRuntimeState(report, runtimeSnapshotComplete, at 
 export function isValidationRetryDue(candidate, now = Date.now(), { qualityContractVersion, sourceAdapterVersion } = {}) {
   const history = Array.isArray(candidate?.validationHistory) ? candidate.validationHistory : [];
   const expectedSourceAdapterVersion = String(sourceAdapterVersion || '').trim()
-    || GENERIC_SOURCE_ADAPTER_VERSION;
+    || CURRENT_GENERIC_SOURCE_ADAPTER_VERSION;
   const latest = history.filter((entry) =>
     (qualityContractVersion === undefined || qualityContractVersionOf(entry) === qualityContractVersion)
     && recordedSourceAdapterVersion(entry) === expectedSourceAdapterVersion).at(-1);
