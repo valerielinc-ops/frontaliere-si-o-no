@@ -884,11 +884,20 @@ jobs:
           set -euo pipefail
           node scripts/ci/jobs-seo-html-cache-fingerprint.mjs >> "$GITHUB_OUTPUT"
 
+      - name: Hash restored incremental manifest
+        if: env.JOBS_SEO_REUSE == '1'
+        id: previous-manifest-key
+        timeout-minutes: 5
+        continue-on-error: true
+        uses: ./.github/actions/incremental-manifest-cache-key
+        with:
+          locale: ${{ matrix.locale }}
+
       # Opt-in only. The exact manifest hash pairs this HTML snapshot with the
       # previous manifest. The restore fingerprint comes from that manifest
       # when output probing is enabled; cache saves below use the current one.
       - name: Restore previous jobs SEO HTML cache
-        if: env.JOBS_SEO_REUSE == '1'
+        if: env.JOBS_SEO_REUSE == '1' && steps.previous-manifest-key.outputs.digest != ''
         id: jobs-seo-html-cache
         uses: actions/cache/restore@v6
         with:
@@ -897,7 +906,7 @@ jobs:
           # the HTML snapshot of a different run than the previous manifest
           # restored above. Keep the manifest hash exact; lookup() and the
           # output probe still validate each page before it can be reused.
-          key: jobs-seo-html-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}-${{ steps.jobs-seo-html-fingerprint.outputs.restore_fingerprint }}
+          key: jobs-seo-html-${{ matrix.locale }}-${{ steps.previous-manifest-key.outputs.digest }}-${{ steps.jobs-seo-html-fingerprint.outputs.restore_fingerprint }}
 
       - name: Stash previous incremental manifest before build overwrites it
         shell: bash
@@ -1840,6 +1849,16 @@ jobs:
       # the end of the job. A later CDN/shard failure must not make the next
       # build render the same corpus again. Cache storage is optional and must
       # not hold up publication if the cache service stalls.
+      - name: Inspect current incremental manifest
+        if: always()
+        id: current-manifest-key
+        timeout-minutes: 5
+        continue-on-error: true
+        uses: ./.github/actions/incremental-manifest-cache-key
+        with:
+          locale: ${{ matrix.locale }}
+          hash: ${{ env.JOBS_SEO_REUSE == '1' }}
+
       - name: Check jobs SEO HTML cache contents
         if: always() && env.JOBS_SEO_REUSE == '1'
         id: jobs-seo-html-content
@@ -1854,13 +1873,13 @@ jobs:
 
       - name: Save jobs SEO HTML cache
         id: jobs-seo-html-save
-        if: success() && env.JOBS_SEO_REUSE == '1' && steps.jobs-seo-html-content.outputs.has_files == 'true' && hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) != ''
+        if: success() && env.JOBS_SEO_REUSE == '1' && steps.jobs-seo-html-content.outputs.has_files == 'true' && steps.current-manifest-key.outputs.digest != ''
         timeout-minutes: 30
         continue-on-error: true
         uses: actions/cache/save@v6
         with:
           path: .cache/incremental-html
-          key: jobs-seo-html-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}-${{ steps.jobs-seo-html-fingerprint.outputs.fingerprint }}
+          key: jobs-seo-html-${{ matrix.locale }}-${{ steps.current-manifest-key.outputs.digest }}-${{ steps.jobs-seo-html-fingerprint.outputs.fingerprint }}
 
       # Keep the fully rendered IT cache if another locale dies at the
       # same-run hreflang barrier. This fallback is eligible only after IT's
@@ -1878,13 +1897,13 @@ jobs:
               steps.build_step.outcome == 'success' &&
               steps.validate-owned-sitemap-pages.outcome == 'success' &&
               steps.hreflang-index-manifest-pre.outcome == 'success' &&
-              hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) != '' }}
+              steps.current-manifest-key.outputs.digest != '' }}
         timeout-minutes: 30
         continue-on-error: true
         uses: actions/cache/save@v6
         with:
           path: .cache/incremental-html
-          key: jobs-seo-html-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}-${{ steps.jobs-seo-html-fingerprint.outputs.fingerprint }}
+          key: jobs-seo-html-${{ matrix.locale }}-${{ steps.current-manifest-key.outputs.digest }}-${{ steps.jobs-seo-html-fingerprint.outputs.fingerprint }}
 
       # Read-only evidence for the opt-in HTML cache. The build already logs
       # one [jobs-seo-reuse] row per page block; join those rows with the
@@ -2930,7 +2949,7 @@ jobs:
       # final step in the job: provenance has already captured every
       # publish-critical outcome, while this cache is only a later-run hint.
       - name: Save incremental manifest cache
-        if: always() && hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) != ''
+        if: always() && steps.current-manifest-key.outputs.present == 'true'
         uses: actions/cache/save@v6
         with:
           path: .cache/incremental-manifest

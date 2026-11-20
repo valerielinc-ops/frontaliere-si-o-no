@@ -1,0 +1,37 @@
+name: Incremental manifest cache key
+description: Check for a locale manifest and optionally compute its single-file hashFiles digest.
+inputs:
+  locale:
+    description: Locale of the manifest to inspect.
+    required: true
+  hash:
+    description: Whether the HTML cache needs a manifest digest.
+    default: 'true'
+outputs:
+  present:
+    description: Whether the locale manifest exists.
+    value: ${{ steps.manifest.outputs.present }}
+  digest:
+    description: The manifest digest, empty when unavailable.
+    value: ${{ steps.manifest.outputs.digest }}
+runs:
+  using: composite
+  steps:
+    - id: manifest
+      shell: bash
+      env:
+        MANIFEST_LOCALE: ${{ inputs.locale }}
+        HASH_MANIFEST: ${{ inputs.hash }}
+      run: |
+        set -euo pipefail
+        manifest=".cache/incremental-manifest/${MANIFEST_LOCALE}.jsonl"
+        if [[ ! -f "$manifest" ]]; then
+          exit 0
+        fi
+        echo 'present=true' >> "$GITHUB_OUTPUT"
+        if [[ "$HASH_MANIFEST" == 'true' ]]; then
+          # hashFiles hashes the raw SHA-256 digest of each matching file.
+          # There is exactly one input, so existing cache keys are preserved.
+          digest="$(openssl dgst -sha256 -binary < "$manifest" | openssl dgst -sha256 -hex)"
+          echo "digest=${digest##* }" >> "$GITHUB_OUTPUT"
+        fi
