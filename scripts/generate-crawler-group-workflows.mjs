@@ -2576,7 +2576,7 @@ function buildGroupWorkflowObject(
     // verdict and keep the group manifest fail-closed.
     // A retryable ref/lease loss is retried in THIS token; exhausting that
     // bounded retry is a real step failure, never a green "next cycle" result.
-    if: "always() && job.status == 'success' && steps.crawler_group_setup.outcome == 'success' && steps.crawler_aggregate.outcome == 'success' && (steps.crawler_aggregate.outputs.wait_outcome == 'success' || steps.crawler_aggregate.outputs.wait_outcome == 'failure')",
+    if: "always() && steps.crawler_group_setup.outcome == 'success' && steps.crawler_aggregate.outcome == 'success' && (steps.crawler_aggregate.outputs.wait_outcome == 'success' || steps.crawler_aggregate.outputs.wait_outcome == 'failure')",
     run: crawlerGroupBatchCommitRun(groupIndex),
   });
   steps.push(saveCrawlerAiCacheStep(groupName));
