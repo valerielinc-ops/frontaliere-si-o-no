@@ -5601,30 +5601,34 @@
     },
     "sector": "Industria e tecnologia (automazione, energia, infrastrutture digitali)",
     "expiredAt": "2026-07-22T22:07:49.871Z",
-    "previousSlugs": [
-      "service-ingenieur-in-schutz-und-leittechnik-80-100-siemens-zuerich",
-      "service-engineer-protection-and-control-technology-80-100-siemens-zuerich"
-    ],
     "previousSlugsByLocale": {
       "it": [
         "service-ingenieur-in-schutz-und-leittechnik-80-100-siemens-zuerich-4693612a",
+        "service-engineer-protection-and-control-technology-80-100-siemens-zuerich",
         "service-ingenieur-in-schutz-und-leittechnik-80-100-siemens-zuerich"
       ],
       "en": [
         "service-ingenieur-in-schutz-und-leittechnik-80-100-siemens-zuerich-4693612a",
+        "service-engineer-protection-and-control-technology-80-100-siemens-zuerich-18c96640",
         "service-engineer-protection-and-control-technology-80-100-siemens-zuerich"
       ],
       "de": [
-        "service-ingenieur-in-schutz-und-leittechnik-80-100-siemens-zuerich-4693612a"
+        "service-ingenieur-in-schutz-und-leittechnik-80-100-siemens-zuerich-4693612a",
+        "service-engineer-protection-and-control-technology-80-100-siemens-zuerich"
       ],
       "fr": [
-        "service-ingenieur-in-schutz-und-leittechnik-80-100-siemens-zuerich-4693612a"
+        "service-ingenieur-in-schutz-und-leittechnik-80-100-siemens-zuerich-4693612a",
+        "service-engineer-protection-and-control-technology-80-100-siemens-zuerich"
       ]
     },
     "salaryMin": 73500,
     "salaryMax": 111500,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "previousSlugs": [
+      "service-ingenieur-in-schutz-und-leittechnik-80-100-siemens-zuerich",
+      "service-engineer-protection-and-control-technology-80-100-siemens-zuerich"
+    ]
   },
   {
     "slug": "cybersecurity-manager-it-ot-80-100-siemens-zug",
