@@ -57,6 +57,21 @@ describe('Ferring — source-proven Swiss zero instead of an EMPTY_OK_CRAWLERS e
     })).toEqual({ authoritativeSnapshotVerified: true, authoritativeEmptySnapshot: true });
   });
 
+  it('accepts an explicit zero-count Switzerland facet as the live-board proof', async () => {
+    const board = workdayFixture('ferring-board.json');
+    board.facets[0].values.push({
+      descriptor: 'Switzerland',
+      id: '187134fccb084a0ea9b4b95f23890dbe',
+      count: 0,
+    });
+
+    mockFerringWorkday(board);
+    const jobs = await fetchAllFerringJobs();
+
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
+    expect(Reflect.get(jobs, 'authoritativeEmptyEvidence')).toContain('Switzerland facet explicitly reports 0 postings');
+  });
+
   it('keeps a bare zero when the board itself is empty, and fails on a missing site', async () => {
     mockFerringWorkday({ total: 0, jobPostings: [], facets: [{ facetParameter: 'Location_Country', values: [] }] });
     expect(isAuthoritativeEmptySnapshot(await fetchAllFerringJobs())).toBe(false);
