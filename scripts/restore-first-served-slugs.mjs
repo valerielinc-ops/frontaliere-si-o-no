@@ -27,8 +27,6 @@ const DEFAULT_SLICES_DIR = path.join(ROOT, 'data', 'jobs', 'by-crawler');
 // This file is deliberately checked in only after the GSC export has been
 // reviewed. A generated plan or a caller-selected ledger is evidence of a
 // possible change, never authority to rewrite an indexed URL.
-const GSC_ALLOWLIST_PATH = path.join(ROOT, 'data', 'gsc-first-served-slug-allowlist.json');
-const GSC_RECEIPT_PATH = path.join(ROOT, 'data', 'gsc-first-served-slug-receipt.json');
 const GSC_ALLOWLIST_COUNT = 40;
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
@@ -81,15 +79,16 @@ function canonicalPathFromUrl(url) {
   return normalizeServedPath(parsed.pathname);
 }
 
-function readCanonicalGscAllowlist() {
-  if (!fs.existsSync(GSC_ALLOWLIST_PATH)) {
-    throw new Error(`--apply requires the versioned GSC allowlist at ${GSC_ALLOWLIST_PATH}`);
+export function readCanonicalGscAllowlist(root = ROOT) {
+  const allowlistPath = path.join(root, 'data', 'gsc-first-served-slug-allowlist.json');
+  if (!fs.existsSync(allowlistPath)) {
+    throw new Error(`--apply requires the versioned GSC allowlist at ${allowlistPath}`);
   }
-  const source = readJson(GSC_ALLOWLIST_PATH);
+  const source = readJson(allowlistPath);
   if (source?.schema !== 1 || !Array.isArray(source.entries) || typeof source.receiptSha256 !== 'string') {
     throw new Error('GSC allowlist must have schema=1, receiptSha256, and an entries array');
   }
-  const receipt = readCanonicalGscReceipt(source.receiptSha256);
+  const receipt = readCanonicalGscReceipt(source.receiptSha256, root);
   if (source.entries.length !== GSC_ALLOWLIST_COUNT) {
     throw new Error(`GSC allowlist must contain exactly ${GSC_ALLOWLIST_COUNT} entries`);
   }
@@ -115,11 +114,12 @@ function readCanonicalGscAllowlist() {
   return bySlot;
 }
 
-function readCanonicalGscReceipt(expectedSha256) {
-  if (!fs.existsSync(GSC_RECEIPT_PATH)) {
-    throw new Error(`--apply requires the versioned GSC receipt at ${GSC_RECEIPT_PATH}`);
+function readCanonicalGscReceipt(expectedSha256, root = ROOT) {
+  const receiptPath = path.join(root, 'data', 'gsc-first-served-slug-receipt.json');
+  if (!fs.existsSync(receiptPath)) {
+    throw new Error(`--apply requires the versioned GSC receipt at ${receiptPath}`);
   }
-  const raw = fs.readFileSync(GSC_RECEIPT_PATH);
+  const raw = fs.readFileSync(receiptPath);
   const actualSha256 = createHash('sha256').update(raw).digest('hex');
   if (actualSha256 !== expectedSha256) {
     throw new Error('GSC receipt digest does not match the canonical allowlist');
@@ -218,6 +218,7 @@ async function main() {
           candidateClaims: candidateClaims.get(locale),
           allowFirstServedRestore: !options.alignUnserved,
           requireCurrentServed: !options.alignUnserved,
+          source: 'restore-first-served-slugs/FU-005',
         });
         if (!result.changed) {
           skipped.set(result.reason, (skipped.get(result.reason) || 0) + 1);
@@ -279,7 +280,9 @@ async function main() {
   if (!countMatches) process.exitCode = 2;
 }
 
-main().catch((error) => {
-  console.error(`[restore-first-served-slugs] ${error?.message || error}`);
-  process.exitCode = 1;
-});
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  main().catch((error) => {
+    console.error(`[restore-first-served-slugs] ${error?.message || error}`);
+    process.exitCode = 1;
+  });
+}

@@ -42,6 +42,8 @@ import {
   cleanPreviousSlugsPerLocale,
   getRegisteredSlug,
   loadSlugRegistry,
+  replaceActiveLocaleSlug,
+  replaceItalianMasterSlug,
   registryPinnedLocaleSlug,
   slugifyLocalizedLabel,
 } from './lib/dedicated-crawler-common.mjs';
@@ -132,12 +134,15 @@ export function servedSlugSliceWriter(job, locale, {
   candidateClaims = null,
   allowFirstServedRestore = false,
   requireCurrentServed = false,
+  source = null,
 } = {}) {
   if (!job || typeof job !== 'object' || !LOCALES.includes(locale)) {
     return { changed: false, reason: 'invalid-input' };
   }
   if (!hasUsableJobId(job)) return { changed: false, reason: 'missing-job-id' };
   if (!loadServedSlugLedger()) return { changed: false, reason: 'missing-ledger' };
+  const mutationSource = String(source || '').trim();
+  if (!mutationSource) return { changed: false, reason: 'missing-mutation-source' };
 
   const localeSlugs = job.slugByLocale || {};
   const currentSlug = String(localeSlugs[locale] || (locale === 'it' ? job.slug : '') || '').trim();
@@ -184,12 +189,10 @@ export function servedSlugSliceWriter(job, locale, {
     return { changed: false, reason: 'ambiguous-history' };
   }
 
-  if (currentSlug) {
-    addPreviousSlugForLocale(job, locale, currentSlug, 20, 'servedSlugSliceWriter');
+  if (!replaceActiveLocaleSlug(job, locale, currentSlug, selected.slug, mutationSource)) {
+    return { changed: false, reason: 'active-slot-changed' };
   }
-  if (!job.slugByLocale || typeof job.slugByLocale !== 'object') job.slugByLocale = {};
-  job.slugByLocale[locale] = selected.slug;
-  if (locale === 'it') syncItalianMasterSlug(job, currentSlug, selected.slug);
+  if (locale === 'it') syncItalianMasterSlug(job, currentSlug, selected.slug, mutationSource);
 
   if (usedSlugs) {
     if (currentSlug && usedSlugs.get(currentSlug) === job.id) usedSlugs.delete(currentSlug);
@@ -229,18 +232,12 @@ export function slugDropsTitleWords(slug, employerTitle, company, location, disa
  * becomes explicit. Preserve that old master route before switching it so a
  * registry pin cannot make the proof lose the pre-run Italian URL.
  */
-export function syncItalianMasterSlug(job, previousItalianSlug, nextItalianSlug) {
+export function syncItalianMasterSlug(job, previousItalianSlug, nextItalianSlug, source = 'regenerate-slugs-by-locale') {
   if (!job || typeof job !== 'object') return false;
   const masterSlug = String(job.slug || '').trim();
   const nextSlug = String(nextItalianSlug || '').trim();
-  const previousSlug = String(previousItalianSlug || '').trim();
-  if (!masterSlug || !nextSlug || masterSlug === nextSlug) return false;
-
-  if (masterSlug !== previousSlug) {
-    addPreviousSlugForLocale(job, 'it', masterSlug, 20);
-  }
-  job.slug = nextSlug;
-  return true;
+  if (!nextSlug || masterSlug === nextSlug) return false;
+  return replaceItalianMasterSlug(job, previousItalianSlug, nextSlug, source);
 }
 
 function readJson(filePath) {
@@ -333,7 +330,7 @@ async function main() {
     for (const job of jobs) {
       const sourceLang = jobTitleSourceLang(job, job.sourceLang || 'it');
       const tbl = job.titleByLocale || {};
-      const sbl = job.slugByLocale || {};
+      let sbl = job.slugByLocale || {};
       const company = job.company || '';
       const location = job.location || job.addressLocality || '';
       const disambiguator = String(job.slugDisambiguator || '').trim();
@@ -361,12 +358,10 @@ async function main() {
           const sourceAlignment = servedSlugSliceWriter(job, locale, {
             usedSlugs: usedSlugs.get(locale),
             candidateClaims: candidateClaims.get(locale),
+            source: 'regenerate-slugs-by-locale/FU-007',
           });
           if (sourceAlignment.changed) {
-            if (sbl !== job.slugByLocale) {
-              Object.assign(sbl, job.slugByLocale);
-              job.slugByLocale = sbl;
-            }
+            sbl = job.slugByLocale;
             sliceChanged = true;
             totalServedAligned++;
           }
@@ -415,7 +410,7 @@ async function main() {
             sliceChanged = true;
             totalPinned++;
           }
-          if (locale === 'it' && syncItalianMasterSlug(job, currentSlug, pinnedSlug)) {
+          if (locale === 'it' && syncItalianMasterSlug(job, currentSlug, pinnedSlug, 'regenerate-slugs-by-locale/registry-pin')) {
             sliceChanged = true;
           }
           continue;
@@ -425,12 +420,10 @@ async function main() {
           const servedAlignment = servedSlugSliceWriter(job, locale, {
             usedSlugs: usedSlugs.get(locale),
             candidateClaims: candidateClaims.get(locale),
+            source: 'regenerate-slugs-by-locale/FU-007',
           });
           if (servedAlignment.changed) {
-            if (sbl !== job.slugByLocale) {
-              Object.assign(sbl, job.slugByLocale);
-              job.slugByLocale = sbl;
-            }
+            sbl = job.slugByLocale;
             sliceChanged = true;
             totalServedAligned++;
             continue;
@@ -547,7 +540,7 @@ async function main() {
         job.slugByLocale = sbl;
 
         // Keep master slug in sync with IT slug (master serves the IT path)
-        if (locale === 'it') syncItalianMasterSlug(job, currentSlug, newSlug);
+        if (locale === 'it') syncItalianMasterSlug(job, currentSlug, newSlug, 'regenerate-slugs-by-locale/title-regeneration');
 
         sliceChanged = true;
         totalFixed++;

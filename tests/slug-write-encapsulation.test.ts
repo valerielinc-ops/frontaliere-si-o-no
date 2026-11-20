@@ -93,7 +93,7 @@ const DIRECT_WRITE_BASELINE: Record<string, number> = {
   'migrate-previous-slugs-to-locale-aware.mjs': 6,
   'quality-alerts.mjs': 1,
   'reconcile-job-slugs.mjs': 4,
-  'regenerate-slugs-by-locale.mjs': 4,
+  'regenerate-slugs-by-locale.mjs': 3, // Italian master replacement now delegates to the journal boundary.
   'repair-translations.mjs': 1,
   'repair-unicode-escape-titles.mjs': 4,
   'scrub-hilcona-undefined-active-slugs.mjs': 2,
