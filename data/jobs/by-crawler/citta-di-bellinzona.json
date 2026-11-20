@@ -68,7 +68,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://bellinz.pi-asp.de/bewerber-web?company=*-firma-id&tenant=&lang=is"
     },
     {
       "id": "citta-di-bellinzona-tecnico-a-dell-edilizia-privata-presso-il-settore-edilizia-privata-bellinzona",
@@ -136,7 +137,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "sourceIdentity": "url:https://bellinz.pi-asp.de/bewerber-web?company=*-firma-id&tenant=&lang=is"
     }
   ]
 }
