@@ -84,7 +84,8 @@
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-20T21:25:08.476Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.somosa.ch/offene-stellen-detail/fachperson-medienwerkstatt-80"
     },
     {
       "id": "modellstation-somosa-fe86357a0d1c",
@@ -167,7 +168,8 @@
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-24T21:25:08.010Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.somosa.ch/offene-stellen-detail/sozialpaedagogen-sozialpaedagoginnen-wg-a-80"
     },
     {
       "id": "modellstation-somosa-987fdb74c75b",
@@ -248,7 +250,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-18T09:24:39.214Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "sourceIdentity": "url:https://www.somosa.ch/offene-stellen-detail/dipl-pflegefachperson-hf-dn-ii-oder-fh-30-fuer-den-nachtdienst"
     },
     {
       "id": "modellstation-somosa-4f354264be7e",
@@ -329,7 +332,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-18T09:24:38.646Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "sourceIdentity": "url:https://www.somosa.ch/offene-stellen-detail/dipl-pflegefachperson-hf-dn-ii-oder-fh-als-springer-in-fuer-den-nachtdienst"
     }
   ]
 }
