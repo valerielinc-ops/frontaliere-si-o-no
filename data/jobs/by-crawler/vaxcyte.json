@@ -89,7 +89,8 @@
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-04T09:17:21.490Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://boards.greenhouse.io/vaxcyte/jobs/5440646008?gh_jid=5440646008"
     },
     {
       "id": "vaxcyte-31f5fba6f298",
@@ -166,7 +167,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-18T09:17:21.455Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T09:17:21.455Z"
+      "firstSeenAt": "2026-11-19T21:15:49.698Z",
+      "sourceIdentity": "url:https://boards.greenhouse.io/vaxcyte/jobs/5481965008?gh_jid=5481965008"
     },
     {
       "id": "vaxcyte-44aff7c349e6",
@@ -254,7 +256,8 @@
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-27T09:17:21.371Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://boards.greenhouse.io/vaxcyte/jobs/5464246008?gh_jid=5464246008"
     }
   ]
 }
