@@ -4591,6 +4591,8 @@ esac
         // wrapper would otherwise exceed the workflow size budget. Both
         // renderings must keep the same fail-closed launch/status/PID guards.
         const compact = result.run.includes('s="$CRAWLER_MEMBER_SLUG"');
+        const renderedSlug = result.name.replace(/^Run /, '');
+        expect(result.env?.CRAWLER_MEMBER_SLUG).toBe(compact ? renderedSlug : undefined);
         const waiterMarkers = compact
           ? [
               'o="${CRAWLER_LAUNCH_OUTCOME:-unknown}"',

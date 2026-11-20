@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 25,
-  "crawlerCount": 711,
+  "crawlerCount": 712,
   "groups": {
     "10": [
       "atec-personal",
@@ -628,6 +628,7 @@
       "talan",
       "tether",
       "valora",
+      "vatel-ch",
       "vaxcyte",
       "vista",
       "vitrea-gesundheit"
@@ -1444,6 +1445,7 @@
     "uzh": "data/jobs/by-crawler/uzh.json",
     "valiant-bank": "data/jobs/by-crawler/valiant-bank.json",
     "valora": "data/jobs/by-crawler/valora.json",
+    "vatel-ch": "data/jobs/by-crawler/vatel-ch.json",
     "vaudoise": "data/jobs/by-crawler/vaudoise.json",
     "vaxcyte": "data/jobs/by-crawler/vaxcyte.json",
     "veeam": "data/jobs/by-crawler/veeam.json",
@@ -1478,5 +1480,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:bc9c810a6a4f7363db08084daa7be0626f9867de6f592f7be9f25ff80e2535c1"
+  "digest": "sha256:fada256fe7fe013e16cf74d68de696a90cbb0bff9483789cbc7bd163fd53416e"
 }

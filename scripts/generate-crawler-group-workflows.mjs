@@ -1060,11 +1060,12 @@ function runnerShutdownNotice(slug, { propagate = false } = {}) {
  * reporting deliberately remains outside this phase so a timeout is still
  * observable and the target exits non-zero without committing partial data.
  */
-function buildTimedCrawlerShellBody(crawler, timeoutMinutes, { compact = false } = {}) {
+function buildTimedCrawlerShellBody(crawler, timeoutMinutes, { compact = false, tight = false } = {}) {
   const outer = [...CRAWLER_SHELL_PREAMBLE];
   const work = [...CRAWLER_SHELL_PREAMBLE];
+  const compactOutput = compact || tight;
 
-  if (!compact) work.push(`# ---- ${crawler.slug}: run crawler (bounded work phase) ----`);
+  if (!compactOutput) work.push(`# ---- ${crawler.slug}: run crawler (bounded work phase) ----`);
   work.push(crawler.runStep.run.trimEnd());
   work.push('crawler_exit=$?');
   work.push(...recordMemberCrawlExitLines(crawler.slug, '$crawler_exit'));
@@ -1075,7 +1076,7 @@ function buildTimedCrawlerShellBody(crawler, timeoutMinutes, { compact = false }
   for (const step of crawler.postSteps) {
     if (step.if === 'failure()') continue;
     const isCommitStep = /git-commit-data\.sh/.test(step.run || '');
-    if (!compact) work.push(`# ---- ${crawler.slug}: ${step.name} (only if crawler succeeded) ----`);
+    if (!compactOutput) work.push(`# ---- ${crawler.slug}: ${step.name} (only if crawler succeeded) ----`);
     work.push('if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then');
     if (isCommitStep) {
       work.push(indentBlock(`CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c ${shellQuote(step.run.trimEnd())}`, 2));
@@ -1109,9 +1110,11 @@ function buildTimedCrawlerShellBody(crawler, timeoutMinutes, { compact = false }
   // Keep the explicit target budget visible even in compact output. It is a
   // contract marker for bounded crawlers, not decorative phase commentary.
   outer.push(`# ---- ${crawler.slug}: ${timeoutMinutes} minute target wall timeout ----`);
-  if (!compact) outer.push('# shellcheck disable=SC2016');
+  if (!compactOutput) outer.push('# shellcheck disable=SC2016');
   outer.push(
-    `timeout --signal=TERM --kill-after=30s ${timeoutMinutes}m bash -c ${shellQuote(work.join('\n'))}`,
+    `timeout --signal=TERM --kill-after=30s ${timeoutMinutes}m bash -c ${shellQuote(
+      (tight ? work.filter((line) => line !== '') : work).join('\n'),
+    )}`,
   );
   outer.push('target_exit=$?');
   // The deadline killed the work phase before it recorded the crawl exit:
@@ -1172,7 +1175,7 @@ function buildTimedCrawlerShellBody(crawler, timeoutMinutes, { compact = false }
   // that original status (especially 124) after annotating a reporter error;
   // changing it to a generic report status would erase the timeout diagnosis.
   outer.push('exit 0');
-  return outer.join('\n');
+  return (tight ? outer.filter((line) => line !== '') : outer).join('\n');
 }
 
 /**
@@ -1209,10 +1212,10 @@ function buildTimedCrawlerShellBody(crawler, timeoutMinutes, { compact = false }
  * treated as equally significant as `crawler_exit` for both the
  * failure-report gate and the launcher's own final exit code.
  */
-export function buildCrawlerShellBody(crawler, { compact = false } = {}) {
+export function buildCrawlerShellBody(crawler, { compact = false, tight = false } = {}) {
   const targetTimeoutMinutes = validateTargetTimeoutMinutes(crawler);
   if (targetTimeoutMinutes != null) {
-    return buildTimedCrawlerShellBody(crawler, targetTimeoutMinutes, { compact });
+    return buildTimedCrawlerShellBody(crawler, targetTimeoutMinutes, { compact, tight });
   }
   const lines = [];
   lines.push('set -uo pipefail');
@@ -1371,7 +1374,7 @@ export function buildCrawlerShellBody(crawler, { compact = false } = {}) {
   lines.push('  exit 1');
   lines.push('fi');
   lines.push('exit 0');
-  return lines.join('\n');
+  return tight ? lines.filter((line) => line !== '').join('\n') : lines.join('\n');
 }
 
 function shellQuote(s) {
@@ -1432,15 +1435,26 @@ function isCrawlerLaunchStep(step) {
  * acquires one of the group's bounded slots before it starts the crawler body,
  * so a burst cannot exhaust the hosted runner.
  */
-export function buildCrawlerLaunchShellBody(crawler, groupIndex, { compact = false } = {}) {
+export function buildCrawlerLaunchShellBody(crawler, groupIndex, { compact = false, tight = false } = {}) {
   const nn = String(groupIndex).padStart(2, '0');
   const slug = crawler.slug;
+  const stateDir = `$RUNNER_TEMP/crawler-generation/group-${nn}`;
+  const memberPath = tight
+    ? '$d/$s'
+    : `${stateDir}/${slug}`;
+  const stateDirPath = tight
+    ? '$d'
+    : stateDir;
+  const outerMemberPath = tight
+    ? '$d/$s'
+    : '$state_dir/' + slug;
+  const outerStateDirPath = tight ? '$d' : '$state_dir';
   // A relay member must use its one-hour Google ID token soon after the auth
   // step minted it, so it never queues behind the group's shared slots: it
   // takes a private one-process slot and starts as soon as it is launched.
   // Launch order (and therefore the pinned member order) stays unchanged.
   const dedicatedSlot = SOURCE_RELAY_SLUG_SET.has(slug);
-  const body = buildCrawlerShellBody(crawler, { compact });
+  const body = buildCrawlerShellBody(crawler, { compact, tight });
   const needsShellcheckUnicodeQuoteDisable = /[“”‘’]/u.test(body);
   // Keyed by the roster crawler id (JOBS_HOUSEKEEPING_SCOPE, the identity the
   // receipts carry), not by the slug: for the step-id overrides the two differ
@@ -1451,14 +1465,15 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex, { compact = fal
   const groupMaxParallel = crawlerGroupMaxParallel(groupIndex);
   const worker = [
     'set +e',
-    `script_path="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.sh"`,
-    `worker_status_file="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.worker.status"`,
-    `worker_status_tmp="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.worker.status.tmp.$$"`,
-    `started_file="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.started"`,
+    ...(tight ? [`s=${shellQuote(slug)}`, `d="${stateDir}"`] : []),
+    `script_path="${memberPath}.sh"`,
+    `worker_status_file="${memberPath}.worker.status"`,
+    `worker_status_tmp="${memberPath}.worker.status.tmp.$$"`,
+    `started_file="${memberPath}.started"`,
     crawlExitFileName === null
       ? `unset ${MEMBER_CRAWL_EXIT_FILE_ENV}`
-      : `export ${MEMBER_CRAWL_EXIT_FILE_ENV}="$RUNNER_TEMP/crawler-generation/group-${nn}/${crawlExitFileName}"`,
-    `export ${MEMBER_LOG_FILE_ENV}="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.log"`,
+      : `export ${MEMBER_CRAWL_EXIT_FILE_ENV}="${stateDirPath}/${crawlExitFileName}"`,
+    `export ${MEMBER_LOG_FILE_ENV}="${memberPath}.log"`,
     ': > "$started_file"',
     'bash "$script_path"',
     'crawler_exit=$?',
@@ -1507,13 +1522,13 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex, { compact = fal
   ].join('\n');
   const launcher = [
     'set +e',
-    `state_dir="$RUNNER_TEMP/crawler-generation/group-${nn}"`,
-    `worker_path="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.worker.sh"`,
-    `status_file="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.status"`,
-    `status_tmp="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.status.tmp.$$"`,
-    `worker_status_file="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.worker.status"`,
-    `started_file="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.started"`,
-    `watchdog_file="$RUNNER_TEMP/crawler-generation/group-${nn}/${watchdogFileName}"`,
+    ...(tight ? [`s=${shellQuote(slug)}`, `d="${stateDir}"`] : [`state_dir="${stateDir}"`]),
+    `worker_path="${memberPath}.worker.sh"`,
+    `status_file="${memberPath}.status"`,
+    `status_tmp="${memberPath}.status.tmp.$$"`,
+    `worker_status_file="${memberPath}.worker.status"`,
+    `started_file="${memberPath}.started"`,
+    `watchdog_file="${stateDirPath}/${watchdogFileName}"`,
     `worker_watchdog_max=${CRAWLER_WORKER_WATCHDOG_MAX_MINUTES}`,
     `worker_watchdog_minutes="\${CRAWLER_WORKER_TIMEOUT_MINUTES:-${watchdogMinutes}}"`,
     'if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then',
@@ -1548,8 +1563,8 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex, { compact = fal
     'while :; do',
     '  for slot_index in $(seq 1 "$max_parallel"); do',
     dedicatedSlot
-      ? `    slot_path="$state_dir/slots/relay-${slug}.lock"`
-      : '    slot_path="$state_dir/slots/slot-${slot_index}.lock"',
+      ? `    slot_path="${tight ? '$d' : '$state_dir'}/slots/relay-${tight ? '$s' : slug}.lock"`
+      : `    slot_path="${tight ? '$d' : '$state_dir'}/slots/slot-\${slot_index}.lock"`,
     '    flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"',
     '    flock_exit=$?',
     '    if [ "$flock_exit" -eq 0 ]; then',
@@ -1581,19 +1596,19 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex, { compact = fal
   return [
     ...(compact ? [] : ['# shellcheck disable=SC2016,SC1003']),
     'set -euo pipefail',
-    `state_dir="$RUNNER_TEMP/crawler-generation/group-${nn}"`,
-    'mkdir -p "$state_dir/slots"',
-    `script_path="$state_dir/${slug}.sh"`,
-    `launcher_path="$state_dir/${slug}.launcher.sh"`,
-    `worker_path="$state_dir/${slug}.worker.sh"`,
-    `log_path="$state_dir/${slug}.log"`,
-    `pid_path="$state_dir/${slug}.pid"`,
-    `status_path="$state_dir/${slug}.status"`,
-    `started_path="$state_dir/${slug}.started"`,
-    `watchdog_path="$state_dir/${watchdogFileName}"`,
+    ...(tight ? [`s=${shellQuote(slug)}`, `d="${stateDir}"`] : [`state_dir="${stateDirPath}"`]),
+    `mkdir -p "${outerStateDirPath}/slots"`,
+    `script_path="${outerMemberPath}.sh"`,
+    `launcher_path="${outerMemberPath}.launcher.sh"`,
+    `worker_path="${outerMemberPath}.worker.sh"`,
+    `log_path="${outerMemberPath}.log"`,
+    `pid_path="${outerMemberPath}.pid"`,
+    `status_path="${outerMemberPath}.status"`,
+    `started_path="${outerMemberPath}.started"`,
+    `watchdog_path="${outerStateDirPath}/${watchdogFileName}"`,
     'rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"',
     // A leftover crawl-exit would be positive proof this launch never gave.
-    ...(crawlExitFileName === null ? [] : [`rm -f "$state_dir/${crawlExitFileName}"`]),
+    ...(crawlExitFileName === null ? [] : [`rm -f "${outerStateDirPath}/${crawlExitFileName}"`]),
     ...(needsShellcheckUnicodeQuoteDisable ? ['# shellcheck disable=SC1112'] : []),
     `printf '%s\\n' ${shellQuote(body)} > "$script_path"`,
     `printf '%s\\n' ${shellQuote(worker)} > "$worker_path"`,
@@ -2354,12 +2369,19 @@ const GENERATED_GROUP_PERMISSIONS = Object.freeze({ contents: 'write', issues: '
 const LOGIC_GROUP_PERMISSIONS = Object.freeze({ contents: 'read' });
 const STANDALONE_PERMISSIONS = Object.freeze({ actions: 'read', contents: 'read', issues: 'write' });
 
+function buildCrawlerResultStepEnv(crawler, { tightShell = false } = {}) {
+  return {
+    CRAWLER_LAUNCH_OUTCOME: `\${{ steps['crawler-launch-${crawler.slug}'].outcome }}`,
+    ...(tightShell ? { CRAWLER_MEMBER_SLUG: crawler.slug } : {}),
+  };
+}
+
 function buildGroupWorkflowObject(
   groupIndex,
   group,
   needsPlaywright,
   installCommand,
-  { quarantine = null, compactShell = false } = {},
+  { quarantine = null, compactShell = false, tightShell = false } = {},
 ) {
   const groupName = `crawler-group-${String(groupIndex).padStart(2, '0')}`;
   const runtimeInputs = crawlerRuntimeInputsForGroup(group.members);
@@ -2511,7 +2533,7 @@ function buildGroupWorkflowObject(
         ...buildCrawlerStepEnv(crawler, summaryFile),
         ...(SOURCE_RELAY_SLUG_SET.has(crawler.slug) ? sourceRelayStepEnv() : {}),
       },
-      run: buildCrawlerLaunchShellBody(crawler, groupIndex, { compact: compactShell }),
+      run: buildCrawlerLaunchShellBody(crawler, groupIndex, { compact: compactShell, tight: tightShell }),
     });
   }
 
@@ -2521,10 +2543,8 @@ function buildGroupWorkflowObject(
       id: `crawler-${crawler.slug}`,
       if: 'always()',
       'continue-on-error': true,
-      env: {
-        CRAWLER_LAUNCH_OUTCOME: `\${{ steps['crawler-launch-${crawler.slug}'].outcome }}`,
-      },
-      run: buildCrawlerResultShellBody(crawler, groupIndex),
+      env: buildCrawlerResultStepEnv(crawler, { tightShell }),
+      run: buildCrawlerResultShellBody(crawler, groupIndex, { compact: tightShell }),
     });
   }
   steps.push({
@@ -3170,7 +3190,7 @@ function logicWriteAuthStep(members) {
   };
 }
 
-function compactCrawlerLogicShells(logicText, groupIndex, memberSpecs) {
+function compactCrawlerLogicShells(logicText, groupIndex, memberSpecs, { tight = false } = {}) {
   const logic = YAML.parse(logicText);
   const job = Object.values(logic.jobs ?? {})[0];
   if (!job?.steps || !Array.isArray(memberSpecs)) {
@@ -3180,13 +3200,13 @@ function compactCrawlerLogicShells(logicText, groupIndex, memberSpecs) {
     const step = job.steps.find((candidate) => candidate?.id === `crawler-launch-${crawler.slug}`);
     if (!step) throw new Error(`crawler-group-${groupIndex}: missing launcher for ${crawler.slug}`);
     step.run = normalizeCrawlerInputReferences(
-      buildCrawlerLaunchShellBody(crawler, groupIndex, { compact: true }),
+      buildCrawlerLaunchShellBody(crawler, groupIndex, { compact: true, tight }),
     );
     const result = job.steps.find((candidate) => candidate?.id === `crawler-${crawler.slug}`);
     if (!result) throw new Error(`crawler-group-${groupIndex}: missing result waiter for ${crawler.slug}`);
     result.env = {
       ...(result.env ?? {}),
-      CRAWLER_MEMBER_SLUG: crawler.slug,
+      ...buildCrawlerResultStepEnv(crawler, { tightShell: true }),
     };
     result.run = buildCrawlerResultShellBody(crawler, groupIndex, { compact: true });
   }
@@ -4034,6 +4054,19 @@ export function generateCrossRepoExecutionArtifacts({
           < Buffer.byteLength(portable.content, 'utf8')) {
         portable = compactPortable;
       }
+      if (Buffer.byteLength(portable.content, 'utf8') > GENERATED_WORKFLOW_SIZE_BUDGET_BYTES) {
+        const tightLogicText = compactCrawlerLogicShells(
+          logicText,
+          result.groupIndex,
+          result.memberSpecs,
+          { tight: true },
+        );
+        const tightPortable = renderPortable(tightLogicText);
+        if (Buffer.byteLength(tightPortable.content, 'utf8')
+            < Buffer.byteLength(portable.content, 'utf8')) {
+          portable = tightPortable;
+        }
+      }
     }
     const content = portable.content;
     YAML.parse(content);
@@ -4340,12 +4373,13 @@ export function generate({
       const installCommand = existingCrawlerGroupInstallCommand(filePath)
         ?? (needsIgnoreScripts ? 'npm ci --ignore-scripts' : 'npm ci');
       const stagingPath = path.join(stagingDir, fileName);
-      const renderGroup = (compactShell) => {
+      const renderGroup = (compactShell, tightShell = false) => {
         const obj = buildGroupWorkflowObject(groupIndex, group, needsPlaywright, installCommand, {
           quarantine: i === quarantineIndex
             ? { tolerated: toleratedQuarantineFailures(quarantine, group.members.map((m) => m.slug)) }
             : null,
           compactShell,
+          tightShell,
         });
         const yamlBody = YAML.stringify(obj, { lineWidth: 0 });
         // Il preambolo scritto a mano sopra il marker AUTO-GENERATED sopravvive alla
@@ -4368,6 +4402,13 @@ export function generate({
       // the normal-sized groups keep their existing, more readable output.
       if (Buffer.byteLength(finalContent, 'utf8') > GENERATED_WORKFLOW_SIZE_BUDGET_BYTES) {
         finalContent = renderGroup(true);
+      }
+      if (Buffer.byteLength(finalContent, 'utf8') > GENERATED_WORKFLOW_SIZE_BUDGET_BYTES) {
+        // Keep the established compact rendering byte-identical for groups
+        // that still fit. Tight aliases are a last bounded fallback for a
+        // genuinely over-budget group, so adding one more member cannot turn
+        // a valid workflow into an unrenderable one.
+        finalContent = renderGroup(true, true);
       }
       results.push({
         fileName,
