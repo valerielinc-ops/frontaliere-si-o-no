@@ -40,13 +40,17 @@ const ATS_HOST_MARKERS = [
 
 export const DOMAIN_OVERRIDES = {
   // Issue #18884: official sites verified at adecco.com/en-ch, baumont.ch,
-  // team.jobs/impressum, flexsis.ch, hamiltoncompany.com/bonaduz-switzerland,
-  // mitopersonal.ch, provia.jobs, and sago-personal.ch. The acquisition
-  // workflow still has to validate the logo asset itself.
+  // flexsis.ch, mitopersonal.ch, provia.jobs, and sago-personal.ch. The
+  // acquisition workflow still has to validate the logo asset itself.
   adecco: ['adecco.com'],
   'baumont-ag': ['baumont.ch'],
+  // Legal identity: https://www.team.jobs/impressum (das team ag).
+  // Brand asset: https://team.jobs/favicon/apple-touch-icon.png.
   'das-team-ag': ['team.jobs'],
   'flexsis-sa': ['flexsis.ch'],
+  // Legal identity and Bonaduz site:
+  // https://www.hamiltoncompany.com/bonaduz-switzerland
+  // Company imprint: https://www.hamiltoncompany.com/about-us/impressum
   hamilton: ['hamiltoncompany.com'],
   'hamilton-ag': ['hamiltoncompany.com'],
   'leteam-ressources-humaines': ['team.jobs'],
@@ -192,6 +196,9 @@ export const DOMAIN_OVERRIDES = {
 // verified ZAUGG Group logo on the employer's own domain; use it as an
 // explicit acquisition source, never as a runtime URL.
 export const VERIFIED_LOGO_SOURCE_URLS = Object.freeze({
+  'das-team-ag': Object.freeze([
+    'https://team.jobs/favicon/apple-touch-icon.png',
+  ]),
   zaugg: Object.freeze([
     'https://www.zaugg.swiss/cache/files/4ec575c09db3768f7a95e732a05217ce8a2c2956.png',
   ]),
