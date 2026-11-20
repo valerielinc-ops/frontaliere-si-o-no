@@ -1,5 +1,81 @@
 [
   {
+    "slug": "fisioterapista-con-riconoscimento-crs-fisiocare-sagl-fisiocare-sagl",
+    "title": "Fisioterapista con riconoscimento CRS",
+    "titleByLocale": {
+      "it": "Fisioterapista con riconoscimento CRS",
+      "en": "Fisioterapista con riconoscimento CRS",
+      "de": "Fisioterapista con riconoscimento CRS",
+      "fr": "Fisioterapista con riconoscimento CRS"
+    },
+    "company": "Fisiocare Sagl",
+    "companyKey": "fisiocare-sagl",
+    "location": "Fisiocare Sagl",
+    "addressLocality": "Fisiocare Sagl",
+    "descriptionByLocale": {
+      "it": "Cercasi fisioterapista con riconoscimento CRS, automunita/o, per attività sia ambulatoriale sia domiciliare. Data d'inizio da concordare. Percentuale d'impiego: 50%.\n\nInviare CV e lettera di presentazione a: fisiocare.lugano@gmail.com\n\nSiamo un'azienda attiva prevalentemente nel Luganese, operante in ambito ambulatoriale e domiciliare, che segue pazienti respiratori, ortopedici e oncologici.\n\nCerchiamo una persona motivata, disponibile a lavorare in team.\n\nOffriamo un ambiente di lavoro dinamico e buone condizioni d'impiego."
+    },
+    "slugByLocale": {
+      "it": "fisioterapista-con-riconoscimento-crs-fisiocare-sagl-fisiocare-sagl",
+      "en": "fisioterapista-con-riconoscimento-crs-fisiocare-sagl-fisiocare-sagl",
+      "de": "fisioterapista-con-riconoscimento-crs-fisiocare-sagl-fisiocare-sagl",
+      "fr": "fisioterapista-con-riconoscimento-crs-fisiocare-sagl-fisiocare-sagl"
+    },
+    "sector": "",
+    "expiredAt": "2026-09-25",
+    "previousSlugs": [
+      "physiotherapist-with-crs-recognition-fisiocare-sagl-fisiocare-sagl",
+      "physiotherapeut-mit-crs-erkennung-fisiocare-sagl-fisiocare-sagl",
+      "physiotherapeute-reconnu-crs-fisiocare-sagl-fisiocare-sagl"
+    ],
+    "previousSlugsByLocale": {
+      "en": [
+        "physiotherapist-with-crs-recognition-fisiocare-sagl-fisiocare-sagl"
+      ],
+      "de": [
+        "physiotherapeut-mit-crs-erkennung-fisiocare-sagl-fisiocare-sagl"
+      ],
+      "fr": [
+        "physiotherapeute-reconnu-crs-fisiocare-sagl-fisiocare-sagl"
+      ],
+      "it": [
+        "physiotherapist-with-crs-recognition-fisiocare-sagl-fisiocare-sagl",
+        "physiotherapeut-mit-crs-erkennung-fisiocare-sagl-fisiocare-sagl",
+        "physiotherapeute-reconnu-crs-fisiocare-sagl-fisiocare-sagl"
+      ]
+    },
+    "salaryMin": 70500,
+    "salaryMax": 98500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://frontaliereticino.ch/lavoro/fisioterapista-con-riconoscimento-crs-fisiocare-sagl-fisiocare-sagl",
+    "firstSeenAt": "2026-07-10T10:12:12.326Z"
+  },
+  {
+    "slug": "prompt-engineer-da-remoto-remoto-frontaliere-ticino",
+    "title": "Prompt engineer da remoto",
+    "titleByLocale": {
+      "it": "Prompt engineer da remoto",
+      "en": "Prompt engineer da remoto",
+      "de": "Prompt engineer da remoto",
+      "fr": "Prompt engineer da remoto"
+    },
+    "company": "Frontaliere Ticino",
+    "companyKey": "frontaliere-ticino",
+    "location": "(Remoto)",
+    "addressLocality": "(Remoto)",
+    "descriptionByLocale": {
+      "it": "Stiamo cercando un Prompt Engineer da remoto per progettare, testare e ottimizzare prompt e workflow conversazionali per sistemi di intelligenza artificiale. La risorsa lavorerà a stretto contatto con product, sviluppo e stakeholder interni per trasformare esigenze di business in istruzioni chiare, misurabili e affidabili per modelli linguistici.\n\nResponsabilità\n- Progettare, riscrivere e ottimizzare prompt per casi d’uso specifici.\n- Testare la qualità delle risposte generate e migliorare accuratezza, coerenza e robustezza.\n- Definire criteri di valutazione e metriche di qualità.\n- Analizzare errori, edge case e comportamenti anomali del modello.\n- Documentare versioni, esperimenti e linee guida operative.\n- Collaborare con team tecnici e di prodotto per integrare i prompt nei flussi applicativi.\n\nRequisiti\nOttime capacità di scrittura, analisi e problem solving.\n\nEsperienza con LLM, chatbot o strumenti di AI generativa.\n\nCapacità di tradurre requisiti complessi in istruzioni strutturate.\n\nAttitudine al test iterativo e alla validazione dei risultati.\n\nBuona conoscenza di inglese tecnico.\n\nGradita esperienza con JavaScript, API, workflow automation o analisi dati.\n\nCompetenze preferenziali\nConoscenza di prompt chaining, structured output e valutazione dei modelli.\n\nFamiliarità con RAG, agenti, tool use o sistemi di automazione.\n\nEsperienza in documentazione tecnica e collaborazione cross-funzionale.\n\nSensibilità verso qualità, sicurezza, bias e affidabilità delle risposte AI.\n\nOffriamo\nLavoro completamente remoto.\n\nAmbiente dinamico e orientato all’innovazione.\n\nPossibilità di lavorare su prodotti AI ad alto impatto.\n\nFlessibilità organizzativa e collaborazione internazionale.\n\nInserimento in un team tecnico con forte attenzione a qualità e sperimentazione."
+    },
+    "slugByLocale": {},
+    "sector": "IT",
+    "expiredAt": "2026-06-12",
+    "salaryMin": 45000,
+    "salaryMax": 50000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
     "slug": "prompt-engineer-da-remoto-thun-frontaliere-ticino",
     "title": "Prompt engineer da remoto",
     "titleByLocale": {
@@ -25,30 +101,6 @@
     "sector": "IT",
     "expiredAt": "2026-06-12",
     "postalCode": "3608",
-    "salaryMin": 45000,
-    "salaryMax": 50000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
-    "slug": "prompt-engineer-da-remoto-remoto-frontaliere-ticino",
-    "title": "Prompt engineer da remoto",
-    "titleByLocale": {
-      "it": "Prompt engineer da remoto",
-      "en": "Prompt engineer da remoto",
-      "de": "Prompt engineer da remoto",
-      "fr": "Prompt engineer da remoto"
-    },
-    "company": "Frontaliere Ticino",
-    "companyKey": "frontaliere-ticino",
-    "location": "(Remoto)",
-    "addressLocality": "(Remoto)",
-    "descriptionByLocale": {
-      "it": "Stiamo cercando un Prompt Engineer da remoto per progettare, testare e ottimizzare prompt e workflow conversazionali per sistemi di intelligenza artificiale. La risorsa lavorerà a stretto contatto con product, sviluppo e stakeholder interni per trasformare esigenze di business in istruzioni chiare, misurabili e affidabili per modelli linguistici.\n\nResponsabilità\n- Progettare, riscrivere e ottimizzare prompt per casi d’uso specifici.\n- Testare la qualità delle risposte generate e migliorare accuratezza, coerenza e robustezza.\n- Definire criteri di valutazione e metriche di qualità.\n- Analizzare errori, edge case e comportamenti anomali del modello.\n- Documentare versioni, esperimenti e linee guida operative.\n- Collaborare con team tecnici e di prodotto per integrare i prompt nei flussi applicativi.\n\nRequisiti\nOttime capacità di scrittura, analisi e problem solving.\n\nEsperienza con LLM, chatbot o strumenti di AI generativa.\n\nCapacità di tradurre requisiti complessi in istruzioni strutturate.\n\nAttitudine al test iterativo e alla validazione dei risultati.\n\nBuona conoscenza di inglese tecnico.\n\nGradita esperienza con JavaScript, API, workflow automation o analisi dati.\n\nCompetenze preferenziali\nConoscenza di prompt chaining, structured output e valutazione dei modelli.\n\nFamiliarità con RAG, agenti, tool use o sistemi di automazione.\n\nEsperienza in documentazione tecnica e collaborazione cross-funzionale.\n\nSensibilità verso qualità, sicurezza, bias e affidabilità delle risposte AI.\n\nOffriamo\nLavoro completamente remoto.\n\nAmbiente dinamico e orientato all’innovazione.\n\nPossibilità di lavorare su prodotti AI ad alto impatto.\n\nFlessibilità organizzativa e collaborazione internazionale.\n\nInserimento in un team tecnico con forte attenzione a qualità e sperimentazione."
-    },
-    "slugByLocale": {},
-    "sector": "IT",
-    "expiredAt": "2026-06-12",
     "salaryMin": 45000,
     "salaryMax": 50000,
     "salaryCurrency": "CHF",
