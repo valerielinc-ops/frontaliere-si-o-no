@@ -1151,6 +1151,7 @@ jobs:
         id: build_step
         shell: bash
         env:
+          BUILD_EXTRA_NODE_OPTIONS: ${{ vars.BUILD_EXTRA_NODE_OPTIONS }}
           # Skip the per-plugin `last-resort` GC after a plugin that grew
           # neither heapUsed nor RSS by 256 MB since the last forced GC
           # (build-plugins/profilePlugin.ts). Each of those calls cost

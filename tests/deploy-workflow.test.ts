@@ -1094,6 +1094,7 @@ describe('deploy.yml — non-IT legs reuse the IT Rollup bundle (#19575)', () =>
     expect(bundle.run).not.toContain('publish-versioned-cdn-assets.mjs');
     expect(bundle.run).not.toContain('verify-spa-entry-assets.mjs');
     expect(build.env?.BUILD_STAGED_PHASE).toBe('ssg');
+    expect(build.env?.BUILD_EXTRA_NODE_OPTIONS).toBe('${{ vars.BUILD_EXTRA_NODE_OPTIONS }}');
     expect(build.env?.BUILD_STAGE_HANDOFF_DIR).toBe('${{ runner.temp }}/build-stage-handoff');
     expect(steps.indexOf(bundle)).toBeLessThan(steps.indexOf(build));
   });
