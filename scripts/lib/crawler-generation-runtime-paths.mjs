@@ -29,11 +29,47 @@ export const CRAWLER_GENERATION_RUNTIME_PATHS = Object.freeze([
   'scripts/lib/crawler-slice-integrity.mjs',
   'scripts/lib/detail-failure-reuse-policy.mjs',
   'scripts/lib/global-data-pipeline-lease.mjs',
+  'scripts/lib/job-identity.mjs',
   'scripts/lib/job-match-key.mjs',
   'scripts/lib/job-url-key.mjs',
   'scripts/lib/locale-map-diff.mjs',
   'scripts/lib/prospector/country-inventory.mjs',
   'scripts/lib/slug-history-journal.mjs',
   'scripts/lib/slug-preservation-guard.mjs',
+  'scripts/lib/stable-stringify.mjs',
+  'scripts/lib/target-swiss-locations.mjs',
+]);
+
+// Chiusura import del runtime observer copiato nel corpus. Il generatore usa
+// questa lista per le tre sparse checkout immutabili; il test
+// tests/crawler-generation-observer-workflow.test.ts la confronta con gli
+// import reali, quindi un nuovo import non puo' restare fuori dal checkout.
+export const CRAWLER_GENERATION_OBSERVER_RUNTIME_PATHS = Object.freeze([
+  'data/canton-municipalities.json',
+  'data/swiss-locality-postal-codes.json',
+  'functions/src/githubApiHeaders.js',
+  'scripts/crawler-generation-observer.mjs',
+  'scripts/lib/accumulator-byte-floor-guard.mjs',
+  'scripts/lib/atomic-write-json.mjs',
+  'scripts/lib/canonical-json-digest.mjs',
+  'scripts/lib/crawler-generation-contract.mjs',
+  'scripts/lib/crawler-generation-group-ids.mjs',
+  'scripts/lib/crawler-generation-ledger.mjs',
+  'scripts/lib/crawler-generation-observer-report.mjs',
+  'scripts/lib/crawler-generation-receipt.mjs',
+  'scripts/lib/crawler-generation-token.mjs',
+  'scripts/lib/crawler-grace-policy.mjs',
+  'scripts/lib/crawler-location-config.mjs',
+  'scripts/lib/crawler-slice-integrity.mjs',
+  'scripts/lib/detail-failure-reuse-policy.mjs',
+  'scripts/lib/github-actions-read-client.mjs',
+  'scripts/lib/job-identity.mjs',
+  'scripts/lib/job-match-key.mjs',
+  'scripts/lib/job-url-key.mjs',
+  'scripts/lib/locale-map-diff.mjs',
+  'scripts/lib/prospector/country-inventory.mjs',
+  'scripts/lib/slug-history-journal.mjs',
+  'scripts/lib/slug-preservation-guard.mjs',
+  'scripts/lib/stable-stringify.mjs',
   'scripts/lib/target-swiss-locations.mjs',
 ]);
