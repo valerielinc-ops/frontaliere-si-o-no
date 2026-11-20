@@ -207,9 +207,9 @@ async function callTalentLinkApi(url, body = null) {
 
 /**
  * Fetch all job listings from the TalentLink API.
- * Uses the source-declared count as the completeness boundary. TalentLink can
- * return a short page before that boundary (for example when its configured
- * page size changes), so page length alone is not an end-of-list signal.
+ * Uses the source-declared count as a minimum completeness boundary. TalentLink
+ * can return a stale or short count, so reaching that count is not an
+ * end-of-list signal; an empty page after the boundary is required.
  */
 async function fetchJobListings() {
   const allJobs = [];
@@ -252,7 +252,7 @@ async function fetchJobListings() {
     }
 
     if (jobs.length === 0) {
-      if (allJobs.length !== declaredTotal) {
+      if (allJobs.length < declaredTotal) {
         throw new Error(
           `Weisse Arena pagination incomplete: fetched ${allJobs.length}/${declaredTotal} declared jobs before an empty page.`,
         );
@@ -291,16 +291,11 @@ async function fetchJobListings() {
       allJobs.push({ listing, identity, title });
     }
 
-    if (allJobs.length > declaredTotal) {
-      throw new Error(
-        `Weisse Arena pagination returned ${allJobs.length} jobs for a declared total of ${declaredTotal}.`,
-      );
-    }
-    if (allJobs.length === declaredTotal) break;
-
     // firstResult is a record offset, not a page number. Advance by what the
     // source actually returned so a provider-side short page cannot skip the
-    // records that follow it.
+    // records that follow it. Do not stop when the declared count is reached:
+    // the source can under-report that count, and only an empty page after the
+    // boundary proves that there are no more listings to read.
     offset += jobs.length;
     await new Promise((r) => setTimeout(r, 500));
   }

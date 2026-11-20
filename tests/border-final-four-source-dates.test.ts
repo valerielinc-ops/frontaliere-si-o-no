@@ -46,7 +46,13 @@ const listing = (raw: unknown, id = 4484) => ({ id, jobFields: { id, jobNumber: 
   customFields: [{ title: 'Ihre Aufgaben', content: `<p>${BODY}</p>` }] });
 describe('Weisse Arena uncorroborated provider start field', () => {
   it.each([undefined, null, 1774908000000, 'invalid', 32503680000000])('keeps DPOSTINGSTART %s unknown through API → builder', async (raw) => {
-    vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify({ globals: { jobsCount: 1 }, jobs: [listing(raw)] }), { headers: { 'Content-Type': 'application/json' } })));
+    vi.stubGlobal('fetch', vi.fn(async (input: string | URL) => {
+      const offset = Number(new URL(String(input)).searchParams.get('firstResult'));
+      return new Response(JSON.stringify({
+        globals: { jobsCount: 1 },
+        jobs: offset === 0 ? [listing(raw)] : [],
+      }), { headers: { 'Content-Type': 'application/json' } });
+    }));
     const jobs = await fetchAllWeisseArenaJobs();
     expect(jobs).toHaveLength(1);
     expect(jobs[0]).toMatchObject({ ...UNKNOWN, title: 'Marketing Manager', location: 'Laax', canton: 'GR' });
@@ -54,7 +60,13 @@ describe('Weisse Arena uncorroborated provider start field', () => {
   });
   it('preserves stable jobNumber identity on recrawl without manufacturing a date', async () => {
     let id = 4484;
-    vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify({ globals: { jobsCount: 1 }, jobs: [listing(1774908000000, id)] }))));
+    vi.stubGlobal('fetch', vi.fn(async (input: string | URL) => {
+      const offset = Number(new URL(String(input)).searchParams.get('firstResult'));
+      return new Response(JSON.stringify({
+        globals: { jobsCount: 1 },
+        jobs: offset === 0 ? [listing(1774908000000, id)] : [],
+      }));
+    }));
     const before = await fetchAllWeisseArenaJobs();
     id = 4485;
     const after = await fetchAllWeisseArenaJobs();
