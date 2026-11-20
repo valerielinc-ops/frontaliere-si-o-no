@@ -1288,6 +1288,17 @@ function nativeQuestionText(value, counter = null) {
   const HONEYPOT_LABEL = /\b(?:for|nur für|solo per|pour les) (?:robots?|bots?|roboter)\b|\bif you(?:'|’)?re (?:a )?human\b|\bif you are (?:a )?human\b/i;
   const CV_SECTION_TITLE_RE = /^(?:cv|r[eé]sum[eé]\s*\/\s*cv|lebenslauf|curriculum(?:\s+vitae)?)(?:\b|$)/iu;
   const FILE_UPLOAD_MACHINE_LABEL_RE = /^file[-_ ]upload[-_ ]input(?:[-_ ]ref)?$/i;
+  // Some SuccessFactors tenants render one registration password control as
+  // `type=text` while keeping the password label and the show-password
+  // affordance. Preserve the semantic type so account detection and the
+  // planner never treat that control as a candidate answer.
+  const PASSWORD_FIELD_LABEL_RE = /^(?:[\p{L}\d][\p{L}\d'’.-]*\s+)*(?:password|passwort|kennwort|mot\s+de\s+passe|contraseña|senha|parola\s+(?:d['’]ordine|chiave))(?:\s+(?:again|confirmation|confirm|repeat|retype|verify|wiederholen|bestätigen|bestatigen|di\s+nuovo|conferma|confermare|verifica|vérifier|répéter|confirmer))?(?:\s*[*:!?]|\s*\((?:required|mandatory|erforderlich|obbligatorio|obligatoire|obligatorisch)\))*\s*$/iu;
+  const PASSWORD_IDENTIFIER_RE = /(?:^|[^\p{L}\d])(?:password|passwort|kennwort|mot\s+de\s+passe|contraseña|senha|parola\s+(?:d['’]ordine|chiave))(?:(?:[^\p{L}\d](?:again|confirmation|confirm|repeat|retype|verify|wiederholen|bestätigen|bestatigen|di\s+nuovo|conferma|confermare|verifica|vérifier|répéter|confirmer))?[^\p{L}\d]*)$/iu;
+  const normalizeIdentifier = (value) => clean(value)
+    .replace(/([a-z\d])([A-Z])/g, '$1 $2')
+    .replace(/([\p{L}])([\d])/gu, '$1 $2')
+    .replace(/([\d])([\p{L}])/gu, '$1 $2');
+  const isPasswordIdentifier = (value) => PASSWORD_IDENTIFIER_RE.test(normalizeIdentifier(value));
   const controls = document.querySelectorAll('input, select, textarea, [role="combobox"]');
   for (const element of controls) {
     const tag = element.tagName.toLowerCase();
@@ -1326,6 +1337,12 @@ function nativeQuestionText(value, counter = null) {
     const label = type === 'file' && CV_SECTION_TITLE_RE.test(section)
       && (!nativeLabel || FILE_UPLOAD_MACHINE_LABEL_RE.test(nativeLabel))
       ? section : nativeLabel;
+    const autocomplete = clean(element.getAttribute('autocomplete') || '');
+    const passwordAutocomplete = autocomplete.split(/\s+/).some(token => /^(?:current|new)-password$/i.test(token));
+    const passwordIdentifier = [element.getAttribute('name') || '', element.id || ''].some(isPasswordIdentifier);
+    const fieldInputType = type === 'text'
+      && (PASSWORD_FIELD_LABEL_RE.test(label) || passwordIdentifier || passwordAutocomplete)
+      ? 'password' : type;
     // The visible Umantis date input has no submitted name. Its owned
     // day/month/year controls are the values the server actually receives.
     const picker = element.matches('input[data-picker-enabled="true"][data-picker-type="date"]')
@@ -1347,7 +1364,7 @@ function nativeQuestionText(value, counter = null) {
       id: idFor(element),
       kind: type === 'checkbox' ? 'checkbox' : type === 'file' ? 'file' : tag === 'select' ? 'select' : tag === 'textarea' ? 'textarea' : element.getAttribute('role') === 'combobox' ? 'combobox' : 'text',
       ...dialogMeta(element),
-      inputType: umantisDate ? 'date' : type,
+      inputType: umantisDate ? 'date' : fieldInputType,
       ...(umantisDate ? { widget: 'umantis-date', dateTrigger } : {}),
       form: formOf(element),
       formId: element.form || element.closest('form') ? idFor(element.form || element.closest('form')) : '',
@@ -1364,11 +1381,12 @@ function nativeQuestionText(value, counter = null) {
       required: required || REQUIRED_LABEL.test(label) || hasRequiredMarker(element, label)
         || Boolean(umantisDate && picker.closest('.form_content_row')?.querySelector(
           ':scope > .form_content_left_boundary > .form_content_left > .form_content_label_mustsign')),
-      value: umantisDate ? committedDate : type === 'file' ? '' : pills.length ? pills.join(', ') : clean(element.value || ''),
+      value: umantisDate ? committedDate : fieldInputType === 'password' || type === 'file'
+        ? '' : pills.length ? pills.join(', ') : clean(element.value || ''),
       search: element.getAttribute('data-uxi-widget-type') === 'selectinput' || element.getAttribute('enterkeyhint') === 'search',
       maxLength: Number(element.getAttribute('maxlength')) > 0 ? Number(element.getAttribute('maxlength')) : (tag === 'textarea' || type === 'text' ? statedLimit(element) : null),
       accept: type === 'file' ? clean(element.getAttribute('accept') || '') : '',
-      autocomplete: clean(element.getAttribute('autocomplete') || ''),
+      autocomplete,
       invalid: element.getAttribute('aria-invalid') === 'true',
       ...(isSiteChromeControl(element) ? { chrome: true } : {}),
     };
@@ -1846,7 +1864,8 @@ function nativeQuestionText(value, counter = null) {
     if (/challenges\.cloudflare\.com/.test(src)) return !answered('cf-turnstile-response');
     return /captcha-delivery\.com/.test(src);
   }) || cloudflarePageChallenge || imageCaptcha;
-  const passwordVisible = [...document.querySelectorAll('input[type="password"]')].some(visible);
+  const passwordVisible = [...document.querySelectorAll('input[type="password"]')].some(visible)
+    || fields.some((field) => field.inputType === 'password');
   // The form's own validation messages, read back to the planner when a page does not advance.
   // A framework's route announcer is no message on the form: Next.js reads the
   // page title as role="alert" (JOIN, 2026-10-01). Only the announcer itself is

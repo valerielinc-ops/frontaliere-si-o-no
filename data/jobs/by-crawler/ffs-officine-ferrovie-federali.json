@@ -6378,11 +6378,11 @@
     },
     {
       "id": "sbb-d6e4aaaad724",
-      "slug": "agent-e-de-nettoyage-ffs-officine-ferrovie-federali-ticino",
+      "slug": "agente-di-pulizia-ffs-officine-ferrovie-federali-ticino",
       "slugByLocale": {
-        "it": "agent-e-de-nettoyage-ffs-officine-ferrovie-federali-ticino",
-        "en": "agent-e-de-nettoyage-ffs-officine-ferrovie-federali-ticino",
-        "de": "agent-e-de-nettoyage-ffs-officine-ferrovie-federali-ticino",
+        "it": "agente-di-pulizia-ffs-officine-ferrovie-federali-ticino",
+        "en": "cleaning-agent-ffs-officine-ferrovie-federali-ticino",
+        "de": "reinigungsmittel-ffs-officine-ferrovie-federali-ticino",
         "fr": "agent-e-de-nettoyage-ffs-officine-ferrovie-federali-ticino"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -6449,19 +6449,23 @@
       "sourceIdentity": "url:https://careers.sbb.ch/job/gen%c3%a8ve-agent%c2%b7e-de-nettoyage/1458905233",
       "previousSlugsByLocale": {
         "it": [
-          "agente-di-pulizia-ffs-officine-ferrovie-federali-ticino"
+          "agente-di-pulizia-ffs-officine-ferrovie-federali-ticino",
+          "agent-e-de-nettoyage-ffs-officine-ferrovie-federali-ticino"
         ],
         "en": [
-          "cleaning-agent-ffs-officine-ferrovie-federali-ticino"
+          "cleaning-agent-ffs-officine-ferrovie-federali-ticino",
+          "agent-e-de-nettoyage-ffs-officine-ferrovie-federali-ticino"
         ],
         "de": [
-          "reinigungsmittel-ffs-officine-ferrovie-federali-ticino"
+          "reinigungsmittel-ffs-officine-ferrovie-federali-ticino",
+          "agent-e-de-nettoyage-ffs-officine-ferrovie-federali-ticino"
         ]
       },
       "previousSlugs": [
         "agente-di-pulizia-ffs-officine-ferrovie-federali-ticino",
         "cleaning-agent-ffs-officine-ferrovie-federali-ticino",
-        "reinigungsmittel-ffs-officine-ferrovie-federali-ticino"
+        "reinigungsmittel-ffs-officine-ferrovie-federali-ticino",
+        "agent-e-de-nettoyage-ffs-officine-ferrovie-federali-ticino"
       ]
     },
     {
@@ -13506,12 +13510,12 @@
     },
     {
       "id": "sbb-f39be708763a",
-      "slug": "grundstuckspezialist-in-ffs-officine-ferrovie-federali-ticino",
+      "slug": "specialista-in-proprieta-fondiarie-ffs-officine-ferrovie-federali-ticino",
       "slugByLocale": {
-        "it": "grundstuckspezialist-in-ffs-officine-ferrovie-federali-ticino",
-        "en": "grundstuckspezialist-in-ffs-officine-ferrovie-federali-ticino",
+        "it": "specialista-in-proprieta-fondiarie-ffs-officine-ferrovie-federali-ticino",
+        "en": "property-specialist-ffs-officine-ferrovie-federali-ticino",
         "de": "grundstuckspezialist-in-ffs-officine-ferrovie-federali-ticino",
-        "fr": "grundstuckspezialist-in-ffs-officine-ferrovie-federali-ticino"
+        "fr": "specialiste-foncier-ere-ffs-officine-ferrovie-federali-ticino"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -13577,11 +13581,19 @@
       "sourceIdentity": "url:https://careers.sbb.ch/job/z%c3%bcrich-altstetten-grundst%c3%bcckspezialistin/1458852633",
       "previousSlugsByLocale": {
         "en": [
-          "land-specialist-ffs-officine-ferrovie-federali-ticino"
+          "land-specialist-ffs-officine-ferrovie-federali-ticino",
+          "grundstuckspezialist-in-ffs-officine-ferrovie-federali-ticino"
+        ],
+        "it": [
+          "grundstuckspezialist-in-ffs-officine-ferrovie-federali-ticino"
+        ],
+        "fr": [
+          "grundstuckspezialist-in-ffs-officine-ferrovie-federali-ticino"
         ]
       },
       "previousSlugs": [
-        "land-specialist-ffs-officine-ferrovie-federali-ticino"
+        "land-specialist-ffs-officine-ferrovie-federali-ticino",
+        "grundstuckspezialist-in-ffs-officine-ferrovie-federali-ticino"
       ]
     },
     {
@@ -13667,12 +13679,12 @@
     },
     {
       "id": "sbb-e0dea8ef2c96",
-      "slug": "spezialist-in-grundstuck-e-landerwerb-bahninfrastruktur-ffs-officine-ferrovie-federali-ticino",
+      "slug": "specialista-nell-acquisizione-di-fondi-e-terreni-per-infrastrutture-ferroviarie-ffs-officine-ferrovie-federali-ticino",
       "slugByLocale": {
-        "it": "spezialist-in-grundstuck-e-landerwerb-bahninfrastruktur-ffs-officine-ferrovie-federali-ticino",
-        "en": "spezialist-in-grundstuck-und-landerwerb-bahninfrastruktur-ffs-officine-ferrovie-federali-ticino",
+        "it": "specialista-nell-acquisizione-di-fondi-e-terreni-per-infrastrutture-ferroviarie-ffs-officine-ferrovie-federali-ticino",
+        "en": "specialist-in-property-and-land-acquisition-for-railway-infrastructure-ffs-officine-ferrovie-federali-ticino",
         "de": "spezialist-in-grundstuck-und-landerwerb-bahninfrastruktur-ffs-officine-ferrovie-federali-ticino",
-        "fr": "spezialist-in-grundstuck-und-landerwerb-bahninfrastruktur-ffs-officine-ferrovie-federali-ticino"
+        "fr": "specialiste-de-l-acquisition-de-terrains-et-de-biens-fonds-pour-l-infrastructure-ferroviaire-ffs-officine-ferrovie"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -13715,11 +13727,19 @@
       "crawledAt": "2026-11-20T09:46:58.257Z",
       "previousSlugsByLocale": {
         "it": [
+          "spezialist-in-grundstuck-und-landerwerb-bahninfrastruktur-ffs-officine-ferrovie-federali-ticino",
+          "spezialist-in-grundstuck-e-landerwerb-bahninfrastruktur-ffs-officine-ferrovie-federali-ticino"
+        ],
+        "en": [
+          "spezialist-in-grundstuck-und-landerwerb-bahninfrastruktur-ffs-officine-ferrovie-federali-ticino"
+        ],
+        "fr": [
           "spezialist-in-grundstuck-und-landerwerb-bahninfrastruktur-ffs-officine-ferrovie-federali-ticino"
         ]
       },
       "previousSlugs": [
-        "spezialist-in-grundstuck-und-landerwerb-bahninfrastruktur-ffs-officine-ferrovie-federali-ticino"
+        "spezialist-in-grundstuck-und-landerwerb-bahninfrastruktur-ffs-officine-ferrovie-federali-ticino",
+        "spezialist-in-grundstuck-e-landerwerb-bahninfrastruktur-ffs-officine-ferrovie-federali-ticino"
       ],
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -14234,12 +14254,12 @@
     },
     {
       "id": "sbb-6232b83e076b",
-      "slug": "fachexperte-in-engineering-ffs-officine-ferrovie-federali-ticino",
+      "slug": "esperto-a-di-ingegneria-ffs-officine-ferrovie-federali-ticino",
       "slugByLocale": {
-        "it": "fachexperte-in-engineering-ffs-officine-ferrovie-federali-ticino",
-        "en": "fachexperte-in-engineering-ffs-officine-ferrovie-federali-ticino",
+        "it": "esperto-a-di-ingegneria-ffs-officine-ferrovie-federali-ticino",
+        "en": "engineering-subject-matter-expert-ffs-officine-ferrovie-federali-ticino",
         "de": "fachexperte-in-engineering-ffs-officine-ferrovie-federali-ticino",
-        "fr": "fachexperte-in-engineering-ffs-officine-ferrovie-federali-ticino"
+        "fr": "expert-en-ingenierie-ffs-officine-ferrovie-federali-ticino"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -14305,19 +14325,23 @@
       "sourceIdentity": "url:https://careers.sbb.ch/job/z%c3%bcrich-fachexpertein-engineering/1458826933",
       "previousSlugsByLocale": {
         "it": [
-          "esperto-in-ingegneria-ffs-officine-ferrovie-federali-ticino"
+          "esperto-in-ingegneria-ffs-officine-ferrovie-federali-ticino",
+          "fachexperte-in-engineering-ffs-officine-ferrovie-federali-ticino"
         ],
         "en": [
-          "expert-in-engineering-ffs-officine-ferrovie-federali-ticino"
+          "expert-in-engineering-ffs-officine-ferrovie-federali-ticino",
+          "fachexperte-in-engineering-ffs-officine-ferrovie-federali-ticino"
         ],
         "fr": [
-          "expert-en-ingenierie-ffs-officine-ferrovie-federali-ticino"
+          "expert-en-ingenierie-ffs-officine-ferrovie-federali-ticino",
+          "fachexperte-in-engineering-ffs-officine-ferrovie-federali-ticino"
         ]
       },
       "previousSlugs": [
         "esperto-in-ingegneria-ffs-officine-ferrovie-federali-ticino",
         "expert-in-engineering-ffs-officine-ferrovie-federali-ticino",
-        "expert-en-ingenierie-ffs-officine-ferrovie-federali-ticino"
+        "expert-en-ingenierie-ffs-officine-ferrovie-federali-ticino",
+        "fachexperte-in-engineering-ffs-officine-ferrovie-federali-ticino"
       ]
     },
     {

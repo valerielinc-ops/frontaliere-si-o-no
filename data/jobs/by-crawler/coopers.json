@@ -4158,12 +4158,12 @@
     },
     {
       "id": "coopers-60edeb0c5bc9",
-      "slug": "projektmanagement-officer-m-w-d-coopers-aargau",
+      "slug": "responsabile-della-gestione-del-progetto-m-f-d-coopers-group-ag-aargau",
       "slugByLocale": {
         "de": "projektmanagement-officer-m-w-d-coopers-aargau",
-        "it": "projektmanagement-officer-m-w-d-coopers-aargau",
-        "en": "projektmanagement-officer-m-w-d-coopers-aargau",
-        "fr": "projektmanagement-officer-m-w-d-coopers-aargau"
+        "it": "responsabile-della-gestione-del-progetto-m-f-d-coopers-group-ag-aargau",
+        "en": "project-management-officer-m-f-d-coopers-group-ag-aargau",
+        "fr": "agent-de-gestion-de-projet-h-f-d-coopers-group-ag-aargau"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -4243,19 +4243,23 @@
       "sourceIdentity": "url:https://www.coopers.ch/en/jobs/detail.php?refcode=xn45q1",
       "previousSlugsByLocale": {
         "it": [
-          "responsabile-della-gestione-del-progetto-m-f-d-coopers-group-ag-aargau"
+          "responsabile-della-gestione-del-progetto-m-f-d-coopers-group-ag-aargau",
+          "projektmanagement-officer-m-w-d-coopers-aargau"
         ],
         "en": [
-          "project-management-officer-m-f-d-coopers-group-ag-aargau"
+          "project-management-officer-m-f-d-coopers-group-ag-aargau",
+          "projektmanagement-officer-m-w-d-coopers-aargau"
         ],
         "fr": [
-          "agent-de-gestion-de-projet-h-f-d-coopers-group-ag-aargau"
+          "agent-de-gestion-de-projet-h-f-d-coopers-group-ag-aargau",
+          "projektmanagement-officer-m-w-d-coopers-aargau"
         ]
       },
       "previousSlugs": [
         "responsabile-della-gestione-del-progetto-m-f-d-coopers-group-ag-aargau",
         "project-management-officer-m-f-d-coopers-group-ag-aargau",
-        "agent-de-gestion-de-projet-h-f-d-coopers-group-ag-aargau"
+        "agent-de-gestion-de-projet-h-f-d-coopers-group-ag-aargau",
+        "projektmanagement-officer-m-w-d-coopers-aargau"
       ]
     },
     {
@@ -4460,12 +4464,12 @@
     },
     {
       "id": "coopers-ec1986ed09f3",
-      "slug": "sachbearbeiter-partner-operations-backoffice-support-m-w-d-coopers-basel-stadt",
+      "slug": "operazioni-dei-partner-del-personale-supporto-backoffice-m-f-d-coopers-group-ag-basel-stadt",
       "slugByLocale": {
         "de": "sachbearbeiter-partner-operations-backoffice-support-m-w-d-coopers-basel-stadt",
-        "it": "sachbearbeiter-partner-operations-backoffice-support-m-w-d-coopers-basel-stadt",
+        "it": "operazioni-dei-partner-del-personale-supporto-backoffice-m-f-d-coopers-group-ag-basel-stadt",
         "en": "sachbearbeiter-partner-operations-backoffice-support-m-w-d-coopers-basel-stadt",
-        "fr": "sachbearbeiter-partner-operations-backoffice-support-m-w-d-coopers-basel-stadt"
+        "fr": "operations-des-partenaires-du-personnel-support-backoffice-h-f-d-coopers-group-ag-basel-stadt"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -4541,7 +4545,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-19T09:31:21.673Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T09:31:21.673Z"
+      "firstSeenAt": "2026-11-20T09:31:21.673Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-partner-operations-backoffice-support-m-w-d-coopers-basel-stadt"
+        ],
+        "fr": [
+          "sachbearbeiter-partner-operations-backoffice-support-m-w-d-coopers-basel-stadt"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-partner-operations-backoffice-support-m-w-d-coopers-basel-stadt"
+      ]
     }
   ]
 }

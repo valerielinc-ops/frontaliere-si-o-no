@@ -1,5 +1,7 @@
 import { afterEach, describe, expect, it } from 'vitest';
 import { JSDOM } from 'jsdom';
+import { readFileSync } from 'node:fs';
+import { extractFieldsInPage } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import * as portal from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { candidateAnswerForField, guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { isIdentityEmailConfirmation } from '../functions/src/lib/identityEmail.js';
@@ -11,6 +13,7 @@ import { platformCandidateFacts, uploadResidenceCountry } from '../functions/src
 // which the tenant opens only for a chosen country, was never accepted.
 const { candidateForForm, submitViaPortal } = portal as any;
 const { residenceFieldRole, isIdentityEmailCaption } = (globalThis as any).AssistedApplyControls;
+const runnerFieldsSource = readFileSync(new URL('../scripts/assisted-application/extension/runner-fields.js', import.meta.url), 'utf8');
 
 
 // A bounded stand-in for the browser: the real extractFields/applyActions/
@@ -44,6 +47,19 @@ function document_(markup: string, url = 'https://careers.example.test/register'
     return { width: size, height: size } as DOMRect;
   };
   return window;
+}
+
+function passwordSnapshots(markup: string) {
+  const window = document_(markup, 'https://career2.successfactors.eu/career');
+  Object.defineProperty(window, 'CSS', { configurable: true, value: { escape: (value: string) => value } });
+  window.eval(`window.readSource = ${extractFieldsInPage.toString()};`);
+  window.eval(runnerFieldsSource);
+  const snapshots = [
+    (window as any).readSource(),
+    (window as any).CompilaRunnerFields(),
+  ];
+  window.close();
+  return snapshots;
 }
 
 function fakePage(markups: string[], {
@@ -141,6 +157,28 @@ const SF_REGISTRATION = `<h1>Career Opportunities: Create an Account</h1>
 <div role="dialog" id="noticeDialog" hidden><h2>Data Privacy Statement</h2><p>Synthetic text.</p>
   <button type="button" id="noticeAccept">Accept</button><button type="button" id="noticeRefuse">Decline</button></div>`;
 
+// career2.successfactors.eu (portal-stop #19634, 2026-11-20): the Italian
+// tenant uses the same registration contract with two password visibility
+// controls and an Italian privacy statement. Keep this fixture candidate-free
+// and let the test below prove the runner reaches the account CTA.
+const SF_ITALIAN_REGISTRATION = SF_REGISTRATION
+  .replace('Career Opportunities: Create an Account', 'Opportunità di lavoro')
+  .replace('Email Address: *', 'Indirizzo e-mail: *')
+  .replace('Retype Email Address: *', 'Reinserire indirizzo email: *')
+  .replace('Choose Password: *', 'Scegliere la password: *')
+  .replace('Retype Password: *', 'Digitare di nuovo la password: *')
+  .replace('First Name: *', 'Nome: *')
+  .replace('Last Name: *', 'Cognome: *')
+  .replace('Country/Region of Residence:*', 'Paese/Regione di residenza:*')
+  .replace('Notification:', 'Abbonamento di lavoro')
+  .replace('Terms of Use:*', '')
+  .replace('Read and accept the data privacy statement.', 'Leggere e accettare la dichiarazione di consenso al trattamento dei dati personali.')
+  .replace('Create Account', 'Crea account')
+  .replace('</div>\n  <div><label for="p2">', '</div>\n  <button type="button">Mostra</button>\n  <div><label for="p2">')
+  .replace('</div>\n  <div><label for="first">', '</div>\n  <button type="button">Mostra</button>\n  <div><label for="first">')
+  .replace('id="p2" type="password"', 'id="p2" type="text"')
+  .replace('<button type="button" id="create">', '<button type="button" id="create" disabled>');
+
 /** The tenant's side: no statement without a country; the account only with every required field. */
 function wireSuccessFactors(fixture: ReturnType<typeof fakePage>) {
   const { element, window } = fixture;
@@ -154,6 +192,7 @@ function wireSuccessFactors(fixture: ReturnType<typeof fakePage>) {
   element('noticeAccept').addEventListener('click', () => {
     seen.accepted += 1;
     element('consent').value = '1';
+    element('create').disabled = false;
     element('noticeDialog').hidden = true;
   });
   element('create').addEventListener('click', () => {
@@ -203,8 +242,8 @@ const plannerProposing = async ({ prompt }: any) => {
 };
 const plannerSilent = async () => ({ actions: [], missingRequired: [] });
 
-async function register(codex: (input: any) => Promise<any>) {
-  const fixture = fakePage([SF_REGISTRATION], { url: 'https://career55.sapsf.eu/career' });
+async function register(codex: (input: any) => Promise<any>, markup = SF_REGISTRATION, url = 'https://career55.sapsf.eu/career') {
+  const fixture = fakePage([markup], { url });
   const seen = wireSuccessFactors(fixture);
   const { page } = fixture;
   const context: any = { on: () => {}, off: () => {}, pages: () => [page], newPage: async () => page, close: async () => {}, waitForEvent: async () => null, addInitScript: async () => {} };
@@ -235,6 +274,35 @@ describe('SuccessFactors registration: country, retyped e-mail, then the privacy
       expect(seen.sent).toEqual({ email: EMAIL, email2: EMAIL, country: 'IT', notify: false, consent: '1' });
       expect(accounts).toEqual(['save', 'mark:created']);
     });
+
+  it('handles the Italian career2 account surface reported by portal-stop #19634', async () => {
+    const { auth, reason, seen, accounts } = await register(
+      plannerSilent,
+      SF_ITALIAN_REGISTRATION,
+      'https://career2.successfactors.eu/career',
+    );
+    expect(reason).not.toBe('account');
+    expect(auth).toMatchObject({ kind: 'create', outcome: 'ok', privacy: 'accepted' });
+    expect(seen).toMatchObject({ noticeClicks: 1, opened: 1, accepted: 1, ctaClicks: 1, created: 1 });
+    expect(seen.sent).toEqual({ email: EMAIL, email2: EMAIL, country: 'IT', notify: false, consent: '1' });
+    expect(accounts).toEqual(['save', 'mark:created']);
+  });
+});
+
+describe('SuccessFactors password field signals', () => {
+  it.each([
+    ['a sectioned autocomplete token list', '<input id="token" type="text" autocomplete="section-login new-password" value="secret">', 'token', 'password', ''],
+    ['a camelCase identifier', '<input id="newPassword" type="text" value="secret">', 'newPassword', 'password', ''],
+    ['an explicit confirmation identifier suffix', '<input id="passwordConfirm" type="text" value="secret">', 'passwordConfirm', 'password', ''],
+    ['an ordinary password hint label', '<label for="hint">Password hint</label><input id="hint" type="text" value="answer">', 'hint', 'text', 'answer'],
+    ['an identifier that only prefixes a neutral hint', '<label for="passwordHint">Security hint</label><input id="passwordHint" type="text" value="answer">', 'passwordHint', 'text', 'answer'],
+  ])('classifies %s identically in both collectors', (_name, markup, domId, inputType, value) => {
+    for (const snapshot of passwordSnapshots(markup)) {
+      const field = snapshot.fields.find((entry: any) => entry.domId === domId);
+      expect(field).toMatchObject({ domId, inputType, value });
+      expect(snapshot.passwordVisible).toBe(inputType === 'password');
+    }
+  });
 });
 
 describe('the labels of the page', () => {

@@ -365,7 +365,7 @@
         "fr": "qc-reviewer-siegfried-ag-evionnaz-27a727ce",
         "it": "recensione-di-qc-siegfried-ag-evionnaz-27a727ce",
         "en": "qc-reviewer-siegfried-ag-evionnaz-27a727ce",
-        "de": "qc-reviewer-siegfried-ag-evionnaz-27a727ce"
+        "de": "qc-prufer-siegfried-ag-evionnaz-27a727ce"
       },
       "slugDisambiguator": "27a727ce",
       "company": "Siegfried AG",
@@ -434,6 +434,9 @@
       "translationHoldSince": "2026-11-19T21:45:38.837Z",
       "previousSlugsByLocale": {
         "it": [
+          "qc-reviewer-siegfried-ag-evionnaz-27a727ce"
+        ],
+        "de": [
           "qc-reviewer-siegfried-ag-evionnaz-27a727ce"
         ]
       },
@@ -1397,10 +1400,10 @@
     },
     {
       "id": "seco-jobroom-44153e9d-7d29-40ff-9977-9ac662fe46ff",
-      "slug": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-schweiz-ag-44153e9d",
+      "slug": "venditore-venditrice-con-responsabilita-di-turno-m-f-d-60-80-lidl-schweiz-ag-eyholz-44153e9d",
       "slugByLocale": {
         "de": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-schweiz-ag-44153e9d",
-        "it": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-schweiz-ag-44153e9d",
+        "it": "venditore-venditrice-con-responsabilita-di-turno-m-f-d-60-80-lidl-schweiz-ag-eyholz-44153e9d",
         "en": "seller-with-shift-responsibility-m-f-d-60-80-lidl-schweiz-ag-eyholz-44153e9d",
         "fr": "vendeur-avec-responsabilite-de-quart-h-f-d-60-80-lidl-schweiz-ag-eyholz-44153e9d"
       },
@@ -1473,6 +1476,9 @@
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-schweiz-ag-44153e9d"
         ],
         "fr": [
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-schweiz-ag-44153e9d"
+        ],
+        "it": [
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-schweiz-ag-44153e9d"
         ]
       },
@@ -1846,12 +1852,12 @@
     },
     {
       "id": "seco-jobroom-5a62fe87-2589-4dfa-bc43-af7c03497a20",
-      "slug": "buchhalter-in-50-invermountain-sa-visp-5a62fe87",
+      "slug": "contabile-al-50-invermountain-sa-visp-5a62fe87",
       "slugByLocale": {
         "en": "buchhalter-in-50-invermountain-sa-visp-5a62fe87",
-        "it": "buchhalter-in-50-invermountain-sa-visp-5a62fe87",
+        "it": "contabile-al-50-invermountain-sa-visp-5a62fe87",
         "de": "buchhalter-in-50-invermountain-sa-visp-5a62fe87",
-        "fr": "buchhalter-in-50-invermountain-sa-visp-5a62fe87"
+        "fr": "comptable-a-50-invermountain-sa-visp-5a62fe87"
       },
       "slugDisambiguator": "5a62fe87",
       "company": "Invermountain SA",
@@ -1916,8 +1922,19 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-19T21:41:00.028Z",
-      "translationHoldSince": "2026-11-19T21:45:38.837Z",
-      "sourceIdentity": "url:https://www.job-room.ch/job-search/5a62fe87-2589-4dfa-bc43-af7c03497a20"
+      "sourceIdentity": "url:https://www.job-room.ch/job-search/5a62fe87-2589-4dfa-bc43-af7c03497a20",
+      "translationHoldReleasedAt": "2026-11-20T17:27:07.921Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "buchhalter-in-50-invermountain-sa-visp-5a62fe87"
+        ],
+        "fr": [
+          "buchhalter-in-50-invermountain-sa-visp-5a62fe87"
+        ]
+      },
+      "previousSlugs": [
+        "buchhalter-in-50-invermountain-sa-visp-5a62fe87"
+      ]
     },
     {
       "id": "seco-jobroom-5ee32979-a00b-4d01-8b4e-644904119c3f",
@@ -2014,7 +2031,7 @@
       "slugByLocale": {
         "de": "technicien-en-analyses-biomedicales-sonic-suisse-labs-sa-sion-6251fb20",
         "it": "technicien-en-analyses-biomedicales-sonic-suisse-labs-sa-sion-6251fb20",
-        "en": "technicien-en-analyses-biomedicales-sonic-suisse-labs-sa-sion-6251fb20",
+        "en": "biomedical-analysis-technician-sonic-suisse-labs-sa-sion-6251fb20",
         "fr": "technicien-en-analyses-biomedicales-sonic-suisse-labs-sa-sion-6251fb20"
       },
       "slugDisambiguator": "6251fb20",
@@ -2080,8 +2097,16 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-19T21:41:00.028Z",
-      "translationHoldSince": "2026-11-19T21:45:38.837Z",
-      "sourceIdentity": "url:https://www.job-room.ch/job-search/6251fb20-969d-40bd-b644-8459322b741d"
+      "sourceIdentity": "url:https://www.job-room.ch/job-search/6251fb20-969d-40bd-b644-8459322b741d",
+      "translationHoldReleasedAt": "2026-11-20T17:27:07.921Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "technicien-en-analyses-biomedicales-sonic-suisse-labs-sa-sion-6251fb20"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-en-analyses-biomedicales-sonic-suisse-labs-sa-sion-6251fb20"
+      ]
     },
     {
       "id": "seco-jobroom-63d89aa3-20a3-46d8-9b2a-304acdbb61b4",
@@ -2987,12 +3012,12 @@
     },
     {
       "id": "seco-jobroom-7f154a89-2326-4c4b-84a8-fc37b7882954",
-      "slug": "automatikmonteur-in-equans-switzerland-brig-7f154a89",
+      "slug": "montatore-trice-in-automazione-equans-switzerland-brig-7f154a89",
       "slugByLocale": {
         "de": "automatikmonteur-in-equans-switzerland-brig-7f154a89",
-        "it": "automatikmonteur-in-equans-switzerland-brig-7f154a89",
-        "en": "automatikmonteur-in-equans-switzerland-brig-7f154a89",
-        "fr": "automatikmonteur-in-equans-switzerland-brig-7f154a89"
+        "it": "montatore-trice-in-automazione-equans-switzerland-brig-7f154a89",
+        "en": "automation-assembler-equans-switzerland-brig-7f154a89",
+        "fr": "monteur-automaticien-monteuse-automaticienne-equans-switzerland-brig-7f154a89"
       },
       "slugDisambiguator": "7f154a89",
       "company": "Equans Switzerland",
@@ -3057,8 +3082,22 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-19T21:41:00.028Z",
-      "translationHoldSince": "2026-11-19T21:45:38.837Z",
-      "sourceIdentity": "url:https://www.job-room.ch/job-search/7f154a89-2326-4c4b-84a8-fc37b7882954"
+      "sourceIdentity": "url:https://www.job-room.ch/job-search/7f154a89-2326-4c4b-84a8-fc37b7882954",
+      "translationHoldReleasedAt": "2026-11-20T17:27:07.921Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "automatikmonteur-in-equans-switzerland-brig-7f154a89"
+        ],
+        "en": [
+          "automatikmonteur-in-equans-switzerland-brig-7f154a89"
+        ],
+        "fr": [
+          "automatikmonteur-in-equans-switzerland-brig-7f154a89"
+        ]
+      },
+      "previousSlugs": [
+        "automatikmonteur-in-equans-switzerland-brig-7f154a89"
+      ]
     },
     {
       "id": "seco-jobroom-853533aa-3605-41a7-842b-6372c7a1f059",
@@ -3312,12 +3351,12 @@
     },
     {
       "id": "seco-jobroom-8c0052f8-13df-40a2-b6e1-ecf4806bdebe",
-      "slug": "horgerateakustiker-in-davos-amplifon-ag-chur-8c0052f8",
+      "slug": "audioprotesista-davos-amplifon-ag-chur-8c0052f8",
       "slugByLocale": {
         "de": "horgerateakustiker-in-davos-amplifon-ag-chur-8c0052f8",
-        "it": "horgerateakustiker-in-davos-amplifon-ag-chur-8c0052f8",
-        "en": "horgerateakustiker-in-davos-amplifon-ag-chur-8c0052f8",
-        "fr": "horgerateakustiker-in-davos-amplifon-ag-chur-8c0052f8"
+        "it": "audioprotesista-davos-amplifon-ag-chur-8c0052f8",
+        "en": "hearing-aid-acoustician-davos-amplifon-ag-chur-8c0052f8",
+        "fr": "audioprothesiste-a-davos-amplifon-ag-chur-8c0052f8"
       },
       "slugDisambiguator": "8c0052f8",
       "company": "Amplifon AG",
@@ -3382,8 +3421,22 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-19T21:41:00.028Z",
-      "translationHoldSince": "2026-11-19T21:45:38.837Z",
-      "sourceIdentity": "url:https://www.job-room.ch/job-search/8c0052f8-13df-40a2-b6e1-ecf4806bdebe"
+      "sourceIdentity": "url:https://www.job-room.ch/job-search/8c0052f8-13df-40a2-b6e1-ecf4806bdebe",
+      "translationHoldReleasedAt": "2026-11-20T17:27:07.921Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "horgerateakustiker-in-davos-amplifon-ag-chur-8c0052f8"
+        ],
+        "en": [
+          "horgerateakustiker-in-davos-amplifon-ag-chur-8c0052f8"
+        ],
+        "fr": [
+          "horgerateakustiker-in-davos-amplifon-ag-chur-8c0052f8"
+        ]
+      },
+      "previousSlugs": [
+        "horgerateakustiker-in-davos-amplifon-ag-chur-8c0052f8"
+      ]
     },
     {
       "id": "seco-jobroom-9142ace4-305b-45cb-b589-520439c0b38d",
@@ -3719,8 +3772,8 @@
       "slugByLocale": {
         "fr": "architetta-architetto-100-itten-brechbuhl-ag-lugano-a9df6562",
         "it": "architetta-architetto-100-itten-brechbuhl-ag-lugano-a9df6562",
-        "en": "architetta-architetto-100-itten-brechbuhl-ag-lugano-a9df6562",
-        "de": "architetta-architetto-100-itten-brechbuhl-ag-lugano-a9df6562"
+        "en": "female-architect-male-architect-100-itten-brechbuhl-ag-lugano-a9df6562",
+        "de": "architektin-architekt-100-itten-brechbuhl-ag-lugano-a9df6562"
       },
       "slugDisambiguator": "a9df6562",
       "company": "Itten+Brechbühl AG",
@@ -3787,7 +3840,18 @@
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-19T21:41:00.028Z",
       "translationHoldSince": "2026-11-19T21:45:38.837Z",
-      "sourceIdentity": "url:https://www.job-room.ch/job-search/a9df6562-87aa-4943-9aac-cd596f3c1483"
+      "sourceIdentity": "url:https://www.job-room.ch/job-search/a9df6562-87aa-4943-9aac-cd596f3c1483",
+      "previousSlugsByLocale": {
+        "en": [
+          "architetta-architetto-100-itten-brechbuhl-ag-lugano-a9df6562"
+        ],
+        "de": [
+          "architetta-architetto-100-itten-brechbuhl-ag-lugano-a9df6562"
+        ]
+      },
+      "previousSlugs": [
+        "architetta-architetto-100-itten-brechbuhl-ag-lugano-a9df6562"
+      ]
     },
     {
       "id": "seco-jobroom-aa1bff04-5d20-4136-a2a0-74ad55ceeeaa",
@@ -3880,12 +3944,12 @@
     },
     {
       "id": "seco-jobroom-ac205423-7892-41e2-b2c9-85a5a05dcfcc",
-      "slug": "betreuer-in-haushandwerker-in-kanton-graubunden-chur-ac205423",
+      "slug": "assistente-addetto-a-alla-manutenzione-domestica-kanton-graubunden-chur-ac205423",
       "slugByLocale": {
         "de": "betreuer-in-haushandwerker-in-kanton-graubunden-chur-ac205423",
-        "it": "betreuer-in-haushandwerker-in-kanton-graubunden-chur-ac205423",
-        "en": "betreuer-in-haushandwerker-in-kanton-graubunden-chur-ac205423",
-        "fr": "betreuer-in-haushandwerker-in-kanton-graubunden-chur-ac205423"
+        "it": "assistente-addetto-a-alla-manutenzione-domestica-kanton-graubunden-chur-ac205423",
+        "en": "caregiver-handyman-kanton-graubunden-chur-ac205423",
+        "fr": "accompagnateur-trice-artisan-e-polyvalent-e-kanton-graubunden-chur-ac205423"
       },
       "slugDisambiguator": "ac205423",
       "company": "Kanton Graubünden",
@@ -3950,17 +4014,31 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-19T21:41:00.028Z",
-      "translationHoldSince": "2026-11-19T21:45:38.837Z",
-      "sourceIdentity": "url:https://www.job-room.ch/job-search/ac205423-7892-41e2-b2c9-85a5a05dcfcc"
+      "sourceIdentity": "url:https://www.job-room.ch/job-search/ac205423-7892-41e2-b2c9-85a5a05dcfcc",
+      "translationHoldReleasedAt": "2026-11-20T17:27:07.921Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "betreuer-in-haushandwerker-in-kanton-graubunden-chur-ac205423"
+        ],
+        "en": [
+          "betreuer-in-haushandwerker-in-kanton-graubunden-chur-ac205423"
+        ],
+        "fr": [
+          "betreuer-in-haushandwerker-in-kanton-graubunden-chur-ac205423"
+        ]
+      },
+      "previousSlugs": [
+        "betreuer-in-haushandwerker-in-kanton-graubunden-chur-ac205423"
+      ]
     },
     {
       "id": "seco-jobroom-ac589d31-299c-415c-ad54-7565d23051bb",
-      "slug": "gestalter-in-werbetechnik-cfc-casutt-druck-werbetechnik-ag-chur-ac589d31",
+      "slug": "progettista-di-tecniche-pubblicitarie-afc-casutt-druck-werbetechnik-ag-chur-ac589d31",
       "slugByLocale": {
         "de": "gestalter-in-werbetechnik-efz-casutt-druck-werbetechnik-ag-chur-ac589d31",
-        "it": "gestalter-in-werbetechnik-cfc-casutt-druck-werbetechnik-ag-chur-ac589d31",
-        "en": "gestalter-in-werbetechnik-efz-casutt-druck-werbetechnik-ag-chur-ac589d31",
-        "fr": "gestalter-in-werbetechnik-efz-casutt-druck-werbetechnik-ag-chur-ac589d31"
+        "it": "progettista-di-tecniche-pubblicitarie-afc-casutt-druck-werbetechnik-ag-chur-ac589d31",
+        "en": "advertising-technology-designer-efz-casutt-druck-werbetechnik-ag-chur-ac589d31",
+        "fr": "concepteur-trice-en-technique-publicitaire-cfc-casutt-druck-werbetechnik-ag-chur-ac589d31"
       },
       "slugDisambiguator": "ac589d31",
       "company": "Casutt Druck & Werbetechnik AG",
@@ -4025,16 +4103,24 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-19T21:41:00.028Z",
-      "translationHoldSince": "2026-11-19T21:45:38.837Z",
       "previousSlugsByLocale": {
         "it": [
+          "gestalter-in-werbetechnik-efz-casutt-druck-werbetechnik-ag-chur-ac589d31",
+          "gestalter-in-werbetechnik-cfc-casutt-druck-werbetechnik-ag-chur-ac589d31"
+        ],
+        "en": [
+          "gestalter-in-werbetechnik-efz-casutt-druck-werbetechnik-ag-chur-ac589d31"
+        ],
+        "fr": [
           "gestalter-in-werbetechnik-efz-casutt-druck-werbetechnik-ag-chur-ac589d31"
         ]
       },
       "previousSlugs": [
-        "gestalter-in-werbetechnik-efz-casutt-druck-werbetechnik-ag-chur-ac589d31"
+        "gestalter-in-werbetechnik-efz-casutt-druck-werbetechnik-ag-chur-ac589d31",
+        "gestalter-in-werbetechnik-cfc-casutt-druck-werbetechnik-ag-chur-ac589d31"
       ],
-      "sourceIdentity": "url:https://www.job-room.ch/job-search/ac589d31-299c-415c-ad54-7565d23051bb"
+      "sourceIdentity": "url:https://www.job-room.ch/job-search/ac589d31-299c-415c-ad54-7565d23051bb",
+      "translationHoldReleasedAt": "2026-11-20T17:27:07.921Z"
     },
     {
       "id": "seco-jobroom-b3c4d2de-c4bb-4e5c-b8f3-0006b86cba42",
@@ -4323,12 +4409,12 @@
     },
     {
       "id": "seco-jobroom-bb8e6b6a-92e7-41f8-9878-8902f5908ccf",
-      "slug": "client-engineer-in-workplace-endpoint-management-kanton-graubunden-chur-bb8e6b6a",
+      "slug": "ingegnere-a-client-per-la-gestione-del-workplace-e-degli-endpoint-kanton-graubunden-chur-bb8e6b6a",
       "slugByLocale": {
         "de": "client-engineer-in-workplace-endpoint-management-kanton-graubunden-chur-bb8e6b6a",
-        "it": "client-engineer-in-workplace-endpoint-management-kanton-graubunden-chur-bb8e6b6a",
+        "it": "ingegnere-a-client-per-la-gestione-del-workplace-e-degli-endpoint-kanton-graubunden-chur-bb8e6b6a",
         "en": "client-engineer-in-workplace-endpoint-management-kanton-graubunden-chur-bb8e6b6a",
-        "fr": "client-engineer-in-workplace-endpoint-management-kanton-graubunden-chur-bb8e6b6a"
+        "fr": "ingenieur-e-client-en-gestion-du-poste-de-travail-et-des-terminaux-kanton-graubunden-chur-bb8e6b6a"
       },
       "slugDisambiguator": "bb8e6b6a",
       "company": "Kanton Graubünden",
@@ -4395,7 +4481,18 @@
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-19T21:41:00.028Z",
       "translationHoldSince": "2026-11-19T21:45:38.837Z",
-      "sourceIdentity": "url:https://www.job-room.ch/job-search/bb8e6b6a-92e7-41f8-9878-8902f5908ccf"
+      "sourceIdentity": "url:https://www.job-room.ch/job-search/bb8e6b6a-92e7-41f8-9878-8902f5908ccf",
+      "previousSlugsByLocale": {
+        "it": [
+          "client-engineer-in-workplace-endpoint-management-kanton-graubunden-chur-bb8e6b6a"
+        ],
+        "fr": [
+          "client-engineer-in-workplace-endpoint-management-kanton-graubunden-chur-bb8e6b6a"
+        ]
+      },
+      "previousSlugs": [
+        "client-engineer-in-workplace-endpoint-management-kanton-graubunden-chur-bb8e6b6a"
+      ]
     },
     {
       "id": "seco-jobroom-be369b1d-9d64-4ace-9c8d-71f798283cb9",
@@ -5466,11 +5563,11 @@
     },
     {
       "id": "seco-jobroom-f4da13cd-a456-4200-8628-33ed71e187cd",
-      "slug": "vendeuse-en-brocante-magasin-de-seconde-main-50-60-abdb-debarras-sarl-conthey",
+      "slug": "addetta-alle-vendite-in-un-negozio-di-antiquariato-negozio-dell-usato-50-60-abdb-debarras-sarl-conthey-f4da13cd",
       "slugByLocale": {
         "de": "vendeuse-en-brocante-magasin-de-seconde-main-50-60-abdb-debarras-sarl-conthey-f4da13cd",
-        "it": "vendeuse-en-brocante-magasin-de-seconde-main-50-60-abdb-debarras-sarl-conthey",
-        "en": "vendeuse-en-brocante-magasin-de-seconde-main-50-60-abdb-debarras-sarl-conthey-f4da13cd",
+        "it": "addetta-alle-vendite-in-un-negozio-di-antiquariato-negozio-dell-usato-50-60-abdb-debarras-sarl-conthey-f4da13cd",
+        "en": "sales-assistant-in-a-flea-market-second-hand-shop-50-60-abdb-debarras-sarl-conthey-f4da13cd",
         "fr": "vendeuse-en-brocante-magasin-de-seconde-main-50-60-abdb-debarras-sarl-conthey-f4da13cd"
       },
       "slugDisambiguator": "f4da13cd",
@@ -5523,11 +5620,16 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "vendeuse-en-brocante-magasin-de-seconde-main-50-60-abdb-debarras-sarl-conthey-f4da13cd",
+          "vendeuse-en-brocante-magasin-de-seconde-main-50-60-abdb-debarras-sarl-conthey"
+        ],
+        "en": [
           "vendeuse-en-brocante-magasin-de-seconde-main-50-60-abdb-debarras-sarl-conthey-f4da13cd"
         ]
       },
       "previousSlugs": [
-        "vendeuse-en-brocante-magasin-de-seconde-main-50-60-abdb-debarras-sarl-conthey-f4da13cd"
+        "vendeuse-en-brocante-magasin-de-seconde-main-50-60-abdb-debarras-sarl-conthey-f4da13cd",
+        "vendeuse-en-brocante-magasin-de-seconde-main-50-60-abdb-debarras-sarl-conthey"
       ],
       "salaryMin": 43200,
       "salaryMax": 66600,
@@ -5550,12 +5652,12 @@
     },
     {
       "id": "seco-jobroom-fc7d1365-c5c7-49c9-a85d-28f5484b898d",
-      "slug": "versicherungsberater-in-per-la-geschaftsstelle-landquart-axa-versicherungen-ag-landquart",
+      "slug": "consulente-assicurativo-a-per-la-filiale-di-landquart-axa-versicherungen-ag-landquart-fc7d1365",
       "slugByLocale": {
         "de": "versicherungsberater-in-fur-die-geschaftsstelle-landquart-axa-versicherungen-ag-fc7d1365",
-        "it": "versicherungsberater-in-per-la-geschaftsstelle-landquart-axa-versicherungen-ag-landquart",
-        "en": "versicherungsberater-in-fur-die-geschaftsstelle-landquart-axa-versicherungen-ag-fc7d1365",
-        "fr": "versicherungsberater-in-fur-die-geschaftsstelle-landquart-axa-versicherungen-ag-fc7d1365"
+        "it": "consulente-assicurativo-a-per-la-filiale-di-landquart-axa-versicherungen-ag-landquart-fc7d1365",
+        "en": "insurance-advisor-for-the-landquart-branch-office-axa-versicherungen-ag-landquart-fc7d1365",
+        "fr": "conseiller-ere-en-assurances-pour-l-agence-de-landquart-axa-versicherungen-ag-landquart-fc7d1365"
       },
       "slugDisambiguator": "fc7d1365",
       "company": "AXA Versicherungen AG",
@@ -5605,11 +5707,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "versicherungsberater-in-fur-die-geschaftsstelle-landquart-axa-versicherungen-ag-fc7d1365",
+          "versicherungsberater-in-per-la-geschaftsstelle-landquart-axa-versicherungen-ag-landquart"
+        ],
+        "en": [
+          "versicherungsberater-in-fur-die-geschaftsstelle-landquart-axa-versicherungen-ag-fc7d1365"
+        ],
+        "fr": [
           "versicherungsberater-in-fur-die-geschaftsstelle-landquart-axa-versicherungen-ag-fc7d1365"
         ]
       },
       "previousSlugs": [
-        "versicherungsberater-in-fur-die-geschaftsstelle-landquart-axa-versicherungen-ag-fc7d1365"
+        "versicherungsberater-in-fur-die-geschaftsstelle-landquart-axa-versicherungen-ag-fc7d1365",
+        "versicherungsberater-in-per-la-geschaftsstelle-landquart-axa-versicherungen-ag-landquart"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -5628,8 +5738,8 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-19T21:41:00.028Z",
-      "translationHoldSince": "2026-11-19T21:45:38.837Z",
-      "sourceIdentity": "url:https://www.job-room.ch/job-search/fc7d1365-c5c7-49c9-a85d-28f5484b898d"
+      "sourceIdentity": "url:https://www.job-room.ch/job-search/fc7d1365-c5c7-49c9-a85d-28f5484b898d",
+      "translationHoldReleasedAt": "2026-11-20T17:27:07.921Z"
     },
     {
       "id": "seco-jobroom-fe143eaf-7e2d-4143-96c2-1112ecac9dd4",
@@ -8105,10 +8215,10 @@
     },
     {
       "id": "seco-jobroom-4613630b-50ce-49c8-bb11-3c4e971970f1",
-      "slug": "responsabile-di-progetto-sanitar-heizung-equans-switzerland-ag-st-moritz-4613630b",
+      "slug": "responsabile-di-progetto-per-impianti-sanitari-riscaldamento-equans-switzerland-ag-st-moritz-4613630b",
       "slugByLocale": {
-        "it": "responsabile-di-progetto-sanitar-heizung-equans-switzerland-ag-st-moritz-4613630b",
-        "en": "project-manager-sanitar-heizung-equans-switzerland-ag-st-moritz-4613630b",
+        "it": "responsabile-di-progetto-per-impianti-sanitari-riscaldamento-equans-switzerland-ag-st-moritz-4613630b",
+        "en": "project-manager-plumbing-heating-equans-switzerland-ag-st-moritz-4613630b",
         "de": "projektleiter-in-sanitar-heizung-equans-switzerland-ag-st-moritz-4613630b",
         "fr": "chef-fe-de-projet-sanitaire-chauffage-equans-switzerland-ag-st-moritz-4613630b"
       },
@@ -8163,18 +8273,18 @@
         "it": [
           "projektleiter-in-sanitar-heizung-equans-switzerland-ag-st-moritz-4613630b",
           "responsabile-di-progetto-sanitar-heizung-equans-switzerland-ag-st-moritz",
-          "responsabile-di-progetto-per-impianti-sanitari-riscaldamento-equans-switzerland-ag-st-moritz-4613630b"
+          "responsabile-di-progetto-sanitar-heizung-equans-switzerland-ag-st-moritz-4613630b"
         ],
         "en": [
           "projektleiter-in-sanitar-heizung-equans-switzerland-ag-st-moritz-4613630b",
-          "project-manager-plumbing-heating-equans-switzerland-ag-st-moritz-4613630b"
+          "project-manager-sanitar-heizung-equans-switzerland-ag-st-moritz-4613630b"
         ]
       },
       "previousSlugs": [
         "projektleiter-in-sanitar-heizung-equans-switzerland-ag-st-moritz-4613630b",
         "responsabile-di-progetto-sanitar-heizung-equans-switzerland-ag-st-moritz",
-        "responsabile-di-progetto-per-impianti-sanitari-riscaldamento-equans-switzerland-ag-st-moritz-4613630b",
-        "project-manager-plumbing-heating-equans-switzerland-ag-st-moritz-4613630b"
+        "responsabile-di-progetto-sanitar-heizung-equans-switzerland-ag-st-moritz-4613630b",
+        "project-manager-sanitar-heizung-equans-switzerland-ag-st-moritz-4613630b"
       ],
       "firstSeenAt": "2026-11-04T21:49:10.043Z",
       "salaryMin": 92000,
@@ -8291,7 +8401,7 @@
         "de": "menuisier-h-f-collardi-st-moritz-4e025f1b",
         "it": "menuisier-h-f-collardi-st-moritz-4e025f1b",
         "en": "menuisier-h-f-collardi-st-moritz-4e025f1b",
-        "fr": "menuisier-h-f-collardi-st-moritz-4e025f1b"
+        "fr": "ebeniste-h-f-collardi-st-moritz-4e025f1b"
       },
       "slugDisambiguator": "4e025f1b",
       "company": "Collardi",
@@ -8356,8 +8466,16 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-19T21:41:00.028Z",
-      "translationHoldSince": "2026-11-19T21:45:38.837Z",
-      "sourceIdentity": "url:https://www.job-room.ch/job-search/4e025f1b-2805-41b0-af3e-9dad54c1a291"
+      "sourceIdentity": "url:https://www.job-room.ch/job-search/4e025f1b-2805-41b0-af3e-9dad54c1a291",
+      "translationHoldReleasedAt": "2026-11-20T17:27:07.921Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "menuisier-h-f-collardi-st-moritz-4e025f1b"
+        ]
+      },
+      "previousSlugs": [
+        "menuisier-h-f-collardi-st-moritz-4e025f1b"
+      ]
     },
     {
       "id": "seco-jobroom-4faab6c5-4c70-45fd-8a76-b5839710fc22",
@@ -11114,7 +11232,7 @@
       "slugByLocale": {
         "de": "lattoniere-afc-carrozzeria-team-personnel-solutions-sa-pazzallo-ba4d9de5",
         "it": "lattoniere-afc-carrozzeria-team-personnel-solutions-sa-pazzallo-ba4d9de5",
-        "en": "lattoniere-afc-carrozzeria-team-personnel-solutions-sa-pazzallo-ba4d9de5",
+        "en": "panel-beater-afc-body-shop-team-personnel-solutions-sa-pazzallo-ba4d9de5",
         "fr": "lattoniere-afc-carrozzeria-team-personnel-solutions-sa-pazzallo-ba4d9de5"
       },
       "slugDisambiguator": "ba4d9de5",
@@ -11182,7 +11300,15 @@
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-19T21:41:00.028Z",
       "translationHoldSince": "2026-11-19T21:45:38.837Z",
-      "sourceIdentity": "url:https://www.job-room.ch/job-search/ba4d9de5-8ba9-42ea-9293-6c62aec447d3"
+      "sourceIdentity": "url:https://www.job-room.ch/job-search/ba4d9de5-8ba9-42ea-9293-6c62aec447d3",
+      "previousSlugsByLocale": {
+        "en": [
+          "lattoniere-afc-carrozzeria-team-personnel-solutions-sa-pazzallo-ba4d9de5"
+        ]
+      },
+      "previousSlugs": [
+        "lattoniere-afc-carrozzeria-team-personnel-solutions-sa-pazzallo-ba4d9de5"
+      ]
     },
     {
       "id": "seco-jobroom-c507adc9-5ef8-48a4-8825-399fd6e90375",
@@ -14597,10 +14723,10 @@
     },
     {
       "id": "seco-jobroom-38f40642-5693-4b94-9776-0bddbfaefb45",
-      "slug": "architekt-in-eth-fh-80-100-entwurf-planung-im-bestand-e-neubau-standort-sils-im-domleschg-hus-architektur-und-handwerk-sils-im-domleschg",
+      "slug": "architetto-a-eth-fh-80-100-progettazione-e-pianificazione-nell-esistente-e-nelle-nuove-costruzioni-sede-sils-im-38f40642",
       "slugByLocale": {
         "de": "architekt-in-eth-fh-80-100-entwurf-planung-im-bestand-und-neubau-standort-sils-38f40642",
-        "it": "architekt-in-eth-fh-80-100-entwurf-planung-im-bestand-e-neubau-standort-sils-im-domleschg-hus-architektur-und-handwerk-sils-im-domleschg",
+        "it": "architetto-a-eth-fh-80-100-progettazione-e-pianificazione-nell-esistente-e-nelle-nuove-costruzioni-sede-sils-im-38f40642",
         "en": "architect-eth-fh-80-100-design-planning-in-the-existing-and-new-building-location-sils-im-domleschg-hus-38f40642",
         "fr": "architecte-eth-fh-80-100-de-conception-et-de-planification-dans-le-batiment-existant-et-nouveau-hus-architektur-38f40642"
       },
@@ -14652,7 +14778,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "architekt-in-eth-fh-80-100-entwurf-planung-im-bestand-und-neubau-standort-sils-38f40642"
+          "architekt-in-eth-fh-80-100-entwurf-planung-im-bestand-und-neubau-standort-sils-38f40642",
+          "architekt-in-eth-fh-80-100-entwurf-planung-im-bestand-e-neubau-standort-sils-im-domleschg-hus-architektur-und-handwerk-sils-im-domleschg"
         ],
         "en": [
           "architekt-in-eth-fh-80-100-entwurf-planung-im-bestand-und-neubau-standort-sils-38f40642"
@@ -14662,7 +14789,8 @@
         ]
       },
       "previousSlugs": [
-        "architekt-in-eth-fh-80-100-entwurf-planung-im-bestand-und-neubau-standort-sils-38f40642"
+        "architekt-in-eth-fh-80-100-entwurf-planung-im-bestand-und-neubau-standort-sils-38f40642",
+        "architekt-in-eth-fh-80-100-entwurf-planung-im-bestand-e-neubau-standort-sils-im-domleschg-hus-architektur-und-handwerk-sils-im-domleschg"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -14773,12 +14901,12 @@
     },
     {
       "id": "seco-jobroom-3df3977f-c626-4866-8fe3-9ddb656ea35d",
-      "slug": "zeichner-in-cfc-in-architektur-80-100-planung-im-bestand-e-neubau-standort-sils-im-domleschg-hus-architektur-und-handwerk-sils-im-domleschg",
+      "slug": "disegnatore-disegnatrice-efz-in-architettura-80-100-progettazione-nell-esistente-e-nelle-nuove-costruzioni-sede-3df3977f",
       "slugByLocale": {
         "de": "zeichner-in-efz-in-architektur-80-100-planung-im-bestand-und-neubau-standort-3df3977f",
-        "it": "zeichner-in-cfc-in-architektur-80-100-planung-im-bestand-e-neubau-standort-sils-im-domleschg-hus-architektur-und-handwerk-sils-im-domleschg",
-        "en": "zeichner-in-efz-in-architektur-80-100-planung-im-bestand-und-neubau-standort-3df3977f",
-        "fr": "zeichner-in-efz-in-architektur-80-100-planung-im-bestand-und-neubau-standort-3df3977f"
+        "it": "disegnatore-disegnatrice-efz-in-architettura-80-100-progettazione-nell-esistente-e-nelle-nuove-costruzioni-sede-3df3977f",
+        "en": "architectural-drafter-efz-80-100-planning-for-existing-buildings-and-new-construction-location-sils-im-3df3977f",
+        "fr": "dessinateur-rice-cfc-en-architecture-80-100-planification-dans-l-existant-et-les-constructions-neuves-lieu-sils-3df3977f"
       },
       "slugDisambiguator": "3df3977f",
       "company": "hûs Architektur und Handwerk",
@@ -14828,11 +14956,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "zeichner-in-efz-in-architektur-80-100-planung-im-bestand-und-neubau-standort-3df3977f",
+          "zeichner-in-cfc-in-architektur-80-100-planung-im-bestand-e-neubau-standort-sils-im-domleschg-hus-architektur-und-handwerk-sils-im-domleschg"
+        ],
+        "en": [
+          "zeichner-in-efz-in-architektur-80-100-planung-im-bestand-und-neubau-standort-3df3977f"
+        ],
+        "fr": [
           "zeichner-in-efz-in-architektur-80-100-planung-im-bestand-und-neubau-standort-3df3977f"
         ]
       },
       "previousSlugs": [
-        "zeichner-in-efz-in-architektur-80-100-planung-im-bestand-und-neubau-standort-3df3977f"
+        "zeichner-in-efz-in-architektur-80-100-planung-im-bestand-und-neubau-standort-3df3977f",
+        "zeichner-in-cfc-in-architektur-80-100-planung-im-bestand-e-neubau-standort-sils-im-domleschg-hus-architektur-und-handwerk-sils-im-domleschg"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -14851,8 +14987,8 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-19T21:41:00.028Z",
-      "translationHoldSince": "2026-11-19T21:45:38.837Z",
-      "sourceIdentity": "url:https://www.job-room.ch/job-search/3df3977f-c626-4866-8fe3-9ddb656ea35d"
+      "sourceIdentity": "url:https://www.job-room.ch/job-search/3df3977f-c626-4866-8fe3-9ddb656ea35d",
+      "translationHoldReleasedAt": "2026-11-20T17:27:07.921Z"
     },
     {
       "id": "seco-jobroom-3f8258de-8d59-4b60-a53d-1882a8db9af2",
@@ -15911,11 +16047,11 @@
     },
     {
       "id": "seco-jobroom-6775671e-5aa9-4c3f-abae-bbbfbc8357a1",
-      "slug": "vendeur-vendeuse-a-l-heure-denner-sa-martigny",
+      "slug": "venditore-venditrice-a-ore-denner-sa-martigny-6775671e",
       "slugByLocale": {
         "de": "vendeur-vendeuse-a-l-heure-denner-sa-martigny-6775671e",
-        "it": "vendeur-vendeuse-a-l-heure-denner-sa-martigny",
-        "en": "vendeur-vendeuse-a-l-heure-denner-sa-martigny-6775671e",
+        "it": "venditore-venditrice-a-ore-denner-sa-martigny-6775671e",
+        "en": "hourly-salesperson-denner-sa-martigny-6775671e",
         "fr": "vendeur-vendeuse-a-l-heure-denner-sa-martigny-6775671e"
       },
       "slugDisambiguator": "6775671e",
@@ -15967,11 +16103,16 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "vendeur-vendeuse-a-l-heure-denner-sa-martigny-6775671e",
+          "vendeur-vendeuse-a-l-heure-denner-sa-martigny"
+        ],
+        "en": [
           "vendeur-vendeuse-a-l-heure-denner-sa-martigny-6775671e"
         ]
       },
       "previousSlugs": [
-        "vendeur-vendeuse-a-l-heure-denner-sa-martigny-6775671e"
+        "vendeur-vendeuse-a-l-heure-denner-sa-martigny-6775671e",
+        "vendeur-vendeuse-a-l-heure-denner-sa-martigny"
       ],
       "salaryMin": 72000,
       "salaryMax": 111000,
@@ -17101,8 +17242,8 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-19T21:41:00.028Z",
-      "translationHoldSince": "2026-11-19T21:45:38.837Z",
-      "sourceIdentity": "url:https://www.job-room.ch/job-search/950517da-1e01-4103-a051-1e3d30e591c8"
+      "sourceIdentity": "url:https://www.job-room.ch/job-search/950517da-1e01-4103-a051-1e3d30e591c8",
+      "translationHoldReleasedAt": "2026-11-20T17:27:07.921Z"
     },
     {
       "id": "seco-jobroom-956fb39d-f916-4d80-ba38-6b1e1100ac0d",
@@ -18181,11 +18322,11 @@
     },
     {
       "id": "seco-jobroom-ad5eee23-481c-4245-bcb3-fb5cadd057c3",
-      "slug": "apprenti-e-ottico-ne-alain-afflelou-optique-martigny-martigny-ad5eee23",
+      "slug": "apprendista-ottico-a-alain-afflelou-optique-martigny-martigny-ad5eee23",
       "slugByLocale": {
         "de": "apprenti-e-opticien-ne-alain-afflelou-optique-martigny-martigny-ad5eee23",
-        "it": "apprenti-e-ottico-ne-alain-afflelou-optique-martigny-martigny-ad5eee23",
-        "en": "apprenti-e-opticien-ne-alain-afflelou-optique-martigny-martigny-ad5eee23",
+        "it": "apprendista-ottico-a-alain-afflelou-optique-martigny-martigny-ad5eee23",
+        "en": "optician-apprentice-alain-afflelou-optique-martigny-martigny-ad5eee23",
         "fr": "apprenti-e-opticien-ne-alain-afflelou-optique-martigny-martigny-ad5eee23"
       },
       "slugDisambiguator": "ad5eee23",
@@ -18251,16 +18392,21 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-19T21:41:00.028Z",
-      "translationHoldSince": "2026-11-19T21:45:38.837Z",
       "previousSlugsByLocale": {
         "it": [
+          "apprenti-e-opticien-ne-alain-afflelou-optique-martigny-martigny-ad5eee23",
+          "apprenti-e-ottico-ne-alain-afflelou-optique-martigny-martigny-ad5eee23"
+        ],
+        "en": [
           "apprenti-e-opticien-ne-alain-afflelou-optique-martigny-martigny-ad5eee23"
         ]
       },
       "previousSlugs": [
-        "apprenti-e-opticien-ne-alain-afflelou-optique-martigny-martigny-ad5eee23"
+        "apprenti-e-opticien-ne-alain-afflelou-optique-martigny-martigny-ad5eee23",
+        "apprenti-e-ottico-ne-alain-afflelou-optique-martigny-martigny-ad5eee23"
       ],
-      "sourceIdentity": "url:https://www.job-room.ch/job-search/ad5eee23-481c-4245-bcb3-fb5cadd057c3"
+      "sourceIdentity": "url:https://www.job-room.ch/job-search/ad5eee23-481c-4245-bcb3-fb5cadd057c3",
+      "translationHoldReleasedAt": "2026-11-20T17:27:07.921Z"
     },
     {
       "id": "seco-jobroom-b7386727-cf44-433c-86dc-244cdda62b02",
@@ -44420,7 +44566,7 @@
       "slug": "commissione-di-cucina-vista-hotels-restaurants-sa-lenzerheide-lai-05870964",
       "slugByLocale": {
         "it": "commissione-di-cucina-vista-hotels-restaurants-sa-lenzerheide-lai-05870964",
-        "en": "commis-de-cuisine-vista-hotels-restaurants-sa-lenzerheide-lai-05870964",
+        "en": "kitchen-assistant-vista-hotels-restaurants-sa-lenzerheide-lai-05870964",
         "de": "commis-de-cuisine-vista-hotels-restaurants-sa-lenzerheide-lai-05870964",
         "fr": "commission-de-cuisine-vista-hotels-restaurants-sa-lenzerheide-lai-05870964"
       },
@@ -44487,19 +44633,22 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-19T21:41:00.028Z",
-      "translationHoldSince": "2026-11-19T21:45:38.837Z",
       "previousSlugsByLocale": {
         "it": [
           "commis-de-cuisine-vista-hotels-restaurants-sa-lenzerheide-lai-05870964"
         ],
         "fr": [
           "commis-de-cuisine-vista-hotels-restaurants-sa-lenzerheide-lai-05870964"
+        ],
+        "en": [
+          "commis-de-cuisine-vista-hotels-restaurants-sa-lenzerheide-lai-05870964"
         ]
       },
       "previousSlugs": [
         "commis-de-cuisine-vista-hotels-restaurants-sa-lenzerheide-lai-05870964"
       ],
-      "sourceIdentity": "url:https://www.job-room.ch/job-search/05870964-1985-445b-8e35-9f8590956178"
+      "sourceIdentity": "url:https://www.job-room.ch/job-search/05870964-1985-445b-8e35-9f8590956178",
+      "translationHoldReleasedAt": "2026-11-20T17:27:07.921Z"
     },
     {
       "id": "seco-jobroom-058e1057-022f-4d5e-8a62-c21f295c1724",
@@ -92350,11 +92499,11 @@
     },
     {
       "id": "seco-jobroom-aeb291f5-7c00-4a1a-8ee2-622528be85f9",
-      "slug": "apprentissage-cuisinier-ou-cuisiniere-cfc-crans-montana-100-hopitaux-universitaires-de-geneve-hug-crans-montana",
+      "slug": "apprendistato-cuoco-o-cuoca-cfc-crans-montana-100-hopitaux-universitaires-de-geneve-hug-crans-montana-aeb291f5",
       "slugByLocale": {
         "de": "apprentissage-cuisinier-ou-cuisiniere-cfc-crans-montana-100-hopitaux-aeb291f5",
-        "it": "apprentissage-cuisinier-ou-cuisiniere-cfc-crans-montana-100-hopitaux-universitaires-de-geneve-hug-crans-montana",
-        "en": "apprentissage-cuisinier-ou-cuisiniere-cfc-crans-montana-100-hopitaux-aeb291f5",
+        "it": "apprendistato-cuoco-o-cuoca-cfc-crans-montana-100-hopitaux-universitaires-de-geneve-hug-crans-montana-aeb291f5",
+        "en": "cfc-apprenticeship-as-a-cook-crans-montana-100-hopitaux-universitaires-de-geneve-hug-crans-montana-aeb291f5",
         "fr": "apprentissage-cuisinier-ou-cuisiniere-cfc-crans-montana-100-hopitaux-aeb291f5"
       },
       "slugDisambiguator": "aeb291f5",
@@ -92405,11 +92554,16 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "apprentissage-cuisinier-ou-cuisiniere-cfc-crans-montana-100-hopitaux-aeb291f5",
+          "apprentissage-cuisinier-ou-cuisiniere-cfc-crans-montana-100-hopitaux-universitaires-de-geneve-hug-crans-montana"
+        ],
+        "en": [
           "apprentissage-cuisinier-ou-cuisiniere-cfc-crans-montana-100-hopitaux-aeb291f5"
         ]
       },
       "previousSlugs": [
-        "apprentissage-cuisinier-ou-cuisiniere-cfc-crans-montana-100-hopitaux-aeb291f5"
+        "apprentissage-cuisinier-ou-cuisiniere-cfc-crans-montana-100-hopitaux-aeb291f5",
+        "apprentissage-cuisinier-ou-cuisiniere-cfc-crans-montana-100-hopitaux-universitaires-de-geneve-hug-crans-montana"
       ],
       "salaryMin": 65500,
       "salaryMax": 82500,
@@ -92428,8 +92582,8 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-19T21:41:00.028Z",
-      "translationHoldSince": "2026-11-19T21:45:38.837Z",
-      "sourceIdentity": "url:https://www.job-room.ch/job-search/aeb291f5-7c00-4a1a-8ee2-622528be85f9"
+      "sourceIdentity": "url:https://www.job-room.ch/job-search/aeb291f5-7c00-4a1a-8ee2-622528be85f9",
+      "translationHoldReleasedAt": "2026-11-20T17:27:07.921Z"
     },
     {
       "id": "seco-jobroom-b08e3218-7749-4c75-b20c-b51d94a67705",
@@ -92637,7 +92791,7 @@
       "slugByLocale": {
         "de": "apprentissage-cuisinier-ou-cuisiniere-cfc-crans-montana-100-hug-crans-montana-ba7a6be3",
         "it": "apprendistato-cuoco-o-cuoca-cfc-crans-montana-100-hug-crans-montana-2da75bb11e",
-        "en": "apprentissage-cuisinier-ou-cuisiniere-cfc-crans-montana-100-hug-crans-montana-ba7a6be3",
+        "en": "cfc-apprenticeship-as-a-cook-crans-montana-100-hug-crans-montana-ba7a6be3",
         "fr": "apprentissage-cuisinier-ou-cuisiniere-cfc-crans-montana-100-hug-crans-montana-ba7a6be3"
       },
       "slugDisambiguator": "ba7a6be3",
@@ -92690,6 +92844,9 @@
         "it": [
           "apprentissage-cuisinier-ou-cuisiniere-cfc-crans-montana-100-hug-crans-montana-ba7a6be3",
           "apprentissage-cuisinier-ou-cuisiniere-cfc-crans-montana-100-hug-crans-montana-47cb6662cc"
+        ],
+        "en": [
+          "apprentissage-cuisinier-ou-cuisiniere-cfc-crans-montana-100-hug-crans-montana-ba7a6be3"
         ]
       },
       "previousSlugs": [
@@ -92713,8 +92870,8 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-19T21:41:00.028Z",
-      "translationHoldSince": "2026-11-19T21:45:38.837Z",
-      "sourceIdentity": "url:https://www.job-room.ch/job-search/ba7a6be3-7d48-49d3-89df-692bdba7aa44"
+      "sourceIdentity": "url:https://www.job-room.ch/job-search/ba7a6be3-7d48-49d3-89df-692bdba7aa44",
+      "translationHoldReleasedAt": "2026-11-20T17:27:07.921Z"
     },
     {
       "id": "seco-jobroom-bf219db4-91a4-4a33-bcf3-faadb1b3bc77",
@@ -92973,12 +93130,12 @@
     },
     {
       "id": "seco-jobroom-c3aca6ab-275c-4ac0-a442-98f0a31636d5",
-      "slug": "monteur-euse-electricien-ne-schweizerische-bundesbahnen-sbb-le-chatelard-c3aca6ab",
+      "slug": "montatore-trice-elettricista-schweizerische-bundesbahnen-sbb-le-chatelard-c3aca6ab",
       "slugByLocale": {
         "de": "monteur-euse-electricien-ne-schweizerische-bundesbahnen-sbb-le-chatelard-c3aca6ab",
-        "it": "monteur-euse-electricien-ne-schweizerische-bundesbahnen-sbb-le-chatelard-c3aca6ab",
-        "en": "monteur-euse-electricien-ne-schweizerische-bundesbahnen-sbb-le-chatelard-c3aca6ab",
-        "fr": "monteur-euse-electricien-ne-schweizerische-bundesbahnen-sbb-le-chatelard-c3aca6ab"
+        "it": "montatore-trice-elettricista-schweizerische-bundesbahnen-sbb-le-chatelard-c3aca6ab",
+        "en": "electrical-installer-schweizerische-bundesbahnen-sbb-le-chatelard-c3aca6ab",
+        "fr": "monteur-monteuse-electricien-electricienne-schweizerische-bundesbahnen-sbb-le-chatelard-c3aca6ab"
       },
       "slugDisambiguator": "c3aca6ab",
       "company": "Schweizerische Bundesbahnen SBB",
@@ -93043,8 +93200,22 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-19T21:41:00.028Z",
-      "translationHoldSince": "2026-11-19T21:45:38.837Z",
-      "sourceIdentity": "url:https://www.job-room.ch/job-search/c3aca6ab-275c-4ac0-a442-98f0a31636d5"
+      "sourceIdentity": "url:https://www.job-room.ch/job-search/c3aca6ab-275c-4ac0-a442-98f0a31636d5",
+      "translationHoldReleasedAt": "2026-11-20T17:27:07.921Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "monteur-euse-electricien-ne-schweizerische-bundesbahnen-sbb-le-chatelard-c3aca6ab"
+        ],
+        "en": [
+          "monteur-euse-electricien-ne-schweizerische-bundesbahnen-sbb-le-chatelard-c3aca6ab"
+        ],
+        "fr": [
+          "monteur-euse-electricien-ne-schweizerische-bundesbahnen-sbb-le-chatelard-c3aca6ab"
+        ]
+      },
+      "previousSlugs": [
+        "monteur-euse-electricien-ne-schweizerische-bundesbahnen-sbb-le-chatelard-c3aca6ab"
+      ]
     },
     {
       "id": "seco-jobroom-c78592d4-8589-4d70-9852-e90398fe96c5",
@@ -133779,10 +133950,10 @@
     },
     {
       "id": "seco-jobroom-bfcbdcab-2192-440e-9cac-749788537ea1",
-      "slug": "cambio-carriera-in-den-polizeiberuf-ausbildung-come-polizist-in-der-sbb-transportpolizei-schweizerische-bundesbahnen-sbb-chur",
+      "slug": "ingresso-laterale-nella-professione-di-poliziotto-formazione-come-poliziotto-presso-la-polizia-dei-trasporti-bfcbdcab",
       "slugByLocale": {
         "de": "quereinstieg-in-den-polizeiberuf-ausbildung-als-polizist-in-der-sbb-bfcbdcab",
-        "it": "cambio-carriera-in-den-polizeiberuf-ausbildung-come-polizist-in-der-sbb-transportpolizei-schweizerische-bundesbahnen-sbb-chur",
+        "it": "ingresso-laterale-nella-professione-di-poliziotto-formazione-come-poliziotto-presso-la-polizia-dei-trasporti-bfcbdcab",
         "en": "cross-entry-into-the-police-profession-training-as-a-police-officer-in-the-sbb-transport-police-schweizerische-bfcbdcab",
         "fr": "entree-croisee-dans-la-profession-de-police-formation-en-tant-que-policier-dans-la-police-des-transports-cff-bfcbdcab"
       },
@@ -133834,7 +134005,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "quereinstieg-in-den-polizeiberuf-ausbildung-als-polizist-in-der-sbb-bfcbdcab"
+          "quereinstieg-in-den-polizeiberuf-ausbildung-als-polizist-in-der-sbb-bfcbdcab",
+          "cambio-carriera-in-den-polizeiberuf-ausbildung-come-polizist-in-der-sbb-transportpolizei-schweizerische-bundesbahnen-sbb-chur"
         ],
         "en": [
           "quereinstieg-in-den-polizeiberuf-ausbildung-als-polizist-in-der-sbb-bfcbdcab"
@@ -133844,7 +134016,8 @@
         ]
       },
       "previousSlugs": [
-        "quereinstieg-in-den-polizeiberuf-ausbildung-als-polizist-in-der-sbb-bfcbdcab"
+        "quereinstieg-in-den-polizeiberuf-ausbildung-als-polizist-in-der-sbb-bfcbdcab",
+        "cambio-carriera-in-den-polizeiberuf-ausbildung-come-polizist-in-der-sbb-transportpolizei-schweizerische-bundesbahnen-sbb-chur"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -148435,12 +148608,12 @@
     },
     {
       "id": "seco-jobroom-d68e61b5-20f0-4a87-b6ae-4ce9db5f6699",
-      "slug": "lehrperson-lohnadministration-im-lehrgang-hr-assistent-in-genossenschaft-migros-d68e61b5",
+      "slug": "docente-di-amministrazione-degli-stipendi-nel-corso-per-assistente-hr-genossenschaft-migros-ostschweiz-chur-d68e61b5",
       "slugByLocale": {
         "de": "lehrperson-lohnadministration-im-lehrgang-hr-assistent-in-genossenschaft-migros-ostschweiz-chur",
-        "it": "lehrperson-lohnadministration-im-lehrgang-hr-assistent-in-genossenschaft-migros-d68e61b5",
-        "en": "lehrperson-lohnadministration-im-lehrgang-hr-assistent-in-genossenschaft-migros-d68e61b5",
-        "fr": "lehrperson-lohnadministration-im-lehrgang-hr-assistent-in-genossenschaft-migros-d68e61b5"
+        "it": "docente-di-amministrazione-degli-stipendi-nel-corso-per-assistente-hr-genossenschaft-migros-ostschweiz-chur-d68e61b5",
+        "en": "instructor-for-payroll-administration-in-the-hr-assistant-course-genossenschaft-migros-ostschweiz-chur-d68e61b5",
+        "fr": "enseignant-e-en-administration-salariale-dans-la-formation-d-assistant-e-rh-genossenschaft-migros-ostschweiz-d68e61b5"
       },
       "slugDisambiguator": "d68e61b5",
       "company": "Genossenschaft Migros Ostschweiz",
@@ -148505,10 +148678,19 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-19T21:41:00.028Z",
-      "translationHoldSince": "2026-11-19T21:45:38.837Z",
       "sourceIdentity": "url:https://www.job-room.ch/job-search/d68e61b5-20f0-4a87-b6ae-4ce9db5f6699",
+      "translationHoldReleasedAt": "2026-11-20T17:27:07.921Z",
       "previousSlugsByLocale": {
+        "it": [
+          "lehrperson-lohnadministration-im-lehrgang-hr-assistent-in-genossenschaft-migros-d68e61b5"
+        ],
+        "en": [
+          "lehrperson-lohnadministration-im-lehrgang-hr-assistent-in-genossenschaft-migros-d68e61b5"
+        ],
         "de": [
+          "lehrperson-lohnadministration-im-lehrgang-hr-assistent-in-genossenschaft-migros-d68e61b5"
+        ],
+        "fr": [
           "lehrperson-lohnadministration-im-lehrgang-hr-assistent-in-genossenschaft-migros-d68e61b5"
         ]
       },
@@ -152229,7 +152411,7 @@
       "slugByLocale": {
         "de": "logistics-specialist-m-f-bellini-brig-4aec386e",
         "it": "logistica-specialista-m-f-bellini-brig-4aec386e",
-        "en": "logistics-specialist-m-f-bellini-brig-4aec386e",
+        "en": "quality-assurance-specialist-m-f-bellini-brig-4aec386e",
         "fr": "logistique-specialiste-m-f-bellini-brig-4aec386e"
       },
       "slugDisambiguator": "4aec386e",
@@ -152296,7 +152478,6 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-10-31T22:00:02.073Z",
-      "translationHoldSince": "2026-11-19T21:45:38.837Z",
       "previousSlugsByLocale": {
         "it": [
           "logistics-specialist-m-f-bellini-brig-4aec386e"
@@ -152305,14 +152486,14 @@
           "logistics-specialist-m-f-bellini-brig-4aec386e"
         ],
         "en": [
-          "quality-assurance-specialist-m-f-bellini-brig-4aec386e"
+          "logistics-specialist-m-f-bellini-brig-4aec386e"
         ]
       },
       "previousSlugs": [
-        "logistics-specialist-m-f-bellini-brig-4aec386e",
-        "quality-assurance-specialist-m-f-bellini-brig-4aec386e"
+        "logistics-specialist-m-f-bellini-brig-4aec386e"
       ],
-      "sourceIdentity": "url:https://www.job-room.ch/job-search/4aec386e-f34d-45ae-b197-9abdb2b6248b"
+      "sourceIdentity": "url:https://www.job-room.ch/job-search/4aec386e-f34d-45ae-b197-9abdb2b6248b",
+      "translationHoldReleasedAt": "2026-11-20T17:27:07.921Z"
     },
     {
       "id": "seco-jobroom-51af3b11-8b1b-4133-8273-351d32a3b73d",
@@ -163270,12 +163451,12 @@
     },
     {
       "id": "seco-jobroom-6d3c5681-6d1e-4158-b496-8c736edeac09",
-      "slug": "sachbearbeiter-in-accounting-60-100-id-2198-ao-foundation-davos-platz-6d3c5681",
+      "slug": "impiegato-a-contabilita-60-100-id-2198-ao-foundation-davos-platz-6d3c5681",
       "slugByLocale": {
         "de": "sachbearbeiter-in-accounting-60-100-id-2198-ao-foundation-davos-platz-6d3c5681",
-        "it": "sachbearbeiter-in-accounting-60-100-id-2198-ao-foundation-davos-platz-6d3c5681",
+        "it": "impiegato-a-contabilita-60-100-id-2198-ao-foundation-davos-platz-6d3c5681",
         "en": "sachbearbeiter-in-accounting-60-100-id-2198-ao-foundation-davos-platz-6d3c5681",
-        "fr": "sachbearbeiter-in-accounting-60-100-id-2198-ao-foundation-davos-platz-6d3c5681"
+        "fr": "collaborateur-trice-administratif-ve-en-comptabilite-60-100-id-2198-ao-foundation-davos-platz-6d3c5681"
       },
       "slugDisambiguator": "6d3c5681",
       "company": "AO Foundation",
@@ -163340,8 +163521,19 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-19T21:41:00.028Z",
-      "translationHoldSince": "2026-11-19T21:45:38.837Z",
-      "sourceIdentity": "url:https://www.job-room.ch/job-search/6d3c5681-6d1e-4158-b496-8c736edeac09"
+      "sourceIdentity": "url:https://www.job-room.ch/job-search/6d3c5681-6d1e-4158-b496-8c736edeac09",
+      "translationHoldReleasedAt": "2026-11-20T17:27:07.921Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-accounting-60-100-id-2198-ao-foundation-davos-platz-6d3c5681"
+        ],
+        "fr": [
+          "sachbearbeiter-in-accounting-60-100-id-2198-ao-foundation-davos-platz-6d3c5681"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-accounting-60-100-id-2198-ao-foundation-davos-platz-6d3c5681"
+      ]
     },
     {
       "id": "seco-jobroom-73405e84-36a7-487f-a313-ac4b6a8eddc4",
