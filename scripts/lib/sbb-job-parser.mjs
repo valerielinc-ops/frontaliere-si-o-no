@@ -20,6 +20,7 @@ import {
   extractVacancySummaryLocation,
   readVacancySummaryLocation,
 } from './html-attr.mjs';
+import { extractJobPostingsLd, selectJobPostingLd } from './jsonld-jobposting.mjs';
 import { canonicalSwissCityName, isKnownSwissCity } from './target-swiss-locations.mjs';
 
 /** Minimum accepted description length (characters). */
@@ -77,29 +78,11 @@ export function stripHtml(value = '') {
  * Extract the schema.org/JobPosting node from inline JSON-LD scripts.
  *
  * @param {string} html
+ * @param {{ title?: string, url?: string }} identity
  * @returns {object|null}
  */
-export function extractSbbJsonLd(html = '') {
-  const scripts = [...String(html || '').matchAll(/<script[^>]*application\/ld\+json[^>]*>([\s\S]*?)<\/script>/gi)];
-  for (const match of scripts) {
-    const raw = String(match[1] || '').trim();
-    if (!raw) continue;
-    let parsed;
-    try { parsed = JSON.parse(raw); } catch { continue; }
-    const nodes = (Array.isArray(parsed) ? parsed : [parsed]).flatMap((node) => {
-      if (!node || typeof node !== 'object') return [];
-      if (Array.isArray(node['@graph'])) return node['@graph'];
-      return [node];
-    });
-    for (const node of nodes) {
-      const type = node?.['@type'];
-      const matchType = Array.isArray(type)
-        ? type.some((t) => String(t || '').toLowerCase() === 'jobposting')
-        : String(type || '').toLowerCase() === 'jobposting';
-      if (matchType) return node;
-    }
-  }
-  return null;
+export function extractSbbJsonLd(html = '', identity = {}) {
+  return selectJobPostingLd(extractJobPostingsLd(html), identity);
 }
 
 /**
@@ -386,12 +369,13 @@ export function extractSbbStrongMarkupLocation(html = '', identity = {}) {
  * more content, since the JSON-LD description is typically a short teaser.
  *
  * @param {string} html - Raw HTML of a jobs.sbb.ch detail page
+ * @param {{ title?: string, url?: string }} identity - Current vacancy identity
  * @returns {{ title: string, description: string, requirements: string[], location: string, warnings: string[] }}
  */
-export function parseSbbDetailPage(html = '') {
+export function parseSbbDetailPage(html = '', identity = {}) {
   if (!html) return { title: '', description: '', requirements: [], location: '', warnings: [] };
 
-  const jobPosting = extractSbbJsonLd(html);
+  const jobPosting = extractSbbJsonLd(html, identity);
 
   // Title: prefer JSON-LD, fall back to <h1>
   const title = (() => {

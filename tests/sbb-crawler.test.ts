@@ -323,6 +323,36 @@ describe('parseSbbDetailPage — navigation heading guard', () => {
 });
 
 describe('parseSbbDetailPage — body location override', () => {
+  it('identity-matches the current JobPosting before resolving its location', () => {
+    const detailUrl = 'https://jobs.sbb.ch/v2/offene-stellen/current';
+    const fixture = `<html><head><script type="application/ld+json">${JSON.stringify({
+      '@graph': [
+        {
+          '@type': 'JobPosting',
+          title: 'Other',
+          url: '/other',
+          jobLocation: { address: { addressLocality: 'Bern' } },
+        },
+        {
+          '@type': 'JobPosting',
+          title: 'Current',
+          url: '/current',
+          jobLocation: { address: { addressLocality: 'Bellinzona' } },
+        },
+      ],
+    })}</script></head><body><h1>Current</h1></body></html>`;
+    const identity = { title: 'Current', url: detailUrl };
+    const currentPosting = extractSbbJsonLd(fixture, identity);
+
+    expect(currentPosting?.jobLocation?.address?.addressLocality).toBe('Bellinzona');
+    expect(parseSbbDetailPage(fixture, identity).location).toBe('Bellinzona');
+    expect(resolveSbbJobLocation({
+      jobPosting: currentPosting,
+      html: fixture,
+      apiMeta: { city: 'Bern' },
+    })).toBe('Bellinzona');
+  });
+
   it('extracts the rendered workplace city from intro lines', () => {
     expect(extractSbbBodyLocation(FIXTURE_BODY_LOCATION_WINS_HTML)).toBe('Chur');
   });

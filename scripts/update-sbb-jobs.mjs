@@ -69,7 +69,7 @@ import { translateMissingJobLocales, validateDedicatedLocaleCoverage, mergePrese
 import { freeTranslateWithRetry } from './lib/free-translate.mjs';
 import { hasUsableTitle, isAcceptableTranslation } from './lib/translation-quality.mjs';
 import { inferAnyCanton, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
-import { parseSbbDetailPage, extractSbbBodyLocation, MIN_SBB_DESC_LENGTH } from './lib/sbb-job-parser.mjs';
+import { parseSbbDetailPage, extractSbbBodyLocation, extractSbbJsonLd, MIN_SBB_DESC_LENGTH } from './lib/sbb-job-parser.mjs';
 import { getCompanyDefaults, getCantonDisplayName, isTargetCanton } from './lib/crawler-location-config.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
@@ -1219,31 +1219,8 @@ function parseHtmlListItems(raw = '', max = 16) {
   return [...new Set(items)].slice(0, max);
 }
 
-function getJobPostingFromHtml(html = '') {
-  const scripts = [...String(html || '').matchAll(/<script[^>]*application\/ld\+json[^>]*>([\s\S]*?)<\/script>/gi)];
-  for (const match of scripts) {
-    const raw = String(match[1] || '').trim();
-    if (!raw) continue;
-    let parsed;
-    try {
-      parsed = JSON.parse(raw);
-    } catch {
-      continue;
-    }
-    const nodes = (Array.isArray(parsed) ? parsed : [parsed]).flatMap((node) => {
-      if (!node || typeof node !== 'object') return [];
-      if (Array.isArray(node['@graph'])) return node['@graph'];
-      return [node];
-    });
-    for (const node of nodes) {
-      const type = node?.['@type'];
-      const matchType = Array.isArray(type)
-        ? type.some((t) => String(t || '').toLowerCase() === 'jobposting')
-        : String(type || '').toLowerCase() === 'jobposting';
-      if (matchType) return node;
-    }
-  }
-  return null;
+function getJobPostingFromHtml(html = '', identity = {}) {
+  return extractSbbJsonLd(html, identity);
 }
 
 function extractLocationFromJobPosting(jobPosting, html, apiMeta) {
@@ -1456,10 +1433,14 @@ async function parseSbbJobFromDetailUrl(detailUrl, apiMetaByUrl, apiMetaByTitle 
   const sourceLoginData = isLoginOrgDetail
     ? (localizedLoginData[sourceLocale] || extractLoginLocalizedPageData(html))
     : { title: '', description: '', location: '', requirements: [] };
+  const postingIdentity = {
+    title: apiMeta?.title || sourceLoginData.title || '',
+    url: detailUrl,
+  };
 
   // For non-login.org SBB detail pages, use parseSbbDetailPage() which
   // extracts the full vacancy body from HTML sections, not just the JSON-LD teaser.
-  const sbbParsed = !isLoginOrgDetail ? parseSbbDetailPage(html) : null;
+  const sbbParsed = !isLoginOrgDetail ? parseSbbDetailPage(html, postingIdentity) : null;
   if (sbbParsed) {
     for (const w of sbbParsed.warnings) {
       console.warn(`  ⚠️ ${w}`);
@@ -1467,7 +1448,9 @@ async function parseSbbJobFromDetailUrl(detailUrl, apiMetaByUrl, apiMetaByTitle 
   }
 
   // Fall back to inline JSON-LD for login.org pages (apprenticeship portal)
-  const jobPosting = isLoginOrgDetail ? getJobPostingFromHtml(html) : (sbbParsed ? null : getJobPostingFromHtml(html));
+  const jobPosting = isLoginOrgDetail
+    ? getJobPostingFromHtml(html, postingIdentity)
+    : (sbbParsed ? null : getJobPostingFromHtml(html, postingIdentity));
   if (!sbbParsed && !jobPosting) {
     console.warn(`  ⚠️ No parseable content: ${detailUrl}`);
     return null;
