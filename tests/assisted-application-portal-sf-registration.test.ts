@@ -141,6 +141,28 @@ const SF_REGISTRATION = `<h1>Career Opportunities: Create an Account</h1>
 <div role="dialog" id="noticeDialog" hidden><h2>Data Privacy Statement</h2><p>Synthetic text.</p>
   <button type="button" id="noticeAccept">Accept</button><button type="button" id="noticeRefuse">Decline</button></div>`;
 
+// career2.successfactors.eu (portal-stop #19634, 2026-11-20): the Italian
+// tenant uses the same registration contract with two password visibility
+// controls and an Italian privacy statement. Keep this fixture candidate-free
+// and let the test below prove the runner reaches the account CTA.
+const SF_ITALIAN_REGISTRATION = SF_REGISTRATION
+  .replace('Career Opportunities: Create an Account', 'Opportunità di lavoro')
+  .replace('Email Address: *', 'Indirizzo e-mail: *')
+  .replace('Retype Email Address: *', 'Reinserire indirizzo email: *')
+  .replace('Choose Password: *', 'Scegliere la password: *')
+  .replace('Retype Password: *', 'Digitare di nuovo la password: *')
+  .replace('First Name: *', 'Nome: *')
+  .replace('Last Name: *', 'Cognome: *')
+  .replace('Country/Region of Residence:*', 'Paese/Regione di residenza:*')
+  .replace('Notification:', 'Abbonamento di lavoro')
+  .replace('Terms of Use:*', '')
+  .replace('Read and accept the data privacy statement.', 'Leggere e accettare la dichiarazione di consenso al trattamento dei dati personali.')
+  .replace('Create Account', 'Crea account')
+  .replace('</div>\n  <div><label for="p2">', '</div>\n  <button type="button">Mostra</button>\n  <div><label for="p2">')
+  .replace('</div>\n  <div><label for="first">', '</div>\n  <button type="button">Mostra</button>\n  <div><label for="first">')
+  .replace('id="p2" type="password"', 'id="p2" type="text"')
+  .replace('<button type="button" id="create">', '<button type="button" id="create" disabled>');
+
 /** The tenant's side: no statement without a country; the account only with every required field. */
 function wireSuccessFactors(fixture: ReturnType<typeof fakePage>) {
   const { element, window } = fixture;
@@ -154,6 +176,7 @@ function wireSuccessFactors(fixture: ReturnType<typeof fakePage>) {
   element('noticeAccept').addEventListener('click', () => {
     seen.accepted += 1;
     element('consent').value = '1';
+    element('create').disabled = false;
     element('noticeDialog').hidden = true;
   });
   element('create').addEventListener('click', () => {
@@ -203,8 +226,8 @@ const plannerProposing = async ({ prompt }: any) => {
 };
 const plannerSilent = async () => ({ actions: [], missingRequired: [] });
 
-async function register(codex: (input: any) => Promise<any>) {
-  const fixture = fakePage([SF_REGISTRATION], { url: 'https://career55.sapsf.eu/career' });
+async function register(codex: (input: any) => Promise<any>, markup = SF_REGISTRATION, url = 'https://career55.sapsf.eu/career') {
+  const fixture = fakePage([markup], { url });
   const seen = wireSuccessFactors(fixture);
   const { page } = fixture;
   const context: any = { on: () => {}, off: () => {}, pages: () => [page], newPage: async () => page, close: async () => {}, waitForEvent: async () => null, addInitScript: async () => {} };
@@ -235,6 +258,19 @@ describe('SuccessFactors registration: country, retyped e-mail, then the privacy
       expect(seen.sent).toEqual({ email: EMAIL, email2: EMAIL, country: 'IT', notify: false, consent: '1' });
       expect(accounts).toEqual(['save', 'mark:created']);
     });
+
+  it('handles the Italian career2 account surface reported by portal-stop #19634', async () => {
+    const { auth, reason, seen, accounts } = await register(
+      plannerSilent,
+      SF_ITALIAN_REGISTRATION,
+      'https://career2.successfactors.eu/career',
+    );
+    expect(reason).not.toBe('account');
+    expect(auth).toMatchObject({ kind: 'create', outcome: 'ok', privacy: 'accepted' });
+    expect(seen).toMatchObject({ noticeClicks: 1, opened: 1, accepted: 1, ctaClicks: 1, created: 1 });
+    expect(seen.sent).toEqual({ email: EMAIL, email2: EMAIL, country: 'IT', notify: false, consent: '1' });
+    expect(accounts).toEqual(['save', 'mark:created']);
+  });
 });
 
 describe('the labels of the page', () => {
