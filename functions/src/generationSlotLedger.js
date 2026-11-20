@@ -1,5 +1,6 @@
 import { createHash, randomUUID, timingSafeEqual } from 'node:crypto';
-import { generationSlotMinute } from './generationSlotSchedule.js';
+import { generationSlotMinute, generationSlotWorkflow } from './generationSlotSchedule.js';
+import { generationClaimWorkflowRef } from './githubActionsOidc.js';
 
 export const GENERATION_SLOT_COLLECTION = 'generationSlotClaims';
 export const GENERATION_SLOT_CLAIM_LEASE_MS = 5 * 60 * 1000;
@@ -16,7 +17,8 @@ function dateMs(value) {
 }
 
 function slotDate(section, year, month, day, hour, minute) {
-  if (generationSlotMinute(section) !== minute) return null;
+  const nationalMinute = generationSlotMinute(section);
+  if (nationalMinute !== null && nationalMinute !== minute) return null;
   const date = new Date(Date.UTC(year, month - 1, day, hour, minute, 0, 0));
   if (date.getUTCFullYear() !== year
     || date.getUTCMonth() !== month - 1
@@ -28,7 +30,7 @@ function slotDate(section, year, month, day, hour, minute) {
 
 export function parseGenerationSlotKey(value) {
   if (typeof value !== 'string') return null;
-  const match = value.match(/^generate-article\/(frontaliere|svizzera)\/(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})Z$/u);
+  const match = value.match(/^generate-article\/(frontaliere|svizzera|canton-[a-z]+)\/(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})Z$/u);
   if (!match) return null;
   const [, section, yearText, monthText, dayText, hourText, minuteText] = match;
   const date = slotDate(section, Number(yearText), Number(monthText), Number(dayText), Number(hourText), Number(minuteText));
@@ -36,11 +38,16 @@ export function parseGenerationSlotKey(value) {
   return { key: value, section, slot: date };
 }
 
-export function generationSlotKey(section, value) {
-  if (generationSlotMinute(section) === null) throw new TypeError('generation slot section is invalid');
+export function generationSlotKey(section, value, scheduleEntry) {
+  const workflow = generationSlotWorkflow(section);
+  if (!workflow) throw new TypeError('generation slot section is invalid');
   const date = value instanceof Date ? new Date(value.getTime()) : new Date(value);
   if (!Number.isFinite(date.getTime()) || date.getUTCSeconds() !== 0 || date.getUTCMilliseconds() !== 0
-    || date.getUTCMinutes() !== generationSlotMinute(section)) {
+    || (section.startsWith('canton-')
+      ? scheduleEntry?.generationSlot !== section || scheduleEntry.workflow !== workflow
+        || scheduleEntry.slotMinute !== date.getUTCMinutes()
+        || (scheduleEntry.slotHours !== null && !scheduleEntry.slotHours?.includes(date.getUTCHours()))
+      : date.getUTCMinutes() !== generationSlotMinute(section))) {
     throw new TypeError('generation slot must be a nominal UTC schedule minute');
   }
   return `generate-article/${section}/${date.toISOString().slice(0, 16)}Z`;
@@ -196,12 +203,17 @@ export async function handleGenerationSlotClaimRequest(req, db, { now = Date.now
   const slotKey = body.slotKey;
   const runId = String(body.runId ?? '').trim();
   const claimToken = body.claimToken;
-  if (!parseGenerationSlotKey(slotKey)
+  const parsedSlot = parseGenerationSlotKey(slotKey);
+  if (!parsedSlot
     || !/^\d{1,24}$/u.test(runId)
     || runId !== String(claims.run_id)
     || typeof claimToken !== 'string'
     || !/^[0-9a-f-]{36}$/iu.test(claimToken)) {
     return { status: 400, body: { ok: false, reason: 'request_invalid' } };
+  }
+  const workflowRef = generationClaimWorkflowRef(parsedSlot.section);
+  if (claims.workflow_ref !== workflowRef) {
+    return { status: 401, body: { ok: false, reason: 'unauthorized' } };
   }
   if (body.action === 'release') {
     const released = await releaseGenerationSlotClaim(db, slotKey, claimToken, { now });

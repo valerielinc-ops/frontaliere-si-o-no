@@ -21,8 +21,44 @@ export const GENERATION_SLOT_ENTRIES = Object.freeze([
   }),
 ]);
 
+export function generationSlotWorkflow(section) {
+  if (Object.hasOwn(SLOT_MINUTES, section)) return 'generate-article.yml';
+  const canton = /^canton-([a-z]+)$/u.exec(section ?? '');
+  return canton ? `generate-article-${canton[1]}.yml` : null;
+}
+
 export function generationSlotMinute(section) {
   return SLOT_MINUTES[section] ?? null;
+}
+
+/** Read the schedule generated from the corpus profiles and workflow names. */
+export function parseCantonGenerationSchedule(document) {
+  if (document?.schema !== 1 || !Array.isArray(document.entries) || document.entries.length === 0) {
+    throw new TypeError('invalid canton generation schedule');
+  }
+  const sections = new Set();
+  return document.entries.map(({ section, workflow, cron } = {}) => {
+    const expectedWorkflow = typeof section === 'string' && section.startsWith('canton-')
+      ? generationSlotWorkflow(section) : null;
+    const schedule = /^(\d{1,2}) (\*|\d{1,2}(?:,\d{1,2})*) \* \* \*$/u.exec(cron ?? '');
+    if (!expectedWorkflow || workflow !== expectedWorkflow || !schedule || sections.has(section)) {
+      throw new TypeError('invalid canton generation schedule entry');
+    }
+    const slotMinute = Number(schedule[1]);
+    const slotHours = schedule[2] === '*' ? null : schedule[2].split(',').map(Number);
+    if (slotMinute > 59 || slotHours?.some((hour, index) => hour > 23 || (index > 0 && hour <= slotHours[index - 1]))) {
+      throw new TypeError('invalid canton generation schedule time');
+    }
+    sections.add(section);
+    return {
+      id: `corpus-generation-slot-${section}`,
+      repo: 'corpus',
+      workflow,
+      generationSlot: section,
+      slotMinute,
+      slotHours,
+    };
+  });
 }
 
 /**
@@ -35,7 +71,7 @@ export function generationSlotDateForEntry(entry, scheduledAt, {
   maxLateMinutes = GENERATION_SLOT_MAX_LATE_MINUTES,
   settleMinutes = GENERATION_SLOT_SETTLE_MINUTES,
 } = {}) {
-  const minute = generationSlotMinute(entry?.generationSlot);
+  const minute = entry?.slotMinute ?? generationSlotMinute(entry?.generationSlot);
   const scheduled = scheduledAt instanceof Date ? new Date(scheduledAt.getTime()) : new Date(scheduledAt);
   if (minute === null || !Number.isFinite(scheduled.getTime())
     || !Number.isFinite(maxLateMinutes) || maxLateMinutes < 0
@@ -46,6 +82,7 @@ export function generationSlotDateForEntry(entry, scheduledAt, {
   const nominal = new Date(tick.getTime());
   nominal.setUTCMinutes(minute, 0, 0);
   if (nominal.getTime() > tick.getTime()) nominal.setUTCHours(nominal.getUTCHours() - 1);
+  if (entry?.slotHours && !entry.slotHours.includes(nominal.getUTCHours())) return null;
 
   const lateByMs = tick.getTime() - nominal.getTime();
   if (lateByMs < settleMinutes * 60_000 || lateByMs > maxLateMinutes * 60_000) return null;

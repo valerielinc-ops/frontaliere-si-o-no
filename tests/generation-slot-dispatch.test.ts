@@ -3,7 +3,8 @@ import { generateKeyPairSync, sign as signJwt } from 'node:crypto';
 import { dispatchGenerationSlot, inspectGenerationWorkflowContract } from '../functions/src/generationSlotDispatch.js';
 import { getGenerationSlotClaim } from '../functions/src/generationSlotLedger.js';
 import { admitGenerationSlotClaim, claimGenerationSlot, handleGenerationSlotClaimRequest } from '../functions/src/generationSlotLedger.js';
-import { GENERATION_SLOT_ENTRIES } from '../functions/src/generationSlotSchedule.js';
+import { GENERATION_SLOT_ENTRIES, parseCantonGenerationSchedule } from '../functions/src/generationSlotSchedule.js';
+import { dispatchLoopClock } from '../functions/src/loopClockDispatch.js';
 import {
   allowGenerationClaimRequest,
   GENERATION_CLAIM_REQUESTS_PER_IP,
@@ -70,12 +71,16 @@ function memoryDb() {
   return db;
 }
 
-function responseForWorkflow() {
+function responseForWorkflow(source = workflow) {
   return new Response(JSON.stringify({
     encoding: 'base64',
-    content: Buffer.from(workflow).toString('base64'),
+    content: Buffer.from(source).toString('base64'),
   }), { status: 200 });
 }
+
+const cantonWorkflow = workflow
+  .replace(/(      dispatch_origin:\n)        required: true\n/u, '$1        default: manual\n')
+  .replace(/^          - (?:chain|editorial_signal)\n/gmu, '');
 
 describe('generation workflow readiness contract', () => {
   it('requires the readiness marker, explicit origin contract, recovery inputs and removal of native cron', () => {
@@ -208,6 +213,69 @@ describe('generation slot dispatch', () => {
     });
     expect(second).toMatchObject({ dispatched: false, reason: 'slot_already_admitted' });
     expect(fetchImpl).toHaveBeenCalledTimes(3);
+  });
+
+  it('loads the canton calendar and leaves native schedules in shadow mode', async () => {
+    const schedule = { schema: 1, entries: [
+      { section: 'canton-ow', workflow: 'generate-article-ow.yml', cron: '14 3,9,15,21 * * *' },
+      { section: 'canton-ti', workflow: 'generate-article-ti.yml', cron: '14 4,10,16,22 * * *' },
+    ] };
+    const fetchImpl = vi.fn(async (url: string) => url.includes('canton-generation-slots.json')
+      ? new Response(JSON.stringify(schedule))
+      : responseForWorkflow(cantonWorkflow.replace('on:\n', "on:\n  schedule:\n    - cron: '14 3,9,15,21 * * *'\n")));
+    const report = await dispatchLoopClock({
+      scheduledAt: new Date('2026-11-20T09:25:00Z'),
+      entries: [{ id: 'idle', repo: 'site', workflow: 'idle.yml', everyMinutes: 1440 }],
+      includeGenerationSlots: true,
+      fetchImpl,
+      getRemoteConfigValueImpl: async (name: string) => name === 'GITHUB_PAT_NANAKO' ? 'test-token' : '',
+    });
+    expect(report.results).toEqual([expect.objectContaining({
+      generationSlot: 'canton-ow',
+      dispatched: false,
+      reason: 'shadow:native_schedule_still_present',
+    })]);
+    expect(fetchImpl.mock.calls.map(([url]) => url)).toEqual([
+      expect.stringContaining('/contents/generator/data/canton-generation-slots.json?ref=main'),
+      expect.stringContaining('/contents/.github/workflows/generate-article-ow.yml?ref=main'),
+    ]);
+  });
+
+  it('dispatches the canton workflow on the canonical slot and admits only that workflow', async () => {
+    const [entry] = parseCantonGenerationSchedule({
+      schema: 1,
+      entries: [{ section: 'canton-ow', workflow: 'generate-article-ow.yml', cron: '14 3,9,15,21 * * *' }],
+    });
+    const db = memoryDb();
+    const fetchImpl = vi.fn(async (url: string) => url.includes('/contents/')
+      ? responseForWorkflow(cantonWorkflow)
+      : new Response(null, { status: 204 }));
+    const now = Date.parse('2026-11-20T09:20:00Z');
+    const result = await dispatchGenerationSlot({
+      entry,
+      scheduledAt: new Date(now),
+      now,
+      context: { pat: 'test-token', owner: 'nanakokyobashi-rgb', repo: 'frontaliere-articles' },
+      fetchImpl,
+      getAdminDbImpl: () => db,
+    });
+    expect(result).toMatchObject({ dispatched: true, slotKey: 'generate-article/canton-ow/2026-11-20T09:14Z' });
+    expect(fetchImpl.mock.calls.map(([url]) => url)).toEqual([
+      expect.stringContaining('/contents/.github/workflows/generate-article-ow.yml?ref=main'),
+      expect.stringContaining('/actions/workflows/generate-article-ow.yml/dispatches'),
+    ]);
+    const claim = await getGenerationSlotClaim(db, String(result.slotKey));
+    const req = { method: 'POST', body: {
+      action: 'admit',
+      slotKey: result.slotKey,
+      runId: '123456',
+      claimToken: claim.claimToken,
+    } };
+    const ref = 'nanakokyobashi-rgb/frontaliere-articles/.github/workflows';
+    const claims = { run_id: '123456', workflow_ref: `${ref}/generate-article-ti.yml@refs/heads/main` };
+    expect(await handleGenerationSlotClaimRequest(req, db, { now, claims })).toMatchObject({ status: 401 });
+    claims.workflow_ref = `${ref}/generate-article-ow.yml@refs/heads/main`;
+    expect(await handleGenerationSlotClaimRequest(req, db, { now, claims })).toMatchObject({ status: 200 });
   });
 
   it('admits a delayed runner only with the current, unconsumed hourly claim', async () => {
