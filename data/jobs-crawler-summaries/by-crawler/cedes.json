@@ -1,16 +1,16 @@
 {
   "key": "cedes",
   "label": "CEDES",
-  "generatedAt": "2026-11-20T09:18:17.211Z",
+  "generatedAt": "2026-11-20T21:19:09.212Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 5437,
-  "avgDurationMs": 5437,
+  "durationMs": 6392,
+  "avgDurationMs": 6392,
   "durationHistory": [
-    5437
+    6392
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -40,7 +40,7 @@
       "url": "https://www.cedes.com/en/career/jobs/mitarbeiter-in-shipping-lagerlogistik-100/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:17:59.045Z",
+      "crawledAt": "2026-11-20T21:18:43.017Z",
       "firstSeenAt": "2026-11-13T21:16:37.124Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
@@ -59,7 +59,7 @@
       },
       "streetAddress": "Kantonsstrasse 14",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-12T09:17:59.045Z",
+      "validThrough": "2027-02-11T21:18:43.017Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -93,7 +93,7 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T09:17:58.454Z",
+      "crawledAt": "2026-11-20T21:18:42.630Z",
       "firstSeenAt": "2026-04-13T10:12:14.899Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
@@ -112,7 +112,7 @@
       },
       "streetAddress": "Kantonsstrasse 14",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-20T09:17:58.454Z",
+      "validThrough": "2026-12-20T21:18:42.630Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 89,
       "_qualityBreakdown": {

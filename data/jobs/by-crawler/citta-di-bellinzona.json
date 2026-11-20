@@ -1,7 +1,7 @@
 {
   "crawlerKey": "citta-di-bellinzona",
-  "assembledAt": "2026-11-20T09:22:32.896Z",
-  "runId": "44707887994",
+  "assembledAt": "2026-11-20T21:21:33.055Z",
+  "runId": "44817524642",
   "jobs": [
     {
       "id": "citta-di-bellinzona-impiegato-a-amministrativo-a-addetto-a-alla-formazione-del-personale-presso-il-bellinzona",
@@ -51,10 +51,10 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=IS#position,id=76648689-f8a1-4fee-a1dd-7b7214db47c6,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-20T09:22:26.288Z",
+      "crawledAt": "2026-11-20T21:21:25.304Z",
       "firstSeenAt": "2026-10-30T09:48:40.338Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T09:22:26.288Z",
+      "validThrough": "2027-01-28T21:21:25.304Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -190,9 +190,9 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=IS#position,id=c63f2847-2a77-4dfd-95e3-79a55833ca60,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-20T09:22:26.526Z",
+      "crawledAt": "2026-11-20T21:21:25.672Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-18T09:22:26.526Z",
+      "validThrough": "2027-02-18T21:21:25.672Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -207,7 +207,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-11-20T09:22:26.526Z",
+      "firstSeenAt": "2026-11-20T21:21:25.672Z",
       "previousSlugsByLocale": {
         "en": [
           "governante-presso-l-ente-autonomo-bellinzonaanziani-bellinzona"
@@ -222,7 +222,8 @@
       "previousSlugs": [
         "governante-presso-l-ente-autonomo-bellinzonaanziani-bellinzona"
       ],
-      "sourceIdentity": "url:https://bellinz.pi-asp.de/bewerber-web?company=*-firma-id&tenant=&lang=is"
+      "sourceIdentity": "url:https://bellinz.pi-asp.de/bewerber-web?company=*-firma-id&tenant=&lang=is",
+      "needsRetranslation": true
     },
     {
       "id": "citta-di-bellinzona-ricerca-di-pattugliatori-trici-presso-la-polizia-comunale-bellinzona",
@@ -274,9 +275,9 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=IS#position,id=6854e5d6-a43d-4166-b0cf-c8239799bdd0,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-20T09:22:26.729Z",
+      "crawledAt": "2026-11-20T21:21:25.880Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-18T09:22:26.729Z",
+      "validThrough": "2027-02-18T21:21:25.880Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -291,7 +292,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-11-20T09:22:26.729Z",
+      "firstSeenAt": "2026-11-20T21:21:25.880Z",
       "previousSlugsByLocale": {
         "en": [
           "ricerca-di-pattugliatori-trici-presso-la-polizia-comunale-bellinzona"
@@ -306,7 +307,8 @@
       "previousSlugs": [
         "ricerca-di-pattugliatori-trici-presso-la-polizia-comunale-bellinzona"
       ],
-      "sourceIdentity": "url:https://bellinz.pi-asp.de/bewerber-web?company=*-firma-id&tenant=&lang=is"
+      "sourceIdentity": "url:https://bellinz.pi-asp.de/bewerber-web?company=*-firma-id&tenant=&lang=is",
+      "needsRetranslation": true
     }
   ]
 }
