@@ -490,7 +490,7 @@
       "slug": "cucina-60-100-stiftung-diaconis-bern-e4965795d2",
       "slugByLocale": {
         "it": "cucina-60-100-stiftung-diaconis-bern-e4965795d2",
-        "en": "cook-cook-60-stiftung-diaconis-bern",
+        "en": "cook-60-stiftung-diaconis-bern",
         "de": "kochin-koch-60-stiftung-diaconis-bern",
         "fr": "cuisiniere-60-100-stiftung-diaconis-bern"
       },
@@ -537,12 +537,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "kochin-koch-60-stiftung-diaconis-bern",
-        "cucina-60-100-stiftung-diaconis-bern"
+        "cucina-60-100-stiftung-diaconis-bern",
+        "cook-cook-60-stiftung-diaconis-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kochin-koch-60-stiftung-diaconis-bern",
           "cucina-60-100-stiftung-diaconis-bern"
+        ],
+        "en": [
+          "cook-cook-60-stiftung-diaconis-bern"
         ]
       },
       "firstSeenAt": "2026-09-30T21:12:40.289Z",

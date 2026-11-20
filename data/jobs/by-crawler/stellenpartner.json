@@ -15105,7 +15105,7 @@
       "slugByLocale": {
         "it": "polimeccanico-a-tecnico-a-di-assistenza-per-l-assemblaggio-di-macchine-da-caffe-stellenpartner-ag-arbon-thurgau",
         "en": "polymechanic-service-technician-for-coffee-machine-assembly-stellenpartner-ag-arbon-thurgau",
-        "de": "polymechaniker-in-servicetechniker-in-fur-kaffeemaschinenmontage-arbon-thurgau",
+        "de": "polymechaniker-in-servicetechniker-in-fur-kaffeemaschinenmontage-stellenpartner-ag-arbon",
         "fr": "polymecanicien-ne-technicien-ne-de-service-pour-le-montage-de-machines-a-cafe-stellenpartner-ag-arbon-thurgau"
       },
       "company": "Stellenpartner AG",
@@ -15167,6 +15167,9 @@
         "fr": [
           "polymechaniker-in-servicetechniker-in-fur-kaffeemaschinenmontage-stellenpartner-ag-arbon",
           "polymechaniker-in-technicien-ne-de-service-fur-kaffeemaschinenmontage-stellenpartner-ag-arbon-thurgau"
+        ],
+        "de": [
+          "polymechaniker-in-servicetechniker-in-fur-kaffeemaschinenmontage-arbon-thurgau"
         ]
       },
       "firstSeenAt": "2026-09-28T21:34:10.573Z",
@@ -15196,7 +15199,7 @@
       "slugByLocale": {
         "it": "polimeccanico-a-tecnico-a-di-assistenza-per-il-montaggio-di-macchine-stellenpartner-ag-weinfelden-thurgau",
         "en": "polymechanic-service-technician-for-machine-assembly-stellenpartner-ag-weinfelden-thurgau",
-        "de": "polymechaniker-in-servicetechniker-in-fur-maschinenmontage-weinfelden-thurgau",
+        "de": "polymechaniker-in-servicetechniker-in-fur-maschinenmontage-stellenpartner-ag-weinfelden",
         "fr": "polymecanicien-ne-technicien-ne-de-service-pour-le-montage-de-machines-stellenpartner-ag-weinfelden-thurgau"
       },
       "company": "Stellenpartner AG",
@@ -15258,6 +15261,9 @@
         "fr": [
           "polymechaniker-in-servicetechniker-in-fur-maschinenmontage-stellenpartner-ag-weinfelden",
           "polymechaniker-in-technicien-ne-de-service-fur-maschinenmontage-stellenpartner-ag-weinfelden-thurgau"
+        ],
+        "de": [
+          "polymechaniker-in-servicetechniker-in-fur-maschinenmontage-weinfelden-thurgau"
         ]
       },
       "firstSeenAt": "2026-09-28T21:34:10.573Z",
@@ -32684,7 +32690,7 @@
       "slugByLocale": {
         "it": "operatore-logistico-con-esperienza-in-entrata-merci-e-commissionamento-stellenpartner-ag-lenzburg-aargau",
         "en": "logistician-with-experience-in-goods-receipt-and-picking-stellenpartner-ag-lenzburg-aargau",
-        "de": "logistiker-in-mit-erfahrung-in-wareneingang-und-kommissionierung-lenzburg-aargau",
+        "de": "logistiker-in-mit-erfahrung-in-wareneingang-und-kommissionierung-stellenpartner-ag-lenzburg",
         "fr": "logisticien-experimente-en-reception-et-en-pick-up-de-marchandises-stellenpartner-ag-lenzburg-aargau"
       },
       "company": "Stellenpartner AG",
@@ -32742,6 +32748,9 @@
         ],
         "fr": [
           "logistiker-in-mit-erfahrung-in-wareneingang-und-kommissionierung-stellenpartner-ag-lenzburg"
+        ],
+        "de": [
+          "logistiker-in-mit-erfahrung-in-wareneingang-und-kommissionierung-lenzburg-aargau"
         ]
       },
       "firstSeenAt": "2026-09-28T21:34:10.525Z",
@@ -41939,9 +41948,9 @@
     },
     {
       "id": "stellenpartner-89eccbbe0ef1",
-      "slug": "installatore-trice-elettrico-a-in-con-e-mobility-e-pv-anlagen-stellenpartner-ag-luzern",
+      "slug": "installatore-trice-elettrico-a-con-e-mobility-e-impianti-fotovoltaici-stellenpartner-ag-luzern",
       "slugByLocale": {
-        "it": "installatore-trice-elettrico-a-in-con-e-mobility-e-pv-anlagen-stellenpartner-ag-luzern",
+        "it": "installatore-trice-elettrico-a-con-e-mobility-e-impianti-fotovoltaici-stellenpartner-ag-luzern",
         "en": "electrical-installer-mit-e-mobility-und-pv-anlagen-stellenpartner-ag-luzern",
         "de": "elektroinstallateur-in-mit-e-mobility-und-pv-anlagen-luzern-luzern-stellenpartner-ch",
         "fr": "installateur-installatrice-electricien-ne-dans-l-e-mobilite-et-les-installations-photovoltaiques-stellenpartner-ag"
@@ -41988,11 +41997,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "elektroinstallateur-in-mit-e-mobility-und-pv-anlagen-luzern-luzern-stellenpartner-ch",
-        "installateur-trice-electricien-ne-mit-e-mobility-und-pv-anlagen-stellenpartner-ag-luzern"
+        "installateur-trice-electricien-ne-mit-e-mobility-und-pv-anlagen-stellenpartner-ag-luzern",
+        "installatore-trice-elettrico-a-in-con-e-mobility-e-pv-anlagen-stellenpartner-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "elektroinstallateur-in-mit-e-mobility-und-pv-anlagen-luzern-luzern-stellenpartner-ch"
+          "elektroinstallateur-in-mit-e-mobility-und-pv-anlagen-luzern-luzern-stellenpartner-ch",
+          "installatore-trice-elettrico-a-in-con-e-mobility-e-pv-anlagen-stellenpartner-ag-luzern"
         ],
         "en": [
           "elektroinstallateur-in-mit-e-mobility-und-pv-anlagen-luzern-luzern-stellenpartner-ch"
@@ -43682,9 +43693,9 @@
     },
     {
       "id": "stellenpartner-21a2a88129b8",
-      "slug": "installatore-trice-elettrico-a-in-per-spezialfahrzeuge-stellenpartner-ag-horgen",
+      "slug": "installatore-trice-elettrico-a-per-veicoli-speciali-stellenpartner-ag-horgen",
       "slugByLocale": {
-        "it": "installatore-trice-elettrico-a-in-per-spezialfahrzeuge-stellenpartner-ag-horgen",
+        "it": "installatore-trice-elettrico-a-per-veicoli-speciali-stellenpartner-ag-horgen",
         "en": "electrical-installer-for-special-purpose-vehicles-stellenpartner-ag-horgen-zurich",
         "de": "elektroinstallateur-in-fur-spezialfahrzeuge-horgen-zurich-stellenpartner-ch",
         "fr": "installateur-trice-electricien-ne-pour-vehicules-speciaux-stellenpartner-ag-horgen-zurich"
@@ -43730,11 +43741,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "elektroinstallateur-in-fur-spezialfahrzeuge-horgen-zurich-stellenpartner-ch"
+        "elektroinstallateur-in-fur-spezialfahrzeuge-horgen-zurich-stellenpartner-ch",
+        "installatore-trice-elettrico-a-in-per-spezialfahrzeuge-stellenpartner-ag-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "elektroinstallateur-in-fur-spezialfahrzeuge-horgen-zurich-stellenpartner-ch"
+          "elektroinstallateur-in-fur-spezialfahrzeuge-horgen-zurich-stellenpartner-ch",
+          "installatore-trice-elettrico-a-in-per-spezialfahrzeuge-stellenpartner-ag-horgen"
         ],
         "en": [
           "elektroinstallateur-in-fur-spezialfahrzeuge-horgen-zurich-stellenpartner-ch"
@@ -45935,7 +45948,7 @@
       "slugByLocale": {
         "it": "installatore-trice-elettrico-a-in-per-industrielle-elektrische-installazioni-stellenpartner-ag-aarau",
         "en": "electrical-installer-for-industrial-electrical-installations-stellenpartner-ag-aarau-aargau",
-        "de": "elektroinstallateur-in-fur-industrielle-elektrische-installationen-aarau-aargau",
+        "de": "elektroinstallateur-in-fur-industrielle-elektrische-installationen-stellenpartner-ag-aarau",
         "fr": "installateur-electricien-ne-d-installations-electriques-industrielles-stellenpartner-ag-aarau-aargau"
       },
       "company": "Stellenpartner AG",
@@ -45993,6 +46006,9 @@
         "fr": [
           "elektroinstallateur-in-fur-industrielle-elektrische-installationen-stellenpartner-ag-aarau",
           "installateur-trice-electricien-ne-fur-industrielle-elektrische-installationen-stellenpartner-ag-aarau-aargau"
+        ],
+        "de": [
+          "elektroinstallateur-in-fur-industrielle-elektrische-installationen-aarau-aargau"
         ]
       },
       "firstSeenAt": "2026-09-28T21:34:10.487Z",
@@ -46881,12 +46897,12 @@
     },
     {
       "id": "stellenpartner-9846a57d9452",
-      "slug": "installatore-trice-elettrico-a-in-responsabile-di-progetto-per-ladenbauprojekte-stellenpartner-ag-luzern",
+      "slug": "installatore-trice-elettrico-a-responsabile-di-progetto-per-progetti-di-allestimento-di-negozi-stellenpartner-ag-luzern",
       "slugByLocale": {
-        "it": "installatore-trice-elettrico-a-in-responsabile-di-progetto-per-ladenbauprojekte-stellenpartner-ag-luzern",
-        "en": "electrical-installer-project-manager-fur-ladenbauprojekte-stellenpartner-ag-luzern",
+        "it": "installatore-trice-elettrico-a-responsabile-di-progetto-per-progetti-di-allestimento-di-negozi-stellenpartner-ag-luzern",
+        "en": "electrical-installer-project-manager-for-shopfitting-projects-stellenpartner-ag-luzern",
         "de": "elektroinstallateur-in-projektleiter-in-fur-ladenbauprojekte-luzern-luzern-stellenpartner",
-        "fr": "installateur-trice-electricien-ne-chef-de-projet-fur-ladenbauprojekte-stellenpartner-ag-luzern"
+        "fr": "installateur-trice-electricien-ne-chef-fe-de-projet-pour-des-projets-d-agencement-de-magasins-stellenpartner-ag-luzern"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -46929,17 +46945,23 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "elektroinstallateur-in-projektleiter-in-fur-ladenbauprojekte-luzern-luzern-stellenpartner"
+        "elektroinstallateur-in-projektleiter-in-fur-ladenbauprojekte-luzern-luzern-stellenpartner",
+        "installatore-trice-elettrico-a-in-responsabile-di-progetto-per-ladenbauprojekte-stellenpartner-ag-luzern",
+        "electrical-installer-project-manager-fur-ladenbauprojekte-stellenpartner-ag-luzern",
+        "installateur-trice-electricien-ne-chef-de-projet-fur-ladenbauprojekte-stellenpartner-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "elektroinstallateur-in-projektleiter-in-fur-ladenbauprojekte-luzern-luzern-stellenpartner"
+          "elektroinstallateur-in-projektleiter-in-fur-ladenbauprojekte-luzern-luzern-stellenpartner",
+          "installatore-trice-elettrico-a-in-responsabile-di-progetto-per-ladenbauprojekte-stellenpartner-ag-luzern"
         ],
         "en": [
-          "elektroinstallateur-in-projektleiter-in-fur-ladenbauprojekte-luzern-luzern-stellenpartner"
+          "elektroinstallateur-in-projektleiter-in-fur-ladenbauprojekte-luzern-luzern-stellenpartner",
+          "electrical-installer-project-manager-fur-ladenbauprojekte-stellenpartner-ag-luzern"
         ],
         "fr": [
-          "elektroinstallateur-in-projektleiter-in-fur-ladenbauprojekte-luzern-luzern-stellenpartner"
+          "elektroinstallateur-in-projektleiter-in-fur-ladenbauprojekte-luzern-luzern-stellenpartner",
+          "installateur-trice-electricien-ne-chef-de-projet-fur-ladenbauprojekte-stellenpartner-ag-luzern"
         ]
       },
       "firstSeenAt": "2026-11-15T00:41:58.310Z",
@@ -47923,7 +47945,7 @@
       "slugByLocale": {
         "it": "meccatronico-a-automobilistico-a-con-impiego-versatile-nella-manutenzione-dei-veicoli-stellenpartner-ag-kussnacht-am",
         "en": "automotive-mechatronics-technician-with-versatile-assignments-in-vehicle-maintenance-stellenpartner-ag-kussnacht-am-rigi",
-        "de": "automobil-mechatroniker-in-mit-vielseitigem-einsatz-in-der-fahrzeugwartung-kussnacht-am-60m73a",
+        "de": "automobil-mechatroniker-in-mit-vielseitigem-einsatz-in-der-fahrzeugwartung-stellenpartner-ag-kussnacht-am-rigi",
         "fr": "mecatronicien-ne-d-automobiles-avec-des-activites-variees-dans-l-entretien-des-vehicules-stellenpartner-ag-kussnacht-am"
       },
       "company": "Stellenpartner AG",
@@ -47967,7 +47989,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "automobil-mechatroniker-in-mit-vielseitigem-einsatz-in-der-fahrzeugwartung-kussnacht-am"
+        "automobil-mechatroniker-in-mit-vielseitigem-einsatz-in-der-fahrzeugwartung-kussnacht-am",
+        "automobil-mechatroniker-in-mit-vielseitigem-einsatz-in-der-fahrzeugwartung-kussnacht-am-60m73a"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -47977,7 +48000,8 @@
           "automobil-mechatroniker-in-mit-vielseitigem-einsatz-in-der-fahrzeugwartung-kussnacht-am"
         ],
         "de": [
-          "automobil-mechatroniker-in-mit-vielseitigem-einsatz-in-der-fahrzeugwartung-kussnacht-am"
+          "automobil-mechatroniker-in-mit-vielseitigem-einsatz-in-der-fahrzeugwartung-kussnacht-am",
+          "automobil-mechatroniker-in-mit-vielseitigem-einsatz-in-der-fahrzeugwartung-kussnacht-am-60m73a"
         ],
         "fr": [
           "automobil-mechatroniker-in-mit-vielseitigem-einsatz-in-der-fahrzeugwartung-kussnacht-am"
@@ -50050,7 +50074,7 @@
       "slugByLocale": {
         "it": "operatore-trice-automatico-a-con-competenze-pneumatiche-e-idrauliche-stellenpartner-ag-kussnacht-am-rigi-schwyz",
         "en": "automation-specialist-with-expertise-in-pneumatics-and-hydraulics-stellenpartner-ag-kussnacht-am-rigi-schwyz",
-        "de": "automatiker-in-mit-pneumatik-und-hydraulikkompetenz-kussnacht-am-rigi-schwyz",
+        "de": "automatiker-in-mit-pneumatik-und-hydraulikkompetenz-stellenpartner-ag-kussnacht-am-rigi",
         "fr": "automaticien-ne-avec-competences-pneumatiques-et-hydrauliques-stellenpartner-ag-kussnacht-am-rigi-schwyz"
       },
       "company": "Stellenpartner AG",
@@ -50108,6 +50132,9 @@
         ],
         "fr": [
           "automatiker-in-mit-pneumatik-und-hydraulikkompetenz-stellenpartner-ag-kussnacht-am-rigi"
+        ],
+        "de": [
+          "automatiker-in-mit-pneumatik-und-hydraulikkompetenz-kussnacht-am-rigi-schwyz"
         ]
       },
       "firstSeenAt": "2026-09-28T21:34:10.469Z",

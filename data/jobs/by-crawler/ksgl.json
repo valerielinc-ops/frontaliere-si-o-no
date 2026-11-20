@@ -834,7 +834,7 @@
       "slugByLocale": {
         "it": "infermiera-mann-hf-fh-chirurgia-kantonsspital-glarus-ksgl-glarus-ab210e86d2",
         "en": "dipl-nurse-mann-hf-fh-surgery-kantonsspital-glarus-ksgl-glarus",
-        "de": "dipl-pflegefachfrau-mann-hf-fh-chirurgie-ksgl-glarus",
+        "de": "dipl-pflegefachfrau-mann-hf-fh-chirurgie-kantonsspital-glarus-ksgl-glarus",
         "fr": "dipl-infirmiere-mann-chirurgie-hf-fh-kantonsspital-glarus-ksgl-glarus"
       },
       "company": "Kantonsspital Glarus (KSGL)",
@@ -886,6 +886,9 @@
         "it": [
           "dipl-pflegefachfrau-mann-hf-fh-chirurgie-ksgl-glarus",
           "infermiera-mann-hf-fh-chirurgia-kantonsspital-glarus-ksgl-glarus"
+        ],
+        "de": [
+          "dipl-pflegefachfrau-mann-hf-fh-chirurgie-ksgl-glarus"
         ]
       },
       "firstSeenAt": "2026-08-03T22:18:16.660Z",
@@ -1343,7 +1346,7 @@
       "slugByLocale": {
         "it": "sub-assistante-kantonsspital-glarus-ksgl-glarus",
         "en": "sub-assistant-kantonsspital-glarus-ksgl-glarus",
-        "de": "unterassistent-in-ksgl-glarus",
+        "de": "unterassistent-in-kantonsspital-glarus-ksgl-glarus",
         "fr": "sous-assistant-kantonsspital-glarus-ksgl-glarus"
       },
       "company": "Kantonsspital Glarus (KSGL)",
@@ -1392,6 +1395,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "unterassistent-in-ksgl-glarus"
+        ],
+        "de": [
           "unterassistent-in-ksgl-glarus"
         ]
       },
@@ -1668,7 +1674,7 @@
       "slugByLocale": {
         "it": "infermiera-man-hf-medicina-kantonsspital-glarus-ksgl-glarus-fa275a8887",
         "en": "dipl-nurse-man-hf-medicine-kantonsspital-glarus-ksgl-glarus",
-        "de": "dipl-pflegefachfrau-mann-hf-medizin-ksgl-glarus",
+        "de": "dipl-pflegefachfrau-mann-hf-medizin-kantonsspital-glarus-ksgl-glarus",
         "fr": "infirmiere-diplomee-en-medecine-hf-kantonsspital-glarus-ksgl-glarus"
       },
       "company": "Kantonsspital Glarus (KSGL)",
@@ -1720,6 +1726,9 @@
         "it": [
           "dipl-pflegefachfrau-mann-hf-medizin-ksgl-glarus",
           "infermiera-man-hf-medicina-kantonsspital-glarus-ksgl-glarus"
+        ],
+        "de": [
+          "dipl-pflegefachfrau-mann-hf-medizin-ksgl-glarus"
         ]
       },
       "firstSeenAt": "2026-08-14T10:20:56.004Z",

@@ -12623,7 +12623,7 @@
       "slugByLocale": {
         "it": "ricercatore-ricercatrice-clinico-a-in-scienze-infermieristiche-60-80-universitatsspital-zurich-usz-zurich",
         "en": "clinical-nursing-scientist-60-80-universitatsspital-zurich-usz-zurich",
-        "de": "klinische-r-pflegewissenschaftler-in-60-80-usz-ch",
+        "de": "klinische-r-pflegewissenschaftler-in-60-80-universitatsspital-zurich-usz-zurich",
         "fr": "scientifique-clinique-en-sciences-infirmieres-60-80-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
@@ -12681,6 +12681,9 @@
         ],
         "fr": [
           "klinische-r-pflegewissenschaftler-in-60-80-universitatsspital-zurich-usz-zurich"
+        ],
+        "de": [
+          "klinische-r-pflegewissenschaftler-in-60-80-usz-ch"
         ]
       },
       "firstSeenAt": "2026-11-05T21:20:31.514Z",
@@ -13868,7 +13871,7 @@
       "slugByLocale": {
         "it": "tecnico-a-degli-ambienti-e-delle-attrezzature-20-40-universitatsspital-zurich-usz-zurich",
         "en": "room-and-equipmenttechnician-20-40-universitatsspital-zurich-usz-zurich",
-        "de": "raum-und-geratetechniker-in-20-40-usz-ch",
+        "de": "raum-und-geratetechniker-in-20-40-universitatsspital-zurich-usz-zurich",
         "fr": "technicien-de-locaux-et-d-appareils-dans-20-40-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
@@ -13927,6 +13930,9 @@
         ],
         "fr": [
           "raum-und-geratetechniker-in-20-40-universitatsspital-zurich-usz-zurich"
+        ],
+        "de": [
+          "raum-und-geratetechniker-in-20-40-usz-ch"
         ]
       },
       "firstSeenAt": "2026-11-09T09:24:23.405Z",
@@ -14790,9 +14796,9 @@
     },
     {
       "id": "usz-455bebd9a0c0",
-      "slug": "collaboratore-trice-catering-auf-abruf-10-20-universitatsspital-zurich-usz-zurich",
+      "slug": "collaboratore-trice-catering-su-chiamata-10-20-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
-        "it": "collaboratore-trice-catering-auf-abruf-10-20-universitatsspital-zurich-usz-zurich",
+        "it": "collaboratore-trice-catering-su-chiamata-10-20-universitatsspital-zurich-usz-zurich",
         "en": "catering-staff-on-call-10-20-universitatsspital-zurich-usz-zurich",
         "de": "mitarbeiter-in-catering-auf-abruf-10-20-usz-ch",
         "fr": "employe-e-de-restauration-sur-appel-10-20-universitatsspital-zurich-usz-zurich"
@@ -14839,11 +14845,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-catering-auf-abruf-10-20-usz-ch"
+        "mitarbeiter-in-catering-auf-abruf-10-20-usz-ch",
+        "collaboratore-trice-catering-auf-abruf-10-20-universitatsspital-zurich-usz-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-catering-auf-abruf-10-20-usz-ch"
+          "mitarbeiter-in-catering-auf-abruf-10-20-usz-ch",
+          "collaboratore-trice-catering-auf-abruf-10-20-universitatsspital-zurich-usz-zurich"
         ],
         "en": [
           "mitarbeiter-in-catering-auf-abruf-10-20-usz-ch"
@@ -14964,7 +14972,7 @@
       "slugByLocale": {
         "it": "operatore-sociosanitario-per-il-reparto-di-puerperio-e-prenatale-80-100-universitatsspital-zurich-usz-zurich",
         "en": "fage-for-the-postpartum-prenatal-department-80-100-universitatsspital-zurich-usz-zurich",
-        "de": "fage-fur-die-wochenbett-amp-pranatalabteilung-80-100-usz-ch",
+        "de": "fage-fur-die-wochenbett-pranatalabteilung-80-100-universitatsspital-zurich-usz-zurich",
         "fr": "fage-pour-le-departement-postnatal-et-prenatal-80-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
@@ -15023,6 +15031,9 @@
         ],
         "fr": [
           "fage-fur-die-wochenbett-pranatalabteilung-80-100-universitatsspital-zurich-usz-zurich"
+        ],
+        "de": [
+          "fage-fur-die-wochenbett-amp-pranatalabteilung-80-100-usz-ch"
         ]
       },
       "firstSeenAt": "2026-11-11T21:16:31.707Z",
@@ -18028,7 +18039,7 @@
       "slugByLocale": {
         "it": "specialista-dell-apprendimento-digitale-learning-design-e-lms-60-100-universitatsspital-zurich-usz-zurich",
         "en": "digital-learning-specialist-learning-design-lms-60-100-universitatsspital-zurich-usz-zurich",
-        "de": "fachspezialist-in-digitales-lernen-learning-design-amp-lms-60-100-usz-ch",
+        "de": "fachspezialist-in-digitales-lernen-learning-design-lms-60-100-universitatsspital-zurich-usz-zurich",
         "fr": "specialiste-de-la-formation-numerique-learning-design-lms-60-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
@@ -18083,6 +18094,9 @@
           "fachspezialist-in-digitales-lernen-learning-design-amp-lms-60-100-usz-ch"
         ],
         "fr": [
+          "fachspezialist-in-digitales-lernen-learning-design-amp-lms-60-100-usz-ch"
+        ],
+        "de": [
           "fachspezialist-in-digitales-lernen-learning-design-amp-lms-60-100-usz-ch"
         ]
       },
@@ -18596,7 +18610,7 @@
       "slugByLocale": {
         "it": "assistente-sociale-diplomato-a-80-universitatsspital-zurich-usz-zurich",
         "en": "qualified-social-worker-80-universitatsspital-zurich-usz-zurich",
-        "de": "dipl-sozialarbeiter-in-80-usz-ch",
+        "de": "dipl-sozialarbeiter-in-80-universitatsspital-zurich-usz-zurich",
         "fr": "assistant-e-social-e-diplome-e-80-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
@@ -18651,6 +18665,9 @@
           "dipl-sozialarbeiter-in-80-usz-ch"
         ],
         "fr": [
+          "dipl-sozialarbeiter-in-80-usz-ch"
+        ],
+        "de": [
           "dipl-sozialarbeiter-in-80-usz-ch"
         ]
       },

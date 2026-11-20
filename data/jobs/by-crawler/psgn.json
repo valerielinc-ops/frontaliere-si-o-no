@@ -8,7 +8,7 @@
       "slug": "senior-medico-senior-medico-mbf-psychiatrie-st-gallen-pfafers",
       "slugByLocale": {
         "it": "senior-medico-senior-medico-mbf-psychiatrie-st-gallen-pfafers",
-        "en": "senior-physician-senior-physician-mbf-psychiatrie-st-gallen-pfafers",
+        "en": "senior-physician-mbf-psychiatrie-st-gallen-pfafers",
         "de": "oberarztin-oberarzt-mbf-psgn-pfafers",
         "fr": "medecin-principal-medecin-principal-mbf-psychiatrie-st-gallen-pfafers"
       },
@@ -54,14 +54,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "oberarztin-oberarzt-mbf-psgn-pfafers"
+        "oberarztin-oberarzt-mbf-psgn-pfafers",
+        "senior-physician-senior-physician-mbf-psychiatrie-st-gallen-pfafers"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-mbf-psgn-pfafers"
         ],
         "en": [
-          "oberarztin-oberarzt-mbf-psgn-pfafers"
+          "oberarztin-oberarzt-mbf-psgn-pfafers",
+          "senior-physician-senior-physician-mbf-psychiatrie-st-gallen-pfafers"
         ],
         "fr": [
           "oberarztin-oberarzt-mbf-psgn-pfafers"
@@ -178,7 +180,7 @@
       "slugByLocale": {
         "it": "gestione-del-gruppo-residenziale-psychiatrie-st-gallen-wil",
         "en": "residential-group-management-psychiatrie-st-gallen-wil",
-        "de": "wohngruppenleitung-psgn-wil",
+        "de": "wohngruppenleitung-psychiatrie-st-gallen-wil",
         "fr": "gestion-de-groupes-residentiels-psychiatrie-st-gallen-wil"
       },
       "company": "Psychiatrie St.Gallen",
@@ -237,6 +239,9 @@
         ],
         "fr": [
           "wohngruppenleitung-psychiatrie-st-gallen-wil"
+        ],
+        "de": [
+          "wohngruppenleitung-psgn-wil"
         ]
       },
       "firstSeenAt": "2026-11-10T21:31:07.504Z",
@@ -522,7 +527,7 @@
       "slugByLocale": {
         "it": "gestione-della-stazione-psychiatrie-st-gallen-pfafers",
         "en": "station-management-care-psychiatrie-st-gallen-pfafers",
-        "de": "stationsleitung-pflege-psgn-pfafers",
+        "de": "stationsleitung-pflege-psychiatrie-st-gallen-pfafers",
         "fr": "gestion-des-stations-psychiatrie-st-gallen-pfafers"
       },
       "company": "Psychiatrie St.Gallen",
@@ -581,6 +586,9 @@
         ],
         "fr": [
           "stationsleitung-pflege-psychiatrie-st-gallen-pfafers"
+        ],
+        "de": [
+          "stationsleitung-pflege-psgn-pfafers"
         ]
       },
       "firstSeenAt": "2026-11-11T21:15:31.224Z",
@@ -791,7 +799,7 @@
       "id": "psgn-8d4d367b6104",
       "slug": "stagista-stagista-hr-psychiatrie-st-gallen-pfafers",
       "slugByLocale": {
-        "de": "praktikantin-praktikant-hr-psgn-pfafers",
+        "de": "praktikantin-praktikant-hr-psychiatrie-st-gallen-pfafers",
         "it": "stagista-stagista-hr-psychiatrie-st-gallen-pfafers",
         "en": "intern-internship-hr-psychiatrie-st-gallen-pfafers",
         "fr": "stagiaire-rh-psychiatrie-st-gallen-pfafers"
@@ -865,6 +873,9 @@
           "praktikantin-praktikant-hr-psgn-pfafers"
         ],
         "fr": [
+          "praktikantin-praktikant-hr-psgn-pfafers"
+        ],
+        "de": [
           "praktikantin-praktikant-hr-psgn-pfafers"
         ]
       },

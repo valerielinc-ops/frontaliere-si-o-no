@@ -45,7 +45,7 @@ function parseOptions(args) {
   const alignUnserved = args.includes('--align-unserved');
   if (apply && args.includes('--dry-run')) throw new Error('choose either --dry-run or --apply');
   if (apply && alignUnserved) {
-    throw new Error('--align-unserved is measured here and applied by regenerate-slugs-by-locale.mjs');
+    throw new Error('--align-unserved is dry-run-only here; apply FU-007 with regenerate-slugs-by-locale.mjs --align-unserved-only');
   }
   return {
     apply,
@@ -255,7 +255,8 @@ async function main() {
     throw new Error(`GSC allowlist no longer resolves exactly (${plan.changes.length}/${gscAllowlistBySlot.size} entries)`);
   }
   if (options.planOut) writeJson(path.resolve(options.planOut), plan);
-  const countMatches = plan.changes.length === GSC_ALLOWLIST_COUNT;
+  const expected = options.alignUnserved ? null : GSC_ALLOWLIST_COUNT;
+  const countMatches = expected === null ? null : plan.changes.length === expected;
 
   if (options.apply) {
     if (!countMatches) {
@@ -272,13 +273,13 @@ async function main() {
         ? 'dry-run-align-unserved'
         : 'dry-run-first-served',
     selected: plan.changes.length,
-    expected: GSC_ALLOWLIST_COUNT,
+    expected,
     countMatches,
     changedSlices: changedSlices.size,
     skipped: skippedSummary,
     planOut: options.planOut ? path.resolve(options.planOut) : null,
   }, null, 2));
-  if (!countMatches) process.exitCode = 2;
+  if (countMatches === false) process.exitCode = 2;
 }
 
 if (isInvokedDirectly(import.meta.url)) {

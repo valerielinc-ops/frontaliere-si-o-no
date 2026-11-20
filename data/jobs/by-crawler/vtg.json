@@ -533,7 +533,7 @@
     },
     {
       "id": "company-k0c41y",
-      "slug": "impiegato-a-in-logistica-swiss-armed-forces-vtg-alvaschein-gr-k0c41y",
+      "slug": "impiegato-a-in-logistica-swiss-armed-forces-vtg-s-chanf",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Logistiker/-in",
       "location": "Alvaschein (GR)",
@@ -573,7 +573,7 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "impiegato-a-in-logistica-swiss-armed-forces-vtg-alvaschein-gr-k0c41y",
+        "it": "impiegato-a-in-logistica-swiss-armed-forces-vtg-s-chanf",
         "en": "logistics-specialist-swiss-armed-forces-vtg-alvaschein-gr",
         "de": "logistiker-in-swiss-armed-forces-vtg-s-chanf",
         "fr": "logisticien-logisticienne-swiss-armed-forces-vtg-alvaschein-gr"
@@ -585,7 +585,8 @@
       "streetAddress": "Schiessplatz M-Flab, S chanf Marathon",
       "previousSlugsByLocale": {
         "it": [
-          "logistiker-in-swiss-armed-forces-vtg-alvaschein-gr"
+          "logistiker-in-swiss-armed-forces-vtg-alvaschein-gr",
+          "impiegato-a-in-logistica-swiss-armed-forces-vtg-alvaschein-gr-k0c41y"
         ],
         "en": [
           "logistiker-in-swiss-armed-forces-vtg-alvaschein-gr-k0c41y",
@@ -602,7 +603,8 @@
       "previousSlugs": [
         "logistiker-in-swiss-armed-forces-vtg-alvaschein-gr",
         "logistiker-in-swiss-armed-forces-vtg-alvaschein-gr-k0c41y",
-        "logistiker-in-swiss-armed-forces-vtg-s-chanf"
+        "logistiker-in-swiss-armed-forces-vtg-s-chanf",
+        "impiegato-a-in-logistica-swiss-armed-forces-vtg-alvaschein-gr-k0c41y"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -9661,7 +9663,7 @@
       "slugByLocale": {
         "it": "apparecchio-merchant-efz-swiss-armed-forces-vtg-bern",
         "en": "apprentice-merchant-efz-swiss-armed-forces-vtg-bern-44680f",
-        "de": "lernende-r-kaufmann-frau-efz-swiss-armed-forces-vtg-bern-bdeofn",
+        "de": "lernende-r-kaufmann-frau-efz-swiss-armed-forces-vtg-bern",
         "fr": "apprentissage-merchant-efz-swiss-armed-forces-vtg-bern-44680f"
       },
       "titleByLocale": {
@@ -9702,7 +9704,15 @@
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
-      "sourceIdentity": "url:https://jobs.admin.ch/offene-stellen/lernende-r-kaufmann-frau-efz/d6965a83-a611-452f-9068-37f9753ddd70"
+      "sourceIdentity": "url:https://jobs.admin.ch/offene-stellen/lernende-r-kaufmann-frau-efz/d6965a83-a611-452f-9068-37f9753ddd70",
+      "previousSlugsByLocale": {
+        "de": [
+          "lernende-r-kaufmann-frau-efz-swiss-armed-forces-vtg-bern-bdeofn"
+        ]
+      },
+      "previousSlugs": [
+        "lernende-r-kaufmann-frau-efz-swiss-armed-forces-vtg-bern-bdeofn"
+      ]
     },
     {
       "id": "company-b1yojb",

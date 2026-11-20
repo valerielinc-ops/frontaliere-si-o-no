@@ -5884,7 +5884,7 @@
       "slugByLocale": {
         "it": "op-impiegata-impiegato-in-logistica-80-spitaler-fmi-ag-unterseen",
         "en": "operating-room-logistics-specialist-80-spitaler-fmi-ag-unterseen",
-        "de": "op-logistiker-in-80-fmi-unterseen",
+        "de": "op-logistiker-in-80-spitaler-fmi-ag-unterseen",
         "fr": "logisticien-logisticienne-de-bloc-operatoire-80-spitaler-fmi-ag-unterseen"
       },
       "company": "Spitäler fmi AG",
@@ -5942,6 +5942,9 @@
         ],
         "fr": [
           "op-logistiker-in-80-spitaler-fmi-ag-unterseen"
+        ],
+        "de": [
+          "op-logistiker-in-80-fmi-unterseen"
         ]
       },
       "firstSeenAt": "2026-11-18T21:21:17.283Z",

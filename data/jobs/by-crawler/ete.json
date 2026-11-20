@@ -611,8 +611,8 @@
       "slugByLocale": {
         "fr": "logisticien-ne-de-nuit-emil-egger-ag-avenches-2a29561c",
         "it": "logisticista-emil-egger-ag-avenches-2a29561c",
-        "en": "logistician-emil-egger-ag-avenches-2a29561c",
-        "de": "logistiker-emil-egger-ag-avenches-2a29561c"
+        "en": "logistician-emil-egger-ag-avenches",
+        "de": "logistiker-emil-egger-ag-avenches"
       },
       "slugDisambiguator": "2a29561c",
       "company": "Emil Egger AG",
@@ -656,17 +656,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "logisticien-ne-de-nuit-emil-egger-ag-avenches-2a29561c"
+        "logisticien-ne-de-nuit-emil-egger-ag-avenches-2a29561c",
+        "logistician-emil-egger-ag-avenches-2a29561c",
+        "logistiker-emil-egger-ag-avenches-2a29561c"
       ],
       "previousSlugsByLocale": {
         "it": [
           "logisticien-ne-de-nuit-emil-egger-ag-avenches-2a29561c"
         ],
         "en": [
-          "logisticien-ne-de-nuit-emil-egger-ag-avenches-2a29561c"
+          "logisticien-ne-de-nuit-emil-egger-ag-avenches-2a29561c",
+          "logistician-emil-egger-ag-avenches-2a29561c"
         ],
         "de": [
-          "logisticien-ne-de-nuit-emil-egger-ag-avenches-2a29561c"
+          "logisticien-ne-de-nuit-emil-egger-ag-avenches-2a29561c",
+          "logistiker-emil-egger-ag-avenches-2a29561c"
         ]
       },
       "firstSeenAt": "2026-11-12T09:17:59.369Z",

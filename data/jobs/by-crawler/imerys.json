@@ -410,9 +410,9 @@
     },
     {
       "id": "imerys-8bece5eaa342",
-      "slug": "capo-reparto-imerys-ch",
+      "slug": "capo-reparto-imerys-bodio",
       "slugByLocale": {
-        "it": "capo-reparto-imerys-ch",
+        "it": "capo-reparto-imerys-bodio",
         "en": "chapter-imerys-bodio",
         "de": "kapitel-imerys-bodio",
         "fr": "chapitre-imerys-bodio"
@@ -478,7 +478,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T09:44:42.666Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://imerys.wd3.myworkdayjobs.com/en-us/imerys-careers/job/bodio-switzerland/capo-reparto_req-12213"
+      "sourceIdentity": "url:https://imerys.wd3.myworkdayjobs.com/en-us/imerys-careers/job/bodio-switzerland/capo-reparto_req-12213",
+      "previousSlugsByLocale": {
+        "it": [
+          "capo-reparto-imerys-ch"
+        ]
+      },
+      "previousSlugs": [
+        "capo-reparto-imerys-ch"
+      ]
     }
   ]
 }

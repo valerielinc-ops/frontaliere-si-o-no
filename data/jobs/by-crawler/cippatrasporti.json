@@ -96,9 +96,9 @@
     },
     {
       "id": "cippatrasporti-6360a178ef6c",
-      "slug": "operativo-trasporti-terra-cippatrasporti-ch",
+      "slug": "operativo-trasporti-terra-cippa-trasporti-sa-chiasso",
       "slugByLocale": {
-        "it": "operativo-trasporti-terra-cippatrasporti-ch",
+        "it": "operativo-trasporti-terra-cippa-trasporti-sa-chiasso",
         "en": "operation-transport-earth-cippa-trasporti-sa-chiasso",
         "de": "operation-transport-erde-cippa-trasporti-sa-chiasso",
         "fr": "operation-transport-terre-cippa-trasporti-sa-chiasso"
@@ -173,7 +173,15 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-31T09:36:22.417Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://cippatrasporti.altamiraweb.com/annunci-lavoro/operativo-trasporti-terra-trasporti-chiasso-693485366.htm"
+      "sourceIdentity": "url:https://cippatrasporti.altamiraweb.com/annunci-lavoro/operativo-trasporti-terra-trasporti-chiasso-693485366.htm",
+      "previousSlugsByLocale": {
+        "it": [
+          "operativo-trasporti-terra-cippatrasporti-ch"
+        ]
+      },
+      "previousSlugs": [
+        "operativo-trasporti-terra-cippatrasporti-ch"
+      ]
     }
   ]
 }

@@ -1547,7 +1547,7 @@
       "slugByLocale": {
         "it": "montatore-trice-di-ponteggi-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
         "en": "polybauer-in-region-lu-luzern-opus-personal-ch",
-        "de": "polybauer-in-region-lu-luzern-opus-personal-ch",
+        "de": "polybauer-in-opus-personal-ag-zweigniederlassung-altdorf-luzern",
         "fr": "monteur-euse-d-echafaudages-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern"
       },
       "company": "Opus Personal AG, Zweigniederlassung Altdorf",
@@ -1621,7 +1621,8 @@
           "polyfarmer-opus-personal-ag-zweigniederlassung-altdorf-luzern"
         ],
         "de": [
-          "polybauer-in-lu-luzern-opus-personal-ch"
+          "polybauer-in-lu-luzern-opus-personal-ch",
+          "polybauer-in-region-lu-luzern-opus-personal-ch"
         ],
         "fr": [
           "polybatisseur-euse-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
@@ -25479,7 +25480,7 @@
       "id": "opus-personal-414ce6a5eb41",
       "slug": "baupraktiker-in-afp-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
       "slugByLocale": {
-        "de": "baupraktiker-in-eba-region-lu-luzern-opus-personal-ch",
+        "de": "baupraktiker-in-eba-opus-personal-ag-zweigniederlassung-altdorf-luzern",
         "it": "baupraktiker-in-afp-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
         "en": "construction-practitioner-eba-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
         "fr": "aide-macon-ne-afp-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern"
@@ -25558,7 +25559,8 @@
           "baupraktiker-in-eba-lu-luzern-opus-personal-ch"
         ],
         "de": [
-          "baupraktiker-in-eba-lu-luzern-opus-personal-ch"
+          "baupraktiker-in-eba-lu-luzern-opus-personal-ch",
+          "baupraktiker-in-eba-region-lu-luzern-opus-personal-ch"
         ],
         "fr": [
           "praticien-ne-en-construction-afp-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",

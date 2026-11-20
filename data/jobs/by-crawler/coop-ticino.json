@@ -377,7 +377,7 @@
       "slugByLocale": {
         "it": "addetto-a-alle-vendite-100-turno-mattutino-coop-genossenschaft-zurich",
         "en": "sales-employee-100-early-shift-coop-genossenschaft-zurich",
-        "de": "mitarbeiter-in-verkauf-100-fruhschicht-coop-pronto-zurich-vcmcxa",
+        "de": "mitarbeiter-in-verkauf-100-fruhschicht-coop-genossenschaft-zurich",
         "fr": "collaborateur-trice-de-vente-100-equipe-du-matin-coop-genossenschaft-zurich"
       },
       "requirementsByLocale": {},
@@ -411,12 +411,16 @@
         ],
         "fr": [
           "collaborateur-trice-vente-100-fruhschicht-coop-pronto-zurich-vcmcxa"
+        ],
+        "de": [
+          "mitarbeiter-in-verkauf-100-fruhschicht-coop-pronto-zurich-vcmcxa"
         ]
       },
       "previousSlugs": [
         "addetto-a-alle-vendite-100-fruhschicht-coop-pronto-zurich-vcmcxa",
         "associate-sales-100-fruhschicht-coop-pronto-zurich-vcmcxa",
-        "collaborateur-trice-vente-100-fruhschicht-coop-pronto-zurich-vcmcxa"
+        "collaborateur-trice-vente-100-fruhschicht-coop-pronto-zurich-vcmcxa",
+        "mitarbeiter-in-verkauf-100-fruhschicht-coop-pronto-zurich-vcmcxa"
       ],
       "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/mitarbeiter-in-verkauf-fruehschicht/a5c59f8a-c2dc-433c-be96-1097147d591d"
     },
@@ -827,7 +831,7 @@
       "slugByLocale": {
         "it": "sostenitori-delle-tic-coop-genossenschaft-bern",
         "en": "ict-supporters-coop-genossenschaft-bern",
-        "de": "ict-supporter-in-coop-bern-92ofcm",
+        "de": "ict-supporter-in-coop-genossenschaft-bern",
         "fr": "les-partisans-des-tic-coop-genossenschaft-bern"
       },
       "requirementsByLocale": {},
@@ -858,6 +862,9 @@
           "ict-supporter-in-coop-bern-92ofcm"
         ],
         "fr": [
+          "ict-supporter-in-coop-bern-92ofcm"
+        ],
+        "de": [
           "ict-supporter-in-coop-bern-92ofcm"
         ]
       },
@@ -914,7 +921,7 @@
       "slugByLocale": {
         "it": "vendita-prodotti-freschi-coop-genossenschaft-glarus",
         "en": "seller-fresh-products-coop-genossenschaft-glarus",
-        "de": "verkaufer-in-frischprodukte-coop-glarus-dd0u34",
+        "de": "verkaufer-in-frischprodukte-coop-genossenschaft-glarus",
         "fr": "vendeur-de-produits-frais-coop-genossenschaft-glarus"
       },
       "requirementsByLocale": {
@@ -953,6 +960,9 @@
           "verkaufer-in-frischprodukte-coop-glarus-dd0u34"
         ],
         "fr": [
+          "verkaufer-in-frischprodukte-coop-glarus-dd0u34"
+        ],
+        "de": [
           "verkaufer-in-frischprodukte-coop-glarus-dd0u34"
         ]
       },
@@ -1096,7 +1106,7 @@
       "slugByLocale": {
         "it": "vendita-cassetti-servizi-coop-genossenschaft-biel-39ed0c",
         "en": "seller-cash-registers-services-coop-genossenschaft-biel-39ed0c",
-        "de": "verkaufer-in-kassen-services-coop-biel-q1aunw",
+        "de": "verkaufer-in-kassen-services-coop-genossenschaft-biel",
         "fr": "caisses-enregistreuses-services-du-vendeur-coop-genossenschaft-biel-39ed0c"
       },
       "requirementsByLocale": {
@@ -1135,6 +1145,9 @@
           "verkaufer-in-kassen-services-coop-biel-q1aunw"
         ],
         "fr": [
+          "verkaufer-in-kassen-services-coop-biel-q1aunw"
+        ],
+        "de": [
           "verkaufer-in-kassen-services-coop-biel-q1aunw"
         ]
       },
@@ -1190,7 +1203,7 @@
       "slugByLocale": {
         "it": "team-leader-nella-raccolta-coop-genossenschaft-langenthal",
         "en": "team-leader-order-picking-coop-genossenschaft-langenthal",
-        "de": "teamleiter-in-kommissionierung-coop-langenthal-sdvdef",
+        "de": "teamleiter-in-kommissionierung-coop-genossenschaft-langenthal",
         "fr": "chef-d-equipe-en-selection-coop-genossenschaft-langenthal"
       },
       "requirementsByLocale": {},
@@ -1221,6 +1234,9 @@
           "teamleiter-in-kommissionierung-coop-langenthal-sdvdef"
         ],
         "fr": [
+          "teamleiter-in-kommissionierung-coop-langenthal-sdvdef"
+        ],
+        "de": [
           "teamleiter-in-kommissionierung-coop-langenthal-sdvdef"
         ]
       },
@@ -1277,7 +1293,7 @@
       "slugByLocale": {
         "it": "addetto-a-vendite-amministrazione-servizio-clienti-coop-genossenschaft-volketswil",
         "en": "sales-administration-customer-service-employee-coop-genossenschaft-volketswil",
-        "de": "mitarbeiter-in-verkauf-administration-kundendienst-coop-volketswil-xfy7ov",
+        "de": "mitarbeiter-in-verkauf-administration-kundendienst-coop-genossenschaft-volketswil",
         "fr": "collaborateur-trice-vente-administration-kundendienst-coop-volketswil-xfy7ov"
       },
       "requirementsByLocale": {
@@ -1314,12 +1330,16 @@
         ],
         "en": [
           "associate-sales-administration-kundendienst-coop-volketswil-xfy7ov"
+        ],
+        "de": [
+          "mitarbeiter-in-verkauf-administration-kundendienst-coop-volketswil-xfy7ov"
         ]
       },
       "previousSlugs": [
         "addetto-a-alle-vendite-administration-kundendienst-coop-volketswil-xfy7ov",
         "mitarbeiter-in-verkauf-administration-kundendienst-coop-volketswil",
-        "associate-sales-administration-kundendienst-coop-volketswil-xfy7ov"
+        "associate-sales-administration-kundendienst-coop-volketswil-xfy7ov",
+        "mitarbeiter-in-verkauf-administration-kundendienst-coop-volketswil-xfy7ov"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1615,7 +1635,7 @@
       "slugByLocale": {
         "it": "vendita-cassetti-servizi-coop-genossenschaft-herzogenbuchsee",
         "en": "seller-cash-registers-services-coop-genossenschaft-herzogenbuchsee",
-        "de": "verkaufer-in-kassen-services-coop-herzogenbuchsee-2peicc",
+        "de": "verkaufer-in-kassen-services-coop-genossenschaft-herzogenbuchsee",
         "fr": "caisses-enregistreuses-services-du-vendeur-coop-genossenschaft-herzogenbuchsee"
       },
       "requirementsByLocale": {
@@ -1655,6 +1675,9 @@
           "verkaufer-in-kassen-services-coop-herzogenbuchsee-2peicc"
         ],
         "fr": [
+          "verkaufer-in-kassen-services-coop-herzogenbuchsee-2peicc"
+        ],
+        "de": [
           "verkaufer-in-kassen-services-coop-herzogenbuchsee-2peicc"
         ]
       },
@@ -1712,7 +1735,7 @@
       "slugByLocale": {
         "it": "vendita-prodotti-alimentari-coop-genossenschaft-mumliswil-ramiswil",
         "en": "seller-food-coop-genossenschaft-mumliswil-ramiswil",
-        "de": "verkaufer-in-food-coop-mumliswil-ramiswil-1l5soz",
+        "de": "verkaufer-in-food-coop-genossenschaft-mumliswil-ramiswil",
         "fr": "aliments-pour-vendeurs-coop-genossenschaft-mumliswil-ramiswil"
       },
       "requirementsByLocale": {
@@ -1751,6 +1774,9 @@
           "verkaufer-in-food-coop-mumliswil-ramiswil-1l5soz"
         ],
         "fr": [
+          "verkaufer-in-food-coop-mumliswil-ramiswil-1l5soz"
+        ],
+        "de": [
           "verkaufer-in-food-coop-mumliswil-ramiswil-1l5soz"
         ]
       },
@@ -1878,8 +1904,8 @@
       "slugByLocale": {
         "it": "vendita-prodotti-freschi-coop-genossenschaft-volketswil-4ad593",
         "en": "seller-food-fresh-island-coop-genossenschaft-volketswil",
-        "de": "verkaufer-in-food-frische-insel-coop-volketswil-zeg8db",
-        "fr": "verkaufer-in-food-frische-insel-coop-volketswil-zeg8db"
+        "de": "verkaufer-in-food-frische-insel-coop-genossenschaft-volketswil",
+        "fr": "seller-food-fresh-island-coop-genossenschaft-volketswil"
       },
       "requirementsByLocale": {
         "de": [
@@ -1914,6 +1940,12 @@
           "verkaufer-in-food-frische-insel-coop-volketswil"
         ],
         "en": [
+          "verkaufer-in-food-frische-insel-coop-volketswil-zeg8db"
+        ],
+        "de": [
+          "verkaufer-in-food-frische-insel-coop-volketswil-zeg8db"
+        ],
+        "fr": [
           "verkaufer-in-food-frische-insel-coop-volketswil-zeg8db"
         ]
       },
@@ -1971,7 +2003,7 @@
       "slugByLocale": {
         "it": "vendita-prodotti-alimentari-coop-genossenschaft-herzogenbuchsee",
         "en": "seller-food-coop-genossenschaft-herzogenbuchsee",
-        "de": "verkaufer-in-food-coop-herzogenbuchsee-kusvzm",
+        "de": "verkaufer-in-food-coop-genossenschaft-herzogenbuchsee",
         "fr": "aliments-pour-vendeurs-coop-genossenschaft-herzogenbuchsee"
       },
       "requirementsByLocale": {
@@ -2019,7 +2051,8 @@
           "produits-alimentaires-vendus-coop-genossenschaft-herzogenbuchsee"
         ],
         "de": [
-          "verkaufer-in-food-coop-herzogenbuchsee-bern-l794f9"
+          "verkaufer-in-food-coop-herzogenbuchsee-bern-l794f9",
+          "verkaufer-in-food-coop-herzogenbuchsee-kusvzm"
         ]
       },
       "previousSlugs": [
@@ -2152,7 +2185,7 @@
       "slugByLocale": {
         "it": "vice-responsabile-di-reparto-frutta-e-verdura-coop-genossenschaft-muri-bei-bern",
         "en": "deputy-section-manager-fruit-and-vegetables-coop-genossenschaft-muri-bei-bern",
-        "de": "stv-rayonleiter-in-fruchte-und-gemuse-coop-muri-bei-bern-iwcuei",
+        "de": "stv-rayonleiter-in-fruchte-und-gemuse-coop-genossenschaft-muri-bei-bern",
         "fr": "responsable-adjoint-e-du-rayon-fruits-et-legumes-coop-genossenschaft-muri-bei-bern"
       },
       "requirementsByLocale": {
@@ -2192,6 +2225,9 @@
           "stv-rayonleiter-in-fruchte-und-gemuse-coop-muri-bei-bern-iwcuei"
         ],
         "fr": [
+          "stv-rayonleiter-in-fruchte-und-gemuse-coop-muri-bei-bern-iwcuei"
+        ],
+        "de": [
           "stv-rayonleiter-in-fruchte-und-gemuse-coop-muri-bei-bern-iwcuei"
         ]
       },
@@ -2537,7 +2573,7 @@
         "it": "venditore-bakery-coop-genossenschaft-saint-imier",
         "en": "seller-bakery-coop-genossenschaft-saint-imier",
         "de": "verkaufer-backerei-coop-genossenschaft-saint-imier",
-        "fr": "vendeur-se-boulangerie-coop-saint-imier-uetqs9"
+        "fr": "vendeur-se-boulangerie-coop-genossenschaft-saint-imier"
       },
       "requirementsByLocale": {
         "fr": [
@@ -2575,6 +2611,9 @@
           "vendeur-se-boulangerie-coop-saint-imier-uetqs9"
         ],
         "de": [
+          "vendeur-se-boulangerie-coop-saint-imier-uetqs9"
+        ],
+        "fr": [
           "vendeur-se-boulangerie-coop-saint-imier-uetqs9"
         ]
       },
@@ -2731,7 +2770,7 @@
       "slugByLocale": {
         "it": "vice-responsabile-di-reparto-pane-prodotti-da-forno-coop-genossenschaft-muri-bei-bern",
         "en": "deputy-department-manager-bread-baked-goods-coop-genossenschaft-muri-bei-bern",
-        "de": "stv-rayonleiter-in-brot-backwaren-coop-muri-bei-bern-fpudum",
+        "de": "stv-rayonleiter-in-brot-backwaren-coop-genossenschaft-muri-bei-bern",
         "fr": "responsable-adjoint-e-de-rayon-pain-produits-de-boulangerie-coop-genossenschaft-muri-bei-bern"
       },
       "requirementsByLocale": {
@@ -2771,6 +2810,9 @@
           "stv-rayonleiter-in-brot-backwaren-coop-muri-bei-bern-fpudum"
         ],
         "fr": [
+          "stv-rayonleiter-in-brot-backwaren-coop-muri-bei-bern-fpudum"
+        ],
+        "de": [
           "stv-rayonleiter-in-brot-backwaren-coop-muri-bei-bern-fpudum"
         ]
       },
@@ -2924,7 +2966,7 @@
       "slugByLocale": {
         "it": "futuri-talenti-manageriali-vendita-regione-citta-di-berna-coop-genossenschaft-bern",
         "en": "future-sales-management-talent-for-the-city-of-bern-region-coop-genossenschaft-bern",
-        "de": "zukunftige-fuhrungstalente-verkauf-region-stadt-bern-coop-bern-espx81",
+        "de": "zukunftige-fuhrungstalente-verkauf-region-stadt-bern-coop-genossenschaft-bern",
         "fr": "futurs-talents-de-direction-ventes-region-ville-de-berne-coop-genossenschaft-bern"
       },
       "requirementsByLocale": {
@@ -2964,13 +3006,17 @@
         ],
         "fr": [
           "zukunftige-fuhrungstalente-vente-region-stadt-bern-coop-bern-espx81"
+        ],
+        "de": [
+          "zukunftige-fuhrungstalente-verkauf-region-stadt-bern-coop-bern-espx81"
         ]
       },
       "previousSlugs": [
         "zukunftige-fuhrungstalente-vendita-region-stadt-bern-coop-bern-espx81",
         "zukunftige-fuhrungstalente-verkauf-region-stadt-bern-coop-bern",
         "zukunftige-fuhrungstalente-sales-region-stadt-bern-coop-bern-espx81",
-        "zukunftige-fuhrungstalente-vente-region-stadt-bern-coop-bern-espx81"
+        "zukunftige-fuhrungstalente-vente-region-stadt-bern-coop-bern-espx81",
+        "zukunftige-fuhrungstalente-verkauf-region-stadt-bern-coop-bern-espx81"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -3310,7 +3356,7 @@
       "slugByLocale": {
         "it": "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-ins-990e8d",
         "en": "butcher-meat-specialist-meat-specialist-coop-genossenschaft-ins-990e8d",
-        "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-ins-fi903e",
+        "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-ins",
         "fr": "boucher-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-ins-990e8d"
       },
       "requirementsByLocale": {},
@@ -3341,6 +3387,9 @@
           "metzger-in-fleischfachfrau-fleischfachmann-coop-ins-fi903e"
         ],
         "fr": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-ins-fi903e"
+        ],
+        "de": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-ins-fi903e"
         ]
       },
@@ -3397,7 +3446,7 @@
       "slugByLocale": {
         "it": "addetto-a-alle-vendite-nel-settore-alimentare-con-responsabilita-giornaliere-coop-genossenschaft-bern",
         "en": "seller-food-with-daily-responsibility-coop-genossenschaft-bern-380cd2",
-        "de": "verkaufer-in-food-mit-tagesverantwortung-coop-bern-s2engt",
+        "de": "verkaufer-in-food-mit-tagesverantwortung-coop-genossenschaft-bern",
         "fr": "vente-de-nourriture-avec-responsabilite-quotidienne-coop-genossenschaft-bern-380cd2"
       },
       "requirementsByLocale": {
@@ -3436,6 +3485,9 @@
           "verkaufer-in-food-mit-tagesverantwortung-coop-bern-s2engt"
         ],
         "fr": [
+          "verkaufer-in-food-mit-tagesverantwortung-coop-bern-s2engt"
+        ],
+        "de": [
           "verkaufer-in-food-mit-tagesverantwortung-coop-bern-s2engt"
         ]
       },
@@ -3496,7 +3548,7 @@
       "slugByLocale": {
         "it": "collaboratrice-collaborateur-restaurant-m-w-d-coop-ristorante-la-tour-de-peilz-fzx371",
         "en": "partner-restaurant-m-f-d-coop-genossenschaft-la-tour-de-peilz",
-        "de": "partnerrestaurant-m-w-d-coop-genossenschaft-la-tour-de-peilz-d1511b",
+        "de": "partnerrestaurant-m-w-d-coop-genossenschaft-la-tour-de-peilz",
         "fr": "collaboratrice-collaborateur-restaurant-m-w-d-coop-ristorante-la-tour-de-peilz-fzx371"
       },
       "requirementsByLocale": {
@@ -3532,11 +3584,13 @@
           "collaboratrice-collaborateur-restaurant-m-w-d-coop-ristorante-la-tour-de-peilz-fzx371"
         ],
         "de": [
-          "collaboratrice-collaborateur-restaurant-m-w-d-coop-ristorante-la-tour-de-peilz-fzx371"
+          "collaboratrice-collaborateur-restaurant-m-w-d-coop-ristorante-la-tour-de-peilz-fzx371",
+          "partnerrestaurant-m-w-d-coop-genossenschaft-la-tour-de-peilz-d1511b"
         ]
       },
       "previousSlugs": [
-        "collaboratrice-collaborateur-restaurant-m-w-d-coop-ristorante-la-tour-de-peilz-fzx371"
+        "collaboratrice-collaborateur-restaurant-m-w-d-coop-ristorante-la-tour-de-peilz-fzx371",
+        "partnerrestaurant-m-w-d-coop-genossenschaft-la-tour-de-peilz-d1511b"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -3586,7 +3640,7 @@
       "slugByLocale": {
         "it": "consulente-di-vendita-nel-settore-casalinghi-ed-elettrodomestici-coop-genossenschaft-zurich",
         "en": "sales-consultant-household-and-electric-coop-genossenschaft-zurich-9ea165",
-        "de": "verkaufsberater-in-haushalt-und-elektro-coop-city-zurich-mox2b3",
+        "de": "verkaufsberater-in-haushalt-und-elektro-coop-genossenschaft-zurich",
         "fr": "consultant-en-ventes-domestiques-et-electriques-coop-genossenschaft-zurich-9ea165"
       },
       "requirementsByLocale": {},
@@ -3617,6 +3671,9 @@
           "verkaufsberater-in-haushalt-und-elektro-coop-city-zurich-mox2b3"
         ],
         "fr": [
+          "verkaufsberater-in-haushalt-und-elektro-coop-city-zurich-mox2b3"
+        ],
+        "de": [
           "verkaufsberater-in-haushalt-und-elektro-coop-city-zurich-mox2b3"
         ]
       },
@@ -3674,7 +3731,7 @@
       "slugByLocale": {
         "it": "collaboratore-trice-nel-settore-vendite-amministrazione-e-servizio-clienti-coop-genossenschaft-zurich",
         "en": "sales-administration-and-customer-service-employee-coop-genossenschaft-zurich",
-        "de": "mitarbeiter-in-verkauf-administration-und-kundendienst-coop-city-zurich-vohj4n",
+        "de": "mitarbeiter-in-verkauf-administration-und-kundendienst-coop-genossenschaft-zurich",
         "fr": "collaborateur-trice-ventes-administration-et-service-clientele-coop-genossenschaft-zurich"
       },
       "requirementsByLocale": {
@@ -3714,13 +3771,17 @@
         ],
         "fr": [
           "collaborateur-trice-vente-administration-und-kundendienst-coop-city-zurich-vohj4n"
+        ],
+        "de": [
+          "mitarbeiter-in-verkauf-administration-und-kundendienst-coop-city-zurich-vohj4n"
         ]
       },
       "previousSlugs": [
         "addetto-a-alle-vendite-administration-e-kundendienst-coop-city-zurich-vohj4n",
         "mitarbeiter-in-verkauf-administration-und-kundendienst-coop-city-zurich",
         "associate-sales-administration-und-kundendienst-coop-city-zurich-vohj4n",
-        "collaborateur-trice-vente-administration-und-kundendienst-coop-city-zurich-vohj4n"
+        "collaborateur-trice-vente-administration-und-kundendienst-coop-city-zurich-vohj4n",
+        "mitarbeiter-in-verkauf-administration-und-kundendienst-coop-city-zurich-vohj4n"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -3770,7 +3831,7 @@
       "slugByLocale": {
         "it": "consulente-commerciale-tessile-coop-genossenschaft-basel-fe0e38",
         "en": "sales-consultant-textile-coop-genossenschaft-basel-fe0e38",
-        "de": "verkaufsberater-in-textil-coop-city-basel-q1k9zy",
+        "de": "verkaufsberater-in-textil-coop-genossenschaft-basel",
         "fr": "conseil-en-ventes-textiles-coop-genossenschaft-basel"
       },
       "requirementsByLocale": {},
@@ -3812,6 +3873,9 @@
           "verkaufsberater-in-textil-coop-city-basel-q1k9zy"
         ],
         "fr": [
+          "verkaufsberater-in-textil-coop-city-basel-q1k9zy"
+        ],
+        "de": [
           "verkaufsberater-in-textil-coop-city-basel-q1k9zy"
         ]
       },
@@ -3953,7 +4017,7 @@
       "slugByLocale": {
         "it": "vice-responsabile-del-reparto-generi-alimentari-di-base-coop-genossenschaft-muri-bei-bern",
         "en": "deputy-department-manager-staple-foods-coop-genossenschaft-muri-bei-bern",
-        "de": "stv-rayonleiter-in-grundnahrungsmittel-coop-muri-bei-bern-wxgwbn",
+        "de": "stv-rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-muri-bei-bern",
         "fr": "responsable-adjoint-e-du-rayon-des-produits-alimentaires-de-base-coop-genossenschaft-muri-bei-bern"
       },
       "requirementsByLocale": {
@@ -3993,6 +4057,9 @@
           "stv-rayonleiter-in-grundnahrungsmittel-coop-muri-bei-bern-wxgwbn"
         ],
         "fr": [
+          "stv-rayonleiter-in-grundnahrungsmittel-coop-muri-bei-bern-wxgwbn"
+        ],
+        "de": [
           "stv-rayonleiter-in-grundnahrungsmittel-coop-muri-bei-bern-wxgwbn"
         ]
       },
@@ -4047,7 +4114,7 @@
       "slugByLocale": {
         "it": "franchising-partner-coop-pronto-senza-benzina-coop-genossenschaft-region-beromunster-7f31b6",
         "en": "franchising-partner-coop-pronto-without-gas-station-coop-genossenschaft-region-beromunster-7f31b6",
-        "de": "franchising-partner-in-coop-pronto-ohne-tankstelle-coop-pronto-region-beromunster-c2de6q",
+        "de": "franchising-partner-in-coop-pronto-ohne-tankstelle-coop-genossenschaft-region-beromunster",
         "fr": "franchising-partner-coop-pronto-sans-station-service-coop-genossenschaft-region-beromunster-7f31b6"
       },
       "requirementsByLocale": {},
@@ -4077,6 +4144,9 @@
           "franchising-partner-in-coop-pronto-ohne-tankstelle-coop-pronto-region-beromunster-c2de6q"
         ],
         "fr": [
+          "franchising-partner-in-coop-pronto-ohne-tankstelle-coop-pronto-region-beromunster-c2de6q"
+        ],
+        "de": [
           "franchising-partner-in-coop-pronto-ohne-tankstelle-coop-pronto-region-beromunster-c2de6q"
         ]
       },
@@ -4402,7 +4472,7 @@
       "slugByLocale": {
         "it": "magazziniere-a-vendite-coop-genossenschaft-wabern",
         "en": "warehouse-worker-sales-coop-genossenschaft-wabern",
-        "de": "magaziner-in-verkauf-coop-wabern-32939b",
+        "de": "magaziner-in-verkauf-coop-genossenschaft-wabern",
         "fr": "magasinier-ere-vente-coop-genossenschaft-wabern"
       },
       "requirementsByLocale": {
@@ -4442,13 +4512,17 @@
         ],
         "fr": [
           "magaziner-in-vente-coop-wabern-32939b"
+        ],
+        "de": [
+          "magaziner-in-verkauf-coop-wabern-32939b"
         ]
       },
       "previousSlugs": [
         "magaziner-in-vendita-coop-wabern-32939b",
         "magaziner-in-verkauf-coop-wabern",
         "magaziner-in-sales-coop-wabern-32939b",
-        "magaziner-in-vente-coop-wabern-32939b"
+        "magaziner-in-vente-coop-wabern-32939b",
+        "magaziner-in-verkauf-coop-wabern-32939b"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -4768,7 +4842,7 @@
       "slugByLocale": {
         "it": "aiuto-per-gli-studenti-del-venditore-coop-genossenschaft-giffers",
         "en": "seller-food-student-help-coop-genossenschaft-giffers",
-        "de": "verkaufer-in-food-studentenaushilfe-coop-giffers-5n10gx",
+        "de": "verkaufer-in-food-studentenaushilfe-coop-genossenschaft-giffers",
         "fr": "seller-food-aide-etudiante-coop-genossenschaft-giffers"
       },
       "requirementsByLocale": {
@@ -4807,6 +4881,9 @@
           "verkaufer-in-food-studentenaushilfe-coop-giffers-5n10gx"
         ],
         "fr": [
+          "verkaufer-in-food-studentenaushilfe-coop-giffers-5n10gx"
+        ],
+        "de": [
           "verkaufer-in-food-studentenaushilfe-coop-giffers-5n10gx"
         ]
       },
@@ -5268,7 +5345,7 @@
       "slugByLocale": {
         "it": "vendita-prodotti-freschi-coop-genossenschaft-schlieren",
         "en": "seller-fresh-products-coop-genossenschaft-schlieren",
-        "de": "verkaufer-in-frischprodukte-coop-schlieren-d259nc",
+        "de": "verkaufer-in-frischprodukte-coop-genossenschaft-schlieren",
         "fr": "vendeur-de-produits-frais-coop-genossenschaft-schlieren"
       },
       "requirementsByLocale": {
@@ -5307,6 +5384,9 @@
           "verkaufer-in-frischprodukte-coop-schlieren-d259nc"
         ],
         "fr": [
+          "verkaufer-in-frischprodukte-coop-schlieren-d259nc"
+        ],
+        "de": [
           "verkaufer-in-frischprodukte-coop-schlieren-d259nc"
         ]
       },
@@ -5457,7 +5537,7 @@
       "slugByLocale": {
         "it": "addetto-a-alle-vendite-60-80-turno-serale-coop-genossenschaft-spiez",
         "en": "sales-employee-60-80-late-shift-coop-genossenschaft-spiez",
-        "de": "mitarbeiter-in-verkauf-60-80-spatschicht-coop-pronto-spiez-mrncsr",
+        "de": "mitarbeiter-in-verkauf-60-80-spatschicht-coop-genossenschaft-spiez",
         "fr": "collaborateur-rice-de-vente-60-80-equipe-du-soir-coop-genossenschaft-spiez"
       },
       "requirementsByLocale": {},
@@ -5489,12 +5569,16 @@
         ],
         "fr": [
           "collaborateur-trice-vente-60-80-spatschicht-coop-pronto-spiez-mrncsr"
+        ],
+        "de": [
+          "mitarbeiter-in-verkauf-60-80-spatschicht-coop-pronto-spiez-mrncsr"
         ]
       },
       "previousSlugs": [
         "addetto-a-alle-vendite-60-80-spatschicht-coop-pronto-spiez-mrncsr",
         "associate-sales-60-80-spatschicht-coop-pronto-spiez-mrncsr",
-        "collaborateur-trice-vente-60-80-spatschicht-coop-pronto-spiez-mrncsr"
+        "collaborateur-trice-vente-60-80-spatschicht-coop-pronto-spiez-mrncsr",
+        "mitarbeiter-in-verkauf-60-80-spatschicht-coop-pronto-spiez-mrncsr"
       ],
       "salaryMin": 54800,
       "salaryMax": 83200,
@@ -5546,7 +5630,7 @@
       "slugByLocale": {
         "it": "2-vice-direttore-trice-responsabile-di-reparto-nonfood-coop-genossenschaft-amriswil",
         "en": "2-deputy-managing-director-nonfood-department-manager-coop-genossenschaft-amriswil",
-        "de": "2-stv-geschaftsfuhrer-in-rayonleiter-in-nonfood-coop-amriswil-b63msx",
+        "de": "2-stv-geschaftsfuhrer-in-rayonleiter-in-nonfood-coop-genossenschaft-amriswil",
         "fr": "2-directeur-general-rayon-manager-nonfood-coop-genossenschaft-amriswil"
       },
       "requirementsByLocale": {
@@ -5585,6 +5669,9 @@
           "2-stv-geschaftsfuhrer-in-rayonleiter-in-nonfood-coop-amriswil-b63msx"
         ],
         "fr": [
+          "2-stv-geschaftsfuhrer-in-rayonleiter-in-nonfood-coop-amriswil-b63msx"
+        ],
+        "de": [
           "2-stv-geschaftsfuhrer-in-rayonleiter-in-nonfood-coop-amriswil-b63msx"
         ]
       },
@@ -5640,7 +5727,7 @@
       "slugByLocale": {
         "it": "ict-helpdesk-addetto-a-alle-vendite-60-100-coop-schafisheim-bjkv21",
         "en": "ict-helpdesk-associate-sales-60-100-coop-schafisheim-bjkv21",
-        "de": "ict-helpdesk-mitarbeiter-in-verkauf-60-100-coop-schafisheim-bjkv21",
+        "de": "ict-helpdesk-mitarbeiter-in-verkauf-60-100-coop-genossenschaft-schafisheim",
         "fr": "ict-helpdesk-collaborateur-trice-vente-60-100-coop-schafisheim-bjkv21"
       },
       "requirementsByLocale": {},
@@ -5665,7 +5752,15 @@
       },
       "salaryMin": 64500,
       "salaryMax": 110000,
-      "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/ict-helpdesk-mitarbeiter-in-verkauf/e9b6e78e-84e9-456c-87be-dc57722dc707"
+      "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/ict-helpdesk-mitarbeiter-in-verkauf/e9b6e78e-84e9-456c-87be-dc57722dc707",
+      "previousSlugsByLocale": {
+        "de": [
+          "ict-helpdesk-mitarbeiter-in-verkauf-60-100-coop-schafisheim-bjkv21"
+        ]
+      },
+      "previousSlugs": [
+        "ict-helpdesk-mitarbeiter-in-verkauf-60-100-coop-schafisheim-bjkv21"
+      ]
     },
     {
       "id": "company-a9ymde",
@@ -5783,7 +5878,7 @@
       "slugByLocale": {
         "it": "vendita-prodotti-alimentari-coop-genossenschaft-sarnen",
         "en": "seller-food-coop-genossenschaft-sarnen",
-        "de": "verkaufer-in-food-coop-sarnen-kdmpkn",
+        "de": "verkaufer-in-food-coop-genossenschaft-sarnen",
         "fr": "aliments-pour-vendeurs-coop-genossenschaft-sarnen"
       },
       "requirementsByLocale": {
@@ -5822,6 +5917,9 @@
           "verkaufer-in-food-coop-sarnen-kdmpkn"
         ],
         "fr": [
+          "verkaufer-in-food-coop-sarnen-kdmpkn"
+        ],
+        "de": [
           "verkaufer-in-food-coop-sarnen-kdmpkn"
         ]
       },
@@ -6062,7 +6160,7 @@
       "slugByLocale": {
         "it": "responsabile-di-ristorante-con-mansioni-di-cuoco-a-coop-genossenschaft-visp",
         "en": "managing-director-restaurant-with-cooking-function-coop-genossenschaft-visp",
-        "de": "geschaftsfuhrer-in-restaurant-mit-kochfunktion-coop-ristorante-visp-srdu68",
+        "de": "geschaftsfuhrer-in-restaurant-mit-kochfunktion-coop-genossenschaft-visp",
         "fr": "directeur-general-restaurant-avec-fonction-de-cuisine-coop-genossenschaft-visp"
       },
       "requirementsByLocale": {
@@ -6101,6 +6199,9 @@
           "geschaftsfuhrer-in-restaurant-mit-kochfunktion-coop-ristorante-visp-srdu68"
         ],
         "fr": [
+          "geschaftsfuhrer-in-restaurant-mit-kochfunktion-coop-ristorante-visp-srdu68"
+        ],
+        "de": [
           "geschaftsfuhrer-in-restaurant-mit-kochfunktion-coop-ristorante-visp-srdu68"
         ]
       },
@@ -6159,7 +6260,7 @@
       "slugByLocale": {
         "it": "vendita-prodotti-alimentari-coop-genossenschaft-kilchberg",
         "en": "seller-food-coop-genossenschaft-kilchberg",
-        "de": "verkaufer-in-food-coop-kilchberg-nkrj3a",
+        "de": "verkaufer-in-food-coop-genossenschaft-kilchberg",
         "fr": "aliments-pour-vendeurs-coop-genossenschaft-kilchberg"
       },
       "requirementsByLocale": {
@@ -6198,6 +6299,9 @@
           "verkaufer-in-food-coop-kilchberg-nkrj3a"
         ],
         "fr": [
+          "verkaufer-in-food-coop-kilchberg-nkrj3a"
+        ],
+        "de": [
           "verkaufer-in-food-coop-kilchberg-nkrj3a"
         ]
       },
@@ -6255,7 +6359,7 @@
       "slugByLocale": {
         "it": "vendi-cibo-per-andare-coop-genossenschaft-st-gallen",
         "en": "seller-food-to-go-coop-genossenschaft-st-gallen",
-        "de": "verkaufer-in-food-to-go-coop-city-st-gallen-etl7jv",
+        "de": "verkaufer-in-food-to-go-coop-genossenschaft-st-gallen",
         "fr": "vente-de-nourriture-a-emporter-coop-genossenschaft-st-gallen"
       },
       "requirementsByLocale": {
@@ -6317,7 +6421,8 @@
           "vente-de-nourriture-a-emporter-coop-genossenschaft-st-gallen-0d09deaf"
         ],
         "de": [
-          "verkaufer-in-food-to-go-coop-city-st-gallen-el3iqx"
+          "verkaufer-in-food-to-go-coop-city-st-gallen-el3iqx",
+          "verkaufer-in-food-to-go-coop-city-st-gallen-etl7jv"
         ]
       },
       "previousSlugs": [
@@ -6449,7 +6554,7 @@
       "slugByLocale": {
         "it": "conduttore-rayon-convenienza-carne-coop-genossenschaft-unterkulm",
         "en": "rayon-conductor-convenience-meat-coop-genossenschaft-unterkulm",
-        "de": "rayonleiter-in-convenience-fleisch-coop-unterkulm-gn1azk",
+        "de": "rayonleiter-in-convenience-fleisch-coop-genossenschaft-unterkulm",
         "fr": "rayon-pratique-conducteur-viande-coop-genossenschaft-unterkulm"
       },
       "requirementsByLocale": {
@@ -6488,6 +6593,9 @@
           "rayonleiter-in-convenience-fleisch-coop-unterkulm-gn1azk"
         ],
         "fr": [
+          "rayonleiter-in-convenience-fleisch-coop-unterkulm-gn1azk"
+        ],
+        "de": [
           "rayonleiter-in-convenience-fleisch-coop-unterkulm-gn1azk"
         ]
       },
@@ -6546,7 +6654,7 @@
       "slugByLocale": {
         "it": "vendita-cassetti-servizi-coop-genossenschaft-mohlin",
         "en": "seller-cash-registers-services-coop-genossenschaft-mohlin",
-        "de": "verkaufer-in-kassen-services-coop-mohlin-hk9gdg",
+        "de": "verkaufer-in-kassen-services-coop-genossenschaft-mohlin",
         "fr": "caisses-enregistreuses-services-du-vendeur-coop-genossenschaft-mohlin"
       },
       "requirementsByLocale": {
@@ -6586,6 +6694,9 @@
           "verkaufer-in-kassen-services-coop-mohlin-hk9gdg"
         ],
         "fr": [
+          "verkaufer-in-kassen-services-coop-mohlin-hk9gdg"
+        ],
+        "de": [
           "verkaufer-in-kassen-services-coop-mohlin-hk9gdg"
         ]
       },
@@ -7015,7 +7126,7 @@
       "slugByLocale": {
         "it": "magazziniere-a-vendita-coop-genossenschaft-schlieren",
         "en": "warehouse-worker-sales-coop-genossenschaft-schlieren",
-        "de": "magaziner-in-verkauf-coop-schlieren-1yesiy",
+        "de": "magaziner-in-verkauf-coop-genossenschaft-schlieren",
         "fr": "magasinier-magasiniere-vente-coop-genossenschaft-schlieren"
       },
       "requirementsByLocale": {
@@ -7060,7 +7171,8 @@
           "warehouse-worker-sales-coop-genossenschaft-schlieren-ae7727d1"
         ],
         "de": [
-          "magaziner-in-verkauf-coop-schlieren-1yesiy-5f73ab41"
+          "magaziner-in-verkauf-coop-schlieren-1yesiy-5f73ab41",
+          "magaziner-in-verkauf-coop-schlieren-1yesiy"
         ],
         "fr": [
           "magaziner-in-vente-coop-schlieren-1yesiy",
@@ -7079,7 +7191,8 @@
         "magaziner-in-vendita-coop-schlieren-1yesiy-aed35d21",
         "magaziner-in-verkauf-coop-schlieren-ca810c1d",
         "magaziner-in-sales-coop-schlieren-1yesiy-42b1d3ec",
-        "magaziner-in-vente-coop-schlieren-1yesiy-32ecd30a"
+        "magaziner-in-vente-coop-schlieren-1yesiy-32ecd30a",
+        "magaziner-in-verkauf-coop-schlieren-1yesiy"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -7129,7 +7242,7 @@
       "slugByLocale": {
         "it": "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-egg",
         "en": "butcher-meat-specialist-meat-specialist-coop-genossenschaft-egg",
-        "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-egg-fzf7sp",
+        "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-egg",
         "fr": "boucher-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-egg"
       },
       "requirementsByLocale": {},
@@ -7160,6 +7273,9 @@
           "metzger-in-fleischfachfrau-fleischfachmann-coop-egg-fzf7sp"
         ],
         "fr": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-egg-fzf7sp"
+        ],
+        "de": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-egg-fzf7sp"
         ]
       },
@@ -7216,7 +7332,7 @@
       "slugByLocale": {
         "it": "vendita-prodotti-freschi-meat-self-service-coop-genossenschaft-bachenbulach",
         "en": "seller-fresh-products-meat-self-service-coop-genossenschaft-bachenbulach",
-        "de": "verkaufer-in-frischprodukte-fleisch-selbstbedienung-coop-bachenbulach-7vivio",
+        "de": "verkaufer-in-frischprodukte-fleisch-selbstbedienung-coop-genossenschaft-bachenbulach",
         "fr": "vendeur-de-produits-frais-viande-libre-service-coop-genossenschaft-bachenbulach"
       },
       "requirementsByLocale": {
@@ -7258,7 +7374,8 @@
           "seller-fresh-products-meat-self-service-coop-genossenschaft-bachenbulach-4ccf7d-1a4aa635"
         ],
         "de": [
-          "verkaufer-in-frischprodukte-fleisch-selbstbedienung-coop-bachenbulach-7vivio-75770be6"
+          "verkaufer-in-frischprodukte-fleisch-selbstbedienung-coop-bachenbulach-7vivio-75770be6",
+          "verkaufer-in-frischprodukte-fleisch-selbstbedienung-coop-bachenbulach-7vivio"
         ],
         "fr": [
           "verkaufer-in-frischprodukte-fleisch-selbstbedienung-coop-bachenbulach-7vivio",
@@ -7506,7 +7623,7 @@
       "slugByLocale": {
         "it": "vendita-prodotti-alimentari-coop-genossenschaft-kuttigen",
         "en": "seller-food-coop-genossenschaft-kuttigen",
-        "de": "verkaufer-in-food-coop-kuttigen-l0r9mz",
+        "de": "verkaufer-in-food-coop-genossenschaft-kuttigen",
         "fr": "aliments-pour-vendeurs-coop-genossenschaft-kuttigen"
       },
       "requirementsByLocale": {
@@ -7548,7 +7665,8 @@
           "seller-food-coop-genossenschaft-kuttigen-d2fa8a-5c912458"
         ],
         "de": [
-          "verkaufer-in-food-coop-kuttigen-l0r9mz-f7e8d1dd"
+          "verkaufer-in-food-coop-kuttigen-l0r9mz-f7e8d1dd",
+          "verkaufer-in-food-coop-kuttigen-l0r9mz"
         ],
         "fr": [
           "verkaufer-in-food-coop-kuttigen-l0r9mz",
@@ -7713,7 +7831,7 @@
       "slugByLocale": {
         "it": "vendita-cassetti-servizi-coop-genossenschaft-freienbach",
         "en": "seller-cash-registers-services-coop-genossenschaft-freienbach",
-        "de": "verkaufer-in-kassen-services-coop-freienbach-vwjstu",
+        "de": "verkaufer-in-kassen-services-coop-genossenschaft-freienbach",
         "fr": "caisses-enregistreuses-services-du-vendeur-coop-genossenschaft-freienbach"
       },
       "requirementsByLocale": {
@@ -7753,6 +7871,9 @@
           "verkaufer-in-kassen-services-coop-freienbach-vwjstu"
         ],
         "fr": [
+          "verkaufer-in-kassen-services-coop-freienbach-vwjstu"
+        ],
+        "de": [
           "verkaufer-in-kassen-services-coop-freienbach-vwjstu"
         ]
       },
@@ -7810,7 +7931,7 @@
       "slugByLocale": {
         "it": "rayon-conduttore-pesce-coop-genossenschaft-hinwil",
         "en": "rayon-conductor-fish-coop-genossenschaft-hinwil",
-        "de": "rayonleiter-in-fisch-coop-hinwil-grhola",
+        "de": "rayonleiter-in-fisch-coop-genossenschaft-hinwil",
         "fr": "poisson-conducteur-de-rayonne-coop-genossenschaft-hinwil"
       },
       "requirementsByLocale": {
@@ -7852,7 +7973,8 @@
           "rayon-conductor-fish-coop-genossenschaft-hinwil-57c8ff-ff0dfe22"
         ],
         "de": [
-          "rayonleiter-in-fisch-coop-hinwil-grhola-70247780"
+          "rayonleiter-in-fisch-coop-hinwil-grhola-70247780",
+          "rayonleiter-in-fisch-coop-hinwil-grhola"
         ],
         "fr": [
           "rayonleiter-in-fisch-coop-hinwil-grhola",
@@ -7918,7 +8040,7 @@
       "slugByLocale": {
         "it": "magazziniere-a-vendita-coop-genossenschaft-st-gallen",
         "en": "warehouse-worker-sales-coop-genossenschaft-st-gallen",
-        "de": "magaziner-in-verkauf-coop-st-gallen-x36atb",
+        "de": "magaziner-in-verkauf-coop-genossenschaft-st-gallen",
         "fr": "magasinier-magasiniere-vente-coop-genossenschaft-st-gallen"
       },
       "requirementsByLocale": {
@@ -7963,7 +8085,8 @@
           "warehouse-worker-sales-coop-genossenschaft-st-gallen-423e6ee4"
         ],
         "de": [
-          "magaziner-in-verkauf-coop-st-gallen-x36atb-5f623278"
+          "magaziner-in-verkauf-coop-st-gallen-x36atb-5f623278",
+          "magaziner-in-verkauf-coop-st-gallen-x36atb"
         ],
         "fr": [
           "magaziner-in-vente-coop-st-gallen-x36atb",
@@ -7982,7 +8105,8 @@
         "magaziner-in-vendita-coop-st-gallen-x36atb-63eefe43",
         "magaziner-in-verkauf-coop-st-gallen-909649c4",
         "magaziner-in-sales-coop-st-gallen-x36atb-05272d99",
-        "magaziner-in-vente-coop-st-gallen-x36atb-1d0755e8"
+        "magaziner-in-vente-coop-st-gallen-x36atb-1d0755e8",
+        "magaziner-in-verkauf-coop-st-gallen-x36atb"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -8326,8 +8450,8 @@
       },
       "slugByLocale": {
         "it": "collaboratore-trice-gastronomie-coop-ristorante-belp-kdeegi",
-        "en": "associate-gastronomie-coop-ristorante-belp-kdeegi",
-        "de": "mitarbeiter-in-gastronomie-coop-ristorante-belp-kdeegi",
+        "en": "associate-gastronomie-coop-genossenschaft-belp",
+        "de": "mitarbeiter-in-gastronomie-coop-genossenschaft-belp",
         "fr": "collaborateur-trice-gastronomie-coop-ristorante-belp-kdeegi"
       },
       "requirementsByLocale": {
@@ -8358,11 +8482,19 @@
         }
       },
       "previousSlugs": [
-        "mitarbeiter-in-gastronomie-coop-ristorante-belp"
+        "mitarbeiter-in-gastronomie-coop-ristorante-belp",
+        "associate-gastronomie-coop-ristorante-belp-kdeegi",
+        "mitarbeiter-in-gastronomie-coop-ristorante-belp-kdeegi"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-gastronomie-coop-ristorante-belp"
+        ],
+        "en": [
+          "associate-gastronomie-coop-ristorante-belp-kdeegi"
+        ],
+        "de": [
+          "mitarbeiter-in-gastronomie-coop-ristorante-belp-kdeegi"
         ]
       },
       "salaryMin": 68500,
@@ -8525,7 +8657,7 @@
       "slugByLocale": {
         "it": "vendita-prodotti-alimentari-coop-genossenschaft-ostermundigen",
         "en": "seller-food-coop-genossenschaft-ostermundigen",
-        "de": "verkaufer-in-food-coop-ostermundigen-bows2b",
+        "de": "verkaufer-in-food-coop-genossenschaft-ostermundigen",
         "fr": "aliments-pour-vendeurs-coop-genossenschaft-ostermundigen"
       },
       "requirementsByLocale": {
@@ -8567,7 +8699,8 @@
           "seller-food-coop-genossenschaft-ostermundigen-dad8e0-0aed6de7"
         ],
         "de": [
-          "verkaufer-in-food-coop-ostermundigen-bows2b-ce416e27"
+          "verkaufer-in-food-coop-ostermundigen-bows2b-ce416e27",
+          "verkaufer-in-food-coop-ostermundigen-bows2b"
         ],
         "fr": [
           "verkaufer-in-food-coop-ostermundigen-bows2b",
@@ -9037,7 +9170,7 @@
       "slugByLocale": {
         "it": "vendita-prodotti-alimentari-coop-genossenschaft-rheineck",
         "en": "seller-food-coop-genossenschaft-rheineck",
-        "de": "verkaufer-in-food-coop-rheineck-yiqgpw",
+        "de": "verkaufer-in-food-coop-genossenschaft-rheineck",
         "fr": "aliments-pour-vendeurs-coop-genossenschaft-rheineck"
       },
       "requirementsByLocale": {
@@ -9076,6 +9209,9 @@
           "verkaufer-in-food-coop-rheineck-yiqgpw"
         ],
         "fr": [
+          "verkaufer-in-food-coop-rheineck-yiqgpw"
+        ],
+        "de": [
           "verkaufer-in-food-coop-rheineck-yiqgpw"
         ]
       },
@@ -9614,7 +9750,7 @@
       "slugByLocale": {
         "it": "addetto-a-al-prelievo-addetto-a-all-imballaggio-nel-negozio-online-40-coop-genossenschaft-langenthal",
         "en": "order-picker-packer-in-the-e-shop-40-coop-genossenschaft-langenthal",
-        "de": "kommissionierer-in-verpacker-in-e-shop-40-coop-langenthal-kibbu5",
+        "de": "kommissionierer-in-verpacker-in-e-shop-40-coop-genossenschaft-langenthal",
         "fr": "picker-160-dans-packer-160-dans-e-shop-40-coop-genossenschaft-langenthal-8105ac"
       },
       "requirementsByLocale": {},
@@ -9645,6 +9781,9 @@
           "kommissionierer-in-verpacker-in-e-shop-40-coop-langenthal-kibbu5"
         ],
         "fr": [
+          "kommissionierer-in-verpacker-in-e-shop-40-coop-langenthal-kibbu5"
+        ],
+        "de": [
           "kommissionierer-in-verpacker-in-e-shop-40-coop-langenthal-kibbu5"
         ]
       },
@@ -9699,7 +9838,7 @@
       "slugByLocale": {
         "it": "addetto-a-al-picking-addetto-a-all-imballaggio-e-shop-60-coop-genossenschaft-langenthal-0b9f42",
         "en": "order-picker-packer-in-the-e-shop-60-coop-genossenschaft-langenthal",
-        "de": "kommissionierer-in-verpacker-in-e-shop-60-coop-langenthal-jbenit",
+        "de": "kommissionierer-in-verpacker-in-e-shop-60-coop-genossenschaft-langenthal",
         "fr": "picker-160-dans-packer-160-dans-e-shop-60-coop-genossenschaft-langenthal-0b9f42"
       },
       "requirementsByLocale": {},
@@ -9731,6 +9870,9 @@
           "kommissionierer-in-verpacker-in-e-shop-60-coop-langenthal-jbenit"
         ],
         "fr": [
+          "kommissionierer-in-verpacker-in-e-shop-60-coop-langenthal-jbenit"
+        ],
+        "de": [
           "kommissionierer-in-verpacker-in-e-shop-60-coop-langenthal-jbenit"
         ]
       },
@@ -9966,7 +10108,7 @@
       "slugByLocale": {
         "it": "vendita-prodotti-alimentari-coop-genossenschaft-schwarzenburg-e4bf00",
         "en": "seller-food-coop-genossenschaft-schwarzenburg-e4bf00",
-        "de": "verkaufer-in-food-coop-schwarzenburg-frdxbd",
+        "de": "verkaufer-in-food-coop-genossenschaft-schwarzenburg",
         "fr": "aliments-pour-vendeurs-coop-genossenschaft-schwarzenburg-e4bf00"
       },
       "requirementsByLocale": {
@@ -10005,6 +10147,9 @@
           "verkaufer-in-food-coop-schwarzenburg-frdxbd"
         ],
         "fr": [
+          "verkaufer-in-food-coop-schwarzenburg-frdxbd"
+        ],
+        "de": [
           "verkaufer-in-food-coop-schwarzenburg-frdxbd"
         ]
       },
@@ -13070,7 +13215,7 @@
       "slugByLocale": {
         "it": "vendita-prodotti-alimentari-coop-genossenschaft-fraubrunnen",
         "en": "seller-food-coop-genossenschaft-fraubrunnen",
-        "de": "verkaufer-in-food-coop-fraubrunnen-a9ve14",
+        "de": "verkaufer-in-food-coop-genossenschaft-fraubrunnen",
         "fr": "produits-alimentaires-vendus-coop-genossenschaft-fraubrunnen"
       },
       "requirementsByLocale": {
@@ -13109,6 +13254,9 @@
           "verkaufer-in-food-coop-fraubrunnen-a9ve14"
         ],
         "fr": [
+          "verkaufer-in-food-coop-fraubrunnen-a9ve14"
+        ],
+        "de": [
           "verkaufer-in-food-coop-fraubrunnen-a9ve14"
         ]
       },
@@ -13166,7 +13314,7 @@
       "slugByLocale": {
         "it": "vendita-prodotti-freschi-coop-genossenschaft-laupen",
         "en": "seller-fresh-products-coop-genossenschaft-laupen",
-        "de": "verkaufer-in-frischprodukte-coop-laupen-wj2arh",
+        "de": "verkaufer-in-frischprodukte-coop-genossenschaft-laupen",
         "fr": "vendeur-de-produits-frais-coop-genossenschaft-laupen"
       },
       "requirementsByLocale": {
@@ -13205,6 +13353,9 @@
           "verkaufer-in-frischprodukte-coop-laupen-wj2arh"
         ],
         "fr": [
+          "verkaufer-in-frischprodukte-coop-laupen-wj2arh"
+        ],
+        "de": [
           "verkaufer-in-frischprodukte-coop-laupen-wj2arh"
         ]
       },
@@ -13328,7 +13479,7 @@
       "slugByLocale": {
         "it": "franchising-partner-in-coop-pronto-con-tankstelle-coop-pronto-region-biel-solothurn-7duxt2",
         "en": "franchising-partner-in-coop-pronto-mit-tankstelle-coop-pronto-region-biel-solothurn-7duxt2",
-        "de": "franchising-partner-in-coop-pronto-mit-tankstelle-coop-pronto-region-biel-solothurn-7duxt2",
+        "de": "franchising-partner-in-coop-pronto-mit-tankstelle-coop-genossenschaft-region-biel-solothurn",
         "fr": "franchising-partner-in-coop-pronto-mit-tankstelle-coop-pronto-region-biel-solothurn-7duxt2"
       },
       "requirementsByLocale": {},
@@ -13352,7 +13503,15 @@
       },
       "salaryMin": 105500,
       "salaryMax": 185000,
-      "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/franchising-partner-in-coop-pronto-mit-tankstelle/65db4147-3e00-4921-b939-13d890a9b5d3"
+      "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/franchising-partner-in-coop-pronto-mit-tankstelle/65db4147-3e00-4921-b939-13d890a9b5d3",
+      "previousSlugsByLocale": {
+        "de": [
+          "franchising-partner-in-coop-pronto-mit-tankstelle-coop-pronto-region-biel-solothurn-7duxt2"
+        ]
+      },
+      "previousSlugs": [
+        "franchising-partner-in-coop-pronto-mit-tankstelle-coop-pronto-region-biel-solothurn-7duxt2"
+      ]
     },
     {
       "id": "company-kak46y",
@@ -13583,7 +13742,7 @@
       "slugByLocale": {
         "it": "seller-food-bevande-coop-genossenschaft-munchenbuchsee",
         "en": "seller-food-drinks-coop-genossenschaft-munchenbuchsee",
-        "de": "verkaufer-in-food-getranke-coop-munchenbuchsee-tiawoe",
+        "de": "verkaufer-in-food-getranke-coop-genossenschaft-munchenbuchsee",
         "fr": "produits-alimentaires-vendus-boissons-coop-genossenschaft-munchenbuchsee"
       },
       "requirementsByLocale": {
@@ -13622,6 +13781,9 @@
           "verkaufer-in-food-getranke-coop-munchenbuchsee-tiawoe"
         ],
         "fr": [
+          "verkaufer-in-food-getranke-coop-munchenbuchsee-tiawoe"
+        ],
+        "de": [
           "verkaufer-in-food-getranke-coop-munchenbuchsee-tiawoe"
         ]
       },
@@ -13680,7 +13842,7 @@
       "slugByLocale": {
         "it": "vendita-cassa-servizi-coop-genossenschaft-laupen",
         "en": "seller-cash-register-services-coop-genossenschaft-laupen",
-        "de": "verkaufer-in-kassen-services-coop-laupen-7dmfi9",
+        "de": "verkaufer-in-kassen-services-coop-genossenschaft-laupen",
         "fr": "caisse-enregistreuse-services-du-vendeur-coop-genossenschaft-laupen"
       },
       "requirementsByLocale": {
@@ -13740,7 +13902,8 @@
           "verkaufer-in-kassen-services-coop-laupen-7dmfi9"
         ],
         "de": [
-          "verkaufer-in-kassen-services-coop-laupen-bern-aamqge"
+          "verkaufer-in-kassen-services-coop-laupen-bern-aamqge",
+          "verkaufer-in-kassen-services-coop-laupen-7dmfi9"
         ]
       },
       "previousSlugs": [
@@ -13814,7 +13977,7 @@
       "slugByLocale": {
         "it": "responsabile-di-ristorante-con-funzione-di-cuoco-a-coop-genossenschaft-pratteln",
         "en": "managing-director-restaurant-with-cooking-function-coop-genossenschaft-pratteln",
-        "de": "geschaftsfuhrer-in-restaurant-mit-kochfunktion-coop-ristorante-pratteln-pbrhnr",
+        "de": "geschaftsfuhrer-in-restaurant-mit-kochfunktion-coop-genossenschaft-pratteln",
         "fr": "directeur-general-restaurant-avec-fonction-de-cuisine-coop-genossenschaft-pratteln"
       },
       "requirementsByLocale": {
@@ -13853,6 +14016,9 @@
           "geschaftsfuhrer-in-restaurant-mit-kochfunktion-coop-ristorante-pratteln-pbrhnr"
         ],
         "fr": [
+          "geschaftsfuhrer-in-restaurant-mit-kochfunktion-coop-ristorante-pratteln-pbrhnr"
+        ],
+        "de": [
           "geschaftsfuhrer-in-restaurant-mit-kochfunktion-coop-ristorante-pratteln-pbrhnr"
         ]
       },
@@ -13909,7 +14075,7 @@
         "it": "collaboratore-assistente-di-vendita-100-coop-genossenschaft-renens",
         "en": "collaborator-sales-assistant-100-coop-genossenschaft-renens",
         "de": "mitarbeiter-verkaufsassistent-100-coop-genossenschaft-renens",
-        "fr": "collaboratrice-collaborateur-de-vente-100-coop-pronto-renens-eylhtw"
+        "fr": "collaboratrice-collaborateur-de-vente-100-coop-genossenschaft-renens"
       },
       "requirementsByLocale": {},
       "addressLocality": "Renens",
@@ -13939,6 +14105,9 @@
           "collaboratrice-collaborateur-de-vente-100-coop-pronto-renens-eylhtw"
         ],
         "de": [
+          "collaboratrice-collaborateur-de-vente-100-coop-pronto-renens-eylhtw"
+        ],
+        "fr": [
           "collaboratrice-collaborateur-de-vente-100-coop-pronto-renens-eylhtw"
         ]
       },
@@ -14088,7 +14257,7 @@
       "slugByLocale": {
         "it": "addetto-a-alle-vendite-20-50-turno-mattutino-coop-genossenschaft-arbon",
         "en": "sales-associate-20-50-early-shift-coop-genossenschaft-arbon",
-        "de": "mitarbeiter-in-verkauf-20-50-fruhschicht-coop-pronto-arbon-6nfwua",
+        "de": "mitarbeiter-in-verkauf-20-50-fruhschicht-coop-genossenschaft-arbon",
         "fr": "employe-e-de-vente-20-50-equipe-du-matin-coop-genossenschaft-arbon"
       },
       "requirementsByLocale": {},
@@ -14120,12 +14289,16 @@
         ],
         "fr": [
           "collaborateur-trice-vente-20-50-fruhschicht-coop-pronto-arbon-6nfwua"
+        ],
+        "de": [
+          "mitarbeiter-in-verkauf-20-50-fruhschicht-coop-pronto-arbon-6nfwua"
         ]
       },
       "previousSlugs": [
         "addetto-a-alle-vendite-20-50-fruhschicht-coop-pronto-arbon-6nfwua",
         "associate-sales-20-50-fruhschicht-coop-pronto-arbon-6nfwua",
-        "collaborateur-trice-vente-20-50-fruhschicht-coop-pronto-arbon-6nfwua"
+        "collaborateur-trice-vente-20-50-fruhschicht-coop-pronto-arbon-6nfwua",
+        "mitarbeiter-in-verkauf-20-50-fruhschicht-coop-pronto-arbon-6nfwua"
       ],
       "salaryMin": 28800,
       "salaryMax": 43500,
@@ -14382,7 +14555,7 @@
       "slugByLocale": {
         "it": "vendita-prodotti-freschi-coop-genossenschaft-muri-bei-bern",
         "en": "seller-fresh-products-coop-genossenschaft-muri-bei-bern",
-        "de": "verkaufer-in-frischprodukte-coop-muri-bei-bern-vsm633",
+        "de": "verkaufer-in-frischprodukte-coop-genossenschaft-muri-bei-bern",
         "fr": "vendeur-de-produits-frais-coop-genossenschaft-muri-bei-bern"
       },
       "requirementsByLocale": {
@@ -14421,6 +14594,9 @@
           "verkaufer-in-frischprodukte-coop-muri-bei-bern-vsm633"
         ],
         "fr": [
+          "verkaufer-in-frischprodukte-coop-muri-bei-bern-vsm633"
+        ],
+        "de": [
           "verkaufer-in-frischprodukte-coop-muri-bei-bern-vsm633"
         ]
       },
@@ -14651,7 +14827,7 @@
       "slugByLocale": {
         "it": "vendita-prodotti-alimentari-coop-genossenschaft-muri-bei-bern",
         "en": "seller-food-coop-genossenschaft-muri-bei-bern",
-        "de": "verkaufer-in-food-coop-muri-bei-bern-33kba8",
+        "de": "verkaufer-in-food-coop-genossenschaft-muri-bei-bern",
         "fr": "aliments-pour-vendeurs-coop-genossenschaft-muri-bei-bern"
       },
       "requirementsByLocale": {
@@ -14690,6 +14866,9 @@
           "verkaufer-in-food-coop-muri-bei-bern-33kba8"
         ],
         "fr": [
+          "verkaufer-in-food-coop-muri-bei-bern-33kba8"
+        ],
+        "de": [
           "verkaufer-in-food-coop-muri-bei-bern-33kba8"
         ]
       },
@@ -14745,7 +14924,7 @@
       "slugByLocale": {
         "it": "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-muri-bei-bern",
         "en": "butcher-meat-specialist-meat-specialist-coop-genossenschaft-muri-bei-bern",
-        "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-muri-bei-bern-pa479u",
+        "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-muri-bei-bern",
         "fr": "boucher-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-muri-bei-bern"
       },
       "requirementsByLocale": {},
@@ -14776,6 +14955,9 @@
           "metzger-in-fleischfachfrau-fleischfachmann-coop-muri-bei-bern-pa479u"
         ],
         "fr": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-muri-bei-bern-pa479u"
+        ],
+        "de": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-muri-bei-bern-pa479u"
         ]
       },
@@ -14934,7 +15116,7 @@
       "slugByLocale": {
         "it": "vendita-prodotti-freschi-coop-genossenschaft-bern",
         "en": "seller-fresh-products-coop-genossenschaft-bern",
-        "de": "verkaufer-in-frischprodukte-coop-bern-4tf73e",
+        "de": "verkaufer-in-frischprodukte-coop-genossenschaft-bern",
         "fr": "vendeur-de-produits-frais-coop-genossenschaft-bern"
       },
       "requirementsByLocale": {
@@ -14989,14 +15171,17 @@
         ],
         "en": [
           "verkaufer-in-frischprodukte-coop-bern-4tf73e",
-          "seller-fresh-products-coop-genossenschaft-bern-a43f3f43"
+          "seller-fresh-products-coop-genossenschaft-bern-a43f3f43",
+          "verkaufer-in-frischprodukte-coop-genossenschaft-bern"
         ],
         "fr": [
           "verkaufer-in-frischprodukte-coop-bern-4tf73e",
-          "vendeur-de-produits-frais-coop-genossenschaft-bern-dd53436d"
+          "vendeur-de-produits-frais-coop-genossenschaft-bern-dd53436d",
+          "verkaufer-in-frischprodukte-coop-genossenschaft-bern"
         ],
         "de": [
-          "verkaufer-in-frischprodukte-coop-bern-ymery3"
+          "verkaufer-in-frischprodukte-coop-bern-ymery3",
+          "verkaufer-in-frischprodukte-coop-bern-4tf73e"
         ]
       },
       "previousSlugs": [
@@ -15207,7 +15392,7 @@
       "slugByLocale": {
         "it": "venditore-bevande-studente-aiuto-coop-genossenschaft-grenchen",
         "en": "seller-drinks-student-help-coop-genossenschaft-grenchen",
-        "de": "verkaufer-in-getranke-studentenaushilfe-coop-grenchen-uyf6oh",
+        "de": "verkaufer-in-getranke-studentenaushilfe-coop-genossenschaft-grenchen",
         "fr": "seller-drinks-aide-etudiante-coop-genossenschaft-grenchen"
       },
       "requirementsByLocale": {
@@ -15249,7 +15434,8 @@
           "seller-drinks-student-help-coop-genossenschaft-grenchen-2d745e-582a7349"
         ],
         "de": [
-          "verkaufer-in-getranke-studentenaushilfe-coop-grenchen-uyf6oh-3fd8588f"
+          "verkaufer-in-getranke-studentenaushilfe-coop-grenchen-uyf6oh-3fd8588f",
+          "verkaufer-in-getranke-studentenaushilfe-coop-grenchen-uyf6oh"
         ],
         "fr": [
           "verkaufer-in-getranke-studentenaushilfe-coop-grenchen-uyf6oh",
@@ -15315,7 +15501,7 @@
       "slugByLocale": {
         "it": "amministratore-delegato-meiringen-coop-genossenschaft-meiringen-a251fc",
         "en": "managing-director-meiringen-coop-genossenschaft-meiringen-a251fc",
-        "de": "geschaftsfuhrer-in-meiringen-coop-meiringen-ohizte",
+        "de": "geschaftsfuhrer-in-meiringen-coop-genossenschaft-meiringen",
         "fr": "directeur-general-meiringen-coop-genossenschaft-meiringen-a251fc"
       },
       "requirementsByLocale": {
@@ -15354,6 +15540,9 @@
           "geschaftsfuhrer-in-meiringen-coop-meiringen-ohizte"
         ],
         "fr": [
+          "geschaftsfuhrer-in-meiringen-coop-meiringen-ohizte"
+        ],
+        "de": [
           "geschaftsfuhrer-in-meiringen-coop-meiringen-ohizte"
         ]
       },
@@ -16081,7 +16270,7 @@
       },
       "slugByLocale": {
         "it": "collaboratore-trice-gastronomie-coop-genossenschaft-basel",
-        "en": "associate-gastronomie-coop-ristorante-basel-yx4sfe",
+        "en": "associate-gastronomie-coop-genossenschaft-basel",
         "de": "mitarbeiter-in-gastronomie-coop-genossenschaft-basel",
         "fr": "collaborateur-trice-gastronomie-coop-ristorante-basel-yx4sfe"
       },
@@ -16126,7 +16315,8 @@
       "previousSlugs": [
         "mitarbeiter-in-gastronomie-coop-ristorante-basel",
         "collaboratore-trice-gastronomie-coop-ristorante-basel-yx4sfe",
-        "mitarbeiter-in-gastronomie-coop-ristorante-basel-yx4sfe"
+        "mitarbeiter-in-gastronomie-coop-ristorante-basel-yx4sfe",
+        "associate-gastronomie-coop-ristorante-basel-yx4sfe"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -16135,6 +16325,9 @@
         ],
         "de": [
           "mitarbeiter-in-gastronomie-coop-ristorante-basel-yx4sfe"
+        ],
+        "en": [
+          "associate-gastronomie-coop-ristorante-basel-yx4sfe"
         ]
       },
       "salaryMin": 62000,
@@ -18942,7 +19135,7 @@
       },
       "slugByLocale": {
         "it": "collaboratore-trice-gastronomie-coop-genossenschaft-oftringen",
-        "en": "associate-gastronomie-coop-ristorante-oftringen-qw25lv",
+        "en": "associate-gastronomie-coop-genossenschaft-oftringen",
         "de": "mitarbeiter-in-gastronomie-coop-genossenschaft-oftringen",
         "fr": "collaborateur-trice-gastronomie-coop-ristorante-oftringen-qw25lv"
       },
@@ -18976,7 +19169,8 @@
       "previousSlugs": [
         "mitarbeiter-in-gastronomie-coop-ristorante-oftringen",
         "collaboratore-trice-gastronomie-coop-ristorante-oftringen-qw25lv",
-        "mitarbeiter-in-gastronomie-coop-ristorante-oftringen-qw25lv"
+        "mitarbeiter-in-gastronomie-coop-ristorante-oftringen-qw25lv",
+        "associate-gastronomie-coop-ristorante-oftringen-qw25lv"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -18985,6 +19179,9 @@
         ],
         "de": [
           "mitarbeiter-in-gastronomie-coop-ristorante-oftringen-qw25lv"
+        ],
+        "en": [
+          "associate-gastronomie-coop-ristorante-oftringen-qw25lv"
         ]
       },
       "salaryMin": 62000,
@@ -24846,7 +25043,7 @@
       },
       "slugByLocale": {
         "it": "collaboratore-trice-gastronomie-coop-ristorante-thun-mmxtcz",
-        "en": "associate-gastronomie-coop-ristorante-thun-mmxtcz",
+        "en": "associate-gastronomie-coop-genossenschaft-thun",
         "de": "mitarbeiter-in-gastronomie-coop-genossenschaft-thun",
         "fr": "collaborateur-trice-gastronomie-coop-ristorante-thun-mmxtcz"
       },
@@ -24883,11 +25080,15 @@
         ],
         "de": [
           "mitarbeiter-in-gastronomie-coop-ristorante-thun-mmxtcz"
+        ],
+        "en": [
+          "associate-gastronomie-coop-ristorante-thun-mmxtcz"
         ]
       },
       "previousSlugs": [
         "mitarbeiter-in-gastronomie-coop-ristorante-thun",
-        "mitarbeiter-in-gastronomie-coop-ristorante-thun-mmxtcz"
+        "mitarbeiter-in-gastronomie-coop-ristorante-thun-mmxtcz",
+        "associate-gastronomie-coop-ristorante-thun-mmxtcz"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -25548,7 +25749,7 @@
       },
       "slugByLocale": {
         "it": "collaboratore-trice-gastronomie-coop-genossenschaft-davos",
-        "en": "associate-gastronomie-coop-ristorante-davos-kfk5nl",
+        "en": "associate-gastronomie-coop-genossenschaft-davos",
         "de": "mitarbeiter-in-gastronomie-coop-genossenschaft-davos",
         "fr": "collaborateur-trice-gastronomie-coop-ristorante-davos-kfk5nl"
       },
@@ -25582,7 +25783,8 @@
       "previousSlugs": [
         "mitarbeiter-in-gastronomie-coop-ristorante-davos",
         "collaboratore-trice-gastronomie-coop-ristorante-davos-kfk5nl",
-        "mitarbeiter-in-gastronomie-coop-ristorante-davos-kfk5nl"
+        "mitarbeiter-in-gastronomie-coop-ristorante-davos-kfk5nl",
+        "associate-gastronomie-coop-ristorante-davos-kfk5nl"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -25591,6 +25793,9 @@
         ],
         "de": [
           "mitarbeiter-in-gastronomie-coop-ristorante-davos-kfk5nl"
+        ],
+        "en": [
+          "associate-gastronomie-coop-ristorante-davos-kfk5nl"
         ]
       },
       "salaryMin": 57500,
@@ -37429,9 +37634,9 @@
       },
       "slugByLocale": {
         "it": "allrounder-tecnico-coop-genossenschaft-wangen-bei-olten-10d2bb",
-        "en": "technician-allrounder-coop-genossenschaft-wangen-bei-olten-10d2bb",
+        "en": "technician-allrounder-coop-genossenschaft-wangen-bei-olten",
         "de": "techniker-in-allrounder-in-coop-genossenschaft-wangen-bei-olten",
-        "fr": "technicien-polyvalent-coop-genossenschaft-wangen-bei-olten-10d2bb"
+        "fr": "technicien-polyvalent-coop-genossenschaft-wangen-bei-olten"
       },
       "requirementsByLocale": {},
       "addressLocality": "Wangen bei Olten",
@@ -37458,17 +37663,21 @@
           "techniker-in-allrounder-in-coop-wangen-bei-olten-dy0lyb"
         ],
         "en": [
-          "techniker-in-allrounder-in-coop-wangen-bei-olten-dy0lyb"
+          "techniker-in-allrounder-in-coop-wangen-bei-olten-dy0lyb",
+          "technician-allrounder-coop-genossenschaft-wangen-bei-olten-10d2bb"
         ],
         "de": [
           "techniker-in-allrounder-in-coop-wangen-bei-olten-dy0lyb"
         ],
         "fr": [
-          "techniker-in-allrounder-in-coop-wangen-bei-olten-dy0lyb"
+          "techniker-in-allrounder-in-coop-wangen-bei-olten-dy0lyb",
+          "technicien-polyvalent-coop-genossenschaft-wangen-bei-olten-10d2bb"
         ]
       },
       "previousSlugs": [
-        "techniker-in-allrounder-in-coop-wangen-bei-olten-dy0lyb"
+        "techniker-in-allrounder-in-coop-wangen-bei-olten-dy0lyb",
+        "technician-allrounder-coop-genossenschaft-wangen-bei-olten-10d2bb",
+        "technicien-polyvalent-coop-genossenschaft-wangen-bei-olten-10d2bb"
       ],
       "salaryMin": 105500,
       "salaryMax": 185000,
@@ -38351,7 +38560,7 @@
       },
       "slugByLocale": {
         "it": "collaboratore-trice-gastronomie-coop-genossenschaft-urtenen-schonbuhl",
-        "en": "associate-gastronomie-coop-ristorante-urtenen-schonbuhl-h1byvu",
+        "en": "associate-gastronomie-coop-genossenschaft-urtenen-schonbuhl",
         "de": "mitarbeiter-in-gastronomie-coop-genossenschaft-urtenen-schonbuhl",
         "fr": "collaborateur-trice-gastronomie-coop-ristorante-urtenen-schonbuhl-h1byvu"
       },
@@ -38385,7 +38594,8 @@
       "previousSlugs": [
         "mitarbeiter-in-gastronomie-coop-ristorante-urtenen-schonbuhl",
         "collaboratore-trice-gastronomie-coop-ristorante-urtenen-schonbuhl-h1byvu",
-        "mitarbeiter-in-gastronomie-coop-ristorante-urtenen-schonbuhl-h1byvu"
+        "mitarbeiter-in-gastronomie-coop-ristorante-urtenen-schonbuhl-h1byvu",
+        "associate-gastronomie-coop-ristorante-urtenen-schonbuhl-h1byvu"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -38394,6 +38604,9 @@
         ],
         "de": [
           "mitarbeiter-in-gastronomie-coop-ristorante-urtenen-schonbuhl-h1byvu"
+        ],
+        "en": [
+          "associate-gastronomie-coop-ristorante-urtenen-schonbuhl-h1byvu"
         ]
       },
       "salaryMin": 68500,
@@ -40752,9 +40965,9 @@
       },
       "slugByLocale": {
         "it": "allrounder-tecnico-coop-genossenschaft-rupperswil-84c0c8",
-        "en": "technician-allrounder-coop-genossenschaft-rupperswil-84c0c8",
+        "en": "technician-allrounder-coop-genossenschaft-rupperswil",
         "de": "techniker-in-allrounder-in-coop-genossenschaft-rupperswil",
-        "fr": "technicien-polyvalent-coop-genossenschaft-rupperswil-84c0c8"
+        "fr": "technicien-polyvalent-coop-genossenschaft-rupperswil"
       },
       "requirementsByLocale": {},
       "addressLocality": "Rupperswil",
@@ -40781,17 +40994,21 @@
           "techniker-in-allrounder-in-coop-rupperswil-d5zdpj"
         ],
         "en": [
-          "techniker-in-allrounder-in-coop-rupperswil-d5zdpj"
+          "techniker-in-allrounder-in-coop-rupperswil-d5zdpj",
+          "technician-allrounder-coop-genossenschaft-rupperswil-84c0c8"
         ],
         "de": [
           "techniker-in-allrounder-in-coop-rupperswil-d5zdpj"
         ],
         "fr": [
-          "techniker-in-allrounder-in-coop-rupperswil-d5zdpj"
+          "techniker-in-allrounder-in-coop-rupperswil-d5zdpj",
+          "technicien-polyvalent-coop-genossenschaft-rupperswil-84c0c8"
         ]
       },
       "previousSlugs": [
-        "techniker-in-allrounder-in-coop-rupperswil-d5zdpj"
+        "techniker-in-allrounder-in-coop-rupperswil-d5zdpj",
+        "technician-allrounder-coop-genossenschaft-rupperswil-84c0c8",
+        "technicien-polyvalent-coop-genossenschaft-rupperswil-84c0c8"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -51260,9 +51477,9 @@
       },
       "slugByLocale": {
         "it": "collaboratore-trice-gastronomie-coop-genossenschaft-st-gallen",
-        "en": "associate-gastronomie-coop-ristorante-st-gallen-20irr0",
+        "en": "associate-gastronomie-coop-genossenschaft-st-gallen",
         "de": "mitarbeiter-in-gastronomie-coop-genossenschaft-st-gallen",
-        "fr": "collaborateur-trice-gastronomie-coop-ristorante-st-gallen-20irr0"
+        "fr": "collaborateur-trice-gastronomie-coop-genossenschaft-st-gallen"
       },
       "requirementsByLocale": {
         "de": [
@@ -51294,7 +51511,9 @@
       "previousSlugs": [
         "mitarbeiter-in-gastronomie-coop-ristorante-st-gallen",
         "collaboratore-trice-gastronomie-coop-ristorante-st-gallen-20irr0",
-        "mitarbeiter-in-gastronomie-coop-ristorante-st-gallen-20irr0"
+        "mitarbeiter-in-gastronomie-coop-ristorante-st-gallen-20irr0",
+        "associate-gastronomie-coop-ristorante-st-gallen-20irr0",
+        "collaborateur-trice-gastronomie-coop-ristorante-st-gallen-20irr0"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -51303,6 +51522,12 @@
         ],
         "de": [
           "mitarbeiter-in-gastronomie-coop-ristorante-st-gallen-20irr0"
+        ],
+        "en": [
+          "associate-gastronomie-coop-ristorante-st-gallen-20irr0"
+        ],
+        "fr": [
+          "collaborateur-trice-gastronomie-coop-ristorante-st-gallen-20irr0"
         ]
       },
       "salaryMin": 57500,
@@ -51828,9 +52053,9 @@
       },
       "slugByLocale": {
         "it": "butchery-junior-manager-coop-genossenschaft-st-gallen-77af60",
-        "en": "butchery-junior-managers-coop-genossenschaft-st-gallen-77af60",
+        "en": "butchery-junior-managers-coop-genossenschaft-st-gallen",
         "de": "metzgerei-nachwuchsfuhrungskrafte-coop-genossenschaft-st-gallen",
-        "fr": "directeurs-subalternes-de-boucherie-coop-genossenschaft-st-gallen-77af60"
+        "fr": "directeurs-subalternes-de-boucherie-coop-genossenschaft-st-gallen"
       },
       "requirementsByLocale": {
         "de": [
@@ -51864,17 +52089,21 @@
           "metzgerei-nachwuchsfuhrungskrafte-coop-st-gallen-vs5env"
         ],
         "en": [
-          "metzgerei-nachwuchsfuhrungskrafte-coop-st-gallen-vs5env"
+          "metzgerei-nachwuchsfuhrungskrafte-coop-st-gallen-vs5env",
+          "butchery-junior-managers-coop-genossenschaft-st-gallen-77af60"
         ],
         "de": [
           "metzgerei-nachwuchsfuhrungskrafte-coop-st-gallen-vs5env"
         ],
         "fr": [
-          "metzgerei-nachwuchsfuhrungskrafte-coop-st-gallen-vs5env"
+          "metzgerei-nachwuchsfuhrungskrafte-coop-st-gallen-vs5env",
+          "directeurs-subalternes-de-boucherie-coop-genossenschaft-st-gallen-77af60"
         ]
       },
       "previousSlugs": [
-        "metzgerei-nachwuchsfuhrungskrafte-coop-st-gallen-vs5env"
+        "metzgerei-nachwuchsfuhrungskrafte-coop-st-gallen-vs5env",
+        "butchery-junior-managers-coop-genossenschaft-st-gallen-77af60",
+        "directeurs-subalternes-de-boucherie-coop-genossenschaft-st-gallen-77af60"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -51925,9 +52154,9 @@
       },
       "slugByLocale": {
         "it": "butchery-junior-manager-coop-genossenschaft-mels-80c020",
-        "en": "butchery-junior-managers-coop-genossenschaft-mels-80c020",
+        "en": "butchery-junior-managers-coop-genossenschaft-mels",
         "de": "metzgerei-nachwuchsfuhrungskrafte-coop-genossenschaft-mels",
-        "fr": "directeurs-subalternes-de-boucherie-coop-genossenschaft-mels-80c020"
+        "fr": "directeurs-subalternes-de-boucherie-coop-genossenschaft-mels"
       },
       "requirementsByLocale": {
         "de": [
@@ -51961,17 +52190,21 @@
           "metzgerei-nachwuchsfuhrungskrafte-coop-mels-5r59b6"
         ],
         "en": [
-          "metzgerei-nachwuchsfuhrungskrafte-coop-mels-5r59b6"
+          "metzgerei-nachwuchsfuhrungskrafte-coop-mels-5r59b6",
+          "butchery-junior-managers-coop-genossenschaft-mels-80c020"
         ],
         "de": [
           "metzgerei-nachwuchsfuhrungskrafte-coop-mels-5r59b6"
         ],
         "fr": [
-          "metzgerei-nachwuchsfuhrungskrafte-coop-mels-5r59b6"
+          "metzgerei-nachwuchsfuhrungskrafte-coop-mels-5r59b6",
+          "directeurs-subalternes-de-boucherie-coop-genossenschaft-mels-80c020"
         ]
       },
       "previousSlugs": [
-        "metzgerei-nachwuchsfuhrungskrafte-coop-mels-5r59b6"
+        "metzgerei-nachwuchsfuhrungskrafte-coop-mels-5r59b6",
+        "butchery-junior-managers-coop-genossenschaft-mels-80c020",
+        "directeurs-subalternes-de-boucherie-coop-genossenschaft-mels-80c020"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -65460,7 +65693,7 @@
       },
       "slugByLocale": {
         "it": "collaboratore-trice-gastronomie-coop-genossenschaft-landquart",
-        "en": "associate-gastronomie-coop-landquart-efipqf",
+        "en": "associate-gastronomie-coop-genossenschaft-landquart",
         "de": "mitarbeiter-in-gastronomie-coop-genossenschaft-landquart",
         "fr": "collaborateur-trice-gastronomie-coop-landquart-efipqf"
       },
@@ -65493,7 +65726,8 @@
       },
       "previousSlugs": [
         "collaboratore-trice-gastronomie-coop-landquart-efipqf",
-        "mitarbeiter-in-gastronomie-coop-landquart-efipqf"
+        "mitarbeiter-in-gastronomie-coop-landquart-efipqf",
+        "associate-gastronomie-coop-landquart-efipqf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -65501,6 +65735,9 @@
         ],
         "de": [
           "mitarbeiter-in-gastronomie-coop-landquart-efipqf"
+        ],
+        "en": [
+          "associate-gastronomie-coop-landquart-efipqf"
         ]
       },
       "salaryMin": 57500,
@@ -78103,7 +78340,7 @@
       },
       "slugByLocale": {
         "it": "collaboratore-trice-gastronomie-coop-genossenschaft-volketswil",
-        "en": "associate-gastronomie-coop-ristorante-volketswil-9cc0ju",
+        "en": "associate-gastronomie-coop-genossenschaft-volketswil",
         "de": "mitarbeiter-in-gastronomie-coop-genossenschaft-volketswil",
         "fr": "collaborateur-trice-gastronomie-coop-ristorante-volketswil-9cc0ju"
       },
@@ -78133,7 +78370,8 @@
       },
       "previousSlugs": [
         "collaboratore-trice-gastronomie-coop-ristorante-volketswil-9cc0ju",
-        "mitarbeiter-in-gastronomie-coop-ristorante-volketswil-9cc0ju"
+        "mitarbeiter-in-gastronomie-coop-ristorante-volketswil-9cc0ju",
+        "associate-gastronomie-coop-ristorante-volketswil-9cc0ju"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -78141,6 +78379,9 @@
         ],
         "de": [
           "mitarbeiter-in-gastronomie-coop-ristorante-volketswil-9cc0ju"
+        ],
+        "en": [
+          "associate-gastronomie-coop-ristorante-volketswil-9cc0ju"
         ]
       },
       "streetAddressSource": "listing-source",
@@ -160858,7 +161099,7 @@
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-coop-gossau-5ki042",
         "en": "retail-specialist-mann-efz-shape-of-shopping-experiences-coop-gossau-8a3afc",
-        "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-gossau-5ki042",
+        "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-gossau",
         "fr": "specialiste-du-commerce-de-detail-mann-efz-forme-d-experiences-shopping-coop-gossau-8a3afc"
       },
       "titleByLocale": {
@@ -160897,7 +161138,15 @@
       "validThroughSource": "last-observed-window",
       "salaryMin": 99000,
       "salaryMax": 174000,
-      "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/774d51cb-fb94-46b8-98b4-d28bb402d4c1"
+      "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/774d51cb-fb94-46b8-98b4-d28bb402d4c1",
+      "previousSlugsByLocale": {
+        "de": [
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-gossau-5ki042"
+        ]
+      },
+      "previousSlugs": [
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-gossau-5ki042"
+      ]
     },
     {
       "id": "company-9avzs4",
@@ -162468,7 +162717,7 @@
       "slugByLocale": {
         "it": "detailhandelsassistent-in-afp-coop-gossau-rf9exr",
         "en": "retail-assistant-in-eba-coop-gossau-98243e",
-        "de": "detailhandelsassistent-in-eba-coop-gossau-rf9exr",
+        "de": "detailhandelsassistent-in-eba-coop-gossau",
         "fr": "assistant-de-detail-dans-eba-coop-gossau-98243e"
       },
       "titleByLocale": {
@@ -162507,7 +162756,15 @@
       "validThroughSource": "last-observed-window",
       "salaryMin": 99000,
       "salaryMax": 174000,
-      "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/1e77ca31-65bf-4cde-8ce2-3ddfce439785"
+      "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/1e77ca31-65bf-4cde-8ce2-3ddfce439785",
+      "previousSlugsByLocale": {
+        "de": [
+          "detailhandelsassistent-in-eba-coop-gossau-rf9exr"
+        ]
+      },
+      "previousSlugs": [
+        "detailhandelsassistent-in-eba-coop-gossau-rf9exr"
+      ]
     },
     {
       "id": "company-navn58",
@@ -195243,7 +195500,7 @@
       "slugByLocale": {
         "it": "sachbearbeiter-in-risorse-umane-trading-coop-trading-dietikon-0xbh3m",
         "en": "sachbearbeiter-in-hr-trading-coop-trading-dietikon-0xbh3m",
-        "de": "sachbearbeiter-in-hr-trading-coop-trading-dietikon-0xbh3m",
+        "de": "sachbearbeiter-in-hr-trading-coop-trading-dietikon",
         "fr": "sachbearbeiter-in-ressources-humaines-trading-coop-trading-dietikon-0xbh3m"
       },
       "requirementsByLocale": {},
@@ -195283,6 +195540,9 @@
         "fr": [
           "gestionnaire-de-dossiers-hr-trading-coop-trading-dietikon",
           "sachbearbeiter-in-ressources-humaines-trading-coop-trading-dietikon-zurich-l67xov"
+        ],
+        "de": [
+          "sachbearbeiter-in-hr-trading-coop-trading-dietikon-0xbh3m"
         ]
       },
       "previousSlugs": [
@@ -195972,7 +196232,7 @@
       "slugByLocale": {
         "it": "verkaufer-in-food-coop-adelboden-94ntmp",
         "en": "verkaufer-in-food-coop-adelboden-94ntmp",
-        "de": "verkaufer-in-food-coop-adelboden-94ntmp",
+        "de": "verkaufer-in-food-coop-genossenschaft-adelboden",
         "fr": "verkaufer-in-food-coop-adelboden-94ntmp"
       },
       "requirementsByLocale": {
@@ -196014,6 +196274,9 @@
         ],
         "fr": [
           "produits-alimentaires-vendus-coop-genossenschaft-adelboden"
+        ],
+        "de": [
+          "verkaufer-in-food-coop-adelboden-94ntmp"
         ]
       },
       "previousSlugs": [
