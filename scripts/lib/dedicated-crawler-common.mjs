@@ -355,7 +355,7 @@ export function dedupSlugSegmentRepeats(slug = '') {
   return tokens.join('-');
 }
 
-function slugifyLocalizedLabel(value = '') {
+export function slugifyLocalizedLabel(value = '') {
   const canonical = canonicalizeGenderTrigraph(value);
   const base = String(canonical || '')
     .trim()
@@ -8936,6 +8936,78 @@ export function restoreLocaleSlug(job, locale, slug, source = 'restoreLocaleSlug
     jobId: job.id, locale, slug: norm, action: 'restore',
     source: `dedicated-crawler-common.${source}`,
     reason: 'active-slug-would-have-been-blanked',
+  });
+  return true;
+}
+
+/**
+ * Replace a known active locale slug after source-backed ownership checks.
+ *
+ * Unlike `restoreLocaleSlug`, this operation intentionally replaces a
+ * non-empty active value. Callers must prove that `expectedSlug` still owns
+ * the slot, choose the exact locale, and provide the source that authorized
+ * the replacement. This boundary archives the outgoing value in that locale
+ * before writing the active field and journals the synchronization. It is
+ * owned by dedicated-crawler-common so slice writers cannot grow unjournaled
+ * direct writes when they align to an already-served URL.
+ *
+ * @param {object} job mutated in place
+ * @param {string} locale one of the supported job locales
+ * @param {string} expectedSlug exact active value observed by the caller
+ * @param {string} slug source-backed replacement
+ * @param {string} source explicit caller and evidence tag
+ * @returns {boolean} true only when the expected slot was replaced
+ */
+export function replaceActiveLocaleSlug(job, locale, expectedSlug, slug, source) {
+  const sourceTag = String(source || '').trim();
+  if (!job || typeof job !== 'object' || !job.id || !DEFAULT_LOCALES.includes(locale) || !sourceTag) return false;
+  const expected = normalizeSpace(String(expectedSlug || ''));
+  const next = normalizeSpace(String(slug || ''));
+  if (!next) return false;
+
+  const active = normalizeSpace(String(
+    job.slugByLocale?.[locale] || (locale === 'it' ? job.slug : '') || '',
+  ));
+  if (active !== expected || active === next) return false;
+
+  if (!job.slugByLocale || typeof job.slugByLocale !== 'object') job.slugByLocale = {};
+  if (active) addPreviousSlugForLocale(job, locale, active, 20, sourceTag);
+  job.slugByLocale[locale] = next;
+  recordSlugMutation({
+    jobId: job.id,
+    locale,
+    slug: next,
+    action: 'sync',
+    source: `dedicated-crawler-common.${sourceTag}`,
+    reason: 'source-backed-active-slug-replacement',
+  });
+  return true;
+}
+
+/**
+ * Keep the master Italian route in step with an Italian locale replacement.
+ * The outgoing master is already captured by the active-locale helper when
+ * it equals that slot; a divergent master is captured here before it moves.
+ */
+export function replaceItalianMasterSlug(job, previousItalianSlug, nextItalianSlug, source = 'replaceItalianMasterSlug') {
+  if (!job || typeof job !== 'object') return false;
+  const masterSlug = normalizeSpace(String(job.slug || ''));
+  const nextSlug = normalizeSpace(String(nextItalianSlug || ''));
+  const previousSlug = normalizeSpace(String(previousItalianSlug || ''));
+  const sourceTag = String(source || '').trim();
+  if (!nextSlug || masterSlug === nextSlug || !sourceTag) return false;
+
+  if (masterSlug && masterSlug !== previousSlug) {
+    addPreviousSlugForLocale(job, 'it', masterSlug, 20, sourceTag);
+  }
+  job.slug = nextSlug;
+  recordSlugMutation({
+    jobId: job.id,
+    locale: 'it',
+    slug: nextSlug,
+    action: 'sync',
+    source: `dedicated-crawler-common.${sourceTag}`,
+    reason: 'italian-master-follows-locale',
   });
   return true;
 }
