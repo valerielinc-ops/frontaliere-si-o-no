@@ -66,6 +66,7 @@ import {
   inferAgroscopeCanton,
   inferAgroscopeCategory,
   buildAgroscopeLocalizedContent,
+  reconcileAgroscopeDetailLocation,
 } from './lib/agroscope-job-parser.mjs';
 import { enrichProspectiveJobsFromDetailPages } from './lib/prospective-ch-job-parser-common.mjs';
 import { exitCrawlerOnError, fetchJson } from './lib/crawler-template.mjs';
@@ -337,7 +338,11 @@ async function main() {
   // The listing payload is only tasks + requirements: 13-27 % of the rendered
   // vacancy (audit 2026-09-29). "Auf den Punkt gebracht", the unit text, the
   // Agroscope paragraph and the benefits exist only on the jobs.admin.ch page.
-  await enrichProspectiveJobsFromDetailPages(jobs, { isTrustedDomain, label: 'Agroscope' });
+  await enrichProspectiveJobsFromDetailPages(jobs, {
+    isTrustedDomain,
+    label: 'Agroscope',
+    onDetailPage: ({ job, posting }) => reconcileAgroscopeDetailLocation(job, posting),
+  });
 
   const { total, added, updated, diff} = mergeJobs(jobs);
   updateAdapterConfig(jobs);
