@@ -9910,6 +9910,13 @@ function passwordResetRequestFailure(snapshot) {
   return refused ? 'account_recovery_rejected' : 'account_recovery_timeout';
 }
 
+/** Password snapshots are redacted. Verify the fresh control without reading its secret back. */
+export async function passwordControlMatches(page, field, expected) {
+  if (field?.inputType !== 'password' || !expected) return false;
+  return locatorFor(page, field).evaluate((element, value) => element.value === value, expected, { timeout: 2000 })
+    .catch(() => false);
+}
+
 function resetPasswordFields(snapshot) {
   const fields = (snapshot?.fields || []).filter((field) => field.inputType === 'password');
   if (fields.length !== 2 || !fields[0].formId || fields.some((field) => String(field.formId) !== String(fields[0].formId))) return null;
@@ -10043,7 +10050,8 @@ async function recoverAccountPassword({ page, snapshot, ctx, host, account, diag
   ], {});
   resetView = await extractFields(page, NAVIGATION);
   const filled = resetPasswordFields(resetView);
-  if (!filled || !filled.password.value || !filled.confirmation.value) {
+  if (!filled || !await passwordControlMatches(page, filled.password, staged)
+    || !await passwordControlMatches(page, filled.confirmation, staged)) {
     return accountHandoff('account_recovery_timeout', 'account_recovery_timeout', 'login');
   }
   const confirm = (resetView.buttons || []).find((button) => String(button.formId || '') === filled.formId
@@ -10273,7 +10281,8 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
       await page.waitForTimeout(AUTH_TYPED_WAIT_MS);
       form = await extractFields(page, NAVIGATION);
       const now = loginFields(form);
-      typed = Boolean(now.email?.value) && Boolean(now.password?.value);
+      typed = String(now.email?.value || '').trim().toLowerCase() === String(account.email || '').trim().toLowerCase()
+        && await passwordControlMatches(page, now.password, account.password);
     }
     if (!typed) return { ...accountHandoff('account', 'login_unobserved', 'login'), authStop: 'sign_in_typing_unconfirmed' };
     const shown = form.errors || [];
