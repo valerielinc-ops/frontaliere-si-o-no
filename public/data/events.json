@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-20T20:21:10.615Z",
+  "generatedAt": "2026-11-20T22:00:13.155Z",
   "totalEvents": 17744,
   "events": [
     {
@@ -523514,7 +523514,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento è dedicato alla storia locale e alla narrazione orale legata a Vaduz. Si svolge allo Schlösslekeller Kleintheater Vaduz e propone un incontro in forma informale.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento è dedicato alla storia locale e alla narrazione orale legata a Vaduz. Si svolge allo Schlösslekeller Kleintheater Vaduz e propone un incontro in forma informale.",
+        "en": "The event focuses on local history and oral storytelling connected with Vaduz. It takes place at Schlösslekeller Kleintheater Vaduz and uses an informal discussion format.",
+        "de": "Die Veranstaltung widmet sich der lokalen Geschichte und dem mündlichen Erzählen in Vaduz. Sie findet im Schlösslekeller Kleintheater Vaduz statt und nutzt ein informelles Gesprächsformat.",
+        "fr": "Ce rendez-vous porte sur l’histoire locale et les récits oraux liés à Vaduz. Il se déroule au Schlösslekeller Kleintheater Vaduz et repose sur un format informel d’échange."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:63816",
@@ -523616,7 +523624,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L'appuntamento presenta Benjamin Décosterd. Si svolge al Pavillon Naftule.",
+      "descriptionByLocale": {
+        "it": "L'appuntamento presenta Benjamin Décosterd. Si svolge al Pavillon Naftule.",
+        "en": "The event features Benjamin Décosterd. It takes place at Pavillon Naftule.",
+        "de": "Bei der Veranstaltung tritt Benjamin Décosterd auf. Sie findet im Pavillon Naftule statt.",
+        "fr": "Le rendez-vous accueille Benjamin Décosterd. Il a lieu au Pavillon Naftule."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:1b58a8cfc0ef4e8184e721fb58dcd0a7",
@@ -539225,7 +539241,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento è una conferenza interdisciplinare dedicata alle forme della scrittura in minuscolo. Si svolge al Museum Strauhof.",
+      "descriptionByLocale": {
+        "it": "L’evento è una conferenza interdisciplinare dedicata alle forme della scrittura in minuscolo. Si svolge al Museum Strauhof.",
+        "en": "The event is an interdisciplinary conference about forms of lowercase writing. It takes place at Museum Strauhof.",
+        "de": "Die Veranstaltung ist eine interdisziplinäre Tagung über verschiedene Formen des Kleinschreibens. Veranstaltungsort ist das Museum Strauhof.",
+        "fr": "Ce rendez-vous est une rencontre interdisciplinaire consacrée aux formes de l’écriture en minuscules. Il a lieu au Museum Strauhof."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:milonga-brava-jorge-calabrigo-tiziana-silva-marcelo-rojas",
@@ -541087,7 +541111,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il Trauertreff Prättigau offre uno spazio per confrontarsi sul lutto e sulle esperienze di perdita. L’incontro è aperto ma protetto e favorisce il dialogo, l’ascolto reciproco e la condivisione di nuovi stimoli e di forza.",
+      "descriptionByLocale": {
+        "it": "Il Trauertreff Prättigau offre uno spazio per confrontarsi sul lutto e sulle esperienze di perdita. L’incontro è aperto ma protetto e favorisce il dialogo, l’ascolto reciproco e la condivisione di nuovi stimoli e di forza.",
+        "en": "Trauertreff Prättigau provides a setting for discussing grief and experiences of loss. The gathering is open while offering a protected atmosphere for conversation, mutual listening, mourning and finding new perspectives and strength.",
+        "de": "Der Trauertreff Prättigau schafft Raum für den Austausch über Trauer und Verlusterfahrungen. Die offene, geschützte Begegnung ermöglicht Gespräche, gegenseitiges Zuhören und das Teilen neuer Impulse sowie von Mut und Kraft.",
+        "fr": "Le Trauertreff Prättigau propose un cadre d’échange autour du deuil et des expériences de perte. Cette rencontre ouverte et protégée permet de parler, d’écouter les autres et de trouver de nouvelles impulsions ainsi que du courage et de la force."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:tresors-caches-arts-graphiques-0",
@@ -548547,7 +548579,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento è annullato. Il salone avrebbe proposto moda sostenibile, artigianato e laboratori creativi nel centro di Ginevra.",
+      "descriptionByLocale": {
+        "it": "L’evento è annullato. Il salone avrebbe proposto moda sostenibile, artigianato e laboratori creativi nel centro di Ginevra.",
+        "en": "The event is cancelled. The salon was planned around sustainable fashion and crafts, with creative workshops in central Geneva.",
+        "de": "Die Veranstaltung ist abgesagt. Die als Messe geplante Veranstaltung sollte sich nachhaltiger Mode und Handwerk widmen und kreative Workshops im Zentrum von Genf umfassen.",
+        "fr": "L’événement est annulé. Ce salon devait porter sur la mode durable et l’artisanat, avec des ateliers créatifs au centre-ville de Genève."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:atelier-creer-marmite-escalade-chocolat-4",
@@ -568548,7 +568588,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento propone un’esperienza nel planetario che combina prospettive artistiche e scientifiche, con una narrazione dal vivo dedicata all’osservazione del cosmo. Al termine è previsto un aperitivo per condividere le impressioni sull’esperienza; la prenotazione è obbligatoria.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone un’esperienza nel planetario che combina prospettive artistiche e scientifiche, con una narrazione dal vivo dedicata all’osservazione del cosmo. Al termine è previsto un aperitivo per condividere le impressioni sull’esperienza; la prenotazione è obbligatoria.",
+        "en": "The event offers a live-narrated planetarium experience exploring the relationship between astronomy, art and science. An aperitif follows the presentation, and advance booking is required.",
+        "de": "Im Planetarium verbindet die Veranstaltung eine live erzählte Vorführung mit Themen aus Astronomie, Kunst und Wissenschaft. Anschließend gibt es einen Apéro zum Austausch über das Erlebte; eine Anmeldung ist erforderlich.",
+        "fr": "Cette rencontre propose une séance de planétarium racontée en direct, à la croisée de l’astronomie, de l’art et des sciences. Un apéritif est prévu après la présentation pour échanger sur l’expérience, et l’inscription est obligatoire."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:Ajb47GQ",
