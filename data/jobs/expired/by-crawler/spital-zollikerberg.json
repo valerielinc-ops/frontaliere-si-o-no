@@ -3681,25 +3681,35 @@
     },
     "slugByLocale": {
       "it": "alterszentrum-hottingen-pflegehelferin-pflegehelfer-srk-o-assistentin-assistent-gesundheit-e-soziales-ags-pflege-support-e-administration-spital-zollikerberg",
-      "en": "alterszentrum-hottingen-pflegehelferin-pflegehelfer-srk-oder-assistentin-assistent",
-      "de": "alterszentrum-hottingen-pflegehelferin-pflegehelfer-srk-oder-assistentin-assistent",
-      "fr": "alterszentrum-hottingen-pflegehelferin-pflegehelfer-srk-oder-assistentin-assistent"
+      "en": "alterszentrum-hottingen-pflegehelferin-pflegehelfer-srk-oder-assistentin-assistent-e3e72c9a",
+      "de": "alterszentrum-hottingen-pflegehelferin-pflegehelfer-srk-oder-assistentin-assistent-e3e72c9a",
+      "fr": "alterszentrum-hottingen-pflegehelferin-pflegehelfer-srk-oder-assistentin-assistent-e3e72c9a"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-05-28T00:25:54.597Z",
-    "previousSlugs": [
-      "alterszentrum-hottingen-pflegehelferin-pflegehelfer-srk-oder-assistentin-assistent"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "alterszentrum-hottingen-pflegehelferin-pflegehelfer-srk-oder-assistentin-assistent-e3e72c9a",
         "alterszentrum-hottingen-pflegehelferin-pflegehelfer-srk-oder-assistentin-assistent"
+      ],
+      "en": [
+        "alterszentrum-hottingen-pflegehelferin-pflegehelfer-srk-oder-assistentin-assistent-e3e72c9a"
+      ],
+      "de": [
+        "alterszentrum-hottingen-pflegehelferin-pflegehelfer-srk-oder-assistentin-assistent-e3e72c9a"
+      ],
+      "fr": [
+        "alterszentrum-hottingen-pflegehelferin-pflegehelfer-srk-oder-assistentin-assistent-e3e72c9a"
       ]
     },
     "postalCode": "8125",
     "salaryMin": 49500,
     "salaryMax": 75000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "previousSlugs": [
+      "alterszentrum-hottingen-pflegehelferin-pflegehelfer-srk-oder-assistentin-assistent"
+    ]
   },
   {
     "slug": "pflegeassistentin-pflegeassistent-intensivstation-mit-spitalerfahrung-spital-zollikerberg",
