@@ -158,7 +158,8 @@
       "streetAddress": "Mendrisio",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-19T21:25:11.354Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4099"
     },
     {
       "id": "canton-ticino-osc-4091-db22a8a58db8",
@@ -307,7 +308,8 @@
       "streetAddress": "Mendrisio",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-19T21:25:10.754Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4091"
     },
     {
       "id": "canton-ticino-osc-4337-f381b7d6d67d",
@@ -377,7 +379,8 @@
       "streetAddress": "Mendrisio",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T21:25:08.985Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4337"
     },
     {
       "id": "canton-ticino-osc-4336-b5e7a373092d",
@@ -447,7 +450,8 @@
       "streetAddress": "Mendrisio",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T21:25:08.389Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4336"
     },
     {
       "id": "canton-ticino-osc-4333-6f1d767c663f",
@@ -516,7 +520,8 @@
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T21:25:07.797Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4333"
     },
     {
       "id": "canton-ticino-osc-4331-e0ec4b2453fe",
@@ -586,7 +591,8 @@
       "streetAddress": "Bellinzona",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-05T21:25:06.589Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4331"
     }
   ]
 }
