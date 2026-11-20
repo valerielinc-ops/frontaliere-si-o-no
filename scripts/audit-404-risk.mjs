@@ -603,24 +603,29 @@ async function lookupJobCanonAliases(offenders, served) {
       return { bucket, map: null };
     }
   });
-  const mapResults = [];
+  let mapsLoaded = 0;
+  let remaining = offenders;
+  const recovered = [];
   for (let offset = 0; offset < buckets.length; offset += JOB_CANON_ALIAS_MAX_BUCKETS) {
     const batch = buckets.slice(offset, offset + JOB_CANON_ALIAS_MAX_BUCKETS);
-    mapResults.push(...await loadBatch(batch));
+    const batchMaps = new Map();
+    for (const { bucket, map } of await loadBatch(batch)) {
+      if (map) batchMaps.set(bucket, map);
+    }
+    mapsLoaded += batchMaps.size;
+    const batchRecovery = recoverJobCanonAliases(remaining, served, batchMaps);
+    recovered.push(...batchRecovery.recovered);
+    remaining = batchRecovery.remaining;
   }
-  const maps = new Map();
-  for (const { bucket, map } of mapResults) {
-    if (map) maps.set(bucket, map);
-  }
-  const recovered = recoverJobCanonAliases(offenders, served, maps);
   return {
-    ...recovered,
+    recovered,
+    remaining,
     lookup: {
       status: 'available',
       buildId,
       bucketsRequested: buckets.length,
-      mapsLoaded: maps.size,
-      mapsUnavailable: buckets.length - maps.size,
+      mapsLoaded,
+      mapsUnavailable: buckets.length - mapsLoaded,
       batchSize: JOB_CANON_ALIAS_MAX_BUCKETS,
       maxConcurrency: JOB_CANON_ALIAS_MAX_CONCURRENCY,
     },

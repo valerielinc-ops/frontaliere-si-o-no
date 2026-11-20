@@ -913,26 +913,23 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
                 const currentPath = buildCanonicalJobDetailPath(locale, job, currentSlug, canton);
                 const prefix = sectionPrefix(currentPath);
                 if (prefix) {
-                  // A full jobs SEO producer must prove the route through its
-                  // manifest. A registered fast-lane/fixture producer has no
-                  // shared manifest contract, so it may synchronize registry
-                  // reads but cannot add a new permanent active prefix.
-                  const activeRoutePublished = activeJobPageLookup !== null
-                    ? activeJobPageLookup.has(currentPath)
-                    : !jobsSeoProducerExpected;
-                  pushRecord(
-                    stageBuffer,
-                    activeRoutePublished ? 'active-prefix' : 'active-prefix-remove',
-                    currentSlug,
-                    locale,
-                    prefix,
-                  );
-                  activePrefixRows += 1;
-                  activePrefixBufferRows += 1;
-                  if (activePrefixBufferRows >= 8192) {
-                    flushAll(stageBuffer);
-                    clearStageBuffer(stageBuffer);
-                    activePrefixBufferRows = 0;
+                  // A complete manifest may positively add or negatively
+                  // remove a prefix. A registered fast-lane/sync producer has
+                  // only a partial inventory: preserve the registry entry and
+                  // stage neither assertion. Isolated plugin invocations keep
+                  // their self-contained legacy contract.
+                  const operation = activeJobPageLookup !== null
+                    ? (activeJobPageLookup.has(currentPath) ? 'active-prefix' : 'active-prefix-remove')
+                    : (!jobsSeoProducerExpected ? 'active-prefix' : null);
+                  if (operation) {
+                    pushRecord(stageBuffer, operation, currentSlug, locale, prefix);
+                    activePrefixRows += 1;
+                    activePrefixBufferRows += 1;
+                    if (activePrefixBufferRows >= 8192) {
+                      flushAll(stageBuffer);
+                      clearStageBuffer(stageBuffer);
+                      activePrefixBufferRows = 0;
+                    }
                   }
                 }
               }
