@@ -79,7 +79,8 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T21:46:28.711Z"
+      "firstSeenAt": "2026-11-19T21:46:28.711Z",
+      "sourceIdentity": "url:https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/02b1b02a-d94f-4ad9-8ad2-47f602bb0ec6"
     },
     {
       "title": "Consulente immobiliare (m/f/d) a Lugano",
@@ -162,7 +163,8 @@
       },
       "previousSlugs": [
         "consulente-immobiliare-m-f-d-a-lugano-engel-voelkers-lugano"
-      ]
+      ],
+      "sourceIdentity": "url:https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/b1ac8508-d47b-44ac-b991-008c45b6d244"
     },
     {
       "title": "Marketing & Communication Manager | Team support (Lugano)",
@@ -242,7 +244,8 @@
       },
       "previousSlugs": [
         "marketing-communication-manager-team-support-lugano-engel-voelkers-lugano"
-      ]
+      ],
+      "sourceIdentity": "url:https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/a6b47bf4-6819-48a4-bdab-f6160bd496ec"
     },
     {
       "title": "Immobilienberater/in 100 % | Ascona",
@@ -336,7 +339,8 @@
       "streetAddressSource": "zefix-registry",
       "validThroughSource": "last-observed-window",
       "crawledAt": "2026-11-19T21:46:28.711Z",
-      "crawledAtSource": "slice-writer"
+      "crawledAtSource": "slice-writer",
+      "sourceIdentity": "url:https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/4d4445b6-2423-4ffe-b7fa-3332af1127f8"
     },
     {
       "title": "Immobilienberater:In (m/w/d) 100% - Rheinfelden",
@@ -911,7 +915,8 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
       "crawledAt": "2026-11-19T21:46:28.711Z",
-      "crawledAtSource": "slice-writer"
+      "crawledAtSource": "slice-writer",
+      "sourceIdentity": "url:https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/d73b3b54-fa87-47ce-b04b-ed260187c751"
     }
   ]
 }
