@@ -135,7 +135,7 @@ describe('buildCwvAttributionEvent', () => {
       cta_id: `${CWV_ATTRIBUTION_PAGE}.cls.footer.complete`,
     });
     expect(event.details.endsWith('|ac3|cc1')).toBe(true);
-    expect(event.details.startsWith(FOOTER_SELECTOR.slice(0, 70))).toBe(true);
+    expect(event.details.startsWith('cwv:cls:footer:complete:footer.')).toBe(true);
   });
 
   it('the production footer selector is not valid CSS, so the node reference decides', () => {
@@ -184,7 +184,7 @@ describe('buildCwvAttributionEvent', () => {
     }));
     assertRegisteredShape(event);
     expect(event).toMatchObject({ section: 'inp', component: 'unknown', action: 'pointer' });
-    expect(event.details).toBe('unknown|ac3|cc1');
+    expect(event.details).toBe('cwv:inp:unknown:pointer:unknown|ac3|cc1');
   });
 
   // Without a node reference the selector is the fallback.
