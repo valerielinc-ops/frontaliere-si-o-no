@@ -155,3 +155,41 @@ describe('fetchAllRolexJobs — listing without a vacancy body', () => {
     for (const job of jobs) expect(job.description).not.toMatch(/— Rolex, /);
   }, 20_000);
 });
+
+describe('fetchAllRolexJobs — listing endpoint recovery', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  const body = '<p>Vous assemblez et réglez des mouvements dans nos ateliers de Genève, dans le respect des standards Rolex. Vous travaillez en étroite collaboration avec plusieurs services, documentez votre travail avec soin et contribuez à l’amélioration de nos processus. Nous offrons un poste moderne, des horaires flexibles, des formations continues et une culture d’équipe ouverte. De bonnes connaissances du français et une méthode de travail structurée complètent votre profil.</p>';
+  const detail = `<html><body><meta itemprop="addressLocality" content="Genève"><meta itemprop="addressCountry" content="CH"><span itemprop="description">${body}</span></section></body></html>`;
+  const listing = '<table><tr class="data-row"><td><a href="/Rolex/job/Geneve-1180003/1180003/" class="jobTitle-link">Horloger / Horlogère</a><span class="jobFacility">Genève</span></td></tr></table>';
+
+  it('tries the alternate official listing route after a 404 on the legacy route', async () => {
+    const fetch = vi.fn(async (url: string) => {
+      const u = String(url);
+      if (u.includes('/Rolex/go/Toutes-nos-offres-Rolex/')) return new Response('', { status: 404 });
+      if (u.includes('/go/Toutes-nos-offres/2900701/')) return new Response(listing, { status: 200 });
+      if (u.includes('1180003')) return new Response(detail, { status: 200 });
+      return new Response('', { status: 404 });
+    });
+    vi.stubGlobal('fetch', fetch);
+
+    const jobs = await fetchAllRolexJobs();
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].title).toBe('Horloger / Horlogère');
+    expect(fetch.mock.calls.map(([url]) => String(url))).toContain(
+      'https://www.carrieres-rolex.com/go/Toutes-nos-offres/2900701/',
+    );
+  }, 20_000);
+
+  it('marks the source unavailable when every known listing route returns 404', async () => {
+    vi.stubGlobal('fetch', vi.fn(async () => new Response('', { status: 404 })));
+
+    await expect(fetchAllRolexJobs()).rejects.toMatchObject({
+      feedEndpointUnavailable: true,
+      status: 404,
+    });
+  }, 20_000);
+});

@@ -18,6 +18,7 @@ import { successFactorsPostingDateFields } from './ats-clients/successfactors-cl
 import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { FeedEndpointUnavailableError } from './feed-endpoint-guard.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -36,8 +37,15 @@ export const ROLEX_COMPANY_DOMAIN = 'rolex.com';
  * The tenant is CH-only (the only Site facets are Genève / Bienne / Fribourg),
  * so no Switzerland filter is required. Tudor (sister brand) shares this tenant.
  */
-const CAREER_BASE = 'https://www.carrieres-rolex.com/Rolex/go/Toutes-nos-offres-Rolex/2901501';
-const CAREER_URL = `${CAREER_BASE}/`;
+// Rolex has exposed the same Jobs2Web listing through both routes. Keep the
+// legacy route first for continuity, but recover when it is retired during a
+// tenant migration. If every known route is unavailable, the standard crawler
+// soft-exits and keeps the last valid slice instead of publishing a false zero.
+const CAREER_SOURCES = Object.freeze([
+  'https://www.carrieres-rolex.com/Rolex/go/Toutes-nos-offres-Rolex/2901501/',
+  'https://www.carrieres-rolex.com/go/Toutes-nos-offres/2900701/',
+]);
+const CAREER_URL = CAREER_SOURCES[0];
 const ATS_ORIGIN = 'https://www.carrieres-rolex.com';
 const PAGE_SIZE = 25;
 const MAX_PAGES = 20; // safety cap (151 jobs ≈ 7 pages)
@@ -261,7 +269,9 @@ async function enrichFromDetail(listing, timeoutMs) {
 }
 
 /**
- * Fetch every listing page (path-segment pagination) and return raw rows.
+ * Fetch every listing page (path-segment pagination) and return raw rows plus
+ * the listing endpoint that answered. A 404 on one known route is endpoint
+ * drift, not proof that the source has no jobs, so try the sibling route.
  * Switzerland filter: NONE required — the tenant is 100% CH (recon).
  */
 async function fetchJobListings() {
@@ -269,15 +279,44 @@ async function fetchJobListings() {
   const out = [];
   const seen = new Set();
 
-  for (let page = 0; page < MAX_PAGES; page++) {
-    const startrow = page * PAGE_SIZE;
-    const pageUrl = startrow === 0 ? CAREER_URL : `${CAREER_BASE}/${startrow}/`;
-    let html;
+  let sourceUrl = '';
+  let firstPageHtml = '';
+  const notFoundUrls = [];
+  for (const candidateUrl of CAREER_SOURCES) {
     try {
-      html = await fetchHtml(pageUrl, {
+      firstPageHtml = await fetchHtml(candidateUrl, {
         headers: { 'User-Agent': CRAWLER_UA, Accept: 'text/html,application/xhtml+xml' },
         timeoutMs,
       });
+      sourceUrl = candidateUrl;
+      break;
+    } catch (err) {
+      if (err?.status !== 404) throw err;
+      notFoundUrls.push(candidateUrl);
+      console.warn(`   ⚠️ Rolex listing endpoint returned 404: ${candidateUrl}`);
+    }
+  }
+
+  if (!sourceUrl) {
+    const unavailable = new FeedEndpointUnavailableError(
+      'Rolex listing endpoints are unavailable (all known routes returned HTTP 404); keeping the indexed slice',
+    );
+    unavailable.status = 404;
+    unavailable.urls = notFoundUrls;
+    throw unavailable;
+  }
+
+  for (let page = 0; page < MAX_PAGES; page++) {
+    const startrow = page * PAGE_SIZE;
+    const pageUrl = startrow === 0 ? sourceUrl : `${sourceUrl}${startrow}/`;
+    let html;
+    try {
+      html = page === 0
+        ? firstPageHtml
+        : await fetchHtml(pageUrl, {
+            headers: { 'User-Agent': CRAWLER_UA, Accept: 'text/html,application/xhtml+xml' },
+            timeoutMs,
+          });
     } catch (err) {
       console.error(`❌ Listing fetch failed (startrow=${startrow}): ${err?.message || err}`);
       throw err;
@@ -303,7 +342,7 @@ async function fetchJobListings() {
     await new Promise((r) => setTimeout(r, 500));
   }
 
-  return out;
+  return { listings: out, sourceUrl };
 }
 
 /**
@@ -317,7 +356,7 @@ export async function fetchAllRolexJobs() {
   console.log(`🔍 Fetching Rolex jobs`);
   console.log(`   Source: ${CAREER_URL}\n`);
 
-  const listings = await fetchJobListings();
+  const { listings, sourceUrl } = await fetchJobListings();
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No job listings returned.');
     return [];
@@ -332,7 +371,7 @@ export async function fetchAllRolexJobs() {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const publicUrl = listing.url || CAREER_URL;
+    const publicUrl = listing.url || sourceUrl || CAREER_URL;
 
     // Enrich from the detail page (schema.org/JobPosting microdata):
     // datePosted, addressLocality, addressCountry, full description body.
