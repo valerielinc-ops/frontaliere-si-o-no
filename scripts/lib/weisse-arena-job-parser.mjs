@@ -41,6 +41,9 @@ const SITE_TECH_ID = 'PD6FK026203F3VBQBLO8NV79D';
 const API_BASE = 'https://emea3.recruitmentplatform.com/fo/rest/jobs';
 const DETAIL_BASE = 'https://www.weissearena.com/jobs/details.html';
 const PAGE_SIZE = 50;
+const LISTING_SNAPSHOT_MAX_ATTEMPTS = 3;
+const LISTING_SNAPSHOT_RETRY_DELAY_MS = 500;
+const PAGINATION_INCOMPLETE_ERROR_CODE = 'WEISSE_ARENA_PAGINATION_INCOMPLETE';
 
 const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
   || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
@@ -211,7 +214,7 @@ async function callTalentLinkApi(url, body = null) {
  * can return a stale or short count, so reaching that count is not an
  * end-of-list signal; an empty page after the boundary is required.
  */
-async function fetchJobListings() {
+async function fetchJobListingsOnce() {
   const allJobs = [];
   const seenListingIds = new Set();
   let declaredTotal = null;
@@ -253,9 +256,11 @@ async function fetchJobListings() {
 
     if (jobs.length === 0) {
       if (allJobs.length < declaredTotal) {
-        throw new Error(
+        const error = new Error(
           `Weisse Arena pagination incomplete: fetched ${allJobs.length}/${declaredTotal} declared jobs before an empty page.`,
         );
+        error.code = PAGINATION_INCOMPLETE_ERROR_CODE;
+        throw error;
       }
       break;
     }
@@ -301,6 +306,43 @@ async function fetchJobListings() {
   }
 
   return allJobs;
+}
+
+async function fetchJobListings({ minimumExpectedCount = 0 } = {}) {
+  const expectedCount = Number.isSafeInteger(minimumExpectedCount) && minimumExpectedCount > 0
+    ? minimumExpectedCount
+    : 0;
+  let lastError;
+
+  for (let attempt = 1; attempt <= LISTING_SNAPSHOT_MAX_ATTEMPTS; attempt += 1) {
+    try {
+      const listings = await fetchJobListingsOnce();
+      if (expectedCount === 0 || listings.length >= expectedCount || attempt === LISTING_SNAPSHOT_MAX_ATTEMPTS) {
+        return listings;
+      }
+
+      console.warn(
+        `⚠️ Weisse Arena listing snapshot returned ${listings.length}/${expectedCount} jobs; `
+          + `retrying attempt ${attempt + 1}/${LISTING_SNAPSHOT_MAX_ATTEMPTS}`,
+      );
+    } catch (error) {
+      lastError = error;
+      if (error?.code !== PAGINATION_INCOMPLETE_ERROR_CODE || attempt === LISTING_SNAPSHOT_MAX_ATTEMPTS) {
+        throw error;
+      }
+
+      console.warn(
+        `⚠️ Weisse Arena listing pagination was incomplete; `
+          + `retrying attempt ${attempt + 1}/${LISTING_SNAPSHOT_MAX_ATTEMPTS}`,
+      );
+    }
+
+    await new Promise((resolve) => {
+      setTimeout(resolve, LISTING_SNAPSHOT_RETRY_DELAY_MS * attempt);
+    });
+  }
+
+  throw lastError ?? new Error('Weisse Arena listing snapshot retry loop ended without a result');
 }
 
 /* ── Description Builder ──────────────────────────────────── */
@@ -349,11 +391,12 @@ export function buildDetailUrl(jobId, jobTitle = '') {
  * IMPORTANT: Only set source-locale fields. Other locales are filled
  * by the AI localization step and translate-pending pipeline.
  */
-export async function fetchAllWeisseArenaJobs() {
+export async function fetchAllWeisseArenaJobs({ existingJobs = [] } = {}) {
   console.log(`🔍 Fetching Weisse Arena Gruppe jobs`);
   console.log(`   Source: ${DETAIL_BASE}\n`);
 
-  const listings = await fetchJobListings();
+  const minimumExpectedCount = Array.isArray(existingJobs) ? existingJobs.length : 0;
+  const listings = await fetchJobListings({ minimumExpectedCount });
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No job listings returned from TalentLink API.');
     return [];
