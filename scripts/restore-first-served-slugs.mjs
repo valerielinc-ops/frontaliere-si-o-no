@@ -13,6 +13,7 @@ import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { cleanPreviousSlugsPerLocale } from './lib/dedicated-crawler-common.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { hasUsableJobId } from './lib/job-match-key.mjs';
@@ -280,7 +281,7 @@ async function main() {
   if (!countMatches) process.exitCode = 2;
 }
 
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+if (isInvokedDirectly(import.meta.url)) {
   main().catch((error) => {
     console.error(`[restore-first-served-slugs] ${error?.message || error}`);
     process.exitCode = 1;
