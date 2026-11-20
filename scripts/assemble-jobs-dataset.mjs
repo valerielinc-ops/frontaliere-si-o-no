@@ -1088,6 +1088,11 @@ export function assembleCacheFileContract({ withStats = false, withSummaries = t
  */
 export function isAssembleCacheManifestValid(manifest, expected) {
   if (!manifest || typeof manifest !== 'object' || Array.isArray(manifest)) return false;
+  if (typeof expected?.projectionOnly !== 'boolean') return false;
+  const manifestProjectionOnly = Object.prototype.hasOwnProperty.call(manifest, 'projectionOnly')
+    ? manifest.projectionOnly
+    : false;
+  if (typeof manifestProjectionOnly !== 'boolean') return false;
   if (!Array.isArray(manifest.snapshotFiles)
     || manifest.snapshotFiles.some((name) => typeof name !== 'string')) return false;
   const snapshotFileSet = new Set(manifest.snapshotFiles);
@@ -1100,7 +1105,7 @@ export function isAssembleCacheManifestValid(manifest, expected) {
     && manifest.withStats === expected.withStats
     && manifest.withSummaries === expected.withSummaries
     && manifest.withExpired === expected.withExpired
-    && manifest.projectionOnly === expected.projectionOnly
+    && manifestProjectionOnly === expected.projectionOnly
     && Number.isSafeInteger(manifest.fileCount)
     && manifest.fileCount === manifest.snapshotFiles.length
     && expected.requiredSnapshotFiles.every((name) => snapshotFileSet.has(name))

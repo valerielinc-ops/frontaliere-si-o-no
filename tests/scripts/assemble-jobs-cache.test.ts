@@ -327,9 +327,10 @@ describe('isAssembleCacheManifestValid', () => {
     withStats = true,
     withSummaries = true,
     withExpired = true,
+    projectionOnly = false,
     snapshotFiles,
   } = {}) {
-    const mode = { withStats, withSummaries, withExpired };
+    const mode = { withStats, withSummaries, withExpired, projectionOnly };
     const { inputFingerprint, cacheKey, includeTranslationHeld } = computeAssembleCacheKey(mode);
     const requiredSnapshotFiles = ['jobs.json', 'jobs-meta.json'];
     if (withExpired) requiredSnapshotFiles.push('expired-jobs.json');
@@ -364,6 +365,8 @@ describe('isAssembleCacheManifestValid', () => {
   it('accepts a complete manifest for the exact inputs, output version and mode', () => {
     const { manifest, expected } = snapshotFixture();
     expect(isAssembleCacheManifestValid(manifest, expected)).toBe(true);
+    const { projectionOnly: _legacyMissing, ...legacyFullManifest } = manifest;
+    expect(isAssembleCacheManifestValid(legacyFullManifest, expected)).toBe(true);
   });
 
   it('rejects a manifest from the other translation-held projection', () => {
