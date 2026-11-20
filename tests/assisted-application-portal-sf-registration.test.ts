@@ -165,8 +165,8 @@ const SF_ITALIAN_REGISTRATION = SF_REGISTRATION
   .replace('Career Opportunities: Create an Account', 'Opportunità di lavoro')
   .replace('Email Address: *', 'Indirizzo e-mail: *')
   .replace('Retype Email Address: *', 'Reinserire indirizzo email: *')
-  .replace('Choose Password: *', 'Scegliere la password: *')
-  .replace('Retype Password: *', 'Digitare di nuovo la password: *')
+  .replace('Choose Password: *</label>', 'Scegliere la password: * <button type="button">Mostra</button></label>')
+  .replace('Retype Password: *</label>', 'Digitare di nuovo la password: * <button type="button">Mostra</button></label>')
   .replace('First Name: *', 'Nome: *')
   .replace('Last Name: *', 'Cognome: *')
   .replace('Country/Region of Residence:*', 'Paese/Regione di residenza:*')
@@ -174,8 +174,7 @@ const SF_ITALIAN_REGISTRATION = SF_REGISTRATION
   .replace('Terms of Use:*', '')
   .replace('Read and accept the data privacy statement.', 'Leggere e accettare la dichiarazione di consenso al trattamento dei dati personali.')
   .replace('Create Account', 'Crea account')
-  .replace('</div>\n  <div><label for="p2">', '</div>\n  <button type="button">Mostra</button>\n  <div><label for="p2">')
-  .replace('</div>\n  <div><label for="first">', '</div>\n  <button type="button">Mostra</button>\n  <div><label for="first">')
+  .replace('id="p1" type="password"', 'id="p1" type="text"')
   .replace('id="p2" type="password"', 'id="p2" type="text"')
   .replace('<button type="button" id="create">', '<button type="button" id="create" disabled>');
 
@@ -200,11 +199,14 @@ function wireSuccessFactors(fixture: ReturnType<typeof fakePage>) {
     seen.sent = {
       email: element('email').value,
       email2: element('email2').value,
+      password: element('p1').value,
+      passwordRepeat: element('p2').value,
       country: element('country').value,
       notify: element('notify').checked,
       consent: element('consent').value,
     };
     if (element('consent').value !== '1' || !element('country').value || !element('email2').value
+      || !element('p1').value || !element('p2').value || element('p1').value !== element('p2').value
       || element('email2').value !== element('email').value) return;
     seen.created += 1;
     window.document.body.innerHTML = '<h1>Welcome</h1><form><label>First <input name="first"></label><button type="button">Next</button></form>';
@@ -271,7 +273,8 @@ describe('SuccessFactors registration: country, retyped e-mail, then the privacy
       expect(auth).toMatchObject({ kind: 'create', outcome: 'ok', privacy: 'accepted' });
       // The statement opened at the first click: the country was already chosen.
       expect(seen).toMatchObject({ noticeClicks: 1, opened: 1, accepted: 1, ctaClicks: 1, created: 1 });
-      expect(seen.sent).toEqual({ email: EMAIL, email2: EMAIL, country: 'IT', notify: false, consent: '1' });
+      expect(seen.sent).toEqual({ email: EMAIL, email2: EMAIL, password: expect.any(String), passwordRepeat: expect.any(String), country: 'IT', notify: false, consent: '1' });
+      expect(seen.sent.password).toBe(seen.sent.passwordRepeat);
       expect(accounts).toEqual(['save', 'mark:created']);
     });
 
@@ -284,7 +287,8 @@ describe('SuccessFactors registration: country, retyped e-mail, then the privacy
     expect(reason).not.toBe('account');
     expect(auth).toMatchObject({ kind: 'create', outcome: 'ok', privacy: 'accepted' });
     expect(seen).toMatchObject({ noticeClicks: 1, opened: 1, accepted: 1, ctaClicks: 1, created: 1 });
-    expect(seen.sent).toEqual({ email: EMAIL, email2: EMAIL, country: 'IT', notify: false, consent: '1' });
+    expect(seen.sent).toEqual({ email: EMAIL, email2: EMAIL, password: expect.any(String), passwordRepeat: expect.any(String), country: 'IT', notify: false, consent: '1' });
+    expect(seen.sent.password).toBe(seen.sent.passwordRepeat);
     expect(accounts).toEqual(['save', 'mark:created']);
   });
 });
@@ -301,6 +305,18 @@ describe('SuccessFactors password field signals', () => {
       const field = snapshot.fields.find((entry: any) => entry.domId === domId);
       expect(field).toMatchObject({ domId, inputType, value });
       expect(snapshot.passwordVisible).toBe(inputType === 'password');
+    }
+  });
+
+  it('ignores nested visibility buttons when a SuccessFactors password is rendered as text', () => {
+    const markup = `<label for="p1">Scegliere la password: * <button type="button">Mostra</button></label><input id="p1" type="text">
+      <label for="p2">Digitare di nuovo la password: * <button type="button">Mostra</button></label><input id="p2" type="text">`;
+    for (const snapshot of passwordSnapshots(markup)) {
+      expect(snapshot.fields.filter((field: any) => ['p1', 'p2'].includes(field.domId))).toEqual([
+        expect.objectContaining({ domId: 'p1', label: 'Scegliere la password: *', inputType: 'password', value: '' }),
+        expect.objectContaining({ domId: 'p2', label: 'Digitare di nuovo la password: *', inputType: 'password', value: '' }),
+      ]);
+      expect(snapshot.passwordVisible).toBe(true);
     }
   });
 });
