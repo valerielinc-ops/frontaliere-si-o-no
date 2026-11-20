@@ -85,7 +85,10 @@ import {
   dropLedgeredRetirements,
   isPreservedTreePath,
 } from './lib/corpus-local-preserve.mjs';
-import { stripAmbiguousPrePublicationUpdates } from './lib/article-registry-date-coherence.mjs';
+import {
+  applyPublishedArticleUpdates,
+  stripAmbiguousPrePublicationUpdates,
+} from './lib/article-registry-date-coherence.mjs';
 import {
   RETIRED_LOCALE_GROUPS_FILE,
   parseRetiredLocaleGroups,
@@ -254,6 +257,73 @@ async function fetchManifest(attempts = 3) {
   return null;
 }
 
+async function fetchPublishedRegistry({ apiArtifact, manifestCountKey }, manifest, attempts = 3) {
+  const expectedBytes = manifest?.files?.[apiArtifact];
+  const expectedCount = manifest?.counts?.[manifestCountKey];
+  if (!Number.isSafeInteger(expectedBytes) || expectedBytes <= 0) {
+    throw new Error(`${apiArtifact}: published manifest has no valid byte count`);
+  }
+  if (!Number.isSafeInteger(expectedCount) || expectedCount < 0) {
+    throw new Error(`${apiArtifact}: published manifest has no valid ${manifestCountKey} count`);
+  }
+
+  const url = `${ARTICLES_API_BASE}/${apiArtifact}`;
+  let lastError;
+  for (let attempt = 1; attempt <= attempts; attempt += 1) {
+    try {
+      const response = await fetchWithRefTimeout(url, { redirect: 'follow' });
+      const raw = await response.text();
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      if (Buffer.byteLength(raw, 'utf8') !== expectedBytes) {
+        throw new Error(`expected ${expectedBytes} bytes, received ${Buffer.byteLength(raw, 'utf8')}`);
+      }
+      const rows = JSON.parse(raw);
+      if (!Array.isArray(rows) || rows.length !== expectedCount) {
+        throw new Error(`expected ${expectedCount} rows, received ${Array.isArray(rows) ? rows.length : 'non-array'}`);
+      }
+      return rows;
+    } catch (error) {
+      lastError = error;
+      if (attempt < attempts) await new Promise((resolve) => setTimeout(resolve, 500 * attempt));
+    }
+  }
+  throw new Error(`${apiArtifact}: could not read pinned published registry (${lastError?.message})`);
+}
+
+async function fetchPublishedRegistries(manifest, target) {
+  const entries = await Promise.all(
+    ARTICLE_REGISTRY_CHUNK_CONFIGS.map(
+      async (config) => [config.file, await fetchPublishedRegistry(config, manifest)],
+    ),
+  );
+  const finalManifest = await fetchManifest(1);
+  const finalPin = pinVerdict({ pinned: target, manifestCommit: finalManifest?.commit });
+  if (!finalPin.ok) return { pin: finalPin, rowsByFile: null };
+
+  for (const [file, rows] of entries) {
+    const mismatched = rows.find((row) => row?.commit !== target);
+    if (mismatched) {
+      throw new Error(
+        `${file}: article '${mismatched?.id ?? '<unknown>'}' belongs to `
+        + `${mismatched?.commit ?? '<missing commit>'}, expected pinned release ${target}`,
+      );
+    }
+  }
+  return { pin: finalPin, rowsByFile: new Map(entries) };
+}
+
+function projectPublishedUpdates(contentRoot, rowsByFile) {
+  for (const { file } of ARTICLE_REGISTRY_CHUNK_CONFIGS) {
+    const absolute = path.join(contentRoot, file);
+    const source = fs.readFileSync(absolute, 'utf8');
+    const result = applyPublishedArticleUpdates(source, rowsByFile.get(file), absolute);
+    if (result.source !== source) fs.writeFileSync(absolute, result.source);
+    console.log(
+      `[pull-articles-corpus] ${file}: projected ${result.updatedIds.length} published updatedAt value(s)`,
+    );
+  }
+}
+
 /** Keep every generated article registry below TypeScript's inferred-union limit. */
 function splitArticleRegistries() {
   return ARTICLE_REGISTRY_CHUNK_CONFIGS.map((config) => {
@@ -366,6 +436,8 @@ function skipSync(reason) {
 
 if (!pin.ok) skipSync(pin.reason);
 const TARGET = pin.commit;
+const publishedRegistries = await fetchPublishedRegistries(manifest, TARGET);
+if (!publishedRegistries.pin.ok) skipSync(publishedRegistries.pin.reason);
 
 tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'articles-corpus-'));
 try {
@@ -410,6 +482,12 @@ try {
 
   const src = path.join(tmp, 'content');
   if (!fs.existsSync(src)) throw new Error(`upstream has no content/ on ${BRANCH}`);
+
+  // The TypeScript corpus stores publication metadata; the pinned HTTP
+  // registry adds freshness derived from body history. Project only that
+  // enriched field before mirroring so the local registry and sitemap compare
+  // the same modification clock while retaining the original publication date.
+  projectPublishedUpdates(src, publishedRegistries.rowsByFile);
 
   // The mirror is a generated-data boundary. Validate the incoming tree before
   // writing it so a later corpus sync cannot overwrite a repaired SEO tail
