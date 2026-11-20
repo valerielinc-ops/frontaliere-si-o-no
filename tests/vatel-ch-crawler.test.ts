@@ -28,6 +28,10 @@ describe('Restaurant & Hôtel Vatel crawler parser', () => {
       expect(isVatelChJob({ url: 'https://vatel.ch/jobs/123' })).toBe(true);
     });
 
+    it('rejects URL lookalikes outside the trusted domain', () => {
+      expect(isVatelChJob({ url: 'https://notvatel.ch/jobs/1' })).toBe(false);
+    });
+
     it('rejects unrelated jobs', () => {
       expect(isVatelChJob({ companyKey: 'other-company', company: 'Other', url: 'https://other.com/jobs' })).toBe(false);
     });

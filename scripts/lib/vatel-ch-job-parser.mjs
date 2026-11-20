@@ -62,7 +62,7 @@ export function isVatelChJob(job) {
     key === VATEL_CH_KEY ||
     key.startsWith('vatel-ch-') ||
     company.includes('restaurant & hôtel vatel') ||
-    url.includes('vatel.ch')
+    isTrustedDomain(url)
   );
 }
 
