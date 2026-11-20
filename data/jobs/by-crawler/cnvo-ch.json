@@ -103,7 +103,8 @@
       },
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-14T21:30:00.354Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.cnvo.ch/offres-demploi"
     }
   ]
 }
