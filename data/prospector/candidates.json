@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-11-20T15:41:43.759Z",
+  "updatedAt": "2026-11-20T15:43:13.101Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -1259888,12 +1259888,12 @@
     },
     "restaurant-hotel-vatel@martigny": {
       "key": "restaurant-hotel-vatel@martigny",
-      "status": "promoting",
+      "status": "awaiting_first_crawl",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-09-25T09:07:00.491Z",
-      "updatedAt": "2026-11-19T15:02:38.497Z",
+      "updatedAt": "2026-11-20T15:43:12.996Z",
       "name": "Restaurant & Hôtel Vatel",
       "city": "Martigny",
       "zip": "1920",
@@ -1260380,7 +1260380,13 @@
         }
       ],
       "promotionPr": "19499",
-      "promotionBranch": "prospector/promote-2026-11-19"
+      "promotionBranch": "prospector/promote-2026-11-19",
+      "promotedAt": "2026-11-20T13:36:08Z",
+      "firstCrawlerOutputStatus": "missing",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": null,
+      "firstCrawlerJobCount": 0
     },
     "restaurant-hotelbrueggli.ch": {
       "key": "restaurant-hotelbrueggli.ch",
@@ -1399197,7 +1399203,7 @@
         "web"
       ],
       "firstSeenAt": "2026-10-19T21:46:32.730Z",
-      "updatedAt": "2026-11-19T15:02:08.554Z",
+      "updatedAt": "2026-11-20T15:43:12.997Z",
       "name": "sintio",
       "domain": "sintio.ch",
       "careersUrl": "https://join.com/companies/sintio/16868238-technische-r-verkaufsberater-in-und-projektleiter-in-e-mobility",
@@ -1399418,7 +1399424,7 @@
       "firstCrawlerOutputStatus": "empty",
       "firstCrawlerOutputAttention": true,
       "firstCrawlerOutputReason": null,
-      "firstCrawlerOutputAt": "2026-11-18T21:53:03.475Z",
+      "firstCrawlerOutputAt": "2026-11-19T21:41:18.225Z",
       "firstCrawlerJobCount": 0,
       "firstCrawlerOutputAttentionAt": "2026-11-04T13:55:58.168Z"
     },
