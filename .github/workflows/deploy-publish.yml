@@ -2561,20 +2561,17 @@ jobs:
               echo "$section-$loc: BUILD_EMIT_SKIP=true — excluded from full-replace push (served by fast-publish only)"
               return 0
             fi
-            # A full-overlay ticino-fr push of 9.9 GB / 558,573 files completed
-            # in 2,524s (run 37728960699). A 60 min worker deadline leaves 18 min
-            # beyond that measured run for corpus growth while the 10 min cleanup
-            # grace handles child-process termination. Permanent GitHub tree-size
-            # rejections are caught by shard_report_largest_tree before upload, so
-            # they do not consume this deadline or repeat the same failed push.
-            # Timeout leaves the existing live/ok-marker fallback unchanged and
-            # does not change page output or indexing directives.
+            # Run 44646714334: zurigo-fr spent 3,498s before push (1,264s
+            # tree-fanout, 513s git-add, 427s CDN rewrite). The combined
+            # estimate with the slowest Zurich upload (427s) gets 1.5x.
+            # Ticino-fr finished in 3,351s and gets at least 1.5x.
+            # Four workers share the 360 min job limit. The FR job took
+            # 127 min in that run, including 64 min for zurigo-fr.
             timeout_seconds=3600
-            if [[ "$section-$loc" == "zurigo-fr" ]]; then
-              # Run 44646714334 spent 58 minutes preparing the full hash-v1
-              # overlay before the 60-minute deadline interrupted the push.
-              timeout_seconds=5400
-            fi
+            case "$section" in
+              zurigo) timeout_seconds=6000 ;;
+              ticino) timeout_seconds=5100 ;;
+            esac
             echo "[section-push] event=start locale=$loc section=$section timeout_seconds=$timeout_seconds cleanup_grace_seconds=600"
             if timeout --verbose --signal=TERM --kill-after=600s "${timeout_seconds}s" \
               node scripts/ci/with-shard-writer-lock.mjs \
