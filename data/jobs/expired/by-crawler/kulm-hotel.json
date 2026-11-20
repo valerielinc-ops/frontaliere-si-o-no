@@ -2879,6 +2879,12 @@
     },
     "sector": "Ospitalità / Hotellerie",
     "expiredAt": "2026-08-10T21:49:56.310Z",
+    "previousSlugs": [
+      "allrounder-wuhler-m-w-d-kulm-hotel-st-moritz-st-moritz-350e7f",
+      "allrounder-wuhler-m-w-d-kulm-hotel-st-moritz-st-moritz-350e7f-2295a211",
+      "allrounder-wuhler-m-w-d-kulm-hotel-st-moritz-st-moritz",
+      "tout-terrain-spuler-m-w-d-kulm-hotel-st-moritz-st-moritz-350e7f"
+    ],
     "previousSlugsByLocale": {
       "de": [
         "allrounder-wuhler-m-w-d-kulm-hotel-st-moritz-st-moritz-350e7f-2295a211",
@@ -2900,13 +2906,7 @@
     "salaryMin": 57500,
     "salaryMax": 87000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "previousSlugs": [
-      "allrounder-wuhler-m-w-d-kulm-hotel-st-moritz-st-moritz-350e7f",
-      "allrounder-wuhler-m-w-d-kulm-hotel-st-moritz-st-moritz-350e7f-2295a211",
-      "allrounder-wuhler-m-w-d-kulm-hotel-st-moritz-st-moritz",
-      "tout-terrain-spuler-m-w-d-kulm-hotel-st-moritz-st-moritz-350e7f"
-    ]
+    "salaryPeriod": "YEAR"
   },
   {
     "slug": "terapia-di-massaggio-m-w-d-kulm-hotel-st-moritz-st-moritz-e6c028",

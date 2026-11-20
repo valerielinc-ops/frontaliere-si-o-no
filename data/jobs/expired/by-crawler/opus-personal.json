@@ -3472,6 +3472,12 @@
     },
     "sector": "Altro",
     "expiredAt": "2026-11-15T09:45:30.029Z",
+    "previousSlugs": [
+      "grutier-suva-b-h-f-region-vs-valais-opus-personal-ch",
+      "gru-suv-b-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-vs-valais",
+      "suva-crane-b-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-vs-valais",
+      "suva-kran-b-m-w-opus-personal-ag-zweigniederlassung-altdorf-region-vs-valais"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "grutier-suva-b-h-f-region-vs-valais-opus-personal-ch-fdd1d57f",
@@ -3497,13 +3503,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://opus-personal.ch/aktuelle-jobs/job.aspx/v-102509/f-op",
-    "firstSeenAt": "2026-10-14T09:35:35.434Z",
-    "previousSlugs": [
-      "grutier-suva-b-h-f-region-vs-valais-opus-personal-ch",
-      "gru-suv-b-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-vs-valais",
-      "suva-crane-b-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-vs-valais",
-      "suva-kran-b-m-w-opus-personal-ag-zweigniederlassung-altdorf-region-vs-valais"
-    ]
+    "firstSeenAt": "2026-10-14T09:35:35.434Z"
   },
   {
     "slug": "impiegato-a-finanze-e-contabilita-a-100-opus-personal-ag-zweigniederlassung-altdorf-region-be-bern",
@@ -4076,7 +4076,14 @@
       "industrial-painter-automotive-painter-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern-d85c5472",
       "peintre-industriel-industrielle-peintre-automobile-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern-684326ef",
       "peintre-industriel-peintre-automobile-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern-29c46fa2",
-      "peintre-industriel-le-peintre-automobile-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern-0265e7ff"
+      "peintre-industriel-le-peintre-automobile-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern-0265e7ff",
+      "verniciatore-trice-industriale-verniciatore-trice-d-auto-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
+      "pittore-industriale-pittore-di-auto-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
+      "verniciatore-trice-industriale-verniciatore-trice-di-automobili-opus-personal-ag-zweigniederlassung-altdorf-region-lu",
+      "industrielackierer-in-autolackierer-in-region-lu-luzern-opus-personal-ch",
+      "industrial-painter-car-painter-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
+      "peintre-industriel-industrielle-peintre-automobile-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
+      "peintre-industriel-le-peintre-automobile-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern"
     ]
   },
   {

@@ -1426,7 +1426,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://job.post.ch/default/job/lehre-als-detailhandelsfachmann-frau-efz/73927-de_de",
-    "firstSeenAt": "2026-09-24T00:13:31.805Z"
+    "firstSeenAt": "2026-09-24T00:13:31.805Z",
+    "previousSlugs": [
+      "lehre-als-detailhandelsfachmann-frau-efz-post"
+    ]
   },
   {
     "slug": "addetto-a-alla-gestione-immobiliare-die-schweizerische-post-bern",
@@ -5313,7 +5316,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://job.post.ch/default/job/lehre-als-fachmann-frau-kundendialog-efz/73895-de_de",
-    "firstSeenAt": "2026-09-24T00:13:31.805Z"
+    "firstSeenAt": "2026-09-24T00:13:31.805Z",
+    "previousSlugs": [
+      "lehre-als-fachmann-frau-kundendialog-efz-post"
+    ]
   },
   {
     "slug": "apprendistato-come-automatiker-in-cfc-die-schweizerische-post-harkingen",
@@ -5935,7 +5941,8 @@
     "previousSlugs": [
       "zusteller-in-lettere-e-pacchi-die-schweizerische-post-lenzerheide-lai",
       "zusteller-in-briefe-und-pakete-post-2-fa38a3c3",
-      "zusteller-in-briefe-und-pakete-post-1ab9f4d5"
+      "zusteller-in-briefe-und-pakete-post-1ab9f4d5",
+      "zusteller-in-briefe-und-pakete-post-2"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -6011,7 +6018,8 @@
       ],
       "de": [
         "zusteller-in-briefe-und-pakete-post-3yedcx",
-        "zusteller-in-briefe-und-pakete-post-4"
+        "zusteller-in-briefe-und-pakete-post-4",
+        "zusteller-in-briefe-und-pakete-post-4-ee3133fa"
       ]
     },
     "postalCode": "3178",
@@ -8087,6 +8095,11 @@
     },
     "sector": "Servizi Postali",
     "expiredAt": "2026-10-06T21:58:36.811Z",
+    "previousSlugs": [
+      "zusteller-in-briefe-post",
+      "zusteller-in-briefe-post-2cd91f5c",
+      "zusteller-in-briefe-die-schweizerische-post-zurich-neumunster"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "zusteller-in-briefe-post-2cd91f5c",
@@ -8111,12 +8124,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe/74741-de_de",
-    "firstSeenAt": "2026-09-08T13:47:51.005Z",
-    "previousSlugs": [
-      "zusteller-in-briefe-post",
-      "zusteller-in-briefe-post-2cd91f5c",
-      "zusteller-in-briefe-die-schweizerische-post-zurich-neumunster"
-    ]
+    "firstSeenAt": "2026-09-08T13:47:51.005Z"
   },
   {
     "slug": "prozessmanager-in-digitalisierung-automatisierung-post",
@@ -11343,7 +11351,8 @@
       "de": [
         "zusteller-in-briefe-und-pakete-post-c6867234",
         "zusteller-in-briefe-und-pakete-post-2-22813c73",
-        "zusteller-in-briefe-und-pakete-post-3"
+        "zusteller-in-briefe-und-pakete-post-3",
+        "zusteller-in-briefe-und-pakete-post-3-d3cac94b"
       ]
     },
     "salaryMin": 57500,
@@ -11431,7 +11440,8 @@
     "previousSlugs": [
       "zusteller-in-lettere-e-pacchi-die-schweizerische-post-wohlen-b",
       "zusteller-in-briefe-und-pakete-post-2",
-      "zusteller-in-briefe-und-pakete-post-2-f1dd4027"
+      "zusteller-in-briefe-und-pakete-post-2-f1dd4027",
+      "zusteller-in-briefe-und-pakete-post"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -11579,6 +11589,11 @@
     },
     "sector": "Servizi Postali",
     "expiredAt": "2026-08-04",
+    "previousSlugs": [
+      "zusteller-in-briefe-und-pakete-post-e69fff8c",
+      "zusteller-in-briefe-und-pakete-post-2",
+      "zusteller-in-briefe-und-pakete-post"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "zusteller-in-briefe-und-pakete-post-e69fff8c",
@@ -11604,10 +11619,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74118-de_de",
-    "firstSeenAt": "2026-08-18T09:53:33.507Z",
-    "previousSlugs": [
-      "zusteller-in-briefe-und-pakete-post-e69fff8c"
-    ]
+    "firstSeenAt": "2026-08-18T09:53:33.507Z"
   },
   {
     "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-ehrendingen",
@@ -11676,7 +11688,9 @@
       "zusteller-in-briefe-und-pakete-post-5-e0523e31",
       "zusteller-in-briefe-und-pakete-post-6-09ff5215",
       "zusteller-in-lettere-e-pacchi-die-schweizerische-post-schoftland-4408c6fc",
-      "zusteller-in-briefe-und-pakete-post-73cfbbd5"
+      "zusteller-in-briefe-und-pakete-post-73cfbbd5",
+      "zusteller-in-briefe-und-pakete-post-2",
+      "zusteller-in-briefe-und-pakete-post"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -11720,7 +11734,8 @@
         "zusteller-in-lettere-e-pacchi-die-schweizerische-post-schoftland",
         "zusteller-in-briefe-und-pakete-post-73cfbbd5",
         "zusteller-in-briefe-und-pakete-post",
-        "zusteller-in-briefe-und-pakete-post-2"
+        "zusteller-in-briefe-und-pakete-post-2",
+        "zusteller-in-lettere-e-pacchi-die-schweizerische-post-schoftland-4408c6fc"
       ],
       "fr": [
         "zusteller-in-briefe-und-pakete-die-schweizerische-post-ehrendingen",
@@ -11733,7 +11748,8 @@
         "zusteller-in-lettere-e-pacchi-die-schweizerische-post-schoftland",
         "zusteller-in-briefe-und-pakete-post-73cfbbd5",
         "zusteller-in-briefe-und-pakete-post",
-        "zusteller-in-briefe-und-pakete-post-2"
+        "zusteller-in-briefe-und-pakete-post-2",
+        "zusteller-in-lettere-e-pacchi-die-schweizerische-post-schoftland-4408c6fc"
       ],
       "de": [
         "zusteller-in-lettere-e-pacchi-die-schweizerische-post-gunten",
@@ -11743,7 +11759,8 @@
         "zusteller-in-briefe-und-pakete-post-6",
         "zusteller-in-lettere-e-pacchi-die-schweizerische-post-schoftland",
         "zusteller-in-briefe-und-pakete-post-73cfbbd5",
-        "zusteller-in-briefe-und-pakete-post-2-34bf0118"
+        "zusteller-in-briefe-und-pakete-post-2-34bf0118",
+        "zusteller-in-lettere-e-pacchi-die-schweizerische-post-schoftland-4408c6fc"
       ]
     },
     "salaryMin": 62000,

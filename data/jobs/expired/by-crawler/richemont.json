@@ -16673,6 +16673,15 @@
     },
     "sector": "Lusso / Orologeria",
     "expiredAt": "2026-08-13T09:45:10.727Z",
+    "previousSlugs": [
+      "responsabile-d-atelier-panerai-neuchatel",
+      "workshopleiter-panerai-neuchatel",
+      "responsable-d-ateliers-richemont-neuchatel",
+      "workshop-manager-panerai-neuchatel",
+      "responsabile-d-atelier-panerai-neuchatel-744ff6ac",
+      "workshopleiter-panerai-neuchatel-0d1666a2",
+      "responsabile-del-workshop-panerai-neuchatel"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "responsable-d-ateliers-richemont-neuchatel-b8dd9c3e",
@@ -16706,16 +16715,7 @@
     "salaryMin": 60500,
     "salaryMax": 91500,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "previousSlugs": [
-      "responsabile-d-atelier-panerai-neuchatel",
-      "workshopleiter-panerai-neuchatel",
-      "responsable-d-ateliers-richemont-neuchatel",
-      "workshop-manager-panerai-neuchatel",
-      "responsabile-d-atelier-panerai-neuchatel-744ff6ac",
-      "workshopleiter-panerai-neuchatel-0d1666a2",
-      "responsabile-del-workshop-panerai-neuchatel"
-    ]
+    "salaryPeriod": "YEAR"
   },
   {
     "slug": "tirocinio-ingegneria-dei-test-ai-ispezione-superfici-80-100-iwc-schaffhausen",

@@ -10366,10 +10366,7 @@
       "consegna-dei-pacchi-m-f-d-planzer-schmerikon-9cd6aaf8",
       "parcel-delivery-m-f-d-planzer-schmerikon-bb8e2aae",
       "livraison-de-colis-m-f-d-planzer-schmerikon-1fcdae2d",
-      "package-delivery-m-f-d-planzer-schmerikon",
       "livraison-de-colis-h-f-d-planzer-schmerikon-6716e7dd",
-      "directeur-du-personnel-h-f-d-planzer-schmerikon",
-      "detenteur-m-w-d-planzer-schmerikon",
       "package-delivery-m-f-d-planzer-schmerikon-be59dc4e",
       "traduzione-m-f-d-planzer-schmerikon",
       "detenteur-h-f-d-planzer-schmerikon",
@@ -10382,7 +10379,10 @@
       "livraison-de-colis-m-f-d-planzer-schmerikon",
       "personnel-manager-m-f-d-planzer-schmerikon",
       "directeur-du-personnel-h-f-d-planzer-schmerikon-b8528bea",
-      "detenteur-m-w-d-planzer-schmerikon-81203910"
+      "detenteur-m-w-d-planzer-schmerikon-81203910",
+      "package-delivery-m-f-d-planzer-schmerikon",
+      "directeur-du-personnel-h-f-d-planzer-schmerikon",
+      "detenteur-m-w-d-planzer-schmerikon"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -10401,8 +10401,8 @@
         "consegna-dei-pacchi-m-f-d-planzer-schmerikon-9cd6aaf8",
         "parcel-delivery-m-f-d-planzer-schmerikon-bb8e2aae",
         "livraison-de-colis-m-f-d-planzer-schmerikon-1fcdae2d",
-        "package-delivery-m-f-d-planzer-schmerikon",
         "livraison-de-colis-h-f-d-planzer-schmerikon-6716e7dd",
+        "package-delivery-m-f-d-planzer-schmerikon",
         "directeur-du-personnel-h-f-d-planzer-schmerikon",
         "detenteur-m-w-d-planzer-schmerikon"
       ],
@@ -10425,7 +10425,8 @@
         "livraison-de-colis-m-f-d-planzer-schmerikon",
         "livraison-de-colis-h-f-d-planzer-schmerikon-6716e7dd",
         "directeur-du-personnel-h-f-d-planzer-schmerikon",
-        "detenteur-m-w-d-planzer-schmerikon"
+        "detenteur-m-w-d-planzer-schmerikon",
+        "package-delivery-m-f-d-planzer-schmerikon"
       ],
       "fr": [
         "disponent-stuckgut-m-w-d-planzer-schmerikon",
@@ -10446,7 +10447,9 @@
         "personnel-manager-m-f-d-planzer-schmerikon",
         "consegna-dei-pacchi-m-f-d-planzer-schmerikon",
         "parcel-delivery-m-f-d-planzer-schmerikon-bb8e2aae",
-        "package-delivery-m-f-d-planzer-schmerikon"
+        "package-delivery-m-f-d-planzer-schmerikon",
+        "directeur-du-personnel-h-f-d-planzer-schmerikon",
+        "detenteur-m-w-d-planzer-schmerikon"
       ],
       "de": [
         "disponent-m-w-d-planzer-schmerikon-c5873daf",
