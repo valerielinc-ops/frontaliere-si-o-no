@@ -1,7 +1,7 @@
 {
   "crawlerKey": "komax",
-  "assembledAt": "2026-11-20T10:01:05.865Z",
-  "runId": "44710011048",
+  "assembledAt": "2026-11-20T21:45:42.813Z",
+  "runId": "44819798367",
   "jobs": [
     {
       "id": "komax-f833e8d3c42f",
@@ -34,7 +34,7 @@
       "url": "https://jobs.komaxgroup.com/job/Thun-Technical-Sales-Engineer-80-100-%28mw%29-3608/1165611355/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T10:00:57.818Z",
+      "crawledAt": "2026-11-20T21:45:34.181Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "Thun",
@@ -81,7 +81,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T10:00:57.818Z",
+      "validThrough": "2027-01-12T21:45:34.181Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.komaxgroup.com/job/thun-technical-sales-engineer-80-100-%28mw%29-3608/1165611355"
     },
@@ -183,7 +183,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-23T10:00:57.817Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.komaxgroup.com/job/dierikon-lead-group-it-service-desk-%28wmd%29-6036/1165481055"
+      "sourceIdentity": "url:https://jobs.komaxgroup.com/job/dierikon-lead-group-it-service-desk-%28wmd%29-6036/1165481055",
+      "crawlerMissStreak": 1
     },
     {
       "id": "komax-925f9fb150d6",
@@ -216,7 +217,7 @@
       "url": "https://jobs.komaxgroup.com/job/Thun-Technical-Service-Support-80-100-%28mw%29-3608/1165469655/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T10:00:57.818Z",
+      "crawledAt": "2026-11-20T21:45:34.178Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "Thun",
@@ -267,7 +268,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T10:00:57.818Z",
+      "validThrough": "2026-12-20T21:45:34.178Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.komaxgroup.com/job/thun-technical-service-support-80-100-%28mw%29-3608/1165469655"
     },
@@ -358,6 +359,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-21T10:00:57.817Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 2,
       "sourceIdentity": "url:https://jobs.komaxgroup.com/job/dierikon-facility-manager-%28wmd%29-6036/1165472755"
     },
     {
@@ -391,7 +393,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Global-Supply-Chain-&-Logistics-Manager-80-100-%28mwd%29-6036/1165813055/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T10:00:57.815Z",
+      "crawledAt": "2026-11-20T21:45:34.177Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -445,7 +447,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-15T10:00:57.815Z",
+      "validThrough": "2027-02-15T21:45:34.177Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.komaxgroup.com/job/dierikon-global-supply-chain-&-logistics-manager-80-100-%28mwd%29-6036/1165813055"
     },
@@ -480,7 +482,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Elektroingenieur-Antriebstechnik-80-100-%28mwd%29-6036/1165827155/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T10:00:57.816Z",
+      "crawledAt": "2026-11-20T21:45:34.174Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -530,7 +532,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-17T10:00:57.816Z",
+      "validThrough": "2027-02-16T21:45:34.174Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.komaxgroup.com/job/dierikon-elektroingenieur-antriebstechnik-80-100-%28mwd%29-6036/1165827155"
     },
@@ -612,7 +614,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-13T10:00:57.814Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.komaxgroup.com/job/dierikon-product-manager-forming-&-taping-80-100-%28mwd%29-6036/1165799955"
+      "sourceIdentity": "url:https://jobs.komaxgroup.com/job/dierikon-product-manager-forming-&-taping-80-100-%28mwd%29-6036/1165799955",
+      "crawlerMissStreak": 1
     },
     {
       "id": "komax-ac5f2370de5e",
@@ -645,7 +648,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Group-Procurement-Category-Manager-Indirects-80-100-%28mwd%29-6036/1165812055/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T10:00:57.815Z",
+      "crawledAt": "2026-11-20T21:45:34.182Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -690,7 +693,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-15T10:00:57.815Z",
+      "validThrough": "2027-02-15T21:45:34.182Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-17T09:35:15.930Z",
       "sourceIdentity": "url:https://jobs.komaxgroup.com/job/dierikon-group-procurement-category-manager-indirects-80-100-%28mwd%29-6036/1165812055"
@@ -805,7 +808,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Specialist-Export-&-Internal-Sales-Parts-%28mwd%29-Befristet-bis-Ende-2027-6036/1165791355/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T10:00:57.812Z",
+      "crawledAt": "2026-11-20T21:45:34.173Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -857,7 +860,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-11T10:00:57.812Z",
+      "validThrough": "2027-02-10T21:45:34.173Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.komaxgroup.com/job/dierikon-specialist-export-&-internal-sales-parts-%28mwd%29-befristet-bis-ende-2027-6036/1165791355"
     },
@@ -892,7 +895,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Specialist-Internal-Sales-Equipment-%28mwd%29-Befristet-bis-Ende-2027-6036/1165756355/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T10:00:57.811Z",
+      "crawledAt": "2026-11-20T21:45:34.182Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -942,7 +945,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-05T10:00:57.811Z",
+      "validThrough": "2027-02-05T21:45:34.182Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.komaxgroup.com/job/dierikon-specialist-internal-sales-equipment-%28mwd%29-befristet-bis-ende-2027-6036/1165756355"
     },
@@ -977,7 +980,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Specialist-Operations-Planning-%28mwd%29-Befristet-bis-Ende-2027-6036/1165756155/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T10:00:57.810Z",
+      "crawledAt": "2026-11-20T21:45:34.172Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -1027,7 +1030,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-05T10:00:57.810Z",
+      "validThrough": "2027-02-05T21:45:34.172Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.komaxgroup.com/job/dierikon-specialist-operations-planning-%28mwd%29-befristet-bis-ende-2027-6036/1165756155"
     },
@@ -1062,7 +1065,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Monteurin-Assembly-Engineer-%28mwd%29-6036/1165754455/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T10:00:57.819Z",
+      "crawledAt": "2026-11-20T21:45:34.179Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -1109,7 +1112,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-05T10:00:57.819Z",
+      "validThrough": "2027-02-05T21:45:34.179Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.komaxgroup.com/job/dierikon-monteurin-assembly-engineer-%28mwd%29-6036/1165754455"
     },
@@ -1144,7 +1147,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Automatikerin-Assembly-Engineer-%28mwd%29-6036/1165755255/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T10:00:57.810Z",
+      "crawledAt": "2026-11-20T21:45:34.180Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -1194,7 +1197,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-05T10:00:57.810Z",
+      "validThrough": "2027-02-05T21:45:34.180Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.komaxgroup.com/job/dierikon-automatikerin-assembly-engineer-%28mwd%29-6036/1165755255"
     },
@@ -1229,7 +1232,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Quality-Assurance-Manager-%28mwd%29-6036/1165721655/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T10:00:57.808Z",
+      "crawledAt": "2026-11-20T21:45:34.178Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -1276,7 +1279,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T10:00:57.808Z",
+      "validThrough": "2027-02-01T21:45:34.178Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.komaxgroup.com/job/dierikon-quality-assurance-manager-%28mwd%29-6036/1165721655"
     },
@@ -1311,7 +1314,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Team-Leader-CRM-Applications-100-%28mwd%29-6036/1165799355/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T10:27:57.820Z",
+      "crawledAt": "2026-11-20T21:45:34.176Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -1357,7 +1360,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-12T10:27:57.820Z",
+      "validThrough": "2027-02-11T21:45:34.176Z",
       "validThroughSource": "last-observed-window",
       "crawlerMissStreak": 1,
       "sourceIdentity": "url:https://jobs.komaxgroup.com/job/dierikon-team-leader-crm-applications-100-%28mwd%29-6036/1165799355"
@@ -1393,7 +1396,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Facility-Manager-%28wmd%29-6036/1165472855/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:27:57.816Z",
+      "crawledAt": "2026-11-20T21:45:34.177Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -1457,7 +1460,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-21T10:27:57.816Z",
+      "validThrough": "2026-12-20T21:45:34.177Z",
       "validThroughSource": "last-observed-window",
       "crawlerMissStreak": 1,
       "sourceIdentity": "url:https://jobs.komaxgroup.com/job/dierikon-facility-manager-%28wmd%29-6036/1165472855"

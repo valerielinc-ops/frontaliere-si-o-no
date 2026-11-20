@@ -1,7 +1,7 @@
 {
   "crawlerKey": "mikron",
-  "assembledAt": "2026-11-20T09:58:13.737Z",
-  "runId": "44710011048",
+  "assembledAt": "2026-11-20T21:41:37.592Z",
+  "runId": "44819798367",
   "jobs": [
     {
       "url": "https://www.mikron.com/en/hr-operations-leader-mfd",
@@ -34,7 +34,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-20T09:57:15.639Z",
+      "crawledAt": "2026-11-20T21:40:47.262Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -48,7 +48,7 @@
       "addressLocality": "Boudry",
       "addressRegion": "NE",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-17T09:57:15.639Z",
+      "validThrough": "2027-02-16T21:40:47.262Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -102,7 +102,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-20T09:57:18.047Z",
+      "crawledAt": "2026-11-20T21:40:49.802Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -115,7 +115,7 @@
       "addressLocality": "Agno",
       "addressRegion": "TI",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T09:57:18.047Z",
+      "validThrough": "2027-01-28T21:40:49.802Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -169,7 +169,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-20T09:57:19.255Z",
+      "crawledAt": "2026-11-20T21:40:51.169Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -182,7 +182,7 @@
       "addressLocality": "Agno",
       "addressRegion": "TI",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-18T09:57:19.255Z",
+      "validThrough": "2027-01-18T21:40:51.169Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 58000,
       "salaryMax": 88000,
@@ -265,7 +265,8 @@
           "unitText": "YEAR"
         }
       },
-      "sourceIdentity": "url:https://www.mikron.com/en/production-planning-analyst-ordonnanceur-fmd"
+      "sourceIdentity": "url:https://www.mikron.com/en/production-planning-analyst-ordonnanceur-fmd",
+      "crawlerMissStreak": 1
     },
     {
       "url": "https://www.mikron.com/en/team-leader-dei-reparti-di-supporto-alla-produzione",
@@ -303,7 +304,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-20T09:57:22.970Z",
+      "crawledAt": "2026-11-20T21:40:55.041Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -316,7 +317,7 @@
       "addressLocality": "Agno",
       "addressRegion": "TI",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-08T09:57:22.970Z",
+      "validThrough": "2027-01-07T21:40:55.041Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -407,7 +408,8 @@
           "unitText": "YEAR"
         }
       },
-      "sourceIdentity": "url:https://www.mikron.com/en/electrical-software-engineer-mfd"
+      "sourceIdentity": "url:https://www.mikron.com/en/electrical-software-engineer-mfd",
+      "crawlerMissStreak": 1
     },
     {
       "url": "https://www.mikron.com/en/polymecanic-team-leader",
@@ -474,7 +476,124 @@
           "unitText": "YEAR"
         }
       },
-      "sourceIdentity": "url:https://www.mikron.com/en/polymecanic-team-leader"
+      "sourceIdentity": "url:https://www.mikron.com/en/polymecanic-team-leader",
+      "crawlerMissStreak": 1
+    },
+    {
+      "url": "https://www.mikron.com/en/application-engineering-manager-mfd",
+      "applyUrl": "https://www.mikron.com/en/application-engineering-manager-mfd",
+      "title": "Application Engineering Manager (m/f/d)",
+      "company": "Mikron Group",
+      "companyKey": "mikron",
+      "location": "Boudry",
+      "canton": "NE",
+      "country": "CH",
+      "postalCode": "2017",
+      "streetAddress": "Route du Vignoble 17, 2017 Boudry",
+      "description": "The Application Engineering Manager is responsible for leading and developing the Application Engineering team, which serves as the primary technical support function for the sales organization. The role ensures the successful execution of application engineering activities, team performance, and achievement of business objectives.\nWorking closely with local management, the sales force, and the project execution organization, the Application Engineering Manager plays a key role in both project acquisition and project execution by ensuring the development of competitive, technically sound, and cost-effective assembly solutions.\nKey responsabilities\n• Lead, coach, and develop the Application Engineering team to ensure high performance, collaboration, and continuous improvement.\n• Support and guide the team in reviewing customer specifications and requirements.\n• Ensure the development of innovative, competitive, and technically feasible assembly solutions.\n• Oversee customer product design support activities and feasibility studies.\n• Coordinate the preparation of subsystem quotations, project cost calculations, and commercial proposals.\n• Validate technical concepts, project costings, and quotations before submission to customers.\n• Critically review and challenge proposed solutions to ensure technical feasibility, competitiveness, profitability, and alignment with customer expectations.\n• Develop and maintain a high level of product, process, and market knowledge within the team.\n• Coordinate activities between Application Engineering, Sales, Project Management, Engineering, and other internal departments.\n• Collaborate closely with the Sales Director to prioritize customer opportunities, projects, and internal initiatives, ensuring optimal resource allocation.\n• Monitor team workload, project progress, and performance indicators.\n• Report progress, results, risks, and improvement opportunities to local management.\n• Contribute to the continuous improvement of application engineering processes, tools, and methodologies.\n• Support strategic business development initiatives by contributing technical expertise during customer discussions and project acquisition phases.\n\nCore Behavioral Competencies\n• Technical proficiency\n• Promise Keeping\n• Market awareness\n• Confidentiality & discretion\n• Goal achievement\n\nFunctional Competencies\n• Emotional Intelligence\n• Accountability\n• Problem-solving\n• Product & process optimization\n\nLeadership Competencies\n• Team Development\n\nProfile\n• Engineering degree (Mechanical, Electrical, Automation Engineering, or equivalent).\n• Proven experience in a manufacturing or industrial engineering environment, including a first successful people management experience.\n• Fluent in English (written and spoken); French and/or German is an asset.\n• Experience collaborating with customers and sales teams in a technical environment.\n• Experience in developing assembly solutions and conducting technical feasibility assessments.\n• Solid understanding of mechanical, electrical, control, and assembly technologies.\n• Good knowledge of industrial automation solutions and manufacturing processes.\n• Ability to evaluate technical feasibility and develop competitive customer-focused solutions.\n• Strong coordination and cross-functional collaboration skills.\n\nWhat we offer\n• A key leadership role at the interface between Sales, Engineering, Project Execution, and Customers.\n• The opportunity to lead a team developing innovative solutions for complex industrial and automation challenges.\n• A strategic contribution to project acquisition and business growth through technical excellence and customer engagement.\n• Exposure to international projects and cutting-edge assembly technologies.\n• A collaborative and multidisciplinary working environment with close interaction across multiple functions.\n• A company culture focused on innovation, continuous improvement, accountability, and customer satisfaction.\n• Opportunities for professional",
+      "descriptionByLocale": {
+        "en": "The Application Engineering Manager is responsible for leading and developing the Application Engineering team, which serves as the primary technical support function for the sales organization. The role ensures the successful execution of application engineering activities, team performance, and achievement of business objectives.\nWorking closely with local management, the sales force, and the project execution organization, the Application Engineering Manager plays a key role in both project acquisition and project execution by ensuring the development of competitive, technically sound, and cost-effective assembly solutions.\nKey responsabilities\n• Lead, coach, and develop the Application Engineering team to ensure high performance, collaboration, and continuous improvement.\n• Support and guide the team in reviewing customer specifications and requirements.\n• Ensure the development of innovative, competitive, and technically feasible assembly solutions.\n• Oversee customer product design support activities and feasibility studies.\n• Coordinate the preparation of subsystem quotations, project cost calculations, and commercial proposals.\n• Validate technical concepts, project costings, and quotations before submission to customers.\n• Critically review and challenge proposed solutions to ensure technical feasibility, competitiveness, profitability, and alignment with customer expectations.\n• Develop and maintain a high level of product, process, and market knowledge within the team.\n• Coordinate activities between Application Engineering, Sales, Project Management, Engineering, and other internal departments.\n• Collaborate closely with the Sales Director to prioritize customer opportunities, projects, and internal initiatives, ensuring optimal resource allocation.\n• Monitor team workload, project progress, and performance indicators.\n• Report progress, results, risks, and improvement opportunities to local management.\n• Contribute to the continuous improvement of application engineering processes, tools, and methodologies.\n• Support strategic business development initiatives by contributing technical expertise during customer discussions and project acquisition phases.\n\nCore Behavioral Competencies\n• Technical proficiency\n• Promise Keeping\n• Market awareness\n• Confidentiality & discretion\n• Goal achievement\n\nFunctional Competencies\n• Emotional Intelligence\n• Accountability\n• Problem-solving\n• Product & process optimization\n\nLeadership Competencies\n• Team Development\n\nProfile\n• Engineering degree (Mechanical, Electrical, Automation Engineering, or equivalent).\n• Proven experience in a manufacturing or industrial engineering environment, including a first successful people management experience.\n• Fluent in English (written and spoken); French and/or German is an asset.\n• Experience collaborating with customers and sales teams in a technical environment.\n• Experience in developing assembly solutions and conducting technical feasibility assessments.\n• Solid understanding of mechanical, electrical, control, and assembly technologies.\n• Good knowledge of industrial automation solutions and manufacturing processes.\n• Ability to evaluate technical feasibility and develop competitive customer-focused solutions.\n• Strong coordination and cross-functional collaboration skills.\n\nWhat we offer\n• A key leadership role at the interface between Sales, Engineering, Project Execution, and Customers.\n• The opportunity to lead a team developing innovative solutions for complex industrial and automation challenges.\n• A strategic contribution to project acquisition and business growth through technical excellence and customer engagement.\n• Exposure to international projects and cutting-edge assembly technologies.\n• A collaborative and multidisciplinary working environment with close interaction across multiple functions.\n• A company culture focused on innovation, continuous improvement, accountability, and customer satisfaction.\n• Opportunities for professional"
+      },
+      "titleByLocale": {
+        "en": "Application Engineering Manager (m/f/d)"
+      },
+      "slugByLocale": {
+        "en": "application-engineering-manager-m-f-d-mikron"
+      },
+      "slug": "application-engineering-manager-m-f-d-mikron",
+      "sourceLang": "en",
+      "category": "technology",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-11-20T21:40:45.978Z",
+      "source": "mikron-html-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "SENIOR",
+      "sector": "Manifattura / Precision Manufacturing",
+      "_targetScope": {
+        "canton": "NE",
+        "location": "Boudry"
+      },
+      "needsRetranslation": true,
+      "addressLocality": "Boudry",
+      "addressRegion": "NE",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-18T21:40:45.978Z",
+      "validThroughSource": "last-observed-window",
+      "salaryMin": 97000,
+      "salaryMax": 165000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 97000,
+          "maxValue": 165000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-11-20T21:40:45.978Z"
+    },
+    {
+      "url": "https://www.mikron.com/en/production-planning-analyst-mfd",
+      "applyUrl": "https://www.mikron.com/en/production-planning-analyst-mfd",
+      "title": "Production Planning Analyst (m/f/d)",
+      "company": "Mikron Group",
+      "companyKey": "mikron",
+      "location": "Boudry",
+      "canton": "NE",
+      "country": "CH",
+      "postalCode": "2017",
+      "streetAddress": "Route du Vignoble 17, 2017 Boudry",
+      "description": "Making complexity accessible\nMikron Automation is your worldwide partner for advanced automation solutions. At Mikron we are committed to delivering the best assembly systems and all needed services throughout your product’s entire life cycle. With our extensive engineering know-how, complex process expertise, scalable platforms, and lifelong support we are driving lasting success for your business.\nJob Description\nThe Production Planning Analyst ensures the feasibility and execution of the production plan, taking into account customer priorities, capacity constraints, and material availability. They anticipate risks and secure customer demand. They optimize the use of resources and storage space while meeting customer delivery dates.\nKey Responsibilities\n• Prepare the weekly and daily workload plan for each workshop\n• Facilitate and lead meetings with the workshops\n• Release production orders according to the workload plan defined and approved by the stakeholders\n• Monitor the progress of production orders and support the workshops in the event of a blockage\n• Identify workshop delays and deviations from customer demand\n• Anticipate critical shortages and manage safety buffers in collaboration with the relevant departments\n• Reschedule in the event of unforeseen circumstances or changes in demand, in accordance with established priority rules\n• Monitor changes in workshop capacity and anticipate bottlenecks\n• Analyze differences between planned and actual results\n• Conduct scenario analyses based on demand forecasts\n\nRequired Qualifications\n• Higher education qualification (ES or HES) in Supply Chain Management\n• Experience in production scheduling and planning\n• Languages: French and English required\n• Organized, thorough, and methodical\n• Strong analytical skills and a highly developed ability to anticipate\n• Strong problem-solving skills and attention to detail\n• Excellent communication skills in a collaborative environment\n• Experience with SAP ERP is an advantage",
+      "descriptionByLocale": {
+        "en": "Making complexity accessible\nMikron Automation is your worldwide partner for advanced automation solutions. At Mikron we are committed to delivering the best assembly systems and all needed services throughout your product’s entire life cycle. With our extensive engineering know-how, complex process expertise, scalable platforms, and lifelong support we are driving lasting success for your business.\nJob Description\nThe Production Planning Analyst ensures the feasibility and execution of the production plan, taking into account customer priorities, capacity constraints, and material availability. They anticipate risks and secure customer demand. They optimize the use of resources and storage space while meeting customer delivery dates.\nKey Responsibilities\n• Prepare the weekly and daily workload plan for each workshop\n• Facilitate and lead meetings with the workshops\n• Release production orders according to the workload plan defined and approved by the stakeholders\n• Monitor the progress of production orders and support the workshops in the event of a blockage\n• Identify workshop delays and deviations from customer demand\n• Anticipate critical shortages and manage safety buffers in collaboration with the relevant departments\n• Reschedule in the event of unforeseen circumstances or changes in demand, in accordance with established priority rules\n• Monitor changes in workshop capacity and anticipate bottlenecks\n• Analyze differences between planned and actual results\n• Conduct scenario analyses based on demand forecasts\n\nRequired Qualifications\n• Higher education qualification (ES or HES) in Supply Chain Management\n• Experience in production scheduling and planning\n• Languages: French and English required\n• Organized, thorough, and methodical\n• Strong analytical skills and a highly developed ability to anticipate\n• Strong problem-solving skills and attention to detail\n• Excellent communication skills in a collaborative environment\n• Experience with SAP ERP is an advantage"
+      },
+      "titleByLocale": {
+        "en": "Production Planning Analyst (m/f/d)"
+      },
+      "slugByLocale": {
+        "en": "production-planning-analyst-m-f-d-mikron"
+      },
+      "slug": "production-planning-analyst-m-f-d-mikron",
+      "sourceLang": "en",
+      "category": "production",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-11-20T21:40:53.738Z",
+      "source": "mikron-html-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Manifattura / Precision Manufacturing",
+      "_targetScope": {
+        "canton": "NE",
+        "location": "Boudry"
+      },
+      "needsRetranslation": true,
+      "addressLocality": "Boudry",
+      "addressRegion": "NE",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-18T21:40:53.738Z",
+      "validThroughSource": "last-observed-window",
+      "salaryMin": 71000,
+      "salaryMax": 107500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 71000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-11-20T21:40:53.738Z"
     }
   ]
 }
