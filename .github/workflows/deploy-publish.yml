@@ -3956,6 +3956,7 @@ jobs:
       actions: read
       statuses: read
     outputs:
+      locale_artifact_run_ids: ${{ steps.artifact-runs.outputs.locale_artifact_run_ids }}
       allowed: ${{ steps.plan.outputs.allowed }}
       healthy_locales: ${{ steps.plan.outputs.healthy_locales }}
       stale_locales: ${{ steps.plan.outputs.stale_locales }}
@@ -4017,6 +4018,19 @@ jobs:
             --tail-locales "$TAIL_LOCALES" \
             --durable-published-locales "$DURABLE_PUBLISHED_LOCALES" \
             --github-output "$GITHUB_OUTPUT" | tee -a "$GITHUB_STEP_SUMMARY"
+      # A queued tail can reuse a receipt written after initial matrix admission.
+      - name: Resolve shard artifact runs after tails
+        id: artifact-runs
+        if: steps.plan.outputs.allowed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SOURCE_RUN_ID: ${{ inputs.source_run_id }}
+          SOURCE_SHA: ${{ inputs.source_sha }}
+        run: |
+          node scripts/ci/publish-receipts.mjs --resolve \
+            --source-run-id "$SOURCE_RUN_ID" --source-sha "$SOURCE_SHA" \
+            --github-output "$GITHUB_OUTPUT"
+
   # deploy: publish the build run's dist/ to GitHub Pages.
   #
   # Only a successful Pages action or an existing durable receipt proves this
@@ -4416,6 +4430,7 @@ jobs:
     with:
       deploy_run_id: ${{ inputs.source_run_id }}
       shard_artifact_run_id: ${{ github.run_id }}
+      locale_artifact_run_ids: ${{ needs.resolve-nonit-publish.outputs.locale_artifact_run_ids }}
       deploy_event_name: ${{ inputs.source_event_name }}
       deploy_ref: ${{ inputs.source_sha }}
     secrets: inherit

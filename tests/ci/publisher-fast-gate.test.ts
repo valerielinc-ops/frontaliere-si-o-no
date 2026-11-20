@@ -690,6 +690,31 @@ describe('publisher fast provenance gate', () => {
     expect(result).toMatchObject({ passed: true, errorCount: 0 });
   });
 
+  it('validates reused locale evidence against its own run and the admitted source', () => {
+    const base = fixture();
+    const runId = '502';
+    const en = base.sectionManifests.find((manifest) => manifest.locale === 'en')!;
+    const receipt = base.publisherArtifacts.find(({ name }) => name === en.manifestArtifactName)!;
+    en.artifactRunId = runId;
+    en.manifestArtifactName = `section-page-manifest-en-${runId}`;
+    const artifactName = `shard-batch-1-dist-en-${runId}`;
+    const digest = 'a'.repeat(64);
+    en.artifactRefs.push({ runId, name: artifactName, digest, purpose: 'section-shard-tar-batch' });
+    const artifacts = [{ ...receipt, name: en.manifestArtifactName }, artifact(artifactName, digest)];
+    const options = {
+      sectionOrigins: { en: runId },
+      priorArtifacts: { [runId]: { artifacts } },
+    };
+    expect(base.validate(options).errors).toEqual([]);
+    expect(base.validate({ sectionOrigins: { en: runId } }).errors)
+      .toContain(`${en.manifestArtifactName}: artifact is absent from run ${runId}`);
+    artifacts[1].expired = true;
+    expect(base.validate(options).errors).toContain(`${artifactName}: artifact is expired`);
+    artifacts[1].expired = false;
+    en.sourceRunId = '999';
+    expect(base.validate(options).errors).toContain('section manifest en: sourceRunId mismatch');
+  });
+
   it('binds a non-sitemap expired archive canary to its final shard bytes', () => {
     const base = fixture();
     const archiveUrl = 'https://frontaliereticino.ch/cerca-lavoro-ticino/late-overflow-alias/';
