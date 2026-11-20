@@ -57,6 +57,8 @@ describe('portal account pages', () => {
     'Sign in to continue.',
     'Already have an account? Sign in to continue.',
     'Already registered? Sign in to continue.',
+    'Sei già registrato/a come utente? Effettua il login qui.',
+    'Opportunità professionali: Crea un account Sei già registrato/a come utente? Effettua il login qui.',
     'Vous avez déjà un compte ? Se connecter pour continuer.',
   ])('does not mistake a registration or sign-in prompt for an existing account: %s', (text) => {
     expect(hasExistingAccountPrompt({ text })).toBe(false);
@@ -64,6 +66,10 @@ describe('portal account pages', () => {
 
   it('still recognizes a specific email-in-use error beside a sign-in navigation prompt', () => {
     expect(hasExistingAccountPrompt({ text: 'Already have an account? Sign in to continue. This email is already in use.' })).toBe(true);
+    expect(hasExistingAccountPrompt({
+      text: 'Opportunità professionali: Crea un account Sei già registrato/a come utente? Effettua il login qui.',
+      errors: ['Questo indirizzo e-mail è già in uso.'],
+    })).toBe(true);
   });
 
   it('recognizes a concrete existing-email error phrased as a question', () => {
