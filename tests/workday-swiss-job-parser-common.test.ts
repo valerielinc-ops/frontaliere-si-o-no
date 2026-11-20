@@ -1338,6 +1338,7 @@ describe('provesWorkdaySwissAbsentFromBoard', () => {
   ];
   const FR = { id: 'fr', descriptor: 'France', count: 25 };
   const CH = { id: '187134fccb084a0ea9b4b95f23890dbe', descriptor: 'Switzerland', count: 3 };
+  const CH_ZERO = { id: '187134fccb084a0ea9b4b95f23890dbe', descriptor: 'Switzerland', count: 0 };
   const GENEVA = { id: 'geneva', descriptor: 'ExCo Geneva', count: 1 };
 
   it('accepts a live board whose country facet omits Switzerland', () => {
@@ -1353,6 +1354,7 @@ describe('provesWorkdaySwissAbsentFromBoard', () => {
     expect(provesWorkdaySwissAbsentFromBoard({ ...ok, facets: facet([]) }, { facetParameter: 'Country' })).toBe(false);
     expect(provesWorkdaySwissAbsentFromBoard(ok, { facetParameter: 'locationCountry' })).toBe(false);
     expect(provesWorkdaySwissAbsentFromBoard({ ...ok, facets: facet([FR, CH]) }, { facetParameter: 'Country' })).toBe(false);
+    expect(provesWorkdaySwissAbsentFromBoard({ ...ok, facets: facet([FR, CH_ZERO]) }, { facetParameter: 'Country' })).toBe(true);
     expect(provesWorkdaySwissAbsentFromBoard({ ...ok, facets: facet([FR, { id: 'other', descriptor: 'Switzerland' }]) }, { facetParameter: 'Country' })).toBe(false);
     expect(provesWorkdaySwissAbsentFromBoard({ ...ok, facets: facet([FR, GENEVA]) }, { facetParameter: 'Country' })).toBe(false);
   });
