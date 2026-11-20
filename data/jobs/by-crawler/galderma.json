@@ -1,7 +1,7 @@
 {
   "crawlerKey": "galderma",
-  "assembledAt": "2026-11-19T21:53:56.491Z",
-  "runId": "44618450735",
+  "assembledAt": "2026-11-20T09:48:34.719Z",
+  "runId": "44710316721",
   "jobs": [
     {
       "id": "galderma-58c28018924d",
@@ -35,7 +35,7 @@
       "url": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Zug/Customer-Service-Specialist_JR021258-1",
       "source": "Galderma Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:53:48.964Z",
+      "crawledAt": "2026-11-20T09:48:27.886Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -69,9 +69,6 @@
           "customer-service-specialist-galderma-ch"
         ]
       },
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 4234,
-      "retranslationAttempts": 4,
       "firstSeenAt": "2026-10-27T21:40:30.862Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -100,8 +97,11 @@
       },
       "streetAddress": "Zählerweg 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-25T21:53:48.964Z",
+      "validThrough": "2027-01-25T09:48:27.886Z",
       "validThroughSource": "last-observed-window",
+      "retranslationAttempts": 4,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 4234,
       "sourceIdentity": "url:https://galderma.wd3.myworkdayjobs.com/en-us/external/job/zug/customer-service-specialist_jr021258-1"
     },
     {
@@ -136,7 +136,7 @@
       "url": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Zug/Head-of-Global-Business-Services--GBS-_JR021691-1",
       "source": "Galderma Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T21:53:39.322Z",
+      "crawledAt": "2026-11-20T09:48:17.688Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -197,7 +197,7 @@
       },
       "streetAddress": "Zählerweg 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-11T21:53:39.322Z",
+      "validThrough": "2027-02-11T09:48:17.688Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://galderma.wd3.myworkdayjobs.com/en-us/external/job/zug/head-of-global-business-services--gbs-_jr021691-1"
     }
