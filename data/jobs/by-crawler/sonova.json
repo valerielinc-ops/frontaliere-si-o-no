@@ -1,7 +1,7 @@
 {
   "crawlerKey": "sonova",
-  "assembledAt": "2026-11-20T09:33:00.613Z",
-  "runId": "44707440276",
+  "assembledAt": "2026-11-20T21:19:37.861Z",
+  "runId": "44817037361",
   "jobs": [
     {
       "id": "sonova-a02b2dce588a",
@@ -34,7 +34,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Logistikerin-EFZ-%28mwd%29/1421325033/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:32:53.939Z",
+      "crawledAt": "2026-11-20T21:19:30.660Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -78,7 +78,7 @@
       "postalCode": "8001",
       "streetAddress": "Staefa",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:32:53.939Z",
+      "validThrough": "2026-12-26T21:19:30.660Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-lehrstelle-logistikerin-efz-%28mwd%29/1421325033"
     },
@@ -113,7 +113,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Fachmann-frau-Betriebsunterhalt-EFZ-%28mfd%29/1421326833/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:32:53.937Z",
+      "crawledAt": "2026-11-20T21:19:30.658Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -157,7 +157,7 @@
       "postalCode": "8001",
       "streetAddress": "Staefa",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:32:53.937Z",
+      "validThrough": "2026-12-26T21:19:30.658Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-lehrstelle-fachmann-frau-betriebsunterhalt-efz-%28mfd%29/1421326833"
     },
@@ -192,7 +192,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Kunststofftechnologe-login-EFZ-%28mwd%29/1421323633/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:32:53.935Z",
+      "crawledAt": "2026-11-20T21:19:30.663Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -234,7 +234,7 @@
       "postalCode": "8001",
       "streetAddress": "Staefa",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:32:53.935Z",
+      "validThrough": "2026-12-26T21:19:30.663Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-lehrstelle-kunststofftechnologe-login-efz-%28mwd%29/1421323633"
     },
@@ -319,7 +319,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T09:32:53.932Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-software-engineer-embedded-ai-%28mfd%29/1436636333"
+      "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-software-engineer-embedded-ai-%28mfd%29/1436636333",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sonova-1a652c3368b9",
@@ -352,7 +353,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Embedded-Software-Engineer-C%2B%2B/1455022133/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T09:32:53.930Z",
+      "crawledAt": "2026-11-20T21:19:30.656Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -402,7 +403,7 @@
       "postalCode": "8001",
       "streetAddress": "Staefa",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:32:53.930Z",
+      "validThrough": "2027-02-04T21:19:30.656Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-embedded-software-engineer-c%2b%2b/1455022133"
     },
@@ -437,7 +438,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Director-Audiological-Development/1455453633/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T09:32:53.928Z",
+      "crawledAt": "2026-11-20T21:19:30.652Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -485,7 +486,7 @@
       "postalCode": "8001",
       "streetAddress": "Staefa",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T09:32:53.928Z",
+      "validThrough": "2027-02-07T21:19:30.652Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-director-audiological-development/1455453633"
     },
@@ -520,7 +521,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Automation-Engineer-%28mfd%29/1455876333/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T09:32:53.925Z",
+      "crawledAt": "2026-11-20T21:19:30.645Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -572,7 +573,7 @@
       "postalCode": "8001",
       "streetAddress": "Staefa",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T09:32:53.925Z",
+      "validThrough": "2027-02-08T21:19:30.645Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-automation-engineer-%28mfd%29/1455876333"
     },
@@ -607,7 +608,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Product-Cybersecurity-Expert/1416109733/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T09:32:53.922Z",
+      "crawledAt": "2026-11-20T21:19:30.641Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -656,7 +657,7 @@
       "postalCode": "8001",
       "streetAddress": "Staefa",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:32:53.922Z",
+      "validThrough": "2026-12-20T21:19:30.641Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-product-cybersecurity-expert/1416109733"
     },
@@ -691,7 +692,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-EPFL-2026-Talent-Community-Future-Opportunities/1446996733/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T09:32:53.919Z",
+      "crawledAt": "2026-11-20T21:19:30.638Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -739,7 +740,7 @@
       "postalCode": "8001",
       "streetAddress": "Staefa",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T09:32:53.919Z",
+      "validThrough": "2027-01-11T21:19:30.638Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-epfl-2026-talent-community-future-opportunities/1446996733"
     },
@@ -774,7 +775,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Geb%C3%A4udetechniker-HLK-%28mwd%29/1447168233/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:32:53.917Z",
+      "crawledAt": "2026-11-20T21:19:30.635Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -827,7 +828,7 @@
       "postalCode": "8001",
       "streetAddress": "Staefa",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T09:32:53.917Z",
+      "validThrough": "2027-01-11T21:19:30.635Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-geb%c3%a4udetechniker-hlk-%28mwd%29/1447168233"
     },
@@ -862,7 +863,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Manager-Future-Manufacturing-&-Automation-%2880-100-%29-%28mfd%29/1457247133/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:32:53.914Z",
+      "crawledAt": "2026-11-20T21:19:30.633Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -908,7 +909,7 @@
       "postalCode": "8001",
       "streetAddress": "Staefa",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T09:32:53.914Z",
+      "validThrough": "2027-02-11T21:19:30.633Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-manager-future-manufacturing-&-automation-%2880-100-%29-%28mfd%29/1457247133"
     },
@@ -943,7 +944,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Technical-Specialist-Production-%28TSP%29-%28mfd%29/1407383533/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:32:53.911Z",
+      "crawledAt": "2026-11-20T21:19:30.630Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -984,7 +985,7 @@
       "postalCode": "8001",
       "streetAddress": "Staefa",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:32:53.911Z",
+      "validThrough": "2026-12-20T21:19:30.630Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-technical-specialist-production-%28tsp%29-%28mfd%29/1407383533",
       "firstSeenAt": "2026-06-23T12:18:52.625Z"
@@ -1020,7 +1021,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-NPI-&-Lifecycle-Governance-Lead/1458101433/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T09:32:53.908Z",
+      "crawledAt": "2026-11-20T21:19:30.626Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1068,18 +1069,18 @@
       "postalCode": "8001",
       "streetAddress": "Staefa",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T09:32:53.908Z",
+      "validThrough": "2027-02-15T21:19:30.626Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-npi-&-lifecycle-governance-lead/1458101433"
     },
     {
       "id": "sonova-88bc135db0d3",
-      "slug": "responsabile-senior-di-progetto-m-f-d-sonova-staefa-switzerland",
+      "slug": "senior-project-manager-m-f-d-sonova-ch",
       "slugByLocale": {
         "en": "senior-project-manager-m-f-d-sonova-ch",
-        "it": "responsabile-senior-di-progetto-m-f-d-sonova-staefa-switzerland",
-        "de": "senior-projektmanager-m-w-d-sonova-staefa-switzerland",
-        "fr": "directeur-principal-de-projet-h-f-d-sonova-staefa-switzerland"
+        "it": "senior-project-manager-m-f-d-sonova-ch",
+        "de": "senior-project-manager-m-f-d-sonova-ch",
+        "fr": "senior-project-manager-m-f-d-sonova-ch"
       },
       "company": "Sonova",
       "companyKey": "sonova",
@@ -1087,23 +1088,23 @@
       "title": "Senior Project Manager (m/f/d)",
       "titleByLocale": {
         "en": "Senior Project Manager (m/f/d)",
-        "it": "Responsabile senior di progetto (m/f/d)",
-        "de": "Senior Projektmanager (m/w/d)",
-        "fr": "Directeur principal de projet (h/f/d)"
+        "it": "Senior Project Manager (m/f/d)",
+        "de": "Senior Project Manager (m/f/d)",
+        "fr": "Senior Project Manager (m/f/d)"
       },
       "description": "As Senior Project Manager , you will drive the development and delivery of innovative medical and non-medical hearing devices, software applications, associated functionalities, and accessories.\n\nYou will lead cross-functional project teams and steer complex development projects from planning through successful delivery.\n\nMore about the role :\n\n• Lead complex, cross-functional development projects from planning through delivery.\n\n• Manage scope, timelines, resources, costs, risks and dependencies.\n\n• Coordinate international teams, technical experts and external partners.\n\n• Build alignment with project sponsors and key stakeholders and drive timely decision-making.\n\n• Provide transparent project reporting and prepare key reviews and project gates.\n\n• Foster collaboration, accountability and continuous improvement within project teams.\n\nMore about you :\n\n• Master’s degree in Engineering or a related technical field.\n\n• 5+ years’ experience in engineering or product development, including 3+ years managing complex projects.\n\n• Strong project leadership, planning and problem-solving skills.\n\n• Excellent stakeholder management, communication and negotiation skills.\n\n• Comfortable leading cross-functional teams in an international environment.\n\n• Fluent English.\n\n• Experience in hardware, electronics, semiconductors, medical devices or a Project Management certification is an advantage.\n\nMore about what we offer :\n\nAs one of the world’s leading hearing care providers headquartered in Switzerland, we’re committed to building an inclusive culture. We want to create an environment where you can balance a successful career with your commitments and interests outside of work, through our flexible hybrid working model. We offer a wide range of training opportunities for both your professional and personal development, and there are exceptional growth opportunities with individual development plans.\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
       "descriptionByLocale": {
         "en": "As Senior Project Manager , you will drive the development and delivery of innovative medical and non-medical hearing devices, software applications, associated functionalities, and accessories.\n\nYou will lead cross-functional project teams and steer complex development projects from planning through successful delivery.\n\nMore about the role :\n\n• Lead complex, cross-functional development projects from planning through delivery.\n\n• Manage scope, timelines, resources, costs, risks and dependencies.\n\n• Coordinate international teams, technical experts and external partners.\n\n• Build alignment with project sponsors and key stakeholders and drive timely decision-making.\n\n• Provide transparent project reporting and prepare key reviews and project gates.\n\n• Foster collaboration, accountability and continuous improvement within project teams.\n\nMore about you :\n\n• Master’s degree in Engineering or a related technical field.\n\n• 5+ years’ experience in engineering or product development, including 3+ years managing complex projects.\n\n• Strong project leadership, planning and problem-solving skills.\n\n• Excellent stakeholder management, communication and negotiation skills.\n\n• Comfortable leading cross-functional teams in an international environment.\n\n• Fluent English.\n\n• Experience in hardware, electronics, semiconductors, medical devices or a Project Management certification is an advantage.\n\nMore about what we offer :\n\nAs one of the world’s leading hearing care providers headquartered in Switzerland, we’re committed to building an inclusive culture. We want to create an environment where you can balance a successful career with your commitments and interests outside of work, through our flexible hybrid working model. We offer a wide range of training opportunities for both your professional and personal development, and there are exceptional growth opportunities with individual development plans.\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
-        "it": "Come Senior Project Manager, guiderai lo sviluppo e la consegna di dispositivi acustici medici e non medici innovativi, applicazioni software, funzionalità associate e accessori.\n\nPotrai condurre team di progetto interfunzionali e progetti di sviluppo complessi di steer dalla pianificazione attraverso la consegna di successo.\n\nUlteriori informazioni sul ruolo:\n\n• Progetti di sviluppo complessi e interfunzionali, dalla pianificazione alla consegna.\n\n• Gestisci portata, tempestività, risorse, costi, rischi e dipendenze.\n\n• Coordina team internazionali, esperti tecnici e partner esterni.\n\n• Costruire l'allineamento con gli sponsor del progetto e gli stakeholder chiave e guidare il processo decisionale tempestivo.\n\n• Fornire reportage di progetto trasparente e preparare le recensioni chiave e cancelli di progetto.\n\n• Promuovere la collaborazione, la responsabilità e il miglioramento continuo nei team di progetto.\n\nAltro su di voi:\n\n• Laurea magistrale in Ingegneria o un campo tecnico correlato.\n\n• 5+ anni di esperienza in ingegneria o sviluppo di prodotto, tra cui 3+ anni di gestione di progetti complessi.\n\n• Forte leadership di progetto, pianificazione e capacità di problem solving.\n\n• Eccellente gestione delle parti interessate, capacità di comunicazione e negoziazione.\n\n• Confortevoli squadre interfunzionali leader in un ambiente internazionale.\n\n• Inglese fluente.\n\n• L'esperienza in hardware, elettronica, semiconduttori, dispositivi medici o una certificazione Project Management è un vantaggio.\n\nMaggiori informazioni su ciò che offriamo:\n\nCome uno dei principali fornitori di servizi per l’udito con sede in Svizzera, ci impegniamo a costruire una cultura inclusiva. Vogliamo creare un ambiente in cui è possibile bilanciare una carriera di successo con i vostri impegni e interessi al di fuori del lavoro, attraverso il nostro modello di lavoro ibrido flessibile. Offriamo una vasta gamma di opportunità di formazione sia per il vostro sviluppo professionale che personale, e ci sono eccezionali opportunità di crescita con i piani di sviluppo individuali.\n\n<div dir=\"auto\" style=\" larghezza:calc(100% - 16px)",
-        "de": "Als Senior Project Manager werden Sie die Entwicklung und Bereitstellung von innovativen medizinischen und nicht-medizinischen Hörgeräten, Softwareanwendungen, zugehörigen Funktionen und Zubehör vorantreiben.\n\nSie leiten funktionsübergreifende Projektteams und steuern komplexe Entwicklungsprojekte von der Planung bis zur erfolgreichen Lieferung.\n\nMehr über die Rolle:\n\n• Führen Sie komplexe, funktionsübergreifende Entwicklungsprojekte von der Planung bis zur Lieferung.\n\n• Verwalten Sie Umfang, Zeitpläne, Ressourcen, Kosten, Risiken und Abhängigkeiten.\n\n• Koordination internationaler Teams, technischer Experten und externer Partner.\n\n• Aufbau einer Abstimmung mit Projektsponsoren und wichtigen Stakeholdern und zeitnahe Entscheidungsfindung.\n\n• Bieten Sie transparente Projektberichte und erstellen Sie wichtige Reviews und Projektgates.\n\n• Förderung der Zusammenarbeit, Verantwortlichkeit und kontinuierlichen Verbesserung innerhalb der Projektteams.\n\nMehr über dich :\n\n• Master-Abschluss in Ingenieurwissenschaften oder einem verwandten technischen Bereich.\n\n• 5+ Jahre Erfahrung in Engineering oder Produktentwicklung, einschließlich 3+ Jahre Management komplexer Projekte.\n\n• Starke Projektführung, Planung und Problemlösung Fähigkeiten.\n\n• Exzellentes Stakeholder-Management, Kommunikation und Verhandlungsgeschick.\n\n• Komfortable, funktionsübergreifende Teams in einem internationalen Umfeld.\n\n• fließend Englisch.\n\n• Erfahrung in Hardware, Elektronik, Halbleitern, medizinischen Geräten oder einer Projektmanagement-Zertifizierung ist von Vorteil.\n\nMehr über das, was wir anbieten:\n\nAls einer der weltweit führenden Hörgeräteanbieter mit Hauptsitz in der Schweiz setzen wir uns für den Aufbau einer inklusiven Kultur ein. Wir möchten ein Umfeld schaffen, in dem Sie eine erfolgreiche Karriere mit Ihren Verpflichtungen und Interessen außerhalb der Arbeit durch unser flexibles hybrides Arbeitsmodell in Einklang bringen können. Wir bieten eine breite Palette von Ausbildungsmöglichkeiten für Ihre berufliche und persönliche Entwicklung, und es gibt außergewöhnliche Wachstumsmöglichkeiten mit individuellen Entwicklungsplänen.\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !wichtig;\"",
-        "fr": "En tant que gestionnaire de projet principal, vous dirigerez le développement et la livraison d'appareils auditifs médicaux et non médicaux novateurs, d'applications logicielles, de fonctionnalités associées et d'accessoires.\n\nVous dirigerez des équipes de projet interfonctionnelles et dirigerez des projets de développement complexes depuis la planification jusqu'à l'exécution réussie.\n\nEn savoir plus sur le rôle :\n\n• Diriger des projets de développement complexes et interfonctionnels, de la planification à l'exécution.\n\n• Gérer la portée, les échéanciers, les ressources, les coûts, les risques et les dépendances.\n\n• Coordonner les équipes internationales, les experts techniques et les partenaires externes.\n\n• Établir l'harmonisation avec les promoteurs de projets et les intervenants clés et prendre des décisions en temps opportun.\n\n• Fournir des rapports transparents sur les projets et préparer des examens clés et des portes de projet.\n\n• Favoriser la collaboration, la responsabilisation et l'amélioration continue au sein des équipes de projet.\n\nEn savoir plus sur vous :\n\n• Maîtrise en ingénierie ou domaine technique connexe.\n\n• 5+ ans d'expérience en ingénierie ou développement de produits, y compris 3+ ans de gestion de projets complexes.\n\n• Compétences solides en leadership, planification et résolution de problèmes.\n\n• Excellentes compétences en gestion des intervenants, en communication et en négociation.\n\n• Des équipes cross-fonctionnelles confortables dans un environnement international.\n\n• Anglais.\n\n• L'expérience du matériel, de l'électronique, des semi-conducteurs, des dispositifs médicaux ou d'une certification de gestion de projet est un avantage.\n\nEn savoir plus sur ce que nous offrons :\n\nEn tant que l'un des principaux fournisseurs de soins auditifs au monde ayant son siège en Suisse, nous sommes engagés à bâtir une culture inclusive. Nous voulons créer un environnement où vous pouvez équilibrer une carrière réussie avec vos engagements et vos intérêts en dehors du travail, grâce à notre modèle de travail hybride flexible. Nous offrons un large éventail de possibilités de formation pour votre développement professionnel et personnel, et il existe des possibilités de croissance exceptionnelles avec des plans de développement individuels.\n\n<div dir=\"auto\" style=\" largeur:calc(100% - 16px) !important;\""
+        "it": "As Senior Project Manager , you will drive the development and delivery of innovative medical and non-medical hearing devices, software applications, associated functionalities, and accessories.\n\nYou will lead cross-functional project teams and steer complex development projects from planning through successful delivery.\n\nMore about the role :\n\n• Lead complex, cross-functional development projects from planning through delivery.\n\n• Manage scope, timelines, resources, costs, risks and dependencies.\n\n• Coordinate international teams, technical experts and external partners.\n\n• Build alignment with project sponsors and key stakeholders and drive timely decision-making.\n\n• Provide transparent project reporting and prepare key reviews and project gates.\n\n• Foster collaboration, accountability and continuous improvement within project teams.\n\nMore about you :\n\n• Master’s degree in Engineering or a related technical field.\n\n• 5+ years’ experience in engineering or product development, including 3+ years managing complex projects.\n\n• Strong project leadership, planning and problem-solving skills.\n\n• Excellent stakeholder management, communication and negotiation skills.\n\n• Comfortable leading cross-functional teams in an international environment.\n\n• Fluent English.\n\n• Experience in hardware, electronics, semiconductors, medical devices or a Project Management certification is an advantage.\n\nMore about what we offer :\n\nAs one of the world’s leading hearing care providers headquartered in Switzerland, we’re committed to building an inclusive culture. We want to create an environment where you can balance a successful career with your commitments and interests outside of work, through our flexible hybrid working model. We offer a wide range of training opportunities for both your professional and personal development, and there are exceptional growth opportunities with individual development plans.\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
+        "de": "As Senior Project Manager , you will drive the development and delivery of innovative medical and non-medical hearing devices, software applications, associated functionalities, and accessories.\n\nYou will lead cross-functional project teams and steer complex development projects from planning through successful delivery.\n\nMore about the role :\n\n• Lead complex, cross-functional development projects from planning through delivery.\n\n• Manage scope, timelines, resources, costs, risks and dependencies.\n\n• Coordinate international teams, technical experts and external partners.\n\n• Build alignment with project sponsors and key stakeholders and drive timely decision-making.\n\n• Provide transparent project reporting and prepare key reviews and project gates.\n\n• Foster collaboration, accountability and continuous improvement within project teams.\n\nMore about you :\n\n• Master’s degree in Engineering or a related technical field.\n\n• 5+ years’ experience in engineering or product development, including 3+ years managing complex projects.\n\n• Strong project leadership, planning and problem-solving skills.\n\n• Excellent stakeholder management, communication and negotiation skills.\n\n• Comfortable leading cross-functional teams in an international environment.\n\n• Fluent English.\n\n• Experience in hardware, electronics, semiconductors, medical devices or a Project Management certification is an advantage.\n\nMore about what we offer :\n\nAs one of the world’s leading hearing care providers headquartered in Switzerland, we’re committed to building an inclusive culture. We want to create an environment where you can balance a successful career with your commitments and interests outside of work, through our flexible hybrid working model. We offer a wide range of training opportunities for both your professional and personal development, and there are exceptional growth opportunities with individual development plans.\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
+        "fr": "As Senior Project Manager , you will drive the development and delivery of innovative medical and non-medical hearing devices, software applications, associated functionalities, and accessories.\n\nYou will lead cross-functional project teams and steer complex development projects from planning through successful delivery.\n\nMore about the role :\n\n• Lead complex, cross-functional development projects from planning through delivery.\n\n• Manage scope, timelines, resources, costs, risks and dependencies.\n\n• Coordinate international teams, technical experts and external partners.\n\n• Build alignment with project sponsors and key stakeholders and drive timely decision-making.\n\n• Provide transparent project reporting and prepare key reviews and project gates.\n\n• Foster collaboration, accountability and continuous improvement within project teams.\n\nMore about you :\n\n• Master’s degree in Engineering or a related technical field.\n\n• 5+ years’ experience in engineering or product development, including 3+ years managing complex projects.\n\n• Strong project leadership, planning and problem-solving skills.\n\n• Excellent stakeholder management, communication and negotiation skills.\n\n• Comfortable leading cross-functional teams in an international environment.\n\n• Fluent English.\n\n• Experience in hardware, electronics, semiconductors, medical devices or a Project Management certification is an advantage.\n\nMore about what we offer :\n\nAs one of the world’s leading hearing care providers headquartered in Switzerland, we’re committed to building an inclusive culture. We want to create an environment where you can balance a successful career with your commitments and interests outside of work, through our flexible hybrid working model. We offer a wide range of training opportunities for both your professional and personal development, and there are exceptional growth opportunities with individual development plans.\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\""
       },
       "location": "Staefa, Switzerland",
       "canton": "ZH",
       "url": "https://jobs.sonova.com/job/Staefa-Senior-Project-Manager-%28mfd%29/1458877233/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T09:32:53.904Z",
+      "crawledAt": "2026-11-20T21:19:30.605Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1138,32 +1139,39 @@
       "postalCode": "8001",
       "streetAddress": "Staefa",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-17T09:32:53.904Z",
+      "validThrough": "2027-02-17T21:19:30.605Z",
       "validThroughSource": "last-observed-window",
       "previousSlugsByLocale": {
         "it": [
-          "senior-project-manager-m-f-d-sonova-ch"
+          "senior-project-manager-m-f-d-sonova-ch",
+          "responsabile-senior-di-progetto-m-f-d-sonova-staefa-switzerland"
         ],
         "de": [
-          "senior-project-manager-m-f-d-sonova-ch"
+          "senior-project-manager-m-f-d-sonova-ch",
+          "senior-projektmanager-m-w-d-sonova-staefa-switzerland"
         ],
         "fr": [
-          "senior-project-manager-m-f-d-sonova-ch"
+          "senior-project-manager-m-f-d-sonova-ch",
+          "directeur-principal-de-projet-h-f-d-sonova-staefa-switzerland"
         ]
       },
       "previousSlugs": [
-        "senior-project-manager-m-f-d-sonova-ch"
+        "senior-project-manager-m-f-d-sonova-ch",
+        "responsabile-senior-di-progetto-m-f-d-sonova-staefa-switzerland",
+        "senior-projektmanager-m-w-d-sonova-staefa-switzerland",
+        "directeur-principal-de-projet-h-f-d-sonova-staefa-switzerland"
       ],
-      "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-senior-project-manager-%28mfd%29/1458877233"
+      "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-senior-project-manager-%28mfd%29/1458877233",
+      "needsRetranslation": true
     },
     {
       "id": "sonova-9ebfcf350481",
-      "slug": "acquirente-operativo-m-f-d-sonova-staefa-switzerland",
+      "slug": "operational-buyer-m-f-d-sonova-ch",
       "slugByLocale": {
         "en": "operational-buyer-m-f-d-sonova-ch",
-        "it": "acquirente-operativo-m-f-d-sonova-staefa-switzerland",
-        "de": "operativer-kaufer-m-w-d-sonova-staefa-switzerland",
-        "fr": "acheteur-operationnel-h-f-d-sonova-staefa-switzerland"
+        "it": "operational-buyer-m-f-d-sonova-ch",
+        "de": "operational-buyer-m-f-d-sonova-ch",
+        "fr": "operational-buyer-m-f-d-sonova-ch"
       },
       "company": "Sonova",
       "companyKey": "sonova",
@@ -1171,23 +1179,23 @@
       "title": "Operational Buyer (m/f/d)",
       "titleByLocale": {
         "en": "Operational Buyer (m/f/d)",
-        "it": "Acquirente operativo (m/f/d)",
-        "de": "Operativer Käufer (m/w/d)",
-        "fr": "Acheteur opérationnel (h/f/d)"
+        "it": "Operational Buyer (m/f/d)",
+        "de": "Operational Buyer (m/f/d)",
+        "fr": "Operational Buyer (m/f/d)"
       },
       "description": "Join Sonova and become part of our local team supporting smooth and reliable production. As an Operational Buyer, you will be responsible for assigned materials and suppliers, ensuring optimal inventory levels and timely availability of materials.\n\nMore about the role :\n\n• Manage assigned materials to ensure optimal stock levels and availability for production\n\n• Create and manage purchase orders and follow up on order confirmations and deliveries\n\n• Monitor supplier performance and maintain strong day-to-day supplier relationships\n\n• Maintain purchasing and material master data in SAP\n\n• Monitor inventory and proactively manage excess or obsolete stock\n\n• Review and approve invoices and resolve invoice discrepancies\n\n• Handle quality notifications, returns and related shipping documentation\n\n• Prepare purchasing, inventory and operational reports\n\n• Support colleagues during absences and contribute to smooth day-to-day purchasing operations\n\nMore about you:\n\n• Commercial or technical vocational education, ideally with further training in Purchasing, Procurement or Supply Chain\n\n• Previous experience in operational purchasing or supply chain\n\n• Practical experience with SAP or another ERP system, ideally SAP MM\n\n• Good understanding of inventory management, replenishment and purchase order processes\n\n• Good Excel and Microsoft Office skills\n\n• Strong communication and organizational skills with a proactive, hands-on approach\n\n• Team-oriented, reliable and comfortable working with internal and external stakeholders\n\n• Very good German and good English skills\n\nMore about what we offer :\n\nAs one of the world’s leading hearing care providers headquartered in Switzerland, we’re committed to building an inclusive culture. We want to create an environment where you can balance a successful career with your commitments and interests outside of work, through our flexible hybrid working model. We offer a wide range of training opportunities for both your professional and personal development, and there are exceptional growth opportunities with individual development plans.\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
       "descriptionByLocale": {
         "en": "Join Sonova and become part of our local team supporting smooth and reliable production. As an Operational Buyer, you will be responsible for assigned materials and suppliers, ensuring optimal inventory levels and timely availability of materials.\n\nMore about the role :\n\n• Manage assigned materials to ensure optimal stock levels and availability for production\n\n• Create and manage purchase orders and follow up on order confirmations and deliveries\n\n• Monitor supplier performance and maintain strong day-to-day supplier relationships\n\n• Maintain purchasing and material master data in SAP\n\n• Monitor inventory and proactively manage excess or obsolete stock\n\n• Review and approve invoices and resolve invoice discrepancies\n\n• Handle quality notifications, returns and related shipping documentation\n\n• Prepare purchasing, inventory and operational reports\n\n• Support colleagues during absences and contribute to smooth day-to-day purchasing operations\n\nMore about you:\n\n• Commercial or technical vocational education, ideally with further training in Purchasing, Procurement or Supply Chain\n\n• Previous experience in operational purchasing or supply chain\n\n• Practical experience with SAP or another ERP system, ideally SAP MM\n\n• Good understanding of inventory management, replenishment and purchase order processes\n\n• Good Excel and Microsoft Office skills\n\n• Strong communication and organizational skills with a proactive, hands-on approach\n\n• Team-oriented, reliable and comfortable working with internal and external stakeholders\n\n• Very good German and good English skills\n\nMore about what we offer :\n\nAs one of the world’s leading hearing care providers headquartered in Switzerland, we’re committed to building an inclusive culture. We want to create an environment where you can balance a successful career with your commitments and interests outside of work, through our flexible hybrid working model. We offer a wide range of training opportunities for both your professional and personal development, and there are exceptional growth opportunities with individual development plans.\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
-        "it": "Unisciti a Sonova e diventare parte del nostro team locale che supporta una produzione fluida e affidabile. Come Acquirente Operativo, sarete responsabili per materiali e fornitori assegnati, garantendo livelli di inventario ottimali e tempestiva disponibilità dei materiali.\n\nUlteriori informazioni sul ruolo:\n\n• Gestire i materiali assegnati per garantire livelli ottimali di stock e disponibilità per la produzione\n\n• Creare e gestire gli ordini di acquisto e seguire le conferme e le consegne degli ordini\n\n• Monitorare le prestazioni del fornitore e mantenere forti relazioni di fornitore giorno per giorno\n\n• Mantenere i dati di acquisto e master dei materiali in SAP\n\n• Monitorare l'inventario e gestire proattivamente lo stock in eccesso o obsoleto\n\n• Verificare e approvare le fatture e risolvere le discrepanze della fattura\n\n• Maniglia notifiche di qualità, ritorni e relativa documentazione di spedizione\n\n• Preparare l'acquisto, l'inventario e le relazioni operative\n\n• Supporta i colleghi durante le assenze e contribuisce alle operazioni di acquisto quotidiane\n\nMaggiori informazioni su di te:\n\n• Istruzione professionale commerciale o tecnica, idealmente con ulteriore formazione in Acquisti, Procurement o Supply Chain\n\n• Esperienza precedente nella catena di acquisto o fornitura operativa\n\n• Esperienza pratica con SAP o un altro sistema ERP, idealmente SAP MM\n\n• Buona comprensione dei processi di gestione dell'inventario, rifornimento e acquisto\n\n• Buone competenze Excel e Microsoft Office\n\n• Forte comunicazione e capacità organizzative con un approccio proattivo e pratico\n\n• Lavoro di gruppo, affidabile e confortevole con gli stakeholder interni ed esterni\n\n• Molto buone competenze in tedesco e inglese\n\nMaggiori informazioni su ciò che offriamo:\n\nCome uno dei principali fornitori di servizi per l’udito con sede in Svizzera, ci impegniamo a costruire una cultura inclusiva. Vogliamo creare un ambiente in cui è possibile bilanciare una carriera di successo con i vostri impegni e interessi al di fuori del lavoro, attraverso il nostro modello di lavoro ibrido flessibile. Offriamo una vasta gamma di opportunità di formazione sia per il vostro sviluppo professionale che personale, e ci sono eccezionali opportunità di crescita con i piani di sviluppo individuali.\n\n<div dir=\"auto\" style=\" larghezza:calc(100% - 16px)",
-        "de": "Treten Sie Sonova bei und werden Sie Teil unseres lokalen Teams, das eine reibungslose und zuverlässige Produktion unterstützt. Als operativer Käufer sind Sie für die zugewiesenen Materialien und Lieferanten verantwortlich und gewährleisten optimale Lagerbestände und eine rechtzeitige Verfügbarkeit der Materialien.\n\nMehr über die Rolle:\n\n• Verwalten Sie zugewiesene Materialien, um optimale Lagerbestände und Verfügbarkeit für die Produktion zu gewährleisten\n\n• Erstellen und Verwalten von Bestellungen und Weiterverfolgung von Bestellbestätigungen und Lieferungen\n\n• Überwachung der Lieferantenleistung und Aufrechterhaltung starker täglicher Lieferantenbeziehungen\n\n• Pflegen Sie Einkaufs- und Materialstammdaten in SAP\n\n• Überwachen Sie den Bestand und verwalten Sie proaktiv überschüssige oder veraltete Bestände\n\n• Überprüfung und Genehmigung von Rechnungen und Behebung von Rechnungsunstimmigkeiten\n\n• Handhabung von Qualitätsmeldungen, Rücksendungen und zugehörigen Versandunterlagen\n\n• Erstellung von Einkaufs-, Bestands- und Betriebsberichten\n\n• Unterstützen Sie Kollegen bei Abwesenheiten und tragen Sie zu einem reibungslosen täglichen Einkauf bei\n\nMehr über dich:\n\n• Berufliche oder technische Ausbildung, idealerweise mit Weiterbildung in Einkauf, Beschaffung oder Supply Chain\n\n• Frühere Erfahrungen im operativen Einkauf oder in der Supply Chain\n\n• Praxiserfahrung mit SAP oder einem anderen ERP-System, idealerweise SAP MM\n\n• Gutes Verständnis für Bestandsverwaltung, Nachfüllung und Bestellprozesse\n\n• Gute Excel und Microsoft Office Fähigkeiten\n\n• Starke Kommunikation und organisatorische Fähigkeiten mit einem proaktiven, praktischen Ansatz\n\n• Teamorientierte, zuverlässige und komfortable Arbeit mit internen und externen Stakeholdern\n\n• Sehr gute Deutschkenntnisse und gute Englischkenntnisse\n\nMehr über das, was wir anbieten:\n\nAls einer der weltweit führenden Hörgeräteanbieter mit Hauptsitz in der Schweiz setzen wir uns für den Aufbau einer inklusiven Kultur ein. Wir möchten ein Umfeld schaffen, in dem Sie eine erfolgreiche Karriere mit Ihren Verpflichtungen und Interessen außerhalb der Arbeit durch unser flexibles hybrides Arbeitsmodell in Einklang bringen können. Wir bieten eine breite Palette von Ausbildungsmöglichkeiten für Ihre berufliche und persönliche Entwicklung, und es gibt außergewöhnliche Wachstumsmöglichkeiten mit individuellen Entwicklungsplänen.\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !wichtig;\"",
-        "fr": "Rejoignez Sonova et faites partie de notre équipe locale pour une production fluide et fiable. En tant qu'acheteur opérationnel, vous serez responsable des matériaux et des fournisseurs assignés, assurant un niveau d'inventaire optimal et la disponibilité en temps opportun des matériaux.\n\nEn savoir plus sur le rôle :\n\n• Gérer les matériaux assignés afin d'assurer un niveau de stock optimal et la disponibilité pour la production\n\n• Créer et gérer les bons de commande et suivre les confirmations de commande et les livraisons\n\n• Surveiller la performance des fournisseurs et maintenir de solides relations quotidiennes avec les fournisseurs\n\n• Maintenez les données relatives aux achats et au matériel dans SAP\n\n• Surveiller l'inventaire et gérer proactivement les stocks excédentaires ou obsolètes\n\n• Examiner et approuver les factures et résoudre les écarts de facturation\n\n• Gérer les notifications de qualité, les retours et les documents d'expédition connexes\n\n• Préparer les rapports sur les achats, les stocks et les opérations\n\n• Soutenir les collègues pendant les absences et contribuer au bon déroulement des opérations d'achat quotidiennes\n\nEn savoir plus sur vous :\n\n• Enseignement professionnel commercial ou technique, idéalement avec formation continue en achats, achats ou chaîne d'approvisionnement\n\n• Expérience antérieure en matière d'achats opérationnels ou de chaîne d'approvisionnement\n\n• Expérience pratique avec SAP ou un autre système ERP, idéalement SAP MM\n\n• Bonne compréhension des processus de gestion des stocks, de reconstitution et de commande\n\n• Bonnes compétences Excel et Microsoft Office\n\n• Des compétences solides en communication et en organisation avec une approche proactive et pratique\n\n• Travail d'équipe, fiable et confortable avec les intervenants internes et externes\n\n• Très bon allemand et de bonnes compétences en anglais\n\nEn savoir plus sur ce que nous offrons :\n\nEn tant que l'un des principaux fournisseurs de soins auditifs au monde ayant son siège en Suisse, nous sommes engagés à bâtir une culture inclusive. Nous voulons créer un environnement où vous pouvez équilibrer une carrière réussie avec vos engagements et vos intérêts en dehors du travail, grâce à notre modèle de travail hybride flexible. Nous offrons un large éventail de possibilités de formation pour votre développement professionnel et personnel, et il existe des possibilités de croissance exceptionnelles avec des plans de développement individuels.\n\n<div dir=\"auto\" style=\" largeur:calc(100% - 16px) !important;\""
+        "it": "Join Sonova and become part of our local team supporting smooth and reliable production. As an Operational Buyer, you will be responsible for assigned materials and suppliers, ensuring optimal inventory levels and timely availability of materials.\n\nMore about the role :\n\n• Manage assigned materials to ensure optimal stock levels and availability for production\n\n• Create and manage purchase orders and follow up on order confirmations and deliveries\n\n• Monitor supplier performance and maintain strong day-to-day supplier relationships\n\n• Maintain purchasing and material master data in SAP\n\n• Monitor inventory and proactively manage excess or obsolete stock\n\n• Review and approve invoices and resolve invoice discrepancies\n\n• Handle quality notifications, returns and related shipping documentation\n\n• Prepare purchasing, inventory and operational reports\n\n• Support colleagues during absences and contribute to smooth day-to-day purchasing operations\n\nMore about you:\n\n• Commercial or technical vocational education, ideally with further training in Purchasing, Procurement or Supply Chain\n\n• Previous experience in operational purchasing or supply chain\n\n• Practical experience with SAP or another ERP system, ideally SAP MM\n\n• Good understanding of inventory management, replenishment and purchase order processes\n\n• Good Excel and Microsoft Office skills\n\n• Strong communication and organizational skills with a proactive, hands-on approach\n\n• Team-oriented, reliable and comfortable working with internal and external stakeholders\n\n• Very good German and good English skills\n\nMore about what we offer :\n\nAs one of the world’s leading hearing care providers headquartered in Switzerland, we’re committed to building an inclusive culture. We want to create an environment where you can balance a successful career with your commitments and interests outside of work, through our flexible hybrid working model. We offer a wide range of training opportunities for both your professional and personal development, and there are exceptional growth opportunities with individual development plans.\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
+        "de": "Join Sonova and become part of our local team supporting smooth and reliable production. As an Operational Buyer, you will be responsible for assigned materials and suppliers, ensuring optimal inventory levels and timely availability of materials.\n\nMore about the role :\n\n• Manage assigned materials to ensure optimal stock levels and availability for production\n\n• Create and manage purchase orders and follow up on order confirmations and deliveries\n\n• Monitor supplier performance and maintain strong day-to-day supplier relationships\n\n• Maintain purchasing and material master data in SAP\n\n• Monitor inventory and proactively manage excess or obsolete stock\n\n• Review and approve invoices and resolve invoice discrepancies\n\n• Handle quality notifications, returns and related shipping documentation\n\n• Prepare purchasing, inventory and operational reports\n\n• Support colleagues during absences and contribute to smooth day-to-day purchasing operations\n\nMore about you:\n\n• Commercial or technical vocational education, ideally with further training in Purchasing, Procurement or Supply Chain\n\n• Previous experience in operational purchasing or supply chain\n\n• Practical experience with SAP or another ERP system, ideally SAP MM\n\n• Good understanding of inventory management, replenishment and purchase order processes\n\n• Good Excel and Microsoft Office skills\n\n• Strong communication and organizational skills with a proactive, hands-on approach\n\n• Team-oriented, reliable and comfortable working with internal and external stakeholders\n\n• Very good German and good English skills\n\nMore about what we offer :\n\nAs one of the world’s leading hearing care providers headquartered in Switzerland, we’re committed to building an inclusive culture. We want to create an environment where you can balance a successful career with your commitments and interests outside of work, through our flexible hybrid working model. We offer a wide range of training opportunities for both your professional and personal development, and there are exceptional growth opportunities with individual development plans.\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
+        "fr": "Join Sonova and become part of our local team supporting smooth and reliable production. As an Operational Buyer, you will be responsible for assigned materials and suppliers, ensuring optimal inventory levels and timely availability of materials.\n\nMore about the role :\n\n• Manage assigned materials to ensure optimal stock levels and availability for production\n\n• Create and manage purchase orders and follow up on order confirmations and deliveries\n\n• Monitor supplier performance and maintain strong day-to-day supplier relationships\n\n• Maintain purchasing and material master data in SAP\n\n• Monitor inventory and proactively manage excess or obsolete stock\n\n• Review and approve invoices and resolve invoice discrepancies\n\n• Handle quality notifications, returns and related shipping documentation\n\n• Prepare purchasing, inventory and operational reports\n\n• Support colleagues during absences and contribute to smooth day-to-day purchasing operations\n\nMore about you:\n\n• Commercial or technical vocational education, ideally with further training in Purchasing, Procurement or Supply Chain\n\n• Previous experience in operational purchasing or supply chain\n\n• Practical experience with SAP or another ERP system, ideally SAP MM\n\n• Good understanding of inventory management, replenishment and purchase order processes\n\n• Good Excel and Microsoft Office skills\n\n• Strong communication and organizational skills with a proactive, hands-on approach\n\n• Team-oriented, reliable and comfortable working with internal and external stakeholders\n\n• Very good German and good English skills\n\nMore about what we offer :\n\nAs one of the world’s leading hearing care providers headquartered in Switzerland, we’re committed to building an inclusive culture. We want to create an environment where you can balance a successful career with your commitments and interests outside of work, through our flexible hybrid working model. We offer a wide range of training opportunities for both your professional and personal development, and there are exceptional growth opportunities with individual development plans.\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\""
       },
       "location": "Staefa, Switzerland",
       "canton": "ZH",
       "url": "https://jobs.sonova.com/job/Staefa-Operational-Buyer-%28mfd%29/1458719233/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T09:32:53.887Z",
+      "crawledAt": "2026-11-20T21:19:30.622Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1222,24 +1230,31 @@
       "postalCode": "8001",
       "streetAddress": "Staefa",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-17T09:32:53.887Z",
+      "validThrough": "2027-02-17T21:19:30.622Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T21:18:39.004Z",
+      "firstSeenAt": "2026-11-20T21:19:30.622Z",
       "previousSlugsByLocale": {
         "it": [
-          "operational-buyer-m-f-d-sonova-ch"
+          "operational-buyer-m-f-d-sonova-ch",
+          "acquirente-operativo-m-f-d-sonova-staefa-switzerland"
         ],
         "de": [
-          "operational-buyer-m-f-d-sonova-ch"
+          "operational-buyer-m-f-d-sonova-ch",
+          "operativer-kaufer-m-w-d-sonova-staefa-switzerland"
         ],
         "fr": [
-          "operational-buyer-m-f-d-sonova-ch"
+          "operational-buyer-m-f-d-sonova-ch",
+          "acheteur-operationnel-h-f-d-sonova-staefa-switzerland"
         ]
       },
       "previousSlugs": [
-        "operational-buyer-m-f-d-sonova-ch"
+        "operational-buyer-m-f-d-sonova-ch",
+        "acquirente-operativo-m-f-d-sonova-staefa-switzerland",
+        "operativer-kaufer-m-w-d-sonova-staefa-switzerland",
+        "acheteur-operationnel-h-f-d-sonova-staefa-switzerland"
       ],
-      "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-operational-buyer-%28mfd%29/1458719233"
+      "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-operational-buyer-%28mfd%29/1458719233",
+      "needsRetranslation": true
     }
   ]
 }

@@ -39,7 +39,6 @@
     "https://jobs.galenica.com/it/jobs/#job.id=3151380.4098594",
     "https://jobs.galenica.com/it/jobs/#job.id=3150998.4097755",
     "https://jobs.galenica.com/it/jobs/#job.id=3149519.4094339",
-    "https://jobs.galenica.com/it/jobs/#job.id=3149575.4094436",
     "https://jobs.galenica.com/it/jobs/#job.id=3153899.4103998",
     "https://jobs.galenica.com/it/jobs/#job.id=3142368.4079492",
     "https://jobs.galenica.com/it/jobs/#job.id=3148113.4091441",
@@ -57,7 +56,6 @@
     "https://jobs.galenica.com/it/jobs/#job.id=3148056.4091605",
     "https://jobs.galenica.com/it/jobs/#job.id=3153277.4102734",
     "https://jobs.galenica.com/it/jobs/#job.id=3149277.4093725",
-    "https://jobs.galenica.com/it/jobs/#job.id=3146847.4088743",
     "https://jobs.galenica.com/it/jobs/#job.id=3154579.4104975",
     "https://jobs.galenica.com/it/jobs/#job.id=3152178.4100147",
     "https://jobs.galenica.com/it/jobs/#job.id=3147753.4090762",
@@ -65,7 +63,6 @@
     "https://jobs.galenica.com/it/jobs/#job.id=3150892.4097660",
     "https://jobs.galenica.com/it/jobs/#job.id=3149957.4095451",
     "https://jobs.galenica.com/it/jobs/#job.id=3153350.4102562",
-    "https://jobs.galenica.com/it/jobs/#job.id=3152218.4100447",
     "https://jobs.galenica.com/it/jobs/#job.id=3150111.4095637",
     "https://jobs.galenica.com/it/jobs/#job.id=3143158.4081233",
     "https://jobs.galenica.com/it/jobs/#job.id=3154422.4105095",
@@ -107,7 +104,6 @@
     "https://jobs.galenica.com/it/jobs/#job.id=3152440.4100893",
     "https://jobs.galenica.com/it/jobs/#job.id=3149950.4095174",
     "https://jobs.galenica.com/it/jobs/#job.id=3150000.4095549",
-    "https://jobs.galenica.com/it/jobs/#job.id=3148327.4091925",
     "https://jobs.galenica.com/it/jobs/#job.id=3150675.4096934",
     "https://jobs.galenica.com/it/jobs/#job.id=3150052.4095609",
     "https://jobs.galenica.com/it/jobs/#job.id=3153353.4102568",
@@ -392,7 +388,15 @@
     "https://jobs.galenica.com/it/jobs/#job.id=3154579.4104975",
     "https://jobs.galenica.com/it/jobs/#job.id=3154422.4105095",
     "https://jobs.galenica.com/it/jobs/#job.id=3154393.4104870",
-    "https://jobs.galenica.com/it/jobs/#job.id=3154746.4105174"
+    "https://jobs.galenica.com/it/jobs/#job.id=3154746.4105174",
+    "https://jobs.galenica.com/it/jobs/#job.id=3154440.4105129",
+    "https://jobs.galenica.com/it/jobs/#job.id=3154874.4105797",
+    "https://jobs.galenica.com/it/jobs/#job.id=3154579.4104975",
+    "https://jobs.galenica.com/it/jobs/#job.id=3154422.4105095",
+    "https://jobs.galenica.com/it/jobs/#job.id=3154880.4105813",
+    "https://jobs.galenica.com/it/jobs/#job.id=3154393.4104870",
+    "https://jobs.galenica.com/it/jobs/#job.id=3154746.4105174",
+    "https://jobs.galenica.com/it/jobs/#job.id=3154712.4105819"
   ],
   "seedMetaByUrl": {
     "https://jobs.galenica.com/it/jobs/#job.id=3151903.4099729": {
@@ -515,10 +519,6 @@
       "company": "Galenica AG",
       "companyDomain": "galenica.com"
     },
-    "https://jobs.galenica.com/it/jobs/#job.id=3149575.4094436": {
-      "company": "Galenica AG",
-      "companyDomain": "galenica.com"
-    },
     "https://jobs.galenica.com/it/jobs/#job.id=3153899.4103998": {
       "company": "Galenica AG",
       "companyDomain": "galenica.com"
@@ -587,10 +587,6 @@
       "company": "Galenica AG",
       "companyDomain": "galenica.com"
     },
-    "https://jobs.galenica.com/it/jobs/#job.id=3146847.4088743": {
-      "company": "Galenica AG",
-      "companyDomain": "galenica.com"
-    },
     "https://jobs.galenica.com/it/jobs/#job.id=3152178.4100147": {
       "company": "Galenica AG",
       "companyDomain": "galenica.com"
@@ -612,10 +608,6 @@
       "companyDomain": "galenica.com"
     },
     "https://jobs.galenica.com/it/jobs/#job.id=3153350.4102562": {
-      "company": "Galenica AG",
-      "companyDomain": "galenica.com"
-    },
-    "https://jobs.galenica.com/it/jobs/#job.id=3152218.4100447": {
       "company": "Galenica AG",
       "companyDomain": "galenica.com"
     },
@@ -772,10 +764,6 @@
       "companyDomain": "galenica.com"
     },
     "https://jobs.galenica.com/it/jobs/#job.id=3150000.4095549": {
-      "company": "Galenica AG",
-      "companyDomain": "galenica.com"
-    },
-    "https://jobs.galenica.com/it/jobs/#job.id=3148327.4091925": {
       "company": "Galenica AG",
       "companyDomain": "galenica.com"
     },
@@ -1918,8 +1906,20 @@
     "https://jobs.galenica.com/it/jobs/#job.id=3154746.4105174": {
       "company": "Galenica AG",
       "companyDomain": "galenica.com"
+    },
+    "https://jobs.galenica.com/it/jobs/#job.id=3154874.4105797": {
+      "company": "Galenica AG",
+      "companyDomain": "galenica.com"
+    },
+    "https://jobs.galenica.com/it/jobs/#job.id=3154880.4105813": {
+      "company": "Galenica AG",
+      "companyDomain": "galenica.com"
+    },
+    "https://jobs.galenica.com/it/jobs/#job.id=3154712.4105819": {
+      "company": "Galenica AG",
+      "companyDomain": "galenica.com"
     }
   },
   "notes": "Solique data.json crawler — static national endpoint. Galenica AG healthcare group: Sun Store, Amavita, Coop Vitality and UFD subsidiaries across all 26 Swiss cantons. Each item keeps its source city, postal code and canton; foreign or unresolved locations are dropped.",
-  "updatedAt": "2026-11-20T09:35:34.517Z"
+  "updatedAt": "2026-11-20T21:21:42.567Z"
 }

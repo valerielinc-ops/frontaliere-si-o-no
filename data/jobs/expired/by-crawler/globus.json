@@ -25,7 +25,7 @@
       "fr": "employe-e-polyvalent-e-delicatessa-avec-expertise-en-vins-40-60-h-f-d-globus-bern"
     },
     "sector": "Retail (department store / luxury)",
-    "expiredAt": "2026-11-20T09:34:07.936Z",
+    "expiredAt": "2026-11-20T21:23:57.384Z",
     "previousSlugs": [
       "allrounder-in-delicatessa-mit-weinkompetenz-40-60-w-m-d-globus-ch",
       "allrounder-in-delicatessa-mit-weinkompetenz-50-w-m-d-globus-ch"
@@ -77,7 +77,7 @@
       "fr": "responsable-des-ventes-de-mode-masculine-100-h-f-d-globus-bern"
     },
     "sector": "Retail (department store / luxury)",
-    "expiredAt": "2026-11-20T09:34:07.936Z",
+    "expiredAt": "2026-11-20T21:23:57.384Z",
     "previousSlugs": [
       "verkaufsleiter-in-herrenmode-100-w-m-d-globus-ch"
     ],
@@ -127,7 +127,7 @@
       "fr": "directeur-adjoint-des-ventes-vins-autres-100-h-f-d-globus-bern"
     },
     "sector": "Retail (department store / luxury)",
-    "expiredAt": "2026-11-20T09:34:07.936Z",
+    "expiredAt": "2026-11-20T21:23:57.384Z",
     "previousSlugs": [
       "stellvertretende-r-verkaufsleiter-in-wine-more-100-w-m-d-globus-ch"
     ],
@@ -2500,16 +2500,14 @@
     "slugByLocale": {
       "it": "apprendistato-come-impiegato-a-del-commercio-al-dettaglio-cfc-herrenmode-globus-zurich-bahnhofstrasse",
       "en": "apprenticeship-as-a-retail-specialist-efz-herrenmode-globus-zurich-bahnhofstrasse",
-      "de": "lehrstelle-als-detailhandelsfachfrau-mann-efz-herrenmode-globus-ch",
+      "de": "lehrstelle-als-detailhandelsfachfrau-mann-efz-herrenmode-globus-ch-89d005ce",
       "fr": "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-efz-herrenmode-globus-zurich-bahnhofstrasse"
     },
     "sector": "Retail (department store / luxury)",
     "expiredAt": "2026-10-07T09:14:59.862Z",
-    "previousSlugs": [
-      "lehrstelle-als-detailhandelsfachfrau-mann-efz-herrenmode-globus-ch"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "lehrstelle-als-detailhandelsfachfrau-mann-efz-herrenmode-globus-ch-89d005ce",
         "lehrstelle-als-detailhandelsfachfrau-mann-efz-herrenmode-globus-ch"
       ],
       "en": [
@@ -2517,6 +2515,9 @@
       ],
       "fr": [
         "lehrstelle-als-detailhandelsfachfrau-mann-efz-herrenmode-globus-ch"
+      ],
+      "de": [
+        "lehrstelle-als-detailhandelsfachfrau-mann-efz-herrenmode-globus-ch-89d005ce"
       ]
     },
     "postalCode": "8001",
@@ -2526,7 +2527,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.globus.ch/lehrstelle-als-detailhandelsfachfrau-mann-efz-herrenmode-de-j2469.html",
-    "firstSeenAt": "2026-07-31T22:31:07.864Z"
+    "firstSeenAt": "2026-07-31T22:31:07.864Z",
+    "previousSlugs": [
+      "lehrstelle-als-detailhandelsfachfrau-mann-efz-herrenmode-globus-ch"
+    ]
   },
   {
     "slug": "consulente-commerciale-in-home-lifestyle-40-50-f-m-d-globus-st-gallen",
