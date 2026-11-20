@@ -2369,6 +2369,13 @@ const GENERATED_GROUP_PERMISSIONS = Object.freeze({ contents: 'write', issues: '
 const LOGIC_GROUP_PERMISSIONS = Object.freeze({ contents: 'read' });
 const STANDALONE_PERMISSIONS = Object.freeze({ actions: 'read', contents: 'read', issues: 'write' });
 
+function buildCrawlerResultStepEnv(crawler, { tightShell = false } = {}) {
+  return {
+    CRAWLER_LAUNCH_OUTCOME: `\${{ steps['crawler-launch-${crawler.slug}'].outcome }}`,
+    ...(tightShell ? { CRAWLER_MEMBER_SLUG: crawler.slug } : {}),
+  };
+}
+
 function buildGroupWorkflowObject(
   groupIndex,
   group,
@@ -2536,10 +2543,7 @@ function buildGroupWorkflowObject(
       id: `crawler-${crawler.slug}`,
       if: 'always()',
       'continue-on-error': true,
-      env: {
-        CRAWLER_LAUNCH_OUTCOME: `\${{ steps['crawler-launch-${crawler.slug}'].outcome }}`,
-        ...(tightShell ? { CRAWLER_MEMBER_SLUG: crawler.slug } : {}),
-      },
+      env: buildCrawlerResultStepEnv(crawler, { tightShell }),
       run: buildCrawlerResultShellBody(crawler, groupIndex, { compact: tightShell }),
     });
   }
@@ -3202,7 +3206,7 @@ function compactCrawlerLogicShells(logicText, groupIndex, memberSpecs, { tight =
     if (!result) throw new Error(`crawler-group-${groupIndex}: missing result waiter for ${crawler.slug}`);
     result.env = {
       ...(result.env ?? {}),
-      CRAWLER_MEMBER_SLUG: crawler.slug,
+      ...buildCrawlerResultStepEnv(crawler, { tightShell: true }),
     };
     result.run = buildCrawlerResultShellBody(crawler, groupIndex, { compact: true });
   }

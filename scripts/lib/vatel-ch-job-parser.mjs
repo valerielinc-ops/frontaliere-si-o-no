@@ -66,7 +66,6 @@ export function isVatelChJob(job) {
 
   return (
     key === VATEL_CH_KEY ||
-    key.startsWith('vatel-ch-') ||
     companyIdentity === VATEL_CH_COMPANY_IDENTITY ||
     isTrustedDomain(url)
   );
