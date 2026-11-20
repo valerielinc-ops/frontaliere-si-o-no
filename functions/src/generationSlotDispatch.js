@@ -104,7 +104,7 @@ export async function dispatchGenerationSlot({
       : 'generation_contract_lookup_failed:network';
     return result(entry, { dispatched: false, failed: true, reason, slotKey });
   }
-  const contract = inspectGenerationWorkflowContract(workflowText);
+  const contract = inspectGenerationWorkflowContract(workflowText, { canton: entry.generationSlot.startsWith('canton-') });
   if (!contract.ready) {
     return result(entry, { dispatched: false, reason: `shadow:${contract.reason}`, slotKey });
   }

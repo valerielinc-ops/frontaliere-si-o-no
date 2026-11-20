@@ -16,7 +16,7 @@ function rootSection(source, name) {
   return section;
 }
 
-export function inspectGenerationWorkflowContract(source) {
+export function inspectGenerationWorkflowContract(source, { canton = false } = {}) {
   const text = String(source ?? '');
   const onLines = rootSection(text, 'on');
   const dispatchStart = onLines.findIndex((line) => /^  workflow_dispatch:\s*$/u.test(line));
@@ -38,10 +38,13 @@ export function inspectGenerationWorkflowContract(source) {
   const originOptions = originLines
     .filter((line) => /^          - /u.test(line))
     .map((line) => line.slice('          - '.length));
-  const originContractReady = originLines.some((line) => /^        required: true\s*$/u.test(line))
-    && originLines.some((line) => /^        type: choice\s*$/u.test(line))
-    && !originLines.some((line) => /^        default:/u.test(line))
-    && JSON.stringify(originOptions) === JSON.stringify(GENERATION_DISPATCH_ORIGINS);
+  const originContractReady = originLines.some((line) => /^        type: choice\s*$/u.test(line))
+    && (canton
+      ? originLines.some((line) => /^        default: manual\s*$/u.test(line))
+        && JSON.stringify(originOptions) === JSON.stringify(['manual', 'cloud_scheduler'])
+      : originLines.some((line) => /^        required: true\s*$/u.test(line))
+        && !originLines.some((line) => /^        default:/u.test(line))
+        && JSON.stringify(originOptions) === JSON.stringify(GENERATION_DISPATCH_ORIGINS));
   const hasNativeSchedule = onLines.some((line) => /^  schedule:\s*$/u.test(line));
   const markerPresent = text.split(/\r?\n/u).includes(GENERATION_WORKFLOW_CONTRACT_MARKER);
   const missingInputs = ['section', 'dry_run', 'loop_clock', 'recovery_slot', 'recovery_claim']

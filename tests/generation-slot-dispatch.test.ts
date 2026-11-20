@@ -78,6 +78,10 @@ function responseForWorkflow(source = workflow) {
   }), { status: 200 });
 }
 
+const cantonWorkflow = workflow
+  .replace(/(      dispatch_origin:\n)        required: true\n/u, '$1        default: manual\n')
+  .replace(/^          - (?:chain|editorial_signal)\n/gmu, '');
+
 describe('generation workflow readiness contract', () => {
   it('requires the readiness marker, explicit origin contract, recovery inputs and removal of native cron', () => {
     expect(inspectGenerationWorkflowContract(workflow)).toMatchObject({ ready: true, reason: 'ready' });
@@ -218,7 +222,7 @@ describe('generation slot dispatch', () => {
     ] };
     const fetchImpl = vi.fn(async (url: string) => url.includes('canton-generation-slots.json')
       ? new Response(JSON.stringify(schedule))
-      : responseForWorkflow(workflow.replace('on:\n', "on:\n  schedule:\n    - cron: '14 3,9,15,21 * * *'\n")));
+      : responseForWorkflow(cantonWorkflow.replace('on:\n', "on:\n  schedule:\n    - cron: '14 3,9,15,21 * * *'\n")));
     const report = await dispatchLoopClock({
       scheduledAt: new Date('2026-11-20T09:25:00Z'),
       entries: [{ id: 'idle', repo: 'site', workflow: 'idle.yml', everyMinutes: 1440 }],
@@ -244,7 +248,7 @@ describe('generation slot dispatch', () => {
     });
     const db = memoryDb();
     const fetchImpl = vi.fn(async (url: string) => url.includes('/contents/')
-      ? responseForWorkflow()
+      ? responseForWorkflow(cantonWorkflow)
       : new Response(null, { status: 204 }));
     const now = Date.parse('2026-11-20T09:20:00Z');
     const result = await dispatchGenerationSlot({
