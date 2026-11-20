@@ -458,6 +458,22 @@ describe('publisher fast provenance gate', () => {
     expect(fixture().result).toMatchObject({ passed: true, errorCount: 0, sampleRate: 1 });
   });
 
+  it('accepts prior publisher evidence only for the selected run and source build', () => {
+    const f = fixture();
+    const manifest = f.sectionManifests.find((entry) => entry.locale === 'en')!;
+    const priorRunId = '111';
+    const priorName = `section-page-manifest-en-${priorRunId}`;
+    manifest.artifactRunId = priorRunId;
+    manifest.manifestArtifactName = priorName;
+    const priorArtifacts = { [priorRunId]: { artifacts: [artifact(priorName, 'a'.repeat(64))] } };
+
+    expect(f.validate({ priorArtifacts }).passed).toBe(false);
+    const options = { priorArtifacts, sectionOrigins: { en: priorRunId } };
+    expect(f.validate(options).passed).toBe(true);
+    manifest.sourceSha = 'b'.repeat(40);
+    expect(f.validate(options).passed).toBe(false);
+  });
+
   it('reports ONE root-cause error, not one per page, when the current sitemap snapshot is missing', () => {
     const f = fixture();
     fs.rmSync(path.join(f.sitemapDir, 'new-sitemap-urls.json'));
