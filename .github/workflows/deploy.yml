@@ -1905,11 +1905,12 @@ jobs:
           path: .cache/incremental-html
           key: jobs-seo-html-${{ matrix.locale }}-${{ steps.current-manifest-key.outputs.digest }}-${{ steps.jobs-seo-html-fingerprint.outputs.fingerprint }}
 
-      # Read-only evidence for the opt-in HTML cache. The build already logs
-      # one [jobs-seo-reuse] row per page block; join those rows with the
-      # Actions restore/save outcomes so a later deploy can distinguish a
-      # cache miss from an inactive path. A missing signal stays unknown and
-      # this observer can never block publication.
+      # Read-only evidence for the opt-in HTML cache. The build logs
+      # [jobs-seo-reuse] diagnostics as well as `mode=verify-sample` metric
+      # rows. Join only the latter with Actions restore/save outcomes so a
+      # diagnostic without counters cannot erase valid reuse measurements.
+      # A missing signal stays unknown and this observer can never block
+      # publication.
       - name: Observe Jobs SEO HTML cache hit and wall-clock
         id: jobs-seo-cache-hit-observer
         if: always()
@@ -1962,7 +1963,10 @@ jobs:
               function numeric(value) {
                 return value ~ /^[0-9]+([.][0-9]+)?$/;
               }
-              /^\[jobs-seo-reuse\] block=/ {
+              /^\[jobs-seo-reuse\] block=/ && !/(^|[[:space:]])mode=verify-sample([[:space:]]|$)/ {
+                next;
+              }
+              /^\[jobs-seo-reuse\] / && /(^|[[:space:]])mode=verify-sample([[:space:]]|$)/ {
                 rows += 1;
                 reused = rendered = wall = "";
                 for (i = 1; i <= NF; i += 1) {
