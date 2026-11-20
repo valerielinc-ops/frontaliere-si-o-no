@@ -48,6 +48,7 @@ import {
 import {
   jobsSeoPagesFlushed,
   shouldAwaitJobsSeoPagesFlushed,
+  shouldRequireJobsSeoActivePageManifest,
 } from './shared/buildSignals';
 
 const OUT_SUBDIR = 'job-canon';
@@ -542,6 +543,7 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
       }
 
       const jobsSeoProducerExpected = shouldAwaitJobsSeoPagesFlushed();
+      const activePagesManifestExpected = shouldRequireJobsSeoActivePageManifest();
       if (jobsSeoProducerExpected) {
         console.log('[job-canon-redirect-map] waiting for jobs SEO to flush the reconciled Worker slug map');
         await jobsSeoPagesFlushed;
@@ -571,9 +573,10 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
       // page inventory.  This prevents a current slug from overwriting the
       // registry with a canton prefix whose destination was not published.
       // Isolated plugin fixtures have no registered producer and retain their
-      // self-contained input contract.
+      // self-contained input contract. Fast-lane producers register only the
+      // flush barrier and are handled below without granting new prefixes.
       let activeJobPageLookup: ReturnType<typeof createJobPagesManifestLookup> | null = null;
-      if (jobsSeoProducerExpected) {
+      if (activePagesManifestExpected) {
         const activePagesManifestPath = path.join(distDir, JOB_PAGES_MANIFEST_FILE);
         if (!fs.existsSync(activePagesManifestPath)) {
           throw new Error(
@@ -910,8 +913,13 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
                 const currentPath = buildCanonicalJobDetailPath(locale, job, currentSlug, canton);
                 const prefix = sectionPrefix(currentPath);
                 if (prefix) {
-                  const activeRoutePublished = activeJobPageLookup === null
-                    || activeJobPageLookup.has(currentPath);
+                  // A full jobs SEO producer must prove the route through its
+                  // manifest. A registered fast-lane/fixture producer has no
+                  // shared manifest contract, so it may synchronize registry
+                  // reads but cannot add a new permanent active prefix.
+                  const activeRoutePublished = activeJobPageLookup !== null
+                    ? activeJobPageLookup.has(currentPath)
+                    : !jobsSeoProducerExpected;
                   pushRecord(
                     stageBuffer,
                     activeRoutePublished ? 'active-prefix' : 'active-prefix-remove',

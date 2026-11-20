@@ -77,6 +77,7 @@ const salaryHubSignal = makeSignal();
 const fuelDailyPagesSignal = makeSignal();
 let jobsSeoPagesSignal = makeSignal();
 let jobsSeoPagesProducerRegistered = false;
+let jobsSeoPagesActiveManifestExpected = false;
 let localeJobsSplitSignal = makeValueSignal<BuildProducerOutcome>();
 let localeJobsSplitProducerRegistered = false;
 let activeJobSitemapLocs: ReadonlySet<string> | null = null;
@@ -196,10 +197,13 @@ export function resolveFuelDailyPagesFlushed(): void {
 export let jobsSeoPagesFlushed: Promise<void> = jobsSeoPagesSignal.promise;
 
 /** Register and reset the jobs SEO barrier for a new build generation. */
-export function registerJobsSeoPagesProducer(): void {
+export function registerJobsSeoPagesProducer(
+  contract: { readonly activePageManifest?: boolean } = {},
+): void {
   jobsSeoPagesSignal = makeSignal();
   jobsSeoPagesFlushed = jobsSeoPagesSignal.promise;
   jobsSeoPagesProducerRegistered = true;
+  jobsSeoPagesActiveManifestExpected = contract.activePageManifest === true;
 }
 
 export function resolveJobsSeoPagesFlushed(): void {
@@ -217,6 +221,13 @@ export function shouldAwaitJobsSeoPagesFlushed(
   return jobsSeoPagesProducerRegistered && !fastBuild;
 }
 
+/** Whether this producer generation promises the shared active-page manifest. */
+export function shouldRequireJobsSeoActivePageManifest(
+  fastBuild = Boolean(process.env.FAST_BUILD),
+): boolean {
+  return jobsSeoPagesProducerRegistered && jobsSeoPagesActiveManifestExpected && !fastBuild;
+}
+
 /**
  * Test-only cleanup for the process-wide build signal. A test that models a
  * producer must not leave a registered barrier behind for an isolated plugin
@@ -226,6 +237,7 @@ export function _resetJobsSeoPagesSignalForTests(): void {
   jobsSeoPagesSignal = makeSignal();
   jobsSeoPagesFlushed = jobsSeoPagesSignal.promise;
   jobsSeoPagesProducerRegistered = false;
+  jobsSeoPagesActiveManifestExpected = false;
 }
 
 /** Resolves after localeJobsSplitPlugin has finished writing the Worker map. */

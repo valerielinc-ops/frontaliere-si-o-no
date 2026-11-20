@@ -1936,7 +1936,7 @@ export function readFinalWorkerSlugMap(distDir: string): ActiveJobSlugMapRow[] {
 }
 
 export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginOptions = {}): Plugin {
- registerJobsSeoPagesProducer();
+ registerJobsSeoPagesProducer({ activePageManifest: !options.fastLane });
  return {
  name: 'jobs-seo-pages',
  apply: 'build',
@@ -1944,7 +1944,7 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  // closeBundle hooks run in parallel, so reset the signal before each build
  // generation when Vite reuses this plugin instance in watch mode.
  buildStart() {
-  registerJobsSeoPagesProducer();
+  registerJobsSeoPagesProducer({ activePageManifest: !options.fastLane });
  },
  async closeBundle() {
  let expiredSliceOverflow: ExpiredSliceOverflow<any> | undefined;
