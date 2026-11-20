@@ -1,7 +1,7 @@
 {
   "crawlerKey": "microsoft",
-  "assembledAt": "2026-11-19T21:20:40.666Z",
-  "runId": "44615006552",
+  "assembledAt": "2026-11-20T09:34:19.339Z",
+  "runId": "44707440276",
   "jobs": [
     {
       "id": "microsoft-200067082",
@@ -34,7 +34,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393557072640",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T21:20:17.329Z",
+      "crawledAt": "2026-11-20T09:33:48.124Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -52,21 +52,6 @@
       "applyUrl": "https://apply.careers.microsoft.com/careers/job/1970393557072640",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "data-science-phd-internship-opportunities-microsoft-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "data-science-phd-internship-opportunities-microsoft-zurich"
-        ],
-        "fr": [
-          "data-science-phd-internship-opportunities-microsoft-zurich"
-        ],
-        "de": [
-          "data-science-phd-internship-opportunities-microsoft-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-11-19T09:35:21.330Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -83,8 +68,23 @@
       "streetAddress": "The Circle 02",
       "postalCode": "8001",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-17T21:20:17.329Z",
+      "validThrough": "2027-02-17T09:33:48.124Z",
       "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-19T09:35:21.330Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "data-science-phd-internship-opportunities-microsoft-zurich"
+        ],
+        "fr": [
+          "data-science-phd-internship-opportunities-microsoft-zurich"
+        ],
+        "de": [
+          "data-science-phd-internship-opportunities-microsoft-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "data-science-phd-internship-opportunities-microsoft-zurich"
+      ],
       "sourceIdentity": "url:https://apply.careers.microsoft.com/careers/job/1970393557072640"
     },
     {
@@ -118,7 +118,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393557021004",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T21:20:17.329Z",
+      "crawledAt": "2026-11-20T09:33:48.127Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -167,7 +167,7 @@
       "streetAddress": "The Circle 02",
       "postalCode": "8001",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-07T21:20:17.329Z",
+      "validThrough": "2027-01-08T09:33:48.127Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.careers.microsoft.com/careers/job/1970393557021004"
     },
@@ -202,7 +202,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393557074923",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T21:20:17.328Z",
+      "crawledAt": "2026-11-20T09:33:48.128Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -251,7 +251,7 @@
       "streetAddress": "The Circle 02",
       "postalCode": "8001",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-15T21:20:17.328Z",
+      "validThrough": "2027-02-16T09:33:48.128Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.careers.microsoft.com/careers/job/1970393557074923"
     },
@@ -286,7 +286,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393557043273",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T21:20:17.327Z",
+      "crawledAt": "2026-11-20T09:33:48.126Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -322,7 +322,7 @@
       "streetAddress": "The Circle 02",
       "postalCode": "8001",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-22T21:20:17.327Z",
+      "validThrough": "2027-01-23T09:33:48.126Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.careers.microsoft.com/careers/job/1970393557043273"
     },
@@ -357,7 +357,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556999278",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T21:20:17.326Z",
+      "crawledAt": "2026-11-20T09:33:48.129Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -406,7 +406,7 @@
       "streetAddress": "The Circle 02",
       "postalCode": "8001",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T21:20:17.326Z",
+      "validThrough": "2027-02-10T09:33:48.129Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.careers.microsoft.com/careers/job/1970393556999278"
     },
@@ -441,7 +441,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393557043264",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T21:20:17.324Z",
+      "crawledAt": "2026-11-20T09:33:48.122Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -459,15 +459,6 @@
       "applyUrl": "https://apply.careers.microsoft.com/careers/job/1970393557043264",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "researcher-pretraining-data-team-microsoft-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "fr": [
-          "researcher-pretraining-data-team-microsoft-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-11-19T09:35:21.328Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -484,8 +475,17 @@
       "streetAddress": "The Circle 02",
       "postalCode": "8001",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-17T21:20:17.324Z",
+      "validThrough": "2027-02-17T09:33:48.122Z",
       "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-19T09:35:21.328Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "researcher-pretraining-data-team-microsoft-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "researcher-pretraining-data-team-microsoft-zurich"
+      ],
       "sourceIdentity": "url:https://apply.careers.microsoft.com/careers/job/1970393557043264"
     },
     {
@@ -519,7 +519,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393557006846",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T21:20:17.322Z",
+      "crawledAt": "2026-11-20T09:33:48.120Z",
       "addressLocality": "Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -567,7 +567,7 @@
       },
       "streetAddress": "Switzerland",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:20:17.322Z",
+      "validThrough": "2027-02-16T09:33:48.120Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.careers.microsoft.com/careers/job/1970393557006846"
     }
