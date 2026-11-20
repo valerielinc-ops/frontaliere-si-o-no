@@ -31,6 +31,9 @@ import { localizedActiveJobSlug } from './shared/activeJobPageSelection';
 import {
   JOB_PAGES_MANIFEST_FILE,
   createJobPagesManifestLookup,
+  decodeSortedSlugs,
+  encodeSortedSlugs,
+  normalizeJobPagePath,
 } from './shared/jobPagesManifest.mjs';
 import {
   clearJobCanonOrderingFields,
@@ -91,16 +94,44 @@ function isPlainRecord(value: unknown): value is Record<string, unknown> {
 function isCompleteActivePageManifest(value: unknown): value is Record<string, unknown> {
   if (!isPlainRecord(value) || !isPlainRecord(value.pages) || !isPlainRecord(value.counts)) return false;
   const counts = value.counts;
-  return typeof value.generatedAt === 'string'
-    && typeof value.buildCommit === 'string'
-    && typeof value.contentSha256 === 'string'
-    && /^[0-9a-f]{64}$/u.test(value.contentSha256)
-    && typeof counts.pages === 'number'
-    && Number.isSafeInteger(counts.pages)
-    && counts.pages >= 0
-    && typeof counts.sections === 'number'
-    && Number.isSafeInteger(counts.sections)
-    && counts.sections >= 0;
+  if (typeof value.generatedAt !== 'string'
+    || typeof value.buildCommit !== 'string'
+    || typeof value.contentSha256 !== 'string'
+    || !/^[0-9a-f]{64}$/u.test(value.contentSha256)
+    || typeof counts.pages !== 'number'
+    || !Number.isSafeInteger(counts.pages)
+    || counts.pages < 0
+    || typeof counts.sections !== 'number'
+    || !Number.isSafeInteger(counts.sections)
+    || counts.sections < 0) return false;
+
+  const directories = Object.keys(value.pages).sort();
+  const digest = createHash('sha256');
+  let pageCount = 0;
+  for (const directory of directories) {
+    if (directory === '/'
+      || normalizeJobPagePath(directory) !== directory
+      || directory.includes('//')
+      || directory.includes('|')) return false;
+    const encoded = value.pages[directory];
+    if (!Array.isArray(encoded)
+      || encoded.length === 0
+      || encoded.some((entry) => typeof entry !== 'string')) return false;
+    const decoded = decodeSortedSlugs(encoded);
+    for (let index = 0; index < decoded.length; index += 1) {
+      const slug = decoded[index];
+      if (!slug || slug.includes('/') || slug.includes('|')) return false;
+      if (index > 0 && decoded[index - 1] >= slug) return false;
+    }
+    const canonicalEncoding = encodeSortedSlugs(decoded);
+    if (canonicalEncoding.length !== encoded.length
+      || canonicalEncoding.some((entry, index) => entry !== encoded[index])) return false;
+    pageCount += decoded.length;
+    digest.update(`${directory}\n${decoded.join('\n')}\n`);
+  }
+  return counts.pages === pageCount
+    && counts.sections === directories.length
+    && value.contentSha256 === digest.digest('hex');
 }
 
 type CompactRegistryIndex = {
