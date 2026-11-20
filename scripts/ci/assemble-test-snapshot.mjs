@@ -138,6 +138,7 @@ function expectedCacheManifest(sourceCacheKey) {
       withStats: true,
       withSummaries: true,
       withExpired: true,
+      projectionOnly: false,
       ...contract,
     },
   };

@@ -94,6 +94,10 @@ describe('assemble-jobs-dataset --no-summaries is opt-in', () => {
     // in tests/scripts/assemble-jobs-cache.test.ts ("keys the run mode …").
     expect(SOURCE).toMatch(/cacheKey: `\$\{inputFingerprint\}_.*withSummaries \?/);
     expect(SOURCE).toMatch(/cacheKey: `[^`]*withExpired \?/);
+    expect(SOURCE.match(/Slug reconciliation skipped \(JOBS_SKIP_RECONCILIATION=1\)/g))
+      .toHaveLength(1);
+    expect(SOURCE.indexOf("console.log('⏭️  Slug reconciliation skipped (JOBS_SKIP_RECONCILIATION=1)')"))
+      .toBeLessThan(SOURCE.indexOf('if (fs.existsSync(manifestPath))'));
   });
 
   it('guards the expired archive block on the active-only option', () => {

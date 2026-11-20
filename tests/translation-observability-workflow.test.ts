@@ -118,7 +118,7 @@ describe('translation observability workflow', () => {
     const mopupIndex = steps.findIndex((step) => step.name === 'Phase 2c mop-up: local MT (Argos Translate, in-process)');
     expect(steps[mopupIndex + 1]).toMatchObject({
       name: 'Re-assemble dataset after Phase 2c mop-up',
-      run: 'node scripts/assemble-jobs-dataset.mjs',
+      run: 'node scripts/assemble-jobs-dataset.mjs --projection-only',
     });
     expect(steps.slice(mopupIndex + 1).some((step) => step.run === 'node scripts/scatter-jobs-to-slices.mjs')).toBe(false);
     expect(titleFixScript).toContain('BY_CRAWLER_DIR');
@@ -316,7 +316,7 @@ describe('translation observability workflow', () => {
     const runs = doc.jobs.translate.steps.map((step: any) => step.run || '').join('\n');
     expect(runs).toContain('node scripts/relocalize-pending-jobs.mjs "${ARGS[@]}"');
     expect(runs).toContain('node scripts/local-mt-mopup.mjs --max-jobs "$INPUT_MOPUP_MAX_JOBS"');
-    expect(runs).toContain('node scripts/assemble-jobs-dataset.mjs');
+    expect(runs).toContain('node scripts/assemble-jobs-dataset.mjs --projection-only');
     expect(runs).not.toContain('gh workflow run');
   });
 
