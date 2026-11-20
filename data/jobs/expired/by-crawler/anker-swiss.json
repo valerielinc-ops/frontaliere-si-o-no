@@ -1344,7 +1344,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://anker-swiss.ch/stellen/metallbauer-1542549",
-    "firstSeenAt": "2026-11-06T21:52:19.813Z"
+    "firstSeenAt": "2026-11-06T21:52:19.813Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://anker-swiss.ch/stellen/metallbauer-1542304",
+        "firstSeenAt": "2026-11-06T21:52:19.813Z",
+        "title": "Metallbauer 100%"
+      },
+      {
+        "sourceIdentity": "url:https://anker-swiss.ch/stellen/metallbauer-1542549",
+        "firstSeenAt": "2026-11-06T21:52:19.813Z",
+        "title": "Metallbauer 100%"
+      }
+    ]
   },
   {
     "slug": "lavoratori-100-anker-swiss-ticino-ag-biglen-e1e7ae16-5bbe43ad",
@@ -1712,7 +1724,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://anker-swiss.ch/stellen/bauprojektleiter-1577169",
-    "firstSeenAt": "2026-11-06T21:52:19.786Z"
+    "firstSeenAt": "2026-11-06T21:52:19.786Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://anker-swiss.ch/stellen/bauprojektleiter-1577169",
+        "firstSeenAt": "2026-11-06T21:52:19.786Z",
+        "title": "Bauprojektleiter 100%"
+      },
+      {
+        "sourceIdentity": "url:https://anker-swiss.ch/stellen/bauprojektleiter-1577290",
+        "firstSeenAt": "2026-11-06T21:52:19.786Z",
+        "title": "Bauprojektleiter 100%"
+      }
+    ]
   },
   {
     "slug": "project-manager-100-anker-swiss-ticino-ag-zurich-385fe3de-5aa1e3b6",
@@ -2020,7 +2044,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://anker-swiss.ch/stellen/gipser-trockenbauer-1613255",
-    "firstSeenAt": "2026-11-13T21:35:40.796Z"
+    "firstSeenAt": "2026-11-13T21:35:40.796Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://anker-swiss.ch/stellen/gipser-trockenbauer-1613245",
+        "firstSeenAt": "2026-11-13T21:35:40.796Z",
+        "title": "Gipser-Trockenbauer 100%"
+      },
+      {
+        "sourceIdentity": "url:https://anker-swiss.ch/stellen/gipser-trockenbauer-1613255",
+        "firstSeenAt": "2026-11-13T21:35:40.796Z",
+        "title": "Gipser-Trockenbauer 100%"
+      }
+    ]
   },
   {
     "slug": "asciugamani-100-anker-swiss-ticino-ag-flumenthal-3727794c-4fb0016b",
@@ -2238,18 +2274,6 @@
     "expiredAt": "2026-11-14T21:32:46.669Z",
     "previousSlugsByLocale": {
       "it": [
-        "schreiner-100-anker-swiss-ticino-ag-bern-1faf7b08-2d516ce6",
-        "schreiner-100-anker-swiss-ticino-ag-bern-1faf7b08-b48cd8f9",
-        "carpentiere-100-anker-swiss-ticino-ag-bern-a77483f1",
-        "schreiner-100-anker-swiss-ticino-ag-bern-c7bcd0c0",
-        "schreiner-100-anker-swiss-ticino-ag-bern-a77483f1",
-        "carpentiere-100-anker-swiss-ticino-ag-bern-9fd5fa6e",
-        "schreiner-100-anker-swiss-ticino-ag-bern-a77483f1-7d161416",
-        "schreiner-100-anker-swiss-ag-anker-swiss-ticino-ag-bern-004ae8a1",
-        "schreiner-100-anker-swiss-ag-bern-anker-swiss-ch-004ae8a1",
-        "schreiner-100-anker-swiss-ticino-ag-bern-1faf7b08",
-        "schreiner-100-anker-swiss-ticino-ag-bern-9fd5fa6e",
-        "carpentiere-100-anker-swiss-ticino-ag-bern-a77483f1-3e93bc00",
         "schreiner-100-anker-swiss-ticino-ag-bern-9fd5fa6e-cab950a1",
         "falegname-100-anker-swiss-ag-anker-swiss-ticino-ag-bern-004ae8a1",
         "schreiner-100-anker-swiss-ticino-ag-bern-004ae8a1",
@@ -2262,20 +2286,24 @@
         "charpentiers-100-anker-swiss-ticino-ag-bern-a77483f1",
         "schreiner-100-anker-swiss-ticino-ag-bern-1faf7b08-89a22d6f",
         "schreiner-100-anker-swiss-ticino-ag-bern-1faf7b08-7ac3ec46",
-        "schreiner-100-anker-swiss-ticino-ag-bern-1faf7b08-20475132"
-      ],
-      "en": [
-        "carpenters-100-anker-swiss-ticino-ag-bern-a77483f1-1da9bf90",
-        "carpentiere-100-anker-swiss-ticino-ag-bern-a77483f1",
-        "schreiner-100-anker-swiss-ticino-ag-bern-c7bcd0c0",
-        "schreiner-100-anker-swiss-ticino-ag-bern-1faf7b08-2d516ce6",
-        "schreiner-100-anker-swiss-ticino-ag-bern-1faf7b08-b48cd8f9",
+        "schreiner-100-anker-swiss-ticino-ag-bern-1faf7b08-20475132",
         "schreiner-100-anker-swiss-ticino-ag-bern-a77483f1",
+        "schreiner-100-anker-swiss-ticino-ag-bern-c7bcd0c0",
+        "carpentiere-100-anker-swiss-ticino-ag-bern-9fd5fa6e",
         "schreiner-100-anker-swiss-ticino-ag-bern-a77483f1-7d161416",
         "schreiner-100-anker-swiss-ag-anker-swiss-ticino-ag-bern-004ae8a1",
+        "schreiner-100-anker-swiss-ticino-ag-bern-1faf7b08-2d516ce6",
+        "schreiner-100-anker-swiss-ticino-ag-bern-1faf7b08-b48cd8f9",
+        "carpentiere-100-anker-swiss-ticino-ag-bern-a77483f1",
+        "schreiner-100-anker-swiss-ag-bern-anker-swiss-ch-004ae8a1",
         "schreiner-100-anker-swiss-ticino-ag-bern-1faf7b08",
-        "carpenters-100-anker-swiss-ticino-ag-bern-9fd5fa6e",
         "schreiner-100-anker-swiss-ticino-ag-bern-9fd5fa6e",
+        "carpentiere-100-anker-swiss-ticino-ag-bern-a77483f1-3e93bc00"
+      ],
+      "en": [
+        "schreiner-100-anker-swiss-ticino-ag-bern-c7bcd0c0",
+        "schreiner-100-anker-swiss-ticino-ag-bern-a77483f1",
+        "carpenters-100-anker-swiss-ticino-ag-bern-9fd5fa6e",
         "carpenters-100-anker-swiss-ticino-ag-bern-a77483f1-eae37189",
         "schreiner-100-anker-swiss-ticino-ag-bern-a77483f1-eea5b66b",
         "schreiner-100-anker-swiss-ticino-ag-bern-1faf7b08-629a4ef9",
@@ -2286,19 +2314,19 @@
         "charpentiers-100-anker-swiss-ticino-ag-bern-a77483f1",
         "schreiner-100-anker-swiss-ticino-ag-bern-1faf7b08-89a22d6f",
         "schreiner-100-anker-swiss-ticino-ag-bern-1faf7b08-7ac3ec46",
-        "schreiner-100-anker-swiss-ticino-ag-bern-1faf7b08-20475132"
-      ],
-      "de": [
-        "schreiner-100-anker-swiss-ticino-ag-bern-a77483f1",
-        "schreiner-100-anker-swiss-ag-bern-anker-swiss-ch-004ae8a1",
+        "schreiner-100-anker-swiss-ticino-ag-bern-1faf7b08-20475132",
+        "schreiner-100-anker-swiss-ticino-ag-bern-a77483f1-7d161416",
+        "schreiner-100-anker-swiss-ag-anker-swiss-ticino-ag-bern-004ae8a1",
+        "carpenters-100-anker-swiss-ticino-ag-bern-a77483f1-1da9bf90",
         "carpentiere-100-anker-swiss-ticino-ag-bern-a77483f1",
         "schreiner-100-anker-swiss-ticino-ag-bern-1faf7b08-2d516ce6",
         "schreiner-100-anker-swiss-ticino-ag-bern-1faf7b08-b48cd8f9",
-        "schreiner-100-anker-swiss-ticino-ag-bern-c7bcd0c0",
-        "schreiner-100-anker-swiss-ticino-ag-bern-a77483f1-7d161416",
-        "schreiner-100-anker-swiss-ag-anker-swiss-ticino-ag-bern-004ae8a1",
         "schreiner-100-anker-swiss-ticino-ag-bern-1faf7b08",
-        "schreiner-100-anker-swiss-ticino-ag-bern-9fd5fa6e",
+        "schreiner-100-anker-swiss-ticino-ag-bern-9fd5fa6e"
+      ],
+      "de": [
+        "schreiner-100-anker-swiss-ticino-ag-bern-a77483f1",
+        "schreiner-100-anker-swiss-ticino-ag-bern-c7bcd0c0",
         "schreiner-100-anker-swiss-ticino-ag-bern-9fd5fa6e-cab950a1",
         "schreiner-100-anker-swiss-ticino-ag-bern-a77483f1-eea5b66b",
         "schreiner-100-anker-swiss-ticino-ag-bern-1faf7b08-629a4ef9",
@@ -2308,19 +2336,19 @@
         "charpentiers-100-anker-swiss-ticino-ag-bern-a77483f1",
         "schreiner-100-anker-swiss-ticino-ag-bern-1faf7b08-89a22d6f",
         "schreiner-100-anker-swiss-ticino-ag-bern-1faf7b08-7ac3ec46",
-        "schreiner-100-anker-swiss-ticino-ag-bern-1faf7b08-20475132"
-      ],
-      "fr": [
-        "charpentiers-100-anker-swiss-ticino-ag-bern-a77483f1-5fa93222",
-        "carpentiere-100-anker-swiss-ticino-ag-bern-a77483f1",
-        "schreiner-100-anker-swiss-ticino-ag-bern-c7bcd0c0",
-        "schreiner-100-anker-swiss-ticino-ag-bern-1faf7b08-2d516ce6",
-        "schreiner-100-anker-swiss-ticino-ag-bern-1faf7b08-b48cd8f9",
+        "schreiner-100-anker-swiss-ticino-ag-bern-1faf7b08-20475132",
         "schreiner-100-anker-swiss-ticino-ag-bern-a77483f1-7d161416",
         "schreiner-100-anker-swiss-ag-anker-swiss-ticino-ag-bern-004ae8a1",
+        "schreiner-100-anker-swiss-ag-bern-anker-swiss-ch-004ae8a1",
+        "carpentiere-100-anker-swiss-ticino-ag-bern-a77483f1",
+        "schreiner-100-anker-swiss-ticino-ag-bern-1faf7b08-2d516ce6",
+        "schreiner-100-anker-swiss-ticino-ag-bern-1faf7b08-b48cd8f9",
         "schreiner-100-anker-swiss-ticino-ag-bern-1faf7b08",
+        "schreiner-100-anker-swiss-ticino-ag-bern-9fd5fa6e"
+      ],
+      "fr": [
+        "schreiner-100-anker-swiss-ticino-ag-bern-c7bcd0c0",
         "charpentiers-100-anker-swiss-ticino-ag-bern-9fd5fa6e",
-        "schreiner-100-anker-swiss-ticino-ag-bern-9fd5fa6e",
         "schreiner-100-anker-swiss-ticino-ag-bern-a77483f1-eea5b66b",
         "schreiner-100-anker-swiss-ticino-ag-bern-1faf7b08-629a4ef9",
         "schreiner-100-anker-swiss-ticino-ag-bern-a77483f1",
@@ -2331,7 +2359,15 @@
         "schreiner-100-anker-swiss-ticino-ag-bern-1faf7b08-89a22d6f",
         "schreiner-100-anker-swiss-ticino-ag-bern-1faf7b08-7ac3ec46",
         "schreiner-100-anker-swiss-ticino-ag-bern-1faf7b08-20475132",
-        "charpentiers-100-anker-swiss-ticino-ag-bern-a77483f1"
+        "charpentiers-100-anker-swiss-ticino-ag-bern-a77483f1",
+        "schreiner-100-anker-swiss-ticino-ag-bern-a77483f1-7d161416",
+        "schreiner-100-anker-swiss-ag-anker-swiss-ticino-ag-bern-004ae8a1",
+        "charpentiers-100-anker-swiss-ticino-ag-bern-a77483f1-5fa93222",
+        "carpentiere-100-anker-swiss-ticino-ag-bern-a77483f1",
+        "schreiner-100-anker-swiss-ticino-ag-bern-1faf7b08-2d516ce6",
+        "schreiner-100-anker-swiss-ticino-ag-bern-1faf7b08-b48cd8f9",
+        "schreiner-100-anker-swiss-ticino-ag-bern-1faf7b08",
+        "schreiner-100-anker-swiss-ticino-ag-bern-9fd5fa6e"
       ]
     },
     "postalCode": "3004",
@@ -2791,7 +2827,29 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://anker-swiss.ch/stellen/maler-1457434",
-    "firstSeenAt": "2026-09-19T23:05:17.534Z"
+    "firstSeenAt": "2026-09-19T23:05:17.534Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://anker-swiss.ch/stellen/maler-1362016",
+        "firstSeenAt": "2026-09-19T23:05:17.534Z",
+        "title": "Maler 100%"
+      },
+      {
+        "sourceIdentity": "url:https://anker-swiss.ch/stellen/maler-1455266",
+        "firstSeenAt": "2026-09-19T23:05:17.534Z",
+        "title": "Maler 100%"
+      },
+      {
+        "sourceIdentity": "url:https://anker-swiss.ch/stellen/maler-1457434",
+        "firstSeenAt": "2026-09-19T23:05:17.534Z",
+        "title": "Maler 100%"
+      },
+      {
+        "sourceIdentity": "url:https://anker-swiss.ch/stellen/maler-1566871",
+        "firstSeenAt": "2026-09-19T23:05:17.534Z",
+        "title": "Maler 100%"
+      }
+    ]
   },
   {
     "slug": "pittura-100-anker-swiss-ticino-ag-bern-de31cb0a-0188073b",
@@ -3267,7 +3325,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://anker-swiss.ch/stellen/bauwerktrenner-1530089",
-    "firstSeenAt": "2026-11-06T21:52:19.830Z"
+    "firstSeenAt": "2026-11-06T21:52:19.830Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://anker-swiss.ch/stellen/bauwerktrenner-1530077",
+        "firstSeenAt": "2026-11-06T21:52:19.830Z",
+        "title": "Bauwerktrenner 100%"
+      },
+      {
+        "sourceIdentity": "url:https://anker-swiss.ch/stellen/bauwerktrenner-1530089",
+        "firstSeenAt": "2026-11-06T21:52:19.830Z",
+        "title": "Bauwerktrenner 100%"
+      }
+    ]
   },
   {
     "slug": "partitioner-100-anker-swiss-ticino-ag-emmenbrucke-d66512ad-34fea728",
@@ -3532,7 +3602,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://anker-swiss.ch/stellen/gipser-trockenbauer-1580425",
-    "firstSeenAt": "2026-11-06T21:52:19.776Z"
+    "firstSeenAt": "2026-11-06T21:52:19.776Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://anker-swiss.ch/stellen/gipser-trockenbauer-1580425",
+        "firstSeenAt": "2026-11-06T21:52:19.776Z",
+        "title": "Gipser-Trockenbauer 100%"
+      },
+      {
+        "sourceIdentity": "url:https://anker-swiss.ch/stellen/gipser-trockenbauer-1580639",
+        "firstSeenAt": "2026-11-06T21:52:19.776Z",
+        "title": "Gipser-Trockenbauer 100%"
+      }
+    ]
   },
   {
     "slug": "asciugamani-100-anker-swiss-ticino-ag-giswil-fc82c00d-a7bc5720",

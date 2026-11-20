@@ -643,7 +643,9 @@ jobs:
       - name: Push generated assets to CDN (early — ahead of the shard pushes)
         id: cdn-push-early
         continue-on-error: true
-        timeout-minutes: 45
+        # Run 44629531624 exhausted 45 minutes on the full OG and purge path;
+        # leave the CDN handshake enough time to finish before the shard gate.
+        timeout-minutes: 90
         env:
           CDN_DEPLOY_KEY: ${{ secrets.CDN_DEPLOY_KEY }}
           CDN_TARGET: ${{ vars.CDN_TARGET || 'pages' }}
@@ -683,7 +685,9 @@ jobs:
         id: cdn-push-early-retry
         if: steps.cdn-push-early.outcome == 'failure'
         continue-on-error: true
-        timeout-minutes: 45
+        # A retry can need the same full payload and purge work as the first
+        # attempt, so it receives the same bounded budget.
+        timeout-minutes: 90
         env:
           CDN_DEPLOY_KEY: ${{ secrets.CDN_DEPLOY_KEY }}
           CDN_TARGET: ${{ vars.CDN_TARGET || 'pages' }}
@@ -729,7 +733,7 @@ jobs:
         run: |
           set -euo pipefail
           cdnEarlyPushBudgetObserved() {
-            local cap_seconds=2700
+            local cap_seconds=5400
             local early_outcome="${EARLY_OUTCOME:-unknown}"
             local retry_outcome="${RETRY_OUTCOME:-unknown}"
             local early_duration="${EARLY_DURATION_S:-unknown}"
@@ -752,14 +756,14 @@ jobs:
               early_recorded=1
             elif [[ "${EARLY_STARTED_AT:-}" =~ ^[0-9]+$ ]]; then
               if [[ "$early_outcome" == 'failure' ]]; then
-                # The step itself is capped at 45 minutes. A failed attempt
+                # The step itself is capped at 90 minutes. A failed attempt
                 # without an end output was killed before its shell could
                 # persist one, so report the configured bound rather than
                 # counting later cache/retry steps as part of this duration.
                 early_seconds="$cap_seconds"
                 early_recorded=1
                 early_timeout_bounded=1
-                early_outcome_display='failure (45-minute step timeout; exact end unavailable)'
+                early_outcome_display='failure (90-minute step timeout; exact end unavailable)'
               fi
             fi
             if [[ "$retry_duration" =~ ^[0-9]+$ ]]; then
@@ -774,7 +778,7 @@ jobs:
                 retry_seconds="$cap_seconds"
                 retry_recorded=1
                 retry_timeout_bounded=1
-                retry_outcome_display='failure (45-minute step timeout; exact end unavailable)'
+                retry_outcome_display='failure (90-minute step timeout; exact end unavailable)'
               fi
             fi
 
@@ -783,13 +787,13 @@ jobs:
             if (( early_recorded )); then
               early_display="${early_seconds}s"
               if (( early_timeout_bounded )); then
-                early_display="≥${cap_seconds}s (45-minute step limit; exact end unavailable)"
+                early_display="≥${cap_seconds}s (90-minute step limit; exact end unavailable)"
               fi
             fi
             if (( retry_recorded )); then
               retry_display="${retry_seconds}s"
               if (( retry_timeout_bounded )); then
-                retry_display="≥${cap_seconds}s (45-minute step limit; exact end unavailable)"
+                retry_display="≥${cap_seconds}s (90-minute step limit; exact end unavailable)"
               fi
             fi
 
@@ -802,11 +806,11 @@ jobs:
               max_display="${max_seconds}s"
               if (( early_timeout_bounded || retry_timeout_bounded )); then max_display="≥${max_seconds}s"; fi
               if (( max_seconds < cap_seconds )); then
-                comparison="within 45 min by $((cap_seconds - max_seconds))s"
+                comparison="within 90 min by $((cap_seconds - max_seconds))s"
               elif (( max_seconds == cap_seconds )); then
-                comparison='at 45-minute cap'
+                comparison='at 90-minute cap'
               else
-                comparison="over 45 min by $((max_seconds - cap_seconds))s"
+                comparison="over 90 min by $((max_seconds - cap_seconds))s"
               fi
             fi
 
@@ -818,27 +822,27 @@ jobs:
             elif [[ "${EARLY_STARTED_AT:-}" =~ ^[0-9]+$ ]] && [[ "${RETRY_STARTED_AT:-}" =~ ^[0-9]+$ ]] && (( retry_timeout_bounded )); then
               local tail_seconds=$((RETRY_STARTED_AT + cap_seconds - EARLY_STARTED_AT))
               (( tail_seconds < 0 )) && tail_seconds=0
-              tail_display="≥${tail_seconds}s (retry reached 45-minute limit; exact end unavailable)"
+              tail_display="≥${tail_seconds}s (retry reached 90-minute limit; exact end unavailable)"
             elif [[ "${EARLY_STARTED_AT:-}" =~ ^[0-9]+$ ]] && [[ "${EARLY_ENDED_AT:-}" =~ ^[0-9]+$ ]]; then
               local tail_seconds=$((EARLY_ENDED_AT - EARLY_STARTED_AT))
               (( tail_seconds < 0 )) && tail_seconds=0
               tail_display="${tail_seconds}s"
             elif [[ "${EARLY_STARTED_AT:-}" =~ ^[0-9]+$ ]] && (( early_timeout_bounded )); then
-              tail_display="≥${cap_seconds}s (early push reached 45-minute limit; exact tail unavailable)"
+              tail_display="≥${cap_seconds}s (early push reached 90-minute limit; exact tail unavailable)"
             fi
 
             {
               echo '### IT early CDN push budget (advisory)'
               echo
-              echo '| Attempt | Outcome | Duration | R2_TIMEOUT_OG_S | Comparison with 45-minute cap |'
+              echo '| Attempt | Outcome | Duration | R2_TIMEOUT_OG_S | Comparison with 90-minute cap |'
               echo '| --- | --- | ---: | ---: | --- |'
               printf '| early push | `%s` | `%s` | `%s` | `%s` |\n' "$early_outcome_display" "$early_display" "${R2_TIMEOUT_OG_S:-unknown}" "$comparison"
               printf '| retry | `%s` | `%s` | `%s` | `%s` |\n' "$retry_outcome_display" "$retry_display" "${R2_TIMEOUT_OG_S:-unknown}" "$comparison"
               printf '| measured early-push tail span | — | `%s` | — | max attempt `%s` |\n' "$tail_display" "$max_display"
               echo
-              echo '_Read-only observer: this summary does not change the 45-minute step timeout, retry, or `cdn-ready` gate._'
+              echo '_Read-only observer: this summary does not change the 90-minute step timeout, retry, or `cdn-ready` gate._'
             } >> "$GITHUB_STEP_SUMMARY"
-            echo "cdnEarlyPushBudgetObserved: early=${early_outcome_display}/${early_display} retry=${retry_outcome_display}/${retry_display} tail=${tail_display} cap=2700s R2_TIMEOUT_OG_S=${R2_TIMEOUT_OG_S:-unknown}"
+            echo "cdnEarlyPushBudgetObserved: early=${early_outcome_display}/${early_display} retry=${retry_outcome_display}/${retry_display} tail=${tail_display} cap=5400s R2_TIMEOUT_OG_S=${R2_TIMEOUT_OG_S:-unknown}"
           }
           cdnEarlyPushBudgetObserved
       - name: Require IT CDN build id before shard pushes
