@@ -435,7 +435,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.smartrecruiters.com/cern/744000161750979-electro-mechanical-technician-te-msc-hsd-2026-193-grae-?oga=true",
-    "firstSeenAt": "2026-08-31T17:13:56.015Z",
+    "firstSeenAt": "2026-07-09T12:31:15.221Z",
     "sourceIdentityHistory": [
       {
         "sourceIdentity": "url:https://jobs.smartrecruiters.com/cern/744000136773669-electrical-technician-te-msc-hsd-2026-184-grae-?oga=true",
@@ -469,7 +469,7 @@
       },
       {
         "sourceIdentity": "url:https://jobs.smartrecruiters.com/cern/744000161750979-electro-mechanical-technician-te-msc-hsd-2026-193-grae-?oga=true",
-        "firstSeenAt": "2026-08-31T17:13:56.015Z",
+        "firstSeenAt": "2026-07-09T12:31:15.221Z",
         "title": "Electro-Mechanical Technician (TE-MSC-HSD-2026-193-GRAE)"
       },
       {
@@ -7319,7 +7319,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.smartrecruiters.com/cern/744000152609519-software-developer-beam-optics-be-abp-lno-2026-132-grap-?oga=true",
-    "firstSeenAt": "2026-08-10T22:27:43.098Z"
+    "firstSeenAt": "2026-08-10T22:27:43.098Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.smartrecruiters.com/cern/744000142648619-software-developer-beam-optics-be-abp-lno-2026-132-grap-?oga=true",
+        "firstSeenAt": "2026-08-10T22:27:43.098Z",
+        "title": "Software Developer - Beam Optics (BE-ABP-LNO-2026-132-GRAP)"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.smartrecruiters.com/cern/744000152609519-software-developer-beam-optics-be-abp-lno-2026-132-grap-?oga=true",
+        "firstSeenAt": "2026-08-10T22:27:43.098Z",
+        "title": "Software Developer - Beam Optics (BE-ABP-LNO-2026-132-GRAP)"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.smartrecruiters.com/cern/744000152831017-software-developer-beam-optics-be-abp-lno-2026-132-grap-?oga=true",
+        "firstSeenAt": "2026-08-10T22:27:43.098Z",
+        "title": "Software Developer - Beam Optics (BE-ABP-LNO-2026-132-GRAP)"
+      }
+    ]
   },
   {
     "slug": "servizi-di-accoglienza-responsabile-del-supporto-sce-ssc-cs-2026-219-grae-cern-geneva-geneva-switzerland",
@@ -9791,16 +9808,21 @@
     "expiredAt": "2026-09-03T13:40:15.659Z",
     "previousSlugsByLocale": {
       "it": [
-        "corresponding-associateship-in-theoretical-physics-cern-geneva-ge-switzerland-baabf9dd"
+        "corresponding-associateship-in-theoretical-physics-cern-geneva-ge-switzerland-baabf9dd",
+        "associati-corrispondenti-alla-fisica-teorica-cern-geneva-ge-switzerland-ebe65600",
+        "corresponding-associateship-in-theoretical-physics-cern-geneva-ge-switzerland-d42b10fd"
       ],
       "de": [
-        "corresponding-associateship-in-theoretical-physics-cern-geneva-ge-switzerland"
+        "corresponding-associateship-in-theoretical-physics-cern-geneva-ge-switzerland",
+        "entsprechende-assoziation-in-der-theoretischen-physik-cern-geneva-ge-switzerland-1dbfd0a6"
       ],
       "fr": [
-        "corresponding-associateship-in-theoretical-physics-cern-geneva-ge-switzerland"
+        "corresponding-associateship-in-theoretical-physics-cern-geneva-ge-switzerland",
+        "correspondance-en-physique-theorique-cern-geneva-ge-switzerland-03fa5039"
       ],
       "en": [
-        "corresponding-associateship-in-theoretical-physics-cern-geneva-ge-switzerland-baabf9dd"
+        "corresponding-associateship-in-theoretical-physics-cern-geneva-ge-switzerland-baabf9dd",
+        "corresponding-associateship-in-theoretical-physics-cern-geneva-ge-switzerland-d42b10fd"
       ]
     },
     "postalCode": "1211",
@@ -9812,7 +9834,12 @@
     "sourceIdentity": "url:https://jobs.smartrecruiters.com/cern/744000141238697-corresponding-associateship-in-theoretical-physics?oga=true",
     "firstSeenAt": "2026-08-03T12:46:46.450Z",
     "previousSlugs": [
-      "corresponding-associateship-in-theoretical-physics-cern-geneva-ge-switzerland"
+      "corresponding-associateship-in-theoretical-physics-cern-geneva-ge-switzerland",
+      "corresponding-associateship-in-theoretical-physics-cern-geneva-ge-switzerland-baabf9dd",
+      "associati-corrispondenti-alla-fisica-teorica-cern-geneva-ge-switzerland-ebe65600",
+      "corresponding-associateship-in-theoretical-physics-cern-geneva-ge-switzerland-d42b10fd",
+      "entsprechende-assoziation-in-der-theoretischen-physik-cern-geneva-ge-switzerland-1dbfd0a6",
+      "correspondance-en-physique-theorique-cern-geneva-ge-switzerland-03fa5039"
     ]
   },
   {
