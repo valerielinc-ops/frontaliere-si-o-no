@@ -56,7 +56,7 @@ describe('cfHot404BridgePlugin', () => {
       fs.writeFileSync(path.join(rootDir, 'index.html'), '<html>SECTION ROOT</html>');
     }
 
-    const plugin = cfHot404BridgePlugin(tmp);
+    const plugin = cfHot404BridgePlugin(tmp, { legacyClusterPaths: [] });
     // Issue #4263 item 4: closeBundle is now an object hook ({order, sequential,
     // handler}), not a plain function — see flat-html-redirect.test.ts's
     // runPluginCloseBundle for the same pattern.
@@ -93,7 +93,7 @@ describe('cfHot404BridgePlugin', () => {
   });
 
   // pesca una voce reale da data/search-cluster-301-map.json, rigenerato dai cron: rosso possibile senza cambi di codice
-  it.skipIf(SKIP_LIVE_DATA)('emits a legacy cluster orphan as a meta-refresh REDIRECT to its live target, not an archived bridge', () => {
+  it.skipIf(SKIP_LIVE_DATA)('emits a legacy cluster orphan as a meta-refresh REDIRECT to its live target, not an archived bridge', async () => {
     // Data-driven: pick a real entry from the committed cluster recovery map so
     // the test survives map regeneration.
     const map = (
@@ -102,16 +102,29 @@ describe('cfHot404BridgePlugin', () => {
       }
     ).map;
     const [legacyPath, target] = Object.entries(map)[0];
-    const file = path.join(tmp, 'dist', rel(legacyPath.replace(/\/$/, '')));
-    expect(fs.existsSync(file)).toBe(true);
-    const html = fs.readFileSync(file, 'utf-8');
-    // Redirects the user straight to the live page…
-    expect(html).toContain(`<meta http-equiv="refresh" content="0; url=${target}"`);
-    expect(html).toContain(`href="${target}" class="btn"`);
-    expect(html).not.toContain('rel="canonical"');
-    expect(html).toContain('noindex');
-    // …instead of dead-ending on the archived compat copy.
-    expect(html).not.toContain('Pagina archiviata');
+    const clusterRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'cf-hot-cluster-'));
+    try {
+      fs.mkdirSync(path.join(clusterRoot, 'dist'), { recursive: true });
+      const plugin = cfHot404BridgePlugin(clusterRoot, { legacyClusterPaths: [legacyPath] });
+      const closeBundle = plugin.closeBundle;
+      if (!closeBundle || typeof closeBundle !== 'object' || !('handler' in closeBundle)) {
+        throw new Error('closeBundle must be an object hook with handler');
+      }
+      await closeBundle.handler.call({} as never);
+
+      const file = path.join(clusterRoot, 'dist', rel(legacyPath.replace(/\/$/, '')));
+      expect(fs.existsSync(file)).toBe(true);
+      const html = fs.readFileSync(file, 'utf-8');
+      // Redirects the user straight to the live page…
+      expect(html).toContain(`<meta http-equiv="refresh" content="0; url=${target}"`);
+      expect(html).toContain(`href="${target}" class="btn"`);
+      expect(html).not.toContain('rel="canonical"');
+      expect(html).toContain('noindex');
+      // …instead of dead-ending on the archived compat copy.
+      expect(html).not.toContain('Pagina archiviata');
+    } finally {
+      fs.rmSync(clusterRoot, { recursive: true, force: true });
+    }
   });
 
   it('falls back to the section listing root when the specific pagination page was never built', () => {
@@ -167,7 +180,7 @@ describe('cfHot404BridgePlugin incremental manifest coverage', () => {
 
       vi.resetModules();
       const { cfHot404BridgePlugin: freshPlugin } = await import('../build-plugins/cfHot404BridgePlugin');
-      const hook = freshPlugin(root).closeBundle;
+      const hook = freshPlugin(root, { legacyClusterPaths: [] }).closeBundle;
       if (!hook || typeof hook !== 'object' || !('handler' in hook)) throw new Error('object hook expected');
       await hook.handler.call({} as never);
 
@@ -269,7 +282,7 @@ describe('cfHot404BridgePlugin — canton-moved orphans are left to the Worker 3
       fs.mkdirSync(path.join(tmp, 'dist', target), { recursive: true });
       fs.writeFileSync(path.join(tmp, 'dist', target, 'index.html'), '<html>CANTON PAGE</html>');
     }
-    const plugin = cfHot404BridgePlugin(tmp);
+    const plugin = cfHot404BridgePlugin(tmp, { legacyClusterPaths: [] });
     const closeBundle = plugin.closeBundle as { handler: () => Promise<void> };
     await closeBundle.handler.call({} as never);
   });
@@ -303,7 +316,7 @@ describe('cfHot404BridgePlugin — German legacy section aliases stay origin 404
     }));
     const { writeAllKnownJobSlugs } = await import('../scripts/lib/all-known-job-slugs-store.mjs');
     writeAllKnownJobSlugs({ [slug]: { de: legacyPath } }, tmp);
-    const plugin = cfHot404BridgePlugin(tmp);
+    const plugin = cfHot404BridgePlugin(tmp, { legacyClusterPaths: [] });
     const closeBundle = plugin.closeBundle as { handler: () => Promise<void> };
     await closeBundle.handler.call({} as never);
   });

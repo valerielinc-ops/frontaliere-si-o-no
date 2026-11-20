@@ -325,7 +325,7 @@ describe('#5130 — non-owned-locale skips can never drop a shipped file', () =>
       else process.env.BUILD_LOCALE = buildLocale;
       try {
         const { cfHot404BridgePlugin } = await import('../build-plugins/cfHot404BridgePlugin');
-        const hook = cfHot404BridgePlugin(root).closeBundle;
+        const hook = cfHot404BridgePlugin(root, { legacyClusterPaths: [] }).closeBundle;
         if (!hook || typeof hook !== 'object' || !('handler' in hook)) throw new Error('object hook expected');
         await hook.handler.call({} as never);
       } finally {
@@ -347,9 +347,8 @@ describe('#5130 — non-owned-locale skips can never drop a shipped file', () =>
     // And what it omitted is exactly the non-owned set (= what prune deletes):
     // the three en/de/fr bridges, and nothing else. The pre-seeded section
     // roots exist in both trees, so they are not in the diff.
-    // (The real committed cluster-recovery map contributes thousands of extra
-    // non-owned paths on top of the four fixture ones, which is exactly the
-    // volume this gate exists to skip.)
+    // The committed cluster-recovery corpus is not part of this four-path
+    // locale-gating fixture; it has live-data coverage in cf-hot-404-bridge.test.ts.
     const omitted = [...all.keys()].filter((r) => !itShard.has(r)).sort();
     expect(omitted.every((r) => /^(en|de|fr)\//.test(r))).toBe(true);
     expect(omitted.length).toBeGreaterThan(0);
