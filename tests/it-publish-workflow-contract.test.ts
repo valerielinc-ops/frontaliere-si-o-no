@@ -239,7 +239,7 @@ describe('deploy IT build-to-publish handoff', () => {
     expect(early?.run).toContain('duration_s=');
     expect(early?.env?.DEPLOY_CDN_PUSH_ONLY).toBe('1');
     expect(early?.env?.R2_TIMEOUT_OG_S).toBe('900');
-    expect(early?.['timeout-minutes']).toBe(45);
+    expect(early?.['timeout-minutes']).toBe(90);
     expect(retry?.if).toBe("steps.cdn-push-early.outcome == 'failure'");
     expect(retry?.run).toContain('duration_s=');
     expect(retry?.env?.R2_TIMEOUT_OG_S).toBeUndefined();
