@@ -106,25 +106,62 @@ export function passesSourceBackedLocationRate(rate, minRate = GATE_DEFAULTS.min
     && measured >= threshold;
 }
 
+/** Checks that intentionally mature only after entering the PROMOTE queue. */
+const PROMOTION_QUEUE_DEFERRED_CHECKS = new Set(['status', 'runs', 'days']);
+
+/**
+ * Production checks that must already pass at the VALIDATE → PROMOTE handoff.
+ * Returning their stable names gives VALIDATE an evidence-bound reason when it
+ * keeps a candidate retryable instead of leaving a generic queue transition.
+ *
+ * @param {Record<string, any>} candidate
+ * @param {{ existingKeys?: Set<string>, hostOwners?: Map<string, Set<string>> }} [ctx]
+ * @param {Partial<typeof GATE_DEFAULTS>} [opts]
+ * @returns {string[]}
+ */
+export function promotionQueueFailures(candidate, ctx = {}, opts = {}) {
+  const queueProbe = { ...candidate, status: 'promoted' };
+  const { checks } = evaluatePromotion(queueProbe, ctx, opts);
+  return Object.entries(checks)
+    .filter(([name, passed]) => passed === false && !PROMOTION_QUEUE_DEFERRED_CHECKS.has(name))
+    .map(([name]) => name);
+}
+
 /**
  * Select the queue state after one validation run. A quality `good` verdict is
- * not sufficient for PROMOTE: until the source-backed geography yield is
- * proven, keep the candidate retryable in `validated` rather than putting a
- * known gate failure into `promoted`.
+ * not sufficient for PROMOTE: every production predicate that the fresh run
+ * can prove must pass before the candidate enters that queue. Only the two-day
+ * stability window is allowed to remain open there, because another good run
+ * can satisfy it without changing the crawler spec.
  *
  * @param {{ verdict?: unknown, locationSourceRate?: unknown }} [report]
+ * @param {Record<string, any>|null} [candidate] candidate with the fresh
+ *   validation entry already appended to `validationHistory`
+ * @param {{ existingKeys?: Set<string>, hostOwners?: Map<string, Set<string>> }} [ctx]
+ * @param {Partial<typeof GATE_DEFAULTS>} [opts]
  * @returns {'validated'|'promoted'|'rejected'}
  */
-export function candidateStatusAfterValidation(report = {}) {
+export function candidateStatusAfterValidation(report = {}, candidate = null, ctx = {}, opts = {}) {
   // A failed/incomplete runtime snapshot is evidence about neither a bad
   // employer nor an empty listing. Keep the candidate retryable and require
   // fresh good-day observations before it can satisfy promotion stability.
   if (report.runtimeSnapshotComplete === false) return 'validated';
   if (report.verdict === 'bad') return 'rejected';
-  if (report.verdict === 'good' && passesSourceBackedLocationRate(report.locationSourceRate)) {
-    return 'promoted';
+  if (report.verdict !== 'good') return 'validated';
+
+  // Preserve the small pure-report API used by callers that only need the
+  // source-backed geography verdict. The live VALIDATE stage always supplies
+  // the candidate snapshot below, where the complete production gate decides
+  // the queue handoff.
+  if (!candidate) {
+    return passesSourceBackedLocationRate(report.locationSourceRate) ? 'promoted' : 'validated';
   }
-  return 'validated';
+
+  // `status` is the state this function is deciding, while `runs` and `days`
+  // deliberately mature inside the PROMOTE queue. Every other failure is a
+  // concrete quality, identity, coverage or extraction problem and therefore
+  // remains retryable in VALIDATE instead of inflating PROMOTE indefinitely.
+  return promotionQueueFailures(candidate, ctx, opts).length ? 'validated' : 'promoted';
 }
 
 /**

@@ -9,8 +9,9 @@
  * "are the rows true".
  *
  * A run writes `data/prospector/validation.json` — the report a human or a
- * follow-up workflow reads — and moves each candidate to `promoted`
- * (good), `validated` (weak, kept for a retry) or `rejected` (bad).
+ * follow-up workflow reads — and moves each candidate to `promoted` only when
+ * every non-temporal production predicate passes, `validated` when a retry or
+ * spec correction is needed, or `rejected` on a measured bad verdict.
  *
  * Usage:
  *   node scripts/prospect-validate.mjs
@@ -57,10 +58,9 @@ import {
 } from './lib/prospector/snapshot-comparison.mjs';
 import {
   candidateStatusAfterValidation,
-  GATE_DEFAULTS,
+  promotionQueueFailures,
 } from './lib/prospector/promotion-gate.mjs';
-import { loadSourceHostOwnership } from './lib/crawler-source-hosts.mjs';
-import { tenantHostOwner } from './lib/prospector/coverage.mjs';
+import { loadCoverage, tenantHostOwner } from './lib/prospector/coverage.mjs';
 import {
   alignCandidateQualityContractVersion,
   CURRENT_QUALITY_CONTRACT_VERSION,
@@ -272,13 +272,13 @@ specs = specs.filter((s) => {
 // monopolizzi l'intero budget.
 const scheduledAt = new Date();
 const PRODUCTION_AUDIT_LIMIT = 5;
-const ownership = loadSourceHostOwnership(ROOT, { urls: true });
+const coverage = loadCoverage(ROOT);
 const productionAuditCandidates = [];
 const regularSpecs = [];
 for (const spec of specs) {
   const candidate = candidateForSpec(spec);
   if (candidate?.status === 'production') {
-    const owner = tenantHostOwner(candidate, ownership.byHost);
+    const owner = tenantHostOwner(candidate, coverage.hostOwners);
     const otherOwner = owner && owner !== spec.companyKey;
     if (!otherOwner
       && needsProductionQualityAudit(spec, candidate, {
@@ -332,7 +332,7 @@ for (const spec of specs) {
   const candidate = candidateForSpec(spec);
   const productionAudit = candidate?.status === 'production';
   const validationStartedAt = new Date().toISOString();
-  const tenantOwner = tenantHostOwner(candidate, ownership.byHost);
+  const tenantOwner = tenantHostOwner(candidate, coverage.hostOwners);
   if (tenantOwner) {
     if (productionAudit && tenantOwner === spec.companyKey) {
       // Its current production slice is the expected owner; auditing it must
@@ -546,21 +546,7 @@ for (const spec of specs) {
 
   if (candidate) {
     const rejectedRevalidation = canRevalidateRejectedCandidate(spec, candidate);
-    const next = productionAudit ? 'production' : candidateStatusAfterValidation(report);
     const qualityProblems = [...report.problems];
-    let sourceBackedLocationProblem = '';
-    // `good` is the extraction-quality verdict, not a waiver for PROMOTE's
-    // source-backed geography predicate. Keep an unproven candidate retryable;
-    // do not invent a fallback location or turn missing evidence into a
-    // terminal rejection.
-    if (report.verdict === 'good' && next !== 'promoted') {
-      const measuredRate = Number(report.locationSourceRate);
-      const measuredLabel = Number.isFinite(measuredRate)
-        ? `${Math.round(measuredRate * 100)}%`
-        : 'non misurata';
-      sourceBackedLocationProblem = `localita' source-backed ${measuredLabel} sotto la soglia PROMOTE ${Math.round(GATE_DEFAULTS.minLocationSourceRate * 100)}%`;
-      qualityProblems.push(sourceBackedLocationProblem);
-    }
     // Keep a short grading history. A single good grade proves the page parsed
     // ONCE; autonomous promotion needs proof it parses the same way on a
     // different day, because the dominant failure of a synthesised crawler is a
@@ -579,7 +565,7 @@ for (const spec of specs) {
       if (failedEvidence && sample.sampleId) unresolvedAnomalies.push(String(sample.sampleId));
     }
     candidate.validationAnomalyIds = [...new Set(unresolvedAnomalies)].slice(0, 50);
-    history.push({
+    const validationEntry = {
       at: validationStartedAt,
       qualityContractVersion: report.qualityContractVersion,
       score: report.score,
@@ -620,7 +606,33 @@ for (const spec of specs) {
         employerSiteName: report.employerSiteName,
       } : {}),
       ...(adapter ? { sourceAdapterVersion: adapter.version } : {}),
-    });
+    };
+    history.push(validationEntry);
+    const handoffCandidate = {
+      ...candidate,
+      status: 'promoted',
+      qualityContractVersion: report.qualityContractVersion,
+      // PROMOTE reads the persisted rolling window, so make the handoff
+      // decision against those same entries instead of older history that the
+      // status patch below is about to discard.
+      validationHistory: history.slice(-8),
+    };
+    const handoffContext = { existingKeys: coverage.keys, hostOwners: coverage.hostOwners };
+    const next = productionAudit ? 'production' : candidateStatusAfterValidation(
+      report,
+      handoffCandidate,
+      handoffContext,
+    );
+    let promotionQueueProblem = '';
+    // `good` is the extraction-quality verdict, not a waiver for PROMOTE's
+    // production predicates. Keep an unproven candidate retryable, name every
+    // failed predicate in its durable reason, and reserve terminal rejection
+    // for the measured bad/duplicate paths above.
+    if (report.verdict === 'good' && next !== 'promoted') {
+      const failedChecks = promotionQueueFailures(handoffCandidate, handoffContext);
+      promotionQueueProblem = `predicati non temporali PROMOTE non soddisfatti: ${failedChecks.join(', ') || 'diagnosi mancante'}; serve una nuova validazione o la correzione della spec`;
+      qualityProblems.push(promotionQueueProblem);
+    }
     if (rejectedRevalidation) {
       const reopened = reopenRejectedCandidate(
         store,
@@ -637,7 +649,7 @@ for (const spec of specs) {
       crawlerKey: spec.companyKey,
       domain: candidate.domain || spec.companyHost,
       careersUrl: candidate.careersUrl || spec.seedUrls?.[0] || null,
-      ...(sourceBackedLocationProblem ? { reason: sourceBackedLocationProblem } : {}),
+      ...(promotionQueueProblem ? { reason: promotionQueueProblem } : {}),
       ...(rejectedRevalidation && next === 'rejected'
         ? { reason: qualityProblems[0] || 'rivalutazione source adapter respinta' }
         : {}),
