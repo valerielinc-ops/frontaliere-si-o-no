@@ -1,7 +1,7 @@
 {
   "crawlerKey": "hopital-du-valais",
-  "assembledAt": "2026-11-18T21:19:20.177Z",
-  "runId": "44398150721",
+  "assembledAt": "2026-11-20T21:32:53.781Z",
+  "runId": "44817680131",
   "jobs": [
     {
       "id": "hopital-du-valais-0e0fba549d45",
@@ -47,7 +47,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/022404fb83d9c39417a39d20ceaad393/ATSANN0004721/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:19:13.346Z",
+      "crawledAt": "2026-11-20T21:32:44.394Z",
       "_hvsMeta": {
         "number": "ATSANN0004721",
         "sysId": "022404fb83d9c39417a39d20ceaad393",
@@ -87,7 +87,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T21:19:13.346Z",
+      "validThrough": "2026-12-20T21:32:44.394Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/022404fb83d9c39417a39d20ceaad393/atsann0004721/params/language/fr"
     },
@@ -135,7 +135,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4efe0cbb87918f54dbd6ebd30cbb35be/ATSANN0004722/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:19:13.002Z",
+      "crawledAt": "2026-11-20T21:32:43.972Z",
       "_hvsMeta": {
         "number": "ATSANN0004722",
         "sysId": "4efe0cbb87918f54dbd6ebd30cbb35be",
@@ -175,7 +175,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T21:19:13.002Z",
+      "validThrough": "2026-12-20T21:32:43.972Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4efe0cbb87918f54dbd6ebd30cbb35be/atsann0004722/params/language/fr"
     },
@@ -223,7 +223,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3706103387958f54dbd6ebd30cbb35f5/ATSANN0004728/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:19:12.638Z",
+      "crawledAt": "2026-11-20T21:32:43.195Z",
       "_hvsMeta": {
         "number": "ATSANN0004728",
         "sysId": "3706103387958f54dbd6ebd30cbb35f5",
@@ -257,7 +257,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T21:19:12.638Z",
+      "validThrough": "2026-12-20T21:32:43.195Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3706103387958f54dbd6ebd30cbb35f5/atsann0004728/params/language/fr"
     },
@@ -305,7 +305,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3bc394fb87158f54dbd6ebd30cbb35f1/ATSANN0004725/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:19:12.301Z",
+      "crawledAt": "2026-11-20T21:32:43.584Z",
       "_hvsMeta": {
         "number": "ATSANN0004725",
         "sysId": "3bc394fb87158f54dbd6ebd30cbb35f1",
@@ -345,7 +345,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T21:19:12.301Z",
+      "validThrough": "2026-12-20T21:32:43.584Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3bc394fb87158f54dbd6ebd30cbb35f1/atsann0004725/params/language/fr"
     },
@@ -393,7 +393,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/470810f387d58f54dbd6ebd30cbb3533/ATSANN0004731/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:19:11.932Z",
+      "crawledAt": "2026-11-20T21:32:42.811Z",
       "_hvsMeta": {
         "number": "ATSANN0004731",
         "sysId": "470810f387d58f54dbd6ebd30cbb3533",
@@ -433,7 +433,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T21:19:11.932Z",
+      "validThrough": "2026-12-20T21:32:42.811Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/470810f387d58f54dbd6ebd30cbb3533/atsann0004731/params/language/fr"
     },
@@ -481,7 +481,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/7659a0d287f20f50dbd6ebd30cbb35ab/ATSANN0004855/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:19:11.590Z",
+      "crawledAt": "2026-11-20T21:32:42.420Z",
       "_hvsMeta": {
         "number": "ATSANN0004855",
         "sysId": "7659a0d287f20f50dbd6ebd30cbb35ab",
@@ -515,7 +515,7 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T21:19:11.590Z",
+      "validThrough": "2026-12-20T21:32:42.420Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/7659a0d287f20f50dbd6ebd30cbb35ab/atsann0004855/params/language/fr"
     },
@@ -563,7 +563,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/fb1bef51470f8310296bd1eb736d4347/ATSANN0004869/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:19:11.251Z",
+      "crawledAt": "2026-11-20T21:32:42.034Z",
       "_hvsMeta": {
         "number": "ATSANN0004869",
         "sysId": "fb1bef51470f8310296bd1eb736d4347",
@@ -600,7 +600,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T21:19:11.251Z",
+      "validThrough": "2026-12-20T21:32:42.034Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/fb1bef51470f8310296bd1eb736d4347/atsann0004869/params/language/fr"
     },
@@ -648,7 +648,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/dfdd86de976626501b87322f2153af9d/ATSANN0004228/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:19:10.915Z",
+      "crawledAt": "2026-11-20T21:32:41.633Z",
       "_hvsMeta": {
         "number": "ATSANN0004228",
         "sysId": "dfdd86de976626501b87322f2153af9d",
@@ -682,7 +682,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T21:19:10.915Z",
+      "validThrough": "2026-12-20T21:32:41.633Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/dfdd86de976626501b87322f2153af9d/atsann0004228/params/language/fr"
     },
@@ -730,7 +730,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3925254147538354ff8065f8736d4338/ATSANN0004899/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:19:10.577Z",
+      "crawledAt": "2026-11-20T21:32:41.244Z",
       "_hvsMeta": {
         "number": "ATSANN0004899",
         "sysId": "3925254147538354ff8065f8736d4338",
@@ -769,7 +769,7 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T21:19:10.577Z",
+      "validThrough": "2026-12-20T21:32:41.244Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3925254147538354ff8065f8736d4338/atsann0004899/params/language/fr"
     },
@@ -817,7 +817,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/6456fbb5479f0710ff8065f8736d4368/ATSANN0004904/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T21:19:10.240Z",
+      "crawledAt": "2026-11-20T21:32:40.818Z",
       "_hvsMeta": {
         "number": "ATSANN0004904",
         "sysId": "6456fbb5479f0710ff8065f8736d4368",
@@ -857,7 +857,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T21:19:10.240Z",
+      "validThrough": "2026-12-20T21:32:40.818Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/6456fbb5479f0710ff8065f8736d4368/atsann0004904/params/language/fr"
     },
@@ -905,7 +905,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/17bdd6924757cb14296bd1eb736d4385/ATSANN0004919/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:19:09.900Z",
+      "crawledAt": "2026-11-20T21:32:40.430Z",
       "_hvsMeta": {
         "number": "ATSANN0004919",
         "sysId": "17bdd6924757cb14296bd1eb736d4385",
@@ -945,7 +945,7 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T21:19:09.900Z",
+      "validThrough": "2026-12-20T21:32:40.430Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/17bdd6924757cb14296bd1eb736d4385/atsann0004919/params/language/fr"
     },
@@ -993,7 +993,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/facd39e6979f839012f9322f2153af5a/ATSANN0004920/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:19:09.555Z",
+      "crawledAt": "2026-11-20T21:32:40.040Z",
       "_hvsMeta": {
         "number": "ATSANN0004920",
         "sysId": "facd39e6979f839012f9322f2153af5a",
@@ -1027,7 +1027,7 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T21:19:09.555Z",
+      "validThrough": "2026-12-20T21:32:40.040Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/facd39e6979f839012f9322f2153af5a/atsann0004920/params/language/fr"
     },
@@ -1075,7 +1075,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/8f38b372974e0390316bb0b71153afa1/ATSANN0004805/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:19:09.177Z",
+      "crawledAt": "2026-11-20T21:32:39.255Z",
       "_hvsMeta": {
         "number": "ATSANN0004805",
         "sysId": "8f38b372974e0390316bb0b71153afa1",
@@ -1115,7 +1115,7 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T21:19:09.177Z",
+      "validThrough": "2026-12-29T21:32:39.255Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/8f38b372974e0390316bb0b71153afa1/atsann0004805/params/language/fr"
     },
@@ -1163,7 +1163,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/dd66a35bc3ab0f18a043be4c05013142/ATSANN0004943/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T21:19:08.831Z",
+      "crawledAt": "2026-11-20T21:32:38.868Z",
       "_hvsMeta": {
         "number": "ATSANN0004943",
         "sysId": "dd66a35bc3ab0f18a043be4c05013142",
@@ -1203,7 +1203,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T21:19:08.831Z",
+      "validThrough": "2026-12-30T21:32:38.868Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/dd66a35bc3ab0f18a043be4c05013142/atsann0004943/params/language/fr"
     },
@@ -1251,7 +1251,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/56597bad97b387941b87322f2153affa/ATSANN0004959/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T21:19:08.498Z",
+      "crawledAt": "2026-11-20T21:32:38.447Z",
       "_hvsMeta": {
         "number": "ATSANN0004959",
         "sysId": "56597bad97b387941b87322f2153affa",
@@ -1291,7 +1291,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T21:19:08.498Z",
+      "validThrough": "2027-01-06T21:32:38.447Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/56597bad97b387941b87322f2153affa/atsann0004959/params/language/fr"
     },
@@ -1339,7 +1339,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/cf1d6c8a477f8350ff8065f8736d4390/ATSANN0004961/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T21:19:08.158Z",
+      "crawledAt": "2026-11-20T21:32:38.059Z",
       "_hvsMeta": {
         "number": "ATSANN0004961",
         "sysId": "cf1d6c8a477f8350ff8065f8736d4390",
@@ -1381,7 +1381,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-07T21:19:08.158Z",
+      "validThrough": "2027-01-07T21:32:38.059Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/cf1d6c8a477f8350ff8065f8736d4390/atsann0004961/params/language/fr"
     },
@@ -1429,7 +1429,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/c47fc994470cd790ff8065f8736d4339/ATSANN0004972/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T21:19:07.745Z",
+      "crawledAt": "2026-11-20T21:32:37.670Z",
       "_hvsMeta": {
         "number": "ATSANN0004972",
         "sysId": "c47fc994470cd790ff8065f8736d4339",
@@ -1469,7 +1469,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sierre",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T21:19:07.745Z",
+      "validThrough": "2027-01-14T21:32:37.670Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/c47fc994470cd790ff8065f8736d4339/atsann0004972/params/language/fr"
     },
@@ -1517,7 +1517,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/43e0edce47744394296bd1eb736d43f5/ATSANN0004672/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:19:07.367Z",
+      "crawledAt": "2026-11-20T21:32:36.495Z",
       "_hvsMeta": {
         "number": "ATSANN0004672",
         "sysId": "43e0edce47744394296bd1eb736d43f5",
@@ -1568,7 +1568,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T21:19:07.367Z",
+      "validThrough": "2026-12-20T21:32:36.495Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/43e0edce47744394296bd1eb736d43f5/atsann0004672/params/language/fr"
     },
@@ -1616,7 +1616,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/984d5d11470853d0ff8065f8736d4347/ATSANN0004973/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:19:07.023Z",
+      "crawledAt": "2026-11-20T21:32:36.882Z",
       "_hvsMeta": {
         "number": "ATSANN0004973",
         "sysId": "984d5d11470853d0ff8065f8736d4347",
@@ -1656,7 +1656,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T21:19:07.023Z",
+      "validThrough": "2027-01-17T21:32:36.882Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/984d5d11470853d0ff8065f8736d4347/atsann0004973/params/language/fr"
     },
@@ -1704,7 +1704,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4cd23cbe4747cb90ff8065f8736d43a7/ATSANN0004885/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:19:06.686Z",
+      "crawledAt": "2026-11-20T21:32:37.281Z",
       "_hvsMeta": {
         "number": "ATSANN0004885",
         "sysId": "4cd23cbe4747cb90ff8065f8736d43a7",
@@ -1741,7 +1741,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T21:19:06.686Z",
+      "validThrough": "2027-01-17T21:32:37.281Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4cd23cbe4747cb90ff8065f8736d43a7/atsann0004885/params/language/fr"
     },
@@ -1789,7 +1789,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/fd6bb74c47dcd750ff8065f8736d43be/ATSANN0004981/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T21:19:06.345Z",
+      "crawledAt": "2026-11-20T21:32:35.713Z",
       "_hvsMeta": {
         "number": "ATSANN0004981",
         "sysId": "fd6bb74c47dcd750ff8065f8736d43be",
@@ -1831,7 +1831,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:19:06.345Z",
+      "validThrough": "2027-01-26T21:32:35.713Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/fd6bb74c47dcd750ff8065f8736d43be/atsann0004981/params/language/fr"
     },
@@ -1879,7 +1879,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/39138054971cdb101b87322f2153af70/ATSANN0004982/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T21:19:05.981Z",
+      "crawledAt": "2026-11-20T21:32:36.110Z",
       "_hvsMeta": {
         "number": "ATSANN0004982",
         "sysId": "39138054971cdb101b87322f2153af70",
@@ -1921,7 +1921,7 @@
       "addressRegion": "VS",
       "streetAddress": "Monthey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:19:05.981Z",
+      "validThrough": "2027-01-26T21:32:36.110Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/39138054971cdb101b87322f2153af70/atsann0004982/params/language/fr"
     },
@@ -1969,7 +1969,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/b96018e8c3d45350a043be4c05013111/ATSANN0004983/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T21:19:05.609Z",
+      "crawledAt": "2026-11-20T21:32:35.323Z",
       "_hvsMeta": {
         "number": "ATSANN0004983",
         "sysId": "b96018e8c3d45350a043be4c05013111",
@@ -1994,7 +1994,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:19:05.609Z",
+      "validThrough": "2027-01-27T21:32:35.323Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/b96018e8c3d45350a043be4c05013111/atsann0004983/params/language/fr"
     },
@@ -2042,7 +2042,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/6a0a7f67c3fbcfd8a043be4c050131fb/ATSANN0004968/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T21:19:05.268Z",
+      "crawledAt": "2026-11-20T21:32:34.551Z",
       "_hvsMeta": {
         "number": "ATSANN0004968",
         "sysId": "6a0a7f67c3fbcfd8a043be4c050131fb",
@@ -2082,7 +2082,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T21:19:05.268Z",
+      "validThrough": "2027-01-12T21:32:34.551Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/6a0a7f67c3fbcfd8a043be4c050131fb/atsann0004968/params/language/fr"
     },
@@ -2172,7 +2172,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-28T21:19:04.932Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/96ae497047d81710ff8065f8736d439b/atsann0004985/params/language/fr"
+      "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/96ae497047d81710ff8065f8736d439b/atsann0004985/params/language/fr",
+      "crawlerMissStreak": 1
     },
     {
       "id": "hopital-du-valais-d7eaba16b24a",
@@ -2218,7 +2219,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/bc4c8a3c47585710ff8065f8736d4317/ATSANN0004986/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T21:19:04.245Z",
+      "crawledAt": "2026-11-20T21:32:34.936Z",
       "_hvsMeta": {
         "number": "ATSANN0004986",
         "sysId": "bc4c8a3c47585710ff8065f8736d4317",
@@ -2258,7 +2259,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T21:19:04.245Z",
+      "validThrough": "2027-01-28T21:32:34.936Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/bc4c8a3c47585710ff8065f8736d4317/atsann0004986/params/language/fr"
     },
@@ -2306,7 +2307,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4d1d61398350171017a39d20ceaad3fc/ATSANN0004988/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T21:19:03.901Z",
+      "crawledAt": "2026-11-20T21:32:34.158Z",
       "_hvsMeta": {
         "number": "ATSANN0004988",
         "sysId": "4d1d61398350171017a39d20ceaad3fc",
@@ -2346,7 +2347,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T21:19:03.901Z",
+      "validThrough": "2027-01-31T21:32:34.158Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4d1d61398350171017a39d20ceaad3fc/atsann0004988/params/language/fr"
     },
@@ -2394,7 +2395,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/7d13df21c37fc398a043be4c05013182/ATSANN0004957/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:19:03.562Z",
+      "crawledAt": "2026-11-20T21:32:33.766Z",
       "_hvsMeta": {
         "number": "ATSANN0004957",
         "sysId": "7d13df21c37fc398a043be4c05013182",
@@ -2434,7 +2435,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T21:19:03.562Z",
+      "validThrough": "2027-01-05T21:32:33.766Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/7d13df21c37fc398a043be4c05013182/atsann0004957/params/language/fr"
     },
@@ -2482,7 +2483,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/f73d0f828794d350dbd6ebd30cbb354c/ATSANN0004990/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T21:19:03.224Z",
+      "crawledAt": "2026-11-20T21:32:32.987Z",
       "_hvsMeta": {
         "number": "ATSANN0004990",
         "sysId": "f73d0f828794d350dbd6ebd30cbb354c",
@@ -2522,7 +2523,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sierre",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:19:03.224Z",
+      "validThrough": "2027-02-01T21:32:32.987Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/f73d0f828794d350dbd6ebd30cbb354c/atsann0004990/params/language/fr"
     },
@@ -2570,7 +2571,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/c6680bcc8378b69017a39d20ceaad30d/ATSANN0004378/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:19:02.857Z",
+      "crawledAt": "2026-11-20T21:32:33.371Z",
       "_hvsMeta": {
         "number": "ATSANN0004378",
         "sysId": "c6680bcc8378b69017a39d20ceaad30d",
@@ -2609,7 +2610,7 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:19:02.857Z",
+      "validThrough": "2027-02-01T21:32:33.371Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/c6680bcc8378b69017a39d20ceaad30d/atsann0004378/params/language/fr"
     },
@@ -2657,7 +2658,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/346b33d247189f10339c9146736d4352/ATSANN0004992/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T21:19:02.513Z",
+      "crawledAt": "2026-11-20T21:32:32.212Z",
       "_hvsMeta": {
         "number": "ATSANN0004992",
         "sysId": "346b33d247189f10339c9146736d4352",
@@ -2697,7 +2698,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:19:02.513Z",
+      "validThrough": "2027-02-02T21:32:32.212Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/346b33d247189f10339c9146736d4352/atsann0004992/params/language/fr"
     },
@@ -2745,7 +2746,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/c94d379e47189f10339c9146736d43e9/ATSANN0004993/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T21:19:02.175Z",
+      "crawledAt": "2026-11-20T21:32:32.598Z",
       "_hvsMeta": {
         "number": "ATSANN0004993",
         "sysId": "c94d379e47189f10339c9146736d43e9",
@@ -2785,7 +2786,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:19:02.175Z",
+      "validThrough": "2027-02-02T21:32:32.598Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/c94d379e47189f10339c9146736d43e9/atsann0004993/params/language/fr"
     },
@@ -2833,7 +2834,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/cc7770038314575017a39d20ceaad34c/ATSANN0004997/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T21:19:01.838Z",
+      "crawledAt": "2026-11-20T21:32:31.771Z",
       "_hvsMeta": {
         "number": "ATSANN0004997",
         "sysId": "cc7770038314575017a39d20ceaad34c",
@@ -2873,7 +2874,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:19:01.838Z",
+      "validThrough": "2027-02-03T21:32:31.771Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/cc7770038314575017a39d20ceaad34c/atsann0004997/params/language/fr"
     },
@@ -2921,7 +2922,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/18ece4478350575017a39d20ceaad370/ATSANN0004996/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:19:01.491Z",
+      "crawledAt": "2026-11-20T21:32:31.371Z",
       "_hvsMeta": {
         "number": "ATSANN0004996",
         "sysId": "18ece4478350575017a39d20ceaad370",
@@ -2961,7 +2962,7 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:19:01.491Z",
+      "validThrough": "2027-02-03T21:32:31.371Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/18ece4478350575017a39d20ceaad370/atsann0004996/params/language/fr"
     },
@@ -3009,7 +3010,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/878e0a4f839c975017a39d20ceaad3e7/ATSANN0004998/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T21:19:01.152Z",
+      "crawledAt": "2026-11-20T21:32:30.972Z",
       "_hvsMeta": {
         "number": "ATSANN0004998",
         "sysId": "878e0a4f839c975017a39d20ceaad3e7",
@@ -3049,7 +3050,7 @@
       "addressRegion": "VS",
       "streetAddress": "Granges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:19:01.152Z",
+      "validThrough": "2027-02-04T21:32:30.972Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/878e0a4f839c975017a39d20ceaad3e7/atsann0004998/params/language/fr"
     },
@@ -3097,7 +3098,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3dede48c9724d310316bb0b71153afcc/ATSANN0004999/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T21:19:00.727Z",
+      "crawledAt": "2026-11-20T21:32:30.587Z",
       "_hvsMeta": {
         "number": "ATSANN0004999",
         "sysId": "3dede48c9724d310316bb0b71153afcc",
@@ -3137,7 +3138,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sierre",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T21:19:00.727Z",
+      "validThrough": "2027-02-07T21:32:30.587Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3dede48c9724d310316bb0b71153afcc/atsann0004999/params/language/fr"
     },
@@ -3185,7 +3186,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/1ed985b6971cd750316bb0b71153afa4/ATSANN0004995/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:19:00.380Z",
+      "crawledAt": "2026-11-20T21:32:30.165Z",
       "_hvsMeta": {
         "number": "ATSANN0004995",
         "sysId": "1ed985b6971cd750316bb0b71153afa4",
@@ -3225,7 +3226,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T21:19:00.380Z",
+      "validThrough": "2027-02-09T21:32:30.165Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/1ed985b6971cd750316bb0b71153afa4/atsann0004995/params/language/fr"
     },
@@ -3273,7 +3274,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/dbffc5c197e45b10e7ce346e2153afab/ATSANN0005005/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:19:00.042Z",
+      "crawledAt": "2026-11-20T21:32:29.777Z",
       "_hvsMeta": {
         "number": "ATSANN0005005",
         "sysId": "dbffc5c197e45b10e7ce346e2153afab",
@@ -3313,7 +3314,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:19:00.042Z",
+      "validThrough": "2027-02-10T21:32:29.777Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/dbffc5c197e45b10e7ce346e2153afab/atsann0005005/params/language/fr"
     },
@@ -3361,7 +3362,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4f30855d47645b10339c9146736d43ad/ATSANN0005014/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T21:18:59.705Z",
+      "crawledAt": "2026-11-20T21:32:29.357Z",
       "_hvsMeta": {
         "number": "ATSANN0005014",
         "sysId": "4f30855d47645b10339c9146736d43ad",
@@ -3402,7 +3403,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:18:59.705Z",
+      "validThrough": "2027-02-10T21:32:29.357Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4f30855d47645b10339c9146736d43ad/atsann0005014/params/language/fr"
     },
@@ -3450,7 +3451,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/5f1bc99147685b10339c9146736d439b/ATSANN0005017/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T21:18:59.238Z",
+      "crawledAt": "2026-11-20T21:32:28.034Z",
       "_hvsMeta": {
         "number": "ATSANN0005017",
         "sysId": "5f1bc99147685b10339c9146736d439b",
@@ -3490,7 +3491,7 @@
       "addressRegion": "VS",
       "streetAddress": "Martigny",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:18:59.238Z",
+      "validThrough": "2027-02-11T21:32:28.034Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/5f1bc99147685b10339c9146736d439b/atsann0005017/params/language/fr"
     },
@@ -3538,7 +3539,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/0d1fc59997e0db10316bb0b71153af28/ATSANN0005020/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T21:18:58.780Z",
+      "crawledAt": "2026-11-20T21:32:28.926Z",
       "_hvsMeta": {
         "number": "ATSANN0005020",
         "sysId": "0d1fc59997e0db10316bb0b71153af28",
@@ -3578,7 +3579,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:18:58.780Z",
+      "validThrough": "2027-02-11T21:32:28.926Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/0d1fc59997e0db10316bb0b71153af28/atsann0005020/params/language/fr"
     },
@@ -3626,7 +3627,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/e771404b8301cb9017a39d20ceaad319/ATSANN0004696/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:18:57.897Z",
+      "crawledAt": "2026-11-20T21:32:26.795Z",
       "_hvsMeta": {
         "number": "ATSANN0004696",
         "sysId": "e771404b8301cb9017a39d20ceaad319",
@@ -3660,7 +3661,7 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T21:18:57.897Z",
+      "validThrough": "2027-02-14T21:32:26.795Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/e771404b8301cb9017a39d20ceaad319/atsann0004696/params/language/fr"
     },
@@ -3708,7 +3709,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/9027681a8720db50dbd6ebd30cbb35af/ATSANN0004677/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:18:57.560Z",
+      "crawledAt": "2026-11-20T21:32:26.410Z",
       "_hvsMeta": {
         "number": "ATSANN0004677",
         "sysId": "9027681a8720db50dbd6ebd30cbb35af",
@@ -3748,7 +3749,7 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T21:18:57.560Z",
+      "validThrough": "2027-02-14T21:32:26.410Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/9027681a8720db50dbd6ebd30cbb35af/atsann0004677/params/language/fr"
     },
@@ -3796,7 +3797,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/19dc195e832c1f1017a39d20ceaad392/ATSANN0005029/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:18:57.224Z",
+      "crawledAt": "2026-11-20T21:32:27.184Z",
       "_hvsMeta": {
         "number": "ATSANN0005029",
         "sysId": "19dc195e832c1f1017a39d20ceaad392",
@@ -3838,7 +3839,7 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T21:18:57.224Z",
+      "validThrough": "2027-02-14T21:32:27.184Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/19dc195e832c1f1017a39d20ceaad392/atsann0005029/params/language/fr"
     },
@@ -3886,7 +3887,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/d957e12e97ec9f10e7ce346e2153af3b/ATSANN0005032/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T21:18:56.883Z",
+      "crawledAt": "2026-11-20T21:32:25.615Z",
       "_hvsMeta": {
         "number": "ATSANN0005032",
         "sysId": "d957e12e97ec9f10e7ce346e2153af3b",
@@ -3926,7 +3927,7 @@
       "addressRegion": "VS",
       "streetAddress": "St-maurice",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:18:56.883Z",
+      "validThrough": "2027-02-15T21:32:25.615Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/d957e12e97ec9f10e7ce346e2153af3b/atsann0005032/params/language/fr"
     },
@@ -3949,12 +3950,12 @@
         "de": "100% Chief Medical Officer für Notfalldienste",
         "fr": "Médecin chef-fe de service pour le service des urgences à 100%"
       },
-      "description": "1er employeur du canton, l’Hôpital du Valais compte 6'260 collaborateurs-trices. Chaque année, 41’800 patient-e-s sont pris-e-s en charge et près de 670’300 visites ambulatoires sont assurées.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e\n\nMédecin chef-fe de service pour le service des urgences à 100%\n\nCe service déploie ses activités à Sion et Martigny où près de 50'000 consultations d’urgences sont effectuées annuellement. Le Centre Hospitalier du Valais Romand (CHVR) offre un large plateau technique avec plusieurs filières (STEMI, AVC, ECMO) et est reconnu comme trauma center (polytraumatisés), ainsi qu’un secteur pré-hospitalier terrestre avec plus de 2'000 missions annuelles.\n\nMission:\n• Assumer la responsabilité de la prise en charge des patients confiés.\n\n• Assumer la gestion médicale et médico-économique d’un service hospitalier (ressources humaines, planification des développements, formation continue)\n\n• Assurer la reconnaissance FMH (niveau IV ambulatoire) et SSMUS (catégorie 1).\n\n• Assurer la bonne organisation de la garde.\n\n• S’assurer de la bonne exécution des différentes tâches, des interventions cliniques, thérapeutiques et être garant de la qualité des soins.\n\n• Garantir des liens fonctionnels efficaces avec tous les services hospitaliers, extra-hospitaliers et les partenaires cantonaux.\n\n• Participer à la formation du personnel médico-soignant.\n\n• Participer et superviser la recherche clinique, ou la déléguer.\n\n• Choisir, concevoir, élaborer et dispenser un enseignement pré- et post-gradué.\n\n• Etablir et mettre à jour les plans de carrière pour les collaborateurs et les plans de relève pour le service.\n\n• Assurer sa formation nécessaire au maintien de son(ses) titre(s) FMH et SSMUS, ainsi qu’au développement de ses compétences.\n\n• Implication dans la promotion de la médecine d’urgence au niveau régional (ALAMU) et national (SSMUS).\n\nProfil:\n• Titulaire d’un titre de spécialiste fédéral en médecine interne ou formation jugée équivalente\n\n• Titulaire d’une formation approfondie interdisciplinaire (FAI) de médecine d’urgence intra-hospitalière (SSMUS) ou formation jugée équivalente\n\n• Compétences en médecine d’urgence pré-hospitalière : une AFC en médecine d’urgence pré-hospitalière serait un atout\n\n• Plusieurs années d’expérience en tant que chef de clinique ou médecin adjoint (dans un hôpital universitaire serait un atout)\n\n• Expérience en management d’équipe et en encadrement de médecins en formation : une formation en management serait un atout\n\n• Une implication dans la formation et l’enseignement universitaire serait un atout\n\n• Compétences en ultrasonographie d’urgence\n\n• Large expérience en urgences chirurgicales et traumatologiques\n\n• Sens développé de la collaboration interdisciplinaire, esprit d’engagement et grande disponibilité\n\n• Parfaites maitrises du français ; connaissances de l’allemand souhaitées\n\nSeules les offres répondant au profil seront traitées.",
+      "description": "1er employeur du canton, l’Hôpital du Valais compte 6'260 collaborateurs-trices. Chaque année, 41’800 patient-e-s sont pris-e-s en charge et près de 670’300 visites ambulatoires sont assurées.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e\n\nMédecin chef-fe de service pour le service des urgences à 100%\n\nCe service déploie ses activités à Sion et Martigny où près de 50'000 consultations d’urgences sont effectuées annuellement. Le Centre Hospitalier du Valais Romand (CHVR) offre un large plateau technique avec plusieurs filières (STEMI, AVC, ECMO) et est reconnu comme trauma center (polytraumatisés), ainsi qu’un secteur pré-hospitalier terrestre avec plus de 2'000 missions annuelles.\n\nMission:\n• Assumer la responsabilité de la prise en charge des patients confiés.\n\n• Assumer la gestion médicale et médico-économique d’un service hospitalier (ressources humaines, planification des développements, formation continue)\n\n• Assurer la reconnaissance FMH (niveau IV ambulatoire) et SSMUS (catégorie 1).\n\n• Assurer la bonne organisation de la garde.\n\n• S’assurer de la bonne exécution des différentes tâches, des interventions cliniques, thérapeutiques et être garant de la qualité des soins.\n\n• Garantir des liens fonctionnels efficaces avec tous les services hospitaliers, extra-hospitaliers et les partenaires cantonaux.\n\n• Participer à la formation du personnel médico-soignant.\n\n• Participer et superviser la recherche clinique, ou la déléguer.\n\n• Choisir, concevoir, élaborer et dispenser un enseignement pré- et post-gradué.\n\n• Etablir et mettre à jour les plans de carrière pour les collaborateurs et les plans de relève pour le service.\n\n• Assurer sa formation nécessaire au maintien de son(ses) titre(s) FMH et SSMUS, ainsi qu’au développement de ses compétences.\n\n• Implication dans la promotion de la médecine d’urgence au niveau régional (ALAMU) et national (SSMUS).\n\nProfil:\n• Titulaire d’un titre de spécialiste fédéral en médecine interne ou formation jugée équivalente\n\n• Titulaire d’une formation approfondie interdisciplinaire (FAI) de médecine d’urgence intra-hospitalière (SSMUS) ou formation jugée équivalente\n\n• Compétences en médecine d’urgence pré-hospitalière : une AFC en médecine d’urgence pré-hospitalière serait un atout\n\n• Plusieurs années d’expérience en tant que chef de clinique ou médecin adjoint (dans un hôpital universitaire serait un atout)\n\n• Expérience en management d’équipe et en encadrement de médecins en formation : une formation en management serait un atout\n\n• Une implication dans la formation et l’enseignement universitaire serait un atout\n\n• Compétences en ultrasonographie d’urgence\n\n• Large expérience en urgences chirurgicales et traumatologiques\n\n• Sens développé de la collaboration interdisciplinaire, esprit d’engagement et grande disponibilité\n\n• Parfaites maitrises du français ; connaissances de l’allemand souhaitées\n\nSeules les offres répondant au profil seront traitées.\n\nOffre:\nUn environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices.",
       "descriptionByLocale": {
         "it": "Il primo datore di lavoro del cantone, Hôpital du Valais ha 6.260 dipendenti. Ogni anno vengono curati 418.800 pazienti e sono previste quasi 6703.300 visite ambulatoriale.\n\nL'Ospedale Vallese è alla ricerca del Centro ospedaliero romano Vallese.\n\n100% Chief Medical Officer per i servizi di emergenza\n\nQuesto servizio opera a Sion e Martigny dove si svolgono annualmente circa 50.000 consultazioni di emergenza. Il Centre Hospitalier du Valais Romand (CHVR) offre un ampio pianoro tecnico con diversi canali (STEMI, AVC, ECMO) ed è riconosciuto come centro trauma (polytraumatized), così come una zona pre-ospedale con oltre 2000 missioni annuali.\n\nMissione:\n• Assumere la responsabilità per la cura dei pazienti affidati.\n\n• Assumere la gestione medico-economica di un servizio ospedaliero (risorse umane, pianificazione dello sviluppo, formazione continua)\n\n• Assicurare FMH (livello ambulatoriale IV) e SSMUS (categoria 1).\n\n• Assicurarsi una corretta organizzazione di custodia.\n\n• Assicurare la corretta prestazione di diversi compiti, interventi clinici, terapeutici e garantire la qualità della cura.\n\n• Assicurare efficaci collegamenti funzionali con tutti i partner ospedalieri, extra ospedalieri e cantonali.\n\n• Partecipa alla formazione del personale medico-assistenza.\n\n• Partecipare e supervisionare, o delegare, ricerca clinica.\n\n• Scegliere, progettare, sviluppare e fornire formazione pre- e post-laurea.\n\n• Sviluppare e aggiornare i piani di carriera dei dipendenti e i piani di successione per il servizio.\n\n• Fornire formazione necessaria per mantenere il suo titolo FMH e SSMUS e per sviluppare le sue competenze.\n\n• Coinvolgimento nella promozione di farmaci di emergenza a livello regionale (ALAMU) e nazionale (SSMUS).\n\nProfilo:\n• Titolare di una laurea federale in medicina interna o formazione equivalente\n\n• Titolare della formazione interdisciplinare di approfondimento (ISP) in medicina di emergenza intra-ospedale (SSMUS) o formazione equivalente\n\n• Capacità di medicina di emergenza pre-ospedale: un AFC in medicina di emergenza pre-ospedale sarebbe un bene\n\n• Diversi anni di esperienza come capo di clinica o assistente medico (in un ospedale universitario sarebbe un bene)\n\n• Esperienza nella gestione del team e coaching medico in formazione: formazione manageriale sarebbe un bene\n\n• La partecipazione all'istruzione e alla formazione universitaria sarebbe un bene.\n\n• Capacità di ultrasuoni di emergenza\n\n• Ampia esperienza nelle emergenze chirurgiche e traumatiche\n\n• Aumento del senso di collaborazione interdisciplinare, impegno e disponibilità\n\n• Maestri perfetti di francese; conoscenze tedesche desiderate\n\nVerranno elaborate solo offerte che rispondono al profilo.",
         "en": "The canton's first employer, Hôpital du Valais has 6,260 employees. Each year, 418,800 patients are cared for, and nearly 6703,300 outpatient visits are provided.\n\nThe Valais Hospital is looking for the Valais Romand Hospital Centre.\n\n100% Chief Medical Officer for Emergency Services\n\nThis service operates in Sion and Martigny where nearly 50,000 emergency consultations are conducted annually. The Centre Hospitalier du Valais Romand (CHVR) offers a wide technical plateau with several channels (STEMI, AVC, ECMO) and is recognized as a trauma center (polytraumatized), as well as a pre-hospital area with more than 2,000 annual missions.\n\nMission:\n• Assume responsibility for the care of patients entrusted.\n\n• Assume medical and medico-economic management of a hospital service (human resources, development planning, continuing training)\n\n• Ensure FMH (ambulatory level IV) and SSMUS (category 1).\n\n• Ensure proper custody organization.\n\n• Ensure the proper performance of different tasks, clinical, therapeutic interventions and guarantee the quality of care.\n\n• Ensure effective functional links with all hospital, extra-hospital and cantonal partners.\n\n• Participate in the training of medical-care personnel.\n\n• Participate and supervise, or delegate, clinical research.\n\n• Choose, design, develop and deliver pre- and post-graduate education.\n\n• Develop and update employee career plans and succession plans for the service.\n\n• Provide training necessary to maintain its FMH and SSMUS title(s) and to develop its skills.\n\n• Involvement in the promotion of emergency medicine at regional (ALAMU) and national (SSMUS) level.\n\nProfile:\n• Holder of a federal degree in internal medicine or equivalent training\n\n• Holder of interdisciplinary in-depth training (ISP) in intra-hospital emergency medicine (SSMUS) or equivalent training\n\n• Pre-hospital emergency medicine skills: an AFC in pre-hospital emergency medicine would be an asset\n\n• Several years of experience as head of clinic or assistant physician (in a university hospital would be an asset)\n\n• Experience in team management and physician coaching in training: management training would be an asset\n\n• Involvement in university education and training would be an asset.\n\n• Emergency ultrasound skills\n\n• Wide experience in surgical and trauma emergencies\n\n• Increased sense of interdisciplinary collaboration, commitment and availability\n\n• Perfect masters of French; desired German knowledge\n\nOnly offers responding to the profile will be processed.",
         "de": "Der erste Arbeitgeber des Kantons, Hôpital du Wallis, beschäftigt 6.260 Mitarbeiter. Jedes Jahr werden 418.800 Patienten betreut und fast 6703.300 ambulante Besuche durchgeführt.\n\nDas Walliser Krankenhaus sucht das Walliser Krankenhaus Romand.\n\n100% Chief Medical Officer für Notfalldienste\n\nDieser Service ist in Sion und Martigny tätig, wo jährlich fast 50.000 Notfallkonsultationen durchgeführt werden. Das Centre Hospitalier du Wallis Romand (CHVR) bietet ein breites technisches Plateau mit mehreren Kanälen (STEMI, AVC, ECMO) und ist als Traumazentrum (polytraumatisiert) sowie als vorklinisches Gebiet mit mehr als 2.000 jährlichen Missionen anerkannt.\n\nMission:\n• Übernahme der Verantwortung für die Pflege der anvertrauten Patienten.\n\n• Übernahme des medizinischen und medizinisch-wirtschaftlichen Managements eines Krankenhausdienstes (Personal, Entwicklungsplanung, Weiterbildung)\n\n• FMH (ambulante Ebene IV) und SSMUS (Kategorie 1).\n\n• Gewährleistung einer ordnungsgemäßen Sorgerechtsorganisation.\n\n• Gewährleistung der ordnungsgemäßen Durchführung verschiedener Aufgaben, klinischer und therapeutischer Interventionen und Gewährleistung der Qualität der Versorgung.\n\n• Gewährleistung einer effektiven funktionalen Verbindung mit allen Krankenhaus-, außerkrankenhaus- und kantonalen Partnern.\n\n• Beteiligen Sie sich an der Ausbildung von medizinischem Personal.\n\n• Beteiligen und beaufsichtigen oder delegieren, klinische Forschung.\n\n• Wählen, entwerfen, entwickeln und liefern Pre- und Post-Graduate-Ausbildung.\n\n• Entwicklung und Aktualisierung von Mitarbeiterkarriereplänen und Nachfolgeplänen für den Dienst.\n\n• Bereitstellung von Schulungen, die erforderlich sind, um seine FMH- und SSMUS-Titel zu erhalten und seine Fähigkeiten zu entwickeln.\n\n• Beteiligung an der Förderung der Notfallmedizin auf regionaler (ALAMU) und nationaler (SSMUS) Ebene.\n\nProfil:\n• Inhaber eines Bundesabschlusses in Innerer Medizin oder einer gleichwertigen Ausbildung\n\n• Inhaber einer interdisziplinären vertieften Ausbildung (ISP) in der intraklinischen Notfallmedizin (SSMUS) oder einer gleichwertigen Ausbildung\n\n• Pre-Krankenhaus-Notfallmedizin Fähigkeiten: ein AFC in pre-Krankenhaus-Notfall-Medizin wäre ein Vermögenswert\n\n• Mehrjährige Erfahrung als Klinikleiter oder Assistenzarzt (in einem Universitätskrankenhaus wäre ein Gewinn)\n\n• Erfahrung im Teammanagement und Arztcoaching im Training: Managementtraining wäre ein Gewinn\n\n• Die Beteiligung an der universitären Aus- und Weiterbildung wäre ein Gewinn.\n\n• Ultraschall im Notfall\n\n• Große Erfahrung in chirurgischen und traumatischen Notfällen\n\n• Gesteigerter Sinn für interdisziplinäre Zusammenarbeit, Engagement und Verfügbarkeit\n\n• Perfekte Meister des Französischen; gewünschte deutsche Kenntnisse\n\nNur Angebote, die auf das Profil antworten, werden verarbeitet.",
-        "fr": "1er employeur du canton, l’Hôpital du Valais compte 6'260 collaborateurs-trices. Chaque année, 41’800 patient-e-s sont pris-e-s en charge et près de 670’300 visites ambulatoires sont assurées.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e\n\nMédecin chef-fe de service pour le service des urgences à 100%\n\nCe service déploie ses activités à Sion et Martigny où près de 50'000 consultations d’urgences sont effectuées annuellement. Le Centre Hospitalier du Valais Romand (CHVR) offre un large plateau technique avec plusieurs filières (STEMI, AVC, ECMO) et est reconnu comme trauma center (polytraumatisés), ainsi qu’un secteur pré-hospitalier terrestre avec plus de 2'000 missions annuelles.\n\nMission:\n• Assumer la responsabilité de la prise en charge des patients confiés.\n\n• Assumer la gestion médicale et médico-économique d’un service hospitalier (ressources humaines, planification des développements, formation continue)\n\n• Assurer la reconnaissance FMH (niveau IV ambulatoire) et SSMUS (catégorie 1).\n\n• Assurer la bonne organisation de la garde.\n\n• S’assurer de la bonne exécution des différentes tâches, des interventions cliniques, thérapeutiques et être garant de la qualité des soins.\n\n• Garantir des liens fonctionnels efficaces avec tous les services hospitaliers, extra-hospitaliers et les partenaires cantonaux.\n\n• Participer à la formation du personnel médico-soignant.\n\n• Participer et superviser la recherche clinique, ou la déléguer.\n\n• Choisir, concevoir, élaborer et dispenser un enseignement pré- et post-gradué.\n\n• Etablir et mettre à jour les plans de carrière pour les collaborateurs et les plans de relève pour le service.\n\n• Assurer sa formation nécessaire au maintien de son(ses) titre(s) FMH et SSMUS, ainsi qu’au développement de ses compétences.\n\n• Implication dans la promotion de la médecine d’urgence au niveau régional (ALAMU) et national (SSMUS).\n\nProfil:\n• Titulaire d’un titre de spécialiste fédéral en médecine interne ou formation jugée équivalente\n\n• Titulaire d’une formation approfondie interdisciplinaire (FAI) de médecine d’urgence intra-hospitalière (SSMUS) ou formation jugée équivalente\n\n• Compétences en médecine d’urgence pré-hospitalière : une AFC en médecine d’urgence pré-hospitalière serait un atout\n\n• Plusieurs années d’expérience en tant que chef de clinique ou médecin adjoint (dans un hôpital universitaire serait un atout)\n\n• Expérience en management d’équipe et en encadrement de médecins en formation : une formation en management serait un atout\n\n• Une implication dans la formation et l’enseignement universitaire serait un atout\n\n• Compétences en ultrasonographie d’urgence\n\n• Large expérience en urgences chirurgicales et traumatologiques\n\n• Sens développé de la collaboration interdisciplinaire, esprit d’engagement et grande disponibilité\n\n• Parfaites maitrises du français ; connaissances de l’allemand souhaitées\n\nSeules les offres répondant au profil seront traitées."
+        "fr": "1er employeur du canton, l’Hôpital du Valais compte 6'260 collaborateurs-trices. Chaque année, 41’800 patient-e-s sont pris-e-s en charge et près de 670’300 visites ambulatoires sont assurées.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e\n\nMédecin chef-fe de service pour le service des urgences à 100%\n\nCe service déploie ses activités à Sion et Martigny où près de 50'000 consultations d’urgences sont effectuées annuellement. Le Centre Hospitalier du Valais Romand (CHVR) offre un large plateau technique avec plusieurs filières (STEMI, AVC, ECMO) et est reconnu comme trauma center (polytraumatisés), ainsi qu’un secteur pré-hospitalier terrestre avec plus de 2'000 missions annuelles.\n\nMission:\n• Assumer la responsabilité de la prise en charge des patients confiés.\n\n• Assumer la gestion médicale et médico-économique d’un service hospitalier (ressources humaines, planification des développements, formation continue)\n\n• Assurer la reconnaissance FMH (niveau IV ambulatoire) et SSMUS (catégorie 1).\n\n• Assurer la bonne organisation de la garde.\n\n• S’assurer de la bonne exécution des différentes tâches, des interventions cliniques, thérapeutiques et être garant de la qualité des soins.\n\n• Garantir des liens fonctionnels efficaces avec tous les services hospitaliers, extra-hospitaliers et les partenaires cantonaux.\n\n• Participer à la formation du personnel médico-soignant.\n\n• Participer et superviser la recherche clinique, ou la déléguer.\n\n• Choisir, concevoir, élaborer et dispenser un enseignement pré- et post-gradué.\n\n• Etablir et mettre à jour les plans de carrière pour les collaborateurs et les plans de relève pour le service.\n\n• Assurer sa formation nécessaire au maintien de son(ses) titre(s) FMH et SSMUS, ainsi qu’au développement de ses compétences.\n\n• Implication dans la promotion de la médecine d’urgence au niveau régional (ALAMU) et national (SSMUS).\n\nProfil:\n• Titulaire d’un titre de spécialiste fédéral en médecine interne ou formation jugée équivalente\n\n• Titulaire d’une formation approfondie interdisciplinaire (FAI) de médecine d’urgence intra-hospitalière (SSMUS) ou formation jugée équivalente\n\n• Compétences en médecine d’urgence pré-hospitalière : une AFC en médecine d’urgence pré-hospitalière serait un atout\n\n• Plusieurs années d’expérience en tant que chef de clinique ou médecin adjoint (dans un hôpital universitaire serait un atout)\n\n• Expérience en management d’équipe et en encadrement de médecins en formation : une formation en management serait un atout\n\n• Une implication dans la formation et l’enseignement universitaire serait un atout\n\n• Compétences en ultrasonographie d’urgence\n\n• Large expérience en urgences chirurgicales et traumatologiques\n\n• Sens développé de la collaboration interdisciplinaire, esprit d’engagement et grande disponibilité\n\n• Parfaites maitrises du français ; connaissances de l’allemand souhaitées\n\nSeules les offres répondant au profil seront traitées.\n\nOffre:\nUn environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices."
       },
       "location": "Sion",
       "canton": "VS",
@@ -3974,7 +3975,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/9e8ded2a97a0df10e7ce346e2153af72/ATSANN0005038/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T21:18:56.524Z",
+      "crawledAt": "2026-11-20T21:32:26.015Z",
       "_hvsMeta": {
         "number": "ATSANN0005038",
         "sysId": "9e8ded2a97a0df10e7ce346e2153af72",
@@ -4014,7 +4015,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:18:56.524Z",
+      "validThrough": "2027-02-15T21:32:26.015Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/9e8ded2a97a0df10e7ce346e2153af72/atsann0005038/params/language/fr"
     },
@@ -4062,7 +4063,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/9ef2726697acdb50316bb0b71153af4d/ATSANN0005044/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:18:56.147Z",
+      "crawledAt": "2026-11-20T21:32:24.307Z",
       "_hvsMeta": {
         "number": "ATSANN0005044",
         "sysId": "9ef2726697acdb50316bb0b71153af4d",
@@ -4102,7 +4103,7 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:18:56.147Z",
+      "validThrough": "2027-02-15T21:32:24.307Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/9ef2726697acdb50316bb0b71153af4d/atsann0005044/params/language/fr"
     },
@@ -4150,7 +4151,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/2f566e66976c1350e7ce346e2153afc2/ATSANN0005041/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T21:18:55.697Z",
+      "crawledAt": "2026-11-20T21:32:25.224Z",
       "_hvsMeta": {
         "number": "ATSANN0005041",
         "sysId": "2f566e66976c1350e7ce346e2153afc2",
@@ -4190,9 +4191,165 @@
       "addressRegion": "VS",
       "streetAddress": "Monthey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:18:55.697Z",
+      "validThrough": "2027-02-15T21:32:25.224Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/2f566e66976c1350e7ce346e2153afc2/atsann0005041/params/language/fr"
+    },
+    {
+      "id": "hopital-du-valais-ba5b14c7fe06",
+      "slug": "infermiera-assistenza-di-emergenza-80-100-hopital-du-valais-visp",
+      "slugByLocale": {
+        "de": "pflegefachperson-experte-in-notfallpflege-80-100-hopital-du-valais-visp",
+        "it": "infermiera-assistenza-di-emergenza-80-100-hopital-du-valais-visp",
+        "en": "nurse-expert-emergency-care-80-100-hopital-du-valais-visp",
+        "fr": "infirmiere-expert-soins-d-urgence-80-100-hopital-du-valais-visp"
+      },
+      "company": "Hôpital du Valais",
+      "companyKey": "hopital-du-valais",
+      "companyDomain": "hopitalvs.ch",
+      "title": "Pflegefachperson / Experte/-in Notfallpflege 80–100%",
+      "titleByLocale": {
+        "de": "Pflegefachperson / Experte/-in Notfallpflege 80–100%",
+        "it": "Pflegefachperson / Experte/-in Notfallpflege 80–100%",
+        "en": "Pflegefachperson / Experte/-in Notfallpflege 80–100%",
+        "fr": "Pflegefachperson / Experte/-in Notfallpflege 80–100%"
+      },
+      "description": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis in der Klinik Notfallmedizin eine/n:\n\nPflegefachperson / Experte/-in Notfallpflege 80–100%\n\nIhre Aufgaben:\n• Sie stellen gemeinsam mit einem motivierten Team eine professionelle, empathische und patientenorientierte Notfallpflege sicher.\n\n• Sie treiben die interdisziplinäre Zusammenarbeit aktiv voran und schätzen den kurzen Draht zu den Ärztinnen und Ärzten.\n\n• Mit Ihrer Eigeninitiative und Ihrem lösungsorientierten Denken bringen Sie frische Ideen in den Stationsalltag ein.\n\n• Sie geben Ihr wertvolles Wissen an weiter und begleiten sie motivierend durch ihre Ausbildung.\n\nIhr Profil:\n• Sie haben eine abgeschlossene Ausbildung als Pflegefachperson (FH, HF) – vorzugsweise ergänzt durch das NDS Notfallpflege.\n\n• Sie bringen idealerweise bereits 1 Jahr Berufserfahrung mit und behalten auch in hektischen Momenten den Überblick.\n\n• Ihr Herz schlägt für den Menschen: Sie begegnen Patienten und Angehörigen mit viel Feingefühl und Wertschätzung.\n\n• Sie sind kommunikativ, packen Dinge gerne an und überzeugen durch eine strukturierte, exakte Arbeitsweise sowie gute EDV-Kenntnisse.\n\nWir bieten:\n• Spannender Alltag: Eine abwechslungsreiche, verantwortungsvolle und selbstständige Tätigkeit, bei der kein Tag wie der andere ist.\n\n• Starkes Team: Ein kollegiales, engagiertes und humorvolles Team, das zusammensteht und sich gegenseitig den Rücken freihält.\n\n• Perspektiven: Attraktive Möglichkeiten zur internen und externen Weiterbildung (z. B. Unterstützung beim NDS Notfallpflege).\n\n• Faire Bedingungen: Zeitgemässe Anstellungsbedingungen, gute Sozialleistungen und flexible Arbeitszeitgestaltung im Rahmen des Pensums.",
+      "descriptionByLocale": {
+        "de": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis in der Klinik Notfallmedizin eine/n:\n\nPflegefachperson / Experte/-in Notfallpflege 80–100%\n\nIhre Aufgaben:\n• Sie stellen gemeinsam mit einem motivierten Team eine professionelle, empathische und patientenorientierte Notfallpflege sicher.\n\n• Sie treiben die interdisziplinäre Zusammenarbeit aktiv voran und schätzen den kurzen Draht zu den Ärztinnen und Ärzten.\n\n• Mit Ihrer Eigeninitiative und Ihrem lösungsorientierten Denken bringen Sie frische Ideen in den Stationsalltag ein.\n\n• Sie geben Ihr wertvolles Wissen an weiter und begleiten sie motivierend durch ihre Ausbildung.\n\nIhr Profil:\n• Sie haben eine abgeschlossene Ausbildung als Pflegefachperson (FH, HF) – vorzugsweise ergänzt durch das NDS Notfallpflege.\n\n• Sie bringen idealerweise bereits 1 Jahr Berufserfahrung mit und behalten auch in hektischen Momenten den Überblick.\n\n• Ihr Herz schlägt für den Menschen: Sie begegnen Patienten und Angehörigen mit viel Feingefühl und Wertschätzung.\n\n• Sie sind kommunikativ, packen Dinge gerne an und überzeugen durch eine strukturierte, exakte Arbeitsweise sowie gute EDV-Kenntnisse.\n\nWir bieten:\n• Spannender Alltag: Eine abwechslungsreiche, verantwortungsvolle und selbstständige Tätigkeit, bei der kein Tag wie der andere ist.\n\n• Starkes Team: Ein kollegiales, engagiertes und humorvolles Team, das zusammensteht und sich gegenseitig den Rücken freihält.\n\n• Perspektiven: Attraktive Möglichkeiten zur internen und externen Weiterbildung (z. B. Unterstützung beim NDS Notfallpflege).\n\n• Faire Bedingungen: Zeitgemässe Anstellungsbedingungen, gute Sozialleistungen und flexible Arbeitszeitgestaltung im Rahmen des Pensums.",
+        "it": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis in der Klinik Notfallmedizin eine/n:\n\nPflegefachperson / Experte/-in Notfallpflege 80–100%\n\nIhre Aufgaben:\n• Sie stellen gemeinsam mit einem motivierten Team eine professionelle, empathische und patientenorientierte Notfallpflege sicher.\n\n• Sie treiben die interdisziplinäre Zusammenarbeit aktiv voran und schätzen den kurzen Draht zu den Ärztinnen und Ärzten.\n\n• Mit Ihrer Eigeninitiative und Ihrem lösungsorientierten Denken bringen Sie frische Ideen in den Stationsalltag ein.\n\n• Sie geben Ihr wertvolles Wissen an weiter und begleiten sie motivierend durch ihre Ausbildung.\n\nIhr Profil:\n• Sie haben eine abgeschlossene Ausbildung als Pflegefachperson (FH, HF) – vorzugsweise ergänzt durch das NDS Notfallpflege.\n\n• Sie bringen idealerweise bereits 1 Jahr Berufserfahrung mit und behalten auch in hektischen Momenten den Überblick.\n\n• Ihr Herz schlägt für den Menschen: Sie begegnen Patienten und Angehörigen mit viel Feingefühl und Wertschätzung.\n\n• Sie sind kommunikativ, packen Dinge gerne an und überzeugen durch eine strukturierte, exakte Arbeitsweise sowie gute EDV-Kenntnisse.\n\nWir bieten:\n• Spannender Alltag: Eine abwechslungsreiche, verantwortungsvolle und selbstständige Tätigkeit, bei der kein Tag wie der andere ist.\n\n• Starkes Team: Ein kollegiales, engagiertes und humorvolles Team, das zusammensteht und sich gegenseitig den Rücken freihält.\n\n• Perspektiven: Attraktive Möglichkeiten zur internen und externen Weiterbildung (z. B. Unterstützung beim NDS Notfallpflege).\n\n• Faire Bedingungen: Zeitgemässe Anstellungsbedingungen, gute Sozialleistungen und flexible Arbeitszeitgestaltung im Rahmen des Pensums.",
+        "en": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis in der Klinik Notfallmedizin eine/n:\n\nPflegefachperson / Experte/-in Notfallpflege 80–100%\n\nIhre Aufgaben:\n• Sie stellen gemeinsam mit einem motivierten Team eine professionelle, empathische und patientenorientierte Notfallpflege sicher.\n\n• Sie treiben die interdisziplinäre Zusammenarbeit aktiv voran und schätzen den kurzen Draht zu den Ärztinnen und Ärzten.\n\n• Mit Ihrer Eigeninitiative und Ihrem lösungsorientierten Denken bringen Sie frische Ideen in den Stationsalltag ein.\n\n• Sie geben Ihr wertvolles Wissen an weiter und begleiten sie motivierend durch ihre Ausbildung.\n\nIhr Profil:\n• Sie haben eine abgeschlossene Ausbildung als Pflegefachperson (FH, HF) – vorzugsweise ergänzt durch das NDS Notfallpflege.\n\n• Sie bringen idealerweise bereits 1 Jahr Berufserfahrung mit und behalten auch in hektischen Momenten den Überblick.\n\n• Ihr Herz schlägt für den Menschen: Sie begegnen Patienten und Angehörigen mit viel Feingefühl und Wertschätzung.\n\n• Sie sind kommunikativ, packen Dinge gerne an und überzeugen durch eine strukturierte, exakte Arbeitsweise sowie gute EDV-Kenntnisse.\n\nWir bieten:\n• Spannender Alltag: Eine abwechslungsreiche, verantwortungsvolle und selbstständige Tätigkeit, bei der kein Tag wie der andere ist.\n\n• Starkes Team: Ein kollegiales, engagiertes und humorvolles Team, das zusammensteht und sich gegenseitig den Rücken freihält.\n\n• Perspektiven: Attraktive Möglichkeiten zur internen und externen Weiterbildung (z. B. Unterstützung beim NDS Notfallpflege).\n\n• Faire Bedingungen: Zeitgemässe Anstellungsbedingungen, gute Sozialleistungen und flexible Arbeitszeitgestaltung im Rahmen des Pensums.",
+        "fr": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis in der Klinik Notfallmedizin eine/n:\n\nPflegefachperson / Experte/-in Notfallpflege 80–100%\n\nIhre Aufgaben:\n• Sie stellen gemeinsam mit einem motivierten Team eine professionelle, empathische und patientenorientierte Notfallpflege sicher.\n\n• Sie treiben die interdisziplinäre Zusammenarbeit aktiv voran und schätzen den kurzen Draht zu den Ärztinnen und Ärzten.\n\n• Mit Ihrer Eigeninitiative und Ihrem lösungsorientierten Denken bringen Sie frische Ideen in den Stationsalltag ein.\n\n• Sie geben Ihr wertvolles Wissen an weiter und begleiten sie motivierend durch ihre Ausbildung.\n\nIhr Profil:\n• Sie haben eine abgeschlossene Ausbildung als Pflegefachperson (FH, HF) – vorzugsweise ergänzt durch das NDS Notfallpflege.\n\n• Sie bringen idealerweise bereits 1 Jahr Berufserfahrung mit und behalten auch in hektischen Momenten den Überblick.\n\n• Ihr Herz schlägt für den Menschen: Sie begegnen Patienten und Angehörigen mit viel Feingefühl und Wertschätzung.\n\n• Sie sind kommunikativ, packen Dinge gerne an und überzeugen durch eine strukturierte, exakte Arbeitsweise sowie gute EDV-Kenntnisse.\n\nWir bieten:\n• Spannender Alltag: Eine abwechslungsreiche, verantwortungsvolle und selbstständige Tätigkeit, bei der kein Tag wie der andere ist.\n\n• Starkes Team: Ein kollegiales, engagiertes und humorvolles Team, das zusammensteht und sich gegenseitig den Rücken freihält.\n\n• Perspektiven: Attraktive Möglichkeiten zur internen und externen Weiterbildung (z. B. Unterstützung beim NDS Notfallpflege).\n\n• Faire Bedingungen: Zeitgemässe Anstellungsbedingungen, gute Sozialleistungen und flexible Arbeitszeitgestaltung im Rahmen des Pensums."
+      },
+      "location": "Visp",
+      "canton": "VS",
+      "addressLocality": "Visp",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3930",
+      "category": "healthcare-nursing",
+      "sector": "Santé / Hôpital",
+      "contract": "full-time",
+      "employmentType": "80 - 100%",
+      "featured": false,
+      "datePosted": "2026-09-17",
+      "postedDate": "2026-09-17",
+      "postingDateSource": "reported",
+      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/6886e7be47570354296bd1eb736d43b3/ATSANN0004921/params/language/fr",
+      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/6886e7be47570354296bd1eb736d43b3/ATSANN0004921/params/language/fr",
+      "source": "HVS Dedicated Parser (ServiceNow API)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-20T21:32:39.641Z",
+      "_hvsMeta": {
+        "number": "ATSANN0004921",
+        "sysId": "6886e7be47570354296bd1eb736d43b3",
+        "societe": "Spitalzentrum Oberwallis",
+        "famille": "Soins",
+        "site": "VISP"
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-experte-in-notfallpflege-80-100-hopital-du-valais-visp"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachperson-experte-in-notfallpflege-80-100-hopital-du-valais-visp"
+      ],
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "VS",
+      "streetAddress": "Visp",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-20T21:32:39.641Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-09-18T23:16:31.771Z"
+    },
+    {
+      "id": "hopital-du-valais-f8352b9058ad",
+      "slug": "medecins-chefs-fes-de-clinique-adjoints-es-a-80-100-pour-son-service-de-psychiatrie",
+      "slugByLocale": {
+        "fr": "medecins-chefs-fes-de-clinique-adjoints-es-a-80-100-pour-son-service-de-psychiatrie",
+        "it": "medecins-chefs-fes-de-clinique-adjoints-es-a-80-100-pour-son-service-de-psychiatrie",
+        "en": "medecins-chefs-fes-de-clinique-adjoints-es-a-80-100-pour-son-service-de-psychiatrie",
+        "de": "medecins-chefs-fes-de-clinique-adjoints-es-a-80-100-pour-son-service-de-psychiatrie"
+      },
+      "company": "Hôpital du Valais",
+      "companyKey": "hopital-du-valais",
+      "companyDomain": "hopitalvs.ch",
+      "title": "Médecins chefs-fes de clinique adjoints-es à 80-100% pour son service de Psychiatrie – Psychothérapie de l’Enfant et de l’Adolescent",
+      "titleByLocale": {
+        "fr": "Médecins chefs-fes de clinique adjoints-es à 80-100% pour son service de Psychiatrie – Psychothérapie de l’Enfant et de l’Adolescent",
+        "it": "Médecins chefs-fes de clinique adjoints-es à 80-100% pour son service de Psychiatrie – Psychothérapie de l’Enfant et de l’Adolescent",
+        "en": "Médecins chefs-fes de clinique adjoints-es à 80-100% pour son service de Psychiatrie – Psychothérapie de l’Enfant et de l’Adolescent",
+        "de": "Médecins chefs-fes de clinique adjoints-es à 80-100% pour son service de Psychiatrie – Psychothérapie de l’Enfant et de l’Adolescent"
+      },
+      "description": "1er employeur du canton, l’Hôpital du Valais compte 6’260 collaborateurs-trices. Chaque année, 41’800 patient-e-s sont pris-e-s en charge et près de 670’300 visites ambulatoires sont assurées.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand et son Pôle de psychiatrie et psychothérapie des\n\nMédecins chefs-fes de clinique adjoints-es à 80-100% pour son service de Psychiatrie – Psychothérapie de l’Enfant et de l’Adolescent\n\nMission:\nEvaluation pédopsychiatrique et suivi des patients âgés de 0 à 18 ans, dans un secteur à définir (ambulatoire, liaison ou hospitalier), clarification diagnostique et gestion des traitements médicamenteux sous la supervision des cadres du service\n\nInterventions thérapeutiques individuelles\n\nInterventions thérapeutiques familiales\n\nSupervision et encadrement de médecins-assistants\n\nCollaboration étroite avec les équipes intra-hospitalières multidisciplinaires et le réseau extrahospitalier (intervenants en protection de l’enfance, intervenants scolaires, pédiatres, thérapeutes installés, foyers, etc…)\n\nParticipation à la formation interne des médecins-assistants et des psychologues\n\nParticipations aux piquets du service de pédopsychiatrie\n\nProfil:\nDiplôme fédéral de médecin ou équivalent reconnu par la MEBEKO\n\nFMH de psychiatrie et psychothérapie d’enfant et d’adolescent obtenu ou en cours d’obtention\n\nIntérêt pour le travail et la collaboration pluridisciplinaire\n\nFlexibilité, fiabilité et esprit d’équipe\n\nSolides connaissances de la langue française\n\nCapacité à assumer des responsabilités\n\nSensibilité pour les soins aux populations vulnérables\n\nSeules les offres répondant au profil seront traitées.\n\nOffre:\nUn environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices.",
+      "descriptionByLocale": {
+        "fr": "1er employeur du canton, l’Hôpital du Valais compte 6’260 collaborateurs-trices. Chaque année, 41’800 patient-e-s sont pris-e-s en charge et près de 670’300 visites ambulatoires sont assurées.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand et son Pôle de psychiatrie et psychothérapie des\n\nMédecins chefs-fes de clinique adjoints-es à 80-100% pour son service de Psychiatrie – Psychothérapie de l’Enfant et de l’Adolescent\n\nMission:\nEvaluation pédopsychiatrique et suivi des patients âgés de 0 à 18 ans, dans un secteur à définir (ambulatoire, liaison ou hospitalier), clarification diagnostique et gestion des traitements médicamenteux sous la supervision des cadres du service\n\nInterventions thérapeutiques individuelles\n\nInterventions thérapeutiques familiales\n\nSupervision et encadrement de médecins-assistants\n\nCollaboration étroite avec les équipes intra-hospitalières multidisciplinaires et le réseau extrahospitalier (intervenants en protection de l’enfance, intervenants scolaires, pédiatres, thérapeutes installés, foyers, etc…)\n\nParticipation à la formation interne des médecins-assistants et des psychologues\n\nParticipations aux piquets du service de pédopsychiatrie\n\nProfil:\nDiplôme fédéral de médecin ou équivalent reconnu par la MEBEKO\n\nFMH de psychiatrie et psychothérapie d’enfant et d’adolescent obtenu ou en cours d’obtention\n\nIntérêt pour le travail et la collaboration pluridisciplinaire\n\nFlexibilité, fiabilité et esprit d’équipe\n\nSolides connaissances de la langue française\n\nCapacité à assumer des responsabilités\n\nSensibilité pour les soins aux populations vulnérables\n\nSeules les offres répondant au profil seront traitées.\n\nOffre:\nUn environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices.",
+        "it": "1er employeur du canton, l’Hôpital du Valais compte 6’260 collaborateurs-trices. Chaque année, 41’800 patient-e-s sont pris-e-s en charge et près de 670’300 visites ambulatoires sont assurées.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand et son Pôle de psychiatrie et psychothérapie des\n\nMédecins chefs-fes de clinique adjoints-es à 80-100% pour son service de Psychiatrie – Psychothérapie de l’Enfant et de l’Adolescent\n\nMission:\nEvaluation pédopsychiatrique et suivi des patients âgés de 0 à 18 ans, dans un secteur à définir (ambulatoire, liaison ou hospitalier), clarification diagnostique et gestion des traitements médicamenteux sous la supervision des cadres du service\n\nInterventions thérapeutiques individuelles\n\nInterventions thérapeutiques familiales\n\nSupervision et encadrement de médecins-assistants\n\nCollaboration étroite avec les équipes intra-hospitalières multidisciplinaires et le réseau extrahospitalier (intervenants en protection de l’enfance, intervenants scolaires, pédiatres, thérapeutes installés, foyers, etc…)\n\nParticipation à la formation interne des médecins-assistants et des psychologues\n\nParticipations aux piquets du service de pédopsychiatrie\n\nProfil:\nDiplôme fédéral de médecin ou équivalent reconnu par la MEBEKO\n\nFMH de psychiatrie et psychothérapie d’enfant et d’adolescent obtenu ou en cours d’obtention\n\nIntérêt pour le travail et la collaboration pluridisciplinaire\n\nFlexibilité, fiabilité et esprit d’équipe\n\nSolides connaissances de la langue française\n\nCapacité à assumer des responsabilités\n\nSensibilité pour les soins aux populations vulnérables\n\nSeules les offres répondant au profil seront traitées.\n\nOffre:\nUn environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices.",
+        "en": "1er employeur du canton, l’Hôpital du Valais compte 6’260 collaborateurs-trices. Chaque année, 41’800 patient-e-s sont pris-e-s en charge et près de 670’300 visites ambulatoires sont assurées.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand et son Pôle de psychiatrie et psychothérapie des\n\nMédecins chefs-fes de clinique adjoints-es à 80-100% pour son service de Psychiatrie – Psychothérapie de l’Enfant et de l’Adolescent\n\nMission:\nEvaluation pédopsychiatrique et suivi des patients âgés de 0 à 18 ans, dans un secteur à définir (ambulatoire, liaison ou hospitalier), clarification diagnostique et gestion des traitements médicamenteux sous la supervision des cadres du service\n\nInterventions thérapeutiques individuelles\n\nInterventions thérapeutiques familiales\n\nSupervision et encadrement de médecins-assistants\n\nCollaboration étroite avec les équipes intra-hospitalières multidisciplinaires et le réseau extrahospitalier (intervenants en protection de l’enfance, intervenants scolaires, pédiatres, thérapeutes installés, foyers, etc…)\n\nParticipation à la formation interne des médecins-assistants et des psychologues\n\nParticipations aux piquets du service de pédopsychiatrie\n\nProfil:\nDiplôme fédéral de médecin ou équivalent reconnu par la MEBEKO\n\nFMH de psychiatrie et psychothérapie d’enfant et d’adolescent obtenu ou en cours d’obtention\n\nIntérêt pour le travail et la collaboration pluridisciplinaire\n\nFlexibilité, fiabilité et esprit d’équipe\n\nSolides connaissances de la langue française\n\nCapacité à assumer des responsabilités\n\nSensibilité pour les soins aux populations vulnérables\n\nSeules les offres répondant au profil seront traitées.\n\nOffre:\nUn environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices.",
+        "de": "1er employeur du canton, l’Hôpital du Valais compte 6’260 collaborateurs-trices. Chaque année, 41’800 patient-e-s sont pris-e-s en charge et près de 670’300 visites ambulatoires sont assurées.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand et son Pôle de psychiatrie et psychothérapie des\n\nMédecins chefs-fes de clinique adjoints-es à 80-100% pour son service de Psychiatrie – Psychothérapie de l’Enfant et de l’Adolescent\n\nMission:\nEvaluation pédopsychiatrique et suivi des patients âgés de 0 à 18 ans, dans un secteur à définir (ambulatoire, liaison ou hospitalier), clarification diagnostique et gestion des traitements médicamenteux sous la supervision des cadres du service\n\nInterventions thérapeutiques individuelles\n\nInterventions thérapeutiques familiales\n\nSupervision et encadrement de médecins-assistants\n\nCollaboration étroite avec les équipes intra-hospitalières multidisciplinaires et le réseau extrahospitalier (intervenants en protection de l’enfance, intervenants scolaires, pédiatres, thérapeutes installés, foyers, etc…)\n\nParticipation à la formation interne des médecins-assistants et des psychologues\n\nParticipations aux piquets du service de pédopsychiatrie\n\nProfil:\nDiplôme fédéral de médecin ou équivalent reconnu par la MEBEKO\n\nFMH de psychiatrie et psychothérapie d’enfant et d’adolescent obtenu ou en cours d’obtention\n\nIntérêt pour le travail et la collaboration pluridisciplinaire\n\nFlexibilité, fiabilité et esprit d’équipe\n\nSolides connaissances de la langue française\n\nCapacité à assumer des responsabilités\n\nSensibilité pour les soins aux populations vulnérables\n\nSeules les offres répondant au profil seront traitées.\n\nOffre:\nUn environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices."
+      },
+      "location": "Sion",
+      "canton": "VS",
+      "addressLocality": "Sion",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "healthcare-medical",
+      "sector": "Santé / Hôpital",
+      "contract": "full-time",
+      "employmentType": "80 - 100%",
+      "featured": false,
+      "datePosted": "2026-11-20",
+      "postedDate": "2026-11-20",
+      "postingDateSource": "reported",
+      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/bc1392ab97a09b90316bb0b71153affe/ATSANN0005047/params/language/fr",
+      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/bc1392ab97a09b90316bb0b71153affe/ATSANN0005047/params/language/fr",
+      "source": "HVS Dedicated Parser (ServiceNow API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-20T21:32:23.923Z",
+      "_hvsMeta": {
+        "number": "ATSANN0005047",
+        "sysId": "bc1392ab97a09b90316bb0b71153affe",
+        "societe": "Centre Hospitalier du Valais romand",
+        "famille": "Médecins",
+        "site": "SION"
+      },
+      "needsRetranslation": true,
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "VS",
+      "streetAddress": "Sion",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-18T21:32:23.923Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-20T21:32:23.923Z"
     }
   ]
 }

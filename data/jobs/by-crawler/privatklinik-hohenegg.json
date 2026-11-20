@@ -1,7 +1,7 @@
 {
   "crawlerKey": "privatklinik-hohenegg",
-  "assembledAt": "2026-11-18T21:24:14.040Z",
-  "runId": "44398150721",
+  "assembledAt": "2026-11-20T21:30:14.594Z",
+  "runId": "44817680131",
   "jobs": [
     {
       "id": "privatklinik-hohenegg-ab3fc3a8544f",
@@ -34,7 +34,7 @@
       "url": "https://apply.refline.ch/640332/0063/pub/6/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:24:09.412Z",
+      "crawledAt": "2026-11-20T21:30:07.441Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -119,7 +119,7 @@
       },
       "streetAddress": "Hohenegg 1",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-18T21:24:09.412Z",
+      "validThrough": "2026-12-20T21:30:07.441Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/640332/0063/pub/6/index.html"
     },
@@ -154,7 +154,7 @@
       "url": "https://apply.refline.ch/640332/0055/pub/2/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:24:07.993Z",
+      "crawledAt": "2026-11-20T21:30:06.696Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -224,7 +224,7 @@
       },
       "streetAddress": "Hohenegg 1",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-18T21:24:07.993Z",
+      "validThrough": "2026-12-20T21:30:06.696Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/640332/0055/pub/2/index.html"
     },
@@ -260,7 +260,7 @@
       "url": "https://apply.refline.ch/640332/0052/pub/3/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:24:07.566Z",
+      "crawledAt": "2026-11-20T21:30:06.210Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -336,7 +336,7 @@
       },
       "streetAddress": "Hohenegg 1",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-18T21:24:07.566Z",
+      "validThrough": "2026-12-20T21:30:06.210Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/640332/0052/pub/3/index.html"
     }

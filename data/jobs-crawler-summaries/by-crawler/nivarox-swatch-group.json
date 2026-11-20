@@ -1,22 +1,79 @@
 {
   "key": "nivarox-swatch-group",
   "label": "nivarox-swatch-group",
-  "generatedAt": "2026-11-18T21:29:36.864Z",
-  "total": 2,
+  "generatedAt": "2026-11-20T21:34:07.446Z",
+  "total": 3,
   "authoritativeEmptySnapshot": false,
-  "newCount": 2,
+  "newCount": 1,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 390720,
-  "avgDurationMs": 390720,
+  "unchangedCount": 2,
+  "durationMs": 480677,
+  "avgDurationMs": 480677,
   "durationHistory": [
-    390720
+    480677
   ],
   "newJobs": [
     {
+      "id": "company-7ucpag",
+      "slug": "ingenieur-securite-sst-nivarox-far-s-a-le-locle-7ucpag",
+      "company": "Nivarox-FAR S.A.",
+      "title": "Ingénieur Sécurité SST",
+      "location": "Le Locle",
+      "canton": "NE",
+      "category": "other",
+      "contract": "internship",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://www.swatchgroup.com/fr/job/34451",
+      "applyUrl": "https://www.swatchgroup.com/fr/job/34451",
+      "source": "Company Careers Crawler",
+      "companyKey": "nivarox-swatch-group",
+      "companyDomain": "swatchgroup.com",
+      "crawledAt": "2026-11-20T21:32:49.543Z",
+      "firstSeenAt": "2026-11-20T21:32:49.543Z",
+      "needsRetranslation": true,
+      "sourceLang": "fr",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "employmentType": "FULL_TIME",
+      "postalCode": "2400",
+      "addressLocality": "Le Locle",
+      "addressRegion": "NE",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Nivarox-FAR S.A.",
+        "streetAddress": "avenue du Collège 10",
+        "postalCode": "2400",
+        "addressLocality": "Le Locle",
+        "addressRegion": "NE",
+        "checkedAt": "2026-10-31T20:50:36.110Z",
+        "streetAddressSource": "zefix-registry"
+      },
+      "streetAddress": "avenue du Collège 10",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-04T21:32:49.543Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 84,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 16,
+        "completeness": 23
+      }
+    }
+  ],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
+    {
       "id": "company-7ucolh",
-      "slug": "apprentissage-operateur-trice-en-informatique-cfc-nivarox-far-s-a-le-locle",
+      "slug": "operatore-informatico-di-apprendimento-cfc-nivarox-far-s-a-le-locle",
       "company": "Nivarox-FAR S.A.",
       "title": "Apprentissage Opérateur/trice en informatique CFC",
       "location": "Le Locle",
@@ -35,7 +92,6 @@
       "companyDomain": "swatchgroup.com",
       "crawledAt": "2026-11-18T21:28:58.020Z",
       "firstSeenAt": "2026-11-18T21:28:58.020Z",
-      "needsRetranslation": true,
       "sourceLang": "fr",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -59,17 +115,18 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-01-02T21:28:58.020Z",
       "validThroughSource": "last-observed-window",
-      "_qualityScore": 82,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 23
       }
     },
     {
       "id": "company-7ucokr",
-      "slug": "apprentissage-employe-e-de-commerce-nivarox-far-s-a-le-locle",
+      "slug": "apprendistato-nivarox-far-s-a-le-locle",
       "company": "Nivarox-FAR S.A.",
       "title": "Apprentissage employé/e de commerce",
       "location": "Le Locle",
@@ -88,11 +145,10 @@
       "companyDomain": "swatchgroup.com",
       "crawledAt": "2026-11-18T21:28:58.020Z",
       "firstSeenAt": "2026-11-18T21:28:58.020Z",
-      "needsRetranslation": true,
       "sourceLang": "fr",
       "salaryMin": 60500,
       "salaryMax": 91500,
-      "salarySource": "estimated",
+      "salarySource": "reported",
       "employmentType": "FULL_TIME",
       "postalCode": "2400",
       "addressLocality": "Le Locle",
@@ -112,17 +168,15 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-16T21:28:58.020Z",
       "validThroughSource": "last-observed-window",
-      "_qualityScore": 82,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 23
       }
     }
   ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "8862042892397f4dcea90f48fbc2dc028da23eec"
+  "codeCommit": "07c2e8305c6747f1893222ba4bfdddc597008157"
 }

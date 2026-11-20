@@ -1,7 +1,7 @@
 {
   "crawlerKey": "hopital-de-lavaux",
-  "assembledAt": "2026-11-18T21:18:05.687Z",
-  "runId": "44398150721",
+  "assembledAt": "2026-11-20T21:25:11.623Z",
+  "runId": "44817680131",
   "jobs": [
     {
       "id": "hopital-de-lavaux-9ccc33534413",
@@ -35,7 +35,7 @@
       "url": "https://app.beehire.com/invite/mrL3gPPlO",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T21:18:01.020Z",
+      "crawledAt": "2026-11-20T21:25:02.197Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -88,7 +88,7 @@
       },
       "streetAddress": "Bourg-en-Lavaux",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T21:18:01.020Z",
+      "validThrough": "2027-02-18T21:25:02.197Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://app.beehire.com/invite/mrl3gpplo"
     },
@@ -123,7 +123,7 @@
       "url": "https://app.beehire.com/invite/GFUnCnSo4",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T21:18:01.020Z",
+      "crawledAt": "2026-11-20T21:25:02.198Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -170,7 +170,7 @@
       },
       "streetAddress": "Bourg-en-Lavaux",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T21:18:01.020Z",
+      "validThrough": "2027-01-06T21:25:02.198Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://app.beehire.com/invite/gfuncnso4"
     },
@@ -205,7 +205,7 @@
       "url": "https://app.beehire.com/invite/A7b1Yo_iU",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T21:18:01.019Z",
+      "crawledAt": "2026-11-20T21:25:02.195Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -255,7 +255,7 @@
       },
       "streetAddress": "Bourg-en-Lavaux",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:18:01.019Z",
+      "validThrough": "2027-02-02T21:25:02.195Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://app.beehire.com/invite/a7b1yo_iu"
     },
@@ -291,7 +291,7 @@
       "url": "https://app.beehire.com/invite/kINZiCm0y",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T21:18:01.018Z",
+      "crawledAt": "2026-11-20T21:25:02.191Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -343,7 +343,7 @@
       },
       "streetAddress": "Bourg-en-Lavaux",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T21:18:01.018Z",
+      "validThrough": "2026-12-28T21:25:02.191Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://app.beehire.com/invite/kinzicm0y"
     },
@@ -379,7 +379,7 @@
       "url": "https://app.beehire.com/invite/R9yoMhkVH",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-18T21:18:01.016Z",
+      "crawledAt": "2026-11-20T21:25:02.188Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -429,9 +429,93 @@
       },
       "streetAddress": "Bourg-en-Lavaux",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T21:18:01.016Z",
+      "validThrough": "2027-02-15T21:25:02.188Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://app.beehire.com/invite/r9yomhkvh"
+    },
+    {
+      "id": "hopital-de-lavaux-2b5e3b6cd39c",
+      "slug": "80-ausiliario-di-salute-100-hopital-de-lavaux-bourg-en-lavaux",
+      "slugByLocale": {
+        "fr": "auxiliaire-de-sante-a-80-100-hopital-de-lavaux-bourg-en-lavaux",
+        "it": "80-ausiliario-di-salute-100-hopital-de-lavaux-bourg-en-lavaux",
+        "en": "80-auxiliary-of-health-100-hopital-de-lavaux-bourg-en-lavaux",
+        "de": "80-gesundheitshilfe-100-hopital-de-lavaux-bourg-en-lavaux"
+      },
+      "company": "Hôpital de Lavaux",
+      "companyKey": "hopital-de-lavaux",
+      "companyDomain": "hopitaldelavaux.ch",
+      "title": "Auxiliaire de santé à 60% – 80%",
+      "titleByLocale": {
+        "fr": "Auxiliaire de santé à 60% – 80%",
+        "it": "Auxiliaire de santé à 60% – 80%",
+        "en": "Auxiliaire de santé à 60% – 80%",
+        "de": "Auxiliaire de santé à 60% – 80%"
+      },
+      "description": "L’Hôpital de Lavaux est une Fondation privée reconnue d’intérêt public, membre de la Fédération des Hôpitaux Vaudois. Situé à Cully (Bourg-en-Lavaux), au cœur des vignes et à proximité des transports publics, de l’école et de la garderie de Lavaux.\n Un projet d’agrandissement est prévu pour 2027, avec l’emménagement des services dans de nouveaux locaux actuellement en construction sur le site de l’hôpital.\n Au sein de notre EMS Le Pavillon , nous accompagnons les résidents avec professionnalisme, bienveillance et respect de leur dignité. Notre équipe pluridisciplinaire œuvre au quotidien pour offrir un accompagnement personnalisé favorisant la qualité de vie, l’autonomie et le bien-être de chacun.\n Afin de renforcer notre équipe, nous recherchons :\n Auxiliaire de santé à 60% – 80%\n Mission\n\n• Assurer les soins de base et contribuer au confort et au bien-être des résidents, dans le respect de leurs besoins, de leurs habitudes de vie et de leur autonomie.\n\n• Accompagner les résidents dans les activités de la vie quotidienne, notamment lors des soins d’hygiène, de l’habillage, de l’alimentation et des déplacements.\n\n• Favoriser le maintien de l’autonomie et des capacités des résidents, en tenant compte de leur rythme et de leurs habitudes.\n\n• Observer l’état général des résidents et transmettre les informations pertinentes à l’équipe infirmière.\n\n• Collaborer avec l’ensemble des professionnels impliqués dans l’accompagnement des résidents et contribuer à la continuité et à la qualité des soins.\n\n• Contribuer à un environnement sécurisant et adapté, ainsi qu’au respect des procédures et des règles d’hygiène et de sécurité.\n Profil recherché\n Compétences techniques\n\n• Certificat d’auxiliaire de santé CRS ou titre jugé équivalent reconnu en Suisse.\n\n• Une expérience professionnelle en gériatrie, psychogériatrie ou en EMS constitue un atout.\n\n• Aisance dans l’utilisation des outils informatiques usuels (maîtrise de Carefolio, un atout).\n Compétences humaines\n\n• Intérêt marqué pour la prise en charge des résidents dans leur lieu de vie.\n\n• Excellentes capacités relationnelles, d'écoute et de communication avec les résidents, leurs proches et les équipes.\n\n• Capacité à travailler de manière autonome, avec esprit critique et sens des responsabilités.\n\n• Aptitude à appréhender la situation du résident dans sa globalité et à contribuer activement au travail interprofessionnel.\n Nous offrons\n\n• Un poste au sein d’une institution à taille humaine, reconnue pour la qualité de ses prestations.\n\n• Un poste au sein d’une équipe motivée et dynamique, où chaque collaborateur est invité à participer aux décisions concernant le fonctionnement du service\n\n• Des possibilités de formation continue et de développement professionnel.\n\n• Des conditions de travail régies par la Convention collective de travail du secteur sanitaire parapublic vaudois (CCT San Vaud).\n\n• L’opportunité d’intégrer des groupes de travail concernant le développement et l’organisation du futur hôpital, prévu pour l’année 2027\n Date d'entrée : de suite.\n\nHôpital de Lavaux — Fondation privée reconnue d'intérêt public, Cully (Bourg-en-Lavaux, VD).",
+      "descriptionByLocale": {
+        "fr": "L’Hôpital de Lavaux est une Fondation privée reconnue d’intérêt public, membre de la Fédération des Hôpitaux Vaudois. Situé à Cully (Bourg-en-Lavaux), au cœur des vignes et à proximité des transports publics, de l’école et de la garderie de Lavaux.\n Un projet d’agrandissement est prévu pour 2027, avec l’emménagement des services dans de nouveaux locaux actuellement en construction sur le site de l’hôpital.\n Au sein de notre EMS Le Pavillon , nous accompagnons les résidents avec professionnalisme, bienveillance et respect de leur dignité. Notre équipe pluridisciplinaire œuvre au quotidien pour offrir un accompagnement personnalisé favorisant la qualité de vie, l’autonomie et le bien-être de chacun.\n Afin de renforcer notre équipe, nous recherchons :\n Auxiliaire de santé à 60% – 80%\n Mission\n\n• Assurer les soins de base et contribuer au confort et au bien-être des résidents, dans le respect de leurs besoins, de leurs habitudes de vie et de leur autonomie.\n\n• Accompagner les résidents dans les activités de la vie quotidienne, notamment lors des soins d’hygiène, de l’habillage, de l’alimentation et des déplacements.\n\n• Favoriser le maintien de l’autonomie et des capacités des résidents, en tenant compte de leur rythme et de leurs habitudes.\n\n• Observer l’état général des résidents et transmettre les informations pertinentes à l’équipe infirmière.\n\n• Collaborer avec l’ensemble des professionnels impliqués dans l’accompagnement des résidents et contribuer à la continuité et à la qualité des soins.\n\n• Contribuer à un environnement sécurisant et adapté, ainsi qu’au respect des procédures et des règles d’hygiène et de sécurité.\n Profil recherché\n Compétences techniques\n\n• Certificat d’auxiliaire de santé CRS ou titre jugé équivalent reconnu en Suisse.\n\n• Une expérience professionnelle en gériatrie, psychogériatrie ou en EMS constitue un atout.\n\n• Aisance dans l’utilisation des outils informatiques usuels (maîtrise de Carefolio, un atout).\n Compétences humaines\n\n• Intérêt marqué pour la prise en charge des résidents dans leur lieu de vie.\n\n• Excellentes capacités relationnelles, d'écoute et de communication avec les résidents, leurs proches et les équipes.\n\n• Capacité à travailler de manière autonome, avec esprit critique et sens des responsabilités.\n\n• Aptitude à appréhender la situation du résident dans sa globalité et à contribuer activement au travail interprofessionnel.\n Nous offrons\n\n• Un poste au sein d’une institution à taille humaine, reconnue pour la qualité de ses prestations.\n\n• Un poste au sein d’une équipe motivée et dynamique, où chaque collaborateur est invité à participer aux décisions concernant le fonctionnement du service\n\n• Des possibilités de formation continue et de développement professionnel.\n\n• Des conditions de travail régies par la Convention collective de travail du secteur sanitaire parapublic vaudois (CCT San Vaud).\n\n• L’opportunité d’intégrer des groupes de travail concernant le développement et l’organisation du futur hôpital, prévu pour l’année 2027\n Date d'entrée : de suite.\n\nHôpital de Lavaux — Fondation privée reconnue d'intérêt public, Cully (Bourg-en-Lavaux, VD).",
+        "it": "L’Hôpital de Lavaux est une Fondation privée reconnue d’intérêt public, membre de la Fédération des Hôpitaux Vaudois. Situé à Cully (Bourg-en-Lavaux), au cœur des vignes et à proximité des transports publics, de l’école et de la garderie de Lavaux.\n Un projet d’agrandissement est prévu pour 2027, avec l’emménagement des services dans de nouveaux locaux actuellement en construction sur le site de l’hôpital.\n Au sein de notre EMS Le Pavillon , nous accompagnons les résidents avec professionnalisme, bienveillance et respect de leur dignité. Notre équipe pluridisciplinaire œuvre au quotidien pour offrir un accompagnement personnalisé favorisant la qualité de vie, l’autonomie et le bien-être de chacun.\n Afin de renforcer notre équipe, nous recherchons :\n Auxiliaire de santé à 60% – 80%\n Mission\n\n• Assurer les soins de base et contribuer au confort et au bien-être des résidents, dans le respect de leurs besoins, de leurs habitudes de vie et de leur autonomie.\n\n• Accompagner les résidents dans les activités de la vie quotidienne, notamment lors des soins d’hygiène, de l’habillage, de l’alimentation et des déplacements.\n\n• Favoriser le maintien de l’autonomie et des capacités des résidents, en tenant compte de leur rythme et de leurs habitudes.\n\n• Observer l’état général des résidents et transmettre les informations pertinentes à l’équipe infirmière.\n\n• Collaborer avec l’ensemble des professionnels impliqués dans l’accompagnement des résidents et contribuer à la continuité et à la qualité des soins.\n\n• Contribuer à un environnement sécurisant et adapté, ainsi qu’au respect des procédures et des règles d’hygiène et de sécurité.\n Profil recherché\n Compétences techniques\n\n• Certificat d’auxiliaire de santé CRS ou titre jugé équivalent reconnu en Suisse.\n\n• Une expérience professionnelle en gériatrie, psychogériatrie ou en EMS constitue un atout.\n\n• Aisance dans l’utilisation des outils informatiques usuels (maîtrise de Carefolio, un atout).\n Compétences humaines\n\n• Intérêt marqué pour la prise en charge des résidents dans leur lieu de vie.\n\n• Excellentes capacités relationnelles, d'écoute et de communication avec les résidents, leurs proches et les équipes.\n\n• Capacité à travailler de manière autonome, avec esprit critique et sens des responsabilités.\n\n• Aptitude à appréhender la situation du résident dans sa globalité et à contribuer activement au travail interprofessionnel.\n Nous offrons\n\n• Un poste au sein d’une institution à taille humaine, reconnue pour la qualité de ses prestations.\n\n• Un poste au sein d’une équipe motivée et dynamique, où chaque collaborateur est invité à participer aux décisions concernant le fonctionnement du service\n\n• Des possibilités de formation continue et de développement professionnel.\n\n• Des conditions de travail régies par la Convention collective de travail du secteur sanitaire parapublic vaudois (CCT San Vaud).\n\n• L’opportunité d’intégrer des groupes de travail concernant le développement et l’organisation du futur hôpital, prévu pour l’année 2027\n Date d'entrée : de suite.\n\nHôpital de Lavaux — Fondation privée reconnue d'intérêt public, Cully (Bourg-en-Lavaux, VD).",
+        "en": "L’Hôpital de Lavaux est une Fondation privée reconnue d’intérêt public, membre de la Fédération des Hôpitaux Vaudois. Situé à Cully (Bourg-en-Lavaux), au cœur des vignes et à proximité des transports publics, de l’école et de la garderie de Lavaux.\n Un projet d’agrandissement est prévu pour 2027, avec l’emménagement des services dans de nouveaux locaux actuellement en construction sur le site de l’hôpital.\n Au sein de notre EMS Le Pavillon , nous accompagnons les résidents avec professionnalisme, bienveillance et respect de leur dignité. Notre équipe pluridisciplinaire œuvre au quotidien pour offrir un accompagnement personnalisé favorisant la qualité de vie, l’autonomie et le bien-être de chacun.\n Afin de renforcer notre équipe, nous recherchons :\n Auxiliaire de santé à 60% – 80%\n Mission\n\n• Assurer les soins de base et contribuer au confort et au bien-être des résidents, dans le respect de leurs besoins, de leurs habitudes de vie et de leur autonomie.\n\n• Accompagner les résidents dans les activités de la vie quotidienne, notamment lors des soins d’hygiène, de l’habillage, de l’alimentation et des déplacements.\n\n• Favoriser le maintien de l’autonomie et des capacités des résidents, en tenant compte de leur rythme et de leurs habitudes.\n\n• Observer l’état général des résidents et transmettre les informations pertinentes à l’équipe infirmière.\n\n• Collaborer avec l’ensemble des professionnels impliqués dans l’accompagnement des résidents et contribuer à la continuité et à la qualité des soins.\n\n• Contribuer à un environnement sécurisant et adapté, ainsi qu’au respect des procédures et des règles d’hygiène et de sécurité.\n Profil recherché\n Compétences techniques\n\n• Certificat d’auxiliaire de santé CRS ou titre jugé équivalent reconnu en Suisse.\n\n• Une expérience professionnelle en gériatrie, psychogériatrie ou en EMS constitue un atout.\n\n• Aisance dans l’utilisation des outils informatiques usuels (maîtrise de Carefolio, un atout).\n Compétences humaines\n\n• Intérêt marqué pour la prise en charge des résidents dans leur lieu de vie.\n\n• Excellentes capacités relationnelles, d'écoute et de communication avec les résidents, leurs proches et les équipes.\n\n• Capacité à travailler de manière autonome, avec esprit critique et sens des responsabilités.\n\n• Aptitude à appréhender la situation du résident dans sa globalité et à contribuer activement au travail interprofessionnel.\n Nous offrons\n\n• Un poste au sein d’une institution à taille humaine, reconnue pour la qualité de ses prestations.\n\n• Un poste au sein d’une équipe motivée et dynamique, où chaque collaborateur est invité à participer aux décisions concernant le fonctionnement du service\n\n• Des possibilités de formation continue et de développement professionnel.\n\n• Des conditions de travail régies par la Convention collective de travail du secteur sanitaire parapublic vaudois (CCT San Vaud).\n\n• L’opportunité d’intégrer des groupes de travail concernant le développement et l’organisation du futur hôpital, prévu pour l’année 2027\n Date d'entrée : de suite.\n\nHôpital de Lavaux — Fondation privée reconnue d'intérêt public, Cully (Bourg-en-Lavaux, VD).",
+        "de": "L’Hôpital de Lavaux est une Fondation privée reconnue d’intérêt public, membre de la Fédération des Hôpitaux Vaudois. Situé à Cully (Bourg-en-Lavaux), au cœur des vignes et à proximité des transports publics, de l’école et de la garderie de Lavaux.\n Un projet d’agrandissement est prévu pour 2027, avec l’emménagement des services dans de nouveaux locaux actuellement en construction sur le site de l’hôpital.\n Au sein de notre EMS Le Pavillon , nous accompagnons les résidents avec professionnalisme, bienveillance et respect de leur dignité. Notre équipe pluridisciplinaire œuvre au quotidien pour offrir un accompagnement personnalisé favorisant la qualité de vie, l’autonomie et le bien-être de chacun.\n Afin de renforcer notre équipe, nous recherchons :\n Auxiliaire de santé à 60% – 80%\n Mission\n\n• Assurer les soins de base et contribuer au confort et au bien-être des résidents, dans le respect de leurs besoins, de leurs habitudes de vie et de leur autonomie.\n\n• Accompagner les résidents dans les activités de la vie quotidienne, notamment lors des soins d’hygiène, de l’habillage, de l’alimentation et des déplacements.\n\n• Favoriser le maintien de l’autonomie et des capacités des résidents, en tenant compte de leur rythme et de leurs habitudes.\n\n• Observer l’état général des résidents et transmettre les informations pertinentes à l’équipe infirmière.\n\n• Collaborer avec l’ensemble des professionnels impliqués dans l’accompagnement des résidents et contribuer à la continuité et à la qualité des soins.\n\n• Contribuer à un environnement sécurisant et adapté, ainsi qu’au respect des procédures et des règles d’hygiène et de sécurité.\n Profil recherché\n Compétences techniques\n\n• Certificat d’auxiliaire de santé CRS ou titre jugé équivalent reconnu en Suisse.\n\n• Une expérience professionnelle en gériatrie, psychogériatrie ou en EMS constitue un atout.\n\n• Aisance dans l’utilisation des outils informatiques usuels (maîtrise de Carefolio, un atout).\n Compétences humaines\n\n• Intérêt marqué pour la prise en charge des résidents dans leur lieu de vie.\n\n• Excellentes capacités relationnelles, d'écoute et de communication avec les résidents, leurs proches et les équipes.\n\n• Capacité à travailler de manière autonome, avec esprit critique et sens des responsabilités.\n\n• Aptitude à appréhender la situation du résident dans sa globalité et à contribuer activement au travail interprofessionnel.\n Nous offrons\n\n• Un poste au sein d’une institution à taille humaine, reconnue pour la qualité de ses prestations.\n\n• Un poste au sein d’une équipe motivée et dynamique, où chaque collaborateur est invité à participer aux décisions concernant le fonctionnement du service\n\n• Des possibilités de formation continue et de développement professionnel.\n\n• Des conditions de travail régies par la Convention collective de travail du secteur sanitaire parapublic vaudois (CCT San Vaud).\n\n• L’opportunité d’intégrer des groupes de travail concernant le développement et l’organisation du futur hôpital, prévu pour l’année 2027\n Date d'entrée : de suite.\n\nHôpital de Lavaux — Fondation privée reconnue d'intérêt public, Cully (Bourg-en-Lavaux, VD)."
+      },
+      "needsRetranslation": true,
+      "location": "Bourg-en-Lavaux",
+      "canton": "VD",
+      "url": "https://app.beehire.com/invite/6fUTqfx6X",
+      "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-20T21:25:02.196Z",
+      "addressLocality": "Bourg-en-Lavaux",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1091",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://app.beehire.com/invite/6fUTqfx6X",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "careerSiteUrl": "https://www.hopitaldelavaux.ch/jcms/lav_5237/emplois",
+      "previousSlugsByLocale": {
+        "it": [
+          "auxiliaire-de-sante-a-60-80-hopital-de-lavaux-bourg-en-lavaux"
+        ],
+        "fr": [
+          "auxiliaire-de-sante-a-60-80-hopital-de-lavaux-bourg-en-lavaux"
+        ]
+      },
+      "previousSlugs": [
+        "auxiliaire-de-sante-a-60-80-hopital-de-lavaux-bourg-en-lavaux"
+      ],
+      "salaryMin": 69200,
+      "salaryMax": 96400,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69200,
+          "maxValue": 96400,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Bourg-en-Lavaux",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-18T21:25:02.196Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-20T21:25:02.196Z"
     }
   ]
 }

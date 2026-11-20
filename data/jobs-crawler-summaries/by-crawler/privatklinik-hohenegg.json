@@ -1,7 +1,7 @@
 {
   "key": "privatklinik-hohenegg",
   "label": "Privatklinik Hohenegg",
-  "generatedAt": "2026-11-18T21:24:19.756Z",
+  "generatedAt": "2026-11-20T21:30:24.789Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 4883,
-  "avgDurationMs": 4883,
+  "durationMs": 5773,
+  "avgDurationMs": 5773,
   "durationHistory": [
-    4883
+    5773
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://apply.refline.ch/640332/0063/pub/6/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:24:09.412Z",
+      "crawledAt": "2026-11-20T21:30:07.441Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -78,7 +78,7 @@
       },
       "streetAddress": "Hohenegg 1",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-18T21:24:09.412Z",
+      "validThrough": "2026-12-20T21:30:07.441Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -100,7 +100,7 @@
       "url": "https://apply.refline.ch/640332/0055/pub/2/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:24:07.993Z",
+      "crawledAt": "2026-11-20T21:30:06.696Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -140,7 +140,7 @@
       },
       "streetAddress": "Hohenegg 1",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-18T21:24:07.993Z",
+      "validThrough": "2026-12-20T21:30:06.696Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -163,7 +163,7 @@
       "url": "https://apply.refline.ch/640332/0052/pub/3/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:24:07.566Z",
+      "crawledAt": "2026-11-20T21:30:06.210Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -203,7 +203,7 @@
       },
       "streetAddress": "Hohenegg 1",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-18T21:24:07.566Z",
+      "validThrough": "2026-12-20T21:30:06.210Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -214,5 +214,5 @@
       }
     }
   ],
-  "codeCommit": "8862042892397f4dcea90f48fbc2dc028da23eec"
+  "codeCommit": "07c2e8305c6747f1893222ba4bfdddc597008157"
 }
