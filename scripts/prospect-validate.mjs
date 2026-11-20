@@ -628,7 +628,7 @@ for (const spec of specs) {
     // production predicates. Keep an unproven candidate retryable, name every
     // failed predicate in its durable reason, and reserve terminal rejection
     // for the measured bad/duplicate paths above.
-    if (report.verdict === 'good' && next !== 'promoted') {
+    if (!productionAudit && report.verdict === 'good' && next !== 'promoted') {
       const failedChecks = promotionQueueFailures(handoffCandidate, handoffContext);
       promotionQueueProblem = `predicati non temporali PROMOTE non soddisfatti: ${failedChecks.join(', ') || 'diagnosi mancante'}; serve una nuova validazione o la correzione della spec`;
       qualityProblems.push(promotionQueueProblem);
@@ -649,6 +649,11 @@ for (const spec of specs) {
       crawlerKey: spec.companyKey,
       domain: candidate.domain || spec.companyHost,
       careersUrl: candidate.careersUrl || spec.seedUrls?.[0] || null,
+      // setStatus merges patches into the durable candidate. A successful
+      // handoff must therefore explicitly remove the prior PROMOTE failure,
+      // rather than omitting it and leaving stale diagnostics on a promoted
+      // candidate.
+      ...(next === 'promoted' ? { reason: null } : {}),
       ...(promotionQueueProblem ? { reason: promotionQueueProblem } : {}),
       ...(rejectedRevalidation && next === 'rejected'
         ? { reason: qualityProblems[0] || 'rivalutazione source adapter respinta' }
