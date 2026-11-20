@@ -50,6 +50,14 @@
         "ausiliaria-sanitaria-reha-andeer-andeer",
         "pflegehelferin-reha-andeer-andeer",
         "assistente-infermieristico-reha-andeer-andeer"
+      ],
+      "en": [
+        "care-assistant-reha-andeer-andeer",
+        "pflegehelferin-reha-andeer-andeer"
+      ],
+      "fr": [
+        "assistant-en-soins-reha-andeer-andeer",
+        "pflegehelferin-reha-andeer-andeer"
       ]
     },
     "postalCode": "7440",
@@ -58,7 +66,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://reha-andeer.ch/sites/default/files/2026-07/stelleninserat-pflegehelferin.pdf",
-    "firstSeenAt": "2026-07-21T22:06:04.288Z"
+    "firstSeenAt": "2026-07-21T22:06:04.288Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://reha-andeer.ch/sites/default/files/2026-07/stelleninserat-pflegehelferin.pdf",
+        "firstSeenAt": "2026-07-21T22:06:04.288Z",
+        "title": "Pflegehelferin"
+      },
+      {
+        "sourceIdentity": "url:https://reha-andeer.ch/wp-content/uploads/2026/07/stelleninserat-pflegehelferin.pdf",
+        "firstSeenAt": "2026-07-21T22:06:04.288Z",
+        "title": "Pflegehelferin"
+      }
+    ]
   },
   {
     "slug": "guardia-notturna-reha-andeer-andeer",
