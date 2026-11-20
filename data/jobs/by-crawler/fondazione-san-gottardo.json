@@ -79,7 +79,7 @@
           "stage-pre-supsi-9-mois-fondazione-san-gottardo-lopagno"
         ]
       },
-      "firstSeenAt": "2026-10-29T22:50:10.812Z",
+      "firstSeenAt": "2026-10-29T22:08:55.462Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
       "salarySource": "estimated",
@@ -96,7 +96,8 @@
       "streetAddress": "Lopagno",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-19T21:17:23.802Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.fsangottardo.ch/lavoro"
     }
   ]
 }
