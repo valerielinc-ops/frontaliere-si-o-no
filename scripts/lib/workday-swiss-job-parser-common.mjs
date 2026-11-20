@@ -32,7 +32,7 @@ import {
 } from './authoritative-empty-snapshot.mjs';
 import {
   buildWorkdayApiBase,
-  createWorkdayBrowserJsonFallback,
+  createWorkdayRequestContext,
   fetchWorkdayJobs,
   fetchWorkdayJobDetail,
   fetchWorkdaySidebarText,
@@ -715,7 +715,12 @@ export function createWorkdaySwissParser(config) {
     }
   }
 
-  async function fetchJobListings({ useCountryFacet, stats = undefined, facetParameter = countryFacetParameter }) {
+  async function fetchJobListings({
+    useCountryFacet,
+    requestContext,
+    stats = undefined,
+    facetParameter = countryFacetParameter,
+  }) {
     const out = [];
     // Default path applies the canonical Swiss `locationCountry` facet. Some
     // tenants name their country facet differently (`Location`,
@@ -724,8 +729,8 @@ export function createWorkdaySwissParser(config) {
     // only without one refetches the unfiltered board under strict canton
     // inference.
     const fetchOpts = useCountryFacet
-      ? { appliedFacets: { [facetParameter]: locationFilters }, maxPages: 100000, stats }
-      : { appliedFacets: {}, maxPages: 100000, stats };
+      ? { appliedFacets: { [facetParameter]: locationFilters }, maxPages: 100000, requestContext, stats }
+      : { appliedFacets: {}, maxPages: 100000, requestContext, stats };
     try {
       for await (const posting of fetchWorkdayJobs(API_BASE, fetchOpts)) {
         const id = extractWorkdayJobIdentity(posting, {
@@ -772,12 +777,12 @@ export function createWorkdaySwissParser(config) {
    * Switzerland returns null so the caller can retry through the strict
    * per-listing CH gate.
    */
-  async function proveSwissAbsentOnLiveBoard(facetParameter, boardCache, reason) {
+  async function proveSwissAbsentOnLiveBoard(facetParameter, boardCache, reason, requestContext) {
     const empty = [];
     let summary = boardCache?.summary;
     if (!summary) {
       try {
-        summary = await fetchWorkdayBoardSummary(API_BASE);
+        summary = await fetchWorkdayBoardSummary(API_BASE, { requestContext });
       } catch (err) {
         console.warn(`⚠️ ${companyName}: could not read the unfiltered Workday board to prove the Swiss zero (${err?.message || err}).`);
         return empty;
@@ -816,13 +821,18 @@ export function createWorkdaySwissParser(config) {
    * earlier proof attempt), so the board is read at most once per run; a failed
    * read is not cached.
    */
-  async function proveSwissAbsentEmpty(facetApplied, facetStats, facetParameter, boardCache) {
+  async function proveSwissAbsentEmpty(facetApplied, facetStats, facetParameter, boardCache, requestContext) {
     const facetSaidZero = facetApplied
       && facetStats?.firstPageTotal === 0
       && facetStats?.endReason === 'empty-page'
       && facetStats?.yielded === 0;
     if (!facetSaidZero) return [];
-    return proveSwissAbsentOnLiveBoard(facetParameter, boardCache, 'Swiss-faceted query total 0');
+    return proveSwissAbsentOnLiveBoard(
+      facetParameter,
+      boardCache,
+      'Swiss-faceted query total 0',
+      requestContext,
+    );
   }
 
   /**
@@ -835,12 +845,12 @@ export function createWorkdaySwissParser(config) {
    * today's path.
    * The summary read here is kept in `boardCache` for the zero proof.
    */
-  async function discoverCountryFacetAfterRejection(err, boardCache) {
+  async function discoverCountryFacetAfterRejection(err, boardCache, requestContext) {
     if (countryFacetDeclared) return null;
     if (err instanceof WorkdayAuthError || ![400, 422].includes(err?.statusCode)) return null;
     let summary;
     try {
-      summary = await fetchWorkdayBoardSummary(API_BASE);
+      summary = await fetchWorkdayBoardSummary(API_BASE, { requestContext });
     } catch (summaryErr) {
       console.warn(`⚠️ ${companyName}: could not read the Workday board facets to find the country facet (${summaryErr?.message || summaryErr}).`);
       return null;
@@ -858,6 +868,13 @@ export function createWorkdaySwissParser(config) {
     console.log(`🏭 Fetching ${companyName} jobs`);
     console.log(`   Source: ${careerUrl || PUBLIC_BASE}`);
     console.log(`   Workday: ${API_BASE}\n`);
+
+    // One tenant/egress limiter owns the whole source snapshot. Listing,
+    // board-summary, sidebar and detail calls now observe the same Retry-After
+    // window and reuse one lazy browser session; a terminal transient failure
+    // still returns an unproven batch and therefore remains fail-closed.
+    const requestContext = createWorkdayRequestContext(API_BASE);
+    try {
 
     let facetApplied = true;
     let facetReturnedEmpty = false;
@@ -879,16 +896,26 @@ export function createWorkdaySwissParser(config) {
     // facet discovery and the zero proof.
     const boardCache = {};
     try {
-      listings = await fetchJobListings({ useCountryFacet: true, stats: facetStats, facetParameter });
+      listings = await fetchJobListings({
+        useCountryFacet: true,
+        requestContext,
+        stats: facetStats,
+        facetParameter,
+      });
     } catch (err) {
       console.warn(`⚠️ ${companyName}: ${countryFacetParameter} facet rejected (${err?.message || err}).`);
-      const discovered = await discoverCountryFacetAfterRejection(err, boardCache);
+      const discovered = await discoverCountryFacetAfterRejection(err, boardCache, requestContext);
       let discoveredListings = null;
       if (discovered) {
         console.warn(`⚠️ ${companyName}: using the board's own country facet "${discovered.facetParameter}" `
           + `(found by ${discovered.reason === 'swiss-value' ? 'its Swiss value' : 'its known name'}).`);
         try {
-          discoveredListings = await fetchJobListings({ useCountryFacet: true, stats: facetStats, facetParameter: discovered.facetParameter });
+          discoveredListings = await fetchJobListings({
+            useCountryFacet: true,
+            requestContext,
+            stats: facetStats,
+            facetParameter: discovered.facetParameter,
+          });
           facetParameter = discovered.facetParameter;
         } catch (retryErr) {
           console.warn(`⚠️ ${companyName}: discovered facet "${discovered.facetParameter}" rejected too (${retryErr?.message || retryErr}).`);
@@ -901,7 +928,11 @@ export function createWorkdaySwissParser(config) {
         // apply a strict Swiss-canton gate per listing instead.
         console.warn(`⚠️ ${companyName}: refetching unfiltered with strict CH gate.`);
         facetApplied = false;
-        listings = await fetchJobListings({ useCountryFacet: false, stats: unfilteredStats });
+        listings = await fetchJobListings({
+          useCountryFacet: false,
+          requestContext,
+          stats: unfilteredStats,
+        });
         listingsStats = unfilteredStats;
       }
     }
@@ -920,6 +951,7 @@ export function createWorkdaySwissParser(config) {
           facetParameter,
           boardCache,
           'Swiss-faceted query returned foreign listing(s)',
+          requestContext,
         );
         if (isAuthoritativeEmptySnapshot(proof)) return proof;
       }
@@ -935,12 +967,22 @@ export function createWorkdaySwissParser(config) {
     if (facetApplied && listings.length === 0) {
       facetReturnedEmpty = true;
       if (proveSwissAbsentFromLiveBoard) {
-        emptyProof = await proveSwissAbsentEmpty(true, facetStats, facetParameter, boardCache);
+        emptyProof = await proveSwissAbsentEmpty(
+          true,
+          facetStats,
+          facetParameter,
+          boardCache,
+          requestContext,
+        );
         if (isAuthoritativeEmptySnapshot(emptyProof)) return emptyProof;
       }
       console.warn(`⚠️ ${companyName}: Swiss facet returned no listings. Refetching unfiltered with strict CH gate.`);
       facetApplied = false;
-      listings = await fetchJobListings({ useCountryFacet: false, stats: unfilteredStats });
+      listings = await fetchJobListings({
+        useCountryFacet: false,
+        requestContext,
+        stats: unfilteredStats,
+      });
       listingsStats = unfilteredStats;
     }
 
@@ -957,7 +999,13 @@ export function createWorkdaySwissParser(config) {
       if (listings?.fetchOutcome === 'anti_bot_block') return listings;
       if (proveSwissAbsentFromLiveBoard) {
         const proof = emptyProof === undefined
-          ? await proveSwissAbsentEmpty(facetReturnedEmpty || facetApplied, facetStats, facetParameter, boardCache)
+          ? await proveSwissAbsentEmpty(
+            facetReturnedEmpty || facetApplied,
+            facetStats,
+            facetParameter,
+            boardCache,
+            requestContext,
+          )
           : emptyProof;
         if (isAuthoritativeEmptySnapshot(proof)) return proof;
       }
@@ -965,10 +1013,8 @@ export function createWorkdaySwissParser(config) {
     }
     console.log(`  📋 Listings found: ${listings.length}${strictSwiss ? ' (unfiltered — strict CH gate active)' : ' (Swiss facet)'}`);
 
-    const detailBrowserSession = createWorkdayBrowserJsonFallback(API_BASE);
-    try {
     const sidebarText = includeCareerSiteSidebar
-      ? await fetchWorkdaySidebarText(API_BASE, stripHtml, { browserFallback: detailBrowserSession.request })
+      ? await fetchWorkdaySidebarText(API_BASE, stripHtml, { requestContext })
       : '';
 
     const jobs = [];
@@ -1003,9 +1049,7 @@ export function createWorkdaySwissParser(config) {
       // additional locations when the listing is an `N Locations` roll-up.
       let detail = null;
       try {
-        detail = await fetchWorkdayJobDetail(API_BASE, listing.externalPath, {
-          browserFallback: detailBrowserSession.request,
-        });
+        detail = await fetchWorkdayJobDetail(API_BASE, listing.externalPath, { requestContext });
       } catch {
         detail = null;
       }
@@ -1209,7 +1253,13 @@ export function createWorkdaySwissParser(config) {
     // produces no Swiss jobs. Preserve an unproven result as a bare batch.
     if (proveSwissAbsentFromLiveBoard && facetReturnedEmpty && jobs.length === 0) {
       const proven = emptyProof === undefined || (Array.isArray(emptyProof) && !isAuthoritativeEmptySnapshot(emptyProof))
-        ? await proveSwissAbsentEmpty(true, facetStats, facetParameter, boardCache)
+        ? await proveSwissAbsentEmpty(
+          true,
+          facetStats,
+          facetParameter,
+          boardCache,
+          requestContext,
+        )
         : emptyProof;
       if (isAuthoritativeEmptySnapshot(proven)) return proven;
     }
@@ -1235,7 +1285,7 @@ export function createWorkdaySwissParser(config) {
     }
     return jobs;
     } finally {
-      await detailBrowserSession.close();
+      await requestContext.close();
     }
   }
 
