@@ -97,7 +97,8 @@
       "streetAddress": "Tschuggentorweg 1",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-30T09:37:31.241Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-2904.umantis.com/vacancies/1395/description/1"
     },
     {
       "id": "tschuggen-56a9c7f49cb6",
@@ -198,7 +199,8 @@
       "streetAddress": "Tschuggentorweg 1",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-04T09:37:29.466Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-2904.umantis.com/vacancies/1109/description/1"
     },
     {
       "id": "tschuggen-2b6a8385ccbe",
@@ -297,7 +299,8 @@
       "streetAddress": "Tschuggentorweg 1",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-08T09:37:28.560Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-2904.umantis.com/vacancies/1392/description/1"
     },
     {
       "id": "tschuggen-8ed219ca4686",
@@ -401,7 +404,8 @@
       "streetAddress": "Tschuggentorweg 1",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-10T09:37:27.636Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-2904.umantis.com/vacancies/1402/description/1"
     },
     {
       "id": "tschuggen-3e1f7a4e32d3",
@@ -490,7 +494,8 @@
       "streetAddress": "St. Moritz",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T09:37:26.706Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-2904.umantis.com/vacancies/1409/description/1"
     },
     {
       "id": "tschuggen-c45f1c829896",
@@ -563,7 +568,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-18T09:37:25.834Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T09:37:25.834Z",
+      "firstSeenAt": "2026-11-19T21:40:50.415Z",
       "previousSlugsByLocale": {
         "it": [
           "front-office-agent-m-w-d-tschuggen-ch",
@@ -579,7 +584,8 @@
         "agente-di-ufficio-anteriore-m-f-d-tschuggen-collection-ascona",
         "agent-du-bureau-principal-h-f-d-tschuggen-collection-ascona"
       ],
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "sourceIdentity": "url:https://recruitingapp-2904.umantis.com/vacancies/1406/description/1"
     },
     {
       "id": "tschuggen-d1b965997ee1",
@@ -652,7 +658,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-18T09:37:24.922Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T09:37:24.922Z",
+      "firstSeenAt": "2026-11-19T21:40:49.739Z",
       "previousSlugsByLocale": {
         "it": [
           "housekeeping-attendant-m-w-d-tschuggen-ch",
@@ -668,7 +674,8 @@
         "assistente-di-pulizia-m-f-d-tschuggen-collection-ascona",
         "agent-de-menage-h-f-d-tschuggen-collection-ascona"
       ],
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "sourceIdentity": "url:https://recruitingapp-2904.umantis.com/vacancies/1407/description/1"
     },
     {
       "id": "tschuggen-a7ee5b98f855",
@@ -750,7 +757,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-18T09:37:24.003Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T09:37:24.003Z"
+      "firstSeenAt": "2026-11-20T09:37:24.003Z",
+      "sourceIdentity": "url:https://recruitingapp-2904.umantis.com/vacancies/1411/description/1"
     }
   ]
 }
