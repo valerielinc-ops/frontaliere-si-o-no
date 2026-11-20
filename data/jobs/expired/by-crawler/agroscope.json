@@ -1,5 +1,6 @@
 [
   {
+    "id": "agroscope-1172f22c489c",
     "slug": "ispettore-dell-alimentazione-agroscope-posieux-schweiz",
     "title": "Futtermittelinspektor/in",
     "titleByLocale": {
@@ -25,7 +26,7 @@
       "fr": "inspecteur-des-aliments-pour-animaux-agroscope-posieux-schweiz"
     },
     "sector": "Pubblica amministrazione",
-    "expiredAt": "2026-11-19T23:59:14.293Z",
+    "expiredAt": "2026-11-20T20:10:10.677Z",
     "previousSlugs": [
       "futtermittelinspektor-in-agroscope-posieux"
     ],
@@ -48,6 +49,7 @@
     "firstSeenAt": "2026-09-01T14:09:40.655Z"
   },
   {
+    "id": "agroscope-0ff3bc3f4d94",
     "slug": "jurist-in-agroscope-posieux",
     "title": "Jurist/in",
     "titleByLocale": {
@@ -73,7 +75,7 @@
       "fr": "jurist-in-agroscope-posieux"
     },
     "sector": "Pubblica amministrazione",
-    "expiredAt": "2026-11-19T23:59:14.293Z",
+    "expiredAt": "2026-11-20T20:10:10.677Z",
     "previousSlugs": [
       "avvocato-agroscope-posieux-schweiz",
       "lawyer-agroscope-posieux-schweiz",
@@ -110,6 +112,7 @@
     ]
   },
   {
+    "id": "agroscope-c0de465437d7",
     "slug": "postdoc-mikroplastik-quantifizierung-in-obst-e-gemuse-methodenentwicklung-e-erstanwendung-confederazione-svizzera-zurich",
     "title": "Postdoc: Mikroplastik-Quantifizierung in Obst und Gemüse - Methodenentwicklung und Erstanwendung",
     "titleByLocale": {
@@ -135,7 +138,7 @@
       "fr": "postdoc-mikroplastik-quantifizierung-in-obst-und-gemuse-methodenentwicklung-und-erstanwendung-confederazione-svizzera"
     },
     "sector": "Pubblica amministrazione",
-    "expiredAt": "2026-11-19T23:59:14.293Z",
+    "expiredAt": "2026-11-20T20:10:10.677Z",
     "previousSlugs": [
       "postdoc-mikroplastik-quantifizierung-in-obst-e-gemuse-methodenentwicklung-e-erstanwendung-agroscope-zurich",
       "postdoc-mikroplastik-quantifizierung-in-obst-und-gemuse-methodenentwicklung-und-erstanwendung-confederazione-zurich",
@@ -167,6 +170,7 @@
     "firstSeenAt": "2026-08-27T00:35:38.161Z"
   },
   {
+    "id": "agroscope-1830a89d241f",
     "slug": "pratico-bordo-foresta-pascolo-80-100-agroscope-zurich",
     "title": "Praktikum Waldrandbeweidung 80-100%",
     "titleByLocale": {
@@ -192,7 +196,7 @@
       "fr": "paturage-en-bordure-des-forets-80-100-agroscope-zurich"
     },
     "sector": "Pubblica amministrazione",
-    "expiredAt": "2026-11-19T23:59:14.293Z",
+    "expiredAt": "2026-11-20T20:10:10.677Z",
     "previousSlugs": [
       "praktikum-waldrandbeweidung-80-100-confederazione-zurich",
       "praktikum-waldrandbeweidung-80-100-agroscope-zurich"
@@ -1917,7 +1921,8 @@
       "responsable-du-groupe-de-recherche-extension-de-la-culture-maraichere-agroscope-8046-zurich",
       "responsable-du-groupe-de-recherche-en-extension-horticole-agroscope-8046-zurich-df6b2777",
       "responsable-du-groupe-de-recherche-en-extension-horticole-agroscope-8046-zurich-45f9323b",
-      "responsable-du-groupe-de-recherche-en-extension-horticole-agroscope-8046-zurich-2a5cb276"
+      "responsable-du-groupe-de-recherche-en-extension-horticole-agroscope-8046-zurich-2a5cb276",
+      "responsable-du-groupe-de-recherche-en-extension-horticole-agroscope-8046-zurich-74a3f118"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -1942,7 +1947,8 @@
         "forschungsgruppenleiter-in-extension-gemusebau-confederazione-zurich",
         "responsable-du-groupe-de-recherche-en-extension-horticole-agroscope-8046-zurich-df6b2777",
         "responsable-du-groupe-de-recherche-en-extension-horticole-agroscope-8046-zurich-45f9323b",
-        "responsable-du-groupe-de-recherche-en-extension-horticole-agroscope-8046-zurich-2a5cb276"
+        "responsable-du-groupe-de-recherche-en-extension-horticole-agroscope-8046-zurich-2a5cb276",
+        "responsable-du-groupe-de-recherche-en-extension-horticole-agroscope-8046-zurich-74a3f118"
       ]
     },
     "salaryMin": 73500,
@@ -3352,6 +3358,35 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/hr-business-partner-in/ab7460ad-9b24-4543-a241-614ba5d10867",
     "firstSeenAt": "2026-09-09T13:44:14.822Z"
+  },
+  {
+    "slug": "collaboratore-trice-tecnico-agricolo-a-agroscope-ettenhausen",
+    "title": "Collaboratore/trice tecnico-agricolo/a",
+    "titleByLocale": {
+      "it": "Collaboratore/trice tecnico-agricolo/a",
+      "en": "Collaboratore/trice Technician-agricolo/a",
+      "de": "Collaboratore/trice Techniker-agricolo/a",
+      "fr": "Collaboratore/trice Technicien-agricolo/a"
+    },
+    "company": "Agroscope",
+    "companyKey": "agroscope",
+    "location": "8356 Ettenhausen",
+    "addressLocality": "Ettenhausen",
+    "descriptionByLocale": {
+      "it": "• Condurre esperimenti sul campo e di altro tipo nell'ambito dello Smart Farming a Tänikon e in altre aziende agricole\n• Installare strumenti di misura ed effettuare un'ampia gamma di misurazioni\n• Preparare campioni di raccolto ed eseguire semplici analisi di laboratorio\n• Pianificare esperimenti preliminari, in collaborazione con il gruppo Produzione digitale\n• Eseguire lavori di meccanica ed elettronica\n• Effettuare la manutenzione delle attrezzature sperimentali e dell'infrastruttura di ricerca\n• Apprendistato concluso o qualifica superiore nei settori della meccanica, dell'elettronica o dell'agricoltura\n• L'esperienza in settore agricolo costituisce titolo preferenziale\n• Interesse per il lavoro con sensori, sistemi digitali e droni\n• Dimestichezza con valutazioni dei dati semplici\n• Licenza di condurre della categoria B\n• Conoscenza di due lingue ufficiali",
+      "en": "• Condurre esperimenti sul campo e di altro tipo nell'ambito dello Smart Farming a Tänikon e in altre aziende agricole\n• Installare strumenti di misura ed effettuare un'ampia gamma di misurazioni\n• Preparare campioni di raccolto ed eseguire semplici analisi di laboratorio\n• Pianificare esperimenti preliminari, in collaborazione con il gruppo Produzione digitale\n• Eseguire lavori di meccanica ed elettronica\n• Effettuare la manutenzione delle attrezzature sperimentali e dell'infrastruttura di ricerca\n• Apprendistato concluso o qualifica superiore nei settori della meccanica, dell'elettronica o dell'agricoltura\n• L'esperienza in settore agricolo costituisce titolo preferenziale\n• Interesse per il lavoro con sensori, sistemi digitali e droni\n• Dimestichezza con valutazioni dei dati semplici\n• Licenza di condurre della categoria B\n• Conoscenza di due lingue ufficiali",
+      "de": "• Condurre esperimenti sul campo e di altro tipo nell'ambito dello Smart Farming a Tänikon e in altre aziende agricole\n• Installare strumenti di misura ed effettuare un'ampia gamma di misurazioni\n• Preparare campioni di raccolto ed eseguire semplici analisi di laboratorio\n• Pianificare esperimenti preliminari, in collaborazione con il gruppo Produzione digitale\n• Eseguire lavori di meccanica ed elettronica\n• Effettuare la manutenzione delle attrezzature sperimentali e dell'infrastruttura di ricerca\n• Apprendistato concluso o qualifica superiore nei settori della meccanica, dell'elettronica o dell'agricoltura\n• L'esperienza in settore agricolo costituisce titolo preferenziale\n• Interesse per il lavoro con sensori, sistemi digitali e droni\n• Dimestichezza con valutazioni dei dati semplici\n• Licenza di condurre della categoria B\n• Conoscenza di due lingue ufficiali",
+      "fr": "• Condurre esperimenti sul campo e di altro tipo nell'ambito dello Smart Farming a Tänikon e in altre aziende agricole\n• Installare strumenti di misura ed effettuare un'ampia gamma di misurazioni\n• Preparare campioni di raccolto ed eseguire semplici analisi di laboratorio\n• Pianificare esperimenti preliminari, in collaborazione con il gruppo Produzione digitale\n• Eseguire lavori di meccanica ed elettronica\n• Effettuare la manutenzione delle attrezzature sperimentali e dell'infrastruttura di ricerca\n• Apprendistato concluso o qualifica superiore nei settori della meccanica, dell'elettronica o dell'agricoltura\n• L'esperienza in settore agricolo costituisce titolo preferenziale\n• Interesse per il lavoro con sensori, sistemi digitali e droni\n• Dimestichezza con valutazioni dei dati semplici\n• Licenza di condurre della categoria B\n• Conoscenza di due lingue ufficiali"
+    },
+    "slugByLocale": {},
+    "sector": "Pubblica amministrazione",
+    "expiredAt": "2026-06-16T04:59:54.026Z",
+    "postalCode": "6593",
+    "streetAddress": "Via Ramon Bentina 16",
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
   },
   {
     "slug": "collaboratore-trice-tecnico-agricolo-a-agroscope-ettenhausen-5b135a5b",
