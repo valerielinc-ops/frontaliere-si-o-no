@@ -92,7 +92,8 @@
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T09:43:15.517Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://onehealthineers.wd3.myworkdayjobs.com/en-us/shsjb/job/dwl-t/product-verification-engineer_r-31529-1"
     },
     {
       "id": "siemens-healthineers-6c991f635426",
@@ -145,7 +146,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "R-31669",
-      "firstSeenAt": "2026-11-03T09:44:39.158Z",
+      "firstSeenAt": "2026-11-03T09:44:38.416Z",
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -164,7 +165,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T21:38:27.170Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "sourceIdentity": "url:https://onehealthineers.wd3.myworkdayjobs.com/en-us/shsjb/job/dwl-t/product-verification-engineer_r-31669"
     },
     {
       "id": "siemens-healthineers-075dcab4682d",
@@ -250,7 +252,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T21:38:15.953Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "sourceIdentity": "url:https://onehealthineers.wd3.myworkdayjobs.com/en-us/shsjb/job/dwl-t/senior-software-engineer_r-31541"
     },
     {
       "id": "siemens-healthineers-093ed63f135c",
@@ -335,7 +338,8 @@
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T09:43:03.936Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://onehealthineers.wd3.myworkdayjobs.com/en-us/shsjb/job/dwl-t/software-engineer_r-31647-1"
     },
     {
       "id": "siemens-healthineers-5f06fc5c299e",
@@ -421,7 +425,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-12T10:00:07.555Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "sourceIdentity": "url:https://onehealthineers.wd3.myworkdayjobs.com/en-us/shsjb/job/dwl-t/sr-staff-systems-engineer_r-29913-2"
     },
     {
       "id": "siemens-healthineers-235b60d2d69a",
@@ -510,7 +515,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-10T21:25:12.144Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "sourceIdentity": "url:https://onehealthineers.wd3.myworkdayjobs.com/en-us/shsjb/job/dwl-t/qa-engineer_r-31190-1"
     }
   ]
 }
