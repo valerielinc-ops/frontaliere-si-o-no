@@ -3,7 +3,7 @@ import { JSDOM } from 'jsdom';
 import { LIST_PROMPT_RE, extractFields, extractFieldsInPage, registerPortalChannelType, unresolvedTurnstileFrame } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import { findButton } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { candidateAnswerForField, guardPlan, planUserText, questionTopic } from '../scripts/assisted-application/lib/portal/plan.mjs';
-import { COOKIE_ACCEPT_RE, COOKIE_CUSTOMIZE_RE, COOKIE_MANAGE_CONSENT_RE, COOKIE_REJECT_RE, candidateForForm, dismissCookieBanner, openFormSections, portalRequirementsFromMissingRequired, uploadButtonCandidatesFor, uploadButtonFor } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { umantisBirthDateRejected, COOKIE_ACCEPT_RE, COOKIE_CUSTOMIZE_RE, COOKIE_MANAGE_CONSENT_RE, COOKIE_REJECT_RE, candidateForForm, dismissCookieBanner, openFormSections, portalRequirementsFromMissingRequired, uploadButtonCandidatesFor, uploadButtonFor } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { operationalDefaultAnswer, operationalQuestionTopic } from '../functions/src/assistedApplicationOperationalAnswers.js';
 import { mergeLivePortalQuestions } from '../scripts/assisted-application/lib/portal/merge-live-requirements.mjs';
 
@@ -37,6 +37,26 @@ afterEach(() => {
 });
 
 describe('portal field extraction', () => {
+  it('reads the Umantis date only when its native submitted parts are committed', () => {
+    const url = 'https://recruiting.example.umantis.com/Vacancies/1/Application/New/4';
+    const render = (year = '', month = '', day = '') => extract(`<form><div class="form_content_row">
+      <div class="form_content_left_boundary"><div class="form_content_left">Data di nascita<span class="form_content_label_mustsign">*</span></div></div>
+      <fieldset class="date singular-input" data-picker-enabled="true">
+        <label>Data di nascita <input data-picker-enabled="true" data-picker-type="date" data-group-id="date" data-picker-trigger="#calendar" value="13.12.1990">
+          <input type="hidden" name="field" id="date_year" value="${year}">
+          <input type="hidden" name="field" id="date_month" value="${month}">
+          <input type="hidden" name="field" id="date_day" value="${day}">
+        </label><button type="button" id="calendar">Calendario</button>
+      </fieldset></div></form>`, url);
+    const uncommitted = render();
+    expect(uncommitted.fields[0]).toMatchObject({ widget: 'umantis-date', inputType: 'date', required: true, value: '' });
+    expect(render('1990', '12', '13').fields[0].value).toBe('1990-12-13');
+    const rejected = { ...uncommitted, url, text: 'Compilare questa sezione. Data di nascita\nDati personali' };
+    expect(umantisBirthDateRejected(rejected, url)).toBe(true);
+    expect(umantisBirthDateRejected({ ...rejected, fields: render('1990', '12', '13').fields }, url)).toBe(false);
+    expect(umantisBirthDateRejected(rejected, url.replace('/1/', '/2/'))).toBe(false);
+  });
+
   it('reads the required question above Umantis residence status radio options', () => {
     const snapshot = extract(`<form>
       <div class="form_content_row">

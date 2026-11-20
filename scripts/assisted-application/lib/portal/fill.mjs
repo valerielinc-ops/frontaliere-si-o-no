@@ -817,6 +817,28 @@ async function chooseDatePickerMonth(frame, combo, month) {
   }
 }
 
+/** Commit an Umantis date through the same calendar that updates its hidden controls. */
+async function fillUmantisDate(page, field, locator, value) {
+  const date = parsePortalDate(value);
+  if (!date) throw new Error('invalid_date');
+  const frame = page.frames()[field.frame || 0] || page.mainFrame();
+  await frame.locator(field.dateTrigger).click({ timeout: ACTION_TIMEOUT_MS });
+  const picker = frame.locator('#ui-datepicker-div:visible');
+  await picker.locator('select.ui-datepicker-year').selectOption(String(date.year), { timeout: ACTION_TIMEOUT_MS });
+  await picker.locator('select.ui-datepicker-month').selectOption(String(date.month - 1), { timeout: ACTION_TIMEOUT_MS });
+  await picker.locator(`td[data-month="${date.month - 1}"][data-year="${date.year}"] a`)
+    .getByText(String(date.day), { exact: true }).click({ timeout: ACTION_TIMEOUT_MS });
+  const committed = await locator.evaluate((element, expected) => {
+    const group = element.getAttribute('data-group-id');
+    const picker = element.closest('fieldset.date.singular-input');
+    return Object.entries(expected).every(([part, value]) => {
+      const input = picker?.querySelector(`input[type="hidden"][id="${group}_${part}"][name]`);
+      return input?.form === element.form && Number(input.value) === value;
+    });
+  }, date);
+  if (!committed) throw new Error('date_not_registered');
+}
+
 /** Fill the JOIN/Zag date picker without exposing its internal controls as answers. */
 async function fillDatePicker(page, field, locator, value) {
   const date = parsePortalDate(value);
@@ -1181,6 +1203,8 @@ export async function applyActions(page, fields, actions, files, {
         if (!await dateRegistered(locator, action.value)) throw new Error('date_not_registered');
       } else if (field.widget === 'ui5-date') {
         await fillUi5Date(locator, field, action.value);
+      } else if (field.widget === 'umantis-date') {
+        await fillUmantisDate(page, field, locator, action.value);
       } else if (field.widget === 'workday-date') {
         await fillWorkdayDate(locator, action.value);
       } else if (field.search && searchHolds(field.value, action.value)) {
