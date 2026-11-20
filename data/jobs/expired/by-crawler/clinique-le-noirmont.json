@@ -1,5 +1,6 @@
 [
   {
+    "id": "clinique-le-noirmont-d8b8b702f14c",
     "slug": "assc-f-h-80-90-clinique-le-noirmont",
     "title": "ASSC (F/H) 80%-90%",
     "titleByLocale": {
@@ -25,7 +26,7 @@
       "fr": "assc-f-h-80-90-clinique-le-noirmont"
     },
     "sector": "Réadaptation cardiovasculaire et médecine interne",
-    "expiredAt": "2026-11-20T01:43:43.714Z",
+    "expiredAt": "2026-11-20T23:15:12.078Z",
     "previousSlugs": [
       "sagw-f-m-80-90-clinique-le-noirmont-le-noirmont",
       "assc-f-h-80-90-clinique-le-noirmont-an5953",
@@ -54,12 +55,13 @@
       },
       {
         "sourceIdentity": "url:https://www.cliniquelenoirmont.ch/filedownload/download/1040",
-        "firstSeenAt": "2026-08-20T21:38:25.587Z",
+        "firstSeenAt": "2026-06-03T13:10:30.072Z",
         "title": "ASSC (F/H) 80%-90%"
       }
     ]
   },
   {
+    "id": "clinique-le-noirmont-0388fa462b59",
     "slug": "specialista-in-restauro-m-f-80-100-clinique-le-noirmont-le-noirmont",
     "title": "Spécialiste en restauration (F/H) 80%-100%",
     "titleByLocale": {
@@ -85,7 +87,7 @@
       "fr": "specialiste-en-restauration-f-h-80-100-clinique-le-noirmont"
     },
     "sector": "Réadaptation cardiovasculaire et médecine interne",
-    "expiredAt": "2026-11-20T01:43:43.714Z",
+    "expiredAt": "2026-11-20T23:15:12.078Z",
     "previousSlugs": [
       "specialiste-en-restauration-f-h-80-100-clinique-le-noirmont"
     ],
@@ -181,7 +183,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.cliniquelenoirmont.ch/filedownload/download/1037",
-    "firstSeenAt": "2026-08-12T10:17:37.356Z"
+    "firstSeenAt": "2026-08-12T10:17:37.356Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://www.cliniquelenoirmont.ch/filedownload/download/1037",
+        "firstSeenAt": "2026-08-12T10:17:37.356Z",
+        "title": "Places d'apprentissage 2027"
+      },
+      {
+        "sourceIdentity": "url:https://www.cliniquelenoirmont.ch/filedownload/download/1061",
+        "firstSeenAt": "2026-08-12T10:17:37.356Z",
+        "title": "Places d'apprentissage 2027"
+      }
+    ]
   },
   {
     "slug": "infermiera-f-h-60-100-clinique-le-noirmont-le-noirmont",
