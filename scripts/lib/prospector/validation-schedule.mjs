@@ -3,6 +3,10 @@ import {
   compareCoveragePriority,
   selectWithRestCantonQuota,
 } from './coverage-priority.mjs';
+import {
+  CURRENT_GENERIC_SOURCE_ADAPTER_VERSION,
+  recordedSourceAdapterVersion,
+} from './source-adapter-version.mjs';
 
 export function parseValidationLimit(value) {
   const limit = Number(value);
@@ -26,12 +30,11 @@ function historyFor(spec, candidate, adapterVersionFor, previousValidationForSpe
   }
   history.sort((a, b) => String(a?.at || a?.validationStartedAt || '')
     .localeCompare(String(b?.at || b?.validationStartedAt || '')));
-  const adapterVersion = adapterVersionFor?.(spec) || null;
+  const adapterVersion = String(adapterVersionFor?.(spec) || '').trim()
+    || CURRENT_GENERIC_SOURCE_ADAPTER_VERSION;
   const contractVersion = qualityContractVersionOf(spec);
   const currentContract = history.filter((entry) => qualityContractVersionOf(entry) === contractVersion);
-  return adapterVersion
-    ? currentContract.filter((entry) => entry.sourceAdapterVersion === adapterVersion)
-    : currentContract.filter((entry) => !entry.sourceAdapterVersion);
+  return currentContract.filter((entry) => recordedSourceAdapterVersion(entry) === adapterVersion);
 }
 
 function lastAt(spec, candidate, adapterVersionFor, previousValidationForSpec) {
@@ -104,11 +107,11 @@ export function applyValidationRuntimeState(report, runtimeSnapshotComplete, at 
 
 export function isValidationRetryDue(candidate, now = Date.now(), { qualityContractVersion, sourceAdapterVersion } = {}) {
   const history = Array.isArray(candidate?.validationHistory) ? candidate.validationHistory : [];
+  const expectedSourceAdapterVersion = String(sourceAdapterVersion || '').trim()
+    || CURRENT_GENERIC_SOURCE_ADAPTER_VERSION;
   const latest = history.filter((entry) =>
     (qualityContractVersion === undefined || qualityContractVersionOf(entry) === qualityContractVersion)
-    && (sourceAdapterVersion === undefined
-      ? !entry.sourceAdapterVersion
-      : entry.sourceAdapterVersion === sourceAdapterVersion)).at(-1);
+    && recordedSourceAdapterVersion(entry) === expectedSourceAdapterVersion).at(-1);
   if (latest?.runtimeSnapshotComplete !== false || !latest?.retryAfterAt) return true;
   const retryAt = Date.parse(latest.retryAfterAt);
   const nowMs = now instanceof Date ? now.getTime() : new Date(now).getTime();
