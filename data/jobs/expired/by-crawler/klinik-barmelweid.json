@@ -187,7 +187,11 @@
         "arztsekretarin-arztsekretar-a-klinik-barmelweid"
       ],
       "fr": [
-        "secretaire-medical-a-klinik-barmelweid-barmelweid"
+        "secretaire-medical-a-klinik-barmelweid-barmelweid",
+        "arztsekretarin-arztsekretar-a-klinik-barmelweid-barmelweid"
+      ],
+      "de": [
+        "arztsekretarin-arztsekretar-a-klinik-barmelweid-barmelweid-nsqakk"
       ]
     },
     "postalCode": "5017",
@@ -197,7 +201,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e6eb38d72016ecbe4cd3e3848",
-    "firstSeenAt": "2026-08-13T10:19:12.460Z"
+    "firstSeenAt": "2026-08-13T10:19:12.460Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e6eb38d72016ecbe4cd3e3848",
+        "firstSeenAt": "2026-08-13T10:19:12.460Z",
+        "title": "Arztsekretärin/​Arztsekretär (a)"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b39c0bed52019c279992390504",
+        "firstSeenAt": "2026-08-13T10:19:12.460Z",
+        "title": "Arztsekretärin/​Arztsekretär (a)"
+      }
+    ]
   },
   {
     "slug": "apprendista-operatore-socio-sanitario-oss-a-klinik-barmelweid-barmelweid",
@@ -772,7 +788,9 @@
     "salaryMin": 88000,
     "salaryMax": 123000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b3a044812101a056d6e9fa4f98",
+    "firstSeenAt": "2026-09-02T13:35:19.865Z"
   },
   {
     "slug": "praktikant-praktikantin-a-risorse-umane-befristet-per-12-monate-klinik-barmelweid",
@@ -819,7 +837,9 @@
     "salaryMin": 52000,
     "salaryMax": 78500,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b39f9289ee019fa343fb2e644d",
+    "firstSeenAt": "2026-07-29T11:35:53.272Z"
   },
   {
     "slug": "prakticante-prakticante-asilo-nido-a-klinik-barmelweid-barmelweid",
@@ -1392,7 +1412,8 @@
     "salaryMin": 62000,
     "salaryMax": 94000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e93e07a3e01944608c4da6c68"
   },
   {
     "slug": "psicologa-assistente-psicologo-assistente-a-in-medicina-psicosomatica-e-psicoterapia-ambulatorio-aarau-klinik-barmelweid",
@@ -1902,7 +1923,8 @@
     "salaryMin": 62000,
     "salaryMax": 94000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b3a189324601a18d574e397b55"
   },
   {
     "slug": "dipl-infermiere-dipl-infermiere-psichiatria-e-psichoterapia-a-per-stazione-privata-klinik-barmelweid-barmelweid",
@@ -2109,7 +2131,9 @@
     "salaryMin": 41600,
     "salaryMax": 63000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e90eb896601919e19edb47961",
+    "firstSeenAt": "2026-09-03T13:37:53.851Z"
   },
   {
     "slug": "hr-addetto-hr-addetta-a-klinik-barmelweid-barmelweid",
