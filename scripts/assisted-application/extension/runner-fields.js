@@ -303,8 +303,10 @@ function nativeQuestionText(value, counter = null) {
       ...(privacyMetadataIncomplete ? { privacyMetadataIncomplete: true } : {}),
     };
   };
-  const QUESTION_GROUP_SELECTOR = 'fieldset, [role="group"], [role="radiogroup"], .field, .form-group, .application-question, li';
-  const QUESTION_LABEL_SELECTOR = 'legend, .label, .question, h1, h2, h3, h4, [role="heading"], label, [class*="label"], [class*="question"], [class*="title"]';
+  // Umantis places the shared question and required marker in the caption
+  // column, separate from the individual option labels in the control column.
+  const QUESTION_GROUP_SELECTOR = '.form_content_row, fieldset, [role="group"], [role="radiogroup"], .field, .form-group, .application-question, li';
+  const QUESTION_LABEL_SELECTOR = '.form_content_row > .form_content_left_boundary > .form_content_left, legend, .label, .question, h1, h2, h3, h4, [role="heading"], label, [class*="label"], [class*="question"], [class*="title"]';
   const DATE_QUESTION_SELECTOR = '[ui5-date-picker], [data-scope="date-picker"][data-part="root"]';
   const QUESTION_CONTROL_SELECTOR = `input, select, textarea, [role="combobox"], [role="radio"], [role="checkbox"], button[aria-haspopup="listbox"], [role="button"][aria-haspopup="listbox"], ${DATE_QUESTION_SELECTOR}`;
   // Unnamed option cards are one question only inside a pure, bounded list.
@@ -528,6 +530,11 @@ function nativeQuestionText(value, counter = null) {
       if (node) labels.add(node);
     }
     const group = element.closest(QUESTION_GROUP_SELECTOR);
+    // Umantis can put the required marker in the caption column while
+    // the single control within the row carries its own label.
+    const umantisMarker = group?.matches('.form_content_row')
+      && group.querySelector(':scope > .form_content_left_boundary > .form_content_left > .form_content_label_mustsign');
+    if (umantisMarker && clean(umantisMarker.textContent) === '*' && oneQuestionGroup(group, element)) return true;
     for (const groupLabel of ownedGroupLabels(group, QUESTION_LABEL_SELECTOR, element)) {
       if (!groupLabel.contains(element)
         && clean(groupLabel.innerText || groupLabel.textContent) === labelText) labels.add(groupLabel);
@@ -1309,11 +1316,25 @@ function nativeQuestionText(value, counter = null) {
     const label = type === 'file' && CV_SECTION_TITLE_RE.test(section)
       && (!nativeLabel || FILE_UPLOAD_MACHINE_LABEL_RE.test(nativeLabel))
       ? section : nativeLabel;
+    // The visible Umantis date input has no submitted name. Its owned
+    // day/month/year controls are the values the server actually receives.
+    const picker = element.matches('input[data-picker-enabled="true"][data-picker-type="date"]')
+      ? element.closest('fieldset.date.singular-input[data-picker-enabled="true"]') : null;
+    const dateGroup = picker && element.getAttribute('data-group-id');
+    const dateTrigger = picker && element.getAttribute('data-picker-trigger');
+    const dateParts = dateGroup && /^[\w-]+$/.test(dateGroup) && ['year', 'month', 'day'].map(part =>
+      picker.querySelector(`input[type="hidden"][id="${dateGroup}_${part}"][name]`));
+    const umantisDate = Array.isArray(dateParts) && dateParts.every(part => part && part.form === element.form)
+      && dateParts.every(part => part.name === dateParts[0].name)
+      && /^#[\w-]+$/.test(dateTrigger || '') && picker.querySelector(`button[type="button"]${dateTrigger}`);
+    const committedDate = umantisDate && dateParts.every(part => /^\d{1,4}$/.test(part.value))
+      ? dateParts.map((part, index) => part.value.padStart(index === 0 ? 4 : 2, '0')).join('-') : '';
     const field = {
       id: idFor(element),
       kind: type === 'checkbox' ? 'checkbox' : type === 'file' ? 'file' : tag === 'select' ? 'select' : tag === 'textarea' ? 'textarea' : element.getAttribute('role') === 'combobox' ? 'combobox' : 'text',
       ...dialogMeta(element),
-      inputType: type,
+      inputType: umantisDate ? 'date' : type,
+      ...(umantisDate ? { widget: 'umantis-date', dateTrigger } : {}),
       form: formOf(element),
       formId: element.form || element.closest('form') ? idFor(element.form || element.closest('form')) : '',
       domId: element.id || '',
@@ -1326,8 +1347,10 @@ function nativeQuestionText(value, counter = null) {
       context: sectionContext(element),
       addressContext: ownedAddressContext(element),
       section,
-      required: required || REQUIRED_LABEL.test(label) || hasRequiredMarker(element, label),
-      value: type === 'file' ? '' : pills.length ? pills.join(', ') : clean(element.value || ''),
+      required: required || REQUIRED_LABEL.test(label) || hasRequiredMarker(element, label)
+        || Boolean(umantisDate && picker.closest('.form_content_row')?.querySelector(
+          ':scope > .form_content_left_boundary > .form_content_left > .form_content_label_mustsign')),
+      value: umantisDate ? committedDate : type === 'file' ? '' : pills.length ? pills.join(', ') : clean(element.value || ''),
       search: element.getAttribute('data-uxi-widget-type') === 'selectinput' || element.getAttribute('enterkeyhint') === 'search',
       maxLength: Number(element.getAttribute('maxlength')) > 0 ? Number(element.getAttribute('maxlength')) : (tag === 'textarea' || type === 'text' ? statedLimit(element) : null),
       accept: type === 'file' ? clean(element.getAttribute('accept') || '') : '',
