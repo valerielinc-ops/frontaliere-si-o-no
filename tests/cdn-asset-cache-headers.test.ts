@@ -74,6 +74,7 @@ function runCdnPush(root: string): { status: number; output: string } {
       env: {
         PATH: process.env.PATH ?? '',
         RUNNER_TEMP: root,
+        CDN_STAGE_DIR: join(root, 'cdn-stage'),
         CDN_TARGET: 'pages',
       },
       encoding: 'utf8',
@@ -167,6 +168,7 @@ describe('deploy-it-pages-prep.sh — R2 /assets/ cache policy', () => {
           env: {
             PATH: process.env.PATH ?? '',
             RUNNER_TEMP: root,
+            CDN_STAGE_DIR: join(root, 'cdn-stage'),
             CDN_TARGET: 'pages',
             DEPLOY_BUILD_ID: '1793012345678',
             CDN_DEPLOY_KEY: 'test-key',

@@ -1716,8 +1716,9 @@ step_push_cdn() {
   # applied inside each branch below (fail-closed): r2 → R2_* creds, pages →
   # CDN_DEPLOY_KEY.
   local cdn_target="${CDN_TARGET:-pages}"
+  local stage_prefix="${CDN_STAGE_DIR:-${RUNNER_TEMP:-/tmp}/cdn-stage}"
   local attempt_dir stage
-  attempt_dir="$(mktemp -d "${RUNNER_TEMP:-/tmp}/cdn-stage.XXXXXX")" || return 1
+  attempt_dir="$(mktemp -d "${stage_prefix}.XXXXXXXX")" || return 1
   # A timed-out publisher can still be unwinding when its retry starts.
   # Keep both the payload and its working files private to this invocation.
   trap 'trap - RETURN; rm -rf "$attempt_dir"' RETURN

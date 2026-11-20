@@ -1,28 +1,80 @@
 {
   "key": "vaxcyte",
   "label": "Vaxcyte",
-  "generatedAt": "2026-11-19T09:41:15.128Z",
-  "total": 2,
+  "generatedAt": "2026-11-19T21:16:20.917Z",
+  "total": 3,
   "discovered": null,
-  "parsed": 2,
+  "parsed": 3,
   "lastFetchOutcome": null,
   "fetchReceipt": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 2,
+  "written": 3,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 4094,
-  "avgDurationMs": 4094,
+  "durationMs": 6111,
+  "avgDurationMs": 6111,
   "durationHistory": [
-    4094
+    6111
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "vaxcyte-31f5fba6f298",
+      "slug": "senior-bioprocess-engineer-proteins-vaxcyte-ch",
+      "company": "Vaxcyte",
+      "companyKey": "vaxcyte",
+      "companyDomain": "vaxcyte.com",
+      "title": "Senior Bioprocess Engineer, Proteins",
+      "location": "Visp",
+      "canton": "VS",
+      "url": "https://boards.greenhouse.io/vaxcyte/jobs/5481965008?gh_jid=5481965008",
+      "source": "Vaxcyte Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-19T21:15:49.698Z",
+      "addressLocality": "Visp",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "postalCode": "3930",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Biotecnologia / Farmaceutica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-19T12:31:25-05:00",
+      "postedDate": "2026-11-19T12:31:25-05:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://boards.greenhouse.io/vaxcyte/jobs/5481965008?gh_jid=5481965008",
+      "department": "Global MSAT",
+      "_targetScope": {
+        "canton": "VS",
+        "location": "Visp"
+      },
+      "needsRetranslation": true,
+      "salaryMin": 97500,
+      "salaryMax": 148000,
+      "salarySource": "estimated",
+      "streetAddress": "Visp",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-17T21:15:49.698Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-19T21:15:49.698Z",
+      "_qualityScore": 83,
+      "_qualityBreakdown": {
+        "cleanliness": 17,
+        "richness": 20,
+        "translation": 21,
+        "completeness": 25
+      }
+    }
+  ],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
@@ -38,7 +90,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5440646008?gh_jid=5440646008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:40:44.712Z",
+      "crawledAt": "2026-11-19T21:15:49.726Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -66,7 +118,7 @@
       "salarySource": "estimated",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T09:40:44.712Z",
+      "validThrough": "2027-01-03T21:15:49.726Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -88,7 +140,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5464246008?gh_jid=5464246008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:40:44.612Z",
+      "crawledAt": "2026-11-19T21:15:49.619Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -116,7 +168,7 @@
       "salarySource": "estimated",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:40:44.612Z",
+      "validThrough": "2027-01-26T21:15:49.619Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -127,5 +179,5 @@
       }
     }
   ],
-  "codeCommit": "af8f978c37a7f89c95dd40500d2ac0a67c1ede33"
+  "codeCommit": "07c2e8305c6747f1893222ba4bfdddc597008157"
 }
