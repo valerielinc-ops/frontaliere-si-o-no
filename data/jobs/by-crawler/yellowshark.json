@@ -35052,7 +35052,7 @@
       "slugByLocale": {
         "it": "plaster-m-f-yellowshark-ag-bern-be",
         "en": "plaster-m-f-yellowshark-ag-bern-be",
-        "de": "gipser-m-w-bern-be-yellowshark-ch",
+        "de": "gipser-m-w-d-yellowshark-ag-bern",
         "fr": "gipser-m-w-yellowshark-ag-bern"
       },
       "company": "yellowshark AG",
@@ -35118,6 +35118,9 @@
         "fr": [
           "gipser-m-w-bern-be-yellowshark-ch",
           "plaquette-h-f-yellowshark-ag-bern-be"
+        ],
+        "de": [
+          "gipser-m-w-bern-be-yellowshark-ch"
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.555Z",
@@ -38848,7 +38851,7 @@
       "slugByLocale": {
         "it": "pittura-m-f-yellowshark-ag-sarnen",
         "en": "painter-m-f-yellowshark-ag-sarnen",
-        "de": "maler-m-w-sarnen-ow-yellowshark-ch",
+        "de": "maler-m-w-d-yellowshark-ag-sarnen",
         "fr": "peintre-h-f-yellowshark-ag-sarnen"
       },
       "company": "yellowshark AG",
@@ -38897,6 +38900,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "maler-m-w-sarnen-ow-yellowshark-ch"
+        ],
+        "de": [
           "maler-m-w-sarnen-ow-yellowshark-ch"
         ]
       },
@@ -40111,7 +40117,7 @@
       "slugByLocale": {
         "it": "roofing-piano-tetto-ripido-m-f-yellowshark-ag-bern-be",
         "en": "roofing-flat-steep-roof-m-f-yellowshark-ag-bern-be",
-        "de": "dachdecker-flach-steildach-m-w-bern-be-yellowshark-ch",
+        "de": "dachdecker-flach-steildach-m-w-d-yellowshark-ag-bern",
         "fr": "toit-plat-toit-escarpe-h-f-yellowshark-ag-bern-be"
       },
       "company": "yellowshark AG",
@@ -40166,6 +40172,9 @@
           "dachdecker-flach-steildach-m-w-bern-be-yellowshark-ch"
         ],
         "fr": [
+          "dachdecker-flach-steildach-m-w-bern-be-yellowshark-ch"
+        ],
+        "de": [
           "dachdecker-flach-steildach-m-w-bern-be-yellowshark-ch"
         ]
       },
@@ -46392,7 +46401,7 @@
       "slugByLocale": {
         "it": "plaster-m-f-yellowshark-ag-zug-zg",
         "en": "plaster-m-f-yellowshark-ag-zug",
-        "de": "gipser-m-w-zug-zg-yellowshark-ch",
+        "de": "gipser-m-w-d-yellowshark-ag-zug",
         "fr": "plaquette-h-f-yellowshark-ag-zug-zg"
       },
       "company": "yellowshark AG",
@@ -46449,6 +46458,9 @@
         ],
         "fr": [
           "gipser-m-w-yellowshark-ag-zug"
+        ],
+        "de": [
+          "gipser-m-w-zug-zg-yellowshark-ch"
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.441Z",
@@ -48402,10 +48414,10 @@
     },
     {
       "id": "yellowshark-69262fbae1c2",
-      "slug": "zimmermann-m-f-yellowshark-ag-luzern",
+      "slug": "zimmermann-m-w-d-yellowshark-ag-luzern",
       "slugByLocale": {
-        "it": "zimmermann-m-f-yellowshark-ag-luzern",
-        "en": "zimmermann-m-f-yellowshark-ag-luzern",
+        "it": "zimmermann-m-w-d-yellowshark-ag-luzern",
+        "en": "zimmermann-m-w-d-yellowshark-ag-luzern",
         "de": "zimmermann-m-w-luzern-lu-yellowshark-ch",
         "fr": "zimmermann-h-f-yellowshark-ag-luzern"
       },
@@ -48451,14 +48463,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "zimmermann-m-w-luzern-lu-yellowshark-ch"
+        "zimmermann-m-w-luzern-lu-yellowshark-ch",
+        "zimmermann-m-f-yellowshark-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zimmermann-m-w-luzern-lu-yellowshark-ch"
+          "zimmermann-m-w-luzern-lu-yellowshark-ch",
+          "zimmermann-m-f-yellowshark-ag-luzern"
         ],
         "en": [
-          "zimmermann-m-w-luzern-lu-yellowshark-ch"
+          "zimmermann-m-w-luzern-lu-yellowshark-ch",
+          "zimmermann-m-f-yellowshark-ag-luzern"
         ],
         "fr": [
           "zimmermann-m-w-luzern-lu-yellowshark-ch"
@@ -48993,7 +49008,7 @@
       "slugByLocale": {
         "it": "pittura-m-f-yellowshark-ag-schwyz",
         "en": "painter-m-f-yellowshark-ag-schwyz",
-        "de": "maler-m-w-schwyz-sz-yellowshark-ch",
+        "de": "maler-m-w-d-yellowshark-ag-schwyz",
         "fr": "peintre-h-f-yellowshark-ag-schwyz"
       },
       "company": "yellowshark AG",
@@ -49042,6 +49057,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "maler-m-w-schwyz-sz-yellowshark-ch"
+        ],
+        "de": [
           "maler-m-w-schwyz-sz-yellowshark-ch"
         ]
       },
@@ -49893,7 +49911,7 @@
       "slugByLocale": {
         "it": "strato-terra-m-f-yellowshark-ag-liestal-bl-165c48",
         "en": "ground-layer-m-f-yellowshark-ag-liestal-bl-165c48",
-        "de": "bodenleger-m-w-liestal-bl-yellowshark-ch",
+        "de": "bodenleger-m-w-d-yellowshark-ag-liestal",
         "fr": "couche-au-sol-h-f-yellowshark-ag-liestal-bl-165c48"
       },
       "company": "yellowshark AG",
@@ -49954,6 +49972,9 @@
         ],
         "fr": [
           "couche-au-sol-h-f-yellowshark-ag-liestal-bl",
+          "bodenleger-m-w-liestal-bl-yellowshark-ch"
+        ],
+        "de": [
           "bodenleger-m-w-liestal-bl-yellowshark-ch"
         ]
       },
@@ -51291,9 +51312,9 @@
     },
     {
       "id": "yellowshark-091cd6a7b511",
-      "slug": "zimmermann-m-f-yellowshark-ag-zurich",
+      "slug": "zimmermann-m-w-d-yellowshark-ag-zurich",
       "slugByLocale": {
-        "it": "zimmermann-m-f-yellowshark-ag-zurich",
+        "it": "zimmermann-m-w-d-yellowshark-ag-zurich",
         "en": "zimmermann-m-f-yellowshark-ag-zurich",
         "de": "zimmermann-m-w-zurich-zh-yellowshark-ch",
         "fr": "zimmermann-h-f-yellowshark-ag-zurich"
@@ -51340,11 +51361,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "zimmermann-m-w-zurich-zh-yellowshark-ch"
+        "zimmermann-m-w-zurich-zh-yellowshark-ch",
+        "zimmermann-m-f-yellowshark-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zimmermann-m-w-zurich-zh-yellowshark-ch"
+          "zimmermann-m-w-zurich-zh-yellowshark-ch",
+          "zimmermann-m-f-yellowshark-ag-zurich"
         ],
         "en": [
           "zimmermann-m-w-zurich-zh-yellowshark-ch"
@@ -52868,9 +52891,9 @@
     },
     {
       "id": "yellowshark-d8bcd50229df",
-      "slug": "zimmermann-m-f-yellowshark-ag-aarau",
+      "slug": "zimmermann-m-w-d-yellowshark-ag-aarau",
       "slugByLocale": {
-        "it": "zimmermann-m-f-yellowshark-ag-aarau",
+        "it": "zimmermann-m-w-d-yellowshark-ag-aarau",
         "en": "zimmermann-m-f-yellowshark-ag-aarau",
         "de": "zimmermann-m-w-aarau-ag-yellowshark-ch",
         "fr": "zimmermann-h-f-yellowshark-ag-aarau"
@@ -52917,11 +52940,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "zimmermann-m-w-aarau-ag-yellowshark-ch"
+        "zimmermann-m-w-aarau-ag-yellowshark-ch",
+        "zimmermann-m-f-yellowshark-ag-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zimmermann-m-w-aarau-ag-yellowshark-ch"
+          "zimmermann-m-w-aarau-ag-yellowshark-ch",
+          "zimmermann-m-f-yellowshark-ag-aarau"
         ],
         "en": [
           "zimmermann-m-w-aarau-ag-yellowshark-ch"
@@ -77029,10 +77054,10 @@
     },
     {
       "id": "yellowshark-8b572a687663",
-      "slug": "sachbearbeiter-in-sales-backoffice-100-aarau-ag-yellowshark-ch",
+      "slug": "addetto-a-sales-backoffice-100-yellowshark-ag-aarau",
       "slugByLocale": {
         "de": "sachbearbeiter-in-sales-backoffice-100-aarau-ag-yellowshark-ch",
-        "it": "sachbearbeiter-in-sales-backoffice-100-aarau-ag-yellowshark-ch",
+        "it": "addetto-a-sales-backoffice-100-yellowshark-ag-aarau",
         "en": "sales-back-office-administrator-full-time-yellowshark-ag-aarau-ag",
         "fr": "gestionnaire-sales-back-office-100-yellowshark-ag-aarau-ag"
       },
@@ -77102,6 +77127,9 @@
           "sachbearbeiter-in-sales-backoffice-100-aarau-ag-yellowshark-ch"
         ],
         "fr": [
+          "sachbearbeiter-in-sales-backoffice-100-aarau-ag-yellowshark-ch"
+        ],
+        "it": [
           "sachbearbeiter-in-sales-backoffice-100-aarau-ag-yellowshark-ch"
         ]
       },

@@ -914,7 +914,7 @@
       "slugByLocale": {
         "it": "gestore-del-pavimento-100-w-m-i-burgenstock-hotels-ag-obburgen",
         "en": "floor-fair-100-w-m-i-burgenstock-hotels-ag-obburgen",
-        "de": "floor-vorgesetzter-100-w-m-i-burgenstock-hotels-ag-obburgen",
+        "de": "floor-supervisor-100-w-m-i-burgenstock-hotels-ag-obburgen",
         "fr": "floor-superviseur-100-w-m-i-burgenstock-hotels-ag-obburgen"
       },
       "company": "Bürgenstock Hotels AG",
@@ -960,7 +960,8 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "floor-supervisor-100-w-m-i-buergenstock-hotels-obburgen"
+          "floor-supervisor-100-w-m-i-buergenstock-hotels-obburgen",
+          "floor-vorgesetzter-100-w-m-i-burgenstock-hotels-ag-obburgen"
         ],
         "it": [
           "floor-supervisor-100-w-m-i-buergenstock-hotels-obburgen",
@@ -971,7 +972,8 @@
       "previousSlugs": [
         "floor-supervisor-100-w-m-i-buergenstock-hotels-obburgen",
         "bodenbetreuer-100-w-m-i-burgenstock-hotels-ag-obburgen",
-        "superviseur-de-chambre-100-w-m-i-burgenstock-hotels-ag-obburgen"
+        "superviseur-de-chambre-100-w-m-i-burgenstock-hotels-ag-obburgen",
+        "floor-vorgesetzter-100-w-m-i-burgenstock-hotels-ag-obburgen"
       ],
       "firstSeenAt": "2026-05-20T06:08:58.059Z",
       "salaryMin": 86500,

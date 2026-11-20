@@ -8036,7 +8036,7 @@
       "slugByLocale": {
         "it": "infermiere-a-diplomato-a-ssr-kantonsspital-aarau-ksa-aarau",
         "en": "dipl-nursing-professional-nursing-professional-hr-kantonsspital-aarau-ksa-aarau",
-        "de": "dipl-pflegefachfrau-pflegefachmann-hr-ksa-ch",
+        "de": "dipl-pflegefachfrau-pflegefachmann-hf-kantonsspital-aarau-ksa-aarau",
         "fr": "infirmiere-diplomee-infirmier-diplome-rh-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
@@ -8094,6 +8094,9 @@
           "dipl-pflegefachfrau-pflegefachmann-hr-ksa-ch"
         ],
         "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-hr-ksa-ch"
+        ],
+        "de": [
           "dipl-pflegefachfrau-pflegefachmann-hr-ksa-ch"
         ]
       },
@@ -8906,7 +8909,7 @@
       "slugByLocale": {
         "it": "impiegato-a-amministrativo-a-kantonsspital-aarau-ksa-aarau",
         "en": "administrative-clerk-kantonsspital-aarau-ksa-aarau",
-        "de": "sachbearbeiter-in-administration-ksa-ch",
+        "de": "sachbearbeiter-in-administration-kantonsspital-aarau-ksa-aarau",
         "fr": "collaborateur-administratif-collaboratrice-administrative-en-administration-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
@@ -8965,6 +8968,9 @@
         ],
         "fr": [
           "sachbearbeiter-in-administration-kantonsspital-aarau-ksa-aarau"
+        ],
+        "de": [
+          "sachbearbeiter-in-administration-ksa-ch"
         ]
       },
       "firstSeenAt": "2026-11-18T21:20:58.799Z",

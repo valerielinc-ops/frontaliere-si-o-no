@@ -6506,7 +6506,7 @@
       "slugByLocale": {
         "de": "expertin-experte-bauaufsicht-kanton-basel-landschaft-liestal",
         "it": "expertin-experte-bauaufsicht-kanton-basel-landschaft-liestal",
-        "en": "expertin-experte-bauaufsicht-kanton-basel-landschaft-liestal",
+        "en": "expertin-experte-bauaufsicht-kantonale-verwaltung-basel-landschaft-liestal",
         "fr": "expertin-experte-bauaufsicht-kanton-basel-landschaft-liestal"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
@@ -6569,7 +6569,15 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-18T09:23:33.364Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "en": [
+          "expertin-experte-bauaufsicht-kanton-basel-landschaft-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "expertin-experte-bauaufsicht-kanton-basel-landschaft-liestal"
+      ]
     },
     {
       "id": "kanton-basel-landschaft-4ffd7f9e4ccc",

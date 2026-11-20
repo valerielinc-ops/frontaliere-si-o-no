@@ -1109,8 +1109,8 @@
       "slug": "servizi-a-valore-aggiunto-teamlead-brack-alltron-ag-willisau",
       "slugByLocale": {
         "it": "servizi-a-valore-aggiunto-teamlead-brack-alltron-ag-willisau",
-        "en": "teamlead-value-added-services-brack-alltron-willisau",
-        "de": "teamlead-value-added-services-brack-alltron-willisau",
+        "en": "teamlead-value-added-services-brack-alltron-ag-willisau",
+        "de": "teamlead-value-added-services-brack-alltron-ag-willisau",
         "fr": "teamleader-services-a-valeur-ajoutee-brack-alltron-ag-willisau"
       },
       "company": "Brack.Alltron AG",
@@ -1221,10 +1221,15 @@
           "teamlead-value-added-services-brack-alltron-willisau-d96ce68b"
         ],
         "fr": [
-          "teamlead-value-added-services-brack-alltron-willisau"
+          "teamlead-value-added-services-brack-alltron-willisau",
+          "teamlead-value-added-services-brack-alltron-ag-willisau"
         ],
         "en": [
-          "teamlead-value-added-services-brack-alltron-willisau-d6896fbc"
+          "teamlead-value-added-services-brack-alltron-willisau-d6896fbc",
+          "teamlead-value-added-services-brack-alltron-willisau"
+        ],
+        "de": [
+          "teamlead-value-added-services-brack-alltron-willisau"
         ]
       },
       "firstSeenAt": "2026-09-04T23:00:55.642Z",

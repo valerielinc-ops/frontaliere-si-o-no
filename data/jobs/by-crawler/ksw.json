@@ -3199,7 +3199,7 @@
       "slug": "med-praxisassistentin-med-praxisassistent-ksw-ch-2",
       "slugByLocale": {
         "it": "med-praxisassistentin-med-praxisassistent-ksw-ch-2",
-        "en": "med-praxisassistentin-med-praxisassistent-ksw-ch-2",
+        "en": "med-praxisassistentin-med-praxisassistent-kantonsspital-winterthur-ksw-winterthur",
         "de": "med-praxisassistentin-med-praxisassistent-ksw-ch",
         "fr": "med-praxisassistin-med-praxisassistin-kantonsspital-winterthur-ksw-winterthur"
       },
@@ -3246,11 +3246,15 @@
       "requirementsByLocale": {},
       "department": "Klinik für med. Onkologie und Hämatologie",
       "previousSlugs": [
-        "med-praxisassistentin-med-praxisassistent-ksw-ch"
+        "med-praxisassistentin-med-praxisassistent-ksw-ch",
+        "med-praxisassistentin-med-praxisassistent-ksw-ch-2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "med-praxisassistentin-med-praxisassistent-ksw-ch"
+        ],
+        "en": [
+          "med-praxisassistentin-med-praxisassistent-ksw-ch-2"
         ]
       },
       "firstSeenAt": "2026-10-12T21:15:28.864Z",
@@ -3279,7 +3283,7 @@
       "slugByLocale": {
         "it": "medico-legale-medico-legale-kantonsspital-winterthur-ksw-winterthur",
         "en": "medical-informatician-medical-informatician-kantonsspital-winterthur-ksw-winterthur",
-        "de": "medizininformatikerin-medizininformatiker-ksw-ch",
+        "de": "medizininformatikerin-medizininformatiker-kantonsspital-winterthur-ksw-winterthur",
         "fr": "information-medicale-information-medicale-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
@@ -3338,6 +3342,9 @@
         ],
         "fr": [
           "medizininformatikerin-medizininformatiker-kantonsspital-winterthur-ksw-winterthur"
+        ],
+        "de": [
+          "medizininformatikerin-medizininformatiker-ksw-ch"
         ]
       },
       "firstSeenAt": "2026-11-17T21:20:13.186Z",
@@ -5338,7 +5345,7 @@
       "slugByLocale": {
         "it": "divisione-parto-di-ostetricia-kantonsspital-winterthur-ksw-winterthur",
         "en": "midwife-childbirth-division-kantonsspital-winterthur-ksw-winterthur",
-        "de": "hebamme-gebarabteilung-ksw-ch",
+        "de": "hebamme-gebarabteilung-kantonsspital-winterthur-ksw-winterthur",
         "fr": "division-de-l-accouchement-des-sages-femmes-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
@@ -5394,6 +5401,9 @@
           "hebamme-gebarabteilung-ksw-ch"
         ],
         "fr": [
+          "hebamme-gebarabteilung-ksw-ch"
+        ],
+        "de": [
           "hebamme-gebarabteilung-ksw-ch"
         ]
       },
@@ -6003,9 +6013,9 @@
     },
     {
       "id": "ksw-dedd80ff4319",
-      "slug": "assistente-medico-assistente-medico-kantonsspital-winterthur-ksw-winterthur",
+      "slug": "assistente-medico-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
-        "it": "assistente-medico-assistente-medico-kantonsspital-winterthur-ksw-winterthur",
+        "it": "assistente-medico-kantonsspital-winterthur-ksw-winterthur",
         "en": "assistant-doctor-assistant-doctor-kantonsspital-winterthur-ksw-winterthur",
         "de": "assistenzarztin-assistenzarzt-ksw-ch",
         "fr": "assistant-medecin-assistant-medecin-kantonsspital-winterthur-ksw-winterthur"
@@ -6054,12 +6064,14 @@
       "department": "Klinik für Radio-Onkologie",
       "previousSlugs": [
         "assistenzarztin-assistenzarzt-ksw-ch",
-        "assistenzarztin-assistenzarzt-kantonsspital-winterthur-ksw-winterthur"
+        "assistenzarztin-assistenzarzt-kantonsspital-winterthur-ksw-winterthur",
+        "assistente-medico-assistente-medico-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenzarztin-assistenzarzt-ksw-ch",
-          "assistenzarztin-assistenzarzt-kantonsspital-winterthur-ksw-winterthur"
+          "assistenzarztin-assistenzarzt-kantonsspital-winterthur-ksw-winterthur",
+          "assistente-medico-assistente-medico-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "assistenzarztin-assistenzarzt-kantonsspital-winterthur-ksw-winterthur"
@@ -6433,7 +6445,7 @@
       "slugByLocale": {
         "it": "dipartimento-logistico-dipartimento-logistico-kantonsspital-winterthur-ksw-winterthur",
         "en": "department-logistician-department-logistician-kantonsspital-winterthur-ksw-winterthur",
-        "de": "abteilungslogistikerin-abteilungslogistiker-ksw-ch",
+        "de": "abteilungslogistikerin-abteilungslogistiker-kantonsspital-winterthur-ksw-winterthur",
         "fr": "departement-logistique-departement-logistique-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
@@ -6492,6 +6504,9 @@
         ],
         "fr": [
           "abteilungslogistikerin-abteilungslogistiker-kantonsspital-winterthur-ksw-winterthur"
+        ],
+        "de": [
+          "abteilungslogistikerin-abteilungslogistiker-ksw-ch"
         ]
       },
       "firstSeenAt": "2026-11-13T21:18:38.357Z",

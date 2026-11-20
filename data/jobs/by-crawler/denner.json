@@ -10842,7 +10842,7 @@
       "slugByLocale": {
         "it": "venditore-denner-biel-bienne-916e21",
         "en": "shop-assistant-denner-biel-bienne-916e21",
-        "de": "verkaufer-in-denner-c310c0",
+        "de": "verkaufer-in-denner-biel-bienne",
         "fr": "vendeur-denner-biel-bienne-916e21"
       },
       "company": "Denner",
@@ -10898,7 +10898,8 @@
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
         "de": [
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "verkaufer-in-denner-c310c0"
         ],
         "it": [
           "verkaufer-in-denner-12",
@@ -10923,7 +10924,8 @@
         "verkaufer-in-denner-giwqst",
         "verkaufer-in-denner-7",
         "verkaufer-in-denner-g2dpcm",
-        "verkaufer-in-denner-5"
+        "verkaufer-in-denner-5",
+        "verkaufer-in-denner-c310c0"
       ],
       "firstSeenAt": "2026-07-10T23:02:40.827Z",
       "salaryMin": 77500,
@@ -28856,7 +28858,7 @@
       "slugByLocale": {
         "it": "commesso-a-denner-altdorf-ur",
         "en": "salesperson-denner-altdorf-ur",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-altdorf-ur",
         "fr": "vendeur-euse-denner-altdorf-ur"
       },
       "company": "Denner",
@@ -28926,6 +28928,9 @@
         ],
         "fr": [
           "verkaufer-in-denner-altdorf-ur"
+        ],
+        "de": [
+          "verkaufer-in-denner"
         ]
       },
       "firstSeenAt": "2026-07-10T23:02:40.827Z",
@@ -28959,7 +28964,7 @@
       "slugByLocale": {
         "it": "assistente-alla-direzione-della-filiale-denner-altdorf-ur",
         "en": "assistant-store-manager-denner-altdorf-ur",
-        "de": "assistent-in-filialleitung-denner",
+        "de": "assistent-in-filialleitung-denner-altdorf-ur",
         "fr": "assistant-e-de-direction-de-filiale-denner-altdorf-ur"
       },
       "company": "Denner",
@@ -29030,6 +29035,9 @@
         ],
         "fr": [
           "assistent-in-filialleitung-denner-3"
+        ],
+        "de": [
+          "assistent-in-filialleitung-denner"
         ]
       },
       "firstSeenAt": "2026-09-21T16:05:08.450Z",
@@ -29063,7 +29071,7 @@
       "slugByLocale": {
         "it": "responsabile-di-filiale-denner-altdorf-ur",
         "en": "branch-manager-denner-altdorf-ur",
-        "de": "filialleiter-in-denner",
+        "de": "filialleiter-in-denner-altdorf-ur",
         "fr": "responsable-de-filiale-denner-altdorf-ur"
       },
       "company": "Denner",
@@ -29131,6 +29139,9 @@
         ],
         "fr": [
           "filialleiter-in-denner-altdorf-ur"
+        ],
+        "de": [
+          "filialleiter-in-denner"
         ]
       },
       "firstSeenAt": "2026-06-03T13:24:47.217Z",

@@ -2896,7 +2896,7 @@
       "slug": "ot-infrastructure-system-ingegnere-siemens-wallisellen",
       "slugByLocale": {
         "it": "ot-infrastructure-system-ingegnere-siemens-wallisellen",
-        "en": "ot-infrastructure-system-ingegnere-siemens-wallisellen",
+        "en": "ot-infrastructure-system-engineer-siemens-wallisellen",
         "de": "ot-infrastructure-system-engineer-siemens-wallisellen",
         "fr": "ot-infrastructure-system-ingenieur-siemens-wallisellen"
       },
@@ -2945,11 +2945,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ot-infrastructure-system-engineer-siemens-wallisellen"
+        "ot-infrastructure-system-engineer-siemens-wallisellen",
+        "ot-infrastructure-system-ingegnere-siemens-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ot-infrastructure-system-engineer-siemens-wallisellen"
+        ],
+        "en": [
+          "ot-infrastructure-system-ingegnere-siemens-wallisellen"
         ]
       },
       "needsRetranslation": true,

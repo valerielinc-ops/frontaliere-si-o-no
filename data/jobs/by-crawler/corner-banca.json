@@ -1342,7 +1342,7 @@
       "slug": "customer-advisor-100-team-zurich-corner-banca-wallisellen",
       "slugByLocale": {
         "it": "customer-advisor-100-team-zurich-corner-banca-wallisellen",
-        "en": "customer-advisor-100-team-zurich-ref-1133-corner-banca-wallisellen",
+        "en": "customer-advisor-100-team-zurich-corner-banca-wallisellen",
         "de": "customer-advisor-100-team-zurich-ref-1133-corner-banca-wallisellen",
         "fr": "customer-advisor-100-team-zurich-ref-1133-corner-banca-wallisellen"
       },
@@ -1403,11 +1403,15 @@
       "sourceLang": "en",
       "crawledAt": "2026-11-18T09:46:44.210Z",
       "previousSlugs": [
-        "customer-consulente-100-team-zurich-corner-banca-wallisellen-fafdbb3854"
+        "customer-consulente-100-team-zurich-corner-banca-wallisellen-fafdbb3854",
+        "customer-advisor-100-team-zurich-ref-1133-corner-banca-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "customer-consulente-100-team-zurich-corner-banca-wallisellen-fafdbb3854"
+        ],
+        "en": [
+          "customer-advisor-100-team-zurich-ref-1133-corner-banca-wallisellen"
         ]
       },
       "firstSeenAt": "2026-10-22T09:42:14.142Z",

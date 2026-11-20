@@ -20057,8 +20057,8 @@
       "slugByLocale": {
         "de": "verkauferin-kassen-services-jumbo-huntwangen",
         "it": "venditore-kassen-servizi-jumbo-huntwangen",
-        "en": "verkauferin-kassen-services-jumbo-huntwangen",
-        "fr": "verkauferin-kassen-services-jumbo-huntwangen"
+        "en": "seller-kassen-services-jumbo-huntwangen",
+        "fr": "vendeur-kassen-services-jumbo-huntwangen"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -20135,6 +20135,12 @@
       "firstSeenAt": "2026-11-19T09:24:33.553Z",
       "previousSlugsByLocale": {
         "it": [
+          "verkauferin-kassen-services-jumbo-huntwangen"
+        ],
+        "en": [
+          "verkauferin-kassen-services-jumbo-huntwangen"
+        ],
+        "fr": [
           "verkauferin-kassen-services-jumbo-huntwangen"
         ]
       },

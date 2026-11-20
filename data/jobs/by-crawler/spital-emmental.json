@@ -4634,12 +4634,12 @@
     },
     {
       "id": "spital-emmental-f16466b9f386",
-      "slug": "ict-system-engineer-network-a-spital-emmental-burgdorf",
+      "slug": "ict-system-ingegnere-network-a-spital-emmental-burgdorf",
       "slugByLocale": {
-        "it": "ict-system-engineer-network-a-spital-emmental-burgdorf",
+        "it": "ict-system-ingegnere-network-a-spital-emmental-burgdorf",
         "en": "ict-system-engineer-network-a-spital-emmental-burgdorf",
         "de": "ict-system-engineer-network-a-spital-emmental-burgdorf",
-        "fr": "ict-system-engineer-network-a-spital-emmental-burgdorf"
+        "fr": "ict-system-ingenieur-network-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4720,7 +4720,18 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-14T09:19:55.943Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://live.solique.ch/spital-emmental/job/details/4100649"
+      "sourceIdentity": "url:https://live.solique.ch/spital-emmental/job/details/4100649",
+      "previousSlugsByLocale": {
+        "it": [
+          "ict-system-engineer-network-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
+          "ict-system-engineer-network-a-spital-emmental-burgdorf"
+        ]
+      },
+      "previousSlugs": [
+        "ict-system-engineer-network-a-spital-emmental-burgdorf"
+      ]
     },
     {
       "id": "spital-emmental-b18e70fa2b95",

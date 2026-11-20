@@ -558,7 +558,7 @@
       "slugByLocale": {
         "it": "spa-terapeuta-welcome-agent-spa-inverno-26-27-w-verbier-marriott-international-verbier",
         "en": "spa-therapist-welcome-agent-spa-winter-26-27-w-verbier-marriott-verbier",
-        "de": "spa-terapeuta-welcome-agent-spa-inverno-26-27-w-verbier-marriott-international-verbier",
+        "de": "spa-therapeut-welcome-agent-spa-winter-26-27-w-verbier-marriott-international-verbier",
         "fr": "spa-therapeute-et-agent-de-bienvenue-spa-hiver-26-27-w-verbier-marriott-international-verbier"
       },
       "company": "Marriott International",
@@ -612,11 +612,15 @@
         "publishEndDate": ""
       },
       "previousSlugs": [
-        "spa-therapist-welcome-agent-spa-winter-26-27-w-verbier-marriott-verbier"
+        "spa-therapist-welcome-agent-spa-winter-26-27-w-verbier-marriott-verbier",
+        "spa-terapeuta-welcome-agent-spa-inverno-26-27-w-verbier-marriott-international-verbier"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spa-therapist-welcome-agent-spa-winter-26-27-w-verbier-marriott-verbier"
+        ],
+        "de": [
+          "spa-terapeuta-welcome-agent-spa-inverno-26-27-w-verbier-marriott-international-verbier"
         ]
       },
       "firstSeenAt": "2026-09-19T23:20:39.380Z",

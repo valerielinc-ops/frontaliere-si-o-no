@@ -5108,7 +5108,7 @@
         "it": "addetto-a-alle-vendite-bigiotteria-60-manor-ag-thun",
         "en": "jewelry-sales-associate-60-manor-ag-thun",
         "de": "manor-mitarbeiter-in-verkauf-bijouterie-60-thun",
-        "fr": "mitarbeiter-in-vente-bijouterie-60-manor-ag-thun"
+        "fr": "employe-e-de-vente-en-bijouterie-60-manor-ag-thun"
       },
       "titleByLocale": {
         "it": "Addetto/a alle vendite bigiotteria 60%",
@@ -5121,7 +5121,8 @@
       "previousSlugs": [
         "manor-mitarbeiter-in-verkauf-bijouterie-60-thun",
         "collaboratore-trice-in-vendita-bijouterie-60-manor-ag-thun",
-        "mitarbeiter-in-sales-bijouterie-60-manor-ag-thun"
+        "mitarbeiter-in-sales-bijouterie-60-manor-ag-thun",
+        "mitarbeiter-in-vente-bijouterie-60-manor-ag-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5133,7 +5134,8 @@
           "mitarbeiter-in-sales-bijouterie-60-manor-ag-thun"
         ],
         "fr": [
-          "manor-mitarbeiter-in-verkauf-bijouterie-60-thun"
+          "manor-mitarbeiter-in-verkauf-bijouterie-60-thun",
+          "mitarbeiter-in-vente-bijouterie-60-manor-ag-thun"
         ]
       },
       "firstSeenAt": "2026-10-28T20:19:55.486Z",
@@ -19960,9 +19962,9 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "source": "company-website",
-      "slug": "manor-macellaio-a-50-lugano",
+      "slug": "macellaio-a-50-manor-ag-lugano",
       "slugByLocale": {
-        "it": "manor-macellaio-a-50-lugano",
+        "it": "macellaio-a-50-manor-ag-lugano",
         "en": "butcher-to-50-manor-ag-lugano",
         "de": "metzger-bis-50-manor-ag-lugano",
         "fr": "boucher-a-50-manor-ag-lugano"
@@ -19986,6 +19988,9 @@
           "manor-macellaio-a-50-lugano"
         ],
         "fr": [
+          "manor-macellaio-a-50-lugano"
+        ],
+        "it": [
           "manor-macellaio-a-50-lugano"
         ]
       },
@@ -23871,12 +23876,12 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "source": "company-website",
-      "slug": "manor-mitarbeiter-in-verkauf-spielwaren-50-emmen",
+      "slug": "collaboratore-trice-in-vendita-spielwaren-50-manor-ag-emmen",
       "slugByLocale": {
-        "it": "manor-mitarbeiter-in-verkauf-spielwaren-50-emmen",
-        "en": "manor-mitarbeiter-in-verkauf-spielwaren-50-emmen",
+        "it": "collaboratore-trice-in-vendita-spielwaren-50-manor-ag-emmen",
+        "en": "mitarbeiter-in-sales-spielwaren-50-manor-ag-emmen",
         "de": "manor-mitarbeiter-in-verkauf-spielwaren-50-emmen",
-        "fr": "manor-mitarbeiter-in-verkauf-spielwaren-50-emmen"
+        "fr": "mitarbeiter-in-vente-spielwaren-50-manor-ag-emmen"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in vendita Spielwaren 50%",
@@ -23905,7 +23910,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-18T09:41:57.285Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T09:41:57.285Z"
+      "firstSeenAt": "2026-11-20T09:41:57.285Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-mitarbeiter-in-verkauf-spielwaren-50-emmen"
+        ],
+        "en": [
+          "manor-mitarbeiter-in-verkauf-spielwaren-50-emmen"
+        ],
+        "fr": [
+          "manor-mitarbeiter-in-verkauf-spielwaren-50-emmen"
+        ]
+      },
+      "previousSlugs": [
+        "manor-mitarbeiter-in-verkauf-spielwaren-50-emmen"
+      ]
     },
     {
       "title": "Collaborateur/trice vente (Jouets) 25%",
