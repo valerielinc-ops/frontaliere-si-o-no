@@ -742,10 +742,15 @@ jobs:
             local retry_seconds=0
             local early_recorded=0
             local retry_recorded=0
+            local early_duration_missing=0
+            local retry_duration_missing=0
             local early_outcome_display="$early_outcome"
             local retry_outcome_display="$retry_outcome"
-            local early_timeout_bounded=0
-            local retry_timeout_bounded=0
+            local early_start_recorded=0
+            local retry_start_recorded=0
+
+            if [[ "${EARLY_STARTED_AT:-}" =~ ^[0-9]+$ ]]; then early_start_recorded=1; fi
+            if [[ "${RETRY_STARTED_AT:-}" =~ ^[0-9]+$ ]]; then retry_start_recorded=1; fi
 
             if [[ "$early_duration" =~ ^[0-9]+$ ]]; then
               early_seconds="$early_duration"
@@ -754,17 +759,9 @@ jobs:
               early_seconds=$((EARLY_ENDED_AT - EARLY_STARTED_AT))
               (( early_seconds < 0 )) && early_seconds=0
               early_recorded=1
-            elif [[ "${EARLY_STARTED_AT:-}" =~ ^[0-9]+$ ]]; then
-              if [[ "$early_outcome" == 'failure' ]]; then
-                # The step itself is capped at 90 minutes. A failed attempt
-                # without an end output was killed before its shell could
-                # persist one, so report the configured bound rather than
-                # counting later cache/retry steps as part of this duration.
-                early_seconds="$cap_seconds"
-                early_recorded=1
-                early_timeout_bounded=1
-                early_outcome_display='failure (90-minute step timeout; exact end unavailable)'
-              fi
+            elif [[ "$early_outcome" != 'skipped' ]]; then
+              early_duration_missing=1
+              early_outcome_display="${early_outcome} (end/duration unavailable)"
             fi
             if [[ "$retry_duration" =~ ^[0-9]+$ ]]; then
               retry_seconds="$retry_duration"
@@ -773,28 +770,26 @@ jobs:
               retry_seconds=$((RETRY_ENDED_AT - RETRY_STARTED_AT))
               (( retry_seconds < 0 )) && retry_seconds=0
               retry_recorded=1
-            elif [[ "${RETRY_STARTED_AT:-}" =~ ^[0-9]+$ ]]; then
-              if [[ "$retry_outcome" == 'failure' ]]; then
-                retry_seconds="$cap_seconds"
-                retry_recorded=1
-                retry_timeout_bounded=1
-                retry_outcome_display='failure (90-minute step timeout; exact end unavailable)'
-              fi
+            elif [[ "$retry_outcome" != 'skipped' ]]; then
+              retry_duration_missing=1
+              retry_outcome_display="${retry_outcome} (end/duration unavailable)"
             fi
 
             local early_display='unknown'
             local retry_display='unknown'
             if (( early_recorded )); then
               early_display="${early_seconds}s"
-              if (( early_timeout_bounded )); then
-                early_display="≥${cap_seconds}s (90-minute step limit; exact end unavailable)"
-              fi
+            elif (( early_duration_missing && early_start_recorded )); then
+              early_display='unknown (start recorded; end unavailable)'
+            elif (( early_duration_missing )); then
+              early_display='unknown (start/end unavailable)'
             fi
             if (( retry_recorded )); then
               retry_display="${retry_seconds}s"
-              if (( retry_timeout_bounded )); then
-                retry_display="≥${cap_seconds}s (90-minute step limit; exact end unavailable)"
-              fi
+            elif (( retry_duration_missing && retry_start_recorded )); then
+              retry_display='unknown (start recorded; end unavailable)'
+            elif (( retry_duration_missing )); then
+              retry_display='unknown (start/end unavailable)'
             fi
 
             local max_seconds=0
@@ -804,14 +799,21 @@ jobs:
               max_seconds="$early_seconds"
               if (( retry_recorded && retry_seconds > max_seconds )); then max_seconds="$retry_seconds"; fi
               max_display="${max_seconds}s"
-              if (( early_timeout_bounded || retry_timeout_bounded )); then max_display="≥${max_seconds}s"; fi
-              if (( max_seconds < cap_seconds )); then
-                comparison="within 90 min by $((cap_seconds - max_seconds))s"
-              elif (( max_seconds == cap_seconds )); then
-                comparison='at 90-minute cap'
+              if (( early_duration_missing || retry_duration_missing )); then
+                max_display="incomplete (known max ${max_seconds}s)"
+                comparison='incomplete (one or more attempt durations missing)'
               else
-                comparison="over 90 min by $((max_seconds - cap_seconds))s"
+                if (( max_seconds < cap_seconds )); then
+                  comparison="within 90 min by $((cap_seconds - max_seconds))s"
+                elif (( max_seconds == cap_seconds )); then
+                  comparison='at 90-minute cap'
+                else
+                  comparison="over 90 min by $((max_seconds - cap_seconds))s"
+                fi
               fi
+            elif (( early_duration_missing || retry_duration_missing )); then
+              max_display='unknown (attempt duration missing)'
+              comparison='incomplete (attempt duration missing)'
             fi
 
             local tail_display='unknown'
@@ -819,16 +821,14 @@ jobs:
               local tail_seconds=$((RETRY_ENDED_AT - EARLY_STARTED_AT))
               (( tail_seconds < 0 )) && tail_seconds=0
               tail_display="${tail_seconds}s"
-            elif [[ "${EARLY_STARTED_AT:-}" =~ ^[0-9]+$ ]] && [[ "${RETRY_STARTED_AT:-}" =~ ^[0-9]+$ ]] && (( retry_timeout_bounded )); then
-              local tail_seconds=$((RETRY_STARTED_AT + cap_seconds - EARLY_STARTED_AT))
-              (( tail_seconds < 0 )) && tail_seconds=0
-              tail_display="≥${tail_seconds}s (retry reached 90-minute limit; exact end unavailable)"
+            elif [[ "$retry_outcome" != 'skipped' ]] && (( retry_duration_missing )); then
+              tail_display='unknown (retry end unavailable)'
             elif [[ "${EARLY_STARTED_AT:-}" =~ ^[0-9]+$ ]] && [[ "${EARLY_ENDED_AT:-}" =~ ^[0-9]+$ ]]; then
               local tail_seconds=$((EARLY_ENDED_AT - EARLY_STARTED_AT))
               (( tail_seconds < 0 )) && tail_seconds=0
               tail_display="${tail_seconds}s"
-            elif [[ "${EARLY_STARTED_AT:-}" =~ ^[0-9]+$ ]] && (( early_timeout_bounded )); then
-              tail_display="≥${cap_seconds}s (early push reached 90-minute limit; exact tail unavailable)"
+            elif (( early_duration_missing )); then
+              tail_display='unknown (early end unavailable)'
             fi
 
             {
