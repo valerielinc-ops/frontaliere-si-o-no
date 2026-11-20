@@ -288,21 +288,21 @@ export function extractRuntimeDetailFields(spec, html, url, opts = {}) {
   detail = normalizeSourcePostalLocation(detail, spec);
   if (spec?.companyKey === EQE_COMPANY_KEY) {
     const eqeLocation = extractEqeVacancyLocation(html, recordTitle);
-    if (eqeLocation.matched) {
-      const [candidate] = eqeLocation.locationCandidates;
-      // This source-specific result is authoritative, including an empty or
-      // unresolved result. Drop generic page-wide candidates so the footer's
-      // corporate address cannot outrank the role prose.
-      detail.locationCandidates = eqeLocation.locationCandidates;
-      detail.location = candidate?.location || '';
-      detail.addressLocality = candidate?.addressLocality || '';
-      detail.addressRegion = candidate?.addressRegion || '';
-      detail.addressCountry = candidate?.addressCountry || '';
-      detail.country = candidate?.addressCountry || '';
-      detail.postalCode = '';
-      detail.streetAddress = '';
-      detail.authoritativeLocationConflict = false;
-    }
+    const [candidate] = eqeLocation.locationCandidates;
+    // EQE's source-specific result is authoritative for every detail page,
+    // including a title mismatch or an unrecognised/empty vacancy block. A
+    // rejected result must stay fail-closed so neither generic page-wide
+    // candidates nor the listing/employer-seat fallbacks can repopulate it.
+    detail.locationCandidates = eqeLocation.locationCandidates;
+    detail.location = candidate?.location || '';
+    detail.addressLocality = candidate?.addressLocality || '';
+    detail.addressRegion = candidate?.addressRegion || '';
+    detail.addressCountry = candidate?.addressCountry || '';
+    detail.country = candidate?.addressCountry || '';
+    detail.postalCode = '';
+    detail.streetAddress = '';
+    detail.authoritativeLocationConflict = !eqeLocation.matched
+      || eqeLocation.locationCandidates.length === 0;
   }
   if (spec?.platform === 'yousty.ch') {
     const yousty = parseYoustyApprenticeshipHtml(html, url);
