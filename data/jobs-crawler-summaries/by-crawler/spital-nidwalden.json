@@ -1,7 +1,7 @@
 {
   "key": "spital-nidwalden",
   "label": "Spital Nidwalden",
-  "generatedAt": "2026-11-19T21:48:38.630Z",
+  "generatedAt": "2026-11-20T09:35:10.026Z",
   "total": 11,
   "discovered": null,
   "parsed": 11,
@@ -17,10 +17,10 @@
   "updatedCount": 1,
   "removedCount": 1,
   "unchangedCount": 10,
-  "durationMs": 7746,
-  "avgDurationMs": 7746,
+  "durationMs": 7069,
+  "avgDurationMs": 7069,
   "durationHistory": [
-    7746
+    7069
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/koch-koechin-efz/11968f64-a727-47db-859e-e736409fb39f",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:48:19.121Z",
+      "crawledAt": "2026-11-20T09:34:53.911Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -73,7 +73,7 @@
         "checkedAt": "2026-11-09T15:43:18.299Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-17T21:48:19.121Z",
+      "validThrough": "2027-02-17T09:34:53.911Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -161,7 +161,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/ausbildungsplatz-zur-dipl-expertin-notfallpflege-nds-hf-zum-dipl-experten-notfallpflege-nds-hf-mit-ausbildungsstart-im-september-2027/4bcbdc68-e76f-4b5f-9d15-2caaf74689e6",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:48:19.144Z",
+      "crawledAt": "2026-11-20T09:34:53.929Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -198,7 +198,7 @@
         "checkedAt": "2026-11-09T15:43:18.299Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-29T21:48:19.144Z",
+      "validThrough": "2026-12-29T09:34:53.929Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -221,7 +221,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/radiologiefachperson-hf/79dad9bc-89ca-4b07-b71e-d3b51ea59932",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:48:19.142Z",
+      "crawledAt": "2026-11-20T09:34:53.928Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -258,7 +258,7 @@
         "checkedAt": "2026-11-09T15:43:18.299Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-31T21:48:19.142Z",
+      "validThrough": "2026-12-31T09:34:53.928Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -281,7 +281,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/dipl-pflegefachperson-hf-endoskopie/4ec1c80a-8f18-4be4-a662-a89ae7853f12",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:48:19.140Z",
+      "crawledAt": "2026-11-20T09:34:53.927Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -318,7 +318,7 @@
         "checkedAt": "2026-11-09T15:43:18.299Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-11T21:48:19.140Z",
+      "validThrough": "2027-01-11T09:34:53.927Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -340,7 +340,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/mitarbeiter-in-apotheke/e97c1537-1707-4614-8b6e-969e41879976",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:48:19.137Z",
+      "crawledAt": "2026-11-20T09:34:53.925Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -377,7 +377,7 @@
         "checkedAt": "2026-11-09T15:43:18.299Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-24T21:48:19.137Z",
+      "validThrough": "2027-01-24T09:34:53.925Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -400,7 +400,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/teamleitung-der-intensivstation-w-m-d/8af6e857-15e1-4637-9506-11073f709a41",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:48:19.136Z",
+      "crawledAt": "2026-11-20T09:34:53.923Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -437,7 +437,7 @@
         "checkedAt": "2026-11-09T15:43:18.299Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-29T21:48:19.136Z",
+      "validThrough": "2027-01-29T09:34:53.923Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -459,7 +459,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/klinische-fachspezialistin-klinischer-fachspezialist-orthopaedie-unfallchirurgie/14f66b0b-b429-4827-ae56-8ccbe9964e3d",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:48:19.134Z",
+      "crawledAt": "2026-11-20T09:34:53.922Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -496,7 +496,7 @@
         "checkedAt": "2026-11-09T15:43:18.299Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-11T21:48:19.134Z",
+      "validThrough": "2027-01-11T09:34:53.922Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -519,7 +519,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/chefaerztin-chefarzt-allgemeine-innere-medizin-standort-stans/76b803fc-c4ed-43da-a84e-7ab609b136cb",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:48:19.131Z",
+      "crawledAt": "2026-11-20T09:34:53.920Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -556,7 +556,7 @@
         "checkedAt": "2026-11-09T15:43:18.299Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-19T21:48:19.131Z",
+      "validThrough": "2026-12-20T09:34:53.920Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -579,7 +579,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/medizinische-praxisassistent-in-efz-fuer-die-notfallpraxis/b59ea8e4-ec74-433f-9f91-bc29c9ad38e8",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:48:19.127Z",
+      "crawledAt": "2026-11-20T09:34:53.917Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -616,7 +616,7 @@
         "checkedAt": "2026-11-09T15:43:18.299Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-09T21:48:19.127Z",
+      "validThrough": "2027-02-09T09:34:53.917Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -639,7 +639,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/mitarbeiter-in-sozial-und-austrittsberatung/2c03503a-a1f6-44e9-bd65-0d2846fa54c3",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:48:19.124Z",
+      "crawledAt": "2026-11-20T09:34:53.913Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -676,7 +676,7 @@
         "checkedAt": "2026-11-09T15:43:18.299Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-16T21:48:19.124Z",
+      "validThrough": "2027-02-16T09:34:53.913Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -699,7 +699,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/case-manager-in-sozial-und-austrittsberatung/54beabef-1cc9-41d2-811a-868370fa622e",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:48:19.098Z",
+      "crawledAt": "2026-11-20T09:34:53.896Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -736,7 +736,7 @@
         "checkedAt": "2026-11-09T15:43:18.299Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-04T21:48:19.098Z",
+      "validThrough": "2027-02-04T09:34:53.896Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
