@@ -77,6 +77,10 @@ export const DOMAIN_OVERRIDES = {
   lonza: ['lonza.com'],
   michaelpage: ['michaelpage.ch', 'michaelpage.com'],
   'matterhorn-gotthard-bahn': ['mgb.ch'],
+  // hydro.ch/fr/hydro-exploitation-162.html identifies the employer and Sion office.
+  'hydro-exploitation-sa': ['hydro.ch'],
+  // schweizerhofzermatt.ch/en/terms-and-conditions names MRH-Zermatt SA as operator.
+  'mrh-zermatt-sa': ['schweizerhofzermatt.ch'],
   'recruitingapp-1154': ['sgkb.ch'],
   // Issue #6504: these are employer-owned domains, never ATS or directory
   // hosts. yellowshark is first because it covers most of the affected jobs.
@@ -165,6 +169,10 @@ export const DOMAIN_OVERRIDES = {
   // reconciles historical records to the canonical `zaugg` identity.
   zaugg: ['zaugg.swiss'],
   'zaugg-ag': ['zaugg.swiss'],
+  // martigny.ch's official directory points to cms-martigny.ch.
+  'centre-medico-social-martigny-regions': ['cms-martigny.ch'],
+  // zhg.swiss/de/impressum identifies Zermatt Hospitality Group AG.
+  'zermatt-hospitality-group-ag': ['zhg.swiss'],
 };
 
 // The public homepage exposes a 32px site mark and its lazy-loaded markup can
