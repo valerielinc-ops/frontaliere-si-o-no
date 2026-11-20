@@ -115,10 +115,23 @@
     "sector": "Retail / Furniture",
     "expiredAt": "2026-11-17T21:26:00.979Z",
     "previousSlugs": [
-      "sachbearbeiterin-finanzen-w-m-d-pfister-thorishaus"
+      "sachbearbeiterin-finanzen-w-m-d-pfister-thorishaus",
+      "personale-in-finanza-m-f-d-mobel-pfister-ag-thorishaus-at10la",
+      "sachbearbeiterin-finanzen-w-m-d-pfister-thorishaus-at10la",
+      "personale-in-finanza-m-f-d-mobel-pfister-ag-thorishaus"
     ],
     "previousSlugsByLocale": {
       "it": [
+        "sachbearbeiterin-finanzen-w-m-d-pfister-thorishaus",
+        "personale-in-finanza-m-f-d-mobel-pfister-ag-thorishaus-at10la"
+      ],
+      "en": [
+        "sachbearbeiterin-finanzen-w-m-d-pfister-thorishaus"
+      ],
+      "de": [
+        "sachbearbeiterin-finanzen-w-m-d-pfister-thorishaus-at10la"
+      ],
+      "fr": [
         "sachbearbeiterin-finanzen-w-m-d-pfister-thorishaus"
       ]
     },
@@ -129,7 +142,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/424626/3465/pub/5/index.html",
-    "firstSeenAt": "2026-09-23T23:47:06.164Z"
+    "firstSeenAt": "2026-09-19T23:01:22.781Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/424626/3465/pub/1/index.html",
+        "firstSeenAt": "2026-09-19T23:01:22.781Z",
+        "title": "SachbearbeiterIn Finanzen (w/m/d)"
+      },
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/424626/3465/pub/5/index.html",
+        "firstSeenAt": "2026-09-19T23:01:22.781Z",
+        "title": "SachbearbeiterIn Finanzen (w/m/d)"
+      }
+    ]
   },
   {
     "slug": "sviluppatore-nel-business-digitale-formazione-mobel-pfister-ag-suhr",
@@ -628,7 +653,7 @@
     "firstSeenAt": "2026-08-12T21:52:17.523Z"
   },
   {
-    "slug": "inviatore-di-acquisto-m-f-d-mobel-pfister-ag-suhr-024a60dd",
+    "slug": "inviatore-di-acquisto-m-f-d-mobel-pfister-ag-suhr",
     "title": "EinkaufsdisponentIn (w/m/d)",
     "titleByLocale": {
       "it": "Inviatore di acquisto(m/f/d)",
@@ -647,10 +672,10 @@
       "fr": "• -->\n\nExpéditeur d'achat(h/f/d)\n\n100%\n\nSuhr\n\nPar accord\n\nPartager\n\nChez Pfister, nous poursuivons une vision: Nous voulons transférer nos produits dans chaque maison suisse. Nous recherchons un soutien actif à cet égard. Aidez-nous à apporter les quelque 100 000 produits de notre gamme dans les maisons de nos clients. Que ce soit dans l'une des 18 succursales ou au siège social de Suhr: Vous pouvez vous attendre à un environnement unique, en travaillant avec des produits attrayants et, enfin, l'appréciation et le respect de votre engagement. Il y a déjà environ 1 400 personnes qui travaillent à Pfister aujourd'hui – allez-vous rejoindre bientôt?\n\nVos nouvelles tâches\n\n• Vous êtes responsable de la disposition de l'assortiment et des articles promotionnels en tenant compte de l'information du client et du marché ainsi que des stocks\n• Dans notre SAP R/3, vous déclenchez les commandes de façon indépendante auprès de nos fournisseurs et surveillez les confirmations de commande et les réceptions des marchandises en temps opportun.\n• Vous assurez le flux optimal de marchandises vers nos branches\n• Vous êtes en contact étroit avec les fournisseurs, nos achats, nos magasins et notre logistique\n• Vous êtes responsable de la capture d'action dans SAP pour tous les domaines\n• Supporté par vos analyses Vous êtes l'équipe d'achat dans les décisions d'assortiment\n• Vous apportez une solide éducation commerciale, plusieurs années d'expérience professionnelle\n• Vous avez un fort style numérique ainsi que de bonnes connaissances SAP, Excel et MS Office\n• Vous aimez travailler indépendamment, être consciencieux et avoir une méthode de travail exacte\n• Vous êtes ouvert et orienté service\n• Connaissance des langues étrangères en anglais et en français"
     },
     "slugByLocale": {
-      "it": "inviatore-di-acquisto-m-f-d-mobel-pfister-ag-suhr-024a60dd",
-      "en": "purchase-dispatcher-m-f-d-mobel-pfister-ag-suhr-e3f2eeb7",
+      "it": "inviatore-di-acquisto-m-f-d-mobel-pfister-ag-suhr",
+      "en": "purchase-dispatcher-m-f-d-mobel-pfister-ag-suhr",
       "de": "einkaufsdisponentin-w-m-d-pfister-suhr-ef440b71",
-      "fr": "expediteur-d-achat-h-f-d-mobel-pfister-ag-suhr-8ec87f64"
+      "fr": "expediteur-d-achat-h-f-d-mobel-pfister-ag-suhr"
     },
     "sector": "Retail / Furniture",
     "expiredAt": "2026-10-23T21:27:48.492Z",
@@ -658,24 +683,39 @@
       "einkaufsdisponentin-w-m-d-mobel-pfister-ag-suhr-1129ed5f",
       "einkaufsdisponentin-w-m-d-pfister-suhr-ef440b71",
       "einkaufsdisponentin-w-m-d-pfister-suhr-baadbadb",
+      "einkaufsdisponentin-w-m-d-mobel-pfister-ag-suhr",
+      "einkaufsdisponentin-w-m-d-pfister-suhr",
+      "inviatore-di-acquisto-m-f-d-mobel-pfister-ag-suhr-024a60dd",
       "einkaufsdisponentin-w-m-d-mobel-pfister-ag-suhr-d2e8c568",
-      "einkaufsdisponentin-w-m-d-pfister-suhr-64215a2c"
+      "einkaufsdisponentin-w-m-d-pfister-suhr-64215a2c",
+      "purchase-dispatcher-m-f-d-mobel-pfister-ag-suhr-e3f2eeb7",
+      "expediteur-d-achat-h-f-d-mobel-pfister-ag-suhr-8ec87f64"
     ],
     "previousSlugsByLocale": {
       "it": [
         "einkaufsdisponentin-w-m-d-mobel-pfister-ag-suhr-1129ed5f",
         "einkaufsdisponentin-w-m-d-pfister-suhr-ef440b71",
         "einkaufsdisponentin-w-m-d-pfister-suhr-baadbadb",
+        "einkaufsdisponentin-w-m-d-mobel-pfister-ag-suhr",
+        "einkaufsdisponentin-w-m-d-pfister-suhr",
+        "inviatore-di-acquisto-m-f-d-mobel-pfister-ag-suhr-024a60dd",
         "einkaufsdisponentin-w-m-d-mobel-pfister-ag-suhr-d2e8c568",
         "einkaufsdisponentin-w-m-d-pfister-suhr-64215a2c"
       ],
       "en": [
         "einkaufsdisponentin-w-m-d-mobel-pfister-ag-suhr-1129ed5f",
+        "einkaufsdisponentin-w-m-d-mobel-pfister-ag-suhr",
+        "purchase-dispatcher-m-f-d-mobel-pfister-ag-suhr-e3f2eeb7",
         "einkaufsdisponentin-w-m-d-mobel-pfister-ag-suhr-d2e8c568"
       ],
       "fr": [
         "einkaufsdisponentin-w-m-d-mobel-pfister-ag-suhr-1129ed5f",
+        "einkaufsdisponentin-w-m-d-mobel-pfister-ag-suhr",
+        "expediteur-d-achat-h-f-d-mobel-pfister-ag-suhr-8ec87f64",
         "einkaufsdisponentin-w-m-d-mobel-pfister-ag-suhr-d2e8c568"
+      ],
+      "de": [
+        "einkaufsdisponentin-w-m-d-pfister-suhr"
       ]
     },
     "postalCode": "5034",
@@ -684,7 +724,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/424626/3464/pub/1/index.html",
-    "firstSeenAt": "2026-09-07T15:15:04.489Z"
+    "firstSeenAt": "2026-09-07T15:15:04.489Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/424626/3464/pub/1/index.html",
+        "firstSeenAt": "2026-09-07T15:15:04.489Z",
+        "title": "EinkaufsdisponentIn (w/m/d)"
+      },
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/424626/3464/pub/6/index.html",
+        "firstSeenAt": "2026-09-07T15:15:04.489Z",
+        "title": "EinkaufsdisponentIn (w/m/d)"
+      }
+    ]
   },
   {
     "slug": "kauffrau-kaufmann-f-m-d-3-anni-di-formazione-mobel-pfister-ag-suhr",
@@ -831,10 +883,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/424626/3471/pub/4/index.html",
-    "firstSeenAt": "2026-09-30T21:30:06.189Z"
+    "firstSeenAt": "2026-09-30T21:30:06.189Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/424626/3471/pub/1/index.html",
+        "firstSeenAt": "2026-09-30T21:30:06.189Z",
+        "title": "Magasinier /ère (h/f/d)"
+      },
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/424626/3471/pub/4/index.html",
+        "firstSeenAt": "2026-09-30T21:30:06.189Z",
+        "title": "Magasinier /ère (h/f/d)"
+      }
+    ]
   },
   {
-    "slug": "rivenditore-specializzato-boutique-m-f-d-mobel-pfister-ag-alchenfluh-lyssach-c37eaa7a",
+    "slug": "rivenditore-specializzato-boutique-m-f-d-mobel-pfister-ag-alchenfluh-lyssach",
     "title": "Fachverkäufer/in Boutique (w/m/d)",
     "titleByLocale": {
       "it": "Rivenditore specializzato Boutique (m/f/d)",
@@ -853,8 +917,8 @@
       "fr": "• -->\n\nFournisseur spécialisé/dans Boutique (h/f/d)\n\n100%\n\nAléphant\n\n2027 1 1\n\nPartager\n\nChez Pfister, nous poursuivons une vision: Nous voulons transférer nos produits dans chaque maison suisse. Nous recherchons un soutien actif à cet égard. Aidez-nous à apporter les quelque 100 000 produits de notre gamme dans les maisons de nos clients. Que ce soit dans l'une des 18 succursales ou au siège social de Suhr: Vous pouvez vous attendre à un environnement unique, en travaillant avec des produits attrayants et, enfin, l'appréciation et le respect de votre engagement. Il y a déjà environ 1 400 personnes qui travaillent chez Pfister aujourd'hui – allez-vous rejoindre bientôt?\n\nVos nouvelles tâches\n\n• Enthrall visiteurs avec des idées créatives autour de notre gamme variée d'accessoires de maison et d'articles de ménage\n• Identifier les besoins des clients, fournir des conseils compétents et élaborer des propositions d'équipement\n• Présentation de notre gamme, en fonction des besoins de nos clients\n• Organisation de négociations commerciales axées sur les objectifs\n• Aider à construire une présentation de produit inspirante et promotionnelle\n• Si nécessaire, aider à organiser, décorer et marquer les produits\n• Si nécessaire, aide à la caisse\n• Expérience en ventes et conseils à la clientèle\n• Profitez d'un contact régulier avec le client et de conseils professionnels et complets\n• Flair pour le design et la belle vie\n• Personnalité communicative, convaincante et amicale\n• Formation professionnelle complète dans le secteur de la vente au détail, de préférence dans le secteur des ménages/verre/porcelaine/coutellerie\n• Expérience dans les industries à forte orientation client"
     },
     "slugByLocale": {
-      "it": "rivenditore-specializzato-boutique-m-f-d-mobel-pfister-ag-alchenfluh-lyssach-c37eaa7a",
-      "en": "specialist-salesperson-boutique-m-f-d-mobel-pfister-ag-alchenfluh-lyssach-87ad345f",
+      "it": "rivenditore-specializzato-boutique-m-f-d-mobel-pfister-ag-alchenfluh-lyssach",
+      "en": "specialist-salesperson-boutique-m-f-d-mobel-pfister-ag-alchenfluh-lyssach",
       "de": "fachverkaufer-in-boutique-w-m-d-pfister-alchenfluh-lyssach-74e4a6ec",
       "fr": "vendeur-euse-specialise-e-en-boutique-h-f-d-mobel-pfister-ag-alchenfluh-lyssach"
     },
@@ -862,12 +926,23 @@
     "expiredAt": "2026-10-21T09:29:15.368Z",
     "previousSlugs": [
       "fachverkaufer-in-boutique-w-m-d-pfister-alchenfluh-lyssach-74e4a6ec",
-      "fachverkaufer-in-boutique-w-m-d-pfister-alchenfluh-lyssach-f368849b"
+      "fachverkaufer-in-boutique-w-m-d-pfister-alchenfluh-lyssach",
+      "rivenditore-specializzato-boutique-m-f-d-mobel-pfister-ag-alchenfluh-lyssach-c37eaa7a",
+      "fachverkaufer-in-boutique-w-m-d-pfister-alchenfluh-lyssach-f368849b",
+      "specialist-salesperson-boutique-m-f-d-mobel-pfister-ag-alchenfluh-lyssach-87ad345f"
     ],
     "previousSlugsByLocale": {
       "it": [
         "fachverkaufer-in-boutique-w-m-d-pfister-alchenfluh-lyssach-74e4a6ec",
+        "fachverkaufer-in-boutique-w-m-d-pfister-alchenfluh-lyssach",
+        "rivenditore-specializzato-boutique-m-f-d-mobel-pfister-ag-alchenfluh-lyssach-c37eaa7a",
         "fachverkaufer-in-boutique-w-m-d-pfister-alchenfluh-lyssach-f368849b"
+      ],
+      "en": [
+        "specialist-salesperson-boutique-m-f-d-mobel-pfister-ag-alchenfluh-lyssach-87ad345f"
+      ],
+      "de": [
+        "fachverkaufer-in-boutique-w-m-d-pfister-alchenfluh-lyssach"
       ]
     },
     "postalCode": "3422",
@@ -876,7 +951,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/424626/3474/pub/1/index.html",
-    "firstSeenAt": "2026-10-05T21:43:15.133Z"
+    "firstSeenAt": "2026-10-05T21:43:15.133Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/424626/3474/pub/1/index.html",
+        "firstSeenAt": "2026-10-05T21:43:15.133Z",
+        "title": "Fachverkäufer/in Boutique (w/m/d)"
+      },
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/424626/3474/pub/4/index.html",
+        "firstSeenAt": "2026-10-05T21:43:15.133Z",
+        "title": "Fachverkäufer/in Boutique (w/m/d)"
+      }
+    ]
   },
   {
     "slug": "impiegato-a-del-commercio-al-dettaglio-mobel-ausbildung-mobel-pfister-ag-suhr",
@@ -1249,6 +1336,49 @@
     "firstSeenAt": "2026-07-04T12:18:12.256Z"
   },
   {
+    "slug": "home-consulente-m-f-d-mobel-pfister-ag-suhr",
+    "title": "WohnberaterIn (w/m/d)",
+    "titleByLocale": {
+      "it": "Home consulente (m/f/d)",
+      "en": "Home consultant (m/f/d)",
+      "de": "WohnberaterIn (w/m/d)",
+      "fr": "Consultant à domicile (h/f/d)"
+    },
+    "company": "Möbel Pfister AG",
+    "companyKey": "pfister",
+    "location": "Suhr",
+    "addressLocality": "Suhr",
+    "descriptionByLocale": {
+      "it": "• -->\n\nHome consulente (m/f/d)\n\n80% - 100%\n\nSuhr\n\nAccordo\n\nCondividi\n\nNoi di pfister perseguiamo una visione: vogliamo spostare i nostri prodotti in ogni casa svizzera. Stiamo cercando un supporto attivo per questo. Aiutaci a portare i circa 100.000 prodotti nella nostra gamma nelle case dei nostri clienti. Che si tratti di uno dei 18 rami o presso la sede di Suhr: Ci si può aspettare un ambiente unico, lavorando con prodotti attraenti e, ultimo ma non meno importante, apprezzamento e rispetto per il vostro impegno. Ci sono già circa 1.400 persone che lavorano a pfister oggi – vi unirete presto?\n\nLe nuove attività\n\n• Ispiranti visitatori\n• Identificare le esigenze del cliente, fornire consulenza competente e sviluppare proposte di attrezzature\n• convincere con idee creative interior e creare esperienze di shopping\n• I principali colloqui di vendita orientati agli obiettivi\n• Assistenza clienti completa dal primo contatto alla consegna di successo\n• Passione per il contatto cliente regolare e consigli completi\n• Esperienza di vendita\n• Flair per una bella vita\n• Divertimento del lavoro orientato al successo\n• Vendita comunicativa e forte\n• Esperienza nell'industria dell'arredamento\n• Conoscenza dettagliata dei programmi di pianificazione e materiali di arredo\n• Lingue straniere (inglese/francese)",
+      "en": "• -->\n\nHome consultant (m/f/d)\n\n80% - 100%\n\nSuhr\n\nBy agreement\n\nShare\n\nWe at pfister pursue a vision: We want to move our products into every Swiss home. We are seeking active support for this. Help us bring the approximately 100,000 products in our range into the homes of our customers. Whether in one of the 18 branches or at the headquarters in Suhr: You can expect a unique environment, working with attractive products and, last but not least, appreciation and respect for your commitment. There are already around 1,400 people working at pfister today – will you join soon?\n\nYour new tasks\n\n• Inspiring visitors\n• Identify customer needs, provide competent advice and develop equipment proposals\n• convince with creative interior ideas and create shopping experiences\n• Leading goal-oriented sales talks\n• Comprehensive customer support from first contact to successful delivery\n• Passion for regular customer contact and comprehensive advice\n• Sound sales experience\n• Flair for beautiful living\n• Enjoyment of success-oriented work\n• Communicative and strong sales\n• Experience in the furnishing industry\n• Detailed knowledge of planning programs and furnishing materials\n• Foreign languages (English/French)",
+      "de": "• -->\n\nWohnberaterIn (w/m/d)\n\n80% - 100%\n\nSuhr\n\nnach Vereinbarung\n\nShare\n\nWir bei pfister verfolgen eine Vision: Wir möchten mit unseren Produkten in jedes Schweizer Zuhause einziehen. Dafür suchen wir tatkräftige Unterstützung. Hilf uns, die rund 100'000 Produkte unseres Sortiments ins Zuhause unserer Kundinnen und Kunden zu bringen. Ob in einer der 18 Filialen oder in der Zentrale in Suhr: Dich erwartet ein einmaliges Umfeld, die Arbeit mit ansprechenden Produkten und nicht zuletzt Wertschätzung und Respekt für deinen Einsatz. Bei pfister arbeiten heute schon rund 1'400 Personen - kommst du bald dazu?\n\nDeine neuen Aufgaben\n\n• BesucherInnen begeistern\n• Kundenbedürfnisse erfassen, kompetent beraten und Einrichtungsvorschläge erarbeiten\n• mit kreativen Einrichtungsideen überzeugen und Einkaufserlebnisse schaffen\n• Zielorientierte Verkaufsgespräche führen\n• Umfassende Betreuung der Kundinnen und Kunden vom ersten Kontakt bis zur erfolgreichen Lieferung\n• Leidenschaft für regelmässigen Kundenkontakt und umfassende Beratung\n• fundierte Verkaufserfahrung\n• Flair für schönes Wohnen\n• Freude an erfolgsorientiertem Arbeiten\n• kommunikativ und verkaufsstark\n• Erfahrung in der Einrichtungsbranche\n• Detaillierte Kenntnisse über Planungsprogramme und Einrichtungsmaterialien\n• Fremdsprachen (Englisch/Französisch)",
+      "fr": "• -->\n\nConsultant à domicile (h/f/d)\n\n80% - 100%\n\nSuhr\n\nPar accord\n\nPartager\n\nChez Pfister, nous poursuivons une vision: Nous voulons transférer nos produits dans chaque maison suisse. Nous recherchons un soutien actif à cet égard. Aidez-nous à apporter les quelque 100 000 produits de notre gamme dans les maisons de nos clients. Que ce soit dans l'une des 18 succursales ou au siège social de Suhr: Vous pouvez vous attendre à un environnement unique, en travaillant avec des produits attrayants et, enfin, l'appréciation et le respect de votre engagement. Il y a déjà environ 1 400 personnes qui travaillent à Pfister aujourd'hui – allez-vous rejoindre bientôt?\n\nVos nouvelles tâches\n\n• Des visiteurs inspirants\n• Identifier les besoins des clients, fournir des conseils compétents et élaborer des propositions d'équipement\n• convaincre avec des idées d'intérieur créatives et créer des expériences de shopping\n• Principales négociations commerciales axées sur les objectifs\n• Assistance client complète depuis le premier contact jusqu'à la livraison réussie\n• Passion pour un contact client régulier et des conseils complets\n• Bonne expérience en matière de ventes\n• Flair pour une belle vie\n• Profitez d'un travail axé sur le succès\n• Ventes communicatives et fortes\n• Expérience dans l'industrie de l'ameublement\n• Connaissance détaillée des programmes de planification et du matériel d'ameublement\n• Langues étrangères (anglais/français)"
+    },
+    "slugByLocale": {
+      "it": "home-consulente-m-f-d-mobel-pfister-ag-suhr",
+      "en": "home-consultant-m-f-d-mobel-pfister-ag-suhr",
+      "de": "wohnberaterin-w-m-d-pfister-suhr",
+      "fr": "consultant-a-domicile-h-f-d-mobel-pfister-ag-suhr"
+    },
+    "sector": "Retail / Furniture",
+    "expiredAt": "2026-10-09T09:26:18.395Z",
+    "previousSlugs": [
+      "wohnberaterin-w-m-d-pfister-suhr"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "wohnberaterin-w-m-d-pfister-suhr"
+      ]
+    },
+    "postalCode": "5034",
+    "salaryMin": 88000,
+    "salaryMax": 123000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://apply.refline.ch/424626/3449/pub/1/index.html",
+    "firstSeenAt": "2026-08-26T10:06:54.920Z"
+  },
+  {
     "slug": "addetto-a-al-commercio-al-dettaglio-mobel-ausbildung-mobel-pfister-ag-pratteln",
     "title": "Detailhandelsfachmann/-frau Möbel (Ausbildung)",
     "titleByLocale": {
@@ -1298,7 +1428,7 @@
     "firstSeenAt": "2026-07-10T12:03:11.354Z"
   },
   {
-    "slug": "dipendenti-nella-logistica-m-f-d-mobel-pfister-ag-pratteln-8b3c8d60",
+    "slug": "dipendenti-nella-logistica-m-f-d-mobel-pfister-ag-pratteln",
     "title": "MitarbeiterIn Logistik (w/m/d)",
     "titleByLocale": {
       "it": "Dipendenti nella logistica (m/f/d)",
@@ -1317,33 +1447,46 @@
       "fr": "• -->\n\nEmployé en logistique (h/f/d)\n\n100%\n\nPrattelen\n\nPar accord\n\nPartager\n\nChez Pfister, nous poursuivons une vision: Nous voulons transférer nos produits dans chaque maison suisse. Nous recherchons un soutien actif à cet égard. Aidez-nous à apporter les quelque 100 000 produits de notre gamme dans les maisons de nos clients. Que ce soit dans l'une des 18 succursales ou au siège social de Suhr: Vous pouvez vous attendre à un environnement unique, en travaillant avec des produits attrayants et, enfin, l'appréciation et le respect de votre engagement. Il y a déjà environ 1 400 personnes qui travaillent à Pfister aujourd'hui – allez-vous rejoindre bientôt?\n\nVos nouvelles tâches\n\n• Assurer le soutien courtois de la clientèle lors de la livraison des marchandises\n• Assurer un flux fluide de nos marchandises à l'entrée et à la sortie de la branche\n• Entretien de notre entrepôt\n• Si nécessaire, aider dans d'autres départements (par exemple notre équipe de décoration dans la construction de magasins et les conversions dans l'exposition)\n• Une personnalité heureuse, précise, utile, fiable et tournée vers l'avenir\n• L'artisanat et le bon sens des activités\n• Bonne performance physique et grande flexibilité\n• Expérience dans le stockage et l'affinité pour l'ameublement\n• Expérience des réservations d'entrée et de sortie dans SAP\n• Amusement dans l'assemblage des meubles"
     },
     "slugByLocale": {
-      "it": "dipendenti-nella-logistica-m-f-d-mobel-pfister-ag-pratteln-8b3c8d60",
-      "en": "employee-in-logistics-m-f-d-mobel-pfister-ag-pratteln-0e0b6549",
+      "it": "dipendenti-nella-logistica-m-f-d-mobel-pfister-ag-pratteln",
+      "en": "employee-in-logistics-m-f-d-mobel-pfister-ag-pratteln",
       "de": "mitarbeiterin-logistik-w-m-d-pfister-pratteln-1bd0a950",
-      "fr": "employe-en-logistique-h-f-d-mobel-pfister-ag-pratteln-636f2583"
+      "fr": "employe-en-logistique-h-f-d-mobel-pfister-ag-pratteln"
     },
     "sector": "Retail / Furniture",
     "expiredAt": "2026-10-04T09:21:34.404Z",
     "previousSlugs": [
       "mitarbeiterin-logistik-w-m-d-pfister-pratteln-1bd0a950",
       "mitarbeiterin-logistik-w-m-d-pfister-pratteln-6422fea0",
-      "mitarbeiterin-logistik-w-m-d-pfister-pratteln-324ad903"
+      "mitarbeiterin-logistik-w-m-d-pfister-pratteln",
+      "dipendenti-nella-logistica-m-f-d-mobel-pfister-ag-pratteln-8b3c8d60",
+      "mitarbeiterin-logistik-w-m-d-pfister-pratteln-324ad903",
+      "employee-in-logistics-m-f-d-mobel-pfister-ag-pratteln-0e0b6549",
+      "employe-en-logistique-h-f-d-mobel-pfister-ag-pratteln-636f2583"
     ],
     "previousSlugsByLocale": {
       "it": [
         "mitarbeiterin-logistik-w-m-d-pfister-pratteln-1bd0a950",
         "mitarbeiterin-logistik-w-m-d-pfister-pratteln-6422fea0",
+        "mitarbeiterin-logistik-w-m-d-pfister-pratteln",
+        "dipendenti-nella-logistica-m-f-d-mobel-pfister-ag-pratteln-8b3c8d60",
         "mitarbeiterin-logistik-w-m-d-pfister-pratteln-324ad903"
       ],
       "en": [
         "mitarbeiterin-logistik-w-m-d-pfister-pratteln-1bd0a950",
         "mitarbeiterin-logistik-w-m-d-pfister-pratteln-6422fea0",
+        "mitarbeiterin-logistik-w-m-d-pfister-pratteln",
+        "employee-in-logistics-m-f-d-mobel-pfister-ag-pratteln-0e0b6549",
         "mitarbeiterin-logistik-w-m-d-pfister-pratteln-324ad903"
       ],
       "fr": [
         "mitarbeiterin-logistik-w-m-d-pfister-pratteln-1bd0a950",
         "mitarbeiterin-logistik-w-m-d-pfister-pratteln-6422fea0",
+        "mitarbeiterin-logistik-w-m-d-pfister-pratteln",
+        "employe-en-logistique-h-f-d-mobel-pfister-ag-pratteln-636f2583",
         "mitarbeiterin-logistik-w-m-d-pfister-pratteln-324ad903"
+      ],
+      "de": [
+        "mitarbeiterin-logistik-w-m-d-pfister-pratteln"
       ]
     },
     "postalCode": "5034",
@@ -1352,7 +1495,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/424626/3467/pub/1/index.html",
-    "firstSeenAt": "2026-09-28T21:23:40.287Z"
+    "firstSeenAt": "2026-09-28T21:23:40.287Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/424626/3467/pub/1/index.html",
+        "firstSeenAt": "2026-09-28T21:23:40.287Z",
+        "title": "MitarbeiterIn Logistik (w/m/d)"
+      },
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/424626/3467/pub/4/index.html",
+        "firstSeenAt": "2026-11-04T09:23:37.876Z",
+        "title": "MitarbeiterIn Logistik (w/m/d)"
+      }
+    ]
   },
   {
     "slug": "chef-di-decorazione-f-h-d-mobel-pfister-ag-avry",
@@ -1544,7 +1699,9 @@
     "salaryMin": 88000,
     "salaryMax": 123000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://apply.refline.ch/424626/3441/pub/1/index.html",
+    "firstSeenAt": "2026-08-03T22:16:21.675Z"
   },
   {
     "slug": "consulente-immobiliare-f-m-d-mobel-pfister-ag-bern",
@@ -1604,7 +1761,9 @@
     "salaryMin": 85000,
     "salaryMax": 119000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://apply.refline.ch/424626/3406/pub/1/index.html",
+    "firstSeenAt": "2026-07-04T12:18:18.781Z"
   },
   {
     "slug": "polydesigner-in-3d-formazione-mobel-pfister-ag-dubendorf",
@@ -1651,7 +1810,9 @@
     "salaryMin": 79000,
     "salaryMax": 134500,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://apply.refline.ch/424626/1271/pub/21/index.html",
+    "firstSeenAt": "2026-07-13T12:28:40.436Z"
   },
   {
     "slug": "consulente-vendite-home-living-m-f-d-mobel-pfister-ag-mels",
@@ -1886,7 +2047,8 @@
     "salaryMin": 119000,
     "salaryMax": 166000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://apply.refline.ch/424626/3477/pub/1/index.html"
   },
   {
     "slug": "ebeniste-monteur-euse-avec-permis-de-cat-c1-c-f-h-d-pfister-villeneuve",
