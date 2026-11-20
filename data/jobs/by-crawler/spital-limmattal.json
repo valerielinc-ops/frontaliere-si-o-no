@@ -1,7 +1,7 @@
 {
   "crawlerKey": "spital-limmattal",
-  "assembledAt": "2026-11-20T09:19:35.048Z",
-  "runId": "44707739623",
+  "assembledAt": "2026-11-20T21:20:36.546Z",
+  "runId": "44817363600",
   "jobs": [
     {
       "id": "spital-limmattal-f200997dc461",
@@ -34,7 +34,7 @@
       "url": "https://apply.refline.ch/486538/0616/pub/11/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:38.038Z",
+      "crawledAt": "2026-11-20T21:19:33.175Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -130,10 +130,11 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:18:38.038Z",
+      "validThrough": "2026-12-20T21:19:33.175Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-09-19T22:48:51.011Z",
-      "sourceIdentity": "url:https://apply.refline.ch/486538/0616/pub/11/index.html"
+      "sourceIdentity": "url:https://apply.refline.ch/486538/0616/pub/11/index.html",
+      "needsRetranslation": true
     },
     {
       "id": "spital-limmattal-bb7d2934d0a2",
@@ -167,7 +168,7 @@
       "url": "https://apply.refline.ch/486538/0904/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:37.604Z",
+      "crawledAt": "2026-11-20T21:19:32.694Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -216,7 +217,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T09:18:37.604Z",
+      "validThrough": "2027-02-15T21:19:32.694Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0904/pub/1/index.html"
     },
@@ -252,7 +253,7 @@
       "url": "https://apply.refline.ch/486538/0905/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:37.167Z",
+      "crawledAt": "2026-11-20T21:19:32.212Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -301,7 +302,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T09:18:37.167Z",
+      "validThrough": "2027-02-15T21:19:32.212Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0905/pub/1/index.html"
     },
@@ -337,7 +338,7 @@
       "url": "https://apply.refline.ch/486538/0824/pub/2/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:36.719Z",
+      "crawledAt": "2026-11-20T21:19:31.731Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -380,7 +381,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:18:36.719Z",
+      "validThrough": "2026-12-20T21:19:31.731Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0824/pub/2/index.html"
     },
@@ -416,7 +417,7 @@
       "url": "https://apply.refline.ch/486538/0856/pub/3/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:36.286Z",
+      "crawledAt": "2026-11-20T21:19:31.250Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -470,7 +471,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:18:36.286Z",
+      "validThrough": "2026-12-20T21:19:31.250Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0856/pub/3/index.html"
     },
@@ -505,7 +506,7 @@
       "url": "https://apply.refline.ch/486538/0901/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:35.852Z",
+      "crawledAt": "2026-11-20T21:19:30.767Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -559,7 +560,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:18:35.852Z",
+      "validThrough": "2027-02-03T21:19:30.767Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0901/pub/1/index.html"
     },
@@ -595,7 +596,7 @@
       "url": "https://apply.refline.ch/486538/0900/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:35.419Z",
+      "crawledAt": "2026-11-20T21:19:30.285Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -647,7 +648,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:18:35.419Z",
+      "validThrough": "2027-02-02T21:19:30.285Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0900/pub/1/index.html"
     },
@@ -683,7 +684,7 @@
       "url": "https://apply.refline.ch/486538/0307/pub/6/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:34.971Z",
+      "crawledAt": "2026-11-20T21:19:29.804Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -732,7 +733,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:18:34.971Z",
+      "validThrough": "2026-12-20T21:19:29.804Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0307/pub/6/index.html"
     },
@@ -768,7 +769,7 @@
       "url": "https://apply.refline.ch/486538/0897/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:33.888Z",
+      "crawledAt": "2026-11-20T21:19:29.323Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -822,7 +823,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-29T09:18:33.888Z",
+      "validThrough": "2027-01-28T21:19:29.323Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0897/pub/1/index.html"
     },
@@ -858,7 +859,7 @@
       "url": "https://apply.refline.ch/486538/0899/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:33.453Z",
+      "crawledAt": "2026-11-20T21:19:28.843Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -910,7 +911,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T09:18:33.453Z",
+      "validThrough": "2027-01-31T21:19:28.843Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0899/pub/1/index.html"
     },
@@ -946,7 +947,7 @@
       "url": "https://apply.refline.ch/486538/0762/pub/3/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:33.019Z",
+      "crawledAt": "2026-11-20T21:19:28.363Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -995,7 +996,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:18:33.019Z",
+      "validThrough": "2026-12-20T21:19:28.363Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0762/pub/3/index.html"
     },
@@ -1031,7 +1032,7 @@
       "url": "https://apply.refline.ch/486538/0639/pub/4/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:32.583Z",
+      "crawledAt": "2026-11-20T21:19:27.881Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1097,7 +1098,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:18:32.583Z",
+      "validThrough": "2026-12-20T21:19:27.881Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0639/pub/4/index.html"
     },
@@ -1133,7 +1134,7 @@
       "url": "https://apply.refline.ch/486538/0895/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:32.023Z",
+      "crawledAt": "2026-11-20T21:19:27.399Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1182,7 +1183,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:18:32.023Z",
+      "validThrough": "2027-01-26T21:19:27.399Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0895/pub/1/index.html"
     },
@@ -1218,7 +1219,7 @@
       "url": "https://apply.refline.ch/486538/0894/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:31.587Z",
+      "crawledAt": "2026-11-20T21:19:26.921Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1270,7 +1271,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:18:31.587Z",
+      "validThrough": "2027-01-26T21:19:26.921Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0894/pub/1/index.html"
     },
@@ -1305,7 +1306,7 @@
       "url": "https://apply.refline.ch/486538/0889/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:31.150Z",
+      "crawledAt": "2026-11-20T21:19:26.443Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1357,7 +1358,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T09:18:31.150Z",
+      "validThrough": "2027-01-18T21:19:26.443Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0889/pub/1/index.html"
     },
@@ -1393,7 +1394,7 @@
       "url": "https://apply.refline.ch/486538/0888/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:30.717Z",
+      "crawledAt": "2026-11-20T21:19:25.963Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1447,7 +1448,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T09:18:30.717Z",
+      "validThrough": "2027-01-18T21:19:25.963Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0888/pub/1/index.html"
     },
@@ -1482,7 +1483,7 @@
       "url": "https://apply.refline.ch/486538/0749/pub/5/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:30.277Z",
+      "crawledAt": "2026-11-20T21:19:25.483Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1581,7 +1582,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:18:30.277Z",
+      "validThrough": "2026-12-20T21:19:25.483Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0749/pub/5/index.html"
     },
@@ -1617,7 +1618,7 @@
       "url": "https://apply.refline.ch/486538/0711/pub/5/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:29.840Z",
+      "crawledAt": "2026-11-20T21:19:25.002Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1666,7 +1667,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:18:29.840Z",
+      "validThrough": "2026-12-20T21:19:25.002Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0711/pub/5/index.html"
     },
@@ -1702,7 +1703,7 @@
       "url": "https://apply.refline.ch/486538/0887/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:29.402Z",
+      "crawledAt": "2026-11-20T21:19:23.631Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1769,7 +1770,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-08T09:18:29.402Z",
+      "validThrough": "2027-01-07T21:19:23.631Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0887/pub/1/index.html"
     },
@@ -1805,7 +1806,7 @@
       "url": "https://apply.refline.ch/486538/0840/pub/4/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:28.965Z",
+      "crawledAt": "2026-11-20T21:19:23.151Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1857,7 +1858,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:18:28.965Z",
+      "validThrough": "2026-12-20T21:19:23.151Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0840/pub/4/index.html"
     },
@@ -1893,7 +1894,7 @@
       "url": "https://apply.refline.ch/486538/0880/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:28.528Z",
+      "crawledAt": "2026-11-20T21:19:22.668Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1945,7 +1946,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T09:18:28.528Z",
+      "validThrough": "2027-01-04T21:19:22.668Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0880/pub/1/index.html"
     },
@@ -1981,7 +1982,7 @@
       "url": "https://apply.refline.ch/486538/0883/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:28.092Z",
+      "crawledAt": "2026-11-20T21:19:22.171Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2030,7 +2031,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T09:18:28.092Z",
+      "validThrough": "2027-01-06T21:19:22.171Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0883/pub/1/index.html"
     },
@@ -2066,7 +2067,7 @@
       "url": "https://apply.refline.ch/486538/0882/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:27.651Z",
+      "crawledAt": "2026-11-20T21:19:21.691Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2115,7 +2116,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T09:18:27.651Z",
+      "validThrough": "2027-01-06T21:19:21.691Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0882/pub/1/index.html"
     },
@@ -2151,7 +2152,7 @@
       "url": "https://apply.refline.ch/486538/0886/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:27.212Z",
+      "crawledAt": "2026-11-20T21:19:21.210Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2200,7 +2201,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T09:18:27.212Z",
+      "validThrough": "2027-01-06T21:19:21.210Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0886/pub/1/index.html"
     },
@@ -2236,7 +2237,7 @@
       "url": "https://apply.refline.ch/486538/0885/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:26.759Z",
+      "crawledAt": "2026-11-20T21:19:20.729Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2285,7 +2286,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T09:18:26.759Z",
+      "validThrough": "2027-01-06T21:19:20.729Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0885/pub/1/index.html"
     },
@@ -2321,7 +2322,7 @@
       "url": "https://apply.refline.ch/486538/0884/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:26.319Z",
+      "crawledAt": "2026-11-20T21:19:20.248Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2370,7 +2371,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T09:18:26.319Z",
+      "validThrough": "2027-01-06T21:19:20.248Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0884/pub/1/index.html"
     },
@@ -2406,7 +2407,7 @@
       "url": "https://apply.refline.ch/486538/0878/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:25.883Z",
+      "crawledAt": "2026-11-20T21:19:19.766Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2455,7 +2456,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-01T09:18:25.883Z",
+      "validThrough": "2026-12-31T21:19:19.766Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0878/pub/1/index.html"
     },
@@ -2491,7 +2492,7 @@
       "url": "https://apply.refline.ch/486538/0877/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:25.447Z",
+      "crawledAt": "2026-11-20T21:19:19.286Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2540,7 +2541,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-01T09:18:25.447Z",
+      "validThrough": "2026-12-31T21:19:19.286Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0877/pub/1/index.html"
     },
@@ -2575,7 +2576,7 @@
       "url": "https://apply.refline.ch/486538/0868/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:24.979Z",
+      "crawledAt": "2026-11-20T21:19:18.805Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2624,7 +2625,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:18:24.979Z",
+      "validThrough": "2026-12-27T21:19:18.805Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0868/pub/1/index.html"
     },
@@ -2660,7 +2661,7 @@
       "url": "https://apply.refline.ch/486538/0860/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:23.772Z",
+      "crawledAt": "2026-11-20T21:19:18.328Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2712,7 +2713,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:18:23.772Z",
+      "validThrough": "2026-12-20T21:19:18.328Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0860/pub/1/index.html"
     },
@@ -2748,7 +2749,7 @@
       "url": "https://apply.refline.ch/486538/0859/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:23.337Z",
+      "crawledAt": "2026-11-20T21:19:17.849Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2815,7 +2816,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:18:23.337Z",
+      "validThrough": "2026-12-20T21:19:17.849Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0859/pub/1/index.html"
     },
@@ -2851,7 +2852,7 @@
       "url": "https://apply.refline.ch/486538/0854/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:22.902Z",
+      "crawledAt": "2026-11-20T21:19:17.365Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2932,7 +2933,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:18:22.902Z",
+      "validThrough": "2026-12-20T21:19:17.365Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0854/pub/1/index.html"
     },
@@ -2967,7 +2968,7 @@
       "url": "https://apply.refline.ch/486538/0851/pub/2/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:22.467Z",
+      "crawledAt": "2026-11-20T21:19:16.885Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3016,7 +3017,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:18:22.467Z",
+      "validThrough": "2026-12-20T21:19:16.885Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0851/pub/2/index.html"
     },
@@ -3052,7 +3053,7 @@
       "url": "https://apply.refline.ch/486538/0853/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:22.024Z",
+      "crawledAt": "2026-11-20T21:19:16.405Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3104,7 +3105,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:18:22.024Z",
+      "validThrough": "2026-12-20T21:19:16.405Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0853/pub/1/index.html"
     },
@@ -3140,7 +3141,7 @@
       "url": "https://apply.refline.ch/486538/0627/pub/4/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:21.590Z",
+      "crawledAt": "2026-11-20T21:19:15.928Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3183,7 +3184,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:18:21.590Z",
+      "validThrough": "2026-12-20T21:19:15.928Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0627/pub/4/index.html"
     },
@@ -3218,7 +3219,7 @@
       "url": "https://apply.refline.ch/486538/0708/pub/3/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:21.154Z",
+      "crawledAt": "2026-11-20T21:19:15.449Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3274,7 +3275,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:18:21.154Z",
+      "validThrough": "2026-12-20T21:19:15.449Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0708/pub/3/index.html"
     },
@@ -3310,7 +3311,7 @@
       "url": "https://apply.refline.ch/486538/0803/pub/2/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:20.719Z",
+      "crawledAt": "2026-11-20T21:19:13.810Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3362,7 +3363,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:18:20.719Z",
+      "validThrough": "2026-12-20T21:19:13.810Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0803/pub/2/index.html"
     },
@@ -3398,7 +3399,7 @@
       "url": "https://apply.refline.ch/486538/0694/pub/5/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:20.285Z",
+      "crawledAt": "2026-11-20T21:19:13.316Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3454,7 +3455,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:18:20.285Z",
+      "validThrough": "2026-12-20T21:19:13.316Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0694/pub/5/index.html"
     },
@@ -3490,7 +3491,7 @@
       "url": "https://apply.refline.ch/486538/0835/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:19.850Z",
+      "crawledAt": "2026-11-20T21:19:12.820Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3564,7 +3565,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:18:19.850Z",
+      "validThrough": "2026-12-20T21:19:12.820Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0835/pub/1/index.html"
     },
@@ -3600,7 +3601,7 @@
       "url": "https://apply.refline.ch/486538/0836/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:19.413Z",
+      "crawledAt": "2026-11-20T21:19:12.341Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3653,7 +3654,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:18:19.413Z",
+      "validThrough": "2026-12-20T21:19:12.341Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0836/pub/1/index.html"
     },
@@ -3688,7 +3689,7 @@
       "url": "https://apply.refline.ch/486538/0819/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:18.981Z",
+      "crawledAt": "2026-11-20T21:19:11.860Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3741,7 +3742,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:18:18.981Z",
+      "validThrough": "2026-12-20T21:19:11.860Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0819/pub/1/index.html"
     },
@@ -3777,7 +3778,7 @@
       "url": "https://apply.refline.ch/486538/0410/pub/2/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:18.546Z",
+      "crawledAt": "2026-11-20T21:19:11.378Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3833,7 +3834,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:18:18.546Z",
+      "validThrough": "2026-12-20T21:19:11.378Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0410/pub/2/index.html"
     },
@@ -3869,7 +3870,7 @@
       "url": "https://apply.refline.ch/486538/0831/pub/2/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:18.107Z",
+      "crawledAt": "2026-11-20T21:19:10.896Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3921,7 +3922,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:18:18.107Z",
+      "validThrough": "2026-12-20T21:19:10.896Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0831/pub/2/index.html"
     },
@@ -3957,7 +3958,7 @@
       "url": "https://apply.refline.ch/486538/0738/pub/3/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:17.664Z",
+      "crawledAt": "2026-11-20T21:19:10.392Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4023,7 +4024,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:18:17.664Z",
+      "validThrough": "2026-12-20T21:19:10.392Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0738/pub/3/index.html"
     },
@@ -4059,7 +4060,7 @@
       "url": "https://apply.refline.ch/486538/0710/pub/4/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:17.223Z",
+      "crawledAt": "2026-11-20T21:19:09.907Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4108,7 +4109,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:18:17.223Z",
+      "validThrough": "2026-12-20T21:19:09.907Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0710/pub/4/index.html"
     },
@@ -4246,7 +4247,7 @@
       "url": "https://apply.refline.ch/486538/0624/pub/5/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:16.788Z",
+      "crawledAt": "2026-11-20T21:19:09.417Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4304,7 +4305,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:18:16.788Z",
+      "validThrough": "2026-12-20T21:19:09.417Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0624/pub/5/index.html"
     },
@@ -4339,7 +4340,7 @@
       "url": "https://apply.refline.ch/486538/0748/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:16.349Z",
+      "crawledAt": "2026-11-20T21:19:08.929Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4417,7 +4418,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:18:16.349Z",
+      "validThrough": "2026-12-20T21:19:08.929Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0748/pub/1/index.html"
     },
@@ -4453,7 +4454,7 @@
       "url": "https://apply.refline.ch/486538/0552/pub/2/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:15.910Z",
+      "crawledAt": "2026-11-20T21:19:08.442Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4518,7 +4519,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:18:15.910Z",
+      "validThrough": "2026-12-20T21:19:08.442Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0552/pub/2/index.html"
     },
@@ -4554,7 +4555,7 @@
       "url": "https://apply.refline.ch/486538/0665/pub/2/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:15.466Z",
+      "crawledAt": "2026-11-20T21:19:07.964Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4618,7 +4619,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:18:15.466Z",
+      "validThrough": "2026-12-20T21:19:07.964Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0665/pub/2/index.html"
     },
@@ -4654,7 +4655,7 @@
       "url": "https://apply.refline.ch/486538/0551/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:13.811Z",
+      "crawledAt": "2026-11-20T21:19:07.482Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4718,7 +4719,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:18:13.811Z",
+      "validThrough": "2026-12-20T21:19:07.482Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0551/pub/1/index.html"
     },
@@ -4754,7 +4755,7 @@
       "url": "https://apply.refline.ch/486538/0550/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:13.370Z",
+      "crawledAt": "2026-11-20T21:19:06.980Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4819,7 +4820,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:18:13.370Z",
+      "validThrough": "2026-12-20T21:19:06.980Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0550/pub/1/index.html"
     },
@@ -4855,7 +4856,7 @@
       "url": "https://apply.refline.ch/486538/0549/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:12.927Z",
+      "crawledAt": "2026-11-20T21:19:06.499Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4946,7 +4947,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:18:12.927Z",
+      "validThrough": "2026-12-20T21:19:06.499Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0549/pub/1/index.html"
     },
@@ -4982,7 +4983,7 @@
       "url": "https://apply.refline.ch/486538/0492/pub/3/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:12.490Z",
+      "crawledAt": "2026-11-20T21:19:06.013Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5045,7 +5046,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:18:12.490Z",
+      "validThrough": "2026-12-20T21:19:06.013Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0492/pub/3/index.html"
     },
@@ -5081,7 +5082,7 @@
       "url": "https://apply.refline.ch/486538/0484/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:12.025Z",
+      "crawledAt": "2026-11-20T21:19:05.492Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5144,7 +5145,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:18:12.025Z",
+      "validThrough": "2026-12-20T21:19:05.492Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0484/pub/1/index.html"
     },
@@ -5244,9 +5245,9 @@
     },
     {
       "id": "spital-limmattal-6729f59c8e92",
-      "slug": "operatore-trice-sociosanitario-a-del-centro-di-cura-spital-limmattal-schlieren",
+      "slug": "operatore-trice-sociosanitario-a-del-centro-di-cura-spital-limmattal-schlieren-9f3f6fa15a",
       "slugByLocale": {
-        "it": "operatore-trice-sociosanitario-a-del-centro-di-cura-spital-limmattal-schlieren",
+        "it": "operatore-trice-sociosanitario-a-del-centro-di-cura-spital-limmattal-schlieren-9f3f6fa15a",
         "en": "healthcare-specialist-care-center-spital-limmattal-schlieren",
         "de": "fachfrau-mann-gesundheit-pflegezentrum-spital-limmattal-ch",
         "fr": "assistant-en-soins-et-sante-communautaire-centre-de-soins-spital-limmattal-schlieren"
@@ -5299,7 +5300,8 @@
         "professionale-mann-health-care-center-spital-limmattal-schlieren",
         "professional-mann-health-care-center-spital-limmattal-schlieren",
         "professionnel-centre-de-soins-de-santemann-spital-limmattal-schlieren",
-        "operatore-trice-sociosanitario-a-del-centro-di-cura-spital-limmattal-schlieren-9f3f6fa15a"
+        "operatore-trice-sociosanitario-a-del-centro-di-cura-spital-limmattal-schlieren-9f3f6fa15a",
+        "operatore-trice-sociosanitario-a-del-centro-di-cura-spital-limmattal-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5308,7 +5310,8 @@
           "professionale-mann-health-care-center-spital-limmattal-schlieren",
           "professional-mann-health-care-center-spital-limmattal-schlieren",
           "professionnel-centre-de-soins-de-santemann-spital-limmattal-schlieren",
-          "operatore-trice-sociosanitario-a-del-centro-di-cura-spital-limmattal-schlieren-9f3f6fa15a"
+          "operatore-trice-sociosanitario-a-del-centro-di-cura-spital-limmattal-schlieren-9f3f6fa15a",
+          "operatore-trice-sociosanitario-a-del-centro-di-cura-spital-limmattal-schlieren"
         ],
         "en": [
           "fachfrau-mann-gesundheit-pflegezentrum-spital-limmattal-ch",
@@ -5342,9 +5345,9 @@
     },
     {
       "id": "spital-limmattal-b65b195b414f",
-      "slug": "collaboratore-trice-del-centro-diurno-e-dell-attivazione-lunedi-giovedi-a-tempo-determinato-per-6-mesi-50-60-spital",
+      "slug": "collaboratore-trice-del-centro-diurno-e-dell-attivazione-lunedi-giovedi-a-tempo-determinato-per-6-mesi-50-60-spital-limmattal-6cdf2effd4",
       "slugByLocale": {
-        "it": "collaboratore-trice-del-centro-diurno-e-dell-attivazione-lunedi-giovedi-a-tempo-determinato-per-6-mesi-50-60-spital",
+        "it": "collaboratore-trice-del-centro-diurno-e-dell-attivazione-lunedi-giovedi-a-tempo-determinato-per-6-mesi-50-60-spital-limmattal-6cdf2effd4",
         "en": "staff-member-day-center-activities-monday-thursday-fixed-term-for-6-months-50-60-spital-limmattal-schlieren",
         "de": "mitarbeiter-in-tageszentrum-aktivierung-montag-donnerstag-befristet-fur-6-monate-50-60",
         "fr": "collaborateur-trice-du-centre-de-jour-activation-lundi-jeudi-en-contrat-a-duree-determinee-de-6-mois-50-60-spital"
@@ -5400,14 +5403,16 @@
         "day-centre-activation-staff-member-monday-thursday-fixed-term-for-6-months-50-60-spital-limmattal-schlieren",
         "collaborateur-trice-du-centre-de-jour-activation-lundi-jeudi-a-duree-determinee-pour-6-mois-50-60-spital-limmattal",
         "collaboratore-trice-tageszentrum-aktivierung-montag-donnerstag-befristet-per-6-monate-50-60-spital-limmattal-schlieren",
-        "collaboratore-trice-del-centro-diurno-e-dell-attivazione-lunedi-giovedi-a-tempo-determinato-per-6-mesi-50-60-spital-limmattal-6cdf2effd4"
+        "collaboratore-trice-del-centro-diurno-e-dell-attivazione-lunedi-giovedi-a-tempo-determinato-per-6-mesi-50-60-spital-limmattal-6cdf2effd4",
+        "collaboratore-trice-del-centro-diurno-e-dell-attivazione-lunedi-giovedi-a-tempo-determinato-per-6-mesi-50-60-spital"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-tageszentrum-aktivierung-montag-donnerstag-befristet-fur-6-monate-50-60",
           "collaboratore-trice-centro-diurno-attivita-lunedi-giovedi-a-tempo-determinato-per-6-mesi-50-60-spital-limmattal",
           "collaboratore-trice-tageszentrum-aktivierung-montag-donnerstag-befristet-per-6-monate-50-60-spital-limmattal-schlieren",
-          "collaboratore-trice-del-centro-diurno-e-dell-attivazione-lunedi-giovedi-a-tempo-determinato-per-6-mesi-50-60-spital-limmattal-6cdf2effd4"
+          "collaboratore-trice-del-centro-diurno-e-dell-attivazione-lunedi-giovedi-a-tempo-determinato-per-6-mesi-50-60-spital-limmattal-6cdf2effd4",
+          "collaboratore-trice-del-centro-diurno-e-dell-attivazione-lunedi-giovedi-a-tempo-determinato-per-6-mesi-50-60-spital"
         ],
         "en": [
           "day-centre-activation-staff-member-monday-thursday-fixed-term-for-6-months-50-60-spital-limmattal-schlieren",
@@ -5791,9 +5796,9 @@
     },
     {
       "id": "spital-limmattal-77c7c890a47c",
-      "slug": "dipl-centro-di-assistenza-professionale-hf-o-fh-spital-limmattal-schlieren",
+      "slug": "dipl-centro-di-assistenza-professionale-hf-o-fh-spital-limmattal-schlieren-4cd0fc1668",
       "slugByLocale": {
-        "it": "dipl-centro-di-assistenza-professionale-hf-o-fh-spital-limmattal-schlieren",
+        "it": "dipl-centro-di-assistenza-professionale-hf-o-fh-spital-limmattal-schlieren-4cd0fc1668",
         "en": "dipl-care-professional-hf-or-fh-care-centre-spital-limmattal-schlieren",
         "de": "dipl-pflegefachperson-hf-oder-fh-pflegezentrum-spital-limmattal-ch",
         "fr": "dipl-centre-de-soins-professionnels-hf-ou-fh-spital-limmattal-schlieren"
@@ -5868,7 +5873,8 @@
         "dipl-infermiera-hf-fh-nella-piscina-flex-spital-limmattal-schlieren",
         "dipl-pflegefachperson-hf-fh-im-flex-pool-spital-limmattal-ch",
         "dipl-pflegefachperson-hf-o-fh-pflegezentrum-spital-limmattal-schlieren",
-        "dipl-centro-di-assistenza-professionale-hf-o-fh-spital-limmattal-schlieren-4cd0fc1668"
+        "dipl-centro-di-assistenza-professionale-hf-o-fh-spital-limmattal-schlieren-4cd0fc1668",
+        "dipl-centro-di-assistenza-professionale-hf-o-fh-spital-limmattal-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5891,7 +5897,8 @@
           "dipl-pflegefachperson-hf-o-fh-pflegezentrum-spital-limmattal-schlieren",
           "dipl-pflegefachperson-hf-oder-fh-pflegezentrum-spital-limmattal-ch",
           "dipl-pflegefachperson-hf-fh-fur-onkologie-hamatologie-80-spital-limmattal-ch",
-          "dipl-centro-di-assistenza-professionale-hf-o-fh-spital-limmattal-schlieren-4cd0fc1668"
+          "dipl-centro-di-assistenza-professionale-hf-o-fh-spital-limmattal-schlieren-4cd0fc1668",
+          "dipl-centro-di-assistenza-professionale-hf-o-fh-spital-limmattal-schlieren"
         ],
         "en": [
           "dipl-pflegefachperson-hf-oder-fh-pflegezentrum-spital-limmattal-ch"
@@ -6043,7 +6050,7 @@
       "url": "https://apply.refline.ch/486538/0893/pub/3/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:39.793Z",
+      "crawledAt": "2026-11-20T21:19:36.443Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6106,19 +6113,20 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T09:18:39.793Z",
+      "validThrough": "2027-01-19T21:19:36.443Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-10-23T09:16:08.338Z",
-      "sourceIdentity": "url:https://apply.refline.ch/486538/0893/pub/3/index.html"
+      "sourceIdentity": "url:https://apply.refline.ch/486538/0893/pub/3/index.html",
+      "needsRetranslation": true
     },
     {
       "id": "spital-limmattal-8472f38cda3f",
-      "slug": "posto-di-apprendistato-per-operatrice-tore-sociosanitario-oss-presso-il-centro-di-cura-spital-limmattal-schlieren",
+      "slug": "apprendistato-fachfrau-mann-gesundheit-fage-im-pflegezentrum-spital-limmattal-schlieren",
       "slugByLocale": {
         "de": "lehrstelle-fachfrau-mann-gesundheit-fage-im-pflegezentrum-spital-limmattal-ch",
-        "it": "posto-di-apprendistato-per-operatrice-tore-sociosanitario-oss-presso-il-centro-di-cura-spital-limmattal-schlieren",
-        "en": "apprenticeship-professional-health-fage-in-the-nursing-center-spital-limmattal-schlieren",
-        "fr": "sante-professionnelle-de-l-apprentissage-fage-dans-le-centre-de-soins-infirmiers-spital-limmattal-schlieren"
+        "it": "apprendistato-fachfrau-mann-gesundheit-fage-im-pflegezentrum-spital-limmattal-schlieren",
+        "en": "lehrstelle-fachfrau-mann-gesundheit-fage-im-pflegezentrum-spital-limmattal-ch",
+        "fr": "lehrstelle-fachfrau-mann-gesundheit-fage-im-pflegezentrum-spital-limmattal-ch"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -6126,23 +6134,23 @@
       "title": "Lehrstelle Fachfrau / -mann Gesundheit (FaGe) – im Pflegezentrum",
       "titleByLocale": {
         "de": "Lehrstelle Fachfrau / -mann Gesundheit (FaGe) – im Pflegezentrum",
-        "it": "Posto di apprendistato per operatrice / -tore sociosanitario (OSS) – presso il centro di cura",
-        "en": "Apprenticeship Professional Health (FaGe) – in the nursing center",
-        "fr": "Santé professionnelle de l'apprentissage (FaGe) – dans le centre de soins infirmiers"
+        "it": "Apprendistato Fachfrau / -mann Gesundheit (FaGe) – im Pflegezentrum",
+        "en": "Lehrstelle Fachfrau / -mann Gesundheit (FaGe) – im Pflegezentrum",
+        "fr": "Lehrstelle Fachfrau / -mann Gesundheit (FaGe) – im Pflegezentrum"
       },
       "description": "100%, Lehrbeginn 09.08.2027\nIhre Ausbildung im Spital Limmattal – vielseitig, praxisnah und zukunftsorientiert\nWir freuen uns, dass Sie sich für eine Berufslehre in unserem Pflegezentrum bewerben. Während Ihrer dreijährigen Ausbildung zur Fachfrau / zum Fachmann Gesundheit EFZ sind Sie ein Teil unseres engagierten Pflegeteams. Sie übernehmen im Pflegezentrum Aufgaben in der Pflege, Alltagsgestaltung und Administration. Sie begleiten unsere Bewohnenden mit Freude, Empathie und Fachkompetenz. Die erlernten Fähigkeiten können Sie täglich einsetzen und übernehmen dabei Verantwortung für Ihr Handeln.\nWir arbeiten eng im interprofessionellen Team mit den Aktivierungsfachpersonen, Therapeut:innen sowie weiteren Fachpersonen zusammen. Sie sind aktiv in die Bezugspflege einbezogen.\nWährend Ihrer Ausbildung werden Sie die Möglichkeit haben einen Praktikumseinsatz im Akutspital zu absolvieren. Einblickstage bei der Aktivierung und den Therapien ergänzen Ihre Ausbildung.\nHier engagieren Sie sich\nSchule und Zusatzangebote\n• Unterricht am ZAG in Winterthur\n• Möglichkeit zur Berufsmaturität nach bestandener Aufnahmeprüfung:\no BMS (3-jähriges Modell)\no BM1 flex (4-jähriges Modell)\n• Optional: Bilingualer Unterricht (Deutsch / Englisch)\nIhre Vorteile\n• Flexible Ferienregelung\no 1. Lehrjahr: 25 + 5 zusätzliche Ferientage\no 2. Lehrjahr: 25 + 3 zusätzliche Ferientage\no 3. Lehrjahr: 25 Ferientage\n• ZVV-Bonuspass oder Z-Pass\n• Kostenbeteiligung von CHF 600.– an obligatorischen Schulmaterialien\n• Umfangreiche Einführungswoche\n• Lehrabschlussfeier zur Anerkennung deiner Leistung\n• Diverse Benefits / Angebote welche regelmässig wechseln\nSie\n• haben sich intensiv mit dem Beruf FaGe auseinandergesetzt\n• haben mindestens ein Schnupperpraktikum als FaGe absolviert und Ihren Berufswunsch gefestigt\n• sind engagiert, verantwortungsbewusst und arbeiten gerne im Team\nIhr Bewerbungsdossier – bitte vollständig einreichen\n• Bewerbungs- und Motivationsschreiben – weshalb wähle ich diesen Beruf, Hobbies, Interessen, etc.\n• Lebenslauf\n• Aktuelles Foto\n• Schulzeugnisse Zeugnisse Oberstufe ab dem 6. Schuljahr der Sekundarstufen A & B\n• Aktueller Multicheck – Gesundheit/Soziales , alle 4 Seiten\n• Nachweise bereits absolvierter Schnupperpraktika als FaGe\n• Angabe von 2 Referenzpersonen mit E-Mail sowie Telefonnummer\nHinweis: Unvollständige Bewerbungen werden nicht berücksichtigt\nIhr neuer Arbeitsort\nUnsere Top-Lage (Limmattalbahn, 4 S-Bahnen, 1 Buslinie in unmittelbarer Nähe) wird durch das LIMMI-Mobilitätskonzept ergänzt:\n• vergünstigte Mitarbeitenden-Parkplätze\n• Motorradparkplätze, abschliessbare Veloparkplätze\n• Wir bieten mit dem ZVV-Bonus Pass / Z-Bonus Pass ein attraktives ÖV-Abonnement für Mitarbeitende an\ns'LIMMI: Ihr Partner fürs Leben\nAls bedeutender Gesundheitspartner mit umfassendem Ausbildungsauftrag übernimmt der Spitalverband Limmattal die erweiterte medizinische Grundversorgung von über 100’000 Patientinnen und Patienten jährlich, in allen Lebensphasen. Das LIMMI ist breit spezialisiert und bietet eine qualitativ hochstehende medizinische Versorgung sowie vertieftes Expertenwissen in zahlreichen chirurgischen, medizinischen und pflegerischen Fach- und Spezialdisziplinen. Der Spitalverband verfügt über 188 Betten im Akutbereich, 126 Betten in der Langzeitpflege, einen spitalgebundenen Rettungsdienst sowie neun Operationssäle und acht Intensivpflegeplätze. Mehr als 1’700 Mitarbeitende aus 58 Nationen erbringen täglich ausgezeichnete und vielfältige Leistungen.",
       "descriptionByLocale": {
         "de": "100%, Lehrbeginn 09.08.2027\nIhre Ausbildung im Spital Limmattal – vielseitig, praxisnah und zukunftsorientiert\nWir freuen uns, dass Sie sich für eine Berufslehre in unserem Pflegezentrum bewerben. Während Ihrer dreijährigen Ausbildung zur Fachfrau / zum Fachmann Gesundheit EFZ sind Sie ein Teil unseres engagierten Pflegeteams. Sie übernehmen im Pflegezentrum Aufgaben in der Pflege, Alltagsgestaltung und Administration. Sie begleiten unsere Bewohnenden mit Freude, Empathie und Fachkompetenz. Die erlernten Fähigkeiten können Sie täglich einsetzen und übernehmen dabei Verantwortung für Ihr Handeln.\nWir arbeiten eng im interprofessionellen Team mit den Aktivierungsfachpersonen, Therapeut:innen sowie weiteren Fachpersonen zusammen. Sie sind aktiv in die Bezugspflege einbezogen.\nWährend Ihrer Ausbildung werden Sie die Möglichkeit haben einen Praktikumseinsatz im Akutspital zu absolvieren. Einblickstage bei der Aktivierung und den Therapien ergänzen Ihre Ausbildung.\nHier engagieren Sie sich\nSchule und Zusatzangebote\n• Unterricht am ZAG in Winterthur\n• Möglichkeit zur Berufsmaturität nach bestandener Aufnahmeprüfung:\no BMS (3-jähriges Modell)\no BM1 flex (4-jähriges Modell)\n• Optional: Bilingualer Unterricht (Deutsch / Englisch)\nIhre Vorteile\n• Flexible Ferienregelung\no 1. Lehrjahr: 25 + 5 zusätzliche Ferientage\no 2. Lehrjahr: 25 + 3 zusätzliche Ferientage\no 3. Lehrjahr: 25 Ferientage\n• ZVV-Bonuspass oder Z-Pass\n• Kostenbeteiligung von CHF 600.– an obligatorischen Schulmaterialien\n• Umfangreiche Einführungswoche\n• Lehrabschlussfeier zur Anerkennung deiner Leistung\n• Diverse Benefits / Angebote welche regelmässig wechseln\nSie\n• haben sich intensiv mit dem Beruf FaGe auseinandergesetzt\n• haben mindestens ein Schnupperpraktikum als FaGe absolviert und Ihren Berufswunsch gefestigt\n• sind engagiert, verantwortungsbewusst und arbeiten gerne im Team\nIhr Bewerbungsdossier – bitte vollständig einreichen\n• Bewerbungs- und Motivationsschreiben – weshalb wähle ich diesen Beruf, Hobbies, Interessen, etc.\n• Lebenslauf\n• Aktuelles Foto\n• Schulzeugnisse Zeugnisse Oberstufe ab dem 6. Schuljahr der Sekundarstufen A & B\n• Aktueller Multicheck – Gesundheit/Soziales , alle 4 Seiten\n• Nachweise bereits absolvierter Schnupperpraktika als FaGe\n• Angabe von 2 Referenzpersonen mit E-Mail sowie Telefonnummer\nHinweis: Unvollständige Bewerbungen werden nicht berücksichtigt\nIhr neuer Arbeitsort\nUnsere Top-Lage (Limmattalbahn, 4 S-Bahnen, 1 Buslinie in unmittelbarer Nähe) wird durch das LIMMI-Mobilitätskonzept ergänzt:\n• vergünstigte Mitarbeitenden-Parkplätze\n• Motorradparkplätze, abschliessbare Veloparkplätze\n• Wir bieten mit dem ZVV-Bonus Pass / Z-Bonus Pass ein attraktives ÖV-Abonnement für Mitarbeitende an\ns'LIMMI: Ihr Partner fürs Leben\nAls bedeutender Gesundheitspartner mit umfassendem Ausbildungsauftrag übernimmt der Spitalverband Limmattal die erweiterte medizinische Grundversorgung von über 100’000 Patientinnen und Patienten jährlich, in allen Lebensphasen. Das LIMMI ist breit spezialisiert und bietet eine qualitativ hochstehende medizinische Versorgung sowie vertieftes Expertenwissen in zahlreichen chirurgischen, medizinischen und pflegerischen Fach- und Spezialdisziplinen. Der Spitalverband verfügt über 188 Betten im Akutbereich, 126 Betten in der Langzeitpflege, einen spitalgebundenen Rettungsdienst sowie neun Operationssäle und acht Intensivpflegeplätze. Mehr als 1’700 Mitarbeitende aus 58 Nationen erbringen täglich ausgezeichnete und vielfältige Leistungen.",
-        "it": "100%, inizio dell'insegnamento 09.08.2027\nLa tua formazione all'Ospedale Limmattal – versatile, pratico e orientato al futuro\nSiamo lieti che tu stia facendo domanda di apprendistato professionale nel nostro centro di cura. Durante la vostra formazione di tre anni come specialista in salute EFZ, sarete parte del nostro team di cura dedicato. Si occupa di compiti nel centro di cura in cura, progettazione di vita quotidiana e amministrazione. Essi accompagnano i nostri residenti con gioia, empatia e competenza. È possibile utilizzare le competenze apprese su base giornaliera e prendersi la responsabilità per le vostre azioni.\nLavoriamo a stretto contatto nel team interprofessionale con gli specialisti di attivazione, terapeuti e altri specialisti. Essi sono attivamente coinvolti nella manutenzione di riferimento.\nDurante la loro formazione, Hai la possibilità di completare uno stage in ospedale acuto. I giorni in vista di attivazione e terapie completano la vostra formazione.\nQui si impegnano\nServizi scolastici e complementari\n• Lezioni allo ZAG di Winterthur\n• Possibilità di maturità professionale dopo aver superato l'esame di ingresso:\nBMS (modello triennale)\no BM1 flex modello (4 anni)\n• Opzionale: lezioni bilingue (tedesco / inglese)\nI loro vantaggi\n• Disposizioni per le vacanze flessibili\no 1° anno di formazione: 25 + 5 giorni festivi aggiuntivi\no 2 ° anno di formazione: 25 + 3 giorni festivi aggiuntivi\no 3° anno di formazione: 25 giorni di vacanza\n• Passo bonus ZVV o Passo Z\n• Partecipazione di CHF 600 in materiale scolastico obbligatorio\n• Settimana di introduzione estesa\n• Cerimonia di insegnamento per il riconoscimento della vostra performance\n• Vari vantaggi / offerte che cambiano regolarmente\nVedi anche:\n• hanno trattato intensamente con la professione FaGe\n• hanno completato almeno uno stage di prova come FaGe e consolidato la vostra aspirazione di carriera\n• sono impegnati, responsabili e godere di lavorare in un team\nIl tuo file di applicazione – si prega di inviarlo in pieno\n• Domanda e lettera di motivazione – perché scelgo questa professione, hobby, interessi, ecc.\n• CVC\n• Foto corrente\n• Certificati scolastici Certificati scuola superiore dal 6 ° anno di livello secondario A & B\n• Multicheck attuale – Salute/Social, tutte le 4 pagine\n• Prove di stage di prova già completati come FaGe\n• Fornire 2 persone di riferimento con e-mail e numero di telefono\nNota: Le applicazioni incomplete non saranno considerate\nIl tuo nuovo posto di lavoro\nLa nostra posizione top (Limmattalbahn, 4 S-Bahn, 1 linea bus nelle immediate vicinanze) è completata dal concetto di mobilità LIMMI:\n• Parcheggio ridotto dei dipendenti\n• Parcheggio moto, parcheggio biciclette chiuso\n• Con ZVV Bonus Pass / Z-Bonus Pass offriamo un attraente abbonamento di trasporto pubblico per i dipendenti\ns'LIMMI: Il tuo partner per la vita\nCome importante partner sanitario con un mandato di formazione completo, l'Associazione Ospedale Limmattal assume l'assistenza medica di base estesa di oltre 100.000 pazienti all'anno, in tutte le fasi della vita. Il LIMMI è ampiamente specializzato e offre cure mediche di alta qualità, nonché una conoscenza approfondita di esperti in numerose discipline chirurgiche, mediche e infermieristiche e specialistiche. L'associazione ospedaliera ha 188 posti letto nel settore della cura acuta, 126 posti letto in assistenza a lungo termine, un servizio di emergenza ospedaliero e nove sale operatorie e otto strutture di assistenza intensiva. Più di 1.700 dipendenti da 58 nazioni forniscono servizi eccellenti e diversificati ogni giorno.",
-        "en": "100%, start of teaching 09.08.2027\nYour training at the Limmattal Hospital – versatile, practical and future-oriented\nWe are pleased that you are applying for a vocational apprenticeship in our nursing centre. During your three-year training as a specialist in health EFZ, you will be part of our dedicated nursing team. You take on tasks in the care center in care, everyday life design and administration. They accompany our residents with joy, empathy and expertise. You can use the learned skills on a daily basis and take responsibility for your actions.\nWe work closely in the interprofessional team with the activation specialists, therapists and other specialists. They are actively involved in the maintenance of reference.\nDuring their training, You have the opportunity to complete an internship in the acute hospital. Insight days at activation and therapies complement your education.\nHere they engage\nSchool and supplementary services\n• Lessons at the ZAG in Winterthur\n• Possibility for professional maturity after passing the entrance examination:\nBMS (3-year model)\no BM1 flex (4-year model)\n• Optional: Bilingual lessons (German / English)\nTheir advantages\n• Flexible holiday arrangements\no 1st year of training: 25 + 5 additional holidays\no 2nd year of training: 25 + 3 additional holidays\no 3rd year of training: 25 days of holiday\n• ZVV Bonus Pass or Z Pass\n• Participation of CHF 600 in compulsory school materials\n• Extensive Introduction Week\n• Teaching ceremony for recognition of your performance\n• Various benefits / offers that change regularly\nSize\n• have dealt intensively with the profession FaGe\n• have completed at least one trial internship as FaGe and consolidated your career aspiration\n• are committed, responsible and enjoy working in a team\nYour application file – please submit it in full\n• Application and motivation letter – why I choose this profession, hobbies, interests, etc.\n• CVC\n• Current photo\n• School certificates Certificates upper school from the 6th year of secondary level A & B\n• Current Multicheck – Health/Social, all 4 pages\n• Evidence of trial internships already completed as FaGe\n• Provide 2 reference persons with e-mail and telephone number\nNote: Incomplete applications will not be considered\nYour new place of work\nOur top location (Limmattalbahn, 4 S-Bahn, 1 bus line in the immediate vicinity) is complemented by the LIMMI mobility concept:\n• Reduced employee parking\n• Motorcycle parking, lockable bicycle parking\n• With the ZVV Bonus Pass / Z-Bonus Pass we offer an attractive public transport subscription for employees\ns'LIMMI: Your partner for life\nAs an important health partner with a comprehensive training mandate, the Hospital Association Limmattal takes over the extended basic medical care of more than 100,000 patients annually, in all phases of life. The LIMMI is broadly specialized and offers high-quality medical care as well as in-depth expert knowledge in numerous surgical, medical and nursing specialist and specialist disciplines. The hospital association has 188 beds in the acute care sector, 126 beds in long-term care, a hospital-bound emergency service as well as nine operating rooms and eight intensive care facilities. More than 1,700 employees from 58 nations provide excellent and diverse services every day.",
-        "fr": "100%, début de l'enseignement 09.08.2027\nVotre formation à l'hôpital Limmattal – polyvalente, pratique et orientée vers l'avenir\nNous sommes heureux que vous postuliez à un apprentissage professionnel dans notre centre de soins infirmiers. Au cours de votre formation de trois ans en tant que spécialiste de la santé EFZ, vous ferez partie de notre équipe infirmière dédiée. Vous assumez des tâches dans le centre de soins en soins, conception de la vie quotidienne et l'administration. Ils accompagnent nos résidents avec joie, empathie et expertise. Vous pouvez utiliser les compétences acquises au quotidien et prendre la responsabilité de vos actions.\nNous travaillons en étroite collaboration avec les spécialistes de l'activation, les thérapeutes et d'autres spécialistes. Ils participent activement au maintien des références.\nAu cours de leur formation, vous avez la possibilité de terminer un stage à l'hôpital aigu. Les journées d'activation et les thérapies viennent compléter votre éducation.\nIci ils s'engagent\nServices scolaires et complémentaires\n• Leçons au ZAG à Winterthur\n• Possibilité de maturité professionnelle après avoir réussi l'examen d'entrée:\nModèle BMS (3 ans)\no Flex BM1 (modèle de 4 ans)\n• Facultatif: Cours bilingues (allemand / anglais)\nLeurs avantages\n• Régimes de vacances flexibles\no 1ère année de formation : 25 + 5 jours fériés supplémentaires\no 2e année de formation : 25 + 3 jours fériés supplémentaires\no 3e année de formation : 25 jours de congé\n• ZVV Bonus Pass ou Z Pass\n• Participation de CHF 600 au matériel scolaire obligatoire\n• Semaine d'introduction étendue\n• Cérémonie d'enseignement pour la reconnaissance de votre performance\n• Divers avantages / offres qui changent régulièrement\nTaille\n• ont travaillé intensivement avec la profession FaGe\n• avoir complété au moins un stage d'essai comme FaGe et consolidé votre aspiration de carrière\n• sont engagés, responsables et aiment travailler en équipe\nVotre dossier de candidature – veuillez le soumettre en entier\n• Lettre d'application et de motivation – pourquoi je choisis cette profession, hobbies, intérêts, etc.\n• CVC\n• Photo actuelle\n• Certificats scolaires Certificats d'études supérieures à partir de la sixième année du secondaire A & B\n• Multicheck actuel – Santé/Social, les 4 pages\n• Preuve de stages d'essai déjà terminés en FaGe\n• Fournir 2 personnes de référence avec courriel et numéro de téléphone\nRemarque : Les demandes incomplètes ne seront pas prises en considération\nVotre nouveau lieu de travail\nNotre top emplacement (Limmattalbahn, 4 S-Bahn, 1 ligne de bus dans les environs immédiats) est complété par le concept de mobilité LIMMI:\n• Stationnement réduit des employés\n• Parking moto, parking vélo verrouillable\n• Avec le ZVV Bonus Pass / Z-Bonus Pass nous offrons un abonnement de transport public attrayant pour les employés\ns'LIMMI: Votre partenaire pour la vie\nEn tant que partenaire important de la santé ayant un mandat de formation complet, l'Association hospitalière Limmattal prend en charge les soins médicaux de base prolongés de plus de 100 000 patients chaque année, à toutes les phases de la vie. Le LIMMI est largement spécialisé et offre des soins médicaux de haute qualité ainsi que des connaissances spécialisées approfondies dans de nombreuses disciplines spécialisées en chirurgie, médecine et soins infirmiers. L'association hospitalière compte 188 lits dans le secteur des soins actifs, 126 lits dans les soins de longue durée, un service d'urgence en milieu hospitalier ainsi que neuf salles d'opération et huit centres de soins intensifs. Plus de 1 700 employés de 58 pays offrent chaque jour des services excellents et diversifiés."
+        "it": "100%, Lehrbeginn 09.08.2027\nIhre Ausbildung im Spital Limmattal – vielseitig, praxisnah und zukunftsorientiert\nWir freuen uns, dass Sie sich für eine Berufslehre in unserem Pflegezentrum bewerben. Während Ihrer dreijährigen Ausbildung zur Fachfrau / zum Fachmann Gesundheit EFZ sind Sie ein Teil unseres engagierten Pflegeteams. Sie übernehmen im Pflegezentrum Aufgaben in der Pflege, Alltagsgestaltung und Administration. Sie begleiten unsere Bewohnenden mit Freude, Empathie und Fachkompetenz. Die erlernten Fähigkeiten können Sie täglich einsetzen und übernehmen dabei Verantwortung für Ihr Handeln.\nWir arbeiten eng im interprofessionellen Team mit den Aktivierungsfachpersonen, Therapeut:innen sowie weiteren Fachpersonen zusammen. Sie sind aktiv in die Bezugspflege einbezogen.\nWährend Ihrer Ausbildung werden Sie die Möglichkeit haben einen Praktikumseinsatz im Akutspital zu absolvieren. Einblickstage bei der Aktivierung und den Therapien ergänzen Ihre Ausbildung.\nHier engagieren Sie sich\nSchule und Zusatzangebote\n• Unterricht am ZAG in Winterthur\n• Möglichkeit zur Berufsmaturität nach bestandener Aufnahmeprüfung:\no BMS (3-jähriges Modell)\no BM1 flex (4-jähriges Modell)\n• Optional: Bilingualer Unterricht (Deutsch / Englisch)\nIhre Vorteile\n• Flexible Ferienregelung\no 1. Lehrjahr: 25 + 5 zusätzliche Ferientage\no 2. Lehrjahr: 25 + 3 zusätzliche Ferientage\no 3. Lehrjahr: 25 Ferientage\n• ZVV-Bonuspass oder Z-Pass\n• Kostenbeteiligung von CHF 600.– an obligatorischen Schulmaterialien\n• Umfangreiche Einführungswoche\n• Lehrabschlussfeier zur Anerkennung deiner Leistung\n• Diverse Benefits / Angebote welche regelmässig wechseln\nSie\n• haben sich intensiv mit dem Beruf FaGe auseinandergesetzt\n• haben mindestens ein Schnupperpraktikum als FaGe absolviert und Ihren Berufswunsch gefestigt\n• sind engagiert, verantwortungsbewusst und arbeiten gerne im Team\nIhr Bewerbungsdossier – bitte vollständig einreichen\n• Bewerbungs- und Motivationsschreiben – weshalb wähle ich diesen Beruf, Hobbies, Interessen, etc.\n• Lebenslauf\n• Aktuelles Foto\n• Schulzeugnisse Zeugnisse Oberstufe ab dem 6. Schuljahr der Sekundarstufen A & B\n• Aktueller Multicheck – Gesundheit/Soziales , alle 4 Seiten\n• Nachweise bereits absolvierter Schnupperpraktika als FaGe\n• Angabe von 2 Referenzpersonen mit E-Mail sowie Telefonnummer\nHinweis: Unvollständige Bewerbungen werden nicht berücksichtigt\nIhr neuer Arbeitsort\nUnsere Top-Lage (Limmattalbahn, 4 S-Bahnen, 1 Buslinie in unmittelbarer Nähe) wird durch das LIMMI-Mobilitätskonzept ergänzt:\n• vergünstigte Mitarbeitenden-Parkplätze\n• Motorradparkplätze, abschliessbare Veloparkplätze\n• Wir bieten mit dem ZVV-Bonus Pass / Z-Bonus Pass ein attraktives ÖV-Abonnement für Mitarbeitende an\ns'LIMMI: Ihr Partner fürs Leben\nAls bedeutender Gesundheitspartner mit umfassendem Ausbildungsauftrag übernimmt der Spitalverband Limmattal die erweiterte medizinische Grundversorgung von über 100’000 Patientinnen und Patienten jährlich, in allen Lebensphasen. Das LIMMI ist breit spezialisiert und bietet eine qualitativ hochstehende medizinische Versorgung sowie vertieftes Expertenwissen in zahlreichen chirurgischen, medizinischen und pflegerischen Fach- und Spezialdisziplinen. Der Spitalverband verfügt über 188 Betten im Akutbereich, 126 Betten in der Langzeitpflege, einen spitalgebundenen Rettungsdienst sowie neun Operationssäle und acht Intensivpflegeplätze. Mehr als 1’700 Mitarbeitende aus 58 Nationen erbringen täglich ausgezeichnete und vielfältige Leistungen.",
+        "en": "100%, Lehrbeginn 09.08.2027\nIhre Ausbildung im Spital Limmattal – vielseitig, praxisnah und zukunftsorientiert\nWir freuen uns, dass Sie sich für eine Berufslehre in unserem Pflegezentrum bewerben. Während Ihrer dreijährigen Ausbildung zur Fachfrau / zum Fachmann Gesundheit EFZ sind Sie ein Teil unseres engagierten Pflegeteams. Sie übernehmen im Pflegezentrum Aufgaben in der Pflege, Alltagsgestaltung und Administration. Sie begleiten unsere Bewohnenden mit Freude, Empathie und Fachkompetenz. Die erlernten Fähigkeiten können Sie täglich einsetzen und übernehmen dabei Verantwortung für Ihr Handeln.\nWir arbeiten eng im interprofessionellen Team mit den Aktivierungsfachpersonen, Therapeut:innen sowie weiteren Fachpersonen zusammen. Sie sind aktiv in die Bezugspflege einbezogen.\nWährend Ihrer Ausbildung werden Sie die Möglichkeit haben einen Praktikumseinsatz im Akutspital zu absolvieren. Einblickstage bei der Aktivierung und den Therapien ergänzen Ihre Ausbildung.\nHier engagieren Sie sich\nSchule und Zusatzangebote\n• Unterricht am ZAG in Winterthur\n• Möglichkeit zur Berufsmaturität nach bestandener Aufnahmeprüfung:\no BMS (3-jähriges Modell)\no BM1 flex (4-jähriges Modell)\n• Optional: Bilingualer Unterricht (Deutsch / Englisch)\nIhre Vorteile\n• Flexible Ferienregelung\no 1. Lehrjahr: 25 + 5 zusätzliche Ferientage\no 2. Lehrjahr: 25 + 3 zusätzliche Ferientage\no 3. Lehrjahr: 25 Ferientage\n• ZVV-Bonuspass oder Z-Pass\n• Kostenbeteiligung von CHF 600.– an obligatorischen Schulmaterialien\n• Umfangreiche Einführungswoche\n• Lehrabschlussfeier zur Anerkennung deiner Leistung\n• Diverse Benefits / Angebote welche regelmässig wechseln\nSie\n• haben sich intensiv mit dem Beruf FaGe auseinandergesetzt\n• haben mindestens ein Schnupperpraktikum als FaGe absolviert und Ihren Berufswunsch gefestigt\n• sind engagiert, verantwortungsbewusst und arbeiten gerne im Team\nIhr Bewerbungsdossier – bitte vollständig einreichen\n• Bewerbungs- und Motivationsschreiben – weshalb wähle ich diesen Beruf, Hobbies, Interessen, etc.\n• Lebenslauf\n• Aktuelles Foto\n• Schulzeugnisse Zeugnisse Oberstufe ab dem 6. Schuljahr der Sekundarstufen A & B\n• Aktueller Multicheck – Gesundheit/Soziales , alle 4 Seiten\n• Nachweise bereits absolvierter Schnupperpraktika als FaGe\n• Angabe von 2 Referenzpersonen mit E-Mail sowie Telefonnummer\nHinweis: Unvollständige Bewerbungen werden nicht berücksichtigt\nIhr neuer Arbeitsort\nUnsere Top-Lage (Limmattalbahn, 4 S-Bahnen, 1 Buslinie in unmittelbarer Nähe) wird durch das LIMMI-Mobilitätskonzept ergänzt:\n• vergünstigte Mitarbeitenden-Parkplätze\n• Motorradparkplätze, abschliessbare Veloparkplätze\n• Wir bieten mit dem ZVV-Bonus Pass / Z-Bonus Pass ein attraktives ÖV-Abonnement für Mitarbeitende an\ns'LIMMI: Ihr Partner fürs Leben\nAls bedeutender Gesundheitspartner mit umfassendem Ausbildungsauftrag übernimmt der Spitalverband Limmattal die erweiterte medizinische Grundversorgung von über 100’000 Patientinnen und Patienten jährlich, in allen Lebensphasen. Das LIMMI ist breit spezialisiert und bietet eine qualitativ hochstehende medizinische Versorgung sowie vertieftes Expertenwissen in zahlreichen chirurgischen, medizinischen und pflegerischen Fach- und Spezialdisziplinen. Der Spitalverband verfügt über 188 Betten im Akutbereich, 126 Betten in der Langzeitpflege, einen spitalgebundenen Rettungsdienst sowie neun Operationssäle und acht Intensivpflegeplätze. Mehr als 1’700 Mitarbeitende aus 58 Nationen erbringen täglich ausgezeichnete und vielfältige Leistungen.",
+        "fr": "100%, Lehrbeginn 09.08.2027\nIhre Ausbildung im Spital Limmattal – vielseitig, praxisnah und zukunftsorientiert\nWir freuen uns, dass Sie sich für eine Berufslehre in unserem Pflegezentrum bewerben. Während Ihrer dreijährigen Ausbildung zur Fachfrau / zum Fachmann Gesundheit EFZ sind Sie ein Teil unseres engagierten Pflegeteams. Sie übernehmen im Pflegezentrum Aufgaben in der Pflege, Alltagsgestaltung und Administration. Sie begleiten unsere Bewohnenden mit Freude, Empathie und Fachkompetenz. Die erlernten Fähigkeiten können Sie täglich einsetzen und übernehmen dabei Verantwortung für Ihr Handeln.\nWir arbeiten eng im interprofessionellen Team mit den Aktivierungsfachpersonen, Therapeut:innen sowie weiteren Fachpersonen zusammen. Sie sind aktiv in die Bezugspflege einbezogen.\nWährend Ihrer Ausbildung werden Sie die Möglichkeit haben einen Praktikumseinsatz im Akutspital zu absolvieren. Einblickstage bei der Aktivierung und den Therapien ergänzen Ihre Ausbildung.\nHier engagieren Sie sich\nSchule und Zusatzangebote\n• Unterricht am ZAG in Winterthur\n• Möglichkeit zur Berufsmaturität nach bestandener Aufnahmeprüfung:\no BMS (3-jähriges Modell)\no BM1 flex (4-jähriges Modell)\n• Optional: Bilingualer Unterricht (Deutsch / Englisch)\nIhre Vorteile\n• Flexible Ferienregelung\no 1. Lehrjahr: 25 + 5 zusätzliche Ferientage\no 2. Lehrjahr: 25 + 3 zusätzliche Ferientage\no 3. Lehrjahr: 25 Ferientage\n• ZVV-Bonuspass oder Z-Pass\n• Kostenbeteiligung von CHF 600.– an obligatorischen Schulmaterialien\n• Umfangreiche Einführungswoche\n• Lehrabschlussfeier zur Anerkennung deiner Leistung\n• Diverse Benefits / Angebote welche regelmässig wechseln\nSie\n• haben sich intensiv mit dem Beruf FaGe auseinandergesetzt\n• haben mindestens ein Schnupperpraktikum als FaGe absolviert und Ihren Berufswunsch gefestigt\n• sind engagiert, verantwortungsbewusst und arbeiten gerne im Team\nIhr Bewerbungsdossier – bitte vollständig einreichen\n• Bewerbungs- und Motivationsschreiben – weshalb wähle ich diesen Beruf, Hobbies, Interessen, etc.\n• Lebenslauf\n• Aktuelles Foto\n• Schulzeugnisse Zeugnisse Oberstufe ab dem 6. Schuljahr der Sekundarstufen A & B\n• Aktueller Multicheck – Gesundheit/Soziales , alle 4 Seiten\n• Nachweise bereits absolvierter Schnupperpraktika als FaGe\n• Angabe von 2 Referenzpersonen mit E-Mail sowie Telefonnummer\nHinweis: Unvollständige Bewerbungen werden nicht berücksichtigt\nIhr neuer Arbeitsort\nUnsere Top-Lage (Limmattalbahn, 4 S-Bahnen, 1 Buslinie in unmittelbarer Nähe) wird durch das LIMMI-Mobilitätskonzept ergänzt:\n• vergünstigte Mitarbeitenden-Parkplätze\n• Motorradparkplätze, abschliessbare Veloparkplätze\n• Wir bieten mit dem ZVV-Bonus Pass / Z-Bonus Pass ein attraktives ÖV-Abonnement für Mitarbeitende an\ns'LIMMI: Ihr Partner fürs Leben\nAls bedeutender Gesundheitspartner mit umfassendem Ausbildungsauftrag übernimmt der Spitalverband Limmattal die erweiterte medizinische Grundversorgung von über 100’000 Patientinnen und Patienten jährlich, in allen Lebensphasen. Das LIMMI ist breit spezialisiert und bietet eine qualitativ hochstehende medizinische Versorgung sowie vertieftes Expertenwissen in zahlreichen chirurgischen, medizinischen und pflegerischen Fach- und Spezialdisziplinen. Der Spitalverband verfügt über 188 Betten im Akutbereich, 126 Betten in der Langzeitpflege, einen spitalgebundenen Rettungsdienst sowie neun Operationssäle und acht Intensivpflegeplätze. Mehr als 1’700 Mitarbeitende aus 58 Nationen erbringen täglich ausgezeichnete und vielfältige Leistungen."
       },
       "location": "Schlieren",
       "canton": "ZH",
       "url": "https://apply.refline.ch/486538/0783/pub/2/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:39.347Z",
+      "crawledAt": "2026-11-20T21:19:35.963Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6166,18 +6174,24 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-fachfrau-mann-gesundheit-fage-im-pflegezentrum-spital-limmattal-ch",
-          "apprendistato-fachfrau-mann-gesundheit-fage-im-pflegezentrum-spital-limmattal-schlieren"
+          "apprendistato-fachfrau-mann-gesundheit-fage-im-pflegezentrum-spital-limmattal-schlieren",
+          "posto-di-apprendistato-per-operatrice-tore-sociosanitario-oss-presso-il-centro-di-cura-spital-limmattal-schlieren"
         ],
         "en": [
-          "lehrstelle-fachfrau-mann-gesundheit-fage-im-pflegezentrum-spital-limmattal-ch"
+          "lehrstelle-fachfrau-mann-gesundheit-fage-im-pflegezentrum-spital-limmattal-ch",
+          "apprenticeship-professional-health-fage-in-the-nursing-center-spital-limmattal-schlieren"
         ],
         "fr": [
-          "lehrstelle-fachfrau-mann-gesundheit-fage-im-pflegezentrum-spital-limmattal-ch"
+          "lehrstelle-fachfrau-mann-gesundheit-fage-im-pflegezentrum-spital-limmattal-ch",
+          "sante-professionnelle-de-l-apprentissage-fage-dans-le-centre-de-soins-infirmiers-spital-limmattal-schlieren"
         ]
       },
       "previousSlugs": [
         "lehrstelle-fachfrau-mann-gesundheit-fage-im-pflegezentrum-spital-limmattal-ch",
-        "apprendistato-fachfrau-mann-gesundheit-fage-im-pflegezentrum-spital-limmattal-schlieren"
+        "apprendistato-fachfrau-mann-gesundheit-fage-im-pflegezentrum-spital-limmattal-schlieren",
+        "posto-di-apprendistato-per-operatrice-tore-sociosanitario-oss-presso-il-centro-di-cura-spital-limmattal-schlieren",
+        "apprenticeship-professional-health-fage-in-the-nursing-center-spital-limmattal-schlieren",
+        "sante-professionnelle-de-l-apprentissage-fage-dans-le-centre-de-soins-infirmiers-spital-limmattal-schlieren"
       ],
       "salaryMin": 82000,
       "salaryMax": 114500,
@@ -6194,19 +6208,20 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:18:39.347Z",
+      "validThrough": "2026-12-20T21:19:35.963Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T09:18:39.347Z",
-      "sourceIdentity": "url:https://apply.refline.ch/486538/0783/pub/2/index.html"
+      "firstSeenAt": "2026-11-20T21:19:35.963Z",
+      "sourceIdentity": "url:https://apply.refline.ch/486538/0783/pub/2/index.html",
+      "needsRetranslation": true
     },
     {
       "id": "spital-limmattal-6f47ec5b6c50",
-      "slug": "specialista-di-farmacia-afc-dispensazione-di-medicamenti-60-100-spital-limmattal-schlieren",
+      "slug": "fachperson-apotheke-efz-medikamentenabgabe-60-100-spital-limmattal-ch",
       "slugByLocale": {
         "de": "fachperson-apotheke-efz-medikamentenabgabe-60-100-spital-limmattal-ch",
-        "it": "specialista-di-farmacia-afc-dispensazione-di-medicamenti-60-100-spital-limmattal-schlieren",
-        "en": "specialist-pharmacy-efz-medication-delivery-60-100-spital-limmattal-schlieren",
-        "fr": "pharmacie-specialisee-efz-livraison-de-medicaments-60-100-spital-limmattal-schlieren"
+        "it": "fachperson-apotheke-efz-medikamentenabgabe-60-100-spital-limmattal-ch",
+        "en": "fachperson-apotheke-efz-medikamentenabgabe-60-100-spital-limmattal-ch",
+        "fr": "fachperson-apotheke-efz-medikamentenabgabe-60-100-spital-limmattal-ch"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -6214,23 +6229,23 @@
       "title": "Fachperson Apotheke EFZ – Medikamentenabgabe, 60–100 %",
       "titleByLocale": {
         "de": "Fachperson Apotheke EFZ – Medikamentenabgabe, 60–100 %",
-        "it": "Specialista di farmacia AFC – dispensazione di medicamenti, 60–100 %",
-        "en": "Specialist Pharmacy EFZ – medication delivery, 60-100%",
-        "fr": "Pharmacie spécialisée EFZ – livraison de médicaments, 60-100%"
+        "it": "Fachperson Apotheke CFC – Medikamentenabgabe, 60–100 %",
+        "en": "Fachperson Apotheke EFZ – Medikamentenabgabe, 60–100 %",
+        "fr": "Fachperson Apotheke EFZ – Medikamentenabgabe, 60–100 %"
       },
       "description": "Ab April 2027 oder nach Vereinbarung | Kein Wochenenddienst\nWir erweitern unsere interne Medikamentenabgabestelle für ambulante und austretende Patientinnen und Patienten. Als zentraler Pfeiler im Spital Limmattal und im Pflegezentrum sorgen wir für eine wirksame, sichere und ökonomische Medikation – von der Selektion der Arzneimittel und der Distribution im Haus über den Richt- und Applikationsprozess auf den Stationen bis zum Spitalaustritt. Zur Verstärkung unseres eingespielten Teams suchen wir eine engagierte, kommunikative Persönlichkeit mit Freude an der Patientenberatung.\nDirektbewerbungen werden bevorzugt, externe Stellenvermittlungsbüros werden nicht prioritär behandelt.\nHier engagieren Sie sich\n• Versorgung und fachkundige Beratung ambulanter sowie austretender Patientinnen und Patienten in unserer Medikamentenabgabe\n• Bewirtschaften und Pflege des Arzneimittellagers in der Abgabestelle\n• Kompetente Ansprechperson für Anfragen der Ärzteschaft und der Pflegefachpersonen\n• Entwerfen und Aktualisieren von Arbeitsanweisungen und Mitgestalten des erweiterten Bereichs\nSie\n• Abgeschlossene Ausbildung als Fachperson Apotheke EFZ (ehem. Pharma-Assistent/in EFZ)\n• Idealerweise Berufserfahrung in der Offizin- oder Spitalpharmazie\n• Selbständige, strukturierte und exakte Arbeitsweise – auch wenn es einmal hektisch wird\n• Sehr gute IT-Kenntnisse und Interesse an der interdisziplinären Zusammenarbeit\nIhr neuer Arbeitsort\nUnsere Top-Lage (Limmattalbahn, 4 S-Bahnen, 1 Buslinie in unmittelbarer Nähe) wird durch das LIMMI-Mobilitätskonzept ergänzt:\n• vergünstigte Mitarbeitenden-Parkplätze\n• Motorradparkplätze, abschliessbare Veloparkplätze\n• Wir bieten mit dem ZVV-Bonus Pass / Z-Bonus Pass ein attraktives ÖV-Abonnement für Mitarbeitende an\ns'LIMMI: Ihr Partner fürs Leben\nAls bedeutender Gesundheitspartner mit umfassendem Ausbildungsauftrag übernimmt der Spitalverband Limmattal die erweiterte medizinische Grundversorgung von über 100’000 Patientinnen und Patienten jährlich, in allen Lebensphasen. Das LIMMI ist breit spezialisiert und bietet eine qualitativ hochstehende medizinische Versorgung sowie vertieftes Expertenwissen in zahlreichen chirurgischen, medizinischen und pflegerischen Fach- und Spezialdisziplinen. Der Spitalverband verfügt über 188 Betten im Akutbereich, 126 Betten in der Langzeitpflege, einen spitalgebundenen Rettungsdienst sowie neun Operationssäle und acht Intensivpflegeplätze. Mehr als 1’700 Mitarbeitende aus 58 Nationen erbringen täglich ausgezeichnete und vielfältige Leistungen.",
       "descriptionByLocale": {
         "de": "Ab April 2027 oder nach Vereinbarung | Kein Wochenenddienst\nWir erweitern unsere interne Medikamentenabgabestelle für ambulante und austretende Patientinnen und Patienten. Als zentraler Pfeiler im Spital Limmattal und im Pflegezentrum sorgen wir für eine wirksame, sichere und ökonomische Medikation – von der Selektion der Arzneimittel und der Distribution im Haus über den Richt- und Applikationsprozess auf den Stationen bis zum Spitalaustritt. Zur Verstärkung unseres eingespielten Teams suchen wir eine engagierte, kommunikative Persönlichkeit mit Freude an der Patientenberatung.\nDirektbewerbungen werden bevorzugt, externe Stellenvermittlungsbüros werden nicht prioritär behandelt.\nHier engagieren Sie sich\n• Versorgung und fachkundige Beratung ambulanter sowie austretender Patientinnen und Patienten in unserer Medikamentenabgabe\n• Bewirtschaften und Pflege des Arzneimittellagers in der Abgabestelle\n• Kompetente Ansprechperson für Anfragen der Ärzteschaft und der Pflegefachpersonen\n• Entwerfen und Aktualisieren von Arbeitsanweisungen und Mitgestalten des erweiterten Bereichs\nSie\n• Abgeschlossene Ausbildung als Fachperson Apotheke EFZ (ehem. Pharma-Assistent/in EFZ)\n• Idealerweise Berufserfahrung in der Offizin- oder Spitalpharmazie\n• Selbständige, strukturierte und exakte Arbeitsweise – auch wenn es einmal hektisch wird\n• Sehr gute IT-Kenntnisse und Interesse an der interdisziplinären Zusammenarbeit\nIhr neuer Arbeitsort\nUnsere Top-Lage (Limmattalbahn, 4 S-Bahnen, 1 Buslinie in unmittelbarer Nähe) wird durch das LIMMI-Mobilitätskonzept ergänzt:\n• vergünstigte Mitarbeitenden-Parkplätze\n• Motorradparkplätze, abschliessbare Veloparkplätze\n• Wir bieten mit dem ZVV-Bonus Pass / Z-Bonus Pass ein attraktives ÖV-Abonnement für Mitarbeitende an\ns'LIMMI: Ihr Partner fürs Leben\nAls bedeutender Gesundheitspartner mit umfassendem Ausbildungsauftrag übernimmt der Spitalverband Limmattal die erweiterte medizinische Grundversorgung von über 100’000 Patientinnen und Patienten jährlich, in allen Lebensphasen. Das LIMMI ist breit spezialisiert und bietet eine qualitativ hochstehende medizinische Versorgung sowie vertieftes Expertenwissen in zahlreichen chirurgischen, medizinischen und pflegerischen Fach- und Spezialdisziplinen. Der Spitalverband verfügt über 188 Betten im Akutbereich, 126 Betten in der Langzeitpflege, einen spitalgebundenen Rettungsdienst sowie neun Operationssäle und acht Intensivpflegeplätze. Mehr als 1’700 Mitarbeitende aus 58 Nationen erbringen täglich ausgezeichnete und vielfältige Leistungen.",
-        "it": "Da aprile 2027 o su appuntamento | Nessun servizio week-end\nStiamo espandendo il nostro ufficio di somministrazione di farmaci interni per pazienti estranei e usciti. Come pilastro centrale nell'ospedale Limmattal e nel centro di assistenza, garantiamo farmaci efficaci, sicuri ed economici – dalla selezione dei farmaci e dalla distribuzione in-house attraverso il processo direzionale e di applicazione sulle stazioni all'uscita dell'ospedale. Per rafforzare il nostro team consolidato, stiamo cercando una personalità impegnata e comunicativa con piacere nella consulenza paziente.\nLe domande dirette sono preferite, gli uffici di reclutamento esterni non sono trattati come una priorità.\nQui si impegnano\n• Assistenza e consulenza esperta di pazienti estranei e uscenti nella nostra consegna di farmaci\n• Gestione e manutenzione del magazzino farmaceutico al punto di consegna\n• Persona di contatto competente per le indagini mediche e di cura\n• Progettazione e aggiornamento delle istruzioni di lavoro e contribuire a modellare l'area estesa\nVedi anche:\n• Formazione completa come specialista Farmacia EFZ (ex Assistente Farmaco)\n• Idealmente, esperienza professionale in farmacia ufficiale o ospedaliera\n• Metodo di lavoro indipendente, strutturato ed esatto – anche se diventa frenetico\n• Conoscenza e interesse IT molto buoni nella cooperazione interdisciplinare\nIl tuo nuovo posto di lavoro\nLa nostra posizione top (Limmattalbahn, 4 S-Bahn, 1 linea bus nelle immediate vicinanze) è completata dal concetto di mobilità LIMMI:\n• Parcheggio ridotto dei dipendenti\n• Parcheggio moto, parcheggio biciclette chiuso\n• Con ZVV Bonus Pass / Z-Bonus Pass offriamo un attraente abbonamento di trasporto pubblico per i dipendenti\ns'LIMMI: Il tuo partner per la vita\nCome importante partner sanitario con un mandato di formazione completo, l'Associazione Ospedale Limmattal assume l'assistenza medica di base estesa di oltre 100.000 pazienti all'anno, in tutte le fasi della vita. Il LIMMI è ampiamente specializzato e offre cure mediche di alta qualità, nonché una conoscenza approfondita di esperti in numerose discipline chirurgiche, mediche e infermieristiche e specialistiche. L'associazione ospedaliera ha 188 posti letto nel settore della cura acuta, 126 posti letto in assistenza a lungo termine, un servizio di emergenza ospedaliero e nove sale operatorie e otto strutture di assistenza intensiva. Più di 1.700 dipendenti da 58 nazioni forniscono servizi eccellenti e diversificati ogni giorno.",
-        "en": "From April 2027 or by appointment | No weekend service\nWe are expanding our internal medication delivery office for outpatient and exiting patients. As a central pillar in the hospital Limmattal and in the care center, we ensure effective, safe and economical medication – from the selection of medicines and the distribution in-house via the directional and application process on the stations to the hospital exit. To strengthen our well-established team, we are looking for a committed, communicative personality with pleasure in patient counselling.\nDirect applications are preferred, external recruitment offices are not treated as a priority.\nHere they engage\n• Care and expert advice of outpatient and outgoing patients in our medication delivery\n• Management and maintenance of the pharmaceutical warehouse at the delivery point\n• Competent contact person for medical and nursing inquiries\n• Designing and updating work instructions and helping to shape the extended area\nSize\n• Completed training as a specialist Pharmacy EFZ (former Pharma Assistant)\n• Ideally, professional experience in official or hospital pharmacy\n• Independent, structured and exact working method – even if it gets hectic\n• Very good IT knowledge and interest in interdisciplinary cooperation\nYour new place of work\nOur top location (Limmattalbahn, 4 S-Bahn, 1 bus line in the immediate vicinity) is complemented by the LIMMI mobility concept:\n• Reduced employee parking\n• Motorcycle parking, lockable bicycle parking\n• With the ZVV Bonus Pass / Z-Bonus Pass we offer an attractive public transport subscription for employees\ns'LIMMI: Your partner for life\nAs an important health partner with a comprehensive training mandate, the Hospital Association Limmattal takes over the extended basic medical care of more than 100,000 patients annually, in all phases of life. The LIMMI is broadly specialized and offers high-quality medical care as well as in-depth expert knowledge in numerous surgical, medical and nursing specialist and specialist disciplines. The hospital association has 188 beds in the acute care sector, 126 beds in long-term care, a hospital-bound emergency service as well as nine operating rooms and eight intensive care facilities. More than 1,700 employees from 58 nations provide excellent and diverse services every day.",
-        "fr": "A partir d'avril 2027 ou sur rendez-vous\nNous élargissons notre bureau interne de distribution de médicaments aux patients externes et sortants. En tant que pilier central de l'hôpital Limmattal et du centre de soins, nous assurons des médicaments efficaces, sûrs et économiques – de la sélection des médicaments et de la distribution en interne via le processus directionnel et d'application sur les stations à la sortie de l'hôpital. Pour renforcer notre équipe bien établie, nous recherchons une personnalité engagée et communicative avec plaisir dans le conseil aux patients.\nLes candidatures directes sont privilégiées, les bureaux de recrutement externes ne sont pas considérés comme prioritaires.\nIci ils s'engagent\n• Soins et conseils d'experts des patients externes et sortants dans notre distribution de médicaments\n• Gestion et entretien de l'entrepôt pharmaceutique au point de livraison\n• Personne-ressource compétente pour les demandes de renseignements médicaux et infirmiers\n• Conception et mise à jour des instructions de travail et aide à façonner la zone étendue\nTaille\n• Formation complète en pharmacie EFZ (anciennement Assistant Pharma)\n• Idéalement, expérience professionnelle en pharmacie officielle ou hospitalière\n• Méthode de travail indépendante, structurée et exacte – même si elle devient agitée\n• Très bonne connaissance et intérêt pour la coopération interdisciplinaire\nVotre nouveau lieu de travail\nNotre top emplacement (Limmattalbahn, 4 S-Bahn, 1 ligne de bus dans les environs immédiats) est complété par le concept de mobilité LIMMI:\n• Stationnement réduit des employés\n• Parking moto, parking vélo verrouillable\n• Avec le ZVV Bonus Pass / Z-Bonus Pass nous offrons un abonnement de transport public attrayant pour les employés\ns'LIMMI: Votre partenaire pour la vie\nEn tant que partenaire important de la santé ayant un mandat de formation complet, l'Association hospitalière Limmattal prend en charge les soins médicaux de base prolongés de plus de 100 000 patients chaque année, à toutes les phases de la vie. Le LIMMI est largement spécialisé et offre des soins médicaux de haute qualité ainsi que des connaissances spécialisées approfondies dans de nombreuses disciplines spécialisées en chirurgie, médecine et soins infirmiers. L'association hospitalière compte 188 lits dans le secteur des soins actifs, 126 lits dans les soins de longue durée, un service d'urgence en milieu hospitalier ainsi que neuf salles d'opération et huit centres de soins intensifs. Plus de 1 700 employés de 58 pays offrent chaque jour des services excellents et diversifiés."
+        "it": "Ab April 2027 oder nach Vereinbarung | Kein Wochenenddienst\nWir erweitern unsere interne Medikamentenabgabestelle für ambulante und austretende Patientinnen und Patienten. Als zentraler Pfeiler im Spital Limmattal und im Pflegezentrum sorgen wir für eine wirksame, sichere und ökonomische Medikation – von der Selektion der Arzneimittel und der Distribution im Haus über den Richt- und Applikationsprozess auf den Stationen bis zum Spitalaustritt. Zur Verstärkung unseres eingespielten Teams suchen wir eine engagierte, kommunikative Persönlichkeit mit Freude an der Patientenberatung.\nDirektbewerbungen werden bevorzugt, externe Stellenvermittlungsbüros werden nicht prioritär behandelt.\nHier engagieren Sie sich\n• Versorgung und fachkundige Beratung ambulanter sowie austretender Patientinnen und Patienten in unserer Medikamentenabgabe\n• Bewirtschaften und Pflege des Arzneimittellagers in der Abgabestelle\n• Kompetente Ansprechperson für Anfragen der Ärzteschaft und der Pflegefachpersonen\n• Entwerfen und Aktualisieren von Arbeitsanweisungen und Mitgestalten des erweiterten Bereichs\nSie\n• Abgeschlossene Ausbildung als Fachperson Apotheke EFZ (ehem. Pharma-Assistent/in EFZ)\n• Idealerweise Berufserfahrung in der Offizin- oder Spitalpharmazie\n• Selbständige, strukturierte und exakte Arbeitsweise – auch wenn es einmal hektisch wird\n• Sehr gute IT-Kenntnisse und Interesse an der interdisziplinären Zusammenarbeit\nIhr neuer Arbeitsort\nUnsere Top-Lage (Limmattalbahn, 4 S-Bahnen, 1 Buslinie in unmittelbarer Nähe) wird durch das LIMMI-Mobilitätskonzept ergänzt:\n• vergünstigte Mitarbeitenden-Parkplätze\n• Motorradparkplätze, abschliessbare Veloparkplätze\n• Wir bieten mit dem ZVV-Bonus Pass / Z-Bonus Pass ein attraktives ÖV-Abonnement für Mitarbeitende an\ns'LIMMI: Ihr Partner fürs Leben\nAls bedeutender Gesundheitspartner mit umfassendem Ausbildungsauftrag übernimmt der Spitalverband Limmattal die erweiterte medizinische Grundversorgung von über 100’000 Patientinnen und Patienten jährlich, in allen Lebensphasen. Das LIMMI ist breit spezialisiert und bietet eine qualitativ hochstehende medizinische Versorgung sowie vertieftes Expertenwissen in zahlreichen chirurgischen, medizinischen und pflegerischen Fach- und Spezialdisziplinen. Der Spitalverband verfügt über 188 Betten im Akutbereich, 126 Betten in der Langzeitpflege, einen spitalgebundenen Rettungsdienst sowie neun Operationssäle und acht Intensivpflegeplätze. Mehr als 1’700 Mitarbeitende aus 58 Nationen erbringen täglich ausgezeichnete und vielfältige Leistungen.",
+        "en": "Ab April 2027 oder nach Vereinbarung | Kein Wochenenddienst\nWir erweitern unsere interne Medikamentenabgabestelle für ambulante und austretende Patientinnen und Patienten. Als zentraler Pfeiler im Spital Limmattal und im Pflegezentrum sorgen wir für eine wirksame, sichere und ökonomische Medikation – von der Selektion der Arzneimittel und der Distribution im Haus über den Richt- und Applikationsprozess auf den Stationen bis zum Spitalaustritt. Zur Verstärkung unseres eingespielten Teams suchen wir eine engagierte, kommunikative Persönlichkeit mit Freude an der Patientenberatung.\nDirektbewerbungen werden bevorzugt, externe Stellenvermittlungsbüros werden nicht prioritär behandelt.\nHier engagieren Sie sich\n• Versorgung und fachkundige Beratung ambulanter sowie austretender Patientinnen und Patienten in unserer Medikamentenabgabe\n• Bewirtschaften und Pflege des Arzneimittellagers in der Abgabestelle\n• Kompetente Ansprechperson für Anfragen der Ärzteschaft und der Pflegefachpersonen\n• Entwerfen und Aktualisieren von Arbeitsanweisungen und Mitgestalten des erweiterten Bereichs\nSie\n• Abgeschlossene Ausbildung als Fachperson Apotheke EFZ (ehem. Pharma-Assistent/in EFZ)\n• Idealerweise Berufserfahrung in der Offizin- oder Spitalpharmazie\n• Selbständige, strukturierte und exakte Arbeitsweise – auch wenn es einmal hektisch wird\n• Sehr gute IT-Kenntnisse und Interesse an der interdisziplinären Zusammenarbeit\nIhr neuer Arbeitsort\nUnsere Top-Lage (Limmattalbahn, 4 S-Bahnen, 1 Buslinie in unmittelbarer Nähe) wird durch das LIMMI-Mobilitätskonzept ergänzt:\n• vergünstigte Mitarbeitenden-Parkplätze\n• Motorradparkplätze, abschliessbare Veloparkplätze\n• Wir bieten mit dem ZVV-Bonus Pass / Z-Bonus Pass ein attraktives ÖV-Abonnement für Mitarbeitende an\ns'LIMMI: Ihr Partner fürs Leben\nAls bedeutender Gesundheitspartner mit umfassendem Ausbildungsauftrag übernimmt der Spitalverband Limmattal die erweiterte medizinische Grundversorgung von über 100’000 Patientinnen und Patienten jährlich, in allen Lebensphasen. Das LIMMI ist breit spezialisiert und bietet eine qualitativ hochstehende medizinische Versorgung sowie vertieftes Expertenwissen in zahlreichen chirurgischen, medizinischen und pflegerischen Fach- und Spezialdisziplinen. Der Spitalverband verfügt über 188 Betten im Akutbereich, 126 Betten in der Langzeitpflege, einen spitalgebundenen Rettungsdienst sowie neun Operationssäle und acht Intensivpflegeplätze. Mehr als 1’700 Mitarbeitende aus 58 Nationen erbringen täglich ausgezeichnete und vielfältige Leistungen.",
+        "fr": "Ab April 2027 oder nach Vereinbarung | Kein Wochenenddienst\nWir erweitern unsere interne Medikamentenabgabestelle für ambulante und austretende Patientinnen und Patienten. Als zentraler Pfeiler im Spital Limmattal und im Pflegezentrum sorgen wir für eine wirksame, sichere und ökonomische Medikation – von der Selektion der Arzneimittel und der Distribution im Haus über den Richt- und Applikationsprozess auf den Stationen bis zum Spitalaustritt. Zur Verstärkung unseres eingespielten Teams suchen wir eine engagierte, kommunikative Persönlichkeit mit Freude an der Patientenberatung.\nDirektbewerbungen werden bevorzugt, externe Stellenvermittlungsbüros werden nicht prioritär behandelt.\nHier engagieren Sie sich\n• Versorgung und fachkundige Beratung ambulanter sowie austretender Patientinnen und Patienten in unserer Medikamentenabgabe\n• Bewirtschaften und Pflege des Arzneimittellagers in der Abgabestelle\n• Kompetente Ansprechperson für Anfragen der Ärzteschaft und der Pflegefachpersonen\n• Entwerfen und Aktualisieren von Arbeitsanweisungen und Mitgestalten des erweiterten Bereichs\nSie\n• Abgeschlossene Ausbildung als Fachperson Apotheke EFZ (ehem. Pharma-Assistent/in EFZ)\n• Idealerweise Berufserfahrung in der Offizin- oder Spitalpharmazie\n• Selbständige, strukturierte und exakte Arbeitsweise – auch wenn es einmal hektisch wird\n• Sehr gute IT-Kenntnisse und Interesse an der interdisziplinären Zusammenarbeit\nIhr neuer Arbeitsort\nUnsere Top-Lage (Limmattalbahn, 4 S-Bahnen, 1 Buslinie in unmittelbarer Nähe) wird durch das LIMMI-Mobilitätskonzept ergänzt:\n• vergünstigte Mitarbeitenden-Parkplätze\n• Motorradparkplätze, abschliessbare Veloparkplätze\n• Wir bieten mit dem ZVV-Bonus Pass / Z-Bonus Pass ein attraktives ÖV-Abonnement für Mitarbeitende an\ns'LIMMI: Ihr Partner fürs Leben\nAls bedeutender Gesundheitspartner mit umfassendem Ausbildungsauftrag übernimmt der Spitalverband Limmattal die erweiterte medizinische Grundversorgung von über 100’000 Patientinnen und Patienten jährlich, in allen Lebensphasen. Das LIMMI ist breit spezialisiert und bietet eine qualitativ hochstehende medizinische Versorgung sowie vertieftes Expertenwissen in zahlreichen chirurgischen, medizinischen und pflegerischen Fach- und Spezialdisziplinen. Der Spitalverband verfügt über 188 Betten im Akutbereich, 126 Betten in der Langzeitpflege, einen spitalgebundenen Rettungsdienst sowie neun Operationssäle und acht Intensivpflegeplätze. Mehr als 1’700 Mitarbeitende aus 58 Nationen erbringen täglich ausgezeichnete und vielfältige Leistungen."
       },
       "location": "Schlieren",
       "canton": "ZH",
       "url": "https://apply.refline.ch/486538/0907/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:38.909Z",
+      "crawledAt": "2026-11-20T21:19:35.477Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6269,24 +6284,31 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T09:18:38.909Z",
+      "validThrough": "2027-02-17T21:19:35.477Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T09:18:38.909Z",
+      "firstSeenAt": "2026-11-20T21:19:35.477Z",
       "sourceIdentity": "url:https://apply.refline.ch/486538/0907/pub/1/index.html",
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-apotheke-efz-medikamentenabgabe-60-100-spital-limmattal-ch"
+          "fachperson-apotheke-efz-medikamentenabgabe-60-100-spital-limmattal-ch",
+          "specialista-di-farmacia-afc-dispensazione-di-medicamenti-60-100-spital-limmattal-schlieren"
         ],
         "en": [
-          "fachperson-apotheke-efz-medikamentenabgabe-60-100-spital-limmattal-ch"
+          "fachperson-apotheke-efz-medikamentenabgabe-60-100-spital-limmattal-ch",
+          "specialist-pharmacy-efz-medication-delivery-60-100-spital-limmattal-schlieren"
         ],
         "fr": [
-          "fachperson-apotheke-efz-medikamentenabgabe-60-100-spital-limmattal-ch"
+          "fachperson-apotheke-efz-medikamentenabgabe-60-100-spital-limmattal-ch",
+          "pharmacie-specialisee-efz-livraison-de-medicaments-60-100-spital-limmattal-schlieren"
         ]
       },
       "previousSlugs": [
-        "fachperson-apotheke-efz-medikamentenabgabe-60-100-spital-limmattal-ch"
-      ]
+        "fachperson-apotheke-efz-medikamentenabgabe-60-100-spital-limmattal-ch",
+        "specialista-di-farmacia-afc-dispensazione-di-medicamenti-60-100-spital-limmattal-schlieren",
+        "specialist-pharmacy-efz-medication-delivery-60-100-spital-limmattal-schlieren",
+        "pharmacie-specialisee-efz-livraison-de-medicaments-60-100-spital-limmattal-schlieren"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "spital-limmattal-53f844703fd1",
@@ -6319,7 +6341,7 @@
       "url": "https://apply.refline.ch/486538/0730/pub/8/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:18:38.475Z",
+      "crawledAt": "2026-11-20T21:19:34.996Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6381,10 +6403,171 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:18:38.475Z",
+      "validThrough": "2026-12-20T21:19:34.996Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-09-19T22:48:51.435Z",
-      "sourceIdentity": "url:https://apply.refline.ch/486538/0730/pub/8/index.html"
+      "sourceIdentity": "url:https://apply.refline.ch/486538/0730/pub/8/index.html",
+      "needsRetranslation": true
+    },
+    {
+      "id": "spital-limmattal-ea9ae1c42054",
+      "slug": "pflegehelferin-srk-assistentin-gesundheit-e-soziales-familienabteilung-befristet-per-1-jahr-spital-limmattal-schlieren",
+      "slugByLocale": {
+        "de": "pflegehelferin-srk-assistentin-gesundheit-und-soziales-familienabteilung-befristet-fur-1",
+        "it": "pflegehelferin-srk-assistentin-gesundheit-e-soziales-familienabteilung-befristet-per-1-jahr-spital-limmattal-schlieren",
+        "en": "pflegehelferin-srk-assistentin-gesundheit-und-soziales-familienabteilung-befristet-fur-1",
+        "fr": "pflegehelferin-srk-assistentin-gesundheit-und-soziales-familienabteilung-befristet-fur-1"
+      },
+      "company": "Spital Limmattal",
+      "companyKey": "spital-limmattal",
+      "companyDomain": "spital-limmattal.ch",
+      "title": "Pflegehelferin SRK / Assistentin Gesundheit und Soziales Familienabteilung - befristet für 1 Jahr",
+      "titleByLocale": {
+        "de": "Pflegehelferin SRK / Assistentin Gesundheit und Soziales Familienabteilung - befristet für 1 Jahr",
+        "it": "Pflegehelferin SRK / Assistentin Gesundheit e Soziales Familienabteilung - befristet per 1 Jahr",
+        "en": "Pflegehelferin SRK / Assistentin Gesundheit und Soziales Familienabteilung - befristet für 1 Jahr",
+        "fr": "Pflegehelferin SRK / Assistentin Gesundheit und Soziales Familienabteilung - befristet für 1 Jahr"
+      },
+      "description": "80% - 100%, nach Vereinbarung\nUnsere Pflegefachkräfte sind die unmittelbaren Ansprechpersonen während dem Aufenthalt unserer rund 900 – 1000 Familien pro Jahr. Sie sind für die fachliche und individuelle Betreuung zuständig. Im Mittelpunkt der Betreuung stehen auf unserer Familienabteilung die Frauen und Neugeborenen in den ersten Tagen nach der Geburt.\nHier engagieren Sie sich\n• Durchführen von Arbeiten im Auftrag der diplomierten Pflegefachpersonen oder Hebamme\n• Übernahme delegierter Aufgaben von pflegerischen Tätigkeiten im Kompetenzbereich\n• Bereitschaft für Einsätze im 3-Schichtsystem (auch Wochenende und Nachtdienst)\n• Erledigen von Botengängen\n• Allgemeine Hauswirtschaftliche Tätigkeiten\nSie\n• besitzen eine abgeschlossene Ausbildung als AGS, Pflegeassistentin oder gleichwertige Ausbildung (vom SRK anerkanntes Diplom)\n• haben bereits Berufserfahrung in einem schweizerischen Akutspital\n• sind bereit zur interdisziplinären Zusammenarbeit und Dreischichtdienst\n• sind belastbar auch bei hohem Patientenaufkommen\n• besitzen gute mündliche Deutschkenntnisse, Fremdsprachenkenntnisse von Vorteil\nIhr neuer Arbeitsort\nUnsere Top-Lage (Limmattalbahn, 4 S-Bahnen, 1 Buslinie in unmittelbarer Nähe) wird durch das LIMMI-Mobilitätskonzept ergänzt:\n• vergünstigte Mitarbeitenden-Parkplätze\n• Motorradparkplätze, abschliessbare Veloparkplätze\n• Wir bieten mit dem ZVV-Bonus Pass / Z-Bonus Pass ein attraktives ÖV-Abonnement für Mitarbeitende an\ns'LIMMI: Ihr Partner fürs Leben\nAls bedeutender Gesundheitspartner mit umfassendem Ausbildungsauftrag übernimmt der Spitalverband Limmattal die erweiterte medizinische Grundversorgung von über 100’000 Patientinnen und Patienten jährlich, in allen Lebensphasen. Das LIMMI ist breit spezialisiert und bietet eine qualitativ hochstehende medizinische Versorgung sowie vertieftes Expertenwissen in zahlreichen chirurgischen, medizinischen und pflegerischen Fach- und Spezialdisziplinen. Der Spitalverband verfügt über 188 Betten im Akutbereich, 126 Betten in der Langzeitpflege, einen spitalgebundenen Rettungsdienst sowie neun Operationssäle und acht Intensivpflegeplätze. Mehr als 1’700 Mitarbeitende aus 58 Nationen erbringen täglich ausgezeichnete und vielfältige Leistungen.",
+      "descriptionByLocale": {
+        "de": "80% - 100%, nach Vereinbarung\nUnsere Pflegefachkräfte sind die unmittelbaren Ansprechpersonen während dem Aufenthalt unserer rund 900 – 1000 Familien pro Jahr. Sie sind für die fachliche und individuelle Betreuung zuständig. Im Mittelpunkt der Betreuung stehen auf unserer Familienabteilung die Frauen und Neugeborenen in den ersten Tagen nach der Geburt.\nHier engagieren Sie sich\n• Durchführen von Arbeiten im Auftrag der diplomierten Pflegefachpersonen oder Hebamme\n• Übernahme delegierter Aufgaben von pflegerischen Tätigkeiten im Kompetenzbereich\n• Bereitschaft für Einsätze im 3-Schichtsystem (auch Wochenende und Nachtdienst)\n• Erledigen von Botengängen\n• Allgemeine Hauswirtschaftliche Tätigkeiten\nSie\n• besitzen eine abgeschlossene Ausbildung als AGS, Pflegeassistentin oder gleichwertige Ausbildung (vom SRK anerkanntes Diplom)\n• haben bereits Berufserfahrung in einem schweizerischen Akutspital\n• sind bereit zur interdisziplinären Zusammenarbeit und Dreischichtdienst\n• sind belastbar auch bei hohem Patientenaufkommen\n• besitzen gute mündliche Deutschkenntnisse, Fremdsprachenkenntnisse von Vorteil\nIhr neuer Arbeitsort\nUnsere Top-Lage (Limmattalbahn, 4 S-Bahnen, 1 Buslinie in unmittelbarer Nähe) wird durch das LIMMI-Mobilitätskonzept ergänzt:\n• vergünstigte Mitarbeitenden-Parkplätze\n• Motorradparkplätze, abschliessbare Veloparkplätze\n• Wir bieten mit dem ZVV-Bonus Pass / Z-Bonus Pass ein attraktives ÖV-Abonnement für Mitarbeitende an\ns'LIMMI: Ihr Partner fürs Leben\nAls bedeutender Gesundheitspartner mit umfassendem Ausbildungsauftrag übernimmt der Spitalverband Limmattal die erweiterte medizinische Grundversorgung von über 100’000 Patientinnen und Patienten jährlich, in allen Lebensphasen. Das LIMMI ist breit spezialisiert und bietet eine qualitativ hochstehende medizinische Versorgung sowie vertieftes Expertenwissen in zahlreichen chirurgischen, medizinischen und pflegerischen Fach- und Spezialdisziplinen. Der Spitalverband verfügt über 188 Betten im Akutbereich, 126 Betten in der Langzeitpflege, einen spitalgebundenen Rettungsdienst sowie neun Operationssäle und acht Intensivpflegeplätze. Mehr als 1’700 Mitarbeitende aus 58 Nationen erbringen täglich ausgezeichnete und vielfältige Leistungen.",
+        "it": "80% - 100%, nach Vereinbarung\nUnsere Pflegefachkräfte sind die unmittelbaren Ansprechpersonen während dem Aufenthalt unserer rund 900 – 1000 Familien pro Jahr. Sie sind für die fachliche und individuelle Betreuung zuständig. Im Mittelpunkt der Betreuung stehen auf unserer Familienabteilung die Frauen und Neugeborenen in den ersten Tagen nach der Geburt.\nHier engagieren Sie sich\n• Durchführen von Arbeiten im Auftrag der diplomierten Pflegefachpersonen oder Hebamme\n• Übernahme delegierter Aufgaben von pflegerischen Tätigkeiten im Kompetenzbereich\n• Bereitschaft für Einsätze im 3-Schichtsystem (auch Wochenende und Nachtdienst)\n• Erledigen von Botengängen\n• Allgemeine Hauswirtschaftliche Tätigkeiten\nSie\n• besitzen eine abgeschlossene Ausbildung als AGS, Pflegeassistentin oder gleichwertige Ausbildung (vom SRK anerkanntes Diplom)\n• haben bereits Berufserfahrung in einem schweizerischen Akutspital\n• sind bereit zur interdisziplinären Zusammenarbeit und Dreischichtdienst\n• sind belastbar auch bei hohem Patientenaufkommen\n• besitzen gute mündliche Deutschkenntnisse, Fremdsprachenkenntnisse von Vorteil\nIhr neuer Arbeitsort\nUnsere Top-Lage (Limmattalbahn, 4 S-Bahnen, 1 Buslinie in unmittelbarer Nähe) wird durch das LIMMI-Mobilitätskonzept ergänzt:\n• vergünstigte Mitarbeitenden-Parkplätze\n• Motorradparkplätze, abschliessbare Veloparkplätze\n• Wir bieten mit dem ZVV-Bonus Pass / Z-Bonus Pass ein attraktives ÖV-Abonnement für Mitarbeitende an\ns'LIMMI: Ihr Partner fürs Leben\nAls bedeutender Gesundheitspartner mit umfassendem Ausbildungsauftrag übernimmt der Spitalverband Limmattal die erweiterte medizinische Grundversorgung von über 100’000 Patientinnen und Patienten jährlich, in allen Lebensphasen. Das LIMMI ist breit spezialisiert und bietet eine qualitativ hochstehende medizinische Versorgung sowie vertieftes Expertenwissen in zahlreichen chirurgischen, medizinischen und pflegerischen Fach- und Spezialdisziplinen. Der Spitalverband verfügt über 188 Betten im Akutbereich, 126 Betten in der Langzeitpflege, einen spitalgebundenen Rettungsdienst sowie neun Operationssäle und acht Intensivpflegeplätze. Mehr als 1’700 Mitarbeitende aus 58 Nationen erbringen täglich ausgezeichnete und vielfältige Leistungen.",
+        "en": "80% - 100%, nach Vereinbarung\nUnsere Pflegefachkräfte sind die unmittelbaren Ansprechpersonen während dem Aufenthalt unserer rund 900 – 1000 Familien pro Jahr. Sie sind für die fachliche und individuelle Betreuung zuständig. Im Mittelpunkt der Betreuung stehen auf unserer Familienabteilung die Frauen und Neugeborenen in den ersten Tagen nach der Geburt.\nHier engagieren Sie sich\n• Durchführen von Arbeiten im Auftrag der diplomierten Pflegefachpersonen oder Hebamme\n• Übernahme delegierter Aufgaben von pflegerischen Tätigkeiten im Kompetenzbereich\n• Bereitschaft für Einsätze im 3-Schichtsystem (auch Wochenende und Nachtdienst)\n• Erledigen von Botengängen\n• Allgemeine Hauswirtschaftliche Tätigkeiten\nSie\n• besitzen eine abgeschlossene Ausbildung als AGS, Pflegeassistentin oder gleichwertige Ausbildung (vom SRK anerkanntes Diplom)\n• haben bereits Berufserfahrung in einem schweizerischen Akutspital\n• sind bereit zur interdisziplinären Zusammenarbeit und Dreischichtdienst\n• sind belastbar auch bei hohem Patientenaufkommen\n• besitzen gute mündliche Deutschkenntnisse, Fremdsprachenkenntnisse von Vorteil\nIhr neuer Arbeitsort\nUnsere Top-Lage (Limmattalbahn, 4 S-Bahnen, 1 Buslinie in unmittelbarer Nähe) wird durch das LIMMI-Mobilitätskonzept ergänzt:\n• vergünstigte Mitarbeitenden-Parkplätze\n• Motorradparkplätze, abschliessbare Veloparkplätze\n• Wir bieten mit dem ZVV-Bonus Pass / Z-Bonus Pass ein attraktives ÖV-Abonnement für Mitarbeitende an\ns'LIMMI: Ihr Partner fürs Leben\nAls bedeutender Gesundheitspartner mit umfassendem Ausbildungsauftrag übernimmt der Spitalverband Limmattal die erweiterte medizinische Grundversorgung von über 100’000 Patientinnen und Patienten jährlich, in allen Lebensphasen. Das LIMMI ist breit spezialisiert und bietet eine qualitativ hochstehende medizinische Versorgung sowie vertieftes Expertenwissen in zahlreichen chirurgischen, medizinischen und pflegerischen Fach- und Spezialdisziplinen. Der Spitalverband verfügt über 188 Betten im Akutbereich, 126 Betten in der Langzeitpflege, einen spitalgebundenen Rettungsdienst sowie neun Operationssäle und acht Intensivpflegeplätze. Mehr als 1’700 Mitarbeitende aus 58 Nationen erbringen täglich ausgezeichnete und vielfältige Leistungen.",
+        "fr": "80% - 100%, nach Vereinbarung\nUnsere Pflegefachkräfte sind die unmittelbaren Ansprechpersonen während dem Aufenthalt unserer rund 900 – 1000 Familien pro Jahr. Sie sind für die fachliche und individuelle Betreuung zuständig. Im Mittelpunkt der Betreuung stehen auf unserer Familienabteilung die Frauen und Neugeborenen in den ersten Tagen nach der Geburt.\nHier engagieren Sie sich\n• Durchführen von Arbeiten im Auftrag der diplomierten Pflegefachpersonen oder Hebamme\n• Übernahme delegierter Aufgaben von pflegerischen Tätigkeiten im Kompetenzbereich\n• Bereitschaft für Einsätze im 3-Schichtsystem (auch Wochenende und Nachtdienst)\n• Erledigen von Botengängen\n• Allgemeine Hauswirtschaftliche Tätigkeiten\nSie\n• besitzen eine abgeschlossene Ausbildung als AGS, Pflegeassistentin oder gleichwertige Ausbildung (vom SRK anerkanntes Diplom)\n• haben bereits Berufserfahrung in einem schweizerischen Akutspital\n• sind bereit zur interdisziplinären Zusammenarbeit und Dreischichtdienst\n• sind belastbar auch bei hohem Patientenaufkommen\n• besitzen gute mündliche Deutschkenntnisse, Fremdsprachenkenntnisse von Vorteil\nIhr neuer Arbeitsort\nUnsere Top-Lage (Limmattalbahn, 4 S-Bahnen, 1 Buslinie in unmittelbarer Nähe) wird durch das LIMMI-Mobilitätskonzept ergänzt:\n• vergünstigte Mitarbeitenden-Parkplätze\n• Motorradparkplätze, abschliessbare Veloparkplätze\n• Wir bieten mit dem ZVV-Bonus Pass / Z-Bonus Pass ein attraktives ÖV-Abonnement für Mitarbeitende an\ns'LIMMI: Ihr Partner fürs Leben\nAls bedeutender Gesundheitspartner mit umfassendem Ausbildungsauftrag übernimmt der Spitalverband Limmattal die erweiterte medizinische Grundversorgung von über 100’000 Patientinnen und Patienten jährlich, in allen Lebensphasen. Das LIMMI ist breit spezialisiert und bietet eine qualitativ hochstehende medizinische Versorgung sowie vertieftes Expertenwissen in zahlreichen chirurgischen, medizinischen und pflegerischen Fach- und Spezialdisziplinen. Der Spitalverband verfügt über 188 Betten im Akutbereich, 126 Betten in der Langzeitpflege, einen spitalgebundenen Rettungsdienst sowie neun Operationssäle und acht Intensivpflegeplätze. Mehr als 1’700 Mitarbeitende aus 58 Nationen erbringen täglich ausgezeichnete und vielfältige Leistungen."
+      },
+      "needsRetranslation": true,
+      "location": "Schlieren",
+      "canton": "ZH",
+      "url": "https://apply.refline.ch/486538/0913/pub/1/index.html",
+      "source": "Spital Limmattal Dedicated Parser (Refline)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-20T21:19:36.930Z",
+      "addressLocality": "Schlieren",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8952",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "junior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-20T14:43:52.505810+00:00",
+      "postedDate": "2026-11-20T14:43:52.505810+00:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://apply.refline.ch/486538/0913/pub/1/index.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegehelferin-srk-assistentin-gesundheit-und-soziales-familienabteilung-befristet-fur-1"
+        ]
+      },
+      "previousSlugs": [
+        "pflegehelferin-srk-assistentin-gesundheit-und-soziales-familienabteilung-befristet-fur-1"
+      ],
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-18T21:19:36.930Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-20T21:19:36.930Z"
+    },
+    {
+      "id": "spital-limmattal-dec51402f64f",
+      "slug": "fachfrau-gesundheit-cfc-per-unsere-familienabteilung-spital-limmattal-schlieren",
+      "slugByLocale": {
+        "de": "fachfrau-gesundheit-efz-fur-unsere-familienabteilung-spital-limmattal-ch",
+        "it": "fachfrau-gesundheit-cfc-per-unsere-familienabteilung-spital-limmattal-schlieren",
+        "en": "fachfrau-gesundheit-efz-fur-unsere-familienabteilung-spital-limmattal-ch",
+        "fr": "fachfrau-gesundheit-efz-fur-unsere-familienabteilung-spital-limmattal-ch"
+      },
+      "company": "Spital Limmattal",
+      "companyKey": "spital-limmattal",
+      "companyDomain": "spital-limmattal.ch",
+      "title": "Fachfrau Gesundheit EFZ für unsere Familienabteilung",
+      "titleByLocale": {
+        "de": "Fachfrau Gesundheit EFZ für unsere Familienabteilung",
+        "it": "Fachfrau Gesundheit CFC per unsere Familienabteilung",
+        "en": "Fachfrau Gesundheit EFZ für unsere Familienabteilung",
+        "fr": "Fachfrau Gesundheit EFZ für unsere Familienabteilung"
+      },
+      "description": "80% - 100%, nach Vereinbarung\nUnsere Pflegefachkräfte sind die unmittelbaren Ansprechpersonen während dem Aufenthalt unserer rund 900 – 1000 Familien pro Jahr. Sie sind für die fachliche und individuelle Betreuung zuständig. Im Mittelpunkt der Betreuung stehen auf unserer Familienabteilung die Frauen und Neugeborenen in den ersten Tagen nach der Geburt.\nEs erwartet Sie eine interessante, vielseitige Aufgabe in einem sich weiter entwickelnden Arbeitsumfeld. Sie haben die Möglichkeit, Ihre Fachkenntnisse in der Geburtshilfe umzusetzen. Wir wenden das Bezugspflegesystem an und arbeiten mit elektronischen Pflegedokumentationen. Eine sorgfältige Einführung und Weiterbildungsmöglichkeiten unterstützen Sie bei der beruflichen Entwicklung.\nHier engagieren Sie sich\n• Betreuung von Patient: innen und Angehörigen in Zusammenarbeit mit diplomierten Pflegefachpersonen oder Hebammen im 3- Schichtsystem\n• Selbstständige Organisation und Verantwortung für den eigenen Arbeitsbereich gemäss Kompetenzen\n• Unterstützung bei der Sicherstellung der Pflegequalität\n• Konstruktive Zusammenarbeit mit verschiedenen Berufsgruppen\nSie\n• haben eine abgeschlossene Ausbildung als Fachfrau Gesundheit EFZ\n• besitzen bestenfalls schon erste Berufserfahrung in der Akutpflege oder Wochenbett\n• pflegen einen respektvollen, wertschätzenden Umgang mit Patienten, Angehörigen und dem Team\n• sind eine selbstständige, verantwortungsbewusste und dienstleistungsorientierte Persönlichkeit\n• verfügen über ausgezeichnete Deutschkenntnisse (mündlich und schriftlich)\nIhr neuer Arbeitsort\nUnsere Top-Lage (Limmattalbahn, 4 S-Bahnen, 1 Buslinie in unmittelbarer Nähe) wird durch das LIMMI-Mobilitätskonzept ergänzt:\n• vergünstigte Mitarbeitenden-Parkplätze\n• Motorradparkplätze, abschliessbare Veloparkplätze\n• Wir bieten mit dem ZVV-Bonus Pass / Z-Bonus Pass ein attraktives ÖV-Abonnement für Mitarbeitende an\ns'LIMMI: Ihr Partner fürs Leben\nAls bedeutender Gesundheitspartner mit umfassendem Ausbildungsauftrag übernimmt der Spitalverband Limmattal die erweiterte medizinische Grundversorgung von über 100’000 Patientinnen und Patienten jährlich, in allen Lebensphasen. Das LIMMI ist breit spezialisiert und bietet eine qualitativ hochstehende medizinische Versorgung sowie vertieftes Expertenwissen in zahlreichen chirurgischen, medizinischen und pflegerischen Fach- und Spezialdisziplinen. Der Spitalverband verfügt über 188 Betten im Akutbereich, 126 Betten in der Langzeitpflege, einen spitalgebundenen Rettungsdienst sowie neun Operationssäle und acht Intensivpflegeplätze. Mehr als 1’700 Mitarbeitende aus 58 Nationen erbringen täglich ausgezeichnete und vielfältige Leistungen.",
+      "descriptionByLocale": {
+        "de": "80% - 100%, nach Vereinbarung\nUnsere Pflegefachkräfte sind die unmittelbaren Ansprechpersonen während dem Aufenthalt unserer rund 900 – 1000 Familien pro Jahr. Sie sind für die fachliche und individuelle Betreuung zuständig. Im Mittelpunkt der Betreuung stehen auf unserer Familienabteilung die Frauen und Neugeborenen in den ersten Tagen nach der Geburt.\nEs erwartet Sie eine interessante, vielseitige Aufgabe in einem sich weiter entwickelnden Arbeitsumfeld. Sie haben die Möglichkeit, Ihre Fachkenntnisse in der Geburtshilfe umzusetzen. Wir wenden das Bezugspflegesystem an und arbeiten mit elektronischen Pflegedokumentationen. Eine sorgfältige Einführung und Weiterbildungsmöglichkeiten unterstützen Sie bei der beruflichen Entwicklung.\nHier engagieren Sie sich\n• Betreuung von Patient: innen und Angehörigen in Zusammenarbeit mit diplomierten Pflegefachpersonen oder Hebammen im 3- Schichtsystem\n• Selbstständige Organisation und Verantwortung für den eigenen Arbeitsbereich gemäss Kompetenzen\n• Unterstützung bei der Sicherstellung der Pflegequalität\n• Konstruktive Zusammenarbeit mit verschiedenen Berufsgruppen\nSie\n• haben eine abgeschlossene Ausbildung als Fachfrau Gesundheit EFZ\n• besitzen bestenfalls schon erste Berufserfahrung in der Akutpflege oder Wochenbett\n• pflegen einen respektvollen, wertschätzenden Umgang mit Patienten, Angehörigen und dem Team\n• sind eine selbstständige, verantwortungsbewusste und dienstleistungsorientierte Persönlichkeit\n• verfügen über ausgezeichnete Deutschkenntnisse (mündlich und schriftlich)\nIhr neuer Arbeitsort\nUnsere Top-Lage (Limmattalbahn, 4 S-Bahnen, 1 Buslinie in unmittelbarer Nähe) wird durch das LIMMI-Mobilitätskonzept ergänzt:\n• vergünstigte Mitarbeitenden-Parkplätze\n• Motorradparkplätze, abschliessbare Veloparkplätze\n• Wir bieten mit dem ZVV-Bonus Pass / Z-Bonus Pass ein attraktives ÖV-Abonnement für Mitarbeitende an\ns'LIMMI: Ihr Partner fürs Leben\nAls bedeutender Gesundheitspartner mit umfassendem Ausbildungsauftrag übernimmt der Spitalverband Limmattal die erweiterte medizinische Grundversorgung von über 100’000 Patientinnen und Patienten jährlich, in allen Lebensphasen. Das LIMMI ist breit spezialisiert und bietet eine qualitativ hochstehende medizinische Versorgung sowie vertieftes Expertenwissen in zahlreichen chirurgischen, medizinischen und pflegerischen Fach- und Spezialdisziplinen. Der Spitalverband verfügt über 188 Betten im Akutbereich, 126 Betten in der Langzeitpflege, einen spitalgebundenen Rettungsdienst sowie neun Operationssäle und acht Intensivpflegeplätze. Mehr als 1’700 Mitarbeitende aus 58 Nationen erbringen täglich ausgezeichnete und vielfältige Leistungen.",
+        "it": "80% - 100%, nach Vereinbarung\nUnsere Pflegefachkräfte sind die unmittelbaren Ansprechpersonen während dem Aufenthalt unserer rund 900 – 1000 Familien pro Jahr. Sie sind für die fachliche und individuelle Betreuung zuständig. Im Mittelpunkt der Betreuung stehen auf unserer Familienabteilung die Frauen und Neugeborenen in den ersten Tagen nach der Geburt.\nEs erwartet Sie eine interessante, vielseitige Aufgabe in einem sich weiter entwickelnden Arbeitsumfeld. Sie haben die Möglichkeit, Ihre Fachkenntnisse in der Geburtshilfe umzusetzen. Wir wenden das Bezugspflegesystem an und arbeiten mit elektronischen Pflegedokumentationen. Eine sorgfältige Einführung und Weiterbildungsmöglichkeiten unterstützen Sie bei der beruflichen Entwicklung.\nHier engagieren Sie sich\n• Betreuung von Patient: innen und Angehörigen in Zusammenarbeit mit diplomierten Pflegefachpersonen oder Hebammen im 3- Schichtsystem\n• Selbstständige Organisation und Verantwortung für den eigenen Arbeitsbereich gemäss Kompetenzen\n• Unterstützung bei der Sicherstellung der Pflegequalität\n• Konstruktive Zusammenarbeit mit verschiedenen Berufsgruppen\nSie\n• haben eine abgeschlossene Ausbildung als Fachfrau Gesundheit EFZ\n• besitzen bestenfalls schon erste Berufserfahrung in der Akutpflege oder Wochenbett\n• pflegen einen respektvollen, wertschätzenden Umgang mit Patienten, Angehörigen und dem Team\n• sind eine selbstständige, verantwortungsbewusste und dienstleistungsorientierte Persönlichkeit\n• verfügen über ausgezeichnete Deutschkenntnisse (mündlich und schriftlich)\nIhr neuer Arbeitsort\nUnsere Top-Lage (Limmattalbahn, 4 S-Bahnen, 1 Buslinie in unmittelbarer Nähe) wird durch das LIMMI-Mobilitätskonzept ergänzt:\n• vergünstigte Mitarbeitenden-Parkplätze\n• Motorradparkplätze, abschliessbare Veloparkplätze\n• Wir bieten mit dem ZVV-Bonus Pass / Z-Bonus Pass ein attraktives ÖV-Abonnement für Mitarbeitende an\ns'LIMMI: Ihr Partner fürs Leben\nAls bedeutender Gesundheitspartner mit umfassendem Ausbildungsauftrag übernimmt der Spitalverband Limmattal die erweiterte medizinische Grundversorgung von über 100’000 Patientinnen und Patienten jährlich, in allen Lebensphasen. Das LIMMI ist breit spezialisiert und bietet eine qualitativ hochstehende medizinische Versorgung sowie vertieftes Expertenwissen in zahlreichen chirurgischen, medizinischen und pflegerischen Fach- und Spezialdisziplinen. Der Spitalverband verfügt über 188 Betten im Akutbereich, 126 Betten in der Langzeitpflege, einen spitalgebundenen Rettungsdienst sowie neun Operationssäle und acht Intensivpflegeplätze. Mehr als 1’700 Mitarbeitende aus 58 Nationen erbringen täglich ausgezeichnete und vielfältige Leistungen.",
+        "en": "80% - 100%, nach Vereinbarung\nUnsere Pflegefachkräfte sind die unmittelbaren Ansprechpersonen während dem Aufenthalt unserer rund 900 – 1000 Familien pro Jahr. Sie sind für die fachliche und individuelle Betreuung zuständig. Im Mittelpunkt der Betreuung stehen auf unserer Familienabteilung die Frauen und Neugeborenen in den ersten Tagen nach der Geburt.\nEs erwartet Sie eine interessante, vielseitige Aufgabe in einem sich weiter entwickelnden Arbeitsumfeld. Sie haben die Möglichkeit, Ihre Fachkenntnisse in der Geburtshilfe umzusetzen. Wir wenden das Bezugspflegesystem an und arbeiten mit elektronischen Pflegedokumentationen. Eine sorgfältige Einführung und Weiterbildungsmöglichkeiten unterstützen Sie bei der beruflichen Entwicklung.\nHier engagieren Sie sich\n• Betreuung von Patient: innen und Angehörigen in Zusammenarbeit mit diplomierten Pflegefachpersonen oder Hebammen im 3- Schichtsystem\n• Selbstständige Organisation und Verantwortung für den eigenen Arbeitsbereich gemäss Kompetenzen\n• Unterstützung bei der Sicherstellung der Pflegequalität\n• Konstruktive Zusammenarbeit mit verschiedenen Berufsgruppen\nSie\n• haben eine abgeschlossene Ausbildung als Fachfrau Gesundheit EFZ\n• besitzen bestenfalls schon erste Berufserfahrung in der Akutpflege oder Wochenbett\n• pflegen einen respektvollen, wertschätzenden Umgang mit Patienten, Angehörigen und dem Team\n• sind eine selbstständige, verantwortungsbewusste und dienstleistungsorientierte Persönlichkeit\n• verfügen über ausgezeichnete Deutschkenntnisse (mündlich und schriftlich)\nIhr neuer Arbeitsort\nUnsere Top-Lage (Limmattalbahn, 4 S-Bahnen, 1 Buslinie in unmittelbarer Nähe) wird durch das LIMMI-Mobilitätskonzept ergänzt:\n• vergünstigte Mitarbeitenden-Parkplätze\n• Motorradparkplätze, abschliessbare Veloparkplätze\n• Wir bieten mit dem ZVV-Bonus Pass / Z-Bonus Pass ein attraktives ÖV-Abonnement für Mitarbeitende an\ns'LIMMI: Ihr Partner fürs Leben\nAls bedeutender Gesundheitspartner mit umfassendem Ausbildungsauftrag übernimmt der Spitalverband Limmattal die erweiterte medizinische Grundversorgung von über 100’000 Patientinnen und Patienten jährlich, in allen Lebensphasen. Das LIMMI ist breit spezialisiert und bietet eine qualitativ hochstehende medizinische Versorgung sowie vertieftes Expertenwissen in zahlreichen chirurgischen, medizinischen und pflegerischen Fach- und Spezialdisziplinen. Der Spitalverband verfügt über 188 Betten im Akutbereich, 126 Betten in der Langzeitpflege, einen spitalgebundenen Rettungsdienst sowie neun Operationssäle und acht Intensivpflegeplätze. Mehr als 1’700 Mitarbeitende aus 58 Nationen erbringen täglich ausgezeichnete und vielfältige Leistungen.",
+        "fr": "80% - 100%, nach Vereinbarung\nUnsere Pflegefachkräfte sind die unmittelbaren Ansprechpersonen während dem Aufenthalt unserer rund 900 – 1000 Familien pro Jahr. Sie sind für die fachliche und individuelle Betreuung zuständig. Im Mittelpunkt der Betreuung stehen auf unserer Familienabteilung die Frauen und Neugeborenen in den ersten Tagen nach der Geburt.\nEs erwartet Sie eine interessante, vielseitige Aufgabe in einem sich weiter entwickelnden Arbeitsumfeld. Sie haben die Möglichkeit, Ihre Fachkenntnisse in der Geburtshilfe umzusetzen. Wir wenden das Bezugspflegesystem an und arbeiten mit elektronischen Pflegedokumentationen. Eine sorgfältige Einführung und Weiterbildungsmöglichkeiten unterstützen Sie bei der beruflichen Entwicklung.\nHier engagieren Sie sich\n• Betreuung von Patient: innen und Angehörigen in Zusammenarbeit mit diplomierten Pflegefachpersonen oder Hebammen im 3- Schichtsystem\n• Selbstständige Organisation und Verantwortung für den eigenen Arbeitsbereich gemäss Kompetenzen\n• Unterstützung bei der Sicherstellung der Pflegequalität\n• Konstruktive Zusammenarbeit mit verschiedenen Berufsgruppen\nSie\n• haben eine abgeschlossene Ausbildung als Fachfrau Gesundheit EFZ\n• besitzen bestenfalls schon erste Berufserfahrung in der Akutpflege oder Wochenbett\n• pflegen einen respektvollen, wertschätzenden Umgang mit Patienten, Angehörigen und dem Team\n• sind eine selbstständige, verantwortungsbewusste und dienstleistungsorientierte Persönlichkeit\n• verfügen über ausgezeichnete Deutschkenntnisse (mündlich und schriftlich)\nIhr neuer Arbeitsort\nUnsere Top-Lage (Limmattalbahn, 4 S-Bahnen, 1 Buslinie in unmittelbarer Nähe) wird durch das LIMMI-Mobilitätskonzept ergänzt:\n• vergünstigte Mitarbeitenden-Parkplätze\n• Motorradparkplätze, abschliessbare Veloparkplätze\n• Wir bieten mit dem ZVV-Bonus Pass / Z-Bonus Pass ein attraktives ÖV-Abonnement für Mitarbeitende an\ns'LIMMI: Ihr Partner fürs Leben\nAls bedeutender Gesundheitspartner mit umfassendem Ausbildungsauftrag übernimmt der Spitalverband Limmattal die erweiterte medizinische Grundversorgung von über 100’000 Patientinnen und Patienten jährlich, in allen Lebensphasen. Das LIMMI ist breit spezialisiert und bietet eine qualitativ hochstehende medizinische Versorgung sowie vertieftes Expertenwissen in zahlreichen chirurgischen, medizinischen und pflegerischen Fach- und Spezialdisziplinen. Der Spitalverband verfügt über 188 Betten im Akutbereich, 126 Betten in der Langzeitpflege, einen spitalgebundenen Rettungsdienst sowie neun Operationssäle und acht Intensivpflegeplätze. Mehr als 1’700 Mitarbeitende aus 58 Nationen erbringen täglich ausgezeichnete und vielfältige Leistungen."
+      },
+      "needsRetranslation": true,
+      "location": "Schlieren",
+      "canton": "ZH",
+      "url": "https://apply.refline.ch/486538/0912/pub/1/index.html",
+      "source": "Spital Limmattal Dedicated Parser (Refline)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-20T21:19:33.656Z",
+      "addressLocality": "Schlieren",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8952",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-20T14:35:25.729460+00:00",
+      "postedDate": "2026-11-20T14:35:25.729460+00:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://apply.refline.ch/486538/0912/pub/1/index.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-gesundheit-efz-fur-unsere-familienabteilung-spital-limmattal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-gesundheit-efz-fur-unsere-familienabteilung-spital-limmattal-ch"
+      ],
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-18T21:19:33.656Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-20T21:19:33.656Z"
     }
   ]
 }
