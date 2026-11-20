@@ -88,7 +88,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T21:43:52.916Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.prodyna.com/jobs/senior-data-engineer-athens"
     },
     {
       "id": "prodyna-com-ea85f758c491",
@@ -175,7 +176,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T21:43:52.905Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.prodyna.com/jobs/senior-java-developer-athens"
     }
   ]
 }

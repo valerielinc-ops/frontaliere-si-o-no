@@ -1,7 +1,7 @@
 {
   "crawlerKey": "patek-philippe",
-  "assembledAt": "2026-11-19T21:19:03.188Z",
-  "runId": "44616083717",
+  "assembledAt": "2026-11-20T09:18:32.779Z",
+  "runId": "44708341745",
   "jobs": [
     {
       "id": "patek-philippe-2daf4ab828fd",
@@ -34,7 +34,7 @@
       "url": "https://careers.patek.com/job/Saint-Imier-Charg%C3%A9-d'Industrialisation-Vie-S%C3%A9rie-%28HF%29/1374406755/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:18:56.299Z",
+      "crawledAt": "2026-11-20T09:18:24.297Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Saint-Imier",
       "addressRegion": "BE",
@@ -84,8 +84,9 @@
       "postalCode": "2610",
       "streetAddress": "Saint-Imier",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T21:18:56.299Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-24T09:18:24.297Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.patek.com/job/saint-imier-charg%c3%a9-d'industrialisation-vie-s%c3%a9rie-%28hf%29/1374406755"
     },
     {
       "id": "patek-philippe-d8db92b70b86",
@@ -118,7 +119,7 @@
       "url": "https://careers.patek.com/job/Saint-Imier-Charg%C3%A9-de-Process-Vie-S%C3%A9rie-%28HF%29/1374443355/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:18:55.755Z",
+      "crawledAt": "2026-11-20T09:18:23.738Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Saint-Imier",
       "addressRegion": "BE",
@@ -168,8 +169,9 @@
       "postalCode": "2610",
       "streetAddress": "Saint-Imier",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T21:18:55.755Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-24T09:18:23.738Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.patek.com/job/saint-imier-charg%c3%a9-de-process-vie-s%c3%a9rie-%28hf%29/1374443355"
     },
     {
       "id": "patek-philippe-e33c79b6e14f",
@@ -202,7 +204,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Responsable-Atelier-Embo%C3%AEtage-%28HF%29/1374773755/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:18:55.236Z",
+      "crawledAt": "2026-11-20T09:18:23.199Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -252,8 +254,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:18:55.236Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-26T09:18:23.199Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.patek.com/job/plan-les-ouates-responsable-atelier-embo%c3%aetage-%28hf%29/1374773755"
     },
     {
       "id": "patek-philippe-3ee1ad7f72c7",
@@ -286,7 +289,7 @@
       "url": "https://careers.patek.com/job/Bruegg-Op%C3%A9rateur-Horloger-%28HF%29/1375092055/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:18:54.693Z",
+      "crawledAt": "2026-11-20T09:18:22.677Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Bruegg",
       "addressRegion": "Genève",
@@ -336,8 +339,9 @@
       "postalCode": "1204",
       "streetAddress": "Bruegg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T21:18:54.693Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-28T09:18:22.677Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.patek.com/job/bruegg-op%c3%a9rateur-horloger-%28hf%29/1375092055"
     },
     {
       "id": "patek-philippe-d20884e1117f",
@@ -370,7 +374,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Responsable-Atelier-Bracelet-%28HF%29/1367485555/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:18:54.145Z",
+      "crawledAt": "2026-11-20T09:18:22.083Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -432,8 +436,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-04T21:18:54.145Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-04T09:18:22.083Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.patek.com/job/plan-les-ouates-responsable-atelier-bracelet-%28hf%29/1367485555"
     },
     {
       "id": "patek-philippe-5b93bf4d52d5",
@@ -466,7 +471,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Archiviste-%28HF%29/1376076855/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:18:53.620Z",
+      "crawledAt": "2026-11-20T09:18:21.547Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -516,8 +521,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-04T21:18:53.620Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-04T09:18:21.547Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.patek.com/job/plan-les-ouates-archiviste-%28hf%29/1376076855"
     },
     {
       "id": "patek-philippe-39e490920670",
@@ -550,7 +556,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Horloger-R%C3%A9gleur-%28HF%29/1351663055/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:18:53.087Z",
+      "crawledAt": "2026-11-20T09:18:21.019Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -596,8 +602,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T21:18:53.087Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-20T09:18:21.019Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.patek.com/job/plan-les-ouates-horloger-r%c3%a9gleur-%28hf%29/1351663055"
     },
     {
       "id": "patek-philippe-e877682411f0",
@@ -630,7 +637,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Horloger-Complications-%28HF%29/1376609755/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:18:52.547Z",
+      "crawledAt": "2026-11-20T09:18:20.478Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -680,8 +687,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T21:18:52.547Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-09T09:18:20.478Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.patek.com/job/plan-les-ouates-horloger-complications-%28hf%29/1376609755"
     },
     {
       "id": "patek-philippe-799539f36190",
@@ -714,7 +722,7 @@
       "url": "https://careers.patek.com/job/La-Chaux-de-Fonds-Apprenti-Termineur-en-Habillage-Horloger-%28HF%29/1368154355/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:18:52.018Z",
+      "crawledAt": "2026-11-20T09:18:19.946Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "La Chaux-de-Fonds",
       "addressRegion": "NE",
@@ -749,7 +757,7 @@
           "apprenti-termineur-en-habillage-horloger-h-f-patek-philippe-la-chaux-de-fonds"
         ]
       },
-      "firstSeenAt": "2026-10-08T09:22:32.106Z",
+      "firstSeenAt": "2026-09-19T22:51:21.326Z",
       "salaryMin": 49000,
       "salaryMax": 74500,
       "salarySource": "estimated",
@@ -766,8 +774,9 @@
       "postalCode": "2300",
       "streetAddress": "La Chaux-de-Fonds",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T21:18:52.018Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-20T09:18:19.946Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.patek.com/job/la-chaux-de-fonds-apprenti-termineur-en-habillage-horloger-%28hf%29/1368154355"
     },
     {
       "id": "patek-philippe-e20c4339d889",
@@ -800,7 +809,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Constructeur-Mouvement-Am%C3%A9lioration-Continue-%28HF%29/1372806355/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:18:51.473Z",
+      "crawledAt": "2026-11-20T09:18:19.399Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -850,8 +859,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-12T21:18:51.473Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-12T09:18:19.399Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.patek.com/job/plan-les-ouates-constructeur-mouvement-am%c3%a9lioration-continue-%28hf%29/1372806355"
     },
     {
       "id": "patek-philippe-a6df9c4e8753",
@@ -884,7 +894,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Charg%C3%A9-de-Process-Performance-Industrielle-%28HF%29/1368593655/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:18:50.930Z",
+      "crawledAt": "2026-11-20T09:18:18.851Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -934,8 +944,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-13T21:18:50.930Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-13T09:18:18.851Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.patek.com/job/plan-les-ouates-charg%c3%a9-de-process-performance-industrielle-%28hf%29/1368593655"
     },
     {
       "id": "patek-philippe-b73797dde522",
@@ -968,7 +979,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Charg%C3%A9-de-Process-Vie-S%C3%A9rie-%28HF%29/1372981955/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:18:50.399Z",
+      "crawledAt": "2026-11-20T09:18:18.305Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -1018,8 +1029,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-13T21:18:50.399Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-13T09:18:18.305Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.patek.com/job/plan-les-ouates-charg%c3%a9-de-process-vie-s%c3%a9rie-%28hf%29/1372981955"
     },
     {
       "id": "patek-philippe-89ee1f77d199",
@@ -1052,7 +1064,7 @@
       "url": "https://careers.patek.com/job/Saint-Imier-Responsable-Qualit%C3%A9-%28HF%29/1364655255/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:18:49.863Z",
+      "crawledAt": "2026-11-20T09:18:17.771Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Saint-Imier",
       "addressRegion": "BE",
@@ -1123,8 +1135,9 @@
       "postalCode": "2610",
       "streetAddress": "Saint-Imier",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T21:18:49.863Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-20T09:18:17.771Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.patek.com/job/saint-imier-responsable-qualit%c3%a9-%28hf%29/1364655255"
     },
     {
       "id": "patek-philippe-780b6e8a8080",
@@ -1157,7 +1170,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Apprenti-Termineur-en-Habillage-Horloger-%28HF%29/1377520455/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:18:49.331Z",
+      "crawledAt": "2026-11-20T09:18:16.149Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -1207,8 +1220,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-02T21:18:49.331Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-02T09:18:16.149Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.patek.com/job/plan-les-ouates-apprenti-termineur-en-habillage-horloger-%28hf%29/1377520455"
     },
     {
       "id": "patek-philippe-2c5223aabf96",
@@ -1241,7 +1255,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Apprenti-Horloger-de-Production-%28HF%29/1377523455/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:18:48.805Z",
+      "crawledAt": "2026-11-20T09:18:17.240Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -1291,8 +1305,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-02T21:18:48.805Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-02T09:18:17.240Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.patek.com/job/plan-les-ouates-apprenti-horloger-de-production-%28hf%29/1377523455"
     },
     {
       "id": "patek-philippe-3033fec7cd9c",
@@ -1325,7 +1340,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Apprenti-Qualiticien-en-microtechnique-%28HF%29/1377518855/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:18:48.283Z",
+      "crawledAt": "2026-11-20T09:18:16.693Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -1375,8 +1390,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-02T21:18:48.283Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-02T09:18:16.693Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.patek.com/job/plan-les-ouates-apprenti-qualiticien-en-microtechnique-%28hf%29/1377518855"
     },
     {
       "id": "patek-philippe-58896d715b05",
@@ -1409,7 +1425,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Stage-Optimisation-du-processus-de-fabrication-de-platines/1369119755/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:18:47.754Z",
+      "crawledAt": "2026-11-20T09:18:15.600Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -1456,8 +1472,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T21:18:47.754Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-20T09:18:15.600Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.patek.com/job/plan-les-ouates-stage-optimisation-du-processus-de-fabrication-de-platines/1369119755"
     },
     {
       "id": "patek-philippe-9148bbffef4c",
@@ -1490,7 +1507,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Stage-Processus-logistiques-et-pilotages-associ%C3%A9s/1369179855/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:18:47.223Z",
+      "crawledAt": "2026-11-20T09:18:15.058Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -1534,8 +1551,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T21:18:47.223Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-20T09:18:15.058Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.patek.com/job/plan-les-ouates-stage-processus-logistiques-et-pilotages-associ%c3%a9s/1369179855"
     }
   ]
 }

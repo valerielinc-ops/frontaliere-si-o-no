@@ -11012,6 +11012,20 @@ export function urlConfirms(url, snapshot, context = {}) {
  * Apply opened /ApplicationReview «please select Submit to finalise your
  * application»). The portal itself states that nothing was submitted yet.
  */
+/** Umantis renders this rejection as plain text instead of an alert. */
+export function umantisBirthDateRejected(snapshot, submissionUrl) {
+  try {
+    const url = new URL(snapshot?.url);
+    return url.protocol === 'https:' && /\.umantis\.com$/i.test(url.hostname)
+      && /^\/Vacancies\/\d+\/Application\/New\/\d+$/i.test(url.pathname)
+      && url.href === new URL(submissionUrl).href
+      && snapshot.fields?.some(field => field.widget === 'umantis-date' && field.required && !field.value)
+      && /^Compilare questa sezione[.!]?\s+Data di nascita(?:[.!:]|\s*$)/im.test(snapshot.text || '');
+  } catch {
+    return false;
+  }
+}
+
 async function waitForOutcome(page, context = {}) {
   const started = Date.now();
   const deadline = started + OUTCOME_TIMEOUT_MS;
@@ -11035,7 +11049,8 @@ async function waitForOutcome(page, context = {}) {
       const gravityForms = await gravityFrame.evaluate(gravityFormsEvidenceInPage, frameIndex).catch(() => null);
       lastSnapshot = { ...snapshot, ...(gravityForms ? { gravityForms } : {}), text, url: page.url() };
     }
-    if (gravityFormsSubmissionOutcome(lastSnapshot, { finalSubmission: context.finalSubmission }) === 'validation') {
+    if (gravityFormsSubmissionOutcome(lastSnapshot, { finalSubmission: context.finalSubmission }) === 'validation'
+      || umantisBirthDateRejected(lastSnapshot, context.submissionUrl)) {
       return { outcome: 'validation', snapshot: lastSnapshot };
     }
     // The portal says it did not send: nothing left, by its own word.

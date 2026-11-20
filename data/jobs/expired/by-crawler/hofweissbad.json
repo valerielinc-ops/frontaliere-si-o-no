@@ -1575,7 +1575,7 @@
     "salaryPeriod": "YEAR"
   },
   {
-    "slug": "stage-di-fisioterapia-80-100-m-f-d-hof-weissbad-ag-weissbad",
+    "slug": "stage-di-fisioterapia-80-100-m-f-d-hof-weissbad-ag-weissbad-c4b6a111",
     "title": "Physiotherapy Internship (80 - 100% | m/f/d)",
     "titleByLocale": {
       "en": "Physiotherapy Internship (80 - 100% | m/f/d)",
@@ -1595,23 +1595,23 @@
     },
     "slugByLocale": {
       "en": "physiotherapy-internship-80-100-m-f-d-hof-weissbad-weissbad",
-      "it": "stage-di-fisioterapia-80-100-m-f-d-hof-weissbad-ag-weissbad",
+      "it": "stage-di-fisioterapia-80-100-m-f-d-hof-weissbad-ag-weissbad-c4b6a111",
       "de": "physiotherapie-praktikum-80-100-m-w-d-hof-weissbad-ag-weissbad",
       "fr": "stage-de-physiotherapie-80-100-de-m-f-j-hof-weissbad-ag-weissbad"
     },
     "sector": "Hôtellerie / Sanità",
     "expiredAt": "2026-07-09T22:41:21.487Z",
-    "previousSlugs": [
-      "physiotherapy-internship-80-100-m-f-d-hof-weissbad-weissbad"
-    ],
     "previousSlugsByLocale": {
       "it": [
-        "physiotherapy-internship-80-100-m-f-d-hof-weissbad-weissbad"
+        "physiotherapy-internship-80-100-m-f-d-hof-weissbad-weissbad-465e6649"
       ],
       "de": [
         "physiotherapy-internship-80-100-m-f-d-hof-weissbad-weissbad"
       ],
       "fr": [
+        "physiotherapy-internship-80-100-m-f-d-hof-weissbad-weissbad"
+      ],
+      "en": [
         "physiotherapy-internship-80-100-m-f-d-hof-weissbad-weissbad"
       ]
     },
@@ -1619,6 +1619,9 @@
     "salaryMin": 65000,
     "salaryMax": 98500,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "previousSlugs": [
+      "physiotherapy-internship-80-100-m-f-d-hof-weissbad-weissbad-465e6649"
+    ]
   }
 ]

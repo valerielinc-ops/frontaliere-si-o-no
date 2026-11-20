@@ -83,7 +83,8 @@
       "addressRegion": "ZH",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-28T09:50:22.016Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.ashbyhq.com/mistral.ai/19026237-fb3d-480d-a1a3-27204bcb154a"
     },
     {
       "id": "mistral-ai-01b2b0d2cc89",
@@ -174,7 +175,8 @@
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-18T09:50:22.014Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.ashbyhq.com/mistral.ai/865fced4-d279-4073-848d-f078c0053155"
     }
   ]
 }

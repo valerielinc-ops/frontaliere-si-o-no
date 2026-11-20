@@ -66,7 +66,8 @@
       "streetAddress": "Castel San Pietro",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T21:45:36.343Z"
+      "firstSeenAt": "2026-11-10T21:45:36.343Z",
+      "sourceIdentity": "url:https://careers.mkspamp.com/jobs/8684207-project-engineer"
     },
     {
       "title": "Vault Operations Specialist",
@@ -139,7 +140,8 @@
       ],
       "streetAddress": "Castel San Pietro",
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.mkspamp.com/jobs/8516199-vault-operations-specialist"
     },
     {
       "title": "Metal Operations Manager",
@@ -201,7 +203,7 @@
         }
       },
       "postalCode": "6874",
-      "firstSeenAt": "2026-10-26T21:47:02.947Z",
+      "firstSeenAt": "2026-10-02T21:40:48.173Z",
       "streetAddress": "Castel San Pietro",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
@@ -218,7 +220,8 @@
       },
       "previousSlugs": [
         "metal-operations-manager-mks-pamp-castel-san-pietro"
-      ]
+      ],
+      "sourceIdentity": "url:https://careers.mkspamp.com/jobs/8493471-metal-operations-manager"
     },
     {
       "title": "Tecnico Controllo Qualità - Q-team",
@@ -283,7 +286,8 @@
       "postalCode": "6874",
       "streetAddress": "Castel San Pietro",
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.mkspamp.com/jobs/8474301-tecnico-controllo-qualita-q-team"
     },
     {
       "title": "Precious Metal Control Manager",
@@ -366,7 +370,8 @@
       "postalCode": "6874",
       "streetAddress": "Castel San Pietro",
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.mkspamp.com/jobs/8241072-precious-metal-control-manager"
     },
     {
       "title": "Specialista tecnico chimico responsabile conduzione impianto",
@@ -468,7 +473,8 @@
       "postingDateSource": "reported",
       "crawledAt": "2026-11-18T09:53:16.247Z",
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.mkspamp.com/jobs/7129880-specialista-tecnico-chimico-responsabile-conduzione-impianto"
     }
   ]
 }

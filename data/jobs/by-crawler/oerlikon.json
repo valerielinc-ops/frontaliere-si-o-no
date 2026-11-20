@@ -78,7 +78,8 @@
       "streetAddress": "Mendrisio, TI",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T09:52:18.829Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.oerlikon.com/job/marketing-specialist/105306-en_us"
     },
     {
       "id": "oerlikon-1ce467506992",
@@ -165,7 +166,8 @@
       "streetAddress": "Wohlen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T09:52:18.157Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.oerlikon.com/job/konstruktionsingenieur-%28gn%29/104466-en_us"
     },
     {
       "id": "oerlikon-f6087624a04b",
@@ -232,7 +234,7 @@
           "automatiker-gn-im-anlagenbau-oerlikon-wohlen"
         ]
       },
-      "firstSeenAt": "2026-09-28T05:14:42.064Z",
+      "firstSeenAt": "2026-07-23T11:18:20.994Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -249,7 +251,8 @@
       "streetAddress": "Wohlen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-27T09:52:17.490Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.oerlikon.com/job/automatiker-%28gn%29-im-anlagenbau/103438-en_us"
     },
     {
       "id": "oerlikon-356e3fe4d231",
@@ -314,7 +317,7 @@
           "export-verpacker-gn-oerlikon-wohlen"
         ]
       },
-      "firstSeenAt": "2026-09-28T21:35:53.713Z",
+      "firstSeenAt": "2026-08-08T09:48:05.653Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -331,7 +334,8 @@
       "streetAddress": "Wohlen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-28T09:52:16.823Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.oerlikon.com/job/export-verpacker-%28gn%29/103043-en_us"
     },
     {
       "id": "oerlikon-6f58f20dbe72",
@@ -414,7 +418,8 @@
       "streetAddress": "Wohlen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-29T09:52:16.125Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.oerlikon.com/job/team-lead-electrical-engineering-%28gn%29/105195-en_us"
     },
     {
       "id": "oerlikon-a72a73319303",
@@ -502,7 +507,8 @@
       "streetAddress": "Wohlen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T09:52:15.444Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.oerlikon.com/job/servicetechniker-%28gn%29/104661-en_us"
     },
     {
       "id": "oerlikon-36b0a730fba6",
@@ -581,7 +587,8 @@
       "streetAddress": "Wohlen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-18T09:52:14.779Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.oerlikon.com/job/project-contract-manager-%28gn%29/104392-en_us"
     },
     {
       "id": "oerlikon-934beb8e0afc",
@@ -648,7 +655,7 @@
         "inbetriebnahme-gn-ingenieur-oerlikon-wohlen",
         "inbetriebnahme-gn-engineer-oerlikon-wohlen"
       ],
-      "firstSeenAt": "2026-09-30T21:36:31.399Z",
+      "firstSeenAt": "2026-08-19T09:48:37.612Z",
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -665,7 +672,8 @@
       "streetAddress": "Wohlen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-30T09:52:13.942Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.oerlikon.com/job/inbetriebnahme-%28gn%29-engineer/104461-en_us"
     }
   ]
 }

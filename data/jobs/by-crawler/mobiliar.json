@@ -1,7 +1,7 @@
 {
   "crawlerKey": "mobiliar",
-  "assembledAt": "2026-11-19T21:17:49.946Z",
-  "runId": "44615185527",
+  "assembledAt": "2026-11-20T09:28:56.963Z",
+  "runId": "44707588570",
   "jobs": [
     {
       "id": "mobiliar-d072b0bcbb70",
@@ -34,7 +34,7 @@
       "url": "https://jobs.mobiliar.ch/job/St_-Gallen-Mitarbeiter-Makler-und-KMU-Support-%28wm%29-Generalagentur-St_-Gallen/1165263355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:17:38.414Z",
+      "crawledAt": "2026-11-20T09:28:36.047Z",
       "addressLocality": "St_",
       "addressCountry": "CH",
       "country": "CH",
@@ -75,7 +75,7 @@
           "mitarbeiter-makler-und-kmu-support-w-m-generalagentur-st-gallen-mobiliar-ch"
         ]
       },
-      "firstSeenAt": "2026-09-26T13:53:54.899Z",
+      "firstSeenAt": "2026-08-11T22:17:31.723Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -91,8 +91,9 @@
       },
       "streetAddress": "St_",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:17:38.414Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T09:28:36.047Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/st_-gallen-mitarbeiter-makler-und-kmu-support-%28wm%29-generalagentur-st_-gallen/1165263355"
     },
     {
       "id": "mobiliar-5fff252acdfd",
@@ -125,7 +126,7 @@
       "url": "https://jobs.mobiliar.ch/job/Rapperswil-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Rapperswil-Glarus/1165363955/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:17:37.662Z",
+      "crawledAt": "2026-11-20T09:28:13.428Z",
       "addressLocality": "Rapperswil",
       "addressCountry": "CH",
       "country": "CH",
@@ -190,8 +191,9 @@
       "addressRegion": "SG",
       "streetAddress": "Rapperswil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T21:17:37.662Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-20T09:28:13.428Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/rapperswil-versicherungs-und-vorsorgeberater-%28wmd%29-generalagentur-rapperswil-glarus/1165363955"
     },
     {
       "id": "mobiliar-9c044580e971",
@@ -224,7 +226,7 @@
       "url": "https://jobs.mobiliar.ch/job/Rorschach-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Arbon-Rorschach/1165232755/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:17:36.912Z",
+      "crawledAt": "2026-11-20T09:27:56.109Z",
       "addressLocality": "Rorschach",
       "addressCountry": "CH",
       "country": "CH",
@@ -269,8 +271,9 @@
       "addressRegion": "SG",
       "streetAddress": "Rorschach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T21:17:36.912Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-20T09:27:56.109Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/rorschach-versicherungs-und-vorsorgeberater-%28wmd%29-generalagentur-arbon-rorschach/1165232755"
     },
     {
       "id": "mobiliar-f452a5725751",
@@ -303,7 +306,7 @@
       "url": "https://jobs.mobiliar.ch/job/Saignel%C3%A9gier-Apprentissage-d’employ%C3%A9%28e%29-de-commerce-CFC-2027/1165557055/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:17:36.164Z",
+      "crawledAt": "2026-11-20T09:28:32.235Z",
       "addressLocality": "Saignelégier",
       "addressCountry": "CH",
       "country": "CH",
@@ -352,8 +355,9 @@
       "addressRegion": "JU",
       "streetAddress": "Saignelégier",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T21:17:36.164Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-04T09:28:32.235Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/saignel%c3%a9gier-apprentissage-d%e2%80%99employ%c3%a9%28e%29-de-commerce-cfc-2027/1165557055"
     },
     {
       "id": "mobiliar-70a63c42712b",
@@ -386,7 +390,7 @@
       "url": "https://jobs.mobiliar.ch/job/Muotathal-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Schwyz%2C-Standort-Muotathal/1163186555/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:17:35.412Z",
+      "crawledAt": "2026-11-20T09:27:55.338Z",
       "addressLocality": "Muotathal",
       "addressCountry": "CH",
       "country": "CH",
@@ -445,8 +449,9 @@
       "addressRegion": "SZ",
       "streetAddress": "Muotathal",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T21:17:35.412Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-20T09:27:55.338Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/muotathal-versicherungs-und-vorsorgeberater-%28wmd%29-generalagentur-schwyz%2c-standort-muotathal/1163186555"
     },
     {
       "id": "mobiliar-46acb9290d8f",
@@ -479,7 +484,7 @@
       "url": "https://jobs.mobiliar.ch/job/Nyon-Coach-pr%C3%A9voyance-priv%C3%A9e-march%C3%A9-Ouest-%28fhd%29/1165779255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:17:34.658Z",
+      "crawledAt": "2026-11-20T09:28:14.914Z",
       "addressLocality": "Nyon",
       "addressCountry": "CH",
       "country": "CH",
@@ -530,8 +535,9 @@
       "addressRegion": "VD",
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:17:34.658Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-10T09:28:14.914Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/nyon-coach-pr%c3%a9voyance-priv%c3%a9e-march%c3%a9-ouest-%28fhd%29/1165779255"
     },
     {
       "id": "mobiliar-7214fe3ae6c1",
@@ -564,7 +570,7 @@
       "url": "https://jobs.mobiliar.ch/job/Nyon-Apprentissage-d’employ%C3%A9-de-commerce-CFC-Ao%C3%BBt-2027-%28fhd%29/1165718755/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:17:33.888Z",
+      "crawledAt": "2026-11-20T09:28:16.404Z",
       "addressLocality": "Nyon",
       "addressCountry": "CH",
       "country": "CH",
@@ -617,8 +623,9 @@
       "addressRegion": "VD",
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T21:17:33.888Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-01T09:28:16.404Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/nyon-apprentissage-d%e2%80%99employ%c3%a9-de-commerce-cfc-ao%c3%bbt-2027-%28fhd%29/1165718755"
     },
     {
       "id": "mobiliar-6a7146c04c41",
@@ -651,7 +658,7 @@
       "url": "https://jobs.mobiliar.ch/job/Nyon-Gestionnaire-prestations-pr%C3%A9voyance-professionnelle-%28fhd%29/1165707755/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:17:33.125Z",
+      "crawledAt": "2026-11-20T09:28:05.157Z",
       "addressLocality": "Nyon",
       "addressCountry": "CH",
       "country": "CH",
@@ -703,8 +710,9 @@
       "addressRegion": "VD",
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-17T21:17:33.125Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-18T09:28:05.157Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/nyon-gestionnaire-prestations-pr%c3%a9voyance-professionnelle-%28fhd%29/1165707755"
     },
     {
       "id": "mobiliar-8bab5ca2a50f",
@@ -737,7 +745,7 @@
       "url": "https://jobs.mobiliar.ch/job/Nyon-Sachbearbeiter-Kundendienst-Private-Vorsorge-%28wmd%29/1165692355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:17:32.379Z",
+      "crawledAt": "2026-11-20T09:28:08.931Z",
       "addressLocality": "Nyon",
       "addressCountry": "CH",
       "country": "CH",
@@ -804,8 +812,9 @@
       "addressRegion": "VD",
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:17:32.379Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-26T09:28:08.931Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/nyon-sachbearbeiter-kundendienst-private-vorsorge-%28wmd%29/1165692355"
     },
     {
       "id": "mobiliar-ce34953b13fe",
@@ -838,7 +847,7 @@
       "url": "https://jobs.mobiliar.ch/job/Nyon-Sp%C3%A9cialiste-bilingue-frall-Pr%C3%A9voyance-priv%C3%A9e-%28fhd%29/1165657655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:17:31.626Z",
+      "crawledAt": "2026-11-20T09:27:59.869Z",
       "addressLocality": "Nyon",
       "addressCountry": "CH",
       "country": "CH",
@@ -890,8 +899,9 @@
       "addressRegion": "VD",
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T21:17:31.626Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-20T09:27:59.869Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/nyon-sp%c3%a9cialiste-bilingue-frall-pr%c3%a9voyance-priv%c3%a9e-%28fhd%29/1165657655"
     },
     {
       "id": "mobiliar-0bd15d5208c4",
@@ -924,7 +934,7 @@
       "url": "https://jobs.mobiliar.ch/job/Nyon-Apprentissage-d’employ%C3%A9-e-de-commerce-CFC-Ao%C3%BBt-2027-%C3%A0-l’Agence-G%C3%A9n%C3%A9rale-de-la-C%C3%B4te/1165597655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:17:30.873Z",
+      "crawledAt": "2026-11-20T09:27:56.860Z",
       "addressLocality": "Nyon",
       "addressCountry": "CH",
       "country": "CH",
@@ -970,8 +980,9 @@
       "addressRegion": "VD",
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-07T21:17:30.873Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-07T09:27:56.860Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/nyon-apprentissage-d%e2%80%99employ%c3%a9-e-de-commerce-cfc-ao%c3%bbt-2027-%c3%a0-l%e2%80%99agence-g%c3%a9n%c3%a9rale-de-la-c%c3%b4te/1165597655"
     },
     {
       "id": "mobiliar-0a3faf5643ed",
@@ -1004,7 +1015,7 @@
       "url": "https://jobs.mobiliar.ch/job/Wetzikon-Mitarbeiter-Verkaufssupport-%28wmd%29-Generalagentur-Wetzikon-Pf%C3%A4ffikon/1165574355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:17:30.130Z",
+      "crawledAt": "2026-11-20T09:27:53.022Z",
       "addressLocality": "Wetzikon",
       "addressCountry": "CH",
       "country": "CH",
@@ -1055,8 +1066,9 @@
       "addressRegion": "ZH",
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T21:17:30.130Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-06T09:27:53.022Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/wetzikon-mitarbeiter-verkaufssupport-%28wmd%29-generalagentur-wetzikon-pf%c3%a4ffikon/1165574355"
     },
     {
       "id": "mobiliar-46bdd4ef4030",
@@ -1089,7 +1101,7 @@
       "url": "https://jobs.mobiliar.ch/job/Olten-Schadenmitarbeiter-%28wm%29-Generalagentur-Olten/1165329955/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:17:29.373Z",
+      "crawledAt": "2026-11-20T09:28:04.415Z",
       "addressLocality": "Olten",
       "addressCountry": "CH",
       "country": "CH",
@@ -1218,8 +1230,9 @@
       "addressRegion": "SO",
       "streetAddress": "Olten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T21:17:29.373Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-20T09:28:04.415Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/olten-schadenmitarbeiter-%28wm%29-generalagentur-olten/1165329955"
     },
     {
       "id": "mobiliar-757903201209",
@@ -1252,7 +1265,7 @@
       "url": "https://jobs.mobiliar.ch/job/Weinfelden-Finanzverantwortlicher-%28mw%29-mit-Herz-Generalagentur-Mittelthurgau/1165581255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:17:28.624Z",
+      "crawledAt": "2026-11-20T09:27:52.276Z",
       "addressLocality": "Weinfelden",
       "addressCountry": "CH",
       "country": "CH",
@@ -1323,8 +1336,9 @@
       "addressRegion": "TG",
       "streetAddress": "Weinfelden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T21:17:28.624Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-22T09:27:52.276Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/weinfelden-finanzverantwortlicher-%28mw%29-mit-herz-generalagentur-mittelthurgau/1165581255"
     },
     {
       "id": "mobiliar-4e7facda1325",
@@ -1357,7 +1371,7 @@
       "url": "https://jobs.mobiliar.ch/job/Weinfelden-Versicherungs-und-Vorsorgeberater-mit-Herz-%28wm%29-Generalagentur-Mittelthurgau/1164537855/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:17:27.857Z",
+      "crawledAt": "2026-11-20T09:27:49.264Z",
       "addressLocality": "Weinfelden",
       "addressCountry": "CH",
       "country": "CH",
@@ -1427,8 +1441,9 @@
       "addressRegion": "TG",
       "streetAddress": "Weinfelden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T21:17:27.857Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-20T09:27:49.264Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/weinfelden-versicherungs-und-vorsorgeberater-mit-herz-%28wm%29-generalagentur-mittelthurgau/1164537855"
     },
     {
       "id": "mobiliar-47a4fcd738e0",
@@ -1461,7 +1476,7 @@
       "url": "https://jobs.mobiliar.ch/job/Willisau-Leiterin-Verkauf-%28wmd%29-Generalagentur-Willisau-Entlebuch/1165759355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:17:27.087Z",
+      "crawledAt": "2026-11-20T09:28:17.907Z",
       "addressLocality": "Willisau",
       "addressCountry": "CH",
       "country": "CH",
@@ -1530,8 +1545,9 @@
       "addressRegion": "LU",
       "streetAddress": "Willisau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T21:17:27.087Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-07T09:28:17.907Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/willisau-leiterin-verkauf-%28wmd%29-generalagentur-willisau-entlebuch/1165759355"
     },
     {
       "id": "mobiliar-91edcd1b9bca",
@@ -1564,7 +1580,7 @@
       "url": "https://jobs.mobiliar.ch/job/Yverdon-les-Bains-Gestionnaire-sp%C3%A9cialis%C3%A9-du-support-vente-courtiers-%C3%A0-l’agence-g%C3%A9n%C3%A9rale-Lausanne-Nord-vaudois-%28fhd%29/1164176155/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:17:26.343Z",
+      "crawledAt": "2026-11-20T09:27:48.513Z",
       "addressLocality": "Yverdon",
       "addressCountry": "CH",
       "country": "CH",
@@ -1628,8 +1644,9 @@
       "addressRegion": "VD",
       "streetAddress": "Yverdon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T21:17:26.343Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-20T09:27:48.513Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/yverdon-les-bains-gestionnaire-sp%c3%a9cialis%c3%a9-du-support-vente-courtiers-%c3%a0-l%e2%80%99agence-g%c3%a9n%c3%a9rale-lausanne-nord-vaudois-%28fhd%29/1164176155"
     },
     {
       "id": "mobiliar-4f1dc0f1d604",
@@ -1662,7 +1679,7 @@
       "url": "https://jobs.mobiliar.ch/job/Lausanne-Gestionnaire-sp%C3%A9cialis%C3%A9-du-support-vente-%28fhd%29-Agence-g%C3%A9n%C3%A9rale-de-Lausanne-Nord-Vaudois/1165664055/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:17:25.577Z",
+      "crawledAt": "2026-11-20T09:28:37.554Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1703,7 +1720,7 @@
           "gestionnaire-specialise-du-support-vente-f-h-d-agence-generale-de-lausanne-nord-vaudois"
         ]
       },
-      "firstSeenAt": "2026-10-23T09:28:27.103Z",
+      "firstSeenAt": "2026-10-22T21:14:52.837Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -1721,8 +1738,9 @@
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T21:17:25.577Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-21T09:28:37.554Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/lausanne-gestionnaire-sp%c3%a9cialis%c3%a9-du-support-vente-%28fhd%29-agence-g%c3%a9n%c3%a9rale-de-lausanne-nord-vaudois/1165664055"
     },
     {
       "id": "mobiliar-9a515ac5c3c8",
@@ -1755,7 +1773,7 @@
       "url": "https://jobs.mobiliar.ch/job/Fleurier-Collaborateur-au-service-des-sinistres-%28fhd%29-Agence-g%C3%A9n%C3%A9ral-Montagnes-et-Vall%C3%A9es-NE/1165137455/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:17:24.817Z",
+      "crawledAt": "2026-11-20T09:28:31.470Z",
       "addressLocality": "Fleurier",
       "addressCountry": "CH",
       "country": "CH",
@@ -1782,7 +1800,7 @@
           "collaborateur-au-service-des-sinistres-f-h-d-agence-general-montagnes-et-vallees-ne"
         ]
       },
-      "firstSeenAt": "2026-09-26T13:54:18.234Z",
+      "firstSeenAt": "2026-07-20T12:50:37.825Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -1799,8 +1817,9 @@
       "postalCode": "2114",
       "streetAddress": "Fleurier",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:17:24.817Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T09:28:31.470Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/fleurier-collaborateur-au-service-des-sinistres-%28fhd%29-agence-g%c3%a9n%c3%a9ral-montagnes-et-vall%c3%a9es-ne/1165137455"
     },
     {
       "id": "mobiliar-912f42a32c6c",
@@ -1833,7 +1852,7 @@
       "url": "https://jobs.mobiliar.ch/job/B%C3%BClach-Mitarbeiter-Kunden-und-Maklersupport-%28wmd%29-Generalagentur-B%C3%BClach/1165462455/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:17:24.057Z",
+      "crawledAt": "2026-11-20T09:28:27.680Z",
       "addressLocality": "Bülach",
       "addressCountry": "CH",
       "country": "CH",
@@ -1878,8 +1897,9 @@
       "addressRegion": "ZH",
       "streetAddress": "Bülach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T21:17:24.057Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-20T09:28:27.680Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/b%c3%bclach-mitarbeiter-kunden-und-maklersupport-%28wmd%29-generalagentur-b%c3%bclach/1165462455"
     },
     {
       "id": "mobiliar-5579e1824c13",
@@ -1912,7 +1932,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bulle-Conseiller-%C3%A8re-en-assurances-et-pr%C3%A9voyance-%28fmd%29-%C3%A0-l’agence-g%C3%A9n%C3%A9rale-de-Bulle/1165664255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:17:23.315Z",
+      "crawledAt": "2026-11-20T09:28:33.792Z",
       "addressLocality": "Bulle",
       "addressCountry": "CH",
       "country": "CH",
@@ -1945,7 +1965,7 @@
           "conseiller-ere-en-assurances-et-prevoyance-f-m-d-a-l-agence-generale-de-bulle-mobiliar-ch"
         ]
       },
-      "firstSeenAt": "2026-10-23T09:29:09.567Z",
+      "firstSeenAt": "2026-10-22T21:14:53.592Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1963,8 +1983,9 @@
       "addressRegion": "FR",
       "streetAddress": "Bulle",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T21:17:23.315Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-22T09:28:33.792Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/bulle-conseiller-%c3%a8re-en-assurances-et-pr%c3%a9voyance-%28fmd%29-%c3%a0-l%e2%80%99agence-g%c3%a9n%c3%a9rale-de-bulle/1165664255"
     },
     {
       "id": "mobiliar-880400ef884b",
@@ -1997,7 +2018,7 @@
       "url": "https://jobs.mobiliar.ch/job/Burgdorf-Schadenspezialist-%28wmd%29-Generalagentur-Burgdorf/1164843655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:17:22.567Z",
+      "crawledAt": "2026-11-20T09:27:51.534Z",
       "addressLocality": "Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -2073,8 +2094,9 @@
       "addressRegion": "BE",
       "streetAddress": "Burgdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T21:17:22.567Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-20T09:27:51.534Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/burgdorf-schadenspezialist-%28wmd%29-generalagentur-burgdorf/1164843655"
     },
     {
       "id": "mobiliar-1ba3bf0f522b",
@@ -2107,7 +2129,7 @@
       "url": "https://jobs.mobiliar.ch/job/Chur-Mitarbeiter-Verkaufssupport-%28wmd%29-Generalagentur-Chur/1165802655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:17:21.820Z",
+      "crawledAt": "2026-11-20T09:28:23.853Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -2160,8 +2182,9 @@
       "addressRegion": "GR",
       "streetAddress": "Chur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:17:21.820Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-15T09:28:23.853Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/chur-mitarbeiter-verkaufssupport-%28wmd%29-generalagentur-chur/1165802655"
     },
     {
       "id": "mobiliar-1f5634fea2b8",
@@ -2194,7 +2217,7 @@
       "url": "https://jobs.mobiliar.ch/job/Dielsdorf-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Dielsdorf/1165109855/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:17:21.077Z",
+      "crawledAt": "2026-11-20T09:28:26.176Z",
       "addressLocality": "Dielsdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -2239,8 +2262,9 @@
       "addressRegion": "ZH",
       "streetAddress": "Dielsdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T21:17:21.077Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-20T09:28:26.176Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/dielsdorf-versicherungs-und-vorsorgeberater-%28wmd%29-generalagentur-dielsdorf/1165109855"
     },
     {
       "id": "mobiliar-e3c95965ff9d",
@@ -2273,7 +2297,7 @@
       "url": "https://jobs.mobiliar.ch/job/Ebikon-Mitarbeiter-Schaden-%28wmd%29-Generalagentur-Seetal-Rontal/1165678455/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:17:20.328Z",
+      "crawledAt": "2026-11-20T09:28:02.911Z",
       "addressLocality": "Ebikon",
       "addressCountry": "CH",
       "country": "CH",
@@ -2348,8 +2372,9 @@
       "addressRegion": "LU",
       "streetAddress": "Ebikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T21:17:20.328Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-24T09:28:02.911Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/ebikon-mitarbeiter-schaden-%28wmd%29-generalagentur-seetal-rontal/1165678455"
     },
     {
       "id": "mobiliar-2e0fc3f5be63",
@@ -2382,7 +2407,7 @@
       "url": "https://jobs.mobiliar.ch/job/Ebikon-Mitarbeiter-Service-VertriebVerkaufssupport-%28wmd%29-Generalagentur-Seetal-Rontal/1164412255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:17:19.579Z",
+      "crawledAt": "2026-11-20T09:28:07.403Z",
       "addressLocality": "Hochdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -2459,8 +2484,9 @@
       "addressRegion": "LU",
       "streetAddress": "Hochdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T21:17:19.579Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-19T09:28:07.403Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/ebikon-mitarbeiter-service-vertriebverkaufssupport-%28wmd%29-generalagentur-seetal-rontal/1164412255"
     },
     {
       "id": "mobiliar-0e1bf8075717",
@@ -2493,7 +2519,7 @@
       "url": "https://jobs.mobiliar.ch/job/Eschenbach-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Rapperswil-Glarus/1163794755/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:17:18.839Z",
+      "crawledAt": "2026-11-20T09:27:47.768Z",
       "addressLocality": "Eschenbach",
       "addressCountry": "CH",
       "country": "CH",
@@ -2544,7 +2570,7 @@
           "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-rapperswil-glarus-mobiliar-ch"
         ]
       },
-      "firstSeenAt": "2026-09-01T07:52:04.525Z",
+      "firstSeenAt": "2026-05-17T10:48:29.879Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -2560,8 +2586,9 @@
       },
       "streetAddress": "Eschenbach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T21:17:18.839Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-20T09:27:47.768Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/eschenbach-versicherungs-und-vorsorgeberater-%28wmd%29-generalagentur-rapperswil-glarus/1163794755"
     },
     {
       "id": "mobiliar-2d3b1bf0fcef",
@@ -2594,7 +2621,7 @@
       "url": "https://jobs.mobiliar.ch/job/Lausanne-Conseiller-%C3%A8re-en-assurances%2C-pr%C3%A9voyance-et-hypoth%C3%A8ques-%C3%A0-l’agence-g%C3%A9n%C3%A9rale-Lausanne-Nord-vaudois/1163725955/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:17:18.091Z",
+      "crawledAt": "2026-11-20T09:27:46.943Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2642,8 +2669,9 @@
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T21:17:18.091Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-20T09:27:46.943Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/lausanne-conseiller-%c3%a8re-en-assurances%2c-pr%c3%a9voyance-et-hypoth%c3%a8ques-%c3%a0-l%e2%80%99agence-g%c3%a9n%c3%a9rale-lausanne-nord-vaudois/1163725955"
     },
     {
       "id": "mobiliar-9d7b97afdc12",
@@ -2676,7 +2704,7 @@
       "url": "https://jobs.mobiliar.ch/job/Luzern-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Luzern/1165554655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:17:17.306Z",
+      "crawledAt": "2026-11-20T09:28:32.995Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2739,8 +2767,9 @@
       "addressRegion": "LU",
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T21:17:17.306Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-04T09:28:32.995Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/luzern-versicherungs-und-vorsorgeberater-%28wmd%29-generalagentur-luzern/1165554655"
     },
     {
       "id": "mobiliar-a13b7fa65d5c",
@@ -2773,7 +2802,7 @@
       "url": "https://jobs.mobiliar.ch/job/Luzern-KV-Lehrstelle-EFZ-2027-Generalagentur-Luzern/1164429655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:17:16.551Z",
+      "crawledAt": "2026-11-20T09:27:46.184Z",
       "addressLocality": "Generalagentur Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2840,8 +2869,9 @@
       "addressRegion": "LU",
       "streetAddress": "Generalagentur Luzern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T21:17:16.551Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-20T09:27:46.184Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/luzern-kv-lehrstelle-efz-2027-generalagentur-luzern/1164429655"
     },
     {
       "id": "mobiliar-ad2881016a5c",
@@ -2874,7 +2904,7 @@
       "url": "https://jobs.mobiliar.ch/job/Hochdorf-Mitarbeiter-Schaden-%28wmd%29-Generalagentur-Seetal-Rontal/1165678355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:17:15.806Z",
+      "crawledAt": "2026-11-20T09:28:02.136Z",
       "addressLocality": "Hochdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -2949,8 +2979,9 @@
       "addressRegion": "LU",
       "streetAddress": "Hochdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T21:17:15.806Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-24T09:28:02.136Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/hochdorf-mitarbeiter-schaden-%28wmd%29-generalagentur-seetal-rontal/1165678355"
     },
     {
       "id": "mobiliar-8114b4369fb4",
@@ -2983,7 +3014,7 @@
       "url": "https://jobs.mobiliar.ch/job/Hochdorf-Mitarbeiter-Service-VertriebVerkaufssupport-%28wmd%29-Generalagentur-Seetal-Rontal/1164412455/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:17:15.054Z",
+      "crawledAt": "2026-11-20T09:28:06.650Z",
       "addressLocality": "Hochdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -3056,8 +3087,9 @@
       "addressRegion": "LU",
       "streetAddress": "Hochdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T21:17:15.054Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-19T09:28:06.650Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/hochdorf-mitarbeiter-service-vertriebverkaufssupport-%28wmd%29-generalagentur-seetal-rontal/1164412455"
     },
     {
       "id": "mobiliar-91fc71f67833",
@@ -3090,7 +3122,7 @@
       "url": "https://jobs.mobiliar.ch/job/Kreuzlingen-Mitarbeiter-Verkaufssupport-%28wmd%29-Generalagentur-Kreuzlingen/1165521155/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:17:14.311Z",
+      "crawledAt": "2026-11-20T09:28:30.698Z",
       "addressLocality": "Kreuzlingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -3151,8 +3183,9 @@
       "addressRegion": "TG",
       "streetAddress": "Kreuzlingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T21:17:14.311Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-28T09:28:30.698Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/kreuzlingen-mitarbeiter-verkaufssupport-%28wmd%29-generalagentur-kreuzlingen/1165521155"
     },
     {
       "id": "mobiliar-903ceaa947ac",
@@ -3185,7 +3218,7 @@
       "url": "https://jobs.mobiliar.ch/job/Horgen-Schadenmitarbeiter-%28wmd%29-Generalagentur-Horgen/1165802555/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:17:13.552Z",
+      "crawledAt": "2026-11-20T09:28:44.722Z",
       "addressLocality": "Horgen",
       "addressCountry": "CH",
       "country": "CH",
@@ -3252,8 +3285,9 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:17:13.552Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-15T09:28:44.722Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/horgen-schadenmitarbeiter-%28wmd%29-generalagentur-horgen/1165802555"
     },
     {
       "id": "mobiliar-2526375cae6a",
@@ -3286,7 +3320,7 @@
       "url": "https://jobs.mobiliar.ch/job/Wil-Mitarbeiter-Verkaufssupport-%28mwd%29-Generalagentur-Wil/1165809355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:17:12.777Z",
+      "crawledAt": "2026-11-20T09:28:43.975Z",
       "addressLocality": "Wil",
       "addressCountry": "CH",
       "country": "CH",
@@ -3350,8 +3384,9 @@
       "addressRegion": "SG",
       "streetAddress": "Wil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:17:12.777Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-15T09:28:43.975Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/wil-mitarbeiter-verkaufssupport-%28mwd%29-generalagentur-wil/1165809355"
     },
     {
       "id": "mobiliar-135deb5fe4a0",
@@ -3384,7 +3419,7 @@
       "url": "https://jobs.mobiliar.ch/job/Wil-Schadenspezialist-%28wmd%29-Generalagentur-Wil/1165243555/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:17:12.034Z",
+      "crawledAt": "2026-11-20T09:28:34.538Z",
       "addressLocality": "Wil",
       "addressCountry": "CH",
       "country": "CH",
@@ -3445,8 +3480,9 @@
       "addressRegion": "SG",
       "streetAddress": "Wil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T21:17:12.034Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-20T09:28:34.538Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/wil-schadenspezialist-%28wmd%29-generalagentur-wil/1165243555"
     },
     {
       "id": "mobiliar-8db4cb1d55b3",
@@ -3479,7 +3515,7 @@
       "url": "https://jobs.mobiliar.ch/job/Wil-Schadenspezialist-%28wmd%29-Generalagentur-Wil-SG/1164087255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:17:11.288Z",
+      "crawledAt": "2026-11-20T09:27:45.278Z",
       "addressLocality": "Wil",
       "addressCountry": "CH",
       "country": "CH",
@@ -3550,8 +3586,9 @@
       "addressRegion": "SG",
       "streetAddress": "Wil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T21:17:11.288Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-20T09:27:45.278Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/wil-schadenspezialist-%28wmd%29-generalagentur-wil-sg/1164087255"
     },
     {
       "id": "mobiliar-0e3aa75735d5",
@@ -3584,7 +3621,7 @@
       "url": "https://jobs.mobiliar.ch/job/Wil-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Wil/940908174/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:17:10.526Z",
+      "crawledAt": "2026-11-20T09:28:12.689Z",
       "addressLocality": "Wil",
       "addressCountry": "CH",
       "country": "CH",
@@ -3634,7 +3671,7 @@
           "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-wil-die-mobiliar-wil"
         ]
       },
-      "firstSeenAt": "2026-09-26T13:54:01.012Z",
+      "firstSeenAt": "2026-09-24T14:18:18.767Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -3652,8 +3689,9 @@
       "addressRegion": "SG",
       "streetAddress": "Wil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:17:10.526Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T09:28:12.689Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/wil-versicherungs-und-vorsorgeberater-%28wmd%29-generalagentur-wil/940908174"
     },
     {
       "id": "mobiliar-60f289873dbe",
@@ -3686,7 +3724,7 @@
       "url": "https://jobs.mobiliar.ch/job/Regensdorf-Versicherungs-und-Vorsorgeberater-%28wm%29-Generalagentur-Dielsdorf/1165498055/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:17:09.769Z",
+      "crawledAt": "2026-11-20T09:28:28.434Z",
       "addressLocality": "Regensdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -3731,8 +3769,9 @@
       "addressRegion": "ZH",
       "streetAddress": "Regensdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T21:17:09.769Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-24T09:28:28.434Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/regensdorf-versicherungs-und-vorsorgeberater-%28wm%29-generalagentur-dielsdorf/1165498055"
     },
     {
       "id": "mobiliar-b771e958d1d2",
@@ -3765,7 +3804,7 @@
       "url": "https://jobs.mobiliar.ch/job/Kloten-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-B%C3%BClach/1165714355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:17:08.999Z",
+      "crawledAt": "2026-11-20T09:28:41.089Z",
       "addressLocality": "Kloten",
       "addressCountry": "CH",
       "country": "CH",
@@ -3834,8 +3873,9 @@
       "addressRegion": "ZH",
       "streetAddress": "Kloten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T21:17:08.999Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-29T09:28:41.089Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/kloten-versicherungs-und-vorsorgeberater-%28wmd%29-generalagentur-b%c3%bclach/1165714355"
     },
     {
       "id": "mobiliar-779f4cebde93",
@@ -3868,7 +3908,7 @@
       "url": "https://jobs.mobiliar.ch/job/Biel-Sp%C3%A9cialiste-pr%C3%A9voyance-et-hypoth%C3%A8ques-%28fhd%29-Agence-g%C3%A9n%C3%A9rale-de-Bienne/1165693055/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:17:08.238Z",
+      "crawledAt": "2026-11-20T09:28:35.278Z",
       "addressLocality": "Biel",
       "addressCountry": "CH",
       "country": "CH",
@@ -3918,8 +3958,9 @@
       "addressRegion": "BE",
       "streetAddress": "Biel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:17:08.238Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-27T09:28:35.278Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/biel-sp%c3%a9cialiste-pr%c3%a9voyance-et-hypoth%c3%a8ques-%28fhd%29-agence-g%c3%a9n%c3%a9rale-de-bienne/1165693055"
     },
     {
       "id": "mobiliar-1c0d58d17b12",
@@ -3952,7 +3993,7 @@
       "url": "https://jobs.mobiliar.ch/job/Biel-Hypothekar-und-Vorsorgespezialist-%28wmd%29-Generalagentur-Biel/1165618555/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:17:07.477Z",
+      "crawledAt": "2026-11-20T09:27:58.354Z",
       "addressLocality": "Biel",
       "addressCountry": "CH",
       "country": "CH",
@@ -4002,8 +4043,9 @@
       "addressRegion": "BE",
       "streetAddress": "Biel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T21:17:07.477Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-13T09:27:58.354Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/biel-hypothekar-und-vorsorgespezialist-%28wmd%29-generalagentur-biel/1165618555"
     },
     {
       "id": "mobiliar-3aad92e7ddd9",
@@ -4036,7 +4078,7 @@
       "url": "https://jobs.mobiliar.ch/job/Biel-Conseiller-en-assurances-et-en-pr%C3%A9voyance-%28fhd%29-%C3%A0-l’agence-g%C3%A9n%C3%A9rale-de-Bienne/1164040055/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:17:06.737Z",
+      "crawledAt": "2026-11-20T09:27:44.533Z",
       "addressLocality": "Biel",
       "addressCountry": "CH",
       "country": "CH",
@@ -4080,8 +4122,9 @@
       "addressRegion": "BE",
       "streetAddress": "Biel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T21:17:06.737Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-20T09:27:44.533Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/biel-conseiller-en-assurances-et-en-pr%c3%a9voyance-%28fhd%29-%c3%a0-l%e2%80%99agence-g%c3%a9n%c3%a9rale-de-bienne/1164040055"
     },
     {
       "id": "mobiliar-5b2e0d0beb6f",
@@ -4114,7 +4157,7 @@
       "url": "https://jobs.mobiliar.ch/job/Biel-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Biel/1164039955/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:17:05.991Z",
+      "crawledAt": "2026-11-20T09:27:43.710Z",
       "addressLocality": "Biel",
       "addressCountry": "CH",
       "country": "CH",
@@ -4148,7 +4191,7 @@
           "m-d-generalagentur-biel-die-mobiliar-biel"
         ]
       },
-      "firstSeenAt": "2026-09-26T13:53:34.732Z",
+      "firstSeenAt": "2026-05-10T22:09:53.897Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -4165,8 +4208,9 @@
       "addressRegion": "BE",
       "streetAddress": "Biel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:17:05.991Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T09:27:43.710Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/biel-versicherungs-und-vorsorgeberater-%28wmd%29-generalagentur-biel/1164039955"
     },
     {
       "id": "mobiliar-f20912c48d44",
@@ -4199,7 +4243,7 @@
       "url": "https://jobs.mobiliar.ch/job/Brig-Versicherungs-und-Vorsorgeberater-%28wmd%29-Region-Brig/1165227155/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:17:05.253Z",
+      "crawledAt": "2026-11-20T09:27:54.549Z",
       "addressLocality": "Brig",
       "addressCountry": "CH",
       "country": "CH",
@@ -4250,8 +4294,9 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T21:17:05.253Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-20T09:27:54.549Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/brig-versicherungs-und-vorsorgeberater-%28wmd%29-region-brig/1165227155"
     },
     {
       "id": "mobiliar-f42cc2e103ed",
@@ -4284,7 +4329,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Leiter-Recht-&-Compliance-GLB-Versicherungen-%28wmd%29/1165657755/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:17:04.501Z",
+      "crawledAt": "2026-11-20T09:28:01.372Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -4352,8 +4397,9 @@
       "addressRegion": "BE",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T21:17:04.501Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-20T09:28:01.372Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/bern-leiter-recht-&-compliance-glb-versicherungen-%28wmd%29/1165657755"
     },
     {
       "id": "mobiliar-24ef77ad131e",
@@ -4386,7 +4432,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Senior-Scrum-Master-%28wmd%29/1165648255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:17:03.748Z",
+      "crawledAt": "2026-11-20T09:27:59.105Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -4436,8 +4482,9 @@
       "addressRegion": "BE",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-17T21:17:03.748Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-18T09:27:59.105Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/bern-senior-scrum-master-%28wmd%29/1165648255"
     },
     {
       "id": "mobiliar-91327a6bd385",
@@ -4470,7 +4517,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Spezialist-Mahnen-&-Betreiben-%28wmd%29/1165518755/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:17:02.981Z",
+      "crawledAt": "2026-11-20T09:28:29.194Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -4542,8 +4589,9 @@
       "addressRegion": "BE",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T21:17:02.981Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-28T09:28:29.194Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/bern-spezialist-mahnen-&-betreiben-%28wmd%29/1165518755"
     },
     {
       "id": "mobiliar-5dfc19d89b2b",
@@ -4576,7 +4624,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Geb%C3%A4udespezialist-Sachschaden-Ost-%28wmd%29-im-Fachkr%C3%A4fte-Netzwerk-Schaden-%28FNS%29/1165500355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:17:02.237Z",
+      "crawledAt": "2026-11-20T09:28:29.947Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -4631,7 +4679,7 @@
           "dommages-immobiliers-specialises-dans-la-construction-est-h-f-d-dans-le-reseau-specialise-fns-die-mobiliar-bern"
         ]
       },
-      "firstSeenAt": "2026-10-03T09:14:24.051Z",
+      "firstSeenAt": "2026-10-01T21:15:50.728Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -4649,8 +4697,9 @@
       "addressRegion": "BE",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-01T21:17:02.237Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-01T09:28:29.947Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/bern-geb%c3%a4udespezialist-sachschaden-ost-%28wmd%29-im-fachkr%c3%a4fte-netzwerk-schaden-%28fns%29/1165500355"
     },
     {
       "id": "mobiliar-a562062aab67",
@@ -4683,7 +4732,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Cloud-Security-Engineer-%28wmd%29/1165357255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:17:01.491Z",
+      "crawledAt": "2026-11-20T09:28:39.061Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -4753,8 +4802,9 @@
       "addressRegion": "BE",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T21:17:01.491Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-20T09:28:39.061Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/bern-cloud-security-engineer-%28wmd%29/1165357255"
     },
     {
       "id": "mobiliar-dcdeda882a8d",
@@ -4787,7 +4837,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Key-Account-Manager-Private-Vorsorge-&-KMU-Markt-Mitte-%28wmd%29/1165617455/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:17:00.753Z",
+      "crawledAt": "2026-11-20T09:27:57.606Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -4873,8 +4923,9 @@
       "addressRegion": "BE",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T21:17:00.753Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-19T09:27:57.606Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/bern-key-account-manager-private-vorsorge-&-kmu-markt-mitte-%28wmd%29/1165617455"
     },
     {
       "id": "mobiliar-fba196886630",
@@ -4907,7 +4958,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-IT-Architekt-Finanzen-und-Assetmanagement-%28wmd%29/1165600255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:17:00.002Z",
+      "crawledAt": "2026-11-20T09:28:09.690Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -4975,8 +5026,9 @@
       "addressRegion": "BE",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T21:17:00.002Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-22T09:28:09.690Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/bern-it-architekt-finanzen-und-assetmanagement-%28wmd%29/1165600255"
     },
     {
       "id": "mobiliar-17787540fa5e",
@@ -5009,7 +5061,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Product-Owner-Prozess-Vertragsf%C3%BChrung-%28wmd%29/1165221755/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:16:59.180Z",
+      "crawledAt": "2026-11-20T09:27:53.781Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -5082,8 +5134,9 @@
       "addressRegion": "BE",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T21:16:59.180Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-12T09:27:53.781Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/bern-product-owner-prozess-vertragsf%c3%bchrung-%28wmd%29/1165221755"
     },
     {
       "id": "mobiliar-42c5b5cbd9c5",
@@ -5116,7 +5169,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Sachbearbeiter-Auslandschaden-%28wmd%29/1165722455/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:16:58.038Z",
+      "crawledAt": "2026-11-20T09:28:39.949Z",
       "addressLocality": "XpertCenter AG",
       "addressCountry": "CH",
       "country": "CH",
@@ -5172,8 +5225,9 @@
       "addressRegion": "AG",
       "streetAddress": "XpertCenter AG",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:16:58.038Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-01T09:28:39.949Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/bern-sachbearbeiter-auslandschaden-%28wmd%29/1165722455"
     },
     {
       "id": "mobiliar-8e6e8f770444",
@@ -5206,7 +5260,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Schadeninspektor-Sachschaden-Direktion-%28wmd%29/1165714955/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:16:57.168Z",
+      "crawledAt": "2026-11-20T09:28:36.808Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -5275,8 +5329,9 @@
       "addressRegion": "BE",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T21:16:57.168Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-29T09:28:36.808Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/bern-schadeninspektor-sachschaden-direktion-%28wmd%29/1165714955"
     },
     {
       "id": "mobiliar-8593645b101b",
@@ -5309,7 +5364,7 @@
       "url": "https://jobs.mobiliar.ch/job/Baden-Schadenspezialist-%28wmd%29-Generalagentur-Baden/1165663955/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:16:56.414Z",
+      "crawledAt": "2026-11-20T09:28:38.306Z",
       "addressLocality": "Baden",
       "addressCountry": "CH",
       "country": "CH",
@@ -5379,8 +5434,9 @@
       "addressRegion": "AG",
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-17T21:16:56.414Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-18T09:28:38.306Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/baden-schadenspezialist-%28wmd%29-generalagentur-baden/1165663955"
     },
     {
       "id": "mobiliar-3cc2152839c1",
@@ -5413,7 +5469,7 @@
       "url": "https://jobs.mobiliar.ch/job/Balsthal-Schadenmitarbeiter-%28wmd%29-Generalagentur-Balsthal/1165782855/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:16:55.667Z",
+      "crawledAt": "2026-11-20T09:28:25.403Z",
       "addressLocality": "Balsthal",
       "addressCountry": "CH",
       "country": "CH",
@@ -5481,8 +5537,9 @@
       "addressRegion": "SO",
       "streetAddress": "Balsthal",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:16:55.667Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-10T09:28:25.403Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/balsthal-schadenmitarbeiter-%28wmd%29-generalagentur-balsthal/1165782855"
     },
     {
       "id": "mobiliar-7ebc2a8958eb",
@@ -5515,7 +5572,7 @@
       "url": "https://jobs.mobiliar.ch/job/Balsthal-Mitarbeiterin-Verkaufssupport-%28wmd%29-Generalagentur-Balsthal/1165732355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:16:54.909Z",
+      "crawledAt": "2026-11-20T09:28:15.656Z",
       "addressLocality": "Balsthal",
       "addressCountry": "CH",
       "country": "CH",
@@ -5586,8 +5643,9 @@
       "addressRegion": "SO",
       "streetAddress": "Balsthal",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:16:54.909Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-02T09:28:15.656Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/balsthal-mitarbeiterin-verkaufssupport-%28wmd%29-generalagentur-balsthal/1165732355"
     },
     {
       "id": "mobiliar-f61e2b2fedac",
@@ -5620,7 +5678,7 @@
       "url": "https://jobs.mobiliar.ch/job/Basel-Mitarbeiter-Kundendienst-%28wmd%29/1165785355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:16:54.141Z",
+      "crawledAt": "2026-11-20T09:28:26.925Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -5677,8 +5735,9 @@
       "addressRegion": "BS",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:16:54.141Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-10T09:28:26.925Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/basel-mitarbeiter-kundendienst-%28wmd%29/1165785355"
     },
     {
       "id": "mobiliar-0bd5f5e04b15",
@@ -5711,7 +5770,7 @@
       "url": "https://jobs.mobiliar.ch/job/Basel-Mitarbeiter-Personenschaden-%28wmd%29-Generalagentur-Basel/1165730955/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:16:53.395Z",
+      "crawledAt": "2026-11-20T09:28:14.178Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -5764,8 +5823,9 @@
       "addressRegion": "BS",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:16:53.395Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-02T09:28:14.178Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/basel-mitarbeiter-personenschaden-%28wmd%29-generalagentur-basel/1165730955"
     },
     {
       "id": "mobiliar-5fe6d03c12dd",
@@ -5798,7 +5858,7 @@
       "url": "https://jobs.mobiliar.ch/job/Basel-Praktikum-Marketing-Marktbearbeitung-%28wmd%29-Generalagentur-Basel/1165434955/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:16:52.633Z",
+      "crawledAt": "2026-11-20T09:28:23.105Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -5876,8 +5936,9 @@
       "addressRegion": "BS",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T21:16:52.633Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-20T09:28:23.105Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/basel-praktikum-marketing-marktbearbeitung-%28wmd%29-generalagentur-basel/1165434955"
     },
     {
       "id": "mobiliar-37060f75f542",
@@ -5910,7 +5971,7 @@
       "url": "https://jobs.mobiliar.ch/job/Basel-Schadenspezialistin-%28wmd%29-Generalagentur-Basel/1165042255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:16:51.863Z",
+      "crawledAt": "2026-11-20T09:28:17.155Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -5955,8 +6016,9 @@
       "addressRegion": "BS",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T21:16:51.863Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-20T09:28:17.155Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/basel-schadenspezialistin-%28wmd%29-generalagentur-basel/1165042255"
     },
     {
       "id": "mobiliar-02c3df623393",
@@ -5989,7 +6051,7 @@
       "url": "https://jobs.mobiliar.ch/job/Basel-KV-Lehrstelle-EFZ-2027-Generalagentur-Basel/1163321355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:16:51.010Z",
+      "crawledAt": "2026-11-20T09:27:42.885Z",
       "addressLocality": "Generalagentur Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -6052,17 +6114,18 @@
       "addressRegion": "BS",
       "streetAddress": "Generalagentur Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T21:16:51.010Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-20T09:27:42.885Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/basel-kv-lehrstelle-efz-2027-generalagentur-basel/1163321355"
     },
     {
       "id": "mobiliar-5321ccc3689d",
-      "slug": "business-analyst-automazione-dei-processi-m-f-d-60-80-die-mobiliar-bern",
+      "slug": "business-analyst-prozessautomatisierung-w-m-d-60-80-mobiliar-ch",
       "slugByLocale": {
         "de": "business-analyst-prozessautomatisierung-w-m-d-60-80-mobiliar-ch",
-        "it": "business-analyst-automazione-dei-processi-m-f-d-60-80-die-mobiliar-bern",
-        "en": "business-analyst-process-automation-m-f-d-60-80-die-mobiliar-bern",
-        "fr": "analyste-metier-en-automatisation-des-processus-h-f-d-60-80-die-mobiliar-bern"
+        "it": "business-analyst-prozessautomatisierung-w-m-d-60-80-mobiliar-ch",
+        "en": "business-analyst-prozessautomatisierung-w-m-d-60-80-mobiliar-ch",
+        "fr": "business-analyst-prozessautomatisierung-w-m-d-60-80-mobiliar-ch"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -6070,23 +6133,23 @@
       "title": "Business Analyst Prozessautomatisierung (w/m/d) | 60-80 %",
       "titleByLocale": {
         "de": "Business Analyst Prozessautomatisierung (w/m/d) | 60-80 %",
-        "it": "Business Analyst Automazione dei processi (m/f/d) | 60-80 %",
-        "en": "Business Analyst Process Automation (m/f/d) | 60-80%",
-        "fr": "Analyste métier en automatisation des processus (h/f/d) | 60-80 %"
+        "it": "Business Analista Prozessautomatisierung (w/m/d) | 60-80 %",
+        "en": "Business Analyst Prozessautomatisierung (w/m/d) | 60-80 %",
+        "fr": "Business Analyste Prozessautomatisierung (w/m/d) | 60-80 %"
       },
       "description": "Das erwartet dich:\nDu analysierst gerne Geschäftsprozesse und möchtest Verbesserungen selbst umsetzen? Als Business Analyst mit Fokus auf Prozessautomatisierung entwickelst du gemeinsam mit den Fachbereichen passende Lösungen und setzt sie auf unserer Robotics-Plattform um.\n\nIn unserem Team begleitest du die Automatisierung von der ersten Idee bis zum zuverlässigen Betrieb.\n\nDas bewirkst du bei uns:\nSeit über sieben Jahren automatisieren wir Geschäftsprozesse mit Robotics. Du begleitest Vorhaben von Anfang bis Ende und arbeitest eng mit Fachbereichen im gesamten Unternehmen zusammen.\n\nDu identifizierst Automatisierungspotenziale, analysierst Prozesse und erarbeitest Business Cases. Gemeinsam mit den Fachbereichen erhebst du Anforderungen und entwickelst Soll-Prozesse, Lösungskonzepte und Fachspezifikationen. Die Lösungen setzt du selbst auf unserer Robotics-Plattform um, testest sie und begleitest die produktive Einführung. Dabei unterstützt du Fachabteilungen und Generalagenturen auch bei den damit verbundenen Veränderungen. Zudem überwachst du bestehende Automatisierungen und stellst mit dem Team ihren zuverlässigen Betrieb sicher.\n\nDas bringst du mit:\nNeben deinem Ausbildungsweg zählen für uns deine Neugier und dein Antrieb, Prozesse gemeinsam mit anderen zu verbessern.\n\n• Höhere Aus- oder Weiterbildung, etwa in Betriebswirtschaft, Wirtschaftsinformatik, Prozessmanagement oder einer vergleichbaren Fachrichtung\n• Analytisches Denken, rasche Auffassungsgabe und Freude daran, Geschäftsprozesse zu hinterfragen und zu optimieren\n• Kommunikationsstärke und Freude an der Zusammenarbeit mit unterschiedlichen Fachbereichen\n• Interesse an Technologie und Digitalisierung, hohe Lernbereitschaft und Motivation, Lösungen selbst umzusetzen und weiterzuentwickeln\n• Selbstständige, lösungsorientierte Arbeitsweise, Eigeninitiative und unternehmerisches Denken und Handeln\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\nEine klassische Informatikausbildung oder Erfahrung im Bereich Robotics sind von Vorteil, jedoch keine Voraussetzung. Bei Bedarf unterstützen wir dich mit gezielten Aus- und Weiterbildungen sowie ausreichend Zeit für eine sorgfältige Einarbeitung.\n\nBei uns arbeiten:\nDich erwartet ein erfahrenes, motiviertes Team, das unkompliziert zusammenarbeitet und sich gegenseitig unterstützt. An der Schnittstelle von Business, Prozessen und Technologie entwickelst du eigenständig Lösungen, deren Mehrwert du im Arbeitsalltag direkt siehst.\n\nDein Pensum ist zwischen 60% und 80% wählbar, dein Arbeitsort ist Bern. Für geeignete Tätigkeiten kannst du flexibel im Homeoffice arbeiten.\n\nDie Stelle besetzen wir ab sofort oder nach Vereinbarung.\n\nDas bieten wir:\nVereinbarkeit\n\nWir ermöglichen flexible Arbeitsmodelle und bieten 20 Wochen Mutterschafts- sowie 6 Wochen Vaterschaftsurlaub, überdurchschnittliche Familienzulagen und eine nachhaltig finanzierte Pensionskasse.\n\nWeiterbildung und Entwicklung\n\nWir bieten ein vielfältiges internes Kursangebot sowie die Teilnahme an möglichen Auslandsprogrammen an. Bei jobrelevanten, externen Weiterbildungen beteiligen wir uns grosszügig.\n\nVergünstigungen\n\nWir bieten dir unter anderem bis zu 25% Prämienrabatt, ein Halbtax-Abonnement, Rabatte auf Mobiltelefone sowie kostenlose Abonnemente mit Flatrate und Ermässigungen bei kulturellen Veranstaltungen.\n\npresent\n\nWeitere Anstellungsbedingungen\n\ngo_to_link\n\nManager für Cookie-Einwilligungen:\nWenn Sie eine Website besuchen, kann diese Informationen zu Ihrem Browser - meistens in Form von Cookies - speichern und abrufen. Da wir Ihr Recht auf Privatsphäre respektieren, können Sie bestimmte Cookies ablehnen. Wenn Sie jedoch bestimmte Cookies blockieren, kann sich dies negativ auf Ihre Erfahrung auf der Site und die von uns angebotenen Services auswirken.\n\nNotwendige Cookies\n\nDiese Cookies sind für die Verwendung dieser Website erforderlich und können nicht deaktiviert werden.\n\nMehr Details anzeigen\n\nAnbieter\n Beschreibung\n Aktiviert\n\nSAP as service provider\n\nWir verwenden die folgenden Sitzungs-Cookies, die alle für die Funktionsfähigkeit der Website erforderlich sind:\n\n• \"route\" wird für Sitzungs-Stickiness verwendet\n\n• \"careerSiteCompanyId\" wird verwendet, um die Anforderung an das richtige Rechenzentrum zu senden\n\n• \"JSESSIONID\" wird während der Sitzung auf dem Gerät des Besuchers abgelegt, damit der Server den Besucher identifizieren kann\n\n• \"Load balancer cookie\" (tatsächlicher Cookie-Name kann abweichen) verhindert, dass ein Besucher von einer Instanz zu einer anderen springt\n</",
       "descriptionByLocale": {
         "de": "Das erwartet dich:\nDu analysierst gerne Geschäftsprozesse und möchtest Verbesserungen selbst umsetzen? Als Business Analyst mit Fokus auf Prozessautomatisierung entwickelst du gemeinsam mit den Fachbereichen passende Lösungen und setzt sie auf unserer Robotics-Plattform um.\n\nIn unserem Team begleitest du die Automatisierung von der ersten Idee bis zum zuverlässigen Betrieb.\n\nDas bewirkst du bei uns:\nSeit über sieben Jahren automatisieren wir Geschäftsprozesse mit Robotics. Du begleitest Vorhaben von Anfang bis Ende und arbeitest eng mit Fachbereichen im gesamten Unternehmen zusammen.\n\nDu identifizierst Automatisierungspotenziale, analysierst Prozesse und erarbeitest Business Cases. Gemeinsam mit den Fachbereichen erhebst du Anforderungen und entwickelst Soll-Prozesse, Lösungskonzepte und Fachspezifikationen. Die Lösungen setzt du selbst auf unserer Robotics-Plattform um, testest sie und begleitest die produktive Einführung. Dabei unterstützt du Fachabteilungen und Generalagenturen auch bei den damit verbundenen Veränderungen. Zudem überwachst du bestehende Automatisierungen und stellst mit dem Team ihren zuverlässigen Betrieb sicher.\n\nDas bringst du mit:\nNeben deinem Ausbildungsweg zählen für uns deine Neugier und dein Antrieb, Prozesse gemeinsam mit anderen zu verbessern.\n\n• Höhere Aus- oder Weiterbildung, etwa in Betriebswirtschaft, Wirtschaftsinformatik, Prozessmanagement oder einer vergleichbaren Fachrichtung\n• Analytisches Denken, rasche Auffassungsgabe und Freude daran, Geschäftsprozesse zu hinterfragen und zu optimieren\n• Kommunikationsstärke und Freude an der Zusammenarbeit mit unterschiedlichen Fachbereichen\n• Interesse an Technologie und Digitalisierung, hohe Lernbereitschaft und Motivation, Lösungen selbst umzusetzen und weiterzuentwickeln\n• Selbstständige, lösungsorientierte Arbeitsweise, Eigeninitiative und unternehmerisches Denken und Handeln\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\nEine klassische Informatikausbildung oder Erfahrung im Bereich Robotics sind von Vorteil, jedoch keine Voraussetzung. Bei Bedarf unterstützen wir dich mit gezielten Aus- und Weiterbildungen sowie ausreichend Zeit für eine sorgfältige Einarbeitung.\n\nBei uns arbeiten:\nDich erwartet ein erfahrenes, motiviertes Team, das unkompliziert zusammenarbeitet und sich gegenseitig unterstützt. An der Schnittstelle von Business, Prozessen und Technologie entwickelst du eigenständig Lösungen, deren Mehrwert du im Arbeitsalltag direkt siehst.\n\nDein Pensum ist zwischen 60% und 80% wählbar, dein Arbeitsort ist Bern. Für geeignete Tätigkeiten kannst du flexibel im Homeoffice arbeiten.\n\nDie Stelle besetzen wir ab sofort oder nach Vereinbarung.\n\nDas bieten wir:\nVereinbarkeit\n\nWir ermöglichen flexible Arbeitsmodelle und bieten 20 Wochen Mutterschafts- sowie 6 Wochen Vaterschaftsurlaub, überdurchschnittliche Familienzulagen und eine nachhaltig finanzierte Pensionskasse.\n\nWeiterbildung und Entwicklung\n\nWir bieten ein vielfältiges internes Kursangebot sowie die Teilnahme an möglichen Auslandsprogrammen an. Bei jobrelevanten, externen Weiterbildungen beteiligen wir uns grosszügig.\n\nVergünstigungen\n\nWir bieten dir unter anderem bis zu 25% Prämienrabatt, ein Halbtax-Abonnement, Rabatte auf Mobiltelefone sowie kostenlose Abonnemente mit Flatrate und Ermässigungen bei kulturellen Veranstaltungen.\n\npresent\n\nWeitere Anstellungsbedingungen\n\ngo_to_link\n\nManager für Cookie-Einwilligungen:\nWenn Sie eine Website besuchen, kann diese Informationen zu Ihrem Browser - meistens in Form von Cookies - speichern und abrufen. Da wir Ihr Recht auf Privatsphäre respektieren, können Sie bestimmte Cookies ablehnen. Wenn Sie jedoch bestimmte Cookies blockieren, kann sich dies negativ auf Ihre Erfahrung auf der Site und die von uns angebotenen Services auswirken.\n\nNotwendige Cookies\n\nDiese Cookies sind für die Verwendung dieser Website erforderlich und können nicht deaktiviert werden.\n\nMehr Details anzeigen\n\nAnbieter\n Beschreibung\n Aktiviert\n\nSAP as service provider\n\nWir verwenden die folgenden Sitzungs-Cookies, die alle für die Funktionsfähigkeit der Website erforderlich sind:\n\n• \"route\" wird für Sitzungs-Stickiness verwendet\n\n• \"careerSiteCompanyId\" wird verwendet, um die Anforderung an das richtige Rechenzentrum zu senden\n\n• \"JSESSIONID\" wird während der Sitzung auf dem Gerät des Besuchers abgelegt, damit der Server den Besucher identifizieren kann\n\n• \"Load balancer cookie\" (tatsächlicher Cookie-Name kann abweichen) verhindert, dass ein Besucher von einer Instanz zu einer anderen springt\n</",
-        "it": "Questo è ciò che vi aspetta:\nTi piace analizzare i processi aziendali e vuoi implementare miglioramenti da soli? Come analista di business con un focus sull'automazione dei processi, svilupperai soluzioni adatte insieme alle aree specializzate e le implementerai sulla nostra piattaforma robotica.\n\nNel nostro team, accompagni l'automazione dalla prima idea al funzionamento affidabile.\n\nQuesto è ciò che fai con noi:\nDa più di sette anni abbiamo automatizzato i processi aziendali con Robotics. Accompagnate progetti dall'inizio alla fine e lavorate a stretto contatto con aree specializzate in tutta l'azienda.\n\nIdentificare il potenziale di automazione, analizzare i processi e sviluppare i casi aziendali. Insieme ai reparti, si alzano i requisiti e si sviluppano processi di destinazione, concetti di soluzione e specifiche specialistiche. Si implementano le soluzioni te stesso sulla nostra piattaforma robotica, testarle e accompagnare l'introduzione produttiva. Sosterrete anche i dipartimenti specializzati e le agenzie generali nelle modifiche associate. Inoltre, monitori le automazioni esistenti e garantisci il loro funzionamento affidabile con il team.\n\nQuesto è ciò che portate con voi:\nOltre al tuo percorso formativo, ciò che conta per noi è la tua curiosità e il tuo desiderio di migliorare i processi insieme ad altri.\n\n• Istruzione superiore o formazione ulteriore, come nell'amministrazione aziendale, nell'informatica aziendale, nella gestione dei processi o in una disciplina comparabile\n• Il pensiero analitico, la comprensione rapida e il piacere di mettere in discussione e ottimizzare i processi aziendali\n• Forza di comunicazione e piacere nel lavorare con diverse aree specializzate\n• Interessi in tecnologia e digitalizzazione, elevata disponibilità ad apprendere e motivare per implementare e sviluppare ulteriormente le soluzioni stesse\n• Metodo di lavoro indipendente, orientato alla soluzione, iniziativa e pensiero imprenditoriale e azione\n• Molto buona conoscenza del tedesco in parola e scrittura\n\nUna classica educazione informatica o esperienza nel campo della robotica sono vantaggiose, ma non un requisito. Se necessario, ti sosteniamo con formazione mirata e formazione ulteriore e tempo sufficiente per una conoscenza attenta.\n\nLavorare con noi:\nSi può aspettare un team esperto e motivato che lavora insieme facilmente e si sostiene a vicenda. Nell'interfaccia di business, processi e tecnologia, svilupperai in modo indipendente soluzioni il cui valore aggiunto vedrai direttamente nel lavoro quotidiano.\n\nIl tuo carico di lavoro è tra il 60% e l'80% selezionabile, il tuo posto di lavoro è Bern. Per attività adeguate, è possibile lavorare in modo flessibile nell'ufficio di casa.\n\nRiempiamo la posizione immediatamente o d'accordo.\n\nQuesto è ciò che offriamo:\nCompatibilità\n\nPermettiamo modelli di lavoro flessibili e offriamo 20 settimane di congedo di maternità e 6 settimane di congedo di paternità, assegni familiari superiori alla media e un fondo pensionistico sostenibile.\n\nFormazione e sviluppo\n\nOffriamo una vasta gamma di corsi interni e la partecipazione a programmi possibili all'estero. Per la formazione professionale e esterna, partecipiamo generosamente.\n\nVantaggi\n\nTra le altre cose, ti offriamo fino al 25% di sconto bonus, un abbonamento a mezza quota, sconti sui telefoni cellulari e abbonamenti gratuiti con tariffa piatta e sconti agli eventi culturali.\n\nPresente\n\nAltre condizioni di lavoro\n\nVai al link\n\nResponsabile dei cookie:\nQuando si visita un sito web, queste informazioni sul browser possono essere memorizzate e recuperate - di solito sotto forma di cookie. Dal momento che rispettiamo il tuo diritto alla privacy, puoi rifiutare alcuni cookie. Tuttavia, il blocco di alcuni cookie può influenzare negativamente la tua esperienza sul Sito e sui servizi che offriamo.\n\nCookie necessari\n\nQuesti cookie sono necessari per l'utilizzo di questo sito e non possono essere disattivati.\n\nMostra ulteriori dettagli\n\nFornitori\n Descrizione\n Attivato\n\nSAP come fornitore di servizi\n\nUtilizziamo i seguenti cookie di sessione, tutti necessari per la funzionalità del sito:\n\n• \"route\" è usato per la fissazione di sessione\n\n• \"careerSiteCompany\" Id\" viene utilizzato per inviare la richiesta al data center corretto\n\n• \"JSESSIONID\" è posizionato sul dispositivo del visitatore durante la sessione in modo che il server possa identificare il visitatore\n\n• \"Coppio bilanciatore del carico\" (il nome del cookie reale può differire) impedisce al visitatore di saltare da un'istanza all'altra\n</",
-        "en": "This is what awaits you:\nYou like to analyze business processes and want to implement improvements yourself? As a business analyst with a focus on process automation, you will develop suitable solutions together with the specialist areas and implement them on our robotics platform.\n\nIn our team, you accompany automation from the first idea to reliable operation.\n\nThis is what you do with us:\nFor more than seven years we have been automating business processes with Robotics. You accompany projects from start to finish and work closely with specialist areas throughout the company.\n\nYou identify automation potential, analyze processes and develop business cases. Together with the departments, you raise requirements and develop target processes, solution concepts and specialist specifications. You implement the solutions yourself on our robotics platform, test them and accompany the productive introduction. You will also support specialist departments and general agencies in the associated changes. In addition, you monitor existing automations and ensure their reliable operation with the team.\n\nThis is what you bring with you:\nIn addition to your training path, what counts for us is your curiosity and your drive to improve processes together with others.\n\n• Higher education or further education, such as in business administration, business informatics, process management or a comparable discipline\n• Analytical thinking, rapid comprehension and pleasure in questioning and optimizing business processes\n• Strength of communication and pleasure in working with different specialist areas\n• Interest in technology and digitalization, high willingness to learn and motivation to implement and further develop solutions themselves\n• Independent, solution-oriented working method, initiative and entrepreneurial thinking and action\n• Very good knowledge of German in word and writing\n\nA classic computer science education or experience in the field of robotics are advantageous, but not a requirement. If necessary, we support you with targeted training and further education as well as sufficient time for a careful familiarization.\n\nWorking with us:\nYou can expect an experienced, motivated team that works together easily and supports each other. At the interface of business, processes and technology, you will independently develop solutions whose added value you see directly in everyday work.\n\nYour workload is between 60% and 80% selectable, your place of work is Bern. For suitable activities, you can work flexibly in the home office.\n\nWe fill the position immediately or by agreement.\n\nThis is what we offer:\nCompatibility\n\nWe enable flexible working models and offer 20 weeks of maternity leave and 6 weeks of paternity leave, above-average family allowances and a sustainably financed pension fund.\n\nTraining and development\n\nWe offer a wide range of internal courses as well as participation in possible programs abroad. For job-relevant, external training, we participate generously.\n\nAdvantages\n\nAmong other things, we offer you up to 25% bonus discount, a half-tax subscription, discounts on mobile phones as well as free subscriptions with flat rate and discounts at cultural events.\n\nPresent\n\nFurther conditions of employment\n\ngo to link\n\nManager for cookie consents:\nWhen you visit a website, this information about your browser can be stored and retrieved - usually in the form of cookies. Since we respect your right to privacy, you may refuse certain cookies. However, blocking certain cookies may negatively affect your experience on the Site and the services we offer.\n\nNecessary cookies\n\nThese cookies are necessary for the use of this website and cannot be deactivated.\n\nShow more details\n\nProviders\n Description\n Activated\n\nSAP as service provider\n\nWe use the following session cookies, all of which are necessary for the functionality of the website:\n\n• \"route\" is used for session stickiness\n\n• \"careerSiteCompanyId\" is used to send the request to the correct data center\n\n• \"JSESSIONID\" is placed on the visitor's device during the session so that the server can identify the visitor\n\n• \"Load balancer cookie\" (actual cookie name may differ) prevents a visitor from jumping from one instance to another\n</",
-        "fr": "Voilà ce qui vous attend :\nVous aimez analyser les processus d'affaires et voulez mettre en place des améliorations vous-même? En tant qu'analyste d'affaires axé sur l'automatisation des processus, vous développerez des solutions appropriées avec les domaines spécialisés et les appliquerez sur notre plateforme robotique.\n\nDans notre équipe, vous accompagnez l'automatisation de la première idée à l'opération fiable.\n\nC'est ce que vous faites de nous :\nDepuis plus de sept ans, nous automatisons les processus d'affaires avec Robotics. Vous accompagnez les projets du début à la fin et travaillez en étroite collaboration avec des domaines spécialisés dans toute l'entreprise.\n\nVous identifiez le potentiel d'automatisation, analysez les processus et développez des analyses de rentabilisation. En collaboration avec les départements, vous augmentez les exigences et développez des processus cibles, des concepts de solutions et des spécifications spécialisées. Vous implémentez les solutions vous-même sur notre plateforme robotique, les testez et accompagnez l'introduction productive. Vous aiderez également les ministères spécialisés et les organismes généraux dans les changements connexes. En outre, vous surveillez les automatisations existantes et assurez leur fonctionnement fiable avec l'équipe.\n\nVoici ce que vous apportez avec vous :\nEn plus de votre parcours d'entraînement, ce qui compte pour nous, c'est votre curiosité et votre volonté d'améliorer les processus avec les autres.\n\n• Enseignement supérieur ou supérieur, comme dans l'administration des entreprises, l'informatique des entreprises, la gestion des processus ou une discipline comparable\n• Pensée analytique, compréhension rapide et plaisir à interroger et optimiser les processus d'affaires\n• Force de communication et plaisir à travailler avec différents domaines spécialisés\n• Intérêt pour la technologie et la numérisation, grande volonté d'apprendre et motivation pour mettre en œuvre et développer des solutions elles-mêmes\n• Méthode de travail indépendante axée sur les solutions, initiative et esprit d'entreprise et action\n• Très bonne connaissance de l'allemand en paroles et en écriture\n\nUne formation ou une expérience en informatique classique dans le domaine de la robotique sont avantageuses, mais pas une exigence. Si nécessaire, nous vous soutenons avec une formation ciblée et une formation continue ainsi qu'un temps suffisant pour une familiarisation attentive.\n\nTravailler avec nous :\nVous pouvez vous attendre à une équipe expérimentée et motivée qui travaille ensemble facilement et se soutient mutuellement. À l'interface des affaires, des processus et de la technologie, vous développerez de manière indépendante des solutions dont la valeur ajoutée vous apparaît directement dans le travail quotidien.\n\nVotre charge de travail est entre 60% et 80% sélectionnable, votre lieu de travail est Berne. Pour des activités appropriées, vous pouvez travailler avec souplesse dans le bureau à domicile.\n\nNous remplissons le poste immédiatement ou d'un commun accord.\n\nVoici ce que nous offrons :\nCompatibilité\n\nNous permettons des modèles de travail flexibles et offrons 20 semaines de congé de maternité et 6 semaines de congé de paternité, des allocations familiales supérieures à la moyenne et un fonds de pension financé de manière durable.\n\nFormation et perfectionnement\n\nNous offrons un large éventail de cours internes ainsi que la participation à des programmes possibles à l'étranger. Pour une formation externe pertinente au travail, nous participons généreusement.\n\nAvantages\n\nEntre autres, nous vous offrons jusqu'à 25% de réduction bonus, un abonnement demi-taxe, des réductions sur les téléphones mobiles ainsi que des abonnements gratuits avec un tarif forfaitaire et des réductions lors d'événements culturels.\n\nPrésent\n\nAutres conditions d'emploi\n\nAller au lien\n\nGestionnaire pour les consentements de cookies:\nLorsque vous visitez un site Web, ces informations sur votre navigateur peuvent être stockées et récupérées - généralement sous forme de cookies. Puisque nous respectons votre droit à la vie privée, vous pouvez refuser certains cookies. Cependant, le blocage de certains cookies peut affecter négativement votre expérience sur le Site et les services que nous offrons.\n\nCookies nécessaires\n\nCes cookies sont nécessaires à l'utilisation de ce site et ne peuvent pas être désactivés.\n\nAfficher plus de détails\n\nFournisseurs\n Désignation des marchandises\n Activé\n\nSAP en tant que prestataire de services\n\nNous utilisons les cookies de session suivants, qui sont tous nécessaires pour la fonctionnalité du site:\n\n• \"route\" est utilisé pour l'adhérence de la session\n\n• CarrièreSiteEntreprise Id\" est utilisé pour envoyer la demande au centre de données correct\n\n• \"JSESSIONID\" est placé sur le périphérique du visiteur pendant la session afin que le serveur puisse identifier le visiteur\n\n• \"Cookie d'équilibreur de charge\" (le nom réel du cookie peut différer) empêche un visiteur de sauter d'une instance à une autre\n</"
+        "it": "Das erwartet dich:\nDu analysierst gerne Geschäftsprozesse und möchtest Verbesserungen selbst umsetzen? Als Business Analyst mit Fokus auf Prozessautomatisierung entwickelst du gemeinsam mit den Fachbereichen passende Lösungen und setzt sie auf unserer Robotics-Plattform um.\n\nIn unserem Team begleitest du die Automatisierung von der ersten Idee bis zum zuverlässigen Betrieb.\n\nDas bewirkst du bei uns:\nSeit über sieben Jahren automatisieren wir Geschäftsprozesse mit Robotics. Du begleitest Vorhaben von Anfang bis Ende und arbeitest eng mit Fachbereichen im gesamten Unternehmen zusammen.\n\nDu identifizierst Automatisierungspotenziale, analysierst Prozesse und erarbeitest Business Cases. Gemeinsam mit den Fachbereichen erhebst du Anforderungen und entwickelst Soll-Prozesse, Lösungskonzepte und Fachspezifikationen. Die Lösungen setzt du selbst auf unserer Robotics-Plattform um, testest sie und begleitest die produktive Einführung. Dabei unterstützt du Fachabteilungen und Generalagenturen auch bei den damit verbundenen Veränderungen. Zudem überwachst du bestehende Automatisierungen und stellst mit dem Team ihren zuverlässigen Betrieb sicher.\n\nDas bringst du mit:\nNeben deinem Ausbildungsweg zählen für uns deine Neugier und dein Antrieb, Prozesse gemeinsam mit anderen zu verbessern.\n\n• Höhere Aus- oder Weiterbildung, etwa in Betriebswirtschaft, Wirtschaftsinformatik, Prozessmanagement oder einer vergleichbaren Fachrichtung\n• Analytisches Denken, rasche Auffassungsgabe und Freude daran, Geschäftsprozesse zu hinterfragen und zu optimieren\n• Kommunikationsstärke und Freude an der Zusammenarbeit mit unterschiedlichen Fachbereichen\n• Interesse an Technologie und Digitalisierung, hohe Lernbereitschaft und Motivation, Lösungen selbst umzusetzen und weiterzuentwickeln\n• Selbstständige, lösungsorientierte Arbeitsweise, Eigeninitiative und unternehmerisches Denken und Handeln\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\nEine klassische Informatikausbildung oder Erfahrung im Bereich Robotics sind von Vorteil, jedoch keine Voraussetzung. Bei Bedarf unterstützen wir dich mit gezielten Aus- und Weiterbildungen sowie ausreichend Zeit für eine sorgfältige Einarbeitung.\n\nBei uns arbeiten:\nDich erwartet ein erfahrenes, motiviertes Team, das unkompliziert zusammenarbeitet und sich gegenseitig unterstützt. An der Schnittstelle von Business, Prozessen und Technologie entwickelst du eigenständig Lösungen, deren Mehrwert du im Arbeitsalltag direkt siehst.\n\nDein Pensum ist zwischen 60% und 80% wählbar, dein Arbeitsort ist Bern. Für geeignete Tätigkeiten kannst du flexibel im Homeoffice arbeiten.\n\nDie Stelle besetzen wir ab sofort oder nach Vereinbarung.\n\nDas bieten wir:\nVereinbarkeit\n\nWir ermöglichen flexible Arbeitsmodelle und bieten 20 Wochen Mutterschafts- sowie 6 Wochen Vaterschaftsurlaub, überdurchschnittliche Familienzulagen und eine nachhaltig finanzierte Pensionskasse.\n\nWeiterbildung und Entwicklung\n\nWir bieten ein vielfältiges internes Kursangebot sowie die Teilnahme an möglichen Auslandsprogrammen an. Bei jobrelevanten, externen Weiterbildungen beteiligen wir uns grosszügig.\n\nVergünstigungen\n\nWir bieten dir unter anderem bis zu 25% Prämienrabatt, ein Halbtax-Abonnement, Rabatte auf Mobiltelefone sowie kostenlose Abonnemente mit Flatrate und Ermässigungen bei kulturellen Veranstaltungen.\n\npresent\n\nWeitere Anstellungsbedingungen\n\ngo_to_link\n\nManager für Cookie-Einwilligungen:\nWenn Sie eine Website besuchen, kann diese Informationen zu Ihrem Browser - meistens in Form von Cookies - speichern und abrufen. Da wir Ihr Recht auf Privatsphäre respektieren, können Sie bestimmte Cookies ablehnen. Wenn Sie jedoch bestimmte Cookies blockieren, kann sich dies negativ auf Ihre Erfahrung auf der Site und die von uns angebotenen Services auswirken.\n\nNotwendige Cookies\n\nDiese Cookies sind für die Verwendung dieser Website erforderlich und können nicht deaktiviert werden.\n\nMehr Details anzeigen\n\nAnbieter\n Beschreibung\n Aktiviert\n\nSAP as service provider\n\nWir verwenden die folgenden Sitzungs-Cookies, die alle für die Funktionsfähigkeit der Website erforderlich sind:\n\n• \"route\" wird für Sitzungs-Stickiness verwendet\n\n• \"careerSiteCompanyId\" wird verwendet, um die Anforderung an das richtige Rechenzentrum zu senden\n\n• \"JSESSIONID\" wird während der Sitzung auf dem Gerät des Besuchers abgelegt, damit der Server den Besucher identifizieren kann\n\n• \"Load balancer cookie\" (tatsächlicher Cookie-Name kann abweichen) verhindert, dass ein Besucher von einer Instanz zu einer anderen springt\n</",
+        "en": "Das erwartet dich:\nDu analysierst gerne Geschäftsprozesse und möchtest Verbesserungen selbst umsetzen? Als Business Analyst mit Fokus auf Prozessautomatisierung entwickelst du gemeinsam mit den Fachbereichen passende Lösungen und setzt sie auf unserer Robotics-Plattform um.\n\nIn unserem Team begleitest du die Automatisierung von der ersten Idee bis zum zuverlässigen Betrieb.\n\nDas bewirkst du bei uns:\nSeit über sieben Jahren automatisieren wir Geschäftsprozesse mit Robotics. Du begleitest Vorhaben von Anfang bis Ende und arbeitest eng mit Fachbereichen im gesamten Unternehmen zusammen.\n\nDu identifizierst Automatisierungspotenziale, analysierst Prozesse und erarbeitest Business Cases. Gemeinsam mit den Fachbereichen erhebst du Anforderungen und entwickelst Soll-Prozesse, Lösungskonzepte und Fachspezifikationen. Die Lösungen setzt du selbst auf unserer Robotics-Plattform um, testest sie und begleitest die produktive Einführung. Dabei unterstützt du Fachabteilungen und Generalagenturen auch bei den damit verbundenen Veränderungen. Zudem überwachst du bestehende Automatisierungen und stellst mit dem Team ihren zuverlässigen Betrieb sicher.\n\nDas bringst du mit:\nNeben deinem Ausbildungsweg zählen für uns deine Neugier und dein Antrieb, Prozesse gemeinsam mit anderen zu verbessern.\n\n• Höhere Aus- oder Weiterbildung, etwa in Betriebswirtschaft, Wirtschaftsinformatik, Prozessmanagement oder einer vergleichbaren Fachrichtung\n• Analytisches Denken, rasche Auffassungsgabe und Freude daran, Geschäftsprozesse zu hinterfragen und zu optimieren\n• Kommunikationsstärke und Freude an der Zusammenarbeit mit unterschiedlichen Fachbereichen\n• Interesse an Technologie und Digitalisierung, hohe Lernbereitschaft und Motivation, Lösungen selbst umzusetzen und weiterzuentwickeln\n• Selbstständige, lösungsorientierte Arbeitsweise, Eigeninitiative und unternehmerisches Denken und Handeln\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\nEine klassische Informatikausbildung oder Erfahrung im Bereich Robotics sind von Vorteil, jedoch keine Voraussetzung. Bei Bedarf unterstützen wir dich mit gezielten Aus- und Weiterbildungen sowie ausreichend Zeit für eine sorgfältige Einarbeitung.\n\nBei uns arbeiten:\nDich erwartet ein erfahrenes, motiviertes Team, das unkompliziert zusammenarbeitet und sich gegenseitig unterstützt. An der Schnittstelle von Business, Prozessen und Technologie entwickelst du eigenständig Lösungen, deren Mehrwert du im Arbeitsalltag direkt siehst.\n\nDein Pensum ist zwischen 60% und 80% wählbar, dein Arbeitsort ist Bern. Für geeignete Tätigkeiten kannst du flexibel im Homeoffice arbeiten.\n\nDie Stelle besetzen wir ab sofort oder nach Vereinbarung.\n\nDas bieten wir:\nVereinbarkeit\n\nWir ermöglichen flexible Arbeitsmodelle und bieten 20 Wochen Mutterschafts- sowie 6 Wochen Vaterschaftsurlaub, überdurchschnittliche Familienzulagen und eine nachhaltig finanzierte Pensionskasse.\n\nWeiterbildung und Entwicklung\n\nWir bieten ein vielfältiges internes Kursangebot sowie die Teilnahme an möglichen Auslandsprogrammen an. Bei jobrelevanten, externen Weiterbildungen beteiligen wir uns grosszügig.\n\nVergünstigungen\n\nWir bieten dir unter anderem bis zu 25% Prämienrabatt, ein Halbtax-Abonnement, Rabatte auf Mobiltelefone sowie kostenlose Abonnemente mit Flatrate und Ermässigungen bei kulturellen Veranstaltungen.\n\npresent\n\nWeitere Anstellungsbedingungen\n\ngo_to_link\n\nManager für Cookie-Einwilligungen:\nWenn Sie eine Website besuchen, kann diese Informationen zu Ihrem Browser - meistens in Form von Cookies - speichern und abrufen. Da wir Ihr Recht auf Privatsphäre respektieren, können Sie bestimmte Cookies ablehnen. Wenn Sie jedoch bestimmte Cookies blockieren, kann sich dies negativ auf Ihre Erfahrung auf der Site und die von uns angebotenen Services auswirken.\n\nNotwendige Cookies\n\nDiese Cookies sind für die Verwendung dieser Website erforderlich und können nicht deaktiviert werden.\n\nMehr Details anzeigen\n\nAnbieter\n Beschreibung\n Aktiviert\n\nSAP as service provider\n\nWir verwenden die folgenden Sitzungs-Cookies, die alle für die Funktionsfähigkeit der Website erforderlich sind:\n\n• \"route\" wird für Sitzungs-Stickiness verwendet\n\n• \"careerSiteCompanyId\" wird verwendet, um die Anforderung an das richtige Rechenzentrum zu senden\n\n• \"JSESSIONID\" wird während der Sitzung auf dem Gerät des Besuchers abgelegt, damit der Server den Besucher identifizieren kann\n\n• \"Load balancer cookie\" (tatsächlicher Cookie-Name kann abweichen) verhindert, dass ein Besucher von einer Instanz zu einer anderen springt\n</",
+        "fr": "Das erwartet dich:\nDu analysierst gerne Geschäftsprozesse und möchtest Verbesserungen selbst umsetzen? Als Business Analyst mit Fokus auf Prozessautomatisierung entwickelst du gemeinsam mit den Fachbereichen passende Lösungen und setzt sie auf unserer Robotics-Plattform um.\n\nIn unserem Team begleitest du die Automatisierung von der ersten Idee bis zum zuverlässigen Betrieb.\n\nDas bewirkst du bei uns:\nSeit über sieben Jahren automatisieren wir Geschäftsprozesse mit Robotics. Du begleitest Vorhaben von Anfang bis Ende und arbeitest eng mit Fachbereichen im gesamten Unternehmen zusammen.\n\nDu identifizierst Automatisierungspotenziale, analysierst Prozesse und erarbeitest Business Cases. Gemeinsam mit den Fachbereichen erhebst du Anforderungen und entwickelst Soll-Prozesse, Lösungskonzepte und Fachspezifikationen. Die Lösungen setzt du selbst auf unserer Robotics-Plattform um, testest sie und begleitest die produktive Einführung. Dabei unterstützt du Fachabteilungen und Generalagenturen auch bei den damit verbundenen Veränderungen. Zudem überwachst du bestehende Automatisierungen und stellst mit dem Team ihren zuverlässigen Betrieb sicher.\n\nDas bringst du mit:\nNeben deinem Ausbildungsweg zählen für uns deine Neugier und dein Antrieb, Prozesse gemeinsam mit anderen zu verbessern.\n\n• Höhere Aus- oder Weiterbildung, etwa in Betriebswirtschaft, Wirtschaftsinformatik, Prozessmanagement oder einer vergleichbaren Fachrichtung\n• Analytisches Denken, rasche Auffassungsgabe und Freude daran, Geschäftsprozesse zu hinterfragen und zu optimieren\n• Kommunikationsstärke und Freude an der Zusammenarbeit mit unterschiedlichen Fachbereichen\n• Interesse an Technologie und Digitalisierung, hohe Lernbereitschaft und Motivation, Lösungen selbst umzusetzen und weiterzuentwickeln\n• Selbstständige, lösungsorientierte Arbeitsweise, Eigeninitiative und unternehmerisches Denken und Handeln\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\nEine klassische Informatikausbildung oder Erfahrung im Bereich Robotics sind von Vorteil, jedoch keine Voraussetzung. Bei Bedarf unterstützen wir dich mit gezielten Aus- und Weiterbildungen sowie ausreichend Zeit für eine sorgfältige Einarbeitung.\n\nBei uns arbeiten:\nDich erwartet ein erfahrenes, motiviertes Team, das unkompliziert zusammenarbeitet und sich gegenseitig unterstützt. An der Schnittstelle von Business, Prozessen und Technologie entwickelst du eigenständig Lösungen, deren Mehrwert du im Arbeitsalltag direkt siehst.\n\nDein Pensum ist zwischen 60% und 80% wählbar, dein Arbeitsort ist Bern. Für geeignete Tätigkeiten kannst du flexibel im Homeoffice arbeiten.\n\nDie Stelle besetzen wir ab sofort oder nach Vereinbarung.\n\nDas bieten wir:\nVereinbarkeit\n\nWir ermöglichen flexible Arbeitsmodelle und bieten 20 Wochen Mutterschafts- sowie 6 Wochen Vaterschaftsurlaub, überdurchschnittliche Familienzulagen und eine nachhaltig finanzierte Pensionskasse.\n\nWeiterbildung und Entwicklung\n\nWir bieten ein vielfältiges internes Kursangebot sowie die Teilnahme an möglichen Auslandsprogrammen an. Bei jobrelevanten, externen Weiterbildungen beteiligen wir uns grosszügig.\n\nVergünstigungen\n\nWir bieten dir unter anderem bis zu 25% Prämienrabatt, ein Halbtax-Abonnement, Rabatte auf Mobiltelefone sowie kostenlose Abonnemente mit Flatrate und Ermässigungen bei kulturellen Veranstaltungen.\n\npresent\n\nWeitere Anstellungsbedingungen\n\ngo_to_link\n\nManager für Cookie-Einwilligungen:\nWenn Sie eine Website besuchen, kann diese Informationen zu Ihrem Browser - meistens in Form von Cookies - speichern und abrufen. Da wir Ihr Recht auf Privatsphäre respektieren, können Sie bestimmte Cookies ablehnen. Wenn Sie jedoch bestimmte Cookies blockieren, kann sich dies negativ auf Ihre Erfahrung auf der Site und die von uns angebotenen Services auswirken.\n\nNotwendige Cookies\n\nDiese Cookies sind für die Verwendung dieser Website erforderlich und können nicht deaktiviert werden.\n\nMehr Details anzeigen\n\nAnbieter\n Beschreibung\n Aktiviert\n\nSAP as service provider\n\nWir verwenden die folgenden Sitzungs-Cookies, die alle für die Funktionsfähigkeit der Website erforderlich sind:\n\n• \"route\" wird für Sitzungs-Stickiness verwendet\n\n• \"careerSiteCompanyId\" wird verwendet, um die Anforderung an das richtige Rechenzentrum zu senden\n\n• \"JSESSIONID\" wird während der Sitzung auf dem Gerät des Besuchers abgelegt, damit der Server den Besucher identifizieren kann\n\n• \"Load balancer cookie\" (tatsächlicher Cookie-Name kann abweichen) verhindert, dass ein Besucher von einer Instanz zu einer anderen springt\n</"
       },
       "location": "Bern",
       "canton": "BE",
       "url": "https://jobs.mobiliar.ch/job/Bern-Business-Analyst-Prozessautomatisierung-%28wmd%29-60-80/1458265874/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:16:50.138Z",
+      "crawledAt": "2026-11-20T09:28:20.029Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -6142,23 +6205,31 @@
       "addressRegion": "BE",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-17T21:16:50.138Z",
+      "validThrough": "2027-02-18T09:28:20.029Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T21:16:50.138Z",
+      "firstSeenAt": "2026-11-20T09:28:20.029Z",
       "previousSlugsByLocale": {
         "it": [
-          "business-analyst-prozessautomatisierung-w-m-d-60-80-mobiliar-ch"
+          "business-analyst-prozessautomatisierung-w-m-d-60-80-mobiliar-ch",
+          "business-analyst-automazione-dei-processi-m-f-d-60-80-die-mobiliar-bern"
         ],
         "en": [
-          "business-analyst-prozessautomatisierung-w-m-d-60-80-mobiliar-ch"
+          "business-analyst-prozessautomatisierung-w-m-d-60-80-mobiliar-ch",
+          "business-analyst-process-automation-m-f-d-60-80-die-mobiliar-bern"
         ],
         "fr": [
-          "business-analyst-prozessautomatisierung-w-m-d-60-80-mobiliar-ch"
+          "business-analyst-prozessautomatisierung-w-m-d-60-80-mobiliar-ch",
+          "analyste-metier-en-automatisation-des-processus-h-f-d-60-80-die-mobiliar-bern"
         ]
       },
       "previousSlugs": [
-        "business-analyst-prozessautomatisierung-w-m-d-60-80-mobiliar-ch"
-      ]
+        "business-analyst-prozessautomatisierung-w-m-d-60-80-mobiliar-ch",
+        "business-analyst-automazione-dei-processi-m-f-d-60-80-die-mobiliar-bern",
+        "business-analyst-process-automation-m-f-d-60-80-die-mobiliar-bern",
+        "analyste-metier-en-automatisation-des-processus-h-f-d-60-80-die-mobiliar-bern"
+      ],
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/bern-business-analyst-prozessautomatisierung-%28wmd%29-60-80/1458265874",
+      "needsRetranslation": true
     },
     {
       "id": "mobiliar-05bab69f69cd",
@@ -6191,7 +6262,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Berater-Assistance-Soforthilfe-%28wmd%29/1165807755/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:16:48.904Z",
+      "crawledAt": "2026-11-20T09:28:18.858Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -6246,8 +6317,9 @@
       "addressRegion": "BE",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T21:16:48.904Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-20T09:28:18.858Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/bern-berater-assistance-soforthilfe-%28wmd%29/1165807755"
     },
     {
       "id": "mobiliar-c75b93f03059",
@@ -6280,7 +6352,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Fachspezialist-Projektmanagement-%28wmd%29/1165805555/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:16:48.042Z",
+      "crawledAt": "2026-11-20T09:28:45.459Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -6351,8 +6423,9 @@
       "addressRegion": "BE",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:16:48.042Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-15T09:28:45.459Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/bern-fachspezialist-projektmanagement-%28wmd%29/1165805555"
     },
     {
       "id": "mobiliar-efec482d2293",
@@ -6385,7 +6458,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Product-Manager-In-Exkasso-Prozesse-%28wmd%29/1165765755/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:16:47.218Z",
+      "crawledAt": "2026-11-20T09:28:05.905Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -6454,8 +6527,9 @@
       "addressRegion": "BE",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T21:16:47.218Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-08T09:28:05.905Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/bern-product-manager-in-exkasso-prozesse-%28wmd%29/1165765755"
     },
     {
       "id": "mobiliar-50388527f4cf",
@@ -6488,7 +6562,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Sachbearbeiter-Kundendialog-und-Triage-%28wmd%29/1165798655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:16:46.066Z",
+      "crawledAt": "2026-11-20T09:28:41.952Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -6560,8 +6634,9 @@
       },
       "streetAddress": "Ticino",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T21:16:46.066Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-20T09:28:41.952Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/bern-sachbearbeiter-kundendialog-und-triage-%28wmd%29/1165798655"
     },
     {
       "id": "mobiliar-b955e2146ee0",
@@ -6594,7 +6669,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Aushilfe-Abrechnung-Lohnsumme-%28wmd%29/1165797755/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:16:44.995Z",
+      "crawledAt": "2026-11-20T09:28:22.362Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -6657,8 +6732,9 @@
       "addressRegion": "BE",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-12T21:16:44.995Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-12T09:28:22.362Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/bern-aushilfe-abrechnung-lohnsumme-%28wmd%29/1165797755"
     },
     {
       "id": "mobiliar-11b19e92d5e0",
@@ -6691,7 +6767,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Administrative-Assistenz-CEO-%28wmd%29/1165793055/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:16:44.231Z",
+      "crawledAt": "2026-11-20T09:28:20.857Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -6754,8 +6830,9 @@
       "addressRegion": "BE",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:16:44.231Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-11T09:28:20.857Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/bern-administrative-assistenz-ceo-%28wmd%29/1165793055"
     },
     {
       "id": "mobiliar-177a73953e15",
@@ -6853,7 +6930,9 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T21:16:43.478Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/bern-epic-owner-f%c3%bcr-agile-software-vorhaben-%28wmd%29/1165792055",
+      "crawlerMissStreak": 1
     },
     {
       "id": "mobiliar-56be787cb2a3",
@@ -6886,7 +6965,7 @@
       "url": "https://jobs.mobiliar.ch/job/Reinach-AG-Mitarbeiter-Verkaufssupport-%28wm%29-Generalagentur-Reinach-AG/1165398055/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:16:42.724Z",
+      "crawledAt": "2026-11-20T09:28:43.161Z",
       "addressLocality": "Reinach",
       "addressCountry": "CH",
       "country": "CH",
@@ -6953,8 +7032,9 @@
       "addressRegion": "BL",
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T21:16:42.724Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-20T09:28:43.161Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/reinach-ag-mitarbeiter-verkaufssupport-%28wm%29-generalagentur-reinach-ag/1165398055"
     },
     {
       "id": "mobiliar-1b9c9d503c39",
@@ -6987,7 +7067,7 @@
       "url": "https://jobs.mobiliar.ch/job/Winterthur-Mitarbeiter-Maklersupport-%28wm%29-Generalagentur-Winterthur/1165475355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:16:41.974Z",
+      "crawledAt": "2026-11-20T09:28:11.208Z",
       "addressLocality": "Winterthur",
       "addressCountry": "CH",
       "country": "CH",
@@ -7036,8 +7116,9 @@
       "addressRegion": "ZH",
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:16:41.974Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-21T09:28:11.208Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/winterthur-mitarbeiter-maklersupport-%28wm%29-generalagentur-winterthur/1165475355"
     },
     {
       "id": "mobiliar-52e20ab9544d",
@@ -7070,7 +7151,7 @@
       "url": "https://jobs.mobiliar.ch/job/Thurgau-Versicherungs-und-Vorsorgeberater-mit-Herz-%28wm%29-Generalagentur-Mittelthurgau/1164155255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:16:41.227Z",
+      "crawledAt": "2026-11-20T09:27:50.014Z",
       "addressLocality": "Thurgau",
       "addressCountry": "CH",
       "country": "CH",
@@ -7135,8 +7216,9 @@
       "addressRegion": "TG",
       "streetAddress": "Thurgau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T21:16:41.227Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-20T09:27:50.014Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/thurgau-versicherungs-und-vorsorgeberater-mit-herz-%28wm%29-generalagentur-mittelthurgau/1164155255"
     },
     {
       "id": "mobiliar-35a9972bc586",
@@ -7169,7 +7251,7 @@
       "url": "https://jobs.mobiliar.ch/job/Zug-Mitarbeiter-Support-%28wmd%29-Generalagentur-Zug/1165721955/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:16:40.476Z",
+      "crawledAt": "2026-11-20T09:28:10.448Z",
       "addressLocality": "Zug",
       "addressCountry": "CH",
       "country": "CH",
@@ -7238,8 +7320,9 @@
       "addressRegion": "ZG",
       "streetAddress": "Zug",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:16:40.476Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-01T09:28:10.448Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/zug-mitarbeiter-support-%28wmd%29-generalagentur-zug/1165721955"
     },
     {
       "id": "mobiliar-c851c27f18f5",
@@ -7272,7 +7355,7 @@
       "url": "https://jobs.mobiliar.ch/job/Zug-Teamleiter-Abteilung-Support-f%C3%BCr-Versicherungsberaterinnen-%28wmd%29-Generalagentur-Zug/1165603555/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:16:39.723Z",
+      "crawledAt": "2026-11-20T09:28:21.599Z",
       "addressLocality": "Zug",
       "addressCountry": "CH",
       "country": "CH",
@@ -7335,8 +7418,9 @@
       "addressRegion": "ZG",
       "streetAddress": "Zug",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T21:16:39.723Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-11T09:28:21.599Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/zug-teamleiter-abteilung-support-f%c3%bcr-versicherungsberaterinnen-%28wmd%29-generalagentur-zug/1165603555"
     },
     {
       "id": "mobiliar-506854ec83e7",
@@ -7369,7 +7453,7 @@
       "url": "https://jobs.mobiliar.ch/job/Z%C3%BCrich-Senior-Expert-Haftpflichtversicherung-National-&-International-%28wmd%29/1165478355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:16:38.960Z",
+      "crawledAt": "2026-11-20T09:28:24.622Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7433,8 +7517,9 @@
       "addressRegion": "ZH",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:16:38.960Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-21T09:28:24.622Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/z%c3%bcrich-senior-expert-haftpflichtversicherung-national-&-international-%28wmd%29/1165478355"
     },
     {
       "id": "mobiliar-30fb3d3c3fe0",
@@ -7467,7 +7552,7 @@
       "url": "https://jobs.mobiliar.ch/job/Z%C3%BCrich-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Z%C3%BCrich/1165281155/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:16:38.191Z",
+      "crawledAt": "2026-11-20T09:28:03.661Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7514,8 +7599,9 @@
       "addressRegion": "ZH",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T21:16:38.191Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-20T09:28:03.661Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/z%c3%bcrich-versicherungs-und-vorsorgeberater-%28wmd%29-generalagentur-z%c3%bcrich/1165281155"
     },
     {
       "id": "mobiliar-e7cb339a40d3",
@@ -7548,7 +7634,7 @@
       "url": "https://jobs.mobiliar.ch/job/Z%C3%BCrich-Schadeninspektor-Sachschaden-Direktion-%28wmd%29/1165719955/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:16:37.444Z",
+      "crawledAt": "2026-11-20T09:28:11.948Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7617,8 +7703,9 @@
       "addressRegion": "ZH",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T21:16:37.444Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-29T09:28:11.948Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/z%c3%bcrich-schadeninspektor-sachschaden-direktion-%28wmd%29/1165719955"
     },
     {
       "id": "mobiliar-5975298a57ce",
@@ -7651,7 +7738,7 @@
       "url": "https://jobs.mobiliar.ch/job/Z%C3%BCrich-Senior-Underwriter-Personenversicherungen-%28wmd%29/1165694855/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:16:36.670Z",
+      "crawledAt": "2026-11-20T09:28:08.160Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7715,8 +7802,9 @@
       "addressRegion": "ZH",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:16:36.670Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-27T09:28:08.160Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/z%c3%bcrich-senior-underwriter-personenversicherungen-%28wmd%29/1165694855"
     },
     {
       "id": "mobiliar-86f24ed7f49c",
@@ -7749,7 +7837,7 @@
       "url": "https://jobs.mobiliar.ch/job/Z%C3%BCrich-Key-Account-Manager-Privatpersonen-&-KMU-Region-Ostschweiz-%28wmd%29/1165602555/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:16:35.834Z",
+      "crawledAt": "2026-11-20T09:27:50.783Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7823,8 +7911,9 @@
       "addressRegion": "ZH",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T21:16:35.834Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-11T09:27:50.783Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/z%c3%bcrich-key-account-manager-privatpersonen-&-kmu-region-ostschweiz-%28wmd%29/1165602555"
     },
     {
       "id": "mobiliar-c4207c6c3a15",
@@ -7857,7 +7946,7 @@
       "url": "https://jobs.mobiliar.ch/job/Weinfelden-Schadenspezialist-im-Innendienst-mit-Herz-%28mw%29-Generalagentur-Mittelthurgau/1165281555/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:18:22.318Z",
+      "crawledAt": "2026-11-20T09:28:00.624Z",
       "addressLocality": "Weinfelden",
       "addressCountry": "CH",
       "country": "CH",
@@ -7918,9 +8007,10 @@
       "addressRegion": "TG",
       "streetAddress": "Weinfelden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T10:18:22.318Z",
+      "validThrough": "2026-12-20T09:28:00.624Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/weinfelden-schadenspezialist-im-innendienst-mit-herz-%28mw%29-generalagentur-mittelthurgau/1165281555"
     },
     {
       "id": "mobiliar-547839a77792",
@@ -8026,7 +8116,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T21:18:46.975Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/bern-sachbearbeiter-zahlungsverkehr-in-exkasso-%28wmd%29/1165734055"
     }
   ]
 }

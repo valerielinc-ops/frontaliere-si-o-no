@@ -149,7 +149,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://medimeo.ch/job/oberaerztin-oberarzt-gynaekologie-geburtshilfe-3756",
-    "firstSeenAt": "2026-10-19T21:18:00.259Z"
+    "firstSeenAt": "2026-10-19T21:18:00.259Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://medimeo.ch/job/oberaerztin-oberarzt-gynaekologie-geburtshilfe-3451",
+        "firstSeenAt": "2026-10-19T21:18:00.259Z",
+        "title": "Oberärztin / Oberarzt Gynäkologie & Geburtshilfe"
+      },
+      {
+        "sourceIdentity": "url:https://medimeo.ch/job/oberaerztin-oberarzt-gynaekologie-geburtshilfe-3756",
+        "firstSeenAt": "2026-10-19T21:18:00.259Z",
+        "title": "Oberärztin / Oberarzt Gynäkologie & Geburtshilfe"
+      }
+    ]
   },
   {
     "slug": "ginecologia-specialistica-ostetricia-40-100-medimeo-ag-region-bern-berner-oberland-emmental",
@@ -1926,7 +1938,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://medimeo.ch/job/leitende-aerztin-leitender-arzt-in-gynaekologischer-praxis-80-100-3549",
-    "firstSeenAt": "2026-10-30T09:32:09.778Z"
+    "firstSeenAt": "2026-10-30T09:32:09.778Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://medimeo.ch/job/leitende-aerztin-leitender-arzt-in-gynaekologischer-praxis-80-100-3549",
+        "firstSeenAt": "2026-10-30T09:32:09.778Z",
+        "title": "Leitende Ärztin / Leitender Arzt in gynäkologischer Praxis 80–100%"
+      },
+      {
+        "sourceIdentity": "url:https://medimeo.ch/job/leitende-aerztin-leitender-arzt-in-gynaekologischer-praxis-80-100-3694",
+        "firstSeenAt": "2026-10-30T09:32:09.778Z",
+        "title": "Leitende Ärztin / Leitender Arzt in gynäkologischer Praxis 80–100%"
+      }
+    ]
   },
   {
     "slug": "senior-medico-senior-medico-interdisciplinare-emergenza-medimeo-ag-region-bern-berner-oberland-emmental",
@@ -3399,16 +3423,14 @@
     "slugByLocale": {
       "it": "medica-specialista-medico-specialista-in-dermatologia-60-100-il-vostro-ingresso-in-svizzera-con-prospettive-medimeo-ag",
       "en": "specialist-dermatology-60-100-your-entry-into-switzerland-with-perspective-medimeo-ag-region-bern-berner-oberland",
-      "de": "facharztin-facharzt-dermatologie-60-100-ihr-einstieg-in-die-schweiz-mit-perspektive-region",
+      "de": "facharztin-facharzt-dermatologie-60-100-ihr-einstieg-in-die-schweiz-mit-perspektive-region-d6f80782",
       "fr": "specialiste-dermatologie-60-100-votre-entree-en-suisse-avec-perspective-medimeo-ag-region-bern-berner-oberland-emmental"
     },
     "sector": "Altro",
     "expiredAt": "2026-10-24T21:13:58.024Z",
-    "previousSlugs": [
-      "facharztin-facharzt-dermatologie-60-100-ihr-einstieg-in-die-schweiz-mit-perspektive-region"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "facharztin-facharzt-dermatologie-60-100-ihr-einstieg-in-die-schweiz-mit-perspektive-region-d6f80782",
         "facharztin-facharzt-dermatologie-60-100-ihr-einstieg-in-die-schweiz-mit-perspektive-region"
       ],
       "en": [
@@ -3416,6 +3438,9 @@
       ],
       "fr": [
         "facharztin-facharzt-dermatologie-60-100-ihr-einstieg-in-die-schweiz-mit-perspektive-region"
+      ],
+      "de": [
+        "facharztin-facharzt-dermatologie-60-100-ihr-einstieg-in-die-schweiz-mit-perspektive-region-d6f80782"
       ]
     },
     "postalCode": "3001",
@@ -3424,7 +3449,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://medimeo.ch/job/fachaerztin-facharzt-dermatologie-60-100-ihr-einstieg-in-die-schweiz-mit-perspektive-3633",
-    "firstSeenAt": "2026-10-21T09:16:27.267Z"
+    "firstSeenAt": "2026-10-21T09:16:27.267Z",
+    "previousSlugs": [
+      "facharztin-facharzt-dermatologie-60-100-ihr-einstieg-in-die-schweiz-mit-perspektive-region"
+    ]
   },
   {
     "slug": "medico-familiare-40-80-pratica-moderna-medimeo-ag-region-zurich",
@@ -3578,7 +3606,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://medimeo.ch/job/fachaerztin-facharzt-gynaekologie-und-geburtshilfe-40-100-3484",
-    "firstSeenAt": "2026-10-23T09:19:55.666Z"
+    "firstSeenAt": "2026-10-22T21:17:45.715Z"
   },
   {
     "slug": "medico-specialista-in-pediatria-e-medicina-dell-adolescenza-50-100-con-direzione-medica-medimeo-ag-olten-aargau",
@@ -3636,7 +3664,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://medimeo.ch/job/fachaerztin-facharzt-kinder-und-jugendmedizin-50-100-mit-medizinischer-leitung-3643",
-    "firstSeenAt": "2026-10-23T09:19:55.659Z"
+    "firstSeenAt": "2026-10-22T21:17:45.699Z"
   },
   {
     "slug": "medico-specialista-in-psichiatria-e-psicoterapia-fino-al-50-a-tempo-parziale-nel-cantone-di-sciaffusa-medimeo-ag",
@@ -3689,7 +3717,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://medimeo.ch/job/fachaerztin-facharzt-psychiatrie-und-psychotherapie-bis-50-teilzeit-im-kanton-schaffhausen-3640",
-    "firstSeenAt": "2026-10-23T09:19:55.663Z"
+    "firstSeenAt": "2026-10-22T21:17:45.706Z"
   },
   {
     "slug": "specialista-specialista-medicina-geriatrica-nella-casa-di-cura-medimeo-ag-region-bern-berner-oberland-emmental",
@@ -3740,7 +3768,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://medimeo.ch/job/fachaerztin-facharzt-geriatrische-medizin-im-pflegeheim-3641",
-    "firstSeenAt": "2026-10-23T09:19:55.661Z"
+    "firstSeenAt": "2026-10-22T21:17:45.704Z"
   },
   {
     "slug": "medica-specialista-medico-specialista-in-pediatria-e-medicina-dell-adolescenza-50-100-il-vostro-ingresso-in-svizzera",
@@ -3915,16 +3943,14 @@
     "slugByLocale": {
       "it": "medica-di-medicina-generale-medico-di-famiglia-in-medicina-interna-generale-50-90-studio-medico-di-famiglia-stipendio",
       "en": "general-practitioner-general-internal-medicine-50-90-family-practice-attractive-wage-and-a-lot-of-quality-of-life",
-      "de": "allgemeinmedizinerin-hausarzt-allgemeine-innere-medizin-50-90-familiare-praxis-attraktiver",
+      "de": "allgemeinmedizinerin-hausarzt-allgemeine-innere-medizin-50-90-familiare-praxis-attraktiver-40c3510a",
       "fr": "omnipraticien-medecine-interne-generale-50-90-pratique-familiale-salaire-attrayant-et-beaucoup-de-qualite-de-vie-medimeo"
     },
     "sector": "Altro",
     "expiredAt": "2026-10-23T21:19:21.643Z",
-    "previousSlugs": [
-      "allgemeinmedizinerin-hausarzt-allgemeine-innere-medizin-50-90-familiare-praxis-attraktiver"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "allgemeinmedizinerin-hausarzt-allgemeine-innere-medizin-50-90-familiare-praxis-attraktiver-40c3510a",
         "allgemeinmedizinerin-hausarzt-allgemeine-innere-medizin-50-90-familiare-praxis-attraktiver"
       ],
       "en": [
@@ -3932,6 +3958,9 @@
       ],
       "fr": [
         "allgemeinmedizinerin-hausarzt-allgemeine-innere-medizin-50-90-familiare-praxis-attraktiver"
+      ],
+      "de": [
+        "allgemeinmedizinerin-hausarzt-allgemeine-innere-medizin-50-90-familiare-praxis-attraktiver-40c3510a"
       ]
     },
     "postalCode": "4001",
@@ -3940,7 +3969,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://medimeo.ch/job/allgemeinmedizinerin-hausarzt-allgemeine-innere-medizin-50-90-familiaere-praxis-attraktiver-lohn-und-viel-lebensqualitaet-3622",
-    "firstSeenAt": "2026-10-20T09:17:02.339Z"
+    "firstSeenAt": "2026-10-20T09:17:02.339Z",
+    "previousSlugs": [
+      "allgemeinmedizinerin-hausarzt-allgemeine-innere-medizin-50-90-familiare-praxis-attraktiver"
+    ]
   },
   {
     "slug": "medica-dirigente-medico-dirigente-in-ginecologia-e-ostetricia-80-100-accompagnamento-verso-il-vostro-primo-ruolo-di",
@@ -4168,21 +4200,31 @@
     "sector": "Altro",
     "expiredAt": "2026-10-23T09:19:55.701Z",
     "previousSlugs": [
-      "arbeiten-nahe-der-grenze-facharztin-facharzt-per-allgemeine-innere-medizin-medimeo-ag-region-basel"
+      "arbeiten-nahe-der-grenze-facharztin-facharzt-per-allgemeine-innere-medizin-medimeo-ag-region-basel",
+      "arbeiten-nahe-der-grenze-facharztin-facharzt-fur-allgemeine-innere-medizin-region-basel-8fc89c0b",
+      "lavorare-vicino-al-confine-medica-specialista-medico-specialista-in-medicina-interna-generale-medimeo-ag-region-basel",
+      "arbeiten-nahe-der-grenze-facharztin-facharzt-fur-allgemeine-innere-medizin-region-basel",
+      "working-near-the-border-specialist-specialist-for-general-internal-medicine-medimeo-ag-region-basel"
     ],
     "previousSlugsByLocale": {
       "it": [
         "arbeiten-nahe-der-grenze-facharztin-facharzt-fur-allgemeine-innere-medizin-region-basel-8fc89c0b",
-        "arbeiten-nahe-der-grenze-facharztin-facharzt-per-allgemeine-innere-medizin-medimeo-ag-region-basel"
+        "arbeiten-nahe-der-grenze-facharztin-facharzt-per-allgemeine-innere-medizin-medimeo-ag-region-basel",
+        "lavorare-vicino-al-confine-medica-specialista-medico-specialista-in-medicina-interna-generale-medimeo-ag-region-basel",
+        "arbeiten-nahe-der-grenze-facharztin-facharzt-fur-allgemeine-innere-medizin-region-basel"
       ],
       "en": [
-        "arbeiten-nahe-der-grenze-facharztin-facharzt-fur-allgemeine-innere-medizin-region-basel-8fc89c0b"
+        "arbeiten-nahe-der-grenze-facharztin-facharzt-fur-allgemeine-innere-medizin-region-basel-8fc89c0b",
+        "working-near-the-border-specialist-specialist-for-general-internal-medicine-medimeo-ag-region-basel",
+        "arbeiten-nahe-der-grenze-facharztin-facharzt-fur-allgemeine-innere-medizin-region-basel"
       ],
       "fr": [
-        "arbeiten-nahe-der-grenze-facharztin-facharzt-fur-allgemeine-innere-medizin-region-basel-8fc89c0b"
+        "arbeiten-nahe-der-grenze-facharztin-facharzt-fur-allgemeine-innere-medizin-region-basel-8fc89c0b",
+        "arbeiten-nahe-der-grenze-facharztin-facharzt-fur-allgemeine-innere-medizin-region-basel"
       ],
       "de": [
-        "arbeiten-nahe-der-grenze-facharztin-facharzt-fur-allgemeine-innere-medizin-region-basel-8fc89c0b"
+        "arbeiten-nahe-der-grenze-facharztin-facharzt-fur-allgemeine-innere-medizin-region-basel-8fc89c0b",
+        "arbeiten-nahe-der-grenze-facharztin-facharzt-fur-allgemeine-innere-medizin-region-basel"
       ]
     },
     "postalCode": "4001",
@@ -4191,7 +4233,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://medimeo.ch/job/arbeiten-nahe-der-grenze-fachaerztin-facharzt-fuer-allgemeine-innere-medizin-3611",
-    "firstSeenAt": "2026-10-19T21:18:00.259Z"
+    "firstSeenAt": "2026-10-19T21:18:00.259Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://medimeo.ch/job/arbeiten-nahe-der-grenze-fachaerztin-facharzt-fuer-allgemeine-innere-medizin-3611",
+        "firstSeenAt": "2026-10-19T21:18:00.259Z",
+        "title": "Arbeiten nahe der Grenze: Fachärztin / Facharzt für Allgemeine Innere Medizin"
+      },
+      {
+        "sourceIdentity": "url:https://medimeo.ch/job/arbeiten-nahe-der-grenze-fachaerztin-facharzt-fuer-allgemeine-innere-medizin-3774",
+        "firstSeenAt": "2026-10-19T21:18:00.259Z",
+        "title": "Arbeiten nahe der Grenze: Fachärztin / Facharzt für Allgemeine Innere Medizin"
+      }
+    ]
   },
   {
     "slug": "medico-di-famiglia-medica-di-famiglia-60-100-da-subito-o-previo-accordo-medimeo-ag-biel-solothurn-mittelland",

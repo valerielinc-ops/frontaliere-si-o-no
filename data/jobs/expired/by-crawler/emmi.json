@@ -25,7 +25,7 @@
       "fr": "employe-e-d-exploitation-production-emmi-landquart-graubunden"
     },
     "sector": "Food & Beverage (dairy)",
-    "expiredAt": "2026-11-19T21:28:38.890Z",
+    "expiredAt": "2026-11-20T09:28:47.643Z",
     "previousSlugs": [
       "betriebsmitarbeiter-in-produktion-emmi-ch",
       "betriebsmitarbeiter-in-produktion-emmi-landquart",
@@ -105,7 +105,7 @@
       "fr": "operateur-trice-d-installation-de-portionnement-emmi-kirchberg-bern"
     },
     "sector": "Food & Beverage (dairy)",
-    "expiredAt": "2026-11-19T21:28:38.890Z",
+    "expiredAt": "2026-11-20T09:28:47.643Z",
     "previousSlugs": [
       "anlagenfuhrer-in-portionen-emmi-ch"
     ],
@@ -155,7 +155,7 @@
       "fr": "directeur-principal-des-produits-emmi-caffe-latte-emmi-luzern-luzern"
     },
     "sector": "Food & Beverage (dairy)",
-    "expiredAt": "2026-11-19T21:28:38.890Z",
+    "expiredAt": "2026-11-20T09:28:47.643Z",
     "previousSlugs": [
       "senior-product-manager-emmi-caffe-latte-emmi-ch"
     ],
@@ -2915,25 +2915,39 @@
     },
     "slugByLocale": {
       "it": "meccanico-a-di-manutenzione-emmi-emmen-1ae31da535",
-      "en": "operational-mechanic-emmi-emmen",
-      "de": "betriebsmechaniker-in-emmi-emmen",
-      "fr": "mecanicien-ne-d-exploitation-emmi-emmen"
+      "en": "operational-mechanic-emmi-emmen-0ade92e7",
+      "de": "betriebsmechaniker-in-emmi-emmen-955c9d0b",
+      "fr": "mecanicien-ne-d-exploitation-emmi-emmen-d8027e73"
     },
     "sector": "Food & Beverage (dairy)",
     "expiredAt": "2026-10-29T21:34:16.020Z",
-    "previousSlugs": [
-      "betriebsmechaniker-in-emmi-ch",
-      "betriebsmechaniker-in-emmi-ch-2",
-      "meccanico-a-di-manutenzione-emmi-emmen"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "betriebsmechaniker-in-emmi-ch-060c624a",
+        "betriebsmechaniker-in-emmi-ch-2-b6065f1f",
+        "meccanico-a-di-manutenzione-emmi-emmen-2858343c",
         "betriebsmechaniker-in-emmi-ch",
         "betriebsmechaniker-in-emmi-ch-2",
         "meccanico-a-di-manutenzione-emmi-emmen"
       ],
       "de": [
-        "betriebsmechaniker-in-emmi-ch"
+        "betriebsmechaniker-in-emmi-ch-060c624a",
+        "betriebsmechaniker-in-emmi-ch-2",
+        "meccanico-a-di-manutenzione-emmi-emmen",
+        "betriebsmechaniker-in-emmi-ch",
+        "betriebsmechaniker-in-emmi-emmen"
+      ],
+      "en": [
+        "betriebsmechaniker-in-emmi-ch",
+        "betriebsmechaniker-in-emmi-ch-2",
+        "meccanico-a-di-manutenzione-emmi-emmen",
+        "operational-mechanic-emmi-emmen"
+      ],
+      "fr": [
+        "betriebsmechaniker-in-emmi-ch",
+        "betriebsmechaniker-in-emmi-ch-2",
+        "meccanico-a-di-manutenzione-emmi-emmen",
+        "mecanicien-ne-d-exploitation-emmi-emmen"
       ]
     },
     "postalCode": "6032",
@@ -2943,7 +2957,18 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/betriebsmechaniker-in/a596faf6-feaa-4aa2-bc72-0cf9343a2d84",
-    "firstSeenAt": "2026-09-01T14:17:24.053Z"
+    "firstSeenAt": "2026-09-01T14:17:24.053Z",
+    "previousSlugs": [
+      "betriebsmechaniker-in-emmi-ch",
+      "betriebsmechaniker-in-emmi-ch-2",
+      "meccanico-a-di-manutenzione-emmi-emmen",
+      "betriebsmechaniker-in-emmi-ch-060c624a",
+      "betriebsmechaniker-in-emmi-ch-2-b6065f1f",
+      "meccanico-a-di-manutenzione-emmi-emmen-2858343c",
+      "operational-mechanic-emmi-emmen",
+      "betriebsmechaniker-in-emmi-emmen",
+      "mecanicien-ne-d-exploitation-emmi-emmen"
+    ]
   },
   {
     "slug": "addetto-a-operativo-a-logistica-confezionamento-emmi-emmen-luzern-9321b6f8",
@@ -4987,16 +5012,30 @@
       "it": [
         "betriebsmechaniker-in-automatiker-in-tagesbetrieb-emmi-ch-45b1df48",
         "meccanico-di-manutenzione-automatico-turno-diurno-emmi-langnau-im-emmental-ffaa23dcd3",
+        "meccanico-di-manutenzione-automatico-turno-diurno-emmi-langnau-im-emmental-aeeb2faa",
+        "maintenance-mechanic-automation-technician-day-shift-emmi-langnau-im-emmental",
+        "mecanicien-de-maintenance-automaticien-poste-de-jour-emmi-langnau-im-emmental",
         "meccanico-di-manutenzione-automatico-turno-diurno-emmi-langnau-im-emmental",
         "betriebsmechaniker-in-automatiker-in-tagesbetrieb-emmi-ch"
       ],
       "en": [
+        "maintenance-mechanic-automation-technician-day-shift-emmi-langnau-im-emmental-9849e44a",
+        "meccanico-di-manutenzione-automatico-turno-diurno-emmi-langnau-im-emmental",
+        "betriebsmechaniker-in-automatiker-in-tagesbetrieb-emmi-ch",
+        "mecanicien-de-maintenance-automaticien-poste-de-jour-emmi-langnau-im-emmental",
         "maintenance-mechanic-automation-technician-day-shift-emmi-langnau-im-emmental"
       ],
       "de": [
+        "meccanico-di-manutenzione-automatico-turno-diurno-emmi-langnau-im-emmental",
+        "maintenance-mechanic-automation-technician-day-shift-emmi-langnau-im-emmental",
+        "mecanicien-de-maintenance-automaticien-poste-de-jour-emmi-langnau-im-emmental",
         "betriebsmechaniker-in-automatiker-in-tagesbetrieb-emmi-ch"
       ],
       "fr": [
+        "mecanicien-de-maintenance-automaticien-poste-de-jour-emmi-langnau-im-emmental-b52a2cbc",
+        "meccanico-di-manutenzione-automatico-turno-diurno-emmi-langnau-im-emmental",
+        "betriebsmechaniker-in-automatiker-in-tagesbetrieb-emmi-ch",
+        "maintenance-mechanic-automation-technician-day-shift-emmi-langnau-im-emmental",
         "mecanicien-de-maintenance-automaticien-poste-de-jour-emmi-langnau-im-emmental"
       ]
     },
@@ -5089,22 +5128,23 @@
     "sector": "Food & Beverage (dairy)",
     "expiredAt": "2026-10-22T21:25:32.588Z",
     "previousSlugs": [
-      "betriebsmechaniker-in-emmi-emmen",
-      "betriebsmechaniker-in-emmi-ch"
+      "betriebsmechaniker-in-emmi-emmen"
     ],
     "previousSlugsByLocale": {
       "it": [
         "betriebsmechaniker-in-emmi-ch-a0c164e4",
-        "betriebsmechaniker-in-emmi-emmen"
+        "betriebsmechaniker-in-emmi-emmen",
+        "betriebsmechaniker-in-emmi-ch"
       ],
       "en": [
-        "betriebsmechaniker-in-emmi-ch"
-      ],
-      "de": [
         "betriebsmechaniker-in-emmi-ch-a0c164e4"
       ],
-      "fr": [
+      "de": [
+        "betriebsmechaniker-in-emmi-ch-a0c164e4",
         "betriebsmechaniker-in-emmi-ch"
+      ],
+      "fr": [
+        "betriebsmechaniker-in-emmi-ch-a0c164e4"
       ]
     },
     "postalCode": "6032",
@@ -5136,9 +5176,9 @@
       "fr": "Bienvenue à Landquart, la plus grande fabrique de fromage en Suisse. Chaque année, nous transformons plus de 100 millions de kilogrammes de lait en raclette et en Suisse Suisse. Notre équipe se caractérise par son esprit créatif et son environnement collégial. Pour que tout fonctionne bien, nous avons besoin de spécialistes dévoués comme vous.\n\nTu peux le faire.\n\n• Assurer un processus de production en douceur en surveillant la pasteurisation, le CIP et le traitement du lactosérum.\n\n• Mise en œuvre responsable du travail selon le calendrier hebdomadaire et quotidien.\n\n• Coordination étroite des processus avec les finisseurs, en particulier dans le cas de la finition et du nettoyage CIP.\n\n• Inspection minutieuse de l'équipement et de l'équipement avant chaque début de production.\n\n• Documentation transparente et bonne communication entre la salle de contrôle et la production.\n\nApporte ça avec toi.\n\n• formation en tant que technologue laitier ou similaire.\n\n• Volonté d'être utilisée avec souplesse dans toute la zone de production.\n\n• Haute qualité et sensibilisation à la sécurité ainsi qu'un style de travail soigné.\n\n• La joie du travail d'équipe et une communication claire et orientée vers la solution.\n\n• Responsabilité dans le traitement des plantes, des procédés et des calendriers.\n\n• Ouverture à assumer des tâches supplémentaires selon les directives.\n\nC'est ce que nous vous offrons.\n\n• 5 semaines de vacances: Profitez de cinq semaines de vacances par année. À partir de l'âge de 46 ans, votre droit de vacances augmente graduellement jusqu'à six semaines.\n\n• Fonds de pension attrayant avec des régimes d'épargne flexibles: Notre fondation de pension Emmi verse des intérêts sur votre épargne retraite au-dessus du minimum légal. Votre cotisation est basée sur votre salaire annuel – sans déduction de coordination. Choisissez entre un régime d'épargne standard ou plus avec des cotisations d'épargne plus élevées de 1%.\n\n• Partage volontaire du succès : Selon le succès de l'entreprise, vous recevrez un partage volontaire du succès. Ce faisant, nous voulons reconnaître votre précieuse contribution au succès de l'entreprise.\n\n• Suppléments attrayants et services supplémentaires: Vous recevrez une allocation de temps de 20 % à partir de 20 heures, des heures d'échauffement payées, un crédit de temps pour les changements de temps et une compensation équitable pour le picting en dehors de vos heures de travail.\n\n• Plan de développement individuel : Avec des plans de développement sur mesure, nous promouvons vos compétences individuelles et soutenons votre croissance à long terme – un élément central de notre stratégie de développement durable. En savoir plus .\n\n• Focus sur votre santé: Nous offrons la gestion de la santé au travail, des mesures préventives et des conseils sociaux gratuits de notre partenaire Proitera pour des préoccupations professionnelles et privées.\n\nEn savoir plus sur les avantages"
     },
     "slugByLocale": {
-      "it": "milchtechnologin-o-milchtechnologe-emmi-landquart",
+      "it": "milchtechnologin-o-milchtechnologe-emmi-landquart-08829cfc",
       "en": "milk-technologist-or-dairy-technologist-emmi-landquart-graubunden",
-      "de": "milchtechnologin-oder-milchtechnologe-emmi-ch",
+      "de": "milchtechnologin-oder-milchtechnologe-emmi-ch-923b3578",
       "fr": "technologue-du-lait-ou-technologue-du-lait-emmi-landquart-graubunden"
     },
     "sector": "Food & Beverage (dairy)",
@@ -5147,11 +5187,14 @@
       "tecnico-lattiero-caseario-emmi-landquart-4p1cwa",
       "milchtechnologin-oder-milchtechnologe-emmi-ch-2",
       "tecnico-lattiero-caseario-emmi-landquart-6s079b",
-      "technologue-du-lait-ou-technologue-du-lait-emmi-landquart",
-      "milk-technologist-or-dairy-technologist-emmi-landquart",
       "tecnico-lattiero-caseario-emmi-landquart",
       "milchtechnologin-oder-milchtechnologe-emmi-landquart",
-      "milchtechnologin-oder-milchtechnologe-emmi-ch"
+      "technologue-du-lait-ou-technologue-du-lait-emmi-landquart",
+      "milk-technologist-or-dairy-technologist-emmi-landquart",
+      "milchtechnologin-oder-milchtechnologe-emmi-ch",
+      "milk-technologist-or-dairy-technologist-emmi-landquart-6eaed91f",
+      "technologue-du-lait-ou-technologue-du-lait-emmi-landquart-78f3a851",
+      "milchtechnologin-o-milchtechnologe-emmi-landquart"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -5161,15 +5204,28 @@
         "technologue-du-lait-ou-technologue-du-lait-emmi-landquart",
         "milk-technologist-or-dairy-technologist-emmi-landquart",
         "tecnico-lattiero-caseario-emmi-landquart",
-        "milchtechnologin-oder-milchtechnologe-emmi-ch"
+        "milchtechnologin-oder-milchtechnologe-emmi-ch-923b3578",
+        "milchtechnologin-oder-milchtechnologe-emmi-ch",
+        "milchtechnologin-o-milchtechnologe-emmi-landquart"
       ],
       "en": [
-        "milk-technologist-or-dairy-technologist-emmi-landquart",
-        "milchtechnologin-oder-milchtechnologe-emmi-landquart"
+        "milk-technologist-or-dairy-technologist-emmi-landquart-6eaed91f",
+        "milchtechnologin-oder-milchtechnologe-emmi-landquart",
+        "milchtechnologin-oder-milchtechnologe-emmi-ch",
+        "technologue-du-lait-ou-technologue-du-lait-emmi-landquart",
+        "milk-technologist-or-dairy-technologist-emmi-landquart"
       ],
       "fr": [
-        "technologue-du-lait-ou-technologue-du-lait-emmi-landquart",
-        "milchtechnologin-oder-milchtechnologe-emmi-landquart"
+        "technologue-du-lait-ou-technologue-du-lait-emmi-landquart-78f3a851",
+        "milchtechnologin-oder-milchtechnologe-emmi-landquart",
+        "milchtechnologin-oder-milchtechnologe-emmi-ch",
+        "milk-technologist-or-dairy-technologist-emmi-landquart",
+        "technologue-du-lait-ou-technologue-du-lait-emmi-landquart"
+      ],
+      "de": [
+        "milchtechnologin-oder-milchtechnologe-emmi-ch-923b3578",
+        "milk-technologist-or-dairy-technologist-emmi-landquart",
+        "technologue-du-lait-ou-technologue-du-lait-emmi-landquart"
       ]
     },
     "postalCode": "7302",
@@ -6902,7 +6958,7 @@
     "firstSeenAt": "2026-07-21T23:21:56.587Z"
   },
   {
-    "slug": "specialista-in-sala-pallettizzazione-emmi-ostermundigen-bern",
+    "slug": "specialista-in-sala-pallettizzazione-emmi-ostermundigen-bern-daffc461",
     "title": "Fachmitarbeiter:in Produktionslogistik",
     "titleByLocale": {
       "it": "Specialista: nella logistica di produzione",
@@ -6921,17 +6977,14 @@
       "fr": "Frische im Fokus, Prozesse im Griff - Am traditionsreichen Standort Ostermundigen produzieren wir mit Leidenschaft beliebte Klassiker wie Emmi Caffè Latte, feinsten Jogurt und erfrischende Glace. In einem dynamischen Umfeld, das für Frische, Tempo und höchste Qualität steht, suchen wir Menschen, die mitdenken, mitgestalten – und mit uns wachsen wollen.\n\nDas kannst du bewirken\n\n• Du bist verantwortlich für das ordnungsgemässe Starten und Rückmelden der Aufträge für alle Palettieranlagen im MES.\n\n• Du bewirtschaftest den Brutraum für unsere leckeren Jogurtspezialitäten und stellst so den einwandfreien Produktionsprozess sicher.\n\n• Du agierst als Bindeglied zwischen der Produktion und Logistik und hältst alle relevanten Parteien immer auf dem Laufenden.\n\n• Du führst Systemkontrollen durch und stellst durch regelmässige Qualitätskontrollen an der Produktion sicher, dass alles einwandfrei läuft.\n\n• Du lernst neue Mitarbeitende an und gibst so dein Fachwissen weiter.\n\nDas bringst du mit\n\n• Du verfügst über eine abgeschlossene Berufsausbildung im Bereich Logistik oder im Lebensmittelumfeld.\n\n• Du konntest idealerweise schon erste Erfahrungen in der Lebensmittelproduktion sammeln.\n\n• Du verfügst über einen Staplerausweis oder bist bereit, diesen noch zu machen.\n\n• Du bist mobil und im 3-4 Schichtbetrieb (inkl. Wochenenden) flexibel einsetzbar.\n\n• Du sprichst fliessend Deutsch.\n\nDas bieten wir dir\n\n• Attraktive Pensionskasse mit flexiblen Sparplänen: Unsere Emmi Vorsorgestiftung verzinst dein Altersguthaben über dem gesetzlichen Minimum. Dein Beitrag basiert auf deinem Jahresgehalt – ohne Koordinationsabzug. Wähle zwischen Standard- oder Plus-Sparplan mit 1 % höheren Sparbeiträgen.\n\n• 5 Wochen Ferien: Geniesse fünf Wochen Ferien pro Jahr. Ab dem 46. Lebensjahr steigert sich dein Urlaubsanspruch schrittweise auf bis zu sechs Wochen.\n\n• Deine Gesundheit im Fokus: Wir bieten betriebliches Gesundheitsmanagement, präventive Massnahmen und kostenlose Sozialberatung durch unseren Partner Proitera für berufliche und private Anliegen.\n\n• Freiwillige Erfolgsbeteiligung: Je nach Geschäftserfolg erhältst du eine freiwillige Erfolgsbeteiligung. Damit möchten wir deinen wertvollen Beitrag zum Unternehmenserfolg anerkennen.\n\n• Weiterbildung & Entwicklungsmöglichkeiten: Bei Emmi steht die Weiterentwicklung unserer Mitarbeitenden im Vordergrund: Wir bieten Talentprogramme, unterstützen Aus- und Weiterbildungen und fördern alle Kompetenzen für dein berufliches Wachstum. Erfahre hier mehr über unsere Entwicklungsangebote.\n\n• Günstige Verpflegung im Personalrestaurant: Für Frühstück, Mittagessen und Pausenverpflegung steht dir ein Personalrestaurant mit vergünstigten Mitarbeitendenpreisen zur Verfügung."
     },
     "slugByLocale": {
-      "it": "specialista-in-sala-pallettizzazione-emmi-ostermundigen-bern",
-      "en": "specialist-in-palletizing-room-emmi-ostermundigen-bern",
-      "de": "fachmitarbeiter-in-produktionslogistik-emmi-ch",
-      "fr": "specialiste-en-salle-de-palettisation-emmi-ostermundigen-bern"
+      "it": "specialista-in-sala-pallettizzazione-emmi-ostermundigen-bern-daffc461",
+      "en": "specialist-in-palletizing-room-emmi-ostermundigen-bern-f0bbfd56",
+      "de": "fachmitarbeiter-in-produktionslogistik-emmi-ch-189cbd9b",
+      "fr": "specialiste-en-salle-de-palettisation-emmi-ostermundigen-bern-cdeb6320"
     },
     "sector": "Food & Beverage (dairy)",
     "expiredAt": "2026-10-14T09:22:31.625Z",
     "previousSlugs": [
-      "fachmitarbeiter-in-palettierraum-emmi-ch",
-      "fachmitarbeiter-in-palettierraum-emmi-ostermundigen",
-      "fachmitarbeiter-in-produktionslogistik-emmi-ch",
       "collaboratore-trice-specializzato-a-nella-logistica-di-produzione-emmi-suhr",
       "specialized-production-logistics-employee-emmi-suhr",
       "collaborateur-trice-specialise-e-dans-la-logistique-de-production-emmi-suhr",
@@ -6940,13 +6993,13 @@
       "fachmitarbeiter-in-palettierraum-emmi-ostermundigen-4e761139",
       "fachmitarbeiter-in-produktionslogistik-emmi-ch-189cbd9b",
       "specialist-in-palletizing-room-emmi-ostermundigen-bern-f0bbfd56",
-      "specialiste-en-salle-de-palettisation-emmi-ostermundigen-bern-cdeb6320"
+      "specialiste-en-salle-de-palettisation-emmi-ostermundigen-bern-cdeb6320",
+      "fachmitarbeiter-in-palettierraum-emmi-ch",
+      "fachmitarbeiter-in-produktionslogistik-emmi-ch",
+      "fachmitarbeiter-in-palettierraum-emmi-ostermundigen"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "fachmitarbeiter-in-palettierraum-emmi-ch",
-        "fachmitarbeiter-in-palettierraum-emmi-ostermundigen",
-        "fachmitarbeiter-in-produktionslogistik-emmi-ch",
         "collaboratore-trice-specializzato-a-nella-logistica-di-produzione-emmi-suhr",
         "specialista-in-sala-pallettizzazione-emmi-ostermundigen-bern-daffc461",
         "fachmitarbeiter-in-palettierraum-emmi-ch-0ea72a16",
@@ -6954,21 +7007,23 @@
         "fachmitarbeiter-in-produktionslogistik-emmi-ch-189cbd9b"
       ],
       "en": [
-        "fachmitarbeiter-in-palettierraum-emmi-ostermundigen",
         "specialized-production-logistics-employee-emmi-suhr",
         "specialist-in-palletizing-room-emmi-ostermundigen-bern-f0bbfd56",
-        "fachmitarbeiter-in-palettierraum-emmi-ostermundigen-4e761139"
+        "fachmitarbeiter-in-palettierraum-emmi-ostermundigen-4e761139",
+        "fachmitarbeiter-in-palettierraum-emmi-ch",
+        "fachmitarbeiter-in-produktionslogistik-emmi-ch"
       ],
       "de": [
-        "fachmitarbeiter-in-palettierraum-emmi-ch",
         "fachmitarbeiter-in-produktionslogistik-emmi-ch-189cbd9b",
-        "fachmitarbeiter-in-palettierraum-emmi-ch-0ea72a16"
+        "fachmitarbeiter-in-palettierraum-emmi-ch-0ea72a16",
+        "fachmitarbeiter-in-palettierraum-emmi-ostermundigen"
       ],
       "fr": [
-        "fachmitarbeiter-in-palettierraum-emmi-ostermundigen",
         "collaborateur-trice-specialise-e-dans-la-logistique-de-production-emmi-suhr",
         "specialiste-en-salle-de-palettisation-emmi-ostermundigen-bern-cdeb6320",
-        "fachmitarbeiter-in-palettierraum-emmi-ostermundigen-4e761139"
+        "fachmitarbeiter-in-palettierraum-emmi-ostermundigen-4e761139",
+        "fachmitarbeiter-in-palettierraum-emmi-ch",
+        "fachmitarbeiter-in-produktionslogistik-emmi-ch"
       ]
     },
     "postalCode": "3072",
@@ -7118,7 +7173,6 @@
       "electricien-d-exploitation-automaticien-emmi-ostermundigen-9c74f31f",
       "electricien-d-exploitation-automaticien-emmi-dagmersellen",
       "elettricista-aziendale-automatista-emmi-dagmersellen-luzern-bc0640c0",
-      "techniker-in-automation-emmi-ch",
       "betriebselektriker-in-automatiker-in-emmi-ch",
       "betriebselektriker-in-automatiker-in-emmi-dagmersellen-7157e661",
       "elettricista-aziendale-automatico-a-emmi-ostermundigen-5f94abe2",
@@ -7133,7 +7187,8 @@
       "electricien-d-exploitation-automaticien-emmi-ostermundigen-f0ac9200",
       "elettricista-aziendale-automatico-a-emmi-ostermundigen-0be21dee",
       "plantelectrician-automation-technician-emmi-ostermundigen-f0d14629",
-      "electricien-d-exploitation-automaticien-emmi-ostermundigen-b87b7ed2"
+      "electricien-d-exploitation-automaticien-emmi-ostermundigen-b87b7ed2",
+      "techniker-in-automation-emmi-ch"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -7144,14 +7199,14 @@
         "betriebselektriker-in-automatiker-in-emmi-ch-2-6fa86d63",
         "elettricista-aziendale-automatico-a-emmi-dagmersellen",
         "elettricista-aziendale-automatista-emmi-dagmersellen-luzern-bc0640c0",
-        "techniker-in-automation-emmi-ch",
         "betriebselektriker-in-automatiker-in-emmi-ch",
         "betriebselektriker-in-automatiker-in-emmi-dagmersellen-7157e661",
         "elettricista-aziendale-automatico-a-emmi-ostermundigen-5f94abe2",
         "betriebselektriker-in-automatiker-in-emmi-ch-2",
         "plantelectrician-automation-technician-emmi-ostermundigen",
         "electricien-d-exploitation-automaticien-emmi-ostermundigen",
-        "elettricista-aziendale-automatico-a-emmi-ostermundigen-0be21dee"
+        "elettricista-aziendale-automatico-a-emmi-ostermundigen-0be21dee",
+        "techniker-in-automation-emmi-ch"
       ],
       "en": [
         "betriebselektriker-in-automatiker-in-emmi-dagmersellen-39b9eb56",
@@ -7162,7 +7217,8 @@
         "plantelectrician-automation-technician-emmi-ostermundigen-bd86411d",
         "elettricista-aziendale-automatico-a-emmi-ostermundigen",
         "electricien-d-exploitation-automaticien-emmi-ostermundigen",
-        "plantelectrician-automation-technician-emmi-ostermundigen-f0d14629"
+        "plantelectrician-automation-technician-emmi-ostermundigen-f0d14629",
+        "techniker-in-automation-emmi-ch"
       ],
       "fr": [
         "betriebselektriker-in-automatiker-in-emmi-dagmersellen-39b9eb56",
@@ -7173,7 +7229,8 @@
         "electricien-d-exploitation-automaticien-emmi-ostermundigen-f0ac9200",
         "elettricista-aziendale-automatico-a-emmi-ostermundigen",
         "plantelectrician-automation-technician-emmi-ostermundigen",
-        "electricien-d-exploitation-automaticien-emmi-ostermundigen-b87b7ed2"
+        "electricien-d-exploitation-automaticien-emmi-ostermundigen-b87b7ed2",
+        "techniker-in-automation-emmi-ch"
       ],
       "de": [
         "betriebselektriker-in-automatiker-in-emmi-ch",
@@ -18686,11 +18743,11 @@
       "plant-operator-pet-emmi-suhr",
       "gestore-dell-impianto-in-pet-emmi-suhr",
       "system-operator-in-bottling-emmi-suhr-aargau",
-      "anlagenfuhrer-in-abfullung-emmi-ch",
       "operateur-de-systeme-en-mise-en-bouteille-emmi-suhr-aargau",
       "responsable-d-installation-de-remplissage-emmi-suhr",
       "plant-manager-in-mixed-plant-emmi-suhr-aargau",
-      "operateur-d-installations-mixtes-emmi-suhr-aargau"
+      "operateur-d-installations-mixtes-emmi-suhr-aargau",
+      "anlagenfuhrer-in-abfullung-emmi-ch"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -21830,7 +21887,6 @@
         "plant-operator-pet-emmi-suhr-867326bd",
         "gestore-dell-impianto-in-pet-emmi-suhr-e8e65d14",
         "direttore-dell-impianto-in-impianto-di-miscelazione-emmi-suhr-aargau-07ny31-eb90ac24",
-        "anlagenfuhrer-in-abfullung-emmi-ch",
         "conducteur-d-installation-en-melange-emmi-suhr",
         "conduttore-dell-impianto-in-miscelazione-emmi-suhr",
         "gestionnaire-de-la-plante-dans-la-plante-de-melange-emmi-suhr-aargau",
@@ -21847,7 +21903,8 @@
         "conducteur-d-installation-en-pet-emmi-suhr",
         "anlagenfuhrer-in-pet-emmi-ch",
         "plant-operator-pet-emmi-suhr",
-        "gestore-dell-impianto-in-pet-emmi-suhr"
+        "gestore-dell-impianto-in-pet-emmi-suhr",
+        "anlagenfuhrer-in-abfullung-emmi-ch"
       ],
       "en": [
         "mixed-plant-operator-emmi-suhr-cecb312f",
@@ -23275,13 +23332,13 @@
         "plant-manager-in-mixed-plant-emmi-suhr-aargau-9ca3c5c6",
         "direttore-dell-impianto-in-impianto-di-miscelazione-emmi-suhr-aargau-07ny31-eb90ac24",
         "plant-manager-in-mixed-plant-emmi-suhr-aargau-a8f02687",
-        "anlagenfuhrer-in-abfullung-emmi-ch",
         "conducteur-d-installation-en-melange-emmi-suhr",
         "mixed-plant-operator-emmi-suhr",
         "plant-manager-mixing-plant-emmi-suhr",
         "plant-manager-in-mixing-plant-emmi-suhr-aargau",
         "system-operator-in-bottling-emmi-suhr-aargau",
-        "plant-manager-in-mixed-plant-emmi-suhr-aargau"
+        "plant-manager-in-mixed-plant-emmi-suhr-aargau",
+        "anlagenfuhrer-in-abfullung-emmi-ch"
       ],
       "de": [
         "anlagenfuhrer-in-mischerei-emmi-suhr-8c6d9b04",
@@ -25743,14 +25800,14 @@
         "operateur-d-installations-mixtes-emmi-suhr-aargau-6f28a867",
         "direttore-dell-impianto-in-impianto-di-miscelazione-emmi-suhr-aargau-07ny31-eb90ac24",
         "operateur-d-installations-mixtes-emmi-suhr-aargau-6d5ebe30",
-        "anlagenfuhrer-in-abfullung-emmi-ch",
         "operateur-d-installations-mixtes-emmi-suhr",
         "gestionnaire-de-la-plante-dans-la-plante-de-melange-emmi-suhr-aargau",
         "gestionnaire-de-la-plante-en-usine-mixte-emmi-suhr-aargau",
         "operateur-de-systeme-en-mise-en-bouteille-emmi-suhr-aargau",
         "responsable-d-installation-de-remplissage-emmi-suhr",
         "conducteur-d-installation-en-melange-emmi-suhr",
-        "operateur-d-installations-mixtes-emmi-suhr-aargau"
+        "operateur-d-installations-mixtes-emmi-suhr-aargau",
+        "anlagenfuhrer-in-abfullung-emmi-ch"
       ]
     },
     "postalCode": "5034",
@@ -32808,22 +32865,23 @@
     },
     "sector": "Food & Beverage (dairy)",
     "expiredAt": "2026-10-06T09:25:13.522Z",
-    "previousSlugs": [
-      "spezialist-in-rohrleitungsbau-instandhaltung-emmi-ch"
-    ],
     "previousSlugsByLocale": {
       "it": [
-        "spezialist-in-rohrleitungsbau-instandhaltung-emmi-ch",
-        "koordinator-in-rohrleitungs-und-anlagenbau-emmi-ch-af9c0fe0"
+        "spezialist-in-rohrleitungsbau-instandhaltung-emmi-ch-9f351315",
+        "koordinator-in-rohrleitungs-und-anlagenbau-emmi-ch-af9c0fe0",
+        "spezialist-in-rohrleitungsbau-instandhaltung-emmi-ch"
       ],
       "en": [
-        "koordinator-in-rohrleitungs-und-anlagenbau-emmi-ch-af9c0fe0"
+        "koordinator-in-rohrleitungs-und-anlagenbau-emmi-ch-af9c0fe0",
+        "spezialist-in-rohrleitungsbau-instandhaltung-emmi-ch"
       ],
       "fr": [
-        "koordinator-in-rohrleitungs-und-anlagenbau-emmi-ch-af9c0fe0"
+        "koordinator-in-rohrleitungs-und-anlagenbau-emmi-ch-af9c0fe0",
+        "spezialist-in-rohrleitungsbau-instandhaltung-emmi-ch"
       ],
       "de": [
-        "koordinator-in-rohrleitungs-und-anlagenbau-emmi-ch-af9c0fe0"
+        "koordinator-in-rohrleitungs-und-anlagenbau-emmi-ch-af9c0fe0",
+        "spezialist-in-rohrleitungsbau-instandhaltung-emmi-ch-b21a19e9"
       ]
     },
     "postalCode": "6252",
@@ -32833,7 +32891,12 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/koordinator-in-rohrleitungs-und-anlagenbau/39ca0f16-ef12-401b-a77e-58682adc5711",
-    "firstSeenAt": "2026-09-29T09:23:09.889Z"
+    "firstSeenAt": "2026-09-29T09:23:09.889Z",
+    "previousSlugs": [
+      "spezialist-in-rohrleitungsbau-instandhaltung-emmi-ch",
+      "spezialist-in-rohrleitungsbau-instandhaltung-emmi-ch-9f351315",
+      "spezialist-in-rohrleitungsbau-instandhaltung-emmi-ch-b21a19e9"
+    ]
   },
   {
     "slug": "koordinator-in-rohrleitungs-e-anlagenbau-emmi-dagmersellen-b9d19b0c",
@@ -33763,7 +33826,6 @@
     "expiredAt": "2026-09-26T23:42:38.493Z",
     "previousSlugs": [
       "lehre-als-logistiker-in-efz-2027-emmi-ch-4",
-      "lehre-als-logistiker-in-efz-2027-emmi-ch",
       "lehre-als-logistiker-in-efz-2027-emmi-ch-3",
       "apprendistato-come-impiegata-impiegato-in-logistica-cfc-2027-emmi-ostermundigen",
       "lehre-als-logistiker-in-efz-2027-emmi-ch-2",
@@ -33771,7 +33833,8 @@
       "teaching-as-a-logistician-in-efz-2027-emmi-ostermundigen-bern",
       "teaching-as-a-logistician-in-efz-2027-emmi-emmen-luzern",
       "enseignement-en-tant-que-logisticien-en-efz-2027-emmi-ostermundigen-bern",
-      "enseignement-en-tant-que-logisticien-en-efz-2027-emmi-emmen-luzern"
+      "enseignement-en-tant-que-logisticien-en-efz-2027-emmi-emmen-luzern",
+      "lehre-als-logistiker-in-efz-2027-emmi-ch-1b244631"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -33787,13 +33850,16 @@
         "teaching-as-a-logistician-in-efz-2027-emmi-ostermundigen-bern",
         "lehre-als-logistiker-in-efz-2027-emmi-ch-3",
         "teaching-as-a-logistician-in-efz-2027-emmi-emmen-luzern",
-        "lehre-als-logistiker-in-efz-2027-emmi-ch"
+        "lehre-als-logistiker-in-efz-2027-emmi-ch-1b244631"
       ],
       "fr": [
         "lehre-als-logistiker-in-efz-2027-emmi-ch-4",
         "enseignement-en-tant-que-logisticien-en-efz-2027-emmi-ostermundigen-bern",
         "lehre-als-logistiker-in-efz-2027-emmi-ch-3",
         "enseignement-en-tant-que-logisticien-en-efz-2027-emmi-emmen-luzern",
+        "lehre-als-logistiker-in-efz-2027-emmi-ch-1b244631"
+      ],
+      "de": [
         "lehre-als-logistiker-in-efz-2027-emmi-ch"
       ]
     },
@@ -35377,7 +35443,7 @@
     ]
   },
   {
-    "slug": "imbottigliamento-dell-operatore-degli-impianti-emmi-suhr-aargau",
+    "slug": "imbottigliamento-dell-operatore-degli-impianti-emmi-suhr-aargau-429b6f67",
     "title": "Anlagenführer:in Abfüllung",
     "titleByLocale": {
       "it": "Imbottigliamento dell'operatore degli impianti",
@@ -35396,56 +35462,95 @@
       "fr": "• Avec un sentiment de sécurité, vous créez nos usines de remplissage polyvalentes et effectuez régulièrement des changements de format.\n\n• Le fonctionnement fiable des systèmes ainsi que le respect cohérent des règles d'hygiène et de sécurité font partie de la vie quotidienne pour vous.\n\n• Vous reconnaissez les temps d'arrêt ou les pertes de produits tôt et contribuez activement à les minimiser ou à les résoudre rapidement.\n\n• En cas de perturbations, vous agissez de manière orientée vers la solution et vous assurez que la ligne fonctionne à nouveau rapidement.\n\n• Votre pensée innovante génère de nouvelles idées avec lesquelles vous améliorez continuellement nos processus.\n\n• À la fin du quart de travail, vous assurez une usine propre et remettez votre travail soigneusement, clairement et bien documenté.\n\n• Vous avez suivi une formation professionnelle en tant que gestionnaire d'investissement : en EFZ ou une expérience pratique précieuse dans l'industrie alimentaire.\n\n• Votre style technique pour les machines et les systèmes ainsi que votre haute sensibilisation à l'hygiène vous distinguent.\n\n• Vous êtes flexible Vous aimez les défis que le travail apporte et sont prêts pour notre opération de 4 équipes.\n\n• Avec votre bonne connaissance de l'allemand, votre condition physique et votre attitude positive à la vie, vous vous insérez parfaitement dans notre équipe d'Emmi!"
     },
     "slugByLocale": {
-      "it": "imbottigliamento-dell-operatore-degli-impianti-emmi-suhr-aargau",
-      "en": "system-operator-in-bottling-emmi-suhr-aargau",
+      "it": "imbottigliamento-dell-operatore-degli-impianti-emmi-suhr-aargau-429b6f67",
+      "en": "system-operator-in-bottling-emmi-suhr-aargau-b1800303",
       "de": "anlagenfuhrer-in-abfullung-emmi-ch",
-      "fr": "operateur-de-systeme-en-mise-en-bouteille-emmi-suhr-aargau"
+      "fr": "operateur-de-systeme-en-mise-en-bouteille-emmi-suhr-aargau-12b117f6"
     },
     "sector": "Food & Beverage (dairy)",
     "expiredAt": "2026-09-12T13:00:50.056Z",
     "previousSlugs": [
+      "anlagenfuhrer-in-abfullung-emmi-ch",
+      "anlagenfuhrer-in-abfullung-emmi-suhr",
+      "anlagenfuhrer-in-abfullung-emmi-ch-cbcifb-4622327f",
+      "responsabile-impianti-di-riempimento-emmi-suhr-cbcifb-613da10d",
+      "responsabile-impianti-di-riempimento-emmi-suhr-kwvxof-b265caec",
+      "conducteur-d-installation-en-pet-emmi-suhr-b8f462b7",
+      "anlagenfuhrer-in-pet-emmi-ch-c520a169",
+      "plant-operator-pet-emmi-suhr-b675b477",
+      "gestore-dell-impianto-in-pet-emmi-suhr-757e5d56",
+      "responsable-d-installation-de-remplissage-emmi-suhr",
+      "filling-plant-operator-emmi-suhr-7374a38c",
+      "operatore-di-sistema-in-imbottigliamento-emmi-suhr-aargau-e551a497",
+      "responsabile-impianti-di-riempimento-emmi-suhr-80a363a4",
+      "filling-plant-operator-emmi-suhr",
+      "plant-operator-pet-emmi-suhr",
       "anlagenfuhrer-in-abfullung-emmi-ch-cbcifb",
       "responsabile-impianti-di-riempimento-emmi-suhr-cbcifb",
       "responsabile-impianti-di-riempimento-emmi-suhr-kwvxof",
       "conducteur-d-installation-en-pet-emmi-suhr",
       "anlagenfuhrer-in-pet-emmi-ch",
-      "plant-operator-pet-emmi-suhr",
       "gestore-dell-impianto-in-pet-emmi-suhr",
-      "responsable-d-installation-de-remplissage-emmi-suhr",
-      "filling-plant-operator-emmi-suhr",
+      "operatore-di-sistema-in-imbottigliamento-emmi-suhr-aargau",
       "responsabile-impianti-di-riempimento-emmi-suhr",
-      "anlagenfuhrer-in-abfullung-emmi-ch",
-      "anlagenfuhrer-in-abfullung-emmi-suhr",
-      "operatore-di-sistema-in-imbottigliamento-emmi-suhr-aargau"
+      "responsable-d-installation-de-remplissage-emmi-suhr-e8644944"
     ],
     "previousSlugsByLocale": {
       "it": [
+        "anlagenfuhrer-in-abfullung-emmi-ch-cbcifb-4622327f",
+        "responsabile-impianti-di-riempimento-emmi-suhr-cbcifb-613da10d",
+        "responsabile-impianti-di-riempimento-emmi-suhr-kwvxof-b265caec",
+        "conducteur-d-installation-en-pet-emmi-suhr-b8f462b7",
+        "anlagenfuhrer-in-pet-emmi-ch-c520a169",
+        "plant-operator-pet-emmi-suhr-b675b477",
+        "gestore-dell-impianto-in-pet-emmi-suhr-757e5d56",
+        "responsable-d-installation-de-remplissage-emmi-suhr",
+        "filling-plant-operator-emmi-suhr-7374a38c",
+        "anlagenfuhrer-in-abfullung-emmi-ch",
+        "operatore-di-sistema-in-imbottigliamento-emmi-suhr-aargau-e551a497",
+        "responsabile-impianti-di-riempimento-emmi-suhr-80a363a4"
+      ],
+      "en": [
+        "filling-plant-operator-emmi-suhr",
+        "anlagenfuhrer-in-abfullung-emmi-ch",
+        "plant-operator-pet-emmi-suhr",
         "anlagenfuhrer-in-abfullung-emmi-ch-cbcifb",
         "responsabile-impianti-di-riempimento-emmi-suhr-cbcifb",
         "responsabile-impianti-di-riempimento-emmi-suhr-kwvxof",
         "conducteur-d-installation-en-pet-emmi-suhr",
         "anlagenfuhrer-in-pet-emmi-ch",
-        "plant-operator-pet-emmi-suhr",
         "gestore-dell-impianto-in-pet-emmi-suhr",
-        "responsable-d-installation-de-remplissage-emmi-suhr",
-        "filling-plant-operator-emmi-suhr",
-        "anlagenfuhrer-in-abfullung-emmi-ch",
-        "operatore-di-sistema-in-imbottigliamento-emmi-suhr-aargau"
-      ],
-      "en": [
-        "filling-plant-operator-emmi-suhr",
-        "anlagenfuhrer-in-abfullung-emmi-ch",
-        "plant-operator-pet-emmi-suhr"
+        "operatore-di-sistema-in-imbottigliamento-emmi-suhr-aargau",
+        "responsabile-impianti-di-riempimento-emmi-suhr",
+        "responsable-d-installation-de-remplissage-emmi-suhr"
       ],
       "de": [
         "anlagenfuhrer-in-abfullung-emmi-ch-cbcifb",
         "anlagenfuhrer-in-abfullung-emmi-suhr",
-        "anlagenfuhrer-in-pet-emmi-ch"
+        "anlagenfuhrer-in-pet-emmi-ch",
+        "responsabile-impianti-di-riempimento-emmi-suhr-cbcifb",
+        "responsabile-impianti-di-riempimento-emmi-suhr-kwvxof",
+        "conducteur-d-installation-en-pet-emmi-suhr",
+        "plant-operator-pet-emmi-suhr",
+        "gestore-dell-impianto-in-pet-emmi-suhr",
+        "filling-plant-operator-emmi-suhr",
+        "operatore-di-sistema-in-imbottigliamento-emmi-suhr-aargau",
+        "responsabile-impianti-di-riempimento-emmi-suhr",
+        "responsable-d-installation-de-remplissage-emmi-suhr"
       ],
       "fr": [
-        "responsable-d-installation-de-remplissage-emmi-suhr",
+        "responsable-d-installation-de-remplissage-emmi-suhr-e8644944",
         "anlagenfuhrer-in-abfullung-emmi-ch",
-        "conducteur-d-installation-en-pet-emmi-suhr"
+        "conducteur-d-installation-en-pet-emmi-suhr",
+        "anlagenfuhrer-in-abfullung-emmi-ch-cbcifb",
+        "responsabile-impianti-di-riempimento-emmi-suhr-cbcifb",
+        "responsabile-impianti-di-riempimento-emmi-suhr-kwvxof",
+        "anlagenfuhrer-in-pet-emmi-ch",
+        "plant-operator-pet-emmi-suhr",
+        "gestore-dell-impianto-in-pet-emmi-suhr",
+        "filling-plant-operator-emmi-suhr",
+        "operatore-di-sistema-in-imbottigliamento-emmi-suhr-aargau",
+        "responsabile-impianti-di-riempimento-emmi-suhr"
       ]
     },
     "postalCode": "5034",
@@ -37430,11 +37535,11 @@
     "expiredAt": "2026-08-31T17:12:56.391Z",
     "previousSlugs": [
       "lehre-als-logistiker-in-efz-2027-emmi-ch-3",
-      "lehre-als-logistiker-in-efz-2027-emmi-ch",
       "lehre-als-logistiker-in-efz-2027-emmi-ch-2",
       "apprendistato-come-impiegata-impiegato-in-logistica-cfc-2027-emmi-emmen",
       "teaching-as-a-logistician-in-efz-2027-emmi-emmen-luzern",
-      "enseignement-en-tant-que-logisticien-en-efz-2027-emmi-emmen-luzern"
+      "enseignement-en-tant-que-logisticien-en-efz-2027-emmi-emmen-luzern",
+      "lehre-als-logistiker-in-efz-2027-emmi-ch-f42bb708"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -37446,11 +37551,14 @@
       "en": [
         "lehre-als-logistiker-in-efz-2027-emmi-ch-3",
         "teaching-as-a-logistician-in-efz-2027-emmi-emmen-luzern",
-        "lehre-als-logistiker-in-efz-2027-emmi-ch"
+        "lehre-als-logistiker-in-efz-2027-emmi-ch-f42bb708"
       ],
       "fr": [
         "lehre-als-logistiker-in-efz-2027-emmi-ch-3",
         "enseignement-en-tant-que-logisticien-en-efz-2027-emmi-emmen-luzern",
+        "lehre-als-logistiker-in-efz-2027-emmi-ch-f42bb708"
+      ],
+      "de": [
         "lehre-als-logistiker-in-efz-2027-emmi-ch"
       ]
     },
@@ -39952,7 +40060,7 @@
     "firstSeenAt": "2026-06-29T22:26:41.253Z"
   },
   {
-    "slug": "key-account-manager-in-emmi-ch",
+    "slug": "key-account-manager-in-emmi-ch-461fa1f1",
     "title": "Key Account Manager:in",
     "titleByLocale": {
       "it": "Key Account Manager:",
@@ -39971,25 +40079,55 @@
       "fr": "• Vos responsabilités comprennent des comptes clés définis (p. ex. Migros, Industrie/B2B et Service alimentaire), que vous développez stratégiquement.\n\n• Vous façonnerez de façon significative l'expansion des affaires avec les clients existants et nouveaux et assurerez la réalisation des objectifs centraux.\n\n• Vous dirigez des négociations et élaborez des offres ainsi que des prévisions et une planification budgétaire fondées.\n\n• Sur la base d'analyses fondées des données de gestion du marché, des clients et des catégories, vous développerez des mesures ciblées et développerez de nouveaux champs de croissance.\n\n• De la première évaluation de faisabilité à la mise en œuvre réussie, vous accompagnez les projets et coordonnez la coopération avec les interfaces internes.\n\n• Grâce à votre soutien professionnel et à votre communication proactive, vous pouvez assurer un haut niveau de satisfaction des clients.\n\n• En outre, vous prenez la direction d'une petite équipe de service à la clientèle et favorisez une coopération confiante et axée sur la performance.\n\n• Un environnement de taille moyenne correspond à votre style de travail : vous valorisez les courtes distances, les tâches générales et la possibilité d'obtenir un impact stratégique et opérationnel.\n\n• La base de votre qualification est une formation commerciale ou commerciale, idéalement complétée par une formation continue en vente, marketing ou gestion.\n\n• Une expérience approfondie dans la gestion de compte clé vous distingue – l'expérience dans l'industrie des biens de consommation complète idéalement votre profil.\n\n• Une pensée et une expérience entrepreneuriales fortes dans le développement des clients et des marchés vous distinguent.\n\n• Avec votre apparence confiante ainsi que vos solides compétences en négociation et en communication, vous convainquez à tous les niveaux.\n\n• Une façon de travailler structurée, analytique et axée sur les objectifs vous aide à garder un aperçu même dans des situations difficiles.\n\n• L'initiative, l'affirmation et la joie de coordonner des interfaces complexes complètent votre profil.\n\n• Très bonne connaissance de l'allemand est nécessaire, les langues supplémentaires sont un plus."
     },
     "slugByLocale": {
-      "it": "key-account-manager-in-emmi-ch",
-      "en": "key-account-manager-in-emmi-ch",
-      "de": "key-account-manager-in-emmi-ch",
-      "fr": "gestionnaire-de-compte-cle-in-emmi-bischofszell-thurgau"
+      "it": "key-account-manager-in-emmi-ch-461fa1f1",
+      "en": "key-account-manager-in-emmi-ch-461fa1f1",
+      "de": "key-account-manager-in-emmi-ch-461fa1f1",
+      "fr": "gestionnaire-de-compte-cle-in-emmi-bischofszell-thurgau-78800e66"
     },
     "sector": "Food & Beverage (dairy)",
     "expiredAt": "2026-07-15T22:19:42.497Z",
-    "previousSlugs": [
-      "gestione-account-emmi-luzern-luzern",
-      "account-manager-emmi-luzern",
-      "account-manager-emmi-ch",
-      "gestionnaire-de-compte-emmi-luzern-luzern"
-    ],
     "postalCode": "9220",
     "streetAddress": "Steigstrasse 2",
     "salaryMin": 79000,
     "salaryMax": 120000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "previousSlugsByLocale": {
+      "it": [
+        "gestione-account-emmi-luzern-luzern-65a01896",
+        "account-manager-emmi-luzern",
+        "account-manager-emmi-ch",
+        "gestionnaire-de-compte-emmi-luzern-luzern"
+      ],
+      "en": [
+        "gestione-account-emmi-luzern-luzern",
+        "account-manager-emmi-luzern-bcb341d8",
+        "account-manager-emmi-ch",
+        "gestionnaire-de-compte-emmi-luzern-luzern"
+      ],
+      "de": [
+        "gestione-account-emmi-luzern-luzern",
+        "account-manager-emmi-luzern",
+        "account-manager-emmi-ch-73d21d3b",
+        "gestionnaire-de-compte-emmi-luzern-luzern"
+      ],
+      "fr": [
+        "gestione-account-emmi-luzern-luzern",
+        "account-manager-emmi-luzern",
+        "account-manager-emmi-ch",
+        "gestionnaire-de-compte-emmi-luzern-luzern-6d9614c0"
+      ]
+    },
+    "previousSlugs": [
+      "gestione-account-emmi-luzern-luzern-65a01896",
+      "account-manager-emmi-luzern",
+      "account-manager-emmi-ch",
+      "gestionnaire-de-compte-emmi-luzern-luzern",
+      "gestione-account-emmi-luzern-luzern",
+      "account-manager-emmi-luzern-bcb341d8",
+      "account-manager-emmi-ch-73d21d3b",
+      "gestionnaire-de-compte-emmi-luzern-luzern-6d9614c0"
+    ]
   },
   {
     "slug": "responsabile-di-impianto-gelato-emmi-ostermundigen",
@@ -40327,50 +40465,6 @@
     "firstSeenAt": "2026-06-10T07:51:39.165Z"
   },
   {
-    "slug": "apprendistato-come-tecnologa-del-latte-tecnologo-del-latte-afc-2026-emmi-kaltbach",
-    "title": "Lehre als Milchtechnologin / Milchtechnologe EFZ 2026",
-    "titleByLocale": {
-      "it": "Apprendistato come tecnologa del latte / tecnologo del latte AFC 2026",
-      "en": "Apprenticeship as a dairy technologist EFZ 2026",
-      "de": "Lehre als Milchtechnologin / Milchtechnologe EFZ 2026",
-      "fr": "Apprentissage de technologue en lait CFC 2026"
-    },
-    "company": "Emmi",
-    "companyKey": "emmi",
-    "location": "Kaltbach, Luzern",
-    "addressLocality": "Kaltbach",
-    "descriptionByLocale": {
-      "it": "• Imparerai come 拏 nascono i nostri prodotti lattiero-caseari – dall'accettazione al confezionamento - e lavorerai a stretto contatto con il tuo team, assumendoti passo dopo passo maggiori responsabilità.\n• Controlli, monitori e pulisci le nostre linee di produzione altamente automatizzate.\n• Esegui controlli di qualità e igiene e registri con precisione i tuoi risultati.\n• Prendi campioni, li analizzi in laboratorio 離 e prendi decisioni rapide.\n• Cambi regolarmente reparto e impari così a conoscere i prodotti freschi o la produzione di formaggio.\n• Diploma di scuola secondaria o secondaria con buoni voti in scienze e matematica.\n• Passione per i latticini  e spiccato senso dell'olfatto e del gusto.\n• Comprensione tecnica e piacere di lavorare con impianti computerizzati.\n• Spirito di squadra, voglia di comunicare, senso di responsabilità e grande disponibilità all'apprendimento.",
-      "en": "• You will learn how our dairy 拏 products are made – from acceptance to packaging - and work closely with your team, taking on more responsibility step by step.\n• You control, monitor and clean our highly automated production lines.\n• You carry out quality and hygiene checks and record your results accurately.\n• You take samples, analyze them in the lab, 離 and make quick decisions.\n• You change the department regularly and get to know fresh products or cheese production.\n• Secondary or secondary school leaving certificate with good grades in science and math.\n• Passion for dairy products  and a strong sense of smell and taste.\n• Technical understanding and enjoyment of working with computer-controlled systems.\n• Team spirit, a willingness to communicate, a sense of responsibility and a great willingness to learn.",
-      "de": "• Du lernst, wie unsere Milchprodukte 拏 entstehen – von der Annahme bis zur Verpackung- und arbeitest eng mit deinem Team zusammen und übernimmst Schritt für Schritt mehr Verantwortung.\n\n• Du steuerst, überwachst und reinigst unsere hochautomatisierten Produktionslinien.\n\n• Du führst Qualitäts- und Hygienekontrollen durch und hältst deine Ergebnisse exakt fest.\n\n• Du nimmst Proben, analysierst sie im Labor 離 und triffst schnelle Entscheidungen.\n\n• Du wechselst regelmässig die Abteilung und lernst so Frischprodukte oder die Käseherstellung kennen.\n\n• Sek- oder Realschulabschluss mit guten Noten in Naturwissenschaften und Mathe.\n\n• Leidenschaft für Milchprodukte  und einen ausgeprägten Geruchs- und Geschmackssinn.\n\n• Technisches Verständnis und Freude am Arbeiten mit computergesteuerten Anlagen.\n\n• Teamgeist, Kommunikationsfreude, Verantwortungsbewusstsein und grosse Lernbereitschaft.",
-      "fr": "• Tu apprends comment nos produits laitiers 拏 sont fabriqués – de l'acceptation à l'emballage et tu travailles en étroite collaboration avec ton équipe et assumes progressivement plus de responsabilités.\n• Vous contrôlez, surveillez et nettoyez nos lignes de production hautement automatisées.\n• Tu effectues des contrôles de qualité et d'hygiène et enregistres tes résultats avec précision.\n• Vous prélevez des échantillons, les analysez en laboratoire 離 et prenez des décisions rapides.\n• Vous changez régulièrement de département et apprenez ainsi à connaître les produits frais ou la fabrication du fromage.\n• Diplôme d'études secondaires ou secondaires avec de bonnes notes en sciences et en mathématiques.\n• Passion pour les produits laitiers  et un sens aigu de l'odorat et du goût.\n• Compréhension technique et plaisir de travailler avec des installations contrôlées par ordinateur.\n• Esprit d'équipe, joie de communiquer, sens des responsabilités et grande volonté d'apprendre."
-    },
-    "slugByLocale": {
-      "it": "apprendistato-come-tecnologa-del-latte-tecnologo-del-latte-afc-2026-emmi-kaltbach",
-      "en": "apprenticeship-as-a-dairy-technologist-efz-2026-emmi-kaltbach",
-      "de": "lehre-als-milchtechnologin-milchtechnologe-efz-2026-emmi-ch",
-      "fr": "apprentissage-de-technologue-en-lait-cfc-2026-emmi-kaltbach"
-    },
-    "sector": "Food & Beverage (dairy)",
-    "expiredAt": "2026-07-14T12:08:54.549Z",
-    "previousSlugs": [
-      "lehre-als-milchtechnologin-milchtechnologe-efz-2026-emmi-ch"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "lehre-als-milchtechnologin-milchtechnologe-efz-2026-emmi-ch"
-      ]
-    },
-    "postalCode": "6212",
-    "streetAddress": "Sandsteinhöhle 1",
-    "salaryMin": 58500,
-    "salaryMax": 89000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/lehre-als-milchtechnologin-milchtechnologe-efz-2026/d13f658d-f2c8-4209-a19b-93c4eaf034cb",
-    "firstSeenAt": "2026-06-10T07:51:39.214Z"
-  },
-  {
     "slug": "apprendistato-come-tecnologa-del-latte-tecnologo-del-latte-afc-2026-emmi-kaltbach-4ed1f90b",
     "title": "Lehre als Milchtechnologin / Milchtechnologe EFZ 2026",
     "titleByLocale": {
@@ -40415,7 +40509,60 @@
     "firstSeenAt": "2026-06-10T07:51:39.214Z"
   },
   {
-    "slug": "apprendistato-come-milchtechnologin-o-milchtechnologe-cfc-2026-emmi-stein-appenzell-ausserrhoden",
+    "slug": "apprendistato-come-tecnologa-del-latte-tecnologo-del-latte-afc-2026-emmi-kaltbach-6d159c20",
+    "title": "Lehre als Milchtechnologin / Milchtechnologe EFZ 2026",
+    "titleByLocale": {
+      "it": "Apprendistato come tecnologa del latte / tecnologo del latte AFC 2026",
+      "en": "Apprenticeship as a dairy technologist EFZ 2026",
+      "de": "Lehre als Milchtechnologin / Milchtechnologe EFZ 2026",
+      "fr": "Apprentissage de technologue en lait CFC 2026"
+    },
+    "company": "Emmi",
+    "companyKey": "emmi",
+    "location": "Kaltbach, Luzern",
+    "addressLocality": "Kaltbach",
+    "descriptionByLocale": {
+      "it": "• Imparerai come 拏 nascono i nostri prodotti lattiero-caseari – dall'accettazione al confezionamento - e lavorerai a stretto contatto con il tuo team, assumendoti passo dopo passo maggiori responsabilità.\n• Controlli, monitori e pulisci le nostre linee di produzione altamente automatizzate.\n• Esegui controlli di qualità e igiene e registri con precisione i tuoi risultati.\n• Prendi campioni, li analizzi in laboratorio 離 e prendi decisioni rapide.\n• Cambi regolarmente reparto e impari così a conoscere i prodotti freschi o la produzione di formaggio.\n• Diploma di scuola secondaria o secondaria con buoni voti in scienze e matematica.\n• Passione per i latticini  e spiccato senso dell'olfatto e del gusto.\n• Comprensione tecnica e piacere di lavorare con impianti computerizzati.\n• Spirito di squadra, voglia di comunicare, senso di responsabilità e grande disponibilità all'apprendimento.",
+      "en": "• You will learn how our dairy 拏 products are made – from acceptance to packaging - and work closely with your team, taking on more responsibility step by step.\n• You control, monitor and clean our highly automated production lines.\n• You carry out quality and hygiene checks and record your results accurately.\n• You take samples, analyze them in the lab, 離 and make quick decisions.\n• You change the department regularly and get to know fresh products or cheese production.\n• Secondary or secondary school leaving certificate with good grades in science and math.\n• Passion for dairy products  and a strong sense of smell and taste.\n• Technical understanding and enjoyment of working with computer-controlled systems.\n• Team spirit, a willingness to communicate, a sense of responsibility and a great willingness to learn.",
+      "de": "• Du lernst, wie unsere Milchprodukte 拏 entstehen – von der Annahme bis zur Verpackung- und arbeitest eng mit deinem Team zusammen und übernimmst Schritt für Schritt mehr Verantwortung.\n\n• Du steuerst, überwachst und reinigst unsere hochautomatisierten Produktionslinien.\n\n• Du führst Qualitäts- und Hygienekontrollen durch und hältst deine Ergebnisse exakt fest.\n\n• Du nimmst Proben, analysierst sie im Labor 離 und triffst schnelle Entscheidungen.\n\n• Du wechselst regelmässig die Abteilung und lernst so Frischprodukte oder die Käseherstellung kennen.\n\n• Sek- oder Realschulabschluss mit guten Noten in Naturwissenschaften und Mathe.\n\n• Leidenschaft für Milchprodukte  und einen ausgeprägten Geruchs- und Geschmackssinn.\n\n• Technisches Verständnis und Freude am Arbeiten mit computergesteuerten Anlagen.\n\n• Teamgeist, Kommunikationsfreude, Verantwortungsbewusstsein und grosse Lernbereitschaft.",
+      "fr": "• Tu apprends comment nos produits laitiers 拏 sont fabriqués – de l'acceptation à l'emballage et tu travailles en étroite collaboration avec ton équipe et assumes progressivement plus de responsabilités.\n• Vous contrôlez, surveillez et nettoyez nos lignes de production hautement automatisées.\n• Tu effectues des contrôles de qualité et d'hygiène et enregistres tes résultats avec précision.\n• Vous prélevez des échantillons, les analysez en laboratoire 離 et prenez des décisions rapides.\n• Vous changez régulièrement de département et apprenez ainsi à connaître les produits frais ou la fabrication du fromage.\n• Diplôme d'études secondaires ou secondaires avec de bonnes notes en sciences et en mathématiques.\n• Passion pour les produits laitiers  et un sens aigu de l'odorat et du goût.\n• Compréhension technique et plaisir de travailler avec des installations contrôlées par ordinateur.\n• Esprit d'équipe, joie de communiquer, sens des responsabilités et grande volonté d'apprendre."
+    },
+    "slugByLocale": {
+      "it": "apprendistato-come-tecnologa-del-latte-tecnologo-del-latte-afc-2026-emmi-kaltbach-6d159c20",
+      "en": "apprenticeship-as-a-dairy-technologist-efz-2026-emmi-kaltbach-be66a663",
+      "de": "lehre-als-milchtechnologin-milchtechnologe-efz-2026-emmi-ch-2faa3a95",
+      "fr": "apprentissage-de-technologue-en-lait-cfc-2026-emmi-kaltbach-baa48482"
+    },
+    "sector": "Food & Beverage (dairy)",
+    "expiredAt": "2026-07-14T12:08:54.549Z",
+    "previousSlugsByLocale": {
+      "it": [
+        "lehre-als-milchtechnologin-milchtechnologe-efz-2026-emmi-ch-2faa3a95"
+      ],
+      "en": [
+        "lehre-als-milchtechnologin-milchtechnologe-efz-2026-emmi-ch"
+      ],
+      "de": [
+        "lehre-als-milchtechnologin-milchtechnologe-efz-2026-emmi-ch-2faa3a95"
+      ],
+      "fr": [
+        "lehre-als-milchtechnologin-milchtechnologe-efz-2026-emmi-ch"
+      ]
+    },
+    "postalCode": "6212",
+    "streetAddress": "Sandsteinhöhle 1",
+    "salaryMin": 58500,
+    "salaryMax": 89000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/lehre-als-milchtechnologin-milchtechnologe-efz-2026/d13f658d-f2c8-4209-a19b-93c4eaf034cb",
+    "firstSeenAt": "2026-06-10T07:51:39.214Z",
+    "previousSlugs": [
+      "lehre-als-milchtechnologin-milchtechnologe-efz-2026-emmi-ch"
+    ]
+  },
+  {
+    "slug": "apprendistato-come-milchtechnologin-o-milchtechnologe-cfc-2026-emmi-stein-appenzell-ausserrhoden-2c96ca15",
     "title": "Lehre als Milchtechnologin oder Milchtechnologe EFZ 2026",
     "titleByLocale": {
       "it": "Apprendistato come Milchtechnologin o Milchtechnologe CFC 2026",
@@ -40434,21 +40581,29 @@
       "fr": "Description\n• Vous apprenez comment notre fromage 🧀 est produit dans la fromagerie Appenzeller Schaukäserei – de la réception du lait à la production jusqu'au produit fini. Vous travaillez en étroite collaboration avec votre équipe et prenez progressivement plus de responsabilités.\n• Vous contrôlez, surveillez et nettoyez nos lignes de production hautement automatisées.\n• Vous effectuez des contrôles de qualité et d'hygiène et enregistrez vos résultats avec précision.\n• Vous prélevez des échantillons, les analysez 🧪 et prenez des décisions rapides. Exigences\n• Diplôme d'études secondaires ou secondaires inférieures avec de bonnes notes en sciences naturelles et en mathématiques. Ce que nous offrons\n• Passion pour le fromage 🔥 et un sens développé de l'odorat et du goût.\n• Compréhension technique et plaisir de travailler avec des systèmes informatisés. Compétences\n• Esprit d'équipe, plaisir de communiquer, sens des responsabilités et grande volonté d'apprendre. Contact (pas d'information disponible)"
     },
     "slugByLocale": {
-      "it": "apprendistato-come-milchtechnologin-o-milchtechnologe-cfc-2026-emmi-stein-appenzell-ausserrhoden",
-      "en": "apprenticeship-as-dairy-technologist-efz-2026-emmi-stein",
-      "de": "lehre-als-milchtechnologin-oder-milchtechnologe-efz-2026-emmi-ch",
-      "fr": "apprentissage-en-tant-que-technologue-du-lait-efz-2026-emmi-stein"
+      "it": "apprendistato-come-milchtechnologin-o-milchtechnologe-cfc-2026-emmi-stein-appenzell-ausserrhoden-2c96ca15",
+      "en": "apprenticeship-as-dairy-technologist-efz-2026-emmi-stein-6d2e82de",
+      "de": "lehre-als-milchtechnologin-oder-milchtechnologe-efz-2026-emmi-ch-1af4faf6",
+      "fr": "apprentissage-en-tant-que-technologue-du-lait-efz-2026-emmi-stein-6cd10022"
     },
     "sector": "Food & Beverage (dairy)",
     "expiredAt": "2026-07-11T22:43:55.162Z",
-    "previousSlugs": [
-      "lehre-als-milchtechnologin-oder-milchtechnologe-efz-2026-emmi-ch",
-      "apprendistato-come-tecnologa-tecnologo-del-latte-efz-2026-emmi-stein"
-    ],
     "previousSlugsByLocale": {
       "it": [
-        "lehre-als-milchtechnologin-oder-milchtechnologe-efz-2026-emmi-ch",
-        "apprendistato-come-tecnologa-tecnologo-del-latte-efz-2026-emmi-stein"
+        "lehre-als-milchtechnologin-oder-milchtechnologe-efz-2026-emmi-ch-1af4faf6",
+        "apprendistato-come-tecnologa-tecnologo-del-latte-efz-2026-emmi-stein-53c3f648"
+      ],
+      "en": [
+        "lehre-als-milchtechnologin-oder-milchtechnologe-efz-2026-emmi-ch-b5da1555",
+        "apprendistato-come-tecnologa-tecnologo-del-latte-efz-2026-emmi-stein-9196e571"
+      ],
+      "de": [
+        "lehre-als-milchtechnologin-oder-milchtechnologe-efz-2026-emmi-ch-1af4faf6",
+        "apprendistato-come-tecnologa-tecnologo-del-latte-efz-2026-emmi-stein-9196e571"
+      ],
+      "fr": [
+        "lehre-als-milchtechnologin-oder-milchtechnologe-efz-2026-emmi-ch-b5da1555",
+        "apprendistato-come-tecnologa-tecnologo-del-latte-efz-2026-emmi-stein-9196e571"
       ]
     },
     "postalCode": "9063",
@@ -40458,7 +40613,12 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/lehre-als-milchtechnologin-oder-milchtechnologe-efz-2026/c7dfa706-c545-444c-8fcb-5ffd802c92ed",
-    "firstSeenAt": "2026-06-10T07:51:39.203Z"
+    "firstSeenAt": "2026-06-10T07:51:39.203Z",
+    "previousSlugs": [
+      "apprendistato-come-tecnologa-tecnologo-del-latte-efz-2026-emmi-stein-53c3f648",
+      "lehre-als-milchtechnologin-oder-milchtechnologe-efz-2026-emmi-ch-b5da1555",
+      "apprendistato-come-tecnologa-tecnologo-del-latte-efz-2026-emmi-stein-9196e571"
+    ]
   },
   {
     "slug": "apprendistato-come-milchtechnologin-o-milchtechnologe-cfc-2026-emmi-stein-appenzell-ausserrhoden-9291977a",

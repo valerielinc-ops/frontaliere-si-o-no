@@ -1,7 +1,7 @@
 {
   "crawlerKey": "siemens-healthineers",
-  "assembledAt": "2026-11-19T21:38:55.684Z",
-  "runId": "44617717059",
+  "assembledAt": "2026-11-20T09:43:37.609Z",
+  "runId": "44709709614",
   "jobs": [
     {
       "id": "siemens-healthineers-c8287671500b",
@@ -35,7 +35,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/Product-Verification-Engineer_R-31529-1",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T21:38:38.924Z",
+      "crawledAt": "2026-11-20T09:43:15.517Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -91,7 +91,7 @@
       "postalCode": "5400",
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:38:38.924Z",
+      "validThrough": "2027-02-01T09:43:15.517Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -163,7 +163,8 @@
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T21:38:27.170Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     },
     {
       "id": "siemens-healthineers-075dcab4682d",
@@ -248,7 +249,8 @@
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T21:38:15.953Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     },
     {
       "id": "siemens-healthineers-093ed63f135c",
@@ -282,7 +284,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/Software-Engineer_R-31647-1",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T21:38:05.286Z",
+      "crawledAt": "2026-11-20T09:43:03.936Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -332,7 +334,7 @@
       "postalCode": "5400",
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T21:38:05.286Z",
+      "validThrough": "2027-02-07T09:43:03.936Z",
       "validThroughSource": "last-observed-window"
     },
     {

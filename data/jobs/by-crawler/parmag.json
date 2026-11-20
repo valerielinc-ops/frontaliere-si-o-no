@@ -1,7 +1,7 @@
 {
   "crawlerKey": "parmag",
-  "assembledAt": "2026-11-19T21:18:51.661Z",
-  "runId": "44615369753",
+  "assembledAt": "2026-11-20T09:19:06.441Z",
+  "runId": "44707739623",
   "jobs": [
     {
       "id": "parmag-e93388ebfc05",
@@ -34,7 +34,7 @@
       "url": "https://parmag.ch/stellen/311?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:18:42.990Z",
+      "crawledAt": "2026-11-20T09:18:56.964Z",
       "addressLocality": "Region Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -60,7 +60,7 @@
           "ict-systemengineer-linux-m-w-d-ref-1236-region-bern-parmag-ch"
         ]
       },
-      "firstSeenAt": "2026-09-26T13:53:57.680Z",
+      "firstSeenAt": "2026-09-21T15:58:24.812Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -77,8 +77,9 @@
       "postalCode": "3001",
       "streetAddress": "Region Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:18:42.990Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T09:18:56.964Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://parmag.ch/stellen/311?view=joblisting"
     },
     {
       "id": "parmag-da6a774782e1",
@@ -111,7 +112,7 @@
       "url": "https://parmag.ch/stellen/303?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:18:42.990Z",
+      "crawledAt": "2026-11-20T09:18:56.964Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -165,8 +166,9 @@
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:18:42.990Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-21T09:18:56.964Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://parmag.ch/stellen/303?view=joblisting"
     },
     {
       "id": "parmag-c826da81c3fb",
@@ -199,7 +201,7 @@
       "url": "https://parmag.ch/stellen/317?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:18:42.989Z",
+      "crawledAt": "2026-11-20T09:18:56.963Z",
       "addressLocality": "Bern oder Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -228,7 +230,7 @@
           "senior-consultant-sap-fi-co-m-w-d-ref-1242-bern-oder-zurich-parmag-ch"
         ]
       },
-      "firstSeenAt": "2026-09-26T13:53:57.679Z",
+      "firstSeenAt": "2026-09-21T15:58:24.811Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -245,8 +247,9 @@
       "postalCode": "8001",
       "streetAddress": "Bern oder Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:18:42.989Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T09:18:56.963Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://parmag.ch/stellen/317?view=joblisting"
     },
     {
       "id": "parmag-ee7718ea35cd",
@@ -279,7 +282,7 @@
       "url": "https://parmag.ch/stellen/322?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:18:42.988Z",
+      "crawledAt": "2026-11-20T09:18:56.963Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -333,8 +336,9 @@
       "postalCode": "9000",
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:18:42.988Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-21T09:18:56.963Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://parmag.ch/stellen/322?view=joblisting"
     },
     {
       "id": "parmag-c3991a17b89b",
@@ -367,7 +371,7 @@
       "url": "https://parmag.ch/stellen/345?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:18:42.987Z",
+      "crawledAt": "2026-11-20T09:18:56.962Z",
       "addressLocality": "Region Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -393,7 +397,7 @@
           "test-engineer-m-w-d-ref-1266-region-bern-parmag-ch"
         ]
       },
-      "firstSeenAt": "2026-09-26T13:53:57.675Z",
+      "firstSeenAt": "2026-09-23T23:38:58.312Z",
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -410,8 +414,9 @@
       "postalCode": "3001",
       "streetAddress": "Region Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:18:42.987Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T09:18:56.962Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://parmag.ch/stellen/345?view=joblisting"
     },
     {
       "id": "parmag-daeef31b303b",
@@ -444,7 +449,7 @@
       "url": "https://parmag.ch/stellen/352?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:18:42.986Z",
+      "crawledAt": "2026-11-20T09:18:56.961Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -470,7 +475,7 @@
           "java-entwickler-mit-potential-auf-architektur-all-gender-bern-ittigen-parmag-ch"
         ]
       },
-      "firstSeenAt": "2026-09-26T13:53:57.674Z",
+      "firstSeenAt": "2026-09-21T15:58:24.809Z",
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -487,8 +492,9 @@
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:18:42.986Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T09:18:56.961Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://parmag.ch/stellen/352?view=joblisting"
     },
     {
       "id": "parmag-afb4b7b3e641",
@@ -521,7 +527,7 @@
       "url": "https://parmag.ch/stellen/353?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:18:42.985Z",
+      "crawledAt": "2026-11-20T09:18:56.961Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -547,7 +553,7 @@
           "java-architekt-all-gender-bern-ittigen-parmag-ch"
         ]
       },
-      "firstSeenAt": "2026-09-26T13:53:57.673Z",
+      "firstSeenAt": "2026-09-23T23:38:58.310Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -564,8 +570,9 @@
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:18:42.985Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T09:18:56.961Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://parmag.ch/stellen/353?view=joblisting"
     },
     {
       "id": "parmag-43009ec898df",
@@ -598,7 +605,7 @@
       "url": "https://parmag.ch/stellen/360?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:18:42.984Z",
+      "crawledAt": "2026-11-20T09:18:56.960Z",
       "addressLocality": "Bern oder Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -627,7 +634,7 @@
           "application-engineer-m-w-d-ref-1278-bern-oder-zurich-parmag-ch"
         ]
       },
-      "firstSeenAt": "2026-09-26T13:53:57.670Z",
+      "firstSeenAt": "2026-09-23T23:38:58.308Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -644,8 +651,9 @@
       "postalCode": "8001",
       "streetAddress": "Bern oder Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:18:42.984Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T09:18:56.960Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://parmag.ch/stellen/360?view=joblisting"
     },
     {
       "id": "parmag-0d892d16c31e",
@@ -678,7 +686,7 @@
       "url": "https://parmag.ch/stellen/365?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:18:42.983Z",
+      "crawledAt": "2026-11-20T09:18:56.959Z",
       "addressLocality": "Region Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -704,7 +712,7 @@
           "solution-architect-m-w-d-ref-1283-region-zurich-parmag-ch"
         ]
       },
-      "firstSeenAt": "2026-09-26T13:53:57.669Z",
+      "firstSeenAt": "2026-09-21T15:58:24.806Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -721,8 +729,9 @@
       "postalCode": "8001",
       "streetAddress": "Region Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:18:42.983Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T09:18:56.959Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://parmag.ch/stellen/365?view=joblisting"
     },
     {
       "id": "parmag-23f56667392e",
@@ -755,7 +764,7 @@
       "url": "https://parmag.ch/stellen/370?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:18:42.981Z",
+      "crawledAt": "2026-11-20T09:18:56.958Z",
       "addressLocality": "Region Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -785,7 +794,7 @@
           "ict-system-specialist-m-w-d-ref-1288-parmag-ag-region-bern"
         ]
       },
-      "firstSeenAt": "2026-09-26T13:53:57.668Z",
+      "firstSeenAt": "2026-09-23T23:38:58.306Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -802,8 +811,9 @@
       "postalCode": "3001",
       "streetAddress": "Region Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:18:42.981Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T09:18:56.958Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://parmag.ch/stellen/370?view=joblisting"
     },
     {
       "id": "parmag-e8ca7aeee784",
@@ -836,7 +846,7 @@
       "url": "https://parmag.ch/stellen/371?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:18:42.980Z",
+      "crawledAt": "2026-11-20T09:18:56.957Z",
       "addressLocality": "Zürich oder Bern",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -865,7 +875,7 @@
           "software-engineer-java-m-w-d-ref-1289-zurich-oder-bern-parmag-ch"
         ]
       },
-      "firstSeenAt": "2026-09-26T13:53:57.667Z",
+      "firstSeenAt": "2026-09-21T15:58:24.804Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -882,8 +892,9 @@
       "postalCode": "8001",
       "streetAddress": "Zürich oder Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:18:42.980Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T09:18:56.957Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://parmag.ch/stellen/371?view=joblisting"
     },
     {
       "id": "parmag-82e65df5cf33",
@@ -916,7 +927,7 @@
       "url": "https://parmag.ch/stellen/373?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:18:42.979Z",
+      "crawledAt": "2026-11-20T09:18:56.956Z",
       "addressLocality": "Zürich oder Bern",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -945,7 +956,7 @@
           "data-engineer-m-w-d-ref-1291-zurich-oder-bern-parmag-ch"
         ]
       },
-      "firstSeenAt": "2026-09-26T13:53:57.665Z",
+      "firstSeenAt": "2026-09-23T23:38:58.304Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -962,8 +973,9 @@
       "postalCode": "8001",
       "streetAddress": "Zürich oder Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:18:42.979Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T09:18:56.956Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://parmag.ch/stellen/373?view=joblisting"
     },
     {
       "id": "parmag-4d45c49d418c",
@@ -996,7 +1008,7 @@
       "url": "https://parmag.ch/stellen/377?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:18:42.978Z",
+      "crawledAt": "2026-11-20T09:18:56.955Z",
       "addressLocality": "Stadt Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1050,8 +1062,9 @@
       "postalCode": "8001",
       "streetAddress": "Stadt Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:18:42.978Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-21T09:18:56.955Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://parmag.ch/stellen/377?view=joblisting"
     },
     {
       "id": "parmag-241421ccf7a2",
@@ -1084,7 +1097,7 @@
       "url": "https://parmag.ch/stellen/384?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:18:42.976Z",
+      "crawledAt": "2026-11-20T09:18:56.954Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1127,8 +1140,9 @@
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T21:18:42.976Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-23T09:18:56.954Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://parmag.ch/stellen/384?view=joblisting"
     },
     {
       "id": "parmag-221b51c9536f",
@@ -1161,7 +1175,7 @@
       "url": "https://parmag.ch/stellen/385?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:18:42.975Z",
+      "crawledAt": "2026-11-20T09:18:56.953Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1204,8 +1218,9 @@
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T21:18:42.975Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-23T09:18:56.953Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://parmag.ch/stellen/385?view=joblisting"
     },
     {
       "id": "parmag-9281ee594f8e",
@@ -1238,7 +1253,7 @@
       "url": "https://parmag.ch/stellen/386?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:18:42.974Z",
+      "crawledAt": "2026-11-20T09:18:56.952Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1291,8 +1306,9 @@
       },
       "streetAddress": "Neuchâtel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:18:42.974Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-21T09:18:56.952Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://parmag.ch/stellen/386?view=joblisting"
     },
     {
       "id": "parmag-0d3fad45061e",
@@ -1325,7 +1341,7 @@
       "url": "https://parmag.ch/stellen/387?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:18:42.971Z",
+      "crawledAt": "2026-11-20T09:18:56.950Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1379,8 +1395,9 @@
       "postalCode": "4001",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:18:42.971Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-21T09:18:56.950Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://parmag.ch/stellen/387?view=joblisting"
     }
   ]
 }

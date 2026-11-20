@@ -312,7 +312,19 @@
     "salaryPeriod": "YEAR",
     "dedupArchive": true,
     "sourceIdentity": "url:https://recruitingapp-2884.umantis.com/vacancies/822/description/1",
-    "firstSeenAt": "2026-05-19T21:02:07.348Z"
+    "firstSeenAt": "2026-05-19T21:02:07.348Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://recruitingapp-2884.umantis.com/vacancies/822/description/1",
+        "firstSeenAt": "2026-05-19T21:02:07.348Z",
+        "title": "Medizinische/r Praxisassistent/in 80-100%"
+      },
+      {
+        "sourceIdentity": "url:https://recruitingapp-2884.umantis.com/vacancies/836/description/1",
+        "firstSeenAt": "2026-07-20T11:58:28.705Z",
+        "title": "Medizinische/r Praxisassistent/in (80% - 100%)"
+      }
+    ]
   },
   {
     "slug": "senior-doctor-doctor-oncology-zio-zurichsee-60-100-nsn-medical-group-onkologie",
@@ -400,7 +412,9 @@
     "salaryMin": 82000,
     "salaryMax": 114500,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://recruitingapp-2884.umantis.com/vacancies/832/description/1",
+    "firstSeenAt": "2026-06-25T22:54:45.618Z"
   },
   {
     "slug": "dipl-specialista-hf-dipl-professionista-hf-60-80-nsn-medical-group-zurich",
@@ -508,7 +522,8 @@
     "salaryMin": 58800,
     "salaryMax": 89200,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://recruitingapp-2884.umantis.com/vacancies/787/description/1"
   },
   {
     "slug": "controllo-80-100-m-w-d-nsn-medical-group-zurich",
