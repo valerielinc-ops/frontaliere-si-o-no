@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-20T17:27:43.908Z",
+  "generatedAt": "2026-11-20T19:20:13.971Z",
   "totalEvents": 17744,
   "events": [
     {
@@ -416156,7 +416156,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Andermatt; cantone: UR; categoria: Event; data: 2026-11-14. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Andermatt; cantone: UR; categoria: Event; data: 2026-11-14. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Andermatt; canton: UR; category: Event; date: 2026-11-14. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Andermatt; kanton: UR; kategorie: Event; datum: 2026-11-14. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Andermatt; canton: UR; catégorie: Event; date: 2026-11-14. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:ba0c2a7e0e284a398e14c47736cda73e",
@@ -451323,7 +451331,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il Geneva Forum 2026 è un boot camp professionale dedicato all’impatto e si svolge a Ginevra. Riunisce interlocutori internazionali della finanza, delle imprese e della ricerca per sviluppare progetti concreti orientati all’impatto.",
+      "descriptionByLocale": {
+        "it": "Il Geneva Forum 2026 è un boot camp professionale dedicato all’impatto e si svolge a Ginevra. Riunisce interlocutori internazionali della finanza, delle imprese e della ricerca per sviluppare progetti concreti orientati all’impatto.",
+        "en": "The Geneva Forum 2026 is a professional boot camp in Geneva focused on impact. It brings together international participants from finance, business and research to advance concrete impact projects.",
+        "de": "Das Geneva Forum 2026 ist ein professionelles Bootcamp in Genf mit Schwerpunkt auf Wirkung. Es bringt internationale Akteure aus Finanzwesen, Wirtschaft und Forschung zusammen, um konkrete wirkungsorientierte Projekte voranzubringen.",
+        "fr": "Le Geneva Forum 2026 est un boot camp professionnel consacré à l’impact et organisé à Genève. La rencontre associe des représentants de la finance, du monde de l’entreprise et de la recherche afin de soutenir des projets concrets liés à l’impact."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AHPCpy9",
@@ -493966,7 +493982,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Si tratta di uno spettacolo teatrale a Ginevra, strutturato come una commedia poliziesca. La trama ruota attorno a un piano che incontra difficoltà e numerosi sviluppi imprevisti.",
+      "descriptionByLocale": {
+        "it": "Si tratta di uno spettacolo teatrale a Ginevra, strutturato come una commedia poliziesca. La trama ruota attorno a un piano che incontra difficoltà e numerosi sviluppi imprevisti.",
+        "en": "This theatre event in Geneva takes the form of a crime comedy. Its plot centres on a plan that encounters problems and a series of unexpected developments.",
+        "de": "Die Theaterveranstaltung in Genf ist als Kriminalkomödie angelegt. Im Mittelpunkt steht ein Vorhaben, das auf Schwierigkeiten und zahlreiche unvorhergesehene Wendungen trifft.",
+        "fr": "Cette représentation théâtrale à Genève prend la forme d’une comédie policière. Son intrigue repose sur un projet confronté à des difficultés et à de nombreux imprévus."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:exposition-1602-compagnie-2",
@@ -521362,7 +521386,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento consiste in una visita guidata alle esposizioni temporanee dedicate alla fotografia di stampa presso il Château de Prangins. La visita si svolge con il supporto di un mediatore culturale.",
+      "descriptionByLocale": {
+        "it": "L’evento consiste in una visita guidata alle esposizioni temporanee dedicate alla fotografia di stampa presso il Château de Prangins. La visita si svolge con il supporto di un mediatore culturale.",
+        "en": "The event is a guided visit to temporary exhibitions devoted to press photography at Château de Prangins. The tour takes place with a cultural mediator.",
+        "de": "Die Veranstaltung umfasst einen geführten Besuch temporärer Ausstellungen zur Pressefotografie im Château de Prangins. Dabei ist eine Fachperson aus der Kulturvermittlung anwesend.",
+        "fr": "L’événement propose une visite guidée d’expositions temporaires consacrées à la photographie de presse au Château de Prangins. La visite se déroule avec une personne chargée de la médiation culturelle."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AV9j44P",
@@ -523726,7 +523758,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La visita guidata tematica esamina il rapporto tra la Svizzera e il colonialismo. L’appuntamento si tiene al Château de Prangins, a Prangins.",
+      "descriptionByLocale": {
+        "it": "La visita guidata tematica esamina il rapporto tra la Svizzera e il colonialismo. L’appuntamento si tiene al Château de Prangins, a Prangins.",
+        "en": "This themed guided tour examines the relationship between Switzerland and colonialism. It takes place at Château de Prangins in Prangins.",
+        "de": "Die thematische Führung befasst sich mit dem Verhältnis der Schweiz zum Kolonialismus. Sie findet im Château de Prangins in Prangins statt.",
+        "fr": "Cette visite guidée thématique examine les liens entre la Suisse et le colonialisme. Elle a lieu au Château de Prangins, à Prangins."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:ArCKHej",
@@ -527384,7 +527424,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il programma dell’Avvento comprende laboratori, degustazioni e concerti in diverse sedi di Lavaux. Le proposte sono gratuite e favoriscono gli incontri tra gli abitanti di Bourg-en-Lavaux e i visitatori.",
+      "descriptionByLocale": {
+        "it": "Il programma dell’Avvento comprende laboratori, degustazioni e concerti in diverse sedi di Lavaux. Le proposte sono gratuite e favoriscono gli incontri tra gli abitanti di Bourg-en-Lavaux e i visitatori.",
+        "en": "The Advent program includes workshops, tastings and concerts at various locations in Lavaux. These free offerings encourage exchange between residents of Bourg-en-Lavaux and visitors.",
+        "de": "Das Adventsprogramm umfasst Workshops, Verkostungen und Konzerte an verschiedenen Orten in Lavaux. Die kostenlosen Angebote fördern den Austausch zwischen den Einwohnern von Bourg-en-Lavaux und den Besuchern.",
+        "fr": "La programmation de l’Avent réunit des ateliers, des dégustations et des concerts dans différents lieux de Lavaux. Ces activités gratuites favorisent les échanges entre les habitants de Bourg-en-Lavaux et les visiteurs."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:energ-transition",
@@ -532509,7 +532557,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento propone una visita guidata a lume di lanterna al Landesmuseum Zürich di Zurigo. L’attività invita i giovani partecipanti a osservare immagini legate al Natale e ai presepi, con riferimento alla storia natalizia.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone una visita guidata a lume di lanterna al Landesmuseum Zürich di Zurigo. L’attività invita i giovani partecipanti a osservare immagini legate al Natale e ai presepi, con riferimento alla storia natalizia.",
+        "en": "This event is a lantern-lit guided visit at Landesmuseum Zürich in Zurich. Young visitors explore images connected with Christmas and nativity scenes as part of the activity.",
+        "de": "Die Veranstaltung ist eine geführte Besichtigung im Schein von Laternen im Landesmuseum Zürich in Zürich. Dabei setzen sich junge Gäste mit Bildern zu Weihnachten und Krippen sowie mit der Weihnachtsgeschichte auseinander.",
+        "fr": "Cette visite guidée à la lumière des lanternes se déroule au Landesmuseum Zürich, à Zurich. Les jeunes participants y découvrent des images liées à Noël et aux crèches, en rapport avec le récit de Noël."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:proces-presse",
@@ -535030,7 +535086,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento propone un mercato natalizio dedicato all’artigianato presso la Galerie du Magasin du Monde di Vevey. Volontari, artisti e artigiani locali vi presentano i loro lavori.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone un mercato natalizio dedicato all’artigianato presso la Galerie du Magasin du Monde di Vevey. Volontari, artisti e artigiani locali vi presentano i loro lavori.",
+        "en": "The event is a Christmas market focused on crafts at the Galerie du Magasin du Monde in Vevey. Local volunteers, artists and craftspeople present their work there.",
+        "de": "Die Veranstaltung ist ein Weihnachtsmarkt mit Schwerpunkt auf Kunsthandwerk in der Galerie du Magasin du Monde in Vevey. Ehrenamtliche, Künstlerinnen und Künstler sowie lokale Kunsthandwerker zeigen dort ihre Arbeiten.",
+        "fr": "Ce rendez-vous est un marché de Noël consacré à l’artisanat, organisé à la Galerie du Magasin du Monde à Vevey. Des bénévoles, des artistes et des artisan·e·s de la région y présentent leurs créations."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:aae9acbb573a4e61b3f1c755dd939b70",
@@ -535283,7 +535347,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Lo spettacolo teatrale si tiene al Théâtre du Château di La Tour-de-Peilz e vede la partecipazione di Chloé. La vicenda prende avvio dalla decisione di David di interrompere la relazione, mentre la reazione di Chloé e l’intervento degli amici complicano la situazione.",
+      "descriptionByLocale": {
+        "it": "Lo spettacolo teatrale si tiene al Théâtre du Château di La Tour-de-Peilz e vede la partecipazione di Chloé. La vicenda prende avvio dalla decisione di David di interrompere la relazione, mentre la reazione di Chloé e l’intervento degli amici complicano la situazione.",
+        "en": "This theatre production takes place at the Théâtre du Château in La Tour-de-Peilz and features Chloé. The story begins when David decides to end the relationship; Chloé responds, and the involvement of their friends further complicates matters.",
+        "de": "Die Theateraufführung findet im Théâtre du Château in La Tour-de-Peilz statt und wird mit Chloé angekündigt. In der Handlung beendet David die Beziehung; Chloé reagiert darauf, und durch das Eingreifen ihrer Freunde wird die Lage komplizierter.",
+        "fr": "Cette représentation théâtrale a lieu au Théâtre du Château, à La Tour-de-Peilz, avec Chloé au programme. L’histoire part de la décision de David de mettre fin à sa relation ; la réaction de Chloé et l’intervention de leurs amis compliquent ensuite la situation."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AbKCsih",
@@ -537700,7 +537772,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Fine Degen presenta a Stockwerk 1, a Münchenstein, un progetto solista che riunisce spoken word, satira, poesia e musica. L’appuntamento osserva la vita quotidiana e le sue contraddizioni con uno sguardo critico, mantenendo un tono leggero e fiducioso.",
+      "descriptionByLocale": {
+        "it": "Fine Degen presenta a Stockwerk 1, a Münchenstein, un progetto solista che riunisce spoken word, satira, poesia e musica. L’appuntamento osserva la vita quotidiana e le sue contraddizioni con uno sguardo critico, mantenendo un tono leggero e fiducioso.",
+        "en": "Fine Degen presents a solo project at Stockwerk 1 in Münchenstein that brings together spoken word, satire, poetry and music. The event considers everyday life and its contradictions from a critical perspective, with a light and hopeful tone.",
+        "de": "Im Stockwerk 1 in Münchenstein steht Fine Degen mit einem Solo auf der Bühne, in dem gesprochene Texte, satirische Elemente, Lyrik und Musik zusammentreffen. Inhaltlich geht es um Beobachtungen des Alltags und darin erkennbare Widersprüche; die Perspektive bleibt kritisch, zugleich leicht und zuversichtlich.",
+        "fr": "À Stockwerk 1, à Münchenstein, Fine Degen propose un projet solo qui réunit parole scénique, satire, poésie et musique. Le rendez-vous aborde le quotidien et ses contradictions dans une perspective critique, avec une tonalité légère et confiante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AbUB8ty",
@@ -555415,7 +555495,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento di Muttenz è dedicato alle stoviglie di epoche passate. Il tema comprende anche la ceramica e la porcellana.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento di Muttenz è dedicato alle stoviglie di epoche passate. Il tema comprende anche la ceramica e la porcellana.",
+        "en": "The event in Muttenz focuses on tableware from earlier times. Its subject also includes ceramics and porcelain.",
+        "de": "Die Veranstaltung in Muttenz widmet sich Geschirr aus früheren Zeiten. Zum Thema gehören auch Keramik und Porzellan.",
+        "fr": "L’événement de Muttenz est consacré à la vaisselle d’autrefois. Le thème comprend également la céramique et la porcelaine."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:66284b33071e4d838cbe6d57d7e63933",
@@ -555663,7 +555751,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Si tratta di un laboratorio per bambini dedicato alla realizzazione di una marmitta di cioccolato legata all’Escalade. L’appuntamento si svolge a Ginevra, nel cantone di Ginevra.",
+      "descriptionByLocale": {
+        "it": "Si tratta di un laboratorio per bambini dedicato alla realizzazione di una marmitta di cioccolato legata all’Escalade. L’appuntamento si svolge a Ginevra, nel cantone di Ginevra.",
+        "en": "This is a children’s workshop focused on making a chocolate cauldron associated with Escalade. It takes place in Geneva, in the canton of Geneva.",
+        "de": "Die Veranstaltung ist ein Workshop für Kinder, bei dem eine Schokoladenmarmite zur Escalade hergestellt wird. Sie findet in Genf im Kanton Genf statt.",
+        "fr": "Cet atelier destiné aux enfants est consacré à la réalisation d’une marmite en chocolat liée à l’Escalade. Il se déroule à Genève, dans le canton de Genève."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:atelier-creez-tablette-chocolat",
@@ -556850,7 +556946,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questa animazione propone uno spazio di lettura in un museo di Ginevra. L’attività unisce racconti e giochi alla riflessione condivisa su possibili futuri.",
+      "descriptionByLocale": {
+        "it": "Questa animazione propone uno spazio di lettura in un museo di Ginevra. L’attività unisce racconti e giochi alla riflessione condivisa su possibili futuri.",
+        "en": "This animation offers a reading area in a museum in Geneva. It combines stories and games with shared imagining of possible futures.",
+        "de": "Die Veranstaltung bietet eine Leseanimation in einem Museum in Genf. Sie verbindet Geschichten und Spiele mit dem gemeinsamen Entwerfen möglicher Zukünfte.",
+        "fr": "Cette animation propose un espace de lecture dans un musée à Genève. Elle associe récits et jeux à une réflexion collective sur des futurs possibles."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:b76bb35176514bd4a62a5fad88d55aa2",
@@ -557772,7 +557876,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questo concerto a Ginevra presenta Nicolas Tankoff. L’appuntamento propone un incontro domenicale danzante legato all’inverno e al periodo delle feste, con un’attenzione particolare alla condivisione.",
+      "descriptionByLocale": {
+        "it": "Questo concerto a Ginevra presenta Nicolas Tankoff. L’appuntamento propone un incontro domenicale danzante legato all’inverno e al periodo delle feste, con un’attenzione particolare alla condivisione.",
+        "en": "This concert in Geneva features Nicolas Tankoff. It takes the form of a Sunday dance gathering connected with winter and the festive season, with an emphasis on sharing.",
+        "de": "Das Konzert in Genf stellt Nicolas Tankoff ins Zentrum. Vorgesehen ist ein sonntäglicher Tanzanlass, der mit dem Winter und der Festzeit verbunden ist und den gemeinsamen Austausch betont.",
+        "fr": "Ce concert à Genève met Nicolas Tankoff à l’honneur. Il propose un rendez-vous dansant lié à l’hiver et aux fêtes, avec une place accordée au partage."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AEZg84t",
@@ -569295,7 +569407,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Lac; comune: Lugano; cantone: TI; categoria: musica; data: 2026-12-10; ora: 20:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Lac; comune: Lugano; cantone: TI; categoria: musica; data: 2026-12-10; ora: 20:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Lac; municipality: Lugano; canton: TI; category: musica; date: 2026-12-10; time: 20:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Lac; gemeinde: Lugano; kanton: TI; kategorie: musica; datum: 2026-12-10; uhrzeit: 20:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Lac; commune: Lugano; canton: TI; catégorie: musica; date: 2026-12-10; heure: 20:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:1402a7f1f9e945349de3ab55582a7aa3",
@@ -615490,7 +615610,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento tradizionale si svolge in serata a Studen, Unteriberg e Oberiberg, dove i Trichler attraversano i villaggi. A Oberiberg e Unteriberg si tengono marce a stella presso gli incroci del paese.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento tradizionale si svolge in serata a Studen, Unteriberg e Oberiberg, dove i Trichler attraversano i villaggi. A Oberiberg e Unteriberg si tengono marce a stella presso gli incroci del paese.",
+        "en": "This traditional evening event takes place in Studen, Unteriberg and Oberiberg, where the Trichler move through the villages. Star marches take place at the village crossroads in Oberiberg and Unteriberg.",
+        "de": "Der traditionelle Anlass findet abends in Studen, Unteriberg und Oberiberg statt, wo die Trichler durch die Dörfer ziehen. An den Dorfkreuzungen von Oberiberg und Unteriberg gibt es jeweils einen Sternenmarsch.",
+        "fr": "Cette manifestation traditionnelle se déroule le soir à Studen, Unteriberg et Oberiberg, où les Trichler parcourent les villages. Des marches en étoile ont lieu aux carrefours des villages d’Oberiberg et d’Unteriberg."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:f939d73606f848a4913c689f5fea70a3",
@@ -632299,7 +632427,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento di Spiez illustra come individuare materiale d’accensione asciutto anche durante l’inverno. Presenta inoltre tecniche per dividere e disporre la legna e per mantenere acceso un fuoco dopo l’accensione.",
+      "descriptionByLocale": {
+        "it": "L’evento di Spiez illustra come individuare materiale d’accensione asciutto anche durante l’inverno. Presenta inoltre tecniche per dividere e disporre la legna e per mantenere acceso un fuoco dopo l’accensione.",
+        "en": "This event in Spiez explains how to locate dry tinder during the winter. It also covers splitting and arranging wood, as well as turning an initial spark into a sustained fire.",
+        "de": "Die Veranstaltung in Spiez zeigt, wie sich auch im Winter trockenes Zündmaterial finden lässt. Außerdem geht es um das Spalten und Aufschichten von Holz sowie darum, aus einem ersten Funken ein anhaltendes Feuer zu machen.",
+        "fr": "Cet événement à Spiez explique comment trouver de l’amadou sec, y compris en hiver. Il aborde aussi le fendage et l’empilement du bois, ainsi que la manière de transformer une étincelle en feu durable."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AZBiZae",
@@ -698472,7 +698608,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento di Spiez è dedicato alla moltiplicazione delle piante. Le attività comprendono la preparazione di talee e talee legnose, la divisione delle piante perenni e la possibilità di portare a casa le giovani piante.",
+      "descriptionByLocale": {
+        "it": "L’evento di Spiez è dedicato alla moltiplicazione delle piante. Le attività comprendono la preparazione di talee e talee legnose, la divisione delle piante perenni e la possibilità di portare a casa le giovani piante.",
+        "en": "This event in Spiez focuses on producing new plants from existing ones. It includes preparing cuttings and woody cuttings, dividing perennials, and taking young plants home.",
+        "de": "Aus einer Pflanze können mehrere neue Pflanzen entstehen. Die Arbeiten umfassen das Schneiden von Stecklingen und Steckhölzern sowie das Teilen von Stauden; junge Pflanzen können anschliessend mit nach Hause genommen werden.",
+        "fr": "Cet événement à Spiez est consacré à la multiplication des plantes. Il comprend la préparation de boutures et de boutures ligneuses, la division de plantes vivaces, ainsi que la possibilité d’emporter de jeunes plants chez soi."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AYHa7k1",
@@ -703739,7 +703883,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’escursione presenta alcuni fenomeni carsici sull’Ebni, nei pressi di Laufenburg. Il percorso comprende doline, punti in cui i corsi d’acqua scompaiono nel sottosuolo e una piccola grotta.",
+      "descriptionByLocale": {
+        "it": "L’escursione presenta alcuni fenomeni carsici sull’Ebni, nei pressi di Laufenburg. Il percorso comprende doline, punti in cui i corsi d’acqua scompaiono nel sottosuolo e una piccola grotta.",
+        "en": "This excursion examines karst features on Ebni near Laufenburg. It includes sinkholes, places where streams disappear underground, and a small cave.",
+        "de": "Bei der Veranstaltung werden Karstformen auf der Ebni vorgestellt. Dazu gehören Dolinen, Stellen mit versickernden Bächen und eine kleine Höhle in der Umgebung von Laufenburg.",
+        "fr": "Cette excursion présente des phénomènes karstiques sur l’Ebni, près de Laufenburg. Elle permet d’observer des dolines, des endroits où des cours d’eau disparaissent sous terre ainsi qu’une petite grotte."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AAsWX8P",
@@ -705179,7 +705331,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento riguarda le elezioni cantonali e indica Urdorf come sede. Un’applicazione mette a disposizione informazioni ufficiali sulle votazioni a livello federale, cantonale e comunale e consente di seguire i risultati in tempo reale.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento riguarda le elezioni cantonali e indica Urdorf come sede. Un’applicazione mette a disposizione informazioni ufficiali sulle votazioni a livello federale, cantonale e comunale e consente di seguire i risultati in tempo reale.",
+        "en": "The event concerns cantonal elections and lists Urdorf as its venue. An app provides official voting information at federal, cantonal and municipal levels and displays the results live.",
+        "de": "Die Veranstaltung betrifft kantonale Wahlen und führt Urdorf als Veranstaltungsort. Eine App stellt offizielle Abstimmungsinformationen auf Bundes-, Kantons- und Gemeindeebene bereit und zeigt die Ergebnisse live an.",
+        "fr": "L’événement concerne des élections cantonales et indique Urdorf comme lieu. Une application rassemble les informations officielles sur les scrutins aux niveaux fédéral, cantonal et communal, tout en affichant les résultats en direct."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:8f663af4a5d04393a7f24c06a4630481",
@@ -716455,7 +716615,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questo appuntamento a Leukerfeld, nel territorio di Turtmann-Unterems, riguarda l’osservazione degli uccelli. L’attenzione è rivolta sia agli esemplari rientrati presto dai quartieri di svernamento sia a quelli che fanno una sosta durante il viaggio verso nord e le regioni montane.",
+      "descriptionByLocale": {
+        "it": "Questo appuntamento a Leukerfeld, nel territorio di Turtmann-Unterems, riguarda l’osservazione degli uccelli. L’attenzione è rivolta sia agli esemplari rientrati presto dai quartieri di svernamento sia a quelli che fanno una sosta durante il viaggio verso nord e le regioni montane.",
+        "en": "This event in Leukerfeld, Turtmann, focuses on observing birds. It includes birds that have come back early from wintering areas and birds pausing on their northward journey toward mountainous regions.",
+        "de": "Bei der Veranstaltung im Leukerfeld in Turtmann-Unterems werden Vögel beobachtet. Dazu gehören Tiere, die früh aus ihren Überwinterungsgebieten zurückgekehrt sind, sowie Vögel auf einem Zwischenhalt ihres Zugs nach Norden und in die Bergregionen.",
+        "fr": "Ce rendez-vous à Leukerfeld, sur le territoire de Turtmann-Unterems, est consacré à l’observation des oiseaux. Il concerne les oiseaux revenus tôt de leur zone d’hivernage ainsi que ceux qui font une halte en se dirigeant vers le nord et les régions montagneuses."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:29a82470b1394d28bb7299f717ce7f77",
@@ -748226,7 +748394,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Môtier; comune: Mont-Vully; cantone: FR; categoria: Event; data: 2027-06-26. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Môtier; comune: Mont-Vully; cantone: FR; categoria: Event; data: 2027-06-26. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Môtier; municipality: Mont-Vully; canton: FR; category: Event; date: 2027-06-26. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Môtier; gemeinde: Mont-Vully; kanton: FR; kategorie: Event; datum: 2027-06-26. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Môtier; commune: Mont-Vully; canton: FR; catégorie: Event; date: 2027-06-26. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "nw-agenda:94720",
@@ -749117,7 +749293,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento di cucina estiva a Spiez mostra come preparare un pasto sul fuoco, con uno stufato cotto in una pentola di ghisa e verdure scaldate nella brace. Si impara inoltre a cuocere il pane su un bastone e a regolare il calore durante la preparazione.",
+      "descriptionByLocale": {
+        "it": "L’evento di cucina estiva a Spiez mostra come preparare un pasto sul fuoco, con uno stufato cotto in una pentola di ghisa e verdure scaldate nella brace. Si impara inoltre a cuocere il pane su un bastone e a regolare il calore durante la preparazione.",
+        "en": "This summer cooking event in Spiez focuses on preparing food over an open fire, including a stew made in a cast-iron pot and vegetables cooked in the embers. It also covers baking bread on a stick and learning how to control the heat.",
+        "de": "In Spiez geht es bei diesem Sommerkochevent um die Zubereitung eines Essens über dem Feuer, darunter ein Eintopf im gusseisernen Topf und Gemüse aus der Glut. Ausserdem wird Brot an einem Stock gebacken, während der Umgang mit der Feuerhitze vermittelt wird.",
+        "fr": "À Spiez, cette activité de cuisine estivale présente la préparation d’un repas au feu, avec un ragoût cuit dans une marmite en fonte et des légumes chauffés dans les braises. Le contenu inclut aussi du pain cuit sur un bâton et des indications pour maîtriser la chaleur."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:eaecf1ff941444ec8dd7ae0845fd962a",
