@@ -2543,17 +2543,17 @@ function buildGroupWorkflowObject(
     // publishes under the run's own coordinates, the same grammar the
     // orchestrator uses, instead of forcing the caller to invent a token
     // (#10101 follow-up: `backlog-100-…` crawled for an hour, then exit 43).
-    // The aggregate records every
-    // member's terminal outcome, but a failed/missing member has no descriptor
-    // to publish: `--group-batch` therefore publishes only data explicitly
-    // produced by successful siblings. The aggregate step is continue-on-error
-    // and exits 0 after writing its verdict, so its step outcome alone cannot
-    // authorize publication; require the explicit wait_outcome output as well.
-    // The finalizer below receives the same aggregate verdict and remains
-    // fail-closed for the group manifest.
+    // The aggregate records every member's terminal outcome, but a
+    // failed/missing member has no commit descriptor to publish:
+    // `--group-batch` therefore publishes only data explicitly produced by
+    // successful siblings. Let that bounded commit run even when the aggregate
+    // wait outcome is failure, so one failed member does not leave successful
+    // siblings stale. Still require a completed aggregate with an explicit
+    // success/failure verdict; the finalizer and final group step consume that
+    // verdict and keep the group manifest fail-closed.
     // A retryable ref/lease loss is retried in THIS token; exhausting that
     // bounded retry is a real step failure, never a green "next cycle" result.
-    if: "always() && job.status == 'success' && steps.crawler_group_setup.outcome == 'success' && steps.crawler_aggregate.outcome == 'success' && steps.crawler_aggregate.outputs.wait_outcome == 'success'",
+    if: "always() && job.status == 'success' && steps.crawler_group_setup.outcome == 'success' && steps.crawler_aggregate.outcome == 'success' && (steps.crawler_aggregate.outputs.wait_outcome == 'success' || steps.crawler_aggregate.outputs.wait_outcome == 'failure')",
     run: crawlerGroupBatchCommitRun(groupIndex),
   });
   steps.push(saveCrawlerAiCacheStep(groupName));
