@@ -350,7 +350,7 @@
       "slugByLocale": {
         "it": "amministrazione-e-retribuzione-delle-risorse-umane-del-team-di-guida-it-swiss-medical-network-zurich-6aada63fd9",
         "en": "amministrazione-e-retribuzione-delle-risorse-umane-del-team-di-guida-it-swiss-medical-network-zurich-6aada63fd9",
-        "de": "team-lead-hr-administration-payroll-de-swiss-medical-network",
+        "de": "team-lead-hr-administration-payroll-de-swiss-medical-network-6dyxbt",
         "fr": "chef-d-equipe-administration-des-rh-et-paie-de-swiss-medical-network-zurich"
       },
       "slug": "amministrazione-e-retribuzione-delle-risorse-umane-del-team-di-guida-it-swiss-medical-network-zurich-6aada63fd9",
@@ -401,6 +401,9 @@
         ],
         "fr": [
           "amministrazione-e-retribuzione-delle-risorse-umane-del-team-di-guida-it-swiss-medical-network-zurich-6aada63fd9"
+        ],
+        "de": [
+          "team-lead-hr-administration-payroll-de-swiss-medical-network"
         ]
       },
       "needsRetranslation": true,
@@ -2764,7 +2767,7 @@
         "it": "professionista-generale-medico-di-famiglia-swiss-medical-network-saint-imier",
         "en": "general-practitioner-family-physician-swiss-medical-network-saint-imier",
         "de": "allgemeinmediziner-hausarzt-swiss-medical-network-saint-imier",
-        "fr": "medecin-generaliste-medecin-de-famille-swiss-medical-network"
+        "fr": "medecin-generaliste-medecin-de-famille-swiss-medical-network-6dbejw"
       },
       "slug": "professionista-generale-medico-di-famiglia-swiss-medical-network-saint-imier",
       "category": "medical",
@@ -2802,6 +2805,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "medecin-generaliste-medecin-de-famille-swiss-medical-network"
+        ],
+        "fr": [
           "medecin-generaliste-medecin-de-famille-swiss-medical-network"
         ]
       },
@@ -2922,7 +2928,7 @@
         "it": "apprendistato-assc-assistant-in-community-health-and-care-cfc-saint-imier-swiss-medical-network-saint-imier",
         "en": "apprenticeship-assc-assistant-in-community-health-and-care-cfc-saint-imier-swiss-medical-network-saint-imier",
         "de": "ausbildung-assc-assistant-in-community-health-and-care-cfc-saint-imier-swiss-medical-network-saint-imier",
-        "fr": "apprenti-e-assc-assistant-e-en-soins-et-sante-communautaire-cfc-saint-imier-swiss-medical-network"
+        "fr": "apprenti-e-assc-assistant-e-en-soins-et-sante-communautaire-cfc-saint-imier-swiss-medical-network-4q3imb"
       },
       "slug": "apprendistato-assc-assistant-in-community-health-and-care-cfc-saint-imier-swiss-medical-network-saint-imier",
       "category": "admin",
@@ -2961,6 +2967,9 @@
       "previousSlugsByLocale": {
         "it": [
           "apprenti-e-assc-assistant-e-en-soins-et-sante-communautaire-cfc-saint-imier-swiss-medical-network"
+        ],
+        "fr": [
+          "apprenti-e-assc-assistant-e-en-soins-et-sante-communautaire-cfc-saint-imier-swiss-medical-network"
         ]
       },
       "previousSlugs": [
@@ -2995,9 +3004,9 @@
       },
       "slugByLocale": {
         "it": "apprentice-cfc-saint-imier-swiss-medical-network-saint-imier",
-        "en": "apprenti-e-cuisinier-ere-cfc-saint-imier-swiss-medical-network",
+        "en": "apprenti-e-cuisinier-ere-cfc-saint-imier-swiss-medical-network-bek5r6",
         "de": "auszubildender-cfc-saint-imier-swiss-medical-network-saint-imier",
-        "fr": "apprenti-e-cuisinier-ere-cfc-saint-imier-swiss-medical-network"
+        "fr": "apprenti-e-cuisinier-ere-cfc-saint-imier-swiss-medical-network-bek5r6"
       },
       "slug": "apprentice-cfc-saint-imier-swiss-medical-network-saint-imier",
       "category": "healthcare",
@@ -3035,6 +3044,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "apprenti-e-cuisinier-ere-cfc-saint-imier-swiss-medical-network"
+        ],
+        "en": [
+          "apprenti-e-cuisinier-ere-cfc-saint-imier-swiss-medical-network"
+        ],
+        "fr": [
           "apprenti-e-cuisinier-ere-cfc-saint-imier-swiss-medical-network"
         ]
       },
@@ -4166,7 +4181,7 @@
         "it": "assistente-medico-pedopsychiatrist-fmh-m-f-swiss-medical-network-saint-imier-3ca71b2474",
         "en": "assistant-physician-pedopsychiatrist-fmh-m-f-swiss-medical-network-saint-imier",
         "de": "assistenzarzt-padopsychiater-fmh-m-w-swiss-medical-network-saint-imier",
-        "fr": "medecin-adjoint-pedopsychiatre-fmh-h-f-swiss-medical-network"
+        "fr": "medecin-adjoint-pedopsychiatre-fmh-h-f-swiss-medical-network-1whzfl"
       },
       "slug": "assistente-medico-pedopsychiatrist-fmh-m-f-swiss-medical-network-saint-imier-3ca71b2474",
       "category": "medical",
@@ -4207,12 +4222,11 @@
           "medecin-adjoint-pedopsychiatre-fmh-h-f-swiss-medical-network"
         ],
         "fr": [
-          "medecin-adjoint-pedopsychiatre-fmh-h-f-swiss-medical-network-1whzfl"
+          "medecin-adjoint-pedopsychiatre-fmh-h-f-swiss-medical-network"
         ]
       },
       "previousSlugs": [
-        "medecin-adjoint-pedopsychiatre-fmh-h-f-swiss-medical-network",
-        "medecin-adjoint-pedopsychiatre-fmh-h-f-swiss-medical-network-1whzfl"
+        "medecin-adjoint-pedopsychiatre-fmh-h-f-swiss-medical-network"
       ],
       "crawlerMissStreak": 2
     },
@@ -4503,7 +4517,10 @@
         "fr": "Apprenti·e Cuisinier·ère CFC Saint-Imier"
       },
       "slugByLocale": {
-        "fr": "apprenti-e-cuisinier-ere-cfc-saint-imier-swiss-medical-network"
+        "fr": "apprenti-e-cuisinier-ere-cfc-saint-imier-swiss-medical-network",
+        "it": "apprenti-e-cuisinier-ere-cfc-saint-imier-swiss-medical-network",
+        "en": "apprenti-e-cuisinier-ere-cfc-saint-imier-swiss-medical-network",
+        "de": "apprenti-e-cuisinier-ere-cfc-saint-imier-swiss-medical-network"
       },
       "slug": "apprenti-e-cuisinier-ere-cfc-saint-imier-swiss-medical-network",
       "category": "healthcare",
@@ -4566,7 +4583,10 @@
         "fr": "Apprenti·e ASSC (Assistant·e en Soins et Santé Communautaire) CFC Saint-Imier"
       },
       "slugByLocale": {
-        "fr": "apprenti-e-assc-assistant-e-en-soins-et-sante-communautaire-cfc-saint-imier-swiss-medical-network"
+        "fr": "apprenti-e-assc-assistant-e-en-soins-et-sante-communautaire-cfc-saint-imier-swiss-medical-network",
+        "it": "apprenti-e-assc-assistant-e-en-soins-et-sante-communautaire-cfc-saint-imier-swiss-medical-network",
+        "en": "apprenti-e-assc-assistant-e-en-soins-et-sante-communautaire-cfc-saint-imier-swiss-medical-network",
+        "de": "apprenti-e-assc-assistant-e-en-soins-et-sante-communautaire-cfc-saint-imier-swiss-medical-network"
       },
       "slug": "apprenti-e-assc-assistant-e-en-soins-et-sante-communautaire-cfc-saint-imier-swiss-medical-network",
       "category": "admin",
@@ -4629,7 +4649,10 @@
         "fr": "Médecin Généraliste / Médecin de Famille"
       },
       "slugByLocale": {
-        "fr": "medecin-generaliste-medecin-de-famille-swiss-medical-network"
+        "fr": "medecin-generaliste-medecin-de-famille-swiss-medical-network",
+        "it": "medecin-generaliste-medecin-de-famille-swiss-medical-network",
+        "en": "medecin-generaliste-medecin-de-famille-swiss-medical-network",
+        "de": "medecin-generaliste-medecin-de-famille-swiss-medical-network"
       },
       "slug": "medecin-generaliste-medecin-de-famille-swiss-medical-network",
       "category": "medical",

@@ -41242,7 +41242,6 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-24T21:45:14.296Z",
       "validThroughSource": "last-observed-window",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -114618,7 +114617,6 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T21:45:14.296Z",
       "validThroughSource": "last-observed-window",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000
     },
@@ -114699,11 +114697,23 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
-          "caissier-polyvalent-m-w-d-societe-cooperative-migros-vaud-ecublens"
+          "caissier-polyvalent-m-w-d-societe-cooperative-migros-vaud-ecublens",
+          "cassiere-polivalente-m-f-d-societe-cooperative-migros-vaud-ecublens",
+          "multipurpose-cashier-m-f-d-societe-cooperative-migros-vaud-ecublens",
+          "mehrzweck-kasse-m-w-d-societe-cooperative-migros-vaud-ecublens"
+        ],
+        "en": [
+          "multipurpose-cashier-m-f-d-societe-cooperative-migros-vaud-ecublens"
+        ],
+        "de": [
+          "mehrzweck-kasse-m-w-d-societe-cooperative-migros-vaud-ecublens"
         ]
       },
       "previousSlugs": [
-        "caissier-polyvalent-m-w-d-societe-cooperative-migros-vaud-ecublens"
+        "caissier-polyvalent-m-w-d-societe-cooperative-migros-vaud-ecublens",
+        "cassiere-polivalente-m-f-d-societe-cooperative-migros-vaud-ecublens",
+        "multipurpose-cashier-m-f-d-societe-cooperative-migros-vaud-ecublens",
+        "mehrzweck-kasse-m-w-d-societe-cooperative-migros-vaud-ecublens"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -114797,11 +114807,21 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
-          "employe-e-gastronomie-m-w-d-migros-restaurant-aigle"
+          "employe-e-gastronomie-m-w-d-migros-restaurant-aigle",
+          "employee-gastronomy-m-f-d-migros-restaurant-aigle",
+          "mitarbeiter-gastronomie-m-w-d-migros-restaurant-aigle"
+        ],
+        "en": [
+          "employee-gastronomy-m-f-d-migros-restaurant-aigle"
+        ],
+        "de": [
+          "mitarbeiter-gastronomie-m-w-d-migros-restaurant-aigle"
         ]
       },
       "previousSlugs": [
-        "employe-e-gastronomie-m-w-d-migros-restaurant-aigle"
+        "employe-e-gastronomie-m-w-d-migros-restaurant-aigle",
+        "employee-gastronomy-m-f-d-migros-restaurant-aigle",
+        "mitarbeiter-gastronomie-m-w-d-migros-restaurant-aigle"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -114902,11 +114922,23 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
-          "vendeur-polyvalent-en-boulangerie-m-w-d-societe-cooperative-migros-vaud-vevey-epg5aa"
+          "vendeur-polyvalent-en-boulangerie-m-w-d-societe-cooperative-migros-vaud-vevey-epg5aa",
+          "venditore-polivalente-in-panificio-m-f-d-societe-cooperative-migros-vaud-vevey",
+          "multipurpose-seller-in-bakery-m-f-d-societe-cooperative-migros-vaud-vevey",
+          "mehrzweckverkaufer-in-der-backerei-m-w-d-societe-cooperative-migros-vaud-vevey"
+        ],
+        "en": [
+          "multipurpose-seller-in-bakery-m-f-d-societe-cooperative-migros-vaud-vevey"
+        ],
+        "de": [
+          "mehrzweckverkaufer-in-der-backerei-m-w-d-societe-cooperative-migros-vaud-vevey"
         ]
       },
       "previousSlugs": [
-        "vendeur-polyvalent-en-boulangerie-m-w-d-societe-cooperative-migros-vaud-vevey-epg5aa"
+        "vendeur-polyvalent-en-boulangerie-m-w-d-societe-cooperative-migros-vaud-vevey-epg5aa",
+        "venditore-polivalente-in-panificio-m-f-d-societe-cooperative-migros-vaud-vevey",
+        "multipurpose-seller-in-bakery-m-f-d-societe-cooperative-migros-vaud-vevey",
+        "mehrzweckverkaufer-in-der-backerei-m-w-d-societe-cooperative-migros-vaud-vevey"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -115082,7 +115114,6 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-21T21:45:14.296Z",
       "validThroughSource": "last-observed-window",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -115210,7 +115241,6 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-07T21:45:14.296Z",
       "validThroughSource": "last-observed-window",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     }
