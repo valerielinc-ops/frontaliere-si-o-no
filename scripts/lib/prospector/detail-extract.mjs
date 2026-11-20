@@ -76,14 +76,15 @@ function normalizedEqeVacancyTitle(value = '') {
  * and validation see the same evidence and the footer can never become the
  * vacancy location.
  *
- * The broad "Region Nordwestschweiz" declaration is retained as unresolved
- * evidence. It blocks an employer-address fallback without inventing a canton.
+ * The broad "Region Nordwestschweiz" declaration is authoritative but cannot
+ * be mapped to one Swiss canton. Represent it as an explicit unresolved result
+ * so neither a stale listing location nor the employer seat can replace it.
  * The municipality Olten is accepted only in EQE's reviewed manufacturing
  * sentence inside the title-matched vacancy block.
  *
  * @param {string} html
  * @param {string} recordTitle
- * @returns {{ matched: boolean, locationCandidates: Array<Record<string, string>> }}
+ * @returns {{ matched: boolean, unresolved: boolean, locationCandidates: Array<Record<string, string>> }}
  */
 function extractEqeVacancyLocation(html = '', recordTitle = '') {
   const source = String(html || '');
@@ -91,7 +92,7 @@ function extractEqeVacancyLocation(html = '', recordTitle = '') {
   // The listing title is the vacancy identity. An empty title cannot select a
   // page block: treating it as a wildcard lets the first generic content block
   // lend its location to an unrelated record.
-  if (!expectedTitle) return { matched: false, locationCandidates: [] };
+  if (!expectedTitle) return { matched: false, unresolved: false, locationCandidates: [] };
 
   EQE_VACANCY_CONTENT_OPEN_RX.lastIndex = 0;
   let block;
@@ -114,6 +115,7 @@ function extractEqeVacancyLocation(html = '', recordTitle = '') {
     if (EQE_OLTEN_WORKPLACE_RX.test(vacancyText)) {
       return {
         matched: true,
+        unresolved: false,
         locationCandidates: [{
           location: 'Olten',
           addressLocality: 'Olten',
@@ -124,12 +126,13 @@ function extractEqeVacancyLocation(html = '', recordTitle = '') {
     if (EQE_NORTHWEST_REGION_RX.test(vacancyText)) {
       return {
         matched: true,
-        locationCandidates: [{ location: 'Region Nordwestschweiz' }],
+        unresolved: true,
+        locationCandidates: [],
       };
     }
-    return { matched: true, locationCandidates: [] };
+    return { matched: true, unresolved: true, locationCandidates: [] };
   }
-  return { matched: false, locationCandidates: [] };
+  return { matched: false, unresolved: false, locationCandidates: [] };
 }
 
 /**
@@ -317,6 +320,7 @@ export function extractRuntimeDetailFields(spec, html, url, opts = {}) {
     detail.postalCode = '';
     detail.streetAddress = '';
     detail.authoritativeLocationConflict = !eqeLocation.matched
+      || eqeLocation.unresolved
       || eqeLocation.locationCandidates.length === 0;
   }
   if (spec?.platform === 'yousty.ch') {
