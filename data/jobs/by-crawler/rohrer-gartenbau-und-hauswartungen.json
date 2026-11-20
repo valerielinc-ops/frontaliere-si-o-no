@@ -84,7 +84,8 @@
       "streetAddress": "Obwalden",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T09:58:10.206Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://rohrer-gartenbau.ch/unternehmen/jobs"
     }
   ]
 }

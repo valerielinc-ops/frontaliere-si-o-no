@@ -57,7 +57,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://link.ostendis.com/publication/med-praxisassistenz-oder-fachperson-gesundheit-fuer-die-notfallstation/ly0rv6trksp0bq4q42bgxg3gjyas9yk2j6p3ypc8cm6bbyl32zl04spj7fnegwj6",
-    "firstSeenAt": "2026-05-17T10:58:29.224Z"
+    "firstSeenAt": "2026-05-17T10:58:29.224Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://link.ostendis.com/publication/med-praxisassistenz-oder-fachperson-gesundheit-fuer-die-notfallstation/c0exl3nzrqrtgp1rleaygvrc3xlbqh0adsriq57hzcefttziardlm1ddghdgv3d2",
+        "firstSeenAt": "2026-05-17T10:58:29.224Z",
+        "title": "Med. Praxisassistenz oder Fachperson Gesundheit für die Notfallstation 50 %"
+      },
+      {
+        "sourceIdentity": "url:https://link.ostendis.com/publication/med-praxisassistenz-oder-fachperson-gesundheit-fuer-die-notfallstation/ly0rv6trksp0bq4q42bgxg3gjyas9yk2j6p3ypc8cm6bbyl32zl04spj7fnegwj6",
+        "firstSeenAt": "2026-05-17T10:58:29.224Z",
+        "title": "Med. Praxisassistenz oder Fachperson Gesundheit für die Notfallstation 50 %"
+      }
+    ]
   },
   {
     "slug": "capo-medico-medicina-interna-regionalspital-surselva-ilanz",
@@ -1825,7 +1837,19 @@
     "salaryPeriod": "YEAR",
     "dedupArchive": true,
     "sourceIdentity": "url:https://link.ostendis.com/publication/med-praxisassistenz-oder-fachperson-gesundheit-fuer-die-notfallstation/c0exl3nzrqrtgp1rleaygvrc3xlbqh0adsriq57hzcefttziardlm1ddghdgv3d2",
-    "firstSeenAt": "2026-05-17T10:58:29.224Z"
+    "firstSeenAt": "2026-05-17T10:58:29.224Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://link.ostendis.com/publication/med-praxisassistenz-oder-fachperson-gesundheit-fuer-die-notfallstation/c0exl3nzrqrtgp1rleaygvrc3xlbqh0adsriq57hzcefttziardlm1ddghdgv3d2",
+        "firstSeenAt": "2026-05-17T10:58:29.224Z",
+        "title": "Med. Praxisassistenz oder Fachperson Gesundheit für die Notfallstation 50 %"
+      },
+      {
+        "sourceIdentity": "url:https://link.ostendis.com/publication/med-praxisassistenz-oder-fachperson-gesundheit-fuer-die-notfallstation/ly0rv6trksp0bq4q42bgxg3gjyas9yk2j6p3ypc8cm6bbyl32zl04spj7fnegwj6",
+        "firstSeenAt": "2026-05-17T10:58:29.224Z",
+        "title": "Med. Praxisassistenz oder Fachperson Gesundheit für die Notfallstation 50 %"
+      }
+    ]
   },
   {
     "slug": "apprendistato-come-kauffrau-kaufmann-cfc-branche-gesundheit-regionalspital-surselva-ilanz",
@@ -1918,7 +1942,9 @@
     "salaryMin": 110500,
     "salaryMax": 154000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://link.ostendis.com/publication/leitende-aerztin-leitender-arzt-paediatrie-kombinierbar-mit-praxistaetigkeit/lb2tlrhc70p0pm0mj6wanl2ju39g8kak2ypzkl5vv22xty7rznbw5ctk41la4nyj",
+    "firstSeenAt": "2026-05-17T10:58:28.279Z"
   },
   {
     "slug": "fatturazione-specialistica-del-paziente-80-100-regionalspital-surselva-ilanz",
@@ -2294,7 +2320,9 @@
     "salaryMin": 57500,
     "salaryMax": 87000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://link.ostendis.com/publication/dipl-fachperson-operationstechnik-hf-oder-dipl-pflegefachperson-hf-im-op/xwf6ayr6toklo7tf3gpbb1sfm4wgzaoc52mx1s2wvtw3rtts2g4wa47ljc32zinc",
+    "firstSeenAt": "2026-06-26T12:17:15.241Z"
   },
   {
     "slug": "endoskopie-assistent-in-30-o-nach-vereinbarung-hf-mpa-fage-regionalspital-surselva-ilanz",
@@ -2630,7 +2658,9 @@
     "salaryMin": 49500,
     "salaryMax": 75000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://link.ostendis.com/publication/dipl-pflegefachperson-hf-nds-anaesthesie/dpgym8b9bxlicfinjqbjygzd0usjk7dkxxy35ysh03bb7svl9k5crf7kca3mq25e",
+    "firstSeenAt": "2026-06-26T12:17:15.744Z"
   },
   {
     "slug": "segretario-a-medico-a-80-100-regionalspital-surselva-ilanz",
