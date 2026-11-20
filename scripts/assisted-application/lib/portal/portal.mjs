@@ -32,7 +32,7 @@ import '../../extension/apply-control.js';
 import path from 'node:path';
 import { browserEngine, isStealthBrowser, launchStealthOrChromium } from '../../../lib/stealth-browser.mjs';
 import { challengeState, passChallenge } from '../../../lib/challenge-pass.mjs';
-import { EXPAND_ALL_RE, applicationDestinationDiversionHint, applicationDiversionHint, applicationReceipt, applicationStage, gravityFormsSubmissionOutcome, inPageApplicationOpeners, isApplicationRegionUnsupported, isApplicationRouteBound, portalJobKey } from './stages.mjs';
+import { applicationDestinationDiversionHint, applicationDiversionHint, applicationReceipt, applicationStage, gravityFormsSubmissionOutcome, inPageApplicationOpeners, isApplicationRegionUnsupported, isApplicationRouteBound, portalJobKey } from './stages.mjs';
 import { BRASSRING_HOME_WITH_PRELOAD_RE, brassRingActiveFields, isBrassRingPrivacyGateText, sameBrassRingPostingAddress } from './brass-ring-route.mjs';
 import { COVER_LETTER_DOCUMENT_CONTEXT_RE, COVER_LETTER_DOCUMENT_TERMS, CV_DOCUMENT_CONTEXT_RE, CV_DOCUMENT_TERMS } from './document-labels.mjs';
 import { advancedToFinalReview } from './final-review.mjs';
@@ -7996,7 +7996,7 @@ export async function registrationPrivacyPreflight(page, { accepted = false, tim
 // closed («Alle Abschnitte einblenden»), one field in sight, and a «Bewerben»
 // pressed on it only meets the portal's validation. Its CV goes in through
 // «Lebenslauf hochladen», a dialog whose file input exists only once open.
-export { EXPAND_ALL_RE };
+export const EXPAND_ALL_RE = /^(alle abschnitte einblenden|alle einblenden|expand all( sections)?|show all( sections)?|mostra tutte le sezioni|espandi tutt[eo]( le sezioni)?|afficher toutes les sections|tout afficher|développer tout)$/i;
 export const CV_UPLOAD_RE = /((lebenslauf|curriculum( vitae)?|\bcv\b|resume|résumé)\s+(hochladen|upload(en)?|attach(?:ed)?|caricare|carica|charger|télécharger|joindre|importer)|(upload|attach(?:ed)?|carica|caricare|charger|télécharger|joindre|importer|hochladen)\s+(a |an |the |your |il tuo |il |le |la |un |une |votre |deinen |deine |ihren |ihre )?(lebenslauf|curriculum( vitae)?|\bcv\b|resume|résumé))/i;
 export const COVER_LETTER_UPLOAD_RE = /((cover\s+letter|motivation(?:s|al)?\s+(?:letter|schreiben)|anschreiben|motivationsschreiben|lettre\s+de\s+motivation|lettera\s+di\s+(?:motivazione|presentazione))\s+(hochladen|upload(en)?|attach(?:ed)?|caricare|carica|charger|télécharger|joindre|importer)|(upload|attach(?:ed)?|carica|caricare|charger|télécharger|joindre|importer|hochladen)\s+(a |an |the |your |il tuo |il |le |la |un |une |votre |deinen |deine |ihren |ihre )?(cover\s+letter|motivation(?:s|al)?\s+(?:letter|schreiben)|anschreiben|motivationsschreiben|lettre\s+de\s+motivation|lettera\s+di\s+(?:motivazione|presentazione)))/i;
 const ICON_ONLY_BUTTON_RE = /^[^\p{L}\p{N}]{1,12}$/u;

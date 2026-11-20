@@ -89,19 +89,6 @@ export function generationSlotDateForEntry(entry, scheduledAt, {
   return nominal;
 }
 
-/** Requires a validated calendar entry and a nominal date validated by generationSlotKey. */
-export function nextGenerationSlotDateForEntry(entry, nominalSlot) {
-  const nextSlot = new Date(nominalSlot.getTime());
-  const hour = nextSlot.getUTCHours();
-  if (entry.slotHours === null) {
-    nextSlot.setUTCHours(hour + 1);
-  } else {
-    const nextHour = entry.slotHours.find((slotHour) => slotHour > hour);
-    nextSlot.setUTCHours(nextHour ?? entry.slotHours[0] + 24);
-  }
-  return nextSlot;
-}
-
 export function dueGenerationSlotEntries(scheduledAt) {
   return GENERATION_SLOT_ENTRIES.filter((entry) => generationSlotDateForEntry(entry, scheduledAt));
 }
