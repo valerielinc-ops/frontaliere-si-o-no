@@ -5727,12 +5727,12 @@
     },
     {
       "id": "kanton-aargau-55833a076c98",
-      "slug": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch",
+      "slug": "interno-legale-interno-legale-100-kanton-aargau-aarau",
       "slugByLocale": {
         "de": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch",
-        "it": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch",
-        "en": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch",
-        "fr": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch"
+        "it": "interno-legale-interno-legale-100-kanton-aargau-aarau",
+        "en": "legal-intern-legal-intern-100-kanton-aargau-aarau",
+        "fr": "stage-juridique-stage-juridique-100-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -5795,7 +5795,21 @@
       },
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-07-04T11:08:20.236Z"
+      "firstSeenAt": "2026-07-04T11:08:20.236Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch"
+        ],
+        "en": [
+          "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch"
+        ],
+        "fr": [
+          "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-a290952d8d01",

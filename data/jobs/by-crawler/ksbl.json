@@ -3064,7 +3064,7 @@
     },
     {
       "id": "ksbl-e26f60c459c8",
-      "slug": "infermiera-a-kantonsspital-baselland-ksbl-liestal-11c54b95e1",
+      "slug": "infermiera-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
         "it": "infermiera-a-kantonsspital-baselland-ksbl-liestal",
         "en": "dipl-nurse-a-kantonsspital-baselland-ksbl-liestal",
@@ -3115,13 +3115,15 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
         "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal",
-        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-d9d0683b62"
+        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-d9d0683b62",
+        "infermiera-a-kantonsspital-baselland-ksbl-liestal-11c54b95e1"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
           "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal",
-          "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-d9d0683b62"
+          "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-d9d0683b62",
+          "infermiera-a-kantonsspital-baselland-ksbl-liestal-11c54b95e1"
         ],
         "de": [
           "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal"
@@ -5140,9 +5142,9 @@
     },
     {
       "id": "ksbl-cd14c6154336",
-      "slug": "infermiera-a-kantonsspital-baselland-ksbl-liestal-a67061767f",
+      "slug": "infermiera-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
-        "it": "infermiera-a-kantonsspital-baselland-ksbl-liestal-a67061767f",
+        "it": "infermiera-a-kantonsspital-baselland-ksbl-liestal",
         "en": "dipl-nurse-a-kantonsspital-baselland-ksbl-liestal",
         "de": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-tiu1kw",
         "fr": "infirmiere-diplomee-a-kantonsspital-baselland-ksbl-liestal"
@@ -5191,12 +5193,14 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
         "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal",
-        "infermiera-a-kantonsspital-baselland-ksbl-liestal"
+        "infermiera-a-kantonsspital-baselland-ksbl-liestal",
+        "infermiera-a-kantonsspital-baselland-ksbl-liestal-a67061767f"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
-          "infermiera-a-kantonsspital-baselland-ksbl-liestal"
+          "infermiera-a-kantonsspital-baselland-ksbl-liestal",
+          "infermiera-a-kantonsspital-baselland-ksbl-liestal-a67061767f"
         ],
         "de": [
           "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal"
@@ -9197,10 +9201,10 @@
     },
     {
       "id": "ksbl-fc3b6233feda",
-      "slug": "datenmanagerin-datenmanager-integrales-kapazitatsmanagement-a-ksbl-liestal",
+      "slug": "gestione-integrata-delle-capacita-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
         "de": "datenmanagerin-datenmanager-integrales-kapazitatsmanagement-a-ksbl-liestal",
-        "it": "datenmanagerin-datenmanager-integrales-kapazitatsmanagement-a-ksbl-liestal",
+        "it": "gestione-integrata-delle-capacita-a-kantonsspital-baselland-ksbl-liestal",
         "en": "datenmanagerin-datenmanager-integrales-kapazitatsmanagement-a-ksbl-liestal",
         "fr": "datenmanagerin-datenmanager-integrales-kapazitatsmanagement-a-ksbl-liestal"
       },
@@ -9264,7 +9268,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-29T21:48:18.705Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-30T21:49:22.671Z"
+      "firstSeenAt": "2026-10-30T21:49:22.671Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "datenmanagerin-datenmanager-integrales-kapazitatsmanagement-a-ksbl-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "datenmanagerin-datenmanager-integrales-kapazitatsmanagement-a-ksbl-liestal"
+      ]
     }
   ]
 }

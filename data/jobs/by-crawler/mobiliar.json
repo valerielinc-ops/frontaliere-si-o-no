@@ -6057,12 +6057,12 @@
     },
     {
       "id": "mobiliar-5321ccc3689d",
-      "slug": "business-analyst-prozessautomatisierung-w-m-d-60-80-mobiliar-ch",
+      "slug": "business-analyst-automazione-dei-processi-m-f-d-60-80-die-mobiliar-bern",
       "slugByLocale": {
         "de": "business-analyst-prozessautomatisierung-w-m-d-60-80-mobiliar-ch",
-        "it": "business-analyst-prozessautomatisierung-w-m-d-60-80-mobiliar-ch",
-        "en": "business-analyst-prozessautomatisierung-w-m-d-60-80-mobiliar-ch",
-        "fr": "business-analyst-prozessautomatisierung-w-m-d-60-80-mobiliar-ch"
+        "it": "business-analyst-automazione-dei-processi-m-f-d-60-80-die-mobiliar-bern",
+        "en": "business-analyst-process-automation-m-f-d-60-80-die-mobiliar-bern",
+        "fr": "analyste-metier-en-automatisation-des-processus-h-f-d-60-80-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -6144,7 +6144,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T21:16:50.138Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T21:16:50.138Z"
+      "firstSeenAt": "2026-11-19T21:16:50.138Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-analyst-prozessautomatisierung-w-m-d-60-80-mobiliar-ch"
+        ],
+        "en": [
+          "business-analyst-prozessautomatisierung-w-m-d-60-80-mobiliar-ch"
+        ],
+        "fr": [
+          "business-analyst-prozessautomatisierung-w-m-d-60-80-mobiliar-ch"
+        ]
+      },
+      "previousSlugs": [
+        "business-analyst-prozessautomatisierung-w-m-d-60-80-mobiliar-ch"
+      ]
     },
     {
       "id": "mobiliar-05bab69f69cd",

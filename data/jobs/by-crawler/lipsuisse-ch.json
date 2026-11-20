@@ -1768,12 +1768,12 @@
     },
     {
       "id": "lipsuisse-ch-ac5b8e4e0aaf",
-      "slug": "serrurier-experimente-ouverture-de-portes-geneve-lipsuisse-ch-ch",
+      "slug": "interruttore-apertura-della-porta-lip-suisse-geneve",
       "slugByLocale": {
         "fr": "serrurier-experimente-ouverture-de-portes-geneve-lipsuisse-ch-ch",
-        "it": "serrurier-experimente-ouverture-de-portes-geneve-lipsuisse-ch-ch",
-        "en": "serrurier-experimente-ouverture-de-portes-geneve-lipsuisse-ch-ch",
-        "de": "serrurier-experimente-ouverture-de-portes-geneve-lipsuisse-ch-ch"
+        "it": "interruttore-apertura-della-porta-lip-suisse-geneve",
+        "en": "experienced-locker-door-opening-lip-suisse-geneve",
+        "de": "erfahrenes-schlie-fach-turoffnung-lip-suisse-geneve"
       },
       "company": "LIP Suisse",
       "companyKey": "lipsuisse-ch",
@@ -1835,7 +1835,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T21:46:09.665Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T21:46:09.665Z"
+      "firstSeenAt": "2026-11-19T21:46:09.665Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "serrurier-experimente-ouverture-de-portes-geneve-lipsuisse-ch-ch"
+        ],
+        "en": [
+          "serrurier-experimente-ouverture-de-portes-geneve-lipsuisse-ch-ch"
+        ],
+        "de": [
+          "serrurier-experimente-ouverture-de-portes-geneve-lipsuisse-ch-ch"
+        ]
+      },
+      "previousSlugs": [
+        "serrurier-experimente-ouverture-de-portes-geneve-lipsuisse-ch-ch"
+      ]
     }
   ]
 }

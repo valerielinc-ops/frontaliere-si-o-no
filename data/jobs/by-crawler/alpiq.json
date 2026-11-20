@@ -5,7 +5,7 @@
   "jobs": [
     {
       "id": "alpiq-5e759a112ffc",
-      "slug": "power-gas-trader-alpiq-lausanne",
+      "slug": "commercio-di-energia-e-gas-alpiq-lausanne",
       "slugByLocale": {
         "it": "commercio-di-energia-e-gas-alpiq-lausanne",
         "en": "power-gas-trader-alpiq-lausanne",
@@ -68,7 +68,15 @@
           "unitText": "YEAR"
         }
       },
-      "sourceIdentity": "url:https://www.alpiq.com/career/open-jobs/your-application/261"
+      "sourceIdentity": "url:https://www.alpiq.com/career/open-jobs/your-application/261",
+      "previousSlugsByLocale": {
+        "it": [
+          "power-gas-trader-alpiq-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "power-gas-trader-alpiq-lausanne"
+      ]
     },
     {
       "id": "alpiq-f05066085344",
@@ -158,7 +166,7 @@
     },
     {
       "id": "alpiq-e2526cd82bc9",
-      "slug": "ot-network-system-engineer-alpiq-switzerland",
+      "slug": "ingegnere-di-rete-e-sistema-ot-alpiq-lausanne",
       "slugByLocale": {
         "it": "ingegnere-di-rete-e-sistema-ot-alpiq-lausanne",
         "en": "ot-network-system-engineer-alpiq-switzerland",
@@ -221,11 +229,19 @@
           "unitText": "YEAR"
         }
       },
-      "sourceIdentity": "url:https://www.alpiq.com/career/open-jobs/your-application/283"
+      "sourceIdentity": "url:https://www.alpiq.com/career/open-jobs/your-application/283",
+      "previousSlugsByLocale": {
+        "it": [
+          "ot-network-system-engineer-alpiq-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "ot-network-system-engineer-alpiq-switzerland"
+      ]
     },
     {
       "id": "alpiq-722140b8ffd5",
-      "slug": "technische-r-betriebsmitarbeiter-in-wasserkraftwerk-gosgen-alpiq-niedergosgen",
+      "slug": "addetto-a-tecnico-a-all-esercizio-della-centrale-idroelettrica-di-gosgen-alpiq-niedergosgen",
       "slugByLocale": {
         "it": "addetto-a-tecnico-a-all-esercizio-della-centrale-idroelettrica-di-gosgen-alpiq-niedergosgen",
         "en": "technical-operations-employee-at-gosgen-hydroelectric-power-plant-alpiq-niedergosgen",
@@ -292,11 +308,19 @@
         }
       },
       "needsRetranslation": true,
-      "sourceIdentity": "url:https://www.alpiq.com/career/open-jobs/your-application/311"
+      "sourceIdentity": "url:https://www.alpiq.com/career/open-jobs/your-application/311",
+      "previousSlugsByLocale": {
+        "it": [
+          "technische-r-betriebsmitarbeiter-in-wasserkraftwerk-gosgen-alpiq-niedergosgen"
+        ]
+      },
+      "previousSlugs": [
+        "technische-r-betriebsmitarbeiter-in-wasserkraftwerk-gosgen-alpiq-niedergosgen"
+      ]
     },
     {
       "id": "alpiq-0d54e1b2a0a9",
-      "slug": "stagiaire-employee-de-commerce-alpiq-suisse",
+      "slug": "interno-dipendente-commerciale-alpiq-suisse",
       "slugByLocale": {
         "it": "interno-dipendente-commerciale-alpiq-suisse",
         "en": "intern-commercial-employee-alpiq-suisse",
@@ -359,11 +383,19 @@
           "unitText": "YEAR"
         }
       },
-      "sourceIdentity": "url:https://www.alpiq.com/career/open-jobs/your-application/320"
+      "sourceIdentity": "url:https://www.alpiq.com/career/open-jobs/your-application/320",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-employee-de-commerce-alpiq-suisse"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-employee-de-commerce-alpiq-suisse"
+      ]
     },
     {
       "id": "alpiq-cafc6ebc9931",
-      "slug": "mba-intern-green-power-business-development-alpiq-switzerland",
+      "slug": "mba-stagista-green-power-business-development-alpiq-lausanne-710655c677",
       "slugByLocale": {
         "it": "mba-stagista-green-power-business-development-alpiq-lausanne-710655c677",
         "en": "mba-intern-green-power-business-development-alpiq-switzerland",
@@ -426,7 +458,15 @@
           "unitText": "YEAR"
         }
       },
-      "sourceIdentity": "url:https://www.alpiq.com/career/open-jobs/your-application/328"
+      "sourceIdentity": "url:https://www.alpiq.com/career/open-jobs/your-application/328",
+      "previousSlugsByLocale": {
+        "it": [
+          "mba-intern-green-power-business-development-alpiq-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "mba-intern-green-power-business-development-alpiq-switzerland"
+      ]
     }
   ]
 }

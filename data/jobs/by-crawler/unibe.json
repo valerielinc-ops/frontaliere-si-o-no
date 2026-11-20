@@ -4366,12 +4366,12 @@
     },
     {
       "id": "unibe-ca1867996693",
-      "slug": "research-it-assistant-hilfsassistenz-15-30-unibe-bern",
+      "slug": "ricerca-it-assistant-hilfsassistenz-15-30-universitat-bern-bern",
       "slugByLocale": {
         "de": "research-it-assistant-hilfsassistenz-15-30-unibe-bern",
-        "it": "research-it-assistant-hilfsassistenz-15-30-unibe-bern",
-        "en": "research-it-assistant-hilfsassistenz-15-30-unibe-bern",
-        "fr": "research-it-assistant-hilfsassistenz-15-30-unibe-bern"
+        "it": "ricerca-it-assistant-hilfsassistenz-15-30-universitat-bern-bern",
+        "en": "research-it-assistant-aid-assistance-15-30-universitat-bern-bern",
+        "fr": "recherche-it-assistant-hilfsassistenz-15-30-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4433,7 +4433,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T21:42:46.016Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T21:42:46.016Z"
+      "firstSeenAt": "2026-11-19T21:42:46.016Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "research-it-assistant-hilfsassistenz-15-30-unibe-bern"
+        ],
+        "en": [
+          "research-it-assistant-hilfsassistenz-15-30-unibe-bern"
+        ],
+        "fr": [
+          "research-it-assistant-hilfsassistenz-15-30-unibe-bern"
+        ]
+      },
+      "previousSlugs": [
+        "research-it-assistant-hilfsassistenz-15-30-unibe-bern"
+      ]
     },
     {
       "id": "unibe-3f56dd7b39eb",
@@ -4441,7 +4455,7 @@
       "slugByLocale": {
         "de": "research-assistant-studentische-hilfskraft-20-br-programmierung-amp-datenanalyse-unibe",
         "it": "research-assistant-studentische-hilfskraft-20-br-programmierung-amp-datenanalyse-unibe",
-        "en": "research-assistant-studentische-hilfskraft-20-br-programmierung-amp-datenanalyse-unibe",
+        "en": "research-assistant-student-assistant-20-br-programming-data-analysis-universitat-bern-bern",
         "fr": "research-assistant-studentische-hilfskraft-20-br-programmierung-amp-datenanalyse-unibe"
       },
       "company": "Universität Bern",
@@ -4504,7 +4518,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T21:42:46.014Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T21:42:46.014Z"
+      "firstSeenAt": "2026-11-19T21:42:46.014Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "research-assistant-studentische-hilfskraft-20-br-programmierung-amp-datenanalyse-unibe"
+        ]
+      },
+      "previousSlugs": [
+        "research-assistant-studentische-hilfskraft-20-br-programmierung-amp-datenanalyse-unibe"
+      ]
     },
     {
       "id": "unibe-ba8b24e64c52",

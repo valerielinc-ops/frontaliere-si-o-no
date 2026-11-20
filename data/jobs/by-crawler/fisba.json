@@ -269,12 +269,12 @@
     },
     {
       "id": "fisba-38f165b06b5e",
-      "slug": "betriebsmechaniker-instandhaltungsmechaniker-m-w-st-gallen-fisba-ch",
+      "slug": "meccanico-operativo-meccanico-di-manutenzione-m-f-fisba-ag-st-gallen",
       "slugByLocale": {
         "de": "betriebsmechaniker-instandhaltungsmechaniker-m-w-st-gallen-fisba-ch",
-        "it": "betriebsmechaniker-instandhaltungsmechaniker-m-w-st-gallen-fisba-ch",
-        "en": "betriebsmechaniker-instandhaltungsmechaniker-m-w-st-gallen-fisba-ch",
-        "fr": "betriebsmechaniker-instandhaltungsmechaniker-m-w-st-gallen-fisba-ch"
+        "it": "meccanico-operativo-meccanico-di-manutenzione-m-f-fisba-ag-st-gallen",
+        "en": "operational-mechanic-maintenance-mechanic-m-f-fisba-ag-st-gallen",
+        "fr": "mecanicien-operationnel-mecanicien-d-entretien-h-f-fisba-ag-st-gallen"
       },
       "company": "FISBA AG",
       "companyKey": "fisba",
@@ -337,7 +337,21 @@
       "validThrough": "2027-01-24T21:42:37.927Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-19T21:42:37.927Z",
-      "sourceIdentity": "url:https://fisba.com/en/jobs/betriebsmechaniker-instandhaltungsmechaniker-mw"
+      "sourceIdentity": "url:https://fisba.com/en/jobs/betriebsmechaniker-instandhaltungsmechaniker-mw",
+      "previousSlugsByLocale": {
+        "it": [
+          "betriebsmechaniker-instandhaltungsmechaniker-m-w-st-gallen-fisba-ch"
+        ],
+        "en": [
+          "betriebsmechaniker-instandhaltungsmechaniker-m-w-st-gallen-fisba-ch"
+        ],
+        "fr": [
+          "betriebsmechaniker-instandhaltungsmechaniker-m-w-st-gallen-fisba-ch"
+        ]
+      },
+      "previousSlugs": [
+        "betriebsmechaniker-instandhaltungsmechaniker-m-w-st-gallen-fisba-ch"
+      ]
     },
     {
       "id": "fisba-b2eec155a7bd",

@@ -17796,12 +17796,12 @@
     },
     {
       "id": "luks-b7039ffe8caf",
-      "slug": "pflegefachfrau-pflegefachmann-hf-fh-interdisziplinare-abteilung-100-luks-sursee",
+      "slug": "infermieristica-specialista-hf-fh-reparto-interdisciplinare-100-luzerner-kantonsspital-luks-sursee",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-hf-fh-interdisziplinare-abteilung-100-luks-sursee",
-        "it": "pflegefachfrau-pflegefachmann-hf-fh-interdisziplinare-abteilung-100-luks-sursee",
-        "en": "pflegefachfrau-pflegefachmann-hf-fh-interdisziplinare-abteilung-100-luks-sursee",
-        "fr": "pflegefachfrau-pflegefachmann-hf-fh-interdisziplinare-abteilung-100-luks-sursee"
+        "it": "infermieristica-specialista-hf-fh-reparto-interdisciplinare-100-luzerner-kantonsspital-luks-sursee",
+        "en": "nursing-specialist-hf-fh-interdisciplinary-department-100-luzerner-kantonsspital-luks-sursee",
+        "fr": "specialiste-des-soins-infirmiers-hf-fh-departement-interdisciplinaire-100-luzerner-kantonsspital-luks-sursee"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -17863,16 +17863,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-17T21:17:23.839Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T21:17:23.839Z"
+      "firstSeenAt": "2026-11-19T21:17:23.839Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-pflegefachmann-hf-fh-interdisziplinare-abteilung-100-luks-sursee"
+        ],
+        "en": [
+          "pflegefachfrau-pflegefachmann-hf-fh-interdisziplinare-abteilung-100-luks-sursee"
+        ],
+        "fr": [
+          "pflegefachfrau-pflegefachmann-hf-fh-interdisziplinare-abteilung-100-luks-sursee"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachfrau-pflegefachmann-hf-fh-interdisziplinare-abteilung-100-luks-sursee"
+      ]
     },
     {
       "id": "luks-2196b5ddc0f0",
-      "slug": "chief-nursing-informatics-officer-cnio-100-luks-luzern",
+      "slug": "responsabile-informatica-infermieristica-cnio-100-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
         "de": "chief-nursing-informatics-officer-cnio-100-luks-luzern",
-        "it": "chief-nursing-informatics-officer-cnio-100-luks-luzern",
+        "it": "responsabile-informatica-infermieristica-cnio-100-luzerner-kantonsspital-luks-luzern",
         "en": "chief-nursing-informatics-officer-cnio-100-luks-luzern",
-        "fr": "chief-nursing-informatics-officer-cnio-100-luks-luzern"
+        "fr": "dirigeant-principal-de-l-informatique-infirmiere-ioin-100-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -17935,7 +17949,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-17T21:17:23.825Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T21:17:23.825Z"
+      "firstSeenAt": "2026-11-19T21:17:23.825Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chief-nursing-informatics-officer-cnio-100-luks-luzern"
+        ],
+        "fr": [
+          "chief-nursing-informatics-officer-cnio-100-luks-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "chief-nursing-informatics-officer-cnio-100-luks-luzern"
+      ]
     },
     {
       "id": "luks-3ebc871f015b",

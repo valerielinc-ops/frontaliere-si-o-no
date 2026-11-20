@@ -8531,12 +8531,12 @@
     },
     {
       "id": "kliniken-valens-916af5e24423",
-      "slug": "fachfrau-fachmann-apotheke-m-w-a-40-60-kliniken-valens-davos-clavdel",
+      "slug": "farmacia-esperto-specialista-m-f-a-40-60-kliniken-valens-davos-clavdel",
       "slugByLocale": {
         "de": "fachfrau-fachmann-apotheke-m-w-a-40-60-kliniken-valens-davos-clavdel",
-        "it": "fachfrau-fachmann-apotheke-m-w-a-40-60-kliniken-valens-davos-clavdel",
-        "en": "fachfrau-fachmann-apotheke-m-w-a-40-60-kliniken-valens-davos-clavdel",
-        "fr": "fachfrau-fachmann-apotheke-m-w-a-40-60-kliniken-valens-davos-clavdel"
+        "it": "farmacia-esperto-specialista-m-f-a-40-60-kliniken-valens-davos-clavdel",
+        "en": "expert-specialist-pharmacy-m-f-a-40-60-kliniken-valens-davos-clavdel",
+        "fr": "expert-specialiste-pharmacie-m-f-a-40-60-kliniken-valens-davos-clavdel"
       },
       "company": "Kliniken Valens",
       "companyKey": "kliniken-valens",
@@ -8598,7 +8598,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T21:55:00.985Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T21:55:00.985Z"
+      "firstSeenAt": "2026-11-19T21:55:00.985Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-apotheke-m-w-a-40-60-kliniken-valens-davos-clavdel"
+        ],
+        "en": [
+          "fachfrau-fachmann-apotheke-m-w-a-40-60-kliniken-valens-davos-clavdel"
+        ],
+        "fr": [
+          "fachfrau-fachmann-apotheke-m-w-a-40-60-kliniken-valens-davos-clavdel"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-apotheke-m-w-a-40-60-kliniken-valens-davos-clavdel"
+      ]
     },
     {
       "id": "kliniken-valens-0a45813c3f1a",

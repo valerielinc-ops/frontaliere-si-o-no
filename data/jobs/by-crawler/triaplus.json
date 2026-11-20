@@ -2251,12 +2251,12 @@
     },
     {
       "id": "triaplus-c882cab1a1bd",
-      "slug": "pflegefachperson-fh-hf-o-sozialarbeiter-m-w-d-intuk-triaplus-ag-oberwil",
+      "slug": "infermiere-a-fh-hf-o-assistente-sociale-m-f-d-intuk-triaplus-ag-oberwil",
       "slugByLocale": {
         "de": "pflegefachperson-fh-hf-oder-sozialarbeiter-m-w-d-intuk-triaplus-pflegefachperson-fh-hf",
-        "it": "pflegefachperson-fh-hf-o-sozialarbeiter-m-w-d-intuk-triaplus-ag-oberwil",
-        "en": "pflegefachperson-fh-hf-oder-sozialarbeiter-m-w-d-intuk-triaplus-pflegefachperson-fh-hf",
-        "fr": "pflegefachperson-fh-hf-oder-sozialarbeiter-m-w-d-intuk-triaplus-pflegefachperson-fh-hf"
+        "it": "infermiere-a-fh-hf-o-assistente-sociale-m-f-d-intuk-triaplus-ag-oberwil",
+        "en": "nursing-professional-fh-hf-or-social-worker-m-f-d-intuk-triaplus-ag-oberwil",
+        "fr": "professionnels-des-soins-infirmiers-fh-hf-ou-travailleur-social-h-f-d-intuk-triaplus-ag-oberwil"
       },
       "company": "Triaplus AG",
       "companyKey": "triaplus",
@@ -2303,11 +2303,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "pflegefachperson-fh-hf-oder-sozialarbeiter-m-w-d-intuk-triaplus-pflegefachperson-fh-hf",
+          "pflegefachperson-fh-hf-o-sozialarbeiter-m-w-d-intuk-triaplus-ag-oberwil"
+        ],
+        "en": [
+          "pflegefachperson-fh-hf-oder-sozialarbeiter-m-w-d-intuk-triaplus-pflegefachperson-fh-hf"
+        ],
+        "fr": [
           "pflegefachperson-fh-hf-oder-sozialarbeiter-m-w-d-intuk-triaplus-pflegefachperson-fh-hf"
         ]
       },
       "previousSlugs": [
-        "pflegefachperson-fh-hf-oder-sozialarbeiter-m-w-d-intuk-triaplus-pflegefachperson-fh-hf"
+        "pflegefachperson-fh-hf-oder-sozialarbeiter-m-w-d-intuk-triaplus-pflegefachperson-fh-hf",
+        "pflegefachperson-fh-hf-o-sozialarbeiter-m-w-d-intuk-triaplus-ag-oberwil"
       ],
       "salaryMin": 86500,
       "salaryMax": 120500,

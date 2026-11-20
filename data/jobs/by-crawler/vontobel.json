@@ -2173,11 +2173,11 @@
     },
     {
       "id": "vontobel-5b9e428623f7",
-      "slug": "data-engineer-finance-platform-vontobel-ch",
+      "slug": "data-ingegnere-finanza-platform-vontobel-zurich-bleicherweg-21",
       "slugByLocale": {
         "en": "data-engineer-finance-platform-vontobel-ch",
-        "it": "data-engineer-finance-platform-vontobel-ch",
-        "de": "data-engineer-finance-platform-vontobel-ch",
+        "it": "data-ingegnere-finanza-platform-vontobel-zurich-bleicherweg-21",
+        "de": "data-ingenieur-finanzen-platform-vontobel-zurich-bleicherweg-21",
         "fr": "data-engineer-finance-platform-vontobel-ch"
       },
       "company": "Vontobel",
@@ -2241,7 +2241,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T21:57:58.535Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T21:57:58.535Z"
+      "firstSeenAt": "2026-11-19T21:57:58.535Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "data-engineer-finance-platform-vontobel-ch"
+        ],
+        "de": [
+          "data-engineer-finance-platform-vontobel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "data-engineer-finance-platform-vontobel-ch"
+      ]
     },
     {
       "id": "vontobel-058c36120ade",

@@ -87,8 +87,8 @@
       "slugByLocale": {
         "de": "wir-suchen-ab-dem-2-semester-25-januar-2027-eine-motivierte-lehrperson-an-der-da-abteilung-40838",
         "it": "wir-suchen-ab-dem-2-semester-25-januar-2027-eine-motivierte-lehrperson-an-der-da-abteilung-40838",
-        "en": "wir-suchen-ab-dem-2-semester-25-januar-2027-eine-motivierte-lehrperson-an-der-da-abteilung-40838",
-        "fr": "wir-suchen-ab-dem-2-semester-25-januar-2027-eine-motivierte-lehrperson-an-der-da-abteilung-40838"
+        "en": "from-the-2nd-semester-25-january-2027-we-are-looking-for-a-motivated-teacher-at-the-da-department-for-teaching-40838",
+        "fr": "a-partir-du-2eme-semestre-25-janvier-2027-nous-recherchons-un-professeur-motive-au-departement-da-pour-l-40838"
       },
       "slugDisambiguator": "40838",
       "company": "be-med AG",
@@ -152,7 +152,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T21:45:14.060Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T21:45:14.060Z"
+      "firstSeenAt": "2026-11-19T21:45:14.060Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "wir-suchen-ab-dem-2-semester-25-januar-2027-eine-motivierte-lehrperson-an-der-da-abteilung-40838"
+        ],
+        "fr": [
+          "wir-suchen-ab-dem-2-semester-25-januar-2027-eine-motivierte-lehrperson-an-der-da-abteilung-40838"
+        ]
+      },
+      "previousSlugs": [
+        "wir-suchen-ab-dem-2-semester-25-januar-2027-eine-motivierte-lehrperson-an-der-da-abteilung-40838"
+      ]
     },
     {
       "id": "ksml-ff2d52a98685",
@@ -590,8 +601,8 @@
       "slugByLocale": {
         "de": "wir-suchen-dich-als-klassenhilfe-7-klasse-an-den-schulen-fraubrunnen-interessiert-dann-40833",
         "it": "wir-suchen-dich-come-klassenhilfe-7-klasse-an-den-schulen-fraubrunnen-interessiert-dann-lass-uns-reden-schulen-fraubrunnen",
-        "en": "wir-suchen-dich-als-klassenhilfe-7-klasse-an-den-schulen-fraubrunnen-interessiert-dann-40833",
-        "fr": "wir-suchen-dich-als-klassenhilfe-7-klasse-an-den-schulen-fraubrunnen-interessiert-dann-40833"
+        "en": "we-are-looking-for-you-as-a-class-help-7th-grade-at-the-frauenbrunnen-schools-interested-then-let-s-talk-schulen-40833",
+        "fr": "nous-vous-recherchons-comme-aide-en-classe-en-7eme-annee-dans-les-ecoles-de-frauenbrunnen-interesse-alors-parlons-40833"
       },
       "slugDisambiguator": "40833",
       "company": "Schulen Fraubrunnen",
@@ -641,6 +652,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "wir-suchen-dich-als-klassenhilfe-7-klasse-an-den-schulen-fraubrunnen-interessiert-dann-40833"
+        ],
+        "en": [
+          "wir-suchen-dich-als-klassenhilfe-7-klasse-an-den-schulen-fraubrunnen-interessiert-dann-40833"
+        ],
+        "fr": [
           "wir-suchen-dich-als-klassenhilfe-7-klasse-an-den-schulen-fraubrunnen-interessiert-dann-40833"
         ]
       },
@@ -1704,12 +1721,12 @@
     },
     {
       "id": "ksml-f64520340d26",
-      "slug": "teilpensum-kindergarten-ca-30-schule-muhleberg-allenluften-40837",
+      "slug": "pensione-parziale-circa-il-30-schule-muhleberg-allenluften-40837",
       "slugByLocale": {
         "de": "teilpensum-kindergarten-ca-30-schule-muhleberg-allenluften-40837",
-        "it": "teilpensum-kindergarten-ca-30-schule-muhleberg-allenluften-40837",
-        "en": "teilpensum-kindergarten-ca-30-schule-muhleberg-allenluften-40837",
-        "fr": "teilpensum-kindergarten-ca-30-schule-muhleberg-allenluften-40837"
+        "it": "pensione-parziale-circa-il-30-schule-muhleberg-allenluften-40837",
+        "en": "partial-board-kindergarten-approx-30-schule-muhleberg-allenluften-40837",
+        "fr": "pension-partielle-maternelle-environ-30-schule-muhleberg-allenluften-40837"
       },
       "slugDisambiguator": "40837",
       "company": "Schule Mühleberg",
@@ -1772,7 +1789,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-17T21:45:14.059Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T21:45:14.059Z"
+      "firstSeenAt": "2026-11-19T21:45:14.059Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teilpensum-kindergarten-ca-30-schule-muhleberg-allenluften-40837"
+        ],
+        "en": [
+          "teilpensum-kindergarten-ca-30-schule-muhleberg-allenluften-40837"
+        ],
+        "fr": [
+          "teilpensum-kindergarten-ca-30-schule-muhleberg-allenluften-40837"
+        ]
+      },
+      "previousSlugs": [
+        "teilpensum-kindergarten-ca-30-schule-muhleberg-allenluften-40837"
+      ]
     },
     {
       "id": "ksml-946fe658a971",
@@ -1993,12 +2024,12 @@
     },
     {
       "id": "ksml-2ea4147b3f93",
-      "slug": "ttg-4-lektionen-schule-moosseedorf-moosseedorf-40832",
+      "slug": "ttg-4-lezioni-schule-moosseedorf-moosseedorf-40832",
       "slugByLocale": {
         "de": "ttg-4-lektionen-schule-moosseedorf-moosseedorf-40832",
-        "it": "ttg-4-lektionen-schule-moosseedorf-moosseedorf-40832",
-        "en": "ttg-4-lektionen-schule-moosseedorf-moosseedorf-40832",
-        "fr": "ttg-4-lektionen-schule-moosseedorf-moosseedorf-40832"
+        "it": "ttg-4-lezioni-schule-moosseedorf-moosseedorf-40832",
+        "en": "ttg-4-lessons-schule-moosseedorf-moosseedorf-40832",
+        "fr": "ttg-4-lecons-schule-moosseedorf-moosseedorf-40832"
       },
       "slugDisambiguator": "40832",
       "company": "Schule Moosseedorf",
@@ -2061,7 +2092,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T21:45:14.059Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T21:45:14.059Z"
+      "firstSeenAt": "2026-11-19T21:45:14.059Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ttg-4-lektionen-schule-moosseedorf-moosseedorf-40832"
+        ],
+        "en": [
+          "ttg-4-lektionen-schule-moosseedorf-moosseedorf-40832"
+        ],
+        "fr": [
+          "ttg-4-lektionen-schule-moosseedorf-moosseedorf-40832"
+        ]
+      },
+      "previousSlugs": [
+        "ttg-4-lektionen-schule-moosseedorf-moosseedorf-40832"
+      ]
     },
     {
       "id": "ksml-752611b1e529",
@@ -2733,12 +2778,12 @@
     },
     {
       "id": "ksml-d9a627f9eee9",
-      "slug": "stellvertretung-mutterschaftsurlaub-kindergarten-100-schule-muhleberg-allenluften-40824",
+      "slug": "deputato-congedo-di-maternita-asilo-nido-100-schule-muhleberg-allenluften-40824",
       "slugByLocale": {
         "de": "stellvertretung-mutterschaftsurlaub-kindergarten-100-schule-muhleberg-allenluften-40824",
-        "it": "stellvertretung-mutterschaftsurlaub-kindergarten-100-schule-muhleberg-allenluften-40824",
-        "en": "stellvertretung-mutterschaftsurlaub-kindergarten-100-schule-muhleberg-allenluften-40824",
-        "fr": "stellvertretung-mutterschaftsurlaub-kindergarten-100-schule-muhleberg-allenluften-40824"
+        "it": "deputato-congedo-di-maternita-asilo-nido-100-schule-muhleberg-allenluften-40824",
+        "en": "deputy-maternity-leave-kindergarten-100-schule-muhleberg-allenluften-40824",
+        "fr": "conge-de-maternite-adjoint-maternelle-100-schule-muhleberg-allenluften-40824"
       },
       "slugDisambiguator": "40824",
       "company": "Schule Mühleberg",
@@ -2801,7 +2846,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-17T21:45:14.058Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T21:45:14.058Z"
+      "firstSeenAt": "2026-11-19T21:45:14.058Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stellvertretung-mutterschaftsurlaub-kindergarten-100-schule-muhleberg-allenluften-40824"
+        ],
+        "en": [
+          "stellvertretung-mutterschaftsurlaub-kindergarten-100-schule-muhleberg-allenluften-40824"
+        ],
+        "fr": [
+          "stellvertretung-mutterschaftsurlaub-kindergarten-100-schule-muhleberg-allenluften-40824"
+        ]
+      },
+      "previousSlugs": [
+        "stellvertretung-mutterschaftsurlaub-kindergarten-100-schule-muhleberg-allenluften-40824"
+      ]
     },
     {
       "id": "ksml-8d4ecd682cf6",
@@ -5075,8 +5134,8 @@
       "slugByLocale": {
         "de": "stellvertretung-fur-mutterschaftsurlaub-mr-lehrperson-if-10-lektionen-zyklus-1-in-seftigen-40840",
         "it": "stellvertretung-per-mutterschaftsurlaub-mr-lehrperson-if-10-lektionen-zyklus-1-in-seftigen-zuweisungsregion-wattenwil-seftigen",
-        "en": "stellvertretung-fur-mutterschaftsurlaub-mr-lehrperson-if-10-lektionen-zyklus-1-in-seftigen-40840",
-        "fr": "stellvertretung-fur-mutterschaftsurlaub-mr-lehrperson-if-10-lektionen-zyklus-1-in-seftigen-40840"
+        "en": "deputy-for-maternity-leave-mr-teacher-if-10-lessons-cycle-1-in-seftigen-zuweisungsregion-wattenwil-seftigen-40840",
+        "fr": "adjoint-pour-le-conge-de-maternite-professeur-mr-if-10-lecons-cycle-1-a-seftigen-zuweisungsregion-wattenwil-40840"
       },
       "slugDisambiguator": "40840",
       "company": "Zuweisungsregion Wattenwil",
@@ -5126,6 +5185,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "stellvertretung-fur-mutterschaftsurlaub-mr-lehrperson-if-10-lektionen-zyklus-1-in-seftigen-40840"
+        ],
+        "en": [
+          "stellvertretung-fur-mutterschaftsurlaub-mr-lehrperson-if-10-lektionen-zyklus-1-in-seftigen-40840"
+        ],
+        "fr": [
           "stellvertretung-fur-mutterschaftsurlaub-mr-lehrperson-if-10-lektionen-zyklus-1-in-seftigen-40840"
         ]
       },
@@ -10575,12 +10640,12 @@
     },
     {
       "id": "ksml-f59fd9d2a267",
-      "slug": "lehrperson-zyklus-2-8-l-im-1-1-setting-schule-manuel-bern-40836",
+      "slug": "ciclo-2-8-l-in-1-1-impostazione-schule-manuel-bern-40836",
       "slugByLocale": {
         "de": "lehrperson-zyklus-2-8-l-im-1-1-setting-schule-manuel-bern-40836",
-        "it": "lehrperson-zyklus-2-8-l-im-1-1-setting-schule-manuel-bern-40836",
-        "en": "lehrperson-zyklus-2-8-l-im-1-1-setting-schule-manuel-bern-40836",
-        "fr": "lehrperson-zyklus-2-8-l-im-1-1-setting-schule-manuel-bern-40836"
+        "it": "ciclo-2-8-l-in-1-1-impostazione-schule-manuel-bern-40836",
+        "en": "teacher-cycle-2-8-l-in-1-1-setting-schule-manuel-bern-40836",
+        "fr": "cycle-de-l-enseignant-2-8-l-en-1-1-schule-manuel-bern-40836"
       },
       "slugDisambiguator": "40836",
       "company": "Schule Manuel",
@@ -10643,7 +10708,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T21:45:14.051Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T21:45:14.051Z"
+      "firstSeenAt": "2026-11-19T21:45:14.051Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrperson-zyklus-2-8-l-im-1-1-setting-schule-manuel-bern-40836"
+        ],
+        "en": [
+          "lehrperson-zyklus-2-8-l-im-1-1-setting-schule-manuel-bern-40836"
+        ],
+        "fr": [
+          "lehrperson-zyklus-2-8-l-im-1-1-setting-schule-manuel-bern-40836"
+        ]
+      },
+      "previousSlugs": [
+        "lehrperson-zyklus-2-8-l-im-1-1-setting-schule-manuel-bern-40836"
+      ]
     },
     {
       "id": "ksml-026ca7ba5b02",
@@ -16576,12 +16655,12 @@
     },
     {
       "id": "ksml-d4b200cd70a6",
-      "slug": "if-lehrperson-50-100-schule-grindelwald-grindelwald-40835",
+      "slug": "insegnante-if-50-100-schule-grindelwald-grindelwald-40835",
       "slugByLocale": {
         "de": "if-lehrperson-50-100-schule-grindelwald-grindelwald-40835",
-        "it": "if-lehrperson-50-100-schule-grindelwald-grindelwald-40835",
-        "en": "if-lehrperson-50-100-schule-grindelwald-grindelwald-40835",
-        "fr": "if-lehrperson-50-100-schule-grindelwald-grindelwald-40835"
+        "it": "insegnante-if-50-100-schule-grindelwald-grindelwald-40835",
+        "en": "if-teacher-50-100-schule-grindelwald-grindelwald-40835",
+        "fr": "if-enseignant-50-a-100-schule-grindelwald-grindelwald-40835"
       },
       "slugDisambiguator": "40835",
       "company": "Schule Grindelwald",
@@ -16644,7 +16723,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-17T21:45:14.046Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T21:45:14.046Z"
+      "firstSeenAt": "2026-11-19T21:45:14.046Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "if-lehrperson-50-100-schule-grindelwald-grindelwald-40835"
+        ],
+        "en": [
+          "if-lehrperson-50-100-schule-grindelwald-grindelwald-40835"
+        ],
+        "fr": [
+          "if-lehrperson-50-100-schule-grindelwald-grindelwald-40835"
+        ]
+      },
+      "previousSlugs": [
+        "if-lehrperson-50-100-schule-grindelwald-grindelwald-40835"
+      ]
     },
     {
       "id": "ksml-5e4d9cfeb247",
@@ -18896,8 +18989,8 @@
       "slugByLocale": {
         "de": "heilpadagoge-in-oder-lehrperson-1-bis-4-klasse-50-100-heilpadagogische-tagesschule-biel-40834",
         "it": "heilpadagoge-in-o-lehrperson-1-bis-4-klasse-50-100-heilpadagogische-tagesschule-biel-externe-klassen-magglingen",
-        "en": "heilpadagoge-in-oder-lehrperson-1-bis-4-klasse-50-100-heilpadagogische-tagesschule-biel-40834",
-        "fr": "heilpadagoge-in-oder-lehrperson-1-bis-4-klasse-50-100-heilpadagogische-tagesschule-biel-40834"
+        "en": "healing-teacher-in-or-teacher-1-to-4-class-50-100-heilpadagogische-tagesschule-biel-externe-klassen-magglingen-40834",
+        "fr": "professeur-de-guerison-en-ou-enseignant-1-a-4-classe-50-100-heilpadagogische-tagesschule-biel-externe-klassen-40834"
       },
       "slugDisambiguator": "40834",
       "company": "Heilpädagogische Tagesschule Biel - Externe Klassen",
@@ -18947,6 +19040,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "heilpadagoge-in-oder-lehrperson-1-bis-4-klasse-50-100-heilpadagogische-tagesschule-biel-40834"
+        ],
+        "en": [
+          "heilpadagoge-in-oder-lehrperson-1-bis-4-klasse-50-100-heilpadagogische-tagesschule-biel-40834"
+        ],
+        "fr": [
           "heilpadagoge-in-oder-lehrperson-1-bis-4-klasse-50-100-heilpadagogische-tagesschule-biel-40834"
         ]
       },
@@ -22040,12 +22139,12 @@
     },
     {
       "id": "ksml-aef3313af1c7",
-      "slug": "lehrperson-heilpadagogik-zyklus-1-10-l-2-x-bvsa-int-begleitung-in-einem-kindergarten-40829",
+      "slug": "ciclo-di-istruzione-di-guarigione-insegnanti-1-10-l-2-x-accompagnamento-di-bvsa-in-un-asilo-nido-schulhaus-hohe-40829",
       "slugByLocale": {
         "de": "lehrperson-heilpadagogik-zyklus-1-10-l-2-x-bvsa-int-begleitung-in-einem-kindergarten-40829",
-        "it": "lehrperson-heilpadagogik-zyklus-1-10-l-2-x-bvsa-int-begleitung-in-einem-kindergarten-40829",
-        "en": "lehrperson-heilpadagogik-zyklus-1-10-l-2-x-bvsa-int-begleitung-in-einem-kindergarten-40829",
-        "fr": "lehrperson-heilpadagogik-zyklus-1-10-l-2-x-bvsa-int-begleitung-in-einem-kindergarten-40829"
+        "it": "ciclo-di-istruzione-di-guarigione-insegnanti-1-10-l-2-x-accompagnamento-di-bvsa-in-un-asilo-nido-schulhaus-hohe-40829",
+        "en": "teacher-healing-education-cycle-1-10-l-2-x-bvsa-accompaniment-in-a-kindergarten-schulhaus-hohe-bern-40829",
+        "fr": "formation-de-guerison-des-enseignants-cycle-1-10-l-2-x-bvsa-accompagnement-dans-une-maternelle-schulhaus-hohe-bern-40829"
       },
       "slugDisambiguator": "40829",
       "company": "Schulhaus Höhe",
@@ -22108,7 +22207,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T21:45:14.039Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T21:45:14.039Z"
+      "firstSeenAt": "2026-11-19T21:45:14.039Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrperson-heilpadagogik-zyklus-1-10-l-2-x-bvsa-int-begleitung-in-einem-kindergarten-40829"
+        ],
+        "en": [
+          "lehrperson-heilpadagogik-zyklus-1-10-l-2-x-bvsa-int-begleitung-in-einem-kindergarten-40829"
+        ],
+        "fr": [
+          "lehrperson-heilpadagogik-zyklus-1-10-l-2-x-bvsa-int-begleitung-in-einem-kindergarten-40829"
+        ]
+      },
+      "previousSlugs": [
+        "lehrperson-heilpadagogik-zyklus-1-10-l-2-x-bvsa-int-begleitung-in-einem-kindergarten-40829"
+      ]
     },
     {
       "id": "ksml-9a0a3ebecb56",

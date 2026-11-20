@@ -5831,10 +5831,10 @@
     },
     {
       "id": "kanton-basel-landschaft-801b20c1cd95",
-      "slug": "sozialpadagogin-sozialpadagoge-kantonale-verwaltung-basel-landschaft-pratteln",
+      "slug": "social-pedagogue-social-pedagogue-kantonale-verwaltung-basel-landschaft-pratteln",
       "slugByLocale": {
         "de": "sozialpadagogin-sozialpadagoge-kanton-basel-landschaft-pratteln",
-        "it": "sozialpadagogin-sozialpadagoge-kantonale-verwaltung-basel-landschaft-pratteln",
+        "it": "social-pedagogue-social-pedagogue-kantonale-verwaltung-basel-landschaft-pratteln",
         "en": "sozialpadagogin-sozialpadagoge-kanton-basel-landschaft-pratteln",
         "fr": "sozialpadagogin-sozialpadagoge-kanton-basel-landschaft-pratteln"
       },
@@ -5890,7 +5890,8 @@
           "sozialpadagogin-sozialpadagoge-kantonale-verwaltung-basel-landschaft-pratteln"
         ],
         "it": [
-          "sozialpadagogin-sozialpadagoge-kanton-basel-landschaft-pratteln"
+          "sozialpadagogin-sozialpadagoge-kanton-basel-landschaft-pratteln",
+          "sozialpadagogin-sozialpadagoge-kantonale-verwaltung-basel-landschaft-pratteln"
         ]
       },
       "previousSlugs": [
@@ -5917,10 +5918,10 @@
     },
     {
       "id": "kanton-basel-landschaft-1c8e74477ad6",
-      "slug": "expertin-experte-neobiota-kanton-basel-landschaft-liestal",
+      "slug": "expert-expert-neobiota-kantonale-verwaltung-basel-landschaft-liestal",
       "slugByLocale": {
         "de": "expertin-experte-neobiota-kanton-basel-landschaft-liestal",
-        "it": "expertin-experte-neobiota-kanton-basel-landschaft-liestal",
+        "it": "expert-expert-neobiota-kantonale-verwaltung-basel-landschaft-liestal",
         "en": "expertin-experte-neobiota-kanton-basel-landschaft-liestal",
         "fr": "expertin-experte-neobiota-kanton-basel-landschaft-liestal"
       },
@@ -5984,7 +5985,15 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-17T21:20:30.858Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T21:20:30.858Z"
+      "firstSeenAt": "2026-11-19T21:20:30.858Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "expertin-experte-neobiota-kanton-basel-landschaft-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "expertin-experte-neobiota-kanton-basel-landschaft-liestal"
+      ]
     },
     {
       "id": "kanton-basel-landschaft-f7f995de2e4c",
@@ -5992,8 +6001,8 @@
       "slugByLocale": {
         "de": "mitglied-fur-die-baurekurskommission-kanton-basel-landschaft-liestal",
         "it": "mitglied-per-la-baurekurskommission-kantonale-verwaltung-basel-landschaft-liestal",
-        "en": "mitglied-fur-die-baurekurskommission-kantonale-verwaltung-basel-landschaft-liestal",
-        "fr": "mitglied-fur-die-baurekurskommission-kantonale-verwaltung-basel-landschaft-liestal"
+        "en": "member-of-the-baurekurskommission-kantonale-verwaltung-basel-landschaft-liestal",
+        "fr": "membre-de-la-baurecurskommission-kantonale-verwaltung-basel-landschaft-liestal"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -6042,10 +6051,17 @@
       "previousSlugsByLocale": {
         "it": [
           "mitglied-fur-die-baurekurskommission-kanton-basel-landschaft-liestal"
+        ],
+        "en": [
+          "mitglied-fur-die-baurekurskommission-kantonale-verwaltung-basel-landschaft-liestal"
+        ],
+        "fr": [
+          "mitglied-fur-die-baurekurskommission-kantonale-verwaltung-basel-landschaft-liestal"
         ]
       },
       "previousSlugs": [
-        "mitglied-fur-die-baurekurskommission-kanton-basel-landschaft-liestal"
+        "mitglied-fur-die-baurekurskommission-kanton-basel-landschaft-liestal",
+        "mitglied-fur-die-baurekurskommission-kantonale-verwaltung-basel-landschaft-liestal"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,

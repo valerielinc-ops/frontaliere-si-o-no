@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "bachem-7727ff6cdbaa",
-      "slug": "storage-technician-bereich-tankfarm-a-100-bachem-bubendorf",
+      "slug": "stoccaggio-area-tecnica-tankfarm-a-100-bachem-ag-bubendorf",
       "slugByLocale": {
         "de": "storage-technician-bereich-tankfarm-a-100-bachem-bubendorf",
-        "it": "storage-technician-bereich-tankfarm-a-100-bachem-bubendorf",
+        "it": "stoccaggio-area-tecnica-tankfarm-a-100-bachem-ag-bubendorf",
         "en": "storage-technician-bereich-tankfarm-a-100-bachem-bubendorf",
-        "fr": "storage-technician-bereich-tankfarm-a-100-bachem-bubendorf"
+        "fr": "technicien-ne-de-stockage-secteur-parc-de-reservoirs-a-100-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -84,7 +84,18 @@
       "validThrough": "2027-02-17T21:32:23.029Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-05-21T11:13:40.753Z",
-      "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-storage-technician-bereich-tankfarm-%28a%29-100-bl-4416/1458929533"
+      "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-storage-technician-bereich-tankfarm-%28a%29-100-bl-4416/1458929533",
+      "previousSlugsByLocale": {
+        "it": [
+          "storage-technician-bereich-tankfarm-a-100-bachem-bubendorf"
+        ],
+        "fr": [
+          "storage-technician-bereich-tankfarm-a-100-bachem-bubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "storage-technician-bereich-tankfarm-a-100-bachem-bubendorf"
+      ]
     },
     {
       "id": "bachem-03d4b0a93b65",

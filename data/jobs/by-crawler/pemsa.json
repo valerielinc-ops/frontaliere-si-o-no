@@ -23175,8 +23175,8 @@
       "slugByLocale": {
         "it": "guarnizione-in-bitume-e-resina-pemsa-st-sulpice-vd",
         "en": "guarnizione-in-bitume-e-resina-pemsa-st-sulpice-vd",
-        "de": "guarnizione-in-bitume-e-resina-pemsa-st-sulpice-vd",
-        "fr": "guarnizione-in-bitume-e-resina-pemsa-st-sulpice-vd"
+        "de": "barien-in-bitum-und-resina-pemsa-st-sulpice-vd",
+        "fr": "guarnies-en-bitut-et-resine-pemsa-st-sulpice-vd"
       },
       "id": "pemsa-8884fc352b74",
       "salaryMin": 74500,
@@ -23199,7 +23199,18 @@
       "streetAddress": "St-Sulpice VD",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-19T21:31:07.536Z"
+      "firstSeenAt": "2026-11-19T21:31:07.536Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "guarnizione-in-bitume-e-resina-pemsa-st-sulpice-vd"
+        ],
+        "fr": [
+          "guarnizione-in-bitume-e-resina-pemsa-st-sulpice-vd"
+        ]
+      },
+      "previousSlugs": [
+        "guarnizione-in-bitume-e-resina-pemsa-st-sulpice-vd"
+      ]
     },
     {
       "title": "REGOLATORE DI FINITURA – LAVORI STRADALI",
@@ -23240,9 +23251,9 @@
       },
       "slugByLocale": {
         "it": "regolatore-di-finitura-lavori-stradali-pemsa-lausanne",
-        "en": "regolatore-di-finitura-lavori-stradali-pemsa-lausanne",
-        "de": "regolatore-di-finitura-lavori-stradali-pemsa-lausanne",
-        "fr": "regolatore-di-finitura-lavori-stradali-pemsa-lausanne"
+        "en": "finishing-regular-stradal-works-pemsa-lausanne",
+        "de": "finishing-regular-stradal-arbeiten-pemsa-lausanne",
+        "fr": "financement-regulaire-travaux-stradiaux-pemsa-lausanne"
       },
       "id": "pemsa-267e5f281da3",
       "salaryMin": 74500,
@@ -23265,7 +23276,21 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-19T21:31:07.536Z"
+      "firstSeenAt": "2026-11-19T21:31:07.536Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "regolatore-di-finitura-lavori-stradali-pemsa-lausanne"
+        ],
+        "de": [
+          "regolatore-di-finitura-lavori-stradali-pemsa-lausanne"
+        ],
+        "fr": [
+          "regolatore-di-finitura-lavori-stradali-pemsa-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "regolatore-di-finitura-lavori-stradali-pemsa-lausanne"
+      ]
     }
   ]
 }

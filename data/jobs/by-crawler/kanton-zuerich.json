@@ -6469,8 +6469,8 @@
       "slugByLocale": {
         "de": "abteilungsleitung-kulinarik-und-gastfreundschaft-kanton-zuerich-zurich",
         "it": "abteilungsleitung-kulinarik-e-gastfreundschaft-kantonale-verwaltung-zurich",
-        "en": "abteilungsleitung-kulinarik-und-gastfreundschaft-kantonale-verwaltung-zurich-zurich",
-        "fr": "abteilungsleitung-kulinarik-und-gastfreundschaft-kantonale-verwaltung-zurich-zurich"
+        "en": "head-of-department-culinary-and-hospitality-kantonale-verwaltung-zurich-zurich",
+        "fr": "chef-du-departement-culinaire-et-de-l-accueil-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -6523,10 +6523,17 @@
       "previousSlugsByLocale": {
         "it": [
           "abteilungsleitung-kulinarik-und-gastfreundschaft-kanton-zuerich-zurich"
+        ],
+        "en": [
+          "abteilungsleitung-kulinarik-und-gastfreundschaft-kantonale-verwaltung-zurich-zurich"
+        ],
+        "fr": [
+          "abteilungsleitung-kulinarik-und-gastfreundschaft-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "abteilungsleitung-kulinarik-und-gastfreundschaft-kanton-zuerich-zurich"
+        "abteilungsleitung-kulinarik-und-gastfreundschaft-kanton-zuerich-zurich",
+        "abteilungsleitung-kulinarik-und-gastfreundschaft-kantonale-verwaltung-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

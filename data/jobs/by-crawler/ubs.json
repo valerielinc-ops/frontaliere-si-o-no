@@ -3590,7 +3590,7 @@
       "slugByLocale": {
         "en": "2027-internship-loyalty-keyclub-zurich-ubs-zurich",
         "it": "2027-internship-loyalty-keyclub-zurich-ubs-zurich",
-        "de": "2027-internship-loyalty-keyclub-zurich-ubs-zurich",
+        "de": "2027-praktikum-loyalitat-keyclub-zurich-ubs-zurich",
         "fr": "2027-internship-loyalty-keyclub-zurich-ubs-zurich"
       },
       "company": "UBS",
@@ -3676,7 +3676,15 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-17T21:19:12.084Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T21:19:12.084Z"
+      "firstSeenAt": "2026-11-19T21:19:12.084Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "2027-internship-loyalty-keyclub-zurich-ubs-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "2027-internship-loyalty-keyclub-zurich-ubs-zurich"
+      ]
     },
     {
       "id": "ubs-7a92a8a4e5b6",

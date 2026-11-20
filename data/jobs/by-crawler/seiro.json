@@ -94,12 +94,12 @@
     },
     {
       "id": "seiro-d06037249ec1",
-      "slug": "leitende-arztin-leitender-arzt-padiatrische-intensivmedizin-graubunden-seiro-chur-seiro-ch",
+      "slug": "medico-senior-medico-senior-pediatric-intensive-care-medicine-grigioni-seiro-seiro-gmbh-chur",
       "slugByLocale": {
         "de": "leitende-arztin-leitender-arzt-padiatrische-intensivmedizin-graubunden-seiro-chur-seiro-ch",
-        "it": "leitende-arztin-leitender-arzt-padiatrische-intensivmedizin-graubunden-seiro-chur-seiro-ch",
-        "en": "leitende-arztin-leitender-arzt-padiatrische-intensivmedizin-graubunden-seiro-chur-seiro-ch",
-        "fr": "leitende-arztin-leitender-arzt-padiatrische-intensivmedizin-graubunden-seiro-chur-seiro-ch"
+        "it": "medico-senior-medico-senior-pediatric-intensive-care-medicine-grigioni-seiro-seiro-gmbh-chur",
+        "en": "senior-physician-senior-physician-pediatric-intensive-care-medicine-graubunden-seiro-seiro-gmbh-chur",
+        "fr": "medecin-principal-medecin-principal-pediatrie-soins-intensifs-medecine-graubunden-seiro-gmbh-chur"
       },
       "company": "SEIRO GmbH",
       "companyKey": "seiro",
@@ -161,16 +161,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T21:46:08.507Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T21:46:08.507Z"
+      "firstSeenAt": "2026-11-19T21:46:08.507Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitende-arztin-leitender-arzt-padiatrische-intensivmedizin-graubunden-seiro-chur-seiro-ch"
+        ],
+        "en": [
+          "leitende-arztin-leitender-arzt-padiatrische-intensivmedizin-graubunden-seiro-chur-seiro-ch"
+        ],
+        "fr": [
+          "leitende-arztin-leitender-arzt-padiatrische-intensivmedizin-graubunden-seiro-chur-seiro-ch"
+        ]
+      },
+      "previousSlugs": [
+        "leitende-arztin-leitender-arzt-padiatrische-intensivmedizin-graubunden-seiro-chur-seiro-ch"
+      ]
     },
     {
       "id": "seiro-8ebc338011fa",
-      "slug": "leitende-arztin-leitender-arzt-angiologie-davos-gr-seiro-davos-graubunden-seiro-ch",
+      "slug": "medico-senior-senior-medico-angiology-davos-gr-seiro-seiro-gmbh-davos-graubunden",
       "slugByLocale": {
         "de": "leitende-arztin-leitender-arzt-angiologie-davos-gr-seiro-davos-graubunden-seiro-ch",
-        "it": "leitende-arztin-leitender-arzt-angiologie-davos-gr-seiro-davos-graubunden-seiro-ch",
-        "en": "leitende-arztin-leitender-arzt-angiologie-davos-gr-seiro-davos-graubunden-seiro-ch",
-        "fr": "leitende-arztin-leitender-arzt-angiologie-davos-gr-seiro-davos-graubunden-seiro-ch"
+        "it": "medico-senior-senior-medico-angiology-davos-gr-seiro-seiro-gmbh-davos-graubunden",
+        "en": "senior-physician-senior-physician-angiology-davos-gr-seiro-seiro-gmbh-davos-graubunden",
+        "fr": "medecin-principal-medecin-principal-angiologie-davos-gr-seiro-seiro-gmbh-davos-graubunden"
       },
       "company": "SEIRO GmbH",
       "companyKey": "seiro",
@@ -232,7 +246,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T21:46:08.506Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T21:46:08.506Z"
+      "firstSeenAt": "2026-11-19T21:46:08.506Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitende-arztin-leitender-arzt-angiologie-davos-gr-seiro-davos-graubunden-seiro-ch"
+        ],
+        "en": [
+          "leitende-arztin-leitender-arzt-angiologie-davos-gr-seiro-davos-graubunden-seiro-ch"
+        ],
+        "fr": [
+          "leitende-arztin-leitender-arzt-angiologie-davos-gr-seiro-davos-graubunden-seiro-ch"
+        ]
+      },
+      "previousSlugs": [
+        "leitende-arztin-leitender-arzt-angiologie-davos-gr-seiro-davos-graubunden-seiro-ch"
+      ]
     },
     {
       "id": "seiro-6c19f671f97e",
@@ -323,10 +351,10 @@
     },
     {
       "id": "seiro-c027482453b5",
-      "slug": "leitende-arztin-leitender-arzt-hausarztmedizin-reichenburg-seiro-seiro-gmbh-reichenburg",
+      "slug": "medico-senior-medicina-della-famiglia-medico-senior-reichenburg-seiro-seiro-gmbh-reichenburg-schwyz",
       "slugByLocale": {
         "de": "leitende-arztin-leitender-arzt-hausarztmedizin-reichenburg-seiro-reichenburg-schwyz-seiro",
-        "it": "leitende-arztin-leitender-arzt-hausarztmedizin-reichenburg-seiro-seiro-gmbh-reichenburg",
+        "it": "medico-senior-medicina-della-famiglia-medico-senior-reichenburg-seiro-seiro-gmbh-reichenburg-schwyz",
         "en": "leitende-arztin-leitender-arzt-hausarztmedizin-reichenburg-seiro-reichenburg-schwyz-seiro",
         "fr": "leitende-arztin-leitender-arzt-hausarztmedizin-reichenburg-seiro-reichenburg-schwyz-seiro"
       },
@@ -381,7 +409,8 @@
           "leitende-arztin-leitender-arzt-hausarztmedizin-reichenburg-seiro-seiro-gmbh-reichenburg"
         ],
         "it": [
-          "leitende-arztin-leitender-arzt-hausarztmedizin-reichenburg-seiro-reichenburg-schwyz-seiro"
+          "leitende-arztin-leitender-arzt-hausarztmedizin-reichenburg-seiro-reichenburg-schwyz-seiro",
+          "leitende-arztin-leitender-arzt-hausarztmedizin-reichenburg-seiro-seiro-gmbh-reichenburg"
         ]
       },
       "previousSlugs": [
@@ -409,10 +438,10 @@
     },
     {
       "id": "seiro-150faf092a24",
-      "slug": "leitende-arztin-leitender-arzt-hausarztmedizin-stafa-seiro-seiro-gmbh-stafa",
+      "slug": "medico-senior-medicina-della-famiglia-medico-senior-stafa-seiro-seiro-gmbh-stafa-zurich",
       "slugByLocale": {
         "de": "leitende-arztin-leitender-arzt-hausarztmedizin-stafa-seiro-stafa-zurich-seiro-ch",
-        "it": "leitende-arztin-leitender-arzt-hausarztmedizin-stafa-seiro-seiro-gmbh-stafa",
+        "it": "medico-senior-medicina-della-famiglia-medico-senior-stafa-seiro-seiro-gmbh-stafa-zurich",
         "en": "leitende-arztin-leitender-arzt-hausarztmedizin-stafa-seiro-stafa-zurich-seiro-ch",
         "fr": "leitende-arztin-leitender-arzt-hausarztmedizin-stafa-seiro-stafa-zurich-seiro-ch"
       },
@@ -467,7 +496,8 @@
           "leitende-arztin-leitender-arzt-hausarztmedizin-stafa-seiro-seiro-gmbh-stafa"
         ],
         "it": [
-          "leitende-arztin-leitender-arzt-hausarztmedizin-stafa-seiro-stafa-zurich-seiro-ch"
+          "leitende-arztin-leitender-arzt-hausarztmedizin-stafa-seiro-stafa-zurich-seiro-ch",
+          "leitende-arztin-leitender-arzt-hausarztmedizin-stafa-seiro-seiro-gmbh-stafa"
         ]
       },
       "previousSlugs": [
@@ -495,12 +525,12 @@
     },
     {
       "id": "seiro-b9244b90579b",
-      "slug": "facharztin-facharzt-allgemeine-innere-medizin-telemedizin-zurich-seiro-zurich-zurich-seiro",
+      "slug": "specialista-specialista-generale-medicina-interna-telemedicina-zurigo-seiro-seiro-gmbh-zurich-zurich",
       "slugByLocale": {
         "de": "facharztin-facharzt-allgemeine-innere-medizin-telemedizin-zurich-seiro-zurich-zurich-seiro",
-        "it": "facharztin-facharzt-allgemeine-innere-medizin-telemedizin-zurich-seiro-zurich-zurich-seiro",
-        "en": "facharztin-facharzt-allgemeine-innere-medizin-telemedizin-zurich-seiro-zurich-zurich-seiro",
-        "fr": "facharztin-facharzt-allgemeine-innere-medizin-telemedizin-zurich-seiro-zurich-zurich-seiro"
+        "it": "specialista-specialista-generale-medicina-interna-telemedicina-zurigo-seiro-seiro-gmbh-zurich-zurich",
+        "en": "specialist-specialist-general-internal-medicine-telemedicine-zurich-seiro-seiro-gmbh-zurich-zurich",
+        "fr": "specialiste-specialiste-general-medecine-interne-telemedecine-zurich-seiro-gmbh-zurich-zurich"
       },
       "company": "SEIRO GmbH",
       "companyKey": "seiro",
@@ -562,16 +592,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T21:46:08.500Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T21:46:08.500Z"
+      "firstSeenAt": "2026-11-19T21:46:08.500Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "facharztin-facharzt-allgemeine-innere-medizin-telemedizin-zurich-seiro-zurich-zurich-seiro"
+        ],
+        "en": [
+          "facharztin-facharzt-allgemeine-innere-medizin-telemedizin-zurich-seiro-zurich-zurich-seiro"
+        ],
+        "fr": [
+          "facharztin-facharzt-allgemeine-innere-medizin-telemedizin-zurich-seiro-zurich-zurich-seiro"
+        ]
+      },
+      "previousSlugs": [
+        "facharztin-facharzt-allgemeine-innere-medizin-telemedizin-zurich-seiro-zurich-zurich-seiro"
+      ]
     },
     {
       "id": "seiro-0b96b9c45eb2",
-      "slug": "leitende-arztin-leitender-arzt-hausarztmedizin-luzern-seiro-luzern-luzern-seiro-ch",
+      "slug": "lead-medico-lead-medico-medicina-famiglia-lucerne-seiro-seiro-gmbh-luzern-luzern",
       "slugByLocale": {
         "de": "leitende-arztin-leitender-arzt-hausarztmedizin-luzern-seiro-luzern-luzern-seiro-ch",
-        "it": "leitende-arztin-leitender-arzt-hausarztmedizin-luzern-seiro-luzern-luzern-seiro-ch",
-        "en": "leitende-arztin-leitender-arzt-hausarztmedizin-luzern-seiro-luzern-luzern-seiro-ch",
-        "fr": "leitende-arztin-leitender-arzt-hausarztmedizin-luzern-seiro-luzern-luzern-seiro-ch"
+        "it": "lead-medico-lead-medico-medicina-famiglia-lucerne-seiro-seiro-gmbh-luzern-luzern",
+        "en": "lead-doctor-lead-doctor-family-medicine-lucerne-seiro-seiro-gmbh-luzern-luzern",
+        "fr": "medecin-en-chef-medecin-en-chef-medecine-familiale-lucerne-seiro-gmbh-luzern-luzern"
       },
       "company": "SEIRO GmbH",
       "companyKey": "seiro",
@@ -633,7 +677,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T21:46:08.499Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-23T09:46:36.120Z"
+      "firstSeenAt": "2026-10-23T09:46:36.120Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitende-arztin-leitender-arzt-hausarztmedizin-luzern-seiro-luzern-luzern-seiro-ch"
+        ],
+        "en": [
+          "leitende-arztin-leitender-arzt-hausarztmedizin-luzern-seiro-luzern-luzern-seiro-ch"
+        ],
+        "fr": [
+          "leitende-arztin-leitender-arzt-hausarztmedizin-luzern-seiro-luzern-luzern-seiro-ch"
+        ]
+      },
+      "previousSlugs": [
+        "leitende-arztin-leitender-arzt-hausarztmedizin-luzern-seiro-luzern-luzern-seiro-ch"
+      ]
     },
     {
       "id": "seiro-19bec38bf13b",

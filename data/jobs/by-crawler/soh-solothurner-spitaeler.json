@@ -15348,12 +15348,12 @@
     },
     {
       "id": "soh-solothurner-spitaeler-a8cd94f4a42d",
-      "slug": "allrounderin-allrounder-technischer-dienst-o-betriebselektrikerin-betriebselektriker-m-w-d-solothurner-spitaler-ag-soh-solothurn",
+      "slug": "tuttofare-del-servizio-tecnico-o-elettricista-aziendale-m-f-d-solothurner-spitaler-ag-soh-solothurn",
       "slugByLocale": {
         "de": "allrounderin-allrounder-technischer-dienst-oder-betriebselektrikerin-betriebselektriker-w",
-        "it": "allrounderin-allrounder-technischer-dienst-o-betriebselektrikerin-betriebselektriker-m-w-d-solothurner-spitaler-ag-soh-solothurn",
-        "en": "allrounderin-allrounder-technischer-dienst-oder-betriebselektrikerin-betriebselektriker-w",
-        "fr": "allrounderin-allrounder-technischer-dienst-oder-betriebselektrikerin-betriebselektriker-w"
+        "it": "tuttofare-del-servizio-tecnico-o-elettricista-aziendale-m-f-d-solothurner-spitaler-ag-soh-solothurn",
+        "en": "all-rounder-all-rounder-technical-service-or-company-electrician-company-electrician-m-f-d-solothurner-spitaler-ag-soh",
+        "fr": "service-technique-ou-electricien-d-entreprise-electricien-d-entreprise-h-f-d-solothurner-spitaler-ag-soh-solothurn"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -15400,11 +15400,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "allrounderin-allrounder-technischer-dienst-oder-betriebselektrikerin-betriebselektriker-w",
+          "allrounderin-allrounder-technischer-dienst-o-betriebselektrikerin-betriebselektriker-m-w-d-solothurner-spitaler-ag-soh-solothurn"
+        ],
+        "en": [
+          "allrounderin-allrounder-technischer-dienst-oder-betriebselektrikerin-betriebselektriker-w"
+        ],
+        "fr": [
           "allrounderin-allrounder-technischer-dienst-oder-betriebselektrikerin-betriebselektriker-w"
         ]
       },
       "previousSlugs": [
-        "allrounderin-allrounder-technischer-dienst-oder-betriebselektrikerin-betriebselektriker-w"
+        "allrounderin-allrounder-technischer-dienst-oder-betriebselektrikerin-betriebselektriker-w",
+        "allrounderin-allrounder-technischer-dienst-o-betriebselektrikerin-betriebselektriker-m-w-d-solothurner-spitaler-ag-soh-solothurn"
       ],
       "salaryMin": 77000,
       "salaryMax": 116500,

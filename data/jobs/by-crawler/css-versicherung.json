@@ -3847,7 +3847,7 @@
         "de": "tech-lead-dms-ecm-w-m-css-versicherung-luzern",
         "it": "tech-lead-dms-ecm-w-m-css-versicherung-luzern",
         "en": "tech-lead-dms-ecm-w-m-css-versicherung-luzern",
-        "fr": "tech-lead-dms-ecm-w-m-css-versicherung-luzern"
+        "fr": "responsable-technique-dms-ecm-w-m-css-versicherung-luzern"
       },
       "company": "CSS Versicherung",
       "companyKey": "css-versicherung",
@@ -3910,16 +3910,24 @@
       "validThrough": "2027-02-17T21:35:27.307Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-19T21:35:27.307Z",
-      "sourceIdentity": "url:https://jobs.css.ch/offene-stellen/tech-lead-dms-ecm-w-m/11c69389-b2b9-4bf3-a7d1-c9ea923a44fd"
+      "sourceIdentity": "url:https://jobs.css.ch/offene-stellen/tech-lead-dms-ecm-w-m/11c69389-b2b9-4bf3-a7d1-c9ea923a44fd",
+      "previousSlugsByLocale": {
+        "fr": [
+          "tech-lead-dms-ecm-w-m-css-versicherung-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "tech-lead-dms-ecm-w-m-css-versicherung-luzern"
+      ]
     },
     {
       "id": "css-versicherung-41fa83784e48",
-      "slug": "kundenberater-in-per-privatkunden-st-gallen-css-versicherung-st-gallen",
+      "slug": "consulente-alla-clientela-privata-st-gallen-css-versicherung-st-gallen",
       "slugByLocale": {
         "de": "kundenberater-in-fur-privatkunden-st-gallen-css-versicherung-st-gallen",
-        "it": "kundenberater-in-per-privatkunden-st-gallen-css-versicherung-st-gallen",
-        "en": "kundenberater-in-fur-privatkunden-st-gallen-css-versicherung-st-gallen",
-        "fr": "kundenberater-in-fur-privatkunden-st-gallen-css-versicherung-st-gallen"
+        "it": "consulente-alla-clientela-privata-st-gallen-css-versicherung-st-gallen",
+        "en": "customer-advisor-for-private-customers-st-gallen-css-versicherung-st-gallen",
+        "fr": "conseiller-conseillere-a-la-clientele-pour-clients-prives-st-gallen-css-versicherung-st-gallen"
       },
       "company": "CSS Versicherung",
       "companyKey": "css-versicherung",
@@ -3967,11 +3975,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "kundenberater-in-fur-privatkunden-st-gallen-css-versicherung-st-gallen",
+          "kundenberater-in-per-privatkunden-st-gallen-css-versicherung-st-gallen"
+        ],
+        "en": [
+          "kundenberater-in-fur-privatkunden-st-gallen-css-versicherung-st-gallen"
+        ],
+        "fr": [
           "kundenberater-in-fur-privatkunden-st-gallen-css-versicherung-st-gallen"
         ]
       },
       "previousSlugs": [
-        "kundenberater-in-fur-privatkunden-st-gallen-css-versicherung-st-gallen"
+        "kundenberater-in-fur-privatkunden-st-gallen-css-versicherung-st-gallen",
+        "kundenberater-in-per-privatkunden-st-gallen-css-versicherung-st-gallen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

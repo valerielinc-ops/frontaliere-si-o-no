@@ -499,8 +499,8 @@
       "slugByLocale": {
         "de": "standortverantwortliche-r-projektleiter-in-80-100-7304-maienfeld-invias-swiss-ch",
         "it": "standortverantwortliche-r-responsabile-di-progetto-80-100-invias-ag-maienfeld",
-        "en": "standortverantwortliche-r-projektleiter-in-80-100-7304-maienfeld-invias-swiss-ch",
-        "fr": "standortverantwortliche-r-projektleiter-in-80-100-7304-maienfeld-invias-swiss-ch"
+        "en": "standortverantwortliche-r-project-manager-80-100-invias-ag-7304-maienfeld",
+        "fr": "standortverantwortliche-r-chef-de-projet-80-100-invias-ag-7304-maienfeld"
       },
       "company": "Invias AG",
       "companyKey": "invias-swiss",
@@ -549,6 +549,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "standortverantwortliche-r-projektleiter-in-80-100-7304-maienfeld-invias-swiss-ch"
+        ],
+        "en": [
+          "standortverantwortliche-r-projektleiter-in-80-100-7304-maienfeld-invias-swiss-ch"
+        ],
+        "fr": [
           "standortverantwortliche-r-projektleiter-in-80-100-7304-maienfeld-invias-swiss-ch"
         ]
       },

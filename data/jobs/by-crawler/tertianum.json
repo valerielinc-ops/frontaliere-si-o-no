@@ -118,12 +118,12 @@
     },
     {
       "id": "tertianum-7566bbd2d6a0",
-      "slug": "kochin-koch-tertianum-zurich",
+      "slug": "cucina-tertianum-zurich",
       "slugByLocale": {
         "de": "kochin-koch-tertianum-zurich",
-        "it": "kochin-koch-tertianum-zurich",
-        "en": "kochin-koch-tertianum-zurich",
-        "fr": "kochin-koch-tertianum-zurich"
+        "it": "cucina-tertianum-zurich",
+        "en": "cook-tertianum-zurich",
+        "fr": "cuire-tertianum-zurich"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -185,7 +185,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T21:43:37.639Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T21:43:37.639Z"
+      "firstSeenAt": "2026-11-19T21:43:37.639Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kochin-koch-tertianum-zurich"
+        ],
+        "en": [
+          "kochin-koch-tertianum-zurich"
+        ],
+        "fr": [
+          "kochin-koch-tertianum-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "kochin-koch-tertianum-zurich"
+      ]
     },
     {
       "id": "tertianum-b7404ed467e8",
@@ -522,12 +536,12 @@
     },
     {
       "id": "tertianum-00f8464e8d14",
-      "slug": "fachfrau-fachmann-gesundheit-efz-60-100-tertianum-dotzigen",
+      "slug": "operatrice-sociosanitaria-operatore-sociosanitario-afc-60-100-tertianum-dotzigen",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-efz-60-100-tertianum-dotzigen",
-        "it": "fachfrau-fachmann-gesundheit-efz-60-100-tertianum-dotzigen",
-        "en": "fachfrau-fachmann-gesundheit-efz-60-100-tertianum-dotzigen",
-        "fr": "fachfrau-fachmann-gesundheit-efz-60-100-tertianum-dotzigen"
+        "it": "operatrice-sociosanitaria-operatore-sociosanitario-afc-60-100-tertianum-dotzigen",
+        "en": "professional-health-efz-60-100-tertianum-dotzigen",
+        "fr": "sante-professionnelle-efz-60-100-tertianum-dotzigen"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -589,7 +603,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-19T21:43:33.607Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-06-26T12:39:53.662Z"
+      "firstSeenAt": "2026-06-26T12:39:53.662Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-efz-60-100-tertianum-dotzigen"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-efz-60-100-tertianum-dotzigen"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-efz-60-100-tertianum-dotzigen"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-efz-60-100-tertianum-dotzigen"
+      ]
     },
     {
       "id": "tertianum-7ecd959d3efe",

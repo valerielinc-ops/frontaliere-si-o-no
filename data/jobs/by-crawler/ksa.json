@@ -9155,12 +9155,12 @@
     },
     {
       "id": "ksa-dfbd173f1e3d",
-      "slug": "fachangestellte-radiologie-mpa-pflegeberuf-ksa-ch",
+      "slug": "radiologia-specialistica-mpa-professione-di-allattamento-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "fachangestellte-radiologie-mpa-pflegeberuf-ksa-ch",
-        "it": "fachangestellte-radiologie-mpa-pflegeberuf-ksa-ch",
-        "en": "fachangestellte-radiologie-mpa-pflegeberuf-ksa-ch",
-        "fr": "fachangestellte-radiologie-mpa-pflegeberuf-ksa-ch"
+        "it": "radiologia-specialistica-mpa-professione-di-allattamento-kantonsspital-aarau-ksa-aarau",
+        "en": "specialist-radiology-mpa-nursing-profession-kantonsspital-aarau-ksa-aarau",
+        "fr": "radiologie-specialisee-mpa-profession-infirmiere-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -9223,7 +9223,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T21:17:09.692Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T21:17:09.692Z"
+      "firstSeenAt": "2026-11-19T21:17:09.692Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachangestellte-radiologie-mpa-pflegeberuf-ksa-ch"
+        ],
+        "en": [
+          "fachangestellte-radiologie-mpa-pflegeberuf-ksa-ch"
+        ],
+        "fr": [
+          "fachangestellte-radiologie-mpa-pflegeberuf-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachangestellte-radiologie-mpa-pflegeberuf-ksa-ch"
+      ]
     }
   ]
 }

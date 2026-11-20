@@ -4725,8 +4725,8 @@
       "slugByLocale": {
         "de": "oberarztin-oberarzt-kinder-und-jugendpsychiatrie-spitaeler-schaffhausen-schaffhausen",
         "it": "oberarztin-oberarzt-kinder-e-jugendpsychiatrie-spitaler-schaffhausen",
-        "en": "oberarztin-oberarzt-kinder-und-jugendpsychiatrie-spitaeler-schaffhausen-schaffhausen",
-        "fr": "oberarztin-oberarzt-kinder-und-jugendpsychiatrie-spitaeler-schaffhausen-schaffhausen"
+        "en": "senior-physician-senior-physician-child-and-adolescent-psychiatry-spitaler-schaffhausen-schaffhausen",
+        "fr": "medecin-superieur-medecin-superieur-psychiatrie-des-enfants-et-des-adolescents-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4775,6 +4775,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "oberarztin-oberarzt-kinder-und-jugendpsychiatrie-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "oberarztin-oberarzt-kinder-und-jugendpsychiatrie-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
           "oberarztin-oberarzt-kinder-und-jugendpsychiatrie-spitaeler-schaffhausen-schaffhausen"
         ]
       },

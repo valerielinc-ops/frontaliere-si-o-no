@@ -3676,12 +3676,12 @@
     },
     {
       "id": "buergenstock-hotels-42c4ee638562",
-      "slug": "pool-allrounder-w-m-i-aushilfe-im-stundenlohn-buergenstock-hotels-obburgen",
+      "slug": "pool-allrounder-f-m-i-hourly-salari-help-burgenstock-hotels-ag-obburgen",
       "slugByLocale": {
         "de": "pool-allrounder-w-m-i-aushilfe-im-stundenlohn-buergenstock-hotels-obburgen",
-        "it": "pool-allrounder-w-m-i-aushilfe-im-stundenlohn-buergenstock-hotels-obburgen",
-        "en": "pool-allrounder-w-m-i-aushilfe-im-stundenlohn-buergenstock-hotels-obburgen",
-        "fr": "pool-allrounder-w-m-i-aushilfe-im-stundenlohn-buergenstock-hotels-obburgen"
+        "it": "pool-allrounder-f-m-i-hourly-salari-help-burgenstock-hotels-ag-obburgen",
+        "en": "pool-allrounder-f-m-i-hourly-wage-help-burgenstock-hotels-ag-obburgen",
+        "fr": "pool-allrounder-f-m-i-aide-salariale-horaire-burgenstock-hotels-ag-obburgen"
       },
       "company": "Bürgenstock Hotels AG",
       "companyKey": "buergenstock-hotels",
@@ -3755,7 +3755,21 @@
       "validThrough": "2027-02-17T21:59:33.527Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-19T21:59:33.527Z",
-      "sourceIdentity": "url:https://recruitingapp-2850.umantis.com/vacancies/1633/description/1"
+      "sourceIdentity": "url:https://recruitingapp-2850.umantis.com/vacancies/1633/description/1",
+      "previousSlugsByLocale": {
+        "it": [
+          "pool-allrounder-w-m-i-aushilfe-im-stundenlohn-buergenstock-hotels-obburgen"
+        ],
+        "en": [
+          "pool-allrounder-w-m-i-aushilfe-im-stundenlohn-buergenstock-hotels-obburgen"
+        ],
+        "fr": [
+          "pool-allrounder-w-m-i-aushilfe-im-stundenlohn-buergenstock-hotels-obburgen"
+        ]
+      },
+      "previousSlugs": [
+        "pool-allrounder-w-m-i-aushilfe-im-stundenlohn-buergenstock-hotels-obburgen"
+      ]
     },
     {
       "id": "buergenstock-hotels-38010f52e989",

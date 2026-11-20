@@ -9454,7 +9454,7 @@
         "en": "lifecycle-leader-ras-portfolio-roche-ch",
         "it": "lifecycle-leader-ras-portfolio-roche-ch",
         "de": "lifecycle-leader-ras-portfolio-roche-ch",
-        "fr": "lifecycle-leader-ras-portfolio-roche-ch"
+        "fr": "leader-du-cycle-de-vie-portefeuille-ras-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -9516,7 +9516,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T21:21:15.494Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T21:21:15.494Z"
+      "firstSeenAt": "2026-11-19T21:21:15.494Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "lifecycle-leader-ras-portfolio-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "lifecycle-leader-ras-portfolio-roche-ch"
+      ]
     },
     {
       "id": "roche-70d77b69d959",
@@ -9591,12 +9599,12 @@
     },
     {
       "id": "roche-65e18f3c0101",
-      "slug": "praktikum-in-der-qualitatssicherung-per-la-herstellung-klinischer-produkte-per-6-12-monate-roche-basel",
+      "slug": "tirocinio-nell-assicurazione-qualita-per-la-produzione-di-prodotti-clinici-per-6-12-mesi-roche-basel",
       "slugByLocale": {
         "de": "praktikum-in-der-qualitatssicherung-fur-die-herstellung-klinischer-produkte-fur-6-12",
-        "it": "praktikum-in-der-qualitatssicherung-per-la-herstellung-klinischer-produkte-per-6-12-monate-roche-basel",
-        "en": "praktikum-in-der-qualitatssicherung-fur-die-herstellung-klinischer-produkte-fur-6-12",
-        "fr": "praktikum-in-der-qualitatssicherung-fur-die-herstellung-klinischer-produkte-fur-6-12"
+        "it": "tirocinio-nell-assicurazione-qualita-per-la-produzione-di-prodotti-clinici-per-6-12-mesi-roche-basel",
+        "en": "internship-in-quality-assurance-for-the-manufacture-of-clinical-products-for-6-12-months-roche-basel",
+        "fr": "stage-en-assurance-qualite-pour-la-fabrication-de-produits-cliniques-pendant-6-12-mois-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -9641,11 +9649,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "praktikum-in-der-qualitatssicherung-fur-die-herstellung-klinischer-produkte-fur-6-12",
+          "praktikum-in-der-qualitatssicherung-per-la-herstellung-klinischer-produkte-per-6-12-monate-roche-basel"
+        ],
+        "en": [
+          "praktikum-in-der-qualitatssicherung-fur-die-herstellung-klinischer-produkte-fur-6-12"
+        ],
+        "fr": [
           "praktikum-in-der-qualitatssicherung-fur-die-herstellung-klinischer-produkte-fur-6-12"
         ]
       },
       "previousSlugs": [
-        "praktikum-in-der-qualitatssicherung-fur-die-herstellung-klinischer-produkte-fur-6-12"
+        "praktikum-in-der-qualitatssicherung-fur-die-herstellung-klinischer-produkte-fur-6-12",
+        "praktikum-in-der-qualitatssicherung-per-la-herstellung-klinischer-produkte-per-6-12-monate-roche-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -9670,12 +9686,12 @@
     },
     {
       "id": "roche-69de5fafddbd",
-      "slug": "praktikant-m-w-d-im-operational-support-compliance-team-an-der-schnittstelle-zur",
+      "slug": "intern-m-f-d-nel-team-di-supporto-e-conformita-operativa-all-interfaccia-per-lo-sviluppo-analitico-basel-6-12-mesi-roche",
       "slugByLocale": {
         "de": "praktikant-m-w-d-im-operational-support-compliance-team-an-der-schnittstelle-zur",
-        "it": "praktikant-m-w-d-im-operational-support-compliance-team-an-der-schnittstelle-zur",
-        "en": "praktikant-m-w-d-im-operational-support-compliance-team-an-der-schnittstelle-zur",
-        "fr": "praktikant-m-w-d-im-operational-support-compliance-team-an-der-schnittstelle-zur"
+        "it": "intern-m-f-d-nel-team-di-supporto-e-conformita-operativa-all-interfaccia-per-lo-sviluppo-analitico-basel-6-12-mesi-roche",
+        "en": "intern-m-f-d-in-the-operational-support-compliance-team-at-the-interface-to-analytical-development-basel-6-12-months",
+        "fr": "stage-h-f-d-dans-l-equipe-de-soutien-operationnel-et-de-conformite-a-l-interface-de-developpement-analytique-basel-6-12"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -9738,7 +9754,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T21:19:24.970Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T21:19:24.970Z"
+      "firstSeenAt": "2026-11-19T21:19:24.970Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-m-w-d-im-operational-support-compliance-team-an-der-schnittstelle-zur"
+        ],
+        "en": [
+          "praktikant-m-w-d-im-operational-support-compliance-team-an-der-schnittstelle-zur"
+        ],
+        "fr": [
+          "praktikant-m-w-d-im-operational-support-compliance-team-an-der-schnittstelle-zur"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-m-w-d-im-operational-support-compliance-team-an-der-schnittstelle-zur"
+      ]
     },
     {
       "id": "roche-1318a3eed05b",

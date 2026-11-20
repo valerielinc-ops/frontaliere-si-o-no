@@ -6996,12 +6996,12 @@
     },
     {
       "id": "kanton-st-gallen-103a269c9c15",
-      "slug": "lehrperson-per-das-fach-physik-kanton-st-gallen-sargans",
+      "slug": "docente-di-fisica-kanton-st-gallen-sargans",
       "slugByLocale": {
         "de": "lehrperson-fur-das-fach-physik-kanton-st-gallen-ch",
-        "it": "lehrperson-per-das-fach-physik-kanton-st-gallen-sargans",
-        "en": "lehrperson-fur-das-fach-physik-kanton-st-gallen-ch",
-        "fr": "lehrperson-fur-das-fach-physik-kanton-st-gallen-ch"
+        "it": "docente-di-fisica-kanton-st-gallen-sargans",
+        "en": "physics-teacher-kanton-st-gallen-sargans",
+        "fr": "professeur-de-physique-kanton-st-gallen-sargans"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -7050,11 +7050,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrperson-fur-das-fach-physik-kanton-st-gallen-ch",
+          "lehrperson-per-das-fach-physik-kanton-st-gallen-sargans"
+        ],
+        "en": [
+          "lehrperson-fur-das-fach-physik-kanton-st-gallen-ch"
+        ],
+        "fr": [
           "lehrperson-fur-das-fach-physik-kanton-st-gallen-ch"
         ]
       },
       "previousSlugs": [
-        "lehrperson-fur-das-fach-physik-kanton-st-gallen-ch"
+        "lehrperson-fur-das-fach-physik-kanton-st-gallen-ch",
+        "lehrperson-per-das-fach-physik-kanton-st-gallen-sargans"
       ],
       "salaryMin": 48500,
       "salaryMax": 89500,

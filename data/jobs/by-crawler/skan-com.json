@@ -5,11 +5,11 @@
   "jobs": [
     {
       "id": "skan-com-27dd8ef1a842",
-      "slug": "customer-service-specialist-fixed-term-9-month-contract-allschwil-skan-com-ch",
+      "slug": "servizio-clienti-specialista-fixed-term-9-month-contract-skan-ag-allschwil",
       "slugByLocale": {
         "en": "customer-service-specialist-fixed-term-9-month-contract-allschwil-skan-com-ch",
-        "it": "customer-service-specialist-fixed-term-9-month-contract-allschwil-skan-com-ch",
-        "de": "customer-service-specialist-fixed-term-9-month-contract-allschwil-skan-com-ch",
+        "it": "servizio-clienti-specialista-fixed-term-9-month-contract-skan-ag-allschwil",
+        "de": "kundendienst-spezialist-fixed-term-9-month-contract-skan-ag-allschwil",
         "fr": "customer-service-specialist-fixed-term-9-month-contract-allschwil-skan-com-ch"
       },
       "company": "SKAN AG",
@@ -86,7 +86,18 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-17T21:42:13.951Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T21:42:13.951Z"
+      "firstSeenAt": "2026-11-19T21:42:13.951Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "customer-service-specialist-fixed-term-9-month-contract-allschwil-skan-com-ch"
+        ],
+        "de": [
+          "customer-service-specialist-fixed-term-9-month-contract-allschwil-skan-com-ch"
+        ]
+      },
+      "previousSlugs": [
+        "customer-service-specialist-fixed-term-9-month-contract-allschwil-skan-com-ch"
+      ]
     },
     {
       "id": "skan-com-fc863d08c94f",

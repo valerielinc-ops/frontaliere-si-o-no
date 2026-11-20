@@ -2567,12 +2567,12 @@
     },
     {
       "id": "spital-zofingen-cad778c00113",
-      "slug": "dipl-ergotherapeut-in-akutgeriatrie-mit-zusatzlicher-moglichkeit-zu-ambulanter-neurologie",
+      "slug": "terapista-occupazionale-diplomato-a-geriatria-acuta-con-ulteriore-possibilita-di-lavorare-in-neurologia-ambulatoriale-e",
       "slugByLocale": {
         "de": "dipl-ergotherapeut-in-akutgeriatrie-mit-zusatzlicher-moglichkeit-zu-ambulanter-neurologie",
-        "it": "dipl-ergotherapeut-in-akutgeriatrie-mit-zusatzlicher-moglichkeit-zu-ambulanter-neurologie",
-        "en": "dipl-ergotherapeut-in-akutgeriatrie-mit-zusatzlicher-moglichkeit-zu-ambulanter-neurologie",
-        "fr": "dipl-ergotherapeut-in-akutgeriatrie-mit-zusatzlicher-moglichkeit-zu-ambulanter-neurologie"
+        "it": "terapista-occupazionale-diplomato-a-geriatria-acuta-con-ulteriore-possibilita-di-lavorare-in-neurologia-ambulatoriale-e",
+        "en": "diploma-qualified-occupational-therapist-acute-geriatrics-with-an-additional-opportunity-in-outpatient-neurology-and-or",
+        "fr": "ergotherapeute-diplome-e-geriatrie-aigue-avec-possibilite-supplementaire-de-neurologie-ambulatoire-et-ou-de-therapie-de"
       },
       "company": "Spital Zofingen",
       "companyKey": "spital-zofingen",
@@ -2634,16 +2634,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-17T21:37:47.985Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T21:37:47.985Z"
+      "firstSeenAt": "2026-11-19T21:37:47.985Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-ergotherapeut-in-akutgeriatrie-mit-zusatzlicher-moglichkeit-zu-ambulanter-neurologie"
+        ],
+        "en": [
+          "dipl-ergotherapeut-in-akutgeriatrie-mit-zusatzlicher-moglichkeit-zu-ambulanter-neurologie"
+        ],
+        "fr": [
+          "dipl-ergotherapeut-in-akutgeriatrie-mit-zusatzlicher-moglichkeit-zu-ambulanter-neurologie"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-ergotherapeut-in-akutgeriatrie-mit-zusatzlicher-moglichkeit-zu-ambulanter-neurologie"
+      ]
     },
     {
       "id": "spital-zofingen-2bcd73b517c2",
-      "slug": "leitende-arztin-leitender-arzt-akutgeriatrie-innere-medizin-spital-zofingen-zofingen",
+      "slug": "dottore-di-piombo-medico-di-piombo-medicina-acuta-medicina-interna-spital-zofingen-zofingen",
       "slugByLocale": {
         "de": "leitende-arztin-leitender-arzt-akutgeriatrie-innere-medizin-spital-zofingen-zofingen",
-        "it": "leitende-arztin-leitender-arzt-akutgeriatrie-innere-medizin-spital-zofingen-zofingen",
-        "en": "leitende-arztin-leitender-arzt-akutgeriatrie-innere-medizin-spital-zofingen-zofingen",
-        "fr": "leitende-arztin-leitender-arzt-akutgeriatrie-innere-medizin-spital-zofingen-zofingen"
+        "it": "dottore-di-piombo-medico-di-piombo-medicina-acuta-medicina-interna-spital-zofingen-zofingen",
+        "en": "lead-doctor-lead-doctor-acute-medicine-internal-medicine-spital-zofingen-zofingen",
+        "fr": "medecin-en-chef-medecin-en-chef-medecine-aigue-medecine-interne-spital-zofingen-zofingen"
       },
       "company": "Spital Zofingen",
       "companyKey": "spital-zofingen",
@@ -2705,7 +2719,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-17T21:37:47.574Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T21:37:47.574Z"
+      "firstSeenAt": "2026-11-19T21:37:47.574Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitende-arztin-leitender-arzt-akutgeriatrie-innere-medizin-spital-zofingen-zofingen"
+        ],
+        "en": [
+          "leitende-arztin-leitender-arzt-akutgeriatrie-innere-medizin-spital-zofingen-zofingen"
+        ],
+        "fr": [
+          "leitende-arztin-leitender-arzt-akutgeriatrie-innere-medizin-spital-zofingen-zofingen"
+        ]
+      },
+      "previousSlugs": [
+        "leitende-arztin-leitender-arzt-akutgeriatrie-innere-medizin-spital-zofingen-zofingen"
+      ]
     }
   ]
 }

@@ -5902,12 +5902,12 @@
     },
     {
       "id": "implenia-1433ded76045",
-      "slug": "collaborateur-gerance-f-h-x-lausanne-50-implenia-ch",
+      "slug": "gestione-collaboratrice-m-f-x-losanna-50-implenia-av",
       "slugByLocale": {
         "fr": "collaborateur-gerance-f-h-x-lausanne-50-implenia-ch",
-        "it": "collaborateur-gerance-f-h-x-lausanne-50-implenia-ch",
-        "en": "collaborateur-gerance-f-h-x-lausanne-50-implenia-ch",
-        "de": "collaborateur-gerance-f-h-x-lausanne-50-implenia-ch"
+        "it": "gestione-collaboratrice-m-f-x-losanna-50-implenia-av",
+        "en": "collaborator-management-m-f-x-lausanne-50-implenia-av",
+        "de": "mitarbeitermanagement-m-w-x-lausanne-50-implenia-av"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -5971,16 +5971,30 @@
       "validThrough": "2027-02-17T21:39:08.292Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-19T21:39:08.292Z",
-      "sourceIdentity": "url:https://jobs.implenia.com/job/collaborateur-g%c3%a9rance-%28fhx%29%2c-lausanne%2c-50/14142-de_de"
+      "sourceIdentity": "url:https://jobs.implenia.com/job/collaborateur-g%c3%a9rance-%28fhx%29%2c-lausanne%2c-50/14142-de_de",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-gerance-f-h-x-lausanne-50-implenia-ch"
+        ],
+        "en": [
+          "collaborateur-gerance-f-h-x-lausanne-50-implenia-ch"
+        ],
+        "de": [
+          "collaborateur-gerance-f-h-x-lausanne-50-implenia-ch"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-gerance-f-h-x-lausanne-50-implenia-ch"
+      ]
     },
     {
       "id": "implenia-1224f84b9f44",
-      "slug": "projektleiter-angebotsentwicklung-modernisierung-m-w-d-80-100-opfikon-implenia-glattpark-opfikon",
+      "slug": "project-manager-sviluppo-di-approvvigionamento-ammodernamento-m-f-d-80-100-opfikon-implenia-glattpark-opfikon",
       "slugByLocale": {
         "de": "projektleiter-angebotsentwicklung-modernisierung-w-m-d-80-100-opfikon-implenia-ch",
-        "it": "projektleiter-angebotsentwicklung-modernisierung-m-w-d-80-100-opfikon-implenia-glattpark-opfikon",
-        "en": "projektleiter-angebotsentwicklung-modernisierung-w-m-d-80-100-opfikon-implenia-ch",
-        "fr": "projektleiter-angebotsentwicklung-modernisierung-w-m-d-80-100-opfikon-implenia-ch"
+        "it": "project-manager-sviluppo-di-approvvigionamento-ammodernamento-m-f-d-80-100-opfikon-implenia-glattpark-opfikon",
+        "en": "project-manager-supply-development-modernization-m-f-d-80-100-opfikon-implenia-glattpark-opfikon",
+        "fr": "gestionnaire-de-projet-modernisation-du-developpement-de-l-approvisionnement-h-f-d-80-100-opfikon-implenia-glattpark"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -6028,11 +6042,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "projektleiter-angebotsentwicklung-modernisierung-w-m-d-80-100-opfikon-implenia-ch",
+          "projektleiter-angebotsentwicklung-modernisierung-m-w-d-80-100-opfikon-implenia-glattpark-opfikon"
+        ],
+        "en": [
+          "projektleiter-angebotsentwicklung-modernisierung-w-m-d-80-100-opfikon-implenia-ch"
+        ],
+        "fr": [
           "projektleiter-angebotsentwicklung-modernisierung-w-m-d-80-100-opfikon-implenia-ch"
         ]
       },
       "previousSlugs": [
-        "projektleiter-angebotsentwicklung-modernisierung-w-m-d-80-100-opfikon-implenia-ch"
+        "projektleiter-angebotsentwicklung-modernisierung-w-m-d-80-100-opfikon-implenia-ch",
+        "projektleiter-angebotsentwicklung-modernisierung-m-w-d-80-100-opfikon-implenia-glattpark-opfikon"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -6055,12 +6077,12 @@
     },
     {
       "id": "implenia-1d1ceb02f376",
-      "slug": "teamleitung-hlkse-m-w-d-opfikon-80-100-implenia-ch",
+      "slug": "team-leader-hlkse-m-f-d-opfikon-80-100-implenia-glattpark-opfikon",
       "slugByLocale": {
         "de": "teamleitung-hlkse-m-w-d-opfikon-80-100-implenia-ch",
-        "it": "teamleitung-hlkse-m-w-d-opfikon-80-100-implenia-ch",
+        "it": "team-leader-hlkse-m-f-d-opfikon-80-100-implenia-glattpark-opfikon",
         "en": "teamleitung-hlkse-m-w-d-opfikon-80-100-implenia-ch",
-        "fr": "teamleitung-hlkse-m-w-d-opfikon-80-100-implenia-ch"
+        "fr": "chef-d-equipe-hlkse-h-f-d-opfikon-80-100-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -6123,16 +6145,27 @@
       "validThrough": "2027-02-17T21:39:07.654Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-19T21:39:07.654Z",
-      "sourceIdentity": "url:https://jobs.implenia.com/job/teamleitung-hlkse-%28mwd%29%2c-opfikon%2c-80-100/13574-de_de"
+      "sourceIdentity": "url:https://jobs.implenia.com/job/teamleitung-hlkse-%28mwd%29%2c-opfikon%2c-80-100/13574-de_de",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleitung-hlkse-m-w-d-opfikon-80-100-implenia-ch"
+        ],
+        "fr": [
+          "teamleitung-hlkse-m-w-d-opfikon-80-100-implenia-ch"
+        ]
+      },
+      "previousSlugs": [
+        "teamleitung-hlkse-m-w-d-opfikon-80-100-implenia-ch"
+      ]
     },
     {
       "id": "implenia-14785843bbb9",
-      "slug": "kaufmannischer-projektleiter-m-w-d-80-100-opfikon-implenia-glattpark-opfikon",
+      "slug": "commercial-project-manager-m-f-d-80-100-opfikon-implenia-glattpark-opfikon",
       "slugByLocale": {
         "de": "kaufmannischer-projektleiter-w-m-d-80-100-opfikon-implenia-ch",
-        "it": "kaufmannischer-projektleiter-m-w-d-80-100-opfikon-implenia-glattpark-opfikon",
+        "it": "commercial-project-manager-m-f-d-80-100-opfikon-implenia-glattpark-opfikon",
         "en": "kaufmannischer-projektleiter-w-m-d-80-100-opfikon-implenia-ch",
-        "fr": "kaufmannischer-projektleiter-w-m-d-80-100-opfikon-implenia-ch"
+        "fr": "directeur-de-projet-commercial-h-f-d-80-100-opfikon-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -6180,11 +6213,16 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "kaufmannischer-projektleiter-w-m-d-80-100-opfikon-implenia-ch",
+          "kaufmannischer-projektleiter-m-w-d-80-100-opfikon-implenia-glattpark-opfikon"
+        ],
+        "fr": [
           "kaufmannischer-projektleiter-w-m-d-80-100-opfikon-implenia-ch"
         ]
       },
       "previousSlugs": [
-        "kaufmannischer-projektleiter-w-m-d-80-100-opfikon-implenia-ch"
+        "kaufmannischer-projektleiter-w-m-d-80-100-opfikon-implenia-ch",
+        "kaufmannischer-projektleiter-m-w-d-80-100-opfikon-implenia-glattpark-opfikon"
       ],
       "salaryMin": 113000,
       "salaryMax": 198500,
