@@ -83,19 +83,9 @@ export function isCompleteWorkdayBoard(stats, collected) {
 
 const SWISS_COUNTRY_LABEL_RE = /\b(?:switzerland|schweiz|suisse|svizzera)\b/i;
 
-function isSwissFacetValue(value, swissIds) {
-  return swissIds.includes(value.id)
-    || SWISS_COUNTRY_LABEL_RE.test(value.descriptor)
-    || isSwissLocationText(value.descriptor);
-}
-
 function workdayBoardListsSwitzerland(summary, { facetParameter, swissIds = WORKDAY_SWISS_LOCATION_IDS } = {}) {
   const values = workdayFacetLeafValues(summary?.facets, facetParameter);
-  // Workday can retain a facet option after its last posting closes. An
-  // explicit numeric zero is the source saying that the option is currently
-  // empty; a missing/non-numeric count remains unknown and must still block
-  // the authoritative-empty proof.
-  return Boolean(values?.some((value) => isSwissFacetValue(value, swissIds) && value.count !== 0));
+  return Boolean(values?.some((value) => swissIds.includes(value.id) || SWISS_COUNTRY_LABEL_RE.test(value.descriptor)));
 }
 
 /**
@@ -108,9 +98,7 @@ function workdayBoardListsSwitzerland(summary, { facetParameter, swissIds = WORK
  * same zero the Swiss-faceted query gives. Only a board that states postings
  * (`total > 0`) AND lists its country/location facet with Switzerland absent
  * from every value is the employer's own statement that the Swiss zero is real.
- * A missing facet, an empty one, or a Swiss value without an explicit numeric
- * zero is not a proof. Workday may retain a country option with `count: 0`,
- * which is an explicit source statement that the option currently has no jobs.
+ * A missing facet, an empty one, or a Swiss value of any count is not a proof.
  *
  * @param {import('./ats-clients/workday-client.mjs').WorkdayBoardSummary|null|undefined} summary
  * @param {{ facetParameter: string, swissIds?: string[] }} options
@@ -122,8 +110,9 @@ export function provesWorkdaySwissAbsentFromBoard(summary, { facetParameter, swi
   const values = workdayFacetLeafValues(summary.facets, facetParameter);
   if (!values || values.length === 0) return false;
   return values.every((value) => (
-    !isSwissFacetValue(value, swissIds)
-    || value.count === 0
+    !swissIds.includes(value.id)
+    && !SWISS_COUNTRY_LABEL_RE.test(value.descriptor)
+    && !isSwissLocationText(value.descriptor)
   ));
 }
 
@@ -804,13 +793,9 @@ export function createWorkdaySwissParser(config) {
       return empty;
     }
     const locations = workdayFacetLeafValues(summary.facets, facetParameter);
-    const swissZero = locations.some((value) => isSwissFacetValue(value, locationFilters) && value.count === 0);
-    const swissEvidence = swissZero
-      ? 'Switzerland facet explicitly reports 0 postings'
-      : 'Switzerland not among them';
     const evidence = `${companyName} Workday site ${sitePath}: ${reason}; live board `
       + `${summary.total} posting(s) across ${locations.length} location value(s) (${locations.slice(0, 5).map((c) => c.descriptor).join(', ')}`
-      + `${locations.length > 5 ? ', …' : ''}), ${swissEvidence}`;
+      + `${locations.length > 5 ? ', …' : ''}), Switzerland not among them`;
     console.log(`  🧾 Proven empty Swiss board — ${evidence}`);
     return markAuthoritativeEmptySnapshot(empty, evidence);
   }
