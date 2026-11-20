@@ -78,6 +78,11 @@ export const DOMAIN_OVERRIDES = {
   'impresa-pizzarotti': ['pizzarotti.it'],
   jsafrasarasin: ['jsafrasarasin.ch', 'jsafrasarasin.com'],
   'kanton-aargau': ['ag.ch'],
+  // The canton imprint identifies the Standeskanzlei Graubünden as the
+  // publisher, while its heraldry page declares the official canton mark.
+  // https://www.gr.ch/DE/Seiten/Impressum.aspx
+  // https://www.gr.ch/DE/kanton/wappen/Seiten/Kantonswappen.aspx
+  'kanton-graubunden': ['gr.ch'],
   lonza: ['lonza.com'],
   michaelpage: ['michaelpage.ch', 'michaelpage.com'],
   'matterhorn-gotthard-bahn': ['mgb.ch'],
@@ -103,6 +108,10 @@ export const DOMAIN_OVERRIDES = {
   mediamarkt: ['mediamarkt.ch'],
   // The official Metzgerei Meyer site matches the employer's JobRoom contact domain.
   'metzgerei-wursterei-viehhandel-rene-meyer': ['metzgerei-meyer.ch'],
+  // The official imprint names Müntener & Thomas Personal- und
+  // Unternehmensberatung AG and its Swiss commercial-register identifier.
+  // https://www.mt-jobs.ch/impressum/
+  'muntener-thomas-personal-und-unternehmensberatung-ag': ['mt-jobs.ch'],
   // mpa-praxisstellen.ch is a PKS Personal AG microsite; use the employer
   // domain declared by its dedicated crawler in audit mode.
   'mpa-praxisstellen-ch': ['pks-personal.ch'],
@@ -198,6 +207,12 @@ export const DOMAIN_OVERRIDES = {
 export const VERIFIED_LOGO_SOURCE_URLS = Object.freeze({
   'das-team-ag': Object.freeze([
     'https://team.jobs/favicon/apple-touch-icon.png',
+  ]),
+  'kanton-graubunden': Object.freeze([
+    'https://cdn.gr.ch/gr/prod/images/logo.svg',
+  ]),
+  'muntener-thomas-personal-und-unternehmensberatung-ag': Object.freeze([
+    'https://www.mt-jobs.ch/wp-content/uploads/2025/08/cropped-MT_LOGO_SVG-192x192.png',
   ]),
   zaugg: Object.freeze([
     'https://www.zaugg.swiss/cache/files/4ec575c09db3768f7a95e732a05217ce8a2c2956.png',
