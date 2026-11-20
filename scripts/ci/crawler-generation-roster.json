@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 25,
-  "crawlerCount": 712,
+  "crawlerCount": 713,
   "groups": {
     "10": [
       "atec-personal",
@@ -443,6 +443,7 @@
       "elektriker-elektromonteur-jobs-ch",
       "fachkraft",
       "fisba",
+      "frutiger-com",
       "fust",
       "hugo-boss",
       "lidl-svizzera",
@@ -1011,6 +1012,7 @@
     "forel-klinik": "data/jobs/by-crawler/forel-klinik.json",
     "franklin-university": "data/jobs/by-crawler/franklin-university.json",
     "freestarinformatik": "data/jobs/by-crawler/freestarinformatik.json",
+    "frutiger-com": "data/jobs/by-crawler/frutiger-com.json",
     "fusalp": "data/jobs/by-crawler/fusalp.json",
     "fust": "data/jobs/by-crawler/fust.json",
     "galderma": "data/jobs/by-crawler/galderma.json",
@@ -1480,5 +1482,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:fada256fe7fe013e16cf74d68de696a90cbb0bff9483789cbc7bd163fd53416e"
+  "digest": "sha256:cc60fdd844012e5eb708b0c23695f36f14cc3d5d7253e52e62c6736fd02b8d48"
 }

@@ -1562,8 +1562,12 @@ describe('member crawl exit signal end to end (CR-04b writer -> finalizer reader
       const expected = JSON.parse(finalizer.env.CRAWLER_GENERATION_EXPECTED_CRAWLERS)
         .map((entry: any) => entry.crawlerId).sort();
       const exported = crawlerLaunchSteps(job.steps).map((step: any) => {
+        // Tight portable artifacts bind the same group directory to $d to
+        // stay within the workflow size budget; the normal renderer keeps the
+        // full $RUNNER_TEMP/... path. Both forms are generator output for the
+        // same roster-keyed crawl-exit export.
         const match = String(step.run).match(
-          new RegExp(`export CRAWLER_MEMBER_CRAWL_EXIT_FILE="\\$RUNNER_TEMP/crawler-generation/group-${group}/([^"/]+)\\.crawl-exit"`),
+          new RegExp(`export CRAWLER_MEMBER_CRAWL_EXIT_FILE="(?:\\$RUNNER_TEMP/crawler-generation/group-${group}/|\\$d/)([^"/]+)\\.crawl-exit"`),
         );
         return match?.[1] ?? null;
       }).sort();

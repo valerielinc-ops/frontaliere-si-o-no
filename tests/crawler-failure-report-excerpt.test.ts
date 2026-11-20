@@ -208,7 +208,10 @@ describe('generated group workflow — reporter receives the member log', () => 
       // The watchdog reporter names the log path itself, after --description.
       const watchdog = text.match(/--description "\$watchdog_description" --log-excerpt-file /g) ?? [];
       if (bare.length !== watchdog.length) offenders.push(`${path.basename(file)}: ${bare.length - watchdog.length} reporter(s) without the member log`);
-      const launchers = text.match(/log_path="\$state_dir\/[^"]+\.log"/g) ?? [];
+      // The portable corpus may use the generator's tight aliases ($d/$s)
+      // when the workflow needs the size-budget fallback; both forms name the
+      // same per-crawler log path.
+      const launchers = text.match(/log_path="(?:\$state_dir\/[^"]+|\$d\/\$s)\.log"/g) ?? [];
       const exports = text.match(new RegExp(`export ${MEMBER_LOG_FILE_ENV}=`, 'g')) ?? [];
       if (launchers.length !== exports.length) offenders.push(`${path.basename(file)}: ${launchers.length} launchers, ${exports.length} log exports`);
     }
