@@ -3584,6 +3584,14 @@
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-09-08T13:53:27.937Z",
+    "previousSlugs": [
+      "physiotherapeut-in-80-hfr-hopital-fribourgeois-hfr-tafers",
+      "physiotherapeutin-in-80-hopital-fribourgeois-hfr-hfr-tafers",
+      "physiotherapeut-in-80-hopital-fribourgeois-hfr-tafers",
+      "physiotherapeutin-in-80-hopital-fribourgeois-hfr-hfr-tafers-c15564c9",
+      "fisioterapie-in-80-hopital-fribourgeois-hfr-hfr-tafers",
+      "physiotherapist-in-80-hopital-fribourgeois-hfr-hfr-tafers"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "physiotherapeut-in-80-hfr-hopital-fribourgeois-hfr-tafers-f2b5d56d",
@@ -3618,15 +3626,7 @@
     "salaryMin": 68000,
     "salaryMax": 95200,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "previousSlugs": [
-      "physiotherapeut-in-80-hfr-hopital-fribourgeois-hfr-tafers",
-      "physiotherapeutin-in-80-hopital-fribourgeois-hfr-hfr-tafers",
-      "physiotherapeut-in-80-hopital-fribourgeois-hfr-tafers",
-      "physiotherapeutin-in-80-hopital-fribourgeois-hfr-hfr-tafers-c15564c9",
-      "fisioterapie-in-80-hopital-fribourgeois-hfr-hfr-tafers",
-      "physiotherapist-in-80-hopital-fribourgeois-hfr-hfr-tafers"
-    ]
+    "salaryPeriod": "YEAR"
   },
   {
     "slug": "infermiera-head-care-unit-icus-90-100-stationsleiter-in-90-100-hopital-fribourgeois-hfr-fribourg",

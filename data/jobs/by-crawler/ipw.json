@@ -58,17 +58,25 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-ipw-bulach"
+        "assistenzarztin-assistenzarzt-ipw-bulach",
+        "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-bulach-f3edb9",
+        "assistant-doctor-assistant-doctor-integrierte-psychiatrie-winterthur-ipw-bulach-f3edb9",
+        "assistant-medecin-assistant-medecin-integrierte-psychiatrie-winterthur-ipw-bulach-f3edb9"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-assistenzarzt-ipw-bulach"
+          "assistenzarztin-assistenzarzt-ipw-bulach",
+          "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-bulach-f3edb9",
+          "assistant-doctor-assistant-doctor-integrierte-psychiatrie-winterthur-ipw-bulach-f3edb9",
+          "assistant-medecin-assistant-medecin-integrierte-psychiatrie-winterthur-ipw-bulach-f3edb9"
         ],
         "en": [
-          "assistenzarztin-assistenzarzt-ipw-bulach"
+          "assistenzarztin-assistenzarzt-ipw-bulach",
+          "assistant-doctor-assistant-doctor-integrierte-psychiatrie-winterthur-ipw-bulach-f3edb9"
         ],
         "fr": [
-          "assistenzarztin-assistenzarzt-ipw-bulach"
+          "assistenzarztin-assistenzarzt-ipw-bulach",
+          "assistant-medecin-assistant-medecin-integrierte-psychiatrie-winterthur-ipw-bulach-f3edb9"
         ]
       },
       "salaryMin": 91500,
@@ -320,17 +328,34 @@
       "pensumMax": 80,
       "pensum": "80%",
       "previousSlugs": [
-        "pflegefachfrau-pflegefachmann-hf-ipw-winterthur"
+        "pflegefachfrau-pflegefachmann-hf-ipw-winterthur",
+        "pflegefachfrau-pflegefachmann-hf-ipw-winterthur-45702572",
+        "pflegefachfrau-pflegefachmann-hf-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "pflegefachfrau-pflegefachmann-hf-ipw-winterthur-187b1729",
+        "infermiera-infermiera-specialista-hf-integrierte-psychiatrie-winterthur-ipw-winterthur-d194387f",
+        "pflegefachfrau-pflegefachmann-hf-ipw-winterthur-a62b6801",
+        "nurse-nurse-specialist-hf-integrierte-psychiatrie-winterthur-ipw-winterthur-66e924f0",
+        "infirmiere-infirmiere-specialiste-hf-integrierte-psychiatrie-winterthur-ipw-winterthur-97990f0f"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachfrau-pflegefachmann-hf-ipw-winterthur"
+          "pflegefachfrau-pflegefachmann-hf-ipw-winterthur",
+          "pflegefachfrau-pflegefachmann-hf-ipw-winterthur-45702572",
+          "pflegefachfrau-pflegefachmann-hf-integrierte-psychiatrie-winterthur-ipw-winterthur",
+          "pflegefachfrau-pflegefachmann-hf-ipw-winterthur-187b1729",
+          "infermiera-infermiera-specialista-hf-integrierte-psychiatrie-winterthur-ipw-winterthur-d194387f",
+          "pflegefachfrau-pflegefachmann-hf-ipw-winterthur-a62b6801",
+          "nurse-nurse-specialist-hf-integrierte-psychiatrie-winterthur-ipw-winterthur-66e924f0",
+          "infirmiere-infirmiere-specialiste-hf-integrierte-psychiatrie-winterthur-ipw-winterthur-97990f0f"
         ],
         "en": [
           "pflegefachfrau-pflegefachmann-hf-ipw-winterthur"
         ],
         "fr": [
           "pflegefachfrau-pflegefachmann-hf-ipw-winterthur"
+        ],
+        "de": [
+          "pflegefachfrau-pflegefachmann-hf-ipw-winterthur-45702572"
         ]
       },
       "firstSeenAt": "2026-10-07T21:31:42.427Z",
@@ -494,18 +519,69 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-winterthur-f7c8707a13",
-        "assistenzarztin-assistenzarzt-ipw-winterthur"
+        "assistenzarztin-assistenzarzt-ipw-winterthur",
+        "assistenzarztin-assistenzarzt-ipw-winterthur-0e081648",
+        "assistenzarztin-assistenzarzt-ipw-winterthur-374c7e34",
+        "assistenzarztin-assistenzarzt-ipw-winterthur-80092a97",
+        "assistenzarztin-assistenzarzt-ipw-winterthur-a08c68fe",
+        "assistenzarztin-assistenzarzt-ipw-winterthur-39d56570",
+        "assistenzarztin-assistenzarzt-ipw-winterthur-47afe4b6",
+        "assistenzarztin-assistenzarzt-ipw-winterthur-7113f411",
+        "assistant-doctor-assistant-doctor-integrierte-psychiatrie-winterthur-ipw-winterthur-fe406de7",
+        "assistant-medecin-assistant-medecin-integrierte-psychiatrie-winterthur-ipw-winterthur-7d0b0efa",
+        "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-winterthur-4a6852",
+        "assistant-doctor-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "assistant-medecin-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "assistente-medico-curante-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "assistente-medico-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "medico-assistente-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-glattbrugg",
+        "assistant-doctor-assistant-doctor-integrierte-psychiatrie-winterthur-ipw-glattbrugg",
+        "assistenzarztin-assistenzarzt-ipw-glattbrugg",
+        "assistant-medecin-assistant-medecin-integrierte-psychiatrie-winterthur-ipw-glattbrugg-4b92be",
+        "assistenzarztin-assistenzarzt-ipw-winterthur-htgo3h",
+        "assistant-doctor-assistant-doctor-integrierte-psychiatrie-winterthur-ipw-winterthur-4a6852",
+        "assistant-medecin-assistant-medecin-integrierte-psychiatrie-winterthur-ipw-winterthur-4a6852",
+        "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-winterthur-cfdba8893a",
+        "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-winterthur-f7c8707a13-1b5ff313",
+        "assistenzarztin-assistenzarzt-ipw-winterthur-9f27674b",
+        "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-winterthur-0dca7605",
+        "assistenzarztin-assistenzarzt-ipw-winterthur-547f1956",
+        "assistenzarztin-assistenzarzt-ipw-winterthur-fe83f431",
+        "assistenzarztin-assistenzarzt-ipw-winterthur-41d1c6f3",
+        "assistenzarztin-assistenzarzt-ipw-winterthur-06aedacb",
+        "assistenzarztin-assistenzarzt-ipw-winterthur-c0f36518"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-winterthur-f7c8707a13",
-          "assistenzarztin-assistenzarzt-ipw-winterthur"
+          "assistenzarztin-assistenzarzt-ipw-winterthur",
+          "assistenzarztin-assistenzarzt-ipw-winterthur-0e081648",
+          "assistenzarztin-assistenzarzt-ipw-winterthur-374c7e34",
+          "assistenzarztin-assistenzarzt-ipw-winterthur-80092a97",
+          "assistenzarztin-assistenzarzt-ipw-winterthur-a08c68fe",
+          "assistenzarztin-assistenzarzt-ipw-winterthur-39d56570",
+          "assistenzarztin-assistenzarzt-ipw-winterthur-47afe4b6",
+          "assistenzarztin-assistenzarzt-ipw-winterthur-7113f411",
+          "assistant-doctor-assistant-doctor-integrierte-psychiatrie-winterthur-ipw-winterthur-fe406de7",
+          "assistant-medecin-assistant-medecin-integrierte-psychiatrie-winterthur-ipw-winterthur-7d0b0efa",
+          "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-winterthur-4a6852",
+          "assistant-doctor-integrierte-psychiatrie-winterthur-ipw-winterthur",
+          "assistant-medecin-integrierte-psychiatrie-winterthur-ipw-winterthur",
+          "assistente-medico-curante-integrierte-psychiatrie-winterthur-ipw-winterthur",
+          "assistente-medico-integrierte-psychiatrie-winterthur-ipw-winterthur",
+          "medico-assistente-integrierte-psychiatrie-winterthur-ipw-winterthur",
+          "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-glattbrugg",
+          "assistant-doctor-assistant-doctor-integrierte-psychiatrie-winterthur-ipw-glattbrugg",
+          "assistenzarztin-assistenzarzt-ipw-glattbrugg"
         ],
         "en": [
-          "assistenzarztin-assistenzarzt-ipw-winterthur"
+          "assistenzarztin-assistenzarzt-ipw-winterthur",
+          "assistant-doctor-assistant-doctor-integrierte-psychiatrie-winterthur-ipw-winterthur-4a6852"
         ],
         "fr": [
-          "assistenzarztin-assistenzarzt-ipw-winterthur"
+          "assistenzarztin-assistenzarzt-ipw-winterthur",
+          "assistant-medecin-assistant-medecin-integrierte-psychiatrie-winterthur-ipw-winterthur-4a6852"
         ]
       },
       "firstSeenAt": "2026-09-19T22:53:56.606Z",
@@ -584,11 +660,49 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "hr-praktikantin-hr-praktikant-ipw-winterthur"
+        "hr-praktikantin-hr-praktikant-ipw-winterthur",
+        "intern-intern-gestione-della-struttura-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "intern-intern-facility-management-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "praktikantin-praktikant-facility-management-ipw-winterthur",
+        "gestion-des-installations-internes-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "hr-tirocinante-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "hr-intern-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "hr-praktikantin-hr-praktikant-80-100-ipw-winterthur",
+        "stagiaire-rh-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "risorse-umane-praktikantin-risorse-umane-praktikant-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "assistente-hr-praktica-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "assistente-medico-60-80-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "assistenzarztin-assistenzarzt-60-80-ipw-winterthur",
+        "assistant-physician-60-80-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "medecin-adjoint-60-80-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "assistente-sociale-60-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "social-worker-60-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "sozialarbeiterin-sozialarbeiter-60-ipw-winterthur",
+        "travailleur-social-60-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "interno-hr-hr-integrierte-psychiatrie-winterthur-ipw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hr-praktikantin-hr-praktikant-ipw-winterthur"
+          "hr-praktikantin-hr-praktikant-ipw-winterthur",
+          "intern-intern-gestione-della-struttura-integrierte-psychiatrie-winterthur-ipw-winterthur",
+          "intern-intern-facility-management-integrierte-psychiatrie-winterthur-ipw-winterthur",
+          "praktikantin-praktikant-facility-management-ipw-winterthur",
+          "gestion-des-installations-internes-integrierte-psychiatrie-winterthur-ipw-winterthur",
+          "hr-tirocinante-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
+          "hr-intern-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
+          "hr-praktikantin-hr-praktikant-80-100-ipw-winterthur",
+          "stagiaire-rh-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
+          "risorse-umane-praktikantin-risorse-umane-praktikant-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
+          "assistente-hr-praktica-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
+          "assistente-medico-60-80-integrierte-psychiatrie-winterthur-ipw-winterthur",
+          "assistenzarztin-assistenzarzt-60-80-ipw-winterthur",
+          "assistant-physician-60-80-integrierte-psychiatrie-winterthur-ipw-winterthur",
+          "medecin-adjoint-60-80-integrierte-psychiatrie-winterthur-ipw-winterthur",
+          "assistente-sociale-60-integrierte-psychiatrie-winterthur-ipw-winterthur",
+          "social-worker-60-integrierte-psychiatrie-winterthur-ipw-winterthur",
+          "sozialarbeiterin-sozialarbeiter-60-ipw-winterthur",
+          "travailleur-social-60-integrierte-psychiatrie-winterthur-ipw-winterthur",
+          "interno-hr-hr-integrierte-psychiatrie-winterthur-ipw-winterthur"
         ],
         "en": [
           "hr-praktikantin-hr-praktikant-ipw-winterthur"
@@ -671,17 +785,36 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "praktikantin-praktikant-kindertagesstatte-ipw-winterthur"
+        "praktikantin-praktikant-kindertagesstatte-ipw-winterthur",
+        "praktikantin-praktikant-kindertagesstatte-ipw-winterthur-c043bcfb",
+        "praktikantin-praktikant-kindertagesstatte-ipw-winterthur-d1c4be89",
+        "praktikantin-praktikant-kindertagesstatte-ipw-winterthur-93ebd422",
+        "carriere-des-stagiaires-et-des-stagiaires-integrierte-psychiatrie-winterthur-ipw-winterthur-6c3cfce2",
+        "intern-internship-day-career-integrierte-psychiatrie-winterthur-ipw-winterthur-1dcb1fab",
+        "praktikantin-praktikant-kindertagesstatte-ipw-winterthur-ezbsem",
+        "carriere-de-la-journee-de-stage-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "intern-internship-day-career-integrierte-psychiatrie-winterthur-ipw-winterthur-c614de"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikantin-praktikant-kindertagesstatte-ipw-winterthur"
+          "praktikantin-praktikant-kindertagesstatte-ipw-winterthur",
+          "praktikantin-praktikant-kindertagesstatte-ipw-winterthur-c043bcfb",
+          "praktikantin-praktikant-kindertagesstatte-ipw-winterthur-d1c4be89",
+          "praktikantin-praktikant-kindertagesstatte-ipw-winterthur-93ebd422",
+          "carriere-des-stagiaires-et-des-stagiaires-integrierte-psychiatrie-winterthur-ipw-winterthur-6c3cfce2",
+          "intern-internship-day-career-integrierte-psychiatrie-winterthur-ipw-winterthur-1dcb1fab",
+          "praktikantin-praktikant-kindertagesstatte-ipw-winterthur-ezbsem",
+          "carriere-de-la-journee-de-stage-integrierte-psychiatrie-winterthur-ipw-winterthur",
+          "intern-internship-day-career-integrierte-psychiatrie-winterthur-ipw-winterthur-c614de"
         ],
         "en": [
           "praktikantin-praktikant-kindertagesstatte-ipw-winterthur"
         ],
         "fr": [
           "praktikantin-praktikant-kindertagesstatte-ipw-winterthur"
+        ],
+        "de": [
+          "praktikantin-praktikant-kindertagesstatte-ipw-winterthur-c043bcfb"
         ]
       },
       "firstSeenAt": "2026-11-04T09:26:20.234Z",
@@ -933,11 +1066,23 @@
       "pensumMax": 100,
       "pensum": "50 - 100%",
       "previousSlugs": [
-        "oberarztin-oberarzt-ipw-winterthur"
+        "oberarztin-oberarzt-ipw-winterthur",
+        "medecin-superieur-ou-psychologue-superieur-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "medico-senior-medico-senior-integrierte-psychiatrie-winterthur-ipw-winterthur-01d5216b9e",
+        "medico-senior-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "senior-physician-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "oberarztin-oberarzt-ipw-winterthur-8jjvl2",
+        "medecin-principal-integrierte-psychiatrie-winterthur-ipw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-ipw-winterthur"
+          "oberarztin-oberarzt-ipw-winterthur",
+          "medecin-superieur-ou-psychologue-superieur-integrierte-psychiatrie-winterthur-ipw-winterthur",
+          "medico-senior-medico-senior-integrierte-psychiatrie-winterthur-ipw-winterthur-01d5216b9e",
+          "medico-senior-integrierte-psychiatrie-winterthur-ipw-winterthur",
+          "senior-physician-integrierte-psychiatrie-winterthur-ipw-winterthur",
+          "oberarztin-oberarzt-ipw-winterthur-8jjvl2",
+          "medecin-principal-integrierte-psychiatrie-winterthur-ipw-winterthur"
         ],
         "en": [
           "oberarztin-oberarzt-ipw-winterthur"
@@ -1105,12 +1250,18 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "oberpsychologin-oberpsychologe-ipw-winterthur",
-        "psicologo-senior-psicologo-senior-integrierte-psychiatrie-winterthur-ipw-winterthur"
+        "psicologo-senior-psicologo-senior-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "psicologo-senior-psicologo-senior-integrierte-psychiatrie-winterthur-ipw-winterthur-uc2h8a",
+        "psicologa-senior-psicologo-senior-60-80-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "psychologue-senior-60-80-integrierte-psychiatrie-winterthur-ipw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberpsychologin-oberpsychologe-ipw-winterthur",
-          "psicologo-senior-psicologo-senior-integrierte-psychiatrie-winterthur-ipw-winterthur"
+          "psicologo-senior-psicologo-senior-integrierte-psychiatrie-winterthur-ipw-winterthur",
+          "psicologo-senior-psicologo-senior-integrierte-psychiatrie-winterthur-ipw-winterthur-uc2h8a",
+          "psicologa-senior-psicologo-senior-60-80-integrierte-psychiatrie-winterthur-ipw-winterthur",
+          "psychologue-senior-60-80-integrierte-psychiatrie-winterthur-ipw-winterthur"
         ]
       },
       "firstSeenAt": "2026-09-05T22:50:52.903Z",
@@ -1274,17 +1425,115 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur"
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-090d1fda",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-c9d6b75b",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-9184dea1",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-d6c3b926",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-98712724",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-9818a6f7",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-0d6e3d9a",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-a28899f4",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-3ed05b6b",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-1867d7b1",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-eb5f893a",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-d0349a99",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-42160453",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-e4db5499",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-215b1acd",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-d7c66004",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-ea1d300d",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-4d07fd05",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-6fca8873",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-7866edca",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-pk9emz",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-3f528e49",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-43a47c61",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-610ba212",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-3c4e4fa7",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-d09d68b0",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-8cc32d0b",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-ed7e4e83",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-fc4662bf",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-f8944b7f",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-c1c5e1e7",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-b03f3944",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-9fd01ee4",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-e12ea872",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-7865f07f",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-1bb99459",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-7cbda6cf",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-e6c5cccd",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-f7bdf245",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-28e4af2a",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-2198740e",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-bdaf86f3",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-9886b95b",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-35406cbd",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-ef17ba14",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-59481a5e",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-45cf59fe",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-c8185127",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-23707e70",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-0d77a6b2",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-4ce7dc7a",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-cb7fc225",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-f2e4f01d",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-bcd255fc",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-94c993a3",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-5a05224d",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-af561cd9",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-3c97cc15",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-64294423",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-a587eb3e",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-22c7abea",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-dfa6e6a9",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-0446f140",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-9874721c",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-85484317",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-244ef571",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-626f9dc2",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-d871549a",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-b4ca1f01",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-ad413b97",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-01044727",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-d4b14f1d",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-996cf758",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-74195f23",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-00a75ad7",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-ab277db1"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-hauswirtschaft-ipw-winterthur"
+          "fachfrau-fachmann-hauswirtschaft-ipw-winterthur",
+          "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-090d1fda",
+          "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-c9d6b75b",
+          "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-9184dea1",
+          "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-d6c3b926",
+          "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-98712724",
+          "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-9818a6f7",
+          "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-0d6e3d9a",
+          "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-a28899f4",
+          "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-3ed05b6b",
+          "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-1867d7b1",
+          "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-eb5f893a",
+          "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-d0349a99",
+          "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-42160453",
+          "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-e4db5499",
+          "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-215b1acd",
+          "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-d7c66004",
+          "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-ea1d300d",
+          "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-4d07fd05",
+          "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-6fca8873"
         ],
         "en": [
           "fachfrau-fachmann-hauswirtschaft-ipw-winterthur"
         ],
         "fr": [
           "fachfrau-fachmann-hauswirtschaft-ipw-winterthur"
+        ],
+        "de": [
+          "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-pk9emz"
         ]
       },
       "firstSeenAt": "2026-09-03T13:34:51.775Z",
@@ -1714,18 +1963,35 @@
       "pensum": "50 - 60%",
       "previousSlugs": [
         "physiotherapeutin-physiotherapeut-fh-ipw-winterthur",
-        "fisioterapista-fisioterapista-fh-integrierte-psychiatrie-winterthur-ipw-winterthur"
+        "fisioterapista-fisioterapista-fh-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "physiotherapeutin-physiotherapeut-fh-ipw-winterthur-13ef5789",
+        "physiotherapeutin-physiotherapeut-fh-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "physiotherapeutin-physiotherapeut-fh-ipw-winterthur-ef1da99a",
+        "fisioterapista-fisioterapista-fh-integrierte-psychiatrie-winterthur-ipw-winterthur-46de130d",
+        "physiotherapeutin-physiotherapeut-fh-ipw-winterthur-95ebcfb8",
+        "physiotherapist-physiotherapist-fh-integrierte-psychiatrie-winterthur-ipw-winterthur-dcd98103",
+        "physiotherapeute-physiotherapeute-fh-integrierte-psychiatrie-winterthur-ipw-winterthur-15a52edd"
       ],
       "previousSlugsByLocale": {
         "it": [
           "physiotherapeutin-physiotherapeut-fh-ipw-winterthur",
-          "fisioterapista-fisioterapista-fh-integrierte-psychiatrie-winterthur-ipw-winterthur"
+          "fisioterapista-fisioterapista-fh-integrierte-psychiatrie-winterthur-ipw-winterthur",
+          "physiotherapeutin-physiotherapeut-fh-ipw-winterthur-13ef5789",
+          "physiotherapeutin-physiotherapeut-fh-integrierte-psychiatrie-winterthur-ipw-winterthur",
+          "physiotherapeutin-physiotherapeut-fh-ipw-winterthur-ef1da99a",
+          "fisioterapista-fisioterapista-fh-integrierte-psychiatrie-winterthur-ipw-winterthur-46de130d",
+          "physiotherapeutin-physiotherapeut-fh-ipw-winterthur-95ebcfb8",
+          "physiotherapist-physiotherapist-fh-integrierte-psychiatrie-winterthur-ipw-winterthur-dcd98103",
+          "physiotherapeute-physiotherapeute-fh-integrierte-psychiatrie-winterthur-ipw-winterthur-15a52edd"
         ],
         "en": [
           "physiotherapeutin-physiotherapeut-fh-ipw-winterthur"
         ],
         "fr": [
           "physiotherapeutin-physiotherapeut-fh-ipw-winterthur"
+        ],
+        "de": [
+          "physiotherapeutin-physiotherapeut-fh-ipw-winterthur-13ef5789"
         ]
       },
       "firstSeenAt": "2026-10-07T21:31:43.760Z",

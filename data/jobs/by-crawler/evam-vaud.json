@@ -537,17 +537,24 @@
       "currency": "CHF",
       "hiringOrganizationName": "EVAM",
       "previousSlugs": [
-        "intendant-e-100-cdi-evam-vaud-ch"
+        "intendant-e-100-cdi-evam-vaud-ch",
+        "intendant-e-100-cdi-evam-vaud-ch-1f91bcd5",
+        "intendant-e-100-cdi-evam-gland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "intendant-e-100-cdi-evam-vaud-ch"
+          "intendant-e-100-cdi-evam-vaud-ch",
+          "intendant-e-100-cdi-evam-vaud-ch-1f91bcd5",
+          "intendant-e-100-cdi-evam-gland"
         ],
         "en": [
           "intendant-e-100-cdi-evam-vaud-ch"
         ],
         "de": [
           "intendant-e-100-cdi-evam-vaud-ch"
+        ],
+        "fr": [
+          "intendant-e-100-cdi-evam-vaud-ch-1f91bcd5"
         ]
       },
       "firstSeenAt": "2026-10-05T21:39:55.400Z",
@@ -620,11 +627,13 @@
       "currency": "CHF",
       "hiringOrganizationName": "EVAM",
       "previousSlugs": [
-        "assistant-e-social-e-100-cdd-1-an-evam-vaud-ch"
+        "assistant-e-social-e-100-cdd-1-an-evam-vaud-ch",
+        "assistant-e-social-e-100-cdd-1-an-evam-montreux"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-social-e-100-cdd-1-an-evam-vaud-ch"
+          "assistant-e-social-e-100-cdd-1-an-evam-vaud-ch",
+          "assistant-e-social-e-100-cdd-1-an-evam-montreux"
         ],
         "en": [
           "assistant-e-social-e-100-cdd-1-an-evam-vaud-ch"

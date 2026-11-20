@@ -141,7 +141,28 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T21:40:17.154Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.csvp.ch/it/lavora-con-noi/cerchiamo/948-addetto-alle-cure-sociosanitarie-o-collaboratore-sanitario-crs"
+      "sourceIdentity": "url:https://www.csvp.ch/it/lavora-con-noi/cerchiamo/948-addetto-alle-cure-sociosanitarie-o-collaboratore-sanitario-crs",
+      "previousSlugs": [
+        "healthcare-assistant-or-sanitary-collaborator-crs-centro-sanitario-valposchiavo-csvp-poschiavo",
+        "gesundheitsassistent-oder-sanitatsmitarbeiter-crs-centro-sanitario-valposchiavo-csvp-poschiavo",
+        "assistant-en-soins-de-sante-ou-collaborateur-sanitaire-crs-centro-sanitario-valposchiavo-csvp-poschiavo"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "healthcare-assistant-or-sanitary-collaborator-crs-centro-sanitario-valposchiavo-csvp-poschiavo",
+          "gesundheitsassistent-oder-sanitatsmitarbeiter-crs-centro-sanitario-valposchiavo-csvp-poschiavo",
+          "assistant-en-soins-de-sante-ou-collaborateur-sanitaire-crs-centro-sanitario-valposchiavo-csvp-poschiavo"
+        ],
+        "en": [
+          "healthcare-assistant-or-sanitary-collaborator-crs-centro-sanitario-valposchiavo-csvp-poschiavo"
+        ],
+        "de": [
+          "gesundheitsassistent-oder-sanitatsmitarbeiter-crs-centro-sanitario-valposchiavo-csvp-poschiavo"
+        ],
+        "fr": [
+          "assistant-en-soins-de-sante-ou-collaborateur-sanitaire-crs-centro-sanitario-valposchiavo-csvp-poschiavo"
+        ]
+      }
     }
   ]
 }

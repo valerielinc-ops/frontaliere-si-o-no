@@ -8795,6 +8795,18 @@
     },
     "sector": "",
     "expiredAt": "2026-11-10T09:19:25.958Z",
+    "previousSlugs": [
+      "verkaufer-in-denner-20",
+      "verkaufer-in-denner",
+      "verkaufer-in-denner-niederurnen",
+      "verkaufer-in-denner-4",
+      "verkaufer-in-denner-2",
+      "verkaufer-in-denner-20-49cc6bd0",
+      "verkaufer-in-denner-niederurnen-885a360f",
+      "verkaufer-in-denner-4-1e66fd4b",
+      "verkaufer-in-denner-2-5b55867d",
+      "verkaufer-in-denner-4-5ea50c12"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "verkaufer-in-denner-20-49cc6bd0",
@@ -8837,19 +8849,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/604e933f-b664-4b21-9479-d7e510a33236",
-    "firstSeenAt": "2026-07-10T23:02:40.827Z",
-    "previousSlugs": [
-      "verkaufer-in-denner-20",
-      "verkaufer-in-denner",
-      "verkaufer-in-denner-niederurnen",
-      "verkaufer-in-denner-4",
-      "verkaufer-in-denner-2",
-      "verkaufer-in-denner-20-49cc6bd0",
-      "verkaufer-in-denner-niederurnen-885a360f",
-      "verkaufer-in-denner-4-1e66fd4b",
-      "verkaufer-in-denner-2-5b55867d",
-      "verkaufer-in-denner-4-5ea50c12"
-    ]
+    "firstSeenAt": "2026-07-10T23:02:40.827Z"
   },
   {
     "slug": "venditore-denner-zug-82746e21aa",
@@ -20711,6 +20711,14 @@
     },
     "sector": "",
     "expiredAt": "2026-11-02T09:22:02.600Z",
+    "previousSlugs": [
+      "assistent-in-filialleitung-denner-2",
+      "assistent-in-filialleitung-denner",
+      "assistent-in-filialleitung-denner-4c7973e5",
+      "assistent-in-filialleitung-denner-2-6c9fac4b",
+      "assistent-in-filialleitung-denner-617af5b3",
+      "assistent-in-filialleitung-denner-2-ba190422"
+    ],
     "previousSlugsByLocale": {
       "de": [
         "assistent-in-filialleitung-denner-4c7973e5",
@@ -20739,15 +20747,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/05958354-f3e8-4ab9-808a-5033a09ab81e",
-    "firstSeenAt": "2026-09-21T16:05:08.450Z",
-    "previousSlugs": [
-      "assistent-in-filialleitung-denner-2",
-      "assistent-in-filialleitung-denner",
-      "assistent-in-filialleitung-denner-4c7973e5",
-      "assistent-in-filialleitung-denner-2-6c9fac4b",
-      "assistent-in-filialleitung-denner-617af5b3",
-      "assistent-in-filialleitung-denner-2-ba190422"
-    ]
+    "firstSeenAt": "2026-09-21T16:05:08.450Z"
   },
   {
     "slug": "addetto-a-alle-vendite-denner-samedan",
@@ -41476,6 +41476,13 @@
     },
     "sector": "",
     "expiredAt": "2026-10-28T09:19:10.517Z",
+    "previousSlugs": [
+      "verkaufer-in-denner-28",
+      "verkaufer-in-denner",
+      "verkaufer-in-denner-aarau",
+      "verkaufer-in-denner-28-e30973f0",
+      "verkaufer-in-denner-aarau-368adb18"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "verkaufer-in-denner-28-e30973f0",
@@ -41508,14 +41515,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/31fb6f42-1907-409e-88b5-1b90c3968114",
-    "firstSeenAt": "2026-06-26T22:46:36.093Z",
-    "previousSlugs": [
-      "verkaufer-in-denner-28",
-      "verkaufer-in-denner",
-      "verkaufer-in-denner-aarau",
-      "verkaufer-in-denner-28-e30973f0",
-      "verkaufer-in-denner-aarau-368adb18"
-    ]
+    "firstSeenAt": "2026-06-26T22:46:36.093Z"
   },
   {
     "slug": "venditore-venditore-denner-sion",
@@ -55410,7 +55410,6 @@
       "verkaufer-in-im-stundenlohn-denner-worb",
       "vendeur-en-salaire-horaire-denner-zollikofen",
       "venditore-in-salario-orario-denner-therwil",
-      "verkaufer-in-im-stundenlohn-denner-therwil",
       "seller-in-in-hourly-wage-denner-therwil",
       "vendeur-en-salaire-horaire-denner-therwil",
       "venditore-in-salario-orario-denner-sissach",
@@ -55717,7 +55716,9 @@
       "verkaufer-in-im-stundenlohn-denner-2-fb8da3ec",
       "verkaufer-in-im-stundenlohn-denner-2-d9fcd6c1",
       "verkaufer-in-im-stundenlohn-denner-2-066159ee",
-      "verkaufer-in-im-stundenlohn-denner-2"
+      "verkaufer-in-im-stundenlohn-denner-2",
+      "verkaufer-in-im-stundenlohn-denner-therwil",
+      "verkaufer-in-im-stundenlohn-denner-therwil-559865b4"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -55728,7 +55729,7 @@
         "verkaufer-in-im-stundenlohn-denner-6ee91e20",
         "verkaufer-in-im-stundenlohn-denner-zollikofen",
         "venditore-in-salario-orario-denner-therwil",
-        "verkaufer-in-im-stundenlohn-denner-therwil",
+        "verkaufer-in-im-stundenlohn-denner-therwil-559865b4",
         "venditore-in-salario-orario-denner-sissach",
         "verkaufer-in-im-stundenlohn-denner-sissach",
         "venditore-in-salario-orario-denner-wollerau",
@@ -55865,7 +55866,8 @@
         "verkaufer-in-im-stundenlohn-denner-2-fb8da3ec",
         "verkaufer-in-im-stundenlohn-denner-2-d9fcd6c1",
         "verkaufer-in-im-stundenlohn-denner-2-066159ee",
-        "verkaufer-in-im-stundenlohn-denner-2"
+        "verkaufer-in-im-stundenlohn-denner-2",
+        "verkaufer-in-im-stundenlohn-denner-therwil"
       ],
       "en": [
         "verkaufer-in-im-stundenlohn-denner-zwingen",
@@ -56576,6 +56578,15 @@
     },
     "sector": "",
     "expiredAt": "2026-10-26T09:19:30.978Z",
+    "previousSlugs": [
+      "assistent-in-filialleitung-denner-gossau-zh",
+      "assistent-in-filialleitung-denner-8",
+      "assistent-in-filialleitung-denner",
+      "assistent-in-filialleitung-denner-gossau-zh-bd951f4a",
+      "assistent-in-filialleitung-denner-80f2b974",
+      "assistent-in-filialleitung-denner-8-3829da2e",
+      "assistent-in-filialleitung-denner-i9fhcw"
+    ],
     "previousSlugsByLocale": {
       "de": [
         "assistent-in-filialleitung-denner-gossau-zh-bd951f4a",
@@ -56612,16 +56623,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/04665d6d-ffdf-498e-b19b-e65c9eb3e7bf",
-    "firstSeenAt": "2026-08-31T17:40:35.590Z",
-    "previousSlugs": [
-      "assistent-in-filialleitung-denner-gossau-zh",
-      "assistent-in-filialleitung-denner-8",
-      "assistent-in-filialleitung-denner",
-      "assistent-in-filialleitung-denner-gossau-zh-bd951f4a",
-      "assistent-in-filialleitung-denner-80f2b974",
-      "assistent-in-filialleitung-denner-8-3829da2e",
-      "assistent-in-filialleitung-denner-i9fhcw"
-    ]
+    "firstSeenAt": "2026-08-31T17:40:35.590Z"
   },
   {
     "slug": "venditore-venditore-denner-nyon",
@@ -65129,6 +65131,15 @@
     },
     "sector": "",
     "expiredAt": "2026-10-22T21:19:22.565Z",
+    "previousSlugs": [
+      "verkaufer-in-im-stundenlohn-denner-23",
+      "verkaufer-in-im-stundenlohn-denner",
+      "verkaufer-in-im-stundenlohn-denner-22",
+      "verkaufer-in-im-stundenlohn-denner-luzern",
+      "verkaufer-in-im-stundenlohn-denner-23-1ad87dc8",
+      "verkaufer-in-im-stundenlohn-denner-22-7203f65d",
+      "verkaufer-in-im-stundenlohn-denner-luzern-514e716c"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "verkaufer-in-im-stundenlohn-denner-23-1ad87dc8",
@@ -65169,16 +65180,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/8c6b3102-c24d-44f9-84e6-e7a76c4f877c",
-    "firstSeenAt": "2026-06-25T10:59:13.898Z",
-    "previousSlugs": [
-      "verkaufer-in-im-stundenlohn-denner-23",
-      "verkaufer-in-im-stundenlohn-denner",
-      "verkaufer-in-im-stundenlohn-denner-22",
-      "verkaufer-in-im-stundenlohn-denner-luzern",
-      "verkaufer-in-im-stundenlohn-denner-23-1ad87dc8",
-      "verkaufer-in-im-stundenlohn-denner-22-7203f65d",
-      "verkaufer-in-im-stundenlohn-denner-luzern-514e716c"
-    ]
+    "firstSeenAt": "2026-06-25T10:59:13.898Z"
   },
   {
     "slug": "venditore-denner-ag-basel-25bcd4-9f478337",
@@ -65756,7 +65758,8 @@
       "verkaufer-in-im-stundenlohn-denner-9",
       "verkaufer-in-im-stundenlohn-denner-7-3bb46596-ed8f761b",
       "verkaufer-in-im-stundenlohn-denner-7-ca53f6a4-31b3565b",
-      "verkaufer-in-im-stundenlohn-denner-bremgarten-9eaa3d16"
+      "verkaufer-in-im-stundenlohn-denner-bremgarten-9eaa3d16",
+      "verkaufer-in-im-stundenlohn-denner-worb-947db3af"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -65980,7 +65983,8 @@
         "verkaufer-in-im-stundenlohn-denner-9",
         "verkaufer-in-im-stundenlohn-denner-7-3bb46596-ed8f761b",
         "verkaufer-in-im-stundenlohn-denner-7-ca53f6a4-31b3565b",
-        "verkaufer-in-im-stundenlohn-denner-bremgarten-9eaa3d16"
+        "verkaufer-in-im-stundenlohn-denner-bremgarten-9eaa3d16",
+        "verkaufer-in-im-stundenlohn-denner-worb"
       ],
       "en": [
         "verkaufer-in-im-stundenlohn-denner-wilen-b-will",
@@ -66103,7 +66107,9 @@
         "verkaufer-in-im-stundenlohn-denner-7-3bb46596",
         "verkaufer-in-im-stundenlohn-denner-7-ca53f6a4",
         "verkaufer-in-im-stundenlohn-denner-bremgarten",
-        "verkaufer-in-im-stundenlohn-denner-9"
+        "verkaufer-in-im-stundenlohn-denner-9",
+        "verkaufer-in-im-stundenlohn-denner-7-3bb46596-ed8f761b",
+        "verkaufer-in-im-stundenlohn-denner-worb-947db3af"
       ],
       "de": [
         "verkaufer-in-im-stundenlohn-denner-wilen-b",
@@ -66233,7 +66239,9 @@
         "verkaufer-in-im-stundenlohn-denner-7-3bb46596",
         "verkaufer-in-im-stundenlohn-denner-7-ca53f6a4",
         "verkaufer-in-im-stundenlohn-denner-bremgarten",
-        "verkaufer-in-im-stundenlohn-denner-9"
+        "verkaufer-in-im-stundenlohn-denner-9",
+        "verkaufer-in-im-stundenlohn-denner-worb-947db3af",
+        "verkaufer-in-im-stundenlohn-denner-7-3bb46596-ed8f761b"
       ],
       "fr": [
         "verkaufer-in-im-stundenlohn-denner-wilen-b-will",
@@ -66356,7 +66364,9 @@
         "verkaufer-in-im-stundenlohn-denner-7-3bb46596",
         "verkaufer-in-im-stundenlohn-denner-7-ca53f6a4",
         "verkaufer-in-im-stundenlohn-denner-bremgarten",
-        "verkaufer-in-im-stundenlohn-denner-9"
+        "verkaufer-in-im-stundenlohn-denner-9",
+        "verkaufer-in-im-stundenlohn-denner-7-3bb46596-ed8f761b",
+        "verkaufer-in-im-stundenlohn-denner-worb-947db3af"
       ]
     },
     "postalCode": "9535",
@@ -69705,7 +69715,9 @@
       "verkaufer-in-im-stundenlohn-denner-22",
       "verkaufer-in-im-stundenlohn-denner-21-b9d30c22",
       "verkaufer-in-im-stundenlohn-denner-willisau-c58da4d1",
-      "verkaufer-in-im-stundenlohn-denner-21-4b68e9c7"
+      "verkaufer-in-im-stundenlohn-denner-21-4b68e9c7",
+      "verkaufer-in-im-stundenlohn-denner-nebikon-82bbf73a",
+      "verkaufer-in-im-stundenlohn-denner-nebikon-aac62720"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -70277,7 +70289,8 @@
         "verkaufer-in-im-stundenlohn-denner-3",
         "verkaufer-in-im-stundenlohn-denner-21",
         "verkaufer-in-im-stundenlohn-denner-willisau",
-        "verkaufer-in-im-stundenlohn-denner-22"
+        "verkaufer-in-im-stundenlohn-denner-22",
+        "verkaufer-in-im-stundenlohn-denner-nebikon-82bbf73a"
       ],
       "en": [
         "verkaufer-in-im-stundenlohn-denner-steinhausen-590cf96a",
@@ -70567,7 +70580,8 @@
         "verkaufer-in-im-stundenlohn-denner-steinhausen-c78b3dc3",
         "verkaufer-in-im-stundenlohn-denner-steinhausen",
         "verkaufer-in-im-stundenlohn-denner-21-4b68e9c7",
-        "verkaufer-in-im-stundenlohn-denner-22"
+        "verkaufer-in-im-stundenlohn-denner-22",
+        "verkaufer-in-im-stundenlohn-denner-nebikon-aac62720"
       ],
       "fr": [
         "verkaufer-in-im-stundenlohn-denner-steinhausen-590cf96a",
@@ -70857,7 +70871,8 @@
         "verkaufer-in-im-stundenlohn-denner-steinhausen-c78b3dc3",
         "verkaufer-in-im-stundenlohn-denner-steinhausen",
         "verkaufer-in-im-stundenlohn-denner-21-4b68e9c7",
-        "verkaufer-in-im-stundenlohn-denner-22"
+        "verkaufer-in-im-stundenlohn-denner-22",
+        "verkaufer-in-im-stundenlohn-denner-nebikon-aac62720"
       ],
       "de": [
         "verkaufer-in-im-stundenlohn-denner-willisau",
@@ -70939,7 +70954,8 @@
         "verkaufer-in-im-stundenlohn-denner-steinhausen-4a399d28",
         "verkaufer-in-im-stundenlohn-denner-steinhausen",
         "verkaufer-in-im-stundenlohn-denner-21-4b68e9c7",
-        "verkaufer-in-im-stundenlohn-denner-22"
+        "verkaufer-in-im-stundenlohn-denner-22",
+        "verkaufer-in-im-stundenlohn-denner-nebikon-aac62720"
       ]
     },
     "postalCode": "6312",
@@ -74210,6 +74226,15 @@
     },
     "sector": "",
     "expiredAt": "2026-10-20T09:17:58.232Z",
+    "previousSlugs": [
+      "verkaufer-in-im-stundenlohn-denner-22",
+      "verkaufer-in-im-stundenlohn-denner",
+      "verkaufer-in-im-stundenlohn-denner-21",
+      "verkaufer-in-im-stundenlohn-denner-willisau",
+      "verkaufer-in-im-stundenlohn-denner-22-014a2f2f",
+      "verkaufer-in-im-stundenlohn-denner-21-0be8bbd9",
+      "verkaufer-in-im-stundenlohn-denner-willisau-278b8eb3"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "verkaufer-in-im-stundenlohn-denner-22-014a2f2f",
@@ -74247,16 +74272,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/7320d1a0-0a91-4b7d-93dc-b6faefc09df4",
-    "firstSeenAt": "2026-06-25T10:59:13.898Z",
-    "previousSlugs": [
-      "verkaufer-in-im-stundenlohn-denner-22",
-      "verkaufer-in-im-stundenlohn-denner",
-      "verkaufer-in-im-stundenlohn-denner-21",
-      "verkaufer-in-im-stundenlohn-denner-willisau",
-      "verkaufer-in-im-stundenlohn-denner-22-014a2f2f",
-      "verkaufer-in-im-stundenlohn-denner-21-0be8bbd9",
-      "verkaufer-in-im-stundenlohn-denner-willisau-278b8eb3"
-    ]
+    "firstSeenAt": "2026-06-25T10:59:13.898Z"
   },
   {
     "slug": "assistente-nella-direzione-della-filiale-denner-wohlen",
@@ -89072,17 +89088,20 @@
       "en": [
         "verkaufer-in-denner-brugg-be",
         "verkaufer-in-denner-6",
-        "verkaufer-in-denner"
+        "verkaufer-in-denner",
+        "verkaufer-in-denner-6-fc3713da"
       ],
       "fr": [
         "verkaufer-in-denner-brugg-be",
         "verkaufer-in-denner-6",
-        "verkaufer-in-denner"
+        "verkaufer-in-denner",
+        "verkaufer-in-denner-6-fc3713da"
       ],
       "de": [
         "verkaufer-in-denner-1b229ab3",
         "verkaufer-in-denner-6",
-        "verkaufer-in-denner"
+        "verkaufer-in-denner",
+        "verkaufer-in-denner-6-fc3713da"
       ]
     },
     "postalCode": "2555",
@@ -103879,7 +103898,8 @@
       "verkaufer-in-im-stundenlohn-denner-hasle-b-burgdorf",
       "verkaufer-in-im-stundenlohn-denner-9",
       "verkaufer-in-im-stundenlohn-denner-9-0b1936bd",
-      "verkaufer-in-im-stundenlohn-denner-hasle-b-burgdorf-0771bac7"
+      "verkaufer-in-im-stundenlohn-denner-hasle-b-burgdorf-0771bac7",
+      "verkaufer-in-im-stundenlohn-denner-therwil-58120a94"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -104609,7 +104629,8 @@
         "verkaufer-in-im-stundenlohn-denner-3",
         "verkaufer-in-im-stundenlohn-denner-4",
         "verkaufer-in-im-stundenlohn-denner-2",
-        "verkaufer-in-im-stundenlohn-denner-hasle-b-burgdorf"
+        "verkaufer-in-im-stundenlohn-denner-hasle-b-burgdorf",
+        "verkaufer-in-im-stundenlohn-denner-therwil-58120a94"
       ],
       "en": [
         "verkaufer-in-im-stundenlohn-denner-gretzenbach",
@@ -104719,7 +104740,8 @@
         "verkaufer-in-im-stundenlohn-denner-36ce3a9f",
         "verkaufer-in-im-stundenlohn-denner-dd31a609",
         "verkaufer-in-im-stundenlohn-denner-c1675c32",
-        "verkaufer-in-im-stundenlohn-denner-9"
+        "verkaufer-in-im-stundenlohn-denner-9",
+        "verkaufer-in-im-stundenlohn-denner-therwil"
       ],
       "de": [
         "verkaufer-in-im-stundenlohn-denner-gretzenbach",
@@ -104821,7 +104843,8 @@
         "verkaufer-in-im-stundenlohn-denner-54d2f945",
         "verkaufer-in-im-stundenlohn-denner-2187887e",
         "verkaufer-in-im-stundenlohn-denner-hasle-b-burgdorf",
-        "verkaufer-in-im-stundenlohn-denner-9"
+        "verkaufer-in-im-stundenlohn-denner-9",
+        "verkaufer-in-im-stundenlohn-denner-therwil"
       ],
       "fr": [
         "verkaufer-in-im-stundenlohn-denner-gretzenbach",
@@ -104931,7 +104954,8 @@
         "verkaufer-in-im-stundenlohn-denner-36ce3a9f",
         "verkaufer-in-im-stundenlohn-denner-dd31a609",
         "verkaufer-in-im-stundenlohn-denner-c1675c32",
-        "verkaufer-in-im-stundenlohn-denner-9"
+        "verkaufer-in-im-stundenlohn-denner-9",
+        "verkaufer-in-im-stundenlohn-denner-therwil"
       ]
     },
     "postalCode": "5014",
@@ -130390,7 +130414,19 @@
       "verkaufer-in-im-stundenlohn-denner-11",
       "verkaufer-in-im-stundenlohn-denner-15",
       "verkaufer-in-im-stundenlohn-denner-st-gallen",
-      "verkaufer-in-im-stundenlohn-denner-st-gallen-f19b39f7"
+      "verkaufer-in-im-stundenlohn-denner-st-gallen-f19b39f7",
+      "verkaufer-in-im-stundenlohn-denner-ag-worb-7snk70-7b8626ec",
+      "vendeur-a-salaire-horaire-denner-ag-worb-44cd9d38",
+      "verkaufer-in-im-stundenlohn-denner-ag-worb-13a39620",
+      "verkaufer-in-im-stundenlohn-denner-ag-menzingen-uqejyy-4f443bb2",
+      "seller-in-the-hourly-wage-denner-ag-menzingen-e89ddb08",
+      "vendeur-dans-le-salaire-horaire-denner-ag-menzingen-88a1fb8a",
+      "venditore-nel-salario-orario-denner-ag-ibach-eec18dcf",
+      "verkaufer-in-im-stundenlohn-denner-ag-ibach-d9befe00",
+      "verkaufer-in-im-stundenlohn-denner-ag-ibach-o6hw8f-eb7e7289",
+      "vendeur-dans-le-salaire-horaire-denner-ag-ibach-3618a800",
+      "seller-in-the-hourly-wage-denner-ag-ibach-db4c88d7",
+      "vendor-in-hourly-wages-denner-ibach-8cec320c"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -130734,7 +130770,19 @@
         "verkaufer-in-im-stundenlohn-denner-grosswangen-c1dacfe3",
         "verkaufer-in-im-stundenlohn-denner-11",
         "verkaufer-in-im-stundenlohn-denner-15",
-        "verkaufer-in-im-stundenlohn-denner-st-gallen"
+        "verkaufer-in-im-stundenlohn-denner-st-gallen",
+        "verkaufer-in-im-stundenlohn-denner-ag-worb-7snk70-7b8626ec",
+        "vendeur-a-salaire-horaire-denner-ag-worb-44cd9d38",
+        "verkaufer-in-im-stundenlohn-denner-ag-worb-13a39620",
+        "verkaufer-in-im-stundenlohn-denner-ag-menzingen-uqejyy-4f443bb2",
+        "seller-in-the-hourly-wage-denner-ag-menzingen-e89ddb08",
+        "vendeur-dans-le-salaire-horaire-denner-ag-menzingen-88a1fb8a",
+        "venditore-nel-salario-orario-denner-ag-ibach-eec18dcf",
+        "verkaufer-in-im-stundenlohn-denner-ag-ibach-d9befe00",
+        "verkaufer-in-im-stundenlohn-denner-ag-ibach-o6hw8f-eb7e7289",
+        "vendeur-dans-le-salaire-horaire-denner-ag-ibach-3618a800",
+        "seller-in-the-hourly-wage-denner-ag-ibach-db4c88d7",
+        "vendor-in-hourly-wages-denner-ibach-8cec320c"
       ],
       "en": [
         "verkaufer-in-im-stundenlohn-denner-aarau-452a41eb",
@@ -130958,7 +131006,19 @@
         "verkaufer-in-im-stundenlohn-denner-11-a1e469ab",
         "verkaufer-in-im-stundenlohn-denner-15-c1344213",
         "verkaufer-in-im-stundenlohn-denner-grosswangen-c1dacfe3",
-        "verkaufer-in-im-stundenlohn-denner-st-gallen"
+        "verkaufer-in-im-stundenlohn-denner-st-gallen",
+        "verkaufer-in-im-stundenlohn-denner-ag-worb-7snk70-7b8626ec",
+        "vendeur-a-salaire-horaire-denner-ag-worb-44cd9d38",
+        "verkaufer-in-im-stundenlohn-denner-ag-worb-13a39620",
+        "verkaufer-in-im-stundenlohn-denner-ag-menzingen-uqejyy",
+        "seller-in-the-hourly-wage-denner-ag-menzingen",
+        "vendeur-dans-le-salaire-horaire-denner-ag-menzingen",
+        "venditore-nel-salario-orario-denner-ag-ibach",
+        "verkaufer-in-im-stundenlohn-denner-ag-ibach",
+        "verkaufer-in-im-stundenlohn-denner-ag-ibach-o6hw8f",
+        "vendeur-dans-le-salaire-horaire-denner-ag-ibach",
+        "seller-in-the-hourly-wage-denner-ag-ibach",
+        "vendor-in-hourly-wages-denner-ibach"
       ],
       "de": [
         "verkaufer-in-im-stundenlohn-denner-aarau-452a41eb",
@@ -131175,7 +131235,19 @@
         "verkaufer-in-im-stundenlohn-denner-11-a1e469ab",
         "verkaufer-in-im-stundenlohn-denner-15-c1344213",
         "verkaufer-in-im-stundenlohn-denner-grosswangen-c1dacfe3",
-        "verkaufer-in-im-stundenlohn-denner-st-gallen"
+        "verkaufer-in-im-stundenlohn-denner-st-gallen",
+        "verkaufer-in-im-stundenlohn-denner-ag-worb-7snk70-7b8626ec",
+        "vendeur-a-salaire-horaire-denner-ag-worb-44cd9d38",
+        "verkaufer-in-im-stundenlohn-denner-ag-worb-13a39620",
+        "verkaufer-in-im-stundenlohn-denner-ag-menzingen-uqejyy",
+        "seller-in-the-hourly-wage-denner-ag-menzingen",
+        "vendeur-dans-le-salaire-horaire-denner-ag-menzingen",
+        "venditore-nel-salario-orario-denner-ag-ibach",
+        "verkaufer-in-im-stundenlohn-denner-ag-ibach",
+        "verkaufer-in-im-stundenlohn-denner-ag-ibach-o6hw8f",
+        "vendeur-dans-le-salaire-horaire-denner-ag-ibach",
+        "seller-in-the-hourly-wage-denner-ag-ibach",
+        "vendor-in-hourly-wages-denner-ibach"
       ],
       "fr": [
         "verkaufer-in-im-stundenlohn-denner-aarau-452a41eb",
@@ -131399,7 +131471,19 @@
         "verkaufer-in-im-stundenlohn-denner-11-a1e469ab",
         "verkaufer-in-im-stundenlohn-denner-15-c1344213",
         "verkaufer-in-im-stundenlohn-denner-grosswangen-c1dacfe3",
-        "verkaufer-in-im-stundenlohn-denner-st-gallen"
+        "verkaufer-in-im-stundenlohn-denner-st-gallen",
+        "verkaufer-in-im-stundenlohn-denner-ag-worb-7snk70-7b8626ec",
+        "vendeur-a-salaire-horaire-denner-ag-worb-44cd9d38",
+        "verkaufer-in-im-stundenlohn-denner-ag-worb-13a39620",
+        "verkaufer-in-im-stundenlohn-denner-ag-menzingen-uqejyy",
+        "seller-in-the-hourly-wage-denner-ag-menzingen",
+        "vendeur-dans-le-salaire-horaire-denner-ag-menzingen",
+        "venditore-nel-salario-orario-denner-ag-ibach",
+        "verkaufer-in-im-stundenlohn-denner-ag-ibach",
+        "verkaufer-in-im-stundenlohn-denner-ag-ibach-o6hw8f",
+        "vendeur-dans-le-salaire-horaire-denner-ag-ibach",
+        "seller-in-the-hourly-wage-denner-ag-ibach",
+        "vendor-in-hourly-wages-denner-ibach"
       ]
     },
     "postalCode": "5000",
@@ -138943,6 +139027,15 @@
     },
     "sector": "",
     "expiredAt": "2026-10-05T21:28:45.355Z",
+    "previousSlugs": [
+      "verkaufer-in-im-stundenlohn-denner-17",
+      "verkaufer-in-im-stundenlohn-denner",
+      "verkaufer-in-im-stundenlohn-denner-16",
+      "verkaufer-in-im-stundenlohn-denner-einsiedeln",
+      "verkaufer-in-im-stundenlohn-denner-17-f8bdd3fe",
+      "verkaufer-in-im-stundenlohn-denner-16-3f77234a",
+      "verkaufer-in-im-stundenlohn-denner-einsiedeln-28bb6396"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "verkaufer-in-im-stundenlohn-denner-17-f8bdd3fe",
@@ -138980,16 +139073,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/cd51981f-1604-4d3d-9983-8672c26fb39c",
-    "firstSeenAt": "2026-06-25T10:59:13.898Z",
-    "previousSlugs": [
-      "verkaufer-in-im-stundenlohn-denner-17",
-      "verkaufer-in-im-stundenlohn-denner",
-      "verkaufer-in-im-stundenlohn-denner-16",
-      "verkaufer-in-im-stundenlohn-denner-einsiedeln",
-      "verkaufer-in-im-stundenlohn-denner-17-f8bdd3fe",
-      "verkaufer-in-im-stundenlohn-denner-16-3f77234a",
-      "verkaufer-in-im-stundenlohn-denner-einsiedeln-28bb6396"
-    ]
+    "firstSeenAt": "2026-06-25T10:59:13.898Z"
   },
   {
     "slug": "venditore-con-retribuzione-oraria-denner-ibach",
@@ -139018,6 +139102,17 @@
     },
     "sector": "",
     "expiredAt": "2026-10-05T21:28:44.948Z",
+    "previousSlugs": [
+      "verkaufer-in-im-stundenlohn-denner-18",
+      "verkaufer-in-im-stundenlohn-denner",
+      "verkaufer-in-im-stundenlohn-denner-17",
+      "verkaufer-in-im-stundenlohn-denner-ibach",
+      "verkaufer-in-im-stundenlohn-denner-2",
+      "verkaufer-in-im-stundenlohn-denner-18-54213468",
+      "verkaufer-in-im-stundenlohn-denner-17-f1753f27",
+      "verkaufer-in-im-stundenlohn-denner-ibach-3d7d2de3",
+      "verkaufer-in-im-stundenlohn-denner-2-c690c187"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "verkaufer-in-im-stundenlohn-denner-18-54213468",
@@ -139060,18 +139155,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/569d980d-2197-4d2c-82e4-d3f0ac83707f",
-    "firstSeenAt": "2026-06-25T10:59:13.898Z",
-    "previousSlugs": [
-      "verkaufer-in-im-stundenlohn-denner-18",
-      "verkaufer-in-im-stundenlohn-denner",
-      "verkaufer-in-im-stundenlohn-denner-17",
-      "verkaufer-in-im-stundenlohn-denner-ibach",
-      "verkaufer-in-im-stundenlohn-denner-2",
-      "verkaufer-in-im-stundenlohn-denner-18-54213468",
-      "verkaufer-in-im-stundenlohn-denner-17-f1753f27",
-      "verkaufer-in-im-stundenlohn-denner-ibach-3d7d2de3",
-      "verkaufer-in-im-stundenlohn-denner-2-c690c187"
-    ]
+    "firstSeenAt": "2026-06-25T10:59:13.898Z"
   },
   {
     "slug": "venditore-con-retribuzione-oraria-denner-menzingen",
@@ -139100,6 +139184,15 @@
     },
     "sector": "",
     "expiredAt": "2026-10-05T21:28:44.944Z",
+    "previousSlugs": [
+      "verkaufer-in-im-stundenlohn-denner-19",
+      "verkaufer-in-im-stundenlohn-denner",
+      "verkaufer-in-im-stundenlohn-denner-18",
+      "verkaufer-in-im-stundenlohn-denner-menzingen",
+      "verkaufer-in-im-stundenlohn-denner-19-c7b1dcab",
+      "verkaufer-in-im-stundenlohn-denner-18-79312852",
+      "verkaufer-in-im-stundenlohn-denner-menzingen-e7479326"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "verkaufer-in-im-stundenlohn-denner-19-c7b1dcab",
@@ -139140,16 +139233,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/fe067d29-7bee-4309-8215-629c74db5a4a",
-    "firstSeenAt": "2026-06-25T10:59:13.898Z",
-    "previousSlugs": [
-      "verkaufer-in-im-stundenlohn-denner-19",
-      "verkaufer-in-im-stundenlohn-denner",
-      "verkaufer-in-im-stundenlohn-denner-18",
-      "verkaufer-in-im-stundenlohn-denner-menzingen",
-      "verkaufer-in-im-stundenlohn-denner-19-c7b1dcab",
-      "verkaufer-in-im-stundenlohn-denner-18-79312852",
-      "verkaufer-in-im-stundenlohn-denner-menzingen-e7479326"
-    ]
+    "firstSeenAt": "2026-06-25T10:59:13.898Z"
   },
   {
     "slug": "venditore-denner-ag-gossau-sg-54b475ec",
@@ -149370,6 +149454,11 @@
     },
     "sector": "",
     "expiredAt": "2026-10-01T21:16:05.676Z",
+    "previousSlugs": [
+      "verkaufer-in-im-stundenlohn-denner-9",
+      "verkaufer-in-im-stundenlohn-denner",
+      "verkaufer-in-im-stundenlohn-denner-9-b723eca1"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "verkaufer-in-im-stundenlohn-denner-9-b723eca1",
@@ -149397,12 +149486,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/306815a8-3d38-4a29-b150-6284e8d66e78",
-    "firstSeenAt": "2026-06-25T10:59:13.898Z",
-    "previousSlugs": [
-      "verkaufer-in-im-stundenlohn-denner-9",
-      "verkaufer-in-im-stundenlohn-denner",
-      "verkaufer-in-im-stundenlohn-denner-9-b723eca1"
-    ]
+    "firstSeenAt": "2026-06-25T10:59:13.898Z"
   },
   {
     "slug": "verkaufer-in-denner-samedan-5l2op8",
@@ -176206,436 +176290,6 @@
     ]
   },
   {
-    "slug": "stv-filialleiter-in-denner-3nkluz",
-    "title": "Stv. Filialleiter*in",
-    "titleByLocale": {
-      "it": "Stv. Filialleiter*in",
-      "de": "Stv. Filialleiter*in",
-      "en": "Stv. Filialleiter*in",
-      "fr": "Stv. Filialleiter*in"
-    },
-    "company": "Denner",
-    "companyKey": "denner",
-    "location": "Amriswil",
-    "addressLocality": "Amriswil",
-    "descriptionByLocale": {
-      "it": "Karriereziel Filialleiter*in? Dann haben wir das perfekte Sprungbrett für dich. Hier kannst du beweisen, was du draufhast. Dein Wissen weitergeben. Etwas bewegen. Führungserfahrungen sammeln. Und natürlich eine ganze Menge dazulernen. Denner. Das ist unser Laden.\n\n## Mansioni\n- Du achtest dich besonders auf die Frische von Früchten, Gemüse und Brot und sagst Food Waste mit weitsichtigen Bestellungen den Kampf an\n- Frischprodukte und natürlich alle anderen Waren bestellen, annehmen, prüfen und in die Regale in deinem Laden füllen\n- Vorgaben im Ladenlayout korrekt umsetzen\n- Mindesthaltbarkeitsdaten in der Warengruppe Frische kontrollieren\n- Als Stellvertreter*in die Mitarbeitenden anleiten, fördern und weiterbringen – und ihnen ein Vorbild sein\n- Als Stellvertreter*in Mitverantwortung für die Zahlen übernehmen – bei Umsatz, Personalkosten und Warenbestand\n\n## Requisiti\n- Drei oder mehr Jahre Berufserfahrung: im Detailhandel als Fach-, Bereichs- oder Rayonleitung von Vorteil\n- Abgeschlossene Berufslehre (EBA): im Detailhandel (Lebensmittel) oder verwandter Berufsgattung wäre ideal\n- Freude an frischen Produkten und im Idealfall schon berufliche Erfahrungen damit\n- Körperlich fit, manche Colis sind bis zu 10 Kilo schwer\n- Geschick bei der Planung und Organisation von Aufgaben und ein Flair für das Interpretieren von Kennzahlen\n- Vertraut mit PC, Tablet und Smartphone - und mit anderen digitalen Helfern (z.B. für die Warenbewirtschaftung) freundest du dich schnell an\n- Deutsch (sehr gute Kenntnisse)\n\n## Cosa offriamo\n- Teil der Migros-Gruppe: Starke, im Detailhandel verankerte Marke unter dem Dach der Migros-Gruppe\n- Gesund arbeiten: Hohe Standards in Arbeitssicherheit, Ergonomie und Hygiene.\n- Mutterschaftsurlaub / Vaterschaftsurlaub: 5 Wochen länger Babypause (19 Wochen) für Mütter und das bei 100% Lohn. Väter geniessen den Nachwuchs 4 bezahlte Wochen.\n- Faire Löhne: 13 Monatslöhne und feste Lohnerhöhungen für alle statt Boni für wenige.\n- Handy-Abo: Die Qual der Wahl: Mit Galaxus Mobile, Wingo oder Sunrise bereits ab CHF 10.- so oder so richtig verbunden.\n- Migros Bank: Besser fahren bei Zinsen und Gebühren Ihrer Privat-, Anlage- oder Hypothekarkonti.\n- Mitarbeiterangebote: 10 Prozent auf den nächsten Grosseinkauf (zweimal pro Jahr).\n- Ferien: 6 Wochen Ferien für alle und bei Dienstjubiläen sogar noch weitere Tage dazu.\n- Freizeit- und Kulturangebote: Diverse Vergünstigungen bei Autovermietungen, Hotels, Events und vielen Bereichen mehr.\n- Gezielte Förderung: Vom Tellerwäscher zum Millionär? Vielleicht nicht gerade, aber: Wer Biss und Talent hat, kommt schnell weiter.\n\n## Contatto\n## Bewerbung & Kontakt Gianluca Morciano Recruiter Verkauf Ostschweiz - LinkedIn ## Rekrutierungsprozess Vorselektion der Bewerbungen Eingegangene Bewerbungen prüfen wir laufend, erstellen eine Vorselektion und geben diese der Führungsperson zur Ansicht frei. Der Entscheid über das Weiterkommen oder Ausscheiden aus dem Rekrutierungsprozess wird per Telefon oder E-Mail kommuniziert. Dauer bis Rückmeldung: Bis zu drei Wochen Persönliches Video- oder Telefongespräch Bei einer grossen Anzahl an Bewerber*innen führen wir optional ein persönliches Telefon- oder Videogespräch durch. Das gibt uns die Möglichkeit, mehr Kandidatinnen und Kandidaten innert kurzer Zeit besser kennen zu lernen, um passende Personen für die nächste Runde einzuladen. Dauer bis Rückmeldung: Bis zu einer Woche Probearbeiten Ein Schnuppertag oder -halbtag gibt die Möglichkeit das zukünftige Arbeitsumfeld und die Teammitglieder besser kennenzulernen. Und umgekehrt gibt es uns eine Chance einzuschätzen, wie gut jemand in das Team passt. Dauer bis Rückmeldung: Bis zu drei Wochen Fachgespräch In einem Fachgespräch werden spezifische für die Ausführung des Jobs relevante Kenntnisse durch die Führungsperson und/oder einer anderen Fachperson und allenfalls dem Team abgefragt. Wenn möglich gibt es danach Zeit den Arbeitsplatz und Team im freien Gespräch besser kennen zu lernen. Dauer bis Rückmeldung: Bis zu drei Wochen Angebot & Vertragsausstellung Nach unserem mündlichen Stellenangebot werden die wichtigsten Vertragspunkte nochmals verifiziert. Nach Übereinkunft wird die Vertragserstellung in Auftrag gegeben und per Post versendet. Dauer bis Rückmeldung: Bis zu drei Wochen ## Hinweis für Personaldienstleister Für diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\n\n**Grado di occupazione:** 80-100%",
-      "de": "Karriereziel Filialleiter*in? Dann haben wir das perfekte Sprungbrett für dich. Hier kannst du beweisen, was du draufhast. Dein Wissen weitergeben. Etwas bewegen. Führungserfahrungen sammeln. Und natürlich eine ganze Menge dazulernen. Denner. Das ist unser Laden.\n\n## Mansioni\n- Du achtest dich besonders auf die Frische von Früchten, Gemüse und Brot und sagst Food Waste mit weitsichtigen Bestellungen den Kampf an\n- Frischprodukte und natürlich alle anderen Waren bestellen, annehmen, prüfen und in die Regale in deinem Laden füllen\n- Vorgaben im Ladenlayout korrekt umsetzen\n- Mindesthaltbarkeitsdaten in der Warengruppe Frische kontrollieren\n- Als Stellvertreter*in die Mitarbeitenden anleiten, fördern und weiterbringen – und ihnen ein Vorbild sein\n- Als Stellvertreter*in Mitverantwortung für die Zahlen übernehmen – bei Umsatz, Personalkosten und Warenbestand\n\n## Requisiti\n- Drei oder mehr Jahre Berufserfahrung: im Detailhandel als Fach-, Bereichs- oder Rayonleitung von Vorteil\n- Abgeschlossene Berufslehre (EBA): im Detailhandel (Lebensmittel) oder verwandter Berufsgattung wäre ideal\n- Freude an frischen Produkten und im Idealfall schon berufliche Erfahrungen damit\n- Körperlich fit, manche Colis sind bis zu 10 Kilo schwer\n- Geschick bei der Planung und Organisation von Aufgaben und ein Flair für das Interpretieren von Kennzahlen\n- Vertraut mit PC, Tablet und Smartphone - und mit anderen digitalen Helfern (z.B. für die Warenbewirtschaftung) freundest du dich schnell an\n- Deutsch (sehr gute Kenntnisse)\n\n## Cosa offriamo\n- Teil der Migros-Gruppe: Starke, im Detailhandel verankerte Marke unter dem Dach der Migros-Gruppe\n- Gesund arbeiten: Hohe Standards in Arbeitssicherheit, Ergonomie und Hygiene.\n- Mutterschaftsurlaub / Vaterschaftsurlaub: 5 Wochen länger Babypause (19 Wochen) für Mütter und das bei 100% Lohn. Väter geniessen den Nachwuchs 4 bezahlte Wochen.\n- Faire Löhne: 13 Monatslöhne und feste Lohnerhöhungen für alle statt Boni für wenige.\n- Handy-Abo: Die Qual der Wahl: Mit Galaxus Mobile, Wingo oder Sunrise bereits ab CHF 10.- so oder so richtig verbunden.\n- Migros Bank: Besser fahren bei Zinsen und Gebühren Ihrer Privat-, Anlage- oder Hypothekarkonti.\n- Mitarbeiterangebote: 10 Prozent auf den nächsten Grosseinkauf (zweimal pro Jahr).\n- Ferien: 6 Wochen Ferien für alle und bei Dienstjubiläen sogar noch weitere Tage dazu.\n- Freizeit- und Kulturangebote: Diverse Vergünstigungen bei Autovermietungen, Hotels, Events und vielen Bereichen mehr.\n- Gezielte Förderung: Vom Tellerwäscher zum Millionär? Vielleicht nicht gerade, aber: Wer Biss und Talent hat, kommt schnell weiter.\n\n## Contatto\n## Bewerbung & Kontakt Gianluca Morciano Recruiter Verkauf Ostschweiz - LinkedIn ## Rekrutierungsprozess Vorselektion der Bewerbungen Eingegangene Bewerbungen prüfen wir laufend, erstellen eine Vorselektion und geben diese der Führungsperson zur Ansicht frei. Der Entscheid über das Weiterkommen oder Ausscheiden aus dem Rekrutierungsprozess wird per Telefon oder E-Mail kommuniziert. Dauer bis Rückmeldung: Bis zu drei Wochen Persönliches Video- oder Telefongespräch Bei einer grossen Anzahl an Bewerber*innen führen wir optional ein persönliches Telefon- oder Videogespräch durch. Das gibt uns die Möglichkeit, mehr Kandidatinnen und Kandidaten innert kurzer Zeit besser kennen zu lernen, um passende Personen für die nächste Runde einzuladen. Dauer bis Rückmeldung: Bis zu einer Woche Probearbeiten Ein Schnuppertag oder -halbtag gibt die Möglichkeit das zukünftige Arbeitsumfeld und die Teammitglieder besser kennenzulernen. Und umgekehrt gibt es uns eine Chance einzuschätzen, wie gut jemand in das Team passt. Dauer bis Rückmeldung: Bis zu drei Wochen Fachgespräch In einem Fachgespräch werden spezifische für die Ausführung des Jobs relevante Kenntnisse durch die Führungsperson und/oder einer anderen Fachperson und allenfalls dem Team abgefragt. Wenn möglich gibt es danach Zeit den Arbeitsplatz und Team im freien Gespräch besser kennen zu lernen. Dauer bis Rückmeldung: Bis zu drei Wochen Angebot & Vertragsausstellung Nach unserem mündlichen Stellenangebot werden die wichtigsten Vertragspunkte nochmals verifiziert. Nach Übereinkunft wird die Vertragserstellung in Auftrag gegeben und per Post versendet. Dauer bis Rückmeldung: Bis zu drei Wochen ## Hinweis für Personaldienstleister Für diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\n\n**Grado di occupazione:** 80-100%",
-      "en": "Karriereziel Filialleiter*in? Dann haben wir das perfekte Sprungbrett für dich. Hier kannst du beweisen, was du draufhast. Dein Wissen weitergeben. Etwas bewegen. Führungserfahrungen sammeln. Und natürlich eine ganze Menge dazulernen. Denner. Das ist unser Laden.\n\n## Mansioni\n- Du achtest dich besonders auf die Frische von Früchten, Gemüse und Brot und sagst Food Waste mit weitsichtigen Bestellungen den Kampf an\n- Frischprodukte und natürlich alle anderen Waren bestellen, annehmen, prüfen und in die Regale in deinem Laden füllen\n- Vorgaben im Ladenlayout korrekt umsetzen\n- Mindesthaltbarkeitsdaten in der Warengruppe Frische kontrollieren\n- Als Stellvertreter*in die Mitarbeitenden anleiten, fördern und weiterbringen – und ihnen ein Vorbild sein\n- Als Stellvertreter*in Mitverantwortung für die Zahlen übernehmen – bei Umsatz, Personalkosten und Warenbestand\n\n## Requisiti\n- Drei oder mehr Jahre Berufserfahrung: im Detailhandel als Fach-, Bereichs- oder Rayonleitung von Vorteil\n- Abgeschlossene Berufslehre (EBA): im Detailhandel (Lebensmittel) oder verwandter Berufsgattung wäre ideal\n- Freude an frischen Produkten und im Idealfall schon berufliche Erfahrungen damit\n- Körperlich fit, manche Colis sind bis zu 10 Kilo schwer\n- Geschick bei der Planung und Organisation von Aufgaben und ein Flair für das Interpretieren von Kennzahlen\n- Vertraut mit PC, Tablet und Smartphone - und mit anderen digitalen Helfern (z.B. für die Warenbewirtschaftung) freundest du dich schnell an\n- Deutsch (sehr gute Kenntnisse)\n\n## Cosa offriamo\n- Teil der Migros-Gruppe: Starke, im Detailhandel verankerte Marke unter dem Dach der Migros-Gruppe\n- Gesund arbeiten: Hohe Standards in Arbeitssicherheit, Ergonomie und Hygiene.\n- Mutterschaftsurlaub / Vaterschaftsurlaub: 5 Wochen länger Babypause (19 Wochen) für Mütter und das bei 100% Lohn. Väter geniessen den Nachwuchs 4 bezahlte Wochen.\n- Faire Löhne: 13 Monatslöhne und feste Lohnerhöhungen für alle statt Boni für wenige.\n- Handy-Abo: Die Qual der Wahl: Mit Galaxus Mobile, Wingo oder Sunrise bereits ab CHF 10.- so oder so richtig verbunden.\n- Migros Bank: Besser fahren bei Zinsen und Gebühren Ihrer Privat-, Anlage- oder Hypothekarkonti.\n- Mitarbeiterangebote: 10 Prozent auf den nächsten Grosseinkauf (zweimal pro Jahr).\n- Ferien: 6 Wochen Ferien für alle und bei Dienstjubiläen sogar noch weitere Tage dazu.\n- Freizeit- und Kulturangebote: Diverse Vergünstigungen bei Autovermietungen, Hotels, Events und vielen Bereichen mehr.\n- Gezielte Förderung: Vom Tellerwäscher zum Millionär? Vielleicht nicht gerade, aber: Wer Biss und Talent hat, kommt schnell weiter.\n\n## Contatto\n## Bewerbung & Kontakt Gianluca Morciano Recruiter Verkauf Ostschweiz - LinkedIn ## Rekrutierungsprozess Vorselektion der Bewerbungen Eingegangene Bewerbungen prüfen wir laufend, erstellen eine Vorselektion und geben diese der Führungsperson zur Ansicht frei. Der Entscheid über das Weiterkommen oder Ausscheiden aus dem Rekrutierungsprozess wird per Telefon oder E-Mail kommuniziert. Dauer bis Rückmeldung: Bis zu drei Wochen Persönliches Video- oder Telefongespräch Bei einer grossen Anzahl an Bewerber*innen führen wir optional ein persönliches Telefon- oder Videogespräch durch. Das gibt uns die Möglichkeit, mehr Kandidatinnen und Kandidaten innert kurzer Zeit besser kennen zu lernen, um passende Personen für die nächste Runde einzuladen. Dauer bis Rückmeldung: Bis zu einer Woche Probearbeiten Ein Schnuppertag oder -halbtag gibt die Möglichkeit das zukünftige Arbeitsumfeld und die Teammitglieder besser kennenzulernen. Und umgekehrt gibt es uns eine Chance einzuschätzen, wie gut jemand in das Team passt. Dauer bis Rückmeldung: Bis zu drei Wochen Fachgespräch In einem Fachgespräch werden spezifische für die Ausführung des Jobs relevante Kenntnisse durch die Führungsperson und/oder einer anderen Fachperson und allenfalls dem Team abgefragt. Wenn möglich gibt es danach Zeit den Arbeitsplatz und Team im freien Gespräch besser kennen zu lernen. Dauer bis Rückmeldung: Bis zu drei Wochen Angebot & Vertragsausstellung Nach unserem mündlichen Stellenangebot werden die wichtigsten Vertragspunkte nochmals verifiziert. Nach Übereinkunft wird die Vertragserstellung in Auftrag gegeben und per Post versendet. Dauer bis Rückmeldung: Bis zu drei Wochen ## Hinweis für Personaldienstleister Für diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\n\n**Grado di occupazione:** 80-100%",
-      "fr": "Karriereziel Filialleiter*in? Dann haben wir das perfekte Sprungbrett für dich. Hier kannst du beweisen, was du draufhast. Dein Wissen weitergeben. Etwas bewegen. Führungserfahrungen sammeln. Und natürlich eine ganze Menge dazulernen. Denner. Das ist unser Laden.\n\n## Mansioni\n- Du achtest dich besonders auf die Frische von Früchten, Gemüse und Brot und sagst Food Waste mit weitsichtigen Bestellungen den Kampf an\n- Frischprodukte und natürlich alle anderen Waren bestellen, annehmen, prüfen und in die Regale in deinem Laden füllen\n- Vorgaben im Ladenlayout korrekt umsetzen\n- Mindesthaltbarkeitsdaten in der Warengruppe Frische kontrollieren\n- Als Stellvertreter*in die Mitarbeitenden anleiten, fördern und weiterbringen – und ihnen ein Vorbild sein\n- Als Stellvertreter*in Mitverantwortung für die Zahlen übernehmen – bei Umsatz, Personalkosten und Warenbestand\n\n## Requisiti\n- Drei oder mehr Jahre Berufserfahrung: im Detailhandel als Fach-, Bereichs- oder Rayonleitung von Vorteil\n- Abgeschlossene Berufslehre (EBA): im Detailhandel (Lebensmittel) oder verwandter Berufsgattung wäre ideal\n- Freude an frischen Produkten und im Idealfall schon berufliche Erfahrungen damit\n- Körperlich fit, manche Colis sind bis zu 10 Kilo schwer\n- Geschick bei der Planung und Organisation von Aufgaben und ein Flair für das Interpretieren von Kennzahlen\n- Vertraut mit PC, Tablet und Smartphone - und mit anderen digitalen Helfern (z.B. für die Warenbewirtschaftung) freundest du dich schnell an\n- Deutsch (sehr gute Kenntnisse)\n\n## Cosa offriamo\n- Teil der Migros-Gruppe: Starke, im Detailhandel verankerte Marke unter dem Dach der Migros-Gruppe\n- Gesund arbeiten: Hohe Standards in Arbeitssicherheit, Ergonomie und Hygiene.\n- Mutterschaftsurlaub / Vaterschaftsurlaub: 5 Wochen länger Babypause (19 Wochen) für Mütter und das bei 100% Lohn. Väter geniessen den Nachwuchs 4 bezahlte Wochen.\n- Faire Löhne: 13 Monatslöhne und feste Lohnerhöhungen für alle statt Boni für wenige.\n- Handy-Abo: Die Qual der Wahl: Mit Galaxus Mobile, Wingo oder Sunrise bereits ab CHF 10.- so oder so richtig verbunden.\n- Migros Bank: Besser fahren bei Zinsen und Gebühren Ihrer Privat-, Anlage- oder Hypothekarkonti.\n- Mitarbeiterangebote: 10 Prozent auf den nächsten Grosseinkauf (zweimal pro Jahr).\n- Ferien: 6 Wochen Ferien für alle und bei Dienstjubiläen sogar noch weitere Tage dazu.\n- Freizeit- und Kulturangebote: Diverse Vergünstigungen bei Autovermietungen, Hotels, Events und vielen Bereichen mehr.\n- Gezielte Förderung: Vom Tellerwäscher zum Millionär? Vielleicht nicht gerade, aber: Wer Biss und Talent hat, kommt schnell weiter.\n\n## Contatto\n## Bewerbung & Kontakt Gianluca Morciano Recruiter Verkauf Ostschweiz - LinkedIn ## Rekrutierungsprozess Vorselektion der Bewerbungen Eingegangene Bewerbungen prüfen wir laufend, erstellen eine Vorselektion und geben diese der Führungsperson zur Ansicht frei. Der Entscheid über das Weiterkommen oder Ausscheiden aus dem Rekrutierungsprozess wird per Telefon oder E-Mail kommuniziert. Dauer bis Rückmeldung: Bis zu drei Wochen Persönliches Video- oder Telefongespräch Bei einer grossen Anzahl an Bewerber*innen führen wir optional ein persönliches Telefon- oder Videogespräch durch. Das gibt uns die Möglichkeit, mehr Kandidatinnen und Kandidaten innert kurzer Zeit besser kennen zu lernen, um passende Personen für die nächste Runde einzuladen. Dauer bis Rückmeldung: Bis zu einer Woche Probearbeiten Ein Schnuppertag oder -halbtag gibt die Möglichkeit das zukünftige Arbeitsumfeld und die Teammitglieder besser kennenzulernen. Und umgekehrt gibt es uns eine Chance einzuschätzen, wie gut jemand in das Team passt. Dauer bis Rückmeldung: Bis zu drei Wochen Fachgespräch In einem Fachgespräch werden spezifische für die Ausführung des Jobs relevante Kenntnisse durch die Führungsperson und/oder einer anderen Fachperson und allenfalls dem Team abgefragt. Wenn möglich gibt es danach Zeit den Arbeitsplatz und Team im freien Gespräch besser kennen zu lernen. Dauer bis Rückmeldung: Bis zu drei Wochen Angebot & Vertragsausstellung Nach unserem mündlichen Stellenangebot werden die wichtigsten Vertragspunkte nochmals verifiziert. Nach Übereinkunft wird die Vertragserstellung in Auftrag gegeben und per Post versendet. Dauer bis Rückmeldung: Bis zu drei Wochen ## Hinweis für Personaldienstleister Für diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\n\n**Grado di occupazione:** 80-100%"
-    },
-    "slugByLocale": {
-      "it": "stv-filialleiter-in-denner-3nkluz",
-      "en": "stv-filialleiter-in-denner-amriswil",
-      "de": "stv-filialleiter-in-denner-amriswil",
-      "fr": "stv-filialleiter-in-denner-amriswil"
-    },
-    "sector": "",
-    "expiredAt": "2026-09-29T09:16:11.161Z",
-    "previousSlugs": [
-      "stv-filialleiter-in-denner-7",
-      "stv-filialleiter-in-denner-3nkluz",
-      "stv-filialleiter-in-denner"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "stv-filialleiter-in-denner-7",
-        "stv-filialleiter-in-denner-3nkluz"
-      ]
-    },
-    "postalCode": "8580",
-    "streetAddress": "Denner Amriswil",
-    "salaryMin": 68500,
-    "salaryMax": 105000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "dedupArchive": true,
-    "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/21b8f688-46bc-4cf8-92a8-12ea9ace5c7e",
-    "firstSeenAt": "2026-05-26T22:41:04.706Z",
-    "sourceIdentityHistory": [
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/0541905f-766e-4112-aa32-c93336bf6f7e",
-        "firstSeenAt": "2026-06-17T13:34:18.916Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/055dc2ed-900f-49a7-91cd-d259678cd1db",
-        "firstSeenAt": "2026-06-22T22:33:45.051Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/06ae870d-7973-482a-9155-b524f034fb43",
-        "firstSeenAt": "2026-06-17T13:34:18.916Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/08d53381-966b-4104-b61a-81a03b928bef",
-        "firstSeenAt": "2026-07-07T12:13:38.802Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/139936ea-0b70-4ca9-b901-73e7e23a112a",
-        "firstSeenAt": "2026-06-17T13:34:18.916Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/15c0d63d-1007-44b6-8c08-cccf90324e9f",
-        "firstSeenAt": "2026-06-30T22:07:57.954Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/1d299862-9e2d-4ef5-b1f0-07bf478846ee",
-        "firstSeenAt": "2026-06-30T22:07:57.954Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/1f09d969-95f2-4d40-bc2f-c364fc8e1809",
-        "firstSeenAt": "2026-06-22T22:33:45.051Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/21b8f688-46bc-4cf8-92a8-12ea9ace5c7e",
-        "firstSeenAt": "2026-05-26T22:41:04.706Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/235d427d-2b68-4b7d-bbdc-6cc96ed02cc0",
-        "firstSeenAt": "2026-06-17T13:34:18.916Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/2a6c7ad1-d138-44c1-a700-7283c0dcd0a0",
-        "firstSeenAt": "2026-08-25T09:48:44.896Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/2d239e80-33c8-487f-89a1-800e6fa083b0",
-        "firstSeenAt": "2026-06-17T13:34:18.916Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/2ff0e146-bf7d-4bad-8ab4-1b866f9ab2e7",
-        "firstSeenAt": "2026-08-17T10:11:32.549Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/3054a1ed-c5f9-4f57-bed2-309ff3b62009",
-        "firstSeenAt": "2026-06-19T12:26:40.005Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/31d93b05-dc66-43fc-9bdf-d69eb7fd7a52",
-        "firstSeenAt": "2026-06-22T22:33:45.051Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/35fafbdd-d435-418c-88f4-fcf6af491719",
-        "firstSeenAt": "2026-07-06T22:24:52.380Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/3d588124-ea34-4430-a844-985808ea7041",
-        "firstSeenAt": "2026-06-22T22:33:45.051Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/3d6ea38b-9e75-48cc-989a-882d6a8eb29b",
-        "firstSeenAt": "2026-06-17T13:34:18.916Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/3de771e2-aa38-4206-9ed8-43e1b81fec5b",
-        "firstSeenAt": "2026-06-15T14:22:55.803Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/475f931a-3799-412f-9dc5-63e132f016bc",
-        "firstSeenAt": "2026-07-13T12:28:20.322Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/482bed73-99bb-477b-a7bc-dc53ffb2a895",
-        "firstSeenAt": "2026-06-17T13:34:18.916Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/547eac3a-08a9-4d92-96b9-fc0f5e09d830",
-        "firstSeenAt": "2026-06-22T22:33:45.051Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/552fd06d-4f4a-4657-a8a2-b52b3dd25fb2",
-        "firstSeenAt": "2026-06-22T22:33:45.051Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/5548f6f5-b684-427d-bba3-e4bafed91606",
-        "firstSeenAt": "2026-08-13T10:50:29.341Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/5780cb47-1431-429e-9b3a-d9b7c48a82bb",
-        "firstSeenAt": "2026-08-31T17:40:35.590Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/5b2062ff-e5f1-4dbf-b73c-e9c711e9d44f",
-        "firstSeenAt": "2026-06-17T13:34:18.916Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/60486da1-ea32-4e6f-b332-b7b9a3a57288",
-        "firstSeenAt": "2026-05-26T22:41:04.706Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/619fb24e-9b74-42ff-aafe-f5068142e430",
-        "firstSeenAt": "2026-06-17T13:34:18.916Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/64ee79b3-5ece-4fa1-b82a-7a5f934f19cb",
-        "firstSeenAt": "2026-06-17T13:34:18.916Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/666ba2fb-2d3e-485d-851c-6db73d11cc39",
-        "firstSeenAt": "2026-06-17T13:34:18.916Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/675feb1c-dea9-45d1-adc2-8cd3dcfc5dea",
-        "firstSeenAt": "2026-06-17T13:34:18.916Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/6953c197-b231-492e-8590-17c399e56d65",
-        "firstSeenAt": "2026-08-31T17:40:35.590Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/6bac0768-88e9-400d-ba4b-b40b2268dd36",
-        "firstSeenAt": "2026-09-01T23:09:11.824Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/6f936d74-93c6-42a7-a803-acdbb9615686",
-        "firstSeenAt": "2026-07-13T22:36:24.077Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/70a5bd89-1b89-4627-98dd-ab900cf4e299",
-        "firstSeenAt": "2026-06-29T14:19:58.281Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/71c622f8-145a-4519-8453-e72e99f70d0f",
-        "firstSeenAt": "2026-06-22T22:33:45.051Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/73d8defc-1e04-4b0d-b115-12c6bbf10b0e",
-        "firstSeenAt": "2026-06-17T13:34:18.916Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/77c1f75c-dde9-4c71-91b6-b2c0274eb39d",
-        "firstSeenAt": "2026-06-22T22:33:45.051Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/79de03d5-b5b3-4b17-bc8b-de9f331ba06c",
-        "firstSeenAt": "2026-06-22T22:33:45.051Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/7d884942-886f-49d3-8180-270d208a30bd",
-        "firstSeenAt": "2026-06-17T13:34:18.916Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/8fd6b599-8730-47a2-9a60-96120c947f13",
-        "firstSeenAt": "2026-06-17T13:34:18.916Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/905683b8-c851-4512-a3f0-536eac3985a8",
-        "firstSeenAt": "2026-06-22T22:33:45.051Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/92eb6ad5-f6bb-4b63-b6eb-e58ae716521a",
-        "firstSeenAt": "2026-06-17T13:34:18.916Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/93d50103-cc62-478a-968c-25c823c5c806",
-        "firstSeenAt": "2026-06-17T13:34:18.916Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/982c857a-27be-4643-9d45-d2d67b5ac83a",
-        "firstSeenAt": "2026-06-22T22:33:45.051Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/a0999a96-4219-4030-8009-890fb39cf863",
-        "firstSeenAt": "2026-06-17T13:34:18.916Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/a3dc6c5e-4b57-462e-80d8-a1e93d358e21",
-        "firstSeenAt": "2026-06-22T22:33:45.051Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/ace1ff1e-c797-4d3b-86e2-a2d9c3269b95",
-        "firstSeenAt": "2026-06-30T22:07:57.954Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/aeb7adf8-5cf5-410b-b846-6f65d662c4e3",
-        "firstSeenAt": "2026-07-03T11:06:33.256Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/b3cba2be-311f-4c2f-9d2b-121d5c6f6326",
-        "firstSeenAt": "2026-06-22T22:33:45.051Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/b6e9786e-b1b3-4c95-b3ce-a57df7dadc5e",
-        "firstSeenAt": "2026-06-22T22:33:45.051Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/bbd768c9-32c3-45f4-b1b3-54e73f541d62",
-        "firstSeenAt": "2026-06-17T13:34:18.916Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/be0bdb99-ea19-44d1-acff-b7b1f6899fcf",
-        "firstSeenAt": "2026-06-17T13:34:18.916Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/c2e78375-1cb0-4cb0-a2d2-cce0b9b81a58",
-        "firstSeenAt": "2026-06-17T13:34:18.916Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/c55d66c4-6c23-4eda-a393-0b35b21d39c1",
-        "firstSeenAt": "2026-06-22T22:33:45.051Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/ca6593e7-4f2b-4d75-aa3f-a6364c4d3a21",
-        "firstSeenAt": "2026-06-17T13:34:18.916Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/d6add2cc-12ad-4c5f-b10a-538f56b80194",
-        "firstSeenAt": "2026-08-17T10:11:32.549Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/d8648a98-ac76-4403-b678-34e75bb6917c",
-        "firstSeenAt": "2026-06-17T13:34:18.916Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/d9e85df1-892b-43f6-b2a2-554f2bd6af4a",
-        "firstSeenAt": "2026-06-17T13:34:18.916Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/da40e4d3-6017-4db1-b70a-08edb2919cf5",
-        "firstSeenAt": "2026-06-05T21:56:21.569Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/db0efd20-5349-410c-ad6f-def6d41c05d8",
-        "firstSeenAt": "2026-06-17T13:34:18.916Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/dfbeca20-1d11-4e7d-87c1-c42cb8109e94",
-        "firstSeenAt": "2026-06-17T13:34:18.916Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/e0af7365-5a29-4211-adec-5d05734a868b",
-        "firstSeenAt": "2026-06-30T22:07:57.954Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/e1e3d641-0bf6-4e0e-95b7-162217adaa68",
-        "firstSeenAt": "2026-07-07T12:13:38.256Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/e841967e-ef79-44e4-bfec-f2df5881984a",
-        "firstSeenAt": "2026-06-22T22:33:45.051Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/eb23d634-d137-45c2-a4eb-ba52d1589ac3",
-        "firstSeenAt": "2026-06-22T22:33:45.051Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/ec02de5f-484b-453d-9bfe-cad9568c13c4",
-        "firstSeenAt": "2026-06-22T22:33:45.051Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/ed987c0d-bf0b-4e2a-94d8-b1a230baa6f2",
-        "firstSeenAt": "2026-07-20T22:05:28.571Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/ef72b69d-04c9-4b56-94cb-2094d7806269",
-        "firstSeenAt": "2026-06-22T22:33:45.051Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/f30f0d50-90f4-456c-9b84-d65fbfda11e2",
-        "firstSeenAt": "2026-06-17T13:34:18.916Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/f8d7b5e5-e670-4a86-abab-3f720d5d1560",
-        "firstSeenAt": "2026-08-31T17:40:35.590Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/fdcbdae9-03bc-45fa-888c-543da26a0325",
-        "firstSeenAt": "2026-06-22T22:33:45.051Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/ffbe3442-2cf4-4b5b-9bf1-1189703538d1",
-        "firstSeenAt": "2026-06-17T13:34:18.916Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-partner-betriebe/stv-filialleiterin/2076a241-00ac-4085-839d-cd2d2b740693",
-        "firstSeenAt": "2026-07-10T10:32:43.492Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-partner-betriebe/stv-filialleiterin/362ad73a-99c2-491c-9015-227bf04004e0",
-        "firstSeenAt": "2026-06-17T13:34:18.916Z",
-        "title": "Stv. Filialleiter*in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-partner-betriebe/stv-filialleiterin/e686aa94-e573-41cc-be8d-e29d71709cbe",
-        "firstSeenAt": "2026-06-17T13:34:18.916Z",
-        "title": "Stv. Filialleiter*in"
-      }
-    ]
-  },
-  {
     "slug": "verkaufer-in-denner-6qzxem",
     "title": "Verkäufer*in",
     "titleByLocale": {
@@ -188344,7 +187998,9 @@
         "verkaufer-in-denner-15-5e130a8b",
         "verkaufer-in-denner-16-e337dcb6",
         "verkaufer-in-denner-6",
-        "verkaufer-in-denner-5"
+        "verkaufer-in-denner-5",
+        "verkaufer-in-denner-6-94fd8902",
+        "verkaufer-in-denner-5-a382b955"
       ],
       "de": [
         "verkaufer-in-denner-ag-jona-ir3hmh",
@@ -188353,7 +188009,9 @@
         "verkaufer-in-denner-15-5e130a8b",
         "verkaufer-in-denner-16-e337dcb6",
         "verkaufer-in-denner-6",
-        "verkaufer-in-denner-5"
+        "verkaufer-in-denner-5",
+        "verkaufer-in-denner-6-94fd8902",
+        "verkaufer-in-denner-5-a382b955"
       ],
       "fr": [
         "verkaufer-in-denner-ag-jona-ir3hmh",
@@ -188363,7 +188021,9 @@
         "verkaufer-in-denner-15-5e130a8b",
         "verkaufer-in-denner-16-e337dcb6",
         "verkaufer-in-denner-6",
-        "verkaufer-in-denner-5"
+        "verkaufer-in-denner-5",
+        "verkaufer-in-denner-6-94fd8902",
+        "verkaufer-in-denner-5-a382b955"
       ]
     },
     "postalCode": "8645",
@@ -220386,7 +220046,11 @@
       "verkaufer-in-im-stundenlohn-denner-stein-ag-c88127c6",
       "verkaufer-in-im-stundenlohn-denner-wohlen-ag-8156c26c",
       "venditore-nel-salario-orario-denner-ag-steffisburg-c6de2cc8",
-      "seller-in-the-hourly-wage-denner-ag-bremgarten-c58e986a"
+      "seller-in-the-hourly-wage-denner-ag-bremgarten-c58e986a",
+      "venditore-con-salario-orario-denner-ag-basel-7659bea2",
+      "salesperson-on-an-hourly-wage-denner-ag-basel-70da2f74",
+      "verkaufer-in-im-stundenlohn-denner-ag-basel-twezqu-3270dd77",
+      "vendeur-a-salaire-horaire-denner-ag-basel-8408d989"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -220831,7 +220495,11 @@
         "venditore-a-orario-denner-ag-stein-ag",
         "verkaufer-in-im-stundenlohn-denner-stein-ag",
         "verkaufer-in-im-stundenlohn-denner-wohlen-ag",
-        "venditore-nel-salario-orario-denner-ag-steffisburg"
+        "venditore-nel-salario-orario-denner-ag-steffisburg",
+        "venditore-con-salario-orario-denner-ag-basel-7659bea2",
+        "salesperson-on-an-hourly-wage-denner-ag-basel-70da2f74",
+        "verkaufer-in-im-stundenlohn-denner-ag-basel-twezqu-3270dd77",
+        "vendeur-a-salaire-horaire-denner-ag-basel-8408d989"
       ],
       "en": [
         "verkaufer-in-im-stundenlohn-denner-ag-rumlang-cddmyi",
@@ -220860,7 +220528,11 @@
         "venditore-nel-salario-orario-denner-ag-steffisburg",
         "seller-in-the-hourly-wage-denner-ag-bremgarten",
         "verkaufer-in-im-stundenlohn-denner-bremgarten",
-        "verkaufer-in-im-stundenlohn-denner-4"
+        "verkaufer-in-im-stundenlohn-denner-4",
+        "salesperson-on-an-hourly-wage-denner-ag-basel-70da2f74",
+        "venditore-con-salario-orario-denner-ag-basel-7659bea2",
+        "verkaufer-in-im-stundenlohn-denner-ag-basel-twezqu-3270dd77",
+        "vendeur-a-salaire-horaire-denner-ag-basel-8408d989"
       ],
       "fr": [
         "verkaufer-in-im-stundenlohn-denner-ag-rumlang-cddmyi",
@@ -220889,7 +220561,11 @@
         "venditore-nel-salario-orario-denner-ag-steffisburg",
         "seller-in-the-hourly-wage-denner-ag-bremgarten-c58e986a",
         "verkaufer-in-im-stundenlohn-denner-bremgarten",
-        "verkaufer-in-im-stundenlohn-denner-4"
+        "verkaufer-in-im-stundenlohn-denner-4",
+        "vendeur-a-salaire-horaire-denner-ag-basel-8408d989",
+        "venditore-con-salario-orario-denner-ag-basel-7659bea2",
+        "salesperson-on-an-hourly-wage-denner-ag-basel-70da2f74",
+        "verkaufer-in-im-stundenlohn-denner-ag-basel-twezqu-3270dd77"
       ],
       "de": [
         "verkaufer-in-im-stundenlohn-denner-ag-bremgarten-ppf2qg",
@@ -220930,7 +220606,11 @@
         "verkaufer-in-im-stundenlohn-denner-wohlen-ag",
         "venditore-nel-salario-orario-denner-ag-steffisburg",
         "seller-in-the-hourly-wage-denner-ag-bremgarten-c58e986a",
-        "verkaufer-in-im-stundenlohn-denner-4"
+        "verkaufer-in-im-stundenlohn-denner-4",
+        "verkaufer-in-im-stundenlohn-denner-ag-basel-twezqu-3270dd77",
+        "venditore-con-salario-orario-denner-ag-basel-7659bea2",
+        "salesperson-on-an-hourly-wage-denner-ag-basel-70da2f74",
+        "vendeur-a-salaire-horaire-denner-ag-basel-8408d989"
       ]
     },
     "postalCode": "8153",
@@ -238253,7 +237933,8 @@
       "verkaufer-in-im-stundenlohn-denner-12",
       "seller-denner-ag-frauenfeld",
       "vendeur-denner-ag-frauenfeld",
-      "vendeur-denner-ag-frauenfeld-b0dbe173"
+      "vendeur-denner-ag-frauenfeld-b0dbe173",
+      "verkaufer-in-im-stundenlohn-denner-worb-10cfc818"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -239279,7 +238960,8 @@
         "seller-denner-ag-frauenfeld-beab6b81",
         "verkaufer-in-im-stundenlohn-denner-zug-6c222be8",
         "verkaufer-in-im-stundenlohn-denner-zug",
-        "vendeur-denner-ag-frauenfeld"
+        "vendeur-denner-ag-frauenfeld",
+        "verkaufer-in-im-stundenlohn-denner-worb-10cfc818"
       ],
       "de": [
         "verkaufer-in-denner-ag-frauenfeld-aeaf36b2",
@@ -239601,7 +239283,8 @@
         "verkaufer-in-im-stundenlohn-denner-zug-6c222be8",
         "verkaufer-in-im-stundenlohn-denner-zug",
         "vendeur-denner-ag-frauenfeld",
-        "seller-denner-ag-frauenfeld"
+        "seller-denner-ag-frauenfeld",
+        "verkaufer-in-im-stundenlohn-denner-worb-10cfc818"
       ],
       "fr": [
         "verkaufer-in-im-stundenlohn-denner-frauenfeld",
@@ -239970,7 +239653,8 @@
         "vendeur-denner-ag-frauenfeld-c0753639",
         "verkaufer-in-im-stundenlohn-denner-zug-6c222be8",
         "verkaufer-in-im-stundenlohn-denner-zug",
-        "seller-denner-ag-frauenfeld"
+        "seller-denner-ag-frauenfeld",
+        "verkaufer-in-im-stundenlohn-denner-worb-10cfc818"
       ]
     },
     "postalCode": "4665",
@@ -259386,9 +259070,9 @@
     },
     "slugByLocale": {
       "it": "venditore-nel-salario-orario-denner-ag-winterthur",
-      "en": "seller-in-the-hourly-wage-denner-ag-winterthur",
+      "en": "seller-in-the-hourly-wage-denner-ag-winterthur-8d9cf523",
       "de": "verkaufer-in-im-stundenlohn-denner-ag-winterthur-8fo8dc-e5f55546",
-      "fr": "vendeur-dans-le-salaire-horaire-denner-ag-winterthur"
+      "fr": "vendeur-dans-le-salaire-horaire-denner-ag-winterthur-e24768e2"
     },
     "sector": "",
     "expiredAt": "2026-09-01T14:48:44.950Z",
@@ -259513,7 +259197,67 @@
       "verkaufer-in-im-stundenlohn-denner-spreitenbach-05c5e7e6",
       "verkaufer-in-im-stundenlohn-denner-nebikon-aac62720",
       "verkaufer-in-im-stundenlohn-denner-sissach-b9c668ca",
-      "verkaufer-in-im-stundenlohn-denner-ag-winterthur-8fo8dc"
+      "verkaufer-in-im-stundenlohn-denner-ag-winterthur-8fo8dc",
+      "venditore-con-salario-orario-denner-ag-stein-ag-2147e93b",
+      "venditore-nel-salario-orario-denner-effretikon-38cccf9e",
+      "venditore-con-salario-orario-denner-ag-binningen-27bc602a",
+      "venditore-nel-salario-orario-denner-ag-cham-cc56f242",
+      "venditore-a-a-ore-denner-ag-einsiedeln-157c2a5b",
+      "venditore-nel-salario-orario-denner-ag-spreitenbach-755795db",
+      "verkaufer-in-im-stundenlohn-denner-nebikon-dgsjiy-08e5f1e6",
+      "venditore-nel-salario-orario-denner-uetendorf-6bd4d0c4",
+      "verkaufer-in-im-stundenlohn-denner-uetendorf-a5828b4d",
+      "venditore-nel-salario-orario-denner-zollikofen-5c7ba438",
+      "venditore-in-salario-orario-denner-liestal-ae9e6591",
+      "verkaufer-in-im-stundenlohn-denner-liestal-852d1819",
+      "venditore-in-salario-orario-denner-spreitenbach-1cc3cfd2",
+      "venditore-in-salario-orario-denner-einsiedeln-2099f594",
+      "venditore-con-salario-orario-denner-urtenen-schonbuhl-ekz-3116a134",
+      "verkaufer-in-im-stundenlohn-denner-urtenen-schonbuhl-ekz-bccc220d",
+      "venditore-nel-salario-orario-denner-ag-thun-a3b4864f",
+      "venditore-a-a-tempo-determinato-denner-ag-sissach-39ab3ad4",
+      "venditore-con-salario-orario-denner-ag-spreitenbach-8501512a",
+      "salesperson-on-an-hourly-wage-denner-ag-spreitenbach-851852c9",
+      "vendeur-a-salaire-horaire-denner-ag-spreitenbach-5836005f",
+      "venditore-con-salario-orario-denner-ag-basel-e834b101",
+      "salesperson-on-an-hourly-wage-denner-ag-basel-6b768595",
+      "vendeur-a-salaire-horaire-denner-ag-basel-0d7b657c",
+      "seller-in-the-hourly-wage-denner-ag-thun-a6dbe161",
+      "vendeur-dans-le-salaire-horaire-denner-ag-thun-2dd401e9",
+      "sales-associate-denner-ag-sissach-0749272c",
+      "vendeur-euse-a-temps-partiel-denner-ag-sissach-f6ec579c",
+      "verkaufer-in-im-stundenlohn-denner-therwil-326bb9fa",
+      "seller-in-the-hourly-wage-denner-ag-stein-ag-43b3bd8e",
+      "seller-in-the-hourly-wage-denner-effretikon-9b52c2a9",
+      "verkaufer-in-im-stundenlohn-denner-effretikon-4babf0dd",
+      "seller-in-the-hourly-wage-denner-ag-binningen-036735ee",
+      "seller-in-the-hourly-wage-denner-binningen-07662a3f",
+      "seller-in-the-hourly-wage-denner-ag-cham-8cc15096",
+      "sales-associate-denner-ag-einsiedeln-cded5273",
+      "seller-in-the-hourly-wage-denner-ag-spreitenbach-8db37480",
+      "seller-in-the-hourly-wage-denner-uetendorf-772ee2da",
+      "seller-in-the-hourly-wage-denner-zollikofen-f0406d1d",
+      "verkaufer-in-im-stundenlohn-denner-ag-spreitenbach-h9wkyg-f67b99c8",
+      "verkaufer-in-im-stundenlohn-denner-ag-basel-twezqu-3e2ae0db",
+      "verkaufer-in-im-stundenlohn-denner-ag-thun-5kpxdw-e3889e3a",
+      "verkaufer-in-im-stundenlohn-denner-ag-sissach-zax7ry-187e3869",
+      "verkaufer-in-im-stundenlohn-denner-ag-stein-ag-wnd0cc-0175034b",
+      "verkaufer-in-im-stundenlohn-denner-ag-binningen-xtkyuv-8573e6a1",
+      "verkaufer-in-im-stundenlohn-denner-ag-einsiedeln-jzab6h-acda09e7",
+      "verkaufer-in-im-stundenlohn-denner-ag-spreitenbach-ds0v39-b110ce2b",
+      "verkaufer-in-im-stundenlohn-migros-ticino-nebikon-dgsjiy-af87beb1",
+      "verkaufer-in-im-stundenlohn-denner-ag-uetendorf-9elgt8-de072367",
+      "vendeur-dans-le-salaire-horaire-denner-ag-stein-ag-8bba858f",
+      "vendeur-dans-le-salaire-horaire-denner-effretikon-841540af",
+      "vendeur-dans-le-salaire-horaire-denner-ag-binningen-cd5d7b03",
+      "vendeur-dans-le-salaire-horaire-denner-binningen-1fa2d83b",
+      "vendeur-dans-le-salaire-horaire-denner-ag-cham-1c9257ac",
+      "vendeur-veuse-a-temps-partiel-denner-ag-einsiedeln-4469a73f",
+      "vendeur-dans-le-salaire-horaire-denner-ag-spreitenbach-be49886f",
+      "vendeur-dans-le-salaire-horaire-denner-uetendorf-fcef68f6",
+      "verkaufer-in-im-stundenlohn-denner-nebikon-82bbf73a",
+      "seller-in-the-hourly-wage-denner-ag-winterthur",
+      "vendeur-dans-le-salaire-horaire-denner-ag-winterthur"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -259558,7 +259302,64 @@
         "verkaufer-in-im-stundenlohn-denner-spreitenbach-05c5e7e6",
         "verkaufer-in-im-stundenlohn-denner-nebikon-aac62720",
         "verkaufer-in-im-stundenlohn-denner-sissach-b9c668ca",
-        "verkaufer-in-im-stundenlohn-denner-einsiedeln"
+        "verkaufer-in-im-stundenlohn-denner-einsiedeln",
+        "venditore-con-salario-orario-denner-ag-stein-ag-2147e93b",
+        "venditore-nel-salario-orario-denner-effretikon-38cccf9e",
+        "venditore-con-salario-orario-denner-ag-binningen-27bc602a",
+        "venditore-nel-salario-orario-denner-ag-cham-cc56f242",
+        "venditore-a-a-ore-denner-ag-einsiedeln-157c2a5b",
+        "venditore-nel-salario-orario-denner-ag-spreitenbach-755795db",
+        "verkaufer-in-im-stundenlohn-denner-nebikon-dgsjiy-08e5f1e6",
+        "venditore-nel-salario-orario-denner-uetendorf-6bd4d0c4",
+        "verkaufer-in-im-stundenlohn-denner-uetendorf-a5828b4d",
+        "venditore-nel-salario-orario-denner-zollikofen-5c7ba438",
+        "venditore-in-salario-orario-denner-liestal-ae9e6591",
+        "verkaufer-in-im-stundenlohn-denner-liestal-852d1819",
+        "venditore-in-salario-orario-denner-spreitenbach-1cc3cfd2",
+        "venditore-in-salario-orario-denner-einsiedeln-2099f594",
+        "venditore-con-salario-orario-denner-urtenen-schonbuhl-ekz-3116a134",
+        "verkaufer-in-im-stundenlohn-denner-urtenen-schonbuhl-ekz-bccc220d",
+        "venditore-nel-salario-orario-denner-ag-thun-a3b4864f",
+        "venditore-a-a-tempo-determinato-denner-ag-sissach-39ab3ad4",
+        "venditore-con-salario-orario-denner-ag-spreitenbach-8501512a",
+        "salesperson-on-an-hourly-wage-denner-ag-spreitenbach-851852c9",
+        "vendeur-a-salaire-horaire-denner-ag-spreitenbach-5836005f",
+        "venditore-con-salario-orario-denner-ag-basel-e834b101",
+        "salesperson-on-an-hourly-wage-denner-ag-basel-6b768595",
+        "vendeur-a-salaire-horaire-denner-ag-basel-0d7b657c",
+        "seller-in-the-hourly-wage-denner-ag-thun-a6dbe161",
+        "vendeur-dans-le-salaire-horaire-denner-ag-thun-2dd401e9",
+        "sales-associate-denner-ag-sissach-0749272c",
+        "vendeur-euse-a-temps-partiel-denner-ag-sissach-f6ec579c",
+        "verkaufer-in-im-stundenlohn-denner-therwil-326bb9fa",
+        "seller-in-the-hourly-wage-denner-ag-stein-ag-43b3bd8e",
+        "seller-in-the-hourly-wage-denner-effretikon-9b52c2a9",
+        "verkaufer-in-im-stundenlohn-denner-effretikon-4babf0dd",
+        "seller-in-the-hourly-wage-denner-ag-binningen-036735ee",
+        "seller-in-the-hourly-wage-denner-binningen-07662a3f",
+        "seller-in-the-hourly-wage-denner-ag-cham-8cc15096",
+        "sales-associate-denner-ag-einsiedeln-cded5273",
+        "seller-in-the-hourly-wage-denner-ag-spreitenbach-8db37480",
+        "seller-in-the-hourly-wage-denner-uetendorf-772ee2da",
+        "seller-in-the-hourly-wage-denner-zollikofen-f0406d1d",
+        "verkaufer-in-im-stundenlohn-denner-ag-spreitenbach-h9wkyg-f67b99c8",
+        "verkaufer-in-im-stundenlohn-denner-ag-basel-twezqu-3e2ae0db",
+        "verkaufer-in-im-stundenlohn-denner-ag-thun-5kpxdw-e3889e3a",
+        "verkaufer-in-im-stundenlohn-denner-ag-sissach-zax7ry-187e3869",
+        "verkaufer-in-im-stundenlohn-denner-ag-stein-ag-wnd0cc-0175034b",
+        "verkaufer-in-im-stundenlohn-denner-ag-binningen-xtkyuv-8573e6a1",
+        "verkaufer-in-im-stundenlohn-denner-ag-einsiedeln-jzab6h-acda09e7",
+        "verkaufer-in-im-stundenlohn-denner-ag-spreitenbach-ds0v39-b110ce2b",
+        "verkaufer-in-im-stundenlohn-migros-ticino-nebikon-dgsjiy-af87beb1",
+        "verkaufer-in-im-stundenlohn-denner-ag-uetendorf-9elgt8-de072367",
+        "vendeur-dans-le-salaire-horaire-denner-ag-stein-ag-8bba858f",
+        "vendeur-dans-le-salaire-horaire-denner-effretikon-841540af",
+        "vendeur-dans-le-salaire-horaire-denner-ag-binningen-cd5d7b03",
+        "vendeur-dans-le-salaire-horaire-denner-binningen-1fa2d83b",
+        "vendeur-dans-le-salaire-horaire-denner-ag-cham-1c9257ac",
+        "vendeur-veuse-a-temps-partiel-denner-ag-einsiedeln-4469a73f",
+        "vendeur-dans-le-salaire-horaire-denner-ag-spreitenbach-be49886f",
+        "vendeur-dans-le-salaire-horaire-denner-uetendorf-fcef68f6"
       ],
       "en": [
         "seller-in-the-hourly-wage-denner-ag-stein-ag",
@@ -259599,7 +259400,64 @@
         "verkaufer-in-im-stundenlohn-denner-basel",
         "verkaufer-in-im-stundenlohn-denner-spreitenbach-05c5e7e6",
         "verkaufer-in-im-stundenlohn-denner-nebikon",
-        "verkaufer-in-im-stundenlohn-denner-sissach-b9c668ca"
+        "verkaufer-in-im-stundenlohn-denner-sissach-b9c668ca",
+        "seller-in-the-hourly-wage-denner-ag-stein-ag-43b3bd8e",
+        "seller-in-the-hourly-wage-denner-effretikon-9b52c2a9",
+        "verkaufer-in-im-stundenlohn-denner-effretikon-4babf0dd",
+        "seller-in-the-hourly-wage-denner-ag-binningen-036735ee",
+        "seller-in-the-hourly-wage-denner-binningen-07662a3f",
+        "seller-in-the-hourly-wage-denner-ag-cham-8cc15096",
+        "sales-associate-denner-ag-einsiedeln-cded5273",
+        "seller-in-the-hourly-wage-denner-ag-spreitenbach-8db37480",
+        "seller-in-the-hourly-wage-denner-uetendorf-772ee2da",
+        "verkaufer-in-im-stundenlohn-denner-uetendorf-a5828b4d",
+        "seller-in-the-hourly-wage-denner-zollikofen-f0406d1d",
+        "verkaufer-in-im-stundenlohn-denner-nebikon-82bbf73a",
+        "venditore-con-salario-orario-denner-ag-stein-ag-2147e93b",
+        "venditore-nel-salario-orario-denner-effretikon-38cccf9e",
+        "venditore-con-salario-orario-denner-ag-binningen-27bc602a",
+        "venditore-nel-salario-orario-denner-ag-cham-cc56f242",
+        "venditore-a-a-ore-denner-ag-einsiedeln-157c2a5b",
+        "venditore-nel-salario-orario-denner-ag-spreitenbach-755795db",
+        "verkaufer-in-im-stundenlohn-denner-nebikon-dgsjiy-08e5f1e6",
+        "venditore-nel-salario-orario-denner-uetendorf-6bd4d0c4",
+        "venditore-nel-salario-orario-denner-zollikofen-5c7ba438",
+        "venditore-in-salario-orario-denner-liestal",
+        "venditore-in-salario-orario-denner-spreitenbach",
+        "venditore-in-salario-orario-denner-einsiedeln",
+        "venditore-con-salario-orario-denner-urtenen-schonbuhl-ekz",
+        "venditore-nel-salario-orario-denner-ag-thun-a3b4864f",
+        "venditore-a-a-tempo-determinato-denner-ag-sissach-39ab3ad4",
+        "venditore-con-salario-orario-denner-ag-spreitenbach-8501512a",
+        "salesperson-on-an-hourly-wage-denner-ag-spreitenbach-851852c9",
+        "vendeur-a-salaire-horaire-denner-ag-spreitenbach-5836005f",
+        "venditore-con-salario-orario-denner-ag-basel-e834b101",
+        "salesperson-on-an-hourly-wage-denner-ag-basel-6b768595",
+        "vendeur-a-salaire-horaire-denner-ag-basel-0d7b657c",
+        "seller-in-the-hourly-wage-denner-ag-thun-a6dbe161",
+        "vendeur-dans-le-salaire-horaire-denner-ag-thun-2dd401e9",
+        "sales-associate-denner-ag-sissach-0749272c",
+        "vendeur-euse-a-temps-partiel-denner-ag-sissach-f6ec579c",
+        "verkaufer-in-im-stundenlohn-denner-therwil",
+        "verkaufer-in-im-stundenlohn-denner-ag-spreitenbach-h9wkyg-f67b99c8",
+        "verkaufer-in-im-stundenlohn-denner-ag-basel-twezqu-3e2ae0db",
+        "verkaufer-in-im-stundenlohn-denner-ag-thun-5kpxdw-e3889e3a",
+        "verkaufer-in-im-stundenlohn-denner-ag-sissach-zax7ry-187e3869",
+        "verkaufer-in-im-stundenlohn-denner-ag-stein-ag-wnd0cc-0175034b",
+        "verkaufer-in-im-stundenlohn-denner-ag-binningen-xtkyuv-8573e6a1",
+        "verkaufer-in-im-stundenlohn-denner-ag-einsiedeln-jzab6h-acda09e7",
+        "verkaufer-in-im-stundenlohn-denner-ag-spreitenbach-ds0v39-b110ce2b",
+        "verkaufer-in-im-stundenlohn-migros-ticino-nebikon-dgsjiy-af87beb1",
+        "verkaufer-in-im-stundenlohn-denner-ag-uetendorf-9elgt8-de072367",
+        "vendeur-dans-le-salaire-horaire-denner-ag-stein-ag-8bba858f",
+        "vendeur-dans-le-salaire-horaire-denner-effretikon-841540af",
+        "vendeur-dans-le-salaire-horaire-denner-ag-binningen-cd5d7b03",
+        "vendeur-dans-le-salaire-horaire-denner-binningen-1fa2d83b",
+        "vendeur-dans-le-salaire-horaire-denner-ag-cham-1c9257ac",
+        "vendeur-veuse-a-temps-partiel-denner-ag-einsiedeln-4469a73f",
+        "vendeur-dans-le-salaire-horaire-denner-ag-spreitenbach-be49886f",
+        "vendeur-dans-le-salaire-horaire-denner-uetendorf-fcef68f6",
+        "seller-in-the-hourly-wage-denner-ag-winterthur"
       ],
       "de": [
         "verkaufer-in-im-stundenlohn-denner-ag-spreitenbach-h9wkyg",
@@ -259636,7 +259494,63 @@
         "verkaufer-in-im-stundenlohn-denner-spreitenbach-05c5e7e6",
         "verkaufer-in-im-stundenlohn-denner-nebikon",
         "verkaufer-in-im-stundenlohn-denner-sissach-b9c668ca",
-        "verkaufer-in-im-stundenlohn-denner-ag-winterthur-8fo8dc"
+        "verkaufer-in-im-stundenlohn-denner-ag-winterthur-8fo8dc",
+        "verkaufer-in-im-stundenlohn-denner-ag-spreitenbach-h9wkyg-f67b99c8",
+        "verkaufer-in-im-stundenlohn-denner-ag-basel-twezqu-3e2ae0db",
+        "verkaufer-in-im-stundenlohn-denner-ag-thun-5kpxdw-e3889e3a",
+        "verkaufer-in-im-stundenlohn-denner-ag-sissach-zax7ry-187e3869",
+        "verkaufer-in-im-stundenlohn-denner-ag-stein-ag-wnd0cc-0175034b",
+        "verkaufer-in-im-stundenlohn-denner-effretikon-4babf0dd",
+        "verkaufer-in-im-stundenlohn-denner-ag-binningen-xtkyuv-8573e6a1",
+        "verkaufer-in-im-stundenlohn-denner-ag-einsiedeln-jzab6h-acda09e7",
+        "verkaufer-in-im-stundenlohn-denner-ag-spreitenbach-ds0v39-b110ce2b",
+        "verkaufer-in-im-stundenlohn-migros-ticino-nebikon-dgsjiy-af87beb1",
+        "verkaufer-in-im-stundenlohn-denner-ag-uetendorf-9elgt8-de072367",
+        "verkaufer-in-im-stundenlohn-denner-nebikon-82bbf73a",
+        "venditore-con-salario-orario-denner-ag-stein-ag-2147e93b",
+        "venditore-nel-salario-orario-denner-effretikon-38cccf9e",
+        "venditore-con-salario-orario-denner-ag-binningen-27bc602a",
+        "venditore-nel-salario-orario-denner-ag-cham-cc56f242",
+        "venditore-a-a-ore-denner-ag-einsiedeln-157c2a5b",
+        "venditore-nel-salario-orario-denner-ag-spreitenbach-755795db",
+        "verkaufer-in-im-stundenlohn-denner-nebikon-dgsjiy-08e5f1e6",
+        "venditore-nel-salario-orario-denner-uetendorf-6bd4d0c4",
+        "verkaufer-in-im-stundenlohn-denner-uetendorf-a5828b4d",
+        "venditore-nel-salario-orario-denner-zollikofen-5c7ba438",
+        "venditore-in-salario-orario-denner-liestal",
+        "venditore-in-salario-orario-denner-spreitenbach",
+        "venditore-in-salario-orario-denner-einsiedeln",
+        "venditore-con-salario-orario-denner-urtenen-schonbuhl-ekz",
+        "venditore-nel-salario-orario-denner-ag-thun-a3b4864f",
+        "venditore-a-a-tempo-determinato-denner-ag-sissach-39ab3ad4",
+        "venditore-con-salario-orario-denner-ag-spreitenbach-8501512a",
+        "salesperson-on-an-hourly-wage-denner-ag-spreitenbach-851852c9",
+        "vendeur-a-salaire-horaire-denner-ag-spreitenbach-5836005f",
+        "venditore-con-salario-orario-denner-ag-basel-e834b101",
+        "salesperson-on-an-hourly-wage-denner-ag-basel-6b768595",
+        "vendeur-a-salaire-horaire-denner-ag-basel-0d7b657c",
+        "seller-in-the-hourly-wage-denner-ag-thun-a6dbe161",
+        "vendeur-dans-le-salaire-horaire-denner-ag-thun-2dd401e9",
+        "sales-associate-denner-ag-sissach-0749272c",
+        "vendeur-euse-a-temps-partiel-denner-ag-sissach-f6ec579c",
+        "verkaufer-in-im-stundenlohn-denner-therwil",
+        "seller-in-the-hourly-wage-denner-ag-stein-ag-43b3bd8e",
+        "seller-in-the-hourly-wage-denner-effretikon-9b52c2a9",
+        "seller-in-the-hourly-wage-denner-ag-binningen-036735ee",
+        "seller-in-the-hourly-wage-denner-binningen-07662a3f",
+        "seller-in-the-hourly-wage-denner-ag-cham-8cc15096",
+        "sales-associate-denner-ag-einsiedeln-cded5273",
+        "seller-in-the-hourly-wage-denner-ag-spreitenbach-8db37480",
+        "seller-in-the-hourly-wage-denner-uetendorf-772ee2da",
+        "seller-in-the-hourly-wage-denner-zollikofen-f0406d1d",
+        "vendeur-dans-le-salaire-horaire-denner-ag-stein-ag-8bba858f",
+        "vendeur-dans-le-salaire-horaire-denner-effretikon-841540af",
+        "vendeur-dans-le-salaire-horaire-denner-ag-binningen-cd5d7b03",
+        "vendeur-dans-le-salaire-horaire-denner-binningen-1fa2d83b",
+        "vendeur-dans-le-salaire-horaire-denner-ag-cham-1c9257ac",
+        "vendeur-veuse-a-temps-partiel-denner-ag-einsiedeln-4469a73f",
+        "vendeur-dans-le-salaire-horaire-denner-ag-spreitenbach-be49886f",
+        "vendeur-dans-le-salaire-horaire-denner-uetendorf-fcef68f6"
       ],
       "fr": [
         "vendeur-dans-le-salaire-horaire-denner-ag-stein-ag",
@@ -259677,7 +259591,64 @@
         "verkaufer-in-im-stundenlohn-denner-basel",
         "verkaufer-in-im-stundenlohn-denner-spreitenbach-05c5e7e6",
         "verkaufer-in-im-stundenlohn-denner-nebikon",
-        "verkaufer-in-im-stundenlohn-denner-sissach-b9c668ca"
+        "verkaufer-in-im-stundenlohn-denner-sissach-b9c668ca",
+        "vendeur-dans-le-salaire-horaire-denner-ag-stein-ag-8bba858f",
+        "vendeur-dans-le-salaire-horaire-denner-effretikon-841540af",
+        "verkaufer-in-im-stundenlohn-denner-effretikon-4babf0dd",
+        "vendeur-dans-le-salaire-horaire-denner-ag-binningen-cd5d7b03",
+        "vendeur-dans-le-salaire-horaire-denner-binningen-1fa2d83b",
+        "vendeur-dans-le-salaire-horaire-denner-ag-cham-1c9257ac",
+        "vendeur-veuse-a-temps-partiel-denner-ag-einsiedeln-4469a73f",
+        "vendeur-dans-le-salaire-horaire-denner-ag-spreitenbach-be49886f",
+        "vendeur-dans-le-salaire-horaire-denner-uetendorf-fcef68f6",
+        "verkaufer-in-im-stundenlohn-denner-uetendorf-a5828b4d",
+        "verkaufer-in-im-stundenlohn-denner-nebikon-82bbf73a",
+        "venditore-con-salario-orario-denner-ag-stein-ag-2147e93b",
+        "venditore-nel-salario-orario-denner-effretikon-38cccf9e",
+        "venditore-con-salario-orario-denner-ag-binningen-27bc602a",
+        "venditore-nel-salario-orario-denner-ag-cham-cc56f242",
+        "venditore-a-a-ore-denner-ag-einsiedeln-157c2a5b",
+        "venditore-nel-salario-orario-denner-ag-spreitenbach-755795db",
+        "verkaufer-in-im-stundenlohn-denner-nebikon-dgsjiy-08e5f1e6",
+        "venditore-nel-salario-orario-denner-uetendorf-6bd4d0c4",
+        "venditore-nel-salario-orario-denner-zollikofen-5c7ba438",
+        "venditore-in-salario-orario-denner-liestal",
+        "venditore-in-salario-orario-denner-spreitenbach",
+        "venditore-in-salario-orario-denner-einsiedeln",
+        "venditore-con-salario-orario-denner-urtenen-schonbuhl-ekz",
+        "venditore-nel-salario-orario-denner-ag-thun-a3b4864f",
+        "venditore-a-a-tempo-determinato-denner-ag-sissach-39ab3ad4",
+        "venditore-con-salario-orario-denner-ag-spreitenbach-8501512a",
+        "salesperson-on-an-hourly-wage-denner-ag-spreitenbach-851852c9",
+        "vendeur-a-salaire-horaire-denner-ag-spreitenbach-5836005f",
+        "venditore-con-salario-orario-denner-ag-basel-e834b101",
+        "salesperson-on-an-hourly-wage-denner-ag-basel-6b768595",
+        "vendeur-a-salaire-horaire-denner-ag-basel-0d7b657c",
+        "seller-in-the-hourly-wage-denner-ag-thun-a6dbe161",
+        "vendeur-dans-le-salaire-horaire-denner-ag-thun-2dd401e9",
+        "sales-associate-denner-ag-sissach-0749272c",
+        "vendeur-euse-a-temps-partiel-denner-ag-sissach-f6ec579c",
+        "verkaufer-in-im-stundenlohn-denner-therwil",
+        "seller-in-the-hourly-wage-denner-ag-stein-ag-43b3bd8e",
+        "seller-in-the-hourly-wage-denner-effretikon-9b52c2a9",
+        "seller-in-the-hourly-wage-denner-ag-binningen-036735ee",
+        "seller-in-the-hourly-wage-denner-binningen-07662a3f",
+        "seller-in-the-hourly-wage-denner-ag-cham-8cc15096",
+        "sales-associate-denner-ag-einsiedeln-cded5273",
+        "seller-in-the-hourly-wage-denner-ag-spreitenbach-8db37480",
+        "seller-in-the-hourly-wage-denner-uetendorf-772ee2da",
+        "seller-in-the-hourly-wage-denner-zollikofen-f0406d1d",
+        "verkaufer-in-im-stundenlohn-denner-ag-spreitenbach-h9wkyg-f67b99c8",
+        "verkaufer-in-im-stundenlohn-denner-ag-basel-twezqu-3e2ae0db",
+        "verkaufer-in-im-stundenlohn-denner-ag-thun-5kpxdw-e3889e3a",
+        "verkaufer-in-im-stundenlohn-denner-ag-sissach-zax7ry-187e3869",
+        "verkaufer-in-im-stundenlohn-denner-ag-stein-ag-wnd0cc-0175034b",
+        "verkaufer-in-im-stundenlohn-denner-ag-binningen-xtkyuv-8573e6a1",
+        "verkaufer-in-im-stundenlohn-denner-ag-einsiedeln-jzab6h-acda09e7",
+        "verkaufer-in-im-stundenlohn-denner-ag-spreitenbach-ds0v39-b110ce2b",
+        "verkaufer-in-im-stundenlohn-migros-ticino-nebikon-dgsjiy-af87beb1",
+        "verkaufer-in-im-stundenlohn-denner-ag-uetendorf-9elgt8-de072367",
+        "vendeur-dans-le-salaire-horaire-denner-ag-winterthur"
       ]
     },
     "postalCode": "8404",
@@ -349722,7 +349693,8 @@
       "verkaufer-in-im-stundenlohn-denner-luzern",
       "verkaufer-in-im-stundenlohn-denner-9",
       "verkaufer-in-im-stundenlohn-denner-luzern-d2f08ad9",
-      "verkaufer-in-im-stundenlohn-denner-9-423221bc"
+      "verkaufer-in-im-stundenlohn-denner-9-423221bc",
+      "verkaufer-in-im-stundenlohn-denner-therwil-002d29a1"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -350330,7 +350302,8 @@
         "verkaufer-in-im-stundenlohn-denner-3",
         "verkaufer-in-im-stundenlohn-denner-8",
         "verkaufer-in-im-stundenlohn-denner-9",
-        "verkaufer-in-im-stundenlohn-denner-luzern"
+        "verkaufer-in-im-stundenlohn-denner-luzern",
+        "verkaufer-in-im-stundenlohn-denner-therwil-002d29a1"
       ],
       "en": [
         "verkaufer-in-im-stundenlohn-denner-luzern-a6b375dc",
@@ -350446,7 +350419,8 @@
         "verkaufer-in-im-stundenlohn-denner-luzern-d5b4866c",
         "verkaufer-in-im-stundenlohn-denner-luzern-02bc40d9",
         "verkaufer-in-im-stundenlohn-denner-luzern",
-        "verkaufer-in-im-stundenlohn-denner-9"
+        "verkaufer-in-im-stundenlohn-denner-9",
+        "verkaufer-in-im-stundenlohn-denner-therwil"
       ],
       "fr": [
         "verkaufer-in-im-stundenlohn-denner-luzern-a6b375dc",
@@ -350562,7 +350536,8 @@
         "verkaufer-in-im-stundenlohn-denner-luzern-d5b4866c",
         "verkaufer-in-im-stundenlohn-denner-luzern-02bc40d9",
         "verkaufer-in-im-stundenlohn-denner-luzern",
-        "verkaufer-in-im-stundenlohn-denner-9"
+        "verkaufer-in-im-stundenlohn-denner-9",
+        "verkaufer-in-im-stundenlohn-denner-therwil"
       ],
       "de": [
         "verkaufer-in-im-stundenlohn-denner-3",
@@ -350631,7 +350606,8 @@
         "verkaufer-in-im-stundenlohn-denner-luzern-55851169",
         "verkaufer-in-im-stundenlohn-denner-luzern-46a05184",
         "verkaufer-in-im-stundenlohn-denner-luzern",
-        "verkaufer-in-im-stundenlohn-denner-9"
+        "verkaufer-in-im-stundenlohn-denner-9",
+        "verkaufer-in-im-stundenlohn-denner-therwil"
       ]
     },
     "postalCode": "6005",
@@ -414557,9 +414533,9 @@
     },
     "slugByLocale": {
       "it": "venditore-nel-salario-orario-denner-binningen-e907d95c",
-      "en": "seller-in-the-hourly-wage-denner-binningen",
+      "en": "seller-in-the-hourly-wage-denner-binningen-20ca23b9",
       "de": "verkaufer-in-im-stundenlohn-denner-ag-binningen-gjmk23",
-      "fr": "vendeur-dans-le-salaire-horaire-denner-binningen"
+      "fr": "vendeur-dans-le-salaire-horaire-denner-binningen-9144ca74"
     },
     "sector": "",
     "expiredAt": "2026-06-25T22:13:11.799Z",
@@ -414673,7 +414649,9 @@
       "verkaufer-in-im-stundenlohn-denner-a7154195",
       "verkaufer-in-im-stundenlohn-denner-fb599b51",
       "verkaufer-in-im-stundenlohn-denner-0ac17734",
-      "verkaufer-in-im-stundenlohn-denner-0997c70b"
+      "verkaufer-in-im-stundenlohn-denner-0997c70b",
+      "seller-in-the-hourly-wage-denner-binningen",
+      "vendeur-dans-le-salaire-horaire-denner-binningen"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -414794,7 +414772,8 @@
         "verkaufer-in-im-stundenlohn-denner-90d810d4",
         "verkaufer-in-im-stundenlohn-denner-65df6846",
         "verkaufer-in-im-stundenlohn-denner-eec8926a",
-        "verkaufer-in-im-stundenlohn-denner-b1768ac1"
+        "verkaufer-in-im-stundenlohn-denner-b1768ac1",
+        "seller-in-the-hourly-wage-denner-binningen"
       ],
       "fr": [
         "verkaufer-in-im-stundenlohn-denner-binningen",
@@ -414802,7 +414781,8 @@
         "verkaufer-in-im-stundenlohn-denner-90d810d4",
         "verkaufer-in-im-stundenlohn-denner-65df6846",
         "verkaufer-in-im-stundenlohn-denner-eec8926a",
-        "verkaufer-in-im-stundenlohn-denner-b1768ac1"
+        "verkaufer-in-im-stundenlohn-denner-b1768ac1",
+        "vendeur-dans-le-salaire-horaire-denner-binningen"
       ],
       "de": [
         "verkaufer-in-im-stundenlohn-denner-0298a477",
@@ -429210,20 +429190,22 @@
         "verkaufer-in-im-stundenlohn-denner-nebikon"
       ],
       "en": [
-        "verkaufer-in-im-stundenlohn-denner-nebikon",
+        "verkaufer-in-im-stundenlohn-denner-nebikon-8ef4eb0a",
         "verkaufer-in-im-stundenlohn-denner-f37d25f0",
         "verkaufer-in-im-stundenlohn-denner-341c9353",
         "verkaufer-in-im-stundenlohn-denner-584bc5e6",
         "verkaufer-in-im-stundenlohn-denner-560e8e67",
-        "verkaufer-in-im-stundenlohn-denner-c0279e45"
+        "verkaufer-in-im-stundenlohn-denner-c0279e45",
+        "verkaufer-in-im-stundenlohn-denner-nebikon"
       ],
       "fr": [
-        "verkaufer-in-im-stundenlohn-denner-nebikon",
+        "verkaufer-in-im-stundenlohn-denner-nebikon-8ef4eb0a",
         "verkaufer-in-im-stundenlohn-denner-f37d25f0",
         "verkaufer-in-im-stundenlohn-denner-341c9353",
         "verkaufer-in-im-stundenlohn-denner-584bc5e6",
         "verkaufer-in-im-stundenlohn-denner-560e8e67",
-        "verkaufer-in-im-stundenlohn-denner-c0279e45"
+        "verkaufer-in-im-stundenlohn-denner-c0279e45",
+        "verkaufer-in-im-stundenlohn-denner-nebikon"
       ],
       "de": [
         "verkaufer-in-im-stundenlohn-denner-f37d25f0",
@@ -429231,7 +429213,8 @@
         "verkaufer-in-im-stundenlohn-denner-584bc5e6",
         "verkaufer-in-im-stundenlohn-denner-560e8e67",
         "verkaufer-in-im-stundenlohn-denner-c0279e45",
-        "verkaufer-in-im-stundenlohn-denner-nebikon"
+        "verkaufer-in-im-stundenlohn-denner-nebikon",
+        "verkaufer-in-im-stundenlohn-denner-nebikon-8ef4eb0a"
       ]
     },
     "postalCode": "6244",
@@ -429265,7 +429248,7 @@
     "slugByLocale": {
       "it": "venditore-con-retribuzione-oraria-denner-nebikon",
       "en": "seller-in-the-hourly-wage-denner-nebikon-1d9a93",
-      "de": "verkaufer-in-im-stundenlohn-migros-ticino-nebikon-dgsjiy",
+      "de": "verkaufer-in-im-stundenlohn-migros-ticino-nebikon-dgsjiy-e31e7c9d",
       "fr": "vendeur-dans-le-salaire-horaire-denner-nebikon-1d9a93"
     },
     "sector": "",
@@ -429397,7 +429380,9 @@
       "verkaufer-in-im-stundenlohn-denner-db9b1fc9",
       "verkaufer-in-im-stundenlohn-denner-8419a756",
       "verkaufer-in-im-stundenlohn-denner-fffb6e5a",
-      "verkaufer-in-im-stundenlohn-denner-nebikon-3a3bf30a"
+      "verkaufer-in-im-stundenlohn-denner-nebikon-3a3bf30a",
+      "verkaufer-in-im-stundenlohn-denner-nebikon",
+      "verkaufer-in-im-stundenlohn-migros-ticino-nebikon-dgsjiy"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -429530,20 +429515,22 @@
         "verkaufer-in-im-stundenlohn-denner-fffb6e5a"
       ],
       "en": [
-        "verkaufer-in-im-stundenlohn-denner-nebikon",
+        "verkaufer-in-im-stundenlohn-denner-nebikon-3a3bf30a",
         "verkaufer-in-im-stundenlohn-denner-9f261efa",
         "verkaufer-in-im-stundenlohn-denner-013750cb",
         "verkaufer-in-im-stundenlohn-denner-ea4385cb",
         "verkaufer-in-im-stundenlohn-denner-5b18bfc5",
-        "verkaufer-in-im-stundenlohn-denner-59dc9625"
+        "verkaufer-in-im-stundenlohn-denner-59dc9625",
+        "verkaufer-in-im-stundenlohn-denner-nebikon"
       ],
       "fr": [
-        "verkaufer-in-im-stundenlohn-denner-nebikon",
+        "verkaufer-in-im-stundenlohn-denner-nebikon-3a3bf30a",
         "verkaufer-in-im-stundenlohn-denner-9f261efa",
         "verkaufer-in-im-stundenlohn-denner-013750cb",
         "verkaufer-in-im-stundenlohn-denner-ea4385cb",
         "verkaufer-in-im-stundenlohn-denner-5b18bfc5",
-        "verkaufer-in-im-stundenlohn-denner-59dc9625"
+        "verkaufer-in-im-stundenlohn-denner-59dc9625",
+        "verkaufer-in-im-stundenlohn-denner-nebikon"
       ],
       "de": [
         "verkaufer-in-im-stundenlohn-denner-9f261efa",
@@ -429568,7 +429555,9 @@
         "verkaufer-in-im-stundenlohn-denner-e3d60b78",
         "verkaufer-in-im-stundenlohn-denner-9d259b0d",
         "verkaufer-in-im-stundenlohn-denner-b7b5b2a0",
-        "verkaufer-in-im-stundenlohn-denner-nebikon"
+        "verkaufer-in-im-stundenlohn-denner-nebikon",
+        "verkaufer-in-im-stundenlohn-denner-nebikon-3a3bf30a",
+        "verkaufer-in-im-stundenlohn-migros-ticino-nebikon-dgsjiy"
       ]
     },
     "postalCode": "6244",
@@ -429734,7 +429723,8 @@
       "verkaufer-in-im-stundenlohn-denner-a5781da4",
       "verkaufer-in-im-stundenlohn-denner-462325de",
       "verkaufer-in-im-stundenlohn-denner-4b731396",
-      "verkaufer-in-im-stundenlohn-denner-nebikon-6e4fae0d"
+      "verkaufer-in-im-stundenlohn-denner-nebikon-6e4fae0d",
+      "verkaufer-in-im-stundenlohn-denner-nebikon"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -429867,20 +429857,22 @@
         "verkaufer-in-im-stundenlohn-denner-4b731396"
       ],
       "en": [
-        "verkaufer-in-im-stundenlohn-denner-nebikon",
+        "verkaufer-in-im-stundenlohn-denner-nebikon-6e4fae0d",
         "verkaufer-in-im-stundenlohn-denner-268b5bf9",
         "verkaufer-in-im-stundenlohn-denner-b00ce964",
         "verkaufer-in-im-stundenlohn-denner-6ae44ec2",
         "verkaufer-in-im-stundenlohn-denner-83cfa683",
-        "verkaufer-in-im-stundenlohn-denner-4f736d2a"
+        "verkaufer-in-im-stundenlohn-denner-4f736d2a",
+        "verkaufer-in-im-stundenlohn-denner-nebikon"
       ],
       "fr": [
-        "verkaufer-in-im-stundenlohn-denner-nebikon",
+        "verkaufer-in-im-stundenlohn-denner-nebikon-6e4fae0d",
         "verkaufer-in-im-stundenlohn-denner-268b5bf9",
         "verkaufer-in-im-stundenlohn-denner-b00ce964",
         "verkaufer-in-im-stundenlohn-denner-6ae44ec2",
         "verkaufer-in-im-stundenlohn-denner-83cfa683",
-        "verkaufer-in-im-stundenlohn-denner-4f736d2a"
+        "verkaufer-in-im-stundenlohn-denner-4f736d2a",
+        "verkaufer-in-im-stundenlohn-denner-nebikon"
       ],
       "de": [
         "verkaufer-in-im-stundenlohn-denner-268b5bf9",
@@ -429905,7 +429897,8 @@
         "verkaufer-in-im-stundenlohn-denner-d3e1d629",
         "verkaufer-in-im-stundenlohn-denner-f16b54ff",
         "verkaufer-in-im-stundenlohn-denner-f2ea8b55",
-        "verkaufer-in-im-stundenlohn-denner-nebikon"
+        "verkaufer-in-im-stundenlohn-denner-nebikon",
+        "verkaufer-in-im-stundenlohn-denner-nebikon-6e4fae0d"
       ]
     },
     "postalCode": "6244",
@@ -439355,9 +439348,9 @@
     },
     "slugByLocale": {
       "it": "verkaufer-in-im-stundenlohn-denner-n9b3cp",
-      "en": "verkaufer-in-im-stundenlohn-denner-nebikon",
-      "de": "verkaufer-in-im-stundenlohn-denner-nebikon",
-      "fr": "verkaufer-in-im-stundenlohn-denner-nebikon"
+      "en": "verkaufer-in-im-stundenlohn-denner-nebikon-76e9b035",
+      "de": "verkaufer-in-im-stundenlohn-denner-nebikon-76e9b035",
+      "fr": "verkaufer-in-im-stundenlohn-denner-nebikon-76e9b035"
     },
     "sector": "",
     "expiredAt": "2026-06-18T12:11:35.108Z",
@@ -439528,7 +439521,8 @@
       "verkaufer-in-im-stundenlohn-denner-3-7949f218",
       "verkaufer-in-im-stundenlohn-denner-3-b3abe62d",
       "verkaufer-in-im-stundenlohn-denner-3-80723331",
-      "verkaufer-in-im-stundenlohn-denner-3"
+      "verkaufer-in-im-stundenlohn-denner-3",
+      "verkaufer-in-im-stundenlohn-denner-nebikon"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -439698,7 +439692,8 @@
         "verkaufer-in-im-stundenlohn-denner-372f6be1",
         "verkaufer-in-im-stundenlohn-denner-1d301101",
         "verkaufer-in-im-stundenlohn-denner-354f0b6f",
-        "verkaufer-in-im-stundenlohn-denner-026f5480"
+        "verkaufer-in-im-stundenlohn-denner-026f5480",
+        "verkaufer-in-im-stundenlohn-denner-nebikon"
       ],
       "de": [
         "verkaufer-in-im-stundenlohn-denner-3",
@@ -443712,9 +443707,9 @@
     },
     "slugByLocale": {
       "it": "verkaufer-in-im-stundenlohn-denner-9elgt8",
-      "en": "verkaufer-in-im-stundenlohn-denner-uetendorf",
-      "de": "verkaufer-in-im-stundenlohn-denner-uetendorf",
-      "fr": "verkaufer-in-im-stundenlohn-denner-uetendorf"
+      "en": "verkaufer-in-im-stundenlohn-denner-uetendorf-cd89be8d",
+      "de": "verkaufer-in-im-stundenlohn-denner-uetendorf-cd89be8d",
+      "fr": "verkaufer-in-im-stundenlohn-denner-uetendorf-cd89be8d"
     },
     "sector": "",
     "expiredAt": "2026-06-17T22:30:19.054Z",
@@ -443885,7 +443880,8 @@
       "verkaufer-in-im-stundenlohn-denner-2-735cde5e",
       "verkaufer-in-im-stundenlohn-denner-2-d648e6aa",
       "verkaufer-in-im-stundenlohn-denner-2-0f7023f7",
-      "verkaufer-in-im-stundenlohn-denner-2"
+      "verkaufer-in-im-stundenlohn-denner-2",
+      "verkaufer-in-im-stundenlohn-denner-uetendorf"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -444055,7 +444051,8 @@
         "verkaufer-in-im-stundenlohn-denner-d8fe030e",
         "verkaufer-in-im-stundenlohn-denner-7997f434",
         "verkaufer-in-im-stundenlohn-denner-5dda067d",
-        "verkaufer-in-im-stundenlohn-denner-731c0903"
+        "verkaufer-in-im-stundenlohn-denner-731c0903",
+        "verkaufer-in-im-stundenlohn-denner-uetendorf"
       ],
       "de": [
         "verkaufer-in-im-stundenlohn-denner-2",

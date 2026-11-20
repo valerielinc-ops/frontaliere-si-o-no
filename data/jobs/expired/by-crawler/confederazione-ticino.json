@@ -2992,7 +2992,8 @@
         "tirocinante-universitario-confederazione-svizzera-bern",
         "stagiaire-universitaire-confederazione-svizzera-bern",
         "hochschulpraktikant-in-confederazione-svizzera-bern",
-        "university-practitioner-confederazione-svizzera-bern"
+        "university-practitioner-confederazione-svizzera-bern",
+        "hochschulpraktikant-in-confederazione-bern"
       ],
       "fr": [
         "stagiaire-universitaire-confederazione-svizzera-bern-cb447c25",
@@ -3013,7 +3014,8 @@
         "tirocinante-universitario-confederazione-svizzera-bern",
         "university-intern-confederazione-svizzera-bern",
         "hochschulpraktikant-in-confederazione-svizzera-bern",
-        "pratique-universitaire-confederazione-svizzera-bern"
+        "pratique-universitaire-confederazione-svizzera-bern",
+        "hochschulpraktikant-in-confederazione-bern"
       ]
     },
     "salaryMin": 68500,
@@ -12374,12 +12376,10 @@
         "hochschulpraktikant-in-confederazione-svizzera-bern"
       ],
       "en": [
-        "hochschulpraktikant-in-confederazione-svizzera-bern-2a2d753d",
-        "hochschulpraktikant-in-confederazione-bern"
+        "hochschulpraktikant-in-confederazione-svizzera-bern-2a2d753d"
       ],
       "fr": [
-        "hochschulpraktikant-in-confederazione-svizzera-bern-2a2d753d",
-        "hochschulpraktikant-in-confederazione-bern"
+        "hochschulpraktikant-in-confederazione-svizzera-bern-2a2d753d"
       ],
       "de": [
         "hochschulpraktikant-in-confederazione-bern-d88cfc53",
@@ -12396,8 +12396,7 @@
     "firstSeenAt": "2026-09-23T11:54:13.398Z",
     "previousSlugs": [
       "hochschulpraktikant-in-confederazione-bern-d88cfc53",
-      "hochschulpraktikant-in-confederazione-svizzera-bern",
-      "hochschulpraktikant-in-confederazione-bern"
+      "hochschulpraktikant-in-confederazione-svizzera-bern"
     ]
   },
   {
@@ -18245,6 +18244,12 @@
     },
     "sector": "Pubblica amministrazione",
     "expiredAt": "2026-10-19T05:24:11Z",
+    "previousSlugs": [
+      "ict-system-ingenieur-senior-network-transport-swiss-armed-forces-vtg-bern-9ygfnn",
+      "ict-system-ingegnere-senior-network-transport-swiss-armed-forces-vtg-bern-9ygfnn",
+      "ict-system-engineer-senior-network-transport-swiss-armed-forces-vtg-bern-9ygfnn",
+      "ingenieur-senior-en-systemes-ict-reseau-et-transport-swiss-armed-forces-vtg-bern"
+    ],
     "previousSlugsByLocale": {
       "fr": [
         "ict-system-ingenieur-senior-network-transport-swiss-armed-forces-vtg-bern-9ygfnn-d900fe79",
@@ -18269,13 +18274,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/ict-system-engineer-senior-network-transport/f40ed236-f5b8-41e4-8b29-ef1c2fa1e000",
-    "firstSeenAt": "2026-10-19T09:36:56.881Z",
-    "previousSlugs": [
-      "ict-system-ingenieur-senior-network-transport-swiss-armed-forces-vtg-bern-9ygfnn",
-      "ict-system-ingegnere-senior-network-transport-swiss-armed-forces-vtg-bern-9ygfnn",
-      "ict-system-engineer-senior-network-transport-swiss-armed-forces-vtg-bern-9ygfnn",
-      "ingenieur-senior-en-systemes-ict-reseau-et-transport-swiss-armed-forces-vtg-bern"
-    ]
+    "firstSeenAt": "2026-10-19T09:36:56.881Z"
   },
   {
     "slug": "collaboratore-trice-scientifico-a-affari-internazionali-confederazione-svizzera-neuenburg",
@@ -18617,6 +18616,16 @@
     },
     "sector": "Pubblica amministrazione",
     "expiredAt": "2026-10-16T13:14:10Z",
+    "previousSlugs": [
+      "sachbearbeiter-in-verkehrstechnik-und-signalisation-confederazione-bern",
+      "sachbearbeiter-in-verkehrstechnik-und-signalisation-swiss-armed-forces-vtg-bern",
+      "sachbearbeiter-in-verkehrstechnik-und-signalisation-swiss-armed-forces-vtg-bern-0jst08",
+      "sachbearbeiter-in-verkehrstechnik-und-signalisation-confederazione-bern-84fbb264",
+      "sachbearbeiter-in-verkehrstechnik-und-signalisation-swiss-armed-forces-vtg-bern-0f159807",
+      "sachbearbeiter-in-verkehrstechnik-e-signalisation-swiss-armed-forces-vtg-bern-0jst08",
+      "traffic-engineering-and-signage-officer-confederazione-svizzera-bern",
+      "collaborateur-trice-administratif-ive-en-technique-de-la-circulation-et-en-signalisation-confederazione-svizzera-bern"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "sachbearbeiter-in-verkehrstechnik-und-signalisation-confederazione-bern-84fbb264",
@@ -18655,17 +18664,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/sachbearbeiter-in-verkehrstechnik-und-signalisation/13d52ceb-7144-4f51-8b30-5aeec59b8a1d",
-    "firstSeenAt": "2026-10-16T21:43:08.586Z",
-    "previousSlugs": [
-      "sachbearbeiter-in-verkehrstechnik-und-signalisation-confederazione-bern",
-      "sachbearbeiter-in-verkehrstechnik-und-signalisation-swiss-armed-forces-vtg-bern",
-      "sachbearbeiter-in-verkehrstechnik-und-signalisation-swiss-armed-forces-vtg-bern-0jst08",
-      "sachbearbeiter-in-verkehrstechnik-und-signalisation-confederazione-bern-84fbb264",
-      "sachbearbeiter-in-verkehrstechnik-und-signalisation-swiss-armed-forces-vtg-bern-0f159807",
-      "sachbearbeiter-in-verkehrstechnik-e-signalisation-swiss-armed-forces-vtg-bern-0jst08",
-      "traffic-engineering-and-signage-officer-confederazione-svizzera-bern",
-      "collaborateur-trice-administratif-ive-en-technique-de-la-circulation-et-en-signalisation-confederazione-svizzera-bern"
-    ]
+    "firstSeenAt": "2026-10-16T21:43:08.586Z"
   },
   {
     "slug": "responsabile-delle-applicazioni-confederazione-svizzera-sion-e341d741",
@@ -18809,6 +18808,16 @@
     },
     "sector": "Pubblica amministrazione",
     "expiredAt": "2026-10-16T11:54:43Z",
+    "previousSlugs": [
+      "mitarbeiter-in-logistik-confederazione-brenzikofen",
+      "mitarbeiter-in-logistik-swiss-armed-forces-vtg-brenzikofen",
+      "mitarbeiter-in-logistik-swiss-armed-forces-vtg-brenzikofen-8tvvoi",
+      "mitarbeiter-in-logistik-confederazione-brenzikofen-405cf000",
+      "mitarbeiter-in-logistik-swiss-armed-forces-vtg-brenzikofen-25e0b5b6",
+      "collaboratore-trice-in-logistik-swiss-armed-forces-vtg-brenzikofen-8tvvoi",
+      "logistics-employee-confederazione-svizzera-brenzikofen",
+      "collaborateur-trice-en-logistique-confederazione-svizzera-brenzikofen"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "mitarbeiter-in-logistik-confederazione-brenzikofen-405cf000",
@@ -18847,17 +18856,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/mitarbeiter-in-logistik/7e6b326b-1800-4c09-b80c-41cd685cfee2",
-    "firstSeenAt": "2026-10-16T21:43:08.586Z",
-    "previousSlugs": [
-      "mitarbeiter-in-logistik-confederazione-brenzikofen",
-      "mitarbeiter-in-logistik-swiss-armed-forces-vtg-brenzikofen",
-      "mitarbeiter-in-logistik-swiss-armed-forces-vtg-brenzikofen-8tvvoi",
-      "mitarbeiter-in-logistik-confederazione-brenzikofen-405cf000",
-      "mitarbeiter-in-logistik-swiss-armed-forces-vtg-brenzikofen-25e0b5b6",
-      "collaboratore-trice-in-logistik-swiss-armed-forces-vtg-brenzikofen-8tvvoi",
-      "logistics-employee-confederazione-svizzera-brenzikofen",
-      "collaborateur-trice-en-logistique-confederazione-svizzera-brenzikofen"
-    ]
+    "firstSeenAt": "2026-10-16T21:43:08.586Z"
   },
   {
     "slug": "ict-system-engineer-senior-device-user-environment-confederazione-bern",
@@ -18886,6 +18885,13 @@
     },
     "sector": "Pubblica amministrazione",
     "expiredAt": "2026-10-16T11:23:36Z",
+    "previousSlugs": [
+      "ict-system-engineer-senior-device-user-environment-swiss-armed-forces-vtg-bern",
+      "ict-system-engineer-senior-device-user-environment-swiss-armed-forces-vtg-bern-46718a1d",
+      "ict-system-ingenieur-senior-device-user-environment-swiss-armed-forces-vtg-bern-m1be64",
+      "ict-system-ingegnere-senior-device-user-environment-swiss-armed-forces-vtg-bern-m1be64",
+      "ict-system-engineer-senior-device-user-environment-swiss-armed-forces-vtg-bern-m1be64"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "ict-system-engineer-senior-device-user-environment-swiss-armed-forces-vtg-bern-46718a1d",
@@ -18910,14 +18916,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/ict-system-engineer-senior-device-user-environment/edcf3381-ed33-4463-a9b0-560e1239d0e6",
-    "firstSeenAt": "2026-10-16T21:43:08.586Z",
-    "previousSlugs": [
-      "ict-system-engineer-senior-device-user-environment-swiss-armed-forces-vtg-bern",
-      "ict-system-engineer-senior-device-user-environment-swiss-armed-forces-vtg-bern-46718a1d",
-      "ict-system-ingenieur-senior-device-user-environment-swiss-armed-forces-vtg-bern-m1be64",
-      "ict-system-ingegnere-senior-device-user-environment-swiss-armed-forces-vtg-bern-m1be64",
-      "ict-system-engineer-senior-device-user-environment-swiss-armed-forces-vtg-bern-m1be64"
-    ]
+    "firstSeenAt": "2026-10-16T21:43:08.586Z"
   },
   {
     "slug": "chef-in-finanzen-qsm-care-confederazione-flugplatzkommando-locarno",
@@ -19100,6 +19099,12 @@
     },
     "sector": "Pubblica amministrazione",
     "expiredAt": "2026-10-16T06:38:47Z",
+    "previousSlugs": [
+      "chef-in-aktionen-cesa-swiss-armed-forces-vtg-bern",
+      "chef-in-aktionen-cesa-swiss-armed-forces-vtg-bern-abex7w-abex7w",
+      "chef-in-aktionen-cesa-swiss-armed-forces-vtg-bern-5d6e1a7c",
+      "chef-in-aktionen-cesa-swiss-armed-forces-vtg-bern-abex7w-abex7w-9ca0776b"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "chef-in-aktionen-cesa-swiss-armed-forces-vtg-bern-5d6e1a7c",
@@ -19128,13 +19133,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/chef-in-aktionen-cesa/e601cb1c-0c65-43b3-b267-afce0de85f5c",
-    "firstSeenAt": "2026-10-16T09:44:38.159Z",
-    "previousSlugs": [
-      "chef-in-aktionen-cesa-swiss-armed-forces-vtg-bern",
-      "chef-in-aktionen-cesa-swiss-armed-forces-vtg-bern-abex7w-abex7w",
-      "chef-in-aktionen-cesa-swiss-armed-forces-vtg-bern-5d6e1a7c",
-      "chef-in-aktionen-cesa-swiss-armed-forces-vtg-bern-abex7w-abex7w-9ca0776b"
-    ]
+    "firstSeenAt": "2026-10-16T09:44:38.159Z"
   },
   {
     "slug": "ict-system-engineer-senior-application-mcx-platform-confederazione-bern",
@@ -19163,6 +19162,13 @@
     },
     "sector": "Pubblica amministrazione",
     "expiredAt": "2026-10-16T06:05:23Z",
+    "previousSlugs": [
+      "ict-system-engineer-senior-application-mcx-platform-swiss-armed-forces-vtg-bern",
+      "ict-system-engineer-senior-application-mcx-platform-swiss-armed-forces-vtg-bern-54c72f1d",
+      "ict-system-ingenieur-senior-application-mcx-platform-swiss-armed-forces-vtg-bern-l9zrbv",
+      "ict-system-ingegnere-senior-application-mcx-platform-swiss-armed-forces-vtg-bern-l9zrbv",
+      "ict-system-engineer-senior-application-mcx-platform-swiss-armed-forces-vtg-bern-l9zrbv"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "ict-system-engineer-senior-application-mcx-platform-swiss-armed-forces-vtg-bern-54c72f1d",
@@ -19187,14 +19193,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/ict-system-engineer-senior-application-mcx-platform/b146f208-dfad-4a85-b76f-bee88b33aacb",
-    "firstSeenAt": "2026-10-16T09:44:38.159Z",
-    "previousSlugs": [
-      "ict-system-engineer-senior-application-mcx-platform-swiss-armed-forces-vtg-bern",
-      "ict-system-engineer-senior-application-mcx-platform-swiss-armed-forces-vtg-bern-54c72f1d",
-      "ict-system-ingenieur-senior-application-mcx-platform-swiss-armed-forces-vtg-bern-l9zrbv",
-      "ict-system-ingegnere-senior-application-mcx-platform-swiss-armed-forces-vtg-bern-l9zrbv",
-      "ict-system-engineer-senior-application-mcx-platform-swiss-armed-forces-vtg-bern-l9zrbv"
-    ]
+    "firstSeenAt": "2026-10-16T09:44:38.159Z"
   },
   {
     "slug": "impiegato-a-responsabile-della-gestione-dei-controlli-del-servizio-d-istruzione-della-truppa-confederazione-svizzera",
@@ -19674,6 +19673,20 @@
     },
     "sector": "Pubblica amministrazione",
     "expiredAt": "2026-10-14T09:11:39Z",
+    "previousSlugs": [
+      "mitarbeiter-in-logistik-confederazione-thun",
+      "mitarbeiter-in-logistik-swiss-armed-forces-vtg-thun",
+      "mitarbeiter-in-logistik-swiss-armed-forces-vtg-thun-igfw8j",
+      "logistics-employee-confederazione-svizzera-thun",
+      "collaborateur-trice-en-logistique-confederazione-svizzera-thun",
+      "mitarbeiter-in-logistik-confederazione-thun-0254752c",
+      "mitarbeiter-in-logistik-swiss-armed-forces-vtg-thun-864ed369",
+      "logistics-employee-confederazione-svizzera-thun-61322ab3",
+      "collaborateur-trice-en-logistique-confederazione-svizzera-thun-b57faf55",
+      "collaboratore-trice-in-logistik-swiss-armed-forces-vtg-thun-igfw8j",
+      "logistics-employee-swiss-armed-forces-vtg-thun",
+      "collaborateur-trice-en-logistique-swiss-armed-forces-vtg-thun"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "mitarbeiter-in-logistik-confederazione-thun-0254752c",
@@ -19734,20 +19747,6 @@
         "firstSeenAt": "2026-07-05T22:33:00.469Z",
         "title": "Mitarbeiter/-in Logistik"
       }
-    ],
-    "previousSlugs": [
-      "mitarbeiter-in-logistik-confederazione-thun",
-      "mitarbeiter-in-logistik-swiss-armed-forces-vtg-thun",
-      "mitarbeiter-in-logistik-swiss-armed-forces-vtg-thun-igfw8j",
-      "logistics-employee-confederazione-svizzera-thun",
-      "collaborateur-trice-en-logistique-confederazione-svizzera-thun",
-      "mitarbeiter-in-logistik-confederazione-thun-0254752c",
-      "mitarbeiter-in-logistik-swiss-armed-forces-vtg-thun-864ed369",
-      "logistics-employee-confederazione-svizzera-thun-61322ab3",
-      "collaborateur-trice-en-logistique-confederazione-svizzera-thun-b57faf55",
-      "collaboratore-trice-in-logistik-swiss-armed-forces-vtg-thun-igfw8j",
-      "logistics-employee-swiss-armed-forces-vtg-thun",
-      "collaborateur-trice-en-logistique-swiss-armed-forces-vtg-thun"
     ]
   },
   {
@@ -19844,6 +19843,22 @@
     },
     "sector": "Pubblica amministrazione",
     "expiredAt": "2026-10-14T08:14:49Z",
+    "previousSlugs": [
+      "luftfahrzeugmechaniker-in-confederazione-alpnach",
+      "luftfahrzeugmechaniker-in-swiss-armed-forces-vtg-alpnach",
+      "luftfahrzeugmechaniker-in-swiss-armed-forces-vtg-alpnach-hsfik1",
+      "luftfahrzeugmechaniker-in-confederazione-svizzera-alpnach",
+      "aircraft-mechanic-confederazione-svizzera-alpnach",
+      "mecanicien-ne-aeronautique-confederazione-svizzera-alpnach",
+      "luftfahrzeugmechaniker-in-confederazione-alpnach-3eb1bac6",
+      "luftfahrzeugmechaniker-in-swiss-armed-forces-vtg-alpnach-8a408d3b",
+      "luftfahrzeugmechaniker-in-confederazione-svizzera-alpnach-32ccc02c",
+      "aircraft-mechanic-confederazione-svizzera-alpnach-a721ca25",
+      "mecanicien-ne-aeronautique-confederazione-svizzera-alpnach-3cf94dd5",
+      "meccanico-a-di-aeromobili-swiss-armed-forces-vtg-alpnach",
+      "aircraft-mechanic-swiss-armed-forces-vtg-alpnach",
+      "mecanicien-ne-aeronautique-swiss-armed-forces-vtg-alpnach"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "luftfahrzeugmechaniker-in-confederazione-alpnach-3eb1bac6",
@@ -19899,23 +19914,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/luftfahrzeugmechaniker-in/df1f4c8d-7f95-4dbd-b017-48bd988060fd",
-    "firstSeenAt": "2026-07-16T11:15:54.429Z",
-    "previousSlugs": [
-      "luftfahrzeugmechaniker-in-confederazione-alpnach",
-      "luftfahrzeugmechaniker-in-swiss-armed-forces-vtg-alpnach",
-      "luftfahrzeugmechaniker-in-swiss-armed-forces-vtg-alpnach-hsfik1",
-      "luftfahrzeugmechaniker-in-confederazione-svizzera-alpnach",
-      "aircraft-mechanic-confederazione-svizzera-alpnach",
-      "mecanicien-ne-aeronautique-confederazione-svizzera-alpnach",
-      "luftfahrzeugmechaniker-in-confederazione-alpnach-3eb1bac6",
-      "luftfahrzeugmechaniker-in-swiss-armed-forces-vtg-alpnach-8a408d3b",
-      "luftfahrzeugmechaniker-in-confederazione-svizzera-alpnach-32ccc02c",
-      "aircraft-mechanic-confederazione-svizzera-alpnach-a721ca25",
-      "mecanicien-ne-aeronautique-confederazione-svizzera-alpnach-3cf94dd5",
-      "meccanico-a-di-aeromobili-swiss-armed-forces-vtg-alpnach",
-      "aircraft-mechanic-swiss-armed-forces-vtg-alpnach",
-      "mecanicien-ne-aeronautique-swiss-armed-forces-vtg-alpnach"
-    ]
+    "firstSeenAt": "2026-07-16T11:15:54.429Z"
   },
   {
     "slug": "tirocinante-universitario-a-direzione-del-diritto-internazionale-pubblico-sezione-asset-recovery-confederazione-svizzera",
@@ -20098,6 +20097,20 @@
     },
     "sector": "Pubblica amministrazione",
     "expiredAt": "2026-10-13T14:07:41Z",
+    "previousSlugs": [
+      "wissenschaftliche-r-mitarbeiter-in-streitkraftebeziehungen-confederazione-bern",
+      "wissenschaftliche-r-mitarbeiter-in-streitkraftebeziehungen-swiss-armed-forces-vtg-bern",
+      "wissenschaftliche-r-mitarbeiter-in-streitkraftebeziehungen-swiss-armed-forces-vtg-bern-9dl42s",
+      "scientific-officer-armed-forces-relations-confederazione-svizzera-bern",
+      "collaborateur-trice-scientifique-relations-avec-les-forces-armees-confederazione-svizzera-bern",
+      "wissenschaftliche-r-mitarbeiter-in-streitkraftebeziehungen-confederazione-bern-790ec690",
+      "wissenschaftliche-r-mitarbeiter-in-streitkraftebeziehungen-swiss-armed-forces-vtg-bern-fb1e7f22",
+      "scientific-officer-armed-forces-relations-confederazione-svizzera-bern-bf1a4ab1",
+      "collaborateur-trice-scientifique-relations-avec-les-forces-armees-confederazione-svizzera-bern-538a2bae",
+      "wissenschaftliche-r-collaboratore-trice-in-streitkraftebeziehungen-swiss-armed-forces-vtg-bern-9dl42s",
+      "scientific-officer-armed-forces-relations-swiss-armed-forces-vtg-bern",
+      "collaborateur-trice-scientifique-relations-avec-les-forces-armees-swiss-armed-forces-vtg-bern"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "wissenschaftliche-r-mitarbeiter-in-streitkraftebeziehungen-confederazione-bern-790ec690",
@@ -20146,21 +20159,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/wissenschaftliche-r-mitarbeiter-in-streitkraeftebeziehungen/f29e7693-075a-4480-9a37-35d3f85cf594",
-    "firstSeenAt": "2026-10-13T21:41:06.366Z",
-    "previousSlugs": [
-      "wissenschaftliche-r-mitarbeiter-in-streitkraftebeziehungen-confederazione-bern",
-      "wissenschaftliche-r-mitarbeiter-in-streitkraftebeziehungen-swiss-armed-forces-vtg-bern",
-      "wissenschaftliche-r-mitarbeiter-in-streitkraftebeziehungen-swiss-armed-forces-vtg-bern-9dl42s",
-      "scientific-officer-armed-forces-relations-confederazione-svizzera-bern",
-      "collaborateur-trice-scientifique-relations-avec-les-forces-armees-confederazione-svizzera-bern",
-      "wissenschaftliche-r-mitarbeiter-in-streitkraftebeziehungen-confederazione-bern-790ec690",
-      "wissenschaftliche-r-mitarbeiter-in-streitkraftebeziehungen-swiss-armed-forces-vtg-bern-fb1e7f22",
-      "scientific-officer-armed-forces-relations-confederazione-svizzera-bern-bf1a4ab1",
-      "collaborateur-trice-scientifique-relations-avec-les-forces-armees-confederazione-svizzera-bern-538a2bae",
-      "wissenschaftliche-r-collaboratore-trice-in-streitkraftebeziehungen-swiss-armed-forces-vtg-bern-9dl42s",
-      "scientific-officer-armed-forces-relations-swiss-armed-forces-vtg-bern",
-      "collaborateur-trice-scientifique-relations-avec-les-forces-armees-swiss-armed-forces-vtg-bern"
-    ]
+    "firstSeenAt": "2026-10-13T21:41:06.366Z"
   },
   {
     "slug": "intelligence-officer-raccolta-tecnica-confederazione-svizzera-bern",
@@ -20341,6 +20340,21 @@
     },
     "sector": "Pubblica amministrazione",
     "expiredAt": "2026-10-12T22:00:00Z",
+    "previousSlugs": [
+      "automobilmechatroniker-in-schwere-fahrzeuge-1-swiss-armed-forces-vtg-chur",
+      "automobilmechatroniker-in-schwere-fahrzeuge-1-swiss-armed-forces-vtg-chur-uqt5wh",
+      "automobilmechatroniker-in-schwere-fahrzeuge-1-confederazione-chur",
+      "automotive-mechatronics-technician-heavy-vehicles-1-confederazione-svizzera-chur",
+      "mecatronicien-ne-d-automobiles-vehicules-lourds-1-confederazione-svizzera-chur",
+      "automobilmechatroniker-in-schwere-fahrzeuge-1-swiss-armed-forces-vtg-chur-3b6d56a0",
+      "automobilmechatroniker-in-schwere-fahrzeuge-1-confederazione-chur-6e220890",
+      "automotive-mechatronics-technician-heavy-vehicles-1-confederazione-svizzera-chur-fd8670e5",
+      "automobilmechatroniker-in-schwere-fahrzeuge-1-confederazione-chur-72afd067",
+      "mecatronicien-ne-d-automobiles-vehicules-lourds-1-confederazione-svizzera-chur-1e3b5c44",
+      "meccatronico-a-d-automobili-per-veicoli-pesanti-1-swiss-armed-forces-vtg-chur",
+      "automotive-mechatronics-technician-heavy-vehicles-1-swiss-armed-forces-vtg-chur",
+      "mecatronicien-ne-d-automobiles-vehicules-lourds-1-swiss-armed-forces-vtg-chur"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "automobilmechatroniker-in-schwere-fahrzeuge-1-swiss-armed-forces-vtg-chur-3b6d56a0",
@@ -20402,21 +20416,6 @@
         "firstSeenAt": "2026-09-11T13:51:30.043Z",
         "title": "Automobilmechatroniker/-in schwere Fahrzeuge 1"
       }
-    ],
-    "previousSlugs": [
-      "automobilmechatroniker-in-schwere-fahrzeuge-1-swiss-armed-forces-vtg-chur",
-      "automobilmechatroniker-in-schwere-fahrzeuge-1-swiss-armed-forces-vtg-chur-uqt5wh",
-      "automobilmechatroniker-in-schwere-fahrzeuge-1-confederazione-chur",
-      "automotive-mechatronics-technician-heavy-vehicles-1-confederazione-svizzera-chur",
-      "mecatronicien-ne-d-automobiles-vehicules-lourds-1-confederazione-svizzera-chur",
-      "automobilmechatroniker-in-schwere-fahrzeuge-1-swiss-armed-forces-vtg-chur-3b6d56a0",
-      "automobilmechatroniker-in-schwere-fahrzeuge-1-confederazione-chur-6e220890",
-      "automotive-mechatronics-technician-heavy-vehicles-1-confederazione-svizzera-chur-fd8670e5",
-      "automobilmechatroniker-in-schwere-fahrzeuge-1-confederazione-chur-72afd067",
-      "mecatronicien-ne-d-automobiles-vehicules-lourds-1-confederazione-svizzera-chur-1e3b5c44",
-      "meccatronico-a-d-automobili-per-veicoli-pesanti-1-swiss-armed-forces-vtg-chur",
-      "automotive-mechatronics-technician-heavy-vehicles-1-swiss-armed-forces-vtg-chur",
-      "mecatronicien-ne-d-automobiles-vehicules-lourds-1-swiss-armed-forces-vtg-chur"
     ]
   },
   {
@@ -20544,6 +20543,20 @@
     },
     "sector": "Pubblica amministrazione",
     "expiredAt": "2026-10-12T14:04:51Z",
+    "previousSlugs": [
+      "arztin-arzt-fliegerarztliches-institut-luftwaffe-swiss-armed-forces-vtg-dubendorf",
+      "arztin-arzt-fliegerarztliches-institut-luftwaffe-swiss-armed-forces-vtg-dubendorf-s2hv4x",
+      "arztin-arzt-fliegerarztliches-institut-luftwaffe-confederazione-dubendorf",
+      "doctor-doctor-air-force-institute-confederazione-svizzera-dubendorf",
+      "docteur-docteur-institut-de-la-force-aerienne-confederazione-svizzera-dubendorf",
+      "arztin-arzt-fliegerarztliches-institut-luftwaffe-swiss-armed-forces-vtg-dubendorf-2cf2b034",
+      "arztin-arzt-fliegerarztliches-institut-luftwaffe-confederazione-dubendorf-4a865207",
+      "doctor-doctor-air-force-institute-confederazione-svizzera-dubendorf-245478c3",
+      "docteur-docteur-institut-de-la-force-aerienne-confederazione-svizzera-dubendorf-eee19829",
+      "dottore-doctor-air-force-institute-swiss-armed-forces-vtg-dubendorf",
+      "doctor-doctor-air-force-institute-swiss-armed-forces-vtg-dubendorf",
+      "docteur-docteur-institut-de-la-force-aerienne-swiss-armed-forces-vtg-dubendorf"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "arztin-arzt-fliegerarztliches-institut-luftwaffe-swiss-armed-forces-vtg-dubendorf-2cf2b034",
@@ -20605,20 +20618,6 @@
         "firstSeenAt": "2026-06-10T22:26:55.170Z",
         "title": "Ärztin / Arzt Fliegerärztliches Institut Luftwaffe"
       }
-    ],
-    "previousSlugs": [
-      "arztin-arzt-fliegerarztliches-institut-luftwaffe-swiss-armed-forces-vtg-dubendorf",
-      "arztin-arzt-fliegerarztliches-institut-luftwaffe-swiss-armed-forces-vtg-dubendorf-s2hv4x",
-      "arztin-arzt-fliegerarztliches-institut-luftwaffe-confederazione-dubendorf",
-      "doctor-doctor-air-force-institute-confederazione-svizzera-dubendorf",
-      "docteur-docteur-institut-de-la-force-aerienne-confederazione-svizzera-dubendorf",
-      "arztin-arzt-fliegerarztliches-institut-luftwaffe-swiss-armed-forces-vtg-dubendorf-2cf2b034",
-      "arztin-arzt-fliegerarztliches-institut-luftwaffe-confederazione-dubendorf-4a865207",
-      "doctor-doctor-air-force-institute-confederazione-svizzera-dubendorf-245478c3",
-      "docteur-docteur-institut-de-la-force-aerienne-confederazione-svizzera-dubendorf-eee19829",
-      "dottore-doctor-air-force-institute-swiss-armed-forces-vtg-dubendorf",
-      "doctor-doctor-air-force-institute-swiss-armed-forces-vtg-dubendorf",
-      "docteur-docteur-institut-de-la-force-aerienne-swiss-armed-forces-vtg-dubendorf"
     ]
   },
   {
@@ -21112,6 +21111,20 @@
     },
     "sector": "Pubblica amministrazione",
     "expiredAt": "2026-10-09T12:14:34Z",
+    "previousSlugs": [
+      "spezialist-in-gebaudebetrieb-swiss-armed-forces-vtg-alpnach",
+      "spezialist-in-gebaudebetrieb-swiss-armed-forces-vtg-alpnach-l96m5d",
+      "spezialist-in-gebaudebetrieb-confederazione-alpnach",
+      "building-operations-specialist-confederazione-svizzera-alpnach",
+      "specialiste-en-exploitation-des-batiments-confederazione-svizzera-alpnach",
+      "spezialist-in-gebaudebetrieb-swiss-armed-forces-vtg-alpnach-4d5a8e24",
+      "spezialist-in-gebaudebetrieb-confederazione-alpnach-4f5bad37",
+      "building-operations-specialist-confederazione-svizzera-alpnach-e778a740",
+      "specialiste-en-exploitation-des-batiments-confederazione-svizzera-alpnach-4f995878",
+      "specialista-della-gestione-degli-edifici-swiss-armed-forces-vtg-alpnach",
+      "building-operations-specialist-swiss-armed-forces-vtg-alpnach",
+      "specialiste-en-exploitation-des-batiments-swiss-armed-forces-vtg-alpnach"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "spezialist-in-gebaudebetrieb-swiss-armed-forces-vtg-alpnach-4d5a8e24",
@@ -21161,21 +21174,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/spezialist-in-gebaeudebetrieb/af806359-8773-4069-86d0-a8e6c2316223",
-    "firstSeenAt": "2026-10-09T21:49:00.867Z",
-    "previousSlugs": [
-      "spezialist-in-gebaudebetrieb-swiss-armed-forces-vtg-alpnach",
-      "spezialist-in-gebaudebetrieb-swiss-armed-forces-vtg-alpnach-l96m5d",
-      "spezialist-in-gebaudebetrieb-confederazione-alpnach",
-      "building-operations-specialist-confederazione-svizzera-alpnach",
-      "specialiste-en-exploitation-des-batiments-confederazione-svizzera-alpnach",
-      "spezialist-in-gebaudebetrieb-swiss-armed-forces-vtg-alpnach-4d5a8e24",
-      "spezialist-in-gebaudebetrieb-confederazione-alpnach-4f5bad37",
-      "building-operations-specialist-confederazione-svizzera-alpnach-e778a740",
-      "specialiste-en-exploitation-des-batiments-confederazione-svizzera-alpnach-4f995878",
-      "specialista-della-gestione-degli-edifici-swiss-armed-forces-vtg-alpnach",
-      "building-operations-specialist-swiss-armed-forces-vtg-alpnach",
-      "specialiste-en-exploitation-des-batiments-swiss-armed-forces-vtg-alpnach"
-    ]
+    "firstSeenAt": "2026-10-09T21:49:00.867Z"
   },
   {
     "slug": "responsabile-bereich-verfahren-e-rente-confederazione-svizzera-bern",
@@ -21680,6 +21679,14 @@
     },
     "sector": "Pubblica amministrazione",
     "expiredAt": "2026-10-08T10:12:39Z",
+    "previousSlugs": [
+      "responsable-senior-des-tests-ict-confederazione-svizzera-bern",
+      "ict-test-manager-in-senior-swiss-armed-forces-vtg-bern",
+      "ict-test-manager-in-senior-swiss-armed-forces-vtg-bern-c8c7e000",
+      "responsable-senior-des-tests-ict-confederazione-svizzera-bern-503e9c12",
+      "ict-test-manager-in-senior-swiss-armed-forces-vtg-bern-rh2qtm",
+      "responsable-senior-des-tests-ict-swiss-armed-forces-vtg-bern"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "ict-test-manager-in-senior-swiss-armed-forces-vtg-bern-c8c7e000",
@@ -21708,15 +21715,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/ict-test-manager-in-senior/d98cd6a4-bd19-4135-84cf-bb1195378440",
-    "firstSeenAt": "2026-10-08T21:45:41.185Z",
-    "previousSlugs": [
-      "responsable-senior-des-tests-ict-confederazione-svizzera-bern",
-      "ict-test-manager-in-senior-swiss-armed-forces-vtg-bern",
-      "ict-test-manager-in-senior-swiss-armed-forces-vtg-bern-c8c7e000",
-      "responsable-senior-des-tests-ict-confederazione-svizzera-bern-503e9c12",
-      "ict-test-manager-in-senior-swiss-armed-forces-vtg-bern-rh2qtm",
-      "responsable-senior-des-tests-ict-swiss-armed-forces-vtg-bern"
-    ]
+    "firstSeenAt": "2026-10-08T21:45:41.185Z"
   },
   {
     "slug": "hochschulpraktikant-in-portfoliomanagement-cer-ikt-confederazione-bern",
@@ -21745,6 +21744,14 @@
     },
     "sector": "Pubblica amministrazione",
     "expiredAt": "2026-10-08T09:13:16Z",
+    "previousSlugs": [
+      "hochschulpraktikant-in-portfoliomanagement-cer-ikt-swiss-armed-forces-vtg-bern",
+      "hochschulpraktikant-in-portfoliomanagement-cer-ikt-swiss-armed-forces-vtg-bern-wba9og",
+      "hochschulpraktikant-in-portfoliomanagement-cer-ikt-swiss-armed-forces-vtg-bern-e2bd84d3",
+      "tirocinante-universitario-a-nella-gestione-del-portafoglio-cer-ikt-swiss-armed-forces-vtg-bern",
+      "university-intern-portfolio-management-cer-ict-swiss-armed-forces-vtg-bern",
+      "stagiaire-universitaire-en-gestion-de-portefeuille-cer-ikt-swiss-armed-forces-vtg-bern"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "hochschulpraktikant-in-portfoliomanagement-cer-ikt-swiss-armed-forces-vtg-bern-e2bd84d3",
@@ -21776,15 +21783,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-portfoliomanagement-cer-ikt/99d09b96-c14b-4711-8973-c49887f68c58",
-    "firstSeenAt": "2026-10-08T09:52:58.131Z",
-    "previousSlugs": [
-      "hochschulpraktikant-in-portfoliomanagement-cer-ikt-swiss-armed-forces-vtg-bern",
-      "hochschulpraktikant-in-portfoliomanagement-cer-ikt-swiss-armed-forces-vtg-bern-wba9og",
-      "hochschulpraktikant-in-portfoliomanagement-cer-ikt-swiss-armed-forces-vtg-bern-e2bd84d3",
-      "tirocinante-universitario-a-nella-gestione-del-portafoglio-cer-ikt-swiss-armed-forces-vtg-bern",
-      "university-intern-portfolio-management-cer-ict-swiss-armed-forces-vtg-bern",
-      "stagiaire-universitaire-en-gestion-de-portefeuille-cer-ikt-swiss-armed-forces-vtg-bern"
-    ]
+    "firstSeenAt": "2026-10-08T09:52:58.131Z"
   },
   {
     "slug": "responsabile-di-esercizio-confederazione-svizzera-luzern",
@@ -22220,6 +22219,14 @@
     },
     "sector": "Pubblica amministrazione",
     "expiredAt": "2026-10-07T22:00:00Z",
+    "previousSlugs": [
+      "system-ingenieur-in-luftraumuberwachungssysteme-swiss-armed-forces-vtg-dubendorf",
+      "system-ingenieur-in-luftraumuberwachungssysteme-swiss-armed-forces-vtg-dubendorf-tkd29t",
+      "system-ingenieur-in-luftraumuberwachungssysteme-swiss-armed-forces-vtg-dubendorf-f9a9516b",
+      "ingegnere-a-di-sistema-per-sistemi-di-sorveglianza-dello-spazio-aereo-swiss-armed-forces-vtg-dubendorf",
+      "systems-engineer-airspace-surveillance-systems-swiss-armed-forces-vtg-dubendorf",
+      "ingenieur-e-systeme-en-systemes-de-surveillance-de-l-espace-aerien-swiss-armed-forces-vtg-dubendorf"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "system-ingenieur-in-luftraumuberwachungssysteme-swiss-armed-forces-vtg-dubendorf-f9a9516b",
@@ -22251,15 +22258,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/system-ingenieur-in-luftraumueberwachungssysteme/3e5ee751-587b-4940-929c-c21fe9ba99a4",
-    "firstSeenAt": "2026-08-07T10:10:17.738Z",
-    "previousSlugs": [
-      "system-ingenieur-in-luftraumuberwachungssysteme-swiss-armed-forces-vtg-dubendorf",
-      "system-ingenieur-in-luftraumuberwachungssysteme-swiss-armed-forces-vtg-dubendorf-tkd29t",
-      "system-ingenieur-in-luftraumuberwachungssysteme-swiss-armed-forces-vtg-dubendorf-f9a9516b",
-      "ingegnere-a-di-sistema-per-sistemi-di-sorveglianza-dello-spazio-aereo-swiss-armed-forces-vtg-dubendorf",
-      "systems-engineer-airspace-surveillance-systems-swiss-armed-forces-vtg-dubendorf",
-      "ingenieur-e-systeme-en-systemes-de-surveillance-de-l-espace-aerien-swiss-armed-forces-vtg-dubendorf"
-    ]
+    "firstSeenAt": "2026-08-07T10:10:17.738Z"
   },
   {
     "slug": "wissenschaftliche-r-collaboratore-trice-in-inkl-projektleitung-confederazione-svizzera-zurich-flughafen",
@@ -22538,6 +22537,20 @@
     },
     "sector": "Pubblica amministrazione",
     "expiredAt": "2026-10-07T11:10:20Z",
+    "previousSlugs": [
+      "stellvertretende-r-chefarztin-arzt-rekrutierungszentrum-aarau-swiss-armed-forces-vtg-aarau",
+      "stellvertretende-r-chefarztin-arzt-rekrutierungszentrum-aarau-swiss-armed-forces-vtg-aarau-hlgr7s",
+      "stellvertretende-r-chefarztin-arzt-rekrutierungszentrum-aarau-confederazione-aarau",
+      "deputy-chief-physician-recruitment-centre-aarau-confederazione-svizzera-aarau",
+      "centre-de-recrutement-des-medecins-adjoints-aarau-confederazione-svizzera-aarau",
+      "stellvertretende-r-chefarztin-arzt-rekrutierungszentrum-aarau-swiss-armed-forces-vtg-aarau-7e36e063",
+      "stellvertretende-r-chefarztin-arzt-rekrutierungszentrum-aarau-confederazione-aarau-09f7a116",
+      "deputy-chief-physician-recruitment-centre-aarau-confederazione-svizzera-aarau-29e3c5b8",
+      "centre-de-recrutement-des-medecins-adjoints-aarau-confederazione-svizzera-aarau-62db106f",
+      "centro-di-reclutamento-medico-aggiunto-aarau-swiss-armed-forces-vtg-aarau",
+      "deputy-chief-physician-recruitment-centre-aarau-swiss-armed-forces-vtg-aarau",
+      "centre-de-recrutement-des-medecins-adjoints-aarau-swiss-armed-forces-vtg-aarau"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "stellvertretende-r-chefarztin-arzt-rekrutierungszentrum-aarau-swiss-armed-forces-vtg-aarau-7e36e063",
@@ -22587,21 +22600,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/stellvertretende-r-chefaerztin-arzt-rekrutierungszentrum-aarau/8c077b4f-49b0-4d5e-966b-8d39f7c3943c",
-    "firstSeenAt": "2026-10-07T21:56:36.851Z",
-    "previousSlugs": [
-      "stellvertretende-r-chefarztin-arzt-rekrutierungszentrum-aarau-swiss-armed-forces-vtg-aarau",
-      "stellvertretende-r-chefarztin-arzt-rekrutierungszentrum-aarau-swiss-armed-forces-vtg-aarau-hlgr7s",
-      "stellvertretende-r-chefarztin-arzt-rekrutierungszentrum-aarau-confederazione-aarau",
-      "deputy-chief-physician-recruitment-centre-aarau-confederazione-svizzera-aarau",
-      "centre-de-recrutement-des-medecins-adjoints-aarau-confederazione-svizzera-aarau",
-      "stellvertretende-r-chefarztin-arzt-rekrutierungszentrum-aarau-swiss-armed-forces-vtg-aarau-7e36e063",
-      "stellvertretende-r-chefarztin-arzt-rekrutierungszentrum-aarau-confederazione-aarau-09f7a116",
-      "deputy-chief-physician-recruitment-centre-aarau-confederazione-svizzera-aarau-29e3c5b8",
-      "centre-de-recrutement-des-medecins-adjoints-aarau-confederazione-svizzera-aarau-62db106f",
-      "centro-di-reclutamento-medico-aggiunto-aarau-swiss-armed-forces-vtg-aarau",
-      "deputy-chief-physician-recruitment-centre-aarau-swiss-armed-forces-vtg-aarau",
-      "centre-de-recrutement-des-medecins-adjoints-aarau-swiss-armed-forces-vtg-aarau"
-    ]
+    "firstSeenAt": "2026-10-07T21:56:36.851Z"
   },
   {
     "slug": "hochschulpraktikant-in-okobilanzierung-e-umweltinnovation-confederazione-svizzera-ittigen",
@@ -23129,6 +23128,18 @@
     },
     "sector": "Pubblica amministrazione",
     "expiredAt": "2026-10-06T22:00:00Z",
+    "previousSlugs": [
+      "wissenschaftliche-r-mitarbeiter-in-stv-chef-in-kompetenzzentrum-mkm-confederazione-ittigen",
+      "academic-assistant-deputy-head-of-mkm-competence-centre-confederazione-svizzera-ittigen",
+      "collaborateur-trice-scientifique-assistant-e-chef-e-centre-de-competence-mkm-confederazione-svizzera-ittigen",
+      "wissenschaftliche-r-mitarbeiter-in-stv-chef-in-kompetenzzentrum-mkm-swiss-armed-forces-vtg-ittigen",
+      "wissenschaftliche-r-mitarbeiter-in-stv-chef-in-kompetenzzentrum-mkm-confederazione-ittigen-039f8412",
+      "wissenschaftliche-r-mitarbeiter-in-stv-chef-in-kompetenzzentrum-mkm-swiss-armed-forces-vtg-ittigen-d031f0b2",
+      "academic-assistant-deputy-head-of-mkm-competence-centre-confederazione-svizzera-ittigen-0102f10a",
+      "collaborateur-trice-scientifique-assistant-e-chef-e-centre-de-competence-mkm-confederazione-svizzera-ittigen-9ca4be96",
+      "wissenschaftliche-r-mitarbeiter-in-stv-chef-in-kompetenzzentrum-mkm-swiss-armed-forces-vtg-ittigen-vmcil5",
+      "wissenschaftliche-r-collaboratore-trice-in-stv-chef-in-kompetenzzentrum-mkm-swiss-armed-forces-vtg-ittigen-vmcil5"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "wissenschaftliche-r-mitarbeiter-in-stv-chef-in-kompetenzzentrum-mkm-confederazione-ittigen-039f8412",
@@ -23187,18 +23198,6 @@
         "firstSeenAt": "2026-06-30T22:04:58.229Z",
         "title": "Wissenschaftliche/-r Mitarbeiter/-in, stv. Chef/-in Kompetenzzentrum MKM"
       }
-    ],
-    "previousSlugs": [
-      "wissenschaftliche-r-mitarbeiter-in-stv-chef-in-kompetenzzentrum-mkm-confederazione-ittigen",
-      "academic-assistant-deputy-head-of-mkm-competence-centre-confederazione-svizzera-ittigen",
-      "collaborateur-trice-scientifique-assistant-e-chef-e-centre-de-competence-mkm-confederazione-svizzera-ittigen",
-      "wissenschaftliche-r-mitarbeiter-in-stv-chef-in-kompetenzzentrum-mkm-swiss-armed-forces-vtg-ittigen",
-      "wissenschaftliche-r-mitarbeiter-in-stv-chef-in-kompetenzzentrum-mkm-confederazione-ittigen-039f8412",
-      "wissenschaftliche-r-mitarbeiter-in-stv-chef-in-kompetenzzentrum-mkm-swiss-armed-forces-vtg-ittigen-d031f0b2",
-      "academic-assistant-deputy-head-of-mkm-competence-centre-confederazione-svizzera-ittigen-0102f10a",
-      "collaborateur-trice-scientifique-assistant-e-chef-e-centre-de-competence-mkm-confederazione-svizzera-ittigen-9ca4be96",
-      "wissenschaftliche-r-mitarbeiter-in-stv-chef-in-kompetenzzentrum-mkm-swiss-armed-forces-vtg-ittigen-vmcil5",
-      "wissenschaftliche-r-collaboratore-trice-in-stv-chef-in-kompetenzzentrum-mkm-swiss-armed-forces-vtg-ittigen-vmcil5"
     ]
   },
   {
@@ -57885,6 +57884,10 @@
     },
     "sector": "Pubblica amministrazione",
     "expiredAt": "2026-09-24T22:50:42.018Z",
+    "previousSlugs": [
+      "fachspezialist-in-confederazione-bern",
+      "fachspezialist-in-confederazione-bern-dea0741b"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "fachspezialist-in-confederazione-bern"
@@ -57933,10 +57936,6 @@
         "firstSeenAt": "2026-10-27T21:55:08.246Z",
         "title": "Fachspezialist/in"
       }
-    ],
-    "previousSlugs": [
-      "fachspezialist-in-confederazione-bern",
-      "fachspezialist-in-confederazione-bern-dea0741b"
     ]
   },
   {
@@ -75321,6 +75320,11 @@
     },
     "sector": "Pubblica amministrazione",
     "expiredAt": "2026-09-21T11:41:46Z",
+    "previousSlugs": [
+      "ict-system-spezialist-in-security-e-encryption-confederazione-svizzera-bern",
+      "ict-system-spezialist-in-security-und-encryption-confederazione-bern",
+      "ict-system-spezialist-in-security-e-encryption-confederazione-svizzera-bern-e7349f5f"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "ict-system-spezialist-in-security-e-encryption-confederazione-svizzera-bern-e7349f5f",
@@ -75349,12 +75353,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/ict-system-spezialist-in-security-und-encryption/08ffc9b0-364a-4b79-84c0-7be7209b1dd0",
-    "firstSeenAt": "2026-09-23T11:54:13.398Z",
-    "previousSlugs": [
-      "ict-system-spezialist-in-security-e-encryption-confederazione-svizzera-bern",
-      "ict-system-spezialist-in-security-und-encryption-confederazione-bern",
-      "ict-system-spezialist-in-security-e-encryption-confederazione-svizzera-bern-e7349f5f"
-    ]
+    "firstSeenAt": "2026-09-23T11:54:13.398Z"
   },
   {
     "slug": "personale-scientifico-sistemi-di-monitoraggio-nazionali-confederazione-svizzera-bern",

@@ -2921,6 +2921,17 @@
     },
     "sector": "Food & Beverage (dairy)",
     "expiredAt": "2026-10-29T21:34:16.020Z",
+    "previousSlugs": [
+      "betriebsmechaniker-in-emmi-ch",
+      "betriebsmechaniker-in-emmi-ch-2",
+      "meccanico-a-di-manutenzione-emmi-emmen",
+      "betriebsmechaniker-in-emmi-ch-060c624a",
+      "betriebsmechaniker-in-emmi-ch-2-b6065f1f",
+      "meccanico-a-di-manutenzione-emmi-emmen-2858343c",
+      "operational-mechanic-emmi-emmen",
+      "betriebsmechaniker-in-emmi-emmen",
+      "mecanicien-ne-d-exploitation-emmi-emmen"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "betriebsmechaniker-in-emmi-ch-060c624a",
@@ -2957,18 +2968,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/betriebsmechaniker-in/a596faf6-feaa-4aa2-bc72-0cf9343a2d84",
-    "firstSeenAt": "2026-09-01T14:17:24.053Z",
-    "previousSlugs": [
-      "betriebsmechaniker-in-emmi-ch",
-      "betriebsmechaniker-in-emmi-ch-2",
-      "meccanico-a-di-manutenzione-emmi-emmen",
-      "betriebsmechaniker-in-emmi-ch-060c624a",
-      "betriebsmechaniker-in-emmi-ch-2-b6065f1f",
-      "meccanico-a-di-manutenzione-emmi-emmen-2858343c",
-      "operational-mechanic-emmi-emmen",
-      "betriebsmechaniker-in-emmi-emmen",
-      "mecanicien-ne-d-exploitation-emmi-emmen"
-    ]
+    "firstSeenAt": "2026-09-01T14:17:24.053Z"
   },
   {
     "slug": "addetto-a-operativo-a-logistica-confezionamento-emmi-emmen-luzern-9321b6f8",
@@ -5128,7 +5128,8 @@
     "sector": "Food & Beverage (dairy)",
     "expiredAt": "2026-10-22T21:25:32.588Z",
     "previousSlugs": [
-      "betriebsmechaniker-in-emmi-emmen"
+      "betriebsmechaniker-in-emmi-emmen",
+      "betriebsmechaniker-in-emmi-ch"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -32865,6 +32866,11 @@
     },
     "sector": "Food & Beverage (dairy)",
     "expiredAt": "2026-10-06T09:25:13.522Z",
+    "previousSlugs": [
+      "spezialist-in-rohrleitungsbau-instandhaltung-emmi-ch",
+      "spezialist-in-rohrleitungsbau-instandhaltung-emmi-ch-9f351315",
+      "spezialist-in-rohrleitungsbau-instandhaltung-emmi-ch-b21a19e9"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "spezialist-in-rohrleitungsbau-instandhaltung-emmi-ch-9f351315",
@@ -32891,12 +32897,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/koordinator-in-rohrleitungs-und-anlagenbau/39ca0f16-ef12-401b-a77e-58682adc5711",
-    "firstSeenAt": "2026-09-29T09:23:09.889Z",
-    "previousSlugs": [
-      "spezialist-in-rohrleitungsbau-instandhaltung-emmi-ch",
-      "spezialist-in-rohrleitungsbau-instandhaltung-emmi-ch-9f351315",
-      "spezialist-in-rohrleitungsbau-instandhaltung-emmi-ch-b21a19e9"
-    ]
+    "firstSeenAt": "2026-09-29T09:23:09.889Z"
   },
   {
     "slug": "koordinator-in-rohrleitungs-e-anlagenbau-emmi-dagmersellen-b9d19b0c",

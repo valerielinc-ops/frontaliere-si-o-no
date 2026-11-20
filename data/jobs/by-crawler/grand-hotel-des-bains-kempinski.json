@@ -564,7 +564,26 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://kempinski.pinpointhq.com/en/postings/3d61eb75-8518-4b27-841d-5a21bf2e046c"
+      "sourceIdentity": "url:https://kempinski.pinpointhq.com/en/postings/3d61eb75-8518-4b27-841d-5a21bf2e046c",
+      "previousSlugs": [
+        "pizza-chef-f-m-d-456455",
+        "pizza-chef-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz-xff7xt",
+        "pizza-chef-f-m-j-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
+        "pizza-chef-w-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
+        "pizzaiolo-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "pizza-chef-f-m-d-456455",
+          "pizza-chef-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz-xff7xt",
+          "pizza-chef-f-m-j-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
+          "pizza-chef-w-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
+          "pizzaiolo-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
+        ],
+        "de": [
+          "pizza-chef-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz-xff7xt"
+        ]
+      }
     },
     {
       "title": "Commis de Rang (f/m/d) In Room Dining",

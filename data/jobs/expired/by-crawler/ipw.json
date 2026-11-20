@@ -3311,6 +3311,14 @@
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-10-14T21:22:52.517Z",
+    "previousSlugs": [
+      "medecin-superieur-ou-psychologue-superieur-integrierte-psychiatrie-winterthur-ipw-winterthur",
+      "oberarztin-oberarzt-ipw-winterthur",
+      "medecin-superieur-ou-psychologue-superieur-integrierte-psychiatrie-winterthur-ipw-winterthur-b706086e",
+      "medico-senior-medico-senior-integrierte-psychiatrie-winterthur-ipw-winterthur",
+      "senior-physician-senior-physician-integrierte-psychiatrie-winterthur-ipw-winterthur",
+      "medecin-superieur-medecin-superieur-integrierte-psychiatrie-winterthur-ipw-winterthur"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "medecin-superieur-ou-psychologue-superieur-integrierte-psychiatrie-winterthur-ipw-winterthur-b706086e",
@@ -3340,15 +3348,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/ipw/de/jobs/ober%c3%a4rztin---oberarzt--4069758",
-    "firstSeenAt": "2026-09-16T09:21:34.692Z",
-    "previousSlugs": [
-      "medecin-superieur-ou-psychologue-superieur-integrierte-psychiatrie-winterthur-ipw-winterthur",
-      "oberarztin-oberarzt-ipw-winterthur",
-      "medecin-superieur-ou-psychologue-superieur-integrierte-psychiatrie-winterthur-ipw-winterthur-b706086e",
-      "medico-senior-medico-senior-integrierte-psychiatrie-winterthur-ipw-winterthur",
-      "senior-physician-senior-physician-integrierte-psychiatrie-winterthur-ipw-winterthur",
-      "medecin-superieur-medecin-superieur-integrierte-psychiatrie-winterthur-ipw-winterthur"
-    ]
+    "firstSeenAt": "2026-09-16T09:21:34.692Z"
   },
   {
     "slug": "praktikantin-praktikant-wms-o-hms-con-berufsmatur-integrierte-psychiatrie-winterthur-ipw-winterthur",
@@ -4074,7 +4074,10 @@
         "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-ab277db1",
         "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-b01c25e2",
         "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-18215b82",
-        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-b8854051"
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-b8854051",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-1867d7b1-f8cf9a04",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-eb5f893a-b1d5fc28",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-d0349a99-5584859b"
       ],
       "fr": [
         "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-a020c84c",
@@ -4226,7 +4229,10 @@
         "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-ab277db1",
         "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-b01c25e2",
         "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-18215b82",
-        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-b8854051"
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-b8854051",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-1867d7b1-f8cf9a04",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-eb5f893a-b1d5fc28",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-d0349a99-5584859b"
       ],
       "de": [
         "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-a020c84c",
@@ -4380,7 +4386,10 @@
         "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-b01c25e2",
         "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-18215b82",
         "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-b8854051",
-        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-pk9emz"
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-pk9emz",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-1867d7b1-f8cf9a04",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-eb5f893a-b1d5fc28",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-d0349a99-5584859b"
       ]
     },
     "postalCode": "8408",

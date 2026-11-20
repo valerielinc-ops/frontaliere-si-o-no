@@ -143,13 +143,19 @@
       "previousSlugs": [
         "ergebnis-controller-in-100-hoch-health-st-gallen",
         "results-controller-100-hoch-health-ostschweiz-st-gallen",
-        "controller-dei-risultati-100-hoch-health-ostschweiz-st-gallen"
+        "controller-dei-risultati-100-hoch-health-ostschweiz-st-gallen",
+        "result-controller-in-100-hoch-health-ostschweiz-st-gallen",
+        "resultat-controleur-en-100-hoch-health-ostschweiz-st-gallen",
+        "risultato-controller-in-100-hoch-health-ostschweiz-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ergebnis-controller-in-100-hoch-health-st-gallen",
           "results-controller-100-hoch-health-ostschweiz-st-gallen",
-          "controller-dei-risultati-100-hoch-health-ostschweiz-st-gallen"
+          "controller-dei-risultati-100-hoch-health-ostschweiz-st-gallen",
+          "result-controller-in-100-hoch-health-ostschweiz-st-gallen",
+          "resultat-controleur-en-100-hoch-health-ostschweiz-st-gallen",
+          "risultato-controller-in-100-hoch-health-ostschweiz-st-gallen"
         ]
       },
       "firstSeenAt": "2026-08-24T22:09:28.890Z",
@@ -2543,17 +2549,47 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sachbearbeiter-in-fallbewirtschaftung-ambulant-100-hoch-health-st-gallen"
+        "sachbearbeiter-in-fallbewirtschaftung-ambulant-100-hoch-health-st-gallen",
+        "addetto-a-alla-gestione-dei-casi-ambulatoriale-al-100-hoch-health-ostschweiz-st-gallen",
+        "case-manager-ambulatory-care-100-hoch-health-ostschweiz-st-gallen",
+        "gestionnaire-de-dossiers-soins-ambulatoires-100-hoch-health-ostschweiz-st-gallen",
+        "case-manager-centrale-gestione-pazienti-ambulatorio-50-100-hoch-health-ostschweiz-st-gallen",
+        "case-manager-in-zentrales-patientenmanagement-ambulatorium-50-100-hoch-health-st-gallen",
+        "gestionnaire-de-dossiers-gestion-centrale-des-patients-et-soins-ambulatoires-50-100-hoch-health-ostschweiz-st-gallen",
+        "fallmanager-in-zentralen-patientenmanagement-ambulatorium-50-100-hoch-health-ostschweiz-st-gallen",
+        "addetto-a-contabilita-gestione-contratti-80-100-hoch-health-ostschweiz-st-gallen",
+        "accounting-contract-management-clerk-80-100-hoch-health-ostschweiz-st-gallen",
+        "sachbearbeiter-in-fakturierung-vertragsmanagement-80-100-hoch-health-st-gallen",
+        "collaborateur-trice-en-facturation-gestion-de-contrats-80-100-hoch-health-ostschweiz-st-gallen",
+        "sachbearbeiter-in-fallbewirtschaftung-ambulant-100-kssg-ch",
+        "addetto-a-alla-gestione-dei-casi-ambulatoriale-al-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "sachbearbeiter-in-fallbewirtschaftung-ambulant-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-fallbewirtschaftung-ambulant-100-hoch-health-st-gallen"
+          "sachbearbeiter-in-fallbewirtschaftung-ambulant-100-hoch-health-st-gallen",
+          "addetto-a-alla-gestione-dei-casi-ambulatoriale-al-100-hoch-health-ostschweiz-st-gallen",
+          "case-manager-ambulatory-care-100-hoch-health-ostschweiz-st-gallen",
+          "gestionnaire-de-dossiers-soins-ambulatoires-100-hoch-health-ostschweiz-st-gallen",
+          "case-manager-centrale-gestione-pazienti-ambulatorio-50-100-hoch-health-ostschweiz-st-gallen",
+          "case-manager-in-zentrales-patientenmanagement-ambulatorium-50-100-hoch-health-st-gallen",
+          "gestionnaire-de-dossiers-gestion-centrale-des-patients-et-soins-ambulatoires-50-100-hoch-health-ostschweiz-st-gallen",
+          "fallmanager-in-zentralen-patientenmanagement-ambulatorium-50-100-hoch-health-ostschweiz-st-gallen",
+          "addetto-a-contabilita-gestione-contratti-80-100-hoch-health-ostschweiz-st-gallen",
+          "accounting-contract-management-clerk-80-100-hoch-health-ostschweiz-st-gallen",
+          "sachbearbeiter-in-fakturierung-vertragsmanagement-80-100-hoch-health-st-gallen",
+          "collaborateur-trice-en-facturation-gestion-de-contrats-80-100-hoch-health-ostschweiz-st-gallen",
+          "sachbearbeiter-in-fallbewirtschaftung-ambulant-100-kssg-ch",
+          "addetto-a-alla-gestione-dei-casi-ambulatoriale-al-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+          "sachbearbeiter-in-fallbewirtschaftung-ambulant-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
         ],
         "en": [
-          "sachbearbeiter-in-fallbewirtschaftung-ambulant-100-hoch-health-st-gallen"
+          "sachbearbeiter-in-fallbewirtschaftung-ambulant-100-hoch-health-st-gallen",
+          "case-manager-ambulatory-care-100-hoch-health-ostschweiz-st-gallen"
         ],
         "fr": [
-          "sachbearbeiter-in-fallbewirtschaftung-ambulant-100-hoch-health-st-gallen"
+          "sachbearbeiter-in-fallbewirtschaftung-ambulant-100-hoch-health-st-gallen",
+          "gestionnaire-de-dossiers-soins-ambulatoires-100-hoch-health-ostschweiz-st-gallen"
         ]
       },
       "salaryMin": 57500,
@@ -3533,7 +3569,16 @@
         "infirmier-infirmiere-diplome-e-springerpool-20-100-hoch-health-ostschweiz-st-gallen",
         "dipl-pflegefachfrau-mann-springerpool-20-100-hoch-health-ostschweiz-st-gallen",
         "qualified-nurse-man-springerpool-20-100-hoch-health-ostschweiz-st-gallen",
-        "dipl-pflegefachfrau-mann-springerpool-20-100-hoch-health-st-gallen"
+        "dipl-pflegefachfrau-mann-springerpool-20-100-hoch-health-st-gallen",
+        "infermiere-a-diplomato-a-springerpool-20-100-hoch-health-ostschweiz-st-gallen",
+        "infermiere-a-diplomato-a-springerpool-20-100-hoch-health-ostschweiz-uznach",
+        "dipl-pflegefachfrau-mann-springerpool-20-100-hoch-health-uznach",
+        "dipl-pflegefachfrau-mann-springerpool-20-100-kssg-ch",
+        "infermiere-diplomato-springerpool-20-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "dipl-pflegefachfrau-mann-springerpool-20-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "dipl-pflegefachfrau-mann-springerpool-20-100-hoch-health-ostschweiz-uznach",
+        "dipl-pflegefachfrau-mann-springerpool-20-100-hoch-health-ostschweiz-uznach-fgtijq",
+        "diplome-e-en-soins-infirmiers-springerpool-20-100-hoch-health-ostschweiz-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3541,7 +3586,16 @@
           "dipl-pflegefachfrau-mann-springerpool-20-100-hoch-health-st-gallen-2",
           "infirmier-infirmiere-diplome-e-springerpool-20-100-hoch-health-ostschweiz-st-gallen",
           "dipl-pflegefachfrau-mann-springerpool-20-100-hoch-health-ostschweiz-st-gallen",
-          "dipl-pflegefachfrau-mann-springerpool-20-100-hoch-health-st-gallen"
+          "dipl-pflegefachfrau-mann-springerpool-20-100-hoch-health-st-gallen",
+          "infermiere-a-diplomato-a-springerpool-20-100-hoch-health-ostschweiz-st-gallen",
+          "infermiere-a-diplomato-a-springerpool-20-100-hoch-health-ostschweiz-uznach",
+          "dipl-pflegefachfrau-mann-springerpool-20-100-hoch-health-uznach",
+          "dipl-pflegefachfrau-mann-springerpool-20-100-kssg-ch",
+          "infermiere-diplomato-springerpool-20-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+          "dipl-pflegefachfrau-mann-springerpool-20-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+          "dipl-pflegefachfrau-mann-springerpool-20-100-hoch-health-ostschweiz-uznach",
+          "dipl-pflegefachfrau-mann-springerpool-20-100-hoch-health-ostschweiz-uznach-fgtijq",
+          "diplome-e-en-soins-infirmiers-springerpool-20-100-hoch-health-ostschweiz-st-gallen"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-springerpool-20-100-hoch-health-st-gallen-2",
@@ -3985,12 +4039,24 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "allenamento-biologico-analista-in-hf-hoch-health-ostschweiz-st-gallen",
-        "ausbildung-dipl-biomedizinische-r-analytiker-in-hf-hoch-health-st-gallen"
+        "ausbildung-dipl-biomedizinische-r-analytiker-in-hf-hoch-health-st-gallen",
+        "formazione-di-tecnico-a-di-laboratorio-biomedico-a-hf-hoch-health-ostschweiz-st-gallen",
+        "training-for-dipl-biomedical-analyst-hf-hoch-health-ostschweiz-st-gallen",
+        "formation-de-technicien-ne-de-laboratoire-biomedical-hf-hoch-health-ostschweiz-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "allenamento-biologico-analista-in-hf-hoch-health-ostschweiz-st-gallen",
-          "ausbildung-dipl-biomedizinische-r-analytiker-in-hf-hoch-health-st-gallen"
+          "ausbildung-dipl-biomedizinische-r-analytiker-in-hf-hoch-health-st-gallen",
+          "formazione-di-tecnico-a-di-laboratorio-biomedico-a-hf-hoch-health-ostschweiz-st-gallen",
+          "training-for-dipl-biomedical-analyst-hf-hoch-health-ostschweiz-st-gallen",
+          "formation-de-technicien-ne-de-laboratoire-biomedical-hf-hoch-health-ostschweiz-st-gallen"
+        ],
+        "en": [
+          "training-for-dipl-biomedical-analyst-hf-hoch-health-ostschweiz-st-gallen"
+        ],
+        "fr": [
+          "formation-de-technicien-ne-de-laboratoire-biomedical-hf-hoch-health-ostschweiz-st-gallen"
         ]
       },
       "firstSeenAt": "2026-08-31T23:21:35.219Z",
@@ -4495,13 +4561,45 @@
       "previousSlugs": [
         "dipl-fachfrau-mann-operationstechnik-80-100-hoch-health-st-gallen-2",
         "dipl-fachfrau-mann-operationstechnik-80-100-hoch-health-ostschweiz-st-gallen",
-        "dipl-fachfrau-mann-operationstechnik-80-100-hoch-health-st-gallen"
+        "dipl-fachfrau-mann-operationstechnik-80-100-hoch-health-st-gallen",
+        "dipl-tecnica-chirurgica-specialistica-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "dipl-tecnica-chirurgica-specialistica-80-100-hoch-health-ostschweiz-st-gallen",
+        "dipl-care-specialist-40-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "technique-chirurgicale-certifiee-a-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "dipl-tecnica-chirurgica-specialistica-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-88d072",
+        "dipl-fachfrau-mann-operationstechnik-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "dipl-fachfrau-mann-operationstechnik-80-100-kssg-ch",
+        "specialista-in-tecnica-chirurgica-80-100-kantonsspital-st-gallen-kssg-hoch-festanst-yfhvlu",
+        "dipl-specialist-surgical-technique-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "dipl-specialist-surgical-technique-80-100-hoch-health-ostschweiz-st-gallen",
+        "dipl-specialist-surgical-technique-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-88d072",
+        "dipl-technique-chirurgicale-specialisee-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "dipl-technique-chirurgicale-specialisee-80-100-hoch-health-ostschweiz-st-gallen",
+        "dipl-technique-chirurgicale-specialisee-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-88d072",
+        "specialista-in-tecnica-chirurgica-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "dipl-fachfrau-mann-operationstechnik-80-100-hoch-health-ostschweiz-st-gallen-345g5b"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-fachfrau-mann-operationstechnik-80-100-hoch-health-st-gallen-2",
           "dipl-fachfrau-mann-operationstechnik-80-100-hoch-health-ostschweiz-st-gallen",
-          "dipl-fachfrau-mann-operationstechnik-80-100-hoch-health-st-gallen"
+          "dipl-fachfrau-mann-operationstechnik-80-100-hoch-health-st-gallen",
+          "dipl-tecnica-chirurgica-specialistica-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+          "dipl-tecnica-chirurgica-specialistica-80-100-hoch-health-ostschweiz-st-gallen",
+          "dipl-care-specialist-40-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+          "technique-chirurgicale-certifiee-a-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+          "dipl-tecnica-chirurgica-specialistica-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-88d072",
+          "dipl-fachfrau-mann-operationstechnik-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+          "dipl-fachfrau-mann-operationstechnik-80-100-kssg-ch",
+          "specialista-in-tecnica-chirurgica-80-100-kantonsspital-st-gallen-kssg-hoch-festanst-yfhvlu",
+          "dipl-specialist-surgical-technique-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+          "dipl-specialist-surgical-technique-80-100-hoch-health-ostschweiz-st-gallen",
+          "dipl-specialist-surgical-technique-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-88d072",
+          "dipl-technique-chirurgicale-specialisee-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+          "dipl-technique-chirurgicale-specialisee-80-100-hoch-health-ostschweiz-st-gallen",
+          "dipl-technique-chirurgicale-specialisee-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-88d072",
+          "specialista-in-tecnica-chirurgica-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+          "dipl-fachfrau-mann-operationstechnik-80-100-hoch-health-ostschweiz-st-gallen-345g5b"
         ],
         "en": [
           "dipl-fachfrau-mann-operationstechnik-80-100-hoch-health-st-gallen-2"
@@ -4750,14 +4848,16 @@
         "dipl-fachfrau-mann-operationstechnik-80-100-hoch-health-st-gallen",
         "specialista-in-tecnica-chirurgica-80-100-hoch-health-ostschweiz-st-gallen",
         "qualified-specialist-in-surgical-technology-80-100-hoch-health-ostschweiz-st-gallen",
-        "specialiste-diplome-en-technique-chirurgicale-80-100-hoch-health-ostschweiz-st-gallen"
+        "specialiste-diplome-en-technique-chirurgicale-80-100-hoch-health-ostschweiz-st-gallen",
+        "dipl-fachfrau-mann-operationstechnik-80-100-hoch-health-ostschweiz-st-gallen-33q57c"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-fachfrau-mann-operationstechnik-80-100-hoch-health-st-gallen-2",
           "dipl-fachfrau-mann-operationstechnik-80-100-hoch-health-ostschweiz-st-gallen",
           "dipl-fachfrau-mann-operationstechnik-80-100-hoch-health-st-gallen",
-          "specialista-in-tecnica-chirurgica-80-100-hoch-health-ostschweiz-st-gallen"
+          "specialista-in-tecnica-chirurgica-80-100-hoch-health-ostschweiz-st-gallen",
+          "dipl-fachfrau-mann-operationstechnik-80-100-hoch-health-ostschweiz-st-gallen-33q57c"
         ],
         "en": [
           "dipl-fachfrau-mann-operationstechnik-80-100-hoch-health-st-gallen-2",
@@ -6894,7 +6994,9 @@
         "specialiste-en-sante-40-100-hoch-health-ostschweiz-uznach-653d68",
         "professionista-della-salute-40-100-hoch-health-ostschweiz-uznach",
         "specialist-man-health-40-100-hoch-health-ostschweiz-uznach",
-        "specialiste-en-sante-40-100-hoch-health-ostschweiz-uznach"
+        "specialiste-en-sante-40-100-hoch-health-ostschweiz-uznach",
+        "fachfrau-mann-gesundheit-40-100-hoch-health-ostschweiz-uznach-ht6tlt",
+        "fachfrau-mann-gesundheit-40-100-hoch-health-uznach-ht6tlt"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6903,7 +7005,9 @@
           "fachfrau-mann-gesundheit-40-100-hoch-health-uznach",
           "fachfrau-mann-gesundheit-40-100-hoch-health-uznach-3",
           "professionista-della-salute-40-100-hoch-health-ostschweiz-uznach-653d68",
-          "professionista-della-salute-40-100-hoch-health-ostschweiz-uznach"
+          "professionista-della-salute-40-100-hoch-health-ostschweiz-uznach",
+          "fachfrau-mann-gesundheit-40-100-hoch-health-ostschweiz-uznach-ht6tlt",
+          "fachfrau-mann-gesundheit-40-100-hoch-health-uznach-ht6tlt"
         ],
         "en": [
           "fachfrau-mann-gesundheit-40-100-hoch-health-uznach-2",
@@ -6992,14 +7096,24 @@
         "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach-2",
         "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach",
         "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach-a6e678f7f2",
-        "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach-3"
+        "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach-3",
+        "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach-xmqepb",
+        "dipl-care-specialist-40-100-hoch-health-ostschweiz-uznach",
+        "dipl-specialiste-des-soins-40-100-hoch-health-ostschweiz-uznach",
+        "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-xmqepb",
+        "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach-htnzaa"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach-2",
           "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach",
           "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach-a6e678f7f2",
-          "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach-3"
+          "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach-3",
+          "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach-xmqepb",
+          "dipl-care-specialist-40-100-hoch-health-ostschweiz-uznach",
+          "dipl-specialiste-des-soins-40-100-hoch-health-ostschweiz-uznach",
+          "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-xmqepb",
+          "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach-htnzaa"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach-2"
@@ -7369,11 +7483,61 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-40-100-hoch-health-uznach-2"
+        "fachfrau-mann-gesundheit-40-100-hoch-health-uznach-2",
+        "fachfrau-mann-gesundheit-40-100-hoch-health-uznach-ht61ff",
+        "specialist-man-health-40-100-hoch-health-ostschweiz-uznach",
+        "specialist-man-health-40-100-hoch-health-ostschweiz-uznach-653d68",
+        "specialiste-en-sante-40-100-hoch-health-ostschweiz-uznach",
+        "specialiste-en-sante-40-100-hoch-health-ostschweiz-uznach-653d68",
+        "salute-professionale-40-100-hoch-health-ostschweiz-uznach-74cbf0",
+        "fachfrau-mann-gesundheit-40-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-ky5nrt",
+        "fachfrau-mann-gesundheit-40-100-hoch-health-ostschweiz-uznach-ht4pyz",
+        "specialista-della-salute-40-100-hoch-health-ostschweiz-st-gallen",
+        "fachfrau-mann-gesundheit-40-100-hoch-health-st-gallen-12c820eb",
+        "specialista-della-salute-40-100-hoch-health-ostschweiz-uznach",
+        "healthcare-specialist-60-100-hoch-health-ostschweiz-st-gallen",
+        "specialista-della-salute-60-100-hoch-health-ostschweiz-st-gallen",
+        "specialista-della-salute-60-100-hoch-health-ostschweiz-st-gallen-m8w10n",
+        "specialiste-en-sante-60-100-hoch-health-ostschweiz-st-gallen",
+        "fachfrau-mann-gesundheit-40-100-kssg-ch",
+        "fachfrau-mann-gesundheit-springerpool-40-100-hoch-health-uznach",
+        "healthcare-specialist-40-100-hoch-health-ostschweiz-st-gallen",
+        "specialiste-en-sante-40-100-hoch-health-ostschweiz-st-gallen",
+        "specialiste-en-logistique-100-hoch-health-ostschweiz-st-gallen",
+        "healthcare-specialist-40-100-hoch-health-ostschweiz-uznach",
+        "assistant-e-en-soins-et-sante-communautaire-40-100-hoch-health-ostschweiz-uznach",
+        "operatore-trice-sociosanitario-a-40-100-hoch-health-ostschweiz-uznach",
+        "professionista-della-salute-40-100-hoch-health-ostschweiz-uznach",
+        "professionista-della-salute-40-100-hoch-health-ostschweiz-uznach-653d68"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-mann-gesundheit-40-100-hoch-health-uznach-2"
+          "fachfrau-mann-gesundheit-40-100-hoch-health-uznach-2",
+          "fachfrau-mann-gesundheit-40-100-hoch-health-uznach-ht61ff",
+          "specialist-man-health-40-100-hoch-health-ostschweiz-uznach",
+          "specialist-man-health-40-100-hoch-health-ostschweiz-uznach-653d68",
+          "specialiste-en-sante-40-100-hoch-health-ostschweiz-uznach",
+          "specialiste-en-sante-40-100-hoch-health-ostschweiz-uznach-653d68",
+          "salute-professionale-40-100-hoch-health-ostschweiz-uznach-74cbf0",
+          "fachfrau-mann-gesundheit-40-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-ky5nrt",
+          "fachfrau-mann-gesundheit-40-100-hoch-health-ostschweiz-uznach-ht4pyz",
+          "specialista-della-salute-40-100-hoch-health-ostschweiz-st-gallen",
+          "fachfrau-mann-gesundheit-40-100-hoch-health-st-gallen-12c820eb",
+          "specialista-della-salute-40-100-hoch-health-ostschweiz-uznach",
+          "healthcare-specialist-60-100-hoch-health-ostschweiz-st-gallen",
+          "specialista-della-salute-60-100-hoch-health-ostschweiz-st-gallen",
+          "specialista-della-salute-60-100-hoch-health-ostschweiz-st-gallen-m8w10n",
+          "specialiste-en-sante-60-100-hoch-health-ostschweiz-st-gallen",
+          "fachfrau-mann-gesundheit-40-100-kssg-ch",
+          "fachfrau-mann-gesundheit-springerpool-40-100-hoch-health-uznach",
+          "healthcare-specialist-40-100-hoch-health-ostschweiz-st-gallen",
+          "specialiste-en-sante-40-100-hoch-health-ostschweiz-st-gallen"
+        ],
+        "en": [
+          "healthcare-specialist-40-100-hoch-health-ostschweiz-uznach"
+        ],
+        "fr": [
+          "assistant-e-en-soins-et-sante-communautaire-40-100-hoch-health-ostschweiz-uznach"
         ]
       },
       "firstSeenAt": "2026-05-21T12:10:17.293Z",
@@ -9181,17 +9345,22 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "assistenzarztin-arzt-100-hoch-health-st-gallen",
-        "assistenzarztin-arzt-100-hoch-health-ostschweiz-st-gallen"
+        "assistenzarztin-arzt-100-hoch-health-ostschweiz-st-gallen",
+        "assistenzarztin-arzt-100-hoch-health-st-gallen-ajii44"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-arzt-100-hoch-health-st-gallen"
+          "assistenzarztin-arzt-100-hoch-health-st-gallen",
+          "assistenzarztin-arzt-100-hoch-health-st-gallen-ajii44"
         ],
         "en": [
           "assistenzarztin-arzt-100-hoch-health-ostschweiz-st-gallen"
         ],
         "fr": [
           "assistenzarztin-arzt-100-hoch-health-ostschweiz-st-gallen"
+        ],
+        "de": [
+          "assistenzarztin-arzt-100-hoch-health-st-gallen-ajii44"
         ]
       },
       "firstSeenAt": "2026-05-19T14:37:23.450Z",
@@ -10416,11 +10585,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "oberarztin-arzt-80-100-hoch-health-st-gallen"
+        "oberarztin-arzt-80-100-hoch-health-st-gallen",
+        "oberarztin-arzt-80-100-hoch-health-st-gallen-we12m7"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-arzt-80-100-hoch-health-st-gallen"
+          "oberarztin-arzt-80-100-hoch-health-st-gallen",
+          "oberarztin-arzt-80-100-hoch-health-st-gallen-we12m7"
         ]
       },
       "firstSeenAt": "2026-05-19T14:37:07.488Z",
@@ -11099,11 +11270,25 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-fachperson-hotellerie-hauswirtschaft-efz-hoch-health-uznach"
+        "lehrstelle-als-fachperson-hotellerie-hauswirtschaft-efz-hoch-health-uznach",
+        "apprendistato-come-specialista-in-ospitalita-e-economia-domestica-efz-hoch-health-ostschweiz-st-gallen",
+        "apprenticeship-as-hospitality-and-housekeeping-specialist-efz-hoch-health-ostschweiz-st-gallen",
+        "apprentissage-en-tant-que-specialiste-en-hotellerie-et-intendance-efz-hoch-health-ostschweiz-st-gallen",
+        "lehrstelle-als-fachperson-hotellerie-hauswirtschaft-efz-hoch-health-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-fachperson-hotellerie-hauswirtschaft-efz-hoch-health-uznach"
+          "lehrstelle-als-fachperson-hotellerie-hauswirtschaft-efz-hoch-health-uznach",
+          "apprendistato-come-specialista-in-ospitalita-e-economia-domestica-efz-hoch-health-ostschweiz-st-gallen",
+          "apprenticeship-as-hospitality-and-housekeeping-specialist-efz-hoch-health-ostschweiz-st-gallen",
+          "apprentissage-en-tant-que-specialiste-en-hotellerie-et-intendance-efz-hoch-health-ostschweiz-st-gallen",
+          "lehrstelle-als-fachperson-hotellerie-hauswirtschaft-efz-hoch-health-st-gallen"
+        ],
+        "en": [
+          "apprenticeship-as-hospitality-and-housekeeping-specialist-efz-hoch-health-ostschweiz-st-gallen"
+        ],
+        "fr": [
+          "apprentissage-en-tant-que-specialiste-en-hotellerie-et-intendance-efz-hoch-health-ostschweiz-st-gallen"
         ]
       },
       "firstSeenAt": "2026-07-02T11:14:35.983Z",
@@ -12469,12 +12654,28 @@
       "previousSlugs": [
         "strukturiertes-praxisjahr-fachmaturitat-gesundheit-hoch-health-st-gallen",
         "strukturiertes-praxisjahr-fachmaturitat-gesundheit-hoch-health-st-gallen-47uqjt",
-        "strukturiertes-praxisjahr-fachmaturitat-gesundheit-hoch-health-ostschweiz-st-gallen"
+        "strukturiertes-praxisjahr-fachmaturitat-gesundheit-hoch-health-ostschweiz-st-gallen",
+        "strukturiertes-praxisjahr-fachmaturitat-gesundheit-kssg-ch",
+        "anno-pratico-strutturato-per-la-laurea-specialistica-in-sanita-hoch-health-ostschweiz-uznach",
+        "strukturiertes-praxisjahr-fachmaturitat-gesundheit-hoch-health-uznach",
+        "anno-pratico-strutturato-per-la-laurea-specialistica-in-sanita-kantonsspital-st-gallen-kssg-hoch-praktikum",
+        "strukturiertes-praxisjahr-fachmaturitat-gesundheit-kssg-ch-2",
+        "anno-pratico-strutturato-per-la-laurea-specialistica-in-sanita-kantonsspital-st-gallen-kssg-hoch-praktikum-ab838a",
+        "structured-year-of-practice-health-hoch-health-ostschweiz-uznach",
+        "annee-structuree-de-la-sante-pratique-hoch-health-ostschweiz-uznach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "strukturiertes-praxisjahr-fachmaturitat-gesundheit-hoch-health-st-gallen",
-          "strukturiertes-praxisjahr-fachmaturitat-gesundheit-hoch-health-st-gallen-47uqjt"
+          "strukturiertes-praxisjahr-fachmaturitat-gesundheit-hoch-health-st-gallen-47uqjt",
+          "strukturiertes-praxisjahr-fachmaturitat-gesundheit-kssg-ch",
+          "anno-pratico-strutturato-per-la-laurea-specialistica-in-sanita-hoch-health-ostschweiz-uznach",
+          "strukturiertes-praxisjahr-fachmaturitat-gesundheit-hoch-health-uznach",
+          "anno-pratico-strutturato-per-la-laurea-specialistica-in-sanita-kantonsspital-st-gallen-kssg-hoch-praktikum",
+          "strukturiertes-praxisjahr-fachmaturitat-gesundheit-kssg-ch-2",
+          "anno-pratico-strutturato-per-la-laurea-specialistica-in-sanita-kantonsspital-st-gallen-kssg-hoch-praktikum-ab838a",
+          "structured-year-of-practice-health-hoch-health-ostschweiz-uznach",
+          "annee-structuree-de-la-sante-pratique-hoch-health-ostschweiz-uznach"
         ],
         "en": [
           "strukturiertes-praxisjahr-fachmaturitat-gesundheit-hoch-health-ostschweiz-st-gallen"
@@ -13695,15 +13896,37 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-expertin-experte-anasthesiepflege-nds-50-100-hoch-health-uznach",
-        "dipl-expertin-experte-anasthesiepflege-nds-50-100-hoch-health-ostschweiz-uznach"
+        "dipl-expertin-experte-anasthesiepflege-nds-50-100-hoch-health-ostschweiz-uznach",
+        "esperta-esperto-diploma-di-anestesia-nds-50-100-hoch-health-ostschweiz-st-gallen",
+        "diploma-in-anesthesia-nursing-nds-50-100-hoch-health-ostschweiz-st-gallen",
+        "diplome-e-en-soins-anesthesiques-nds-50-100-hoch-health-ostschweiz-st-gallen",
+        "esperta-esperto-di-anestesia-nds-hf-50-100-hoch-health-ostschweiz-st-gallen",
+        "diploma-expert-in-anesthesia-nursing-nds-hf-50-100-hoch-health-ostschweiz-st-gallen",
+        "expert-e-en-soins-anesthesiques-nds-hf-50-100-hoch-health-ostschweiz-st-gallen",
+        "dipl-expertin-experte-anasthesiepflege-nds-hf-50-100-hoch-health-st-gallen",
+        "esperta-esperto-di-anestesia-nds-hf-50-100-hoch-health-ostschweiz-wil",
+        "dipl-expertin-experte-anasthesiepflege-nds-hf-50-100-kssg-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-expertin-experte-anasthesiepflege-nds-50-100-hoch-health-uznach"
+          "dipl-expertin-experte-anasthesiepflege-nds-50-100-hoch-health-uznach",
+          "esperta-esperto-diploma-di-anestesia-nds-50-100-hoch-health-ostschweiz-st-gallen",
+          "diploma-in-anesthesia-nursing-nds-50-100-hoch-health-ostschweiz-st-gallen",
+          "diplome-e-en-soins-anesthesiques-nds-50-100-hoch-health-ostschweiz-st-gallen",
+          "esperta-esperto-di-anestesia-nds-hf-50-100-hoch-health-ostschweiz-st-gallen",
+          "diploma-expert-in-anesthesia-nursing-nds-hf-50-100-hoch-health-ostschweiz-st-gallen",
+          "expert-e-en-soins-anesthesiques-nds-hf-50-100-hoch-health-ostschweiz-st-gallen",
+          "dipl-expertin-experte-anasthesiepflege-nds-hf-50-100-hoch-health-st-gallen",
+          "esperta-esperto-di-anestesia-nds-hf-50-100-hoch-health-ostschweiz-wil",
+          "dipl-expertin-experte-anasthesiepflege-nds-hf-50-100-kssg-ch"
         ],
         "en": [
           "dipl-expertin-experte-anasthesiepflege-nds-50-100-hoch-health-uznach",
-          "dipl-expertin-experte-anasthesiepflege-nds-50-100-hoch-health-ostschweiz-uznach"
+          "dipl-expertin-experte-anasthesiepflege-nds-50-100-hoch-health-ostschweiz-uznach",
+          "diploma-in-anesthesia-nursing-nds-50-100-hoch-health-ostschweiz-st-gallen"
+        ],
+        "fr": [
+          "diplome-e-en-soins-anesthesiques-nds-50-100-hoch-health-ostschweiz-st-gallen"
         ]
       },
       "firstSeenAt": "2026-08-24T10:21:57.660Z",
@@ -14878,11 +15101,25 @@
         ]
       },
       "previousSlugs": [
-        "spontanbewerbung-departement-pflege-therapeutische-dienste-40-100-hoch-health-uznach"
+        "spontanbewerbung-departement-pflege-therapeutische-dienste-40-100-hoch-health-uznach",
+        "candidatura-spontanea-dipartimento-cure-e-servizi-terapeutici-40-100-hoch-health-ostschweiz-st-gallen",
+        "spontaneous-application-department-of-nursing-and-therapeutic-services-40-100-hoch-health-ostschweiz-st-gallen",
+        "candidature-spontanee-departement-soins-et-services-therapeutiques-40-100-hoch-health-ostschweiz-st-gallen",
+        "spontanbewerbung-departement-pflege-therapeutische-dienste-40-100-hoch-health-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "spontanbewerbung-departement-pflege-therapeutische-dienste-40-100-hoch-health-uznach"
+          "spontanbewerbung-departement-pflege-therapeutische-dienste-40-100-hoch-health-uznach",
+          "candidatura-spontanea-dipartimento-cure-e-servizi-terapeutici-40-100-hoch-health-ostschweiz-st-gallen",
+          "spontaneous-application-department-of-nursing-and-therapeutic-services-40-100-hoch-health-ostschweiz-st-gallen",
+          "candidature-spontanee-departement-soins-et-services-therapeutiques-40-100-hoch-health-ostschweiz-st-gallen",
+          "spontanbewerbung-departement-pflege-therapeutische-dienste-40-100-hoch-health-st-gallen"
+        ],
+        "en": [
+          "spontaneous-application-department-of-nursing-and-therapeutic-services-40-100-hoch-health-ostschweiz-st-gallen"
+        ],
+        "fr": [
+          "candidature-spontanee-departement-soins-et-services-therapeutiques-40-100-hoch-health-ostschweiz-st-gallen"
         ]
       },
       "firstSeenAt": "2026-05-19T14:37:01.896Z",
@@ -15824,18 +16061,32 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachfrau-mann-gesundheit-40-60-hoch-health-wil",
-        "fachfrau-mann-gesundheit-40-60-hoch-health-ostschweiz-wil"
+        "fachfrau-mann-gesundheit-40-60-hoch-health-ostschweiz-wil",
+        "operatore-socio-sanitario-40-60-hoch-health-ostschweiz-st-gallen",
+        "health-care-professional-40-60-hoch-health-ostschweiz-st-gallen",
+        "assistant-e-en-soins-et-sante-communautaire-40-60-hoch-health-ostschweiz-st-gallen",
+        "fachfrau-mann-gesundheit-40-60-hoch-health-st-gallen",
+        "operatore-socio-sanitario-40-60-hoch-health-ostschweiz-wil",
+        "fachfrau-mann-gesundheit-40-60-kssg-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-mann-gesundheit-40-60-hoch-health-wil",
-          "fachfrau-mann-gesundheit-40-60-hoch-health-ostschweiz-wil"
+          "fachfrau-mann-gesundheit-40-60-hoch-health-ostschweiz-wil",
+          "operatore-socio-sanitario-40-60-hoch-health-ostschweiz-st-gallen",
+          "health-care-professional-40-60-hoch-health-ostschweiz-st-gallen",
+          "assistant-e-en-soins-et-sante-communautaire-40-60-hoch-health-ostschweiz-st-gallen",
+          "fachfrau-mann-gesundheit-40-60-hoch-health-st-gallen",
+          "operatore-socio-sanitario-40-60-hoch-health-ostschweiz-wil",
+          "fachfrau-mann-gesundheit-40-60-kssg-ch"
         ],
         "en": [
-          "fachfrau-mann-gesundheit-40-60-hoch-health-wil"
+          "fachfrau-mann-gesundheit-40-60-hoch-health-wil",
+          "health-care-professional-40-60-hoch-health-ostschweiz-st-gallen"
         ],
         "fr": [
-          "fachfrau-mann-gesundheit-40-60-hoch-health-wil"
+          "fachfrau-mann-gesundheit-40-60-hoch-health-wil",
+          "assistant-e-en-soins-et-sante-communautaire-40-60-hoch-health-ostschweiz-st-gallen"
         ]
       },
       "salaryMin": 36000,
@@ -15999,12 +16250,60 @@
         ],
         "it": [
           "dipl-pflegefachfrau-mann-80-100-hoch-health-grabs",
-          "dipl-pflegefachfrau-mann-80-100-hoch-health-grabs-5mqtzc"
+          "dipl-pflegefachfrau-mann-80-100-hoch-health-grabs-5mqtzc",
+          "dipl-care-specialist-40-100-hoch-health-ostschweiz-uznach",
+          "dipl-specialiste-des-soins-40-100-hoch-health-ostschweiz-uznach",
+          "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach",
+          "dipl-care-specialist-80-100-hoch-health-ostschweiz-st-gallen",
+          "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-l6z5hi",
+          "dipl-professionnels-des-soins-infirmiers-80-100-hoch-health-ostschweiz-st-gallen-af5d90",
+          "dipl-infermieristica-professionale-80-100-hoch-health-ostschweiz-st-gallen-f8ca13",
+          "dipl-nursing-professional-80-100-hoch-health-ostschweiz-st-gallen-f8ca13",
+          "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-oa5w1o",
+          "dipl-professionnels-des-soins-infirmiers-80-100-hoch-health-ostschweiz-st-gallen-f8ca13",
+          "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach",
+          "infermiere-a-diplomato-a-40-100-hoch-health-ostschweiz-uznach",
+          "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach-2",
+          "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach-3",
+          "qualified-nurse-40-100-hoch-health-ostschweiz-uznach",
+          "infirmiere-infirmiere-diplomee-40-100-hoch-health-ostschweiz-uznach",
+          "infermiere-a-diplomato-a-80-100-hoch-health-ostschweiz-st-gallen-cc3f6d",
+          "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-3"
         ]
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-80-100-hoch-health-grabs",
-        "dipl-pflegefachfrau-mann-80-100-hoch-health-grabs-5mqtzc"
+        "dipl-pflegefachfrau-mann-80-100-hoch-health-grabs-5mqtzc",
+        "dipl-care-specialist-40-100-hoch-health-ostschweiz-uznach",
+        "dipl-specialiste-des-soins-40-100-hoch-health-ostschweiz-uznach",
+        "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach",
+        "dipl-care-specialist-80-100-hoch-health-ostschweiz-st-gallen",
+        "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-l6z5hi",
+        "dipl-professionnels-des-soins-infirmiers-80-100-hoch-health-ostschweiz-st-gallen-af5d90",
+        "dipl-infermieristica-professionale-80-100-hoch-health-ostschweiz-st-gallen-f8ca13",
+        "dipl-nursing-professional-80-100-hoch-health-ostschweiz-st-gallen-f8ca13",
+        "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-oa5w1o",
+        "dipl-professionnels-des-soins-infirmiers-80-100-hoch-health-ostschweiz-st-gallen-f8ca13",
+        "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach",
+        "infermiere-a-diplomato-a-40-100-hoch-health-ostschweiz-uznach",
+        "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach-2",
+        "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach-3",
+        "qualified-nurse-40-100-hoch-health-ostschweiz-uznach",
+        "infirmiere-infirmiere-diplomee-40-100-hoch-health-ostschweiz-uznach",
+        "infermiere-a-diplomato-a-80-100-hoch-health-ostschweiz-st-gallen-cc3f6d",
+        "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-3",
+        "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-ka6ysp",
+        "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-xmqepb",
+        "dipl-infermieristica-professionale-80-100-hoch-health-ostschweiz-st-gallen-317fe7",
+        "dipl-nursing-professional-80-100-hoch-health-ostschweiz-st-gallen-317fe7",
+        "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-8xv0ds",
+        "dipl-professionnels-des-soins-infirmiers-80-100-hoch-health-ostschweiz-st-gallen-317fe7",
+        "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen",
+        "dipl-infermieristica-professionale-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-dc118e",
+        "dipl-nursing-professional-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-dc118e",
+        "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-bggiht",
+        "dipl-professionnels-des-soins-infirmiers-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-dc118e",
+        "infermiere-a-diplomato-a-80-100-hoch-health-ostschweiz-st-gallen"
       ],
       "firstSeenAt": "2026-08-07T10:09:57.310Z",
       "salaryMin": 81500,
@@ -16078,11 +16377,31 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "spontanbewerbung-departement-pflege-therapeutische-dienste-hoch-health-grabs"
+        "spontanbewerbung-departement-pflege-therapeutische-dienste-hoch-health-grabs",
+        "candidatura-spontanea-dipartimento-cure-e-servizi-terapeutici-hoch-health-ostschweiz-st-gallen",
+        "spontaneous-application-department-of-care-therapeutic-services-hoch-health-ostschweiz-st-gallen",
+        "candidature-spontanee-departement-soins-et-services-therapeutiques-hoch-health-ostschweiz-st-gallen",
+        "spontanbewerbung-departement-pflege-therapeutische-dienste-hoch-health-st-gallen",
+        "candidatura-spontanea-dipartimento-cure-e-servizi-terapeutici-hoch-health-ostschweiz-grabs",
+        "spontanbewerbung-departement-pflege-therapeutische-dienste-kssg-ch",
+        "spontanbewerbung-departement-pflege-therapeutische-dienste-hoch-health-grabs-sxohch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "spontanbewerbung-departement-pflege-therapeutische-dienste-hoch-health-grabs"
+          "spontanbewerbung-departement-pflege-therapeutische-dienste-hoch-health-grabs",
+          "candidatura-spontanea-dipartimento-cure-e-servizi-terapeutici-hoch-health-ostschweiz-st-gallen",
+          "spontaneous-application-department-of-care-therapeutic-services-hoch-health-ostschweiz-st-gallen",
+          "candidature-spontanee-departement-soins-et-services-therapeutiques-hoch-health-ostschweiz-st-gallen",
+          "spontanbewerbung-departement-pflege-therapeutische-dienste-hoch-health-st-gallen",
+          "candidatura-spontanea-dipartimento-cure-e-servizi-terapeutici-hoch-health-ostschweiz-grabs",
+          "spontanbewerbung-departement-pflege-therapeutische-dienste-kssg-ch",
+          "spontanbewerbung-departement-pflege-therapeutische-dienste-hoch-health-grabs-sxohch"
+        ],
+        "en": [
+          "spontaneous-application-department-of-care-therapeutic-services-hoch-health-ostschweiz-st-gallen"
+        ],
+        "fr": [
+          "candidature-spontanee-departement-soins-et-services-therapeutiques-hoch-health-ostschweiz-st-gallen"
         ]
       },
       "firstSeenAt": "2026-09-19T23:17:21.718Z",
@@ -16160,17 +16479,31 @@
         "dipl-pflegefachfrau-mann-springerpool-80-100-hoch-health-ostschweiz-st-gallen",
         "dipl-care-professional-springerpool-80-100-hoch-health-ostschweiz-st-gallen",
         "qualified-nurse-springerpool-80-100-hoch-health-ostschweiz-st-gallen",
-        "dipl-pflegefachfrau-mann-springerpool-80-100-hoch-health-st-gallen"
+        "dipl-pflegefachfrau-mann-springerpool-80-100-hoch-health-st-gallen",
+        "diplomata-di-assistenza-infermieristica-springerpool-80-100-hoch-health-ostschweiz-st-gallen",
+        "dipl-care-specialist-springerpool-80-100-hoch-health-ostschweiz-st-gallen",
+        "diplome-e-en-soins-infirmiers-springerpool-80-100-hoch-health-ostschweiz-st-gallen",
+        "diplome-e-en-soins-infirmiers-40-100-hoch-health-ostschweiz-st-gallen",
+        "diplome-e-en-soins-infirmiers-60-100-hoch-health-ostschweiz-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-springerpool-80-100-hoch-health-ostschweiz-st-gallen",
-          "dipl-pflegefachfrau-mann-springerpool-80-100-hoch-health-st-gallen"
+          "dipl-pflegefachfrau-mann-springerpool-80-100-hoch-health-st-gallen",
+          "diplomata-di-assistenza-infermieristica-springerpool-80-100-hoch-health-ostschweiz-st-gallen",
+          "dipl-care-specialist-springerpool-80-100-hoch-health-ostschweiz-st-gallen",
+          "diplome-e-en-soins-infirmiers-springerpool-80-100-hoch-health-ostschweiz-st-gallen",
+          "diplome-e-en-soins-infirmiers-40-100-hoch-health-ostschweiz-st-gallen",
+          "diplome-e-en-soins-infirmiers-60-100-hoch-health-ostschweiz-st-gallen"
         ],
         "en": [
           "dipl-care-professional-springerpool-80-100-hoch-health-ostschweiz-st-gallen",
           "qualified-nurse-springerpool-80-100-hoch-health-ostschweiz-st-gallen",
-          "dipl-pflegefachfrau-mann-springerpool-80-100-hoch-health-ostschweiz-st-gallen"
+          "dipl-pflegefachfrau-mann-springerpool-80-100-hoch-health-ostschweiz-st-gallen",
+          "dipl-care-specialist-springerpool-80-100-hoch-health-ostschweiz-st-gallen"
+        ],
+        "fr": [
+          "diplome-e-en-soins-infirmiers-springerpool-80-100-hoch-health-ostschweiz-st-gallen"
         ]
       },
       "firstSeenAt": "2026-09-19T23:17:21.190Z",
@@ -16247,16 +16580,34 @@
         "assistant-en-soins-de-sante-srk-50-60-hoch-health-ostschweiz-st-gallen",
         "care-assistant-srk-springerpool-50-70-hoch-health-ostschweiz-st-gallen",
         "pflegehelfer-in-srk-springerpool-50-70-hoch-health-st-gallen",
-        "pflegehelfer-in-srk-springerpool-50-70-hoch-health-ostschweiz-st-gallen"
+        "pflegehelfer-in-srk-springerpool-50-70-hoch-health-ostschweiz-st-gallen",
+        "assistente-per-infermieri-in-srk-springerpool-50-70-hoch-health-ostschweiz-st-gallen",
+        "nursing-assistant-in-srk-springerpool-50-70-hoch-health-ostschweiz-st-gallen",
+        "assistant-infirmier-en-srk-springerpool-50-70-hoch-health-ostschweiz-st-gallen",
+        "healthcare-assistant-srk-50-60-hoch-health-ostschweiz-st-gallen",
+        "pflegehelfer-in-srk-50-60-hoch-health-st-gallen",
+        "pflegehelfer-in-srk-springerpool-50-70-kssg-ch",
+        "pflegehelfer-in-srk-springerpool-50-70-hoch-health-st-gallen-yn6h3v"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistant-en-soins-de-sante-srk-50-60-hoch-health-ostschweiz-st-gallen",
-          "pflegehelfer-in-srk-springerpool-50-70-hoch-health-st-gallen"
+          "pflegehelfer-in-srk-springerpool-50-70-hoch-health-st-gallen",
+          "assistente-per-infermieri-in-srk-springerpool-50-70-hoch-health-ostschweiz-st-gallen",
+          "nursing-assistant-in-srk-springerpool-50-70-hoch-health-ostschweiz-st-gallen",
+          "assistant-infirmier-en-srk-springerpool-50-70-hoch-health-ostschweiz-st-gallen",
+          "healthcare-assistant-srk-50-60-hoch-health-ostschweiz-st-gallen",
+          "pflegehelfer-in-srk-50-60-hoch-health-st-gallen",
+          "pflegehelfer-in-srk-springerpool-50-70-kssg-ch",
+          "pflegehelfer-in-srk-springerpool-50-70-hoch-health-st-gallen-yn6h3v"
         ],
         "en": [
           "care-assistant-srk-springerpool-50-70-hoch-health-ostschweiz-st-gallen",
-          "pflegehelfer-in-srk-springerpool-50-70-hoch-health-ostschweiz-st-gallen"
+          "pflegehelfer-in-srk-springerpool-50-70-hoch-health-ostschweiz-st-gallen",
+          "nursing-assistant-in-srk-springerpool-50-70-hoch-health-ostschweiz-st-gallen"
+        ],
+        "fr": [
+          "assistant-infirmier-en-srk-springerpool-50-70-hoch-health-ostschweiz-st-gallen"
         ]
       },
       "firstSeenAt": "2026-09-19T23:17:19.645Z",
@@ -17650,20 +18001,108 @@
         "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-5",
         "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen",
         "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen-70eb5fe70c",
-        "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-6"
+        "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-6",
+        "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen-2c6e2c45e1-d153fa00",
+        "infermiere-a-diplomato-a-80-100-hoch-health-ostschweiz-st-gallen-0f5225-491a311e",
+        "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen-1429852ec0-8dfc5b0a",
+        "infermiere-a-diplomato-a-80-100-hoch-health-ostschweiz-st-gallen-3e9d88-8369d260",
+        "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-3-bdca86ae",
+        "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen-d69a4efba9-faa259b4",
+        "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-4-30fa488b",
+        "qualified-nurse-80-100-hoch-health-ostschweiz-st-gallen-512e0564",
+        "registered-nurse-80-100-hoch-health-ostschweiz-st-gallen-51aba786",
+        "infirmier-ere-diplome-e-80-100-hoch-health-ostschweiz-st-gallen-442e035c",
+        "infermiere-a-diplomato-a-80-100-hoch-health-ostschweiz-st-gallen-a89f9c",
+        "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-2",
+        "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen-2c6e2c45e1",
+        "infermiere-a-diplomato-a-80-100-hoch-health-ostschweiz-st-gallen-0f5225",
+        "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen-1429852ec0",
+        "infermiere-a-diplomato-a-80-100-hoch-health-ostschweiz-st-gallen-3e9d88",
+        "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen-d69a4efba9",
+        "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-4",
+        "registered-nurse-80-100-hoch-health-ostschweiz-st-gallen",
+        "infirmier-ere-diplome-e-80-100-hoch-health-ostschweiz-st-gallen",
+        "dipl-care-specialist-40-100-hoch-health-ostschweiz-uznach",
+        "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-d0ce1ff4",
+        "dipl-specialiste-des-soins-40-100-hoch-health-ostschweiz-uznach",
+        "dipl-professionnels-des-soins-infirmiers-80-100-hoch-health-ostschweiz-st-gallen-317fe7-aec9e1a3",
+        "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach-5afef8b1",
+        "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach-xmqepb",
+        "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-xmqepb",
+        "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen-0041e4b47c",
+        "infermiere-a-diplomato-a-80-100-hoch-health-ostschweiz-st-gallen-cc3f6d",
+        "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-ka6ysp",
+        "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-3",
+        "dipl-nursing-professional-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-2abf53",
+        "dipl-nursing-professional-80-100-hoch-health-ostschweiz-st-gallen-317fe7",
+        "dipl-nursing-professional-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-dc118e",
+        "dipl-care-specialist-80-100-hoch-health-ostschweiz-st-gallen",
+        "dipl-nursing-professional-80-100-hoch-health-ostschweiz-st-gallen-f8ca13",
+        "qualified-nurse-40-100-hoch-health-ostschweiz-uznach",
+        "dipl-pflegefachfrau-mann-80-100-kssg-ch",
+        "dipl-professionnels-des-soins-infirmiers-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-2abf53",
+        "dipl-professionnels-des-soins-infirmiers-80-100-hoch-health-ostschweiz-st-gallen-317fe7",
+        "dipl-professionnels-des-soins-infirmiers-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-dc118e",
+        "dipl-professionnels-des-soins-infirmiers-80-100-hoch-health-ostschweiz-st-gallen-af5d90",
+        "dipl-professionnels-des-soins-infirmiers-80-100-hoch-health-ostschweiz-st-gallen-f8ca13",
+        "infirmiere-infirmiere-diplomee-40-100-hoch-health-ostschweiz-uznach",
+        "dipl-pflegefachfrau-mann-80-100-hoch-health-grabs",
+        "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach-5b1oig",
+        "dipl-nursing-professional-40-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-c4004a",
+        "dipl-professionnels-des-soins-infirmiers-40-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-c4004a",
+        "dipl-pflegefachfrau-mann-imc-40-100-hoch-health-ostschweiz-uznach-30e4bfc9ae",
+        "dipl-nursing-professional-80-100-hoch-health-ostschweiz-st-gallen",
+        "dipl-professionnels-des-soins-infirmiers-80-100-hoch-health-ostschweiz-st-gallen",
+        "dipl-pflegefachfrau-mann-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "dipl-infermieristica-professionale-80-100-hoch-health-ostschweiz-st-gallen-317fe7",
+        "dipl-infermieristica-professionale-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-dc118e",
+        "infermiere-a-diplomato-a-80-100-hoch-health-ostschweiz-st-gallen",
+        "dipl-infermieristica-professionale-80-100-hoch-health-ostschweiz-st-gallen-f8ca13",
+        "infermiere-a-diplomato-a-80-100-hoch-health-ostschweiz-st-gallen-51fe71e608",
+        "qualified-nurse-80-100-hoch-health-ostschweiz-st-gallen-a89f9c",
+        "infirmiere-infirmiere-diplomee-80-100-hoch-health-ostschweiz-st-gallen-a89f9c",
+        "infirmiere-infirmiere-diplomee-80-100-hoch-health-ostschweiz-st-gallen",
+        "qualified-nurse-80-100-hoch-health-ostschweiz-st-gallen-3e9d88",
+        "infirmiere-infirmiere-diplomee-80-100-hoch-health-ostschweiz-st-gallen-3e9d88",
+        "infermiere-a-diplomato-a-80-100-hoch-health-ostschweiz-st-gallen-0d7323b3cc",
+        "infermiere-a-diplomato-a-80-100-hoch-health-ostschweiz-st-gallen-a89f9c-3ed98c96",
+        "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-2-8330146a",
+        "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen-1f795af0"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-5",
           "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen",
           "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen-70eb5fe70c",
-          "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-6"
+          "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-6",
+          "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen-2c6e2c45e1-d153fa00",
+          "infermiere-a-diplomato-a-80-100-hoch-health-ostschweiz-st-gallen-0f5225-491a311e",
+          "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen-1429852ec0-8dfc5b0a",
+          "infermiere-a-diplomato-a-80-100-hoch-health-ostschweiz-st-gallen-3e9d88-8369d260",
+          "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-3-bdca86ae",
+          "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen-d69a4efba9-faa259b4",
+          "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-4-30fa488b",
+          "qualified-nurse-80-100-hoch-health-ostschweiz-st-gallen-512e0564",
+          "registered-nurse-80-100-hoch-health-ostschweiz-st-gallen-51aba786",
+          "infirmier-ere-diplome-e-80-100-hoch-health-ostschweiz-st-gallen-442e035c",
+          "infermiere-a-diplomato-a-80-100-hoch-health-ostschweiz-st-gallen-a89f9c",
+          "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-2",
+          "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen-2c6e2c45e1",
+          "infermiere-a-diplomato-a-80-100-hoch-health-ostschweiz-st-gallen-0f5225",
+          "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen-1429852ec0",
+          "infermiere-a-diplomato-a-80-100-hoch-health-ostschweiz-st-gallen-3e9d88"
         ],
         "en": [
-          "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-5"
+          "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-5",
+          "dipl-care-specialist-40-100-hoch-health-ostschweiz-uznach"
         ],
         "fr": [
-          "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-5"
+          "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-5",
+          "dipl-specialiste-des-soins-40-100-hoch-health-ostschweiz-uznach",
+          "dipl-professionnels-des-soins-infirmiers-80-100-hoch-health-ostschweiz-st-gallen-317fe7-aec9e1a3"
+        ],
+        "de": [
+          "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-d0ce1ff4"
         ]
       },
       "firstSeenAt": "2026-06-02T13:21:36.886Z",
@@ -18961,14 +19400,18 @@
         "professionista-della-salute-80-100-hoch-health-ostschweiz-st-gallen",
         "fachfrau-mann-gesundheit-80-100-hoch-health-ostschweiz-st-gallen",
         "specialist-man-health-80-100-hoch-health-ostschweiz-st-gallen",
-        "specialiste-de-la-sante-80-100-hoch-health-ostschweiz-st-gallen"
+        "specialiste-de-la-sante-80-100-hoch-health-ostschweiz-st-gallen",
+        "salute-professionale-80-100-hoch-health-ostschweiz-st-gallen-ma8to7",
+        "fachfrau-mann-gesundheit-80-100-hoch-health-st-gallen-ma8to7"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-mann-gesundheit-80-100-hoch-health-st-gallen",
           "fachfrau-mann-gesundheit-80-100-hoch-health-ostschweiz-st-gallen-2a1cadc1a2",
           "professionista-della-salute-80-100-hoch-health-ostschweiz-st-gallen",
-          "fachfrau-mann-gesundheit-80-100-hoch-health-ostschweiz-st-gallen"
+          "fachfrau-mann-gesundheit-80-100-hoch-health-ostschweiz-st-gallen",
+          "salute-professionale-80-100-hoch-health-ostschweiz-st-gallen-ma8to7",
+          "fachfrau-mann-gesundheit-80-100-hoch-health-st-gallen-ma8to7"
         ],
         "en": [
           "specialist-man-health-80-100-hoch-health-ostschweiz-st-gallen",
@@ -19228,18 +19671,63 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachfrau-mann-gesundheit-80-100-hoch-health-st-gallen",
-        "fachfrau-mann-gesundheit-80-100-hoch-health-ostschweiz-st-gallen"
+        "fachfrau-mann-gesundheit-80-100-hoch-health-ostschweiz-st-gallen",
+        "specialiste-de-la-sante-80-100-hoch-health-ostschweiz-st-gallen",
+        "salute-professionale-80-100-hoch-health-ostschweiz-st-gallen-3hwdy4",
+        "fachfrau-mann-gesundheit-80-100-hoch-health-ostschweiz-st-gallen-3hwdy4",
+        "salute-professionale-80-100-hoch-health-ostschweiz-st-gallen-5d80d4",
+        "fachfrau-mann-gesundheit-80-100-hoch-health-st-gallen-5",
+        "fachfrau-mann-gesundheit-80-100-kssg-ch",
+        "fachfrau-mann-gesundheit-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "professional-health-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "sante-professionnelle-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "professional-health-80-100-hoch-health-ostschweiz-st-gallen-09459c",
+        "sante-professionnelle-80-100-hoch-health-ostschweiz-st-gallen-09459c",
+        "fachfrau-mann-gesundheit-40-100-kssg-ch-3",
+        "fachfrau-mann-gesundheit-40-60-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "sante-professionnelle-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-3b86e1",
+        "medicament-assistant-pratique-ou-specialiste-de-la-sante-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "med-praxisassistent-in-oder-fachfrau-mann-gesundheit-50-100-kssg-ch",
+        "med-praxisassistent-in-o-fachfrau-mann-gesundheit-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "med-practical-assistant-or-specialist-health-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "professional-health-80-100-hoch-health-ostschweiz-st-gallen-5d80d4",
+        "sante-professionnelle-80-100-hoch-health-ostschweiz-st-gallen-5d80d4",
+        "professional-health-80-100-hoch-health-ostschweiz-st-gallen",
+        "sante-professionnelle-80-100-hoch-health-ostschweiz-st-gallen",
+        "salute-professionale-80-100-hoch-health-ostschweiz-st-gallen",
+        "professionista-della-salute-80-100-hoch-health-ostschweiz-st-gallen",
+        "specialist-man-health-80-100-hoch-health-ostschweiz-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-mann-gesundheit-80-100-hoch-health-st-gallen",
-          "fachfrau-mann-gesundheit-80-100-hoch-health-ostschweiz-st-gallen"
+          "fachfrau-mann-gesundheit-80-100-hoch-health-ostschweiz-st-gallen",
+          "specialiste-de-la-sante-80-100-hoch-health-ostschweiz-st-gallen",
+          "salute-professionale-80-100-hoch-health-ostschweiz-st-gallen-3hwdy4",
+          "fachfrau-mann-gesundheit-80-100-hoch-health-ostschweiz-st-gallen-3hwdy4",
+          "salute-professionale-80-100-hoch-health-ostschweiz-st-gallen-5d80d4",
+          "fachfrau-mann-gesundheit-80-100-hoch-health-st-gallen-5",
+          "fachfrau-mann-gesundheit-80-100-kssg-ch",
+          "fachfrau-mann-gesundheit-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+          "professional-health-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+          "sante-professionnelle-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+          "professional-health-80-100-hoch-health-ostschweiz-st-gallen-09459c",
+          "sante-professionnelle-80-100-hoch-health-ostschweiz-st-gallen-09459c",
+          "fachfrau-mann-gesundheit-40-100-kssg-ch-3",
+          "fachfrau-mann-gesundheit-40-60-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+          "sante-professionnelle-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-3b86e1",
+          "medicament-assistant-pratique-ou-specialiste-de-la-sante-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+          "med-praxisassistent-in-oder-fachfrau-mann-gesundheit-50-100-kssg-ch",
+          "med-praxisassistent-in-o-fachfrau-mann-gesundheit-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+          "med-practical-assistant-or-specialist-health-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
         ],
         "en": [
-          "fachfrau-mann-gesundheit-80-100-hoch-health-st-gallen"
+          "fachfrau-mann-gesundheit-80-100-hoch-health-st-gallen",
+          "professional-health-80-100-hoch-health-ostschweiz-st-gallen"
         ],
         "fr": [
-          "fachfrau-mann-gesundheit-80-100-hoch-health-st-gallen"
+          "fachfrau-mann-gesundheit-80-100-hoch-health-st-gallen",
+          "sante-professionnelle-80-100-hoch-health-ostschweiz-st-gallen"
         ]
       },
       "firstSeenAt": "2026-06-24T11:50:40.949Z",
@@ -19316,12 +19804,28 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachfrau-mann-gesundheit-60-100-hoch-health-ostschweiz-st-gallen",
-        "fachfrau-mann-gesundheit-60-100-hoch-health-st-gallen"
+        "fachfrau-mann-gesundheit-60-100-hoch-health-st-gallen",
+        "salute-professionale-60-100-hoch-health-ostschweiz-st-gallen",
+        "professional-health-60-100-hoch-health-ostschweiz-st-gallen-a24efd",
+        "sante-professionnelle-60-100-hoch-health-ostschweiz-st-gallen-a24efd",
+        "fachfrau-mann-gesundheit-60-100-hoch-health-st-gallen-2",
+        "fachfrau-mann-gesundheit-60-100-kssg-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-mann-gesundheit-60-100-hoch-health-ostschweiz-st-gallen",
-          "fachfrau-mann-gesundheit-60-100-hoch-health-st-gallen"
+          "fachfrau-mann-gesundheit-60-100-hoch-health-st-gallen",
+          "salute-professionale-60-100-hoch-health-ostschweiz-st-gallen",
+          "professional-health-60-100-hoch-health-ostschweiz-st-gallen-a24efd",
+          "sante-professionnelle-60-100-hoch-health-ostschweiz-st-gallen-a24efd",
+          "fachfrau-mann-gesundheit-60-100-hoch-health-st-gallen-2",
+          "fachfrau-mann-gesundheit-60-100-kssg-ch"
+        ],
+        "en": [
+          "professional-health-60-100-hoch-health-ostschweiz-st-gallen-a24efd"
+        ],
+        "fr": [
+          "sante-professionnelle-60-100-hoch-health-ostschweiz-st-gallen-a24efd"
         ]
       },
       "firstSeenAt": "2026-07-23T22:06:07.932Z",
@@ -19610,11 +20114,58 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "oberarztin-arzt-60-100-hoch-health-st-gallen",
-        "oberarztin-arzt-100-hoch-health-st-gallen-crk27x"
+        "oberarztin-arzt-100-hoch-health-st-gallen-crk27x",
+        "senior-physician-in-anesthesiology-emergency-medicine-and-pain-management-80-100-hoch-health-ostschweiz-st-gallen",
+        "medecin-senior-en-anesthesiologie-medecine-d-urgence-et-gestion-de-la-douleur-80-100-hoch-health-ostschweiz-st-gallen",
+        "medico-specialista-di-emergenza-60-100-hoch-health-ostschweiz-st-gallen",
+        "oberarztin-arzt-notfallmedizin-60-100-hoch-health-st-gallen",
+        "medico-specialista-60-100-hoch-health-ostschweiz-st-gallen",
+        "senior-emergency-physician-60-100-hoch-health-ostschweiz-st-gallen",
+        "medecin-specialiste-en-urgence-60-100-hoch-health-ostschweiz-st-gallen",
+        "medico-specialista-in-neurologia-80-hoch-health-ostschweiz-st-gallen",
+        "neurology-specialist-physician-80-hoch-health-ostschweiz-st-gallen",
+        "assistenzarztin-arzt-neurologie-80-hoch-health-st-gallen",
+        "medicin-specialiste-en-neurologie-80-hoch-health-ostschweiz-st-gallen",
+        "medico-specialista-in-senologia-vice-direttore-di-dipartimento-80-100-hoch-health-ostschweiz-st-gallen",
+        "senior-physician-in-senology-deputy-chief-physician-80-100-hoch-health-ostschweiz-st-gallen",
+        "leitende-arztin-leitender-arzt-senologie-stellvertretende-r-chefarztin-chefarzt-80-100",
+        "medecin-specialiste-en-senologie-vice-chef-de-service-80-100-hoch-health-ostschweiz-st-gallen",
+        "primario-a-di-medicina-infettivologica-prevenzione-delle-infezioni-e-medicina-dei-viaggi-80-100-hoch-health-ostschweiz",
+        "senior-physician-in-infectious-disease-prevention-80-100-hoch-health-ostschweiz-st-gallen",
+        "oberarztin-arzt-infektionspravention-80-100-hoch-health-st-gallen",
+        "medecin-specialiste-en-prevention-des-infections-80-100-hoch-health-ostschweiz-st-gallen",
+        "facharztin-arzt-assistenzarztin-arzt-interventionelle-radiologie-80-100-kssg-ch",
+        "primario-a-di-anestesia-rianimazione-e-terapia-del-dolore-80-100-hoch-health-ostschweiz-st-gallen",
+        "oberarztin-arzt-80-100-hoch-health-st-gallen-2",
+        "senior-physician-60-100-hoch-health-ostschweiz-st-gallen",
+        "specialista-in-radiologia-interventistica-medico-specialista-in-radiologia-interventistica-80-100-hoch-health-ostschweiz",
+        "interventional-radiologist-resident-physician-80-100-hoch-health-ostschweiz-st-gallen",
+        "facharztin-arzt-assistenzarztin-arzt-interventionelle-radiologie-80-100-hoch-health-st",
+        "specialiste-en-radiologie-interventionnelle-medecin-resident-en-radiologie-interventionnelle-80-100-hoch-health",
+        "medico-specialiste-60-100-hoch-health-ostschweiz-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-arzt-60-100-hoch-health-st-gallen"
+          "oberarztin-arzt-60-100-hoch-health-st-gallen",
+          "senior-physician-in-anesthesiology-emergency-medicine-and-pain-management-80-100-hoch-health-ostschweiz-st-gallen",
+          "medecin-senior-en-anesthesiologie-medecine-d-urgence-et-gestion-de-la-douleur-80-100-hoch-health-ostschweiz-st-gallen",
+          "medico-specialista-di-emergenza-60-100-hoch-health-ostschweiz-st-gallen",
+          "oberarztin-arzt-notfallmedizin-60-100-hoch-health-st-gallen",
+          "medico-specialista-60-100-hoch-health-ostschweiz-st-gallen",
+          "senior-emergency-physician-60-100-hoch-health-ostschweiz-st-gallen",
+          "medecin-specialiste-en-urgence-60-100-hoch-health-ostschweiz-st-gallen",
+          "medico-specialista-in-neurologia-80-hoch-health-ostschweiz-st-gallen",
+          "neurology-specialist-physician-80-hoch-health-ostschweiz-st-gallen",
+          "assistenzarztin-arzt-neurologie-80-hoch-health-st-gallen",
+          "medicin-specialiste-en-neurologie-80-hoch-health-ostschweiz-st-gallen",
+          "medico-specialista-in-senologia-vice-direttore-di-dipartimento-80-100-hoch-health-ostschweiz-st-gallen",
+          "senior-physician-in-senology-deputy-chief-physician-80-100-hoch-health-ostschweiz-st-gallen",
+          "leitende-arztin-leitender-arzt-senologie-stellvertretende-r-chefarztin-chefarzt-80-100",
+          "medecin-specialiste-en-senologie-vice-chef-de-service-80-100-hoch-health-ostschweiz-st-gallen",
+          "primario-a-di-medicina-infettivologica-prevenzione-delle-infezioni-e-medicina-dei-viaggi-80-100-hoch-health-ostschweiz",
+          "senior-physician-in-infectious-disease-prevention-80-100-hoch-health-ostschweiz-st-gallen",
+          "oberarztin-arzt-infektionspravention-80-100-hoch-health-st-gallen",
+          "medecin-specialiste-en-prevention-des-infections-80-100-hoch-health-ostschweiz-st-gallen"
         ],
         "de": [
           "oberarztin-arzt-60-100-hoch-health-st-gallen",

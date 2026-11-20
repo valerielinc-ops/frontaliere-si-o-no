@@ -62,6 +62,10 @@
     },
     "sector": "",
     "expiredAt": "2026-10-30T09:42:30.108Z",
+    "previousSlugs": [
+      "customer-advisor-100-team-zurich-corner-banca-wallisellen",
+      "customer-advisor-100-team-zurich-corner-banca-wallisellen-f9b7ff4c"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "customer-advisor-100-team-zurich-corner-banca-wallisellen-f9b7ff4c",
@@ -83,11 +87,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.corner.ch/o/customer-advisor-100-team-zurich-1",
-    "firstSeenAt": "2026-10-22T09:42:14.142Z",
-    "previousSlugs": [
-      "customer-advisor-100-team-zurich-corner-banca-wallisellen",
-      "customer-advisor-100-team-zurich-corner-banca-wallisellen-f9b7ff4c"
-    ]
+    "firstSeenAt": "2026-10-22T09:42:14.142Z"
   },
   {
     "slug": "consumer-loan-advisor-ref-1129-corner-banca-lugano",
