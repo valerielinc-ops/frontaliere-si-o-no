@@ -1,7 +1,7 @@
 {
   "crawlerKey": "thermo-fisher-scientific",
-  "assembledAt": "2026-11-20T09:42:30.978Z",
-  "runId": "44709261563",
+  "assembledAt": "2026-11-20T21:57:09.234Z",
+  "runId": "44818983620",
   "jobs": [
     {
       "id": "thermo-fisher-scientific-13f28cd936d4",
@@ -89,7 +89,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-14T09:42:21.176Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.thermofisher.com/global/en/job/r-01370185/project-support-administration-psa-comparator"
+      "sourceIdentity": "url:https://jobs.thermofisher.com/global/en/job/r-01370185/project-support-administration-psa-comparator",
+      "crawlerMissStreak": 1
     },
     {
       "id": "thermo-fisher-scientific-4f1bb11df651",
@@ -122,7 +123,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01371269/team-leader-secondary",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T09:42:24.927Z",
+      "crawledAt": "2026-11-20T21:56:56.630Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "streetAddress": "1 Job Posting, 4123 Allschwil, Switzerland",
@@ -171,7 +172,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-11T09:42:24.927Z",
+      "validThrough": "2027-02-11T21:56:56.630Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.thermofisher.com/global/en/job/r-01371269/team-leader-secondary"
     },
@@ -206,7 +207,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01350882/project-support-associate-distribution",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T09:42:24.260Z",
+      "crawledAt": "2026-11-20T21:57:01.473Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "streetAddress": "1 Job Posting, 4123 Allschwil, Switzerland",
@@ -266,7 +267,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T09:42:24.260Z",
+      "validThrough": "2026-12-20T21:57:01.473Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.thermofisher.com/global/en/job/r-01350882/project-support-associate-distribution"
     },
@@ -386,7 +387,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01371848/mitarbeiter-qualitatskontrolle",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:42:18.313Z",
+      "crawledAt": "2026-11-20T21:56:53.218Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "streetAddress": "1 Job Posting, 4123 Allschwil, Switzerland",
@@ -437,7 +438,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-18T09:42:18.313Z",
+      "validThrough": "2027-01-18T21:56:53.218Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.thermofisher.com/global/en/job/r-01371848/mitarbeiter-qualitatskontrolle"
     },
@@ -472,7 +473,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01371275/senior-qc-technician-befristet-auf-12-monate",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:42:19.933Z",
+      "crawledAt": "2026-11-20T21:56:58.357Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "streetAddress": "1 Job Posting, 4123 Allschwil, Switzerland",
@@ -521,7 +522,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-12T09:42:19.933Z",
+      "validThrough": "2027-01-12T21:56:58.357Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.thermofisher.com/global/en/job/r-01371275/senior-qc-technician-befristet-auf-12-monate"
     },
@@ -556,7 +557,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01344620/associate-project-manager",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T09:42:23.184Z",
+      "crawledAt": "2026-11-20T21:56:54.941Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "streetAddress": "1 Job Posting, 4123 Allschwil, Switzerland",
@@ -645,7 +646,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T09:42:23.184Z",
+      "validThrough": "2026-12-20T21:56:54.941Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.thermofisher.com/global/en/job/r-01344620/associate-project-manager"
     },
@@ -680,7 +681,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01371631/operator-secondary",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:42:12.467Z",
+      "crawledAt": "2026-11-20T21:56:46.025Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "streetAddress": "1 Job Posting, 4123 Allschwil, Switzerland",
@@ -694,8 +695,8 @@
       "sector": "Life Sciences — Pharma Manufacturing & Quality",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-11-18",
-      "postedDate": "2026-11-18",
+      "datePosted": "2026-11-18T00:00:00.000+00:00",
+      "postedDate": "2026-11-18T00:00:00.000+00:00",
       "postingDateSource": "reported",
       "applyUrl": "https://thermofisher.wd5.myworkdayjobs.com/ThermoFisherCareers/job/Allschwil-Switzerland/Operator-Secondary_R-01371631/apply",
       "requirements": [],
@@ -723,7 +724,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-16T09:42:12.467Z",
+      "validThrough": "2027-02-16T21:56:46.025Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.thermofisher.com/global/en/job/r-01371631/operator-secondary"
     },
@@ -758,7 +759,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01370181/associate-project-manager-comparator",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T09:42:16.713Z",
+      "crawledAt": "2026-11-20T21:56:47.817Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "streetAddress": "1 Job Posting, 4123 Allschwil, Switzerland",
@@ -807,7 +808,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-19T09:42:16.713Z",
+      "validThrough": "2027-01-19T21:56:47.817Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.thermofisher.com/global/en/job/r-01370181/associate-project-manager-comparator"
     },
@@ -842,7 +843,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01372436/sr-manager-digital-product-solutions",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T09:42:14.085Z",
+      "crawledAt": "2026-11-20T21:56:41.170Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "streetAddress": "1 Job Posting, 4123 Allschwil, Switzerland",
@@ -891,7 +892,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T09:42:14.085Z",
+      "validThrough": "2027-02-01T21:56:41.170Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.thermofisher.com/global/en/job/r-01372436/sr-manager-digital-product-solutions"
     },
@@ -926,7 +927,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01366811/sr-qc-technician",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:42:17.471Z",
+      "crawledAt": "2026-11-20T21:56:49.685Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "streetAddress": "1 Job Posting, 4123 Allschwil, Switzerland",
@@ -976,7 +977,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T09:42:17.471Z",
+      "validThrough": "2026-12-20T21:56:49.685Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.thermofisher.com/global/en/job/r-01366811/sr-qc-technician"
     },
@@ -1011,7 +1012,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01371281/process-improvement-specialist",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T09:42:14.721Z",
+      "crawledAt": "2026-11-20T21:56:42.941Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "streetAddress": "1 Job Posting, 4123 Allschwil, Switzerland",
@@ -1060,7 +1061,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-13T09:42:14.721Z",
+      "validThrough": "2027-01-13T21:56:42.941Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.thermofisher.com/global/en/job/r-01371281/process-improvement-specialist"
     },
@@ -1095,7 +1096,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01375186/client-services-project-manager-labelling",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T09:42:04.451Z",
+      "crawledAt": "2026-11-20T21:56:29.932Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "streetAddress": "1 Job Posting, 4123 Allschwil, Switzerland",
@@ -1144,7 +1145,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T09:42:04.451Z",
+      "validThrough": "2027-02-09T21:56:29.932Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.thermofisher.com/global/en/job/r-01375186/client-services-project-manager-labelling"
     },
@@ -1179,7 +1180,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01375182/team-leader-primary-packaging",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:42:07.486Z",
+      "crawledAt": "2026-11-20T21:56:37.758Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "streetAddress": "1 Job Posting, 4123 Allschwil, Switzerland",
@@ -1226,7 +1227,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T09:42:07.486Z",
+      "validThrough": "2027-02-09T21:56:37.758Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.thermofisher.com/global/en/job/r-01375182/team-leader-primary-packaging"
     },
@@ -1261,7 +1262,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01373281/technician-print-production",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T09:42:02.816Z",
+      "crawledAt": "2026-11-20T21:56:33.079Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "streetAddress": "1 Job Posting, 4123 Allschwil, Switzerland",
@@ -1310,7 +1311,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-07T09:42:02.816Z",
+      "validThrough": "2027-02-07T21:56:33.079Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.thermofisher.com/global/en/job/r-01373281/technician-print-production"
     },
@@ -1345,7 +1346,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01367294/manager-operations-secondary-packaging",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T09:42:09.457Z",
+      "crawledAt": "2026-11-20T21:56:39.382Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "streetAddress": "1 Job Posting, 4123 Allschwil, Switzerland",
@@ -1394,7 +1395,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-19T09:42:09.457Z",
+      "validThrough": "2027-01-19T21:56:39.382Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.thermofisher.com/global/en/job/r-01367294/manager-operations-secondary-packaging"
     },
@@ -1429,7 +1430,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01366825/maschinenbediener-in-druck",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:42:05.791Z",
+      "crawledAt": "2026-11-20T21:56:36.063Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "streetAddress": "1 Job Posting, 4123 Allschwil, Switzerland",
@@ -1500,7 +1501,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T09:42:05.791Z",
+      "validThrough": "2026-12-20T21:56:36.063Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.thermofisher.com/global/en/job/r-01366825/maschinenbediener-in-druck"
     },
@@ -1535,7 +1536,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01373288/material-handler-lagermitarbeiter",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:42:05.062Z",
+      "crawledAt": "2026-11-20T21:56:31.621Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "streetAddress": "1 Job Posting, 4123 Allschwil, Switzerland",
@@ -1584,9 +1585,81 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T09:42:05.062Z",
+      "validThrough": "2027-02-02T21:56:31.621Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.thermofisher.com/global/en/job/r-01373288/material-handler-lagermitarbeiter"
+    },
+    {
+      "id": "thermo-fisher-scientific-63f8e710c0e8",
+      "slug": "technicien-qa-calibration-thermo-fisher-scientific-ch",
+      "slugByLocale": {
+        "en": "technicien-qa-calibration-thermo-fisher-scientific-ch",
+        "it": "technicien-qa-calibration-thermo-fisher-scientific-ch",
+        "de": "technicien-qa-calibration-thermo-fisher-scientific-ch",
+        "fr": "technicien-qa-calibration-thermo-fisher-scientific-ch"
+      },
+      "company": "Thermo Fisher Scientific (Schweiz) AG",
+      "companyKey": "thermo-fisher-scientific",
+      "companyDomain": "thermofisher.com",
+      "title": "Technicien QA / Calibration",
+      "titleByLocale": {
+        "it": "Technicien QA / Calibration",
+        "fr": "Technicien QA / Calibration",
+        "en": "Technicien QA / Calibration",
+        "de": "Technicien QA / Calibration"
+      },
+      "description": "## Work Schedule\n\nStandard (Mon-Fri)\n\n## Environmental Conditions\n\nAdherence to all Good Manufacturing Practices (GMP) Safety Standards\n\n## Job Description\n\n## About the Site\n\nLocated in Cheseaux-sur-Lausanne, Switzerland, Thermo Fisher Scientific’s site is a global center of excellence specializing in spectrometry and analytical instrumentation. With more than 90 years of expertise, the site brings together multidisciplinary teams dedicated to the development, manufacturing, calibration, and support of advanced analytical instruments for solid-sample analysis, used by customers worldwide. This international and innovative environment offers the opportunity to work with cutting-edge technologies while contributing to our mission of making the world healthier, cleaner, and safer.\n\n## Position Summary\n\nReporting to the QA OE Team Leader within our OE business line, your main mission will be the calibration (*étalonnage*) of our instruments, as ordered by our customers. You will ensure that work meets our specifications and the deadlines specified in each order, and you will coordinate and guide a team of operators. During customer acceptance visits, you will carry out tests specific to the customer’s requirements.\n\n## Responsibilities\n\n- Calibrate (*étalonnage*) our instruments in line with customer orders and specifications.\n- Inspect and verify the analytical performance of our instruments.\n- Manage and coordinate operators, ensuring work is organized and delivered on time.\n- Prepare analytical materials, including samples and surface preparation.\n- Perform spark testing and tests specific to customer requirements.\n- Prepare instruments for shipment.\n- Participate in 5S activities.\n- Conduct acceptance tests with customers, depending on your language skills and expertise.\n\n## Minimum Qualifications\n\n- Technical training in metallurgy, optics, physics, or materials science.\n- Knowledge of materials and/or experience with analytical or measurement instruments, ideally in final equipment quality control.\n- Broad technical knowledge.\n- Proficiency with software in a Windows environment.\n- Team player with strong organizational skills, and the ability to take on a coordination role by managing operators.\n- Good English skills to provide support during customer visits (an advantage).\n- Strong analytical and summarizing skills.\n- Positive, collaborative, proactive, and passionate approach.\n- Respect for company values and a strong customer focus.\n- Flexibility in working hours and a professional appearance, given the role’s interaction with visitors and customers.\n\n## Preferred Qualifications\n\n- Swiss Federal VET Diploma (CFC) as a Physics Laboratory Technician, or a higher technical diploma (Technicien ES / HES Bachelor) in physical measurements or materials science, or equivalent (e.g. French DUT in Physical Measurements, specializing in Materials).\n- Laboratory technician qualification or experience in metallurgy",
+      "descriptionByLocale": {
+        "en": "## Work Schedule\n\nStandard (Mon-Fri)\n\n## Environmental Conditions\n\nAdherence to all Good Manufacturing Practices (GMP) Safety Standards\n\n## Job Description\n\n## About the Site\n\nLocated in Cheseaux-sur-Lausanne, Switzerland, Thermo Fisher Scientific’s site is a global center of excellence specializing in spectrometry and analytical instrumentation. With more than 90 years of expertise, the site brings together multidisciplinary teams dedicated to the development, manufacturing, calibration, and support of advanced analytical instruments for solid-sample analysis, used by customers worldwide. This international and innovative environment offers the opportunity to work with cutting-edge technologies while contributing to our mission of making the world healthier, cleaner, and safer.\n\n## Position Summary\n\nReporting to the QA OE Team Leader within our OE business line, your main mission will be the calibration (*étalonnage*) of our instruments, as ordered by our customers. You will ensure that work meets our specifications and the deadlines specified in each order, and you will coordinate and guide a team of operators. During customer acceptance visits, you will carry out tests specific to the customer’s requirements.\n\n## Responsibilities\n\n- Calibrate (*étalonnage*) our instruments in line with customer orders and specifications.\n- Inspect and verify the analytical performance of our instruments.\n- Manage and coordinate operators, ensuring work is organized and delivered on time.\n- Prepare analytical materials, including samples and surface preparation.\n- Perform spark testing and tests specific to customer requirements.\n- Prepare instruments for shipment.\n- Participate in 5S activities.\n- Conduct acceptance tests with customers, depending on your language skills and expertise.\n\n## Minimum Qualifications\n\n- Technical training in metallurgy, optics, physics, or materials science.\n- Knowledge of materials and/or experience with analytical or measurement instruments, ideally in final equipment quality control.\n- Broad technical knowledge.\n- Proficiency with software in a Windows environment.\n- Team player with strong organizational skills, and the ability to take on a coordination role by managing operators.\n- Good English skills to provide support during customer visits (an advantage).\n- Strong analytical and summarizing skills.\n- Positive, collaborative, proactive, and passionate approach.\n- Respect for company values and a strong customer focus.\n- Flexibility in working hours and a professional appearance, given the role’s interaction with visitors and customers.\n\n## Preferred Qualifications\n\n- Swiss Federal VET Diploma (CFC) as a Physics Laboratory Technician, or a higher technical diploma (Technicien ES / HES Bachelor) in physical measurements or materials science, or equivalent (e.g. French DUT in Physical Measurements, specializing in Materials).\n- Laboratory technician qualification or experience in metallurgy",
+        "it": "## Work Schedule\n\nStandard (Mon-Fri)\n\n## Environmental Conditions\n\nAdherence to all Good Manufacturing Practices (GMP) Safety Standards\n\n## Job Description\n\n## About the Site\n\nLocated in Cheseaux-sur-Lausanne, Switzerland, Thermo Fisher Scientific’s site is a global center of excellence specializing in spectrometry and analytical instrumentation. With more than 90 years of expertise, the site brings together multidisciplinary teams dedicated to the development, manufacturing, calibration, and support of advanced analytical instruments for solid-sample analysis, used by customers worldwide. This international and innovative environment offers the opportunity to work with cutting-edge technologies while contributing to our mission of making the world healthier, cleaner, and safer.\n\n## Position Summary\n\nReporting to the QA OE Team Leader within our OE business line, your main mission will be the calibration (*étalonnage*) of our instruments, as ordered by our customers. You will ensure that work meets our specifications and the deadlines specified in each order, and you will coordinate and guide a team of operators. During customer acceptance visits, you will carry out tests specific to the customer’s requirements.\n\n## Responsibilities\n\n- Calibrate (*étalonnage*) our instruments in line with customer orders and specifications.\n- Inspect and verify the analytical performance of our instruments.\n- Manage and coordinate operators, ensuring work is organized and delivered on time.\n- Prepare analytical materials, including samples and surface preparation.\n- Perform spark testing and tests specific to customer requirements.\n- Prepare instruments for shipment.\n- Participate in 5S activities.\n- Conduct acceptance tests with customers, depending on your language skills and expertise.\n\n## Minimum Qualifications\n\n- Technical training in metallurgy, optics, physics, or materials science.\n- Knowledge of materials and/or experience with analytical or measurement instruments, ideally in final equipment quality control.\n- Broad technical knowledge.\n- Proficiency with software in a Windows environment.\n- Team player with strong organizational skills, and the ability to take on a coordination role by managing operators.\n- Good English skills to provide support during customer visits (an advantage).\n- Strong analytical and summarizing skills.\n- Positive, collaborative, proactive, and passionate approach.\n- Respect for company values and a strong customer focus.\n- Flexibility in working hours and a professional appearance, given the role’s interaction with visitors and customers.\n\n## Preferred Qualifications\n\n- Swiss Federal VET Diploma (CFC) as a Physics Laboratory Technician, or a higher technical diploma (Technicien ES / HES Bachelor) in physical measurements or materials science, or equivalent (e.g. French DUT in Physical Measurements, specializing in Materials).\n- Laboratory technician qualification or experience in metallurgy",
+        "de": "## Work Schedule\n\nStandard (Mon-Fri)\n\n## Environmental Conditions\n\nAdherence to all Good Manufacturing Practices (GMP) Safety Standards\n\n## Job Description\n\n## About the Site\n\nLocated in Cheseaux-sur-Lausanne, Switzerland, Thermo Fisher Scientific’s site is a global center of excellence specializing in spectrometry and analytical instrumentation. With more than 90 years of expertise, the site brings together multidisciplinary teams dedicated to the development, manufacturing, calibration, and support of advanced analytical instruments for solid-sample analysis, used by customers worldwide. This international and innovative environment offers the opportunity to work with cutting-edge technologies while contributing to our mission of making the world healthier, cleaner, and safer.\n\n## Position Summary\n\nReporting to the QA OE Team Leader within our OE business line, your main mission will be the calibration (*étalonnage*) of our instruments, as ordered by our customers. You will ensure that work meets our specifications and the deadlines specified in each order, and you will coordinate and guide a team of operators. During customer acceptance visits, you will carry out tests specific to the customer’s requirements.\n\n## Responsibilities\n\n- Calibrate (*étalonnage*) our instruments in line with customer orders and specifications.\n- Inspect and verify the analytical performance of our instruments.\n- Manage and coordinate operators, ensuring work is organized and delivered on time.\n- Prepare analytical materials, including samples and surface preparation.\n- Perform spark testing and tests specific to customer requirements.\n- Prepare instruments for shipment.\n- Participate in 5S activities.\n- Conduct acceptance tests with customers, depending on your language skills and expertise.\n\n## Minimum Qualifications\n\n- Technical training in metallurgy, optics, physics, or materials science.\n- Knowledge of materials and/or experience with analytical or measurement instruments, ideally in final equipment quality control.\n- Broad technical knowledge.\n- Proficiency with software in a Windows environment.\n- Team player with strong organizational skills, and the ability to take on a coordination role by managing operators.\n- Good English skills to provide support during customer visits (an advantage).\n- Strong analytical and summarizing skills.\n- Positive, collaborative, proactive, and passionate approach.\n- Respect for company values and a strong customer focus.\n- Flexibility in working hours and a professional appearance, given the role’s interaction with visitors and customers.\n\n## Preferred Qualifications\n\n- Swiss Federal VET Diploma (CFC) as a Physics Laboratory Technician, or a higher technical diploma (Technicien ES / HES Bachelor) in physical measurements or materials science, or equivalent (e.g. French DUT in Physical Measurements, specializing in Materials).\n- Laboratory technician qualification or experience in metallurgy",
+        "fr": "## Work Schedule\n\nStandard (Mon-Fri)\n\n## Environmental Conditions\n\nAdherence to all Good Manufacturing Practices (GMP) Safety Standards\n\n## Job Description\n\n## About the Site\n\nLocated in Cheseaux-sur-Lausanne, Switzerland, Thermo Fisher Scientific’s site is a global center of excellence specializing in spectrometry and analytical instrumentation. With more than 90 years of expertise, the site brings together multidisciplinary teams dedicated to the development, manufacturing, calibration, and support of advanced analytical instruments for solid-sample analysis, used by customers worldwide. This international and innovative environment offers the opportunity to work with cutting-edge technologies while contributing to our mission of making the world healthier, cleaner, and safer.\n\n## Position Summary\n\nReporting to the QA OE Team Leader within our OE business line, your main mission will be the calibration (*étalonnage*) of our instruments, as ordered by our customers. You will ensure that work meets our specifications and the deadlines specified in each order, and you will coordinate and guide a team of operators. During customer acceptance visits, you will carry out tests specific to the customer’s requirements.\n\n## Responsibilities\n\n- Calibrate (*étalonnage*) our instruments in line with customer orders and specifications.\n- Inspect and verify the analytical performance of our instruments.\n- Manage and coordinate operators, ensuring work is organized and delivered on time.\n- Prepare analytical materials, including samples and surface preparation.\n- Perform spark testing and tests specific to customer requirements.\n- Prepare instruments for shipment.\n- Participate in 5S activities.\n- Conduct acceptance tests with customers, depending on your language skills and expertise.\n\n## Minimum Qualifications\n\n- Technical training in metallurgy, optics, physics, or materials science.\n- Knowledge of materials and/or experience with analytical or measurement instruments, ideally in final equipment quality control.\n- Broad technical knowledge.\n- Proficiency with software in a Windows environment.\n- Team player with strong organizational skills, and the ability to take on a coordination role by managing operators.\n- Good English skills to provide support during customer visits (an advantage).\n- Strong analytical and summarizing skills.\n- Positive, collaborative, proactive, and passionate approach.\n- Respect for company values and a strong customer focus.\n- Flexibility in working hours and a professional appearance, given the role’s interaction with visitors and customers.\n\n## Preferred Qualifications\n\n- Swiss Federal VET Diploma (CFC) as a Physics Laboratory Technician, or a higher technical diploma (Technicien ES / HES Bachelor) in physical measurements or materials science, or equivalent (e.g. French DUT in Physical Measurements, specializing in Materials).\n- Laboratory technician qualification or experience in metallurgy"
+      },
+      "location": "Cheseaux-sur-Lausanne",
+      "canton": "VD",
+      "url": "https://jobs.thermofisher.com/global/en/job/R-01375854/technicien-qa-calibration",
+      "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-20T21:56:51.442Z",
+      "addressLocality": "Cheseaux-sur-Lausanne",
+      "postalCode": "1033",
+      "streetAddress": "1 Job Posting, 1033 Cheseaux-sur-Lausanne VD, Switzerland",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Life Sciences — Pharma Manufacturing & Quality",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-20",
+      "postedDate": "2026-11-20",
+      "postingDateSource": "reported",
+      "applyUrl": "https://thermofisher.wd5.myworkdayjobs.com/ThermoFisherCareers/job/Cheseaux-sur-Lausanne-Switzerland/Technicien-QA---Calibration_R-01375854/apply",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 71000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 71000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-18T21:56:51.442Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-20T21:56:51.442Z"
     }
   ]
 }
