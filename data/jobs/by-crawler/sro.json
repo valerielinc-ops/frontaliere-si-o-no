@@ -3763,12 +3763,12 @@
     },
     {
       "id": "sro-62593d1e9dbe",
-      "slug": "medizinische-n-praxisassistent-in-urologie-70-80-sro-langenthal",
+      "slug": "assistente-di-studio-medico-a-in-urologia-70-80-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
         "de": "medizinische-n-praxisassistent-in-urologie-70-80-sro-langenthal",
-        "it": "medizinische-n-praxisassistent-in-urologie-70-80-sro-langenthal",
-        "en": "medizinische-n-praxisassistent-in-urologie-70-80-sro-langenthal",
-        "fr": "medizinische-n-praxisassistent-in-urologie-70-80-sro-langenthal"
+        "it": "assistente-di-studio-medico-a-in-urologia-70-80-sro-ag-spital-region-oberaargau-langenthal",
+        "en": "medical-practice-assistant-urology-70-80-sro-ag-spital-region-oberaargau-langenthal",
+        "fr": "assistant-e-medical-e-en-urologie-70-80-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -3835,7 +3835,21 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-20T09:21:50.699Z",
-      "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/fea98a37-2128-4cd2-ae49-3f6b7e68544e"
+      "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/fea98a37-2128-4cd2-ae49-3f6b7e68544e",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-n-praxisassistent-in-urologie-70-80-sro-langenthal"
+        ],
+        "en": [
+          "medizinische-n-praxisassistent-in-urologie-70-80-sro-langenthal"
+        ],
+        "fr": [
+          "medizinische-n-praxisassistent-in-urologie-70-80-sro-langenthal"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-n-praxisassistent-in-urologie-70-80-sro-langenthal"
+      ]
     }
   ]
 }

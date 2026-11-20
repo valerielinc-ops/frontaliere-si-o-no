@@ -4784,12 +4784,12 @@
     },
     {
       "id": "etat-de-vaud-6179",
-      "slug": "directeur-trice-transformation-et-prestations-transversales-etat-de-vaud-lausanne",
+      "slug": "direttore-servizi-di-trasformazione-e-di-taglio-incrociato-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "directeur-trice-transformation-et-prestations-transversales-etat-de-vaud-lausanne",
-        "it": "directeur-trice-transformation-et-prestations-transversales-etat-de-vaud-lausanne",
-        "en": "directeur-trice-transformation-et-prestations-transversales-etat-de-vaud-lausanne",
-        "de": "directeur-trice-transformation-et-prestations-transversales-etat-de-vaud-lausanne"
+        "it": "direttore-servizi-di-trasformazione-e-di-taglio-incrociato-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "en": "director-transformation-and-cross-cutting-services-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "de": "direktor-transformations-und-querschnittsdienstleistungen-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -4855,19 +4855,23 @@
       "sourceIdentity": "url:https://offres-emploi.vd.ch/",
       "previousSlugsByLocale": {
         "it": [
-          "direttore-servizi-di-trasformazione-e-di-taglio-incrociato-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+          "direttore-servizi-di-trasformazione-e-di-taglio-incrociato-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+          "directeur-trice-transformation-et-prestations-transversales-etat-de-vaud-lausanne"
         ],
         "en": [
-          "director-transformation-and-cross-cutting-services-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+          "director-transformation-and-cross-cutting-services-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+          "directeur-trice-transformation-et-prestations-transversales-etat-de-vaud-lausanne"
         ],
         "de": [
-          "direktor-transformations-und-querschnittsdienstleistungen-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+          "direktor-transformations-und-querschnittsdienstleistungen-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+          "directeur-trice-transformation-et-prestations-transversales-etat-de-vaud-lausanne"
         ]
       },
       "previousSlugs": [
         "direttore-servizi-di-trasformazione-e-di-taglio-incrociato-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
         "director-transformation-and-cross-cutting-services-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-        "direktor-transformations-und-querschnittsdienstleistungen-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+        "direktor-transformations-und-querschnittsdienstleistungen-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "directeur-trice-transformation-et-prestations-transversales-etat-de-vaud-lausanne"
       ]
     },
     {
@@ -4956,11 +4960,11 @@
     },
     {
       "id": "etat-de-vaud-6186",
-      "slug": "urbaniste-etat-de-vaud-lausanne",
+      "slug": "urbanista-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "urbaniste-etat-de-vaud-lausanne",
-        "it": "urbaniste-etat-de-vaud-lausanne",
-        "en": "urbaniste-etat-de-vaud-lausanne",
+        "it": "urbanista-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "en": "urbanist-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
         "de": "urbaniste-etat-de-vaud-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
@@ -5023,16 +5027,27 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-18T09:52:08.767Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T09:52:08.767Z"
+      "firstSeenAt": "2026-11-20T09:52:08.767Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "urbaniste-etat-de-vaud-lausanne"
+        ],
+        "en": [
+          "urbaniste-etat-de-vaud-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "urbaniste-etat-de-vaud-lausanne"
+      ]
     },
     {
       "id": "etat-de-vaud-6099",
-      "slug": "charge-e-de-publication-communication-numerique-etat-de-vaud-lausanne",
+      "slug": "pubblicazione-ufficiale-di-comunicazione-digitale-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "charge-e-de-publication-communication-numerique-etat-de-vaud-lausanne",
-        "it": "charge-e-de-publication-communication-numerique-etat-de-vaud-lausanne",
-        "en": "charge-e-de-publication-communication-numerique-etat-de-vaud-lausanne",
-        "de": "charge-e-de-publication-communication-numerique-etat-de-vaud-lausanne"
+        "it": "pubblicazione-ufficiale-di-comunicazione-digitale-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "en": "publication-digital-communication-officer-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "de": "veroffentlichung-digital-communication-officer-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -5094,7 +5109,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-18T09:52:08.335Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T09:52:08.335Z"
+      "firstSeenAt": "2026-11-20T09:52:08.335Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "charge-e-de-publication-communication-numerique-etat-de-vaud-lausanne"
+        ],
+        "en": [
+          "charge-e-de-publication-communication-numerique-etat-de-vaud-lausanne"
+        ],
+        "de": [
+          "charge-e-de-publication-communication-numerique-etat-de-vaud-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "charge-e-de-publication-communication-numerique-etat-de-vaud-lausanne"
+      ]
     }
   ]
 }

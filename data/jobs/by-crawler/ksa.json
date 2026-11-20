@@ -5240,7 +5240,7 @@
         "it": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
         "en": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
         "de": "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
+        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -5286,7 +5286,7 @@
       "department": "Pilot ohne Motivationsbrief",
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5296,7 +5296,7 @@
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
         ]
       },
       "firstSeenAt": "2026-08-21T21:48:21.989Z",
@@ -9432,12 +9432,12 @@
     },
     {
       "id": "ksa-dfbd173f1e3d",
-      "slug": "fachangestellte-radiologie-mpa-pflegeberuf-ksa-ch",
+      "slug": "radiologia-specialistica-mpa-professione-di-allattamento-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "fachangestellte-radiologie-mpa-pflegeberuf-ksa-ch",
-        "it": "fachangestellte-radiologie-mpa-pflegeberuf-ksa-ch",
-        "en": "fachangestellte-radiologie-mpa-pflegeberuf-ksa-ch",
-        "fr": "fachangestellte-radiologie-mpa-pflegeberuf-ksa-ch"
+        "it": "radiologia-specialistica-mpa-professione-di-allattamento-kantonsspital-aarau-ksa-aarau",
+        "en": "specialist-radiology-mpa-nursing-profession-kantonsspital-aarau-ksa-aarau",
+        "fr": "radiologie-specialisee-mpa-profession-infirmiere-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -9503,19 +9503,23 @@
       "firstSeenAt": "2026-11-20T09:28:35.430Z",
       "previousSlugsByLocale": {
         "it": [
-          "radiologia-specialistica-mpa-professione-di-allattamento-kantonsspital-aarau-ksa-aarau"
+          "radiologia-specialistica-mpa-professione-di-allattamento-kantonsspital-aarau-ksa-aarau",
+          "fachangestellte-radiologie-mpa-pflegeberuf-ksa-ch"
         ],
         "en": [
-          "specialist-radiology-mpa-nursing-profession-kantonsspital-aarau-ksa-aarau"
+          "specialist-radiology-mpa-nursing-profession-kantonsspital-aarau-ksa-aarau",
+          "fachangestellte-radiologie-mpa-pflegeberuf-ksa-ch"
         ],
         "fr": [
-          "radiologie-specialisee-mpa-profession-infirmiere-kantonsspital-aarau-ksa-aarau"
+          "radiologie-specialisee-mpa-profession-infirmiere-kantonsspital-aarau-ksa-aarau",
+          "fachangestellte-radiologie-mpa-pflegeberuf-ksa-ch"
         ]
       },
       "previousSlugs": [
         "radiologia-specialistica-mpa-professione-di-allattamento-kantonsspital-aarau-ksa-aarau",
         "specialist-radiology-mpa-nursing-profession-kantonsspital-aarau-ksa-aarau",
-        "radiologie-specialisee-mpa-profession-infirmiere-kantonsspital-aarau-ksa-aarau"
+        "radiologie-specialisee-mpa-profession-infirmiere-kantonsspital-aarau-ksa-aarau",
+        "fachangestellte-radiologie-mpa-pflegeberuf-ksa-ch"
       ],
       "sourceIdentity": "url:https://recruitingapp-122706.umantis.com/vacancies/5862/application/checklogin/1"
     }

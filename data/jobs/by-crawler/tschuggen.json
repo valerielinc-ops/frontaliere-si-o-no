@@ -499,12 +499,12 @@
     },
     {
       "id": "tschuggen-c45f1c829896",
-      "slug": "front-office-agent-m-w-d-tschuggen-ch",
+      "slug": "agente-di-ufficio-anteriore-m-f-d-tschuggen-collection-ascona",
       "slugByLocale": {
         "de": "front-office-agent-m-w-d-tschuggen-ch",
-        "it": "front-office-agent-m-w-d-tschuggen-ch",
+        "it": "agente-di-ufficio-anteriore-m-f-d-tschuggen-collection-ascona",
         "en": "front-office-agent-m-w-d-tschuggen-ch",
-        "fr": "front-office-agent-m-w-d-tschuggen-ch"
+        "fr": "agent-du-bureau-principal-h-f-d-tschuggen-collection-ascona"
       },
       "company": "Tschuggen Collection",
       "companyKey": "tschuggen",
@@ -571,26 +571,29 @@
       "firstSeenAt": "2026-11-19T21:40:50.415Z",
       "previousSlugsByLocale": {
         "it": [
-          "agente-di-ufficio-anteriore-m-f-d-tschuggen-collection-ascona"
+          "agente-di-ufficio-anteriore-m-f-d-tschuggen-collection-ascona",
+          "front-office-agent-m-w-d-tschuggen-ch"
         ],
         "fr": [
-          "agent-du-bureau-principal-h-f-d-tschuggen-collection-ascona"
+          "agent-du-bureau-principal-h-f-d-tschuggen-collection-ascona",
+          "front-office-agent-m-w-d-tschuggen-ch"
         ]
       },
       "previousSlugs": [
         "agente-di-ufficio-anteriore-m-f-d-tschuggen-collection-ascona",
-        "agent-du-bureau-principal-h-f-d-tschuggen-collection-ascona"
+        "agent-du-bureau-principal-h-f-d-tschuggen-collection-ascona",
+        "front-office-agent-m-w-d-tschuggen-ch"
       ],
       "sourceIdentity": "url:https://recruitingapp-2904.umantis.com/vacancies/1406/description/1"
     },
     {
       "id": "tschuggen-d1b965997ee1",
-      "slug": "housekeeping-attendant-m-w-d-tschuggen-ch",
+      "slug": "assistente-di-pulizia-m-f-d-tschuggen-collection-ascona",
       "slugByLocale": {
         "de": "housekeeping-attendant-m-w-d-tschuggen-ch",
-        "it": "housekeeping-attendant-m-w-d-tschuggen-ch",
+        "it": "assistente-di-pulizia-m-f-d-tschuggen-collection-ascona",
         "en": "housekeeping-attendant-m-w-d-tschuggen-ch",
-        "fr": "housekeeping-attendant-m-w-d-tschuggen-ch"
+        "fr": "agent-de-menage-h-f-d-tschuggen-collection-ascona"
       },
       "company": "Tschuggen Collection",
       "companyKey": "tschuggen",
@@ -657,26 +660,29 @@
       "firstSeenAt": "2026-11-19T21:40:49.739Z",
       "previousSlugsByLocale": {
         "it": [
-          "assistente-di-pulizia-m-f-d-tschuggen-collection-ascona"
+          "assistente-di-pulizia-m-f-d-tschuggen-collection-ascona",
+          "housekeeping-attendant-m-w-d-tschuggen-ch"
         ],
         "fr": [
-          "agent-de-menage-h-f-d-tschuggen-collection-ascona"
+          "agent-de-menage-h-f-d-tschuggen-collection-ascona",
+          "housekeeping-attendant-m-w-d-tschuggen-ch"
         ]
       },
       "previousSlugs": [
         "assistente-di-pulizia-m-f-d-tschuggen-collection-ascona",
-        "agent-de-menage-h-f-d-tschuggen-collection-ascona"
+        "agent-de-menage-h-f-d-tschuggen-collection-ascona",
+        "housekeeping-attendant-m-w-d-tschuggen-ch"
       ],
       "sourceIdentity": "url:https://recruitingapp-2904.umantis.com/vacancies/1407/description/1"
     },
     {
       "id": "tschuggen-a7ee5b98f855",
-      "slug": "front-office-agent-m-w-d-befristet-bis-ende-wintersaison-2026-27-tschuggen-collection-st-moritz",
+      "slug": "agente-dell-ufficio-anteriore-m-f-d-limitato-alla-fine-della-stagione-invernale-2026-27-tschuggen-collection-st-moritz",
       "slugByLocale": {
         "de": "front-office-agent-m-w-d-befristet-bis-ende-wintersaison-2026-27-tschuggen-ch",
-        "it": "front-office-agent-m-w-d-befristet-bis-ende-wintersaison-2026-27-tschuggen-collection-st-moritz",
-        "en": "front-office-agent-m-w-d-befristet-bis-ende-wintersaison-2026-27-tschuggen-ch",
-        "fr": "front-office-agent-m-w-d-befristet-bis-ende-wintersaison-2026-27-tschuggen-ch"
+        "it": "agente-dell-ufficio-anteriore-m-f-d-limitato-alla-fine-della-stagione-invernale-2026-27-tschuggen-collection-st-moritz",
+        "en": "front-office-agent-m-f-d-limited-to-the-end-of-winter-season-2026-27-tschuggen-collection-st-moritz",
+        "fr": "front-office-agent-h-f-d-limite-a-la-fin-de-la-saison-d-hiver-2026-27-tschuggen-collection-st-moritz"
       },
       "company": "Tschuggen Collection",
       "companyKey": "tschuggen",
@@ -724,11 +730,19 @@
       "hotelName": "Carlton Hotel St. Moritz",
       "previousSlugsByLocale": {
         "it": [
+          "front-office-agent-m-w-d-befristet-bis-ende-wintersaison-2026-27-tschuggen-ch",
+          "front-office-agent-m-w-d-befristet-bis-ende-wintersaison-2026-27-tschuggen-collection-st-moritz"
+        ],
+        "en": [
+          "front-office-agent-m-w-d-befristet-bis-ende-wintersaison-2026-27-tschuggen-ch"
+        ],
+        "fr": [
           "front-office-agent-m-w-d-befristet-bis-ende-wintersaison-2026-27-tschuggen-ch"
         ]
       },
       "previousSlugs": [
-        "front-office-agent-m-w-d-befristet-bis-ende-wintersaison-2026-27-tschuggen-ch"
+        "front-office-agent-m-w-d-befristet-bis-ende-wintersaison-2026-27-tschuggen-ch",
+        "front-office-agent-m-w-d-befristet-bis-ende-wintersaison-2026-27-tschuggen-collection-st-moritz"
       ],
       "salaryMin": 62000,
       "salaryMax": 78000,

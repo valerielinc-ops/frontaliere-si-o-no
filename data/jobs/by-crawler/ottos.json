@@ -9169,12 +9169,12 @@
     },
     {
       "id": "ottos-a3da236fe150",
-      "slug": "aushilfe-verkaufer-in-textil-sport-ottos-munsingen",
+      "slug": "addetto-a-alle-vendite-di-supporto-tessile-sport-otto-s-ag-munsingen",
       "slugByLocale": {
         "de": "aushilfe-verkaufer-in-textil-sport-ottos-munsingen",
-        "it": "aushilfe-verkaufer-in-textil-sport-ottos-munsingen",
-        "en": "aushilfe-verkaufer-in-textil-sport-ottos-munsingen",
-        "fr": "aushilfe-verkaufer-in-textil-sport-ottos-munsingen"
+        "it": "addetto-a-alle-vendite-di-supporto-tessile-sport-otto-s-ag-munsingen",
+        "en": "temporary-sales-assistant-textiles-sports-otto-s-ag-munsingen",
+        "fr": "auxiliaire-de-vente-textile-sport-otto-s-ag-munsingen"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -9244,19 +9244,23 @@
       "firstSeenAt": "2026-09-29T09:26:07.281Z",
       "previousSlugsByLocale": {
         "it": [
-          "addetto-a-alle-vendite-tessili-sport-otto-s-ag-munsingen"
+          "addetto-a-alle-vendite-tessili-sport-otto-s-ag-munsingen",
+          "aushilfe-verkaufer-in-textil-sport-ottos-munsingen"
         ],
         "en": [
-          "sales-assistant-textiles-sports-otto-s-ag-munsingen"
+          "sales-assistant-textiles-sports-otto-s-ag-munsingen",
+          "aushilfe-verkaufer-in-textil-sport-ottos-munsingen"
         ],
         "fr": [
-          "auxiliaire-de-vente-textile-sport-otto-s-ag-munsingen"
+          "auxiliaire-de-vente-textile-sport-otto-s-ag-munsingen",
+          "aushilfe-verkaufer-in-textil-sport-ottos-munsingen"
         ]
       },
       "previousSlugs": [
         "addetto-a-alle-vendite-tessili-sport-otto-s-ag-munsingen",
         "sales-assistant-textiles-sports-otto-s-ag-munsingen",
-        "auxiliaire-de-vente-textile-sport-otto-s-ag-munsingen"
+        "auxiliaire-de-vente-textile-sport-otto-s-ag-munsingen",
+        "aushilfe-verkaufer-in-textil-sport-ottos-munsingen"
       ],
       "sourceIdentity": "url:https://live.solique.ch/ottosag/job/details/4104998"
     },
@@ -12330,12 +12334,12 @@
     },
     {
       "id": "ottos-890b318179dd",
-      "slug": "aushilfe-verkaufer-in-food-non-food-ottos-herzogenbuchsee",
+      "slug": "venditore-venditrice-ausiliario-a-food-non-food-otto-s-ag-herzogenbuchsee",
       "slugByLocale": {
         "de": "aushilfe-verkaufer-in-food-non-food-ottos-herzogenbuchsee",
-        "it": "aushilfe-verkaufer-in-food-non-food-ottos-herzogenbuchsee",
-        "en": "aushilfe-verkaufer-in-food-non-food-ottos-herzogenbuchsee",
-        "fr": "aushilfe-verkaufer-in-food-non-food-ottos-herzogenbuchsee"
+        "it": "venditore-venditrice-ausiliario-a-food-non-food-otto-s-ag-herzogenbuchsee",
+        "en": "temporary-sales-assistant-food-non-food-otto-s-ag-herzogenbuchsee",
+        "fr": "auxiliaire-vendeur-se-food-non-food-otto-s-ag-herzogenbuchsee"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -12402,7 +12406,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-18T09:42:05.647Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T09:42:05.647Z"
+      "firstSeenAt": "2026-11-20T09:42:05.647Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "aushilfe-verkaufer-in-food-non-food-ottos-herzogenbuchsee"
+        ],
+        "en": [
+          "aushilfe-verkaufer-in-food-non-food-ottos-herzogenbuchsee"
+        ],
+        "fr": [
+          "aushilfe-verkaufer-in-food-non-food-ottos-herzogenbuchsee"
+        ]
+      },
+      "previousSlugs": [
+        "aushilfe-verkaufer-in-food-non-food-ottos-herzogenbuchsee"
+      ]
     }
   ]
 }

@@ -4671,10 +4671,10 @@
     },
     {
       "id": "hib-broye-08906ba0715e",
-      "slug": "stagiaire-administration-pre-hes-au-sein-du-service-rh-a-100-hib-broye-payerne",
+      "slug": "pre-hes-dell-amministrazione-del-tirocinante-all-interno-del-servizio-hr-100-hopital-intercantonal-de-la-broye-hib",
       "slugByLocale": {
         "fr": "stagiaire-administration-pre-hes-au-sein-du-service-rh-a-100-hib-broye-payerne",
-        "it": "stagiaire-administration-pre-hes-au-sein-du-service-rh-a-100-hib-broye-payerne",
+        "it": "pre-hes-dell-amministrazione-del-tirocinante-all-interno-del-servizio-hr-100-hopital-intercantonal-de-la-broye-hib",
         "en": "stagiaire-administration-pre-hes-au-sein-du-service-rh-a-100-hib-broye-payerne",
         "de": "stagiaire-administration-pre-hes-au-sein-du-service-rh-a-100-hib-broye-payerne"
       },
@@ -4737,7 +4737,15 @@
       "streetAddress": "Payerne",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-18T09:29:28.310Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-administration-pre-hes-au-sein-du-service-rh-a-100-hib-broye-payerne"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-administration-pre-hes-au-sein-du-service-rh-a-100-hib-broye-payerne"
+      ]
     }
   ]
 }

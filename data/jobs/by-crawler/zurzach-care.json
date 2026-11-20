@@ -5639,8 +5639,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-klinikadministration-60-80-zurzach-care-luzern",
         "it": "mitarbeiterin-collaboratore-trice-klinikadministration-60-80-zurzach-care-luzern",
-        "en": "mitarbeiterin-mitarbeiter-klinikadministration-60-80-zurzach-care-luzern",
-        "fr": "mitarbeiterin-mitarbeiter-klinikadministration-60-80-zurzach-care-luzern"
+        "en": "employee-clinical-administration-60-80-zurzach-care-luzern",
+        "fr": "administration-clinique-des-employes-60-80-zurzach-care-luzern"
       },
       "company": "ZURZACH Care",
       "companyKey": "zurzach-care",
@@ -5691,10 +5691,12 @@
           "addetta-addetto-all-amministrazione-della-clinica-60-80-zurzach-care-luzern"
         ],
         "en": [
-          "employee-clinical-administration-60-80-zurzach-care-luzern"
+          "employee-clinical-administration-60-80-zurzach-care-luzern",
+          "mitarbeiterin-mitarbeiter-klinikadministration-60-80-zurzach-care-luzern"
         ],
         "fr": [
-          "administration-clinique-des-employes-60-80-zurzach-care-luzern"
+          "administration-clinique-des-employes-60-80-zurzach-care-luzern",
+          "mitarbeiterin-mitarbeiter-klinikadministration-60-80-zurzach-care-luzern"
         ]
       },
       "previousSlugs": [

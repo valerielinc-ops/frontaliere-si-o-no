@@ -5252,12 +5252,12 @@
     },
     {
       "id": "rheinmetall-air-defence-5f93ad16ea13",
-      "slug": "systemingenieur-airburst-system-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "sistema-di-airburst-engineer-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
         "de": "systemingenieur-airburst-system-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "it": "systemingenieur-airburst-system-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "sistema-di-airburst-engineer-m-f-d-rheinmetall-air-defence-ag-zurich",
         "en": "systemingenieur-airburst-system-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "systemingenieur-airburst-system-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "ingenieur-systeme-airburst-systeme-h-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -5320,16 +5320,27 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-17T09:52:22.556Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T09:52:22.556Z"
+      "firstSeenAt": "2026-11-20T09:52:22.556Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "systemingenieur-airburst-system-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "systemingenieur-airburst-system-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "systemingenieur-airburst-system-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-042fe9205ffa",
-      "slug": "elektroingenieur-airburst-system-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "sistema-di-airburst-dell-ingegnere-elettrico-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
         "de": "elektroingenieur-airburst-system-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "it": "elektroingenieur-airburst-system-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "elektroingenieur-airburst-system-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "elektroingenieur-airburst-system-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "it": "sistema-di-airburst-dell-ingegnere-elettrico-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "en": "electrical-engineer-airburst-system-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "fr": "genie-electrique-airburst-system-h-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -5392,7 +5403,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-17T09:52:21.869Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T09:52:21.869Z"
+      "firstSeenAt": "2026-11-20T09:52:21.869Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "elektroingenieur-airburst-system-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "elektroingenieur-airburst-system-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "elektroingenieur-airburst-system-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "elektroingenieur-airburst-system-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     }
   ]
 }

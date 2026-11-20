@@ -10616,7 +10616,7 @@
       "slug": "responsabile-del-consenso-ai-cookie-schindler-bussigny",
       "slugByLocale": {
         "it": "responsabile-del-consenso-ai-cookie-schindler-bussigny",
-        "en": "cookie-consent-manager-schindler-bussigny-qcnbsr",
+        "en": "cookie-consent-manager-schindler-bussigny",
         "de": "cookie-einwilligungsmanager-schindler-bussigny",
         "fr": "gestionnaire-de-consentements-pour-les-cookies-schindler-bussigny"
       },
@@ -10669,7 +10669,7 @@
         "gestionnaire-de-consentements-pour-les-cookies-schindler-bussigny",
         "swc-trade-apprendimento-dei-dipendenti-per-2027-schindler-bussigny",
         "apprentissage-de-constructeur-d-appareils-industriels-cfc-monteur-d-ascenseurs-schindler-bussigny",
-        "cookie-consent-manager-schindler-bussigny"
+        "cookie-consent-manager-schindler-bussigny-qcnbsr"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10685,7 +10685,7 @@
           "apprentissage-de-constructeur-d-appareils-industriels-cfc-monteur-d-ascenseurs-schindler-bussigny"
         ],
         "en": [
-          "cookie-consent-manager-schindler-bussigny"
+          "cookie-consent-manager-schindler-bussigny-qcnbsr"
         ]
       },
       "firstSeenAt": "2026-08-24T21:32:05.582Z",
@@ -10894,7 +10894,7 @@
       "slug": "responsabile-del-consenso-ai-cookie-schindler-sion",
       "slugByLocale": {
         "it": "responsabile-del-consenso-ai-cookie-schindler-sion",
-        "en": "cookie-consent-manager-schindler-sion-qcokaf",
+        "en": "cookie-consent-manager-schindler-sion",
         "de": "cookie-einwilligungsmanager-schindler-sion",
         "fr": "gestionnaire-de-consentements-pour-les-cookies-schindler-sion"
       },
@@ -10954,7 +10954,7 @@
           "montatore-polimeccanico-cfc-elevatore-per-2027-schindler-sion"
         ],
         "en": [
-          "cookie-consent-manager-schindler-sion"
+          "cookie-consent-manager-schindler-sion-qcokaf"
         ]
       },
       "previousSlugs": [
@@ -10966,7 +10966,7 @@
         "polymechanisches-cfc-elevator-mounter-learning-fur-2027-schindler-sion",
         "polymechanische-fckw-aufzugshalterung-fur-2027-schindler-sion",
         "montatore-polimeccanico-cfc-elevatore-per-2027-schindler-sion",
-        "cookie-consent-manager-schindler-sion"
+        "cookie-consent-manager-schindler-sion-qcokaf"
       ],
       "firstSeenAt": "2026-08-24T21:32:06.358Z",
       "salaryMin": 72000,
@@ -11678,12 +11678,12 @@
     },
     {
       "id": "schindler-24bb8acb7e7b",
-      "slug": "projektleiter-in-m-w-d-80-100-schindler-wettswil",
+      "slug": "responsabile-di-progetto-m-f-d-80-100-schindler-wettswil",
       "slugByLocale": {
         "de": "projektleiter-in-m-w-d-80-100-schindler-wettswil",
         "fr": "gestionnaire-de-projet-h-f-d-80-100-schindler-wettswil",
-        "it": "projektleiter-in-m-w-d-80-100-schindler-wettswil",
-        "en": "projektleiter-in-m-w-d-80-100-schindler-wettswil"
+        "it": "responsabile-di-progetto-m-f-d-80-100-schindler-wettswil",
+        "en": "project-manager-m-f-d-80-100-schindler-wettswil"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -11751,13 +11751,18 @@
       "previousSlugs": [
         "project-manager-m-w-d-80-100-schindler-wettswil",
         "gestionnaire-de-projet-m-f-d-80-100-schindler-wettswil",
-        "project-manager-m-f-d-80-100-schindler-wettswil"
+        "project-manager-m-f-d-80-100-schindler-wettswil",
+        "projektleiter-in-m-w-d-80-100-schindler-wettswil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "project-manager-m-w-d-80-100-schindler-wettswil",
           "gestionnaire-de-projet-m-f-d-80-100-schindler-wettswil",
-          "project-manager-m-f-d-80-100-schindler-wettswil"
+          "project-manager-m-f-d-80-100-schindler-wettswil",
+          "projektleiter-in-m-w-d-80-100-schindler-wettswil"
+        ],
+        "en": [
+          "projektleiter-in-m-w-d-80-100-schindler-wettswil"
         ]
       }
     }
