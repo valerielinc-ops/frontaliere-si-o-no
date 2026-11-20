@@ -194,6 +194,11 @@ export function decideBuildLocaleRecovery({
     return recoverySkip('no-retryable-locale-leg', 'no build-locale job has a confirmed host-loss, timeout or memory signature');
   }
   if (allowFailedMatrix) {
+    const failedOtherJob = currentJobs.find((job) => Number(job?.run_attempt) === attempt
+      && !buildLocaleFromJobName(job?.name) && FAILED_LEG_CONCLUSIONS.has(job?.conclusion));
+    if (failedOtherJob) {
+      return recoverySkip('non-locale-job-failed', `${failedOtherJob.name} also failed`);
+    }
     const failedLocales = currentJobs.filter((job) => Number(job?.run_attempt) === attempt
       && buildLocaleFromJobName(job?.name)
       && FAILED_LEG_CONCLUSIONS.has(job?.conclusion));
@@ -695,7 +700,7 @@ function inspectTargetedRerunPostFailure({
   }
 }
 
-const RUNS_PROJECTION = '[.workflow_runs[] | {id, headSha: .head_sha, headBranch: .head_branch, status, conclusion, event, actor: .actor.login, createdAt: .created_at, updatedAt: .updated_at}]';
+const RUNS_PROJECTION = '[.workflow_runs[] | {id, headSha: .head_sha, headBranch: .head_branch, status, conclusion, event, actor: .actor.login, createdAt: .created_at, updatedAt: .updated_at, name, displayTitle: .display_title, attempt: .run_attempt}]';
 
 function mergeRuns(...collections) {
   const byId = new Map();
@@ -991,6 +996,35 @@ async function inspectBuildLocaleRecovery({
   }
 }
 
+// Completion events can be absent for runs dispatched by GITHUB_TOKEN. Only
+// inspect the newest real build, and leave any live build or explicit redeploy
+// request alone. Queue-only successes are not builds.
+export function findMissedLocaleRecovery(runs, selfRunId, redeployRequest) {
+  if (redeployRequest?.state === 'pending') return null;
+  const builds = runs.filter((run) => String(run.id) !== String(selfRunId) && run.event !== 'schedule');
+  if (builds.some((run) => LIVE_STATUSES.has(run.status))) return null;
+  const latest = builds.filter((run) => run.name === DEPLOY_WORKFLOW_NAME
+    && run.displayTitle !== 'Deploy queue reconciliation (no build)')
+    .sort((a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt) || Number(b.id) - Number(a.id))[0];
+  return latest?.status === 'completed' && latest.conclusion === 'failure'
+    && Number(latest.attempt) === 1 ? latest : null;
+}
+
+async function recoverFinishedMatrix({ repo, runId, sha, attempt, maxRecoveryAttempts, dryRun }) {
+  const recovery = await inspectBuildLocaleRecovery({
+    repo, runId, expectedSha: sha, currentAttempt: attempt,
+    maxRecoveryAttempts, allowFailedMatrix: true, requireTerminal: true,
+  });
+  if (recovery.reason === 'source-attempt-superseded') return true;
+  if (recovery.action !== 'rerun-failed-matrix') {
+    console.log(`[rearm] terminal locale recovery: ${recovery.reason} (${recovery.detail})`);
+    return false;
+  }
+  console.log(`[rearm] ${dryRun ? 'would recover' : 'recovering'} finished run ${runId}: ${recovery.detail}`);
+  if (!dryRun) gh(['api', '-X', 'POST', `repos/${repo}/actions/runs/${runId}/rerun-failed-jobs`]);
+  return true;
+}
+
 async function main() {
   const repo = process.env.GITHUB_REPOSITORY;
   const workflow = process.env.REARM_WORKFLOW || 'deploy.yml';
@@ -1023,20 +1057,11 @@ async function main() {
   }
 
   const finishedRunId = process.env.REARM_FINISHED_RUN_ID;
-  if (finishedRunId) {
-    const recovery = await inspectBuildLocaleRecovery({
-      repo, runId: finishedRunId, expectedSha: process.env.REARM_FINISHED_SHA,
-      currentAttempt: process.env.REARM_FINISHED_ATTEMPT,
-      maxRecoveryAttempts: maxLocaleRecoveryAttempts, allowFailedMatrix: true, requireTerminal: true,
-    });
-    if (recovery.reason === 'source-attempt-superseded') return 0;
-    if (recovery.action === 'rerun-failed-matrix' && !dryRun) {
-      console.log(`[rearm] recovering finished run ${finishedRunId}: ${recovery.detail}`);
-      gh(['api', '-X', 'POST', `repos/${repo}/actions/runs/${finishedRunId}/rerun-failed-jobs`]);
-      return 0;
-    }
-    console.log(`[rearm] terminal locale recovery: ${recovery.reason} (${recovery.detail})`);
-  }
+  if (finishedRunId && await recoverFinishedMatrix({
+    repo, runId: finishedRunId, sha: process.env.REARM_FINISHED_SHA,
+    attempt: process.env.REARM_FINISHED_ATTEMPT,
+    maxRecoveryAttempts: maxLocaleRecoveryAttempts, dryRun,
+  })) return 0;
 
   // This is the terminal build's admission, captured before the build ran.
   // Do not reread the mutable translation marker here: build-history/data
@@ -1122,6 +1147,14 @@ async function main() {
   }
 
   const { headSha, runs, redeployRequest } = queueState;
+
+  if (!finishedRunId && ['schedule', 'watchdog'].includes(process.env.REARM_MODE)) {
+    const missed = findMissedLocaleRecovery(runs, selfRunId, redeployRequest);
+    if (missed && await recoverFinishedMatrix({
+      repo, runId: missed.id, sha: missed.headSha, attempt: missed.attempt,
+      maxRecoveryAttempts: maxLocaleRecoveryAttempts, dryRun,
+    })) return 0;
+  }
 
   const baseVerdict = decideRearm({
     headSha,
