@@ -349,7 +349,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.ete.ch/jobs/ausnahmetransportbegleiter-in-100-7",
-    "firstSeenAt": "2026-11-02T21:28:27.102Z"
+    "firstSeenAt": "2026-11-02T21:28:27.102Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://www.ete.ch/jobs/ausnahmetransportbegleiter-in-100-6",
+        "firstSeenAt": "2026-11-02T21:28:27.102Z",
+        "title": "Ausnahmetransportbegleiter/in 100 %"
+      },
+      {
+        "sourceIdentity": "url:https://www.ete.ch/jobs/ausnahmetransportbegleiter-in-100-7",
+        "firstSeenAt": "2026-11-02T21:28:27.102Z",
+        "title": "Ausnahmetransportbegleiter/in 100 %"
+      }
+    ]
   },
   {
     "slug": "carico-del-carrello-elevatore-turno-notturno-m-f-d-emil-egger-ag-st-gallen-67030dcd",
@@ -399,7 +411,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.ete.ch/jobs/staplerfahrer-lkw-verlad-nachtschicht-m-w-d",
-    "firstSeenAt": "2026-10-03T09:20:47.216Z"
+    "firstSeenAt": "2026-10-02T21:14:04.925Z"
   },
   {
     "slug": "assistenti-di-trasporto-eccezionali-100-emil-egger-ag-bassersdorf-15aba32c",
