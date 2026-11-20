@@ -616,6 +616,9 @@ for (const spec of specs) {
       // decision against those same entries instead of older history that the
       // status patch below is about to discard.
       validationHistory: history.slice(-8),
+      // The gate filters that history by the candidate's adapter version.
+      // Evaluate the entry just written, never a stale version from candidate.
+      sourceAdapterVersion: validationEntry.sourceAdapterVersion ?? null,
     };
     const handoffContext = { existingKeys: coverage.keys, hostOwners: coverage.hostOwners };
     const next = productionAudit ? 'production' : candidateStatusAfterValidation(
