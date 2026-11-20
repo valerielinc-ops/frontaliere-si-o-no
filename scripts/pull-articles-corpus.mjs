@@ -299,16 +299,6 @@ async function fetchPublishedRegistries(manifest, target) {
   const finalManifest = await fetchManifest(1);
   const finalPin = pinVerdict({ pinned: target, manifestCommit: finalManifest?.commit });
   if (!finalPin.ok) return { pin: finalPin, rowsByFile: null };
-
-  for (const [file, rows] of entries) {
-    const mismatched = rows.find((row) => row?.commit !== target);
-    if (mismatched) {
-      throw new Error(
-        `${file}: article '${mismatched?.id ?? '<unknown>'}' belongs to `
-        + `${mismatched?.commit ?? '<missing commit>'}, expected pinned release ${target}`,
-      );
-    }
-  }
   return { pin: finalPin, rowsByFile: new Map(entries) };
 }
 
