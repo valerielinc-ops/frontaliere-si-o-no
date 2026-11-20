@@ -7281,12 +7281,12 @@
     },
     {
       "id": "emil-frey-1983b5e8e561",
-      "slug": "collaboratore-trice-aussendienst-emil-frey-glattpark-opfikon",
+      "slug": "collaboratore-trice-nel-servizio-esterno-emil-frey-glattpark-opfikon",
       "slugByLocale": {
         "de": "mitarbeiter-in-aussendienst-emil-frey-glattpark-opfikon",
-        "it": "collaboratore-trice-aussendienst-emil-frey-glattpark-opfikon",
-        "en": "mitarbeiter-in-aussendienst-emil-frey-glattpark-opfikon",
-        "fr": "mitarbeiter-in-aussendienst-emil-frey-glattpark-opfikon"
+        "it": "collaboratore-trice-nel-servizio-esterno-emil-frey-glattpark-opfikon",
+        "en": "field-sales-representative-emil-frey-glattpark-opfikon",
+        "fr": "collaborateur-trice-du-service-externe-emil-frey-glattpark-opfikon"
       },
       "company": "Emil Frey",
       "companyKey": "emil-frey",
@@ -7334,11 +7334,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-aussendienst-emil-frey-glattpark-opfikon",
+          "collaboratore-trice-aussendienst-emil-frey-glattpark-opfikon"
+        ],
+        "en": [
+          "mitarbeiter-in-aussendienst-emil-frey-glattpark-opfikon"
+        ],
+        "fr": [
           "mitarbeiter-in-aussendienst-emil-frey-glattpark-opfikon"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-aussendienst-emil-frey-glattpark-opfikon"
+        "mitarbeiter-in-aussendienst-emil-frey-glattpark-opfikon",
+        "collaboratore-trice-aussendienst-emil-frey-glattpark-opfikon"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

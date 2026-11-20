@@ -26410,7 +26410,7 @@
       "id": "yellowshark-be16e7a4c5c2",
       "slug": "gru-girevole-superiore-operatore-gru-m-f-yellowshark-ag-zug-6ef862064f",
       "slugByLocale": {
-        "it": "gru-girevole-superiore-operatore-gru-m-f-yellowshark-ag-zug-6ef862064f",
+        "it": "gru-girevole-superiore-operatore-gru-m-f-yellowshark-ag-zug",
         "en": "crane-operator-upper-rotary-crane-m-f-yellowshark-ag-zug",
         "de": "kranfuhrer-oberdrehkran-m-w-zug-zg-yellowshark-ch",
         "fr": "grue-rotative-superieure-operateur-de-grue-h-f-yellowshark-ag-zug"
@@ -26459,12 +26459,14 @@
       "previousSlugs": [
         "gru-girevole-superiore-operatore-gru-m-f-yellowshark-ag-zug",
         "kranfuhrer-oberdrehkran-m-w-zug-zg-yellowshark-ch",
-        "kranfuhrer-oberdrehkran-m-w-d-yellowshark-ag-zug"
+        "kranfuhrer-oberdrehkran-m-w-d-yellowshark-ag-zug",
+        "gru-girevole-superiore-operatore-gru-m-f-yellowshark-ag-zug-6ef862064f"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gru-girevole-superiore-operatore-gru-m-f-yellowshark-ag-zug",
-          "kranfuhrer-oberdrehkran-m-w-zug-zg-yellowshark-ch"
+          "kranfuhrer-oberdrehkran-m-w-zug-zg-yellowshark-ch",
+          "gru-girevole-superiore-operatore-gru-m-f-yellowshark-ag-zug-6ef862064f"
         ],
         "en": [
           "kranfuhrer-oberdrehkran-m-w-d-yellowshark-ag-zug"
@@ -73818,7 +73820,7 @@
       "slug": "zimmermann-m-w-d-yellowshark-ag-st-gallen",
       "slugByLocale": {
         "it": "zimmermann-m-w-d-yellowshark-ag-st-gallen",
-        "en": "zimmermann-m-f-yellowshark-ag-st-gallen-bgtlhk",
+        "en": "zimmermann-m-f-yellowshark-ag-st-gallen",
         "de": "zimmermann-m-w-st-gallen-sg-yellowshark-ch",
         "fr": "zimmermann-h-f-yellowshark-ag-st-gallen"
       },
@@ -73865,14 +73867,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "zimmermann-m-w-st-gallen-sg-yellowshark-ch",
-        "zimmermann-m-f-yellowshark-ag-st-gallen"
+        "zimmermann-m-f-yellowshark-ag-st-gallen-bgtlhk"
       ],
       "previousSlugsByLocale": {
         "it": [
           "zimmermann-m-w-st-gallen-sg-yellowshark-ch"
         ],
         "en": [
-          "zimmermann-m-f-yellowshark-ag-st-gallen"
+          "zimmermann-m-f-yellowshark-ag-st-gallen-bgtlhk"
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.515Z",
@@ -75278,7 +75280,7 @@
       "id": "yellowshark-02cd92d12583",
       "slug": "strato-terra-m-f-yellowshark-ag-zug-a68a3c884e",
       "slugByLocale": {
-        "it": "strato-terra-m-f-yellowshark-ag-zug-a68a3c884e",
+        "it": "strato-terra-m-f-yellowshark-ag-zug-zg",
         "en": "ground-layer-m-f-yellowshark-ag-zug-zg",
         "de": "bodenleger-m-w-zug-zg-yellowshark-ch",
         "fr": "couche-au-sol-h-f-yellowshark-ag-zug-zg"
@@ -75326,12 +75328,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "strato-terra-m-f-yellowshark-ag-zug-zg",
-        "bodenleger-m-w-zug-zg-yellowshark-ch"
+        "bodenleger-m-w-zug-zg-yellowshark-ch",
+        "strato-terra-m-f-yellowshark-ag-zug-a68a3c884e"
       ],
       "previousSlugsByLocale": {
         "it": [
           "strato-terra-m-f-yellowshark-ag-zug-zg",
-          "bodenleger-m-w-zug-zg-yellowshark-ch"
+          "bodenleger-m-w-zug-zg-yellowshark-ch",
+          "strato-terra-m-f-yellowshark-ag-zug-a68a3c884e"
         ],
         "en": [
           "bodenleger-m-w-zug-zg-yellowshark-ch"

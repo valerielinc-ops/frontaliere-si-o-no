@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "spruengli-219290825ea0",
-      "slug": "rilievo-di-natale-80-100-stazione-ferroviaria-baden-confiserie-sprungli-ag-baden",
+      "slug": "weihnachtsaushilfe-80-100-bahnhof-baden-confiserie-sprungli-ag-baden",
       "slugByLocale": {
-        "it": "rilievo-di-natale-80-100-stazione-ferroviaria-baden-confiserie-sprungli-ag-baden",
-        "en": "christmas-relief-80-100-railway-station-baden-confiserie-sprungli-ag-baden",
+        "it": "weihnachtsaushilfe-80-100-bahnhof-baden-confiserie-sprungli-ag-baden",
+        "en": "weihnachtsaushilfe-80-100-bahnhof-baden-confiserie-sprungli-ag-baden",
         "de": "weihnachtsaushilfe-80-100-bahnhof-baden-spruengli-aargau",
-        "fr": "relief-de-noel-80-100-gare-ferroviaire-baden-confiserie-sprungli-ag-baden"
+        "fr": "weihnachtsaushilfe-80-100-bahnhof-baden-confiserie-sprungli-ag-baden"
       },
       "company": "Confiserie Sprüngli AG",
       "companyKey": "spruengli",
@@ -58,18 +58,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "weihnachtsaushilfe-80-100-bahnhof-baden-spruengli-aargau",
-        "weihnachtsaushilfe-80-100-bahnhof-baden-confiserie-sprungli-ag-baden"
+        "rilievo-di-natale-80-100-stazione-ferroviaria-baden-confiserie-sprungli-ag-baden",
+        "christmas-relief-80-100-railway-station-baden-confiserie-sprungli-ag-baden",
+        "relief-de-noel-80-100-gare-ferroviaire-baden-confiserie-sprungli-ag-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "weihnachtsaushilfe-80-100-bahnhof-baden-spruengli-aargau",
-          "weihnachtsaushilfe-80-100-bahnhof-baden-confiserie-sprungli-ag-baden"
+          "rilievo-di-natale-80-100-stazione-ferroviaria-baden-confiserie-sprungli-ag-baden"
         ],
         "en": [
-          "weihnachtsaushilfe-80-100-bahnhof-baden-confiserie-sprungli-ag-baden"
+          "christmas-relief-80-100-railway-station-baden-confiserie-sprungli-ag-baden"
         ],
         "fr": [
-          "weihnachtsaushilfe-80-100-bahnhof-baden-confiserie-sprungli-ag-baden"
+          "relief-de-noel-80-100-gare-ferroviaire-baden-confiserie-sprungli-ag-baden"
         ]
       },
       "firstSeenAt": "2026-10-13T09:21:39.433Z",

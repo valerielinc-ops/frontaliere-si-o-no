@@ -13185,9 +13185,9 @@
       },
       "slugByLocale": {
         "it": "saldatore-tubista-pemsa-lugano-1a7cc67111",
-        "en": "saldatore-tubista-pemsa-lugano-uq96lw",
-        "de": "saldatore-tubista-pemsa-lugano-uq96lw",
-        "fr": "saldatore-tubista-pemsa-lugano-uq96lw"
+        "en": "saldatore-tubista-pemsa-lugano",
+        "de": "saldatore-tubista-pemsa-lugano",
+        "fr": "saldatore-tubista-pemsa-lugano"
       },
       "id": "pemsa-a4ed741e0c2c",
       "salaryMin": 55500,
@@ -13208,20 +13208,21 @@
       "firstSeenAt": "2026-09-08T13:41:50.002Z",
       "previousSlugsByLocale": {
         "en": [
-          "saldatore-tubista-pemsa-lugano"
+          "saldatore-tubista-pemsa-lugano-uq96lw"
         ],
         "de": [
-          "saldatore-tubista-pemsa-lugano"
+          "saldatore-tubista-pemsa-lugano-uq96lw"
         ],
         "fr": [
-          "saldatore-tubista-pemsa-lugano"
+          "saldatore-tubista-pemsa-lugano-uq96lw"
         ],
         "it": [
           "saldatore-tubista-pemsa-lugano"
         ]
       },
       "previousSlugs": [
-        "saldatore-tubista-pemsa-lugano"
+        "saldatore-tubista-pemsa-lugano",
+        "saldatore-tubista-pemsa-lugano-uq96lw"
       ],
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
@@ -23292,8 +23293,8 @@
       "slugByLocale": {
         "it": "guarnizione-in-bitume-e-resina-pemsa-st-sulpice-vd",
         "en": "guarnizione-in-bitume-e-resina-pemsa-st-sulpice-vd",
-        "de": "guarnizione-in-bitume-e-resina-pemsa-st-sulpice-vd",
-        "fr": "guarnizione-in-bitume-e-resina-pemsa-st-sulpice-vd"
+        "de": "barien-in-bitum-und-resina-pemsa-st-sulpice-vd",
+        "fr": "guarnies-en-bitut-et-resine-pemsa-st-sulpice-vd"
       },
       "id": "pemsa-8884fc352b74",
       "salaryMin": 74500,
@@ -23319,15 +23320,18 @@
       "firstSeenAt": "2026-11-20T09:32:44.650Z",
       "previousSlugsByLocale": {
         "de": [
-          "barien-in-bitum-und-resina-pemsa-st-sulpice-vd"
+          "barien-in-bitum-und-resina-pemsa-st-sulpice-vd",
+          "guarnizione-in-bitume-e-resina-pemsa-st-sulpice-vd"
         ],
         "fr": [
-          "guarnies-en-bitut-et-resine-pemsa-st-sulpice-vd"
+          "guarnies-en-bitut-et-resine-pemsa-st-sulpice-vd",
+          "guarnizione-in-bitume-e-resina-pemsa-st-sulpice-vd"
         ]
       },
       "previousSlugs": [
         "barien-in-bitum-und-resina-pemsa-st-sulpice-vd",
-        "guarnies-en-bitut-et-resine-pemsa-st-sulpice-vd"
+        "guarnies-en-bitut-et-resine-pemsa-st-sulpice-vd",
+        "guarnizione-in-bitume-e-resina-pemsa-st-sulpice-vd"
       ],
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/guarnizione-in-bitume-e-resina-2706145"
     },
@@ -23370,9 +23374,9 @@
       },
       "slugByLocale": {
         "it": "regolatore-di-finitura-lavori-stradali-pemsa-lausanne",
-        "en": "regolatore-di-finitura-lavori-stradali-pemsa-lausanne",
-        "de": "regolatore-di-finitura-lavori-stradali-pemsa-lausanne",
-        "fr": "regolatore-di-finitura-lavori-stradali-pemsa-lausanne"
+        "en": "finishing-regular-stradal-works-pemsa-lausanne",
+        "de": "finishing-regular-stradal-arbeiten-pemsa-lausanne",
+        "fr": "financement-regulaire-travaux-stradiaux-pemsa-lausanne"
       },
       "id": "pemsa-267e5f281da3",
       "salaryMin": 74500,
@@ -23398,19 +23402,23 @@
       "firstSeenAt": "2026-11-20T09:32:44.650Z",
       "previousSlugsByLocale": {
         "en": [
-          "finishing-regular-stradal-works-pemsa-lausanne"
+          "finishing-regular-stradal-works-pemsa-lausanne",
+          "regolatore-di-finitura-lavori-stradali-pemsa-lausanne"
         ],
         "de": [
-          "finishing-regular-stradal-arbeiten-pemsa-lausanne"
+          "finishing-regular-stradal-arbeiten-pemsa-lausanne",
+          "regolatore-di-finitura-lavori-stradali-pemsa-lausanne"
         ],
         "fr": [
-          "financement-regulaire-travaux-stradiaux-pemsa-lausanne"
+          "financement-regulaire-travaux-stradiaux-pemsa-lausanne",
+          "regolatore-di-finitura-lavori-stradali-pemsa-lausanne"
         ]
       },
       "previousSlugs": [
         "finishing-regular-stradal-works-pemsa-lausanne",
         "finishing-regular-stradal-arbeiten-pemsa-lausanne",
-        "financement-regulaire-travaux-stradiaux-pemsa-lausanne"
+        "financement-regulaire-travaux-stradiaux-pemsa-lausanne",
+        "regolatore-di-finitura-lavori-stradali-pemsa-lausanne"
       ],
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/regolatore-di-finitura-lavori-stradali-2706142"
     },
@@ -23596,9 +23604,9 @@
       },
       "slugByLocale": {
         "it": "installatore-di-impianti-di-riscaldamento-m-f-d-100-pemsa-vetroz",
-        "en": "installatore-di-impianti-di-riscaldamento-m-f-d-100-pemsa-vetroz",
-        "de": "installatore-di-impianti-di-riscaldamento-m-f-d-100-pemsa-vetroz",
-        "fr": "installatore-di-impianti-di-riscaldamento-m-f-d-100-pemsa-vetroz"
+        "en": "m-f-d-heating-system-installer-100-pemsa-vetroz",
+        "de": "m-w-d-heizsysteminstallateur-100-pemsa-vetroz",
+        "fr": "installation-du-systeme-de-chauffage-h-f-d-100-pemsa-vetroz"
       },
       "id": "pemsa-c32e4859f977",
       "salaryMin": 71000,
@@ -23621,7 +23629,21 @@
       "streetAddress": "Vétroz",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-20T09:32:44.650Z"
+      "firstSeenAt": "2026-11-20T09:32:44.650Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "installatore-di-impianti-di-riscaldamento-m-f-d-100-pemsa-vetroz"
+        ],
+        "de": [
+          "installatore-di-impianti-di-riscaldamento-m-f-d-100-pemsa-vetroz"
+        ],
+        "fr": [
+          "installatore-di-impianti-di-riscaldamento-m-f-d-100-pemsa-vetroz"
+        ]
+      },
+      "previousSlugs": [
+        "installatore-di-impianti-di-riscaldamento-m-f-d-100-pemsa-vetroz"
+      ]
     },
     {
       "title": "Installatore di impianti di riscaldamento m/f/d – 100%",

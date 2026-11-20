@@ -7825,12 +7825,12 @@
     },
     {
       "id": "etat-de-fribourg-f60a381f1030",
-      "slug": "collaborateur-trice-administratif-ve-secretaire-etat-de-fribourg-ch",
+      "slug": "segretario-del-collaboratore-amministrativo-etat-de-fribourg-estavayer-le-lac",
       "slugByLocale": {
         "fr": "collaborateur-trice-administratif-ve-secretaire-etat-de-fribourg-ch",
-        "it": "collaborateur-trice-administratif-ve-secretaire-etat-de-fribourg-ch",
-        "en": "collaborateur-trice-administratif-ve-secretaire-etat-de-fribourg-ch",
-        "de": "collaborateur-trice-administratif-ve-secretaire-etat-de-fribourg-ch"
+        "it": "segretario-del-collaboratore-amministrativo-etat-de-fribourg-estavayer-le-lac",
+        "en": "administrative-collaborator-secretary-etat-de-fribourg-estavayer-le-lac",
+        "de": "minister-fur-administrative-zusammenarbeit-etat-de-fribourg-estavayer-le-lac"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -7896,7 +7896,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T09:54:22.381Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T09:54:22.381Z"
+      "firstSeenAt": "2026-11-20T09:54:22.381Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-trice-administratif-ve-secretaire-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "collaborateur-trice-administratif-ve-secretaire-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "collaborateur-trice-administratif-ve-secretaire-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-trice-administratif-ve-secretaire-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-a3207f948b87",
@@ -7975,12 +7989,12 @@
     },
     {
       "id": "etat-de-fribourg-0a480355fdaa",
-      "slug": "collaborateur-trice-administratif-ve-secteur-impot-sur-les-successions-et-donations-etat",
+      "slug": "settore-di-consulenza-amministrativa-fiscale-e-donazioni-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "fr": "collaborateur-trice-administratif-ve-secteur-impot-sur-les-successions-et-donations-etat",
-        "it": "collaborateur-trice-administratif-ve-secteur-impot-sur-les-successions-et-donations-etat",
-        "en": "collaborateur-trice-administratif-ve-secteur-impot-sur-les-successions-et-donations-etat",
-        "de": "collaborateur-trice-administratif-ve-secteur-impot-sur-les-successions-et-donations-etat"
+        "it": "settore-di-consulenza-amministrativa-fiscale-e-donazioni-etat-de-fribourg-fribourg",
+        "en": "administrative-collaborator-estate-tax-and-donations-sector-etat-de-fribourg-fribourg",
+        "de": "verwaltungsmitarbeiter-erbschaftssteuer-und-spendensektor-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -8046,16 +8060,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-16T09:54:19.726Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T09:54:19.726Z"
+      "firstSeenAt": "2026-11-20T09:54:19.726Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-trice-administratif-ve-secteur-impot-sur-les-successions-et-donations-etat"
+        ],
+        "en": [
+          "collaborateur-trice-administratif-ve-secteur-impot-sur-les-successions-et-donations-etat"
+        ],
+        "de": [
+          "collaborateur-trice-administratif-ve-secteur-impot-sur-les-successions-et-donations-etat"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-trice-administratif-ve-secteur-impot-sur-les-successions-et-donations-etat"
+      ]
     },
     {
       "id": "etat-de-fribourg-53d10eb58b9f",
-      "slug": "verwaltungssachbearbeiter-in-abteilung-erbschafts-e-schenkungssteuern-etat-de-fribourg",
+      "slug": "impiegato-a-amministrativo-a-reparto-imposte-di-successione-e-donazione-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "de": "verwaltungssachbearbeiter-in-abteilung-erbschafts-und-schenkungssteuern-etat-de-fribourg",
-        "it": "verwaltungssachbearbeiter-in-abteilung-erbschafts-e-schenkungssteuern-etat-de-fribourg",
-        "en": "verwaltungssachbearbeiter-in-abteilung-erbschafts-und-schenkungssteuern-etat-de-fribourg",
-        "fr": "verwaltungssachbearbeiter-in-abteilung-erbschafts-und-schenkungssteuern-etat-de-fribourg"
+        "it": "impiegato-a-amministrativo-a-reparto-imposte-di-successione-e-donazione-etat-de-fribourg-fribourg",
+        "en": "administrative-clerk-inheritance-and-gift-tax-department-etat-de-fribourg-fribourg",
+        "fr": "collaborateur-trice-administratif-ve-service-des-impots-sur-les-successions-et-les-donations-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -8105,11 +8133,19 @@
       "pensum": "45-50%",
       "previousSlugsByLocale": {
         "it": [
+          "verwaltungssachbearbeiter-in-abteilung-erbschafts-und-schenkungssteuern-etat-de-fribourg",
+          "verwaltungssachbearbeiter-in-abteilung-erbschafts-e-schenkungssteuern-etat-de-fribourg"
+        ],
+        "en": [
+          "verwaltungssachbearbeiter-in-abteilung-erbschafts-und-schenkungssteuern-etat-de-fribourg"
+        ],
+        "fr": [
           "verwaltungssachbearbeiter-in-abteilung-erbschafts-und-schenkungssteuern-etat-de-fribourg"
         ]
       },
       "previousSlugs": [
-        "verwaltungssachbearbeiter-in-abteilung-erbschafts-und-schenkungssteuern-etat-de-fribourg"
+        "verwaltungssachbearbeiter-in-abteilung-erbschafts-und-schenkungssteuern-etat-de-fribourg",
+        "verwaltungssachbearbeiter-in-abteilung-erbschafts-e-schenkungssteuern-etat-de-fribourg"
       ],
       "salaryMin": 105500,
       "salaryMax": 185000,
@@ -8133,12 +8169,12 @@
     },
     {
       "id": "etat-de-fribourg-a41f6727f4cc",
-      "slug": "juge-de-paix-aupres-de-la-justice-de-paix-du-lac-etat-de-fribourg-ch",
+      "slug": "giustizia-della-pace-del-lago-etat-de-fribourg-morat",
       "slugByLocale": {
         "fr": "juge-de-paix-aupres-de-la-justice-de-paix-du-lac-etat-de-fribourg-ch",
-        "it": "juge-de-paix-aupres-de-la-justice-de-paix-du-lac-etat-de-fribourg-ch",
-        "en": "juge-de-paix-aupres-de-la-justice-de-paix-du-lac-etat-de-fribourg-ch",
-        "de": "juge-de-paix-aupres-de-la-justice-de-paix-du-lac-etat-de-fribourg-ch"
+        "it": "giustizia-della-pace-del-lago-etat-de-fribourg-morat",
+        "en": "justice-of-the-peace-of-the-lake-etat-de-fribourg-morat",
+        "de": "gerechtigkeit-des-friedens-des-sees-etat-de-fribourg-morat"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -8204,16 +8240,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T09:54:18.409Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-07-10T12:09:39.785Z"
+      "firstSeenAt": "2026-07-10T12:09:39.785Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "juge-de-paix-aupres-de-la-justice-de-paix-du-lac-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "juge-de-paix-aupres-de-la-justice-de-paix-du-lac-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "juge-de-paix-aupres-de-la-justice-de-paix-du-lac-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "juge-de-paix-aupres-de-la-justice-de-paix-du-lac-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-ccc64303f27f",
-      "slug": "greffier-iere-de-1ere-instance-etat-de-fribourg-ch",
+      "slug": "registratore-di-primo-grado-etat-de-fribourg-bulle",
       "slugByLocale": {
         "fr": "greffier-iere-de-1ere-instance-etat-de-fribourg-ch",
-        "it": "greffier-iere-de-1ere-instance-etat-de-fribourg-ch",
-        "en": "greffier-iere-de-1ere-instance-etat-de-fribourg-ch",
-        "de": "greffier-iere-de-1ere-instance-etat-de-fribourg-ch"
+        "it": "registratore-di-primo-grado-etat-de-fribourg-bulle",
+        "en": "registrar-of-first-instance-etat-de-fribourg-bulle",
+        "de": "registrar-der-ersten-instanz-etat-de-fribourg-bulle"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -8279,16 +8329,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T09:54:17.738Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-03T23:26:10.994Z"
+      "firstSeenAt": "2026-09-03T23:26:10.994Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "greffier-iere-de-1ere-instance-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "greffier-iere-de-1ere-instance-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "greffier-iere-de-1ere-instance-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "greffier-iere-de-1ere-instance-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-3eff141b3eae",
-      "slug": "berater-in-per-berufliche-eingliederung-etat-de-fribourg",
+      "slug": "consulente-per-l-integrazione-professionale-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "de": "berater-in-fur-berufliche-eingliederung-etat-de-fribourg-ch",
-        "it": "berater-in-per-berufliche-eingliederung-etat-de-fribourg",
-        "en": "berater-in-fur-berufliche-eingliederung-etat-de-fribourg-ch",
-        "fr": "berater-in-fur-berufliche-eingliederung-etat-de-fribourg-ch"
+        "it": "consulente-per-l-integrazione-professionale-etat-de-fribourg-fribourg",
+        "en": "vocational-integration-advisor-etat-de-fribourg-fribourg",
+        "fr": "conseiller-conseillere-en-insertion-professionnelle-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -8338,11 +8402,19 @@
       "pensum": "60-100%",
       "previousSlugsByLocale": {
         "it": [
+          "berater-in-fur-berufliche-eingliederung-etat-de-fribourg-ch",
+          "berater-in-per-berufliche-eingliederung-etat-de-fribourg"
+        ],
+        "en": [
+          "berater-in-fur-berufliche-eingliederung-etat-de-fribourg-ch"
+        ],
+        "fr": [
           "berater-in-fur-berufliche-eingliederung-etat-de-fribourg-ch"
         ]
       },
       "previousSlugs": [
-        "berater-in-fur-berufliche-eingliederung-etat-de-fribourg-ch"
+        "berater-in-fur-berufliche-eingliederung-etat-de-fribourg-ch",
+        "berater-in-per-berufliche-eingliederung-etat-de-fribourg"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -8366,12 +8438,12 @@
     },
     {
       "id": "etat-de-fribourg-9bdf5b136bbd",
-      "slug": "revisor-in-abteilung-juristische-personen-etat-de-fribourg-ch",
+      "slug": "revisore-revisora-reparto-persone-giuridiche-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "de": "revisor-in-abteilung-juristische-personen-etat-de-fribourg-ch",
-        "it": "revisor-in-abteilung-juristische-personen-etat-de-fribourg-ch",
-        "en": "revisor-in-abteilung-juristische-personen-etat-de-fribourg-ch",
-        "fr": "revisor-in-abteilung-juristische-personen-etat-de-fribourg-ch"
+        "it": "revisore-revisora-reparto-persone-giuridiche-etat-de-fribourg-fribourg",
+        "en": "auditor-legal-entities-department-etat-de-fribourg-fribourg",
+        "fr": "reviseur-reviseuse-departement-des-personnes-morales-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -8437,16 +8509,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-16T09:54:16.433Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T09:54:16.433Z"
+      "firstSeenAt": "2026-11-20T09:54:16.433Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "revisor-in-abteilung-juristische-personen-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "revisor-in-abteilung-juristische-personen-etat-de-fribourg-ch"
+        ],
+        "fr": [
+          "revisor-in-abteilung-juristische-personen-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "revisor-in-abteilung-juristische-personen-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-f4f3ed39d018",
-      "slug": "friedensrichter-in-des-seebezirks-etat-de-fribourg-ch",
+      "slug": "giudice-di-pace-del-distretto-dei-laghi-etat-de-fribourg-morat",
       "slugByLocale": {
         "de": "friedensrichter-in-des-seebezirks-etat-de-fribourg-ch",
-        "it": "friedensrichter-in-des-seebezirks-etat-de-fribourg-ch",
-        "en": "friedensrichter-in-des-seebezirks-etat-de-fribourg-ch",
-        "fr": "friedensrichter-in-des-seebezirks-etat-de-fribourg-ch"
+        "it": "giudice-di-pace-del-distretto-dei-laghi-etat-de-fribourg-morat",
+        "en": "justice-of-the-peace-for-the-lake-district-etat-de-fribourg-morat",
+        "fr": "juge-de-paix-du-district-du-lac-etat-de-fribourg-morat"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -8512,16 +8598,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T09:54:15.745Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-07-10T12:09:37.166Z"
+      "firstSeenAt": "2026-07-10T12:09:37.166Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "friedensrichter-in-des-seebezirks-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "friedensrichter-in-des-seebezirks-etat-de-fribourg-ch"
+        ],
+        "fr": [
+          "friedensrichter-in-des-seebezirks-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "friedensrichter-in-des-seebezirks-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-c7d55ceb51ca",
-      "slug": "reviseur-e-aupres-du-secteur-des-personnes-morales-etat-de-fribourg-ch",
+      "slug": "revisore-con-il-settore-aziendale-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "fr": "reviseur-e-aupres-du-secteur-des-personnes-morales-etat-de-fribourg-ch",
-        "it": "reviseur-e-aupres-du-secteur-des-personnes-morales-etat-de-fribourg-ch",
-        "en": "reviseur-e-aupres-du-secteur-des-personnes-morales-etat-de-fribourg-ch",
-        "de": "reviseur-e-aupres-du-secteur-des-personnes-morales-etat-de-fribourg-ch"
+        "it": "revisore-con-il-settore-aziendale-etat-de-fribourg-fribourg",
+        "en": "reviser-with-the-corporate-sector-etat-de-fribourg-fribourg",
+        "de": "revisor-mit-dem-unternehmenssektor-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -8587,16 +8687,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-16T09:54:15.090Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T09:54:15.090Z"
+      "firstSeenAt": "2026-11-20T09:54:15.090Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "reviseur-e-aupres-du-secteur-des-personnes-morales-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "reviseur-e-aupres-du-secteur-des-personnes-morales-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "reviseur-e-aupres-du-secteur-des-personnes-morales-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "reviseur-e-aupres-du-secteur-des-personnes-morales-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-e34c34855349",
-      "slug": "assistant-e-socio-educatif-ve-auxiliaire-de-vie-scolaire-ecoles-francophones-du-canton-1h-11h-etat-de-fribourg",
+      "slug": "socio-educativo-assistente-auxiliare-della-vita-scolastica-scuole-di-lingua-francese-nel-cantone-1h-11h-etat-de-fribourg",
       "slugByLocale": {
         "fr": "assistant-e-socio-educatif-ve-auxiliaire-de-vie-scolaire-ecoles-francophones-du-canton-1h",
-        "it": "assistant-e-socio-educatif-ve-auxiliaire-de-vie-scolaire-ecoles-francophones-du-canton-1h-11h-etat-de-fribourg",
-        "en": "assistant-e-socio-educatif-ve-auxiliaire-de-vie-scolaire-ecoles-francophones-du-canton-1h",
-        "de": "assistant-e-socio-educatif-ve-auxiliaire-de-vie-scolaire-ecoles-francophones-du-canton-1h"
+        "it": "socio-educativo-assistente-auxiliare-della-vita-scolastica-scuole-di-lingua-francese-nel-cantone-1h-11h-etat-de-fribourg",
+        "en": "socio-educational-assistant-auxiliary-of-school-life-french-speaking-schools-in-the-canton-1h-11h-etat-de-fribourg",
+        "de": "sozialpadagogische-assistenz-schulbegleitung-franzosischsprachige-schulen-des-kantons-1h-11h-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -8646,11 +8760,19 @@
       "pensum": "50-60%",
       "previousSlugsByLocale": {
         "it": [
+          "assistant-e-socio-educatif-ve-auxiliaire-de-vie-scolaire-ecoles-francophones-du-canton-1h",
+          "assistant-e-socio-educatif-ve-auxiliaire-de-vie-scolaire-ecoles-francophones-du-canton-1h-11h-etat-de-fribourg"
+        ],
+        "en": [
+          "assistant-e-socio-educatif-ve-auxiliaire-de-vie-scolaire-ecoles-francophones-du-canton-1h"
+        ],
+        "de": [
           "assistant-e-socio-educatif-ve-auxiliaire-de-vie-scolaire-ecoles-francophones-du-canton-1h"
         ]
       },
       "previousSlugs": [
-        "assistant-e-socio-educatif-ve-auxiliaire-de-vie-scolaire-ecoles-francophones-du-canton-1h"
+        "assistant-e-socio-educatif-ve-auxiliaire-de-vie-scolaire-ecoles-francophones-du-canton-1h",
+        "assistant-e-socio-educatif-ve-auxiliaire-de-vie-scolaire-ecoles-francophones-du-canton-1h-11h-etat-de-fribourg"
       ],
       "salaryMin": 59000,
       "salaryMax": 108500,
@@ -8674,11 +8796,11 @@
     },
     {
       "id": "etat-de-fribourg-bfaff1a47132",
-      "slug": "medecin-assistant-e-en-recherche-clinique-neurologique-psychosomatique-etat-de-fribourg-ch",
+      "slug": "physician-assistant-in-ricerca-clinica-neurologica-e-psicosomatica-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "fr": "medecin-assistant-e-en-recherche-clinique-neurologique-psychosomatique-etat-de-fribourg-ch",
-        "it": "medecin-assistant-e-en-recherche-clinique-neurologique-psychosomatique-etat-de-fribourg-ch",
-        "en": "medecin-assistant-e-en-recherche-clinique-neurologique-psychosomatique-etat-de-fribourg-ch",
+        "it": "physician-assistant-in-ricerca-clinica-neurologica-e-psicosomatica-etat-de-fribourg-fribourg",
+        "en": "physician-assistant-in-neurological-psychosomatic-clinical-research-etat-de-fribourg-fribourg",
         "de": "medecin-assistant-e-en-recherche-clinique-neurologique-psychosomatique-etat-de-fribourg-ch"
       },
       "company": "Etat de Fribourg",
@@ -8745,16 +8867,27 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-16T09:54:13.749Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T09:54:13.749Z"
+      "firstSeenAt": "2026-11-20T09:54:13.749Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-assistant-e-en-recherche-clinique-neurologique-psychosomatique-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "medecin-assistant-e-en-recherche-clinique-neurologique-psychosomatique-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-assistant-e-en-recherche-clinique-neurologique-psychosomatique-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-4621f9a045d9",
-      "slug": "conseiller-ere-en-insertion-etat-de-fribourg-ch",
+      "slug": "consigliere-per-l-integrazione-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "fr": "conseiller-ere-en-insertion-etat-de-fribourg-ch",
-        "it": "conseiller-ere-en-insertion-etat-de-fribourg-ch",
-        "en": "conseiller-ere-en-insertion-etat-de-fribourg-ch",
-        "de": "conseiller-ere-en-insertion-etat-de-fribourg-ch"
+        "it": "consigliere-per-l-integrazione-etat-de-fribourg-fribourg",
+        "en": "counsellor-in-integration-etat-de-fribourg-fribourg",
+        "de": "berater-fur-integration-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -8820,16 +8953,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-16T09:54:13.077Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T09:54:13.077Z"
+      "firstSeenAt": "2026-11-20T09:54:13.077Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-ere-en-insertion-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "conseiller-ere-en-insertion-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "conseiller-ere-en-insertion-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-ere-en-insertion-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-32bd6b986581",
-      "slug": "assistenzarztin-assistenzarzt-in-der-klinischen-neurologischen-e-psychosomatischen-forschung-etat-de-fribourg",
+      "slug": "medico-a-assistente-nella-ricerca-clinica-neurologica-e-psicosomatica-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-in-der-klinischen-neurologischen-und-psychosomatischen",
-        "it": "assistenzarztin-assistenzarzt-in-der-klinischen-neurologischen-e-psychosomatischen-forschung-etat-de-fribourg",
-        "en": "assistenzarztin-assistenzarzt-in-der-klinischen-neurologischen-und-psychosomatischen",
-        "fr": "assistenzarztin-assistenzarzt-in-der-klinischen-neurologischen-und-psychosomatischen"
+        "it": "medico-a-assistente-nella-ricerca-clinica-neurologica-e-psicosomatica-etat-de-fribourg-fribourg",
+        "en": "assistant-physician-in-clinical-neurological-and-psychosomatic-research-etat-de-fribourg-fribourg",
+        "fr": "medecin-assistant-en-recherche-neurologique-et-psychosomatique-clinique-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -8879,11 +9026,19 @@
       "pensum": "80-100%",
       "previousSlugsByLocale": {
         "it": [
+          "assistenzarztin-assistenzarzt-in-der-klinischen-neurologischen-und-psychosomatischen",
+          "assistenzarztin-assistenzarzt-in-der-klinischen-neurologischen-e-psychosomatischen-forschung-etat-de-fribourg"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-in-der-klinischen-neurologischen-und-psychosomatischen"
+        ],
+        "fr": [
           "assistenzarztin-assistenzarzt-in-der-klinischen-neurologischen-und-psychosomatischen"
         ]
       },
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-in-der-klinischen-neurologischen-und-psychosomatischen"
+        "assistenzarztin-assistenzarzt-in-der-klinischen-neurologischen-und-psychosomatischen",
+        "assistenzarztin-assistenzarzt-in-der-klinischen-neurologischen-e-psychosomatischen-forschung-etat-de-fribourg"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -8907,12 +9062,12 @@
     },
     {
       "id": "etat-de-fribourg-c61bdbbd7b82",
-      "slug": "substitut-e-du-prepose-aux-poursuites-etat-de-fribourg-ch",
+      "slug": "sostituzione-del-procuratore-etat-de-fribourg-romont",
       "slugByLocale": {
         "fr": "substitut-e-du-prepose-aux-poursuites-etat-de-fribourg-ch",
-        "it": "substitut-e-du-prepose-aux-poursuites-etat-de-fribourg-ch",
-        "en": "substitut-e-du-prepose-aux-poursuites-etat-de-fribourg-ch",
-        "de": "substitut-e-du-prepose-aux-poursuites-etat-de-fribourg-ch"
+        "it": "sostituzione-del-procuratore-etat-de-fribourg-romont",
+        "en": "replacement-of-prosecution-officer-etat-de-fribourg-romont",
+        "de": "vertretung-des-staatsanwalts-etat-de-fribourg-romont"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -8978,16 +9133,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T09:54:11.771Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T09:54:11.771Z"
+      "firstSeenAt": "2026-11-20T09:54:11.771Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "substitut-e-du-prepose-aux-poursuites-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "substitut-e-du-prepose-aux-poursuites-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "substitut-e-du-prepose-aux-poursuites-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "substitut-e-du-prepose-aux-poursuites-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-7da55bbb4aff",
-      "slug": "responsable-de-la-section-formation-membre-de-la-direction-etat-de-fribourg-ch",
+      "slug": "capo-della-sezione-formazione-membro-della-direzione-etat-de-fribourg-hauterive-fr",
       "slugByLocale": {
         "fr": "responsable-de-la-section-formation-membre-de-la-direction-etat-de-fribourg-ch",
-        "it": "responsable-de-la-section-formation-membre-de-la-direction-etat-de-fribourg-ch",
-        "en": "responsable-de-la-section-formation-membre-de-la-direction-etat-de-fribourg-ch",
-        "de": "responsable-de-la-section-formation-membre-de-la-direction-etat-de-fribourg-ch"
+        "it": "capo-della-sezione-formazione-membro-della-direzione-etat-de-fribourg-hauterive-fr",
+        "en": "head-of-the-training-section-member-of-the-directorate-etat-de-fribourg-hauterive-fr",
+        "de": "leiter-der-abteilung-ausbildung-mitglied-der-direktion-etat-de-fribourg-hauterive-fr"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -9053,16 +9222,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T09:54:08.424Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T09:54:08.424Z"
+      "firstSeenAt": "2026-11-20T09:54:08.424Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-de-la-section-formation-membre-de-la-direction-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "responsable-de-la-section-formation-membre-de-la-direction-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "responsable-de-la-section-formation-membre-de-la-direction-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-de-la-section-formation-membre-de-la-direction-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-decc10b8fd6a",
-      "slug": "responsabile-sektion-bildung-e-mitglied-der-direktion-etat-de-fribourg-hauterive-fr",
+      "slug": "responsabile-della-sezione-formazione-e-membro-della-direzione-etat-de-fribourg-hauterive-fr",
       "slugByLocale": {
         "de": "leiter-in-sektion-bildung-und-mitglied-der-direktion-etat-de-fribourg-ch",
-        "it": "responsabile-sektion-bildung-e-mitglied-der-direktion-etat-de-fribourg-hauterive-fr",
-        "en": "leiter-in-sektion-bildung-und-mitglied-der-direktion-etat-de-fribourg-ch",
-        "fr": "leiter-in-sektion-bildung-und-mitglied-der-direktion-etat-de-fribourg-ch"
+        "it": "responsabile-della-sezione-formazione-e-membro-della-direzione-etat-de-fribourg-hauterive-fr",
+        "en": "head-of-the-education-section-and-member-of-the-directorate-etat-de-fribourg-hauterive-fr",
+        "fr": "responsable-de-la-section-education-et-membre-de-la-direction-etat-de-fribourg-hauterive-fr"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -9112,11 +9295,19 @@
       "pensum": "80-100%",
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-sektion-bildung-und-mitglied-der-direktion-etat-de-fribourg-ch",
+          "responsabile-sektion-bildung-e-mitglied-der-direktion-etat-de-fribourg-hauterive-fr"
+        ],
+        "en": [
+          "leiter-in-sektion-bildung-und-mitglied-der-direktion-etat-de-fribourg-ch"
+        ],
+        "fr": [
           "leiter-in-sektion-bildung-und-mitglied-der-direktion-etat-de-fribourg-ch"
         ]
       },
       "previousSlugs": [
-        "leiter-in-sektion-bildung-und-mitglied-der-direktion-etat-de-fribourg-ch"
+        "leiter-in-sektion-bildung-und-mitglied-der-direktion-etat-de-fribourg-ch",
+        "responsabile-sektion-bildung-e-mitglied-der-direktion-etat-de-fribourg-hauterive-fr"
       ],
       "salaryMin": 94500,
       "salaryMax": 143000,
@@ -9140,12 +9331,12 @@
     },
     {
       "id": "etat-de-fribourg-eafbee05eda3",
-      "slug": "taxateur-trice-fiscal-e-aupres-du-secteur-de-l-impot-anticipe-etat-de-fribourg-ch",
+      "slug": "fiscalita-del-settore-fiscale-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "fr": "taxateur-trice-fiscal-e-aupres-du-secteur-de-l-impot-anticipe-etat-de-fribourg-ch",
-        "it": "taxateur-trice-fiscal-e-aupres-du-secteur-de-l-impot-anticipe-etat-de-fribourg-ch",
-        "en": "taxateur-trice-fiscal-e-aupres-du-secteur-de-l-impot-anticipe-etat-de-fribourg-ch",
-        "de": "taxateur-trice-fiscal-e-aupres-du-secteur-de-l-impot-anticipe-etat-de-fribourg-ch"
+        "it": "fiscalita-del-settore-fiscale-etat-de-fribourg-fribourg",
+        "en": "taxing-the-advance-tax-sector-etat-de-fribourg-fribourg",
+        "de": "besteuerung-des-vorsteuersektors-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -9211,14 +9402,28 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-17T09:54:07.142Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T09:54:07.142Z"
+      "firstSeenAt": "2026-11-20T09:54:07.142Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "taxateur-trice-fiscal-e-aupres-du-secteur-de-l-impot-anticipe-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "taxateur-trice-fiscal-e-aupres-du-secteur-de-l-impot-anticipe-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "taxateur-trice-fiscal-e-aupres-du-secteur-de-l-impot-anticipe-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "taxateur-trice-fiscal-e-aupres-du-secteur-de-l-impot-anticipe-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-3a401d9a7fd4",
-      "slug": "juge-au-tribunal-des-mesures-de-contrainte-etat-de-fribourg-ch",
+      "slug": "giudice-al-tribunale-delle-misure-coercitive-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "fr": "juge-au-tribunal-des-mesures-de-contrainte-etat-de-fribourg-ch",
-        "it": "juge-au-tribunal-des-mesures-de-contrainte-etat-de-fribourg-ch",
+        "it": "giudice-al-tribunale-delle-misure-coercitive-etat-de-fribourg-fribourg",
         "en": "juge-au-tribunal-des-mesures-de-contrainte-etat-de-fribourg-ch",
         "de": "juge-au-tribunal-des-mesures-de-contrainte-etat-de-fribourg-ch"
       },
@@ -9286,16 +9491,24 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-17T09:54:06.498Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-03T23:25:55.718Z"
+      "firstSeenAt": "2026-09-03T23:25:55.718Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "juge-au-tribunal-des-mesures-de-contrainte-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "juge-au-tribunal-des-mesures-de-contrainte-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-06639a7dfb33",
-      "slug": "steuereinschatzer-in-sektor-verrechnungssteuer-etat-de-fribourg-ch",
+      "slug": "accertatore-trice-fiscale-settore-imposta-preventiva-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "de": "steuereinschatzer-in-sektor-verrechnungssteuer-etat-de-fribourg-ch",
-        "it": "steuereinschatzer-in-sektor-verrechnungssteuer-etat-de-fribourg-ch",
-        "en": "steuereinschatzer-in-sektor-verrechnungssteuer-etat-de-fribourg-ch",
-        "fr": "steuereinschatzer-in-sektor-verrechnungssteuer-etat-de-fribourg-ch"
+        "it": "accertatore-trice-fiscale-settore-imposta-preventiva-etat-de-fribourg-fribourg",
+        "en": "tax-assessor-withholding-tax-sector-etat-de-fribourg-fribourg",
+        "fr": "taxateur-rice-secteur-de-l-impot-anticipe-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -9361,16 +9574,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-17T09:54:05.830Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T09:54:05.830Z"
+      "firstSeenAt": "2026-11-20T09:54:05.830Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "steuereinschatzer-in-sektor-verrechnungssteuer-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "steuereinschatzer-in-sektor-verrechnungssteuer-etat-de-fribourg-ch"
+        ],
+        "fr": [
+          "steuereinschatzer-in-sektor-verrechnungssteuer-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "steuereinschatzer-in-sektor-verrechnungssteuer-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-947ab6c786c3",
-      "slug": "steuereinschatzer-in-abteilung-quellensteuer-etat-de-fribourg-ch",
+      "slug": "addetto-a-alla-tassazione-reparto-imposta-alla-fonte-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "de": "steuereinschatzer-in-abteilung-quellensteuer-etat-de-fribourg-ch",
-        "it": "steuereinschatzer-in-abteilung-quellensteuer-etat-de-fribourg-ch",
-        "en": "steuereinschatzer-in-abteilung-quellensteuer-etat-de-fribourg-ch",
-        "fr": "steuereinschatzer-in-abteilung-quellensteuer-etat-de-fribourg-ch"
+        "it": "addetto-a-alla-tassazione-reparto-imposta-alla-fonte-etat-de-fribourg-fribourg",
+        "en": "tax-assessment-officer-withholding-tax-department-etat-de-fribourg-fribourg",
+        "fr": "taxateur-trice-section-de-l-impot-a-la-source-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -9436,16 +9663,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-17T09:54:05.130Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-08-21T09:59:11.765Z"
+      "firstSeenAt": "2026-08-21T09:59:11.765Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "steuereinschatzer-in-abteilung-quellensteuer-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "steuereinschatzer-in-abteilung-quellensteuer-etat-de-fribourg-ch"
+        ],
+        "fr": [
+          "steuereinschatzer-in-abteilung-quellensteuer-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "steuereinschatzer-in-abteilung-quellensteuer-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-c282e400ddc2",
-      "slug": "taxateur-trice-fiscal-e-aupres-du-secteur-de-l-impot-a-la-source-etat-de-fribourg-ch",
+      "slug": "imposte-sul-settore-fiscale-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "fr": "taxateur-trice-fiscal-e-aupres-du-secteur-de-l-impot-a-la-source-etat-de-fribourg-ch",
-        "it": "taxateur-trice-fiscal-e-aupres-du-secteur-de-l-impot-a-la-source-etat-de-fribourg-ch",
-        "en": "taxateur-trice-fiscal-e-aupres-du-secteur-de-l-impot-a-la-source-etat-de-fribourg-ch",
-        "de": "taxateur-trice-fiscal-e-aupres-du-secteur-de-l-impot-a-la-source-etat-de-fribourg-ch"
+        "it": "imposte-sul-settore-fiscale-etat-de-fribourg-fribourg",
+        "en": "taxor-e-to-the-source-tax-sector-etat-de-fribourg-fribourg",
+        "de": "taxor-e-fur-den-quellensteuersektor-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -9511,16 +9752,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-17T09:54:04.467Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T09:54:04.467Z"
+      "firstSeenAt": "2026-11-20T09:54:04.467Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "taxateur-trice-fiscal-e-aupres-du-secteur-de-l-impot-a-la-source-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "taxateur-trice-fiscal-e-aupres-du-secteur-de-l-impot-a-la-source-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "taxateur-trice-fiscal-e-aupres-du-secteur-de-l-impot-a-la-source-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "taxateur-trice-fiscal-e-aupres-du-secteur-de-l-impot-a-la-source-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-b003e7356d81",
-      "slug": "collaborateur-trice-administratif-ve-aupres-du-registre-foncier-de-la-gruyere-etat-de",
+      "slug": "collaboratore-amministrativo-ve-al-registro-di-terra-di-gruyere-etat-de-fribourg-bulle",
       "slugByLocale": {
         "fr": "collaborateur-trice-administratif-ve-aupres-du-registre-foncier-de-la-gruyere-etat-de",
-        "it": "collaborateur-trice-administratif-ve-aupres-du-registre-foncier-de-la-gruyere-etat-de",
-        "en": "collaborateur-trice-administratif-ve-aupres-du-registre-foncier-de-la-gruyere-etat-de",
-        "de": "collaborateur-trice-administratif-ve-aupres-du-registre-foncier-de-la-gruyere-etat-de"
+        "it": "collaboratore-amministrativo-ve-al-registro-di-terra-di-gruyere-etat-de-fribourg-bulle",
+        "en": "administrative-collaborator-ve-at-the-gruyere-land-registry-etat-de-fribourg-bulle",
+        "de": "administrative-collaborator-ve-bei-gruyere-land-registry-etat-de-fribourg-bulle"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -9586,16 +9841,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-18T09:54:02.466Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T09:54:02.466Z"
+      "firstSeenAt": "2026-11-20T09:54:02.466Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-trice-administratif-ve-aupres-du-registre-foncier-de-la-gruyere-etat-de"
+        ],
+        "en": [
+          "collaborateur-trice-administratif-ve-aupres-du-registre-foncier-de-la-gruyere-etat-de"
+        ],
+        "de": [
+          "collaborateur-trice-administratif-ve-aupres-du-registre-foncier-de-la-gruyere-etat-de"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-trice-administratif-ve-aupres-du-registre-foncier-de-la-gruyere-etat-de"
+      ]
     },
     {
       "id": "etat-de-fribourg-66961e068002",
-      "slug": "stagiaire-post-master-en-administration-publique-etat-de-fribourg-ch",
+      "slug": "post-master-in-pubblica-amministrazione-etat-de-fribourg-givisiez",
       "slugByLocale": {
         "fr": "stagiaire-post-master-en-administration-publique-etat-de-fribourg-ch",
-        "it": "stagiaire-post-master-en-administration-publique-etat-de-fribourg-ch",
+        "it": "post-master-in-pubblica-amministrazione-etat-de-fribourg-givisiez",
         "en": "stagiaire-post-master-en-administration-publique-etat-de-fribourg-ch",
-        "de": "stagiaire-post-master-en-administration-publique-etat-de-fribourg-ch"
+        "de": "post-master-in-der-offentlichen-verwaltung-etat-de-fribourg-givisiez"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -9661,16 +9930,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-18T09:54:01.797Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T09:54:01.797Z"
+      "firstSeenAt": "2026-11-20T09:54:01.797Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-post-master-en-administration-publique-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "stagiaire-post-master-en-administration-publique-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-post-master-en-administration-publique-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-77e8276d4eac",
-      "slug": "wissenschaftl-collaboratore-trice-abfallbewirtschaftung-etat-de-fribourg-givisiez",
+      "slug": "collaboratore-trice-scientifico-a-per-la-gestione-dei-rifiuti-etat-de-fribourg-givisiez",
       "slugByLocale": {
         "de": "wissenschaftl-mitarbeiter-in-abfallbewirtschaftung-etat-de-fribourg-ch",
-        "it": "wissenschaftl-collaboratore-trice-abfallbewirtschaftung-etat-de-fribourg-givisiez",
-        "en": "wissenschaftl-mitarbeiter-in-abfallbewirtschaftung-etat-de-fribourg-ch",
-        "fr": "wissenschaftl-mitarbeiter-in-abfallbewirtschaftung-etat-de-fribourg-ch"
+        "it": "collaboratore-trice-scientifico-a-per-la-gestione-dei-rifiuti-etat-de-fribourg-givisiez",
+        "en": "scientific-assistant-waste-management-etat-de-fribourg-givisiez",
+        "fr": "collaborateur-rice-scientifique-en-gestion-des-dechets-etat-de-fribourg-givisiez"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -9720,11 +10000,19 @@
       "pensum": "90-100%",
       "previousSlugsByLocale": {
         "it": [
+          "wissenschaftl-mitarbeiter-in-abfallbewirtschaftung-etat-de-fribourg-ch",
+          "wissenschaftl-collaboratore-trice-abfallbewirtschaftung-etat-de-fribourg-givisiez"
+        ],
+        "en": [
+          "wissenschaftl-mitarbeiter-in-abfallbewirtschaftung-etat-de-fribourg-ch"
+        ],
+        "fr": [
           "wissenschaftl-mitarbeiter-in-abfallbewirtschaftung-etat-de-fribourg-ch"
         ]
       },
       "previousSlugs": [
-        "wissenschaftl-mitarbeiter-in-abfallbewirtschaftung-etat-de-fribourg-ch"
+        "wissenschaftl-mitarbeiter-in-abfallbewirtschaftung-etat-de-fribourg-ch",
+        "wissenschaftl-collaboratore-trice-abfallbewirtschaftung-etat-de-fribourg-givisiez"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -9748,12 +10036,12 @@
     },
     {
       "id": "etat-de-fribourg-80233841dc5e",
-      "slug": "collaborateur-trice-scientifique-dans-le-domaine-de-la-gestion-des-dechets-etat-de",
+      "slug": "collaboratore-scientifico-nella-gestione-dei-rifiuti-etat-de-fribourg-givisiez",
       "slugByLocale": {
         "fr": "collaborateur-trice-scientifique-dans-le-domaine-de-la-gestion-des-dechets-etat-de",
-        "it": "collaborateur-trice-scientifique-dans-le-domaine-de-la-gestion-des-dechets-etat-de",
-        "en": "collaborateur-trice-scientifique-dans-le-domaine-de-la-gestion-des-dechets-etat-de",
-        "de": "collaborateur-trice-scientifique-dans-le-domaine-de-la-gestion-des-dechets-etat-de"
+        "it": "collaboratore-scientifico-nella-gestione-dei-rifiuti-etat-de-fribourg-givisiez",
+        "en": "scientific-collaborator-in-waste-management-etat-de-fribourg-givisiez",
+        "de": "wissenschaftlicher-mitarbeiter-im-abfallmanagement-etat-de-fribourg-givisiez"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -9819,16 +10107,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-18T09:54:00.471Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T09:54:00.471Z"
+      "firstSeenAt": "2026-11-20T09:54:00.471Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-trice-scientifique-dans-le-domaine-de-la-gestion-des-dechets-etat-de"
+        ],
+        "en": [
+          "collaborateur-trice-scientifique-dans-le-domaine-de-la-gestion-des-dechets-etat-de"
+        ],
+        "de": [
+          "collaborateur-trice-scientifique-dans-le-domaine-de-la-gestion-des-dechets-etat-de"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-trice-scientifique-dans-le-domaine-de-la-gestion-des-dechets-etat-de"
+      ]
     },
     {
       "id": "etat-de-fribourg-ca979755f96b",
-      "slug": "professur-open-rank-per-zeitgenossische-hispanische-literaturen-e-kulturen-etat-de-fribourg",
+      "slug": "cattedra-open-rank-per-le-letterature-e-culture-ispaniche-contemporanee-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "de": "professur-open-rank-fur-zeitgenossische-hispanische-literaturen-und-kulturen-etat-de",
-        "it": "professur-open-rank-per-zeitgenossische-hispanische-literaturen-e-kulturen-etat-de-fribourg",
-        "en": "professur-open-rank-fur-zeitgenossische-hispanische-literaturen-und-kulturen-etat-de",
-        "fr": "professur-open-rank-fur-zeitgenossische-hispanische-literaturen-und-kulturen-etat-de"
+        "it": "cattedra-open-rank-per-le-letterature-e-culture-ispaniche-contemporanee-etat-de-fribourg-fribourg",
+        "en": "professorship-open-rank-for-contemporary-hispanic-literatures-and-cultures-etat-de-fribourg-fribourg",
+        "fr": "professeur-de-litterature-et-de-culture-hispaniques-contemporaines-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -9878,11 +10180,19 @@
       "pensum": "75-80%",
       "previousSlugsByLocale": {
         "it": [
+          "professur-open-rank-fur-zeitgenossische-hispanische-literaturen-und-kulturen-etat-de",
+          "professur-open-rank-per-zeitgenossische-hispanische-literaturen-e-kulturen-etat-de-fribourg"
+        ],
+        "en": [
+          "professur-open-rank-fur-zeitgenossische-hispanische-literaturen-und-kulturen-etat-de"
+        ],
+        "fr": [
           "professur-open-rank-fur-zeitgenossische-hispanische-literaturen-und-kulturen-etat-de"
         ]
       },
       "previousSlugs": [
-        "professur-open-rank-fur-zeitgenossische-hispanische-literaturen-und-kulturen-etat-de"
+        "professur-open-rank-fur-zeitgenossische-hispanische-literaturen-und-kulturen-etat-de",
+        "professur-open-rank-per-zeitgenossische-hispanische-literaturen-e-kulturen-etat-de-fribourg"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -9906,12 +10216,12 @@
     },
     {
       "id": "etat-de-fribourg-86a352c729e1",
-      "slug": "professeur-e-open-rank-en-litteratures-et-cultures-hispaniques-contemporaines-etat-de",
+      "slug": "professore-open-rank-nella-letteratura-e-nelle-culture-ispaniche-contemporanee-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "fr": "professeur-e-open-rank-en-litteratures-et-cultures-hispaniques-contemporaines-etat-de",
-        "it": "professeur-e-open-rank-en-litteratures-et-cultures-hispaniques-contemporaines-etat-de",
-        "en": "professeur-e-open-rank-en-litteratures-et-cultures-hispaniques-contemporaines-etat-de",
-        "de": "professeur-e-open-rank-en-litteratures-et-cultures-hispaniques-contemporaines-etat-de"
+        "it": "professore-open-rank-nella-letteratura-e-nelle-culture-ispaniche-contemporanee-etat-de-fribourg-fribourg",
+        "en": "professor-open-rank-in-contemporary-hispanic-literature-and-cultures-etat-de-fribourg-fribourg",
+        "de": "professor-offener-rang-in-der-zeitgenossischen-hispanischen-literatur-und-kulturen-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -9977,16 +10287,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-18T09:53:59.133Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T09:53:59.133Z"
+      "firstSeenAt": "2026-11-20T09:53:59.133Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "professeur-e-open-rank-en-litteratures-et-cultures-hispaniques-contemporaines-etat-de"
+        ],
+        "en": [
+          "professeur-e-open-rank-en-litteratures-et-cultures-hispaniques-contemporaines-etat-de"
+        ],
+        "de": [
+          "professeur-e-open-rank-en-litteratures-et-cultures-hispaniques-contemporaines-etat-de"
+        ]
+      },
+      "previousSlugs": [
+        "professeur-e-open-rank-en-litteratures-et-cultures-hispaniques-contemporaines-etat-de"
+      ]
     },
     {
       "id": "etat-de-fribourg-6e19f718a139",
-      "slug": "stagiaire-post-master-juriste-etat-de-fribourg-ch",
+      "slug": "formazione-post-master-legale-etat-de-fribourg-granges-paccot",
       "slugByLocale": {
         "fr": "stagiaire-post-master-juriste-etat-de-fribourg-ch",
-        "it": "stagiaire-post-master-juriste-etat-de-fribourg-ch",
-        "en": "stagiaire-post-master-juriste-etat-de-fribourg-ch",
-        "de": "stagiaire-post-master-juriste-etat-de-fribourg-ch"
+        "it": "formazione-post-master-legale-etat-de-fribourg-granges-paccot",
+        "en": "legal-post-master-trainee-etat-de-fribourg-granges-paccot",
+        "de": "juristischer-postmaster-trainee-etat-de-fribourg-granges-paccot"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -10052,7 +10376,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-18T09:53:58.486Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-03T09:26:23.287Z"
+      "firstSeenAt": "2026-10-03T09:26:23.287Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-post-master-juriste-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "stagiaire-post-master-juriste-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "stagiaire-post-master-juriste-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-post-master-juriste-etat-de-fribourg-ch"
+      ]
     }
   ]
 }

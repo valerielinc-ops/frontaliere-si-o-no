@@ -3627,7 +3627,7 @@
       "slugByLocale": {
         "en": "2027-internship-loyalty-keyclub-zurich-ubs-zurich",
         "it": "2027-internship-loyalty-keyclub-zurich-ubs-zurich",
-        "de": "2027-internship-loyalty-keyclub-zurich-ubs-zurich",
+        "de": "2027-praktikum-loyalitat-keyclub-zurich-ubs-zurich",
         "fr": "2027-internship-loyalty-keyclub-zurich-ubs-zurich"
       },
       "company": "UBS",
@@ -3716,11 +3716,13 @@
       "firstSeenAt": "2026-11-19T21:19:12.084Z",
       "previousSlugsByLocale": {
         "de": [
-          "2027-praktikum-loyalitat-keyclub-zurich-ubs-zurich"
+          "2027-praktikum-loyalitat-keyclub-zurich-ubs-zurich",
+          "2027-internship-loyalty-keyclub-zurich-ubs-zurich"
         ]
       },
       "previousSlugs": [
-        "2027-praktikum-loyalitat-keyclub-zurich-ubs-zurich"
+        "2027-praktikum-loyalitat-keyclub-zurich-ubs-zurich",
+        "2027-internship-loyalty-keyclub-zurich-ubs-zurich"
       ],
       "sourceIdentity": "url:https://jobs.ubs.com/tgnewui/search/home/homewithpreload?partnerid=25008&siteid=5131&jobid=354371&pagetype=jobdetails"
     },
@@ -14116,12 +14118,12 @@
     },
     {
       "id": "ubs-3874e1000753",
-      "slug": "eventmitarbeiter-in-im-stundenlohn-ubs-genf",
+      "slug": "collaboratore-trice-per-eventi-con-paga-oraria-ubs-genf",
       "slugByLocale": {
         "de": "eventmitarbeiter-in-im-stundenlohn-ubs-genf",
-        "it": "eventmitarbeiter-in-im-stundenlohn-ubs-genf",
-        "en": "eventmitarbeiter-in-im-stundenlohn-ubs-genf",
-        "fr": "eventmitarbeiter-in-im-stundenlohn-ubs-genf"
+        "it": "collaboratore-trice-per-eventi-con-paga-oraria-ubs-genf",
+        "en": "event-staff-member-paid-by-the-hour-ubs-genf",
+        "fr": "collaborateur-trice-evenementiel-le-remunere-e-a-l-heure-ubs-genf"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -14194,7 +14196,21 @@
       "validThrough": "2027-02-18T09:30:04.547Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-20T09:30:04.547Z",
-      "sourceIdentity": "url:https://jobs.ubs.com/tgnewui/search/home/homewithpreload?partnerid=25008&siteid=5050&jobid=354410&pagetype=jobdetails"
+      "sourceIdentity": "url:https://jobs.ubs.com/tgnewui/search/home/homewithpreload?partnerid=25008&siteid=5050&jobid=354410&pagetype=jobdetails",
+      "previousSlugsByLocale": {
+        "it": [
+          "eventmitarbeiter-in-im-stundenlohn-ubs-genf"
+        ],
+        "en": [
+          "eventmitarbeiter-in-im-stundenlohn-ubs-genf"
+        ],
+        "fr": [
+          "eventmitarbeiter-in-im-stundenlohn-ubs-genf"
+        ]
+      },
+      "previousSlugs": [
+        "eventmitarbeiter-in-im-stundenlohn-ubs-genf"
+      ]
     }
   ]
 }

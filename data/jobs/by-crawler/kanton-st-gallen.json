@@ -7213,12 +7213,12 @@
     },
     {
       "id": "kanton-st-gallen-103a269c9c15",
-      "slug": "lehrperson-per-das-fach-physik-kanton-st-gallen-sargans",
+      "slug": "docente-di-fisica-kanton-st-gallen-sargans",
       "slugByLocale": {
         "de": "lehrperson-fur-das-fach-physik-kanton-st-gallen-ch",
-        "it": "lehrperson-per-das-fach-physik-kanton-st-gallen-sargans",
-        "en": "lehrperson-fur-das-fach-physik-kanton-st-gallen-ch",
-        "fr": "lehrperson-fur-das-fach-physik-kanton-st-gallen-ch"
+        "it": "docente-di-fisica-kanton-st-gallen-sargans",
+        "en": "physics-teacher-kanton-st-gallen-sargans",
+        "fr": "professeur-de-physique-kanton-st-gallen-sargans"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -7268,20 +7268,24 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrperson-fur-das-fach-physik-kanton-st-gallen-ch",
-          "docente-di-fisica-kanton-st-gallen-sargans"
+          "docente-di-fisica-kanton-st-gallen-sargans",
+          "lehrperson-per-das-fach-physik-kanton-st-gallen-sargans"
         ],
         "en": [
-          "physics-teacher-kanton-st-gallen-sargans"
+          "physics-teacher-kanton-st-gallen-sargans",
+          "lehrperson-fur-das-fach-physik-kanton-st-gallen-ch"
         ],
         "fr": [
-          "professeur-de-physique-kanton-st-gallen-sargans"
+          "professeur-de-physique-kanton-st-gallen-sargans",
+          "lehrperson-fur-das-fach-physik-kanton-st-gallen-ch"
         ]
       },
       "previousSlugs": [
         "lehrperson-fur-das-fach-physik-kanton-st-gallen-ch",
         "docente-di-fisica-kanton-st-gallen-sargans",
         "physics-teacher-kanton-st-gallen-sargans",
-        "professeur-de-physique-kanton-st-gallen-sargans"
+        "professeur-de-physique-kanton-st-gallen-sargans",
+        "lehrperson-per-das-fach-physik-kanton-st-gallen-sargans"
       ],
       "salaryMin": 48500,
       "salaryMax": 89500,
@@ -7565,12 +7569,12 @@
     },
     {
       "id": "kanton-st-gallen-926183fb73e1",
-      "slug": "gerichtsschreiber-in-kreisgericht-rheintal-m-w-d-kanton-st-gallen-ch",
+      "slug": "cancelliere-a-del-tribunale-distrettuale-di-rheintal-m-f-d-kanton-st-gallen-altstatten",
       "slugByLocale": {
         "de": "gerichtsschreiber-in-kreisgericht-rheintal-m-w-d-kanton-st-gallen-ch",
-        "it": "gerichtsschreiber-in-kreisgericht-rheintal-m-w-d-kanton-st-gallen-ch",
-        "en": "gerichtsschreiber-in-kreisgericht-rheintal-m-w-d-kanton-st-gallen-ch",
-        "fr": "gerichtsschreiber-in-kreisgericht-rheintal-m-w-d-kanton-st-gallen-ch"
+        "it": "cancelliere-a-del-tribunale-distrettuale-di-rheintal-m-f-d-kanton-st-gallen-altstatten",
+        "en": "court-clerk-rheintal-district-court-m-f-d-kanton-st-gallen-altstatten",
+        "fr": "greffier-ere-du-tribunal-de-district-du-rheintal-h-f-d-kanton-st-gallen-altstatten"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -7634,7 +7638,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-18T09:30:18.627Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T09:30:18.627Z"
+      "firstSeenAt": "2026-11-20T09:30:18.627Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gerichtsschreiber-in-kreisgericht-rheintal-m-w-d-kanton-st-gallen-ch"
+        ],
+        "en": [
+          "gerichtsschreiber-in-kreisgericht-rheintal-m-w-d-kanton-st-gallen-ch"
+        ],
+        "fr": [
+          "gerichtsschreiber-in-kreisgericht-rheintal-m-w-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "gerichtsschreiber-in-kreisgericht-rheintal-m-w-d-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-d387a4841bbf",
@@ -7642,8 +7660,8 @@
       "slugByLocale": {
         "de": "juristische-n-mitarbeiter-in-m-w-d-kanton-st-gallen-ch",
         "it": "juristische-n-collaboratore-trice-m-w-d-kanton-st-gallen-stadt-st-gallen",
-        "en": "juristische-n-mitarbeiter-in-m-w-d-kanton-st-gallen-ch",
-        "fr": "juristische-n-mitarbeiter-in-m-w-d-kanton-st-gallen-ch"
+        "en": "legal-staff-member-m-f-d-kanton-st-gallen-stadt-st-gallen",
+        "fr": "collaborateur-trice-juridique-h-f-d-kanton-st-gallen-stadt-st-gallen"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -7692,6 +7710,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "juristische-n-mitarbeiter-in-m-w-d-kanton-st-gallen-ch"
+        ],
+        "en": [
+          "juristische-n-mitarbeiter-in-m-w-d-kanton-st-gallen-ch"
+        ],
+        "fr": [
           "juristische-n-mitarbeiter-in-m-w-d-kanton-st-gallen-ch"
         ]
       },

@@ -2251,10 +2251,10 @@
     },
     {
       "id": "six-group-05b2fcdf59b6",
-      "slug": "customer-service-agent-80-100-six-group-zurich",
+      "slug": "servizio-clienti-agent-80-100-six-group-zurich",
       "slugByLocale": {
         "de": "customer-service-agent-80-100-six-group-zurich",
-        "it": "customer-service-agent-80-100-six-group-zurich",
+        "it": "servizio-clienti-agent-80-100-six-group-zurich",
         "en": "customer-service-agent-80-100-six-group-zurich",
         "fr": "customer-service-agent-80-100-six-group-zurich"
       },
@@ -2322,11 +2322,13 @@
       "firstSeenAt": "2026-11-19T21:50:11.940Z",
       "previousSlugsByLocale": {
         "it": [
-          "servizio-clienti-agent-80-100-six-group-zurich"
+          "servizio-clienti-agent-80-100-six-group-zurich",
+          "customer-service-agent-80-100-six-group-zurich"
         ]
       },
       "previousSlugs": [
-        "servizio-clienti-agent-80-100-six-group-zurich"
+        "servizio-clienti-agent-80-100-six-group-zurich",
+        "customer-service-agent-80-100-six-group-zurich"
       ],
       "sourceIdentity": "url:https://jobs.six-group.com/job/zurich-customer-service-agent-%2880-100%29/1458807633"
     },
