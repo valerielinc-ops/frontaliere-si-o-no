@@ -4008,7 +4008,7 @@
     "winnerJobIdentifier": "kanton-aargau-34c7791f0786",
     "winnerCanonical": "consulente-personale-consulente-personale-rav-80-100-kanton-aargau-rheinfelden",
     "decidedAt": "2026-11-16T00:00:00.000Z",
-    "lastSeenAt": "2026-11-17T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.4167,
     "candidatesCount": 2,
     "canton": "AG"
@@ -4535,22 +4535,40 @@
     "candidatesCount": 1,
     "canton": "AG"
   },
+  "AG::it::verkaufer-in-im-stundenlohn-denner-4": {
+    "winnerJobIdentifier": "denner-16563f9fd992",
+    "winnerCanonical": "venditore-con-retribuzione-oraria-denner-berikon",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.0909,
+    "candidatesCount": 2,
+    "canton": "AG"
+  },
   "AG::it::verkaufer-in-im-stundenlohn-denner-5": {
-    "winnerJobIdentifier": "denner-a358dc71c20f",
-    "winnerCanonical": "venditore-con-retribuzione-oraria-denner-oftringen",
-    "decidedAt": "2026-10-30T00:00:00.000Z",
-    "lastSeenAt": "2026-11-02T00:00:00.000Z",
+    "winnerJobIdentifier": "denner-16563f9fd992",
+    "winnerCanonical": "venditore-con-retribuzione-oraria-denner-berikon",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.0909,
     "candidatesCount": 1,
     "canton": "AG"
   },
   "AG::it::verkaufer-in-im-stundenlohn-denner-6": {
-    "winnerJobIdentifier": "denner-811c6b16fc44",
-    "winnerCanonical": "venditore-con-retribuzione-oraria-denner-wohlen",
-    "decidedAt": "2026-10-10T00:00:00.000Z",
-    "lastSeenAt": "2026-10-28T00:00:00.000Z",
+    "winnerJobIdentifier": "denner-16563f9fd992",
+    "winnerCanonical": "venditore-con-retribuzione-oraria-denner-berikon",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.0909,
     "candidatesCount": 1,
+    "canton": "AG"
+  },
+  "AG::it::verkaufer-in-im-stundenlohn-denner-7": {
+    "winnerJobIdentifier": "denner-16563f9fd992",
+    "winnerCanonical": "venditore-con-retribuzione-oraria-denner-berikon",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.0909,
+    "candidatesCount": 2,
     "canton": "AG"
   },
   "AG::it::verkauferin-verkaufer-volg-remigen-ag-w-m-d-volg-remigen": {
@@ -4649,15 +4667,15 @@
     "decidedAt": "2026-11-20T00:00:00.000Z",
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.25,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
     "canton": "AG"
   },
   "AG::it::zusteller-in-briefe-und-pakete-post-2": {
-    "winnerJobIdentifier": "posta-svizzera-centro-regionale-e8ba4bebf157",
-    "winnerCanonical": "addetto-a-alla-consegna-di-lettere-e-pacchi-die-schweizerische-post-schoftland",
-    "decidedAt": "2026-11-20T00:00:00.000Z",
-    "lastSeenAt": "2026-11-20T00:00:00.000Z",
-    "score": 0.0556,
+    "winnerJobIdentifier": "posta-svizzera-centro-regionale-af9b6decf355",
+    "winnerCanonical": "lettere-di-consegna-e-pacchetti-die-schweizerische-post-buchs-ag",
+    "decidedAt": "2026-10-03T00:00:00.000Z",
+    "lastSeenAt": "2026-11-17T00:00:00.000Z",
+    "score": 0.0625,
     "candidatesCount": 1,
     "canton": "AG"
   },
@@ -4950,12 +4968,12 @@
     "canton": "APPENZELLO"
   },
   "APPENZELLO::it::automatikmonteur-in-fur-schaltschrankbau-und-inbetriebnahme-herisau-appenzell-ausserrhoden": {
-    "winnerJobIdentifier": "stellentreff-9b3153c966ad",
-    "winnerCanonical": "automatikmonteur-in-per-schaltschrankbau-e-inbetriebnahme-stellentreff-ag-herisau",
-    "decidedAt": "2026-10-03T00:00:00.000Z",
+    "winnerJobIdentifier": "fachkraft-ecc0ad2f60fd",
+    "winnerCanonical": "automatikmonteur-in-per-schaltschrankbau-e-inbetriebnahme-fachkraft-ch-gmbh-herisau",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
-    "score": 0.3846,
-    "candidatesCount": 2,
+    "score": 0.3571,
+    "candidatesCount": 1,
     "canton": "APPENZELLO"
   },
   "APPENZELLO::it::bauarbeiter-in-fur-belagsarbeiten-und-abbrucharbeiten-appenzell-appenzell-innerrhoden": {
@@ -5277,7 +5295,7 @@
     "winnerJobIdentifier": "unispital-basel-84931d10697c",
     "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit",
     "decidedAt": "2026-09-17T00:00:00.000Z",
-    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-17T00:00:00.000Z",
     "score": 0.9091,
     "candidatesCount": 2,
     "canton": "BASILEA"
@@ -5315,6 +5333,15 @@
     "decidedAt": "2026-09-20T00:00:00.000Z",
     "lastSeenAt": "2026-10-28T00:00:00.000Z",
     "score": 0.8571,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
+  "BASILEA::de::filialleiter-in-ausbildung-denner-ag-sissach-g3b8n9": {
+    "winnerJobIdentifier": "company-91z06k",
+    "winnerCanonical": "filialleiter-in-ausbildung-denner-ag-sissach-91z06k",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.75,
     "candidatesCount": 2,
     "canton": "BASILEA"
   },
@@ -5453,6 +5480,24 @@
     "candidatesCount": 5,
     "canton": "BASILEA"
   },
+  "BASILEA::de::verkaufer-in-denner-bubendorf": {
+    "winnerJobIdentifier": "denner-2da3b8645bc1",
+    "winnerCanonical": "verkaufer-in-denner",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.75,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
+  "BASILEA::de::verkaufer-in-denner-rubigen": {
+    "winnerJobIdentifier": "denner-f5a9bf6c1ee4",
+    "winnerCanonical": "verkaufer-in-denner",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.75,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
   "BASILEA::de::verkaufer-in-im-stundenlohn-denner": {
     "winnerJobIdentifier": "denner-fbbc1daaeaea",
     "winnerCanonical": "verkaufer-in-im-stundenlohn-denner-basel",
@@ -5538,7 +5583,7 @@
     "winnerJobIdentifier": "unispital-basel-84931d10697c",
     "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit",
     "decidedAt": "2026-09-17T00:00:00.000Z",
-    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-17T00:00:00.000Z",
     "score": 0.2941,
     "candidatesCount": 2,
     "canton": "BASILEA"
@@ -5616,12 +5661,12 @@
     "canton": "BASILEA"
   },
   "BASILEA::en::dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit": {
-    "winnerJobIdentifier": "unispital-basel-84931d10697c",
+    "winnerJobIdentifier": "unispital-basel-2ccdb29cc835",
     "winnerCanonical": "dipl-nursing-specialist-hf-fh-neurological-bed-station-stroke-unit-universitatsspital-basel-basel",
-    "decidedAt": "2026-10-03T00:00:00.000Z",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.2941,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "BASILEA"
   },
   "BASILEA::en::dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch-2": {
@@ -5876,6 +5921,15 @@
     "candidatesCount": 2,
     "canton": "BASILEA"
   },
+  "BASILEA::en::store-manager-in-training-denner-ag-sissach-1193f4": {
+    "winnerJobIdentifier": "company-91z06k",
+    "winnerCanonical": "store-manager-in-training-denner-ag-sissach",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.875,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
   "BASILEA::en::stv-filialleiter-in-denner-basel": {
     "winnerJobIdentifier": "denner-baa12f39efd1",
     "winnerCanonical": "deputy-branch-manager-denner-basel",
@@ -5891,6 +5945,24 @@
     "decidedAt": "2026-10-03T00:00:00.000Z",
     "lastSeenAt": "2026-11-04T00:00:00.000Z",
     "score": 0.4,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
+  "BASILEA::en::verkaufer-in-denner-bubendorf": {
+    "winnerJobIdentifier": "denner-2da3b8645bc1",
+    "winnerCanonical": "shop-assistant-denner-bubendorf",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.3333,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
+  "BASILEA::en::verkaufer-in-denner-rubigen": {
+    "winnerJobIdentifier": "company-uldcvi",
+    "winnerCanonical": "seller-denner-ag-allschwil",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.1429,
     "candidatesCount": 2,
     "canton": "BASILEA"
   },
@@ -6078,7 +6150,7 @@
     "winnerJobIdentifier": "unispital-basel-84931d10697c",
     "winnerCanonical": "dipl-specialiste-des-soins-infirmiers-hf-fh-unite-de-la-station-de-lit-neurologique-et-des-accidents-cerebrovasculaires",
     "decidedAt": "2026-10-03T00:00:00.000Z",
-    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-17T00:00:00.000Z",
     "score": 0.125,
     "candidatesCount": 1,
     "canton": "BASILEA"
@@ -6161,6 +6233,15 @@
     "decidedAt": "2026-11-16T00:00:00.000Z",
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.7143,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
+  "BASILEA::fr::gestionnaire-de-magasin-en-formation-denner-ag-sissach-1193f4": {
+    "winnerJobIdentifier": "company-91z06k",
+    "winnerCanonical": "gestionnaire-de-magasin-en-formation-denner-ag-sissach",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.8889,
     "candidatesCount": 2,
     "canton": "BASILEA"
   },
@@ -6359,6 +6440,24 @@
     "decidedAt": "2026-10-03T00:00:00.000Z",
     "lastSeenAt": "2026-11-04T00:00:00.000Z",
     "score": 0.3333,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
+  "BASILEA::fr::verkaufer-in-denner-bubendorf": {
+    "winnerJobIdentifier": "denner-2da3b8645bc1",
+    "winnerCanonical": "vendeur-denner-bubendorf",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.4,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
+  "BASILEA::fr::verkaufer-in-denner-rubigen": {
+    "winnerJobIdentifier": "denner-f5a9bf6c1ee4",
+    "winnerCanonical": "vendeur-denner-fullinsdorf",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.1667,
     "candidatesCount": 2,
     "canton": "BASILEA"
   },
@@ -6879,7 +6978,7 @@
     "winnerJobIdentifier": "unispital-basel-84931d10697c",
     "winnerCanonical": "dipl-infermieristica-hf-fh-neurological-bed-station-stroke-unit-universitatsspital-basel-basel",
     "decidedAt": "2026-10-03T00:00:00.000Z",
-    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-17T00:00:00.000Z",
     "score": 0.6429,
     "candidatesCount": 2,
     "canton": "BASILEA"
@@ -7137,9 +7236,9 @@
     "canton": "BASILEA"
   },
   "BASILEA::it::dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit": {
-    "winnerJobIdentifier": "unispital-basel-84931d10697c",
+    "winnerJobIdentifier": "unispital-basel-2ccdb29cc835",
     "winnerCanonical": "dipl-infermieristica-hf-fh-neurological-bed-station-stroke-unit-universitatsspital-basel-basel",
-    "decidedAt": "2026-11-16T00:00:00.000Z",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.3125,
     "candidatesCount": 1,
@@ -7149,7 +7248,7 @@
     "winnerJobIdentifier": "unispital-basel-84931d10697c",
     "winnerCanonical": "dipl-infermieristica-hf-fh-neurological-bed-station-stroke-unit-universitatsspital-basel-basel",
     "decidedAt": "2026-11-16T00:00:00.000Z",
-    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-17T00:00:00.000Z",
     "score": 0.2941,
     "candidatesCount": 1,
     "canton": "BASILEA"
@@ -7302,7 +7401,7 @@
     "winnerJobIdentifier": "unispital-basel-84931d10697c",
     "winnerCanonical": "dipl-infermieristica-hf-fh-neurological-bed-station-stroke-unit-universitatsspital-basel-basel",
     "decidedAt": "2026-10-03T00:00:00.000Z",
-    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-17T00:00:00.000Z",
     "score": 0.3684,
     "candidatesCount": 2,
     "canton": "BASILEA"
@@ -7377,6 +7476,15 @@
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.2778,
     "candidatesCount": 1,
+    "canton": "BASILEA"
+  },
+  "BASILEA::it::direttore-di-negozio-in-formazione-denner-ag-sissach-1193f4": {
+    "winnerJobIdentifier": "company-91z06k",
+    "winnerCanonical": "direttore-di-negozio-in-formazione-denner-ag-sissach",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.8889,
+    "candidatesCount": 2,
     "canton": "BASILEA"
   },
   "BASILEA::it::duales-studium-dhbw-wirtschaftsinformatik-application-management-unispital-basel-ch": {
@@ -7523,6 +7631,15 @@
     "candidatesCount": 1,
     "canton": "BASILEA"
   },
+  "BASILEA::it::filialleiter-in-ausbildung-denner-ag-sissach-g3b8n9": {
+    "winnerJobIdentifier": "company-91z06k",
+    "winnerCanonical": "direttore-di-negozio-in-formazione-denner-ag-sissach",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.3636,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
   "BASILEA::it::filialleiter-in-denner": {
     "winnerJobIdentifier": "company-1yoo3t",
     "winnerCanonical": "responsabile-filiale-denner-ag-basel",
@@ -7592,6 +7709,15 @@
     "decidedAt": "2026-09-20T00:00:00.000Z",
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.4118,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
+  "BASILEA::it::gestionnaire-de-magasin-en-formation-denner-ag-sissach-1193f4": {
+    "winnerJobIdentifier": "company-91z06k",
+    "winnerCanonical": "direttore-di-negozio-in-formazione-denner-ag-sissach",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.2143,
     "candidatesCount": 2,
     "canton": "BASILEA"
   },
@@ -8436,7 +8562,7 @@
     "winnerJobIdentifier": "kanton-basel-landschaft-25404d17491f",
     "winnerCanonical": "direttore-soc-kantonale-verwaltung-basel-landschaft-liestal",
     "decidedAt": "2026-10-23T00:00:00.000Z",
-    "lastSeenAt": "2026-11-17T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.4,
     "candidatesCount": 1,
     "canton": "BASILEA"
@@ -8468,6 +8594,15 @@
     "candidatesCount": 9,
     "canton": "BASILEA"
   },
+  "BASILEA::it::store-manager-in-training-denner-ag-sissach-1193f4": {
+    "winnerJobIdentifier": "company-91z06k",
+    "winnerCanonical": "direttore-di-negozio-in-formazione-denner-ag-sissach",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.3333,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
   "BASILEA::it::strategic-buyer-electronics-components-f-m-d-80-100-endress-hauser-reinach": {
     "winnerJobIdentifier": "endress-hauser-741942cae4fa",
     "winnerCanonical": "componenti-elettronici-dell-acquirente-strategico-f-m-d-80-100-endress-hauser-reinach",
@@ -8495,6 +8630,24 @@
     "candidatesCount": 4,
     "canton": "BASILEA"
   },
+  "BASILEA::it::stv-filialleiter-in-denner-3": {
+    "winnerJobIdentifier": "denner-c137666875da",
+    "winnerCanonical": "stv-branch-manager-in-denner-ag-basel-e6a673",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.3,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
+  "BASILEA::it::stv-filialleiter-in-denner-4": {
+    "winnerJobIdentifier": "denner-baa12f39efd1",
+    "winnerCanonical": "vice-direttore-di-filiale-denner-basel",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.1,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
   "BASILEA::it::stv-filialleiter-in-denner-basel": {
     "winnerJobIdentifier": "denner-baa12f39efd1",
     "winnerCanonical": "vice-direttore-di-filiale-denner-basel",
@@ -8520,6 +8673,15 @@
     "lastSeenAt": "2026-11-04T00:00:00.000Z",
     "score": 0.1818,
     "candidatesCount": 1,
+    "canton": "BASILEA"
+  },
+  "BASILEA::it::technical-project-manager-in-facility-management-100-m-f-d-endress-hauser-reinach": {
+    "winnerJobIdentifier": "endress-hauser-35b11c5a191b",
+    "winnerCanonical": "project-manager-tecnologia-nella-gestione-delle-strutture-al-100-m-f-d-endress-hauser-reinach",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.4737,
+    "candidatesCount": 2,
     "canton": "BASILEA"
   },
   "BASILEA::it::terapeuta-del-lavoro-universitatsspital-basel-basel": {
@@ -8630,12 +8792,57 @@
     "candidatesCount": 2,
     "canton": "BASILEA"
   },
+  "BASILEA::it::verkaufer-in-denner-2": {
+    "winnerJobIdentifier": "company-uldcvi",
+    "winnerCanonical": "venditore-denner-ag-allschwil",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.1429,
+    "candidatesCount": 3,
+    "canton": "BASILEA"
+  },
+  "BASILEA::it::verkaufer-in-denner-34": {
+    "winnerJobIdentifier": "denner-2da3b8645bc1",
+    "winnerCanonical": "venditore-denner-bubendorf",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.1667,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
+  "BASILEA::it::verkaufer-in-denner-38": {
+    "winnerJobIdentifier": "denner-2da3b8645bc1",
+    "winnerCanonical": "venditore-denner-bubendorf",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.1667,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
+  "BASILEA::it::verkaufer-in-denner-4": {
+    "winnerJobIdentifier": "company-uldcvi",
+    "winnerCanonical": "venditore-denner-ag-allschwil",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.1429,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
   "BASILEA::it::verkaufer-in-denner-47": {
     "winnerJobIdentifier": "denner-6d2936b67eba",
     "winnerCanonical": "verkaufer-in-denner-sissach",
     "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.6,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
+  "BASILEA::it::verkaufer-in-denner-6": {
+    "winnerJobIdentifier": "denner-b618e5a75544",
+    "winnerCanonical": "venditore-denner-ag-basel",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.1429,
     "candidatesCount": 2,
     "canton": "BASILEA"
   },
@@ -8654,7 +8861,25 @@
     "decidedAt": "2026-11-20T00:00:00.000Z",
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.3333,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
+  "BASILEA::it::verkaufer-in-denner-bubendorf": {
+    "winnerJobIdentifier": "denner-2da3b8645bc1",
+    "winnerCanonical": "venditore-denner-bubendorf",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.4,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
+  "BASILEA::it::verkaufer-in-denner-rubigen": {
+    "winnerJobIdentifier": "denner-2da3b8645bc1",
+    "winnerCanonical": "venditore-denner-bubendorf",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.1667,
+    "candidatesCount": 3,
     "canton": "BASILEA"
   },
   "BASILEA::it::verkaufer-in-denner-sissach": {
@@ -8664,6 +8889,15 @@
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.3333,
     "candidatesCount": 1,
+    "canton": "BASILEA"
+  },
+  "BASILEA::it::verkaufer-in-denner-zug": {
+    "winnerJobIdentifier": "denner-f5a9bf6c1ee4",
+    "winnerCanonical": "venditore-denner-fullinsdorf",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.1667,
+    "candidatesCount": 2,
     "canton": "BASILEA"
   },
   "BASILEA::it::verkaufer-in-food-coop-arlesheim": {
@@ -8711,6 +8945,15 @@
     "candidatesCount": 1,
     "canton": "BASILEA"
   },
+  "BASILEA::it::verkaufer-in-im-stundenlohn-denner-7": {
+    "winnerJobIdentifier": "denner-fbbc1daaeaea",
+    "winnerCanonical": "commesso-a-con-salario-orario-denner-basel",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.0833,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
   "BASILEA::it::verkauferin-verkaufer-m-w-d-volg-langenbruck": {
     "winnerJobIdentifier": "volg-fenaco-aa7d5122078c",
     "winnerCanonical": "venditore-m-f-d-volg-liestal",
@@ -8742,7 +8985,7 @@
     "winnerJobIdentifier": "ksbl-4699ecaa7b94",
     "winnerCanonical": "pre-pratico-pre-pratico-fisioterapia-liestale-autunno-2027-a-kantonsspital-baselland-ksbl-liestal",
     "decidedAt": "2026-10-27T00:00:00.000Z",
-    "lastSeenAt": "2026-11-17T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.2667,
     "candidatesCount": 1,
     "canton": "BASILEA"
@@ -9269,6 +9512,15 @@
     "candidatesCount": 2,
     "canton": "BE"
   },
+  "BE::de::seller-in-food-coop-genossenschaft-bern": {
+    "winnerJobIdentifier": "company-pnz1sc",
+    "winnerCanonical": "verkaufer-in-food-coop-genossenschaft-bern",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.7143,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
   "BE::de::sommer-2027-lehrstelle-kochin-efz-koch-efz-100-michel-gruppe-ag-meiringen": {
     "winnerJobIdentifier": "michel-gruppe-ag-9cefe1f6c67f",
     "winnerCanonical": "servicetechniker-in-luftungs-und-kalteanlagen-80-100-michel-gruppe-ag-meiringen",
@@ -9374,6 +9626,15 @@
     "decidedAt": "2026-07-10T00:00:00.000Z",
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.2857,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
+  "BE::de::vendeur-euse-food-coop-genossenschaft-bern": {
+    "winnerJobIdentifier": "company-pnz1sc",
+    "winnerCanonical": "verkaufer-in-food-coop-genossenschaft-bern",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.5,
     "candidatesCount": 2,
     "canton": "BE"
   },
@@ -9494,6 +9755,15 @@
     "candidatesCount": 2,
     "canton": "BE"
   },
+  "BE::de::verkaufer-dans-les-aliments-coop-genossenschaft-bern": {
+    "winnerJobIdentifier": "company-pnz1sc",
+    "winnerCanonical": "verkaufer-in-food-coop-genossenschaft-bern",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.4444,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
   "BE::de::verkaufer-in-denner": {
     "winnerJobIdentifier": "company-1remei",
     "winnerCanonical": "verkaufer-in-denner-ag-rubigen",
@@ -9501,6 +9771,15 @@
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.6,
     "candidatesCount": 12,
+    "canton": "BE"
+  },
+  "BE::de::verkaufer-in-denner-3": {
+    "winnerJobIdentifier": "denner-a129542ef7fb",
+    "winnerCanonical": "verkaufer-in-denner-zweisimmen",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.6,
+    "candidatesCount": 2,
     "canton": "BE"
   },
   "BE::de::verkaufer-in-denner-ag-allschwil": {
@@ -9674,12 +9953,48 @@
     "candidatesCount": 2,
     "canton": "BE"
   },
-  "BE::de::verkaufer-in-denner-biel-bienne": {
-    "winnerJobIdentifier": "denner-082a4c2d91d2",
-    "winnerCanonical": "verkaufer-in-denner",
-    "decidedAt": "2026-11-01T00:00:00.000Z",
-    "lastSeenAt": "2026-11-04T00:00:00.000Z",
+  "BE::de::verkaufer-in-denner-baar": {
+    "winnerJobIdentifier": "denner-a129542ef7fb",
+    "winnerCanonical": "verkaufer-in-denner-zweisimmen",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.6,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
+  "BE::de::verkaufer-in-denner-biel-bienne": {
+    "winnerJobIdentifier": "denner-993a93756414",
+    "winnerCanonical": "verkaufer-in-denner-c310c0",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 1,
+    "canton": "BE"
+  },
+  "BE::de::verkaufer-in-food-coop-bern-93bfyu": {
+    "winnerJobIdentifier": "company-pnz1sc",
+    "winnerCanonical": "verkaufer-in-food-coop-genossenschaft-bern",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.7143,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
+  "BE::de::verkaufer-in-food-coop-genossenschaft-bern-4lb2b0": {
+    "winnerJobIdentifier": "company-pnz1sc",
+    "winnerCanonical": "verkaufer-in-food-coop-genossenschaft-bern",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.8571,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
+  "BE::de::verkaufer-in-food-coop-genossenschaft-bern-93bfyu": {
+    "winnerJobIdentifier": "company-pnz1sc",
+    "winnerCanonical": "verkaufer-in-food-coop-genossenschaft-bern",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.8571,
     "candidatesCount": 2,
     "canton": "BE"
   },
@@ -9699,6 +10014,15 @@
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.625,
     "candidatesCount": 3,
+    "canton": "BE"
+  },
+  "BE::de::verkaufer-in-lebensmittel-coop-genossenschaft-bern": {
+    "winnerJobIdentifier": "company-pnz1sc",
+    "winnerCanonical": "verkaufer-in-food-coop-genossenschaft-bern",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.7143,
+    "candidatesCount": 2,
     "canton": "BE"
   },
   "BE::de::verkaufsberater-in-outlet-landquart-w-m-50-80-kuhn-rikon-landquart": {
@@ -10556,6 +10880,15 @@
     "candidatesCount": 2,
     "canton": "BE"
   },
+  "BE::en::seller-in-food-coop-genossenschaft-bern": {
+    "winnerJobIdentifier": "company-pnz1sc",
+    "winnerCanonical": "seller-food-coop-genossenschaft-bern-cf1067",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.7143,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
   "BE::en::senior-application-developer-80-100-fincons-group-bern": {
     "winnerJobIdentifier": "fincons-group-2058da3a0ee8",
     "winnerCanonical": "senior-application-developer-80-100-fincons-group-bern-302d2b",
@@ -10682,6 +11015,15 @@
     "candidatesCount": 2,
     "canton": "BE"
   },
+  "BE::en::vendeur-euse-food-coop-genossenschaft-bern": {
+    "winnerJobIdentifier": "company-pnz1sc",
+    "winnerCanonical": "seller-food-coop-genossenschaft-bern-cf1067",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
   "BE::en::vendeur-vendeuse-denner-ag-allschwil": {
     "winnerJobIdentifier": "company-1remei",
     "winnerCanonical": "seller-denner-ag-rubigen",
@@ -10796,6 +11138,24 @@
     "decidedAt": "2026-07-10T00:00:00.000Z",
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.2857,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
+  "BE::en::verkaufer-dans-les-aliments-coop-genossenschaft-bern": {
+    "winnerJobIdentifier": "company-pnz1sc",
+    "winnerCanonical": "seller-food-coop-genossenschaft-bern-cf1067",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.3,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
+  "BE::en::verkaufer-in-denner-3": {
+    "winnerJobIdentifier": "denner-a129542ef7fb",
+    "winnerCanonical": "verkaufer-in-denner-ag-zweisimmen",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.5,
     "candidatesCount": 2,
     "canton": "BE"
   },
@@ -10988,6 +11348,15 @@
     "candidatesCount": 1,
     "canton": "BE"
   },
+  "BE::en::verkaufer-in-denner-baar": {
+    "winnerJobIdentifier": "denner-a129542ef7fb",
+    "winnerCanonical": "verkaufer-in-denner-ag-zweisimmen",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
   "BE::en::verkaufer-in-denner-biel-bienne": {
     "winnerJobIdentifier": "denner-993a93756414",
     "winnerCanonical": "shop-assistant-denner-biel-bienne-916e21",
@@ -11003,6 +11372,33 @@
     "decidedAt": "2026-10-12T00:00:00.000Z",
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.4,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
+  "BE::en::verkaufer-in-food-coop-genossenschaft-bern-4lb2b0": {
+    "winnerJobIdentifier": "company-pnz1sc",
+    "winnerCanonical": "seller-food-coop-genossenschaft-bern-cf1067",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.4444,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
+  "BE::en::verkaufer-in-food-coop-genossenschaft-bern-93bfyu": {
+    "winnerJobIdentifier": "company-pnz1sc",
+    "winnerCanonical": "seller-food-coop-genossenschaft-bern-cf1067",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.4444,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
+  "BE::en::verkaufer-in-lebensmittel-coop-genossenschaft-bern": {
+    "winnerJobIdentifier": "company-pnz1sc",
+    "winnerCanonical": "seller-food-coop-genossenschaft-bern-cf1067",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.3333,
     "candidatesCount": 2,
     "canton": "BE"
   },
@@ -11191,6 +11587,15 @@
     "winnerCanonical": "ingenieur-civil-en-genie-civil-structurel-ffs-officine-ferrovie-federali-bern",
     "decidedAt": "2026-10-13T00:00:00.000Z",
     "lastSeenAt": "2026-11-17T00:00:00.000Z",
+    "score": 0.3333,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
+  "BE::fr::betreuungsfachperson-stadt-bern-bern": {
+    "winnerJobIdentifier": "stadt-bern-002b898423bd",
+    "winnerCanonical": "specialiste-des-soins-stadt-bern-bern",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.3333,
     "candidatesCount": 2,
     "canton": "BE"
@@ -11834,6 +12239,15 @@
     "candidatesCount": 2,
     "canton": "BE"
   },
+  "BE::fr::seller-in-food-coop-genossenschaft-bern": {
+    "winnerJobIdentifier": "company-pnz1sc",
+    "winnerCanonical": "aliments-pour-vendeurs-coop-genossenschaft-bern",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.3333,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
   "BE::fr::senior-applikations-entwickler-in-80-100-fincons-group-full-time": {
     "winnerJobIdentifier": "fincons-group-5a6d8522cddb",
     "winnerCanonical": "developpeur-d-application-senior-dans-80-100-fincons-group-bern",
@@ -11969,6 +12383,15 @@
     "candidatesCount": 2,
     "canton": "BE"
   },
+  "BE::fr::vendeur-euse-food-coop-genossenschaft-bern": {
+    "winnerJobIdentifier": "company-pnz1sc",
+    "winnerCanonical": "aliments-pour-vendeurs-coop-genossenschaft-bern",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.3333,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
   "BE::fr::vendeur-vendeuse-denner-ag-allschwil": {
     "winnerJobIdentifier": "company-1remei",
     "winnerCanonical": "vendeur-denner-ag-rubigen",
@@ -12083,6 +12506,24 @@
     "decidedAt": "2026-07-10T00:00:00.000Z",
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.2857,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
+  "BE::fr::verkaufer-dans-les-aliments-coop-genossenschaft-bern": {
+    "winnerJobIdentifier": "company-pnz1sc",
+    "winnerCanonical": "aliments-pour-vendeurs-coop-genossenschaft-bern",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.4444,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
+  "BE::fr::verkaufer-in-denner-3": {
+    "winnerJobIdentifier": "denner-a129542ef7fb",
+    "winnerCanonical": "verkaufer-in-denner-ag-zweisimmen",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.5,
     "candidatesCount": 2,
     "canton": "BE"
   },
@@ -12275,6 +12716,15 @@
     "candidatesCount": 1,
     "canton": "BE"
   },
+  "BE::fr::verkaufer-in-denner-baar": {
+    "winnerJobIdentifier": "denner-a129542ef7fb",
+    "winnerCanonical": "verkaufer-in-denner-ag-zweisimmen",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
   "BE::fr::verkaufer-in-denner-biel-bienne": {
     "winnerJobIdentifier": "denner-993a93756414",
     "winnerCanonical": "vendeur-denner-biel-bienne-916e21",
@@ -12288,9 +12738,36 @@
     "winnerJobIdentifier": "denner-6192751f9df2",
     "winnerCanonical": "vendeur-euse-denner-ag-interlaken",
     "decidedAt": "2026-10-14T00:00:00.000Z",
-    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-17T00:00:00.000Z",
     "score": 0.2857,
     "candidatesCount": 1,
+    "canton": "BE"
+  },
+  "BE::fr::verkaufer-in-food-coop-genossenschaft-bern-4lb2b0": {
+    "winnerJobIdentifier": "company-pnz1sc",
+    "winnerCanonical": "aliments-pour-vendeurs-coop-genossenschaft-bern",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.3,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
+  "BE::fr::verkaufer-in-food-coop-genossenschaft-bern-93bfyu": {
+    "winnerJobIdentifier": "company-pnz1sc",
+    "winnerCanonical": "aliments-pour-vendeurs-coop-genossenschaft-bern",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.3,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
+  "BE::fr::verkaufer-in-lebensmittel-coop-genossenschaft-bern": {
+    "winnerJobIdentifier": "company-pnz1sc",
+    "winnerCanonical": "aliments-pour-vendeurs-coop-genossenschaft-bern",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.3333,
+    "candidatesCount": 2,
     "canton": "BE"
   },
   "BE::fr::verkauferin-verkaufer-m-w-d-volg-schangnau": {
@@ -12554,6 +13031,15 @@
     "candidatesCount": 1,
     "canton": "BE"
   },
+  "BE::it::assistant-commercial-alimentaire-coop-genossenschaft-bern-7a8dc1": {
+    "winnerJobIdentifier": "company-pnz1sc",
+    "winnerCanonical": "vendita-prodotti-alimentari-coop-genossenschaft-bern-cf1067",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.2727,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
   "BE::it::assistant-counter-manager-m-w-d-rituals-cosmetics-ch": {
     "winnerJobIdentifier": "rituals-cosmetics-233f8fe36862",
     "winnerCanonical": "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-biel",
@@ -12621,7 +13107,7 @@
     "winnerJobIdentifier": "spital-emmental-4bb4af389085",
     "winnerCanonical": "assistente-medico-assistente-medico-in-psichiatria-di-vecchiaia-a-spital-emmental-burgdorf",
     "decidedAt": "2026-11-03T00:00:00.000Z",
-    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-17T00:00:00.000Z",
     "score": 0.3077,
     "candidatesCount": 1,
     "canton": "BE"
@@ -12717,10 +13203,10 @@
     "canton": "BE"
   },
   "BE::it::backer-in-konditor-in-coop-bern": {
-    "winnerJobIdentifier": "company-a9cj4l",
+    "winnerJobIdentifier": "company-46ihhs",
     "winnerCanonical": "baker-pasticceria-coop-genossenschaft-bern",
-    "decidedAt": "2026-10-10T00:00:00.000Z",
-    "lastSeenAt": "2026-10-26T00:00:00.000Z",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.25,
     "candidatesCount": 1,
     "canton": "BE"
@@ -15074,6 +15560,15 @@
     "candidatesCount": 2,
     "canton": "BE"
   },
+  "BE::it::metzger-in-fleischfachfrau-fleischfachmann-coop-koniz-3": {
+    "winnerJobIdentifier": "company-l0wor4",
+    "winnerCanonical": "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-koniz-6a3a3b",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.1538,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
   "BE::it::metzger-in-fleischfachfrau-fleischfachmann-und-koch-kochin-m-w-d-coop-bern": {
     "winnerJobIdentifier": "company-32vt1v",
     "winnerCanonical": "macellaia-macellaio-specialista-della-carne-e-cuoco-cuoca-m-f-d-coop-genossenschaft-bern",
@@ -15093,20 +15588,20 @@
     "canton": "BE"
   },
   "BE::it::mitarbeiter-in-frische-genossenschaft-migros-aare-bern": {
-    "winnerJobIdentifier": "company-7fvbuh",
-    "winnerCanonical": "addetto-a-al-reparto-freschi-genossenschaft-migros-aare-bern-1c88bb",
-    "decidedAt": "2026-11-01T00:00:00.000Z",
+    "winnerJobIdentifier": "company-ibsmme",
+    "winnerCanonical": "addetto-a-al-reparto-freschi-genossenschaft-migros-aare-bern",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
-    "score": 0.3077,
+    "score": 0.3333,
     "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::it::mitarbeiter-in-frische-genossenschaft-migros-aare-bern-2": {
-    "winnerJobIdentifier": "company-7fvbuh",
-    "winnerCanonical": "addetto-a-al-reparto-freschi-genossenschaft-migros-aare-bern-1c88bb",
-    "decidedAt": "2026-11-16T00:00:00.000Z",
+    "winnerJobIdentifier": "company-ibsmme",
+    "winnerCanonical": "addetto-a-al-reparto-freschi-genossenschaft-migros-aare-bern",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
-    "score": 0.2857,
+    "score": 0.3077,
     "candidatesCount": 1,
     "canton": "BE"
   },
@@ -15195,7 +15690,7 @@
     "winnerJobIdentifier": "company-xwiclz",
     "winnerCanonical": "ristorante-per-i-dipendenti-buffet-casse-migros-restaurant-thun",
     "decidedAt": "2026-10-20T00:00:00.000Z",
-    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-04T00:00:00.000Z",
     "score": 0.3333,
     "candidatesCount": 1,
     "canton": "BE"
@@ -15839,6 +16334,15 @@
     "candidatesCount": 1,
     "canton": "BE"
   },
+  "BE::it::sales-assistant-food-coop-genossenschaft-bern": {
+    "winnerJobIdentifier": "company-pnz1sc",
+    "winnerCanonical": "vendita-prodotti-alimentari-coop-genossenschaft-bern-cf1067",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.3,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
   "BE::it::sales-associate-denner-ag-allschwil": {
     "winnerJobIdentifier": "company-1remei",
     "winnerCanonical": "venditore-denner-ag-rubigen",
@@ -16061,6 +16565,15 @@
     "decidedAt": "2026-07-10T00:00:00.000Z",
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.2857,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
+  "BE::it::seller-in-food-coop-genossenschaft-bern": {
+    "winnerJobIdentifier": "company-pnz1sc",
+    "winnerCanonical": "vendita-prodotti-alimentari-coop-genossenschaft-bern-cf1067",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.3,
     "candidatesCount": 2,
     "canton": "BE"
   },
@@ -16415,6 +16928,15 @@
     "candidatesCount": 2,
     "canton": "BE"
   },
+  "BE::it::vendeur-euse-food-coop-genossenschaft-bern": {
+    "winnerJobIdentifier": "company-pnz1sc",
+    "winnerCanonical": "vendita-prodotti-alimentari-coop-genossenschaft-bern-cf1067",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.3,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
   "BE::it::vendeur-vendeur-k-kiosque-10-heures-valora-group-bern-5de493": {
     "winnerJobIdentifier": "valora-4ec494b64e52",
     "winnerCanonical": "venditore-venditore-k-kiosk-10-ore-valora-group-bern",
@@ -16656,6 +17178,15 @@
     "lastSeenAt": "2026-11-01T00:00:00.000Z",
     "score": 0.75,
     "candidatesCount": 1,
+    "canton": "BE"
+  },
+  "BE::it::verkaufer-dans-les-aliments-coop-genossenschaft-bern": {
+    "winnerJobIdentifier": "company-pnz1sc",
+    "winnerCanonical": "vendita-prodotti-alimentari-coop-genossenschaft-bern-cf1067",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.2727,
+    "candidatesCount": 2,
     "canton": "BE"
   },
   "BE::it::verkaufer-in-denner": {
@@ -16973,6 +17504,15 @@
     "candidatesCount": 1,
     "canton": "BE"
   },
+  "BE::it::verkaufer-in-denner-baar": {
+    "winnerJobIdentifier": "denner-a129542ef7fb",
+    "winnerCanonical": "verkaufer-in-denner",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.75,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
   "BE::it::verkaufer-in-denner-biel-bienne": {
     "winnerJobIdentifier": "denner-993a93756414",
     "winnerCanonical": "venditore-denner-biel-bienne-916e21",
@@ -16986,9 +17526,18 @@
     "winnerJobIdentifier": "denner-6192751f9df2",
     "winnerCanonical": "venditore-trice-denner-ag-interlaken",
     "decidedAt": "2026-10-14T00:00:00.000Z",
-    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-17T00:00:00.000Z",
     "score": 0.2857,
     "candidatesCount": 1,
+    "canton": "BE"
+  },
+  "BE::it::verkaufer-in-denner-luzern": {
+    "winnerJobIdentifier": "denner-a129542ef7fb",
+    "winnerCanonical": "verkaufer-in-denner",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.75,
+    "candidatesCount": 2,
     "canton": "BE"
   },
   "BE::it::verkaufer-in-food-coop-bern": {
@@ -17015,7 +17564,7 @@
     "decidedAt": "2026-11-20T00:00:00.000Z",
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.1818,
-    "candidatesCount": 4,
+    "candidatesCount": 5,
     "canton": "BE"
   },
   "BE::it::verkaufer-in-food-coop-bern-3": {
@@ -17078,7 +17627,7 @@
     "decidedAt": "2026-11-20T00:00:00.000Z",
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.1818,
-    "candidatesCount": 3,
+    "candidatesCount": 4,
     "canton": "BE"
   },
   "BE::it::verkaufer-in-food-coop-buren-an-der-aare": {
@@ -17096,6 +17645,24 @@
     "decidedAt": "2026-11-17T00:00:00.000Z",
     "lastSeenAt": "2026-11-17T00:00:00.000Z",
     "score": 0.8571,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
+  "BE::it::verkaufer-in-food-coop-genossenschaft-bern-4lb2b0": {
+    "winnerJobIdentifier": "company-pnz1sc",
+    "winnerCanonical": "vendita-prodotti-alimentari-coop-genossenschaft-bern-cf1067",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.2727,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
+  "BE::it::verkaufer-in-food-coop-genossenschaft-bern-93bfyu": {
+    "winnerJobIdentifier": "company-pnz1sc",
+    "winnerCanonical": "vendita-prodotti-alimentari-coop-genossenschaft-bern-cf1067",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.2727,
     "candidatesCount": 2,
     "canton": "BE"
   },
@@ -17216,6 +17783,15 @@
     "candidatesCount": 2,
     "canton": "BE"
   },
+  "BE::it::verkaufer-in-frischprodukte-coop-interlaken-2": {
+    "winnerJobIdentifier": "company-os2krv",
+    "winnerCanonical": "vendita-prodotti-freschi-coop-genossenschaft-interlaken-8c8d9b",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.1818,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
   "BE::it::verkaufer-in-frischprodukte-coop-koniz": {
     "winnerJobIdentifier": "company-trt0fp",
     "winnerCanonical": "vendita-prodotti-freschi-coop-genossenschaft-koniz",
@@ -17241,6 +17817,33 @@
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.8333,
     "candidatesCount": 4,
+    "canton": "BE"
+  },
+  "BE::it::verkaufer-in-im-stundenlohn-denner-5": {
+    "winnerJobIdentifier": "denner-1dd6dc22036a",
+    "winnerCanonical": "venditore-nel-salario-orario-denner-ag-interlaken",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.0833,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
+  "BE::it::verkaufer-in-im-stundenlohn-denner-6": {
+    "winnerJobIdentifier": "denner-faa9863cb35c",
+    "winnerCanonical": "venditore-con-retribuzione-oraria-denner-jegenstorf",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.0909,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
+  "BE::it::verkaufer-in-lebensmittel-coop-genossenschaft-bern": {
+    "winnerJobIdentifier": "company-pnz1sc",
+    "winnerCanonical": "vendita-prodotti-alimentari-coop-genossenschaft-bern-cf1067",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.3,
+    "candidatesCount": 2,
     "canton": "BE"
   },
   "BE::it::verkaufer-verkauferin-m-w-d-40-lidl-svizzera-biel-bienne": {
@@ -17429,6 +18032,15 @@
     "decidedAt": "2026-10-26T00:00:00.000Z",
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.8,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
+  "BE::it::weinverkoster-in-coop-langnau-im-emmental": {
+    "winnerJobIdentifier": "company-rnggun",
+    "winnerCanonical": "degustatori-di-vino-coop-genossenschaft-langnau-im-emmental",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.4,
     "candidatesCount": 2,
     "canton": "BE"
   },
@@ -17973,12 +18585,12 @@
     "canton": "FR"
   },
   "FR::it::apprentissage-installateur-trice-sanitaire-cfc-tous-bkw-bulle": {
-    "winnerJobIdentifier": "bkw-06ed44a2e7e4",
-    "winnerCanonical": "imparare-l-installatore-sanitario-cfc-tutti-bkw-bulle",
-    "decidedAt": "2026-11-20T00:00:00.000Z",
-    "lastSeenAt": "2026-11-20T00:00:00.000Z",
-    "score": 0.2308,
-    "candidatesCount": 1,
+    "winnerJobIdentifier": "bkw-6bedd914faf8",
+    "winnerCanonical": "apprentissage-installateur-trice-sanitaire-afp-tous-bkw-bulle",
+    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "lastSeenAt": "2026-10-28T00:00:00.000Z",
+    "score": 0.7778,
+    "candidatesCount": 2,
     "canton": "FR"
   },
   "FR::it::apprentissage-installateur-trice-sanitaire-cfc-tous-bkw-ch": {
@@ -18369,30 +18981,30 @@
     "canton": "FR"
   },
   "FR::it::registrar-e-stagiary-etat-de-fribourg-bulle": {
-    "winnerJobIdentifier": "etat-de-fribourg-2ab6a70e0c92",
-    "winnerCanonical": "personale-amministrativo-etat-de-fribourg-fribourg",
-    "decidedAt": "2026-10-10T00:00:00.000Z",
-    "lastSeenAt": "2026-11-04T00:00:00.000Z",
+    "winnerJobIdentifier": "etat-de-fribourg-42b264c8acc0",
+    "winnerCanonical": "interno-legale-etat-de-fribourg-fribourg",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.3333,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "FR"
   },
   "FR::it::registrar-etat-de-fribourg-bulle": {
-    "winnerJobIdentifier": "etat-de-fribourg-2ab6a70e0c92",
-    "winnerCanonical": "personale-amministrativo-etat-de-fribourg-fribourg",
-    "decidedAt": "2026-10-10T00:00:00.000Z",
-    "lastSeenAt": "2026-11-04T00:00:00.000Z",
+    "winnerJobIdentifier": "etat-de-fribourg-42b264c8acc0",
+    "winnerCanonical": "interno-legale-etat-de-fribourg-fribourg",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.4286,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "FR"
   },
   "FR::it::registrazione-etat-de-fribourg-bulle": {
-    "winnerJobIdentifier": "etat-de-fribourg-2ab6a70e0c92",
-    "winnerCanonical": "personale-amministrativo-etat-de-fribourg-fribourg",
-    "decidedAt": "2026-10-10T00:00:00.000Z",
-    "lastSeenAt": "2026-11-04T00:00:00.000Z",
+    "winnerJobIdentifier": "etat-de-fribourg-42b264c8acc0",
+    "winnerCanonical": "interno-legale-etat-de-fribourg-fribourg",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.4286,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "FR"
   },
   "FR::it::sanitar-e-heizungsinstallateur-m-w-d-80-100-groupe-e-guin-dudingen": {
@@ -20007,12 +20619,12 @@
     "canton": "GL"
   },
   "GL::it::assistant-junior-kantonsspital-glarus-ksgl-glarus": {
-    "winnerJobIdentifier": "ksgl-47d9412e7dd1",
+    "winnerJobIdentifier": "ksgl-26a8b8dbf113",
     "winnerCanonical": "sub-assistante-kantonsspital-glarus-ksgl-glarus",
-    "decidedAt": "2026-11-20T00:00:00.000Z",
-    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "decidedAt": "2026-08-11T00:00:00.000Z",
+    "lastSeenAt": "2026-11-04T00:00:00.000Z",
     "score": 0.4286,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
     "canton": "GL"
   },
   "GL::it::data-center-technician-switzerland-linthal-on-site-reboot-monkey-linthal-2": {
@@ -20088,12 +20700,12 @@
     "canton": "GL"
   },
   "GL::it::junior-assistant-kantonsspital-glarus-ksgl-glarus": {
-    "winnerJobIdentifier": "ksgl-47d9412e7dd1",
+    "winnerJobIdentifier": "ksgl-26a8b8dbf113",
     "winnerCanonical": "sub-assistante-kantonsspital-glarus-ksgl-glarus",
-    "decidedAt": "2026-11-20T00:00:00.000Z",
-    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "decidedAt": "2026-08-11T00:00:00.000Z",
+    "lastSeenAt": "2026-11-04T00:00:00.000Z",
     "score": 0.4286,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
     "canton": "GL"
   },
   "GL::it::lehrstelle-im-commerce-de-detail-efz-2027-w-m-d-laderach-schweiz-ag-zurich": {
@@ -20151,10 +20763,10 @@
     "canton": "GL"
   },
   "GL::it::sott-kantonsspital-glarus-ksgl-glarus": {
-    "winnerJobIdentifier": "ksgl-47d9412e7dd1",
+    "winnerJobIdentifier": "ksgl-26a8b8dbf113",
     "winnerCanonical": "sub-assistante-kantonsspital-glarus-ksgl-glarus",
-    "decidedAt": "2026-11-20T00:00:00.000Z",
-    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "decidedAt": "2026-09-02T00:00:00.000Z",
+    "lastSeenAt": "2026-11-04T00:00:00.000Z",
     "score": 0.5,
     "candidatesCount": 1,
     "canton": "GL"
@@ -20178,12 +20790,12 @@
     "canton": "GL"
   },
   "GL::it::unterassistent-in-kantonsspital-glarus-ksgl-glarus": {
-    "winnerJobIdentifier": "ksgl-47d9412e7dd1",
+    "winnerJobIdentifier": "ksgl-26a8b8dbf113",
     "winnerCanonical": "sub-assistante-kantonsspital-glarus-ksgl-glarus",
-    "decidedAt": "2026-11-20T00:00:00.000Z",
-    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "decidedAt": "2026-08-11T00:00:00.000Z",
+    "lastSeenAt": "2026-11-04T00:00:00.000Z",
     "score": 0.4286,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
     "canton": "GL"
   },
   "GL::it::unterassistent-in-ksgl-glarus": {
@@ -20508,6 +21120,15 @@
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.3158,
     "candidatesCount": 2,
+    "canton": "GR"
+  },
+  "GR::de::spontanbewerbung-pflegeberufe-langzeitpflege-cseb-ch": {
+    "winnerJobIdentifier": "cseb-be71dc9f1257",
+    "winnerCanonical": "famulatur-stelle-cseb-ch",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.2857,
+    "candidatesCount": 6,
     "canton": "GR"
   },
   "GR::de::strassenwart-in-kanton-gr-ch": {
@@ -21050,6 +21671,15 @@
     "candidatesCount": 2,
     "canton": "GR"
   },
+  "GR::en::spontanbewerbung-pflegeberufe-langzeitpflege-cseb-ch": {
+    "winnerJobIdentifier": "cseb-2badd2d6bd27",
+    "winnerCanonical": "assistants-pj-year-center-da-sanadad-engiadina-bassa-scuol",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0,
+    "candidatesCount": 6,
+    "canton": "GR"
+  },
   "GR::en::stationsleitung-demenz-80-100-altersheim-jenaz-flury-stiftung-ch": {
     "winnerJobIdentifier": "flury-stiftung-f18e892d8c2c",
     "winnerCanonical": "station-management-dementia-80-100-retirement-home-jenaz-flury-stiftung-jenaz-34cc6d",
@@ -21060,12 +21690,12 @@
     "canton": "GR"
   },
   "GR::en::strassenwart-in-kanton-gr-ch": {
-    "winnerJobIdentifier": "kanton-gr-515bdbdda213",
-    "winnerCanonical": "road-maintenance-worker-kantonale-verwaltung-graubunden-thusis",
+    "winnerJobIdentifier": "kanton-gr-8b000fd4617e",
+    "winnerCanonical": "road-maintenance-worker-kantonale-verwaltung-graubunden-ilanz",
     "decidedAt": "2026-11-20T00:00:00.000Z",
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::en::stv-filialleiter-in-denner-chur": {
@@ -21554,6 +22184,15 @@
     "candidatesCount": 2,
     "canton": "GR"
   },
+  "GR::fr::spontanbewerbung-pflegeberufe-langzeitpflege-cseb-ch": {
+    "winnerJobIdentifier": "cseb-2badd2d6bd27",
+    "winnerCanonical": "assistants-annee-pj-center-da-sanadad-engiadina-bassa-scuol",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0,
+    "candidatesCount": 6,
+    "canton": "GR"
+  },
   "GR::fr::stationsleitung-demenz-80-100-altersheim-jenaz-flury-stiftung-ch": {
     "winnerJobIdentifier": "flury-stiftung-f18e892d8c2c",
     "winnerCanonical": "stationsleitung-demenz-80-100-altersheim-jenaz-flury-stiftung-jenaz",
@@ -21564,12 +22203,12 @@
     "canton": "GR"
   },
   "GR::fr::strassenwart-in-kanton-gr-ch": {
-    "winnerJobIdentifier": "kanton-gr-515bdbdda213",
-    "winnerCanonical": "agent-e-d-entretien-des-routes-kantonale-verwaltung-graubunden-thusis",
+    "winnerJobIdentifier": "kanton-gr-8b000fd4617e",
+    "winnerCanonical": "cantonnier-ere-kantonale-verwaltung-graubunden-ilanz",
     "decidedAt": "2026-11-20T00:00:00.000Z",
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::fr::stv-filialleiter-in-denner-chur": {
@@ -21972,7 +22611,7 @@
     "winnerJobIdentifier": "kulm-hotel-435470f943ce",
     "winnerCanonical": "contabile-m-w-d-kulm-hotel-st-moritz-st-moritz-a23082",
     "decidedAt": "2026-10-31T00:00:00.000Z",
-    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-17T00:00:00.000Z",
     "score": 0.8889,
     "candidatesCount": 1,
     "canton": "GR"
@@ -22427,6 +23066,15 @@
     "candidatesCount": 2,
     "canton": "GR"
   },
+  "GR::it::medico-ginecologo-e-ostetrico-senior-25-50-center-da-sanadad-engiadina-bassa-scuol": {
+    "winnerJobIdentifier": "cseb-2badd2d6bd27",
+    "winnerCanonical": "assistenti-anno-pj-center-da-sanadad-engiadina-bassa-scuol",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.375,
+    "candidatesCount": 6,
+    "canton": "GR"
+  },
   "GR::it::medico-in-formazione-specialistica-in-radiologia-kantonsspital-graubunden-chur": {
     "winnerJobIdentifier": "10193447",
     "winnerCanonical": "assistente-medico-assistente-medico-radiologia-kantonsspital-graubunden-chur",
@@ -22746,7 +23394,7 @@
     "winnerJobIdentifier": "kulm-hotel-875c16e64568",
     "winnerCanonical": "addetto-alle-camere-cameriera-roomboy-m-w-d-kulm-hotel-st-moritz-pontresina",
     "decidedAt": "2026-10-20T00:00:00.000Z",
-    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-10-28T00:00:00.000Z",
     "score": 0.4444,
     "candidatesCount": 1,
     "canton": "GR"
@@ -22888,19 +23536,19 @@
   },
   "GR::it::strassenwart-in-kanton-gr-ch": {
     "winnerJobIdentifier": "kanton-gr-515bdbdda213",
-    "winnerCanonical": "addetto-a-alla-manutenzione-stradale-kantonale-verwaltung-graubunden-thusis",
+    "winnerCanonical": "strassenwart-in-kantonale-verwaltung-graubunden-thusis",
     "decidedAt": "2026-11-20T00:00:00.000Z",
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
-    "score": 0,
-    "candidatesCount": 2,
+    "score": 0.2222,
+    "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::it::strassenwart-in-kanton-gr-ch-2": {
     "winnerJobIdentifier": "kanton-gr-515bdbdda213",
-    "winnerCanonical": "addetto-a-alla-manutenzione-stradale-kantonale-verwaltung-graubunden-thusis",
+    "winnerCanonical": "strassenwart-in-kantonale-verwaltung-graubunden-thusis",
     "decidedAt": "2026-11-20T00:00:00.000Z",
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
-    "score": 0,
+    "score": 0.2,
     "candidatesCount": 2,
     "canton": "GR"
   },
@@ -23570,6 +24218,15 @@
     "candidatesCount": 3,
     "canton": "LU"
   },
+  "LU::de::fish-salesperson-coop-genossenschaft-emmen": {
+    "winnerJobIdentifier": "company-m7udn",
+    "winnerCanonical": "verkaufer-in-fisch-coop-genossenschaft-emmen",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.375,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
   "LU::de::fournisseur-de-service-civil-en-tant-qu-employe-laver-la-cuisine-numero-de-service-101152-luzerner-kantonsspital-luks": {
     "winnerJobIdentifier": "luks-e769f4960712",
     "winnerCanonical": "zivildienstleistende-als-mitarbeiter-informatik-pflichtenheft-101160-luks-luzern",
@@ -23921,6 +24578,15 @@
     "candidatesCount": 1,
     "canton": "LU"
   },
+  "LU::de::verkaufer-in-fisch-coop-emmen-luzern-213200": {
+    "winnerJobIdentifier": "company-m7udn",
+    "winnerCanonical": "verkaufer-in-fisch-coop-genossenschaft-emmen",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.625,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
   "LU::de::verkaufer-in-im-stundenlohn-denner": {
     "winnerJobIdentifier": "denner-44e532a6e8a0",
     "winnerCanonical": "verkaufer-in-im-stundenlohn-denner-hochdorf",
@@ -23928,6 +24594,114 @@
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.8333,
     "candidatesCount": 1,
+    "canton": "LU"
+  },
+  "LU::de::verkaufer-in-im-stundenlohn-denner-0reuez": {
+    "winnerJobIdentifier": "denner-08c5d4d2fbdc",
+    "winnerCanonical": "verkaufer-in-im-stundenlohn-denner",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.8333,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::de::verkaufer-in-im-stundenlohn-denner-18": {
+    "winnerJobIdentifier": "denner-08c5d4d2fbdc",
+    "winnerCanonical": "verkaufer-in-im-stundenlohn-denner",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.8333,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::de::verkaufer-in-im-stundenlohn-denner-21": {
+    "winnerJobIdentifier": "denner-08c5d4d2fbdc",
+    "winnerCanonical": "verkaufer-in-im-stundenlohn-denner",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.8333,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::de::verkaufer-in-im-stundenlohn-denner-21yuiv": {
+    "winnerJobIdentifier": "denner-08c5d4d2fbdc",
+    "winnerCanonical": "verkaufer-in-im-stundenlohn-denner",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.8333,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::de::verkaufer-in-im-stundenlohn-denner-25": {
+    "winnerJobIdentifier": "denner-08c5d4d2fbdc",
+    "winnerCanonical": "verkaufer-in-im-stundenlohn-denner",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.8333,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::de::verkaufer-in-im-stundenlohn-denner-26": {
+    "winnerJobIdentifier": "denner-08c5d4d2fbdc",
+    "winnerCanonical": "verkaufer-in-im-stundenlohn-denner",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.8333,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::de::verkaufer-in-im-stundenlohn-denner-grosswangen": {
+    "winnerJobIdentifier": "denner-08c5d4d2fbdc",
+    "winnerCanonical": "verkaufer-in-im-stundenlohn-denner",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.8333,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::de::verkaufer-in-im-stundenlohn-denner-luzern": {
+    "winnerJobIdentifier": "denner-08c5d4d2fbdc",
+    "winnerCanonical": "verkaufer-in-im-stundenlohn-denner",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.8333,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::de::verkaufer-in-im-stundenlohn-denner-menzingen": {
+    "winnerJobIdentifier": "denner-08c5d4d2fbdc",
+    "winnerCanonical": "verkaufer-in-im-stundenlohn-denner",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.8333,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::de::verkaufer-in-im-stundenlohn-denner-menznau": {
+    "winnerJobIdentifier": "denner-08c5d4d2fbdc",
+    "winnerCanonical": "verkaufer-in-im-stundenlohn-denner",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.8333,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::de::verkaufer-in-im-stundenlohn-denner-zug": {
+    "winnerJobIdentifier": "denner-08c5d4d2fbdc",
+    "winnerCanonical": "verkaufer-in-im-stundenlohn-denner",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.8333,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::de::verkaufer-in-nonfood-coop-genossenschaft-emmen": {
+    "winnerJobIdentifier": "company-m7udn",
+    "winnerCanonical": "verkaufer-in-fisch-coop-genossenschaft-emmen",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.7143,
+    "candidatesCount": 2,
     "canton": "LU"
   },
   "LU::de::zimmermann-zimmerin-holzbau-vorarbeiter-in-fur-effiziente-holzbauten-willisau-luzern": {
@@ -24407,6 +25181,15 @@
     "candidatesCount": 1,
     "canton": "LU"
   },
+  "LU::en::fish-salesperson-coop-genossenschaft-emmen": {
+    "winnerJobIdentifier": "company-m7udn",
+    "winnerCanonical": "seller-fish-coop-genossenschaft-emmen",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.6667,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
   "LU::en::flugzeugmechanikerin-technician-mechanical-f-a-18-80-100-w-m-d-ruag-ag-emmen": {
     "winnerJobIdentifier": "ruag-ag-773d7f8c1198",
     "winnerCanonical": "aircraft-mechanic-technician-mechanical-f-a-18-80-100-m-f-d-ruag-ag-emmen",
@@ -24588,11 +25371,11 @@
     "canton": "LU"
   },
   "LU::en::manor-mitarbeiter-in-logistik-100-hochdorf": {
-    "winnerJobIdentifier": "manor-544554fc0556",
-    "winnerCanonical": "staff-in-logistics-100-manor-ag-hochdorf",
-    "decidedAt": "2026-11-20T00:00:00.000Z",
-    "lastSeenAt": "2026-11-20T00:00:00.000Z",
-    "score": 0.4444,
+    "winnerJobIdentifier": "manor-cd18620ab6f0",
+    "winnerCanonical": "logistics-employee-100-manor-ag-hochdorf-609096",
+    "decidedAt": "2026-10-21T00:00:00.000Z",
+    "lastSeenAt": "2026-11-17T00:00:00.000Z",
+    "score": 0.3,
     "candidatesCount": 1,
     "canton": "LU"
   },
@@ -24848,12 +25631,138 @@
     "candidatesCount": 2,
     "canton": "LU"
   },
+  "LU::en::verkaufer-in-denner-sursee": {
+    "winnerJobIdentifier": "denner-6869910e244c",
+    "winnerCanonical": "shop-assistant-denner-sursee",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.3333,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::en::verkaufer-in-fisch-coop-emmen-luzern-213200": {
+    "winnerJobIdentifier": "company-m7udn",
+    "winnerCanonical": "seller-fish-coop-genossenschaft-emmen",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.2,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::en::verkaufer-in-im-stundenlohn-denner-0reuez": {
+    "winnerJobIdentifier": "denner-08c5d4d2fbdc",
+    "winnerCanonical": "hourly-wage-salesperson-denner-menznau",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.1,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::en::verkaufer-in-im-stundenlohn-denner-18": {
+    "winnerJobIdentifier": "denner-08c5d4d2fbdc",
+    "winnerCanonical": "hourly-wage-salesperson-denner-menznau",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.1,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::en::verkaufer-in-im-stundenlohn-denner-21": {
+    "winnerJobIdentifier": "denner-08c5d4d2fbdc",
+    "winnerCanonical": "hourly-wage-salesperson-denner-menznau",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.1,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::en::verkaufer-in-im-stundenlohn-denner-21yuiv": {
+    "winnerJobIdentifier": "denner-08c5d4d2fbdc",
+    "winnerCanonical": "hourly-wage-salesperson-denner-menznau",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.1,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::en::verkaufer-in-im-stundenlohn-denner-25": {
+    "winnerJobIdentifier": "denner-08c5d4d2fbdc",
+    "winnerCanonical": "hourly-wage-salesperson-denner-menznau",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.1,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::en::verkaufer-in-im-stundenlohn-denner-26": {
+    "winnerJobIdentifier": "denner-08c5d4d2fbdc",
+    "winnerCanonical": "hourly-wage-salesperson-denner-menznau",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.1,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::en::verkaufer-in-im-stundenlohn-denner-grosswangen": {
+    "winnerJobIdentifier": "denner-476d321a8a2d",
+    "winnerCanonical": "hourly-wage-salesperson-denner-grosswangen",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.2222,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::en::verkaufer-in-im-stundenlohn-denner-luzern": {
+    "winnerJobIdentifier": "denner-4f9f6fe84a27",
+    "winnerCanonical": "salesperson-paid-by-the-hour-denner-luzern",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.1818,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::en::verkaufer-in-im-stundenlohn-denner-menzingen": {
+    "winnerJobIdentifier": "denner-08c5d4d2fbdc",
+    "winnerCanonical": "hourly-wage-salesperson-denner-menznau",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.1,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::en::verkaufer-in-im-stundenlohn-denner-menznau": {
+    "winnerJobIdentifier": "denner-08c5d4d2fbdc",
+    "winnerCanonical": "hourly-wage-salesperson-denner-menznau",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.2222,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
   "LU::en::verkaufer-in-im-stundenlohn-denner-sursee": {
     "winnerJobIdentifier": "denner-4c5c16a09d1b",
     "winnerCanonical": "hourly-wage-salesperson-denner-sursee",
     "decidedAt": "2026-10-12T00:00:00.000Z",
     "lastSeenAt": "2026-11-04T00:00:00.000Z",
     "score": 0.2222,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::en::verkaufer-in-im-stundenlohn-denner-zug": {
+    "winnerJobIdentifier": "denner-08c5d4d2fbdc",
+    "winnerCanonical": "hourly-wage-salesperson-denner-menznau",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.1,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::en::verkaufer-in-nonfood-coop-genossenschaft-emmen": {
+    "winnerJobIdentifier": "company-m7udn",
+    "winnerCanonical": "seller-fish-coop-genossenschaft-emmen",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.375,
     "candidatesCount": 2,
     "canton": "LU"
   },
@@ -25343,6 +26252,15 @@
     "candidatesCount": 1,
     "canton": "LU"
   },
+  "LU::fr::fish-salesperson-coop-genossenschaft-emmen": {
+    "winnerJobIdentifier": "company-m7udn",
+    "winnerCanonical": "poissons-vendus-coop-genossenschaft-emmen",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.4286,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
   "LU::fr::flugzeugmechanikerin-technician-mechanical-f-a-18-80-100-w-m-d-ruag-ag-emmen": {
     "winnerJobIdentifier": "ruag-ag-773d7f8c1198",
     "winnerCanonical": "mecanicien-ne-aeronautique-technicien-ne-en-mecanique-f-a-18-80-100-h-f-d-ruag-ag-emmen",
@@ -25551,11 +26469,11 @@
     "canton": "LU"
   },
   "LU::fr::manor-mitarbeiter-in-logistik-100-hochdorf": {
-    "winnerJobIdentifier": "manor-544554fc0556",
-    "winnerCanonical": "personnel-en-logistique-100-manor-ag-hochdorf",
-    "decidedAt": "2026-11-20T00:00:00.000Z",
-    "lastSeenAt": "2026-11-20T00:00:00.000Z",
-    "score": 0.3,
+    "winnerJobIdentifier": "manor-cd18620ab6f0",
+    "winnerCanonical": "collaborateur-rice-en-logistique-100-manor-ag-hochdorf",
+    "decidedAt": "2026-10-21T00:00:00.000Z",
+    "lastSeenAt": "2026-11-17T00:00:00.000Z",
+    "score": 0.2727,
     "candidatesCount": 1,
     "canton": "LU"
   },
@@ -25820,12 +26738,138 @@
     "candidatesCount": 1,
     "canton": "LU"
   },
+  "LU::fr::verkaufer-in-denner-sursee": {
+    "winnerJobIdentifier": "denner-6869910e244c",
+    "winnerCanonical": "vendeur-denner-sursee",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.4,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::fr::verkaufer-in-fisch-coop-emmen-luzern-213200": {
+    "winnerJobIdentifier": "company-m7udn",
+    "winnerCanonical": "poissons-vendus-coop-genossenschaft-emmen",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.2,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::fr::verkaufer-in-im-stundenlohn-denner-0reuez": {
+    "winnerJobIdentifier": "denner-08c5d4d2fbdc",
+    "winnerCanonical": "vendeur-eusea-l-heure-denner-menznau",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.0909,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::fr::verkaufer-in-im-stundenlohn-denner-18": {
+    "winnerJobIdentifier": "denner-08c5d4d2fbdc",
+    "winnerCanonical": "vendeur-eusea-l-heure-denner-menznau",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.0909,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::fr::verkaufer-in-im-stundenlohn-denner-21": {
+    "winnerJobIdentifier": "denner-08c5d4d2fbdc",
+    "winnerCanonical": "vendeur-eusea-l-heure-denner-menznau",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.0909,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::fr::verkaufer-in-im-stundenlohn-denner-21yuiv": {
+    "winnerJobIdentifier": "denner-08c5d4d2fbdc",
+    "winnerCanonical": "vendeur-eusea-l-heure-denner-menznau",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.0909,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::fr::verkaufer-in-im-stundenlohn-denner-25": {
+    "winnerJobIdentifier": "denner-08c5d4d2fbdc",
+    "winnerCanonical": "vendeur-eusea-l-heure-denner-menznau",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.0909,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::fr::verkaufer-in-im-stundenlohn-denner-26": {
+    "winnerJobIdentifier": "denner-08c5d4d2fbdc",
+    "winnerCanonical": "vendeur-eusea-l-heure-denner-menznau",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.0909,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::fr::verkaufer-in-im-stundenlohn-denner-grosswangen": {
+    "winnerJobIdentifier": "denner-476d321a8a2d",
+    "winnerCanonical": "vendeur-eusea-l-heure-denner-grosswangen",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.2,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::fr::verkaufer-in-im-stundenlohn-denner-luzern": {
+    "winnerJobIdentifier": "denner-4f9f6fe84a27",
+    "winnerCanonical": "vendeur-euse-paye-e-a-l-heure-denner-luzern",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.1538,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::fr::verkaufer-in-im-stundenlohn-denner-menzingen": {
+    "winnerJobIdentifier": "denner-08c5d4d2fbdc",
+    "winnerCanonical": "vendeur-eusea-l-heure-denner-menznau",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.0909,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::fr::verkaufer-in-im-stundenlohn-denner-menznau": {
+    "winnerJobIdentifier": "denner-08c5d4d2fbdc",
+    "winnerCanonical": "vendeur-eusea-l-heure-denner-menznau",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.2,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
   "LU::fr::verkaufer-in-im-stundenlohn-denner-sursee": {
     "winnerJobIdentifier": "denner-4c5c16a09d1b",
     "winnerCanonical": "vendeur-eusea-l-heure-denner-sursee",
     "decidedAt": "2026-10-12T00:00:00.000Z",
     "lastSeenAt": "2026-11-04T00:00:00.000Z",
     "score": 0.2,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::fr::verkaufer-in-im-stundenlohn-denner-zug": {
+    "winnerJobIdentifier": "denner-08c5d4d2fbdc",
+    "winnerCanonical": "vendeur-eusea-l-heure-denner-menznau",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.0909,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::fr::verkaufer-in-nonfood-coop-genossenschaft-emmen": {
+    "winnerJobIdentifier": "company-m7udn",
+    "winnerCanonical": "poissons-vendus-coop-genossenschaft-emmen",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.375,
     "candidatesCount": 2,
     "canton": "LU"
   },
@@ -26384,7 +27428,7 @@
     "decidedAt": "2026-11-20T00:00:00.000Z",
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.25,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
     "canton": "LU"
   },
   "LU::it::bauarbeiter-in-fur-erdsondenbohrungen-sursee-luzern-fachkraft-ch": {
@@ -26919,11 +27963,11 @@
     "canton": "LU"
   },
   "LU::it::evaluateur-du-vehicule-a-galliker-transport-ag-altishofen": {
-    "winnerJobIdentifier": "galliker-e14dfbd8e8e3",
-    "winnerCanonical": "veicolo-piu-vicino-a-galliker-transport-ag-altishofen",
-    "decidedAt": "2026-10-06T00:00:00.000Z",
-    "lastSeenAt": "2026-10-22T00:00:00.000Z",
-    "score": 0.4545,
+    "winnerJobIdentifier": "galliker-597051e5cccd",
+    "winnerCanonical": "rim-pittore-a-galliker-transport-ag-altishofen",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.5,
     "candidatesCount": 1,
     "canton": "LU"
   },
@@ -26973,20 +28017,20 @@
     "canton": "LU"
   },
   "LU::it::fahrzeugbewerter-a-galliker-altishofen": {
-    "winnerJobIdentifier": "galliker-e14dfbd8e8e3",
-    "winnerCanonical": "veicolo-piu-vicino-a-galliker-transport-ag-altishofen",
-    "decidedAt": "2026-10-06T00:00:00.000Z",
-    "lastSeenAt": "2026-10-22T00:00:00.000Z",
-    "score": 0.3333,
+    "winnerJobIdentifier": "galliker-597051e5cccd",
+    "winnerCanonical": "rim-pittore-a-galliker-transport-ag-altishofen",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.375,
     "candidatesCount": 1,
     "canton": "LU"
   },
   "LU::it::fahrzeugbewerter-a-galliker-transport-ag-altishofen": {
-    "winnerJobIdentifier": "galliker-e14dfbd8e8e3",
-    "winnerCanonical": "veicolo-piu-vicino-a-galliker-transport-ag-altishofen",
-    "decidedAt": "2026-10-06T00:00:00.000Z",
-    "lastSeenAt": "2026-10-22T00:00:00.000Z",
-    "score": 0.5556,
+    "winnerJobIdentifier": "galliker-597051e5cccd",
+    "winnerCanonical": "rim-pittore-a-galliker-transport-ag-altishofen",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.625,
     "candidatesCount": 1,
     "canton": "LU"
   },
@@ -27032,6 +28076,15 @@
     "decidedAt": "2026-09-02T00:00:00.000Z",
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.2,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::it::fish-salesperson-coop-genossenschaft-emmen": {
+    "winnerJobIdentifier": "company-m7udn",
+    "winnerCanonical": "pesce-di-vendita-coop-genossenschaft-emmen",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.375,
     "candidatesCount": 2,
     "canton": "LU"
   },
@@ -27675,20 +28728,20 @@
     "canton": "LU"
   },
   "LU::it::manor-mitarbeiter-in-logistik-100-hochdorf-2": {
-    "winnerJobIdentifier": "manor-544554fc0556",
-    "winnerCanonical": "manor-mitarbeiter-in-logistik-100-hochdorf-mitarbeiterin-logistik-100",
-    "decidedAt": "2026-11-20T00:00:00.000Z",
-    "lastSeenAt": "2026-11-20T00:00:00.000Z",
-    "score": 0.75,
+    "winnerJobIdentifier": "manor-cd18620ab6f0",
+    "winnerCanonical": "collaboratore-trice-nella-logistica-100-manor-ag-hochdorf",
+    "decidedAt": "2026-11-02T00:00:00.000Z",
+    "lastSeenAt": "2026-11-17T00:00:00.000Z",
+    "score": 0.25,
     "candidatesCount": 1,
     "canton": "LU"
   },
   "LU::it::manor-mitarbeiter-in-logistik-100-hochdorf-3": {
-    "winnerJobIdentifier": "manor-544554fc0556",
-    "winnerCanonical": "manor-mitarbeiter-in-logistik-100-hochdorf-mitarbeiterin-logistik-100",
-    "decidedAt": "2026-11-20T00:00:00.000Z",
-    "lastSeenAt": "2026-11-20T00:00:00.000Z",
-    "score": 0.75,
+    "winnerJobIdentifier": "manor-cd18620ab6f0",
+    "winnerCanonical": "collaboratore-trice-nella-logistica-100-manor-ag-hochdorf",
+    "decidedAt": "2026-10-21T00:00:00.000Z",
+    "lastSeenAt": "2026-11-17T00:00:00.000Z",
+    "score": 0.25,
     "candidatesCount": 1,
     "canton": "LU"
   },
@@ -27829,10 +28882,10 @@
   },
   "LU::it::metzger-in-fleischfachfrau-fleischfachmann-coop-luzern": {
     "winnerJobIdentifier": "company-h9npue",
-    "winnerCanonical": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-luzern",
+    "winnerCanonical": "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-luzern",
     "decidedAt": "2026-11-20T00:00:00.000Z",
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
-    "score": 0.8571,
+    "score": 0.1818,
     "candidatesCount": 2,
     "canton": "LU"
   },
@@ -28404,12 +29457,12 @@
     "canton": "LU"
   },
   "LU::it::psychologin-80-m-w-d-lups-kriens": {
-    "winnerJobIdentifier": "lups-5eee0ab09ddf",
-    "winnerCanonical": "medico-senior-80-100-m-f-d-luzerner-psychiatrie-lups-kriens",
-    "decidedAt": "2026-11-20T00:00:00.000Z",
-    "lastSeenAt": "2026-11-20T00:00:00.000Z",
-    "score": 0.3846,
-    "candidatesCount": 1,
+    "winnerJobIdentifier": "lups-1c3639d57832",
+    "winnerCanonical": "psicologo-80-m-f-d-luzerner-psychiatrie-lups-kriens",
+    "decidedAt": "2026-09-25T00:00:00.000Z",
+    "lastSeenAt": "2026-10-23T00:00:00.000Z",
+    "score": 0.4545,
+    "candidatesCount": 2,
     "canton": "LU"
   },
   "LU::it::sanitarinstallateur-in-fur-neu-und-umbauten-sursee-luzern-fachkraft-ch": {
@@ -28655,6 +29708,15 @@
     "candidatesCount": 2,
     "canton": "LU"
   },
+  "LU::it::specialista-automotive-ingegnere-meccatronico-nfz-servizio-tardivo-a-galliker-transport-ag-altishofen": {
+    "winnerJobIdentifier": "galliker-ba071a556f73",
+    "winnerCanonical": "specialista-automotive-ingegnere-meccatronico-nfz-servizio-tardivo-a-galliker-transport-ag-altishofen-c739169767",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.9231,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
   "LU::it::springer-in-bikemechaniker-in-ottos-sursee": {
     "winnerJobIdentifier": "ottos-ec95141be786",
     "winnerCanonical": "meccanico-a-di-biciclette-jolly-otto-s-ag-sursee",
@@ -28791,20 +29853,20 @@
     "canton": "LU"
   },
   "LU::it::valutatore-del-veicolo-a-galliker-transport-ag-altishofen": {
-    "winnerJobIdentifier": "galliker-e14dfbd8e8e3",
-    "winnerCanonical": "veicolo-piu-vicino-a-galliker-transport-ag-altishofen",
-    "decidedAt": "2026-10-05T00:00:00.000Z",
-    "lastSeenAt": "2026-10-22T00:00:00.000Z",
-    "score": 0.6,
+    "winnerJobIdentifier": "galliker-597051e5cccd",
+    "winnerCanonical": "rim-pittore-a-galliker-transport-ag-altishofen",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.5,
     "candidatesCount": 1,
     "canton": "LU"
   },
   "LU::it::vehicle-evaluator-a-galliker-transport-ag-altishofen": {
-    "winnerJobIdentifier": "galliker-e14dfbd8e8e3",
-    "winnerCanonical": "veicolo-piu-vicino-a-galliker-transport-ag-altishofen",
-    "decidedAt": "2026-10-06T00:00:00.000Z",
-    "lastSeenAt": "2026-10-22T00:00:00.000Z",
-    "score": 0.5,
+    "winnerJobIdentifier": "galliker-597051e5cccd",
+    "winnerCanonical": "rim-pittore-a-galliker-transport-ag-altishofen",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.5556,
     "candidatesCount": 1,
     "canton": "LU"
   },
@@ -28815,6 +29877,51 @@
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.8889,
     "candidatesCount": 1,
+    "canton": "LU"
+  },
+  "LU::it::vendeur-de-poisson-coop-genossenschaft-emmen": {
+    "winnerJobIdentifier": "company-m7udn",
+    "winnerCanonical": "pesce-di-vendita-coop-genossenschaft-emmen",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.3333,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::it::vendeur-en-salaire-horaire-denner-aarau": {
+    "winnerJobIdentifier": "denner-08c5d4d2fbdc",
+    "winnerCanonical": "venditore-con-retribuzione-oraria-denner-menznau",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.0909,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::it::vendita-prodotti-freschi-coop-genossenschaft-luzern": {
+    "winnerJobIdentifier": "company-ch4tih",
+    "winnerCanonical": "vendita-prodotti-freschi-coop-genossenschaft-luzern-20d795837f",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.8571,
+    "candidatesCount": 3,
+    "canton": "LU"
+  },
+  "LU::it::vendor-in-hourly-wages-denner-aarau": {
+    "winnerJobIdentifier": "denner-08c5d4d2fbdc",
+    "winnerCanonical": "venditore-con-retribuzione-oraria-denner-menznau",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.0909,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::it::verkaufer-coop-genossenschaft-emmen": {
+    "winnerJobIdentifier": "company-m7udn",
+    "winnerCanonical": "pesce-di-vendita-coop-genossenschaft-emmen",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.4286,
+    "candidatesCount": 2,
     "canton": "LU"
   },
   "LU::it::verkaufer-in-baustoffe-hornbach-luzern-littau": {
@@ -28835,6 +29942,33 @@
     "candidatesCount": 2,
     "canton": "LU"
   },
+  "LU::it::verkaufer-in-denner-40": {
+    "winnerJobIdentifier": "denner-6869910e244c",
+    "winnerCanonical": "venditore-denner-sursee",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.1667,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::it::verkaufer-in-denner-sursee": {
+    "winnerJobIdentifier": "denner-6869910e244c",
+    "winnerCanonical": "venditore-denner-sursee",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.4,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::it::verkaufer-in-denner-yrx1w7": {
+    "winnerJobIdentifier": "denner-6869910e244c",
+    "winnerCanonical": "venditore-denner-sursee",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.1667,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
   "LU::it::verkaufer-in-farben-hornbach-luzern-littau": {
     "winnerJobIdentifier": "hornbach-152523",
     "winnerCanonical": "verkaufer-in-elektro-hornbach-luzern-littau",
@@ -28842,6 +29976,24 @@
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.7143,
     "candidatesCount": 1,
+    "canton": "LU"
+  },
+  "LU::it::verkaufer-in-fisch-coop-emmen-luzern-213200": {
+    "winnerJobIdentifier": "company-m7udn",
+    "winnerCanonical": "pesce-di-vendita-coop-genossenschaft-emmen",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.1818,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::it::verkaufer-in-fisch-coop-genossenschaft-emmen-213200": {
+    "winnerJobIdentifier": "company-m7udn",
+    "winnerCanonical": "pesce-di-vendita-coop-genossenschaft-emmen",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.3,
+    "candidatesCount": 2,
     "canton": "LU"
   },
   "LU::it::verkaufer-in-food-coop-emmen": {
@@ -28925,6 +30077,15 @@
     "candidatesCount": 2,
     "canton": "LU"
   },
+  "LU::it::verkaufer-in-frischprodukte-coop-luzern-4": {
+    "winnerJobIdentifier": "company-ch4tih",
+    "winnerCanonical": "vendita-prodotti-freschi-coop-genossenschaft-luzern-20d795837f",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.1818,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
   "LU::it::verkaufer-in-im-stundenlohn-denner": {
     "winnerJobIdentifier": "denner-08c5d4d2fbdc",
     "winnerCanonical": "verkaufer-in-im-stundenlohn-denner-menznau",
@@ -28934,22 +30095,58 @@
     "candidatesCount": 7,
     "canton": "LU"
   },
-  "LU::it::verkaufer-in-im-stundenlohn-denner-20": {
-    "winnerJobIdentifier": "denner-4c5c16a09d1b",
-    "winnerCanonical": "venditore-con-retribuzione-oraria-denner-sursee",
-    "decidedAt": "2026-10-21T00:00:00.000Z",
-    "lastSeenAt": "2026-11-04T00:00:00.000Z",
+  "LU::it::verkaufer-in-im-stundenlohn-denner-0reuez": {
+    "winnerJobIdentifier": "denner-08c5d4d2fbdc",
+    "winnerCanonical": "venditore-con-retribuzione-oraria-denner-menznau",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.0909,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::it::verkaufer-in-im-stundenlohn-denner-18": {
+    "winnerJobIdentifier": "denner-08c5d4d2fbdc",
+    "winnerCanonical": "venditore-con-retribuzione-oraria-denner-menznau",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.0909,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::it::verkaufer-in-im-stundenlohn-denner-20": {
+    "winnerJobIdentifier": "denner-08c5d4d2fbdc",
+    "winnerCanonical": "venditore-con-retribuzione-oraria-denner-menznau",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.0909,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::it::verkaufer-in-im-stundenlohn-denner-21": {
+    "winnerJobIdentifier": "denner-08c5d4d2fbdc",
+    "winnerCanonical": "venditore-con-retribuzione-oraria-denner-menznau",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.0909,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::it::verkaufer-in-im-stundenlohn-denner-21yuiv": {
+    "winnerJobIdentifier": "denner-08c5d4d2fbdc",
+    "winnerCanonical": "venditore-con-retribuzione-oraria-denner-menznau",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.0909,
+    "candidatesCount": 2,
     "canton": "LU"
   },
   "LU::it::verkaufer-in-im-stundenlohn-denner-22": {
-    "winnerJobIdentifier": "denner-fea628d1429b",
-    "winnerCanonical": "venditore-con-retribuzione-oraria-denner-luzern",
-    "decidedAt": "2026-10-21T00:00:00.000Z",
-    "lastSeenAt": "2026-10-23T00:00:00.000Z",
+    "winnerJobIdentifier": "denner-08c5d4d2fbdc",
+    "winnerCanonical": "venditore-con-retribuzione-oraria-denner-menznau",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.0909,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
     "canton": "LU"
   },
   "LU::it::verkaufer-in-im-stundenlohn-denner-23": {
@@ -28961,12 +30158,138 @@
     "candidatesCount": 2,
     "canton": "LU"
   },
-  "LU::it::verkaufer-in-im-stundenlohn-denner-sursee": {
-    "winnerJobIdentifier": "denner-4c5c16a09d1b",
-    "winnerCanonical": "venditore-con-retribuzione-oraria-denner-sursee",
-    "decidedAt": "2026-10-12T00:00:00.000Z",
-    "lastSeenAt": "2026-11-04T00:00:00.000Z",
+  "LU::it::verkaufer-in-im-stundenlohn-denner-25": {
+    "winnerJobIdentifier": "denner-08c5d4d2fbdc",
+    "winnerCanonical": "venditore-con-retribuzione-oraria-denner-menznau",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.0909,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::it::verkaufer-in-im-stundenlohn-denner-26": {
+    "winnerJobIdentifier": "denner-08c5d4d2fbdc",
+    "winnerCanonical": "venditore-con-retribuzione-oraria-denner-menznau",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.0909,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::it::verkaufer-in-im-stundenlohn-denner-3": {
+    "winnerJobIdentifier": "denner-d8018a0a3eb6",
+    "winnerCanonical": "venditore-con-retribuzione-oraria-denner-reiden",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.0909,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::it::verkaufer-in-im-stundenlohn-denner-99o907": {
+    "winnerJobIdentifier": "denner-08c5d4d2fbdc",
+    "winnerCanonical": "venditore-con-retribuzione-oraria-denner-menznau",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.0909,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::it::verkaufer-in-im-stundenlohn-denner-aarau": {
+    "winnerJobIdentifier": "denner-08c5d4d2fbdc",
+    "winnerCanonical": "venditore-con-retribuzione-oraria-denner-menznau",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.0909,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::it::verkaufer-in-im-stundenlohn-denner-grosswangen": {
+    "winnerJobIdentifier": "denner-476d321a8a2d",
+    "winnerCanonical": "venditore-con-retribuzione-oraria-denner-grosswangen",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.2,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::it::verkaufer-in-im-stundenlohn-denner-i27iqc": {
+    "winnerJobIdentifier": "denner-08c5d4d2fbdc",
+    "winnerCanonical": "venditore-con-retribuzione-oraria-denner-menznau",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.0909,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::it::verkaufer-in-im-stundenlohn-denner-ibach": {
+    "winnerJobIdentifier": "denner-08c5d4d2fbdc",
+    "winnerCanonical": "venditore-con-retribuzione-oraria-denner-menznau",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.0909,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::it::verkaufer-in-im-stundenlohn-denner-im9e4z": {
+    "winnerJobIdentifier": "denner-08c5d4d2fbdc",
+    "winnerCanonical": "venditore-con-retribuzione-oraria-denner-menznau",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.0909,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::it::verkaufer-in-im-stundenlohn-denner-luzern": {
+    "winnerJobIdentifier": "denner-4f9f6fe84a27",
+    "winnerCanonical": "addetto-a-alle-vendite-con-retribuzione-oraria-denner-luzern",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.1538,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::it::verkaufer-in-im-stundenlohn-denner-menzingen": {
+    "winnerJobIdentifier": "denner-08c5d4d2fbdc",
+    "winnerCanonical": "venditore-con-retribuzione-oraria-denner-menznau",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.0909,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::it::verkaufer-in-im-stundenlohn-denner-menznau": {
+    "winnerJobIdentifier": "denner-08c5d4d2fbdc",
+    "winnerCanonical": "venditore-con-retribuzione-oraria-denner-menznau",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.2,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::it::verkaufer-in-im-stundenlohn-denner-mgc9um": {
+    "winnerJobIdentifier": "denner-08c5d4d2fbdc",
+    "winnerCanonical": "venditore-con-retribuzione-oraria-denner-menznau",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.0909,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::it::verkaufer-in-im-stundenlohn-denner-sursee": {
+    "winnerJobIdentifier": "denner-08c5d4d2fbdc",
+    "winnerCanonical": "venditore-con-retribuzione-oraria-denner-menznau",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.0909,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::it::verkaufer-in-im-stundenlohn-denner-zug": {
+    "winnerJobIdentifier": "denner-08c5d4d2fbdc",
+    "winnerCanonical": "venditore-con-retribuzione-oraria-denner-menznau",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.0909,
     "candidatesCount": 2,
     "canton": "LU"
   },
@@ -28976,6 +30299,15 @@
     "decidedAt": "2026-11-16T00:00:00.000Z",
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.2,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::it::verkaufer-in-nonfood-coop-genossenschaft-emmen": {
+    "winnerJobIdentifier": "company-m7udn",
+    "winnerCanonical": "pesce-di-vendita-coop-genossenschaft-emmen",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.3333,
     "candidatesCount": 2,
     "canton": "LU"
   },
@@ -30014,6 +31346,15 @@
     "candidatesCount": 1,
     "canton": "NW"
   },
+  "NW::it::schreiner-in-projektleiter-in-fur-planung-und-koordination-im-schonen-nidwalden-stans": {
+    "winnerJobIdentifier": "fachkraft-b83783783b97",
+    "winnerCanonical": "falegname-responsabile-di-progetto-per-la-pianificazione-e-il-coordinamento-nel-bellissimo-nidvaldo-fachkraft-ch-gmbh",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0,
+    "candidatesCount": 2,
+    "canton": "NW"
+  },
   "NW::it::stellvertretender-filialleiter-m-w-d-rituals-cosmetics-ch": {
     "winnerJobIdentifier": "rituals-cosmetics-1ccbaa0ca681",
     "winnerCanonical": "direttore-aggiunto-m-f-d-rituals-cosmetics-switzerland-stans",
@@ -30087,12 +31428,12 @@
     "canton": "NW"
   },
   "OW::de::anlagen-und-apparatebauer-in-fur-fahrzeugaufbauten-und-schweissarbeiten-sarnen-obwalden": {
-    "winnerJobIdentifier": "stellentreff-f6d99608014c",
-    "winnerCanonical": "anlagen-und-apparatebauer-in-fur-fahrzeugaufbauten-und-schweissarbeiten-stellentreff-ag-sarnen",
-    "decidedAt": "2026-10-26T00:00:00.000Z",
+    "winnerJobIdentifier": "fachkraft-f7f7adfd87f0",
+    "winnerCanonical": "anlagen-und-apparatebauer-in-fur-fahrzeugaufbauten-und-schweissarbeiten-fachkraft-ch-gmbh-sarnen",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
-    "score": 0.7273,
-    "candidatesCount": 2,
+    "score": 0.6667,
+    "candidatesCount": 1,
     "canton": "OW"
   },
   "OW::de::elektroinstallateur-in-fur-servicearbeiten-uberdurchnittlicher-lohn-sarnen-obwalden": {
@@ -30276,12 +31617,12 @@
     "canton": "OW"
   },
   "OW::it::anlagen-und-apparatebauer-in-fur-fahrzeugaufbauten-und-schweissarbeiten-sarnen-obwalden": {
-    "winnerJobIdentifier": "stellentreff-f6d99608014c",
-    "winnerCanonical": "costruttore-trice-di-impianti-e-apparecchiature-per-allestimenti-di-veicoli-e-lavori-di-saldatura-stellentreff-ag-sarnen",
-    "decidedAt": "2026-10-26T00:00:00.000Z",
+    "winnerJobIdentifier": "fachkraft-f7f7adfd87f0",
+    "winnerCanonical": "costruttore-trice-di-impianti-e-apparecchi-per-sovrastrutture-di-veicoli-e-lavori-di-saldatura-fachkraft-ch-gmbh-sarnen",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
-    "score": 0.0455,
-    "candidatesCount": 2,
+    "score": 0.0435,
+    "candidatesCount": 1,
     "canton": "OW"
   },
   "OW::it::betriebsmitarbeiter-in-mit-erfahrung-in-qualitatskontrolle-und-messmitteln-2-3-schicht": {
@@ -30636,12 +31977,12 @@
     "canton": "SG"
   },
   "SG::de::dipl-infermieristica-professionale-80-100-hoch-health-ostschweiz-st-gallen-317fe7": {
-    "winnerJobIdentifier": "hoch-health-4a0a03dea105",
-    "winnerCanonical": "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach",
-    "decidedAt": "2026-10-12T00:00:00.000Z",
-    "lastSeenAt": "2026-11-01T00:00:00.000Z",
-    "score": 0.2667,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "hoch-health-589580badcf8",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-kssg-ch",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.2,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::de::dipl-infermieristica-professionale-80-100-hoch-health-ostschweiz-st-gallen-f8ca13": {
@@ -30654,12 +31995,12 @@
     "canton": "SG"
   },
   "SG::de::dipl-infermieristica-professionale-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-dc118e": {
-    "winnerJobIdentifier": "hoch-health-4a0a03dea105",
-    "winnerCanonical": "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach",
-    "decidedAt": "2026-10-12T00:00:00.000Z",
-    "lastSeenAt": "2026-11-01T00:00:00.000Z",
-    "score": 0.1765,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "hoch-health-589580badcf8",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-kssg-ch",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.2667,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::de::dipl-nursing-professional-80-100-hoch-health-ostschweiz-st-gallen": {
@@ -30717,11 +32058,11 @@
     "canton": "SG"
   },
   "SG::de::dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen": {
-    "winnerJobIdentifier": "hoch-health-4a0a03dea105",
-    "winnerCanonical": "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach",
-    "decidedAt": "2026-11-01T00:00:00.000Z",
-    "lastSeenAt": "2026-11-01T00:00:00.000Z",
-    "score": 0.5455,
+    "winnerJobIdentifier": "hoch-health-589580badcf8",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-kssg-ch",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.4545,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -30870,12 +32211,12 @@
     "canton": "SG"
   },
   "SG::de::infermiere-a-diplomato-a-80-100-hoch-health-ostschweiz-st-gallen": {
-    "winnerJobIdentifier": "hoch-health-4a0a03dea105",
-    "winnerCanonical": "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach",
-    "decidedAt": "2026-10-12T00:00:00.000Z",
-    "lastSeenAt": "2026-11-01T00:00:00.000Z",
-    "score": 0.2,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "hoch-health-589580badcf8",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-kssg-ch",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.1333,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::de::junior-assistant-2027-hoch-health-ostschweiz-st-gallen": {
@@ -31428,11 +32769,11 @@
     "canton": "SG"
   },
   "SG::en::dipl-infermieristica-professionale-80-100-hoch-health-ostschweiz-st-gallen-317fe7": {
-    "winnerJobIdentifier": "hoch-health-4a0a03dea105",
-    "winnerCanonical": "registered-nurse-40-100-hoch-health-ostschweiz-uznach",
-    "decidedAt": "2026-10-15T00:00:00.000Z",
-    "lastSeenAt": "2026-11-01T00:00:00.000Z",
-    "score": 0.2667,
+    "winnerJobIdentifier": "hoch-health-589580badcf8",
+    "winnerCanonical": "dipl-nursing-professional-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-2abf53",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.3529,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -31446,11 +32787,11 @@
     "canton": "SG"
   },
   "SG::en::dipl-infermieristica-professionale-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-dc118e": {
-    "winnerJobIdentifier": "hoch-health-4a0a03dea105",
-    "winnerCanonical": "registered-nurse-40-100-hoch-health-ostschweiz-uznach",
-    "decidedAt": "2026-10-15T00:00:00.000Z",
-    "lastSeenAt": "2026-11-01T00:00:00.000Z",
-    "score": 0.1111,
+    "winnerJobIdentifier": "hoch-health-589580badcf8",
+    "winnerCanonical": "dipl-nursing-professional-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-2abf53",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.6,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -31527,11 +32868,11 @@
     "canton": "SG"
   },
   "SG::en::dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen": {
-    "winnerJobIdentifier": "hoch-health-60c71e0b0df6",
-    "winnerCanonical": "dipl-nursing-professional-80-100-hoch-health-ostschweiz-st-gallen-317fe7",
-    "decidedAt": "2026-11-16T00:00:00.000Z",
-    "lastSeenAt": "2026-11-17T00:00:00.000Z",
-    "score": 0.5385,
+    "winnerJobIdentifier": "hoch-health-589580badcf8",
+    "winnerCanonical": "dipl-nursing-professional-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-2abf53",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.4,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -31653,12 +32994,12 @@
     "canton": "SG"
   },
   "SG::en::infermiere-a-diplomato-a-80-100-hoch-health-ostschweiz-st-gallen": {
-    "winnerJobIdentifier": "hoch-health-4a0a03dea105",
-    "winnerCanonical": "registered-nurse-40-100-hoch-health-ostschweiz-uznach",
-    "decidedAt": "2026-10-12T00:00:00.000Z",
-    "lastSeenAt": "2026-11-01T00:00:00.000Z",
-    "score": 0.2857,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "hoch-health-589580badcf8",
+    "winnerCanonical": "dipl-nursing-professional-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-2abf53",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.2941,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::en::junior-assistant-2027-hoch-health-ostschweiz-st-gallen": {
@@ -32130,11 +33471,11 @@
     "canton": "SG"
   },
   "SG::fr::dipl-infermieristica-professionale-80-100-hoch-health-ostschweiz-st-gallen-317fe7": {
-    "winnerJobIdentifier": "hoch-health-4a0a03dea105",
-    "winnerCanonical": "infirmier-ere-diplome-e-40-100-hoch-health-ostschweiz-uznach",
-    "decidedAt": "2026-10-15T00:00:00.000Z",
-    "lastSeenAt": "2026-11-01T00:00:00.000Z",
-    "score": 0.2353,
+    "winnerJobIdentifier": "hoch-health-589580badcf8",
+    "winnerCanonical": "dipl-professionnels-des-soins-infirmiers-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-2abf53",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.3158,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -32148,11 +33489,11 @@
     "canton": "SG"
   },
   "SG::fr::dipl-infermieristica-professionale-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-dc118e": {
-    "winnerJobIdentifier": "hoch-health-4a0a03dea105",
-    "winnerCanonical": "infirmier-ere-diplome-e-40-100-hoch-health-ostschweiz-uznach",
-    "decidedAt": "2026-10-15T00:00:00.000Z",
-    "lastSeenAt": "2026-11-01T00:00:00.000Z",
-    "score": 0.1,
+    "winnerJobIdentifier": "hoch-health-589580badcf8",
+    "winnerCanonical": "dipl-professionnels-des-soins-infirmiers-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-2abf53",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.5294,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -32229,11 +33570,11 @@
     "canton": "SG"
   },
   "SG::fr::dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen": {
-    "winnerJobIdentifier": "hoch-health-60c71e0b0df6",
-    "winnerCanonical": "dipl-professionnels-des-soins-infirmiers-80-100-hoch-health-ostschweiz-st-gallen-317fe7",
-    "decidedAt": "2026-11-16T00:00:00.000Z",
-    "lastSeenAt": "2026-11-17T00:00:00.000Z",
-    "score": 0.4667,
+    "winnerJobIdentifier": "hoch-health-589580badcf8",
+    "winnerCanonical": "dipl-professionnels-des-soins-infirmiers-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-2abf53",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.3529,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -32364,12 +33705,12 @@
     "canton": "SG"
   },
   "SG::fr::infermiere-a-diplomato-a-80-100-hoch-health-ostschweiz-st-gallen": {
-    "winnerJobIdentifier": "hoch-health-4a0a03dea105",
-    "winnerCanonical": "infirmier-ere-diplome-e-40-100-hoch-health-ostschweiz-uznach",
-    "decidedAt": "2026-10-12T00:00:00.000Z",
-    "lastSeenAt": "2026-11-01T00:00:00.000Z",
-    "score": 0.25,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "hoch-health-589580badcf8",
+    "winnerCanonical": "dipl-professionnels-des-soins-infirmiers-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-2abf53",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.2632,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::fr::infirmiere-infirmiere-diplomee-60-100-hoch-health-ostschweiz-st-gallen": {
@@ -32831,6 +34172,15 @@
     "candidatesCount": 2,
     "canton": "SG"
   },
+  "SG::it::assistent-in-filialleitung-denner-3": {
+    "winnerJobIdentifier": "denner-57a428774f40",
+    "winnerCanonical": "assistente-alla-direzione-della-filiale-denner-uznach",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.0909,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
   "SG::it::assistente-a-medico-amministrativo-a-coordinatore-trice-70-100-hoch-health-ostschweiz-st-gallen": {
     "winnerJobIdentifier": "hoch-health-3757db70ff48",
     "winnerCanonical": "medico-assistente-80-100-hoch-health-ostschweiz-st-gallen",
@@ -32859,11 +34209,11 @@
     "canton": "SG"
   },
   "SG::it::assistenzarztin-arzt-100-hoch-health-st-gallen": {
-    "winnerJobIdentifier": "hoch-health-23a30618cdcf",
-    "winnerCanonical": "assistente-medico-medico-100-hoch-health-ostschweiz-st-gallen",
-    "decidedAt": "2026-11-16T00:00:00.000Z",
+    "winnerJobIdentifier": "hoch-health-d2a520178651",
+    "winnerCanonical": "medico-assistente-a-tempo-pieno-hoch-health-ostschweiz-st-gallen",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
-    "score": 0.5,
+    "score": 0.3077,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -33201,21 +34551,21 @@
     "canton": "SG"
   },
   "SG::it::dipl-care-specialist-40-100-hoch-health-ostschweiz-uznach": {
-    "winnerJobIdentifier": "hoch-health-4a0a03dea105",
-    "winnerCanonical": "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach",
-    "decidedAt": "2026-10-10T00:00:00.000Z",
-    "lastSeenAt": "2026-11-01T00:00:00.000Z",
-    "score": 0.6364,
+    "winnerJobIdentifier": "hoch-health-589580badcf8",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.1765,
     "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::it::dipl-care-specialist-80-100-hoch-health-ostschweiz-st-gallen": {
-    "winnerJobIdentifier": "hoch-health-4a0a03dea105",
-    "winnerCanonical": "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach-a6e678f7f2",
-    "decidedAt": "2026-10-12T00:00:00.000Z",
-    "lastSeenAt": "2026-11-01T00:00:00.000Z",
-    "score": 0.3333,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "hoch-health-589580badcf8",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.4,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::it::dipl-experte-expertin-notfallpflege-50-100-hoch-health-st-gallen": {
@@ -33291,27 +34641,27 @@
     "canton": "SG"
   },
   "SG::it::dipl-fachfrau-mann-operationstechnik-80-100-hoch-health-ostschweiz-st-gallen": {
-    "winnerJobIdentifier": "hoch-health-bf08f711b247",
-    "winnerCanonical": "tecnico-a-di-sala-operatoria-diplomato-a-80-100-hoch-health-ostschweiz-st-gallen",
-    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "winnerJobIdentifier": "hoch-health-979914b346f8",
+    "winnerCanonical": "tecnico-a-diplomato-a-di-sala-operatoria-80-100-hoch-health-ostschweiz-st-gallen",
+    "decidedAt": "2026-11-02T00:00:00.000Z",
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.4118,
     "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::it::dipl-fachfrau-mann-operationstechnik-80-100-hoch-health-st-gallen": {
-    "winnerJobIdentifier": "hoch-health-bf08f711b247",
-    "winnerCanonical": "tecnico-a-di-sala-operatoria-diplomato-a-80-100-hoch-health-ostschweiz-st-gallen",
-    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "winnerJobIdentifier": "hoch-health-979914b346f8",
+    "winnerCanonical": "tecnico-a-diplomato-a-di-sala-operatoria-80-100-hoch-health-ostschweiz-st-gallen",
+    "decidedAt": "2026-11-02T00:00:00.000Z",
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.3529,
     "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::it::dipl-fachfrau-mann-operationstechnik-80-100-hoch-health-st-gallen-2": {
-    "winnerJobIdentifier": "hoch-health-bf08f711b247",
-    "winnerCanonical": "tecnico-a-di-sala-operatoria-diplomato-a-80-100-hoch-health-ostschweiz-st-gallen",
-    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "winnerJobIdentifier": "hoch-health-979914b346f8",
+    "winnerCanonical": "tecnico-a-diplomato-a-di-sala-operatoria-80-100-hoch-health-ostschweiz-st-gallen",
+    "decidedAt": "2026-11-02T00:00:00.000Z",
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.3333,
     "candidatesCount": 1,
@@ -33327,30 +34677,30 @@
     "canton": "SG"
   },
   "SG::it::dipl-infermieristica-professionale-80-100-hoch-health-ostschweiz-st-gallen-317fe7": {
-    "winnerJobIdentifier": "hoch-health-4a0a03dea105",
-    "winnerCanonical": "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach-a6e678f7f2",
-    "decidedAt": "2026-10-12T00:00:00.000Z",
-    "lastSeenAt": "2026-11-01T00:00:00.000Z",
-    "score": 0.3125,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "hoch-health-589580badcf8",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.375,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::it::dipl-infermieristica-professionale-80-100-hoch-health-ostschweiz-st-gallen-f8ca13": {
-    "winnerJobIdentifier": "hoch-health-4a0a03dea105",
-    "winnerCanonical": "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach-a6e678f7f2",
-    "decidedAt": "2026-10-12T00:00:00.000Z",
-    "lastSeenAt": "2026-11-01T00:00:00.000Z",
-    "score": 0.3125,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "hoch-health-589580badcf8",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.375,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::it::dipl-infermieristica-professionale-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-dc118e": {
-    "winnerJobIdentifier": "hoch-health-4a0a03dea105",
-    "winnerCanonical": "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach-a6e678f7f2",
-    "decidedAt": "2026-10-12T00:00:00.000Z",
-    "lastSeenAt": "2026-11-01T00:00:00.000Z",
-    "score": 0.1579,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "hoch-health-589580badcf8",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.6429,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::it::dipl-le-professionnel-des-soins-infirmiers-en-veille-permanente-50-100-hoch-health-ostschweiz-st-gallen": {
@@ -33372,21 +34722,21 @@
     "canton": "SG"
   },
   "SG::it::dipl-nursing-professional-80-100-hoch-health-ostschweiz-st-gallen-317fe7": {
-    "winnerJobIdentifier": "hoch-health-4a0a03dea105",
-    "winnerCanonical": "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach-a6e678f7f2",
-    "decidedAt": "2026-10-12T00:00:00.000Z",
-    "lastSeenAt": "2026-11-01T00:00:00.000Z",
-    "score": 0.3125,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "hoch-health-589580badcf8",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.375,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::it::dipl-nursing-professional-80-100-hoch-health-ostschweiz-st-gallen-f8ca13": {
-    "winnerJobIdentifier": "hoch-health-4a0a03dea105",
-    "winnerCanonical": "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach-a6e678f7f2",
-    "decidedAt": "2026-10-12T00:00:00.000Z",
-    "lastSeenAt": "2026-11-01T00:00:00.000Z",
-    "score": 0.3125,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "hoch-health-589580badcf8",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.375,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::it::dipl-nursing-professional-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-2abf53": {
@@ -33399,12 +34749,12 @@
     "canton": "SG"
   },
   "SG::it::dipl-nursing-professional-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-dc118e": {
-    "winnerJobIdentifier": "hoch-health-4a0a03dea105",
-    "winnerCanonical": "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach-a6e678f7f2",
-    "decidedAt": "2026-10-12T00:00:00.000Z",
-    "lastSeenAt": "2026-11-01T00:00:00.000Z",
-    "score": 0.1579,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "hoch-health-589580badcf8",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.6429,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::it::dipl-nursing-professional-as-a-permanent-night-watch-50-100-hoch-health-ostschweiz-st-gallen": {
@@ -33579,8 +34929,8 @@
     "canton": "SG"
   },
   "SG::it::dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen": {
-    "winnerJobIdentifier": "hoch-health-f3e5b5542613",
-    "winnerCanonical": "infermiere-a-diplomato-a-80-100-hoch-health-ostschweiz-st-gallen-a89f9c",
+    "winnerJobIdentifier": "hoch-health-26120e9ab615",
+    "winnerCanonical": "infermiere-a-diplomato-a-80-100-hoch-health-ostschweiz-st-gallen-0f5225",
     "decidedAt": "2026-11-20T00:00:00.000Z",
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.5,
@@ -33588,17 +34938,17 @@
     "canton": "SG"
   },
   "SG::it::dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen": {
-    "winnerJobIdentifier": "hoch-health-f3e5b5542613",
-    "winnerCanonical": "infermiere-a-diplomato-a-80-100-hoch-health-ostschweiz-st-gallen-a89f9c",
+    "winnerJobIdentifier": "hoch-health-589580badcf8",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
     "decidedAt": "2026-11-20T00:00:00.000Z",
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
-    "score": 0.4286,
-    "candidatesCount": 1,
+    "score": 0.6667,
+    "candidatesCount": 2,
     "canton": "SG"
   },
   "SG::it::dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-2": {
-    "winnerJobIdentifier": "hoch-health-f3e5b5542613",
-    "winnerCanonical": "infermiere-a-diplomato-a-80-100-hoch-health-ostschweiz-st-gallen-a89f9c",
+    "winnerJobIdentifier": "hoch-health-26120e9ab615",
+    "winnerCanonical": "infermiere-a-diplomato-a-80-100-hoch-health-ostschweiz-st-gallen-0f5225",
     "decidedAt": "2026-11-20T00:00:00.000Z",
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.4,
@@ -33606,11 +34956,11 @@
     "canton": "SG"
   },
   "SG::it::dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-3": {
-    "winnerJobIdentifier": "hoch-health-60c71e0b0df6",
-    "winnerCanonical": "dipl-infermieristica-professionale-80-100-hoch-health-ostschweiz-st-gallen-317fe7",
-    "decidedAt": "2026-11-16T00:00:00.000Z",
-    "lastSeenAt": "2026-11-17T00:00:00.000Z",
-    "score": 0.5,
+    "winnerJobIdentifier": "hoch-health-589580badcf8",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.6154,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -33722,6 +35072,15 @@
     "candidatesCount": 1,
     "canton": "SG"
   },
+  "SG::it::dipl-pflegefachfrau-mann-springerpool-20-100-hoch-health-ostschweiz-uznach": {
+    "winnerJobIdentifier": "hoch-health-dcdd03a222bc",
+    "winnerCanonical": "dipl-cura-professionale-springerpool-20-100-hoch-health-ostschweiz-uznach",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.6667,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
   "SG::it::dipl-pflegefachfrau-mann-springerpool-20-100-hoch-health-st-gallen": {
     "winnerJobIdentifier": "hoch-health-e1b272ac4f22",
     "winnerCanonical": "dipl-pflegefachfrau-mann-springerpool-20-100-hoch-health-ostschweiz-st-gallen",
@@ -33753,7 +35112,7 @@
     "winnerJobIdentifier": "psgn-a3a142f09495",
     "winnerCanonical": "dipl-professionista-hf-fh-psychiatrie-st-gallen-pfafers",
     "decidedAt": "2026-11-17T00:00:00.000Z",
-    "lastSeenAt": "2026-11-17T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.4,
     "candidatesCount": 1,
     "canton": "SG"
@@ -33777,30 +35136,30 @@
     "canton": "SG"
   },
   "SG::it::dipl-professionnels-des-soins-infirmiers-80-100-hoch-health-ostschweiz-st-gallen-317fe7": {
-    "winnerJobIdentifier": "hoch-health-4a0a03dea105",
-    "winnerCanonical": "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach-a6e678f7f2",
-    "decidedAt": "2026-10-12T00:00:00.000Z",
-    "lastSeenAt": "2026-11-01T00:00:00.000Z",
-    "score": 0.2778,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "hoch-health-589580badcf8",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.3333,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::it::dipl-professionnels-des-soins-infirmiers-80-100-hoch-health-ostschweiz-st-gallen-af5d90": {
-    "winnerJobIdentifier": "hoch-health-4a0a03dea105",
-    "winnerCanonical": "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach-a6e678f7f2",
-    "decidedAt": "2026-10-12T00:00:00.000Z",
-    "lastSeenAt": "2026-11-01T00:00:00.000Z",
-    "score": 0.2778,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "hoch-health-589580badcf8",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.3333,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::it::dipl-professionnels-des-soins-infirmiers-80-100-hoch-health-ostschweiz-st-gallen-f8ca13": {
-    "winnerJobIdentifier": "hoch-health-4a0a03dea105",
-    "winnerCanonical": "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach-a6e678f7f2",
-    "decidedAt": "2026-10-12T00:00:00.000Z",
-    "lastSeenAt": "2026-11-01T00:00:00.000Z",
-    "score": 0.2778,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "hoch-health-589580badcf8",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.3333,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::it::dipl-professionnels-des-soins-infirmiers-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-2abf53": {
@@ -33813,12 +35172,12 @@
     "canton": "SG"
   },
   "SG::it::dipl-professionnels-des-soins-infirmiers-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-dc118e": {
-    "winnerJobIdentifier": "hoch-health-4a0a03dea105",
-    "winnerCanonical": "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach-a6e678f7f2",
-    "decidedAt": "2026-10-12T00:00:00.000Z",
-    "lastSeenAt": "2026-11-01T00:00:00.000Z",
-    "score": 0.1429,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "hoch-health-589580badcf8",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.5625,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::it::dipl-specialist-surgical-technique-80-100-hoch-health-ostschweiz-st-gallen": {
@@ -33831,11 +35190,11 @@
     "canton": "SG"
   },
   "SG::it::dipl-specialiste-des-soins-40-100-hoch-health-ostschweiz-uznach": {
-    "winnerJobIdentifier": "hoch-health-4a0a03dea105",
-    "winnerCanonical": "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach",
-    "decidedAt": "2026-10-10T00:00:00.000Z",
-    "lastSeenAt": "2026-11-01T00:00:00.000Z",
-    "score": 0.5833,
+    "winnerJobIdentifier": "hoch-health-589580badcf8",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.1667,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -34119,11 +35478,11 @@
     "canton": "SG"
   },
   "SG::it::infermiere-a-diplomato-a-40-100-hoch-health-ostschweiz-uznach": {
-    "winnerJobIdentifier": "hoch-health-4a0a03dea105",
-    "winnerCanonical": "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach",
-    "decidedAt": "2026-10-06T00:00:00.000Z",
-    "lastSeenAt": "2026-11-01T00:00:00.000Z",
-    "score": 0.5,
+    "winnerJobIdentifier": "hoch-health-589580badcf8",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.1111,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -34137,30 +35496,30 @@
     "canton": "SG"
   },
   "SG::it::infermiere-a-diplomato-a-80-100-hoch-health-ostschweiz-st-gallen": {
-    "winnerJobIdentifier": "hoch-health-60c71e0b0df6",
-    "winnerCanonical": "dipl-infermieristica-professionale-80-100-hoch-health-ostschweiz-st-gallen-317fe7",
-    "decidedAt": "2026-11-16T00:00:00.000Z",
-    "lastSeenAt": "2026-11-17T00:00:00.000Z",
-    "score": 0.5,
+    "winnerJobIdentifier": "hoch-health-589580badcf8",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.3125,
     "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::it::infermiere-a-diplomato-a-80-100-hoch-health-ostschweiz-st-gallen-cc3f6d": {
-    "winnerJobIdentifier": "hoch-health-4a0a03dea105",
-    "winnerCanonical": "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach",
-    "decidedAt": "2026-10-10T00:00:00.000Z",
-    "lastSeenAt": "2026-11-01T00:00:00.000Z",
-    "score": 0.25,
+    "winnerJobIdentifier": "hoch-health-589580badcf8",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.2941,
     "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::it::infirmiere-infirmiere-diplomee-40-100-hoch-health-ostschweiz-uznach": {
-    "winnerJobIdentifier": "hoch-health-4a0a03dea105",
-    "winnerCanonical": "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach-a6e678f7f2",
-    "decidedAt": "2026-10-12T00:00:00.000Z",
-    "lastSeenAt": "2026-11-01T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "hoch-health-589580badcf8",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.1176,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::it::infirmiere-infirmiere-diplomee-60-100-hoch-health-ostschweiz-st-gallen": {
@@ -34314,6 +35673,15 @@
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.2222,
     "candidatesCount": 1,
+    "canton": "SG"
+  },
+  "SG::it::lehrstelle-als-fachperson-hotellerie-hauswirtschaft-efz-hoch-health-st-gallen": {
+    "winnerJobIdentifier": "hoch-health-aa211def1f26",
+    "winnerCanonical": "apprendistato-come-fachperson-hotellerie-hauswirtschaft-cfc-hoch-health-ostschweiz-st-gallen",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 2,
     "canton": "SG"
   },
   "SG::it::lehrstelle-als-kaufmann-kauffrau-efz-branche-bank-lehrbeginn-august-2027-raiffeisen": {
@@ -34839,12 +36207,12 @@
     "canton": "SG"
   },
   "SG::it::qualified-nurse-40-100-hoch-health-ostschweiz-uznach": {
-    "winnerJobIdentifier": "hoch-health-4a0a03dea105",
-    "winnerCanonical": "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach-a6e678f7f2",
-    "decidedAt": "2026-10-12T00:00:00.000Z",
-    "lastSeenAt": "2026-11-01T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "hoch-health-589580badcf8",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.1176,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::it::qualified-nurse-60-100-hoch-health-ostschweiz-st-gallen": {
@@ -35109,19 +36477,19 @@
     "canton": "SG"
   },
   "SG::it::strukturiertes-praxisjahr-fachmaturitat-gesundheit-hoch-health-uznach": {
-    "winnerJobIdentifier": "hoch-health-2a93bc5de8ad",
-    "winnerCanonical": "anno-pratico-strutturato-per-la-laurea-specialistica-in-sanita-hoch-health-ostschweiz-wil",
-    "decidedAt": "2026-11-16T00:00:00.000Z",
-    "lastSeenAt": "2026-11-17T00:00:00.000Z",
+    "winnerJobIdentifier": "hoch-health-6b3fb0365f6f",
+    "winnerCanonical": "anno-pratico-strutturato-per-la-laurea-specialistica-in-sanita-hoch-health-ostschweiz-st",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.1111,
     "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::it::strukturiertes-praxisjahr-fachmaturitat-gesundheit-kssg-ch": {
-    "winnerJobIdentifier": "hoch-health-2a93bc5de8ad",
-    "winnerCanonical": "anno-pratico-strutturato-per-la-laurea-specialistica-in-sanita-hoch-health-ostschweiz-wil",
-    "decidedAt": "2026-11-16T00:00:00.000Z",
-    "lastSeenAt": "2026-11-17T00:00:00.000Z",
+    "winnerJobIdentifier": "hoch-health-6b3fb0365f6f",
+    "winnerCanonical": "anno-pratico-strutturato-per-la-laurea-specialistica-in-sanita-hoch-health-ostschweiz-st",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0,
     "candidatesCount": 1,
     "canton": "SG"
@@ -35285,6 +36653,15 @@
     "decidedAt": "2026-11-03T00:00:00.000Z",
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.1429,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::it::verkaufer-in-denner-5": {
+    "winnerJobIdentifier": "denner-eacecba7aace",
+    "winnerCanonical": "venditore-trice-denner-rapperswil-sg",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.125,
     "candidatesCount": 2,
     "canton": "SG"
   },
@@ -40994,6 +42371,15 @@
     "candidatesCount": 1,
     "canton": "SZ"
   },
+  "SZ::it::fresh-products-salesperson-coop-genossenschaft-schubelbach": {
+    "winnerJobIdentifier": "company-6pe7z",
+    "winnerCanonical": "vendita-prodotti-alimentari-fresh-coop-genossenschaft-schubelbach",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.4444,
+    "candidatesCount": 2,
+    "canton": "SZ"
+  },
   "SZ::it::gartner-in-garten-und-landschaftsbau-fur-neuanlagen-und-unterhalt-einsiedeln-schwyz": {
     "winnerJobIdentifier": "stellenpartner-83938768a88f",
     "winnerCanonical": "giardiniere-a-costruzione-di-giardini-e-paesaggio-per-nuovi-impianti-e-manutenzione-stellenpartner-ag-einsiedeln-schwyz",
@@ -41201,6 +42587,15 @@
     "candidatesCount": 2,
     "canton": "SZ"
   },
+  "SZ::it::verkaufer-in-food-getranke-wein-coop-altendorf-2": {
+    "winnerJobIdentifier": "company-3n1gu2",
+    "winnerCanonical": "seller-food-bevande-vino-coop-genossenschaft-altendorf",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.25,
+    "candidatesCount": 2,
+    "canton": "SZ"
+  },
   "SZ::it::verkaufer-in-im-stundenlohn-denner": {
     "winnerJobIdentifier": "denner-185cf6dcbec3",
     "winnerCanonical": "verkaufer-in-im-stundenlohn-denner-wollerau",
@@ -41208,6 +42603,15 @@
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.8333,
     "candidatesCount": 3,
+    "canton": "SZ"
+  },
+  "SZ::it::verkaufer-in-kassen-services-coop-schwyz": {
+    "winnerJobIdentifier": "company-gcvkxi",
+    "winnerCanonical": "vendita-cassetti-servizi-coop-genossenschaft-schwyz",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.2,
+    "candidatesCount": 2,
     "canton": "SZ"
   },
   "SZ::it::verkauferin-verkaufer-m-w-d-volg-oberiberg": {
@@ -41948,6 +43352,15 @@
     "candidatesCount": 2,
     "canton": "TG"
   },
+  "TG::de::verkaufer-in-denner-weinfelden": {
+    "winnerJobIdentifier": "denner-0025dd397e9b",
+    "winnerCanonical": "verkaufer-in-denner",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.75,
+    "candidatesCount": 2,
+    "canton": "TG"
+  },
   "TG::de::verkaufer-in-im-stundenlohn-denner": {
     "winnerJobIdentifier": "denner-40f5e3cd92c2",
     "winnerCanonical": "verkaufer-in-im-stundenlohn-denner-kreuzlingen",
@@ -42632,6 +44045,15 @@
     "candidatesCount": 2,
     "canton": "TG"
   },
+  "TG::en::verkaufer-in-denner-weinfelden": {
+    "winnerJobIdentifier": "denner-0025dd397e9b",
+    "winnerCanonical": "shop-assistant-denner-weinfelden",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.3333,
+    "candidatesCount": 2,
+    "canton": "TG"
+  },
   "TG::en::waffenmechaniker-in-swiss-armed-forces-vtg-frauenfeld-c1pk5u": {
     "winnerJobIdentifier": "company-c1pk5u",
     "winnerCanonical": "weapons-mechanic-swiss-armed-forces-vtg-frauenfeld",
@@ -43304,6 +44726,15 @@
     "decidedAt": "2026-10-30T00:00:00.000Z",
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.3333,
+    "candidatesCount": 2,
+    "canton": "TG"
+  },
+  "TG::fr::verkaufer-in-denner-weinfelden": {
+    "winnerJobIdentifier": "denner-0025dd397e9b",
+    "winnerCanonical": "vendeur-denner-weinfelden",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.4,
     "candidatesCount": 2,
     "canton": "TG"
   },
@@ -45062,6 +46493,15 @@
     "candidatesCount": 6,
     "canton": "TG"
   },
+  "TG::it::verkaufer-in-denner-2": {
+    "winnerJobIdentifier": "denner-0025dd397e9b",
+    "winnerCanonical": "venditore-denner-weinfelden",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.1667,
+    "candidatesCount": 3,
+    "canton": "TG"
+  },
   "TG::it::verkaufer-in-denner-24": {
     "winnerJobIdentifier": "denner-c9b278d7d575",
     "winnerCanonical": "venditore-a-denner-ag-frauenfeld",
@@ -45113,6 +46553,15 @@
     "decidedAt": "2026-10-30T00:00:00.000Z",
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.25,
+    "candidatesCount": 2,
+    "canton": "TG"
+  },
+  "TG::it::verkaufer-in-denner-weinfelden": {
+    "winnerJobIdentifier": "denner-0025dd397e9b",
+    "winnerCanonical": "venditore-denner-weinfelden",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.4,
     "candidatesCount": 2,
     "canton": "TG"
   },
@@ -48059,6 +49508,15 @@
     "candidatesCount": 2,
     "canton": "TI"
   },
+  "TI::it::stv-filialleiter-in-denner-3": {
+    "winnerJobIdentifier": "denner-54551f98ab4d",
+    "winnerCanonical": "vice-direttoredifiliale-denner-emmenbrucke",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.125,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
   "TI::it::stv-filialleiter-in-denner-4": {
     "winnerJobIdentifier": "denner-d5ef2bd300da",
     "winnerCanonical": "vice-direttoredifiliale-denner-ibach",
@@ -48312,11 +49770,11 @@
     "canton": "VD"
   },
   "VD::de::facharzt-fur-rheumatologie-w-m-ensemble-hospitalier-de-la-cote-ehc-morges": {
-    "winnerJobIdentifier": "ehc-vd-eadc1d66981e",
-    "winnerCanonical": "spezialist-arzt-in-endokrinologie-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
-    "decidedAt": "2026-09-12T00:00:00.000Z",
-    "lastSeenAt": "2026-11-04T00:00:00.000Z",
-    "score": 0.3889,
+    "winnerJobIdentifier": "ehc-vd-2d81702250d9",
+    "winnerCanonical": "medizinischer-facharzt-fur-rheumatologie-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.9231,
     "candidatesCount": 1,
     "canton": "VD"
   },
@@ -49707,12 +51165,12 @@
     "canton": "VD"
   },
   "VD::it::infermiere-specializzato-in-cure-intensive-f-h-ensemble-hospitalier-de-la-cote-ehc-morges": {
-    "winnerJobIdentifier": "ehc-vd-49a162929d17",
+    "winnerJobIdentifier": "ehc-vd-8bef1382736e",
     "winnerCanonical": "assistenza-medica-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
-    "decidedAt": "2026-10-03T00:00:00.000Z",
-    "lastSeenAt": "2026-11-16T00:00:00.000Z",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.4706,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "VD"
   },
   "VD::it::infirmier-coordinateur-h-f-fondation-soins-lausanne-lausanne": {
@@ -49779,12 +51237,12 @@
     "canton": "VD"
   },
   "VD::it::infirmier-specialise-soins-intensifs-f-h-ehc-vd-morges": {
-    "winnerJobIdentifier": "ehc-vd-49a162929d17",
+    "winnerJobIdentifier": "ehc-vd-8bef1382736e",
     "winnerCanonical": "assistenza-medica-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
-    "decidedAt": "2026-10-03T00:00:00.000Z",
-    "lastSeenAt": "2026-11-16T00:00:00.000Z",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.1765,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "VD"
   },
   "VD::it::infirmiere-infirmier-responsable-d-unite-de-soins-irus-a-100-tertianum-montreux": {
@@ -50903,6 +52361,15 @@
     "candidatesCount": 1,
     "canton": "VS"
   },
+  "VS::it::spa-attendant-50-winter-26-27-w-verbier-marriott-verbier": {
+    "winnerJobIdentifier": "marriott-a2cfe8c852ba",
+    "winnerCanonical": "spa-hostess-50-inverno-26-27-w-verbier-marriott-international-verbier",
+    "decidedAt": "2026-09-27T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.5833,
+    "candidatesCount": 1,
+    "canton": "VS"
+  },
   "VS::it::stellvertretender-filialleiter-m-w-d-rituals-cosmetics-ch": {
     "winnerJobIdentifier": "rituals-cosmetics-b7c37b103952",
     "winnerCanonical": "direttore-aggiunto-m-f-d-rituals-cosmetics-switzerland-simplon",
@@ -51578,6 +53045,15 @@
     "candidatesCount": 2,
     "canton": "ZG"
   },
+  "ZG::it::verkaufer-in-denner-14": {
+    "winnerJobIdentifier": "denner-1c498e3f6ad4",
+    "winnerCanonical": "venditore-denner-cham",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.1667,
+    "candidatesCount": 2,
+    "canton": "ZG"
+  },
   "ZG::it::verkaufer-in-denner-16": {
     "winnerJobIdentifier": "denner-aaeba3282162",
     "winnerCanonical": "venditore-denner-unterageri",
@@ -51612,6 +53088,42 @@
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.8333,
     "candidatesCount": 4,
+    "canton": "ZG"
+  },
+  "ZG::it::verkaufer-in-im-stundenlohn-denner-12": {
+    "winnerJobIdentifier": "denner-487e0b2e1d49",
+    "winnerCanonical": "venditore-con-retribuzione-oraria-denner-zug",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.0909,
+    "candidatesCount": 2,
+    "canton": "ZG"
+  },
+  "ZG::it::verkaufer-in-im-stundenlohn-denner-13": {
+    "winnerJobIdentifier": "denner-487e0b2e1d49",
+    "winnerCanonical": "venditore-con-retribuzione-oraria-denner-zug",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.0909,
+    "candidatesCount": 2,
+    "canton": "ZG"
+  },
+  "ZG::it::verkaufer-in-im-stundenlohn-denner-15": {
+    "winnerJobIdentifier": "denner-487e0b2e1d49",
+    "winnerCanonical": "venditore-con-retribuzione-oraria-denner-zug",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.0909,
+    "candidatesCount": 3,
+    "canton": "ZG"
+  },
+  "ZG::it::verkaufer-in-im-stundenlohn-denner-6": {
+    "winnerJobIdentifier": "denner-487e0b2e1d49",
+    "winnerCanonical": "venditore-con-retribuzione-oraria-denner-zug",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.0909,
+    "candidatesCount": 2,
     "canton": "ZG"
   },
   "ZG::it::verkaufer-in-im-stundenlohn-denner-steinhausen": {
@@ -51984,12 +53496,12 @@
     "canton": "ZH"
   },
   "ZH::de::assistent-in-filialleitung-denner-gossau-zh": {
-    "winnerJobIdentifier": "denner-856665fc32bd",
-    "winnerCanonical": "assistent-in-filialleitung-denner-i9fhcw",
-    "decidedAt": "2026-10-05T00:00:00.000Z",
-    "lastSeenAt": "2026-10-26T00:00:00.000Z",
+    "winnerJobIdentifier": "denner-670055446f8f",
+    "winnerCanonical": "assistent-in-filialleitung-denner-7z9mhg",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.5714,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::de::assistent-in-filialleitung-denner-zurich": {
@@ -53945,6 +55457,15 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::de::stv-filialleiter-in-denner-adliswil": {
+    "winnerJobIdentifier": "denner-09c2e784015f",
+    "winnerCanonical": "stv-filialleiter-in-denner",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.8,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::de::stv-filialleiter-in-denner-brugg-be": {
     "winnerJobIdentifier": "denner-0cf4571e76d0",
     "winnerCanonical": "stv-filialleiter-in-denner-ag-zurich-gdn8qz",
@@ -53958,6 +55479,15 @@
     "winnerJobIdentifier": "denner-1ecc80ff026a",
     "winnerCanonical": "stv-filialleiter-in-denner",
     "decidedAt": "2026-10-05T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.8,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::de::stv-filialleiter-in-denner-uster": {
+    "winnerJobIdentifier": "denner-9213c625b8eb",
+    "winnerCanonical": "stv-filialleiter-in-denner",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.8,
     "candidatesCount": 2,
@@ -54449,6 +55979,15 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::en::assistent-in-filialleitung-denner-11": {
+    "winnerJobIdentifier": "denner-27263f4f4680",
+    "winnerCanonical": "assistant-branch-manager-denner-wadenswil",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.1111,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::en::assistent-in-filialleitung-denner-3": {
     "winnerJobIdentifier": "denner-1d9882bfb52b",
     "winnerCanonical": "assistant-branch-manager-denner-ag-zurich",
@@ -54464,6 +56003,24 @@
     "decidedAt": "2026-10-25T00:00:00.000Z",
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.1111,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::en::assistent-in-filialleitung-denner-5": {
+    "winnerJobIdentifier": "denner-670055446f8f",
+    "winnerCanonical": "assistant-branch-manager-denner-schlieren",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.1111,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::en::assistent-in-filialleitung-denner-adliswil": {
+    "winnerJobIdentifier": "denner-fd52eaa7105e",
+    "winnerCanonical": "assistant-in-branch-management-denner-ag-adliswil",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.3333,
     "candidatesCount": 2,
     "canton": "ZH"
   },
@@ -56798,6 +58355,15 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::en::stv-filialleiter-in-denner-adliswil": {
+    "winnerJobIdentifier": "denner-09c2e784015f",
+    "winnerCanonical": "deputy-branch-manager-denner-adliswil",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.25,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::en::stv-filialleiter-in-denner-brugg-be": {
     "winnerJobIdentifier": "denner-0cf4571e76d0",
     "winnerCanonical": "stv-filialleiter-in-denner-zurich",
@@ -56814,6 +58380,15 @@
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.0909,
     "candidatesCount": 1,
+    "canton": "ZH"
+  },
+  "ZH::en::stv-filialleiter-in-denner-uster": {
+    "winnerJobIdentifier": "denner-9213c625b8eb",
+    "winnerCanonical": "deputy-branch-manager-denner-uster",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.25,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::en::stv-filialleiter-in-denner-wadenswil": {
@@ -57392,6 +58967,15 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::fr::assistent-in-filialleitung-denner-11": {
+    "winnerJobIdentifier": "denner-27263f4f4680",
+    "winnerCanonical": "assistant-e-de-responsable-de-filiale-denner-wadenswil",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.0909,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::fr::assistent-in-filialleitung-denner-3": {
     "winnerJobIdentifier": "denner-1d9882bfb52b",
     "winnerCanonical": "directeur-adjoint-de-succursale-denner-ag-zurich",
@@ -57407,6 +58991,24 @@
     "decidedAt": "2026-10-25T00:00:00.000Z",
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.0909,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::fr::assistent-in-filialleitung-denner-5": {
+    "winnerJobIdentifier": "denner-670055446f8f",
+    "winnerCanonical": "assistant-e-de-direction-de-succursale-denner-schlieren",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.0909,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::fr::assistent-in-filialleitung-denner-adliswil": {
+    "winnerJobIdentifier": "denner-fd52eaa7105e",
+    "winnerCanonical": "assistant-dans-la-gestion-des-succursales-denner-ag-adliswil",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.1667,
     "candidatesCount": 2,
     "canton": "ZH"
   },
@@ -59642,6 +61244,15 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::fr::stv-filialleiter-in-denner-adliswil": {
+    "winnerJobIdentifier": "denner-09c2e784015f",
+    "winnerCanonical": "responsable-adjoint-e-de-filiale-denner-adliswil",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.2,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::fr::stv-filialleiter-in-denner-brugg-be": {
     "winnerJobIdentifier": "denner-0cf4571e76d0",
     "winnerCanonical": "stv-filialleiter-in-denner-zurich",
@@ -59657,6 +61268,15 @@
     "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.1818,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::fr::stv-filialleiter-in-denner-uster": {
+    "winnerJobIdentifier": "denner-9213c625b8eb",
+    "winnerCanonical": "responsable-adjoint-e-de-filiale-denner-uster",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.2,
     "candidatesCount": 2,
     "canton": "ZH"
   },
@@ -60668,6 +62288,15 @@
     "candidatesCount": 7,
     "canton": "ZH"
   },
+  "ZH::it::assistent-in-filialleitung-denner-11": {
+    "winnerJobIdentifier": "denner-27263f4f4680",
+    "winnerCanonical": "assistente-alla-direzione-della-filiale-denner-wadenswil",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.0909,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::it::assistent-in-filialleitung-denner-2": {
     "winnerJobIdentifier": "denner-f35d6dcd3dea",
     "winnerCanonical": "assistente-alla-direzione-della-filiale-denner-dielsdorf",
@@ -60678,12 +62307,12 @@
     "canton": "ZH"
   },
   "ZH::it::assistent-in-filialleitung-denner-3": {
-    "winnerJobIdentifier": "denner-1d9882bfb52b",
-    "winnerCanonical": "vice-direttore-di-filiale-denner-ag-zurich-3cd714",
-    "decidedAt": "2026-10-05T00:00:00.000Z",
-    "lastSeenAt": "2026-10-26T00:00:00.000Z",
-    "score": 0.0833,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "denner-670055446f8f",
+    "winnerCanonical": "assistente-nella-direzione-della-filiale-denner-schlieren",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.0909,
+    "candidatesCount": 3,
     "canton": "ZH"
   },
   "ZH::it::assistent-in-filialleitung-denner-4": {
@@ -60702,6 +62331,33 @@
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.0833,
     "candidatesCount": 1,
+    "canton": "ZH"
+  },
+  "ZH::it::assistent-in-filialleitung-denner-6": {
+    "winnerJobIdentifier": "denner-670055446f8f",
+    "winnerCanonical": "assistente-nella-direzione-della-filiale-denner-schlieren",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.0909,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::it::assistent-in-filialleitung-denner-7": {
+    "winnerJobIdentifier": "denner-670055446f8f",
+    "winnerCanonical": "assistente-nella-direzione-della-filiale-denner-schlieren",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.0909,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::it::assistent-in-filialleitung-denner-adliswil": {
+    "winnerJobIdentifier": "denner-3c5637016ff5",
+    "winnerCanonical": "assistente-nella-gestione-delle-branche-denner-ag-adliswil-0f6572",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.1667,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::it::assistent-in-filialleitung-denner-biel-bienne": {
@@ -60795,11 +62451,11 @@
     "canton": "ZH"
   },
   "ZH::it::assistenzarztin-assistenzarzt-ipw-glattbrugg": {
-    "winnerJobIdentifier": "ipw-f7f2b1c0a5fe",
-    "winnerCanonical": "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-glattbrugg",
-    "decidedAt": "2026-10-28T00:00:00.000Z",
-    "lastSeenAt": "2026-11-04T00:00:00.000Z",
-    "score": 0.2222,
+    "winnerJobIdentifier": "ipw-c3295b61c177",
+    "winnerCanonical": "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-winterthur",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.1111,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -61532,6 +63188,15 @@
     "candidatesCount": 3,
     "canton": "ZH"
   },
+  "ZH::it::consulente-di-vendita-garden-jumbo-rumlang": {
+    "winnerJobIdentifier": "jumbo-8413a342-295",
+    "winnerCanonical": "consulente-di-vendita-garden-jumbo-rumlang-d05c8b92b7",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.8571,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::it::consulente-vendite-abbigliamento-donna-coop-genossenschaft-zurich": {
     "winnerJobIdentifier": "company-7mf7u2",
     "winnerCanonical": "consulente-vendite-abbigliamento-donna-coop-genossenschaft-zurich-d2aca8d115",
@@ -61563,7 +63228,7 @@
     "winnerJobIdentifier": "mcdonald-s-switzerland-b49289703ae9",
     "winnerCanonical": "crew-mcdonalds-switzerland-winterthur-p8-319504-1",
     "decidedAt": "2026-11-02T00:00:00.000Z",
-    "lastSeenAt": "2026-11-17T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.75,
     "candidatesCount": 1,
     "canton": "ZH"
@@ -62045,6 +63710,15 @@
     "candidatesCount": 1,
     "canton": "ZH"
   },
+  "ZH::it::dipl-infermieristica-professionale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-673508": {
+    "winnerJobIdentifier": "epi-stiftung-d4eaac7c4751",
+    "winnerCanonical": "dipl-infermieristica-professionale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.9091,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::it::dipl-ing-pflegefachfrau-dipl-pflegefachmann-im-nachtdienst-kinderstation-psychiatrische-universitatsklinik-zurich-zurich": {
     "winnerJobIdentifier": "puk-zuerich-fadca51159cb-r986abb11",
     "winnerCanonical": "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-e-liaisondienst-psychiatrische-universitatsklinik-zurich",
@@ -62108,6 +63782,15 @@
     "candidatesCount": 1,
     "canton": "ZH"
   },
+  "ZH::it::dipl-nursing-professional-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-673508": {
+    "winnerJobIdentifier": "epi-stiftung-d4eaac7c4751",
+    "winnerCanonical": "dipl-infermieristica-professionale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.6154,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::it::dipl-nursing-specialist-nursing-specialist-acute-station-adolescent-a0-psychiatrische-universitatsklinik-zurich-zurich": {
     "winnerJobIdentifier": "puk-zuerich-fadca51159cb-r986abb11",
     "winnerCanonical": "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-e-liaisondienst-psychiatrische-universitatsklinik-zurich",
@@ -62124,6 +63807,15 @@
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.9091,
     "candidatesCount": 1,
+    "canton": "ZH"
+  },
+  "ZH::it::dipl-pedagogia-sociale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich": {
+    "winnerJobIdentifier": "epi-stiftung-7ef2f9c13a84",
+    "winnerCanonical": "dipl-pedagoga-sociale-pedagoga-sociale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-6faa33d94d",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.75,
+    "candidatesCount": 3,
     "canton": "ZH"
   },
   "ZH::it::dipl-pflegefachfrau-dipl-pflegefachmann-40-50-schlaflabor-kispi-zurich": {
@@ -62459,6 +64151,15 @@
     "candidatesCount": 1,
     "canton": "ZH"
   },
+  "ZH::it::dipl-pflegefachfrau-pflegefachmann-hf-fh-epi-stiftung-zurich-2": {
+    "winnerJobIdentifier": "epi-stiftung-d4eaac7c4751",
+    "winnerCanonical": "dipl-infermieristica-professionale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.4615,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::it::dipl-pflegefachfrau-pflegefachmann-hf-fh-ht-psychiatrische-universitatsklinik-zurich-zurich": {
     "winnerJobIdentifier": "puk-zuerich-76cd9ec3c3f3",
     "winnerCanonical": "dipl-specialista-infermieristico-specialista-in-allattamento-acute-station-adolescente-a0-psychiatrische",
@@ -62478,12 +64179,12 @@
     "canton": "ZH"
   },
   "ZH::it::dipl-pflegefachfrau-pflegefachmann-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich": {
-    "winnerJobIdentifier": "epi-stiftung-f4fb7bf8717a",
+    "winnerJobIdentifier": "epi-stiftung-d4eaac7c4751",
     "winnerCanonical": "dipl-infermieristica-professionale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
-    "decidedAt": "2026-10-30T00:00:00.000Z",
-    "lastSeenAt": "2026-11-02T00:00:00.000Z",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.6667,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::it::dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitat-dtq80w": {
@@ -62675,6 +64376,15 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::it::dipl-professionnels-des-soins-infirmiers-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-673508": {
+    "winnerJobIdentifier": "epi-stiftung-d4eaac7c4751",
+    "winnerCanonical": "dipl-infermieristica-professionale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.5333,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::it::dipl-professionnels-des-soins-infirmiers-professionnels-des-soins-infirmiers-c1-psychiatrische-universitatsklinik-zurich": {
     "winnerJobIdentifier": "puk-zuerich-fadca51159cb-r986abb11",
     "winnerCanonical": "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-e-liaisondienst-psychiatrische-universitatsklinik-zurich",
@@ -62754,6 +64464,15 @@
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.3125,
     "candidatesCount": 4,
+    "canton": "ZH"
+  },
+  "ZH::it::diploma-in-social-education-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich": {
+    "winnerJobIdentifier": "epi-stiftung-d4eaac7c4751",
+    "winnerCanonical": "dipl-infermieristica-professionale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 3,
     "canton": "ZH"
   },
   "ZH::it::diplomata-infermiera-o-specializzata-o-di-notte-reparto-pediatrico-psychiatrische-universitatsklinik-zurich-zurich": {
@@ -62970,6 +64689,24 @@
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.2667,
     "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::it::educateur-social-diplome-hes-hf-schweizerische-epilepsie-stiftung-epi-zurich": {
+    "winnerJobIdentifier": "epi-stiftung-d4eaac7c4751",
+    "winnerCanonical": "dipl-infermieristica-professionale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.4286,
+    "candidatesCount": 3,
+    "canton": "ZH"
+  },
+  "ZH::it::educatore-sociale-dipl-con-formazione-professionale-o-universitaria-schweizerische-epilepsie-stiftung-epi-zurich": {
+    "winnerJobIdentifier": "epi-stiftung-d4eaac7c4751",
+    "winnerCanonical": "dipl-infermieristica-professionale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.4375,
+    "candidatesCount": 3,
     "canton": "ZH"
   },
   "ZH::it::einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch": {
@@ -63225,30 +64962,48 @@
     "canton": "ZH"
   },
   "ZH::it::esperto-a-in-formazione-di-emergenza-nds-hf-kantonsspital-winterthur-ksw-winterthur": {
-    "winnerJobIdentifier": "ksw-e048ae83e2a3",
-    "winnerCanonical": "expert-expert-emergency-care-nds-hf-kantonsspital-winterthur-ksw-winterthur",
-    "decidedAt": "2026-11-20T00:00:00.000Z",
-    "lastSeenAt": "2026-11-20T00:00:00.000Z",
-    "score": 0.3571,
+    "winnerJobIdentifier": "ksw-b24044f1e140",
+    "winnerCanonical": "professional-training-expert-expert-emergency-care-nds-hf-kantonsspital-winterthur-ksw-winterthur",
+    "decidedAt": "2026-09-26T00:00:00.000Z",
+    "lastSeenAt": "2026-10-28T00:00:00.000Z",
+    "score": 0.3125,
     "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::it::esperto-in-cure-di-emergenza-nds-hf-kantonsspital-winterthur-ksw-winterthur": {
-    "winnerJobIdentifier": "ksw-e048ae83e2a3",
-    "winnerCanonical": "expert-expert-emergency-care-nds-hf-kantonsspital-winterthur-ksw-winterthur",
+    "winnerJobIdentifier": "ksw-b24044f1e140",
+    "winnerCanonical": "professional-training-expert-expert-emergency-care-nds-hf-kantonsspital-winterthur-ksw-winterthur",
+    "decidedAt": "2026-09-26T00:00:00.000Z",
+    "lastSeenAt": "2026-10-28T00:00:00.000Z",
+    "score": 0.3333,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::it::etude-dipl-specialiste-des-soins-hf-chez-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich": {
+    "winnerJobIdentifier": "epi-stiftung-d4eaac7c4751",
+    "winnerCanonical": "dipl-infermieristica-professionale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
     "decidedAt": "2026-11-20T00:00:00.000Z",
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
-    "score": 0.3846,
+    "score": 0.4375,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::it::etude-dipl-specialiste-des-soins-infirmiers-a-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich": {
+    "winnerJobIdentifier": "epi-stiftung-d4eaac7c4751",
+    "winnerCanonical": "dipl-infermieristica-professionale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.3529,
     "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::it::expert-in-intensive-care-nds-intensive-medicine-kantonsspital-winterthur-ksw-winterthur": {
-    "winnerJobIdentifier": "ksw-a472f3354a54",
-    "winnerCanonical": "cura-intensiva-di-esperti-nds-kantonsspital-winterthur-ksw-winterthur",
-    "decidedAt": "2026-11-20T00:00:00.000Z",
-    "lastSeenAt": "2026-11-20T00:00:00.000Z",
-    "score": 0.3077,
-    "candidatesCount": 1,
+    "winnerJobIdentifier": "ksw-67d0a4e982b5",
+    "winnerCanonical": "ulteriore-esperto-di-istruzione-assistenza-intensiva-esperta-nds-hf-kantonsspital-winterthur-ksw-winterthur",
+    "decidedAt": "2026-08-08T00:00:00.000Z",
+    "lastSeenAt": "2026-10-28T00:00:00.000Z",
+    "score": 0.2353,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::it::expertin-experte-intensivpflege-nds-intensivmedizin-ksw-ch": {
@@ -64475,6 +66230,15 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::it::infermiere-dipl-infermiere-sss-sup-schweizerische-epilepsie-stiftung-epi-zurich": {
+    "winnerJobIdentifier": "epi-stiftung-d4eaac7c4751",
+    "winnerCanonical": "dipl-infermieristica-professionale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.4615,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::it::infermiere-diplomata-hf-70-80-clienia-ag-pfaffikon": {
     "winnerJobIdentifier": "clienia-ag-a3e557c980c9",
     "winnerCanonical": "diplomata-infermiera-professionale-con-perito-diploma-federale-10-100-clienia-ag-pfaffikon-zh",
@@ -65187,11 +66951,11 @@
     "canton": "ZH"
   },
   "ZH::it::lehrstelle-fachfrau-mann-gesundheit-fage-im-pflegezentrum-spital-limmattal-ch": {
-    "winnerJobIdentifier": "spital-limmattal-8472f38cda3f",
-    "winnerCanonical": "apprendistato-fachfrau-mann-gesundheit-fage-im-pflegezentrum-spital-limmattal-schlieren",
+    "winnerJobIdentifier": "spital-limmattal-29510a954175",
+    "winnerCanonical": "apprendistato-fachfrau-mann-gesundheit-cfc-fage-spital-limmattal-schlieren",
     "decidedAt": "2026-11-20T00:00:00.000Z",
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
-    "score": 0.6667,
+    "score": 0.4615,
     "candidatesCount": 2,
     "canton": "ZH"
   },
@@ -67589,6 +69353,15 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::it::rayonleiter-in-fruchte-gemuse-coop-zurich-2": {
+    "winnerJobIdentifier": "company-15e9jx",
+    "winnerCanonical": "rayon-conduttore-frutta-verdura-coop-genossenschaft-zurich",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.1667,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::it::rayonleiter-in-nonfood-coop-zurich": {
     "winnerJobIdentifier": "company-xcq9dm",
     "winnerCanonical": "rayon-conduttore-non-alimentare-coop-genossenschaft-zurich",
@@ -68337,11 +70110,11 @@
     "canton": "ZH"
   },
   "ZH::it::specialiste-en-formation-d-urgence-nds-hf-kantonsspital-winterthur-ksw-winterthur": {
-    "winnerJobIdentifier": "ksw-e048ae83e2a3",
-    "winnerCanonical": "expert-expert-emergency-care-nds-hf-kantonsspital-winterthur-ksw-winterthur",
-    "decidedAt": "2026-11-20T00:00:00.000Z",
-    "lastSeenAt": "2026-11-20T00:00:00.000Z",
-    "score": 0.3846,
+    "winnerJobIdentifier": "ksw-b24044f1e140",
+    "winnerCanonical": "professional-training-expert-expert-emergency-care-nds-hf-kantonsspital-winterthur-ksw-winterthur",
+    "decidedAt": "2026-09-26T00:00:00.000Z",
+    "lastSeenAt": "2026-10-28T00:00:00.000Z",
+    "score": 0.3333,
     "candidatesCount": 2,
     "canton": "ZH"
   },
@@ -68516,6 +70289,15 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::it::student-dipl-nursing-specialist-hf-at-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich": {
+    "winnerJobIdentifier": "epi-stiftung-d4eaac7c4751",
+    "winnerCanonical": "dipl-infermieristica-professionale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.4667,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::it::studienkoordinator-in-klinik-fur-rheumatologie-40-50-usz-ch": {
     "winnerJobIdentifier": "usz-efabb97fc7fb",
     "winnerCanonical": "oberarzt-oberarztin-m-w-d-infiltrationsteam-klinik-per-rheumatologie-20-40-universitatsspital-zurich-usz-campus",
@@ -68534,6 +70316,15 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::it::studio-dipl-specialista-hf-presso-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich": {
+    "winnerJobIdentifier": "epi-stiftung-d4eaac7c4751",
+    "winnerCanonical": "dipl-infermieristica-professionale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::it::studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich": {
     "winnerJobIdentifier": "epi-stiftung-38f17468e53c",
     "winnerCanonical": "corso-di-studi-per-infermiere-a-diplomato-a-sss-presso-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich-07db5652cf",
@@ -68544,12 +70335,12 @@
     "canton": "ZH"
   },
   "ZH::it::studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich": {
-    "winnerJobIdentifier": "epi-stiftung-910c97903c35",
-    "winnerCanonical": "corso-di-studi-per-infermiere-a-diplomato-a-sss-presso-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich",
-    "decidedAt": "2026-10-30T00:00:00.000Z",
-    "lastSeenAt": "2026-11-04T00:00:00.000Z",
-    "score": 0.2857,
-    "candidatesCount": 1,
+    "winnerJobIdentifier": "epi-stiftung-d4eaac7c4751",
+    "winnerCanonical": "dipl-infermieristica-professionale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.4667,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::it::studium-pflegefachfrau-mann-hf-spitex-gz-dielsdorf-regensdorf": {
@@ -68558,6 +70349,24 @@
     "decidedAt": "2026-10-25T00:00:00.000Z",
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.7778,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::it::study-dipl-care-specialist-hf-at-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich": {
+    "winnerJobIdentifier": "epi-stiftung-d4eaac7c4751",
+    "winnerCanonical": "dipl-infermieristica-professionale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.4667,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::it::study-dipl-nursing-specialist-hf-at-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich": {
+    "winnerJobIdentifier": "epi-stiftung-d4eaac7c4751",
+    "winnerCanonical": "dipl-infermieristica-professionale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.4667,
     "candidatesCount": 2,
     "canton": "ZH"
   },
@@ -68675,6 +70484,15 @@
     "decidedAt": "2026-09-12T00:00:00.000Z",
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.375,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::it::stv-filialleiter-in-denner-adliswil": {
+    "winnerJobIdentifier": "denner-09c2e784015f",
+    "winnerCanonical": "vice-responsabile-di-filiale-denner-adliswil",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.2222,
     "candidatesCount": 2,
     "canton": "ZH"
   },
@@ -68859,11 +70677,11 @@
     "canton": "ZH"
   },
   "ZH::it::testing-commissioning-engineer-stadler-rail-ch": {
-    "winnerJobIdentifier": "stadler-rail-cd0a1fb9c2ae",
-    "winnerCanonical": "reclutamento-stadler-rail-wallisellen",
-    "decidedAt": "2026-11-17T00:00:00.000Z",
+    "winnerJobIdentifier": "stadler-rail-92c482a57849",
+    "winnerCanonical": "testing-commissioning-ingegnere-stadler-rail-wallisellen",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
-    "score": 0.25,
+    "score": 0.5,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -69200,12 +71018,30 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::it::verkaufer-in-denner-2": {
+    "winnerJobIdentifier": "denner-c04351a446ce",
+    "winnerCanonical": "venditore-denner-ag-zurich-1ed56c",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.125,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::it::verkaufer-in-denner-20": {
     "winnerJobIdentifier": "denner-c76128dd726f",
     "winnerCanonical": "addetto-a-alle-vendite-denner-eglisau",
     "decidedAt": "2026-10-30T00:00:00.000Z",
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.1111,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::it::verkaufer-in-denner-21": {
+    "winnerJobIdentifier": "denner-845b886025e3",
+    "winnerCanonical": "venditore-denner-zurich",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.1667,
     "candidatesCount": 2,
     "canton": "ZH"
   },
@@ -69288,6 +71124,15 @@
     "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.25,
     "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::it::verkaufer-in-denner-rubigen": {
+    "winnerJobIdentifier": "denner-f673ccb29900",
+    "winnerCanonical": "venditore-denner-ag-pfungen",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.1429,
+    "candidatesCount": 3,
     "canton": "ZH"
   },
   "ZH::it::verkaufer-in-denner-wetzikon": {
@@ -69650,6 +71495,15 @@
     "candidatesCount": 1,
     "canton": "ZH"
   },
+  "ZH::it::verkaufer-in-frischprodukte-coop-zurich-5": {
+    "winnerJobIdentifier": "company-2p5fl5",
+    "winnerCanonical": "vendita-prodotti-freschi-coop-genossenschaft-zurich-0e5b56",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.1818,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::it::verkaufer-in-fruchte-gemuse-genossenschaft-migros-zurich": {
     "winnerJobIdentifier": "company-h7lw3z",
     "winnerCanonical": "addetto-a-alla-vendita-di-frutta-e-verdura-genossenschaft-migros-zurich-zurich",
@@ -69704,6 +71558,24 @@
     "candidatesCount": 1,
     "canton": "ZH"
   },
+  "ZH::it::verkaufer-in-im-stundenlohn-denner-9": {
+    "winnerJobIdentifier": "denner-d436d0e10288",
+    "winnerCanonical": "venditore-con-retribuzione-oraria-denner-greifensee",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.0909,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::it::verkaufer-in-kassen-services-coop-city-zurich": {
+    "winnerJobIdentifier": "company-138gqd",
+    "winnerCanonical": "vendita-cassetti-servizi-coop-genossenschaft-zurich-e5739a",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.1667,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::it::verkaufer-in-kassen-services-coop-genossenschaft-dielsdorf": {
     "winnerJobIdentifier": "company-jnw712",
     "winnerCanonical": "vendita-cassa-servizi-coop-genossenschaft-dielsdorf",
@@ -69714,10 +71586,10 @@
     "canton": "ZH"
   },
   "ZH::it::verkaufer-in-kassen-services-coop-genossenschaft-zurich": {
-    "winnerJobIdentifier": "company-yzp8qy",
+    "winnerJobIdentifier": "company-qvfad3",
     "winnerCanonical": "vendita-cassa-servizi-coop-genossenschaft-zurich",
-    "decidedAt": "2026-10-03T00:00:00.000Z",
-    "lastSeenAt": "2026-10-28T00:00:00.000Z",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.3,
     "candidatesCount": 1,
     "canton": "ZH"
@@ -69884,6 +71756,15 @@
     "candidatesCount": 1,
     "canton": "ZH"
   },
+  "ZH::it::verkaufer-in-nonfood-coop-zurich-2": {
+    "winnerJobIdentifier": "company-do6bdv",
+    "winnerCanonical": "venditore-nonfood-coop-genossenschaft-zurich",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.375,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::it::verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-wallisellen": {
     "winnerJobIdentifier": "company-k67wl8",
     "winnerCanonical": "venditore-venditrice-m-f-d-20-60-wallisellen-lidl-svizzera-wallisellen",
@@ -69929,12 +71810,21 @@
     "candidatesCount": 4,
     "canton": "ZH"
   },
-  "ZH::it::verkaufsberater-in-heimtextilien-coop-city-zurich": {
-    "winnerJobIdentifier": "company-6sz5ii",
-    "winnerCanonical": "consulenti-di-vendita-home-tessili-coop-genossenschaft-zurich",
-    "decidedAt": "2026-10-10T00:00:00.000Z",
-    "lastSeenAt": "2026-10-28T00:00:00.000Z",
+  "ZH::it::verkaufsberater-in-damenwasche-coop-city-zurich": {
+    "winnerJobIdentifier": "company-7mf7u2",
+    "winnerCanonical": "consulente-vendite-abbigliamento-donna-coop-genossenschaft-zurich-d2aca8d115",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
     "score": 0.1667,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::it::verkaufsberater-in-heimtextilien-coop-city-zurich": {
+    "winnerJobIdentifier": "company-py96fq",
+    "winnerCanonical": "consulente-di-vendita-cosmetici-coop-genossenschaft-zurich",
+    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "lastSeenAt": "2026-11-20T00:00:00.000Z",
+    "score": 0.1818,
     "candidatesCount": 1,
     "canton": "ZH"
   },
