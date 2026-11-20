@@ -2,7 +2,9 @@ import { describe, expect, it } from 'vitest';
 
 import {
   cleanAgroscopeCity,
+  extractAgroscopeDetailLocation,
   isAgroscopeSwissRelevant,
+  reconcileAgroscopeDetailLocation,
   resolveAgroscopeCanton,
 } from '../scripts/lib/agroscope-job-parser.mjs';
 
@@ -22,5 +24,36 @@ describe('agroscope job parser location normalization', () => {
     expect(isAgroscopeSwissRelevant({ city: 'Posieux', canton: 'FR' })).toBe(true);
     expect(isAgroscopeSwissRelevant({ city: 'Milano', region: 'BE', canton: 'BE' })).toBe(false);
     expect(isAgroscopeSwissRelevant({ city: '', region: 'ZH', canton: 'ZH' })).toBe(false);
+  });
+
+  it('uses the detail JobPosting workplace when the listing carries a stale station', () => {
+    const posting = {
+      '@type': 'JobPosting',
+      jobLocation: {
+        address: {
+          addressLocality: 'Wädenswil',
+          addressRegion: 'Wädenswil',
+          postalCode: '8820',
+          addressCountry: 'CH',
+        },
+      },
+    };
+
+    expect(extractAgroscopeDetailLocation(posting)).toEqual({
+      city: 'Wädenswil',
+      location: 'Wädenswil',
+      canton: 'ZH',
+      postalCode: '8820',
+    });
+    expect(reconcileAgroscopeDetailLocation({
+      title: 'Praktikum',
+      city: 'Reckenholz',
+      description: 'Forschungsaufgabe',
+      language: 'de',
+    }, posting)).toMatchObject({
+      city: 'Wädenswil',
+      canton: 'ZH',
+      slug: 'praktikum-agroscope-wadenswil',
+    });
   });
 });

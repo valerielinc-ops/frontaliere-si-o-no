@@ -203,6 +203,9 @@ describe('enrichProspectiveJobsFromDetailPages', () => {
       isTrustedDomain: (url: string) => new URL(url).hostname === 'ohws.prospective.ch',
       fetchImpl,
       delayMs: 0,
+      onDetailPage: ({ posting }) => ({
+        detailLocality: posting?.jobLocation?.address?.addressLocality,
+      }),
     });
 
     expect(result.used).toBe(2);
@@ -210,6 +213,8 @@ describe('enrichProspectiveJobsFromDetailPages', () => {
     expect(enriched.description).toContain('## Voici ce que nous vous offrons');
     expect(enriched.descriptionByLocale.fr).toBe(enriched.description);
     expect(enriched.descriptionByLocale.it).toBe(enriched.description);
+    expect(enriched.detailLocality).toBe('Plan-les-Ouates');
+    expect(sameVacancyOtherCity.detailLocality).toBe('Plan-les-Ouates');
     expect(gone.description).toBe(EQUANS_LISTING);
     expect(foreign.description).toBe(EQUANS_LISTING);
     expect(result.pageDescribed.has(enriched)).toBe(true);
@@ -217,6 +222,42 @@ describe('enrichProspectiveJobsFromDetailPages', () => {
     const equansCalls = fetchImpl.mock.calls.filter(([url]) => url === EQUANS_URL);
     expect(equansCalls).toHaveLength(1);
     expect(fetchImpl.mock.calls.some(([url]) => String(url).startsWith('https://example.org'))).toBe(false);
+  });
+
+  it('passes the identity-matching JobPosting to the detail hook, not the first related block', async () => {
+    const related = {
+      '@type': 'JobPosting',
+      title: 'Other vacancy',
+      url: 'https://ohws.prospective.ch/public/v1/jobs/related',
+      jobLocation: { address: { addressLocality: 'München' } },
+    };
+    const current = {
+      '@type': 'JobPosting',
+      title: EQUANS_TITLE,
+      url: EQUANS_URL,
+      jobLocation: { address: { addressLocality: 'Plan-les-Ouates' } },
+    };
+    const html = fixture('equans-technicien-cvc.html').replace(
+      '<head>',
+      `<head><script type="application/ld+json">${JSON.stringify(related)}</script>`
+        + `<script type="application/ld+json">${JSON.stringify(current)}</script>`,
+    );
+    const job = {
+      url: EQUANS_URL,
+      title: EQUANS_TITLE,
+      sourceLang: 'fr',
+      description: EQUANS_LISTING,
+    };
+
+    await enrichProspectiveJobsFromDetailPages([job], {
+      fetchImpl: async (url: string) => htmlResponse(html, url),
+      delayMs: 0,
+      onDetailPage: ({ posting }) => ({
+        detailLocality: posting?.jobLocation?.address?.addressLocality,
+      }),
+    });
+
+    expect(job.detailLocality).toBe('Plan-les-Ouates');
   });
 });
 
