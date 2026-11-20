@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-11-20T15:43:13.101Z",
+  "updatedAt": "2026-11-20T15:46:28.782Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -579685,12 +579685,12 @@
     },
     "frutiger": {
       "key": "frutiger",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-28T15:29:00.770Z",
-      "updatedAt": "2026-11-20T15:07:29.144Z",
+      "updatedAt": "2026-11-20T15:46:28.718Z",
       "name": "Frutiger AG",
       "city": "",
       "zip": "",
@@ -580135,7 +580135,9 @@
           "logoSourceUrl": "https://www.frutiger.com/favicons/frutiger/icon.svg",
           "employerSiteName": "Frutiger AG"
         }
-      ]
+      ],
+      "promotionPr": "19641",
+      "promotionBranch": "prospector/promote-2026-11-20"
     },
     "frutiger-schreinerei.ch": {
       "key": "frutiger-schreinerei.ch",

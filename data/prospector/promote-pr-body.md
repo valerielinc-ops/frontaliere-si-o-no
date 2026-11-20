@@ -1,9 +1,9 @@
 ## Implementato
 
-- **in questa PR** — 1 crawler validati aggiunti ai manifest e alle schedule, con **20 annunci osservati** durante VALIDATE. Ognuno ha superato il gate di `scripts/lib/prospector/promotion-gate.mjs`: qualita' >= 0.9, con **2 validazioni buone su 2 giorni distinti** — la condizione che una singola run, per quanto buona, non puo' soddisfare, semantica provata su almeno il 75% del campione e identita' del datore confermata. Main segna il merge come `awaiting_first_crawl`; `production` richiede una slice `jobs` fresca e non vuota.
-- **in questa PR** — `vatel-ch` · Restaurant & Hôtel Vatel · 20 annunci · qualita' 1.00 su 2 giorni distinti · estrazione `template` · vatel.ch
+- **in questa PR** — 1 crawler validati aggiunti ai manifest e alle schedule, con **14 annunci osservati** durante VALIDATE. Ognuno ha superato il gate di `scripts/lib/prospector/promotion-gate.mjs`: qualita' >= 0.9, con **2 validazioni buone su 2 giorni distinti** — la condizione che una singola run, per quanto buona, non puo' soddisfare, semantica provata su almeno il 75% del campione e identita' del datore confermata. Main segna il merge come `awaiting_first_crawl`; `production` richiede una slice `jobs` fresca e non vuota.
+- **in questa PR** — `frutiger-com` · Frutiger AG · 14 annunci · qualita' 1.00 su 2 giorni distinti · estrazione `template` · frutiger-gruppe.com
 - **in questa PR** — voci nel manifest e gruppi di workflow rigenerati, quindi i crawler entrano nella schedulazione esistente.
-- **in questa PR** — file workflow rigenerati: `.github/corpus-workflows/contract.json`, `.github/corpus-workflows/crawler-group-05.yml`, `.github/workflows/crawler-group-05-logic.yml`, `.github/workflows/crawler-group-05.yml`.
+- **in questa PR** — file workflow rigenerati: `.github/corpus-workflows/contract.json`, `.github/corpus-workflows/crawler-group-23.yml`, `.github/workflows/crawler-group-23-logic.yml`, `.github/workflows/crawler-group-23.yml`.
 - **in questa PR** — `data/crawler-companies-auto.json` rigenerato nello stesso commit dei runner: la directory aziende del sito resta allineata all'insieme dei crawler realmente in produzione, invece di dipendere da un `npm run companies:generate` lanciato a mano (era fermo a 213 voci su 614 runner, issue #6481).
 
 ## Non implementato (ancora)
