@@ -12,6 +12,7 @@ import YAML from 'yaml';
 import {
   buildFailureIssueDescription,
   measureRetiredArchiveCoverage,
+  readBackfillProgress,
 } from '../../scripts/ci/check-retired-jobs-archived.mjs';
 
 type Row = Record<string, any>;
@@ -354,6 +355,77 @@ afterAll(() => {
   if (reportDir) fs.rmSync(reportDir, { recursive: true, force: true });
 });
 
+const WORKSET_HASH = '0123456789abcdef0123456789abcdef01234567';
+const REQUEST_SCOPE_HASH = 'abcdef0123456789abcdef0123456789abcdef01';
+const CANONICAL_FIELDS = [
+  WORKSET_HASH,
+  'last-crawler',
+  'active',
+  REQUEST_SCOPE_HASH,
+  '2026-09-24T12:34:56Z',
+];
+
+function readProgressText(content: string) {
+  const markerDir = fs.mkdtempSync(path.join(os.tmpdir(), 'retired-progress-marker-'));
+  const markerPath = path.join(markerDir, 'progress.tsv');
+  try {
+    fs.writeFileSync(markerPath, content);
+    return readBackfillProgress(markerPath);
+  } finally {
+    fs.rmSync(markerDir, { recursive: true, force: true });
+  }
+}
+
+function progressLine(fields: string[]) {
+  return `${fields.join('\t')}\n`;
+}
+
+describe('readBackfillProgress()', () => {
+  it.each([
+    ['legacy active', [WORKSET_HASH, 'last-crawler', 'active']],
+    ['legacy complete', [WORKSET_HASH, '-', 'complete']],
+    ['canonical active', CANONICAL_FIELDS],
+    ['canonical complete', [WORKSET_HASH, '-', 'complete', REQUEST_SCOPE_HASH, 'all']],
+  ])('accepts a valid %s marker without changing the return shape', (_label, fields) => {
+    const [worksetHash, lastCompletedKey, status] = fields;
+    expect(readProgressText(progressLine(fields))).toEqual({
+      worksetHash,
+      lastCompletedKey,
+      status,
+    });
+  });
+
+  const malformedMarkers = [
+    ['four fields', progressLine(CANONICAL_FIELDS.slice(0, 4))],
+    ['six fields', progressLine([...CANONICAL_FIELDS, 'unexpected'])],
+    ['invalid workset hash', progressLine(['not-a-hash', ...CANONICAL_FIELDS.slice(1)])],
+    ['invalid cursor', progressLine([WORKSET_HASH, 'bad cursor', ...CANONICAL_FIELDS.slice(2)])],
+    ['invalid status', progressLine([WORKSET_HASH, 'last-crawler', 'paused', ...CANONICAL_FIELDS.slice(3)])],
+    ['short scope hash', progressLine([WORKSET_HASH, 'last-crawler', 'active', 'abc', CANONICAL_FIELDS[4]])],
+    ['uppercase scope hash', progressLine([WORKSET_HASH, 'last-crawler', 'active', REQUEST_SCOPE_HASH.toUpperCase(), CANONICAL_FIELDS[4]])],
+    ['non-hex scope hash', progressLine([WORKSET_HASH, 'last-crawler', 'active', 'g'.repeat(40), CANONICAL_FIELDS[4]])],
+    ['relative cutoff', progressLine([...CANONICAL_FIELDS.slice(0, 4), '45 days ago'])],
+    ['invalid calendar cutoff', progressLine([...CANONICAL_FIELDS.slice(0, 4), '2026-02-30T12:34:56Z'])],
+    ['invalid clock cutoff', progressLine([...CANONICAL_FIELDS.slice(0, 4), '2026-09-24T24:00:00Z'])],
+    ['non-UTC cutoff', progressLine([...CANONICAL_FIELDS.slice(0, 4), '2026-09-24T12:34:56+00:00'])],
+    ['lowercase UTC suffix', progressLine([...CANONICAL_FIELDS.slice(0, 4), '2026-09-24T12:34:56z'])],
+    ['extra blank line', `${progressLine(CANONICAL_FIELDS)}\n`],
+    ['CRLF line ending', progressLine(CANONICAL_FIELDS).replace('\n', '\r\n')],
+    ['missing final newline', progressLine(CANONICAL_FIELDS).slice(0, -1)],
+    ['legacy invalid status', progressLine([WORKSET_HASH, 'last-crawler', 'active '])],
+  ];
+
+  it.each(malformedMarkers)('rejects a malformed %s marker', (_label, content) => {
+    expect(() => readProgressText(content)).toThrow('invalid backfill progress file');
+  });
+
+  it.each([0, 1, 2, 3, 4])('rejects an empty canonical field at position %i', (index) => {
+    const fields = [...CANONICAL_FIELDS];
+    fields[index] = '';
+    expect(() => readProgressText(progressLine(fields))).toThrow('invalid backfill progress file');
+  });
+});
+
 describe('check-retired-jobs-archived CLI', () => {
   it('defers instead of measuring a checkpointed backfill as a stable revision', () => {
     const base = commitSlices({ jobs: [job('kept')] }, [], 'stable base');
@@ -375,6 +447,28 @@ describe('check-retired-jobs-archived CLI', () => {
     const stable = observe(base, base, ['--defer-if-backfill-active', progressPath]);
     expect(stable.status, stable.stderr).toBe(0);
     expect(stable.stdout).toContain('Retired-job archive coverage');
+  });
+
+  it('defers a valid canonical active marker and measures a valid canonical complete marker', () => {
+    const base = commitSlices({ jobs: [job('kept')] }, [], 'canonical marker base');
+    const progressPath = path.join(repo, '.github', 'backfill-expired-from-history-progress.tsv');
+    fs.mkdirSync(path.dirname(progressPath), { recursive: true });
+
+    fs.writeFileSync(progressPath, progressLine(CANONICAL_FIELDS));
+    const active = observe(base, base, ['--defer-if-backfill-active', progressPath]);
+    expect(active.status, active.stderr).toBe(0);
+    expect(active.stdout).toContain('deferred: history backfill is active');
+
+    fs.writeFileSync(progressPath, progressLine([
+      WORKSET_HASH,
+      'last-crawler',
+      'complete',
+      REQUEST_SCOPE_HASH,
+      'all',
+    ]));
+    const complete = observe(base, base, ['--defer-if-backfill-active', progressPath]);
+    expect(complete.status, complete.stderr).toBe(0);
+    expect(complete.stdout).toContain('Retired-job archive coverage');
   });
 
   it('fails closed when the durable backfill cursor is malformed', () => {
