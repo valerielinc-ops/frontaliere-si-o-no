@@ -20,6 +20,7 @@ import { resolve } from 'node:path';
 import YAML from 'yaml';
 import {
   decideBuildLocaleRecovery,
+  findMissedLocaleRecovery,
   decideDispatchAfterFreshQueue,
   decideRearm,
   decideRearmAdmission,
@@ -78,6 +79,24 @@ function localeJob(overrides: Record<string, unknown> = {}) {
     ...overrides,
   };
 }
+
+it('recovers a missed completion only for the newest failed first attempt when the queue is idle', () => {
+  const failed = {
+    ...done(42, OLD, 'failure'), event: 'workflow_dispatch', attempt: 1,
+    displayTitle: 'Deploy to GitHub Pages', createdAt: '2026-11-20T02:00:00Z',
+  };
+  const queueOnly = {
+    ...done(43, HEAD, 'success'), displayTitle: 'Deploy queue reconciliation (no build)',
+    createdAt: '2026-11-20T03:00:00Z',
+  };
+  expect(findMissedLocaleRecovery([queueOnly, failed], SELF, null)).toEqual(failed);
+  expect(findMissedLocaleRecovery([failed, live(44, HEAD, 'queued')], SELF, null)).toBeNull();
+  expect(findMissedLocaleRecovery([{ ...failed, attempt: 2 }], SELF, null)).toBeNull();
+  expect(findMissedLocaleRecovery([failed], SELF, { state: 'pending' })).toBeNull();
+  expect(findMissedLocaleRecovery([failed, {
+    ...failed, id: 44, conclusion: 'success', createdAt: '2026-11-20T03:00:00Z',
+  }], SELF, null)).toBeNull();
+});
 
 describe('targeted build-locale recovery — host loss/timeout only', () => {
   it('retries exactly the one leg whose Build step was host-killed', () => {
