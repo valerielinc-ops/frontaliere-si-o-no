@@ -68,7 +68,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-04T21:27:18.311Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T09:29:15.469Z"
+      "firstSeenAt": "2026-11-06T09:29:15.469Z",
+      "sourceIdentity": "url:https://www.lafonte.ch/inizia-con-noi?role=operatrice-tore-socioassistenziale-50-70-presso-fonte-3-la-fonte-neggio"
     },
     {
       "title": "Vegliatrice/tore 50%-60% presso Fonte 3",
@@ -135,7 +136,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-04T21:27:18.311Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T09:29:15.469Z"
+      "firstSeenAt": "2026-11-06T09:29:15.469Z",
+      "sourceIdentity": "url:https://www.lafonte.ch/inizia-con-noi?role=vegliatrice-tore-50-60-presso-fonte-3-la-fonte-neggio"
     },
     {
       "title": "Gerente snack bar-panetteria 100%",
@@ -202,7 +204,8 @@
       "firstSeenAt": "2026-10-17T21:20:49.576Z",
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-15T21:27:18.311Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.lafonte.ch/inizia-con-noi?role=gerente-snack-bar-panetteria-100-la-fonte-lugano"
     },
     {
       "title": "Stagiaire",
@@ -291,7 +294,8 @@
       "streetAddress": "Luganese, Malcantone",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-19T21:27:18.311Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.lafonte.ch/inizia-con-noi?role=stagiaire-la-fonte-luganese-malcantone"
     },
     {
       "title": "Apprendisti/e operatori/trici socioassistenziali AFC",
@@ -358,7 +362,8 @@
       "firstSeenAt": "2026-05-17T10:35:50.358Z",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-19T21:27:18.311Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.lafonte.ch/inizia-con-noi?role=apprendisti-e-operatori-trici-socioassistenziali-afc-la-fonte-lugano-neggio"
     }
   ]
 }
