@@ -5,6 +5,7 @@ import sharp from 'sharp';
 import {
   generatedImagePrefixForScope,
   validateGeneratedImageRecord,
+  validateGeneratedImageRecordWithRegistry,
   validateGeneratedImageRegistry,
 } from '../../packages/articles/engine/shared/generatedImageRegistry.mjs';
 
@@ -41,6 +42,7 @@ function listPublishedImages(rootDir) {
 export async function verifyPublishedGeneratedSiteImages({
   rootDir = process.cwd(),
   registryPath = path.join('data', 'generated-image-registry.json'),
+  allowLegacyVision = false,
 } = {}) {
   const resolvedRoot = path.resolve(rootDir);
   const resolvedRegistryPath = path.resolve(resolvedRoot, registryPath);
@@ -48,13 +50,15 @@ export async function verifyPublishedGeneratedSiteImages({
   if (!fs.existsSync(resolvedRegistryPath)) return { valid: false, errors: ['generated image registry is missing'] };
 
   const registry = JSON.parse(fs.readFileSync(resolvedRegistryPath, 'utf8'));
-  const registryValidation = validateGeneratedImageRegistry(registry);
+  const registryValidation = validateGeneratedImageRegistry(registry, { allowLegacyVision });
   if (!registryValidation.valid) errors.push(...registryValidation.errors);
   const records = Array.isArray(registry.assets) ? registry.assets : [];
   const publishedRecords = records.filter((record) => PUBLISHED_SCOPES.has(record?.scope));
   const byUrl = new Map();
   for (const record of publishedRecords) {
-    const validation = validateGeneratedImageRecord(record);
+    const validation = allowLegacyVision
+      ? validateGeneratedImageRecordWithRegistry(record, registry)
+      : validateGeneratedImageRecord(record);
     if (!validation.valid) errors.push(`${record?.assetId || '<unknown>'}: ${validation.errors.join(', ')}`);
     if (!PUBLISHED_SCOPES.has(record?.scope)) continue;
     if (!PUBLISHED_PREFIXES.some((prefix) => String(record?.imageUrl || '').startsWith(prefix))) {

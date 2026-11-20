@@ -28,6 +28,7 @@ const SCRIPT = path.resolve(
   'scripts',
   'pull-articles-api.mjs',
 );
+const REPO_ROOT = path.resolve(path.dirname(SCRIPT), '..');
 
 /** A synthetic but structurally valid WebP: RIFF····WEBP + padding. */
 function webp(bytes = 64): Buffer {
@@ -216,6 +217,7 @@ const validGeneratedCover = () => {
       contains_text: false,
       contains_logo: false,
       contains_recognizable_face: false,
+      contains_recognizable_foreground_person: false,
       looks_like_specific_real_event: false,
       is_photograph: false,
       notes: 'Safe generic illustration for the API pull regression test.',
@@ -446,17 +448,29 @@ function makeCheckout(opts: {
   currentBlogSitemap?: string;
   articleIndexExclusions?: Array<{ section: 'frontaliere' | 'svizzera'; id: string }>;
   localBlogSlugs?: Record<string, Record<string, string>>;
+  sharedGeneratedImageRegistry?: boolean;
 } = {}) {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'pull-articles-'));
   const pub = path.join(dir, 'public');
+  const dataDir = path.join(dir, 'data');
   fs.mkdirSync(pub, { recursive: true });
+  fs.mkdirSync(dataDir, { recursive: true });
+  fs.copyFileSync(
+    path.join(REPO_ROOT, 'data/blog-generated-image-registry.json'),
+    path.join(dataDir, 'blog-generated-image-registry.json'),
+  );
   // The script reads the news window out of this file rather than re-typing 48.
   // `null` models the post-cutover checkout where main no longer carries it.
   if (opts.windowHours !== null) {
-    fs.mkdirSync(path.join(dir, 'data'), { recursive: true });
     fs.writeFileSync(
-      path.join(dir, 'data', 'news-sitemap-whitelist.ts'),
+      path.join(dataDir, 'news-sitemap-whitelist.ts'),
       `export const NEWS_SITEMAP_WINDOW_HOURS = ${opts.windowHours ?? 48};\n`,
+    );
+  }
+  if (opts.sharedGeneratedImageRegistry) {
+    fs.copyFileSync(
+      path.join(REPO_ROOT, 'data/generated-image-registry.json'),
+      path.join(dataDir, 'generated-image-registry.json'),
     );
   }
   if (opts.frontaliereShadowedSlugs?.length) {
@@ -930,7 +944,7 @@ describe('pull-articles-api: hero-image manifest', () => {
     expect(code).toBe(0);
     const written = fs.readFileSync(path.join(dir, 'public', 'images', 'blog', 'blog-x.webp'));
     expect(written.subarray(0, 4).toString('latin1')).toBe('RIFF');
-    expect(written).toHaveLength(64);
+    expect(written).toEqual(webp(64));
   });
 
   it('downloads a governed generated image and preserves its generated path', async () => {
@@ -948,7 +962,7 @@ describe('pull-articles-api: hero-image manifest', () => {
     expect(code).toBe(0);
     const written = fs.readFileSync(path.join(dir, 'public', 'images', 'generated', 'article-generated-x.webp'));
     expect(written.subarray(0, 4).toString('latin1')).toBe('RIFF');
-    expect(written).toHaveLength(64);
+    expect(written).toEqual(webp(64));
   });
 
   it('does not re-download an image it already has', async () => {
@@ -1211,7 +1225,7 @@ describe('pull-articles-api: generated cover evidence', () => {
       commit: API_COMMIT,
       generated: { [record.imageUrl]: record },
     }));
-    const dir = makeCheckout();
+    const dir = makeCheckout({ sharedGeneratedImageRegistry: true });
 
     const { code, out } = await run(dir);
 

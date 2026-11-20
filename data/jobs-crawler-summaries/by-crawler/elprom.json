@@ -1,7 +1,7 @@
 {
   "key": "elprom",
   "label": "elprom",
-  "generatedAt": "2026-11-19T09:29:24.706Z",
+  "generatedAt": "2026-11-19T21:33:12.154Z",
   "total": 7,
   "discovered": 7,
   "parsed": 7,
@@ -64,10 +64,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 11799,
-  "avgDurationMs": 11799,
+  "durationMs": 11900,
+  "avgDurationMs": 11900,
   "durationHistory": [
-    11799
+    11900
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -85,7 +85,7 @@
       "url": "https://elprom.ch/job/lehrstelle-elektroplaner-m-w-2027-wallisellen/",
       "source": "elprom Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:29:07.853Z",
+      "crawledAt": "2026-11-19T21:32:54.842Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -108,7 +108,7 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-19T21:30:05.292Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-29T09:29:07.853Z",
+      "validThrough": "2026-12-28T21:32:54.842Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -130,7 +130,7 @@
       "url": "https://elprom.ch/job/projektleiter-elektroplanung-m-w-80-100-pratteln/",
       "source": "elprom Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:29:07.852Z",
+      "crawledAt": "2026-11-19T21:32:54.841Z",
       "addressLocality": "Pratteln",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -153,7 +153,7 @@
       "salarySource": "reported",
       "firstSeenAt": "2026-10-19T21:30:05.291Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-11T09:29:07.852Z",
+      "validThrough": "2027-01-10T21:32:54.841Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -175,7 +175,7 @@
       "url": "https://elprom.ch/job/praktikum-elektroengineering-fuer-gee-studierende-der-hslu/",
       "source": "elprom Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:29:07.852Z",
+      "crawledAt": "2026-11-19T21:32:54.841Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -198,7 +198,7 @@
       "salarySource": "reported",
       "firstSeenAt": "2026-10-19T21:30:05.292Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-11T09:29:07.852Z",
+      "validThrough": "2027-01-10T21:32:54.841Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -220,7 +220,7 @@
       "url": "https://elprom.ch/job/projektleiter-elektroplanung-m-w-80-100-wallisellen/",
       "source": "elprom Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:29:07.851Z",
+      "crawledAt": "2026-11-19T21:32:54.839Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -243,7 +243,7 @@
       "salarySource": "reported",
       "firstSeenAt": "2026-10-19T21:30:05.288Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-11T09:29:07.851Z",
+      "validThrough": "2027-01-10T21:32:54.839Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -265,7 +265,7 @@
       "url": "https://elprom.ch/job/elektroplaner-netzversorgung-m-w-80-100-pratteln/",
       "source": "elprom Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:29:07.850Z",
+      "crawledAt": "2026-11-19T21:32:54.838Z",
       "addressLocality": "Pratteln",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -288,7 +288,7 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-19T21:30:05.289Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-11T09:29:07.850Z",
+      "validThrough": "2027-01-10T21:32:54.838Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -310,7 +310,7 @@
       "url": "https://elprom.ch/job/elektroplaner-3d-bim-m-w-80-100-pratteln/",
       "source": "elprom Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:29:07.849Z",
+      "crawledAt": "2026-11-19T21:32:54.836Z",
       "addressLocality": "Pratteln",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -333,7 +333,7 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-19T21:30:05.287Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-11T09:29:07.849Z",
+      "validThrough": "2027-01-10T21:32:54.836Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -355,7 +355,7 @@
       "url": "https://elprom.ch/job/elektroplaner-3d-bim-m-w-80-100-wallisellen/",
       "source": "elprom Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:29:07.848Z",
+      "crawledAt": "2026-11-19T21:32:54.835Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -378,7 +378,7 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-19T21:30:05.286Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-11T09:29:07.848Z",
+      "validThrough": "2027-01-10T21:32:54.835Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -389,5 +389,5 @@
       }
     }
   ],
-  "codeCommit": "af8f978c37a7f89c95dd40500d2ac0a67c1ede33"
+  "codeCommit": "07c2e8305c6747f1893222ba4bfdddc597008157"
 }

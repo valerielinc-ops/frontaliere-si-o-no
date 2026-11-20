@@ -1,7 +1,7 @@
 {
   "crawlerKey": "ameos-ch",
-  "assembledAt": "2026-11-19T09:24:46.619Z",
-  "runId": "44493121578",
+  "assembledAt": "2026-11-19T21:21:24.218Z",
+  "runId": "44615369753",
   "jobs": [
     {
       "id": "ameos-ch-65c6d66d688e",
@@ -35,7 +35,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/14192-assistenz-sachbearbeitung-in-der-administration-100%25-in-z%C3%BCrich",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:24:38.791Z",
+      "crawledAt": "2026-11-19T21:21:17.891Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -84,16 +84,17 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T09:24:38.791Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-11T21:21:17.891Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/14192-assistenz-sachbearbeitung-in-der-administration-100%25-in-z%c3%bcrich"
     },
     {
       "id": "ameos-ch-760941ebfb90",
       "slug": "sub-assistant-pj-m-f-d-chirurgia-ameos-schweiz-einsiedeln",
       "slugByLocale": {
-        "de": "unterassistent-pj-m-w-d-chirurgie-ameos-einsiedeln",
         "it": "sub-assistant-pj-m-f-d-chirurgia-ameos-schweiz-einsiedeln",
         "en": "sub-assistant-pj-m-f-d-surgery-ameos-schweiz-einsiedeln",
+        "de": "unterassistent-pj-m-w-d-chirurgie-ameos-einsiedeln",
         "fr": "sous-assistant-pj-h-f-d-chirurgie-ameos-schweiz-einsiedeln"
       },
       "company": "AMEOS Schweiz",
@@ -101,16 +102,16 @@
       "companyDomain": "karriere.ameos.eu",
       "title": "Unterassistent / PJ (m/w/d) Chirurgie",
       "titleByLocale": {
-        "de": "Unterassistent / PJ (m/w/d) Chirurgie",
         "it": "Sub-assistante / chirurgia PJ (m/f/d)",
         "en": "Sub-assistant / PJ (m/f/d) surgery",
+        "de": "Unterassistent / PJ (m/w/d) Chirurgie",
         "fr": "Chirurgie sous-assistante / PJ (h/f/d)"
       },
       "description": "Das AMEOS Spital Einsiedeln ist ein bedeutender Gesundheitsversorger für Einsiedeln, die umliegende Region und weit darüber hinaus und steht für eine hochwertige und bedarfsgerechte Medizin.\n\nWir evaluieren laufend Bewerbungen für die Stellen als\n\nUnterassistent / PJ (m/w/d) Chirurgie\n\nIhre Vorteile\n• Eine strukturierte und praxisnahe Einführung\n• Enge Betreuung durch Kaderärzte\n• Aktive Einbindung in den klinischen Alltag mit hoher Lernkurve\n• Regelmässige interne Fortbildungen\n• Familiäres Arbeitsumfeld mit wertschätzender Teamkultur\n• Attraktiver Arbeitsort im Herzen der Zentralschweiz mit hohem Freizeitwert\n• Wohnmöglichkeit vor Ort\n\nIhre Aufgaben\n• Erlernen des Umgangs mit Patientinnen und Patienten\n• Erhebung der Anamnese\n• Erlernen der chirurgischen Behandlungsprinzipien\n• Gelegenheit, im Operationssaal chirurgische Techniken zu erlernen\n\nIhr Profil\n• Immatrikulation in der Humanmedizin\n• Interesse an chirurgischen Fragestellungen und operativen Tätigkeiten\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Hohe Lernbereitschaft, Eigeninitiative und Teamfähigkeit\n• Verantwortungsbewusste und patientenorientierte Arbeitsweise",
       "descriptionByLocale": {
-        "de": "Das AMEOS Spital Einsiedeln ist ein bedeutender Gesundheitsversorger für Einsiedeln, die umliegende Region und weit darüber hinaus und steht für eine hochwertige und bedarfsgerechte Medizin.\n\nWir evaluieren laufend Bewerbungen für die Stellen als\n\nUnterassistent / PJ (m/w/d) Chirurgie\n\nIhre Vorteile\n• Eine strukturierte und praxisnahe Einführung\n• Enge Betreuung durch Kaderärzte\n• Aktive Einbindung in den klinischen Alltag mit hoher Lernkurve\n• Regelmässige interne Fortbildungen\n• Familiäres Arbeitsumfeld mit wertschätzender Teamkultur\n• Attraktiver Arbeitsort im Herzen der Zentralschweiz mit hohem Freizeitwert\n• Wohnmöglichkeit vor Ort\n\nIhre Aufgaben\n• Erlernen des Umgangs mit Patientinnen und Patienten\n• Erhebung der Anamnese\n• Erlernen der chirurgischen Behandlungsprinzipien\n• Gelegenheit, im Operationssaal chirurgische Techniken zu erlernen\n\nIhr Profil\n• Immatrikulation in der Humanmedizin\n• Interesse an chirurgischen Fragestellungen und operativen Tätigkeiten\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Hohe Lernbereitschaft, Eigeninitiative und Teamfähigkeit\n• Verantwortungsbewusste und patientenorientierte Arbeitsweise",
         "it": "L'AMEOS Spital Einsiedeln è un importante fornitore di assistenza sanitaria per Einsiedeln, la regione circostante e molto oltre e sta per la medicina di alta qualità e basata sulle esigenze.\n\nValutiamo continuamente le applicazioni per le posizioni come\n\nSub-assistante / chirurgia PJ (m/f/d)\n\nI loro vantaggi\n• Introduzione strutturata e pratica\n• Cura ravvicinata da medici cadre\n• Il coinvolgimento attivo nella vita quotidiana clinica con una curva di apprendimento elevata\n• Formazione interna regolare\n• Ambiente di lavoro familiare con una cultura del team apprezzata\n• Luogo attraente di lavoro nel cuore della Svizzera centrale con un alto valore di svago\n• Alloggio in loco\n\nI loro compiti\n• Imparare a trattare con i pazienti\n• Sondaggio Anamnesi\n• Principi di trattamento chirurgico di apprendimento\n• Opportunità di imparare tecniche chirurgiche nella sala operatoria\n\nIl tuo profilo\n• Matricolazione nella medicina umana\n• Interessi in materia chirurgica e attività operative\n• Molto buona conoscenza del tedesco in parola e scrittura\n• Alta disponibilità ad imparare, iniziativa e lavoro di squadra\n• Metodi di lavoro responsabili e orientati al paziente",
         "en": "The AMEOS Spital Einsiedeln is an important healthcare provider for Einsiedeln, the surrounding region and far beyond and stands for high-quality and needs-based medicine.\n\nWe continuously evaluate applications for the positions as\n\nSub-assistant / PJ (m/f/d) surgery\n\nTheir advantages\n• A structured and practical introduction\n• Close care by cadre doctors\n• Active involvement in clinical everyday life with a high learning curve\n• Regular internal training\n• Family working environment with an appreciative team culture\n• Attractive place of work in the heart of Central Switzerland with a high leisure value\n• Accommodation on site\n\nTheir tasks\n• Learning how to deal with patients\n• Anamnesis survey\n• Learning Surgical Treatment Principles\n• Opportunity to learn surgical techniques in the operating room\n\nYour profile\n• Matriculation in human medicine\n• Interest in surgical issues and operational activities\n• Very good knowledge of German in word and writing\n• High willingness to learn, initiative and teamwork\n• Responsible and patient-oriented working methods",
+        "de": "Das AMEOS Spital Einsiedeln ist ein bedeutender Gesundheitsversorger für Einsiedeln, die umliegende Region und weit darüber hinaus und steht für eine hochwertige und bedarfsgerechte Medizin.\n\nWir evaluieren laufend Bewerbungen für die Stellen als\n\nUnterassistent / PJ (m/w/d) Chirurgie\n\nIhre Vorteile\n• Eine strukturierte und praxisnahe Einführung\n• Enge Betreuung durch Kaderärzte\n• Aktive Einbindung in den klinischen Alltag mit hoher Lernkurve\n• Regelmässige interne Fortbildungen\n• Familiäres Arbeitsumfeld mit wertschätzender Teamkultur\n• Attraktiver Arbeitsort im Herzen der Zentralschweiz mit hohem Freizeitwert\n• Wohnmöglichkeit vor Ort\n\nIhre Aufgaben\n• Erlernen des Umgangs mit Patientinnen und Patienten\n• Erhebung der Anamnese\n• Erlernen der chirurgischen Behandlungsprinzipien\n• Gelegenheit, im Operationssaal chirurgische Techniken zu erlernen\n\nIhr Profil\n• Immatrikulation in der Humanmedizin\n• Interesse an chirurgischen Fragestellungen und operativen Tätigkeiten\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Hohe Lernbereitschaft, Eigeninitiative und Teamfähigkeit\n• Verantwortungsbewusste und patientenorientierte Arbeitsweise",
         "fr": "L'AMEOS Spital Einsiedeln est un important fournisseur de soins de santé pour Einsiedeln, la région environnante et bien au-delà et représente une médecine de haute qualité et axée sur les besoins.\n\nNous évaluons en permanence les candidatures pour les postes\n\nChirurgie sous-assistante / PJ (h/f/d)\n\nLeurs avantages\n• Une introduction structurée et pratique\n• Soins rapprochés par les médecins cadres\n• Participation active à la vie quotidienne clinique avec une courbe d'apprentissage élevée\n• Formation interne régulière\n• Milieu de travail familial avec une culture d'équipe reconnaissante\n• Un lieu de travail attrayant au cœur de la Suisse centrale avec une grande valeur de loisirs\n• Hébergement sur place\n\nLeurs tâches\n• Apprendre à traiter les patients\n• Enquête sur l'anamnèse\n• Apprentissage des principes de traitement chirurgical\n• Possibilité d'apprendre les techniques chirurgicales dans la salle d'opération\n\nVotre profil\n• Matriculation en médecine humaine\n• Intérêt pour les questions chirurgicales et les activités opérationnelles\n• Très bonne connaissance de l'allemand en paroles et en écriture\n• Haute volonté d'apprendre, d'initiative et de travail d'équipe\n• Méthodes de travail responsables et axées sur le patient"
       },
       "location": "Einsiedeln",
@@ -118,7 +119,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/9318-unterassistent-pj-chirurgie-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:24:37.485Z",
+      "crawledAt": "2026-11-19T21:21:16.767Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -136,17 +137,16 @@
       "postingDateSource": "reported",
       "applyUrl": "https://karriere.ameos.eu/offene-stellen/stelle/9318-unterassistent-pj-chirurgie-in-einsiedeln",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "unterassistent-pj-m-w-d-chirurgie-ameos-einsiedeln"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "unterassistent-pj-m-w-d-chirurgie-ameos-einsiedeln"
         ]
       },
-      "previousSlugs": [
-        "unterassistent-pj-m-w-d-chirurgie-ameos-einsiedeln"
-      ],
+      "firstSeenAt": "2026-07-31T11:39:39.351Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -162,9 +162,9 @@
       },
       "streetAddress": "Einsiedeln",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:24:37.485Z",
+      "validThrough": "2026-12-19T21:21:16.767Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-07-31T11:39:39.351Z"
+      "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/9318-unterassistent-pj-chirurgie-in-einsiedeln"
     },
     {
       "id": "ameos-ch-0c2dda6e6eec",
@@ -198,7 +198,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/14868-sachbearbeiter-finanzbuchhaltung-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:24:36.308Z",
+      "crawledAt": "2026-11-19T21:21:15.681Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -247,8 +247,9 @@
       },
       "streetAddress": "Einsiedeln",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T09:24:36.308Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-21T21:21:15.681Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/14868-sachbearbeiter-finanzbuchhaltung-in-einsiedeln"
     },
     {
       "id": "ameos-ch-5f6a47dcf645",
@@ -282,7 +283,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/15746-dipl-radiologiefachperson-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:24:34.924Z",
+      "crawledAt": "2026-11-19T21:21:14.549Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -331,8 +332,9 @@
       },
       "streetAddress": "Einsiedeln",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:24:34.924Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-03T21:21:14.549Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/15746-dipl-radiologiefachperson-in-einsiedeln"
     },
     {
       "id": "ameos-ch-1049b5abdc8d",
@@ -366,7 +368,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/16269-dipl-pflegefachperson-geriatrie-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:24:33.534Z",
+      "crawledAt": "2026-11-19T21:21:13.405Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -415,8 +417,9 @@
       },
       "streetAddress": "Einsiedeln",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T09:24:33.534Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-11T21:21:13.405Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/16269-dipl-pflegefachperson-geriatrie-in-einsiedeln"
     },
     {
       "id": "ameos-ch-133651225a60",
@@ -450,7 +453,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/16266-dipl-pflegefachperson-interdisziplin%C3%A4re-bettenstation-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:24:32.299Z",
+      "crawledAt": "2026-11-19T21:21:12.222Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -499,8 +502,9 @@
       },
       "streetAddress": "Einsiedeln",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T09:24:32.299Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-11T21:21:12.222Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/16266-dipl-pflegefachperson-interdisziplin%c3%a4re-bettenstation-in-einsiedeln"
     },
     {
       "id": "ameos-ch-14bf7e5510ac",
@@ -533,7 +537,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/16275-dipl-rettungssanit%C3%A4ter-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:24:31.090Z",
+      "crawledAt": "2026-11-19T21:21:11.073Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -582,8 +586,9 @@
       },
       "streetAddress": "Einsiedeln",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T09:24:31.090Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-11T21:21:11.073Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/16275-dipl-rettungssanit%c3%a4ter-in-einsiedeln"
     },
     {
       "id": "ameos-ch-0a81ceca5f68",
@@ -617,7 +622,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/16296-fachperson-gesundheit-interdisziplin%C3%A4re-privatstation-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:24:29.517Z",
+      "crawledAt": "2026-11-19T21:21:09.723Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -666,8 +671,9 @@
       },
       "streetAddress": "Einsiedeln",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T09:24:29.517Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-11T21:21:09.723Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/16296-fachperson-gesundheit-interdisziplin%c3%a4re-privatstation-in-einsiedeln"
     },
     {
       "id": "ameos-ch-52a0c211d7ef",
@@ -701,7 +707,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/16429-fachperson-gesundheit-imcu-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:24:27.558Z",
+      "crawledAt": "2026-11-19T21:21:08.577Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -750,8 +756,9 @@
       },
       "streetAddress": "Einsiedeln",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T09:24:27.558Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-14T21:21:08.577Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/16429-fachperson-gesundheit-imcu-in-einsiedeln"
     },
     {
       "id": "ameos-ch-f86b92c39e71",
@@ -785,7 +792,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/14934-mitarbeiter-integrales-kapazit%C3%A4tsmanagement-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:24:25.109Z",
+      "crawledAt": "2026-11-19T21:21:07.425Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -834,8 +841,9 @@
       },
       "streetAddress": "Einsiedeln",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T09:24:25.109Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-24T21:21:07.425Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/14934-mitarbeiter-integrales-kapazit%c3%a4tsmanagement-in-einsiedeln"
     },
     {
       "id": "ameos-ch-4c7dfb92361a",
@@ -868,7 +876,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/13903-dipl-pflegefachperson-hf-nachtdienst-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:24:23.886Z",
+      "crawledAt": "2026-11-19T21:21:06.278Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -917,8 +925,9 @@
       },
       "streetAddress": "Brunnen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T09:24:23.886Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-10T21:21:06.278Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/13903-dipl-pflegefachperson-hf-nachtdienst-in-brunnen"
     },
     {
       "id": "ameos-ch-d3ec905bf40b",
@@ -952,7 +961,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/14390-stationsleitung-und-stellvertretende-leitung-pflege-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:24:22.694Z",
+      "crawledAt": "2026-11-19T21:21:05.114Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -995,8 +1004,9 @@
       },
       "streetAddress": "Brunnen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T09:24:22.694Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-10T21:21:05.114Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/14390-stationsleitung-und-stellvertretende-leitung-pflege-in-brunnen"
     },
     {
       "id": "ameos-ch-28bf78a9ea5f",
@@ -1030,7 +1040,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/14339-assistenzarzt-psychiatrie-und-psychotherapie-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:24:21.451Z",
+      "crawledAt": "2026-11-19T21:21:03.970Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1073,8 +1083,9 @@
       },
       "streetAddress": "Brunnen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T09:24:21.451Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-10T21:21:03.970Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/14339-assistenzarzt-psychiatrie-und-psychotherapie-in-brunnen"
     },
     {
       "id": "ameos-ch-485d708af8a8",
@@ -1108,7 +1119,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/15504-oberarzt-undoder-leitender-facharzt-psychiatrie-und-psychotherapie-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:24:20.055Z",
+      "crawledAt": "2026-11-19T21:21:02.837Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1159,8 +1170,9 @@
       },
       "streetAddress": "Brunnen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:24:20.055Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-01T21:21:02.837Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/15504-oberarzt-undoder-leitender-facharzt-psychiatrie-und-psychotherapie-in-brunnen"
     },
     {
       "id": "ameos-ch-2b0afdbb9e02",
@@ -1194,7 +1206,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/15540-eidgen%C3%B6ssisch-anerkannter-psychotherapeut-undoder-leitung-psychologie-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:24:18.736Z",
+      "crawledAt": "2026-11-19T21:21:01.696Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1245,8 +1257,9 @@
       },
       "streetAddress": "Brunnen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:24:18.736Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-01T21:21:01.696Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/15540-eidgen%c3%b6ssisch-anerkannter-psychotherapeut-undoder-leitung-psychologie-in-brunnen"
     },
     {
       "id": "ameos-ch-4e2497d3a354",
@@ -1279,7 +1292,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/16011-leitung-psychologie-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:24:17.465Z",
+      "crawledAt": "2026-11-19T21:21:00.574Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1328,8 +1341,9 @@
       },
       "streetAddress": "Brunnen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:24:17.465Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-03T21:21:00.574Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/16011-leitung-psychologie-in-brunnen"
     },
     {
       "id": "ameos-ch-123aeb5d45c7",
@@ -1363,7 +1377,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/16584-controller-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:24:16.176Z",
+      "crawledAt": "2026-11-19T21:20:59.417Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1414,8 +1428,9 @@
       },
       "streetAddress": "Brunnen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T09:24:16.176Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-15T21:20:59.417Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/16584-controller-in-brunnen"
     },
     {
       "id": "ameos-ch-79c29d4efcbc",
@@ -1443,13 +1458,12 @@
         "de": "Zur Verstärkung unseres Teams im AMEOS Seeklinikum Brunnen suchen wir per 01. Dezember 2026 oder nach Vereinbarung eine initiative und engagierte Persönlichkeit als\n\nDiplomierte Pflegefachperson HF (m/w/d) — 80-100%\n\nIhre Vorteile\n• Eine interessante und anspruchsvolle Tätigkeit in einem gut eingespielten Team\n• Enge Zusammenarbeit in einem interdisziplinären Team aus Pflege, Psychologie und Medizin\n• Gestaltungsspielraum und aktive Mitwirkung am Behandlungsprozess\n• Grosszügige interne und externe Fort- und Weiterbildungsmöglichkeiten\n• Ein wertschätzendes, respektvolles und kollegiales Arbeitsklima\n• Attraktive und zeitgemässe Anstellungsbedingungen\n• Ein Arbeitsort mit hoher Lebensqualität sowie sehr guter Erreichbarkeit von Luzern, Zug und Zürich\n• Ausschliesslicher Einsatz im Tagdienst – keine Nachtarbeit\n\nIhre Aufgaben\n• Sie gewährleisten eine professionelle und qualitativ hochstehende Pflege im Rahmen der Bezugspersonenarbeit\n• Sie planen, steuern und gestalten den Pflegeprozess und setzen die vereinbarten Massnahmen verantwortungsvoll um\n• Sie führen Kriseninterventionen sowie anspruchsvolle Bezugspersonengespräche\n• Sie stellen eine lückenlose Pflegedokumentation und eine professionelle Kommunikation sicher\n• Sie leiten pflegetherapeutische Gruppen und wirken an deren Weiterentwicklung mit\n• Sie übernehmen die Tagesverantwortung auf der Station\n• Sie tragen zu einer wertschätzenden interdisziplinären Zusammenarbeit und zu einem ganzheitlichen Behandlungsprozess bei\n• Sie nehmen an Rapporten, fokusorientierten Behandlungsgesprächen, Visiten, Fallbesprechungen und Supervisionen teil\n• Sie beteiligen sich aktiv an Koordinations-, Team- und Weiterbildungssitzungen\n\nIhr Profil\n• Sie verfügen über eine abgeschlossene Ausbildung als diplomierte Pflegefachperson HF\n• Idealerweise bringen Sie Berufserfahrung in einem psychiatrischen Setting mit\n• Sie arbeiten selbständig, zuverlässig und strukturiert\n• Sie sind flexibel, belastbar und verantwortungsbewusst\n• Die Zusammenarbeit in einem interdisziplinären Team bereitet Ihnen Freude\n• Sie möchten sich fachlich und persönlich kontinuierlich weiterentwickeln\n• Sie zeichnen sich durch eine hohe Sozial- und Kommunikationskompetenz aus\n• Sie verfügen über sehr gute PC-Anwendungskenntnisse\n• Sie beherrschen die deutsche Sprache auf muttersprachlichem Niveau oder mindestens auf Niveau C2 und verfügen über mehrjährige Berufserfahrung in einem deutschsprachigen Umfeld",
         "fr": "Pour renforcer notre équipe dans l'AMEOS Seeklinikum Brunnen nous sommes à la recherche de 01. Décembre 2026 ou par accord une initiative et une personnalité engagée comme\n\nInfirmière diplômée HF (h/f/d) — 100%\n\nLeurs avantages\n• Un travail intéressant et stimulant dans une équipe bien formée\n• Coopération étroite dans une équipe interdisciplinaire de soins infirmiers, de psychologie et de médecine\n• Liberté de conception et participation active au processus de traitement\n• Possibilités de formation internes et externes généreuses\n• Une atmosphère de travail reconnaissante, respectueuse et collégiale\n• Conditions d'emploi attractives et contemporaines\n• Un lieu de travail avec une qualité de vie élevée et une très bonne accessibilité de Lucerne, Zug et Zurich\n• Travail de jour exclusif – pas de travail de nuit\n\nLeurs tâches\n• Ils assurent des soins professionnels et de haute qualité dans le contexte du travail de soignant\n• Vous planifiez, contrôlez et façonnez le processus de soins et mettez en œuvre les mesures convenues de façon responsable\n• Ils mènent des interventions de crise et exigent des contacts\n• Ils assurent une documentation de maintenance transparente et une communication professionnelle\n• Ils dirigent des groupes de soins infirmiers et participent à leur développement\n• Vous assumez la responsabilité quotidienne sur la station\n• Ils contribuent à une coopération interdisciplinaire appréciée et à un processus de traitement holistique\n• Vous participez à des rapports, à des séances de traitement ciblées, à des visites, à des réunions de cas et à la supervision\n• Vous participez activement aux séances de coordination, d'équipe et de formation\n\nVotre profil\n• Vous avez suivi une formation d'infirmière qualifiée HF\n• Idéalement, vous apporterez une expérience professionnelle dans un cadre psychiatrique\n• Ils travaillent de manière indépendante, fiable et structurée\n• Ils sont flexibles, résilients et responsables\n• La collaboration dans une équipe interdisciplinaire vous apporte plaisir\n• Vous voulez continuellement développer professionnellement et personnellement\n• Ils sont caractérisés par un niveau élevé de compétences sociales et de communication\n• Vous avez une très bonne connaissance des applications PC\n• Vous maîtrisez la langue allemande au niveau natif ou au moins au niveau C2 et avez plusieurs années d'expérience professionnelle dans un environnement germanophone"
       },
-      "needsRetranslation": true,
       "location": "Brunnen",
       "canton": "SZ",
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/16602-diplomierte-pflegefachperson-hf-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:24:14.532Z",
+      "crawledAt": "2026-11-19T21:20:58.299Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1494,8 +1508,9 @@
       },
       "streetAddress": "Brunnen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T09:24:14.532Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-11T21:20:58.299Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/16602-diplomierte-pflegefachperson-hf-in-brunnen"
     },
     {
       "id": "ameos-ch-340009b830bc",
@@ -1529,7 +1544,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/11806-sozialarbeiter-m-w-d-in-der-klinischen-sozialberatung-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:24:13.188Z",
+      "crawledAt": "2026-11-19T21:20:57.128Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1572,8 +1587,9 @@
       },
       "streetAddress": "Brunnen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:24:13.188Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-23T21:20:57.128Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/11806-sozialarbeiter-m-w-d-in-der-klinischen-sozialberatung-in-brunnen"
     },
     {
       "id": "ameos-ch-5d37af050b22",
@@ -1658,7 +1674,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-20T21:16:58.233Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/14871-operativen-eink%c3%a4ufer-in-einsiedeln"
     }
   ]
 }

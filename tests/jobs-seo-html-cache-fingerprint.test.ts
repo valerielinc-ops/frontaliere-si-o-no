@@ -1,3 +1,5 @@
+import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { afterEach, describe, expect, it } from 'vitest';
 import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
@@ -103,6 +105,30 @@ describe('jobs SEO HTML cache fingerprints', () => {
     expect(wrongLocale.restore_source).toBe('current');
   });
 
+  it('preserves the Actions digest for an existing manifest and skips absent manifests', () => {
+    const repoRoot = makeRepoRoot('fr', {});
+    const action = YAML.parse(readFileSync(
+      resolve(ROOT, '.github/actions/incremental-manifest-cache-key/action.yml'),
+      'utf8',
+    ));
+    const outputPath = join(repoRoot, 'output');
+    const run = (locale: string, hash: string) => {
+      writeFileSync(outputPath, '');
+      execFileSync('bash', ['-c', action.runs.steps[0].run], {
+        cwd: repoRoot,
+        env: { ...process.env, MANIFEST_LOCALE: locale, HASH_MANIFEST: hash, GITHUB_OUTPUT: outputPath },
+      });
+      return readFileSync(outputPath, 'utf8');
+    };
+    const manifest = readFileSync(join(repoRoot, '.cache/incremental-manifest/fr.jsonl'));
+    const fileHash = createHash('sha256').update(manifest).digest();
+    const actionsHash = createHash('sha256').update(fileHash).digest('hex');
+
+    expect(run('fr', 'true')).toBe(`present=true\ndigest=${actionsHash}\n`);
+    expect(run('fr', 'false')).toBe('present=true\n');
+    expect(run('it', 'true')).toBe('');
+  });
+
   it('restores with the previous manifest fingerprint but saves with the current fingerprint', () => {
     const workflow = YAML.parse(readFileSync(DEPLOY_WORKFLOW, 'utf8')) as any;
     const steps = workflow.jobs['build-locale'].steps as Array<Record<string, any>>;
@@ -113,9 +139,14 @@ describe('jobs SEO HTML cache fingerprints', () => {
     const observer = steps.find((step) => step.id === 'jobs-seo-cache-hit-observer');
 
     expect(fingerprint.env.JOBS_SEO_HTML_CACHE_LOCALE).toBe('${{ matrix.locale }}');
-    expect(restore.with.key).toContain("hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale))");
+    expect(restore.with.key).toContain("steps.previous-manifest-key.outputs.digest");
     expect(restore.with.key).toContain('steps.jobs-seo-html-fingerprint.outputs.restore_fingerprint');
     expect(restore.with).not.toHaveProperty('restore-keys');
+    expect(restore.if).toContain("steps.previous-manifest-key.outputs.digest != ''");
+    expect(save.with.key).toContain('steps.current-manifest-key.outputs.digest');
+    expect(barrierSave.with.key).toContain('steps.current-manifest-key.outputs.digest');
+    expect(save.if).toContain("steps.current-manifest-key.outputs.digest != ''");
+    expect(barrierSave.if).toContain("steps.current-manifest-key.outputs.digest != ''");
     expect(save.with.key).toContain('steps.jobs-seo-html-fingerprint.outputs.fingerprint');
     expect(barrierSave.with.key).toContain('steps.jobs-seo-html-fingerprint.outputs.fingerprint');
     expect(save.id).toBe('jobs-seo-html-save');

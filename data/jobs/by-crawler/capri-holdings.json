@@ -1,7 +1,7 @@
 {
   "crawlerKey": "capri-holdings",
-  "assembledAt": "2026-11-19T10:35:07.524Z",
-  "runId": "44496239571",
+  "assembledAt": "2026-11-19T21:55:59.317Z",
+  "runId": "44618811249",
   "jobs": [
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-PT-16h-temp_R_787525",
@@ -41,7 +41,7 @@
       "datePosted": "2026-10-31",
       "postedDate": "2026-10-31",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-19T10:35:05.285Z",
+      "crawledAt": "2026-11-19T21:55:56.441Z",
       "source": "capri-holdings-workday-crawler",
       "employmentType": "PART_TIME",
       "experienceLevel": "MID",
@@ -77,8 +77,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-29T10:35:05.285Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-29T21:55:56.441Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://capri.wd1.myworkdayjobs.com/en-us/michael_kors/job/graubnden/sales-associate-pt-16h-temp_r_787525"
     },
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate_R_787522-1",
@@ -118,7 +119,7 @@
       "datePosted": "2026-10-30",
       "postedDate": "2026-10-30",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-19T10:35:05.285Z",
+      "crawledAt": "2026-11-19T21:55:56.441Z",
       "source": "capri-holdings-workday-crawler",
       "employmentType": "PART_TIME",
       "experienceLevel": "MID",
@@ -160,8 +161,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T10:35:05.285Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-28T21:55:56.441Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://capri.wd1.myworkdayjobs.com/en-us/michael_kors/job/graubnden/sales-associate_r_787522-1"
     },
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Store-Manager--Landquart_R_786577",
@@ -201,7 +203,7 @@
       "datePosted": "2026-09-11",
       "postedDate": "2026-09-11",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-19T10:35:05.285Z",
+      "crawledAt": "2026-11-19T21:55:56.441Z",
       "source": "capri-holdings-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -237,8 +239,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T10:35:05.285Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:55:56.441Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://capri.wd1.myworkdayjobs.com/en-us/michael_kors/job/graubnden/store-manager--landquart_r_786577"
     }
   ]
 }

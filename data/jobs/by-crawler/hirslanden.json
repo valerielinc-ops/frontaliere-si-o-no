@@ -3190,12 +3190,12 @@
     {
       "id": "hirslanden-ec62766c6bee",
       "externalId": "1458678133",
-      "slug": "fachfrau-fachmann-gesundheit-im-pflegepool-dein-beruf-passend-zu-deinem-leben-hirslanden",
+      "slug": "salute-nella-piscina-di-cura-la-tua-professione-adatto-per-la-tua-vita-hirslanden-klinik-hirslanden-klinik-st-anna",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-im-pflegepool-dein-beruf-passend-zu-deinem-leben-hirslanden",
-        "it": "fachfrau-fachmann-gesundheit-im-pflegepool-dein-beruf-passend-zu-deinem-leben-hirslanden",
-        "en": "fachfrau-fachmann-gesundheit-im-pflegepool-dein-beruf-passend-zu-deinem-leben-hirslanden",
-        "fr": "fachfrau-fachmann-gesundheit-im-pflegepool-dein-beruf-passend-zu-deinem-leben-hirslanden"
+        "it": "salute-nella-piscina-di-cura-la-tua-professione-adatto-per-la-tua-vita-hirslanden-klinik-hirslanden-klinik-st-anna",
+        "en": "health-in-the-nursing-pool-your-profession-suitable-for-your-life-hirslanden-klinik-hirslanden-klinik-st-anna",
+        "fr": "la-sante-dans-la-piscine-d-infirmieres-votre-profession-adapte-a-votre-vie-hirslanden-klinik-hirslanden-klinik-st-anna"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -3257,7 +3257,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T09:35:14.583Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T09:35:14.583Z"
+      "firstSeenAt": "2026-11-19T09:35:14.583Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-im-pflegepool-dein-beruf-passend-zu-deinem-leben-hirslanden"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-im-pflegepool-dein-beruf-passend-zu-deinem-leben-hirslanden"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-im-pflegepool-dein-beruf-passend-zu-deinem-leben-hirslanden"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-im-pflegepool-dein-beruf-passend-zu-deinem-leben-hirslanden"
+      ]
     },
     {
       "id": "hirslanden-1146e80f7cc2",
@@ -14137,7 +14151,7 @@
       "companyDomain": "hirslanden.ch",
       "title": "Mitarbeiterin / Mitarbeiter Gastronomie (a) 40%",
       "titleByLocale": {
-        "it": "Mitarbeiterin / Collaboratore/trice Gastronomie (a) 40%",
+        "it": "Addetta / Addetto alla ristorazione (a) 40%",
         "en": "Employee / employee Gastronomy (a) 40 %",
         "de": "Mitarbeiterin / Mitarbeiter Gastronomie (a) 40%",
         "fr": "Salariés/Salariés Gastronomie (a) 40 %"
@@ -14187,7 +14201,6 @@
           "mitarbeiterin-mitarbeiter-gastronomie-a-40-hirslanden-hirslanden-salem-spital"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-17T09:34:29.177Z",
       "salaryMin": 27000,
       "salaryMax": 33800,
@@ -29725,7 +29738,7 @@
       "title": "HR Specialist (a) 100%",
       "titleByLocale": {
         "it": "Risorse Umane Specialista (a) 100%",
-        "en": "HR Specialist (a) 100%",
+        "en": "HR Specialist (m/f) 100%",
         "de": "HR Specialist (a) 100%",
         "fr": "Ressources Humaines Spécialiste (a) 100%"
       },
@@ -29771,7 +29784,6 @@
           "hr-specialist-a-100-hirslanden-hirslanden-corporate-office"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-05T09:20:29.256Z",
       "salaryMin": 73500,
       "salaryMax": 111500,

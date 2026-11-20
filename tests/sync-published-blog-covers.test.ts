@@ -62,6 +62,7 @@ function generatedRecord(
       contains_text: false,
       contains_logo: false,
       contains_recognizable_face: false,
+      contains_recognizable_foreground_person: false,
       looks_like_specific_real_event: false,
       is_photograph: false,
       notes: 'Safe generic editorial illustration for the sync regression test.',
@@ -105,6 +106,7 @@ function placeFallbackRecord() {
       contains_text: false,
       contains_logo: false,
       contains_recognizable_face: false,
+      contains_recognizable_foreground_person: false,
       looks_like_specific_real_event: false,
       notes: 'Original generic illustrated landscape; no readable text, logos, signatures, recognizable faces, or specific real event.',
     },
@@ -263,6 +265,10 @@ function fixture({ withImage = true, key = 'new-cover', image = IMAGE, imageByte
   fs.mkdirSync(path.join(root, 'packages/articles/content'), { recursive: true });
   fs.mkdirSync(path.join(root, 'data'), { recursive: true });
   fs.mkdirSync(path.join(root, 'public/images/blog'), { recursive: true });
+  fs.copyFileSync(
+    path.join(ROOT, 'data/generated-image-registry.json'),
+    path.join(root, 'data/generated-image-registry.json'),
+  );
   fs.writeFileSync(path.join(root, 'packages/articles/content/blog-articles-data.ts'), `export const ARTICLES = [
   {
     id: '${key}',

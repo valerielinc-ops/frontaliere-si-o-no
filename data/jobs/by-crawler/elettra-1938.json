@@ -1,7 +1,7 @@
 {
   "crawlerKey": "elettra-1938",
-  "assembledAt": "2026-11-19T10:02:01.298Z",
-  "runId": "44495254776",
+  "assembledAt": "2026-11-19T21:39:31.714Z",
+  "runId": "44617717059",
   "jobs": [
     {
       "id": "elettra-1938-b734b498aa38",
@@ -34,7 +34,7 @@
       "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/hw-engineer-740162/it/",
       "source": "Elettra 1938 Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-19T10:01:55.607Z",
+      "crawledAt": "2026-11-19T21:39:24.757Z",
       "addressLocality": "Sede Stabio Svizzera",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -67,7 +67,7 @@
           "hw-engineer-elettra-1938-ch"
         ]
       },
-      "firstSeenAt": "2026-11-17T09:44:02.367Z",
+      "firstSeenAt": "2026-11-17T09:19:51.821Z",
       "salaryMin": 58000,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -83,8 +83,9 @@
       },
       "streetAddress": "Sede Stabio Svizzera",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T10:01:55.607Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-15T21:39:24.757Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://inrecruiting.intervieweb.it/fiammcomponents/jobs/hw-engineer-740162/it"
     }
   ]
 }

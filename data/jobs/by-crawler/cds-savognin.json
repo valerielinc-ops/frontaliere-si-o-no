@@ -1,7 +1,7 @@
 {
   "crawlerKey": "cds-savognin",
-  "assembledAt": "2026-11-19T09:26:15.622Z",
-  "runId": "44493770691",
+  "assembledAt": "2026-11-19T21:20:12.505Z",
+  "runId": "44616083717",
   "jobs": [
     {
       "id": "cds-savognin-405-9cf102943bc6",
@@ -34,7 +34,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/405.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:26:05.704Z",
+      "crawledAt": "2026-11-19T21:20:06.879Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -96,8 +96,9 @@
       },
       "streetAddress": "Stradung 52",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-19T09:26:05.704Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:20:06.879Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://cds-savognin.ch/de/aktuelles/405.html"
     },
     {
       "id": "cds-savognin-402-d920b6404abf",
@@ -130,7 +131,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/402.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:26:05.701Z",
+      "crawledAt": "2026-11-19T21:20:06.878Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -194,8 +195,9 @@
       },
       "streetAddress": "Stradung 52",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-19T09:26:05.701Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:20:06.878Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://cds-savognin.ch/de/aktuelles/402.html"
     },
     {
       "id": "cds-savognin-159-5df441a9b5eb",
@@ -228,7 +230,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/159.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:26:05.699Z",
+      "crawledAt": "2026-11-19T21:20:06.876Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -288,8 +290,9 @@
       },
       "streetAddress": "Stradung 52",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-19T09:26:05.699Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:20:06.876Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://cds-savognin.ch/de/aktuelles/159.html"
     },
     {
       "id": "cds-savognin-270-1dc201a15dcc",
@@ -323,7 +326,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/270.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:26:05.696Z",
+      "crawledAt": "2026-11-19T21:20:06.874Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -377,8 +380,9 @@
       },
       "streetAddress": "Stradung 52",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-19T09:26:05.696Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:20:06.874Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://cds-savognin.ch/de/aktuelles/270.html"
     },
     {
       "id": "cds-savognin-259-f4c73bc7743b",
@@ -412,7 +416,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/259.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:26:05.672Z",
+      "crawledAt": "2026-11-19T21:20:06.857Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -466,8 +470,9 @@
       },
       "streetAddress": "Stradung 52",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-19T09:26:05.672Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:20:06.857Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://cds-savognin.ch/de/aktuelles/259.html"
     }
   ]
 }

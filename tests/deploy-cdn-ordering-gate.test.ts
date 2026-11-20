@@ -28,7 +28,7 @@ import { describe, it, expect, beforeAll } from 'vitest';
 import { createHash } from 'node:crypto';
 import { execFile, execFileSync } from 'node:child_process';
 import { resolve, join } from 'node:path';
-import { cpSync, existsSync, mkdtempSync, mkdirSync, writeFileSync, readFileSync, rmSync, symlinkSync } from 'node:fs';
+import { cpSync, existsSync, mkdtempSync, mkdirSync, writeFileSync, readdirSync, readFileSync, rmSync, symlinkSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import YAML from 'yaml';
 import { IT_SHARD_GROUP_IDS } from '../scripts/ci/it-shard-group-plan.mjs';
@@ -108,10 +108,10 @@ describe('deploy-publish.yml — il CDN IT precede entrambi i fan-out (#5251)', 
     expect(early.env.DEPLOY_CDN_PUSH_ONLY).toBe('1');
     expect(early.env.DEPLOY_BUILD_ID).toContain('outputs.build_id');
     expect(early.env.R2_TIMEOUT_OG_S).toBe('900');
-    expect(early['timeout-minutes']).toBe(45);
+    expect(early['timeout-minutes']).toBe(90);
     expect(retry.if).toBe("steps.cdn-push-early.outcome == 'failure'");
     expect(retry.env.DEPLOY_CDN_PUSH_ONLY).toBe('1');
-    expect(retry['timeout-minutes']).toBe(45);
+    expect(retry['timeout-minutes']).toBe(90);
     expect(ready.if).toBe('always()');
     expect(ready.run).toContain('EARLY_OUTCOME');
     expect(ready.run).toContain('RETRY_OUTCOME');
@@ -1549,7 +1549,7 @@ describe('job-canon CDN releases keep the build marker after the complete payloa
 });
 
 // ── scripts/lib/deploy-it-pages-prep.sh — the two phases ─────────────────────
-function runPrep(env: Record<string, string>, workspace = mkdtempSync(join(tmpdir(), 'prep-'))): { code: number; stdout: string } {
+function runPrep(env: Record<string, string>, workspace = mkdtempSync(join(tmpdir(), 'prep-')), bashArgs = [PREP_SH]): { code: number; stdout: string } {
   const dir = workspace;
   // The CDN push now requires each global shell stable alias and its current
   // content-addressed target, plus stable references in generated HTML.
@@ -1567,7 +1567,7 @@ function runPrep(env: Record<string, string>, workspace = mkdtempSync(join(tmpdi
     writeFileSync(join(dir, 'dist', 'assets', `${name}-0a1b2c3d4e5f.js`), `${name} bytes`);
   }
   try {
-    const stdout = execFileSync('bash', [PREP_SH], {
+    const stdout = execFileSync('bash', bashArgs, {
       cwd: dir,
       env: { PATH: process.env.PATH ?? '', RUNNER_TEMP: dir, ...env },
       encoding: 'utf8',
@@ -2005,7 +2005,7 @@ describe('deploy-it-pages-prep.sh — DEPLOY_CDN_PUSH_ONLY runs the CDN push and
     expect(r.stdout).toMatch(/already set by the early CDN push phase — skipping the CDN push/);
   });
 
-  it('a retry clears a partial stage and rebuilds all global shell pairs from dist', () => {
+  it('a retry leaves an old partial stage isolated and rebuilds all global shell pairs from dist', () => {
     const workspace = mkdtempSync(join(tmpdir(), 'prep-cdn-retry-'));
     try {
       const interruptedStage = join(workspace, 'cdn-stage');
@@ -2021,9 +2021,83 @@ describe('deploy-it-pages-prep.sh — DEPLOY_CDN_PUSH_ONLY runs the CDN push and
       expect(r.code).toBe(1); // The missing Pages key is the expected final handshake failure.
       expect(r.stdout).toMatch(/no CDN_DEPLOY_KEY secret — skipping CDN push/);
       expect(r.stdout).not.toMatch(/CDN asset stage must contain|stable shell asset/);
-      expect(r.stdout).not.toMatch(/partial-file\.js/);
+      expect(readFileSync(join(interruptedStage, 'assets', 'partial-file.js'), 'utf8')).toBe('partial attempt');
       expect(readFileSync(join(workspace, 'dist', 'assets', 'gtag-init.js'), 'utf8')).toBe('gtag-init bytes');
       expect(readFileSync(join(workspace, 'dist', 'assets', 'gtag-init-0a1b2c3d4e5f.js'), 'utf8')).toBe('gtag-init bytes');
+    } finally {
+      rmSync(workspace, { recursive: true, force: true });
+    }
+  });
+
+  it('a retry can finish and clean up while another attempt still needs its stage', () => {
+    const workspace = mkdtempSync(join(tmpdir(), 'prep-cdn-retry-'));
+    try {
+      mkdirSync(join(workspace, 'dist', 'job-canon'), { recursive: true });
+      writeFileSync(join(workspace, 'dist', 'job-canon', 'map.json'), '{}');
+      const harness = [
+        'source "$PREP_SCRIPT"',
+        'PREP_CWD="$PWD"',
+        'node() { [ "$1" = scripts/ci/check-house-ad-images.mjs ]; }',
+        '_publish_cdn_r2() {',
+        '  local payload="$1"',
+        '  [ -s "$payload/assets/gtag-init.js" ] || return 1',
+        '  [ -s "$payload/job-canon/map.json" ] || return 1',
+        '  if [ -z "${FIRST_PAYLOAD:-}" ]; then',
+        '    ( FIRST_PAYLOAD="$payload"; step_push_cdn ) || return 1',
+        '    [ ! -e "$(cat retry-payload.txt)" ] || return 1',
+        '    [ -s "$payload/assets/gtag-init.js" ] || return 1',
+        '    [ -s "$payload/job-canon/map.json" ] || return 1',
+        '  else',
+        '    [ "$payload" != "$FIRST_PAYLOAD" ] || return 1',
+        '    printf "%s" "$payload" > retry-payload.txt',
+        '  fi',
+        '  CDN_BASE=https://cdn.frontaliereticino.ch',
+        '}',
+        'step_push_cdn',
+      ].join('\n');
+
+      const result = runPrep({ CDN_TARGET: 'r2', PREP_SCRIPT: PREP_SH }, workspace, ['-c', harness]);
+
+      expect(result.code, result.stdout).toBe(0);
+      expect(readdirSync(workspace).filter((name) => name.startsWith('cdn-stage.'))).toEqual([]);
+    } finally {
+      rmSync(workspace, { recursive: true, force: true });
+    }
+  });
+
+  it.each([false, true])('keeps retry assets intact during late cleanup (explicit prefix: %s)', (explicitPrefix) => {
+    const workspace = mkdtempSync(join(tmpdir(), 'prep-cdn-late-cleanup-'));
+    try {
+      const shellSetup = join(workspace, 'stage-observer.sh');
+      const stageLog = join(workspace, 'stages.txt');
+      writeFileSync(shellSetup, [
+        'cp() {',
+        '  command cp "$@" || return',
+        '  if [ "$2" = dist/assets ]; then',
+        '    if [ -s "$TEST_STAGE_LOG" ]; then',
+        '      rm -rf -- "$(head -1 "$TEST_STAGE_LOG")"',
+        '    fi',
+        '    dirname "$3" >> "$TEST_STAGE_LOG"',
+        '    test -d "$3" || echo "retry assets removed by previous cleanup"',
+        '  fi',
+        '}',
+      ].join('\n'));
+      const env = {
+        DEPLOY_CDN_PUSH_ONLY: '1',
+        CDN_TARGET: 'pages',
+        BASH_ENV: shellSetup,
+        TEST_STAGE_LOG: stageLog,
+        ...(explicitPrefix ? { CDN_STAGE_DIR: join(workspace, 'explicit-stage') } : {}),
+      };
+
+      runPrep(env, workspace);
+      const retry = runPrep(env, workspace);
+      const [firstStage, retryStage] = readFileSync(stageLog, 'utf8').trim().split('\n');
+      expect(retryStage).toBeTruthy();
+      expect(retryStage).not.toBe(firstStage);
+      expect(retry.stdout).not.toMatch(/retry assets removed by previous cleanup/);
+      expect(retry.stdout).toMatch(/no CDN_DEPLOY_KEY secret — skipping CDN push/);
+      expect(existsSync(retryStage)).toBe(false);
     } finally {
       rmSync(workspace, { recursive: true, force: true });
     }

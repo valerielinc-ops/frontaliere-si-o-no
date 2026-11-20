@@ -1,7 +1,7 @@
 {
   "crawlerKey": "pictet",
-  "assembledAt": "2026-11-19T09:34:41.577Z",
-  "runId": "44494267954",
+  "assembledAt": "2026-11-19T21:19:32.182Z",
+  "runId": "44616635128",
   "jobs": [
     {
       "id": "pictet-6df8c48915f2",
@@ -34,7 +34,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125344&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:34:00.241Z",
+      "crawledAt": "2026-11-19T21:18:56.273Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -84,7 +84,7 @@
       "postalCode": "1204",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T09:34:00.241Z",
+      "validThrough": "2027-02-08T21:18:56.273Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -118,7 +118,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125373&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T09:33:59.660Z",
+      "crawledAt": "2026-11-19T21:18:55.790Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -168,7 +168,7 @@
       "postalCode": "1204",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T09:33:59.660Z",
+      "validThrough": "2027-01-11T21:18:55.790Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -202,7 +202,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125290&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:33:59.164Z",
+      "crawledAt": "2026-11-19T21:18:55.316Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -252,7 +252,7 @@
       "postalCode": "1204",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-12T09:33:59.164Z",
+      "validThrough": "2027-02-12T21:18:55.316Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -286,7 +286,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125282&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:33:57.201Z",
+      "crawledAt": "2026-11-19T21:18:53.318Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -338,7 +338,7 @@
       "postalCode": "8001",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T09:33:57.201Z",
+      "validThrough": "2027-01-20T21:18:53.318Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -372,7 +372,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125286&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:33:56.194Z",
+      "crawledAt": "2026-11-19T21:18:52.233Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -422,32 +422,32 @@
       "postalCode": "1204",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-17T09:33:56.194Z",
+      "validThrough": "2027-02-16T21:18:52.233Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "pictet-8270011644ee",
-      "slug": "devops-engineer-data-platforms-pictet-geneva",
+      "slug": "devops-ingegnere-data-platforms-pictet-group-geneva",
       "slugByLocale": {
+        "it": "devops-ingegnere-data-platforms-pictet-group-geneva",
         "en": "devops-engineer-data-platforms-pictet-geneva",
-        "it": "devops-engineer-data-platforms-pictet-geneva",
-        "de": "devops-engineer-data-platforms-pictet-geneva",
-        "fr": "devops-engineer-data-platforms-pictet-geneva"
+        "de": "devops-ingenieur-data-platforms-pictet-group-geneva",
+        "fr": "devops-ingenieur-data-platforms-pictet-group-geneva"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
       "companyDomain": "pictet.com",
       "title": "DevOps Engineer - Data Platforms",
       "titleByLocale": {
-        "en": "DevOps Engineer - Data Platforms",
         "it": "DevOps Ingegnere - Data Platforms",
+        "en": "DevOps Engineer - Data Platforms",
         "de": "DevOps Ingenieur - Data Platforms",
         "fr": "DevOps Ingénieur - Data Platforms"
       },
       "description": "Your team\n\nPictet Tech designs, builds, and operates the technology that underpins the Group’s core activities, from portfolio management and trading to banking services. Within Data Platforms , our ambition is to build a modern, resilient, and scalable data foundation across the Group. We are transforming our technology landscape by combining cloud and on-premise strengths, modernizing how data is stored, processed, integrated, and distributed, and raising engineering standards across all domains.\nAs a member of the Analytics team, part of the Data Platform unit within the Platform Engineering department, you will help design, build and operate reliable data platforms and pipelines, turning complex challenges into secure, reliable, and high-performing data capabilities that power advanced analytics, AI solutions, and innovative audit use cases, and enable teams to deliver faster and with greater confidence.\n\nYour role\n\n• Design, build and maintain reliable data ingestion and transformation pipelines, ensuring they are production-ready, monitored and documented.\n\n• Operate and improve the data platform in production, including orchestration, CI/CD, automation and infrastructure.\n\n• Manage and evolve platform infrastructure across on-premise and cloud environments, ensuring security, stability, scalability and performance.\n\n• Promote best practices in DevOps, release management, observability and infrastructure as code.\n\n• Contribute to the platform roadmap by gathering user needs and helping prioritise capabilities based on business value.\n\nYour profile\n\n• Degree in engineering, computer science or a related field, or equivalent experience.\n\n• At least 5 years of combined experience in data engineering and DevOps within a modern data platform environment.\n\n• Strong programming and data querying skills.\n\n• Experience in data ingestion, pipeline development and large-scale data transformation.\n\n• Hands-on experience with CI/CD, automation and DevOps ways of working.\n\n• Practical experience with cloud, containerised environments and infrastructure management.\n\n• Familiarity with technologies such as Python, SQL, AWS, Kubernetes or Snowflake is an asset, but none is mandatory.\n\n• Interest in a product-oriented approach to platforms, with a sense of user needs and priorities.\n\n• Proactive, adaptable and solution-oriented, with strong communication skills and team spirit.\n\n• Fluent in English and French.\n\n• Swiss resident or willingness to relocate.\n\nRef.DOE/CRO/AB\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
       "descriptionByLocale": {
-        "en": "Your team\n\nPictet Tech designs, builds, and operates the technology that underpins the Group’s core activities, from portfolio management and trading to banking services. Within Data Platforms , our ambition is to build a modern, resilient, and scalable data foundation across the Group. We are transforming our technology landscape by combining cloud and on-premise strengths, modernizing how data is stored, processed, integrated, and distributed, and raising engineering standards across all domains.\nAs a member of the Analytics team, part of the Data Platform unit within the Platform Engineering department, you will help design, build and operate reliable data platforms and pipelines, turning complex challenges into secure, reliable, and high-performing data capabilities that power advanced analytics, AI solutions, and innovative audit use cases, and enable teams to deliver faster and with greater confidence.\n\nYour role\n\n• Design, build and maintain reliable data ingestion and transformation pipelines, ensuring they are production-ready, monitored and documented.\n\n• Operate and improve the data platform in production, including orchestration, CI/CD, automation and infrastructure.\n\n• Manage and evolve platform infrastructure across on-premise and cloud environments, ensuring security, stability, scalability and performance.\n\n• Promote best practices in DevOps, release management, observability and infrastructure as code.\n\n• Contribute to the platform roadmap by gathering user needs and helping prioritise capabilities based on business value.\n\nYour profile\n\n• Degree in engineering, computer science or a related field, or equivalent experience.\n\n• At least 5 years of combined experience in data engineering and DevOps within a modern data platform environment.\n\n• Strong programming and data querying skills.\n\n• Experience in data ingestion, pipeline development and large-scale data transformation.\n\n• Hands-on experience with CI/CD, automation and DevOps ways of working.\n\n• Practical experience with cloud, containerised environments and infrastructure management.\n\n• Familiarity with technologies such as Python, SQL, AWS, Kubernetes or Snowflake is an asset, but none is mandatory.\n\n• Interest in a product-oriented approach to platforms, with a sense of user needs and priorities.\n\n• Proactive, adaptable and solution-oriented, with strong communication skills and team spirit.\n\n• Fluent in English and French.\n\n• Swiss resident or willingness to relocate.\n\nRef.DOE/CRO/AB\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
         "it": "La tua squadra\n\nPictet Tech progetta, costruisce e gestisce la tecnologia che sostiene le attività del Gruppo, dalla gestione del portafoglio e dal trading ai servizi bancari. All'interno di Data Platforms, la nostra ambizione è quella di costruire una moderna, resiliente e scalabile base di dati in tutto il Gruppo. Stiamo trasformando il nostro paesaggio tecnologico combinando i punti di forza cloud e on-premise, modernizzando come i dati vengono memorizzati, elaborati, integrati, distribuiti e aumentando gli standard di ingegneria in tutti i domini.\nCome membro del team di Analytics, parte dell'unità Data Platform all'interno del dipartimento di Platform Engineering, aiuterà a progettare, costruire e gestire piattaforme e tubazioni dati affidabili, trasformando le sfide complesse in funzionalità di dati sicure, affidabili e ad alto rendimento che alimentano analisi avanzate, soluzioni AI e casi di utilizzo di audit innovativi e consentono ai team di fornire una maggiore sicurezza e rapidità.\n\nIl tuo ruolo\n\n• Progettare, costruire e mantenere affidabili pipeline di ingestione e trasformazione dei dati, assicurando che siano pronti alla produzione, monitorati e documentati.\n\n• Operare e migliorare la piattaforma di dati in produzione, tra cui orchestrazione, CI/CD, automazione e infrastrutture.\n\n• Gestire ed evolvere l'infrastruttura della piattaforma in ambienti on-premise e cloud, garantendo sicurezza, stabilità, scalabilità e prestazioni.\n\n• Promuovere le migliori pratiche in DevOps, gestione del rilascio, osservanza e infrastruttura come codice.\n\n• Contribuisci alla roadmap della piattaforma raccogliendo le esigenze degli utenti e aiutando le funzionalità di priorità basate sul valore aziendale.\n\nIl tuo profilo\n\n• Laurea in ingegneria, informatica o un campo correlato, o esperienza equivalente.\n\n• Almeno 5 anni di esperienza combinata nell'ingegneria dei dati e DevOps all'interno di un ambiente moderno della piattaforma di dati.\n\n• Forte capacità di programmazione e query dei dati.\n\n• Esperienza nell'ingestione dei dati, sviluppo delle tubazioni e trasformazione dei dati su larga scala.\n\n• Esperienza pratica con CI/CD, automazione e DevOps modi di lavorare.\n\n• Esperienza pratica con cloud, ambienti containerizzati e gestione delle infrastrutture.\n\n• La familiarità con tecnologie come Python, SQL, AWS, Kubernetes o Snowflake è una risorsa, ma nessuno è obbligatorio.\n\n• Interessi in un approccio orientato al prodotto alle piattaforme, con un senso di necessità e priorità dell'utente.\n\n• Proattiva, adattabile e orientata alla soluzione, con forti capacità di comunicazione e spirito di squadra.\n\n• Fluente in inglese e francese.\n\n• residente svizzero o volontà di trasferirsi.\n\nRef.DOE/CRO/AB\n\nNota\n\nNon accetteremo alcun CV tramite agenzie\n\nDiversità e inclusione\n\nPictet è un datore di lavoro pari opportunità e si impegna a creare un ambiente diverso. Rispettiamo tutti gli individui e cerchiamo la loro inclusione sul posto di lavoro.\n\nApplicare\n\nSalva lavoro\n\nEmail a un contatto\n\nTorna alla lista\n\n\n\n\n\nIl lavoro è stato inviato\n\nSi prega di fornire le informazioni qui sotto",
+        "en": "Your team\n\nPictet Tech designs, builds, and operates the technology that underpins the Group’s core activities, from portfolio management and trading to banking services. Within Data Platforms , our ambition is to build a modern, resilient, and scalable data foundation across the Group. We are transforming our technology landscape by combining cloud and on-premise strengths, modernizing how data is stored, processed, integrated, and distributed, and raising engineering standards across all domains.\nAs a member of the Analytics team, part of the Data Platform unit within the Platform Engineering department, you will help design, build and operate reliable data platforms and pipelines, turning complex challenges into secure, reliable, and high-performing data capabilities that power advanced analytics, AI solutions, and innovative audit use cases, and enable teams to deliver faster and with greater confidence.\n\nYour role\n\n• Design, build and maintain reliable data ingestion and transformation pipelines, ensuring they are production-ready, monitored and documented.\n\n• Operate and improve the data platform in production, including orchestration, CI/CD, automation and infrastructure.\n\n• Manage and evolve platform infrastructure across on-premise and cloud environments, ensuring security, stability, scalability and performance.\n\n• Promote best practices in DevOps, release management, observability and infrastructure as code.\n\n• Contribute to the platform roadmap by gathering user needs and helping prioritise capabilities based on business value.\n\nYour profile\n\n• Degree in engineering, computer science or a related field, or equivalent experience.\n\n• At least 5 years of combined experience in data engineering and DevOps within a modern data platform environment.\n\n• Strong programming and data querying skills.\n\n• Experience in data ingestion, pipeline development and large-scale data transformation.\n\n• Hands-on experience with CI/CD, automation and DevOps ways of working.\n\n• Practical experience with cloud, containerised environments and infrastructure management.\n\n• Familiarity with technologies such as Python, SQL, AWS, Kubernetes or Snowflake is an asset, but none is mandatory.\n\n• Interest in a product-oriented approach to platforms, with a sense of user needs and priorities.\n\n• Proactive, adaptable and solution-oriented, with strong communication skills and team spirit.\n\n• Fluent in English and French.\n\n• Swiss resident or willingness to relocate.\n\nRef.DOE/CRO/AB\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
         "de": "Dein Team\n\nPictet Tech entwickelt, baut und betreibt die Technologie, die die Kernaktivitäten der Gruppe vom Portfoliomanagement über den Handel bis hin zu Bankdienstleistungen untermauert. Innerhalb von Data Platforms ist es unser Ziel, eine moderne, belastbare und skalierbare Datenbasis im gesamten Konzern aufzubauen. Wir verändern unsere Technologielandschaft, indem wir Cloud- und On-Premise-Stärken kombinieren, die Art und Weise, wie Daten gespeichert, verarbeitet, integriert und verteilt werden, modernisieren und die Engineering-Standards in allen Bereichen erhöhen.\nAls Mitglied des Analytics-Teams, Teil der Data Platform-Einheit innerhalb der Platform Engineering-Abteilung, helfen Sie bei der Gestaltung, dem Aufbau und dem Betrieb zuverlässiger Datenplattformen und -pipelines, wodurch komplexe Herausforderungen in sichere, zuverlässige und leistungsstarke Datenfunktionen umgewandelt werden, die fortschrittliche Analysen, KI-Lösungen und innovative Audit-Anwendungsfälle unterstützen und es Teams ermöglichen, schneller und mit größerem Vertrauen zu liefern.\n\nDeine Rolle\n\n• Konzipieren, erstellen und pflegen Sie zuverlässige Datenaufnahme- und Transformationspipelines, um sicherzustellen, dass sie produktionsbereit sind, überwacht und dokumentiert werden.\n\n• Betrieb und Verbesserung der Datenplattform in der Produktion, einschließlich Orchestrierung, CI/CD, Automatisierung und Infrastruktur.\n\n• Verwalten und Weiterentwicklung der Plattforminfrastruktur in On-Premise- und Cloud-Umgebungen, um Sicherheit, Stabilität, Skalierbarkeit und Leistung zu gewährleisten.\n\n• Förderung von Best Practices in DevOps, Release Management, Observability und Infrastruktur als Code.\n\n• Tragen Sie zur Plattform-Roadmap bei, indem Sie die Bedürfnisse der Benutzer erfassen und die Priorisierung von Funktionen basierend auf dem Geschäftswert unterstützen.\n\nDein Profil\n\n• Abschluss in Ingenieurwissenschaften, Informatik oder einem verwandten Bereich oder gleichwertige Erfahrung.\n\n• Mindestens 5 Jahre kombinierte Erfahrung in Data Engineering und DevOps in einer modernen Datenplattformumgebung.\n\n• Starke Programmier- und Datenabfragefähigkeiten.\n\n• Erfahrung in der Datenaufnahme, Pipeline-Entwicklung und groß angelegten Datentransformation.\n\n• Hands-on Erfahrung mit CI/CD, Automatisierung und DevOps Arbeitsweise.\n\n• Praktische Erfahrung mit Cloud, containerisierten Umgebungen und Infrastrukturmanagement.\n\n• Die Vertrautheit mit Technologien wie Python, SQL, AWS, Kubernetes oder Snowflake ist ein Asset, aber keines ist obligatorisch.\n\n• Interesse an einem produktorientierten Ansatz für Plattformen mit einem Gefühl für die Bedürfnisse und Prioritäten der Benutzer.\n\n• Proaktiv, anpassungsfähig und lösungsorientiert, mit starken Kommunikationsfähigkeiten und Teamgeist.\n\n• Fließend in Englisch und Französisch.\n\n• Schweizer ansässig oder bereit zu verlagern.\n\nRef.DOE/CRO/AB\n\nAnmerkung:\n\nWir akzeptieren keine CVs über Agenturen\n\nVielfalt & Inklusion\n\nPictet ist ein Arbeitgeber für Chancengleichheit und engagiert sich für die Schaffung eines vielfältigen Umfelds. Wir respektieren alle Menschen und suchen ihre Einbeziehung in den Arbeitsplatz.\n\nBeantragen\n\nSave Job\n\nE-Mail an einen Kontakt\n\nZurück zur Liste\n\n\n\n\n\nDer Job wurde geschickt an\n\nBitte geben Sie die nachstehenden Informationen an:",
         "fr": "Votre équipe\n\nPictet Tech conçoit, construit et exploite la technologie qui sous-tend les activités de base du Groupe, de la gestion de portefeuille et du commerce aux services bancaires. Au sein de Data Platforms , notre ambition est de construire une base de données moderne, résistante et évolutive dans l'ensemble du Groupe. Nous transformons notre paysage technologique en combinant les points forts du cloud et du site Web, en modernisant la façon dont les données sont stockées, traitées, intégrées et distribuées et en élevant les normes d'ingénierie dans tous les domaines.\nEn tant que membre de l'équipe Analytics, qui fait partie de l'unité Data Platform au sein du département Platform Engineering, vous aiderez à concevoir, construire et exploiter des plates-formes et pipelines de données fiables, transformant des défis complexes en capacités de données sécurisées, fiables et performantes qui alimentent les analyses avancées, les solutions d'IA et les cas d'utilisation d'audit innovants, et permettre aux équipes de fournir plus rapidement et avec plus de confiance.\n\nVotre rôle\n\n• Concevoir, construire et maintenir des pipelines d'ingestion et de transformation fiables, en s'assurant qu'ils sont prêts à la production, surveillés et documentés.\n\n• Utiliser et améliorer la plate-forme de données dans la production, y compris l'orchestration, CI/CD, l'automatisation et l'infrastructure.\n\n• Gérer et développer l'infrastructure de la plate-forme dans les environnements sur site et cloud, en assurant la sécurité, la stabilité, l'évolutivité et les performances.\n\n• Promouvoir les meilleures pratiques dans DevOps, la gestion des publications, l'observation et l'infrastructure comme code.\n\n• Contribuer à la feuille de route de la plateforme en recueillant les besoins des utilisateurs et en aidant à hiérarchiser les capacités en fonction de la valeur opérationnelle.\n\nVotre profil\n\n• Diplôme en ingénierie, en informatique ou dans un domaine connexe, ou expérience équivalente.\n\n• Au moins 5 ans d'expérience combinée en ingénierie des données et DevOps dans un environnement de plate-forme de données moderne.\n\n• Bonnes compétences en programmation et en recherche de données.\n\n• Expérience en matière d'ingestion de données, de développement de pipelines et de transformation de données à grande échelle.\n\n• Expérience pratique avec l'IC/CD, l'automatisation et les méthodes DevOps.\n\n• Expérience pratique avec le cloud, les environnements conteneurisés et la gestion des infrastructures.\n\n• Familiarisation avec des technologies telles que Python, SQL, AWS, Kubernetes ou Snowflake est un atout, mais aucune n'est obligatoire.\n\n• Intérêt pour une approche des plateformes axée sur les produits, avec un sens des besoins et des priorités des utilisateurs.\n\n• Proactive, adaptable et orientée vers la solution, avec de solides compétences en communication et esprit d'équipe.\n\n• Fluent en anglais et en français.\n\n• Résident suisse ou volonté de déménager.\n\nRéf.DOE/CRO/AB\n\nRemarque\n\nNous n'accepterons aucun CV par l'intermédiaire des agences\n\nDiversité et inclusion\n\nPictet est un employeur à chances égales et s'engage à créer un environnement diversifié. Nous respectons toutes les personnes et nous cherchons à les inclure dans le milieu de travail.\n\nAppliquer\n\nEnregistrer l'emploi\n\nCourriel à un contact\n\nRetour à la liste\n\n\n\n\n\nLe travail a été envoyé à\n\nVeuillez fournir les informations ci-dessous."
       },
@@ -456,7 +456,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125404&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:33:55.291Z",
+      "crawledAt": "2026-11-19T21:18:51.330Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -474,9 +474,22 @@
       "applyUrl": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125404&selected_lang=en_GB",
       "jobReqId": "125404",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-11-19T09:33:55.291Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "devops-engineer-data-platforms-pictet-geneva"
+        ],
+        "de": [
+          "devops-engineer-data-platforms-pictet-geneva"
+        ],
+        "fr": [
+          "devops-engineer-data-platforms-pictet-geneva"
+        ]
       },
+      "previousSlugs": [
+        "devops-engineer-data-platforms-pictet-geneva"
+      ],
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -493,9 +506,8 @@
       "postalCode": "1204",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-17T09:33:55.291Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T09:33:55.291Z"
+      "validThrough": "2027-02-17T21:18:51.330Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pictet-91b0c140131b",
@@ -565,91 +577,6 @@
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-05T21:16:42.980Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "pictet-b6a7d924934c",
-      "slug": "assistente-esecutivo-pictet-group-geneva",
-      "slugByLocale": {
-        "it": "assistente-esecutivo-pictet-group-geneva",
-        "en": "executive-assistant-pictet-geneva",
-        "de": "executive-assistent-pictet-group-geneva",
-        "fr": "assistant-executif-pictet-group-geneva"
-      },
-      "company": "Pictet Group",
-      "companyKey": "pictet",
-      "companyDomain": "pictet.com",
-      "title": "Executive Assistant",
-      "titleByLocale": {
-        "it": "Assistente esecutivo",
-        "en": "Executive Assistant",
-        "de": "Executive Assistent",
-        "fr": "Assistant exécutif"
-      },
-      "description": "Your team\n\nPictet Asset Management manages the assets of some of the world’s largest institutions, financial intermediaries and their clients. Our culture welcomes independent thinkers and centers around investment excellence, a long-term perspective and a dedication to client service.\n\nPictet Asset Management is seeking an Executive Assistant to provide primary support to the Head of Marketing & Products, with occasional coordination support for his direct reports in Geneva and London.\n\nYou will join a dynamic, international team working on exciting projects at the heart of the firm’s sales and investment activities.\n\nYou will provide proactive, detail-focused administrative and organisational support to the Head and the wider Marketing & Products team, enabling them to work effectively and ensuring seamless coordination with senior stakeholders and external contacts.\n\nYour role\n\n• Manage the Head’s complex diary across time zones, proactively identifying conflicts and inefficiencies, and coordinate his travel arrangements and expenses.\n\n• Prepare, format, and proofread documents and presentations: apply corporate design guidelines and help ensure executive presentations are clear, polished and impactful.\n\n• Coordinate online and in-person meetings, including global team meetings, and manage related logistics and follow-up.\n\n• Support internal and selected client events, coordinating venues, invitations, suppliers and on-the-day logistics.\n\n• Monitor budgets, liaise with Finance and help ensure invoices are processed accurately and on time.\n\n• Identify repetitive administrative tasks and use AI tools to streamline the assistant’s work and the Head’s workflows.\n\n• Provide occasional organisational support to Head’s direct reports and undertake other administrative and organisational tasks as needed.\n\nYour profile\n\n• Bachelor’s degree or equivalent qualification.\n\n• At least five years’ experience in a similar executive or team assistant role and possibly a strong interest in marketing and sales activities\n\n• Strong organisational skills and the ability to manage competing priorities.\n\n• Strong proficiency in Microsoft Office, particularly PowerPoint, and confidence using digital collaboration tools.\n\n• A strong eye for detail and visual presentation, with the ability to apply corporate design guidelines.\n\n• Practical experience with AI tools and an interest in automating repetitive tasks and improving ways of working.\n\n• Fluent spoken and written English, with a very good level of spoken and written French.\n\n• Resident in Switzerland or willing to relocate to Switzerland.\n\nThe successful candidate will be a true team player: discreet, flexible, proactive with strong relationship-building skills who will anticipate needs and remain calm and solutions-focused in a dynamic environment.\n\nREF: EE/SGV/DB\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
-      "descriptionByLocale": {
-        "it": "La tua squadra\n\nPictet Asset Management gestisce i beni di alcune delle più grandi istituzioni del mondo, intermediari finanziari e dei loro clienti. La nostra cultura accoglie pensatori e centri indipendenti intorno all'eccellenza degli investimenti, una prospettiva a lungo termine e una dedizione al servizio clienti.\n\nPictet Asset Management è alla ricerca di un Assistente Esecutivo per fornire il supporto primario al Responsabile Marketing & Products, con occasionale supporto di coordinamento per le sue relazioni dirette a Ginevra e Londra.\n\nTi unirai a un team dinamico e internazionale che lavora a progetti entusiasmanti nel cuore delle attività di vendita e investimento dell’azienda.\n\nFornirai un supporto amministrativo e organizzativo proattivo e mirato al Capo e al più ampio team Marketing & Products, consentendo loro di lavorare in modo efficace e garantendo un coordinamento senza interruzioni con gli stakeholder senior e i contatti esterni.\n\nIl tuo ruolo\n\n• Gestire il diario complesso della testa attraverso le fusi orari, identificare proattivamente i conflitti e le inefficienze, e coordinare le sue modalità di viaggio e le spese.\n\n• Preparare, formattare e correggere i documenti e le presentazioni: applicare le linee guida del design aziendale e aiutare a garantire presentazioni esecutive sono chiare, lucidate e impattanti.\n\n• Coordinate gli incontri online e di persona, compresi gli incontri di squadra globali, e gestite la logistica e il follow-up correlati.\n\n• Sostenere eventi client interni e selezionati, coordinare sedi, inviti, fornitori e la logistica di oggi.\n\n• Monitorare i bilanci, consultare le finanze e garantire che le fatture vengano elaborate con precisione e puntualità.\n\n• Identificare i compiti amministrativi ripetitivi e utilizzare gli strumenti AI per ottimizzare il lavoro dell'assistente e i flussi di lavoro del capo.\n\n• Fornire un sostegno organizzativo occasionale alle relazioni dirette del Capo e intraprendere altri compiti amministrativi e organizzativi, se necessario.\n\nIl tuo profilo\n\n• Corso di laurea o qualifica equivalente.\n\n• Almeno cinque anni di esperienza in un ruolo esecutivo o assistente di squadra simile e possibilmente un forte interesse per le attività di marketing e vendita\n\n• Forte capacità organizzative e capacità di gestire le priorità concorrenti.\n\n• Forte competenza in Microsoft Office, in particolare PowerPoint, e la fiducia utilizzando strumenti di collaborazione digitale.\n\n• Un occhio forte per i dettagli e la presentazione visiva, con la capacità di applicare le linee guida del design aziendale.\n\n• Esperienza pratica con gli strumenti AI e un interesse per automatizzare i compiti ripetitivi e migliorare i modi di lavorare.\n\n• Fluente parlato e scritto inglese, con un ottimo livello di francese parlato e scritto.\n\n• Residente in Svizzera o disposto a trasferirsi in Svizzera.\n\nIl candidato di successo sarà un vero giocatore di squadra: discreto, flessibile, proattivo con forti capacità di costruzione di relazioni che anticipano le esigenze e resteranno calmi e orientati alle soluzioni in un ambiente dinamico.\n\nREF: EE/SGV/DB\n\nNota\n\nNon accetteremo alcun CV tramite agenzie\n\nDiversità e inclusione\n\nPictet è un datore di lavoro pari opportunità e si impegna a creare un ambiente diverso. Rispettiamo tutti gli individui e cerchiamo la loro inclusione sul posto di lavoro.\n\nApplicare\n\nSalva lavoro\n\nEmail a un contatto\n\nTorna alla lista\n\n\n\n\n\nIl lavoro è stato inviato\n\nSi prega di fornire le informazioni qui sotto",
-        "en": "Your team\n\nPictet Asset Management manages the assets of some of the world’s largest institutions, financial intermediaries and their clients. Our culture welcomes independent thinkers and centers around investment excellence, a long-term perspective and a dedication to client service.\n\nPictet Asset Management is seeking an Executive Assistant to provide primary support to the Head of Marketing & Products, with occasional coordination support for his direct reports in Geneva and London.\n\nYou will join a dynamic, international team working on exciting projects at the heart of the firm’s sales and investment activities.\n\nYou will provide proactive, detail-focused administrative and organisational support to the Head and the wider Marketing & Products team, enabling them to work effectively and ensuring seamless coordination with senior stakeholders and external contacts.\n\nYour role\n\n• Manage the Head’s complex diary across time zones, proactively identifying conflicts and inefficiencies, and coordinate his travel arrangements and expenses.\n\n• Prepare, format, and proofread documents and presentations: apply corporate design guidelines and help ensure executive presentations are clear, polished and impactful.\n\n• Coordinate online and in-person meetings, including global team meetings, and manage related logistics and follow-up.\n\n• Support internal and selected client events, coordinating venues, invitations, suppliers and on-the-day logistics.\n\n• Monitor budgets, liaise with Finance and help ensure invoices are processed accurately and on time.\n\n• Identify repetitive administrative tasks and use AI tools to streamline the assistant’s work and the Head’s workflows.\n\n• Provide occasional organisational support to Head’s direct reports and undertake other administrative and organisational tasks as needed.\n\nYour profile\n\n• Bachelor’s degree or equivalent qualification.\n\n• At least five years’ experience in a similar executive or team assistant role and possibly a strong interest in marketing and sales activities\n\n• Strong organisational skills and the ability to manage competing priorities.\n\n• Strong proficiency in Microsoft Office, particularly PowerPoint, and confidence using digital collaboration tools.\n\n• A strong eye for detail and visual presentation, with the ability to apply corporate design guidelines.\n\n• Practical experience with AI tools and an interest in automating repetitive tasks and improving ways of working.\n\n• Fluent spoken and written English, with a very good level of spoken and written French.\n\n• Resident in Switzerland or willing to relocate to Switzerland.\n\nThe successful candidate will be a true team player: discreet, flexible, proactive with strong relationship-building skills who will anticipate needs and remain calm and solutions-focused in a dynamic environment.\n\nREF: EE/SGV/DB\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
-        "de": "Dein Team\n\nPictet Asset Management verwaltet die Vermögenswerte einiger der weltweit größten Institutionen, Finanzintermediäre und deren Kunden. Unsere Kultur begrüßt unabhängige Denker und konzentriert sich auf Investitionsexzellenz, eine langfristige Perspektive und ein Engagement für den Kundenservice.\n\nPictet Asset Management sucht einen Executive Assistant, der den Head of Marketing & Products primär unterstützt und gelegentlich seine direkten Berichte in Genf und London koordiniert.\n\nSie werden einem dynamischen, internationalen Team beitreten, das an spannenden Projekten im Herzen der Vertriebs- und Investitionsaktivitäten des Unternehmens arbeitet.\n\nSie bieten dem Head und dem breiteren Marketing & Products Team proaktive, detailorientierte administrative und organisatorische Unterstützung, damit sie effektiv arbeiten und eine nahtlose Koordination mit leitenden Stakeholdern und externen Kontakten gewährleisten können.\n\nDeine Rolle\n\n• Verwalten Sie das komplexe Tagebuch des Leiters über Zeitzonen hinweg, identifizieren Sie proaktiv Konflikte und Ineffizienzen und koordinieren Sie seine Reisevorbereitungen und -kosten.\n\n• Erstellen, Formatieren und Korrekturlesen von Dokumenten und Präsentationen: Wenden Sie Corporate-Design-Richtlinien an und tragen Sie dazu bei, dass die Präsentationen von Führungskräften klar, poliert und wirkungsvoll sind.\n\n• Koordinieren Sie Online- und persönliche Meetings, einschließlich globaler Teamtreffen, und verwalten Sie die damit verbundene Logistik und Nachverfolgung.\n\n• Unterstützen Sie interne und ausgewählte Kundenveranstaltungen, koordinieren Sie Veranstaltungsorte, Einladungen, Lieferanten und die tägliche Logistik.\n\n• Überwachen Sie Budgets, arbeiten Sie mit Finance zusammen und tragen Sie dazu bei, dass Rechnungen korrekt und pünktlich verarbeitet werden.\n\n• Identifizieren Sie sich wiederholende administrative Aufgaben und verwenden Sie KI-Tools, um die Arbeit des Assistenten und die Workflows des Leiters zu optimieren.\n\n• gelegentliche organisatorische Unterstützung für die direkten Berichte des Leiters und bei Bedarf weitere administrative und organisatorische Aufgaben.\n\nDein Profil\n\n• Bachelor-Abschluss oder gleichwertige Qualifikation.\n\n• Mindestens fünf Jahre Erfahrung in einer ähnlichen Führungs- oder Teamassistentenrolle und möglicherweise ein starkes Interesse an Marketing- und Vertriebsaktivitäten\n\n• Starke organisatorische Fähigkeiten und die Fähigkeit, konkurrierende Prioritäten zu verwalten.\n\n• Starke Kenntnisse in Microsoft Office, insbesondere PowerPoint, und Vertrauen mit digitalen Collaboration-Tools.\n\n• Ein starkes Auge für Details und visuelle Präsentation mit der Fähigkeit, Corporate-Design-Richtlinien anzuwenden.\n\n• Praktische Erfahrung mit KI-Tools und Interesse an der Automatisierung sich wiederholender Aufgaben und der Verbesserung der Arbeitsweise.\n\n• Fließend gesprochenes und geschriebenes Englisch, mit einem sehr guten Niveau an gesprochenem und geschriebenem Französisch.\n\n• Wohnsitz in der Schweiz oder bereit, in die Schweiz umzuziehen.\n\nDer erfolgreiche Kandidat wird ein echter Teamplayer sein: diskret, flexibel, proaktiv mit starken Beziehungsaufbaufähigkeiten, die Bedürfnisse antizipieren und in einem dynamischen Umfeld ruhig und lösungsorientiert bleiben.\n\nREF: EE/SGV/DB\n\nAnmerkung:\n\nWir akzeptieren keine CVs über Agenturen\n\nVielfalt & Inklusion\n\nPictet ist ein Arbeitgeber für Chancengleichheit und engagiert sich für die Schaffung eines vielfältigen Umfelds. Wir respektieren alle Menschen und suchen ihre Einbeziehung in den Arbeitsplatz.\n\nBeantragen\n\nSave Job\n\nE-Mail an einen Kontakt\n\nZurück zur Liste\n\n\n\n\n\nDer Job wurde geschickt an\n\nBitte geben Sie die nachstehenden Informationen an:",
-        "fr": "Votre équipe\n\nPictet Asset Management gère les actifs de certaines grandes institutions, intermédiaires financiers et leurs clients. Notre culture accueille des penseurs indépendants et des centres autour de l'excellence en investissement, d'une perspective à long terme et d'un dévouement au service à la clientèle.\n\nPictet Asset Management est à la recherche d'un assistant exécutif pour fournir un soutien primaire au responsable du marketing et des produits, avec un soutien occasionnel de coordination pour ses rapports directs à Genève et à Londres.\n\nVous rejoindrez une équipe internationale dynamique travaillant sur des projets passionnants au cœur des activités de vente et d'investissement de l'entreprise.\n\nVous fournirez un soutien administratif et organisationnel proactif et axé sur les détails au chef de file et à l'équipe élargie de marketing et de produits, ce qui leur permettra de travailler efficacement et d'assurer une coordination transparente avec les parties prenantes et les contacts externes.\n\nVotre rôle\n\n• Gérer le journal complexe de Head dans les fuseaux horaires, identifier proactivement les conflits et les inefficacités, et coordonner ses arrangements et dépenses de voyage.\n\n• Préparer, formater et relire les documents et les présentations : appliquer les lignes directrices sur la conception organisationnelle et veiller à ce que les présentations des cadres supérieurs soient claires, polies et pertinentes.\n\n• Coordonner les réunions en ligne et en personne, y compris les réunions des équipes mondiales, et gérer la logistique et le suivi connexes.\n\n• Soutenir les événements internes et sélectionnés des clients, les lieux de coordination, les invitations, les fournisseurs et la logistique quotidienne.\n\n• Surveiller les budgets, assurer la liaison avec les Finances et veiller à ce que les factures soient traitées avec exactitude et à temps.\n\n• Identifier les tâches administratives répétitives et utiliser des outils d'IA pour rationaliser le travail de l'assistant et les workflows de Head.\n\n• Fournir un soutien organisationnel occasionnel aux rapports directs de Head et entreprendre d'autres tâches administratives et organisationnelles au besoin.\n\nVotre profil\n\n• Baccalauréat ou diplôme équivalent.\n\n• Au moins cinq ans d'expérience dans un rôle de cadre ou d'assistant d'équipe similaire et éventuellement un fort intérêt pour les activités de marketing et de vente\n\n• Des compétences organisationnelles solides et la capacité de gérer des priorités concurrentes.\n\n• Forte compétence dans Microsoft Office, en particulier PowerPoint, et confiance en utilisant des outils de collaboration numérique.\n\n• Un œil fort pour les détails et la présentation visuelle, avec la capacité d'appliquer les lignes directrices de conception d'entreprise.\n\n• Expérience pratique des outils d'IA et intérêt à automatiser les tâches répétitives et à améliorer les méthodes de travail.\n\n• Anglais parlé et écrit, avec un très bon niveau de français parlé et écrit.\n\n• Résident en Suisse ou désireux de déménager en Suisse.\n\nLe candidat retenu sera un vrai joueur d'équipe : discret, flexible, proactif avec de solides compétences en matière de relations qui anticiperont les besoins et resteront calmes et axés sur les solutions dans un environnement dynamique.\n\nREF: EE/SGV/DB\n\nRemarque\n\nNous n'accepterons aucun CV par l'intermédiaire des agences\n\nDiversité et inclusion\n\nPictet est un employeur à chances égales et s'engage à créer un environnement diversifié. Nous respectons toutes les personnes et nous cherchons à les inclure dans le milieu de travail.\n\nAppliquer\n\nEnregistrer l'emploi\n\nCourriel à un contact\n\nRetour à la liste\n\n\n\n\n\nLe travail a été envoyé à\n\nVeuillez fournir les informations ci-dessous."
-      },
-      "location": "Geneva",
-      "canton": "GE",
-      "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125383&selected_lang=en_GB",
-      "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
-      "sourceLang": "en",
-      "crawledAt": "2026-11-18T09:20:06.419Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Finanza",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Finanza / Banca privata",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125383&selected_lang=en_GB",
-      "jobReqId": "125383",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "executive-assistant-pictet-geneva"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "executive-assistant-pictet-geneva"
-        ],
-        "de": [
-          "executive-assistant-pictet-geneva"
-        ],
-        "fr": [
-          "executive-assistant-pictet-geneva"
-        ]
-      },
-      "firstSeenAt": "2026-11-16T21:16:39.430Z",
-      "salaryMin": 104500,
-      "salaryMax": 183500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 104500,
-          "maxValue": 183500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1204",
-      "streetAddress": "Geneva",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T09:20:06.419Z",
       "validThroughSource": "last-observed-window",
       "crawlerMissStreak": 2
     }

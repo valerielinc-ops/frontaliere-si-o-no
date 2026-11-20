@@ -1,7 +1,7 @@
 {
   "crawlerKey": "endress-hauser",
-  "assembledAt": "2026-11-19T09:26:40.490Z",
-  "runId": "44494103455",
+  "assembledAt": "2026-11-19T21:33:32.168Z",
+  "runId": "44616450517",
   "jobs": [
     {
       "id": "endress-hauser-35b11c5a191b",
@@ -34,7 +34,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Projektleiterin-Technik-im-Facility-Management-100-%28mwd%29-4153/1398819233/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:26:28.200Z",
+      "crawledAt": "2026-11-19T21:32:55.069Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -77,8 +77,9 @@
       },
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T09:26:28.200Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-21T21:32:55.069Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-projektleiterin-technik-im-facility-management-100-%28mwd%29-4153/1398819233"
     },
     {
       "id": "endress-hauser-935d4a01d10b",
@@ -112,7 +113,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Service-Planning-Partner-%28fmd%29-100-4153/1440102533/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:26:27.613Z",
+      "crawledAt": "2026-11-19T21:33:10.668Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -158,8 +159,9 @@
       },
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T09:26:27.613Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-21T21:33:10.668Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-service-planning-partner-%28fmd%29-100-4153/1440102533"
     },
     {
       "id": "endress-hauser-bd7983447ec9",
@@ -192,7 +194,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Process-Development-Manager-%28fmd%29-100-4153/1440010233/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:26:26.998Z",
+      "crawledAt": "2026-11-19T21:33:09.891Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -238,8 +240,9 @@
       },
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T09:26:26.998Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-21T21:33:09.891Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-process-development-manager-%28fmd%29-100-4153/1440010233"
     },
     {
       "id": "endress-hauser-5572e7314349",
@@ -272,7 +275,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Principal-Expert-Produktmanager-&-Business-Driver-Ultraschall-Flow-%28wmd%29-4153/1449858833/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:26:26.345Z",
+      "crawledAt": "2026-11-19T21:33:22.419Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -321,85 +324,9 @@
       },
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T09:26:26.345Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "endress-hauser-18362ab28664",
-      "slug": "project-manager-applications-f-m-d-100-endress-hauser-reinach",
-      "slugByLocale": {
-        "it": "project-manager-applications-f-m-d-100-endress-hauser-reinach",
-        "en": "project-manager-applications-f-m-d-100-endress-hauser-reinach",
-        "de": "project-manager-applications-f-m-d-100-endress-hauser-reinach",
-        "fr": "gestionnaire-de-projet-applications-h-f-d-100-endress-hauser-reinach"
-      },
-      "company": "Endress+Hauser",
-      "companyKey": "endress-hauser",
-      "companyDomain": "endress.com",
-      "title": "Project Manager Applications (f/m/d) 100%",
-      "titleByLocale": {
-        "it": "Applicazioni di Project Manager (m/f/d) 100%",
-        "en": "Project Manager Applications (m/f/d) 100%",
-        "de": "Project Manager Applications (f/m/d) 100%",
-        "fr": "Gestionnaire de projet Applications (h/f/d) 100%"
-      },
-      "description": "Bei Endress+Hauser geschieht Fortschritt durch Zusammenarbeit. Als weltweit führender Anbieter von Messgeräten gestalten unsere über 18'000 Mitarbeitenden die Zukunft im Bereich der Prozessautomatisierung. Ob bei der Innovation und Umsetzung neuer Technologien im Team, der Zusammenarbeit in der Entwicklung neuer Geräte oder der Stärkung wichtiger Beziehungen zu verschiedenen globalen Industrien: Unsere Arbeit basiert darauf, vertrauensvolle Beziehungen aufzubauen, die allen zum Erfolg verhelfen. Als familiengeführtes Unternehmen schauen wir über kurzfristige Ziele hinaus und arbeiten daran, eine zukunftsorientierte Vision für unsere Mitarbeitenden, unsere Kundinnen und Kunden und die Welt im Allgemeinen zu schaffen.\n\nWir suchen eine*n Project Manager Applications (f/m/d) 100%, um unser Project-Team in Reinach zu ergänzen. In dieser Rolle verbinden Sie fundiertes Produkt-, Applikations- und Systemwissen in der Gasmesstechnik mit einer aktiven Projektleitungsfunktion. Sie übernehmen die technische und kommerzielle Verantwortung für Kundenprojekte und führen diese von der ersten Anfrage und Konzeption über die Angebotserstellung und Umsetzung bis zum erfolgreichen Abschluss. Dabei stellen Sie sicher, dass anspruchsvolle Lösungen rund um Gasanalytik und kontinuierliche Emissionsmesssysteme (CEMS) kundengerecht, wirtschaftlich sowie termin- und qualitätskonform realisiert werden.\n\nWorum geht es in dieser Stelle?\n\nBegeistern Sie sich für anspruchsvolle Gasmesstechnik und industrielle Emissionsüberwachung? Finden Sie gerne Lösungen für individuelle Kundenanwendungen und möchten Sie technische Expertise mit Projektleitung, Beratung und kommerzieller Verantwortung verbinden? Als Project Manager Applications sind Sie sowohl technische Ansprechperson als auch Projektleiter*in für Gasanalytik- und CEMS-Lösungen. Sie steuern Kundenprojekte von der Anfrage bis zum Abschluss, koordinieren interne und externe Beteiligte und behalten Termine, Kosten, Qualität und Leistungsumfang im Blick. Damit leisten Sie einen wichtigen Beitrag zur Kundenzufriedenheit und Umsatzentwicklung im Sales Center Schweiz.\n\nWelche Aufgaben werden Sie übernehmen?\n\nSie werden\n\n• technische Kundenprojekte im Bereich Gasmesstechnik, Gasanalytik und CEMS von der Planung bis zum erfolgreichen Abschluss eigenverantwortlich leiten.\n\n• kundenspezifische Mess-, Applikations- und Systemlösungen entwickeln, auslegen und in technisch sowie wirtschaftlich überzeugende Angebote überführen.\n\n• Kundinnen und Kunden sowie interne Vertriebsstellen fachlich beraten und bei technischen Abklärungen, Kundenbesuchen und Inbetriebnahmen unterstützen.\n\n• Termine, Kosten, Qualität, Leistungsumfang und Risiken Ihrer Projekte aktiv steuern und die beteiligten internen und externen Fachstellen koordinieren.\n\n• Angebote aktiv nachverfolgen, zusätzliche Kundenpotenziale erkennen und relevante Aktivitäten und Kontakte zuverlässig im CRM-System dokumentieren.\n\n• Ihr Produkt-, Applikations- und Normenwissen kontinuierlich weiterentwickeln und aktiv im Team einbringen.\n\nWas erwarten wir von Ihnen?\n\nSie\n\n• verfügen über eine technische Grundausbildung, idealerweise in Automatisierung, Elektrotechnik, Verfahrenstechnik, Umwelttechnik oder einem vergleichbaren Bereich.\n\n• bringen Erfahrung in der Leitung und Abwicklung technischer Kundenprojekte sowie Kenntnisse der wesentlichen Projektmanagement-Instrumente mit.\n\n• verfügen idealerweise über Erfahrung in der Gasmesstechnik, Gasanalytik oder industriellen Emissionsmessung (CEMS) sowie Kenntnisse im Aufbau und in der Integration von Analysensystemen.\n\n• verstehen komplexe technische Zusammenhänge und können diese kundenorientiert, lösungsorientiert und wirtschaftlich vermitteln.\n\n• arbeiten selbstständig, strukturiert und verbindlich, setzen klare Prioritäten und koordinieren interne und externe Stakeholder auch bei mehreren parallelen Projekten sicher.\n\n• überzeugen durch ein professionelles Auftreten und klare Kommunikation und verfügen über sehr gute Deutsch- sowie gute Englischkenntnisse; weitere Schweizer Landessprachen sind von Vorteil.\n\nWas können Sie von uns erwarten?\n\n• Wir sind ein Familienunternehmen mit grossem Engagement und einer nachhaltigen Vision.\n\n• Wir fördern lebenslanges Lernen durch vielfältige Schulungs- und Weiterbildungsmöglichkeiten, internen Wissenstransfer und E-Learning.\n\n• Wir legen grossen Wert auf Ihre Work-Life-Balance mit flexiblen Arbeitszeiten und der Möglichkeit zu Homeoffice\n\n• Wir bieten ein modernes Arbeitsumfeld mit Annehmlichkeiten wie einer hauseigenen Kantine.\n\nWie bewerben Sie sich?\n\nUm sich zu bewerben, bitten wir Sie, Ihre Unterlagen auf unserer Karriereseite hochzuladen. Bewerbungen, die uns per E-Mail zugesandt werden, können leider aus Datenschutzgründen nicht berücksichtigt werden.",
-      "descriptionByLocale": {
-        "it": "A Endress+ Hauser, i progressi sono fatti attraverso la collaborazione. Come fornitore leader mondiale di strumenti di misura, i nostri oltre 18.000 dipendenti stanno plasmando il futuro nel campo dell’automazione dei processi. Che si tratti di innovare e implementare nuove tecnologie in un team, lavorare insieme per sviluppare nuovi dispositivi o rafforzare relazioni importanti con diverse industrie globali, il nostro lavoro si basa sulla costruzione di relazioni di fiducia che aiutano tutti ad avere successo. Come azienda a conduzione familiare, guardiamo oltre gli obiettivi a breve termine e lavoriamo per creare una visione orientata al futuro per i nostri dipendenti, i nostri clienti e il mondo in generale.\n\nStiamo cercando un Project Manager Applicazioni (m/f/d) 100% per integrare il nostro team di progetto in Reinach. In questo ruolo, si combinano profonda conoscenza del prodotto, dell'applicazione e del sistema nella tecnologia di misura del gas con una funzione attiva di gestione del progetto. Si assume la responsabilità tecnica e commerciale per i progetti dei clienti e li conduce dalla prima richiesta e dal concepimento attraverso la preparazione di offerte e l'implementazione alla conclusione di successo. Assicurarsi che le soluzioni sofisticate per l'analisi del gas e i sistemi di misurazione continua delle emissioni (CEMS) siano implementate in modo amichevole, economico e tempestivo e conforme alla qualità.\n\nDi cosa si tratta?\n\nSei entusiasta della sofisticata tecnologia di misurazione del gas e del monitoraggio delle emissioni industriali? Volete trovare soluzioni per le singole applicazioni dei clienti e combinare competenze tecniche con la gestione del progetto, la consulenza e la responsabilità commerciale? In qualità di Project Manager Applications, sei sia una persona di contatto tecnico che un project manager per l'analisi del gas e le soluzioni CEMS. Si controllano i progetti dei clienti da richiedere al completamento, coordinare gli stakeholder interni ed esterni e tenere d'occhio le scadenze, i costi, la qualità e la portata dei servizi. In questo modo, apportate un importante contributo alla soddisfazione del cliente e allo sviluppo delle vendite nel centro commerciale Svizzera.\n\nQuali compiti assumerai?\n\nEssi:\n\n• portare progetti tecnici del cliente nel campo della tecnologia di misurazione del gas, analisi del gas e CEMS dalla pianificazione al completamento di successo.\n\n• Sviluppare, progettare e convertire le soluzioni di misura, applicazione e sistema specifiche del cliente in offerte tecnicamente ed economicamente convincenti.\n\n• Consigliare clienti e uffici di vendita interni e supportarli con chiarimenti tecnici, visite ai clienti e messa in servizio.\n\n• Gestisci attivamente le scadenze, i costi, la qualità, la portata dei servizi e i rischi dei tuoi progetti e coordina i dipartimenti specializzati interni ed esterni coinvolti.\n\n• Monitorare attivamente le offerte, identificare ulteriori potenziali clienti e documentare le attività e i contatti rilevanti in modo affidabile nel sistema CRM.\n\n• Sviluppi costantemente le conoscenze di prodotto, applicazione e standard e contribuisca attivamente al team.\n\nCosa ci aspettiamo da te?\n\nVedi anche:\n\n• hanno formazione tecnica di base, idealmente in automazione, ingegneria elettrica, ingegneria dei processi, ingegneria ambientale o un campo comparabile.\n\n• portare esperienza nella gestione e nella gestione dei progetti tecnici dei clienti, nonché la conoscenza dei principali strumenti di gestione del progetto.\n\n• Idealmente hanno esperienza nella tecnologia di misura del gas, nell'analisi del gas o nella misurazione delle emissioni industriali (CEMS) e nella conoscenza nella progettazione e integrazione dei sistemi di analisi.\n\n• comprendere contesti tecnici complessi e li può trasmettere in modo orientato al cliente, orientato alla soluzione ed economico.\n\n• lavorare in modo indipendente, strutturato e vincolante, fissare priorità chiare e coordinare gli stakeholder interni ed esterni in diversi progetti paralleli.\n\n• convincere attraverso un aspetto professionale e una comunicazione chiara e avere ottime competenze in tedesco e inglese; Altre lingue nazionali svizzere sono vantaggiose.\n\nCosa puoi aspettarti da noi?\n\n• Siamo una società di famiglia con grande impegno e una visione sostenibile.\n\n• Promuoviamo l'apprendimento lungo tutto l'arco della vita attraverso diverse opportunità di formazione e di formazione, trasferimento di conoscenze interne e e-learning.\n\n• Affidiamo grande importanza al vostro equilibrio di vita lavorativa con orari di lavoro flessibili e la possibilità di ufficio domestico\n\n• Offriamo un ambiente di lavoro moderno con servizi come una mensa interna.\n\nCome si applica?\n\nPer richiedere, ti chiediamo di caricare i tuoi documenti nella nostra pagina di carriera. Le domande inviateci via e-mail non possono purtroppo essere considerate per motivi di protezione dei dati.",
-        "en": "At Endress+Hauser, progress is made through collaboration. As the world’s leading provider of measuring instruments, our more than 18,000 employees are shaping the future in the field of process automation. Whether it’s innovating and implementing new technologies in a team, working together to develop new devices or strengthening important relationships with different global industries, our work is based on building trusted relationships that help everyone succeed. As a family-run company, we look beyond short-term goals and work to create a future-oriented vision for our employees, our customers and the world in general.\n\nWe are looking for a Project Manager Applications (m/f/d) 100% to complement our project team in Reinach. In this role, you combine profound product, application and system knowledge in gas measurement technology with an active project management function. You take on the technical and commercial responsibility for customer projects and lead them from the first request and conception through the preparation of offers and implementation to the successful conclusion. You ensure that sophisticated solutions for gas analysis and continuous emission measurement systems (CEMS) are implemented in a customer-friendly, economical and time- and quality-compliant manner.\n\nWhat is this point about?\n\nAre you enthusiastic about sophisticated gas measurement technology and industrial emissions monitoring? Would you like to find solutions for individual customer applications and combine technical expertise with project management, consulting and commercial responsibility? As Project Manager Applications, you are both a technical contact person and a project manager for gas analysis and CEMS solutions. You control customer projects from request to completion, coordinate internal and external stakeholders and keep an eye on deadlines, costs, quality and scope of services. In this way, you make an important contribution to customer satisfaction and sales development in the Sales Center Switzerland.\n\nWhat tasks will you take on?\n\nThey shall:\n\n• lead technical customer projects in the field of gas measurement technology, gas analysis and CEMS from planning to successful completion.\n\n• Develop, design and convert customer-specific measurement, application and system solutions into technically and economically convincing offers.\n\n• Advise customers and internal sales offices and support them with technical clarifications, customer visits and commissioning.\n\n• Actively manage the deadlines, costs, quality, scope of services and risks of your projects and coordinate the internal and external specialist departments involved.\n\n• Actively track offers, identify additional customer potential and document relevant activities and contacts reliably in the CRM system.\n\n• Continuously develop your product, application and standards knowledge and actively contribute to the team.\n\nWhat do we expect from you?\n\nSee also:\n\n• have basic technical training, ideally in automation, electrical engineering, process engineering, environmental engineering or a comparable field.\n\n• bring experience in the management and handling of technical customer projects as well as knowledge of the main project management instruments.\n\n• Ideally have experience in gas measurement technology, gas analysis or industrial emission measurement (CEMS) as well as knowledge in the design and integration of analysis systems.\n\n• understand complex technical contexts and can convey them in a customer-oriented, solution-oriented and economical manner.\n\n• work independently, structured and binding, set clear priorities and coordinate internal and external stakeholders in several parallel projects.\n\n• convince through a professional appearance and clear communication and have very good German and English skills; Other Swiss national languages are beneficial.\n\nWhat can you expect from us?\n\n• We are a family company with great commitment and a sustainable vision.\n\n• We promote lifelong learning through diverse training and further education opportunities, internal knowledge transfer and e-learning.\n\n• We attach great importance to your work-life balance with flexible working hours and the possibility of home office\n\n• We offer a modern working environment with amenities such as an in-house canteen.\n\nHow do you apply?\n\nTo apply, we ask you to upload your documents to our career page. Applications sent to us by e-mail can unfortunately not be considered for data protection reasons.",
-        "de": "Bei Endress+Hauser geschieht Fortschritt durch Zusammenarbeit. Als weltweit führender Anbieter von Messgeräten gestalten unsere über 18'000 Mitarbeitenden die Zukunft im Bereich der Prozessautomatisierung. Ob bei der Innovation und Umsetzung neuer Technologien im Team, der Zusammenarbeit in der Entwicklung neuer Geräte oder der Stärkung wichtiger Beziehungen zu verschiedenen globalen Industrien: Unsere Arbeit basiert darauf, vertrauensvolle Beziehungen aufzubauen, die allen zum Erfolg verhelfen. Als familiengeführtes Unternehmen schauen wir über kurzfristige Ziele hinaus und arbeiten daran, eine zukunftsorientierte Vision für unsere Mitarbeitenden, unsere Kundinnen und Kunden und die Welt im Allgemeinen zu schaffen.\n\nWir suchen eine*n Project Manager Applications (f/m/d) 100%, um unser Project-Team in Reinach zu ergänzen. In dieser Rolle verbinden Sie fundiertes Produkt-, Applikations- und Systemwissen in der Gasmesstechnik mit einer aktiven Projektleitungsfunktion. Sie übernehmen die technische und kommerzielle Verantwortung für Kundenprojekte und führen diese von der ersten Anfrage und Konzeption über die Angebotserstellung und Umsetzung bis zum erfolgreichen Abschluss. Dabei stellen Sie sicher, dass anspruchsvolle Lösungen rund um Gasanalytik und kontinuierliche Emissionsmesssysteme (CEMS) kundengerecht, wirtschaftlich sowie termin- und qualitätskonform realisiert werden.\n\nWorum geht es in dieser Stelle?\n\nBegeistern Sie sich für anspruchsvolle Gasmesstechnik und industrielle Emissionsüberwachung? Finden Sie gerne Lösungen für individuelle Kundenanwendungen und möchten Sie technische Expertise mit Projektleitung, Beratung und kommerzieller Verantwortung verbinden? Als Project Manager Applications sind Sie sowohl technische Ansprechperson als auch Projektleiter*in für Gasanalytik- und CEMS-Lösungen. Sie steuern Kundenprojekte von der Anfrage bis zum Abschluss, koordinieren interne und externe Beteiligte und behalten Termine, Kosten, Qualität und Leistungsumfang im Blick. Damit leisten Sie einen wichtigen Beitrag zur Kundenzufriedenheit und Umsatzentwicklung im Sales Center Schweiz.\n\nWelche Aufgaben werden Sie übernehmen?\n\nSie werden\n\n• technische Kundenprojekte im Bereich Gasmesstechnik, Gasanalytik und CEMS von der Planung bis zum erfolgreichen Abschluss eigenverantwortlich leiten.\n\n• kundenspezifische Mess-, Applikations- und Systemlösungen entwickeln, auslegen und in technisch sowie wirtschaftlich überzeugende Angebote überführen.\n\n• Kundinnen und Kunden sowie interne Vertriebsstellen fachlich beraten und bei technischen Abklärungen, Kundenbesuchen und Inbetriebnahmen unterstützen.\n\n• Termine, Kosten, Qualität, Leistungsumfang und Risiken Ihrer Projekte aktiv steuern und die beteiligten internen und externen Fachstellen koordinieren.\n\n• Angebote aktiv nachverfolgen, zusätzliche Kundenpotenziale erkennen und relevante Aktivitäten und Kontakte zuverlässig im CRM-System dokumentieren.\n\n• Ihr Produkt-, Applikations- und Normenwissen kontinuierlich weiterentwickeln und aktiv im Team einbringen.\n\nWas erwarten wir von Ihnen?\n\nSie\n\n• verfügen über eine technische Grundausbildung, idealerweise in Automatisierung, Elektrotechnik, Verfahrenstechnik, Umwelttechnik oder einem vergleichbaren Bereich.\n\n• bringen Erfahrung in der Leitung und Abwicklung technischer Kundenprojekte sowie Kenntnisse der wesentlichen Projektmanagement-Instrumente mit.\n\n• verfügen idealerweise über Erfahrung in der Gasmesstechnik, Gasanalytik oder industriellen Emissionsmessung (CEMS) sowie Kenntnisse im Aufbau und in der Integration von Analysensystemen.\n\n• verstehen komplexe technische Zusammenhänge und können diese kundenorientiert, lösungsorientiert und wirtschaftlich vermitteln.\n\n• arbeiten selbstständig, strukturiert und verbindlich, setzen klare Prioritäten und koordinieren interne und externe Stakeholder auch bei mehreren parallelen Projekten sicher.\n\n• überzeugen durch ein professionelles Auftreten und klare Kommunikation und verfügen über sehr gute Deutsch- sowie gute Englischkenntnisse; weitere Schweizer Landessprachen sind von Vorteil.\n\nWas können Sie von uns erwarten?\n\n• Wir sind ein Familienunternehmen mit grossem Engagement und einer nachhaltigen Vision.\n\n• Wir fördern lebenslanges Lernen durch vielfältige Schulungs- und Weiterbildungsmöglichkeiten, internen Wissenstransfer und E-Learning.\n\n• Wir legen grossen Wert auf Ihre Work-Life-Balance mit flexiblen Arbeitszeiten und der Möglichkeit zu Homeoffice\n\n• Wir bieten ein modernes Arbeitsumfeld mit Annehmlichkeiten wie einer hauseigenen Kantine.\n\nWie bewerben Sie sich?\n\nUm sich zu bewerben, bitten wir Sie, Ihre Unterlagen auf unserer Karriereseite hochzuladen. Bewerbungen, die uns per E-Mail zugesandt werden, können leider aus Datenschutzgründen nicht berücksichtigt werden.",
-        "fr": "Chez Endress+ Hauser, des progrès sont réalisés grâce à la collaboration. En tant que premier fournisseur mondial d'instruments de mesure, nos plus de 18 000 employés façonnent l'avenir dans le domaine de l'automatisation des processus. Que ce soit l'innovation et la mise en œuvre de nouvelles technologies dans une équipe, la collaboration pour développer de nouveaux appareils ou le renforcement de relations importantes avec différentes industries mondiales, notre travail est basé sur l'établissement de relations de confiance qui aident chacun à réussir. En tant qu'entreprise familiale, nous regardons au-delà des objectifs à court terme et travaillons à créer une vision prospective pour nos employés, nos clients et le monde en général.\n\nNous recherchons un Project Manager Applications (h/f/d) 100% pour compléter notre équipe de projet à Reinach. Dans ce rôle, vous combinez une connaissance approfondie du produit, de l'application et du système en technologie de mesure du gaz avec une fonction active de gestion de projet. Vous assumez la responsabilité technique et commerciale des projets clients et les conduisez de la première demande et la conception à la préparation des offres et la mise en œuvre à la conclusion réussie. Vous veillez à ce que des solutions sophistiquées pour l'analyse des gaz et les systèmes de mesure continue des émissions (CEMS) soient mises en œuvre de manière conviviale, économique et conforme au temps et à la qualité.\n\nDe quoi s'agit-il?\n\nÊtes-vous enthousiaste à l'égard de la technologie sophistiquée de mesure des gaz et de la surveillance des émissions industrielles? Souhaitez-vous trouver des solutions pour des applications individuelles et combiner expertise technique avec gestion de projet, conseil et responsabilité commerciale? En tant que gestionnaire de projet Applications, vous êtes à la fois une personne-ressource technique et un gestionnaire de projet pour l'analyse du gaz et les solutions CEMS. Vous contrôlez les projets clients de la demande à l'achèvement, coordonnez les parties prenantes internes et externes et surveillez les délais, les coûts, la qualité et la portée des services. De cette façon, vous apportez une contribution importante à la satisfaction des clients et au développement des ventes dans le Centre de Ventes Suisse.\n\nQuelles tâches allez-vous entreprendre?\n\nIls:\n\n• Diriger des projets techniques clients dans le domaine de la technologie de mesure du gaz, de l'analyse du gaz et du CEMS, de la planification à la réussite.\n\n• Développer, concevoir et convertir des solutions de mesure, d'application et de système spécifiques au client en offres techniquement et économiquement convaincantes.\n\n• Conseiller les clients et les bureaux de vente internes et les soutenir avec des clarifications techniques, des visites des clients et la mise en service.\n\n• Gérer activement les délais, les coûts, la qualité, l'étendue des services et les risques de vos projets et coordonner les services spécialisés internes et externes concernés.\n\n• Suivre activement les offres, identifier le potentiel client supplémentaire et documenter les activités et contacts pertinents de manière fiable dans le système CRM.\n\n• Développer continuellement vos connaissances sur les produits, les applications et les normes et contribuer activement à l'équipe.\n\nQu'attendons-nous de vous?\n\nVoir aussi:\n\n• ont une formation technique de base, idéalement dans l'automatisation, l'ingénierie électrique, l'ingénierie des procédés, l'ingénierie environnementale ou un domaine comparable.\n\n• apporter de l'expérience dans la gestion et la gestion de projets techniques clients ainsi que la connaissance des principaux instruments de gestion de projet.\n\n• Idéalement, on possède de l'expérience en technologie de mesure des gaz, en analyse des gaz ou en mesure des émissions industrielles (CEMS) ainsi que des connaissances dans la conception et l'intégration des systèmes d'analyse.\n\n• comprendre les contextes techniques complexes et les transmettre de manière économique, orientée vers le client, orientée vers la solution.\n\n• travailler de manière indépendante, structurée et contraignante, fixer des priorités claires et coordonner les parties prenantes internes et externes dans plusieurs projets parallèles.\n\n• convaincre à travers une apparence professionnelle et une communication claire et ont de très bonnes compétences en allemand et en anglais; D'autres langues nationales suisses sont bénéfiques.\n\nQu'attendez-vous de nous?\n\n• Nous sommes une entreprise familiale avec un grand engagement et une vision durable.\n\n• Nous encourageons l'éducation et la formation tout au long de la vie par le biais de diverses possibilités de formation et d'éducation continue, du transfert interne des connaissances et de l'apprentissage en ligne.\n\n• Nous attachons une grande importance à votre équilibre travail-vie personnelle avec des horaires flexibles et la possibilité de bureau à domicile\n\n• Nous offrons un environnement de travail moderne avec des équipements tels qu'une cantine maison.\n\nComment postuler?\n\nPour postuler, nous vous demandons de télécharger vos documents sur notre page carrière. Les demandes qui nous sont envoyées par e-mail ne peuvent malheureusement pas être considérées pour des raisons de protection des données."
-      },
-      "location": "Reinach",
-      "canton": "BL",
-      "url": "https://careers.endress.com/Switzerland/job/Reinach-Project-Manager-Applications-%28fmd%29-100-4153/1458520933/",
-      "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:26:25.737Z",
-      "addressLocality": "Reinach",
-      "addressRegion": "BL",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4153",
-      "category": "Strumentazione industriale / Automazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Strumentazione industriale / Automazione",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-18T00:00:00Z",
-      "postedDate": "2026-11-18T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://careers.endress.com/talentcommunity/apply/1458520933/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "project-manager-applications-f-m-d-100-endress-hauser-reinach"
-      ],
-      "previousSlugsByLocale": {
-        "fr": [
-          "project-manager-applications-f-m-d-100-endress-hauser-reinach"
-        ]
-      },
-      "firstSeenAt": "2026-11-18T21:20:40.235Z",
-      "salaryMin": 99500,
-      "salaryMax": 151000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 99500,
-          "maxValue": 151000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Reinach",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T09:26:25.737Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-19T21:33:22.419Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-principal-expert-produktmanager-&-business-driver-ultraschall-flow-%28wmd%29-4153/1449858833"
     },
     {
       "id": "endress-hauser-d8b6fb9174a3",
@@ -433,7 +360,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Lernender-Mechanikpraktikerin-EBA-2027-4153/1418181433/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:26:25.136Z",
+      "crawledAt": "2026-11-19T21:33:14.702Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -482,8 +409,9 @@
       },
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:26:25.136Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:33:14.702Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-lernender-mechanikpraktikerin-eba-2027-4153/1418181433"
     },
     {
       "id": "endress-hauser-901eb0a1fc78",
@@ -516,7 +444,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Mitarbeiterin-Sensorfertigung-%28wmd%29-4153/1457723333/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:26:24.542Z",
+      "crawledAt": "2026-11-19T21:33:02.098Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -567,8 +495,9 @@
       },
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T09:26:24.542Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-14T21:33:02.098Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-mitarbeiterin-sensorfertigung-%28wmd%29-4153/1457723333"
     },
     {
       "id": "endress-hauser-aba7cc50fdbd",
@@ -601,7 +530,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Assistenz-des-Vice-President-Finance-%28wmd%29-4153/1457267433/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:26:23.926Z",
+      "crawledAt": "2026-11-19T21:33:00.518Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -650,8 +579,9 @@
       },
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T09:26:23.926Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-11T21:33:00.518Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-assistenz-des-vice-president-finance-%28wmd%29-4153/1457267433"
     },
     {
       "id": "endress-hauser-0400a1b9b1c6",
@@ -684,7 +614,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Inside-Techsupport-Helpdesk-%28fmd%29-100-4153/1418102133/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:26:23.337Z",
+      "crawledAt": "2026-11-19T21:33:15.494Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -735,8 +665,9 @@
       },
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:26:23.337Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:33:15.494Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-inside-techsupport-helpdesk-%28fmd%29-100-4153/1418102133"
     },
     {
       "id": "endress-hauser-08bd89263eb5",
@@ -770,7 +701,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Head-of-Department-Sourcing-Indirect-100-%28wmd%29-4153/1292107701/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:26:22.712Z",
+      "crawledAt": "2026-11-19T21:33:13.044Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -805,8 +736,9 @@
       },
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:26:22.712Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-28T21:33:13.044Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-head-of-department-sourcing-indirect-100-%28wmd%29-4153/1292107701"
     },
     {
       "id": "endress-hauser-648288ee7350",
@@ -840,7 +772,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Lernender-Anlagef%C3%BChrerin-EFZ-2027-4153/1418186333/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:26:22.111Z",
+      "crawledAt": "2026-11-19T21:33:13.896Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -894,8 +826,9 @@
       },
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:26:22.111Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:33:13.896Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-lernender-anlagef%c3%bchrerin-efz-2027-4153/1418186333"
     },
     {
       "id": "endress-hauser-39fdfb81d47e",
@@ -928,7 +861,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Lernender-Produktionsmechanikerin-EFZ-2027-4153/1418183533/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:26:21.525Z",
+      "crawledAt": "2026-11-19T21:33:17.029Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -977,8 +910,9 @@
       },
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:26:21.525Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:33:17.029Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-lernender-produktionsmechanikerin-efz-2027-4153/1418183533"
     },
     {
       "id": "endress-hauser-10cde261adc0",
@@ -1011,7 +945,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Lernender-Polymechanikerin-EFZ-2027-4153/1418182733/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:26:20.948Z",
+      "crawledAt": "2026-11-19T21:33:08.342Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1060,8 +994,9 @@
       },
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:26:20.948Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:33:08.342Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-lernender-polymechanikerin-efz-2027-4153/1418182733"
     },
     {
       "id": "endress-hauser-3cd8e2ab003d",
@@ -1095,7 +1030,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-HR-Expertin-Talent-Acquisition-%28wmd%29-4153/1450678733/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:26:20.381Z",
+      "crawledAt": "2026-11-19T21:33:20.883Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1130,8 +1065,9 @@
       },
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T09:26:20.381Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-21T21:33:20.883Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-hr-expertin-talent-acquisition-%28wmd%29-4153/1450678733"
     },
     {
       "id": "endress-hauser-fda6d76177c3",
@@ -1213,7 +1149,9 @@
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-12T09:26:19.746Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
+      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-projekt-managerin-marketing-sales-%28wmd%29-80-4153/1447561233"
     },
     {
       "id": "endress-hauser-1100fc47d342",
@@ -1247,7 +1185,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Strategischer-Eink%C3%A4uferin-Mechanische-Komponenten-%28wmd%29-4153/1446117433/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:26:19.157Z",
+      "crawledAt": "2026-11-19T21:33:21.649Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1296,8 +1234,9 @@
       },
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-07T09:26:19.157Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-07T21:33:21.649Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-strategischer-eink%c3%a4uferin-mechanische-komponenten-%28wmd%29-4153/1446117433"
     },
     {
       "id": "endress-hauser-ebd2ace8b85f",
@@ -1331,7 +1270,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Quality-Engineer-Compliance-80-100-%28wmd%29-4153/1388669133/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:26:18.569Z",
+      "crawledAt": "2026-11-19T21:32:55.855Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1390,8 +1329,9 @@
       },
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:26:18.569Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-20T21:32:55.855Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-quality-engineer-compliance-80-100-%28wmd%29-4153/1388669133"
     },
     {
       "id": "endress-hauser-d4af915a831f",
@@ -1425,7 +1365,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Trainee-Strategic-Business-%28fmd%29-50-4153/1427096833/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:26:17.979Z",
+      "crawledAt": "2026-11-19T21:33:23.189Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1460,8 +1400,9 @@
       },
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:26:17.979Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:33:23.189Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-trainee-strategic-business-%28fmd%29-50-4153/1427096833"
     },
     {
       "id": "endress-hauser-5933ceb0200c",
@@ -1495,7 +1436,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Schnuppertage-Poly-Produktionsmechanikerin-4153/1426013533/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:26:17.378Z",
+      "crawledAt": "2026-11-19T21:33:02.867Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1544,8 +1485,9 @@
       },
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:26:17.378Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:33:02.867Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-schnuppertage-poly-produktionsmechanikerin-4153/1426013533"
     },
     {
       "id": "endress-hauser-6bed8a3246cc",
@@ -1579,7 +1521,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Engineer-Technical-Change-Management-%28wmd%29-4153/1438451533/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:26:16.792Z",
+      "crawledAt": "2026-11-19T21:32:57.412Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1614,8 +1556,9 @@
       },
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:26:16.792Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:32:57.412Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-engineer-technical-change-management-%28wmd%29-4153/1438451533"
     },
     {
       "id": "endress-hauser-ddf56943ea10",
@@ -1648,7 +1591,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Schnuppertag-Konstrukteurin-4153/1426016933/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:26:16.162Z",
+      "crawledAt": "2026-11-19T21:33:17.799Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1697,8 +1640,9 @@
       },
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:26:16.162Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:33:17.799Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-schnuppertag-konstrukteurin-4153/1426016933"
     },
     {
       "id": "endress-hauser-97f169723f3c",
@@ -1732,7 +1676,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Schnuppertage-Informatikerin-4153/1426016433/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:26:15.573Z",
+      "crawledAt": "2026-11-19T21:32:59.722Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1783,8 +1727,9 @@
       },
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:26:15.573Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:32:59.722Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-schnuppertage-informatikerin-4153/1426016433"
     },
     {
       "id": "endress-hauser-7d568f2351f6",
@@ -1818,7 +1763,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Schnuppertage-Elektronikerin-4153/1426016233/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:26:14.976Z",
+      "crawledAt": "2026-11-19T21:33:01.319Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1867,8 +1812,9 @@
       },
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:26:14.976Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:33:01.319Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-schnuppertage-elektronikerin-4153/1426016233"
     },
     {
       "id": "endress-hauser-65a105c06d6b",
@@ -1902,7 +1848,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Schnuppertag-KauffrauKaufmann-4153/1426015233/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:26:14.406Z",
+      "crawledAt": "2026-11-19T21:33:05.186Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1968,8 +1914,9 @@
       },
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:26:14.406Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:33:05.186Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-schnuppertag-kauffraukaufmann-4153/1426015233"
     },
     {
       "id": "endress-hauser-56130d4b7fd9",
@@ -2003,7 +1950,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Schnuppertag-FachmannFachfrau-Betriebsunterhalt-4153/1426014433/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:26:13.814Z",
+      "crawledAt": "2026-11-19T21:33:04.416Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2052,8 +1999,9 @@
       },
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:26:13.814Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:33:04.416Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-schnuppertag-fachmannfachfrau-betriebsunterhalt-4153/1426014433"
     },
     {
       "id": "endress-hauser-e86777da87bd",
@@ -2087,7 +2035,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Schnuppertag-Anlagenf%C3%BChrerin-4153/1426013833/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:26:13.229Z",
+      "crawledAt": "2026-11-19T21:33:16.266Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2136,8 +2084,9 @@
       },
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:26:13.229Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:33:16.266Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-schnuppertag-anlagenf%c3%bchrerin-4153/1426013833"
     },
     {
       "id": "endress-hauser-6552c67851ec",
@@ -2171,7 +2120,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Solution-Development-Engineerin-80-100-%28wmd%29-4153/1442268833/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:26:12.577Z",
+      "crawledAt": "2026-11-19T21:33:09.116Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2214,8 +2163,9 @@
       },
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:26:12.577Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-28T21:33:09.116Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-solution-development-engineerin-80-100-%28wmd%29-4153/1442268833"
     },
     {
       "id": "endress-hauser-741942cae4fa",
@@ -2249,7 +2199,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Strategic-Buyer-Electronics-Components-%28fmd%29-80-100-4153/1415399933/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:26:11.992Z",
+      "crawledAt": "2026-11-19T21:33:07.553Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2307,8 +2257,9 @@
       },
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:26:11.992Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:33:07.553Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-strategic-buyer-electronics-components-%28fmd%29-80-100-4153/1415399933"
     },
     {
       "id": "endress-hauser-b4e43ca71d2d",
@@ -2342,7 +2293,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Systemarchitektin-Elektro-&-Verfahrenstechnik-%28wmd%29-4153/1434009933/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:26:11.400Z",
+      "crawledAt": "2026-11-19T21:33:05.989Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2393,8 +2344,9 @@
       },
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-01T09:26:11.400Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-01T21:33:05.989Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-systemarchitektin-elektro-&-verfahrenstechnik-%28wmd%29-4153/1434009933"
     },
     {
       "id": "endress-hauser-5881a5e074ec",
@@ -2428,7 +2380,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Software-Product-Owner-Industrial-Rigs-%28wmd%29-4153/1433035833/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:26:10.785Z",
+      "crawledAt": "2026-11-19T21:33:12.245Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2474,8 +2426,9 @@
       },
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T09:26:10.785Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-30T21:33:12.245Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-software-product-owner-industrial-rigs-%28wmd%29-4153/1433035833"
     },
     {
       "id": "endress-hauser-b8f08ca3d94c",
@@ -2508,7 +2461,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Outside-Sales-Engineer-Projectmanager-Wastewater-%28fmd%29-100-4153/1375634533/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:26:10.176Z",
+      "crawledAt": "2026-11-19T21:32:58.939Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2556,8 +2509,9 @@
       },
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:26:10.176Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:32:58.939Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-outside-sales-engineer-projectmanager-wastewater-%28fmd%29-100-4153/1375634533"
     },
     {
       "id": "endress-hauser-913cb210a6e8",
@@ -2591,7 +2545,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Abteilungsleiterin-Qualit%C3%A4tsvorausplanung-%28fmd%29-4153/1427304933/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:26:09.581Z",
+      "crawledAt": "2026-11-19T21:32:58.181Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2640,8 +2594,9 @@
       },
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:26:09.581Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:32:58.181Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-abteilungsleiterin-qualit%c3%a4tsvorausplanung-%28fmd%29-4153/1427304933"
     },
     {
       "id": "endress-hauser-ae1e6bd7e181",
@@ -2675,7 +2630,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Group-Controlling-Spezialistin-%28wmd%29%2C-80-100-4153/1451704733/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:26:08.984Z",
+      "crawledAt": "2026-11-19T21:32:54.283Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2721,8 +2676,9 @@
       },
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T09:26:08.984Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-25T21:32:54.283Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-group-controlling-spezialistin-%28wmd%29%2c-80-100-4153/1451704733"
     },
     {
       "id": "endress-hauser-f62bfb7b301b",
@@ -2756,7 +2712,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Teamleiterin-Test-Engineering-Elektronikfertigung-%28mwd%29-4153/1444662933/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:26:08.368Z",
+      "crawledAt": "2026-11-19T21:33:20.108Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2807,8 +2763,9 @@
       },
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T09:26:08.368Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-04T21:33:20.108Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-teamleiterin-test-engineering-elektronikfertigung-%28mwd%29-4153/1444662933"
     },
     {
       "id": "endress-hauser-c3c13cc041ba",
@@ -2841,7 +2798,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Produkt-Manager-Coriolis-%28wmd%29-4153/1448095833/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:26:07.756Z",
+      "crawledAt": "2026-11-19T21:32:56.632Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2876,8 +2833,9 @@
       },
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T09:26:07.756Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-13T21:32:56.632Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-produkt-manager-coriolis-%28wmd%29-4153/1448095833"
     },
     {
       "id": "endress-hauser-718c9d28cf1d",
@@ -2911,7 +2869,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Schnuppertag-Logistikerin-4153/1441029433/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:26:07.037Z",
+      "crawledAt": "2026-11-19T21:33:11.444Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2960,8 +2918,9 @@
       },
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:26:07.037Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-23T21:33:11.444Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-schnuppertag-logistikerin-4153/1441029433"
     },
     {
       "id": "endress-hauser-b6e5484ac2b5",
@@ -2994,7 +2953,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Teamleader-Fieldservice-%28fmd%29-100-4153/1441972533/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:26:06.435Z",
+      "crawledAt": "2026-11-19T21:33:03.641Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3029,8 +2988,9 @@
       },
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:26:06.435Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T21:33:03.641Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-teamleader-fieldservice-%28fmd%29-100-4153/1441972533"
     },
     {
       "id": "endress-hauser-8c886148a154",
@@ -3064,7 +3024,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Schichtleiterin-Coriolis-Messrohrfertigung-100-%28wmd%29-4153/1386790633/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:26:05.788Z",
+      "crawledAt": "2026-11-19T21:33:18.570Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3113,8 +3073,9 @@
       },
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:26:05.788Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:33:18.570Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-schichtleiterin-coriolis-messrohrfertigung-100-%28wmd%29-4153/1386790633"
     },
     {
       "id": "endress-hauser-6efde504dfa7",
@@ -3148,7 +3109,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Strategischer-Eink%C3%A4uferin-Bau-Baudienstleistungen-80-100-%28wmd%29-4153/1400692633/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:26:05.078Z",
+      "crawledAt": "2026-11-19T21:33:06.778Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3197,8 +3158,9 @@
       },
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:26:05.078Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T21:33:06.778Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-strategischer-eink%c3%a4uferin-bau-baudienstleistungen-80-100-%28wmd%29-4153/1400692633"
     },
     {
       "id": "endress-hauser-086ad330d604",
@@ -3231,7 +3193,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-ITOT-Service-Manager-%28mwd%29-4153/1274773301/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:26:04.498Z",
+      "crawledAt": "2026-11-19T21:33:19.333Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3266,8 +3228,9 @@
       },
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:26:04.498Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T21:33:19.333Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-itot-service-manager-%28mwd%29-4153/1274773301"
     },
     {
       "id": "endress-hauser-630388c8944e",
@@ -3301,7 +3264,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Technical-Project-Manager-in-Facility-Management-100-%28mfd%29-4153/1398819133/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:26:03.882Z",
+      "crawledAt": "2026-11-19T21:32:46.463Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3344,8 +3307,9 @@
       },
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T09:26:03.882Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-21T21:32:46.463Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-technical-project-manager-in-facility-management-100-%28mfd%29-4153/1398819133"
     },
     {
       "id": "endress-hauser-efcccf2285f5",
@@ -3378,7 +3342,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Industry-Manager-Water%2C-Wastewater-&-Waste-%28mfd%29-4153/1451146233/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:26:03.261Z",
+      "crawledAt": "2026-11-19T21:32:44.867Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3429,8 +3393,9 @@
       },
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T09:26:03.261Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-24T21:32:44.867Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-industry-manager-water%2c-wastewater-&-waste-%28mfd%29-4153/1451146233"
     },
     {
       "id": "endress-hauser-f451384cbb12",
@@ -3464,7 +3429,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Strategic-Buyer-ConstructionConstruction-Services-80-100-%28fmd%29-4153/1400692533/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:26:02.657Z",
+      "crawledAt": "2026-11-19T21:32:52.744Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3513,8 +3478,9 @@
       },
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:26:02.657Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T21:32:52.744Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-strategic-buyer-constructionconstruction-services-80-100-%28fmd%29-4153/1400692533"
     },
     {
       "id": "endress-hauser-7de2448dd260",
@@ -3548,7 +3514,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Head-of-Department-Sourcing-Indirect-%28fmd%29-4153/1293184901/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:26:02.054Z",
+      "crawledAt": "2026-11-19T21:32:49.629Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3583,8 +3549,9 @@
       },
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:26:02.054Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-28T21:32:49.629Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-head-of-department-sourcing-indirect-%28fmd%29-4153/1293184901"
     },
     {
       "id": "endress-hauser-aa67898db077",
@@ -3617,7 +3584,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Senior-Internal-Auditor-Finance-&-Group-Reporting-%28mfd%29-4153/1448552433/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:26:01.462Z",
+      "crawledAt": "2026-11-19T21:32:50.417Z",
       "addressLocality": "Reinach (BL)",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3652,8 +3619,9 @@
       },
       "streetAddress": "Reinach (BL)",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T09:26:01.462Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-14T21:32:50.417Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-senior-internal-auditor-finance-&-group-reporting-%28mfd%29-4153/1448552433"
     },
     {
       "id": "endress-hauser-701c3b1bc256",
@@ -3687,7 +3655,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Quality-Engineer-Compliance-80-100-%28wmd%29-4153/1445224633/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:26:00.863Z",
+      "crawledAt": "2026-11-19T21:32:51.961Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3706,7 +3674,7 @@
       "applyUrl": "https://careers.endress.com/talentcommunity/apply/1445224633/?locale=en_GB",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-07T21:30:45.682Z",
+      "firstSeenAt": "2026-10-07T21:30:08.765Z",
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -3722,8 +3690,9 @@
       },
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:26:00.863Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-03T21:32:51.961Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-quality-engineer-compliance-80-100-%28wmd%29-4153/1445224633"
     },
     {
       "id": "endress-hauser-ba57d46304b1",
@@ -3757,7 +3726,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Learning-&-Development-Specialist-4153/1443512633/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:26:00.261Z",
+      "crawledAt": "2026-11-19T21:32:51.198Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3776,7 +3745,7 @@
       "applyUrl": "https://careers.endress.com/talentcommunity/apply/1443512633/?locale=en_GB",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-03T09:19:23.536Z",
+      "firstSeenAt": "2026-10-02T09:17:10.188Z",
       "salaryMin": 64500,
       "salaryMax": 110000,
       "salarySource": "estimated",
@@ -3792,8 +3761,9 @@
       },
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T09:26:00.261Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-30T21:32:51.198Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-learning-&-development-specialist-4153/1443512633"
     },
     {
       "id": "endress-hauser-51c9b7349eba",
@@ -3827,7 +3797,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Technology-Manager-Industrial-Networks-&-IIoT-%28mfd%29-4153/1233467501/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:25:59.660Z",
+      "crawledAt": "2026-11-19T21:32:48.831Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3876,8 +3846,9 @@
       },
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:25:59.660Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:32:48.831Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-technology-manager-industrial-networks-&-iiot-%28mfd%29-4153/1233467501"
     },
     {
       "id": "endress-hauser-fc7bb0674336",
@@ -3911,7 +3882,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Strategic-Buyer-Electronics-Components-%28fmd%29-80-100-4153/1415400033/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:25:59.064Z",
+      "crawledAt": "2026-11-19T21:32:47.228Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3954,8 +3925,9 @@
       },
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T09:25:59.064Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-14T21:32:47.228Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-strategic-buyer-electronics-components-%28fmd%29-80-100-4153/1415400033"
     },
     {
       "id": "endress-hauser-a8661d996299",
@@ -3989,7 +3961,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Industry-Manager-Food-&-Beverage-%28mfd%29-4153/1448099033/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:25:58.476Z",
+      "crawledAt": "2026-11-19T21:32:47.999Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4038,8 +4010,9 @@
       },
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T09:25:58.476Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-13T21:32:47.999Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-industry-manager-food-&-beverage-%28mfd%29-4153/1448099033"
     },
     {
       "id": "endress-hauser-bc0e59c7f66b",
@@ -4072,7 +4045,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-SEOGEO-Manager-%28fmd%29-4153/1443983933/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:25:57.824Z",
+      "crawledAt": "2026-11-19T21:32:45.676Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4091,7 +4064,7 @@
       "applyUrl": "https://careers.endress.com/talentcommunity/apply/1443983933/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-03T09:19:18.825Z",
+      "firstSeenAt": "2026-10-02T21:16:46.000Z",
       "salaryMin": 99500,
       "salaryMax": 151000,
       "salarySource": "estimated",
@@ -4107,8 +4080,167 @@
       },
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-31T09:25:57.824Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-31T21:32:45.676Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-seogeo-manager-%28fmd%29-4153/1443983933"
+    },
+    {
+      "id": "endress-hauser-18362ab28664",
+      "slug": "project-manager-applications-f-m-d-100-endress-hauser-reinach",
+      "slugByLocale": {
+        "it": "project-manager-applications-f-m-d-100-endress-hauser-reinach",
+        "en": "project-manager-applications-f-m-d-100-endress-hauser-reinach",
+        "de": "project-manager-applications-f-m-d-100-endress-hauser-reinach",
+        "fr": "gestionnaire-de-projet-applications-h-f-d-100-endress-hauser-reinach"
+      },
+      "company": "Endress+Hauser",
+      "companyKey": "endress-hauser",
+      "companyDomain": "endress.com",
+      "title": "Project Manager - Gas Measurement / CEMS (f/m/d) 100%",
+      "titleByLocale": {
+        "it": "Applicazioni di Project Manager (m/f/d) 100%",
+        "en": "Project Manager Applications (m/f/d) 100%",
+        "de": "Project Manager - Gas Measurement / CEMS (f/m/d) 100%",
+        "fr": "Gestionnaire de projet Applications (h/f/d) 100%"
+      },
+      "description": "Bei Endress+Hauser geschieht Fortschritt durch Zusammenarbeit. Als weltweit führender Anbieter von Messgeräten gestalten unsere über 18'000 Mitarbeitenden die Zukunft im Bereich der Prozessautomatisierung. Ob bei der Innovation und Umsetzung neuer Technologien im Team, der Zusammenarbeit in der Entwicklung neuer Geräte oder der Stärkung wichtiger Beziehungen zu verschiedenen globalen Industrien: Unsere Arbeit basiert darauf, vertrauensvolle Beziehungen aufzubauen, die allen zum Erfolg verhelfen. Als familiengeführtes Unternehmen schauen wir über kurzfristige Ziele hinaus und arbeiten daran, eine zukunftsorientierte Vision für unsere Mitarbeitenden, unsere Kundinnen und Kunden und die Welt im Allgemeinen zu schaffen.\n\nWir suchen eine*n Project Manager Applications (f/m/d) 100%, um unser Project-Team in Reinach zu ergänzen. In dieser Rolle verbinden Sie fundiertes Produkt-, Applikations- und Systemwissen in der Gasmesstechnik mit einer aktiven Projektleitungsfunktion. Sie übernehmen die technische und kommerzielle Verantwortung für Kundenprojekte und führen diese von der ersten Anfrage und Konzeption über die Angebotserstellung und Umsetzung bis zum erfolgreichen Abschluss. Dabei stellen Sie sicher, dass anspruchsvolle Lösungen rund um Gasanalytik und kontinuierliche Emissionsmesssysteme (CEMS) kundengerecht, wirtschaftlich sowie termin- und qualitätskonform realisiert werden.\n\nWorum geht es in dieser Stelle?\n\nBegeistern Sie sich für anspruchsvolle Gasmesstechnik und industrielle Emissionsüberwachung? Finden Sie gerne Lösungen für individuelle Kundenanwendungen und möchten Sie technische Expertise mit Projektleitung, Beratung und kommerzieller Verantwortung verbinden? Als Project Manager Applications sind Sie sowohl technische Ansprechperson als auch Projektleiter*in für Gasanalytik- und CEMS-Lösungen. Sie steuern Kundenprojekte von der Anfrage bis zum Abschluss, koordinieren interne und externe Beteiligte und behalten Termine, Kosten, Qualität und Leistungsumfang im Blick. Damit leisten Sie einen wichtigen Beitrag zur Kundenzufriedenheit und Umsatzentwicklung im Sales Center Schweiz.\n\nWelche Aufgaben werden Sie übernehmen?\n\nSie werden\n\n• technische Kundenprojekte im Bereich Gasmesstechnik, Gasanalytik und CEMS von der Planung bis zum erfolgreichen Abschluss eigenverantwortlich leiten.\n\n• kundenspezifische Mess-, Applikations- und Systemlösungen entwickeln, auslegen und in technisch sowie wirtschaftlich überzeugende Angebote überführen.\n\n• Kundinnen und Kunden sowie interne Vertriebsstellen fachlich beraten und bei technischen Abklärungen, Kundenbesuchen und Inbetriebnahmen unterstützen.\n\n• Termine, Kosten, Qualität, Leistungsumfang und Risiken Ihrer Projekte aktiv steuern und die beteiligten internen und externen Fachstellen koordinieren.\n\n• Angebote aktiv nachverfolgen, zusätzliche Kundenpotenziale erkennen und relevante Aktivitäten und Kontakte zuverlässig im CRM-System dokumentieren.\n\n• Ihr Produkt-, Applikations- und Normenwissen kontinuierlich weiterentwickeln und aktiv im Team einbringen.\n\nWas erwarten wir von Ihnen?\n\nSie\n\n• verfügen über eine technische Grundausbildung, idealerweise in Automatisierung, Elektrotechnik, Verfahrenstechnik, Umwelttechnik oder einem vergleichbaren Bereich.\n\n• bringen Erfahrung in der Leitung und Abwicklung technischer Kundenprojekte sowie Kenntnisse der wesentlichen Projektmanagement-Instrumente mit.\n\n• verfügen idealerweise über Erfahrung in der Gasmesstechnik, Gasanalytik oder industriellen Emissionsmessung (CEMS) sowie Kenntnisse im Aufbau und in der Integration von Analysensystemen.\n\n• verstehen komplexe technische Zusammenhänge und können diese kundenorientiert, lösungsorientiert und wirtschaftlich vermitteln.\n\n• arbeiten selbstständig, strukturiert und verbindlich, setzen klare Prioritäten und koordinieren interne und externe Stakeholder auch bei mehreren parallelen Projekten sicher.\n\n• überzeugen durch ein professionelles Auftreten und klare Kommunikation und verfügen über sehr gute Deutsch- sowie gute Englischkenntnisse; weitere Schweizer Landessprachen sind von Vorteil.\n\nWas können Sie von uns erwarten?\n\n• Wir sind ein Familienunternehmen mit grossem Engagement und einer nachhaltigen Vision.\n\n• Wir fördern lebenslanges Lernen durch vielfältige Schulungs- und Weiterbildungsmöglichkeiten, internen Wissenstransfer und E-Learning.\n\n• Wir legen grossen Wert auf Ihre Work-Life-Balance mit flexiblen Arbeitszeiten und der Möglichkeit zu Homeoffice\n\n• Wir bieten ein modernes Arbeitsumfeld mit Annehmlichkeiten wie einer hauseigenen Kantine.\n\nWie bewerben Sie sich?\n\nUm sich zu bewerben, bitten wir Sie, Ihre Unterlagen auf unserer Karriereseite hochzuladen. Bewerbungen, die uns per E-Mail zugesandt werden, können leider aus Datenschutzgründen nicht berücksichtigt werden.",
+      "descriptionByLocale": {
+        "it": "A Endress+ Hauser, i progressi sono fatti attraverso la collaborazione. Come fornitore leader mondiale di strumenti di misura, i nostri oltre 18.000 dipendenti stanno plasmando il futuro nel campo dell’automazione dei processi. Che si tratti di innovare e implementare nuove tecnologie in un team, lavorare insieme per sviluppare nuovi dispositivi o rafforzare relazioni importanti con diverse industrie globali, il nostro lavoro si basa sulla costruzione di relazioni di fiducia che aiutano tutti ad avere successo. Come azienda a conduzione familiare, guardiamo oltre gli obiettivi a breve termine e lavoriamo per creare una visione orientata al futuro per i nostri dipendenti, i nostri clienti e il mondo in generale.\n\nStiamo cercando un Project Manager Applicazioni (m/f/d) 100% per integrare il nostro team di progetto in Reinach. In questo ruolo, si combinano profonda conoscenza del prodotto, dell'applicazione e del sistema nella tecnologia di misura del gas con una funzione attiva di gestione del progetto. Si assume la responsabilità tecnica e commerciale per i progetti dei clienti e li conduce dalla prima richiesta e dal concepimento attraverso la preparazione di offerte e l'implementazione alla conclusione di successo. Assicurarsi che le soluzioni sofisticate per l'analisi del gas e i sistemi di misurazione continua delle emissioni (CEMS) siano implementate in modo amichevole, economico e tempestivo e conforme alla qualità.\n\nDi cosa si tratta?\n\nSei entusiasta della sofisticata tecnologia di misurazione del gas e del monitoraggio delle emissioni industriali? Volete trovare soluzioni per le singole applicazioni dei clienti e combinare competenze tecniche con la gestione del progetto, la consulenza e la responsabilità commerciale? In qualità di Project Manager Applications, sei sia una persona di contatto tecnico che un project manager per l'analisi del gas e le soluzioni CEMS. Si controllano i progetti dei clienti da richiedere al completamento, coordinare gli stakeholder interni ed esterni e tenere d'occhio le scadenze, i costi, la qualità e la portata dei servizi. In questo modo, apportate un importante contributo alla soddisfazione del cliente e allo sviluppo delle vendite nel centro commerciale Svizzera.\n\nQuali compiti assumerai?\n\nEssi:\n\n• portare progetti tecnici del cliente nel campo della tecnologia di misurazione del gas, analisi del gas e CEMS dalla pianificazione al completamento di successo.\n\n• Sviluppare, progettare e convertire le soluzioni di misura, applicazione e sistema specifiche del cliente in offerte tecnicamente ed economicamente convincenti.\n\n• Consigliare clienti e uffici di vendita interni e supportarli con chiarimenti tecnici, visite ai clienti e messa in servizio.\n\n• Gestisci attivamente le scadenze, i costi, la qualità, la portata dei servizi e i rischi dei tuoi progetti e coordina i dipartimenti specializzati interni ed esterni coinvolti.\n\n• Monitorare attivamente le offerte, identificare ulteriori potenziali clienti e documentare le attività e i contatti rilevanti in modo affidabile nel sistema CRM.\n\n• Sviluppi costantemente le conoscenze di prodotto, applicazione e standard e contribuisca attivamente al team.\n\nCosa ci aspettiamo da te?\n\nVedi anche:\n\n• hanno formazione tecnica di base, idealmente in automazione, ingegneria elettrica, ingegneria dei processi, ingegneria ambientale o un campo comparabile.\n\n• portare esperienza nella gestione e nella gestione dei progetti tecnici dei clienti, nonché la conoscenza dei principali strumenti di gestione del progetto.\n\n• Idealmente hanno esperienza nella tecnologia di misura del gas, nell'analisi del gas o nella misurazione delle emissioni industriali (CEMS) e nella conoscenza nella progettazione e integrazione dei sistemi di analisi.\n\n• comprendere contesti tecnici complessi e li può trasmettere in modo orientato al cliente, orientato alla soluzione ed economico.\n\n• lavorare in modo indipendente, strutturato e vincolante, fissare priorità chiare e coordinare gli stakeholder interni ed esterni in diversi progetti paralleli.\n\n• convincere attraverso un aspetto professionale e una comunicazione chiara e avere ottime competenze in tedesco e inglese; Altre lingue nazionali svizzere sono vantaggiose.\n\nCosa puoi aspettarti da noi?\n\n• Siamo una società di famiglia con grande impegno e una visione sostenibile.\n\n• Promuoviamo l'apprendimento lungo tutto l'arco della vita attraverso diverse opportunità di formazione e di formazione, trasferimento di conoscenze interne e e-learning.\n\n• Affidiamo grande importanza al vostro equilibrio di vita lavorativa con orari di lavoro flessibili e la possibilità di ufficio domestico\n\n• Offriamo un ambiente di lavoro moderno con servizi come una mensa interna.\n\nCome si applica?\n\nPer richiedere, ti chiediamo di caricare i tuoi documenti nella nostra pagina di carriera. Le domande inviateci via e-mail non possono purtroppo essere considerate per motivi di protezione dei dati.",
+        "en": "At Endress+Hauser, progress is made through collaboration. As the world’s leading provider of measuring instruments, our more than 18,000 employees are shaping the future in the field of process automation. Whether it’s innovating and implementing new technologies in a team, working together to develop new devices or strengthening important relationships with different global industries, our work is based on building trusted relationships that help everyone succeed. As a family-run company, we look beyond short-term goals and work to create a future-oriented vision for our employees, our customers and the world in general.\n\nWe are looking for a Project Manager Applications (m/f/d) 100% to complement our project team in Reinach. In this role, you combine profound product, application and system knowledge in gas measurement technology with an active project management function. You take on the technical and commercial responsibility for customer projects and lead them from the first request and conception through the preparation of offers and implementation to the successful conclusion. You ensure that sophisticated solutions for gas analysis and continuous emission measurement systems (CEMS) are implemented in a customer-friendly, economical and time- and quality-compliant manner.\n\nWhat is this point about?\n\nAre you enthusiastic about sophisticated gas measurement technology and industrial emissions monitoring? Would you like to find solutions for individual customer applications and combine technical expertise with project management, consulting and commercial responsibility? As Project Manager Applications, you are both a technical contact person and a project manager for gas analysis and CEMS solutions. You control customer projects from request to completion, coordinate internal and external stakeholders and keep an eye on deadlines, costs, quality and scope of services. In this way, you make an important contribution to customer satisfaction and sales development in the Sales Center Switzerland.\n\nWhat tasks will you take on?\n\nThey shall:\n\n• lead technical customer projects in the field of gas measurement technology, gas analysis and CEMS from planning to successful completion.\n\n• Develop, design and convert customer-specific measurement, application and system solutions into technically and economically convincing offers.\n\n• Advise customers and internal sales offices and support them with technical clarifications, customer visits and commissioning.\n\n• Actively manage the deadlines, costs, quality, scope of services and risks of your projects and coordinate the internal and external specialist departments involved.\n\n• Actively track offers, identify additional customer potential and document relevant activities and contacts reliably in the CRM system.\n\n• Continuously develop your product, application and standards knowledge and actively contribute to the team.\n\nWhat do we expect from you?\n\nSee also:\n\n• have basic technical training, ideally in automation, electrical engineering, process engineering, environmental engineering or a comparable field.\n\n• bring experience in the management and handling of technical customer projects as well as knowledge of the main project management instruments.\n\n• Ideally have experience in gas measurement technology, gas analysis or industrial emission measurement (CEMS) as well as knowledge in the design and integration of analysis systems.\n\n• understand complex technical contexts and can convey them in a customer-oriented, solution-oriented and economical manner.\n\n• work independently, structured and binding, set clear priorities and coordinate internal and external stakeholders in several parallel projects.\n\n• convince through a professional appearance and clear communication and have very good German and English skills; Other Swiss national languages are beneficial.\n\nWhat can you expect from us?\n\n• We are a family company with great commitment and a sustainable vision.\n\n• We promote lifelong learning through diverse training and further education opportunities, internal knowledge transfer and e-learning.\n\n• We attach great importance to your work-life balance with flexible working hours and the possibility of home office\n\n• We offer a modern working environment with amenities such as an in-house canteen.\n\nHow do you apply?\n\nTo apply, we ask you to upload your documents to our career page. Applications sent to us by e-mail can unfortunately not be considered for data protection reasons.",
+        "de": "Bei Endress+Hauser geschieht Fortschritt durch Zusammenarbeit. Als weltweit führender Anbieter von Messgeräten gestalten unsere über 18'000 Mitarbeitenden die Zukunft im Bereich der Prozessautomatisierung. Ob bei der Innovation und Umsetzung neuer Technologien im Team, der Zusammenarbeit in der Entwicklung neuer Geräte oder der Stärkung wichtiger Beziehungen zu verschiedenen globalen Industrien: Unsere Arbeit basiert darauf, vertrauensvolle Beziehungen aufzubauen, die allen zum Erfolg verhelfen. Als familiengeführtes Unternehmen schauen wir über kurzfristige Ziele hinaus und arbeiten daran, eine zukunftsorientierte Vision für unsere Mitarbeitenden, unsere Kundinnen und Kunden und die Welt im Allgemeinen zu schaffen.\n\nWir suchen eine*n Project Manager Applications (f/m/d) 100%, um unser Project-Team in Reinach zu ergänzen. In dieser Rolle verbinden Sie fundiertes Produkt-, Applikations- und Systemwissen in der Gasmesstechnik mit einer aktiven Projektleitungsfunktion. Sie übernehmen die technische und kommerzielle Verantwortung für Kundenprojekte und führen diese von der ersten Anfrage und Konzeption über die Angebotserstellung und Umsetzung bis zum erfolgreichen Abschluss. Dabei stellen Sie sicher, dass anspruchsvolle Lösungen rund um Gasanalytik und kontinuierliche Emissionsmesssysteme (CEMS) kundengerecht, wirtschaftlich sowie termin- und qualitätskonform realisiert werden.\n\nWorum geht es in dieser Stelle?\n\nBegeistern Sie sich für anspruchsvolle Gasmesstechnik und industrielle Emissionsüberwachung? Finden Sie gerne Lösungen für individuelle Kundenanwendungen und möchten Sie technische Expertise mit Projektleitung, Beratung und kommerzieller Verantwortung verbinden? Als Project Manager Applications sind Sie sowohl technische Ansprechperson als auch Projektleiter*in für Gasanalytik- und CEMS-Lösungen. Sie steuern Kundenprojekte von der Anfrage bis zum Abschluss, koordinieren interne und externe Beteiligte und behalten Termine, Kosten, Qualität und Leistungsumfang im Blick. Damit leisten Sie einen wichtigen Beitrag zur Kundenzufriedenheit und Umsatzentwicklung im Sales Center Schweiz.\n\nWelche Aufgaben werden Sie übernehmen?\n\nSie werden\n\n• technische Kundenprojekte im Bereich Gasmesstechnik, Gasanalytik und CEMS von der Planung bis zum erfolgreichen Abschluss eigenverantwortlich leiten.\n\n• kundenspezifische Mess-, Applikations- und Systemlösungen entwickeln, auslegen und in technisch sowie wirtschaftlich überzeugende Angebote überführen.\n\n• Kundinnen und Kunden sowie interne Vertriebsstellen fachlich beraten und bei technischen Abklärungen, Kundenbesuchen und Inbetriebnahmen unterstützen.\n\n• Termine, Kosten, Qualität, Leistungsumfang und Risiken Ihrer Projekte aktiv steuern und die beteiligten internen und externen Fachstellen koordinieren.\n\n• Angebote aktiv nachverfolgen, zusätzliche Kundenpotenziale erkennen und relevante Aktivitäten und Kontakte zuverlässig im CRM-System dokumentieren.\n\n• Ihr Produkt-, Applikations- und Normenwissen kontinuierlich weiterentwickeln und aktiv im Team einbringen.\n\nWas erwarten wir von Ihnen?\n\nSie\n\n• verfügen über eine technische Grundausbildung, idealerweise in Automatisierung, Elektrotechnik, Verfahrenstechnik, Umwelttechnik oder einem vergleichbaren Bereich.\n\n• bringen Erfahrung in der Leitung und Abwicklung technischer Kundenprojekte sowie Kenntnisse der wesentlichen Projektmanagement-Instrumente mit.\n\n• verfügen idealerweise über Erfahrung in der Gasmesstechnik, Gasanalytik oder industriellen Emissionsmessung (CEMS) sowie Kenntnisse im Aufbau und in der Integration von Analysensystemen.\n\n• verstehen komplexe technische Zusammenhänge und können diese kundenorientiert, lösungsorientiert und wirtschaftlich vermitteln.\n\n• arbeiten selbstständig, strukturiert und verbindlich, setzen klare Prioritäten und koordinieren interne und externe Stakeholder auch bei mehreren parallelen Projekten sicher.\n\n• überzeugen durch ein professionelles Auftreten und klare Kommunikation und verfügen über sehr gute Deutsch- sowie gute Englischkenntnisse; weitere Schweizer Landessprachen sind von Vorteil.\n\nWas können Sie von uns erwarten?\n\n• Wir sind ein Familienunternehmen mit grossem Engagement und einer nachhaltigen Vision.\n\n• Wir fördern lebenslanges Lernen durch vielfältige Schulungs- und Weiterbildungsmöglichkeiten, internen Wissenstransfer und E-Learning.\n\n• Wir legen grossen Wert auf Ihre Work-Life-Balance mit flexiblen Arbeitszeiten und der Möglichkeit zu Homeoffice\n\n• Wir bieten ein modernes Arbeitsumfeld mit Annehmlichkeiten wie einer hauseigenen Kantine.\n\nWie bewerben Sie sich?\n\nUm sich zu bewerben, bitten wir Sie, Ihre Unterlagen auf unserer Karriereseite hochzuladen. Bewerbungen, die uns per E-Mail zugesandt werden, können leider aus Datenschutzgründen nicht berücksichtigt werden.",
+        "fr": "Chez Endress+ Hauser, des progrès sont réalisés grâce à la collaboration. En tant que premier fournisseur mondial d'instruments de mesure, nos plus de 18 000 employés façonnent l'avenir dans le domaine de l'automatisation des processus. Que ce soit l'innovation et la mise en œuvre de nouvelles technologies dans une équipe, la collaboration pour développer de nouveaux appareils ou le renforcement de relations importantes avec différentes industries mondiales, notre travail est basé sur l'établissement de relations de confiance qui aident chacun à réussir. En tant qu'entreprise familiale, nous regardons au-delà des objectifs à court terme et travaillons à créer une vision prospective pour nos employés, nos clients et le monde en général.\n\nNous recherchons un Project Manager Applications (h/f/d) 100% pour compléter notre équipe de projet à Reinach. Dans ce rôle, vous combinez une connaissance approfondie du produit, de l'application et du système en technologie de mesure du gaz avec une fonction active de gestion de projet. Vous assumez la responsabilité technique et commerciale des projets clients et les conduisez de la première demande et la conception à la préparation des offres et la mise en œuvre à la conclusion réussie. Vous veillez à ce que des solutions sophistiquées pour l'analyse des gaz et les systèmes de mesure continue des émissions (CEMS) soient mises en œuvre de manière conviviale, économique et conforme au temps et à la qualité.\n\nDe quoi s'agit-il?\n\nÊtes-vous enthousiaste à l'égard de la technologie sophistiquée de mesure des gaz et de la surveillance des émissions industrielles? Souhaitez-vous trouver des solutions pour des applications individuelles et combiner expertise technique avec gestion de projet, conseil et responsabilité commerciale? En tant que gestionnaire de projet Applications, vous êtes à la fois une personne-ressource technique et un gestionnaire de projet pour l'analyse du gaz et les solutions CEMS. Vous contrôlez les projets clients de la demande à l'achèvement, coordonnez les parties prenantes internes et externes et surveillez les délais, les coûts, la qualité et la portée des services. De cette façon, vous apportez une contribution importante à la satisfaction des clients et au développement des ventes dans le Centre de Ventes Suisse.\n\nQuelles tâches allez-vous entreprendre?\n\nIls:\n\n• Diriger des projets techniques clients dans le domaine de la technologie de mesure du gaz, de l'analyse du gaz et du CEMS, de la planification à la réussite.\n\n• Développer, concevoir et convertir des solutions de mesure, d'application et de système spécifiques au client en offres techniquement et économiquement convaincantes.\n\n• Conseiller les clients et les bureaux de vente internes et les soutenir avec des clarifications techniques, des visites des clients et la mise en service.\n\n• Gérer activement les délais, les coûts, la qualité, l'étendue des services et les risques de vos projets et coordonner les services spécialisés internes et externes concernés.\n\n• Suivre activement les offres, identifier le potentiel client supplémentaire et documenter les activités et contacts pertinents de manière fiable dans le système CRM.\n\n• Développer continuellement vos connaissances sur les produits, les applications et les normes et contribuer activement à l'équipe.\n\nQu'attendons-nous de vous?\n\nVoir aussi:\n\n• ont une formation technique de base, idéalement dans l'automatisation, l'ingénierie électrique, l'ingénierie des procédés, l'ingénierie environnementale ou un domaine comparable.\n\n• apporter de l'expérience dans la gestion et la gestion de projets techniques clients ainsi que la connaissance des principaux instruments de gestion de projet.\n\n• Idéalement, on possède de l'expérience en technologie de mesure des gaz, en analyse des gaz ou en mesure des émissions industrielles (CEMS) ainsi que des connaissances dans la conception et l'intégration des systèmes d'analyse.\n\n• comprendre les contextes techniques complexes et les transmettre de manière économique, orientée vers le client, orientée vers la solution.\n\n• travailler de manière indépendante, structurée et contraignante, fixer des priorités claires et coordonner les parties prenantes internes et externes dans plusieurs projets parallèles.\n\n• convaincre à travers une apparence professionnelle et une communication claire et ont de très bonnes compétences en allemand et en anglais; D'autres langues nationales suisses sont bénéfiques.\n\nQu'attendez-vous de nous?\n\n• Nous sommes une entreprise familiale avec un grand engagement et une vision durable.\n\n• Nous encourageons l'éducation et la formation tout au long de la vie par le biais de diverses possibilités de formation et d'éducation continue, du transfert interne des connaissances et de l'apprentissage en ligne.\n\n• Nous attachons une grande importance à votre équilibre travail-vie personnelle avec des horaires flexibles et la possibilité de bureau à domicile\n\n• Nous offrons un environnement de travail moderne avec des équipements tels qu'une cantine maison.\n\nComment postuler?\n\nPour postuler, nous vous demandons de télécharger vos documents sur notre page carrière. Les demandes qui nous sont envoyées par e-mail ne peuvent malheureusement pas être considérées pour des raisons de protection des données."
+      },
+      "needsRetranslation": true,
+      "location": "Reinach",
+      "canton": "BL",
+      "url": "https://careers.endress.com/Switzerland/job/Reinach-Project-Manager-Gas-Measurement-CEMS-%28fmd%29-100-4153/1458520933/",
+      "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-19T21:33:23.965Z",
+      "addressLocality": "Reinach",
+      "addressRegion": "BL",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4153",
+      "category": "Strumentazione industriale / Automazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Strumentazione industriale / Automazione",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-18T00:00:00Z",
+      "postedDate": "2026-11-18T00:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://careers.endress.com/talentcommunity/apply/1458520933/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "de": [
+          "project-manager-gas-measurement-cems-f-m-d-100-endress-hauser-reinach"
+        ],
+        "fr": [
+          "project-manager-applications-f-m-d-100-endress-hauser-reinach"
+        ],
+        "it": [
+          "project-manager-gas-measurement-cems-f-m-d-100-endress-hauser-reinach"
+        ]
+      },
+      "previousSlugs": [
+        "project-manager-applications-f-m-d-100-endress-hauser-reinach",
+        "project-manager-gas-measurement-cems-f-m-d-100-endress-hauser-reinach"
+      ],
+      "firstSeenAt": "2026-11-18T21:20:40.235Z",
+      "salaryMin": 99500,
+      "salaryMax": 151000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 99500,
+          "maxValue": 151000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Reinach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-16T21:33:23.965Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-project-manager-gas-measurement-cems-%28fmd%29-100-4153/1458520933"
+    },
+    {
+      "id": "endress-hauser-340307d94942",
+      "slug": "head-of-corporate-logistics-f-m-d-endress-hauser-reinach",
+      "slugByLocale": {
+        "en": "head-of-corporate-logistics-f-m-d-endress-hauser-reinach",
+        "it": "head-of-corporate-logistics-f-m-d-endress-hauser-reinach",
+        "de": "head-of-corporate-logistics-f-m-d-endress-hauser-reinach",
+        "fr": "head-of-corporate-logistics-f-m-d-endress-hauser-reinach"
+      },
+      "company": "Endress+Hauser",
+      "companyKey": "endress-hauser",
+      "companyDomain": "endress.com",
+      "title": "Head of Corporate Logistics (f/m/d)",
+      "titleByLocale": {
+        "en": "Head of Corporate Logistics (f/m/d)",
+        "it": "Responsabile Corporate Logistica (f/m/d)",
+        "de": "Leiter Corporate Logistik (f/m/d)",
+        "fr": "Responsable Corporate Logistique (f/m/d)"
+      },
+      "description": "At Endress+Hauser, progress happens by working together. As the global leader in measurement instrumentation, our over 18.000 employees shape the future in the field of process automation. Whether developing and realizing new technology as a team, collaborating to build instrumentation, or strengthening vital relationships with countless global industries, we work to create trusted relationships that help everyone thrive. As a family-owned company, we look beyond short-term moves and work to create a vision that is forward-thinking for our people, our clients, and the world at large.\n\nWe are looking for a Head of Corporate Logistics (f/m/d), to join our Group Headquarters in Reinach/BL. In this global leadership role, you will define, own and implement Endress+Hauser’s worldwide logistics strategy. You will be responsible for developing a high-performing, resilient and future-ready global logistics network that supports our customer promise and long-term growth.\n\nWhat is the role about?\n\nAs Head of Corporate Logistics (f/m/d), you will provide strategic and functional leadership for logistics across the Endress+Hauser Group. Working closely with our Sales Centers, Production Centers, Regional Logistics Operations Centers and our Global Logistics Operations Center in Ireland, you will bring the global logistics organization together around a common strategy, operating model and performance ambition\n\nYou will establish global logistics governance, standards and performance expectations and ensure that strategic priorities are translated into clear regional and local roadmaps. A key part of your responsibility will be to actively steer implementation, remove barriers and ensure that global logistics initiatives deliver measurable and sustainable results.\n\nYour responsibility will cover the continued development of our global logistics network as well as transportation, warehousing, distribution, logistics processes and strategic partnerships with logistics service providers.\n\nThrough standardization, digitalization, automation and data-driven performance management, you will help create a globally connected logistics organization that combines customer focus, operational excellence, cost competitiveness and resilience.\n\nAs a member of the Corporate Supply Chain Leadership Team, you will represent Corporate Logistics in senior management discussions and contribute the logistics perspective to relevant Group-wide strategic decisions.\n\nWhich tasks will you perform?\n\nYou will:\n\n• Define, own and continuously develop our global logistics strategy in line with corporate objectives, growth ambitions and customer requirements\n\n• Translate the global logistics strategy into clear implementation roadmaps, priorities, responsibilities and measurable outcomes\n\n• Provide functional leadership to the global logistics organization and create alignment across regions, Sales Centers, Production Centers and Logistics Operations Centers\n\n• Establish and maintain global logistics governance with clear policies, standards, processes, decision rights and performance management principles\n\n• Shape and lead the development of our global logistics network, including regional hub strategies and transportation concepts.\n\n• Drive logistics transformation through standardization, digitalization, automation and process harmonization, including TMP and other strategic programs\n\n• Partner with regional and local supply chain leaders to translate global strategy into actionable roadmaps while balancing global standards with local business requirements\n\n• Drive logistics cost transparency and sustainable cost optimization while protecting customer service, delivery performance and operational resilience\n\n• Strengthen supply chain resilience through risk management, business continuity planning and strategies addressing geopolitical challenges\n\n• Lead strategic partnerships with global logistics service providers, freight forwarders, carriers and distribution partners\n\n• Build alignment across Operations, Procurement, Sales, Finance, IT, Production Centers and Sales Centers to turn strategic priorities into effective execution\n\nWhat do we expect from you?​\n\nYou:\n\n• Bring extensive senior leadership experience in global logistics within a complex and internationally operating matrix organization\n\n• Have a strong track record of developing and successfully implementing global logistics strategies, governance models and transformation programs\n\n• Bring sound experience in enterprise logistics network design and know how to balance customer service, cost and , resilience and working capital requirements\n\n• Have experience with digital transformation, process standardization, automation and large-scale TMP or comparable enterprise transformation programs\n\n• Combine strategic thinking with a strong implementation focus and the ability to move confidently between corporate and operational perspectives\n\n• Use data, KPIs and benchmarks effectively to manage performance, identify opportunities and support fact-based decisions\n\n• Communicate confidently with senior stakeholders and translate complex logistics topics into clear strategic priorities and actionable decisions\n\n• Lead through collaboration and build trust across cultures, functions and organizational levels and enable teams to succeed together\n\n• Bring a relevant university degree or equivalent qualification in supply chain management, logistics, business administration, engineering or a related field\n\n• Communicate fluently in English - also on C-Level. Any other language is an advantage.\n\n• Are willing to travel internationally as required by this global role (30%)\n\nWhat can you expect from us?\n\n• Join an international, family-owned company where long-term thinking, collaboration and respectful relationships shape the way we work\n\n• Take on a highly visible global leadership role within Corporate Supply Chain with the opportunity to shape the future of logistics across our international organization\n\n• Work on strategic topics that directly influence customer satisfaction, operational performance, resilience and sustainable business growth\n\n• Collaborate with colleagues and senior stakeholders across regions, Production Centers, Sales Centers and corporate functions\n\n• Shape major transformation initiatives and contribute to the continued development of our global supply chain organization\n\n• Work from Reinach, Switzerland, in an international environment that combines global responsibility with a strong culture of collaboration, trust and continuous improvement\n\nHow do you apply?\n\nTo apply we kindly ask you to upload your documents on our career page.\nApplications sent to us by E-Mail cannot unfortunately be considered due to Data Privacy considerations.\n\n*Agencies, HR service providers, or similar entities are kindly requested to refrain from unsolicited submission of profiles and inquiries regarding potential collaboration. Currently, we do not engage with external service providers for this role. Any unsolicited applications of this kind will be disregarded and deleted without further consideration. We appreciate your understanding.\n\n#LI-WS1\n\n#LI-Onsite",
+      "descriptionByLocale": {
+        "en": "At Endress+Hauser, progress happens by working together. As the global leader in measurement instrumentation, our over 18.000 employees shape the future in the field of process automation. Whether developing and realizing new technology as a team, collaborating to build instrumentation, or strengthening vital relationships with countless global industries, we work to create trusted relationships that help everyone thrive. As a family-owned company, we look beyond short-term moves and work to create a vision that is forward-thinking for our people, our clients, and the world at large.\n\nWe are looking for a Head of Corporate Logistics (f/m/d), to join our Group Headquarters in Reinach/BL. In this global leadership role, you will define, own and implement Endress+Hauser’s worldwide logistics strategy. You will be responsible for developing a high-performing, resilient and future-ready global logistics network that supports our customer promise and long-term growth.\n\nWhat is the role about?\n\nAs Head of Corporate Logistics (f/m/d), you will provide strategic and functional leadership for logistics across the Endress+Hauser Group. Working closely with our Sales Centers, Production Centers, Regional Logistics Operations Centers and our Global Logistics Operations Center in Ireland, you will bring the global logistics organization together around a common strategy, operating model and performance ambition\n\nYou will establish global logistics governance, standards and performance expectations and ensure that strategic priorities are translated into clear regional and local roadmaps. A key part of your responsibility will be to actively steer implementation, remove barriers and ensure that global logistics initiatives deliver measurable and sustainable results.\n\nYour responsibility will cover the continued development of our global logistics network as well as transportation, warehousing, distribution, logistics processes and strategic partnerships with logistics service providers.\n\nThrough standardization, digitalization, automation and data-driven performance management, you will help create a globally connected logistics organization that combines customer focus, operational excellence, cost competitiveness and resilience.\n\nAs a member of the Corporate Supply Chain Leadership Team, you will represent Corporate Logistics in senior management discussions and contribute the logistics perspective to relevant Group-wide strategic decisions.\n\nWhich tasks will you perform?\n\nYou will:\n\n• Define, own and continuously develop our global logistics strategy in line with corporate objectives, growth ambitions and customer requirements\n\n• Translate the global logistics strategy into clear implementation roadmaps, priorities, responsibilities and measurable outcomes\n\n• Provide functional leadership to the global logistics organization and create alignment across regions, Sales Centers, Production Centers and Logistics Operations Centers\n\n• Establish and maintain global logistics governance with clear policies, standards, processes, decision rights and performance management principles\n\n• Shape and lead the development of our global logistics network, including regional hub strategies and transportation concepts.\n\n• Drive logistics transformation through standardization, digitalization, automation and process harmonization, including TMP and other strategic programs\n\n• Partner with regional and local supply chain leaders to translate global strategy into actionable roadmaps while balancing global standards with local business requirements\n\n• Drive logistics cost transparency and sustainable cost optimization while protecting customer service, delivery performance and operational resilience\n\n• Strengthen supply chain resilience through risk management, business continuity planning and strategies addressing geopolitical challenges\n\n• Lead strategic partnerships with global logistics service providers, freight forwarders, carriers and distribution partners\n\n• Build alignment across Operations, Procurement, Sales, Finance, IT, Production Centers and Sales Centers to turn strategic priorities into effective execution\n\nWhat do we expect from you?​\n\nYou:\n\n• Bring extensive senior leadership experience in global logistics within a complex and internationally operating matrix organization\n\n• Have a strong track record of developing and successfully implementing global logistics strategies, governance models and transformation programs\n\n• Bring sound experience in enterprise logistics network design and know how to balance customer service, cost and , resilience and working capital requirements\n\n• Have experience with digital transformation, process standardization, automation and large-scale TMP or comparable enterprise transformation programs\n\n• Combine strategic thinking with a strong implementation focus and the ability to move confidently between corporate and operational perspectives\n\n• Use data, KPIs and benchmarks effectively to manage performance, identify opportunities and support fact-based decisions\n\n• Communicate confidently with senior stakeholders and translate complex logistics topics into clear strategic priorities and actionable decisions\n\n• Lead through collaboration and build trust across cultures, functions and organizational levels and enable teams to succeed together\n\n• Bring a relevant university degree or equivalent qualification in supply chain management, logistics, business administration, engineering or a related field\n\n• Communicate fluently in English - also on C-Level. Any other language is an advantage.\n\n• Are willing to travel internationally as required by this global role (30%)\n\nWhat can you expect from us?\n\n• Join an international, family-owned company where long-term thinking, collaboration and respectful relationships shape the way we work\n\n• Take on a highly visible global leadership role within Corporate Supply Chain with the opportunity to shape the future of logistics across our international organization\n\n• Work on strategic topics that directly influence customer satisfaction, operational performance, resilience and sustainable business growth\n\n• Collaborate with colleagues and senior stakeholders across regions, Production Centers, Sales Centers and corporate functions\n\n• Shape major transformation initiatives and contribute to the continued development of our global supply chain organization\n\n• Work from Reinach, Switzerland, in an international environment that combines global responsibility with a strong culture of collaboration, trust and continuous improvement\n\nHow do you apply?\n\nTo apply we kindly ask you to upload your documents on our career page.\nApplications sent to us by E-Mail cannot unfortunately be considered due to Data Privacy considerations.\n\n*Agencies, HR service providers, or similar entities are kindly requested to refrain from unsolicited submission of profiles and inquiries regarding potential collaboration. Currently, we do not engage with external service providers for this role. Any unsolicited applications of this kind will be disregarded and deleted without further consideration. We appreciate your understanding.\n\n#LI-WS1\n\n#LI-Onsite",
+        "it": "A Endress+ Hauser, il progresso avviene lavorando insieme. Come leader globale nella strumentazione di misura, i nostri oltre 18.000 dipendenti plasmano il futuro nel campo dell'automazione di processo. Che si sviluppi e realizzi una nuova tecnologia come team, collaborando per costruire la strumentazione, o rafforzare le relazioni vitali con innumerevoli industrie globali, lavoriamo per creare relazioni di fiducia che aiutano tutti a prosperare. Come azienda di proprietà familiare, guardiamo al di là di mosse a breve termine e lavoriamo per creare una visione che è in avanti-pensante per la nostra gente, i nostri clienti, e il mondo in generale.\n\nStiamo cercando un responsabile della logistica aziendale (m/f/d), per aderire al nostro quartier generale di Gruppo in Reinach/BL. In questo ruolo di leadership globale, definirete, possederete e implementate Endress+ La strategia logistica mondiale di Hauser. Sarete responsabili dello sviluppo di una rete logistica globale ad alto rendimento, resiliente e pronta per il futuro che supporta la nostra promessa del cliente e la crescita a lungo termine.\n\nQual è il ruolo?\n\nIn qualità di responsabile della Corporate Logistics (m/f/d), fornirete leadership strategica e funzionale per la logistica in tutto il Gruppo Endress+Hauser. Lavorando a stretto contatto con i nostri centri di vendita, centri di produzione, centri di gestione della logistica regionale e il nostro Global Logistics Operations Center in Irlanda, si porterà l'organizzazione logistica globale insieme intorno a una strategia comune, modello operativo e ambizione delle prestazioni\n\nIstituirai la governance logistica globale, gli standard e le aspettative sulle prestazioni e garantirai che le priorità strategiche siano tradotte in chiare roadmap regionali e locali. Una parte fondamentale della vostra responsabilità sarà quella di guidare attivamente l'implementazione, rimuovere le barriere e garantire che le iniziative logistiche globali forniscono risultati misurabili e sostenibili.\n\nLa vostra responsabilità coprirà il continuo sviluppo della nostra rete logistica globale così come il trasporto, lo stoccaggio, la distribuzione, i processi logistici e le partnership strategiche con i fornitori di servizi logistici.\n\nAttraverso la standardizzazione, la digitalizzazione, l'automazione e la gestione delle prestazioni basate sui dati, contribuirai a creare un'organizzazione logistica globalmente collegata che combini focus del cliente, eccellenza operativa, competitività dei costi e resilienza.\n\nCome membro del Corporate Supply Chain Leadership Team, rappresenterai Corporate Logistics nelle discussioni di gestione senior e contribuirai alla prospettiva logistica delle decisioni strategiche a livello di Gruppo rilevanti.\n\nQuali compiti eseguirai?\n\nLo farai:\n\n• Definire, sviluppare la nostra strategia logistica globale in linea con gli obiettivi aziendali, le ambizioni di crescita e i requisiti dei clienti\n\n• Tradurre la strategia logistica globale in chiare roadmap di attuazione, priorità, responsabilità e risultati misurabili\n\n• Fornire leadership funzionale all'organizzazione logistica globale e creare allineamento tra regioni, centri di vendita, centri di produzione e centri di gestione logistica\n\n• Stabilire e mantenere la governance logistica globale con politiche chiare, standard, processi, diritti di decisione e principi di gestione delle prestazioni\n\n• Formare e condurre lo sviluppo della nostra rete logistica globale, comprese le strategie di hub regionali e i concetti di trasporto.\n\n• Guidare la trasformazione logistica attraverso la standardizzazione, la digitalizzazione, l'automazione e l'armonizzazione dei processi, tra cui TMP e altri programmi strategici\n\n• Partner con i leader regionali e locali della supply chain per tradurre la strategia globale in roadmap attuabili, bilanciando gli standard globali con i requisiti aziendali locali\n\n• Guidare la trasparenza dei costi e l'ottimizzazione dei costi sostenibile proteggendo il servizio clienti, le prestazioni di consegna e la resilienza operativa\n\n• Rafforzare la resilienza della supply chain attraverso la gestione del rischio, la pianificazione della continuità aziendale e le strategie per affrontare le sfide geopolitiche\n\n• Leader partnership strategiche con fornitori di servizi logistici globali, spedizionieri, vettori e partner di distribuzione\n\n• Costruire l'allineamento attraverso operazioni, appalti, vendite, finanza, IT, centri di produzione e centri di vendita per trasformare le priorità strategiche in esecuzione efficace\n\nCosa ci aspettiamo da te?\n\nTu...\n\n• Portare una vasta esperienza di leadership nella logistica globale all'interno di un'organizzazione di matrice operativa complessa e internazionale\n\n• Avere un forte track record di sviluppo e realizzazione con successo strategie logistiche globali, modelli di governance e programmi di trasformazione\n\n• Portare l'esperienza sonora nella progettazione della rete logistica aziendale e sapere come bilanciare il servizio clienti, i costi e i requisiti di resilienza e capitale di lavoro\n\n• Avere esperienza con la trasformazione digitale, standardizzazione dei processi, automazione e TMP su larga scala o programmi di trasformazione aziendale comparabili\n\n• Combina il pensiero strategico con una forte messa a fuoco dell'implementazione e la capacità di muoversi con fiducia tra prospettive aziendali e operative\n\n• Utilizzare i dati, i KPI e i benchmark in modo efficace per gestire le prestazioni, identificare le opportunità e sostenere le decisioni basate sui fatti\n\n• Comunicare con fiducia con gli stakeholder senior e tradurre argomenti logistici complessi in chiare priorità strategiche e decisioni attuabili\n\n• Guidare attraverso la collaborazione e costruire fiducia in culture, funzioni e livelli organizzativi e consentire ai team di avere successo insieme\n\n• Portare una laurea o una qualifica equivalente rilevante nella gestione della supply chain, logistica, amministrazione aziendale, ingegneria o un campo correlato\n\n• Comunicare fluentemente in inglese - anche su C-Level. Qualsiasi altra lingua è un vantaggio.\n\n• Sono disposti a viaggiare a livello internazionale come richiesto da questo ruolo globale (30%)\n\nCosa puoi aspettarti da noi?\n\n• Unisciti a un'azienda internazionale di proprietà familiare dove il pensiero a lungo termine, la collaborazione e le relazioni rispettose modellano il modo in cui lavoriamo\n\n• Assumere un ruolo di leadership globale altamente visibile in Corporate Supply Chain con l'opportunità di plasmare il futuro della logistica in tutta la nostra organizzazione internazionale\n\n• Lavorare su temi strategici che influenzano direttamente la soddisfazione del cliente, le prestazioni operative, la resilienza e la crescita sostenibile del business\n\n• Collabora con colleghi e stakeholder senior in tutte le regioni, centri di produzione, centri di vendita e funzioni aziendali\n\n• Formare importanti iniziative di trasformazione e contribuire al continuo sviluppo della nostra organizzazione globale della supply chain\n\n• Lavoro di Reinach, Svizzera, in un ambiente internazionale che coniuga la responsabilità globale con una forte cultura di collaborazione, fiducia e miglioramento continuo\n\nCome si applica?\n\nPer applicare ti chiediamo gentilmente di caricare i tuoi documenti nella nostra pagina di carriera.\nLe domande inviateci da E-Mail non possono purtroppo essere considerate a causa delle considerazioni sulla privacy dei dati.\n\n*Agenzie, fornitori di servizi HR, o entità simili sono gentilmente tenuti a astenersi dalla presentazione non richiesta di profili e richieste per quanto riguarda la potenziale collaborazione. Attualmente, non ci impegniamo con fornitori di servizi esterni per questo ruolo. Eventuali applicazioni non richieste di questo tipo saranno ignorate e eliminate senza ulteriori considerazioni. Apprezziamo la vostra comprensione.\n\n#LI-WS1\n\n#LI-Onsite",
+        "de": "Bei Endress+ Hauser, Fortschritt geschieht durch Zusammenarbeit. Als weltweit führender Anbieter von Messinstrumenten gestalten unsere über 18.000 Mitarbeiter die Zukunft im Bereich der Prozessautomatisierung. Ob die Entwicklung und Realisierung neuer Technologien als Team, die Zusammenarbeit beim Aufbau von Instrumenten oder die Stärkung wichtiger Beziehungen zu unzähligen globalen Branchen - wir arbeiten daran, vertrauenswürdige Beziehungen zu schaffen, die allen helfen, erfolgreich zu sein. Als Familienunternehmen blicken wir über kurzfristige Schritte hinaus und arbeiten daran, eine Vision zu schaffen, die für unsere Mitarbeiter, unsere Kunden und die Welt insgesamt zukunftsweisend ist.\n\nWir suchen einen Head of Corporate Logistics (m/w/d) für unseren Konzernsitz in Reinach/BL. In dieser globalen Führungsrolle definieren, besitzen und implementieren Sie Endress+ Hausers weltweite Logistikstrategie. Sie sind verantwortlich für die Entwicklung eines leistungsstarken, belastbaren und zukunftsfähigen globalen Logistiknetzwerks, das unser Kundenversprechen und langfristiges Wachstum unterstützt.\n\nWorin besteht die Rolle?\n\nAls Leiter der Unternehmenslogistik (m/w/d) übernehmen Sie die strategische und funktionale Führung der Logistik in der Endress+Hauser Gruppe. In enger Zusammenarbeit mit unseren Vertriebszentren, Produktionszentren, regionalen Logistik-Betriebszentren und unserem globalen Logistik-Betriebszentrum in Irland bringen Sie die globale Logistikorganisation um eine gemeinsame Strategie, ein gemeinsames Betriebsmodell und einen gemeinsamen Leistungsanspruch zusammen.\n\nSie etablieren globale Logistik-Governance, Standards und Leistungserwartungen und stellen sicher, dass strategische Prioritäten in klare regionale und lokale Roadmaps umgesetzt werden. Ein wesentlicher Teil Ihrer Verantwortung wird darin bestehen, die Umsetzung aktiv zu steuern, Barrieren zu beseitigen und sicherzustellen, dass globale Logistikinitiativen messbare und nachhaltige Ergebnisse liefern.\n\nIhre Verantwortung umfasst die Weiterentwicklung unseres globalen Logistiknetzwerks sowie Transport-, Lager-, Distributions-, Logistikprozesse und strategische Partnerschaften mit Logistikdienstleistern.\n\nDurch Standardisierung, Digitalisierung, Automatisierung und datengesteuertes Performance Management tragen Sie dazu bei, eine global vernetzte Logistikorganisation zu schaffen, die Kundenorientierung, operative Exzellenz, Kostenwettbewerbsfähigkeit und Widerstandsfähigkeit kombiniert.\n\nAls Mitglied des Corporate Supply Chain Leadership Teams vertreten Sie die Corporate Logistics in Gesprächen der Geschäftsleitung und bringen die Logistikperspektive in relevante konzernweite strategische Entscheidungen ein.\n\nWelche Aufgaben werden Sie ausführen?\n\nSie werden\n\n• Definition, Eigenverantwortung und kontinuierliche Weiterentwicklung unserer globalen Logistikstrategie im Einklang mit Unternehmenszielen, Wachstumsambitionen und Kundenanforderungen\n\n• Übersetzen der globalen Logistikstrategie in klare Umsetzungs-Roadmaps, Prioritäten, Verantwortlichkeiten und messbare Ergebnisse\n\n• Bereitstellung einer funktionalen Führungsrolle für die globale Logistikorganisation und Schaffung einer Ausrichtung zwischen Regionen, Verkaufszentren, Produktionszentren und Logistikbetriebszentren\n\n• Etablieren und pflegen Sie eine globale Logistik-Governance mit klaren Richtlinien, Standards, Prozessen, Entscheidungsrechten und Performance-Management-Prinzipien\n\n• Gestalten und leiten Sie die Entwicklung unseres globalen Logistiknetzwerks, einschließlich regionaler Hub-Strategien und Transportkonzepte.\n\n• Förderung der Logistiktransformation durch Standardisierung, Digitalisierung, Automatisierung und Prozessharmonisierung, einschließlich TMP und anderer strategischer Programme\n\n• Zusammenarbeit mit regionalen und lokalen Lieferkettenführern, um globale Strategien in umsetzbare Roadmaps umzusetzen und gleichzeitig globale Standards mit lokalen Geschäftsanforderungen in Einklang zu bringen\n\n• Förderung der Transparenz der Logistikkosten und der nachhaltigen Kostenoptimierung bei gleichzeitigem Schutz des Kundendienstes, der Lieferleistung und der betrieblichen Widerstandsfähigkeit\n\n• Stärkung der Widerstandsfähigkeit der Lieferkette durch Risikomanagement, Planung der Geschäftskontinuität und Strategien zur Bewältigung geopolitischer Herausforderungen\n\n• Führen Sie strategische Partnerschaften mit globalen Logistikdienstleistern, Speditionen, Spediteuren und Vertriebspartnern\n\n• Aufbau einer Ausrichtung zwischen Betrieb, Beschaffung, Vertrieb, Finanzen, IT, Produktionszentren und Verkaufszentren, um strategische Prioritäten in eine effektive Ausführung umzuwandeln\n\nWas erwarten wir von Ihnen?\n\nSie:\n\n• Bringen Sie umfassende Führungserfahrung in der globalen Logistik in einer komplexen und international tätigen Matrixorganisation mit\n\n• Haben Sie eine starke Erfolgsbilanz bei der Entwicklung und erfolgreichen Umsetzung globaler Logistikstrategien, Governance-Modelle und Transformationsprogramme\n\n• Bringen Sie fundierte Erfahrungen im Design von Unternehmenslogistiknetzwerken mit und wissen Sie, wie Sie Kundenservice, Kosten und, Resilienz und Betriebskapitalanforderungen in Einklang bringen\n\n• Erfahrung mit digitaler Transformation, Prozessstandardisierung, Automatisierung und groß angelegten TMP- oder vergleichbaren Unternehmenstransformationsprogrammen\n\n• Verbinden Sie strategisches Denken mit einem starken Umsetzungsfokus und der Fähigkeit, sich sicher zwischen Unternehmens- und operativen Perspektiven zu bewegen\n\n• Verwenden Sie Daten, KPIs und Benchmarks effektiv, um die Leistung zu verwalten, Chancen zu identifizieren und faktenbasierte Entscheidungen zu unterstützen\n\n• Vertrauliche Kommunikation mit Senior Stakeholdern und Umsetzung komplexer Logistikthemen in klare strategische Prioritäten und umsetzbare Entscheidungen\n\n• Führen Sie durch Zusammenarbeit und bauen Sie Vertrauen über Kulturen, Funktionen und Organisationsebenen hinweg auf und ermöglichen Sie Teams, gemeinsam erfolgreich zu sein\n\n• Bringen Sie einen relevanten Hochschulabschluss oder eine gleichwertige Qualifikation in Supply Chain Management, Logistik, Betriebswirtschaft, Engineering oder einem verwandten Bereich mit\n\n• Kommunizieren Sie fließend in Englisch - auch auf C-Level. Jede andere Sprache ist von Vorteil.\n\n• Sind bereit, international zu reisen, wie es diese globale Rolle erfordert (30%)\n\nWas können Sie von uns erwarten?\n\n• Treten Sie einem internationalen Familienunternehmen bei, in dem langfristiges Denken, Zusammenarbeit und respektvolle Beziehungen unsere Arbeitsweise prägen\n\n• Übernehmen Sie eine sehr sichtbare globale Führungsrolle innerhalb der Corporate Supply Chain mit der Möglichkeit, die Zukunft der Logistik in unserer internationalen Organisation zu gestalten\n\n• Arbeit an strategischen Themen, die die Kundenzufriedenheit, die operative Leistung, die Widerstandsfähigkeit und das nachhaltige Geschäftswachstum direkt beeinflussen\n\n• Zusammenarbeit mit Kollegen und leitenden Stakeholdern in allen Regionen, Produktionszentren, Verkaufszentren und Unternehmensfunktionen\n\n• Gestalten Sie wichtige Transformationsinitiativen und tragen Sie zur Weiterentwicklung unserer globalen Lieferkettenorganisation bei\n\n• Arbeit von Reinach, Schweiz, in einem internationalen Umfeld, das globale Verantwortung mit einer starken Kultur der Zusammenarbeit, des Vertrauens und der kontinuierlichen Verbesserung verbindet\n\nWie bewerben Sie sich?\n\nUm sich zu bewerben, bitten wir Sie, Ihre Dokumente auf unserer Karriereseite hochzuladen.\nBewerbungen, die uns per E-Mail zugesandt werden, können aus Datenschutzgründen leider nicht berücksichtigt werden.\n\n*Agenturen, HR-Dienstleister oder ähnliche Einrichtungen werden gebeten, die unaufgeforderte Einreichung von Profilen und Anfragen bezüglich einer möglichen Zusammenarbeit zu unterlassen. Derzeit engagieren wir uns nicht mit externen Dienstleistern für diese Rolle. Unerbetene Anträge dieser Art werden ohne weitere Berücksichtigung unberücksichtigt gelassen und gelöscht. Wir schätzen Ihr Verständnis.\n\n#LI-WS1\n\n#LI-Onsite",
+        "fr": "Chez Endress+ Hauser, le progrès se produit en travaillant ensemble. En tant que leader mondial de l'instrumentation de mesure, nos plus de 18.000 employés façonnent l'avenir dans le domaine de l'automatisation des processus. Que ce soit le développement et la réalisation de nouvelles technologies en équipe, la collaboration pour construire des instruments ou le renforcement des relations vitales avec d'innombrables industries mondiales, nous travaillons à créer des relations de confiance qui aident chacun à prospérer. En tant qu'entreprise familiale, nous regardons au-delà des mouvements à court terme et travaillons pour créer une vision qui est prospective pour nos gens, nos clients et le monde en général.\n\nNous sommes à la recherche d'un responsable de la logistique d'entreprise (h/f/d), pour rejoindre notre siège du Groupe à Reinach/BL. Dans ce rôle de leader mondial, vous définirez, posséderez et mettre en œuvre Endress+ Hauser est une stratégie logistique mondiale. Vous serez responsable du développement d'un réseau logistique mondial performant, résilient et prêt à l'avenir qui soutient notre promesse client et la croissance à long terme.\n\nQuel est le rôle?\n\nEn tant que responsable de la logistique d'entreprise (h/f/d), vous fournirez un leadership stratégique et fonctionnel pour la logistique à travers le groupe Endress+Hauser. En travaillant en étroite collaboration avec nos centres commerciaux, centres de production, centres régionaux d'opérations logistiques et notre centre mondial d'opérations logistiques en Irlande, vous rassemblerez l'organisation logistique mondiale autour d'une stratégie commune, modèle opérationnel et ambition de performance\n\nVous établirez une gouvernance logistique globale, des normes et des attentes en matière de rendement et vous veillerez à ce que les priorités stratégiques soient traduites en feuilles de route régionales et locales claires. Un élément clé de votre responsabilité sera de diriger activement la mise en œuvre, d'éliminer les obstacles et de veiller à ce que les initiatives logistiques mondiales produisent des résultats mesurables et durables.\n\nVotre responsabilité couvrira le développement continu de notre réseau logistique mondial ainsi que le transport, l'entreposage, la distribution, les processus logistiques et les partenariats stratégiques avec les fournisseurs de services logistiques.\n\nGrâce à la normalisation, à la numérisation, à l'automatisation et à la gestion de la performance axée sur les données, vous contribuerez à créer une organisation logistique connectée à l'échelle mondiale qui allie l'orientation client, l'excellence opérationnelle, la compétitivité des coûts et la résilience.\n\nEn tant que membre de l'équipe de direction de la chaîne logistique d'entreprise, vous représenterez la logistique d'entreprise dans les discussions de la haute direction et apporterez la perspective logistique aux décisions stratégiques pertinentes à l'échelle du Groupe.\n\nQuelles tâches exécuterez-vous?\n\nVous:\n\n• Définir, propre et développer en permanence notre stratégie logistique globale en fonction des objectifs de l'entreprise, des ambitions de croissance et des exigences des clients\n\n• Traduire la stratégie logistique mondiale en feuilles de route, priorités, responsabilités et résultats mesurables\n\n• Fournir un leadership fonctionnel à l'organisation logistique mondiale et créer l'alignement entre les régions, les centres de vente, les centres de production et les centres d'opérations logistiques\n\n• Établir et maintenir une gouvernance logistique mondiale avec des politiques, des normes, des processus, des droits de décision et des principes clairs de gestion du rendement\n\n• Formez et dirigez le développement de notre réseau logistique mondial, y compris les stratégies régionales et les concepts de transport.\n\n• Favoriser la transformation logistique par la normalisation, la numérisation, l'automatisation et l'harmonisation des processus, y compris le PMT et d'autres programmes stratégiques\n\n• Partenaire avec les dirigeants régionaux et locaux de la chaîne d'approvisionnement pour traduire la stratégie mondiale en feuilles de route réalisables tout en conciliant les normes mondiales avec les exigences des entreprises locales\n\n• Favoriser la transparence des coûts logistiques et l'optimisation durable des coûts tout en protégeant le service à la clientèle, les performances de livraison et la résilience opérationnelle\n\n• Renforcer la résilience de la chaîne d'approvisionnement par la gestion des risques, la planification de la continuité des opérations et les stratégies visant à relever les défis géopolitiques\n\n• Mener des partenariats stratégiques avec les fournisseurs de services logistiques mondiaux, les transitaires, les transporteurs et les partenaires de distribution\n\n• Construire l'alignement entre les opérations, les achats, les ventes, les finances, les TI, les centres de production et les centres de vente pour transformer les priorités stratégiques en une exécution efficace\n\nQu'attendons-nous de vous?\n\nVous:\n\n• Apporter une vaste expérience en matière de leadership en logistique mondiale au sein d'une structure complexe et opérationnelle internationale\n\n• Avoir une solide expérience de l'élaboration et de la mise en oeuvre réussie de stratégies logistiques mondiales, de modèles de gouvernance et de programmes de transformation\n\n• Apporter une bonne expérience dans la conception de réseau logistique d'entreprise et savoir équilibrer le service à la clientèle, les coûts et les besoins en matière de résilience et de fonds de roulement\n\n• Avoir de l'expérience en matière de transformation numérique, de normalisation des processus, d'automatisation et de programmes de TMP à grande échelle ou de transformation d'entreprise comparable\n\n• Combiner la réflexion stratégique avec une forte concentration de mise en œuvre et la capacité d'avancer avec confiance entre les perspectives organisationnelles et opérationnelles\n\n• Utiliser efficacement les données, les ICR et les repères pour gérer le rendement, identifier les possibilités et appuyer les décisions fondées sur les faits\n\n• Communiquer avec les intervenants de haut niveau en toute confiance et traduire les sujets logistiques complexes en priorités stratégiques claires et en décisions réalisables\n\n• Diriger par la collaboration et renforcer la confiance entre les cultures, les fonctions et les niveaux organisationnels et permettre aux équipes de réussir ensemble\n\n• Apporter un diplôme universitaire pertinent ou une qualification équivalente en gestion de la chaîne d'approvisionnement, logistique, administration des affaires, ingénierie ou un domaine connexe\n\n• Communiquer couramment en anglais - aussi au niveau C. Toute autre langue est un avantage.\n\n• Sont prêts à voyager à l'étranger comme l'exige ce rôle mondial (30 %)\n\nQu'attendez-vous de nous?\n\n• Rejoignez une entreprise familiale internationale où la pensée, la collaboration et les relations respectueuses à long terme façonnent notre façon de travailler\n\n• Prendre un rôle de leadership mondial très visible au sein de la chaîne d'approvisionnement des entreprises avec l'occasion de façonner l'avenir de la logistique dans notre organisation internationale\n\n• Travailler sur des sujets stratégiques qui influent directement sur la satisfaction de la clientèle, la performance opérationnelle, la résilience et la croissance durable des entreprises\n\n• Collaborer avec des collègues et des intervenants de haut niveau dans les régions, les centres de production, les centres de vente et les fonctions de l'entreprise\n\n• Former les principales initiatives de transformation et contribuer au développement continu de notre organisation de la chaîne d'approvisionnement mondiale\n\n• Travail de Reinach, Suisse, dans un environnement international qui combine la responsabilité mondiale avec une forte culture de collaboration, de confiance et d'amélioration continue\n\nComment postuler?\n\nPour postuler, nous vous prions de bien vouloir télécharger vos documents sur notre page carrière.\nLes demandes qui nous sont envoyées par E-Mail ne peuvent malheureusement pas être considérées en raison de considérations de confidentialité des données.\n\n*Les organismes, les fournisseurs de services de RH ou des entités similaires sont priés de s'abstenir de présenter des profils et des demandes de renseignements non sollicités concernant une collaboration éventuelle. Actuellement, nous n'intervenons pas avec des fournisseurs de services externes pour ce rôle. Toute application non sollicitée de ce type sera ignorée et supprimée sans autre considération. Nous apprécions votre compréhension.\n\n#LI-WS1\n\nSur place"
+      },
+      "location": "Reinach",
+      "canton": "BL",
+      "url": "https://careers.endress.com/Switzerland/job/Reinach-Head-of-Corporate-Logistics-%28fmd%29-4153/1458852033/",
+      "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-19T21:32:53.519Z",
+      "addressLocality": "Reinach",
+      "addressRegion": "BL",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4153",
+      "category": "Logistica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Strumentazione industriale / Automazione",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-19T00:00:00Z",
+      "postedDate": "2026-11-19T00:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://careers.endress.com/talentcommunity/apply/1458852033/?locale=en_US",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "salaryMin": 85500,
+      "salaryMax": 129500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85500,
+          "maxValue": 129500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Reinach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-17T21:32:53.519Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-19T21:32:53.519Z",
+      "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-head-of-corporate-logistics-%28fmd%29-4153/1458852033"
     }
   ]
 }

@@ -1197,23 +1197,26 @@
     "slugByLocale": {
       "it": "commesso-a-ausiliario-a-tessile-sport-otto-s-ag-munsingen",
       "en": "temporary-sales-assistant-textiles-sports-otto-s-ag-munsingen",
-      "de": "aushilfe-verkaufer-in-textil-sport-ottos-munsingen",
+      "de": "aushilfe-verkaufer-in-textil-sport-ottos-munsingen-a8086c8c",
       "fr": "vendeur-euse-en-renfort-textile-sport-otto-s-ag-munsingen"
     },
     "sector": "Commercio al Dettaglio",
     "expiredAt": "2026-11-14T16:44:07.977Z",
-    "previousSlugs": [
-      "aushilfe-verkaufer-in-textil-sport-ottos-munsingen"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "aushilfe-verkaufer-in-textil-sport-ottos-munsingen-a8086c8c",
         "aushilfe-verkaufer-in-textil-sport-ottos-munsingen"
       ],
       "en": [
+        "aushilfe-verkaufer-in-textil-sport-ottos-munsingen-a8086c8c",
         "aushilfe-verkaufer-in-textil-sport-ottos-munsingen"
       ],
       "fr": [
+        "aushilfe-verkaufer-in-textil-sport-ottos-munsingen-a8086c8c",
         "aushilfe-verkaufer-in-textil-sport-ottos-munsingen"
+      ],
+      "de": [
+        "aushilfe-verkaufer-in-textil-sport-ottos-munsingen-a8086c8c"
       ]
     },
     "postalCode": "3110",
@@ -1223,7 +1226,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/ottosag/job/details/4085474",
-    "firstSeenAt": "2026-09-29T09:26:07.281Z"
+    "firstSeenAt": "2026-09-29T09:26:07.281Z",
+    "previousSlugs": [
+      "aushilfe-verkaufer-in-textil-sport-ottos-munsingen"
+    ]
   },
   {
     "slug": "manager-m-f-otto-s-ag-lausanne",

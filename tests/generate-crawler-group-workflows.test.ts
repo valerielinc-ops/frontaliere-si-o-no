@@ -3596,6 +3596,7 @@ describe('cross-repo crawler execution artifacts', () => {
   it('adatta ogni reporter diagnostico al repo e al workflow standalone del corpus', () => {
     const { contract, outDir } = generateArtifacts();
     let diagnosticReporters = 0;
+    const recoveryReady = "(github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')";
     for (const artifact of contract.artifacts) {
       const doc = YAML.parse(fs.readFileSync(path.join(outDir, artifact.file), 'utf8'));
       const job: any = artifact.file === 'translate-pending.yml'
@@ -3606,7 +3607,9 @@ describe('cross-repo crawler execution artifacts', () => {
       for (const reporter of reporters) {
         diagnosticReporters += 1;
         expect(reporter.if).toBe(
-          "failure() && (steps.site_checkout_primary.outcome == 'success' || steps.site_checkout_retry.outcome == 'success')",
+          artifact.file === 'translate-pending.yml'
+            ? `always() && (failure() || steps.repair_stale_descriptions.outcome == 'failure') && (steps.site_checkout_primary.outcome == 'success' || steps.site_checkout_retry.outcome == 'success') && ${recoveryReady}`
+            : "failure() && (steps.site_checkout_primary.outcome == 'success' || steps.site_checkout_retry.outcome == 'success')",
         );
         expect(reporter.with).toMatchObject({
           title: `Workflow Failure: ${doc.name}`,
@@ -3674,7 +3677,8 @@ describe('cross-repo crawler execution artifacts', () => {
     expect(postGuardAlways.some((step: any) => step.name === 'Commit translations')).toBe(true);
 
     const failureReporter = job.steps.find((step: any) => step.name === 'Report failure to GitHub Issues');
-    expect(failureReporter?.if).not.toContain('recovery_guard');
+    expect(failureReporter?.if).toContain("steps.repair_stale_descriptions.outcome == 'failure'");
+    expect(failureReporter?.if).toContain(recoveryReady);
 
     for (const artifact of contract.artifacts.filter((entry: any) => entry.file !== 'translate-pending.yml')) {
       const doc = YAML.parse(fs.readFileSync(path.join(outDir, artifact.file), 'utf8'));

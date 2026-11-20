@@ -1,7 +1,7 @@
 {
   "crawlerKey": "edmond-de-rothschild",
-  "assembledAt": "2026-11-19T09:46:33.280Z",
-  "runId": "44494596001",
+  "assembledAt": "2026-11-19T21:44:04.342Z",
+  "runId": "44617000254",
   "jobs": [
     {
       "id": "edmond-de-rothschild-4838c42e2ab0",
@@ -35,7 +35,7 @@
       "url": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/3080",
       "source": "Edmond de Rothschild Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T09:46:28.174Z",
+      "crawledAt": "2026-11-19T21:43:56.812Z",
       "addressLocality": "Switzerland",
       "addressRegion": "GE",
       "streetAddress": "Switzerland",
@@ -85,8 +85,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:46:28.174Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:43:56.812Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://evht.fa.ocs.oraclecloud.eu/hcmui/candidateexperience/en/sites/cx_7001/job/3080"
     },
     {
       "id": "edmond-de-rothschild-6ecb91321a36",
@@ -119,7 +120,7 @@
       "url": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/3088",
       "source": "Edmond de Rothschild Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T09:46:27.551Z",
+      "crawledAt": "2026-11-19T21:43:56.310Z",
       "addressLocality": "Switzerland",
       "addressRegion": "GE",
       "streetAddress": "Switzerland",
@@ -156,7 +157,7 @@
           "information-security-manager-groupe-h-f-edmond-de-rothschild-ch"
         ]
       },
-      "firstSeenAt": "2026-10-23T09:20:38.792Z",
+      "firstSeenAt": "2026-10-22T21:25:03.364Z",
       "salaryMin": 97500,
       "salaryMax": 165500,
       "salarySource": "estimated",
@@ -171,8 +172,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T09:46:27.551Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-20T21:43:56.310Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://evht.fa.ocs.oraclecloud.eu/hcmui/candidateexperience/en/sites/cx_7001/job/3088"
     },
     {
       "id": "edmond-de-rothschild-3967a1f10d6c",
@@ -205,7 +207,7 @@
       "url": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/3081",
       "source": "Edmond de Rothschild Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T09:46:26.986Z",
+      "crawledAt": "2026-11-19T21:43:55.825Z",
       "addressLocality": "Switzerland",
       "addressRegion": "GE",
       "streetAddress": "Switzerland",
@@ -255,8 +257,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:46:26.986Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-01T21:43:55.825Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://evht.fa.ocs.oraclecloud.eu/hcmui/candidateexperience/en/sites/cx_7001/job/3081"
     },
     {
       "id": "edmond-de-rothschild-ce0d8d776e8a",
@@ -289,7 +292,7 @@
       "url": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/3038",
       "source": "Edmond de Rothschild Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T09:46:26.117Z",
+      "crawledAt": "2026-11-19T21:43:55.300Z",
       "addressLocality": "Switzerland",
       "addressRegion": "GE",
       "streetAddress": "Switzerland",
@@ -325,8 +328,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:46:26.117Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-02T21:43:55.300Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://evht.fa.ocs.oraclecloud.eu/hcmui/candidateexperience/en/sites/cx_7001/job/3038"
     },
     {
       "id": "edmond-de-rothschild-a733ee05a074",
@@ -360,7 +364,7 @@
       "url": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/3095",
       "source": "Edmond de Rothschild Dedicated Parser (Oracle HCM)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:46:25.316Z",
+      "crawledAt": "2026-11-19T21:43:54.758Z",
       "addressLocality": "Switzerland",
       "addressRegion": "GE",
       "streetAddress": "Switzerland",
@@ -410,8 +414,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T09:46:25.316Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-10T21:43:54.758Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://evht.fa.ocs.oraclecloud.eu/hcmui/candidateexperience/en/sites/cx_7001/job/3095"
     }
   ]
 }

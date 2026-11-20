@@ -12,11 +12,12 @@
  *   - Trusted domain detection (weissearena.com + recruitmentplatform.com)
  *   - Slug generation
  */
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
 import {
   WEISSE_ARENA_KEY,
   WEISSE_ARENA_COMPANY_NAME,
   WEISSE_ARENA_COMPANY_DOMAIN,
+  fetchAllWeisseArenaJobs,
   isWeisseArenaJob,
   isTrustedDomain,
   detectCategory,
@@ -25,6 +26,8 @@ import {
   buildDetailUrl,
 } from '../scripts/lib/weisse-arena-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+
+afterEach(() => vi.unstubAllGlobals());
 
 // ─── Constants ──────────────────────────────────────────────────────────────────
 
@@ -335,6 +338,154 @@ describe('TalentLink API response structure', () => {
 
   it('seasonal listing has different contract type', () => {
     expect(SAMPLE_SEASONAL_LISTING.jobFields.CONTRACTTYPLABEL).toBe('Saisonanstellung');
+  });
+});
+
+describe('TalentLink pagination completeness', () => {
+  const listing = (id: number, title: string) => ({
+    id,
+    jobFields: {
+      id,
+      jobNumber: `WAG${String(id).padStart(5, '0')}`,
+      jobTitle: title,
+      sJobTitle: title,
+      SLOVLIST10: 'Marketing',
+      SLOVLIST17: '100%',
+      CONTRACTTYPLABEL: 'Festanstellung',
+    },
+    customFields: [],
+  });
+
+  it('continues after a short page until globals.jobsCount is reached', async () => {
+    const pages = new Map([
+      [0, [listing(1, 'First role')]],
+      [1, [listing(2, 'Second role'), listing(3, 'Third role')]],
+    ]);
+    const offsets: number[] = [];
+    vi.stubGlobal('fetch', vi.fn(async (input: string | URL) => {
+      const url = new URL(String(input));
+      const offset = Number(url.searchParams.get('firstResult'));
+      offsets.push(offset);
+      return new Response(JSON.stringify({ globals: { jobsCount: 3 }, jobs: pages.get(offset) || [] }), {
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }));
+
+    const jobs = await fetchAllWeisseArenaJobs();
+
+    expect(offsets).toEqual([0, 1]);
+    expect(jobs).toHaveLength(3);
+    expect(jobs.map(({ title }) => title)).toEqual(['First role', 'Second role', 'Third role']);
+  });
+
+  it('fails closed when an empty page arrives before the declared total', async () => {
+    vi.stubGlobal('fetch', vi.fn(async (input: string | URL) => {
+      const offset = Number(new URL(String(input)).searchParams.get('firstResult'));
+      return new Response(JSON.stringify({
+        globals: { jobsCount: 2 },
+        jobs: offset === 0 ? [listing(1, 'Only role')] : [],
+      }), { headers: { 'Content-Type': 'application/json' } });
+    }));
+
+    await expect(fetchAllWeisseArenaJobs()).rejects.toThrow(/pagination incomplete.*1\/2/i);
+  });
+
+  it.each(['', '   '])('rejects an empty declared jobsCount (%j)', async (jobsCount) => {
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify({
+      globals: { jobsCount },
+      jobs: [],
+    }), { headers: { 'Content-Type': 'application/json' } })));
+
+    await expect(fetchAllWeisseArenaJobs()).rejects.toThrow(/valid globals\.jobsCount/i);
+  });
+
+  it('uses the first non-empty listing identity fallback', async () => {
+    const fallbackListing = {
+      jobFields: {
+        jobNumber: ' ',
+        id: 'A-1',
+        jobTitle: 'Chef',
+      },
+      customFields: [],
+    };
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify({
+      globals: { jobsCount: 1 },
+      jobs: [fallbackListing],
+    }), { headers: { 'Content-Type': 'application/json' } })));
+
+    const jobs = await fetchAllWeisseArenaJobs();
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].url).toContain('jobId=A-1');
+  });
+
+  it('keeps distinct output IDs when jobNumber is whitespace-only', async () => {
+    const first = listing(1, 'First role');
+    const second = listing(2, 'Second role');
+    first.jobFields.jobNumber = ' ';
+    first.jobFields.id = 'A-1';
+    second.jobFields.jobNumber = ' ';
+    second.jobFields.id = 'B-2';
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify({
+      globals: { jobsCount: 2 },
+      jobs: [first, second],
+    }), { headers: { 'Content-Type': 'application/json' } })));
+
+    const jobs = await fetchAllWeisseArenaJobs();
+
+    expect(jobs.map(({ id }) => id)).toHaveLength(2);
+    expect(new Set(jobs.map(({ id }) => id)).size).toBe(2);
+  });
+
+  it('uses the first non-empty normalized title fallback', async () => {
+    const fallbackTitleListing = listing(1, ' ');
+    fallbackTitleListing.jobFields.sJobTitle = 'Chef';
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify({
+      globals: { jobsCount: 1 },
+      jobs: [fallbackTitleListing],
+    }), { headers: { 'Content-Type': 'application/json' } })));
+
+    const jobs = await fetchAllWeisseArenaJobs();
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].title).toBe('Chef');
+  });
+
+  it('rejects non-scalar identity fields before emitting a job', async () => {
+    const malformedIdentityListing = {
+      id: {},
+      jobFields: {
+        id: {},
+        jobNumber: {},
+        jobTitle: 'Chef',
+      },
+      customFields: [],
+    };
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify({
+      globals: { jobsCount: 1 },
+      jobs: [malformedIdentityListing],
+    }), { headers: { 'Content-Type': 'application/json' } })));
+
+    await expect(fetchAllWeisseArenaJobs()).rejects.toThrow(/no stable identity/i);
+  });
+
+  it('rejects non-textual title fields before emitting a job', async () => {
+    const malformedTitleListing = {
+      id: 1,
+      jobFields: {
+        id: 1,
+        jobNumber: 'WAG00001',
+        jobTitle: {},
+        sJobTitle: '',
+      },
+      customFields: [],
+    };
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify({
+      globals: { jobsCount: 1 },
+      jobs: [malformedTitleListing],
+    }), { headers: { 'Content-Type': 'application/json' } })));
+
+    await expect(fetchAllWeisseArenaJobs()).rejects.toThrow(/no usable job title/i);
   });
 });
 

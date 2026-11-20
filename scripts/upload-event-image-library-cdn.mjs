@@ -6,7 +6,7 @@ import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import {
   validateGeneratedImageRegistry,
-  validateGeneratedImageRecord,
+  validateGeneratedImageRecordWithRegistry,
 } from '../packages/articles/engine/shared/generatedImageRegistry.mjs';
 
 function argument(name, fallback = '') {
@@ -45,7 +45,10 @@ if (!assets.length) {
   console.error('Registry contains no assets; nothing to upload.');
   process.exit(2);
 }
-const registryValidation = validateGeneratedImageRegistry(registry, { scope: 'event-library' });
+const registryValidation = validateGeneratedImageRegistry(registry, {
+  scope: 'event-library',
+  allowLegacyVision: true,
+});
 if (!registryValidation.valid) {
   console.error(`Invalid event image registry: ${registryValidation.errors.join('; ')}`);
   process.exit(1);
@@ -74,7 +77,7 @@ const assetsToUpload = beforeRegistryPath
   : assets;
 
 for (const record of assetsToUpload) {
-  const validation = validateGeneratedImageRecord(record);
+  const validation = validateGeneratedImageRecordWithRegistry(record, registry);
   if (!validation.valid) {
     console.error(`${record?.assetId || '<unknown>'}: invalid registry record: ${validation.errors.join(', ')}`);
     process.exitCode = 1;

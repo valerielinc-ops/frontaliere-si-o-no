@@ -1,7 +1,7 @@
 {
   "crawlerKey": "c-and-a-schweiz",
-  "assembledAt": "2026-11-19T09:28:38.621Z",
-  "runId": "44493770691",
+  "assembledAt": "2026-11-19T21:17:08.228Z",
+  "runId": "44616083717",
   "jobs": [
     {
       "id": "c-and-a-schweiz-c7ba49c568ff",
@@ -34,7 +34,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-fmd-60-in-olten-salipark-65540-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:28:30.781Z",
+      "crawledAt": "2026-11-19T21:17:01.472Z",
       "addressLocality": "Olten",
       "postalCode": "4600",
       "addressCountry": "CH",
@@ -81,8 +81,9 @@
       "addressRegion": "SO",
       "streetAddress": "Olten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:28:30.781Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:17:01.472Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-fmd-60-in-olten-salipark-65540-de-de"
     },
     {
       "id": "c-and-a-schweiz-441ec9f99c1d",
@@ -115,7 +116,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-30-fur-sihlcity-abend-und-samstags-65702-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:28:30.470Z",
+      "crawledAt": "2026-11-19T21:17:01.164Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressCountry": "CH",
@@ -164,8 +165,9 @@
       "addressRegion": "ZH",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:28:30.470Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:17:01.164Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-30-fur-sihlcity-abend-und-samstags-65702-de-de"
     },
     {
       "id": "c-and-a-schweiz-b28a0eac3fd9",
@@ -198,7 +200,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-verkauf-mit-schlusselfunktion-mwd-30-fur-emmen-65780-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:28:30.158Z",
+      "crawledAt": "2026-11-19T21:17:00.840Z",
       "addressLocality": "Emmenbrücke",
       "postalCode": "6020",
       "addressCountry": "CH",
@@ -234,7 +236,7 @@
           "vendeur-se-mit-schlusselfunktion-m-w-d-30-fur-emmen-c-a-schweiz-emmenbrucke"
         ]
       },
-      "firstSeenAt": "2026-09-26T13:56:50.929Z",
+      "firstSeenAt": "2026-07-03T21:31:40.478Z",
       "salaryMin": 17700,
       "salaryMax": 27200,
       "salarySource": "estimated",
@@ -250,8 +252,9 @@
       },
       "streetAddress": "Emmenbrücke",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:28:30.158Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-25T21:17:00.840Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-verkauf-mit-schlusselfunktion-mwd-30-fur-emmen-65780-de-de"
     },
     {
       "id": "c-and-a-schweiz-42cf1ea46b68",
@@ -284,7 +287,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-50-in-oerlikon-66092-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:28:29.797Z",
+      "crawledAt": "2026-11-19T21:17:00.526Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressCountry": "CH",
@@ -333,8 +336,9 @@
       "addressRegion": "ZH",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:28:29.797Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:17:00.526Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-50-in-oerlikon-66092-de-de"
     },
     {
       "id": "c-and-a-schweiz-f9b82ceec4a0",
@@ -367,7 +371,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-20-fur-bern-66200-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:28:29.483Z",
+      "crawledAt": "2026-11-19T21:17:00.204Z",
       "addressLocality": "Bern",
       "postalCode": "3004",
       "addressCountry": "CH",
@@ -418,8 +422,9 @@
       "addressRegion": "BE",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:28:29.483Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:17:00.204Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-20-fur-bern-66200-de-de"
     },
     {
       "id": "c-and-a-schweiz-5036539fd48c",
@@ -452,7 +457,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-30-fur-bern-66089-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:28:29.154Z",
+      "crawledAt": "2026-11-19T21:16:59.896Z",
       "addressLocality": "Bern",
       "postalCode": "3004",
       "addressCountry": "CH",
@@ -503,8 +508,9 @@
       "addressRegion": "BE",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:28:29.154Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:16:59.896Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-30-fur-bern-66089-de-de"
     },
     {
       "id": "c-and-a-schweiz-98b7e09775ca",
@@ -537,7 +543,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-wmd-100-fur-bern-66275-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:28:28.836Z",
+      "crawledAt": "2026-11-19T21:16:59.589Z",
       "addressLocality": "Bern",
       "postalCode": "3004",
       "addressCountry": "CH",
@@ -583,8 +589,9 @@
       "addressRegion": "BE",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:28:28.836Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:16:59.589Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-wmd-100-fur-bern-66275-de-de"
     },
     {
       "id": "c-and-a-schweiz-dfcea86f2d93",
@@ -617,7 +624,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-mwd-60-in-liestal-66554-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:28:28.518Z",
+      "crawledAt": "2026-11-19T21:16:59.278Z",
       "addressLocality": "Liestal",
       "postalCode": "4410",
       "addressCountry": "CH",
@@ -660,8 +667,9 @@
       "addressRegion": "BL",
       "streetAddress": "Liestal",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:28:28.518Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:16:59.278Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-mwd-60-in-liestal-66554-de-de"
     },
     {
       "id": "c-and-a-schweiz-4d5878cf9d48",
@@ -694,7 +702,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mit-schlusselfunktion-mwd-100-fur-bern-66760-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:28:28.191Z",
+      "crawledAt": "2026-11-19T21:16:58.948Z",
       "addressLocality": "Bern",
       "postalCode": "3004",
       "addressCountry": "CH",
@@ -756,8 +764,9 @@
       "addressRegion": "BE",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:28:28.191Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:16:58.948Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mit-schlusselfunktion-mwd-100-fur-bern-66760-de-de"
     },
     {
       "id": "c-and-a-schweiz-a22a6d3cc602",
@@ -790,7 +799,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mit-schlusselfunktion-mwd-25-im-letzipark-66825-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:28:27.862Z",
+      "crawledAt": "2026-11-19T21:16:58.634Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressCountry": "CH",
@@ -843,8 +852,9 @@
       "addressRegion": "ZH",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:28:27.862Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:16:58.634Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mit-schlusselfunktion-mwd-25-im-letzipark-66825-de-de"
     },
     {
       "id": "c-and-a-schweiz-055b73a29ec5",
@@ -877,7 +887,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-80-fur-sihlcity-66918-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:28:27.546Z",
+      "crawledAt": "2026-11-19T21:16:58.327Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressCountry": "CH",
@@ -926,8 +936,9 @@
       "addressRegion": "ZH",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:28:27.546Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:16:58.327Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-80-fur-sihlcity-66918-de-de"
     },
     {
       "id": "c-and-a-schweiz-ffabd113b531",
@@ -960,7 +971,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mit-schlusselfunktion-mwd-50-in-regensdorf-66922-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:28:27.217Z",
+      "crawledAt": "2026-11-19T21:16:58.017Z",
       "addressLocality": "Regensdorf",
       "postalCode": "8105",
       "addressCountry": "CH",
@@ -1009,8 +1020,9 @@
       "addressRegion": "ZH",
       "streetAddress": "Regensdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:28:27.217Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:16:58.017Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mit-schlusselfunktion-mwd-50-in-regensdorf-66922-de-de"
     },
     {
       "id": "c-and-a-schweiz-5534a9088816",
@@ -1043,7 +1055,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-mwd-100-im-volkiland-66912-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:28:26.895Z",
+      "crawledAt": "2026-11-19T21:16:57.701Z",
       "addressLocality": "Volketswil",
       "postalCode": "8604",
       "addressCountry": "CH",
@@ -1087,8 +1099,9 @@
       "addressRegion": "ZH",
       "streetAddress": "Volketswil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:28:26.895Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:16:57.701Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-mwd-100-im-volkiland-66912-de-de"
     },
     {
       "id": "c-and-a-schweiz-86998bce00ee",
@@ -1121,7 +1134,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-leader-assistant-wmd-80-fur-schaffhausen-herblingen-67045-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:28:26.578Z",
+      "crawledAt": "2026-11-19T21:16:57.389Z",
       "addressLocality": "Schaffhausen",
       "postalCode": "8200",
       "addressCountry": "CH",
@@ -1167,8 +1180,9 @@
       "addressRegion": "SH",
       "streetAddress": "Schaffhausen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:28:26.578Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:16:57.389Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-leader-assistant-wmd-80-fur-schaffhausen-herblingen-67045-de-de"
     },
     {
       "id": "c-and-a-schweiz-99cffc2ceb64",
@@ -1201,7 +1215,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-mwd-80-fur-thun-67136-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:28:26.263Z",
+      "crawledAt": "2026-11-19T21:16:57.075Z",
       "addressLocality": "Thun",
       "postalCode": "3600",
       "addressCountry": "CH",
@@ -1247,8 +1261,9 @@
       "addressRegion": "BE",
       "streetAddress": "Thun",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T09:28:26.263Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-24T21:16:57.075Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-mwd-80-fur-thun-67136-de-de"
     },
     {
       "id": "c-and-a-schweiz-0ad7aafc7330",
@@ -1281,7 +1296,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mwd-20-fur-bern-67143-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:28:25.933Z",
+      "crawledAt": "2026-11-19T21:16:56.772Z",
       "addressLocality": "Bern",
       "postalCode": "3004",
       "addressCountry": "CH",
@@ -1332,8 +1347,9 @@
       "addressRegion": "BE",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:28:25.933Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T21:16:56.772Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mwd-20-fur-bern-67143-de-de"
     },
     {
       "id": "c-and-a-schweiz-32c86bd3dc22",
@@ -1366,7 +1382,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mwd-30-fur-bern-67142-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:28:25.623Z",
+      "crawledAt": "2026-11-19T21:16:56.454Z",
       "addressLocality": "Bern",
       "postalCode": "3004",
       "addressCountry": "CH",
@@ -1417,8 +1433,9 @@
       "addressRegion": "BE",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:28:25.623Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T21:16:56.454Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mwd-30-fur-bern-67142-de-de"
     },
     {
       "id": "c-and-a-schweiz-a46de623885b",
@@ -1451,7 +1468,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mwd-40-fur-bern-67141-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:28:25.302Z",
+      "crawledAt": "2026-11-19T21:16:56.118Z",
       "addressLocality": "Bern",
       "postalCode": "3004",
       "addressCountry": "CH",
@@ -1517,8 +1534,9 @@
       "addressRegion": "BE",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:28:25.302Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:16:56.118Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mwd-40-fur-bern-67141-de-de"
     },
     {
       "id": "c-and-a-schweiz-a5a3503dc07f",
@@ -1551,7 +1569,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-mwd-80-100-fur-emmen-67266-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:28:24.984Z",
+      "crawledAt": "2026-11-19T21:16:55.801Z",
       "addressLocality": "Emmenbrücke",
       "postalCode": "6020",
       "addressCountry": "CH",
@@ -1581,7 +1599,7 @@
         ]
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-26T13:56:38.750Z",
+      "firstSeenAt": "2026-09-19T23:11:33.448Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -1597,8 +1615,9 @@
       },
       "streetAddress": "Emmenbrücke",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:28:24.984Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-25T21:16:55.801Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-mwd-80-100-fur-emmen-67266-de-de"
     },
     {
       "id": "c-and-a-schweiz-7c0a278c53f7",
@@ -1631,7 +1650,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mwd-50-in-egerkingen-befristet-bis-ende-februar-2027-67373-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:28:24.664Z",
+      "crawledAt": "2026-11-19T21:16:55.472Z",
       "addressLocality": "Egerkingen",
       "postalCode": "4622",
       "addressCountry": "CH",
@@ -1682,8 +1701,9 @@
       "addressRegion": "SO",
       "streetAddress": "Egerkingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T09:28:24.664Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-14T21:16:55.472Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mwd-50-in-egerkingen-befristet-bis-ende-februar-2027-67373-de-de"
     },
     {
       "id": "c-and-a-schweiz-2d998f29f0a0",
@@ -1716,7 +1736,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mit-schlusselfunktion-mwd-50-fur-solothurn-befristet-67487-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:28:24.349Z",
+      "crawledAt": "2026-11-19T21:16:55.155Z",
       "addressLocality": "Solothurn",
       "postalCode": "4500",
       "addressCountry": "CH",
@@ -1765,8 +1785,9 @@
       "addressRegion": "SO",
       "streetAddress": "Solothurn",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:28:24.349Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-29T21:16:55.155Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mit-schlusselfunktion-mwd-50-fur-solothurn-befristet-67487-de-de"
     },
     {
       "id": "c-and-a-schweiz-21721e5a3e5f",
@@ -1799,7 +1820,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-leader-assistant-mwd-100-im-volkiland-67691-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:28:24.033Z",
+      "crawledAt": "2026-11-19T21:16:54.845Z",
       "addressLocality": "Volketswil",
       "postalCode": "8604",
       "addressCountry": "CH",
@@ -1843,8 +1864,9 @@
       "addressRegion": "ZH",
       "streetAddress": "Volketswil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-15T09:28:24.033Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-15T21:16:54.845Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-leader-assistant-mwd-100-im-volkiland-67691-de-de"
     },
     {
       "id": "c-and-a-schweiz-4be9788f91eb",
@@ -1877,7 +1899,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mit-schlusselfunktion-mwd-50-fur-emmen-67765-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:28:23.705Z",
+      "crawledAt": "2026-11-19T21:16:54.526Z",
       "addressLocality": "Emmenbrücke",
       "postalCode": "6020",
       "addressCountry": "CH",
@@ -1927,8 +1949,9 @@
       },
       "streetAddress": "Emmenbrücke",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T09:28:23.705Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-19T21:16:54.526Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mit-schlusselfunktion-mwd-50-fur-emmen-67765-de-de"
     },
     {
       "id": "c-and-a-schweiz-cfc0a1dfce07",
@@ -1961,7 +1984,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-50-fur-regensdorf-66565-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:28:23.384Z",
+      "crawledAt": "2026-11-19T21:16:54.192Z",
       "addressLocality": "Regensdorf",
       "postalCode": "8105",
       "addressCountry": "CH",
@@ -2012,8 +2035,9 @@
       "addressRegion": "ZH",
       "streetAddress": "Regensdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T09:28:23.384Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-19T21:16:54.192Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-50-fur-regensdorf-66565-de-de"
     },
     {
       "id": "c-and-a-schweiz-9be24d7c7e70",
@@ -2046,7 +2070,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-50-fur-solothurn-befristet-bis-ende-februar-2027-67841-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:28:23.059Z",
+      "crawledAt": "2026-11-19T21:16:53.875Z",
       "addressLocality": "Solothurn",
       "postalCode": "4500",
       "addressCountry": "CH",
@@ -2097,8 +2121,9 @@
       "addressRegion": "SO",
       "streetAddress": "Solothurn",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T09:28:23.059Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-25T21:16:53.875Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-50-fur-solothurn-befristet-bis-ende-februar-2027-67841-de-de"
     },
     {
       "id": "c-and-a-schweiz-723fab092bc4",
@@ -2131,7 +2156,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-fmd-cdi-100-balexert-67952-en-gb",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:28:22.739Z",
+      "crawledAt": "2026-11-19T21:16:53.566Z",
       "addressLocality": "Geneve",
       "postalCode": "1201",
       "addressCountry": "CH",
@@ -2174,8 +2199,9 @@
       "addressRegion": "GE",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:28:22.739Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-02T21:16:53.566Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-fmd-cdi-100-balexert-67952-en-gb"
     },
     {
       "id": "c-and-a-schweiz-ba5752c16647",
@@ -2208,7 +2234,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mwd-40-fur-tivoli-spreitenbach-befristet-bis-ende-februar-2027-67986-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:28:22.408Z",
+      "crawledAt": "2026-11-19T21:16:53.253Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressCountry": "CH",
@@ -2259,8 +2285,9 @@
       "addressRegion": "AG",
       "streetAddress": "Spreitenbach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:28:22.408Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-03T21:16:53.253Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mwd-40-fur-tivoli-spreitenbach-befristet-bis-ende-februar-2027-67986-de-de"
     },
     {
       "id": "c-and-a-schweiz-b7138cbe4525",
@@ -2293,7 +2320,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mwd-60-fur-emmen-befristet-bis-ende-februar-67979-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:28:22.090Z",
+      "crawledAt": "2026-11-19T21:16:52.937Z",
       "addressLocality": "Emmenbrücke",
       "postalCode": "6020",
       "addressCountry": "CH",
@@ -2343,8 +2370,9 @@
       },
       "streetAddress": "Emmenbrücke",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:28:22.090Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-03T21:16:52.937Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mwd-60-fur-emmen-befristet-bis-ende-februar-67979-de-de"
     },
     {
       "id": "c-and-a-schweiz-ffb2d5181760",
@@ -2377,7 +2405,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/ch-collaboratrice-de-vente-porteuse-de-clefs-focus-service-cdd-50-68011-en-gb",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:28:21.740Z",
+      "crawledAt": "2026-11-19T21:16:52.568Z",
       "addressLocality": "Ecublens",
       "postalCode": "1024",
       "addressCountry": "CH",
@@ -2426,8 +2454,9 @@
       "addressRegion": "VD",
       "streetAddress": "Ecublens",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T09:28:21.740Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-11T21:16:52.568Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/ch-collaboratrice-de-vente-porteuse-de-clefs-focus-service-cdd-50-68011-en-gb"
     },
     {
       "id": "c-and-a-schweiz-05a1abde8422",
@@ -2460,7 +2489,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mit-schlusselfunktion-wmd-30-fur-schonbuhl-family-befristet-68066-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:28:21.387Z",
+      "crawledAt": "2026-11-19T21:16:52.203Z",
       "addressLocality": "Schönbühl",
       "postalCode": "3321",
       "addressCountry": "CH",
@@ -2511,8 +2540,9 @@
       "addressRegion": "BE",
       "streetAddress": "Schönbühl",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T09:28:21.387Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-09T21:16:52.203Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mit-schlusselfunktion-wmd-30-fur-schonbuhl-family-befristet-68066-de-de"
     },
     {
       "id": "c-and-a-schweiz-adb60e73a4f8",
@@ -2545,7 +2575,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mwd-40-fur-oftringen-perry-center-befristet-bis-ende-februar-2027-68076-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:28:21.059Z",
+      "crawledAt": "2026-11-19T21:16:51.867Z",
       "addressLocality": "Oftringen",
       "postalCode": "4665",
       "addressCountry": "CH",
@@ -2596,8 +2626,9 @@
       "addressRegion": "AG",
       "streetAddress": "Oftringen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T09:28:21.059Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-11T21:16:51.867Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mwd-40-fur-oftringen-perry-center-befristet-bis-ende-februar-2027-68076-de-de"
     },
     {
       "id": "c-and-a-schweiz-bb960bb2682b",
@@ -2630,7 +2661,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/collaboratrice-de-vente-20-cdd-2311-au-31122026-thonex-68115-fr-fr",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T09:28:20.728Z",
+      "crawledAt": "2026-11-19T21:16:51.524Z",
       "addressLocality": "Thonex",
       "postalCode": "1226",
       "addressCountry": "CH",
@@ -2679,8 +2710,9 @@
       "addressRegion": "GE",
       "streetAddress": "Thonex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T09:28:20.728Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-15T21:16:51.524Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/collaboratrice-de-vente-20-cdd-2311-au-31122026-thonex-68115-fr-fr"
     },
     {
       "id": "c-and-a-schweiz-1bc651889839",
@@ -2766,7 +2798,8 @@
       "previousSlugs": [
         "ch-collaboratrice-de-vente-50-cdd-decembre-et-janvier-c-and-a-schweiz-ch"
       ],
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/ch-collaboratrice-de-vente-50-cdd-decembre-et-janvier-68125-fr-fr"
     }
   ]
 }

@@ -1,0 +1,136 @@
+name: Fleet ledger maintenance
+
+on:
+  workflow_dispatch:
+    inputs:
+      expected_sha:
+        description: Expected current ledger commit
+        required: false
+        type: string
+      candidate_sha:
+        description: Verified candidate commit
+        required: false
+        type: string
+      auto_pin:
+        description: Verify a candidate prepared from the ledger tip fetched by this run
+        type: boolean
+        default: false
+      ordinals:
+        description: Ordered archive positions
+        required: true
+        type: string
+      attestation_sha256:
+        description: Canonical attestation digest
+        required: true
+        type: string
+      dry_run:
+        description: Verify the candidate without publishing
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: fleet-ledger-maintenance
+  cancel-in-progress: false
+
+jobs:
+  maintenance:
+    if: >-
+      github.event_name == 'workflow_dispatch' &&
+      github.repository == 'valerielinc-ops/frontaliere-si-o-no' &&
+      github.ref == 'refs/heads/main' &&
+      github.workflow_ref == 'valerielinc-ops/frontaliere-si-o-no/.github/workflows/fleet-ledger-maintenance.yml@refs/heads/main' &&
+      github.workflow_sha == github.sha
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout reviewed code
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 1
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /functions/package.json
+            /functions/src/githubApiHeaders.js
+            /scripts/ci/attest-fleet-ledger-maintenance.mjs
+            /scripts/ci/mint-app-token.mjs
+            /scripts/ci/prepare-fleet-ledger-migration.mjs
+            /scripts/ci/prepare-fleet-ledger-projection.mjs
+            /scripts/lib/canonical-json-digest.mjs
+            /scripts/lib/fetch-with-ref-timeout.mjs
+            /scripts/lib/githubApiHeaders.mjs
+            /scripts/lib/google-service-account-token.mjs
+            /scripts/lib/is-invoked-directly.mjs
+            /scripts/lib/loop-fleet-ledger-index.mjs
+            /scripts/lib/remote-config-template-url.mjs
+            /scripts/load-rc-env.mjs
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Attest archive and verify candidate
+        id: prepare
+        env:
+          AUTO_PIN: ${{ inputs.auto_pin }}
+          EXPECTED_SHA: ${{ inputs.expected_sha }}
+          CANDIDATE_SHA: ${{ inputs.candidate_sha }}
+          ORDINALS: ${{ inputs.ordinals }}
+          ATTESTATION_SHA256: ${{ inputs.attestation_sha256 }}
+          READ_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          umask 077
+          root=$(mktemp -d "$(realpath "$RUNNER_TEMP")/fleet-maintenance.XXXXXXXX")
+          node scripts/ci/attest-fleet-ledger-maintenance.mjs prepare "$root"
+          echo "root=$root" >> "$GITHUB_OUTPUT"
+
+      - name: Attempt publication with the verified App capability
+        id: app
+        if: ${{ success() && !inputs.dry_run }}
+        env:
+          ROOT: ${{ steps.prepare.outputs.root }}
+          EXPECTED_SHA: ${{ steps.prepare.outputs.expected_sha }}
+          CANDIDATE_SHA: ${{ steps.prepare.outputs.candidate_sha }}
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          READ_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          umask 077
+          trap 'rm -f -- "$ROOT/app.env"' EXIT
+          : > "$ROOT/app.env"
+          # Keep the mint result step-local, including the verified capability.
+          if ! GITHUB_ENV="$ROOT/app.env" node scripts/ci/mint-app-token.mjs >/dev/null 2>&1; then
+            : > "$ROOT/app.env"
+          fi
+          unset APP_ID APP_PRIVATE_KEY
+          result=$(node scripts/ci/attest-fleet-ledger-maintenance.mjs app "$ROOT")
+          echo "result=$result" >> "$GITHUB_OUTPUT"
+
+      - name: Attempt publication once with the reviewed fallback
+        if: ${{ success() && !inputs.dry_run && steps.app.outputs.result == 'fallback' }}
+        env:
+          ROOT: ${{ steps.prepare.outputs.root }}
+          EXPECTED_SHA: ${{ steps.prepare.outputs.expected_sha }}
+          CANDIDATE_SHA: ${{ steps.prepare.outputs.candidate_sha }}
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+          READ_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          umask 077
+          trap 'rm -f -- "$ROOT/firebase-adc.json" "$ROOT/fallback.env"' EXIT
+          test -n "$FIREBASE_SERVICE_ACCOUNT_JSON"
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$ROOT/firebase-adc.json"
+          unset FIREBASE_SERVICE_ACCOUNT_JSON
+          : > "$ROOT/fallback.env"
+          # Reuse the loader without exporting the PAT to the rest of the job.
+          GOOGLE_APPLICATION_CREDENTIALS="$ROOT/firebase-adc.json" GITHUB_ENV="$ROOT/fallback.env" \
+            node scripts/load-rc-env.mjs --only-env=GITHUB_PAT >/dev/null 2>&1
+          rm -f -- "$ROOT/firebase-adc.json"
+          node scripts/ci/attest-fleet-ledger-maintenance.mjs fallback "$ROOT"

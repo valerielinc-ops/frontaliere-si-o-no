@@ -15248,12 +15248,12 @@
     },
     {
       "id": "richemont-5bf9fc004ebd",
-      "slug": "manufacturing-technology-partner-richemont-le-brassus",
+      "slug": "partner-tecnologico-di-produzione-vacheron-constantin-le-brassus",
       "slugByLocale": {
         "fr": "manufacturing-technology-partner-richemont-le-brassus",
-        "it": "manufacturing-technology-partner-richemont-le-brassus",
+        "it": "partner-tecnologico-di-produzione-vacheron-constantin-le-brassus",
         "en": "manufacturing-technology-partner-richemont-le-brassus",
-        "de": "manufacturing-technology-partner-richemont-le-brassus"
+        "de": "partner-fur-fertigungstechnologie-vacheron-constantin-le-brassus"
       },
       "company": "Vacheron Constantin",
       "companyKey": "richemont",
@@ -15316,7 +15316,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:39:32.685Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T09:39:32.685Z"
+      "firstSeenAt": "2026-11-19T09:39:32.685Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manufacturing-technology-partner-richemont-le-brassus"
+        ],
+        "de": [
+          "manufacturing-technology-partner-richemont-le-brassus"
+        ]
+      },
+      "previousSlugs": [
+        "manufacturing-technology-partner-richemont-le-brassus"
+      ]
     },
     {
       "id": "richemont-439923333361",
@@ -15401,12 +15412,12 @@
     },
     {
       "id": "richemont-403b1107b0fa",
-      "slug": "store-planning-project-manager-richemont-plan-les-ouates",
+      "slug": "gestione-del-progetto-di-pianificazione-del-negozio-vacheron-constantin-plan-les-ouates",
       "slugByLocale": {
         "en": "store-planning-project-manager-richemont-plan-les-ouates",
-        "it": "store-planning-project-manager-richemont-plan-les-ouates",
-        "de": "store-planning-project-manager-richemont-plan-les-ouates",
-        "fr": "store-planning-project-manager-richemont-plan-les-ouates"
+        "it": "gestione-del-progetto-di-pianificazione-del-negozio-vacheron-constantin-plan-les-ouates",
+        "de": "store-planning-projektmanager-vacheron-constantin-plan-les-ouates",
+        "fr": "gestionnaire-de-projet-de-planification-des-magasins-vacheron-constantin-plan-les-ouates"
       },
       "company": "Vacheron Constantin",
       "companyKey": "richemont",
@@ -15469,16 +15480,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:39:32.679Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T09:39:32.679Z"
+      "firstSeenAt": "2026-11-19T09:39:32.679Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "store-planning-project-manager-richemont-plan-les-ouates"
+        ],
+        "de": [
+          "store-planning-project-manager-richemont-plan-les-ouates"
+        ],
+        "fr": [
+          "store-planning-project-manager-richemont-plan-les-ouates"
+        ]
+      },
+      "previousSlugs": [
+        "store-planning-project-manager-richemont-plan-les-ouates"
+      ]
     },
     {
       "id": "richemont-37211d9ae573",
-      "slug": "head-of-technology-products-richemont-plan-les-ouates",
+      "slug": "responsabile-technology-products-vacheron-constantin-plan-les-ouates",
       "slugByLocale": {
         "en": "head-of-technology-products-richemont-plan-les-ouates",
-        "it": "head-of-technology-products-richemont-plan-les-ouates",
-        "de": "head-of-technology-products-richemont-plan-les-ouates",
-        "fr": "head-of-technology-products-richemont-plan-les-ouates"
+        "it": "responsabile-technology-products-vacheron-constantin-plan-les-ouates",
+        "de": "leiter-technology-products-vacheron-constantin-plan-les-ouates",
+        "fr": "responsable-technology-products-vacheron-constantin-plan-les-ouates"
       },
       "company": "Vacheron Constantin",
       "companyKey": "richemont",
@@ -15541,7 +15566,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:39:32.678Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T09:32:10.960Z"
+      "firstSeenAt": "2026-11-12T09:32:10.960Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "head-of-technology-products-richemont-plan-les-ouates"
+        ],
+        "de": [
+          "head-of-technology-products-richemont-plan-les-ouates"
+        ],
+        "fr": [
+          "head-of-technology-products-richemont-plan-les-ouates"
+        ]
+      },
+      "previousSlugs": [
+        "head-of-technology-products-richemont-plan-les-ouates"
+      ]
     },
     {
       "id": "richemont-728e2b32efbf",
@@ -15550,7 +15589,7 @@
         "en": "mecanicien-regleur-electroerosion-f-h-richemont-le-brassus",
         "it": "mecanicien-regleur-electroerosion-f-h-richemont-le-brassus",
         "de": "mecanicien-regleur-electroerosion-f-h-richemont-le-brassus",
-        "fr": "mecanicien-regleur-electroerosion-f-h-richemont-le-brassus"
+        "fr": "mecanicien-regulateur-electrique-h-f-vacheron-constantin-le-brassus"
       },
       "company": "Vacheron Constantin",
       "companyKey": "richemont",
@@ -15612,16 +15651,24 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:39:32.675Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T09:39:32.675Z"
+      "firstSeenAt": "2026-11-19T09:39:32.675Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "mecanicien-regleur-electroerosion-f-h-richemont-le-brassus"
+        ]
+      },
+      "previousSlugs": [
+        "mecanicien-regleur-electroerosion-f-h-richemont-le-brassus"
+      ]
     },
     {
       "id": "richemont-b743b808e015",
-      "slug": "mecanicien-regleur-f-h-richemont-le-brassus",
+      "slug": "regolatore-meccanico-m-f-vacheron-constantin-le-brassus",
       "slugByLocale": {
         "fr": "mecanicien-regleur-f-h-richemont-le-brassus",
-        "it": "mecanicien-regleur-f-h-richemont-le-brassus",
-        "en": "mecanicien-regleur-f-h-richemont-le-brassus",
-        "de": "mecanicien-regleur-f-h-richemont-le-brassus"
+        "it": "regolatore-meccanico-m-f-vacheron-constantin-le-brassus",
+        "en": "mechanic-adjuster-m-f-vacheron-constantin-le-brassus",
+        "de": "mechanischer-versteller-m-w-vacheron-constantin-le-brassus"
       },
       "company": "Vacheron Constantin",
       "companyKey": "richemont",
@@ -15682,16 +15729,30 @@
       "streetAddress": "Le Brassus",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:39:32.670Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "mecanicien-regleur-f-h-richemont-le-brassus"
+        ],
+        "en": [
+          "mecanicien-regleur-f-h-richemont-le-brassus"
+        ],
+        "de": [
+          "mecanicien-regleur-f-h-richemont-le-brassus"
+        ]
+      },
+      "previousSlugs": [
+        "mecanicien-regleur-f-h-richemont-le-brassus"
+      ]
     },
     {
       "id": "richemont-945dc9eabc38",
-      "slug": "infrastructure-project-manager-richemont-plan-les-ouates",
+      "slug": "infrastrutture-project-manager-vacheron-constantin-plan-les-ouates",
       "slugByLocale": {
         "en": "infrastructure-project-manager-richemont-plan-les-ouates",
-        "it": "infrastructure-project-manager-richemont-plan-les-ouates",
-        "de": "infrastructure-project-manager-richemont-plan-les-ouates",
-        "fr": "infrastructure-project-manager-richemont-plan-les-ouates"
+        "it": "infrastrutture-project-manager-vacheron-constantin-plan-les-ouates",
+        "de": "infrastrukturprojektmanager-vacheron-constantin-plan-les-ouates",
+        "fr": "gestionnaire-de-projet-d-infrastructure-vacheron-constantin-plan-les-ouates"
       },
       "company": "Vacheron Constantin",
       "companyKey": "richemont",
@@ -15754,7 +15815,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:39:32.664Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T09:39:32.664Z"
+      "firstSeenAt": "2026-11-19T09:39:32.664Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infrastructure-project-manager-richemont-plan-les-ouates"
+        ],
+        "de": [
+          "infrastructure-project-manager-richemont-plan-les-ouates"
+        ],
+        "fr": [
+          "infrastructure-project-manager-richemont-plan-les-ouates"
+        ]
+      },
+      "previousSlugs": [
+        "infrastructure-project-manager-richemont-plan-les-ouates"
+      ]
     },
     {
       "id": "richemont-5ebd2adf08e5",
@@ -16171,12 +16246,12 @@
     },
     {
       "id": "richemont-4391237e6556",
-      "slug": "responsable-controlling-produits-richemont-le-cret-du-locle",
+      "slug": "gestione-dei-prodotti-di-controllo-cartier-manufacture-le-cret-du-locle",
       "slugByLocale": {
         "fr": "responsable-controlling-produits-richemont-le-cret-du-locle",
-        "it": "responsable-controlling-produits-richemont-le-cret-du-locle",
-        "en": "responsable-controlling-produits-richemont-le-cret-du-locle",
-        "de": "responsable-controlling-produits-richemont-le-cret-du-locle"
+        "it": "gestione-dei-prodotti-di-controllo-cartier-manufacture-le-cret-du-locle",
+        "en": "controlling-products-manager-cartier-manufacture-le-cret-du-locle",
+        "de": "controlling-product-manager-cartier-manufacture-le-cret-du-locle"
       },
       "company": "Cartier Manufacture",
       "companyKey": "richemont",
@@ -16238,7 +16313,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T09:39:32.654Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T09:39:32.654Z"
+      "firstSeenAt": "2026-11-19T09:39:32.654Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-controlling-produits-richemont-le-cret-du-locle"
+        ],
+        "en": [
+          "responsable-controlling-produits-richemont-le-cret-du-locle"
+        ],
+        "de": [
+          "responsable-controlling-produits-richemont-le-cret-du-locle"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-controlling-produits-richemont-le-cret-du-locle"
+      ]
     },
     {
       "id": "richemont-f2960de36239",

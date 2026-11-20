@@ -13731,6 +13731,11 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-11-15.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
     'blog.article.bollettino-frontaliere-2026-11-15.seoDescription': 'Bulletin frontalier 15 novembre 2026 : attentes aux douanes, prix du carburant, taux CHF/EUR et offres d\'emploi actives en Suisse.',
     'blog.article.bollettino-frontaliere-2026-11-15.ogDescription': 'Les chiffres du 15 novembre 2026 pour les frontaliers : attentes aux douanes, communes où le carburant coûte le moins cher, dernier taux CHF/EUR et offres d\'emploi actives sur notre job board suisse au quotidien.',
+    'blog.article.bollettino-frontaliere-2026-11-19.title': 'Frontaliers : les relevés disponibles aujourd’hui — 19 novembre 2026',
+    'blog.article.bollettino-frontaliere-2026-11-19.excerpt': 'Les chiffres du jour, 19 novembre 2026, pour les frontaliers : les dernières attentes aux douanes, les communes où le carburant coûte le moins cher, le taux franc-euro et les offres d\'emploi actives en Suisse sur notre job board. Relevés quotidiens de notre suivi.',
+    'blog.article.bollettino-frontaliere-2026-11-19.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.bollettino-frontaliere-2026-11-19.seoDescription': 'Bulletin frontalier 19 novembre 2026 : attentes aux douanes, prix du carburant, taux CHF/EUR et offres d\'emploi actives en Suisse.',
+    'blog.article.bollettino-frontaliere-2026-11-19.ogDescription': 'Les chiffres du 19 novembre 2026 pour les frontaliers : attentes aux douanes, communes où le carburant coûte le moins cher, dernier taux CHF/EUR et offres d\'emploi actives sur notre job board suisse au quotidien.',
 };
 
 export default blogMetaFr;

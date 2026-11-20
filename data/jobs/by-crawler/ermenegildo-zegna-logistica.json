@@ -155,7 +155,7 @@
       },
       "streetAddress": "Via Lugano 13",
       "postalCode": "6855",
-      "firstSeenAt": "2026-10-23T09:38:18.202Z",
+      "firstSeenAt": "2026-10-22T21:23:38.970Z",
       "previousSlugsByLocale": {
         "it": [
           "group-control-specialist-zegna"
@@ -172,7 +172,8 @@
       ],
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-22T09:33:59.807Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.zegnagroup.com/jobs/job-details?jobid=278031009&team=231361275"
     },
     {
       "url": "https://careers.zegnagroup.com/jobs/job-details?JobID=278658815&Team=242459886",
@@ -257,7 +258,8 @@
       ],
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-19T09:33:58.550Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.zegnagroup.com/jobs/job-details?jobid=278658815&team=242459886"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "sika",
-  "assembledAt": "2026-11-19T09:59:45.779Z",
-  "runId": "44494428202",
+  "assembledAt": "2026-11-19T21:27:53.190Z",
+  "runId": "44616815052",
   "jobs": [
     {
       "id": "sika-830dc4ea55aa",
@@ -34,7 +34,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-801917fc-80ba-4766-a2ec-8beac8c4bb54.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:59:39.958Z",
+      "crawledAt": "2026-11-19T21:27:44.008Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Zürich",
@@ -77,7 +77,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:59:39.958Z",
+      "validThrough": "2026-12-19T21:27:44.008Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -111,7 +111,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-06c3ea52-4733-4376-92fa-edc4842d799a.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:59:38.406Z",
+      "crawledAt": "2026-11-19T21:27:42.485Z",
       "addressLocality": "Düdingen",
       "postalCode": "3186",
       "streetAddress": "Düdingen",
@@ -157,8 +157,91 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:59:38.406Z",
+      "validThrough": "2026-12-19T21:27:42.485Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "sika-eddd20ef7319",
+      "slug": "senior-technical-consulente-sap-development-transportation-management-sika-zurich",
+      "slugByLocale": {
+        "en": "senior-technical-consultant-sap-development-transportation-management-sika-ch",
+        "de": "senior-technical-berater-sap-development-transportation-management-sika-zurich",
+        "fr": "consultant-technique-principal-gestion-des-transports-sika-zurich-zurich-switzerland",
+        "it": "senior-technical-consulente-sap-development-transportation-management-sika-zurich"
+      },
+      "company": "Sika",
+      "companyKey": "sika",
+      "companyDomain": "sika.com",
+      "title": "SAP Technical Project Manager",
+      "titleByLocale": {
+        "en": "SAP Technical Project Manager",
+        "it": "Project manager tecnico SAP",
+        "de": "SAP Technischer Projektmanager",
+        "fr": "Gestionnaire de projet technique SAP"
+      },
+      "description": "About the Role\nWe are looking for an experienced and technically proficient SAP Technical Project Manager to lead and coordinate SAP technology initiatives across our global SAP landscape.\nThe ideal candidate combines a solid technical background in at least one of the core SAP technology domains — SAP Basis, SAP Development, or SAP Integration — with strong project management, communication, and organizational capabilities.\nKey Responsibilities\nTechnical Project Management\n\n• Lead end-to-end SAP technical projects, from initiation and planning through implementation, testing, go-live, and hypercare.\n\n• Define project scope, deliverables, milestones, resource requirements, dependencies, and timelines.\n\n• Coordinate technical activities across SAP Basis, Development, Integration, Security, Infrastructure, and other relevant IT teams.\n\n• Manage project risks, issues, dependencies, and escalations, proactively identifying potential delivery obstacles.\n\n• Ensure technical solutions are aligned with enterprise architecture, IT security standards, and SAP best practices.\n\n• Monitor project progress, communicate status to stakeholders, and ensure timely delivery within agreed scope, quality, and budget.\n\n• Organize technical workshops, project meetings, and decision-making sessions with internal and external stakeholders.\nSAP Technology Coordination\n\n• Coordinate technical initiatives involving SAP S/4HANA, SAP Business Technology Platform (BTP), and connected SAP and non-SAP solutions.\n\n• Lead and implement new technology platforms in the areas of logistics, transportation and supply chain, such as BN4L, GTT\n\n• Manage technical activities related to SAP upgrades, migrations, system transformations, infrastructure modernization, and cloud adoption.\n\n• Support integration projects involving SAP Integration Suite, APIs, middleware, and interfaces between enterprise applications.\n\n• Coordinate SAP development initiatives involving ABAP, enhancements, custom applications, and technical remediation.\n\n• Oversee technical readiness activities, including environment preparation, technical testing, cutover planning, deployment, and production stabilization.\n\n• Understand technical dependencies between SAP systems, integrations, applications, and infrastructure components.\n\n• Facilitate technical discussions and ensure that proposed solutions are feasible, supportable, secure, and aligned with the overall SAP strategy.\nStakeholder and Vendor Management\n\n• Act as the central coordination point between technical teams, functional teams, business stakeholders, and external partners.\n\n• Translate technical challenges into clear business impacts, risks, and recommendations.\n\n• Coordinate internal resources, external consultants, and implementation partners across multiple countries and time zones.\n\n• Ensure effective communication, accountability, and transparency throughout project execution.\n\n• Manage technical escalations and facilitate timely resolution of cross-team dependencies.\n\n• Collaborate with SAP architects, technical leads, and service owners to support architectural and implementation decisions.\nGovernance, Quality and Operational Readiness\n\n• Ensure projects follow established IT governance, change management, documentation, and security processes.\n\n• Coordinate technical design reviews, testing strategies, implementation approvals, and go-live readiness assessments.\n\n• Ensure adequate knowledge transfer, technical documentation, monitoring, and operational handover to support teams.\n\n• Identify opportunities for standardization, automation, technical simplification, and continuous improvement.\n\n• Contribute to the development and execution of the SAP technology roadmap.\n\nYour Skills and Experience\n• Bachelor's or Master's degree in Computer Science, Information Technology, Engineering, or a related field, or equivalent professional experience.\n\n• Several years of professional experience working in SAP technical environments, combined with demonstrated experience coordinating or managing IT projects.\n\n• Strong hands-on technical background, current or previous, in at least one of the following areas:\n• SAP Basis: SAP system administration, architecture, upgrades, migrations, system landscapes, SAP HANA, or technical operations.\n\n• SAP Development: ABAP development, SAP extensibility, custom applications, enhancements, or technical development architecture.\n\n• SAP Integration: SAP Integration Suite, SAP Process Orchestration, APIs, middleware, interfaces, or enterprise integration architecture.\n\n• Good understanding of SAP system landscapes, technical dependencies, and the interaction between SAP applications and infrastructure.\n\n• Proven ability to plan, organize, coordinate, and deliver complex technical initiatives involving multiple teams.\n\n• Strong analytical and problem-solving skills, with the ability to understand technical challenges and facilitate practical solutions.\n\n• Excellent communication, stakeholder management, and presentation skills.\n\n• Ability to work effectively in a global, multicultural environment with distributed teams.\n\n• Strong organizational skills, ownership mindset, and ability to manage competing priorities.\n\n• Fluent English, both written and spoken.\nPreferred Qualifications\n\n• Experience with SAP S/4HANA technical upgrades, migrations, or transformation programs.\n\n• Familiarity with SAP BTP, SAP Integration Suite, SAP Cloud ALM, and modern SAP cloud architectures.\n\n• Exposure to SAP RISE with SAP, hybrid landscapes, or cloud migration projects.\n\n• Knowledge of SAP technical change management, transport management, release management, and deployment processes.\n\n• Familiarity with ITIL, Agile, Scrum, or traditional project management methodologies.\n\n• Project management certification such as PMP, PRINCE2, or equivalent is an advantage.\n\n• Experience coordinating external service providers, system integrators, and managed service partners.\n\n• Knowledge of IT security, authorization concepts, and technical governance.\n\n• German language skills are an advantage.\nPersonal Competencies\n\n• Technically credible: Comfortable discussing SAP technical subjects with specialists and understanding the implications of proposed solutions.\n\n• Delivery-oriented: Focused on results, accountability, deadlines, and successful project execution.\n\n• Proactive and structured: Able to anticipate risks, establish priorities, and drive activities without constant supervision.\n\n• Strong communicator: Capable of adapting communication to both technical experts and non-technical stakeholders.\n\n• Collaborative leader: Able to coordinate and motivate multidisciplinary teams without necessarily having direct line-management authority.\n\n• Pragmatic problem-solver: Able to balance technical quality, business requirements, timelines, and available resources.\n\n• Adaptable and curious: Interested in evolving SAP technologies, cloud platforms, automation, and emerging digital capabilities.\n\nWhy Join Us\n• The opportunity to manage impactful SAP technology initiatives within a global enterprise environment.\n\n• Exposure to a diverse SAP landscape, including S/4HANA, SAP BTP, enterprise integration, and cloud transformation technologies.\n\n• Collaboration with experienced international SAP teams and technology partners.\n\n• A role combining technical depth, project leadership, and strategic technology transformation.\n\n• Opportunities for professional development and involvement in innovative SAP initiatives.\n\nWe offer competitive salaries, aligned with local market benchmarks and the specific scope and responsibilities of each role. Compensation is determined based skills relevant to the position, education and/or training. We are committed to fair and equitable pay practices in accordance with applicable laws and regulations.\n\nAbout Sika\nSika is a specialty chemicals company with a globally leading position in the development and production of systems and products for bonding, sealing, damping, reinforcing, and protection in the building sector and industrial manufacturing. Sika has subsidiaries in 103 countries around the world and, in over 400 factories, produces innovative technologies for customers worldwide. In doing so, it plays a crucial role in enabling the transformation of the construction and transportation sector toward greater environmental compatibility. With more than 33,000 employees, the company generated sales of CHF 11.20 billion in 2025.",
+      "descriptionByLocale": {
+        "en": "About the Role\nWe are looking for an experienced and technically proficient SAP Technical Project Manager to lead and coordinate SAP technology initiatives across our global SAP landscape.\nThe ideal candidate combines a solid technical background in at least one of the core SAP technology domains — SAP Basis, SAP Development, or SAP Integration — with strong project management, communication, and organizational capabilities.\nKey Responsibilities\nTechnical Project Management\n\n• Lead end-to-end SAP technical projects, from initiation and planning through implementation, testing, go-live, and hypercare.\n\n• Define project scope, deliverables, milestones, resource requirements, dependencies, and timelines.\n\n• Coordinate technical activities across SAP Basis, Development, Integration, Security, Infrastructure, and other relevant IT teams.\n\n• Manage project risks, issues, dependencies, and escalations, proactively identifying potential delivery obstacles.\n\n• Ensure technical solutions are aligned with enterprise architecture, IT security standards, and SAP best practices.\n\n• Monitor project progress, communicate status to stakeholders, and ensure timely delivery within agreed scope, quality, and budget.\n\n• Organize technical workshops, project meetings, and decision-making sessions with internal and external stakeholders.\nSAP Technology Coordination\n\n• Coordinate technical initiatives involving SAP S/4HANA, SAP Business Technology Platform (BTP), and connected SAP and non-SAP solutions.\n\n• Lead and implement new technology platforms in the areas of logistics, transportation and supply chain, such as BN4L, GTT\n\n• Manage technical activities related to SAP upgrades, migrations, system transformations, infrastructure modernization, and cloud adoption.\n\n• Support integration projects involving SAP Integration Suite, APIs, middleware, and interfaces between enterprise applications.\n\n• Coordinate SAP development initiatives involving ABAP, enhancements, custom applications, and technical remediation.\n\n• Oversee technical readiness activities, including environment preparation, technical testing, cutover planning, deployment, and production stabilization.\n\n• Understand technical dependencies between SAP systems, integrations, applications, and infrastructure components.\n\n• Facilitate technical discussions and ensure that proposed solutions are feasible, supportable, secure, and aligned with the overall SAP strategy.\nStakeholder and Vendor Management\n\n• Act as the central coordination point between technical teams, functional teams, business stakeholders, and external partners.\n\n• Translate technical challenges into clear business impacts, risks, and recommendations.\n\n• Coordinate internal resources, external consultants, and implementation partners across multiple countries and time zones.\n\n• Ensure effective communication, accountability, and transparency throughout project execution.\n\n• Manage technical escalations and facilitate timely resolution of cross-team dependencies.\n\n• Collaborate with SAP architects, technical leads, and service owners to support architectural and implementation decisions.\nGovernance, Quality and Operational Readiness\n\n• Ensure projects follow established IT governance, change management, documentation, and security processes.\n\n• Coordinate technical design reviews, testing strategies, implementation approvals, and go-live readiness assessments.\n\n• Ensure adequate knowledge transfer, technical documentation, monitoring, and operational handover to support teams.\n\n• Identify opportunities for standardization, automation, technical simplification, and continuous improvement.\n\n• Contribute to the development and execution of the SAP technology roadmap.\n\nYour Skills and Experience\n• Bachelor's or Master's degree in Computer Science, Information Technology, Engineering, or a related field, or equivalent professional experience.\n\n• Several years of professional experience working in SAP technical environments, combined with demonstrated experience coordinating or managing IT projects.\n\n• Strong hands-on technical background, current or previous, in at least one of the following areas:\n• SAP Basis: SAP system administration, architecture, upgrades, migrations, system landscapes, SAP HANA, or technical operations.\n\n• SAP Development: ABAP development, SAP extensibility, custom applications, enhancements, or technical development architecture.\n\n• SAP Integration: SAP Integration Suite, SAP Process Orchestration, APIs, middleware, interfaces, or enterprise integration architecture.\n\n• Good understanding of SAP system landscapes, technical dependencies, and the interaction between SAP applications and infrastructure.\n\n• Proven ability to plan, organize, coordinate, and deliver complex technical initiatives involving multiple teams.\n\n• Strong analytical and problem-solving skills, with the ability to understand technical challenges and facilitate practical solutions.\n\n• Excellent communication, stakeholder management, and presentation skills.\n\n• Ability to work effectively in a global, multicultural environment with distributed teams.\n\n• Strong organizational skills, ownership mindset, and ability to manage competing priorities.\n\n• Fluent English, both written and spoken.\nPreferred Qualifications\n\n• Experience with SAP S/4HANA technical upgrades, migrations, or transformation programs.\n\n• Familiarity with SAP BTP, SAP Integration Suite, SAP Cloud ALM, and modern SAP cloud architectures.\n\n• Exposure to SAP RISE with SAP, hybrid landscapes, or cloud migration projects.\n\n• Knowledge of SAP technical change management, transport management, release management, and deployment processes.\n\n• Familiarity with ITIL, Agile, Scrum, or traditional project management methodologies.\n\n• Project management certification such as PMP, PRINCE2, or equivalent is an advantage.\n\n• Experience coordinating external service providers, system integrators, and managed service partners.\n\n• Knowledge of IT security, authorization concepts, and technical governance.\n\n• German language skills are an advantage.\nPersonal Competencies\n\n• Technically credible: Comfortable discussing SAP technical subjects with specialists and understanding the implications of proposed solutions.\n\n• Delivery-oriented: Focused on results, accountability, deadlines, and successful project execution.\n\n• Proactive and structured: Able to anticipate risks, establish priorities, and drive activities without constant supervision.\n\n• Strong communicator: Capable of adapting communication to both technical experts and non-technical stakeholders.\n\n• Collaborative leader: Able to coordinate and motivate multidisciplinary teams without necessarily having direct line-management authority.\n\n• Pragmatic problem-solver: Able to balance technical quality, business requirements, timelines, and available resources.\n\n• Adaptable and curious: Interested in evolving SAP technologies, cloud platforms, automation, and emerging digital capabilities.\n\nWhy Join Us\n• The opportunity to manage impactful SAP technology initiatives within a global enterprise environment.\n\n• Exposure to a diverse SAP landscape, including S/4HANA, SAP BTP, enterprise integration, and cloud transformation technologies.\n\n• Collaboration with experienced international SAP teams and technology partners.\n\n• A role combining technical depth, project leadership, and strategic technology transformation.\n\n• Opportunities for professional development and involvement in innovative SAP initiatives.\n\nWe offer competitive salaries, aligned with local market benchmarks and the specific scope and responsibilities of each role. Compensation is determined based skills relevant to the position, education and/or training. We are committed to fair and equitable pay practices in accordance with applicable laws and regulations.\n\nAbout Sika\nSika is a specialty chemicals company with a globally leading position in the development and production of systems and products for bonding, sealing, damping, reinforcing, and protection in the building sector and industrial manufacturing. Sika has subsidiaries in 103 countries around the world and, in over 400 factories, produces innovative technologies for customers worldwide. In doing so, it plays a crucial role in enabling the transformation of the construction and transportation sector toward greater environmental compatibility. With more than 33,000 employees, the company generated sales of CHF 11.20 billion in 2025.",
+        "it": "Informazioni sul ruolo\nStiamo cercando un SAP Technical Project Manager esperto e tecnicamente competente per guidare e coordinare le iniziative tecnologiche SAP nel nostro panorama globale SAP.\nIl candidato ideale combina un solido background tecnico in almeno uno dei domini principali della tecnologia SAP – SAP Basis, SAP Development o SAP Integration – con forti capacità di gestione, comunicazione e organizzazione del progetto.\nPrincipali responsabilità\nGestione dei progetti tecnici\n\n• Guida progetti tecnici SAP end-to-end, dall'avvio e dalla pianificazione attraverso l'implementazione, test, go-live e ipercare.\n\n• Definire la portata del progetto, i risultati, le pietre miliari, i requisiti delle risorse, le dipendenze e i tempi.\n\n• Coordinare le attività tecniche in SAP Basis, Development, Integration, Security, Infrastructure e altri team IT rilevanti.\n\n• Gestire i rischi del progetto, i problemi, le dipendenze e le escalation, identificare proattivamente potenziali ostacoli di consegna.\n\n• Assicurarsi che le soluzioni tecniche siano allineate con l'architettura aziendale, gli standard di sicurezza IT e le migliori pratiche SAP.\n\n• Monitorare il progresso del progetto, comunicare lo stato alle parti interessate, e garantire la consegna tempestiva all'interno di ambito concordato, qualità e budget.\n\n• Organizza workshop tecnici, riunioni di progetto e sessioni decisionali con stakeholder interni ed esterni.\nSAP Technology Coordinamento\n\n• Coordinate le iniziative tecniche che coinvolgono SAP S/4HANA, SAP Business Technology Platform (BTP), e le soluzioni SAP e non-SAP connesse.\n\n• Guida e implementa nuove piattaforme tecnologiche nei settori della logistica, del trasporto e della supply chain, come BN4L, GTT\n\n• Gestisci le attività tecniche relative agli aggiornamenti SAP, alle migrazioni, alle trasformazioni di sistema, all'ammodernamento delle infrastrutture e all'adozione del cloud.\n\n• Progetti di integrazione di supporto che coinvolgono SAP Integration Suite, API, middleware e interfacce tra applicazioni aziendali.\n\n• Coordinate le iniziative di sviluppo SAP che coinvolgono ABAP, miglioramenti, applicazioni personalizzate e bonifica tecnica.\n\n• Superare le attività di prontezza tecnica, tra cui la preparazione dell'ambiente, i test tecnici, la pianificazione dei tagli, la distribuzione e la stabilizzazione della produzione.\n\n• Comprendere le dipendenze tecniche tra sistemi SAP, integrazioni, applicazioni e componenti infrastrutturali.\n\n• Facilitare le discussioni tecniche e garantire che le soluzioni proposte siano possibili, supportabili, sicure e allineate alla strategia globale SAP.\nGestione Stakeholder e Vendor\n\n• Agire come punto di coordinamento centrale tra team tecnici, team funzionali, stakeholder aziendali e partner esterni.\n\n• Traduci sfide tecniche in chiari impatti aziendali, rischi e raccomandazioni.\n\n• Coordinare risorse interne, consulenti esterni e partner di implementazione in più paesi e fusi orari.\n\n• Assicurare una comunicazione efficace, responsabilità e trasparenza durante l'esecuzione del progetto.\n\n• Gestire l'escalation tecnica e facilitare la risoluzione tempestiva delle dipendenze cross-team.\n\n• Collabora con architetti SAP, guide tecniche e proprietari di servizi per sostenere le decisioni di architettura e attuazione.\nGovernance, qualità e disponibilità operativa\n\n• Assicurare che i progetti seguano la governance IT consolidata, la gestione dei cambiamenti, la documentazione e i processi di sicurezza.\n\n• Coordinare le recensioni di progettazione tecnica, le strategie di test, le approvazioni di attuazione e le valutazioni di prontezza di go-live.\n\n• Assicurare un adeguato trasferimento di conoscenze, documentazione tecnica, monitoraggio e consegna operativa ai team di supporto.\n\n• Identificare opportunità di standardizzazione, automazione, semplificazione tecnica e miglioramento continuo.\n\n• Contribuisci allo sviluppo e all'esecuzione della roadmap tecnologica SAP.\n\nLe tue abilità ed esperienza\n• Corso di laurea o Master in Informatica, Informatica, Ingegneria, o un campo correlato, o equivalente esperienza professionale.\n\n• Diversi anni di esperienza professionale che lavorano in ambienti tecnici SAP, combinati con esperienza dimostrata coordinare o gestire progetti IT.\n\n• Forte background tecnico pratico, attuale o precedente, in almeno una delle seguenti aree:\n• SAP Basis: amministrazione del sistema SAP, architettura, aggiornamenti, migrazioni, paesaggi di sistema, SAP HANA, o operazioni tecniche.\n\n• SAP Development: sviluppo ABAP, esttensibilità SAP, applicazioni personalizzate, miglioramenti o architettura di sviluppo tecnico.\n\n• SAP Integration: SAP Integration Suite, SAP Process Orchestration, API, middleware, interfacce o architettura di integrazione aziendale.\n\n• Buona comprensione dei paesaggi del sistema SAP, delle dipendenze tecniche e dell'interazione tra applicazioni SAP e infrastrutture.\n\n• Prove capacità di pianificare, organizzare, coordinare e fornire complesse iniziative tecniche che coinvolgono più team.\n\n• Forte capacità analitiche e di problem solving, con la capacità di comprendere le sfide tecniche e facilitare soluzioni pratiche.\n\n• Ottima comunicazione, gestione delle parti interessate e capacità di presentazione.\n\n• Capacità di lavorare efficacemente in un ambiente globale e multiculturale con team distribuiti.\n\n• Forte capacità organizzative, mentalità di proprietà e capacità di gestire le priorità concorrenti.\n\n• Inglese fluente, sia scritto che parlato.\nPreferiti\n\n• Esperienza con SAP S/4HANA aggiornamenti tecnici, migrazioni o programmi di trasformazione.\n\n• Familiarità con SAP BTP, SAP Integration Suite, SAP Cloud ALM e moderne architetture cloud SAP.\n\n• Esposizione a SAP RISE con SAP, paesaggi ibridi o progetti di migrazione cloud.\n\n• Conoscenza dei processi di gestione dei cambiamenti tecnici SAP, gestione dei trasporti, gestione del rilascio e distribuzione.\n\n• Familiarità con ITIL, Agile, Scrum o metodologie di gestione del progetto tradizionali.\n\n• La certificazione di gestione del progetto come PMP, PRINCE2, o equivalente è un vantaggio.\n\n• Esperienza coordinando fornitori di servizi esterni, integratori di sistema e partner di servizi gestiti.\n\n• Conoscenza della sicurezza informatica, concetti di autorizzazione e governance tecnica.\n\n• Le competenze linguistiche tedesche sono un vantaggio.\nCompetenze personali\n\n• Tecnicamente credibile: Confortevole discutere temi tecnici SAP con specialisti e comprendere le implicazioni delle soluzioni proposte.\n\n• Concentrati sui risultati, sulla responsabilità, sulle scadenze e sull'esecuzione del progetto di successo.\n\n• Proattivo e strutturato: In grado di anticipare i rischi, stabilire le priorità e guidare attività senza supervisione costante.\n\n• Forte comunicatore: Capacità di adattare la comunicazione sia a esperti tecnici che a soggetti non tecnici.\n\n• Leader collaborativo: in grado di coordinare e motivare i team multidisciplinari senza avere necessariamente un'autorità diretta di gestione della linea.\n\n• Pragmatic problem-solver: in grado di bilanciare la qualità tecnica, i requisiti aziendali, le linee temporali e le risorse disponibili.\n\n• Adattabile e curioso: Interessato all'evoluzione delle tecnologie SAP, piattaforme cloud, automazione e capacità digitali emergenti.\n\nPerché unirsi a noi\n• L'opportunità di gestire le iniziative tecnologiche SAP efficaci in un ambiente aziendale globale.\n\n• Esposizione a un paesaggio SAP diverso, tra cui S/4HANA, SAP BTP, integrazione aziendale e tecnologie di trasformazione cloud.\n\n• Collaborazione con team SAP internazionali esperti e partner tecnologici.\n\n• Un ruolo che unisce profondità tecnica, leadership di progetto e trasformazione tecnologica strategica.\n\n• Opportunità per lo sviluppo professionale e il coinvolgimento in iniziative SAP innovative.\n\nOffriamo stipendi competitivi, allineati con i benchmark del mercato locale e la portata e le responsabilità specifiche di ogni ruolo. Il compenso è determinato competenze basate rilevanti per la posizione, l'istruzione e/o la formazione. Ci impegniamo a pratiche di pagamento equa ed equa in conformità con le leggi e i regolamenti applicabili.\n\nA proposito di Sika\nSika è una società specializzata di prodotti chimici con una posizione leader a livello globale nello sviluppo e nella produzione di sistemi e prodotti per l'associazione, la sigillatura, l'umidificazione, il rafforzamento e la protezione nel settore dell'edilizia e della produzione industriale. Sika ha filiali in 103 paesi in tutto il mondo e, in oltre 400 fabbriche, produce tecnologie innovative per i clienti in tutto il mondo. In tal modo, svolge un ruolo cruciale nel consentire la trasformazione del settore delle costruzioni e dei trasporti verso una maggiore compatibilità ambientale. Con oltre 33.000 dipendenti, la società ha generato vendite di CHF 11.20 miliardi nel 2025.",
+        "de": "Über die Rolle\nWir suchen einen erfahrenen und technisch kompetenten SAP Technical Project Manager, der SAP-Technologieinitiativen in unserer globalen SAP-Landschaft leitet und koordiniert.\nDer ideale Kandidat kombiniert einen soliden technischen Hintergrund in mindestens einem der Kernbereiche der SAP-Technologie - SAP Basis, SAP Development oder SAP Integration - mit starken Projektmanagement-, Kommunikations- und Organisationsfähigkeiten.\nWichtigste Zuständigkeiten\nTechnisches Projektmanagement\n\n• Führen Sie durchgängige technische SAP-Projekte von der Initiierung und Planung über die Implementierung, das Testen, Go-Live und Hypercare.\n\n• Definieren Sie Projektumfang, Deliverables, Meilensteine, Ressourcenanforderungen, Abhängigkeiten und Zeitpläne.\n\n• Koordinieren Sie die technischen Aktivitäten in SAP Basis, Entwicklung, Integration, Sicherheit, Infrastruktur und anderen relevanten IT-Teams.\n\n• Verwalten Sie Projektrisiken, Probleme, Abhängigkeiten und Eskalationen und identifizieren Sie proaktiv potenzielle Lieferhindernisse.\n\n• Sicherstellen, dass die technischen Lösungen an der Unternehmensarchitektur, den IT-Sicherheitsstandards und den Best Practices von SAP ausgerichtet sind.\n\n• Überwachen Sie den Projektfortschritt, kommunizieren Sie den Status an die Stakeholder und sorgen Sie für eine rechtzeitige Lieferung innerhalb des vereinbarten Umfangs, der vereinbarten Qualität und des vereinbarten Budgets.\n\n• Organisieren Sie technische Workshops, Projekttreffen und Entscheidungssitzungen mit internen und externen Stakeholdern.\nSAP Technology Koordination\n\n• Koordinieren Sie technische Initiativen mit SAP S/4HANA, SAP Business Technology Platform (BTP) und verbundenen SAP- und Nicht-SAP-Lösungen.\n\n• Führen und implementieren Sie neue Technologieplattformen in den Bereichen Logistik, Transport und Lieferkette, wie BN4L, GTT\n\n• Verwalten Sie technische Aktivitäten im Zusammenhang mit SAP-Upgrades, Migrationen, Systemtransformationen, Infrastrukturmodernisierung und Cloud-Einführung.\n\n• Unterstützung von Integrationsprojekten mit SAP Integration Suite, APIs, Middleware und Schnittstellen zwischen Unternehmensanwendungen.\n\n• Koordinieren Sie SAP-Entwicklungsinitiativen mit ABAP, Erweiterungen, benutzerdefinierten Anwendungen und technischer Behebung.\n\n• Beaufsichtigen Sie die technischen Bereitschaftsaktivitäten, einschließlich der Vorbereitung der Umgebung, der technischen Tests, der Planung, des Einsatzes und der Produktionsstabilisierung.\n\n• Verstehen Sie technische Abhängigkeiten zwischen SAP-Systemen, Integrationen, Anwendungen und Infrastrukturkomponenten.\n\n• Erleichtern Sie die technischen Diskussionen und stellen Sie sicher, dass die vorgeschlagenen Lösungen machbar, tragfähig, sicher und an der gesamten SAP-Strategie ausgerichtet sind.\nStakeholder und Vendor Management\n\n• Handeln Sie als zentraler Koordinationspunkt zwischen technischen Teams, funktionalen Teams, geschäftlichen Stakeholdern und externen Partnern.\n\n• Übersetzen Sie technische Herausforderungen in klare Geschäftsauswirkungen, Risiken und Empfehlungen.\n\n• Koordinieren Sie interne Ressourcen, externe Berater und Implementierungspartner in mehreren Ländern und Zeitzonen.\n\n• Gewährleistung einer effektiven Kommunikation, Rechenschaftspflicht und Transparenz während der gesamten Projektdurchführung.\n\n• Verwalten Sie technische Eskalationen und erleichtern Sie die zeitnahe Auflösung teamübergreifender Abhängigkeiten.\n\n• Arbeiten Sie mit SAP-Architekten, technischen Leitern und Service-Eigentümern zusammen, um Architektur- und Implementierungsentscheidungen zu unterstützen.\nGovernance, Qualität und operative Bereitschaft\n\n• Sicherstellen, dass Projekte etablierten IT-Governance-, Change-Management-, Dokumentations- und Sicherheitsprozessen folgen.\n\n• Koordinieren Sie technische Designprüfungen, Teststrategien, Implementierungsgenehmigungen und Go-Live-Bereitschaftsbewertungen.\n\n• Gewährleistung eines angemessenen Wissenstransfers, der technischen Dokumentation, der Überwachung und der operativen Übergabe an die unterstützenden Teams.\n\n• Identifizieren Sie Möglichkeiten für Standardisierung, Automatisierung, technische Vereinfachung und kontinuierliche Verbesserung.\n\n• Beitrag zur Entwicklung und Umsetzung der SAP-Technologie-Roadmap.\n\nIhre Fähigkeiten und Erfahrungen\n• Bachelor- oder Master-Abschluss in Informatik, Informationstechnologie, Ingenieurwesen oder einem verwandten Bereich oder gleichwertige Berufserfahrung.\n\n• Mehrjährige Berufserfahrung in technischen SAP-Umgebungen, kombiniert mit nachgewiesener Erfahrung bei der Koordination oder Verwaltung von IT-Projekten.\n\n• Starker praktischer technischer Hintergrund, aktuell oder früher, in mindestens einem der folgenden Bereiche:\n• SAP Basis: SAP Systemadministration, Architektur, Upgrades, Migrationen, Systemlandschaften, SAP HANA oder technische Operationen.\n\n• SAP Entwicklung: ABAP Entwicklung, SAP Erweiterbarkeit, benutzerdefinierte Anwendungen, Erweiterungen oder technische Entwicklungsarchitektur.\n\n• SAP Integration: SAP Integration Suite, SAP Process Orchestration, APIs, Middleware, Interfaces oder Enterprise Integration Architecture.\n\n• Gutes Verständnis von SAP-Systemlandschaften, technischen Abhängigkeiten und der Interaktion zwischen SAP-Anwendungen und Infrastruktur.\n\n• Bewährte Fähigkeit, komplexe technische Initiativen mit mehreren Teams zu planen, zu organisieren, zu koordinieren und durchzuführen.\n\n• Starke analytische und problemlösende Fähigkeiten, mit der Fähigkeit, technische Herausforderungen zu verstehen und praktische Lösungen zu erleichtern.\n\n• Hervorragende Kommunikation, Stakeholder-Management und Präsentation Fähigkeiten.\n\n• Fähigkeit, effektiv in einem globalen, multikulturellen Umfeld mit verteilten Teams zu arbeiten.\n\n• Starke organisatorische Fähigkeiten, Eigentumsdenken und Fähigkeit, konkurrierende Prioritäten zu verwalten.\n\n• fließendes Englisch, geschrieben und gesprochen.\nBevorzugte Qualifikationen\n\n• Erfahrung mit technischen Upgrades, Migrationen oder Transformationsprogrammen von SAP S/4HANA.\n\n• Vertrautheit mit SAP BTP, SAP Integration Suite, SAP Cloud ALM und modernen SAP Cloud-Architekturen.\n\n• SAP RISE mit SAP, hybriden Landschaften oder Cloud-Migrationsprojekten\n\n• Kenntnisse im technischen Change Management, Transport Management, Release Management und Deployment-Prozessen von SAP.\n\n• Vertrautheit mit ITIL, Agile, Scrum oder traditionellen Projektmanagement-Methoden.\n\n• Projektmanagement-Zertifizierungen wie PMP, PRINCE2 oder gleichwertige sind von Vorteil.\n\n• Erfahrung in der Koordination von externen Dienstleistern, Systemintegratoren und Managed Service Partnern.\n\n• Wissen über IT-Sicherheit, Autorisierungskonzepte und technische Governance.\n\n• Deutschkenntnisse sind von Vorteil.\nPersönliche Kompetenzen\n\n• Technisch glaubwürdig: Komfortables Besprechen von technischen SAP-Themen mit Spezialisten und Verständnis der Implikationen von Lösungsvorschlägen.\n\n• Lieferorientiert: Fokussiert auf Ergebnisse, Rechenschaftspflicht, Fristen und erfolgreiche Projektdurchführung.\n\n• Proaktiv und strukturiert: Kann Risiken antizipieren, Prioritäten setzen und Aktivitäten ohne ständige Aufsicht vorantreiben.\n\n• Starker Kommunikator: Kann die Kommunikation sowohl an technische Experten als auch an nichttechnische Interessengruppen anpassen.\n\n• Collaborative Leader: In der Lage, multidisziplinäre Teams zu koordinieren und zu motivieren, ohne notwendigerweise eine direkte Leitungsverwaltung zu haben.\n\n• Pragmatischer Problemlöser: Kann technische Qualität, Geschäftsanforderungen, Zeitpläne und verfügbare Ressourcen in Einklang bringen.\n\n• Anpassbar und neugierig: Interessiert an sich entwickelnden SAP-Technologien, Cloud-Plattformen, Automatisierung und neuen digitalen Fähigkeiten.\n\nWarum uns beitreten\n• Die Möglichkeit, wirkungsvolle SAP-Technologieinitiativen in einer globalen Unternehmensumgebung zu verwalten.\n\n• Exposition gegenüber einer vielfältigen SAP-Landschaft, einschließlich S/4HANA, SAP BTP, Unternehmensintegration und Cloud-Transformationstechnologien.\n\n• Zusammenarbeit mit erfahrenen internationalen SAP-Teams und Technologiepartnern.\n\n• Eine Rolle, die technische Tiefe, Projektleitung und strategische Technologietransformation kombiniert.\n\n• Möglichkeiten zur beruflichen Weiterentwicklung und Beteiligung an innovativen SAP-Initiativen.\n\nWir bieten wettbewerbsfähige Gehälter, die auf lokale Marktbenchmarks und den spezifischen Umfang und die Verantwortlichkeiten jeder Rolle abgestimmt sind. Die Vergütung wird auf der Grundlage von Fähigkeiten festgelegt, die für die Position, Ausbildung und / oder Ausbildung relevant sind. Wir verpflichten uns zu fairen und gerechten Vergütungspraktiken in Übereinstimmung mit geltenden Gesetzen und Vorschriften.\n\nÜber Sika\nSika ist ein Spezialchemieunternehmen mit einer weltweit führenden Position in der Entwicklung und Produktion von Systemen und Produkten für Kleben, Abdichtung, Dämpfung, Verstärkung und Schutz im Bausektor und in der industriellen Fertigung. Sika hat Tochtergesellschaften in 103 Ländern weltweit und produziert in über 400 Fabriken innovative Technologien für Kunden weltweit. Dabei spielt sie eine entscheidende Rolle bei der Transformation des Bau- und Verkehrssektors hin zu einer besseren Umweltverträglichkeit. Mit mehr als 33.000 Mitarbeitern erwirtschaftete das Unternehmen 2025 einen Umsatz von CHF 11.20 Milliarden.",
+        "fr": "À propos du rôle\nNous sommes à la recherche d'un gestionnaire de projet technique SAP expérimenté et techniquement compétent pour diriger et coordonner les initiatives technologiques SAP dans notre paysage SAP mondial.\nLe candidat idéal combine une solide expérience technique dans au moins un des domaines technologiques de base SAP – Base SAP, Développement SAP ou Intégration SAP – avec de solides capacités de gestion de projet, de communication et d'organisation.\nPrincipales responsabilités\nGestion technique de projet\n\n• Diriger les projets techniques SAP de bout en bout, depuis l'initiation et la planification jusqu'à la mise en oeuvre, l'essai, la mise en oeuvre et l'hypersoins.\n\n• Définir la portée du projet, les produits livrables, les jalons, les besoins en ressources, les dépendances et les échéanciers.\n\n• Coordonner les activités techniques à l'échelle de SAP Base, Développement, Intégration, Sécurité, Infrastructure et d'autres équipes TI pertinentes.\n\n• Gérer les risques, les problèmes, les dépendances et les escalades des projets, en identifiant de façon proactive les obstacles potentiels à la prestation.\n\n• S'assurer que les solutions techniques sont alignées sur l'architecture d'entreprise, les normes de sécurité informatique et les meilleures pratiques SAP.\n\n• Surveiller l'avancement du projet, communiquer l'état d'avancement aux intervenants et veiller à ce qu'il soit exécuté en temps opportun dans les limites de la portée, de la qualité et du budget convenus.\n\n• Organiser des ateliers techniques, des réunions de projet et des séances de prise de décisions avec des intervenants internes et externes.\nCoordination de la technologie SAP\n\n• Coordonner les initiatives techniques impliquant SAP S/4HANA, SAP Business Technology Platform (BTP), ainsi que les solutions SAP et non SAP connectées.\n\n• Diriger et mettre en place de nouvelles plateformes technologiques dans les domaines de la logistique, des transports et de la chaîne d'approvisionnement, comme BN4L, GTT\n\n• Gérer les activités techniques liées aux mises à niveau du SAP, aux migrations, aux transformations du système, à la modernisation de l'infrastructure et à l'adoption du cloud.\n\n• Soutenir les projets d'intégration impliquant SAP Integration Suite, API, middleware et interfaces entre les applications d'entreprise.\n\n• Coordonner les initiatives de développement du SAP faisant intervenir le PAAB, les améliorations, les applications personnalisées et l'assainissement technique.\n\n• Superviser les activités de préparation technique, y compris la préparation à l'environnement, les essais techniques, la planification des coupes, le déploiement et la stabilisation de la production.\n\n• Comprendre les dépendances techniques entre les systèmes SAP, les intégrations, les applications et les composantes de l'infrastructure.\n\n• Faciliter les discussions techniques et veiller à ce que les solutions proposées soient réalisables, supportables, sûres et alignées sur la stratégie globale du SAP.\nGestion des parties prenantes et des fournisseurs\n\n• Agir comme point central de coordination entre les équipes techniques, les équipes fonctionnelles, les acteurs commerciaux et les partenaires externes.\n\n• Traduire les défis techniques en impacts commerciaux clairs, risques et recommandations.\n\n• Coordonner les ressources internes, les consultants externes et les partenaires de mise en oeuvre dans plusieurs pays et fuseaux horaires.\n\n• Assurer une communication efficace, la responsabilisation et la transparence tout au long de l'exécution du projet.\n\n• Gérer les escalades techniques et faciliter la résolution rapide des dépendances inter-équipes.\n\n• Collaborer avec les architectes SAP, les responsables techniques et les propriétaires de services pour appuyer les décisions d'architecture et de mise en oeuvre.\nGouvernance, qualité et disponibilité opérationnelle\n\n• Veiller à ce que les projets suivent les processus établis de gouvernance des TI, de gestion du changement, de documentation et de sécurité.\n\n• Coordonner les examens techniques de la conception, les stratégies d'essai, les approbations de mise en oeuvre et les évaluations de l'état de préparation.\n\n• Assurer le transfert adéquat des connaissances, la documentation technique, le suivi et le transfert opérationnel aux équipes d'appui.\n\n• Identifier les possibilités de normalisation, d'automatisation, de simplification technique et d'amélioration continue.\n\n• Contribuer au développement et à l'exécution de la feuille de route technologique SAP.\n\nVos compétences et votre expérience\n• Baccalauréat ou maîtrise en informatique, en technologie de l'information, en génie ou dans un domaine connexe, ou expérience professionnelle équivalente.\n\n• Plusieurs années d'expérience professionnelle dans des environnements techniques SAP, associées à une expérience démontrée de coordination ou de gestion de projets informatiques.\n\n• Forte expérience technique pratique, actuelle ou antérieure, dans au moins un des domaines suivants:\n• Base SAP : administration du système SAP, architecture, mises à jour, migrations, paysages système, SAP HANA, ou opérations techniques.\n\n• Développement SAP : développement ABAP, extensibilité SAP, applications personnalisées, améliorations ou architecture de développement technique.\n\n• Intégration SAP: SAP Integration Suite, SAP Process Orchestration, API, middleware, interfaces ou architecture d'intégration d'entreprise.\n\n• Bonne compréhension des paysages du système SAP, des dépendances techniques et de l'interaction entre les applications SAP et l'infrastructure.\n\n• Capacité éprouvée de planifier, d'organiser, de coordonner et de livrer des initiatives techniques complexes faisant intervenir plusieurs équipes.\n\n• De solides compétences analytiques et de résolution de problèmes, avec la capacité de comprendre les défis techniques et de faciliter des solutions pratiques.\n\n• Excellente capacité de communication, de gestion des intervenants et de présentation.\n\n• Capacité de travailler efficacement dans un environnement mondial et multiculturel avec des équipes réparties.\n\n• Fortes compétences organisationnelles, esprit de propriété et capacité de gérer des priorités concurrentes.\n\n• Langue anglaise, écrite et parlée.\nQualifications privilégiées\n\n• Expérience des mises à niveau techniques, des migrations ou des programmes de transformation SAP S/4HANA.\n\n• Familiarité avec SAP BTP, SAP Integration Suite, SAP Cloud ALM et les architectures cloud SAP modernes.\n\n• Exposition à SAP RISE avec SAP, paysages hybrides ou projets de migration de nuages.\n\n• Connaissance de la gestion du changement technique SAP, de la gestion des transports, de la gestion des rejets et des processus de déploiement.\n\n• Connaissance des méthodes de gestion de projet traditionnelles, ITIL, Agile, Scrum.\n\n• La certification de gestion de projet comme PMP, PRINCE2 ou équivalent est un avantage.\n\n• Expérience de coordination des fournisseurs de services externes, des intégrateurs de systèmes et des partenaires de services gérés.\n\n• Connaissance de la sécurité des TI, des concepts d'autorisation et de la gouvernance technique.\n\n• Les compétences linguistiques en allemand sont un avantage.\nCompétences personnelles\n\n• D'un point de vue technique, c'est confortable de discuter de sujets techniques SAP avec des spécialistes et de comprendre les implications des solutions proposées.\n\n• Orientation vers l'exécution: axée sur les résultats, la responsabilisation, les échéances et l'exécution réussie des projets.\n\n• Proactive et structurée : Capacité d'anticiper les risques, d'établir des priorités et de diriger des activités sans supervision constante.\n\n• Communication forte: Capacité d'adapter la communication aux experts techniques et aux acteurs non techniques.\n\n• Leader de collaboration : Capacité de coordonner et de motiver les équipes multidisciplinaires sans avoir nécessairement une autorité directe de gestion hiérarchique.\n\n• Solution de problèmes pragmatiques : Capacité d'équilibrer la qualité technique, les exigences opérationnelles, les délais et les ressources disponibles.\n\n• Adaptable et curieux : Intéressé par l'évolution des technologies SAP, des plateformes cloud, de l'automatisation et des capacités numériques émergentes.\n\nPourquoi nous rejoindre\n• L'opportunité de gérer des initiatives technologiques SAP impactées dans un environnement d'entreprise mondial.\n\n• Exposition à un paysage SAP diversifié, incluant S/4HANA, SAP BTP, intégration d'entreprise et technologies de transformation du cloud.\n\n• Collaboration avec des équipes SAP internationales et des partenaires technologiques expérimentés.\n\n• Un rôle combinant profondeur technique, leadership de projet et transformation technologique stratégique.\n\n• Possibilités de perfectionnement professionnel et de participation aux initiatives novatrices du SAP.\n\nNous offrons des salaires concurrentiels, conformes aux critères du marché local et à la portée et aux responsabilités spécifiques de chaque rôle. La rémunération est déterminée en fonction des compétences liées au poste, à l'éducation ou à la formation. Nous sommes attachés à des pratiques salariales justes et équitables, conformément aux lois et règlements applicables.\n\nÀ propos de Sika\nSika est une société chimique spécialisée qui occupe une position de leader mondial dans le développement et la production de systèmes et de produits de collage, d'étanchéité, d'amortissement, de renforcement et de protection dans le secteur du bâtiment et de la fabrication industrielle. Sika a des filiales dans 103 pays à travers le monde et, dans plus de 400 usines, produit des technologies innovantes pour les clients dans le monde entier. Ce faisant, elle joue un rôle crucial dans la transformation du secteur de la construction et des transports vers une meilleure compatibilité environnementale. Avec plus de 33 000 employés, l'entreprise a généré des ventes de CHF 11,20 milliards en 2025."
+      },
+      "location": "Zürich, Zurich",
+      "canton": "ZH",
+      "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-5c159c3b-6f5e-407d-ac74-ef35ffc50d29.html",
+      "source": "Sika Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-19T21:27:41.065Z",
+      "addressLocality": "Zürich",
+      "postalCode": "8001",
+      "streetAddress": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Specialty chemicals (construction & industrial)",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2025-12-11",
+      "postedDate": "2025-12-11",
+      "postingDateSource": "reported",
+      "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-5c159c3b-6f5e-407d-ac74-ef35ffc50d29.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "sap-technical-project-manager-sika-ch"
+        ],
+        "en": [
+          "sap-technical-project-manager-sika-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sap-technical-project-manager-sika-ch"
+      ],
+      "salaryMin": 113500,
+      "salaryMax": 172000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 113500,
+          "maxValue": 172000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-19T21:27:41.065Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-19T21:27:41.065Z"
     },
     {
       "id": "sika-931b92f5e4c0",
@@ -191,7 +274,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-a83ab262-97a6-4d10-a5a4-e2269c5bfc4a.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:59:37.345Z",
+      "crawledAt": "2026-11-19T21:27:39.422Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Zürich",
@@ -240,7 +323,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:59:37.345Z",
+      "validThrough": "2026-12-19T21:27:39.422Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -274,7 +357,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-03295a71-729c-4904-8b5e-f2574649a9c0.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:59:36.072Z",
+      "crawledAt": "2026-11-19T21:27:38.276Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Zürich",
@@ -323,7 +406,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:59:36.072Z",
+      "validThrough": "2026-12-19T21:27:38.276Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -357,7 +440,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f2a6afde-4e69-437f-a765-7d03d6f26534.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:59:34.518Z",
+      "crawledAt": "2026-11-19T21:27:36.977Z",
       "addressLocality": "Sarnen",
       "postalCode": "6060",
       "streetAddress": "Sarnen",
@@ -406,7 +489,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:59:34.518Z",
+      "validThrough": "2026-12-19T21:27:36.977Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -440,7 +523,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-0319e643-93ce-4aab-94b0-3609cf3ff530.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:59:33.154Z",
+      "crawledAt": "2026-11-19T21:27:35.731Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Zürich",
@@ -482,7 +565,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:59:33.154Z",
+      "validThrough": "2026-12-19T21:27:35.731Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -516,7 +599,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-14ec562b-e189-4f29-a2f7-af58ab74c7f4.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:59:31.916Z",
+      "crawledAt": "2026-11-19T21:27:35.033Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Zürich",
@@ -578,7 +661,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:59:31.916Z",
+      "validThrough": "2026-12-19T21:27:35.033Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -612,7 +695,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f6406866-8261-42b2-b18c-75a219d69ce1.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:59:30.772Z",
+      "crawledAt": "2026-11-19T21:27:33.534Z",
       "addressLocality": "Romanshorn",
       "postalCode": "8590",
       "streetAddress": "Romanshorn",
@@ -670,7 +753,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:59:30.772Z",
+      "validThrough": "2026-12-19T21:27:33.534Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -704,7 +787,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-e62349e4-b260-46b1-b5b1-558137b84dfa.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:59:29.751Z",
+      "crawledAt": "2026-11-19T21:27:32.359Z",
       "addressLocality": "Sarnen",
       "postalCode": "6060",
       "streetAddress": "Sarnen",
@@ -753,7 +836,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:59:29.751Z",
+      "validThrough": "2026-12-19T21:27:32.359Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -787,7 +870,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f60aaabf-46d6-48de-bd14-7b67aa95a9ba.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:59:28.725Z",
+      "crawledAt": "2026-11-19T21:27:30.871Z",
       "addressLocality": "Sarnen",
       "postalCode": "6060",
       "streetAddress": "Sarnen",
@@ -836,7 +919,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:59:28.725Z",
+      "validThrough": "2026-12-19T21:27:30.871Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -870,7 +953,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-bdfb0e95-97e0-4a0d-af2c-174bfdd23681.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:59:27.693Z",
+      "crawledAt": "2026-11-19T21:27:29.350Z",
       "addressLocality": "Sarnen",
       "postalCode": "6060",
       "streetAddress": "Sarnen",
@@ -920,7 +1003,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:59:27.693Z",
+      "validThrough": "2026-12-19T21:27:29.350Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -954,7 +1037,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-d49d212d-425b-4df8-b472-647e7f47b720.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:59:27.478Z",
+      "crawledAt": "2026-11-19T21:27:28.990Z",
       "addressLocality": "Sarnen",
       "postalCode": "6060",
       "streetAddress": "Sarnen",
@@ -1016,7 +1099,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:59:27.478Z",
+      "validThrough": "2026-12-19T21:27:28.990Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1050,7 +1133,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-16cc041b-642b-405a-8c8b-1eb258ed05ba.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:59:26.159Z",
+      "crawledAt": "2026-11-19T21:27:27.827Z",
       "addressLocality": "Sarnen",
       "postalCode": "6060",
       "streetAddress": "Sarnen",
@@ -1101,7 +1184,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:59:26.159Z",
+      "validThrough": "2026-12-19T21:27:27.827Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1135,7 +1218,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-9b6bfb1d-bd31-45c4-ba52-1678901ee794.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:59:25.108Z",
+      "crawledAt": "2026-11-19T21:27:26.556Z",
       "addressLocality": "Altstätten",
       "postalCode": "9450",
       "streetAddress": "Altstätten",
@@ -1186,7 +1269,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:59:25.108Z",
+      "validThrough": "2026-12-19T21:27:26.556Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1220,7 +1303,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f6219ca1-f42f-4e64-8889-27137b4bfc59.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:59:23.759Z",
+      "crawledAt": "2026-11-19T21:27:25.493Z",
       "addressLocality": "Düdingen",
       "postalCode": "3186",
       "streetAddress": "Düdingen",
@@ -1279,7 +1362,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:59:23.759Z",
+      "validThrough": "2026-12-19T21:27:25.493Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1313,7 +1396,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-d008f907-3479-4421-970f-a81ee94402c3.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:59:22.556Z",
+      "crawledAt": "2026-11-19T21:27:23.997Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Zürich",
@@ -1360,7 +1443,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:59:22.556Z",
+      "validThrough": "2026-12-19T21:27:23.997Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1394,7 +1477,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-9c76864a-9d47-46eb-af82-10893fcfc91e.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:59:21.558Z",
+      "crawledAt": "2026-11-19T21:27:22.685Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Zürich",
@@ -1445,7 +1528,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:59:21.558Z",
+      "validThrough": "2026-12-19T21:27:22.685Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1479,7 +1562,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-1e013f32-de26-485f-8c7d-1859d42263a3.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:59:20.369Z",
+      "crawledAt": "2026-11-19T21:27:21.107Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Zürich",
@@ -1528,7 +1611,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:59:20.369Z",
+      "validThrough": "2026-12-19T21:27:21.107Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1562,7 +1645,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-a59da0b4-eae8-4a6a-bbe8-eb7b46d5097a.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:59:19.045Z",
+      "crawledAt": "2026-11-19T21:27:20.424Z",
       "addressLocality": "Romanshorn",
       "postalCode": "8590",
       "streetAddress": "Romanshorn",
@@ -1613,7 +1696,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:59:19.045Z",
+      "validThrough": "2026-12-19T21:27:20.424Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1647,7 +1730,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-20c6a9ab-10e9-4574-b3da-f46b36088efb.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:59:17.803Z",
+      "crawledAt": "2026-11-19T21:27:18.785Z",
       "addressLocality": "Romanshorn",
       "postalCode": "8590",
       "streetAddress": "Romanshorn",
@@ -1713,7 +1796,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:59:17.803Z",
+      "validThrough": "2026-12-19T21:27:18.785Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1747,7 +1830,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-40cd3de7-667b-42a1-8711-7f423ba87261.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:59:16.261Z",
+      "crawledAt": "2026-11-19T21:27:17.580Z",
       "addressLocality": "Arbon / Romanshorn",
       "postalCode": "9320",
       "streetAddress": "Arbon / Romanshorn",
@@ -1793,7 +1876,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:59:16.261Z",
+      "validThrough": "2026-12-19T21:27:17.580Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1827,7 +1910,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f8c274e8-611d-4253-9602-49e5c5a31e35.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:59:15.168Z",
+      "crawledAt": "2026-11-19T21:27:16.055Z",
       "addressLocality": "Birr",
       "postalCode": "5242",
       "streetAddress": "Birr",
@@ -1876,7 +1959,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:59:15.168Z",
+      "validThrough": "2026-12-19T21:27:16.055Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1910,7 +1993,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-2d249080-6993-4976-b459-182503a3c779.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:59:13.877Z",
+      "crawledAt": "2026-11-19T21:27:15.712Z",
       "addressLocality": "Sarnen",
       "postalCode": "6060",
       "streetAddress": "Sarnen",
@@ -1956,7 +2039,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:59:13.877Z",
+      "validThrough": "2026-12-19T21:27:15.712Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1990,7 +2073,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-44dde78c-5b75-4262-8b33-9b00aec560ba.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:59:12.631Z",
+      "crawledAt": "2026-11-19T21:27:14.157Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Zürich",
@@ -2039,7 +2122,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:59:12.631Z",
+      "validThrough": "2026-12-19T21:27:14.157Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2073,7 +2156,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-273b4296-5dde-4138-b859-a12db084cba2.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:59:11.241Z",
+      "crawledAt": "2026-11-19T21:27:12.492Z",
       "addressLocality": "Düdingen",
       "postalCode": "3186",
       "streetAddress": "Düdingen",
@@ -2128,7 +2211,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:59:11.241Z",
+      "validThrough": "2026-12-19T21:27:12.492Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2162,7 +2245,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f896bcfe-7f50-43c5-aaf0-0c00f264b190.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:59:10.097Z",
+      "crawledAt": "2026-11-19T21:27:10.934Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Zürich",
@@ -2213,7 +2296,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:59:10.097Z",
+      "validThrough": "2026-12-19T21:27:10.934Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2247,7 +2330,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-7aa49f5d-932d-440a-a2eb-435943032043.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:59:08.883Z",
+      "crawledAt": "2026-11-19T21:27:09.652Z",
       "addressLocality": "Sarnen",
       "postalCode": "6060",
       "streetAddress": "Sarnen",
@@ -2296,7 +2379,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:59:08.883Z",
+      "validThrough": "2026-12-19T21:27:09.652Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2330,7 +2413,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-48ca988c-b964-4894-bbd0-b218553955f1.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:59:07.312Z",
+      "crawledAt": "2026-11-19T21:27:08.282Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Zürich",
@@ -2385,7 +2468,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:59:07.312Z",
+      "validThrough": "2026-12-19T21:27:08.282Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2419,7 +2502,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-876da52f-e983-4a7f-a401-e43daa0a535a.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:59:06.179Z",
+      "crawledAt": "2026-11-19T21:27:06.837Z",
       "addressLocality": "Birr",
       "postalCode": "5242",
       "streetAddress": "Birr",
@@ -2470,7 +2553,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:59:06.179Z",
+      "validThrough": "2026-12-19T21:27:06.837Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2504,7 +2587,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-7900f36e-3cd1-4050-be26-6d0fe6f179bf.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:59:05.004Z",
+      "crawledAt": "2026-11-19T21:27:05.248Z",
       "addressLocality": "Kemptthal",
       "postalCode": "8310",
       "streetAddress": "Kemptthal",
@@ -2553,7 +2636,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:59:05.004Z",
+      "validThrough": "2026-12-19T21:27:05.248Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2587,7 +2670,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-3f20ee8a-18d4-46c5-8d78-c08b80e686a8.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:59:03.686Z",
+      "crawledAt": "2026-11-19T21:27:03.762Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Zürich",
@@ -2640,7 +2723,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:59:03.686Z",
+      "validThrough": "2026-12-19T21:27:03.762Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2674,7 +2757,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f0e3bbbd-3961-486f-ab8e-49a3c9614bfe.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:59:02.556Z",
+      "crawledAt": "2026-11-19T21:27:02.576Z",
       "addressLocality": "Widen",
       "postalCode": "8967",
       "streetAddress": "Widen",
@@ -2720,7 +2803,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:59:02.556Z",
+      "validThrough": "2026-12-19T21:27:02.576Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2754,7 +2837,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-76d19468-d6a7-42d4-b30a-56077410f47f.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:59:01.468Z",
+      "crawledAt": "2026-11-19T21:27:01.385Z",
       "addressLocality": "Baar",
       "postalCode": "6340",
       "streetAddress": "Zugerstrasse 50",
@@ -2822,7 +2905,7 @@
         "checkedAt": "2026-11-09T15:44:03.756Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-19T09:59:01.468Z",
+      "validThrough": "2026-12-19T21:27:01.385Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2856,7 +2939,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-de82f5e5-b7fb-4b8a-8d96-634e042e0ee1.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:59:00.385Z",
+      "crawledAt": "2026-11-19T21:27:01.016Z",
       "addressLocality": "Düdingen",
       "postalCode": "3186",
       "streetAddress": "Düdingen",
@@ -2899,7 +2982,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:59:00.385Z",
+      "validThrough": "2026-12-20T21:27:01.016Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2933,7 +3016,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-9a597c4f-1ce9-4b5c-acb2-409c36c97ff4.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:58:58.955Z",
+      "crawledAt": "2026-11-19T21:26:59.944Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Zürich",
@@ -2982,7 +3065,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:58:58.955Z",
+      "validThrough": "2026-12-23T21:26:59.944Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3016,7 +3099,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-de3fd00a-e533-415b-b1b9-2c1ee89f175c.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:58:57.678Z",
+      "crawledAt": "2026-11-19T21:26:59.584Z",
       "addressLocality": "Birr",
       "postalCode": "5242",
       "streetAddress": "Birr",
@@ -3064,7 +3147,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:58:57.678Z",
+      "validThrough": "2026-12-27T21:26:59.584Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3079,18 +3162,18 @@
       "company": "Sika",
       "companyKey": "sika",
       "companyDomain": "sika.com",
-      "title": "Praktikum Technical Department (w/m/d)",
+      "title": "Praktikum Anwendungstechnik",
       "titleByLocale": {
         "it": "Dipartimento tecnico di stage (m/f/d)",
         "en": "Internship Technical Department (m/f/d)",
-        "de": "Praktikum Technical Department (w/m/d)",
+        "de": "Praktikum Anwendungstechnik",
         "fr": "Département technique du stage (h/f/d)"
       },
-      "description": "Über die Rolle\nWenn in Bau oder Industrie etwas Bleibendes entsteht, sind fast immer unsere Lösungen zum Kleben, Dichten, Verstärken und Schützen mit drin. Wir vertrauen auf die Fähigkeiten unserer weltweit über 33’000 Mitarbeitenden und ermöglichen ihnen viele Gestaltungsräume – jeden Tag auf’s Neue. Zur Verstärkung unseres Teams suchen wir ab sofort oder nach Vereinbarung in Zürich‑Altstetten eine engagierte Persönlichkeit.\n\nIn diesem Praktikum bist du für folgende Aufgaben zuständig:\n\n• Mitarbeit im Anwendungslabor\n\n• Protokollführung der durchgeführten Versuche\n\n• Unterstützung bei der Auswertung der Ergebnisse\n\n• Mitwirkung beim Erstellen von Versuchsprogrammen\n\n• Begleitung der Anwendungsinstruktoren bei Feldversuchen\n\n• Einblick in die Arbeit eines Produktingenieurs\n\nIhre Fähigkeiten und Erfahrungen\n• Abgeschlossenes Bachelorstudium in Bauingenieurwesen, Materialwissenschaften oder einem verwandten Bereich\n\n• Erste berufliche Erfahrung in der Baubranche von Vorteil\n\n• Organisationstalent und eine selbstständige Arbeitsweise\n\n• Freude an der Zusammenarbeit mit verschiedenen Ansprechpersonen\n\n• Stilsichere Deutsch- und gute Englischkenntnisse\n\nWarum Sie zu uns kommen sollten\n• Viel Gestaltungsspielraum und Raum für kreative Ideen\n\n• Flache Hierarchien und gelebte Du-Kultur\n\n• Ein motiviertes, erfahrenes Team mit viel Know-how und Engagement\nDie Sika ist eine grossartige Arbeitgeberin – speziell für Mitarbeitende, welche auf Vertrauen in der Zusammenarbeit setzen. Wir freuen uns über dein vollständiges Bewerbungsdossier.\n\nWir bieten wettbewerbsfähige Vergütungen, die sich an den lokalen Marktstandards und den spezifischen Aufgabenbereichen jeder Stelle orientieren. Die Vergütung richtet sich nach den für die Position relevanten Fähigkeiten, Verantwortung, der Ausbildung und/oder der Weiterbildung. Wir verpflichten uns zu fairen und gerechten Vergütungssystematiken in Übereinstimmung mit den geltenden Gesetzen, dem Tarifvertag Chemie und Vorschriften.\n\nÜber Sika\nSika ist ein Unternehmen der Spezialitätenchemie, global führend in der Entwicklung und Produktion von Systemen und Produkten zum Kleben, Dichten, Dämpfen, Verstärken und Schützen im Bau und in der Industrie. Sika ist weltweit präsent mit Tochtergesellschaften in 103 Ländern, produziert in über 400 Fabriken, entwickelt innovative Technologien für Kunden rund um den Globus und trägt damit massgeblich zur nachhaltigen Transformation im Bau- und Transportwesen bei. Die mehr als 33’000 Mitarbeitenden erwirtschafteten im Jahr 2025 einen Umsatz von CHF 11.20 Milliarden.",
+      "description": "Über die Rolle\nWenn in Bau oder Industrie etwas Bleibendes entsteht, sind fast immer unsere Lösungen zum Kleben, Dichten, Verstärken und Schützen mit drin. Wir vertrauen auf die Fähigkeiten unserer weltweit über 33’000 Mitarbeitenden und ermöglichen ihnen viele Gestaltungsräume – jeden Tag auf’s Neue. Zur Verstärkung in unserem Technical Department der Sika Schweiz AG suchen wir ab sofort oder nach Vereinbarung in Zürich‑Altstetten eine engagierte Persönlichkeit.\n\nIn diesem Praktikum bist du für folgende Aufgaben zuständig:\n\n• Mitarbeit im Anwendungslabor\n\n• Protokollführung der durchgeführten Versuche\n\n• Unterstützung bei der Auswertung der Ergebnisse\n\n• Mitwirkung beim Erstellen von Versuchsprogrammen\n\n• Begleitung der Anwendungsinstruktoren bei Feldversuchen\n\n• Einblick in die Arbeit eines Produktingenieurs\n\nIhre Fähigkeiten und Erfahrungen\n• Abgeschlossenes Bachelorstudium in Bauingenieurwesen, Materialwissenschaften oder einem verwandten Bereich\n\n• Erste berufliche Erfahrung in der Baubranche von Vorteil\n\n• Organisationstalent und eine selbstständige Arbeitsweise\n\n• Freude an der Zusammenarbeit mit verschiedenen Ansprechpersonen\n\n• Stilsichere Deutsch- und gute Englischkenntnisse\n\nWarum Sie zu uns kommen sollten\n• Viel Gestaltungsspielraum und Raum für kreative Ideen\n\n• Flache Hierarchien und gelebte Du-Kultur\n\n• Ein motiviertes, erfahrenes Team mit viel Know-how und Engagement\nDie Sika ist eine grossartige Arbeitgeberin – speziell für Mitarbeitende, welche auf Vertrauen in der Zusammenarbeit setzen. Wir freuen uns über dein vollständiges Bewerbungsdossier.\n\nWir bieten wettbewerbsfähige Vergütungen, die sich an den lokalen Marktstandards und den spezifischen Aufgabenbereichen jeder Stelle orientieren. Die Vergütung richtet sich nach den für die Position relevanten Fähigkeiten, Verantwortung, der Ausbildung und/oder der Weiterbildung. Wir verpflichten uns zu fairen und gerechten Vergütungssystematiken in Übereinstimmung mit den geltenden Gesetzen, dem Tarifvertag Chemie und Vorschriften.\n\nÜber Sika\nSika ist ein Unternehmen der Spezialitätenchemie, global führend in der Entwicklung und Produktion von Systemen und Produkten zum Kleben, Dichten, Dämpfen, Verstärken und Schützen im Bau und in der Industrie. Sika ist weltweit präsent mit Tochtergesellschaften in 103 Ländern, produziert in über 400 Fabriken, entwickelt innovative Technologien für Kunden rund um den Globus und trägt damit massgeblich zur nachhaltigen Transformation im Bau- und Transportwesen bei. Die mehr als 33’000 Mitarbeitenden erwirtschafteten im Jahr 2025 einen Umsatz von CHF 11.20 Milliarden.",
       "descriptionByLocale": {
         "it": "Informazioni sul ruolo\nQuando si crea qualcosa di durevole nell'edilizia o nell'industria, le nostre soluzioni per incollare, sigillare, rinforzare e proteggere sono quasi sempre incluse. Ci affidiamo alle competenze dei nostri più di 33.000 dipendenti in tutto il mondo e forniamo loro molti spazi di design – ogni giorno di nuovo. Per rafforzare il nostro team, stiamo cercando una personalità impegnata a Zurigo Altstetten d'ora in poi o d'accordo.\n\nIn questo stage, sei responsabile dei seguenti compiti:\n\n• Cooperazione nel laboratorio di applicazione\n\n• Registrazione dei test effettuati\n\n• Sostegno alla valutazione dei risultati\n\n• Partecipazione alla creazione di programmi sperimentali\n\n• Istruttori di applicazioni di accompagnamento durante le prove sul campo\n\n• Indagine sul lavoro di un ingegnere del prodotto\n\nLe tue competenze ed esperienza\n• Laurea completa in ingegneria civile, scienza dei materiali o un campo correlato\n\n• La prima esperienza professionale nel settore delle costruzioni è vantaggiosa\n\n• Talento organizzativo e metodo di lavoro indipendente\n\n• Godetevi il lavoro con diversi contatti\n\n• Stylistic fiducioso tedesco e buone abilità inglesi\n\nPerché dovresti venire da noi\n• Un sacco di spazio per il design e lo spazio per idee creative\n\n• Gerarchie piatte e du-cultura vissuta\n\n• Un team motivato e esperto con un sacco di know-how e impegno\nSika è un grande datore di lavoro – soprattutto per i dipendenti che si affidano alla fiducia in cooperazione. Attendiamo con ansia il vostro dossier completo.\n\nOffriamo una remunerazione competitiva basata sugli standard del mercato locale e sulle responsabilità specifiche di ogni lavoro. La remunerazione si basa sulle competenze, responsabilità, istruzione e/o formazione pertinenti alla posizione. Ci impegniamo a regimi di remunerazione equa ed equa in conformità con le leggi applicabili, l'Accordo di Tariffa Chimica e i regolamenti.\n\nA proposito di Sika\nSika è una società chimica specializzata, leader globale nello sviluppo e produzione di sistemi e prodotti per incollaggio, sigillatura, vaporizzazione, rinforzo e protezione nella costruzione e nell'industria. Sika ha una presenza globale con filiali in 103 paesi, produce in oltre 400 fabbriche, sviluppa tecnologie innovative per i clienti di tutto il mondo e contribuisce in modo significativo alla trasformazione sostenibile nella costruzione e nei trasporti. Gli oltre 33.000 dipendenti hanno generato un fatturato di 11,20 miliardi di franchi nel 2025.",
         "en": "About the role\nWhen something lasting is created in construction or industry, our solutions for gluing, sealing, reinforcing and protecting are almost always included. We rely on the skills of our more than 33,000 employees worldwide and provide them with many design spaces – every day anew. To strengthen our team, we are looking for a committed personality in Zurich‐Altstetten from now on or by agreement.\n\nIn this internship, you are responsible for the following tasks:\n\n• Cooperation in the application laboratory\n\n• Recording of the tests carried out\n\n• Support for the evaluation of results\n\n• Participation in the creation of experimental programmes\n\n• Accompanying application instructors during field trials\n\n• Insight into the work of a product engineer\n\nYour skills and experience\n• Completed bachelor's degree in civil engineering, materials science or a related field\n\n• First professional experience in the construction industry is advantageous\n\n• Organizational talent and an independent working method\n\n• Enjoy working with different contacts\n\n• Stylistic confident German and good English skills\n\nWhy you should come to us\n• Lots of room for design and space for creative ideas\n\n• Flat hierarchies and lived du-culture\n\n• A motivated, experienced team with a lot of know-how and commitment\nSika is a great employer – especially for employees who rely on trust in cooperation. We look forward to your complete application dossier.\n\nWe offer competitive remuneration based on local market standards and the specific responsibilities of each job. The remuneration shall be based on the skills, responsibility, education and/or training relevant to the position. We are committed to fair and equitable remuneration schemes in accordance with applicable laws, the Chemicals Tariff Agreement and regulations.\n\nAbout Sika\nSika is a specialty chemical company, global leader in the development and production of systems and products for gluing, sealing, steaming, reinforcing and protecting in construction and industry. Sika has a global presence with subsidiaries in 103 countries, produces in over 400 factories, develops innovative technologies for customers around the world and thus contributes significantly to the sustainable transformation in construction and transport. The more than 33,000 employees generated a turnover of CHF 11.20 billion in 2025.",
-        "de": "Über die Rolle\nWenn in Bau oder Industrie etwas Bleibendes entsteht, sind fast immer unsere Lösungen zum Kleben, Dichten, Verstärken und Schützen mit drin. Wir vertrauen auf die Fähigkeiten unserer weltweit über 33’000 Mitarbeitenden und ermöglichen ihnen viele Gestaltungsräume – jeden Tag auf’s Neue. Zur Verstärkung unseres Teams suchen wir ab sofort oder nach Vereinbarung in Zürich‑Altstetten eine engagierte Persönlichkeit.\n\nIn diesem Praktikum bist du für folgende Aufgaben zuständig:\n\n• Mitarbeit im Anwendungslabor\n\n• Protokollführung der durchgeführten Versuche\n\n• Unterstützung bei der Auswertung der Ergebnisse\n\n• Mitwirkung beim Erstellen von Versuchsprogrammen\n\n• Begleitung der Anwendungsinstruktoren bei Feldversuchen\n\n• Einblick in die Arbeit eines Produktingenieurs\n\nIhre Fähigkeiten und Erfahrungen\n• Abgeschlossenes Bachelorstudium in Bauingenieurwesen, Materialwissenschaften oder einem verwandten Bereich\n\n• Erste berufliche Erfahrung in der Baubranche von Vorteil\n\n• Organisationstalent und eine selbstständige Arbeitsweise\n\n• Freude an der Zusammenarbeit mit verschiedenen Ansprechpersonen\n\n• Stilsichere Deutsch- und gute Englischkenntnisse\n\nWarum Sie zu uns kommen sollten\n• Viel Gestaltungsspielraum und Raum für kreative Ideen\n\n• Flache Hierarchien und gelebte Du-Kultur\n\n• Ein motiviertes, erfahrenes Team mit viel Know-how und Engagement\nDie Sika ist eine grossartige Arbeitgeberin – speziell für Mitarbeitende, welche auf Vertrauen in der Zusammenarbeit setzen. Wir freuen uns über dein vollständiges Bewerbungsdossier.\n\nWir bieten wettbewerbsfähige Vergütungen, die sich an den lokalen Marktstandards und den spezifischen Aufgabenbereichen jeder Stelle orientieren. Die Vergütung richtet sich nach den für die Position relevanten Fähigkeiten, Verantwortung, der Ausbildung und/oder der Weiterbildung. Wir verpflichten uns zu fairen und gerechten Vergütungssystematiken in Übereinstimmung mit den geltenden Gesetzen, dem Tarifvertag Chemie und Vorschriften.\n\nÜber Sika\nSika ist ein Unternehmen der Spezialitätenchemie, global führend in der Entwicklung und Produktion von Systemen und Produkten zum Kleben, Dichten, Dämpfen, Verstärken und Schützen im Bau und in der Industrie. Sika ist weltweit präsent mit Tochtergesellschaften in 103 Ländern, produziert in über 400 Fabriken, entwickelt innovative Technologien für Kunden rund um den Globus und trägt damit massgeblich zur nachhaltigen Transformation im Bau- und Transportwesen bei. Die mehr als 33’000 Mitarbeitenden erwirtschafteten im Jahr 2025 einen Umsatz von CHF 11.20 Milliarden.",
+        "de": "Über die Rolle\nWenn in Bau oder Industrie etwas Bleibendes entsteht, sind fast immer unsere Lösungen zum Kleben, Dichten, Verstärken und Schützen mit drin. Wir vertrauen auf die Fähigkeiten unserer weltweit über 33’000 Mitarbeitenden und ermöglichen ihnen viele Gestaltungsräume – jeden Tag auf’s Neue. Zur Verstärkung in unserem Technical Department der Sika Schweiz AG suchen wir ab sofort oder nach Vereinbarung in Zürich‑Altstetten eine engagierte Persönlichkeit.\n\nIn diesem Praktikum bist du für folgende Aufgaben zuständig:\n\n• Mitarbeit im Anwendungslabor\n\n• Protokollführung der durchgeführten Versuche\n\n• Unterstützung bei der Auswertung der Ergebnisse\n\n• Mitwirkung beim Erstellen von Versuchsprogrammen\n\n• Begleitung der Anwendungsinstruktoren bei Feldversuchen\n\n• Einblick in die Arbeit eines Produktingenieurs\n\nIhre Fähigkeiten und Erfahrungen\n• Abgeschlossenes Bachelorstudium in Bauingenieurwesen, Materialwissenschaften oder einem verwandten Bereich\n\n• Erste berufliche Erfahrung in der Baubranche von Vorteil\n\n• Organisationstalent und eine selbstständige Arbeitsweise\n\n• Freude an der Zusammenarbeit mit verschiedenen Ansprechpersonen\n\n• Stilsichere Deutsch- und gute Englischkenntnisse\n\nWarum Sie zu uns kommen sollten\n• Viel Gestaltungsspielraum und Raum für kreative Ideen\n\n• Flache Hierarchien und gelebte Du-Kultur\n\n• Ein motiviertes, erfahrenes Team mit viel Know-how und Engagement\nDie Sika ist eine grossartige Arbeitgeberin – speziell für Mitarbeitende, welche auf Vertrauen in der Zusammenarbeit setzen. Wir freuen uns über dein vollständiges Bewerbungsdossier.\n\nWir bieten wettbewerbsfähige Vergütungen, die sich an den lokalen Marktstandards und den spezifischen Aufgabenbereichen jeder Stelle orientieren. Die Vergütung richtet sich nach den für die Position relevanten Fähigkeiten, Verantwortung, der Ausbildung und/oder der Weiterbildung. Wir verpflichten uns zu fairen und gerechten Vergütungssystematiken in Übereinstimmung mit den geltenden Gesetzen, dem Tarifvertag Chemie und Vorschriften.\n\nÜber Sika\nSika ist ein Unternehmen der Spezialitätenchemie, global führend in der Entwicklung und Produktion von Systemen und Produkten zum Kleben, Dichten, Dämpfen, Verstärken und Schützen im Bau und in der Industrie. Sika ist weltweit präsent mit Tochtergesellschaften in 103 Ländern, produziert in über 400 Fabriken, entwickelt innovative Technologien für Kunden rund um den Globus und trägt damit massgeblich zur nachhaltigen Transformation im Bau- und Transportwesen bei. Die mehr als 33’000 Mitarbeitenden erwirtschafteten im Jahr 2025 einen Umsatz von CHF 11.20 Milliarden.",
         "fr": "Sur le rôle\nQuand quelque chose de durable est créé dans la construction ou l'industrie, nos solutions pour coller, sceller, renforcer et protéger sont presque toujours incluses. Nous comptons sur les compétences de nos plus de 33 000 employés dans le monde et leur fournissons de nombreux espaces de design – chaque jour à nouveau. Pour renforcer notre équipe, nous recherchons une personnalité engagée à Zurich‐ Altstetten à partir de maintenant ou par accord.\n\nDans ce stage, vous êtes responsable des tâches suivantes:\n\n• Coopération dans le laboratoire d'application\n\n• Enregistrement des essais effectués\n\n• Appui à l'évaluation des résultats\n\n• Participation à la création de programmes expérimentaux\n\n• Accompagner les instructeurs d'applications pendant les essais sur le terrain\n\n• Regard sur le travail d'un ingénieur produit\n\nVos compétences et votre expérience\n• Baccalauréat en génie civil, sciences des matériaux ou domaine connexe\n\n• La première expérience professionnelle dans le secteur de la construction est avantageuse\n\n• Un talent organisationnel et une méthode de travail indépendante\n\n• Profitez de travailler avec différents contacts\n\n• Stylistique confiance allemand et bonnes compétences en anglais\n\nPourquoi tu devrais venir nous voir ?\n• Beaucoup de place pour le design et l'espace pour les idées créatives\n\n• Hiérarchies plates et du-culture vécues\n\n• Une équipe motivée et expérimentée avec beaucoup de savoir-faire et d'engagement\nSika est un excellent employeur – surtout pour les employés qui comptent sur la confiance dans la coopération. Nous attendons avec impatience votre dossier de candidature complet.\n\nNous offrons une rémunération concurrentielle basée sur les normes du marché local et les responsabilités spécifiques de chaque emploi. La rémunération est fondée sur les compétences, les responsabilités, les études et/ou la formation pertinentes au poste. Nous nous engageons à mettre en place des systèmes de rémunération justes et équitables conformément aux lois applicables, à l'Accord tarifaire sur les produits chimiques et à la réglementation.\n\nÀ propos de Sika\nSika est une société chimique spécialisée, leader mondial dans le développement et la production de systèmes et de produits de collage, d'étanchéité, de vapeur, de renforcement et de protection dans la construction et l'industrie. Sika a une présence mondiale avec des filiales dans 103 pays, produit dans plus de 400 usines, développe des technologies innovantes pour les clients dans le monde entier et contribue ainsi de manière significative à la transformation durable dans la construction et le transport. Plus de 33 000 salariés ont généré un chiffre d'affaires de CHF 11,20 milliards en 2025."
       },
       "location": "Zürich, Zurich",
@@ -3098,14 +3181,14 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-3a1f482e-c688-4a1a-aa81-3e4c4544e342.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:58:56.409Z",
+      "crawledAt": "2026-11-19T21:26:58.021Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Tecnica",
+      "category": "Altro",
       "contract": "full-time",
       "employmentType": "OTHER",
       "experienceLevel": "intern",
@@ -3118,12 +3201,13 @@
       "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-3a1f482e-c688-4a1a-aa81-3e4c4544e342.html",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "praktikum-technical-department-w-m-d-sika-ch"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "praktikum-anwendungstechnik-sika-ch"
+        ],
         "it": [
-          "praktikum-technical-department-w-m-d-sika-ch"
+          "praktikum-technical-department-w-m-d-sika-ch",
+          "praktikum-anwendungstechnik-sika-ch"
         ],
         "en": [
           "praktikum-technical-department-w-m-d-sika-ch"
@@ -3132,22 +3216,26 @@
           "praktikum-technical-department-w-m-d-sika-ch"
         ]
       },
+      "previousSlugs": [
+        "praktikum-technical-department-w-m-d-sika-ch",
+        "praktikum-anwendungstechnik-sika-ch"
+      ],
       "firstSeenAt": "2026-11-11T09:29:27.696Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 62000,
+          "maxValue": 94000,
           "unitText": "YEAR"
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:58:56.409Z",
+      "validThrough": "2026-12-27T21:26:58.021Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3181,7 +3269,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-061825ed-c5a1-4ab8-85f4-0b31638d5793.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:58:54.998Z",
+      "crawledAt": "2026-11-19T21:26:56.499Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Zürich",
@@ -3230,7 +3318,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:58:54.998Z",
+      "validThrough": "2026-12-27T21:26:56.499Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3264,7 +3352,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-0e422cc2-b766-4b03-b291-57d3cd58c412.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:58:54.663Z",
+      "crawledAt": "2026-11-19T21:26:54.757Z",
       "addressLocality": "Widen",
       "postalCode": "8967",
       "streetAddress": "Widen",
@@ -3313,33 +3401,33 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:58:54.663Z",
+      "validThrough": "2027-01-18T21:26:54.757Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "sika-697dbc7900e4",
       "slug": "praktikant-come-sachbearbeiter-verkaufsinnendienst-m-w-d-sika-sarnen",
       "slugByLocale": {
-        "de": "praktikant-als-sachbearbeiter-verkaufsinnendienst-w-m-d-sika-ch",
         "it": "praktikant-come-sachbearbeiter-verkaufsinnendienst-m-w-d-sika-sarnen",
-        "en": "praktikant-als-sachbearbeiter-verkaufsinnendienst-w-m-d-sika-ch",
-        "fr": "praktikant-als-sachbearbeiter-verkaufsinnendienst-w-m-d-sika-ch"
+        "en": "trainee-as-sales-assistant-m-f-d-sika-sarnen-obwalden",
+        "de": "praktikant-als-sachbearbeiter-verkaufsinnendienst-w-m-d-sika-ch",
+        "fr": "stagiaire-comme-assistant-de-vente-h-f-d-sika-sarnen-obwalden"
       },
       "company": "Sika",
       "companyKey": "sika",
       "companyDomain": "sika.com",
       "title": "Praktikant als Sachbearbeiter Verkaufsinnendienst (w/m/d)",
       "titleByLocale": {
-        "de": "Praktikant als Sachbearbeiter Verkaufsinnendienst (w/m/d)",
         "it": "Stagista come impiegato del servizio vendite interno (m/f/d)",
         "en": "Trainee as sales assistant (m/f/d)",
+        "de": "Praktikant als Sachbearbeiter Verkaufsinnendienst (w/m/d)",
         "fr": "Stagiaire comme assistant de vente (h/f/d)"
       },
       "description": "Über die Rolle\nSika Abdichtungsbahnen bewähren sich seit vielen Jahrzehnten weltweit auf unterschiedlichen Dachaufbauten. Unsere Systeme «Made in Switzerland» dichten Dächer nachhaltig und zuverlässig ab. Diverses Zubehör sowie die entsprechende Wärmedämmung ergänzen das Angebot. Ob begrünt, bekiest oder ohne Schutz- und Nutzschicht – wir decken das gesamte Spektrum ab. Für unseren Verkaufsinnendienst in Sarnen/OW suchen wir eine/n Praktikant/in per sofort.\n\n• Aktive Unterstützung in der Verkaufsabwicklung von der Bestellung bis zur Auslieferung\n\n• Behandlung aller Kundenaufträge inklusive Gut-, Lastschriften und Retouren\n\n• Überwachung von Lieferterminen, die Erstellung von Kundendossiers sowie die Fakturierung und Bearbeitung der Rückstände\n\n• Unterstützung beim Organisieren von Transporten und Retouren\n\n• Kontaktpflege zu Verkaufsberatern, Kunden und internen Stellen\n\nIhre Fähigkeiten und Erfahrungen\n• Abgeschlossene oder laufende Ausbildung (KV, Gymnasium, Handelsschule) bzw. laufendes oder abgeschlossenes Studium\n\n• Interesse an logistischen Abläufen und kaufmännischen Prozessen\n\n• Sehr gute PC-Kenntnisse (Outlook, Word & Excel)\n\n• Freude an der Kommunikation, Deutsch (Französisch von Vorteil) am Telefon\n\n• Hohe Eigenmotivation, Lernbereitschaft und Freude am Kundenkontakt\n\n• Zuverlässige, strukturierte und exakte Arbeitsweise\n\n• Erste SAP-Kenntnisse im SD-Modul von Vorteil, aber keine Voraussetzung\n\nWarum Sie zu uns kommen sollten\n• Vertrauen ist für uns das Wichtigste. Wir vertrauen auf Ihre Fähigkeiten und ermöglichen Ihnen viele Gestaltungsräume – jeden Tag auf‘s Neue\n\n• Eine 40-Stunden-Woche\n\n• Grosszügige Weiterbildungsangebote\n\n• Attraktive Vorsorgelösung\n\n• Gratis Parkplätze vor dem Haus\n\nDie Sika ist eine grossartige Arbeitgeberin – speziell für Mitarbeitende, welche auf Vertrauen in der Zusammenarbeit setzen. Wir freuen uns über Ihr vollständiges Bewerbungsdossier (Lebenslauf, Zeugnisse, Diplome, etc.).\n\nWir bieten wettbewerbsfähige Vergütungen, die sich an den lokalen Marktstandards und den spezifischen Aufgabenbereichen jeder Stelle orientieren. Die Vergütung richtet sich nach den für die Position relevanten Fähigkeiten, Verantwortung, der Ausbildung und/oder der Weiterbildung. Wir verpflichten uns zu fairen und gerechten Vergütungssystematiken in Übereinstimmung mit den geltenden Gesetzen, dem Tarifvertag Chemie und Vorschriften.\n\nÜber Sika\nSika ist ein Unternehmen der Spezialitätenchemie, global führend in der Entwicklung und Produktion von Systemen und Produkten zum Kleben, Dichten, Dämpfen, Verstärken und Schützen im Bau und in der Industrie. Sika ist weltweit präsent mit Tochtergesellschaften in 103 Ländern, produziert in über 400 Fabriken, entwickelt innovative Technologien für Kunden rund um den Globus und trägt damit massgeblich zur nachhaltigen Transformation im Bau- und Transportwesen bei. Die mehr als 33’000 Mitarbeitenden erwirtschafteten im Jahr 2025 einen Umsatz von CHF 11.20 Milliarden.",
       "descriptionByLocale": {
-        "de": "Über die Rolle\nSika Abdichtungsbahnen bewähren sich seit vielen Jahrzehnten weltweit auf unterschiedlichen Dachaufbauten. Unsere Systeme «Made in Switzerland» dichten Dächer nachhaltig und zuverlässig ab. Diverses Zubehör sowie die entsprechende Wärmedämmung ergänzen das Angebot. Ob begrünt, bekiest oder ohne Schutz- und Nutzschicht – wir decken das gesamte Spektrum ab. Für unseren Verkaufsinnendienst in Sarnen/OW suchen wir eine/n Praktikant/in per sofort.\n\n• Aktive Unterstützung in der Verkaufsabwicklung von der Bestellung bis zur Auslieferung\n\n• Behandlung aller Kundenaufträge inklusive Gut-, Lastschriften und Retouren\n\n• Überwachung von Lieferterminen, die Erstellung von Kundendossiers sowie die Fakturierung und Bearbeitung der Rückstände\n\n• Unterstützung beim Organisieren von Transporten und Retouren\n\n• Kontaktpflege zu Verkaufsberatern, Kunden und internen Stellen\n\nIhre Fähigkeiten und Erfahrungen\n• Abgeschlossene oder laufende Ausbildung (KV, Gymnasium, Handelsschule) bzw. laufendes oder abgeschlossenes Studium\n\n• Interesse an logistischen Abläufen und kaufmännischen Prozessen\n\n• Sehr gute PC-Kenntnisse (Outlook, Word & Excel)\n\n• Freude an der Kommunikation, Deutsch (Französisch von Vorteil) am Telefon\n\n• Hohe Eigenmotivation, Lernbereitschaft und Freude am Kundenkontakt\n\n• Zuverlässige, strukturierte und exakte Arbeitsweise\n\n• Erste SAP-Kenntnisse im SD-Modul von Vorteil, aber keine Voraussetzung\n\nWarum Sie zu uns kommen sollten\n• Vertrauen ist für uns das Wichtigste. Wir vertrauen auf Ihre Fähigkeiten und ermöglichen Ihnen viele Gestaltungsräume – jeden Tag auf‘s Neue\n\n• Eine 40-Stunden-Woche\n\n• Grosszügige Weiterbildungsangebote\n\n• Attraktive Vorsorgelösung\n\n• Gratis Parkplätze vor dem Haus\n\nDie Sika ist eine grossartige Arbeitgeberin – speziell für Mitarbeitende, welche auf Vertrauen in der Zusammenarbeit setzen. Wir freuen uns über Ihr vollständiges Bewerbungsdossier (Lebenslauf, Zeugnisse, Diplome, etc.).\n\nWir bieten wettbewerbsfähige Vergütungen, die sich an den lokalen Marktstandards und den spezifischen Aufgabenbereichen jeder Stelle orientieren. Die Vergütung richtet sich nach den für die Position relevanten Fähigkeiten, Verantwortung, der Ausbildung und/oder der Weiterbildung. Wir verpflichten uns zu fairen und gerechten Vergütungssystematiken in Übereinstimmung mit den geltenden Gesetzen, dem Tarifvertag Chemie und Vorschriften.\n\nÜber Sika\nSika ist ein Unternehmen der Spezialitätenchemie, global führend in der Entwicklung und Produktion von Systemen und Produkten zum Kleben, Dichten, Dämpfen, Verstärken und Schützen im Bau und in der Industrie. Sika ist weltweit präsent mit Tochtergesellschaften in 103 Ländern, produziert in über 400 Fabriken, entwickelt innovative Technologien für Kunden rund um den Globus und trägt damit massgeblich zur nachhaltigen Transformation im Bau- und Transportwesen bei. Die mehr als 33’000 Mitarbeitenden erwirtschafteten im Jahr 2025 einen Umsatz von CHF 11.20 Milliarden.",
         "it": "Informazioni sul ruolo\nSika impermeabilizzazione fogli si sono dimostrati per molti decenni in tutto il mondo su diverse strutture del tetto. I nostri sistemi “Made in Svizzera” sigillano i tetti in modo sostenibile e affidabile. Diversi accessori e il corrispondente isolamento termico completano l'offerta. Che si tratti di verde, bekiest o senza strato protettivo e utile – copriamo l'intero spettro. Per il nostro ufficio vendite a Sarnen/OW stiamo cercando un tirocinante immediatamente.\n\n• Supporto attivo nell'elaborazione delle vendite dall'ordine alla consegna\n\n• Trattamento di tutti gli ordini del cliente tra cui credito, debito e rendimenti\n\n• Monitoraggio delle date di consegna, preparazione dei dossier dei clienti e fatturazione e lavorazione dei residui\n\n• Assistenza nell'organizzazione dei trasporti e dei ritorni\n\n• Mantenere il contatto con consulenti di vendita, clienti e organismi interni\n\nLe tue competenze ed esperienza\n• Formazione completa o continua (KV, scuola secondaria, scuola commerciale) o studi in corso o completati\n\n• Interessi nei processi logistici e nei processi commerciali\n\n• Conoscenza del PC molto buona (Outlook, Word & Excel)\n\n• Gioia di comunicazione, tedesco (francese di vantaggio) sul telefono\n\n• Alta automotivazione, disponibilità ad imparare e piacere nel contatto con il cliente\n\n• Metodi di lavoro affidabili, strutturati e precisi\n\n• La prima conoscenza SAP nel modulo SD è vantaggiosa, ma nessun requisito\n\nPerché dovresti venire da noi\n• La fiducia è la cosa più importante per noi. Ci fidiamo delle vostre abilità e vi forniamo molti spazi di design – ogni giorno di nuovo\n\n• Una settimana di 40 ore\n\n• Offerte di formazione generose\n\n• Soluzione preventiva attraente\n\n• Parcheggio gratuito di fronte alla casa\n\nSika è un grande datore di lavoro – soprattutto per i dipendenti che si affidano alla fiducia in cooperazione. Accogliamo con favore il dossier completo (CV, certificati, diplomi, ecc.).\n\nOffriamo una remunerazione competitiva basata sugli standard del mercato locale e sulle responsabilità specifiche di ogni lavoro. La remunerazione si basa sulle competenze, responsabilità, istruzione e/o formazione pertinenti alla posizione. Ci impegniamo a regimi di remunerazione equa ed equa in conformità con le leggi applicabili, l'Accordo di Tariffa Chimica e i regolamenti.\n\nA proposito di Sika\nSika è una società chimica specializzata, leader globale nello sviluppo e produzione di sistemi e prodotti per incollaggio, sigillatura, vaporizzazione, rinforzo e protezione nella costruzione e nell'industria. Sika ha una presenza globale con filiali in 103 paesi, produce in oltre 400 fabbriche, sviluppa tecnologie innovative per i clienti di tutto il mondo e contribuisce in modo significativo alla trasformazione sostenibile nella costruzione e nei trasporti. Gli oltre 33.000 dipendenti hanno generato un fatturato di 11,20 miliardi di franchi nel 2025.",
         "en": "About the role\nSika waterproofing sheets have proven themselves for many decades worldwide on different roof structures. Our systems “Made in Switzerland” seal roofs sustainably and reliably. Various accessories and the corresponding thermal insulation complement the offer. Whether green, bekiest or without protective and useful layer – we cover the entire spectrum. For our sales office in Sarnen/OW we are looking for an intern immediately.\n\n• Active support in sales processing from order to delivery\n\n• Treatment of all customer orders including credit, debit and returns\n\n• Monitoring delivery dates, preparing customer dossiers and invoicing and processing of residues\n\n• Assistance in organizing transports and returns\n\n• Maintaining contact with sales consultants, customers and internal bodies\n\nYour skills and experience\n• Completed or ongoing education (KV, secondary school, commercial school) or ongoing or completed studies\n\n• Interest in logistical processes and commercial processes\n\n• Very good PC knowledge (Outlook, Word & Excel)\n\n• Joy of communication, German (French of advantage) on the phone\n\n• High self-motivation, willingness to learn and pleasure in customer contact\n\n• Reliable, structured and exact working methods\n\n• First SAP knowledge in the SD module is advantageous, but no requirement\n\nWhy you should come to us\n• Trust is the most important thing for us. We trust in your skills and provide you with many design spaces – every day anew\n\n• A 40-hour week\n\n• Generous training offers\n\n• Attractive Preventive Solution\n\n• Free parking in front of the house\n\nSika is a great employer – especially for employees who rely on trust in cooperation. We welcome your complete application dossier (CV, certificates, diplomas, etc.).\n\nWe offer competitive remuneration based on local market standards and the specific responsibilities of each job. The remuneration shall be based on the skills, responsibility, education and/or training relevant to the position. We are committed to fair and equitable remuneration schemes in accordance with applicable laws, the Chemicals Tariff Agreement and regulations.\n\nAbout Sika\nSika is a specialty chemical company, global leader in the development and production of systems and products for gluing, sealing, steaming, reinforcing and protecting in construction and industry. Sika has a global presence with subsidiaries in 103 countries, produces in over 400 factories, develops innovative technologies for customers around the world and thus contributes significantly to the sustainable transformation in construction and transport. The more than 33,000 employees generated a turnover of CHF 11.20 billion in 2025.",
+        "de": "Über die Rolle\nSika Abdichtungsbahnen bewähren sich seit vielen Jahrzehnten weltweit auf unterschiedlichen Dachaufbauten. Unsere Systeme «Made in Switzerland» dichten Dächer nachhaltig und zuverlässig ab. Diverses Zubehör sowie die entsprechende Wärmedämmung ergänzen das Angebot. Ob begrünt, bekiest oder ohne Schutz- und Nutzschicht – wir decken das gesamte Spektrum ab. Für unseren Verkaufsinnendienst in Sarnen/OW suchen wir eine/n Praktikant/in per sofort.\n\n• Aktive Unterstützung in der Verkaufsabwicklung von der Bestellung bis zur Auslieferung\n\n• Behandlung aller Kundenaufträge inklusive Gut-, Lastschriften und Retouren\n\n• Überwachung von Lieferterminen, die Erstellung von Kundendossiers sowie die Fakturierung und Bearbeitung der Rückstände\n\n• Unterstützung beim Organisieren von Transporten und Retouren\n\n• Kontaktpflege zu Verkaufsberatern, Kunden und internen Stellen\n\nIhre Fähigkeiten und Erfahrungen\n• Abgeschlossene oder laufende Ausbildung (KV, Gymnasium, Handelsschule) bzw. laufendes oder abgeschlossenes Studium\n\n• Interesse an logistischen Abläufen und kaufmännischen Prozessen\n\n• Sehr gute PC-Kenntnisse (Outlook, Word & Excel)\n\n• Freude an der Kommunikation, Deutsch (Französisch von Vorteil) am Telefon\n\n• Hohe Eigenmotivation, Lernbereitschaft und Freude am Kundenkontakt\n\n• Zuverlässige, strukturierte und exakte Arbeitsweise\n\n• Erste SAP-Kenntnisse im SD-Modul von Vorteil, aber keine Voraussetzung\n\nWarum Sie zu uns kommen sollten\n• Vertrauen ist für uns das Wichtigste. Wir vertrauen auf Ihre Fähigkeiten und ermöglichen Ihnen viele Gestaltungsräume – jeden Tag auf‘s Neue\n\n• Eine 40-Stunden-Woche\n\n• Grosszügige Weiterbildungsangebote\n\n• Attraktive Vorsorgelösung\n\n• Gratis Parkplätze vor dem Haus\n\nDie Sika ist eine grossartige Arbeitgeberin – speziell für Mitarbeitende, welche auf Vertrauen in der Zusammenarbeit setzen. Wir freuen uns über Ihr vollständiges Bewerbungsdossier (Lebenslauf, Zeugnisse, Diplome, etc.).\n\nWir bieten wettbewerbsfähige Vergütungen, die sich an den lokalen Marktstandards und den spezifischen Aufgabenbereichen jeder Stelle orientieren. Die Vergütung richtet sich nach den für die Position relevanten Fähigkeiten, Verantwortung, der Ausbildung und/oder der Weiterbildung. Wir verpflichten uns zu fairen und gerechten Vergütungssystematiken in Übereinstimmung mit den geltenden Gesetzen, dem Tarifvertag Chemie und Vorschriften.\n\nÜber Sika\nSika ist ein Unternehmen der Spezialitätenchemie, global führend in der Entwicklung und Produktion von Systemen und Produkten zum Kleben, Dichten, Dämpfen, Verstärken und Schützen im Bau und in der Industrie. Sika ist weltweit präsent mit Tochtergesellschaften in 103 Ländern, produziert in über 400 Fabriken, entwickelt innovative Technologien für Kunden rund um den Globus und trägt damit massgeblich zur nachhaltigen Transformation im Bau- und Transportwesen bei. Die mehr als 33’000 Mitarbeitenden erwirtschafteten im Jahr 2025 einen Umsatz von CHF 11.20 Milliarden.",
         "fr": "Sur le rôle\nLes feuilles d'étanchéité Sika se sont prouvées depuis de nombreuses décennies dans le monde entier sur différentes structures de toit. Nos systèmes Fabriqués en Suisse Divers accessoires et l'isolation thermique correspondante complètent l'offre. Que ce soit vert, beige ou sans couche protectrice et utile, nous couvrons tout le spectre. Pour notre bureau de vente à Sarnen/OW nous sommes à la recherche d'un stagiaire immédiatement.\n\n• Soutien actif dans le traitement des ventes de la commande à la livraison\n\n• Traitement de toutes les commandes des clients, y compris le crédit, le débit et les retours\n\n• Surveillance des dates de livraison, préparation des dossiers clients, facturation et traitement des résidus\n\n• Aide à l ' organisation des transports et des retours\n\n• Maintenir le contact avec les conseillers commerciaux, les clients et les organismes internes\n\nVos compétences et votre expérience\n• Études terminées ou en cours (KV, école secondaire, école commerciale) ou études en cours ou terminées\n\n• Intérêt pour les processus logistiques et commerciaux\n\n• Très bonne connaissance PC (Outlook, Word & Excel)\n\n• Joy de communication, allemand (français d'avantage) au téléphone\n\n• Haute motivation, volonté d'apprendre et plaisir dans le contact avec le client\n\n• Méthodes de travail fiables, structurées et exactes\n\n• Première connaissance SAP dans le module DD est avantageux, mais aucune exigence\n\nPourquoi tu devrais venir nous voir ?\n• La confiance est la chose la plus importante pour nous. Nous faisons confiance à vos compétences et vous fournissons de nombreux espaces de design – chaque jour\n\n• Une semaine de 40 heures\n\n• Des offres de formation généreuses\n\n• Solution préventive attractive\n\n• Parking gratuit devant la maison\n\nSika est un excellent employeur – surtout pour les employés qui comptent sur la confiance dans la coopération. Nous accueillons votre dossier de candidature complet (CV, certificats, diplômes, etc.).\n\nNous offrons une rémunération concurrentielle basée sur les normes du marché local et les responsabilités spécifiques de chaque emploi. La rémunération est fondée sur les compétences, les responsabilités, les études et/ou la formation pertinentes au poste. Nous nous engageons à mettre en place des systèmes de rémunération justes et équitables conformément aux lois applicables, à l'Accord tarifaire sur les produits chimiques et à la réglementation.\n\nÀ propos de Sika\nSika est une société chimique spécialisée, leader mondial dans le développement et la production de systèmes et de produits de collage, d'étanchéité, de vapeur, de renforcement et de protection dans la construction et l'industrie. Sika a une présence mondiale avec des filiales dans 103 pays, produit dans plus de 400 usines, développe des technologies innovantes pour les clients dans le monde entier et contribue ainsi de manière significative à la transformation durable dans la construction et le transport. Plus de 33 000 salariés ont généré un chiffre d'affaires de CHF 11,20 milliards en 2025."
       },
       "location": "Sarnen, Obwalden",
@@ -3347,7 +3435,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-366a9334-2370-4ee0-b779-7fc17a5ed5f9.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:58:53.382Z",
+      "crawledAt": "2026-11-19T21:26:54.529Z",
       "addressLocality": "Sarnen",
       "postalCode": "6060",
       "streetAddress": "Sarnen",
@@ -3366,18 +3454,22 @@
       "postingDateSource": "reported",
       "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-366a9334-2370-4ee0-b779-7fc17a5ed5f9.html",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "praktikant-als-sachbearbeiter-verkaufsinnendienst-w-m-d-sika-ch"
-        ]
-      },
+      "requirementsByLocale": {},
       "previousSlugs": [
         "praktikant-als-sachbearbeiter-verkaufsinnendienst-w-m-d-sika-ch"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-als-sachbearbeiter-verkaufsinnendienst-w-m-d-sika-ch"
+        ],
+        "en": [
+          "praktikant-als-sachbearbeiter-verkaufsinnendienst-w-m-d-sika-ch"
+        ],
+        "fr": [
+          "praktikant-als-sachbearbeiter-verkaufsinnendienst-w-m-d-sika-ch"
+        ]
+      },
+      "firstSeenAt": "2026-11-19T09:58:53.382Z",
       "salaryMin": 62000,
       "salaryMax": 95500,
       "salarySource": "estimated",
@@ -3392,9 +3484,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T09:58:53.382Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T09:58:53.382Z"
+      "validThrough": "2027-01-20T21:26:54.529Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sika-bb0100e14330",
@@ -3427,7 +3518,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-d5db50f8-cc38-488d-bded-1eccee77963a.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:58:51.741Z",
+      "crawledAt": "2026-11-19T21:26:52.966Z",
       "addressLocality": "Widen",
       "postalCode": "8967",
       "streetAddress": "Widen",
@@ -3476,7 +3567,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T09:58:51.741Z",
+      "validThrough": "2027-01-20T21:26:52.966Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3510,7 +3601,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-e8630cdd-fa91-47a4-8a31-db3a890660fa.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:58:50.550Z",
+      "crawledAt": "2026-11-19T21:26:51.437Z",
       "addressLocality": "Widen",
       "postalCode": "8967",
       "streetAddress": "Widen",
@@ -3553,7 +3644,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T09:58:50.550Z",
+      "validThrough": "2027-01-20T21:26:51.437Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3587,7 +3678,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-eb5c10d3-539b-4691-a17f-8b6d561cd311.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:58:50.230Z",
+      "crawledAt": "2026-11-19T21:26:49.834Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Zürich",
@@ -3636,8 +3727,88 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T09:58:50.230Z",
+      "validThrough": "2027-01-21T21:26:49.834Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "sika-e25cd1e297d6",
+      "slug": "produktingenieur-in-brandschutz-e-fassade-m-w-d-sika-zurich",
+      "slugByLocale": {
+        "de": "produktingenieur-in-brandschutz-und-fassade-m-w-d-sika-ch",
+        "it": "produktingenieur-in-brandschutz-e-fassade-m-w-d-sika-zurich",
+        "en": "produktingenieur-in-brandschutz-und-fassade-m-w-d-sika-ch",
+        "fr": "produktingenieur-in-brandschutz-und-fassade-m-w-d-sika-ch"
+      },
+      "company": "Sika",
+      "companyKey": "sika",
+      "companyDomain": "sika.com",
+      "title": "Produktingenieur/-in Brandschutz und Fassade (m/w/d)",
+      "titleByLocale": {
+        "de": "Produktingenieur/-in Brandschutz und Fassade (m/w/d)",
+        "it": "Ingegnere / Ingegnera di prodotto per la protezione antincendio e le facciate (m/f/d)",
+        "en": "Product Engineer Fire Protection and Facade (m/f/d)",
+        "fr": "Ingénieur·e produit en protection incendie et façade (h/f/d)"
+      },
+      "description": "Über die Rolle\nModerne Gebäude sind sowohl in horizontaler als auch in vertikaler Richtung von zahlreichen Versorgungs- und Netzwerkdiensten wie Kabeln, Rohren und Lüftungskanälen durchzogen, was zu einer Vielzahl von Durchdringungen in den meisten Wänden und Böden führt. Die Sika Schweiz AG bietet für den baulichen Brandschutz eine umfangreiche Palette von Produkten an. Unsere Produktingenieure leisten dabei einen wichtigen Beitrag in allen Phasen der Produktentwicklungen.\nWir suchen an unserem Standort in Zürich-Altstetten eine/-n Produktingenieur/-in Brandschutz und Fassade.\nIn dieser Funktion bist du für folgende Aufgaben zuständig:\n\n• Betreuen des Produktsortiments hinsichtlich technischer und anwendungstechnischer Leistungsfähigkeit\n\n• Erstellen von Pflichtenheften für die Entwicklung neuer Produkte, Leiten und Auswerten der Feldversuchsphase und der anschliessenden Markteinführung bei lokalen Projekten und Mitarbeit bei globalen Produktentwicklungen\n\n• Beraten und Schulen der Verkaufseinheiten bei technischen Fragestellungen sowie Reklamationen\n\n• Erarbeiten von Produktdatenblättern und Applikationsrichtlinien sowie anderen technischen Dokumenten\n\n• Mitarbeit beim Erstellen geeigneter Marketinginstrumente\n\n• Fachliche Führung des zugehörigen Anwendungsinstruktors\n\nIhre Fähigkeiten und Erfahrungen\n• Hochschulstudium als Bauingenieur, Wirtschaftschemiker oder Materialwissenschafter\n\n• Mehrjährige Berufspraxis in baulichem Brandschutz\n\n• Stilsicheres Deutsch; gute Englischkenntnisse (mündlich und schriftlich) sowie Französischkenntnisse\n\n• Hohe Eigenmotivation, Freude am Kundenkontakt und natürlich der nötige Biss\n\nWarum Sie zu uns kommen sollten\n• Vertrauen ist für uns das Wichtigste. Wir vertrauen auf deine Fähigkeiten und ermöglichen dir viele Gestaltungsräume – jeden Tag auf‘s Neue.\n\n• Eine intensive Einarbeitung in unsere Produkte, Systeme und Prozesse ermöglicht dir einen erfolgreichen Einstieg.\n\n• Unkomplizierte Führungskräfte, die Vertrauen schenken und eine familiäre Atmosphäre mit einem freundlichen Umgangston machen das Arbeiten bei Sika speziell – viele bei uns nennen es den Sika-Spirit.\nWir freuen uns auf dein komplettes Bewerbungsdossier.\n\nWir bieten wettbewerbsfähige Vergütungen, die sich an den lokalen Marktstandards und den spezifischen Aufgabenbereichen jeder Stelle orientieren. Die Vergütung richtet sich nach den für die Position relevanten Fähigkeiten, Verantwortung, der Ausbildung und/oder der Weiterbildung. Wir verpflichten uns zu fairen und gerechten Vergütungssystematiken in Übereinstimmung mit den geltenden Gesetzen, dem Tarifvertag Chemie und Vorschriften.\n\nÜber Sika\nSika ist ein Unternehmen der Spezialitätenchemie, global führend in der Entwicklung und Produktion von Systemen und Produkten zum Kleben, Dichten, Dämpfen, Verstärken und Schützen für die Bau- und Fahrzeugindustrie. Sika ist weltweit präsent mit Tochtergesellschaften in 103 Ländern, produziert in über 400 Fabriken und entwickelt innovative Technologien für Kunden rund um den Globus und trägt damit massgeblich zur nachhaltigen Transformation der Bau- und Fahrzeugindustrie bei. Die mehr als 33’000 Mitarbeitenden erwirtschafteten im Jahr 2025 einen Umsatz von CHF 11.2 Milliarden.",
+      "descriptionByLocale": {
+        "de": "Über die Rolle\nModerne Gebäude sind sowohl in horizontaler als auch in vertikaler Richtung von zahlreichen Versorgungs- und Netzwerkdiensten wie Kabeln, Rohren und Lüftungskanälen durchzogen, was zu einer Vielzahl von Durchdringungen in den meisten Wänden und Böden führt. Die Sika Schweiz AG bietet für den baulichen Brandschutz eine umfangreiche Palette von Produkten an. Unsere Produktingenieure leisten dabei einen wichtigen Beitrag in allen Phasen der Produktentwicklungen.\nWir suchen an unserem Standort in Zürich-Altstetten eine/-n Produktingenieur/-in Brandschutz und Fassade.\nIn dieser Funktion bist du für folgende Aufgaben zuständig:\n\n• Betreuen des Produktsortiments hinsichtlich technischer und anwendungstechnischer Leistungsfähigkeit\n\n• Erstellen von Pflichtenheften für die Entwicklung neuer Produkte, Leiten und Auswerten der Feldversuchsphase und der anschliessenden Markteinführung bei lokalen Projekten und Mitarbeit bei globalen Produktentwicklungen\n\n• Beraten und Schulen der Verkaufseinheiten bei technischen Fragestellungen sowie Reklamationen\n\n• Erarbeiten von Produktdatenblättern und Applikationsrichtlinien sowie anderen technischen Dokumenten\n\n• Mitarbeit beim Erstellen geeigneter Marketinginstrumente\n\n• Fachliche Führung des zugehörigen Anwendungsinstruktors\n\nIhre Fähigkeiten und Erfahrungen\n• Hochschulstudium als Bauingenieur, Wirtschaftschemiker oder Materialwissenschafter\n\n• Mehrjährige Berufspraxis in baulichem Brandschutz\n\n• Stilsicheres Deutsch; gute Englischkenntnisse (mündlich und schriftlich) sowie Französischkenntnisse\n\n• Hohe Eigenmotivation, Freude am Kundenkontakt und natürlich der nötige Biss\n\nWarum Sie zu uns kommen sollten\n• Vertrauen ist für uns das Wichtigste. Wir vertrauen auf deine Fähigkeiten und ermöglichen dir viele Gestaltungsräume – jeden Tag auf‘s Neue.\n\n• Eine intensive Einarbeitung in unsere Produkte, Systeme und Prozesse ermöglicht dir einen erfolgreichen Einstieg.\n\n• Unkomplizierte Führungskräfte, die Vertrauen schenken und eine familiäre Atmosphäre mit einem freundlichen Umgangston machen das Arbeiten bei Sika speziell – viele bei uns nennen es den Sika-Spirit.\nWir freuen uns auf dein komplettes Bewerbungsdossier.\n\nWir bieten wettbewerbsfähige Vergütungen, die sich an den lokalen Marktstandards und den spezifischen Aufgabenbereichen jeder Stelle orientieren. Die Vergütung richtet sich nach den für die Position relevanten Fähigkeiten, Verantwortung, der Ausbildung und/oder der Weiterbildung. Wir verpflichten uns zu fairen und gerechten Vergütungssystematiken in Übereinstimmung mit den geltenden Gesetzen, dem Tarifvertag Chemie und Vorschriften.\n\nÜber Sika\nSika ist ein Unternehmen der Spezialitätenchemie, global führend in der Entwicklung und Produktion von Systemen und Produkten zum Kleben, Dichten, Dämpfen, Verstärken und Schützen für die Bau- und Fahrzeugindustrie. Sika ist weltweit präsent mit Tochtergesellschaften in 103 Ländern, produziert in über 400 Fabriken und entwickelt innovative Technologien für Kunden rund um den Globus und trägt damit massgeblich zur nachhaltigen Transformation der Bau- und Fahrzeugindustrie bei. Die mehr als 33’000 Mitarbeitenden erwirtschafteten im Jahr 2025 einen Umsatz von CHF 11.2 Milliarden.",
+        "it": "Informazioni sul ruolo\nGli edifici moderni sono attraversati sia orizzontalmente che verticalmente da numerose utility e servizi di rete come cavi, tubi e condotti di ventilazione, con conseguente una varietà di penetrazioni nella maggior parte delle pareti e pavimenti. Sika Schweiz AG offre una vasta gamma di prodotti per la protezione antincendio strutturale. I nostri ingegneri del prodotto danno un contributo importante in tutte le fasi di sviluppo del prodotto.\nNella nostra posizione a Zurigo-Altstetten, stiamo cercando un ingegnere del prodotto nella protezione antincendio e nella facciata.\nIn questo ruolo, sei responsabile dei seguenti compiti:\n\n• Supervisione della gamma di prodotti per quanto riguarda le prestazioni tecniche e applicative\n\n• Preparazione di specifiche per lo sviluppo di nuovi prodotti, la gestione e la valutazione della fase di test sul campo e il successivo lancio di mercato nei progetti locali e la cooperazione negli sviluppi globali dei prodotti\n\n• Consulenza e scuole di unità di vendita su questioni tecniche e reclami\n\n• Preparazione delle schede dei prodotti e delle linee guida delle applicazioni nonché di altri documenti tecnici\n\n• Assistenza nella creazione di strumenti di marketing adatti\n\n• Guida professionale dell'istruttore di applicazione associato\n\nLe tue abilità ed esperienza\n• Studi universitari come ingegnere civile, chimico economico o scienziato dei materiali\n\n• Diversi anni di pratica professionale nella protezione antincendio strutturale\n\n• Tedesco stilistico; buona conoscenza dell'inglese (verbale e scritto) e francese\n\n• Alta automotivazione, piacere nel contatto con il cliente e, naturalmente, il morso necessario\n\nPerché dovresti venire da noi\n• La fiducia è la cosa più importante per noi. Ci fidiamo delle vostre abilità e vi forniamo molti spazi di design – ogni giorno di nuovo.\n\n• La formazione intensiva nei nostri prodotti, sistemi e processi vi permetterà di iniziare con successo.\n\n• Dirigenti semplici che si fidano e un'atmosfera familiare con un tono amichevole fanno lavorare a Sika speciale – molti di noi lo chiamano lo spirito Sika.\nAttendiamo con ansia il vostro dossier completo.\n\nOffriamo una remunerazione competitiva basata sugli standard di mercato locale e sulle responsabilità specifiche di ogni lavoro. La remunerazione si basa sulle competenze, responsabilità, istruzione e/o formazione pertinenti alla posizione. Ci impegniamo a regimi di remunerazione equa ed equa in conformità con le leggi applicabili, l'Accordo di Tariffa Chimica e i regolamenti.\n\nA proposito di Sika\nSika è una società chimica specializzata, leader globale nello sviluppo e nella produzione di sistemi e prodotti per incollaggio, sigillatura, vaporizzazione, rinforzo e protezione per le industrie di costruzione e veicoli. Sika ha una presenza globale con filiali in 103 paesi, produce in oltre 400 fabbriche e sviluppa tecnologie innovative per i clienti di tutto il mondo, contribuendo in modo significativo alla trasformazione sostenibile dell'industria della costruzione e dei veicoli. Gli oltre 33.000 dipendenti hanno generato un fatturato di 11.2 miliardi di franchi nel 2025.",
+        "en": "About the role\nModern buildings are traversed both horizontally and vertically by numerous utilities and network services such as cables, pipes and ventilation ducts, resulting in a variety of penetrations in most walls and floors. Sika Schweiz AG offers an extensive range of products for structural fire protection. Our product engineers make an important contribution in all phases of product development.\nAt our location in Zurich-Altstetten, we are looking for a product engineer in fire protection and facade.\nIn this role, you are responsible for the following tasks:\n\n• Supervision of the product range with regard to technical and application performance\n\n• Preparation of specifications for the development of new products, management and evaluation of the field test phase and the subsequent market launch in local projects and cooperation in global product developments\n\n• Advising and schools of sales units on technical issues and complaints\n\n• Preparation of product data sheets and application guidelines as well as other technical documents\n\n• Assistance in creating suitable marketing tools\n\n• Professional guidance of the associated application instructor\n\nYour skills and experience\n• University studies as a civil engineer, economic chemist or materials scientist\n\n• Several years of professional practice in structural fire protection\n\n• Stylistic German; good knowledge of English (verbal and written) and French\n\n• High self-motivation, pleasure in customer contact and of course the necessary bite\n\nWhy you should come to us\n• Trust is the most important thing for us. We trust in your abilities and provide you with many design spaces – every day anew.\n\n• Intensive training in our products, systems and processes will enable you to start successfully.\n\n• Uncomplicated managers who trust and a familiar atmosphere with a friendly tone make working at Sika special – many of us call it the Sika spirit.\nWe look forward to your complete application dossier.\n\nWe offer competitive remuneration based on local market standards and the specific responsibilities of each job. The remuneration shall be based on the skills, responsibility, education and/or training relevant to the position. We are committed to fair and equitable remuneration schemes in accordance with the applicable laws, the Chemical Tariff Agreement and regulations.\n\nAbout Sika\nSika is a specialty chemical company, global leader in the development and production of systems and products for gluing, sealing, steaming, reinforcing and protecting for the construction and vehicle industries. Sika has a global presence with subsidiaries in 103 countries, produces in over 400 factories and develops innovative technologies for customers around the world, contributing significantly to the sustainable transformation of the construction and vehicle industry. The more than 33,000 employees generated a turnover of CHF 11.2 billion in 2025.",
+        "fr": "Sur le rôle\nLes bâtiments modernes sont traversés horizontalement et verticalement par de nombreux services publics et réseaux tels que les câbles, les tuyaux et les conduits de ventilation, ce qui entraîne une variété de pénétrations dans la plupart des murs et des planchers. Sika Schweiz AG propose une vaste gamme de produits pour la protection contre les incendies structurels. Nos ingénieurs de produits apportent une contribution importante à toutes les phases du développement de produits.\nSur notre site à Zurich-Altstetten, nous recherchons un ingénieur produit en protection incendie et façade.\nDans ce rôle, vous êtes responsable des tâches suivantes:\n\n• Surveillance de la gamme de produits en ce qui concerne les performances techniques et d'application\n\n• Élaboration de spécifications pour la mise au point de nouveaux produits, gestion et évaluation de la phase d ' essai sur le terrain et lancement ultérieur du marché dans le cadre de projets locaux et coopération dans le développement de produits mondiaux\n\n• Conseils et écoles d'unités de vente sur les questions techniques et les plaintes\n\n• Préparation de fiches de données sur les produits et de directives d'application ainsi que d'autres documents techniques\n\n• Aide à la création d'outils de commercialisation appropriés\n\n• Conseil professionnel de l'instructeur d'application associé\n\nVos compétences et votre expérience\n• Études universitaires en tant qu'ingénieur civil, chimiste économique ou spécialiste des matériaux\n\n• Plusieurs années de pratique professionnelle en matière de protection contre les incendies structurels\n\n• Allemand styliste; bonne connaissance de l'anglais (verbal et écrit) et du français\n\n• Haute motivation, plaisir dans le contact avec le client et bien sûr la morsure nécessaire\n\nPourquoi tu devrais venir nous voir ?\n• La confiance est la chose la plus importante pour nous. Nous faisons confiance à vos capacités et vous fournissons de nombreux espaces de design – chaque jour à nouveau.\n\n• Une formation intensive dans nos produits, systèmes et processus vous permettra de démarrer avec succès.\n\n• Des managers simples qui font confiance et une atmosphère familière avec un ton amical rendent le travail à Sika spécial – beaucoup d'entre nous l'appellent l'esprit Sika.\nNous attendons avec impatience votre dossier de candidature complet.\n\nNous offrons une rémunération concurrentielle basée sur les normes du marché local et les responsabilités spécifiques de chaque emploi. La rémunération est fondée sur les compétences, les responsabilités, l'éducation et/ou la formation pertinentes au poste. Nous nous engageons à mettre en place des systèmes de rémunération justes et équitables conformément aux lois applicables, à l'Accord sur le tarif des produits chimiques et aux règlements.\n\nÀ propos de Sika\nSika est une entreprise chimique spécialisée, leader mondial dans le développement et la production de systèmes et de produits de collage, d'étanchéité, de vapeur, de renforcement et de protection pour les industries de la construction et des véhicules. Sika a une présence mondiale avec des filiales dans 103 pays, produit dans plus de 400 usines et développe des technologies innovantes pour les clients dans le monde entier, contribuant de manière significative à la transformation durable de l'industrie de la construction et du véhicule. Plus de 33 000 salariés ont généré un chiffre d'affaires de CHF 11,2 milliards en 2025."
+      },
+      "location": "Zürich, Zurich",
+      "canton": "ZH",
+      "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-4f30bafc-9f15-4a91-88b7-bdc1ef8e04d0.html",
+      "source": "Sika Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-19T21:26:49.147Z",
+      "addressLocality": "Zürich",
+      "postalCode": "8001",
+      "streetAddress": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Specialty chemicals (construction & industrial)",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-04",
+      "postedDate": "2026-11-04",
+      "postingDateSource": "reported",
+      "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-4f30bafc-9f15-4a91-88b7-bdc1ef8e04d0.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "produktingenieur-in-brandschutz-und-fassade-m-w-d-sika-ch"
+        ]
+      },
+      "previousSlugs": [
+        "produktingenieur-in-brandschutz-und-fassade-m-w-d-sika-ch"
+      ],
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-02T21:26:49.147Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-19T21:26:49.147Z"
     },
     {
       "id": "sika-dbdb5c50be3e",
@@ -3670,7 +3841,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-46b03c36-40d2-4ce1-a18c-cf3f4b003125.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:58:49.011Z",
+      "crawledAt": "2026-11-19T21:26:47.391Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Zürich",
@@ -3719,7 +3890,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:58:49.011Z",
+      "validThrough": "2027-02-03T21:26:47.391Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3753,7 +3924,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-9a1e987b-70bc-4a95-a1f5-7a86bb81385c.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:58:47.903Z",
+      "crawledAt": "2026-11-19T21:26:45.712Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Zürich",
@@ -3802,170 +3973,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:58:47.903Z",
+      "validThrough": "2027-02-03T21:26:45.712Z",
       "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "sika-75a953aa2ad5",
-      "slug": "apprendistato-impiegato-a-in-logistica-cfc-2027-sika-dudingen",
-      "slugByLocale": {
-        "it": "apprendistato-impiegato-a-in-logistica-cfc-2027-sika-dudingen",
-        "en": "apprenticeship-logistics-manager-in-efz-2027-sika-dudingen-canton-of-fribourg-switzerland",
-        "de": "lehrstelle-logistiker-in-efz-2027-sika-ch",
-        "fr": "gestionnaire-logistique-d-apprentissage-en-efz-2027-sika-dudingen-canton-of-fribourg-switzerland"
-      },
-      "company": "Sika",
-      "companyKey": "sika",
-      "companyDomain": "sika.com",
-      "title": "Lehrstelle Logistiker/-in EFZ 2027",
-      "titleByLocale": {
-        "it": "Apprendistato Impiegato/a in logistica CFC 2027",
-        "en": "Apprenticeship as a logistics specialist EFZ 2027",
-        "de": "Lehrstelle Logistiker/-in EFZ 2027",
-        "fr": "Apprentissage en tant que spécialiste en logistique EFZ 2027"
-      },
-      "description": "Über die Rolle\nFür den Lehrbeginn im August 2027 suchen wir interessierte, junge Menschen für die Lehrstelle als Logistiker/in EFZ. Täglich werden verschiedenste Materialien angeliefert, verarbeitet, und Halb- und Fertigprodukte müssen gelagert und versandt werden. Zu den Aufgaben des Logistikers gehört die Warenannahme, Eingangskontrolle, Ein- und Umlagerungen, Bestandsaufnahme, die Lagerbetreuung und das Verpacken und Sichern der Transportgüter, mit dem Ziel, die richtige Menge der richtigen Ware rechtzeitig und kostengünstig am richtigen Ort bereitzustellen. Stapler, Elektrofahrzeuge und andere technische Hilfsmittel erleichtern die körperliche Arbeit. Der Computer hat auch vor dem Lager keinen Halt gemacht, sämtliche Warenein- und -ausgänge müssen erfasst werden. Unsere vielseitige und spannende Grundbildung ermöglicht dir einen optimalen Start in die Arbeitswelt.\n\nIhre Fähigkeiten und Erfahrungen\nDas bringst du mit:\n\n• Guter Real- oder Sekundarabschluss\n\n• Gute Schulnoten in Allgemeinbildung, Mathematik und Deutsch\n\n• Technisch interessiert, logisches Denken, motiviert, kontakt- und lernfreudig\n\nWarum Sie zu uns kommen sollten\nDas erwartet dich bei uns:\n\n• Dauer der Lehre: 3 Jahre\n\n• Interessante Ausbildung im Klebstoff- und Membranenwerk\n\n• Berufsschule: 1 Tag pro Woche in Thun\nDeine Benefits\n\n• Faire Entlöhnung inklusive 13. Monatslohn\n\n• Wir übernehmen die Kosten für Lehrmittel\n\n• Reiseentschädigung (jährlich CHF 900.-)\n\n• Zur Verfügungstellung Arbeitskleider\n\n• Kostenbeteiligung am persönlichen Laptop\n\n• Kostenbeteiligung an Sprachaufenthalt 50%\n\n• Gesundheits- und Sportangebote\n\n• Lehrabschlussgeschenk von CHF 500.-\nEngagierte Berufs- und Praxisbildner, die für eine familiäre Atmosphäre sorgen, machen das Arbeiten bei Sika speziell – viele nennen es den Sika-Spirit. Wir geben alles, damit Dich Deine Lehre langfristig bei Sika weiterbringt!\nDie Sika ist eine grossartige Arbeitgeberin – besonders auch für junge Durchstarter. Erfahre mehr von vielen Sika-Lernenden über ihre Lehrberufe auf www.sika.ch/lehre-duedingen .\nFabian Brotschi, Tel. 058 436 63 33, kennt die Details zu den Lehrstellen und erzählt dir gerne mehr über den Sika-Spirit. Bei Fragen stehen wir Dir zudem per E-Mail: [email protected] gerne zur Verfügung.\nDeine Bewerbung mit Lebenslauf, Motivationsschreiben, Kopien der Schulnoten sowie wenn vorhanden Multi/Basic-Check erreicht uns schnell und sicher online über den Bewerber-Button dieser Webseite.\nFühlst Du Dich angesprochen? Dann freuen wir uns auf Deine online Bewerbung.\n\nWir bieten wettbewerbsfähige Vergütungen, die sich an den lokalen Marktstandards und den spezifischen Aufgabenbereichen jeder Stelle orientieren. Die Vergütung richtet sich nach den für die Position relevanten Fähigkeiten, Verantwortung, der Ausbildung und/oder der Weiterbildung. Wir verpflichten uns zu fairen und gerechten Vergütungssystematiken in Übereinstimmung mit den geltenden Gesetzen, dem Tarifvertag Chemie und Vorschriften.\n\nÜber Sika\nSika ist ein Unternehmen der Spezialitätenchemie, global führend in der Entwicklung und Produktion von Systemen und Produkten zum Kleben, Dichten, Dämpfen, Verstärken und Schützen im Bau und in der Industrie. Sika ist weltweit präsent mit Tochtergesellschaften in 103 Ländern, produziert in über 400 Fabriken, entwickelt innovative Technologien für Kunden rund um den Globus und trägt damit massgeblich zur nachhaltigen Transformation im Bau- und Transportwesen bei. Die mehr als 33’000 Mitarbeitenden erwirtschafteten im Jahr 2025 einen Umsatz von CHF 11.2 Milliarden.",
-      "descriptionByLocale": {
-        "it": "Informazioni sul ruolo\nPer l'inizio dell'apprendistato nel mese di agosto 2027, stiamo cercando giovani interessati per l'apprendistato come logistico/in EFZ. Ogni giorno vengono consegnati e lavorati vari materiali e i prodotti semilavorati e finiti devono essere conservati e spediti. I compiti del logistico includono il ricevimento delle merci, l'ispezione d'ingresso, lo stoccaggio e il trasferimento, l'inventario, il deposito e l'imballaggio e la protezione delle merci trasportate, con l'obiettivo di fornire la giusta quantità delle merci giuste in modo tempestivo e conveniente al posto giusto. Carrelli elevatori, veicoli elettrici e altri aiuti tecnici facilitano il lavoro fisico. Il computer non ha fatto alcuna sosta davanti al magazzino, tutte le merci in entrata e in uscita devono essere registrate. La nostra formazione di base versatile ed emozionante ti permette un inizio ottimale nel mondo del lavoro.\n\nLe tue competenze ed esperienza\nQuesto è ciò che portate con voi:\n\n• Buona educazione reale o secondaria\n\n• Buone classi scolastiche in educazione generale, matematica e tedesco\n\n• Tecnicamente interessato, pensiero logico, motivato, contatto e apprendimento\n\nPerché dovresti venire da noi\nQuesto è ciò che vi aspetta con noi:\n\n• Durata dell'insegnamento: 3 anni\n\n• Formazione interessante nella pianta adesiva e a membrana\n\n• Scuola professionale: 1 giorno a settimana in Thun\nI tuoi vantaggi\n\n• Retribuzione equa tra cui 13. Retribuzioni mensili\n\n• Copriamo i costi dei materiali didattici\n\n• Indennità di viaggio (annuale CHF 900.-)\n\n• Fornitura di abiti da lavoro\n\n• Condivisione dei costi sul personal computer\n\n• Partecipazione al soggiorno linguistico 50%\n\n• Servizi sanitari e sportivi\n\n• Regalo didattico di CHF 500. -\nI formatori professionali e pratici dedicati che forniscono un'atmosfera familiare fanno lavorare a Sika speciale – molti lo chiamano lo spirito Sika. Diamo tutto in modo che il vostro apprendistato vi porterà più lontano a Sika a lungo termine!\nSika è un grande datore di lavoro – soprattutto per i giovani principianti. Scopri di più da molti studenti Sika sulle loro professioni di insegnamento su www.sika.ch/lehre-duedingen.\nFabian Brotschi, Tel. 058 436 63 33, conosce i dettagli degli apprendisti ed è felice di raccontarvi di più sullo spirito Sika. Se avete domande, siamo anche a vostra disposizione per e-mail: [email protected]\nLa vostra domanda con CV, lettera di motivazione, copie dei voti scolastici e se disponibile Multi/Basic-Check ci raggiunge in modo rapido e sicuro online tramite il pulsante richiedente di questo sito.\nTi senti indirizzato? Attendiamo con ansia la vostra applicazione online.\n\nOffriamo una remunerazione competitiva basata sugli standard del mercato locale e sulle responsabilità specifiche di ogni lavoro. La remunerazione si basa sulle competenze, responsabilità, istruzione e/o formazione pertinenti alla posizione. Ci impegniamo a regimi di remunerazione equa ed equa in conformità con le leggi applicabili, l'accordo di tariffazione e i regolamenti della chimica.\n\nA proposito di Sika\nSika è una società chimica specializzata, leader globale nello sviluppo e produzione di sistemi e prodotti per incollaggio, sigillatura, vaporizzazione, rinforzo e protezione nella costruzione e nell'industria. Sika ha una presenza globale con filiali in 103 paesi, produce in oltre 400 stabilimenti, sviluppa tecnologie innovative per i clienti di tutto il mondo e contribuisce in modo significativo alla trasformazione sostenibile nella costruzione e nel trasporto. Gli oltre 33.000 dipendenti hanno generato un fatturato di 11.2 miliardi di franchi nel 2025.",
-        "en": "About the role\nFor the start of the apprenticeship in August 2027, we are looking for interested young people for the apprenticeship as a logistician/in EFZ. Various materials are delivered and processed every day, and semi-finished and finished products must be stored and shipped. The tasks of the logistician include the receipt of goods, entry inspection, storage and relocation, inventory, warehousing and the packaging and securing of the transported goods, with the aim of providing the right quantity of the right goods in a timely and cost-effective manner at the right place. Forklifts, electric vehicles and other technical aids facilitate physical work. The computer has also made no stop in front of the warehouse, all goods incoming and outgoing must be recorded. Our versatile and exciting basic education allows you an optimal start into the working world.\n\nYour skills and experience\nThis is what you bring with you:\n\n• Good real or secondary education\n\n• Good school grades in general education, mathematics and German\n\n• Technically interested, logical thinking, motivated, contact and learning\n\nWhy you should come to us\nThis is what awaits you with us:\n\n• Duration of teaching: 3 years\n\n• Interesting training in the adhesive and membrane plant\n\n• Vocational School: 1 day per week in Thun\nYour Benefits\n\n• Fair remuneration including 13. Monthly wages\n\n• We cover the costs of teaching materials\n\n• Travel allowance (annual CHF 900.-)\n\n• Provision of work clothes\n\n• Cost sharing on personal laptop\n\n• Participation in language stay 50%\n\n• Health and sports services\n\n• Teaching gift of CHF 500. -\nDedicated professional and practical trainers who provide a family atmosphere make working at Sika special – many call it the Sika spirit. We give everything so that your apprenticeship will take you further at Sika in the long term!\nSika is a great employer – especially for young starters. Learn more from many Sika learners about their teaching professions at www.sika.ch/lehre-duedingen.\nFabian Brotschi, Tel. 058 436 63 33, knows the details of the apprenticeships and is happy to tell you more about the Sika spirit. If you have any questions, we are also available to you by email: [email protected]\nYour application with CV, letter of motivation, copies of the school grades and if available Multi/Basic-Check reaches us quickly and safely online via the applicant button of this website.\nDo you feel addressed? We look forward to your online application.\n\nWe offer competitive remuneration based on local market standards and the specific responsibilities of each job. The remuneration shall be based on the skills, responsibility, education and/or training relevant to the position. We are committed to fair and equitable remuneration schemes in accordance with applicable laws, the Chemicals Tariff Agreement and regulations.\n\nAbout Sika\nSika is a specialty chemical company, global leader in the development and production of systems and products for gluing, sealing, steaming, reinforcing and protecting in construction and industry. Sika has a global presence with subsidiaries in 103 countries, produces in more than 400 factories, develops innovative technologies for customers around the world and thus contributes significantly to the sustainable transformation in construction and transport. The more than 33,000 employees generated a turnover of CHF 11.2 billion in 2025.",
-        "de": "Über die Rolle\nFür den Lehrbeginn im August 2027 suchen wir interessierte, junge Menschen für die Lehrstelle als Logistiker/in EFZ. Täglich werden verschiedenste Materialien angeliefert, verarbeitet, und Halb- und Fertigprodukte müssen gelagert und versandt werden. Zu den Aufgaben des Logistikers gehört die Warenannahme, Eingangskontrolle, Ein- und Umlagerungen, Bestandsaufnahme, die Lagerbetreuung und das Verpacken und Sichern der Transportgüter, mit dem Ziel, die richtige Menge der richtigen Ware rechtzeitig und kostengünstig am richtigen Ort bereitzustellen. Stapler, Elektrofahrzeuge und andere technische Hilfsmittel erleichtern die körperliche Arbeit. Der Computer hat auch vor dem Lager keinen Halt gemacht, sämtliche Warenein- und -ausgänge müssen erfasst werden. Unsere vielseitige und spannende Grundbildung ermöglicht dir einen optimalen Start in die Arbeitswelt.\n\nIhre Fähigkeiten und Erfahrungen\nDas bringst du mit:\n\n• Guter Real- oder Sekundarabschluss\n\n• Gute Schulnoten in Allgemeinbildung, Mathematik und Deutsch\n\n• Technisch interessiert, logisches Denken, motiviert, kontakt- und lernfreudig\n\nWarum Sie zu uns kommen sollten\nDas erwartet dich bei uns:\n\n• Dauer der Lehre: 3 Jahre\n\n• Interessante Ausbildung im Klebstoff- und Membranenwerk\n\n• Berufsschule: 1 Tag pro Woche in Thun\nDeine Benefits\n\n• Faire Entlöhnung inklusive 13. Monatslohn\n\n• Wir übernehmen die Kosten für Lehrmittel\n\n• Reiseentschädigung (jährlich CHF 900.-)\n\n• Zur Verfügungstellung Arbeitskleider\n\n• Kostenbeteiligung am persönlichen Laptop\n\n• Kostenbeteiligung an Sprachaufenthalt 50%\n\n• Gesundheits- und Sportangebote\n\n• Lehrabschlussgeschenk von CHF 500.-\nEngagierte Berufs- und Praxisbildner, die für eine familiäre Atmosphäre sorgen, machen das Arbeiten bei Sika speziell – viele nennen es den Sika-Spirit. Wir geben alles, damit Dich Deine Lehre langfristig bei Sika weiterbringt!\nDie Sika ist eine grossartige Arbeitgeberin – besonders auch für junge Durchstarter. Erfahre mehr von vielen Sika-Lernenden über ihre Lehrberufe auf www.sika.ch/lehre-duedingen .\nFabian Brotschi, Tel. 058 436 63 33, kennt die Details zu den Lehrstellen und erzählt dir gerne mehr über den Sika-Spirit. Bei Fragen stehen wir Dir zudem per E-Mail: [email protected] gerne zur Verfügung.\nDeine Bewerbung mit Lebenslauf, Motivationsschreiben, Kopien der Schulnoten sowie wenn vorhanden Multi/Basic-Check erreicht uns schnell und sicher online über den Bewerber-Button dieser Webseite.\nFühlst Du Dich angesprochen? Dann freuen wir uns auf Deine online Bewerbung.\n\nWir bieten wettbewerbsfähige Vergütungen, die sich an den lokalen Marktstandards und den spezifischen Aufgabenbereichen jeder Stelle orientieren. Die Vergütung richtet sich nach den für die Position relevanten Fähigkeiten, Verantwortung, der Ausbildung und/oder der Weiterbildung. Wir verpflichten uns zu fairen und gerechten Vergütungssystematiken in Übereinstimmung mit den geltenden Gesetzen, dem Tarifvertag Chemie und Vorschriften.\n\nÜber Sika\nSika ist ein Unternehmen der Spezialitätenchemie, global führend in der Entwicklung und Produktion von Systemen und Produkten zum Kleben, Dichten, Dämpfen, Verstärken und Schützen im Bau und in der Industrie. Sika ist weltweit präsent mit Tochtergesellschaften in 103 Ländern, produziert in über 400 Fabriken, entwickelt innovative Technologien für Kunden rund um den Globus und trägt damit massgeblich zur nachhaltigen Transformation im Bau- und Transportwesen bei. Die mehr als 33’000 Mitarbeitenden erwirtschafteten im Jahr 2025 einen Umsatz von CHF 11.2 Milliarden.",
-        "fr": "Sur le rôle\nPour le début de l'apprentissage en août 2027, nous recherchons des jeunes intéressés pour l'apprentissage en tant que logisticien/in EFZ. Divers matériaux sont livrés et transformés chaque jour, et les produits semi-finis et finis doivent être entreposés et expédiés. Les tâches du logisticien comprennent la réception des marchandises, l'inspection de l'entrée, le stockage et la réinstallation, l'inventaire, l'entreposage et l'emballage et la sécurisation des marchandises transportées, dans le but de fournir la bonne quantité des bonnes marchandises de manière opportune et rentable au bon endroit. Les chariots élévateurs, les véhicules électriques et autres aides techniques facilitent le travail physique. L'ordinateur n'a pas fait d'arrêt devant l'entrepôt, toutes les marchandises entrantes et sortantes doivent être enregistrées. Notre éducation de base polyvalente et passionnante vous permet un départ optimal dans le monde du travail.\n\nVos compétences et votre expérience\nC'est ce que vous apportez avec vous :\n\n• Bonne éducation réelle ou secondaire\n\n• Bonnes notes scolaires en enseignement général, mathématiques et allemand\n\n• Techniquement intéressé, logique, motivé, contact et apprentissage\n\nPourquoi tu devrais venir nous voir ?\nC'est ce qui vous attend avec nous:\n\n• Durée de l'enseignement: 3 ans\n\n• Formation intéressante dans l'usine d'adhésif et de membrane\n\n• École professionnelle: 1 jour par semaine à Thun\nVos avantages\n\n• Rémunération équitable, y compris 13. Salaires mensuels\n\n• Nous couvrons les coûts du matériel pédagogique\n\n• Indemnité de voyage (annuel CHF 900.-)\n\n• Fourniture de vêtements de travail\n\n• Partage des coûts sur ordinateur portable personnel\n\n• Participation au séjour linguistique 50%\n\n• Services de santé et de sports\n\n• Cadeau pédagogique de CHF 500. -\nDes formateurs professionnels et pratiques dédiés qui offrent une ambiance familiale rendent le travail à Sika spécial – beaucoup l'appellent l'esprit Sika. Nous donnons tout pour que votre apprentissage vous emmène plus loin à Sika dans le long terme!\nSika est un excellent employeur, surtout pour les jeunes débutants. En savoir plus auprès de nombreux apprenants de Sika sur leurs métiers d'enseignement à www.sika.ch/lehre-duedingen.\nFabian Brotschi, Tél. 058 436 63 33, connaît les détails des apprentissages et est heureux de vous en dire plus sur l'esprit Sika. Si vous avez des questions, nous sommes également à votre disposition par courriel : [email protected]\nVotre candidature avec CV, lettre de motivation, copies des notes de l'école et si disponible Multi/Basic-Check nous rejoint rapidement et en toute sécurité en ligne via le bouton candidat de ce site Web.\nVous sentez-vous adressé ? Nous nous réjouissons de votre candidature en ligne.\n\nNous offrons une rémunération concurrentielle basée sur les normes du marché local et les responsabilités spécifiques de chaque emploi. La rémunération est fondée sur les compétences, les responsabilités, l'éducation et/ou la formation pertinentes au poste. Nous nous engageons à mettre en place des systèmes de rémunération justes et équitables conformément aux lois applicables, à l'Accord tarifaire sur les produits chimiques et à la réglementation.\n\nÀ propos de Sika\nSika est une société chimique spécialisée, leader mondial dans le développement et la production de systèmes et de produits de collage, d'étanchéité, de vapeur, de renforcement et de protection dans la construction et l'industrie. Sika a une présence mondiale avec des filiales dans 103 pays, produit dans plus de 400 usines, développe des technologies innovantes pour les clients à travers le monde et contribue ainsi de manière significative à la transformation durable dans la construction et le transport. Les plus de 33 000 salariés ont généré un chiffre d'affaires de CHF 11,2 milliards en 2025."
-      },
-      "location": "Düdingen, Canton of Fribourg",
-      "canton": "FR",
-      "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-6a2c4b22-d8ce-4c8f-a8ae-ebef8bb94bb6.html",
-      "source": "Sika Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:28:26.293Z",
-      "addressLocality": "Düdingen",
-      "postalCode": "3186",
-      "streetAddress": "Düdingen",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Logistica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Specialty chemicals (construction & industrial)",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-06-01",
-      "postedDate": "2026-06-01",
-      "postingDateSource": "reported",
-      "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-6a2c4b22-d8ce-4c8f-a8ae-ebef8bb94bb6.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehrstelle-logistiker-in-efz-2027-sika-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-logistiker-in-efz-2027-sika-ch"
-        ],
-        "en": [
-          "lehrstelle-logistiker-in-efz-2027-sika-ch"
-        ],
-        "fr": [
-          "lehrstelle-logistiker-in-efz-2027-sika-ch"
-        ]
-      },
-      "firstSeenAt": "2026-06-17T13:56:48.470Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:28:26.293Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "sika-c574c50e693b",
-      "slug": "stampaggio-ad-iniezione-di-qualita-manager-sika-romanshorn",
-      "slugByLocale": {
-        "it": "stampaggio-ad-iniezione-di-qualita-manager-sika-romanshorn",
-        "en": "quality-managers-of-the-company-the-company-s-business-sika-romanshorn-thurgau",
-        "de": "quality-manager-injection-molding-sika-ch",
-        "fr": "qualite-manager-injection-molding-sika-romanshorn"
-      },
-      "company": "Sika",
-      "companyKey": "sika",
-      "companyDomain": "sika.com",
-      "title": "Quality Manager Injection Molding",
-      "titleByLocale": {
-        "it": "Stampaggio ad iniezione di qualità Manager",
-        "en": "Injection Moulding Quality Manager",
-        "de": "Quality Manager Injection Molding",
-        "fr": "Qualité Manager Injection Molding"
-      },
-      "description": "Über die Rolle\n• Führung und Weiterentwicklung der internationalen Quality Teams in Romanshorn, Widen und Saintes sowie aktive Gestaltung der neuen, integrierten Quality Organisation für den Bereich Injection Molding\n\n• Verantwortung für die Implementierung, Aufrechterhaltung und kontinuierliche Weiterentwicklung des Qualitätsmanagementsystems innerhalb des Injection Molding Geschäfts\n\n• Sicherstellung der Einhaltung relevanter Qualitätsstandards und kundenspezifischer Anforderungen, insbesondere IATF 16949, VDA 6.3 und TISAX\n\n• Verantwortung als Quality Management Representative (QMR) sowie Übernahme der Funktionen PSB/PSCR und ISR für den Bereich Injection Molding\n\n• Steuerung und Weiterentwicklung der Qualitätsplanung unter Anwendung der Automotive Core Tools wie APQP, PPAP, FMEA, SPC und MSA\n\n• Verantwortung für das Qualitätsmanagement gegenüber Kunden und externen Produktionspartnern sowie für das Reklamationsmanagement und die Sicherstellung nachhaltiger Korrektur- und Verbesserungsmassnahmen\n\n• Planung und Koordination von System-, Prozess-, Produkt- und Kundenaudits sowie Begleitung von Zertifizierungen und Re-Zertifizierungen\n\n• Definition und Überwachung relevanter Qualitätskennzahlen sowie Ableitung und Umsetzung kontinuierlicher Verbesserungsmassnahmen\n\n• Sicherstellung der Produkt- und Prozessqualität in der Serienproduktion sowie Verantwortung für die Qualifizierung, Validierung und Freigabe neuer Materialien, Compounds\n\n• Enge Zusammenarbeit mit Kunden, Lieferanten, externen Produktionspartnern sowie internen und internationalen Schnittstellen\n\nIhre Fähigkeiten und Erfahrungen\n• Abgeschlossenes Studium im Bereich Ingenieurwesen, Qualitätsmanagement oder einer vergleichbaren technischen Fachrichtung\n\n• Mehrjährige Berufserfahrung im Qualitätsmanagement der Automobilindustrie, idealerweise im Bereich Injection Molding oder Kunststoffverarbeitung\n\n• Nachweisbare Führungserfahrung in der Leitung und Weiterentwicklung internationaler und interdisziplinärer Teams\n\n• Fundierte Kenntnisse der Automotive-Qualitätsstandards und -anforderungen, insbesondere IATF 16949, VDA 6.3 und Customer Specific Requirements (CSR)\n\n• Sehr gute praktische Kenntnisse der Automotive Core Tools wie APQP, PPAP, FMEA, SPC und MSA\n\n• Erfahrung im Kunden- und Lieferantenqualitätsmanagement, Reklamationsmanagement sowie in der Planung und Durchführung von Audits\n\n• Ausgeprägte Führungs-, Projektmanagement- und Kommunikationskompetenz sowie souveräner Umgang mit unterschiedlichen internationalen Stakeholdern\n\n• Fliessende Deutsch- und Englischkenntnisse in Wort und Schrift sind zwingend erforderlich; Französischkenntnisse sind von Vorteil\n\n• Internationale Reisebereitschaft\n\nWarum Sie zu uns kommen sollten\nBei uns übernehmen Sie Verantwortung, bringen Ihre Ideen ein und leisten einen sichtbaren Beitrag zum Erfolg unseres Standorts. Es erwartet Sie ein stabiles Umfeld, moderne Infrastruktur und ein Team, das zusammenarbeitet und sich gegenseitig unterstützt. Dabei pflegen wir eine offene und unkomplizierte Du-Kultur über alle Hierarchiestufen hinweg.\nFür diese Stellenausschreibung möchten wir ausschliesslich Direktbewerbungen!\n\nWir bieten wettbewerbsfähige Vergütungen, die sich an den lokalen Marktstandards und den spezifischen Aufgabenbereichen jeder Stelle orientieren. Die Vergütung richtet sich nach den für die Position relevanten Fähigkeiten, Verantwortung, der Ausbildung und/oder der Weiterbildung. Wir verpflichten uns zu fairen und gerechten Vergütungssystematiken in Übereinstimmung mit den geltenden Gesetzen, dem Tarifvertag Chemie und Vorschriften.\n\nÜber Sika\nSika ist ein Unternehmen der Spezialitätenchemie, global führend in der Entwicklung und Produktion von Systemen und Produkten zum Kleben, Dichten, Dämpfen, Verstärken und Schützen im Bau und in der\n\nIndustrie. Sika ist weltweit präsent mit Tochtergesellschaften in 103 Ländern, produziert in über 400 Fabriken, entwickelt innovative Technologien für Kunden rund um den Globus und trägt damit massgeblich zur nachhaltigen Transformation im Bau- und Transportwesen bei. Die mehr als 33’000 Mitarbeitenden erwirtschafteten im Jahr 2025 einen Umsatz von CHF 11.20 Milliarden.\nFür unseren Standort in Romanshorn TG , am schönen Bodensee, suchen wir eine erfahrene und engagierte Führungspersönlichkeit als Quality Manager Injection Molding, die unsere internationale Quality Organisation aktiv mitgestaltet und weiterentwickelt.\n\n• Langfristige Perspektive in einem global erfolgreichen und gleichzeitig lokal verankerten Unternehmen\n\n• Spannende technische Herausforderungen mit viel Eigenverantwortung und Gestaltungsspielraum\n\n• Vielfältige Weiterbildungs- und Entwicklungsmöglichkeiten – fachlich wie persönlich\n\n• Attraktives Pensionskassenmodell mit individuellen Wahlmöglichkeiten\n\n• Flexible Arbeitszeiten mit Jahresarbeitszeit und einer 40-Stunden-Woche\n\n• Mindestens 25 Ferientage sowie zusätzliche Ferientage ab dem 40. und 50. Altersjahr\n\n• Kollegiales Arbeitsumfeld mit kurzen Entscheidungswegen und einer offenen Unternehmenskultur\n\n• Kostenlose Parkplätze sowie kostenloser Kaffee, Tee und Mineralwasser",
-      "descriptionByLocale": {
-        "it": "Informazioni sul ruolo\n• Leadership e ulteriore sviluppo dei team internazionali di qualità in Romanshorn, Widen e Saintes, nonché progettazione attiva della nuova organizzazione integrata di qualità per il settore dello stampaggio a iniezione\n\n• Responsabile dell'implementazione, manutenzione e sviluppo continuo del sistema di gestione della qualità all'interno del settore dello stampaggio a iniezione\n\n• Garantire la conformità agli standard di qualità pertinenti e ai requisiti specifici per il cliente, in particolare IATF 16949, VDA 6.3 e TISAX\n\n• Responsabilità come Rappresentante della Gestione della Qualità (QMR) e assunzione delle funzioni PSB/PSCR e ISR per la divisione Stampaggio a Iniezione\n\n• Gestione e ulteriore sviluppo della pianificazione della qualità utilizzando strumenti fondamentali per il settore automobilistico come APQP, PPAP, FMEA, SPC e MSA\n\n• Responsabilità della gestione della qualità verso clienti e partner di produzione esterni, nonché della gestione dei reclami e della garanzia di misure correttive e di miglioramento sostenibili\n\n• Pianificazione e coordinamento di audit di sistema, processi, prodotti e clienti, nonché supporto per certificazioni e ricertificazioni\n\n• Definizione e monitoraggio degli indicatori di qualità rilevanti, nonché derivazione e implementazione di misure di miglioramento continuo\n\n• Garantire la qualità del prodotto e dei processi nella produzione in serie, nonché la responsabilità per la qualificazione, la validazione e il rilascio di nuovi materiali e composti\n\n• Stretta collaborazione con clienti, fornitori, partner di produzione esterni così come con interfacce interne e internazionali\n\nLe tue competenze ed esperienza\n• Una laurea in ingegneria, gestione della qualità o un campo tecnico comparabile\n\n• Diversi anni di esperienza professionale nella gestione della qualità nell'industria automobilistica, idealmente nel campo dello stampaggio a iniezione o della lavorazione delle materie plastiche\n\n• Esperienza dimostrabile di leadership nella leadership e nello sviluppo di team internazionali e interdisciplinari\n\n• Conoscenza approfondita degli standard e dei requisiti di qualità automobilistica, in particolare IATF 16949, VDA 6.3 e Requisiti Specifici per il Cliente (CSR)\n\n• Ottime conoscenze pratiche degli strumenti fondamentali automobilistici come APQP, PPAP, FMEA, SPC e MSA\n\n• Esperienza nella gestione della qualità di clienti e fornitori, gestione dei reclami, nonché nella pianificazione e implementazione di audit\n\n• Solide capacità di leadership, gestione dei progetti e comunicazione, oltre a una gestione sicura dei vari stakeholder internazionali\n\n• La padronanza di tedesco e inglese scritto e parlato è obbligatoria; la conoscenza del francese è un vantaggio\n\n• Disponibilità a viaggiare all'estero\n\nPerché dovresti venire da noi\nCon noi, ti assumerai la responsabilità, contribuirai con le tue idee e darai un contributo visibile al successo della nostra sede. Potete aspettarvi un ambiente stabile, infrastrutture moderne e un team che lavora insieme e si supporta a vicenda. Così facendo, coltiviamo una cultura informale aperta e semplice a tutti i livelli gerarchici.\nPer questo annuncio vogliamo solo candidature dirette!\n\nOffriamo una retribuzione competitiva basata sugli standard del mercato locale e sulle responsabilità specifiche di ogni posizione. La retribuzione si basa sulle competenze, responsabilità, formazione e/o formazione rilevanti per la posizione. Siamo impegnati in sistemi compensatori equi ed equi in conformità con le leggi applicabili, il Contratto Collettivo di Contratto Chimico e i regolamenti.\n\nInformazioni su Sika\nSika è un'azienda di prodotti chimici specializzati, leader globale nello sviluppo e produzione di sistemi e prodotti per il collage, sigillatura, smorzamento, rinforzo e protezione nelle costruzioni e nelle costruzioni.\n\nIndustria. Sika ha una presenza globale con filiali in 103 paesi, produce in oltre 400 fabbriche, sviluppa tecnologie innovative per clienti di tutto il mondo e dà quindi un contributo significativo alla trasformazione sostenibile nelle costruzioni e nei trasporti. I suoi oltre 33.000 dipendenti hanno generato vendite per un valore di CHF 11,20 miliardi nel 2025.\nPer la nostra sede a Romanshorn TG, sul bellissimo Lago di Costanza, cerchiamo un leader esperto e impegnato come Quality Manager Injection Molding, che modellerà attivamente la nostra organizzazione internazionale di qualità.\n\n• Una prospettiva a lungo termine in un'azienda di successo globale e allo stesso tempo ancorata localmente\n\n• Sfide tecniche entusiasmanti con molta responsabilità personale e libertà creativa\n\n• Una vasta gamma di ulteriori opportunità di formazione e sviluppo – sia professionali che personali\n\n• Modello di fondo pensione attraente con opzioni individuali\n\n• Orari di lavoro flessibili con orari annui e una settimana di 40 ore\n\n• Almeno 25 giorni di ferie e ulteriori giorni di ferie dal 40. e 50. Età\n\n• Ambiente di lavoro collegiale con processi decisionali brevi e una cultura aziendale aperta\n\n• Parcheggio gratuito, più caffè, tè e acqua in bottiglia gratuiti",
-        "en": "About the role\n• Leadership and further development of the international quality teams in Romanshorn, Widen and Saintes as well as active design of the new, integrated quality organization for the injection molding sector\n\n• Responsible for the implementation, maintenance and continuous development of the quality management system within the Injection Molding business\n\n• Ensuring compliance with relevant quality standards and customer-specific requirements, in particular IATF 16949, VDA 6.3 and TISAX\n\n• Responsibility as Quality Management Representative (QMR) and assumption of the functions PSB/PSCR and ISR for the Injection Molding division\n\n• Management and further development of quality planning using automotive core tools such as APQP, PPAP, FMEA, SPC and MSA\n\n• Responsibility for quality management towards customers and external production partners as well as for complaint management and ensuring sustainable corrective and improvement measures\n\n• Planning and coordination of system, process, product and customer audits as well as support for certifications and re-certifications\n\n• Definition and monitoring of relevant quality indicators as well as derivation and implementation of continuous improvement measures\n\n• Ensuring product and process quality in series production as well as responsibility for the qualification, validation and release of new materials, compounds\n\n• Close cooperation with customers, suppliers, external production partners as well as internal and international interfaces\n\nYour skills and experience\n• Degree in engineering, quality management or a comparable technical field\n\n• Several years of professional experience in quality management in the automotive industry, ideally in the field of injection molding or plastics processing\n\n• Demonstrable leadership experience in leading and developing international and interdisciplinary teams\n\n• In-depth knowledge of automotive quality standards and requirements, in particular IATF 16949, VDA 6.3 and Customer Specific Requirements (CSR)\n\n• Very good practical knowledge of automotive core tools such as APQP, PPAP, FMEA, SPC and MSA\n\n• Experience in customer and supplier quality management, complaint management as well as in the planning and implementation of audits\n\n• Strong leadership, project management and communication skills as well as confident handling of various international stakeholders\n\n• Fluency in written and spoken German and English is mandatory; knowledge of French is an advantage\n\n• Willingness to travel internationally\n\nWhy you should come to us\nWith us, you will take on responsibility, contribute your ideas and make a visible contribution to the success of our location. You can expect a stable environment, modern infrastructure and a team that works together and supports each other. In doing so, we cultivate an open and uncomplicated informal culture across all hierarchical levels.\nFor this job advertisement we only want direct applications!\n\nWe offer competitive compensation based on local market standards and the specific responsibilities of each position. Compensation is based on the skills, responsibilities, education and/or education relevant to the position. We are committed to fair and equitable compensation systems in accordance with applicable laws, the Chemical Collective Bargaining Agreement and regulations.\n\nAbout Sika\nSika is a specialty chemicals company, a global leader in the development and production of systems and products for bonding, sealing, damping, reinforcing and protecting in construction and construction.\n\nIndustry. Sika has a global presence with subsidiaries in 103 countries, produces in over 400 factories, develops innovative technologies for customers around the globe and thus makes a significant contribution to the sustainable transformation in construction and transportation. Its more than 33,000 employees generated sales of CHF 11.20 billion in 2025.\nFor our location in Romanshorn TG, on the beautiful Lake Constance, we are looking for an experienced and committed leader as Quality Manager Injection Molding, who will actively shape and develop our international quality organization.\n\n• Long-term perspective in a globally successful and at the same time locally anchored company\n\n• Exciting technical challenges with a lot of personal responsibility and creative freedom\n\n• A wide range of further training and development opportunities – both professional and personal\n\n• Attractive pension fund model with individual options\n\n• Flexible working hours with annual working hours and a 40-hour week\n\n• At least 25 days of vacation as well as additional vacation days from the 40. and 50. Age\n\n• Collegial working environment with short decision-making processes and an open corporate culture\n\n• Free parking, plus free coffee, tea, and bottled water",
-        "de": "Über die Rolle\n• Führung und Weiterentwicklung der internationalen Quality Teams in Romanshorn, Widen und Saintes sowie aktive Gestaltung der neuen, integrierten Quality Organisation für den Bereich Injection Molding\n\n• Verantwortung für die Implementierung, Aufrechterhaltung und kontinuierliche Weiterentwicklung des Qualitätsmanagementsystems innerhalb des Injection Molding Geschäfts\n\n• Sicherstellung der Einhaltung relevanter Qualitätsstandards und kundenspezifischer Anforderungen, insbesondere IATF 16949, VDA 6.3 und TISAX\n\n• Verantwortung als Quality Management Representative (QMR) sowie Übernahme der Funktionen PSB/PSCR und ISR für den Bereich Injection Molding\n\n• Steuerung und Weiterentwicklung der Qualitätsplanung unter Anwendung der Automotive Core Tools wie APQP, PPAP, FMEA, SPC und MSA\n\n• Verantwortung für das Qualitätsmanagement gegenüber Kunden und externen Produktionspartnern sowie für das Reklamationsmanagement und die Sicherstellung nachhaltiger Korrektur- und Verbesserungsmassnahmen\n\n• Planung und Koordination von System-, Prozess-, Produkt- und Kundenaudits sowie Begleitung von Zertifizierungen und Re-Zertifizierungen\n\n• Definition und Überwachung relevanter Qualitätskennzahlen sowie Ableitung und Umsetzung kontinuierlicher Verbesserungsmassnahmen\n\n• Sicherstellung der Produkt- und Prozessqualität in der Serienproduktion sowie Verantwortung für die Qualifizierung, Validierung und Freigabe neuer Materialien, Compounds\n\n• Enge Zusammenarbeit mit Kunden, Lieferanten, externen Produktionspartnern sowie internen und internationalen Schnittstellen\n\nIhre Fähigkeiten und Erfahrungen\n• Abgeschlossenes Studium im Bereich Ingenieurwesen, Qualitätsmanagement oder einer vergleichbaren technischen Fachrichtung\n\n• Mehrjährige Berufserfahrung im Qualitätsmanagement der Automobilindustrie, idealerweise im Bereich Injection Molding oder Kunststoffverarbeitung\n\n• Nachweisbare Führungserfahrung in der Leitung und Weiterentwicklung internationaler und interdisziplinärer Teams\n\n• Fundierte Kenntnisse der Automotive-Qualitätsstandards und -anforderungen, insbesondere IATF 16949, VDA 6.3 und Customer Specific Requirements (CSR)\n\n• Sehr gute praktische Kenntnisse der Automotive Core Tools wie APQP, PPAP, FMEA, SPC und MSA\n\n• Erfahrung im Kunden- und Lieferantenqualitätsmanagement, Reklamationsmanagement sowie in der Planung und Durchführung von Audits\n\n• Ausgeprägte Führungs-, Projektmanagement- und Kommunikationskompetenz sowie souveräner Umgang mit unterschiedlichen internationalen Stakeholdern\n\n• Fliessende Deutsch- und Englischkenntnisse in Wort und Schrift sind zwingend erforderlich; Französischkenntnisse sind von Vorteil\n\n• Internationale Reisebereitschaft\n\nWarum Sie zu uns kommen sollten\nBei uns übernehmen Sie Verantwortung, bringen Ihre Ideen ein und leisten einen sichtbaren Beitrag zum Erfolg unseres Standorts. Es erwartet Sie ein stabiles Umfeld, moderne Infrastruktur und ein Team, das zusammenarbeitet und sich gegenseitig unterstützt. Dabei pflegen wir eine offene und unkomplizierte Du-Kultur über alle Hierarchiestufen hinweg.\nFür diese Stellenausschreibung möchten wir ausschliesslich Direktbewerbungen!\n\nWir bieten wettbewerbsfähige Vergütungen, die sich an den lokalen Marktstandards und den spezifischen Aufgabenbereichen jeder Stelle orientieren. Die Vergütung richtet sich nach den für die Position relevanten Fähigkeiten, Verantwortung, der Ausbildung und/oder der Weiterbildung. Wir verpflichten uns zu fairen und gerechten Vergütungssystematiken in Übereinstimmung mit den geltenden Gesetzen, dem Tarifvertag Chemie und Vorschriften.\n\nÜber Sika\nSika ist ein Unternehmen der Spezialitätenchemie, global führend in der Entwicklung und Produktion von Systemen und Produkten zum Kleben, Dichten, Dämpfen, Verstärken und Schützen im Bau und in der\n\nIndustrie. Sika ist weltweit präsent mit Tochtergesellschaften in 103 Ländern, produziert in über 400 Fabriken, entwickelt innovative Technologien für Kunden rund um den Globus und trägt damit massgeblich zur nachhaltigen Transformation im Bau- und Transportwesen bei. Die mehr als 33’000 Mitarbeitenden erwirtschafteten im Jahr 2025 einen Umsatz von CHF 11.20 Milliarden.\nFür unseren Standort in Romanshorn TG , am schönen Bodensee, suchen wir eine erfahrene und engagierte Führungspersönlichkeit als Quality Manager Injection Molding, die unsere internationale Quality Organisation aktiv mitgestaltet und weiterentwickelt.\n\n• Langfristige Perspektive in einem global erfolgreichen und gleichzeitig lokal verankerten Unternehmen\n\n• Spannende technische Herausforderungen mit viel Eigenverantwortung und Gestaltungsspielraum\n\n• Vielfältige Weiterbildungs- und Entwicklungsmöglichkeiten – fachlich wie persönlich\n\n• Attraktives Pensionskassenmodell mit individuellen Wahlmöglichkeiten\n\n• Flexible Arbeitszeiten mit Jahresarbeitszeit und einer 40-Stunden-Woche\n\n• Mindestens 25 Ferientage sowie zusätzliche Ferientage ab dem 40. und 50. Altersjahr\n\n• Kollegiales Arbeitsumfeld mit kurzen Entscheidungswegen und einer offenen Unternehmenskultur\n\n• Kostenlose Parkplätze sowie kostenloser Kaffee, Tee und Mineralwasser",
-        "fr": "À propos du poste\n• Leadership et développement des équipes internationales de qualité à Romanshorn, Widen et Saintes ainsi que la conception active de la nouvelle organisation intégrée de qualité pour le secteur du moulage par injection\n\n• Responsable de la mise en œuvre, de la maintenance et du développement continu du système de gestion qualité au sein de l'activité Injection Moulage\n\n• Garantir la conformité aux normes de qualité pertinentes et aux exigences spécifiques aux clients, en particulier IATF 16949, VDA 6.3 et TISAX\n\n• Responsabilité en tant que représentant de la gestion de la qualité (QMR) et prise en charge des fonctions PSB/PSCR et ISR pour la division Moulage par injection\n\n• Gestion et développement ultérieur de la planification qualité à l'aide d'outils automobiles essentiels tels que APQP, PPAP, FMEA, SPC et MSA\n\n• Responsabilité de la gestion de la qualité envers les clients et partenaires de production externes ainsi que de la gestion des plaintes et de la garantie de mesures correctives et d'amélioration durables\n\n• Planification et coordination des audits système, processus, produits et clients, ainsi que le soutien aux certifications et recertifications\n\n• Définition et suivi des indicateurs de qualité pertinents ainsi que dérivation et mise en œuvre de mesures d'amélioration continue\n\n• Assurer la qualité des produits et des procédés en production en série ainsi que la responsabilité de la qualification, de la validation et de la mise en production des nouveaux matériaux et composés\n\n• Coopération étroite avec les clients, fournisseurs, partenaires de production externes ainsi qu'avec des interfaces internes et internationales\n\nVos compétences et votre expérience\n• Diplôme en ingénierie, gestion de la qualité ou dans un domaine technique comparable\n\n• Plusieurs années d'expérience professionnelle en gestion de la qualité dans l'industrie automobile, idéalement dans le domaine du moulage par injection ou du traitement des plastiques\n\n• Expérience démontrable en leadership dans la direction et le développement d'équipes internationales et interdisciplinaires\n\n• Connaissance approfondie des normes et exigences de qualité automobile, en particulier IATF 16949, VDA 6.3 et des exigences spécifiques aux clients (CSR)\n\n• Très bonnes connaissances pratiques des outils automobiles de base tels que APQP, PPAP, FMEA, SPC et MSA\n\n• Expérience en gestion de la qualité des clients et fournisseurs, en gestion des réclamations ainsi qu'en planification et mise en œuvre d'audits\n\n• Compétences solides en leadership, gestion de projet et communication ainsi qu'une gestion confiante des différents acteurs internationaux\n\n• La maîtrise de l'allemand et de l'anglais écrits et parlés est obligatoire ; la connaissance du français est un avantage\n\n• Volonté de voyager à l'international\n\nPourquoi tu devrais venir nous voir\nAvec nous, vous prendrez vos responsabilités, apporterez vos idées et apporterez une contribution visible au succès de notre site. Vous pouvez vous attendre à un environnement stable, des infrastructures modernes et une équipe qui travaille ensemble et se soutient mutuellement. Ce faisant, nous cultivons une culture informelle ouverte et simple à tous les niveaux hiérarchiques.\nPour cette offre d'emploi, nous ne voulons que des candidatures directes !\n\nNous proposons une rémunération compétitive basée sur les normes du marché local et les responsabilités spécifiques de chaque poste. La rémunération est basée sur les compétences, responsabilités, formation et/ou formation pertinentes au poste. Nous nous engageons à des systèmes de rémunération équitables et équitables, conformément aux lois applicables, à la convention collective de la chimie et aux règlements.\n\nÀ propos de Sika\nSika est une entreprise spécialisée dans la chimie, leader mondial dans le développement et la production de systèmes et produits pour le collage, l'étanchéité, l'amortissement, le renforcement et la protection dans la construction et la construction.\n\nIndustrie. Sika est présente à l'échelle mondiale avec des filiales dans 103 pays, produit dans plus de 400 usines, développe des technologies innovantes pour des clients du monde entier et apporte ainsi une contribution significative à la transformation durable dans la construction et le transport. Ses plus de 33 000 employés ont généré un chiffre d'affaires de 11,20 milliards CHF en 2025.\nPour notre emplacement à Romanshorn TG, sur le magnifique lac de Constance, nous recherchons un leader expérimenté et engagé en tant que Quality Manager Injection Molding, qui façonnera activement et développera notre organisation internationale de qualité.\n\n• Une perspective à long terme dans une entreprise à succès mondial et en même temps ancrée localement\n\n• Des défis techniques passionnants avec beaucoup de responsabilités personnelles et de liberté créative\n\n• Un large éventail d'opportunités de formation et de développement – tant professionnelles que personnelles\n\n• Modèle attractif de fonds de pension avec options individuelles\n\n• Des horaires flexibles avec des horaires annuels et une semaine de 40 heures\n\n• Au moins 25 jours de vacances ainsi que des jours de vacances supplémentaires à partir de la 40. et 50. Âge\n\n• Environnement de travail collégial avec des processus décisionnels courts et une culture d'entreprise ouverte\n\n• Parking gratuit, ainsi que café, thé et eau en bouteille gratuits"
-      },
-      "location": "Romanshorn, Thurgau",
-      "canton": "TG",
-      "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-5ec60ecb-9201-4f09-ba89-e73491532ae1.html",
-      "source": "Sika Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:28:10.162Z",
-      "addressLocality": "Romanshorn",
-      "postalCode": "8590",
-      "streetAddress": "Romanshorn",
-      "addressRegion": "TG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Qualità",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Specialty chemicals (construction & industrial)",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-08-27",
-      "postedDate": "2026-08-27",
-      "postingDateSource": "reported",
-      "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-5ec60ecb-9201-4f09-ba89-e73491532ae1.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "quality-manager-injection-molding-sika-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "quality-manager-injection-molding-sika-ch"
-        ]
-      },
-      "firstSeenAt": "2026-10-01T09:15:59.254Z",
-      "salaryMin": 79000,
-      "salaryMax": 120000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 120000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:28:10.162Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "agat",
-  "assembledAt": "2026-11-19T10:28:19.309Z",
-  "runId": "44495585159",
+  "assembledAt": "2026-11-19T21:41:47.613Z",
+  "runId": "44618087222",
   "jobs": [
     {
       "id": "agat-966ea286642f",
@@ -35,7 +35,7 @@
       "url": "https://www.agat-job.com/post/charpentier-cfc-100-1",
       "source": "AGAT ! Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T10:28:14.086Z",
+      "crawledAt": "2026-11-19T21:41:38.424Z",
       "addressRegion": "VS",
       "employmentType": "OTHER",
       "contract": "other",
@@ -81,8 +81,9 @@
       "addressLocality": "région de Sion",
       "streetAddress": "région de Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T10:28:14.086Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-14T21:41:38.424Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.agat-job.com/post/charpentier-cfc-100-1"
     },
     {
       "id": "agat-ab07dbb4ed2f",
@@ -116,7 +117,7 @@
       "url": "https://www.agat-job.com/post/machiniste-h-f-m1-m2",
       "source": "AGAT ! Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T10:28:14.085Z",
+      "crawledAt": "2026-11-19T21:41:38.423Z",
       "addressRegion": "VS",
       "employmentType": "OTHER",
       "contract": "other",
@@ -162,8 +163,9 @@
       "addressLocality": "région de Sion",
       "streetAddress": "région de Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T10:28:14.085Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-14T21:41:38.423Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.agat-job.com/post/machiniste-h-f-m1-m2"
     },
     {
       "id": "agat-bce5ec33276c",
@@ -197,7 +199,7 @@
       "url": "https://www.agat-job.com/post/monteur-%C3%A9lectricien-cfc-f-h",
       "source": "AGAT ! Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T10:28:14.084Z",
+      "crawledAt": "2026-11-19T21:41:38.421Z",
       "addressRegion": "VS",
       "employmentType": "OTHER",
       "contract": "other",
@@ -243,8 +245,9 @@
       "addressLocality": "région de Sion",
       "streetAddress": "région de Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T10:28:14.084Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-14T21:41:38.421Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.agat-job.com/post/monteur-%c3%a9lectricien-cfc-f-h"
     },
     {
       "id": "agat-a9dcab9a33ac",
@@ -278,7 +281,7 @@
       "url": "https://www.agat-job.com/post/paysagiste-100-1",
       "source": "AGAT ! Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T10:28:14.083Z",
+      "crawledAt": "2026-11-19T21:41:38.420Z",
       "addressRegion": "VS",
       "employmentType": "OTHER",
       "contract": "other",
@@ -324,8 +327,9 @@
       "addressLocality": "région de Sion",
       "streetAddress": "région de Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T10:28:14.083Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-14T21:41:38.420Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.agat-job.com/post/paysagiste-100-1"
     },
     {
       "id": "agat-671f6f410439",
@@ -359,7 +363,7 @@
       "url": "https://www.agat-job.com/post/installateur-sanitaire-exp%C3%A9riment%C3%A9",
       "source": "AGAT ! Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T10:28:14.082Z",
+      "crawledAt": "2026-11-19T21:41:38.419Z",
       "addressRegion": "VS",
       "employmentType": "OTHER",
       "contract": "other",
@@ -405,8 +409,9 @@
       "addressLocality": "région de Sion",
       "streetAddress": "région de Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T10:28:14.082Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-14T21:41:38.419Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.agat-job.com/post/installateur-sanitaire-exp%c3%a9riment%c3%a9"
     },
     {
       "id": "agat-f0ce687dd9ea",
@@ -440,7 +445,7 @@
       "url": "https://www.agat-job.com/post/ma%C3%A7on-q-a-b-100",
       "source": "AGAT ! Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T10:28:14.081Z",
+      "crawledAt": "2026-11-19T21:41:38.418Z",
       "addressRegion": "VS",
       "employmentType": "OTHER",
       "contract": "other",
@@ -480,8 +485,9 @@
       "addressLocality": "région de Sion",
       "streetAddress": "région de Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T10:28:14.081Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-14T21:41:38.418Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.agat-job.com/post/ma%c3%a7on-q-a-b-100"
     },
     {
       "id": "agat-7568d784ac39",
@@ -515,7 +521,7 @@
       "url": "https://www.agat-job.com/post/installateur-%C3%A9lectricien-cfc-f-h-d%C3%A9pannage-et-bricole",
       "source": "AGAT ! Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T10:28:14.080Z",
+      "crawledAt": "2026-11-19T21:41:38.415Z",
       "addressRegion": "VS",
       "employmentType": "OTHER",
       "contract": "other",
@@ -561,8 +567,9 @@
       "addressLocality": "région de Sion",
       "streetAddress": "région de Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T10:28:14.080Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-14T21:41:38.415Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.agat-job.com/post/installateur-%c3%a9lectricien-cfc-f-h-d%c3%a9pannage-et-bricole"
     }
   ]
 }

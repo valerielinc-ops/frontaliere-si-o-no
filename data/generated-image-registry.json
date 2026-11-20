@@ -1474,5 +1474,57 @@
       "scope": "publisher",
       "imageUrl": "/images/publisher/logo-square-512.webp"
     }
-  ]
+  ],
+  "legacyVision": {
+    "schema": 0,
+    "scopes": [
+      "editorial-profile",
+      "place"
+    ],
+    "promptVersion": "frontaliereticino.generated-image-policy.v1",
+    "restrictions": [
+      "illustrative-only",
+      "no-real-recognizable-foreground-person",
+      "no-public-figure-face",
+      "no-logo-brand-or-text",
+      "no-specific-real-event-photojournalism"
+    ],
+    "assetIds": [
+      "ascona",
+      "ascona-480w",
+      "bellinzona",
+      "bellinzona-480w",
+      "castelgrande",
+      "castelgrande-480w",
+      "film-festival",
+      "film-festival-480w",
+      "foroglio",
+      "foroglio-480w",
+      "foxtown",
+      "foxtown-480w",
+      "gandria",
+      "gandria-480w",
+      "lac-lugano",
+      "lac-lugano-480w",
+      "lago-lugano",
+      "lago-lugano-480w",
+      "laura-bianchi",
+      "locarno",
+      "locarno-480w",
+      "lugano-view",
+      "lugano-view-480w",
+      "marco-ferrari",
+      "mendrisio",
+      "mendrisio-480w",
+      "monte-bre",
+      "monte-bre-480w",
+      "monte-generoso",
+      "monte-generoso-480w",
+      "monte-san-salvatore",
+      "monte-san-salvatore-480w",
+      "redazione",
+      "swissminiatur",
+      "swissminiatur-480w"
+    ]
+  }
 }

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "badrutts-palace",
-  "assembledAt": "2026-11-19T10:01:55.385Z",
-  "runId": "44495254776",
+  "assembledAt": "2026-11-19T21:41:39.101Z",
+  "runId": "44617717059",
   "jobs": [
     {
       "id": "badrutts-palace-7fc4aec52ba7",
@@ -34,7 +34,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/5478672-elektriker-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:01:50.737Z",
+      "crawledAt": "2026-11-19T21:41:29.633Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -98,8 +98,9 @@
       },
       "streetAddress": "Via Serlas 27",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-19T10:01:50.737Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:41:29.633Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.badruttscareers.com/en-gb/jobs/5478672-elektriker-m-w-d"
     },
     {
       "id": "badrutts-palace-2c4d5b5f4a63",
@@ -132,7 +133,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/8107575-director-of-brand-marketing-m-f-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T10:01:50.735Z",
+      "crawledAt": "2026-11-19T21:41:29.628Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -206,8 +207,9 @@
       },
       "streetAddress": "Via Serlas 27",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-19T10:01:50.735Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:41:29.628Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.badruttscareers.com/en-gb/jobs/8107575-director-of-brand-marketing-m-f-d"
     },
     {
       "id": "badrutts-palace-efb1838faf84",
@@ -240,7 +242,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/8158231-assistant-head-of-technical-services-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T10:01:50.732Z",
+      "crawledAt": "2026-11-19T21:41:29.625Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -311,8 +313,9 @@
       },
       "streetAddress": "Via Serlas 27",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-19T10:01:50.732Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:41:29.625Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.badruttscareers.com/en-gb/jobs/8158231-assistant-head-of-technical-services-m-w-d"
     },
     {
       "id": "badrutts-palace-9f8ac75571b3",
@@ -345,7 +348,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/8537004-assistant-director-of-food-beverage-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T10:01:50.726Z",
+      "crawledAt": "2026-11-19T21:41:29.611Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -382,7 +385,7 @@
         ]
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-11-17T09:44:28.423Z",
+      "firstSeenAt": "2026-11-17T09:15:34.073Z",
       "salaryMin": 83500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -410,8 +413,9 @@
       },
       "streetAddress": "Via Serlas 27",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-11T10:01:50.726Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-11T21:41:29.611Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.badruttscareers.com/en-gb/jobs/8537004-assistant-director-of-food-beverage-m-w-d"
     }
   ]
 }

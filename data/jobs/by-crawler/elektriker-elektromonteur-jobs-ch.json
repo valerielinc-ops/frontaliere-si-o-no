@@ -1,7 +1,7 @@
 {
   "crawlerKey": "elektriker-elektromonteur-jobs-ch",
-  "assembledAt": "2026-11-19T10:16:43.879Z",
-  "runId": "44496239571",
+  "assembledAt": "2026-11-19T21:46:24.026Z",
+  "runId": "44618811249",
   "jobs": [
     {
       "id": "elektriker-elektromonteur-jobs-ch-05600696c811",
@@ -86,7 +86,9 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T10:16:38.804Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
+      "sourceIdentity": "url:https://www.pks-personal.ch/stellen/hr-assistent-in-50-60-befristet-fuer-4-monate/basel/hrm/82e9b75e"
     }
   ]
 }

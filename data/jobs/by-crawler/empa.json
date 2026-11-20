@@ -1,7 +1,7 @@
 {
   "crawlerKey": "empa",
-  "assembledAt": "2026-11-19T09:44:01.544Z",
-  "runId": "44495415540",
+  "assembledAt": "2026-11-19T21:43:45.502Z",
+  "runId": "44617900362",
   "jobs": [
     {
       "id": "empa-e5605f1e4107",
@@ -34,7 +34,7 @@
       "url": "https://apply.refline.ch/673276/2199/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:43:51.355Z",
+      "crawledAt": "2026-11-19T21:43:40.228Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -101,8 +101,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T09:43:51.355Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:43:40.228Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://apply.refline.ch/673276/2199/pub/1/index.html"
     },
     {
       "id": "empa-18740ead79ed",
@@ -135,7 +136,7 @@
       "url": "https://apply.refline.ch/673276/2197/pub/2/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:43:51.352Z",
+      "crawledAt": "2026-11-19T21:43:40.227Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "Feuerwerkerstrasse 39",
@@ -226,8 +227,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T09:43:51.352Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:43:40.227Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://apply.refline.ch/673276/2197/pub/2/index.html"
     },
     {
       "id": "empa-d5c944130420",
@@ -260,7 +262,7 @@
       "url": "https://apply.refline.ch/673276/2220/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:43:51.351Z",
+      "crawledAt": "2026-11-19T21:43:40.226Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -340,8 +342,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T09:43:51.351Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:43:40.226Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://apply.refline.ch/673276/2220/pub/1/index.html"
     },
     {
       "id": "empa-684bd7cd8e78",
@@ -374,7 +377,7 @@
       "url": "https://apply.refline.ch/673276/2223/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:43:51.348Z",
+      "crawledAt": "2026-11-19T21:43:40.225Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -450,8 +453,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T09:43:51.348Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:43:40.225Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://apply.refline.ch/673276/2223/pub/1/index.html"
     },
     {
       "id": "empa-96321f4a5541",
@@ -484,7 +488,7 @@
       "url": "https://apply.refline.ch/673276/2226/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:43:51.347Z",
+      "crawledAt": "2026-11-19T21:43:40.224Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -529,8 +533,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T09:43:51.347Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:43:40.224Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://apply.refline.ch/673276/2226/pub/1/index.html"
     },
     {
       "id": "empa-0af71a5099a5",
@@ -563,7 +568,7 @@
       "url": "https://apply.refline.ch/673276/2229/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:43:51.345Z",
+      "crawledAt": "2026-11-19T21:43:40.223Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -608,87 +613,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T09:43:51.345Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "empa-916a5cd93e8a",
-      "slug": "tecnico-in-microscopia-elettronica-80-100-empa-dubendorf",
-      "slugByLocale": {
-        "it": "tecnico-in-microscopia-elettronica-80-100-empa-dubendorf",
-        "en": "technician-in-electron-microscopy-80-100-empa-dubendorf",
-        "de": "technician-in-electron-microscopy-80-100-empa-dubendorf",
-        "fr": "technician-in-electron-microscopy-80-100-empa-dubendorf"
-      },
-      "company": "Empa",
-      "companyKey": "empa",
-      "companyDomain": "empa.ch",
-      "title": "Technician in Electron Microscopy (80-100%)",
-      "titleByLocale": {
-        "it": "Tecnico in Microscopia Elettronica (80-100%)",
-        "en": "Technician in Electron Microscopy (80-100%)",
-        "de": "Techniker in Electron Microscopy (80-100%)",
-        "fr": "Technicien in Electron Microscopy (80-100%)"
-      },
-      "description": "Materials science and technology are our passion. With our cutting-edge research, Empa's around 1,100 employees make essential contributions to the well-being of society for a future worth living. Empa is a research institution of the ETH Domain.\n\nTechnician in Electron Microscopy (80-100%)\n\nWould you like to be part of a small research & support group at Empa and provide services to internal and external partners in academia and industry? Are you interested in delicate electron-optical instrumentation and motivated to maintain high-end electron microscopes and auxiliary equipment? Finding the cause of a technical problem in a device is a catchy challenge for you, like solving a puzzle? Have you ever desired to be part of an agile team and be able to plan your working day independently? If you think you are a good fit for this position, a welcoming working environment in an international and multidisciplinary research facility awaits you.\n\nYour tasks\n\n• Responsible for the operation of the center's electron microscopes and the sample preparation facilities\n\n• Carry out preventive maintenance, troubleshooting, diagnostics, and basic repairs of microscopy equipment\n\n• Coordinate more complex repairs and servicing with instrument manufacturers and external service providers\n\n• Introduction and training of users to the tools & methods\n\n• Participation in scientific projects\n\n• Provide electron-microscopy services to internal and external customers\n\nYour profile\n\nYou bring along practical experience in the operation and maintenance of electron microscopes, as well as in related sample preparation methods. You are familiar with small electro-mechanical devices. You have a flair for details and perfectionism. You are eager to expand your horizon and to learn new characterization methods and applications thereof. Fluency in English (spoken and written) is mandatory, in German desired.\n\nOur offer\n\nWe offer you a challenging and varied range of responsibilities in a dynamic, internationally oriented research environment where you can further develop your professional skills.\n\nWe live a culture of inclusion and respect. We welcome all people who are interested in innovative, sustainable and meaningful activities - that's what counts.\n\nWe look forward to receiving your complete online application including a letter of motivation, CV, certificates, diplomas and contact details of two reference persons. Please submit these exclusively via our job portal. Applications by e-mail and by post will not be considered.",
-      "descriptionByLocale": {
-        "it": "La scienza dei materiali e la tecnologia sono la nostra passione. Con la nostra ricerca all'avanguardia, i circa 1.100 dipendenti di Empa danno un contributo essenziale al benessere della società per un futuro che vale la pena di vivere. Empa è un'istituzione di ricerca del dominio ETH.\n\nTecnico in Microscopia Elettronica (80-100%)\n\nVorresti fare parte di un piccolo gruppo di ricerca e supporto a Empa e fornire servizi a partner interni ed esterni in accademia e industria? Sei interessato alla delicata strumentazione elettrone-ottica e motivato a mantenere microscopi elettroni di fascia alta e apparecchiature ausiliarie? Trovare la causa di un problema tecnico in un dispositivo è una sfida accattivante per voi, come risolvere un puzzle? Hai mai desiderato essere parte di un team agile e essere in grado di pianificare la tua giornata lavorativa indipendentemente? Se pensate di essere una buona soluzione per questa posizione, un ambiente di lavoro accogliente in una struttura di ricerca internazionale e multidisciplinare vi aspetta.\n\nI tuoi compiti\n\n• Responsabile per il funzionamento dei microscopi elettroni del centro e degli impianti di preparazione del campione\n\n• Eseguire la manutenzione preventiva, la risoluzione dei problemi, la diagnostica e le riparazioni di base di apparecchiature di microscopia\n\n• Coordinare più complesse riparazioni e manutenzione con produttori di strumenti e fornitori di servizi esterni\n\n• Introduzione e formazione degli utenti agli strumenti e ai metodi\n\n• Partecipazione a progetti scientifici\n\n• Fornire servizi elettron-microscopia a clienti interni ed esterni\n\nIl tuo profilo\n\nSi porta esperienza pratica nel funzionamento e la manutenzione di microscopi elettroni, così come nei metodi di preparazione del campione correlati. Conosci i piccoli dispositivi elettromeccanici. Hai un tocco di dettagli e perfezionismo. Siete desiderosi di espandere il vostro orizzonte e di imparare nuovi metodi di caratterizzazione e applicazioni di esso. La fluidità in inglese (spoken e scritto) è obbligatoria, in tedesco desiderato.\n\nLa nostra offerta\n\nVi offriamo una gamma impegnativa e variegata di responsabilità in un ambiente di ricerca dinamico e orientato a livello internazionale dove è possibile sviluppare ulteriormente le vostre competenze professionali.\n\nViviamo una cultura di inclusione e rispetto. Diamo il benvenuto a tutte le persone che sono interessate a attività innovative, sostenibili e significative - questo è ciò che conta.\n\nNon vediamo l'ora di ricevere la tua candidatura online completa, tra cui una lettera di motivazione, CV, certificati, diplomi e dettagli di contatto di due persone di riferimento. Si prega di inviare questi esclusivamente tramite il nostro portale di lavoro. Le domande per e-mail e per posta non saranno considerate.",
-        "en": "Materials science and technology are our passion. With our cutting-edge research, Empa's around 1,100 employees make essential contributions to the well-being of society for a future worth living. Empa is a research institution of the ETH Domain.\n\nTechnician in Electron Microscopy (80-100%)\n\nWould you like to be part of a small research & support group at Empa and provide services to internal and external partners in academia and industry? Are you interested in delicate electron-optical instrumentation and motivated to maintain high-end electron microscopes and auxiliary equipment? Finding the cause of a technical problem in a device is a catchy challenge for you, like solving a puzzle? Have you ever desired to be part of an agile team and be able to plan your working day independently? If you think you are a good fit for this position, a welcoming working environment in an international and multidisciplinary research facility awaits you.\n\nYour tasks\n\n• Responsible for the operation of the center's electron microscopes and the sample preparation facilities\n\n• Carry out preventive maintenance, troubleshooting, diagnostics, and basic repairs of microscopy equipment\n\n• Coordinate more complex repairs and servicing with instrument manufacturers and external service providers\n\n• Introduction and training of users to the tools & methods\n\n• Participation in scientific projects\n\n• Provide electron-microscopy services to internal and external customers\n\nYour profile\n\nYou bring along practical experience in the operation and maintenance of electron microscopes, as well as in related sample preparation methods. You are familiar with small electro-mechanical devices. You have a flair for details and perfectionism. You are eager to expand your horizon and to learn new characterization methods and applications thereof. Fluency in English (spoken and written) is mandatory, in German desired.\n\nOur offer\n\nWe offer you a challenging and varied range of responsibilities in a dynamic, internationally oriented research environment where you can further develop your professional skills.\n\nWe live a culture of inclusion and respect. We welcome all people who are interested in innovative, sustainable and meaningful activities - that's what counts.\n\nWe look forward to receiving your complete online application including a letter of motivation, CV, certificates, diplomas and contact details of two reference persons. Please submit these exclusively via our job portal. Applications by e-mail and by post will not be considered.",
-        "de": "Materialwissenschaft und Technologie sind unsere Leidenschaft. Mit unserer Spitzenforschung leisten die rund 1.100 Mitarbeiter der Empa wesentliche Beiträge zum Wohl der Gesellschaft für eine lebenswerte Zukunft. Die Empa ist eine Forschungseinrichtung des ETH-Bereichs.\n\nTechniker in der Elektronenmikroskopie (80-100%)\n\nMöchten Sie Teil einer kleinen Research & Support Gruppe an der Empa sein und Leistungen für interne und externe Partner in Wissenschaft und Industrie erbringen? Sind Sie an empfindlichen elektronenoptischen Instrumenten interessiert und motiviert, High-End-Elektronenmikroskope und Zusatzgeräte zu warten? Die Ursache eines technischen Problems in einem Gerät zu finden, ist eine eingängige Herausforderung für Sie, wie ein Rätsel zu lösen? Haben Sie sich schon einmal gewünscht, Teil eines agilen Teams zu sein und Ihren Arbeitstag selbstständig planen zu können? Wenn Sie denken, dass Sie gut zu dieser Position passen, erwartet Sie ein einladendes Arbeitsumfeld in einer internationalen und multidisziplinären Forschungseinrichtung.\n\nIhre Aufgaben\n\n• Verantwortlich für den Betrieb der Elektronenmikroskope des Zentrums und der Probenvorbereitungseinrichtungen\n\n• Durchführung vorbeugender Wartungsarbeiten, Fehlersuche, Diagnose und grundlegende Reparaturen von Mikroskopiegeräten\n\n• Koordinieren Sie komplexere Reparaturen und Wartungen mit Instrumentenherstellern und externen Dienstleistern\n\n• Einführung und Schulung der Nutzer zu den Tools & Methoden\n\n• Teilnahme an wissenschaftlichen Projekten\n\n• Bereitstellung von Elektronenmikroskopie-Dienstleistungen für interne und externe Kunden\n\nDein Profil\n\nSie bringen praktische Erfahrungen in der Bedienung und Wartung von Elektronenmikroskopen sowie in verwandten Probenvorbereitungsverfahren mit. Sie kennen kleine elektromechanische Geräte. Sie haben ein Gespür für Details und Perfektionismus. Sie möchten Ihren Horizont erweitern und neue Charakterisierungsmethoden und deren Anwendungen erlernen. Fließend in Englisch (gesprochen und geschrieben) ist obligatorisch, in Deutsch gewünscht.\n\nUnser Angebot\n\nWir bieten Ihnen ein anspruchsvolles und abwechslungsreiches Aufgabenspektrum in einem dynamischen, international ausgerichteten Forschungsumfeld, in dem Sie Ihre beruflichen Kompetenzen weiterentwickeln können.\n\nWir leben eine Kultur der Integration und des Respekts. Wir begrüßen alle Menschen, die sich für innovative, nachhaltige und sinnvolle Aktivitäten interessieren – das zählt.\n\nWir freuen uns auf Ihre vollständige Online-Bewerbung mit Motivationsschreiben, Lebenslauf, Zertifikaten, Diplomen und Kontaktdaten von zwei Referenzpersonen. Bitte senden Sie diese ausschließlich über unser Jobportal. Bewerbungen per E-Mail und Post werden nicht berücksichtigt.",
-        "fr": "La science et la technologie des matériaux sont notre passion. Grâce à nos recherches de pointe, les quelque 1 100 employés d'Empa apportent une contribution essentielle au bien-être de la société pour un avenir digne d'être vécu. Empa est une institution de recherche du domaine ETH.\n\nTechnicien en microscopie électronique (80-100%)\n\nSouhaitez-vous faire partie d'un petit groupe de recherche et de soutien à Empa et fournir des services à des partenaires internes et externes du milieu universitaire et de l'industrie? Êtes-vous intéressé par une instrumentation électronique-optique délicate et motivé pour maintenir des microscopes électroniques haut de gamme et des équipements auxiliaires? Trouver la cause d'un problème technique dans un appareil est un défi accrocheur pour vous, comme résoudre un puzzle? Avez-vous déjà souhaité faire partie d'une équipe agile et être en mesure de planifier votre journée de travail indépendamment? Si vous pensez être une bonne personne pour ce poste, un environnement de travail accueillant dans un centre de recherche international et multidisciplinaire vous attend.\n\nVos tâches\n\n• Responsable du fonctionnement des microscopes électroniques du centre et des installations de préparation des échantillons\n\n• Effectuer l'entretien préventif, le dépannage, le diagnostic et les réparations de base du matériel de microscopie\n\n• Coordonner les réparations et l'entretien plus complexes avec les fabricants d'instruments et les fournisseurs de services externes\n\n• Introduction et formation des utilisateurs aux outils et méthodes\n\n• Participation à des projets scientifiques\n\n• Fournir des services de microscopie électronique aux clients internes et externes\n\nVotre profil\n\nVous apportez une expérience pratique dans le fonctionnement et l'entretien des microscopes électroniques, ainsi que dans les méthodes de préparation d'échantillons connexes. Vous connaissez les petits appareils électromécaniques. Vous avez un goût pour les détails et le perfectionnisme. Vous êtes impatient d'élargir votre horizon et d'apprendre de nouvelles méthodes de caractérisation et leurs applications. La fluidité en anglais (parlé et écrit) est obligatoire, en allemand désiré.\n\nNotre offre\n\nNous vous offrons un éventail de responsabilités stimulant et varié dans un environnement de recherche dynamique et orienté vers l'international où vous pouvez développer vos compétences professionnelles.\n\nNous vivons une culture d'inclusion et de respect. Nous accueillons toutes les personnes qui s'intéressent à des activités novatrices, durables et significatives - c'est ce qui compte.\n\nNous sommes impatients de recevoir votre candidature en ligne complète comprenant une lettre de motivation, CV, certificats, diplômes et coordonnées de deux personnes de référence. Veuillez les soumettre exclusivement via notre portail d'emploi. Les demandes par courrier électronique et par la poste ne seront pas prises en considération."
-      },
-      "location": "Dübendorf",
-      "canton": "ZH",
-      "url": "https://apply.refline.ch/673276/2228/pub/1/index.html",
-      "source": "Empa Dedicated Parser (Refline 673276)",
-      "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:43:51.343Z",
-      "addressLocality": "Dübendorf",
-      "addressRegion": "ZH",
-      "streetAddress": "Ueberlandstrasse 129",
-      "postalCode": "8600",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ricerca",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Università / Ricerca",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-03T12:15:59.833145+00:00",
-      "postedDate": "2026-09-03T12:15:59.833145+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply.refline.ch/673276/2228/pub/1/index.html",
-      "hiringOrganizationName": "Empa",
-      "jobReqId": "2228",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "technician-in-electron-microscopy-80-100-empa-dubendorf"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "technician-in-electron-microscopy-80-100-empa-dubendorf"
-        ]
-      },
-      "firstSeenAt": "2026-09-07T23:40:02.816Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T09:43:51.343Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:43:40.223Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://apply.refline.ch/673276/2229/pub/1/index.html"
     },
     {
       "id": "empa-ba09f35f5dd0",
@@ -721,7 +648,7 @@
       "url": "https://apply.refline.ch/673276/2231/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:43:51.339Z",
+      "crawledAt": "2026-11-19T21:43:40.222Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -766,8 +693,89 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T09:43:51.339Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:43:40.222Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://apply.refline.ch/673276/2231/pub/1/index.html"
+    },
+    {
+      "id": "empa-916a5cd93e8a",
+      "slug": "tecnico-in-microscopia-elettronica-80-100-empa-dubendorf",
+      "slugByLocale": {
+        "it": "tecnico-in-microscopia-elettronica-80-100-empa-dubendorf",
+        "en": "technician-in-electron-microscopy-80-100-empa-dubendorf",
+        "de": "technician-in-electron-microscopy-80-100-empa-dubendorf",
+        "fr": "technician-in-electron-microscopy-80-100-empa-dubendorf"
+      },
+      "company": "Empa",
+      "companyKey": "empa",
+      "companyDomain": "empa.ch",
+      "title": "Technician in Electron Microscopy (80-100%)",
+      "titleByLocale": {
+        "it": "Tecnico in Microscopia Elettronica (80-100%)",
+        "en": "Technician in Electron Microscopy (80-100%)",
+        "de": "Techniker in Electron Microscopy (80-100%)",
+        "fr": "Technicien in Electron Microscopy (80-100%)"
+      },
+      "description": "Materials science and technology are our passion. With our cutting-edge research, Empa's around 1,100 employees make essential contributions to the well-being of society for a future worth living. Empa is a research institution of the ETH Domain.\n\nTechnician in Electron Microscopy (80-100%)\n\nWould you like to be part of a small research & support group at Empa and provide services to internal and external partners in academia and industry? Are you interested in delicate electron-optical instrumentation and motivated to maintain high-end electron microscopes and auxiliary equipment? Finding the cause of a technical problem in a device is a catchy challenge for you, like solving a puzzle? Have you ever desired to be part of an agile team and be able to plan your working day independently? If you think you are a good fit for this position, a welcoming working environment in an international and multidisciplinary research facility awaits you.\n\nYour tasks\n\n• Responsible for the operation of the center's electron microscopes and the sample preparation facilities\n\n• Carry out preventive maintenance, troubleshooting, diagnostics, and basic repairs of microscopy equipment\n\n• Coordinate more complex repairs and servicing with instrument manufacturers and external service providers\n\n• Introduction and training of users to the tools & methods\n\n• Participation in scientific projects\n\n• Provide electron-microscopy services to internal and external customers\n\nYour profile\n\nYou bring along practical experience in the operation and maintenance of electron microscopes, as well as in related sample preparation methods. You are familiar with small electro-mechanical devices. You have a flair for details and perfectionism. You are eager to expand your horizon and to learn new characterization methods and applications thereof. Fluency in English (spoken and written) is mandatory, in German desired.\n\nOur offer\n\nWe offer you a challenging and varied range of responsibilities in a dynamic, internationally oriented research environment where you can further develop your professional skills.\n\nWe live a culture of inclusion and respect. We welcome all people who are interested in innovative, sustainable and meaningful activities - that's what counts.\n\nWe look forward to receiving your complete online application including a letter of motivation, CV, certificates, diplomas and contact details of two reference persons. Please submit these exclusively via our job portal. Applications by e-mail and by post will not be considered.",
+      "descriptionByLocale": {
+        "it": "La scienza dei materiali e la tecnologia sono la nostra passione. Con la nostra ricerca all'avanguardia, i circa 1.100 dipendenti di Empa danno un contributo essenziale al benessere della società per un futuro che vale la pena di vivere. Empa è un'istituzione di ricerca del dominio ETH.\n\nTecnico in Microscopia Elettronica (80-100%)\n\nVorresti fare parte di un piccolo gruppo di ricerca e supporto a Empa e fornire servizi a partner interni ed esterni in accademia e industria? Sei interessato alla delicata strumentazione elettrone-ottica e motivato a mantenere microscopi elettroni di fascia alta e apparecchiature ausiliarie? Trovare la causa di un problema tecnico in un dispositivo è una sfida accattivante per voi, come risolvere un puzzle? Hai mai desiderato essere parte di un team agile e essere in grado di pianificare la tua giornata lavorativa indipendentemente? Se pensate di essere una buona soluzione per questa posizione, un ambiente di lavoro accogliente in una struttura di ricerca internazionale e multidisciplinare vi aspetta.\n\nI tuoi compiti\n\n• Responsabile per il funzionamento dei microscopi elettroni del centro e degli impianti di preparazione del campione\n\n• Eseguire la manutenzione preventiva, la risoluzione dei problemi, la diagnostica e le riparazioni di base di apparecchiature di microscopia\n\n• Coordinare più complesse riparazioni e manutenzione con produttori di strumenti e fornitori di servizi esterni\n\n• Introduzione e formazione degli utenti agli strumenti e ai metodi\n\n• Partecipazione a progetti scientifici\n\n• Fornire servizi elettron-microscopia a clienti interni ed esterni\n\nIl tuo profilo\n\nSi porta esperienza pratica nel funzionamento e la manutenzione di microscopi elettroni, così come nei metodi di preparazione del campione correlati. Conosci i piccoli dispositivi elettromeccanici. Hai un tocco di dettagli e perfezionismo. Siete desiderosi di espandere il vostro orizzonte e di imparare nuovi metodi di caratterizzazione e applicazioni di esso. La fluidità in inglese (spoken e scritto) è obbligatoria, in tedesco desiderato.\n\nLa nostra offerta\n\nVi offriamo una gamma impegnativa e variegata di responsabilità in un ambiente di ricerca dinamico e orientato a livello internazionale dove è possibile sviluppare ulteriormente le vostre competenze professionali.\n\nViviamo una cultura di inclusione e rispetto. Diamo il benvenuto a tutte le persone che sono interessate a attività innovative, sostenibili e significative - questo è ciò che conta.\n\nNon vediamo l'ora di ricevere la tua candidatura online completa, tra cui una lettera di motivazione, CV, certificati, diplomi e dettagli di contatto di due persone di riferimento. Si prega di inviare questi esclusivamente tramite il nostro portale di lavoro. Le domande per e-mail e per posta non saranno considerate.",
+        "en": "Materials science and technology are our passion. With our cutting-edge research, Empa's around 1,100 employees make essential contributions to the well-being of society for a future worth living. Empa is a research institution of the ETH Domain.\n\nTechnician in Electron Microscopy (80-100%)\n\nWould you like to be part of a small research & support group at Empa and provide services to internal and external partners in academia and industry? Are you interested in delicate electron-optical instrumentation and motivated to maintain high-end electron microscopes and auxiliary equipment? Finding the cause of a technical problem in a device is a catchy challenge for you, like solving a puzzle? Have you ever desired to be part of an agile team and be able to plan your working day independently? If you think you are a good fit for this position, a welcoming working environment in an international and multidisciplinary research facility awaits you.\n\nYour tasks\n\n• Responsible for the operation of the center's electron microscopes and the sample preparation facilities\n\n• Carry out preventive maintenance, troubleshooting, diagnostics, and basic repairs of microscopy equipment\n\n• Coordinate more complex repairs and servicing with instrument manufacturers and external service providers\n\n• Introduction and training of users to the tools & methods\n\n• Participation in scientific projects\n\n• Provide electron-microscopy services to internal and external customers\n\nYour profile\n\nYou bring along practical experience in the operation and maintenance of electron microscopes, as well as in related sample preparation methods. You are familiar with small electro-mechanical devices. You have a flair for details and perfectionism. You are eager to expand your horizon and to learn new characterization methods and applications thereof. Fluency in English (spoken and written) is mandatory, in German desired.\n\nOur offer\n\nWe offer you a challenging and varied range of responsibilities in a dynamic, internationally oriented research environment where you can further develop your professional skills.\n\nWe live a culture of inclusion and respect. We welcome all people who are interested in innovative, sustainable and meaningful activities - that's what counts.\n\nWe look forward to receiving your complete online application including a letter of motivation, CV, certificates, diplomas and contact details of two reference persons. Please submit these exclusively via our job portal. Applications by e-mail and by post will not be considered.",
+        "de": "Materialwissenschaft und Technologie sind unsere Leidenschaft. Mit unserer Spitzenforschung leisten die rund 1.100 Mitarbeiter der Empa wesentliche Beiträge zum Wohl der Gesellschaft für eine lebenswerte Zukunft. Die Empa ist eine Forschungseinrichtung des ETH-Bereichs.\n\nTechniker in der Elektronenmikroskopie (80-100%)\n\nMöchten Sie Teil einer kleinen Research & Support Gruppe an der Empa sein und Leistungen für interne und externe Partner in Wissenschaft und Industrie erbringen? Sind Sie an empfindlichen elektronenoptischen Instrumenten interessiert und motiviert, High-End-Elektronenmikroskope und Zusatzgeräte zu warten? Die Ursache eines technischen Problems in einem Gerät zu finden, ist eine eingängige Herausforderung für Sie, wie ein Rätsel zu lösen? Haben Sie sich schon einmal gewünscht, Teil eines agilen Teams zu sein und Ihren Arbeitstag selbstständig planen zu können? Wenn Sie denken, dass Sie gut zu dieser Position passen, erwartet Sie ein einladendes Arbeitsumfeld in einer internationalen und multidisziplinären Forschungseinrichtung.\n\nIhre Aufgaben\n\n• Verantwortlich für den Betrieb der Elektronenmikroskope des Zentrums und der Probenvorbereitungseinrichtungen\n\n• Durchführung vorbeugender Wartungsarbeiten, Fehlersuche, Diagnose und grundlegende Reparaturen von Mikroskopiegeräten\n\n• Koordinieren Sie komplexere Reparaturen und Wartungen mit Instrumentenherstellern und externen Dienstleistern\n\n• Einführung und Schulung der Nutzer zu den Tools & Methoden\n\n• Teilnahme an wissenschaftlichen Projekten\n\n• Bereitstellung von Elektronenmikroskopie-Dienstleistungen für interne und externe Kunden\n\nDein Profil\n\nSie bringen praktische Erfahrungen in der Bedienung und Wartung von Elektronenmikroskopen sowie in verwandten Probenvorbereitungsverfahren mit. Sie kennen kleine elektromechanische Geräte. Sie haben ein Gespür für Details und Perfektionismus. Sie möchten Ihren Horizont erweitern und neue Charakterisierungsmethoden und deren Anwendungen erlernen. Fließend in Englisch (gesprochen und geschrieben) ist obligatorisch, in Deutsch gewünscht.\n\nUnser Angebot\n\nWir bieten Ihnen ein anspruchsvolles und abwechslungsreiches Aufgabenspektrum in einem dynamischen, international ausgerichteten Forschungsumfeld, in dem Sie Ihre beruflichen Kompetenzen weiterentwickeln können.\n\nWir leben eine Kultur der Integration und des Respekts. Wir begrüßen alle Menschen, die sich für innovative, nachhaltige und sinnvolle Aktivitäten interessieren – das zählt.\n\nWir freuen uns auf Ihre vollständige Online-Bewerbung mit Motivationsschreiben, Lebenslauf, Zertifikaten, Diplomen und Kontaktdaten von zwei Referenzpersonen. Bitte senden Sie diese ausschließlich über unser Jobportal. Bewerbungen per E-Mail und Post werden nicht berücksichtigt.",
+        "fr": "La science et la technologie des matériaux sont notre passion. Grâce à nos recherches de pointe, les quelque 1 100 employés d'Empa apportent une contribution essentielle au bien-être de la société pour un avenir digne d'être vécu. Empa est une institution de recherche du domaine ETH.\n\nTechnicien en microscopie électronique (80-100%)\n\nSouhaitez-vous faire partie d'un petit groupe de recherche et de soutien à Empa et fournir des services à des partenaires internes et externes du milieu universitaire et de l'industrie? Êtes-vous intéressé par une instrumentation électronique-optique délicate et motivé pour maintenir des microscopes électroniques haut de gamme et des équipements auxiliaires? Trouver la cause d'un problème technique dans un appareil est un défi accrocheur pour vous, comme résoudre un puzzle? Avez-vous déjà souhaité faire partie d'une équipe agile et être en mesure de planifier votre journée de travail indépendamment? Si vous pensez être une bonne personne pour ce poste, un environnement de travail accueillant dans un centre de recherche international et multidisciplinaire vous attend.\n\nVos tâches\n\n• Responsable du fonctionnement des microscopes électroniques du centre et des installations de préparation des échantillons\n\n• Effectuer l'entretien préventif, le dépannage, le diagnostic et les réparations de base du matériel de microscopie\n\n• Coordonner les réparations et l'entretien plus complexes avec les fabricants d'instruments et les fournisseurs de services externes\n\n• Introduction et formation des utilisateurs aux outils et méthodes\n\n• Participation à des projets scientifiques\n\n• Fournir des services de microscopie électronique aux clients internes et externes\n\nVotre profil\n\nVous apportez une expérience pratique dans le fonctionnement et l'entretien des microscopes électroniques, ainsi que dans les méthodes de préparation d'échantillons connexes. Vous connaissez les petits appareils électromécaniques. Vous avez un goût pour les détails et le perfectionnisme. Vous êtes impatient d'élargir votre horizon et d'apprendre de nouvelles méthodes de caractérisation et leurs applications. La fluidité en anglais (parlé et écrit) est obligatoire, en allemand désiré.\n\nNotre offre\n\nNous vous offrons un éventail de responsabilités stimulant et varié dans un environnement de recherche dynamique et orienté vers l'international où vous pouvez développer vos compétences professionnelles.\n\nNous vivons une culture d'inclusion et de respect. Nous accueillons toutes les personnes qui s'intéressent à des activités novatrices, durables et significatives - c'est ce qui compte.\n\nNous sommes impatients de recevoir votre candidature en ligne complète comprenant une lettre de motivation, CV, certificats, diplômes et coordonnées de deux personnes de référence. Veuillez les soumettre exclusivement via notre portail d'emploi. Les demandes par courrier électronique et par la poste ne seront pas prises en considération."
+      },
+      "location": "Dübendorf",
+      "canton": "ZH",
+      "url": "https://apply.refline.ch/673276/2228/pub/1/index.html",
+      "source": "Empa Dedicated Parser (Refline 673276)",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-19T21:43:40.222Z",
+      "addressLocality": "Dübendorf",
+      "addressRegion": "ZH",
+      "streetAddress": "Ueberlandstrasse 129",
+      "postalCode": "8600",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ricerca",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Università / Ricerca",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-03T12:15:59.833145+00:00",
+      "postedDate": "2026-09-03T12:15:59.833145+00:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://apply.refline.ch/673276/2228/pub/1/index.html",
+      "hiringOrganizationName": "Empa",
+      "jobReqId": "2228",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "technician-in-electron-microscopy-80-100-empa-dubendorf"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "technician-in-electron-microscopy-80-100-empa-dubendorf"
+        ]
+      },
+      "firstSeenAt": "2026-09-07T23:40:02.816Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-19T21:43:40.222Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://apply.refline.ch/673276/2228/pub/1/index.html"
     },
     {
       "id": "empa-3fa00ba46829",
@@ -800,7 +808,7 @@
       "url": "https://apply.refline.ch/673276/2233/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:43:51.336Z",
+      "crawledAt": "2026-11-19T21:43:40.221Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -845,8 +853,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T09:43:51.336Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:43:40.221Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://apply.refline.ch/673276/2233/pub/1/index.html"
     },
     {
       "id": "empa-9df9ad0ef261",
@@ -879,7 +888,7 @@
       "url": "https://apply.refline.ch/673276/2232/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:43:51.331Z",
+      "crawledAt": "2026-11-19T21:43:40.218Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -924,8 +933,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T09:43:51.331Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:43:40.218Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://apply.refline.ch/673276/2232/pub/1/index.html"
     },
     {
       "id": "empa-606a70e8b53e",
@@ -958,7 +968,7 @@
       "url": "https://apply.refline.ch/673276/2234/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:43:51.327Z",
+      "crawledAt": "2026-11-19T21:43:40.217Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1003,8 +1013,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T09:43:51.327Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:43:40.217Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://apply.refline.ch/673276/2234/pub/1/index.html"
     },
     {
       "id": "empa-880bf642f7e9",
@@ -1037,7 +1048,7 @@
       "url": "https://apply.refline.ch/673276/2240/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:43:51.324Z",
+      "crawledAt": "2026-11-19T21:43:40.215Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -1082,8 +1093,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-29T09:43:51.324Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-28T21:43:40.215Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://apply.refline.ch/673276/2240/pub/1/index.html"
     },
     {
       "id": "empa-f9da9f2a9440",
@@ -1116,7 +1128,7 @@
       "url": "https://apply.refline.ch/673276/2244/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:43:51.320Z",
+      "crawledAt": "2026-11-19T21:43:40.214Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1169,8 +1181,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-31T09:43:51.320Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-31T21:43:40.214Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://apply.refline.ch/673276/2244/pub/1/index.html"
     },
     {
       "id": "empa-075174446cfa",
@@ -1203,7 +1216,7 @@
       "url": "https://apply.refline.ch/673276/2238/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:43:51.316Z",
+      "crawledAt": "2026-11-19T21:43:40.212Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1248,8 +1261,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-23T09:43:51.316Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-22T21:43:40.212Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://apply.refline.ch/673276/2238/pub/1/index.html"
     },
     {
       "id": "empa-b3914f9ea547",
@@ -1282,7 +1296,7 @@
       "url": "https://apply.refline.ch/673276/2245/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:43:51.313Z",
+      "crawledAt": "2026-11-19T21:43:40.211Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "Feuerwerkerstrasse 39",
@@ -1319,8 +1333,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-07T09:43:51.313Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-06T21:43:40.211Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://apply.refline.ch/673276/2245/pub/1/index.html"
     },
     {
       "id": "empa-31fc5ca190de",
@@ -1353,7 +1368,7 @@
       "url": "https://apply.refline.ch/673276/2247/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:43:51.311Z",
+      "crawledAt": "2026-11-19T21:43:40.210Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1390,8 +1405,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-14T09:43:51.311Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-13T21:43:40.210Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://apply.refline.ch/673276/2247/pub/1/index.html"
     },
     {
       "id": "empa-5a71867b80d9",
@@ -1424,7 +1440,7 @@
       "url": "https://apply.refline.ch/673276/2248/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:43:51.307Z",
+      "crawledAt": "2026-11-19T21:43:40.208Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1477,8 +1493,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-20T09:43:51.307Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-19T21:43:40.208Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://apply.refline.ch/673276/2248/pub/1/index.html"
     },
     {
       "id": "empa-abb558e6f621",
@@ -1511,7 +1528,7 @@
       "url": "https://apply.refline.ch/673276/2249/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:43:51.305Z",
+      "crawledAt": "2026-11-19T21:43:40.206Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1564,8 +1581,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-21T09:43:51.305Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-21T21:43:40.206Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://apply.refline.ch/673276/2249/pub/1/index.html"
     },
     {
       "id": "empa-54e6e346667d",
@@ -1598,7 +1616,7 @@
       "url": "https://apply.refline.ch/673276/2251/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:43:51.299Z",
+      "crawledAt": "2026-11-19T21:43:40.205Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1649,8 +1667,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T09:43:51.299Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-26T21:43:40.205Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://apply.refline.ch/673276/2251/pub/1/index.html"
     },
     {
       "id": "empa-f5a4d8952c49",
@@ -1683,7 +1702,7 @@
       "url": "https://apply.refline.ch/673276/2253/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:43:51.293Z",
+      "crawledAt": "2026-11-19T21:43:40.203Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1734,8 +1753,84 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-05T09:43:51.293Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-04T21:43:40.203Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://apply.refline.ch/673276/2253/pub/1/index.html"
+    },
+    {
+      "id": "empa-7000358a6479",
+      "slug": "it-platform-engineer-for-data-and-collaboration-empa-dubendorf",
+      "slugByLocale": {
+        "de": "it-platform-engineer-for-data-and-collaboration-empa-dubendorf",
+        "it": "it-platform-engineer-for-data-and-collaboration-empa-dubendorf",
+        "en": "it-platform-engineer-for-data-and-collaboration-empa-dubendorf",
+        "fr": "it-platform-engineer-for-data-and-collaboration-empa-dubendorf"
+      },
+      "company": "Empa",
+      "companyKey": "empa",
+      "companyDomain": "empa.ch",
+      "title": "IT Platform Engineer for Data and Collaboration",
+      "titleByLocale": {
+        "de": "IT Platform Engineer for Data and Collaboration",
+        "it": "IT Platform Ingegnere for Data and Collaboration",
+        "en": "IT Platform Engineer for Data and Collaboration",
+        "fr": "IT Platform Ingénieur for Data and Collaboration"
+      },
+      "description": "Materialwissenschaft und Technologie sind unsere Leidenschaft. Mit unserer Spitzenforschung leisten die rund 1'100 Mitarbeitenden der Empa entscheidende Beiträge zum Wohle der Gesellschaft für eine lebenswerte Zukunft. Die Empa ist eine Forschungsinstitution des ETH-Bereichs.\n\nIT Platform Engineer for Data and Collaboration\n\nDamit rund 1'000 Forschende an Lösungen für die Zukunft arbeiten können, schaffen wir in der IT die notwendigen digitalen Grundlagen. Als partnerschaftliche Wegbegleiterin der Forschung setzen wir auf zuverlässige Services, moderne Technologien und eine enge Zusammenarbeit über Teamgrenzen hinweg. Kurze Entscheidungswege und die Offenheit für neue Ideen ermöglichen es uns, die IT von morgen aktiv mitzugestalten.\n\nIn unserer rund 40-köpfigen IT-Abteilung erwartet Sie ein internationales, vielfältiges Team, in dem Eigeninitiative, praktische Kompetenzen und Zusammenarbeit zählen. Gemeinsam entwickeln und betreiben wir die Plattformen, auf denen unsere digitalen Services aufbauen.\n Für unser IT-Team am Standort Dübendorf suchen wir per sofort oder nach Vereinbarung eine engagierte Persönlichkeit.\n\nIhre Aufgaben\n\nIn dieser vielseitigen Rolle gestalten Sie unsere zentralen Plattformen für Daten und digitale Zusammenarbeit. Sie verbinden einen zuverlässigen Betrieb mit der Weiterentwicklung unserer Technologien und treiben Automatisierung und Standardisierung aktiv voran.\n\n• Datenplattform betreiben und weiterentwickeln : Sie übernehmen Verantwortung für unsere lokal betriebenen Microsoft SQL Server-Datenbanken, stellen deren stabilen und performanten Betrieb sicher und entwickeln Monitoring, Wartungsprozesse und Automatisierung kontinuierlich weiter.\n\n• Microsoft 365 und Collaboration gestalten : Sie entwickeln unser M365-Ökosystem mit SharePoint Online und Power Platform weiter, gestalten nachhaltige Governance-Strukturen und beraten unsere Fachbereiche bei der Umsetzung moderner Collaboration-Lösungen.\n\n• Automatisierung und Plattformstandards vorantreiben : Mit PowerShell oder Python, Git und CI/CD-Pipelines automatisieren Sie wiederkehrende Aufgaben, standardisieren Konfigurationen und etablieren reproduzierbare und zuverlässige Deployment-Prozesse.\n\nIhr Profil\n\nSie verfügen über Erfahrung im Betrieb und in der Weiterentwicklung von IT-Plattformen, denken lösungsorientiert und haben Freude daran, bestehende Strukturen zu verbessern und neue Technologien einzusetzen.\n\n• Technisches Fundament : Gute Kenntnisse relationaler Datenbanksysteme sowie Erfahrung mit Microsoft-Infrastrukturen oder Microsoft 365. Kenntnisse in SharePoint Online, Power Platform oder Azure sind ein Plus.\n\n• Freude an Automatisierung : Erfahrung mit PowerShell oder Python sowie Git. Idealerweise haben Sie sich bereits mit Infrastructure as Code, CI/CD oder automatisierten Deployment-Prozessen beschäftigt.\n\n• Selbstständigkeit und Teamgeist : Sie arbeiten strukturiert, übernehmen Verantwortung und schätzen die Zusammenarbeit mit unterschiedlichen Fachbereichen. Serviceorientierung und pragmatische Lösungen sind Ihnen wichtig.\n\n• Ausbildung und Erfahrung : Eine Ausbildung in Informatik, Wirtschaftsinformatik oder einem verwandten Bereich (HF, FH, Universität, TU) oder vergleichbare Kenntnisse aus der Praxis und Weiterbildung.\n Sie müssen nicht alle Anforderungen bereits erfüllen. Entscheidend sind für uns Ihr technisches Verständnis, Ihre Neugier und Ihre Bereitschaft, sich in neue Themen einzuarbeiten und Ihre Kompetenzen kontinuierlich weiterzuentwickeln.\n\nUnser Angebot\n\n• Gestaltungsspielraum : Bringen Sie Ihre Ideen ein und entwickeln Sie unsere IT-Plattformen aktiv weiter.\n\n• Sinnstiftende Arbeit : Ihre Arbeit schafft die digitale Grundlage für Forschung und Innovation.\n\n• Zusammenarbeit auf Augenhöhe : Ein internationales Team, das von offener Kommunikation, gegenseitiger Unterstützung und einem unkomplizierten Miteinander lebt.\n\n• Persönliche Weiterentwicklung : Vielfältige Möglichkeiten zur fachlichen Weiterbildung und zum Ausbau Ihrer Kompetenzen.\n\n• Attraktive Rahmenbedingungen : Flexible Arbeitszeiten und eine faire Vergütung gemäss dem Lohnmodell des ETH-Bereichs.\n\nNicht ganz alle Anforderungen erfüllt? Uns ist bewusst, dass sich insbesondere Frauen und Personen, die einer Minderheit angehören, oft erst bewerben, wenn sie das Anforderungsprofil nahezu vollständig erfüllen. Für uns zählen jedoch auch Motivation, Engagement und Lernbereitschaft. Wenn Sie sich in der Stelle wiedererkennen, freuen wir uns auf Ihre qualifizierte Bewerbung, auch wenn Sie die Anforderungen nicht zu 100% erfüllen.\n\nWir freuen uns auf Ihre vollständige Online-Bewerbung inkl. Motivationsschreiben, Lebenslauf, Zeugnisse, Diplome und Kontaktdaten von zwei Referenzpersonen. Bitte reichen Sie diese ausschliesslich über unser Bewerbungsportal ein. Bewerbungen per E-Mail sowie auf dem Postweg werden nicht berücksichtigt.",
+      "descriptionByLocale": {
+        "de": "Materialwissenschaft und Technologie sind unsere Leidenschaft. Mit unserer Spitzenforschung leisten die rund 1'100 Mitarbeitenden der Empa entscheidende Beiträge zum Wohle der Gesellschaft für eine lebenswerte Zukunft. Die Empa ist eine Forschungsinstitution des ETH-Bereichs.\n\nIT Platform Engineer for Data and Collaboration\n\nDamit rund 1'000 Forschende an Lösungen für die Zukunft arbeiten können, schaffen wir in der IT die notwendigen digitalen Grundlagen. Als partnerschaftliche Wegbegleiterin der Forschung setzen wir auf zuverlässige Services, moderne Technologien und eine enge Zusammenarbeit über Teamgrenzen hinweg. Kurze Entscheidungswege und die Offenheit für neue Ideen ermöglichen es uns, die IT von morgen aktiv mitzugestalten.\n\nIn unserer rund 40-köpfigen IT-Abteilung erwartet Sie ein internationales, vielfältiges Team, in dem Eigeninitiative, praktische Kompetenzen und Zusammenarbeit zählen. Gemeinsam entwickeln und betreiben wir die Plattformen, auf denen unsere digitalen Services aufbauen.\n Für unser IT-Team am Standort Dübendorf suchen wir per sofort oder nach Vereinbarung eine engagierte Persönlichkeit.\n\nIhre Aufgaben\n\nIn dieser vielseitigen Rolle gestalten Sie unsere zentralen Plattformen für Daten und digitale Zusammenarbeit. Sie verbinden einen zuverlässigen Betrieb mit der Weiterentwicklung unserer Technologien und treiben Automatisierung und Standardisierung aktiv voran.\n\n• Datenplattform betreiben und weiterentwickeln : Sie übernehmen Verantwortung für unsere lokal betriebenen Microsoft SQL Server-Datenbanken, stellen deren stabilen und performanten Betrieb sicher und entwickeln Monitoring, Wartungsprozesse und Automatisierung kontinuierlich weiter.\n\n• Microsoft 365 und Collaboration gestalten : Sie entwickeln unser M365-Ökosystem mit SharePoint Online und Power Platform weiter, gestalten nachhaltige Governance-Strukturen und beraten unsere Fachbereiche bei der Umsetzung moderner Collaboration-Lösungen.\n\n• Automatisierung und Plattformstandards vorantreiben : Mit PowerShell oder Python, Git und CI/CD-Pipelines automatisieren Sie wiederkehrende Aufgaben, standardisieren Konfigurationen und etablieren reproduzierbare und zuverlässige Deployment-Prozesse.\n\nIhr Profil\n\nSie verfügen über Erfahrung im Betrieb und in der Weiterentwicklung von IT-Plattformen, denken lösungsorientiert und haben Freude daran, bestehende Strukturen zu verbessern und neue Technologien einzusetzen.\n\n• Technisches Fundament : Gute Kenntnisse relationaler Datenbanksysteme sowie Erfahrung mit Microsoft-Infrastrukturen oder Microsoft 365. Kenntnisse in SharePoint Online, Power Platform oder Azure sind ein Plus.\n\n• Freude an Automatisierung : Erfahrung mit PowerShell oder Python sowie Git. Idealerweise haben Sie sich bereits mit Infrastructure as Code, CI/CD oder automatisierten Deployment-Prozessen beschäftigt.\n\n• Selbstständigkeit und Teamgeist : Sie arbeiten strukturiert, übernehmen Verantwortung und schätzen die Zusammenarbeit mit unterschiedlichen Fachbereichen. Serviceorientierung und pragmatische Lösungen sind Ihnen wichtig.\n\n• Ausbildung und Erfahrung : Eine Ausbildung in Informatik, Wirtschaftsinformatik oder einem verwandten Bereich (HF, FH, Universität, TU) oder vergleichbare Kenntnisse aus der Praxis und Weiterbildung.\n Sie müssen nicht alle Anforderungen bereits erfüllen. Entscheidend sind für uns Ihr technisches Verständnis, Ihre Neugier und Ihre Bereitschaft, sich in neue Themen einzuarbeiten und Ihre Kompetenzen kontinuierlich weiterzuentwickeln.\n\nUnser Angebot\n\n• Gestaltungsspielraum : Bringen Sie Ihre Ideen ein und entwickeln Sie unsere IT-Plattformen aktiv weiter.\n\n• Sinnstiftende Arbeit : Ihre Arbeit schafft die digitale Grundlage für Forschung und Innovation.\n\n• Zusammenarbeit auf Augenhöhe : Ein internationales Team, das von offener Kommunikation, gegenseitiger Unterstützung und einem unkomplizierten Miteinander lebt.\n\n• Persönliche Weiterentwicklung : Vielfältige Möglichkeiten zur fachlichen Weiterbildung und zum Ausbau Ihrer Kompetenzen.\n\n• Attraktive Rahmenbedingungen : Flexible Arbeitszeiten und eine faire Vergütung gemäss dem Lohnmodell des ETH-Bereichs.\n\nNicht ganz alle Anforderungen erfüllt? Uns ist bewusst, dass sich insbesondere Frauen und Personen, die einer Minderheit angehören, oft erst bewerben, wenn sie das Anforderungsprofil nahezu vollständig erfüllen. Für uns zählen jedoch auch Motivation, Engagement und Lernbereitschaft. Wenn Sie sich in der Stelle wiedererkennen, freuen wir uns auf Ihre qualifizierte Bewerbung, auch wenn Sie die Anforderungen nicht zu 100% erfüllen.\n\nWir freuen uns auf Ihre vollständige Online-Bewerbung inkl. Motivationsschreiben, Lebenslauf, Zeugnisse, Diplome und Kontaktdaten von zwei Referenzpersonen. Bitte reichen Sie diese ausschliesslich über unser Bewerbungsportal ein. Bewerbungen per E-Mail sowie auf dem Postweg werden nicht berücksichtigt.",
+        "it": "La scienza dei materiali e la tecnologia sono la nostra passione. Con la nostra ricerca all'avanguardia, i circa 1.100 dipendenti di Empa danno un contributo decisivo a beneficio della società per un futuro che vale la pena di vivere. Empa è un'istituzione di ricerca del dominio ETH.\n\nIT Platform Engineer per i dati e la collaborazione\n\nCosì che circa 1.000 ricercatori possono lavorare su soluzioni per il futuro, creiamo le basi digitali necessarie in IT. Come partner per la ricerca, ci affidiamo a servizi affidabili, tecnologie moderne e una stretta collaborazione tra i confini del team. Brevi percorsi decisionali e apertura a nuove idee ci permettono di plasmare attivamente l'IT di domani.\n\nNel nostro reparto IT di circa 40 persone, ci si può aspettare un team internazionale e diversificato in cui l'iniziativa, le competenze pratiche e la cooperazione conta. Insieme, sviluppiamo e gestiamo le piattaforme su cui sono costruiti i nostri servizi digitali.\n Per il nostro team IT nella posizione di Dübendorf, stiamo cercando una personalità impegnata immediatamente o d'accordo.\n\nI loro compiti\n\nIn questo ruolo versatile, modellate le nostre piattaforme centrali per la collaborazione dei dati e digitali. Combinano un funzionamento affidabile con l'ulteriore sviluppo delle nostre tecnologie e guidano attivamente l'automazione e la standardizzazione.\n\n• Piattaforma di dati operativa e in via di sviluppo: si assume la responsabilità per i nostri database Microsoft SQL Server gestiti localmente, garantire il loro funzionamento stabile e ad alte prestazioni e sviluppare continuamente processi di monitoraggio, manutenzione e automazione.\n\n• Microsoft 365 e collaborazione: svilupperai ulteriormente il nostro ecosistema M365 con SharePoint Online e Power Platform, formerai strutture di governance sostenibile e consiglierai i nostri dipartimenti sull'implementazione di soluzioni di collaborazione moderne.\n\n• Automazione di unità e standard di piattaforma: PowerShell o Python, Git e CI/CD pipeline automatizzano le attività ricorrenti, standardzzano le configurazioni e stabiliscono processi di distribuzione riproducibili e affidabili.\n\nIl tuo profilo\n\nEssi hanno esperienza nel funzionamento e nello sviluppo di piattaforme IT, pensare orientate alla soluzione e godere di migliorare le strutture esistenti e utilizzando nuove tecnologie.\n\n• Fondazione tecnica: Buona conoscenza dei sistemi di database relazionali e l'esperienza con le infrastrutture Microsoft o Microsoft 365. Conoscenza di SharePoint Online, Power Platform o Azure è un plus.\n\n• Gioia dell'automazione: Esperienza con PowerShell o Python e Git. Idealmente, hai già trattato Infrastructure come Code, CI/CD o processi di distribuzione automatizzati.\n\n• Auto-occupazione e spirito di squadra: Lei lavora in modo strutturato, si assume responsabilità e apprezza la collaborazione con diverse aree specializzate. L'orientamento del servizio e le soluzioni pragmatiche sono importanti per voi.\n\n• Istruzione ed esperienza: un'istruzione in informatica, informatica aziendale o un campo correlato (HF, FH, università, TU) o una conoscenza comparabile dalla pratica e dall'ulteriore istruzione.\n Non devono soddisfare tutti i requisiti già. Decisivo per noi sono la vostra comprensione tecnica, la vostra curiosità e la vostra disponibilità a familiarizzare con nuovi argomenti e a sviluppare continuamente le vostre abilità.\n\nLa nostra offerta\n\n• Design leeway: Porta le tue idee e sviluppa attivamente le nostre piattaforme IT.\n\n• Lavoro significativo: il tuo lavoro crea la base digitale per la ricerca e l'innovazione.\n\n• Cooperazione a livello degli occhi: un team internazionale che prospera sulla comunicazione aperta, sul sostegno reciproco e sulla cooperazione semplice.\n\n• Sviluppo personale: Varie possibilità di formazione professionale e sviluppo delle vostre competenze.\n\n• Condizioni quadro interessanti: orari di lavoro flessibili e una remunerazione equa secondo il modello salariale del Dominio ETH.\n\nNon tutti i requisiti soddisfatti? Siamo consapevoli che le donne e le persone appartenenti a una minoranza in particolare spesso si applicano solo quando soddisfano il profilo dei requisiti quasi completamente. Per noi, tuttavia, la motivazione, l'impegno e la volontà di imparare conta anche. Se vi riconoscete nella posizione, non vediamo l'ora della vostra applicazione qualificata, anche se non soddisfate i requisiti 100%.\n\nNon vediamo l'ora della tua applicazione online completa incl. Lettera di motivazione, CV, certificati, diplomi e contatti di due persone di riferimento. Si prega di inviarli esclusivamente tramite il nostro portale di applicazione. Le domande per e-mail o per posta non saranno considerate.",
+        "en": "Materials science and technology are our passion. With our cutting-edge research, Empa’s approximately 1,100 employees make decisive contributions to the benefit of society for a future worth living in. Empa is a research institution of the ETH Domain.\n\nIT Platform Engineer for Data and Collaboration\n\nSo that around 1,000 researchers can work on solutions for the future, we create the necessary digital foundations in IT. As a partner for research, we rely on reliable services, modern technologies and close cooperation across team boundaries. Short decision-making paths and openness to new ideas enable us to actively shape the IT of tomorrow.\n\nIn our IT department of about 40 people, you can expect an international, diverse team in which initiative, practical skills and cooperation count. Together, we develop and operate the platforms on which our digital services are built.\n For our IT team at the Dübendorf location, we are looking for a committed personality immediately or by agreement.\n\nTheir tasks\n\nIn this versatile role, you shape our central platforms for data and digital collaboration. They combine reliable operation with the further development of our technologies and actively drive automation and standardization.\n\n• Operating and further developing data platform : You take responsibility for our locally operated Microsoft SQL Server databases, ensure their stable and high-performance operation and continuously develop monitoring, maintenance processes and automation.\n\n• Microsoft 365 and collaboration: You will further develop our M365 ecosystem with SharePoint Online and Power Platform, shape sustainable governance structures and advise our departments on the implementation of modern collaboration solutions.\n\n• Drive automation and platform standards: PowerShell or Python, Git and CI/CD pipelines automate recurring tasks, standardize configurations and establish reproducible and reliable deployment processes.\n\nYour profile\n\nThey have experience in the operation and further development of IT platforms, think solution-oriented and enjoy improving existing structures and using new technologies.\n\n• Technical foundation: Good knowledge of relational database systems and experience with Microsoft infrastructures or Microsoft 365. Knowledge of SharePoint Online, Power Platform or Azure is a plus.\n\n• Joy of automation: Experience with PowerShell or Python as well as Git. Ideally, you have already dealt with Infrastructure as Code, CI/CD or automated deployment processes.\n\n• Self-employment and team spirit: You work in a structured way, take on responsibility and appreciate cooperation with different specialist areas. Service orientation and pragmatic solutions are important to you.\n\n• Education and experience: An education in computer science, business informatics or a related field (HF, FH, university, TU) or comparable knowledge from practice and further education.\n They do not have to meet all the requirements already. Decisive for us are your technical understanding, your curiosity and your willingness to familiarize yourself with new topics and to continuously develop your skills.\n\nOur offer\n\n• Design leeway: Bring your ideas and actively develop our IT platforms.\n\n• Meaningful work: Your work creates the digital basis for research and innovation.\n\n• Cooperation at eye level: An international team that thrives on open communication, mutual support and uncomplicated cooperation.\n\n• Personal development: Various possibilities for professional further education and the development of your skills.\n\n• Attractive framework conditions: Flexible working hours and a fair remuneration according to the wage model of the ETH Domain.\n\nNot quite all the requirements met? We are aware that women and people belonging to a minority in particular often only apply when they meet the requirements profile almost completely. For us, however, motivation, commitment and willingness to learn also count. If you recognize yourself in the position, we look forward to your qualified application, even if you do not meet the requirements 100%.\n\nWe look forward to your complete online application incl. Letter of motivation, CV, certificates, diplomas and contact details of two reference persons. Please submit them exclusively via our application portal. Applications by e-mail or by post will not be considered.",
+        "fr": "La science et la technologie des matériaux sont notre passion. Avec notre recherche de pointe, Empa, environ 1 100 employés apportent une contribution décisive au bénéfice de la société pour un avenir digne d'être vécu. Empa est une institution de recherche du domaine ETH.\n\nIngénieur plate-forme informatique pour les données et la collaboration\n\nPour qu'environ 1 000 chercheurs puissent travailler sur des solutions pour l'avenir, nous créons les bases numériques nécessaires en TI. En tant que partenaire de la recherche, nous comptons sur des services fiables, des technologies modernes et une coopération étroite entre les équipes. De courtes voies de décision et une ouverture aux nouvelles idées nous permettent de façonner activement l'informatique de demain.\n\nDans notre département IT d'environ 40 personnes, vous pouvez vous attendre à une équipe internationale et diversifiée dans laquelle l'initiative, les compétences pratiques et la coopération comptent. Ensemble, nous développons et exploitons les plateformes sur lesquelles nos services numériques sont construits.\n Pour notre équipe informatique située à Dübendorf, nous recherchons une personnalité engagée immédiatement ou d'un commun accord.\n\nLeurs tâches\n\nDans ce rôle polyvalent, vous façonnez nos plateformes centrales de données et de collaboration numérique. Ils combinent un fonctionnement fiable avec le développement ultérieur de nos technologies et stimulent activement l'automatisation et la normalisation.\n\n• Exploitation et développement de la plate-forme de données : Vous assumez la responsabilité de nos bases de données Microsoft SQL Server exploitées localement, vous assurerez leur fonctionnement stable et performant et vous développerez en permanence des processus de surveillance, de maintenance et d'automatisation.\n\n• Microsoft 365 et la collaboration: Vous allez développer notre écosystème M365 avec SharePoint Online et Power Platform, façonner des structures de gouvernance durables et conseiller nos départements sur la mise en œuvre de solutions de collaboration modernes.\n\n• Automatisation de l'entraînement et normes de plate-forme: PowerShell ou Python, Git et CI/CD pipelines automatisent les tâches récurrentes, standardisent les configurations et établissent des processus de déploiement reproductibles et fiables.\n\nVotre profil\n\nIls ont de l'expérience dans l'exploitation et le développement de plateformes informatiques, réfléchissent à la solution et apprécient l'amélioration des structures existantes et utilisent de nouvelles technologies.\n\n• Fondement technique : Bonne connaissance des systèmes de bases de données relationnelles et expérience avec les infrastructures Microsoft ou Microsoft 365. Connaissance de SharePoint Online, Power Platform ou Azure est un plus.\n\n• Joy d'automatisation : Expérience avec PowerShell ou Python ainsi que Git. Idéalement, vous avez déjà traité l'infrastructure comme un code, un CI/CD ou un processus de déploiement automatisé.\n\n• Travail indépendant et esprit d'équipe : Vous travaillez de manière structurée, vous assumez des responsabilités et vous appréciez la coopération avec différents domaines spécialisés. L'orientation du service et les solutions pragmatiques sont importantes pour vous.\n\n• Éducation et expérience : Formation en informatique, en informatique des affaires ou dans un domaine connexe (HF, FH, université, TU) ou connaissances comparables issues de la pratique et de la formation continue.\n Ils n'ont pas déjà à répondre à toutes les exigences. C'est votre compréhension technique, votre curiosité et votre volonté de vous familiariser avec de nouveaux sujets et de développer continuellement vos compétences.\n\nNotre offre\n\n• Design leeway: Apportez vos idées et développez activement nos plateformes informatiques.\n\n• Travail significatif : Votre travail crée la base numérique de la recherche et de l'innovation.\n\n• Coopération au niveau des yeux: Une équipe internationale qui se développe sur la communication ouverte, le soutien mutuel et la coopération sans complications.\n\n• Développement personnel : Diverses possibilités de formation professionnelle et de développement de vos compétences.\n\n• Conditions-cadres attrayantes: horaires flexibles et rémunération équitable selon le modèle salarial du domaine ETH.\n\nToutes les exigences ne sont pas satisfaites? Nous savons que les femmes et les personnes appartenant à une minorité en particulier ne s'appliquent souvent que lorsqu'elles satisfont presque entièrement aux exigences. Pour nous, cependant, la motivation, l'engagement et la volonté d'apprendre comptent également. Si vous vous reconnaissez dans le poste, nous attendons avec impatience votre candidature qualifiée, même si vous ne répondez pas aux exigences 100 %.\n\nNous nous réjouissons à la perspective de votre demande complète en ligne incl. Lettre de motivation, CV, certificats, diplômes et coordonnées de deux personnes de référence. Veuillez les soumettre exclusivement via notre portail d'applications. Les demandes par courrier électronique ou par la poste ne seront pas prises en considération."
+      },
+      "location": "Dübendorf",
+      "canton": "ZH",
+      "url": "https://apply.refline.ch/673276/2257/pub/1/index.html",
+      "source": "Empa Dedicated Parser (Refline 673276)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-19T21:43:40.202Z",
+      "addressLocality": "Dübendorf",
+      "addressRegion": "ZH",
+      "streetAddress": "Ueberlandstrasse 129",
+      "postalCode": "8600",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ricerca",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Università / Ricerca",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-19T15:14:01.179446+00:00",
+      "postedDate": "2026-11-19T15:14:01.179446+00:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://apply.refline.ch/673276/2257/pub/1/index.html",
+      "hiringOrganizationName": "Empa",
+      "jobReqId": "2257",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-17T21:43:40.202Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-19T21:43:40.202Z",
+      "sourceIdentity": "url:https://apply.refline.ch/673276/2257/pub/1/index.html"
     }
   ]
 }

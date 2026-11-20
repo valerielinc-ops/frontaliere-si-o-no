@@ -29,6 +29,9 @@ const {
   recordSnapshot,
   recordSourceUnavailableSnapshots,
   evaluateConsecutiveRegression,
+  cwvRecoveryVerdict,
+  cwvMeasuredTitles,
+  reconcileCwvIssues,
   main,
   ga4CwvSnapshot,
 } = await import('../scripts/cwv-monitor-check.mjs');
@@ -63,6 +66,15 @@ describe('TARGET_PAGES', () => {
       key: 'traffico_chiasso_brogeda_oggi',
       path: '/traffico-dogane/chiasso-brogeda/oggi/',
       cls: 0.25,
+    });
+  });
+
+  it('pins /cerca-lavoro-ticino/ to the GA4 desktop INP contract', () => {
+    const page = TARGET_PAGES.find((candidate) => candidate.key === 'cerca_lavoro_ticino');
+    expect(page).toMatchObject({
+      path: '/cerca-lavoro-ticino/',
+      inp: 200,
+      inpDevices: ['desktop'],
     });
   });
 });
@@ -104,6 +116,61 @@ describe('evaluateConsecutiveRegression', () => {
     ];
     expect(ga4CwvSnapshot(rows, '/', 'mobile')).toMatchObject({ inp_p75: 1500, inp_n: 30 });
     expect(ga4CwvSnapshot(rows, '/', 'desktop')).toMatchObject({ inp_p75: 100, inp_n: 1000 });
+  });
+});
+
+describe('desktop INP recovery contract', () => {
+  const period = (startDate: string, endDate: string) => ({ days: 7, lagDays: 2, timezone: 'Europe/Zurich', startDate, endDate });
+  const desktop = (inp: number, startDate: string, endDate: string) => ({ inp_p75: inp, inp_n: 40, cls_p75: 0.05, cls_n: 40, window: period(startDate, endDate), source: 'ga4' });
+
+  it('closes the desktop issue only after two comparable desktop INP windows are at or below 200ms', () => {
+    const issue = { title: 'CWV Regression (INP, desktop): /cerca-lavoro-ticino/' };
+    const history = { pages: { cerca_lavoro_ticino: { weeks: [
+      { date: '2026-11-11', source: 'ga4', window: period('2026-11-03', '2026-11-09'), devices: { desktop: desktop(190, '2026-11-03', '2026-11-09') } },
+      { date: '2026-11-18', source: 'ga4', window: period('2026-11-10', '2026-11-16'), devices: { desktop: desktop(200, '2026-11-10', '2026-11-16') } },
+    ] } } };
+    expect(cwvRecoveryVerdict(issue, history)).toMatchObject({ clean: true, complete: true });
+  });
+
+  it('does not close the desktop issue from healthy mobile observations', () => {
+    const issue = { title: 'CWV Regression (INP, desktop): /cerca-lavoro-ticino/' };
+    const history = { pages: { cerca_lavoro_ticino: { weeks: [
+      { date: '2026-11-11', source: 'ga4', window: period('2026-11-03', '2026-11-09'), devices: { mobile: desktop(100, '2026-11-03', '2026-11-09') } },
+      { date: '2026-11-18', source: 'ga4', window: period('2026-11-10', '2026-11-16'), devices: { mobile: desktop(100, '2026-11-10', '2026-11-16') } },
+    ] } } };
+    expect(cwvRecoveryVerdict(issue, history)).toMatchObject({ clean: false, complete: false });
+  });
+
+  it('keeps aggregate legacy recovery for an unscoped metric', () => {
+    const issue = { title: 'CWV Regression (INP): /cerca-lavoro-svizzera/' };
+    const history = { pages: { cerca_lavoro_svizzera: { weeks: [
+      { date: '2026-11-11', source: 'ga4', inp_p75: 400, inp_n: 40, window: period('2026-11-03', '2026-11-09') },
+      { date: '2026-11-18', source: 'ga4', inp_p75: 450, inp_n: 40, window: period('2026-11-10', '2026-11-16') },
+    ] } } };
+    expect(cwvRecoveryVerdict(issue, history)).toMatchObject({ clean: true, complete: true });
+  });
+
+  it('does not reconfirm a legacy aggregate title from the desktop-scoped regression', () => {
+    const titles = cwvMeasuredTitles({}, [{
+      metric: 'INP', device: 'desktop', path: '/cerca-lavoro-ticino/',
+    }]);
+    expect(titles).toContain('CWV Regression (INP, desktop): /cerca-lavoro-ticino/');
+    expect(titles).not.toContain('CWV Regression (INP): /cerca-lavoro-ticino/');
+  });
+
+  it('starts reconciliation from aggregate-only history for an unscoped metric', async () => {
+    const history = { pages: { cerca_lavoro_svizzera: { weeks: [
+      { date: '2026-11-11', source: 'ga4', inp_p75: 400, inp_n: 40, window: period('2026-11-03', '2026-11-09') },
+      { date: '2026-11-18', source: 'ga4', inp_p75: 450, inp_n: 40, window: period('2026-11-10', '2026-11-16') },
+    ] } } };
+    const reconciled = await reconcileCwvIssues({
+      history,
+      dryRun: true,
+      workflow: 'test',
+      io: { listOpenIssues: async () => [] },
+      log: () => {},
+    });
+    expect(reconciled).toMatchObject({ decisions: [] });
   });
 });
 
@@ -168,6 +235,9 @@ describe('main() — GA4 is the only source (H9)', () => {
       if (skip.includes(page.path)) continue;
       rows.push({ path: page.path, device: 'mobile', metric: 'CLS', value: cls, count });
       rows.push({ path: page.path, device: 'mobile', metric: 'INP', value: inp, count });
+      if (page.inpDevices?.includes('desktop')) {
+        rows.push({ path: page.path, device: 'desktop', metric: 'INP', value: inp, count });
+      }
     }
     return Object.assign(rows, { coverage: { timeZone: 'Europe/Zurich' } });
   }
@@ -248,6 +318,14 @@ describe('main() — GA4 is the only source (H9)', () => {
       sourceUnavailable: 'no target observations in 7d window',
     });
     expect(execFileSync).not.toHaveBeenCalled();
+  });
+
+  it('fails the page measurement when desktop INP is absent even if mobile CLS is present', async () => {
+    const rows = ga4Rows({ skip: ['/cerca-lavoro-ticino/'] });
+    rows.push({ path: '/cerca-lavoro-ticino/', device: 'mobile', metric: 'CLS', value: 0.05, count: 50 });
+    const result = await main({ checkLivenessImpl: async () => ALIVE, ga4FallbackImpl: async () => rows });
+    expect(result.status).toBe('source-unavailable');
+    expect(result.unavailablePages).toContain('cerca_lavoro_ticino');
   });
 
   it('no longer reaches PostHog at runtime', async () => {

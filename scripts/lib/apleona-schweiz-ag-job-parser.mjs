@@ -42,6 +42,7 @@ const APLEONA_DETAIL_SECTIONS = [
   { className: 'why-apleona', vacancySpecific: false },
   { className: 'benefits', vacancySpecific: false },
 ];
+const APLEONA_SECOND_SKIN_HEADING_RX = /^(?:(?:(?:deine|ihre)\s+)?(?:aufgaben|anforderungen)|(?:dein|ihr(?:e)?)\s+profil)\s*:?$/i;
 const APLEONA_CANTON_CODES = new Set(ALL_CANTON_CODES);
 
 /* ── Helpers ───────────────────────────────────────────────── */
@@ -161,7 +162,8 @@ export function extractApleonaDetailFields(html = '', pageUrl = '', opts = {}) {
     }
 
     // The same tenant currently serves a second Apleona-owned skin where the
-    // vacancy sections are plain `<section><div class="container"><h2>...`.
+    // vacancy sections are either plain `<section><div class="container"><h2>...`
+    // blocks or Umantis `showblock`/`customdatablock` pairs.
     // Heading identity is the boundary: generic company/contact sections are
     // intentionally excluded even when they are longer. The heading pattern is
     // German-only because the spec pins the seed to `lang=ger` and declares
@@ -170,25 +172,56 @@ export function extractApleonaDetailFields(html = '', pageUrl = '', opts = {}) {
     // would otherwise fail-close silently: the row is dropped with no signal.
     // Surface that instead of hiding it, so a real drift is diagnosable from
     // crawler logs rather than only from a missing-jobs symptom.
-    if (descriptionBlocks.length === 0) {
+    if (!hasVacancySpecificSection) {
       const unmatchedHeadings = [];
+      const appendSecondSkinSection = (headingValue, body) => {
+        const heading = normalizeSpace(headingValue);
+        if (!heading) return;
+        if (!APLEONA_SECOND_SKIN_HEADING_RX.test(heading)) {
+          unmatchedHeadings.push(heading);
+          return;
+        }
+        const bodyText = structuredElementText(body);
+        if (!bodyText) return;
+        hasVacancySpecificSection = true;
+        descriptionBlocks.push([heading, bodyText].join('\n'));
+      };
+
       for (const section of document.querySelectorAll('section')) {
         const heading = normalizeSpace(section.querySelector('h2')?.textContent || '');
         if (!heading) continue;
-        if (!/^(?:deine\s+)?(?:aufgaben|anforderungen)$/i.test(heading)) {
-          unmatchedHeadings.push(heading);
-          continue;
-        }
         const body = section.querySelector('.container') || section;
-        const bodyText = structuredElementText(body);
-        if (!bodyText) continue;
-        hasVacancySpecificSection = true;
-        descriptionBlocks.push([heading, bodyText].join('\n'));
+        appendSecondSkinSection(heading, body);
+      }
+
+      // Umantis' shared showblock skin can render the same vacancy boundary
+      // either as a titled block or as two adjacent customdatablocks (label
+      // followed by its body). Read only those explicit pairs; never fall back
+      // to the whole detail page, whose remaining blocks are company/contact
+      // chrome.
+      if (!hasVacancySpecificSection) {
+        for (const block of document.querySelectorAll('.showblock')) {
+          const heading = block.querySelector('.showblock_title')?.textContent || '';
+          if (!heading) continue;
+          const body = block.querySelector('.showblock_textblock') || block;
+          appendSecondSkinSection(heading, body);
+        }
+      }
+
+      if (!hasVacancySpecificSection) {
+        for (const block of document.querySelectorAll('.showblock')) {
+          const customBlocks = [...block.querySelectorAll('.customdatablock')];
+          for (let index = 0; index < customBlocks.length - 1; index += 1) {
+            const heading = normalizeSpace(customBlocks[index].textContent || '');
+            if (!APLEONA_SECOND_SKIN_HEADING_RX.test(heading)) continue;
+            appendSecondSkinSection(heading, customBlocks[index + 1]);
+          }
+        }
       }
       if (descriptionBlocks.length === 0 && unmatchedHeadings.length > 0) {
         console.warn(
-          `  ⚠️ Apleona second-skin fallback found section heading(s) not matching the German `
-          + `aufgaben/anforderungen pattern — row will be dropped: ${JSON.stringify(unmatchedHeadings)} (${pageUrl})`,
+          `  ⚠️ Apleona second-skin fallback found heading(s) not matching the German vacancy `
+          + `heading pattern — row will be dropped: ${JSON.stringify(unmatchedHeadings)} (${pageUrl})`,
         );
       }
     }

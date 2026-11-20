@@ -864,6 +864,69 @@ describe('scatter carry-forward of assembled previousSlugs bridges', () => {
     expect(applyAssembledToSliceJob(result.job, assembled).changed).toBe(false);
   });
 
+  it('reattributes an already-served bridge when its authoritative locale bucket is full', () => {
+    const fullIt = Array.from({ length: 20 }, (_, i) => `it-bridge-${i}`);
+    const bridge = 'legacy-bridge-served-under-another-locale';
+    const sliceJob = {
+      ...baseSlice(),
+      previousSlugs: [...fullIt, bridge],
+      previousSlugsByLocale: { it: [...fullIt], en: [bridge] },
+    };
+    const assembled = {
+      ...baseSlice(),
+      previousSlugs: [...fullIt, bridge],
+      previousSlugsByLocale: { it: [bridge] },
+    };
+
+    expect(collectMissingAssembledBridges(sliceJob, assembled)).toEqual([
+      { locale: 'it', slug: bridge },
+    ]);
+
+    const result = applyAssembledToSliceJob(sliceJob, assembled);
+    expect(result.job.previousSlugsByLocale.it).toContain(bridge);
+    expect(result.job.previousSlugsByLocale.it).toHaveLength(20);
+    expect(result.job.previousSlugs).toContain(bridge);
+    expect(verifyScatterParity([assembled], [{ file: 'fixture.json', jobs: [result.job] }])).toMatchObject({
+      missingBridges: 0,
+      pendingWrites: 0,
+      passed: true,
+    });
+  });
+
+  it('reattributes a known bridge even when the flat union is at capacity', () => {
+    const bridge = 'legacy-bridge-at-flat-cap-served-under-en';
+    const fullIt = Array.from({ length: 20 }, (_, i) => `it-bridge-${i}`);
+    const flat = [
+      ...fullIt,
+      ...Array.from({ length: LEGACY_PREV_SLUGS_CAP - fullIt.length - 1 }, (_, i) => `flat-bridge-${i}`),
+      bridge,
+    ];
+    const sliceJob = {
+      ...baseSlice(),
+      previousSlugs: flat,
+      previousSlugsByLocale: { it: fullIt, en: [bridge] },
+    };
+    const assembled = {
+      ...baseSlice(),
+      previousSlugs: flat,
+      previousSlugsByLocale: { it: [bridge] },
+    };
+
+    expect(collectMissingAssembledBridges(sliceJob, assembled)).toEqual([
+      { locale: 'it', slug: bridge },
+    ]);
+
+    const result = applyAssembledToSliceJob(sliceJob, assembled);
+    expect(result.job.previousSlugsByLocale.it).toContain(bridge);
+    expect(result.job.previousSlugs).toHaveLength(LEGACY_PREV_SLUGS_CAP);
+    expect(result.job.previousSlugs).toContain(bridge);
+    expect(verifyScatterParity([assembled], [{ file: 'fixture.json', jobs: [result.job] }])).toMatchObject({
+      missingBridges: 0,
+      pendingWrites: 0,
+      passed: true,
+    });
+  });
+
   it('uses the established flat order when only one locale-history slot remains', () => {
     const flatFirst = 'it-flat-first';
     const localeLater = 'it-locale-later';

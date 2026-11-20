@@ -15,6 +15,7 @@ import { EVENT_IMAGE_LICENSES, isEventImageSourceAllowed } from '../lib/events-u
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 import {
   validateGeneratedImageRecord,
+  validateGeneratedImageRecordWithRegistry,
   validateGeneratedImageRegistry,
 } from '../../packages/articles/engine/shared/generatedImageRegistry.mjs';
 import { validateImageCreditRecord } from '../../packages/articles/engine/shared/imageCredits.mjs';
@@ -142,33 +143,36 @@ function normalizeEventsDataset(value) {
   return [];
 }
 
-function safeGeneratedValidation(record, scope) {
+function safeGeneratedValidation(record, scope, legacyVisionRegistry = null) {
   if (!record || typeof record !== 'object') {
     return { valid: false, errors: ['record missing'] };
   }
   try {
-    return validateGeneratedImageRecord(record, scope ? { scope } : {});
+    const options = scope ? { scope } : {};
+    return legacyVisionRegistry
+      ? validateGeneratedImageRecordWithRegistry(record, legacyVisionRegistry, options)
+      : validateGeneratedImageRecord(record, options);
   } catch (error) {
     return { valid: false, errors: [String(error?.message || error)] };
   }
 }
 
-function safeCreditValidation(record) {
+function safeCreditValidation(record, legacyVisionRegistry = null) {
   if (!record || typeof record !== 'object') {
     return { valid: false, errors: ['record missing'] };
   }
   try {
-    return validateImageCreditRecord(record);
+    return validateImageCreditRecord(record, { legacyVisionRegistry });
   } catch (error) {
     return { valid: false, errors: [String(error?.message || error)] };
   }
 }
 
-function generatedRecordMap(registry, scope) {
+function generatedRecordMap(registry, scope, { allowLegacyVision = false } = {}) {
   const result = new Map();
   for (const record of registry?.assets || []) {
     if (!record?.imageUrl) continue;
-    const validation = safeGeneratedValidation(record, scope);
+    const validation = safeGeneratedValidation(record, scope, allowLegacyVision ? registry : null);
     result.set(record.imageUrl, {
       record,
       valid: validation.valid,
@@ -293,7 +297,7 @@ export function auditEventImages({
   eventLicenses = EVENT_IMAGE_LICENSES,
   crawlerFindings = [],
 }) {
-  const eventRegistryByUrl = generatedRecordMap(eventRegistry, GENERATED_SCOPES.event);
+  const eventRegistryByUrl = generatedRecordMap(eventRegistry, GENERATED_SCOPES.event, { allowLegacyVision: true });
   const rows = events.map((event) => ({ event, ...classifyEventImage({ event, eventRegistryByUrl, eventLicenses }) }));
   const invalid = rows.filter((row) => !row.valid);
   const missing = rows.filter((row) => row.status === 'missing');
@@ -346,7 +350,7 @@ export function auditEventSourceSlices({
   eventRegistry = { assets: [] },
   eventLicenses = EVENT_IMAGE_LICENSES,
 }) {
-  const eventRegistryByUrl = generatedRecordMap(eventRegistry, GENERATED_SCOPES.event);
+  const eventRegistryByUrl = generatedRecordMap(eventRegistry, GENERATED_SCOPES.event, { allowLegacyVision: true });
   const rows = [];
   for (const slice of slices) {
     for (const event of normalizeEventsDataset(slice?.value || slice)) {
@@ -407,7 +411,7 @@ function eventReplacementCandidate(event, reason, eventRegistry) {
   const imageUrl = EVENT_IMAGE_LIBRARY_PREFIX + assetId + '.webp';
   const existingRecord = (eventRegistry?.assets || []).find((record) => (
     record?.assetId === assetId
-    && safeGeneratedValidation(record, GENERATED_SCOPES.event).valid
+    && safeGeneratedValidation(record, GENERATED_SCOPES.event, eventRegistry).valid
   )) || null;
   return {
     kind: 'event',
@@ -609,12 +613,12 @@ function pathFamily(file) {
   return match ? { family: match[1], relative: match[2], url: '/images/' + match[1] + '/' + match[2] } : null;
 }
 
-function loadCreditRecord(root, ledgerItem, url, blogGeneratedByUrl) {
+function loadCreditRecord(root, ledgerItem, url, blogGeneratedByUrl, legacyVisionRegistry = null) {
   const recordFile = ledgerItem?.recordFile;
   if (recordFile) {
     const record = readJson(path.join(root, recordFile));
     if (record) {
-      const validation = safeCreditValidation(record);
+      const validation = safeCreditValidation(record, legacyVisionRegistry);
       return { record, valid: validation.valid, errors: validation.errors || [], source: 'record-file' };
     }
   }
@@ -844,9 +848,9 @@ export function auditOtherImages({
   socialUrls = [],
 }) {
   const generatedByUrl = {
-    blog: generatedRecordMap(registries.blog, GENERATED_SCOPES.blog),
-    places: generatedRecordMap(registries.shared, GENERATED_SCOPES.place),
-    authors: generatedRecordMap(registries.shared, GENERATED_SCOPES.author),
+    blog: generatedRecordMap(registries.blog, GENERATED_SCOPES.blog, { allowLegacyVision: true }),
+    places: generatedRecordMap(registries.shared, GENERATED_SCOPES.place, { allowLegacyVision: true }),
+    authors: generatedRecordMap(registries.shared, GENERATED_SCOPES.author, { allowLegacyVision: true }),
     publisher: generatedRecordMap(registries.shared, 'publisher'),
   };
   const inventory = [];
@@ -869,7 +873,7 @@ export function auditOtherImages({
     const author = file.family === 'authors' ? authorsByPath.get(file.url) : null;
     let recordInfo = null;
     if (file.family === 'blog') {
-      recordInfo = loadCreditRecord(root, ledgerItem, referenceUrl, generatedByUrl.blog);
+      recordInfo = loadCreditRecord(root, ledgerItem, referenceUrl, generatedByUrl.blog, registries.blog);
     } else if (file.family === 'places' || file.family === 'authors') {
       const generated = generatedByUrl[file.family].get(file.url)
         || generatedByUrl[file.family].get(referenceUrl);
@@ -1681,13 +1685,30 @@ function updateGeneratedRegistry(root, file, scope, generated) {
   const keyFor = (record) => scope === 'event-library' ? record.assetId : record.imageUrl;
   const assets = new Map((current.assets || []).map((record) => [keyFor(record), record]));
   assets.set(keyFor(generated), generated);
+  const assetRecords = [...assets.values()];
+  const legacyVisionIds = Array.isArray(current.legacyVision?.assetIds)
+    ? current.legacyVision.assetIds.filter((assetId) => {
+      const record = assetRecords.find((candidate) => candidate.assetId === assetId);
+      return record?.vision?.contains_recognizable_foreground_person !== false;
+    })
+    : [];
+  const currentWithoutLegacyVision = { ...current };
+  delete currentWithoutLegacyVision.legacyVision;
   const registry = {
-    ...current,
+    ...currentWithoutLegacyVision,
+    ...(legacyVisionIds.length > 0
+      ? { legacyVision: { ...current.legacyVision, assetIds: legacyVisionIds } }
+      : {}),
     assetCount: assets.size,
     generatedAt: new Date().toISOString(),
-    assets: [...assets.values()].sort((a, b) => String(a.imageUrl).localeCompare(String(b.imageUrl))),
+    assets: assetRecords.sort((a, b) => String(a.imageUrl).localeCompare(String(b.imageUrl))),
   };
-  const validation = validateGeneratedImageRegistry(registry, { scope });
+  const validation = validateGeneratedImageRegistry(registry, {
+    scope,
+    allowLegacyVision: file === 'data/blog-generated-image-registry.json'
+      || file === 'data/generated-image-registry.json'
+      || file === 'data/event-image-library.json',
+  });
   if (!validation.valid) throw new Error(file + ' invalid after replacement: ' + validation.errors.join('; '));
   writeJson(registryPath, registry);
 }

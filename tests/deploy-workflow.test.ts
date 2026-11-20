@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync, readdirSync, mkdtempSync, writeFileSync, existsSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { spawnSync } from 'node:child_process';
+import { execFileSync, spawnSync } from 'node:child_process';
 import { resolve } from 'node:path';
 import YAML from 'yaml';
 
@@ -1143,7 +1143,7 @@ describe('deploy.yml — shard push mode and advisory delta verification', () =>
     }
   });
 
-  it('derives the IT section timeout from its job deadline and preserves the non-IT cap', () => {
+  it('derives the IT section timeout from its job deadline and sizes the non-IT worker budget by section', () => {
     for (const name of sectionSteps) {
       const run = String(pushStep(name).run ?? '');
       if (name.startsWith('Push and package IT')) {
@@ -1157,20 +1157,22 @@ describe('deploy.yml — shard push mode and advisory delta verification', () =>
         expect(helper, `${name}: keep cleanup and post-push reserves`).toContain('post_push_reserve_seconds=1200');
         expect(helper, `${name}: keep per-section timeout telemetry`).toContain('timeout_seconds=$timeout_seconds cleanup_grace_seconds=$cleanup_grace_seconds');
       } else {
-        const timeoutMatch = run.match(
-          /timeout --verbose --signal=TERM --kill-after=(\d+)s (\d+)s/,
-        );
-        expect(timeoutMatch, `${name}: keep its separate bounded worker`).not.toBeNull();
-        expect(Number(timeoutMatch![1]), `${name}: preserve signal-cleanup grace`).toBe(600);
-        // Run 37728960699 completed a non-IT full-overlay push in 2,524s;
-        // that leg retains its independent 60-minute cap.
-        expect(Number(timeoutMatch![2]), `${name}: preserve its reviewed 60 min cap`).toBe(3600);
-        expect(run).toContain('timeout_seconds=3600 cleanup_grace_seconds=600');
+        const budget = run.match(/timeout_seconds=3600\n\s*case "\$section" in[\s\S]+?esac/)?.[0];
+        expect(budget, `${name}: missing per-section budget`).toBeDefined();
+        for (const [section, seconds] of [['zurigo', '6000'], ['ticino', '5100'], ['berna', '3600'], ['svizzera', '3600']]) {
+          const result = execFileSync('bash', ['-c',
+            `pick_budget() { local section="$1" timeout_seconds; ${budget}; echo "$timeout_seconds"; }; pick_budget "$1"`,
+            'pick-budget', section,
+          ], { encoding: 'utf8' });
+          expect(result.trim(), section).toBe(seconds);
+        }
+        expect(run).toContain('timeout --verbose --signal=TERM --kill-after=600s "${timeout_seconds}s"');
+        expect(run.match(/timeout_seconds=\$timeout_seconds cleanup_grace_seconds=600/g)).toHaveLength(3);
         expect(run, `${name}: serialize each section shard through the shared lease`).toContain(
           'node scripts/ci/with-shard-writer-lock.mjs',
         );
         expect(run, `${name}: wait for an active full-deploy writer`).toContain('--policy wait');
-        expect(run, `${name}: keep the lock wait bounded to the worker deadline`).toContain(
+        expect(run, `${name}: preserve the one-hour lease wait limit`).toContain(
           '--timeout-ms 3600000',
         );
         expect(run, `${name}: wrap the existing checkpointed section push`).toContain(

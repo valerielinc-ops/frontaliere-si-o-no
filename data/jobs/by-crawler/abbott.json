@@ -1,7 +1,7 @@
 {
   "crawlerKey": "abbott",
-  "assembledAt": "2026-11-19T09:32:02.862Z",
-  "runId": "44494762559",
+  "assembledAt": "2026-11-19T21:45:42.057Z",
+  "runId": "44617179670",
   "jobs": [
     {
       "id": "abbott-f7f92af67616",
@@ -35,7 +35,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Remote/Medical-Educator---Romandie_31154099",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T09:31:58.284Z",
+      "crawledAt": "2026-11-19T21:45:32.863Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -79,8 +79,9 @@
       "postalCode": "6340",
       "streetAddress": "Baar",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:31:58.284Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:45:32.863Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://abbott.wd5.myworkdayjobs.com/en-us/abbottcareers/job/switzerland---remote/medical-educator---romandie_31154099"
     },
     {
       "id": "abbott-0d986f0672be",
@@ -114,7 +115,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Zurich/EHS-Specialist_31155192",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:31:57.543Z",
+      "crawledAt": "2026-11-19T21:45:23.998Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -158,8 +159,9 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:31:57.543Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:45:23.998Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://abbott.wd5.myworkdayjobs.com/en-us/abbottcareers/job/switzerland---zurich/ehs-specialist_31155192"
     },
     {
       "id": "abbott-c0c9ac23c473",
@@ -193,7 +195,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Baar/Commercial-Training-Manager-Austria---Switzerland--m-f-d-_31158062",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:31:52.351Z",
+      "crawledAt": "2026-11-19T21:45:12.035Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -237,8 +239,9 @@
       "postalCode": "6340",
       "streetAddress": "Baar",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:31:52.351Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:45:12.035Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://abbott.wd5.myworkdayjobs.com/en-us/abbottcareers/job/switzerland---baar/commercial-training-manager-austria---switzerland--m-f-d-_31158062"
     },
     {
       "id": "abbott-2c0a0b3b0c9c",
@@ -271,7 +274,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Director--Global-Alliances---Biosimilars---Biologics--m-f-d-_31158409-1",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:31:42.701Z",
+      "crawledAt": "2026-11-19T21:45:01.594Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -315,8 +318,9 @@
       "postalCode": "4001",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:31:42.701Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:45:01.594Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://abbott.wd5.myworkdayjobs.com/en-us/abbottcareers/job/switzerland---basel/director--global-alliances---biosimilars---biologics--m-f-d-_31158409-1"
     },
     {
       "id": "abbott-34d7bd112ebb",
@@ -350,7 +354,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Global-Associate-Director--Patient-Strategy---Partnerships_31160531",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:31:32.015Z",
+      "crawledAt": "2026-11-19T21:44:50.912Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -394,8 +398,9 @@
       "postalCode": "4123",
       "streetAddress": "Allschwil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:31:32.015Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:44:50.912Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://abbott.wd5.myworkdayjobs.com/en-us/abbottcareers/job/switzerland---basel/global-associate-director--patient-strategy---partnerships_31160531"
     },
     {
       "id": "abbott-07d11d6072e9",
@@ -429,7 +434,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Zurich/Sr-Operations---NPI-Engineer_31160727",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:31:31.283Z",
+      "crawledAt": "2026-11-19T21:44:40.020Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -473,8 +478,9 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:31:31.283Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:44:40.020Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://abbott.wd5.myworkdayjobs.com/en-us/abbottcareers/job/switzerland---zurich/sr-operations---npi-engineer_31160727"
     },
     {
       "id": "abbott-2d6353c28a3a",
@@ -508,7 +514,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Senior-Director--Head-of-Global-Marketing--EPD--m-f-d-_31161398",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:31:28.636Z",
+      "crawledAt": "2026-11-19T21:44:35.143Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -552,8 +558,9 @@
       "postalCode": "4123",
       "streetAddress": "Allschwil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:31:28.636Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:44:35.143Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://abbott.wd5.myworkdayjobs.com/en-us/abbottcareers/job/switzerland---basel/senior-director--head-of-global-marketing--epd--m-f-d-_31161398"
     },
     {
       "id": "abbott-ef6c14c49b31",
@@ -586,7 +593,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/EPD-Product-Flows-Expert_31163022",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:31:17.810Z",
+      "crawledAt": "2026-11-19T21:44:24.209Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -630,8 +637,9 @@
       "postalCode": "4123",
       "streetAddress": "Allschwil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T09:31:17.810Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-30T21:44:24.209Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://abbott.wd5.myworkdayjobs.com/en-us/abbottcareers/job/switzerland---basel/epd-product-flows-expert_31163022"
     },
     {
       "id": "abbott-7a925c890a49",
@@ -665,7 +673,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Financial-Analyst_31163154",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:31:17.056Z",
+      "crawledAt": "2026-11-19T21:44:14.210Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -713,8 +721,9 @@
       "postalCode": "4123",
       "streetAddress": "Allschwil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T09:31:17.056Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-04T21:44:14.210Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://abbott.wd5.myworkdayjobs.com/en-us/abbottcareers/job/switzerland---basel/financial-analyst_31163154"
     },
     {
       "id": "abbott-1d0cf75ade79",
@@ -747,7 +756,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Baar/Brand-Manager-Schweiz_31165138",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:31:16.344Z",
+      "crawledAt": "2026-11-19T21:44:04.019Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -794,8 +803,9 @@
       "postalCode": "6340",
       "streetAddress": "Baar",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T09:31:16.344Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-13T21:44:04.019Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://abbott.wd5.myworkdayjobs.com/en-us/abbottcareers/job/switzerland---baar/brand-manager-schweiz_31165138"
     },
     {
       "id": "abbott-a14bf577cf8f",
@@ -828,7 +838,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Baar/Marketing-Manager-Diabetes-Care--Switzerland_31164209",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:31:15.612Z",
+      "crawledAt": "2026-11-19T21:43:54.016Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -875,8 +885,9 @@
       "postalCode": "6340",
       "streetAddress": "Baar",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T09:31:15.612Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-13T21:43:54.016Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://abbott.wd5.myworkdayjobs.com/en-us/abbottcareers/job/switzerland---baar/marketing-manager-diabetes-care--switzerland_31164209"
     },
     {
       "id": "abbott-1c1478fa0862",
@@ -910,7 +921,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Global-Medical-Manager---Cardiometabolics_31164717",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:31:12.829Z",
+      "crawledAt": "2026-11-19T21:43:42.855Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -960,8 +971,9 @@
       "postalCode": "4123",
       "streetAddress": "Allschwil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:31:12.829Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-18T21:43:42.855Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://abbott.wd5.myworkdayjobs.com/en-us/abbottcareers/job/switzerland---basel/global-medical-manager---cardiometabolics_31164717"
     },
     {
       "id": "abbott-120ac25324a8",
@@ -995,7 +1007,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Senior-Product-Owner-Advanced-Analytics_31165509",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:31:11.990Z",
+      "crawledAt": "2026-11-19T21:43:32.310Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1045,8 +1057,9 @@
       "postalCode": "4123",
       "streetAddress": "Allschwil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T09:31:11.990Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-21T21:43:32.310Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://abbott.wd5.myworkdayjobs.com/en-us/abbottcareers/job/switzerland---basel/senior-product-owner-advanced-analytics_31165509"
     },
     {
       "id": "abbott-b38f6a337774",
@@ -1079,7 +1092,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Financial-Analyst_31165142",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:31:07.131Z",
+      "crawledAt": "2026-11-19T21:43:21.568Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1134,8 +1147,9 @@
       "postalCode": "4123",
       "streetAddress": "Allschwil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T09:31:07.131Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-13T21:43:21.568Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://abbott.wd5.myworkdayjobs.com/en-us/abbottcareers/job/switzerland---basel/financial-analyst_31165142"
     },
     {
       "id": "abbott-856a499f8803",
@@ -1169,7 +1183,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Zug---Zug/Manager--International-Business-Systems_31165990",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:30:56.612Z",
+      "crawledAt": "2026-11-19T21:43:10.990Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1219,8 +1233,9 @@
       "postalCode": "6300",
       "streetAddress": "Zug",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:30:56.612Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-27T21:43:10.990Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://abbott.wd5.myworkdayjobs.com/en-us/abbottcareers/job/switzerland---zug---zug/manager--international-business-systems_31165990"
     },
     {
       "id": "abbott-d18b7eb0bc5e",
@@ -1253,7 +1268,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Zurich/Senior-NPI-Engineer_31154974-1",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:30:55.867Z",
+      "crawledAt": "2026-11-19T21:43:00.113Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1305,8 +1320,9 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:30:55.867Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:43:00.113Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://abbott.wd5.myworkdayjobs.com/en-us/abbottcareers/job/switzerland---zurich/senior-npi-engineer_31154974-1"
     },
     {
       "id": "abbott-f0a53306cca9",
@@ -1340,7 +1356,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Global-Medical-Manager-Oncology---Biosimilars_31167334",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:30:55.122Z",
+      "crawledAt": "2026-11-19T21:42:49.201Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1390,8 +1406,9 @@
       "postalCode": "4123",
       "streetAddress": "Allschwil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T09:30:55.122Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-14T21:42:49.201Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://abbott.wd5.myworkdayjobs.com/en-us/abbottcareers/job/switzerland---basel/global-medical-manager-oncology---biosimilars_31167334"
     }
   ]
 }

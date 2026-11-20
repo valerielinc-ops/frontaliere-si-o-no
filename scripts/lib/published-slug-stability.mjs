@@ -48,10 +48,6 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readJsonFile } from './read-large-json.mjs';
 import { JOB_BOARD_COMPANY_HUB_PATH_RX } from './jobBoardCompanyHubPath.mjs';
-import {
-  createJobBoardDetailPathMatcher,
-  parseJobBoardDetailPath,
-} from './job-board-detail-path-core.mjs';
 import { slugify, slugTokenSet } from './regenerate-slugs-helpers.mjs';
 import { loadFirstSeen, urlFirstSeenStorePaths } from './url-first-seen-store.mjs';
 import {
@@ -64,9 +60,22 @@ const DEFAULT_LEDGER_STORE = urlFirstSeenStorePaths(
 );
 const DATA_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..', 'data');
 let jobBoardDetailPathMatcher;
+let jobBoardDetailPathCore;
+
+// This module is also imported by slug writers in script-only checkouts that
+// omit build-plugins/ and the canton data. The detail-path core imports the
+// shared canton resolver, so defer loading it until a present served-URL
+// ledger actually needs route classification.
+function getJobBoardDetailPathCore() {
+  if (!jobBoardDetailPathCore) {
+    jobBoardDetailPathCore = createRequire(import.meta.url)('./job-board-detail-path-core.mjs');
+  }
+  return jobBoardDetailPathCore;
+}
 
 function getJobBoardDetailPathMatcher() {
   if (!jobBoardDetailPathMatcher) {
+    const { createJobBoardDetailPathMatcher } = getJobBoardDetailPathCore();
     jobBoardDetailPathMatcher = createJobBoardDetailPathMatcher({
       cantonSlugFile: readJsonFile(path.join(DATA_DIR, 'canton-url-slugs.json')),
       municipalitiesFile: readJsonFile(path.join(DATA_DIR, 'canton-municipalities.json')),
@@ -219,6 +228,13 @@ export function loadServedSlugLedger() {
   // the company matcher removes company pages. Keep the complete normalized
   // path as the key so lookups compare the route emitted for this job.
   const index = new Map();
+  // An empty present ledger is known to contain no served routes, so it needs
+  // no route-core (which is absent from script-only sparse checkouts).
+  if (raw.size === 0) {
+    ledgerCache = { path: location.key, index };
+    return index;
+  }
+  const { parseJobBoardDetailPath } = getJobBoardDetailPathCore();
   for (const [urlPath, date] of raw) {
     const key = normalizeServedPath(urlPath);
     if (

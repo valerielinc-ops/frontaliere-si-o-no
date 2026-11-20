@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-11-19T15:02:08.654Z",
+  "updatedAt": "2026-11-19T15:02:38.547Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -1252872,12 +1252872,12 @@
     },
     "restaurant-hotel-vatel@martigny": {
       "key": "restaurant-hotel-vatel@martigny",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-09-25T09:07:00.491Z",
-      "updatedAt": "2026-11-19T14:23:10.781Z",
+      "updatedAt": "2026-11-19T15:02:38.497Z",
       "name": "Restaurant & Hôtel Vatel",
       "city": "Martigny",
       "zip": "1920",
@@ -1253362,7 +1253362,9 @@
           "logoSourceUrl": "https://www.vatel.ch/favicon.svg",
           "employerSiteName": "Vatel Switzerland"
         }
-      ]
+      ],
+      "promotionPr": "19499",
+      "promotionBranch": "prospector/promote-2026-11-19"
     },
     "restaurant-hotelbrueggli.ch": {
       "key": "restaurant-hotelbrueggli.ch",

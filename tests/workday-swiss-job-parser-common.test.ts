@@ -55,6 +55,22 @@ describe('resolveWorkdayPrimarySwissLocation — primary-only publish gate', () 
       additionalLocations: [{ descriptor: 'Frankfurt, Germany' }],
     })).toBe('Lausanne');
   });
+
+  it('keeps hyphens inside Swiss localities while stripping spaced qualifiers', () => {
+    const swiss = { country: { descriptor: 'Switzerland' } };
+    expect(resolveWorkdayPrimarySwissLocation({
+      ...swiss,
+      location: 'Saint-Prex, Switzerland',
+    })).toBe('Saint-Prex');
+    expect(resolveWorkdayPrimarySwissLocation({
+      ...swiss,
+      location: 'Yverdon-les-Bains, Switzerland',
+    })).toBe('Yverdon-les-Bains');
+    expect(resolveWorkdayPrimarySwissLocation({
+      ...swiss,
+      location: 'Geneva - HQ',
+    })).toBe('Geneva');
+  });
 });
 
 describe('createWorkdaySwissParser — faceted Workday auth fallback', () => {

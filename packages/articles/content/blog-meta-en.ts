@@ -13729,6 +13729,11 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-11-15.imageAlt': 'Illustrative image relevant to the article topic',
     'blog.article.bollettino-frontaliere-2026-11-15.seoDescription': 'Cross-border daily brief for workers, November 15, 2026: latest waits, fuel prices, CHF/EUR rate and active jobs in Switzerland.',
     'blog.article.bollettino-frontaliere-2026-11-15.ogDescription': 'Daily figures for cross-border commuters, November 15, 2026: measured waits at each crossing, where fuel costs least, the latest franc-euro rate and active Swiss job listings on our board, with links to live pages.',
+    'blog.article.bollettino-frontaliere-2026-11-19.title': 'Cross-border workers: today\'s verified readings — November 19, 2026',
+    'blog.article.bollettino-frontaliere-2026-11-19.excerpt': 'Today\'s numbers, November 19, 2026, for cross-border commuters: the latest crossing waits, cheapest fuel municipalities, the franc-euro rate and active Swiss job listings on our job board. Measured daily by our own monitoring.',
+    'blog.article.bollettino-frontaliere-2026-11-19.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.bollettino-frontaliere-2026-11-19.seoDescription': 'Cross-border daily brief for workers, November 19, 2026: latest waits, fuel prices, CHF/EUR rate and active jobs in Switzerland.',
+    'blog.article.bollettino-frontaliere-2026-11-19.ogDescription': 'Daily figures for cross-border commuters, November 19, 2026: measured waits at each crossing, where fuel costs least, the latest franc-euro rate and active Swiss job listings on our board, with links to live pages.',
 };
 
 export default blogMetaEn;

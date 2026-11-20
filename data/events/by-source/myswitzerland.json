@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "myswitzerland",
   "sourceName": "MySwitzerland",
-  "assembledAt": "2026-11-18T15:00:34.575Z",
+  "assembledAt": "2026-11-19T15:09:10.284Z",
   "events": [
     {
       "id": "myswitzerland:c04dc58cdaf845e0a02375c9baff1584",
@@ -278284,6 +278284,485 @@
       },
       "recurring": false,
       "sourceDescriptionHash": "9e49a811bf000b2ffe807e11188b4ea4a5e0ded57bd959b4bf9e61d532bd065d"
+    },
+    {
+      "id": "myswitzerland:475f63719d764f5391040c336615c4ad",
+      "title": "Perimuk-Abenteuer: Nachtexkursion",
+      "titleByLocale": {
+        "it": "Perimuk-Abenteuer: Nachtexkursion",
+        "en": "Perimuk-Abenteuer: Nachtexkursion",
+        "de": "Perimuk-Abenteuer: Nachtexkursion",
+        "fr": "Perimuk-Abenteuer: Nachtexkursion"
+      },
+      "startDate": "2027-10-16",
+      "endDate": "2027-10-16",
+      "category": "Event",
+      "venue": "Mönthal",
+      "comune": "Mönthal",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/perimuk-abenteuer-nachtexkursion/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.5182877,
+        "lng": 8.1423602
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "f2d36d6932befd632eb34d5279b1215e24a1f6f13616cc2e74788fcdf7f34612"
+    },
+    {
+      "id": "myswitzerland:47070e29937e4a2797b8a45404a16170",
+      "title": "Coghuf",
+      "titleByLocale": {
+        "it": "Coghuf",
+        "en": "Coghuf",
+        "de": "Coghuf",
+        "fr": "Coghuf"
+      },
+      "startDate": "2026-09-05",
+      "endDate": "2027-01-31",
+      "category": "Event",
+      "venue": "Porrentruy",
+      "comune": "Porrentruy",
+      "canton": "JU",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/coghuf-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.416328,
+        "lng": 7.0753307
+      },
+      "recurring": true,
+      "performer": {
+        "name": "Atelier"
+      },
+      "sourceDescriptionHash": "5ea39ba519fc93a581c09dc26760749f20e7cf496acd2a1da143a496855e687c"
+    },
+    {
+      "id": "myswitzerland:46b44639b47648bc9389e4032ed9994f",
+      "title": "TaDA Spinnerei - Textile Geschichte/n",
+      "titleByLocale": {
+        "it": "TaDA Spinnerei - Textile Geschichte/n",
+        "en": "TaDA Spinnerei - Textile Geschichte/n",
+        "de": "TaDA Spinnerei - Textile Geschichte/n",
+        "fr": "TaDA Spinnerei - Textile Geschichte/n"
+      },
+      "startDate": "2026-11-20",
+      "endDate": "2026-11-20",
+      "category": "Event",
+      "venue": "Glarus",
+      "comune": "Glarus",
+      "canton": "GL",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/tada-spinnerei-textile-geschichten/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.0385133,
+        "lng": 9.071257
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Praxis"
+        },
+        {
+          "name": "Leiterin TaDAMeret Ernst"
+        },
+        {
+          "name": "Leiterin TaDA"
+        },
+        {
+          "name": "Leiterin"
+        },
+        {
+          "name": "Terminen"
+        },
+        {
+          "name": "Themen"
+        },
+        {
+          "name": "Menschen"
+        }
+      ],
+      "sourceDescriptionHash": "b58ff2298128090639ea1266dec93734b1c8b59e1160ef97ef834e237871d664"
+    },
+    {
+      "id": "myswitzerland:46096e6ec0b34ed19afeda77f9b6d8b8",
+      "title": "Bike Film Tour Season 3",
+      "titleByLocale": {
+        "it": "Bike Film Tour Season 3",
+        "en": "Bike Film Tour Season 3",
+        "de": "Bike Film Tour Season 3",
+        "fr": "Bike Film Tour Season 3"
+      },
+      "startDate": "2027-03-12",
+      "endDate": "2027-03-12",
+      "category": "Event",
+      "venue": "Basel",
+      "comune": "Basel",
+      "canton": "BS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/bike-film-tour-season-3/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.570453,
+        "lng": 7.5814569
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "81e162417282c308e489d1eebcd3667cb9c0f4520d9adb03cb177605bf32d5de"
+    },
+    {
+      "id": "myswitzerland:459724fdd5e44d4186ac8e912508950d",
+      "title": "41. Osterbazar",
+      "titleByLocale": {
+        "it": "41. Osterbazar",
+        "en": "41. Osterbazar",
+        "de": "41. Osterbazar",
+        "fr": "41. Osterbazar"
+      },
+      "startDate": "2027-03-20",
+      "endDate": "2027-03-21",
+      "category": "Event",
+      "venue": "Adliswil",
+      "comune": "Adliswil",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/41-osterbazar-an-der-schule-sihlau-adliswil/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3034112,
+        "lng": 8.5255808
+      },
+      "recurring": true,
+      "performer": [
+        {
+          "name": "Musik"
+        },
+        {
+          "name": "Spiel"
+        },
+        {
+          "name": "Basteln"
+        }
+      ],
+      "sourceDescriptionHash": "a79ae112984afaa62cdd04a982ec9123db30d4b54d458b8ec84473e31523fe97"
+    },
+    {
+      "id": "myswitzerland:44a1a91a547643c2a2782f2cef8cace2",
+      "title": "Niklausaussendung",
+      "titleByLocale": {
+        "it": "Niklausaussendung",
+        "en": "Niklausaussendung",
+        "de": "Niklausaussendung",
+        "fr": "Niklausaussendung"
+      },
+      "startDate": "2026-11-29",
+      "endDate": "2026-11-29",
+      "category": "Event",
+      "venue": "Spreitenbach",
+      "comune": "Spreitenbach",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/niklausaussendung/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.4166496,
+        "lng": 8.3663712
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "42610983f421c1614a39c4bd9f4007621fe3e8e608693cf943fd23f96e580037"
+    },
+    {
+      "id": "myswitzerland:4397bf47109d4332a2bfd7c38ecd3373",
+      "title": "Die Zauberlaterne Brig",
+      "titleByLocale": {
+        "it": "Die Zauberlaterne Brig",
+        "en": "Die Zauberlaterne Brig",
+        "de": "Die Zauberlaterne Brig",
+        "fr": "Die Zauberlaterne Brig"
+      },
+      "startDate": "2026-11-18",
+      "endDate": "2027-06-02",
+      "category": "Event",
+      "venue": "Brig",
+      "canton": "",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/die-zauberlaterne-brig-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.3175374,
+        "lng": 7.9866378
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "7e39cdf06b4ce0cb005a16cd467ab6170c3ea13001f345629321f134e2470cbe"
+    },
+    {
+      "id": "myswitzerland:438f9a1dc22e41c097490ebb6ede3e25",
+      "title": "WHY NOT? – mit DJ MCA",
+      "titleByLocale": {
+        "it": "WHY NOT? – mit DJ MCA",
+        "en": "WHY NOT? – with DJ MCA",
+        "de": "WHY NOT? – mit DJ MCA",
+        "fr": "WHY NOT? – mit DJ MCA"
+      },
+      "startDate": "2026-12-23",
+      "endDate": "2026-12-23",
+      "startTime": "21:00",
+      "category": "Event",
+      "venue": "Laax",
+      "comune": "Laax",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/why-not-mit-dj-mca/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.8175822129911,
+        "lng": 9.26523821534424
+      },
+      "recurring": false,
+      "performer": {
+        "name": "DJ MCA"
+      },
+      "sourceDescriptionHash": "dca632c6b58797563546882ebf8d7e5a1a345be644e28c4bce514f35397fe795"
+    },
+    {
+      "id": "myswitzerland:4279eeed2bc9457c8c66d1049ccb7f3d",
+      "title": "Senioren Zuoz - ökumenischer Adventsnachmittag",
+      "titleByLocale": {
+        "it": "Senioren Zuoz - ökumenischer Adventsnachmittag",
+        "en": "Senioren Zuoz - ökumenischer Adventsnachmittag",
+        "de": "Senioren Zuoz - ökumenischer Adventsnachmittag",
+        "fr": "Senioren Zuoz - ökumenischer Adventsnachmittag"
+      },
+      "startDate": "2026-12-13",
+      "endDate": "2026-12-13",
+      "category": "Event",
+      "venue": "Zuoz",
+      "comune": "Zuoz",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/senioren-zuoz-oekumenischer-adventsnachmittag/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.603991,
+        "lng": 9.961221
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "6c5c4ff102e558037bb873c79605970ea7ee43a5b33e2382ac770713133fc585"
+    },
+    {
+      "id": "myswitzerland:4241efea19cc4ace9ad96044baece3aa",
+      "title": "Vorbereitungstag zum Schreibjahr 2027",
+      "titleByLocale": {
+        "it": "Vorbereitungstag zum Schreibjahr 2027",
+        "en": "Vorbereitungstag zum Schreibjahr 2027",
+        "de": "Vorbereitungstag zum Schreibjahr 2027",
+        "fr": "Vorbereitungstag zum Schreibjahr 2027"
+      },
+      "startDate": "2026-12-05",
+      "endDate": "2027-01-09",
+      "category": "Event",
+      "venue": "Olten",
+      "comune": "Olten",
+      "canton": "SO",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/vorbereitungstag-zum-schreibjahr-2027/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.349023,
+        "lng": 7.90152
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "0c4f7c94c9811998b0744fc3a96129b83cba41e920122904deaf13fa4532d2bf"
+    },
+    {
+      "id": "myswitzerland:40c5215e1dde4625b28708e48832837f",
+      "title": "anaiis",
+      "titleByLocale": {
+        "it": "anaiis",
+        "en": "anaiis",
+        "de": "anaiis",
+        "fr": "anaiis"
+      },
+      "startDate": "2027-03-14",
+      "endDate": "2027-03-14",
+      "category": "Event",
+      "venue": "Zurich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/anaiis/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3888209,
+        "lng": 8.518645
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Ella Fitzgerald"
+        },
+        {
+          "name": "Tiefe"
+        },
+        {
+          "name": "Mitgefühl"
+        },
+        {
+          "name": "Geduld"
+        }
+      ],
+      "sourceDescriptionHash": "d97f83db9710f085a9b284fcb1e9fb1ab6f234a55c7c89cc0f4ea318f35af85b"
+    },
+    {
+      "id": "myswitzerland:405e84d48ada4eeca4b1758236e6dc9d",
+      "title": "Langlauf Schnupperkurse",
+      "titleByLocale": {
+        "it": "Langlauf Schnupperkurse",
+        "en": "Langlauf Schnupperkurse",
+        "de": "Langlauf Schnupperkurse",
+        "fr": "Langlauf Schnupperkurse"
+      },
+      "startDate": "2027-01-23",
+      "endDate": "2027-03-06",
+      "category": "Event",
+      "venue": "Adelboden",
+      "comune": "Adelboden",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/langlauf-schnupperkurse/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.4308464,
+        "lng": 7.5800089
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "8c973d6ebd08a75db3222106b21e2c739ed910e4f64def5fd48444e0877de245"
+    },
+    {
+      "id": "myswitzerland:3f8b6c8e1eca4452a65670a17b713593",
+      "title": "Lavoro sessuale",
+      "titleByLocale": {
+        "it": "Lavoro sessuale",
+        "en": "Sex work",
+        "de": "Sexarbeit",
+        "fr": "Le travail du sexe"
+      },
+      "startDate": "2027-01-12",
+      "endDate": "2027-04-25",
+      "category": "Event",
+      "venue": "Zurigo",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/lavoro-sessuale/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3796064,
+        "lng": 8.5393516
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "5998f0e2694e8e8960fc1c3926aebf558add9c14a41dd0b399a50cc009ecf95f"
+    },
+    {
+      "id": "myswitzerland:3f3da8b07db64603bb35ed7f2811ee0d",
+      "title": "Römerweg – auf alten Pfaden über den Bözberg",
+      "titleByLocale": {
+        "it": "Römerweg – auf alten Pfaden über den Bözberg",
+        "en": "Römerweg – auf alten Pfaden über den Bözberg",
+        "de": "Römerweg – auf alten Pfaden über den Bözberg",
+        "fr": "Römerweg – auf alten Pfaden über den Bözberg"
+      },
+      "startDate": "2027-04-10",
+      "endDate": "2027-08-21",
+      "category": "Event",
+      "venue": "Effingen",
+      "comune": "Bözberg",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/roemerweg-auf-alten-pfaden-ueber-den-boezberg/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.488623,
+        "lng": 8.104264
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "1f7ecc8945595fa0751f3eb87a1aede6bc5f083a6b220e10ce5d3788d600f567"
+    },
+    {
+      "id": "myswitzerland:3f3d9c84e3cb4a8facdd936eaaeded83",
+      "title": "Setzlingsmarkt ProSpecieRara auf Schloss Wildegg",
+      "titleByLocale": {
+        "it": "Setzlingsmarkt ProSpecieRara auf Schloss Wildegg",
+        "en": "Setzlingsmarkt ProSpecieRara auf Schloss Wildegg",
+        "de": "Setzlingsmarkt ProSpecieRara auf Schloss Wildegg",
+        "fr": "Setzlingsmarkt ProSpecieRara auf Schloss Wildegg"
+      },
+      "startDate": "2027-05-01",
+      "endDate": "2027-05-02",
+      "category": "Event",
+      "venue": "Wildegg",
+      "comune": "Möriken-Wildegg",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/setzlingsmarkt-prospecierara-auf-schloss-wildegg/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.4205711,
+        "lng": 8.1704096
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "db81112e8c173e790132a0b2967dcd8b4c9aa2312237bfaf509333821261aecc"
+    },
+    {
+      "id": "myswitzerland:3f3b3e706f9a4c7abf2a1179d3dd1255",
+      "title": "Capodanno in montagna Cuolm da Vi",
+      "titleByLocale": {
+        "it": "Capodanno in montagna Cuolm da Vi",
+        "en": "Mountain New Year's Eve Cuolm da Vi",
+        "de": "Bergsilvester Cuolm da Vi",
+        "fr": "Réveillon du Nouvel An dans les montagnes Cuolm da Vi"
+      },
+      "startDate": "2026-12-31",
+      "endDate": "2026-12-31",
+      "category": "Event",
+      "venue": "Sedrun",
+      "comune": "Tujetsch",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/capodanno-in-montagna-cuolm-da-vi/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.69749,
+        "lng": 8.78832
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "19d6e8f66c168e94890d102317128f85eab83a8f6e9c6445afd100498d0e6fcc"
+    },
+    {
+      "id": "myswitzerland:3efe5621b2d740cc94e9124d394e0021",
+      "title": "Exkursion \"über's Blüemli und Biendli\"",
+      "titleByLocale": {
+        "it": "Exkursion \"über's Blüemli und Biendli\"",
+        "en": "Exkursion \"über's Blüemli und Biendli\"",
+        "de": "Exkursion \"über's Blüemli und Biendli\"",
+        "fr": "Exkursion \"über's Blüemli und Biendli\""
+      },
+      "startDate": "2027-06-01",
+      "endDate": "2027-06-01",
+      "category": "Event",
+      "venue": "Mandach",
+      "comune": "Mandach",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/exkursion-uebers-blueemli-und-biendli/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.547161,
+        "lng": 8.186312
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "04281508a44e4532f9ec63b1adf11b78d6b40f1b57c5c4a4e4b2bc6d8309c12c"
     }
   ]
 }

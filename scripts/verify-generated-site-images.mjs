@@ -3,11 +3,13 @@
 import path from 'node:path';
 import { verifyPublishedGeneratedSiteImages } from './lib/generated-site-images.mjs';
 
+const registryPath = process.argv.includes('--registry')
+  ? process.argv[process.argv.indexOf('--registry') + 1]
+  : path.join('data', 'generated-image-registry.json');
 const result = await verifyPublishedGeneratedSiteImages({
   rootDir: process.cwd(),
-  registryPath: process.argv.includes('--registry')
-    ? process.argv[process.argv.indexOf('--registry') + 1]
-    : path.join('data', 'generated-image-registry.json'),
+  registryPath,
+  allowLegacyVision: path.resolve(registryPath) === path.resolve('data', 'generated-image-registry.json'),
 });
 
 if (!result.valid) {

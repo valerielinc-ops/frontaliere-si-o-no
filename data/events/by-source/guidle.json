@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "guidle",
   "sourceName": "Guidle",
-  "assembledAt": "2026-11-18T14:48:30.199Z",
+  "assembledAt": "2026-11-19T14:56:54.984Z",
   "events": [
     {
       "id": "guidle:AJdd68h",
@@ -191151,6 +191151,1317 @@
       },
       "recurring": false,
       "sourceDescriptionHash": "ef4eb9fe5f1db50512d2a87297163f9fe3be25687ce0863e4b65d6cf56dc319c"
+    },
+    {
+      "id": "guidle:AGLi2GK",
+      "title": "2-Tagesritt ins Val Sinestra und zum Hof Zuort",
+      "titleByLocale": {
+        "it": "Escursione a cavallo di 2 giorni a Val Sinestra e all'agriturismo Zuort",
+        "en": "2-day horse riding to Val Sinestra and the Zuort farm",
+        "de": "2-tägiger Ausritt ins Val Sinestra und zum Bauernhof Zuort",
+        "fr": "Randonnée équestre de 2 jours jusqu'à Val Sinestra et la ferme de Zuort"
+      },
+      "startDate": "2027-05-07",
+      "endDate": "2027-05-07",
+      "startTime": "08:30",
+      "category": "Altri eventi",
+      "comune": "Scuol",
+      "canton": "GR",
+      "url": "https://www.guidle.com/it/suche/scuol/2-tagesritt-ins-val-sinestra-und-zum-hof-zuort_AGLi2GK",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 545,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "geo": {
+        "lat": 46.7966882,
+        "lng": 10.3020679
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "dcb335bcec69a14db6f8aef60b1676a7553e2013eb92495930a99546aa9037c3"
+    },
+    {
+      "id": "guidle:AkLsBtB",
+      "title": "Spielabend für Erwachsene",
+      "titleByLocale": {
+        "it": "Spielabend für Erwachsene",
+        "en": "Games evening for adults",
+        "de": "Spieleabend für Erwachsene",
+        "fr": "Soirée jeux pour adultes"
+      },
+      "startDate": "2026-11-20",
+      "endDate": "2027-03-12",
+      "startTime": "19:00",
+      "category": "Giochi da tavolo",
+      "venue": "Freizeitzentrum Landauer",
+      "comune": "Riehen",
+      "canton": "BS",
+      "url": "https://www.guidle.com/it/veranstaltungen/riehen/spielabend-fuer-erwachsene_AkLsBtB",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Bluttrainweg 12",
+        "postalCode": "4125"
+      },
+      "geo": {
+        "lat": 47.5700083,
+        "lng": 7.6360346
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "abd3a755fabf2e2db6bce6db8476d621ee1ce512eb2c06a630f4f4e58fd8e7a7"
+    },
+    {
+      "id": "guidle:A2iTdEf",
+      "title": "Heilkräuter & Hausmittel - aus Garten + Natur / Winterkurs",
+      "titleByLocale": {
+        "it": "Heilkräuter & Hausmittel - aus Garten + Natur / Winterkurs",
+        "en": "Medicinal Herbs & Home Remedies – from the Garden + Nature / Winter Course",
+        "de": "Heilkräuter & Hausmittel – aus Garten + Natur / Winterkurs",
+        "fr": "Plantes médicinales et remèdes maison – du jardin + de la nature / Cours d’hiver"
+      },
+      "startDate": "2026-11-28",
+      "endDate": "2026-11-28",
+      "startTime": "08:30",
+      "category": "Altri eventi",
+      "comune": "Gipf-Oberfrick",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/gipf-oberfrick/heilkraeuter-und-hausmittel-aus-garten-natur-winterkurs_A2iTdEf",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 100,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "geo": {
+        "lat": 47.497703,
+        "lng": 8.0031057
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "0ccf1f463b6f64d732e2c36d7cd4602e06a31f1cb9b3f90632558863e3dc165c"
+    },
+    {
+      "id": "guidle:AMKEsj3",
+      "title": "Death Café – Let's talk about life, dying and death",
+      "titleByLocale": {
+        "it": "Death Café - Parliamo di vita, di morire e di morte",
+        "en": "Death Café - Let's talk about life, dying and death",
+        "de": "Death Café – Lassen Sie uns über Leben, Sterben und Tod sprechen",
+        "fr": "Café-Mort : parlons de la vie, de la fin de vie et de la mort"
+      },
+      "startDate": "2027-01-21",
+      "endDate": "2027-05-04",
+      "startTime": "18:00",
+      "category": "Comunione",
+      "venue": "Bibliothek Zug",
+      "comune": "Zug",
+      "canton": "ZG",
+      "url": "https://www.guidle.com/it/events/this-that/zug/death-cafe-lets-talk-about-life-dying-and-death_AMKEsj3",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "St.-Oswalds-Gasse 21",
+        "postalCode": "6300"
+      },
+      "geo": {
+        "lat": 47.1644884,
+        "lng": 8.5153211
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "2cbeba4f9b65a3f2d43ae66effe5d229345174d9081bf68d7d2d6db5e2204f99"
+    },
+    {
+      "id": "guidle:AXMqQyQ",
+      "title": "Info Point Wettingen",
+      "titleByLocale": {
+        "it": "Info Point Wettingen",
+        "en": "Wettingen Info Point",
+        "de": "Info-Point Wettingen",
+        "fr": "Point d’information de Wettingen"
+      },
+      "startDate": "2026-11-30",
+      "endDate": "2027-01-25",
+      "startTime": "17:00",
+      "category": "Assistanza nella vita quotidiana",
+      "venue": "Rathaus",
+      "comune": "Wettingen",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/wettingen/info-point-wettingen_AXMqQyQ",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "postalCode": "5430"
+      },
+      "geo": {
+        "lat": 47.46595,
+        "lng": 8.326599
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "a26fa3bf643680a141c0b159b906588904aef01756012b334d5e4662a39e038c"
+    },
+    {
+      "id": "guidle:AjNDX9m",
+      "title": "Infoveranstaltungen für neue Bewohnende und Pensionäre",
+      "titleByLocale": {
+        "it": "Infoveranstaltungen für neue Bewohnende und Pensionäre",
+        "en": "Information events for new residents and retirees",
+        "de": "Informationsveranstaltungen für neue Bewohnende und Pensionäre",
+        "fr": "Réunions d’information pour les nouveaux résidents et les retraités"
+      },
+      "startDate": "2026-12-03",
+      "endDate": "2026-12-03",
+      "startTime": "16:00",
+      "category": "Altri eventi",
+      "venue": "Alterszentrum Kreuzlingen",
+      "comune": "Kreuzlingen",
+      "canton": "TG",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/kreuzlingen/informationsveranstaltungen_AjNDX9m",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Bärenstrasse 27",
+        "postalCode": "8280"
+      },
+      "geo": {
+        "lat": 47.6460438,
+        "lng": 9.1749775
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "831868f433435265ab82b75272dac3b815f60327b2bb46b8b9da3a78ae433f87"
+    },
+    {
+      "id": "guidle:A2f4JHc",
+      "title": "Châtel-St-Denis Sommermarkt",
+      "titleByLocale": {
+        "it": "Mercato estivo di Châtel-St-Denis",
+        "en": "Châtel-St-Denis Summermarket",
+        "de": "Sommermarkt in Châtel-St-Denis",
+        "fr": "Marchés artisanaux – Châtel-St-Denis & Les Paccots"
+      },
+      "startDate": "2027-06-26",
+      "endDate": "2027-10-17",
+      "startTime": "00:00",
+      "category": "Mercato",
+      "venue": "Office du Tourisme",
+      "canton": "FR",
+      "url": "https://www.guidle.com/it/museums/children/events/chatel-st-denis/chatel-st-denis-summermarket_A2f4JHc",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Place d'Armes 15",
+        "postalCode": "1618"
+      },
+      "geo": {
+        "lat": 46.526766,
+        "lng": 6.9003155
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "8cd1463c17c449f3e0e39e0433aa9f12b0e8e75b7f9dd370895f57e9bd78e43d"
+    },
+    {
+      "id": "guidle:AEtmVMM",
+      "title": "Gemeinsames Stricken",
+      "titleByLocale": {
+        "it": "Gemeinsames Stricken",
+        "en": "Knitting Together",
+        "de": "Gemeinsames Gestrick",
+        "fr": "Tricoter ensemble"
+      },
+      "startDate": "2026-12-08",
+      "endDate": "2027-06-08",
+      "startTime": "09:00",
+      "category": "Comunione",
+      "venue": "Röm.-kath. St. Josefskirche",
+      "comune": "Flims",
+      "canton": "GR",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/flims-waldhaus/gemeinsames-stricken_AEtmVMM",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Via dils Larischs 6b",
+        "postalCode": "7018"
+      },
+      "geo": {
+        "lat": 46.8292753,
+        "lng": 9.2919845
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "47037cef9071d7d8909026be65ba1ddc8f1d7d9cfb175f1d8018166eeee56cb5"
+    },
+    {
+      "id": "guidle:ApfdgiA",
+      "title": "JugendTräff Ringgenberg 2026",
+      "titleByLocale": {
+        "it": "JugendTräff Ringgenberg 2026",
+        "en": "Ringgenberg Youth Centre 2026",
+        "de": "Jugendtreff Ringgenberg 2026",
+        "fr": "Maison des jeunes de Ringgenberg 2026"
+      },
+      "startDate": "2026-11-20",
+      "endDate": "2026-12-04",
+      "startTime": "19:30",
+      "category": "Altri eventi",
+      "venue": "Kirchgemeindehaus",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/ringgenberg-be/jugendtraeff_ApfdgiA",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "postalCode": "3852"
+      },
+      "geo": {
+        "lat": 46.7008601,
+        "lng": 7.8966597
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "82bb4e510e60d82051f02548561293a3df7b87cb17e826318c78bdd1f7c7ed86"
+    },
+    {
+      "id": "guidle:Amhyts1",
+      "title": "Shared Reading",
+      "titleByLocale": {
+        "it": "Shared Reading",
+        "en": "Shared Reading",
+        "de": "Gemeinsames Lesen",
+        "fr": "Lecture partagée"
+      },
+      "startDate": "2026-12-16",
+      "endDate": "2027-12-15",
+      "startTime": "19:00",
+      "category": "Libro / Letterature",
+      "venue": "Stadtbibliothek Baden",
+      "comune": "Baden",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/baden/shared-reading_Amhyts1",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Mellingerstrasse 19",
+        "postalCode": "5400"
+      },
+      "geo": {
+        "lat": 47.4707982,
+        "lng": 8.3044193
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "fe4af63cf04c28a812d6cb98b26fcf0a6d10acff46305aaa623a7da45be1bc38"
+    },
+    {
+      "id": "guidle:APAUavk",
+      "title": "«Pen & Paper» Rollenspiele",
+      "titleByLocale": {
+        "it": "«Pen & Paper» Rollenspiele",
+        "en": "“Pen & Paper” Role-Playing Games",
+        "de": "„Pen & Paper“-Rollenspiele",
+        "fr": "Jeux de rôle « stylo et papier »"
+      },
+      "startDate": "2026-11-20",
+      "endDate": "2026-11-20",
+      "startTime": "19:00",
+      "category": "Comunione",
+      "venue": "Stadtbibliothek Baden",
+      "comune": "Baden",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/baden/pen-und-paper-rollenspiele-fuer-einsteiger_APAUavk",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Mellingerstrasse 19",
+        "postalCode": "5400"
+      },
+      "geo": {
+        "lat": 47.4707982,
+        "lng": 8.3044193
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "28784d459f92915939da9e7f2250c8cd2a7dd9f93c73e71485fa7c01c070c415"
+    },
+    {
+      "id": "guidle:Ar3QwML",
+      "title": "Gesprächsgruppe für Bezugspersonen von Menschen mit Demenz",
+      "titleByLocale": {
+        "it": "Gesprächsgruppe für Bezugspersonen von Menschen mit Demenz",
+        "en": "Discussion Group for Carers of People with Dementia",
+        "de": "Diskussionsgruppe für Menschen mit Demenz",
+        "fr": "Groupe de discussion pour les aidants de personnes atteintes de démence"
+      },
+      "startDate": "2026-12-15",
+      "endDate": "2026-12-15",
+      "startTime": "14:00",
+      "category": "Salute / Medicina",
+      "venue": "Stadtgarten",
+      "comune": "Frauenfeld",
+      "canton": "TG",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/frauenfeld/gespraechsgruppe-fuer-bezugspersonen-von-menschen-mit-demenz_Ar3QwML",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Stadtgartenweg 1",
+        "postalCode": "8500"
+      },
+      "geo": {
+        "lat": 47.551866,
+        "lng": 8.899025
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "e38587da595189f1ff2bd85f658be514da7e916df555a07c9c2ad9f3e53b7a92"
+    },
+    {
+      "id": "guidle:AKPV6A5",
+      "title": "Gesprächsgruppe für Bezugspersonen von Menschen mit Demenz",
+      "titleByLocale": {
+        "it": "Gesprächsgruppe für Bezugspersonen von Menschen mit Demenz",
+        "en": "Discussion Group for Carers of People with Dementia",
+        "de": "Diskussionsgruppe für Menschen mit Demenz",
+        "fr": "Groupe de discussion pour les aidants de personnes atteintes de démence"
+      },
+      "startDate": "2026-11-19",
+      "endDate": "2026-12-17",
+      "startTime": "16:00",
+      "category": "Salute / Medicina",
+      "venue": "Genossenschaft Alterszentrum",
+      "comune": "Kreuzlingen",
+      "canton": "TG",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/kreuzlingen/gespraechsgruppe-fuer-bezugspersonen-von-menschen-mit-demenz_AKPV6A5",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Bärenstrasse 27",
+        "postalCode": "8280"
+      },
+      "geo": {
+        "lat": 47.646027,
+        "lng": 9.174978
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "e38587da595189f1ff2bd85f658be514da7e916df555a07c9c2ad9f3e53b7a92"
+    },
+    {
+      "id": "guidle:AJguFWT",
+      "title": "Gesprächsgruppe für Bezugspersonen von Menschen mit Demenz",
+      "titleByLocale": {
+        "it": "Gesprächsgruppe für Bezugspersonen von Menschen mit Demenz",
+        "en": "Discussion Group for Carers of People with Dementia",
+        "de": "Diskussionsgruppe für Menschen mit Demenz",
+        "fr": "Groupe de discussion pour les aidants de personnes atteintes de démence"
+      },
+      "startDate": "2026-11-19",
+      "endDate": "2026-12-17",
+      "startTime": "16:00",
+      "category": "Salute / Medicina",
+      "venue": "Evangelisches Kirchgemeindehaus",
+      "comune": "Steckborn",
+      "canton": "TG",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/steckborn/gespraechsgruppe-fuer-bezugspersonen-von-menschen-mit-demenz_AJguFWT",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Kirchgasse 29",
+        "postalCode": "8266"
+      },
+      "geo": {
+        "lat": 47.666851,
+        "lng": 8.983053
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "e38587da595189f1ff2bd85f658be514da7e916df555a07c9c2ad9f3e53b7a92"
+    },
+    {
+      "id": "guidle:AYxdpSi",
+      "title": "Club de conversación en español",
+      "titleByLocale": {
+        "it": "Club de conversación en español",
+        "en": "Spanish conversation club",
+        "de": "Konversationsclub auf Spanisch",
+        "fr": "Club de conversation en espagnol"
+      },
+      "startDate": "2026-12-15",
+      "endDate": "2026-12-15",
+      "startTime": "09:15",
+      "category": "Altre parola / letteratura",
+      "venue": "Bibliothek Zug",
+      "comune": "Zug",
+      "canton": "ZG",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/zug/club-de-conversacin-en-espaol_AYxdpSi",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "St.-Oswalds-Gasse 21",
+        "postalCode": "6300"
+      },
+      "geo": {
+        "lat": 47.1644884,
+        "lng": 8.5153211
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "12fcb848757f5315f9a67708506902d8236d88d9447f6594406003d558f496a9"
+    },
+    {
+      "id": "guidle:AekAiav",
+      "title": "Demenz - Gesprächsgruppe für Angehörige 2026",
+      "titleByLocale": {
+        "it": "Demenz - Gesprächsgruppe für Angehörige 2026",
+        "en": "Dementia – Support Group for Relatives 2026",
+        "de": "Demenz – Gesprächsgruppe für Angehörige 2026",
+        "fr": "Groupe de discussion sur la démence pour les proches 2026"
+      },
+      "startDate": "2026-12-01",
+      "endDate": "2026-12-01",
+      "startTime": "19:00",
+      "category": "Auto-aiuto",
+      "venue": "Demenz Liechtenstein",
+      "canton": "",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/schaan/demenz-gespraechsgruppe-fuer-angehoerige-2026_AekAiav",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Poststrasse 14",
+        "postalCode": "9494"
+      },
+      "geo": {
+        "lat": 47.16682062979401,
+        "lng": 9.508682101605217
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "f998694098916f87f21a8860d0feb1669635e7d6e99d1a310d9a181d96d33329"
+    },
+    {
+      "id": "guidle:AkEyZEP",
+      "title": "STOFFwechsel Kleidertauschbörse für Frauen",
+      "titleByLocale": {
+        "it": "STOFFwechsel Kleidertauschbörse für Frauen",
+        "en": "STOFFwechsel Clothes Swap for Women",
+        "de": "STOFFAUSTAUSCH Weiblicher Schmuckaustausch",
+        "fr": "STOFFwechsel : Bourse d’échange de vêtements pour femmes"
+      },
+      "startDate": "2027-02-27",
+      "endDate": "2027-02-27",
+      "startTime": "15:00",
+      "category": "Mercato di cambio",
+      "venue": "Röm.-kath. Pfarreisaal St. Michael",
+      "comune": "Ennetbaden",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/ennetbaden/stoffwechsel-kleidertauschboerse-fuer-frauen_AkEyZEP",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Grendelstrasse 25",
+        "postalCode": "5408"
+      },
+      "geo": {
+        "lat": 47.478805,
+        "lng": 8.3175297
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "681981f69b0c0685fba470d9a01e41bbb46723ab5de5af26f9f085f03eef91ae"
+    },
+    {
+      "id": "guidle:AaWNWAc",
+      "title": "Wachstumsreise: Zurück zu dir.",
+      "titleByLocale": {
+        "it": "Wachstumsreise: Zurück zu dir.",
+        "en": "Journey of growth: Back to you.",
+        "de": "Wachstumsreise: Zurück zum Reg.",
+        "fr": "Parcours de développement : Retour à soi."
+      },
+      "startDate": "2026-12-03",
+      "endDate": "2026-12-03",
+      "startTime": "18:30",
+      "category": "Assistanza nella vita quotidiana",
+      "venue": "Bibliothek Zug",
+      "comune": "Zug",
+      "canton": "ZG",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/zug/wachstumsreise-zurueck-zu-dir_AaWNWAc",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "St.-Oswalds-Gasse 21",
+        "postalCode": "6300"
+      },
+      "geo": {
+        "lat": 47.1644884,
+        "lng": 8.5153211
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Klarheit"
+      },
+      "sourceDescriptionHash": "c7037ff753444ccecde01bfef7f4db86c2cfc4c60f6096e7aee9157fad9e4be6"
+    },
+    {
+      "id": "guidle:A6kBJ5h",
+      "title": "Sonntags-Zmittag von Fragile Bern Espace Mittelland in Bern",
+      "titleByLocale": {
+        "it": "Sonntags-Zmittag von Fragile Bern Espace Mittelland in Bern",
+        "en": "Sunday Lunch from Fragile Bern Espace Mittelland in Bern",
+        "de": "Sonntags-Zmorge von Fragile Bern Espace Mittelland in Bern",
+        "fr": "Déjeuner du dimanche de Fragile Berne Espace Mittelland à Berne"
+      },
+      "startDate": "2026-12-06",
+      "endDate": "2026-12-06",
+      "startTime": "11:30",
+      "category": "Comunione",
+      "venue": "Jugendherberge Bern",
+      "comune": "Bern",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/bern/sonntags-zmittag-von-fragile-bern-espace-mittelland-in-bern_A6kBJ5h",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 20,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Weihergasse 4",
+        "postalCode": "3005"
+      },
+      "geo": {
+        "lat": 46.9457747,
+        "lng": 7.4451342
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "6e6b504d3de0ecb4997e4d530a6b1f373030280eace3a81559d3ef4b58f36aee"
+    },
+    {
+      "id": "guidle:AYxEwYR",
+      "title": "Café Vergissmeinnicht für Menschen mit und ohne Demenz",
+      "titleByLocale": {
+        "it": "Café Vergissmeinnicht für Menschen mit und ohne Demenz",
+        "en": "Café Vergissmeinnicht for people with and without dementia",
+        "de": "Café Vergisssmeinno für Menschen mit und ohne Demenz",
+        "fr": "Café Myosotis pour les personnes atteintes ou non de démence"
+      },
+      "startDate": "2026-12-08",
+      "endDate": "2026-12-08",
+      "startTime": "14:30",
+      "category": "Aiuto volontari",
+      "venue": "Alterszentrum Park",
+      "comune": "Frauenfeld",
+      "canton": "TG",
+      "url": "https://www.guidle.com/it/veranstaltungen/koerper-geist/frauenfeld/cafe-vergissmeinnicht-fuer-menschen-mit-und-ohne-demenz_AYxEwYR",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Zürcherstrasse 84",
+        "postalCode": "8500"
+      },
+      "geo": {
+        "lat": 47.5523491,
+        "lng": 8.8886856
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "abc53f44c46a415d80d9205ec9651d51e727a17ebfc558597419567bede89f40"
+    },
+    {
+      "id": "guidle:ATvTden",
+      "title": "Café Vergissmeinnicht für Menschen mit und ohne Demenz",
+      "titleByLocale": {
+        "it": "Café Vergissmeinnicht für Menschen mit und ohne Demenz",
+        "en": "Café Vergissmeinnicht for people with and without dementia",
+        "de": "Café Vergisssmeinno für Menschen mit und ohne Demenz",
+        "fr": "Café Myosotis pour les personnes atteintes ou non de démence"
+      },
+      "startDate": "2026-11-20",
+      "endDate": "2026-12-18",
+      "startTime": "14:30",
+      "category": "Aiuto volontari",
+      "venue": "Restaurant Grüner Baum",
+      "comune": "Weinfelden",
+      "canton": "TG",
+      "url": "https://www.guidle.com/it/veranstaltungen/koerper-geist/weinfelden/cafe-vergissmeinnicht-fuer-menschen-mit-und-ohne-demenz_ATvTden",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Wilerstrasse 11",
+        "postalCode": "8570"
+      },
+      "geo": {
+        "lat": 47.5641,
+        "lng": 9.108366
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "abc53f44c46a415d80d9205ec9651d51e727a17ebfc558597419567bede89f40"
+    },
+    {
+      "id": "guidle:AKmyT92",
+      "title": "Digi-Treff - Digitales Wissen in der Zentralbibliothek",
+      "titleByLocale": {
+        "it": "Digi-Treff - Digitales Wissen in der Zentralbibliothek",
+        "en": "Digi-Treff – Digital Knowledge in the Central Library",
+        "de": "Digi-Treff – Digitales Wissen in der Zentralbibliothek",
+        "fr": "Digi-Treff - Connaissances numériques à la Bibliothèque centrale"
+      },
+      "startDate": "2026-12-10",
+      "endDate": "2026-12-10",
+      "startTime": "16:00",
+      "category": "Informatica / Internet",
+      "venue": "Zentralbibliothek",
+      "canton": "SO",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/solothurn/digi-treff-digitales-wissen-in-der-zentralbibliothek_AKmyT92",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Bielstrasse 39",
+        "postalCode": "4500"
+      },
+      "geo": {
+        "lat": 47.2098309,
+        "lng": 7.5296318
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "ca1ff376cb6a60bf661521fe68f9f899105d9a099d84fec12ede9ce387d0a28e"
+    },
+    {
+      "id": "guidle:AWXkKeW",
+      "title": "Interkulturelles Müttertreffen Bern West",
+      "titleByLocale": {
+        "it": "Interkulturelles Müttertreffen Bern West",
+        "en": "Intercultural Mothers’ Meeting, Bern West",
+        "de": "Interkulturelles Bergtreffen Bern West",
+        "fr": "Rencontre interculturelle de mères Berne Ouest"
+      },
+      "startDate": "2026-11-19",
+      "endDate": "2026-12-17",
+      "startTime": "09:00",
+      "category": "Comunione",
+      "venue": "Evang.-ref. Kirchgemeindehaus Bethlehem",
+      "comune": "Bern",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/museen/kinder/veranstaltungen/bern/interkulturelles-muettertreffen-bern-west_AWXkKeW",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Eymattstrasse 2b",
+        "postalCode": "3027"
+      },
+      "geo": {
+        "lat": 46.949698,
+        "lng": 7.393327
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "946c09df7de732c17985f07b11644d4920f93c3b389000af0a8ce881412ee350"
+    },
+    {
+      "id": "guidle:AKTyLu1",
+      "title": "Pottery Painting - Herbst",
+      "titleByLocale": {
+        "it": "Pottery Painting - Herbst",
+        "en": "Pottery Painting – Autumn",
+        "de": "Keramikbemalung – Herbst",
+        "fr": "Peinture sur céramique - Automne"
+      },
+      "startDate": "2026-12-06",
+      "endDate": "2026-12-06",
+      "startTime": "13:00",
+      "category": "Degustazione",
+      "venue": "Espura",
+      "comune": "Flumenthal",
+      "canton": "SO",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/flumenthal/pottery-painting-herbst_AKTyLu1",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 30,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Scharlenweg 11",
+        "postalCode": "4534"
+      },
+      "geo": {
+        "lat": 47.2432365,
+        "lng": 7.599955
+      },
+      "recurring": true,
+      "performer": {
+        "name": "FreundinnenFamilienevents"
+      },
+      "sourceDescriptionHash": "ca6863d1cde6e649451511624a4c0378544acf2fe9f2e33aab4b4fc7496b02d7"
+    },
+    {
+      "id": "guidle:AreBuFv",
+      "title": "Spiele-Nachmittag",
+      "titleByLocale": {
+        "it": "Spiele-Nachmittag",
+        "en": "Games Afternoon",
+        "de": "Nachmittagsspiele",
+        "fr": "Après-midi jeux"
+      },
+      "startDate": "2026-11-19",
+      "endDate": "2026-12-17",
+      "startTime": "14:00",
+      "category": "Giochi da tavolo",
+      "venue": "DenkBar",
+      "canton": "SG",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/st-gallen/spiele-nachmittag_AreBuFv",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Gallusstrasse 11",
+        "postalCode": "9000"
+      },
+      "geo": {
+        "lat": 47.4238948,
+        "lng": 9.3765973
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "677bdf98f57fbc5fa2cd8825b10fe5238ee1f5c121b5587e9ae4ba2c36f34983"
+    },
+    {
+      "id": "guidle:AdsAeWL",
+      "title": "HerbstblütenTreff",
+      "titleByLocale": {
+        "it": "HerbstblütenTreff",
+        "en": "Autumn BlütenTreff",
+        "de": "Autumn BlütenTreff",
+        "fr": "Autumn BlütenTreff"
+      },
+      "startDate": "2026-12-14",
+      "endDate": "2026-12-14",
+      "startTime": "14:00",
+      "category": "Comunione",
+      "canton": "SG",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/st-gallen/herbstbluetentreff_AdsAeWL",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "geo": {
+        "lat": 47.4238948,
+        "lng": 9.3765973
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Cornelia Hättenschwiler"
+      },
+      "sourceDescriptionHash": "767cc02e29cdaf32d22ec2fc54a151e2f349b0681cdde70996e722ed854a5850"
+    },
+    {
+      "id": "guidle:AvfV6N2",
+      "title": "Gratis Schnupperkurs",
+      "titleByLocale": {
+        "it": "Gratis Schnupperkurs",
+        "en": "Gratis Schnupperkurs",
+        "de": "Gratis Schnupperkurs",
+        "fr": "Gratis Schnupperkurs"
+      },
+      "startDate": "2026-12-11",
+      "endDate": "2026-12-11",
+      "startTime": "19:30",
+      "category": "Altri eventi",
+      "venue": "SalsaRica Tanzschule",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/zuerich/gratis-schnupperkurs_AvfV6N2",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Pfingstweidstrasse 101",
+        "postalCode": "8005"
+      },
+      "geo": {
+        "lat": 47.3899833,
+        "lng": 8.5095362
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "b8a758ba88ad5e7f29fccef41642052a8ad06e325962297dbb424d6b25862700"
+    },
+    {
+      "id": "guidle:A5s4Qrt",
+      "title": "Entertainment Dinner - Dinner for Winner",
+      "titleByLocale": {
+        "it": "Entertainment Dinner - Dinner for Winner",
+        "en": "Entertainment Dinner - Dinner for Winner",
+        "de": "Entertainment Dinner - Dinner for Winner",
+        "fr": "Entertainment Dinner - Dinner for Winner"
+      },
+      "startDate": "2026-12-02",
+      "endDate": "2027-12-15",
+      "startTime": "19:00",
+      "category": "Cibo con divertimento",
+      "venue": "Grand Casino Baden",
+      "comune": "Baden",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/events/this-that/baden/entertainment-dinner-dinner-for-winner_A5s4Qrt",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 69,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Haselstrasse 2",
+        "postalCode": "5400"
+      },
+      "geo": {
+        "lat": 47.4788874,
+        "lng": 8.310413
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "86b43fc2c9de0d1989e87fe3e3920dad92c54dd80b9e708e4fe00001811bf392"
+    },
+    {
+      "id": "guidle:A41AnsR",
+      "title": "MACHER WERDEN DANK MENTALER STÄRKE",
+      "titleByLocale": {
+        "it": "MACHER WERDEN DANK MENTALER STÄRKE",
+        "en": "MACHER WERDEN DANK MENTALER STÄRKE",
+        "de": "MACHER WERDEN DANK MENTALER STÄRKE",
+        "fr": "MACHER WERDEN DANK MENTALER STÄRKE"
+      },
+      "startDate": "2027-02-16",
+      "endDate": "2027-02-16",
+      "startTime": "08:30",
+      "category": "Altra vita sociale",
+      "comune": "Lachen",
+      "canton": "SZ",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/lachen-sz/mentale-staerke-raus-aus-dem-stinkenden-hamsterrad-rein-ins-glaenzende-leben-als-akquiseprofi_A41AnsR",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 2750,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "geo": {
+        "lat": 47.1934142,
+        "lng": 8.8516126
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "b9df2068730eeb79b075e94e5116992959260fbea3e1d08260b6a4cd38ce8970"
+    },
+    {
+      "id": "guidle:ATmS79x",
+      "title": "Deutsch-Café",
+      "titleByLocale": {
+        "it": "Deutsch-Café",
+        "en": "Deutsch-Café",
+        "de": "Deutsch-Café",
+        "fr": "Deutsch-Café"
+      },
+      "startDate": "2026-11-23",
+      "endDate": "2027-12-20",
+      "startTime": "17:30",
+      "category": "Aiuto volontari",
+      "venue": "Stadtbibliothek Baden",
+      "comune": "Baden",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/baden/deutsch-cafe_ATmS79x",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Mellingerstrasse 19",
+        "postalCode": "5400"
+      },
+      "geo": {
+        "lat": 47.4707982,
+        "lng": 8.3044193
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "30ff4a21b3382afa6390e3fac67417f4b4f92a2782af267bdd23034b66081655"
+    },
+    {
+      "id": "guidle:AF6LEQB",
+      "title": "Café TrotzDem Sarganserland",
+      "titleByLocale": {
+        "it": "Café TrotzDem Sarganserland",
+        "en": "Café TrotzDem Sarganserland",
+        "de": "Café TrotzDem Sarganserland",
+        "fr": "Café TrotzDem Sarganserland"
+      },
+      "startDate": "2026-12-15",
+      "endDate": "2026-12-15",
+      "startTime": "14:30",
+      "category": "Comunione",
+      "canton": "SG",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/vilters/cafe-trotzdem-sarganserland_AF6LEQB",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "geo": {
+        "lat": 47.0298709,
+        "lng": 9.4468452
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "703ee30fda2c94d997078639f6183a0183c33b424be5eec3693e8a778dac88f8"
+    },
+    {
+      "id": "guidle:Aa8Vsfe",
+      "title": "Lerntreff Baden",
+      "titleByLocale": {
+        "it": "Lerntreff Baden",
+        "en": "Lerntreff Baden",
+        "de": "Lerntreff Baden",
+        "fr": "Lerntreff Baden"
+      },
+      "startDate": "2026-11-26",
+      "endDate": "2026-12-10",
+      "startTime": "17:30",
+      "category": "Altre società",
+      "venue": "Familienzentrum Karussell Region Baden",
+      "comune": "Baden",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/baden/lerntreff-baden_Aa8Vsfe",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Haselstrasse 6",
+        "postalCode": "5400"
+      },
+      "geo": {
+        "lat": 47.4786098,
+        "lng": 8.3081843
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "ec263827b125a4307fa118c9b11c8955269eb9f031e88e90d9ae1d586f9479f1"
+    },
+    {
+      "id": "guidle:Auu9HhD",
+      "title": "Escape-Game",
+      "titleByLocale": {
+        "it": "Escape-Game",
+        "en": "Escape-Game",
+        "de": "Escape-Game",
+        "fr": "Escape-Game"
+      },
+      "startDate": "2026-12-02",
+      "endDate": "2026-12-02",
+      "startTime": "19:00",
+      "category": "Altre offerte di Giochi / sport d'immaginazione",
+      "venue": "Schiffstation Zug",
+      "comune": "Zug",
+      "canton": "ZG",
+      "url": "https://www.guidle.com/it/events/this-that/zug/escape-game_Auu9HhD",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 56,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Bahnhofsteg",
+        "postalCode": "6300"
+      },
+      "geo": {
+        "lat": 47.17009873835391,
+        "lng": 8.51333673642348
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "1279e411d5109f18a1c0fa3885aaaa7c1dd2df66f20cb8f037f3482dbe14dbcc"
+    },
+    {
+      "id": "guidle:A7Q7DPu",
+      "title": "Bar per single",
+      "titleByLocale": {
+        "it": "Bar per single",
+        "en": "Barhopping for singles",
+        "de": "Barhopping für Singles",
+        "fr": "Barhopping pour les célibataires"
+      },
+      "startDate": "2026-11-27",
+      "endDate": "2026-11-27",
+      "startTime": "19:00",
+      "category": "Altre società",
+      "comune": "Baden",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/eventi/party/baden/bar-per-single_A7Q7DPu",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 49.9,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "geo": {
+        "lat": 47.4766638,
+        "lng": 8.3094105
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "544f1a9565d3467c4a4750ec2c2d9c08348f3f15680960217ec3f25937699113"
+    },
+    {
+      "id": "guidle:AmT4Ah3",
+      "title": "Austauschabend zu Polyamorie und Beziehungsanarchie",
+      "titleByLocale": {
+        "it": "Austauschabend zu Polyamorie und Beziehungsanarchie",
+        "en": "Austauschabend zu Polyamorie und Beziehungsanarchie",
+        "de": "Austauschabend zu Polyamorie und Beziehungsanarchie",
+        "fr": "Austauschabend zu Polyamorie und Beziehungsanarchie"
+      },
+      "startDate": "2026-12-09",
+      "endDate": "2026-12-09",
+      "startTime": "19:00",
+      "category": "Comunione",
+      "canton": "SG",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/st-gallen/austauschabend-zu-polyamorie-und-beziehungsanarchie_AmT4Ah3",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "geo": {
+        "lat": 47.4269614,
+        "lng": 9.374603
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "76283d25825580505e9edd2d85045d0910d9f0ff6a3cc3f385101409304795cc"
+    },
+    {
+      "id": "guidle:AFC5AWC",
+      "title": "zäme singä",
+      "titleByLocale": {
+        "it": "zäme singä",
+        "en": "zäme singä",
+        "de": "zäme singä",
+        "fr": "zäme singä"
+      },
+      "startDate": "2026-11-20",
+      "endDate": "2026-12-18",
+      "startTime": "15:00",
+      "category": "Meeting / Assemblea",
+      "venue": "Zentrum Breitenhof Rüti",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/rueti-zh/zaeme-singae_AFC5AWC",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Breitenhofstrasse 12",
+        "postalCode": "8630"
+      },
+      "geo": {
+        "lat": 47.254381,
+        "lng": 8.848201
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "36350170d13e4a4b7861ae6fefcba6ab913403b218a454e29458c5539bd15933"
+    },
+    {
+      "id": "guidle:AxkEjUm",
+      "title": "Spielabend mit der Ludothek Appenzell",
+      "titleByLocale": {
+        "it": "Spielabend mit der Ludothek Appenzell",
+        "en": "Spielabend mit der Ludothek Appenzell",
+        "de": "Spielabend mit der Ludothek Appenzell",
+        "fr": "Spielabend mit der Ludothek Appenzell"
+      },
+      "startDate": "2026-12-09",
+      "endDate": "2026-12-09",
+      "startTime": "19:00",
+      "category": "Giochi da tavolo",
+      "venue": "Restaurant Rössli",
+      "comune": "Appenzell",
+      "canton": "AI",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/appenzell/spielabend-mit-der-ludothek-appenzell_AxkEjUm",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Weissbadstrasse 25",
+        "postalCode": "9050"
+      },
+      "geo": {
+        "lat": 47.3289631,
+        "lng": 9.4129397
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "b99a54fdbf561d2b66ef5aaf0326a410b2215b1be0207acc4d837e3610ca8aea"
+    },
+    {
+      "id": "guidle:AeyMNap",
+      "title": "Mittagessen im Mättlihof",
+      "titleByLocale": {
+        "it": "Mittagessen im Mättlihof",
+        "en": "Mittagessen im Mättlihof",
+        "de": "Mittagessen im Mättlihof",
+        "fr": "Mittagessen im Mättlihof"
+      },
+      "startDate": "2026-11-19",
+      "endDate": "2026-11-19",
+      "startTime": "12:00",
+      "category": "Comunione",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/aesch-zh/mittagessen-im-maettlihof_AeyMNap",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "geo": {
+        "lat": 47.337042,
+        "lng": 8.4391538
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "c0c0a715899f927cf075a7cbd759117abc0ca025e8e406ce3d08d56ee066b769"
+    },
+    {
+      "id": "guidle:AeUfQdW",
+      "title": "Stricken für Rumänien",
+      "titleByLocale": {
+        "it": "Stricken für Rumänien",
+        "en": "Stricken für Rumänien",
+        "de": "Stricken für Rumänien",
+        "fr": "Stricken für Rumänien"
+      },
+      "startDate": "2026-11-19",
+      "endDate": "2026-11-19",
+      "startTime": "14:00",
+      "category": "Artigianato / Cucito",
+      "comune": "Bever",
+      "canton": "GR",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/bever/stricken-fuer-rumaenien_AeUfQdW",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "geo": {
+        "lat": 46.5540432,
+        "lng": 9.8919772
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "0dde310aa4a68c14f4ba31287479ba8bdb3642742c7528ea9e79c322e86c2495"
+    },
+    {
+      "id": "guidle:ALAdG9a",
+      "title": "Spieleabend",
+      "titleByLocale": {
+        "it": "Spieleabend",
+        "en": "Spieleabend",
+        "de": "Spieleabend",
+        "fr": "Spieleabend"
+      },
+      "startDate": "2026-11-25",
+      "endDate": "2026-12-09",
+      "startTime": "19:00",
+      "category": "Giochi da tavolo",
+      "venue": "turgitreff",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/turgi/spieleabend_ALAdG9a",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Weichlenstrasse 1A",
+        "postalCode": "5300"
+      },
+      "geo": {
+        "lat": 47.490132,
+        "lng": 8.25538
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "c309302d3f33ff7380617ac873c8342e00bb6b40906cf99043b005fcdc6f8c9e"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "crr-suva-sion",
-  "assembledAt": "2026-11-19T09:36:37.045Z",
-  "runId": "44494267954",
+  "assembledAt": "2026-11-19T21:21:19.091Z",
+  "runId": "44616635128",
   "jobs": [
     {
       "id": "crr-suva-sion-1ef627a9dcec",
@@ -35,7 +35,7 @@
       "url": "https://www.crr-suva.ch/clinique-readaptation/assistant-qualite-processus-2396.html",
       "source": "Clinique romande de réadaptation (CRR Suva) Dedicated Parser (Custom HTML)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T09:36:31.019Z",
+      "crawledAt": "2026-11-19T21:21:12.579Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -84,8 +84,9 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-15T09:36:31.019Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-15T21:21:12.579Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.crr-suva.ch/clinique-readaptation/assistant-qualite-processus-2396.html"
     },
     {
       "id": "crr-suva-sion-58cb24be429f",
@@ -118,7 +119,7 @@
       "url": "https://www.crr-suva.ch/clinique-readaptation/infirmier-2445.html",
       "source": "Clinique romande de réadaptation (CRR Suva) Dedicated Parser (Custom HTML)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T09:36:30.604Z",
+      "crawledAt": "2026-11-19T21:21:12.110Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -167,8 +168,9 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:36:30.604Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-19T21:21:12.110Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.crr-suva.ch/clinique-readaptation/infirmier-2445.html"
     },
     {
       "id": "crr-suva-sion-3f33c060cfb1",
@@ -202,7 +204,7 @@
       "url": "https://www.crr-suva.ch/clinique-readaptation/stagiaire-mp-e-2449.html",
       "source": "Clinique romande de réadaptation (CRR Suva) Dedicated Parser (Custom HTML)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T09:36:30.139Z",
+      "crawledAt": "2026-11-19T21:21:11.683Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -251,8 +253,9 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T09:36:30.139Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-10T21:21:11.683Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.crr-suva.ch/clinique-readaptation/stagiaire-mp-e-2449.html"
     },
     {
       "id": "crr-suva-sion-90f7b1317b3e",
@@ -286,7 +289,7 @@
       "url": "https://www.crr-suva.ch/clinique-readaptation/apprenti-gestionnaire-hotellerie-intendance-2448.html",
       "source": "Clinique romande de réadaptation (CRR Suva) Dedicated Parser (Custom HTML)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T09:36:29.723Z",
+      "crawledAt": "2026-11-19T21:21:11.256Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -337,8 +340,9 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T09:36:29.723Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-10T21:21:11.256Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.crr-suva.ch/clinique-readaptation/apprenti-gestionnaire-hotellerie-intendance-2448.html"
     },
     {
       "id": "crr-suva-sion-65098bc91794",
@@ -372,7 +376,7 @@
       "url": "https://www.crr-suva.ch/clinique-readaptation/apprenti-bottier-ere-orthopediste-2446.html",
       "source": "Clinique romande de réadaptation (CRR Suva) Dedicated Parser (Custom HTML)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T09:36:29.254Z",
+      "crawledAt": "2026-11-19T21:21:10.787Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -421,8 +425,9 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T09:36:29.254Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-10T21:21:10.787Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.crr-suva.ch/clinique-readaptation/apprenti-bottier-ere-orthopediste-2446.html"
     },
     {
       "id": "crr-suva-sion-6dedf67d2c82",
@@ -455,7 +460,7 @@
       "url": "https://www.crr-suva.ch/clinique-readaptation/apprenti-assistant-soins-sante-communautaire-2447.html",
       "source": "Clinique romande de réadaptation (CRR Suva) Dedicated Parser (Custom HTML)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T09:36:28.598Z",
+      "crawledAt": "2026-11-19T21:21:10.306Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -504,8 +509,9 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T09:36:28.598Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-10T21:21:10.306Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.crr-suva.ch/clinique-readaptation/apprenti-assistant-soins-sante-communautaire-2447.html"
     }
   ]
 }

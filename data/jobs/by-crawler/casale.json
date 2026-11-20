@@ -1,7 +1,7 @@
 {
   "crawlerKey": "casale",
-  "assembledAt": "2026-11-19T10:25:59.749Z",
-  "runId": "44492967364",
+  "assembledAt": "2026-11-19T21:19:33.481Z",
+  "runId": "44615185527",
   "jobs": [
     {
       "url": "https://recruit.casale.ch/o/process-engineer-recently-graduated",
@@ -51,10 +51,10 @@
         "location": "Lugano"
       },
       "firstSeenAt": "2026-11-11T21:15:11.220Z",
-      "crawledAt": "2026-11-19T10:25:54.165Z",
+      "crawledAt": "2026-11-19T21:19:30.460Z",
       "crawledAtSource": "slice-writer",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T10:25:54.165Z",
+      "validThrough": "2027-02-09T21:19:30.460Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 58000,
       "salaryMax": 88000,
@@ -69,7 +69,8 @@
           "maxValue": 88000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://recruit.casale.ch/o/process-engineer-recently-graduated"
     },
     {
       "url": "https://recruit.casale.ch/o/senior-estimating-engineer",
@@ -119,10 +120,10 @@
         "location": "Lugano"
       },
       "firstSeenAt": "2026-10-09T09:16:20.980Z",
-      "crawledAt": "2026-11-19T10:25:54.165Z",
+      "crawledAt": "2026-11-19T21:19:30.460Z",
       "crawledAtSource": "slice-writer",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-07T10:25:54.165Z",
+      "validThrough": "2027-01-07T21:19:30.460Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 79500,
       "salaryMax": 120500,
@@ -137,7 +138,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://recruit.casale.ch/o/senior-estimating-engineer"
     }
   ]
 }

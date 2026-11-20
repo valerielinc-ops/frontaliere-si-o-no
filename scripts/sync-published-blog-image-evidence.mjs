@@ -8,8 +8,11 @@ import { pathToFileURL } from 'node:url';
 
 import { ARTICLES_API_BASE } from './lib/articles-api-base.mjs';
 import { validatePublishedBlogImageEvidence } from './lib/published-blog-image-evidence.mjs';
+import { validateGeneratedImageRegistry } from '../packages/articles/engine/shared/generatedImageRegistry.mjs';
 
 const BLOG_CREDITS_ARTIFACT = 'data/image-credits-blog.json';
+const BLOG_REGISTRY_PATH = path.join('data', 'blog-generated-image-registry.json');
+const SHARED_REGISTRY_PATH = path.join('data', 'generated-image-registry.json');
 const SNAPSHOT_PATH = path.join('data', 'og-published-blog-generated-image-evidence.json');
 
 function isRecord(value) {
@@ -68,8 +71,36 @@ export async function syncPublishedBlogImageEvidence({
     throw new Error(`${BLOG_CREDITS_ARTIFACT} does not match the manifest-pinned blog image evidence contract`);
   }
 
+  const registryPath = path.join(root, BLOG_REGISTRY_PATH);
+  let legacyVisionRegistry = null;
+  if (fs.existsSync(registryPath)) {
+    legacyVisionRegistry = JSON.parse(fs.readFileSync(registryPath, 'utf8'));
+    const registryValidation = validateGeneratedImageRegistry(legacyVisionRegistry, {
+      scope: 'article-hero',
+      allowLegacyVision: true,
+    });
+    if (!registryValidation.valid) {
+      throw new Error(`${BLOG_REGISTRY_PATH} is invalid: ${registryValidation.errors.join('; ')}`);
+    }
+  }
+  const sharedRegistryPath = path.join(root, SHARED_REGISTRY_PATH);
+  let sharedVisionRegistry = null;
+  if (fs.existsSync(sharedRegistryPath)) {
+    sharedVisionRegistry = JSON.parse(fs.readFileSync(sharedRegistryPath, 'utf8'));
+    const registryValidation = validateGeneratedImageRegistry(sharedVisionRegistry, { allowLegacyVision: true });
+    if (!registryValidation.valid) {
+      throw new Error(`${SHARED_REGISTRY_PATH} is invalid: ${registryValidation.errors.join('; ')}`);
+    }
+  }
+
   for (const [imageUrl, record] of Object.entries(credits.generated)) {
-    const validation = validatePublishedBlogImageEvidence(imageUrl, record);
+    const validation = validatePublishedBlogImageEvidence(imageUrl, record, {
+      legacyVisionRegistry,
+      legacyVisionRegistries: {
+        'article-hero': legacyVisionRegistry,
+        place: sharedVisionRegistry,
+      },
+    });
     if (!validation.valid) {
       throw new Error(`${BLOG_CREDITS_ARTIFACT} has invalid evidence for ${imageUrl}: ${validation.errors.join('; ')}`);
     }

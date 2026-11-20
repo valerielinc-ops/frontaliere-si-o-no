@@ -1,7 +1,7 @@
 {
   "crawlerKey": "kulm-hotel",
-  "assembledAt": "2026-11-19T09:28:37.741Z",
-  "runId": "44494103455",
+  "assembledAt": "2026-11-19T21:32:01.381Z",
+  "runId": "44616450517",
   "jobs": [
     {
       "id": "kulm-hotel-0d43a765b99f",
@@ -34,7 +34,7 @@
       "url": "https://careers.kulm.com/en/vacancies/696",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:28:30.861Z",
+      "crawledAt": "2026-11-19T21:31:54.665Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -104,7 +104,7 @@
       },
       "streetAddress": "St. Moritz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:28:30.861Z",
+      "validThrough": "2026-12-28T21:31:54.665Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -138,7 +138,7 @@
       "url": "https://careers.kulm.com/en/vacancies/749",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:28:30.651Z",
+      "crawledAt": "2026-11-19T21:31:54.449Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -177,7 +177,7 @@
       },
       "streetAddress": "St. Moritz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-12T09:28:30.651Z",
+      "validThrough": "2027-02-11T21:31:54.449Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -211,7 +211,7 @@
       "url": "https://careers.kulm.com/en/vacancies/745",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:28:29.705Z",
+      "crawledAt": "2026-11-19T21:31:53.437Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -277,7 +277,7 @@
       },
       "streetAddress": "St. Moritz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T09:28:29.705Z",
+      "validThrough": "2027-02-07T21:31:53.437Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -311,7 +311,7 @@
       "url": "https://careers.kulm.com/en/vacancies/680",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:28:28.746Z",
+      "crawledAt": "2026-11-19T21:31:52.435Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -361,7 +361,7 @@
       },
       "streetAddress": "Pontresina",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:28:28.746Z",
+      "validThrough": "2026-12-23T21:31:52.435Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -395,7 +395,7 @@
       "url": "https://careers.kulm.com/en/vacancies/679",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:28:27.793Z",
+      "crawledAt": "2026-11-19T21:31:51.425Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -490,7 +490,7 @@
       },
       "streetAddress": "Pontresina",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:28:27.793Z",
+      "validThrough": "2026-12-19T21:31:51.425Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -524,7 +524,7 @@
       "url": "https://careers.kulm.com/en/vacancies/735",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:28:26.849Z",
+      "crawledAt": "2026-11-19T21:31:50.412Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -582,16 +582,16 @@
       },
       "streetAddress": "St. Moritz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T09:28:26.849Z",
+      "validThrough": "2027-02-07T21:31:50.412Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "kulm-hotel-aa5db20879d6",
       "slug": "chef-de-partie-gardemanger-m-w-d-kulm-hotel-st-moritz",
       "slugByLocale": {
-        "en": "chef-de-partie-gardemanger-m-w-d-kulm-hotel-st-moritz",
         "it": "chef-de-partie-gardemanger-m-w-d-kulm-hotel-st-moritz",
-        "de": "chef-de-partie-gardemanger-m-w-d-kulm-hotel-st-moritz",
+        "en": "chef-de-partie-gardemanger-m-w-d-kulm-hotel-st-moritz",
+        "de": "postenchef-gardemanger-m-w-d-kulm-hotel-st-moritz-pontresina",
         "fr": "chef-de-partie-gardemanger-m-w-d-kulm-hotel-st-moritz"
       },
       "company": "Kulm Hotel St. Moritz",
@@ -599,15 +599,15 @@
       "companyDomain": "kulm.com",
       "title": "Chef de Partie - Gardemanger (m/w/d)",
       "titleByLocale": {
-        "en": "Chef de Partie - Gardemanger (m/w/d)",
         "it": "Chef de Partie - Gardemanger (m/f/d)",
+        "en": "Chef de Partie - Gardemanger (m/w/d)",
         "de": "Postenchef - Gardemanger (m/w/d)",
         "fr": "Chef de Partie - Gardemanger (h/f/d)"
       },
       "description": "Chef de Partie - Gardemanger (m/w/d) — Kulm Hotel St. Moritz (Grand Hotel Kronenhof), Pontresina (Engadin, Graubünden). Workload: 100%. Contract: Saisonstelle / Seasonal. Start: 2026-12-01.\n\nPeople at 1800m above sea level are shaping the Luxury Mountain Travel. Our dynamic and international community offers our guests smart Luxury for an inimitable holiday experience. As a member of the Luxury Kulm Group you are part of the key to our success. Together, we make every stay deeply inspiring, unique and distinctive. And as such, we embrace our culture: understated luxury, inspiration, and a life experience. Together, we make it happen. This is your chance to be a member of our shaping culture: | This is what you move with us: To strengthen our kitchen team, we are looking for a passionate Chef de Partie – Gardemanger who delivers top quality to the plate with passion, precision, and a flair for cold starters, appetizers, salads, terrines, and raw/cured preparations.\n• Section Ownership: You lead the gardemanger section independently, preparing refined cold starters, carpaccios, tartares, salads, terrines, and delicate cold accompaniments to the highest standard (16 GaultMillau points).\n\n• Flawless Mise en Place: You organise your section with structure, precision, and a sharp eye for detail – from handling delicate, fresh seasonal ingredients and dressings to the final, immaculate presentation at the pass during service.\n\n• Creative Input: You actively contribute your own ideas for seasonal cold dishes, modern starter compositions, plating concepts, and contemporary techniques to the kitchen brigade.\n\n• Quality & Efficiency: You ensure a smooth service flow at the gardemanger station—especially during high-demand starter and buffet/all-day peaks—and maintain exemplary hygiene and HACCP standards at all times.\n\n• Team Spirit & Mentorship: You provide inspiring leadership to Commis de Cuisine and apprentices on your section, fostering a respectful and encouraging work environment. | This is you:\n• Solid Foundation: Completed professional chef training and several years of experience in fine dining or luxury gastronomy, ideally with specific exposure to the gardemanger station.\n\n• Passion for Produce: Deep knowledge of fresh seasonal ingredients, raw and cured preparations (such as tartares and carpaccios), delicate dressings, and refined plating, paired with a strong commitment to premium quality and aesthetics.\n\n• Precision under Pressure: A calm demeanor, composure, and sharp focus, even during peak starter rushes when timing and visual perfection are critical.\n\n• Personality: High personal standards of quality, a true team-player mindset, resilience, and a genuine passion for high-end gastronomy.\n\n• Languages: Must-Have: Italian. Ideally, good knowledge of English or German. | Benefits: At Kulm Group, our employees are the heart of our success. We offer attractive development opportunities, comfortable accommodations, affordable meals in the staff restaurant, and numerous perks.",
       "descriptionByLocale": {
-        "en": "Chef de Partie - Gardemanger (m/w/d) — Kulm Hotel St. Moritz (Grand Hotel Kronenhof), Pontresina (Engadin, Graubünden). Workload: 100%. Contract: Saisonstelle / Seasonal. Start: 2026-12-01.\n\nPeople at 1800m above sea level are shaping the Luxury Mountain Travel. Our dynamic and international community offers our guests smart Luxury for an inimitable holiday experience. As a member of the Luxury Kulm Group you are part of the key to our success. Together, we make every stay deeply inspiring, unique and distinctive. And as such, we embrace our culture: understated luxury, inspiration, and a life experience. Together, we make it happen. This is your chance to be a member of our shaping culture: | This is what you move with us: To strengthen our kitchen team, we are looking for a passionate Chef de Partie – Gardemanger who delivers top quality to the plate with passion, precision, and a flair for cold starters, appetizers, salads, terrines, and raw/cured preparations.\n• Section Ownership: You lead the gardemanger section independently, preparing refined cold starters, carpaccios, tartares, salads, terrines, and delicate cold accompaniments to the highest standard (16 GaultMillau points).\n\n• Flawless Mise en Place: You organise your section with structure, precision, and a sharp eye for detail – from handling delicate, fresh seasonal ingredients and dressings to the final, immaculate presentation at the pass during service.\n\n• Creative Input: You actively contribute your own ideas for seasonal cold dishes, modern starter compositions, plating concepts, and contemporary techniques to the kitchen brigade.\n\n• Quality & Efficiency: You ensure a smooth service flow at the gardemanger station—especially during high-demand starter and buffet/all-day peaks—and maintain exemplary hygiene and HACCP standards at all times.\n\n• Team Spirit & Mentorship: You provide inspiring leadership to Commis de Cuisine and apprentices on your section, fostering a respectful and encouraging work environment. | This is you:\n• Solid Foundation: Completed professional chef training and several years of experience in fine dining or luxury gastronomy, ideally with specific exposure to the gardemanger station.\n\n• Passion for Produce: Deep knowledge of fresh seasonal ingredients, raw and cured preparations (such as tartares and carpaccios), delicate dressings, and refined plating, paired with a strong commitment to premium quality and aesthetics.\n\n• Precision under Pressure: A calm demeanor, composure, and sharp focus, even during peak starter rushes when timing and visual perfection are critical.\n\n• Personality: High personal standards of quality, a true team-player mindset, resilience, and a genuine passion for high-end gastronomy.\n\n• Languages: Must-Have: Italian. Ideally, good knowledge of English or German. | Benefits: At Kulm Group, our employees are the heart of our success. We offer attractive development opportunities, comfortable accommodations, affordable meals in the staff restaurant, and numerous perks.",
         "it": "Chef de Partie - Gardemanger (m/f/d) — Kulm Hotel St. Moritz (Grand Hotel Kronenhof), Pontresina (Engadin, Grigioni). Carico di lavoro: 100%. Contratto: Saisonstelle / Seasonal. Inizio: 2026-12-01.\n\nLe persone a 1800m sul livello del mare stanno modellando il Luxury Mountain Travel. La nostra comunità dinamica e internazionale offre ai nostri ospiti smart Luxury per un'esperienza di vacanza inimitabile. Come membro del gruppo Luxury Kulm fai parte della chiave del nostro successo. Insieme, rendiamo ogni soggiorno profondamente ispiratore, unico e distintivo. E come tale, abbracciamo la nostra cultura: lusso sobrio, ispirazione e un'esperienza di vita. Insieme, facciamo in modo che accada. Questa è la tua occasione per essere un membro della nostra cultura di modellazione: | Questo è quello che ti muovi con noi: per rafforzare il nostro team di cucina, stiamo cercando un appassionato Chef de Partie – Gardemanger che offre la massima qualità al piatto con passione, precisione e un tocco per antipasti freddi, antipasti, insalate, terrine e preparazioni crude/curate.\n• ProprietÃ Sezione: Si guida la sezione gardemanger in modo indipendente, preparando raffinati antipasti freddi, carpaccio, tartare, insalate, terrine e delicati accompagnamenti freddi al piÃ1 alto standard (16 punti GaultMillau).\n\n• Flawless Mise en Place: organizzi la tua sezione con struttura, precisione e un occhio tagliente per i dettagli – dalla manipolazione di ingredienti freschi e delicati alla presentazione finale e immacolata al passaggio durante il servizio.\n\n• Creative Input: Contribuisci attivamente le tue idee per piatti freddi stagionali, composizioni di antipasto moderne, concetti di placcatura e tecniche contemporanee alla brigata di cucina.\n\n• Qualità & Efficienza: Garantisci un flusso di servizio fluido presso la stazione gardemanger, soprattutto durante i picchi di avviamento e buffet/tutti i giorni, e mantieni sempre gli standard di igiene e HACCP esemplari.\n\n• Team Spirit & Mentorship: Tu fornisci una guida stimolante alla Commis de Cuisine e agli apprendisti sulla tua sezione, promuovendo un ambiente di lavoro rispettoso e incoraggiante. # Questo sei tu:\n• Solid Foundation: Completata la formazione professionale di chef e diversi anni di esperienza nella gastronomia fine o di lusso, idealmente con esposizione specifica alla stazione gardemanger.\n\n• Passione per la produzione: profonda conoscenza di ingredienti freschi di stagione, preparazioni crude e curate (come tartares e carpaccios), condimenti delicati e raffinati placcatura, abbinati ad un forte impegno per la qualità e l'estetica premium.\n\n• Precisione sotto pressione: un demeanore calmo, la compostezza e la messa a fuoco acuta, anche durante l'avviamento di picco si precipita quando la tempistica e la perfezione visiva sono critici.\n\n• Personalità: elevati standard personali di qualità, un vero e proprio team-player mindset, resilienza e una vera passione per la gastronomia di fascia alta.\n\n• Lingue: Italiano. Idealmente, buona conoscenza dell'inglese o del tedesco. A Kulm Group, i nostri dipendenti sono il cuore del nostro successo. Offriamo interessanti opportunità di sviluppo, sistemazioni confortevoli, pasti convenienti nel ristorante del personale, e numerosi vantaggi.",
+        "en": "Chef de Partie - Gardemanger (m/w/d) — Kulm Hotel St. Moritz (Grand Hotel Kronenhof), Pontresina (Engadin, Graubünden). Workload: 100%. Contract: Saisonstelle / Seasonal. Start: 2026-12-01.\n\nPeople at 1800m above sea level are shaping the Luxury Mountain Travel. Our dynamic and international community offers our guests smart Luxury for an inimitable holiday experience. As a member of the Luxury Kulm Group you are part of the key to our success. Together, we make every stay deeply inspiring, unique and distinctive. And as such, we embrace our culture: understated luxury, inspiration, and a life experience. Together, we make it happen. This is your chance to be a member of our shaping culture: | This is what you move with us: To strengthen our kitchen team, we are looking for a passionate Chef de Partie – Gardemanger who delivers top quality to the plate with passion, precision, and a flair for cold starters, appetizers, salads, terrines, and raw/cured preparations.\n• Section Ownership: You lead the gardemanger section independently, preparing refined cold starters, carpaccios, tartares, salads, terrines, and delicate cold accompaniments to the highest standard (16 GaultMillau points).\n\n• Flawless Mise en Place: You organise your section with structure, precision, and a sharp eye for detail – from handling delicate, fresh seasonal ingredients and dressings to the final, immaculate presentation at the pass during service.\n\n• Creative Input: You actively contribute your own ideas for seasonal cold dishes, modern starter compositions, plating concepts, and contemporary techniques to the kitchen brigade.\n\n• Quality & Efficiency: You ensure a smooth service flow at the gardemanger station—especially during high-demand starter and buffet/all-day peaks—and maintain exemplary hygiene and HACCP standards at all times.\n\n• Team Spirit & Mentorship: You provide inspiring leadership to Commis de Cuisine and apprentices on your section, fostering a respectful and encouraging work environment. | This is you:\n• Solid Foundation: Completed professional chef training and several years of experience in fine dining or luxury gastronomy, ideally with specific exposure to the gardemanger station.\n\n• Passion for Produce: Deep knowledge of fresh seasonal ingredients, raw and cured preparations (such as tartares and carpaccios), delicate dressings, and refined plating, paired with a strong commitment to premium quality and aesthetics.\n\n• Precision under Pressure: A calm demeanor, composure, and sharp focus, even during peak starter rushes when timing and visual perfection are critical.\n\n• Personality: High personal standards of quality, a true team-player mindset, resilience, and a genuine passion for high-end gastronomy.\n\n• Languages: Must-Have: Italian. Ideally, good knowledge of English or German. | Benefits: At Kulm Group, our employees are the heart of our success. We offer attractive development opportunities, comfortable accommodations, affordable meals in the staff restaurant, and numerous perks.",
         "de": "Chef de Partie — Gardemanger (m/w/d) — Kulm Hotel St. Moritz (Grand Hotel Kronenhof), Pontresina (Engadin, Graubünden). Arbeitsbelastung: 100%. Vertrag: Saisonstelle / Saisonal. Beginn: 2026-12-01.\n\nMenschen auf 1800m Höhe prägen das Luxury Mountain Travel. Unsere dynamische und internationale Gemeinschaft bietet unseren Gästen smarten Luxus für ein unnachahmliches Urlaubserlebnis. Als Mitglied der Luxury Kulm Group sind Sie Teil des Schlüssels zu unserem Erfolg. Gemeinsam machen wir jeden Aufenthalt zutiefst inspirierend, einzigartig und unverwechselbar. Und als solche nehmen wir unsere Kultur an: dezenten Luxus, Inspiration und eine Lebenserfahrung. Gemeinsam machen wir es möglich. Dies ist Ihre Chance, ein Mitglied unserer gestaltenden Kultur zu sein: | Das ist es, was Sie mit uns bewegen: Um unser Küchenteam zu stärken, suchen wir einen leidenschaftlichen Chef de Partie – Gardemanger, der mit Leidenschaft, Präzision und einem Flair für Kaltstarter, Vorspeisen, Salate, Terrinen und rohe / ausgehärtete Zubereitungen Spitzenqualität auf den Teller liefert.\n• Sektionsbesitz: Sie führen die Gardemanger-Sektion unabhängig voneinander und bereiten raffinierte Kaltstarter, Carpaccios, Tartare, Salate, Terrinen und zarte Kältebegleitung auf höchstem Niveau vor (16 GaultMillau-Punkte).\n\n• Makellose Mise en Place: Sie organisieren Ihre Sektion mit Struktur, Präzision und einem scharfen Auge fürs Detail – vom Umgang mit empfindlichen, frischen saisonalen Zutaten und Dressings bis zur endgültigen, makellosen Präsentation am Pass während des Service.\n\n• Kreativer Input: Sie bringen aktiv Ihre eigenen Ideen für saisonales kaltes Geschirr, moderne Starterkompositionen, Plattierkonzepte und zeitgenössische Techniken in die Küchenbrigade ein.\n\n• Qualität & Effizienz: Sie sorgen für einen reibungslosen Servicefluss an der Gardemanger-Station – insbesondere bei anspruchsvollen Starter- und Buffet-/Ganztagsspitzen – und halten jederzeit vorbildliche Hygiene- und HACCP-Standards ein.\n\n• Team Spirit & Mentorship: Sie bieten eine inspirierende Führung für Commis de Cuisine und Auszubildende in Ihrer Sektion und fördern ein respektvolles und ermutigendes Arbeitsumfeld. | Das sind Sie:\n• Solide Grundlage: Abgeschlossene professionelle Kochausbildung und mehrjährige Erfahrung in der gehobenen Gastronomie oder Luxus-Gastronomie, idealerweise mit spezifischer Exposition gegenüber der Gardemanger-Station.\n\n• Leidenschaft für Produkte: Tiefes Wissen über frische saisonale Zutaten, rohe und ausgehärtete Zubereitungen (wie Zahnsteine und Carpaccios), zarte Dressings und raffinierte Beschichtung, gepaart mit einem starken Engagement für Premium-Qualität und Ästhetik.\n\n• Präzision unter Druck: Ein ruhiges Verhalten, Gelassenheit und scharfer Fokus, auch während der Spitzenstarter, wenn Timing und visuelle Perfektion entscheidend sind.\n\n• Persönlichkeit: Hohe persönliche Qualitätsstandards, eine echte Teamplayer-Mentalität, Widerstandsfähigkeit und eine echte Leidenschaft für High-End-Gastronomie.\n\n• Sprachen: Must-Have: Italienisch. Idealerweise gute Englisch- oder Deutschkenntnisse. | Benefits: Bei der Kulm Group stehen unsere Mitarbeiter im Mittelpunkt unseres Erfolgs. Wir bieten attraktive Entwicklungsmöglichkeiten, komfortable Unterkünfte, erschwingliche Mahlzeiten im Personalrestaurant und zahlreiche Vergünstigungen.",
         "fr": "Chef de Partie - Gardemanger (h/f/d) — Kulm Hotel St. Moritz (Grand Hôtel Kronenhof), Pontresina (Engadin, Graubünden). Charge de travail: 100%. Contrat: Saisonnelle. Début: 2026-12-01.\n\nLes gens à 1800m d'altitude façonnent le Luxury Mountain Travel. Notre communauté dynamique et internationale offre à nos clients un luxe intelligent pour une expérience de vacances inimitable. En tant que membre du groupe Luxury Kulm, vous faites partie de la clé de notre succès. Ensemble, nous rendons chaque séjour profondément inspirant, unique et distinctif. Et en tant que tel, nous acceptons notre culture: luxe sous-estimé, inspiration et expérience de vie. Ensemble, nous y parvenons. C'est votre chance d'être membre de notre culture de façonnage: C'est ce que vous emménagez avec nous: Pour renforcer notre équipe de cuisine, nous recherchons un Chef de Partie passionné – Gardemanger qui livre la meilleure qualité à l'assiette avec passion, précision, et un flair pour les entrées froides, apéritifs, salades, terrines, et les préparations crues/currées.\n• Section Propriété: Vous dirigez la section gardemanger de façon indépendante, préparant des entrées froides raffinées, des carpaccios, des tartares, des salades, des terrines et des accompagnements froids délicats au plus haut niveau (16 points GaultMillau).\n\n• Mise en Place: Vous organisez votre section avec structure, précision et un œil pointu pour les détails – de la manipulation délicate, frais ingrédients de saison et des vinaigrettes à la présentation finale, immaculée au passage pendant le service.\n\n• Input Creative: Vous apportez activement vos propres idées pour les plats froids saisonniers, les compositions de départ modernes, les concepts de placage et les techniques contemporaines à la brigade de cuisine.\n\n• Qualité et efficacité: Vous assurez un flux de service en douceur à la station gardemanger, en particulier pendant le démarrage à forte demande et les pics buffet/toute la journée, et maintenez des normes d'hygiène et HACCP exemplaires en tout temps.\n\n• Team Spirit & Mentorship: Vous donnez un leadership inspirant à Commis de Cuisine et aux apprentis sur votre section, favorisant un environnement de travail respectueux et encourageant. Autres C'est vous:\n• Solid Foundation: Formation de chef professionnel terminée et plusieurs années d'expérience dans la gastronomie fine ou de luxe, idéalement avec une exposition spécifique à la station gardemanger.\n\n• Passion for Produce: Connaissance approfondie des ingrédients frais de saison, des préparations crues et cuites (tartares et carpaccios), des pansements délicats, et du plat raffiné, jumelé à un engagement fort pour la qualité et l'esthétique de qualité.\n\n• Précision sous pression: Un comportement calme, un calme et une nette concentration, même pendant les rushs de pointe lorsque le timing et la perfection visuelle sont critiques.\n\n• Personnalité: Des normes personnelles élevées de qualité, un véritable esprit d'équipe, la résilience et une véritable passion pour la gastronomie haut de gamme.\n\n• Langues: Must-Have: Italien. Idéalement, bonne connaissance de l'anglais ou de l'allemand. Avantages: Chez Kulm Group, nos employés sont au cœur de notre succès. Nous offrons des possibilités de développement attrayantes, des logements confortables, des repas abordables dans le restaurant du personnel, et de nombreux avantages."
       },
@@ -616,7 +616,7 @@
       "url": "https://careers.kulm.com/en/vacancies/751",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:28:25.888Z",
+      "crawledAt": "2026-11-19T21:31:49.402Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -636,12 +636,19 @@
       "jobStartDate": "2026-12-01T00:00:00.000000Z",
       "applyUrl": "https://careers.kulm.com/en/vacancies/751",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
+      "requirementsByLocale": {},
       "department": "Grand Hotel Kronenhof",
       "pensum": "100%",
+      "previousSlugs": [
+        "chef-de-partie-gardemanger-m-w-d-kulm-hotel-st-moritz"
+      ],
+      "previousSlugsByLocale": {
+        "de": [
+          "chef-de-partie-gardemanger-m-w-d-kulm-hotel-st-moritz"
+        ]
+      },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-23T23:46:07.964Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -657,9 +664,8 @@
       },
       "streetAddress": "Pontresina",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:28:25.888Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-23T23:46:07.964Z"
+      "validThrough": "2026-12-23T21:31:49.402Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kulm-hotel-435470f943ce",
@@ -692,7 +698,7 @@
       "url": "https://careers.kulm.com/en/vacancies/742",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:28:24.921Z",
+      "crawledAt": "2026-11-19T21:31:48.368Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -758,7 +764,7 @@
       },
       "streetAddress": "St. Moritz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T09:28:24.921Z",
+      "validThrough": "2027-02-07T21:31:48.368Z",
       "validThroughSource": "last-observed-window"
     }
   ]
