@@ -2,18 +2,6 @@
   "schemaVersion": 1,
   "posted": [
     {
-      "id": "hantavirus-svizzera-frontalieri-2026",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/hantavirus-svizzera-frontalieri-2026/",
-      "ts": "2026-05-07T12:40:37.150Z",
-      "seed": true
-    },
-    {
-      "id": "cedu-condanna-svizzera-diritti-manifestante",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/cedu-condanna-svizzera-diritti-manifestante/",
-      "ts": "2026-05-07T12:54:30.656Z",
-      "seed": true
-    },
-    {
       "id": "autista-stellato-fabio-giorgianni-premio",
       "url": "https://frontaliereticino.ch/articoli-frontaliere/autista-stellato-fabio-giorgianni-premio/",
       "ts": "2026-05-07T13:07:41.448Z",
@@ -6363,6 +6351,40 @@
       "copyAngleIntent": "both",
       "copyHook": "Mobilità oltreconfine: una domanda precisa per leggere meglio la guida.",
       "copyCta": "Consulta la guida."
+    },
+    {
+      "id": "a2-rodi-lavori-finiti",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/a2-rodi-lavori-finiti/",
+      "ts": "2026-11-20T21:18:42.880Z",
+      "fbPostId": "951226518080080_122131945371272498",
+      "copyMode": "codex",
+      "copySlot": "article",
+      "copyPromptVersion": "frontaliere-social-copy-v5",
+      "copyPackId": "e1e656e043e06845",
+      "copyTemplateId": "fb-article-context",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "contesto-chiaro",
+      "copyPillarId": "vita-oltreconfine",
+      "copyAngleIntent": "searchable",
+      "copyHook": "Lavoro oltreconfine: il contesto da inquadrare prima di scegliere.",
+      "copyCta": "Approfondisci il tema."
+    },
+    {
+      "id": "bollettino-frontaliere-2026-11-20",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/bollettino-frontaliere-2026-11-20/",
+      "ts": "2026-11-20T21:18:55.687Z",
+      "fbPostId": "951226518080080_122131945449272498",
+      "copyMode": "codex",
+      "copySlot": "article",
+      "copyPromptVersion": "frontaliere-social-copy-v5",
+      "copyPackId": "e1e656e043e06845",
+      "copyTemplateId": "fb-article-practical",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "passo-pratico",
+      "copyPillarId": "opportunita-concrete",
+      "copyAngleIntent": "both",
+      "copyHook": "Redditi esteri: un passaggio pratico da verificare nella guida.",
+      "copyCta": "Leggi l'approfondimento."
     }
   ]
 }
