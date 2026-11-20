@@ -1,0 +1,25 @@
+{
+  "companyKey": "alfreduniversity",
+  "companyName": "Alfred University",
+  "companyHost": "alfreduniversity.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://alfreduniversity.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 35,
+  "sampleTitles": [
+    "Assistant Athletic Trainer",
+    "Assistant Dean of Students for Reslife/Wellness",
+    "Assistant Director of Accessibility Services",
+    "Assistant Professor of Electronic Art & Time Based Media",
+    "AUNY School Counseling Field PLacement Coordinator"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-20T14:51:29.476Z",
+  "candidateKey": "alfreduniversity@applytojob.com"
+}

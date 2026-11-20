@@ -1,0 +1,25 @@
+{
+  "companyKey": "ahbl",
+  "companyName": "AHBL, Inc.",
+  "companyHost": "ahbl.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://ahbl.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 10,
+  "sampleTitles": [
+    "Civil Project Engineer",
+    "Civil Project Engineer - Entry-Level",
+    "Intern - Civil Engineering",
+    "Intern - Civil Engineering",
+    "Intern - Structural Engineering"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-20T14:51:23.853Z",
+  "candidateKey": "ahbl@applytojob.com"
+}

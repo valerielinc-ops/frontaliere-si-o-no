@@ -1,0 +1,27 @@
+{
+  "companyKey": "itskanal-ch",
+  "companyName": "ITS Kanal Services AG",
+  "companyHost": "itskanal.softgarden.io",
+  "verifiedEmployerDomain": "itskanal.ch",
+  "platform": "softgarden.io",
+  "mode": "template",
+  "seedUrls": [
+    "https://itskanal.softgarden.io/de/vacancies"
+  ],
+  "detailTemplate": "/job/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 9,
+  "sampleTitles": [
+    "Facharbeiter Inspektion (m/w/d) 100%",
+    "Kaufmännische Sachbearbeitung Telefonzentrale (m/w/d) – Job Sharing je 50%",
+    "Umwelttechnologe für Rohrleitungsnetze und Industrieanlagen (m/w/d)",
+    "Facharbeiter Kanalunterhalt (m/w)",
+    "Chauffeur/Maschinist (m/w/d) 100%"
+  ],
+  "canton": "OW",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-20T15:03:52.763Z",
+  "candidateKey": "its-kanal-services@kagiswil"
+}

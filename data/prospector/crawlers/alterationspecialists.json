@@ -1,0 +1,25 @@
+{
+  "companyKey": "alterationspecialists",
+  "companyName": "alts",
+  "companyHost": "alterationspecialists.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://alterationspecialists.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 12,
+  "sampleTitles": [
+    "Studio Area Manager",
+    "Studio Experience Manager",
+    "Studio Experience Manager (Greenwich, CT)",
+    "Studio Experience Manager (Roslyn, LI)",
+    "Fitter/Tailor"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-20T14:51:33.692Z",
+  "candidateKey": "alterationspecialists@applytojob.com"
+}

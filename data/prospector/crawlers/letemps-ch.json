@@ -1,0 +1,27 @@
+{
+  "companyKey": "letemps-ch",
+  "companyName": "Le Temps SA",
+  "companyHost": "letemps.ch",
+  "verifiedEmployerDomain": "letemps.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.letemps.ch/emploi"
+  ],
+  "detailTemplate": "/emploi/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 6,
+  "sampleTitles": [
+    "Chef de projet F/H (100%) - (CDD 6 mois)",
+    "Professeur-e ordinaire ou associé-e, médecin-chef-fe du Service d’addictologie",
+    "Chief Commercial Officer (CCO)",
+    "Rector",
+    "Professeur-e associé-e ou assistant-e avec prétitularisation conditionnelle dans le domaine «Neurosciences affectives»"
+  ],
+  "canton": "GE",
+  "sourceLang": "fr",
+  "learnedAt": "2026-11-20T14:54:05.592Z",
+  "candidateKey": "le-temps@geneve"
+}

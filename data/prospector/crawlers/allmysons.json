@@ -1,0 +1,25 @@
+{
+  "companyKey": "allmysons",
+  "companyName": "All My Sons Moving & Storage",
+  "companyHost": "allmysons.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://allmysons.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 233,
+  "sampleTitles": [
+    "Lead Mover & Driver (Non-CDL)",
+    "Mover / Helper",
+    "Mover / Helper",
+    "Lead Mover & Driver (Non-CDL)",
+    "Lead Mover & Driver (Non-CDL)"
+  ],
+  "sourceLang": "it",
+  "learnedAt": "2026-11-20T14:51:30.892Z",
+  "candidateKey": "allmysons@applytojob.com"
+}

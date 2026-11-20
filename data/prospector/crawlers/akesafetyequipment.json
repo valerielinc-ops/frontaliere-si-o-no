@@ -1,0 +1,25 @@
+{
+  "companyKey": "akesafetyequipment",
+  "companyName": "AKE Safety Equipment",
+  "companyHost": "akesafetyequipment.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://akesafetyequipment.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 22,
+  "sampleTitles": [
+    "Agriculture Outside Sales Representative",
+    "Agriculture Outside Sales Representative",
+    "Agriculture Outside Sales Representative",
+    "Agriculture Outside Sales Representative",
+    "Agriculture Outside Sales Representative"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-20T14:51:26.666Z",
+  "candidateKey": "akesafetyequipment@applytojob.com"
+}

@@ -1,0 +1,25 @@
+{
+  "companyKey": "groli-ch",
+  "companyName": "Grolimund AG Muri",
+  "companyHost": "yousty.ch",
+  "verifiedEmployerDomain": "groli.ch",
+  "platform": "yousty.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.yousty.ch/de-CH/lehrstellen/berufe/bau/1113-sanitaerinstallateur-in-efz"
+  ],
+  "detailTemplate": "/de-CH/lehrstellen/berufe/bau/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Sanitärinstallateur/in EFZ",
+    "Lüftungsanlagenbauer/in EFZ",
+    "Entwässerungstechnologe/-login EFZ"
+  ],
+  "canton": "AG",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-20T15:03:55.004Z",
+  "candidateKey": "grolimund-muri@muri-ag"
+}

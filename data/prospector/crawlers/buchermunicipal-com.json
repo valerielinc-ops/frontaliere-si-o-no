@@ -1,0 +1,27 @@
+{
+  "companyKey": "buchermunicipal-com",
+  "companyName": "Bucher Municipal AG",
+  "companyHost": "buchermunicipal.com",
+  "verifiedEmployerDomain": "buchermunicipal.com",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.buchermunicipal.com/fr/fr/carriere/postes-vacants"
+  ],
+  "detailTemplate": "/fr/fr/jobs/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 6,
+  "sampleTitles": [
+    "View Job",
+    "View Job",
+    "View Job",
+    "View Job",
+    "View Job"
+  ],
+  "canton": "ZH",
+  "sourceLang": "fr",
+  "learnedAt": "2026-11-20T15:03:45.087Z",
+  "candidateKey": "bucher-municipal@niederweningen"
+}

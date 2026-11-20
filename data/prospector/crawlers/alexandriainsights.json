@@ -1,0 +1,25 @@
+{
+  "companyKey": "alexandriainsights",
+  "companyName": "Alexandria Insights",
+  "companyHost": "alexandriainsights.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://alexandriainsights.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 19,
+  "sampleTitles": [
+    "Acquisition Program Analyst",
+    "Acquisition Program Analyst",
+    "CAAT Evaluation Engineer",
+    "Configuration Management Analyst",
+    "Data Manager"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-20T14:51:28.067Z",
+  "candidateKey": "alexandriainsights@applytojob.com"
+}

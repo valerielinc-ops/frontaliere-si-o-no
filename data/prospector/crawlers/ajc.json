@@ -1,0 +1,25 @@
+{
+  "companyKey": "ajc",
+  "companyName": "Alistair James Company Ltd",
+  "companyHost": "ajc.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://ajc.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 9,
+  "sampleTitles": [
+    "Auto Electrician",
+    "Candidate Fleet Controller",
+    "Driver (Heavy Duty/ Cross Border) - Zambia",
+    "Expats: Regional Managers / Country Directors",
+    "Head of Finance"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-20T14:51:25.268Z",
+  "candidateKey": "ajc@applytojob.com"
+}

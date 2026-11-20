@@ -1,0 +1,27 @@
+{
+  "companyKey": "bueetzer24-ch",
+  "companyName": "Büetzer24 AG",
+  "companyHost": "bueetzer24.ch",
+  "verifiedEmployerDomain": "bueetzer24.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.bueetzer24.ch/job-angebote"
+  ],
+  "detailTemplate": "/job-offers/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 51,
+  "sampleTitles": [
+    "mehr erfahren",
+    "mehr erfahren",
+    "mehr erfahren",
+    "mehr erfahren",
+    "mehr erfahren"
+  ],
+  "canton": "ZG",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-20T15:03:37.870Z",
+  "candidateKey": "buetzer24@cham"
+}

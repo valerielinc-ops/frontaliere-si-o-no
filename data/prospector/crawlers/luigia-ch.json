@@ -1,0 +1,27 @@
+{
+  "companyKey": "luigia-ch",
+  "companyName": "Restaurant Luigia",
+  "companyHost": "jobs.luigia.ch",
+  "verifiedEmployerDomain": "luigia.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://jobs.luigia.ch/"
+  ],
+  "detailTemplate": "/jobs/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 10,
+  "sampleTitles": [
+    "CHEF DE RANG FRIBOURG",
+    "CHEF DE PARTIE SENIOR GENÈVE",
+    "CHEF DE PARTIE LAUSANNE",
+    "HOSTESS / GASTGEBERIN EMPFANG & SERVICE BASEL",
+    "CHEF/FE DE RANG BASEL"
+  ],
+  "canton": "VD",
+  "sourceLang": "it",
+  "learnedAt": "2026-11-20T14:58:49.776Z",
+  "candidateKey": "restaurant-luigia@lausanne"
+}

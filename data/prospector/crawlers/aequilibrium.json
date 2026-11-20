@@ -1,0 +1,25 @@
+{
+  "companyKey": "aequilibrium",
+  "companyName": "Aequilibrium Software Inc.",
+  "companyHost": "aequilibrium.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://aequilibrium.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 7,
+  "sampleTitles": [
+    "Head of Technology and AI",
+    "Senior Product Designer — Digital Banking & Financial Services (Canada only)",
+    "Senior Software Development Engineer in Test (SDET) – Digital Banking",
+    "Senior Solution Architect – AWS / .NET / Angular / React",
+    "Principal Banking Technology & Solution Architect (Canada only)"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-20T14:51:22.446Z",
+  "candidateKey": "aequilibrium@applytojob.com"
+}

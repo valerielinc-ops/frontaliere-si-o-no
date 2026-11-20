@@ -1,0 +1,25 @@
+{
+  "companyKey": "alluvionic",
+  "companyName": "Alluvionic",
+  "companyHost": "alluvionic.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://alluvionic.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 39,
+  "sampleTitles": [
+    "Acquisition Management Support I/Administration Assistant",
+    "Acquisition Management Support II/Acquisition Specialist",
+    "Acquisition Management Support II/III",
+    "Acquisition Management Support III/Contract Administrator",
+    "Administrative Manager"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-20T14:51:32.288Z",
+  "candidateKey": "alluvionic@applytojob.com"
+}
