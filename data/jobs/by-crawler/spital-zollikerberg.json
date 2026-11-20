@@ -85,7 +85,8 @@
       "streetAddress": "Zollikerberg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T09:26:22.609Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://stiftdia.pi-asp.de/bewerber-web?company=1-firma-id&tenant=&lang=ds"
     },
     {
       "id": "spital-zollikerberg-c5ff26275f9e",
@@ -169,7 +170,8 @@
       "streetAddress": "Zollikerberg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T09:26:22.608Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://stiftdia.pi-asp.de/bewerber-web?company=1-firma-id&tenant=&lang=ds"
     },
     {
       "id": "spital-zollikerberg-4eb0240c89fa",
@@ -253,7 +255,8 @@
       "streetAddress": "Zollikerberg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T09:26:22.607Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://stiftdia.pi-asp.de/bewerber-web?company=1-firma-id&tenant=&lang=ds"
     },
     {
       "id": "spital-zollikerberg-ab73b2e90355",
@@ -324,7 +327,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-18T09:26:22.606Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T09:26:22.606Z",
+      "firstSeenAt": "2026-11-19T21:14:47.272Z",
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-pool-im-stundenlohn-auf-abruf-spital-zollikerberg",
@@ -345,7 +348,8 @@
         "dipl-nursing-professional-dipl-nursing-professional-pool-on-demand-spital-zollikerberg-zollikerberg",
         "dipl-professionnels-des-soins-infirmiers-dipl-pool-professionnel-de-soins-infirmiers-sur-demande-spital-zollikerberg"
       ],
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "sourceIdentity": "url:https://stiftdia.pi-asp.de/bewerber-web?company=1-firma-id&tenant=&lang=ds"
     },
     {
       "id": "spital-zollikerberg-9d35597e2872",
@@ -416,7 +420,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-18T09:26:22.604Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T09:26:22.604Z",
+      "firstSeenAt": "2026-11-19T21:14:47.271Z",
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-gesundheit-pool-in-festanstellung-spital-zollikerberg-zollikerberg",
@@ -437,7 +441,8 @@
         "professional-professional-health-pool-in-permanent-employment-spital-zollikerberg-zollikerberg",
         "pool-de-sante-professionnelle-en-emploi-permanent-spital-zollikerberg-zollikerberg"
       ],
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "sourceIdentity": "url:https://stiftdia.pi-asp.de/bewerber-web?company=1-firma-id&tenant=&lang=ds"
     },
     {
       "id": "spital-zollikerberg-c97dbc2d0c51",
@@ -508,7 +513,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-18T09:26:22.602Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T09:26:22.602Z",
+      "firstSeenAt": "2026-11-19T21:14:47.270Z",
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-gesundheit-pool-im-stundenlohn-auf-abruf-spital-zollikerberg",
@@ -529,7 +534,8 @@
         "professional-professional-health-pool-on-demand-spital-zollikerberg-zollikerberg",
         "pool-de-sante-professionnelle-sur-demande-spital-zollikerberg-zollikerberg"
       ],
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "sourceIdentity": "url:https://stiftdia.pi-asp.de/bewerber-web?company=1-firma-id&tenant=&lang=ds"
     },
     {
       "id": "spital-zollikerberg-2f24cdf665e5",
@@ -614,7 +620,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T09:29:28.847Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "sourceIdentity": "url:https://stiftdia.pi-asp.de/bewerber-web?company=1-firma-id&tenant=&lang=ds"
     },
     {
       "id": "spital-zollikerberg-4d919148d9a8",
@@ -699,7 +706,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T09:29:28.846Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "sourceIdentity": "url:https://stiftdia.pi-asp.de/bewerber-web?company=1-firma-id&tenant=&lang=ds"
     },
     {
       "id": "spital-zollikerberg-138901ba3bca",
@@ -784,7 +792,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T09:29:28.844Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "sourceIdentity": "url:https://stiftdia.pi-asp.de/bewerber-web?company=1-firma-id&tenant=&lang=ds"
     }
   ]
 }
