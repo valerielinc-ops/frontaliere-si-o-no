@@ -13741,6 +13741,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-11-20.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
     'blog.article.bollettino-frontaliere-2026-11-20.seoDescription': 'Bulletin frontalier 20 novembre 2026 : attentes aux douanes, prix du carburant, taux CHF/EUR et offres d\'emploi actives en Suisse.',
     'blog.article.bollettino-frontaliere-2026-11-20.ogDescription': 'Les chiffres du 20 novembre 2026 pour les frontaliers : attentes aux douanes, communes où le carburant coûte le moins cher, dernier taux CHF/EUR et offres d\'emploi actives sur notre job board suisse au quotidien.',
+    'blog.article.a2-rodi-lavori-finiti.title': 'A2 à Rodi : travaux terminés, tronçon libre',
+    'blog.article.a2-rodi-lavori-finiti.excerpt': 'L’Office fédéral des routes OFROU annonce la fin des travaux sur l’A2 à Rodi.',
+    'blog.article.a2-rodi-lavori-finiti.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaFr;
