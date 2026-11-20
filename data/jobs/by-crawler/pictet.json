@@ -1,7 +1,7 @@
 {
   "crawlerKey": "pictet",
-  "assembledAt": "2026-11-20T09:34:46.393Z",
-  "runId": "44708797488",
+  "assembledAt": "2026-11-20T22:08:50.014Z",
+  "runId": "44818504377",
   "jobs": [
     {
       "id": "pictet-6df8c48915f2",
@@ -86,7 +86,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T09:33:53.884Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navbarlevel=job_search&career_job_req_id=125344&selected_lang=en_gb"
+      "sourceIdentity": "url:https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navbarlevel=job_search&career_job_req_id=125344&selected_lang=en_gb",
+      "crawlerMissStreak": 1
     },
     {
       "id": "pictet-3cfad35b3890",
@@ -171,7 +172,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-11T09:33:53.261Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navbarlevel=job_search&career_job_req_id=125373&selected_lang=en_gb"
+      "sourceIdentity": "url:https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navbarlevel=job_search&career_job_req_id=125373&selected_lang=en_gb",
+      "crawlerMissStreak": 1
     },
     {
       "id": "pictet-995a3cdb8b7e",
@@ -204,7 +206,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125290&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T09:33:52.670Z",
+      "crawledAt": "2026-11-20T22:08:15.811Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -254,7 +256,7 @@
       "postalCode": "1204",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-12T09:33:52.670Z",
+      "validThrough": "2027-02-11T22:08:15.811Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navbarlevel=job_search&career_job_req_id=125290&selected_lang=en_gb"
     },
@@ -289,7 +291,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125282&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T09:33:50.269Z",
+      "crawledAt": "2026-11-20T22:08:13.774Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -341,7 +343,7 @@
       "postalCode": "8001",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T09:33:50.269Z",
+      "validThrough": "2027-01-20T22:08:13.774Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navbarlevel=job_search&career_job_req_id=125282&selected_lang=en_gb"
     },
@@ -376,7 +378,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125286&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T09:33:49.040Z",
+      "crawledAt": "2026-11-20T22:08:12.763Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -426,7 +428,7 @@
       "postalCode": "1204",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-17T09:33:49.040Z",
+      "validThrough": "2027-02-16T22:08:12.763Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navbarlevel=job_search&career_job_req_id=125286&selected_lang=en_gb"
     },
@@ -461,7 +463,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125404&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T09:33:47.778Z",
+      "crawledAt": "2026-11-20T22:08:12.264Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -496,7 +498,7 @@
       "postalCode": "1204",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T09:33:47.778Z",
+      "validThrough": "2027-02-17T22:08:12.264Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-19T09:33:55.291Z",
       "previousSlugsByLocale": {
@@ -586,6 +588,152 @@
       "validThroughSource": "last-observed-window",
       "crawlerMissStreak": 2,
       "sourceIdentity": "url:https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navbarlevel=job_search&career_job_req_id=125332&selected_lang=en_gb"
+    },
+    {
+      "id": "pictet-bf6643606eee",
+      "slug": "head-of-data-foundations-pictet-geneva",
+      "slugByLocale": {
+        "en": "head-of-data-foundations-pictet-geneva",
+        "it": "head-of-data-foundations-pictet-geneva",
+        "de": "head-of-data-foundations-pictet-geneva",
+        "fr": "head-of-data-foundations-pictet-geneva"
+      },
+      "company": "Pictet Group",
+      "companyKey": "pictet",
+      "companyDomain": "pictet.com",
+      "title": "Head of Data Foundations",
+      "titleByLocale": {
+        "en": "Head of Data Foundations",
+        "it": "Responsabile Data Foundations",
+        "de": "Leiter Data Foundations",
+        "fr": "Responsable Data Foundations"
+      },
+      "description": "Your team\n\nPictet Tech designs, builds, and operates the technology that underpins the Group’s core activities, from portfolio management and trading to banking services. Within Data Platforms , our ambition is to build a modern, resilient, and scalable data foundation across the Group. We are transforming our technology landscape by combining cloud and on-premise strengths, modernizing how data is stored, processed, integrated, and distributed, and raising engineering standards across all domains.\nAs a member of the management team, you will lead around 15 engineers operating and evolving our database, messaging, event streaming and data integration platforms, helping turn complex challenges into secure, reliable, and high-performing capabilities that enable teams to deliver faster and with greater confidence.\n\nYour role\n\n• Lead a team of around 15 engineers: performance evaluations, continuous feedback, professional growth and career progression.\n\n• Ensure the availability, resilience and security of critical data and integration platforms, balancing run and change.\n\n• Drive the team’s transformation towards the cloud, replacing manual operations with automation and self-service.\n\n• Define the platform roadmap with product teams and architecture, building a culture of customer feedback.\n\n• Mentor engineers towards modern platform engineering and SRE practices.\n\n• Contribute to recruitment and foster a positive, collaborative environment that supports engineers through change.\n\nYour profile\n\n• At least 4 years of IT engineering experience and first experience in a leadership role.\n\n• Solid background in data platforms or application integration (databases, messaging and event streaming, data integration), ideally in critical, regulated environments.\n\n• Experience in operational excellence (incident management, resilience) and in leading a team through a transformation such as a cloud migration.\n\n• Demonstrated expertise in platform engineering best practices: end-to-end responsibility, customer-centricity, automation.\n\n• Ability to facilitate technical and architectural discussions on complex systems and data flows.\n\n• Strong understanding of cloud technologies and the software development lifecycle.\n\n• Excellent communication and stakeholder management skills.\n\n• Fluent in French and English.\n\n• Swiss resident or willingness to relocate.\n\nRef. HDF/CRO/LC\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
+      "descriptionByLocale": {
+        "en": "Your team\n\nPictet Tech designs, builds, and operates the technology that underpins the Group’s core activities, from portfolio management and trading to banking services. Within Data Platforms , our ambition is to build a modern, resilient, and scalable data foundation across the Group. We are transforming our technology landscape by combining cloud and on-premise strengths, modernizing how data is stored, processed, integrated, and distributed, and raising engineering standards across all domains.\nAs a member of the management team, you will lead around 15 engineers operating and evolving our database, messaging, event streaming and data integration platforms, helping turn complex challenges into secure, reliable, and high-performing capabilities that enable teams to deliver faster and with greater confidence.\n\nYour role\n\n• Lead a team of around 15 engineers: performance evaluations, continuous feedback, professional growth and career progression.\n\n• Ensure the availability, resilience and security of critical data and integration platforms, balancing run and change.\n\n• Drive the team’s transformation towards the cloud, replacing manual operations with automation and self-service.\n\n• Define the platform roadmap with product teams and architecture, building a culture of customer feedback.\n\n• Mentor engineers towards modern platform engineering and SRE practices.\n\n• Contribute to recruitment and foster a positive, collaborative environment that supports engineers through change.\n\nYour profile\n\n• At least 4 years of IT engineering experience and first experience in a leadership role.\n\n• Solid background in data platforms or application integration (databases, messaging and event streaming, data integration), ideally in critical, regulated environments.\n\n• Experience in operational excellence (incident management, resilience) and in leading a team through a transformation such as a cloud migration.\n\n• Demonstrated expertise in platform engineering best practices: end-to-end responsibility, customer-centricity, automation.\n\n• Ability to facilitate technical and architectural discussions on complex systems and data flows.\n\n• Strong understanding of cloud technologies and the software development lifecycle.\n\n• Excellent communication and stakeholder management skills.\n\n• Fluent in French and English.\n\n• Swiss resident or willingness to relocate.\n\nRef. HDF/CRO/LC\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
+        "it": "Your team\n\nPictet Tech designs, builds, and operates the technology that underpins the Group’s core activities, from portfolio management and trading to banking services. Within Data Platforms , our ambition is to build a modern, resilient, and scalable data foundation across the Group. We are transforming our technology landscape by combining cloud and on-premise strengths, modernizing how data is stored, processed, integrated, and distributed, and raising engineering standards across all domains.\nAs a member of the management team, you will lead around 15 engineers operating and evolving our database, messaging, event streaming and data integration platforms, helping turn complex challenges into secure, reliable, and high-performing capabilities that enable teams to deliver faster and with greater confidence.\n\nYour role\n\n• Lead a team of around 15 engineers: performance evaluations, continuous feedback, professional growth and career progression.\n\n• Ensure the availability, resilience and security of critical data and integration platforms, balancing run and change.\n\n• Drive the team’s transformation towards the cloud, replacing manual operations with automation and self-service.\n\n• Define the platform roadmap with product teams and architecture, building a culture of customer feedback.\n\n• Mentor engineers towards modern platform engineering and SRE practices.\n\n• Contribute to recruitment and foster a positive, collaborative environment that supports engineers through change.\n\nYour profile\n\n• At least 4 years of IT engineering experience and first experience in a leadership role.\n\n• Solid background in data platforms or application integration (databases, messaging and event streaming, data integration), ideally in critical, regulated environments.\n\n• Experience in operational excellence (incident management, resilience) and in leading a team through a transformation such as a cloud migration.\n\n• Demonstrated expertise in platform engineering best practices: end-to-end responsibility, customer-centricity, automation.\n\n• Ability to facilitate technical and architectural discussions on complex systems and data flows.\n\n• Strong understanding of cloud technologies and the software development lifecycle.\n\n• Excellent communication and stakeholder management skills.\n\n• Fluent in French and English.\n\n• Swiss resident or willingness to relocate.\n\nRef. HDF/CRO/LC\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
+        "de": "Your team\n\nPictet Tech designs, builds, and operates the technology that underpins the Group’s core activities, from portfolio management and trading to banking services. Within Data Platforms , our ambition is to build a modern, resilient, and scalable data foundation across the Group. We are transforming our technology landscape by combining cloud and on-premise strengths, modernizing how data is stored, processed, integrated, and distributed, and raising engineering standards across all domains.\nAs a member of the management team, you will lead around 15 engineers operating and evolving our database, messaging, event streaming and data integration platforms, helping turn complex challenges into secure, reliable, and high-performing capabilities that enable teams to deliver faster and with greater confidence.\n\nYour role\n\n• Lead a team of around 15 engineers: performance evaluations, continuous feedback, professional growth and career progression.\n\n• Ensure the availability, resilience and security of critical data and integration platforms, balancing run and change.\n\n• Drive the team’s transformation towards the cloud, replacing manual operations with automation and self-service.\n\n• Define the platform roadmap with product teams and architecture, building a culture of customer feedback.\n\n• Mentor engineers towards modern platform engineering and SRE practices.\n\n• Contribute to recruitment and foster a positive, collaborative environment that supports engineers through change.\n\nYour profile\n\n• At least 4 years of IT engineering experience and first experience in a leadership role.\n\n• Solid background in data platforms or application integration (databases, messaging and event streaming, data integration), ideally in critical, regulated environments.\n\n• Experience in operational excellence (incident management, resilience) and in leading a team through a transformation such as a cloud migration.\n\n• Demonstrated expertise in platform engineering best practices: end-to-end responsibility, customer-centricity, automation.\n\n• Ability to facilitate technical and architectural discussions on complex systems and data flows.\n\n• Strong understanding of cloud technologies and the software development lifecycle.\n\n• Excellent communication and stakeholder management skills.\n\n• Fluent in French and English.\n\n• Swiss resident or willingness to relocate.\n\nRef. HDF/CRO/LC\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
+        "fr": "Your team\n\nPictet Tech designs, builds, and operates the technology that underpins the Group’s core activities, from portfolio management and trading to banking services. Within Data Platforms , our ambition is to build a modern, resilient, and scalable data foundation across the Group. We are transforming our technology landscape by combining cloud and on-premise strengths, modernizing how data is stored, processed, integrated, and distributed, and raising engineering standards across all domains.\nAs a member of the management team, you will lead around 15 engineers operating and evolving our database, messaging, event streaming and data integration platforms, helping turn complex challenges into secure, reliable, and high-performing capabilities that enable teams to deliver faster and with greater confidence.\n\nYour role\n\n• Lead a team of around 15 engineers: performance evaluations, continuous feedback, professional growth and career progression.\n\n• Ensure the availability, resilience and security of critical data and integration platforms, balancing run and change.\n\n• Drive the team’s transformation towards the cloud, replacing manual operations with automation and self-service.\n\n• Define the platform roadmap with product teams and architecture, building a culture of customer feedback.\n\n• Mentor engineers towards modern platform engineering and SRE practices.\n\n• Contribute to recruitment and foster a positive, collaborative environment that supports engineers through change.\n\nYour profile\n\n• At least 4 years of IT engineering experience and first experience in a leadership role.\n\n• Solid background in data platforms or application integration (databases, messaging and event streaming, data integration), ideally in critical, regulated environments.\n\n• Experience in operational excellence (incident management, resilience) and in leading a team through a transformation such as a cloud migration.\n\n• Demonstrated expertise in platform engineering best practices: end-to-end responsibility, customer-centricity, automation.\n\n• Ability to facilitate technical and architectural discussions on complex systems and data flows.\n\n• Strong understanding of cloud technologies and the software development lifecycle.\n\n• Excellent communication and stakeholder management skills.\n\n• Fluent in French and English.\n\n• Swiss resident or willingness to relocate.\n\nRef. HDF/CRO/LC\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below"
+      },
+      "location": "Geneva",
+      "canton": "GE",
+      "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125421&selected_lang=en_GB",
+      "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-20T22:08:11.754Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Finanza / Banca privata",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125421&selected_lang=en_GB",
+      "jobReqId": "125421",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 97500,
+      "salaryMax": 165500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 97500,
+          "maxValue": 165500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-18T22:08:11.754Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-20T22:08:11.754Z"
+    },
+    {
+      "id": "pictet-545cccef89c0",
+      "slug": "client-relationship-officer-europe-international-iberia-team-pictet-geneva",
+      "slugByLocale": {
+        "en": "client-relationship-officer-europe-international-iberia-team-pictet-geneva",
+        "it": "client-relationship-officer-europe-international-iberia-team-pictet-geneva",
+        "de": "client-relationship-officer-europe-international-iberia-team-pictet-geneva",
+        "fr": "client-relationship-officer-europe-international-iberia-team-pictet-geneva"
+      },
+      "company": "Pictet Group",
+      "companyKey": "pictet",
+      "companyDomain": "pictet.com",
+      "title": "Client Relationship Officer - Europe International - Iberia Team",
+      "titleByLocale": {
+        "en": "Client Relationship Officer - Europe International - Iberia Team",
+        "it": "Client Relationship Officer - Europe International - Iberia Team",
+        "de": "Client Relationship Officer - Europe International - Iberia Team",
+        "fr": "Client Relationship Officer - Europe International - Iberia Team"
+      },
+      "description": "Your team\n\nPictet Wealth Management combines more than 200 years of Swiss banking heritage with global investment expertise. The Partner-owned financial services group offers a comprehensive service for wealthy individuals and families, including discretionary and advisory investment solutions, and family office services.\nThe Client Relationship Officer will be responsible for all operational dimensions of daily banking activities with the aim to deliver a world-class client experience by ensuring front operational excellence.\n\nYour role\n\n• Be the point of entry for all operational requests from bankers or clients\n• Lead the end-to-end account opening process taking into consideration the local regulatory specificities that drive the documentation requirements\n• Ensure a strict follow up of documentation (pendings, middle office, R&C lists) by contacting clients in coordination with banker in lead of the relation\n• Manage documentation flows (archiving and processing physical and electronic forms)\n• Lead KYC information gathering where required and update complementary documents in the systems when needed\n• Process workflow requests in the systems (client codifications, credit card requests, credit lines, pricing exceptions, etc.) and ensure relevant client documentation is captured in the systems (memos, orders, etc.)\n• Close coordination with the zone’s Business Risk Manager to resolve any risk & compliance matters\n• Lead and organize the prioritization and remediation of Key Risk Indicator within the team\n• Adhere to all existing policies and directives and support the implementation of new ones where needed\n• Process payments and transfers while ensuring call backs are systematically performed and support for other transactional activity where needed\n• Build a close relationship and understanding of the relevant internal stakeholders (Voyages, Middle Office, R&C, etc.) and be their point of contact for the team\n• Ensure telephone call coverage is in place in the team\n• Support administrative tasks where required\n\nYour profile\n\n• Bachelor's degree or similar relevant qualification\n• Minimum 3 years of experience in a similar function\n• Fluent in Spanish and English (French is a plus)\n• Excellent communication and presentation skills, both written and oral\n• Service orientated, with experience and understanding of dealing with private clients and supporting relationship managers\n• Understand client documentation and internal processes of a wealth manager\n• Familiarity with regulatory dimensions (cross-border, R&C, PEP, FATCA, CRS etc)\n• Meticulous attention to detail, ensuring a high level of accuracy in all client, documentation and transactional matters\n• Able to work independently and diligently\n• High resilience to stress and ability to perform under pressure while maintaining accuracy and professionalism\n• Solutions-oriented and proactive mindset\n• Strong team spirit\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
+      "descriptionByLocale": {
+        "en": "Your team\n\nPictet Wealth Management combines more than 200 years of Swiss banking heritage with global investment expertise. The Partner-owned financial services group offers a comprehensive service for wealthy individuals and families, including discretionary and advisory investment solutions, and family office services.\nThe Client Relationship Officer will be responsible for all operational dimensions of daily banking activities with the aim to deliver a world-class client experience by ensuring front operational excellence.\n\nYour role\n\n• Be the point of entry for all operational requests from bankers or clients\n• Lead the end-to-end account opening process taking into consideration the local regulatory specificities that drive the documentation requirements\n• Ensure a strict follow up of documentation (pendings, middle office, R&C lists) by contacting clients in coordination with banker in lead of the relation\n• Manage documentation flows (archiving and processing physical and electronic forms)\n• Lead KYC information gathering where required and update complementary documents in the systems when needed\n• Process workflow requests in the systems (client codifications, credit card requests, credit lines, pricing exceptions, etc.) and ensure relevant client documentation is captured in the systems (memos, orders, etc.)\n• Close coordination with the zone’s Business Risk Manager to resolve any risk & compliance matters\n• Lead and organize the prioritization and remediation of Key Risk Indicator within the team\n• Adhere to all existing policies and directives and support the implementation of new ones where needed\n• Process payments and transfers while ensuring call backs are systematically performed and support for other transactional activity where needed\n• Build a close relationship and understanding of the relevant internal stakeholders (Voyages, Middle Office, R&C, etc.) and be their point of contact for the team\n• Ensure telephone call coverage is in place in the team\n• Support administrative tasks where required\n\nYour profile\n\n• Bachelor's degree or similar relevant qualification\n• Minimum 3 years of experience in a similar function\n• Fluent in Spanish and English (French is a plus)\n• Excellent communication and presentation skills, both written and oral\n• Service orientated, with experience and understanding of dealing with private clients and supporting relationship managers\n• Understand client documentation and internal processes of a wealth manager\n• Familiarity with regulatory dimensions (cross-border, R&C, PEP, FATCA, CRS etc)\n• Meticulous attention to detail, ensuring a high level of accuracy in all client, documentation and transactional matters\n• Able to work independently and diligently\n• High resilience to stress and ability to perform under pressure while maintaining accuracy and professionalism\n• Solutions-oriented and proactive mindset\n• Strong team spirit\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
+        "it": "Your team\n\nPictet Wealth Management combines more than 200 years of Swiss banking heritage with global investment expertise. The Partner-owned financial services group offers a comprehensive service for wealthy individuals and families, including discretionary and advisory investment solutions, and family office services.\nThe Client Relationship Officer will be responsible for all operational dimensions of daily banking activities with the aim to deliver a world-class client experience by ensuring front operational excellence.\n\nYour role\n\n• Be the point of entry for all operational requests from bankers or clients\n• Lead the end-to-end account opening process taking into consideration the local regulatory specificities that drive the documentation requirements\n• Ensure a strict follow up of documentation (pendings, middle office, R&C lists) by contacting clients in coordination with banker in lead of the relation\n• Manage documentation flows (archiving and processing physical and electronic forms)\n• Lead KYC information gathering where required and update complementary documents in the systems when needed\n• Process workflow requests in the systems (client codifications, credit card requests, credit lines, pricing exceptions, etc.) and ensure relevant client documentation is captured in the systems (memos, orders, etc.)\n• Close coordination with the zone’s Business Risk Manager to resolve any risk & compliance matters\n• Lead and organize the prioritization and remediation of Key Risk Indicator within the team\n• Adhere to all existing policies and directives and support the implementation of new ones where needed\n• Process payments and transfers while ensuring call backs are systematically performed and support for other transactional activity where needed\n• Build a close relationship and understanding of the relevant internal stakeholders (Voyages, Middle Office, R&C, etc.) and be their point of contact for the team\n• Ensure telephone call coverage is in place in the team\n• Support administrative tasks where required\n\nYour profile\n\n• Bachelor's degree or similar relevant qualification\n• Minimum 3 years of experience in a similar function\n• Fluent in Spanish and English (French is a plus)\n• Excellent communication and presentation skills, both written and oral\n• Service orientated, with experience and understanding of dealing with private clients and supporting relationship managers\n• Understand client documentation and internal processes of a wealth manager\n• Familiarity with regulatory dimensions (cross-border, R&C, PEP, FATCA, CRS etc)\n• Meticulous attention to detail, ensuring a high level of accuracy in all client, documentation and transactional matters\n• Able to work independently and diligently\n• High resilience to stress and ability to perform under pressure while maintaining accuracy and professionalism\n• Solutions-oriented and proactive mindset\n• Strong team spirit\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
+        "de": "Your team\n\nPictet Wealth Management combines more than 200 years of Swiss banking heritage with global investment expertise. The Partner-owned financial services group offers a comprehensive service for wealthy individuals and families, including discretionary and advisory investment solutions, and family office services.\nThe Client Relationship Officer will be responsible for all operational dimensions of daily banking activities with the aim to deliver a world-class client experience by ensuring front operational excellence.\n\nYour role\n\n• Be the point of entry for all operational requests from bankers or clients\n• Lead the end-to-end account opening process taking into consideration the local regulatory specificities that drive the documentation requirements\n• Ensure a strict follow up of documentation (pendings, middle office, R&C lists) by contacting clients in coordination with banker in lead of the relation\n• Manage documentation flows (archiving and processing physical and electronic forms)\n• Lead KYC information gathering where required and update complementary documents in the systems when needed\n• Process workflow requests in the systems (client codifications, credit card requests, credit lines, pricing exceptions, etc.) and ensure relevant client documentation is captured in the systems (memos, orders, etc.)\n• Close coordination with the zone’s Business Risk Manager to resolve any risk & compliance matters\n• Lead and organize the prioritization and remediation of Key Risk Indicator within the team\n• Adhere to all existing policies and directives and support the implementation of new ones where needed\n• Process payments and transfers while ensuring call backs are systematically performed and support for other transactional activity where needed\n• Build a close relationship and understanding of the relevant internal stakeholders (Voyages, Middle Office, R&C, etc.) and be their point of contact for the team\n• Ensure telephone call coverage is in place in the team\n• Support administrative tasks where required\n\nYour profile\n\n• Bachelor's degree or similar relevant qualification\n• Minimum 3 years of experience in a similar function\n• Fluent in Spanish and English (French is a plus)\n• Excellent communication and presentation skills, both written and oral\n• Service orientated, with experience and understanding of dealing with private clients and supporting relationship managers\n• Understand client documentation and internal processes of a wealth manager\n• Familiarity with regulatory dimensions (cross-border, R&C, PEP, FATCA, CRS etc)\n• Meticulous attention to detail, ensuring a high level of accuracy in all client, documentation and transactional matters\n• Able to work independently and diligently\n• High resilience to stress and ability to perform under pressure while maintaining accuracy and professionalism\n• Solutions-oriented and proactive mindset\n• Strong team spirit\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
+        "fr": "Your team\n\nPictet Wealth Management combines more than 200 years of Swiss banking heritage with global investment expertise. The Partner-owned financial services group offers a comprehensive service for wealthy individuals and families, including discretionary and advisory investment solutions, and family office services.\nThe Client Relationship Officer will be responsible for all operational dimensions of daily banking activities with the aim to deliver a world-class client experience by ensuring front operational excellence.\n\nYour role\n\n• Be the point of entry for all operational requests from bankers or clients\n• Lead the end-to-end account opening process taking into consideration the local regulatory specificities that drive the documentation requirements\n• Ensure a strict follow up of documentation (pendings, middle office, R&C lists) by contacting clients in coordination with banker in lead of the relation\n• Manage documentation flows (archiving and processing physical and electronic forms)\n• Lead KYC information gathering where required and update complementary documents in the systems when needed\n• Process workflow requests in the systems (client codifications, credit card requests, credit lines, pricing exceptions, etc.) and ensure relevant client documentation is captured in the systems (memos, orders, etc.)\n• Close coordination with the zone’s Business Risk Manager to resolve any risk & compliance matters\n• Lead and organize the prioritization and remediation of Key Risk Indicator within the team\n• Adhere to all existing policies and directives and support the implementation of new ones where needed\n• Process payments and transfers while ensuring call backs are systematically performed and support for other transactional activity where needed\n• Build a close relationship and understanding of the relevant internal stakeholders (Voyages, Middle Office, R&C, etc.) and be their point of contact for the team\n• Ensure telephone call coverage is in place in the team\n• Support administrative tasks where required\n\nYour profile\n\n• Bachelor's degree or similar relevant qualification\n• Minimum 3 years of experience in a similar function\n• Fluent in Spanish and English (French is a plus)\n• Excellent communication and presentation skills, both written and oral\n• Service orientated, with experience and understanding of dealing with private clients and supporting relationship managers\n• Understand client documentation and internal processes of a wealth manager\n• Familiarity with regulatory dimensions (cross-border, R&C, PEP, FATCA, CRS etc)\n• Meticulous attention to detail, ensuring a high level of accuracy in all client, documentation and transactional matters\n• Able to work independently and diligently\n• High resilience to stress and ability to perform under pressure while maintaining accuracy and professionalism\n• Solutions-oriented and proactive mindset\n• Strong team spirit\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below"
+      },
+      "location": "Geneva",
+      "canton": "GE",
+      "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125354&selected_lang=en_GB",
+      "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-20T22:08:10.785Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Finanza",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Finanza / Banca privata",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125354&selected_lang=en_GB",
+      "jobReqId": "125354",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 104500,
+      "salaryMax": 183500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 104500,
+          "maxValue": 183500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-18T22:08:10.785Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-20T22:08:10.785Z"
     }
   ]
 }

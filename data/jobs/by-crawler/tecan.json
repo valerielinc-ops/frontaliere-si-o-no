@@ -1,7 +1,7 @@
 {
   "crawlerKey": "tecan",
-  "assembledAt": "2026-11-20T09:37:12.968Z",
-  "runId": "44708797488",
+  "assembledAt": "2026-11-20T22:07:53.937Z",
+  "runId": "44818504377",
   "jobs": [
     {
       "id": "tecan-1b7454aad96c",
@@ -34,7 +34,7 @@
       "url": "https://careers.tecan.com/job/M%C3%A4nnedorf-Service-Team-Leader-Switzerland-&-Austria/1434115733/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T09:37:01.366Z",
+      "crawledAt": "2026-11-20T22:07:42.354Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -77,7 +77,7 @@
       },
       "streetAddress": "Männedorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-01T09:37:01.366Z",
+      "validThrough": "2027-01-01T22:07:42.354Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://careers.tecan.com/job/m%c3%a4nnedorf-service-team-leader-switzerland-&-austria/1434115733"
     },
@@ -113,7 +113,7 @@
       "url": "https://careers.tecan.com/job/M%C3%A4nnedorf-Internal-Communication-Trainee/1442940033/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T09:37:02.019Z",
+      "crawledAt": "2026-11-20T22:07:44.043Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -156,7 +156,7 @@
       },
       "streetAddress": "Männedorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:37:02.019Z",
+      "validThrough": "2026-12-29T22:07:44.043Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://careers.tecan.com/job/m%c3%a4nnedorf-internal-communication-trainee/1442940033"
     },
@@ -191,7 +191,7 @@
       "url": "https://careers.tecan.com/job/M%C3%A4nnedorf-Supply-Manager-Operations/1434868433/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:37:02.817Z",
+      "crawledAt": "2026-11-20T22:07:42.999Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -257,7 +257,7 @@
       },
       "streetAddress": "Männedorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:37:02.817Z",
+      "validThrough": "2026-12-20T22:07:42.999Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://careers.tecan.com/job/m%c3%a4nnedorf-supply-manager-operations/1434868433"
     },
@@ -292,7 +292,7 @@
       "url": "https://careers.tecan.com/job/M%C3%A4nnedorf-Manufacturing-Engineer/1437075333/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:36:59.687Z",
+      "crawledAt": "2026-11-20T22:07:43.507Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -338,7 +338,7 @@
       },
       "streetAddress": "Männedorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:36:59.687Z",
+      "validThrough": "2026-12-20T22:07:43.507Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://careers.tecan.com/job/m%c3%a4nnedorf-manufacturing-engineer/1437075333"
     },
@@ -436,7 +436,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T09:37:03.691Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://careers.tecan.com/job/m%c3%a4nnedorf-production-engineer/1393509133"
+      "sourceIdentity": "url:https://careers.tecan.com/job/m%c3%a4nnedorf-production-engineer/1393509133",
+      "crawlerMissStreak": 1
     },
     {
       "id": "tecan-598ee663de71",
@@ -470,7 +471,7 @@
       "url": "https://careers.tecan.com/job/M%C3%A4nnedorf-Head-of-Investors-Relations/1453849833/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T09:37:00.472Z",
+      "crawledAt": "2026-11-20T22:07:45.055Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -519,7 +520,7 @@
       },
       "streetAddress": "Männedorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:37:00.472Z",
+      "validThrough": "2027-02-01T22:07:45.055Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://careers.tecan.com/job/m%c3%a4nnedorf-head-of-investors-relations/1453849833"
     },
@@ -555,7 +556,7 @@
       "url": "https://careers.tecan.com/job/M%C3%A4nnedorf-Technical-Writer/1226895301/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T09:37:04.467Z",
+      "crawledAt": "2026-11-20T22:07:44.555Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -626,7 +627,7 @@
       },
       "streetAddress": "Männedorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:37:04.467Z",
+      "validThrough": "2026-12-20T22:07:44.555Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://careers.tecan.com/job/m%c3%a4nnedorf-technical-writer/1226895301"
     },
@@ -711,6 +712,158 @@
       "validThroughSource": "last-observed-window",
       "crawlerMissStreak": 1,
       "sourceIdentity": "url:https://careers.tecan.com/job/m%c3%a4nnedorf-ehs-specialist/1428299133"
+    },
+    {
+      "id": "tecan-d8b07d9c8c62",
+      "slug": "production-ingegnere-80-100-befristet-bis-ende-okt-2028-tecan-mannedorf",
+      "slugByLocale": {
+        "en": "production-engineer-80-100-befristet-bis-ende-okt-2028-tecan-mannedorf",
+        "it": "production-ingegnere-80-100-befristet-bis-ende-okt-2028-tecan-mannedorf",
+        "de": "production-engineer-80-100-befristet-bis-ende-okt-2028-tecan-mannedorf",
+        "fr": "production-engineer-80-100-befristet-bis-ende-okt-2028-tecan-mannedorf"
+      },
+      "company": "Tecan",
+      "companyKey": "tecan",
+      "companyDomain": "tecan.com",
+      "title": "Production Engineer (80-100%, Befristet bis Ende Okt. 2028)",
+      "titleByLocale": {
+        "en": "Production Engineer (80-100%, Befristet bis Ende Okt. 2028)",
+        "it": "Production Ingegnere (80-100%, Befristet bis Ende Okt. 2028)",
+        "de": "Production Ingenieur (80-100%, Befristet bis Ende Okt. 2028)",
+        "fr": "Production Ingénieur (80-100%, Befristet bis Ende Okt. 2028)"
+      },
+      "description": "Hast du dich jemals gefragt, wie deine Fähigkeiten und dein einzigartiger Hintergrund die Welt von morgen beeinflussen kann? Werde ein Teil unserer Production Team und setze das Talent und die Leidenschaft, die dich ausmachen, bei uns ein.\n\nProduction Engineer (80-100%, Befristet bis Ende Okt. 2028)\n\nMännedorf, Schweiz\n\nDein Beitrag\n\nIn dieser vielseitigen Rolle tragen Sie die technische Verantwortung für ein Produkteportfolio während dem Lifecycle-Management. Mit Ihrem technischen Verständnis und Leidenschaft für komplexe Systeme sowie dem Drang nach steter Verbesserung tragen Sie massgeblich dazu bei, dass unsere Produkte stets höchsten Kundenansprüchen genügen. Sie stehen als Schnittstelle im Zentrum zwischen der internen/externen Produktion, Forschung & Entwicklung, Beschaffung, Produkt-Management und Qualitätssicherung.\n\n• Technische Betreuung der zugeteilten Produkte von der Freigabe der Nullserie bis zum Phase-out.\n\n• Initiierung und Umsetzung von mechanischen, elektronischen oder Softwareänderungen zusammen mit einem Team von Fachexperten.\n\n• Fehleranalyse und Umsetzung von Verbesserungsmassnahmen\n\n• Planung und Leitung von Prozess Validierungen in unserer Produktion oder bei Lieferanten.\n\n• Entwicklung und Planung der benötigten Produktions- und Prüfmittel\n\n• Prozessbetreuung und -steuerung der zugewiesenen Produktionslinien durch Überwachung der Kennzahlen\n\n• Sicherstellen der Datenqualität im ERP System für eine reibungslose Auftragsabwicklung\n\n• Mitarbeit in LCM-Projekten, um die produktionstechnischen Aspekte einzubringen\n\n• Unterstützung der Qualitätssicherung in technischen Fragen\n\n• Unterstützung des Einkaufs bei technischen Fragen und Aktivitäten mit Lieferanten und Sub-Lieferanten\n\nDein Profil\n\n• Abgeschlossene Ausbildung als Elektroniker:in oder Mechatroniker:in oder Polymechaniker:in idealerweise mit Weiterbildung (z.B. Techniker:in HF oder vergleichbar)\n\n• Mindestens 5 Jahre relevante Berufserfahrung in der Produktion, idealerweise in der Medizintechnik, Bio-Pharma, Automatisierung, Automobil- oder Aviatikindustrie\n\n• Sehr gute Kenntnisse in Produktionstechnik, -gestaltung und Logistik\n\n• Berufserfahrung in der regulierten Medizintechnik-/Bio-Pharma, Automatisierungs-, Automobil- und/oder Aviatik-Industrie\n\n• Erfahrung mit MES- und ERP-Systemen von Vorteil\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n• Nebst fachlicher Expertise sind wir auch auf der Suche nach einer Persönlichkeit, welche durch proaktives Handeln und dem Drang nach stetiger Verbesserung hervorsticht.\n\nWas macht die Arbeit bei Tecan einzigartig?\n\n• Die Chance, etwas zu bewirken und die Welt von morgen mitzugestalten\n\n• Arbeiten in einem internationalen und vielfältigen Umfeld\n\n• Spannende Karrieremöglichkeiten\n\n• Starke und einzigartige Unternehmenskultur\n\n• Attraktive Vergütung und Sozialleistungen\n\nWerde ein Teil von Tecan, zertifiziert als Great Place to Work!  Hier kannst du mehr über unsere Zertifizierung erfahren.  Great Place to Work .\n\nWir freuen uns auf deine Online-Bewerbung. Für deine Bewerbung benötigen wir nur deinen Lebenslauf (ohne Foto und ohne Motivationsschreiben, Zeugnisse und Diplome sind optional).\n\nWir können nur Bewerbungen berücksichtigen, welche unsere Anforderungen erfüllen.",
+      "descriptionByLocale": {
+        "en": "Hast du dich jemals gefragt, wie deine Fähigkeiten und dein einzigartiger Hintergrund die Welt von morgen beeinflussen kann? Werde ein Teil unserer Production Team und setze das Talent und die Leidenschaft, die dich ausmachen, bei uns ein.\n\nProduction Engineer (80-100%, Befristet bis Ende Okt. 2028)\n\nMännedorf, Schweiz\n\nDein Beitrag\n\nIn dieser vielseitigen Rolle tragen Sie die technische Verantwortung für ein Produkteportfolio während dem Lifecycle-Management. Mit Ihrem technischen Verständnis und Leidenschaft für komplexe Systeme sowie dem Drang nach steter Verbesserung tragen Sie massgeblich dazu bei, dass unsere Produkte stets höchsten Kundenansprüchen genügen. Sie stehen als Schnittstelle im Zentrum zwischen der internen/externen Produktion, Forschung & Entwicklung, Beschaffung, Produkt-Management und Qualitätssicherung.\n\n• Technische Betreuung der zugeteilten Produkte von der Freigabe der Nullserie bis zum Phase-out.\n\n• Initiierung und Umsetzung von mechanischen, elektronischen oder Softwareänderungen zusammen mit einem Team von Fachexperten.\n\n• Fehleranalyse und Umsetzung von Verbesserungsmassnahmen\n\n• Planung und Leitung von Prozess Validierungen in unserer Produktion oder bei Lieferanten.\n\n• Entwicklung und Planung der benötigten Produktions- und Prüfmittel\n\n• Prozessbetreuung und -steuerung der zugewiesenen Produktionslinien durch Überwachung der Kennzahlen\n\n• Sicherstellen der Datenqualität im ERP System für eine reibungslose Auftragsabwicklung\n\n• Mitarbeit in LCM-Projekten, um die produktionstechnischen Aspekte einzubringen\n\n• Unterstützung der Qualitätssicherung in technischen Fragen\n\n• Unterstützung des Einkaufs bei technischen Fragen und Aktivitäten mit Lieferanten und Sub-Lieferanten\n\nDein Profil\n\n• Abgeschlossene Ausbildung als Elektroniker:in oder Mechatroniker:in oder Polymechaniker:in idealerweise mit Weiterbildung (z.B. Techniker:in HF oder vergleichbar)\n\n• Mindestens 5 Jahre relevante Berufserfahrung in der Produktion, idealerweise in der Medizintechnik, Bio-Pharma, Automatisierung, Automobil- oder Aviatikindustrie\n\n• Sehr gute Kenntnisse in Produktionstechnik, -gestaltung und Logistik\n\n• Berufserfahrung in der regulierten Medizintechnik-/Bio-Pharma, Automatisierungs-, Automobil- und/oder Aviatik-Industrie\n\n• Erfahrung mit MES- und ERP-Systemen von Vorteil\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n• Nebst fachlicher Expertise sind wir auch auf der Suche nach einer Persönlichkeit, welche durch proaktives Handeln und dem Drang nach stetiger Verbesserung hervorsticht.\n\nWas macht die Arbeit bei Tecan einzigartig?\n\n• Die Chance, etwas zu bewirken und die Welt von morgen mitzugestalten\n\n• Arbeiten in einem internationalen und vielfältigen Umfeld\n\n• Spannende Karrieremöglichkeiten\n\n• Starke und einzigartige Unternehmenskultur\n\n• Attraktive Vergütung und Sozialleistungen\n\nWerde ein Teil von Tecan, zertifiziert als Great Place to Work!  Hier kannst du mehr über unsere Zertifizierung erfahren.  Great Place to Work .\n\nWir freuen uns auf deine Online-Bewerbung. Für deine Bewerbung benötigen wir nur deinen Lebenslauf (ohne Foto und ohne Motivationsschreiben, Zeugnisse und Diplome sind optional).\n\nWir können nur Bewerbungen berücksichtigen, welche unsere Anforderungen erfüllen.",
+        "de": "Hast du dich jemals gefragt, wie deine Fähigkeiten und dein einzigartiger Hintergrund die Welt von morgen beeinflussen kann? Werde ein Teil unserer Production Team und setze das Talent und die Leidenschaft, die dich ausmachen, bei uns ein.\n\nProduction Engineer (80-100%, Befristet bis Ende Okt. 2028)\n\nMännedorf, Schweiz\n\nDein Beitrag\n\nIn dieser vielseitigen Rolle tragen Sie die technische Verantwortung für ein Produkteportfolio während dem Lifecycle-Management. Mit Ihrem technischen Verständnis und Leidenschaft für komplexe Systeme sowie dem Drang nach steter Verbesserung tragen Sie massgeblich dazu bei, dass unsere Produkte stets höchsten Kundenansprüchen genügen. Sie stehen als Schnittstelle im Zentrum zwischen der internen/externen Produktion, Forschung & Entwicklung, Beschaffung, Produkt-Management und Qualitätssicherung.\n\n• Technische Betreuung der zugeteilten Produkte von der Freigabe der Nullserie bis zum Phase-out.\n\n• Initiierung und Umsetzung von mechanischen, elektronischen oder Softwareänderungen zusammen mit einem Team von Fachexperten.\n\n• Fehleranalyse und Umsetzung von Verbesserungsmassnahmen\n\n• Planung und Leitung von Prozess Validierungen in unserer Produktion oder bei Lieferanten.\n\n• Entwicklung und Planung der benötigten Produktions- und Prüfmittel\n\n• Prozessbetreuung und -steuerung der zugewiesenen Produktionslinien durch Überwachung der Kennzahlen\n\n• Sicherstellen der Datenqualität im ERP System für eine reibungslose Auftragsabwicklung\n\n• Mitarbeit in LCM-Projekten, um die produktionstechnischen Aspekte einzubringen\n\n• Unterstützung der Qualitätssicherung in technischen Fragen\n\n• Unterstützung des Einkaufs bei technischen Fragen und Aktivitäten mit Lieferanten und Sub-Lieferanten\n\nDein Profil\n\n• Abgeschlossene Ausbildung als Elektroniker:in oder Mechatroniker:in oder Polymechaniker:in idealerweise mit Weiterbildung (z.B. Techniker:in HF oder vergleichbar)\n\n• Mindestens 5 Jahre relevante Berufserfahrung in der Produktion, idealerweise in der Medizintechnik, Bio-Pharma, Automatisierung, Automobil- oder Aviatikindustrie\n\n• Sehr gute Kenntnisse in Produktionstechnik, -gestaltung und Logistik\n\n• Berufserfahrung in der regulierten Medizintechnik-/Bio-Pharma, Automatisierungs-, Automobil- und/oder Aviatik-Industrie\n\n• Erfahrung mit MES- und ERP-Systemen von Vorteil\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n• Nebst fachlicher Expertise sind wir auch auf der Suche nach einer Persönlichkeit, welche durch proaktives Handeln und dem Drang nach stetiger Verbesserung hervorsticht.\n\nWas macht die Arbeit bei Tecan einzigartig?\n\n• Die Chance, etwas zu bewirken und die Welt von morgen mitzugestalten\n\n• Arbeiten in einem internationalen und vielfältigen Umfeld\n\n• Spannende Karrieremöglichkeiten\n\n• Starke und einzigartige Unternehmenskultur\n\n• Attraktive Vergütung und Sozialleistungen\n\nWerde ein Teil von Tecan, zertifiziert als Great Place to Work!  Hier kannst du mehr über unsere Zertifizierung erfahren.  Great Place to Work .\n\nWir freuen uns auf deine Online-Bewerbung. Für deine Bewerbung benötigen wir nur deinen Lebenslauf (ohne Foto und ohne Motivationsschreiben, Zeugnisse und Diplome sind optional).\n\nWir können nur Bewerbungen berücksichtigen, welche unsere Anforderungen erfüllen.",
+        "it": "Hast du dich jemals gefragt, wie deine Fähigkeiten und dein einzigartiger Hintergrund die Welt von morgen beeinflussen kann? Werde ein Teil unserer Production Team und setze das Talent und die Leidenschaft, die dich ausmachen, bei uns ein.\n\nProduction Engineer (80-100%, Befristet bis Ende Okt. 2028)\n\nMännedorf, Schweiz\n\nDein Beitrag\n\nIn dieser vielseitigen Rolle tragen Sie die technische Verantwortung für ein Produkteportfolio während dem Lifecycle-Management. Mit Ihrem technischen Verständnis und Leidenschaft für komplexe Systeme sowie dem Drang nach steter Verbesserung tragen Sie massgeblich dazu bei, dass unsere Produkte stets höchsten Kundenansprüchen genügen. Sie stehen als Schnittstelle im Zentrum zwischen der internen/externen Produktion, Forschung & Entwicklung, Beschaffung, Produkt-Management und Qualitätssicherung.\n\n• Technische Betreuung der zugeteilten Produkte von der Freigabe der Nullserie bis zum Phase-out.\n\n• Initiierung und Umsetzung von mechanischen, elektronischen oder Softwareänderungen zusammen mit einem Team von Fachexperten.\n\n• Fehleranalyse und Umsetzung von Verbesserungsmassnahmen\n\n• Planung und Leitung von Prozess Validierungen in unserer Produktion oder bei Lieferanten.\n\n• Entwicklung und Planung der benötigten Produktions- und Prüfmittel\n\n• Prozessbetreuung und -steuerung der zugewiesenen Produktionslinien durch Überwachung der Kennzahlen\n\n• Sicherstellen der Datenqualität im ERP System für eine reibungslose Auftragsabwicklung\n\n• Mitarbeit in LCM-Projekten, um die produktionstechnischen Aspekte einzubringen\n\n• Unterstützung der Qualitätssicherung in technischen Fragen\n\n• Unterstützung des Einkaufs bei technischen Fragen und Aktivitäten mit Lieferanten und Sub-Lieferanten\n\nDein Profil\n\n• Abgeschlossene Ausbildung als Elektroniker:in oder Mechatroniker:in oder Polymechaniker:in idealerweise mit Weiterbildung (z.B. Techniker:in HF oder vergleichbar)\n\n• Mindestens 5 Jahre relevante Berufserfahrung in der Produktion, idealerweise in der Medizintechnik, Bio-Pharma, Automatisierung, Automobil- oder Aviatikindustrie\n\n• Sehr gute Kenntnisse in Produktionstechnik, -gestaltung und Logistik\n\n• Berufserfahrung in der regulierten Medizintechnik-/Bio-Pharma, Automatisierungs-, Automobil- und/oder Aviatik-Industrie\n\n• Erfahrung mit MES- und ERP-Systemen von Vorteil\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n• Nebst fachlicher Expertise sind wir auch auf der Suche nach einer Persönlichkeit, welche durch proaktives Handeln und dem Drang nach stetiger Verbesserung hervorsticht.\n\nWas macht die Arbeit bei Tecan einzigartig?\n\n• Die Chance, etwas zu bewirken und die Welt von morgen mitzugestalten\n\n• Arbeiten in einem internationalen und vielfältigen Umfeld\n\n• Spannende Karrieremöglichkeiten\n\n• Starke und einzigartige Unternehmenskultur\n\n• Attraktive Vergütung und Sozialleistungen\n\nWerde ein Teil von Tecan, zertifiziert als Great Place to Work!  Hier kannst du mehr über unsere Zertifizierung erfahren.  Great Place to Work .\n\nWir freuen uns auf deine Online-Bewerbung. Für deine Bewerbung benötigen wir nur deinen Lebenslauf (ohne Foto und ohne Motivationsschreiben, Zeugnisse und Diplome sind optional).\n\nWir können nur Bewerbungen berücksichtigen, welche unsere Anforderungen erfüllen.",
+        "fr": "Hast du dich jemals gefragt, wie deine Fähigkeiten und dein einzigartiger Hintergrund die Welt von morgen beeinflussen kann? Werde ein Teil unserer Production Team und setze das Talent und die Leidenschaft, die dich ausmachen, bei uns ein.\n\nProduction Engineer (80-100%, Befristet bis Ende Okt. 2028)\n\nMännedorf, Schweiz\n\nDein Beitrag\n\nIn dieser vielseitigen Rolle tragen Sie die technische Verantwortung für ein Produkteportfolio während dem Lifecycle-Management. Mit Ihrem technischen Verständnis und Leidenschaft für komplexe Systeme sowie dem Drang nach steter Verbesserung tragen Sie massgeblich dazu bei, dass unsere Produkte stets höchsten Kundenansprüchen genügen. Sie stehen als Schnittstelle im Zentrum zwischen der internen/externen Produktion, Forschung & Entwicklung, Beschaffung, Produkt-Management und Qualitätssicherung.\n\n• Technische Betreuung der zugeteilten Produkte von der Freigabe der Nullserie bis zum Phase-out.\n\n• Initiierung und Umsetzung von mechanischen, elektronischen oder Softwareänderungen zusammen mit einem Team von Fachexperten.\n\n• Fehleranalyse und Umsetzung von Verbesserungsmassnahmen\n\n• Planung und Leitung von Prozess Validierungen in unserer Produktion oder bei Lieferanten.\n\n• Entwicklung und Planung der benötigten Produktions- und Prüfmittel\n\n• Prozessbetreuung und -steuerung der zugewiesenen Produktionslinien durch Überwachung der Kennzahlen\n\n• Sicherstellen der Datenqualität im ERP System für eine reibungslose Auftragsabwicklung\n\n• Mitarbeit in LCM-Projekten, um die produktionstechnischen Aspekte einzubringen\n\n• Unterstützung der Qualitätssicherung in technischen Fragen\n\n• Unterstützung des Einkaufs bei technischen Fragen und Aktivitäten mit Lieferanten und Sub-Lieferanten\n\nDein Profil\n\n• Abgeschlossene Ausbildung als Elektroniker:in oder Mechatroniker:in oder Polymechaniker:in idealerweise mit Weiterbildung (z.B. Techniker:in HF oder vergleichbar)\n\n• Mindestens 5 Jahre relevante Berufserfahrung in der Produktion, idealerweise in der Medizintechnik, Bio-Pharma, Automatisierung, Automobil- oder Aviatikindustrie\n\n• Sehr gute Kenntnisse in Produktionstechnik, -gestaltung und Logistik\n\n• Berufserfahrung in der regulierten Medizintechnik-/Bio-Pharma, Automatisierungs-, Automobil- und/oder Aviatik-Industrie\n\n• Erfahrung mit MES- und ERP-Systemen von Vorteil\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n• Nebst fachlicher Expertise sind wir auch auf der Suche nach einer Persönlichkeit, welche durch proaktives Handeln und dem Drang nach stetiger Verbesserung hervorsticht.\n\nWas macht die Arbeit bei Tecan einzigartig?\n\n• Die Chance, etwas zu bewirken und die Welt von morgen mitzugestalten\n\n• Arbeiten in einem internationalen und vielfältigen Umfeld\n\n• Spannende Karrieremöglichkeiten\n\n• Starke und einzigartige Unternehmenskultur\n\n• Attraktive Vergütung und Sozialleistungen\n\nWerde ein Teil von Tecan, zertifiziert als Great Place to Work!  Hier kannst du mehr über unsere Zertifizierung erfahren.  Great Place to Work .\n\nWir freuen uns auf deine Online-Bewerbung. Für deine Bewerbung benötigen wir nur deinen Lebenslauf (ohne Foto und ohne Motivationsschreiben, Zeugnisse und Diplome sind optional).\n\nWir können nur Bewerbungen berücksichtigen, welche unsere Anforderungen erfüllen."
+      },
+      "needsRetranslation": true,
+      "location": "Männedorf",
+      "canton": "ZH",
+      "url": "https://careers.tecan.com/job/M%C3%A4nnedorf-Production-Engineer-%2880-100%2C-Befristet-bis-Ende-Okt_-2028%29/1459353633/",
+      "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-20T22:07:46.061Z",
+      "addressLocality": "Männedorf",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8708",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Tecnologia / Strumentazione di laboratorio",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-20T00:00:00Z",
+      "postedDate": "2026-11-20T00:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://careers.tecan.com/talentcommunity/apply/1459353633/?locale=en_US",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "production-engineer-80-100-befristet-bis-ende-okt-2028-tecan-mannedorf"
+        ]
+      },
+      "previousSlugs": [
+        "production-engineer-80-100-befristet-bis-ende-okt-2028-tecan-mannedorf"
+      ],
+      "salaryMin": 83000,
+      "salaryMax": 126000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 126000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Männedorf",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-18T22:07:46.061Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-20T22:07:46.061Z"
+    },
+    {
+      "id": "tecan-a4bd65c31dd4",
+      "slug": "production-engineer-tecan-mannedorf",
+      "slugByLocale": {
+        "en": "production-engineer-tecan-mannedorf",
+        "it": "production-engineer-tecan-mannedorf",
+        "de": "production-engineer-tecan-mannedorf",
+        "fr": "production-engineer-tecan-mannedorf"
+      },
+      "company": "Tecan",
+      "companyKey": "tecan",
+      "companyDomain": "tecan.com",
+      "title": "Production Engineer",
+      "titleByLocale": {
+        "en": "Production Engineer",
+        "it": "Production Ingegnere",
+        "de": "Production Ingenieur",
+        "fr": "Production Ingénieur"
+      },
+      "description": "Hast du dich jemals gefragt, wie deine Fähigkeiten und dein einzigartiger Hintergrund die Welt von morgen beeinflussen kann? Werde ein Teil unserer Production Team und setze das Talent und die Leidenschaft, die dich ausmachen, bei uns ein.\n\nProduction Engineer (100%)\n\nLocation, Area\n\nDein Beitrag\n\nIn dieser vielseitigen Rolle tragen Sie die technische Verantwortung für ein Produkteportfolio während dem Lifecycle-Management. Mit Ihrem technischen Verständnis und Leidenschaft für komplexe Systeme sowie dem Drang nach steter Verbesserung tragen Sie massgeblich dazu bei, dass unsere Produkte stets höchsten Kundenansprüchen genügen. Sie stehen als Schnittstelle im Zentrum zwischen der internen/externen Produktion, Forschung & Entwicklung, Beschaffung, Produkt-Management und Qualitätssicherung.\n\n• Technische Betreuung der zugeteilten Produkte von der Freigabe der Nullserie bis zum Phase-out.\n\n• Initiierung und Umsetzung von mechanischen, elektronischen oder Softwareänderungen zusammen mit einem Team von Fachexperten.\n\n• Fehleranalyse und Umsetzung von Verbesserungsmassnahmen\n\n• Planung und Leitung von Prozess Validierungen in unserer Produktion oder bei Lieferanten.\n\n• Entwicklung und Planung der benötigten Produktions- und Prüfmittel\n\n• Prozessbetreuung und -steuerung der zugewiesenen Produktionslinien durch Überwachung der Kennzahlen\n\n• Sicherstellen der Datenqualität im ERP System für eine reibungslose Auftragsabwicklung\n\n• Mitarbeit in LCM-Projekten, um die produktionstechnischen Aspekte einzubringen\n\n• Unterstützung der Qualitätssicherung in technischen Fragen\n\n• Unterstützung des Einkaufs bei technischen Fragen und Aktivitäten mit Lieferanten und Sub-Lieferanten\n\n• Kontinuierliche Optimierung des MES Sytem\n\nDein Profil\n\n• Motivation und Eigenverantwortung, um unsere Produkte und Produktionsprozesse stetig zu verbessern.\n\n• Ingenieur Studium (Elektrotechnik, Maschinenbau, Systemtechnik oder Produktionstechnik) oder Techniker/-in HF Elektrotechnik oder Maschinenbau mit mindestens 5 Jahren Berufserfahrung\n\n• Sehr gute Kenntnisse in Produktionstechnik, -gestaltung und Logistik\n\n• Berufserfahrung in der regulierten Medizintechnik-/Bio-Pharma, Automatisierungs-, Automobil- und/oder Aviatik-Industrie\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n• Nebst fachlicher Expertise sind wir auch auf der Suche nach einer Persönlichkeit, welche durch proaktives Handeln und dem Drang nach stetiger Verbesserung hervorsticht.\n\nWas macht die Arbeit bei Tecan einzigartig?\n\n• Die Chance, etwas zu bewirken und die Welt von morgen mitzugestalten\n\n• Arbeiten in einem internationalen und vielfältigen Umfeld\n\n• Spannende Karrieremöglichkeiten\n\n• Starke und einzigartige Unternehmenskultur\n\n• Attraktive Vergütung und Sozialleistungen\n\nWerde ein Teil von Tecan, zertifiziert als Great Place to Work!  Hier kannst du mehr über unsere Zertifizierung erfahren.  Great Place to Work .\n\nWir freuen uns auf deine Online-Bewerbung. Für deine Bewerbung benötigen wir nur deinen Lebenslauf (ohne Foto und ohne Motivationsschreiben, Zeugnisse und Diplome sind optional).\n\nWir können nur Bewerbungen berücksichtigen, welche unsere Anforderungen erfüllen.",
+      "descriptionByLocale": {
+        "en": "Hast du dich jemals gefragt, wie deine Fähigkeiten und dein einzigartiger Hintergrund die Welt von morgen beeinflussen kann? Werde ein Teil unserer Production Team und setze das Talent und die Leidenschaft, die dich ausmachen, bei uns ein.\n\nProduction Engineer (100%)\n\nLocation, Area\n\nDein Beitrag\n\nIn dieser vielseitigen Rolle tragen Sie die technische Verantwortung für ein Produkteportfolio während dem Lifecycle-Management. Mit Ihrem technischen Verständnis und Leidenschaft für komplexe Systeme sowie dem Drang nach steter Verbesserung tragen Sie massgeblich dazu bei, dass unsere Produkte stets höchsten Kundenansprüchen genügen. Sie stehen als Schnittstelle im Zentrum zwischen der internen/externen Produktion, Forschung & Entwicklung, Beschaffung, Produkt-Management und Qualitätssicherung.\n\n• Technische Betreuung der zugeteilten Produkte von der Freigabe der Nullserie bis zum Phase-out.\n\n• Initiierung und Umsetzung von mechanischen, elektronischen oder Softwareänderungen zusammen mit einem Team von Fachexperten.\n\n• Fehleranalyse und Umsetzung von Verbesserungsmassnahmen\n\n• Planung und Leitung von Prozess Validierungen in unserer Produktion oder bei Lieferanten.\n\n• Entwicklung und Planung der benötigten Produktions- und Prüfmittel\n\n• Prozessbetreuung und -steuerung der zugewiesenen Produktionslinien durch Überwachung der Kennzahlen\n\n• Sicherstellen der Datenqualität im ERP System für eine reibungslose Auftragsabwicklung\n\n• Mitarbeit in LCM-Projekten, um die produktionstechnischen Aspekte einzubringen\n\n• Unterstützung der Qualitätssicherung in technischen Fragen\n\n• Unterstützung des Einkaufs bei technischen Fragen und Aktivitäten mit Lieferanten und Sub-Lieferanten\n\n• Kontinuierliche Optimierung des MES Sytem\n\nDein Profil\n\n• Motivation und Eigenverantwortung, um unsere Produkte und Produktionsprozesse stetig zu verbessern.\n\n• Ingenieur Studium (Elektrotechnik, Maschinenbau, Systemtechnik oder Produktionstechnik) oder Techniker/-in HF Elektrotechnik oder Maschinenbau mit mindestens 5 Jahren Berufserfahrung\n\n• Sehr gute Kenntnisse in Produktionstechnik, -gestaltung und Logistik\n\n• Berufserfahrung in der regulierten Medizintechnik-/Bio-Pharma, Automatisierungs-, Automobil- und/oder Aviatik-Industrie\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n• Nebst fachlicher Expertise sind wir auch auf der Suche nach einer Persönlichkeit, welche durch proaktives Handeln und dem Drang nach stetiger Verbesserung hervorsticht.\n\nWas macht die Arbeit bei Tecan einzigartig?\n\n• Die Chance, etwas zu bewirken und die Welt von morgen mitzugestalten\n\n• Arbeiten in einem internationalen und vielfältigen Umfeld\n\n• Spannende Karrieremöglichkeiten\n\n• Starke und einzigartige Unternehmenskultur\n\n• Attraktive Vergütung und Sozialleistungen\n\nWerde ein Teil von Tecan, zertifiziert als Great Place to Work!  Hier kannst du mehr über unsere Zertifizierung erfahren.  Great Place to Work .\n\nWir freuen uns auf deine Online-Bewerbung. Für deine Bewerbung benötigen wir nur deinen Lebenslauf (ohne Foto und ohne Motivationsschreiben, Zeugnisse und Diplome sind optional).\n\nWir können nur Bewerbungen berücksichtigen, welche unsere Anforderungen erfüllen.",
+        "de": "Hast du dich jemals gefragt, wie deine Fähigkeiten und dein einzigartiger Hintergrund die Welt von morgen beeinflussen kann? Werde ein Teil unserer Production Team und setze das Talent und die Leidenschaft, die dich ausmachen, bei uns ein.\n\nProduction Engineer (100%)\n\nLocation, Area\n\nDein Beitrag\n\nIn dieser vielseitigen Rolle tragen Sie die technische Verantwortung für ein Produkteportfolio während dem Lifecycle-Management. Mit Ihrem technischen Verständnis und Leidenschaft für komplexe Systeme sowie dem Drang nach steter Verbesserung tragen Sie massgeblich dazu bei, dass unsere Produkte stets höchsten Kundenansprüchen genügen. Sie stehen als Schnittstelle im Zentrum zwischen der internen/externen Produktion, Forschung & Entwicklung, Beschaffung, Produkt-Management und Qualitätssicherung.\n\n• Technische Betreuung der zugeteilten Produkte von der Freigabe der Nullserie bis zum Phase-out.\n\n• Initiierung und Umsetzung von mechanischen, elektronischen oder Softwareänderungen zusammen mit einem Team von Fachexperten.\n\n• Fehleranalyse und Umsetzung von Verbesserungsmassnahmen\n\n• Planung und Leitung von Prozess Validierungen in unserer Produktion oder bei Lieferanten.\n\n• Entwicklung und Planung der benötigten Produktions- und Prüfmittel\n\n• Prozessbetreuung und -steuerung der zugewiesenen Produktionslinien durch Überwachung der Kennzahlen\n\n• Sicherstellen der Datenqualität im ERP System für eine reibungslose Auftragsabwicklung\n\n• Mitarbeit in LCM-Projekten, um die produktionstechnischen Aspekte einzubringen\n\n• Unterstützung der Qualitätssicherung in technischen Fragen\n\n• Unterstützung des Einkaufs bei technischen Fragen und Aktivitäten mit Lieferanten und Sub-Lieferanten\n\n• Kontinuierliche Optimierung des MES Sytem\n\nDein Profil\n\n• Motivation und Eigenverantwortung, um unsere Produkte und Produktionsprozesse stetig zu verbessern.\n\n• Ingenieur Studium (Elektrotechnik, Maschinenbau, Systemtechnik oder Produktionstechnik) oder Techniker/-in HF Elektrotechnik oder Maschinenbau mit mindestens 5 Jahren Berufserfahrung\n\n• Sehr gute Kenntnisse in Produktionstechnik, -gestaltung und Logistik\n\n• Berufserfahrung in der regulierten Medizintechnik-/Bio-Pharma, Automatisierungs-, Automobil- und/oder Aviatik-Industrie\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n• Nebst fachlicher Expertise sind wir auch auf der Suche nach einer Persönlichkeit, welche durch proaktives Handeln und dem Drang nach stetiger Verbesserung hervorsticht.\n\nWas macht die Arbeit bei Tecan einzigartig?\n\n• Die Chance, etwas zu bewirken und die Welt von morgen mitzugestalten\n\n• Arbeiten in einem internationalen und vielfältigen Umfeld\n\n• Spannende Karrieremöglichkeiten\n\n• Starke und einzigartige Unternehmenskultur\n\n• Attraktive Vergütung und Sozialleistungen\n\nWerde ein Teil von Tecan, zertifiziert als Great Place to Work!  Hier kannst du mehr über unsere Zertifizierung erfahren.  Great Place to Work .\n\nWir freuen uns auf deine Online-Bewerbung. Für deine Bewerbung benötigen wir nur deinen Lebenslauf (ohne Foto und ohne Motivationsschreiben, Zeugnisse und Diplome sind optional).\n\nWir können nur Bewerbungen berücksichtigen, welche unsere Anforderungen erfüllen.",
+        "it": "Hast du dich jemals gefragt, wie deine Fähigkeiten und dein einzigartiger Hintergrund die Welt von morgen beeinflussen kann? Werde ein Teil unserer Production Team und setze das Talent und die Leidenschaft, die dich ausmachen, bei uns ein.\n\nProduction Engineer (100%)\n\nLocation, Area\n\nDein Beitrag\n\nIn dieser vielseitigen Rolle tragen Sie die technische Verantwortung für ein Produkteportfolio während dem Lifecycle-Management. Mit Ihrem technischen Verständnis und Leidenschaft für komplexe Systeme sowie dem Drang nach steter Verbesserung tragen Sie massgeblich dazu bei, dass unsere Produkte stets höchsten Kundenansprüchen genügen. Sie stehen als Schnittstelle im Zentrum zwischen der internen/externen Produktion, Forschung & Entwicklung, Beschaffung, Produkt-Management und Qualitätssicherung.\n\n• Technische Betreuung der zugeteilten Produkte von der Freigabe der Nullserie bis zum Phase-out.\n\n• Initiierung und Umsetzung von mechanischen, elektronischen oder Softwareänderungen zusammen mit einem Team von Fachexperten.\n\n• Fehleranalyse und Umsetzung von Verbesserungsmassnahmen\n\n• Planung und Leitung von Prozess Validierungen in unserer Produktion oder bei Lieferanten.\n\n• Entwicklung und Planung der benötigten Produktions- und Prüfmittel\n\n• Prozessbetreuung und -steuerung der zugewiesenen Produktionslinien durch Überwachung der Kennzahlen\n\n• Sicherstellen der Datenqualität im ERP System für eine reibungslose Auftragsabwicklung\n\n• Mitarbeit in LCM-Projekten, um die produktionstechnischen Aspekte einzubringen\n\n• Unterstützung der Qualitätssicherung in technischen Fragen\n\n• Unterstützung des Einkaufs bei technischen Fragen und Aktivitäten mit Lieferanten und Sub-Lieferanten\n\n• Kontinuierliche Optimierung des MES Sytem\n\nDein Profil\n\n• Motivation und Eigenverantwortung, um unsere Produkte und Produktionsprozesse stetig zu verbessern.\n\n• Ingenieur Studium (Elektrotechnik, Maschinenbau, Systemtechnik oder Produktionstechnik) oder Techniker/-in HF Elektrotechnik oder Maschinenbau mit mindestens 5 Jahren Berufserfahrung\n\n• Sehr gute Kenntnisse in Produktionstechnik, -gestaltung und Logistik\n\n• Berufserfahrung in der regulierten Medizintechnik-/Bio-Pharma, Automatisierungs-, Automobil- und/oder Aviatik-Industrie\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n• Nebst fachlicher Expertise sind wir auch auf der Suche nach einer Persönlichkeit, welche durch proaktives Handeln und dem Drang nach stetiger Verbesserung hervorsticht.\n\nWas macht die Arbeit bei Tecan einzigartig?\n\n• Die Chance, etwas zu bewirken und die Welt von morgen mitzugestalten\n\n• Arbeiten in einem internationalen und vielfältigen Umfeld\n\n• Spannende Karrieremöglichkeiten\n\n• Starke und einzigartige Unternehmenskultur\n\n• Attraktive Vergütung und Sozialleistungen\n\nWerde ein Teil von Tecan, zertifiziert als Great Place to Work!  Hier kannst du mehr über unsere Zertifizierung erfahren.  Great Place to Work .\n\nWir freuen uns auf deine Online-Bewerbung. Für deine Bewerbung benötigen wir nur deinen Lebenslauf (ohne Foto und ohne Motivationsschreiben, Zeugnisse und Diplome sind optional).\n\nWir können nur Bewerbungen berücksichtigen, welche unsere Anforderungen erfüllen.",
+        "fr": "Hast du dich jemals gefragt, wie deine Fähigkeiten und dein einzigartiger Hintergrund die Welt von morgen beeinflussen kann? Werde ein Teil unserer Production Team und setze das Talent und die Leidenschaft, die dich ausmachen, bei uns ein.\n\nProduction Engineer (100%)\n\nLocation, Area\n\nDein Beitrag\n\nIn dieser vielseitigen Rolle tragen Sie die technische Verantwortung für ein Produkteportfolio während dem Lifecycle-Management. Mit Ihrem technischen Verständnis und Leidenschaft für komplexe Systeme sowie dem Drang nach steter Verbesserung tragen Sie massgeblich dazu bei, dass unsere Produkte stets höchsten Kundenansprüchen genügen. Sie stehen als Schnittstelle im Zentrum zwischen der internen/externen Produktion, Forschung & Entwicklung, Beschaffung, Produkt-Management und Qualitätssicherung.\n\n• Technische Betreuung der zugeteilten Produkte von der Freigabe der Nullserie bis zum Phase-out.\n\n• Initiierung und Umsetzung von mechanischen, elektronischen oder Softwareänderungen zusammen mit einem Team von Fachexperten.\n\n• Fehleranalyse und Umsetzung von Verbesserungsmassnahmen\n\n• Planung und Leitung von Prozess Validierungen in unserer Produktion oder bei Lieferanten.\n\n• Entwicklung und Planung der benötigten Produktions- und Prüfmittel\n\n• Prozessbetreuung und -steuerung der zugewiesenen Produktionslinien durch Überwachung der Kennzahlen\n\n• Sicherstellen der Datenqualität im ERP System für eine reibungslose Auftragsabwicklung\n\n• Mitarbeit in LCM-Projekten, um die produktionstechnischen Aspekte einzubringen\n\n• Unterstützung der Qualitätssicherung in technischen Fragen\n\n• Unterstützung des Einkaufs bei technischen Fragen und Aktivitäten mit Lieferanten und Sub-Lieferanten\n\n• Kontinuierliche Optimierung des MES Sytem\n\nDein Profil\n\n• Motivation und Eigenverantwortung, um unsere Produkte und Produktionsprozesse stetig zu verbessern.\n\n• Ingenieur Studium (Elektrotechnik, Maschinenbau, Systemtechnik oder Produktionstechnik) oder Techniker/-in HF Elektrotechnik oder Maschinenbau mit mindestens 5 Jahren Berufserfahrung\n\n• Sehr gute Kenntnisse in Produktionstechnik, -gestaltung und Logistik\n\n• Berufserfahrung in der regulierten Medizintechnik-/Bio-Pharma, Automatisierungs-, Automobil- und/oder Aviatik-Industrie\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n• Nebst fachlicher Expertise sind wir auch auf der Suche nach einer Persönlichkeit, welche durch proaktives Handeln und dem Drang nach stetiger Verbesserung hervorsticht.\n\nWas macht die Arbeit bei Tecan einzigartig?\n\n• Die Chance, etwas zu bewirken und die Welt von morgen mitzugestalten\n\n• Arbeiten in einem internationalen und vielfältigen Umfeld\n\n• Spannende Karrieremöglichkeiten\n\n• Starke und einzigartige Unternehmenskultur\n\n• Attraktive Vergütung und Sozialleistungen\n\nWerde ein Teil von Tecan, zertifiziert als Great Place to Work!  Hier kannst du mehr über unsere Zertifizierung erfahren.  Great Place to Work .\n\nWir freuen uns auf deine Online-Bewerbung. Für deine Bewerbung benötigen wir nur deinen Lebenslauf (ohne Foto und ohne Motivationsschreiben, Zeugnisse und Diplome sind optional).\n\nWir können nur Bewerbungen berücksichtigen, welche unsere Anforderungen erfüllen."
+      },
+      "needsRetranslation": true,
+      "location": "Männedorf",
+      "canton": "ZH",
+      "url": "https://careers.tecan.com/job/M%C3%A4nnedorf-Production-Engineer/1459360133/",
+      "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-20T22:07:45.573Z",
+      "addressLocality": "Männedorf",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8708",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Tecnologia / Strumentazione di laboratorio",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-20T00:00:00Z",
+      "postedDate": "2026-11-20T00:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://careers.tecan.com/talentcommunity/apply/1459360133/?locale=en_US",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "salaryMin": 83000,
+      "salaryMax": 126000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 126000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Männedorf",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-18T22:07:45.573Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-08-08T09:47:59.321Z"
     }
   ]
 }
