@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-20T19:20:13.971Z",
+  "generatedAt": "2026-11-20T20:21:10.615Z",
   "totalEvents": 17744,
   "events": [
     {
@@ -528743,7 +528743,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Lo spettacolo teatrale di mezzogiorno si tiene al Le Reflet - Théâtre de Vevey, a Vevey. Un clown presenta COSMOGONIA, una storia su una navetta spaziale e sul suo capitano, che incontra una lucidatrice per parquet.",
+      "descriptionByLocale": {
+        "it": "Lo spettacolo teatrale di mezzogiorno si tiene al Le Reflet - Théâtre de Vevey, a Vevey. Un clown presenta COSMOGONIA, una storia su una navetta spaziale e sul suo capitano, che incontra una lucidatrice per parquet.",
+        "en": "The lunchtime theatre presentation is held at Le Reflet - Théâtre de Vevey in Vevey. A clown performs COSMOGONIA, a story about a space shuttle and its captain, who encounters a floor-polishing machine.",
+        "de": "Die Mittagsvorstellung findet im Le Reflet - Théâtre de Vevey in Vevey statt. Ein Clown führt COSMOGONIA auf, eine Geschichte über ein Raumfahrzeug und dessen Kapitän, der einer Parkettpoliermaschine begegnet.",
+        "fr": "La représentation de midi a lieu à « Le Reflet - Théâtre de Vevey », à Vevey. Un clown y interprète COSMOGONIA, une histoire de navette spatiale dont le capitaine rencontre une cireuse à parquet."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:ANA2YYU",
@@ -556344,7 +556352,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Mazzika presenta il concerto all’Alhambra di Ginevra. L’evento è indicato come completo.",
+      "descriptionByLocale": {
+        "it": "Mazzika presenta il concerto all’Alhambra di Ginevra. L’evento è indicato come completo.",
+        "en": "Mazzika presents the concert at Alhambra in Geneva. The event is listed as sold out.",
+        "de": "Mazzika präsentiert das Konzert im Alhambra in Genf. Die Veranstaltung ist als ausverkauft angegeben.",
+        "fr": "Mazzika présente le concert à l’Alhambra, à Genève. L’événement est indiqué comme complet."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AZiF3Mh",

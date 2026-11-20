@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-11-20T19:14:08.300Z",
+  "generatedAt": "2026-11-20T20:14:50.477Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -14230,6 +14230,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-17T20:15:56.408Z"
     },
+    "ge-agenda:legendes-arabes::e5d736ee31ece9ee0982f32e1330dd2c977cce49a4bc8b0fcf42e21982f9791b": {
+      "id": "ge-agenda:legendes-arabes",
+      "sourceDescriptionHash": "e5d736ee31ece9ee0982f32e1330dd2c977cce49a4bc8b0fcf42e21982f9791b",
+      "description": "Mazzika presenta il concerto all’Alhambra di Ginevra. L’evento è indicato come completo.",
+      "descriptionByLocale": {
+        "it": "Mazzika presenta il concerto all’Alhambra di Ginevra. L’evento è indicato come completo.",
+        "en": "Mazzika presents the concert at Alhambra in Geneva. The event is listed as sold out.",
+        "de": "Mazzika präsentiert das Konzert im Alhambra in Genf. Die Veranstaltung ist als ausverkauft angegeben.",
+        "fr": "Mazzika présente le concert à l’Alhambra, à Genève. L’événement est indiqué comme complet."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-20T19:59:31.659Z"
+    },
     "ge-agenda:leila-olivesi-masterclass::da943e3569941515b56abfb1826b6795566f0fef2c8943ae73b7e4001f848d7c": {
       "id": "ge-agenda:leila-olivesi-masterclass",
       "sourceDescriptionHash": "da943e3569941515b56abfb1826b6795566f0fef2c8943ae73b7e4001f848d7c",
@@ -15489,6 +15503,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-19T12:16:27.679Z"
+    },
+    "ge-agenda:mere-royaume-concert-petits-grands::6c6cca206b1f386c9960c5df6ca757aeac49cfb852aa6de3c11392e2c1e3bf5e": {
+      "id": "ge-agenda:mere-royaume-concert-petits-grands",
+      "sourceDescriptionHash": "6c6cca206b1f386c9960c5df6ca757aeac49cfb852aa6de3c11392e2c1e3bf5e",
+      "description": "L’appuntamento è un concerto dell’Orchestre des Nations rivolto sia ai bambini sia agli adulti. Il programma rievoca l’Escalade e viene presentato al Victoria Hall di Ginevra.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento è un concerto dell’Orchestre des Nations rivolto sia ai bambini sia agli adulti. Il programma rievoca l’Escalade e viene presentato al Victoria Hall di Ginevra.",
+        "en": "This event is a concert by Orchestre des Nations intended for both children and adults. Its programme revisits the Escalade and is presented at Victoria Hall in Geneva.",
+        "de": "Die Veranstaltung ist ein Konzert des Orchestre des Nations für Kinder und Erwachsene. Das Programm greift die Escalade auf und wird im Victoria Hall in Genf aufgeführt.",
+        "fr": "Ce rendez-vous est un concert de l’Orchestre des Nations destiné aux enfants comme aux adultes. Le programme évoque l’Escalade et est présenté au Victoria Hall de Genève."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-20T19:59:02.233Z"
     },
     "ge-agenda:meryl-flowerz::45db3269de1c2326fc23cad79a5e57d6cb4c0d09cc104a590bc1954e879392c8": {
       "id": "ge-agenda:meryl-flowerz",
@@ -26563,6 +26591,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-10T14:18:26.401Z"
+    },
+    "guidle:A4S7pGB::623a4cad0efc4c8f4d99270cfff60a3628993d44033e33c72a8afd811a811753": {
+      "id": "guidle:A4S7pGB",
+      "sourceDescriptionHash": "623a4cad0efc4c8f4d99270cfff60a3628993d44033e33c72a8afd811a811753",
+      "description": "Lo spettacolo teatrale di mezzogiorno si tiene al Le Reflet - Théâtre de Vevey, a Vevey. Un clown presenta COSMOGONIA, una storia su una navetta spaziale e sul suo capitano, che incontra una lucidatrice per parquet.",
+      "descriptionByLocale": {
+        "it": "Lo spettacolo teatrale di mezzogiorno si tiene al Le Reflet - Théâtre de Vevey, a Vevey. Un clown presenta COSMOGONIA, una storia su una navetta spaziale e sul suo capitano, che incontra una lucidatrice per parquet.",
+        "en": "The lunchtime theatre presentation is held at Le Reflet - Théâtre de Vevey in Vevey. A clown performs COSMOGONIA, a story about a space shuttle and its captain, who encounters a floor-polishing machine.",
+        "de": "Die Mittagsvorstellung findet im Le Reflet - Théâtre de Vevey in Vevey statt. Ein Clown führt COSMOGONIA auf, eine Geschichte über ein Raumfahrzeug und dessen Kapitän, der einer Parkettpoliermaschine begegnet.",
+        "fr": "La représentation de midi a lieu à « Le Reflet - Théâtre de Vevey », à Vevey. Un clown y interprète COSMOGONIA, une histoire de navette spatiale dont le capitaine rencontre une cireuse à parquet."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-20T20:02:29.309Z"
     },
     "guidle:A4St1kD::92fe2de4ddfd0e0620699a366a61b2fb4639f685a4c52f764174da4a6707e520": {
       "id": "guidle:A4St1kD",
@@ -197231,15 +197273,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "ge-agenda:legendes-arabes::e5d736ee31ece9ee0982f32e1330dd2c977cce49a4bc8b0fcf42e21982f9791b": {
-      "id": "ge-agenda:legendes-arabes",
-      "sourceDescriptionHash": "e5d736ee31ece9ee0982f32e1330dd2c977cce49a4bc8b0fcf42e21982f9791b",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-20T18:23:55.128Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "ge-agenda:leurs-cultures-racines-portraits-femmes-terre-genevoise::b0d6ef70045d8c75cc12067f1c95674cccd763b123758245ad04d978dff0e9c8": {
       "id": "ge-agenda:leurs-cultures-racines-portraits-femmes-terre-genevoise",
       "sourceDescriptionHash": "b0d6ef70045d8c75cc12067f1c95674cccd763b123758245ad04d978dff0e9c8",
@@ -197285,15 +197318,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "ge-agenda:mere-royaume-concert-petits-grands::6c6cca206b1f386c9960c5df6ca757aeac49cfb852aa6de3c11392e2c1e3bf5e": {
-      "id": "ge-agenda:mere-royaume-concert-petits-grands",
-      "sourceDescriptionHash": "6c6cca206b1f386c9960c5df6ca757aeac49cfb852aa6de3c11392e2c1e3bf5e",
-      "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-20T18:21:39.355Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "ge-agenda:morocco::aa6be4b09aef76ab806c7f6c703c10ad13820a7c25abe29b015ba3c4a2d649b3": {
       "id": "ge-agenda:morocco",
       "sourceDescriptionHash": "aa6be4b09aef76ab806c7f6c703c10ad13820a7c25abe29b015ba3c4a2d649b3",
@@ -197307,8 +197331,8 @@
       "id": "ge-agenda:mots-valises-bien-atelier-collaboratif-parents-enfants-0",
       "sourceDescriptionHash": "6d3eaff5d2cb85b6b704b7fb5a60e35b5721217fc493aad7d465270e9228fe9e",
       "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-20T18:20:50.998Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-20T19:58:41.586Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -197360,9 +197384,9 @@
     "ge-agenda:outre-atlantique-dialogue-romantique::a6f65c0bcecd7bd5e01db137b214bc8a22127ad005c54b1bb3eb12a9cf38f737": {
       "id": "ge-agenda:outre-atlantique-dialogue-romantique",
       "sourceDescriptionHash": "a6f65c0bcecd7bd5e01db137b214bc8a22127ad005c54b1bb3eb12a9cf38f737",
-      "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-20T18:28:05.967Z",
+      "code": "new-name",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-20T20:00:32.516Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -197741,15 +197765,6 @@
       "code": "new-name",
       "rejectedRuns": 1,
       "lastAttemptAt": "2026-10-13T16:27:14.635Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:A4S7pGB::623a4cad0efc4c8f4d99270cfff60a3628993d44033e33c72a8afd811a811753": {
-      "id": "guidle:A4S7pGB",
-      "sourceDescriptionHash": "623a4cad0efc4c8f4d99270cfff60a3628993d44033e33c72a8afd811a811753",
-      "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-20T18:20:52.929Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -201582,8 +201597,8 @@
       "id": "myswitzerland:503aa379b8df427ead71bb24e57f0b6b",
       "sourceDescriptionHash": "3fbc1bfac02cea90ea698258112dd8986d099ce65a2a3a73388065e08daf84f1",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-20T18:29:17.543Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-20T19:59:38.620Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -201609,8 +201624,8 @@
       "id": "myswitzerland:51dd2b3523c64240b8a4a4dde6427570",
       "sourceDescriptionHash": "241204980c19179028fd13cc87ac858c609a77a5cc18331dcfda24d4bdd4b958",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-20T18:21:17.904Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-20T20:00:40.931Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -205505,9 +205520,9 @@
     "tio-agenda:64919::ef75b9425aa131663261dbc206e262af7943a67c47afb1c0536594084d8e6193": {
       "id": "tio-agenda:64919",
       "sourceDescriptionHash": "ef75b9425aa131663261dbc206e262af7943a67c47afb1c0536594084d8e6193",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-20T18:22:44.076Z",
+      "code": "source-ngram-8",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-20T20:02:31.640Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -205550,9 +205565,9 @@
     "tio-agenda:65117::6b40a55b5351f374a9fc1f2dfbe24ab76df04781a1ee3e0b45ad13ff0ef4813c": {
       "id": "tio-agenda:65117",
       "sourceDescriptionHash": "6b40a55b5351f374a9fc1f2dfbe24ab76df04781a1ee3e0b45ad13ff0ef4813c",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-20T18:23:26.696Z",
+      "code": "new-number",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-20T20:06:30.885Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -205595,9 +205610,9 @@
     "tio-agenda:65143::921f63d26080e41fabf921d1bb67892681daaf90dc4cfcf019d6e1d3bdbdf873": {
       "id": "tio-agenda:65143",
       "sourceDescriptionHash": "921f63d26080e41fabf921d1bb67892681daaf90dc4cfcf019d6e1d3bdbdf873",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-20T18:22:01.170Z",
+      "code": "source-ngram-8",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-20T20:04:57.347Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     }
