@@ -1162,16 +1162,6 @@ jobs:
           # host-killed with a `gc=skipped` as its last `[profile-mem]` line
           # -> drop this line; the code path reverts to GC after every plugin.
           PROFILE_GC_MIN_GROWTH_MB: '256'
-          # Non-IT lost runner communication in runs 44658737259/44544475356:
-          # [hostmem] topRSS ~13 GB and MemAvailable 461–601 MB on a 15.7 GB host.
-          # Green run 44585781044 reached 12,985 MB RSS / 601 MB available, then 326 MB minimum.
-          # Bundle generation after forced GC: heap used 7,094 MB, total 7,532 MB,
-          # external 131 MB. The 14336 cap lets uncollected heap grow. SSG RSS: 9,972 MB.
-          # 12288 gives ~5 GB above live heap and targets >=3 GB for the host.
-          # A JS heap-limit OOM is visible immediately versus ~2 hours of thrashing.
-          # Locale chunk filtering was unsafe and concurrency/plugin changes saved <1 GB.
-          # Revert on JS OOM, runner loss, or next en/de/fr minimum MemAvailable <=1.5 GB.
-          BUILD_EXTRA_NODE_OPTIONS: ${{ format('{0}{1}', vars.BUILD_EXTRA_NODE_OPTIONS, matrix.locale != 'it' && ' --max-old-space-size=12288' || '') }}
           # Redundant with the job-level `MALLOC_ARENA_MAX` above, which has
           # been in place since 2026-07-27 — kept only so this step is
           # self-contained if it is ever lifted out. It is NOT the fix for the
