@@ -577,31 +577,23 @@
     "expiredAt": "2026-11-15T09:16:41.868Z",
     "previousSlugsByLocale": {
       "fr": [
-        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne",
         "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
         "corporate-sales-rates-fx-bcv-lausanne-ba2a5d56",
         "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne",
         "fx-sales-bcv-lausanne-2a914c3a",
-        "corporate-sales-rates-fx-bcv-lausanne-d6d53e1b",
         "fx-sales-bcv-lausanne-7f750a57",
-        "corporate-sales-rates-fx-bcv-lausanne-5432f328",
         "fx-verkaufe-banque-cantonale-vaudoise-lausanne",
         "corporate-sales-rates-fx-bcv-lausanne-3ac27c4b",
-        "fx-sales-banque-cantonale-vaudoise-lausanne",
         "corporate-sales-rates-fx-bcv-lausanne-2e89d334",
-        "fx-sales-bcv-lausanne-4cf8ad8f",
         "corporate-sales-rates-fx-bcv-lausanne-96a5a800",
-        "corporate-sales-rates-fx-bcv-lausanne-7391dc31"
+        "corporate-sales-rates-fx-bcv-lausanne-7391dc31",
+        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne",
+        "corporate-sales-rates-fx-bcv-lausanne-d6d53e1b",
+        "corporate-sales-rates-fx-bcv-lausanne-5432f328",
+        "fx-sales-banque-cantonale-vaudoise-lausanne",
+        "fx-sales-bcv-lausanne-4cf8ad8f"
       ],
       "it": [
-        "fx-sales-bcv-lausanne-2a914c3a",
-        "corporate-sales-rates-fx-bcv-lausanne-ba2a5d56",
-        "fx-vendite-banque-cantonale-vaudoise-lausanne-3b041c90",
-        "corporate-sales-rates-fx-bcv-lausanne-d6d53e1b",
-        "fx-vendite-banque-cantonale-vaudoise-lausanne-7b8fc0ba",
-        "fx-sales-bcv-lausanne-7f750a57",
-        "corporate-sales-rates-fx-bcv-lausanne-5432f328",
-        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne",
         "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
         "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne",
         "fx-vendite-banque-cantonale-vaudoise-lausanne-1f6c575e",
@@ -609,16 +601,23 @@
         "corporate-sales-rates-fx-bcv-lausanne-3ac27c4b",
         "corporate-sales-rates-fx-bcv-lausanne-2e89d334",
         "fx-vendite-banque-cantonale-vaudoise-lausanne-962fba3e",
-        "fx-sales-bcv-lausanne-4cf8ad8f",
-        "fx-sales-banque-cantonale-vaudoise-lausanne",
         "corporate-sales-rates-fx-bcv-lausanne-96a5a800",
         "fx-vendite-banque-cantonale-vaudoise-lausanne-73075d21",
-        "corporate-sales-rates-fx-bcv-lausanne-7391dc31"
+        "corporate-sales-rates-fx-bcv-lausanne-7391dc31",
+        "fx-sales-bcv-lausanne-2a914c3a",
+        "corporate-sales-rates-fx-bcv-lausanne-ba2a5d56",
+        "fx-vendite-banque-cantonale-vaudoise-lausanne-7b8fc0ba",
+        "fx-sales-bcv-lausanne-7f750a57",
+        "fx-vendite-banque-cantonale-vaudoise-lausanne-3b041c90",
+        "corporate-sales-rates-fx-bcv-lausanne-d6d53e1b",
+        "corporate-sales-rates-fx-bcv-lausanne-5432f328",
+        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne",
+        "fx-sales-bcv-lausanne-4cf8ad8f",
+        "fx-sales-banque-cantonale-vaudoise-lausanne"
       ],
       "en": [
         "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne",
         "fx-sales-bcv-lausanne",
-        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne",
         "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
         "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-6173e6cd",
         "fx-sales-banque-cantonale-vaudoise-lausanne-f5647a08",
@@ -633,9 +632,10 @@
         "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-f73b50e8",
         "fx-sales-banque-cantonale-vaudoise-lausanne-95e2e868",
         "fx-verkaufe-banque-cantonale-vaudoise-lausanne",
-        "corporate-sales-rates-fx-bcv-lausanne",
         "fx-sales-banque-cantonale-vaudoise-lausanne-ad80851a",
-        "fx-sales-banque-cantonale-vaudoise-lausanne-03da203b"
+        "fx-sales-banque-cantonale-vaudoise-lausanne-03da203b",
+        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne",
+        "corporate-sales-rates-fx-bcv-lausanne"
       ],
       "de": [
         "fx-sales-bcv-lausanne-2a914c3a",
@@ -790,184 +790,6 @@
     "firstSeenAt": "2026-11-12T21:50:06.022Z"
   },
   {
-    "slug": "fx-vendite-banque-cantonale-vaudoise-lausanne-1f6c575e",
-    "title": "Corporate Sales Rates & FX",
-    "titleByLocale": {
-      "it": "Vendite aziendali – tassi e cambi",
-      "en": "Business Sales Rates and Exchange Rates",
-      "de": "Firmenkundenvertrieb – Zinsen und Devisen",
-      "fr": "Corporate Sales Rates & FX"
-    },
-    "company": "Banque Cantonale Vaudoise",
-    "companyKey": "bcv",
-    "location": "Lausanne",
-    "addressLocality": "Lausanne",
-    "descriptionByLocale": {
-      "it": "Descrizione\n\nE se la vostra storia professionale proseguisse alla BCV? Entrate a far parte della prima banca universale del cantone di Vaud, una delle banche più solide al mondo, e dei suoi circa 2000 collaboratori e collaboratrici. Prendete parte al successo di un’istituzione con rating AA di Standard & Poor’s dal 2011 e contribuite allo sviluppo del tessuto economico vodese, nonché all’attrattività e alla vitalità della nostra regione. Per la nostra divisione Asset Management e Trading, siamo alla ricerca di una o un:\n\nTassi di vendita aziendali e FX\n\nLe vostre principali mansioni:\n\n- Gestire e sviluppare un portafoglio di clienti aziendali in Svizzera identificando le loro esigenze di copertura valutaria e dei tassi d’interesse,\n- strutturare ed eseguire soluzioni di copertura dei tassi\n- proporre proattivamente soluzioni di copertura su misura alla clientela,\n- identificare e cogliere nuove opportunità di sviluppo commerciale sui mercati dei cambi, dei tassi e dei derivati,\n- promuovere la cultura BCV attraverso un servizio alla clientela di altissima qualità, nel rispetto delle regole e del contesto lavorativo,\n- partecipare alla promozione delle nostre soluzioni e dei nostri strumenti (es. piattaforma e-FOREX).\n\nIl vostro profilo:\n\n- Formazione universitaria o bancaria superiore,\n- almeno 5 anni di esperienza come sales Rates & FX, idealmente in una banca o in un istituto finanziario con un focus sulla clientela aziendale,\n- eccellente/ampia conoscenza dei mercati dei tassi\n- buona rete di contatti nel mercato svizzero delle imprese\n- eccellenti conoscenze degli strumenti FX (spot, forward, option) e Rates (IRS, Cap, Floor), nonché delle soluzioni di copertura,\n- spirito imprenditoriale e atteggiamento collegiale,\n- capacità di creare rapporti di fiducia, perseveranza e autonomia,\n- padronanza del francese ed eccellenti conoscenze dell’inglese, il tedesco costituisce un vantaggio; sede: Zurigo o Losanna\n\nSe questa posizione fa per voi, candidatevi subito e partecipate al futuro promettente della BCV. Scriviamo insieme tre storie, quella della vostra carriera, quella della vostra banca, quella della nostra regione.",
-      "en": "Description\n\nWhat if your professional journey continued at BCV? Join the leading universal bank in the canton of Vaud, one of the strongest banks in the world, and its approximately 2000 employees. Be part of the success of an institution rated AA by Standard & Poor’s since 2011 and contribute to the growth of Vaud’s economic fabric as well as to the appeal and vitality of our region. For our Asset Management and Trading division, we are looking for a:\n\nCorporate Sales Rates & FX\n\nYour main responsibilities:\n\n- Manage and develop a portfolio of corporate clients in Switzerland by identifying their currency and interest rate hedging needs,\n- structure and execute interest rate hedging solutions\n- proactively offer tailored hedging solutions to clients,\n- identify and seize new business development opportunities in the foreign exchange, interest rate and derivatives markets,\n- promote the BCV culture through very high-quality customer service while respecting the rules and the working framework,\n- participate in promoting our solutions and tools (e.g. e-FOREX platform).\n\nYour profile:\n\n- University degree or advanced banking qualification,\n- at least 5 years’ experience as a Rates & FX salesperson, ideally in a bank or financial institution with a focus on corporate clients,\n- excellent/extensive understanding of interest rate markets\n- good network in the Swiss corporate market\n- excellent knowledge of FX instruments (spot, forward, option) and Rates (IRS, Cap, Floor), as well as hedging solutions,\n- entrepreneurial spirit and collegial attitude,\n- ability to build relationships based on trust, perseverance and autonomy,\n- proficiency in French and excellent knowledge of English, German is an asset location: Zurich or Lausanne\n\nIf this position is right for you, apply now and take part in BCV's promising future. Let us write three stories together, that of your career, that of your bank, that of our region.",
-      "de": "Beschreibung\n\nWie wäre es, wenn Ihre berufliche Geschichte bei der BCV weiterginge? Werden Sie Teil der führenden Universalbank des Kantons Waadt, einer der solidesten Banken der Welt, und ihrer rund 2000 Mitarbeiterinnen und Mitarbeiter. Tragen Sie zum Erfolg eines Instituts bei, das seit 2011 von Standard & Poor’s mit AA bewertet wird, und leisten Sie einen Beitrag zum Aufschwung der Waadtländer Wirtschaft sowie zur Attraktivität und Vitalität unserer Region. Für unsere Division Asset Management und Trading suchen wir eine oder einen:\n\nUnternehmensumsatzraten & FX\n\nIhre Hauptaufgaben:\n\n- Verwalten und entwickeln Sie ein Portfolio von Unternehmenskunden in der Schweiz, indem Sie deren Bedarf an Währungs- und Zinsabsicherungen ermitteln,\n- Zinsabsicherungslösungen strukturieren und umsetzen\n- Der Kundschaft proaktiv maßgeschneiderte Absicherungslösungen anbieten,\n- neue Geschäftsentwicklungsmöglichkeiten an den Devisen-, Zins- und Derivatemärkten identifizieren und ergreifen,\n- die BCV-Kultur durch einen qualitativ sehr hochwertigen Kundenservice unter Einhaltung der Regeln und des Arbeitsrahmens fördern,\n- an der Förderung unserer Lösungen und Tools mitwirken (z. B. e-FOREX-Plattform).\n\nIhr Profil:\n\n- Hochschul- oder höhere Bankausbildung,\n- mindestens 5 Jahre Erfahrung im Sales für Rates & FX, idealerweise bei einer Bank oder einem Finanzinstitut mit Fokus auf Firmenkunden,\n- ausgezeichnetes/umfassendes Verständnis der Zinsmärkte\n- gutes Netzwerk auf dem Schweizer Firmenkundenmarkt\n- ausgezeichnete Kenntnisse der FX-Instrumente (Spot, Forward, Option) und Rates-Instrumente (IRS, Cap, Floor) sowie der Absicherungslösungen,\n- unternehmerisches Denken und kollegiale Haltung,\n- Fähigkeit, vertrauensvolle Beziehungen aufzubauen, Durchhaltevermögen und Selbstständigkeit,\n- Beherrschung der französischen Sprache und ausgezeichnete Englischkenntnisse, Deutschkenntnisse sind von Vorteil Standort: Zürich oder Lausanne\n\nWenn diese Stelle zu Ihnen passt, bewerben Sie sich jetzt und gestalten Sie die vielversprechende Zukunft der BCV mit. Schreiben wir gemeinsam drei Geschichten: die Ihrer Karriere, die Ihrer Bank und die unserer Region.",
-      "fr": "Et si votre histoire professionnelle se poursuivait à la BCV ? Rejoignez la première banque universelle du canton de Vaud, l’une des banques les plus solides au monde, et ses quelques 2000 collaboratrices et collaborateurs. Prenez part au succès d’une institution notée AA par Standard & Poor’s depuis 2011 et contribuez à l’essor du tissu économique vaudois ainsi qu’à l’attractivité et à la vitalité de notre région. Pour notre division Asset Management et Trading , nous recherchons une ou un :\n\nCorporate Sales Rates & FX Vos missions principales :\n• Gérer et développer un portefeuille de clients entreprises en Suisse en identifiant leurs besoins en couverture sur devises et taux d’intérêt,\n• structurer et exécuter des solutions de couverture de taux\n• proposer proactivement des solutions de couverture sur mesure à la clientèle,\n• identifier et saisir de nouvelles opportunités de développement commercial sur les marchés des changes, de taux et des dérivés,\n• promouvoir la culture BCV par un service à la clientèle de très haute qualité dans le respect des règles et du cadre de travail,\n• participer à la promotion de nos solutions et de nos outils (ex. plateforme e-FOREX). Votre profil :\n• Formation universitaire ou bancaire supérieure,\n• minimum 5 ans d'expérience en tant que sales Rates & FX, idéalement dans une banque ou une institution financière avec un focus sur la clientèle entreprises,\n• excellente/vaste compréhension des marchés de taux\n• bon réseau sur le marché suisse des entreprises\n• excellentes connaissances des instruments FX (spot, forward, option) et Rates (IRS, Cap, Floor) ainsi que des solutions de couverture,\n• esprit entrepreneurial et attitude collégiale,\n• capacité à créer des relations de confiance, persévérance et autonomie,\n• maîtrise du français et excellentes connaissances de l'anglais, l’allemand est un atout localisation: Zurich ou Lausanne\n\nSi ce poste est fait pour vous, postulez dès maintenant et participez à l’avenir prometteur de la BCV. Ecrivons ensemble trois histoires, celle de votre carrière, celle de votre banque, celle de notre région."
-    },
-    "slugByLocale": {
-      "it": "fx-vendite-banque-cantonale-vaudoise-lausanne-1f6c575e",
-      "en": "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-6173e6cd",
-      "de": "fx-verkaufe-banque-cantonale-vaudoise-lausanne-379a31fc",
-      "fr": "fx-sales-bcv-lausanne-c12b61d9"
-    },
-    "sector": "Banca / Finanza",
-    "expiredAt": "2026-11-14T21:19:29.302Z",
-    "previousSlugs": [
-      "fx-vendite-banque-cantonale-vaudoise-lausanne-a1d0c6e6",
-      "corporate-sales-rates-fx-bcv-lausanne-2e89d334",
-      "fx-vendite-banque-cantonale-vaudoise-lausanne-962fba3e",
-      "corporate-sales-rates-fx-bcv-lausanne-96a5a800",
-      "fx-vendite-banque-cantonale-vaudoise-lausanne-73075d21",
-      "fx-sales-bcv-lausanne-79caa28d",
-      "corporate-sales-rates-fx-bcv-lausanne-7391dc31",
-      "fx-vendite-banque-cantonale-vaudoise-lausanne-3b041c90",
-      "fx-sales-bcv-lausanne-2a914c3a",
-      "corporate-sales-rates-fx-bcv-lausanne-d6d53e1b",
-      "fx-vendite-banque-cantonale-vaudoise-lausanne-7b8fc0ba",
-      "fx-sales-bcv-lausanne-7f750a57",
-      "corporate-sales-rates-fx-bcv-lausanne-ba2a5d56",
-      "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-c2542c88",
-      "fx-sales-banque-cantonale-vaudoise-lausanne-ad60a64e",
-      "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-e170ab7e",
-      "fx-sales-banque-cantonale-vaudoise-lausanne-4f614e14",
-      "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-0262e577",
-      "fx-sales-banque-cantonale-vaudoise-lausanne-d6c4031e",
-      "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-e9de3752",
-      "fx-sales-banque-cantonale-vaudoise-lausanne-34c4375b",
-      "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-f73b50e8",
-      "fx-sales-banque-cantonale-vaudoise-lausanne-95e2e868",
-      "fx-verkaufe-banque-cantonale-vaudoise-lausanne-14e5889f",
-      "fx-verkaufe-banque-cantonale-vaudoise-lausanne-f97ec70c",
-      "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-5f197698",
-      "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-a7f9db44",
-      "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-92761ab0",
-      "fx-verkaufe-banque-cantonale-vaudoise-lausanne-995c297a",
-      "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-26817b38",
-      "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-a38e4f64",
-      "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-6515bb5e",
-      "fx-verkaufe-banque-cantonale-vaudoise-lausanne-7f74ba87",
-      "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-948a2297",
-      "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-1df0bb3b",
-      "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-c1b9e71b",
-      "fx-verkaufe-banque-cantonale-vaudoise-lausanne-2d01c27b",
-      "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-f39f9f8e",
-      "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-f11a00a6",
-      "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-1f99c16a",
-      "fx-sales-bcv-lausanne-4cf8ad8f",
-      "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-5e94e5c7",
-      "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-edf8c8b5",
-      "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-9160985f",
-      "fx-sales-bcv-lausanne-54a8116f",
-      "fx-sales-banque-cantonale-vaudoise-lausanne",
-      "corporate-sales-rates-fx-bcv-lausanne-5432f328",
-      "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne",
-      "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
-      "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne",
-      "fx-sales-banque-cantonale-vaudoise-lausanne-f5647a08",
-      "fx-sales-bcv-lausanne",
-      "corporate-sales-rates-fx-bcv-lausanne",
-      "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-e7f376f6",
-      "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-1d8dfaf2",
-      "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-15f883d4"
-    ],
-    "previousSlugsByLocale": {
-      "fr": [
-        "fx-sales-bcv-lausanne-4cf8ad8f",
-        "corporate-sales-rates-fx-bcv-lausanne-2e89d334",
-        "fx-sales-banque-cantonale-vaudoise-lausanne",
-        "corporate-sales-rates-fx-bcv-lausanne-96a5a800",
-        "fx-sales-bcv-lausanne-79caa28d",
-        "corporate-sales-rates-fx-bcv-lausanne-7391dc31",
-        "fx-sales-bcv-lausanne-2a914c3a",
-        "corporate-sales-rates-fx-bcv-lausanne-d6d53e1b",
-        "fx-sales-bcv-lausanne-7f750a57",
-        "corporate-sales-rates-fx-bcv-lausanne-ba2a5d56",
-        "corporate-sales-rates-fx-bcv-lausanne-5432f328",
-        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne",
-        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
-        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne"
-      ],
-      "it": [
-        "fx-vendite-banque-cantonale-vaudoise-lausanne-a1d0c6e6",
-        "corporate-sales-rates-fx-bcv-lausanne-2e89d334",
-        "fx-sales-banque-cantonale-vaudoise-lausanne",
-        "fx-vendite-banque-cantonale-vaudoise-lausanne-962fba3e",
-        "corporate-sales-rates-fx-bcv-lausanne-96a5a800",
-        "fx-vendite-banque-cantonale-vaudoise-lausanne-73075d21",
-        "fx-sales-bcv-lausanne-79caa28d",
-        "corporate-sales-rates-fx-bcv-lausanne-7391dc31",
-        "fx-vendite-banque-cantonale-vaudoise-lausanne-3b041c90",
-        "fx-sales-bcv-lausanne-2a914c3a",
-        "corporate-sales-rates-fx-bcv-lausanne-d6d53e1b",
-        "fx-vendite-banque-cantonale-vaudoise-lausanne-7b8fc0ba",
-        "fx-sales-bcv-lausanne-7f750a57",
-        "corporate-sales-rates-fx-bcv-lausanne-ba2a5d56",
-        "fx-sales-bcv-lausanne-4cf8ad8f",
-        "corporate-sales-rates-fx-bcv-lausanne-5432f328",
-        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne",
-        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
-        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne"
-      ],
-      "en": [
-        "fx-sales-banque-cantonale-vaudoise-lausanne-f5647a08",
-        "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-c2542c88",
-        "fx-sales-banque-cantonale-vaudoise-lausanne-ad60a64e",
-        "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-e170ab7e",
-        "fx-sales-banque-cantonale-vaudoise-lausanne-4f614e14",
-        "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-0262e577",
-        "fx-sales-banque-cantonale-vaudoise-lausanne-d6c4031e",
-        "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-e9de3752",
-        "fx-sales-banque-cantonale-vaudoise-lausanne-34c4375b",
-        "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-f73b50e8",
-        "fx-sales-banque-cantonale-vaudoise-lausanne-95e2e868",
-        "fx-sales-bcv-lausanne",
-        "corporate-sales-rates-fx-bcv-lausanne",
-        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne",
-        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
-        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne"
-      ],
-      "de": [
-        "fx-sales-banque-cantonale-vaudoise-lausanne",
-        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-f97ec70c",
-        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-5f197698",
-        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-a7f9db44",
-        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-92761ab0",
-        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-995c297a",
-        "fx-sales-bcv-lausanne-79caa28d",
-        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-26817b38",
-        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-a38e4f64",
-        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-6515bb5e",
-        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-7f74ba87",
-        "fx-sales-bcv-lausanne-2a914c3a",
-        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-948a2297",
-        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-1df0bb3b",
-        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-c1b9e71b",
-        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-2d01c27b",
-        "fx-sales-bcv-lausanne-7f750a57",
-        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-f39f9f8e",
-        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-f11a00a6",
-        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-1f99c16a",
-        "fx-sales-bcv-lausanne-4cf8ad8f",
-        "corporate-sales-rates-fx-bcv-lausanne",
-        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-e7f376f6",
-        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-1d8dfaf2",
-        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-15f883d4"
-      ]
-    },
-    "postalCode": "1003",
-    "streetAddress": "Place Saint-François 14",
-    "salaryMin": 72000,
-    "salaryMax": 111000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://jobs.bcv.ch/job/lausanne-corporate-sales-rates-&-fx/1277101301",
-    "firstSeenAt": "2026-07-04T10:16:12.392Z"
-  },
-  {
     "slug": "ict-cyber-risk-management-expert-banque-cantonale-vaudoise-lausanne-ab693103",
     "title": "Experte ou expert en gestion des risques TIC & Cyber",
     "titleByLocale": {
@@ -1115,162 +937,6 @@
     "firstSeenAt": "2026-08-31T17:11:50.457Z"
   },
   {
-    "slug": "fx-vendite-banque-cantonale-vaudoise-lausanne-a1d0c6e6",
-    "title": "Corporate Sales Rates & FX",
-    "titleByLocale": {
-      "it": "Vendite aziendali – tassi e cambi",
-      "en": "Business Sales Rates and Exchange Rates",
-      "de": "Firmenkundenvertrieb – Zinsen und Devisen",
-      "fr": "Corporate Sales Rates & FX"
-    },
-    "company": "Banque Cantonale Vaudoise",
-    "companyKey": "bcv",
-    "location": "Lausanne",
-    "addressLocality": "Lausanne",
-    "descriptionByLocale": {
-      "it": "Descrizione\n\nE se la vostra storia professionale proseguisse alla BCV? Entrate a far parte della prima banca universale del cantone di Vaud, una delle banche più solide al mondo, e dei suoi circa 2000 collaboratori e collaboratrici. Prendete parte al successo di un’istituzione con rating AA di Standard & Poor’s dal 2011 e contribuite allo sviluppo del tessuto economico vodese, nonché all’attrattività e alla vitalità della nostra regione. Per la nostra divisione Asset Management e Trading, siamo alla ricerca di una o un:\n\nTassi di vendita aziendali e FX\n\nLe vostre principali mansioni:\n\n- Gestire e sviluppare un portafoglio di clienti aziendali in Svizzera identificando le loro esigenze di copertura valutaria e dei tassi d’interesse,\n- strutturare ed eseguire soluzioni di copertura dei tassi\n- proporre proattivamente soluzioni di copertura su misura alla clientela,\n- identificare e cogliere nuove opportunità di sviluppo commerciale sui mercati dei cambi, dei tassi e dei derivati,\n- promuovere la cultura BCV attraverso un servizio alla clientela di altissima qualità, nel rispetto delle regole e del contesto lavorativo,\n- partecipare alla promozione delle nostre soluzioni e dei nostri strumenti (es. piattaforma e-FOREX).\n\nIl vostro profilo:\n\n- Formazione universitaria o bancaria superiore,\n- almeno 5 anni di esperienza come sales Rates & FX, idealmente in una banca o in un istituto finanziario con un focus sulla clientela aziendale,\n- eccellente/ampia conoscenza dei mercati dei tassi\n- buona rete di contatti nel mercato svizzero delle imprese\n- eccellenti conoscenze degli strumenti FX (spot, forward, option) e Rates (IRS, Cap, Floor), nonché delle soluzioni di copertura,\n- spirito imprenditoriale e atteggiamento collegiale,\n- capacità di creare rapporti di fiducia, perseveranza e autonomia,\n- padronanza del francese ed eccellenti conoscenze dell’inglese, il tedesco costituisce un vantaggio; sede: Zurigo o Losanna\n\nSe questa posizione fa per voi, candidatevi subito e partecipate al futuro promettente della BCV. Scriviamo insieme tre storie, quella della vostra carriera, quella della vostra banca, quella della nostra regione.",
-      "en": "Description\n\nWhat if your professional journey continued at BCV? Join the leading universal bank in the canton of Vaud, one of the strongest banks in the world, and its approximately 2000 employees. Be part of the success of an institution rated AA by Standard & Poor’s since 2011 and contribute to the growth of Vaud’s economic fabric as well as to the appeal and vitality of our region. For our Asset Management and Trading division, we are looking for a:\n\nCorporate Sales Rates & FX\n\nYour main responsibilities:\n\n- Manage and develop a portfolio of corporate clients in Switzerland by identifying their currency and interest rate hedging needs,\n- structure and execute interest rate hedging solutions\n- proactively offer tailored hedging solutions to clients,\n- identify and seize new business development opportunities in the foreign exchange, interest rate and derivatives markets,\n- promote the BCV culture through very high-quality customer service while respecting the rules and the working framework,\n- participate in promoting our solutions and tools (e.g. e-FOREX platform).\n\nYour profile:\n\n- University degree or advanced banking qualification,\n- at least 5 years’ experience as a Rates & FX salesperson, ideally in a bank or financial institution with a focus on corporate clients,\n- excellent/extensive understanding of interest rate markets\n- good network in the Swiss corporate market\n- excellent knowledge of FX instruments (spot, forward, option) and Rates (IRS, Cap, Floor), as well as hedging solutions,\n- entrepreneurial spirit and collegial attitude,\n- ability to build relationships based on trust, perseverance and autonomy,\n- proficiency in French and excellent knowledge of English, German is an asset location: Zurich or Lausanne\n\nIf this position is right for you, apply now and take part in BCV's promising future. Let us write three stories together, that of your career, that of your bank, that of our region.",
-      "de": "Beschreibung\n\nWie wäre es, wenn Ihre berufliche Geschichte bei der BCV weiterginge? Werden Sie Teil der führenden Universalbank des Kantons Waadt, einer der solidesten Banken der Welt, und ihrer rund 2000 Mitarbeiterinnen und Mitarbeiter. Tragen Sie zum Erfolg eines Instituts bei, das seit 2011 von Standard & Poor’s mit AA bewertet wird, und leisten Sie einen Beitrag zum Aufschwung der Waadtländer Wirtschaft sowie zur Attraktivität und Vitalität unserer Region. Für unsere Division Asset Management und Trading suchen wir eine oder einen:\n\nUnternehmensumsatzraten & FX\n\nIhre Hauptaufgaben:\n\n- Verwalten und entwickeln Sie ein Portfolio von Unternehmenskunden in der Schweiz, indem Sie deren Bedarf an Währungs- und Zinsabsicherungen ermitteln,\n- Zinsabsicherungslösungen strukturieren und umsetzen\n- Der Kundschaft proaktiv maßgeschneiderte Absicherungslösungen anbieten,\n- neue Geschäftsentwicklungsmöglichkeiten an den Devisen-, Zins- und Derivatemärkten identifizieren und ergreifen,\n- die BCV-Kultur durch einen qualitativ sehr hochwertigen Kundenservice unter Einhaltung der Regeln und des Arbeitsrahmens fördern,\n- an der Förderung unserer Lösungen und Tools mitwirken (z. B. e-FOREX-Plattform).\n\nIhr Profil:\n\n- Hochschul- oder höhere Bankausbildung,\n- mindestens 5 Jahre Erfahrung im Sales für Rates & FX, idealerweise bei einer Bank oder einem Finanzinstitut mit Fokus auf Firmenkunden,\n- ausgezeichnetes/umfassendes Verständnis der Zinsmärkte\n- gutes Netzwerk auf dem Schweizer Firmenkundenmarkt\n- ausgezeichnete Kenntnisse der FX-Instrumente (Spot, Forward, Option) und Rates-Instrumente (IRS, Cap, Floor) sowie der Absicherungslösungen,\n- unternehmerisches Denken und kollegiale Haltung,\n- Fähigkeit, vertrauensvolle Beziehungen aufzubauen, Durchhaltevermögen und Selbstständigkeit,\n- Beherrschung der französischen Sprache und ausgezeichnete Englischkenntnisse, Deutschkenntnisse sind von Vorteil Standort: Zürich oder Lausanne\n\nWenn diese Stelle zu Ihnen passt, bewerben Sie sich jetzt und gestalten Sie die vielversprechende Zukunft der BCV mit. Schreiben wir gemeinsam drei Geschichten: die Ihrer Karriere, die Ihrer Bank und die unserer Region.",
-      "fr": "Et si votre histoire professionnelle se poursuivait à la BCV ? Rejoignez la première banque universelle du canton de Vaud, l’une des banques les plus solides au monde, et ses quelques 2000 collaboratrices et collaborateurs. Prenez part au succès d’une institution notée AA par Standard & Poor’s depuis 2011 et contribuez à l’essor du tissu économique vaudois ainsi qu’à l’attractivité et à la vitalité de notre région. Pour notre division Asset Management et Trading , nous recherchons une ou un :\n\nCorporate Sales Rates & FX Vos missions principales :\n• Gérer et développer un portefeuille de clients entreprises en Suisse en identifiant leurs besoins en couverture sur devises et taux d’intérêt,\n• structurer et exécuter des solutions de couverture de taux\n• proposer proactivement des solutions de couverture sur mesure à la clientèle,\n• identifier et saisir de nouvelles opportunités de développement commercial sur les marchés des changes, de taux et des dérivés,\n• promouvoir la culture BCV par un service à la clientèle de très haute qualité dans le respect des règles et du cadre de travail,\n• participer à la promotion de nos solutions et de nos outils (ex. plateforme e-FOREX). Votre profil :\n• Formation universitaire ou bancaire supérieure,\n• minimum 5 ans d'expérience en tant que sales Rates & FX, idéalement dans une banque ou une institution financière avec un focus sur la clientèle entreprises,\n• excellente/vaste compréhension des marchés de taux\n• bon réseau sur le marché suisse des entreprises\n• excellentes connaissances des instruments FX (spot, forward, option) et Rates (IRS, Cap, Floor) ainsi que des solutions de couverture,\n• esprit entrepreneurial et attitude collégiale,\n• capacité à créer des relations de confiance, persévérance et autonomie,\n• maîtrise du français et excellentes connaissances de l'anglais, l’allemand est un atout localisation: Zurich ou Lausanne\n\nSi ce poste est fait pour vous, postulez dès maintenant et participez à l’avenir prometteur de la BCV. Ecrivons ensemble trois histoires, celle de votre carrière, celle de votre banque, celle de notre région."
-    },
-    "slugByLocale": {
-      "it": "fx-vendite-banque-cantonale-vaudoise-lausanne-a1d0c6e6",
-      "en": "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-c2542c88",
-      "de": "fx-verkaufe-banque-cantonale-vaudoise-lausanne-14e5889f",
-      "fr": "fx-sales-bcv-lausanne-4cf8ad8f"
-    },
-    "sector": "Banca / Finanza",
-    "expiredAt": "2026-11-14T09:24:36.057Z",
-    "previousSlugsByLocale": {
-      "fr": [
-        "corporate-sales-rates-fx-bcv-lausanne-2e89d334",
-        "fx-sales-banque-cantonale-vaudoise-lausanne",
-        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne",
-        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
-        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne",
-        "corporate-sales-rates-fx-bcv-lausanne-96a5a800",
-        "fx-sales-bcv-lausanne-79caa28d",
-        "corporate-sales-rates-fx-bcv-lausanne-7391dc31",
-        "fx-sales-bcv-lausanne-2a914c3a",
-        "corporate-sales-rates-fx-bcv-lausanne-d6d53e1b",
-        "fx-sales-bcv-lausanne-7f750a57",
-        "corporate-sales-rates-fx-bcv-lausanne-ba2a5d56"
-      ],
-      "it": [
-        "corporate-sales-rates-fx-bcv-lausanne-2e89d334",
-        "fx-sales-banque-cantonale-vaudoise-lausanne",
-        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne",
-        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
-        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne",
-        "fx-vendite-banque-cantonale-vaudoise-lausanne-962fba3e",
-        "corporate-sales-rates-fx-bcv-lausanne-96a5a800",
-        "fx-vendite-banque-cantonale-vaudoise-lausanne-73075d21",
-        "fx-sales-bcv-lausanne-79caa28d",
-        "corporate-sales-rates-fx-bcv-lausanne-7391dc31",
-        "fx-vendite-banque-cantonale-vaudoise-lausanne-3b041c90",
-        "fx-sales-bcv-lausanne-2a914c3a",
-        "corporate-sales-rates-fx-bcv-lausanne-d6d53e1b",
-        "fx-vendite-banque-cantonale-vaudoise-lausanne-7b8fc0ba",
-        "fx-sales-bcv-lausanne-7f750a57",
-        "corporate-sales-rates-fx-bcv-lausanne-ba2a5d56"
-      ],
-      "en": [
-        "fx-sales-banque-cantonale-vaudoise-lausanne-ad60a64e",
-        "fx-sales-bcv-lausanne",
-        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne",
-        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
-        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne",
-        "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-e170ab7e",
-        "fx-sales-banque-cantonale-vaudoise-lausanne-4f614e14",
-        "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-0262e577",
-        "fx-sales-banque-cantonale-vaudoise-lausanne-d6c4031e",
-        "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-e9de3752",
-        "fx-sales-banque-cantonale-vaudoise-lausanne-34c4375b",
-        "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-f73b50e8",
-        "fx-sales-banque-cantonale-vaudoise-lausanne-95e2e868"
-      ],
-      "de": [
-        "fx-sales-banque-cantonale-vaudoise-lausanne",
-        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-f97ec70c",
-        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-5f197698",
-        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-a7f9db44",
-        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-92761ab0",
-        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-995c297a",
-        "fx-sales-bcv-lausanne-79caa28d",
-        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-26817b38",
-        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-a38e4f64",
-        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-6515bb5e",
-        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-7f74ba87",
-        "fx-sales-bcv-lausanne-2a914c3a",
-        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-948a2297",
-        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-1df0bb3b",
-        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-c1b9e71b",
-        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-2d01c27b",
-        "fx-sales-bcv-lausanne-7f750a57",
-        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-f39f9f8e",
-        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-f11a00a6",
-        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-1f99c16a"
-      ]
-    },
-    "postalCode": "1003",
-    "streetAddress": "Place Saint-François 14",
-    "salaryMin": 72000,
-    "salaryMax": 111000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://jobs.bcv.ch/job/lausanne-corporate-sales-rates-&-fx/1277101301",
-    "firstSeenAt": "2026-07-04T10:16:12.392Z",
-    "previousSlugs": [
-      "corporate-sales-rates-fx-bcv-lausanne-2e89d334",
-      "fx-sales-banque-cantonale-vaudoise-lausanne",
-      "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne",
-      "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
-      "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne",
-      "fx-vendite-banque-cantonale-vaudoise-lausanne-962fba3e",
-      "fx-sales-banque-cantonale-vaudoise-lausanne-ad60a64e",
-      "fx-sales-bcv-lausanne",
-      "corporate-sales-rates-fx-bcv-lausanne",
-      "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-5e94e5c7",
-      "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-edf8c8b5",
-      "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-9160985f",
-      "corporate-sales-rates-fx-bcv-lausanne-96a5a800",
-      "fx-vendite-banque-cantonale-vaudoise-lausanne-73075d21",
-      "fx-sales-bcv-lausanne-79caa28d",
-      "corporate-sales-rates-fx-bcv-lausanne-7391dc31",
-      "fx-vendite-banque-cantonale-vaudoise-lausanne-3b041c90",
-      "fx-sales-bcv-lausanne-2a914c3a",
-      "corporate-sales-rates-fx-bcv-lausanne-d6d53e1b",
-      "fx-vendite-banque-cantonale-vaudoise-lausanne-7b8fc0ba",
-      "fx-sales-bcv-lausanne-7f750a57",
-      "corporate-sales-rates-fx-bcv-lausanne-ba2a5d56",
-      "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-e170ab7e",
-      "fx-sales-banque-cantonale-vaudoise-lausanne-4f614e14",
-      "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-0262e577",
-      "fx-sales-banque-cantonale-vaudoise-lausanne-d6c4031e",
-      "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-e9de3752",
-      "fx-sales-banque-cantonale-vaudoise-lausanne-34c4375b",
-      "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-f73b50e8",
-      "fx-sales-banque-cantonale-vaudoise-lausanne-95e2e868",
-      "fx-verkaufe-banque-cantonale-vaudoise-lausanne-f97ec70c",
-      "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-5f197698",
-      "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-a7f9db44",
-      "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-92761ab0",
-      "fx-verkaufe-banque-cantonale-vaudoise-lausanne-995c297a",
-      "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-26817b38",
-      "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-a38e4f64",
-      "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-6515bb5e",
-      "fx-verkaufe-banque-cantonale-vaudoise-lausanne-7f74ba87",
-      "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-948a2297",
-      "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-1df0bb3b",
-      "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-c1b9e71b",
-      "fx-verkaufe-banque-cantonale-vaudoise-lausanne-2d01c27b",
-      "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-f39f9f8e",
-      "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-f11a00a6",
-      "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-1f99c16a",
-      "fx-sales-bcv-lausanne-54a8116f"
-    ]
-  },
-  {
     "slug": "ict-cyber-risk-management-expert-banque-cantonale-vaudoise-lausanne-915412ce",
     "title": "Experte ou expert en gestion des risques TIC & Cyber",
     "titleByLocale": {
@@ -1365,149 +1031,6 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bcv.ch/job/lausanne-chief-credit-officer-cheffe-ou-chef-de-division/1445095733",
     "firstSeenAt": "2026-10-07T09:21:25.865Z"
-  },
-  {
-    "slug": "fx-vendite-banque-cantonale-vaudoise-lausanne-962fba3e",
-    "title": "Corporate Sales Rates & FX",
-    "titleByLocale": {
-      "it": "Vendite aziendali – tassi e cambi",
-      "en": "Business Sales Rates and Exchange Rates",
-      "de": "Firmenkundenvertrieb – Zinsen und Devisen",
-      "fr": "Corporate Sales Rates & FX"
-    },
-    "company": "Banque Cantonale Vaudoise",
-    "companyKey": "bcv",
-    "location": "Lausanne",
-    "addressLocality": "Lausanne",
-    "descriptionByLocale": {
-      "it": "Descrizione\n\nE se la vostra storia professionale proseguisse alla BCV? Entrate a far parte della prima banca universale del cantone di Vaud, una delle banche più solide al mondo, e dei suoi circa 2000 collaboratori e collaboratrici. Prendete parte al successo di un’istituzione con rating AA di Standard & Poor’s dal 2011 e contribuite allo sviluppo del tessuto economico vodese, nonché all’attrattività e alla vitalità della nostra regione. Per la nostra divisione Asset Management e Trading, siamo alla ricerca di una o un:\n\nTassi di vendita aziendali e FX\n\nLe vostre principali mansioni:\n\n- Gestire e sviluppare un portafoglio di clienti aziendali in Svizzera identificando le loro esigenze di copertura valutaria e dei tassi d’interesse,\n- strutturare ed eseguire soluzioni di copertura dei tassi\n- proporre proattivamente soluzioni di copertura su misura alla clientela,\n- identificare e cogliere nuove opportunità di sviluppo commerciale sui mercati dei cambi, dei tassi e dei derivati,\n- promuovere la cultura BCV attraverso un servizio alla clientela di altissima qualità, nel rispetto delle regole e del contesto lavorativo,\n- partecipare alla promozione delle nostre soluzioni e dei nostri strumenti (es. piattaforma e-FOREX).\n\nIl vostro profilo:\n\n- Formazione universitaria o bancaria superiore,\n- almeno 5 anni di esperienza come sales Rates & FX, idealmente in una banca o in un istituto finanziario con un focus sulla clientela aziendale,\n- eccellente/ampia conoscenza dei mercati dei tassi\n- buona rete di contatti nel mercato svizzero delle imprese\n- eccellenti conoscenze degli strumenti FX (spot, forward, option) e Rates (IRS, Cap, Floor), nonché delle soluzioni di copertura,\n- spirito imprenditoriale e atteggiamento collegiale,\n- capacità di creare rapporti di fiducia, perseveranza e autonomia,\n- padronanza del francese ed eccellenti conoscenze dell’inglese, il tedesco costituisce un vantaggio; sede: Zurigo o Losanna\n\nSe questa posizione fa per voi, candidatevi subito e partecipate al futuro promettente della BCV. Scriviamo insieme tre storie, quella della vostra carriera, quella della vostra banca, quella della nostra regione.",
-      "en": "Description\n\nWhat if your professional journey continued at BCV? Join the leading universal bank in the canton of Vaud, one of the strongest banks in the world, and its approximately 2000 employees. Be part of the success of an institution rated AA by Standard & Poor’s since 2011 and contribute to the growth of Vaud’s economic fabric as well as to the appeal and vitality of our region. For our Asset Management and Trading division, we are looking for a:\n\nCorporate Sales Rates & FX\n\nYour main responsibilities:\n\n- Manage and develop a portfolio of corporate clients in Switzerland by identifying their currency and interest rate hedging needs,\n- structure and execute interest rate hedging solutions\n- proactively offer tailored hedging solutions to clients,\n- identify and seize new business development opportunities in the foreign exchange, interest rate and derivatives markets,\n- promote the BCV culture through very high-quality customer service while respecting the rules and the working framework,\n- participate in promoting our solutions and tools (e.g. e-FOREX platform).\n\nYour profile:\n\n- University degree or advanced banking qualification,\n- at least 5 years’ experience as a Rates & FX salesperson, ideally in a bank or financial institution with a focus on corporate clients,\n- excellent/extensive understanding of interest rate markets\n- good network in the Swiss corporate market\n- excellent knowledge of FX instruments (spot, forward, option) and Rates (IRS, Cap, Floor), as well as hedging solutions,\n- entrepreneurial spirit and collegial attitude,\n- ability to build relationships based on trust, perseverance and autonomy,\n- proficiency in French and excellent knowledge of English, German is an asset location: Zurich or Lausanne\n\nIf this position is right for you, apply now and take part in BCV's promising future. Let us write three stories together, that of your career, that of your bank, that of our region.",
-      "de": "Beschreibung\n\nWie wäre es, wenn Ihre berufliche Geschichte bei der BCV weiterginge? Werden Sie Teil der führenden Universalbank des Kantons Waadt, einer der solidesten Banken der Welt, und ihrer rund 2000 Mitarbeiterinnen und Mitarbeiter. Tragen Sie zum Erfolg eines Instituts bei, das seit 2011 von Standard & Poor’s mit AA bewertet wird, und leisten Sie einen Beitrag zum Aufschwung der Waadtländer Wirtschaft sowie zur Attraktivität und Vitalität unserer Region. Für unsere Division Asset Management und Trading suchen wir eine oder einen:\n\nUnternehmensumsatzraten & FX\n\nIhre Hauptaufgaben:\n\n- Verwalten und entwickeln Sie ein Portfolio von Unternehmenskunden in der Schweiz, indem Sie deren Bedarf an Währungs- und Zinsabsicherungen ermitteln,\n- Zinsabsicherungslösungen strukturieren und umsetzen\n- Der Kundschaft proaktiv maßgeschneiderte Absicherungslösungen anbieten,\n- neue Geschäftsentwicklungsmöglichkeiten an den Devisen-, Zins- und Derivatemärkten identifizieren und ergreifen,\n- die BCV-Kultur durch einen qualitativ sehr hochwertigen Kundenservice unter Einhaltung der Regeln und des Arbeitsrahmens fördern,\n- an der Förderung unserer Lösungen und Tools mitwirken (z. B. e-FOREX-Plattform).\n\nIhr Profil:\n\n- Hochschul- oder höhere Bankausbildung,\n- mindestens 5 Jahre Erfahrung im Sales für Rates & FX, idealerweise bei einer Bank oder einem Finanzinstitut mit Fokus auf Firmenkunden,\n- ausgezeichnetes/umfassendes Verständnis der Zinsmärkte\n- gutes Netzwerk auf dem Schweizer Firmenkundenmarkt\n- ausgezeichnete Kenntnisse der FX-Instrumente (Spot, Forward, Option) und Rates-Instrumente (IRS, Cap, Floor) sowie der Absicherungslösungen,\n- unternehmerisches Denken und kollegiale Haltung,\n- Fähigkeit, vertrauensvolle Beziehungen aufzubauen, Durchhaltevermögen und Selbstständigkeit,\n- Beherrschung der französischen Sprache und ausgezeichnete Englischkenntnisse, Deutschkenntnisse sind von Vorteil Standort: Zürich oder Lausanne\n\nWenn diese Stelle zu Ihnen passt, bewerben Sie sich jetzt und gestalten Sie die vielversprechende Zukunft der BCV mit. Schreiben wir gemeinsam drei Geschichten: die Ihrer Karriere, die Ihrer Bank und die unserer Region.",
-      "fr": "Et si votre histoire professionnelle se poursuivait à la BCV ? Rejoignez la première banque universelle du canton de Vaud, l’une des banques les plus solides au monde, et ses quelques 2000 collaboratrices et collaborateurs. Prenez part au succès d’une institution notée AA par Standard & Poor’s depuis 2011 et contribuez à l’essor du tissu économique vaudois ainsi qu’à l’attractivité et à la vitalité de notre région. Pour notre division Asset Management et Trading , nous recherchons une ou un :\n\nCorporate Sales Rates & FX Vos missions principales :\n• Gérer et développer un portefeuille de clients entreprises en Suisse en identifiant leurs besoins en couverture sur devises et taux d’intérêt,\n• structurer et exécuter des solutions de couverture de taux\n• proposer proactivement des solutions de couverture sur mesure à la clientèle,\n• identifier et saisir de nouvelles opportunités de développement commercial sur les marchés des changes, de taux et des dérivés,\n• promouvoir la culture BCV par un service à la clientèle de très haute qualité dans le respect des règles et du cadre de travail,\n• participer à la promotion de nos solutions et de nos outils (ex. plateforme e-FOREX). Votre profil :\n• Formation universitaire ou bancaire supérieure,\n• minimum 5 ans d'expérience en tant que sales Rates & FX, idéalement dans une banque ou une institution financière avec un focus sur la clientèle entreprises,\n• excellente/vaste compréhension des marchés de taux\n• bon réseau sur le marché suisse des entreprises\n• excellentes connaissances des instruments FX (spot, forward, option) et Rates (IRS, Cap, Floor) ainsi que des solutions de couverture,\n• esprit entrepreneurial et attitude collégiale,\n• capacité à créer des relations de confiance, persévérance et autonomie,\n• maîtrise du français et excellentes connaissances de l'anglais, l’allemand est un atout localisation: Zurich ou Lausanne\n\nSi ce poste est fait pour vous, postulez dès maintenant et participez à l’avenir prometteur de la BCV. Ecrivons ensemble trois histoires, celle de votre carrière, celle de votre banque, celle de notre région."
-    },
-    "slugByLocale": {
-      "it": "fx-vendite-banque-cantonale-vaudoise-lausanne-962fba3e",
-      "en": "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-e170ab7e",
-      "de": "fx-verkaufe-banque-cantonale-vaudoise-lausanne-f97ec70c",
-      "fr": "fx-sales-bcv-lausanne-54a8116f"
-    },
-    "sector": "Banca / Finanza",
-    "expiredAt": "2026-11-13T21:23:11.236Z",
-    "previousSlugsByLocale": {
-      "fr": [
-        "corporate-sales-rates-fx-bcv-lausanne-96a5a800",
-        "fx-sales-banque-cantonale-vaudoise-lausanne",
-        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne",
-        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
-        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne",
-        "fx-sales-bcv-lausanne-79caa28d",
-        "corporate-sales-rates-fx-bcv-lausanne-7391dc31",
-        "fx-sales-bcv-lausanne-2a914c3a",
-        "corporate-sales-rates-fx-bcv-lausanne-d6d53e1b",
-        "fx-sales-bcv-lausanne-7f750a57",
-        "corporate-sales-rates-fx-bcv-lausanne-ba2a5d56"
-      ],
-      "it": [
-        "corporate-sales-rates-fx-bcv-lausanne-96a5a800",
-        "fx-sales-banque-cantonale-vaudoise-lausanne",
-        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne",
-        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
-        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne",
-        "fx-vendite-banque-cantonale-vaudoise-lausanne-73075d21",
-        "fx-sales-bcv-lausanne-79caa28d",
-        "corporate-sales-rates-fx-bcv-lausanne-7391dc31",
-        "fx-vendite-banque-cantonale-vaudoise-lausanne-3b041c90",
-        "fx-sales-bcv-lausanne-2a914c3a",
-        "corporate-sales-rates-fx-bcv-lausanne-d6d53e1b",
-        "fx-vendite-banque-cantonale-vaudoise-lausanne-7b8fc0ba",
-        "fx-sales-bcv-lausanne-7f750a57",
-        "corporate-sales-rates-fx-bcv-lausanne-ba2a5d56"
-      ],
-      "en": [
-        "fx-sales-banque-cantonale-vaudoise-lausanne-4f614e14",
-        "fx-sales-bcv-lausanne",
-        "corporate-sales-rates-fx-bcv-lausanne",
-        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne",
-        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
-        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne",
-        "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-0262e577",
-        "fx-sales-banque-cantonale-vaudoise-lausanne-d6c4031e",
-        "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-e9de3752",
-        "fx-sales-banque-cantonale-vaudoise-lausanne-34c4375b",
-        "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-f73b50e8",
-        "fx-sales-banque-cantonale-vaudoise-lausanne-95e2e868"
-      ],
-      "de": [
-        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-5f197698",
-        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-a7f9db44",
-        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-92761ab0",
-        "corporate-sales-rates-fx-bcv-lausanne",
-        "fx-sales-banque-cantonale-vaudoise-lausanne",
-        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-995c297a",
-        "fx-sales-bcv-lausanne-79caa28d",
-        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-26817b38",
-        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-a38e4f64",
-        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-6515bb5e",
-        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-7f74ba87",
-        "fx-sales-bcv-lausanne-2a914c3a",
-        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-948a2297",
-        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-1df0bb3b",
-        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-c1b9e71b",
-        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-2d01c27b",
-        "fx-sales-bcv-lausanne-7f750a57",
-        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-f39f9f8e",
-        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-f11a00a6",
-        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-1f99c16a"
-      ]
-    },
-    "postalCode": "1003",
-    "streetAddress": "Place Saint-François 14",
-    "salaryMin": 72000,
-    "salaryMax": 111000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://jobs.bcv.ch/job/lausanne-corporate-sales-rates-&-fx/1277101301",
-    "firstSeenAt": "2026-07-04T10:16:12.392Z",
-    "previousSlugs": [
-      "corporate-sales-rates-fx-bcv-lausanne-96a5a800",
-      "fx-sales-banque-cantonale-vaudoise-lausanne",
-      "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne",
-      "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
-      "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne",
-      "fx-vendite-banque-cantonale-vaudoise-lausanne-73075d21",
-      "fx-sales-banque-cantonale-vaudoise-lausanne-4f614e14",
-      "fx-sales-bcv-lausanne",
-      "corporate-sales-rates-fx-bcv-lausanne",
-      "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-5f197698",
-      "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-a7f9db44",
-      "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-92761ab0",
-      "fx-sales-bcv-lausanne-79caa28d",
-      "corporate-sales-rates-fx-bcv-lausanne-7391dc31",
-      "fx-vendite-banque-cantonale-vaudoise-lausanne-3b041c90",
-      "fx-sales-bcv-lausanne-2a914c3a",
-      "corporate-sales-rates-fx-bcv-lausanne-d6d53e1b",
-      "fx-vendite-banque-cantonale-vaudoise-lausanne-7b8fc0ba",
-      "fx-sales-bcv-lausanne-7f750a57",
-      "corporate-sales-rates-fx-bcv-lausanne-ba2a5d56",
-      "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-0262e577",
-      "fx-sales-banque-cantonale-vaudoise-lausanne-d6c4031e",
-      "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-e9de3752",
-      "fx-sales-banque-cantonale-vaudoise-lausanne-34c4375b",
-      "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-f73b50e8",
-      "fx-sales-banque-cantonale-vaudoise-lausanne-95e2e868",
-      "fx-verkaufe-banque-cantonale-vaudoise-lausanne-995c297a",
-      "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-26817b38",
-      "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-a38e4f64",
-      "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-6515bb5e",
-      "fx-verkaufe-banque-cantonale-vaudoise-lausanne-7f74ba87",
-      "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-948a2297",
-      "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-1df0bb3b",
-      "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-c1b9e71b",
-      "fx-verkaufe-banque-cantonale-vaudoise-lausanne-2d01c27b",
-      "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-f39f9f8e",
-      "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-f11a00a6",
-      "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-1f99c16a"
-    ]
   },
   {
     "slug": "ict-cyber-risk-management-expert-banque-cantonale-vaudoise-lausanne-504c612a",
@@ -1808,131 +1331,6 @@
       "responsable-du-secteur-conseil-private-banking-advisory-bcv-lausanne-eb4e22e4",
       "responsable-du-secteur-conseil-private-banking-advisory-banque-cantonale-vaudoise-lausanne-852af421",
       "responsable-du-secteur-conseil-private-banking-advisory-bcv-lausanne-bec83952"
-    ]
-  },
-  {
-    "slug": "fx-vendite-banque-cantonale-vaudoise-lausanne-73075d21",
-    "title": "Corporate Sales Rates & FX",
-    "titleByLocale": {
-      "it": "Vendite aziendali – tassi e cambi",
-      "en": "Business Sales Rates and Exchange Rates",
-      "de": "Firmenkundenvertrieb – Zinsen und Devisen",
-      "fr": "Corporate Sales Rates & FX"
-    },
-    "company": "Banque Cantonale Vaudoise",
-    "companyKey": "bcv",
-    "location": "Lausanne",
-    "addressLocality": "Lausanne",
-    "descriptionByLocale": {
-      "it": "Descrizione\n\nE se la vostra storia professionale proseguisse alla BCV? Entrate a far parte della prima banca universale del cantone di Vaud, una delle banche più solide al mondo, e dei suoi circa 2000 collaboratori e collaboratrici. Prendete parte al successo di un’istituzione con rating AA di Standard & Poor’s dal 2011 e contribuite allo sviluppo del tessuto economico vodese, nonché all’attrattività e alla vitalità della nostra regione. Per la nostra divisione Asset Management e Trading, siamo alla ricerca di una o un:\n\nTassi di vendita aziendali e FX\n\nLe vostre principali mansioni:\n\n- Gestire e sviluppare un portafoglio di clienti aziendali in Svizzera identificando le loro esigenze di copertura valutaria e dei tassi d’interesse,\n- strutturare ed eseguire soluzioni di copertura dei tassi\n- proporre proattivamente soluzioni di copertura su misura alla clientela,\n- identificare e cogliere nuove opportunità di sviluppo commerciale sui mercati dei cambi, dei tassi e dei derivati,\n- promuovere la cultura BCV attraverso un servizio alla clientela di altissima qualità, nel rispetto delle regole e del contesto lavorativo,\n- partecipare alla promozione delle nostre soluzioni e dei nostri strumenti (es. piattaforma e-FOREX).\n\nIl vostro profilo:\n\n- Formazione universitaria o bancaria superiore,\n- almeno 5 anni di esperienza come sales Rates & FX, idealmente in una banca o in un istituto finanziario con un focus sulla clientela aziendale,\n- eccellente/ampia conoscenza dei mercati dei tassi\n- buona rete di contatti nel mercato svizzero delle imprese\n- eccellenti conoscenze degli strumenti FX (spot, forward, option) e Rates (IRS, Cap, Floor), nonché delle soluzioni di copertura,\n- spirito imprenditoriale e atteggiamento collegiale,\n- capacità di creare rapporti di fiducia, perseveranza e autonomia,\n- padronanza del francese ed eccellenti conoscenze dell’inglese, il tedesco costituisce un vantaggio; sede: Zurigo o Losanna\n\nSe questa posizione fa per voi, candidatevi subito e partecipate al futuro promettente della BCV. Scriviamo insieme tre storie, quella della vostra carriera, quella della vostra banca, quella della nostra regione.",
-      "en": "Description\n\nWhat if your professional journey continued at BCV? Join the leading universal bank in the canton of Vaud, one of the strongest banks in the world, and its approximately 2000 employees. Be part of the success of an institution rated AA by Standard & Poor’s since 2011 and contribute to the growth of Vaud’s economic fabric as well as to the appeal and vitality of our region. For our Asset Management and Trading division, we are looking for a:\n\nCorporate Sales Rates & FX\n\nYour main responsibilities:\n\n- Manage and develop a portfolio of corporate clients in Switzerland by identifying their currency and interest rate hedging needs,\n- structure and execute interest rate hedging solutions\n- proactively offer tailored hedging solutions to clients,\n- identify and seize new business development opportunities in the foreign exchange, interest rate and derivatives markets,\n- promote the BCV culture through very high-quality customer service while respecting the rules and the working framework,\n- participate in promoting our solutions and tools (e.g. e-FOREX platform).\n\nYour profile:\n\n- University degree or advanced banking qualification,\n- at least 5 years’ experience as a Rates & FX salesperson, ideally in a bank or financial institution with a focus on corporate clients,\n- excellent/extensive understanding of interest rate markets\n- good network in the Swiss corporate market\n- excellent knowledge of FX instruments (spot, forward, option) and Rates (IRS, Cap, Floor), as well as hedging solutions,\n- entrepreneurial spirit and collegial attitude,\n- ability to build relationships based on trust, perseverance and autonomy,\n- proficiency in French and excellent knowledge of English, German is an asset location: Zurich or Lausanne\n\nIf this position is right for you, apply now and take part in BCV's promising future. Let us write three stories together, that of your career, that of your bank, that of our region.",
-      "de": "Beschreibung\n\nWie wäre es, wenn Ihre berufliche Geschichte bei der BCV weiterginge? Werden Sie Teil der führenden Universalbank des Kantons Waadt, einer der solidesten Banken der Welt, und ihrer rund 2000 Mitarbeiterinnen und Mitarbeiter. Tragen Sie zum Erfolg eines Instituts bei, das seit 2011 von Standard & Poor’s mit AA bewertet wird, und leisten Sie einen Beitrag zum Aufschwung der Waadtländer Wirtschaft sowie zur Attraktivität und Vitalität unserer Region. Für unsere Division Asset Management und Trading suchen wir eine oder einen:\n\nUnternehmensumsatzraten & FX\n\nIhre Hauptaufgaben:\n\n- Verwalten und entwickeln Sie ein Portfolio von Unternehmenskunden in der Schweiz, indem Sie deren Bedarf an Währungs- und Zinsabsicherungen ermitteln,\n- Zinsabsicherungslösungen strukturieren und umsetzen\n- Der Kundschaft proaktiv maßgeschneiderte Absicherungslösungen anbieten,\n- neue Geschäftsentwicklungsmöglichkeiten an den Devisen-, Zins- und Derivatemärkten identifizieren und ergreifen,\n- die BCV-Kultur durch einen qualitativ sehr hochwertigen Kundenservice unter Einhaltung der Regeln und des Arbeitsrahmens fördern,\n- an der Förderung unserer Lösungen und Tools mitwirken (z. B. e-FOREX-Plattform).\n\nIhr Profil:\n\n- Hochschul- oder höhere Bankausbildung,\n- mindestens 5 Jahre Erfahrung im Sales für Rates & FX, idealerweise bei einer Bank oder einem Finanzinstitut mit Fokus auf Firmenkunden,\n- ausgezeichnetes/umfassendes Verständnis der Zinsmärkte\n- gutes Netzwerk auf dem Schweizer Firmenkundenmarkt\n- ausgezeichnete Kenntnisse der FX-Instrumente (Spot, Forward, Option) und Rates-Instrumente (IRS, Cap, Floor) sowie der Absicherungslösungen,\n- unternehmerisches Denken und kollegiale Haltung,\n- Fähigkeit, vertrauensvolle Beziehungen aufzubauen, Durchhaltevermögen und Selbstständigkeit,\n- Beherrschung der französischen Sprache und ausgezeichnete Englischkenntnisse, Deutschkenntnisse sind von Vorteil Standort: Zürich oder Lausanne\n\nWenn diese Stelle zu Ihnen passt, bewerben Sie sich jetzt und gestalten Sie die vielversprechende Zukunft der BCV mit. Schreiben wir gemeinsam drei Geschichten: die Ihrer Karriere, die Ihrer Bank und die unserer Region.",
-      "fr": "Et si votre histoire professionnelle se poursuivait à la BCV ? Rejoignez la première banque universelle du canton de Vaud, l’une des banques les plus solides au monde, et ses quelques 2000 collaboratrices et collaborateurs. Prenez part au succès d’une institution notée AA par Standard & Poor’s depuis 2011 et contribuez à l’essor du tissu économique vaudois ainsi qu’à l’attractivité et à la vitalité de notre région. Pour notre division Asset Management et Trading , nous recherchons une ou un :\n\nCorporate Sales Rates & FX Vos missions principales :\n• Gérer et développer un portefeuille de clients entreprises en Suisse en identifiant leurs besoins en couverture sur devises et taux d’intérêt,\n• structurer et exécuter des solutions de couverture de taux\n• proposer proactivement des solutions de couverture sur mesure à la clientèle,\n• identifier et saisir de nouvelles opportunités de développement commercial sur les marchés des changes, de taux et des dérivés,\n• promouvoir la culture BCV par un service à la clientèle de très haute qualité dans le respect des règles et du cadre de travail,\n• participer à la promotion de nos solutions et de nos outils (ex. plateforme e-FOREX). Votre profil :\n• Formation universitaire ou bancaire supérieure,\n• minimum 5 ans d'expérience en tant que sales Rates & FX, idéalement dans une banque ou une institution financière avec un focus sur la clientèle entreprises,\n• excellente/vaste compréhension des marchés de taux\n• bon réseau sur le marché suisse des entreprises\n• excellentes connaissances des instruments FX (spot, forward, option) et Rates (IRS, Cap, Floor) ainsi que des solutions de couverture,\n• esprit entrepreneurial et attitude collégiale,\n• capacité à créer des relations de confiance, persévérance et autonomie,\n• maîtrise du français et excellentes connaissances de l'anglais, l’allemand est un atout localisation: Zurich ou Lausanne\n\nSi ce poste est fait pour vous, postulez dès maintenant et participez à l’avenir prometteur de la BCV. Ecrivons ensemble trois histoires, celle de votre carrière, celle de votre banque, celle de notre région."
-    },
-    "slugByLocale": {
-      "it": "fx-vendite-banque-cantonale-vaudoise-lausanne-73075d21",
-      "en": "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-0262e577",
-      "de": "fx-verkaufe-banque-cantonale-vaudoise-lausanne-995c297a",
-      "fr": "fx-sales-bcv-lausanne-79caa28d"
-    },
-    "sector": "Banca / Finanza",
-    "expiredAt": "2026-11-13T09:19:39.077Z",
-    "previousSlugsByLocale": {
-      "fr": [
-        "corporate-sales-rates-fx-bcv-lausanne-7391dc31",
-        "fx-sales-banque-cantonale-vaudoise-lausanne",
-        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne",
-        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
-        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne",
-        "fx-sales-bcv-lausanne-2a914c3a",
-        "corporate-sales-rates-fx-bcv-lausanne-d6d53e1b",
-        "fx-sales-bcv-lausanne-7f750a57",
-        "corporate-sales-rates-fx-bcv-lausanne-ba2a5d56"
-      ],
-      "it": [
-        "fx-sales-bcv-lausanne-79caa28d",
-        "corporate-sales-rates-fx-bcv-lausanne-7391dc31",
-        "fx-sales-banque-cantonale-vaudoise-lausanne",
-        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne",
-        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
-        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne",
-        "fx-vendite-banque-cantonale-vaudoise-lausanne-3b041c90",
-        "fx-sales-bcv-lausanne-2a914c3a",
-        "corporate-sales-rates-fx-bcv-lausanne-d6d53e1b",
-        "fx-vendite-banque-cantonale-vaudoise-lausanne-7b8fc0ba",
-        "fx-sales-bcv-lausanne-7f750a57",
-        "corporate-sales-rates-fx-bcv-lausanne-ba2a5d56"
-      ],
-      "en": [
-        "fx-sales-banque-cantonale-vaudoise-lausanne-d6c4031e",
-        "fx-sales-bcv-lausanne",
-        "corporate-sales-rates-fx-bcv-lausanne",
-        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne",
-        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
-        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne",
-        "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-e9de3752",
-        "fx-sales-banque-cantonale-vaudoise-lausanne-34c4375b",
-        "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-f73b50e8",
-        "fx-sales-banque-cantonale-vaudoise-lausanne-95e2e868"
-      ],
-      "de": [
-        "fx-sales-bcv-lausanne-79caa28d",
-        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-26817b38",
-        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-a38e4f64",
-        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-6515bb5e",
-        "corporate-sales-rates-fx-bcv-lausanne",
-        "fx-sales-banque-cantonale-vaudoise-lausanne",
-        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-7f74ba87",
-        "fx-sales-bcv-lausanne-2a914c3a",
-        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-948a2297",
-        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-1df0bb3b",
-        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-c1b9e71b",
-        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-2d01c27b",
-        "fx-sales-bcv-lausanne-7f750a57",
-        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-f39f9f8e",
-        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-f11a00a6",
-        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-1f99c16a"
-      ]
-    },
-    "postalCode": "1003",
-    "streetAddress": "Place Saint-François 14",
-    "salaryMin": 72000,
-    "salaryMax": 111000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://jobs.bcv.ch/job/lausanne-corporate-sales-rates-&-fx/1277101301",
-    "firstSeenAt": "2026-07-04T10:16:12.392Z",
-    "previousSlugs": [
-      "corporate-sales-rates-fx-bcv-lausanne-7391dc31",
-      "fx-sales-bcv-lausanne-79caa28d",
-      "fx-sales-banque-cantonale-vaudoise-lausanne",
-      "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne",
-      "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
-      "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne",
-      "fx-vendite-banque-cantonale-vaudoise-lausanne-3b041c90",
-      "fx-sales-banque-cantonale-vaudoise-lausanne-d6c4031e",
-      "fx-sales-bcv-lausanne",
-      "corporate-sales-rates-fx-bcv-lausanne",
-      "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-26817b38",
-      "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-a38e4f64",
-      "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-6515bb5e",
-      "fx-sales-bcv-lausanne-2a914c3a",
-      "corporate-sales-rates-fx-bcv-lausanne-d6d53e1b",
-      "fx-vendite-banque-cantonale-vaudoise-lausanne-7b8fc0ba",
-      "fx-sales-bcv-lausanne-7f750a57",
-      "corporate-sales-rates-fx-bcv-lausanne-ba2a5d56",
-      "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-e9de3752",
-      "fx-sales-banque-cantonale-vaudoise-lausanne-34c4375b",
-      "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-f73b50e8",
-      "fx-sales-banque-cantonale-vaudoise-lausanne-95e2e868",
-      "fx-verkaufe-banque-cantonale-vaudoise-lausanne-7f74ba87",
-      "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-948a2297",
-      "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-1df0bb3b",
-      "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-c1b9e71b",
-      "fx-verkaufe-banque-cantonale-vaudoise-lausanne-2d01c27b",
-      "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-f39f9f8e",
-      "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-f11a00a6",
-      "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-1f99c16a"
     ]
   },
   {
@@ -11310,120 +10708,7 @@
     "firstSeenAt": "2026-07-04T10:16:04.866Z"
   },
   {
-    "slug": "capo-della-consulenza-private-banking-advisory-banque-cantonale-vaudoise-lausanne",
-    "title": "Responsable du secteur Conseil Private Banking & Advisory",
-    "titleByLocale": {
-      "it": "Capo della Consulenza, Private Banking & Advisory",
-      "en": "Head of Private Banking & Advisory",
-      "de": "Leiter Private Banking & Advisory",
-      "fr": "Responsable du secteur Conseil Private Banking & Advisory"
-    },
-    "company": "Banque Cantonale Vaudoise",
-    "companyKey": "bcv",
-    "location": "Lausanne",
-    "addressLocality": "Lausanne",
-    "descriptionByLocale": {
-      "it": "E se la tua storia professionale continua al BCV? Metti le tue ambizioni manageriali al servizio di una performance sana e sostenibile unendo il cantone della prima banca universale di Vaud, una delle banche più forti del mondo, e i suoi 2.000 collaboratori. Prendere parte al successo di un istituto valutato AA da Standard & Poors dal 2011 e contribuire alla crescita del tessuto economico Vaud, così come per l'attrattiva e la vitalità della nostra regione. Per la nostra divisione Private Banking, stiamo cercando un: Settore Manager Consulenza Private Banking Le vostre missioni principali:\n• sviluppare il settore Active Advisory and Consulting nell'ambito di una strategia di crescita consolidata per renderlo un riferimento nel suo campo di attività,\n• rafforzare l'offerta di consulenza in termini di idee di processo di generazione e supporto ai consulenti in conformità con le proposte di valore per tutti i segmenti bancari privati;\n• guidare un team per supportare e fornire l'offerta di consulenza per la gestione della ricchezza e adattarla alle esigenze dei clienti e dei consulenti,\n• garantire la qualità dei consigli di investimento attivi ai clienti privati e la gestione quotidiana e la conduzione del team,\n• garantire una stretta collaborazione con i team di Investment Policy e Asset Management all'interno della Banca,\n• identificare le opportunità, generare proposte di investimento e comunicarle su diversi media interni,\n• proporre gli argomenti per le proposte di investimento e sviluppare i mezzi di comunicazione per consulenti e clienti. Il tuo profilo:\n• istruzione universitaria o superiore (SES o equivalente),\n• esperienza simile con istituzioni attive nella gestione della ricchezza per i clienti privati,\n• comprovata esperienza nella gestione e competenza del portafoglio nei mercati finanziari e nei prodotti di gestione della ricchezza,\n• leadership, lavoro di squadra, servizio e comunicazione\n• eccellenti capacità analitiche e organizzative, mentalità critica, orientamento dei risultati al fine di raggiungere le sfide di trasformazione aziendale e aziendale,\n• ottime capacità di scrittura in francese e buona conoscenza di inglese e tedesco. Se questa posizione è per voi, applicare ora e partecipare al promettente futuro del BCV. Scriviamo insieme tre storie, quella della tua carriera, quella della tua banca, quella della nostra regione.",
-      "en": "What if your professional history continues at the BCV? Put your managerial ambitions at the service of a healthy and sustainable performance by joining the canton of Vaud's first universal bank, one of the world's strongest banks, and its 2,000 collaborators. Take part in the success of an institution rated AA by Standard & Poors since 2011 and contribute to the growth of the Vaud economic fabric as well as to the attractiveness and vitality of our region. For our Private Banking division, we are looking for a: Sector Manager Advice Private Banking Your main missions:\n• developing the Active Advisory and Consulting sector as part of an established growth strategy to make it a reference in its field of activity,\n• strengthen the advice offer in terms of generation process ideas and support to advisors in accordance with the value propositions for all private banking segments;\n• lead a team to support and deliver the wealth management consultancy offer and adapt it to the needs of clients and advisors,\n• ensuring the quality of active investment advice to private clients and the day-to-day management and conduct of the team,\n• ensure close collaboration with the Investment Policy and Asset Management teams within the Bank,\n• identify opportunities, generate investment proposals and communicate them on different internal media,\n• propose the arguments for investment proposals and develop communication media for advisors and clients. Your profile:\n• university or higher education (HES or equivalent),\n• similar experience with institutions active in wealth management for private customers,\n• proven experience in portfolio management and expertise in financial markets and wealth management products,\n• leadership, teamwork, service and communication\n• excellent analytical and organizational skills, critical mindset, result orientation in order to achieve business and business transformation challenges,\n• very good writing skills in French and good knowledge of English and German. If this position is for you, apply now and participate in the promising future of the BCV. Let's write together three stories, that of your career, that of your bank, that of our region.",
-      "de": "Was ist, wenn Ihre berufliche Geschichte an der BCV fortgesetzt wird? Stellen Sie Ihre Führungsambitionen in den Dienst einer gesunden und nachhaltigen Leistung, indem Sie der ersten Universalbank des Kantons Waadt, einer der stärksten Banken der Welt, und ihren 2.000 Mitarbeitern beitreten. Beteiligen Sie sich am Erfolg einer von Standard & Poors seit 2011 mit AA bewerteten Institution und tragen Sie zum Wachstum des Waadt-Wirtschaftsgefüges sowie zur Attraktivität und Vitalität unserer Region bei. Für unsere Private Banking Division suchen wir: Sector Manager berät Private Banking Ihre wichtigsten Missionen:\n• Entwicklung des Sektors Active Advisory and Consulting im Rahmen einer etablierten Wachstumsstrategie, um ihn zu einer Referenz in seinem Tätigkeitsbereich zu machen;\n• das Beratungsangebot in Bezug auf Ideen für den Erzeugungsprozess und die Unterstützung von Beratern im Einklang mit den Wertversprechen für alle Segmente des Private Banking zu stärken;\n• Leitung eines Teams zur Unterstützung und Bereitstellung des Beratungsangebots für die Vermögensverwaltung und Anpassung an die Bedürfnisse von Kunden und Beratern;\n• Gewährleistung der Qualität der aktiven Anlageberatung für Privatkunden und der laufenden Verwaltung und Durchführung des Teams;\n• Gewährleistung einer engen Zusammenarbeit mit den Teams für Anlagepolitik und Vermögensverwaltung innerhalb der Bank;\n• Chancen identifizieren, Investitionsvorschläge erstellen und diese auf verschiedenen internen Medien kommunizieren,\n• schlägt die Argumente für Anlagevorschläge vor und entwickelt Kommunikationsmittel für Berater und Kunden. Ihr Profil:\n• Hochschul- oder Hochschulbildung (HES oder gleichwertig),\n• ähnliche Erfahrungen mit Instituten, die in der Vermögensverwaltung für Privatkunden tätig sind,\n• nachgewiesene Erfahrung im Portfoliomanagement und Expertise im Bereich der Finanzmärkte und Vermögensverwaltungsprodukte,\n• Führung, Teamwork, Service und Kommunikation\n• ausgezeichnete analytische und organisatorische Fähigkeiten, kritische Denkweise, Ergebnisorientierung, um Geschäfts- und Transformationsherausforderungen zu erreichen,\n• sehr gute Schreibkenntnisse in Französisch und gute Englisch- und Deutschkenntnisse. Wenn diese Position für Sie ist, bewerben Sie sich jetzt und nehmen Sie an der vielversprechenden Zukunft der BCV teil. Lassen Sie uns zusammen drei Geschichten schreiben, die Ihrer Karriere, die Ihrer Bank, die unserer Region.",
-      "fr": "Et si votre histoire professionnelle se poursuivait à la BCV ? Mettez vos ambitions managériales au service d’une performance saine et durable en rejoignant la première banque universelle du canton de Vaud, l’une des banques les plus solides au monde, et ses quelques 2000 collaboratrices et collaborateurs. Prenez part au succès d’une institution notée AA par Standard & Poor’s depuis 2011 et contribuez à l’essor du tissu économique vaudois ainsi qu’à l’attractivité et à la vitalité de notre région. Pour notre division Private Banking , nous recherchons une ou un :\n\nResponsable du secteur Conseil Private Banking Vos missions principales:\n• développer le secteur Active Advisory et conseil dans le cadre d’une stratégie de croissance établie afin d’en faire une référence dans son domaine d’activité,\n• renforcer l’offre de conseil en terme de processus de génération d’idées et soutien aux conseillers conformément aux proposition de valeurs pour l’ensemble des segments Private Banking,\n• conduire une équipe chargée d’animer et de délivrer l’offre de conseil en gestion de fortune et de l’adapter aux besoins de la clientèle et des conseillers,\n• assurer la qualité de conseil actif en placement auprès de la clientèle privée ainsi que la gestion quotidienne et la conduite de l’équipe,\n• assurer une collaboration étroite avec les équipes de la Politique d’Investissement et de l’Asset Management au sein de la Banque,\n• identifier des opportunités, générer des propositions d’investissement et les communiquer sur les différents supports internes,\n• proposer l’argumentaire des propositions d’investissement et faire évoluer les supports de communication à destination des conseillers et des clients. Votre profil:\n• formation universitaire ou supérieure (HES ou équivalent),\n• expérience similaire auprès d’établissement actifs dans la gestion de fortune pour de la clientèle privée,\n• expérience confirmée dans la gestion de portefeuille et expertise des marchés financiers et des produits de la gestion de fortune,\n• leadership, esprit d’équipe, sens du service et de la communication\n• excellentes capacités d’analyse et d’organisation, esprit critique, orientation résultat afin de réaliser les enjeux business et de transformation de l’activité,\n• très bonnes compétences rédactionnelles en français et de bonnes connaissances d’anglais et d’allemand.\n\nSi ce poste est fait pour vous, postulez dès maintenant et participez à l’avenir prometteur de la BCV. Ecrivons ensemble trois histoires, celle de votre carrière, celle de votre banque, celle de notre région."
-    },
-    "slugByLocale": {
-      "it": "capo-della-consulenza-private-banking-advisory-banque-cantonale-vaudoise-lausanne",
-      "en": "head-of-private-banking-advisory-banque-cantonale-vaudoise-lausanne",
-      "de": "leiter-private-banking-advisory-banque-cantonale-vaudoise-lausanne",
-      "fr": "responsable-du-secteur-conseil-private-banking-advisory-bcv-lausanne"
-    },
-    "sector": "Banca / Finanza",
-    "expiredAt": "2026-10-22T21:25:06.574Z",
-    "previousSlugs": [
-      "responsable-du-secteur-conseil-private-banking-advisory-bcv-lausanne",
-      "responsable-du-secteur-conseil-private-banking-advisory-banque-cantonale-vaudoise-lausanne",
-      "sector-manager-private-banking-advisory-banque-cantonale-vaudoise-lausanne",
-      "sektormanager-private-banking-advisory-banque-cantonale-vaudoise-lausanne"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "responsable-du-secteur-conseil-private-banking-advisory-bcv-lausanne"
-      ],
-      "en": [
-        "responsable-du-secteur-conseil-private-banking-advisory-banque-cantonale-vaudoise-lausanne",
-        "sector-manager-private-banking-advisory-banque-cantonale-vaudoise-lausanne"
-      ],
-      "de": [
-        "responsable-du-secteur-conseil-private-banking-advisory-bcv-lausanne",
-        "sektormanager-private-banking-advisory-banque-cantonale-vaudoise-lausanne"
-      ]
-    },
-    "postalCode": "1003",
-    "streetAddress": "Place Saint-François 14",
-    "salaryMin": 104500,
-    "salaryMax": 183500,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://jobs.bcv.ch/job/lausanne-responsable-du-secteur-conseil-private-banking-&-advisory/1265629801",
-    "firstSeenAt": "2026-07-04T10:16:15.798Z"
-  },
-  {
-    "slug": "fx-vendite-banque-cantonale-vaudoise-lausanne",
-    "title": "Corporate Sales Rates & FX",
-    "titleByLocale": {
-      "it": "Vendite aziendali – tassi e cambi",
-      "en": "Business Sales Rates and Exchange Rates",
-      "de": "Firmenkundenvertrieb – Zinsen und Devisen",
-      "fr": "Corporate Sales Rates & FX"
-    },
-    "company": "Banque Cantonale Vaudoise",
-    "companyKey": "bcv",
-    "location": "Lausanne",
-    "addressLocality": "Lausanne",
-    "descriptionByLocale": {
-      "it": "Descrizione\n\nE se la vostra storia professionale proseguisse alla BCV? Entrate a far parte della prima banca universale del cantone di Vaud, una delle banche più solide al mondo, e dei suoi circa 2000 collaboratori e collaboratrici. Prendete parte al successo di un’istituzione con rating AA di Standard & Poor’s dal 2011 e contribuite allo sviluppo del tessuto economico vodese, nonché all’attrattività e alla vitalità della nostra regione. Per la nostra divisione Asset Management e Trading, siamo alla ricerca di una o un:\n\nTassi di vendita aziendali e FX\n\nLe vostre principali mansioni:\n\n- Gestire e sviluppare un portafoglio di clienti aziendali in Svizzera identificando le loro esigenze di copertura valutaria e dei tassi d’interesse,\n- strutturare ed eseguire soluzioni di copertura dei tassi\n- proporre proattivamente soluzioni di copertura su misura alla clientela,\n- identificare e cogliere nuove opportunità di sviluppo commerciale sui mercati dei cambi, dei tassi e dei derivati,\n- promuovere la cultura BCV attraverso un servizio alla clientela di altissima qualità, nel rispetto delle regole e del contesto lavorativo,\n- partecipare alla promozione delle nostre soluzioni e dei nostri strumenti (es. piattaforma e-FOREX).\n\nIl vostro profilo:\n\n- Formazione universitaria o bancaria superiore,\n- almeno 5 anni di esperienza come sales Rates & FX, idealmente in una banca o in un istituto finanziario con un focus sulla clientela aziendale,\n- eccellente/ampia conoscenza dei mercati dei tassi\n- buona rete di contatti nel mercato svizzero delle imprese\n- eccellenti conoscenze degli strumenti FX (spot, forward, option) e Rates (IRS, Cap, Floor), nonché delle soluzioni di copertura,\n- spirito imprenditoriale e atteggiamento collegiale,\n- capacità di creare rapporti di fiducia, perseveranza e autonomia,\n- padronanza del francese ed eccellenti conoscenze dell’inglese, il tedesco costituisce un vantaggio; sede: Zurigo o Losanna\n\nSe questa posizione fa per voi, candidatevi subito e partecipate al futuro promettente della BCV. Scriviamo insieme tre storie, quella della vostra carriera, quella della vostra banca, quella della nostra regione.",
-      "en": "Description\n\nWhat if your professional journey continued at BCV? Join the leading universal bank in the canton of Vaud, one of the strongest banks in the world, and its approximately 2000 employees. Be part of the success of an institution rated AA by Standard & Poor’s since 2011 and contribute to the growth of Vaud’s economic fabric as well as to the appeal and vitality of our region. For our Asset Management and Trading division, we are looking for a:\n\nCorporate Sales Rates & FX\n\nYour main responsibilities:\n\n- Manage and develop a portfolio of corporate clients in Switzerland by identifying their currency and interest rate hedging needs,\n- structure and execute interest rate hedging solutions\n- proactively offer tailored hedging solutions to clients,\n- identify and seize new business development opportunities in the foreign exchange, interest rate and derivatives markets,\n- promote the BCV culture through very high-quality customer service while respecting the rules and the working framework,\n- participate in promoting our solutions and tools (e.g. e-FOREX platform).\n\nYour profile:\n\n- University degree or advanced banking qualification,\n- at least 5 years’ experience as a Rates & FX salesperson, ideally in a bank or financial institution with a focus on corporate clients,\n- excellent/extensive understanding of interest rate markets\n- good network in the Swiss corporate market\n- excellent knowledge of FX instruments (spot, forward, option) and Rates (IRS, Cap, Floor), as well as hedging solutions,\n- entrepreneurial spirit and collegial attitude,\n- ability to build relationships based on trust, perseverance and autonomy,\n- proficiency in French and excellent knowledge of English, German is an asset location: Zurich or Lausanne\n\nIf this position is right for you, apply now and take part in BCV's promising future. Let us write three stories together, that of your career, that of your bank, that of our region.",
-      "de": "Beschreibung\n\nWie wäre es, wenn Ihre berufliche Geschichte bei der BCV weiterginge? Werden Sie Teil der führenden Universalbank des Kantons Waadt, einer der solidesten Banken der Welt, und ihrer rund 2000 Mitarbeiterinnen und Mitarbeiter. Tragen Sie zum Erfolg eines Instituts bei, das seit 2011 von Standard & Poor’s mit AA bewertet wird, und leisten Sie einen Beitrag zum Aufschwung der Waadtländer Wirtschaft sowie zur Attraktivität und Vitalität unserer Region. Für unsere Division Asset Management und Trading suchen wir eine oder einen:\n\nUnternehmensumsatzraten & FX\n\nIhre Hauptaufgaben:\n\n- Verwalten und entwickeln Sie ein Portfolio von Unternehmenskunden in der Schweiz, indem Sie deren Bedarf an Währungs- und Zinsabsicherungen ermitteln,\n- Zinsabsicherungslösungen strukturieren und umsetzen\n- Der Kundschaft proaktiv maßgeschneiderte Absicherungslösungen anbieten,\n- neue Geschäftsentwicklungsmöglichkeiten an den Devisen-, Zins- und Derivatemärkten identifizieren und ergreifen,\n- die BCV-Kultur durch einen qualitativ sehr hochwertigen Kundenservice unter Einhaltung der Regeln und des Arbeitsrahmens fördern,\n- an der Förderung unserer Lösungen und Tools mitwirken (z. B. e-FOREX-Plattform).\n\nIhr Profil:\n\n- Hochschul- oder höhere Bankausbildung,\n- mindestens 5 Jahre Erfahrung im Sales für Rates & FX, idealerweise bei einer Bank oder einem Finanzinstitut mit Fokus auf Firmenkunden,\n- ausgezeichnetes/umfassendes Verständnis der Zinsmärkte\n- gutes Netzwerk auf dem Schweizer Firmenkundenmarkt\n- ausgezeichnete Kenntnisse der FX-Instrumente (Spot, Forward, Option) und Rates-Instrumente (IRS, Cap, Floor) sowie der Absicherungslösungen,\n- unternehmerisches Denken und kollegiale Haltung,\n- Fähigkeit, vertrauensvolle Beziehungen aufzubauen, Durchhaltevermögen und Selbstständigkeit,\n- Beherrschung der französischen Sprache und ausgezeichnete Englischkenntnisse, Deutschkenntnisse sind von Vorteil Standort: Zürich oder Lausanne\n\nWenn diese Stelle zu Ihnen passt, bewerben Sie sich jetzt und gestalten Sie die vielversprechende Zukunft der BCV mit. Schreiben wir gemeinsam drei Geschichten: die Ihrer Karriere, die Ihrer Bank und die unserer Region.",
-      "fr": "Et si votre histoire professionnelle se poursuivait à la BCV ? Rejoignez la première banque universelle du canton de Vaud, l’une des banques les plus solides au monde, et ses quelques 2000 collaboratrices et collaborateurs. Prenez part au succès d’une institution notée AA par Standard & Poor’s depuis 2011 et contribuez à l’essor du tissu économique vaudois ainsi qu’à l’attractivité et à la vitalité de notre région. Pour notre division Asset Management et Trading , nous recherchons une ou un :\n\nCorporate Sales Rates & FX Vos missions principales :\n• Gérer et développer un portefeuille de clients entreprises en Suisse en identifiant leurs besoins en couverture sur devises et taux d’intérêt,\n• structurer et exécuter des solutions de couverture de taux\n• proposer proactivement des solutions de couverture sur mesure à la clientèle,\n• identifier et saisir de nouvelles opportunités de développement commercial sur les marchés des changes, de taux et des dérivés,\n• promouvoir la culture BCV par un service à la clientèle de très haute qualité dans le respect des règles et du cadre de travail,\n• participer à la promotion de nos solutions et de nos outils (ex. plateforme e-FOREX). Votre profil :\n• Formation universitaire ou bancaire supérieure,\n• minimum 5 ans d'expérience en tant que sales Rates & FX, idéalement dans une banque ou une institution financière avec un focus sur la clientèle entreprises,\n• excellente/vaste compréhension des marchés de taux\n• bon réseau sur le marché suisse des entreprises\n• excellentes connaissances des instruments FX (spot, forward, option) et Rates (IRS, Cap, Floor) ainsi que des solutions de couverture,\n• esprit entrepreneurial et attitude collégiale,\n• capacité à créer des relations de confiance, persévérance et autonomie,\n• maîtrise du français et excellentes connaissances de l'anglais, l’allemand est un atout localisation: Zurich ou Lausanne\n\nSi ce poste est fait pour vous, postulez dès maintenant et participez à l’avenir prometteur de la BCV. Ecrivons ensemble trois histoires, celle de votre carrière, celle de votre banque, celle de notre région."
-    },
-    "slugByLocale": {
-      "it": "fx-vendite-banque-cantonale-vaudoise-lausanne",
-      "en": "fx-sales-banque-cantonale-vaudoise-lausanne",
-      "de": "fx-verkaufe-banque-cantonale-vaudoise-lausanne",
-      "fr": "fx-sales-bcv-lausanne"
-    },
-    "sector": "Banca / Finanza",
-    "expiredAt": "2026-10-22T21:25:06.574Z",
-    "previousSlugs": [
-      "fx-sales-bcv-lausanne",
-      "corporate-sales-rates-fx-bcv-lausanne",
-      "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne",
-      "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
-      "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne"
-    ],
-    "previousSlugsByLocale": {
-      "fr": [
-        "corporate-sales-rates-fx-bcv-lausanne"
-      ],
-      "it": [
-        "fx-sales-bcv-lausanne",
-        "corporate-sales-rates-fx-bcv-lausanne"
-      ],
-      "de": [
-        "fx-sales-bcv-lausanne",
-        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne",
-        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
-        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne"
-      ]
-    },
-    "postalCode": "1003",
-    "streetAddress": "Place Saint-François 14",
-    "salaryMin": 72000,
-    "salaryMax": 111000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://jobs.bcv.ch/job/lausanne-corporate-sales-rates-&-fx/1277101301",
-    "firstSeenAt": "2026-07-04T10:16:12.392Z"
-  },
-  {
-    "slug": "remote-advisor-cliente-internazionale-conformita-guida-banque-cantonale-vaudoise-lausanne",
+    "slug": "remote-advisor-cliente-internazionale-conformita-guida-banque-cantonale-vaudoise-lausanne-4746a125",
     "title": "Conseillère ou Conseiller à distance - orientation compliance",
     "titleByLocale": {
       "it": "Remote Advisor - Cliente internazionale (conformità guida)",
@@ -11442,82 +10727,18 @@
       "fr": "Et si votre histoire professionnelle se poursuivait à la BCV ? Rejoignez la première banque universelle du canton de Vaud, l’une des banques les plus solides au monde, et ses quelque 2000 collaboratrices et collaborateurs. Prenez part au succès d’une institution notée AA par Standard & Poor’s depuis 2011 et contribuez à l’essor du tissu économique vaudois ainsi qu’à l’attractivité et à la vitalité de notre région. Pour notre division Retail , nous recherchons une ou un :\n\nAnnonce Conseillère ou conseiller à distance - orientation compliance Vos missions principales :\n• réaliser, en tant que première ligne de défense, les tâches de clarification BA/FT en matière d'entrée en relation, de revue de relation et de revue des transactions,\n• assurer le traitement de l'ensemble des demandes de clarifications provenant notamment du département Compliance,\n• assurer le suivi des exigences réglementaires de la Banque notamment à l'aide des workflows y relatifs (y.c. EAR),\n• accueillir et servir les clients internationaux Retail en prenant en charge leurs demandes commerciales, administratives et de support sur les produits via le canal de communication approprié (téléphone, courrier, e-mail). Votre profil :\n• expérience réussie dans la gestion des risques bancaires,\n• orientation résultats, autonomie et rigueur organisationnelle,\n• parfaite maîtrise du français et de l’anglais (niveau C1).\n\nSi ce poste est fait pour vous, postulez dès maintenant et participez à l’avenir prometteur de la BCV. Ecrivons ensemble trois histoires, celle de votre carrière, celle de votre banque, celle de notre région."
     },
     "slugByLocale": {
-      "it": "remote-advisor-cliente-internazionale-conformita-guida-banque-cantonale-vaudoise-lausanne",
-      "en": "remote-advisor-international-customer-guidance-compliance-banque-cantonale-vaudoise-lausanne",
-      "de": "remote-advisor-internationaler-kunde-guidance-compliance-banque-cantonale-vaudoise-lausanne",
-      "fr": "conseillere-ou-conseiller-a-distance-clientele-internationale-orientation-compliance-bcv"
-    },
-    "sector": "Banca / Finanza",
-    "expiredAt": "2026-10-19T21:16:31.189Z",
-    "previousSlugs": [
-      "conseillere-ou-conseiller-a-distance-clientele-internationale-orientation-compliance-bcv",
-      "conseillere-ou-conseiller-a-distance-orientation-compliance-bcv-lausanne"
-    ],
-    "previousSlugsByLocale": {
-      "fr": [
-        "conseillere-ou-conseiller-a-distance-orientation-compliance-bcv-lausanne"
-      ],
-      "it": [
-        "conseillere-ou-conseiller-a-distance-clientele-internationale-orientation-compliance-bcv",
-        "conseillere-ou-conseiller-a-distance-orientation-compliance-bcv-lausanne"
-      ],
-      "en": [
-        "conseillere-ou-conseiller-a-distance-clientele-internationale-orientation-compliance-bcv"
-      ],
-      "de": [
-        "conseillere-ou-conseiller-a-distance-clientele-internationale-orientation-compliance-bcv"
-      ]
-    },
-    "postalCode": "1003",
-    "streetAddress": "Place Saint-François 14",
-    "salaryMin": 72000,
-    "salaryMax": 111000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://jobs.bcv.ch/job/lausanne-conseill%c3%a8re-ou-conseiller-%c3%a0-distance-orientation-compliance/1426085933",
-    "firstSeenAt": "2026-08-13T22:10:44.623Z",
-    "sourceIdentityHistory": [
-      {
-        "sourceIdentity": "url:https://jobs.bcv.ch/job/lausanne-conseill%c3%a8re-ou-conseiller-%c3%a0-distance-client%c3%a8le-internationale-%28orientation-compliance%29/1426085933",
-        "firstSeenAt": "2026-08-13T22:10:44.623Z",
-        "title": "Conseillère ou Conseiller à distance - orientation compliance"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.bcv.ch/job/lausanne-conseill%c3%a8re-ou-conseiller-%c3%a0-distance-orientation-compliance/1426085933",
-        "firstSeenAt": "2026-08-13T22:10:44.623Z",
-        "title": "Conseillère ou Conseiller à distance - orientation compliance"
-      }
-    ]
-  },
-  {
-    "slug": "remote-advisor-cliente-internazionale-conformita-guida-banque-cantonale-vaudoise-lausanne-4d2f9910",
-    "title": "Conseillère ou Conseiller à distance - orientation compliance",
-    "titleByLocale": {
-      "it": "Remote Advisor - Cliente internazionale (conformità guida)",
-      "en": "Remote Advisor - International customer (guidance compliance)",
-      "de": "Remote Advisor - Internationaler Kunde (Guidance Compliance)",
-      "fr": "Conseillère ou Conseiller à distance - orientation compliance"
-    },
-    "company": "Banque Cantonale Vaudoise",
-    "companyKey": "bcv",
-    "location": "Lausanne",
-    "addressLocality": "Lausanne",
-    "descriptionByLocale": {
-      "it": "E se la tua storia professionale continua al BCV? Unisciti alla prima banca universale nel cantone di Vaud, una delle banche più forti del mondo, e ai suoi 2.000 collaboratori. Prendere parte al successo di un istituto valutato AA da Standard & Poors dal 2011 e contribuire alla crescita del tessuto economico Vaud, così come per l'attrattiva e la vitalità della nostra regione. Per la nostra Divisione Retail, stiamo cercando uno o più:\n\nConsulente di annunci o consulente remoto - Cliente internazionale (conformità guida) Le vostre missioni principali:\n• garantire l'esecuzione di misure specifiche relative al trattamento dei clienti retail domiciliati all'estero,\n• svolgere, come prima linea di difesa, i compiti di chiarificazione BA/FT in relazione, revisione dei rapporti e revisione delle transazioni,\n• garantire il trattamento di tutte le richieste di chiarificazione da, tra l'altro, il Dipartimento di Compliance,\n• monitorare i requisiti normativi della Banca, in particolare con l'aiuto dei relativi flussi di lavoro (ad es. EAR),\n• ricevere e servire i clienti di vendita al dettaglio internazionali sostenendo le loro richieste di supporto commerciale, amministrativo e di prodotto attraverso il canale di comunicazione appropriato (telefono, posta, e-mail). Il tuo profilo:\n• esperienza di successo nella gestione dei rischi bancari,\n• risultati orientamento, autonomia e rigore organizzativo,\n• Perfetta padronanza di francese e inglese (livello C1).\n\nSe questa posizione è per voi, applicare ora e partecipare al promettente futuro del BCV. Scriviamo insieme tre storie, quella della tua carriera, quella della tua banca, quella della nostra regione.",
-      "en": "What if your professional history continues at the BCV? Join the first universal bank in the canton of Vaud, one of the strongest banks in the world, and its 2,000 collaborators. Take part in the success of an institution rated AA by Standard & Poors since 2011 and contribute to the growth of the Vaud economic fabric as well as to the attractiveness and vitality of our region. For our Retail Division, we are looking for one or more:\n\nAnnouncement Advisor or remote advisor - International customer (guidance compliance) Your main missions:\n• ensure the execution of specific measures related to the treatment of retail customers domiciled abroad,\n• carrying out, as the first line of defence, the tasks of BA/FT clarification in relation, relationship review and transaction review,\n• ensure the processing of all requests for clarification from, inter alia, the Compliance Department,\n• to monitor the Bank's regulatory requirements, particularly with the help of the related workflows (y.c. EAR),\n• receive and serve international Retail customers by supporting their commercial, administrative and product support requests via the appropriate communication channel (telephone, mail, e-mail). Your profile:\n• successful experience in bank risk management,\n• results orientation, autonomy and organizational rigour,\n• Perfect mastery of French and English (level C1).\n\nIf this position is for you, apply now and participate in the promising future of the BCV. Let's write together three stories, that of your career, that of your bank, that of our region.",
-      "de": "Was ist, wenn Ihre berufliche Geschichte an der BCV fortgesetzt wird? Schließen Sie sich der ersten Universalbank im Kanton Waadt, einer der stärksten Banken der Welt, und ihren 2.000 Mitarbeitern an. Beteiligen Sie sich am Erfolg einer von Standard & Poors seit 2011 mit AA bewerteten Institution und tragen Sie zum Wachstum des Waadt-Wirtschaftsgefüges sowie zur Attraktivität und Vitalität unserer Region bei. Für unsere Retail Division suchen wir eine oder mehrere:\n\nAnkündigungsberater oder Remote Advisor - Internationaler Kunde (Guidance Compliance) Ihre wichtigsten Missionen:\n• die Durchführung spezifischer Maßnahmen im Zusammenhang mit der Behandlung von Privatkunden mit Sitz im Ausland sicherzustellen;\n• als erste Verteidigungslinie die Aufgaben der BA/FT-Klarstellung, der Beziehungsüberprüfung und der Transaktionsüberprüfung wahrzunehmen;\n• Gewährleistung der Bearbeitung aller Klärungsersuchen unter anderem der Compliance-Abteilung;\n• Überwachung der regulatorischen Anforderungen der Bank, insbesondere mit Hilfe der damit verbundenen Workflows (y.c. EAR),\n• internationale Retail-Kunden empfangen und bedienen, indem sie ihre kommerziellen, administrativen und Produktsupportanfragen über den entsprechenden Kommunikationskanal (Telefon, Post, E-Mail) unterstützen. Ihr Profil:\n• erfolgreiche Erfahrung im Bankrisikomanagement,\n• Ergebnisorientierung, Autonomie und organisatorische Strenge,\n• Perfekte Beherrschung von Französisch und Englisch (Level C1).\n\nWenn diese Position für Sie ist, bewerben Sie sich jetzt und nehmen Sie an der vielversprechenden Zukunft der BCV teil. Lassen Sie uns zusammen drei Geschichten schreiben, die Ihrer Karriere, die Ihrer Bank, die unserer Region.",
-      "fr": "Et si votre histoire professionnelle se poursuivait à la BCV ? Rejoignez la première banque universelle du canton de Vaud, l’une des banques les plus solides au monde, et ses quelque 2000 collaboratrices et collaborateurs. Prenez part au succès d’une institution notée AA par Standard & Poor’s depuis 2011 et contribuez à l’essor du tissu économique vaudois ainsi qu’à l’attractivité et à la vitalité de notre région. Pour notre division Retail , nous recherchons une ou un :\n\nAnnonce Conseillère ou conseiller à distance - orientation compliance Vos missions principales :\n• réaliser, en tant que première ligne de défense, les tâches de clarification BA/FT en matière d'entrée en relation, de revue de relation et de revue des transactions,\n• assurer le traitement de l'ensemble des demandes de clarifications provenant notamment du département Compliance,\n• assurer le suivi des exigences réglementaires de la Banque notamment à l'aide des workflows y relatifs (y.c. EAR),\n• accueillir et servir les clients internationaux Retail en prenant en charge leurs demandes commerciales, administratives et de support sur les produits via le canal de communication approprié (téléphone, courrier, e-mail). Votre profil :\n• expérience réussie dans la gestion des risques bancaires,\n• orientation résultats, autonomie et rigueur organisationnelle,\n• parfaite maîtrise du français et de l’anglais (niveau C1).\n\nSi ce poste est fait pour vous, postulez dès maintenant et participez à l’avenir prometteur de la BCV. Ecrivons ensemble trois histoires, celle de votre carrière, celle de votre banque, celle de notre région."
-    },
-    "slugByLocale": {
-      "it": "remote-advisor-cliente-internazionale-conformita-guida-banque-cantonale-vaudoise-lausanne-4d2f9910",
-      "en": "remote-advisor-international-customer-guidance-compliance-banque-cantonale-vaudoise-lausanne-8571ca21",
-      "de": "remote-advisor-internationaler-kunde-guidance-compliance-banque-cantonale-vaudoise-lausanne-3f8d68e8",
-      "fr": "conseillere-ou-conseiller-a-distance-clientele-internationale-orientation-compliance-bcv-dc977956"
+      "it": "remote-advisor-cliente-internazionale-conformita-guida-banque-cantonale-vaudoise-lausanne-4746a125",
+      "en": "remote-advisor-international-customer-guidance-compliance-banque-cantonale-vaudoise-lausanne-7b827fd5",
+      "de": "remote-advisor-internationaler-kunde-guidance-compliance-banque-cantonale-vaudoise-lausanne-b1d59d03",
+      "fr": "conseillere-ou-conseiller-a-distance-clientele-internationale-orientation-compliance-bcv-a6f02b8d"
     },
     "sector": "Banca / Finanza",
     "expiredAt": "2026-10-19T21:16:31.189Z",
     "previousSlugsByLocale": {
       "fr": [
+        "conseillere-ou-conseiller-a-distance-orientation-compliance-bcv-lausanne-6720ac00",
+        "conseillere-ou-conseiller-a-distance-clientele-internationale-orientation-compliance-bcv-a6f02b8d",
+        "conseillere-ou-conseiller-a-distance-clientele-internationale-orientation-compliance-bcv-dc977956",
         "conseillere-ou-conseiller-a-distance-orientation-compliance-bcv-lausanne-43a4a44a",
         "conseillere-ou-conseiller-a-distance-clientele-internationale-orientation-compliance-bcv-e9a7a478",
         "conseillere-ou-conseiller-a-distance-orientation-compliance-bcv-lausanne-c2252811",
@@ -11525,6 +10746,9 @@
         "conseillere-ou-conseiller-a-distance-orientation-compliance-bcv-lausanne-b02615f2"
       ],
       "it": [
+        "conseillere-ou-conseiller-a-distance-clientele-internationale-orientation-compliance-bcv-a6f02b8d",
+        "conseillere-ou-conseiller-a-distance-orientation-compliance-bcv-lausanne-6720ac00",
+        "remote-advisor-cliente-internazionale-conformita-guida-banque-cantonale-vaudoise-lausanne-4d2f9910",
         "conseillere-ou-conseiller-a-distance-clientele-internationale-orientation-compliance-bcv-dc977956",
         "conseillere-ou-conseiller-a-distance-orientation-compliance-bcv-lausanne-43a4a44a",
         "remote-advisor-cliente-internazionale-conformita-guida-banque-cantonale-vaudoise-lausanne-5bb2e739",
@@ -11535,16 +10759,20 @@
         "conseillere-ou-conseiller-a-distance-orientation-compliance-bcv-lausanne-b02615f2"
       ],
       "en": [
-        "conseillere-ou-conseiller-a-distance-clientele-internationale-orientation-compliance-bcv-dc977956",
+        "conseillere-ou-conseiller-a-distance-clientele-internationale-orientation-compliance-bcv-a6f02b8d",
         "conseillere-ou-conseiller-a-distance-orientation-compliance-bcv-lausanne",
+        "remote-advisor-international-customer-guidance-compliance-banque-cantonale-vaudoise-lausanne-8571ca21",
+        "conseillere-ou-conseiller-a-distance-clientele-internationale-orientation-compliance-bcv-dc977956",
         "remote-advisor-international-customer-guidance-compliance-banque-cantonale-vaudoise-lausanne-94c2c5f8",
         "conseillere-ou-conseiller-a-distance-clientele-internationale-orientation-compliance-bcv-e9a7a478",
         "remote-advisor-international-customer-guidance-compliance-banque-cantonale-vaudoise-lausanne-54ad225e",
         "conseillere-ou-conseiller-a-distance-clientele-internationale-orientation-compliance-bcv-ef00c1ae"
       ],
       "de": [
-        "conseillere-ou-conseiller-a-distance-clientele-internationale-orientation-compliance-bcv-dc977956",
+        "conseillere-ou-conseiller-a-distance-clientele-internationale-orientation-compliance-bcv-a6f02b8d",
         "conseillere-ou-conseiller-a-distance-orientation-compliance-bcv-lausanne",
+        "remote-advisor-internationaler-kunde-guidance-compliance-banque-cantonale-vaudoise-lausanne-3f8d68e8",
+        "conseillere-ou-conseiller-a-distance-clientele-internationale-orientation-compliance-bcv-dc977956",
         "remote-advisor-internationaler-kunde-guidance-compliance-banque-cantonale-vaudoise-lausanne-205460f1",
         "conseillere-ou-conseiller-a-distance-clientele-internationale-orientation-compliance-bcv-e9a7a478",
         "remote-advisor-internationaler-kunde-guidance-compliance-banque-cantonale-vaudoise-lausanne-d7463c02",
@@ -11572,18 +10800,23 @@
       }
     ],
     "previousSlugs": [
-      "conseillere-ou-conseiller-a-distance-orientation-compliance-bcv-lausanne-43a4a44a",
+      "conseillere-ou-conseiller-a-distance-orientation-compliance-bcv-lausanne-6720ac00",
+      "conseillere-ou-conseiller-a-distance-clientele-internationale-orientation-compliance-bcv-a6f02b8d",
+      "remote-advisor-cliente-internazionale-conformita-guida-banque-cantonale-vaudoise-lausanne-4d2f9910",
       "conseillere-ou-conseiller-a-distance-orientation-compliance-bcv-lausanne",
       "conseillere-ou-conseiller-a-distance-clientele-internationale-orientation-compliance-bcv-dc977956",
+      "conseillere-ou-conseiller-a-distance-orientation-compliance-bcv-lausanne-43a4a44a",
       "remote-advisor-cliente-internazionale-conformita-guida-banque-cantonale-vaudoise-lausanne-5bb2e739",
       "conseillere-ou-conseiller-a-distance-clientele-internationale-orientation-compliance-bcv-e9a7a478",
       "conseillere-ou-conseiller-a-distance-orientation-compliance-bcv-lausanne-c2252811",
-      "remote-advisor-international-customer-guidance-compliance-banque-cantonale-vaudoise-lausanne-94c2c5f8",
-      "remote-advisor-internationaler-kunde-guidance-compliance-banque-cantonale-vaudoise-lausanne-205460f1",
       "remote-advisor-cliente-internazionale-conformita-guida-banque-cantonale-vaudoise-lausanne-e4cc130e",
       "conseillere-ou-conseiller-a-distance-clientele-internationale-orientation-compliance-bcv-ef00c1ae",
       "conseillere-ou-conseiller-a-distance-orientation-compliance-bcv-lausanne-b02615f2",
+      "remote-advisor-international-customer-guidance-compliance-banque-cantonale-vaudoise-lausanne-8571ca21",
+      "remote-advisor-international-customer-guidance-compliance-banque-cantonale-vaudoise-lausanne-94c2c5f8",
       "remote-advisor-international-customer-guidance-compliance-banque-cantonale-vaudoise-lausanne-54ad225e",
+      "remote-advisor-internationaler-kunde-guidance-compliance-banque-cantonale-vaudoise-lausanne-3f8d68e8",
+      "remote-advisor-internationaler-kunde-guidance-compliance-banque-cantonale-vaudoise-lausanne-205460f1",
       "remote-advisor-internationaler-kunde-guidance-compliance-banque-cantonale-vaudoise-lausanne-d7463c02"
     ]
   },
@@ -12759,7 +11992,7 @@
     "firstSeenAt": "2026-08-07T21:51:50.520Z"
   },
   {
-    "slug": "responsabile-del-progetto-it-senior-banque-cantonale-vaudoise-lausanne",
+    "slug": "responsabile-del-progetto-it-senior-banque-cantonale-vaudoise-lausanne-44388ca5",
     "title": "Responsable de projets IT expert",
     "titleByLocale": {
       "it": "Responsabile del progetto IT senior",
@@ -12778,38 +12011,33 @@
       "fr": "Et si votre histoire professionnelle se poursuivait à l’IT de la BCV ? Mettez vos compétences et votre expérience au service de l’une des rares banques qui développe, maintient et assure la sécurité de son propre Système d’information. Les opportunités professionnelles infinies et variées au sein des 3 départements IT vous offrent la possibilité de mener à bien des projets stratégiques, qui contribueront au succès de toute la banque. Pour nos Départements IT , nous recherchons une ou un :\n\nAnnonce Responsable de projets IT Vos missions :\n• Délivrer les projets IT confiés, en mitiger proactivement les risques sur les axes délais, coût, qualité et périmètre, et fournir un reporting transparent au management,\n• conduire les actions de conduite du changement nécessaires au succès des projets informatiques (formation, support utilisateurs, décommissionnement éventuel d’applications…) afin de maximiser la valeur ajoutée des projets pour les métiers et la banque,\n• assurer un haut niveau de qualité des spécifications fonctionnelles et non-fonctionnelles en impliquant les experts et, sur cette base, concevoir, préparer et piloter les tests d'acceptance utilisateurs,\n• produire des études d'opportunité, des project charters et des appels d'offre de qualité, afin d'assurer une prise de décision factuelle et efficace par le management du métier et de l'IT,\n• challenger les solutions techniques et s'assurer systématiquement avec les architectes de leur adéquation avec les standards d'architecture banque,\n• contribuer à la construction d'un plan annuel cohérent d'évolutions fonctionnelles et techniques des applications du domaine, aligné avec les priorités de la stratégie métier,\n• augmenter la maîtrise du S.I. BCV dans la durée, en améliorant la documentation fonctionnelle des applications et en s’assurant d’une documentation technique de qualité au sein des projets. Votre profil :\n• 5 à 10 ans d'expérience en tant que chef de projet au sein d'un département IT, idéalement dans une banque suisse,\n• expérience en tant que business analyst, chef de projet, chef de produit pour des solutions de CRM,\n• langues : bon niveau d'anglais obligatoire, allemand un plus,\n• connaissance du milieu bancaire et des problématiques des métiers de front (particulier, entreprise, private banking et ou/asset management)\n\nSi ce poste est fait pour vous, postulez dès maintenant et participez à l’avenir prometteur de la BCV. Ecrivons ensemble trois histoires, celle de votre carrière, celle de votre banque, celle de notre région."
     },
     "slugByLocale": {
-      "it": "responsabile-del-progetto-it-senior-banque-cantonale-vaudoise-lausanne",
-      "en": "senior-it-project-manager-banque-cantonale-vaudoise-lausanne",
-      "de": "senior-it-projektmanager-banque-cantonale-vaudoise-lausanne",
-      "fr": "chef-de-projets-it-senior-bcv-lausanne"
+      "it": "responsabile-del-progetto-it-senior-banque-cantonale-vaudoise-lausanne-44388ca5",
+      "en": "senior-it-project-manager-banque-cantonale-vaudoise-lausanne-c3759ada",
+      "de": "senior-it-projektmanager-banque-cantonale-vaudoise-lausanne-9ba20bf6",
+      "fr": "chef-de-projets-it-senior-bcv-lausanne-7b8cfa54"
     },
     "sector": "Banca / Finanza",
     "expiredAt": "2026-09-10T23:11:14.864Z",
     "previousSlugs": [
-      "chef-de-projets-it-senior-bcv-lausanne",
-      "chef-de-projets-it-senior-banque-cantonale-vaudoise-lausanne",
-      "senior-it-project-manager-banque-cantonale-vaudoise-lausanne",
-      "responsable-de-projets-it-expert-bcv-lausanne",
       "responsabile-del-progetto-it-senior-banque-cantonale-vaudoise-lausanne-44388ca5",
       "chef-de-projets-it-senior-bcv-lausanne-7b8cfa54",
       "chef-de-projets-it-senior-banque-cantonale-vaudoise-lausanne-b7f161bd",
       "senior-it-project-manager-banque-cantonale-vaudoise-lausanne-c3759ada",
       "responsable-de-projets-it-expert-bcv-lausanne-500d21fc",
-      "senior-it-projektmanager-banque-cantonale-vaudoise-lausanne-9ba20bf6"
+      "senior-it-projektmanager-banque-cantonale-vaudoise-lausanne-9ba20bf6",
+      "chef-de-projets-it-senior-banque-cantonale-vaudoise-lausanne",
+      "senior-it-project-manager-banque-cantonale-vaudoise-lausanne",
+      "chef-de-projets-it-senior-bcv-lausanne",
+      "responsable-de-projets-it-expert-bcv-lausanne"
     ],
     "previousSlugsByLocale": {
       "fr": [
-        "responsable-de-projets-it-expert-bcv-lausanne",
         "chef-de-projets-it-senior-bcv-lausanne-7b8cfa54",
         "responsable-de-projets-it-expert-bcv-lausanne-500d21fc",
         "chef-de-projets-it-senior-banque-cantonale-vaudoise-lausanne",
         "senior-it-project-manager-banque-cantonale-vaudoise-lausanne"
       ],
       "it": [
-        "chef-de-projets-it-senior-bcv-lausanne",
-        "chef-de-projets-it-senior-banque-cantonale-vaudoise-lausanne",
-        "senior-it-project-manager-banque-cantonale-vaudoise-lausanne",
-        "responsable-de-projets-it-expert-bcv-lausanne",
         "responsabile-del-progetto-it-senior-banque-cantonale-vaudoise-lausanne-44388ca5",
         "chef-de-projets-it-senior-bcv-lausanne-7b8cfa54",
         "chef-de-projets-it-senior-banque-cantonale-vaudoise-lausanne-b7f161bd",
@@ -13079,52 +12307,6 @@
     ]
   },
   {
-    "slug": "consulente-specializzato-per-le-pmi-chablais-banque-cantonale-vaudoise-aigle",
-    "title": "Conseiller PME spécialisé - Chablais",
-    "titleByLocale": {
-      "it": "Conseiller PME spécialisé - Chablais",
-      "en": "Conseiller PME spécialisé - Chablais",
-      "de": "Conseiller PME spécialisé - Chablais",
-      "fr": "Conseiller PME spécialisé - Chablais"
-    },
-    "company": "Banque Cantonale Vaudoise",
-    "companyKey": "bcv",
-    "location": "Aigle",
-    "addressLocality": "Aigle",
-    "descriptionByLocale": {
-      "it": "Et si votre histoire professionnelle se poursuivait à la BCV ? Rejoignez la première banque universelle du canton de Vaud, dont la proximité avec sa clientèle est inscrite dans ses valeurs. Prenez part au succès d’une institution notée AA par Standard & Poor’s depuis 2011, contribuez à l’essor du tissu économique vaudois ainsi qu’à l’attractivité et à la vitalité de votre région Pour notre division Entreprises Région Chablais, nous recherchons une ou un :\n\nAnnonce Conseillère ou Conseiller PME spécialisé(e) Vos missions principales:\n• gérer et développer un portefeuille de clients PME et professionnels de l'immobilier de la région et les conseiller en proposant les solutions et services financiers de la BCV\n• prospecter activement les entreprises de la région et s'impliquer au sein des milieux économiques\n• mettre à profit toutes les compétences du réseau interne de la Banque pour amener la plus-value la plus importante à vos clients\n• élaborer des solutions de financement tout en identifiant les éléments de risque et en étroite collaboration avec les analystes crédit et les expertes et experts immobiliers\n• contribuer au perfectionnement des autres membres de l'équipe, notamment en partageant ses connaissances et expériences Votre profil:\n• formation bancaire supérieure ou formation supérieure (HES ou HEC, etc.)\n• expérience confirmée dans le domaine du financement et du conseil global aux entreprises et aux professionnels de l'immobilier\n• connaissance approfondie du tissu économique local et implication dans la vie sociale\n• orientation clientèle affirmée, proactivité et sens du service\n• excellentes capacités de communication et de négociation, orientation résultats\n\nSi ce poste est fait pour vous, postulez dès maintenant et participez à l’avenir prometteur de la BCV. Ecrivons ensemble trois histoires, celle de votre carrière, celle de votre banque, celle de notre région.",
-      "en": "Et si votre histoire professionnelle se poursuivait à la BCV ? Rejoignez la première banque universelle du canton de Vaud, dont la proximité avec sa clientèle est inscrite dans ses valeurs. Prenez part au succès d’une institution notée AA par Standard & Poor’s depuis 2011, contribuez à l’essor du tissu économique vaudois ainsi qu’à l’attractivité et à la vitalité de votre région Pour notre division Entreprises Région Chablais, nous recherchons une ou un :\n\nAnnonce Conseillère ou Conseiller PME spécialisé(e) Vos missions principales:\n• gérer et développer un portefeuille de clients PME et professionnels de l'immobilier de la région et les conseiller en proposant les solutions et services financiers de la BCV\n• prospecter activement les entreprises de la région et s'impliquer au sein des milieux économiques\n• mettre à profit toutes les compétences du réseau interne de la Banque pour amener la plus-value la plus importante à vos clients\n• élaborer des solutions de financement tout en identifiant les éléments de risque et en étroite collaboration avec les analystes crédit et les expertes et experts immobiliers\n• contribuer au perfectionnement des autres membres de l'équipe, notamment en partageant ses connaissances et expériences Votre profil:\n• formation bancaire supérieure ou formation supérieure (HES ou HEC, etc.)\n• expérience confirmée dans le domaine du financement et du conseil global aux entreprises et aux professionnels de l'immobilier\n• connaissance approfondie du tissu économique local et implication dans la vie sociale\n• orientation clientèle affirmée, proactivité et sens du service\n• excellentes capacités de communication et de négociation, orientation résultats\n\nSi ce poste est fait pour vous, postulez dès maintenant et participez à l’avenir prometteur de la BCV. Ecrivons ensemble trois histoires, celle de votre carrière, celle de votre banque, celle de notre région.",
-      "de": "Et si votre histoire professionnelle se poursuivait à la BCV ? Rejoignez la première banque universelle du canton de Vaud, dont la proximité avec sa clientèle est inscrite dans ses valeurs. Prenez part au succès d’une institution notée AA par Standard & Poor’s depuis 2011, contribuez à l’essor du tissu économique vaudois ainsi qu’à l’attractivité et à la vitalité de votre région Pour notre division Entreprises Région Chablais, nous recherchons une ou un :\n\nAnnonce Conseillère ou Conseiller PME spécialisé(e) Vos missions principales:\n• gérer et développer un portefeuille de clients PME et professionnels de l'immobilier de la région et les conseiller en proposant les solutions et services financiers de la BCV\n• prospecter activement les entreprises de la région et s'impliquer au sein des milieux économiques\n• mettre à profit toutes les compétences du réseau interne de la Banque pour amener la plus-value la plus importante à vos clients\n• élaborer des solutions de financement tout en identifiant les éléments de risque et en étroite collaboration avec les analystes crédit et les expertes et experts immobiliers\n• contribuer au perfectionnement des autres membres de l'équipe, notamment en partageant ses connaissances et expériences Votre profil:\n• formation bancaire supérieure ou formation supérieure (HES ou HEC, etc.)\n• expérience confirmée dans le domaine du financement et du conseil global aux entreprises et aux professionnels de l'immobilier\n• connaissance approfondie du tissu économique local et implication dans la vie sociale\n• orientation clientèle affirmée, proactivité et sens du service\n• excellentes capacités de communication et de négociation, orientation résultats\n\nSi ce poste est fait pour vous, postulez dès maintenant et participez à l’avenir prometteur de la BCV. Ecrivons ensemble trois histoires, celle de votre carrière, celle de votre banque, celle de notre région.",
-      "fr": "Et si votre histoire professionnelle se poursuivait à la BCV ? Rejoignez la première banque universelle du canton de Vaud, dont la proximité avec sa clientèle est inscrite dans ses valeurs. Prenez part au succès d’une institution notée AA par Standard & Poor’s depuis 2011, contribuez à l’essor du tissu économique vaudois ainsi qu’à l’attractivité et à la vitalité de votre région Pour notre division Entreprises Région Chablais, nous recherchons une ou un :\n\nAnnonce Conseillère ou Conseiller PME spécialisé(e) Vos missions principales:\n• gérer et développer un portefeuille de clients PME et professionnels de l'immobilier de la région et les conseiller en proposant les solutions et services financiers de la BCV\n• prospecter activement les entreprises de la région et s'impliquer au sein des milieux économiques\n• mettre à profit toutes les compétences du réseau interne de la Banque pour amener la plus-value la plus importante à vos clients\n• élaborer des solutions de financement tout en identifiant les éléments de risque et en étroite collaboration avec les analystes crédit et les expertes et experts immobiliers\n• contribuer au perfectionnement des autres membres de l'équipe, notamment en partageant ses connaissances et expériences Votre profil:\n• formation bancaire supérieure ou formation supérieure (HES ou HEC, etc.)\n• expérience confirmée dans le domaine du financement et du conseil global aux entreprises et aux professionnels de l'immobilier\n• connaissance approfondie du tissu économique local et implication dans la vie sociale\n• orientation clientèle affirmée, proactivité et sens du service\n• excellentes capacités de communication et de négociation, orientation résultats\n\nSi ce poste est fait pour vous, postulez dès maintenant et participez à l’avenir prometteur de la BCV. Ecrivons ensemble trois histoires, celle de votre carrière, celle de votre banque, celle de notre région."
-    },
-    "slugByLocale": {
-      "it": "consulente-specializzato-per-le-pmi-chablais-banque-cantonale-vaudoise-aigle",
-      "en": "specialist-sme-adviser-chablais-banque-cantonale-vaudoise-aigle",
-      "de": "kmu-fachberater-chablais-banque-cantonale-vaudoise-aigle",
-      "fr": "conseiller-pme-specialise-chablais-bcv-aigle"
-    },
-    "sector": "Banca / Finanza",
-    "expiredAt": "2026-09-01T09:08:43.847Z",
-    "previousSlugs": [
-      "conseiller-pme-specialise-chablais-bcv-aigle",
-      "kmu-fachberater-shablais-banque-cantonale-vaudoise-aigle",
-      "specialist-sme-adviser-shablais-banque-cantonale-vaudoise-aigle"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "conseiller-pme-specialise-chablais-bcv-aigle",
-        "kmu-fachberater-shablais-banque-cantonale-vaudoise-aigle",
-        "specialist-sme-adviser-shablais-banque-cantonale-vaudoise-aigle"
-      ]
-    },
-    "salaryMin": 72000,
-    "salaryMax": 111000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://jobs.bcv.ch/job/aigle-conseiller-pme-sp%c3%a9cialis%c3%a9-chablais/1407738733",
-    "firstSeenAt": "2026-07-04T10:16:05.708Z"
-  },
-  {
     "slug": "consulente-specializzato-per-le-pmi-chablais-banque-cantonale-vaudoise-aigle-4c41e1a8",
     "title": "Conseiller PME spécialisé - Chablais",
     "titleByLocale": {
@@ -13163,27 +12345,34 @@
         "consulente-specializzato-per-le-pmi-chablais-banque-cantonale-vaudoise-aigle-f73d1141",
         "conseiller-pme-specialise-chablais-bcv-aigle-61902d61",
         "kmu-fachberater-shablais-banque-cantonale-vaudoise-aigle-399a15c8",
-        "specialist-sme-adviser-shablais-banque-cantonale-vaudoise-aigle-efde85d2"
+        "specialist-sme-adviser-shablais-banque-cantonale-vaudoise-aigle-efde85d2",
+        "consulente-specializzato-per-le-pmi-chablais-banque-cantonale-vaudoise-aigle-c1c129c2",
+        "conseiller-pme-specialise-chablais-bcv-aigle-21f2fd9a",
+        "kmu-fachberater-shablais-banque-cantonale-vaudoise-aigle-af0b3c8a",
+        "specialist-sme-adviser-shablais-banque-cantonale-vaudoise-aigle-08ac58ad"
       ],
       "en": [
         "conseiller-pme-specialise-chablais-bcv-aigle",
         "kmu-fachberater-shablais-banque-cantonale-vaudoise-aigle",
         "specialist-sme-adviser-shablais-banque-cantonale-vaudoise-aigle",
         "specialist-sme-adviser-chablais-banque-cantonale-vaudoise-aigle-c0b649c6",
-        "specialist-sme-adviser-chablais-banque-cantonale-vaudoise-aigle-3e7f15f8"
+        "specialist-sme-adviser-chablais-banque-cantonale-vaudoise-aigle-3e7f15f8",
+        "specialist-sme-adviser-chablais-banque-cantonale-vaudoise-aigle-ea3ac912"
       ],
       "de": [
         "conseiller-pme-specialise-chablais-bcv-aigle",
         "kmu-fachberater-shablais-banque-cantonale-vaudoise-aigle",
         "specialist-sme-adviser-shablais-banque-cantonale-vaudoise-aigle",
         "kmu-fachberater-chablais-banque-cantonale-vaudoise-aigle-f7a4c355",
-        "kmu-fachberater-chablais-banque-cantonale-vaudoise-aigle-0ed67cb9"
+        "kmu-fachberater-chablais-banque-cantonale-vaudoise-aigle-0ed67cb9",
+        "kmu-fachberater-chablais-banque-cantonale-vaudoise-aigle-2e8f24b2"
       ],
       "fr": [
         "kmu-fachberater-shablais-banque-cantonale-vaudoise-aigle",
         "specialist-sme-adviser-shablais-banque-cantonale-vaudoise-aigle",
         "conseiller-pme-specialise-chablais-bcv-aigle-cc0d01c1",
-        "conseiller-pme-specialise-chablais-bcv-aigle-61902d61"
+        "conseiller-pme-specialise-chablais-bcv-aigle-61902d61",
+        "conseiller-pme-specialise-chablais-bcv-aigle-21f2fd9a"
       ]
     },
     "salaryMin": 72000,
@@ -13210,7 +12399,13 @@
       "kmu-fachberater-shablais-banque-cantonale-vaudoise-aigle-399a15c8",
       "specialist-sme-adviser-shablais-banque-cantonale-vaudoise-aigle-efde85d2",
       "specialist-sme-adviser-chablais-banque-cantonale-vaudoise-aigle-3e7f15f8",
-      "kmu-fachberater-chablais-banque-cantonale-vaudoise-aigle-0ed67cb9"
+      "kmu-fachberater-chablais-banque-cantonale-vaudoise-aigle-0ed67cb9",
+      "consulente-specializzato-per-le-pmi-chablais-banque-cantonale-vaudoise-aigle-c1c129c2",
+      "conseiller-pme-specialise-chablais-bcv-aigle-21f2fd9a",
+      "kmu-fachberater-shablais-banque-cantonale-vaudoise-aigle-af0b3c8a",
+      "specialist-sme-adviser-shablais-banque-cantonale-vaudoise-aigle-08ac58ad",
+      "specialist-sme-adviser-chablais-banque-cantonale-vaudoise-aigle-ea3ac912",
+      "kmu-fachberater-chablais-banque-cantonale-vaudoise-aigle-2e8f24b2"
     ]
   },
   {
@@ -13260,7 +12455,7 @@
     "firstSeenAt": "2026-07-04T10:16:05.708Z"
   },
   {
-    "slug": "consulente-specializzato-per-le-pmi-regione-di-losanna-banque-cantonale-vaudoise-lausanne",
+    "slug": "consulente-specializzato-per-le-pmi-regione-di-losanna-banque-cantonale-vaudoise-lausanne-3fb6c439",
     "title": "Conseillère ou Conseiller PME spécialisé(e) - Région Lausanne",
     "titleByLocale": {
       "it": "Consulente specializzato per le PMI - Regione di Losanna",
@@ -13279,16 +12474,14 @@
       "fr": "Et si votre histoire professionnelle se poursuivait à la BCV ? Rejoignez la première banque universelle du canton de Vaud, dont la proximité avec sa clientèle est inscrite dans ses valeurs. Prenez part au succès d’une institution notée AA par Standard & Poor’s depuis 2011, contribuez à l’essor du tissu économique vaudois ainsi qu’à l’attractivité et à la vitalité de votre région Pour notre division Entreprises , nous recherchons une ou un :\n\nAnnonce Conseillère ou Conseiller PME spécialisé(e) - Région Lausanne Vos missions principales:\n• Gérer et développer un portefeuille de clients PME et professionnels de l'immobilier de la région et les conseiller en proposant les solutions et services financiers de la BCV\n• Prospecter activement les entreprises de la région et s'impliquer au sein des milieux économiques\n• Mettre à profit toutes les compétences du réseau interne de la Banque pour amener la plus-value la plus importante à vos clients\n• Elaborer des solutions de financement tout en identifiant les éléments de risque et en étroite collaboration avec les analystes crédit et les expertes et experts immobiliers\n• Contribuer au perfectionnement des autres membres de l'équipe, notamment en partageant ses connaissances et expériences Votre profil:\n• Formation bancaire supérieure ou formation supérieure (HES ou HEC, etc.)\n• Expérience confirmée dans le domaine du financement et du conseil global aux entreprises et aux professionnels de l'immobilier\n• Connaissance approfondie du tissu économique local et implication dans la vie sociale\n• Orientation clientèle affirmée, proactivité et sens du service\n• Excellentes capacités de communication et de négociation, orientation résultats\n\nSi ce poste est fait pour vous, postulez dès maintenant et participez à l’avenir prometteur de la BCV. Ecrivons ensemble trois histoires, celle de votre carrière, celle de votre banque, celle de notre région."
     },
     "slugByLocale": {
-      "it": "consulente-specializzato-per-le-pmi-regione-di-losanna-banque-cantonale-vaudoise-lausanne",
-      "en": "specialized-sme-advisor-lausanne-region-banque-cantonale-vaudoise-lausanne",
-      "de": "specialized-sme-advisor-region-lausanne-banque-cantonale-vaudoise-lausanne",
-      "fr": "conseillere-ou-conseiller-pme-specialise-e-region-lausanne-bcv-lausanne"
+      "it": "consulente-specializzato-per-le-pmi-regione-di-losanna-banque-cantonale-vaudoise-lausanne-3fb6c439",
+      "en": "specialized-sme-advisor-lausanne-region-banque-cantonale-vaudoise-lausanne-369fbb9b",
+      "de": "specialized-sme-advisor-region-lausanne-banque-cantonale-vaudoise-lausanne-f110e2ac",
+      "fr": "conseillere-ou-conseiller-pme-specialise-e-region-lausanne-bcv-lausanne-28e40c94"
     },
     "sector": "Banca / Finanza",
     "expiredAt": "2026-09-01T02:20:48.630Z",
     "previousSlugs": [
-      "conseillere-ou-conseiller-pme-specialise-e-region-lausanne-bcv-lausanne",
-      "consulente-bancario-regione-losanna-banque-cantonale-vaudoise-lausanne",
       "conseillere-ou-conseiller-bancaire-region-lausanne-bcv-lausanne",
       "banking-advisor-lausanne-region-banque-cantonale-vaudoise-lausanne",
       "bankenberater-region-lausanne-banque-cantonale-vaudoise-lausanne",
@@ -13302,12 +12495,12 @@
       "consulente-bancario-regione-losanna-banque-cantonale-vaudoise-lausanne-882d9d08",
       "specialized-sme-advisor-lausanne-region-banque-cantonale-vaudoise-lausanne-369fbb9b",
       "banking-advisor-lausanne-region-banque-cantonale-vaudoise-lausanne-92b60599",
-      "specialized-sme-advisor-region-lausanne-banque-cantonale-vaudoise-lausanne-f110e2ac"
+      "specialized-sme-advisor-region-lausanne-banque-cantonale-vaudoise-lausanne-f110e2ac",
+      "conseillere-ou-conseiller-pme-specialise-e-region-lausanne-bcv-lausanne",
+      "consulente-bancario-regione-losanna-banque-cantonale-vaudoise-lausanne"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "conseillere-ou-conseiller-pme-specialise-e-region-lausanne-bcv-lausanne",
-        "consulente-bancario-regione-losanna-banque-cantonale-vaudoise-lausanne",
         "conseillere-ou-conseiller-bancaire-region-lausanne-bcv-lausanne",
         "bankberater-region-lausanne-banque-cantonale-vaudoise-lausanne-4a64bd02",
         "consulente-specializzato-per-le-pmi-regione-di-losanna-banque-cantonale-vaudoise-lausanne-3fb6c439",
@@ -13373,54 +12566,6 @@
         "title": "Conseillère ou Conseiller PME spécialisé(e) - Région Lausanne"
       }
     ]
-  },
-  {
-    "slug": "specialista-pmi-advisor-regione-riviera-banque-cantonale-vaudoise-vevey",
-    "title": "Conseiller ou Conseillère PME spécialisé(e) - Région Riviera",
-    "titleByLocale": {
-      "it": "Specialista PMI Advisor - Regione Riviera",
-      "en": "Specialist SME Advisor - Riviera region",
-      "de": "Specialist SME Advisor - Region Riviera",
-      "fr": "Conseiller ou Conseillère PME spécialisé(e) - Région Riviera"
-    },
-    "company": "Banque Cantonale Vaudoise",
-    "companyKey": "bcv",
-    "location": "Vevey",
-    "addressLocality": "Vevey",
-    "descriptionByLocale": {
-      "it": "E se la tua storia professionale continua al BCV? Unisciti al cantone della prima banca universale di Vaud, la cui vicinanza ai suoi clienti è racchiusa nei suoi valori. Prendere parte al successo di un istituto valutato AA da Standard & Poors dal 2011, contribuire alla crescita del tessuto economico Vaud così come all'attrattiva e vitalità della vostra regione Per la nostra Divisione Imprese, stiamo cercando uno o uno:\n\nAnnuncio Specialist SME Advisor - Regione Riviera I vostri compiti principali:\n• gestione e sviluppo di un portafoglio di clienti immobiliari professionali e PMI nella regione e consulenza offrendo soluzioni finanziarie e servizi di BCV\n• esplorare attivamente le aziende della regione e farsi coinvolgere in ambienti economici\n• utilizzare tutte le competenze della rete interna della Banca per portare il valore aggiunto più importante ai vostri clienti\n• sviluppare soluzioni di finanziamento, individuando elementi di rischio e in stretta collaborazione con analisti di credito e esperti immobiliari\n• contribuire allo sviluppo di altri membri del team, compresa la condivisione di conoscenze ed esperienze Il tuo profilo:\n• istruzione superiore (HES o HEC, ecc.)\n• comprovata esperienza nel settore del finanziamento e della consulenza globale a imprese e professionisti del settore immobiliare\n• profonda conoscenza del tessuto economico locale e coinvolgimento nella vita sociale\n• L'orientamento del cliente, la proattività e il senso del servizio\n• capacità di comunicazione e negoziazione eccellenti, orientamento dei risultati\n\nSe questa posizione è per voi, applicare ora e partecipare al promettente futuro del BCV. Scriviamo insieme tre storie, quella della tua carriera, quella della tua banca, quella della nostra regione.",
-      "en": "What if your professional history continues at the BCV? Join the canton of Vaud's first universal bank, whose proximity to its customers is enshrined in its values. Take part in the success of an institution rated AA by Standard & Poors since 2011, contribute to the growth of the Vaud economic fabric as well as to the attractiveness and vitality of your region For our Enterprise Division, we are looking for one or one:\n\nAnnouncement Specialist SME Advisor - Riviera region Your main tasks:\n• managing and developing a portfolio of SME and professional real estate clients in the region and advising them by offering BCV's financial solutions and services\n• actively exploring the companies of the region and getting involved in economic circles\n• use all the skills of the Bank's internal network to bring the most important added value to your customers\n• develop financing solutions while identifying risk elements and in close collaboration with credit analysts and real estate experts\n• contribute to the development of other team members, including sharing knowledge and experiences Your profile:\n• higher banking or higher education (HES or HEC, etc.)\n• proven experience in the area of financing and global advice to businesses and real estate professionals\n• deep knowledge of the local economic fabric and involvement in social life\n• Customer orientation, proactivity and sense of service\n• excellent communication and negotiation capabilities, results orientation\n\nIf this position is for you, apply now and participate in the promising future of the BCV. Let's write together three stories, that of your career, that of your bank, that of our region.",
-      "de": "Was ist, wenn Ihre berufliche Geschichte an der BCV fortgesetzt wird? Schließen Sie sich der ersten Universalbank des Kantons Waadt an, deren Nähe zu ihren Kunden in ihren Werten verankert ist. Beteiligen Sie sich am Erfolg einer von Standard & Poors seit 2011 mit AA bewerteten Institution, tragen Sie zum Wachstum des Waadt-Wirtschaftsgefüges sowie zur Attraktivität und Vitalität Ihrer Region bei Für unsere Enterprise Division suchen wir eine oder eine:\n\nAnkündigung Spezialist KMU Berater - Riviera Region Ihre Hauptaufgaben:\n• Management und Entwicklung eines Portfolios von KMU- und professionellen Immobilienkunden in der Region und deren Beratung durch das Angebot von BCV-Finanzlösungen und -Dienstleistungen\n• aktiv die Unternehmen der Region erkunden und sich in Wirtschaftskreisen engagieren\n• Nutzen Sie alle Fähigkeiten des internen Netzwerks der Bank, um Ihren Kunden den wichtigsten Mehrwert zu bieten\n• Finanzierungslösungen entwickeln, Risikoelemente identifizieren und in enger Zusammenarbeit mit Kreditanalysten und Immobilienexperten\n• zur Entwicklung anderer Teammitglieder beitragen, einschließlich des Austauschs von Wissen und Erfahrungen Ihr Profil:\n• höhere Bank- oder Hochschulbildung (HES oder HEC, etc.)\n• nachgewiesene Erfahrung im Bereich Finanzierung und globale Beratung für Unternehmen und Immobilienfachleute\n• Tiefes Wissen über das lokale Wirtschaftsgefüge und die Beteiligung am sozialen Leben\n• Kundenorientierung, Proaktivität und Servicegefühl\n• ausgezeichnete Kommunikations- und Verhandlungsfähigkeiten, Ergebnisorientierung\n\nWenn diese Position für Sie ist, bewerben Sie sich jetzt und nehmen Sie an der vielversprechenden Zukunft der BCV teil. Lassen Sie uns zusammen drei Geschichten schreiben, die Ihrer Karriere, die Ihrer Bank, die unserer Region.",
-      "fr": "Et si votre histoire professionnelle se poursuivait à la BCV ? Rejoignez la première banque universelle du canton de Vaud, dont la proximité avec sa clientèle est inscrite dans ses valeurs. Prenez part au succès d’une institution notée AA par Standard & Poor’s depuis 2011, contribuez à l’essor du tissu économique vaudois ainsi qu’à l’attractivité et à la vitalité de votre région Pour notre division Entreprises , nous recherchons une ou un :\n\nAnnonce Conseillère ou Conseiller PME spécialisé(e) - Région Riviera Vos missions principales:\n• gérer et développer un portefeuille de clients PME et professionnels de l'immobilier de la région et les conseiller en proposant les solutions et services financiers de la BCV\n• prospecter activement les entreprises de la région et s'impliquer au sein des milieux économiques\n• mettre à profit toutes les compétences du réseau interne de la Banque pour amener la plus-value la plus importante à vos clients\n• élaborer des solutions de financement tout en identifiant les éléments de risque et en étroite collaboration avec les analystes crédit et les expertes et experts immobiliers\n• contribuer au perfectionnement des autres membres de l'équipe, notamment en partageant ses connaissances et expériences Votre profil:\n• formation bancaire supérieure ou formation supérieure (HES ou HEC, etc.)\n• expérience confirmée dans le domaine du financement et du conseil global aux entreprises et aux professionnels de l'immobilier\n• connaissance approfondie du tissu économique local et implication dans la vie sociale\n• orientation clientèle affirmée, proactivité et sens du service\n• excellentes capacités de communication et de négociation, orientation résultats\n\nSi ce poste est fait pour vous, postulez dès maintenant et participez à l’avenir prometteur de la BCV. Ecrivons ensemble trois histoires, celle de votre carrière, celle de votre banque, celle de notre région."
-    },
-    "slugByLocale": {
-      "it": "specialista-pmi-advisor-regione-riviera-banque-cantonale-vaudoise-vevey",
-      "en": "specialist-sme-advisor-riviera-region-banque-cantonale-vaudoise-vevey",
-      "de": "specialist-sme-advisor-region-riviera-banque-cantonale-vaudoise-vevey",
-      "fr": "conseiller-ou-conseillere-pme-specialise-e-region-riviera-bcv-vevey"
-    },
-    "sector": "Banca / Finanza",
-    "expiredAt": "2026-09-01T02:20:48.630Z",
-    "previousSlugs": [
-      "conseiller-ou-conseillere-pme-specialise-e-region-riviera-bcv-vevey"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "conseiller-ou-conseillere-pme-specialise-e-region-riviera-bcv-vevey"
-      ],
-      "en": [
-        "conseiller-ou-conseillere-pme-specialise-e-region-riviera-bcv-vevey"
-      ],
-      "de": [
-        "conseiller-ou-conseillere-pme-specialise-e-region-riviera-bcv-vevey"
-      ]
-    },
-    "salaryMin": 72000,
-    "salaryMax": 111000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://jobs.bcv.ch/job/vevey-conseiller-ou-conseill%c3%a8re-pme-sp%c3%a9cialis%c3%a9%28e%29-r%c3%a9gion-riviera/1420578833",
-    "firstSeenAt": "2026-07-30T11:32:45.206Z"
   },
   {
     "slug": "posizioni-manager-testa-fe-del-servizio-banque-cantonale-vaudoise-lausanne",
@@ -14220,7 +13365,7 @@
     ]
   },
   {
-    "slug": "consulente-privato-bancario-clienti-chiave-banque-cantonale-vaudoise-lausanne",
+    "slug": "consulente-privato-bancario-clienti-chiave-banque-cantonale-vaudoise-lausanne-d0444d54",
     "title": "Assistante conseillère ou assistant conseiller Private banking - Key Clients - Lausanne",
     "titleByLocale": {
       "it": "Consulente privato bancario clienti chiave",
@@ -14239,26 +13384,24 @@
       "fr": "Et si votre histoire professionnelle se poursuivait à la BCV ? Rejoignez la première banque universelle du canton de Vaud, l’une des banques les plus solides au monde, et ses quelques 2000 collaboratrices et collaborateurs. Prenez part au succès d’une institution notée AA par Standard & Poor’s depuis 2011 et contribuez à l’essor du tissu économique vaudois ainsi qu’à l’attractivité et à la vitalité de notre région. Pour notre division Private Banking , nous recherchons une ou un :\n\nAssistante conseillère ou Assistant conseiller Private Banking Key Clients Assistante conseillère ou assistant conseiller Private banking - Key Clients Vos missions principales :\n• Soutenir activement les conseillers Private Banking dans la gestion, le suivi et le développement de leurs portefeuilles clients, dans le respect des exigences réglementaires et de conformité.\n• Identifier et proposer des opportunités d’investissement, de financement et de planification patrimoniale afin de contribuer au développement et à la satisfaction de la clientèle.\n• Développer et entretenir des relations de confiance avec les clients en garantissant un service de haute qualité et une expérience différenciante.\n• Représenter la banque lors de rendez-vous, d’événements et d’actions de prospection afin de renforcer son image.\n• Maintenir un haut niveau d’expertise en gestion de fortune, marchés financiers, financement et solutions patrimoniales afin d’apporter des conseils pertinents aux conseiller et aux clients et adaptés à leurs besoins. Votre profil :\n• Formation supérieure (Bachelor ou HEG),\n• Expérience dans le domaine de la gestion de fortune ou bonne connaissance des marchés,\n• Sens commercial, aisance relationnelle, bonne organisation et orientation solutions,\n• Parfaite maîtrise du français et très bonnes connaissances de l’anglais (niveau B2), autres langues un atout.\n\nSi ce poste est fait pour vous, postulez dès maintenant et participez à l’avenir prometteur de la BCV. Ecrivons ensemble trois histoires, celle de votre carrière, celle de votre banque, celle de notre région."
     },
     "slugByLocale": {
-      "it": "consulente-privato-bancario-clienti-chiave-banque-cantonale-vaudoise-lausanne",
-      "en": "assistant-advisor-private-banking-key-clients-banque-cantonale-vaudoise-lausanne",
-      "de": "assistante-conseillere-ou-assistent-conseiller-private-banking-key-clients-banque-cantonale-vaudoise-lausanne",
-      "fr": "assistante-conseillere-ou-assistant-conseiller-private-banking-key-clients-bcv-lausanne"
+      "it": "consulente-privato-bancario-clienti-chiave-banque-cantonale-vaudoise-lausanne-d0444d54",
+      "en": "assistant-advisor-private-banking-key-clients-banque-cantonale-vaudoise-lausanne-c4e6d4b5",
+      "de": "assistante-conseillere-ou-assistent-conseiller-private-banking-key-clients-banque-cantonale-vaudoise-lausanne-05eb083d",
+      "fr": "assistante-conseillere-ou-assistant-conseiller-private-banking-key-clients-bcv-lausanne-a8cba27f"
     },
     "sector": "Banca / Finanza",
     "expiredAt": "2026-07-25T10:46:15.832Z",
     "previousSlugs": [
-      "assistante-conseillere-ou-assistant-conseiller-private-banking-key-clients-bcv-lausanne",
-      "assistante-conseillere-ou-assistant-conseiller-private-banking-key-clients-lausanne-bcv",
       "consulente-privato-bancario-clienti-chiave-banque-cantonale-vaudoise-lausanne-d0444d54",
       "assistante-conseillere-ou-assistant-conseiller-private-banking-key-clients-bcv-lausanne-a8cba27f",
       "assistante-conseillere-ou-assistant-conseiller-private-banking-key-clients-lausanne-bcv-d822634f",
       "assistant-advisor-private-banking-key-clients-banque-cantonale-vaudoise-lausanne-c4e6d4b5",
-      "assistante-conseillere-ou-assistent-conseiller-private-banking-key-clients-banque-cantonale-vaudoise-lausanne-05eb083d"
+      "assistante-conseillere-ou-assistent-conseiller-private-banking-key-clients-banque-cantonale-vaudoise-lausanne-05eb083d",
+      "assistante-conseillere-ou-assistant-conseiller-private-banking-key-clients-bcv-lausanne",
+      "assistante-conseillere-ou-assistant-conseiller-private-banking-key-clients-lausanne-bcv"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "assistante-conseillere-ou-assistant-conseiller-private-banking-key-clients-bcv-lausanne",
-        "assistante-conseillere-ou-assistant-conseiller-private-banking-key-clients-lausanne-bcv",
         "consulente-privato-bancario-clienti-chiave-banque-cantonale-vaudoise-lausanne-d0444d54",
         "assistante-conseillere-ou-assistant-conseiller-private-banking-key-clients-bcv-lausanne-a8cba27f",
         "assistante-conseillere-ou-assistant-conseiller-private-banking-key-clients-lausanne-bcv-d822634f"

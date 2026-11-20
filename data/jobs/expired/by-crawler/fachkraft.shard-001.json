@@ -1445,31 +1445,35 @@
     "slugByLocale": {
       "it": "installatore-trice-elettrico-a-in-con-baustellenleitung-fachkraft-ch-gmbh-zurich",
       "en": "electrical-installer-mit-baustellenleitung-fachkraft-ch-gmbh-zurich-zurich",
-      "de": "elektroinstallateur-in-mit-baustellenleitung-zurich-zurich-fachkraft-ch",
+      "de": "elektroinstallateur-in-mit-baustellenleitung-zurich-zurich-fachkraft-ch-8b1ab933",
       "fr": "installateur-trice-electricien-ne-mit-baustellenleitung-fachkraft-ch-gmbh-zurich-zurich"
     },
     "sector": "Altro",
     "expiredAt": "2026-11-19T22:56:00.623Z",
     "previousSlugs": [
-      "elektroinstallateur-in-mit-baustellenleitung-zurich-zurich-fachkraft-ch",
       "electrical-installer-mit-baustellenleitung-fachkraft-ch-gmbh-zurich-zurich",
       "installateur-trice-electricien-ne-mit-baustellenleitung-fachkraft-ch-gmbh-zurich-zurich",
       "electrical-installer-mit-baustellenleitung-fachkraft-ch-gmbh-zurich",
-      "installateur-trice-electricien-ne-mit-baustellenleitung-fachkraft-ch-gmbh-zurich"
+      "installateur-trice-electricien-ne-mit-baustellenleitung-fachkraft-ch-gmbh-zurich",
+      "elektroinstallateur-in-mit-baustellenleitung-zurich-zurich-fachkraft-ch"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "elektroinstallateur-in-mit-baustellenleitung-zurich-zurich-fachkraft-ch",
+        "elektroinstallateur-in-mit-baustellenleitung-zurich-zurich-fachkraft-ch-8b1ab933",
         "electrical-installer-mit-baustellenleitung-fachkraft-ch-gmbh-zurich-zurich",
         "installateur-trice-electricien-ne-mit-baustellenleitung-fachkraft-ch-gmbh-zurich-zurich",
         "electrical-installer-mit-baustellenleitung-fachkraft-ch-gmbh-zurich",
-        "installateur-trice-electricien-ne-mit-baustellenleitung-fachkraft-ch-gmbh-zurich"
+        "installateur-trice-electricien-ne-mit-baustellenleitung-fachkraft-ch-gmbh-zurich",
+        "elektroinstallateur-in-mit-baustellenleitung-zurich-zurich-fachkraft-ch"
       ],
       "en": [
         "elektroinstallateur-in-mit-baustellenleitung-zurich-zurich-fachkraft-ch"
       ],
       "fr": [
         "elektroinstallateur-in-mit-baustellenleitung-zurich-zurich-fachkraft-ch"
+      ],
+      "de": [
+        "elektroinstallateur-in-mit-baustellenleitung-zurich-zurich-fachkraft-ch-8b1ab933"
       ]
     },
     "postalCode": "8001",
@@ -1608,28 +1612,34 @@
     "slugByLocale": {
       "it": "installatore-trice-elettrico-a-in-con-kundenkontakt-fachkraft-ch-gmbh-uster",
       "en": "electrical-installer-mit-kundenkontakt-fachkraft-ch-gmbh-uster-zurich",
-      "de": "elektroinstallateur-in-mit-kundenkontakt-uster-zurich-fachkraft-ch",
+      "de": "elektroinstallateur-in-mit-kundenkontakt-uster-zurich-fachkraft-ch-ca1fc311",
       "fr": "installateur-trice-electricien-ne-mit-kundenkontakt-fachkraft-ch-gmbh-uster-zurich"
     },
     "sector": "Altro",
     "expiredAt": "2026-11-19T22:56:00.623Z",
     "previousSlugs": [
-      "elektroinstallateur-in-mit-kundenkontakt-uster-zurich-fachkraft-ch",
       "electrical-installer-mit-kundenkontakt-fachkraft-ch-gmbh-uster-zurich",
       "installateur-trice-electricien-ne-mit-kundenkontakt-fachkraft-ch-gmbh-uster-zurich",
-      "elektroinstallateur-in-mit-kundenkontakt-fachkraft-ch-gmbh-uster"
+      "elektroinstallateur-in-mit-kundenkontakt-fachkraft-ch-gmbh-uster",
+      "elektroinstallateur-in-mit-kundenkontakt-uster-zurich-fachkraft-ch"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "elektroinstallateur-in-mit-kundenkontakt-uster-zurich-fachkraft-ch",
+        "elektroinstallateur-in-mit-kundenkontakt-uster-zurich-fachkraft-ch-ca1fc311",
         "electrical-installer-mit-kundenkontakt-fachkraft-ch-gmbh-uster-zurich",
-        "installateur-trice-electricien-ne-mit-kundenkontakt-fachkraft-ch-gmbh-uster-zurich"
+        "installateur-trice-electricien-ne-mit-kundenkontakt-fachkraft-ch-gmbh-uster-zurich",
+        "elektroinstallateur-in-mit-kundenkontakt-uster-zurich-fachkraft-ch"
       ],
       "en": [
-        "elektroinstallateur-in-mit-kundenkontakt-fachkraft-ch-gmbh-uster"
+        "elektroinstallateur-in-mit-kundenkontakt-fachkraft-ch-gmbh-uster",
+        "elektroinstallateur-in-mit-kundenkontakt-uster-zurich-fachkraft-ch"
       ],
       "fr": [
-        "elektroinstallateur-in-mit-kundenkontakt-fachkraft-ch-gmbh-uster"
+        "elektroinstallateur-in-mit-kundenkontakt-fachkraft-ch-gmbh-uster",
+        "elektroinstallateur-in-mit-kundenkontakt-uster-zurich-fachkraft-ch"
+      ],
+      "de": [
+        "elektroinstallateur-in-mit-kundenkontakt-uster-zurich-fachkraft-ch-ca1fc311"
       ]
     },
     "postalCode": "8610",
@@ -2314,7 +2324,7 @@
     "firstSeenAt": "2026-09-26T15:25:37.561Z"
   },
   {
-    "slug": "automatista-per-la-costruzione-di-quadri-elettrici-fachkraft-ch-gmbh-herisau-appenzell-ausserrhoden",
+    "slug": "automatista-per-la-costruzione-di-quadri-elettrici-fachkraft-ch-gmbh-herisau-appenzell-ausserrhoden-ad5f615d",
     "title": "Automatiker/in für Schaltschrankbau",
     "titleByLocale": {
       "de": "Automatiker/in für Schaltschrankbau",
@@ -2333,27 +2343,32 @@
       "fr": "Vous travaillez sur des projets stimulants dans un environnement orienté vers l'avenir. Un câblage précis et des inserts d'assemblage propres façonnent votre travail quotidien. Pour notre client, nous sommes à la recherche d'une activité - Component gratings set up and assembling - Câblage exactement selon l'outil E-scheme - Conversions aux clients sur place - reprendre les opérations de montage dans toute la Suisse\n• Exigences - Diplôme de formation en tant que technicien automatique EFZ - La pratique de la construction d'armoires électriques compte comme un plus - Prononcé artisanat - Bonne compréhension technique - Catégorie de permis de conduire B disponible Offre - Demande de projets dans un environnement orienté vers l'avenir - Production d'armoires électriques de haute qualité et de solutions système - Conditions de cadre attrayant"
     },
     "slugByLocale": {
-      "de": "automatiker-in-fur-schaltschrankbau-herisau-appenzell-ausserrhoden-fachkraft-ch",
-      "it": "automatista-per-la-costruzione-di-quadri-elettrici-fachkraft-ch-gmbh-herisau-appenzell-ausserrhoden",
-      "en": "automation-technician-for-control-cabinet-construction-fachkraft-ch-gmbh-herisau-appenzell-ausserrhoden",
-      "fr": "automaticien-ne-pour-la-construction-d-armoires-electriques-fachkraft-ch-gmbh-herisau-appenzell-ausserrhoden"
+      "de": "automatiker-in-fur-schaltschrankbau-herisau-appenzell-ausserrhoden-fachkraft-ch-26333319",
+      "it": "automatista-per-la-costruzione-di-quadri-elettrici-fachkraft-ch-gmbh-herisau-appenzell-ausserrhoden-ad5f615d",
+      "en": "automation-technician-for-control-cabinet-construction-fachkraft-ch-gmbh-herisau-appenzell-ausserrhoden-6f1fa45b",
+      "fr": "automaticien-ne-pour-la-construction-d-armoires-electriques-fachkraft-ch-gmbh-herisau-appenzell-ausserrhoden-a73080de"
     },
     "sector": "Altro",
     "expiredAt": "2026-11-19T22:56:00.622Z",
-    "previousSlugs": [
-      "automatiker-in-fur-schaltschrankbau-herisau-appenzell-ausserrhoden-fachkraft-ch",
-      "automatiker-in-per-schaltschrankbau-fachkraft-ch-gmbh-herisau",
-      "automatiker-in-fur-schaltschrankbau-fachkraft-ch-gmbh-herisau"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "automatiker-in-fur-schaltschrankbau-herisau-appenzell-ausserrhoden-fachkraft-ch-26333319",
+        "automatiker-in-per-schaltschrankbau-fachkraft-ch-gmbh-herisau-4a9c2406",
+        "automatiker-in-fur-schaltschrankbau-fachkraft-ch-gmbh-herisau"
+      ],
+      "en": [
+        "automatiker-in-fur-schaltschrankbau-fachkraft-ch-gmbh-herisau-448e0782",
         "automatiker-in-fur-schaltschrankbau-herisau-appenzell-ausserrhoden-fachkraft-ch",
         "automatiker-in-per-schaltschrankbau-fachkraft-ch-gmbh-herisau"
       ],
-      "en": [
-        "automatiker-in-fur-schaltschrankbau-fachkraft-ch-gmbh-herisau"
-      ],
       "fr": [
+        "automatiker-in-fur-schaltschrankbau-fachkraft-ch-gmbh-herisau-448e0782",
+        "automatiker-in-fur-schaltschrankbau-herisau-appenzell-ausserrhoden-fachkraft-ch",
+        "automatiker-in-per-schaltschrankbau-fachkraft-ch-gmbh-herisau"
+      ],
+      "de": [
+        "automatiker-in-fur-schaltschrankbau-herisau-appenzell-ausserrhoden-fachkraft-ch-26333319",
+        "automatiker-in-per-schaltschrankbau-fachkraft-ch-gmbh-herisau",
         "automatiker-in-fur-schaltschrankbau-fachkraft-ch-gmbh-herisau"
       ]
     },
@@ -2364,10 +2379,17 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.fachkraft.ch/stellen/automatiker-in-herisau-dauerstelle-317793",
-    "firstSeenAt": "2026-09-04T13:54:58.516Z"
+    "firstSeenAt": "2026-09-04T13:54:58.516Z",
+    "previousSlugs": [
+      "automatiker-in-per-schaltschrankbau-fachkraft-ch-gmbh-herisau-4a9c2406",
+      "automatiker-in-fur-schaltschrankbau-fachkraft-ch-gmbh-herisau",
+      "automatiker-in-fur-schaltschrankbau-fachkraft-ch-gmbh-herisau-448e0782",
+      "automatiker-in-fur-schaltschrankbau-herisau-appenzell-ausserrhoden-fachkraft-ch",
+      "automatiker-in-per-schaltschrankbau-fachkraft-ch-gmbh-herisau"
+    ]
   },
   {
-    "slug": "costruttore-trice-di-impianti-e-apparecchi-con-conoscenze-di-saldatura-fachkraft-ch-gmbh-langenthal-bern",
+    "slug": "costruttore-trice-di-impianti-e-apparecchi-con-conoscenze-di-saldatura-fachkraft-ch-gmbh-langenthal-bern-e5fcab9a",
     "title": "Anlagen- und Apparatebauer/in mit Schweisskenntnissen",
     "titleByLocale": {
       "de": "Anlagen- und Apparatebauer/in mit Schweisskenntnissen",
@@ -2386,47 +2408,65 @@
       "fr": "L'activité comprend le soudage indépendant de composants en divers alliages métalliques. L'entreprise s'attend à une méthode de travail fiable et à un niveau de qualité élevé. Pour notre client, nous sommes à la recherche d'une activité - composants et composants soudés et fabriqués indépendamment - travaux de soudage certifiés effectués professionnellement - acier, acier inoxydable, aluminium et alliages à base de nickel traités - Inspections finales des travaux achevés\n• Exigences - Enseignement ou pratique pluriannuelle dans la construction d'installations et d'appareils - Expérience approfondie en matière de soudage MIG, MAG, TIG et TIG - Tests de soudage effectués - Très bonne connaissance orale et écrite de l'allemand - Indépendant et méthodes de travail fiables avec un accent sur la qualité - Flexibilité dans le cadre d'une semaine de 40 heures - Emploi selon LGAV Metallgewerbe - Soutien financier pour la formation continue"
     },
     "slugByLocale": {
-      "de": "anlagen-und-apparatebauer-in-mit-schweisskenntnissen-langenthal-bern-fachkraft-ch",
-      "it": "costruttore-trice-di-impianti-e-apparecchi-con-conoscenze-di-saldatura-fachkraft-ch-gmbh-langenthal-bern",
-      "en": "plant-and-apparatus-builder-with-welding-skills-fachkraft-ch-gmbh-langenthal-bern",
-      "fr": "constructeur-trice-d-installations-et-d-appareils-avec-des-connaissances-en-soudage-fachkraft-ch-gmbh-langenthal-bern"
+      "de": "anlagen-und-apparatebauer-in-mit-schweisskenntnissen-langenthal-bern-fachkraft-ch-f175bf9d",
+      "it": "costruttore-trice-di-impianti-e-apparecchi-con-conoscenze-di-saldatura-fachkraft-ch-gmbh-langenthal-bern-e5fcab9a",
+      "en": "plant-and-apparatus-builder-with-welding-skills-fachkraft-ch-gmbh-langenthal-bern-85957e24",
+      "fr": "constructeur-trice-d-installations-et-d-appareils-avec-des-connaissances-en-soudage-fachkraft-ch-gmbh-896607d0"
     },
     "sector": "Altro",
     "expiredAt": "2026-11-19T22:56:00.622Z",
-    "previousSlugs": [
-      "costruttore-trice-di-impianti-e-apparecchi-con-competenze-di-saldatura-fachkraft-ch-gmbh-langenthal-bern",
-      "constructeur-trice-d-appareils-industriels-avec-connaissances-en-soudage-fachkraft-ch-gmbh-langenthal-bern",
-      "plant-and-apparatus-fabricator-with-welding-skills-fachkraft-ch-gmbh-langenthal-bern",
-      "anlagen-und-apparatebauer-in-mit-schweisskenntnissen-fachkraft-ch-gmbh-langenthal",
-      "costruttore-costruttrice-di-impianti-e-apparecchi-con-conoscenze-di-saldatura-fachkraft-ch-gmbh-langenthal-bern",
-      "constructeur-trice-d-installations-et-d-appareils-avec-connaissances-en-soudage-fachkraft-ch-gmbh-langenthal-bern",
-      "costruttore-di-impianti-e-apparecchiature-con-conoscenze-di-saldatura-fachkraft-ch-gmbh-langenthal-bern",
-      "plant-and-equipment-builder-with-welding-skills-fachkraft-ch-gmbh-langenthal-bern",
-      "constructeur-constructrice-d-installations-et-d-appareils-ayant-des-connaissances-en-soudage-fachkraft-ch-gmbh",
-      "anlagen-und-apparatebauer-in-mit-schweisskenntnissen-langenthal-bern-fachkraft-ch",
-      "anlagen-e-apparatebauer-in-con-schweisskenntnissen-fachkraft-ch-gmbh-langenthal"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "costruttore-trice-di-impianti-e-apparecchi-con-competenze-di-saldatura-fachkraft-ch-gmbh-langenthal-bern-1159561a",
+        "costruttore-costruttrice-di-impianti-e-apparecchi-con-conoscenze-di-saldatura-fachkraft-ch-gmbh-langenthal-bern-1b67307d",
+        "costruttore-di-impianti-e-apparecchiature-con-conoscenze-di-saldatura-fachkraft-ch-gmbh-langenthal-bern-c392eb30",
+        "anlagen-und-apparatebauer-in-mit-schweisskenntnissen-langenthal-bern-fachkraft-ch-f175bf9d",
+        "anlagen-e-apparatebauer-in-con-schweisskenntnissen-fachkraft-ch-gmbh-langenthal-3311350b",
+        "plant-and-apparatus-fabricator-with-welding-skills-fachkraft-ch-gmbh-langenthal-bern",
+        "plant-and-equipment-builder-with-welding-skills-fachkraft-ch-gmbh-langenthal-bern",
+        "anlagen-und-apparatebauer-in-mit-schweisskenntnissen-fachkraft-ch-gmbh-langenthal",
+        "constructeur-trice-d-appareils-industriels-avec-connaissances-en-soudage-fachkraft-ch-gmbh-langenthal-bern",
+        "constructeur-trice-d-installations-et-d-appareils-avec-connaissances-en-soudage-fachkraft-ch-gmbh-langenthal-bern",
+        "constructeur-constructrice-d-installations-et-d-appareils-ayant-des-connaissances-en-soudage-fachkraft-ch-gmbh"
+      ],
+      "en": [
+        "plant-and-apparatus-fabricator-with-welding-skills-fachkraft-ch-gmbh-langenthal-bern-636d5b56",
+        "plant-and-equipment-builder-with-welding-skills-fachkraft-ch-gmbh-langenthal-bern-1e2191d6",
+        "anlagen-und-apparatebauer-in-mit-schweisskenntnissen-fachkraft-ch-gmbh-langenthal-301ee346",
         "costruttore-trice-di-impianti-e-apparecchi-con-competenze-di-saldatura-fachkraft-ch-gmbh-langenthal-bern",
         "costruttore-costruttrice-di-impianti-e-apparecchi-con-conoscenze-di-saldatura-fachkraft-ch-gmbh-langenthal-bern",
         "costruttore-di-impianti-e-apparecchiature-con-conoscenze-di-saldatura-fachkraft-ch-gmbh-langenthal-bern",
         "anlagen-und-apparatebauer-in-mit-schweisskenntnissen-langenthal-bern-fachkraft-ch",
-        "anlagen-e-apparatebauer-in-con-schweisskenntnissen-fachkraft-ch-gmbh-langenthal"
-      ],
-      "en": [
-        "plant-and-apparatus-fabricator-with-welding-skills-fachkraft-ch-gmbh-langenthal-bern",
-        "plant-and-equipment-builder-with-welding-skills-fachkraft-ch-gmbh-langenthal-bern",
-        "anlagen-und-apparatebauer-in-mit-schweisskenntnissen-fachkraft-ch-gmbh-langenthal"
-      ],
-      "de": [
-        "anlagen-und-apparatebauer-in-mit-schweisskenntnissen-fachkraft-ch-gmbh-langenthal"
-      ],
-      "fr": [
+        "anlagen-e-apparatebauer-in-con-schweisskenntnissen-fachkraft-ch-gmbh-langenthal",
         "constructeur-trice-d-appareils-industriels-avec-connaissances-en-soudage-fachkraft-ch-gmbh-langenthal-bern",
         "constructeur-trice-d-installations-et-d-appareils-avec-connaissances-en-soudage-fachkraft-ch-gmbh-langenthal-bern",
-        "constructeur-constructrice-d-installations-et-d-appareils-ayant-des-connaissances-en-soudage-fachkraft-ch-gmbh",
-        "anlagen-und-apparatebauer-in-mit-schweisskenntnissen-fachkraft-ch-gmbh-langenthal"
+        "constructeur-constructrice-d-installations-et-d-appareils-ayant-des-connaissances-en-soudage-fachkraft-ch-gmbh"
+      ],
+      "de": [
+        "anlagen-und-apparatebauer-in-mit-schweisskenntnissen-fachkraft-ch-gmbh-langenthal-301ee346",
+        "costruttore-trice-di-impianti-e-apparecchi-con-competenze-di-saldatura-fachkraft-ch-gmbh-langenthal-bern",
+        "costruttore-costruttrice-di-impianti-e-apparecchi-con-conoscenze-di-saldatura-fachkraft-ch-gmbh-langenthal-bern",
+        "costruttore-di-impianti-e-apparecchiature-con-conoscenze-di-saldatura-fachkraft-ch-gmbh-langenthal-bern",
+        "anlagen-und-apparatebauer-in-mit-schweisskenntnissen-langenthal-bern-fachkraft-ch-f175bf9d",
+        "anlagen-e-apparatebauer-in-con-schweisskenntnissen-fachkraft-ch-gmbh-langenthal",
+        "plant-and-apparatus-fabricator-with-welding-skills-fachkraft-ch-gmbh-langenthal-bern",
+        "plant-and-equipment-builder-with-welding-skills-fachkraft-ch-gmbh-langenthal-bern",
+        "constructeur-trice-d-appareils-industriels-avec-connaissances-en-soudage-fachkraft-ch-gmbh-langenthal-bern",
+        "constructeur-trice-d-installations-et-d-appareils-avec-connaissances-en-soudage-fachkraft-ch-gmbh-langenthal-bern",
+        "constructeur-constructrice-d-installations-et-d-appareils-ayant-des-connaissances-en-soudage-fachkraft-ch-gmbh"
+      ],
+      "fr": [
+        "constructeur-trice-d-appareils-industriels-avec-connaissances-en-soudage-fachkraft-ch-gmbh-langenthal-bern-4cf56acf",
+        "constructeur-trice-d-installations-et-d-appareils-avec-connaissances-en-soudage-fachkraft-ch-gmbh-langenthal-cd8fb61d",
+        "constructeur-constructrice-d-installations-et-d-appareils-ayant-des-connaissances-en-soudage-fachkraft-ch-gmbh-97d64e95",
+        "anlagen-und-apparatebauer-in-mit-schweisskenntnissen-fachkraft-ch-gmbh-langenthal-301ee346",
+        "costruttore-trice-di-impianti-e-apparecchi-con-competenze-di-saldatura-fachkraft-ch-gmbh-langenthal-bern",
+        "costruttore-costruttrice-di-impianti-e-apparecchi-con-conoscenze-di-saldatura-fachkraft-ch-gmbh-langenthal-bern",
+        "costruttore-di-impianti-e-apparecchiature-con-conoscenze-di-saldatura-fachkraft-ch-gmbh-langenthal-bern",
+        "anlagen-und-apparatebauer-in-mit-schweisskenntnissen-langenthal-bern-fachkraft-ch",
+        "anlagen-e-apparatebauer-in-con-schweisskenntnissen-fachkraft-ch-gmbh-langenthal",
+        "plant-and-apparatus-fabricator-with-welding-skills-fachkraft-ch-gmbh-langenthal-bern",
+        "plant-and-equipment-builder-with-welding-skills-fachkraft-ch-gmbh-langenthal-bern"
       ]
     },
     "postalCode": "4900",
@@ -2436,10 +2476,33 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.fachkraft.ch/stellen/anlagen-und-apparatebauer-in-langenthal-dauerstelle-309067",
-    "firstSeenAt": "2026-10-13T22:18:59.779Z"
+    "firstSeenAt": "2026-10-13T22:18:59.779Z",
+    "previousSlugs": [
+      "costruttore-trice-di-impianti-e-apparecchi-con-competenze-di-saldatura-fachkraft-ch-gmbh-langenthal-bern-1159561a",
+      "costruttore-costruttrice-di-impianti-e-apparecchi-con-conoscenze-di-saldatura-fachkraft-ch-gmbh-langenthal-bern-1b67307d",
+      "costruttore-di-impianti-e-apparecchiature-con-conoscenze-di-saldatura-fachkraft-ch-gmbh-langenthal-bern-c392eb30",
+      "anlagen-e-apparatebauer-in-con-schweisskenntnissen-fachkraft-ch-gmbh-langenthal-3311350b",
+      "plant-and-apparatus-fabricator-with-welding-skills-fachkraft-ch-gmbh-langenthal-bern",
+      "plant-and-equipment-builder-with-welding-skills-fachkraft-ch-gmbh-langenthal-bern",
+      "anlagen-und-apparatebauer-in-mit-schweisskenntnissen-fachkraft-ch-gmbh-langenthal",
+      "constructeur-trice-d-appareils-industriels-avec-connaissances-en-soudage-fachkraft-ch-gmbh-langenthal-bern",
+      "constructeur-trice-d-installations-et-d-appareils-avec-connaissances-en-soudage-fachkraft-ch-gmbh-langenthal-bern",
+      "constructeur-constructrice-d-installations-et-d-appareils-ayant-des-connaissances-en-soudage-fachkraft-ch-gmbh",
+      "plant-and-apparatus-fabricator-with-welding-skills-fachkraft-ch-gmbh-langenthal-bern-636d5b56",
+      "plant-and-equipment-builder-with-welding-skills-fachkraft-ch-gmbh-langenthal-bern-1e2191d6",
+      "anlagen-und-apparatebauer-in-mit-schweisskenntnissen-fachkraft-ch-gmbh-langenthal-301ee346",
+      "costruttore-trice-di-impianti-e-apparecchi-con-competenze-di-saldatura-fachkraft-ch-gmbh-langenthal-bern",
+      "costruttore-costruttrice-di-impianti-e-apparecchi-con-conoscenze-di-saldatura-fachkraft-ch-gmbh-langenthal-bern",
+      "costruttore-di-impianti-e-apparecchiature-con-conoscenze-di-saldatura-fachkraft-ch-gmbh-langenthal-bern",
+      "anlagen-und-apparatebauer-in-mit-schweisskenntnissen-langenthal-bern-fachkraft-ch",
+      "anlagen-e-apparatebauer-in-con-schweisskenntnissen-fachkraft-ch-gmbh-langenthal",
+      "constructeur-trice-d-appareils-industriels-avec-connaissances-en-soudage-fachkraft-ch-gmbh-langenthal-bern-4cf56acf",
+      "constructeur-trice-d-installations-et-d-appareils-avec-connaissances-en-soudage-fachkraft-ch-gmbh-langenthal-cd8fb61d",
+      "constructeur-constructrice-d-installations-et-d-appareils-ayant-des-connaissances-en-soudage-fachkraft-ch-gmbh-97d64e95"
+    ]
   },
   {
-    "slug": "costruttore-trice-di-impianti-e-apparecchiature-con-saldatura-tig-e-orbitale-fachkraft-ch-gmbh-zurich-zurich",
+    "slug": "costruttore-trice-di-impianti-e-apparecchiature-con-saldatura-tig-e-orbitale-fachkraft-ch-gmbh-zurich-zurich-23688092",
     "title": "Anlagen- und Apparatebauer/in mit TIG- und Orbitalschweissen",
     "titleByLocale": {
       "it": "Costruttore/trice di impianti e apparecchiature con saldatura TIG e orbitale",
@@ -2458,29 +2521,33 @@
       "fr": "Le travail précis et l'assemblage de composants en acier inoxydable sont au cœur de cette tâche exigeante. L'entreprise se concentre sur les technologies modernes et attache une grande importance à la qualité et à la responsabilité personnelle. Pour notre client, nous recherchons une ou plusieurs activités - Préparer des moulures et des pipelines pour la production - Châssis de soudure, pipelines et composants d'usine avec TIG - Connectez les composants en acier inoxydable précisément au moyen de la soudure orbitale - effectuer le travail selon le plan et assurer les normes de qualité requises\n• Exigences - Formation complète en tant que fabricant d'installations et d'appareils ou comparable - Expérience en soudage TIG et idéalement en soudage orbital - Sûr dans la lecture et la mise en oeuvre de plans techniques - Méthodes de travail indépendantes, exactes et soucieuses de la qualité Offertes - Travaux exigeants dans la construction de pipelines et d'installations - Production de haute qualité avec procédé de soudage moderne - Beaucoup de responsabilité personnelle dans l'utilisation quotidienne - Perspectives à long terme dans une entreprise spécialisée"
     },
     "slugByLocale": {
-      "it": "costruttore-trice-di-impianti-e-apparecchiature-con-saldatura-tig-e-orbitale-fachkraft-ch-gmbh-zurich-zurich",
-      "en": "plant-and-apparatus-fabricator-with-tig-and-orbital-welding-fachkraft-ch-gmbh-zurich-zurich",
-      "de": "anlagen-und-apparatebauer-in-mit-tig-und-orbitalschweissen-zurich-zurich-fachkraft-ch",
-      "fr": "constructeur-trice-d-installations-et-d-appareils-avec-soudage-tig-et-orbital-fachkraft-ch-gmbh-zurich-zurich"
+      "it": "costruttore-trice-di-impianti-e-apparecchiature-con-saldatura-tig-e-orbitale-fachkraft-ch-gmbh-zurich-zurich-23688092",
+      "en": "plant-and-apparatus-fabricator-with-tig-and-orbital-welding-fachkraft-ch-gmbh-zurich-zurich-613fc003",
+      "de": "anlagen-und-apparatebauer-in-mit-tig-und-orbitalschweissen-zurich-zurich-fachkraft-ch-796d259a",
+      "fr": "constructeur-trice-d-installations-et-d-appareils-avec-soudage-tig-et-orbital-fachkraft-ch-gmbh-zurich-zurich-10379090"
     },
     "sector": "Altro",
     "expiredAt": "2026-11-19T22:56:00.622Z",
-    "previousSlugs": [
-      "plant-and-apparatus-builder-with-tig-and-orbital-welding-fachkraft-ch-gmbh-zurich-zurich",
-      "anlagen-und-apparatebauer-in-mit-tig-und-orbitalschweissen-zurich-zurich-fachkraft-ch",
-      "anlagen-e-apparatebauer-in-con-tig-e-orbitalschweissen-fachkraft-ch-gmbh-zurich"
-    ],
     "previousSlugsByLocale": {
       "it": [
-        "anlagen-und-apparatebauer-in-mit-tig-und-orbitalschweissen-zurich-zurich-fachkraft-ch",
-        "anlagen-e-apparatebauer-in-con-tig-e-orbitalschweissen-fachkraft-ch-gmbh-zurich"
+        "anlagen-und-apparatebauer-in-mit-tig-und-orbitalschweissen-zurich-zurich-fachkraft-ch-796d259a",
+        "anlagen-e-apparatebauer-in-con-tig-e-orbitalschweissen-fachkraft-ch-gmbh-zurich-9e42a770",
+        "plant-and-apparatus-builder-with-tig-and-orbital-welding-fachkraft-ch-gmbh-zurich-zurich"
       ],
       "en": [
-        "plant-and-apparatus-builder-with-tig-and-orbital-welding-fachkraft-ch-gmbh-zurich-zurich",
-        "anlagen-und-apparatebauer-in-mit-tig-und-orbitalschweissen-zurich-zurich-fachkraft-ch"
+        "plant-and-apparatus-builder-with-tig-and-orbital-welding-fachkraft-ch-gmbh-zurich-zurich-ccb0d6d5",
+        "anlagen-und-apparatebauer-in-mit-tig-und-orbitalschweissen-zurich-zurich-fachkraft-ch-796d259a",
+        "anlagen-e-apparatebauer-in-con-tig-e-orbitalschweissen-fachkraft-ch-gmbh-zurich"
       ],
       "fr": [
-        "anlagen-und-apparatebauer-in-mit-tig-und-orbitalschweissen-zurich-zurich-fachkraft-ch"
+        "anlagen-und-apparatebauer-in-mit-tig-und-orbitalschweissen-zurich-zurich-fachkraft-ch-796d259a",
+        "anlagen-e-apparatebauer-in-con-tig-e-orbitalschweissen-fachkraft-ch-gmbh-zurich",
+        "plant-and-apparatus-builder-with-tig-and-orbital-welding-fachkraft-ch-gmbh-zurich-zurich"
+      ],
+      "de": [
+        "anlagen-und-apparatebauer-in-mit-tig-und-orbitalschweissen-zurich-zurich-fachkraft-ch-796d259a",
+        "anlagen-e-apparatebauer-in-con-tig-e-orbitalschweissen-fachkraft-ch-gmbh-zurich",
+        "plant-and-apparatus-builder-with-tig-and-orbital-welding-fachkraft-ch-gmbh-zurich-zurich"
       ]
     },
     "postalCode": "8001",
@@ -2490,7 +2557,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.fachkraft.ch/stellen/anlagen-und-apparatebauer-in-zuerich-dauerstelle-313163",
-    "firstSeenAt": "2026-11-02T22:44:33.906Z"
+    "firstSeenAt": "2026-11-02T22:44:33.906Z",
+    "previousSlugs": [
+      "anlagen-e-apparatebauer-in-con-tig-e-orbitalschweissen-fachkraft-ch-gmbh-zurich-9e42a770",
+      "plant-and-apparatus-builder-with-tig-and-orbital-welding-fachkraft-ch-gmbh-zurich-zurich",
+      "plant-and-apparatus-builder-with-tig-and-orbital-welding-fachkraft-ch-gmbh-zurich-zurich-ccb0d6d5",
+      "anlagen-e-apparatebauer-in-con-tig-e-orbitalschweissen-fachkraft-ch-gmbh-zurich"
+    ]
   },
   {
     "slug": "elettricista-di-assemblaggio-con-esperienza-nel-servizio-fachkraft-ch-gmbh-hinwil-zurich",
@@ -2662,7 +2735,7 @@
     "firstSeenAt": "2026-10-15T22:17:03.070Z"
   },
   {
-    "slug": "falegname-per-il-montaggio-di-cucine-fachkraft-ch-gmbh-frauenfeld-thurgau",
+    "slug": "falegname-per-il-montaggio-di-cucine-fachkraft-ch-gmbh-frauenfeld-thurgau-91582073",
     "title": "Schreiner/in für Küchenmontage",
     "titleByLocale": {
       "it": "Falegname per il montaggio di cucine",
@@ -2681,31 +2754,33 @@
       "fr": "Dans cet ordre, vous prenez en charge l'assemblage indépendant de cuisines de haute qualité. L'entreprise vous offre des missions variées ainsi que des possibilités de formation continue. Pour notre client, nous recherchons des activités un/n - Assemblage de cuisines de haute qualité dans différentes versions - Travailleur indépendant et exécution professionnelle du travail d'assemblage - Assurer une mise en œuvre propre et opportune - Contact amical et professionnel avec le client\n• Exigences - mise en place de cuisines de haute qualité dans différentes versions - Exécution indépendante et professionnelle du travail d'assemblage - Assurer une mise en œuvre propre et en temps opportun - Contact amical et professionnel avec l'offre client - Possibilités de formation interne et externe - Véhicules propres, matériel et vêtements professionnels - Applications variées dans un environnement moderne"
     },
     "slugByLocale": {
-      "it": "falegname-per-il-montaggio-di-cucine-fachkraft-ch-gmbh-frauenfeld-thurgau",
-      "en": "carpenter-for-kitchen-installation-fachkraft-ch-gmbh-frauenfeld-thurgau",
-      "de": "schreiner-in-fur-kuchenmontage-frauenfeld-thurgau-fachkraft-ch",
-      "fr": "menuisier-ere-pour-le-montage-de-cuisines-fachkraft-ch-gmbh-frauenfeld-thurgau"
+      "it": "falegname-per-il-montaggio-di-cucine-fachkraft-ch-gmbh-frauenfeld-thurgau-91582073",
+      "en": "carpenter-for-kitchen-installation-fachkraft-ch-gmbh-frauenfeld-thurgau-a648ba38",
+      "de": "schreiner-in-fur-kuchenmontage-frauenfeld-thurgau-fachkraft-ch-3433b288",
+      "fr": "menuisier-ere-pour-le-montage-de-cuisines-fachkraft-ch-gmbh-frauenfeld-thurgau-2e6579c3"
     },
     "sector": "Altro",
     "expiredAt": "2026-11-19T22:56:00.622Z",
-    "previousSlugs": [
-      "schreiner-in-fur-kuchenmontage-frauenfeld-thurgau-fachkraft-ch",
-      "schreiner-in-per-kuchenmontage-fachkraft-ch-gmbh-frauenfeld",
-      "schreiner-in-fur-kuchenmontage-fachkraft-ch-gmbh-frauenfeld"
-    ],
     "previousSlugsByLocale": {
       "it": [
-        "schreiner-in-fur-kuchenmontage-frauenfeld-thurgau-fachkraft-ch",
-        "schreiner-in-per-kuchenmontage-fachkraft-ch-gmbh-frauenfeld"
-      ],
-      "en": [
-        "schreiner-in-fur-kuchenmontage-frauenfeld-thurgau-fachkraft-ch"
-      ],
-      "de": [
+        "schreiner-in-fur-kuchenmontage-frauenfeld-thurgau-fachkraft-ch-3433b288",
+        "schreiner-in-per-kuchenmontage-fachkraft-ch-gmbh-frauenfeld-7c49d01a",
         "schreiner-in-fur-kuchenmontage-fachkraft-ch-gmbh-frauenfeld"
       ],
+      "en": [
+        "schreiner-in-fur-kuchenmontage-frauenfeld-thurgau-fachkraft-ch-3433b288",
+        "schreiner-in-per-kuchenmontage-fachkraft-ch-gmbh-frauenfeld",
+        "schreiner-in-fur-kuchenmontage-fachkraft-ch-gmbh-frauenfeld"
+      ],
+      "de": [
+        "schreiner-in-fur-kuchenmontage-fachkraft-ch-gmbh-frauenfeld-d33b5964",
+        "schreiner-in-fur-kuchenmontage-frauenfeld-thurgau-fachkraft-ch-3433b288",
+        "schreiner-in-per-kuchenmontage-fachkraft-ch-gmbh-frauenfeld"
+      ],
       "fr": [
-        "schreiner-in-fur-kuchenmontage-frauenfeld-thurgau-fachkraft-ch"
+        "schreiner-in-fur-kuchenmontage-frauenfeld-thurgau-fachkraft-ch-3433b288",
+        "schreiner-in-per-kuchenmontage-fachkraft-ch-gmbh-frauenfeld",
+        "schreiner-in-fur-kuchenmontage-fachkraft-ch-gmbh-frauenfeld"
       ]
     },
     "postalCode": "8500",
@@ -2715,10 +2790,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.fachkraft.ch/stellen/schreiner-in-frauenfeld-dauerstelle-313416",
-    "firstSeenAt": "2026-11-02T22:44:34.159Z"
+    "firstSeenAt": "2026-11-02T22:44:34.159Z",
+    "previousSlugs": [
+      "schreiner-in-per-kuchenmontage-fachkraft-ch-gmbh-frauenfeld-7c49d01a",
+      "schreiner-in-fur-kuchenmontage-fachkraft-ch-gmbh-frauenfeld",
+      "schreiner-in-per-kuchenmontage-fachkraft-ch-gmbh-frauenfeld",
+      "schreiner-in-fur-kuchenmontage-fachkraft-ch-gmbh-frauenfeld-d33b5964"
+    ]
   },
   {
-    "slug": "falegname-per-il-montaggio-di-cucine-fachkraft-ch-gmbh-st-gallen-st-gallen",
+    "slug": "falegname-per-il-montaggio-di-cucine-fachkraft-ch-gmbh-st-gallen-st-gallen-41b0d05d",
     "title": "Schreiner/in für Küchenmontage",
     "titleByLocale": {
       "de": "Schreiner/in für Küchenmontage",
@@ -2737,29 +2818,33 @@
       "fr": "L'activité comprend l'assemblage précis de cuisines de haute qualité. Dans votre travail quotidien, vous êtes dans un échange animé avec la gestion de projet. Pour notre client, nous sommes à la recherche d'une activité - assemblage de cuisines haut de gamme - gestion des matériaux de remplacement personnels, outils et véhicules - échange avec la gestion de projet\n• Exigences - Apprentissage complété comme charpentier - Pratique professionnelle bien fondée dans l'assemblage de cuisine - Méthode de travail exacte et transmise - Aspect convivial - Licence de conducteur B d'avantage Offre Notre client vous offre une tâche très variée et intéressante dans un environnement passionnant. Un environnement qui vous excite!"
     },
     "slugByLocale": {
-      "de": "schreiner-in-fur-kuchenmontage-st-gallen-st-gallen-fachkraft-ch",
-      "it": "falegname-per-il-montaggio-di-cucine-fachkraft-ch-gmbh-st-gallen-st-gallen",
-      "en": "carpenter-for-kitchen-installation-fachkraft-ch-gmbh-st-gallen-st-gallen",
-      "fr": "menuisier-ere-pour-le-montage-de-cuisines-fachkraft-ch-gmbh-st-gallen-st-gallen"
+      "de": "schreiner-in-fur-kuchenmontage-st-gallen-st-gallen-fachkraft-ch-0f5f1aaa",
+      "it": "falegname-per-il-montaggio-di-cucine-fachkraft-ch-gmbh-st-gallen-st-gallen-41b0d05d",
+      "en": "carpenter-for-kitchen-installation-fachkraft-ch-gmbh-st-gallen-st-gallen-feb8c212",
+      "fr": "menuisier-ere-pour-le-montage-de-cuisines-fachkraft-ch-gmbh-st-gallen-st-gallen-4f442b02"
     },
     "sector": "Altro",
     "expiredAt": "2026-11-19T22:56:00.622Z",
-    "previousSlugs": [
-      "schreiner-in-fur-kuchenmontage-st-gallen-st-gallen-fachkraft-ch",
-      "carpenter-joiner-for-kitchen-installation-fachkraft-ch-gmbh-st-gallen-st-gallen",
-      "schreiner-in-per-kuchenmontage-fachkraft-ch-gmbh-st-gallen"
-    ],
     "previousSlugsByLocale": {
       "it": [
-        "schreiner-in-fur-kuchenmontage-st-gallen-st-gallen-fachkraft-ch",
-        "schreiner-in-per-kuchenmontage-fachkraft-ch-gmbh-st-gallen"
+        "schreiner-in-fur-kuchenmontage-st-gallen-st-gallen-fachkraft-ch-0f5f1aaa",
+        "schreiner-in-per-kuchenmontage-fachkraft-ch-gmbh-st-gallen-04fd2a2a",
+        "carpenter-joiner-for-kitchen-installation-fachkraft-ch-gmbh-st-gallen-st-gallen"
       ],
       "en": [
-        "carpenter-joiner-for-kitchen-installation-fachkraft-ch-gmbh-st-gallen-st-gallen",
-        "schreiner-in-fur-kuchenmontage-st-gallen-st-gallen-fachkraft-ch"
+        "carpenter-joiner-for-kitchen-installation-fachkraft-ch-gmbh-st-gallen-st-gallen-7987fb43",
+        "schreiner-in-fur-kuchenmontage-st-gallen-st-gallen-fachkraft-ch-0f5f1aaa",
+        "schreiner-in-per-kuchenmontage-fachkraft-ch-gmbh-st-gallen"
       ],
       "fr": [
-        "schreiner-in-fur-kuchenmontage-st-gallen-st-gallen-fachkraft-ch"
+        "schreiner-in-fur-kuchenmontage-st-gallen-st-gallen-fachkraft-ch-0f5f1aaa",
+        "schreiner-in-per-kuchenmontage-fachkraft-ch-gmbh-st-gallen",
+        "carpenter-joiner-for-kitchen-installation-fachkraft-ch-gmbh-st-gallen-st-gallen"
+      ],
+      "de": [
+        "schreiner-in-fur-kuchenmontage-st-gallen-st-gallen-fachkraft-ch-0f5f1aaa",
+        "schreiner-in-per-kuchenmontage-fachkraft-ch-gmbh-st-gallen",
+        "carpenter-joiner-for-kitchen-installation-fachkraft-ch-gmbh-st-gallen-st-gallen"
       ]
     },
     "postalCode": "9000",
@@ -2769,7 +2854,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.fachkraft.ch/stellen/schreiner-in-st-gallen-dauerstelle-314937",
-    "firstSeenAt": "2026-11-04T22:40:31.291Z"
+    "firstSeenAt": "2026-11-04T22:40:31.291Z",
+    "previousSlugs": [
+      "schreiner-in-per-kuchenmontage-fachkraft-ch-gmbh-st-gallen-04fd2a2a",
+      "carpenter-joiner-for-kitchen-installation-fachkraft-ch-gmbh-st-gallen-st-gallen",
+      "carpenter-joiner-for-kitchen-installation-fachkraft-ch-gmbh-st-gallen-st-gallen-7987fb43",
+      "schreiner-in-per-kuchenmontage-fachkraft-ch-gmbh-st-gallen"
+    ]
   },
   {
     "slug": "falegname-per-il-montaggio-di-finestre-fachkraft-ch-gmbh-arbon-thurgau",
@@ -2832,7 +2923,7 @@
     "firstSeenAt": "2026-10-15T22:17:03.151Z"
   },
   {
-    "slug": "falegname-per-il-montaggio-e-l-allestimento-d-interni-fachkraft-ch-gmbh-wil-sg-st-gallen",
+    "slug": "falegname-per-il-montaggio-e-l-allestimento-d-interni-fachkraft-ch-gmbh-wil-sg-st-gallen-b75d9029",
     "title": "Schreiner/in für Montage und Innenausbau",
     "titleByLocale": {
       "it": "Falegname per il montaggio e l'allestimento d'interni",
@@ -2851,35 +2942,41 @@
       "fr": "Hochwertige Produkte montieren und Innenausbauarbeiten ausführen stehen im Mittelpunkt deines Aufgabengebiets. Der Betrieb bietet dir eine spannende Tätigkeit mit attraktiver Entlöhnung. Für unseren Auftraggeber suchen wir eine/n Tätigkeiten - Montagearbeiten von hochwertigen Produkten - Reparaturen und Renovationen - Innenausbauarbeiten - Servicearbeiten\n• Anforderungen - Lehre als Schreiner abgeschlossen - Fundierte Branchenerfahrung - Exakte und speditive Arbeitsweise - Kundenfreundliches Auftreten - Freude und Interesse am Beruf Angebot Freuen Sie sich auf eine vielseitige und herausfordernde Tätigkeit. Sie kommen in den Genuss von einem sehr guten Stundenlohn."
     },
     "slugByLocale": {
-      "it": "falegname-per-il-montaggio-e-l-allestimento-d-interni-fachkraft-ch-gmbh-wil-sg-st-gallen",
-      "en": "carpenter-for-installation-and-interior-construction-fachkraft-ch-gmbh-wil-sg-st-gallen",
-      "de": "schreiner-in-fur-montage-und-innenausbau-wil-sg-st-gallen-fachkraft-ch",
-      "fr": "menuisier-ere-pour-le-montage-et-l-amenagement-interieur-fachkraft-ch-gmbh-wil-sg-st-gallen"
+      "it": "falegname-per-il-montaggio-e-l-allestimento-d-interni-fachkraft-ch-gmbh-wil-sg-st-gallen-b75d9029",
+      "en": "carpenter-for-installation-and-interior-construction-fachkraft-ch-gmbh-wil-sg-st-gallen-dbc1e0da",
+      "de": "schreiner-in-fur-montage-und-innenausbau-wil-sg-st-gallen-fachkraft-ch-5bbaea48",
+      "fr": "menuisier-ere-pour-le-montage-et-l-amenagement-interieur-fachkraft-ch-gmbh-wil-sg-st-gallen-1cb2685b"
     },
     "sector": "Altro",
     "expiredAt": "2026-11-19T22:56:00.622Z",
-    "previousSlugs": [
-      "schreiner-in-fur-montage-und-innenausbau-fachkraft-ch-gmbh-wil-sg",
-      "falegname-per-montaggio-e-allestimento-d-interni-fachkraft-ch-gmbh-wil-sg-st-gallen",
-      "carpenter-for-assembly-and-interior-finishing-fachkraft-ch-gmbh-wil-sg-st-gallen",
-      "schreiner-in-fur-montage-und-innenausbau-wil-sg-st-gallen-fachkraft-ch",
-      "schreiner-in-per-montage-e-innenausbau-fachkraft-ch-gmbh-wil-sg"
-    ],
     "previousSlugsByLocale": {
       "it": [
-        "falegname-per-montaggio-e-allestimento-d-interni-fachkraft-ch-gmbh-wil-sg-st-gallen",
-        "schreiner-in-fur-montage-und-innenausbau-wil-sg-st-gallen-fachkraft-ch",
-        "schreiner-in-per-montage-e-innenausbau-fachkraft-ch-gmbh-wil-sg"
-      ],
-      "en": [
+        "falegname-per-montaggio-e-allestimento-d-interni-fachkraft-ch-gmbh-wil-sg-st-gallen-2ffb120d",
+        "schreiner-in-fur-montage-und-innenausbau-wil-sg-st-gallen-fachkraft-ch-5bbaea48",
+        "schreiner-in-per-montage-e-innenausbau-fachkraft-ch-gmbh-wil-sg-9cf78cfe",
         "carpenter-for-assembly-and-interior-finishing-fachkraft-ch-gmbh-wil-sg-st-gallen",
-        "schreiner-in-fur-montage-und-innenausbau-wil-sg-st-gallen-fachkraft-ch"
-      ],
-      "de": [
         "schreiner-in-fur-montage-und-innenausbau-fachkraft-ch-gmbh-wil-sg"
       ],
+      "en": [
+        "carpenter-for-assembly-and-interior-finishing-fachkraft-ch-gmbh-wil-sg-st-gallen-84e88c17",
+        "schreiner-in-fur-montage-und-innenausbau-wil-sg-st-gallen-fachkraft-ch-5bbaea48",
+        "falegname-per-montaggio-e-allestimento-d-interni-fachkraft-ch-gmbh-wil-sg-st-gallen",
+        "schreiner-in-per-montage-e-innenausbau-fachkraft-ch-gmbh-wil-sg",
+        "schreiner-in-fur-montage-und-innenausbau-fachkraft-ch-gmbh-wil-sg"
+      ],
+      "de": [
+        "schreiner-in-fur-montage-und-innenausbau-fachkraft-ch-gmbh-wil-sg-db0ce3e6",
+        "falegname-per-montaggio-e-allestimento-d-interni-fachkraft-ch-gmbh-wil-sg-st-gallen",
+        "schreiner-in-fur-montage-und-innenausbau-wil-sg-st-gallen-fachkraft-ch-5bbaea48",
+        "schreiner-in-per-montage-e-innenausbau-fachkraft-ch-gmbh-wil-sg",
+        "carpenter-for-assembly-and-interior-finishing-fachkraft-ch-gmbh-wil-sg-st-gallen"
+      ],
       "fr": [
-        "schreiner-in-fur-montage-und-innenausbau-wil-sg-st-gallen-fachkraft-ch"
+        "schreiner-in-fur-montage-und-innenausbau-wil-sg-st-gallen-fachkraft-ch-5bbaea48",
+        "falegname-per-montaggio-e-allestimento-d-interni-fachkraft-ch-gmbh-wil-sg-st-gallen",
+        "schreiner-in-per-montage-e-innenausbau-fachkraft-ch-gmbh-wil-sg",
+        "carpenter-for-assembly-and-interior-finishing-fachkraft-ch-gmbh-wil-sg-st-gallen",
+        "schreiner-in-fur-montage-und-innenausbau-fachkraft-ch-gmbh-wil-sg"
       ]
     },
     "postalCode": "9000",
@@ -2889,10 +2986,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.fachkraft.ch/stellen/schreiner-in-wil-sg-dauerstelle-316178",
-    "firstSeenAt": "2026-08-23T21:54:18.214Z"
+    "firstSeenAt": "2026-08-23T21:54:18.214Z",
+    "previousSlugs": [
+      "falegname-per-montaggio-e-allestimento-d-interni-fachkraft-ch-gmbh-wil-sg-st-gallen-2ffb120d",
+      "schreiner-in-per-montage-e-innenausbau-fachkraft-ch-gmbh-wil-sg-9cf78cfe",
+      "carpenter-for-assembly-and-interior-finishing-fachkraft-ch-gmbh-wil-sg-st-gallen",
+      "schreiner-in-fur-montage-und-innenausbau-fachkraft-ch-gmbh-wil-sg",
+      "carpenter-for-assembly-and-interior-finishing-fachkraft-ch-gmbh-wil-sg-st-gallen-84e88c17",
+      "falegname-per-montaggio-e-allestimento-d-interni-fachkraft-ch-gmbh-wil-sg-st-gallen",
+      "schreiner-in-per-montage-e-innenausbau-fachkraft-ch-gmbh-wil-sg",
+      "schreiner-in-fur-montage-und-innenausbau-fachkraft-ch-gmbh-wil-sg-db0ce3e6"
+    ]
   },
   {
-    "slug": "installatore-trice-elettrico-a-in-come-tecnico-a-di-servizio-fachkraft-ch-gmbh-zurich",
+    "slug": "installatore-trice-elettrico-a-in-come-tecnico-a-di-servizio-fachkraft-ch-gmbh-zurich-e2c5da4b",
     "title": "Elektroinstallateur/in als Servicetechniker/in",
     "titleByLocale": {
       "it": "Installatore/trice elettrico/a/in come Tecnico/a di servizio",
@@ -2911,31 +3018,37 @@
       "fr": "Les perturbations sont détectées et corrigées indépendamment sur place. L'entreprise offre une activité variée avec beaucoup de responsabilité personnelle. Pour notre client, nous recherchons une activité - diagnostiquer indépendamment et corriger les perturbations client - effectuer des commandes de service directement sur le site - mettre en œuvre des mesures techniques en contact avec les clients\n• Exigences - Apprentissage terminé en tant qu'installateur électrique - Travail indépendant et service systématique - Profitez d'un échange direct avec les clients - Affectations multiples en service technique à la clientèle - Haute responsabilité personnelle dans le travail quotidien - Possibilités de perfectionnement professionnel"
     },
     "slugByLocale": {
-      "it": "installatore-trice-elettrico-a-in-come-tecnico-a-di-servizio-fachkraft-ch-gmbh-zurich",
-      "en": "electrical-installer-as-service-technician-fachkraft-ch-gmbh-zurich-zurich-45a5e2",
-      "de": "elektroinstallateur-in-als-servicetechniker-in-zurich-zurich-fachkraft-ch",
-      "fr": "installateur-trice-electricien-ne-en-tant-que-technicien-ne-de-service-fachkraft-ch-gmbh-zurich-zurich"
+      "it": "installatore-trice-elettrico-a-in-come-tecnico-a-di-servizio-fachkraft-ch-gmbh-zurich-e2c5da4b",
+      "en": "electrical-installer-as-service-technician-fachkraft-ch-gmbh-zurich-zurich-45a5e2-7122f8c4",
+      "de": "elektroinstallateur-in-als-servicetechniker-in-zurich-zurich-fachkraft-ch-b1d86cf3",
+      "fr": "installateur-trice-electricien-ne-en-tant-que-technicien-ne-de-service-fachkraft-ch-gmbh-zurich-zurich-de30890b"
     },
     "sector": "Altro",
     "expiredAt": "2026-11-19T22:56:00.622Z",
-    "previousSlugs": [
-      "electrician-as-a-service-technician-fachkraft-ch-gmbh-zurich-zurich",
-      "electrical-installer-as-a-service-technician-fachkraft-ch-gmbh-zurich-zurich",
-      "installateur-installateur-electricien-en-tant-que-technicien-ne-de-service-fachkraft-ch-gmbh-zurich-zurich",
-      "elektroinstallateur-in-als-servicetechniker-in-zurich-zurich-fachkraft-ch"
-    ],
     "previousSlugsByLocale": {
       "it": [
-        "elektroinstallateur-in-als-servicetechniker-in-zurich-zurich-fachkraft-ch"
-      ],
-      "en": [
+        "elektroinstallateur-in-als-servicetechniker-in-zurich-zurich-fachkraft-ch-b1d86cf3",
         "electrician-as-a-service-technician-fachkraft-ch-gmbh-zurich-zurich",
         "electrical-installer-as-a-service-technician-fachkraft-ch-gmbh-zurich-zurich",
-        "elektroinstallateur-in-als-servicetechniker-in-zurich-zurich-fachkraft-ch"
+        "installateur-installateur-electricien-en-tant-que-technicien-ne-de-service-fachkraft-ch-gmbh-zurich-zurich"
+      ],
+      "en": [
+        "electrician-as-a-service-technician-fachkraft-ch-gmbh-zurich-zurich-95cfff4a",
+        "electrical-installer-as-a-service-technician-fachkraft-ch-gmbh-zurich-zurich-5857b5b8",
+        "elektroinstallateur-in-als-servicetechniker-in-zurich-zurich-fachkraft-ch-b1d86cf3",
+        "installateur-installateur-electricien-en-tant-que-technicien-ne-de-service-fachkraft-ch-gmbh-zurich-zurich"
       ],
       "fr": [
-        "installateur-installateur-electricien-en-tant-que-technicien-ne-de-service-fachkraft-ch-gmbh-zurich-zurich",
-        "elektroinstallateur-in-als-servicetechniker-in-zurich-zurich-fachkraft-ch"
+        "installateur-installateur-electricien-en-tant-que-technicien-ne-de-service-fachkraft-ch-gmbh-zurich-zurich-6412201a",
+        "elektroinstallateur-in-als-servicetechniker-in-zurich-zurich-fachkraft-ch-b1d86cf3",
+        "electrician-as-a-service-technician-fachkraft-ch-gmbh-zurich-zurich",
+        "electrical-installer-as-a-service-technician-fachkraft-ch-gmbh-zurich-zurich"
+      ],
+      "de": [
+        "elektroinstallateur-in-als-servicetechniker-in-zurich-zurich-fachkraft-ch-b1d86cf3",
+        "electrician-as-a-service-technician-fachkraft-ch-gmbh-zurich-zurich",
+        "electrical-installer-as-a-service-technician-fachkraft-ch-gmbh-zurich-zurich",
+        "installateur-installateur-electricien-en-tant-que-technicien-ne-de-service-fachkraft-ch-gmbh-zurich-zurich"
       ]
     },
     "postalCode": "8001",
@@ -2945,10 +3058,18 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.fachkraft.ch/stellen/elektroinstallateur-in-zuerich-dauerstelle-313772",
-    "firstSeenAt": "2026-11-04T22:40:30.964Z"
+    "firstSeenAt": "2026-11-04T22:40:30.964Z",
+    "previousSlugs": [
+      "electrician-as-a-service-technician-fachkraft-ch-gmbh-zurich-zurich",
+      "electrical-installer-as-a-service-technician-fachkraft-ch-gmbh-zurich-zurich",
+      "installateur-installateur-electricien-en-tant-que-technicien-ne-de-service-fachkraft-ch-gmbh-zurich-zurich",
+      "electrician-as-a-service-technician-fachkraft-ch-gmbh-zurich-zurich-95cfff4a",
+      "electrical-installer-as-a-service-technician-fachkraft-ch-gmbh-zurich-zurich-5857b5b8",
+      "installateur-installateur-electricien-en-tant-que-technicien-ne-de-service-fachkraft-ch-gmbh-zurich-zurich-6412201a"
+    ]
   },
   {
-    "slug": "installatore-trice-elettrico-a-in-per-service-e-reparaturen-fachkraft-ch-gmbh-uster",
+    "slug": "installatore-trice-elettrico-a-in-per-service-e-reparaturen-fachkraft-ch-gmbh-uster-c2dcf547",
     "title": "Elektroinstallateur/in für Service und Reparaturen",
     "titleByLocale": {
       "de": "Elektroinstallateur/in für Service und Reparaturen",
@@ -2967,29 +3088,29 @@
       "fr": "Vous effectuez des travaux polyvalents en service et en rénovation. Un environnement moderne et votre propre véhicule soutiennent votre vie quotidienne. Au nom de notre client, nous recherchons une activité - pour effectuer des commandes de service et de réparation indépendamment - pour installer professionnellement des conversions de cuisine et de salle de bains ainsi que des pompes à chaleur - pour remplacer, reconstruire et étendre les distributions - pour trouver des défauts et effectuer des travaux d'entretien et d'entretien\n• Exigences - Formation complète en tant qu'installateur électrique - Personnalité communicative, flexible et axée sur l'équipe - Auto-initiative, assurance et méthode de travail indépendante - Licence de conducteur Offre de catégorie B - Activité variée avec modèle de travail flexible - Infrastructure moderne et propre véhicule - Équipe familiale et dynamique avec événements réguliers de l'entreprise"
     },
     "slugByLocale": {
-      "de": "elektroinstallateur-in-fur-service-und-reparaturen-fachkraft-ch-gmbh-uster",
-      "it": "installatore-trice-elettrico-a-in-per-service-e-reparaturen-fachkraft-ch-gmbh-uster",
-      "en": "electrician-for-servicing-and-repairs-fachkraft-ch-gmbh-uster-zurich",
-      "fr": "installateur-installatrice-electricien-electricienne-pour-l-entretien-et-les-reparations-fachkraft-ch-gmbh-uster-zurich"
+      "de": "elektroinstallateur-in-fur-service-und-reparaturen-fachkraft-ch-gmbh-uster-848d9172",
+      "it": "installatore-trice-elettrico-a-in-per-service-e-reparaturen-fachkraft-ch-gmbh-uster-c2dcf547",
+      "en": "electrician-for-servicing-and-repairs-fachkraft-ch-gmbh-uster-zurich-be34f1fa",
+      "fr": "installateur-installatrice-electricien-electricienne-pour-l-entretien-et-les-reparations-fachkraft-ch-gmbh-6c5bbe36"
     },
     "sector": "Altro",
     "expiredAt": "2026-11-19T22:56:00.622Z",
-    "previousSlugs": [
-      "elektroinstallateur-in-fur-service-und-reparaturen-uster-zurich-fachkraft-ch",
-      "elektroinstallateur-in-fur-service-und-reparaturen-fachkraft-ch-gmbh-uster"
-    ],
     "previousSlugsByLocale": {
       "it": [
-        "elektroinstallateur-in-fur-service-und-reparaturen-uster-zurich-fachkraft-ch"
+        "elektroinstallateur-in-fur-service-und-reparaturen-uster-zurich-fachkraft-ch-22265eee",
+        "elektroinstallateur-in-fur-service-und-reparaturen-fachkraft-ch-gmbh-uster"
       ],
       "de": [
-        "elektroinstallateur-in-fur-service-und-reparaturen-uster-zurich-fachkraft-ch"
+        "elektroinstallateur-in-fur-service-und-reparaturen-uster-zurich-fachkraft-ch-22265eee",
+        "elektroinstallateur-in-fur-service-und-reparaturen-fachkraft-ch-gmbh-uster-848d9172"
       ],
       "en": [
-        "elektroinstallateur-in-fur-service-und-reparaturen-fachkraft-ch-gmbh-uster"
+        "elektroinstallateur-in-fur-service-und-reparaturen-fachkraft-ch-gmbh-uster-848d9172",
+        "elektroinstallateur-in-fur-service-und-reparaturen-uster-zurich-fachkraft-ch"
       ],
       "fr": [
-        "elektroinstallateur-in-fur-service-und-reparaturen-fachkraft-ch-gmbh-uster"
+        "elektroinstallateur-in-fur-service-und-reparaturen-fachkraft-ch-gmbh-uster-848d9172",
+        "elektroinstallateur-in-fur-service-und-reparaturen-uster-zurich-fachkraft-ch"
       ]
     },
     "postalCode": "8610",
@@ -2999,10 +3120,15 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.fachkraft.ch/stellen/elektroinstallateur-in-uster-dauerstelle-317817",
-    "firstSeenAt": "2026-11-18T22:56:28.335Z"
+    "firstSeenAt": "2026-11-18T22:56:28.335Z",
+    "previousSlugs": [
+      "elektroinstallateur-in-fur-service-und-reparaturen-uster-zurich-fachkraft-ch-22265eee",
+      "elektroinstallateur-in-fur-service-und-reparaturen-fachkraft-ch-gmbh-uster",
+      "elektroinstallateur-in-fur-service-und-reparaturen-uster-zurich-fachkraft-ch"
+    ]
   },
   {
-    "slug": "polimeccanico-a-produzione-cnc-con-programmazione-cam-fachkraft-ch-gmbh-dietikon",
+    "slug": "polimeccanico-a-produzione-cnc-con-programmazione-cam-fachkraft-ch-gmbh-dietikon-fccef7a5",
     "title": "Polymechaniker/in - CNC Fertigung mit CAM-Programmierung",
     "titleByLocale": {
       "it": "Polimeccanico/a - Produzione CNC con programmazione CAM",
@@ -3021,19 +3147,25 @@
       "fr": "L'activité comprend la mise en place et l'exploitation de fraisages et de tours complexes. Plusieurs systèmes automatisés sont surveillés pendant le travail et les processus sont constamment améliorés. Pour notre client, nous recherchons une ou plusieurs activités - des fraiseuses à 3 et 4 axes installés et actionnés indépendamment - des machines de tournage et des centres de tournage mis en service indépendamment - la création de programmes CNC avec des systèmes ISO ou CAM - la supervision de plusieurs systèmes en parallèle avec l'automatisation - l'examen et l'optimisation continus des processus de production\n• Exigences - Diplôme d'enseignement en tant qu'EFZ polymécanique ou polymécanique ou diplôme équivalent - Pratique dans la mise en place et l'exploitation des tours et fraiseuses CNC indépendamment - Connaissance des logiciels CAM tels que TopSolid est souhaitable - Connaissances de base existantes en programmation ISO - Expérience avec les contrôles Fanuc compte comme un plus - Offre techniquement exigeante\n• Tâches dans un environnement polyvalent - Heures de travail flexibles pour une planification opérationnelle flexible - Conditions-cadres attractives"
     },
     "slugByLocale": {
-      "it": "polimeccanico-a-produzione-cnc-con-programmazione-cam-fachkraft-ch-gmbh-dietikon",
-      "en": "polymechanic-cnc-manufacturing-with-cam-programming-fachkraft-ch-gmbh-dietikon",
-      "de": "polymechaniker-in-cnc-fertigung-mit-cam-programmierung-dietikon-zurich-fachkraft-ch",
-      "fr": "polymecanicien-ne-fabrication-cnc-avec-programmation-cam-fachkraft-ch-gmbh-dietikon"
+      "it": "polimeccanico-a-produzione-cnc-con-programmazione-cam-fachkraft-ch-gmbh-dietikon-fccef7a5",
+      "en": "polymechanic-cnc-manufacturing-with-cam-programming-fachkraft-ch-gmbh-dietikon-b5b8f88b",
+      "de": "polymechaniker-in-cnc-fertigung-mit-cam-programmierung-dietikon-zurich-fachkraft-ch-51836eeb",
+      "fr": "polymecanicien-ne-fabrication-cnc-avec-programmation-cam-fachkraft-ch-gmbh-dietikon-559f6db0"
     },
     "sector": "Altro",
     "expiredAt": "2026-11-19T22:56:00.622Z",
-    "previousSlugs": [
-      "polymechaniker-in-cnc-fertigung-mit-cam-programmierung-dietikon-zurich-fachkraft-ch"
-    ],
     "previousSlugsByLocale": {
       "it": [
-        "polymechaniker-in-cnc-fertigung-mit-cam-programmierung-dietikon-zurich-fachkraft-ch"
+        "polymechaniker-in-cnc-fertigung-mit-cam-programmierung-dietikon-zurich-fachkraft-ch-51836eeb"
+      ],
+      "en": [
+        "polymechaniker-in-cnc-fertigung-mit-cam-programmierung-dietikon-zurich-fachkraft-ch-51836eeb"
+      ],
+      "de": [
+        "polymechaniker-in-cnc-fertigung-mit-cam-programmierung-dietikon-zurich-fachkraft-ch-51836eeb"
+      ],
+      "fr": [
+        "polymechaniker-in-cnc-fertigung-mit-cam-programmierung-dietikon-zurich-fachkraft-ch-51836eeb"
       ]
     },
     "postalCode": "8953",
@@ -3562,7 +3694,7 @@
     "firstSeenAt": "2026-09-29T22:24:18.096Z"
   },
   {
-    "slug": "schreiner-in-per-vielseitige-montagearbeiten-fachkraft-ch-gmbh-schaffhausen",
+    "slug": "schreiner-in-per-vielseitige-montagearbeiten-fachkraft-ch-gmbh-schaffhausen-cef5e436",
     "title": "Schreiner/in für vielseitige Montagearbeiten",
     "titleByLocale": {
       "it": "Falegname per diversi lavori di montaggio",
@@ -3581,38 +3713,53 @@
       "fr": "L'installation à l'intérieur nécessite précision et artisanat. L'entreprise attache une grande importance à votre méthode de travail soignée et à votre sens de la qualité. Vous bénéficiez d'une rémunération et d'un soutien intéressants en matière administrative. Pour notre client, nous recherchons une activité - effectuer des installations à l'intérieur - installer des cuisines professionnellement - reprendre les travaux d'assemblage sur les portes - monter des fenêtres selon les spécifications du plan - Inspecter les éléments assemblés pour la fonction et la qualité\n• Exigences - Stage de menuisier ou de menuisier ou qualification équivalente - L'expérience d'assemblage compte comme un plus - Travailleurs indépendants et méthodes de travail précises - Sensibilisation à la qualité - Le permis de conduire de catégorie B serait souhaitable Offre - Rémunération supérieure à la moyenne - Réglementation des dépenses attrayantes - Soutien au permis de séjour et de travail"
     },
     "slugByLocale": {
-      "it": "schreiner-in-per-vielseitige-montagearbeiten-fachkraft-ch-gmbh-schaffhausen",
-      "en": "carpenter-for-versatile-assembly-work-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
-      "de": "schreiner-in-fur-vielseitige-montagearbeiten-schaffhausen-schaffhausen-fachkraft-ch",
-      "fr": "menuisier-menuisiere-pour-des-travaux-de-montage-polyvalents-fachkraft-ch-gmbh-schaffhausen-schaffhausen"
+      "it": "schreiner-in-per-vielseitige-montagearbeiten-fachkraft-ch-gmbh-schaffhausen-cef5e436",
+      "en": "carpenter-for-versatile-assembly-work-fachkraft-ch-gmbh-schaffhausen-schaffhausen-5c9b9d77",
+      "de": "schreiner-in-fur-vielseitige-montagearbeiten-schaffhausen-schaffhausen-fachkraft-ch-6d0b9123",
+      "fr": "menuisier-menuisiere-pour-des-travaux-de-montage-polyvalents-fachkraft-ch-gmbh-schaffhausen-schaffhausen-274c16f7"
     },
     "sector": "Altro",
     "expiredAt": "2026-11-19T22:56:00.622Z",
-    "previousSlugs": [
-      "falegname-per-svariati-lavori-di-montaggio-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
-      "carpenter-for-versatile-installation-work-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
-      "falegname-per-versatili-lavori-di-montaggio-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
-      "carpenter-for-varied-installation-work-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
-      "menuisier-ere-pour-des-travaux-de-montage-varies-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
-      "falegname-a-per-lavori-di-montaggio-versatili-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
-      "schreiner-in-fur-vielseitige-montagearbeiten-schaffhausen-schaffhausen-fachkraft-ch",
-      "schreiner-in-fur-vielseitige-montagearbeiten-fachkraft-ch-gmbh-schaffhausen"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "falegname-per-svariati-lavori-di-montaggio-fachkraft-ch-gmbh-schaffhausen-schaffhausen-91e57fca",
+        "falegname-per-versatili-lavori-di-montaggio-fachkraft-ch-gmbh-schaffhausen-schaffhausen-06055765",
+        "falegname-a-per-lavori-di-montaggio-versatili-fachkraft-ch-gmbh-schaffhausen-schaffhausen-c7e582db",
+        "schreiner-in-fur-vielseitige-montagearbeiten-schaffhausen-schaffhausen-fachkraft-ch-6d0b9123",
+        "carpenter-for-versatile-installation-work-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
+        "carpenter-for-varied-installation-work-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
+        "schreiner-in-fur-vielseitige-montagearbeiten-fachkraft-ch-gmbh-schaffhausen",
+        "menuisier-ere-pour-des-travaux-de-montage-varies-fachkraft-ch-gmbh-schaffhausen-schaffhausen"
+      ],
+      "en": [
+        "carpenter-for-versatile-installation-work-fachkraft-ch-gmbh-schaffhausen-schaffhausen-97e1f43f",
+        "carpenter-for-varied-installation-work-fachkraft-ch-gmbh-schaffhausen-schaffhausen-244dd1c5",
+        "schreiner-in-fur-vielseitige-montagearbeiten-fachkraft-ch-gmbh-schaffhausen-af0a49c3",
         "falegname-per-svariati-lavori-di-montaggio-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
         "falegname-per-versatili-lavori-di-montaggio-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
         "falegname-a-per-lavori-di-montaggio-versatili-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
-        "schreiner-in-fur-vielseitige-montagearbeiten-schaffhausen-schaffhausen-fachkraft-ch"
-      ],
-      "en": [
-        "carpenter-for-versatile-installation-work-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
-        "carpenter-for-varied-installation-work-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
-        "schreiner-in-fur-vielseitige-montagearbeiten-fachkraft-ch-gmbh-schaffhausen"
+        "schreiner-in-fur-vielseitige-montagearbeiten-schaffhausen-schaffhausen-fachkraft-ch",
+        "menuisier-ere-pour-des-travaux-de-montage-varies-fachkraft-ch-gmbh-schaffhausen-schaffhausen"
       ],
       "fr": [
-        "menuisier-ere-pour-des-travaux-de-montage-varies-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
-        "schreiner-in-fur-vielseitige-montagearbeiten-fachkraft-ch-gmbh-schaffhausen"
+        "menuisier-ere-pour-des-travaux-de-montage-varies-fachkraft-ch-gmbh-schaffhausen-schaffhausen-aee585a6",
+        "schreiner-in-fur-vielseitige-montagearbeiten-fachkraft-ch-gmbh-schaffhausen-af0a49c3",
+        "falegname-per-svariati-lavori-di-montaggio-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
+        "falegname-per-versatili-lavori-di-montaggio-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
+        "falegname-a-per-lavori-di-montaggio-versatili-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
+        "schreiner-in-fur-vielseitige-montagearbeiten-schaffhausen-schaffhausen-fachkraft-ch",
+        "carpenter-for-versatile-installation-work-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
+        "carpenter-for-varied-installation-work-fachkraft-ch-gmbh-schaffhausen-schaffhausen"
+      ],
+      "de": [
+        "falegname-per-svariati-lavori-di-montaggio-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
+        "falegname-per-versatili-lavori-di-montaggio-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
+        "falegname-a-per-lavori-di-montaggio-versatili-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
+        "schreiner-in-fur-vielseitige-montagearbeiten-schaffhausen-schaffhausen-fachkraft-ch-6d0b9123",
+        "carpenter-for-versatile-installation-work-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
+        "carpenter-for-varied-installation-work-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
+        "schreiner-in-fur-vielseitige-montagearbeiten-fachkraft-ch-gmbh-schaffhausen",
+        "menuisier-ere-pour-des-travaux-de-montage-varies-fachkraft-ch-gmbh-schaffhausen-schaffhausen"
       ]
     },
     "postalCode": "8200",
@@ -3622,7 +3769,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.fachkraft.ch/stellen/schreiner-in-schaffhausen-dauerstelle-301718",
-    "firstSeenAt": "2026-08-23T21:54:23.655Z"
+    "firstSeenAt": "2026-08-23T21:54:23.655Z",
+    "previousSlugs": [
+      "falegname-per-svariati-lavori-di-montaggio-fachkraft-ch-gmbh-schaffhausen-schaffhausen-91e57fca",
+      "falegname-per-versatili-lavori-di-montaggio-fachkraft-ch-gmbh-schaffhausen-schaffhausen-06055765",
+      "falegname-a-per-lavori-di-montaggio-versatili-fachkraft-ch-gmbh-schaffhausen-schaffhausen-c7e582db",
+      "carpenter-for-versatile-installation-work-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
+      "carpenter-for-varied-installation-work-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
+      "schreiner-in-fur-vielseitige-montagearbeiten-fachkraft-ch-gmbh-schaffhausen",
+      "menuisier-ere-pour-des-travaux-de-montage-varies-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
+      "carpenter-for-versatile-installation-work-fachkraft-ch-gmbh-schaffhausen-schaffhausen-97e1f43f",
+      "carpenter-for-varied-installation-work-fachkraft-ch-gmbh-schaffhausen-schaffhausen-244dd1c5",
+      "schreiner-in-fur-vielseitige-montagearbeiten-fachkraft-ch-gmbh-schaffhausen-af0a49c3",
+      "falegname-per-svariati-lavori-di-montaggio-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
+      "falegname-per-versatili-lavori-di-montaggio-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
+      "falegname-a-per-lavori-di-montaggio-versatili-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
+      "schreiner-in-fur-vielseitige-montagearbeiten-schaffhausen-schaffhausen-fachkraft-ch",
+      "menuisier-ere-pour-des-travaux-de-montage-varies-fachkraft-ch-gmbh-schaffhausen-schaffhausen-aee585a6"
+    ]
   },
   {
     "slug": "installatore-trice-elettrico-a-in-tecnico-a-di-servizio-fachkraft-ch-gmbh-zurich-b86b5a12",
@@ -3714,7 +3878,13 @@
       "elektroinstallateur-in-als-service-techniker-fachkraft-ch-gmbh-lugano",
       "installation-electrique-en-tant-que-technicien-de-service-fachkraft-ch-gmbh-rapperswil-jona-st-gallen",
       "installateur-trice-electricien-ne-als-service-techniker-fachkraft-ch-gmbh-lugano",
-      "installatore-trice-elettrico-a-in-tecnico-a-di-servizio-fachkraft-ch-gmbh-zurich-ec3aa7344d"
+      "installatore-trice-elettrico-a-in-tecnico-a-di-servizio-fachkraft-ch-gmbh-zurich-ec3aa7344d",
+      "elektroinstallateur-in-als-servicetechniker-in-zurich-zurich-fachkraft-ch-0983f6cd",
+      "electrical-installer-service-technician-fachkraft-ch-gmbh-zurich",
+      "installateur-trice-electricien-ne-technicien-ne-de-service-fachkraft-ch-gmbh-zurich",
+      "elektroinstallateur-in-servicetechniker-in-zurich-zurich-fachkraft-ch",
+      "electrical-installer-service-technician-fachkraft-ch-gmbh-zurich-8da09b7d",
+      "installateur-trice-electricien-ne-technicien-ne-de-service-fachkraft-ch-gmbh-zurich-daaa39fc"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -5761,51 +5931,43 @@
         "costruttore-costruttrice-di-impianti-e-apparecchi-con-conoscenze-di-saldatura-fachkraft-ch-gmbh-langenthal-bern-a87e3913",
         "anlagen-und-apparatebauer-in-mit-schweisskenntnissen-langenthal-bern-fachkraft-ch-10c4bc27",
         "anlagen-e-apparatebauer-in-con-schweisskenntnissen-fachkraft-ch-gmbh-langenthal-fa87ad46",
-        "plant-and-apparatus-fabricator-with-welding-skills-fachkraft-ch-gmbh-langenthal-bern",
         "plant-and-apparatus-builder-with-welding-skills-fachkraft-ch-gmbh-langenthal-bern",
-        "anlagen-und-apparatebauer-in-mit-schweisskenntnissen-fachkraft-ch-gmbh-langenthal",
         "constructeur-trice-d-installations-et-d-appareils-avec-des-connaissances-en-soudage-fachkraft-ch-gmbh-langenthal-bern",
-        "constructeur-trice-d-appareils-industriels-avec-connaissances-en-soudage-fachkraft-ch-gmbh-langenthal-bern",
-        "constructeur-trice-d-installations-et-d-appareils-avec-connaissances-en-soudage-fachkraft-ch-gmbh-langenthal-bern"
+        "costruttore-trice-di-impianti-e-apparecchi-con-competenze-di-saldatura-fachkraft-ch-gmbh-langenthal-bern",
+        "costruttore-costruttrice-di-impianti-e-apparecchi-con-conoscenze-di-saldatura-fachkraft-ch-gmbh-langenthal-bern",
+        "anlagen-und-apparatebauer-in-mit-schweisskenntnissen-langenthal-bern-fachkraft-ch",
+        "anlagen-e-apparatebauer-in-con-schweisskenntnissen-fachkraft-ch-gmbh-langenthal"
       ],
       "en": [
         "plant-and-apparatus-fabricator-with-welding-skills-fachkraft-ch-gmbh-langenthal-bern-0301ba78",
         "plant-and-apparatus-builder-with-welding-skills-fachkraft-ch-gmbh-langenthal-bern-48710fb9",
         "anlagen-und-apparatebauer-in-mit-schweisskenntnissen-fachkraft-ch-gmbh-langenthal-59af25b3",
-        "costruttore-trice-di-impianti-e-apparecchi-con-competenze-di-saldatura-fachkraft-ch-gmbh-langenthal-bern",
         "costruttore-trice-di-impianti-e-apparecchi-con-conoscenze-di-saldatura-fachkraft-ch-gmbh-langenthal-bern",
-        "costruttore-costruttrice-di-impianti-e-apparecchi-con-conoscenze-di-saldatura-fachkraft-ch-gmbh-langenthal-bern",
-        "anlagen-und-apparatebauer-in-mit-schweisskenntnissen-langenthal-bern-fachkraft-ch",
-        "anlagen-e-apparatebauer-in-con-schweisskenntnissen-fachkraft-ch-gmbh-langenthal",
+        "anlagen-und-apparatebauer-in-mit-schweisskenntnissen-langenthal-bern-fachkraft-ch-10c4bc27",
         "constructeur-trice-d-installations-et-d-appareils-avec-des-connaissances-en-soudage-fachkraft-ch-gmbh-langenthal-bern",
-        "constructeur-trice-d-appareils-industriels-avec-connaissances-en-soudage-fachkraft-ch-gmbh-langenthal-bern",
-        "constructeur-trice-d-installations-et-d-appareils-avec-connaissances-en-soudage-fachkraft-ch-gmbh-langenthal-bern"
+        "plant-and-apparatus-fabricator-with-welding-skills-fachkraft-ch-gmbh-langenthal-bern",
+        "anlagen-und-apparatebauer-in-mit-schweisskenntnissen-fachkraft-ch-gmbh-langenthal"
       ],
       "de": [
         "anlagen-und-apparatebauer-in-mit-schweisskenntnissen-fachkraft-ch-gmbh-langenthal-59af25b3",
-        "costruttore-trice-di-impianti-e-apparecchi-con-competenze-di-saldatura-fachkraft-ch-gmbh-langenthal-bern",
         "costruttore-trice-di-impianti-e-apparecchi-con-conoscenze-di-saldatura-fachkraft-ch-gmbh-langenthal-bern",
-        "costruttore-costruttrice-di-impianti-e-apparecchi-con-conoscenze-di-saldatura-fachkraft-ch-gmbh-langenthal-bern",
         "anlagen-und-apparatebauer-in-mit-schweisskenntnissen-langenthal-bern-fachkraft-ch-10c4bc27",
-        "anlagen-e-apparatebauer-in-con-schweisskenntnissen-fachkraft-ch-gmbh-langenthal",
-        "plant-and-apparatus-fabricator-with-welding-skills-fachkraft-ch-gmbh-langenthal-bern",
         "plant-and-apparatus-builder-with-welding-skills-fachkraft-ch-gmbh-langenthal-bern",
         "constructeur-trice-d-installations-et-d-appareils-avec-des-connaissances-en-soudage-fachkraft-ch-gmbh-langenthal-bern",
-        "constructeur-trice-d-appareils-industriels-avec-connaissances-en-soudage-fachkraft-ch-gmbh-langenthal-bern",
-        "constructeur-trice-d-installations-et-d-appareils-avec-connaissances-en-soudage-fachkraft-ch-gmbh-langenthal-bern"
+        "anlagen-und-apparatebauer-in-mit-schweisskenntnissen-fachkraft-ch-gmbh-langenthal",
+        "anlagen-und-apparatebauer-in-mit-schweisskenntnissen-langenthal-bern-fachkraft-ch"
       ],
       "fr": [
         "constructeur-trice-d-installations-et-d-appareils-avec-des-connaissances-en-soudage-fachkraft-ch-gmbh-b1b7d193",
         "constructeur-trice-d-appareils-industriels-avec-connaissances-en-soudage-fachkraft-ch-gmbh-langenthal-bern-2551ca60",
         "constructeur-trice-d-installations-et-d-appareils-avec-connaissances-en-soudage-fachkraft-ch-gmbh-langenthal-f77b5eed",
         "anlagen-und-apparatebauer-in-mit-schweisskenntnissen-fachkraft-ch-gmbh-langenthal-59af25b3",
-        "costruttore-trice-di-impianti-e-apparecchi-con-competenze-di-saldatura-fachkraft-ch-gmbh-langenthal-bern",
         "costruttore-trice-di-impianti-e-apparecchi-con-conoscenze-di-saldatura-fachkraft-ch-gmbh-langenthal-bern",
-        "costruttore-costruttrice-di-impianti-e-apparecchi-con-conoscenze-di-saldatura-fachkraft-ch-gmbh-langenthal-bern",
-        "anlagen-und-apparatebauer-in-mit-schweisskenntnissen-langenthal-bern-fachkraft-ch",
-        "anlagen-e-apparatebauer-in-con-schweisskenntnissen-fachkraft-ch-gmbh-langenthal",
-        "plant-and-apparatus-fabricator-with-welding-skills-fachkraft-ch-gmbh-langenthal-bern",
-        "plant-and-apparatus-builder-with-welding-skills-fachkraft-ch-gmbh-langenthal-bern"
+        "anlagen-und-apparatebauer-in-mit-schweisskenntnissen-langenthal-bern-fachkraft-ch-10c4bc27",
+        "plant-and-apparatus-builder-with-welding-skills-fachkraft-ch-gmbh-langenthal-bern",
+        "anlagen-und-apparatebauer-in-mit-schweisskenntnissen-fachkraft-ch-gmbh-langenthal",
+        "constructeur-trice-d-appareils-industriels-avec-connaissances-en-soudage-fachkraft-ch-gmbh-langenthal-bern",
+        "constructeur-trice-d-installations-et-d-appareils-avec-connaissances-en-soudage-fachkraft-ch-gmbh-langenthal-bern"
       ]
     },
     "postalCode": "4900",
@@ -5821,20 +5983,12 @@
       "costruttore-trice-di-impianti-e-apparecchi-con-conoscenze-di-saldatura-fachkraft-ch-gmbh-langenthal-bern-1b21cf1d",
       "costruttore-costruttrice-di-impianti-e-apparecchi-con-conoscenze-di-saldatura-fachkraft-ch-gmbh-langenthal-bern-a87e3913",
       "anlagen-e-apparatebauer-in-con-schweisskenntnissen-fachkraft-ch-gmbh-langenthal-fa87ad46",
-      "plant-and-apparatus-fabricator-with-welding-skills-fachkraft-ch-gmbh-langenthal-bern",
       "plant-and-apparatus-builder-with-welding-skills-fachkraft-ch-gmbh-langenthal-bern",
-      "anlagen-und-apparatebauer-in-mit-schweisskenntnissen-fachkraft-ch-gmbh-langenthal",
       "constructeur-trice-d-installations-et-d-appareils-avec-des-connaissances-en-soudage-fachkraft-ch-gmbh-langenthal-bern",
-      "constructeur-trice-d-appareils-industriels-avec-connaissances-en-soudage-fachkraft-ch-gmbh-langenthal-bern",
-      "constructeur-trice-d-installations-et-d-appareils-avec-connaissances-en-soudage-fachkraft-ch-gmbh-langenthal-bern",
       "plant-and-apparatus-fabricator-with-welding-skills-fachkraft-ch-gmbh-langenthal-bern-0301ba78",
       "plant-and-apparatus-builder-with-welding-skills-fachkraft-ch-gmbh-langenthal-bern-48710fb9",
       "anlagen-und-apparatebauer-in-mit-schweisskenntnissen-fachkraft-ch-gmbh-langenthal-59af25b3",
-      "costruttore-trice-di-impianti-e-apparecchi-con-competenze-di-saldatura-fachkraft-ch-gmbh-langenthal-bern",
       "costruttore-trice-di-impianti-e-apparecchi-con-conoscenze-di-saldatura-fachkraft-ch-gmbh-langenthal-bern",
-      "costruttore-costruttrice-di-impianti-e-apparecchi-con-conoscenze-di-saldatura-fachkraft-ch-gmbh-langenthal-bern",
-      "anlagen-und-apparatebauer-in-mit-schweisskenntnissen-langenthal-bern-fachkraft-ch",
-      "anlagen-e-apparatebauer-in-con-schweisskenntnissen-fachkraft-ch-gmbh-langenthal",
       "constructeur-trice-d-installations-et-d-appareils-avec-des-connaissances-en-soudage-fachkraft-ch-gmbh-b1b7d193",
       "constructeur-trice-d-appareils-industriels-avec-connaissances-en-soudage-fachkraft-ch-gmbh-langenthal-bern-2551ca60",
       "constructeur-trice-d-installations-et-d-appareils-avec-connaissances-en-soudage-fachkraft-ch-gmbh-langenthal-f77b5eed"
@@ -5870,19 +6024,17 @@
     "previousSlugsByLocale": {
       "it": [
         "schreiner-in-fur-kuchenmontage-st-gallen-st-gallen-fachkraft-ch-e3b33d57",
-        "schreiner-in-per-kuchenmontage-fachkraft-ch-gmbh-st-gallen-4da8b6c9"
+        "schreiner-in-per-kuchenmontage-fachkraft-ch-gmbh-st-gallen-4da8b6c9",
+        "schreiner-in-per-kuchenmontage-fachkraft-ch-gmbh-st-gallen"
       ],
       "en": [
-        "schreiner-in-fur-kuchenmontage-st-gallen-st-gallen-fachkraft-ch-e3b33d57",
-        "schreiner-in-per-kuchenmontage-fachkraft-ch-gmbh-st-gallen"
+        "schreiner-in-fur-kuchenmontage-st-gallen-st-gallen-fachkraft-ch-e3b33d57"
       ],
       "fr": [
-        "schreiner-in-fur-kuchenmontage-st-gallen-st-gallen-fachkraft-ch-e3b33d57",
-        "schreiner-in-per-kuchenmontage-fachkraft-ch-gmbh-st-gallen"
+        "schreiner-in-fur-kuchenmontage-st-gallen-st-gallen-fachkraft-ch-e3b33d57"
       ],
       "de": [
-        "schreiner-in-fur-kuchenmontage-st-gallen-st-gallen-fachkraft-ch-e3b33d57",
-        "schreiner-in-per-kuchenmontage-fachkraft-ch-gmbh-st-gallen"
+        "schreiner-in-fur-kuchenmontage-st-gallen-st-gallen-fachkraft-ch-e3b33d57"
       ]
     },
     "postalCode": "9000",
@@ -5894,8 +6046,7 @@
     "sourceIdentity": "url:https://www.fachkraft.ch/stellen/schreiner-in-st-gallen-dauerstelle-314316",
     "firstSeenAt": "2026-11-04T22:40:31.291Z",
     "previousSlugs": [
-      "schreiner-in-per-kuchenmontage-fachkraft-ch-gmbh-st-gallen-4da8b6c9",
-      "schreiner-in-per-kuchenmontage-fachkraft-ch-gmbh-st-gallen"
+      "schreiner-in-per-kuchenmontage-fachkraft-ch-gmbh-st-gallen-4da8b6c9"
     ]
   },
   {
@@ -6119,7 +6270,8 @@
     "firstSeenAt": "2026-09-11T23:39:52.741Z",
     "previousSlugs": [
       "installatore-trice-elettrico-a-in-tecnico-a-di-servizio-fachkraft-ch-gmbh-zurich-719da35d",
-      "installatore-trice-elettrico-a-in-tecnico-a-di-servizio-fachkraft-ch-gmbh-zurich"
+      "installatore-trice-elettrico-a-in-tecnico-a-di-servizio-fachkraft-ch-gmbh-zurich",
+      "elektroinstallateur-in-servicetechniker-in-zurich-zurich-fachkraft-ch"
     ]
   },
   {

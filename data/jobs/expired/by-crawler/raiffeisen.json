@@ -2044,16 +2044,18 @@
     },
     "slugByLocale": {
       "it": "consulente-clienti-basis-m-f-d-raiffeisen-steinhausen-7bd3c7f9",
-      "en": "customer-advisor-basis-m-f-d-raiffeisen-steinhausen",
+      "en": "customer-advisor-basis-m-f-d-raiffeisen-steinhausen-bd0c1903",
       "de": "kundenberater-basis-w-m-d-raiffeisen-steinhausen-f3e08ee6",
-      "fr": "conseiller-client-base-h-f-d-raiffeisen-steinhausen"
+      "fr": "conseiller-client-base-h-f-d-raiffeisen-steinhausen-f72d90ad"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-11-08T09:23:22.487Z",
     "previousSlugs": [
       "base-di-consulenza-clienti-f-m-d-raiffeisen-steinhausen",
       "customer-advisor-basis-f-m-d-raiffeisen-steinhausen",
-      "conseiller-a-la-clientele-f-m-d-raiffeisen-steinhausen"
+      "conseiller-a-la-clientele-f-m-d-raiffeisen-steinhausen",
+      "customer-advisor-basis-m-f-d-raiffeisen-steinhausen",
+      "conseiller-client-base-h-f-d-raiffeisen-steinhausen"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -2062,11 +2064,13 @@
       ],
       "en": [
         "customer-advisor-basis-f-m-d-raiffeisen-steinhausen",
-        "kundenberater-basis-w-m-d-raiffeisen-steinhausen-f3e08ee6"
+        "kundenberater-basis-w-m-d-raiffeisen-steinhausen-f3e08ee6",
+        "customer-advisor-basis-m-f-d-raiffeisen-steinhausen"
       ],
       "fr": [
         "conseiller-a-la-clientele-f-m-d-raiffeisen-steinhausen",
-        "kundenberater-basis-w-m-d-raiffeisen-steinhausen-f3e08ee6"
+        "kundenberater-basis-w-m-d-raiffeisen-steinhausen-f3e08ee6",
+        "conseiller-client-base-h-f-d-raiffeisen-steinhausen"
       ],
       "de": [
         "kundenberater-basis-w-m-d-raiffeisen-steinhausen-f3e08ee6"
@@ -25447,17 +25451,24 @@
     },
     "slugByLocale": {
       "it": "consapevolezza-della-sicurezza-informatica-f-m-d-raiffeisen-zurich",
-      "en": "spezialist-cyber-security-awareness-w-m-d-raiffeisen-zurich",
-      "de": "spezialist-cyber-security-awareness-w-m-d-raiffeisen-zurich",
+      "en": "spezialist-cyber-security-awareness-w-m-d-raiffeisen-zurich-e58b5a87",
+      "de": "spezialist-cyber-security-awareness-w-m-d-raiffeisen-zurich-e58b5a87",
       "fr": "specialiste-de-la-cybersecurite-f-m-d-raiffeisen-zurich"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-07-11T22:32:22.145Z",
-    "previousSlugs": [
-      "spezialist-cyber-security-awareness-w-m-d-raiffeisen-zurich"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "spezialist-cyber-security-awareness-w-m-d-raiffeisen-zurich-e58b5a87",
+        "spezialist-cyber-security-awareness-w-m-d-raiffeisen-zurich"
+      ],
+      "en": [
+        "spezialist-cyber-security-awareness-w-m-d-raiffeisen-zurich-e58b5a87"
+      ],
+      "de": [
+        "spezialist-cyber-security-awareness-w-m-d-raiffeisen-zurich-e58b5a87"
+      ],
+      "fr": [
         "spezialist-cyber-security-awareness-w-m-d-raiffeisen-zurich"
       ]
     },
@@ -25465,7 +25476,10 @@
     "salaryMin": 73500,
     "salaryMax": 111500,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "previousSlugs": [
+      "spezialist-cyber-security-awareness-w-m-d-raiffeisen-zurich"
+    ]
   },
   {
     "slug": "specialiste-clientele-entreprises-f-h-d-raiffeisen-lausanne",

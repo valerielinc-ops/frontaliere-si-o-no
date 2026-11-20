@@ -4881,9 +4881,6 @@
     },
     "sector": "Sanità / Psichiatria",
     "expiredAt": "2026-05-19T23:09:24.280Z",
-    "previousSlugs": [
-      "kochin-koch-pdgr-ch"
-    ],
     "previousSlugsByLocale": {
       "de": [
         "kochin-koch-pdgr-ch"
@@ -4892,9 +4889,11 @@
         "kochin-koch-pdgr-ch"
       ],
       "en": [
+        "kochin-koch-pdgr-ch-9aa51078",
         "kochin-koch-pdgr-ch"
       ],
       "fr": [
+        "kochin-koch-pdgr-ch-9aa51078",
         "kochin-koch-pdgr-ch"
       ]
     },
@@ -4902,7 +4901,11 @@
     "salaryMin": 49500,
     "salaryMax": 75000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "previousSlugs": [
+      "kochin-koch-pdgr-ch",
+      "kochin-koch-pdgr-ch-9aa51078"
+    ]
   },
   {
     "slug": "capo-di-tessuto-psychiatrische-dienste-graubunden-chur",

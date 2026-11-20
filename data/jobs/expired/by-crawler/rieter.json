@@ -20,9 +20,9 @@
     },
     "slugByLocale": {
       "it": "catena-di-alimentazione-e-operazioni-graf-gruppo-100-m-f-d-rieter-rapperswil",
-      "en": "head-supply-chain-operations-graf-group-100-m-w-d-rieter-rapperswil",
+      "en": "head-supply-chain-operations-graf-group-100-m-w-d-rieter-rapperswil-fa52f6f6",
       "de": "head-supply-chain-operations-graf-group-100-m-w-d-rieter-rapperswil-fa52f6f6",
-      "fr": "head-supply-chain-operations-graf-group-100-m-w-d-rieter-rapperswil"
+      "fr": "head-supply-chain-operations-graf-group-100-m-w-d-rieter-rapperswil-fa52f6f6"
     },
     "sector": "Industria / Macchinari Tessili",
     "expiredAt": "2026-11-17T09:20:53.962Z",
@@ -31,12 +31,14 @@
         "head-supply-chain-operations-graf-group-100-m-w-d-rieter-rapperswil-fa52f6f6"
       ],
       "en": [
+        "head-supply-chain-operations-graf-group-100-m-w-d-rieter-rapperswil-fa52f6f6",
         "head-supply-chain-operations-graf-group-100-m-w-d-rieter-rapperswil"
       ],
       "de": [
         "head-supply-chain-operations-graf-group-100-m-w-d-rieter-rapperswil-fa52f6f6"
       ],
       "fr": [
+        "head-supply-chain-operations-graf-group-100-m-w-d-rieter-rapperswil-fa52f6f6",
         "head-supply-chain-operations-graf-group-100-m-w-d-rieter-rapperswil"
       ]
     },
@@ -47,7 +49,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/rieter/en/jobs/head-supply-chain-operations-graf-group-100-mwd---4096509",
-    "firstSeenAt": "2026-11-03T21:27:53.883Z"
+    "firstSeenAt": "2026-11-03T21:27:53.883Z",
+    "previousSlugs": [
+      "head-supply-chain-operations-graf-group-100-m-w-d-rieter-rapperswil"
+    ]
   },
   {
     "slug": "responsabile-del-progetto-it-rieter-winterthur-ff1fc341",
@@ -131,7 +136,7 @@
       "it": "sap-servizio-tecnico-consegna-lead-100-m-f-d-rieter-winterthur",
       "en": "sap-technical-service-delivery-lead-100-f-m-d-rieter-winterthur-d4b48df7",
       "de": "sap-technischer-service-lieferleitung-100-m-w-d-rieter-winterthur",
-      "fr": "service-technique-sap-responsable-100-h-f-d-rieter-winterthur"
+      "fr": "service-technique-sap-responsable-100-h-f-d-rieter-winterthur-f731874a"
     },
     "sector": "Industria / Macchinari Tessili",
     "expiredAt": "2026-11-08T09:18:28.712Z",
@@ -149,7 +154,8 @@
       ],
       "fr": [
         "sap-technical-service-delivery-lead-100-f-m-d-rieter-winterthur-d4b48df7",
-        "sap-technical-service-delivery-lead-100-f-m-d-rieter-winterthur"
+        "sap-technical-service-delivery-lead-100-f-m-d-rieter-winterthur",
+        "service-technique-sap-responsable-100-h-f-d-rieter-winterthur"
       ]
     },
     "postalCode": "8400",
@@ -160,7 +166,8 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/rieter/en/jobs/sap-technical-service-delivery-lead-100-fmd---4082051",
     "previousSlugs": [
-      "sap-technical-service-delivery-lead-100-f-m-d-rieter-winterthur"
+      "sap-technical-service-delivery-lead-100-f-m-d-rieter-winterthur",
+      "service-technique-sap-responsable-100-h-f-d-rieter-winterthur"
     ]
   },
   {
