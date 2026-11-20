@@ -83,10 +83,10 @@ function localeJob(overrides: Record<string, unknown> = {}) {
 it('recovers a missed completion only for the newest failed first attempt when the queue is idle', () => {
   const failed = {
     ...done(42, OLD, 'failure'), event: 'workflow_dispatch', attempt: 1,
-    displayTitle: 'Deploy to GitHub Pages', createdAt: '2026-11-20T02:00:00Z',
+    name: 'Deploy to GitHub Pages', displayTitle: 'fix: publish', createdAt: '2026-11-20T02:00:00Z',
   };
   const queueOnly = {
-    ...done(43, HEAD, 'success'), displayTitle: 'Deploy queue reconciliation (no build)',
+    ...done(43, HEAD, 'success'), name: 'Deploy to GitHub Pages', displayTitle: 'Deploy queue reconciliation (no build)',
     createdAt: '2026-11-20T03:00:00Z',
   };
   expect(findMissedLocaleRecovery([queueOnly, failed], SELF, null)).toEqual(failed);

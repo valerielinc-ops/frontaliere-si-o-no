@@ -700,7 +700,7 @@ function inspectTargetedRerunPostFailure({
   }
 }
 
-const RUNS_PROJECTION = '[.workflow_runs[] | {id, headSha: .head_sha, headBranch: .head_branch, status, conclusion, event, actor: .actor.login, createdAt: .created_at, updatedAt: .updated_at, displayTitle: .display_title, attempt: .run_attempt}]';
+const RUNS_PROJECTION = '[.workflow_runs[] | {id, headSha: .head_sha, headBranch: .head_branch, status, conclusion, event, actor: .actor.login, createdAt: .created_at, updatedAt: .updated_at, name, displayTitle: .display_title, attempt: .run_attempt}]';
 
 function mergeRuns(...collections) {
   const byId = new Map();
@@ -1003,7 +1003,8 @@ export function findMissedLocaleRecovery(runs, selfRunId, redeployRequest) {
   if (redeployRequest?.state === 'pending') return null;
   const builds = runs.filter((run) => String(run.id) !== String(selfRunId) && run.event !== 'schedule');
   if (builds.some((run) => LIVE_STATUSES.has(run.status))) return null;
-  const latest = builds.filter((run) => run.displayTitle === DEPLOY_WORKFLOW_NAME)
+  const latest = builds.filter((run) => run.name === DEPLOY_WORKFLOW_NAME
+    && run.displayTitle !== 'Deploy queue reconciliation (no build)')
     .sort((a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt) || Number(b.id) - Number(a.id))[0];
   return latest?.status === 'completed' && latest.conclusion === 'failure'
     && Number(latest.attempt) === 1 ? latest : null;
