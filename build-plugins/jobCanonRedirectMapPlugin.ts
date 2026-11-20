@@ -109,7 +109,8 @@ function isCompleteActivePageManifest(value: unknown): value is Record<string, u
   const digest = createHash('sha256');
   let pageCount = 0;
   for (const directory of directories) {
-    if (directory === '/'
+    if (!directory
+      || directory === '/'
       || normalizeJobPagePath(directory) !== directory
       || directory.includes('//')
       || directory.includes('|')) return false;
