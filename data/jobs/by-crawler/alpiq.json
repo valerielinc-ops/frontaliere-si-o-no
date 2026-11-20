@@ -72,10 +72,12 @@
     },
     {
       "id": "alpiq-f05066085344",
-      "slug": "senior-gas-prop-trader-alpiq-olten",
+      "slug": "trader-senior-del-gas-per-conto-proprio-alpiq-olten",
       "slugByLocale": {
         "en": "senior-gas-prop-trader-alpiq-olten",
-        "fr": "trafic-principal-de-gaz-prop-alpiq-olten"
+        "fr": "trafic-principal-de-gaz-prop-alpiq-olten",
+        "it": "trader-senior-del-gas-per-conto-proprio-alpiq-olten",
+        "de": "senior-handler-fur-den-gas-eigenhandel-alpiq-olten"
       },
       "company": "Alpiq",
       "companyKey": "alpiq",
@@ -144,7 +146,15 @@
           "unitText": "YEAR"
         }
       },
-      "sourceIdentity": "url:https://www.alpiq.com/career/open-jobs/your-application/281"
+      "sourceIdentity": "url:https://www.alpiq.com/career/open-jobs/your-application/281",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-gas-prop-trader-alpiq-olten"
+        ]
+      },
+      "previousSlugs": [
+        "senior-gas-prop-trader-alpiq-olten"
+      ]
     },
     {
       "id": "alpiq-e2526cd82bc9",
