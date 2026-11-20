@@ -1,7 +1,7 @@
 {
   "crawlerKey": "kanton-aargau",
-  "assembledAt": "2026-11-19T21:30:52.067Z",
-  "runId": "44617361649",
+  "assembledAt": "2026-11-20T09:42:06.298Z",
+  "runId": "44709410071",
   "jobs": [
     {
       "id": "kanton-aargau-5c541d9d7d1c",
@@ -51,7 +51,7 @@
       "datePosted": "2026-10-21",
       "postedDate": "2026-10-21",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-19T23:59:59.999Z",
+      "validThrough": "2027-01-19T09:33:21.852Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/personalberaterin-personalberater-rav/c211cd7b-6b83-4ba3-a57b-ad726f0b7f5e",
       "requirements": [],
       "requirementsByLocale": {},
@@ -87,8 +87,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThroughSource": "source",
-      "sourceIdentity": "url:https://jobs.ag.ch/offene-stellen/personalberaterin-personalberater-rav/c211cd7b-6b83-4ba3-a57b-ad726f0b7f5e"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.ag.ch/offene-stellen/personalberaterin-personalberater-rav/c211cd7b-6b83-4ba3-a57b-ad726f0b7f5e",
+      "crawlerMissStreak": 1
     },
     {
       "id": "kanton-aargau-a547e77f9d52",
@@ -122,7 +123,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/praktikum-kommunikation/23876997-052e-40f4-a35a-118c9d2d1cbb",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:42.648Z",
+      "crawledAt": "2026-11-20T09:41:58.316Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -207,7 +208,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/projektleiterin-projektleiter-bauherrenvertretung/297e397b-e8f1-4536-a301-a40a49f620dd",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:41.964Z",
+      "crawledAt": "2026-11-20T09:41:57.695Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Tellistrasse 67",
@@ -294,7 +295,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/vorpraktikum-sozialpaedagogik-im-geschlossenen-schulischen-setting-tagesstruktur-betreuung/42b07318-86fe-487c-ad54-5c909cfeb2a3",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:41.307Z",
+      "crawledAt": "2026-11-20T09:41:56.957Z",
       "addressLocality": "Aarburg",
       "addressRegion": "AG",
       "postalCode": "4663",
@@ -379,7 +380,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/applikations-managerin-applikations-manager/b2097526-6679-45b5-b500-32e321851695",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:40.765Z",
+      "crawledAt": "2026-11-20T09:41:56.483Z",
       "addressLocality": "Unterentfelden",
       "addressRegion": "AG",
       "streetAddress": "Suhrenmattstrasse 48",
@@ -481,7 +482,7 @@
       "datePosted": "2026-10-21",
       "postedDate": "2026-10-21",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-19T23:59:59.999Z",
+      "validThrough": "2027-01-19T09:33:18.873Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/leiter-in-stabsbereich-politische-geschaefte-und-projekte/98313a52-98fc-4096-9634-9249ad19720a",
       "requirements": [],
       "requirementsByLocale": {},
@@ -532,8 +533,9 @@
       },
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "source",
-      "sourceIdentity": "url:https://jobs.ag.ch/offene-stellen/leiter-in-stabsbereich-politische-geschaefte-und-projekte/98313a52-98fc-4096-9634-9249ad19720a"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.ag.ch/offene-stellen/leiter-in-stabsbereich-politische-geschaefte-und-projekte/98313a52-98fc-4096-9634-9249ad19720a",
+      "crawlerMissStreak": 1
     },
     {
       "id": "kanton-aargau-24a18200578a",
@@ -567,7 +569,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/handwerkerin-handwerker-mit-fuehrerausweis-ce/ee426027-fae4-41b5-869f-276d8a0d36f9",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:39.620Z",
+      "crawledAt": "2026-11-20T09:41:55.906Z",
       "addressLocality": "Lenzburg",
       "addressRegion": "AG",
       "postalCode": "5600",
@@ -653,7 +655,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/mittelschullehrperson-franzoesisch/fa932ccc-6ee1-418f-9e93-afa91b2eeae9",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:39.024Z",
+      "crawledAt": "2026-11-20T09:41:55.205Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Schanzmättelistrasse 32",
@@ -739,7 +741,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/mittelschullehrperson-physik/55ea174d-243f-4176-a480-f7d363c39dd6",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:38.277Z",
+      "crawledAt": "2026-11-20T09:41:54.554Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Schanzmättelistrasse 32",
@@ -826,7 +828,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/projektleiterin-projektleiter-ict/ac34f935-4097-405e-b2b0-7865c8f68854",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:37.771Z",
+      "crawledAt": "2026-11-20T09:41:54.042Z",
       "addressLocality": "Unterentfelden",
       "addressRegion": "AG",
       "streetAddress": "Suhrenmattstrasse 48",
@@ -912,7 +914,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/personalberaterin-personalberater-rav/8efbf7c8-4f24-4911-9872-077ee981aa36",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:37.067Z",
+      "crawledAt": "2026-11-20T09:41:53.474Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "streetAddress": "Bernstrasse West 73",
@@ -1002,7 +1004,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/lehrperson-fuer-klavier/d70bfad6-8c37-4904-be5e-92818536aaa3",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:36.403Z",
+      "crawledAt": "2026-11-20T09:41:52.898Z",
       "addressLocality": "Wohlen",
       "addressRegion": "AG",
       "streetAddress": "Allmendstrasse 26",
@@ -1088,7 +1090,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/mittelschullehrperson-mathematik/0a832633-dc71-4324-8a8a-53ea358657bc",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:35.897Z",
+      "crawledAt": "2026-11-20T09:41:52.285Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Schanzmättelistrasse 32",
@@ -1174,7 +1176,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/praktikum-artenfoerderungsprojekt-kiebitz-reussebene/f71d823c-e4be-495c-b7a5-3ec56bfc80da",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:35.391Z",
+      "crawledAt": "2026-11-20T09:41:51.564Z",
       "addressLocality": "Rottenschwil",
       "addressRegion": "AG",
       "streetAddress": "Allmendstrasse 3",
@@ -1263,7 +1265,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/personalberaterin-personalberater-rav/c3b94cf9-2499-4127-87e2-afb1580521f0",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:34.762Z",
+      "crawledAt": "2026-11-20T09:41:50.670Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "streetAddress": "Bahnhofstrasse 26",
@@ -1353,7 +1355,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/vollzugsangestellte-vollzugsangestellter-zentraler-hafteintritt-zentralgefaengnis/de822fa5-f572-4e36-bef3-37901d4e45d6",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:34.108Z",
+      "crawledAt": "2026-11-20T09:41:49.557Z",
       "addressLocality": "Lenzburg",
       "addressRegion": "AG",
       "streetAddress": "Wilstrasse 51",
@@ -1439,7 +1441,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-schwerpunkt-hausdienst/f57b5b3a-e343-4e85-99ef-a81f8a0f7d05",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:33.554Z",
+      "crawledAt": "2026-11-20T09:41:48.851Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "postalCode": "5400",
@@ -1521,7 +1523,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-fachrichtung-hausdienst/6d665ac2-ec28-44b7-a53e-4480456653e0",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:32.948Z",
+      "crawledAt": "2026-11-20T09:41:47.956Z",
       "addressLocality": "Wettingen",
       "addressRegion": "AG",
       "postalCode": "5430",
@@ -1609,7 +1611,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/rechtspraktikantin-rechtspraktikant/5d2d5045-3a6c-4a97-b939-b92e34178e67",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:32.248Z",
+      "crawledAt": "2026-11-20T09:41:47.079Z",
       "addressLocality": "Zofingen",
       "addressRegion": "AG",
       "streetAddress": "Frey-Herosé-Strasse 20",
@@ -1698,7 +1700,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/it-security-operations-engineer-windows-und-linux-server/4e631720-fc8c-425c-b38e-af58253423b3",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:31.719Z",
+      "crawledAt": "2026-11-20T09:41:46.391Z",
       "addressLocality": "Unterentfelden",
       "addressRegion": "AG",
       "streetAddress": "Suhrenmattstrasse 48",
@@ -1784,7 +1786,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/database-data-engineer/e642683b-2950-4123-ae3c-2eb57934ba2e",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:31.167Z",
+      "crawledAt": "2026-11-20T09:41:45.593Z",
       "addressLocality": "Unterentfelden",
       "addressRegion": "AG",
       "streetAddress": "Suhrenmattstrasse 48",
@@ -1867,7 +1869,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/fachspezialistin-fachspezialist-mobilfunk-nichtionisierende-strahlung/8e693bdf-ae72-488b-b6fd-ab8b036ede22",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:30.415Z",
+      "crawledAt": "2026-11-20T09:41:44.801Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Entfelderstrasse 22",
@@ -1953,7 +1955,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/praktikum-museumsarbeit/4287f02e-e7ca-4240-bdf0-04200b62d5ff",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:29.778Z",
+      "crawledAt": "2026-11-20T09:41:43.894Z",
       "addressLocality": "Lenzburg",
       "addressRegion": "AG",
       "streetAddress": "Schloss",
@@ -2039,7 +2041,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/praktikum-informationswissenschaft/0c9d6881-6788-4cac-bb65-1d83a761a7f8",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:29.000Z",
+      "crawledAt": "2026-11-20T09:41:42.606Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Bahnhofstrasse 91",
@@ -2125,7 +2127,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/rechtspraktikantin-rechtspraktikant/6f327400-4fc5-4f71-8aac-e196ab97b609",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:28.357Z",
+      "crawledAt": "2026-11-20T09:41:41.091Z",
       "addressLocality": "Bremgarten",
       "addressRegion": "AG",
       "streetAddress": "Rathausplatz 1",
@@ -2216,7 +2218,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/praktikum-informationswissenschaft/0daeeeec-d394-4d31-82ff-cc4f1ac01935",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:27.753Z",
+      "crawledAt": "2026-11-20T09:41:40.602Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -2302,7 +2304,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/rechtspraktikantin-rechtspraktikant/bd5f544e-0ff6-4792-b439-40bbba7ee84a",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:27.115Z",
+      "crawledAt": "2026-11-20T09:41:40.075Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "streetAddress": "Mellingerstrasse 2a",
@@ -2391,7 +2393,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/sachbearbeiterin-sachbearbeiter-arbeitslosenentschaedigung/46dd79ac-2b55-4509-b1f5-2a2f49a42c97",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:26.612Z",
+      "crawledAt": "2026-11-20T09:41:39.598Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "streetAddress": "Hirschlistrasse 3",
@@ -2477,7 +2479,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/praktikum-fahrzeugdisposition/4c86e07c-57f6-42c5-8c49-f50b28605fe4",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:26.148Z",
+      "crawledAt": "2026-11-20T09:41:39.113Z",
       "addressLocality": "Schafisheim",
       "addressRegion": "AG",
       "streetAddress": "Länzert 2",
@@ -2563,7 +2565,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/vollzugsangestellte-vollzugsangestellter-fachabloesung-schlosserei/39a2d05d-dfca-4d68-a929-8313392c0f76",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:25.521Z",
+      "crawledAt": "2026-11-20T09:41:38.525Z",
       "addressLocality": "Lenzburg",
       "addressRegion": "AG",
       "streetAddress": "Ziegeleiweg 13",
@@ -2649,7 +2651,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/vollzugsangestellte-vollzugsangestellter-loge-zentralgefaengnis/f69ec569-d88a-447f-91c4-321e1b8155ba",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:24.936Z",
+      "crawledAt": "2026-11-20T09:41:37.950Z",
       "addressLocality": "Lenzburg",
       "addressRegion": "AG",
       "streetAddress": "Wilstrasse 51",
@@ -2735,7 +2737,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/sachbearbeiterin-sachbearbeiter-arbeitslosenentschaedigung/59194743-93f4-47c8-95cb-a4b6ccad2bc5",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:24.342Z",
+      "crawledAt": "2026-11-20T09:41:37.382Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Bahnhofstrasse 78",
@@ -2823,7 +2825,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/fachspezialistin-fachspezialist-beschaffungsmanagement/ca22012a-af54-4167-8f00-d2436c34d72a",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:23.849Z",
+      "crawledAt": "2026-11-20T09:41:36.889Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Bachstrasse 15",
@@ -2908,7 +2910,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/leiterin-leiter-staatsanwaltschaft-zofingen-kulm/fa8ae7d1-2156-44a3-923b-07f1aeb3ba04",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:23.192Z",
+      "crawledAt": "2026-11-20T09:41:36.241Z",
       "addressLocality": "Zofingen",
       "addressRegion": "AG",
       "streetAddress": "Untere Grabenstrasse 32",
@@ -2996,7 +2998,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/praktikum-im-bereich-gis/a894e7ce-1ae7-4dfc-a9bc-d1b7f3d71c8e",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:22.545Z",
+      "crawledAt": "2026-11-20T09:41:35.694Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Entfelderstrasse 22",
@@ -3082,7 +3084,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/mittelschullehrperson-schulmusik/2d419115-1d4e-48cd-90b4-328638c39b5b",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:21.936Z",
+      "crawledAt": "2026-11-20T09:41:35.068Z",
       "addressLocality": "Wettingen",
       "addressRegion": "AG",
       "streetAddress": "Klosterstrasse 11",
@@ -3168,7 +3170,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/lehrperson-berufskunde-fage-auch-aufteilbar/2845d146-86ba-4897-a888-e1de31032b0f",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:21.382Z",
+      "crawledAt": "2026-11-20T09:41:34.579Z",
       "addressLocality": "Schulstandorte Brugg und Aussenstandorte",
       "addressRegion": "AG",
       "streetAddress": "Baslerstrasse 45",
@@ -3254,7 +3256,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/vollzugsangestellte-vollzugsangestellter-fachabloesung-druckerei-buchbinderei/d5e81caa-0a55-491c-90ea-2eb903a16da9",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:20.821Z",
+      "crawledAt": "2026-11-20T09:41:34.021Z",
       "addressLocality": "Lenzburg",
       "addressRegion": "AG",
       "streetAddress": "Ziegeleiweg 13",
@@ -3340,7 +3342,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/fachspezialistin-fachspezialist-obst-und-beerenbau/4368816a-19cb-4e7b-abb6-63005f000962",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:20.221Z",
+      "crawledAt": "2026-11-20T09:41:33.354Z",
       "addressLocality": "Gränichen",
       "addressRegion": "AG",
       "postalCode": "5722",
@@ -3427,7 +3429,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/praktikum-fuer-maturanden/df5a9a82-bb19-4a9d-be87-ac3318f4df1d",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:19.581Z",
+      "crawledAt": "2026-11-20T09:41:32.740Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Bahnhofstrasse 88",
@@ -3515,7 +3517,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/praktikum-als-fachfrau-fachmann-betriebsunterhalt-efz/192fcd7c-3e49-4ebe-8ff5-6faac046ac2b",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:19.085Z",
+      "crawledAt": "2026-11-20T09:41:32.247Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Bahnhofstrasse 79",
@@ -3602,7 +3604,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/sozialarbeiterin-sozialarbeiter/92de0f14-b92c-401c-89c7-b4354c915cdb",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:18.416Z",
+      "crawledAt": "2026-11-20T09:41:31.600Z",
       "addressLocality": "Lenzburg",
       "addressRegion": "AG",
       "streetAddress": "Ziegeleiweg 13",
@@ -3688,7 +3690,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/geschaeftsfuehrerin-geschaeftsfuehrer-bildungsraum-nordwestschweiz-brnw/3cd995e0-2831-46ea-bf62-3940077a8d48",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:17.766Z",
+      "crawledAt": "2026-11-20T09:41:30.969Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Bachstrasse 15",
@@ -3774,7 +3776,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/sachbearbeiterin-sachbearbeiter/5cd2878b-50c2-456e-881e-ce62f47f7a90",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:17.135Z",
+      "crawledAt": "2026-11-20T09:41:30.298Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Tellistrasse 81",
@@ -3860,7 +3862,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/sachbearbeiterin-sachbearbeiter-spitalfinanzierung/6ed30f75-4ca0-42ff-91f7-fb1eaf0a9803",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:16.556Z",
+      "crawledAt": "2026-11-20T09:41:29.697Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -3948,7 +3950,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/verantwortliche-verantwortlicher-geschaeftskoordination-und-vertrags-und-lieferantenmanagement/24a828a6-d074-4c34-9052-4274f8d8825b",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:15.968Z",
+      "crawledAt": "2026-11-20T09:41:28.980Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Entfelderstrasse 22",
@@ -4036,7 +4038,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/rechtspraktikantin-rechtspraktikant/7b20ec75-d79c-4b5e-a1c6-e3c4a1ec4f3f",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:15.351Z",
+      "crawledAt": "2026-11-20T09:41:28.308Z",
       "addressLocality": "Unterkulm",
       "addressRegion": "AG",
       "streetAddress": "Zentrumsplatz 1",
@@ -4119,7 +4121,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/rechtspraktikantin-rechtspraktikant/8b8770af-69e1-4c9a-b27a-b21ee63e43ae",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:14.844Z",
+      "crawledAt": "2026-11-20T09:41:27.624Z",
       "addressLocality": "Unterkulm",
       "addressRegion": "AG",
       "streetAddress": "Zentrumsplatz 1",
@@ -4220,7 +4222,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/ict-fachspezialistin-ict-fachspezialist/307b9674-5135-41fe-b0aa-2a1edad588d8",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:14.340Z",
+      "crawledAt": "2026-11-20T09:41:27.069Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Entfelderstrasse 22",
@@ -4360,7 +4362,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "sourceIdentity": "url:https://jobs.ag.ch/offene-stellen/praktikum-kommunikation/59bf573f-5f4a-409e-912d-fe15fc0d0b0e"
+      "sourceIdentity": "url:https://jobs.ag.ch/offene-stellen/praktikum-kommunikation/59bf573f-5f4a-409e-912d-fe15fc0d0b0e",
+      "crawlerMissStreak": 1
     },
     {
       "id": "kanton-aargau-2cb50d6e5730",
@@ -4394,7 +4397,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/sachbearbeiterin-sachbearbeiter-revisorat/cb2cabe1-9517-4ad1-8303-0e03d7f7a810",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:13.131Z",
+      "crawledAt": "2026-11-20T09:41:26.497Z",
       "addressLocality": "Brugg",
       "addressRegion": "AG",
       "streetAddress": "Untere Hofstatt 4",
@@ -4479,7 +4482,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/handwerkerin-handwerker/c619f346-061f-4a96-b1f2-454124510166",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:12.633Z",
+      "crawledAt": "2026-11-20T09:41:26.009Z",
       "addressLocality": "Wohlen",
       "addressRegion": "AG",
       "streetAddress": "Farnstrasse 6",
@@ -4564,7 +4567,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/handwerkerin-handwerker/2b04e5f7-30fc-4123-9f7a-25437d0728fc",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:11.947Z",
+      "crawledAt": "2026-11-20T09:41:24.980Z",
       "addressLocality": "Oftringen",
       "addressRegion": "AG",
       "streetAddress": "Striegelstrasse 5",
@@ -4650,7 +4653,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/fachperson-justizvollzug-gewerbe/d9a833b7-d178-46f8-b97c-ccd8eb3c7106",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:11.314Z",
+      "crawledAt": "2026-11-20T09:41:24.157Z",
       "addressLocality": "Lenzburg",
       "addressRegion": "AG",
       "streetAddress": "Ziegeleiweg",
@@ -4736,7 +4739,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/sachbearbeiterin-sachbearbeiter-kanzlei/d2f74b27-0db8-4d07-9ee7-01e154a4c72e",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:10.750Z",
+      "crawledAt": "2026-11-20T09:41:23.392Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Obere Vorstadt 38",
@@ -4822,7 +4825,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/zeichnerin-zeichner-infrastrukturbau-50/d35dc2a0-532c-4546-87dc-eaddd816aaeb",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:10.268Z",
+      "crawledAt": "2026-11-20T09:41:22.706Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Entfelderstrasse 22",
@@ -4904,7 +4907,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/archivinformatikerin-archivinformatiker/96420285-5397-487f-8d71-e428d003caa5",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:09.645Z",
+      "crawledAt": "2026-11-20T09:41:21.972Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -4976,7 +4979,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/mittelschullehrperson-saxophon/3dc84d75-b8fb-471d-b137-d475d932efe7",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:09.129Z",
+      "crawledAt": "2026-11-20T09:41:21.287Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Bahnhofstrasse 91",
@@ -5058,7 +5061,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/prorektorin-prorektor/e60441c3-cfd2-42aa-a961-5f487c237b61",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:08.499Z",
+      "crawledAt": "2026-11-20T09:41:20.582Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Bahnhofstrasse 91",
@@ -5143,7 +5146,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/it-leiterin-informatikbeauftragte-it-leiter-informatikbeauftragter-bks/de92f322-1ac3-4deb-90e1-5255e8d3434f",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:07.903Z",
+      "crawledAt": "2026-11-20T09:41:19.914Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Bachstrasse 15",
@@ -5229,7 +5232,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/sachbearbeiterin-sachbearbeiter-information/92f7c6f9-e4db-40a0-805f-2575f310707f",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:07.226Z",
+      "crawledAt": "2026-11-20T09:41:19.182Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Bahnhofstrasse 88",
@@ -5315,7 +5318,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/praktikantin-praktikant-spezialkulturen/7fe77e2c-18e4-46dd-9738-470f33dba632",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:06.616Z",
+      "crawledAt": "2026-11-20T09:41:18.470Z",
       "addressLocality": "Gränichen",
       "addressRegion": "AG",
       "postalCode": "5722",
@@ -5401,7 +5404,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/mittelschullehrperson-wirtschaft-und-recht/06e1b329-957d-406b-8899-e6cf23302963",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:06.014Z",
+      "crawledAt": "2026-11-20T09:41:17.603Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "streetAddress": "Seminarstrasse 3",
@@ -5486,7 +5489,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/stabsbereichsleiterin-stabsbereichsleiter-gebaeudetechnik-hlkk-s-elektro/e0fe25cf-397d-44a3-a388-7ab90d89766b",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:05.517Z",
+      "crawledAt": "2026-11-20T09:41:16.986Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Tellistrasse 67",
@@ -5572,7 +5575,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/rechtspraktikantin-rechtspraktikant/6982c568-f5fc-4344-970c-a905732b404b",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:04.891Z",
+      "crawledAt": "2026-11-20T09:41:15.988Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -5646,13 +5649,12 @@
         "de": "Spannende Aufgaben warten:\n• Mitwirkung bei Urteilsberatungen\n• Aktenstudium\n• Bei Bedarf Erstattung von Fachberichten\n\nWas Sie mitbringen:\n• Abgeschlossene Ausbildung / Erfahrung im Immobilienbereich als Architekt/in, Immobilientreuhänder/in, Immobilienbewerter/in\n• Gute betriebswirtschaftliche Kenntnisse\n• Stimmberechtigung und einwandfreier Leumund sowie Bereitschaft, sich dem Evaluationsverfahren durch die grossrätliche Kommission für Justiz zu stellen\n\nDer Arbeitseinsatz ist in der Abteilung Steuern des Spezialverwaltungsgerichts.\n\nDie Wahl erfolgt durch den Grossen Rat auf Antrag der Kommission für Justiz.\n\nBenefits\nGesund bleiben\n• Ganzheitliches Betriebliches Gesundheitsmanagement zur Förderung von körperlichem, psychischem und sozialem Wohlbefinden\n• Verschiedene Sportangebote\nVorwärtskommen\n• Vielfältige Weiterentwicklungsmöglichkeiten inkl. internem Bildungsangebot mit über 180 Seminaren\n• Beteiligung an den Kosten von externen Weiterbildungen nach Absprache\nFairsichert\n• 16 Wochen Mutterschaftsurlaub mit vollem Lohn\n• 2 Wochen Vaterschaftsurlaub mit vollem Lohn\n• Wir übernehmen rund 60 % der PK-Beiträge\n\n• Pensum: bis 50%\n• Anstellung: unbefristet\n• Abteilung: Parlamentsdienst\n• Arbeitsort: Aarau",
         "fr": "Des tâches passionnantes attendent :\n• Participation aux délibérations\n• Étude des dossiers\n• Remboursement des rapports techniques si nécessaire\n\nCe que vous apportez:\n• Formation / expérience terminée dans le secteur immobilier en tant qu'architecte, administrateur immobilier, expert immobilier\n• Bonnes connaissances commerciales\n• Droit de vote et bonne réputation et volonté de faire face au processus d'évaluation de la Commission pour la justice du Grand Conseil\n\nL'affectation des travaux se fait au service fiscal du Tribunal administratif spécial.\n\nL'élection est faite par le Grand Conseil à la demande de la Commission pour la justice.\n\nAvantages\nRestez en bonne santé\n• Gestion holistique de la santé au travail pour promouvoir le bien-être physique, mental et social\n• Diverses activités sportives\nAller de l'avant\n• Diverses possibilités de développement, y compris l'éducation interne, avec plus de 180 séminaires\n• Participation aux coûts de la formation externe par accord\nJustement sécurisé\n• 16 semaines de congé de maternité à plein salaire\n• 2 semaines de congé de paternité à plein salaire\n• Nous couvrons environ 60% des contributions PK\n\n• Pensum: jusqu'à 50 %\n• Emploi: indéfini\n• Département : Service parlementaire\n• Lieu de travail: Aarau"
       },
-      "needsRetranslation": false,
       "location": "Aarau",
       "canton": "AG",
       "url": "https://jobs.ag.ch/offene-stellen/nebenamtliche-r-fachrichter-in-architekt-in-htl-eth-fh-dipl-immobilientreuhaender-in-immobilienschaetzer-in/13480396-f3fe-4405-aca6-ac018c444738",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:04.286Z",
+      "crawledAt": "2026-11-20T09:41:14.609Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Obere Vorstadt 37",
@@ -5674,21 +5676,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Parlamentsdienst",
-      "previousSlugs": [
-        "nebenamtliche-r-fachrichter-in-architekt-in-htl-eth-fh-dipl-immobilientreuhander-in"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "nebenamtliche-r-fachrichter-in-architekt-in-htl-eth-fh-dipl-immobilientreuhander-in"
-        ],
-        "en": [
-          "nebenamtliche-r-fachrichter-in-architekt-in-htl-eth-fh-dipl-immobilientreuhander-in"
-        ],
-        "fr": [
-          "nebenamtliche-r-fachrichter-in-architekt-in-htl-eth-fh-dipl-immobilientreuhander-in"
-        ]
-      },
-      "firstSeenAt": "2026-11-19T09:32:19.302Z",
       "salaryMin": 6200,
       "salaryMax": 9400,
       "salarySource": "estimated",
@@ -5704,6 +5691,22 @@
       },
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
+      "firstSeenAt": "2026-11-19T09:32:19.302Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "nebenamtliche-r-fachrichter-in-architekt-in-htl-eth-fh-dipl-immobilientreuhander-in"
+        ],
+        "en": [
+          "nebenamtliche-r-fachrichter-in-architekt-in-htl-eth-fh-dipl-immobilientreuhander-in"
+        ],
+        "fr": [
+          "nebenamtliche-r-fachrichter-in-architekt-in-htl-eth-fh-dipl-immobilientreuhander-in"
+        ]
+      },
+      "previousSlugs": [
+        "nebenamtliche-r-fachrichter-in-architekt-in-htl-eth-fh-dipl-immobilientreuhander-in"
+      ],
+      "needsRetranslation": false,
       "sourceIdentity": "url:https://jobs.ag.ch/offene-stellen/nebenamtliche-r-fachrichter-in-architekt-in-htl-eth-fh-dipl-immobilientreuhaender-in-immobilienschaetzer-in/13480396-f3fe-4405-aca6-ac018c444738"
     },
     {
@@ -5732,13 +5735,12 @@
         "de": "Spannende Aufgaben warten:\n• Führen von juristischen Aufsichtsverfahren gegen Personen und Institutionen im Gesundheitsbereich unter Zusammenarbeit mit der Kantonsärztin, Kantonszahnärztin und Kantonsapothekerin\n• Prüfen von gesundheitspolizeilichen und sozialversicherungsrechtlichen Gesuchen im Bereich der ambulanten und stationären Gesundheitsberufe\n• Beantwortung von Fragestellungen zur Modalitäten der gesamten Berufsausübung bei Gesundheitsberufen\n• Unterstützung in rechtlichen Fragen rund um gesundheitsrechtliche Themen wie Heilmittelrecht, Krankengeschichte und Datenschutz\n\nWas Sie mitbringen:\n• Abgeschlossenes juristisches Hochschulstudium sowie mehrjährige Erfahrung, idealerweise im Bereich der öffentlichen Verwaltung\n• Fundierte Kenntnisse im öffentlichen Recht und in Administrativverfahren sowie Interesse an regulatorischen Fragen im Gesundheitswesen\n• Strukturierte, selbstständige und lösungsorientierte Arbeitsweise\n• Aufgestellte und interessierte Persönlichkeit, die auch in hektischen Situationen ihre Belastbarkeit behält\n\nDie Bevölkerung steht im Zentrum der Tätigkeiten des Departements Gesundheit und Soziales. Für die Sicherheit ihrer Lebensbereiche arbeiten wir nachhaltig und zielgerichtet. Die Abteilung Gesundheit stellt den Schutz der Gesundheit in den Mittelpunkt. Wir gewährleisten eine bedarfsgerechte, finanzierbare und qualitativ hochstehende Gesundheitsversorgung, fördern die Zusammenarbeit und digitale Vernetzung zwischen den Leistungserbringern im Gesundheitswesen und stärken das gesundheitsbewusste Verhalten der Bevölkerung.\n\nBenefits\nGesund bleiben\n• Ganzheitliches Betriebliches Gesundheitsmanagement zur Förderung von körperlichem, psychischem und sozialem Wohlbefinden\n• Verschiedene Sportangebote\nFairsichert\n• 16 Wochen Mutterschaftsurlaub mit vollem Lohn\n• 2 Wochen Vaterschaftsurlaub mit vollem Lohn\n• Wir übernehmen rund 60 % der PK-Beiträge\n\n• Pensum: 80 - 100%\n• Anstellung: unbefristet\n• Abteilung: Gesundheit\n• Arbeitsort: Aarau",
         "fr": "Des tâches passionnantes attendent :\n• Procédure de contrôle judiciaire à l ' encontre des personnes et des institutions du secteur de la santé, en coopération avec le médecin cantonal, le dentiste cantonal et le pharmacien cantonal\n• Examen des applications de la santé et de la sécurité sociale dans le domaine des professions ambulatoires et des soins hospitaliers\n• Réponse aux questions sur les modalités de l'ensemble de la profession des professionnels de la santé\n• Soutien en matière juridique dans des domaines tels que le droit thérapeutique, l'histoire médicale et la protection des données\n\nCe que vous apportez:\n• Diplôme de droit et plusieurs années d'expérience, idéalement dans le domaine de l'administration publique\n• Connaissance approfondie du droit public et des procédures administratives ainsi que de l'intérêt pour les questions réglementaires en matière de soins de santé\n• Méthode de travail structurée, indépendante et axée sur la solution\n• Personnalité établie et intéressée qui conserve sa résilience même dans des situations agitées\n\nLa population est au cœur des activités du Département de la santé et des affaires sociales. Pour la sécurité de leurs domaines de vie, nous travaillons de manière durable et délibérée. Le Département de la santé se concentre sur la protection de la santé. Nous assurons des soins de santé fondés sur les besoins, abordables et de haute qualité, promouvons la coopération et la mise en réseau numérique entre les prestataires de soins de santé et renforçons les comportements soucieux de la santé au sein de la population.\n\nAvantages\nRestez en bonne santé\n• Gestion holistique de la santé au travail pour promouvoir le bien-être physique, mental et social\n• Diverses activités sportives\nJustement sécurisé\n• 16 semaines de congé de maternité à plein salaire\n• 2 semaines de congé de paternité à plein salaire\n• Nous couvrons environ 60% des contributions PK\n\n• Pensum: 80 - 100%\n• Emploi: indéfini\n• Département : Santé\n• Lieu de travail: Aarau"
       },
-      "needsRetranslation": false,
       "location": "Aarau",
       "canton": "AG",
       "url": "https://jobs.ag.ch/offene-stellen/juristin-jurist/1a4f75cc-4c15-4e9c-82c4-1763e4f9944c",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:03.661Z",
+      "crawledAt": "2026-11-20T09:41:13.882Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -5759,21 +5761,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Gesundheit",
-      "previousSlugs": [
-        "juristin-jurist-100-kanton-aargau-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "juristin-jurist-100-kanton-aargau-ch"
-        ],
-        "en": [
-          "juristin-jurist-100-kanton-aargau-ch"
-        ],
-        "fr": [
-          "juristin-jurist-100-kanton-aargau-ch"
-        ]
-      },
-      "firstSeenAt": "2026-11-19T09:32:17.405Z",
       "salaryMin": 70500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -5790,40 +5777,56 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
+      "firstSeenAt": "2026-11-19T09:32:17.405Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "juristin-jurist-100-kanton-aargau-ch"
+        ],
+        "en": [
+          "juristin-jurist-100-kanton-aargau-ch"
+        ],
+        "fr": [
+          "juristin-jurist-100-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "juristin-jurist-100-kanton-aargau-ch"
+      ],
+      "needsRetranslation": false,
       "sourceIdentity": "url:https://jobs.ag.ch/offene-stellen/juristin-jurist/1a4f75cc-4c15-4e9c-82c4-1763e4f9944c"
     },
     {
       "id": "kanton-aargau-55833a076c98",
-      "slug": "interno-legale-interno-legale-100-kanton-aargau-aarau",
+      "slug": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch",
       "slugByLocale": {
         "de": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch",
-        "it": "interno-legale-interno-legale-100-kanton-aargau-aarau",
-        "en": "legal-intern-legal-intern-100-kanton-aargau-aarau",
-        "fr": "stage-juridique-stage-juridique-100-kanton-aargau-aarau"
+        "it": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch",
+        "en": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch",
+        "fr": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
       "companyDomain": "ag.ch",
       "title": "Rechtspraktikantin / Rechtspraktikant 100%",
       "titleByLocale": {
-        "it": "Interno legale / Interno legale 100%",
-        "en": "Legal intern / Legal intern 100%",
-        "fr": "Stage juridique / Stage juridique 100%",
+        "it": "Rechtspraktikantin / Rechtspraktikant 100%",
+        "en": "Rechtspraktikantin / Rechtspraktikant 100%",
+        "fr": "Rechtspraktikantin / Rechtspraktikant 100%",
         "de": "Rechtspraktikantin / Rechtspraktikant 100%"
       },
       "description": "Spannende Aufgaben warten:\n• Instruktion von Verfahren und Verfassen von Entscheiden im Bereich des Bau-, Planungs- und Umweltrechts\n• Teilnahme an Augenscheinen und Verhandlungen\n• Protokollführung\n• Beraten von Gemeinden und Privaten (schriftlich und telefonisch)\n• Rechtliche Abklärungen\n\nWas du mitbringst:\n• Abgeschlossenes juristisches Studium (Master of Law)\n• Interesse am öffentlichen Recht\n• Stilsichere Ausdrucksweise\n\nIm Departement Bau, Verkehr und Umwelt entwickeln wir den vielfältigen Lebensraum Aargau in den Bereichen Raum, Energie, Umwelt und Mobilität aktiv weiter – heute und für zukünftige Generationen.\nIn der Rechtsabteilung bearbeiten und entscheiden wir Bau- und Planbeschwerden und bereiten Einwendungsentscheide zu Strassen- und Wasserbauprojekten vor. Wir beraten die Fachabteilungen des Departements und beantworten externe Anfragen zum Bau-, Planungs- und Umweltrecht.\n\nBenefits\nGesund bleiben\n• Ganzheitliches Betriebliches Gesundheitsmanagement zur Förderung von körperlichem, psychischem und sozialem Wohlbefinden\n• Verschiedene Sportangebote\nFair bezahlt\n• Gleicher Lohn für gleiche Arbeit\n• Dienstaltersgeschenk nach 15 Jahren\nVorwärtskommen\n• Vielfältige Weiterentwicklungsmöglichkeiten inkl. internem Bildungsangebot mit über 180 Seminaren\n• Beteiligung an den Kosten von externen Weiterbildungen nach Absprache\n\n• Pensum: 80 - 100%\n• Anstellung: befristet\n• Abteilung: Rechtsabteilung\n• Arbeitsort: Aarau",
       "descriptionByLocale": {
         "de": "Spannende Aufgaben warten:\n• Instruktion von Verfahren und Verfassen von Entscheiden im Bereich des Bau-, Planungs- und Umweltrechts\n• Teilnahme an Augenscheinen und Verhandlungen\n• Protokollführung\n• Beraten von Gemeinden und Privaten (schriftlich und telefonisch)\n• Rechtliche Abklärungen\n\nWas du mitbringst:\n• Abgeschlossenes juristisches Studium (Master of Law)\n• Interesse am öffentlichen Recht\n• Stilsichere Ausdrucksweise\n\nIm Departement Bau, Verkehr und Umwelt entwickeln wir den vielfältigen Lebensraum Aargau in den Bereichen Raum, Energie, Umwelt und Mobilität aktiv weiter – heute und für zukünftige Generationen.\nIn der Rechtsabteilung bearbeiten und entscheiden wir Bau- und Planbeschwerden und bereiten Einwendungsentscheide zu Strassen- und Wasserbauprojekten vor. Wir beraten die Fachabteilungen des Departements und beantworten externe Anfragen zum Bau-, Planungs- und Umweltrecht.\n\nBenefits\nGesund bleiben\n• Ganzheitliches Betriebliches Gesundheitsmanagement zur Förderung von körperlichem, psychischem und sozialem Wohlbefinden\n• Verschiedene Sportangebote\nFair bezahlt\n• Gleicher Lohn für gleiche Arbeit\n• Dienstaltersgeschenk nach 15 Jahren\nVorwärtskommen\n• Vielfältige Weiterentwicklungsmöglichkeiten inkl. internem Bildungsangebot mit über 180 Seminaren\n• Beteiligung an den Kosten von externen Weiterbildungen nach Absprache\n\n• Pensum: 80 - 100%\n• Anstellung: befristet\n• Abteilung: Rechtsabteilung\n• Arbeitsort: Aarau",
-        "it": "Eccitanti compiti attendono:\n• Istruzione delle procedure e redazione delle decisioni in materia di costruzione, pianificazione e diritto ambientale\n• Partecipazione a ispezioni e trattative\n• Conservazione dei record\n• Consulenza comuni e privati (scritto e per telefono)\n• Inchieste legali\n\nCosa porti:\n• Studi di Legge Completati (Maestro della Legge)\n• Interessi del diritto pubblico\n• Espressione stilistica\n\nNel Dipartimento di Costruzione, Trasporti e Ambiente, stiamo sviluppando attivamente il diverso habitat Aargau nelle aree di spazio, energia, ambiente e mobilità – oggi e per le generazioni future.\nNel dipartimento legale, procediamo e decidiamo su reclami di costruzione e pianificazione e prepariamo decisioni di opposizione su progetti di ingegneria stradale e idraulica. Consigliamo i dipartimenti specializzati del dipartimento e rispondiamo alle richieste esterne in materia di costruzione, pianificazione e diritto ambientale.\n\nVantaggi\nSoggiornare sano\n• Gestione della salute professionale olistica per promuovere il benessere fisico, mentale e sociale\n• Attività sportive\ndebitamente pagato\n• Pari retribuzione per lavoro uguale\n• Regalo di anzianità dopo 15 anni\nAvanti.\n• Varie ulteriori opportunità di sviluppo, tra cui l'istruzione interna con oltre 180 seminari\n• Partecipazione ai costi della formazione esterna per accordo\n\n• Pensum: 80 - 100%\n• Occupazione: temporaneo\n• Dipartimento: Dipartimento Legale\n• Luogo di lavoro: Aarau",
-        "en": "Exciting tasks await:\n• Instruction of procedures and drafting of decisions in the field of construction, planning and environmental law\n• Participation in inspections and negotiations\n• Record keeping\n• Advising municipalities and private individuals (written and by telephone)\n• Legal investigations\n\nWhat you bring:\n• Completed Law Studies (Master of Law)\n• Interest in public law\n• Stylistic expression\n\nIn the Department of Construction, Transport and Environment, we are actively developing the diverse habitat Aargau in the areas of space, energy, environment and mobility – today and for future generations.\nIn the legal department, we process and decide on construction and planning complaints and prepare objection decisions on road and hydraulic engineering projects. We advise the department’s specialist departments and answer external inquiries regarding construction, planning and environmental law.\n\nBenefits\nStaying healthy\n• Holistic occupational health management to promote physical, mental and social well-being\n• Various sports activities\nFairly paid\n• Equal pay for equal work\n• Gift of seniority after 15 years\nMoving forward\n• Various further development opportunities including internal education with over 180 seminars\n• Participation in the costs of external training by agreement\n\n• Pensum: 80 - 100%\n• Employment: temporary\n• Department: Legal Department\n• Place of work: Aarau",
-        "fr": "Des tâches passionnantes attendent :\n• Instruction des procédures et rédaction des décisions dans le domaine du droit de la construction, de la planification et de l ' environnement\n• Participation aux inspections et aux négociations\n• Tenue des dossiers\n• Conseiller les municipalités et les particuliers (écrits et par téléphone)\n• Enquêtes juridiques\n\nCe que vous apportez :\n• Études de droit terminées (maîtrise en droit)\n• Intérêt pour le droit public\n• Expression styliste\n\nAu ministère de la Construction, des Transports et de l'Environnement, nous développons activement la diversité de l'habitat Argovie dans les domaines de l'espace, de l'énergie, de l'environnement et de la mobilité – aujourd'hui et pour les générations futures.\nAu sein du service juridique, nous traitons et décidons des plaintes relatives à la construction et à la planification et préparons des décisions d'opposition sur les projets d'ingénierie routière et hydraulique. Nous conseillons les départements spécialisés et répondons aux demandes de renseignements externes concernant la construction, la planification et le droit environnemental.\n\nAvantages\nRester en bonne santé\n• Gestion holistique de la santé au travail pour promouvoir le bien-être physique, mental et social\n• Activités sportives diverses\nJustement payé\n• Égalité de rémunération pour un travail égal\n• Don d'ancienneté après 15 ans\nAller de l'avant\n• Diverses possibilités de développement, y compris l'éducation interne, avec plus de 180 séminaires\n• Participation par accord aux coûts de la formation externe\n\n• Pensum: 80 - 100%\n• Emploi temporaire\n• Département : Département juridique\n• Lieu de travail: Aarau"
+        "it": "Spannende Aufgaben warten:\n• Instruktion von Verfahren und Verfassen von Entscheiden im Bereich des Bau-, Planungs- und Umweltrechts\n• Teilnahme an Augenscheinen und Verhandlungen\n• Protokollführung\n• Beraten von Gemeinden und Privaten (schriftlich und telefonisch)\n• Rechtliche Abklärungen\n\nWas du mitbringst:\n• Abgeschlossenes juristisches Studium (Master of Law)\n• Interesse am öffentlichen Recht\n• Stilsichere Ausdrucksweise\n\nIm Departement Bau, Verkehr und Umwelt entwickeln wir den vielfältigen Lebensraum Aargau in den Bereichen Raum, Energie, Umwelt und Mobilität aktiv weiter – heute und für zukünftige Generationen.\nIn der Rechtsabteilung bearbeiten und entscheiden wir Bau- und Planbeschwerden und bereiten Einwendungsentscheide zu Strassen- und Wasserbauprojekten vor. Wir beraten die Fachabteilungen des Departements und beantworten externe Anfragen zum Bau-, Planungs- und Umweltrecht.\n\nBenefits\nGesund bleiben\n• Ganzheitliches Betriebliches Gesundheitsmanagement zur Förderung von körperlichem, psychischem und sozialem Wohlbefinden\n• Verschiedene Sportangebote\nFair bezahlt\n• Gleicher Lohn für gleiche Arbeit\n• Dienstaltersgeschenk nach 15 Jahren\nVorwärtskommen\n• Vielfältige Weiterentwicklungsmöglichkeiten inkl. internem Bildungsangebot mit über 180 Seminaren\n• Beteiligung an den Kosten von externen Weiterbildungen nach Absprache\n\n• Pensum: 80 - 100%\n• Anstellung: befristet\n• Abteilung: Rechtsabteilung\n• Arbeitsort: Aarau",
+        "en": "Spannende Aufgaben warten:\n• Instruktion von Verfahren und Verfassen von Entscheiden im Bereich des Bau-, Planungs- und Umweltrechts\n• Teilnahme an Augenscheinen und Verhandlungen\n• Protokollführung\n• Beraten von Gemeinden und Privaten (schriftlich und telefonisch)\n• Rechtliche Abklärungen\n\nWas du mitbringst:\n• Abgeschlossenes juristisches Studium (Master of Law)\n• Interesse am öffentlichen Recht\n• Stilsichere Ausdrucksweise\n\nIm Departement Bau, Verkehr und Umwelt entwickeln wir den vielfältigen Lebensraum Aargau in den Bereichen Raum, Energie, Umwelt und Mobilität aktiv weiter – heute und für zukünftige Generationen.\nIn der Rechtsabteilung bearbeiten und entscheiden wir Bau- und Planbeschwerden und bereiten Einwendungsentscheide zu Strassen- und Wasserbauprojekten vor. Wir beraten die Fachabteilungen des Departements und beantworten externe Anfragen zum Bau-, Planungs- und Umweltrecht.\n\nBenefits\nGesund bleiben\n• Ganzheitliches Betriebliches Gesundheitsmanagement zur Förderung von körperlichem, psychischem und sozialem Wohlbefinden\n• Verschiedene Sportangebote\nFair bezahlt\n• Gleicher Lohn für gleiche Arbeit\n• Dienstaltersgeschenk nach 15 Jahren\nVorwärtskommen\n• Vielfältige Weiterentwicklungsmöglichkeiten inkl. internem Bildungsangebot mit über 180 Seminaren\n• Beteiligung an den Kosten von externen Weiterbildungen nach Absprache\n\n• Pensum: 80 - 100%\n• Anstellung: befristet\n• Abteilung: Rechtsabteilung\n• Arbeitsort: Aarau",
+        "fr": "Spannende Aufgaben warten:\n• Instruktion von Verfahren und Verfassen von Entscheiden im Bereich des Bau-, Planungs- und Umweltrechts\n• Teilnahme an Augenscheinen und Verhandlungen\n• Protokollführung\n• Beraten von Gemeinden und Privaten (schriftlich und telefonisch)\n• Rechtliche Abklärungen\n\nWas du mitbringst:\n• Abgeschlossenes juristisches Studium (Master of Law)\n• Interesse am öffentlichen Recht\n• Stilsichere Ausdrucksweise\n\nIm Departement Bau, Verkehr und Umwelt entwickeln wir den vielfältigen Lebensraum Aargau in den Bereichen Raum, Energie, Umwelt und Mobilität aktiv weiter – heute und für zukünftige Generationen.\nIn der Rechtsabteilung bearbeiten und entscheiden wir Bau- und Planbeschwerden und bereiten Einwendungsentscheide zu Strassen- und Wasserbauprojekten vor. Wir beraten die Fachabteilungen des Departements und beantworten externe Anfragen zum Bau-, Planungs- und Umweltrecht.\n\nBenefits\nGesund bleiben\n• Ganzheitliches Betriebliches Gesundheitsmanagement zur Förderung von körperlichem, psychischem und sozialem Wohlbefinden\n• Verschiedene Sportangebote\nFair bezahlt\n• Gleicher Lohn für gleiche Arbeit\n• Dienstaltersgeschenk nach 15 Jahren\nVorwärtskommen\n• Vielfältige Weiterentwicklungsmöglichkeiten inkl. internem Bildungsangebot mit über 180 Seminaren\n• Beteiligung an den Kosten von externen Weiterbildungen nach Absprache\n\n• Pensum: 80 - 100%\n• Anstellung: befristet\n• Abteilung: Rechtsabteilung\n• Arbeitsort: Aarau"
       },
       "location": "Aarau",
       "canton": "AG",
       "url": "https://jobs.ag.ch/offene-stellen/rechtspraktikantin-rechtspraktikant/b1213770-9c33-4cc3-9113-5543963472b5",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:30:03.041Z",
+      "crawledAt": "2026-11-20T09:41:12.688Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Entfelderstrasse 22",
@@ -5865,19 +5868,26 @@
       "firstSeenAt": "2026-07-04T11:08:20.236Z",
       "previousSlugsByLocale": {
         "it": [
-          "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch"
+          "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch",
+          "interno-legale-interno-legale-100-kanton-aargau-aarau"
         ],
         "en": [
-          "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch"
+          "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch",
+          "legal-intern-legal-intern-100-kanton-aargau-aarau"
         ],
         "fr": [
-          "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch"
+          "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch",
+          "stage-juridique-stage-juridique-100-kanton-aargau-aarau"
         ]
       },
       "previousSlugs": [
-        "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch"
+        "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch",
+        "interno-legale-interno-legale-100-kanton-aargau-aarau",
+        "legal-intern-legal-intern-100-kanton-aargau-aarau",
+        "stage-juridique-stage-juridique-100-kanton-aargau-aarau"
       ],
-      "sourceIdentity": "url:https://jobs.ag.ch/offene-stellen/rechtspraktikantin-rechtspraktikant/b1213770-9c33-4cc3-9113-5543963472b5"
+      "sourceIdentity": "url:https://jobs.ag.ch/offene-stellen/rechtspraktikantin-rechtspraktikant/b1213770-9c33-4cc3-9113-5543963472b5",
+      "needsRetranslation": true
     },
     {
       "id": "kanton-aargau-a290952d8d01",
@@ -6051,6 +6061,306 @@
       "validThroughSource": "last-observed-window",
       "crawlerMissStreak": 2,
       "sourceIdentity": "url:https://jobs.ag.ch/offene-stellen/juristisches-praktikum-80/c342c7e2-971e-40c6-ae8c-7e80b75a384c"
+    },
+    {
+      "id": "kanton-aargau-858ee46fd864",
+      "slug": "fachprojektleiterin-fachprojektleiter-bauherrenvertretung-gebaudetechnik-hlkk-s-80-100",
+      "slugByLocale": {
+        "de": "fachprojektleiterin-fachprojektleiter-bauherrenvertretung-gebaudetechnik-hlkk-s-80-100",
+        "it": "fachprojektleiterin-fachprojektleiter-bauherrenvertretung-gebaudetechnik-hlkk-s-80-100",
+        "en": "fachprojektleiterin-fachprojektleiter-bauherrenvertretung-gebaudetechnik-hlkk-s-80-100",
+        "fr": "fachprojektleiterin-fachprojektleiter-bauherrenvertretung-gebaudetechnik-hlkk-s-80-100"
+      },
+      "company": "Kanton Aargau",
+      "companyKey": "kanton-aargau",
+      "companyDomain": "ag.ch",
+      "title": "Fachprojektleiterin / Fachprojektleiter Bauherrenvertretung Gebäudetechnik HLKK-S 80-100%",
+      "titleByLocale": {
+        "de": "Fachprojektleiterin / Fachprojektleiter Bauherrenvertretung Gebäudetechnik HLKK-S 80-100%",
+        "it": "Fachprojektleiterin / Fachprojektleiter Bauherrenvertretung Gebäudetechnik HLKK-S 80-100%",
+        "en": "Fachprojektleiterin / Fachprojektleiter Bauherrenvertretung Gebäudetechnik HLKK-S 80-100%",
+        "fr": "Fachprojektleiterin / Fachprojektleiter Bauherrenvertretung Gebäudetechnik HLKK-S 80-100%"
+      },
+      "description": "Spannende Aufgaben warten:\n• Fachliche Anlaufstelle für alle Fragen zu Heizungs-, Lüftungs-, Klima-, Kälte und Sanitäranlagen in Gebäuden sowie Themen der Gebäudeautomation\n• Beratung und Unterstützung der Projektleitenden Bauherrenvertretung, Immobilienbewirtschaftenden und Kunden in fachtechnischer Hinsicht\n• Mitverantwortung für die Erarbeitung der strategischen Ausrichtung und Definitionen von Grundsätzen, Grundlagen und Richtlinien für gebäudetechnische Anlagen\n• Fachprojektleitung, Realisierung und Abnahmen von Projekten im Bereich der Gebäudetechnik HLKKS, Elektro und Nachhaltigkeitsthemen\n• Erstellen von Projektunterlagen zur Sicherstellung der qualitäts-, termin- und kostengerechten Planung sowie lösungsorientierte Führung von internen und externen Partnern\n\nWas Sie mitbringen:\n• Abgeschlossenes Studium als HLK-Ingenieur-/in FH oder gleichwertige Ausbildung mit fundierter Berufserfahrung im Bereich der Gebäudetechnik\n• Mehrjährige Berufserfahrung in Planung, Projektierung, Ausführung und Betrieb von nachhaltigen, energieeffizienten HLKKS-Anlagen für grössere Gebäude\n• Erfahrung in der Rolle als Bauherrenvertretung HLKKS und Elektro sowie im öffentlichen Beschaffungswesen von Vorteil\n• Als kommunikationsstarke Persönlichkeit haben Sie die Fähigkeit, Bedürfnisse verschiedener Verhandlungspartner zu erkennen und Kundenbedürfnisse betrieblich, architektonisch und bautechnisch auf hohem Niveau umzusetzen\n• Selbstständige, ergebnisorientierte Arbeitsweise sowie hohe Sozialkompetenz, Durchsetzungsvermögen und versierter Umgang mit modernen IT-Hilfsmitteln\n\nDas Departement Finanzen und Ressourcen mit rund 650 Mitarbeitenden ist als Querschnittsdepartement dafür zuständig, dass dem Kanton die für die Aufgabenerfüllung notwendigen Ressourcen zur Verfügung stehen.\n\nDie Mitarbeitenden der Abteilung Immobilien Aargau steuern systematisch und zielgerichtet das kantonale Immobilienportfolio. Sie decken die Raumbedürfnisse der kantonalen Institutionen zu Marktkonditionen ab und sind zuständig für Neubauten, Sanierungen sowie die Instandsetzung und Instandhaltung der kantonseigenen Liegenschaften, ob Schule, Bürogebäude, Gefängnis oder Schloss.\n\nBenefits\nFlexibel arbeiten\n• Teilzeit (fast) immer möglich\n• In der Regel rund 3 bezahlte Brückentage pro Jahr\n• Möglichkeit, die Ferien um bis zu 10 Tage zu erweitern\n• Flexibles Arbeiten wie z.B. im Homeoffice\nGesund bleiben\n• Ganzheitliches Betriebliches Gesundheitsmanagement zur Förderung von körperlichem, psychischem und sozialem Wohlbefinden\n• Verschiedene Sportangebote\nFair bezahlt\n• Gleicher Lohn für gleiche Arbeit\n• Dienstaltersgeschenk nach 15 Jahren\nVorwärtskommen\n• Vielfältige Weiterentwicklungsmöglichkeiten inkl. internem Bildungsangebot mit über 180 Seminaren\n• Beteiligung an den Kosten von externen Weiterbildungen nach Absprache\nFairsichert\n• 16 Wochen Mutterschaftsurlaub mit vollem Lohn\n• 2 Wochen Vaterschaftsurlaub mit vollem Lohn\n• Wir übernehmen rund 60 % der PK-Beiträge\n\n• Pensum: 80 - 100%\n• Anstellung: unbefristet\n• Abteilung: Immobilien Aargau\n• Arbeitsort: Aarau",
+      "descriptionByLocale": {
+        "de": "Spannende Aufgaben warten:\n• Fachliche Anlaufstelle für alle Fragen zu Heizungs-, Lüftungs-, Klima-, Kälte und Sanitäranlagen in Gebäuden sowie Themen der Gebäudeautomation\n• Beratung und Unterstützung der Projektleitenden Bauherrenvertretung, Immobilienbewirtschaftenden und Kunden in fachtechnischer Hinsicht\n• Mitverantwortung für die Erarbeitung der strategischen Ausrichtung und Definitionen von Grundsätzen, Grundlagen und Richtlinien für gebäudetechnische Anlagen\n• Fachprojektleitung, Realisierung und Abnahmen von Projekten im Bereich der Gebäudetechnik HLKKS, Elektro und Nachhaltigkeitsthemen\n• Erstellen von Projektunterlagen zur Sicherstellung der qualitäts-, termin- und kostengerechten Planung sowie lösungsorientierte Führung von internen und externen Partnern\n\nWas Sie mitbringen:\n• Abgeschlossenes Studium als HLK-Ingenieur-/in FH oder gleichwertige Ausbildung mit fundierter Berufserfahrung im Bereich der Gebäudetechnik\n• Mehrjährige Berufserfahrung in Planung, Projektierung, Ausführung und Betrieb von nachhaltigen, energieeffizienten HLKKS-Anlagen für grössere Gebäude\n• Erfahrung in der Rolle als Bauherrenvertretung HLKKS und Elektro sowie im öffentlichen Beschaffungswesen von Vorteil\n• Als kommunikationsstarke Persönlichkeit haben Sie die Fähigkeit, Bedürfnisse verschiedener Verhandlungspartner zu erkennen und Kundenbedürfnisse betrieblich, architektonisch und bautechnisch auf hohem Niveau umzusetzen\n• Selbstständige, ergebnisorientierte Arbeitsweise sowie hohe Sozialkompetenz, Durchsetzungsvermögen und versierter Umgang mit modernen IT-Hilfsmitteln\n\nDas Departement Finanzen und Ressourcen mit rund 650 Mitarbeitenden ist als Querschnittsdepartement dafür zuständig, dass dem Kanton die für die Aufgabenerfüllung notwendigen Ressourcen zur Verfügung stehen.\n\nDie Mitarbeitenden der Abteilung Immobilien Aargau steuern systematisch und zielgerichtet das kantonale Immobilienportfolio. Sie decken die Raumbedürfnisse der kantonalen Institutionen zu Marktkonditionen ab und sind zuständig für Neubauten, Sanierungen sowie die Instandsetzung und Instandhaltung der kantonseigenen Liegenschaften, ob Schule, Bürogebäude, Gefängnis oder Schloss.\n\nBenefits\nFlexibel arbeiten\n• Teilzeit (fast) immer möglich\n• In der Regel rund 3 bezahlte Brückentage pro Jahr\n• Möglichkeit, die Ferien um bis zu 10 Tage zu erweitern\n• Flexibles Arbeiten wie z.B. im Homeoffice\nGesund bleiben\n• Ganzheitliches Betriebliches Gesundheitsmanagement zur Förderung von körperlichem, psychischem und sozialem Wohlbefinden\n• Verschiedene Sportangebote\nFair bezahlt\n• Gleicher Lohn für gleiche Arbeit\n• Dienstaltersgeschenk nach 15 Jahren\nVorwärtskommen\n• Vielfältige Weiterentwicklungsmöglichkeiten inkl. internem Bildungsangebot mit über 180 Seminaren\n• Beteiligung an den Kosten von externen Weiterbildungen nach Absprache\nFairsichert\n• 16 Wochen Mutterschaftsurlaub mit vollem Lohn\n• 2 Wochen Vaterschaftsurlaub mit vollem Lohn\n• Wir übernehmen rund 60 % der PK-Beiträge\n\n• Pensum: 80 - 100%\n• Anstellung: unbefristet\n• Abteilung: Immobilien Aargau\n• Arbeitsort: Aarau",
+        "it": "Spannende Aufgaben warten:\n• Fachliche Anlaufstelle für alle Fragen zu Heizungs-, Lüftungs-, Klima-, Kälte und Sanitäranlagen in Gebäuden sowie Themen der Gebäudeautomation\n• Beratung und Unterstützung der Projektleitenden Bauherrenvertretung, Immobilienbewirtschaftenden und Kunden in fachtechnischer Hinsicht\n• Mitverantwortung für die Erarbeitung der strategischen Ausrichtung und Definitionen von Grundsätzen, Grundlagen und Richtlinien für gebäudetechnische Anlagen\n• Fachprojektleitung, Realisierung und Abnahmen von Projekten im Bereich der Gebäudetechnik HLKKS, Elektro und Nachhaltigkeitsthemen\n• Erstellen von Projektunterlagen zur Sicherstellung der qualitäts-, termin- und kostengerechten Planung sowie lösungsorientierte Führung von internen und externen Partnern\n\nWas Sie mitbringen:\n• Abgeschlossenes Studium als HLK-Ingenieur-/in FH oder gleichwertige Ausbildung mit fundierter Berufserfahrung im Bereich der Gebäudetechnik\n• Mehrjährige Berufserfahrung in Planung, Projektierung, Ausführung und Betrieb von nachhaltigen, energieeffizienten HLKKS-Anlagen für grössere Gebäude\n• Erfahrung in der Rolle als Bauherrenvertretung HLKKS und Elektro sowie im öffentlichen Beschaffungswesen von Vorteil\n• Als kommunikationsstarke Persönlichkeit haben Sie die Fähigkeit, Bedürfnisse verschiedener Verhandlungspartner zu erkennen und Kundenbedürfnisse betrieblich, architektonisch und bautechnisch auf hohem Niveau umzusetzen\n• Selbstständige, ergebnisorientierte Arbeitsweise sowie hohe Sozialkompetenz, Durchsetzungsvermögen und versierter Umgang mit modernen IT-Hilfsmitteln\n\nDas Departement Finanzen und Ressourcen mit rund 650 Mitarbeitenden ist als Querschnittsdepartement dafür zuständig, dass dem Kanton die für die Aufgabenerfüllung notwendigen Ressourcen zur Verfügung stehen.\n\nDie Mitarbeitenden der Abteilung Immobilien Aargau steuern systematisch und zielgerichtet das kantonale Immobilienportfolio. Sie decken die Raumbedürfnisse der kantonalen Institutionen zu Marktkonditionen ab und sind zuständig für Neubauten, Sanierungen sowie die Instandsetzung und Instandhaltung der kantonseigenen Liegenschaften, ob Schule, Bürogebäude, Gefängnis oder Schloss.\n\nBenefits\nFlexibel arbeiten\n• Teilzeit (fast) immer möglich\n• In der Regel rund 3 bezahlte Brückentage pro Jahr\n• Möglichkeit, die Ferien um bis zu 10 Tage zu erweitern\n• Flexibles Arbeiten wie z.B. im Homeoffice\nGesund bleiben\n• Ganzheitliches Betriebliches Gesundheitsmanagement zur Förderung von körperlichem, psychischem und sozialem Wohlbefinden\n• Verschiedene Sportangebote\nFair bezahlt\n• Gleicher Lohn für gleiche Arbeit\n• Dienstaltersgeschenk nach 15 Jahren\nVorwärtskommen\n• Vielfältige Weiterentwicklungsmöglichkeiten inkl. internem Bildungsangebot mit über 180 Seminaren\n• Beteiligung an den Kosten von externen Weiterbildungen nach Absprache\nFairsichert\n• 16 Wochen Mutterschaftsurlaub mit vollem Lohn\n• 2 Wochen Vaterschaftsurlaub mit vollem Lohn\n• Wir übernehmen rund 60 % der PK-Beiträge\n\n• Pensum: 80 - 100%\n• Anstellung: unbefristet\n• Abteilung: Immobilien Aargau\n• Arbeitsort: Aarau",
+        "en": "Spannende Aufgaben warten:\n• Fachliche Anlaufstelle für alle Fragen zu Heizungs-, Lüftungs-, Klima-, Kälte und Sanitäranlagen in Gebäuden sowie Themen der Gebäudeautomation\n• Beratung und Unterstützung der Projektleitenden Bauherrenvertretung, Immobilienbewirtschaftenden und Kunden in fachtechnischer Hinsicht\n• Mitverantwortung für die Erarbeitung der strategischen Ausrichtung und Definitionen von Grundsätzen, Grundlagen und Richtlinien für gebäudetechnische Anlagen\n• Fachprojektleitung, Realisierung und Abnahmen von Projekten im Bereich der Gebäudetechnik HLKKS, Elektro und Nachhaltigkeitsthemen\n• Erstellen von Projektunterlagen zur Sicherstellung der qualitäts-, termin- und kostengerechten Planung sowie lösungsorientierte Führung von internen und externen Partnern\n\nWas Sie mitbringen:\n• Abgeschlossenes Studium als HLK-Ingenieur-/in FH oder gleichwertige Ausbildung mit fundierter Berufserfahrung im Bereich der Gebäudetechnik\n• Mehrjährige Berufserfahrung in Planung, Projektierung, Ausführung und Betrieb von nachhaltigen, energieeffizienten HLKKS-Anlagen für grössere Gebäude\n• Erfahrung in der Rolle als Bauherrenvertretung HLKKS und Elektro sowie im öffentlichen Beschaffungswesen von Vorteil\n• Als kommunikationsstarke Persönlichkeit haben Sie die Fähigkeit, Bedürfnisse verschiedener Verhandlungspartner zu erkennen und Kundenbedürfnisse betrieblich, architektonisch und bautechnisch auf hohem Niveau umzusetzen\n• Selbstständige, ergebnisorientierte Arbeitsweise sowie hohe Sozialkompetenz, Durchsetzungsvermögen und versierter Umgang mit modernen IT-Hilfsmitteln\n\nDas Departement Finanzen und Ressourcen mit rund 650 Mitarbeitenden ist als Querschnittsdepartement dafür zuständig, dass dem Kanton die für die Aufgabenerfüllung notwendigen Ressourcen zur Verfügung stehen.\n\nDie Mitarbeitenden der Abteilung Immobilien Aargau steuern systematisch und zielgerichtet das kantonale Immobilienportfolio. Sie decken die Raumbedürfnisse der kantonalen Institutionen zu Marktkonditionen ab und sind zuständig für Neubauten, Sanierungen sowie die Instandsetzung und Instandhaltung der kantonseigenen Liegenschaften, ob Schule, Bürogebäude, Gefängnis oder Schloss.\n\nBenefits\nFlexibel arbeiten\n• Teilzeit (fast) immer möglich\n• In der Regel rund 3 bezahlte Brückentage pro Jahr\n• Möglichkeit, die Ferien um bis zu 10 Tage zu erweitern\n• Flexibles Arbeiten wie z.B. im Homeoffice\nGesund bleiben\n• Ganzheitliches Betriebliches Gesundheitsmanagement zur Förderung von körperlichem, psychischem und sozialem Wohlbefinden\n• Verschiedene Sportangebote\nFair bezahlt\n• Gleicher Lohn für gleiche Arbeit\n• Dienstaltersgeschenk nach 15 Jahren\nVorwärtskommen\n• Vielfältige Weiterentwicklungsmöglichkeiten inkl. internem Bildungsangebot mit über 180 Seminaren\n• Beteiligung an den Kosten von externen Weiterbildungen nach Absprache\nFairsichert\n• 16 Wochen Mutterschaftsurlaub mit vollem Lohn\n• 2 Wochen Vaterschaftsurlaub mit vollem Lohn\n• Wir übernehmen rund 60 % der PK-Beiträge\n\n• Pensum: 80 - 100%\n• Anstellung: unbefristet\n• Abteilung: Immobilien Aargau\n• Arbeitsort: Aarau",
+        "fr": "Spannende Aufgaben warten:\n• Fachliche Anlaufstelle für alle Fragen zu Heizungs-, Lüftungs-, Klima-, Kälte und Sanitäranlagen in Gebäuden sowie Themen der Gebäudeautomation\n• Beratung und Unterstützung der Projektleitenden Bauherrenvertretung, Immobilienbewirtschaftenden und Kunden in fachtechnischer Hinsicht\n• Mitverantwortung für die Erarbeitung der strategischen Ausrichtung und Definitionen von Grundsätzen, Grundlagen und Richtlinien für gebäudetechnische Anlagen\n• Fachprojektleitung, Realisierung und Abnahmen von Projekten im Bereich der Gebäudetechnik HLKKS, Elektro und Nachhaltigkeitsthemen\n• Erstellen von Projektunterlagen zur Sicherstellung der qualitäts-, termin- und kostengerechten Planung sowie lösungsorientierte Führung von internen und externen Partnern\n\nWas Sie mitbringen:\n• Abgeschlossenes Studium als HLK-Ingenieur-/in FH oder gleichwertige Ausbildung mit fundierter Berufserfahrung im Bereich der Gebäudetechnik\n• Mehrjährige Berufserfahrung in Planung, Projektierung, Ausführung und Betrieb von nachhaltigen, energieeffizienten HLKKS-Anlagen für grössere Gebäude\n• Erfahrung in der Rolle als Bauherrenvertretung HLKKS und Elektro sowie im öffentlichen Beschaffungswesen von Vorteil\n• Als kommunikationsstarke Persönlichkeit haben Sie die Fähigkeit, Bedürfnisse verschiedener Verhandlungspartner zu erkennen und Kundenbedürfnisse betrieblich, architektonisch und bautechnisch auf hohem Niveau umzusetzen\n• Selbstständige, ergebnisorientierte Arbeitsweise sowie hohe Sozialkompetenz, Durchsetzungsvermögen und versierter Umgang mit modernen IT-Hilfsmitteln\n\nDas Departement Finanzen und Ressourcen mit rund 650 Mitarbeitenden ist als Querschnittsdepartement dafür zuständig, dass dem Kanton die für die Aufgabenerfüllung notwendigen Ressourcen zur Verfügung stehen.\n\nDie Mitarbeitenden der Abteilung Immobilien Aargau steuern systematisch und zielgerichtet das kantonale Immobilienportfolio. Sie decken die Raumbedürfnisse der kantonalen Institutionen zu Marktkonditionen ab und sind zuständig für Neubauten, Sanierungen sowie die Instandsetzung und Instandhaltung der kantonseigenen Liegenschaften, ob Schule, Bürogebäude, Gefängnis oder Schloss.\n\nBenefits\nFlexibel arbeiten\n• Teilzeit (fast) immer möglich\n• In der Regel rund 3 bezahlte Brückentage pro Jahr\n• Möglichkeit, die Ferien um bis zu 10 Tage zu erweitern\n• Flexibles Arbeiten wie z.B. im Homeoffice\nGesund bleiben\n• Ganzheitliches Betriebliches Gesundheitsmanagement zur Förderung von körperlichem, psychischem und sozialem Wohlbefinden\n• Verschiedene Sportangebote\nFair bezahlt\n• Gleicher Lohn für gleiche Arbeit\n• Dienstaltersgeschenk nach 15 Jahren\nVorwärtskommen\n• Vielfältige Weiterentwicklungsmöglichkeiten inkl. internem Bildungsangebot mit über 180 Seminaren\n• Beteiligung an den Kosten von externen Weiterbildungen nach Absprache\nFairsichert\n• 16 Wochen Mutterschaftsurlaub mit vollem Lohn\n• 2 Wochen Vaterschaftsurlaub mit vollem Lohn\n• Wir übernehmen rund 60 % der PK-Beiträge\n\n• Pensum: 80 - 100%\n• Anstellung: unbefristet\n• Abteilung: Immobilien Aargau\n• Arbeitsort: Aarau"
+      },
+      "needsRetranslation": true,
+      "location": "Aarau",
+      "canton": "AG",
+      "url": "https://jobs.ag.ch/offene-stellen/fachprojektleiterin-fachprojektleiter-bauherrenvertretung-gebaeudetechnik-hlkk-s/d429e79a-cc26-4cf3-942f-1aa245c38a23",
+      "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-20T09:41:15.295Z",
+      "addressLocality": "Aarau",
+      "addressRegion": "AG",
+      "streetAddress": "Tellistrasse 67",
+      "postalCode": "5000",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione Pubblica",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-20",
+      "postedDate": "2026-11-20",
+      "postingDateSource": "reported",
+      "validThrough": "2026-12-19T23:59:59.999Z",
+      "applyUrl": "https://jobs.ag.ch/offene-stellen/fachprojektleiterin-fachprojektleiter-bauherrenvertretung-gebaeudetechnik-hlkk-s/d429e79a-cc26-4cf3-942f-1aa245c38a23",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Immobilien Aargau",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source",
+      "firstSeenAt": "2026-11-20T09:41:15.295Z"
+    },
+    {
+      "id": "kanton-aargau-23f526e9dee2",
+      "slug": "sozialpadagogin-sozialpadagoge-80-kanton-aargau-ch",
+      "slugByLocale": {
+        "de": "sozialpadagogin-sozialpadagoge-80-kanton-aargau-ch",
+        "it": "sozialpadagogin-sozialpadagoge-80-kanton-aargau-ch",
+        "en": "sozialpadagogin-sozialpadagoge-80-kanton-aargau-ch",
+        "fr": "sozialpadagogin-sozialpadagoge-80-kanton-aargau-ch"
+      },
+      "company": "Kanton Aargau",
+      "companyKey": "kanton-aargau",
+      "companyDomain": "ag.ch",
+      "title": "Sozialpädagogin / Sozialpädagoge 80%",
+      "titleByLocale": {
+        "de": "Sozialpädagogin / Sozialpädagoge 80%",
+        "it": "Sozialpädagogin / Sozialpädagoge 80%",
+        "en": "Sozialpädagogin / Sozialpädagoge 80%",
+        "fr": "Sozialpädagogin / Sozialpädagoge 80%"
+      },
+      "description": "Spannende Aufgaben warten:\n• Betreuung und Förderung von maximal 8 Jugendlichen im Team (2-er und 3-er Dienste)\n• Übernahme aller Aufgaben im Rahmen der Bezugspersonenarbeit für 1-2 Eingewiesene im Rahmen eines von Kontinuität geprägten Settings\n• Förderung der Jugendlichen gemäss den mit ihnen erstellten Erziehungsplänen\n• Alltags- und Freizeitgestaltung in der arbeits- und schulfreien Zeit der Jugendlichen\n• Erledigen von administrativen Arbeiten (Berichtswesen, Protokolle etc.)\n\nWas Sie mitbringen:\n• Erfolgreich abgeschlossene sozialpädagogische Ausbildung Stufe HF oder FH (Anerkennung ausländischer Diplome in der Schweiz erforderlich)\n• Berufserfahrung mit verhaltensauffälligen Jugendlichen\n• Ausgeprägte Durchsetzungsfähigkeit und Belastbarkeit, Empathie, Beziehungsstärke und Flexibilität\n• Tadelloser Leumund (aktuelle Betreibungs- und Sonderprivatauszüge)\n• Mindestalter 25 Jahre und im Besitz eines Führerausweises für PW\n\nIhr Arbeitsumfeld\n\nDas Jugendheim Aarburg ist eine Institution zum Vollzug von zivil- und jugendstrafrechtlichen Massnahmen. Aufgenommen werden männliche Jugendliche und junge Erwachsene, die in ihrer Entwicklung gefährdet sind. Mit pädagogischen sowie therapeutischen Massnahmen unterstützen die Mitarbeitenden die Klienten dabei, sich in die soziale Ordnung einzugliedern. Zudem bieten spezifische schulische und berufliche Angebote eine Grundlage, damit sich die Jugendlichen und jungen Erwachsenen auf ein selbstverantwortliches, deliktfreies Leben vorbereiten können.\n\nDie progressiven Wohngruppen sind Wohngemeinschaften, die vom Bundesamt für Justiz (BJ) als geschlossene Wohnform anerkannt ist. Sie ist für die Altersgruppe der 15- bis 19-jährigen Jugendlichen gedacht, die nach ihrem Eintritt eine schulische und berufliche Abklärung durchlaufen und anschliessend in einem individuell angepassten Berufsbildungsprogramm beginnen.\n\nBenefits\nGesund bleiben\n• Ganzheitliches Betriebliches Gesundheitsmanagement zur Förderung von körperlichem, psychischem und sozialem Wohlbefinden\n• Verschiedene Sportangebote\nFair bezahlt\n• Gleicher Lohn für gleiche Arbeit\n• Dienstaltersgeschenk nach 15 Jahren\nFairsichert\n• 16 Wochen Mutterschaftsurlaub mit vollem Lohn\n• 2 Wochen Vaterschaftsurlaub mit vollem Lohn\n• Wir übernehmen rund 60 % der PK-Beiträge\n\n• Pensum: 80 - 100%\n• Anstellung: unbefristet\n• Abteilung: Amt für Justizvollzug / Jugendheim Aarburg\n• Arbeitsort: Aarburg",
+      "descriptionByLocale": {
+        "de": "Spannende Aufgaben warten:\n• Betreuung und Förderung von maximal 8 Jugendlichen im Team (2-er und 3-er Dienste)\n• Übernahme aller Aufgaben im Rahmen der Bezugspersonenarbeit für 1-2 Eingewiesene im Rahmen eines von Kontinuität geprägten Settings\n• Förderung der Jugendlichen gemäss den mit ihnen erstellten Erziehungsplänen\n• Alltags- und Freizeitgestaltung in der arbeits- und schulfreien Zeit der Jugendlichen\n• Erledigen von administrativen Arbeiten (Berichtswesen, Protokolle etc.)\n\nWas Sie mitbringen:\n• Erfolgreich abgeschlossene sozialpädagogische Ausbildung Stufe HF oder FH (Anerkennung ausländischer Diplome in der Schweiz erforderlich)\n• Berufserfahrung mit verhaltensauffälligen Jugendlichen\n• Ausgeprägte Durchsetzungsfähigkeit und Belastbarkeit, Empathie, Beziehungsstärke und Flexibilität\n• Tadelloser Leumund (aktuelle Betreibungs- und Sonderprivatauszüge)\n• Mindestalter 25 Jahre und im Besitz eines Führerausweises für PW\n\nIhr Arbeitsumfeld\n\nDas Jugendheim Aarburg ist eine Institution zum Vollzug von zivil- und jugendstrafrechtlichen Massnahmen. Aufgenommen werden männliche Jugendliche und junge Erwachsene, die in ihrer Entwicklung gefährdet sind. Mit pädagogischen sowie therapeutischen Massnahmen unterstützen die Mitarbeitenden die Klienten dabei, sich in die soziale Ordnung einzugliedern. Zudem bieten spezifische schulische und berufliche Angebote eine Grundlage, damit sich die Jugendlichen und jungen Erwachsenen auf ein selbstverantwortliches, deliktfreies Leben vorbereiten können.\n\nDie progressiven Wohngruppen sind Wohngemeinschaften, die vom Bundesamt für Justiz (BJ) als geschlossene Wohnform anerkannt ist. Sie ist für die Altersgruppe der 15- bis 19-jährigen Jugendlichen gedacht, die nach ihrem Eintritt eine schulische und berufliche Abklärung durchlaufen und anschliessend in einem individuell angepassten Berufsbildungsprogramm beginnen.\n\nBenefits\nGesund bleiben\n• Ganzheitliches Betriebliches Gesundheitsmanagement zur Förderung von körperlichem, psychischem und sozialem Wohlbefinden\n• Verschiedene Sportangebote\nFair bezahlt\n• Gleicher Lohn für gleiche Arbeit\n• Dienstaltersgeschenk nach 15 Jahren\nFairsichert\n• 16 Wochen Mutterschaftsurlaub mit vollem Lohn\n• 2 Wochen Vaterschaftsurlaub mit vollem Lohn\n• Wir übernehmen rund 60 % der PK-Beiträge\n\n• Pensum: 80 - 100%\n• Anstellung: unbefristet\n• Abteilung: Amt für Justizvollzug / Jugendheim Aarburg\n• Arbeitsort: Aarburg",
+        "it": "Spannende Aufgaben warten:\n• Betreuung und Förderung von maximal 8 Jugendlichen im Team (2-er und 3-er Dienste)\n• Übernahme aller Aufgaben im Rahmen der Bezugspersonenarbeit für 1-2 Eingewiesene im Rahmen eines von Kontinuität geprägten Settings\n• Förderung der Jugendlichen gemäss den mit ihnen erstellten Erziehungsplänen\n• Alltags- und Freizeitgestaltung in der arbeits- und schulfreien Zeit der Jugendlichen\n• Erledigen von administrativen Arbeiten (Berichtswesen, Protokolle etc.)\n\nWas Sie mitbringen:\n• Erfolgreich abgeschlossene sozialpädagogische Ausbildung Stufe HF oder FH (Anerkennung ausländischer Diplome in der Schweiz erforderlich)\n• Berufserfahrung mit verhaltensauffälligen Jugendlichen\n• Ausgeprägte Durchsetzungsfähigkeit und Belastbarkeit, Empathie, Beziehungsstärke und Flexibilität\n• Tadelloser Leumund (aktuelle Betreibungs- und Sonderprivatauszüge)\n• Mindestalter 25 Jahre und im Besitz eines Führerausweises für PW\n\nIhr Arbeitsumfeld\n\nDas Jugendheim Aarburg ist eine Institution zum Vollzug von zivil- und jugendstrafrechtlichen Massnahmen. Aufgenommen werden männliche Jugendliche und junge Erwachsene, die in ihrer Entwicklung gefährdet sind. Mit pädagogischen sowie therapeutischen Massnahmen unterstützen die Mitarbeitenden die Klienten dabei, sich in die soziale Ordnung einzugliedern. Zudem bieten spezifische schulische und berufliche Angebote eine Grundlage, damit sich die Jugendlichen und jungen Erwachsenen auf ein selbstverantwortliches, deliktfreies Leben vorbereiten können.\n\nDie progressiven Wohngruppen sind Wohngemeinschaften, die vom Bundesamt für Justiz (BJ) als geschlossene Wohnform anerkannt ist. Sie ist für die Altersgruppe der 15- bis 19-jährigen Jugendlichen gedacht, die nach ihrem Eintritt eine schulische und berufliche Abklärung durchlaufen und anschliessend in einem individuell angepassten Berufsbildungsprogramm beginnen.\n\nBenefits\nGesund bleiben\n• Ganzheitliches Betriebliches Gesundheitsmanagement zur Förderung von körperlichem, psychischem und sozialem Wohlbefinden\n• Verschiedene Sportangebote\nFair bezahlt\n• Gleicher Lohn für gleiche Arbeit\n• Dienstaltersgeschenk nach 15 Jahren\nFairsichert\n• 16 Wochen Mutterschaftsurlaub mit vollem Lohn\n• 2 Wochen Vaterschaftsurlaub mit vollem Lohn\n• Wir übernehmen rund 60 % der PK-Beiträge\n\n• Pensum: 80 - 100%\n• Anstellung: unbefristet\n• Abteilung: Amt für Justizvollzug / Jugendheim Aarburg\n• Arbeitsort: Aarburg",
+        "en": "Spannende Aufgaben warten:\n• Betreuung und Förderung von maximal 8 Jugendlichen im Team (2-er und 3-er Dienste)\n• Übernahme aller Aufgaben im Rahmen der Bezugspersonenarbeit für 1-2 Eingewiesene im Rahmen eines von Kontinuität geprägten Settings\n• Förderung der Jugendlichen gemäss den mit ihnen erstellten Erziehungsplänen\n• Alltags- und Freizeitgestaltung in der arbeits- und schulfreien Zeit der Jugendlichen\n• Erledigen von administrativen Arbeiten (Berichtswesen, Protokolle etc.)\n\nWas Sie mitbringen:\n• Erfolgreich abgeschlossene sozialpädagogische Ausbildung Stufe HF oder FH (Anerkennung ausländischer Diplome in der Schweiz erforderlich)\n• Berufserfahrung mit verhaltensauffälligen Jugendlichen\n• Ausgeprägte Durchsetzungsfähigkeit und Belastbarkeit, Empathie, Beziehungsstärke und Flexibilität\n• Tadelloser Leumund (aktuelle Betreibungs- und Sonderprivatauszüge)\n• Mindestalter 25 Jahre und im Besitz eines Führerausweises für PW\n\nIhr Arbeitsumfeld\n\nDas Jugendheim Aarburg ist eine Institution zum Vollzug von zivil- und jugendstrafrechtlichen Massnahmen. Aufgenommen werden männliche Jugendliche und junge Erwachsene, die in ihrer Entwicklung gefährdet sind. Mit pädagogischen sowie therapeutischen Massnahmen unterstützen die Mitarbeitenden die Klienten dabei, sich in die soziale Ordnung einzugliedern. Zudem bieten spezifische schulische und berufliche Angebote eine Grundlage, damit sich die Jugendlichen und jungen Erwachsenen auf ein selbstverantwortliches, deliktfreies Leben vorbereiten können.\n\nDie progressiven Wohngruppen sind Wohngemeinschaften, die vom Bundesamt für Justiz (BJ) als geschlossene Wohnform anerkannt ist. Sie ist für die Altersgruppe der 15- bis 19-jährigen Jugendlichen gedacht, die nach ihrem Eintritt eine schulische und berufliche Abklärung durchlaufen und anschliessend in einem individuell angepassten Berufsbildungsprogramm beginnen.\n\nBenefits\nGesund bleiben\n• Ganzheitliches Betriebliches Gesundheitsmanagement zur Förderung von körperlichem, psychischem und sozialem Wohlbefinden\n• Verschiedene Sportangebote\nFair bezahlt\n• Gleicher Lohn für gleiche Arbeit\n• Dienstaltersgeschenk nach 15 Jahren\nFairsichert\n• 16 Wochen Mutterschaftsurlaub mit vollem Lohn\n• 2 Wochen Vaterschaftsurlaub mit vollem Lohn\n• Wir übernehmen rund 60 % der PK-Beiträge\n\n• Pensum: 80 - 100%\n• Anstellung: unbefristet\n• Abteilung: Amt für Justizvollzug / Jugendheim Aarburg\n• Arbeitsort: Aarburg",
+        "fr": "Spannende Aufgaben warten:\n• Betreuung und Förderung von maximal 8 Jugendlichen im Team (2-er und 3-er Dienste)\n• Übernahme aller Aufgaben im Rahmen der Bezugspersonenarbeit für 1-2 Eingewiesene im Rahmen eines von Kontinuität geprägten Settings\n• Förderung der Jugendlichen gemäss den mit ihnen erstellten Erziehungsplänen\n• Alltags- und Freizeitgestaltung in der arbeits- und schulfreien Zeit der Jugendlichen\n• Erledigen von administrativen Arbeiten (Berichtswesen, Protokolle etc.)\n\nWas Sie mitbringen:\n• Erfolgreich abgeschlossene sozialpädagogische Ausbildung Stufe HF oder FH (Anerkennung ausländischer Diplome in der Schweiz erforderlich)\n• Berufserfahrung mit verhaltensauffälligen Jugendlichen\n• Ausgeprägte Durchsetzungsfähigkeit und Belastbarkeit, Empathie, Beziehungsstärke und Flexibilität\n• Tadelloser Leumund (aktuelle Betreibungs- und Sonderprivatauszüge)\n• Mindestalter 25 Jahre und im Besitz eines Führerausweises für PW\n\nIhr Arbeitsumfeld\n\nDas Jugendheim Aarburg ist eine Institution zum Vollzug von zivil- und jugendstrafrechtlichen Massnahmen. Aufgenommen werden männliche Jugendliche und junge Erwachsene, die in ihrer Entwicklung gefährdet sind. Mit pädagogischen sowie therapeutischen Massnahmen unterstützen die Mitarbeitenden die Klienten dabei, sich in die soziale Ordnung einzugliedern. Zudem bieten spezifische schulische und berufliche Angebote eine Grundlage, damit sich die Jugendlichen und jungen Erwachsenen auf ein selbstverantwortliches, deliktfreies Leben vorbereiten können.\n\nDie progressiven Wohngruppen sind Wohngemeinschaften, die vom Bundesamt für Justiz (BJ) als geschlossene Wohnform anerkannt ist. Sie ist für die Altersgruppe der 15- bis 19-jährigen Jugendlichen gedacht, die nach ihrem Eintritt eine schulische und berufliche Abklärung durchlaufen und anschliessend in einem individuell angepassten Berufsbildungsprogramm beginnen.\n\nBenefits\nGesund bleiben\n• Ganzheitliches Betriebliches Gesundheitsmanagement zur Förderung von körperlichem, psychischem und sozialem Wohlbefinden\n• Verschiedene Sportangebote\nFair bezahlt\n• Gleicher Lohn für gleiche Arbeit\n• Dienstaltersgeschenk nach 15 Jahren\nFairsichert\n• 16 Wochen Mutterschaftsurlaub mit vollem Lohn\n• 2 Wochen Vaterschaftsurlaub mit vollem Lohn\n• Wir übernehmen rund 60 % der PK-Beiträge\n\n• Pensum: 80 - 100%\n• Anstellung: unbefristet\n• Abteilung: Amt für Justizvollzug / Jugendheim Aarburg\n• Arbeitsort: Aarburg"
+      },
+      "needsRetranslation": true,
+      "location": "Aarburg",
+      "canton": "AG",
+      "url": "https://jobs.ag.ch/offene-stellen/sozialpaedagogin-sozialpaedagoge/501e7f47-b95d-43b4-a3fe-c3157e32c4f3",
+      "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-20T09:41:13.213Z",
+      "addressLocality": "Aarburg",
+      "addressRegion": "AG",
+      "postalCode": "4663",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione Pubblica",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-20",
+      "postedDate": "2026-11-20",
+      "postingDateSource": "reported",
+      "validThrough": "2026-12-19T23:59:59.999Z",
+      "applyUrl": "https://jobs.ag.ch/offene-stellen/sozialpaedagogin-sozialpaedagoge/501e7f47-b95d-43b4-a3fe-c3157e32c4f3",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Amt für Justizvollzug / Jugendheim Aarburg",
+      "salaryMin": 49600,
+      "salaryMax": 75200,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49600,
+          "maxValue": 75200,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Aarburg",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source",
+      "firstSeenAt": "2026-11-20T09:41:13.213Z"
+    },
+    {
+      "id": "kanton-aargau-6d8124086285",
+      "slug": "juristische-mitarbeiterin-juristischer-collaboratore-trice-baubewilligungen-80-90-kanton-aargau-aarau",
+      "slugByLocale": {
+        "de": "juristische-mitarbeiterin-juristischer-mitarbeiter-baubewilligungen-80-90-kanton-aargau-ch",
+        "it": "juristische-mitarbeiterin-juristischer-collaboratore-trice-baubewilligungen-80-90-kanton-aargau-aarau",
+        "en": "juristische-mitarbeiterin-juristischer-mitarbeiter-baubewilligungen-80-90-kanton-aargau-ch",
+        "fr": "juristische-mitarbeiterin-juristischer-mitarbeiter-baubewilligungen-80-90-kanton-aargau-ch"
+      },
+      "company": "Kanton Aargau",
+      "companyKey": "kanton-aargau",
+      "companyDomain": "ag.ch",
+      "title": "Juristische Mitarbeiterin / Juristischer Mitarbeiter Baubewilligungen 80–90%",
+      "titleByLocale": {
+        "de": "Juristische Mitarbeiterin / Juristischer Mitarbeiter Baubewilligungen 80–90%",
+        "it": "Juristische Mitarbeiterin / Juristischer Collaboratore/trice Baubewilligungen 80–90%",
+        "en": "Juristische Mitarbeiterin / Juristischer Mitarbeiter Baubewilligungen 80–90%",
+        "fr": "Juristische Mitarbeiterin / Juristischer Mitarbeiter Baubewilligungen 80–90%"
+      },
+      "description": "Spannende Aufgaben warten:\n• Unterstützen Sie Gemeinden bei der Vollstreckung von Rückbauverfügungen und bei nachträglichen Baubewilligungsverfahren\n• Vertreten Sie die Abteilung für Baubewilligungen in Beschwerdeverfahren vor dem Regierungsrat und den Gerichtsinstanzen\n• Wirken Sie bei der kantonalen Umsetzung des revidierten Raumplanungsrechts (RPG 2) mit\n• Unterstützen Sie die Projektleitenden im Baubewilligungsverfahren bei juristischen Fragestellungen\n• Führen Sie Baugesuchsverfahren auf kantonaler Ebene\n\nWas Sie mitbringen:\n• Masterabschluss in Rechtswissenschaften\n• Interesse am Verwaltungs-, Raumplanungs- und Umweltrecht\n• Verhandlungsgeschick und Durchsetzungsvermögen\n• Selbständige und zuverlässige Arbeitsweise\n• Kommunikative und belastbare Persönlichkeit\n\nIm Departement Bau, Verkehr und Umwelt entwickeln wir den vielfältigen Lebensraum Aargau in den Bereichen Raum, Energie, Umwelt und Mobilität aktiv weiter – heute und für zukünftige Generationen.\nUnsere Aufgabe in der Abteilung für Baubewilligungen ist es, Baugesuche zu beurteilen, die einer kantonalen Zustimmung bedürfen. Dabei arbeiten wir mit vielen weiteren Abteilungen des Departements zusammen, deren fachliche Meinungen ebenfalls in die einzelnen Beurteilungen mit einfliessen. Sodann stellen wir sicher, dass unsere Entscheide auch umgesetzt werden, wobei der Austausch und die Unterstützung der kommunalen Baupolizeibehörden im Vordergrund steht.\n\nBenefits\nFlexibel arbeiten\n• Teilzeit (fast) immer möglich\n• In der Regel rund 3 bezahlte Brückentage pro Jahr\n• Möglichkeit, die Ferien um bis zu 10 Tage zu erweitern\n• Flexibles Arbeiten wie z.B. im Homeoffice\nVorwärtskommen\n• Vielfältige Weiterentwicklungsmöglichkeiten inkl. internem Bildungsangebot mit über 180 Seminaren\n• Beteiligung an den Kosten von externen Weiterbildungen nach Absprache\nFairsichert\n• 16 Wochen Mutterschaftsurlaub mit vollem Lohn\n• 2 Wochen Vaterschaftsurlaub mit vollem Lohn\n• Wir übernehmen rund 60 % der PK-Beiträge\n\n• Pensum: 80 - 100%\n• Anstellung: befristet\n• Abteilung: Abteilung für Baubewilligungen\n• Arbeitsort: Aarau",
+      "descriptionByLocale": {
+        "de": "Spannende Aufgaben warten:\n• Unterstützen Sie Gemeinden bei der Vollstreckung von Rückbauverfügungen und bei nachträglichen Baubewilligungsverfahren\n• Vertreten Sie die Abteilung für Baubewilligungen in Beschwerdeverfahren vor dem Regierungsrat und den Gerichtsinstanzen\n• Wirken Sie bei der kantonalen Umsetzung des revidierten Raumplanungsrechts (RPG 2) mit\n• Unterstützen Sie die Projektleitenden im Baubewilligungsverfahren bei juristischen Fragestellungen\n• Führen Sie Baugesuchsverfahren auf kantonaler Ebene\n\nWas Sie mitbringen:\n• Masterabschluss in Rechtswissenschaften\n• Interesse am Verwaltungs-, Raumplanungs- und Umweltrecht\n• Verhandlungsgeschick und Durchsetzungsvermögen\n• Selbständige und zuverlässige Arbeitsweise\n• Kommunikative und belastbare Persönlichkeit\n\nIm Departement Bau, Verkehr und Umwelt entwickeln wir den vielfältigen Lebensraum Aargau in den Bereichen Raum, Energie, Umwelt und Mobilität aktiv weiter – heute und für zukünftige Generationen.\nUnsere Aufgabe in der Abteilung für Baubewilligungen ist es, Baugesuche zu beurteilen, die einer kantonalen Zustimmung bedürfen. Dabei arbeiten wir mit vielen weiteren Abteilungen des Departements zusammen, deren fachliche Meinungen ebenfalls in die einzelnen Beurteilungen mit einfliessen. Sodann stellen wir sicher, dass unsere Entscheide auch umgesetzt werden, wobei der Austausch und die Unterstützung der kommunalen Baupolizeibehörden im Vordergrund steht.\n\nBenefits\nFlexibel arbeiten\n• Teilzeit (fast) immer möglich\n• In der Regel rund 3 bezahlte Brückentage pro Jahr\n• Möglichkeit, die Ferien um bis zu 10 Tage zu erweitern\n• Flexibles Arbeiten wie z.B. im Homeoffice\nVorwärtskommen\n• Vielfältige Weiterentwicklungsmöglichkeiten inkl. internem Bildungsangebot mit über 180 Seminaren\n• Beteiligung an den Kosten von externen Weiterbildungen nach Absprache\nFairsichert\n• 16 Wochen Mutterschaftsurlaub mit vollem Lohn\n• 2 Wochen Vaterschaftsurlaub mit vollem Lohn\n• Wir übernehmen rund 60 % der PK-Beiträge\n\n• Pensum: 80 - 100%\n• Anstellung: befristet\n• Abteilung: Abteilung für Baubewilligungen\n• Arbeitsort: Aarau",
+        "it": "Spannende Aufgaben warten:\n• Unterstützen Sie Gemeinden bei der Vollstreckung von Rückbauverfügungen und bei nachträglichen Baubewilligungsverfahren\n• Vertreten Sie die Abteilung für Baubewilligungen in Beschwerdeverfahren vor dem Regierungsrat und den Gerichtsinstanzen\n• Wirken Sie bei der kantonalen Umsetzung des revidierten Raumplanungsrechts (RPG 2) mit\n• Unterstützen Sie die Projektleitenden im Baubewilligungsverfahren bei juristischen Fragestellungen\n• Führen Sie Baugesuchsverfahren auf kantonaler Ebene\n\nWas Sie mitbringen:\n• Masterabschluss in Rechtswissenschaften\n• Interesse am Verwaltungs-, Raumplanungs- und Umweltrecht\n• Verhandlungsgeschick und Durchsetzungsvermögen\n• Selbständige und zuverlässige Arbeitsweise\n• Kommunikative und belastbare Persönlichkeit\n\nIm Departement Bau, Verkehr und Umwelt entwickeln wir den vielfältigen Lebensraum Aargau in den Bereichen Raum, Energie, Umwelt und Mobilität aktiv weiter – heute und für zukünftige Generationen.\nUnsere Aufgabe in der Abteilung für Baubewilligungen ist es, Baugesuche zu beurteilen, die einer kantonalen Zustimmung bedürfen. Dabei arbeiten wir mit vielen weiteren Abteilungen des Departements zusammen, deren fachliche Meinungen ebenfalls in die einzelnen Beurteilungen mit einfliessen. Sodann stellen wir sicher, dass unsere Entscheide auch umgesetzt werden, wobei der Austausch und die Unterstützung der kommunalen Baupolizeibehörden im Vordergrund steht.\n\nBenefits\nFlexibel arbeiten\n• Teilzeit (fast) immer möglich\n• In der Regel rund 3 bezahlte Brückentage pro Jahr\n• Möglichkeit, die Ferien um bis zu 10 Tage zu erweitern\n• Flexibles Arbeiten wie z.B. im Homeoffice\nVorwärtskommen\n• Vielfältige Weiterentwicklungsmöglichkeiten inkl. internem Bildungsangebot mit über 180 Seminaren\n• Beteiligung an den Kosten von externen Weiterbildungen nach Absprache\nFairsichert\n• 16 Wochen Mutterschaftsurlaub mit vollem Lohn\n• 2 Wochen Vaterschaftsurlaub mit vollem Lohn\n• Wir übernehmen rund 60 % der PK-Beiträge\n\n• Pensum: 80 - 100%\n• Anstellung: befristet\n• Abteilung: Abteilung für Baubewilligungen\n• Arbeitsort: Aarau",
+        "en": "Spannende Aufgaben warten:\n• Unterstützen Sie Gemeinden bei der Vollstreckung von Rückbauverfügungen und bei nachträglichen Baubewilligungsverfahren\n• Vertreten Sie die Abteilung für Baubewilligungen in Beschwerdeverfahren vor dem Regierungsrat und den Gerichtsinstanzen\n• Wirken Sie bei der kantonalen Umsetzung des revidierten Raumplanungsrechts (RPG 2) mit\n• Unterstützen Sie die Projektleitenden im Baubewilligungsverfahren bei juristischen Fragestellungen\n• Führen Sie Baugesuchsverfahren auf kantonaler Ebene\n\nWas Sie mitbringen:\n• Masterabschluss in Rechtswissenschaften\n• Interesse am Verwaltungs-, Raumplanungs- und Umweltrecht\n• Verhandlungsgeschick und Durchsetzungsvermögen\n• Selbständige und zuverlässige Arbeitsweise\n• Kommunikative und belastbare Persönlichkeit\n\nIm Departement Bau, Verkehr und Umwelt entwickeln wir den vielfältigen Lebensraum Aargau in den Bereichen Raum, Energie, Umwelt und Mobilität aktiv weiter – heute und für zukünftige Generationen.\nUnsere Aufgabe in der Abteilung für Baubewilligungen ist es, Baugesuche zu beurteilen, die einer kantonalen Zustimmung bedürfen. Dabei arbeiten wir mit vielen weiteren Abteilungen des Departements zusammen, deren fachliche Meinungen ebenfalls in die einzelnen Beurteilungen mit einfliessen. Sodann stellen wir sicher, dass unsere Entscheide auch umgesetzt werden, wobei der Austausch und die Unterstützung der kommunalen Baupolizeibehörden im Vordergrund steht.\n\nBenefits\nFlexibel arbeiten\n• Teilzeit (fast) immer möglich\n• In der Regel rund 3 bezahlte Brückentage pro Jahr\n• Möglichkeit, die Ferien um bis zu 10 Tage zu erweitern\n• Flexibles Arbeiten wie z.B. im Homeoffice\nVorwärtskommen\n• Vielfältige Weiterentwicklungsmöglichkeiten inkl. internem Bildungsangebot mit über 180 Seminaren\n• Beteiligung an den Kosten von externen Weiterbildungen nach Absprache\nFairsichert\n• 16 Wochen Mutterschaftsurlaub mit vollem Lohn\n• 2 Wochen Vaterschaftsurlaub mit vollem Lohn\n• Wir übernehmen rund 60 % der PK-Beiträge\n\n• Pensum: 80 - 100%\n• Anstellung: befristet\n• Abteilung: Abteilung für Baubewilligungen\n• Arbeitsort: Aarau",
+        "fr": "Spannende Aufgaben warten:\n• Unterstützen Sie Gemeinden bei der Vollstreckung von Rückbauverfügungen und bei nachträglichen Baubewilligungsverfahren\n• Vertreten Sie die Abteilung für Baubewilligungen in Beschwerdeverfahren vor dem Regierungsrat und den Gerichtsinstanzen\n• Wirken Sie bei der kantonalen Umsetzung des revidierten Raumplanungsrechts (RPG 2) mit\n• Unterstützen Sie die Projektleitenden im Baubewilligungsverfahren bei juristischen Fragestellungen\n• Führen Sie Baugesuchsverfahren auf kantonaler Ebene\n\nWas Sie mitbringen:\n• Masterabschluss in Rechtswissenschaften\n• Interesse am Verwaltungs-, Raumplanungs- und Umweltrecht\n• Verhandlungsgeschick und Durchsetzungsvermögen\n• Selbständige und zuverlässige Arbeitsweise\n• Kommunikative und belastbare Persönlichkeit\n\nIm Departement Bau, Verkehr und Umwelt entwickeln wir den vielfältigen Lebensraum Aargau in den Bereichen Raum, Energie, Umwelt und Mobilität aktiv weiter – heute und für zukünftige Generationen.\nUnsere Aufgabe in der Abteilung für Baubewilligungen ist es, Baugesuche zu beurteilen, die einer kantonalen Zustimmung bedürfen. Dabei arbeiten wir mit vielen weiteren Abteilungen des Departements zusammen, deren fachliche Meinungen ebenfalls in die einzelnen Beurteilungen mit einfliessen. Sodann stellen wir sicher, dass unsere Entscheide auch umgesetzt werden, wobei der Austausch und die Unterstützung der kommunalen Baupolizeibehörden im Vordergrund steht.\n\nBenefits\nFlexibel arbeiten\n• Teilzeit (fast) immer möglich\n• In der Regel rund 3 bezahlte Brückentage pro Jahr\n• Möglichkeit, die Ferien um bis zu 10 Tage zu erweitern\n• Flexibles Arbeiten wie z.B. im Homeoffice\nVorwärtskommen\n• Vielfältige Weiterentwicklungsmöglichkeiten inkl. internem Bildungsangebot mit über 180 Seminaren\n• Beteiligung an den Kosten von externen Weiterbildungen nach Absprache\nFairsichert\n• 16 Wochen Mutterschaftsurlaub mit vollem Lohn\n• 2 Wochen Vaterschaftsurlaub mit vollem Lohn\n• Wir übernehmen rund 60 % der PK-Beiträge\n\n• Pensum: 80 - 100%\n• Anstellung: befristet\n• Abteilung: Abteilung für Baubewilligungen\n• Arbeitsort: Aarau"
+      },
+      "needsRetranslation": true,
+      "location": "Aarau",
+      "canton": "AG",
+      "url": "https://jobs.ag.ch/offene-stellen/juristische-mitarbeiterin-juristischer-mitarbeiter-baubewilligungen-80/1da54b4e-2a8f-43e5-8e46-4c1af3e5d15e",
+      "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-20T09:41:12.078Z",
+      "addressLocality": "Aarau",
+      "addressRegion": "AG",
+      "streetAddress": "Entfelderstrasse 22",
+      "postalCode": "5000",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Legale",
+      "contract": "temporary",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-20",
+      "postedDate": "2026-11-20",
+      "postingDateSource": "reported",
+      "validThrough": "2026-12-19T23:59:59.999Z",
+      "applyUrl": "https://jobs.ag.ch/offene-stellen/juristische-mitarbeiterin-juristischer-mitarbeiter-baubewilligungen-80/1da54b4e-2a8f-43e5-8e46-4c1af3e5d15e",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Abteilung für Baubewilligungen",
+      "previousSlugsByLocale": {
+        "it": [
+          "juristische-mitarbeiterin-juristischer-mitarbeiter-baubewilligungen-80-90-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "juristische-mitarbeiterin-juristischer-mitarbeiter-baubewilligungen-80-90-kanton-aargau-ch"
+      ],
+      "salaryMin": 63500,
+      "salaryMax": 108500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63500,
+          "maxValue": 108500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source",
+      "firstSeenAt": "2026-11-20T09:41:12.078Z"
+    },
+    {
+      "id": "kanton-aargau-ef05bc479814",
+      "slug": "sozialpadagogin-sozialpadagoge-uma-80-kanton-aargau-ch",
+      "slugByLocale": {
+        "de": "sozialpadagogin-sozialpadagoge-uma-80-kanton-aargau-ch",
+        "it": "sozialpadagogin-sozialpadagoge-uma-80-kanton-aargau-ch",
+        "en": "sozialpadagogin-sozialpadagoge-uma-80-kanton-aargau-ch",
+        "fr": "sozialpadagogin-sozialpadagoge-uma-80-kanton-aargau-ch"
+      },
+      "company": "Kanton Aargau",
+      "companyKey": "kanton-aargau",
+      "companyDomain": "ag.ch",
+      "title": "Sozialpädagogin / Sozialpädagoge UMA 80%",
+      "titleByLocale": {
+        "de": "Sozialpädagogin / Sozialpädagoge UMA 80%",
+        "it": "Sozialpädagogin / Sozialpädagoge UMA 80%",
+        "en": "Sozialpädagogin / Sozialpädagoge UMA 80%",
+        "fr": "Sozialpädagogin / Sozialpädagoge UMA 80%"
+      },
+      "description": "Spannende Aufgaben warten:\n• Sozialpädagogische, traumasensible Betreuung und Begleitung von vulnerablen unbegleiteten Minderjährigen Jugendlichen aus dem Asylbereich in einer kleinen Unterkunft\n• Unterstützung der Jugendlichen im Integrationsprozess sowie in der Alltagsgestaltung, beispielsweise beim gemeinsamen Kochen, bei Haushaltsaufgaben oder bei schulischen Themen\n• Aktive Mitgestaltung eines strukturierten und stabilen Alltags in der Unterkunft sowie Mitwirkung bei organisatorischen Aufgaben\n• Aufbau und Pflege einer professionellen, wertschätzenden Beziehung zu den Jugendlichen auf Grundlage des Konzepts der Neuen Autorität\n• Mitarbeit im Schichtbetrieb mit Tag- und Spätschichten (Montag bis Sonntag zwischen 06:30 Uhr und 22:30 Uhr) sowie Wochenend- und Feiertagseinsätzen\n\nWas Sie mitbringen:\n• Abgeschlossene Ausbildung in Sozialpädagogik auf Stufe HF oder FH; bei ausländischen Diplomen ist eine Anerkennung in der Schweiz erforderlich. Idealerweise verfügen Sie über Berufserfahrung in der sozialpädagogischen Betreuung, vorzugsweise im Migrationsbereich und/oder in der Psychiatrie\n• Empathie, interkulturelle Sensibilität und Freude an der Arbeit mit jungen Menschen in herausfordernden Lebenssituationen\n• Eine selbständige, lösungsorientierte Arbeitsweise sowie psychische Belastbarkeit\n• Humor, eine positive Grundhaltung und die Fähigkeit, auch in anspruchsvollen Situationen ruhig und besonnen zu handeln\n• Klarheit im Setzen von Grenzen sowie Kompetenz im konstruktiven Umgang mit Konflikten\n\nDie Bevölkerung steht im Zentrum der Tätigkeiten des Departements Gesundheit und Soziales. Für die Sicherheit ihrer Lebensbereiche arbeiten wir nachhaltig und zielgerichtet.\nDer Kantonale Sozialdienst ist zuständig für die öffentliche Sozialhilfe, das Asyl- und Flüchtlingswesen sowie die Opferberatung und Opferhilfe. Er ist Rechtsmittelinstanz im Bereich der Sozialhilfe und unterstützt die Gemeinden bei der Umsetzung ihrer Familien- und Alterspolitik. Dabei arbeiten wir eng mit anderen Verwaltungsstellen, den Gemeinden, anderen Kantonen, dem Bund und Drittorganisationen zusammen.\n\nBenefits\nFlexibel arbeiten\n• Teilzeit (fast) immer möglich\n• In der Regel rund 3 bezahlte Brückentage pro Jahr\n• Möglichkeit, die Ferien um bis zu 10 Tage zu erweitern\n• Flexibles Arbeiten wie z.B. im Homeoffice\nGesund bleiben\n• Ganzheitliches Betriebliches Gesundheitsmanagement zur Förderung von körperlichem, psychischem und sozialem Wohlbefinden\n• Verschiedene Sportangebote\nFair bezahlt\n• Gleicher Lohn für gleiche Arbeit\n• Dienstaltersgeschenk nach 15 Jahren\nVorwärtskommen\n• Vielfältige Weiterentwicklungsmöglichkeiten inkl. internem Bildungsangebot mit über 180 Seminaren\n• Beteiligung an den Kosten von externen Weiterbildungen nach Absprache\nFairsichert\n• 16 Wochen Mutterschaftsurlaub mit vollem Lohn\n• 2 Wochen Vaterschaftsurlaub mit vollem Lohn\n• Wir übernehmen rund 60 % der PK-Beiträge\n\n• Pensum: 80 - 100%\n• Anstellung: befristet\n• Abteilung: Kantonaler Sozialdienst\n• Arbeitsort: Brugg",
+      "descriptionByLocale": {
+        "de": "Spannende Aufgaben warten:\n• Sozialpädagogische, traumasensible Betreuung und Begleitung von vulnerablen unbegleiteten Minderjährigen Jugendlichen aus dem Asylbereich in einer kleinen Unterkunft\n• Unterstützung der Jugendlichen im Integrationsprozess sowie in der Alltagsgestaltung, beispielsweise beim gemeinsamen Kochen, bei Haushaltsaufgaben oder bei schulischen Themen\n• Aktive Mitgestaltung eines strukturierten und stabilen Alltags in der Unterkunft sowie Mitwirkung bei organisatorischen Aufgaben\n• Aufbau und Pflege einer professionellen, wertschätzenden Beziehung zu den Jugendlichen auf Grundlage des Konzepts der Neuen Autorität\n• Mitarbeit im Schichtbetrieb mit Tag- und Spätschichten (Montag bis Sonntag zwischen 06:30 Uhr und 22:30 Uhr) sowie Wochenend- und Feiertagseinsätzen\n\nWas Sie mitbringen:\n• Abgeschlossene Ausbildung in Sozialpädagogik auf Stufe HF oder FH; bei ausländischen Diplomen ist eine Anerkennung in der Schweiz erforderlich. Idealerweise verfügen Sie über Berufserfahrung in der sozialpädagogischen Betreuung, vorzugsweise im Migrationsbereich und/oder in der Psychiatrie\n• Empathie, interkulturelle Sensibilität und Freude an der Arbeit mit jungen Menschen in herausfordernden Lebenssituationen\n• Eine selbständige, lösungsorientierte Arbeitsweise sowie psychische Belastbarkeit\n• Humor, eine positive Grundhaltung und die Fähigkeit, auch in anspruchsvollen Situationen ruhig und besonnen zu handeln\n• Klarheit im Setzen von Grenzen sowie Kompetenz im konstruktiven Umgang mit Konflikten\n\nDie Bevölkerung steht im Zentrum der Tätigkeiten des Departements Gesundheit und Soziales. Für die Sicherheit ihrer Lebensbereiche arbeiten wir nachhaltig und zielgerichtet.\nDer Kantonale Sozialdienst ist zuständig für die öffentliche Sozialhilfe, das Asyl- und Flüchtlingswesen sowie die Opferberatung und Opferhilfe. Er ist Rechtsmittelinstanz im Bereich der Sozialhilfe und unterstützt die Gemeinden bei der Umsetzung ihrer Familien- und Alterspolitik. Dabei arbeiten wir eng mit anderen Verwaltungsstellen, den Gemeinden, anderen Kantonen, dem Bund und Drittorganisationen zusammen.\n\nBenefits\nFlexibel arbeiten\n• Teilzeit (fast) immer möglich\n• In der Regel rund 3 bezahlte Brückentage pro Jahr\n• Möglichkeit, die Ferien um bis zu 10 Tage zu erweitern\n• Flexibles Arbeiten wie z.B. im Homeoffice\nGesund bleiben\n• Ganzheitliches Betriebliches Gesundheitsmanagement zur Förderung von körperlichem, psychischem und sozialem Wohlbefinden\n• Verschiedene Sportangebote\nFair bezahlt\n• Gleicher Lohn für gleiche Arbeit\n• Dienstaltersgeschenk nach 15 Jahren\nVorwärtskommen\n• Vielfältige Weiterentwicklungsmöglichkeiten inkl. internem Bildungsangebot mit über 180 Seminaren\n• Beteiligung an den Kosten von externen Weiterbildungen nach Absprache\nFairsichert\n• 16 Wochen Mutterschaftsurlaub mit vollem Lohn\n• 2 Wochen Vaterschaftsurlaub mit vollem Lohn\n• Wir übernehmen rund 60 % der PK-Beiträge\n\n• Pensum: 80 - 100%\n• Anstellung: befristet\n• Abteilung: Kantonaler Sozialdienst\n• Arbeitsort: Brugg",
+        "it": "Spannende Aufgaben warten:\n• Sozialpädagogische, traumasensible Betreuung und Begleitung von vulnerablen unbegleiteten Minderjährigen Jugendlichen aus dem Asylbereich in einer kleinen Unterkunft\n• Unterstützung der Jugendlichen im Integrationsprozess sowie in der Alltagsgestaltung, beispielsweise beim gemeinsamen Kochen, bei Haushaltsaufgaben oder bei schulischen Themen\n• Aktive Mitgestaltung eines strukturierten und stabilen Alltags in der Unterkunft sowie Mitwirkung bei organisatorischen Aufgaben\n• Aufbau und Pflege einer professionellen, wertschätzenden Beziehung zu den Jugendlichen auf Grundlage des Konzepts der Neuen Autorität\n• Mitarbeit im Schichtbetrieb mit Tag- und Spätschichten (Montag bis Sonntag zwischen 06:30 Uhr und 22:30 Uhr) sowie Wochenend- und Feiertagseinsätzen\n\nWas Sie mitbringen:\n• Abgeschlossene Ausbildung in Sozialpädagogik auf Stufe HF oder FH; bei ausländischen Diplomen ist eine Anerkennung in der Schweiz erforderlich. Idealerweise verfügen Sie über Berufserfahrung in der sozialpädagogischen Betreuung, vorzugsweise im Migrationsbereich und/oder in der Psychiatrie\n• Empathie, interkulturelle Sensibilität und Freude an der Arbeit mit jungen Menschen in herausfordernden Lebenssituationen\n• Eine selbständige, lösungsorientierte Arbeitsweise sowie psychische Belastbarkeit\n• Humor, eine positive Grundhaltung und die Fähigkeit, auch in anspruchsvollen Situationen ruhig und besonnen zu handeln\n• Klarheit im Setzen von Grenzen sowie Kompetenz im konstruktiven Umgang mit Konflikten\n\nDie Bevölkerung steht im Zentrum der Tätigkeiten des Departements Gesundheit und Soziales. Für die Sicherheit ihrer Lebensbereiche arbeiten wir nachhaltig und zielgerichtet.\nDer Kantonale Sozialdienst ist zuständig für die öffentliche Sozialhilfe, das Asyl- und Flüchtlingswesen sowie die Opferberatung und Opferhilfe. Er ist Rechtsmittelinstanz im Bereich der Sozialhilfe und unterstützt die Gemeinden bei der Umsetzung ihrer Familien- und Alterspolitik. Dabei arbeiten wir eng mit anderen Verwaltungsstellen, den Gemeinden, anderen Kantonen, dem Bund und Drittorganisationen zusammen.\n\nBenefits\nFlexibel arbeiten\n• Teilzeit (fast) immer möglich\n• In der Regel rund 3 bezahlte Brückentage pro Jahr\n• Möglichkeit, die Ferien um bis zu 10 Tage zu erweitern\n• Flexibles Arbeiten wie z.B. im Homeoffice\nGesund bleiben\n• Ganzheitliches Betriebliches Gesundheitsmanagement zur Förderung von körperlichem, psychischem und sozialem Wohlbefinden\n• Verschiedene Sportangebote\nFair bezahlt\n• Gleicher Lohn für gleiche Arbeit\n• Dienstaltersgeschenk nach 15 Jahren\nVorwärtskommen\n• Vielfältige Weiterentwicklungsmöglichkeiten inkl. internem Bildungsangebot mit über 180 Seminaren\n• Beteiligung an den Kosten von externen Weiterbildungen nach Absprache\nFairsichert\n• 16 Wochen Mutterschaftsurlaub mit vollem Lohn\n• 2 Wochen Vaterschaftsurlaub mit vollem Lohn\n• Wir übernehmen rund 60 % der PK-Beiträge\n\n• Pensum: 80 - 100%\n• Anstellung: befristet\n• Abteilung: Kantonaler Sozialdienst\n• Arbeitsort: Brugg",
+        "en": "Spannende Aufgaben warten:\n• Sozialpädagogische, traumasensible Betreuung und Begleitung von vulnerablen unbegleiteten Minderjährigen Jugendlichen aus dem Asylbereich in einer kleinen Unterkunft\n• Unterstützung der Jugendlichen im Integrationsprozess sowie in der Alltagsgestaltung, beispielsweise beim gemeinsamen Kochen, bei Haushaltsaufgaben oder bei schulischen Themen\n• Aktive Mitgestaltung eines strukturierten und stabilen Alltags in der Unterkunft sowie Mitwirkung bei organisatorischen Aufgaben\n• Aufbau und Pflege einer professionellen, wertschätzenden Beziehung zu den Jugendlichen auf Grundlage des Konzepts der Neuen Autorität\n• Mitarbeit im Schichtbetrieb mit Tag- und Spätschichten (Montag bis Sonntag zwischen 06:30 Uhr und 22:30 Uhr) sowie Wochenend- und Feiertagseinsätzen\n\nWas Sie mitbringen:\n• Abgeschlossene Ausbildung in Sozialpädagogik auf Stufe HF oder FH; bei ausländischen Diplomen ist eine Anerkennung in der Schweiz erforderlich. Idealerweise verfügen Sie über Berufserfahrung in der sozialpädagogischen Betreuung, vorzugsweise im Migrationsbereich und/oder in der Psychiatrie\n• Empathie, interkulturelle Sensibilität und Freude an der Arbeit mit jungen Menschen in herausfordernden Lebenssituationen\n• Eine selbständige, lösungsorientierte Arbeitsweise sowie psychische Belastbarkeit\n• Humor, eine positive Grundhaltung und die Fähigkeit, auch in anspruchsvollen Situationen ruhig und besonnen zu handeln\n• Klarheit im Setzen von Grenzen sowie Kompetenz im konstruktiven Umgang mit Konflikten\n\nDie Bevölkerung steht im Zentrum der Tätigkeiten des Departements Gesundheit und Soziales. Für die Sicherheit ihrer Lebensbereiche arbeiten wir nachhaltig und zielgerichtet.\nDer Kantonale Sozialdienst ist zuständig für die öffentliche Sozialhilfe, das Asyl- und Flüchtlingswesen sowie die Opferberatung und Opferhilfe. Er ist Rechtsmittelinstanz im Bereich der Sozialhilfe und unterstützt die Gemeinden bei der Umsetzung ihrer Familien- und Alterspolitik. Dabei arbeiten wir eng mit anderen Verwaltungsstellen, den Gemeinden, anderen Kantonen, dem Bund und Drittorganisationen zusammen.\n\nBenefits\nFlexibel arbeiten\n• Teilzeit (fast) immer möglich\n• In der Regel rund 3 bezahlte Brückentage pro Jahr\n• Möglichkeit, die Ferien um bis zu 10 Tage zu erweitern\n• Flexibles Arbeiten wie z.B. im Homeoffice\nGesund bleiben\n• Ganzheitliches Betriebliches Gesundheitsmanagement zur Förderung von körperlichem, psychischem und sozialem Wohlbefinden\n• Verschiedene Sportangebote\nFair bezahlt\n• Gleicher Lohn für gleiche Arbeit\n• Dienstaltersgeschenk nach 15 Jahren\nVorwärtskommen\n• Vielfältige Weiterentwicklungsmöglichkeiten inkl. internem Bildungsangebot mit über 180 Seminaren\n• Beteiligung an den Kosten von externen Weiterbildungen nach Absprache\nFairsichert\n• 16 Wochen Mutterschaftsurlaub mit vollem Lohn\n• 2 Wochen Vaterschaftsurlaub mit vollem Lohn\n• Wir übernehmen rund 60 % der PK-Beiträge\n\n• Pensum: 80 - 100%\n• Anstellung: befristet\n• Abteilung: Kantonaler Sozialdienst\n• Arbeitsort: Brugg",
+        "fr": "Spannende Aufgaben warten:\n• Sozialpädagogische, traumasensible Betreuung und Begleitung von vulnerablen unbegleiteten Minderjährigen Jugendlichen aus dem Asylbereich in einer kleinen Unterkunft\n• Unterstützung der Jugendlichen im Integrationsprozess sowie in der Alltagsgestaltung, beispielsweise beim gemeinsamen Kochen, bei Haushaltsaufgaben oder bei schulischen Themen\n• Aktive Mitgestaltung eines strukturierten und stabilen Alltags in der Unterkunft sowie Mitwirkung bei organisatorischen Aufgaben\n• Aufbau und Pflege einer professionellen, wertschätzenden Beziehung zu den Jugendlichen auf Grundlage des Konzepts der Neuen Autorität\n• Mitarbeit im Schichtbetrieb mit Tag- und Spätschichten (Montag bis Sonntag zwischen 06:30 Uhr und 22:30 Uhr) sowie Wochenend- und Feiertagseinsätzen\n\nWas Sie mitbringen:\n• Abgeschlossene Ausbildung in Sozialpädagogik auf Stufe HF oder FH; bei ausländischen Diplomen ist eine Anerkennung in der Schweiz erforderlich. Idealerweise verfügen Sie über Berufserfahrung in der sozialpädagogischen Betreuung, vorzugsweise im Migrationsbereich und/oder in der Psychiatrie\n• Empathie, interkulturelle Sensibilität und Freude an der Arbeit mit jungen Menschen in herausfordernden Lebenssituationen\n• Eine selbständige, lösungsorientierte Arbeitsweise sowie psychische Belastbarkeit\n• Humor, eine positive Grundhaltung und die Fähigkeit, auch in anspruchsvollen Situationen ruhig und besonnen zu handeln\n• Klarheit im Setzen von Grenzen sowie Kompetenz im konstruktiven Umgang mit Konflikten\n\nDie Bevölkerung steht im Zentrum der Tätigkeiten des Departements Gesundheit und Soziales. Für die Sicherheit ihrer Lebensbereiche arbeiten wir nachhaltig und zielgerichtet.\nDer Kantonale Sozialdienst ist zuständig für die öffentliche Sozialhilfe, das Asyl- und Flüchtlingswesen sowie die Opferberatung und Opferhilfe. Er ist Rechtsmittelinstanz im Bereich der Sozialhilfe und unterstützt die Gemeinden bei der Umsetzung ihrer Familien- und Alterspolitik. Dabei arbeiten wir eng mit anderen Verwaltungsstellen, den Gemeinden, anderen Kantonen, dem Bund und Drittorganisationen zusammen.\n\nBenefits\nFlexibel arbeiten\n• Teilzeit (fast) immer möglich\n• In der Regel rund 3 bezahlte Brückentage pro Jahr\n• Möglichkeit, die Ferien um bis zu 10 Tage zu erweitern\n• Flexibles Arbeiten wie z.B. im Homeoffice\nGesund bleiben\n• Ganzheitliches Betriebliches Gesundheitsmanagement zur Förderung von körperlichem, psychischem und sozialem Wohlbefinden\n• Verschiedene Sportangebote\nFair bezahlt\n• Gleicher Lohn für gleiche Arbeit\n• Dienstaltersgeschenk nach 15 Jahren\nVorwärtskommen\n• Vielfältige Weiterentwicklungsmöglichkeiten inkl. internem Bildungsangebot mit über 180 Seminaren\n• Beteiligung an den Kosten von externen Weiterbildungen nach Absprache\nFairsichert\n• 16 Wochen Mutterschaftsurlaub mit vollem Lohn\n• 2 Wochen Vaterschaftsurlaub mit vollem Lohn\n• Wir übernehmen rund 60 % der PK-Beiträge\n\n• Pensum: 80 - 100%\n• Anstellung: befristet\n• Abteilung: Kantonaler Sozialdienst\n• Arbeitsort: Brugg"
+      },
+      "needsRetranslation": true,
+      "location": "Brugg",
+      "canton": "AG",
+      "url": "https://jobs.ag.ch/offene-stellen/sozialpaedagogin-sozialpaedagoge-uma/bf49ae75-0e1d-4539-a5fe-7ec6b2577a50",
+      "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-20T09:41:11.475Z",
+      "addressLocality": "Brugg",
+      "addressRegion": "AG",
+      "postalCode": "5200",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione Pubblica",
+      "contract": "temporary",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-20",
+      "postedDate": "2026-11-20",
+      "postingDateSource": "reported",
+      "validThrough": "2026-12-19T23:59:59.999Z",
+      "applyUrl": "https://jobs.ag.ch/offene-stellen/sozialpaedagogin-sozialpaedagoge-uma/bf49ae75-0e1d-4539-a5fe-7ec6b2577a50",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Kantonaler Sozialdienst",
+      "salaryMin": 49600,
+      "salaryMax": 75200,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49600,
+          "maxValue": 75200,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Brugg",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source",
+      "firstSeenAt": "2026-11-20T09:41:11.475Z"
     }
   ]
 }
