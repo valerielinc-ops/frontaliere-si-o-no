@@ -96,7 +96,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-16T09:22:51.178Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.guggerbach.ch/guggerbach/jobs-karriere/lehrstelle-assistentin-gesundheit-und-soziales-eba"
     },
     {
       "id": "guggerbach-b74196236ac9",
@@ -191,7 +192,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-16T09:22:51.178Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.guggerbach.ch/guggerbach/jobs-karriere/lehrstelle-fachperson-gesundheit-efz"
     },
     {
       "id": "guggerbach-3cbc082eeb47",
@@ -276,7 +278,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:22:51.177Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.guggerbach.ch/guggerbach/jobs-karriere/offene-stelle-pflegehelferin"
     },
     {
       "id": "guggerbach-2f9682e8461c",
@@ -367,7 +370,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-27T09:19:54.395Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "sourceIdentity": "url:https://www.guggerbach.ch/guggerbach/jobs-karriere/offene-stelle-servicemitarbeiterin"
     }
   ]
 }
