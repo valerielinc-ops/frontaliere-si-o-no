@@ -140,6 +140,9 @@ export function renderReport(report, { runUrl } = {}) {
     lines.push('', '_Prima la popolazione desktop di `/cerca-lavoro-ticino/`, poi p75 decrescente; `n` resta descrittivo e non attribuisce la latenza._');
     if (coverage.valuedSelectorsTruncated) lines.push('', '_ERRORE: la lettura paginata target × valore × device non ha raggiunto tutta la coda GA4._');
   }
+  if (coverage.valuedInpIncompleteRows > 0) {
+    lines.push('', `_ERRORE: ${coverage.valuedInpIncompleteRows} righe INP senza valore finito o con device vuoto/unknown._`);
+  }
 
   lines.push('', '#### p75 per template su `/cerca-lavoro*`', '');
   const perTemplate = templateP75(templates);
@@ -234,6 +237,10 @@ export async function main({
   }
   if (report.coverage?.valuedSelectorsTruncated) {
     logError(`::error title=${FAILURE_TITLE}::la lettura paginata target × valore × device non ha raggiunto tutta la coda GA4`);
+    return 1;
+  }
+  if (report.coverage?.valuedInpIncompleteRows > 0) {
+    logError(`::error title=${VALUED_ATTRIBUTION_GAP_FAILURE_TITLE}::${report.coverage.valuedInpIncompleteRows} righe INP senza valore finito o con device vuoto/unknown`);
     return 1;
   }
   if (!(report.valuedSelectors || []).length

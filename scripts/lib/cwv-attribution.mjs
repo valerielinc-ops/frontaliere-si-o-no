@@ -37,6 +37,7 @@ export const PRIORITY_INP_PATH = SECTION_LEGACY_TI_PATH.it;
 const TEMPLATE_LIMIT = 100000;
 const TEMPLATE_METRICS = ['CLS', 'INP'];
 const ALL_DEVICES = 'tutti';
+const GA4_DEVICES = new Set(['desktop', 'mobile', 'tablet', 'smart tv']);
 
 function exact(fieldName, value) {
   return { filter: { fieldName, stringFilter: { value, matchType: 'EXACT' } } };
@@ -153,6 +154,11 @@ function dims(row) {
   return (row?.dimensionValues || []).map((d) => String(d?.value ?? ''));
 }
 
+function normalizedGa4Device(value) {
+  const device = String(value ?? '').trim().toLowerCase();
+  return GA4_DEVICES.has(device) ? device : '';
+}
+
 function truncated(data, rows) {
   return data?.complete === false
     || Boolean(data?.metadata?.dataLossFromOtherRow)
@@ -228,15 +234,14 @@ export function parseValuedSelectorRows(data) {
     const [path, details, rawValue, rawDevice] = dims(row);
     const parsed = parseDetails(details);
     const embedded = parsed.embedded;
+    const valueText = String(rawValue ?? '').trim();
     const raw = Number(rawValue);
+    const device = normalizedGa4Device(rawDevice);
     const count = rowCount(row);
     if (!path || !embedded || !ATTRIBUTION_SECTIONS.includes(embedded.section)
       || !ATTRIBUTION_COMPONENTS.includes(embedded.component)
       || !/^[a-z-]{1,24}$/u.test(embedded.action)
-      || rawValue === '' || !Number.isFinite(raw) || !count) return [];
-    const device = ['desktop', 'mobile', 'tablet', 'smart tv'].includes(String(rawDevice).toLowerCase())
-      ? String(rawDevice).toLowerCase()
-      : 'unknown';
+      || valueText === '' || !Number.isFinite(raw) || !device || !count) return [];
     return [{
       path,
       section: embedded.section,
@@ -250,6 +255,26 @@ export function parseValuedSelectorRows(data) {
       count,
     }];
   });
+}
+
+/**
+ * Number of fetched INP buckets that cannot participate in a device-scoped
+ * p75 because GA4 did not return a finite value or a known, non-empty device.
+ * Keep this separate from the parsed rows: silently dropping one bad bucket
+ * would otherwise let a partially attributed report pass when another bucket
+ * is valid.
+ */
+export function incompleteValuedInpRowCount(data) {
+  return (data?.rows || []).reduce((total, row) => {
+    const [, details, rawValue, rawDevice] = dims(row);
+    if (parseDetails(details).embedded?.section !== ATTRIBUTION_SECTIONS[1]) return total;
+    const valueText = String(rawValue ?? '').trim();
+    const raw = Number(rawValue);
+    const incomplete = valueText === ''
+      || !Number.isFinite(raw)
+      || !normalizedGa4Device(rawDevice);
+    return total + (incomplete ? 1 : 0);
+  }, 0);
 }
 
 /** Request (c) rows → [{ template, metric, value, device, count }] (CLS in units, INP in ms). */
@@ -415,6 +440,7 @@ export async function fetchAttribution({ token, startDate, endDate, fetchImpl = 
       selectorsTruncated: truncated(selectorData, selectorData?.rows || []),
       templatesTruncated: truncated(templateData, templateData?.rows || []),
       valuedSelectorsTruncated: truncated(valuedSelectorData, valuedSelectorData?.rows || []),
+      valuedInpIncompleteRows: incompleteValuedInpRowCount(valuedSelectorData),
     },
   };
 }
