@@ -222,19 +222,70 @@ jobs:
             | jq '{artifacts: [ .[] | .artifacts[] | {name, digest, expired} ]}' \
             > "$RUNNER_TEMP/publisher-fast-gate/publisher-artifacts.json"
 
-      - name: Download non-IT locale dists for bridge evidence
-        uses: actions/download-artifact@v8
-        with:
-          pattern: locale-dist-*-${{ inputs.shard_artifact_run_id || github.run_id }}
-          path: ${{ runner.temp }}/publisher-fast-gate/locale-dist
-          github-token: ${{ github.token }}
-          repository: ${{ github.repository }}
-          run-id: ${{ inputs.shard_artifact_run_id || github.run_id }}
-        continue-on-error: true
+      - name: Recover non-IT validation artifacts
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          SOURCE_RUN_ID: ${{ inputs.deploy_run_id }}
+          SOURCE_SHA: ${{ inputs.deploy_ref }}
+          PUBLISHER_RUN_ID: ${{ inputs.shard_artifact_run_id || github.run_id }}
+        run: |
+          set -euo pipefail
+          gate="$RUNNER_TEMP/publisher-fast-gate"
+          mkdir -p "$gate/locale-dist"
+          echo '{}' > "$gate/section-origins.json"
+          echo '{}' > "$gate/prior-artifacts.json"
+
+          download_verified_member() {
+            local listing="$1" name="$2" member="$3" destination="$4"
+            local id digest archive
+            read -r id digest < <(jq -er --arg name "$name" '
+              [.artifacts[] | select(.name == $name and .expired == false)] |
+              if length == 1 then .[0] | [.id, .digest] | @tsv else error("missing artifact") end
+            ' "$listing")
+            [[ "$id" =~ ^[0-9]+$ && "$digest" =~ ^sha256:[a-f0-9]{64}$ ]]
+            archive="$gate/download.zip"
+            curl --fail --silent --show-error --location --retry 2 \
+              --header "Authorization: Bearer $GH_TOKEN" \
+              --output "$archive" "$GITHUB_API_URL/repos/$GH_REPO/actions/artifacts/$id/zip"
+            echo "${digest#sha256:}  $archive" | sha256sum --check --status
+            unzip -p "$archive" "$member" > "$destination"
+            rm "$archive"
+          }
+
+          gh api --paginate --slurp "repos/$GH_REPO/actions/workflows/deploy-publish.yml/runs?branch=main&per_page=100" |
+            jq -r --arg title "Publish Pages build $SOURCE_RUN_ID @ $SOURCE_SHA" --argjson current "$PUBLISHER_RUN_ID" '
+              [.[].workflow_runs[] | select(.display_title == $title and .id < $current and .status == "completed")] |
+              sort_by(.id) | reverse | .[].id
+            ' > "$gate/previous-runs"
+
+          for locale in en de fr; do
+            for run_id in "$PUBLISHER_RUN_ID" $(cat "$gate/previous-runs"); do
+              listing="$gate/artifacts-$run_id.json"
+              if [ ! -f "$listing" ]; then
+                gh api --paginate --slurp "repos/$GH_REPO/actions/runs/$run_id/artifacts?per_page=100" |
+                  jq '{artifacts: [.[].artifacts[]]}' > "$listing"
+              fi
+              manifest="section-page-manifest-$locale-$run_id"
+              dist="locale-dist-$locale-$run_id"
+              if ! jq -e --arg name "$manifest" 'any(.artifacts[]; .name == $name and .expired == false)' "$listing" > /dev/null; then
+                continue
+              fi
+              if [ "$run_id" != "$PUBLISHER_RUN_ID" ]; then
+                download_verified_member "$listing" "$manifest" "section-page-manifest-$locale.json" "$gate/section-manifests/section-page-manifest-$locale.json"
+                jq --arg locale "$locale" --arg run "$run_id" '.[$locale] = $run' "$gate/section-origins.json" > "$gate/section-origins.tmp"
+                mv "$gate/section-origins.tmp" "$gate/section-origins.json"
+                jq --arg run "$run_id" --slurpfile listing "$listing" '.[$run] = $listing[0]' "$gate/prior-artifacts.json" > "$gate/prior-artifacts.tmp"
+                mv "$gate/prior-artifacts.tmp" "$gate/prior-artifacts.json"
+              fi
+              if jq -e --arg name "$dist" 'any(.artifacts[]; .name == $name and .expired == false)' "$listing" > /dev/null; then
+                download_verified_member "$listing" "$dist" "locale-dist-$locale.tar" "$gate/locale-dist/locale-dist-$locale.tar"
+              fi
+              break
+            done
+          done
 
       - name: Build non-IT sitemap family bridge evidence
-        env:
-          PUBLISHER_RUN_ID: ${{ inputs.shard_artifact_run_id || github.run_id }}
         continue-on-error: true
         run: |
           set -euo pipefail
@@ -242,7 +293,7 @@ jobs:
           locale_dist_root="$RUNNER_TEMP/publisher-fast-gate/locale-dist"
           sitemaps_dir="$RUNNER_TEMP/publisher-fast-gate/sitemaps"
           for locale in en de fr; do
-            tar_file="$locale_dist_root/locale-dist-$locale-$PUBLISHER_RUN_ID/locale-dist-$locale.tar"
+            tar_file="$locale_dist_root/locale-dist-$locale.tar"
             evidence_file="$sitemaps_dir/sitemap-family-bridge-evidence-$locale.json"
             rm -f "$evidence_file"
             if [ ! -f "$tar_file" ]; then
@@ -282,6 +333,8 @@ jobs:
             --archive-evidence-dir "$RUNNER_TEMP/publisher-fast-gate/archive-evidence" \
             --source-artifacts "$RUNNER_TEMP/publisher-fast-gate/source-artifacts.json" \
             --publisher-artifacts "$RUNNER_TEMP/publisher-fast-gate/publisher-artifacts.json" \
+            --section-origins "$RUNNER_TEMP/publisher-fast-gate/section-origins.json" \
+            --prior-artifacts "$RUNNER_TEMP/publisher-fast-gate/prior-artifacts.json" \
             --out "$REPORT_OUT"
           result=$?
           gate_ms=$(( $(date +%s%3N) - GATE_START_MS ))
