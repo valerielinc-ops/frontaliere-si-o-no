@@ -41,7 +41,7 @@ const APPLICATION_ANAPHORIC_BRIDGE_RE = new RegExp([
 const REVIEW_INSTRUCTIONS_RE = /(?:please )?review (?:the |your )?information.{0,600}(?:select|click|press).{0,50}(?:submit|apply).{0,80}(?:finali[sz]e|send|submit|complete).{0,40}(?:application|candidature)/i;
 const BEFORE_SEND_RE = /(?:review|check).{0,160}(?:before (?:you )?(?:submit|send|apply)|next (?:step|page))/i;
 const GENERIC_APPLY_RE = /^(?:apply(?: now)?|bewerben|jetzt bewerben|candidati(?: ora)?|applica|postuler)\W*$/i;
-const CLOSED_APPLICATION_EXPAND_RE = /^(?:expand all(?: sections)?|show all(?: sections)?|alle abschnitte einblenden|alle einblenden|mostra tutte(?: le sezioni)?|espandi tutte(?: le sezioni)?|afficher toutes les sections|tout afficher|développer tout)\W*$/iu;
+export const EXPAND_ALL_RE = /^(?:expand all(?: sections)?|show all(?: sections)?|alle abschnitte einblenden|alle einblenden|mostra tutte(?: le sezioni)?|espandi tutt[eo](?: le sezioni)?|esplodi tutte le sezioni|afficher toutes les sections|tout afficher|développer tout)\W*$/iu;
 const WORKDAY_APPLICATION_START_RE = /^(?:start(?:\s+application)?|get\s+started|begin(?:\s+application)?|d[ée]marrer|commencer|comenzar|inizia(?:re)?|jetzt\s+starten)\W*$/iu;
 const WORKDAY_PROFILE_INTRO_RE = /\b(?:introduce\s+yourself|présentez[- ]vous|stellen\s+sie\s+sich\s+vor|presentati)\b/iu;
 const WORKDAY_APPLICATION_IDENTITY_RE = /^(?:given\s+name(?:\s*\(s\))?|first\s+name|forename|vorname|pr[ée]nom|nome|family\s+name|last\s+name|surname|nachname|nom(?:\s+de\s+famille)?|cognome)/iu;
@@ -680,7 +680,7 @@ export function applicationStage(snapshot, {
   const closedSectionApplication = apply.length === 1 && !apply[0].href
     && Boolean(apply[0].formId)
     && (titleBound(text, job.title) || Boolean(apply[0].applicationScopeId))
-    && buttons.some(button => CLOSED_APPLICATION_EXPAND_RE.test(String(button.text || button.label || '')))
+    && buttons.some(button => EXPAND_ALL_RE.test(String(button.text || button.label || '')))
     && buttons.some(button => SUBMIT_RE.test(String(button.text || button.label || '')));
   const applicationForm = (apply.length === 1 && !apply[0].href && Boolean(apply[0].formId)
     && hasApplicationIdentity && (hasCv || hasApplicationQuestion))
