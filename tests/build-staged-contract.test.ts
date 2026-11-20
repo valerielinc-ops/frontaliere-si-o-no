@@ -10,7 +10,9 @@ describe('staged production build memory boundary', () => {
     const pkg = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8')) as {
       scripts?: Record<string, string>;
     };
-    expect(pkg.scripts?.['build:ci']).toContain('scripts/ci/build-staged.mjs');
+    expect(pkg.scripts?.['build:ci:stage']).toContain('scripts/ci/build-staged.mjs');
+    expect(pkg.scripts?.['build:ci']).toContain('npm run build:ci:stage');
+    expect(pkg.scripts?.['build:ci']).toContain('publish-versioned-cdn-assets.mjs');
   });
 
   it('keeps the SPA graph in bundle and the SEO graph in ssg', () => {

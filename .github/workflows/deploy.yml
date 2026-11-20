@@ -1025,7 +1025,7 @@ jobs:
           BUILD_STAGE_HANDOFF_DIR: ${{ runner.temp }}/build-stage-handoff
         run: |
           set -o pipefail
-          npm run build:ci 2>&1 | tee /tmp/build-bundle.log
+          npm run build:ci:stage 2>&1 | tee /tmp/build-bundle.log
           build_exit="${PIPESTATUS[0]}"
           echo "bundle_wall_seconds=$SECONDS" >> "$GITHUB_OUTPUT"
           exit "$build_exit"
