@@ -1326,11 +1326,29 @@ function nativeQuestionText(value, counter = null) {
     const label = type === 'file' && CV_SECTION_TITLE_RE.test(section)
       && (!nativeLabel || FILE_UPLOAD_MACHINE_LABEL_RE.test(nativeLabel))
       ? section : nativeLabel;
+    // The visible Umantis date input has no submitted name. Its owned
+    // day/month/year controls are the values the server actually receives.
+    const picker = element.matches('input[data-picker-enabled="true"][data-picker-type="date"]')
+      ? element.closest('fieldset.date.singular-input[data-picker-enabled="true"]') : null;
+    const dateGroup = picker && element.getAttribute('data-group-id');
+    const dateTrigger = picker && element.getAttribute('data-picker-trigger');
+    const dateParts = dateGroup && /^[\w-]+$/.test(dateGroup) && ['year', 'month', 'day'].map(part =>
+      picker.querySelector(`input[type="hidden"][id="${dateGroup}_${part}"][name]`));
+    const umantisDate = Array.isArray(dateParts) && dateParts.every(part => part && part.form === element.form)
+      && dateParts.every(part => part.name === dateParts[0].name)
+      && /^#[\w-]+$/.test(dateTrigger || '') && picker.querySelector(`button[type="button"]${dateTrigger}`);
+    const submittedDate = umantisDate && dateParts.every((part, index) =>
+      (index === 0 ? /^\d{4}$/ : /^\d{1,2}$/).test(part.value))
+      ? dateParts.map((part, index) => part.value.padStart(index === 0 ? 4 : 2, '0')).join('-') : '';
+    const dateMs = Date.parse(submittedDate + 'T00:00:00Z');
+    const committedDate = submittedDate && Number.isFinite(dateMs)
+      && new Date(dateMs).toISOString().slice(0, 10) === submittedDate ? submittedDate : '';
     const field = {
       id: idFor(element),
       kind: type === 'checkbox' ? 'checkbox' : type === 'file' ? 'file' : tag === 'select' ? 'select' : tag === 'textarea' ? 'textarea' : element.getAttribute('role') === 'combobox' ? 'combobox' : 'text',
       ...dialogMeta(element),
-      inputType: type,
+      inputType: umantisDate ? 'date' : type,
+      ...(umantisDate ? { widget: 'umantis-date', dateTrigger } : {}),
       form: formOf(element),
       formId: element.form || element.closest('form') ? idFor(element.form || element.closest('form')) : '',
       domId: element.id || '',
@@ -1343,8 +1361,10 @@ function nativeQuestionText(value, counter = null) {
       context: sectionContext(element),
       addressContext: ownedAddressContext(element),
       section,
-      required: required || REQUIRED_LABEL.test(label) || hasRequiredMarker(element, label),
-      value: type === 'file' ? '' : pills.length ? pills.join(', ') : clean(element.value || ''),
+      required: required || REQUIRED_LABEL.test(label) || hasRequiredMarker(element, label)
+        || Boolean(umantisDate && picker.closest('.form_content_row')?.querySelector(
+          ':scope > .form_content_left_boundary > .form_content_left > .form_content_label_mustsign')),
+      value: umantisDate ? committedDate : type === 'file' ? '' : pills.length ? pills.join(', ') : clean(element.value || ''),
       search: element.getAttribute('data-uxi-widget-type') === 'selectinput' || element.getAttribute('enterkeyhint') === 'search',
       maxLength: Number(element.getAttribute('maxlength')) > 0 ? Number(element.getAttribute('maxlength')) : (tag === 'textarea' || type === 'text' ? statedLimit(element) : null),
       accept: type === 'file' ? clean(element.getAttribute('accept') || '') : '',
