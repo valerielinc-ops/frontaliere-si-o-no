@@ -253,7 +253,8 @@ jobs:
             rm "$archive"
           }
 
-          gh api --paginate --slurp "repos/$GH_REPO/actions/workflows/deploy-publish.yml/runs?branch=main&per_page=100" |
+          created_since=$(date -u -d "7 days ago" +%F)
+          gh api --paginate --slurp "repos/$GH_REPO/actions/workflows/deploy-publish.yml/runs?branch=main&created=%3E%3D$created_since&per_page=100" |
             jq -r --arg title "Publish Pages build $SOURCE_RUN_ID @ $SOURCE_SHA" --argjson current "$PUBLISHER_RUN_ID" '
               [.[].workflow_runs[] | select(.display_title == $title and .id < $current and .status == "completed")] |
               sort_by(.id) | reverse | .[].id
