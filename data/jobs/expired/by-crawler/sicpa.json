@@ -48,7 +48,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.sicpa.com/job/chavornay-automaticien/1409947133",
-    "firstSeenAt": "2026-07-04T12:00:35.162Z"
+    "firstSeenAt": "2026-07-04T12:00:35.162Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.sicpa.com/job/chavornay-automaticien/1409947133",
+        "firstSeenAt": "2026-07-04T12:00:35.162Z",
+        "title": "Automaticien"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.sicpa.com/job/chavornay-automaticien/1448503333",
+        "firstSeenAt": "2026-07-04T12:00:35.162Z",
+        "title": "Automaticien"
+      }
+    ]
   },
   {
     "slug": "automatico-sicpa-sa-chavornay-ad8e6a1279",
@@ -127,7 +139,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.sicpa.com/job/chavornay-automaticien/1448503333",
-    "firstSeenAt": "2026-07-04T12:00:35.162Z"
+    "firstSeenAt": "2026-07-04T12:00:35.162Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.sicpa.com/job/chavornay-automaticien/1409947133",
+        "firstSeenAt": "2026-07-04T12:00:35.162Z",
+        "title": "Automaticien"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.sicpa.com/job/chavornay-automaticien/1448503333",
+        "firstSeenAt": "2026-07-04T12:00:35.162Z",
+        "title": "Automaticien"
+      }
+    ]
   },
   {
     "slug": "technical-coordinatore-sicpa-sa-prilly",
@@ -547,20 +571,29 @@
       "specialista-tecnico-senior-di-laboratorio-sicpa-sa-prilly",
       "senior-laboratory-technical-specialist-sicpa-prilly-jyudn9",
       "senior-laboratory-technical-spezialist-sicpa-sa-prilly",
-      "technischer-facharzt-fur-laboratoriumstechnik-sicpa-sa-prilly"
+      "technischer-facharzt-fur-laboratoriumstechnik-sicpa-sa-prilly",
+      "senior-laboratory-technical-specialist-sicpa-prilly"
     ],
     "previousSlugsByLocale": {
       "it": [
         "specialista-tecnico-senior-di-laboratorio-sicpa-sa-prilly",
         "senior-laboratory-technical-specialist-sicpa-prilly-jyudn9",
         "senior-laboratory-technical-spezialist-sicpa-sa-prilly",
-        "technischer-facharzt-fur-laboratoriumstechnik-sicpa-sa-prilly"
+        "technischer-facharzt-fur-laboratoriumstechnik-sicpa-sa-prilly",
+        "senior-laboratory-technical-specialist-sicpa-prilly"
       ],
       "en": [
-        "senior-laboratory-technical-specialist-sicpa-prilly-jyudn9"
+        "senior-laboratory-technical-specialist-sicpa-prilly-jyudn9",
+        "senior-laboratory-technical-specialist-sicpa-prilly"
       ],
       "de": [
-        "senior-laboratory-technical-spezialist-sicpa-sa-prilly"
+        "senior-laboratory-technical-spezialist-sicpa-sa-prilly",
+        "senior-laboratory-technical-specialist-sicpa-prilly",
+        "technischer-facharzt-fur-laboratoriumstechnik-sicpa-sa-prilly"
+      ],
+      "fr": [
+        "senior-laboratory-technical-specialist-sicpa-prilly",
+        "senior-laboratory-technical-specialist-sicpa-prilly-jyudn9"
       ]
     },
     "postalCode": "1008",
@@ -569,7 +602,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.sicpa.com/job/prilly-senior-laboratory-technical-specialist/1433333033",
-    "firstSeenAt": "2026-07-24T22:12:50.807Z"
+    "firstSeenAt": "2026-07-24T22:12:50.807Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.sicpa.com/job/prilly-senior-laboratory-technical-specialist/1418754533",
+        "firstSeenAt": "2026-07-24T22:12:50.807Z",
+        "title": "Senior Laboratory Technical Specialist"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.sicpa.com/job/prilly-senior-laboratory-technical-specialist/1433333033",
+        "firstSeenAt": "2026-07-24T22:12:50.807Z",
+        "title": "Senior Laboratory Technical Specialist"
+      }
+    ]
   },
   {
     "slug": "operatore-giardinaggio-e-strade-sicpa-sa-prilly",
@@ -810,7 +855,9 @@
     "salaryMin": 120000,
     "salaryMax": 162000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.sicpa.com/job/prilly-test-lead/1424253133",
+    "firstSeenAt": "2026-09-09T23:17:18.782Z"
   },
   {
     "slug": "automazione-tecnico-sicpa-sa-prilly",
