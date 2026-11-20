@@ -1,7 +1,7 @@
 {
   "crawlerKey": "canton-valais",
-  "assembledAt": "2026-11-19T21:44:49.297Z",
-  "runId": "44617900362",
+  "assembledAt": "2026-11-20T09:59:35.486Z",
+  "runId": "44709857684",
   "jobs": [
     {
       "id": "canton-valais-dae4352eed5a",
@@ -34,7 +34,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=108631&publication=2644",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:44:19.951Z",
+      "crawledAt": "2026-11-20T09:58:57.698Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -85,7 +85,7 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T21:44:19.951Z",
+      "validThrough": "2027-01-28T09:58:57.698Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=108631&publication=2644"
     },
@@ -120,7 +120,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=100888&publication=2644",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:44:19.134Z",
+      "crawledAt": "2026-11-20T09:58:57.106Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -169,7 +169,7 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T21:44:19.134Z",
+      "validThrough": "2027-01-28T09:58:57.106Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=100888&publication=2644"
     },
@@ -204,7 +204,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=109266&publication=2644",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:44:17.881Z",
+      "crawledAt": "2026-11-20T09:58:55.913Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -255,7 +255,7 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T21:44:17.881Z",
+      "validThrough": "2027-01-28T09:58:55.913Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=109266&publication=2644"
     },
@@ -290,7 +290,7 @@
       "url": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20837?language=fr",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:44:17.288Z",
+      "crawledAt": "2026-11-20T09:58:55.333Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -339,7 +339,7 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:44:17.288Z",
+      "validThrough": "2027-02-01T09:58:55.333Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://otb.apps.vs.ch/svc/api/joboffersdocument/20837?language=fr"
     },
@@ -374,7 +374,7 @@
       "url": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20836?language=fr",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:44:16.705Z",
+      "crawledAt": "2026-11-20T09:58:54.749Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -393,10 +393,6 @@
       "applyUrl": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20836?language=fr",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "juriste-60-70-canton-valais-ch",
-        "juriste-60-70-canton-du-valais-sion"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "juriste-60-70-canton-valais-ch"
@@ -411,6 +407,10 @@
           "juriste-60-70-canton-du-valais-sion"
         ]
       },
+      "previousSlugs": [
+        "juriste-60-70-canton-valais-ch",
+        "juriste-60-70-canton-du-valais-sion"
+      ],
       "firstSeenAt": "2026-11-03T09:37:43.838Z",
       "salaryMin": 42400,
       "salaryMax": 64000,
@@ -427,7 +427,7 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:44:16.705Z",
+      "validThrough": "2027-02-01T09:58:54.749Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://otb.apps.vs.ch/svc/api/joboffersdocument/20836?language=fr"
     },
@@ -462,7 +462,7 @@
       "url": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20835?language=fr",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:44:16.137Z",
+      "crawledAt": "2026-11-20T09:58:54.165Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -511,7 +511,7 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:44:16.137Z",
+      "validThrough": "2027-02-01T09:58:54.165Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://otb.apps.vs.ch/svc/api/joboffersdocument/20835?language=fr"
     },
@@ -546,7 +546,7 @@
       "url": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20875?language=fr",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:44:15.523Z",
+      "crawledAt": "2026-11-20T09:58:53.606Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -595,7 +595,7 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:44:15.523Z",
+      "validThrough": "2027-02-03T09:58:53.606Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://otb.apps.vs.ch/svc/api/joboffersdocument/20875?language=fr"
     },
@@ -630,7 +630,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=101603&publication=2645",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:44:14.943Z",
+      "crawledAt": "2026-11-20T09:58:53.022Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -679,7 +679,7 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:44:14.943Z",
+      "validThrough": "2027-02-04T09:58:53.022Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=101603&publication=2645"
     },
@@ -714,7 +714,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=106436&publication=2645",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:44:14.259Z",
+      "crawledAt": "2026-11-20T09:58:52.381Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -763,7 +763,7 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:44:14.259Z",
+      "validThrough": "2027-02-04T09:58:52.381Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=106436&publication=2645"
     },
@@ -798,7 +798,7 @@
       "url": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20877?language=fr",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:44:13.615Z",
+      "crawledAt": "2026-11-20T09:58:51.748Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -848,7 +848,7 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:44:13.615Z",
+      "validThrough": "2027-02-04T09:58:51.748Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://otb.apps.vs.ch/svc/api/joboffersdocument/20877?language=fr"
     },
@@ -883,7 +883,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=103527&publication=2646",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:44:13.151Z",
+      "crawledAt": "2026-11-20T09:58:51.276Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -934,7 +934,7 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:44:13.151Z",
+      "validThrough": "2027-02-11T09:58:51.276Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=103527&publication=2646"
     },
@@ -969,7 +969,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=112551&publication=2646",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:44:12.523Z",
+      "crawledAt": "2026-11-20T09:58:50.560Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1018,7 +1018,7 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:44:12.523Z",
+      "validThrough": "2027-02-11T09:58:50.560Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=112551&publication=2646"
     },
@@ -1053,7 +1053,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=100872&publication=2646",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:44:11.821Z",
+      "crawledAt": "2026-11-20T09:58:49.912Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1102,7 +1102,7 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:44:11.821Z",
+      "validThrough": "2027-02-11T09:58:49.912Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=100872&publication=2646"
     },
@@ -1137,7 +1137,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=108448&publication=2646",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:44:10.670Z",
+      "crawledAt": "2026-11-20T09:58:49.248Z",
       "addressLocality": "Monthey",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1186,7 +1186,7 @@
       },
       "streetAddress": "Monthey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:44:10.670Z",
+      "validThrough": "2027-02-11T09:58:49.248Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=108448&publication=2646"
     },
@@ -1221,7 +1221,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=112350&publication=2646",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:44:10.021Z",
+      "crawledAt": "2026-11-20T09:58:48.587Z",
       "addressLocality": "Sierre",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1270,7 +1270,7 @@
       },
       "streetAddress": "Sierre",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T21:44:10.021Z",
+      "validThrough": "2026-12-20T09:58:48.587Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=112350&publication=2646"
     },
@@ -1305,7 +1305,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=101086&publication=2646",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:44:09.225Z",
+      "crawledAt": "2026-11-20T09:58:47.826Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1354,7 +1354,7 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:44:09.225Z",
+      "validThrough": "2027-02-11T09:58:47.826Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=101086&publication=2646"
     },
@@ -1389,7 +1389,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=101694&publication=2646",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:44:08.535Z",
+      "crawledAt": "2026-11-20T09:58:47.123Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1438,7 +1438,7 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:44:08.535Z",
+      "validThrough": "2027-02-11T09:58:47.123Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=101694&publication=2646"
     },
@@ -1473,7 +1473,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=113350&publication=2646",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:44:07.842Z",
+      "crawledAt": "2026-11-20T09:58:46.464Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1522,7 +1522,7 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:44:07.842Z",
+      "validThrough": "2027-02-11T09:58:46.464Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=113350&publication=2646"
     },
@@ -1557,7 +1557,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=100306&publication=2646",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:44:06.896Z",
+      "crawledAt": "2026-11-20T09:58:45.824Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1606,7 +1606,7 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:44:06.896Z",
+      "validThrough": "2027-02-11T09:58:45.824Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=100306&publication=2646"
     },
@@ -1641,7 +1641,7 @@
       "url": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20915?language=fr",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:44:06.071Z",
+      "crawledAt": "2026-11-20T09:58:45.075Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1660,10 +1660,6 @@
       "applyUrl": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20915?language=fr",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "gestionnaire-prestations-80-100-canton-valais-ch",
-        "gestionnaire-prestations-80-100-canton-du-valais-sion"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-prestations-80-100-canton-valais-ch",
@@ -1676,7 +1672,10 @@
           "gestionnaire-prestations-80-100-canton-valais-ch"
         ]
       },
-      "firstSeenAt": "2026-11-19T09:41:31.690Z",
+      "previousSlugs": [
+        "gestionnaire-prestations-80-100-canton-valais-ch",
+        "gestionnaire-prestations-80-100-canton-du-valais-sion"
+      ],
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -1692,9 +1691,962 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-17T21:44:06.071Z",
+      "validThrough": "2027-02-17T09:58:45.075Z",
       "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-19T09:41:31.690Z",
       "sourceIdentity": "url:https://otb.apps.vs.ch/svc/api/joboffersdocument/20915?language=fr"
+    },
+    {
+      "id": "canton-valais-f123fba15291",
+      "slug": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-100-engagement-de-duree",
+      "slugByLocale": {
+        "fr": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-100-engagement-de-duree",
+        "it": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-100-engagement-de-duree",
+        "en": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-100-engagement-de-duree",
+        "de": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-100-engagement-de-duree"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "Un collaborateur spécialisé ou une collaboratrice spécialisée (100%, engagement de durée déterminée d’un an)",
+      "titleByLocale": {
+        "fr": "Un collaborateur spécialisé ou une collaboratrice spécialisée (100%, engagement de durée déterminée d’un an)",
+        "it": "Un collaborateur spécialisé ou une collaboratrice spécialisée (100%, engagement de durée déterminée d’un an)",
+        "en": "Un collaborateur spécialisé ou une collaboratrice spécialisée (100%, engagement de durée déterminée d’un an)",
+        "de": "Un collaborateur spécialisé ou une collaboratrice spécialisée (100%, engagement de durée déterminée d’un an)"
+      },
+      "description": "Un collaborateur spécialisé ou une collaboratrice spécialisée (100%, engagement de durée déterminée d’un an) auprès de l’Administration cantonale des finances, Section assurances et économat, à Sion\n\nVos tâches:\n• Planifie avec les différents services de l’Etat du Valais le besoin en mobilier Gère les contacts avec les différents fournisseurs Etablit les commandes de mobilier Assure le suivi des livraisons et la réception des commandes Est responsable du stock et de sa gestion Veille à utiliser en priorité les ressources disponibles Collabore avec le Service Immobilier et Patrimoine dans les différents projets de déménagements\n• Participe à des projets d’améliorations\n\nVotre profil:\n• Vous êtes titulaire d’une formation commerciale (CFC d’employé de commerce, diplôme d'une école supérieure de commerce, maturité professionnelle ou formation jugée équivalente) avec connaissances spécifiques dans le domaine des achats, plus particulièrement dans le mobilier de bureau Vous disposez de plusieurs années d'expérience professionnelle dans ce domaine Vous disposez de bonnes connaissances des outils informatiques et en particulier du système SAP Vous êtes apte à travailler de manière indépendante et en équipe Vous avez un intérêt marqué pour l’administration publique Langue maternelle française ou allemande avec de bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\nDès le 1 er février 2027 ou à convenir\n\nInformations:\nRenseignements sur le poste : Administration cantonale des finances (027 606 24 11 / david.sewer@admin.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 27 novembre 2026 / Numéro de référence : 100226",
+      "descriptionByLocale": {
+        "fr": "Un collaborateur spécialisé ou une collaboratrice spécialisée (100%, engagement de durée déterminée d’un an) auprès de l’Administration cantonale des finances, Section assurances et économat, à Sion\n\nVos tâches:\n• Planifie avec les différents services de l’Etat du Valais le besoin en mobilier Gère les contacts avec les différents fournisseurs Etablit les commandes de mobilier Assure le suivi des livraisons et la réception des commandes Est responsable du stock et de sa gestion Veille à utiliser en priorité les ressources disponibles Collabore avec le Service Immobilier et Patrimoine dans les différents projets de déménagements\n• Participe à des projets d’améliorations\n\nVotre profil:\n• Vous êtes titulaire d’une formation commerciale (CFC d’employé de commerce, diplôme d'une école supérieure de commerce, maturité professionnelle ou formation jugée équivalente) avec connaissances spécifiques dans le domaine des achats, plus particulièrement dans le mobilier de bureau Vous disposez de plusieurs années d'expérience professionnelle dans ce domaine Vous disposez de bonnes connaissances des outils informatiques et en particulier du système SAP Vous êtes apte à travailler de manière indépendante et en équipe Vous avez un intérêt marqué pour l’administration publique Langue maternelle française ou allemande avec de bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\nDès le 1 er février 2027 ou à convenir\n\nInformations:\nRenseignements sur le poste : Administration cantonale des finances (027 606 24 11 / david.sewer@admin.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 27 novembre 2026 / Numéro de référence : 100226",
+        "it": "Un collaborateur spécialisé ou une collaboratrice spécialisée (100%, engagement de durée déterminée d’un an) auprès de l’Administration cantonale des finances, Section assurances et économat, à Sion\n\nVos tâches:\n• Planifie avec les différents services de l’Etat du Valais le besoin en mobilier Gère les contacts avec les différents fournisseurs Etablit les commandes de mobilier Assure le suivi des livraisons et la réception des commandes Est responsable du stock et de sa gestion Veille à utiliser en priorité les ressources disponibles Collabore avec le Service Immobilier et Patrimoine dans les différents projets de déménagements\n• Participe à des projets d’améliorations\n\nVotre profil:\n• Vous êtes titulaire d’une formation commerciale (CFC d’employé de commerce, diplôme d'une école supérieure de commerce, maturité professionnelle ou formation jugée équivalente) avec connaissances spécifiques dans le domaine des achats, plus particulièrement dans le mobilier de bureau Vous disposez de plusieurs années d'expérience professionnelle dans ce domaine Vous disposez de bonnes connaissances des outils informatiques et en particulier du système SAP Vous êtes apte à travailler de manière indépendante et en équipe Vous avez un intérêt marqué pour l’administration publique Langue maternelle française ou allemande avec de bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\nDès le 1 er février 2027 ou à convenir\n\nInformations:\nRenseignements sur le poste : Administration cantonale des finances (027 606 24 11 / david.sewer@admin.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 27 novembre 2026 / Numéro de référence : 100226",
+        "en": "Un collaborateur spécialisé ou une collaboratrice spécialisée (100%, engagement de durée déterminée d’un an) auprès de l’Administration cantonale des finances, Section assurances et économat, à Sion\n\nVos tâches:\n• Planifie avec les différents services de l’Etat du Valais le besoin en mobilier Gère les contacts avec les différents fournisseurs Etablit les commandes de mobilier Assure le suivi des livraisons et la réception des commandes Est responsable du stock et de sa gestion Veille à utiliser en priorité les ressources disponibles Collabore avec le Service Immobilier et Patrimoine dans les différents projets de déménagements\n• Participe à des projets d’améliorations\n\nVotre profil:\n• Vous êtes titulaire d’une formation commerciale (CFC d’employé de commerce, diplôme d'une école supérieure de commerce, maturité professionnelle ou formation jugée équivalente) avec connaissances spécifiques dans le domaine des achats, plus particulièrement dans le mobilier de bureau Vous disposez de plusieurs années d'expérience professionnelle dans ce domaine Vous disposez de bonnes connaissances des outils informatiques et en particulier du système SAP Vous êtes apte à travailler de manière indépendante et en équipe Vous avez un intérêt marqué pour l’administration publique Langue maternelle française ou allemande avec de bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\nDès le 1 er février 2027 ou à convenir\n\nInformations:\nRenseignements sur le poste : Administration cantonale des finances (027 606 24 11 / david.sewer@admin.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 27 novembre 2026 / Numéro de référence : 100226",
+        "de": "Un collaborateur spécialisé ou une collaboratrice spécialisée (100%, engagement de durée déterminée d’un an) auprès de l’Administration cantonale des finances, Section assurances et économat, à Sion\n\nVos tâches:\n• Planifie avec les différents services de l’Etat du Valais le besoin en mobilier Gère les contacts avec les différents fournisseurs Etablit les commandes de mobilier Assure le suivi des livraisons et la réception des commandes Est responsable du stock et de sa gestion Veille à utiliser en priorité les ressources disponibles Collabore avec le Service Immobilier et Patrimoine dans les différents projets de déménagements\n• Participe à des projets d’améliorations\n\nVotre profil:\n• Vous êtes titulaire d’une formation commerciale (CFC d’employé de commerce, diplôme d'une école supérieure de commerce, maturité professionnelle ou formation jugée équivalente) avec connaissances spécifiques dans le domaine des achats, plus particulièrement dans le mobilier de bureau Vous disposez de plusieurs années d'expérience professionnelle dans ce domaine Vous disposez de bonnes connaissances des outils informatiques et en particulier du système SAP Vous êtes apte à travailler de manière indépendante et en équipe Vous avez un intérêt marqué pour l’administration publique Langue maternelle française ou allemande avec de bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\nDès le 1 er février 2027 ou à convenir\n\nInformations:\nRenseignements sur le poste : Administration cantonale des finances (027 606 24 11 / david.sewer@admin.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 27 novembre 2026 / Numéro de référence : 100226"
+      },
+      "location": "Sion",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=100226&publication=2647",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-20T09:58:44.489Z",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=100226&publication=2647",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Sion",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-18T09:58:44.489Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-20T09:58:44.489Z"
+    },
+    {
+      "id": "canton-valais-b3b4f36f9e42",
+      "slug": "un-collaborateur-specialise-en-communication-ou-une-collaboratrice-specialisee-en",
+      "slugByLocale": {
+        "fr": "un-collaborateur-specialise-en-communication-ou-une-collaboratrice-specialisee-en",
+        "it": "un-collaborateur-specialise-en-communication-ou-une-collaboratrice-specialisee-en",
+        "en": "un-collaborateur-specialise-en-communication-ou-une-collaboratrice-specialisee-en",
+        "de": "un-collaborateur-specialise-en-communication-ou-une-collaboratrice-specialisee-en"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "Un collaborateur spécialisé en communication ou une collaboratrice spécialisée en communication (50%, engagement de durée déterminée)",
+      "titleByLocale": {
+        "fr": "Un collaborateur spécialisé en communication ou une collaboratrice spécialisée en communication (50%, engagement de durée déterminée)",
+        "it": "Un collaborateur spécialisé en communication ou une collaboratrice spécialisée en communication (50%, engagement de durée déterminée)",
+        "en": "Un collaborateur spécialisé en communication ou une collaboratrice spécialisée en communication (50%, engagement de durée déterminée)",
+        "de": "Un collaborateur spécialisé en communication ou une collaboratrice spécialisée en communication (50%, engagement de durée déterminée)"
+      },
+      "description": "Un collaborateur spécialisé en communication ou une collaboratrice spécialisée en communication (50%, engagement de durée déterminée) auprès du Service de l’agriculture à Sion\n\nVos tâches:\n• Sous la responsabilité du responsable de la promotion et de la communication, vous participez à la mise en œuvre de la stratégie de communication du Service et contribuez à valoriser ses activités auprès des différents publics Vous concevez et réalisez des contenus adaptés aux supports de communication (textes, visuels, présentations, vidéos) Vous assurez la mise à jour et l’animation du site internet et des réseaux sociaux Vous participez à la planification et à la coordination des actions de communication interne et externe, veillez à la cohérence des messages et proposez des améliorations Vous contribuez à une communication positive et proactive autour des activités et dossiers stratégiques du Service Vous conseillez et accompagnez les collaborateurs dans la réalisation de leurs supports et favorisez la circulation de l’information\n\nVotre profil:\n• Formation supérieure en communication (Bachelor ou Master) ou formation jugée équivalente Expérience dans la communication, idéalement dans le secteur public\n• Excellentes capacités rédactionnelles, d’analyse et de synthèse Maîtrise des réseaux sociaux, des outils numériques et de création de contenus Créativité, sens de l’organisation, esprit d’initiative, autonomie et esprit d’équipe Intérêt pour les thématiques agricoles et le service public Langue maternelle française, avec de bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\nDu 1\n\n• er\n• février 2027 au 31 décembre 2028\n\nInformations:\nRenseignement sur le poste : Service de l’agriculture (027 606 75 00) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 27 novembre 2026 / Numéro de référence : 100613",
+      "descriptionByLocale": {
+        "fr": "Un collaborateur spécialisé en communication ou une collaboratrice spécialisée en communication (50%, engagement de durée déterminée) auprès du Service de l’agriculture à Sion\n\nVos tâches:\n• Sous la responsabilité du responsable de la promotion et de la communication, vous participez à la mise en œuvre de la stratégie de communication du Service et contribuez à valoriser ses activités auprès des différents publics Vous concevez et réalisez des contenus adaptés aux supports de communication (textes, visuels, présentations, vidéos) Vous assurez la mise à jour et l’animation du site internet et des réseaux sociaux Vous participez à la planification et à la coordination des actions de communication interne et externe, veillez à la cohérence des messages et proposez des améliorations Vous contribuez à une communication positive et proactive autour des activités et dossiers stratégiques du Service Vous conseillez et accompagnez les collaborateurs dans la réalisation de leurs supports et favorisez la circulation de l’information\n\nVotre profil:\n• Formation supérieure en communication (Bachelor ou Master) ou formation jugée équivalente Expérience dans la communication, idéalement dans le secteur public\n• Excellentes capacités rédactionnelles, d’analyse et de synthèse Maîtrise des réseaux sociaux, des outils numériques et de création de contenus Créativité, sens de l’organisation, esprit d’initiative, autonomie et esprit d’équipe Intérêt pour les thématiques agricoles et le service public Langue maternelle française, avec de bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\nDu 1\n\n• er\n• février 2027 au 31 décembre 2028\n\nInformations:\nRenseignement sur le poste : Service de l’agriculture (027 606 75 00) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 27 novembre 2026 / Numéro de référence : 100613",
+        "it": "Un collaborateur spécialisé en communication ou une collaboratrice spécialisée en communication (50%, engagement de durée déterminée) auprès du Service de l’agriculture à Sion\n\nVos tâches:\n• Sous la responsabilité du responsable de la promotion et de la communication, vous participez à la mise en œuvre de la stratégie de communication du Service et contribuez à valoriser ses activités auprès des différents publics Vous concevez et réalisez des contenus adaptés aux supports de communication (textes, visuels, présentations, vidéos) Vous assurez la mise à jour et l’animation du site internet et des réseaux sociaux Vous participez à la planification et à la coordination des actions de communication interne et externe, veillez à la cohérence des messages et proposez des améliorations Vous contribuez à une communication positive et proactive autour des activités et dossiers stratégiques du Service Vous conseillez et accompagnez les collaborateurs dans la réalisation de leurs supports et favorisez la circulation de l’information\n\nVotre profil:\n• Formation supérieure en communication (Bachelor ou Master) ou formation jugée équivalente Expérience dans la communication, idéalement dans le secteur public\n• Excellentes capacités rédactionnelles, d’analyse et de synthèse Maîtrise des réseaux sociaux, des outils numériques et de création de contenus Créativité, sens de l’organisation, esprit d’initiative, autonomie et esprit d’équipe Intérêt pour les thématiques agricoles et le service public Langue maternelle française, avec de bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\nDu 1\n\n• er\n• février 2027 au 31 décembre 2028\n\nInformations:\nRenseignement sur le poste : Service de l’agriculture (027 606 75 00) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 27 novembre 2026 / Numéro de référence : 100613",
+        "en": "Un collaborateur spécialisé en communication ou une collaboratrice spécialisée en communication (50%, engagement de durée déterminée) auprès du Service de l’agriculture à Sion\n\nVos tâches:\n• Sous la responsabilité du responsable de la promotion et de la communication, vous participez à la mise en œuvre de la stratégie de communication du Service et contribuez à valoriser ses activités auprès des différents publics Vous concevez et réalisez des contenus adaptés aux supports de communication (textes, visuels, présentations, vidéos) Vous assurez la mise à jour et l’animation du site internet et des réseaux sociaux Vous participez à la planification et à la coordination des actions de communication interne et externe, veillez à la cohérence des messages et proposez des améliorations Vous contribuez à une communication positive et proactive autour des activités et dossiers stratégiques du Service Vous conseillez et accompagnez les collaborateurs dans la réalisation de leurs supports et favorisez la circulation de l’information\n\nVotre profil:\n• Formation supérieure en communication (Bachelor ou Master) ou formation jugée équivalente Expérience dans la communication, idéalement dans le secteur public\n• Excellentes capacités rédactionnelles, d’analyse et de synthèse Maîtrise des réseaux sociaux, des outils numériques et de création de contenus Créativité, sens de l’organisation, esprit d’initiative, autonomie et esprit d’équipe Intérêt pour les thématiques agricoles et le service public Langue maternelle française, avec de bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\nDu 1\n\n• er\n• février 2027 au 31 décembre 2028\n\nInformations:\nRenseignement sur le poste : Service de l’agriculture (027 606 75 00) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 27 novembre 2026 / Numéro de référence : 100613",
+        "de": "Un collaborateur spécialisé en communication ou une collaboratrice spécialisée en communication (50%, engagement de durée déterminée) auprès du Service de l’agriculture à Sion\n\nVos tâches:\n• Sous la responsabilité du responsable de la promotion et de la communication, vous participez à la mise en œuvre de la stratégie de communication du Service et contribuez à valoriser ses activités auprès des différents publics Vous concevez et réalisez des contenus adaptés aux supports de communication (textes, visuels, présentations, vidéos) Vous assurez la mise à jour et l’animation du site internet et des réseaux sociaux Vous participez à la planification et à la coordination des actions de communication interne et externe, veillez à la cohérence des messages et proposez des améliorations Vous contribuez à une communication positive et proactive autour des activités et dossiers stratégiques du Service Vous conseillez et accompagnez les collaborateurs dans la réalisation de leurs supports et favorisez la circulation de l’information\n\nVotre profil:\n• Formation supérieure en communication (Bachelor ou Master) ou formation jugée équivalente Expérience dans la communication, idéalement dans le secteur public\n• Excellentes capacités rédactionnelles, d’analyse et de synthèse Maîtrise des réseaux sociaux, des outils numériques et de création de contenus Créativité, sens de l’organisation, esprit d’initiative, autonomie et esprit d’équipe Intérêt pour les thématiques agricoles et le service public Langue maternelle française, avec de bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\nDu 1\n\n• er\n• février 2027 au 31 décembre 2028\n\nInformations:\nRenseignement sur le poste : Service de l’agriculture (027 606 75 00) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 27 novembre 2026 / Numéro de référence : 100613"
+      },
+      "location": "Sion",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=100613&publication=2647",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-20T09:58:43.740Z",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=100613&publication=2647",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 30300,
+      "salaryMax": 45800,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 30300,
+          "maxValue": 45800,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Sion",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-18T09:58:43.740Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-20T09:58:43.740Z"
+    },
+    {
+      "id": "canton-valais-337479e77084",
+      "slug": "un-logisticien-ou-une-logisticienne-100-canton-valais-ch",
+      "slugByLocale": {
+        "fr": "un-logisticien-ou-une-logisticienne-100-canton-valais-ch",
+        "it": "un-logisticien-ou-une-logisticienne-100-canton-valais-ch",
+        "en": "un-logisticien-ou-une-logisticienne-100-canton-valais-ch",
+        "de": "un-logisticien-ou-une-logisticienne-100-canton-valais-ch"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "Un logisticien ou une logisticienne (100%)",
+      "titleByLocale": {
+        "fr": "Un logisticien ou une logisticienne (100%)",
+        "it": "Un logisticien ou une logisticienne (100%)",
+        "en": "Un logisticien ou une logisticienne (100%)",
+        "de": "Un logisticien ou une logisticienne (100%)"
+      },
+      "description": "Un logisticien ou une logisticienne (100%) auprès de la Direction du Service de l’application des peines et mesures (SAPEM), à Sion\n\nVos tâches:\n• Gérer le dépôt centralisé et assurer la réception, le contrôle, l’enregistrement, le rangement et la traçabilité des marchandises Suivre les niveaux de stock, anticiper les besoins de réapprovisionnement et signaler les risques de rupture ou de surstockage au team finances et achats Préparer les commandes internes et assurer la distribution et la livraison de subsistances, produits consommables, matériels et équipements entre les trois sites pénitentiaires Contrôler les documents de livraison, obtenir les confirmations de réception et signaler rapidement les anomalies Participer aux inventaires et contribuer à l’amélioration des processus d’approvisionnement, de gestion des stocks et des flux logistiques Collaborer étroitement avec le team finances et achats ainsi qu’avec les responsables des sites de détention Assurer ponctuellement la suppléance de premier niveau de l’agent d’exploitation CVSE, notamment par des contrôles simples, de petites interventions courantes et le suivi des demandes urgentes dans le périmètre défini Appliquer strictement les procédures administratives, logistiques, sécuritaires et de confidentialité propres au milieu pénitentiaire\n\nVotre profil:\n• Titulaire d’une formation professionnelle achevée, idéalement dans le domaine de la logistique, de la gestion de stocks, de l’exploitation, de la technique du bâtiment ou d’une formation jugée équivalente Expérience dans la gestion de stocks, l’économat, la logistique ou la livraison; une expérience dans un environnement multisite, public, institutionnel ou sécurisé constitue un atout Maîtrise des principes de réception, de stockage, de préparation et de distribution de marchandises, ainsi que des outils informatiques usuels et de suivi des stocks Connaissances de base en exploitation technique des bâtiments, notamment CVSE, constituant un atout Sens de l’organisation et de la planification, rigueur, fiabilité, ponctualité et autonomie dans l’exécution des tâches Esprit d’équipe, sens du service et capacité à communiquer avec des interlocuteurs variés Souplesse, résistance au stress et capacité à prioriser les demandes Attitude professionnelle, calme et respectueuse, discrétion et respect strict de la confidentialité et des règles de sécurité Bonne condition physique compatible avec la manutention régulière de marchandises et permis de conduire valable indispensable\n\nEntrée en fonction:\n1\n\n• er\n• janvier 2027 ou à définir\n\nInformations:\nLa direction du Service de l'application des peines et mesures (SAPEM) à Sion, M. Claude-Alain Roch, Adjoint du chef de service, 027 606 5149 Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 4 décembre 2026 / Numéro de référence : 113819",
+      "descriptionByLocale": {
+        "fr": "Un logisticien ou une logisticienne (100%) auprès de la Direction du Service de l’application des peines et mesures (SAPEM), à Sion\n\nVos tâches:\n• Gérer le dépôt centralisé et assurer la réception, le contrôle, l’enregistrement, le rangement et la traçabilité des marchandises Suivre les niveaux de stock, anticiper les besoins de réapprovisionnement et signaler les risques de rupture ou de surstockage au team finances et achats Préparer les commandes internes et assurer la distribution et la livraison de subsistances, produits consommables, matériels et équipements entre les trois sites pénitentiaires Contrôler les documents de livraison, obtenir les confirmations de réception et signaler rapidement les anomalies Participer aux inventaires et contribuer à l’amélioration des processus d’approvisionnement, de gestion des stocks et des flux logistiques Collaborer étroitement avec le team finances et achats ainsi qu’avec les responsables des sites de détention Assurer ponctuellement la suppléance de premier niveau de l’agent d’exploitation CVSE, notamment par des contrôles simples, de petites interventions courantes et le suivi des demandes urgentes dans le périmètre défini Appliquer strictement les procédures administratives, logistiques, sécuritaires et de confidentialité propres au milieu pénitentiaire\n\nVotre profil:\n• Titulaire d’une formation professionnelle achevée, idéalement dans le domaine de la logistique, de la gestion de stocks, de l’exploitation, de la technique du bâtiment ou d’une formation jugée équivalente Expérience dans la gestion de stocks, l’économat, la logistique ou la livraison; une expérience dans un environnement multisite, public, institutionnel ou sécurisé constitue un atout Maîtrise des principes de réception, de stockage, de préparation et de distribution de marchandises, ainsi que des outils informatiques usuels et de suivi des stocks Connaissances de base en exploitation technique des bâtiments, notamment CVSE, constituant un atout Sens de l’organisation et de la planification, rigueur, fiabilité, ponctualité et autonomie dans l’exécution des tâches Esprit d’équipe, sens du service et capacité à communiquer avec des interlocuteurs variés Souplesse, résistance au stress et capacité à prioriser les demandes Attitude professionnelle, calme et respectueuse, discrétion et respect strict de la confidentialité et des règles de sécurité Bonne condition physique compatible avec la manutention régulière de marchandises et permis de conduire valable indispensable\n\nEntrée en fonction:\n1\n\n• er\n• janvier 2027 ou à définir\n\nInformations:\nLa direction du Service de l'application des peines et mesures (SAPEM) à Sion, M. Claude-Alain Roch, Adjoint du chef de service, 027 606 5149 Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 4 décembre 2026 / Numéro de référence : 113819",
+        "it": "Un logisticien ou une logisticienne (100%) auprès de la Direction du Service de l’application des peines et mesures (SAPEM), à Sion\n\nVos tâches:\n• Gérer le dépôt centralisé et assurer la réception, le contrôle, l’enregistrement, le rangement et la traçabilité des marchandises Suivre les niveaux de stock, anticiper les besoins de réapprovisionnement et signaler les risques de rupture ou de surstockage au team finances et achats Préparer les commandes internes et assurer la distribution et la livraison de subsistances, produits consommables, matériels et équipements entre les trois sites pénitentiaires Contrôler les documents de livraison, obtenir les confirmations de réception et signaler rapidement les anomalies Participer aux inventaires et contribuer à l’amélioration des processus d’approvisionnement, de gestion des stocks et des flux logistiques Collaborer étroitement avec le team finances et achats ainsi qu’avec les responsables des sites de détention Assurer ponctuellement la suppléance de premier niveau de l’agent d’exploitation CVSE, notamment par des contrôles simples, de petites interventions courantes et le suivi des demandes urgentes dans le périmètre défini Appliquer strictement les procédures administratives, logistiques, sécuritaires et de confidentialité propres au milieu pénitentiaire\n\nVotre profil:\n• Titulaire d’une formation professionnelle achevée, idéalement dans le domaine de la logistique, de la gestion de stocks, de l’exploitation, de la technique du bâtiment ou d’une formation jugée équivalente Expérience dans la gestion de stocks, l’économat, la logistique ou la livraison; une expérience dans un environnement multisite, public, institutionnel ou sécurisé constitue un atout Maîtrise des principes de réception, de stockage, de préparation et de distribution de marchandises, ainsi que des outils informatiques usuels et de suivi des stocks Connaissances de base en exploitation technique des bâtiments, notamment CVSE, constituant un atout Sens de l’organisation et de la planification, rigueur, fiabilité, ponctualité et autonomie dans l’exécution des tâches Esprit d’équipe, sens du service et capacité à communiquer avec des interlocuteurs variés Souplesse, résistance au stress et capacité à prioriser les demandes Attitude professionnelle, calme et respectueuse, discrétion et respect strict de la confidentialité et des règles de sécurité Bonne condition physique compatible avec la manutention régulière de marchandises et permis de conduire valable indispensable\n\nEntrée en fonction:\n1\n\n• er\n• janvier 2027 ou à définir\n\nInformations:\nLa direction du Service de l'application des peines et mesures (SAPEM) à Sion, M. Claude-Alain Roch, Adjoint du chef de service, 027 606 5149 Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 4 décembre 2026 / Numéro de référence : 113819",
+        "en": "Un logisticien ou une logisticienne (100%) auprès de la Direction du Service de l’application des peines et mesures (SAPEM), à Sion\n\nVos tâches:\n• Gérer le dépôt centralisé et assurer la réception, le contrôle, l’enregistrement, le rangement et la traçabilité des marchandises Suivre les niveaux de stock, anticiper les besoins de réapprovisionnement et signaler les risques de rupture ou de surstockage au team finances et achats Préparer les commandes internes et assurer la distribution et la livraison de subsistances, produits consommables, matériels et équipements entre les trois sites pénitentiaires Contrôler les documents de livraison, obtenir les confirmations de réception et signaler rapidement les anomalies Participer aux inventaires et contribuer à l’amélioration des processus d’approvisionnement, de gestion des stocks et des flux logistiques Collaborer étroitement avec le team finances et achats ainsi qu’avec les responsables des sites de détention Assurer ponctuellement la suppléance de premier niveau de l’agent d’exploitation CVSE, notamment par des contrôles simples, de petites interventions courantes et le suivi des demandes urgentes dans le périmètre défini Appliquer strictement les procédures administratives, logistiques, sécuritaires et de confidentialité propres au milieu pénitentiaire\n\nVotre profil:\n• Titulaire d’une formation professionnelle achevée, idéalement dans le domaine de la logistique, de la gestion de stocks, de l’exploitation, de la technique du bâtiment ou d’une formation jugée équivalente Expérience dans la gestion de stocks, l’économat, la logistique ou la livraison; une expérience dans un environnement multisite, public, institutionnel ou sécurisé constitue un atout Maîtrise des principes de réception, de stockage, de préparation et de distribution de marchandises, ainsi que des outils informatiques usuels et de suivi des stocks Connaissances de base en exploitation technique des bâtiments, notamment CVSE, constituant un atout Sens de l’organisation et de la planification, rigueur, fiabilité, ponctualité et autonomie dans l’exécution des tâches Esprit d’équipe, sens du service et capacité à communiquer avec des interlocuteurs variés Souplesse, résistance au stress et capacité à prioriser les demandes Attitude professionnelle, calme et respectueuse, discrétion et respect strict de la confidentialité et des règles de sécurité Bonne condition physique compatible avec la manutention régulière de marchandises et permis de conduire valable indispensable\n\nEntrée en fonction:\n1\n\n• er\n• janvier 2027 ou à définir\n\nInformations:\nLa direction du Service de l'application des peines et mesures (SAPEM) à Sion, M. Claude-Alain Roch, Adjoint du chef de service, 027 606 5149 Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 4 décembre 2026 / Numéro de référence : 113819",
+        "de": "Un logisticien ou une logisticienne (100%) auprès de la Direction du Service de l’application des peines et mesures (SAPEM), à Sion\n\nVos tâches:\n• Gérer le dépôt centralisé et assurer la réception, le contrôle, l’enregistrement, le rangement et la traçabilité des marchandises Suivre les niveaux de stock, anticiper les besoins de réapprovisionnement et signaler les risques de rupture ou de surstockage au team finances et achats Préparer les commandes internes et assurer la distribution et la livraison de subsistances, produits consommables, matériels et équipements entre les trois sites pénitentiaires Contrôler les documents de livraison, obtenir les confirmations de réception et signaler rapidement les anomalies Participer aux inventaires et contribuer à l’amélioration des processus d’approvisionnement, de gestion des stocks et des flux logistiques Collaborer étroitement avec le team finances et achats ainsi qu’avec les responsables des sites de détention Assurer ponctuellement la suppléance de premier niveau de l’agent d’exploitation CVSE, notamment par des contrôles simples, de petites interventions courantes et le suivi des demandes urgentes dans le périmètre défini Appliquer strictement les procédures administratives, logistiques, sécuritaires et de confidentialité propres au milieu pénitentiaire\n\nVotre profil:\n• Titulaire d’une formation professionnelle achevée, idéalement dans le domaine de la logistique, de la gestion de stocks, de l’exploitation, de la technique du bâtiment ou d’une formation jugée équivalente Expérience dans la gestion de stocks, l’économat, la logistique ou la livraison; une expérience dans un environnement multisite, public, institutionnel ou sécurisé constitue un atout Maîtrise des principes de réception, de stockage, de préparation et de distribution de marchandises, ainsi que des outils informatiques usuels et de suivi des stocks Connaissances de base en exploitation technique des bâtiments, notamment CVSE, constituant un atout Sens de l’organisation et de la planification, rigueur, fiabilité, ponctualité et autonomie dans l’exécution des tâches Esprit d’équipe, sens du service et capacité à communiquer avec des interlocuteurs variés Souplesse, résistance au stress et capacité à prioriser les demandes Attitude professionnelle, calme et respectueuse, discrétion et respect strict de la confidentialité et des règles de sécurité Bonne condition physique compatible avec la manutention régulière de marchandises et permis de conduire valable indispensable\n\nEntrée en fonction:\n1\n\n• er\n• janvier 2027 ou à définir\n\nInformations:\nLa direction du Service de l'application des peines et mesures (SAPEM) à Sion, M. Claude-Alain Roch, Adjoint du chef de service, 027 606 5149 Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 4 décembre 2026 / Numéro de référence : 113819"
+      },
+      "location": "Sion",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=113819&publication=2647",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-20T09:58:43.118Z",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "Logistica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=113819&publication=2647",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Sion",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-18T09:58:43.118Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-20T09:58:43.118Z"
+    },
+    {
+      "id": "canton-valais-9f7a666ff216",
+      "slug": "un-collaborateur-specialise-en-administration-penale-ou-une-collaboratrice-specialisee-en",
+      "slugByLocale": {
+        "fr": "un-collaborateur-specialise-en-administration-penale-ou-une-collaboratrice-specialisee-en",
+        "it": "un-collaborateur-specialise-en-administration-penale-ou-une-collaboratrice-specialisee-en",
+        "en": "un-collaborateur-specialise-en-administration-penale-ou-une-collaboratrice-specialisee-en",
+        "de": "un-collaborateur-specialise-en-administration-penale-ou-une-collaboratrice-specialisee-en"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "Un collaborateur spécialisé en administration pénale ou une collaboratrice spécialisée en administration pénale (50%)",
+      "titleByLocale": {
+        "fr": "Un collaborateur spécialisé en administration pénale ou une collaboratrice spécialisée en administration pénale (50%)",
+        "it": "Un collaborateur spécialisé en administration pénale ou une collaboratrice spécialisée en administration pénale (50%)",
+        "en": "Un collaborateur spécialisé en administration pénale ou une collaboratrice spécialisée en administration pénale (50%)",
+        "de": "Un collaborateur spécialisé en administration pénale ou une collaboratrice spécialisée en administration pénale (50%)"
+      },
+      "description": "Un collaborateur spécialisé en administration pénale ou une collaboratrice spécialisée en administration pénale (50%) auprès du Centre éducatif fermé de Pramont (CEP), Service de l’application des peines et mesures (SAPEM)\n\nVos tâches:\n• Assurer le suivi administratif des entrées, sorties et mouvements des pensionnaires et renseigner le logiciel métier Contrôler la conformité et la fiabilité des documents relatifs à l’exécution des mesures et assurer les transmissions aux autorités de placement\n• Préparer les décomptes de séjour et les listes destinées à la comptabilité Etablir les statistiques et contribuer aux rapports institutionnels et aux audits Assurer le suivi administratif des décisions de sanction et de sûreté et des frais médicaux des pensionnaires\n• Collaborer avec les différents intervenants du réseau pluridisciplinaire\n\nVotre profil:\n• Formation commerciale ou administrative achevée, ou formation jugée équivalente\n• Expérience dans la gestion administrative de dossiers, idéalement dans le secteur public, pénitentiaire ou institutionnel Très bonne maîtrise des outils bureautiques et aisance dans l’utilisation de logiciels métier et le traitement de données Rigueur, fiabilité, sens de l’organisation et respect strict de la confidentialité Autonomie, esprit de collaboration et capacité à communiquer avec des interlocuteurs variés Très bonnes capacités d’adaptation, sens des priorités et bonne résistance au stress Excellente maîtrise du français à l’oral et à l’écrit, connaissances de la deuxième langue officielle, ainsi que d’autres langues, constituant un atout\n\nEntrée en fonction:\n1\n\n• er\n• janvier 2027 ou à définir\n\nInformations:\nRenseignements sur le poste : Le Responsable du Centre éducatif fermé de Pramont, M. Alexandre Comby (027 607 24 05) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 4 décembre 2026 / Numéro de référence : 112835",
+      "descriptionByLocale": {
+        "fr": "Un collaborateur spécialisé en administration pénale ou une collaboratrice spécialisée en administration pénale (50%) auprès du Centre éducatif fermé de Pramont (CEP), Service de l’application des peines et mesures (SAPEM)\n\nVos tâches:\n• Assurer le suivi administratif des entrées, sorties et mouvements des pensionnaires et renseigner le logiciel métier Contrôler la conformité et la fiabilité des documents relatifs à l’exécution des mesures et assurer les transmissions aux autorités de placement\n• Préparer les décomptes de séjour et les listes destinées à la comptabilité Etablir les statistiques et contribuer aux rapports institutionnels et aux audits Assurer le suivi administratif des décisions de sanction et de sûreté et des frais médicaux des pensionnaires\n• Collaborer avec les différents intervenants du réseau pluridisciplinaire\n\nVotre profil:\n• Formation commerciale ou administrative achevée, ou formation jugée équivalente\n• Expérience dans la gestion administrative de dossiers, idéalement dans le secteur public, pénitentiaire ou institutionnel Très bonne maîtrise des outils bureautiques et aisance dans l’utilisation de logiciels métier et le traitement de données Rigueur, fiabilité, sens de l’organisation et respect strict de la confidentialité Autonomie, esprit de collaboration et capacité à communiquer avec des interlocuteurs variés Très bonnes capacités d’adaptation, sens des priorités et bonne résistance au stress Excellente maîtrise du français à l’oral et à l’écrit, connaissances de la deuxième langue officielle, ainsi que d’autres langues, constituant un atout\n\nEntrée en fonction:\n1\n\n• er\n• janvier 2027 ou à définir\n\nInformations:\nRenseignements sur le poste : Le Responsable du Centre éducatif fermé de Pramont, M. Alexandre Comby (027 607 24 05) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 4 décembre 2026 / Numéro de référence : 112835",
+        "it": "Un collaborateur spécialisé en administration pénale ou une collaboratrice spécialisée en administration pénale (50%) auprès du Centre éducatif fermé de Pramont (CEP), Service de l’application des peines et mesures (SAPEM)\n\nVos tâches:\n• Assurer le suivi administratif des entrées, sorties et mouvements des pensionnaires et renseigner le logiciel métier Contrôler la conformité et la fiabilité des documents relatifs à l’exécution des mesures et assurer les transmissions aux autorités de placement\n• Préparer les décomptes de séjour et les listes destinées à la comptabilité Etablir les statistiques et contribuer aux rapports institutionnels et aux audits Assurer le suivi administratif des décisions de sanction et de sûreté et des frais médicaux des pensionnaires\n• Collaborer avec les différents intervenants du réseau pluridisciplinaire\n\nVotre profil:\n• Formation commerciale ou administrative achevée, ou formation jugée équivalente\n• Expérience dans la gestion administrative de dossiers, idéalement dans le secteur public, pénitentiaire ou institutionnel Très bonne maîtrise des outils bureautiques et aisance dans l’utilisation de logiciels métier et le traitement de données Rigueur, fiabilité, sens de l’organisation et respect strict de la confidentialité Autonomie, esprit de collaboration et capacité à communiquer avec des interlocuteurs variés Très bonnes capacités d’adaptation, sens des priorités et bonne résistance au stress Excellente maîtrise du français à l’oral et à l’écrit, connaissances de la deuxième langue officielle, ainsi que d’autres langues, constituant un atout\n\nEntrée en fonction:\n1\n\n• er\n• janvier 2027 ou à définir\n\nInformations:\nRenseignements sur le poste : Le Responsable du Centre éducatif fermé de Pramont, M. Alexandre Comby (027 607 24 05) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 4 décembre 2026 / Numéro de référence : 112835",
+        "en": "Un collaborateur spécialisé en administration pénale ou une collaboratrice spécialisée en administration pénale (50%) auprès du Centre éducatif fermé de Pramont (CEP), Service de l’application des peines et mesures (SAPEM)\n\nVos tâches:\n• Assurer le suivi administratif des entrées, sorties et mouvements des pensionnaires et renseigner le logiciel métier Contrôler la conformité et la fiabilité des documents relatifs à l’exécution des mesures et assurer les transmissions aux autorités de placement\n• Préparer les décomptes de séjour et les listes destinées à la comptabilité Etablir les statistiques et contribuer aux rapports institutionnels et aux audits Assurer le suivi administratif des décisions de sanction et de sûreté et des frais médicaux des pensionnaires\n• Collaborer avec les différents intervenants du réseau pluridisciplinaire\n\nVotre profil:\n• Formation commerciale ou administrative achevée, ou formation jugée équivalente\n• Expérience dans la gestion administrative de dossiers, idéalement dans le secteur public, pénitentiaire ou institutionnel Très bonne maîtrise des outils bureautiques et aisance dans l’utilisation de logiciels métier et le traitement de données Rigueur, fiabilité, sens de l’organisation et respect strict de la confidentialité Autonomie, esprit de collaboration et capacité à communiquer avec des interlocuteurs variés Très bonnes capacités d’adaptation, sens des priorités et bonne résistance au stress Excellente maîtrise du français à l’oral et à l’écrit, connaissances de la deuxième langue officielle, ainsi que d’autres langues, constituant un atout\n\nEntrée en fonction:\n1\n\n• er\n• janvier 2027 ou à définir\n\nInformations:\nRenseignements sur le poste : Le Responsable du Centre éducatif fermé de Pramont, M. Alexandre Comby (027 607 24 05) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 4 décembre 2026 / Numéro de référence : 112835",
+        "de": "Un collaborateur spécialisé en administration pénale ou une collaboratrice spécialisée en administration pénale (50%) auprès du Centre éducatif fermé de Pramont (CEP), Service de l’application des peines et mesures (SAPEM)\n\nVos tâches:\n• Assurer le suivi administratif des entrées, sorties et mouvements des pensionnaires et renseigner le logiciel métier Contrôler la conformité et la fiabilité des documents relatifs à l’exécution des mesures et assurer les transmissions aux autorités de placement\n• Préparer les décomptes de séjour et les listes destinées à la comptabilité Etablir les statistiques et contribuer aux rapports institutionnels et aux audits Assurer le suivi administratif des décisions de sanction et de sûreté et des frais médicaux des pensionnaires\n• Collaborer avec les différents intervenants du réseau pluridisciplinaire\n\nVotre profil:\n• Formation commerciale ou administrative achevée, ou formation jugée équivalente\n• Expérience dans la gestion administrative de dossiers, idéalement dans le secteur public, pénitentiaire ou institutionnel Très bonne maîtrise des outils bureautiques et aisance dans l’utilisation de logiciels métier et le traitement de données Rigueur, fiabilité, sens de l’organisation et respect strict de la confidentialité Autonomie, esprit de collaboration et capacité à communiquer avec des interlocuteurs variés Très bonnes capacités d’adaptation, sens des priorités et bonne résistance au stress Excellente maîtrise du français à l’oral et à l’écrit, connaissances de la deuxième langue officielle, ainsi que d’autres langues, constituant un atout\n\nEntrée en fonction:\n1\n\n• er\n• janvier 2027 ou à définir\n\nInformations:\nRenseignements sur le poste : Le Responsable du Centre éducatif fermé de Pramont, M. Alexandre Comby (027 607 24 05) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 4 décembre 2026 / Numéro de référence : 112835"
+      },
+      "location": "Sion",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=112835&publication=2647",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-20T09:58:41.840Z",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=112835&publication=2647",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 30300,
+      "salaryMax": 45800,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 30300,
+          "maxValue": 45800,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Sion",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-18T09:58:41.840Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-20T09:58:41.840Z"
+    },
+    {
+      "id": "canton-valais-8f52ac2ad703",
+      "slug": "un-chauffeur-livreur-ou-une-chauffeuse-livreuse-100-canton-valais-ch",
+      "slugByLocale": {
+        "fr": "un-chauffeur-livreur-ou-une-chauffeuse-livreuse-100-canton-valais-ch",
+        "it": "un-chauffeur-livreur-ou-une-chauffeuse-livreuse-100-canton-valais-ch",
+        "en": "un-chauffeur-livreur-ou-une-chauffeuse-livreuse-100-canton-valais-ch",
+        "de": "un-chauffeur-livreur-ou-une-chauffeuse-livreuse-100-canton-valais-ch"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "Un chauffeur-livreur ou une chauffeuse-livreuse (100%)",
+      "titleByLocale": {
+        "fr": "Un chauffeur-livreur ou une chauffeuse-livreuse (100%)",
+        "it": "Un chauffeur-livreur ou une chauffeuse-livreuse (100%)",
+        "en": "Un chauffeur-livreur ou une chauffeuse-livreuse (100%)",
+        "de": "Un chauffeur-livreur ou une chauffeuse-livreuse (100%)"
+      },
+      "description": "Un chauffeur-livreur ou une chauffeuselivreuse (100%) auprès de la Direction du Service de l’application des peines et mesures (SAPEM), à Sion\n\nVos tâches:\n• Assurer la livraison quotidienne des repas, du pain et des denrées entre les sites du SAPEM selon les tournées et horaires définis Charger, transporter et livrer les produits des ateliers vers les points de distribution désignés Contrôler les quantités et la conformité des marchandises à la prise en charge et à la remise Effectuer les opérations de manutention et assurer le retour des contenants et du matériel Veiller à la propreté et à l’état des véhicules et signaler les anomalies Appliquer les prescriptions d’hygiène, de circulation et de sécurité propres aux établissements pénitentiaires\n• Coordonner les livraisons avec la cuisine centrale, les ateliers et les unités bénéficiaires\n• Participer aux tournus des week-ends et jours fériés\n\nVotre profil:\n• Expérience pratique dans la livraison, le transport de marchandises ou la logistique\n• Aptitude à conduire un véhicule de livraison et à effectuer des opérations de chargement et déchargement Permis de conduire B valable Sens de l’organisation, ponctualité et rigueur dans les contrôles Respect des règles d’hygiène et de sécurité et attention portée à la préservation des marchandises Autonomie, fiabilité et capacité à réagir aux imprévus en respectant les consignes Esprit de collaboration et communication claire avec les différents interlocuteurs Disponibilité pour travailler selon les tournus prévus, y compris les week-ends et jours fériés\n\nEntrée en fonction:\n1\n\n• er\n• janvier 2027 ou à convenir\n\nInformations:\nLa direction du Service de l'application des peines et mesures (SAPEM) à Sion, M. Claude-Alain Roch, Adjoint du chef de service, 027 606 5149 Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 4 décembre 2026 / Numéro de référence : 114360",
+      "descriptionByLocale": {
+        "fr": "Un chauffeur-livreur ou une chauffeuselivreuse (100%) auprès de la Direction du Service de l’application des peines et mesures (SAPEM), à Sion\n\nVos tâches:\n• Assurer la livraison quotidienne des repas, du pain et des denrées entre les sites du SAPEM selon les tournées et horaires définis Charger, transporter et livrer les produits des ateliers vers les points de distribution désignés Contrôler les quantités et la conformité des marchandises à la prise en charge et à la remise Effectuer les opérations de manutention et assurer le retour des contenants et du matériel Veiller à la propreté et à l’état des véhicules et signaler les anomalies Appliquer les prescriptions d’hygiène, de circulation et de sécurité propres aux établissements pénitentiaires\n• Coordonner les livraisons avec la cuisine centrale, les ateliers et les unités bénéficiaires\n• Participer aux tournus des week-ends et jours fériés\n\nVotre profil:\n• Expérience pratique dans la livraison, le transport de marchandises ou la logistique\n• Aptitude à conduire un véhicule de livraison et à effectuer des opérations de chargement et déchargement Permis de conduire B valable Sens de l’organisation, ponctualité et rigueur dans les contrôles Respect des règles d’hygiène et de sécurité et attention portée à la préservation des marchandises Autonomie, fiabilité et capacité à réagir aux imprévus en respectant les consignes Esprit de collaboration et communication claire avec les différents interlocuteurs Disponibilité pour travailler selon les tournus prévus, y compris les week-ends et jours fériés\n\nEntrée en fonction:\n1\n\n• er\n• janvier 2027 ou à convenir\n\nInformations:\nLa direction du Service de l'application des peines et mesures (SAPEM) à Sion, M. Claude-Alain Roch, Adjoint du chef de service, 027 606 5149 Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 4 décembre 2026 / Numéro de référence : 114360",
+        "it": "Un chauffeur-livreur ou une chauffeuselivreuse (100%) auprès de la Direction du Service de l’application des peines et mesures (SAPEM), à Sion\n\nVos tâches:\n• Assurer la livraison quotidienne des repas, du pain et des denrées entre les sites du SAPEM selon les tournées et horaires définis Charger, transporter et livrer les produits des ateliers vers les points de distribution désignés Contrôler les quantités et la conformité des marchandises à la prise en charge et à la remise Effectuer les opérations de manutention et assurer le retour des contenants et du matériel Veiller à la propreté et à l’état des véhicules et signaler les anomalies Appliquer les prescriptions d’hygiène, de circulation et de sécurité propres aux établissements pénitentiaires\n• Coordonner les livraisons avec la cuisine centrale, les ateliers et les unités bénéficiaires\n• Participer aux tournus des week-ends et jours fériés\n\nVotre profil:\n• Expérience pratique dans la livraison, le transport de marchandises ou la logistique\n• Aptitude à conduire un véhicule de livraison et à effectuer des opérations de chargement et déchargement Permis de conduire B valable Sens de l’organisation, ponctualité et rigueur dans les contrôles Respect des règles d’hygiène et de sécurité et attention portée à la préservation des marchandises Autonomie, fiabilité et capacité à réagir aux imprévus en respectant les consignes Esprit de collaboration et communication claire avec les différents interlocuteurs Disponibilité pour travailler selon les tournus prévus, y compris les week-ends et jours fériés\n\nEntrée en fonction:\n1\n\n• er\n• janvier 2027 ou à convenir\n\nInformations:\nLa direction du Service de l'application des peines et mesures (SAPEM) à Sion, M. Claude-Alain Roch, Adjoint du chef de service, 027 606 5149 Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 4 décembre 2026 / Numéro de référence : 114360",
+        "en": "Un chauffeur-livreur ou une chauffeuselivreuse (100%) auprès de la Direction du Service de l’application des peines et mesures (SAPEM), à Sion\n\nVos tâches:\n• Assurer la livraison quotidienne des repas, du pain et des denrées entre les sites du SAPEM selon les tournées et horaires définis Charger, transporter et livrer les produits des ateliers vers les points de distribution désignés Contrôler les quantités et la conformité des marchandises à la prise en charge et à la remise Effectuer les opérations de manutention et assurer le retour des contenants et du matériel Veiller à la propreté et à l’état des véhicules et signaler les anomalies Appliquer les prescriptions d’hygiène, de circulation et de sécurité propres aux établissements pénitentiaires\n• Coordonner les livraisons avec la cuisine centrale, les ateliers et les unités bénéficiaires\n• Participer aux tournus des week-ends et jours fériés\n\nVotre profil:\n• Expérience pratique dans la livraison, le transport de marchandises ou la logistique\n• Aptitude à conduire un véhicule de livraison et à effectuer des opérations de chargement et déchargement Permis de conduire B valable Sens de l’organisation, ponctualité et rigueur dans les contrôles Respect des règles d’hygiène et de sécurité et attention portée à la préservation des marchandises Autonomie, fiabilité et capacité à réagir aux imprévus en respectant les consignes Esprit de collaboration et communication claire avec les différents interlocuteurs Disponibilité pour travailler selon les tournus prévus, y compris les week-ends et jours fériés\n\nEntrée en fonction:\n1\n\n• er\n• janvier 2027 ou à convenir\n\nInformations:\nLa direction du Service de l'application des peines et mesures (SAPEM) à Sion, M. Claude-Alain Roch, Adjoint du chef de service, 027 606 5149 Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 4 décembre 2026 / Numéro de référence : 114360",
+        "de": "Un chauffeur-livreur ou une chauffeuselivreuse (100%) auprès de la Direction du Service de l’application des peines et mesures (SAPEM), à Sion\n\nVos tâches:\n• Assurer la livraison quotidienne des repas, du pain et des denrées entre les sites du SAPEM selon les tournées et horaires définis Charger, transporter et livrer les produits des ateliers vers les points de distribution désignés Contrôler les quantités et la conformité des marchandises à la prise en charge et à la remise Effectuer les opérations de manutention et assurer le retour des contenants et du matériel Veiller à la propreté et à l’état des véhicules et signaler les anomalies Appliquer les prescriptions d’hygiène, de circulation et de sécurité propres aux établissements pénitentiaires\n• Coordonner les livraisons avec la cuisine centrale, les ateliers et les unités bénéficiaires\n• Participer aux tournus des week-ends et jours fériés\n\nVotre profil:\n• Expérience pratique dans la livraison, le transport de marchandises ou la logistique\n• Aptitude à conduire un véhicule de livraison et à effectuer des opérations de chargement et déchargement Permis de conduire B valable Sens de l’organisation, ponctualité et rigueur dans les contrôles Respect des règles d’hygiène et de sécurité et attention portée à la préservation des marchandises Autonomie, fiabilité et capacité à réagir aux imprévus en respectant les consignes Esprit de collaboration et communication claire avec les différents interlocuteurs Disponibilité pour travailler selon les tournus prévus, y compris les week-ends et jours fériés\n\nEntrée en fonction:\n1\n\n• er\n• janvier 2027 ou à convenir\n\nInformations:\nLa direction du Service de l'application des peines et mesures (SAPEM) à Sion, M. Claude-Alain Roch, Adjoint du chef de service, 027 606 5149 Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 4 décembre 2026 / Numéro de référence : 114360"
+      },
+      "location": "Sion",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114360&publication=2647",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-20T09:58:41.219Z",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114360&publication=2647",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Sion",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-18T09:58:41.219Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-20T09:58:41.219Z"
+    },
+    {
+      "id": "canton-valais-3c8c66eec1f2",
+      "slug": "un-adjoint-ou-une-adjointe-100-canton-du-valais-sion",
+      "slugByLocale": {
+        "fr": "un-adjoint-ou-une-adjointe-100-canton-valais-ch",
+        "it": "un-adjoint-ou-une-adjointe-100-canton-du-valais-sion",
+        "en": "un-adjoint-ou-une-adjointe-100-canton-valais-ch",
+        "de": "un-adjoint-ou-une-adjointe-100-canton-valais-ch"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "Un adjoint ou une adjointe (100%)",
+      "titleByLocale": {
+        "fr": "Un adjoint ou une adjointe (100%)",
+        "it": "Un adjoint ou une adjointe (100%)",
+        "en": "Un adjoint ou une adjointe (100%)",
+        "de": "Un adjoint ou une adjointe (100%)"
+      },
+      "description": "Un adjoint ou une adjointe (100%) auprès du Service de l’enseignement, à Sion\n\nVos tâches:\n• Vous assistez le Chef du Service de l’enseignement dans les domaines clés de la scolarité obligatoire du Valais romand Vous assumez des tâches de conduite en lien avec le développement et l’organisation scolaires et participez activement à l’élaboration et à la mise en œuvre de la stratégie cantonale en matière de formation Vous conciliez des missions pédagogiques variées avec des tâches de gestion de projet et de management, notamment la conduite du secteur de la scolarité obligatoire francophone (y compris l’inspectorat scolaire) Vous représentez le chef de service, en particulier auprès des écoles francophones de la scolarité obligatoire du canton du Valais, et veillez à assurer une collaboration étroite avec les communes et les directions d’école concernées, notamment pour les questions relatives à l’organisation de la scolarité obligatoire et aux infrastructures nécessaires Vous participez aux révisions législatives ou à l’élaboration de nouvelles bases légales dans le domaine de l’éducation Vous représentez le Canton du Valais au sein de diverses commissions et conférences cantonales, romandes et nationales\n\nVotre profil:\n• Formation universitaire ou formation professionnelle équivalente, formation pédagogique pour un degré de la scolarité obligatoire, complétée par plusieurs années d’expérience dans l’enseignement Bonnes connaissances du système scolaire valaisan et romand Intérêt marqué pour les questions liées à l’éducation et à la formation Bonne connaissance du monde politique valaisan Sens des responsabilités, esprit d’initiative et autonomie Excellentes capacités et expérience avérée dans la conduite de projets Résistance au stress, flexibilité, sens de l’organisation et aptitude à travailler en équipe Excellente capacité d’expression orale et écrite, ainsi que compétences rédactionnelles avérées Capacité à négocier, à s’imposer, à défendre et faire aboutir les décisions relevant de votre domaine de responsabilité Langue maternelle française avec de bonnes connaissances de la deuxième langue\n\nEntrée en fonction:\n1\n\n• er\n• mai 2027\n\nInformations:\nRenseignements sur le poste : Chef du Service de l’enseignement, M. Jean-Philippe Lonfat (027 606 42 05) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 4 décembre 2026 / Numéro de référence : 101860",
+      "descriptionByLocale": {
+        "fr": "Un adjoint ou une adjointe (100%) auprès du Service de l’enseignement, à Sion\n\nVos tâches:\n• Vous assistez le Chef du Service de l’enseignement dans les domaines clés de la scolarité obligatoire du Valais romand Vous assumez des tâches de conduite en lien avec le développement et l’organisation scolaires et participez activement à l’élaboration et à la mise en œuvre de la stratégie cantonale en matière de formation Vous conciliez des missions pédagogiques variées avec des tâches de gestion de projet et de management, notamment la conduite du secteur de la scolarité obligatoire francophone (y compris l’inspectorat scolaire) Vous représentez le chef de service, en particulier auprès des écoles francophones de la scolarité obligatoire du canton du Valais, et veillez à assurer une collaboration étroite avec les communes et les directions d’école concernées, notamment pour les questions relatives à l’organisation de la scolarité obligatoire et aux infrastructures nécessaires Vous participez aux révisions législatives ou à l’élaboration de nouvelles bases légales dans le domaine de l’éducation Vous représentez le Canton du Valais au sein de diverses commissions et conférences cantonales, romandes et nationales\n\nVotre profil:\n• Formation universitaire ou formation professionnelle équivalente, formation pédagogique pour un degré de la scolarité obligatoire, complétée par plusieurs années d’expérience dans l’enseignement Bonnes connaissances du système scolaire valaisan et romand Intérêt marqué pour les questions liées à l’éducation et à la formation Bonne connaissance du monde politique valaisan Sens des responsabilités, esprit d’initiative et autonomie Excellentes capacités et expérience avérée dans la conduite de projets Résistance au stress, flexibilité, sens de l’organisation et aptitude à travailler en équipe Excellente capacité d’expression orale et écrite, ainsi que compétences rédactionnelles avérées Capacité à négocier, à s’imposer, à défendre et faire aboutir les décisions relevant de votre domaine de responsabilité Langue maternelle française avec de bonnes connaissances de la deuxième langue\n\nEntrée en fonction:\n1\n\n• er\n• mai 2027\n\nInformations:\nRenseignements sur le poste : Chef du Service de l’enseignement, M. Jean-Philippe Lonfat (027 606 42 05) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 4 décembre 2026 / Numéro de référence : 101860",
+        "it": "Un adjoint ou une adjointe (100%) auprès du Service de l’enseignement, à Sion\n\nVos tâches:\n• Vous assistez le Chef du Service de l’enseignement dans les domaines clés de la scolarité obligatoire du Valais romand Vous assumez des tâches de conduite en lien avec le développement et l’organisation scolaires et participez activement à l’élaboration et à la mise en œuvre de la stratégie cantonale en matière de formation Vous conciliez des missions pédagogiques variées avec des tâches de gestion de projet et de management, notamment la conduite du secteur de la scolarité obligatoire francophone (y compris l’inspectorat scolaire) Vous représentez le chef de service, en particulier auprès des écoles francophones de la scolarité obligatoire du canton du Valais, et veillez à assurer une collaboration étroite avec les communes et les directions d’école concernées, notamment pour les questions relatives à l’organisation de la scolarité obligatoire et aux infrastructures nécessaires Vous participez aux révisions législatives ou à l’élaboration de nouvelles bases légales dans le domaine de l’éducation Vous représentez le Canton du Valais au sein de diverses commissions et conférences cantonales, romandes et nationales\n\nVotre profil:\n• Formation universitaire ou formation professionnelle équivalente, formation pédagogique pour un degré de la scolarité obligatoire, complétée par plusieurs années d’expérience dans l’enseignement Bonnes connaissances du système scolaire valaisan et romand Intérêt marqué pour les questions liées à l’éducation et à la formation Bonne connaissance du monde politique valaisan Sens des responsabilités, esprit d’initiative et autonomie Excellentes capacités et expérience avérée dans la conduite de projets Résistance au stress, flexibilité, sens de l’organisation et aptitude à travailler en équipe Excellente capacité d’expression orale et écrite, ainsi que compétences rédactionnelles avérées Capacité à négocier, à s’imposer, à défendre et faire aboutir les décisions relevant de votre domaine de responsabilité Langue maternelle française avec de bonnes connaissances de la deuxième langue\n\nEntrée en fonction:\n1\n\n• er\n• mai 2027\n\nInformations:\nRenseignements sur le poste : Chef du Service de l’enseignement, M. Jean-Philippe Lonfat (027 606 42 05) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 4 décembre 2026 / Numéro de référence : 101860",
+        "en": "Un adjoint ou une adjointe (100%) auprès du Service de l’enseignement, à Sion\n\nVos tâches:\n• Vous assistez le Chef du Service de l’enseignement dans les domaines clés de la scolarité obligatoire du Valais romand Vous assumez des tâches de conduite en lien avec le développement et l’organisation scolaires et participez activement à l’élaboration et à la mise en œuvre de la stratégie cantonale en matière de formation Vous conciliez des missions pédagogiques variées avec des tâches de gestion de projet et de management, notamment la conduite du secteur de la scolarité obligatoire francophone (y compris l’inspectorat scolaire) Vous représentez le chef de service, en particulier auprès des écoles francophones de la scolarité obligatoire du canton du Valais, et veillez à assurer une collaboration étroite avec les communes et les directions d’école concernées, notamment pour les questions relatives à l’organisation de la scolarité obligatoire et aux infrastructures nécessaires Vous participez aux révisions législatives ou à l’élaboration de nouvelles bases légales dans le domaine de l’éducation Vous représentez le Canton du Valais au sein de diverses commissions et conférences cantonales, romandes et nationales\n\nVotre profil:\n• Formation universitaire ou formation professionnelle équivalente, formation pédagogique pour un degré de la scolarité obligatoire, complétée par plusieurs années d’expérience dans l’enseignement Bonnes connaissances du système scolaire valaisan et romand Intérêt marqué pour les questions liées à l’éducation et à la formation Bonne connaissance du monde politique valaisan Sens des responsabilités, esprit d’initiative et autonomie Excellentes capacités et expérience avérée dans la conduite de projets Résistance au stress, flexibilité, sens de l’organisation et aptitude à travailler en équipe Excellente capacité d’expression orale et écrite, ainsi que compétences rédactionnelles avérées Capacité à négocier, à s’imposer, à défendre et faire aboutir les décisions relevant de votre domaine de responsabilité Langue maternelle française avec de bonnes connaissances de la deuxième langue\n\nEntrée en fonction:\n1\n\n• er\n• mai 2027\n\nInformations:\nRenseignements sur le poste : Chef du Service de l’enseignement, M. Jean-Philippe Lonfat (027 606 42 05) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 4 décembre 2026 / Numéro de référence : 101860",
+        "de": "Un adjoint ou une adjointe (100%) auprès du Service de l’enseignement, à Sion\n\nVos tâches:\n• Vous assistez le Chef du Service de l’enseignement dans les domaines clés de la scolarité obligatoire du Valais romand Vous assumez des tâches de conduite en lien avec le développement et l’organisation scolaires et participez activement à l’élaboration et à la mise en œuvre de la stratégie cantonale en matière de formation Vous conciliez des missions pédagogiques variées avec des tâches de gestion de projet et de management, notamment la conduite du secteur de la scolarité obligatoire francophone (y compris l’inspectorat scolaire) Vous représentez le chef de service, en particulier auprès des écoles francophones de la scolarité obligatoire du canton du Valais, et veillez à assurer une collaboration étroite avec les communes et les directions d’école concernées, notamment pour les questions relatives à l’organisation de la scolarité obligatoire et aux infrastructures nécessaires Vous participez aux révisions législatives ou à l’élaboration de nouvelles bases légales dans le domaine de l’éducation Vous représentez le Canton du Valais au sein de diverses commissions et conférences cantonales, romandes et nationales\n\nVotre profil:\n• Formation universitaire ou formation professionnelle équivalente, formation pédagogique pour un degré de la scolarité obligatoire, complétée par plusieurs années d’expérience dans l’enseignement Bonnes connaissances du système scolaire valaisan et romand Intérêt marqué pour les questions liées à l’éducation et à la formation Bonne connaissance du monde politique valaisan Sens des responsabilités, esprit d’initiative et autonomie Excellentes capacités et expérience avérée dans la conduite de projets Résistance au stress, flexibilité, sens de l’organisation et aptitude à travailler en équipe Excellente capacité d’expression orale et écrite, ainsi que compétences rédactionnelles avérées Capacité à négocier, à s’imposer, à défendre et faire aboutir les décisions relevant de votre domaine de responsabilité Langue maternelle française avec de bonnes connaissances de la deuxième langue\n\nEntrée en fonction:\n1\n\n• er\n• mai 2027\n\nInformations:\nRenseignements sur le poste : Chef du Service de l’enseignement, M. Jean-Philippe Lonfat (027 606 42 05) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 4 décembre 2026 / Numéro de référence : 101860"
+      },
+      "location": "Sion",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=101860&publication=2647",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-20T09:58:40.590Z",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=101860&publication=2647",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "un-adjoint-ou-une-adjointe-100-canton-valais-ch"
+        ]
+      },
+      "previousSlugs": [
+        "un-adjoint-ou-une-adjointe-100-canton-valais-ch"
+      ],
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Sion",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-18T09:58:40.590Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-20T09:58:40.590Z"
+    },
+    {
+      "id": "canton-valais-27bbb8b5ab44",
+      "slug": "un-collaborateur-ou-une-collaboratrice-logement-50-canton-valais-ch",
+      "slugByLocale": {
+        "fr": "un-collaborateur-ou-une-collaboratrice-logement-50-canton-valais-ch",
+        "it": "un-collaborateur-ou-une-collaboratrice-logement-50-canton-valais-ch",
+        "en": "un-collaborateur-ou-une-collaboratrice-logement-50-canton-valais-ch",
+        "de": "un-collaborateur-ou-une-collaboratrice-logement-50-canton-valais-ch"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "Un collaborateur ou une collaboratrice logement (50%)",
+      "titleByLocale": {
+        "fr": "Un collaborateur ou une collaboratrice logement (50%)",
+        "it": "Un collaborateur ou une collaboratrice logement (50%)",
+        "en": "Un collaborateur ou une collaboratrice logement (50%)",
+        "de": "Un collaborateur ou une collaboratrice logement (50%)"
+      },
+      "description": "Un collaborateur ou une collaboratrice logement (50%) auprès de la Section Politique régionale du Service de l'économie, du tourisme et de l'innovation, à Sion\n\nVos tâches:\n• Vous traitez de manière indépendante les demandes d’aide au logement (construction, achat ou rénovation) Vous examinez les dossiers et préparez les décisions et correspondances y relatives Vous suivez les dossiers durant toute la période de l’aide et prenez les mesures adéquates (en cas de vente, de transfert de propriété, de radiation) Vous collaborez avec l’Office fédéral du logement pour les dossiers relatifs à l’aide fédérale Vous participez au développement des instruments de l’aide au logement Vous collaborez administrativement au traitement des dossiers de la Section en matière de politique régionale\n\nVotre profil:\n• CFC d’employé de commerce ou CFC dans le domaine du bâtiment, ou formation jugée équivalente Connaissance dans le domaine de la construction (logement) ou de l’immobilier Bonnes connaissances des outils informatiques (Word, Excel, SAP, etc)\n• Bonne expression orale et écrite Compétences d’organisation et de gestion des dossiers Aptitude à travailler de manière indépendante Langue maternelle française avec de bonnes connaissances de l’allemand\n\nEntrée en fonction:\nÀ partir du 1 er novembre 2026 ou à convenir\n\nInformations:\nRenseignements sur le poste : Monsieur Werner Zenhäusern, Chef de la Section Politique régionale (werner.zenhaeusern@admin.vs.ch ou 027 606 73 50) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 4 décembre 2026 / Numéro de référence : 100502",
+      "descriptionByLocale": {
+        "fr": "Un collaborateur ou une collaboratrice logement (50%) auprès de la Section Politique régionale du Service de l'économie, du tourisme et de l'innovation, à Sion\n\nVos tâches:\n• Vous traitez de manière indépendante les demandes d’aide au logement (construction, achat ou rénovation) Vous examinez les dossiers et préparez les décisions et correspondances y relatives Vous suivez les dossiers durant toute la période de l’aide et prenez les mesures adéquates (en cas de vente, de transfert de propriété, de radiation) Vous collaborez avec l’Office fédéral du logement pour les dossiers relatifs à l’aide fédérale Vous participez au développement des instruments de l’aide au logement Vous collaborez administrativement au traitement des dossiers de la Section en matière de politique régionale\n\nVotre profil:\n• CFC d’employé de commerce ou CFC dans le domaine du bâtiment, ou formation jugée équivalente Connaissance dans le domaine de la construction (logement) ou de l’immobilier Bonnes connaissances des outils informatiques (Word, Excel, SAP, etc)\n• Bonne expression orale et écrite Compétences d’organisation et de gestion des dossiers Aptitude à travailler de manière indépendante Langue maternelle française avec de bonnes connaissances de l’allemand\n\nEntrée en fonction:\nÀ partir du 1 er novembre 2026 ou à convenir\n\nInformations:\nRenseignements sur le poste : Monsieur Werner Zenhäusern, Chef de la Section Politique régionale (werner.zenhaeusern@admin.vs.ch ou 027 606 73 50) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 4 décembre 2026 / Numéro de référence : 100502",
+        "it": "Un collaborateur ou une collaboratrice logement (50%) auprès de la Section Politique régionale du Service de l'économie, du tourisme et de l'innovation, à Sion\n\nVos tâches:\n• Vous traitez de manière indépendante les demandes d’aide au logement (construction, achat ou rénovation) Vous examinez les dossiers et préparez les décisions et correspondances y relatives Vous suivez les dossiers durant toute la période de l’aide et prenez les mesures adéquates (en cas de vente, de transfert de propriété, de radiation) Vous collaborez avec l’Office fédéral du logement pour les dossiers relatifs à l’aide fédérale Vous participez au développement des instruments de l’aide au logement Vous collaborez administrativement au traitement des dossiers de la Section en matière de politique régionale\n\nVotre profil:\n• CFC d’employé de commerce ou CFC dans le domaine du bâtiment, ou formation jugée équivalente Connaissance dans le domaine de la construction (logement) ou de l’immobilier Bonnes connaissances des outils informatiques (Word, Excel, SAP, etc)\n• Bonne expression orale et écrite Compétences d’organisation et de gestion des dossiers Aptitude à travailler de manière indépendante Langue maternelle française avec de bonnes connaissances de l’allemand\n\nEntrée en fonction:\nÀ partir du 1 er novembre 2026 ou à convenir\n\nInformations:\nRenseignements sur le poste : Monsieur Werner Zenhäusern, Chef de la Section Politique régionale (werner.zenhaeusern@admin.vs.ch ou 027 606 73 50) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 4 décembre 2026 / Numéro de référence : 100502",
+        "en": "Un collaborateur ou une collaboratrice logement (50%) auprès de la Section Politique régionale du Service de l'économie, du tourisme et de l'innovation, à Sion\n\nVos tâches:\n• Vous traitez de manière indépendante les demandes d’aide au logement (construction, achat ou rénovation) Vous examinez les dossiers et préparez les décisions et correspondances y relatives Vous suivez les dossiers durant toute la période de l’aide et prenez les mesures adéquates (en cas de vente, de transfert de propriété, de radiation) Vous collaborez avec l’Office fédéral du logement pour les dossiers relatifs à l’aide fédérale Vous participez au développement des instruments de l’aide au logement Vous collaborez administrativement au traitement des dossiers de la Section en matière de politique régionale\n\nVotre profil:\n• CFC d’employé de commerce ou CFC dans le domaine du bâtiment, ou formation jugée équivalente Connaissance dans le domaine de la construction (logement) ou de l’immobilier Bonnes connaissances des outils informatiques (Word, Excel, SAP, etc)\n• Bonne expression orale et écrite Compétences d’organisation et de gestion des dossiers Aptitude à travailler de manière indépendante Langue maternelle française avec de bonnes connaissances de l’allemand\n\nEntrée en fonction:\nÀ partir du 1 er novembre 2026 ou à convenir\n\nInformations:\nRenseignements sur le poste : Monsieur Werner Zenhäusern, Chef de la Section Politique régionale (werner.zenhaeusern@admin.vs.ch ou 027 606 73 50) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 4 décembre 2026 / Numéro de référence : 100502",
+        "de": "Un collaborateur ou une collaboratrice logement (50%) auprès de la Section Politique régionale du Service de l'économie, du tourisme et de l'innovation, à Sion\n\nVos tâches:\n• Vous traitez de manière indépendante les demandes d’aide au logement (construction, achat ou rénovation) Vous examinez les dossiers et préparez les décisions et correspondances y relatives Vous suivez les dossiers durant toute la période de l’aide et prenez les mesures adéquates (en cas de vente, de transfert de propriété, de radiation) Vous collaborez avec l’Office fédéral du logement pour les dossiers relatifs à l’aide fédérale Vous participez au développement des instruments de l’aide au logement Vous collaborez administrativement au traitement des dossiers de la Section en matière de politique régionale\n\nVotre profil:\n• CFC d’employé de commerce ou CFC dans le domaine du bâtiment, ou formation jugée équivalente Connaissance dans le domaine de la construction (logement) ou de l’immobilier Bonnes connaissances des outils informatiques (Word, Excel, SAP, etc)\n• Bonne expression orale et écrite Compétences d’organisation et de gestion des dossiers Aptitude à travailler de manière indépendante Langue maternelle française avec de bonnes connaissances de l’allemand\n\nEntrée en fonction:\nÀ partir du 1 er novembre 2026 ou à convenir\n\nInformations:\nRenseignements sur le poste : Monsieur Werner Zenhäusern, Chef de la Section Politique régionale (werner.zenhaeusern@admin.vs.ch ou 027 606 73 50) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 4 décembre 2026 / Numéro de référence : 100502"
+      },
+      "location": "Sion",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=100502&publication=2647",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-20T09:58:39.959Z",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=100502&publication=2647",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 30300,
+      "salaryMax": 45800,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 30300,
+          "maxValue": 45800,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Sion",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-18T09:58:39.959Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-20T09:58:39.959Z"
+    },
+    {
+      "id": "canton-valais-a90f1b9fe3f8",
+      "slug": "un-ou-une-specialiste-en-technologies-numeriques-du-patrimoine-60-canton-valais-ch",
+      "slugByLocale": {
+        "fr": "un-ou-une-specialiste-en-technologies-numeriques-du-patrimoine-60-canton-valais-ch",
+        "it": "un-ou-une-specialiste-en-technologies-numeriques-du-patrimoine-60-canton-valais-ch",
+        "en": "un-ou-une-specialiste-en-technologies-numeriques-du-patrimoine-60-canton-valais-ch",
+        "de": "un-ou-une-specialiste-en-technologies-numeriques-du-patrimoine-60-canton-valais-ch"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "Un ou une spécialiste en technologies numériques du patrimoine (60%)",
+      "titleByLocale": {
+        "fr": "Un ou une spécialiste en technologies numériques du patrimoine (60%)",
+        "it": "Un ou une spécialiste en technologies numériques du patrimoine (60%)",
+        "en": "Un ou une spécialiste en technologies numériques du patrimoine (60%)",
+        "de": "Un ou une spécialiste en technologies numériques du patrimoine (60%)"
+      },
+      "description": "Un ou une spécialiste en technologies numériques du patrimoine (60%) auprès du Service de la culture, Médiathèque Valais, à Martigny\n\nVos tâches:\n• Vous collaborez au traitement des fonds films, notamment à leur classement, leur analyse et leur inventaire Vous assurez le suivi de la conservation, de la restauration, de la numérisation et de l’archivage des collections audiovisuelles Vous gérez les métadonnées des fichiers numériques du patrimoine audiovisuel Vous collaborez à la mise en ligne, à la valorisation et à l’archivage à long terme des collections audiovisuelles Vous développez et adaptez les outils nécessaires au traitement, à l’archivage et à la diffusion des fonds patrimoniaux Vous veillez à l’évolution des normes et des technologies liées à la numérisation audiovisuelle Vous gérez les équipements et les outils de numérisation et en assurez le bon fonctionnement\n• Vous formez et prenez part à l’encadrement des collaborateurs, stagiaires et apprentis\n• Vous organisez les travaux de numérisation et en assurez le contrôle qualité\n\nVotre profil:\n• Formation en informatique de niveau Bachelor ou Master, ou formation jugée équivalente Expérience en archivistique serait un atout Connaissance des technologies de lecture audiovisuelle (analogique/numérique) serait un atout\n• Capacité à travailler de manière autonome et en équipe Curiosité intellectuelle et intérêt pour la valorisation du patrimoine audiovisuel valaisan Bonne organisation et sens des responsabilités Flexibilité et orientation solutions Langue maternelle française, avec de bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\n1\n\n• er\n• avril 2027 ou à convenir\n\nInformations:\nRenseignements sur le poste : Mme Sylvie Délèze, directrice de la Médiathèque Valais - Martigny (027 607 15 45 / sylvie.deleze@admin.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 4 décembre 2026 / Numéro de référence : 108295",
+      "descriptionByLocale": {
+        "fr": "Un ou une spécialiste en technologies numériques du patrimoine (60%) auprès du Service de la culture, Médiathèque Valais, à Martigny\n\nVos tâches:\n• Vous collaborez au traitement des fonds films, notamment à leur classement, leur analyse et leur inventaire Vous assurez le suivi de la conservation, de la restauration, de la numérisation et de l’archivage des collections audiovisuelles Vous gérez les métadonnées des fichiers numériques du patrimoine audiovisuel Vous collaborez à la mise en ligne, à la valorisation et à l’archivage à long terme des collections audiovisuelles Vous développez et adaptez les outils nécessaires au traitement, à l’archivage et à la diffusion des fonds patrimoniaux Vous veillez à l’évolution des normes et des technologies liées à la numérisation audiovisuelle Vous gérez les équipements et les outils de numérisation et en assurez le bon fonctionnement\n• Vous formez et prenez part à l’encadrement des collaborateurs, stagiaires et apprentis\n• Vous organisez les travaux de numérisation et en assurez le contrôle qualité\n\nVotre profil:\n• Formation en informatique de niveau Bachelor ou Master, ou formation jugée équivalente Expérience en archivistique serait un atout Connaissance des technologies de lecture audiovisuelle (analogique/numérique) serait un atout\n• Capacité à travailler de manière autonome et en équipe Curiosité intellectuelle et intérêt pour la valorisation du patrimoine audiovisuel valaisan Bonne organisation et sens des responsabilités Flexibilité et orientation solutions Langue maternelle française, avec de bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\n1\n\n• er\n• avril 2027 ou à convenir\n\nInformations:\nRenseignements sur le poste : Mme Sylvie Délèze, directrice de la Médiathèque Valais - Martigny (027 607 15 45 / sylvie.deleze@admin.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 4 décembre 2026 / Numéro de référence : 108295",
+        "it": "Un ou une spécialiste en technologies numériques du patrimoine (60%) auprès du Service de la culture, Médiathèque Valais, à Martigny\n\nVos tâches:\n• Vous collaborez au traitement des fonds films, notamment à leur classement, leur analyse et leur inventaire Vous assurez le suivi de la conservation, de la restauration, de la numérisation et de l’archivage des collections audiovisuelles Vous gérez les métadonnées des fichiers numériques du patrimoine audiovisuel Vous collaborez à la mise en ligne, à la valorisation et à l’archivage à long terme des collections audiovisuelles Vous développez et adaptez les outils nécessaires au traitement, à l’archivage et à la diffusion des fonds patrimoniaux Vous veillez à l’évolution des normes et des technologies liées à la numérisation audiovisuelle Vous gérez les équipements et les outils de numérisation et en assurez le bon fonctionnement\n• Vous formez et prenez part à l’encadrement des collaborateurs, stagiaires et apprentis\n• Vous organisez les travaux de numérisation et en assurez le contrôle qualité\n\nVotre profil:\n• Formation en informatique de niveau Bachelor ou Master, ou formation jugée équivalente Expérience en archivistique serait un atout Connaissance des technologies de lecture audiovisuelle (analogique/numérique) serait un atout\n• Capacité à travailler de manière autonome et en équipe Curiosité intellectuelle et intérêt pour la valorisation du patrimoine audiovisuel valaisan Bonne organisation et sens des responsabilités Flexibilité et orientation solutions Langue maternelle française, avec de bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\n1\n\n• er\n• avril 2027 ou à convenir\n\nInformations:\nRenseignements sur le poste : Mme Sylvie Délèze, directrice de la Médiathèque Valais - Martigny (027 607 15 45 / sylvie.deleze@admin.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 4 décembre 2026 / Numéro de référence : 108295",
+        "en": "Un ou une spécialiste en technologies numériques du patrimoine (60%) auprès du Service de la culture, Médiathèque Valais, à Martigny\n\nVos tâches:\n• Vous collaborez au traitement des fonds films, notamment à leur classement, leur analyse et leur inventaire Vous assurez le suivi de la conservation, de la restauration, de la numérisation et de l’archivage des collections audiovisuelles Vous gérez les métadonnées des fichiers numériques du patrimoine audiovisuel Vous collaborez à la mise en ligne, à la valorisation et à l’archivage à long terme des collections audiovisuelles Vous développez et adaptez les outils nécessaires au traitement, à l’archivage et à la diffusion des fonds patrimoniaux Vous veillez à l’évolution des normes et des technologies liées à la numérisation audiovisuelle Vous gérez les équipements et les outils de numérisation et en assurez le bon fonctionnement\n• Vous formez et prenez part à l’encadrement des collaborateurs, stagiaires et apprentis\n• Vous organisez les travaux de numérisation et en assurez le contrôle qualité\n\nVotre profil:\n• Formation en informatique de niveau Bachelor ou Master, ou formation jugée équivalente Expérience en archivistique serait un atout Connaissance des technologies de lecture audiovisuelle (analogique/numérique) serait un atout\n• Capacité à travailler de manière autonome et en équipe Curiosité intellectuelle et intérêt pour la valorisation du patrimoine audiovisuel valaisan Bonne organisation et sens des responsabilités Flexibilité et orientation solutions Langue maternelle française, avec de bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\n1\n\n• er\n• avril 2027 ou à convenir\n\nInformations:\nRenseignements sur le poste : Mme Sylvie Délèze, directrice de la Médiathèque Valais - Martigny (027 607 15 45 / sylvie.deleze@admin.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 4 décembre 2026 / Numéro de référence : 108295",
+        "de": "Un ou une spécialiste en technologies numériques du patrimoine (60%) auprès du Service de la culture, Médiathèque Valais, à Martigny\n\nVos tâches:\n• Vous collaborez au traitement des fonds films, notamment à leur classement, leur analyse et leur inventaire Vous assurez le suivi de la conservation, de la restauration, de la numérisation et de l’archivage des collections audiovisuelles Vous gérez les métadonnées des fichiers numériques du patrimoine audiovisuel Vous collaborez à la mise en ligne, à la valorisation et à l’archivage à long terme des collections audiovisuelles Vous développez et adaptez les outils nécessaires au traitement, à l’archivage et à la diffusion des fonds patrimoniaux Vous veillez à l’évolution des normes et des technologies liées à la numérisation audiovisuelle Vous gérez les équipements et les outils de numérisation et en assurez le bon fonctionnement\n• Vous formez et prenez part à l’encadrement des collaborateurs, stagiaires et apprentis\n• Vous organisez les travaux de numérisation et en assurez le contrôle qualité\n\nVotre profil:\n• Formation en informatique de niveau Bachelor ou Master, ou formation jugée équivalente Expérience en archivistique serait un atout Connaissance des technologies de lecture audiovisuelle (analogique/numérique) serait un atout\n• Capacité à travailler de manière autonome et en équipe Curiosité intellectuelle et intérêt pour la valorisation du patrimoine audiovisuel valaisan Bonne organisation et sens des responsabilités Flexibilité et orientation solutions Langue maternelle française, avec de bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\n1\n\n• er\n• avril 2027 ou à convenir\n\nInformations:\nRenseignements sur le poste : Mme Sylvie Délèze, directrice de la Médiathèque Valais - Martigny (027 607 15 45 / sylvie.deleze@admin.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 4 décembre 2026 / Numéro de référence : 108295"
+      },
+      "location": "Martigny",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=108295&publication=2647",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-20T09:58:39.299Z",
+      "addressLocality": "Martigny",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1920",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=108295&publication=2647",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 36300,
+      "salaryMax": 54900,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 36300,
+          "maxValue": 54900,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Martigny",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-18T09:58:39.299Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-20T09:58:39.299Z"
+    },
+    {
+      "id": "canton-valais-b4508965eb99",
+      "slug": "un-ou-une-responsable-des-ressources-humaines-80-100-canton-valais-ch",
+      "slugByLocale": {
+        "fr": "un-ou-une-responsable-des-ressources-humaines-80-100-canton-valais-ch",
+        "it": "un-ou-une-responsable-des-ressources-humaines-80-100-canton-valais-ch",
+        "en": "un-ou-une-responsable-des-ressources-humaines-80-100-canton-valais-ch",
+        "de": "un-ou-une-responsable-des-ressources-humaines-80-100-canton-valais-ch"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "Un ou une responsable des ressources humaines (80-100%)",
+      "titleByLocale": {
+        "fr": "Un ou une responsable des ressources humaines (80-100%)",
+        "it": "Un ou une responsable des ressources humaines (80-100%)",
+        "en": "Un ou une responsable des ressources humaines (80-100%)",
+        "de": "Un ou une responsable des ressources humaines (80-100%)"
+      },
+      "description": "Un ou une responsable des ressources humaines (80-100%) auprès du Service de l’action sociale, à Sion Le Service de l’action sociale regroupe l’Office de coordination des prestations sociales, l’Office de coordination pour les questions dans le domaine du handicap et l’Office de l’asile.\n\nVos tâches:\n• Vous pilotez la fonction RH du service et veillez à la mise en œuvre de la politique cantonale du personnel Vous conseillez et accompagnez la direction dans la gestion des ressources humaines Vous contribuez aux réflexions stratégiques liées à l’organisation, aux effectifs et au développement des compétences Vous accompagnez les cadres dans la conduite de leurs équipes et intervenez dans la gestion de situations RH complexes, notamment en matière de relations de travail, de médiation et de gestion des conflits Vous veillez à la qualité et à l’efficience des processus administratifs RH ainsi qu’au respect du cadre réglementaire Vous conduisez et développez l’équipe RH du service Vous collaborez avec le Service des ressources humaines et les partenaires internes et externes\n\nVotre profil:\n• Formation universitaire ou HES complétée par une spécialisation en ressources humaines, brevet fédéral de spécialiste en ressources humaines ou formation jugée équivalente Au moins 5 ans d’expérience dans le domaine des ressources humaines comprenant des responsabilités de conseil aux cadres et/ou de conduite Solides compétences en leadership, conseil, coaching et accompagnement du changement Capacité à analyser des situations complexes, à proposer des solutions pragmatiques et à prendre des décisions\n• Excellentes capacités relationnelles, sens de la négociation et aptitude à intervenir avec discernement dans des situations sensibles ou conflictuelles Autonomie, discrétion, sens des responsabilités et capacité à fédérer Une expérience dans une administration publique ou dans le domaine social constitue un atout Langue maternelle française ou allemande, avec de très bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\nJanvier 2027 ou à convenir\n\nInformations:\nRenseignements sur le poste : Service de l’action sociale, M. Jérôme Favez (027 606 48 05) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 4 décembre 2026 / Numéro de référence : 109179",
+      "descriptionByLocale": {
+        "fr": "Un ou une responsable des ressources humaines (80-100%) auprès du Service de l’action sociale, à Sion Le Service de l’action sociale regroupe l’Office de coordination des prestations sociales, l’Office de coordination pour les questions dans le domaine du handicap et l’Office de l’asile.\n\nVos tâches:\n• Vous pilotez la fonction RH du service et veillez à la mise en œuvre de la politique cantonale du personnel Vous conseillez et accompagnez la direction dans la gestion des ressources humaines Vous contribuez aux réflexions stratégiques liées à l’organisation, aux effectifs et au développement des compétences Vous accompagnez les cadres dans la conduite de leurs équipes et intervenez dans la gestion de situations RH complexes, notamment en matière de relations de travail, de médiation et de gestion des conflits Vous veillez à la qualité et à l’efficience des processus administratifs RH ainsi qu’au respect du cadre réglementaire Vous conduisez et développez l’équipe RH du service Vous collaborez avec le Service des ressources humaines et les partenaires internes et externes\n\nVotre profil:\n• Formation universitaire ou HES complétée par une spécialisation en ressources humaines, brevet fédéral de spécialiste en ressources humaines ou formation jugée équivalente Au moins 5 ans d’expérience dans le domaine des ressources humaines comprenant des responsabilités de conseil aux cadres et/ou de conduite Solides compétences en leadership, conseil, coaching et accompagnement du changement Capacité à analyser des situations complexes, à proposer des solutions pragmatiques et à prendre des décisions\n• Excellentes capacités relationnelles, sens de la négociation et aptitude à intervenir avec discernement dans des situations sensibles ou conflictuelles Autonomie, discrétion, sens des responsabilités et capacité à fédérer Une expérience dans une administration publique ou dans le domaine social constitue un atout Langue maternelle française ou allemande, avec de très bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\nJanvier 2027 ou à convenir\n\nInformations:\nRenseignements sur le poste : Service de l’action sociale, M. Jérôme Favez (027 606 48 05) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 4 décembre 2026 / Numéro de référence : 109179",
+        "it": "Un ou une responsable des ressources humaines (80-100%) auprès du Service de l’action sociale, à Sion Le Service de l’action sociale regroupe l’Office de coordination des prestations sociales, l’Office de coordination pour les questions dans le domaine du handicap et l’Office de l’asile.\n\nVos tâches:\n• Vous pilotez la fonction RH du service et veillez à la mise en œuvre de la politique cantonale du personnel Vous conseillez et accompagnez la direction dans la gestion des ressources humaines Vous contribuez aux réflexions stratégiques liées à l’organisation, aux effectifs et au développement des compétences Vous accompagnez les cadres dans la conduite de leurs équipes et intervenez dans la gestion de situations RH complexes, notamment en matière de relations de travail, de médiation et de gestion des conflits Vous veillez à la qualité et à l’efficience des processus administratifs RH ainsi qu’au respect du cadre réglementaire Vous conduisez et développez l’équipe RH du service Vous collaborez avec le Service des ressources humaines et les partenaires internes et externes\n\nVotre profil:\n• Formation universitaire ou HES complétée par une spécialisation en ressources humaines, brevet fédéral de spécialiste en ressources humaines ou formation jugée équivalente Au moins 5 ans d’expérience dans le domaine des ressources humaines comprenant des responsabilités de conseil aux cadres et/ou de conduite Solides compétences en leadership, conseil, coaching et accompagnement du changement Capacité à analyser des situations complexes, à proposer des solutions pragmatiques et à prendre des décisions\n• Excellentes capacités relationnelles, sens de la négociation et aptitude à intervenir avec discernement dans des situations sensibles ou conflictuelles Autonomie, discrétion, sens des responsabilités et capacité à fédérer Une expérience dans une administration publique ou dans le domaine social constitue un atout Langue maternelle française ou allemande, avec de très bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\nJanvier 2027 ou à convenir\n\nInformations:\nRenseignements sur le poste : Service de l’action sociale, M. Jérôme Favez (027 606 48 05) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 4 décembre 2026 / Numéro de référence : 109179",
+        "en": "Un ou une responsable des ressources humaines (80-100%) auprès du Service de l’action sociale, à Sion Le Service de l’action sociale regroupe l’Office de coordination des prestations sociales, l’Office de coordination pour les questions dans le domaine du handicap et l’Office de l’asile.\n\nVos tâches:\n• Vous pilotez la fonction RH du service et veillez à la mise en œuvre de la politique cantonale du personnel Vous conseillez et accompagnez la direction dans la gestion des ressources humaines Vous contribuez aux réflexions stratégiques liées à l’organisation, aux effectifs et au développement des compétences Vous accompagnez les cadres dans la conduite de leurs équipes et intervenez dans la gestion de situations RH complexes, notamment en matière de relations de travail, de médiation et de gestion des conflits Vous veillez à la qualité et à l’efficience des processus administratifs RH ainsi qu’au respect du cadre réglementaire Vous conduisez et développez l’équipe RH du service Vous collaborez avec le Service des ressources humaines et les partenaires internes et externes\n\nVotre profil:\n• Formation universitaire ou HES complétée par une spécialisation en ressources humaines, brevet fédéral de spécialiste en ressources humaines ou formation jugée équivalente Au moins 5 ans d’expérience dans le domaine des ressources humaines comprenant des responsabilités de conseil aux cadres et/ou de conduite Solides compétences en leadership, conseil, coaching et accompagnement du changement Capacité à analyser des situations complexes, à proposer des solutions pragmatiques et à prendre des décisions\n• Excellentes capacités relationnelles, sens de la négociation et aptitude à intervenir avec discernement dans des situations sensibles ou conflictuelles Autonomie, discrétion, sens des responsabilités et capacité à fédérer Une expérience dans une administration publique ou dans le domaine social constitue un atout Langue maternelle française ou allemande, avec de très bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\nJanvier 2027 ou à convenir\n\nInformations:\nRenseignements sur le poste : Service de l’action sociale, M. Jérôme Favez (027 606 48 05) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 4 décembre 2026 / Numéro de référence : 109179",
+        "de": "Un ou une responsable des ressources humaines (80-100%) auprès du Service de l’action sociale, à Sion Le Service de l’action sociale regroupe l’Office de coordination des prestations sociales, l’Office de coordination pour les questions dans le domaine du handicap et l’Office de l’asile.\n\nVos tâches:\n• Vous pilotez la fonction RH du service et veillez à la mise en œuvre de la politique cantonale du personnel Vous conseillez et accompagnez la direction dans la gestion des ressources humaines Vous contribuez aux réflexions stratégiques liées à l’organisation, aux effectifs et au développement des compétences Vous accompagnez les cadres dans la conduite de leurs équipes et intervenez dans la gestion de situations RH complexes, notamment en matière de relations de travail, de médiation et de gestion des conflits Vous veillez à la qualité et à l’efficience des processus administratifs RH ainsi qu’au respect du cadre réglementaire Vous conduisez et développez l’équipe RH du service Vous collaborez avec le Service des ressources humaines et les partenaires internes et externes\n\nVotre profil:\n• Formation universitaire ou HES complétée par une spécialisation en ressources humaines, brevet fédéral de spécialiste en ressources humaines ou formation jugée équivalente Au moins 5 ans d’expérience dans le domaine des ressources humaines comprenant des responsabilités de conseil aux cadres et/ou de conduite Solides compétences en leadership, conseil, coaching et accompagnement du changement Capacité à analyser des situations complexes, à proposer des solutions pragmatiques et à prendre des décisions\n• Excellentes capacités relationnelles, sens de la négociation et aptitude à intervenir avec discernement dans des situations sensibles ou conflictuelles Autonomie, discrétion, sens des responsabilités et capacité à fédérer Une expérience dans une administration publique ou dans le domaine social constitue un atout Langue maternelle française ou allemande, avec de très bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\nJanvier 2027 ou à convenir\n\nInformations:\nRenseignements sur le poste : Service de l’action sociale, M. Jérôme Favez (027 606 48 05) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 4 décembre 2026 / Numéro de référence : 109179"
+      },
+      "location": "Sion",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=109179&publication=2647",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-20T09:58:38.683Z",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=109179&publication=2647",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Sion",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-01T09:58:38.683Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-10-03T09:29:44.297Z"
+    },
+    {
+      "id": "canton-valais-c0c4e59178bc",
+      "slug": "un-collaborateur-administratif-rh-ou-une-collaboratrice-administrative-rh-80-100-canton",
+      "slugByLocale": {
+        "fr": "un-collaborateur-administratif-rh-ou-une-collaboratrice-administrative-rh-80-100-canton",
+        "it": "un-collaborateur-administratif-rh-ou-une-collaboratrice-administrative-rh-80-100-canton",
+        "en": "un-collaborateur-administratif-rh-ou-une-collaboratrice-administrative-rh-80-100-canton",
+        "de": "un-collaborateur-administratif-rh-ou-une-collaboratrice-administrative-rh-80-100-canton"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "Un collaborateur administratif RH ou une collaboratrice administrative RH (80-100%)",
+      "titleByLocale": {
+        "fr": "Un collaborateur administratif RH ou une collaboratrice administrative RH (80-100%)",
+        "it": "Un collaborateur administratif RH ou une collaboratrice administrative RH (80-100%)",
+        "en": "Un collaborateur administratif RH ou une collaboratrice administrative RH (80-100%)",
+        "de": "Un collaborateur administratif RH ou une collaboratrice administrative RH (80-100%)"
+      },
+      "description": "Un collaborateur administratif RH ou une collaboratrice administrative RH (80-100%) auprès du Service de l’action sociale, à Sion Postulation online : www.vs.ch/jobs Le Service de l’action sociale regroupe l’Office de coordination des prestations sociales, l’Office de coordination pour les questions dans le domaine du handicap et l’Office de l’asile.\n\nVos tâches:\n• Vous participez à la gestion des ressources humaines du Service de l’action sociale qui compte plus de 580 collaborateurs et collaboratrices Vous effectuez l’ensemble des tâches administratives des dossiers du personnel, de l’engagement à la fin de contrat (préparation des documents, préavis, décisions, départs, etc.) Vous assurez le suivi et l’archivage des dossiers du personnel Vous participez à la rédaction des certificats de travail Vous répondez aux différentes demandes des cadres et des collaborateurs et collaboratrices Vous prenez en charge diverses tâches déléguées par le responsable des ressources humaines du service Vous gérez les tâches administratives en lien avec votre activité Vous collaborez de manière active avec vos collègues\n\nVotre profil:\n• CFC employé de commerce, diplôme de commerce ou maturité professionnelle économie Certificat de gestionnaire RH ou d’assistant RH 5 ans d’expérience dans un poste similaire Sens des responsabilités, de la communication et de l’organisation\n• Excellentes capacités à travailler en équipe Excellente maîtrise des outils informatiques usuels Connaissances SAP un atout Excellentes aptitudes rédactionnelles Bonne capacité à gérer le stress De langue maternelle française ou allemande avec de très bonnes connaissances de la seconde langue officielle Entrée en fonction - Conditions particulières Entrée en fonction : 1 er décembre 2026 ou à convenir Engagement de durée déterminée : la durée est liée aux variations du nombre de personnes que le canton a l’obligation d’accueillir en vertu de la Loi fédérale sur l’asile\n\nInformations:\nRenseignements sur le poste : Service de l’action sociale, M. Baptiste Andrié (027 607 21 72) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 4 décembre 2026 / Numéro de référence : 114610",
+      "descriptionByLocale": {
+        "fr": "Un collaborateur administratif RH ou une collaboratrice administrative RH (80-100%) auprès du Service de l’action sociale, à Sion Postulation online : www.vs.ch/jobs Le Service de l’action sociale regroupe l’Office de coordination des prestations sociales, l’Office de coordination pour les questions dans le domaine du handicap et l’Office de l’asile.\n\nVos tâches:\n• Vous participez à la gestion des ressources humaines du Service de l’action sociale qui compte plus de 580 collaborateurs et collaboratrices Vous effectuez l’ensemble des tâches administratives des dossiers du personnel, de l’engagement à la fin de contrat (préparation des documents, préavis, décisions, départs, etc.) Vous assurez le suivi et l’archivage des dossiers du personnel Vous participez à la rédaction des certificats de travail Vous répondez aux différentes demandes des cadres et des collaborateurs et collaboratrices Vous prenez en charge diverses tâches déléguées par le responsable des ressources humaines du service Vous gérez les tâches administratives en lien avec votre activité Vous collaborez de manière active avec vos collègues\n\nVotre profil:\n• CFC employé de commerce, diplôme de commerce ou maturité professionnelle économie Certificat de gestionnaire RH ou d’assistant RH 5 ans d’expérience dans un poste similaire Sens des responsabilités, de la communication et de l’organisation\n• Excellentes capacités à travailler en équipe Excellente maîtrise des outils informatiques usuels Connaissances SAP un atout Excellentes aptitudes rédactionnelles Bonne capacité à gérer le stress De langue maternelle française ou allemande avec de très bonnes connaissances de la seconde langue officielle Entrée en fonction - Conditions particulières Entrée en fonction : 1 er décembre 2026 ou à convenir Engagement de durée déterminée : la durée est liée aux variations du nombre de personnes que le canton a l’obligation d’accueillir en vertu de la Loi fédérale sur l’asile\n\nInformations:\nRenseignements sur le poste : Service de l’action sociale, M. Baptiste Andrié (027 607 21 72) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 4 décembre 2026 / Numéro de référence : 114610",
+        "it": "Un collaborateur administratif RH ou une collaboratrice administrative RH (80-100%) auprès du Service de l’action sociale, à Sion Postulation online : www.vs.ch/jobs Le Service de l’action sociale regroupe l’Office de coordination des prestations sociales, l’Office de coordination pour les questions dans le domaine du handicap et l’Office de l’asile.\n\nVos tâches:\n• Vous participez à la gestion des ressources humaines du Service de l’action sociale qui compte plus de 580 collaborateurs et collaboratrices Vous effectuez l’ensemble des tâches administratives des dossiers du personnel, de l’engagement à la fin de contrat (préparation des documents, préavis, décisions, départs, etc.) Vous assurez le suivi et l’archivage des dossiers du personnel Vous participez à la rédaction des certificats de travail Vous répondez aux différentes demandes des cadres et des collaborateurs et collaboratrices Vous prenez en charge diverses tâches déléguées par le responsable des ressources humaines du service Vous gérez les tâches administratives en lien avec votre activité Vous collaborez de manière active avec vos collègues\n\nVotre profil:\n• CFC employé de commerce, diplôme de commerce ou maturité professionnelle économie Certificat de gestionnaire RH ou d’assistant RH 5 ans d’expérience dans un poste similaire Sens des responsabilités, de la communication et de l’organisation\n• Excellentes capacités à travailler en équipe Excellente maîtrise des outils informatiques usuels Connaissances SAP un atout Excellentes aptitudes rédactionnelles Bonne capacité à gérer le stress De langue maternelle française ou allemande avec de très bonnes connaissances de la seconde langue officielle Entrée en fonction - Conditions particulières Entrée en fonction : 1 er décembre 2026 ou à convenir Engagement de durée déterminée : la durée est liée aux variations du nombre de personnes que le canton a l’obligation d’accueillir en vertu de la Loi fédérale sur l’asile\n\nInformations:\nRenseignements sur le poste : Service de l’action sociale, M. Baptiste Andrié (027 607 21 72) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 4 décembre 2026 / Numéro de référence : 114610",
+        "en": "Un collaborateur administratif RH ou une collaboratrice administrative RH (80-100%) auprès du Service de l’action sociale, à Sion Postulation online : www.vs.ch/jobs Le Service de l’action sociale regroupe l’Office de coordination des prestations sociales, l’Office de coordination pour les questions dans le domaine du handicap et l’Office de l’asile.\n\nVos tâches:\n• Vous participez à la gestion des ressources humaines du Service de l’action sociale qui compte plus de 580 collaborateurs et collaboratrices Vous effectuez l’ensemble des tâches administratives des dossiers du personnel, de l’engagement à la fin de contrat (préparation des documents, préavis, décisions, départs, etc.) Vous assurez le suivi et l’archivage des dossiers du personnel Vous participez à la rédaction des certificats de travail Vous répondez aux différentes demandes des cadres et des collaborateurs et collaboratrices Vous prenez en charge diverses tâches déléguées par le responsable des ressources humaines du service Vous gérez les tâches administratives en lien avec votre activité Vous collaborez de manière active avec vos collègues\n\nVotre profil:\n• CFC employé de commerce, diplôme de commerce ou maturité professionnelle économie Certificat de gestionnaire RH ou d’assistant RH 5 ans d’expérience dans un poste similaire Sens des responsabilités, de la communication et de l’organisation\n• Excellentes capacités à travailler en équipe Excellente maîtrise des outils informatiques usuels Connaissances SAP un atout Excellentes aptitudes rédactionnelles Bonne capacité à gérer le stress De langue maternelle française ou allemande avec de très bonnes connaissances de la seconde langue officielle Entrée en fonction - Conditions particulières Entrée en fonction : 1 er décembre 2026 ou à convenir Engagement de durée déterminée : la durée est liée aux variations du nombre de personnes que le canton a l’obligation d’accueillir en vertu de la Loi fédérale sur l’asile\n\nInformations:\nRenseignements sur le poste : Service de l’action sociale, M. Baptiste Andrié (027 607 21 72) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 4 décembre 2026 / Numéro de référence : 114610",
+        "de": "Un collaborateur administratif RH ou une collaboratrice administrative RH (80-100%) auprès du Service de l’action sociale, à Sion Postulation online : www.vs.ch/jobs Le Service de l’action sociale regroupe l’Office de coordination des prestations sociales, l’Office de coordination pour les questions dans le domaine du handicap et l’Office de l’asile.\n\nVos tâches:\n• Vous participez à la gestion des ressources humaines du Service de l’action sociale qui compte plus de 580 collaborateurs et collaboratrices Vous effectuez l’ensemble des tâches administratives des dossiers du personnel, de l’engagement à la fin de contrat (préparation des documents, préavis, décisions, départs, etc.) Vous assurez le suivi et l’archivage des dossiers du personnel Vous participez à la rédaction des certificats de travail Vous répondez aux différentes demandes des cadres et des collaborateurs et collaboratrices Vous prenez en charge diverses tâches déléguées par le responsable des ressources humaines du service Vous gérez les tâches administratives en lien avec votre activité Vous collaborez de manière active avec vos collègues\n\nVotre profil:\n• CFC employé de commerce, diplôme de commerce ou maturité professionnelle économie Certificat de gestionnaire RH ou d’assistant RH 5 ans d’expérience dans un poste similaire Sens des responsabilités, de la communication et de l’organisation\n• Excellentes capacités à travailler en équipe Excellente maîtrise des outils informatiques usuels Connaissances SAP un atout Excellentes aptitudes rédactionnelles Bonne capacité à gérer le stress De langue maternelle française ou allemande avec de très bonnes connaissances de la seconde langue officielle Entrée en fonction - Conditions particulières Entrée en fonction : 1 er décembre 2026 ou à convenir Engagement de durée déterminée : la durée est liée aux variations du nombre de personnes que le canton a l’obligation d’accueillir en vertu de la Loi fédérale sur l’asile\n\nInformations:\nRenseignements sur le poste : Service de l’action sociale, M. Baptiste Andrié (027 607 21 72) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 4 décembre 2026 / Numéro de référence : 114610"
+      },
+      "location": "Sion",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114610&publication=2647",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-20T09:58:38.036Z",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114610&publication=2647",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Sion",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-01T09:58:38.036Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-10-03T09:29:45.547Z"
+    },
+    {
+      "id": "canton-valais-fcd3e2d9801b",
+      "slug": "jurist-in-60-100-canton-valais-ch",
+      "slugByLocale": {
+        "de": "jurist-in-60-100-canton-valais-ch",
+        "it": "jurist-in-60-100-canton-valais-ch",
+        "en": "jurist-in-60-100-canton-valais-ch",
+        "fr": "jurist-in-60-100-canton-valais-ch"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "Jurist/in (60-100%)",
+      "titleByLocale": {
+        "de": "Jurist/in (60-100%)",
+        "it": "Jurist/in (60-100%)",
+        "en": "Jurist/in (60-100%)",
+        "fr": "Jurist/in (60-100%)"
+      },
+      "description": "Jurist/in (60-100%) bei der Dienststelle für Industrie, Handel und Arbeit, Sektion Rechtsangelegenheiten, in Sitten\n\nIhre Aufgaben:\n• Sie üben die Funktion als Schreiberin/Schreiber der kantonalen Schlichtungskommission für Mietverhältnisse aus und leiten das Sekretariat Sie erteilen im Rahmen des Mietrechts Auskünfte Sie leisten dem Sektionschef und den Mitarbeitenden der Dienststelle juristische Unterstützung Ergänzend können Sie mit der Bearbeitung von Einsprachen gegen die Verfügungen der Dienststelle und ihrer Regionalen Arbeitsvermittlungszentren (RAV) im Bereich der Arbeitslosenversicherung betraut werden\n\nIhr Profil:\n• Sie haben einen Master in Rechtswissenschaften Sie interessieren sich für das Mietrecht (Kenntnisse im Bereich des Mietrechts von Vorteil) und für die Arbeitslosenversicherung Sie verfügen über ein hohes, analytisches Denkvermögen sowie eine grosse redaktionelle Leichtigkeit und können Entscheide fällen Sie arbeiten gerne in einem Team Sie beherrschen die üblichen Informatikhilfsmittel\n• Muttersprache Deutsch, sehr gute Französischkenntnisse von Vorteil\n\nStellenantritt:\nAb 1. Dezember 2026 oder nach Vereinbarung\n\nInformationen:\nAuskunft zur Stelle: Dienststelle für Industrie, Handel und Arbeit, Frau Laura Lejeune Pannatier (027 606 73 11 / laura.lejeune-pannatier@admin.vs.ch) Online-Bewerbung erwünscht: www.vs.ch/jobs oder senden Sie Ihre Bewerbung bitte an: Dienststelle für Personalmanagement, Place St-Théodule 15, 1951 Sitten Eingabefrist: 4. Dezember 2026 / Referenznummer: 114510",
+      "descriptionByLocale": {
+        "de": "Jurist/in (60-100%) bei der Dienststelle für Industrie, Handel und Arbeit, Sektion Rechtsangelegenheiten, in Sitten\n\nIhre Aufgaben:\n• Sie üben die Funktion als Schreiberin/Schreiber der kantonalen Schlichtungskommission für Mietverhältnisse aus und leiten das Sekretariat Sie erteilen im Rahmen des Mietrechts Auskünfte Sie leisten dem Sektionschef und den Mitarbeitenden der Dienststelle juristische Unterstützung Ergänzend können Sie mit der Bearbeitung von Einsprachen gegen die Verfügungen der Dienststelle und ihrer Regionalen Arbeitsvermittlungszentren (RAV) im Bereich der Arbeitslosenversicherung betraut werden\n\nIhr Profil:\n• Sie haben einen Master in Rechtswissenschaften Sie interessieren sich für das Mietrecht (Kenntnisse im Bereich des Mietrechts von Vorteil) und für die Arbeitslosenversicherung Sie verfügen über ein hohes, analytisches Denkvermögen sowie eine grosse redaktionelle Leichtigkeit und können Entscheide fällen Sie arbeiten gerne in einem Team Sie beherrschen die üblichen Informatikhilfsmittel\n• Muttersprache Deutsch, sehr gute Französischkenntnisse von Vorteil\n\nStellenantritt:\nAb 1. Dezember 2026 oder nach Vereinbarung\n\nInformationen:\nAuskunft zur Stelle: Dienststelle für Industrie, Handel und Arbeit, Frau Laura Lejeune Pannatier (027 606 73 11 / laura.lejeune-pannatier@admin.vs.ch) Online-Bewerbung erwünscht: www.vs.ch/jobs oder senden Sie Ihre Bewerbung bitte an: Dienststelle für Personalmanagement, Place St-Théodule 15, 1951 Sitten Eingabefrist: 4. Dezember 2026 / Referenznummer: 114510",
+        "it": "Jurist/in (60-100%) bei der Dienststelle für Industrie, Handel und Arbeit, Sektion Rechtsangelegenheiten, in Sitten\n\nIhre Aufgaben:\n• Sie üben die Funktion als Schreiberin/Schreiber der kantonalen Schlichtungskommission für Mietverhältnisse aus und leiten das Sekretariat Sie erteilen im Rahmen des Mietrechts Auskünfte Sie leisten dem Sektionschef und den Mitarbeitenden der Dienststelle juristische Unterstützung Ergänzend können Sie mit der Bearbeitung von Einsprachen gegen die Verfügungen der Dienststelle und ihrer Regionalen Arbeitsvermittlungszentren (RAV) im Bereich der Arbeitslosenversicherung betraut werden\n\nIhr Profil:\n• Sie haben einen Master in Rechtswissenschaften Sie interessieren sich für das Mietrecht (Kenntnisse im Bereich des Mietrechts von Vorteil) und für die Arbeitslosenversicherung Sie verfügen über ein hohes, analytisches Denkvermögen sowie eine grosse redaktionelle Leichtigkeit und können Entscheide fällen Sie arbeiten gerne in einem Team Sie beherrschen die üblichen Informatikhilfsmittel\n• Muttersprache Deutsch, sehr gute Französischkenntnisse von Vorteil\n\nStellenantritt:\nAb 1. Dezember 2026 oder nach Vereinbarung\n\nInformationen:\nAuskunft zur Stelle: Dienststelle für Industrie, Handel und Arbeit, Frau Laura Lejeune Pannatier (027 606 73 11 / laura.lejeune-pannatier@admin.vs.ch) Online-Bewerbung erwünscht: www.vs.ch/jobs oder senden Sie Ihre Bewerbung bitte an: Dienststelle für Personalmanagement, Place St-Théodule 15, 1951 Sitten Eingabefrist: 4. Dezember 2026 / Referenznummer: 114510",
+        "en": "Jurist/in (60-100%) bei der Dienststelle für Industrie, Handel und Arbeit, Sektion Rechtsangelegenheiten, in Sitten\n\nIhre Aufgaben:\n• Sie üben die Funktion als Schreiberin/Schreiber der kantonalen Schlichtungskommission für Mietverhältnisse aus und leiten das Sekretariat Sie erteilen im Rahmen des Mietrechts Auskünfte Sie leisten dem Sektionschef und den Mitarbeitenden der Dienststelle juristische Unterstützung Ergänzend können Sie mit der Bearbeitung von Einsprachen gegen die Verfügungen der Dienststelle und ihrer Regionalen Arbeitsvermittlungszentren (RAV) im Bereich der Arbeitslosenversicherung betraut werden\n\nIhr Profil:\n• Sie haben einen Master in Rechtswissenschaften Sie interessieren sich für das Mietrecht (Kenntnisse im Bereich des Mietrechts von Vorteil) und für die Arbeitslosenversicherung Sie verfügen über ein hohes, analytisches Denkvermögen sowie eine grosse redaktionelle Leichtigkeit und können Entscheide fällen Sie arbeiten gerne in einem Team Sie beherrschen die üblichen Informatikhilfsmittel\n• Muttersprache Deutsch, sehr gute Französischkenntnisse von Vorteil\n\nStellenantritt:\nAb 1. Dezember 2026 oder nach Vereinbarung\n\nInformationen:\nAuskunft zur Stelle: Dienststelle für Industrie, Handel und Arbeit, Frau Laura Lejeune Pannatier (027 606 73 11 / laura.lejeune-pannatier@admin.vs.ch) Online-Bewerbung erwünscht: www.vs.ch/jobs oder senden Sie Ihre Bewerbung bitte an: Dienststelle für Personalmanagement, Place St-Théodule 15, 1951 Sitten Eingabefrist: 4. Dezember 2026 / Referenznummer: 114510",
+        "fr": "Jurist/in (60-100%) bei der Dienststelle für Industrie, Handel und Arbeit, Sektion Rechtsangelegenheiten, in Sitten\n\nIhre Aufgaben:\n• Sie üben die Funktion als Schreiberin/Schreiber der kantonalen Schlichtungskommission für Mietverhältnisse aus und leiten das Sekretariat Sie erteilen im Rahmen des Mietrechts Auskünfte Sie leisten dem Sektionschef und den Mitarbeitenden der Dienststelle juristische Unterstützung Ergänzend können Sie mit der Bearbeitung von Einsprachen gegen die Verfügungen der Dienststelle und ihrer Regionalen Arbeitsvermittlungszentren (RAV) im Bereich der Arbeitslosenversicherung betraut werden\n\nIhr Profil:\n• Sie haben einen Master in Rechtswissenschaften Sie interessieren sich für das Mietrecht (Kenntnisse im Bereich des Mietrechts von Vorteil) und für die Arbeitslosenversicherung Sie verfügen über ein hohes, analytisches Denkvermögen sowie eine grosse redaktionelle Leichtigkeit und können Entscheide fällen Sie arbeiten gerne in einem Team Sie beherrschen die üblichen Informatikhilfsmittel\n• Muttersprache Deutsch, sehr gute Französischkenntnisse von Vorteil\n\nStellenantritt:\nAb 1. Dezember 2026 oder nach Vereinbarung\n\nInformationen:\nAuskunft zur Stelle: Dienststelle für Industrie, Handel und Arbeit, Frau Laura Lejeune Pannatier (027 606 73 11 / laura.lejeune-pannatier@admin.vs.ch) Online-Bewerbung erwünscht: www.vs.ch/jobs oder senden Sie Ihre Bewerbung bitte an: Dienststelle für Personalmanagement, Place St-Théodule 15, 1951 Sitten Eingabefrist: 4. Dezember 2026 / Referenznummer: 114510"
+      },
+      "location": "Sion",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114510&publication=2647",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-20T09:58:37.364Z",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114510&publication=2647",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Sion",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-18T09:58:37.364Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-20T09:58:37.364Z"
+    },
+    {
+      "id": "canton-valais-66225b5dd1d9",
+      "slug": "spezialist-in-information-e-dokumentation-80-canton-du-valais-brig",
+      "slugByLocale": {
+        "de": "spezialist-in-information-und-dokumentation-80-canton-valais-ch",
+        "it": "spezialist-in-information-e-dokumentation-80-canton-du-valais-brig",
+        "en": "spezialist-in-information-und-dokumentation-80-canton-valais-ch",
+        "fr": "spezialist-in-information-und-dokumentation-80-canton-valais-ch"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "Spezialist/in Information und Dokumentation (80%)",
+      "titleByLocale": {
+        "de": "Spezialist/in Information und Dokumentation (80%)",
+        "it": "Spezialist/in Information e Dokumentation (80%)",
+        "en": "Spezialist/in Information und Dokumentation (80%)",
+        "fr": "Spezialist/in Information und Dokumentation (80%)"
+      },
+      "description": "Spezialist/in Information und Dokumentation (80%) bei der Dienststelle für Kultur, Mediathek Wallis, Brig Der Auftrag der Mediathek Wallis - Brig ist vielfältig. Sie ist gleichzeitig eine Studien- und Bildungsmediathek, eine allgemein öffentliche Mediathek und ein pädagogisches Dokumentationszentrum.\n\nIhre Aufgaben:\n• Sie begleiten und betreuen Personen in Ausbildung und im Praktikum und wirken an deren Arbeitsplänen mit Sie stellen die Beratung und den Publikumsdienst in der Pädagogischen Dokumentation sicher Sie wirken gemäss den geltenden Regeln bei der Medienauswahl und -beschaffung mit Sie übernehmen die dokumentarische Erschliessung und organisieren den Zeitschriftenbestand\n\nIhr Profil:\n• Bachelor- oder Masterabschluss als I+D-Spezialist/in Ausgewiesene Erfahrung im Umgang mit Lernenden (Berufsbildnerkurs) Erwiesene Sozialkompetenzen\n• Organisationssinn und Verantwortungsbewusstsein Sinn für Publikumsdienstleistungen Erfahrung im Bereich Sachkatalogisierung Fähigkeit, selbständig sowie im Team zu arbeiten Zuverlässigkeit und Flexibilität\n• Muttersprache Deutsch mit guten Kenntnissen der zweiten Amtssprache\n\nStellenantritt:\n1. Februar 2027 oder nach Vereinbarung\n\nInformationen:\nAuskunft zur Stelle erteilt: Benita Imstepf, Direktorin der Mediathek Wallis – Brig (027 607 15 05 / benita.imstepf@admin.vs.ch) Online-Bewerbung erwünscht auf: www.vs.ch/jobs oder senden Sie Ihre Bewerbung bitte an: Dienststelle für Personalmanagement, Place St-Théodule 15, 1951 Sitten Eingabefrist: 4. Dezember 2026 / Referenznummer: 107985",
+      "descriptionByLocale": {
+        "de": "Spezialist/in Information und Dokumentation (80%) bei der Dienststelle für Kultur, Mediathek Wallis, Brig Der Auftrag der Mediathek Wallis - Brig ist vielfältig. Sie ist gleichzeitig eine Studien- und Bildungsmediathek, eine allgemein öffentliche Mediathek und ein pädagogisches Dokumentationszentrum.\n\nIhre Aufgaben:\n• Sie begleiten und betreuen Personen in Ausbildung und im Praktikum und wirken an deren Arbeitsplänen mit Sie stellen die Beratung und den Publikumsdienst in der Pädagogischen Dokumentation sicher Sie wirken gemäss den geltenden Regeln bei der Medienauswahl und -beschaffung mit Sie übernehmen die dokumentarische Erschliessung und organisieren den Zeitschriftenbestand\n\nIhr Profil:\n• Bachelor- oder Masterabschluss als I+D-Spezialist/in Ausgewiesene Erfahrung im Umgang mit Lernenden (Berufsbildnerkurs) Erwiesene Sozialkompetenzen\n• Organisationssinn und Verantwortungsbewusstsein Sinn für Publikumsdienstleistungen Erfahrung im Bereich Sachkatalogisierung Fähigkeit, selbständig sowie im Team zu arbeiten Zuverlässigkeit und Flexibilität\n• Muttersprache Deutsch mit guten Kenntnissen der zweiten Amtssprache\n\nStellenantritt:\n1. Februar 2027 oder nach Vereinbarung\n\nInformationen:\nAuskunft zur Stelle erteilt: Benita Imstepf, Direktorin der Mediathek Wallis – Brig (027 607 15 05 / benita.imstepf@admin.vs.ch) Online-Bewerbung erwünscht auf: www.vs.ch/jobs oder senden Sie Ihre Bewerbung bitte an: Dienststelle für Personalmanagement, Place St-Théodule 15, 1951 Sitten Eingabefrist: 4. Dezember 2026 / Referenznummer: 107985",
+        "it": "Spezialist/in Information und Dokumentation (80%) bei der Dienststelle für Kultur, Mediathek Wallis, Brig Der Auftrag der Mediathek Wallis - Brig ist vielfältig. Sie ist gleichzeitig eine Studien- und Bildungsmediathek, eine allgemein öffentliche Mediathek und ein pädagogisches Dokumentationszentrum.\n\nIhre Aufgaben:\n• Sie begleiten und betreuen Personen in Ausbildung und im Praktikum und wirken an deren Arbeitsplänen mit Sie stellen die Beratung und den Publikumsdienst in der Pädagogischen Dokumentation sicher Sie wirken gemäss den geltenden Regeln bei der Medienauswahl und -beschaffung mit Sie übernehmen die dokumentarische Erschliessung und organisieren den Zeitschriftenbestand\n\nIhr Profil:\n• Bachelor- oder Masterabschluss als I+D-Spezialist/in Ausgewiesene Erfahrung im Umgang mit Lernenden (Berufsbildnerkurs) Erwiesene Sozialkompetenzen\n• Organisationssinn und Verantwortungsbewusstsein Sinn für Publikumsdienstleistungen Erfahrung im Bereich Sachkatalogisierung Fähigkeit, selbständig sowie im Team zu arbeiten Zuverlässigkeit und Flexibilität\n• Muttersprache Deutsch mit guten Kenntnissen der zweiten Amtssprache\n\nStellenantritt:\n1. Februar 2027 oder nach Vereinbarung\n\nInformationen:\nAuskunft zur Stelle erteilt: Benita Imstepf, Direktorin der Mediathek Wallis – Brig (027 607 15 05 / benita.imstepf@admin.vs.ch) Online-Bewerbung erwünscht auf: www.vs.ch/jobs oder senden Sie Ihre Bewerbung bitte an: Dienststelle für Personalmanagement, Place St-Théodule 15, 1951 Sitten Eingabefrist: 4. Dezember 2026 / Referenznummer: 107985",
+        "en": "Spezialist/in Information und Dokumentation (80%) bei der Dienststelle für Kultur, Mediathek Wallis, Brig Der Auftrag der Mediathek Wallis - Brig ist vielfältig. Sie ist gleichzeitig eine Studien- und Bildungsmediathek, eine allgemein öffentliche Mediathek und ein pädagogisches Dokumentationszentrum.\n\nIhre Aufgaben:\n• Sie begleiten und betreuen Personen in Ausbildung und im Praktikum und wirken an deren Arbeitsplänen mit Sie stellen die Beratung und den Publikumsdienst in der Pädagogischen Dokumentation sicher Sie wirken gemäss den geltenden Regeln bei der Medienauswahl und -beschaffung mit Sie übernehmen die dokumentarische Erschliessung und organisieren den Zeitschriftenbestand\n\nIhr Profil:\n• Bachelor- oder Masterabschluss als I+D-Spezialist/in Ausgewiesene Erfahrung im Umgang mit Lernenden (Berufsbildnerkurs) Erwiesene Sozialkompetenzen\n• Organisationssinn und Verantwortungsbewusstsein Sinn für Publikumsdienstleistungen Erfahrung im Bereich Sachkatalogisierung Fähigkeit, selbständig sowie im Team zu arbeiten Zuverlässigkeit und Flexibilität\n• Muttersprache Deutsch mit guten Kenntnissen der zweiten Amtssprache\n\nStellenantritt:\n1. Februar 2027 oder nach Vereinbarung\n\nInformationen:\nAuskunft zur Stelle erteilt: Benita Imstepf, Direktorin der Mediathek Wallis – Brig (027 607 15 05 / benita.imstepf@admin.vs.ch) Online-Bewerbung erwünscht auf: www.vs.ch/jobs oder senden Sie Ihre Bewerbung bitte an: Dienststelle für Personalmanagement, Place St-Théodule 15, 1951 Sitten Eingabefrist: 4. Dezember 2026 / Referenznummer: 107985",
+        "fr": "Spezialist/in Information und Dokumentation (80%) bei der Dienststelle für Kultur, Mediathek Wallis, Brig Der Auftrag der Mediathek Wallis - Brig ist vielfältig. Sie ist gleichzeitig eine Studien- und Bildungsmediathek, eine allgemein öffentliche Mediathek und ein pädagogisches Dokumentationszentrum.\n\nIhre Aufgaben:\n• Sie begleiten und betreuen Personen in Ausbildung und im Praktikum und wirken an deren Arbeitsplänen mit Sie stellen die Beratung und den Publikumsdienst in der Pädagogischen Dokumentation sicher Sie wirken gemäss den geltenden Regeln bei der Medienauswahl und -beschaffung mit Sie übernehmen die dokumentarische Erschliessung und organisieren den Zeitschriftenbestand\n\nIhr Profil:\n• Bachelor- oder Masterabschluss als I+D-Spezialist/in Ausgewiesene Erfahrung im Umgang mit Lernenden (Berufsbildnerkurs) Erwiesene Sozialkompetenzen\n• Organisationssinn und Verantwortungsbewusstsein Sinn für Publikumsdienstleistungen Erfahrung im Bereich Sachkatalogisierung Fähigkeit, selbständig sowie im Team zu arbeiten Zuverlässigkeit und Flexibilität\n• Muttersprache Deutsch mit guten Kenntnissen der zweiten Amtssprache\n\nStellenantritt:\n1. Februar 2027 oder nach Vereinbarung\n\nInformationen:\nAuskunft zur Stelle erteilt: Benita Imstepf, Direktorin der Mediathek Wallis – Brig (027 607 15 05 / benita.imstepf@admin.vs.ch) Online-Bewerbung erwünscht auf: www.vs.ch/jobs oder senden Sie Ihre Bewerbung bitte an: Dienststelle für Personalmanagement, Place St-Théodule 15, 1951 Sitten Eingabefrist: 4. Dezember 2026 / Referenznummer: 107985"
+      },
+      "location": "Brig",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=107985&publication=2647",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-20T09:58:36.690Z",
+      "addressLocality": "Brig",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3900",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=107985&publication=2647",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "spezialist-in-information-und-dokumentation-80-canton-valais-ch"
+        ]
+      },
+      "previousSlugs": [
+        "spezialist-in-information-und-dokumentation-80-canton-valais-ch"
+      ],
+      "salaryMin": 48400,
+      "salaryMax": 73200,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 48400,
+          "maxValue": 73200,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Brig",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-18T09:58:36.690Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-20T09:58:36.690Z"
+    },
+    {
+      "id": "canton-valais-c97015d7aef4",
+      "slug": "substitut-e-du-procureur-canton-valais-ch",
+      "slugByLocale": {
+        "fr": "substitut-e-du-procureur-canton-valais-ch",
+        "it": "substitut-e-du-procureur-canton-valais-ch",
+        "en": "substitut-e-du-procureur-canton-valais-ch",
+        "de": "substitut-e-du-procureur-canton-valais-ch"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "SUBSTITUT-E DU PROCUREUR",
+      "titleByLocale": {
+        "fr": "SUBSTITUT-E DU PROCUREUR",
+        "it": "SUBSTITUT-E DU PROCUREUR",
+        "en": "SUBSTITUT-E DU PROCUREUR",
+        "de": "SUBSTITUT-E DU PROCUREUR"
+      },
+      "description": "• MINISTERE PUBLIC DU CANTON DU VALAIS\n• STAATSANWALTSCHAFT DES KANTONS WALLIS Le Ministère public du canton du Valais met au concours le poste suivant : SUBSTITUT-E DU PROCUREUR\n• auprès de l'office régional du Valais central à Sion\n\nVos missions:\nLes compétences des substituts sont énumérées à l'art. 9 de la loi d'application du code de procédure pénale suisse du 11 février 2009. Elles consistent en substance à :\n\n•  rendre des ordonnances pénales, de non-entrée en matière, de classement\n• et de suspension, ainsi que\n•  sur délégation, instruire les enquêtes pénales et soutenir l’accusation dans les\n• affaires de la compétence du juge de district.\n\nVotre profil:\n•  titulaire d’un brevet d’avocat (les titulaires d’une licence, d’une maîtrise, d’un\n• doctorat en droit ou d’un titre académique équivalent sont éligibles s’ils\n• peuvent se prévaloir d’une expérience pratique suffisante)\n•  expérience en matière de procédure pénale\n•  capacités d’analyse, d’intégration et d’organisation\n•  esprit d’initiative et de décision, sens de la communication et maîtrise de soi\n•  aisance rédactionnelle et verbale\n•  grande capacité de travail. Langue maternelle : Française, avec de bonnes connaissances de la seconde langue officielle. Lieux de travail : Office régional du Valais central, à Sion. Taux d’activité : 100%.\n\nEntrée en fonction:\n1\n\n• er\n• juin 2027 ou à convenir. Statut : Fonction de magistrat selon la loi sur l’organisation de la justice du 11 février 2009. Nous offrons : Une activité intéressante et variée au sein d’une équipe dynamique, d’excellentes conditions de travail modernes et agréables et des prestations sociales élevées. Cahier des charges et informations : Pour l’essentiel, les devoirs des substituts sont définis dans la législation sur l’organisation de la justice et la procédure pénale. Renseignements sur le poste : premier procureur de l’office régional du Valais central à Sion (tél. 027 607 84 50). Votre postulation incluant un curriculum vitae, photo ainsi qu’une copie de vos diplômes, attestations et extraits actuels du casier judiciaire et de l'office des poursuites, doit être adressée par courriel à candidature@mp-sta.vs.ch avec la mention « substitut », jusqu’au 9 décembre 2026. La procureure générale Beatrice Pilloud",
+      "descriptionByLocale": {
+        "fr": "• MINISTERE PUBLIC DU CANTON DU VALAIS\n• STAATSANWALTSCHAFT DES KANTONS WALLIS Le Ministère public du canton du Valais met au concours le poste suivant : SUBSTITUT-E DU PROCUREUR\n• auprès de l'office régional du Valais central à Sion\n\nVos missions:\nLes compétences des substituts sont énumérées à l'art. 9 de la loi d'application du code de procédure pénale suisse du 11 février 2009. Elles consistent en substance à :\n\n•  rendre des ordonnances pénales, de non-entrée en matière, de classement\n• et de suspension, ainsi que\n•  sur délégation, instruire les enquêtes pénales et soutenir l’accusation dans les\n• affaires de la compétence du juge de district.\n\nVotre profil:\n•  titulaire d’un brevet d’avocat (les titulaires d’une licence, d’une maîtrise, d’un\n• doctorat en droit ou d’un titre académique équivalent sont éligibles s’ils\n• peuvent se prévaloir d’une expérience pratique suffisante)\n•  expérience en matière de procédure pénale\n•  capacités d’analyse, d’intégration et d’organisation\n•  esprit d’initiative et de décision, sens de la communication et maîtrise de soi\n•  aisance rédactionnelle et verbale\n•  grande capacité de travail. Langue maternelle : Française, avec de bonnes connaissances de la seconde langue officielle. Lieux de travail : Office régional du Valais central, à Sion. Taux d’activité : 100%.\n\nEntrée en fonction:\n1\n\n• er\n• juin 2027 ou à convenir. Statut : Fonction de magistrat selon la loi sur l’organisation de la justice du 11 février 2009. Nous offrons : Une activité intéressante et variée au sein d’une équipe dynamique, d’excellentes conditions de travail modernes et agréables et des prestations sociales élevées. Cahier des charges et informations : Pour l’essentiel, les devoirs des substituts sont définis dans la législation sur l’organisation de la justice et la procédure pénale. Renseignements sur le poste : premier procureur de l’office régional du Valais central à Sion (tél. 027 607 84 50). Votre postulation incluant un curriculum vitae, photo ainsi qu’une copie de vos diplômes, attestations et extraits actuels du casier judiciaire et de l'office des poursuites, doit être adressée par courriel à candidature@mp-sta.vs.ch avec la mention « substitut », jusqu’au 9 décembre 2026. La procureure générale Beatrice Pilloud",
+        "it": "• MINISTERE PUBLIC DU CANTON DU VALAIS\n• STAATSANWALTSCHAFT DES KANTONS WALLIS Le Ministère public du canton du Valais met au concours le poste suivant : SUBSTITUT-E DU PROCUREUR\n• auprès de l'office régional du Valais central à Sion\n\nVos missions:\nLes compétences des substituts sont énumérées à l'art. 9 de la loi d'application du code de procédure pénale suisse du 11 février 2009. Elles consistent en substance à :\n\n•  rendre des ordonnances pénales, de non-entrée en matière, de classement\n• et de suspension, ainsi que\n•  sur délégation, instruire les enquêtes pénales et soutenir l’accusation dans les\n• affaires de la compétence du juge de district.\n\nVotre profil:\n•  titulaire d’un brevet d’avocat (les titulaires d’une licence, d’une maîtrise, d’un\n• doctorat en droit ou d’un titre académique équivalent sont éligibles s’ils\n• peuvent se prévaloir d’une expérience pratique suffisante)\n•  expérience en matière de procédure pénale\n•  capacités d’analyse, d’intégration et d’organisation\n•  esprit d’initiative et de décision, sens de la communication et maîtrise de soi\n•  aisance rédactionnelle et verbale\n•  grande capacité de travail. Langue maternelle : Française, avec de bonnes connaissances de la seconde langue officielle. Lieux de travail : Office régional du Valais central, à Sion. Taux d’activité : 100%.\n\nEntrée en fonction:\n1\n\n• er\n• juin 2027 ou à convenir. Statut : Fonction de magistrat selon la loi sur l’organisation de la justice du 11 février 2009. Nous offrons : Une activité intéressante et variée au sein d’une équipe dynamique, d’excellentes conditions de travail modernes et agréables et des prestations sociales élevées. Cahier des charges et informations : Pour l’essentiel, les devoirs des substituts sont définis dans la législation sur l’organisation de la justice et la procédure pénale. Renseignements sur le poste : premier procureur de l’office régional du Valais central à Sion (tél. 027 607 84 50). Votre postulation incluant un curriculum vitae, photo ainsi qu’une copie de vos diplômes, attestations et extraits actuels du casier judiciaire et de l'office des poursuites, doit être adressée par courriel à candidature@mp-sta.vs.ch avec la mention « substitut », jusqu’au 9 décembre 2026. La procureure générale Beatrice Pilloud",
+        "en": "• MINISTERE PUBLIC DU CANTON DU VALAIS\n• STAATSANWALTSCHAFT DES KANTONS WALLIS Le Ministère public du canton du Valais met au concours le poste suivant : SUBSTITUT-E DU PROCUREUR\n• auprès de l'office régional du Valais central à Sion\n\nVos missions:\nLes compétences des substituts sont énumérées à l'art. 9 de la loi d'application du code de procédure pénale suisse du 11 février 2009. Elles consistent en substance à :\n\n•  rendre des ordonnances pénales, de non-entrée en matière, de classement\n• et de suspension, ainsi que\n•  sur délégation, instruire les enquêtes pénales et soutenir l’accusation dans les\n• affaires de la compétence du juge de district.\n\nVotre profil:\n•  titulaire d’un brevet d’avocat (les titulaires d’une licence, d’une maîtrise, d’un\n• doctorat en droit ou d’un titre académique équivalent sont éligibles s’ils\n• peuvent se prévaloir d’une expérience pratique suffisante)\n•  expérience en matière de procédure pénale\n•  capacités d’analyse, d’intégration et d’organisation\n•  esprit d’initiative et de décision, sens de la communication et maîtrise de soi\n•  aisance rédactionnelle et verbale\n•  grande capacité de travail. Langue maternelle : Française, avec de bonnes connaissances de la seconde langue officielle. Lieux de travail : Office régional du Valais central, à Sion. Taux d’activité : 100%.\n\nEntrée en fonction:\n1\n\n• er\n• juin 2027 ou à convenir. Statut : Fonction de magistrat selon la loi sur l’organisation de la justice du 11 février 2009. Nous offrons : Une activité intéressante et variée au sein d’une équipe dynamique, d’excellentes conditions de travail modernes et agréables et des prestations sociales élevées. Cahier des charges et informations : Pour l’essentiel, les devoirs des substituts sont définis dans la législation sur l’organisation de la justice et la procédure pénale. Renseignements sur le poste : premier procureur de l’office régional du Valais central à Sion (tél. 027 607 84 50). Votre postulation incluant un curriculum vitae, photo ainsi qu’une copie de vos diplômes, attestations et extraits actuels du casier judiciaire et de l'office des poursuites, doit être adressée par courriel à candidature@mp-sta.vs.ch avec la mention « substitut », jusqu’au 9 décembre 2026. La procureure générale Beatrice Pilloud",
+        "de": "• MINISTERE PUBLIC DU CANTON DU VALAIS\n• STAATSANWALTSCHAFT DES KANTONS WALLIS Le Ministère public du canton du Valais met au concours le poste suivant : SUBSTITUT-E DU PROCUREUR\n• auprès de l'office régional du Valais central à Sion\n\nVos missions:\nLes compétences des substituts sont énumérées à l'art. 9 de la loi d'application du code de procédure pénale suisse du 11 février 2009. Elles consistent en substance à :\n\n•  rendre des ordonnances pénales, de non-entrée en matière, de classement\n• et de suspension, ainsi que\n•  sur délégation, instruire les enquêtes pénales et soutenir l’accusation dans les\n• affaires de la compétence du juge de district.\n\nVotre profil:\n•  titulaire d’un brevet d’avocat (les titulaires d’une licence, d’une maîtrise, d’un\n• doctorat en droit ou d’un titre académique équivalent sont éligibles s’ils\n• peuvent se prévaloir d’une expérience pratique suffisante)\n•  expérience en matière de procédure pénale\n•  capacités d’analyse, d’intégration et d’organisation\n•  esprit d’initiative et de décision, sens de la communication et maîtrise de soi\n•  aisance rédactionnelle et verbale\n•  grande capacité de travail. Langue maternelle : Française, avec de bonnes connaissances de la seconde langue officielle. Lieux de travail : Office régional du Valais central, à Sion. Taux d’activité : 100%.\n\nEntrée en fonction:\n1\n\n• er\n• juin 2027 ou à convenir. Statut : Fonction de magistrat selon la loi sur l’organisation de la justice du 11 février 2009. Nous offrons : Une activité intéressante et variée au sein d’une équipe dynamique, d’excellentes conditions de travail modernes et agréables et des prestations sociales élevées. Cahier des charges et informations : Pour l’essentiel, les devoirs des substituts sont définis dans la législation sur l’organisation de la justice et la procédure pénale. Renseignements sur le poste : premier procureur de l’office régional du Valais central à Sion (tél. 027 607 84 50). Votre postulation incluant un curriculum vitae, photo ainsi qu’une copie de vos diplômes, attestations et extraits actuels du casier judiciaire et de l'office des poursuites, doit être adressée par courriel à candidature@mp-sta.vs.ch avec la mention « substitut », jusqu’au 9 décembre 2026. La procureure générale Beatrice Pilloud"
+      },
+      "location": "Sion",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20935?language=fr",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-20T09:58:35.956Z",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20935?language=fr",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Sion",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-18T09:58:35.956Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-20T09:58:35.956Z"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "zuger-kantonsspital",
-  "assembledAt": "2026-11-19T21:43:17.148Z",
-  "runId": "44617900362",
+  "assembledAt": "2026-11-20T09:57:58.183Z",
+  "runId": "44709857684",
   "jobs": [
     {
       "id": "zuger-kantonsspital-eff6e929b00f",
@@ -34,7 +34,7 @@
       "url": "https://jobs.zgks.ch/Pflegefachperson-HF-Medizin-Privatabteilung-80-100--de-j895.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:43:12.454Z",
+      "crawledAt": "2026-11-20T09:57:49.517Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -87,7 +87,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T21:43:12.454Z",
+      "validThrough": "2026-12-22T09:57:49.517Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -121,7 +121,7 @@
       "url": "https://jobs.zgks.ch/Spitalapothekerin-60-80-mw-de-j900.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:43:11.908Z",
+      "crawledAt": "2026-11-20T09:57:48.954Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -168,7 +168,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-31T21:43:11.908Z",
+      "validThrough": "2026-12-31T09:57:48.954Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -203,7 +203,7 @@
       "url": "https://jobs.zgks.ch/Leitung-Pflege-Notfallzentrum-80-100--de-j903.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:43:11.468Z",
+      "crawledAt": "2026-11-20T09:57:48.504Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -252,7 +252,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-12T21:43:11.468Z",
+      "validThrough": "2027-01-12T09:57:48.504Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -337,7 +337,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-17T21:43:10.913Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     },
     {
       "id": "zuger-kantonsspital-140e002c0029",
@@ -370,7 +371,7 @@
       "url": "https://jobs.zgks.ch/Medizinische-Praxisassistentin-Frauenarztpraxis-Rotkreuz-6-de-j906.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:43:10.375Z",
+      "crawledAt": "2026-11-20T09:57:47.939Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -419,7 +420,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-20T21:43:10.375Z",
+      "validThrough": "2027-01-20T09:57:47.939Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -454,7 +455,7 @@
       "url": "https://jobs.zgks.ch/Oberarzt-Handchirurgie-Orthopaedie-60-100-mw-de-j905.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:43:09.800Z",
+      "crawledAt": "2026-11-20T09:57:47.382Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -505,7 +506,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-20T21:43:09.800Z",
+      "validThrough": "2027-01-20T09:57:47.382Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -540,7 +541,7 @@
       "url": "https://jobs.zgks.ch/Expertin-Anaesthesiepflege-NDS-HF-80-100-mw-de-j904.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:43:09.242Z",
+      "crawledAt": "2026-11-20T09:57:46.833Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -589,7 +590,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-20T21:43:09.242Z",
+      "validThrough": "2027-01-20T09:57:46.833Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -623,7 +624,7 @@
       "url": "https://jobs.zgks.ch/Pflegefachperson-HF-Medizin-Allgemein-80-100-mw-de-j907.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:43:08.801Z",
+      "crawledAt": "2026-11-20T09:57:46.401Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -672,7 +673,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-24T21:43:08.801Z",
+      "validThrough": "2027-01-24T09:57:46.401Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -707,7 +708,7 @@
       "url": "https://jobs.zgks.ch/Physiotherapeutin-Neurologie-Intensivstation-80-100-mw-de-j908.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:43:08.247Z",
+      "crawledAt": "2026-11-20T09:57:45.839Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -756,7 +757,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T21:43:08.247Z",
+      "validThrough": "2027-01-28T09:57:45.839Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -791,7 +792,7 @@
       "url": "https://jobs.zgks.ch/Neuropsychologin-in-Weiterbildung-60-80-mw-de-j909.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:43:07.712Z",
+      "crawledAt": "2026-11-20T09:57:45.301Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -840,7 +841,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T21:43:07.712Z",
+      "validThrough": "2027-02-03T09:57:45.301Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -874,7 +875,7 @@
       "url": "https://jobs.zgks.ch/Med-Praxisassistentin-Pneumologie-80--de-j869.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:43:07.266Z",
+      "crawledAt": "2026-11-20T09:57:44.840Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -944,7 +945,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T21:43:07.266Z",
+      "validThrough": "2026-12-20T09:57:44.840Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -979,7 +980,7 @@
       "url": "https://jobs.zgks.ch/Radiologiefachperson-HF-80-100--de-j901.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:43:06.690Z",
+      "crawledAt": "2026-11-20T09:57:44.260Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1028,7 +1029,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-07T21:43:06.690Z",
+      "validThrough": "2027-02-07T09:57:44.260Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1062,7 +1063,7 @@
       "url": "https://jobs.zgks.ch/Technische-Sterilisationsassistentin-80-100-mw-de-j911.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:43:06.263Z",
+      "crawledAt": "2026-11-20T09:57:43.817Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1111,7 +1112,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-08T21:43:06.263Z",
+      "validThrough": "2027-02-08T09:57:43.817Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1146,7 +1147,7 @@
       "url": "https://jobs.zgks.ch/Chefarztsekretaerin-Frauenklinik-100--de-j897.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:43:05.835Z",
+      "crawledAt": "2026-11-20T09:57:43.364Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1195,7 +1196,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-08T21:43:05.835Z",
+      "validThrough": "2027-02-08T09:57:43.364Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1230,7 +1231,7 @@
       "url": "https://jobs.zgks.ch/Mitarbeiterin-Notfallempfang-40-50-mw-de-j879.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:43:05.357Z",
+      "crawledAt": "2026-11-20T09:57:42.922Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1283,7 +1284,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-08T21:43:05.357Z",
+      "validThrough": "2027-02-08T09:57:42.922Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1318,7 +1319,7 @@
       "url": "https://jobs.zgks.ch/Expertin-Notfallpflege-NDS-HF-80-100-mw-de-j848.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:43:04.792Z",
+      "crawledAt": "2026-11-20T09:57:42.337Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1361,7 +1362,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T21:43:04.792Z",
+      "validThrough": "2026-12-20T09:57:42.337Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1396,7 +1397,7 @@
       "url": "https://jobs.zgks.ch/Expertin-Anaesthesiepflege-NDS-HF-Ambulantes-Operationszen-de-j912.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:43:04.247Z",
+      "crawledAt": "2026-11-20T09:57:41.788Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1444,7 +1445,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T21:43:04.247Z",
+      "validThrough": "2027-02-10T09:57:41.788Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1479,7 +1480,7 @@
       "url": "https://jobs.zgks.ch/Klinischer-Fachspezialistin-70-90-mw-de-j915.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:43:03.693Z",
+      "crawledAt": "2026-11-20T09:57:41.242Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1528,8 +1529,80 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-14T21:43:03.693Z",
+      "validThrough": "2027-02-14T09:57:41.242Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "zuger-kantonsspital-f0ce31a17e25",
+      "slug": "pflegefachperson-hf-fh-notfallzentrum-80-100-m-w-zuger-kantonsspital-baar",
+      "slugByLocale": {
+        "de": "pflegefachperson-hf-fh-notfallzentrum-80-100-m-w-zuger-kantonsspital-baar",
+        "it": "pflegefachperson-hf-fh-notfallzentrum-80-100-m-w-zuger-kantonsspital-baar",
+        "en": "pflegefachperson-hf-fh-notfallzentrum-80-100-m-w-zuger-kantonsspital-baar",
+        "fr": "pflegefachperson-hf-fh-notfallzentrum-80-100-m-w-zuger-kantonsspital-baar"
+      },
+      "company": "Zuger Kantonsspital",
+      "companyKey": "zuger-kantonsspital",
+      "companyDomain": "zgks.ch",
+      "title": "Pflegefachperson HF / FH Notfallzentrum 80 - 100 % (m/w)",
+      "titleByLocale": {
+        "de": "Pflegefachperson HF / FH Notfallzentrum 80 - 100 % (m/w)",
+        "it": "Pflegefachperson HF / FH Notfallzentrum 80 - 100 % (m/w)",
+        "en": "Pflegefachperson HF / FH Notfallzentrum 80 - 100 % (m/w)",
+        "fr": "Pflegefachperson HF / FH Notfallzentrum 80 - 100 % (m/w)"
+      },
+      "description": "Das Zuger Kantonsspital steht im Dienst der Gesundheit der Bevölkerung des Kantons Zug und der umliegenden Regionen. Rund 1'200 Mitarbeitende, davon 180 in Aus- und Weiterbildung, sind in den verschiedensten Bereichen tätig. Jedes Jahr behandeln und betreuen wir über 11'500 stationäre und über 70'000 ambulante Patientinnen und Patienten. Im interdisziplinären Notfallzentrum werden jährlich mehr als 27'500 Personen behandelt. Für unser Notfallzentrum suchen wir per 1. Dezember 2026 oder nach Vereinbarung eine Pflegefachperson HF / FH Notfallzentrum 80 - 100 % Ihre Aufgaben\n• Fachkompetente und individuelle Betreuung und Überwachung von Patientinnen und Patienten im Notfallzentrum in enger Zusammenarbeit mit den Expertinnen und Experten der Notfallpflege\n• Durchführung von diagnostischen und therapeutischen Massnahmen\n• Aktive Mitgestaltung des Patientenprozesses in einem interdisziplinären und interprofessionellen Umfeld unter Einbezug von Angehörigen und externen Partnern\n• Einhaltung der pflegerischen Qualitätsnormen und Richtlinien Ihr Profil\n• Abgeschlossene Ausbildung als diplomierte Pflegefachperson HF oder FH\n• Berufserfahrung im Akutbereich, im Bereich Notfall von Vorteil\n• Abgeschlossener Überwachungspflegekurs oder die Bereitschaft, diesen zu absolvieren\n• Hohe Fach- und Sozialkompetenz\n• Selbstständige, verantwortungsbewusste und belastbare Persönlichkeit mit rascher Auffassungsgabe sowie hoher Teamfähigkeit und Flexibilität Unser Angebot Wir bieten Ihnen eine abwechslungsreiche und anspruchsvolle Tätigkeit in einem persönlichen Lernumfeld und modernster Infrastruktur. Sie profitieren von einer professionellen Unterstützung im Nachdiplomstudiengang. Zeitgemässe Anstellungsbedingungen mit sehr guten Sozialleistungen runden unser Angebot ab. Interessiert? Interessiert? Wir freuen uns auf Ihre elektronische Bewerbung an Gaby Jans, Stv. Leiterin Personal. Es werden nur Direktbewerbungen berücksichtigt. Weitere Informationen zur Funktion gibt Ihnen gerne Anett Neubert, Gesamtleiterin Pflege/Therapien, T +41 41 399 43 02.",
+      "descriptionByLocale": {
+        "de": "Das Zuger Kantonsspital steht im Dienst der Gesundheit der Bevölkerung des Kantons Zug und der umliegenden Regionen. Rund 1'200 Mitarbeitende, davon 180 in Aus- und Weiterbildung, sind in den verschiedensten Bereichen tätig. Jedes Jahr behandeln und betreuen wir über 11'500 stationäre und über 70'000 ambulante Patientinnen und Patienten. Im interdisziplinären Notfallzentrum werden jährlich mehr als 27'500 Personen behandelt. Für unser Notfallzentrum suchen wir per 1. Dezember 2026 oder nach Vereinbarung eine Pflegefachperson HF / FH Notfallzentrum 80 - 100 % Ihre Aufgaben\n• Fachkompetente und individuelle Betreuung und Überwachung von Patientinnen und Patienten im Notfallzentrum in enger Zusammenarbeit mit den Expertinnen und Experten der Notfallpflege\n• Durchführung von diagnostischen und therapeutischen Massnahmen\n• Aktive Mitgestaltung des Patientenprozesses in einem interdisziplinären und interprofessionellen Umfeld unter Einbezug von Angehörigen und externen Partnern\n• Einhaltung der pflegerischen Qualitätsnormen und Richtlinien Ihr Profil\n• Abgeschlossene Ausbildung als diplomierte Pflegefachperson HF oder FH\n• Berufserfahrung im Akutbereich, im Bereich Notfall von Vorteil\n• Abgeschlossener Überwachungspflegekurs oder die Bereitschaft, diesen zu absolvieren\n• Hohe Fach- und Sozialkompetenz\n• Selbstständige, verantwortungsbewusste und belastbare Persönlichkeit mit rascher Auffassungsgabe sowie hoher Teamfähigkeit und Flexibilität Unser Angebot Wir bieten Ihnen eine abwechslungsreiche und anspruchsvolle Tätigkeit in einem persönlichen Lernumfeld und modernster Infrastruktur. Sie profitieren von einer professionellen Unterstützung im Nachdiplomstudiengang. Zeitgemässe Anstellungsbedingungen mit sehr guten Sozialleistungen runden unser Angebot ab. Interessiert? Interessiert? Wir freuen uns auf Ihre elektronische Bewerbung an Gaby Jans, Stv. Leiterin Personal. Es werden nur Direktbewerbungen berücksichtigt. Weitere Informationen zur Funktion gibt Ihnen gerne Anett Neubert, Gesamtleiterin Pflege/Therapien, T +41 41 399 43 02.",
+        "it": "Das Zuger Kantonsspital steht im Dienst der Gesundheit der Bevölkerung des Kantons Zug und der umliegenden Regionen. Rund 1'200 Mitarbeitende, davon 180 in Aus- und Weiterbildung, sind in den verschiedensten Bereichen tätig. Jedes Jahr behandeln und betreuen wir über 11'500 stationäre und über 70'000 ambulante Patientinnen und Patienten. Im interdisziplinären Notfallzentrum werden jährlich mehr als 27'500 Personen behandelt. Für unser Notfallzentrum suchen wir per 1. Dezember 2026 oder nach Vereinbarung eine Pflegefachperson HF / FH Notfallzentrum 80 - 100 % Ihre Aufgaben\n• Fachkompetente und individuelle Betreuung und Überwachung von Patientinnen und Patienten im Notfallzentrum in enger Zusammenarbeit mit den Expertinnen und Experten der Notfallpflege\n• Durchführung von diagnostischen und therapeutischen Massnahmen\n• Aktive Mitgestaltung des Patientenprozesses in einem interdisziplinären und interprofessionellen Umfeld unter Einbezug von Angehörigen und externen Partnern\n• Einhaltung der pflegerischen Qualitätsnormen und Richtlinien Ihr Profil\n• Abgeschlossene Ausbildung als diplomierte Pflegefachperson HF oder FH\n• Berufserfahrung im Akutbereich, im Bereich Notfall von Vorteil\n• Abgeschlossener Überwachungspflegekurs oder die Bereitschaft, diesen zu absolvieren\n• Hohe Fach- und Sozialkompetenz\n• Selbstständige, verantwortungsbewusste und belastbare Persönlichkeit mit rascher Auffassungsgabe sowie hoher Teamfähigkeit und Flexibilität Unser Angebot Wir bieten Ihnen eine abwechslungsreiche und anspruchsvolle Tätigkeit in einem persönlichen Lernumfeld und modernster Infrastruktur. Sie profitieren von einer professionellen Unterstützung im Nachdiplomstudiengang. Zeitgemässe Anstellungsbedingungen mit sehr guten Sozialleistungen runden unser Angebot ab. Interessiert? Interessiert? Wir freuen uns auf Ihre elektronische Bewerbung an Gaby Jans, Stv. Leiterin Personal. Es werden nur Direktbewerbungen berücksichtigt. Weitere Informationen zur Funktion gibt Ihnen gerne Anett Neubert, Gesamtleiterin Pflege/Therapien, T +41 41 399 43 02.",
+        "en": "Das Zuger Kantonsspital steht im Dienst der Gesundheit der Bevölkerung des Kantons Zug und der umliegenden Regionen. Rund 1'200 Mitarbeitende, davon 180 in Aus- und Weiterbildung, sind in den verschiedensten Bereichen tätig. Jedes Jahr behandeln und betreuen wir über 11'500 stationäre und über 70'000 ambulante Patientinnen und Patienten. Im interdisziplinären Notfallzentrum werden jährlich mehr als 27'500 Personen behandelt. Für unser Notfallzentrum suchen wir per 1. Dezember 2026 oder nach Vereinbarung eine Pflegefachperson HF / FH Notfallzentrum 80 - 100 % Ihre Aufgaben\n• Fachkompetente und individuelle Betreuung und Überwachung von Patientinnen und Patienten im Notfallzentrum in enger Zusammenarbeit mit den Expertinnen und Experten der Notfallpflege\n• Durchführung von diagnostischen und therapeutischen Massnahmen\n• Aktive Mitgestaltung des Patientenprozesses in einem interdisziplinären und interprofessionellen Umfeld unter Einbezug von Angehörigen und externen Partnern\n• Einhaltung der pflegerischen Qualitätsnormen und Richtlinien Ihr Profil\n• Abgeschlossene Ausbildung als diplomierte Pflegefachperson HF oder FH\n• Berufserfahrung im Akutbereich, im Bereich Notfall von Vorteil\n• Abgeschlossener Überwachungspflegekurs oder die Bereitschaft, diesen zu absolvieren\n• Hohe Fach- und Sozialkompetenz\n• Selbstständige, verantwortungsbewusste und belastbare Persönlichkeit mit rascher Auffassungsgabe sowie hoher Teamfähigkeit und Flexibilität Unser Angebot Wir bieten Ihnen eine abwechslungsreiche und anspruchsvolle Tätigkeit in einem persönlichen Lernumfeld und modernster Infrastruktur. Sie profitieren von einer professionellen Unterstützung im Nachdiplomstudiengang. Zeitgemässe Anstellungsbedingungen mit sehr guten Sozialleistungen runden unser Angebot ab. Interessiert? Interessiert? Wir freuen uns auf Ihre elektronische Bewerbung an Gaby Jans, Stv. Leiterin Personal. Es werden nur Direktbewerbungen berücksichtigt. Weitere Informationen zur Funktion gibt Ihnen gerne Anett Neubert, Gesamtleiterin Pflege/Therapien, T +41 41 399 43 02.",
+        "fr": "Das Zuger Kantonsspital steht im Dienst der Gesundheit der Bevölkerung des Kantons Zug und der umliegenden Regionen. Rund 1'200 Mitarbeitende, davon 180 in Aus- und Weiterbildung, sind in den verschiedensten Bereichen tätig. Jedes Jahr behandeln und betreuen wir über 11'500 stationäre und über 70'000 ambulante Patientinnen und Patienten. Im interdisziplinären Notfallzentrum werden jährlich mehr als 27'500 Personen behandelt. Für unser Notfallzentrum suchen wir per 1. Dezember 2026 oder nach Vereinbarung eine Pflegefachperson HF / FH Notfallzentrum 80 - 100 % Ihre Aufgaben\n• Fachkompetente und individuelle Betreuung und Überwachung von Patientinnen und Patienten im Notfallzentrum in enger Zusammenarbeit mit den Expertinnen und Experten der Notfallpflege\n• Durchführung von diagnostischen und therapeutischen Massnahmen\n• Aktive Mitgestaltung des Patientenprozesses in einem interdisziplinären und interprofessionellen Umfeld unter Einbezug von Angehörigen und externen Partnern\n• Einhaltung der pflegerischen Qualitätsnormen und Richtlinien Ihr Profil\n• Abgeschlossene Ausbildung als diplomierte Pflegefachperson HF oder FH\n• Berufserfahrung im Akutbereich, im Bereich Notfall von Vorteil\n• Abgeschlossener Überwachungspflegekurs oder die Bereitschaft, diesen zu absolvieren\n• Hohe Fach- und Sozialkompetenz\n• Selbstständige, verantwortungsbewusste und belastbare Persönlichkeit mit rascher Auffassungsgabe sowie hoher Teamfähigkeit und Flexibilität Unser Angebot Wir bieten Ihnen eine abwechslungsreiche und anspruchsvolle Tätigkeit in einem persönlichen Lernumfeld und modernster Infrastruktur. Sie profitieren von einer professionellen Unterstützung im Nachdiplomstudiengang. Zeitgemässe Anstellungsbedingungen mit sehr guten Sozialleistungen runden unser Angebot ab. Interessiert? Interessiert? Wir freuen uns auf Ihre elektronische Bewerbung an Gaby Jans, Stv. Leiterin Personal. Es werden nur Direktbewerbungen berücksichtigt. Weitere Informationen zur Funktion gibt Ihnen gerne Anett Neubert, Gesamtleiterin Pflege/Therapien, T +41 41 399 43 02."
+      },
+      "needsRetranslation": true,
+      "location": "Baar",
+      "canton": "ZG",
+      "url": "https://jobs.zgks.ch/Pflegefachperson-HF-FH-Notfallzentrum-80-100-mw-de-j877.html",
+      "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-20T09:57:40.669Z",
+      "addressLocality": "Baar",
+      "addressRegion": "ZG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6340",
+      "streetAddress": "Landhausstrasse 11",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-20",
+      "postedDate": "2026-11-20",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.zgks.ch/Pflegefachperson-HF-FH-Notfallzentrum-80-100-mw-de-j877.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-18T09:57:40.669Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-09-09T13:54:42.060Z"
     }
   ]
 }

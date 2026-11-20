@@ -2776,7 +2776,7 @@
       "it": "un-dipendente-amministrativo-hr-o-un-dipendente-amministrativo-hr-80-100-canton-du-valais-sion",
       "en": "an-hr-administrative-employee-or-an-hr-administrative-employee-80-100-canton-du-valais-sion",
       "de": "hr-verwaltungsmitarbeiter-oder-hr-verwaltungsmitarbeiter-80-100-canton-du-valais-sion",
-      "fr": "un-collaborateur-administratif-rh-ou-une-collaboratrice-administrative-rh-80-100-canton"
+      "fr": "un-collaborateur-administratif-rh-ou-une-collaboratrice-administrative-rh-80-100-canton-7391a3a8"
     },
     "sector": "Administration publique / Service public",
     "expiredAt": "2026-10-18T09:32:24.690Z",
@@ -2785,15 +2785,16 @@
       "un-dipendente-amministrativo-80-100-canton-du-valais-sion",
       "an-administrative-employee-80-100-canton-du-valais-sion",
       "verwaltungsangestellter-80-100-canton-du-valais-sion",
-      "un-collaborateur-administratif-rh-ou-une-collaboratrice-administrative-rh-80-100-canton",
-      "un-collaborateur-administratif-rh-ou-une-collaboratrice-administrative-rh-80-100-canton-du-valais-sion"
+      "un-collaborateur-administratif-rh-ou-une-collaboratrice-administrative-rh-80-100-canton-du-valais-sion",
+      "un-collaborateur-administratif-rh-ou-une-collaboratrice-administrative-rh-80-100-canton"
     ],
     "previousSlugsByLocale": {
       "it": [
         "un-collaborateur-administratif-ou-une-collaboratrice-administrative-rh-80-100-canton",
         "un-dipendente-amministrativo-80-100-canton-du-valais-sion",
-        "un-collaborateur-administratif-rh-ou-une-collaboratrice-administrative-rh-80-100-canton",
-        "un-collaborateur-administratif-rh-ou-une-collaboratrice-administrative-rh-80-100-canton-du-valais-sion"
+        "un-collaborateur-administratif-rh-ou-une-collaboratrice-administrative-rh-80-100-canton-7391a3a8",
+        "un-collaborateur-administratif-rh-ou-une-collaboratrice-administrative-rh-80-100-canton-du-valais-sion",
+        "un-collaborateur-administratif-rh-ou-une-collaboratrice-administrative-rh-80-100-canton"
       ],
       "en": [
         "un-collaborateur-administratif-ou-une-collaboratrice-administrative-rh-80-100-canton",
@@ -2806,7 +2807,8 @@
         "un-collaborateur-administratif-rh-ou-une-collaboratrice-administrative-rh-80-100-canton"
       ],
       "fr": [
-        "un-collaborateur-administratif-ou-une-collaboratrice-administrative-rh-80-100-canton"
+        "un-collaborateur-administratif-ou-une-collaboratrice-administrative-rh-80-100-canton",
+        "un-collaborateur-administratif-rh-ou-une-collaboratrice-administrative-rh-80-100-canton-7391a3a8"
       ]
     },
     "postalCode": "1950",
@@ -2840,15 +2842,13 @@
       "it": "un-ufficiale-delle-risorse-umane-80-100-canton-du-valais-sion",
       "en": "one-human-resources-officer-80-100-canton-du-valais-sion",
       "de": "ein-personalbeauftragter-80-100-canton-du-valais-sion",
-      "fr": "un-ou-une-responsable-des-ressources-humaines-80-100-canton-valais-ch"
+      "fr": "un-ou-une-responsable-des-ressources-humaines-80-100-canton-valais-ch-b64754b3"
     },
     "sector": "Administration publique / Service public",
     "expiredAt": "2026-10-18T09:32:24.690Z",
-    "previousSlugs": [
-      "un-ou-une-responsable-des-ressources-humaines-80-100-canton-valais-ch"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "un-ou-une-responsable-des-ressources-humaines-80-100-canton-valais-ch-b64754b3",
         "un-ou-une-responsable-des-ressources-humaines-80-100-canton-valais-ch"
       ],
       "en": [
@@ -2856,6 +2856,9 @@
       ],
       "de": [
         "un-ou-une-responsable-des-ressources-humaines-80-100-canton-valais-ch"
+      ],
+      "fr": [
+        "un-ou-une-responsable-des-ressources-humaines-80-100-canton-valais-ch-b64754b3"
       ]
     },
     "postalCode": "1950",
@@ -2864,7 +2867,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=109209&publication=2640",
-    "firstSeenAt": "2026-10-02T09:27:14.825Z"
+    "firstSeenAt": "2026-10-02T09:27:14.825Z",
+    "previousSlugs": [
+      "un-ou-une-responsable-des-ressources-humaines-80-100-canton-valais-ch"
+    ]
   },
   {
     "slug": "capo-o-capo-del-distretto-gendarmeria-regionale-del-vallese-centrale-canton-du-valais-sion",
