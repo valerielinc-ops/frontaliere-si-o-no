@@ -454,18 +454,24 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-radiologiefachfrau-mann-hf-rfp-ksgl-glarus",
-        "dipl-radiologiefachfrau-mann-hf-rfp-kantonsspital-glarus-ksgl-glarus"
+        "dipl-radiologiefachfrau-mann-hf-rfp-kantonsspital-glarus-ksgl-glarus",
+        "radiologic-technologist-mrt-hf-kantonsspital-glarus-ksgl-glarus",
+        "technicien-en-radiologie-medicale-trm-es-kantonsspital-glarus-ksgl-glarus"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-radiologiefachfrau-mann-hf-rfp-ksgl-glarus",
-          "dipl-radiologiefachfrau-mann-hf-rfp-kantonsspital-glarus-ksgl-glarus"
+          "dipl-radiologiefachfrau-mann-hf-rfp-kantonsspital-glarus-ksgl-glarus",
+          "radiologic-technologist-mrt-hf-kantonsspital-glarus-ksgl-glarus",
+          "technicien-en-radiologie-medicale-trm-es-kantonsspital-glarus-ksgl-glarus"
         ],
         "en": [
-          "dipl-radiologiefachfrau-mann-hf-rfp-ksgl-glarus"
+          "dipl-radiologiefachfrau-mann-hf-rfp-ksgl-glarus",
+          "radiologic-technologist-mrt-hf-kantonsspital-glarus-ksgl-glarus"
         ],
         "fr": [
-          "dipl-radiologiefachfrau-mann-hf-rfp-ksgl-glarus"
+          "dipl-radiologiefachfrau-mann-hf-rfp-ksgl-glarus",
+          "technicien-en-radiologie-medicale-trm-es-kantonsspital-glarus-ksgl-glarus"
         ]
       },
       "firstSeenAt": "2026-09-23T23:43:58.545Z",
@@ -627,17 +633,22 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-biomedizinische-r-analytiker-in-hf-ksgl-glarus"
+        "dipl-biomedizinische-r-analytiker-in-hf-ksgl-glarus",
+        "dipl-analista-biomedico-hf-kantonsspital-glarus-ksgl-glarus",
+        "dipl-analyste-biomedical-hf-kantonsspital-glarus-ksgl-glarus"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-biomedizinische-r-analytiker-in-hf-ksgl-glarus"
+          "dipl-biomedizinische-r-analytiker-in-hf-ksgl-glarus",
+          "dipl-analista-biomedico-hf-kantonsspital-glarus-ksgl-glarus",
+          "dipl-analyste-biomedical-hf-kantonsspital-glarus-ksgl-glarus"
         ],
         "en": [
           "dipl-biomedizinische-r-analytiker-in-hf-ksgl-glarus"
         ],
         "fr": [
-          "dipl-biomedizinische-r-analytiker-in-hf-ksgl-glarus"
+          "dipl-biomedizinische-r-analytiker-in-hf-ksgl-glarus",
+          "dipl-analyste-biomedical-hf-kantonsspital-glarus-ksgl-glarus"
         ]
       },
       "salaryMin": 81000,
@@ -1391,14 +1402,31 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "unterassistent-in-ksgl-glarus"
+        "unterassistent-in-ksgl-glarus",
+        "unterassistent-in-ksgl-glarus-451427d1",
+        "sott-kantonsspital-glarus-ksgl-glarus",
+        "junior-assistant-kantonsspital-glarus-ksgl-glarus",
+        "unterassistent-in-kantonsspital-glarus-ksgl-glarus",
+        "assistant-junior-kantonsspital-glarus-ksgl-glarus",
+        "sub-assistante-kantonsspital-glarus-ksgl-glarus-1a176150",
+        "sub-assistant-kantonsspital-glarus-ksgl-glarus-823ac21e",
+        "sous-assistant-kantonsspital-glarus-ksgl-glarus-db75ccda"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistent-in-ksgl-glarus"
+          "unterassistent-in-ksgl-glarus",
+          "unterassistent-in-ksgl-glarus-451427d1",
+          "sott-kantonsspital-glarus-ksgl-glarus",
+          "junior-assistant-kantonsspital-glarus-ksgl-glarus",
+          "unterassistent-in-kantonsspital-glarus-ksgl-glarus",
+          "assistant-junior-kantonsspital-glarus-ksgl-glarus",
+          "sub-assistante-kantonsspital-glarus-ksgl-glarus-1a176150",
+          "sub-assistant-kantonsspital-glarus-ksgl-glarus-823ac21e",
+          "sous-assistant-kantonsspital-glarus-ksgl-glarus-db75ccda"
         ],
         "de": [
-          "unterassistent-in-ksgl-glarus"
+          "unterassistent-in-ksgl-glarus",
+          "unterassistent-in-ksgl-glarus-451427d1"
         ]
       },
       "firstSeenAt": "2026-08-11T10:23:25.252Z",

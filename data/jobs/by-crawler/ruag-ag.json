@@ -1357,7 +1357,8 @@
       "previousSlugs": [
         "senior-finance-business-partner-100-w-m-d-ruag-ag-emmen"
       ],
-      "sourceIdentity": "url:https://jobs.ruag.ch/offene-stellen/senior-finance-business-partner/4fdcbd8a-d36f-4a8c-9dad-793cee604725"
+      "sourceIdentity": "url:https://jobs.ruag.ch/offene-stellen/senior-finance-business-partner/4fdcbd8a-d36f-4a8c-9dad-793cee604725",
+      "needsRetranslation": true
     },
     {
       "title": "ICT Application Manager 80-100% (w/m/d)",
@@ -2972,7 +2973,8 @@
       "previousSlugs": [
         "manager-communications-external-affairs-80-100-80-100-w-m-d-ruag-ag-bern"
       ],
-      "sourceIdentity": "url:https://jobs.ruag.ch/offene-stellen/manager-communications-external-affairs-80/0f0566cc-a0a1-42c7-b63a-b1ddc1fe277f"
+      "sourceIdentity": "url:https://jobs.ruag.ch/offene-stellen/manager-communications-external-affairs-80/0f0566cc-a0a1-42c7-b63a-b1ddc1fe277f",
+      "needsRetranslation": true
     },
     {
       "title": "System Manager 100% (w/m/d)",
@@ -3728,7 +3730,27 @@
       "streetAddressSource": "zefix-registry",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-08T21:42:45.415Z",
-      "sourceIdentity": "url:https://jobs.ruag.ch/offene-stellen/sr-ict-service-manager/be1ef054-11b2-498a-a737-a90dea8cedb7"
+      "sourceIdentity": "url:https://jobs.ruag.ch/offene-stellen/sr-ict-service-manager/be1ef054-11b2-498a-a737-a90dea8cedb7",
+      "previousSlugs": [
+        "sr-ict-service-manager-100-w-m-d-ruag-ag-emmen-c35fbe89",
+        "sr-gestionnaire-de-services-tic-100-h-f-d-ruag-ag-emmen-40b9c46a",
+        "sr-ict-service-manager-100-w-m-d-ruag-ag-emmen-dbb3b69b",
+        "sr-gestionnaire-de-services-tic-100-h-f-d-ruag-ag-emmen-4b67aa70",
+        "sr-ict-service-manager-100-m-f-d-ruag-ag-emmen-ef6443e6a1",
+        "sr-ict-service-manager-100-w-m-d-ruag-ag-emmen-839e8b6c95",
+        "sr-gestionnaire-de-services-tic-100-h-f-d-ruag-ag-emmen-40c860"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sr-ict-service-manager-100-w-m-d-ruag-ag-emmen-c35fbe89",
+          "sr-gestionnaire-de-services-tic-100-h-f-d-ruag-ag-emmen-40b9c46a",
+          "sr-ict-service-manager-100-w-m-d-ruag-ag-emmen-dbb3b69b",
+          "sr-gestionnaire-de-services-tic-100-h-f-d-ruag-ag-emmen-4b67aa70",
+          "sr-ict-service-manager-100-m-f-d-ruag-ag-emmen-ef6443e6a1",
+          "sr-ict-service-manager-100-w-m-d-ruag-ag-emmen-839e8b6c95",
+          "sr-gestionnaire-de-services-tic-100-h-f-d-ruag-ag-emmen-40c860"
+        ]
+      }
     },
     {
       "title": "Apprendista operatore in automazione AFC 2027 100% (f/m/d)",
@@ -4027,19 +4049,51 @@
         "it": [
           "logistiker-in-cfc-100-w-m-d-ruag-ag-zweisimmen",
           "logistiker-in-cfc-100-m-w-d-ruag-ag-zweisimmen",
-          "logistiker-in-efz-100-w-m-d-ruag-ag-zweisimmen"
+          "logistiker-in-efz-100-w-m-d-ruag-ag-zweisimmen",
+          "logistics-specialist-efz-100-m-f-d-ruag-ag-zweisimmen",
+          "logisticien-ne-cfc-100-h-f-d-ruag-ag-zweisimmen",
+          "logista-efz-100-m-f-d-ruag-ag-zweisimmen",
+          "logistiker-in-efz-100-w-m-d-ruag-ag-zweisimmen-6c46f8d9",
+          "logistiker-in-cfc-100-w-m-d-ruag-ag-zweisimmen-9598dc81",
+          "logistics-specialist-efz-100-m-f-d-ruag-ag-zweisimmen-b6c396cc",
+          "logisticien-ne-cfc-100-h-f-d-ruag-ag-zweisimmen-08585af0",
+          "impiegato-a-in-logistica-afc-100-m-f-d-ruag-ag-zweisimmen",
+          "logistiker-in-efz-100-w-m-d-ruag-ag-zweisimmen-6fbd970a",
+          "addetto-a-alla-logistica-efz-100-m-f-d-ruag-ag-zweisimmen",
+          "logistiker-in-efz-100-w-m-d-ruag-ag-zweisimmen-4bd034ef",
+          "logisticista-efz-100-m-f-d-ruag-ag-zweisimmen",
+          "logistician-efz-100-m-f-d-ruag-ag-zweisimmen",
+          "logistiker-in-efz-100-w-m-d-ruag-ag-zweisimmen-2292875a",
+          "logisticien-efz-100-h-f-d-ruag-ag-zweisimmen"
         ],
         "en": [
-          "logistiker-in-efz-100-w-m-d-ruag-ag-zweisimmen"
+          "logistiker-in-efz-100-w-m-d-ruag-ag-zweisimmen",
+          "logistics-specialist-efz-100-m-f-d-ruag-ag-zweisimmen"
         ],
         "fr": [
-          "logistiker-in-efz-100-w-m-d-ruag-ag-zweisimmen"
+          "logistiker-in-efz-100-w-m-d-ruag-ag-zweisimmen",
+          "logisticien-ne-cfc-100-h-f-d-ruag-ag-zweisimmen"
         ]
       },
       "previousSlugs": [
         "logistiker-in-efz-100-w-m-d-ruag-ag-zweisimmen",
         "logistiker-in-cfc-100-w-m-d-ruag-ag-zweisimmen",
-        "logistiker-in-cfc-100-m-w-d-ruag-ag-zweisimmen"
+        "logistiker-in-cfc-100-m-w-d-ruag-ag-zweisimmen",
+        "logistics-specialist-efz-100-m-f-d-ruag-ag-zweisimmen",
+        "logisticien-ne-cfc-100-h-f-d-ruag-ag-zweisimmen",
+        "logista-efz-100-m-f-d-ruag-ag-zweisimmen",
+        "logistiker-in-efz-100-w-m-d-ruag-ag-zweisimmen-6c46f8d9",
+        "logistiker-in-cfc-100-w-m-d-ruag-ag-zweisimmen-9598dc81",
+        "logistics-specialist-efz-100-m-f-d-ruag-ag-zweisimmen-b6c396cc",
+        "logisticien-ne-cfc-100-h-f-d-ruag-ag-zweisimmen-08585af0",
+        "impiegato-a-in-logistica-afc-100-m-f-d-ruag-ag-zweisimmen",
+        "logistiker-in-efz-100-w-m-d-ruag-ag-zweisimmen-6fbd970a",
+        "addetto-a-alla-logistica-efz-100-m-f-d-ruag-ag-zweisimmen",
+        "logistiker-in-efz-100-w-m-d-ruag-ag-zweisimmen-4bd034ef",
+        "logisticista-efz-100-m-f-d-ruag-ag-zweisimmen",
+        "logistician-efz-100-m-f-d-ruag-ag-zweisimmen",
+        "logistiker-in-efz-100-w-m-d-ruag-ag-zweisimmen-2292875a",
+        "logisticien-efz-100-h-f-d-ruag-ag-zweisimmen"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -4655,7 +4709,8 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-16T21:25:53.182Z",
-      "sourceIdentity": "url:https://jobs.ruag.ch/offene-stellen/head-of-system-project-management/38722103-0768-448c-b869-8449c967f652"
+      "sourceIdentity": "url:https://jobs.ruag.ch/offene-stellen/head-of-system-project-management/38722103-0768-448c-b869-8449c967f652",
+      "needsRetranslation": true
     },
     {
       "title": "Projekt Manager 80 - 100 (w/m/d)",

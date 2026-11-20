@@ -146,7 +146,9 @@
         "it": [
           "kauffrau-kaufmann-efz-psychiatrische-dienste-graubunden-cazis-chur-rothenbrunnen",
           "kauffrau-kaufmann-efz-pdgr-ch",
-          "kochin-koch-efz-pdgr-ch"
+          "kochin-koch-efz-pdgr-ch",
+          "kochin-koch-cfc-psychiatrische-dienste-graubunden-cazis-chur-rothenbrunnen",
+          "kochin-koch-cfc-psychiatrische-dienste-graubunden-cazis"
         ],
         "fr": [
           "kauffrau-kaufmann-efz-psychiatrische-dienste-graubunden-cazis-chur-rothenbrunnen"
@@ -155,7 +157,9 @@
       "previousSlugs": [
         "kauffrau-kaufmann-efz-psychiatrische-dienste-graubunden-cazis-chur-rothenbrunnen",
         "kauffrau-kaufmann-efz-pdgr-ch",
-        "kochin-koch-efz-pdgr-ch"
+        "kochin-koch-efz-pdgr-ch",
+        "kochin-koch-cfc-psychiatrische-dienste-graubunden-cazis-chur-rothenbrunnen",
+        "kochin-koch-cfc-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-07-29T22:40:25.836Z",
       "salaryMin": 62000,
@@ -919,7 +923,23 @@
         "oberarztin-oberarzt-pdgr-ch-4",
         "medico-senior-medico-senior-psychiatrische-dienste-graubunden-chur",
         "senior-physician-senior-physician-psychiatrische-dienste-graubunden-chur",
-        "medecin-superieur-medecin-superieur-psychiatrische-dienste-graubunden-chur"
+        "medecin-superieur-medecin-superieur-psychiatrische-dienste-graubunden-chur",
+        "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-chur-68bd5058",
+        "oberarztin-oberarzt-pdgr-ch-fd9dc6d6",
+        "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur-8ec0a602",
+        "oberarztin-oberarzt-pdgr-ch-t5tvx5",
+        "oberarztin-oberarzt-pdgr-ch-t5tsyg",
+        "senior-physician-psychiatrische-dienste-graubunden-cazis",
+        "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis-03fb0997",
+        "oberarztin-oberarzt-pdgr-ch-1c02639b",
+        "medico-senior-psychiatrische-dienste-graubunden-samedan-scuol-3853fe80",
+        "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis-ed80d3a5",
+        "chief-psychiatrist-psychiatrische-dienste-graubunden-cazis-72ddce6c",
+        "senior-physician-senior-physician-psychiatrische-dienste-graubunden-samedan-scuol-08409b5d",
+        "medecin-specialiste-en-psychiatrie-psychiatrische-dienste-graubunden-cazis-39962cd6",
+        "medecin-superieur-medecin-superieur-psychiatrische-dienste-graubunden-samedan-scuol-0d4d20eb",
+        "oberarztin-oberarzt-psychiatrische-dienste-graubunden-samedan-scuol-7964ff36",
+        "oberarztin-oberarzt-pdgr-ch-t5twns"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
       "salaryMin": 110500,
@@ -3211,11 +3231,29 @@
       "pensumMax": 40,
       "pensum": "20 - 40%",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch-2"
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch-2",
+        "dipl-nurse-hf-for-the-night-watch-psychiatrische-dienste-graubunden-chur",
+        "dipl-infirmiere-hf-pour-la-veille-nocturne-psychiatrische-dienste-graubunden-chur",
+        "dipl-assistente-infermieristico-hf-per-il-turno-di-notte-psychiatrische-dienste-graubunden-cazis",
+        "dipl-nurse-hf-for-night-shift-psychiatrische-dienste-graubunden-cazis",
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-cazis",
+        "dipl-infirmier-hf-pour-le-service-de-nuit-psychiatrische-dienste-graubunden-cazis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch-2"
+          "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch-2",
+          "dipl-nurse-hf-for-the-night-watch-psychiatrische-dienste-graubunden-chur",
+          "dipl-infirmiere-hf-pour-la-veille-nocturne-psychiatrische-dienste-graubunden-chur",
+          "dipl-assistente-infermieristico-hf-per-il-turno-di-notte-psychiatrische-dienste-graubunden-cazis",
+          "dipl-nurse-hf-for-night-shift-psychiatrische-dienste-graubunden-cazis",
+          "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-cazis",
+          "dipl-infirmier-hf-pour-le-service-de-nuit-psychiatrische-dienste-graubunden-cazis"
+        ],
+        "en": [
+          "dipl-nurse-hf-for-the-night-watch-psychiatrische-dienste-graubunden-chur"
+        ],
+        "fr": [
+          "dipl-infirmiere-hf-pour-la-veille-nocturne-psychiatrische-dienste-graubunden-chur"
         ]
       },
       "firstSeenAt": "2026-04-14T10:28:30.371Z",

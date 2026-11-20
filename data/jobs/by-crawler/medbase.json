@@ -9860,11 +9860,19 @@
       "requirementsByLocale": {},
       "jobReqId": "JR07517",
       "previousSlugs": [
-        "geschaftsfuhrende-r-apotheker-in-a-80-100-medbase-ch"
+        "geschaftsfuhrende-r-apotheker-in-a-80-100-medbase-ch",
+        "farmacista-in-a-60-100-affoltern-sugli-albi-medbase-affoltern-am-albis",
+        "pharmacist-in-a-60-100-affoltern-on-the-albis-medbase-affoltern-am-albis",
+        "apotheker-in-a-60-100-affoltern-am-albis-medbase-ch",
+        "pharmacienne-en-a-60-100-affoltern-sur-l-albis-medbase-affoltern-am-albis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "geschaftsfuhrende-r-apotheker-in-a-80-100-medbase-ch"
+          "geschaftsfuhrende-r-apotheker-in-a-80-100-medbase-ch",
+          "farmacista-in-a-60-100-affoltern-sugli-albi-medbase-affoltern-am-albis",
+          "pharmacist-in-a-60-100-affoltern-on-the-albis-medbase-affoltern-am-albis",
+          "apotheker-in-a-60-100-affoltern-am-albis-medbase-ch",
+          "pharmacienne-en-a-60-100-affoltern-sur-l-albis-medbase-affoltern-am-albis"
         ]
       },
       "firstSeenAt": "2026-07-31T11:58:26.801Z",
@@ -10202,11 +10210,73 @@
       "requirementsByLocale": {},
       "jobReqId": "JR08032",
       "previousSlugs": [
-        "apotheker-in-a-80-100-medbase-ch"
+        "apotheker-in-a-80-100-medbase-ch",
+        "pharmacien-en-a-80-100-medbase-reinach-74f96081",
+        "pharmacist-a-80-100-medbase-reinach-b5268271",
+        "pharmacien-en-a-80-100-medbase-reinach-a8cb3a4f",
+        "pharmacist-a-80-100-medbase-reinach-df3daa72",
+        "pharmacien-en-a-80-100-medbase-reinach-05da4449",
+        "pharmacist-a-80-100-medbase-reinach-d82e81b9",
+        "pharmacien-en-a-80-100-medbase-reinach-515cea35",
+        "pharmacist-a-80-100-medbase-reinach-636dc654",
+        "pharmacien-en-a-80-100-medbase-reinach-2dbef139",
+        "pharmacist-a-80-100-medbase-reinach-00a7af14",
+        "pharmacien-en-a-80-100-medbase-reinach-f5f1bd91",
+        "pharmacist-a-80-100-medbase-reinach-b5eaea42",
+        "pharmacien-en-a-80-100-medbase-reinach-74f7acaa",
+        "pharmacist-a-80-100-medbase-reinach-af8fd75d",
+        "pharmacien-en-a-80-100-medbase-reinach-9c69e943",
+        "pharmacist-a-80-100-medbase-reinach-667d4e7f",
+        "pharmacien-en-a-80-100-medbase-reinach-9695b3fe",
+        "farmacista-a-80-100-medbase-reinach-94b655be",
+        "pharmacist-a-80-100-medbase-reinach-33f9e3d5",
+        "pharmacien-en-a-80-100-medbase-reinach-a1b96c39",
+        "pharmacist-a-80-100-medbase-reinach-f530bd95",
+        "apotheker-in-a-80-100-medbase-ch-013f44ce",
+        "pharmacien-en-a-80-100-medbase-reinach-03cb253f",
+        "pharmacist-a-80-100-medbase-reinach-b1c7d203",
+        "pharmacien-en-a-80-100-medbase-reinach-bbbb712d",
+        "pharmacist-a-80-100-medbase-reinach-a108c5df",
+        "pharmacien-en-a-80-100-medbase-reinach-331d065d",
+        "pharmacist-a-80-100-medbase-reinach-fd8bf76c",
+        "pharmacien-en-a-80-100-medbase-reinach-f13744f3",
+        "pharmacist-a-80-100-medbase-reinach-e94e82a6",
+        "pharmacien-en-a-80-100-medbase-reinach-21396309",
+        "pharmacist-a-80-100-medbase-reinach-6020b86c",
+        "pharmacien-en-a-80-100-medbase-reinach-4fec1085",
+        "pharmacist-a-80-100-medbase-reinach-a303d560"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apotheker-in-a-80-100-medbase-ch"
+          "apotheker-in-a-80-100-medbase-ch",
+          "pharmacien-en-a-80-100-medbase-reinach-74f96081",
+          "pharmacist-a-80-100-medbase-reinach-b5268271",
+          "pharmacien-en-a-80-100-medbase-reinach-a8cb3a4f",
+          "pharmacist-a-80-100-medbase-reinach-df3daa72",
+          "pharmacien-en-a-80-100-medbase-reinach-05da4449",
+          "pharmacist-a-80-100-medbase-reinach-d82e81b9",
+          "pharmacien-en-a-80-100-medbase-reinach-515cea35",
+          "pharmacist-a-80-100-medbase-reinach-636dc654",
+          "pharmacien-en-a-80-100-medbase-reinach-2dbef139",
+          "pharmacist-a-80-100-medbase-reinach-00a7af14",
+          "pharmacien-en-a-80-100-medbase-reinach-f5f1bd91",
+          "pharmacist-a-80-100-medbase-reinach-b5eaea42",
+          "pharmacien-en-a-80-100-medbase-reinach-74f7acaa",
+          "pharmacist-a-80-100-medbase-reinach-af8fd75d",
+          "pharmacien-en-a-80-100-medbase-reinach-9c69e943",
+          "pharmacist-a-80-100-medbase-reinach-667d4e7f",
+          "pharmacien-en-a-80-100-medbase-reinach-9695b3fe",
+          "farmacista-a-80-100-medbase-reinach-94b655be",
+          "pharmacist-a-80-100-medbase-reinach-33f9e3d5"
+        ],
+        "en": [
+          "pharmacist-a-80-100-medbase-reinach-f530bd95"
+        ],
+        "de": [
+          "apotheker-in-a-80-100-medbase-ch-013f44ce"
+        ],
+        "fr": [
+          "pharmacien-en-a-80-100-medbase-reinach-03cb253f"
         ]
       },
       "firstSeenAt": "2026-07-04T11:44:29.235Z",
@@ -12095,18 +12165,28 @@
       "jobReqId": "JR07686",
       "previousSlugs": [
         "mitarbeiter-betriebsunterhalt-logistik-a-80-100-medbase-ch",
-        "collaboratore-trice-betriebsunterhalt-logistik-a-80-100-medbase-frauenfeld"
+        "collaboratore-trice-betriebsunterhalt-logistik-a-80-100-medbase-frauenfeld",
+        "addetto-a-alla-logistica-unterhalt-a-80-100-medbase-frauenfeld",
+        "employee-logistics-maintenance-a-80-100-medbase-frauenfeld",
+        "logistique-entretien-des-employes-a-80-100-medbase-frauenfeld",
+        "mitarbeiter-logistik-unterhalt-a-80-100-medbase-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-betriebsunterhalt-logistik-a-80-100-medbase-ch",
-          "collaboratore-trice-betriebsunterhalt-logistik-a-80-100-medbase-frauenfeld"
+          "collaboratore-trice-betriebsunterhalt-logistik-a-80-100-medbase-frauenfeld",
+          "addetto-a-alla-logistica-unterhalt-a-80-100-medbase-frauenfeld",
+          "employee-logistics-maintenance-a-80-100-medbase-frauenfeld",
+          "logistique-entretien-des-employes-a-80-100-medbase-frauenfeld",
+          "mitarbeiter-logistik-unterhalt-a-80-100-medbase-ch"
         ],
         "en": [
-          "mitarbeiter-betriebsunterhalt-logistik-a-80-100-medbase-ch"
+          "mitarbeiter-betriebsunterhalt-logistik-a-80-100-medbase-ch",
+          "employee-logistics-maintenance-a-80-100-medbase-frauenfeld"
         ],
         "fr": [
-          "mitarbeiter-betriebsunterhalt-logistik-a-80-100-medbase-ch"
+          "mitarbeiter-betriebsunterhalt-logistik-a-80-100-medbase-ch",
+          "logistique-entretien-des-employes-a-80-100-medbase-frauenfeld"
         ]
       },
       "firstSeenAt": "2026-10-08T21:18:48.437Z",

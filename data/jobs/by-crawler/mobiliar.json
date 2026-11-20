@@ -679,18 +679,24 @@
       "sfJobId": "1165707755",
       "previousSlugs": [
         "gestionnaire-prestations-prevoyance-professionnelle-f-h-d-mobiliar-ch",
-        "gestionnaire-prestations-prevoyance-professionnelle-m-w-d-die-mobiliar-nyon"
+        "gestionnaire-prestations-prevoyance-professionnelle-m-w-d-die-mobiliar-nyon",
+        "professional-benefits-manager-m-f-d-die-mobiliar-nyon",
+        "professional-benefits-manager-m-w-d-die-mobiliar-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-prestations-prevoyance-professionnelle-f-h-d-mobiliar-ch",
-          "gestionnaire-prestations-prevoyance-professionnelle-m-w-d-die-mobiliar-nyon"
+          "gestionnaire-prestations-prevoyance-professionnelle-m-w-d-die-mobiliar-nyon",
+          "professional-benefits-manager-m-f-d-die-mobiliar-nyon",
+          "professional-benefits-manager-m-w-d-die-mobiliar-nyon"
         ],
         "en": [
-          "gestionnaire-prestations-prevoyance-professionnelle-f-h-d-mobiliar-ch"
+          "gestionnaire-prestations-prevoyance-professionnelle-f-h-d-mobiliar-ch",
+          "professional-benefits-manager-m-f-d-die-mobiliar-nyon"
         ],
         "de": [
-          "gestionnaire-prestations-prevoyance-professionnelle-f-h-d-mobiliar-ch"
+          "gestionnaire-prestations-prevoyance-professionnelle-f-h-d-mobiliar-ch",
+          "professional-benefits-manager-m-w-d-die-mobiliar-nyon"
         ]
       },
       "salaryMin": 83500,
@@ -954,11 +960,13 @@
       "requirementsByLocale": {},
       "sfJobId": "1165597655",
       "previousSlugs": [
-        "apprentissage-d-employe-e-de-commerce-cfc-aout-2027-a-l-agence-generale-de-la-cote"
+        "apprentissage-d-employe-e-de-commerce-cfc-aout-2027-a-l-agence-generale-de-la-cote",
+        "apprentissage-d-employe-e-de-commerce-cfc-aout-2027-a-l-agence-generale-de-la-cote-die-mobiliar-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprentissage-d-employe-e-de-commerce-cfc-aout-2027-a-l-agence-generale-de-la-cote"
+          "apprentissage-d-employe-e-de-commerce-cfc-aout-2027-a-l-agence-generale-de-la-cote",
+          "apprentissage-d-employe-e-de-commerce-cfc-aout-2027-a-l-agence-generale-de-la-cote-die-mobiliar-nyon"
         ]
       },
       "needsRetranslation": true,
@@ -1873,11 +1881,21 @@
       "requirementsByLocale": {},
       "sfJobId": "1165462455",
       "previousSlugs": [
-        "mitarbeiter-kunden-und-maklersupport-w-m-d-generalagentur-bulach-mobiliar-ch"
+        "mitarbeiter-kunden-und-maklersupport-w-m-d-generalagentur-bulach-mobiliar-ch",
+        "customer-and-broker-support-specialist-f-m-d-general-agency-bulach-die-mobiliar-bulach",
+        "collaborateur-support-clients-et-courtiers-f-h-d-agence-generale-bulach-die-mobiliar-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-kunden-und-maklersupport-w-m-d-generalagentur-bulach-mobiliar-ch"
+          "mitarbeiter-kunden-und-maklersupport-w-m-d-generalagentur-bulach-mobiliar-ch",
+          "customer-and-broker-support-specialist-f-m-d-general-agency-bulach-die-mobiliar-bulach",
+          "collaborateur-support-clients-et-courtiers-f-h-d-agence-generale-bulach-die-mobiliar-bulach"
+        ],
+        "en": [
+          "customer-and-broker-support-specialist-f-m-d-general-agency-bulach-die-mobiliar-bulach"
+        ],
+        "fr": [
+          "collaborateur-support-clients-et-courtiers-f-h-d-agence-generale-bulach-die-mobiliar-bulach"
         ]
       },
       "firstSeenAt": "2026-09-18T13:42:24.833Z",
@@ -5403,15 +5421,18 @@
       "sfJobId": "1165663955",
       "previousSlugs": [
         "schadenspezialist-w-m-d-generalagentur-baden-mobiliar-ch",
-        "schadenspezialist-m-w-d-agenzia-generale-baden-die-mobiliar-baden"
+        "schadenspezialist-m-w-d-agenzia-generale-baden-die-mobiliar-baden",
+        "projektleiter-m-d-die-mobiliar-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schadenspezialist-w-m-d-generalagentur-baden-mobiliar-ch",
-          "schadenspezialist-m-w-d-agenzia-generale-baden-die-mobiliar-baden"
+          "schadenspezialist-m-w-d-agenzia-generale-baden-die-mobiliar-baden",
+          "projektleiter-m-d-die-mobiliar-baden"
         ],
         "en": [
-          "schadenspezialist-w-m-d-generalagentur-baden-mobiliar-ch"
+          "schadenspezialist-w-m-d-generalagentur-baden-mobiliar-ch",
+          "projektleiter-m-d-die-mobiliar-baden"
         ],
         "fr": [
           "schadenspezialist-w-m-d-generalagentur-baden-mobiliar-ch"
@@ -6210,26 +6231,21 @@
       "firstSeenAt": "2026-11-20T09:28:20.029Z",
       "previousSlugsByLocale": {
         "it": [
-          "business-analyst-prozessautomatisierung-w-m-d-60-80-mobiliar-ch",
           "business-analyst-automazione-dei-processi-m-f-d-60-80-die-mobiliar-bern"
         ],
         "en": [
-          "business-analyst-prozessautomatisierung-w-m-d-60-80-mobiliar-ch",
           "business-analyst-process-automation-m-f-d-60-80-die-mobiliar-bern"
         ],
         "fr": [
-          "business-analyst-prozessautomatisierung-w-m-d-60-80-mobiliar-ch",
           "analyste-metier-en-automatisation-des-processus-h-f-d-60-80-die-mobiliar-bern"
         ]
       },
       "previousSlugs": [
-        "business-analyst-prozessautomatisierung-w-m-d-60-80-mobiliar-ch",
         "business-analyst-automazione-dei-processi-m-f-d-60-80-die-mobiliar-bern",
         "business-analyst-process-automation-m-f-d-60-80-die-mobiliar-bern",
         "analyste-metier-en-automatisation-des-processus-h-f-d-60-80-die-mobiliar-bern"
       ],
-      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/bern-business-analyst-prozessautomatisierung-%28wmd%29-60-80/1458265874",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://jobs.mobiliar.ch/job/bern-business-analyst-prozessautomatisierung-%28wmd%29-60-80/1458265874"
     },
     {
       "id": "mobiliar-05bab69f69cd",
@@ -7185,17 +7201,22 @@
       "sfJobId": "1164155255",
       "previousSlugs": [
         "versicherungs-und-vorsorgeberater-mit-herz-w-m-generalagentur-mittelthurgau-mobiliar-ch",
-        "versicherungs-und-vorsorgeberater-mit-herz-m-w-d-generalagentur-mittelthurgau-die-mobiliar-thurgau"
+        "versicherungs-und-vorsorgeberater-mit-herz-m-w-d-generalagentur-mittelthurgau-die-mobiliar-thurgau",
+        "versicherungs-und-vorsorgeberater-mit-herz-w-m-generalagentur-mittelthurgau-48cobk"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "versicherungs-und-vorsorgeberater-mit-herz-w-m-generalagentur-mittelthurgau-mobiliar-ch"
+          "versicherungs-und-vorsorgeberater-mit-herz-w-m-generalagentur-mittelthurgau-mobiliar-ch",
+          "versicherungs-und-vorsorgeberater-mit-herz-w-m-generalagentur-mittelthurgau-48cobk"
         ],
         "en": [
           "versicherungs-und-vorsorgeberater-mit-herz-m-w-d-generalagentur-mittelthurgau-die-mobiliar-thurgau"
         ],
         "fr": [
           "versicherungs-und-vorsorgeberater-mit-herz-m-w-d-generalagentur-mittelthurgau-die-mobiliar-thurgau"
+        ],
+        "de": [
+          "versicherungs-und-vorsorgeberater-mit-herz-w-m-generalagentur-mittelthurgau-48cobk"
         ]
       },
       "firstSeenAt": "2026-05-10T22:08:50.868Z",
@@ -7573,12 +7594,22 @@
       "sfJobId": "1165281155",
       "previousSlugs": [
         "vorsorgeberater-generalagentur-zurich-m-w-d-100",
-        "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-zurich-mobiliar-ch"
+        "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-zurich-mobiliar-ch",
+        "senior-consultant-m-d-die-mobiliar-zurich",
+        "consultant-principal-m-j-die-mobiliar-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "vorsorgeberater-generalagentur-zurich-m-w-d-100",
-          "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-zurich-mobiliar-ch"
+          "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-zurich-mobiliar-ch",
+          "senior-consultant-m-d-die-mobiliar-zurich",
+          "consultant-principal-m-j-die-mobiliar-zurich"
+        ],
+        "en": [
+          "senior-consultant-m-d-die-mobiliar-zurich"
+        ],
+        "fr": [
+          "consultant-principal-m-j-die-mobiliar-zurich"
         ]
       },
       "firstSeenAt": "2026-08-17T09:53:55.568Z",
