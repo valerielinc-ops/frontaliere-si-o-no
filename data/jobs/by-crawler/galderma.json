@@ -1,7 +1,7 @@
 {
   "crawlerKey": "galderma",
-  "assembledAt": "2026-11-20T09:48:34.719Z",
-  "runId": "44710316721",
+  "assembledAt": "2026-11-20T22:29:53.948Z",
+  "runId": "44820100410",
   "jobs": [
     {
       "id": "galderma-58c28018924d",
@@ -35,7 +35,7 @@
       "url": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Zug/Customer-Service-Specialist_JR021258-1",
       "source": "Galderma Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:48:27.886Z",
+      "crawledAt": "2026-11-20T22:29:46.254Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -97,7 +97,7 @@
       },
       "streetAddress": "Zählerweg 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-25T09:48:27.886Z",
+      "validThrough": "2027-01-25T22:29:46.254Z",
       "validThroughSource": "last-observed-window",
       "retranslationAttempts": 4,
       "localeMismatchSuppressed": true,
@@ -136,7 +136,7 @@
       "url": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Zug/Head-of-Global-Business-Services--GBS-_JR021691-1",
       "source": "Galderma Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T09:48:17.688Z",
+      "crawledAt": "2026-11-20T22:29:35.316Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -197,7 +197,7 @@
       },
       "streetAddress": "Zählerweg 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-11T09:48:17.688Z",
+      "validThrough": "2027-02-11T22:29:35.316Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://galderma.wd3.myworkdayjobs.com/en-us/external/job/zug/head-of-global-business-services--gbs-_jr021691-1"
     }

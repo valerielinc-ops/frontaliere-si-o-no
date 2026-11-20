@@ -1,11 +1,11 @@
 {
   "crawlerKey": "pdag",
-  "assembledAt": "2026-11-20T09:51:31.022Z",
-  "runId": "44710316721",
+  "assembledAt": "2026-11-20T22:23:42.368Z",
+  "runId": "44820100410",
   "jobs": [
     {
       "id": "pdag-ce9c143bc3fd",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-per-forensische-psychiatrie-psychiatrische-dienste-aargau-pdag-windisch",
+      "slug": "infermiera-diplomata-infermiere-diplomato-sss-sup-clinica-di-psichiatria-forense-psychiatrische-dienste-aargau-pdag-windisch-fd02209b93",
       "slugByLocale": {
         "it": "infermiera-diplomata-infermiere-diplomato-sss-sup-clinica-di-psichiatria-forense-psychiatrische-dienste-aargau-pdag-windisch-fd02209b93",
         "en": "dipl-nursing-specialist-hf-fh-clinic-for-forensic-psychiatry-psychiatrische-dienste-aargau-pdag-windisch",
@@ -60,7 +60,8 @@
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-per-forensische-psychiatrie-ymndk8",
         "infermiere-diplomato-infermiera-diplomata-hf-fh-clinica-di-psichiatria-forense-psychiatrische-dienste-aargau-pdag-windisch-e5b5e0ff63",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-per-forensische-psychiatrie-psychiatrische-dienste-aargau-pdag-windisch-f53e665bc3",
-        "infermiera-diplomata-infermiere-diplomato-sss-sup-clinica-di-psichiatria-forense-psychiatrische-dienste-aargau-pdag-windisch-fd02209b93"
+        "infermiera-diplomata-infermiere-diplomato-sss-sup-clinica-di-psichiatria-forense-psychiatrische-dienste-aargau-pdag-windisch-fd02209b93",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-per-forensische-psychiatrie-psychiatrische-dienste-aargau-pdag-windisch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -68,7 +69,8 @@
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-per-forensische-psychiatrie-ymndk8",
           "infermiere-diplomato-infermiera-diplomata-hf-fh-clinica-di-psichiatria-forense-psychiatrische-dienste-aargau-pdag-windisch-e5b5e0ff63",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-per-forensische-psychiatrie-psychiatrische-dienste-aargau-pdag-windisch-f53e665bc3",
-          "infermiera-diplomata-infermiere-diplomato-sss-sup-clinica-di-psichiatria-forense-psychiatrische-dienste-aargau-pdag-windisch-fd02209b93"
+          "infermiera-diplomata-infermiere-diplomato-sss-sup-clinica-di-psichiatria-forense-psychiatrische-dienste-aargau-pdag-windisch-fd02209b93",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-per-forensische-psychiatrie-psychiatrische-dienste-aargau-pdag-windisch"
         ]
       },
       "firstSeenAt": "2026-09-19T23:21:01.831Z",
@@ -123,7 +125,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-fh-demenz-delir/d2ecba87-d5b1-4ae7-8bbd-ace81b34655f",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.722Z",
+      "crawledAt": "2026-11-20T22:22:19.232Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -172,7 +174,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T09:49:44.722Z",
+      "validThrough": "2026-12-20T22:22:19.232Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-fh-demenz-delir/d2ecba87-d5b1-4ae7-8bbd-ace81b34655f"
     },
@@ -207,7 +209,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/psychomotoriktherapeutin-psychomotoriktherapeut/28a0ed3c-db39-4427-95f8-e3bcb50a36b0",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.725Z",
+      "crawledAt": "2026-11-20T22:22:19.235Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -268,7 +270,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T09:49:44.725Z",
+      "validThrough": "2026-12-20T22:22:19.235Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/psychomotoriktherapeutin-psychomotoriktherapeut/28a0ed3c-db39-4427-95f8-e3bcb50a36b0"
     },
@@ -303,7 +305,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/assistenzaerztin-assistenzarzt/9ffa17dc-7d5d-486a-85b0-12463645346b",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.724Z",
+      "crawledAt": "2026-11-20T22:22:19.234Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -403,7 +405,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T09:49:44.724Z",
+      "validThrough": "2026-12-20T22:22:19.234Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/assistenzaerztin-assistenzarzt/9ffa17dc-7d5d-486a-85b0-12463645346b"
     },
@@ -439,7 +441,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/assistenzaerztin-assistenzarzt-in-der-klinik-fuer-konsiliar-alters-und-neuropsychiatrie/6d2463a9-1947-487b-8f66-5ee490fe5958",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.719Z",
+      "crawledAt": "2026-11-20T22:22:19.227Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -487,7 +489,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T09:49:44.719Z",
+      "validThrough": "2026-12-20T22:22:19.227Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/assistenzaerztin-assistenzarzt-in-der-klinik-fuer-konsiliar-alters-und-neuropsychiatrie/6d2463a9-1947-487b-8f66-5ee490fe5958"
     },
@@ -523,7 +525,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/oberaerztin-oberarzt/399029d9-22ba-4e93-a079-419e91242022",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.716Z",
+      "crawledAt": "2026-11-20T22:22:19.237Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -571,7 +573,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T09:49:44.716Z",
+      "validThrough": "2026-12-20T22:22:19.237Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/oberaerztin-oberarzt/399029d9-22ba-4e93-a079-419e91242022"
     },
@@ -606,7 +608,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/assistenzaerztin-assistenzarzt-kjp/c7744ed6-9ca3-4716-a57b-040b6cd25294",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.721Z",
+      "crawledAt": "2026-11-20T22:22:19.231Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -649,7 +651,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T09:49:44.721Z",
+      "validThrough": "2026-12-20T22:22:19.231Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/assistenzaerztin-assistenzarzt-kjp/c7744ed6-9ca3-4716-a57b-040b6cd25294"
     },
@@ -685,7 +687,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/nachtaerztin-nachtarzt/3ec3c10f-6a20-49b7-997e-4caf7170418c",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.717Z",
+      "crawledAt": "2026-11-20T22:22:19.223Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -737,7 +739,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T09:49:44.717Z",
+      "validThrough": "2026-12-20T22:22:19.223Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/nachtaerztin-nachtarzt/3ec3c10f-6a20-49b7-997e-4caf7170418c"
     },
@@ -773,7 +775,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/oberaerztin-oberarzt-oder-spitalfachaerztin-spitalfacharzt/e186fc4e-b2ba-4940-952f-523dc040c32d",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.723Z",
+      "crawledAt": "2026-11-20T22:22:19.233Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -826,7 +828,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T09:49:44.723Z",
+      "validThrough": "2026-12-20T22:22:19.233Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/oberaerztin-oberarzt-oder-spitalfachaerztin-spitalfacharzt/e186fc4e-b2ba-4940-952f-523dc040c32d"
     },
@@ -862,7 +864,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/fachpsychologin-fachpsychologe-oder-assistenzpsychologin-assistenzpsychologe-fortgeschritten/3dfb4f36-a19d-4415-98df-c5f75b1331b4",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.718Z",
+      "crawledAt": "2026-11-20T22:22:19.225Z",
       "addressLocality": "Zofingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -907,7 +909,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T09:49:44.718Z",
+      "validThrough": "2026-12-20T22:22:19.225Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/fachpsychologin-fachpsychologe-oder-assistenzpsychologin-assistenzpsychologe-fortgeschritten/3dfb4f36-a19d-4415-98df-c5f75b1331b4"
     },
@@ -943,7 +945,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/ausbildungsplatz-zur-koechin-zum-koch-efz/ca96bef7-f203-4f3b-9900-5d283c54b3f3",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.715Z",
+      "crawledAt": "2026-11-20T22:22:19.236Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -986,7 +988,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T09:49:44.715Z",
+      "validThrough": "2026-12-20T22:22:19.236Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/ausbildungsplatz-zur-koechin-zum-koch-efz/ca96bef7-f203-4f3b-9900-5d283c54b3f3"
     },
@@ -1021,7 +1023,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-oder-medizinische-praxisangestellte-medizinischer-praxisangestellter/d5c7a10d-11a8-47d0-99a0-bcef160203d3",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.720Z",
+      "crawledAt": "2026-11-20T22:22:19.229Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1070,7 +1072,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T09:49:44.720Z",
+      "validThrough": "2026-12-20T22:22:19.229Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-oder-medizinische-praxisangestellte-medizinischer-praxisangestellter/d5c7a10d-11a8-47d0-99a0-bcef160203d3"
     },
@@ -1105,7 +1107,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/ergotherapeutin-ergotherapeut/c555cfaa-dd2e-4d6f-8497-570b136d86ca",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.713Z",
+      "crawledAt": "2026-11-20T22:22:19.219Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1196,7 +1198,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-24T09:49:44.713Z",
+      "validThrough": "2026-12-24T22:22:19.219Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/ergotherapeutin-ergotherapeut/c555cfaa-dd2e-4d6f-8497-570b136d86ca"
     },
@@ -1232,7 +1234,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-akutstation-kjp/f39fc2d9-c10b-4ac4-9d49-ffb05fdfdb20",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.714Z",
+      "crawledAt": "2026-11-20T22:22:19.221Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1288,7 +1290,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-24T09:49:44.714Z",
+      "validThrough": "2026-12-24T22:22:19.221Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-akutstation-kjp/f39fc2d9-c10b-4ac4-9d49-ffb05fdfdb20"
     },
@@ -1324,7 +1326,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/sozialarbeiterin-sozialarbeiter/7451832f-8dcb-4e67-9958-6001d53a56ca",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.711Z",
+      "crawledAt": "2026-11-20T22:22:19.216Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1412,7 +1414,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-24T09:49:44.711Z",
+      "validThrough": "2026-12-24T22:22:19.216Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/sozialarbeiterin-sozialarbeiter/7451832f-8dcb-4e67-9958-6001d53a56ca"
     },
@@ -1448,7 +1450,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/oberaerztin-oberarzt/9833f6bf-9a58-4c52-a805-bf7088491f36",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.712Z",
+      "crawledAt": "2026-11-20T22:22:19.217Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1549,7 +1551,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-24T09:49:44.712Z",
+      "validThrough": "2026-12-24T22:22:19.217Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/oberaerztin-oberarzt/9833f6bf-9a58-4c52-a805-bf7088491f36"
     },
@@ -1585,7 +1587,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/psychologin-psychologe-ambulatorium/b49384f0-e733-4bc9-8a03-80d7ac819e4e",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.708Z",
+      "crawledAt": "2026-11-20T22:22:19.215Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1628,7 +1630,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T09:49:44.708Z",
+      "validThrough": "2026-12-22T22:22:19.215Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/psychologin-psychologe-ambulatorium/b49384f0-e733-4bc9-8a03-80d7ac819e4e"
     },
@@ -1664,7 +1666,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-hf-nachtdienst-im-klinikbereich-neuropsychiatrie/bf93c2b9-4263-483b-9e6f-1c295a04e20c",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.705Z",
+      "crawledAt": "2026-11-20T22:22:19.211Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1727,7 +1729,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T09:49:44.705Z",
+      "validThrough": "2026-12-20T22:22:19.211Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-hf-nachtdienst-im-klinikbereich-neuropsychiatrie/bf93c2b9-4263-483b-9e6f-1c295a04e20c"
     },
@@ -1763,7 +1765,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/fachfrau-fachmann-gesundheit-im-zentrum-fuer-neuropsychiatrie/f48b067f-5b57-4a83-a005-c00270d37817",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.707Z",
+      "crawledAt": "2026-11-20T22:22:19.213Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1817,7 +1819,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T09:49:44.707Z",
+      "validThrough": "2026-12-20T22:22:19.213Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/fachfrau-fachmann-gesundheit-im-zentrum-fuer-neuropsychiatrie/f48b067f-5b57-4a83-a005-c00270d37817"
     },
@@ -1853,7 +1855,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/oberaerztin-oberarzt/bebf77cc-d315-41ad-975b-62a4a2240ceb",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.706Z",
+      "crawledAt": "2026-11-20T22:22:19.212Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1905,7 +1907,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T09:49:44.706Z",
+      "validThrough": "2026-12-22T22:22:19.212Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/oberaerztin-oberarzt/bebf77cc-d315-41ad-975b-62a4a2240ceb"
     },
@@ -1941,7 +1943,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-im-klinikbereich-neuropsychiatrie/8d798b93-59b5-4ee8-8d02-f95e317cf236",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.704Z",
+      "crawledAt": "2026-11-20T22:22:19.209Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2002,7 +2004,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T09:49:44.704Z",
+      "validThrough": "2026-12-20T22:22:19.209Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-im-klinikbereich-neuropsychiatrie/8d798b93-59b5-4ee8-8d02-f95e317cf236"
     },
@@ -2038,7 +2040,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/oberpsychologin-oberpsychologe-ambulatorium/271f1909-0867-464f-b8fc-0469ba87f922",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.702Z",
+      "crawledAt": "2026-11-20T22:22:19.208Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2090,7 +2092,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-29T09:49:44.702Z",
+      "validThrough": "2026-12-29T22:22:19.208Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/oberpsychologin-oberpsychologe-ambulatorium/271f1909-0867-464f-b8fc-0469ba87f922"
     },
@@ -2126,7 +2128,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/dipl-sozialpaedagogin-sozialpaedagoge-hf-fh/0f678cb6-869a-44d8-bb9c-a22d180377b3",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.703Z",
+      "crawledAt": "2026-11-20T22:22:19.214Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2169,7 +2171,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T09:49:44.703Z",
+      "validThrough": "2026-12-20T22:22:19.214Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/dipl-sozialpaedagogin-sozialpaedagoge-hf-fh/0f678cb6-869a-44d8-bb9c-a22d180377b3"
     },
@@ -2205,7 +2207,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/gaertner-in-mitarbeiter-in-parkunterhalt/bf951ed0-99c3-4368-a74f-5212df447398",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.702Z",
+      "crawledAt": "2026-11-20T22:22:19.207Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2250,7 +2252,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-29T09:49:44.702Z",
+      "validThrough": "2026-12-29T22:22:19.207Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/gaertner-in-mitarbeiter-in-parkunterhalt/bf951ed0-99c3-4368-a74f-5212df447398"
     },
@@ -2286,7 +2288,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-hf-akutstation-bipolare-stoerungen/3e4880bb-7396-4cf0-a07e-59acbc9f53e3",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.701Z",
+      "crawledAt": "2026-11-20T22:22:19.205Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2339,7 +2341,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T09:49:44.701Z",
+      "validThrough": "2026-12-20T22:22:19.205Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-hf-akutstation-bipolare-stoerungen/3e4880bb-7396-4cf0-a07e-59acbc9f53e3"
     },
@@ -2375,7 +2377,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-hf-akutstation-psychose-und-diagnostik/5e99f3f2-1af8-47b3-a51a-04d54c7fed63",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.700Z",
+      "crawledAt": "2026-11-20T22:22:19.206Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2427,7 +2429,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T09:49:44.700Z",
+      "validThrough": "2026-12-20T22:22:19.206Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-hf-akutstation-psychose-und-diagnostik/5e99f3f2-1af8-47b3-a51a-04d54c7fed63"
     },
@@ -2463,7 +2465,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/oberpsychologe-oberpsychologin-oder-fachpsychologe-fachpsychologin/d9023232-bfdd-415c-9dee-7f3328080f9d",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.699Z",
+      "crawledAt": "2026-11-20T22:22:19.204Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2508,7 +2510,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T09:49:44.699Z",
+      "validThrough": "2026-12-20T22:22:19.204Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/oberpsychologe-oberpsychologin-oder-fachpsychologe-fachpsychologin/d9023232-bfdd-415c-9dee-7f3328080f9d"
     },
@@ -2544,7 +2546,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/oberpsychologe-oberpsychologin-oder-fachpsychologe-fachpsychologin-mutterschaftsvertretung-befristet-fuer-6-monate/362562c8-1144-4940-9d0a-df6fdb7247d4",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.698Z",
+      "crawledAt": "2026-11-20T22:22:19.203Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2589,7 +2591,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T09:49:44.698Z",
+      "validThrough": "2026-12-20T22:22:19.203Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/oberpsychologe-oberpsychologin-oder-fachpsychologe-fachpsychologin-mutterschaftsvertretung-befristet-fuer-6-monate/362562c8-1144-4940-9d0a-df6fdb7247d4"
     },
@@ -2625,7 +2627,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-abhaengigkeitserkrankungen/86c62fb9-4602-4f2b-a55c-b413006d7380",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.696Z",
+      "crawledAt": "2026-11-20T22:22:19.202Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2685,7 +2687,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-12T09:49:44.696Z",
+      "validThrough": "2027-01-12T22:22:19.202Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-abhaengigkeitserkrankungen/86c62fb9-4602-4f2b-a55c-b413006d7380"
     },
@@ -2720,7 +2722,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/fachpsychologin-fachpsychologe-oder-assistenzpsychologin-assistenzpsychologe/b4c7a14e-9019-4678-950b-ff4f988ff1db",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.697Z",
+      "crawledAt": "2026-11-20T22:22:19.202Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2765,7 +2767,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-06T09:49:44.697Z",
+      "validThrough": "2027-01-06T22:22:19.202Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/fachpsychologin-fachpsychologe-oder-assistenzpsychologin-assistenzpsychologe/b4c7a14e-9019-4678-950b-ff4f988ff1db"
     },
@@ -2801,7 +2803,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/fachangestellte-gesundheit-fachangestellter-gesundheit-alterspsychiatrie/63b6332f-250c-44d0-9f06-b74fe9316bf7",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.695Z",
+      "crawledAt": "2026-11-20T22:22:19.201Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2849,7 +2851,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T09:49:44.695Z",
+      "validThrough": "2026-12-27T22:22:19.201Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/fachangestellte-gesundheit-fachangestellter-gesundheit-alterspsychiatrie/63b6332f-250c-44d0-9f06-b74fe9316bf7"
     },
@@ -2885,7 +2887,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/assistenzaerztin-assistenzarzt-autismusberatung/88ca7e68-f17c-45a0-bed1-7129cfb8fca8",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.694Z",
+      "crawledAt": "2026-11-20T22:22:19.199Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2928,15 +2930,15 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T09:49:44.694Z",
+      "validThrough": "2026-12-20T22:22:19.199Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/assistenzaerztin-assistenzarzt-autismusberatung/88ca7e68-f17c-45a0-bed1-7129cfb8fca8"
     },
     {
       "id": "pdag-a3e59a5cafcc",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-per-forensische-psychiatrie-psychiatrische-dienste-aargau-pdag-windisch",
+      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-per-forensische-psychiatrie-psychiatrische-dienste-aargau-pdag-windisch-f53e665bc3",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-per-forensische-psychiatrie-psychiatrische-dienste-aargau-pdag-windisch",
+        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-per-forensische-psychiatrie-psychiatrische-dienste-aargau-pdag-windisch-f53e665bc3",
         "en": "dipl-nursing-specialist-hf-fh-clinic-for-forensic-psychiatry-psychiatrische-dienste-aargau-pdag-windisch",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-fur-forensische-psychiatrie-pdag-windisch",
         "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-clinique-de-psychiatrie-legale-psychiatrische-dienste-aargau-pdag-windisch"
@@ -2988,14 +2990,16 @@
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-fur-forensische-psychiatrie-pdag-windisch",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-per-forensische-psychiatrie-9vmae7",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-fur-forensische-psychiatrie-pdag-windisch-9vmae7",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-per-forensische-psychiatrie-psychiatrische-dienste-aargau-pdag-windisch-f53e665bc3"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-per-forensische-psychiatrie-psychiatrische-dienste-aargau-pdag-windisch-f53e665bc3",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-per-forensische-psychiatrie-psychiatrische-dienste-aargau-pdag-windisch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-fur-forensische-psychiatrie-pdag-windisch",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-per-forensische-psychiatrie-9vmae7",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-fur-forensische-psychiatrie-pdag-windisch-9vmae7",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-per-forensische-psychiatrie-psychiatrische-dienste-aargau-pdag-windisch-f53e665bc3"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-per-forensische-psychiatrie-psychiatrische-dienste-aargau-pdag-windisch-f53e665bc3",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-per-forensische-psychiatrie-psychiatrische-dienste-aargau-pdag-windisch"
         ]
       },
       "firstSeenAt": "2026-09-19T23:21:01.831Z",
@@ -3049,7 +3053,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/leitende-aerztin-leitender-arzt/fa0c9d28-209b-4550-81aa-e1d3360b4d1b",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.693Z",
+      "crawledAt": "2026-11-20T22:22:19.200Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3108,7 +3112,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T09:49:44.693Z",
+      "validThrough": "2026-12-20T22:22:19.200Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/leitende-aerztin-leitender-arzt/fa0c9d28-209b-4550-81aa-e1d3360b4d1b"
     },
@@ -3144,7 +3148,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/leiterin-leiter-zentrales-und-regionale-sekretariate/55f00310-6a88-4c51-aaa2-4e82ccd474b9",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.692Z",
+      "crawledAt": "2026-11-20T22:22:19.198Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3195,7 +3199,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-07T09:49:44.692Z",
+      "validThrough": "2027-01-07T22:22:19.198Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/leiterin-leiter-zentrales-und-regionale-sekretariate/55f00310-6a88-4c51-aaa2-4e82ccd474b9"
     },
@@ -3317,7 +3321,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/dipl-pflegefachperson-hf-fh-oder-fachperson-gesundheit-im-pflegepool-flex26-mit-frei-waehlbaren-einsaetzen/5aa6e5aa-c829-4edd-bc26-8aef803c60cd",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.691Z",
+      "crawledAt": "2026-11-20T22:22:19.197Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3362,7 +3366,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-11T09:49:44.691Z",
+      "validThrough": "2027-01-11T22:22:19.197Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/dipl-pflegefachperson-hf-fh-oder-fachperson-gesundheit-im-pflegepool-flex26-mit-frei-waehlbaren-einsaetzen/5aa6e5aa-c829-4edd-bc26-8aef803c60cd"
     },
@@ -3521,7 +3525,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/sozialarbeiterin-sozialarbeiter-fh/420b7b8e-d703-462a-a693-3beac8a25faf",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.689Z",
+      "crawledAt": "2026-11-20T22:22:19.195Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3570,7 +3574,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-18T09:49:44.689Z",
+      "validThrough": "2027-01-18T22:22:19.195Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/sozialarbeiterin-sozialarbeiter-fh/420b7b8e-d703-462a-a693-3beac8a25faf"
     },
@@ -3606,7 +3610,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/leiterin-leiter-emka/66187e23-165f-46b7-bdfe-21266f83c64d",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.690Z",
+      "crawledAt": "2026-11-20T22:22:19.196Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3657,7 +3661,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-12T09:49:44.690Z",
+      "validThrough": "2027-01-12T22:22:19.196Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/leiterin-leiter-emka/66187e23-165f-46b7-bdfe-21266f83c64d"
     },
@@ -3692,7 +3696,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/oberaerztin-oberarzt-ambulatorium/b4240a79-d46a-47b7-8950-6db7bb602cbb",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.689Z",
+      "crawledAt": "2026-11-20T22:22:19.194Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3735,7 +3739,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-29T09:49:44.689Z",
+      "validThrough": "2026-12-29T22:22:19.194Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/oberaerztin-oberarzt-ambulatorium/b4240a79-d46a-47b7-8950-6db7bb602cbb"
     },
@@ -3770,7 +3774,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/assistenzpsychologin-assistenzpsychologe/09fbb3e9-8ac5-4d10-aeaa-4411e2332395",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.687Z",
+      "crawledAt": "2026-11-20T22:22:19.192Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3829,7 +3833,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-24T09:49:44.687Z",
+      "validThrough": "2027-01-24T22:22:19.192Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/assistenzpsychologin-assistenzpsychologe/09fbb3e9-8ac5-4d10-aeaa-4411e2332395"
     },
@@ -3864,7 +3868,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/fortgeschrittene-assistenzpsychologin-assistenzpsychologe/ba7e6d76-8619-415f-afb6-356deab12e19",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.688Z",
+      "crawledAt": "2026-11-20T22:22:19.193Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3913,7 +3917,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-21T09:49:44.688Z",
+      "validThrough": "2027-01-21T22:22:19.193Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/fortgeschrittene-assistenzpsychologin-assistenzpsychologe/ba7e6d76-8619-415f-afb6-356deab12e19"
     },
@@ -3949,7 +3953,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/aerztin-arzt/6a9308ff-3dc6-4d5a-a188-99a82542b953",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.686Z",
+      "crawledAt": "2026-11-20T22:22:19.191Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3992,7 +3996,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-21T09:49:44.686Z",
+      "validThrough": "2026-12-21T22:22:19.191Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/aerztin-arzt/6a9308ff-3dc6-4d5a-a188-99a82542b953"
     },
@@ -4028,7 +4032,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/dipl-pflegefachpersonen-hf-fh-im-spaet-und-nachtdienst/032ebbd6-4e63-45bd-85b9-d23258a6beb1",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.684Z",
+      "crawledAt": "2026-11-20T22:22:19.189Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4075,7 +4079,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T09:49:44.684Z",
+      "validThrough": "2026-12-20T22:22:19.189Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/dipl-pflegefachpersonen-hf-fh-im-spaet-und-nachtdienst/032ebbd6-4e63-45bd-85b9-d23258a6beb1"
     },
@@ -4110,7 +4114,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/leitende-aerztin-leitender-arzt/5e7bb703-6231-40b5-8386-eb8a366e08eb",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.683Z",
+      "crawledAt": "2026-11-20T22:22:19.188Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4159,7 +4163,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T09:49:44.683Z",
+      "validThrough": "2026-12-20T22:22:19.188Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/leitende-aerztin-leitender-arzt/5e7bb703-6231-40b5-8386-eb8a366e08eb"
     },
@@ -4195,7 +4199,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-tagesklinik/9d3bfa9b-05ae-4be8-b7c9-4b119b8be702",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.682Z",
+      "crawledAt": "2026-11-20T22:22:19.187Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4244,7 +4248,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T09:49:44.682Z",
+      "validThrough": "2027-01-26T22:22:19.187Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-tagesklinik/9d3bfa9b-05ae-4be8-b7c9-4b119b8be702"
     },
@@ -4280,7 +4284,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-hf-vorwiegend-nachtdienst-akutstation-psychose/d7c73341-cd8f-490a-ab9d-59ff57bfd9dc",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.681Z",
+      "crawledAt": "2026-11-20T22:22:19.185Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4323,7 +4327,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T09:49:44.681Z",
+      "validThrough": "2026-12-20T22:22:19.185Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-hf-vorwiegend-nachtdienst-akutstation-psychose/d7c73341-cd8f-490a-ab9d-59ff57bfd9dc"
     },
@@ -4359,7 +4363,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-hf-semi-akutstation/e3ed246e-b9e4-4a3e-a304-1028665f7132",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.680Z",
+      "crawledAt": "2026-11-20T22:22:19.184Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4413,7 +4417,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T09:49:44.680Z",
+      "validThrough": "2026-12-20T22:22:19.184Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-hf-semi-akutstation/e3ed246e-b9e4-4a3e-a304-1028665f7132"
     },
@@ -4449,7 +4453,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/dipl-pflegefachfrau-hf-dipl-pflegefachmann-hf-akutstation-psychose/23cf3d4d-2e53-470c-ae23-37f4c04c8804",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.679Z",
+      "crawledAt": "2026-11-20T22:22:19.186Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4520,7 +4524,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T09:49:44.679Z",
+      "validThrough": "2026-12-20T22:22:19.186Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/dipl-pflegefachfrau-hf-dipl-pflegefachmann-hf-akutstation-psychose/23cf3d4d-2e53-470c-ae23-37f4c04c8804"
     },
@@ -4556,7 +4560,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/leiterin-leiter-personalpool-und-mitglied-der-bereichsleitung-pflege-bildung-und-sozialdienst-pbs/aed51531-663f-4356-94ce-0934beabee29",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.678Z",
+      "crawledAt": "2026-11-20T22:22:19.183Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4607,7 +4611,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-27T09:49:44.678Z",
+      "validThrough": "2027-01-27T22:22:19.183Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/leiterin-leiter-personalpool-und-mitglied-der-bereichsleitung-pflege-bildung-und-sozialdienst-pbs/aed51531-663f-4356-94ce-0934beabee29"
     },
@@ -4642,7 +4646,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/leitende-aerztin-leitender-arzt-psychiatrie-und-psychotherapie/ec5e8867-c5b9-4e78-98cb-9e0bae22b88d",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.676Z",
+      "crawledAt": "2026-11-20T22:22:19.181Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4693,7 +4697,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-07T09:49:44.676Z",
+      "validThrough": "2027-02-07T22:22:19.181Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/leitende-aerztin-leitender-arzt-psychiatrie-und-psychotherapie/ec5e8867-c5b9-4e78-98cb-9e0bae22b88d"
     },
@@ -4729,7 +4733,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/hauptverantwortliche-r-berufsbildnerin-berufsbildner-pflege/e0e9f221-afbf-426f-b1ff-32fb10ac54f0",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.677Z",
+      "crawledAt": "2026-11-20T22:22:19.182Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4778,7 +4782,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-07T09:49:44.677Z",
+      "validThrough": "2027-02-07T22:22:19.182Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/hauptverantwortliche-r-berufsbildnerin-berufsbildner-pflege/e0e9f221-afbf-426f-b1ff-32fb10ac54f0"
     },
@@ -4813,7 +4817,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/stationsassistentin-stationsassistent-fage-mpa-in-der-klinik-forensische-psychiatrie-stationaer/3f853750-6fa4-49f4-ad99-657b43bd2d23",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.674Z",
+      "crawledAt": "2026-11-20T22:22:19.180Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4862,7 +4866,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-07T09:49:44.674Z",
+      "validThrough": "2027-02-07T22:22:19.180Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/stationsassistentin-stationsassistent-fage-mpa-in-der-klinik-forensische-psychiatrie-stationaer/3f853750-6fa4-49f4-ad99-657b43bd2d23"
     },
@@ -4898,7 +4902,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/oberaerztin-oberarzt/7f974b25-497a-4316-81e4-31625b18d60c",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.673Z",
+      "crawledAt": "2026-11-20T22:22:19.179Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4947,7 +4951,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-07T09:49:44.673Z",
+      "validThrough": "2027-02-07T22:22:19.179Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/oberaerztin-oberarzt/7f974b25-497a-4316-81e4-31625b18d60c"
     },
@@ -4982,7 +4986,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/assistenzpsychologin-assistenzpsychologe/353b2931-10d7-42c0-93f9-67ea937e0984",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.671Z",
+      "crawledAt": "2026-11-20T22:22:19.176Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5031,7 +5035,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-08T09:49:44.671Z",
+      "validThrough": "2027-02-08T22:22:19.176Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/assistenzpsychologin-assistenzpsychologe/353b2931-10d7-42c0-93f9-67ea937e0984"
     },
@@ -5067,7 +5071,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/bewegungs-und-sporttherapeutin-bewegungs-und-sporttherapeut-demenz-delir-station/ad99b252-de9c-406e-bc05-20d1d32bec9f",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.672Z",
+      "crawledAt": "2026-11-20T22:22:19.178Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5118,7 +5122,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-08T09:49:44.672Z",
+      "validThrough": "2027-02-08T22:22:19.178Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/bewegungs-und-sporttherapeutin-bewegungs-und-sporttherapeut-demenz-delir-station/ad99b252-de9c-406e-bc05-20d1d32bec9f"
     },
@@ -5154,7 +5158,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-fh-fuer-eine-psychotherapiestation/5a877888-b5e1-4fae-ac36-859e7addc83d",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.670Z",
+      "crawledAt": "2026-11-20T22:22:19.173Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5201,7 +5205,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T09:49:44.670Z",
+      "validThrough": "2026-12-20T22:22:19.173Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-fh-fuer-eine-psychotherapiestation/5a877888-b5e1-4fae-ac36-859e7addc83d"
     },
@@ -5237,7 +5241,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/peerfachfrau-peerfachmann/c756cf09-6f00-4b66-a9bd-42bf9cd33215",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.669Z",
+      "crawledAt": "2026-11-20T22:22:19.175Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5286,7 +5290,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-10T09:49:44.669Z",
+      "validThrough": "2027-01-10T22:22:19.175Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/peerfachfrau-peerfachmann/c756cf09-6f00-4b66-a9bd-42bf9cd33215"
     },
@@ -5321,7 +5325,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/ergotherapeutin-ergotherapeut/24001421-6661-4d04-bbea-7f0bf781635b",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.668Z",
+      "crawledAt": "2026-11-20T22:22:19.172Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5380,7 +5384,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T09:49:44.668Z",
+      "validThrough": "2026-12-20T22:22:19.172Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/ergotherapeutin-ergotherapeut/24001421-6661-4d04-bbea-7f0bf781635b"
     },
@@ -5416,7 +5420,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-abhaengigkeitserkrankungen/add59733-5fdb-4a2d-9a76-97093ee28707",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.667Z",
+      "crawledAt": "2026-11-20T22:22:19.170Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5465,7 +5469,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T09:49:44.667Z",
+      "validThrough": "2027-02-09T22:22:19.170Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-abhaengigkeitserkrankungen/add59733-5fdb-4a2d-9a76-97093ee28707"
     },
@@ -5500,7 +5504,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/ergotherapeutin-ergotherapeut/52b3c741-9afe-420d-91cc-46e6944177ee",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.664Z",
+      "crawledAt": "2026-11-20T22:22:19.168Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5546,7 +5550,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T09:49:44.664Z",
+      "validThrough": "2027-02-09T22:22:19.168Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/ergotherapeutin-ergotherapeut/52b3c741-9afe-420d-91cc-46e6944177ee"
     },
@@ -5582,7 +5586,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/stationsleiterin-stationsleiter/ff4ad143-afba-408c-b82a-a52355eb42e8",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.665Z",
+      "crawledAt": "2026-11-20T22:22:19.169Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5625,7 +5629,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-31T09:49:44.665Z",
+      "validThrough": "2026-12-31T22:22:19.169Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/stationsleiterin-stationsleiter/ff4ad143-afba-408c-b82a-a52355eb42e8"
     },
@@ -5660,7 +5664,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/arztsekretaerin-arztsekretaer/efafd5df-dadd-4ecb-be7f-d53fe4ad2b80",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.662Z",
+      "crawledAt": "2026-11-20T22:22:19.167Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5709,7 +5713,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T09:49:44.662Z",
+      "validThrough": "2027-02-09T22:22:19.167Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/arztsekretaerin-arztsekretaer/efafd5df-dadd-4ecb-be7f-d53fe4ad2b80"
     },
@@ -5745,7 +5749,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/stv-stationsleiterin-stv-stationsleiter-tagesklinik-mit-fachverantwortung/70ec5078-ea79-4d77-a8f2-82553edb58c3",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.661Z",
+      "crawledAt": "2026-11-20T22:22:19.166Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5788,7 +5792,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-24T09:49:44.661Z",
+      "validThrough": "2026-12-24T22:22:19.166Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/stv-stationsleiterin-stv-stationsleiter-tagesklinik-mit-fachverantwortung/70ec5078-ea79-4d77-a8f2-82553edb58c3"
     },
@@ -5823,7 +5827,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/dipl-sozialpaedagogin-sozialpaedagoge/e9537f28-a052-48c8-9ed4-19d3de77d280",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.659Z",
+      "crawledAt": "2026-11-20T22:22:19.164Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5866,7 +5870,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T09:49:44.659Z",
+      "validThrough": "2026-12-20T22:22:19.164Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/dipl-sozialpaedagogin-sozialpaedagoge/e9537f28-a052-48c8-9ed4-19d3de77d280"
     },
@@ -5902,7 +5906,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/oberaerztin-oberarzt-home-treatment-und-aufsuchende-angebote/e1076da6-c73f-4196-b500-f2162ff304ba",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.657Z",
+      "crawledAt": "2026-11-20T22:22:19.162Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5954,7 +5958,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-11T09:49:44.657Z",
+      "validThrough": "2027-02-11T22:22:19.162Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/oberaerztin-oberarzt-home-treatment-und-aufsuchende-angebote/e1076da6-c73f-4196-b500-f2162ff304ba"
     },
@@ -5990,7 +5994,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/oberarzt-oberaerztin-autismusfachstelle/c525b807-cb26-4b8c-9041-6752c0af6b06",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.656Z",
+      "crawledAt": "2026-11-20T22:22:19.160Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -6035,7 +6039,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-11T09:49:44.656Z",
+      "validThrough": "2027-02-11T22:22:19.160Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/oberarzt-oberaerztin-autismusfachstelle/c525b807-cb26-4b8c-9041-6752c0af6b06"
     },
@@ -6071,7 +6075,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/oberpsychologin-oberpsychologe-home-treatment/242769ea-4f80-46ac-9e11-194140f96747",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.655Z",
+      "crawledAt": "2026-11-20T22:22:19.159Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -6128,7 +6132,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-11T09:49:44.655Z",
+      "validThrough": "2027-02-11T22:22:19.159Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/oberpsychologin-oberpsychologe-home-treatment/242769ea-4f80-46ac-9e11-194140f96747"
     },
@@ -6164,7 +6168,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/psychologiepraktikantin-psychologiepraktikant-tagesklinik-aarau/ce4b3dac-506e-4484-b9a1-272e8dac15ae",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.653Z",
+      "crawledAt": "2026-11-20T22:22:19.158Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -6216,7 +6220,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-14T09:49:44.653Z",
+      "validThrough": "2027-02-14T22:22:19.158Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/psychologiepraktikantin-psychologiepraktikant-tagesklinik-aarau/ce4b3dac-506e-4484-b9a1-272e8dac15ae"
     },
@@ -6251,7 +6255,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/mitarbeiterin-mitarbeiter-textil-service-center/c08b7a1e-19a6-426a-a21e-0b9b2f088041",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.651Z",
+      "crawledAt": "2026-11-20T22:22:19.156Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -6302,7 +6306,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-14T09:49:44.651Z",
+      "validThrough": "2027-02-14T22:22:19.156Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/mitarbeiterin-mitarbeiter-textil-service-center/c08b7a1e-19a6-426a-a21e-0b9b2f088041"
     },
@@ -6337,7 +6341,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/fachpsychologin-fachpsychologe-oder-assistenzpsychologin-assistenzpsychologe/c3d914c7-db44-40d8-9d90-14900bb4147a",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.650Z",
+      "crawledAt": "2026-11-20T22:22:19.155Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -6388,7 +6392,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T09:49:44.650Z",
+      "validThrough": "2027-02-09T22:22:19.155Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/fachpsychologin-fachpsychologe-oder-assistenzpsychologin-assistenzpsychologe/c3d914c7-db44-40d8-9d90-14900bb4147a"
     },
@@ -6423,7 +6427,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/fachpsychologin-fachpsychologe-oder-assistenzpsychologin-assistenzpsychologe/6e0da05c-cf9c-476f-9e19-85fedf486823",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.647Z",
+      "crawledAt": "2026-11-20T22:22:19.152Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -6474,7 +6478,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-14T09:49:44.647Z",
+      "validThrough": "2027-02-14T22:22:19.152Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/fachpsychologin-fachpsychologe-oder-assistenzpsychologin-assistenzpsychologe/6e0da05c-cf9c-476f-9e19-85fedf486823"
     },
@@ -6510,7 +6514,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann/0ef15343-74c3-4a73-8a22-345795196928",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.649Z",
+      "crawledAt": "2026-11-20T22:22:19.153Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -6553,7 +6557,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-14T09:49:44.649Z",
+      "validThrough": "2027-02-14T22:22:19.153Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann/0ef15343-74c3-4a73-8a22-345795196928"
     },
@@ -6589,7 +6593,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/sekundarlehrerin-sekundarlehrer-shp-mutterschaftsvertretung/f53e6b93-7cc1-43c8-803c-a590af6998d0",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.646Z",
+      "crawledAt": "2026-11-20T22:22:19.150Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -6638,7 +6642,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-19T09:49:44.646Z",
+      "validThrough": "2027-01-19T22:22:19.150Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/sekundarlehrerin-sekundarlehrer-shp-mutterschaftsvertretung/f53e6b93-7cc1-43c8-803c-a590af6998d0"
     },
@@ -6674,7 +6678,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/oberaerztin-oberarzt-abhaengigkeitserkrankungen/1b3b5279-1c6f-4d73-b26e-f1f1932a12f6",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.643Z",
+      "crawledAt": "2026-11-20T22:22:19.149Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -6717,7 +6721,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-14T09:49:44.643Z",
+      "validThrough": "2027-02-14T22:22:19.149Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/oberaerztin-oberarzt-abhaengigkeitserkrankungen/1b3b5279-1c6f-4d73-b26e-f1f1932a12f6"
     },
@@ -6753,7 +6757,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/oberpsychologin-oberpsychologe-abhaengigkeitserkrankungen/041f4aaa-04dd-47b0-9a79-b629b67bbdf5",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.641Z",
+      "crawledAt": "2026-11-20T22:22:19.147Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -6802,7 +6806,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-14T09:49:44.641Z",
+      "validThrough": "2027-02-14T22:22:19.147Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/oberpsychologin-oberpsychologe-abhaengigkeitserkrankungen/041f4aaa-04dd-47b0-9a79-b629b67bbdf5"
     },
@@ -6838,7 +6842,7 @@
       "url": "https://jobs.pdag.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-tagesklinik/e8a29dce-1add-46fc-a87c-8bdeefafdafd",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.640Z",
+      "crawledAt": "2026-11-20T22:22:19.146Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -6887,16 +6891,16 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-25T09:49:44.640Z",
+      "validThrough": "2027-01-25T22:22:19.146Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.pdag.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-tagesklinik/e8a29dce-1add-46fc-a87c-8bdeefafdafd"
     },
     {
       "id": "pdag-592e46939e45",
-      "slug": "responsabile-della-sicurezza-delle-informazioni-iso-psychiatrische-dienste-aargau-pdag-windisch",
+      "slug": "information-security-officer-iso-pdag-windisch",
       "slugByLocale": {
         "de": "information-security-officer-iso-pdag-windisch",
-        "it": "responsabile-della-sicurezza-delle-informazioni-iso-psychiatrische-dienste-aargau-pdag-windisch",
+        "it": "information-security-officer-iso-pdag-windisch",
         "en": "information-security-officer-iso-pdag-windisch",
         "fr": "information-security-officer-iso-pdag-windisch"
       },
@@ -6906,23 +6910,23 @@
       "title": "Information Security Officer (ISO)",
       "titleByLocale": {
         "de": "Information Security Officer (ISO)",
-        "it": "Responsabile della sicurezza delle informazioni (ISO)",
-        "en": "Information Security Officer",
-        "fr": "Agent de la sécurité de l'information (ISO)"
+        "it": "Information Security Officer (ISO)",
+        "en": "Information Security Officer (ISO)",
+        "fr": "Information Security Officer (ISO)"
       },
       "description": "## Innovations- und Digitalisierungsmanagement (IDM)\nZur Verstärkung unseres Teams im Bereich Innovations- und Digitalisierungsmanagement suchen wir per sofort oder nach Vereinbarung Sie als\nDie Psychiatrischen Dienste Aargau AG (PDAG) sind für die qualitativ hochstehende medizinische, therapeutische und pflegerische Behandlung und Betreuung von psychisch erkrankten Menschen im Kanton Aargau verantwortlich. Sie beschäftigen rund 1'600 Mitarbeitende in über 50 Berufen.\nInnovations- und Digitalisierungsmanagement (IDM)\n5210 Windisch\nArbeitspensum: 80 - 100 %\n80 - 100 %\n\n## Über den Bereich\nDer Querschnittsbereich Innovations- und Digitalisierungsmanagement (IDM) umfasst die Abteilungen Unternehmensentwicklung und Informatik und bündelt damit bisher eigenständig operierende Bereiche sowie dezentrale Projekte der PDAG. Als Teil der Unternehmensstrategie plant und entwickelt er Innovationen für das Unternehmen und setzt diese eigenständig sowie in Zusammenarbeit mit externen Providern um. Zusätzlich ist er für das Funktionieren und die Weiterentwicklung der IT-Infrastruktur sowie bestehender und neuer Applikationen, wie zum Beispiel ORBIS, zuständig. Als neugeschaffener Geschäftsbereich trägt der IDM wesentlich zur Zukunftsfähigkeit der PDAG im sich schnell wandelnden Schweizer Gesundheitswesen bei.\n\n## Aufgaben\n• Überwachen des Informationssicherheits-Managementsystem (ISMS) und Monitoring IT\n• Kontrolle von internen und externen Vorgaben sowie der Massnahmen zur Steigerung der Informationssicherheit und Rapportierung der Verstösse sowie der Effektivität an die verantwortlichen Organe\n• Laufende Beobachtung der Bedrohungslage, Bewertung der Sicherheitsrisiken sowie Alarmierung bei Sicherheitsvorfällen\n• Planung und Durchführung von Massnahmen (bspw. Schulungen und Kampagnen zur Steigerung des Bewusstseins /Awareness der Mitarbeiterschaft bezüglich der Thematik der Informationssicherheit)\n• Unterstützung bei fachspezifischen Fragen aus Projekten oder dem Betrieb als Fachexperte (bspw. Prüfen von Dokumenten, Konzepten und Empfehlungen wie DSFA, etc.)\n• Überwachung der Einhaltung von Datenschutzvorschriften gemäss DSMS und Beratung verschiedene Bereiche der PDAG in Datenschutzfragen\n• Die Leistungserbringung erfolgt im Auftrag Leitung IDM der PDAG für mehrere Standorte sowie für die Psychiatrie Baselland\n\n## Profil\n• Hochschulabschluss im Bereich Informatik oder Wirtschaftsinformatik mit Weiterbildung in der Informationssicherheit (z. B. MAS Cyber Security/Information Security, CISSP/CISA/CISM/CRISC)\n• Nachweisbare Berufserfahrung im Bereich der Informatiksicherheit, der Informationssicherheit und des Datenschutzes\n• Fundierte Kenntnisse und / oder Weiterbildung im juristischen Bereich von Vorteil\n• Strategisches Denken, Freude und Erfahrung in der interdisziplinären Zusammenarbeit von Teamstufe bis Geschäftsleitung\n• Ausgezeichnete Kommunikationsfähigkeiten sowie starke Fähigkeiten in der Konzeption\n• Hohe Kunden- und Serviceorientierung, analytischen Fähigkeiten und Umsetzungsstärke\n• Eigenverantwortliche, gesamtheitlich denkende Persönlichkeit, welche auch in hektischen Momenten die Zielsetzungen nicht aus dem Auge verliert\nBenefits\n\n## Dienstjubiläum\nLoyalität zahlt sich aus: zusätzlicher Ferientag zum dreijährigen Dienstjubiläum sowie weitere grosszügige Geschenke alle 5 Jahre.\n\n## Weiterempfehlungsprogramm\nDie erfolgreiche Vermittlung neuer Mitarbeitender belohnen wir mit einer Prämie von bis zu 2000.- Franken.\n\n## Flexibilität\nWir unterstützen Teilzeitarbeitsmodelle, ermöglichen den Ferienkauf bis zu zwei Wochen pro Kalenderjahr und bieten unbezahlten Urlaub von bis zu 12 Monaten an.\n\n## Weiterbildung und Entwicklung\nWir bieten komplette Weiterbildungsgänge und Rotationen in allen Fachbereichen an. Zudem unterstützen unsere Mitarbeitenden mit einer überdurchschnittlich hohen Anzahl interner und externer Weiterbildungstage.\n\n## Brands for Employees\nMitarbeitende haben die Möglichkeit, kostenlos von den zahlreichen Angeboten der Plattform «Brands for Employees» zu profitieren.\n\n## Vergünstigungen bei über 150 bekannten Marken\nUnsere Mitarbeitenden erhalten Zugang zur Plattform «Swibeco». Dort profitieren sie von grosszügigen Rabatten bei bekannten Marken wie Zalando, Coop, Ikea, Fust, Orell Füssli und vielen mehr.\nUnsere Werte\n\n## Vertrauen\nWir leben Loyalität und professionelle Zusammenarbeit – sie sind das Fundament unseres Vertrauens.\nEngagement: Wir arbeiten gemeinsam mit Herz und Kompetenz.\n\n## Mut\nWir bringen unsere Ideen und Meinungen unvoreingenommen und ehrlich ein und schaffen so Raum für ergebnisoffene Prozesse.\nEin ausgezeichneter Arbeitgeber!",
       "descriptionByLocale": {
         "de": "## Innovations- und Digitalisierungsmanagement (IDM)\nZur Verstärkung unseres Teams im Bereich Innovations- und Digitalisierungsmanagement suchen wir per sofort oder nach Vereinbarung Sie als\nDie Psychiatrischen Dienste Aargau AG (PDAG) sind für die qualitativ hochstehende medizinische, therapeutische und pflegerische Behandlung und Betreuung von psychisch erkrankten Menschen im Kanton Aargau verantwortlich. Sie beschäftigen rund 1'600 Mitarbeitende in über 50 Berufen.\nInnovations- und Digitalisierungsmanagement (IDM)\n5210 Windisch\nArbeitspensum: 80 - 100 %\n80 - 100 %\n\n## Über den Bereich\nDer Querschnittsbereich Innovations- und Digitalisierungsmanagement (IDM) umfasst die Abteilungen Unternehmensentwicklung und Informatik und bündelt damit bisher eigenständig operierende Bereiche sowie dezentrale Projekte der PDAG. Als Teil der Unternehmensstrategie plant und entwickelt er Innovationen für das Unternehmen und setzt diese eigenständig sowie in Zusammenarbeit mit externen Providern um. Zusätzlich ist er für das Funktionieren und die Weiterentwicklung der IT-Infrastruktur sowie bestehender und neuer Applikationen, wie zum Beispiel ORBIS, zuständig. Als neugeschaffener Geschäftsbereich trägt der IDM wesentlich zur Zukunftsfähigkeit der PDAG im sich schnell wandelnden Schweizer Gesundheitswesen bei.\n\n## Aufgaben\n• Überwachen des Informationssicherheits-Managementsystem (ISMS) und Monitoring IT\n• Kontrolle von internen und externen Vorgaben sowie der Massnahmen zur Steigerung der Informationssicherheit und Rapportierung der Verstösse sowie der Effektivität an die verantwortlichen Organe\n• Laufende Beobachtung der Bedrohungslage, Bewertung der Sicherheitsrisiken sowie Alarmierung bei Sicherheitsvorfällen\n• Planung und Durchführung von Massnahmen (bspw. Schulungen und Kampagnen zur Steigerung des Bewusstseins /Awareness der Mitarbeiterschaft bezüglich der Thematik der Informationssicherheit)\n• Unterstützung bei fachspezifischen Fragen aus Projekten oder dem Betrieb als Fachexperte (bspw. Prüfen von Dokumenten, Konzepten und Empfehlungen wie DSFA, etc.)\n• Überwachung der Einhaltung von Datenschutzvorschriften gemäss DSMS und Beratung verschiedene Bereiche der PDAG in Datenschutzfragen\n• Die Leistungserbringung erfolgt im Auftrag Leitung IDM der PDAG für mehrere Standorte sowie für die Psychiatrie Baselland\n\n## Profil\n• Hochschulabschluss im Bereich Informatik oder Wirtschaftsinformatik mit Weiterbildung in der Informationssicherheit (z. B. MAS Cyber Security/Information Security, CISSP/CISA/CISM/CRISC)\n• Nachweisbare Berufserfahrung im Bereich der Informatiksicherheit, der Informationssicherheit und des Datenschutzes\n• Fundierte Kenntnisse und / oder Weiterbildung im juristischen Bereich von Vorteil\n• Strategisches Denken, Freude und Erfahrung in der interdisziplinären Zusammenarbeit von Teamstufe bis Geschäftsleitung\n• Ausgezeichnete Kommunikationsfähigkeiten sowie starke Fähigkeiten in der Konzeption\n• Hohe Kunden- und Serviceorientierung, analytischen Fähigkeiten und Umsetzungsstärke\n• Eigenverantwortliche, gesamtheitlich denkende Persönlichkeit, welche auch in hektischen Momenten die Zielsetzungen nicht aus dem Auge verliert\nBenefits\n\n## Dienstjubiläum\nLoyalität zahlt sich aus: zusätzlicher Ferientag zum dreijährigen Dienstjubiläum sowie weitere grosszügige Geschenke alle 5 Jahre.\n\n## Weiterempfehlungsprogramm\nDie erfolgreiche Vermittlung neuer Mitarbeitender belohnen wir mit einer Prämie von bis zu 2000.- Franken.\n\n## Flexibilität\nWir unterstützen Teilzeitarbeitsmodelle, ermöglichen den Ferienkauf bis zu zwei Wochen pro Kalenderjahr und bieten unbezahlten Urlaub von bis zu 12 Monaten an.\n\n## Weiterbildung und Entwicklung\nWir bieten komplette Weiterbildungsgänge und Rotationen in allen Fachbereichen an. Zudem unterstützen unsere Mitarbeitenden mit einer überdurchschnittlich hohen Anzahl interner und externer Weiterbildungstage.\n\n## Brands for Employees\nMitarbeitende haben die Möglichkeit, kostenlos von den zahlreichen Angeboten der Plattform «Brands for Employees» zu profitieren.\n\n## Vergünstigungen bei über 150 bekannten Marken\nUnsere Mitarbeitenden erhalten Zugang zur Plattform «Swibeco». Dort profitieren sie von grosszügigen Rabatten bei bekannten Marken wie Zalando, Coop, Ikea, Fust, Orell Füssli und vielen mehr.\nUnsere Werte\n\n## Vertrauen\nWir leben Loyalität und professionelle Zusammenarbeit – sie sind das Fundament unseres Vertrauens.\nEngagement: Wir arbeiten gemeinsam mit Herz und Kompetenz.\n\n## Mut\nWir bringen unsere Ideen und Meinungen unvoreingenommen und ehrlich ein und schaffen so Raum für ergebnisoffene Prozesse.\nEin ausgezeichneter Arbeitgeber!",
-        "it": "## Gestione dell'innovazione e della digitalizzazione (IDM)\nPer rafforzare il nostro team nel campo dell'innovazione e della digitalizzazione, ti stiamo cercando come\nLa Psychiatric Services Aargau AG (PDAG) è responsabile del trattamento medico, terapeutico e infermieristico di alta qualità e della cura dei malati mentali nel Canton Aargau. Occupano circa 1.600 persone in oltre 50 professioni.\nGestione dell'innovazione e della digitalizzazione (IDM)\n5210 Windy\nCarico di lavoro: 80 - 100 %\n80 - 100 %\n\n## Sulla zona\nL'area trasversale di innovazione e gestione della digitalizzazione (IDM) comprende i dipartimenti di sviluppo aziendale e di informatica e quindi raggruppa in precedenza dipartimenti operativi indipendenti e progetti decentrati del PDAG. Nell'ambito della strategia aziendale, progetta e sviluppa innovazioni per l'azienda e le implementa in modo indipendente e in collaborazione con fornitori esterni. Inoltre, è responsabile del funzionamento e dell'ulteriore sviluppo dell'infrastruttura IT, nonché delle applicazioni esistenti e nuove, come ORBIS. In qualità di business unit di nuova creazione, IDM contribuisce in modo significativo alla futura redditività del PDAG nel settore sanitario svizzero in rapida evoluzione.\n\n## Compiti\n• Monitoraggio del sistema di gestione della sicurezza delle informazioni (ISMS) e monitoraggio IT\n• Controllo dei requisiti interni ed esterni nonché delle misure volte ad aumentare la sicurezza dell'informazione e a denunciare le violazioni e l'efficacia degli organi responsabili\n• Monitoraggio delle minacce in corso, valutazione dei rischi di sicurezza e segnalazione degli incidenti\n• Pianificazione e attuazione di misure (ad esempio formazione e campagne per aumentare la consapevolezza/consapevolezza del personale in materia di sicurezza dell'informazione)\n• Sostegno a domande specifiche da progetti o operazioni come esperto (ad esempio la revisione di documenti, concetti e raccomandazioni come DSFA, ecc.)\n• Monitorare la conformità alle normative sulla protezione dei dati in conformità con DSMS e consigliare varie aree di PDAG in materia di protezione dei dati\n• I servizi sono forniti per conto di IDM a PDAG per diverse località e per la psichiatria Baselland\n\n## Profilo\n• Laurea in informatica o informatica aziendale con ulteriore formazione nella sicurezza delle informazioni (ad esempio MAS Cyber Security/Information Security, CISSP/CISA/CISM/CRISC)\n• Prove di esperienza professionale nel campo della sicurezza delle informazioni, della sicurezza delle informazioni e della protezione dei dati\n• Conoscenza del suono e / o formazione ulteriore nel campo legale di vantaggio\n• Pensiero strategico, gioia ed esperienza nella cooperazione interdisciplinare dal livello del team alla gestione\n• Eccellente capacità di comunicazione e competenze forti nel concepimento\n• Alto orientamento al cliente e al servizio, competenze analitiche e forza di implementazione\n• Personalità auto-responsabile, olistica-pensante che non perde di vista gli obiettivi anche nei momenti frenetici\nVantaggi\n\n## anniversario del servizio\nLoyalty paga: vacanze aggiuntive per il triennio e altri doni generosi ogni 5 anni.\n\n## Programma di raccomandazione\nRicompenseremo la riuscita collocazione di nuovi dipendenti con un premio fino a 2000.- franchi.\n\n## Flessibilità\nSosteniamo modelli di lavoro part-time, consentiamo gli acquisti di vacanze fino a due settimane all'anno civile e offriamo vacanze non pagate fino a 12 mesi.\n\n## Formazione e sviluppo\nOffriamo corsi di formazione completi e rotazioni in tutte le aree tematiche. Inoltre, i nostri dipendenti supportano un numero superiore di giorni di formazione interni ed esterni.\n\n## Marche per datori di lavoro\nI dipendenti hanno la possibilità di beneficiare gratuitamente delle numerose offerte della piattaforma \"Brands for Employees\".\n\n## Sconti per oltre 150 marchi ben noti\nI nostri dipendenti possono accedere alla piattaforma “Swibeco”. Qui beneficiano di sconti generosi a marchi noti come Zalando, Coop, Ikea, Fust, Orell Füssli e molti altri.\nI nostri valori\n\n## Fiducia\nViviamo la lealtà e la cooperazione professionale – sono la base della nostra fiducia.\nImpegno: Lavoriamo insieme a cuore e competenza.\n\n## Coraggio\nContribuiamo le nostre idee e le nostre opinioni senza pregiudizio e onestamente e creiamo così spazio per processi aperti.\nUn ottimo datore di lavoro!",
-        "en": "## Innovation and Digitalization Management (IDM)\nIn order to strengthen our team in the field of innovation and digitalization management, we are looking for you as\nThe Psychiatric Services Aargau AG (PDAG) is responsible for the high-quality medical, therapeutic and nursing treatment and care of mentally ill people in the Canton of Aargau. They employ around 1,600 people in over 50 professions.\nInnovation and Digitalization Management (IDM)\n5210 Windy\nWorkload: 80 - 100 %\n80 - 100 %\n\n## Over the area\nThe cross-sectional area of innovation and digitalization management (IDM) comprises the departments of corporate development and computer science and thus bundles previously independently operating departments as well as decentralized projects of the PDAG. As part of the corporate strategy, he plans and develops innovations for the company and implements them independently and in cooperation with external providers. In addition, he is responsible for the functioning and further development of the IT infrastructure as well as existing and new applications, such as ORBIS. As a newly created business unit, IDM contributes significantly to the future viability of PDAG in the rapidly changing Swiss healthcare sector.\n\n## Tasks\n• Monitoring Information Security Management System (ISMS) and Monitoring IT\n• Control of internal and external requirements as well as the measures to increase information security and report infringements and effectiveness to the responsible bodies\n• Ongoing threat monitoring, security risk assessment and incident alerting\n• Planning and implementation of measures (e.g. training and campaigns to increase awareness / awareness of the staff regarding the topic of information security)\n• Support for subject-specific questions from projects or operation as an expert (e.g. review of documents, concepts and recommendations such as DSFA, etc.)\n• Monitoring compliance with data protection regulations in accordance with DSMS and advising various areas of PDAG in data protection matters\n• The services are provided on behalf of IDM at PDAG for several locations as well as for the psychiatry Baselland\n\n## Profile\n• Graduate degree in computer science or business informatics with further training in information security (e.g. MAS Cyber Security/Information Security, CISSP/CISA/CISM/CRISC)\n• Evidence of professional experience in the field of information security, information security and data protection\n• Sound knowledge and / or further education in the legal field of advantage\n• Strategic thinking, joy and experience in interdisciplinary cooperation from team level to management\n• Excellent communication skills as well as strong skills in conception\n• High customer and service orientation, analytical skills and implementation strength\n• Self-responsible, holistic-thinking personality who does not lose sight of goals even in hectic moments\nBenefits\n\n## Service anniversary\nLoyalty pays off: additional holidays for the three-year anniversary and other generous gifts every 5 years.\n\n## Recommendation programme\nWe reward the successful placement of new employees with a premium of up to 2000.- francs.\n\n## Flexibility\nWe support part-time work models, enable holiday purchases up to two weeks per calendar year and offer unpaid holidays of up to 12 months.\n\n## Training and development\nWe offer complete training courses and rotations in all subject areas. In addition, our employees support with an above-average number of internal and external training days.\n\n## Brands for employers\nEmployees have the opportunity to benefit free of charge from the numerous offers of the \"Brands for Employees\" platform.\n\n## Discounts for more than 150 well-known brands\nOur employees get access to the “Swibeco” platform. There they benefit from generous discounts at well-known brands such as Zalando, Coop, Ikea, Fust, Orell Füssli and many more.\nOur values\n\n## Trust\nWe live loyalty and professional cooperation – they are the foundation of our trust.\nCommitment: We work together with heart and competence.\n\n## Courage\nWe contribute our ideas and opinions without prejudice and honestly and thus create space for open-ended processes.\nAn excellent employer!",
-        "fr": "## Gestion de l'innovation et de la numérisation\nAfin de renforcer notre équipe dans le domaine de la gestion de l'innovation et de la numérisation, nous vous recherchons comme\nLes Services psychiatriques Aargau AG (PDAG) sont responsables du traitement et des soins médicaux, thérapeutiques et infirmiers de haute qualité des malades mentaux du canton d'Aargau. Ils emploient environ 1 600 personnes dans plus de 50 professions.\nGestion de l'innovation et de la numérisation\n5210 Ventilé\nCharge de travail: 80 - 100 %\n80 - 100 %\n\n## Au-dessus de la zone\nLe domaine transversal de la gestion de l'innovation et de la numérisation (DIM) comprend les départements du développement de l'entreprise et de l'informatique et regroupe ainsi des départements auparavant indépendants ainsi que des projets décentralisés du PDAG. Dans le cadre de la stratégie d'entreprise, il planifie et développe des innovations pour l'entreprise et les met en œuvre indépendamment et en coopération avec des fournisseurs externes. En outre, il est responsable du fonctionnement et du développement de l'infrastructure informatique ainsi que des applications existantes et nouvelles, comme ORBIS. En tant qu'unité commerciale nouvellement créée, IDM contribue de manière significative à la viabilité future du PDAG dans le secteur suisse de la santé en évolution rapide.\n\n## Tâches\n• Surveillance du système de gestion de la sécurité de l'information (SGSI) et surveillance de la TI\n• Contrôle des exigences internes et externes ainsi que des mesures visant à renforcer la sécurité de l'information et à signaler les infractions et l'efficacité aux organismes responsables\n• Surveillance continue des menaces, évaluation des risques pour la sécurité et alerte aux incidents\n• Planification et mise en œuvre des mesures (par exemple formation et campagnes visant à sensibiliser le personnel au sujet de la sécurité de l'information)\n• Soutien aux questions spécifiques des projets ou des opérations à titre d'expert (p. ex. examen de documents, de concepts et de recommandations comme l'EDAM, etc.)\n• Contrôler le respect des règles de protection des données conformément au DSMS et conseiller les différents secteurs du PDAG en matière de protection des données\n• Les services sont fournis pour le compte d'IDM au PDAG pour plusieurs emplacements ainsi que pour la psychiatrie Baselland\n\n## Profil\n• Diplôme d'études supérieures en informatique ou en informatique commerciale avec une formation complémentaire en sécurité de l'information (p. ex. MAS Cyber Security/Information Security, CISSP/CISA/CISM/CRISC)\n• Preuve d'une expérience professionnelle dans le domaine de la sécurité de l'information, de la sécurité de l'information et de la protection des données\n• Connaissances solides et/ou formation complémentaire dans le domaine juridique des avantages\n• Pensée stratégique, joie et expérience dans la coopération interdisciplinaire du niveau de l'équipe à la gestion\n• Excellentes compétences en communication et en conception\n• Orientation client et service élevée, compétences analytiques et force de mise en œuvre\n• Personnalité auto-responsable, holistique-pensant qui ne perd pas de vue les objectifs même dans les moments agités\nAvantages\n\n## Anniversaire de service\nLoyalty paie : des vacances supplémentaires pour les trois ans et d'autres cadeaux généreux tous les 5 ans.\n\n## Programme de recommandation\nNous récompensons le placement réussi de nouveaux employés avec une prime allant jusqu'à 2000.- francs.\n\n## Flexibilité\nNous soutenons des modèles de travail à temps partiel, permet des achats de vacances jusqu'à deux semaines par année civile et offre des vacances non rémunérées jusqu'à 12 mois.\n\n## Formation et perfectionnement\nNous offrons des cours de formation complets et des rotations dans tous les domaines. De plus, nos employés soutiennent un nombre supérieur à la moyenne de journées de formation internes et externes.\n\n## Marques pour employeurs\nLes employés ont la possibilité de bénéficier gratuitement des nombreuses offres de la plateforme « Marques pour les employés ».\n\n## Réductions pour plus de 150 marques connues\nNos employés ont accès à la plate-forme \"Swibeco\". Là, ils bénéficient de rabais généreux dans des marques bien connues telles que Zalando, Coop, Ikea, Fust, Orell Füssli et bien d'autres.\nNos valeurs\n\n## Confiance\nNous vivons la loyauté et la coopération professionnelle – elles sont le fondement de notre confiance.\nEngagement : Nous travaillons avec cœur et compétence.\n\n## Courage\nNous apportons nos idées et nos opinions sans préjugés et honnêtement et créons ainsi un espace pour les processus ouverts.\nUn excellent employeur !"
+        "it": "## Innovations- und Digitalisierungsmanagement (IDM)\nZur Verstärkung unseres Teams im Bereich Innovations- und Digitalisierungsmanagement suchen wir per sofort oder nach Vereinbarung Sie als\nDie Psychiatrischen Dienste Aargau AG (PDAG) sind für die qualitativ hochstehende medizinische, therapeutische und pflegerische Behandlung und Betreuung von psychisch erkrankten Menschen im Kanton Aargau verantwortlich. Sie beschäftigen rund 1'600 Mitarbeitende in über 50 Berufen.\nInnovations- und Digitalisierungsmanagement (IDM)\n5210 Windisch\nArbeitspensum: 80 - 100 %\n80 - 100 %\n\n## Über den Bereich\nDer Querschnittsbereich Innovations- und Digitalisierungsmanagement (IDM) umfasst die Abteilungen Unternehmensentwicklung und Informatik und bündelt damit bisher eigenständig operierende Bereiche sowie dezentrale Projekte der PDAG. Als Teil der Unternehmensstrategie plant und entwickelt er Innovationen für das Unternehmen und setzt diese eigenständig sowie in Zusammenarbeit mit externen Providern um. Zusätzlich ist er für das Funktionieren und die Weiterentwicklung der IT-Infrastruktur sowie bestehender und neuer Applikationen, wie zum Beispiel ORBIS, zuständig. Als neugeschaffener Geschäftsbereich trägt der IDM wesentlich zur Zukunftsfähigkeit der PDAG im sich schnell wandelnden Schweizer Gesundheitswesen bei.\n\n## Aufgaben\n• Überwachen des Informationssicherheits-Managementsystem (ISMS) und Monitoring IT\n• Kontrolle von internen und externen Vorgaben sowie der Massnahmen zur Steigerung der Informationssicherheit und Rapportierung der Verstösse sowie der Effektivität an die verantwortlichen Organe\n• Laufende Beobachtung der Bedrohungslage, Bewertung der Sicherheitsrisiken sowie Alarmierung bei Sicherheitsvorfällen\n• Planung und Durchführung von Massnahmen (bspw. Schulungen und Kampagnen zur Steigerung des Bewusstseins /Awareness der Mitarbeiterschaft bezüglich der Thematik der Informationssicherheit)\n• Unterstützung bei fachspezifischen Fragen aus Projekten oder dem Betrieb als Fachexperte (bspw. Prüfen von Dokumenten, Konzepten und Empfehlungen wie DSFA, etc.)\n• Überwachung der Einhaltung von Datenschutzvorschriften gemäss DSMS und Beratung verschiedene Bereiche der PDAG in Datenschutzfragen\n• Die Leistungserbringung erfolgt im Auftrag Leitung IDM der PDAG für mehrere Standorte sowie für die Psychiatrie Baselland\n\n## Profil\n• Hochschulabschluss im Bereich Informatik oder Wirtschaftsinformatik mit Weiterbildung in der Informationssicherheit (z. B. MAS Cyber Security/Information Security, CISSP/CISA/CISM/CRISC)\n• Nachweisbare Berufserfahrung im Bereich der Informatiksicherheit, der Informationssicherheit und des Datenschutzes\n• Fundierte Kenntnisse und / oder Weiterbildung im juristischen Bereich von Vorteil\n• Strategisches Denken, Freude und Erfahrung in der interdisziplinären Zusammenarbeit von Teamstufe bis Geschäftsleitung\n• Ausgezeichnete Kommunikationsfähigkeiten sowie starke Fähigkeiten in der Konzeption\n• Hohe Kunden- und Serviceorientierung, analytischen Fähigkeiten und Umsetzungsstärke\n• Eigenverantwortliche, gesamtheitlich denkende Persönlichkeit, welche auch in hektischen Momenten die Zielsetzungen nicht aus dem Auge verliert\nBenefits\n\n## Dienstjubiläum\nLoyalität zahlt sich aus: zusätzlicher Ferientag zum dreijährigen Dienstjubiläum sowie weitere grosszügige Geschenke alle 5 Jahre.\n\n## Weiterempfehlungsprogramm\nDie erfolgreiche Vermittlung neuer Mitarbeitender belohnen wir mit einer Prämie von bis zu 2000.- Franken.\n\n## Flexibilität\nWir unterstützen Teilzeitarbeitsmodelle, ermöglichen den Ferienkauf bis zu zwei Wochen pro Kalenderjahr und bieten unbezahlten Urlaub von bis zu 12 Monaten an.\n\n## Weiterbildung und Entwicklung\nWir bieten komplette Weiterbildungsgänge und Rotationen in allen Fachbereichen an. Zudem unterstützen unsere Mitarbeitenden mit einer überdurchschnittlich hohen Anzahl interner und externer Weiterbildungstage.\n\n## Brands for Employees\nMitarbeitende haben die Möglichkeit, kostenlos von den zahlreichen Angeboten der Plattform «Brands for Employees» zu profitieren.\n\n## Vergünstigungen bei über 150 bekannten Marken\nUnsere Mitarbeitenden erhalten Zugang zur Plattform «Swibeco». Dort profitieren sie von grosszügigen Rabatten bei bekannten Marken wie Zalando, Coop, Ikea, Fust, Orell Füssli und vielen mehr.\nUnsere Werte\n\n## Vertrauen\nWir leben Loyalität und professionelle Zusammenarbeit – sie sind das Fundament unseres Vertrauens.\nEngagement: Wir arbeiten gemeinsam mit Herz und Kompetenz.\n\n## Mut\nWir bringen unsere Ideen und Meinungen unvoreingenommen und ehrlich ein und schaffen so Raum für ergebnisoffene Prozesse.\nEin ausgezeichneter Arbeitgeber!",
+        "en": "## Innovations- und Digitalisierungsmanagement (IDM)\nZur Verstärkung unseres Teams im Bereich Innovations- und Digitalisierungsmanagement suchen wir per sofort oder nach Vereinbarung Sie als\nDie Psychiatrischen Dienste Aargau AG (PDAG) sind für die qualitativ hochstehende medizinische, therapeutische und pflegerische Behandlung und Betreuung von psychisch erkrankten Menschen im Kanton Aargau verantwortlich. Sie beschäftigen rund 1'600 Mitarbeitende in über 50 Berufen.\nInnovations- und Digitalisierungsmanagement (IDM)\n5210 Windisch\nArbeitspensum: 80 - 100 %\n80 - 100 %\n\n## Über den Bereich\nDer Querschnittsbereich Innovations- und Digitalisierungsmanagement (IDM) umfasst die Abteilungen Unternehmensentwicklung und Informatik und bündelt damit bisher eigenständig operierende Bereiche sowie dezentrale Projekte der PDAG. Als Teil der Unternehmensstrategie plant und entwickelt er Innovationen für das Unternehmen und setzt diese eigenständig sowie in Zusammenarbeit mit externen Providern um. Zusätzlich ist er für das Funktionieren und die Weiterentwicklung der IT-Infrastruktur sowie bestehender und neuer Applikationen, wie zum Beispiel ORBIS, zuständig. Als neugeschaffener Geschäftsbereich trägt der IDM wesentlich zur Zukunftsfähigkeit der PDAG im sich schnell wandelnden Schweizer Gesundheitswesen bei.\n\n## Aufgaben\n• Überwachen des Informationssicherheits-Managementsystem (ISMS) und Monitoring IT\n• Kontrolle von internen und externen Vorgaben sowie der Massnahmen zur Steigerung der Informationssicherheit und Rapportierung der Verstösse sowie der Effektivität an die verantwortlichen Organe\n• Laufende Beobachtung der Bedrohungslage, Bewertung der Sicherheitsrisiken sowie Alarmierung bei Sicherheitsvorfällen\n• Planung und Durchführung von Massnahmen (bspw. Schulungen und Kampagnen zur Steigerung des Bewusstseins /Awareness der Mitarbeiterschaft bezüglich der Thematik der Informationssicherheit)\n• Unterstützung bei fachspezifischen Fragen aus Projekten oder dem Betrieb als Fachexperte (bspw. Prüfen von Dokumenten, Konzepten und Empfehlungen wie DSFA, etc.)\n• Überwachung der Einhaltung von Datenschutzvorschriften gemäss DSMS und Beratung verschiedene Bereiche der PDAG in Datenschutzfragen\n• Die Leistungserbringung erfolgt im Auftrag Leitung IDM der PDAG für mehrere Standorte sowie für die Psychiatrie Baselland\n\n## Profil\n• Hochschulabschluss im Bereich Informatik oder Wirtschaftsinformatik mit Weiterbildung in der Informationssicherheit (z. B. MAS Cyber Security/Information Security, CISSP/CISA/CISM/CRISC)\n• Nachweisbare Berufserfahrung im Bereich der Informatiksicherheit, der Informationssicherheit und des Datenschutzes\n• Fundierte Kenntnisse und / oder Weiterbildung im juristischen Bereich von Vorteil\n• Strategisches Denken, Freude und Erfahrung in der interdisziplinären Zusammenarbeit von Teamstufe bis Geschäftsleitung\n• Ausgezeichnete Kommunikationsfähigkeiten sowie starke Fähigkeiten in der Konzeption\n• Hohe Kunden- und Serviceorientierung, analytischen Fähigkeiten und Umsetzungsstärke\n• Eigenverantwortliche, gesamtheitlich denkende Persönlichkeit, welche auch in hektischen Momenten die Zielsetzungen nicht aus dem Auge verliert\nBenefits\n\n## Dienstjubiläum\nLoyalität zahlt sich aus: zusätzlicher Ferientag zum dreijährigen Dienstjubiläum sowie weitere grosszügige Geschenke alle 5 Jahre.\n\n## Weiterempfehlungsprogramm\nDie erfolgreiche Vermittlung neuer Mitarbeitender belohnen wir mit einer Prämie von bis zu 2000.- Franken.\n\n## Flexibilität\nWir unterstützen Teilzeitarbeitsmodelle, ermöglichen den Ferienkauf bis zu zwei Wochen pro Kalenderjahr und bieten unbezahlten Urlaub von bis zu 12 Monaten an.\n\n## Weiterbildung und Entwicklung\nWir bieten komplette Weiterbildungsgänge und Rotationen in allen Fachbereichen an. Zudem unterstützen unsere Mitarbeitenden mit einer überdurchschnittlich hohen Anzahl interner und externer Weiterbildungstage.\n\n## Brands for Employees\nMitarbeitende haben die Möglichkeit, kostenlos von den zahlreichen Angeboten der Plattform «Brands for Employees» zu profitieren.\n\n## Vergünstigungen bei über 150 bekannten Marken\nUnsere Mitarbeitenden erhalten Zugang zur Plattform «Swibeco». Dort profitieren sie von grosszügigen Rabatten bei bekannten Marken wie Zalando, Coop, Ikea, Fust, Orell Füssli und vielen mehr.\nUnsere Werte\n\n## Vertrauen\nWir leben Loyalität und professionelle Zusammenarbeit – sie sind das Fundament unseres Vertrauens.\nEngagement: Wir arbeiten gemeinsam mit Herz und Kompetenz.\n\n## Mut\nWir bringen unsere Ideen und Meinungen unvoreingenommen und ehrlich ein und schaffen so Raum für ergebnisoffene Prozesse.\nEin ausgezeichneter Arbeitgeber!",
+        "fr": "## Innovations- und Digitalisierungsmanagement (IDM)\nZur Verstärkung unseres Teams im Bereich Innovations- und Digitalisierungsmanagement suchen wir per sofort oder nach Vereinbarung Sie als\nDie Psychiatrischen Dienste Aargau AG (PDAG) sind für die qualitativ hochstehende medizinische, therapeutische und pflegerische Behandlung und Betreuung von psychisch erkrankten Menschen im Kanton Aargau verantwortlich. Sie beschäftigen rund 1'600 Mitarbeitende in über 50 Berufen.\nInnovations- und Digitalisierungsmanagement (IDM)\n5210 Windisch\nArbeitspensum: 80 - 100 %\n80 - 100 %\n\n## Über den Bereich\nDer Querschnittsbereich Innovations- und Digitalisierungsmanagement (IDM) umfasst die Abteilungen Unternehmensentwicklung und Informatik und bündelt damit bisher eigenständig operierende Bereiche sowie dezentrale Projekte der PDAG. Als Teil der Unternehmensstrategie plant und entwickelt er Innovationen für das Unternehmen und setzt diese eigenständig sowie in Zusammenarbeit mit externen Providern um. Zusätzlich ist er für das Funktionieren und die Weiterentwicklung der IT-Infrastruktur sowie bestehender und neuer Applikationen, wie zum Beispiel ORBIS, zuständig. Als neugeschaffener Geschäftsbereich trägt der IDM wesentlich zur Zukunftsfähigkeit der PDAG im sich schnell wandelnden Schweizer Gesundheitswesen bei.\n\n## Aufgaben\n• Überwachen des Informationssicherheits-Managementsystem (ISMS) und Monitoring IT\n• Kontrolle von internen und externen Vorgaben sowie der Massnahmen zur Steigerung der Informationssicherheit und Rapportierung der Verstösse sowie der Effektivität an die verantwortlichen Organe\n• Laufende Beobachtung der Bedrohungslage, Bewertung der Sicherheitsrisiken sowie Alarmierung bei Sicherheitsvorfällen\n• Planung und Durchführung von Massnahmen (bspw. Schulungen und Kampagnen zur Steigerung des Bewusstseins /Awareness der Mitarbeiterschaft bezüglich der Thematik der Informationssicherheit)\n• Unterstützung bei fachspezifischen Fragen aus Projekten oder dem Betrieb als Fachexperte (bspw. Prüfen von Dokumenten, Konzepten und Empfehlungen wie DSFA, etc.)\n• Überwachung der Einhaltung von Datenschutzvorschriften gemäss DSMS und Beratung verschiedene Bereiche der PDAG in Datenschutzfragen\n• Die Leistungserbringung erfolgt im Auftrag Leitung IDM der PDAG für mehrere Standorte sowie für die Psychiatrie Baselland\n\n## Profil\n• Hochschulabschluss im Bereich Informatik oder Wirtschaftsinformatik mit Weiterbildung in der Informationssicherheit (z. B. MAS Cyber Security/Information Security, CISSP/CISA/CISM/CRISC)\n• Nachweisbare Berufserfahrung im Bereich der Informatiksicherheit, der Informationssicherheit und des Datenschutzes\n• Fundierte Kenntnisse und / oder Weiterbildung im juristischen Bereich von Vorteil\n• Strategisches Denken, Freude und Erfahrung in der interdisziplinären Zusammenarbeit von Teamstufe bis Geschäftsleitung\n• Ausgezeichnete Kommunikationsfähigkeiten sowie starke Fähigkeiten in der Konzeption\n• Hohe Kunden- und Serviceorientierung, analytischen Fähigkeiten und Umsetzungsstärke\n• Eigenverantwortliche, gesamtheitlich denkende Persönlichkeit, welche auch in hektischen Momenten die Zielsetzungen nicht aus dem Auge verliert\nBenefits\n\n## Dienstjubiläum\nLoyalität zahlt sich aus: zusätzlicher Ferientag zum dreijährigen Dienstjubiläum sowie weitere grosszügige Geschenke alle 5 Jahre.\n\n## Weiterempfehlungsprogramm\nDie erfolgreiche Vermittlung neuer Mitarbeitender belohnen wir mit einer Prämie von bis zu 2000.- Franken.\n\n## Flexibilität\nWir unterstützen Teilzeitarbeitsmodelle, ermöglichen den Ferienkauf bis zu zwei Wochen pro Kalenderjahr und bieten unbezahlten Urlaub von bis zu 12 Monaten an.\n\n## Weiterbildung und Entwicklung\nWir bieten komplette Weiterbildungsgänge und Rotationen in allen Fachbereichen an. Zudem unterstützen unsere Mitarbeitenden mit einer überdurchschnittlich hohen Anzahl interner und externer Weiterbildungstage.\n\n## Brands for Employees\nMitarbeitende haben die Möglichkeit, kostenlos von den zahlreichen Angeboten der Plattform «Brands for Employees» zu profitieren.\n\n## Vergünstigungen bei über 150 bekannten Marken\nUnsere Mitarbeitenden erhalten Zugang zur Plattform «Swibeco». Dort profitieren sie von grosszügigen Rabatten bei bekannten Marken wie Zalando, Coop, Ikea, Fust, Orell Füssli und vielen mehr.\nUnsere Werte\n\n## Vertrauen\nWir leben Loyalität und professionelle Zusammenarbeit – sie sind das Fundament unseres Vertrauens.\nEngagement: Wir arbeiten gemeinsam mit Herz und Kompetenz.\n\n## Mut\nWir bringen unsere Ideen und Meinungen unvoreingenommen und ehrlich ein und schaffen so Raum für ergebnisoffene Prozesse.\nEin ausgezeichneter Arbeitgeber!"
       },
       "location": "Windisch",
       "canton": "AG",
       "url": "https://jobs.pdag.ch/offene-stellen/information-security-officer-iso/0d6f1644-8ae7-4b22-8b54-cf05896a75ad",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:49:44.633Z",
+      "crawledAt": "2026-11-20T22:22:19.140Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -6958,17 +6962,20 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-18T09:49:44.633Z",
+      "validThrough": "2027-02-18T22:22:19.140Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-09-19T23:21:01.649Z",
       "previousSlugsByLocale": {
         "it": [
-          "information-security-officer-iso-pdag-windisch"
+          "information-security-officer-iso-pdag-windisch",
+          "responsabile-della-sicurezza-delle-informazioni-iso-psychiatrische-dienste-aargau-pdag-windisch"
         ]
       },
       "previousSlugs": [
-        "information-security-officer-iso-pdag-windisch"
-      ]
+        "information-security-officer-iso-pdag-windisch",
+        "responsabile-della-sicurezza-delle-informazioni-iso-psychiatrische-dienste-aargau-pdag-windisch"
+      ],
+      "needsRetranslation": true
     }
   ]
 }
