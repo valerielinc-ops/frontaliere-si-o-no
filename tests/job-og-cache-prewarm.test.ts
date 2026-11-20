@@ -4,6 +4,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const R2_DELTA = path.join(ROOT, 'scripts/ci/prepare-r2-og-delta.mjs');
@@ -12,6 +13,159 @@ const DEPLOY_WORKFLOW = path.join(ROOT, '.github/workflows/deploy.yml');
 const PUBLISH_WORKFLOW = path.join(ROOT, '.github/workflows/deploy-publish.yml');
 const SECTION_PUBLISHER = path.join(ROOT, 'scripts/lib/push-section-shard.sh');
 const OG_CACHE_HASH_INPUTS = "hashFiles('build-plugins/jobOgImagesPlugin.ts', 'public/fonts/Roboto-*.ttf', 'data/company-logos-manifest.json')";
+
+const R2_MANIFEST_KEY = 'purge-ledger/og-published-manifest.json';
+const PUBLISH_WINDOW = '123456789012345678901234567890123';
+
+function withMockR2(run: (fixture: {
+  source: string;
+  previous: string;
+  changed: string;
+  candidate: string;
+  completed: string;
+  calls: () => { method: string; key: string; body?: string; headers?: Record<string, string> }[];
+  exec: (args: string[], objects: Record<string, string | number>) => string;
+}) => void) {
+  const workspace = fs.mkdtempSync(path.join(os.tmpdir(), 'job-og-r2-durable-'));
+  try {
+    const source = path.join(workspace, 'source');
+    const previous = path.join(workspace, '.cache/r2-og-published-manifest.json');
+    const changed = path.join(workspace, 'changed.txt');
+    const candidate = path.join(workspace, 'candidate.json');
+    const completed = path.join(workspace, 'completed.txt');
+    const mock = path.join(workspace, 'mock-fetch.mjs');
+    const log = path.join(workspace, 'calls.jsonl');
+    fs.mkdirSync(path.join(source, 'jobs'), { recursive: true });
+    fs.writeFileSync(path.join(source, 'jobs/a.webp'), 'unchanged');
+    fs.writeFileSync(path.join(source, 'jobs/b.webp'), 'new object');
+    fs.writeFileSync(log, '');
+    fs.writeFileSync(mock, String.raw`
+      import { appendFileSync } from 'node:fs';
+      const objects = JSON.parse(process.env.OG_TEST_R2_OBJECTS);
+      globalThis.fetch = async (url, { method, body, headers }) => {
+        const key = url.pathname.slice('/fixture-bucket/'.length);
+        const entry = { method, key, body };
+        if (method === 'PUT') {
+          entry.headers = { 'cache-control': headers['cache-control'] };
+        }
+        appendFileSync(process.env.OG_TEST_R2_LOG, JSON.stringify(entry) + '\n');
+        const object = objects[key];
+        if (method === 'PUT') return new Response(null, { status: typeof object === 'number' ? object : 200 });
+        if (typeof object !== 'string') return new Response(null, { status: object ?? 404 });
+        return new Response(object);
+      };
+    `);
+    run({
+      source, previous, changed, candidate, completed,
+      calls: () => fs.readFileSync(log, 'utf8').trim().split('\n').filter(Boolean).map((line) => JSON.parse(line)),
+      exec: (args, objects) => execFileSync(process.execPath, ['--import', mock, R2_DELTA, ...args], {
+        encoding: 'utf8',
+        env: {
+          ...process.env,
+          DEPLOY_BUILD_ID: '200',
+          R2_ACCESS_KEY_ID: 'fixture-id',
+          R2_SECRET_ACCESS_KEY: 'fixture-credential',
+          R2_S3_ENDPOINT: 'https://r2.invalid',
+          R2_BUCKET: 'fixture-bucket',
+          OG_TEST_R2_OBJECTS: JSON.stringify(objects),
+          OG_TEST_R2_LOG: log,
+        },
+      }),
+    });
+  } finally {
+    fs.rmSync(workspace, { recursive: true, force: true });
+  }
+}
+
+const remoteManifest = {
+  version: 1,
+  buildId: '100',
+  publishWindow: PUBLISH_WINDOW,
+  files: [{ path: 'jobs/a.webp', sha256: createHash('sha256').update('unchanged').digest('hex'), size: 9 }],
+};
+
+const publishedMarkers = {
+  'cdn-build-id.txt': remoteManifest.buildId,
+  'cdn-publish-start-id.txt': PUBLISH_WINDOW,
+  'cdn-publish-complete-id.txt': PUBLISH_WINDOW,
+};
+
+describe('durable R2 OG manifest', () => {
+  it('restores a cache miss from a verified R2 publish and lists only changed objects', () => {
+    withMockR2(({ source, previous, changed, candidate, exec, calls }) => {
+      const output = exec([source, previous, changed, candidate], {
+        [R2_MANIFEST_KEY]: JSON.stringify(remoteManifest),
+        ...publishedMarkers,
+      });
+      expect(output).toContain('mode=delta previous=valid total_files=2 changed_files=1');
+      expect(fs.readFileSync(changed, 'utf8')).toBe('jobs/b.webp\n');
+      expect(JSON.parse(fs.readFileSync(previous, 'utf8'))).toEqual({
+        version: 1, buildId: '100', files: remoteManifest.files,
+      });
+
+      const reads = calls();
+      expect(reads[0]).toEqual({ method: 'GET', key: R2_MANIFEST_KEY });
+      expect(reads.at(-1)).toEqual({ method: 'GET', key: 'cdn-publish-start-id.txt' });
+
+      exec([source, previous, changed, candidate], {});
+      expect(calls()).toEqual(reads);
+    });
+  });
+
+  it.each([
+    { name: 'missing', object: 404 },
+    { name: 'unreadable', object: 403 },
+    { name: 'malformed JSON', object: '{' },
+    { name: 'different schema', object: JSON.stringify({ ...remoteManifest, version: 2 }) },
+    { name: 'incomplete window', object: JSON.stringify({ ...remoteManifest, publishWindow: '9'.repeat(33) }) },
+    { name: 'different build', object: JSON.stringify({ ...remoteManifest, buildId: '101' }) },
+  ])('publishes every OG object when the durable manifest is $name', ({ object }) => {
+    withMockR2(({ source, previous, changed, candidate, exec }) => {
+      const output = exec([source, previous, changed, candidate], {
+        [R2_MANIFEST_KEY]: object,
+        ...publishedMarkers,
+      });
+      expect(output).toMatch(/mode=full previous=(?:missing|invalid) total_files=2 changed_files=2/);
+      expect(fs.readFileSync(changed, 'utf8')).toBe('jobs/a.webp\njobs/b.webp\n');
+      expect(fs.existsSync(previous)).toBe(false);
+    });
+  });
+
+  it('writes R2 state only after every changed OG object is verified', () => {
+    withMockR2(({ source, previous, changed, candidate, completed, exec, calls }) => {
+      exec([source, previous, changed, candidate], {});
+      const record = ['record-progress', candidate, previous, changed, completed, previous, source];
+      fs.writeFileSync(completed, 'jobs/a.webp\n');
+      exec([...record, 'partial'], publishedMarkers);
+      expect(calls().filter(({ method }) => method === 'PUT')).toEqual([]);
+
+      fs.writeFileSync(completed, 'jobs/a.webp\njobs/b.webp\n');
+      exec([...record, 'complete'], publishedMarkers);
+      const puts = calls().filter(({ method }) => method === 'PUT');
+      expect(puts).toHaveLength(1);
+      expect(puts[0]).toMatchObject({
+        key: R2_MANIFEST_KEY,
+        headers: { 'cache-control': 'no-store, max-age=0' },
+      });
+      expect(JSON.parse(puts[0].body!)).toEqual({
+        ...JSON.parse(fs.readFileSync(previous, 'utf8')), publishWindow: PUBLISH_WINDOW,
+      });
+    });
+  });
+
+  it('preserves the verified local checkpoint when the R2 manifest write fails', () => {
+    withMockR2(({ source, previous, changed, candidate, completed, exec }) => {
+      exec([source, previous, changed, candidate], {});
+      fs.copyFileSync(changed, completed);
+      const output = exec(['record-progress', candidate, previous, changed, completed, previous, source, 'complete'], {
+        ...publishedMarkers,
+        [R2_MANIFEST_KEY]: 503,
+      });
+      expect(output).toContain('published_files=2 completed_changed=2 candidate_files=2 complete=true');
+      expect(JSON.parse(fs.readFileSync(previous, 'utf8')).files).toHaveLength(2);
+    });
+  });
+});
 
 describe('job OG cache prewarm and deferred publication', () => {
   it('retains an already published R2 card in the candidate manifest when its render is deferred', () => {
