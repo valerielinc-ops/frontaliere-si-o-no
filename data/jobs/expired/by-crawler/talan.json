@@ -506,7 +506,8 @@
       "ai-platformlander-plugins-marketplace-talan-geneva-ge-switzerland",
       "ai-platform-ingegnere-plugins-marketplace-talan-geneva-gq076j",
       "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland-gq076j",
-      "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland"
+      "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland",
+      "ai-platform-ingegnere-plugins-marketplace-talan-geneva"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -519,6 +520,12 @@
       "en": [
         "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland-rt15jv",
         "ai-platformlander-plugins-marketplace-talan-geneva-ge-switzerland"
+      ],
+      "de": [
+        "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland"
+      ],
+      "fr": [
+        "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland-gq076j"
       ]
     },
     "postalCode": "1201",
@@ -530,6 +537,11 @@
     "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000151870429-ai-platform-engineer-plugins-marketplace-?oga=true",
     "firstSeenAt": "2026-09-04T22:55:58.547Z",
     "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000147543059-ai-platform-engineer-plugins-marketplace-?oga=true",
+        "firstSeenAt": "2026-09-04T22:55:58.547Z",
+        "title": "AI Platform Engineer — Plugins & Marketplace"
+      },
       {
         "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000151870429",
         "firstSeenAt": "2026-09-04T22:55:58.547Z",
@@ -723,7 +735,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000155930739-lead-business-analyst?oga=true",
-    "firstSeenAt": "2026-10-09T21:16:06.901Z"
+    "firstSeenAt": "2026-10-09T21:16:06.901Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000154704665-lead-business-analyst?oga=true",
+        "firstSeenAt": "2026-10-09T21:16:06.901Z",
+        "title": "Lead Business Analyst"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000155930739-lead-business-analyst?oga=true",
+        "firstSeenAt": "2026-10-09T21:16:06.901Z",
+        "title": "Lead Business Analyst"
+      }
+    ]
   },
   {
     "slug": "leader-del-progetto-tecnico-talan-lausanne-vd-switzerland",
@@ -1175,7 +1199,8 @@
       "bleidaten-sind-unubersehbar-talan-geneve-switzerland",
       "lead-data-analista-talan-geneve-js9wtq",
       "lead-data-analyst-talan-geneve-switzerland-js9wtq",
-      "lead-data-analyst-talan-geneve-switzerland"
+      "lead-data-analyst-talan-geneve-switzerland",
+      "lead-data-analista-talan-geneve"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -1188,6 +1213,9 @@
       ],
       "de": [
         "bleidaten-sind-unubersehbar-talan-geneve-switzerland"
+      ],
+      "fr": [
+        "lead-data-analyst-talan-geneve-switzerland-js9wtq"
       ]
     },
     "postalCode": "1201",
@@ -1197,7 +1225,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000151870259-lead-data-analyst?oga=true",
-    "firstSeenAt": "2026-09-17T23:30:46.934Z"
+    "firstSeenAt": "2026-09-17T23:30:46.934Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000150169139-lead-data-analyst?oga=true",
+        "firstSeenAt": "2026-09-17T23:30:46.934Z",
+        "title": "Lead Data Analyst"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000151870259-lead-data-analyst?oga=true",
+        "firstSeenAt": "2026-09-17T23:30:46.934Z",
+        "title": "Lead Data Analyst"
+      }
+    ]
   },
   {
     "slug": "consulente-test-de-performance-h-f-talan-lausanne",
@@ -1244,7 +1284,78 @@
     "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000151597585-consultant-test-de-performance-h-f-?oga=true"
   },
   {
-    "slug": "consulente-sap-basis-talan-geneva-101e61fc",
+    "slug": "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva",
+    "title": "Développeur SAP Full Stack (ABAP / Fiori / BTP)",
+    "titleByLocale": {
+      "it": "SAP Full Stack Sviluppatore (ABAP / Fiori / BTP)",
+      "en": "SAP Full Stack Developer (ABAP / Fiori / BTP)",
+      "de": "SAP Full Stack Developer (ABAP / Fiori / BTP)",
+      "fr": "Développeur SAP Full Stack (ABAP / Fiori / BTP)"
+    },
+    "company": "Talan",
+    "companyKey": "talan",
+    "location": "Geneva, GE, Switzerland",
+    "addressLocality": "Geneva",
+    "descriptionByLocale": {
+      "it": "Si gioca un ruolo chiave nella progettazione e nello sviluppo di soluzioni SAP moderne ed efficienti.\n\nLa vostra missione è:\n\n• Progettare e sviluppare soluzioni tecniche su SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Crea applicazioni SAP Fiori / SAPUI5 intuitive e robuste.\n\n• Progettazione, esposizione e sicurezza dei servizi OData o SAP API.\n\n• Sviluppare estensioni su SAP BTP (Extension Suite) .\n\n• Partecipa alle scelte di architettura tecnica applicativa SAP.\n\n• Assicurare la qualità degli sviluppi, attraverso buone pratiche, recensioni di codice e documentazione.\n\n• Collabora con team funzionali, tecnici, cloud e architettonici sui progetti SAP.\n\nStiamo cercando qualcuno che sappia padroneggiare:\n\n• ABAP / ABAP OO\n\n• SAP S/4HANA\n\n• SAP Fiori / SAPUI5\n\n• Visualizza CDS\n\n• API OData / SAP\n\n• Conoscenza del suono di SAP BTP\nSenza queste competenze, l'applicazione non può essere accettata.\n⭐ Compétences souhaitées (atouts)\nQueste competenze aumenteranno notevolmente il vostro valore nei nostri progetti:\nCloud & Estensioni\n\n• SAP BTP Extension Suite (lato per lato)\n\n• CAP – Modello di programmazione delle applicazioni cloud\n\n• SAP Event Mesh / Architetture per eventi\n\n• SAP Build Apps & Process Automation\n\n• Kyma Runtime / Kubernetes\n\n• SAP AI Core / AI Foundation\n\n• Incorporazione di SAP ( SAP Joule)\nTecnologia e integrazione\n\n• Node.js o Java\n\n• SAP Integration Suite / API\n\n• SAP DevOps: Git, CI/CD, gCTS\n\n• Ottimizzazione delle prestazioni SAP HANA\nConoscenza funzionale (bonus)\n\n• FI, CO, MM, SD, HR\n\n• Progetti SAP moderni e innovativi (S/4HANA, BTP, CAP, Event Mesh...).\n\n• Stimolare l'ambiente, incoraggiare la competenza e la leadership.\n\n• Accesso a corsi di formazione SAP avanzati (BTP, Fiori, CAP, IA...).\n\n• comunità interna attiva SAP, scambi regolari con gli esperti.\n\n• Possibilità di trasferirsi a Tech Lead, SAP Architect o BTP Expert.",
+      "en": "You play a key role in the design and development of modern and efficient SAP solutions.\n\nYour mission is to:\n\n• Design and develop technical solutions on SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Create intuitive and robust SAP Fiori / SAPUI5 applications.\n\n• Design, expose and secure OData or SAP APIs services.\n\n• Develop extensions on SAP BTP (Extension Suite) .\n\n• Participate in SAP application technical architecture choices.\n\n• Ensure the quality of developments, through good practices, code reviews and documentation.\n\n• Collaborate with functional, technical, cloud and architectural teams on SAP projects.\n\nWe're looking for someone who can master:\n\n• ABAP / ABAP OO\n\n• SAP S/4HANA developments\n\n• SAP Fiori / SAPUI5\n\n• CDS Views\n\n• OData / SAP APIs\n\n• Sound knowledge of SAP BTP\nWithout these skills, the application cannot be accepted.\n⭐ Compétences souhaitées (atouts)\nThese skills will greatly increase your value in our projects:\nCloud & Extensions\n\n• SAP BTP Extension Suite (side‐by‐side)\n\n• CAP – Cloud Application Programming Model\n\n• SAP Event Mesh / Event-Driven Architectures\n\n• SAP Build Apps & Process Automation\n\n• Kyma Runtime / Kubernetes\n\n• SAP AI Core / AI Foundation\n\n• Incorporation of SAP ( SAP Joule )\nTechnology & Integration\n\n• Node.js or Java\n\n• SAP Integration Suite / APIs\n\n• SAP DevOps: Git, CI/CD, gCTS\n\n• Optimizing SAP HANA performance\nFunctional knowledge (bonus)\n\n• FI, CO, MM, SD, HR\n\n• Modern and innovative SAP projects (S/4HANA, BTP, CAP, Event Mesh...).\n\n• Stimulating environment, encouraging competence and leadership.\n\n• Access to advanced SAP training courses (BTP, Fiori, CAP, IA...).\n\n• Active SAP internal community, regular exchanges with experts.\n\n• Possibility of moving to Tech Lead, SAP Architect, or BTP Expert.",
+      "de": "Sie spielen eine Schlüsselrolle bei der Gestaltung und Entwicklung moderner und effizienter SAP-Lösungen.\n\nIhre Mission ist:\n\n• Design und Entwicklung technischer Lösungen auf SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Erstellen Sie intuitive und robuste SAP Fiori / SAPUI5-Anwendungen.\n\n• Entwerfen, Aufdecken und Sichern von OData- oder SAP-APIs-Services.\n\n• Entwickeln Sie Erweiterungen auf SAP BTP (Extension Suite).\n\n• Beteiligen Sie sich an der Auswahl der technischen SAP-Anwendungsarchitektur.\n\n• Gewährleistung der Qualität der Entwicklungen durch bewährte Verfahren, Code-Reviews und Dokumentation.\n\n• Arbeiten Sie mit funktionalen, technischen, Cloud- und Architekturteams an SAP-Projekten zusammen.\n\nWir suchen jemanden, der beherrschen kann:\n\n• ABAP/ABAP OO\n\n• SAP S/4HANA Entwicklungen\n\n• SAP Fiori / SAPUI5\n\n• CDS-Ansichten\n\n• OData / SAP APIs\n\n• Fundierte Kenntnisse über SAP BTP\nOhne diese Fähigkeiten kann der Antrag nicht akzeptiert werden.\n⭐ Compétences souhaitées (atouts)\nDiese Fähigkeiten werden Ihren Wert in unseren Projekten erheblich steigern:\nCloud & Extensions\n\n• SAP BTP Extension Suite (Side-by-Side)\n\n• CAP – Cloud Application Programming Model\n\n• SAP Event Mesh / Eventgesteuerte Architekturen\n\n• SAP Build Apps und Prozessautomatisierung\n\n• Kyma Runtime / Kubernetes\n\n• SAP AI Core / AI Foundation\n\n• Integration von SAP ( SAP Joule)\nTechnologie & Integration\n\n• Node.js oder Java\n\n• SAP Integration Suite / APIs\n\n• SAP DevOps: Git, CI/CD, gCTS\n\n• Optimierung der SAP HANA Performance\nFunktionale Kenntnisse (Bonus)\n\n• FI, CO, MM, SD, HR\n\n• Moderne und innovative SAP-Projekte (S/4HANA, BTP, CAP, Event Mesh...).\n\n• Umwelt stimulieren, Kompetenz und Führung fördern.\n\n• Zugang zu fortgeschrittenen SAP-Schulungen (BTP, Fiori, CAP, IA...).\n\n• Aktive SAP interne Community, regelmäßiger Austausch mit Experten.\n\n• Möglichkeit, zu Tech Lead, SAP Architect oder BTP Expert zu wechseln.",
+      "fr": "Vous jouez un rôle clé dans la conception et le développement de solutions SAP modernes et performantes.\n\nVotre mission vise à :\n\n• Concevoir et développer des solutions techniques sur SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Créer des applications SAP Fiori / SAPUI5 intuitives et robustes.\n\n• Concevoir, exposer et sécuriser des services OData ou APIs SAP .\n\n• Développer des extensions sur SAP BTP (Extension Suite) .\n\n• Participer aux choix d’ architecture technique des applications SAP.\n\n• Garantir la qualité des développements , via bonnes pratiques, revues de code et documentation.\n\n• Collaborer avec les équipes fonctionnelles, techniques, cloud et architectes sur les projets SAP.\n\nNous recherchons impérativement une personne maîtrisant :\n\n• ABAP / ABAP OO\n\n• Développements SAP S/4HANA\n\n• SAP Fiori / SAPUI5\n\n• CDS Views\n\n• OData / APIs SAP\n\n• Connaissance solide de SAP BTP\nSans ces compétences, la candidature ne pourra pas être retenue.\n⭐ Compétences souhaitées (atouts)\nCes compétences augmenteront fortement votre valeur dans nos projets :\n🔧 Cloud & extensions\n\n• SAP BTP Extension Suite (side‑by‑side)\n\n• CAP – Cloud Application Programming Model\n\n• SAP Event Mesh / architectures event-driven\n\n• SAP Build Apps & Process Automation\n\n• Kyma Runtime / Kubernetes\n\n• SAP AI Core / AI Foundation\n\n• Incorporation d’IA générative SAP ( SAP Joule )\n💻 Technologies & Intégration\n\n• Node.js ou Java\n\n• SAP Integration Suite / APIs\n\n• DevOps SAP : Git, CI/CD, gCTS\n\n• Optimisation des performances SAP HANA\n🧩 Connaissances fonctionnelles (bonus)\n\n• FI, CO, MM, SD, HR\n\n• Projets SAP modernes et innovants (S/4HANA, BTP, CAP, Event Mesh…).\n\n• Environnement stimulant, encourageant la montée en compétence et la prise d’initiative.\n\n• Accès à des parcours de formation SAP avancés (BTP, Fiori, CAP, IA…).\n\n• Communauté interne SAP dynamique, échanges réguliers avec des experts.\n\n• Possibilités d’évolution vers Tech Lead, Architecte SAP, ou Expert BTP."
+    },
+    "slugByLocale": {
+      "it": "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva",
+      "en": "sap-full-stack-developer-abap-fiori-btp-talan-geneva",
+      "de": "sap-full-stack-developer-abap-fiori-btp-talan-geneva",
+      "fr": "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-g7xs40"
+    },
+    "sector": "IT / SAP / AI Consulting",
+    "expiredAt": "2026-10-04T09:14:47.494Z",
+    "previousSlugs": [
+      "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland",
+      "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva-ufsvl6",
+      "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-ufsvl6",
+      "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland",
+        "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva-ufsvl6",
+        "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-ufsvl6",
+        "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva"
+      ],
+      "en": [
+        "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland"
+      ],
+      "de": [
+        "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland"
+      ],
+      "fr": [
+        "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland"
+      ]
+    },
+    "postalCode": "1201",
+    "streetAddress": "Place Ruth-Bösiger 6",
+    "salaryMin": 63000,
+    "salaryMax": 107500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000147543429-developpeur-sap-full-stack-abap-fiori-btp-?oga=true",
+    "firstSeenAt": "2026-09-04T22:55:58.539Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000147543429-developpeur-sap-full-stack-abap-fiori-btp-?oga=true",
+        "firstSeenAt": "2026-09-04T22:55:58.539Z",
+        "title": "Développeur SAP Full Stack (ABAP / Fiori / BTP)"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000153192441-developpeur-sap-full-stack-abap-fiori-btp-?oga=true",
+        "firstSeenAt": "2026-09-04T22:55:58.539Z",
+        "title": "Développeur SAP Full Stack (ABAP / Fiori / BTP)"
+      }
+    ]
+  },
+  {
+    "slug": "consulente-sap-basis-talan-geneva",
     "title": "Consultant SAP Basis",
     "titleByLocale": {
       "it": "Consulente SAP Basis",
@@ -1263,34 +1374,45 @@
       "fr": "Intégrer l’équipe Administration des systèmes SAP afin de garantir la disponibilité, la performance et la sécurité des environnements SAP pour nos clients.\nRôle & Responsabilités\n\n• Assurer l’administration et la maintenance des systèmes SAP (principalement On-Premise).\n\n• Gérer les installations, mises à jour et correctifs des environnements SAP.\n\n• Superviser la performance et la disponibilité des systèmes.\n\n• Participer à la résolution des incidents et à l’amélioration continue des processus.\n\n• Collaborer avec les équipes projet pour les intégrations et migrations SAP.\n\n• Contribuer à la documentation technique et aux bonnes pratiques.\n\nCompétences Obligatoires\n\n• SAP BC (Basis Components)\n\n• Administration de systèmes SAP On-Premise\nCompétences Complémentaires Souhaitées\n\n• Administration de systèmes SAP Cloud / RISE & Hyperscaler\n\n• Gestion des rôles et autorisations SAP\n\n• Expérience en société de services (ESN / SSII)\n\n• Participation à des projets SAP (migration, upgrade, intégration)\nProfil Recherché\n\n• Expérience confirmée ou sénior en administration SAP.\n\n• Capacité à travailler en équipe et à interagir avec des interlocuteurs variés (techniques et métiers).\n\n• Rigueur, autonomie et sens du service client.\n\n• Anglais courant"
     },
     "slugByLocale": {
-      "it": "consulente-sap-basis-talan-geneva-101e61fc",
-      "en": "consultant-sap-basis-talan-geneva-ge-switzerland-e4b39d87",
-      "de": "berater-sap-basis-talan-geneva-c5829bbf",
-      "fr": "consultant-sap-basis-talan-geneva-ge-switzerland-e4b39d87"
+      "it": "consulente-sap-basis-talan-geneva",
+      "en": "consultant-sap-basis-talan-geneva-ge-switzerland",
+      "de": "berater-sap-basis-talan-geneva",
+      "fr": "consultant-sap-basis-talan-geneva-ge-switzerland"
     },
     "sector": "IT / SAP / AI Consulting",
     "expiredAt": "2026-09-26T23:34:04.255Z",
     "previousSlugs": [
-      "consultant-sap-basis-talan-geneva-ge-switzerland-e4b39d87",
+      "consultant-sap-basis-talan-geneva-ge-switzerland",
       "consulente-sap-basis-talan-geneva-95abfi",
       "consultant-sap-basis-talan-geneva-ge-switzerland-95abfi",
       "consulente-e-fonctionnel-le-sap-fi-co-talan-geneva",
       "consultant-e-fonctionnel-le-sap-fi-co-talan-geneva-ge-switzerland",
-      "berater-e-fonctionnel-le-sap-fi-co-talan-geneva"
+      "berater-e-fonctionnel-le-sap-fi-co-talan-geneva",
+      "consulente-sap-basis-talan-geneva-101e61fc",
+      "consultant-sap-basis-talan-geneva-ge-switzerland-e4b39d87",
+      "berater-sap-basis-talan-geneva-c5829bbf"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "consultant-sap-basis-talan-geneva-ge-switzerland-e4b39d87",
+        "consultant-sap-basis-talan-geneva-ge-switzerland",
         "consulente-sap-basis-talan-geneva-95abfi",
         "consultant-sap-basis-talan-geneva-ge-switzerland-95abfi",
         "consulente-e-fonctionnel-le-sap-fi-co-talan-geneva",
         "consultant-e-fonctionnel-le-sap-fi-co-talan-geneva-ge-switzerland",
-        "berater-e-fonctionnel-le-sap-fi-co-talan-geneva"
+        "berater-e-fonctionnel-le-sap-fi-co-talan-geneva",
+        "consulente-sap-basis-talan-geneva-101e61fc",
+        "consultant-sap-basis-talan-geneva-ge-switzerland-e4b39d87"
       ],
       "en": [
-        "consultant-sap-basis-talan-geneva-ge-switzerland-95abfi"
+        "consultant-sap-basis-talan-geneva-ge-switzerland-95abfi",
+        "consultant-sap-basis-talan-geneva-ge-switzerland-e4b39d87"
       ],
       "de": [
+        "consultant-sap-basis-talan-geneva-ge-switzerland",
+        "berater-sap-basis-talan-geneva-c5829bbf",
+        "consultant-sap-basis-talan-geneva-ge-switzerland-e4b39d87"
+      ],
+      "fr": [
         "consultant-sap-basis-talan-geneva-ge-switzerland-e4b39d87"
       ]
     },
@@ -1301,7 +1423,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000147543319-consultant-sap-basis?oga=true",
-    "firstSeenAt": "2026-09-04T22:55:58.545Z"
+    "firstSeenAt": "2026-09-04T22:55:58.545Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000147543319-consultant-sap-basis?oga=true",
+        "firstSeenAt": "2026-09-04T22:55:58.545Z",
+        "title": "Consultant SAP Basis"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000153113299-consultant-sap-basis?oga=true",
+        "firstSeenAt": "2026-09-04T22:55:58.545Z",
+        "title": "Consultant SAP Basis"
+      }
+    ]
   },
   {
     "slug": "fiori-sapui5-btp-sviluppatore-talan-geneva",
@@ -1404,6 +1538,77 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000145209489-system-engineer-?oga=true",
     "firstSeenAt": "2026-08-24T09:59:31.879Z"
+  },
+  {
+    "slug": "consulente-power-bi-microsoft-fabric-talan-lausanne-rjxnpj",
+    "title": "Consultant Power BI / Microsoft Fabric",
+    "titleByLocale": {
+      "it": "Consulente Power BI / Microsoft Fabric",
+      "en": "Consultant Power BI / Microsoft Fabric",
+      "de": "Berater Power BI / Microsoft Fabric",
+      "fr": "Consultant Power BI / Microsoft Fabric"
+    },
+    "company": "Talan",
+    "companyKey": "talan",
+    "location": "Lausanne, VD, Switzerland",
+    "addressLocality": "Lausanne",
+    "descriptionByLocale": {
+      "it": "Missioni\n\n- Partecipare alla migrazione di report e ambienti Tableau a Power BI / Microsoft Fabric .\n- Analizzare l’esistente e contribuire alla definizione delle strategie di migrazione.\n- Privilegiare l’uso di Direct Lake per limitare le duplicazioni e ottimizzare le prestazioni.\n- Utilizzare la modalità Import quando i vincoli tecnici richiedono un approccio alternativo.\n- Progettare e far evolvere i modelli semantici Power BI / Fabric .\n- Lavorare con sorgenti e ambienti SQL / Data Warehouse esistenti.\n- Garantire la qualità, le prestazioni e la manutenibilità delle soluzioni sviluppate.\n- Applicare le best practice di Git, versioning, CI/CD e gestione degli sviluppi .\n- Contribuire al miglioramento delle pratiche di collaborazione e governance all'interno del team.\n- Partecipare alle fasi di test, convalida e messa in produzione.\n- Accompagnare progressivamente la migrazione dei diversi perimetri funzionali.\n\nProfilo ricercato\n\n- Esperienza significativa come Data Analyst / Expert Power BI .\n- Solida esperienza su Microsoft Power BI e Microsoft Fabric .\n- Ottima padronanza dei modelli semantici e dell'architettura Power BI.\n- Esperienza concreta di Direct Lake e idealmente scenari di migrazione a Fabric.\n- Buona conoscenza di SQL / Data Warehouse .\n- Padronanza delle best practice Git e versioning .\n- Esperienza in ambienti in cui le sfide di",
+      "en": "Mission\n\n- Participate in the migration of reports and environments Tableau to Power BI / Microsoft Connect. - Analyze the existing, and contribute to the definition of migration strategies. - Privilegier l, use of Direct Lake to limit the duplications and optimize performance. - Use import mode when technical constraints require an alternative approach. - Design and evolve the semantic models Power BI / Connect. - Work with existing SQL / Data Warehouse sources and environments.\n\n- To ensure the quality, performance and maintenance of the solutions developed. - To apply the good practices of Git, versionning, CI/CD and management of developments. - To contribute to, improve the practices of collaboration and governance within the team. - To participate in the phases of testing, validation and production. - To gradually accompany the migration of the different functional perimeters.\n\nProfile sought\n\n- Significant experience as Data Analyst / Power BI Expert. - Solid experience on Microsoft Power BI and Microsoft Connect. - Very good mastery of Semantic models and Power BI architecture. - Concrete experience of Direct Lake and ideally of migration scenarios to Connect. - Good knowledge of SQL / Data Warehouse. - Mastery of good practices Git and versionning. - Experience in environments where governance and collaboration issues are important. - A migration experience Tableau → Power BI is a real asset.\n\n- Ability to work independently in a complex and time-consuming environment. - Excellent professional posture, ability to communicate with different interlocutors and work in a team. - Level d, proven expertise expected.",
+      "de": "Auftrag\n\n- An der Migration von Berichten und Umgebungen teilnehmen Tableau zu Power BI / Microsoft Connect. - Analysieren Sie die bestehenden, und tragen zur Definition von Migrationsstrategien. - simboli di, Verwendung von Direct Lake, um die Doppelarbeit zu begrenzen und die Leistung zu optimieren. - Verwenden Sie Import-Modus, wenn technische Einschränkungen erfordern einen alternativen Ansatz. - Design und Entwicklung der semantischen Modelle Power BI / Connect. - Arbeiten mit bestehenden SQL / DataWarehouse Quellen und Umgebungen.\n\n- Um die Qualität, Leistung und Wartung der Lösungen zu gewährleisten. - Um die guten Praktiken von Git, Versionierung, CI/CD und Management der Entwicklungen anzuwenden. - Um dazu beizutragen, verbessern Sie die Praktiken der Zusammenarbeit und Governance innerhalb des Teams. - um in den Phasen der Prüfung, Validierung und Produktion teilnehmen. - Um die Migration der verschiedenen funktionellen Perimeter nach und nach begleiten.\n\nProfil gesucht\n\n- Signifikante Erfahrung als Data-Ansister / Power BI-Experte. - Solide Erfahrung auf Microsoft Power BI und Microsoft Connect. - Sehr gute Beherrschung von Semantic-Modellen und Power BI-Architektur. - Konkrete Erfahrung von Direct Lake und idealerweise von Migrationsszenarien zu Connect. - Gute Kenntnisse von SQL / DataWarehouse. - Mastery of Good Practices Git und Versionning. - Erfahrung in Umgebungen, in denen Governance und Kollaboration Themen wichtig sind. - Eine Migrationserfahrung Tableau → Power BI ist ein echter Vorteil.\n\n- Fähigkeit, unabhängig in einem komplexen und zeitaufwendigen Umfeld zu arbeiten. - Ausgezeichnete professionelle Haltung, Fähigkeit, mit verschiedenen Gesprächspartnern zu kommunizieren und in einem Team zu arbeiten. - Level d, bewährte Expertise erwartet.",
+      "fr": "• Participer à la migration des rapports et environnements Tableau vers Power BI / Microsoft Fabric .\n\n• Analyser l’existant et contribuer à la définition des stratégies de migration.\n\n• Privilégier l’utilisation de Direct Lake pour limiter les duplications et optimiser les performances.\n\n• Utiliser le mode Import lorsque les contraintes techniques nécessitent une approche alternative.\n\n• Concevoir et faire évoluer les semantic models Power BI / Fabric .\n\n• Travailler avec les sources et environnements SQL / Data Warehouse existants.\n\n• Garantir la qualité, la performance et la maintenabilité des solutions développées.\n\n• Appliquer les bonnes pratiques de Git, versionning, CI/CD et gestion des développements .\n\n• Contribuer à l’amélioration des pratiques de collaboration et de gouvernance au sein de l’équipe.\n\n• Participer aux phases de tests, de validation et de mise en production.\n\n• Accompagner progressivement la migration des différents périmètres fonctionnels.\n\n• Expérience significative en tant que Data Analyst / Expert Power BI .\n\n• Solide expérience sur Microsoft Power BI et Microsoft Fabric .\n\n• Très bonne maîtrise des semantic models et de l’architecture Power BI.\n\n• Expérience concrète de Direct Lake et idéalement des scénarios de migration vers Fabric.\n\n• Bonne connaissance de SQL / Data Warehouse .\n\n• Maîtrise des bonnes pratiques Git et versionning .\n\n• Expérience dans des environnements où les enjeux de gouvernance et de collaboration sont importants.\n\n• Une expérience de migration Tableau → Power BI constitue un réel atout.\n\n• Capacité à travailler de manière autonome dans un contexte complexe et contraint par les délais.\n\n• Excellente posture professionnelle, capacité à communiquer avec différents interlocuteurs et à travailler en équipe.\n\n• Niveau d’expertise confirmé attendu."
+    },
+    "slugByLocale": {
+      "it": "consulente-power-bi-microsoft-fabric-talan-lausanne-rjxnpj",
+      "en": "power-bi-microsoft-connect-talan-lausanne-vd-switzerland",
+      "de": "berater-power-bi-microsoft-fabric-talan-lausanne",
+      "fr": "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland"
+    },
+    "sector": "IT / SAP / AI Consulting",
+    "expiredAt": "2026-09-26T12:21:22.901Z",
+    "previousSlugs": [
+      "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland",
+      "consulente-power-bi-microsoft-fabric-talan-lausanne-gyu53n",
+      "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland-gyu53n",
+      "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland-rjxnpj",
+      "consulente-power-bi-microsoft-fabric-talan-lausanne"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland",
+        "consulente-power-bi-microsoft-fabric-talan-lausanne-gyu53n",
+        "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland-gyu53n"
+      ],
+      "en": [
+        "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland-gyu53n",
+        "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland"
+      ],
+      "de": [
+        "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland"
+      ],
+      "fr": [
+        "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland-rjxnpj"
+      ]
+    },
+    "salaryMin": 74500,
+    "salaryMax": 118500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "dedupArchive": true,
+    "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000147542689-consultant-power-bi-microsoft-fabric?oga=true",
+    "firstSeenAt": "2026-09-04T22:55:58.544Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000147542689-consultant-power-bi-microsoft-fabric?oga=true",
+        "firstSeenAt": "2026-09-04T22:55:58.544Z",
+        "title": "Consultant Power BI / Microsoft Fabric"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000151868230-consultant-power-bi-microsoft-fabric?oga=true",
+        "firstSeenAt": "2026-09-04T22:55:58.544Z",
+        "title": "Consultant Power BI / Microsoft Fabric"
+      }
+    ]
   },
   {
     "slug": "consulente-qa-testing-h-f-talan-lausanne-vd-switzerland",

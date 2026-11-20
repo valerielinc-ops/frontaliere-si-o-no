@@ -67,7 +67,8 @@
       "streetAddress": "Mendrisio",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T21:23:17.500Z"
+      "firstSeenAt": "2026-11-06T21:23:17.500Z",
+      "sourceIdentity": "url:https://www.tarchinigroup.com/it/work/1555/impiegato-a-amministrativo-a-contabile"
     },
     {
       "title": "Sales Manager",
@@ -159,7 +160,8 @@
       "postingDateSource": "unknown",
       "crawledAt": "2026-11-20T09:20:51.085Z",
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.tarchinigroup.com/it/work/1497/sales-manager"
     },
     {
       "title": "Tecnico di commessa - Edilizia leggera e finiture",
@@ -225,8 +227,9 @@
       "streetAddress": "Mendrisio",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T09:20:51.093Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-11-19T21:17:58.362Z",
+      "needsRetranslation": true,
+      "sourceIdentity": "url:https://www.tarchinigroup.com/it/work/1558/tecnico-di-commessa-edilizia-leggera-e-finiture"
     }
   ]
 }
