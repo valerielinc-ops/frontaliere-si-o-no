@@ -88,7 +88,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "source"
+      "validThroughSource": "source",
+      "sourceIdentity": "url:https://job.post.ch/default/job/auxiliaire-conductriceconducteur-carpostal-transport-scolaire%2c-aubonne/75188-fr_fr"
     },
     {
       "id": "postauto-e9b221037246",
@@ -175,7 +176,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "source"
+      "validThroughSource": "source",
+      "sourceIdentity": "url:https://job.post.ch/default/job/ticketkontrolleurin-und-kundenberatung/74963-de_de"
     },
     {
       "id": "postauto-4a39b89cff41",
@@ -260,7 +262,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "source"
+      "validThroughSource": "source",
+      "sourceIdentity": "url:https://job.post.ch/default/job/ticketkontrolleurin-und-kundenberatung/75093-de_de"
     },
     {
       "id": "postauto-e96c5afd4743",
@@ -345,7 +348,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "source"
+      "validThroughSource": "source",
+      "sourceIdentity": "url:https://job.post.ch/default/job/sicherheitsspezialistin-%c3%96ffentlicher-verkehr/75095-de_de"
     },
     {
       "id": "postauto-c9dfc5cd0bb6",
@@ -432,7 +436,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "source"
+      "validThroughSource": "source",
+      "sourceIdentity": "url:https://job.post.ch/default/job/quereinsteigerin-als-postauto-fahrerin/75104-de_de"
     },
     {
       "id": "postauto-b7094063a992",
@@ -517,7 +522,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "source"
+      "validThroughSource": "source",
+      "sourceIdentity": "url:https://job.post.ch/default/job/postauto-fahrerin/75144-de_de"
     },
     {
       "id": "postauto-9e66d50ec27c",
@@ -602,7 +608,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "source"
+      "validThroughSource": "source",
+      "sourceIdentity": "url:https://job.post.ch/default/job/postauto-fahrerin/75118-de_de"
     },
     {
       "id": "postauto-ea34851b616b",
@@ -680,7 +687,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "source"
+      "validThroughSource": "source",
+      "sourceIdentity": "url:https://job.post.ch/default/job/fachspezialistin-kundenservice-inkasso/75246-de_de"
     },
     {
       "id": "postauto-7960c793677f",
@@ -765,7 +773,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "source"
+      "validThroughSource": "source",
+      "sourceIdentity": "url:https://job.post.ch/default/job/teamleiterin-fahrpersonal/75248-de_de"
     },
     {
       "id": "postauto-dadd8e65828c",
@@ -851,7 +860,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "sourceIdentity": "url:https://job.post.ch/default/job/postauto-fahrerin/75094-de_de"
     },
     {
       "id": "postauto-8f190253e14a",
@@ -937,7 +947,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "sourceIdentity": "url:https://job.post.ch/default/job/conductrice-conducteur-carpostal%2c-aubonne-gimel/75178-fr_fr"
     }
   ]
 }
