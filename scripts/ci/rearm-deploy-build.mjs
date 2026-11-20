@@ -139,6 +139,7 @@ export function decideBuildLocaleRecovery({
   nowMs = Date.now(),
   maxRecoveryAttempts = DEFAULT_MAX_LOCALE_RECOVERY_ATTEMPTS,
   settleMs = HOST_KILL_SETTLE_MS,
+  allowFailedMatrix = false,
 } = {}) {
   const runId = String(run?.id ?? '').trim();
   const runSha = String(run?.head_sha ?? '').trim();
@@ -191,6 +192,29 @@ export function decideBuildLocaleRecovery({
 
   if (candidates.length === 0) {
     return recoverySkip('no-retryable-locale-leg', 'no build-locale job has a confirmed host-loss, timeout or memory signature');
+  }
+  if (allowFailedMatrix) {
+    const failedLocales = currentJobs.filter((job) => Number(job?.run_attempt) === attempt
+      && buildLocaleFromJobName(job?.name)
+      && FAILED_LEG_CONCLUSIONS.has(job?.conclusion));
+    const retryableIds = new Set(candidates.map(({ job }) => job.id));
+    const lostNonItalianRunner = candidates.some(({ classification }) =>
+      classification.kind === 'host-loss' && classification.locale !== 'it');
+    const unrecoverable = failedLocales.find((job) => {
+      if (retryableIds.has(job.id)) return false;
+      const failedSteps = (job.steps ?? []).filter((step) => step.conclusion === 'failure');
+      return !(lostNonItalianRunner && buildLocaleFromJobName(job.name) === 'it'
+        && job.conclusion === 'failure' && failedSteps.length === 1
+        && failedSteps[0].name === 'Exchange same-run hreflang manifests');
+    });
+    if (unrecoverable) {
+      return recoverySkip('sibling-locale-leg-failed', `${unrecoverable.name} lacks a retryable infrastructure signature`);
+    }
+    return {
+      action: 'rerun-failed-matrix',
+      reason: 'retryable-locale-failures',
+      detail: failedLocales.map((job) => job.name).join(', '),
+    };
   }
   if (candidates.length !== 1) {
     return recoverySkip(
@@ -884,6 +908,8 @@ async function inspectBuildLocaleRecovery({
   runId,
   expectedSha,
   currentAttempt,
+  allowFailedMatrix = false,
+  requireTerminal = false,
   maxRecoveryAttempts = DEFAULT_MAX_LOCALE_RECOVERY_ATTEMPTS,
 } = {}) {
   if (!repo || !runId || !expectedSha) {
@@ -893,6 +919,10 @@ async function inspectBuildLocaleRecovery({
   try {
     const runPath = `repos/${repo}/actions/runs/${runId}`;
     let run = ghJson(['api', runPath]);
+    if (requireTerminal && (run?.status !== 'completed'
+      || Number(run?.run_attempt) !== Number(currentAttempt))) {
+      return recoverySkip('source-attempt-superseded', 'source attempt is active or changed since the completion event');
+    }
     let jobsPayload = ghJson(['api', `${runPath}/jobs?filter=all&per_page=100`]);
     let jobs = Array.isArray(jobsPayload?.jobs) ? jobsPayload.jobs : [];
 
@@ -947,6 +977,7 @@ async function inspectBuildLocaleRecovery({
       jobs,
       artifacts: artifactsPayload?.artifacts,
       annotationsByJob,
+      allowFailedMatrix,
       expectedSha,
       currentAttempt: currentAttempt || run?.run_attempt,
       maxRecoveryAttempts,
@@ -991,6 +1022,22 @@ async function main() {
     return 0;
   }
 
+  const finishedRunId = process.env.REARM_FINISHED_RUN_ID;
+  if (finishedRunId) {
+    const recovery = await inspectBuildLocaleRecovery({
+      repo, runId: finishedRunId, expectedSha: process.env.REARM_FINISHED_SHA,
+      currentAttempt: process.env.REARM_FINISHED_ATTEMPT,
+      maxRecoveryAttempts: maxLocaleRecoveryAttempts, allowFailedMatrix: true, requireTerminal: true,
+    });
+    if (recovery.reason === 'source-attempt-superseded') return 0;
+    if (recovery.action === 'rerun-failed-matrix' && !dryRun) {
+      console.log(`[rearm] recovering finished run ${finishedRunId}: ${recovery.detail}`);
+      gh(['api', '-X', 'POST', `repos/${repo}/actions/runs/${finishedRunId}/rerun-failed-jobs`]);
+      return 0;
+    }
+    console.log(`[rearm] terminal locale recovery: ${recovery.reason} (${recovery.detail})`);
+  }
+
   // This is the terminal build's admission, captured before the build ran.
   // Do not reread the mutable translation marker here: build-history/data
   // commits can create a newer pending marker while this run is finishing,
@@ -1003,7 +1050,12 @@ async function main() {
       expectedSha: process.env.GITHUB_SHA,
       currentAttempt: process.env.GITHUB_RUN_ATTEMPT,
       maxRecoveryAttempts: maxLocaleRecoveryAttempts,
+      allowFailedMatrix: true,
     });
+  if (localeRecovery.action === 'rerun-failed-matrix') {
+    console.log(`[rearm] delegating failed matrix legs to the completion watchdog: ${localeRecovery.detail}`);
+    return 0;
+  }
   if (localeRecovery.action === 'rerun') {
     const jobId = localeRecovery.job?.id;
     console.log(
