@@ -3991,12 +3991,12 @@
     },
     {
       "id": "coopers-341fb8260435",
-      "slug": "senior-sap-basis-engineer-m-w-d-coopers-wallis",
+      "slug": "senior-sap-basis-ingegnere-m-w-d-coopers-group-ag-wallis",
       "slugByLocale": {
         "en": "senior-sap-basis-engineer-m-w-d-coopers-wallis",
-        "it": "senior-sap-basis-engineer-m-w-d-coopers-wallis",
-        "de": "senior-sap-basis-engineer-m-w-d-coopers-wallis",
-        "fr": "senior-sap-basis-engineer-m-w-d-coopers-wallis"
+        "it": "senior-sap-basis-ingegnere-m-w-d-coopers-group-ag-wallis",
+        "de": "senior-sap-basis-ingenieur-m-w-d-coopers-group-ag-wallis",
+        "fr": "senior-sap-basis-ingenieur-m-w-d-coopers-group-ag-wallis"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -4076,16 +4076,30 @@
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-20T21:38:00.890Z",
       "sourceIdentity": "url:https://www.coopers.ch/en/jobs/detail.php?refcode=sd9k62",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-sap-basis-engineer-m-w-d-coopers-wallis"
+        ],
+        "de": [
+          "senior-sap-basis-engineer-m-w-d-coopers-wallis"
+        ],
+        "fr": [
+          "senior-sap-basis-engineer-m-w-d-coopers-wallis"
+        ]
+      },
+      "previousSlugs": [
+        "senior-sap-basis-engineer-m-w-d-coopers-wallis"
+      ]
     },
     {
       "id": "coopers-e09cc912b65d",
-      "slug": "talent-acquisition-specialist-bern-m-w-d-coopers-bern",
+      "slug": "talent-acquisition-specialista-bern-m-w-d-coopers-group-ag-bern",
       "slugByLocale": {
         "de": "talent-acquisition-specialist-bern-m-w-d-coopers-bern",
-        "it": "talent-acquisition-specialist-bern-m-w-d-coopers-bern",
+        "it": "talent-acquisition-specialista-bern-m-w-d-coopers-group-ag-bern",
         "en": "talent-acquisition-specialist-bern-m-w-d-coopers-bern",
-        "fr": "talent-acquisition-specialist-bern-m-w-d-coopers-bern"
+        "fr": "talent-acquisition-specialiste-bern-m-w-d-coopers-group-ag-bern"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -4161,7 +4175,18 @@
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-20T21:37:59.928Z",
       "sourceIdentity": "url:https://www.coopers.ch/en/jobs/detail.php?refcode=rd63o1",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "talent-acquisition-specialist-bern-m-w-d-coopers-bern"
+        ],
+        "fr": [
+          "talent-acquisition-specialist-bern-m-w-d-coopers-bern"
+        ]
+      },
+      "previousSlugs": [
+        "talent-acquisition-specialist-bern-m-w-d-coopers-bern"
+      ]
     },
     {
       "id": "coopers-60edeb0c5bc9",

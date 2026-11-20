@@ -2093,12 +2093,12 @@
     },
     {
       "id": "swissquote-ff58ef75d743",
-      "slug": "fraud-solutions-engineer-swissquote-gland",
+      "slug": "fraud-solutions-ingegnere-swissquote-gland",
       "slugByLocale": {
         "en": "fraud-solutions-engineer-swissquote-gland",
-        "it": "fraud-solutions-engineer-swissquote-gland",
-        "de": "fraud-solutions-engineer-swissquote-gland",
-        "fr": "fraud-solutions-engineer-swissquote-gland"
+        "it": "fraud-solutions-ingegnere-swissquote-gland",
+        "de": "fraud-solutions-ingenieur-swissquote-gland",
+        "fr": "fraud-solutions-ingenieur-swissquote-gland"
       },
       "company": "Swissquote",
       "companyKey": "swissquote",
@@ -2162,7 +2162,21 @@
       "validThrough": "2027-02-18T10:01:21.927Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-19T21:42:50.483Z",
-      "sourceIdentity": "url:https://jobs.smartrecruiters.com/swissquote/744000162540779-fraud-solutions-engineer"
+      "sourceIdentity": "url:https://jobs.smartrecruiters.com/swissquote/744000162540779-fraud-solutions-engineer",
+      "previousSlugsByLocale": {
+        "it": [
+          "fraud-solutions-engineer-swissquote-gland"
+        ],
+        "de": [
+          "fraud-solutions-engineer-swissquote-gland"
+        ],
+        "fr": [
+          "fraud-solutions-engineer-swissquote-gland"
+        ]
+      },
+      "previousSlugs": [
+        "fraud-solutions-engineer-swissquote-gland"
+      ]
     },
     {
       "id": "swissquote-5b514bd314ff",
