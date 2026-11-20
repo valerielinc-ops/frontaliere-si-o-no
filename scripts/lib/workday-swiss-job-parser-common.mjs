@@ -344,13 +344,23 @@ export function resolveWorkdayPrimarySwissLocation(info = {}, { facilityLocation
 
 /**
  * Whether the req's OWN structured country is Switzerland: the requisition's
- * alpha-2 when Workday states one (it decides alone, so a foreign requisition
- * is never overruled), otherwise the posting-level country by its canonical
- * Workday id or name. Text alone never counts.
+ * alpha-2, canonical Workday id, or exact country descriptor when Workday
+ * states one (it decides alone, so a foreign or opaque requisition is never
+ * overruled), otherwise the posting-level country by its canonical Workday id
+ * or name. Text alone never counts.
  */
 export function workdayStructuredPrimaryCountryIsSwiss(info = {}) {
-  const alpha2 = String(info?.jobRequisitionLocation?.country?.alpha2Code || '').trim().toUpperCase();
-  if (alpha2) return alpha2 === 'CH';
+  const requisitionCountry = info?.jobRequisitionLocation?.country;
+  if (requisitionCountry !== undefined && requisitionCountry !== null) {
+    if (typeof requisitionCountry !== 'object' || Array.isArray(requisitionCountry)) return false;
+    const alpha2 = String(requisitionCountry.alpha2Code || '').trim().toUpperCase();
+    if (alpha2) return alpha2 === 'CH';
+    const id = String(requisitionCountry.id || '').trim();
+    if (id) return WORKDAY_SWISS_LOCATION_IDS.includes(id);
+    const descriptor = normalizeSpace(requisitionCountry.descriptor || '');
+    if (descriptor) return /^(?:switzerland|schweiz|suisse|svizzera)$/i.test(descriptor);
+    return false;
+  }
   const country = info?.country;
   if (!country || typeof country !== 'object') return false;
   if (WORKDAY_SWISS_LOCATION_IDS.includes(String(country.id || ''))) return true;
