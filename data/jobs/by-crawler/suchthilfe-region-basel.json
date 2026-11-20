@@ -1,7 +1,7 @@
 {
   "crawlerKey": "suchthilfe-region-basel",
-  "assembledAt": "2026-11-20T09:30:19.371Z",
-  "runId": "44708951858",
+  "assembledAt": "2026-11-20T21:24:29.908Z",
+  "runId": "44818667336",
   "jobs": [
     {
       "id": "suchthilfe-region-basel-9ee6eb185429",
@@ -34,7 +34,7 @@
       "url": "https://www.suchthilfe.ch/wp-content/uploads/2026/10/PflegeHF_ESTA_2026.pdf",
       "source": "Suchthilfe Region Basel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:30:11.295Z",
+      "crawledAt": "2026-11-20T21:24:21.361Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -83,7 +83,7 @@
       },
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T09:30:11.295Z",
+      "validThrough": "2027-01-18T21:24:21.361Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.suchthilfe.ch/wp-content/uploads/2026/10/pflegehf_esta_2026.pdf"
     },
@@ -119,7 +119,7 @@
       "url": "https://www.suchthilfe.ch/wp-content/uploads/2020/09/Gastfamilien_2020.pdf",
       "source": "Suchthilfe Region Basel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:30:10.662Z",
+      "crawledAt": "2026-11-20T21:24:20.803Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -170,7 +170,7 @@
       },
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:30:10.662Z",
+      "validThrough": "2026-12-20T21:24:20.803Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.suchthilfe.ch/wp-content/uploads/2020/09/gastfamilien_2020.pdf"
     },
@@ -206,7 +206,7 @@
       "url": "https://www.suchthilfe.ch/wp-content/uploads/2026/02/Pflege-Fachp-Nacht_2026.pdf",
       "source": "Suchthilfe Region Basel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:30:10.024Z",
+      "crawledAt": "2026-11-20T21:24:20.225Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -255,7 +255,7 @@
       },
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:30:10.024Z",
+      "validThrough": "2026-12-20T21:24:20.225Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.suchthilfe.ch/wp-content/uploads/2026/02/pflege-fachp-nacht_2026.pdf"
     },
@@ -291,7 +291,7 @@
       "url": "https://www.suchthilfe.ch/wp-content/uploads/2026/11/2026_Stelleninserat_DIBS_BZ_SRB.pdf",
       "source": "Suchthilfe Region Basel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:30:09.349Z",
+      "crawledAt": "2026-11-20T21:24:19.606Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -342,7 +342,7 @@
       },
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T09:30:09.349Z",
+      "validThrough": "2027-02-07T21:24:19.606Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.suchthilfe.ch/wp-content/uploads/2026/11/2026_stelleninserat_dibs_bz_srb.pdf"
     }
