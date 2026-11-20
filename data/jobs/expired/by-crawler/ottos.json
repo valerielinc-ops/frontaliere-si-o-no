@@ -89,7 +89,7 @@
     "slugByLocale": {
       "it": "addetto-a-alle-vendite-food-non-food-otto-s-ag-chur",
       "en": "sales-associate-food-non-food-otto-s-ag-chur",
-      "de": "verkaufsmitarbeiter-in-food-non-food-ottos-chur",
+      "de": "verkaufsmitarbeiter-in-food-non-food-ottos-chur-1e218fdf",
       "fr": "employe-e-de-vente-alimentaire-non-alimentaire-otto-s-ag-chur"
     },
     "sector": "Commercio al Dettaglio",
@@ -109,7 +109,8 @@
         "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-chur",
         "venditori-food-non-food-otto-s-ag-chur",
         "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-chur-c17e1884",
-        "verkaufsmitarbeiter-in-food-non-food-ottos-chur-0efda40a"
+        "verkaufsmitarbeiter-in-food-non-food-ottos-chur-0efda40a",
+        "verkaufsmitarbeiter-in-food-non-food-ottos-chur-1e218fdf"
       ],
       "en": [
         "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-chur",
@@ -122,7 +123,8 @@
         "verkaufsmitarbeiter-in-food-non-food-ottos-chur"
       ],
       "de": [
-        "verkaufsmitarbeiter-in-food-non-food-ottos-chur-0efda40a"
+        "verkaufsmitarbeiter-in-food-non-food-ottos-chur-0efda40a",
+        "verkaufsmitarbeiter-in-food-non-food-ottos-chur-1e218fdf"
       ]
     },
     "postalCode": "7000",
@@ -18965,16 +18967,14 @@
     "slugByLocale": {
       "it": "assistente-assistente-vendite-food-non-food-otto-s-ag-dietlikon",
       "en": "help-seller-in-food-non-food-otto-s-ag-dietlikon",
-      "de": "aushilfe-verkaufer-in-food-non-food-ottos-dietlikon",
+      "de": "aushilfe-verkaufer-in-food-non-food-ottos-dietlikon-b780a5c6",
       "fr": "vendeur-d-aide-dans-la-nourriture-non-alimentaire-otto-s-ag-dietlikon"
     },
     "sector": "Commercio al Dettaglio",
     "expiredAt": "2026-09-25T10:02:28.498Z",
-    "previousSlugs": [
-      "aushilfe-verkaufer-in-food-non-food-ottos-dietlikon"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "aushilfe-verkaufer-in-food-non-food-ottos-dietlikon-b780a5c6",
         "aushilfe-verkaufer-in-food-non-food-ottos-dietlikon"
       ],
       "en": [
@@ -18982,6 +18982,9 @@
       ],
       "fr": [
         "aushilfe-verkaufer-in-food-non-food-ottos-dietlikon"
+      ],
+      "de": [
+        "aushilfe-verkaufer-in-food-non-food-ottos-dietlikon-b780a5c6"
       ]
     },
     "postalCode": "6210",
@@ -18990,7 +18993,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/ottosag/job/details/3955922",
-    "firstSeenAt": "2026-07-04T11:28:02.442Z"
+    "firstSeenAt": "2026-07-04T11:28:02.442Z",
+    "previousSlugs": [
+      "aushilfe-verkaufer-in-food-non-food-ottos-dietlikon"
+    ]
   },
   {
     "slug": "personale-di-vendita-in-food-non-food-otto-s-ag-oberburen",
