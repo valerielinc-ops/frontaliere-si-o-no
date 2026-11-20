@@ -245,10 +245,12 @@ export function parseCaritasReflineListing(html = '') {
 
 /* ── Detail parser ─────────────────────────────────────────── */
 
-export function parseReflineDetail(html = '') {
+export function parseReflineDetail(html = '', jobPosting = null) {
   if (!html) return { title: '', description: '' };
 
-  const title = extractReflineDetailTitle(html);
+  const title = jobPosting?.title
+    ? normalizeSpace(String(jobPosting.title))
+    : extractReflineDetailTitle(html);
 
   const cleaned = stripScriptsAndStyles(html)
     .replace(/<header[\s\S]*?<\/header>/gi, '')
@@ -303,7 +305,7 @@ export async function fetchAllCaritasSchweizJobs() {
         url: listing.url,
       });
       detail = {
-        ...parseReflineDetail(detailHtml),
+        ...parseReflineDetail(detailHtml, posting),
         ...sourcePostingDateFields(posting?.datePosted || ''),
       };
       detailLocation = extractCaritasDetailLocation(posting);
