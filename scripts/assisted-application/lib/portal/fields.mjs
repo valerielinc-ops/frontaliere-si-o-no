@@ -1292,7 +1292,13 @@ function nativeQuestionText(value, counter = null) {
   // `type=text` while keeping the password label and the show-password
   // affordance. Preserve the semantic type so account detection and the
   // planner never treat that control as a candidate answer.
-  const PASSWORD_FIELD_LABEL_RE = /\b(?:password|passwort|kennwort|mot\s+de\s+passe|contraseña|senha|parola\s+(?:d['’]ordine|chiave))\b/iu;
+  const PASSWORD_FIELD_LABEL_RE = /^(?:[\p{L}\d][\p{L}\d'’.-]*\s+)*(?:password|passwort|kennwort|mot\s+de\s+passe|contraseña|senha|parola\s+(?:d['’]ordine|chiave))(?:\s+(?:again|confirmation|confirm|repeat|retype|verify|wiederholen|bestätigen|bestatigen|di\s+nuovo|conferma|confermare|verifica|vérifier|répéter|confirmer))?(?:\s*[*:!?]|\s*\((?:required|mandatory|erforderlich|obbligatorio|obligatoire|obligatorisch)\))*\s*$/iu;
+  const PASSWORD_IDENTIFIER_RE = /(?:^|[^\p{L}\d])(?:password|passwort|kennwort|mot\s+de\s+passe|contraseña|senha|parola\s+(?:d['’]ordine|chiave))(?:$|[^\p{L}\d])/iu;
+  const normalizeIdentifier = (value) => clean(value)
+    .replace(/([a-z\d])([A-Z])/g, '$1 $2')
+    .replace(/([\p{L}])([\d])/gu, '$1 $2')
+    .replace(/([\d])([\p{L}])/gu, '$1 $2');
+  const isPasswordIdentifier = (value) => PASSWORD_IDENTIFIER_RE.test(normalizeIdentifier(value));
   const controls = document.querySelectorAll('input, select, textarea, [role="combobox"]');
   for (const element of controls) {
     const tag = element.tagName.toLowerCase();
@@ -1332,9 +1338,10 @@ function nativeQuestionText(value, counter = null) {
       && (!nativeLabel || FILE_UPLOAD_MACHINE_LABEL_RE.test(nativeLabel))
       ? section : nativeLabel;
     const autocomplete = clean(element.getAttribute('autocomplete') || '');
+    const passwordAutocomplete = autocomplete.split(/\s+/).some(token => /^(?:current|new)-password$/i.test(token));
+    const passwordIdentifier = [element.getAttribute('name') || '', element.id || ''].some(isPasswordIdentifier);
     const fieldInputType = type === 'text'
-      && (PASSWORD_FIELD_LABEL_RE.test(`${label} ${element.getAttribute('name') || ''} ${element.id || ''}`)
-        || /^(?:current|new)-password$/i.test(autocomplete))
+      && (PASSWORD_FIELD_LABEL_RE.test(label) || passwordIdentifier || passwordAutocomplete)
       ? 'password' : type;
     // The visible Umantis date input has no submitted name. Its owned
     // day/month/year controls are the values the server actually receives.

@@ -1,5 +1,7 @@
 import { afterEach, describe, expect, it } from 'vitest';
 import { JSDOM } from 'jsdom';
+import { readFileSync } from 'node:fs';
+import { extractFieldsInPage } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import * as portal from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { candidateAnswerForField, guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { isIdentityEmailConfirmation } from '../functions/src/lib/identityEmail.js';
@@ -11,6 +13,7 @@ import { platformCandidateFacts, uploadResidenceCountry } from '../functions/src
 // which the tenant opens only for a chosen country, was never accepted.
 const { candidateForForm, submitViaPortal } = portal as any;
 const { residenceFieldRole, isIdentityEmailCaption } = (globalThis as any).AssistedApplyControls;
+const runnerFieldsSource = readFileSync(new URL('../scripts/assisted-application/extension/runner-fields.js', import.meta.url), 'utf8');
 
 
 // A bounded stand-in for the browser: the real extractFields/applyActions/
@@ -44,6 +47,19 @@ function document_(markup: string, url = 'https://careers.example.test/register'
     return { width: size, height: size } as DOMRect;
   };
   return window;
+}
+
+function passwordSnapshots(markup: string) {
+  const window = document_(markup, 'https://career2.successfactors.eu/career');
+  Object.defineProperty(window, 'CSS', { configurable: true, value: { escape: (value: string) => value } });
+  window.eval(`window.readSource = ${extractFieldsInPage.toString()};`);
+  window.eval(runnerFieldsSource);
+  const snapshots = [
+    (window as any).readSource(),
+    (window as any).CompilaRunnerFields(),
+  ];
+  window.close();
+  return snapshots;
 }
 
 function fakePage(markups: string[], {
@@ -270,6 +286,20 @@ describe('SuccessFactors registration: country, retyped e-mail, then the privacy
     expect(seen).toMatchObject({ noticeClicks: 1, opened: 1, accepted: 1, ctaClicks: 1, created: 1 });
     expect(seen.sent).toEqual({ email: EMAIL, email2: EMAIL, country: 'IT', notify: false, consent: '1' });
     expect(accounts).toEqual(['save', 'mark:created']);
+  });
+});
+
+describe('SuccessFactors password field signals', () => {
+  it.each([
+    ['a sectioned autocomplete token list', '<input id="token" type="text" autocomplete="section-login new-password" value="secret">', 'token', 'password', ''],
+    ['a camelCase identifier', '<input id="newPassword" type="text" value="secret">', 'newPassword', 'password', ''],
+    ['an ordinary password hint label', '<label for="hint">Password hint</label><input id="hint" type="text" value="answer">', 'hint', 'text', 'answer'],
+  ])('classifies %s identically in both collectors', (_name, markup, domId, inputType, value) => {
+    for (const snapshot of passwordSnapshots(markup)) {
+      const field = snapshot.fields.find((entry: any) => entry.domId === domId);
+      expect(field).toMatchObject({ domId, inputType, value });
+      expect(snapshot.passwordVisible).toBe(inputType === 'password');
+    }
   });
 });
 
