@@ -1,7 +1,7 @@
 {
   "crawlerKey": "imad",
-  "assembledAt": "2026-11-19T21:25:43.245Z",
-  "runId": "44616815052",
+  "assembledAt": "2026-11-20T09:36:07.292Z",
+  "runId": "44708951858",
   "jobs": [
     {
       "id": "imad-1ef1acc74d2e",
@@ -86,7 +86,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:25:36.157Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.smartrecruiters.com/imad/744000159820808-assc-aux-uatr-unites-d-accueil-temporaire-de-repit-de-villereuse-a-100-en-cdi"
+      "sourceIdentity": "url:https://jobs.smartrecruiters.com/imad/744000159820808-assc-aux-uatr-unites-d-accueil-temporaire-de-repit-de-villereuse-a-100-en-cdi",
+      "crawlerMissStreak": 1
     },
     {
       "id": "imad-a4fc32c5d93a",
@@ -119,7 +120,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000154020848-civiliste-conseiller-ere-assistant-e-aux-clients-de-la-securite-a-domicile-sta-100-minimum-6-mois-",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:25:36.155Z",
+      "crawledAt": "2026-11-20T09:36:00.555Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -169,7 +170,7 @@
       "postalCode": "1204",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T21:25:36.155Z",
+      "validThrough": "2027-01-05T09:36:00.555Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.smartrecruiters.com/imad/744000154020848-civiliste-conseiller-ere-assistant-e-aux-clients-de-la-securite-a-domicile-sta-100-minimum-6-mois-"
     },
@@ -205,7 +206,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000160809498-auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:25:36.154Z",
+      "crawledAt": "2026-11-20T09:36:00.553Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -251,7 +252,7 @@
       "postalCode": "1204",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T21:25:36.154Z",
+      "validThrough": "2027-02-08T09:36:00.553Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.smartrecruiters.com/imad/744000160809498-auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi"
     },
@@ -287,7 +288,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000161035976-infirmier-ere-eiso-equipe-interprofessionnelle-specialisee-en-oncologie-a-80-en-cdi",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:25:36.152Z",
+      "crawledAt": "2026-11-20T09:36:00.549Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -333,7 +334,7 @@
       "postalCode": "1204",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T21:25:36.152Z",
+      "validThrough": "2027-02-09T09:36:00.549Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.smartrecruiters.com/imad/744000161035976-infirmier-ere-eiso-equipe-interprofessionnelle-specialisee-en-oncologie-a-80-en-cdi"
     },
@@ -368,7 +369,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000161037380-infirmier-ere-pool-chad-dispositif-had-eiso-soins-pediatriques-et-repit-aux-familles-a-80-100-en-cdi",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:25:36.151Z",
+      "crawledAt": "2026-11-20T09:36:00.550Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -414,7 +415,7 @@
       "postalCode": "1204",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T21:25:36.151Z",
+      "validThrough": "2027-02-09T09:36:00.550Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.smartrecruiters.com/imad/744000161037380-infirmier-ere-pool-chad-dispositif-had-eiso-soins-pediatriques-et-repit-aux-familles-a-80-100-en-cdi"
     },
@@ -449,7 +450,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000160218190-dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-des-operations-a-100-en-cdi",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:25:36.150Z",
+      "crawledAt": "2026-11-20T09:36:00.551Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -495,7 +496,7 @@
       "postalCode": "1204",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:25:36.150Z",
+      "validThrough": "2027-02-05T09:36:00.551Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.smartrecruiters.com/imad/744000160218190-dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-des-operations-a-100-en-cdi"
     },
@@ -531,7 +532,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000161238992-assc-a-domicile-pool-centralise-longue-duree-pcld-a-80-ou-100-en-cdi",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:25:36.148Z",
+      "crawledAt": "2026-11-20T09:36:00.547Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -581,7 +582,7 @@
       "postalCode": "1204",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:25:36.148Z",
+      "validThrough": "2027-02-10T09:36:00.547Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.smartrecruiters.com/imad/744000161238992-assc-a-domicile-pool-centralise-longue-duree-pcld-a-80-ou-100-en-cdi"
     },
@@ -617,7 +618,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000161237760-infirmier-ere-referent-e-en-soins-a-domicile-a-80-ou-100-en-cdi",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:25:36.147Z",
+      "crawledAt": "2026-11-20T09:36:00.539Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -667,7 +668,7 @@
       "postalCode": "1204",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:25:36.147Z",
+      "validThrough": "2027-02-10T09:36:00.539Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.smartrecruiters.com/imad/744000161237760-infirmier-ere-referent-e-en-soins-a-domicile-a-80-ou-100-en-cdi"
     },
@@ -702,7 +703,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000162455769-apprenties-et-apprentis-assistante-et-assistant-en-soins-et-sante-communautaire-assc-cfc",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:25:36.145Z",
+      "crawledAt": "2026-11-20T09:36:00.542Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -721,21 +722,6 @@
       "jobReqId": "744000162455769",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "apprenties-et-apprentis-assistante-et-assistant-en-soins-et-sante-communautaire-assc-cfc"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "apprenties-et-apprentis-assistante-et-assistant-en-soins-et-sante-communautaire-assc-cfc"
-        ],
-        "en": [
-          "apprenties-et-apprentis-assistante-et-assistant-en-soins-et-sante-communautaire-assc-cfc"
-        ],
-        "de": [
-          "apprenties-et-apprentis-assistante-et-assistant-en-soins-et-sante-communautaire-assc-cfc"
-        ]
-      },
-      "firstSeenAt": "2026-11-19T09:59:55.600Z",
       "salaryMin": 77500,
       "salaryMax": 108000,
       "salarySource": "estimated",
@@ -752,8 +738,23 @@
       "postalCode": "1204",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-03T21:25:36.145Z",
+      "validThrough": "2027-01-03T09:36:00.542Z",
       "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-19T09:59:55.600Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenties-et-apprentis-assistante-et-assistant-en-soins-et-sante-communautaire-assc-cfc"
+        ],
+        "en": [
+          "apprenties-et-apprentis-assistante-et-assistant-en-soins-et-sante-communautaire-assc-cfc"
+        ],
+        "de": [
+          "apprenties-et-apprentis-assistante-et-assistant-en-soins-et-sante-communautaire-assc-cfc"
+        ]
+      },
+      "previousSlugs": [
+        "apprenties-et-apprentis-assistante-et-assistant-en-soins-et-sante-communautaire-assc-cfc"
+      ],
       "sourceIdentity": "url:https://jobs.smartrecruiters.com/imad/744000162455769-apprenties-et-apprentis-assistante-et-assistant-en-soins-et-sante-communautaire-assc-cfc"
     },
     {
@@ -787,7 +788,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000161239599-assc-en-soins-a-domicile-a-80-ou-100-en-cdi",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:25:36.144Z",
+      "crawledAt": "2026-11-20T09:36:00.546Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -837,7 +838,7 @@
       "postalCode": "1204",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:25:36.144Z",
+      "validThrough": "2027-02-10T09:36:00.546Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.smartrecruiters.com/imad/744000161239599-assc-en-soins-a-domicile-a-80-ou-100-en-cdi"
     },
@@ -873,7 +874,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000161240759-infirmier-ere-referent-e-a-domicile-a-80-ou-100-en-cdi-au-sein-de-l-equipe-centralisee-pour-des-missions-de-remplacement-de-longue-duree-de-6-a-15-mois-avec-la-responsabilite-d-un-portefeuille-de-dossiers-patients",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:25:36.142Z",
+      "crawledAt": "2026-11-20T09:36:00.544Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -919,7 +920,7 @@
       "postalCode": "1204",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:25:36.142Z",
+      "validThrough": "2027-02-10T09:36:00.544Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.smartrecruiters.com/imad/744000161240759-infirmier-ere-referent-e-a-domicile-a-80-ou-100-en-cdi-au-sein-de-l-equipe-centralisee-pour-des-missions-de-remplacement-de-longue-duree-de-6-a-15-mois-avec-la-responsabilite-d-un-portefeuille-de-dossiers-patients"
     },
@@ -954,7 +955,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000161304368-auxiliaire-de-sante-a-domicile-de-60-a-100-en-cdi",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:25:36.138Z",
+      "crawledAt": "2026-11-20T09:36:00.545Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1004,7 +1005,7 @@
       "postalCode": "1204",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:25:36.138Z",
+      "validThrough": "2027-02-11T09:36:00.545Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.smartrecruiters.com/imad/744000161304368-auxiliaire-de-sante-a-domicile-de-60-a-100-en-cdi"
     }
