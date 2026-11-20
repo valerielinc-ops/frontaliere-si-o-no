@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "myswitzerland",
   "sourceName": "MySwitzerland",
-  "assembledAt": "2026-11-19T15:09:10.284Z",
+  "assembledAt": "2026-11-20T14:46:10.416Z",
   "events": [
     {
       "id": "myswitzerland:c04dc58cdaf845e0a02375c9baff1584",
@@ -136652,11 +136652,11 @@
       },
       "startDate": "2027-06-26",
       "endDate": "2027-06-26",
-      "startTime": "13:00",
-      "category": "Food",
-      "venue": "Vully Tourisme",
-      "canton": "",
-      "url": "https://www.myswitzerland.com/de-ch/erlebnisse/veranstaltungen/route-gourmande-du-vully/",
+      "category": "Event",
+      "venue": "Môtier",
+      "comune": "Mont-Vully",
+      "canton": "FR",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/route-gourmande-vully/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "geo": {
@@ -136664,7 +136664,14 @@
         "lng": 7.0844865
       },
       "recurring": false,
-      "sourceDescriptionHash": "35b0f1dbc9ddf14913b4a505302461bbd9f5e59201b6e42482f4136989609667"
+      "sourceDescriptionHash": "944dc835cd95ee5ed6f0f6d88a0bef2107051eaee84054f4f9f5a8b63ed69bb2",
+      "previousRoutes": [
+        {
+          "canton": "__UNRESOLVED-CANTON__",
+          "comune": "__other-events__",
+          "slug": "route-gourmande-vully-2027-06-26"
+        }
+      ]
     },
     {
       "id": "myswitzerland:56fb8b83cb7045bcab9e62e2735efc55",
@@ -218577,29 +218584,18 @@
       },
       "startDate": "2026-12-19",
       "endDate": "2026-12-19",
-      "startTime": "20:00",
-      "category": "Music",
-      "venue": "Rapidplatz",
+      "category": "Event",
+      "venue": "Dietikon",
       "comune": "Dietikon",
       "canton": "ZH",
-      "url": "https://www.myswitzerland.com/en-ch/experiences/events/stubete-gaeng-am-limmatzauber/",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/stubete-gaeng-am-limmatzauber/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
-      "price": {
-        "amount": 51.1,
-        "currency": "CHF",
-        "isFree": false
-      },
       "geo": {
         "lat": 47.4118283,
         "lng": 8.4036738
       },
       "recurring": false,
-      "organizer": {
-        "@type": "Organization",
-        "name": "Ticketcorner",
-        "url": "https://www.myswitzerland.com/en-ch/experiences/events/stubete-gaeng-am-limmatzauber/"
-      },
       "performer": {
         "name": "Stubete Gäng"
       },
@@ -278763,6 +278759,466 @@
       },
       "recurring": false,
       "sourceDescriptionHash": "04281508a44e4532f9ec63b1adf11b78d6b40f1b57c5c4a4e4b2bc6d8309c12c"
+    },
+    {
+      "id": "myswitzerland:593c8840cc074fdfb5858df70e39061a",
+      "title": "Feuer bei Nässe und Kälte",
+      "titleByLocale": {
+        "it": "Feuer bei Nässe und Kälte",
+        "en": "Feuer bei Nässe und Kälte",
+        "de": "Feuer bei Nässe und Kälte",
+        "fr": "Feuer bei Nässe und Kälte"
+      },
+      "startDate": "2027-01-21",
+      "endDate": "2027-01-21",
+      "category": "Event",
+      "venue": "Spiez",
+      "comune": "Spiez",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/feuer-bei-naesse-und-kaelte/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.694344,
+        "lng": 7.65804
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "17f3054326e299b859fd8d9c1dc7bb9d6e8cdcd9d146d56e2391c345c100a227"
+    },
+    {
+      "id": "myswitzerland:591c11a2b8b84e3d9d55a8130a921602",
+      "title": "Sound@GurschenBar",
+      "titleByLocale": {
+        "it": "Sound@GurschenBar",
+        "en": "Sound@GurschenBar",
+        "de": "Sound@GurschenBar",
+        "fr": "Sound@GurschenBar"
+      },
+      "startDate": "2026-11-14",
+      "endDate": "2027-03-13",
+      "category": "Event",
+      "venue": "Andermatt",
+      "comune": "Andermatt",
+      "canton": "UR",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/soundgurschenbar/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.632535,
+        "lng": 8.591822
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "f0c6ba11048327445933f0335a1712432918eab20ed45ccc4f7495eb0c8bf764"
+    },
+    {
+      "id": "myswitzerland:5879287af40446f7aed729691ccac750",
+      "title": "Mad Katz",
+      "titleByLocale": {
+        "it": "Mad Katz",
+        "en": "Mad Katz",
+        "de": "Mad Katz",
+        "fr": "Mad Katz"
+      },
+      "startDate": "2026-11-27",
+      "endDate": "2026-11-27",
+      "startTime": "23:00",
+      "category": "Event",
+      "venue": "Zurich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/mad-katz/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3851686,
+        "lng": 8.52066
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Ignez"
+      },
+      "sourceDescriptionHash": "b11cf81013d0d8bacaec6c63ad69359eeb5a499ea91d3493701019bd4e6eac4a"
+    },
+    {
+      "id": "myswitzerland:5801fe3d199747ac9d69849e2592a108",
+      "title": "Gwunderstunde: Rot",
+      "titleByLocale": {
+        "it": "Gwunderstunde: Rot",
+        "en": "Gwunderstunde: Rot",
+        "de": "Gwunderstunde: Rot",
+        "fr": "Gwunderstunde: Rot"
+      },
+      "startDate": "2026-11-11",
+      "endDate": "2026-11-25",
+      "category": "Event",
+      "venue": "Lucerne",
+      "comune": "Luzern",
+      "canton": "LU",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/gwunderstunde-rot/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.051662,
+        "lng": 8.3010435
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "c2a81d6f8a510dda251b518eec0a3edaac2e45bcc8900e47d3c3d62256f62725"
+    },
+    {
+      "id": "myswitzerland:57b8388e8e2d4f06919242349249fe80",
+      "title": "Kantonale Wahlen",
+      "titleByLocale": {
+        "it": "Kantonale Wahlen",
+        "en": "Kantonale Wahlen",
+        "de": "Kantonale Wahlen",
+        "fr": "Kantonale Wahlen"
+      },
+      "startDate": "2027-04-04",
+      "endDate": "2027-04-04",
+      "category": "Event",
+      "venue": "Urdorf",
+      "comune": "Wahlen",
+      "canton": "BL",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/kantonale-wahlen/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3863403,
+        "lng": 8.4272597
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "0a5a435033dc724a7e3698e4f8a7a59a7500b94567c282e3bb98880ab5616a1f"
+    },
+    {
+      "id": "myswitzerland:577643fb1b894cd88f548003281e6b8b",
+      "title": "Mahnwache zum int. Tag der Menschenrechte",
+      "titleByLocale": {
+        "it": "Mahnwache zum int. Tag der Menschenrechte",
+        "en": "Mahnwache zum int. Tag der Menschenrechte",
+        "de": "Mahnwache zum int. Tag der Menschenrechte",
+        "fr": "Mahnwache zum int. Tag der Menschenrechte"
+      },
+      "startDate": "2026-12-12",
+      "endDate": "2026-12-13",
+      "category": "Event",
+      "venue": "Solothurn",
+      "comune": "Solothurn",
+      "canton": "SO",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/mahnwache-zum-int-tag-der-menschenrechte/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.208835,
+        "lng": 7.532291
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "548230dc5948089b082390b6a45fbe77927c279881aad157e08f5c7cf70d6d13"
+    },
+    {
+      "id": "myswitzerland:561aa2220202458584e466e65bff69bd",
+      "title": "Adventsfenster: \"Allergattig Gschiir\"",
+      "titleByLocale": {
+        "it": "Adventsfenster: \"Allergattig Gschiir\"",
+        "en": "Adventsfenster: \"Allergattig Gschiir\"",
+        "de": "Adventsfenster: \"Allergattig Gschiir\"",
+        "fr": "Adventsfenster: \"Allergattig Gschiir\""
+      },
+      "startDate": "2026-12-06",
+      "endDate": "2027-01-06",
+      "category": "Event",
+      "venue": "Muttenz",
+      "comune": "Muttenz",
+      "canton": "BL",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/adventsfenster-allergattig-gschiir/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.5215108,
+        "lng": 7.6458186
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "73f17b4ac00af43af8a5f0be2ad3b122c506d61bbc4e8b12ec525e31518609be"
+    },
+    {
+      "id": "myswitzerland:55c63a1cd9eb45e38cb310ded4b80b16",
+      "title": "Zwischen Fernweh und Heimat",
+      "titleByLocale": {
+        "it": "Zwischen Fernweh und Heimat",
+        "en": "Zwischen Fernweh und Heimat",
+        "de": "Zwischen Fernweh und Heimat",
+        "fr": "Zwischen Fernweh und Heimat"
+      },
+      "startDate": "2026-11-21",
+      "endDate": "2026-11-21",
+      "category": "Event",
+      "venue": "Oberwil bei Büren",
+      "comune": "Oberwil bei Büren",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/zwischen-fernweh-und-heimat/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.1357446,
+        "lng": 7.4146082
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "7a1e7527f5dd7af1d6aeebf59f99a2f2d83fb4170bfaef2375a45a19e0e9cdd6"
+    },
+    {
+      "id": "myswitzerland:53c1108059844613b5c280428ea27c3a",
+      "title": "Advent Market",
+      "titleByLocale": {
+        "it": "Advent Market",
+        "en": "Advent Market",
+        "de": "Adventsmarkt",
+        "fr": "Marché de l'Avent"
+      },
+      "startDate": "2026-12-05",
+      "endDate": "2026-12-05",
+      "category": "Event",
+      "venue": "Le Landeron",
+      "comune": "Le Landeron",
+      "canton": "NE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/advent-market-2/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.0599427,
+        "lng": 7.0660492
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "eaff042c25324ca12d08978e1750d53e075918fdea33b17cec8ec616b851da37"
+    },
+    {
+      "id": "myswitzerland:53ab981e6cb642fbbe0e84270d7b3295",
+      "title": "Dreikönigstrycheln im Ybrig",
+      "titleByLocale": {
+        "it": "Dreikönigstrycheln im Ybrig",
+        "en": "Dreikönigstrycheln im Ybrig",
+        "de": "Dreikönigstrycheln im Ybrig",
+        "fr": "Dreikönigstrycheln im Ybrig"
+      },
+      "startDate": "2027-01-06",
+      "endDate": "2027-01-06",
+      "category": "Event",
+      "venue": "Oberiberg",
+      "comune": "Oberiberg",
+      "canton": "SZ",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/dreikoenigstrycheln-im-ybrig/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.039856,
+        "lng": 8.781741
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "f19085c75da52831a423820c4f61c3c58b93fb19aeab8458b59876f7d62d9a1b"
+    },
+    {
+      "id": "myswitzerland:53a5e1f142cc459d832ae729edd4757e",
+      "title": "Pflanzen vermehren",
+      "titleByLocale": {
+        "it": "Pflanzen vermehren",
+        "en": "Pflanzen vermehren",
+        "de": "Pflanzen vermehren",
+        "fr": "Pflanzen vermehren"
+      },
+      "startDate": "2027-03-24",
+      "endDate": "2027-03-24",
+      "category": "Event",
+      "venue": "Spiez",
+      "comune": "Spiez",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/pflanzen-vermehren/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.694344,
+        "lng": 7.65804
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "fe1296dd0f76549036eba366c4afb40c36c68cc69b6eef129ec6e4540a42ef29"
+    },
+    {
+      "id": "myswitzerland:53081e4f242649c3947d8843477e3363",
+      "title": "Esperienza del mercatino di Natale di Brienz",
+      "titleByLocale": {
+        "it": "Esperienza del mercatino di Natale di Brienz",
+        "en": "Experience Christmas Market Brienz",
+        "de": "Erlebnis Weihnachtsmarkt Brienz",
+        "fr": "Marché de Noël de Brienz"
+      },
+      "startDate": "2026-11-28",
+      "endDate": "2026-11-29",
+      "category": "Event",
+      "venue": "Brienz",
+      "comune": "Brienz (BE)",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/esperienza-del-mercatino-di-natale-di-brienz-2025/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.755969,
+        "lng": 8.026659
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "22a72fdd242aac0ae958aee42fa03402243d573d60a0106e465d12d954d2e807"
+    },
+    {
+      "id": "myswitzerland:51dd2b3523c64240b8a4a4dde6427570",
+      "title": "Loto of the Ski Club des Mosses",
+      "titleByLocale": {
+        "it": "Loto of the Ski Club des Mosses",
+        "en": "Loto of the Ski Club des Mosses",
+        "de": "Lotto des Ski Club Les Mosses",
+        "fr": "Loto du Ski Club des Mosses"
+      },
+      "startDate": "2027-01-30",
+      "endDate": "2027-01-30",
+      "category": "Event",
+      "venue": "Les Mosses",
+      "comune": "Ormont-Dessous",
+      "canton": "VD",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/loto-of-the-ski-club-des-mosses/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.4090585,
+        "lng": 7.1037461
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "241204980c19179028fd13cc87ac858c609a77a5cc18331dcfda24d4bdd4b958"
+    },
+    {
+      "id": "myswitzerland:51b1a85f6aa44669bc170d25702f1175",
+      "title": "(Migratory) Birds at Leukerfeld",
+      "titleByLocale": {
+        "it": "(Migratory) Birds at Leukerfeld",
+        "en": "(Migratory) Birds at Leukerfeld",
+        "de": "(Zug)-Vögel im Leukerfeld",
+        "fr": "Les oiseaux (migrateurs) du Leukerfeld"
+      },
+      "startDate": "2027-04-21",
+      "endDate": "2027-04-21",
+      "category": "Event",
+      "venue": "Turtmann",
+      "comune": "Turtmann-Unterems",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/migratory-birds-at-leukerfeld/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.3093298,
+        "lng": 7.7000391
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "8db0c4b60fb51e6f4d4d70fb88efec47c2708d85a90995108ecb62b11f444395"
+    },
+    {
+      "id": "myswitzerland:518d23e18aba43cb89f1dfbb908dd691",
+      "title": "Krimi Dinner \"Eine Leiche im Louvre\"",
+      "titleByLocale": {
+        "it": "Krimi Dinner \"Eine Leiche im Louvre\"",
+        "en": "Krimi Dinner \"Eine Leiche im Louvre\"",
+        "de": "Krimi Dinner \"Eine Leiche im Louvre\"",
+        "fr": "Krimi Dinner \"Eine Leiche im Louvre\""
+      },
+      "startDate": "2027-03-20",
+      "endDate": "2027-03-20",
+      "category": "Event",
+      "venue": "Brienz",
+      "comune": "Brienz (BE)",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/krimi-dinner-eine-leiche-im-louvre/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.7549798,
+        "lng": 8.037875
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "4afa05bd141b69b8eb1a96060a708269fd49097b8cad6118939bb4c199cca581"
+    },
+    {
+      "id": "myswitzerland:5186e59e476445c58835820e0c0e4e7d",
+      "title": "Höhlen im Kalkstein und weitere Karstphänomene",
+      "titleByLocale": {
+        "it": "Höhlen im Kalkstein und weitere Karstphänomene",
+        "en": "Höhlen im Kalkstein und weitere Karstphänomene",
+        "de": "Höhlen im Kalkstein und weitere Karstphänomene",
+        "fr": "Höhlen im Kalkstein und weitere Karstphänomene"
+      },
+      "startDate": "2027-04-03",
+      "endDate": "2027-11-07",
+      "category": "Event",
+      "venue": "Laufenburg",
+      "comune": "Laufenburg",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/hoehlen-im-kalkstein-und-weitere-karstphaenomene-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.562959,
+        "lng": 8.0599813
+      },
+      "recurring": true,
+      "performer": {
+        "name": "Stirnlampe"
+      },
+      "sourceDescriptionHash": "a9e8c9abc9a164a7e13a3e461b9f7bb95af032ca6f0cd2060e2382db758fb14b"
+    },
+    {
+      "id": "myswitzerland:50a7bd162a7246b1b1bb3b9abd5ae9b4",
+      "title": "Sommerküche am Feuer",
+      "titleByLocale": {
+        "it": "Sommerküche am Feuer",
+        "en": "Sommerküche am Feuer",
+        "de": "Sommerküche am Feuer",
+        "fr": "Sommerküche am Feuer"
+      },
+      "startDate": "2027-07-01",
+      "endDate": "2027-07-01",
+      "category": "Event",
+      "venue": "Spiez",
+      "comune": "Spiez",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/sommerkueche-am-feuer/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.694344,
+        "lng": 7.65804
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "f3dbb7d1c02fafb2f25683865e52324a59cc537e89ec8e4f960c2ba4c3c89c4c"
+    },
+    {
+      "id": "myswitzerland:503aa379b8df427ead71bb24e57f0b6b",
+      "title": "António Zambujo",
+      "titleByLocale": {
+        "it": "António Zambujo",
+        "en": "António Zambujo",
+        "de": "António Zambujo",
+        "fr": "António Zambujo"
+      },
+      "startDate": "2027-03-08",
+      "endDate": "2027-03-08",
+      "category": "Event",
+      "venue": "Geneva",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/antonio-zambujo/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.2014024,
+        "lng": 6.1410618
+      },
+      "recurring": false,
+      "performer": {
+        "name": "António Zambujo"
+      },
+      "sourceDescriptionHash": "3fbc1bfac02cea90ea698258112dd8986d099ce65a2a3a73388065e08daf84f1"
     }
   ]
 }
