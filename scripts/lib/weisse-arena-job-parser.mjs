@@ -317,8 +317,15 @@ async function fetchJobListings({ minimumExpectedCount = 0 } = {}) {
   for (let attempt = 1; attempt <= LISTING_SNAPSHOT_MAX_ATTEMPTS; attempt += 1) {
     try {
       const listings = await fetchJobListingsOnce();
-      if (expectedCount === 0 || listings.length >= expectedCount || attempt === LISTING_SNAPSHOT_MAX_ATTEMPTS) {
+      if (expectedCount === 0 || listings.length >= expectedCount) {
         return listings;
+      }
+
+      if (attempt === LISTING_SNAPSHOT_MAX_ATTEMPTS) {
+        throw new Error(
+          `Weisse Arena listing snapshot remained incomplete after ${LISTING_SNAPSHOT_MAX_ATTEMPTS} attempts: `
+            + `fetched ${listings.length}/${expectedCount} jobs; refusing a partial crawl.`,
+        );
       }
 
       console.warn(
