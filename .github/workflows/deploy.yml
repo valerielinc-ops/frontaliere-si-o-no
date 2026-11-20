@@ -1057,7 +1057,7 @@ jobs:
         uses: actions/upload-artifact@v7
         continue-on-error: true
         with:
-          name: it-rollup-bundle-${{ github.run_id }}
+          name: it-rollup-bundle-${{ github.run_id }}-${{ github.run_attempt }}
           path: ${{ runner.temp }}/it-rollup-bundle.tgz
           retention-days: 1
           if-no-files-found: error
@@ -1068,7 +1068,7 @@ jobs:
         id: retry-it-rollup-bundle
         uses: actions/upload-artifact@v7
         with:
-          name: it-rollup-bundle-${{ github.run_id }}
+          name: it-rollup-bundle-${{ github.run_id }}-${{ github.run_attempt }}
           path: ${{ runner.temp }}/it-rollup-bundle.tgz
           retention-days: 1
           if-no-files-found: error
@@ -1084,7 +1084,7 @@ jobs:
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
-          BUNDLE_ARTIFACT_NAME: it-rollup-bundle-${{ github.run_id }}
+          BUNDLE_ARTIFACT_NAME: it-rollup-bundle-${{ github.run_id }}-${{ github.run_attempt }}
           IT_BUNDLE_RUN_ID: ${{ github.run_id }}
           IT_BUNDLE_REPOSITORY: ${{ github.repository }}
         run: |
@@ -1122,7 +1122,7 @@ jobs:
         if: matrix.locale != 'it'
         uses: actions/download-artifact@v8
         with:
-          name: it-rollup-bundle-${{ github.run_id }}
+          name: it-rollup-bundle-${{ github.run_id }}-${{ github.run_attempt }}
           path: ${{ runner.temp }}/it-rollup-bundle-download
 
       - name: Restore IT Rollup bundle and staged handoff

@@ -1126,20 +1126,25 @@ describe('deploy.yml — non-IT legs reuse the IT Rollup bundle (#19575)', () =>
     expect(packageStep.run).toContain('stage-handoff');
     expect(packageStep.run).toContain('content-manifest-bundle.tsv');
     expect(upload.uses).toBe('actions/upload-artifact@v7');
+    const attemptScopedArtifactName = 'it-rollup-bundle-${{ github.run_id }}-${{ github.run_attempt }}';
     expect(upload.with).toMatchObject({
-      name: 'it-rollup-bundle-${{ github.run_id }}',
+      name: attemptScopedArtifactName,
       path: '${{ runner.temp }}/it-rollup-bundle.tgz',
       'if-no-files-found': 'error',
       'compression-level': 0,
     });
+    expect(retry.with?.name).toBe(attemptScopedArtifactName);
     expect(retry.if).toContain('steps.upload-it-rollup-bundle.outcome == \'failure\'');
     expect(wait.if).toBe("matrix.locale != 'it'");
+    expect(wait.env?.BUNDLE_ARTIFACT_NAME).toBe(attemptScopedArtifactName);
+    expect(wait.env?.BUNDLE_ARTIFACT_NAME).toContain('${{ github.run_attempt }}');
+    expect(wait.run).toContain('--arg name "$BUNDLE_ARTIFACT_NAME"');
     expect(wait.run).toContain('build-locale (it)');
     expect(wait.run).toContain('completed:*');
     expect(wait.run).toContain('exit 1');
     expect(download.if).toBe("matrix.locale != 'it'");
     expect(download.uses).toBe('actions/download-artifact@v8');
-    expect(download.with.name).toBe('it-rollup-bundle-${{ github.run_id }}');
+    expect(download.with.name).toBe(attemptScopedArtifactName);
     expect(restore.if).toBe("matrix.locale != 'it'");
     expect(restore.run).toContain('dist/assets');
     expect(restore.run).toContain('route-chunks.json');
