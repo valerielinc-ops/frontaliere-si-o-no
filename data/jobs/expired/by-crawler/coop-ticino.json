@@ -338802,10 +338802,6 @@
       "boulanger-confiseur-coop-genossenschaft-zurich",
       "boulanger-confiseur-coop-genossenschaft-zurich-xx3ebs",
       "boulanger-patissier-coop-genossenschaft-zurich-xx3ebs",
-      "konditor-in-coop-zurich-xhpvrg",
-      "configeur-conservateur-coop-genossenschaft-zurich",
-      "configeur-in-coop-genossenschaft-zurich-76jn1l",
-      "confectioner-in-coop-genossenschaft-zurich",
       "baker-bakeress-coop-genossenschaft-zurich-xx3ebs-d392df93",
       "baker-confectioner-coop-genossenschaft-zurich-xx3ebs-14e62d51",
       "baker-in-confiseur-in-coop-genossenschaft-zurich-d5505908",
@@ -338815,7 +338811,11 @@
       "boulanger-confiseur-coop-genossenschaft-zurich-25c455f8",
       "boulanger-confiseur-coop-genossenschaft-zurich-xx3ebs-168ffeca",
       "boulanger-patissier-coop-genossenschaft-zurich-xx3ebs-cab8e3da",
-      "baker-in-confiseur-in-coop-genossenschaft-zurich-9d3093a5"
+      "baker-in-confiseur-in-coop-genossenschaft-zurich-9d3093a5",
+      "konditor-in-coop-zurich-xhpvrg",
+      "configeur-conservateur-coop-genossenschaft-zurich",
+      "configeur-in-coop-genossenschaft-zurich-76jn1l",
+      "confectioner-in-coop-genossenschaft-zurich"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -350673,7 +350673,6 @@
       "sales-assistant-food-fresh-products-coop-genossenschaft-heimberg-hpi803",
       "vendeur-vendeuse-alimentaire-produits-frais-coop-genossenschaft-heimberg-hpi803",
       "verkaufer-in-food-frischprodukte-coop-heimberg-bern",
-      "seller-in-food-coop-genossenschaft-heimberg",
       "venditore-in-prodotti-alimentari-freschi-coop-genossenschaft-heimberg",
       "verkaufer-in-food-frischprodukte-coop-heimberg-bern-qbvhmz",
       "seller-in-food-fresh-products-coop-genossenschaft-heimberg-163e32",
@@ -350689,7 +350688,8 @@
       "verkaufer-in-food-frischprodukte-coop-heimberg-bern-qbvhmz-addf23bc",
       "seller-in-food-fresh-products-coop-genossenschaft-heimberg-163e32-ec3aa9e1",
       "vendeur-dans-la-nourriture-produits-frais-coop-genossenschaft-heimberg-30c4fb84",
-      "assistente-vendita-alimentari-prodotti-freschi-coop-genossenschaft-heimberg-33e1605d"
+      "assistente-vendita-alimentari-prodotti-freschi-coop-genossenschaft-heimberg-33e1605d",
+      "seller-in-food-coop-genossenschaft-heimberg"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -350764,7 +350764,6 @@
         "verkaufer-in-food-frischprodukte-coop-genossenschaft-heimberg-9122fe67",
         "verkaufer-in-food-frischprodukte-coop-genossenschaft-heimberg-51affa19",
         "verkaufer-in-food-frischprodukte-coop-heimberg-bern",
-        "seller-in-food-coop-genossenschaft-heimberg",
         "addetto-a-alla-vendita-alimentari-prodotti-freschi-coop-genossenschaft-heimberg",
         "verkaufer-in-food-frischprodukte-coop-heimberg-bern-hpi803",
         "sales-assistant-food-fresh-products-coop-genossenschaft-heimberg-hpi803",
@@ -350774,7 +350773,8 @@
         "seller-in-food-fresh-products-coop-genossenschaft-heimberg-163e32",
         "vendeur-dans-la-nourriture-produits-frais-coop-genossenschaft-heimberg",
         "assistente-vendita-alimentari-prodotti-freschi-coop-genossenschaft-heimberg",
-        "seller-in-food-coop-genossenschaft-heimberg-bcef304b"
+        "seller-in-food-coop-genossenschaft-heimberg-bcef304b",
+        "seller-in-food-coop-genossenschaft-heimberg"
       ],
       "fr": [
         "assistant-commercial-alimentaire-produits-frais-coop-genossenschaft-heimberg-hpi803",
@@ -350795,7 +350795,6 @@
         "verkaufer-in-food-frischprodukte-coop-genossenschaft-heimberg-cf63fdef",
         "verkaufer-in-food-frischprodukte-coop-genossenschaft-heimberg-9122fe67",
         "verkaufer-in-food-frischprodukte-coop-heimberg-bern",
-        "seller-in-food-coop-genossenschaft-heimberg",
         "addetto-a-alla-vendita-alimentari-prodotti-freschi-coop-genossenschaft-heimberg",
         "verkaufer-in-food-frischprodukte-coop-heimberg-bern-hpi803",
         "sales-assistant-food-fresh-products-coop-genossenschaft-heimberg-hpi803",
@@ -350805,7 +350804,8 @@
         "seller-in-food-fresh-products-coop-genossenschaft-heimberg-163e32",
         "vendeur-dans-la-nourriture-produits-frais-coop-genossenschaft-heimberg",
         "assistente-vendita-alimentari-prodotti-freschi-coop-genossenschaft-heimberg",
-        "seller-in-food-coop-genossenschaft-heimberg-bcef304b"
+        "seller-in-food-coop-genossenschaft-heimberg-bcef304b",
+        "seller-in-food-coop-genossenschaft-heimberg"
       ]
     },
     "salaryMin": 68500,
@@ -378698,7 +378698,8 @@
       "vendeur-dans-la-nourriture-coop-genossenschaft-bern-7a8dc1-9b474bd1",
       "seller-in-food-coop-genossenschaft-bern",
       "vendeur-dans-la-nourriture-coop-genossenschaft-bern",
-      "seller-in-food-coop-genossenschaft-bern-xfn54z-09cfdc94"
+      "seller-in-food-coop-genossenschaft-bern-xfn54z-09cfdc94",
+      "seller-in-food-student-help-coop-genossenschaft-bern"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -389827,8 +389828,8 @@
       "butcher-meat-specialist-and-cook-f-m-d-coop-genossenschaft-bern-c9d6634e",
       "specialista-della-carne-coop-genossenschaft-bern",
       "butcher-meat-specialist-and-cook-f-m-d-coop-genossenschaft-bern",
-      "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-bern",
-      "butcher-meat-specialist-and-cook-f-m-d-coop-genossenschaft-bern-75f9689d"
+      "butcher-meat-specialist-and-cook-f-m-d-coop-genossenschaft-bern-75f9689d",
+      "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-bern"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -389975,8 +389976,8 @@
         "specialista-della-carne-coop-genossenschaft-bern-b134aad2",
         "butcher-meat-specialist-and-cook-f-m-d-coop-genossenschaft-bern-c9d6634e",
         "butcher-meat-specialist-and-cook-f-m-d-coop-genossenschaft-bern-75f9689d",
-        "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-bern",
-        "meat-specialist-mann-coop-genossenschaft-bern-33175437"
+        "meat-specialist-mann-coop-genossenschaft-bern-33175437",
+        "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-bern"
       ],
       "de": [
         "fleischfachfrau-mann-coop-city-bern-fdgu0z-3ef52aee",
@@ -390008,8 +390009,8 @@
         "specialista-della-carne-coop-genossenschaft-bern-b134aad2",
         "butcher-meat-specialist-and-cook-f-m-d-coop-genossenschaft-bern-75f9689d",
         "butcher-meat-specialist-and-cook-f-m-d-coop-genossenschaft-bern",
-        "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-bern",
-        "specialiste-de-la-viande-mann-coop-genossenschaft-bern-527beb02"
+        "specialiste-de-la-viande-mann-coop-genossenschaft-bern-527beb02",
+        "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-bern"
       ]
     },
     "salaryMin": 68500,
@@ -391265,8 +391266,8 @@
       "configeur-in-coop-genossenschaft-zurich-1e1a74b9",
       "configeur-in-coop-genossenschaft-zurich-b5e7e15f",
       "confectioner-in-coop-genossenschaft-zurich-de03282f",
-      "configeur-in-coop-genossenschaft-zurich",
-      "baker-in-confiseur-in-coop-genossenschaft-zurich-01bec104"
+      "baker-in-confiseur-in-coop-genossenschaft-zurich-01bec104",
+      "configeur-in-coop-genossenschaft-zurich"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -508416,7 +508417,8 @@
       "vendeur-dans-la-nourriture-coop-genossenschaft-bern",
       "seller-in-food-coop-genossenschaft-bern-xfn54z-500f68aa",
       "venditore-in-food-coop-genossenschaft-bern-cc028b-3f109691",
-      "verkaufer-in-food-coop-bern-93bfyu-a0f2936d"
+      "verkaufer-in-food-coop-bern-93bfyu-a0f2936d",
+      "seller-in-food-student-help-coop-genossenschaft-bern"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -544910,10 +544912,10 @@
       "verkaufer-in-food-frischprodukte-coop-genossenschaft-zurich-d2948df8",
       "verkaufer-in-food-frischprodukte-coop-genossenschaft-zurich-a0ef5406",
       "verkaufer-in-food-frischprodukte-coop-genossenschaft-zurich-ce39e86f",
-      "verkaufer-in-food-frischprodukte-coop-genossenschaft-zurich",
       "seller-in-food-drinks-coop-genossenschaft-zurich",
       "verkaufer-in-food-getranke-coop-genossenschaft-zurich-zacmhg",
-      "vendeur-dans-la-nourriture-boissons-coop-genossenschaft-zurich"
+      "vendeur-dans-la-nourriture-boissons-coop-genossenschaft-zurich",
+      "verkaufer-in-food-frischprodukte-coop-genossenschaft-zurich"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -630592,7 +630594,8 @@
       "verkaufer-in-food-getranke-coop-genossenschaft-altstatten-6d6a8eab",
       "verkaufer-in-food-getranke-coop-genossenschaft-schwyz-fd3dc1ba",
       "verkaufer-in-food-getranke-coop-genossenschaft-schwyz-20cd07fd",
-      "verkaufer-in-food-coop-altstatten-sankt-gallen"
+      "verkaufer-in-food-coop-altstatten-sankt-gallen",
+      "verkaufer-in-food-coop-altstatten-sankt-gallen-6fab5131"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -630614,6 +630617,7 @@
         "verkaufer-in-food-coop-altstatten-sankt-gallen-0ifd89-935e7e2c",
         "verkaufer-in-food-getranke-coop-genossenschaft-altstatten-6d6a8eab",
         "verkaufer-in-food-getranke-coop-genossenschaft-schwyz-fd3dc1ba",
+        "verkaufer-in-food-coop-altstatten-sankt-gallen-6fab5131",
         "verkaufer-in-food-coop-altstatten-sankt-gallen"
       ],
       "fr": [
@@ -630624,6 +630628,7 @@
         "verkaufer-in-food-coop-altstatten-sankt-gallen-0ifd89-935e7e2c",
         "verkaufer-in-food-getranke-coop-genossenschaft-altstatten-6d6a8eab",
         "verkaufer-in-food-getranke-coop-genossenschaft-schwyz-fd3dc1ba",
+        "verkaufer-in-food-coop-altstatten-sankt-gallen-6fab5131",
         "verkaufer-in-food-coop-altstatten-sankt-gallen"
       ],
       "de": [
@@ -630634,6 +630639,7 @@
         "verkaufer-in-food-getranke-coop-genossenschaft-altstatten-6d6a8eab",
         "verkaufer-in-food-getranke-coop-genossenschaft-schwyz-fd3dc1ba",
         "verkaufer-in-food-getranke-coop-genossenschaft-schwyz-20cd07fd",
+        "verkaufer-in-food-coop-altstatten-sankt-gallen-6fab5131",
         "verkaufer-in-food-coop-altstatten-sankt-gallen"
       ]
     },
@@ -663816,8 +663822,8 @@
       "verkaufer-in-food-getranke-coop-genossenschaft-altstatten-b7acf2fc",
       "verkaufer-in-food-coop-altstatten-sankt-gallen-0ifd89-53487d07",
       "verkaufer-in-food-getranke-coop-genossenschaft-altstatten-34b1cfbe",
-      "verkaufer-in-food-coop-altstatten-sankt-gallen",
-      "verkaufer-in-food-coop-altstatten-sankt-gallen-8e057ea1"
+      "verkaufer-in-food-coop-altstatten-sankt-gallen-8e057ea1",
+      "verkaufer-in-food-coop-altstatten-sankt-gallen"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -768415,7 +768421,6 @@
       "seller-in-food-coop-genossenschaft-langnau-am-albis-oq5txw",
       "seller-in-food-coop-genossenschaft-thun-7wmq4m",
       "vendeur-dans-la-nourriture-coop-genossenschaft-thun-7wmq4m",
-      "verkaufer-in-food-coop-thun-bern-2-2",
       "verkaufer-in-food-coop-bern-aj6585",
       "verkaufer-in-food-coop-thun-bern",
       "seller-in-food-coop-genossenschaft-thun-7wmq4m-107a2cdc",
@@ -768428,7 +768433,8 @@
       "food-sales-assistant-coop-genossenschaft-bern-e21b21-12728a87",
       "verkaufer-in-food-coop-thun-bern-2zshlj-3cccba1b",
       "verkaufer-in-food-coop-genossenschaft-thun-2zshlj-fd4dcc7b",
-      "food-sales-assistant-coop-genossenschaft-bern-e21b21-12178826"
+      "food-sales-assistant-coop-genossenschaft-bern-e21b21-12178826",
+      "verkaufer-in-food-coop-thun-bern-2-2"
     ],
     "previousSlugsByLocale": {
       "en": [
@@ -768439,7 +768445,6 @@
         "verkaufer-in-food-coop-thun-bern-7wmq4m",
         "seller-in-food-coop-genossenschaft-thun-7wmq4m-107a2cdc",
         "vendeur-dans-la-nourriture-coop-genossenschaft-thun-7wmq4m-02938f6d",
-        "verkaufer-in-food-coop-thun-bern-2-2",
         "verkaufer-in-food-coop-bern-aj6585",
         "verkaufer-in-food-coop-thun-bern-00f2e364",
         "seller-in-food-coop-genossenschaft-thun-7wmq4m",
@@ -768448,27 +768453,27 @@
         "verkaufer-in-food-coop-thun-bern-2-2-8413060d",
         "verkaufer-in-food-coop-bern-aj6585-1093cd36",
         "verkaufer-in-food-coop-thun-bern-2zshlj",
-        "verkaufer-in-food-coop-genossenschaft-thun-2zshlj"
+        "verkaufer-in-food-coop-genossenschaft-thun-2zshlj",
+        "verkaufer-in-food-coop-thun-bern-2-2"
       ],
       "de": [
         "verkaufer-in-food-coop-genossenschaft-thun-7wmq4m",
         "seller-in-food-coop-genossenschaft-thun-7wmq4m-107a2cdc",
         "vendeur-dans-la-nourriture-coop-genossenschaft-thun-7wmq4m-02938f6d",
-        "verkaufer-in-food-coop-thun-bern-2-2",
         "verkaufer-in-food-coop-bern-aj6585",
         "verkaufer-in-food-coop-thun-bern-00f2e364",
         "verkaufer-in-food-coop-thun-bern-2-2-8413060d",
         "verkaufer-in-food-coop-bern-aj6585-1093cd36",
         "verkaufer-in-food-coop-thun-bern-2zshlj",
         "verkaufer-in-food-coop-genossenschaft-thun-2zshlj",
-        "food-sales-assistant-coop-genossenschaft-bern-e21b21-12728a87"
+        "food-sales-assistant-coop-genossenschaft-bern-e21b21-12728a87",
+        "verkaufer-in-food-coop-thun-bern-2-2"
       ],
       "fr": [
         "verkaufer-in-food-coop-genossenschaft-thun-7wmq4m",
         "verkaufer-in-food-coop-thun-bern-7wmq4m",
         "vendeur-dans-la-nourriture-coop-genossenschaft-thun-7wmq4m-02938f6d",
         "seller-in-food-coop-genossenschaft-thun-7wmq4m-107a2cdc",
-        "verkaufer-in-food-coop-thun-bern-2-2",
         "verkaufer-in-food-coop-bern-aj6585",
         "verkaufer-in-food-coop-thun-bern-00f2e364",
         "vendeur-dans-la-nourriture-coop-genossenschaft-thun-7wmq4m",
@@ -768477,7 +768482,8 @@
         "verkaufer-in-food-coop-bern-aj6585-1093cd36",
         "verkaufer-in-food-coop-thun-bern-2zshlj",
         "verkaufer-in-food-coop-genossenschaft-thun-2zshlj",
-        "food-sales-assistant-coop-genossenschaft-bern-e21b21-12728a87"
+        "food-sales-assistant-coop-genossenschaft-bern-e21b21-12728a87",
+        "verkaufer-in-food-coop-thun-bern-2-2"
       ],
       "it": [
         "verkaufer-in-food-coop-thun-bern-2-2-8413060d",
