@@ -573,7 +573,6 @@ describe('sitemap family URL coverage ratchet', () => {
     const source = readFileSync(workflowPath, 'utf8');
     const workflow = YAML.parse(source, { logLevel: 'silent' }) as any;
     const steps = workflow.jobs?.['fast-gate']?.steps ?? [];
-    const download = steps.find((step: any) => step.name === 'Download non-IT locale dists for bridge evidence');
     const build = steps.find((step: any) => step.name === 'Build non-IT sitemap family bridge evidence');
     const gate = steps.find((step: any) => step.name === 'Run fail-closed publisher fast gate');
     const checkout = steps.find((step: any) => String(step.uses ?? '').startsWith('actions/checkout@'));
@@ -581,21 +580,34 @@ describe('sitemap family URL coverage ratchet', () => {
       .split('\n')
       .map((entry: string) => entry.trim());
 
-    expect(download?.uses).toBe('actions/download-artifact@v8');
-    expect(download?.with?.pattern).toBe('locale-dist-*-${{ inputs.shard_artifact_run_id || github.run_id }}');
-    expect(download?.with?.path).toBe('${{ runner.temp }}/publisher-fast-gate/locale-dist');
-    expect(download?.with?.['merge-multiple']).toBeUndefined();
-    expect(download?.with?.['run-id']).toBe('${{ inputs.shard_artifact_run_id || github.run_id }}');
-    expect(download?.with?.['github-token']).toBe('${{ github.token }}');
-    expect(download?.with?.repository).toBe('${{ github.repository }}');
-    expect(download?.['continue-on-error']).toBe(true);
-    expect(build?.['continue-on-error']).toBe(true);
-    expect(build?.env?.PUBLISHER_RUN_ID).toBe('${{ inputs.shard_artifact_run_id || github.run_id }}');
+    for (const locale of ['it', 'en', 'de', 'fr']) {
+      const runId = '${{ fromJSON(inputs.locale_artifact_run_ids).' + locale + ' }}';
+      const manifests = steps.find((step: any) => step.name === `Download publisher section manifests (${locale})`);
+      expect(manifests?.uses).toBe('actions/download-artifact@v8');
+      expect(manifests?.with).toMatchObject({
+        name: `section-page-manifest-${locale}-${runId}`,
+        'run-id': runId,
+        'github-token': '${{ github.token }}',
+      });
+      expect(manifests?.['continue-on-error']).toBeUndefined();
+      expect(steps.indexOf(manifests)).toBeLessThan(steps.indexOf(gate));
+      if (locale === 'it') continue;
+      const download = steps.find((step: any) => step.name === `Download non-IT locale dist (${locale})`);
+      expect(download?.uses).toBe('actions/download-artifact@v8');
+      expect(download?.with).toMatchObject({
+        name: `locale-dist-${locale}-${runId}`,
+        path: '${{ runner.temp }}/publisher-fast-gate/locale-dist',
+        'run-id': runId,
+        'github-token': '${{ github.token }}',
+      });
+      expect(download?.['continue-on-error']).toBeUndefined();
+      expect(steps.indexOf(download)).toBeLessThan(steps.indexOf(build));
+    }
+    expect(build?.['continue-on-error']).toBeUndefined();
     expect(String(build?.run ?? '')).not.toContain('${{');
     expect(String(build?.run ?? '')).toContain('for locale in en de fr');
     expect(String(build?.run ?? '')).toContain('rm -f "$tar_file"');
     expect(sparsePaths).toContain('scripts/ci/build-sitemap-family-bridge-evidence.mjs');
-    expect(steps.indexOf(download)).toBeLessThan(steps.indexOf(build));
     expect(steps.indexOf(build)).toBeLessThan(steps.indexOf(gate));
   });
 });

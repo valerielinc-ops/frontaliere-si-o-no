@@ -144,7 +144,7 @@ function statusSucceeded(status, context) {
  * Unknown/malformed status entries are ignored; absence is deliberately not
  * treated as success.
  */
-export function resolvePublishReceipts({ statuses = [], sourceRunId, locales = LOCALES } = {}) {
+export function resolvePublishReceipts({ statuses = [], sourceRunId, locales = LOCALES, publisherRunId } = {}) {
   const entries = Array.isArray(statuses) ? statuses : [];
   const pagesContext = pagesReceiptContext(sourceRunId);
   const requestedLocales = [...new Set(
@@ -152,15 +152,25 @@ export function resolvePublishReceipts({ statuses = [], sourceRunId, locales = L
       .map((locale) => text(locale).toLowerCase())
       .filter((locale) => LOCALES.includes(locale)),
   )];
-  const publishedLocales = requestedLocales.filter((locale) => entries.some((status) => statusSucceeded(
-    status,
-    localeReceiptContext(sourceRunId, locale),
-  )));
+  const localeArtifactRunIds = Object.fromEntries(LOCALES.map((locale) => [locale, publisherRunId]));
+  const publishedLocales = requestedLocales.filter((locale) => {
+    const context = localeReceiptContext(sourceRunId, locale);
+    const status = context ? newestStatusFor(entries, context) : null;
+    if (!statusSucceeded(status, context)) return false;
+    // IT always regenerates its combined manifest from the restored group results.
+    if (locale === 'it') return true;
+    const runId = publisherRunIdOf(status);
+    // Legacy receipts linked to the source build and cannot locate shard evidence.
+    if (!runId || runId === String(sourceRunId)) return false;
+    localeArtifactRunIds[locale] = runId;
+    return true;
+  });
   const pendingLocales = requestedLocales.filter((locale) => !publishedLocales.includes(locale));
   const pendingNonItLocales = pendingLocales.filter((locale) => locale !== 'it');
   return {
     pagesDeployed: Boolean(pagesContext && entries.some((status) => statusSucceeded(status, pagesContext))),
     publishedLocales,
+    localeArtifactRunIds,
     pendingLocales,
     pendingNonItLocales,
     pagesContext,
@@ -415,6 +425,7 @@ function writeGithubOutputs(file, state, itState = null) {
     ...itLines,
     `pages_deployed=${state.pagesDeployed}`,
     `published_locales=${JSON.stringify(state.publishedLocales)}`,
+    `locale_artifact_run_ids=${JSON.stringify(state.localeArtifactRunIds)}`,
     `published_locales_csv=${state.publishedLocales.join(',')}`,
     `pending_locales=${JSON.stringify(state.pendingLocales)}`,
     `pending_locales_csv=${state.pendingLocales.join(',')}`,
@@ -439,7 +450,9 @@ function writeReceipt({ kind, sourceRunId, sourceSha, locale }) {
   const description = kind === 'pages'
     ? `Pages deploy succeeded for source run ${runId}`
     : `Shard push succeeded for ${normalizedLocale} source run ${runId}`;
-  const targetUrl = `https://github.com/${repo}/actions/runs/${runId}`;
+  const targetRunId = kind === 'locale' ? validateRunId(process.env.GITHUB_RUN_ID) : runId;
+  if (!targetRunId) throw new Error('publisher run id is missing or malformed');
+  const targetUrl = `https://github.com/${repo}/actions/runs/${targetRunId}`;
   gh([
     'api',
     '--method', 'POST',
@@ -573,6 +586,7 @@ function main() {
     const state = resolvePublishReceipts({
       statuses,
       sourceRunId,
+      publisherRunId: validateRunId(process.env.GITHUB_RUN_ID),
       locales: args.locales === undefined || args.locales === true
         ? LOCALES
         : String(args.locales).split(','),

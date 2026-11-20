@@ -8,6 +8,16 @@ import {
 } from '../scripts/ci/publish-receipts.mjs';
 
 const sourceRunId = '39606182063';
+const priorRunId = '39606182064';
+const currentRunId = '39606182065';
+
+function localeReceipt(runId: string, locale: string, publisherRunId = priorRunId) {
+  return {
+    context: localeReceiptContext(runId, locale),
+    state: 'success',
+    target_url: `https://github.com/example/site/actions/runs/${publisherRunId}`,
+  };
+}
 
 describe('durable build -> publish receipts', () => {
   it('uses an immutable, source-run-scoped context for Pages and each locale', () => {
@@ -23,8 +33,8 @@ describe('durable build -> publish receipts', () => {
       statuses: [
         { context: pagesReceiptContext(sourceRunId), state: 'failure' },
         { context: pagesReceiptContext(sourceRunId), state: 'success' },
-        { context: localeReceiptContext(sourceRunId, 'en'), state: 'success' },
-        { context: localeReceiptContext('old-run', 'de'), state: 'success' },
+        localeReceipt(sourceRunId, 'en'),
+        localeReceipt('39606182062', 'de'),
         { context: 'frontaliere/shard-published/39606182063/fr', state: 'pending' },
       ],
     });
@@ -48,11 +58,16 @@ describe('durable build -> publish receipts', () => {
   it('produces the matrix input that skips locales already pushed', () => {
     const state = resolvePublishReceipts({
       sourceRunId,
-      locales: ['en', 'de', 'fr'],
+      locales: ['it', 'en', 'de', 'fr'],
+      publisherRunId: currentRunId,
       statuses: [
-        { context: localeReceiptContext(sourceRunId, 'en'), state: 'success' },
+        localeReceipt(sourceRunId, 'it'),
+        localeReceipt(sourceRunId, 'en'),
+        localeReceipt(sourceRunId, 'de', sourceRunId),
+        localeReceipt('39606182062', 'fr'),
       ],
     });
+    expect(state.localeArtifactRunIds).toEqual({ it: currentRunId, en: priorRunId, de: currentRunId, fr: currentRunId });
     expect(state.pendingLocales).toEqual(['de', 'fr']);
     expect(state.pendingNonItLocales).toEqual(['de', 'fr']);
   });
@@ -62,7 +77,7 @@ describe('durable build -> publish receipts', () => {
       sourceRunId,
       locales: ['fr', 'en', 'fr', 'xx'],
       statuses: [
-        { context: localeReceiptContext(sourceRunId, 'en'), state: 'success' },
+        localeReceipt(sourceRunId, 'en'),
         { context: 'frontaliere/shard-published/39606182063/xx', state: 'success' },
       ],
     });
@@ -77,7 +92,7 @@ describe('durable build -> publish receipts', () => {
       sourceRunId,
       statuses: [
         { context: `${localeReceiptContext(sourceRunId, 'en')}/extra`, state: 'success' },
-        { context: localeReceiptContext(sourceRunId, 'en'), state: ' SUCCESS ' },
+        { ...localeReceipt(sourceRunId, 'en'), state: ' SUCCESS ' },
         { context: `${pagesReceiptContext(sourceRunId)}-retry`, state: 'success' },
       ],
     });
