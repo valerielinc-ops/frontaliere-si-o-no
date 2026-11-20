@@ -938,10 +938,10 @@ jobs:
             {
               echo '### IT early CDN push budget (advisory)'
               echo
-              echo '| Attempt | Outcome | Actions API conclusion | Duration | R2_TIMEOUT_OG_S | Comparison with 90-minute cap |'
+              echo '| Attempt | Outcome | Actions API conclusion | Duration | Early R2_TIMEOUT_OG_S | Comparison with 90-minute cap |'
               echo '| --- | --- | --- | ---: | ---: | --- |'
               printf '| early push | `%s` | `%s` | `%s` | `%s` | `%s` |\n' "$early_outcome_display" "${EARLY_API_CONCLUSION:-unknown}" "$early_display" "${R2_TIMEOUT_OG_S:-unknown}" "$comparison"
-              printf '| retry | `%s` | `%s` | `%s` | `%s` | `%s` |\n' "$retry_outcome_display" "${RETRY_API_CONCLUSION:-unknown}" "$retry_display" "${R2_TIMEOUT_OG_S:-unknown}" "$comparison"
+              printf '| retry | `%s` | `%s` | `%s` | unset | `%s` |\n' "$retry_outcome_display" "${RETRY_API_CONCLUSION:-unknown}" "$retry_display" "$comparison"
               printf '| measured early-push tail span | — | — | `%s` | — | max attempt `%s` |\n' "$tail_display" "$max_display"
               echo
               echo '_Read-only observer: this summary does not change the 90-minute step timeout, retry, or `cdn-ready` gate._'
