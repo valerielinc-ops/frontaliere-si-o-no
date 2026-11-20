@@ -1076,9 +1076,83 @@ describe('deploy.yml — non-IT V8 heap cap', () => {
       "${{ format('{0}{1}', vars.BUILD_EXTRA_NODE_OPTIONS, matrix.locale != 'it' && ' --max-old-space-size=12288' || '') }}",
     );
     expect(build?.run).toContain('npm run build:ci');
-    expect(PACKAGE_JSON.scripts['build:ci']).toContain(
+    expect(PACKAGE_JSON.scripts['build:ci:stage']).toContain(
       'NODE_OPTIONS="--max-old-space-size=14336 --expose-gc --max-semi-space-size=64 ${BUILD_EXTRA_NODE_OPTIONS:-}" node scripts/ci/build-staged.mjs',
     );
+  });
+});
+
+describe('deploy.yml — non-IT legs reuse the IT Rollup bundle (#19575)', () => {
+  const workflow = YAML.parse(DEPLOY_YML) as any;
+  const job = workflow.jobs['build-locale'];
+  const steps: Array<Record<string, any>> = job.steps;
+  const step = (id: string) => {
+    const found = steps.find((candidate) => candidate.id === id);
+    expect(found, `deploy.yml: missing step id ${id}`).toBeDefined();
+    return found!;
+  };
+  const named = (name: string) => {
+    const found = steps.find((candidate) => candidate.name === name);
+    expect(found, `deploy.yml: missing step ${name}`).toBeDefined();
+    return found!;
+  };
+
+  it("runs Rollup only on IT and keeps every locale's final invocation SEO-only", () => {
+    const bundle = step('bundle_stage');
+    const build = step('build_step');
+    expect(bundle.if).toBe("matrix.locale == 'it'");
+    expect(bundle.env?.BUILD_STAGED_PHASE).toBe('bundle');
+    expect(bundle.env?.BUILD_STAGE_HANDOFF_DIR).toBe('${{ runner.temp }}/build-stage-handoff');
+    expect(bundle.run).toContain('npm run build:ci:stage');
+    expect(bundle.run).not.toContain('npm run build:ci 2>&1');
+    expect(bundle.run).not.toContain('publish-versioned-cdn-assets.mjs');
+    expect(bundle.run).not.toContain('verify-spa-entry-assets.mjs');
+    expect(build.env?.BUILD_STAGED_PHASE).toBe('ssg');
+    expect(build.env?.BUILD_STAGE_HANDOFF_DIR).toBe('${{ runner.temp }}/build-stage-handoff');
+    expect(steps.indexOf(bundle)).toBeLessThan(steps.indexOf(build));
+  });
+
+  it('publishes the complete IT bundle contract and restores it before non-IT SSG', () => {
+    const packageStep = named('Package IT Rollup bundle and staged handoff');
+    const upload = step('upload-it-rollup-bundle');
+    const retry = named('Retry upload IT Rollup bundle artifact');
+    const wait = named('Wait for IT Rollup bundle artifact');
+    const download = named('Download IT Rollup bundle artifact');
+    const restore = named('Restore IT Rollup bundle and staged handoff');
+    const build = step('build_step');
+
+    expect(packageStep.if).toContain("steps.bundle_stage.outcome == 'success'");
+    expect(packageStep.run).toContain('dist');
+    expect(packageStep.run).toContain('stage-handoff');
+    expect(packageStep.run).toContain('content-manifest-bundle.tsv');
+    expect(upload.uses).toBe('actions/upload-artifact@v7');
+    const attemptScopedArtifactName = 'it-rollup-bundle-${{ github.run_id }}-${{ github.run_attempt }}';
+    expect(upload.with).toMatchObject({
+      name: attemptScopedArtifactName,
+      path: '${{ runner.temp }}/it-rollup-bundle.tgz',
+      'if-no-files-found': 'error',
+      'compression-level': 0,
+    });
+    expect(retry.with?.name).toBe(attemptScopedArtifactName);
+    expect(retry.if).toContain('steps.upload-it-rollup-bundle.outcome == \'failure\'');
+    expect(wait.if).toBe("matrix.locale != 'it'");
+    expect(wait.env?.BUNDLE_ARTIFACT_NAME).toBe(attemptScopedArtifactName);
+    expect(wait.env?.BUNDLE_ARTIFACT_NAME).toContain('${{ github.run_attempt }}');
+    expect(wait.run).toContain('--arg name "$BUNDLE_ARTIFACT_NAME"');
+    expect(wait.run).toContain('build-locale (it)');
+    expect(wait.run).toContain('completed:*');
+    expect(wait.run).toContain('exit 1');
+    expect(download.if).toBe("matrix.locale != 'it'");
+    expect(download.uses).toBe('actions/download-artifact@v8');
+    expect(download.with.name).toBe(attemptScopedArtifactName);
+    expect(restore.if).toBe("matrix.locale != 'it'");
+    expect(restore.run).toContain('dist/assets');
+    expect(restore.run).toContain('route-chunks.json');
+    expect(restore.run).toContain('job-canon-ordering-fields.json');
+    expect(steps.indexOf(upload)).toBeLessThan(steps.indexOf(wait));
+    expect(steps.indexOf(wait)).toBeLessThan(steps.indexOf(download));
+    expect(steps.indexOf(download)).toBeLessThan(steps.indexOf(restore));
+    expect(steps.indexOf(restore)).toBeLessThan(steps.indexOf(build));
   });
 });
 

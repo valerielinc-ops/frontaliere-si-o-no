@@ -21,13 +21,28 @@ const reportBase = path.resolve(process.env.BUILD_MEM_REPORT_FILE || '/tmp/build
 // In-memory state does not cross the two Vite processes (#18780 broke the IT SSG that
 // way: run 43643571377). Whatever a bundle-stage plugin must hand to the SSG stage goes
 // through files in this directory (build-plugins/shared/stageHandoff.ts). It lives
-// OUTSIDE dist/, which is published, and is removed when the runner ends.
+// OUTSIDE dist/, which is published. A normal all-stage invocation owns and
+// removes it; a caller that supplies BUILD_STAGE_HANDOFF_DIR keeps it between
+// the separate bundle and ssg invocations and owns its final cleanup.
 const HANDOFF_ENV = 'BUILD_STAGE_HANDOFF_DIR';
-// The plugin-facing contract of #18828 stays an explicit path; it points INTO the single
-// handoff directory, so there is one location and one cleanup (the `finally` below).
+// The plugin-facing contract of #18828 stays an explicit path; it points INTO
+// the single handoff directory, so both stages read the same files.
 const JOB_CANON_HANDOFF_ENV = 'BUILD_JOB_CANON_ORDERING_HANDOFF_PATH';
 const JOB_CANON_HANDOFF_FILE = 'job-canon-ordering-fields.json';
-const handoffDir = fs.mkdtempSync(path.join(os.tmpdir(), 'build-stage-handoff-'));
+const stagedPhase = String(process.env.BUILD_STAGED_PHASE || 'all').trim().toLowerCase();
+if (!['all', 'bundle', 'ssg'].includes(stagedPhase)) {
+  throw new Error(`[build-staged] BUILD_STAGED_PHASE must be one of all, bundle, ssg; received ${stagedPhase || '<empty>'}`);
+}
+
+const configuredHandoffDir = String(process.env[HANDOFF_ENV] || '').trim();
+if (stagedPhase === 'ssg' && !configuredHandoffDir) {
+  throw new Error(`[build-staged] BUILD_STAGED_PHASE=ssg requires ${HANDOFF_ENV} to carry the bundle handoff`);
+}
+const ownsHandoffDir = !configuredHandoffDir;
+const handoffDir = configuredHandoffDir
+  ? path.resolve(configuredHandoffDir)
+  : fs.mkdtempSync(path.join(os.tmpdir(), 'build-stage-handoff-'));
+fs.mkdirSync(handoffDir, { recursive: true });
 
 function cleanupHandoff() {
   try {
@@ -94,15 +109,6 @@ function runStage(stage) {
   }
   console.log(`[build-staged] complete stage=${stage}`);
   return 0;
-}
-
-function copyReport(source, target) {
-  if (!fs.existsSync(source)) return;
-  try {
-    fs.copyFileSync(source, target);
-  } catch (error) {
-    console.warn(`[build-staged] could not publish memory report: ${error.message}`);
-  }
 }
 
 function readReport(file) {
@@ -173,34 +179,55 @@ async function mergeManifests() {
   }
 }
 
-const stages = ['bundle', 'ssg'];
-removeGeneratedFile(reportBase);
-for (const stage of stages) {
+const stages = stagedPhase === 'all' ? ['bundle', 'ssg'] : [stagedPhase];
+const stagesToReset = stagedPhase === 'ssg' ? ['ssg'] : ['bundle', 'ssg'];
+if (stagedPhase !== 'ssg') removeGeneratedFile(reportBase);
+for (const stage of stagesToReset) {
   removeGeneratedFile(stageReportPath(stage));
   if (manifestEnabled) removeGeneratedFile(stageManifestPath(stage));
 }
 if (manifestEnabled) removeGeneratedFile(path.resolve(ROOT, 'content-manifest.tsv'));
 
+if (stagedPhase === 'ssg') {
+  const distDir = path.resolve(ROOT, 'dist');
+  if (!fs.existsSync(path.join(distDir, 'assets'))) {
+    throw new Error(`[build-staged] BUILD_STAGED_PHASE=ssg requires the bundle dist at ${distDir}`);
+  }
+}
+
+const previousReport = stagedPhase === 'ssg' ? readReport(reportBase) : null;
+
+function mergeSelectedReports(selectedStages) {
+  const reports = [
+    ...(previousReport ? [previousReport] : []),
+    ...selectedStages.map(stageReportPath).map(readReport).filter(Boolean),
+  ];
+  mergeReports(reports);
+}
+
 let failedStatus = 0;
 try {
-  for (const stage of stages) {
+  for (let index = 0; index < stages.length; index += 1) {
+    const stage = stages[index];
     const status = runStage(stage);
     if (status !== 0) {
-      copyReport(stageReportPath(stage), reportBase);
+      mergeSelectedReports(stages.slice(0, index + 1));
       failedStatus = status;
       break;
     }
   }
 
   if (failedStatus === 0) {
-    mergeReports(stages.map(stageReportPath).map(readReport).filter(Boolean));
-    await mergeManifests();
+    mergeSelectedReports(stages);
+    // The bundle-only caller must leave content-manifest-bundle.tsv beside the
+    // artifact. The later SSG invocation merges it with its own manifest.
+    if (stagedPhase !== 'bundle') await mergeManifests();
 
-    for (const stage of stages) {
+    for (const stage of ['bundle', 'ssg']) {
       try { fs.unlinkSync(stageReportPath(stage)); } catch { /* generated telemetry only */ }
     }
   }
 } finally {
-  cleanupHandoff();
+  if (ownsHandoffDir) cleanupHandoff();
 }
 if (failedStatus !== 0) process.exit(failedStatus);
