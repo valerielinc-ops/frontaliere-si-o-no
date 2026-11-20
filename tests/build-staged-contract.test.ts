@@ -26,9 +26,11 @@ describe('staged production build memory boundary', () => {
 
   it('merges stage telemetry instead of hiding the bundle peak', () => {
     const runner = fs.readFileSync(path.join(ROOT, 'scripts/ci/build-staged.mjs'), 'utf8');
-    expect(runner).toContain("const stages = ['bundle', 'ssg'];");
+    expect(runner).toContain("const stages = stagedPhase === 'all' ? ['bundle', 'ssg'] : [stagedPhase];");
+    expect(runner).toContain("BUILD_STAGED_PHASE");
     expect(runner).toContain('peakAnonMb: Math.max');
     expect(runner).toContain('await mergeManifests();');
+    expect(runner).toContain("if (stagedPhase !== 'bundle') await mergeManifests();");
     expect(runner).toContain('removeGeneratedFile(reportBase);');
     expect(runner).toContain("removeGeneratedFile(path.resolve(ROOT, 'content-manifest.tsv'));");
   });
@@ -200,13 +202,15 @@ describe('build-staged.mjs owns the handoff directory', () => {
     // one directory, injected by runStage, which is the only place a stage is started
     expect((runner.match(/mkdtempSync/g) ?? [])).toHaveLength(1);
     expect(runner).toContain('[HANDOFF_ENV]: handoffDir');
-    expect(runner).toContain("const stages = ['bundle', 'ssg'];");
+    expect(runner).toContain("const stages = stagedPhase === 'all' ? ['bundle', 'ssg'] : [stagedPhase];");
     expect(runner.match(/runStage\(/g)).toHaveLength(2); // definition + the loop over both stages
   });
 
   it('removes it at the end, on success and on a failed stage', () => {
-    expect(runner).toMatch(/\} finally \{\s*cleanupHandoff\(\);\s*\}/);
+    expect(runner).toMatch(/\} finally \{\s*if \(ownsHandoffDir\) cleanupHandoff\(\);\s*\}/);
     expect(runner).toContain("fs.rmSync(handoffDir, { recursive: true, force: true })");
+    expect(runner).toContain('const ownsHandoffDir = !configuredHandoffDir;');
+    expect(runner).toContain("BUILD_STAGED_PHASE=ssg requires ${HANDOFF_ENV}");
     // process.exit must come AFTER the cleanup, never before it
     expect(runner.indexOf('cleanupHandoff();')).toBeLessThan(runner.indexOf('process.exit(failedStatus)'));
     expect(runner).not.toMatch(/process\.exit\(status\)/);

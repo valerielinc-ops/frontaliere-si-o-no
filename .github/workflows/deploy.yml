@@ -621,11 +621,6 @@ jobs:
       # did not change keeps the same bytes and the delta shard push stops
       # rewriting it on every deploy. Unset keeps the marker byte-for-byte.
       STATIC_BUILD_ID_META: ${{ vars.STATIC_BUILD_ID_META == 'off' && 'off' || '' }}
-      # The IT bundle and the staged-build handoff are shared with the three
-      # SEO-only legs. The path is runner-local: the artifact carries its
-      # contents across runners and the non-IT restore repopulates this exact
-      # contract before starting Vite's SSG process.
-      BUILD_STAGE_HANDOFF_DIR: ${{ runner.temp }}/build-stage-handoff
     steps:
       # #7106 — anchors the CDN gate's job-deadline safety margin (see "WHY A
       # THIRD CLOCK" in scripts/lib/wait-cdn-build-id.sh) to this leg's REAL
@@ -1026,11 +1021,8 @@ jobs:
         env:
           PROFILE_GC_MIN_GROWTH_MB: '256'
           BUILD_EXTRA_NODE_OPTIONS: ${{ vars.BUILD_EXTRA_NODE_OPTIONS }}
-          MALLOC_ARENA_MAX: '2'
-          INCREMENTAL_MANIFEST: ${{ vars.INCREMENTAL_MANIFEST == '1' && '1' || '' }}
-          JOBS_SEO_HTML_GC_INTERVAL_MB: '512'
-          JOBPOSTING_COVERAGE_OUT: ${{ runner.temp }}/jobposting-coverage.json
           BUILD_STAGED_PHASE: bundle
+          BUILD_STAGE_HANDOFF_DIR: ${{ runner.temp }}/build-stage-handoff
         run: |
           set -o pipefail
           npm run build:ci 2>&1 | tee /tmp/build-bundle.log
@@ -1048,7 +1040,7 @@ jobs:
           rm -rf "$payload" "$archive"
           mkdir -p "$payload/stage-handoff" "$payload/metadata"
           cp -a dist "$payload/dist"
-          cp -a "$BUILD_STAGE_HANDOFF_DIR/." "$payload/stage-handoff/"
+          cp -a "$RUNNER_TEMP/build-stage-handoff/." "$payload/stage-handoff/"
           if [ -f content-manifest-bundle.tsv ]; then
             cp content-manifest-bundle.tsv "$payload/metadata/"
           fi
@@ -1091,13 +1083,13 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           BUNDLE_ARTIFACT_NAME: it-rollup-bundle-${{ github.run_id }}
-          SOURCE_RUN_ID: ${{ github.run_id }}
-          SOURCE_REPOSITORY: ${{ github.repository }}
+          IT_BUNDLE_RUN_ID: ${{ github.run_id }}
+          IT_BUNDLE_REPOSITORY: ${{ github.repository }}
         run: |
           set -euo pipefail
           for attempt in $(seq 1 720); do
             artifact_id="$(
-              gh api "repos/${SOURCE_REPOSITORY}/actions/runs/${SOURCE_RUN_ID}/artifacts?per_page=100" 2>/dev/null \
+              gh api "repos/${IT_BUNDLE_REPOSITORY}/actions/runs/${IT_BUNDLE_RUN_ID}/artifacts?per_page=100" 2>/dev/null \
                 | jq -r --arg name "$BUNDLE_ARTIFACT_NAME" '[.artifacts[] | select(.name == $name and .expired == false)] | first | .id // empty' \
                 || true
             )"
@@ -1107,7 +1099,7 @@ jobs:
             fi
 
             it_state="$(
-              gh api "repos/${SOURCE_REPOSITORY}/actions/runs/${SOURCE_RUN_ID}/jobs?per_page=100" 2>/dev/null \
+              gh api "repos/${IT_BUNDLE_REPOSITORY}/actions/runs/${IT_BUNDLE_RUN_ID}/jobs?per_page=100" 2>/dev/null \
                 | jq -r '[.jobs[] | select(.name == "build-locale (it)")] | first | if . == null then "missing" else (.status + ":" + (.conclusion // "")) end' \
                 || true
             )"
@@ -1139,15 +1131,15 @@ jobs:
           archive="$(find "$RUNNER_TEMP/it-rollup-bundle-download" -maxdepth 2 -type f -name '*.tgz' -print -quit)"
           test -n "$archive"
           extracted="$RUNNER_TEMP/it-rollup-bundle-extracted"
-          rm -rf "$extracted" dist "$BUILD_STAGE_HANDOFF_DIR" content-manifest-bundle.tsv
-          mkdir -p "$extracted" "$BUILD_STAGE_HANDOFF_DIR"
+          rm -rf "$extracted" dist "$RUNNER_TEMP/build-stage-handoff" content-manifest-bundle.tsv
+          mkdir -p "$extracted" "$RUNNER_TEMP/build-stage-handoff"
           GZ="$(command -v pigz || command -v gzip)"
           tar -I "$GZ" -xf "$archive" -C "$extracted"
           test -d "$extracted/dist/assets"
           test -s "$extracted/stage-handoff/route-chunks.json"
           test -s "$extracted/stage-handoff/job-canon-ordering-fields.json"
           cp -a "$extracted/dist" .
-          cp -a "$extracted/stage-handoff/." "$BUILD_STAGE_HANDOFF_DIR/"
+          cp -a "$extracted/stage-handoff/." "$RUNNER_TEMP/build-stage-handoff/"
           if [ -f "$extracted/metadata/content-manifest-bundle.tsv" ]; then
             cp "$extracted/metadata/content-manifest-bundle.tsv" .
           fi
@@ -1201,6 +1193,7 @@ jobs:
           # workspace (IT) or was restored from the same-run artifact (other
           # locales). This invocation is deliberately SEO-only.
           BUILD_STAGED_PHASE: ssg
+          BUILD_STAGE_HANDOFF_DIR: ${{ runner.temp }}/build-stage-handoff
         run: |
           set -o pipefail
 
