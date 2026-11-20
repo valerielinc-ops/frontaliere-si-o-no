@@ -3472,28 +3472,34 @@
     },
     "sector": "Altro",
     "expiredAt": "2026-11-15T09:45:30.029Z",
-    "previousSlugs": [
-      "grutier-suva-b-h-f-region-vs-valais-opus-personal-ch",
-      "gru-suv-b-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-vs-valais",
-      "suva-crane-b-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-vs-valais",
-      "suva-kran-b-m-w-opus-personal-ag-zweigniederlassung-altdorf-region-vs-valais"
-    ],
     "previousSlugsByLocale": {
       "it": [
         "grutier-suva-b-h-f-region-vs-valais-opus-personal-ch-fdd1d57f",
+        "gru-suv-b-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-vs-valais-a06075e4",
+        "suva-crane-b-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-vs-valais",
+        "suva-kran-b-m-w-opus-personal-ag-zweigniederlassung-altdorf-region-vs-valais",
         "grutier-suva-b-h-f-region-vs-valais-opus-personal-ch",
         "gru-suv-b-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-vs-valais"
       ],
       "en": [
         "grutier-suva-b-h-f-region-vs-valais-opus-personal-ch-fdd1d57f",
+        "suva-crane-b-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-vs-valais-47608b43",
+        "gru-suv-b-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-vs-valais",
+        "suva-kran-b-m-w-opus-personal-ag-zweigniederlassung-altdorf-region-vs-valais",
         "suva-crane-b-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-vs-valais"
       ],
       "de": [
         "grutier-suva-b-h-f-region-vs-valais-opus-personal-ch-fdd1d57f",
+        "suva-kran-b-m-w-opus-personal-ag-zweigniederlassung-altdorf-region-vs-valais-3596f329",
+        "gru-suv-b-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-vs-valais",
+        "suva-crane-b-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-vs-valais",
         "suva-kran-b-m-w-opus-personal-ag-zweigniederlassung-altdorf-region-vs-valais"
       ],
       "fr": [
-        "grutier-suva-b-h-f-region-vs-valais-opus-personal-ch-fdd1d57f"
+        "grutier-suva-b-h-f-region-vs-valais-opus-personal-ch-fdd1d57f",
+        "gru-suv-b-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-vs-valais",
+        "suva-crane-b-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-vs-valais",
+        "suva-kran-b-m-w-opus-personal-ag-zweigniederlassung-altdorf-region-vs-valais"
       ]
     },
     "postalCode": "1950",
@@ -3503,7 +3509,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://opus-personal.ch/aktuelle-jobs/job.aspx/v-102509/f-op",
-    "firstSeenAt": "2026-10-14T09:35:35.434Z"
+    "firstSeenAt": "2026-10-14T09:35:35.434Z",
+    "previousSlugs": [
+      "grutier-suva-b-h-f-region-vs-valais-opus-personal-ch",
+      "gru-suv-b-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-vs-valais",
+      "suva-crane-b-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-vs-valais",
+      "suva-kran-b-m-w-opus-personal-ag-zweigniederlassung-altdorf-region-vs-valais"
+    ]
   },
   {
     "slug": "impiegato-a-finanze-e-contabilita-a-100-opus-personal-ag-zweigniederlassung-altdorf-region-be-bern",

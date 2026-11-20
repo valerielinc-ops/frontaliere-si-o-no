@@ -390,8 +390,8 @@
     "expiredAt": "2026-11-20T09:54:32.097Z",
     "previousSlugs": [
       "praktikant-in-steuerberatung-6-monate-pwc-bern-nzh19i",
-      "praktikant-in-steuerberatung-6-monate-pwc-bern",
-      "praktikant-in-steuerberatung-6-monate-pwc-bern-212b358d"
+      "praktikant-in-steuerberatung-6-monate-pwc-bern-212b358d",
+      "praktikant-in-steuerberatung-6-monate-pwc-bern"
     ],
     "previousSlugsByLocale": {
       "de": [
@@ -2218,26 +2218,29 @@
     },
     "sector": "Consulenza",
     "expiredAt": "2026-10-22T21:24:20.057Z",
-    "previousSlugs": [
-      "manager-senior-manager-u-s-tax-pwc-zurich",
-      "manager-senior-manager-us-steuer-pwc-switzerland-zurich",
-      "gestionnaire-senior-manager-taxe-americaine-pwc-switzerland-zurich"
-    ],
     "previousSlugsByLocale": {
       "it": [
         "manager-senior-manager-u-s-tax-pwc-zurich-53fe6ae4",
+        "manager-senior-manager-us-steuer-pwc-switzerland-zurich",
+        "gestionnaire-senior-manager-taxe-americaine-pwc-switzerland-zurich",
         "manager-senior-manager-u-s-tax-pwc-zurich"
       ],
       "de": [
         "manager-senior-manager-u-s-tax-pwc-zurich-53fe6ae4",
+        "manager-senior-manager-us-steuer-pwc-switzerland-zurich-a48dd303",
+        "gestionnaire-senior-manager-taxe-americaine-pwc-switzerland-zurich",
         "manager-senior-manager-u-s-tax-pwc-zurich",
         "manager-senior-manager-us-steuer-pwc-switzerland-zurich"
       ],
       "en": [
-        "manager-senior-manager-u-s-tax-pwc-zurich-53fe6ae4"
+        "manager-senior-manager-u-s-tax-pwc-zurich-53fe6ae4",
+        "manager-senior-manager-us-steuer-pwc-switzerland-zurich",
+        "gestionnaire-senior-manager-taxe-americaine-pwc-switzerland-zurich"
       ],
       "fr": [
         "manager-senior-manager-u-s-tax-pwc-zurich-53fe6ae4",
+        "gestionnaire-senior-manager-taxe-americaine-pwc-switzerland-zurich-5e20d44a",
+        "manager-senior-manager-us-steuer-pwc-switzerland-zurich",
         "gestionnaire-senior-manager-taxe-americaine-pwc-switzerland-zurich"
       ]
     },
@@ -2248,7 +2251,12 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.pwc.ch/job-vacancies/manager-senior-manager-u-s-tax/49cc6212-d04d-45b4-b96f-df059b1d9c96",
-    "firstSeenAt": "2026-09-24T14:23:28.277Z"
+    "firstSeenAt": "2026-09-24T14:23:28.277Z",
+    "previousSlugs": [
+      "manager-senior-manager-u-s-tax-pwc-zurich",
+      "manager-senior-manager-us-steuer-pwc-switzerland-zurich",
+      "gestionnaire-senior-manager-taxe-americaine-pwc-switzerland-zurich"
+    ]
   },
   {
     "slug": "audit-inizio-carriera-nei-servizi-finanziari-autunno-2026-pwc-switzerland-st-gallen",
