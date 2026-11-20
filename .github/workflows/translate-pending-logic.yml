@@ -350,13 +350,7 @@ jobs:
 
       - name: Assemble dataset
         if: inputs.skip_translate != true
-        env:
-          # Phase 2a is the first writer and the following cascade consumes its
-          # projection. If Argos is disabled, the initial assembly remains the
-          # full producer for relocalize/scatter; otherwise defer reconciliation
-          # to the separate full assembly pass.
-          JOBS_SKIP_RECONCILIATION: ${{ vars.LOCAL_MT_DISABLE != '1' && vars.TRANSLATE_ARGOS_FIRST_DISABLE != '1' && '1' || '0' }}
-        run: node scripts/assemble-jobs-dataset.mjs
+        run: node scripts/assemble-jobs-dataset.mjs --projection-only
 
       - name: Record translation rollout context
         env:
@@ -405,7 +399,7 @@ jobs:
           # which ~6min are spent BEFORE the marker (checkout, npm ci, Argos
           # install), so ~134min really remain for the post-translation queue.
           # 280min (70min queue) was sized on 2026-09-08, when a data commit
-          # took 5-8min. Each `git-commit-data.sh --slice-only` call now
+          # took 5-8min. Each `git-commit-data.sh --extra-only` call now
           # re-3-way-merges every slice that diverged from origin/main during
           # the run, 5-47min per call, and the queue has up to five of them.
           # Corpus runs killed at the 350min cap with the queue unfinished:
@@ -478,15 +472,12 @@ jobs:
           TRANSLATE_CODEX_RESERVE_DIR: ${{ runner.temp }}/translation-codex-reserve
         run: node scripts/fix-untranslated-titles.mjs
 
-      # Keep this re-assemble on the default full form. The baseline and Phase
-      # 2b cascade consume the dataset produced here, so skipping summaries
-      # would compare different populations at the start and true-final ends
-      # and would hide pending summary work until a later run.
+      # Keep summary aggregation in this projection. The baseline and Phase 2b
+      # cascade consume the dataset produced here, so skipping summaries would
+      # compare different populations at the start and true-final ends.
       - name: Re-assemble dataset after Argos bulk
         if: inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1' && vars.TRANSLATE_ARGOS_FIRST_DISABLE != '1'
-        env:
-          JOBS_SKIP_RECONCILIATION: '1'
-        run: node scripts/assemble-jobs-dataset.mjs
+        run: node scripts/assemble-jobs-dataset.mjs --projection-only
 
       # Persist the free bulk pass before the quota-bound cascade starts. This
       # makes fresh arrivals visible on main as soon as 2a finishes and keeps a
@@ -498,7 +489,7 @@ jobs:
           SKIP_AI_TRANSLATION: '1'
         run: |
           before="$(git rev-parse HEAD)"
-          bash scripts/lib/git-commit-data.sh --slice-only "🌐 Auto-translate pending jobs (Argos bulk)" data/jobs/by-crawler/ data/translation-cache/ data/local-mt-negative-cache.json data/translation-title-fix-attempts.json
+          bash scripts/lib/git-commit-data.sh --extra-only "🌐 Auto-translate pending jobs (Argos bulk)" data/jobs/by-crawler/ data/translation-cache/ data/local-mt-negative-cache.json data/translation-title-fix-attempts.json
           after="$(git rev-parse HEAD)"
           if [ "$before" != "$after" ]; then echo "final_commit=$after" >> "$GITHUB_OUTPUT"; fi
 
@@ -679,9 +670,7 @@ jobs:
       # the baseline the removal would have saved, not worth a stale dataset.
       - name: Re-assemble dataset after Phase 2c mop-up
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
-        env:
-          JOBS_SKIP_RECONCILIATION: '1'
-        run: node scripts/assemble-jobs-dataset.mjs
+        run: node scripts/assemble-jobs-dataset.mjs --projection-only
 
       - name: Commit translations
         id: commit_translations
@@ -690,7 +679,7 @@ jobs:
           SKIP_AI_TRANSLATION: '1'
         run: |
           before="$(git rev-parse HEAD)"
-          bash scripts/lib/git-commit-data.sh --slice-only "🌐 Auto-translate pending jobs" data/jobs/by-crawler/ data/translation-cache/ data/local-mt-negative-cache.json data/jobs-crawler-config.json data/slug-registry.json data/translation-stats-history.json data/cascade-company-skip.json
+          bash scripts/lib/git-commit-data.sh --extra-only "🌐 Auto-translate pending jobs" data/jobs/by-crawler/ data/translation-cache/ data/local-mt-negative-cache.json data/jobs-crawler-config.json data/slug-registry.json data/translation-stats-history.json data/cascade-company-skip.json
           after="$(git rev-parse HEAD)"
           if [ "$before" != "$after" ]; then echo "final_commit=$after" >> "$GITHUB_OUTPUT"; fi
 
@@ -753,7 +742,7 @@ jobs:
           SKIP_AI_TRANSLATION: '1'
         run: |
           before="$(git rev-parse HEAD)"
-          bash scripts/lib/git-commit-data.sh --slice-only "🔤 Fix untranslated titles (free cascade)" data/jobs/by-crawler/ data/translation-cache/ data/translation-title-fix-attempts.json
+          bash scripts/lib/git-commit-data.sh --extra-only "🔤 Fix untranslated titles (free cascade)" data/jobs/by-crawler/ data/translation-cache/ data/translation-title-fix-attempts.json
           after="$(git rev-parse HEAD)"
           if [ "$before" != "$after" ]; then echo "final_commit=$after" >> "$GITHUB_OUTPUT"; fi
 
@@ -789,7 +778,7 @@ jobs:
           SKIP_AI_TRANSLATION: '1'
         run: |
           before="$(git rev-parse HEAD)"
-          bash scripts/lib/git-commit-data.sh --slice-only "📝 Fix untranslated descriptions (free cascade)"
+          bash scripts/lib/git-commit-data.sh --extra-only "📝 Fix untranslated descriptions (free cascade)" data/jobs/by-crawler/
           after="$(git rev-parse HEAD)"
           if [ "$before" != "$after" ]; then echo "final_commit=$after" >> "$GITHUB_OUTPUT"; fi
 
@@ -826,9 +815,7 @@ jobs:
       # persistence barrier; Phase 3 below changes only slugs.
       - name: Re-assemble true-final translation dataset
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
-        env:
-          JOBS_SKIP_RECONCILIATION: '1'
-        run: node scripts/assemble-jobs-dataset.mjs
+        run: node scripts/assemble-jobs-dataset.mjs --projection-only
 
       # The commit helper refreshes origin/main, performs its private-index
       # 3-way merge, measures that candidate tree, and stages the history blob
@@ -845,7 +832,7 @@ jobs:
           if [ "${{ inputs.dry_run }}" = "true" ]; then
             node scripts/log-translation-stats.mjs after
           else
-            SKIP_AI_TRANSLATION=1 TRANSLATION_STATS_AFTER_TREE=1 bash scripts/lib/git-commit-data.sh --slice-only "📊 Translation stats (after)" data/translation-stats-history.json
+            SKIP_AI_TRANSLATION=1 TRANSLATION_STATS_AFTER_TREE=1 bash scripts/lib/git-commit-data.sh --extra-only "📊 Translation stats (after)" data/translation-stats-history.json
           fi
 
       - name: Capture final translation observability (shadow)
@@ -979,7 +966,7 @@ jobs:
           if [ -f data/translation-observability-state.json ]; then
             telemetry_paths+=(data/translation-observability-state.json)
           fi
-          bash scripts/lib/git-commit-data.sh --slice-only "📊 Roll up translation observability" "${telemetry_paths[@]}"
+          bash scripts/lib/git-commit-data.sh --extra-only "📊 Roll up translation observability" "${telemetry_paths[@]}"
 
       - name: Upload translation observability report
         if: always() && steps.translation_observability_before.outputs.ready == 'true'
@@ -1023,7 +1010,7 @@ jobs:
         if: always() && steps.slug_regeneration.outcome == 'success' && steps.slug_regeneration_proof.outcome == 'success' && steps.checkout.outcome == 'success' && inputs.dry_run != true
         env:
           SKIP_AI_TRANSLATION: '1'
-        run: bash scripts/lib/git-commit-data.sh --slice-only "🔗 Regenerate locale slugs (post-translation)"
+        run: bash scripts/lib/git-commit-data.sh --extra-only "🔗 Regenerate locale slugs (post-translation)" data/jobs/by-crawler/
 
       - name: Save per-company translation cache
         if: always() && steps.slug_regeneration.outcome == 'success' && steps.slug_regeneration_proof.outcome == 'success' && steps.checkout.outcome == 'success' && inputs.dry_run != true
@@ -1048,11 +1035,11 @@ jobs:
         run: |
           if node scripts/validate-translation-completeness.mjs 2>/dev/null; then
             TRANSLATION_DEPLOY_HANDOFF_STATE=complete \
-              bash scripts/lib/git-commit-data.sh --slice-only "✅ Complete translation deploy handoff" data/translation-deploy-handoff.json
+              bash scripts/lib/git-commit-data.sh --extra-only "✅ Complete translation deploy handoff" data/translation-deploy-handoff.json
             echo "✅ All translations complete — the marker commit is now eligible for the site schedule"
           else
             TRANSLATION_DEPLOY_HANDOFF_STATE=fallback \
-              bash scripts/lib/git-commit-data.sh --slice-only "⚠️ Release translation deploy fallback" data/translation-deploy-handoff.json
+              bash scripts/lib/git-commit-data.sh --extra-only "⚠️ Release translation deploy fallback" data/translation-deploy-handoff.json
             echo "⚠️ Some translations remain incomplete — deploy continues with the existing locale fallback"
             exit 0
           fi
@@ -1063,7 +1050,7 @@ jobs:
         env:
           TRANSLATION_DEPLOY_HANDOFF_STATE: fallback
           SKIP_AI_TRANSLATION: '1'
-        run: bash scripts/lib/git-commit-data.sh --slice-only "⚠️ Release translation deploy fallback after failed phase" data/translation-deploy-handoff.json
+        run: bash scripts/lib/git-commit-data.sh --extra-only "⚠️ Release translation deploy fallback after failed phase" data/translation-deploy-handoff.json
 
       - name: Report failure to GitHub Issues
         if: always() && (failure() || steps.repair_stale_descriptions.outcome == 'failure')
@@ -1146,4 +1133,4 @@ jobs:
           TRANSLATION_DEPLOY_HANDOFF_EXPECTED_RUN_ID: ${{ github.run_id }}
           TRANSLATION_DEPLOY_HANDOFF_EXPECTED_RUN_ATTEMPT: ${{ github.run_attempt }}
           SKIP_AI_TRANSLATION: '1'
-        run: bash scripts/lib/git-commit-data.sh --slice-only "⚠️ Release translation deploy fallback after job timeout" data/translation-deploy-handoff.json
+        run: bash scripts/lib/git-commit-data.sh --extra-only "⚠️ Release translation deploy fallback after job timeout" data/translation-deploy-handoff.json

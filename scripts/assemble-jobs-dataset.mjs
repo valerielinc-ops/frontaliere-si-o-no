@@ -39,11 +39,12 @@ import {
  *   node scripts/assemble-jobs-dataset.mjs --no-summaries  # assemble, skip jobs-crawler-summaries.json
  *   node scripts/assemble-jobs-dataset.mjs --active-only --no-summaries
  *                                                            # active jobs only
+ *   node scripts/assemble-jobs-dataset.mjs --projection-only  # derived active dataset; source slices read-only
  *
  * Module API (for crawlers):
  *   writeJobsCrawlerSlice(crawlerKey, jobs)    → write data/jobs/by-crawler/<key>.json
  *   writeSummaryCrawlerSlice(summaryEntry)     → write data/jobs-crawler-summaries/by-crawler/<key>.json
- *   assembleJobsDataset({ withStats?, withSummaries?, withExpired? })
+ *   assembleJobsDataset({ withStats?, withSummaries?, withExpired?, projectionOnly? })
  *                                                            → run assembly
  */
 
@@ -1044,7 +1045,7 @@ function hashRepoFile(hasher, abs) {
  * `--print-cache-key`, so a workflow can key `actions/cache` on exactly the
  * value the script checks — no second, weaker `hashFiles()` definition.
  */
-export function computeAssembleCacheKey({ withStats = false, withSummaries = true, withExpired = true } = {}) {
+export function computeAssembleCacheKey({ withStats = false, withSummaries = true, withExpired = true, projectionOnly = false } = {}) {
   const inputFingerprint = computeAssembleInputFingerprint();
   const skipReconciliation = String(process.env.JOBS_SKIP_RECONCILIATION || '0') === '1';
   const includeTranslationHeld = includeTranslationHeldFromEnv();
@@ -1057,7 +1058,7 @@ export function computeAssembleCacheKey({ withStats = false, withSummaries = tru
   // included) must never be restored by a publishing run, hence `_withheld`.
   return {
     inputFingerprint,
-    cacheKey: `${inputFingerprint}_${withStats ? 'stats' : 'nostats'}${withSummaries ? '' : '_nosummaries'}${withExpired ? '' : '_activeonly'}${skipReconciliation ? '_noreconcile' : ''}${includeTranslationHeld ? '_withheld' : ''}`,
+    cacheKey: `${inputFingerprint}_${withStats ? 'stats' : 'nostats'}${withSummaries ? '' : '_nosummaries'}${withExpired ? '' : '_activeonly'}${projectionOnly ? '_projection' : ''}${skipReconciliation ? '_noreconcile' : ''}${includeTranslationHeld ? '_withheld' : ''}`,
     includeTranslationHeld,
   };
 }
@@ -1093,6 +1094,7 @@ export function isAssembleCacheManifestValid(manifest, expected) {
     && manifest.withStats === expected.withStats
     && manifest.withSummaries === expected.withSummaries
     && manifest.withExpired === expected.withExpired
+    && manifest.projectionOnly === expected.projectionOnly
     && Number.isSafeInteger(manifest.fileCount)
     && manifest.fileCount === manifest.snapshotFiles.length
     && expected.requiredSnapshotFiles.every((name) => snapshotFileSet.has(name))
@@ -3812,7 +3814,7 @@ export function writeSummaryCrawlerSlice(summaryEntry, options = {}) {
  *
  * Returns the assembled jobs array, or null if no slices exist.
  */
-async function assembleJobs() {
+async function assembleJobs({ projectionOnly = false } = {}) {
   const finishAssemblyTiming = startPipelinePhase('jobs-dataset', 'active-jobs assembly');
   const sliceFiles = listSliceFiles(JOBS_SLICES_DIR);
 
@@ -4057,11 +4059,15 @@ async function assembleJobs() {
   if (totalDropped > 0) {
     console.log(`  🇨🇭 Swiss whitelist: excluded ${totalDropped} jobs (${droppedBadSwissCity} unknown locality, ${droppedCantonOnlyNoCity} canton-only without anchor, ${droppedForeignAddress} foreign address in description; ${swissValidated.length} remaining)`);
   }
-  const finishFilteredArchiveTiming = startPipelinePhase('jobs-dataset', 'archive Swiss-filtered jobs');
-  const filteredArchive = archiveFilteredJobsToSlices(swissGate.dropped);
-  finishFilteredArchiveTiming();
-  if (filteredArchive.added > 0) {
-    console.log(`  📦 Archived ${filteredArchive.added} Swiss-gate exclusion(s) → data/jobs/expired/by-crawler (soft-landing pages preserved).`);
+  if (projectionOnly) {
+    console.log('  📐 Projection-only: Swiss-gate exclusions stay out of the derived dataset without mutating expired slices');
+  } else {
+    const finishFilteredArchiveTiming = startPipelinePhase('jobs-dataset', 'archive Swiss-filtered jobs');
+    const filteredArchive = archiveFilteredJobsToSlices(swissGate.dropped);
+    finishFilteredArchiveTiming();
+    if (filteredArchive.added > 0) {
+      console.log(`  📦 Archived ${filteredArchive.added} Swiss-gate exclusion(s) → data/jobs/expired/by-crawler (soft-landing pages preserved).`);
+    }
   }
 
   // ── Publisher supersedes crawled (anti double-listing) ───────────────
@@ -5159,8 +5165,12 @@ async function persistQualityScoresToFirestore(summaries) {
   }
 }
 
-export async function assembleJobsDataset({ withStats = false, withSummaries = true, withExpired = true } = {}) {
+export async function assembleJobsDataset({ withStats = false, withSummaries = true, withExpired = true, projectionOnly = false } = {}) {
   const finishDatasetTiming = startPipelinePhase('jobs-dataset', 'dataset orchestration');
+  // A projection is read-only with respect to both active and expired source
+  // slices. Keep the API safe even when a programmatic caller omits the CLI's
+  // implicit `withExpired: false` normalization.
+  if (projectionOnly) withExpired = false;
   // In slice-only mode crawlers skip assembly — it runs during deploy instead.
   if (String(process.env.CRAWLER_SLICE_ONLY || '0') === '1') {
     console.log('📦 Slice-only mode: skipping assembly (will run at deploy time)');
@@ -5173,7 +5183,7 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
   // Inputs change on a few cron hours per day; between those events, ~80 % of
   // deploys feed identical bytes through the same pipeline.
   const finishFingerprintTiming = startPipelinePhase('jobs-dataset', 'input fingerprint and cache lookup');
-  const { inputFingerprint, cacheKey, includeTranslationHeld } = computeAssembleCacheKey({ withStats, withSummaries, withExpired });
+  const { inputFingerprint, cacheKey, includeTranslationHeld } = computeAssembleCacheKey({ withStats, withSummaries, withExpired, projectionOnly });
   finishFingerprintTiming();
   const skipReconciliation = String(process.env.JOBS_SKIP_RECONCILIATION || '0') === '1';
   const cacheDir = path.join(CACHE_ROOT, cacheKey);
@@ -5199,6 +5209,7 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
       withStats,
       withSummaries,
       withExpired,
+      projectionOnly,
       requiredSnapshotFiles,
       allowedSnapshotFiles,
     });
@@ -5260,7 +5271,7 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
 
   // --- Jobs ---
   const finishActiveAssemblyTiming = startPipelinePhase('jobs-dataset', 'assemble active dataset');
-  const assembledAll = await assembleJobs();
+  const assembledAll = await assembleJobs({ projectionOnly });
   finishActiveAssemblyTiming();
   // ── Soglia di ammissione agenzie (decisione del proprietario 2026-10-03) ──
   // Il taglio della pubblicazione è QUI: data/jobs.json e public/data/jobs.json
@@ -5632,6 +5643,7 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
       withStats,
       withSummaries,
       withExpired,
+      projectionOnly,
       snapshotFiles,
       snapshotAt: new Date().toISOString(),
       fileCount: snapshotFiles.length,
@@ -5686,10 +5698,12 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
  * @param {string[]} argv  argv WITHOUT the node/script prefix
  */
 export function parseAssembleCliArgs(argv = []) {
+  const projectionOnly = argv.includes('--projection-only');
   return {
     withStats: argv.includes('--stats'),
     withSummaries: !argv.includes('--no-summaries'),
-    withExpired: !argv.includes('--active-only'),
+    withExpired: !projectionOnly && !argv.includes('--active-only'),
+    ...(projectionOnly ? { projectionOnly: true } : {}),
   };
 }
 
