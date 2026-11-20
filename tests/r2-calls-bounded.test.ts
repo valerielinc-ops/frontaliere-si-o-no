@@ -165,6 +165,7 @@ describe('static: no rclone/aws call on the deploy path without a time limit', (
     const push = steps.find((s) => s.name === 'Push generated assets to CDN (early — ahead of the shard pushes)');
     expect(push, 'early CDN push step not found in publisher').toBeTruthy();
     // Run 44629531624 exhausted 45 minutes on the full OG and purge path.
+    expect(push!['timeout-minutes']).toBeGreaterThanOrEqual(15);
     expect(push!['timeout-minutes']).toBe(90);
   });
 

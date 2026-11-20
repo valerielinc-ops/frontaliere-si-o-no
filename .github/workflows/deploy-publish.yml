@@ -670,7 +670,8 @@ jobs:
         id: cdn-push-early-retry
         if: steps.cdn-push-early.outcome == 'failure'
         continue-on-error: true
-        # The retry can also need the full OG and purge budget.
+        # A retry can need the same full payload and purge work as the first
+        # attempt, so it receives the same bounded budget.
         timeout-minutes: 90
         env:
           CDN_DEPLOY_KEY: ${{ secrets.CDN_DEPLOY_KEY }}
