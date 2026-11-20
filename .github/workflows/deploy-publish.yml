@@ -651,7 +651,7 @@ jobs:
           CDN_TARGET: ${{ vars.CDN_TARGET || 'pages' }}
           DEPLOY_BUILD_ID: ${{ needs.resolve-publish-plan.outputs.build_id }}
           DEPLOY_CDN_PUSH_ONLY: '1'
-          R2_TIMEOUT_OG_S: ${{ steps.cdn-push-early-start.outputs.r2_timeout_og_s }}
+          R2_TIMEOUT_OG_S: '900'
           CDN_EARLY_STARTED_AT: ${{ steps.cdn-push-early-start.outputs.started_at }}
         run: |
           started_at="${CDN_EARLY_STARTED_AT:-$(date +%s)}"
@@ -745,7 +745,6 @@ jobs:
           CDN_TARGET: ${{ vars.CDN_TARGET || 'pages' }}
           DEPLOY_BUILD_ID: ${{ needs.resolve-publish-plan.outputs.build_id }}
           DEPLOY_CDN_PUSH_ONLY: '1'
-          R2_TIMEOUT_OG_S: ${{ steps.cdn-push-early-start.outputs.r2_timeout_og_s }}
           CDN_EARLY_RETRY_STARTED_AT: ${{ steps.cdn-push-early-retry-start.outputs.started_at }}
         run: |
           started_at="${CDN_EARLY_RETRY_STARTED_AT:-$(date +%s)}"
@@ -758,7 +757,6 @@ jobs:
             echo "started_at=$started_at"
             echo "ended_at=$ended_at"
             echo "duration_s=$((ended_at - started_at))"
-            echo "r2_timeout_og_s=${R2_TIMEOUT_OG_S:-unknown}"
           } >> "$GITHUB_OUTPUT"
           exit "$status"
       - name: Observe early CDN retry timing from Actions API
@@ -835,7 +833,7 @@ jobs:
           RETRY_ENDED_AT: ${{ steps.cdn-push-early-retry-timing-api.outputs.ended_at || steps.cdn-push-early-retry.outputs.ended_at }}
           RETRY_DURATION_S: ${{ steps.cdn-push-early-retry-timing-api.outputs.duration_s || steps.cdn-push-early-retry.outputs.duration_s }}
           RETRY_API_CONCLUSION: ${{ steps.cdn-push-early-retry-timing-api.outputs.conclusion || 'unknown' }}
-          R2_TIMEOUT_OG_S: ${{ steps.cdn-push-early.outputs.r2_timeout_og_s || steps.cdn-push-early-retry.outputs.r2_timeout_og_s || steps.cdn-push-early-start.outputs.r2_timeout_og_s || 'unknown' }}
+          R2_TIMEOUT_OG_S: ${{ steps.cdn-push-early.outputs.r2_timeout_og_s || steps.cdn-push-early-start.outputs.r2_timeout_og_s || '900' }}
         run: |
           set -euo pipefail
           cdnEarlyPushBudgetObserved() {

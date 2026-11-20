@@ -1944,6 +1944,9 @@ jobs:
               function numeric(value) {
                 return value ~ /^[0-9]+([.][0-9]+)?$/;
               }
+              /^\[jobs-seo-reuse\] block=/ && !/(^|[[:space:]])mode=verify-sample([[:space:]]|$)/ {
+                next;
+              }
               /^\[jobs-seo-reuse\] / && /(^|[[:space:]])mode=verify-sample([[:space:]]|$)/ {
                 rows += 1;
                 reused = rendered = wall = "";
