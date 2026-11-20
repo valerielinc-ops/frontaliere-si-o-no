@@ -19,6 +19,16 @@ const receipt = { url: receiptUrl, fields: [], text: `Thank you for your applica
 const controls = (snapshot: any) => pageControls(snapshot.buttons, known, snapshot.url, { snapshot, applyUrl, job });
 
 describe('application stage ownership', () => {
+  it('recognizes the Italian SuccessFactors form with its sections collapsed', () => {
+    const url = 'https://career2.successfactors.eu/portalcareer';
+    const expand = { text: 'Esplodi tutte le sezioni' };
+    const submit = { text: 'Candidati', formId: 'application', frame: 0 };
+    const snapshot = { url, text: job.title, fields: [], buttons: [expand, submit] };
+    expect(applicationStage(snapshot, { applyUrl: url, job }).kind).toBe('form');
+    expect(applicationStage({ ...snapshot, buttons: [submit] }, { applyUrl: url, job }).kind).toBe('unknown_apply');
+    expect(applicationStage({ ...snapshot, text: '' }, { applyUrl: url, job }).kind).toBe('unknown_apply');
+  });
+
   it('keeps a fieldless Workday apply shell distinct from an empty route', () => {
     const manualUrl = 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Sion/Conseiller-de-Vente--h-f-_R2420/apply/applyManually';
     const mounted = { url: manualUrl, fields: [], buttons: [], workdayApplicationSurface: true };
