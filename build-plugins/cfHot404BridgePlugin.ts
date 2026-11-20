@@ -65,6 +65,11 @@ const SEARCH_CLUSTER_LEGACY_SET = new Set(
   SEARCH_CLUSTER_LEGACY_PATHS.map((p) => p.replace(/\/+$/, '')),
 );
 
+type CfHot404BridgeOptions = {
+  /** Isolated callers can provide only the committed cluster paths under test. */
+  legacyClusterPaths?: readonly string[];
+};
+
 // Anti-runaway rail (NOT a recovery limit): the 40k hard cap used to bite the
 // real CF-confirmed 404 universe — a time-sliced sweep (build-cf-hot-404s.mjs,
 // 48×1h windows summed) measures ~50k accumulated ≥2-hit paths and ~134k
@@ -98,11 +103,11 @@ interface HotPath {
   hits?: number;
 }
 
-export function cfHot404BridgePlugin(rootDir: string): Plugin {
-  return withPhaseInstrument('cf-hot-404-bridge', buildCfHot404BridgePlugin(rootDir));
+export function cfHot404BridgePlugin(rootDir: string, options: CfHot404BridgeOptions = {}): Plugin {
+  return withPhaseInstrument('cf-hot-404-bridge', buildCfHot404BridgePlugin(rootDir, options));
 }
 
-function buildCfHot404BridgePlugin(rootDir: string): Plugin {
+function buildCfHot404BridgePlugin(rootDir: string, options: CfHot404BridgeOptions): Plugin {
   return {
     name: 'cf-hot-404-bridge',
     apply: 'build',
@@ -208,7 +213,8 @@ function buildCfHot404BridgePlugin(rootDir: string): Plugin {
       // GSC-indexed dead URLs with a verified live target, worth recovering, but
       // not ahead of genuinely hot edge 404s. Bounded (~3.8k), always resolvable.
       const CLUSTER_LEGACY_SYNTHETIC_HITS = 2;
-      for (const p of SEARCH_CLUSTER_LEGACY_PATHS) {
+      const legacyClusterPaths = options.legacyClusterPaths ?? SEARCH_CLUSTER_LEGACY_PATHS;
+      for (const p of legacyClusterPaths) {
         addPath(p, CLUSTER_LEGACY_SYNTHETIC_HITS);
       }
       // Third source (OPT-IN): the full Cloudflare-imported 404 accumulator.
