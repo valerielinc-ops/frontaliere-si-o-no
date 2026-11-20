@@ -1,7 +1,7 @@
 {
   "key": "artisa-group",
   "label": "Artisa Group",
-  "generatedAt": "2026-11-19T21:45:07.933Z",
+  "generatedAt": "2026-11-20T09:40:10.775Z",
   "total": 2,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": true,
@@ -9,10 +9,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 3586,
-  "avgDurationMs": 3586,
+  "durationMs": 2528,
+  "avgDurationMs": 2528,
   "durationHistory": [
-    3586
+    2528
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -39,7 +39,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-12-27T21:44:51.034Z",
+      "validThrough": "2026-12-28T09:39:51.976Z",
       "id": "artisa-group-602dc2ab62a9",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -53,7 +53,7 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-19T21:44:51.034Z",
+      "crawledAt": "2026-11-20T09:39:51.976Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -86,7 +86,7 @@
       "postingDateSource": "unknown",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2027-01-05T21:44:51.034Z",
+      "validThrough": "2027-01-06T09:39:51.976Z",
       "id": "artisa-group-ce53cb93ea60",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -97,7 +97,7 @@
       "firstSeenAt": "2026-10-07T21:40:39.703Z",
       "streetAddressSource": "listing-source",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-19T21:44:51.034Z",
+      "crawledAt": "2026-11-20T09:39:51.976Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://artisagroup.com/carriera",
       "_qualityScore": 95,
