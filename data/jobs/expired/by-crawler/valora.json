@@ -5658,14 +5658,14 @@
       "vendeur-vendeur-k-kiosque-10-heures-valora-group-bern-b7c7c4f3",
       "seller-seller-k-kiosk-8-6-hours-valora-group-bern",
       "vendeur-vendeur-k-kiosque-8-6-heures-valora-group-bern",
-      "venditore-venditore-k-kiosk-10-ore-valora-group-bern",
-      "seller-seller-k-kiosk-10-hours-valora-group-bern",
-      "vendeur-vendeur-k-kiosque-10-heures-valora-group-bern",
-      "verkauferin-verkaufer-k-kiosk-10-std-valora-bern",
       "venditore-venditore-k-kiosk-10-ore-valora-group-bern-0fd76a53",
       "verkauferin-verkaufer-k-kiosk-10-std-valora-bern-d8a0d007",
       "seller-seller-k-kiosk-10-hours-valora-group-bern-94f592aa",
-      "vendeur-vendeur-k-kiosque-10-heures-valora-group-bern-8ca505d4"
+      "vendeur-vendeur-k-kiosque-10-heures-valora-group-bern-8ca505d4",
+      "venditore-venditore-k-kiosk-10-ore-valora-group-bern",
+      "seller-seller-k-kiosk-10-hours-valora-group-bern",
+      "vendeur-vendeur-k-kiosque-10-heures-valora-group-bern",
+      "verkauferin-verkaufer-k-kiosk-10-std-valora-bern"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -7562,12 +7562,12 @@
     "expiredAt": "2026-10-25T21:17:44.872Z",
     "previousSlugs": [
       "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf-jo0riv",
-      "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf",
-      "venditore-seller-k-kiosk-10-ore-valora-group-uetendorf",
-      "venditore-venditore-k-kiosk-10-ore-valora-group-uetendorf",
       "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf-fb3ba3b4",
       "venditore-seller-k-kiosk-10-ore-valora-group-uetendorf-7c1b6261",
       "venditore-venditore-k-kiosk-10-ore-valora-group-uetendorf-45d91f78",
+      "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf",
+      "venditore-seller-k-kiosk-10-ore-valora-group-uetendorf",
+      "venditore-venditore-k-kiosk-10-ore-valora-group-uetendorf",
       "seller-seller-k-kiosk-10-hours-valora-group-uetendorf",
       "kiosque-vendeur-vendeur-k-10-heures-valora-group-uetendorf"
     ],
@@ -7577,6 +7577,8 @@
         "venditore-seller-k-kiosk-10-ore-valora-group-uetendorf-7c1b6261",
         "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf-jo0riv",
         "venditore-venditore-k-kiosk-10-ore-valora-group-uetendorf-45d91f78",
+        "seller-seller-k-kiosk-10-hours-valora-group-uetendorf",
+        "kiosque-vendeur-vendeur-k-10-heures-valora-group-uetendorf",
         "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf",
         "venditore-seller-k-kiosk-10-ore-valora-group-uetendorf",
         "venditore-venditore-k-kiosk-10-ore-valora-group-uetendorf"
@@ -7585,6 +7587,8 @@
         "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf-fb3ba3b4",
         "venditore-seller-k-kiosk-10-ore-valora-group-uetendorf",
         "venditore-venditore-k-kiosk-10-ore-valora-group-uetendorf",
+        "seller-seller-k-kiosk-10-hours-valora-group-uetendorf-567b181c",
+        "kiosque-vendeur-vendeur-k-10-heures-valora-group-uetendorf",
         "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf",
         "seller-seller-k-kiosk-10-hours-valora-group-uetendorf"
       ],
@@ -7592,12 +7596,16 @@
         "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf-jo0riv",
         "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf-f46f7981",
         "venditore-seller-k-kiosk-10-ore-valora-group-uetendorf",
-        "venditore-venditore-k-kiosk-10-ore-valora-group-uetendorf"
+        "venditore-venditore-k-kiosk-10-ore-valora-group-uetendorf",
+        "seller-seller-k-kiosk-10-hours-valora-group-uetendorf",
+        "kiosque-vendeur-vendeur-k-10-heures-valora-group-uetendorf"
       ],
       "fr": [
         "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf-fb3ba3b4",
         "venditore-seller-k-kiosk-10-ore-valora-group-uetendorf",
         "venditore-venditore-k-kiosk-10-ore-valora-group-uetendorf",
+        "kiosque-vendeur-vendeur-k-10-heures-valora-group-uetendorf-91a01b33",
+        "seller-seller-k-kiosk-10-hours-valora-group-uetendorf",
         "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf",
         "kiosque-vendeur-vendeur-k-10-heures-valora-group-uetendorf"
       ]
@@ -8264,15 +8272,15 @@
       "seller-seller-k-kiosk-32-hours-valora-group-bern",
       "verkauferin-verkaufer-k-kiosk-32-std-valora-bern",
       "vendeur-vendeur-k-kiosque-32-heures-valora-group-bern",
-      "verkauferin-verkaufer-k-kiosk-10-std-valora-bern",
-      "vendeur-vendeur-k-kiosque-10-heures-valora-group-bern",
-      "venditore-venditore-k-kiosk-10-ore-valora-group-bern",
-      "seller-seller-k-kiosk-10-hours-valora-group-bern",
       "venditore-venditore-k-kiosk-10-ore-valora-group-bern-596d5d11",
       "verkauferin-verkaufer-k-kiosk-10-std-valora-bern-af727e36",
       "seller-seller-k-kiosk-10-hours-valora-group-bern-9c4c83d9",
       "verkauferin-verkaufer-k-kiosk-10-std-valora-bern-e218cc4b",
       "vendeur-vendeur-k-kiosque-10-heures-valora-group-bern-af770806",
+      "verkauferin-verkaufer-k-kiosk-10-std-valora-bern",
+      "vendeur-vendeur-k-kiosque-10-heures-valora-group-bern",
+      "venditore-venditore-k-kiosk-10-ore-valora-group-bern",
+      "seller-seller-k-kiosk-10-hours-valora-group-bern",
       "venditore-venditore-k-chiosco-8-6-ore-valora-group-bern",
       "seller-seller-k-kiosk-8-6-hours-valora-group-bern",
       "vendeur-vendeur-k-kiosque-8-6-heures-valora-group-bern"
@@ -8300,6 +8308,9 @@
         "seller-seller-k-kiosk-10-hours-valora-group-bern",
         "verkauferin-verkaufer-k-kiosk-10-std-valora-bern-af727e36",
         "vendeur-vendeur-k-kiosque-10-heures-valora-group-bern",
+        "venditore-venditore-k-chiosco-8-6-ore-valora-group-bern-37e6f0f0",
+        "seller-seller-k-kiosk-8-6-hours-valora-group-bern",
+        "vendeur-vendeur-k-kiosque-8-6-heures-valora-group-bern",
         "venditore-venditore-k-kiosk-10-ore-valora-group-bern",
         "venditore-venditore-k-chiosco-8-6-ore-valora-group-bern"
       ],
@@ -8310,6 +8321,9 @@
         "venditore-venditore-k-kiosk-10-ore-valora-group-bern",
         "verkauferin-verkaufer-k-kiosk-10-std-valora-bern-e218cc4b",
         "vendeur-vendeur-k-kiosque-10-heures-valora-group-bern",
+        "seller-seller-k-kiosk-8-6-hours-valora-group-bern-101a21c2",
+        "venditore-venditore-k-chiosco-8-6-ore-valora-group-bern",
+        "vendeur-vendeur-k-kiosque-8-6-heures-valora-group-bern",
         "seller-seller-k-kiosk-10-hours-valora-group-bern",
         "seller-seller-k-kiosk-8-6-hours-valora-group-bern"
       ],
@@ -8320,6 +8334,9 @@
         "venditore-venditore-k-kiosk-10-ore-valora-group-bern",
         "seller-seller-k-kiosk-10-hours-valora-group-bern",
         "vendeur-vendeur-k-kiosque-10-heures-valora-group-bern",
+        "venditore-venditore-k-chiosco-8-6-ore-valora-group-bern",
+        "seller-seller-k-kiosk-8-6-hours-valora-group-bern",
+        "vendeur-vendeur-k-kiosque-8-6-heures-valora-group-bern",
         "verkauferin-verkaufer-k-kiosk-10-std-valora-bern"
       ],
       "fr": [
@@ -8329,6 +8346,9 @@
         "venditore-venditore-k-kiosk-10-ore-valora-group-bern",
         "seller-seller-k-kiosk-10-hours-valora-group-bern",
         "verkauferin-verkaufer-k-kiosk-10-std-valora-bern-e218cc4b",
+        "vendeur-vendeur-k-kiosque-8-6-heures-valora-group-bern-a0d2cb1e",
+        "venditore-venditore-k-chiosco-8-6-ore-valora-group-bern",
+        "seller-seller-k-kiosk-8-6-hours-valora-group-bern",
         "vendeur-vendeur-k-kiosque-10-heures-valora-group-bern",
         "vendeur-vendeur-k-kiosque-8-6-heures-valora-group-bern"
       ]
@@ -8384,19 +8404,23 @@
         "venditore-venditore-k-kiosk-10-ore-valora-group-bern-5de493",
         "seller-seller-k-kiosk-10-hours-valora-group-bern-5de493",
         "vendeur-vendeur-k-kiosque-10-heures-valora-group-bern-5de493",
+        "venditore-venditore-k-kiosk-10-ore-valora-group-bern-92f1aee3",
         "venditore-venditore-k-kiosk-10-ore-valora-group-bern"
       ],
       "en": [
         "seller-seller-k-kiosk-10-hours-valora-group-bern-98af1b03",
-        "vendeur-vendeur-k-kiosque-10-heures-valora-group-bern"
+        "vendeur-vendeur-k-kiosque-10-heures-valora-group-bern",
+        "venditore-venditore-k-kiosk-10-ore-valora-group-bern"
       ],
       "de": [
         "seller-seller-k-kiosk-10-hours-valora-group-bern",
-        "vendeur-vendeur-k-kiosque-10-heures-valora-group-bern"
+        "vendeur-vendeur-k-kiosque-10-heures-valora-group-bern",
+        "venditore-venditore-k-kiosk-10-ore-valora-group-bern"
       ],
       "fr": [
         "seller-seller-k-kiosk-10-hours-valora-group-bern",
-        "vendeur-vendeur-k-kiosque-10-heures-valora-group-bern-90cd2cd4"
+        "vendeur-vendeur-k-kiosque-10-heures-valora-group-bern-90cd2cd4",
+        "venditore-venditore-k-kiosk-10-ore-valora-group-bern"
       ]
     },
     "postalCode": "3011",

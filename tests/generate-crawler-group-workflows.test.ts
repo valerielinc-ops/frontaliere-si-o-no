@@ -2607,6 +2607,34 @@ describe('cross-repo crawler execution artifacts', () => {
     ])).toThrow(/missing site runtime path.*scripts\/typo-nonexistent\.mjs/);
   }, CROSS_REPO_GENERATION_TIMEOUT);
 
+  it('genera ogni sparse checkout observer dalla chiusura import esatta', () => {
+    const { outDir } = generateArtifacts();
+    const workflowPath = path.join(
+      outDir,
+      'observers/workflows/crawler-generation-observer-shadow.yml',
+    );
+    const doc = YAML.parse(fs.readFileSync(workflowPath, 'utf8'));
+    const importClosure = collectRelativeImportClosure(
+      repoRoot,
+      'scripts/crawler-generation-observer.mjs',
+    );
+    expect(importClosure).toContain('scripts/lib/job-identity.mjs');
+    expect(importClosure).toContain('scripts/lib/stable-stringify.mjs');
+    const requiredPaths = [...importClosure, 'scripts/ci/crawler-generation-roster.json'].sort();
+
+    for (const jobId of ['sentinel', 'observe_event', 'reconcile_scheduled']) {
+      const checkout = doc.jobs[jobId].steps.find(
+        (step: any) => step.name === 'Checkout immutable site observer runtime',
+      );
+      const sparsePaths = checkout.with['sparse-checkout']
+        .split('\n')
+        .map((value: string) => value.trim().replace(/^\//, ''))
+        .filter(Boolean)
+        .sort();
+      expect(sparsePaths, jobId).toEqual(requiredPaths);
+    }
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
   it('hash-binda la closure import reale del finalizer in ogni artifact di gruppo', () => {
     const { contract, outDir } = generateArtifacts();
     const importClosure = collectRelativeImportClosure(repoRoot, 'scripts/crawler-group-generation-finalizer.mjs');
@@ -4675,10 +4703,10 @@ describe('generated crawler workflows stay under the GitHub size budget', () => 
     const bytes = Buffer.byteLength(content, 'utf8');
     // Without compact result waiter, 29 members add ~10.1 KB bringing size to ~488.9 KB (> 480000 budget).
     // With the safe Git-metadata retry and empty-workspace cleanup, size is
-    // 473811 bytes (<= 480000 budget) after the common Git-dir guard and
-    // success-sibling commit gate are emitted.
+    // 473881 bytes (<= 480000 budget) after the common Git-dir guard,
+    // success-sibling commit gate, and two new hash-bound runtime paths are emitted.
     expect(bytes).toBeLessThanOrEqual(GENERATED_WORKFLOW_SIZE_BUDGET_BYTES);
-    expect(bytes).toBe(473811);
+    expect(bytes).toBe(473881);
   });
 
   it('the aggregate defines the per-member classification once instead of unrolling it', () => {

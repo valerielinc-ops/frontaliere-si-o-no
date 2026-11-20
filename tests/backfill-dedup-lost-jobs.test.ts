@@ -82,6 +82,7 @@ describe('buildBackfillExpiredEntry', () => {
     expect(entry?.slug).toBe(baseJob.slug);
     expect(entry?.title).toBe(baseJob.title);
     expect(entry?.expiredAt).toBe('2026-04-07T07:52:57Z');
+    expect(entry?.id).toBe(baseJob.id);
     expect(entry?.expirationReason).toBe('silent_dedup_backfill');
     expect(entry?.dedupArchive).toBe(true);
     expect(entry?.previousSlugs).toEqual(['fisioterapista-diplomato-a-eoc-old']);

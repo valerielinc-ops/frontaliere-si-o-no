@@ -50,6 +50,7 @@ import {
 import { loadCoverage } from './lib/prospector/coverage.mjs';
 import { ROOT, PROSPECTOR_DIR } from './lib/prospector/config.mjs';
 import { qualityContractVersionOf } from './lib/prospector/quality-contract.mjs';
+import { recordedSourceAdapterVersion } from './lib/prospector/source-adapter-version.mjs';
 import { validatePrBodyFile } from './ci/pr-body-check-gate.mjs';
 // Sì, per due righe di logica si importa un file di ~2.870 righe: nit del
 // reviewer su PR #7276, valutato e NON preso, di proposito.
@@ -854,10 +855,10 @@ export function buildPromotionPrBody({
 }) {
   const bullets = shipped.map((s) => {
     const contractVersion = qualityContractVersionOf(s);
-    const adapterVersion = String(s.sourceAdapterVersion || '').trim();
+    const adapterVersion = recordedSourceAdapterVersion(s);
     const h = (s.validationHistory || []).filter((v) => v.verdict === 'good'
       && qualityContractVersionOf(v) === contractVersion
-      && (!adapterVersion || v.sourceAdapterVersion === adapterVersion));
+      && recordedSourceAdapterVersion(v) === adapterVersion);
     const days = new Set(h.map((v) => String(v.at).slice(0, 10))).size;
     return `- **in questa PR** — \`${s.spec.companyKey}\` · ${s.spec.companyName} · ${s.vacancyCount} annunci · qualita' ${Number(s.qualityScore).toFixed(2)} su ${days} giorni distinti · estrazione \`${s.spec.mode}\` · ${s.spec.companyHost}`;
   }).join('\n');

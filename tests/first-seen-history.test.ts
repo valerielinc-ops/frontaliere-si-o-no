@@ -80,12 +80,13 @@ describe('carryForwardFirstSeenAt', () => {
     expect(current.firstSeenAt).toBe('2026-09-10T23:21:49.331Z');
   });
 
-  it('archives the stable source identity and firstSeenAt for future reintroductions', () => {
-    const entry = buildExpiredEntry(job());
+  it('archives the stable source identity, job id, and firstSeenAt for future reintroductions', () => {
+    const entry = buildExpiredEntry(job({ id: 'umantis-1373' }));
 
     expect(entry.sourceIdentity).toBe(
       'url:https://recruitingapp-2761.umantis.com/vacancies/1373/description/4',
     );
+    expect(entry.id).toBe('umantis-1373');
     expect(entry.firstSeenAt).toBe('2026-09-23T23:53:42.243Z');
   });
 

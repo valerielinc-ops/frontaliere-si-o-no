@@ -40,13 +40,17 @@ const ATS_HOST_MARKERS = [
 
 export const DOMAIN_OVERRIDES = {
   // Issue #18884: official sites verified at adecco.com/en-ch, baumont.ch,
-  // team.jobs/impressum, flexsis.ch, hamiltoncompany.com/bonaduz-switzerland,
-  // mitopersonal.ch, provia.jobs, and sago-personal.ch. The acquisition
-  // workflow still has to validate the logo asset itself.
+  // flexsis.ch, mitopersonal.ch, provia.jobs, and sago-personal.ch. The
+  // acquisition workflow still has to validate the logo asset itself.
   adecco: ['adecco.com'],
   'baumont-ag': ['baumont.ch'],
+  // Legal identity: https://www.team.jobs/impressum (das team ag).
+  // Brand asset: https://team.jobs/favicon/apple-touch-icon.png.
   'das-team-ag': ['team.jobs'],
   'flexsis-sa': ['flexsis.ch'],
+  // Legal identity and Bonaduz site:
+  // https://www.hamiltoncompany.com/bonaduz-switzerland
+  // Company imprint: https://www.hamiltoncompany.com/about-us/impressum
   hamilton: ['hamiltoncompany.com'],
   'hamilton-ag': ['hamiltoncompany.com'],
   'leteam-ressources-humaines': ['team.jobs'],
@@ -74,6 +78,11 @@ export const DOMAIN_OVERRIDES = {
   'impresa-pizzarotti': ['pizzarotti.it'],
   jsafrasarasin: ['jsafrasarasin.ch', 'jsafrasarasin.com'],
   'kanton-aargau': ['ag.ch'],
+  // The canton imprint identifies the Standeskanzlei Graubünden as the
+  // publisher, while its heraldry page declares the official canton mark.
+  // https://www.gr.ch/DE/Seiten/Impressum.aspx
+  // https://www.gr.ch/DE/kanton/wappen/Seiten/Kantonswappen.aspx
+  'kanton-graubunden': ['gr.ch'],
   lonza: ['lonza.com'],
   michaelpage: ['michaelpage.ch', 'michaelpage.com'],
   'matterhorn-gotthard-bahn': ['mgb.ch'],
@@ -99,6 +108,10 @@ export const DOMAIN_OVERRIDES = {
   mediamarkt: ['mediamarkt.ch'],
   // The official Metzgerei Meyer site matches the employer's JobRoom contact domain.
   'metzgerei-wursterei-viehhandel-rene-meyer': ['metzgerei-meyer.ch'],
+  // The official imprint names Müntener & Thomas Personal- und
+  // Unternehmensberatung AG and its Swiss commercial-register identifier.
+  // https://www.mt-jobs.ch/impressum/
+  'muntener-thomas-personal-und-unternehmensberatung-ag': ['mt-jobs.ch'],
   // mpa-praxisstellen.ch is a PKS Personal AG microsite; use the employer
   // domain declared by its dedicated crawler in audit mode.
   'mpa-praxisstellen-ch': ['pks-personal.ch'],
@@ -192,6 +205,15 @@ export const DOMAIN_OVERRIDES = {
 // verified ZAUGG Group logo on the employer's own domain; use it as an
 // explicit acquisition source, never as a runtime URL.
 export const VERIFIED_LOGO_SOURCE_URLS = Object.freeze({
+  'das-team-ag': Object.freeze([
+    'https://team.jobs/favicon/apple-touch-icon.png',
+  ]),
+  'kanton-graubunden': Object.freeze([
+    'https://cdn.gr.ch/gr/prod/images/logo.svg',
+  ]),
+  'muntener-thomas-personal-und-unternehmensberatung-ag': Object.freeze([
+    'https://www.mt-jobs.ch/wp-content/uploads/2025/08/cropped-MT_LOGO_SVG-192x192.png',
+  ]),
   zaugg: Object.freeze([
     'https://www.zaugg.swiss/cache/files/4ec575c09db3768f7a95e732a05217ce8a2c2956.png',
   ]),

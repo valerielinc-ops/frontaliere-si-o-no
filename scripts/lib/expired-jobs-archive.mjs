@@ -37,6 +37,7 @@ import {
   archiveRecordNamesPosting,
   archiveRecordSourceIdentities,
   buildStableJobIdentity,
+  stablePostingIdentities,
 } from './job-identity.mjs';
 import { isHeldFromPublication } from './translation-publication-hold.mjs';
 import { assertByteSizeCeiling } from './assert-file-size-ceiling.mjs';
@@ -59,6 +60,7 @@ const DEFAULT_EXPIRED_SLICES_DIR = path.join(ROOT, 'data', 'jobs', 'expired', 'b
 export function buildExpiredEntry(job) {
   const sourceIdentity = job?.sourceIdentity || (job?.url ? buildStableJobIdentity(job) : '');
   const entry = {
+    id: job?.id || job?.externalId || job?.jobId || undefined,
     slug: job.slug,
     title: job.title || '',
     titleByLocale: { ...(job.titleByLocale || {}) },
@@ -99,6 +101,7 @@ export function buildExpiredEntry(job) {
   if (!entry.streetAddress) delete entry.streetAddress;
   if (!entry.salaryMin) delete entry.salaryMin;
   if (!entry.salaryMax) delete entry.salaryMax;
+  if (!entry.id) delete entry.id;
   if (entry.dedupArchive !== true) delete entry.dedupArchive;
   if (!entry.sourceIdentity) delete entry.sourceIdentity;
   if (!entry.firstSeenAt) delete entry.firstSeenAt;
@@ -226,26 +229,14 @@ export function normalizeExpiredAtEntries(entries, opts = {}) {
 }
 
 function hasExplicitlyDifferentSourceIdentity(expiredJob, activeJob) {
-  const activeUrl = String(activeJob?.url ?? '').trim();
-  if (!activeUrl) return false;
   const expiredIdentities = archiveRecordSourceIdentities(expiredJob);
-  if (expiredIdentities.size === 0) return false;
-  return !expiredIdentities.has(buildStableJobIdentity(activeJob));
+  const activeIdentities = stablePostingIdentities(activeJob);
+  if (expiredIdentities.size === 0 || activeIdentities.size === 0) return false;
+  return ![...expiredIdentities].some((identity) => activeIdentities.has(identity));
 }
 
 function explicitArchiveSourceIdentities(record = {}) {
-  const identities = new Set();
-  const add = (value) => {
-    const identity = String(value ?? '').trim();
-    if (identity) identities.add(identity);
-  };
-  add(record.sourceIdentity);
-  for (const history of Array.isArray(record.sourceIdentityHistory)
-    ? record.sourceIdentityHistory
-    : []) {
-    add(history?.sourceIdentity);
-  }
-  return identities;
+  return archiveRecordSourceIdentities(record);
 }
 
 function collisionRouteSuffix(entry, route, attempt) {
@@ -408,6 +399,30 @@ function hasExplicitlyDifferentArchiveIdentity(left, right) {
   return [...leftIdentities].every((identity) => !rightIdentities.has(identity));
 }
 
+function explicitArchiveDeclaredSourceIdentities(record = {}) {
+  const sourceIdentityHistory = Array.isArray(record.sourceIdentityHistory)
+    ? record.sourceIdentityHistory.map((entry) => ({ sourceIdentity: entry?.sourceIdentity }))
+    : [];
+  return archiveRecordSourceIdentities({
+    sourceIdentity: record.sourceIdentity,
+    sourceIdentityHistory,
+  });
+}
+
+function hasExplicitlyDifferentDeclaredSourceIdentity(left, right) {
+  const leftIdentities = explicitArchiveDeclaredSourceIdentities(left);
+  const rightIdentities = explicitArchiveDeclaredSourceIdentities(right);
+  if (leftIdentities.size === 0 || rightIdentities.size === 0) return false;
+  return [...leftIdentities].every((identity) => !rightIdentities.has(identity));
+}
+
+function hasExplicitlySharedDeclaredSourceIdentity(left, right) {
+  const leftIdentities = explicitArchiveDeclaredSourceIdentities(left);
+  const rightIdentities = explicitArchiveDeclaredSourceIdentities(right);
+  if (leftIdentities.size === 0 || rightIdentities.size === 0) return false;
+  return [...leftIdentities].some((identity) => rightIdentities.has(identity));
+}
+
 function hasExplicitlySharedArchiveIdentity(left, right) {
   const leftIdentities = explicitArchiveSourceIdentities(left);
   const rightIdentities = explicitArchiveSourceIdentities(right);
@@ -443,11 +458,14 @@ function rawRouteFromLocaleKey(routeKey) {
  * owns is reused, never replaced by a new one).
  *
  * @param {object[]} entries
- * @param {{source?: string, repairUnprovenCollisions?: boolean}} [options]
+ * @param {{source?: string, repairUnprovenCollisions?: boolean, sourceIdentityOnly?: boolean}} [options]
  * `repairUnprovenCollisions` is reserved for an ownership reconciliation
  * boundary that has already refused a lossy history merge. It keeps the
  * records separate and repairs only the duplicate route; the default remains
  * fail-closed for ambiguous archive identity in the general writers.
+ * `sourceIdentityOnly` is for archive ownership reconciliation: raw `id` and
+ * `url` fields can differ between crawler slices that carry the same historic
+ * alias, so only persisted `sourceIdentity` provenance can preempt that merge.
  * @returns {{entries: object[], changed: number, repairedRoutes: number, details: string[]}}
  */
 export function repairExpiredRoutesWithinArchive(
@@ -455,6 +473,7 @@ export function repairExpiredRoutesWithinArchive(
   {
     source = 'expired-jobs-archive.repairExpiredRoutesWithinArchive',
     repairUnprovenCollisions = false,
+    sourceIdentityOnly = false,
   } = {},
 ) {
   if (!Array.isArray(entries) || entries.length < 2) {
@@ -487,11 +506,16 @@ export function repairExpiredRoutesWithinArchive(
         const ownerKey = `${entry.companyKey}::${routeKey}`;
         const routeOwners = owners.get(ownerKey) || [];
         if (routeOwners.length === 0) continue;
+        const explicitlyDifferent = sourceIdentityOnly
+          ? hasExplicitlyDifferentDeclaredSourceIdentity
+          : hasExplicitlyDifferentArchiveIdentity;
         const hasProvenSharedIdentity = routeOwners.some((owner) => (
-          hasExplicitlySharedArchiveIdentity(entry, owner)
+          sourceIdentityOnly
+            ? hasExplicitlySharedDeclaredSourceIdentity(entry, owner)
+            : hasExplicitlySharedArchiveIdentity(entry, owner)
         ));
         if ((!hasProvenSharedIdentity && repairUnprovenCollisions)
-          || routeOwners.every((owner) => hasExplicitlyDifferentArchiveIdentity(entry, owner))) {
+          || routeOwners.every((owner) => explicitlyDifferent(entry, owner))) {
           conflictingRouteKeys.push(routeKey);
         }
       }

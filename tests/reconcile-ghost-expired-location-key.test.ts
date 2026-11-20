@@ -72,7 +72,7 @@ describe('reconcileGhostExpired — title+company+location match key', () => {
     expect(activeJobs[0].previousSlugs).toContain('verkaeufer-in-food-baetterkinden-old');
   });
 
-  it('merges onto the overlapping slug owner when active jobs share the same match key', () => {
+  it('keeps an identity-bearing archive when matching active records have no identity', () => {
     const shared = {
       title: 'Store Manager',
       company: 'Rituals Cosmetics Switzerland',
@@ -99,11 +99,101 @@ describe('reconcileGhostExpired — title+company+location match key', () => {
 
     const { ghostCount, mergedSlugs, cleanedExpired } = reconcileGhostExpired(activeJobs, expiredJobs);
 
-    expect(ghostCount).toBe(1);
-    expect(mergedSlugs).toBe(1);
-    expect(cleanedExpired).toHaveLength(0);
+    expect(ghostCount).toBe(0);
+    expect(mergedSlugs).toBe(0);
+    expect(cleanedExpired).toEqual(expiredJobs);
     expect(activeJobs[0].previousSlugs || []).not.toContain('store-manager-zurich-legacy');
-    expect(activeJobs[1].previousSlugs).toContain('store-manager-zurich-legacy');
+    expect(activeJobs[1].previousSlugs || []).not.toContain('store-manager-zurich-legacy');
+  });
+
+  it('retains an identity-less expired route when three active postings share its metadata key', () => {
+    const shared = {
+      title: 'Store Manager',
+      company: 'Rituals Cosmetics Switzerland',
+      location: 'Zürich',
+    };
+    const activeJobs = [
+      {
+        ...shared,
+        slugByLocale: { it: 'store-manager-zurich-a' },
+        previousSlugs: ['store-manager-zurich-legacy'],
+      },
+      { ...shared, slugByLocale: { it: 'store-manager-zurich-b' } },
+      { ...shared, slugByLocale: { it: 'store-manager-zurich-c' } },
+    ];
+    const expiredJobs = [{
+      ...shared,
+      slugByLocale: { it: 'store-manager-zurich-legacy' },
+      previousSlugs: ['store-manager-zurich-expired-alias'],
+    }];
+    const before = JSON.stringify(activeJobs);
+
+    const result = reconcileGhostExpired(activeJobs, expiredJobs);
+
+    expect(result.ghostCount).toBe(0);
+    expect(result.mergedSlugs).toBe(0);
+    expect(result.cleanedExpired).toEqual(expiredJobs);
+    expect(JSON.stringify(activeJobs)).toBe(before);
+    expect(activeJobs.every((job) => !(job.previousSlugs || []).includes('store-manager-zurich-expired-alias'))).toBe(true);
+  });
+
+  it('uses stable identity to select the same posting among shared metadata candidates', () => {
+    const shared = {
+      title: 'Store Manager',
+      company: 'Rituals Cosmetics Switzerland',
+      location: 'Zürich',
+    };
+    const postingUrl = 'https://careers.example.test/jobs/store-manager/one';
+    const activeJobs = [
+      {
+        ...shared,
+        url: postingUrl,
+        slugByLocale: { it: 'store-manager-zurich-current' },
+        previousSlugs: ['store-manager-zurich-legacy'],
+      },
+      { ...shared, url: 'https://careers.example.test/jobs/store-manager/two', slugByLocale: { it: 'store-manager-zurich-other' } },
+    ];
+    const expiredJobs = [{
+      ...shared,
+      sourceIdentity: `url:${postingUrl}`,
+      slugByLocale: { it: 'store-manager-zurich-legacy' },
+      previousSlugs: ['store-manager-zurich-old-alias'],
+    }];
+
+    const result = reconcileGhostExpired(activeJobs, expiredJobs);
+
+    expect(result.ghostCount).toBe(1);
+    expect(result.cleanedExpired).toEqual([]);
+    expect(activeJobs[0].previousSlugs).toContain('store-manager-zurich-old-alias');
+    expect(activeJobs[1].previousSlugs || []).not.toContain('store-manager-zurich-old-alias');
+  });
+
+  it('retains an archive when its stable match has a route also owned by another active posting', () => {
+    const shared = {
+      title: 'Store Manager',
+      company: 'Rituals Cosmetics Switzerland',
+      location: 'Zürich',
+    };
+    const postingUrl = 'https://careers.example.test/jobs/store-manager/one';
+    const sharedRoute = 'store-manager-zurich-transferred';
+    const activeJobs = [
+      { ...shared, url: postingUrl, slugByLocale: { it: 'store-manager-zurich-a' }, previousSlugs: [sharedRoute] },
+      { ...shared, url: 'https://careers.example.test/jobs/store-manager/two', slugByLocale: { it: 'store-manager-zurich-b' }, previousSlugs: [sharedRoute] },
+    ];
+    const expiredJobs = [{
+      ...shared,
+      sourceIdentity: `url:${postingUrl}`,
+      slugByLocale: { it: sharedRoute },
+      previousSlugs: ['store-manager-zurich-old-alias'],
+    }];
+    const before = JSON.stringify(activeJobs);
+
+    const result = reconcileGhostExpired(activeJobs, expiredJobs);
+
+    expect(result.ghostCount).toBe(0);
+    expect(result.mergedSlugs).toBe(0);
+    expect(result.cleanedExpired).toEqual(expiredJobs);
+    expect(JSON.stringify(activeJobs)).toBe(before);
   });
 
   it('does not let a foreign locale slug authorize a locale-only fallback', () => {
@@ -157,7 +247,7 @@ describe('reconcileGhostExpired — title+company+location match key', () => {
     expect(result.cleanedExpired).toEqual(expiredJobs);
   });
 
-  it('retains a distinct URL when two expired records share a top-level slug', () => {
+  it('retains identity-bearing expired URLs when the active route owner has no matching identity', () => {
     const activeJobs = [{
       title: 'Store Manager',
       company: 'Rituals Cosmetics Switzerland',
@@ -186,8 +276,8 @@ describe('reconcileGhostExpired — title+company+location match key', () => {
 
     const { ghostCount, cleanedExpired } = reconcileGhostExpired(activeJobs, expiredJobs);
 
-    expect(ghostCount).toBe(1);
-    expect(cleanedExpired).toEqual([expiredJobs[1]]);
+    expect(ghostCount).toBe(0);
+    expect(cleanedExpired).toEqual(expiredJobs);
   });
 
   it('uses a top-level slug as overlap evidence when locale slugs are absent', () => {

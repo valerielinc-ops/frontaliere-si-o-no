@@ -433,10 +433,21 @@ function nativeQuestionText(value, counter = null) {
     }
     return { text: [...new Set(values)].join(' '), ambiguous };
   };
+  // A few SuccessFactors tenants put the password visibility toggle inside
+  // the label. Its button name is an action, not part of the field caption;
+  // keeping it in the caption hides the password words from the semantic
+  // classifier when the control is temporarily rendered as `type=text`.
+  const captionTextWithoutInteractiveControls = (node) => {
+    if (!node) return '';
+    const clone = typeof node.cloneNode === 'function' ? node.cloneNode(true) : null;
+    if (!clone) return nativeQuestionText(node.innerText || node.textContent || '');
+    for (const control of clone.querySelectorAll?.('button, [role="button"]') || []) control.remove();
+    return nativeQuestionText(clone.innerText || clone.textContent || '');
+  };
   // Only a counter leaf belonging unambiguously to this control may lose
   // its live numerator. Requirements containing ratios remain literal text.
   const captionText = (node, element) => {
-    let text = nativeQuestionText(node?.innerText || node?.textContent || '');
+    let text = captionTextWithoutInteractiveControls(node);
     const maximum = element?.getAttribute('maxlength');
     if (!node || !element || !/^\d{1,6}$/.test(maximum || '') || typeof element.value !== 'string') return text;
     const unique = id => [...document.querySelectorAll('[id]')].filter(candidate => candidate.id === id).length === 1;
@@ -461,7 +472,7 @@ function nativeQuestionText(value, counter = null) {
   };
   const labelFor = (element) => {
     const mirrorLabel = mirroredQuestionLabel(element);
-    if (mirrorLabel) return clean(mirrorLabel.innerText || mirrorLabel.textContent);
+    if (mirrorLabel) return clean(captionText(mirrorLabel, element));
     if (element.id) {
       const direct = document.querySelector(`label[for="${CSS.escape(element.id)}"]`);
       const directText = direct && clean(captionText(direct, element));
@@ -479,7 +490,7 @@ function nativeQuestionText(value, counter = null) {
     if (wrappingText) return wrappingText;
     const group = element.closest(QUESTION_GROUP_SELECTOR);
     for (const legend of ownedGroupLabels(group, QUESTION_LABEL_SELECTOR, element)) {
-      const legendText = !legend.contains(element) && clean(legend.innerText || legend.textContent);
+      const legendText = !legend.contains(element) && clean(captionText(legend, element));
       if (legendText) return legendText;
     }
     const accessibleDescription = accessibleDescriptionFor(element);

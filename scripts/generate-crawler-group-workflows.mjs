@@ -116,7 +116,10 @@ import {
   listPortableTreeSitePaths,
   registeredCorpusSitePaths,
 } from './ci/prepare-crawler-workflow-corpus-sync.mjs';
-import { CRAWLER_GENERATION_RUNTIME_PATHS } from './lib/crawler-generation-runtime-paths.mjs';
+import {
+  CRAWLER_GENERATION_OBSERVER_RUNTIME_PATHS,
+  CRAWLER_GENERATION_RUNTIME_PATHS,
+} from './lib/crawler-generation-runtime-paths.mjs';
 import { memberCrawlExitFileName, memberCrawlWatchdogFileName } from './crawler-group-generation-finalizer.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -3111,6 +3114,69 @@ export function collectSiteRuntimePaths(artifactContents, { repoRoot = REPO_ROOT
   return runtimePaths;
 }
 
+const OBSERVER_WORKFLOW_SOURCE = 'observers/workflows/crawler-generation-observer-shadow.yml';
+const OBSERVER_SPARSE_CHECKOUT_PATHS = Object.freeze([
+  ...CRAWLER_GENERATION_OBSERVER_RUNTIME_PATHS,
+  'scripts/ci/crawler-generation-roster.json',
+].sort());
+
+/** Generate every immutable observer checkout from the declared import closure. */
+function renderObserverSparseCheckouts(workflowText) {
+  const lines = workflowText.split('\n');
+  const checkoutStarts = [];
+  for (let index = 0; index < lines.length; index += 1) {
+    if (/^[ \t]*- name: Checkout immutable site observer runtime$/.test(lines[index])) {
+      checkoutStarts.push(index);
+    }
+  }
+  if (checkoutStarts.length === 0) {
+    throw new Error('observer workflow has no immutable site runtime checkout to generate');
+  }
+
+  for (const start of checkoutStarts.reverse()) {
+    const stepIndent = lines[start].match(/^[ \t]*/)?.[0].length ?? 0;
+    let stepEnd = start + 1;
+    while (stepEnd < lines.length) {
+      const line = lines[stepEnd];
+      if (line.trim()) {
+        const indent = line.match(/^[ \t]*/)?.[0].length ?? 0;
+        if (indent < stepIndent || (indent === stepIndent && /^-[ \t]/.test(line.slice(indent)))) break;
+      }
+      stepEnd += 1;
+    }
+
+    const sparseIndexes = [];
+    for (let index = start + 1; index < stepEnd; index += 1) {
+      if (/^[ \t]*sparse-checkout:[ \t]*\|-[ \t]*$/.test(lines[index])) sparseIndexes.push(index);
+    }
+    if (sparseIndexes.length !== 1) {
+      throw new Error('observer runtime checkout must have exactly one literal sparse-checkout block');
+    }
+    const sparseIndex = sparseIndexes[0];
+    const propertyIndent = lines[sparseIndex].match(/^[ \t]*/)?.[0].length ?? 0;
+    let blockEnd = sparseIndex + 1;
+    while (blockEnd < stepEnd) {
+      const line = lines[blockEnd];
+      if (line.trim()) {
+        const indent = line.match(/^[ \t]*/)?.[0].length ?? 0;
+        if (indent <= propertyIndent) break;
+      }
+      blockEnd += 1;
+    }
+    const firstValue = lines.slice(sparseIndex + 1, blockEnd).find((line) => line.trim());
+    const valueIndent = firstValue
+      ? firstValue.match(/^[ \t]*/)?.[0].length ?? propertyIndent + 2
+      : propertyIndent + 2;
+    lines.splice(
+      sparseIndex + 1,
+      blockEnd - sparseIndex - 1,
+      ...OBSERVER_SPARSE_CHECKOUT_PATHS.map((runtimePath) => `${' '.repeat(valueIndent)}/${runtimePath}`),
+    );
+  }
+
+  return lines.join('\n');
+}
+
 function normalizedCrawlerStep(step) {
   const copy = structuredClone(step);
   const env = Object.fromEntries(
@@ -4117,7 +4183,10 @@ export function generateCrossRepoExecutionArtifacts({
     const canonicalPath = siteSource
       ? path.join(REPO_ROOT, siteSource)
       : path.join(PORTABLE_CORPUS_DIR, source);
-    const content = fs.readFileSync(canonicalPath);
+    const sourceContent = fs.readFileSync(canonicalPath);
+    const content = source === OBSERVER_WORKFLOW_SOURCE
+      ? Buffer.from(renderObserverSparseCheckouts(sourceContent.toString('utf8')), 'utf8')
+      : sourceContent;
     observerPayloads.push({ source, content });
     return { source, target, sha256: sha256(content) };
   });

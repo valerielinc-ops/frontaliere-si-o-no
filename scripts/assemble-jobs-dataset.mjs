@@ -66,10 +66,12 @@ import {
   writeCrawlerSummaryStore,
 } from './lib/crawler-summary-store.mjs';
 import {
+  archiveRecordSourceIdentities,
   archiveRecordNamesPosting,
   buildAssembledJobIdentity,
   buildStableJobIdentity,
   hasPublishedRouteIdentity,
+  stablePostingIdentities,
 } from './lib/job-identity.mjs';
 import { createAssemblerDedupIdentity } from './lib/assembler-dedup-identity.mjs';
 import { deduplicateAssembledJobsBySlug } from './lib/assemble-job-slug-dedup.mjs';
@@ -4872,20 +4874,25 @@ export function reconcileGhostExpired(activeJobs, expiredJobs, { sliceDir = EXPI
     return null;
   };
 
-  // Build active lookup: title+company+location → first matching job
-  const activeByTCL = Object.create(null);
+  // Keep every active record for a metadata key. Shared title/company/location
+  // fields are a candidate set, never identity proof by themselves.
+  const activeByTCL = new Map();
   for (const j of activeJobs) {
     const key = jobTclKey(j);
-    if (!activeByTCL[key]) activeByTCL[key] = j;
+    const candidates = activeByTCL.get(key) || [];
+    candidates.push(j);
+    activeByTCL.set(key, candidates);
   }
 
   // Build an index of all active slugs (current + previous), retaining the
-  // owning job so the byte guard can verify the exact overlap that justified
-  // each expired-record removal.
+  // full owner set. A transferred route can be stale or shared, so no first
+  // owner is sufficient evidence for deleting an archive record.
   const activeSlugOwners = new Map();
   const registerActiveSlug = (slug, job) => {
-    if (typeof slug !== 'string' || !slug) return;
-    if (!activeSlugOwners.has(slug)) activeSlugOwners.set(slug, job);
+    if (typeof slug !== 'string' || !slug.trim()) return;
+    const owners = activeSlugOwners.get(slug) || new Set();
+    owners.add(job);
+    activeSlugOwners.set(slug, owners);
   };
   for (const j of activeJobs) {
     registerActiveSlug(j.slug, j);
@@ -4911,21 +4918,41 @@ export function reconcileGhostExpired(activeJobs, expiredJobs, { sliceDir = EXPI
     const expSlugs = localeSlugs.some((slug) => typeof slug === 'string' && slug.trim())
       ? localeSlugs
       : [ej.slug];
-    const overlapCandidate = expSlugs.find(s => activeSlugOwners.has(s)) || null;
-    const overlapJob = overlapCandidate ? activeSlugOwners.get(overlapCandidate) : null;
     const key = jobTclKey(ej);
-    // When a shared title/company/location key has multiple active jobs, the
-    // overlapping slug is the evidence that identifies the actual owner.
-    // Prefer that owner for both the proof and the previous-slug merge;
-    // otherwise the first active job can inherit another job's route history.
-    const match = overlapJob && jobTclKey(overlapJob) === key
-      ? overlapJob
-      : activeByTCL[key];
-    // Keep the first active owner in the proof even when it belongs to a
-    // different TCL. That makes a foreign locale slug an explicit negative
-    // proof instead of allowing the locale-only fallback to hide it.
-    const overlapSlug = overlapCandidate;
-    const hasSlugOverlap = Boolean(overlapSlug && overlapJob && jobTclKey(overlapJob) === key);
+    const candidates = activeByTCL.get(key) || [];
+    if (candidates.length === 0) continue;
+
+    const expiredIdentities = archiveRecordSourceIdentities(ej);
+    const identityMatches = candidates.filter((candidate) => archiveRecordNamesPosting(ej, candidate));
+    let match = null;
+    if (expiredIdentities.size > 0) {
+      // Stable archive identity must select exactly one active posting. A
+      // missing active identity, a mismatch, or a duplicated identity stays
+      // archived.
+      if (identityMatches.length !== 1) continue;
+      match = identityMatches[0];
+    } else {
+      // Preserve the bounded legacy fallback only when neither side has
+      // stable identity and the metadata key has exactly one active candidate.
+      if (candidates.length !== 1 || identityMatches.length !== 1) continue;
+      if (stablePostingIdentities(candidates[0]).size > 0) continue;
+      match = candidates[0];
+    }
+
+    // Examine every matching route and every owner. A route held by another
+    // posting, or shared by multiple active postings, is contaminated/ambiguous
+    // evidence and must not authorize archive deletion or alias transfer.
+    const routeOwners = [];
+    for (const slug of expSlugs) {
+      if (typeof slug !== 'string' || !slug.trim()) continue;
+      const owners = activeSlugOwners.get(slug);
+      if (!owners?.size) continue;
+      routeOwners.push({ slug, owners });
+    }
+    if (routeOwners.some(({ owners }) => owners.size !== 1 || !owners.has(match))) continue;
+    const overlapSlug = routeOwners[0]?.slug || null;
+    const overlapJob = overlapSlug ? match : null;
+    const hasSlugOverlap = Boolean(overlapSlug);
 
     // Ghost: slug overlap + title match, or exact same IT slug
     const expiredItSlug = String(ej.slugByLocale?.it ?? '').trim();
@@ -4943,7 +4970,7 @@ export function reconcileGhostExpired(activeJobs, expiredJobs, { sliceDir = EXPI
       && !expiredItSlug
       && !matchItSlug
       && hasMatchingLocaleSlug
-      && !overlapCandidate,
+      && !overlapSlug,
     );
     if (!match || (!hasSlugOverlap && !hasSameItSlug && !legacySamePosting)) continue;
     // A ghost is the SAME posting under another slug. An archive record that
