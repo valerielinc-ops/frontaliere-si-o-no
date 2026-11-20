@@ -99,6 +99,7 @@ function sendToGA4(metric: WebVitalMetric) {
  const device = getDeviceType();
  const conn = getConnectionInfo();
  const attribution = getMetricAttribution(metric);
+ const metricValue = Math.round(metric.name === 'CLS' ? metric.value * 1000 : metric.value);
  // The `largest_shift_*` / `inp_*` parameters above are not registered GA4
  // dimensions (the property is at 50 of 50), so the Data API cannot read them.
  // A poor CLS/INP is re-emitted as `ui_interaction` on already-registered
@@ -113,7 +114,7 @@ function sendToGA4(metric: WebVitalMetric) {
  // time the member moves, the build fails instead of the data disappearing.
  Analytics.log('web_vitals', {
  metric_name: metric.name,
- metric_value: Math.round(metric.name === 'CLS' ? metric.value * 1000 : metric.value),
+ metric_value: metricValue,
  metric_rating: metric.rating,
  metric_id: metric.id,
  navigation_type: metric.navigationType,
@@ -133,7 +134,15 @@ function sendToGA4(metric: WebVitalMetric) {
  });
  // Same page_path as web_vitals: without it enrichEventParams would use
  // currentScreen, which can differ on a hide right after an SPA navigation.
- if (cwvAttribution) Analytics.log('ui_interaction', { ...cwvAttribution, page_path: location.pathname });
+ if (cwvAttribution) Analytics.log('ui_interaction', {
+  ...cwvAttribution,
+  // Reuse the registered Web Vitals value dimension. GA4's built-in
+  // deviceCategory is attached to this same browser event; device_type keeps
+  // the client payload aligned with the companion web_vitals event.
+  metric_value: metricValue,
+  device_type: device,
+  page_path: location.pathname,
+ });
  }).catch(() => {});
 
  if (import.meta.env.DEV) {
