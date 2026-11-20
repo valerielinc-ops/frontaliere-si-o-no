@@ -24,6 +24,12 @@ describe('Restaurant & Hôtel Vatel crawler parser', () => {
       expect(isVatelChJob({ company: 'Restaurant & Hôtel Vatel' })).toBe(true);
     });
 
+    it('requires an exact normalized company identity', () => {
+      expect(isVatelChJob({ company: 'restaurant & hotel vatel', url: 'https://jobs.example/1' })).toBe(true);
+      expect(isVatelChJob({ company: 'Not Restaurant & Hôtel Vatel', url: 'https://jobs.example/1' })).toBe(false);
+      expect(isVatelChJob({ company: 'Restaurant & Hôtel Vatel Hospitality', url: 'https://jobs.example/1' })).toBe(false);
+    });
+
     it('matches by URL domain', () => {
       expect(isVatelChJob({ url: 'https://vatel.ch/jobs/123' })).toBe(true);
     });

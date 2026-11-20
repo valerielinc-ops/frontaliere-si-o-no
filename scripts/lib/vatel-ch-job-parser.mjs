@@ -39,6 +39,16 @@ function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
 }
 
+function normalizeCompanyIdentity(value = '') {
+  return normalize(value)
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+const VATEL_CH_COMPANY_IDENTITY = normalizeCompanyIdentity(VATEL_CH_COMPANY_NAME);
+
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
 }
@@ -50,18 +60,14 @@ function normalizeSpace(s = '') {
  * Used by the template to filter this company's jobs from the global dataset.
  */
 export function isVatelChJob(job) {
-  const key = normalize(job?.companyKey || job?.company || '')
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
-  const company = normalize(job?.company || '');
+  const key = normalizeCompanyIdentity(job?.companyKey || job?.company || '');
+  const companyIdentity = normalizeCompanyIdentity(job?.company || '');
   const url = normalize(job?.url || '');
 
   return (
     key === VATEL_CH_KEY ||
     key.startsWith('vatel-ch-') ||
-    company.includes('restaurant & hôtel vatel') ||
+    companyIdentity === VATEL_CH_COMPANY_IDENTITY ||
     isTrustedDomain(url)
   );
 }
