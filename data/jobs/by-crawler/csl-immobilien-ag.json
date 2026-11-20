@@ -1,7 +1,7 @@
 {
   "crawlerKey": "csl-immobilien-ag",
-  "assembledAt": "2026-11-19T21:41:19.778Z",
-  "runId": "44618984283",
+  "assembledAt": "2026-11-20T21:52:18.052Z",
+  "runId": "44820571493",
   "jobs": [
     {
       "id": "csl-immobilien-ag-9e5ee263ca24",
@@ -34,7 +34,7 @@
       "url": "https://app.jobportal.abaservices.ch/job-advertisement/cslimmobilien/60f30749-e92e-f98c-fab8-ecf4fbf29579?jp=ABACUS",
       "source": "CSL Immobilien AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:41:05.465Z",
+      "crawledAt": "2026-11-20T21:51:58.575Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -85,7 +85,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-07T21:41:05.465Z",
+      "validThrough": "2027-02-07T21:51:58.575Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://app.jobportal.abaservices.ch/job-advertisement/cslimmobilien/60f30749-e92e-f98c-fab8-ecf4fbf29579?jp=abacus"
     },
@@ -120,7 +120,7 @@
       "url": "https://app.jobportal.abaservices.ch/job-advertisement/cslimmobilien/7fdb40d6-c3ba-5548-b8ad-e55232c8a90b?jp=ABACUS",
       "source": "CSL Immobilien AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:41:05.456Z",
+      "crawledAt": "2026-11-20T21:51:58.569Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -175,9 +175,81 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:41:05.456Z",
+      "validThrough": "2027-01-26T21:51:58.569Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://app.jobportal.abaservices.ch/job-advertisement/cslimmobilien/7fdb40d6-c3ba-5548-b8ad-e55232c8a90b?jp=abacus"
+    },
+    {
+      "id": "csl-immobilien-ag-bd764aaf76dc",
+      "slug": "lernende-r-zurich-praktikant-1j-zurich-zh-csl-immobilien-ag-ch",
+      "slugByLocale": {
+        "de": "lernende-r-zurich-praktikant-1j-zurich-zh-csl-immobilien-ag-ch",
+        "it": "lernende-r-zurich-praktikant-1j-zurich-zh-csl-immobilien-ag-ch",
+        "en": "lernende-r-zurich-praktikant-1j-zurich-zh-csl-immobilien-ag-ch",
+        "fr": "lernende-r-zurich-praktikant-1j-zurich-zh-csl-immobilien-ag-ch"
+      },
+      "company": "CSL Immobilien AG",
+      "companyKey": "csl-immobilien-ag",
+      "companyDomain": "app.jobportal.abaservices.ch",
+      "title": "Lernende*r Zürich Praktikant 1J.",
+      "titleByLocale": {
+        "de": "Lernende*r Zürich Praktikant 1J.",
+        "it": "Apprendista*r Zürich Praktikant 1J.",
+        "en": "Apprentice*r Zürich Praktikant 1J.",
+        "fr": "Apprenti/e*r Zürich Praktikant 1J."
+      },
+      "description": "CSL Immobilien agiert seit über 50 Jahren als etablierter Akteur im Wirtschaftsraum Zürich und gehört seit 2018 zur Migros Bank. Mit unserem über 90-köpfigen Fachteam bieten wir massgeschneiderte Immobiliendienstleistungen für eine breite Kundschaft an. Unser Standort in Lausanne stärkt unsere Präsenz in der Westschweiz und wird durch die Kooperation mit der Migros Bank erhöht.\nBei CSL Immobilien legen wir grossen Wert auf eine Kultur der Offenheit und des familiären Zusammenhalts, die alle ermutigt, sich einzubringen und gemeinsam zu wachsen. Starte deine Karriere bei CSL Immobilien und werde Teil eines innovativen Teams, das die Standards in der Immobilienbranche neu definiert.\nAb August 2027 bieten wir dir die Möglichkeit, dein viertes und letztes Ausbildungsjahr im Rahmen der 3+1-Ausbildung zum/zur Kaufmann/-frau EFZ (Treuhand/Immobilien) bei CSL zu absolvieren.\nDich erwartet ein abwechslungsreiches und spannendes Praktikumsjahr, in dem du wertvolle Einblicke in die Praxis erhältst und dein Wissen vertiefen kannst. Wenn du dich für den kaufmännischen Beruf interessierst und insbesondere die Immobilienbewirtschaftung spannend findest, bist du bei uns genau richtig!",
+      "descriptionByLocale": {
+        "de": "CSL Immobilien agiert seit über 50 Jahren als etablierter Akteur im Wirtschaftsraum Zürich und gehört seit 2018 zur Migros Bank. Mit unserem über 90-köpfigen Fachteam bieten wir massgeschneiderte Immobiliendienstleistungen für eine breite Kundschaft an. Unser Standort in Lausanne stärkt unsere Präsenz in der Westschweiz und wird durch die Kooperation mit der Migros Bank erhöht.\nBei CSL Immobilien legen wir grossen Wert auf eine Kultur der Offenheit und des familiären Zusammenhalts, die alle ermutigt, sich einzubringen und gemeinsam zu wachsen. Starte deine Karriere bei CSL Immobilien und werde Teil eines innovativen Teams, das die Standards in der Immobilienbranche neu definiert.\nAb August 2027 bieten wir dir die Möglichkeit, dein viertes und letztes Ausbildungsjahr im Rahmen der 3+1-Ausbildung zum/zur Kaufmann/-frau EFZ (Treuhand/Immobilien) bei CSL zu absolvieren.\nDich erwartet ein abwechslungsreiches und spannendes Praktikumsjahr, in dem du wertvolle Einblicke in die Praxis erhältst und dein Wissen vertiefen kannst. Wenn du dich für den kaufmännischen Beruf interessierst und insbesondere die Immobilienbewirtschaftung spannend findest, bist du bei uns genau richtig!",
+        "it": "CSL Immobilien agiert seit über 50 Jahren als etablierter Akteur im Wirtschaftsraum Zürich und gehört seit 2018 zur Migros Bank. Mit unserem über 90-köpfigen Fachteam bieten wir massgeschneiderte Immobiliendienstleistungen für eine breite Kundschaft an. Unser Standort in Lausanne stärkt unsere Präsenz in der Westschweiz und wird durch die Kooperation mit der Migros Bank erhöht.\nBei CSL Immobilien legen wir grossen Wert auf eine Kultur der Offenheit und des familiären Zusammenhalts, die alle ermutigt, sich einzubringen und gemeinsam zu wachsen. Starte deine Karriere bei CSL Immobilien und werde Teil eines innovativen Teams, das die Standards in der Immobilienbranche neu definiert.\nAb August 2027 bieten wir dir die Möglichkeit, dein viertes und letztes Ausbildungsjahr im Rahmen der 3+1-Ausbildung zum/zur Kaufmann/-frau EFZ (Treuhand/Immobilien) bei CSL zu absolvieren.\nDich erwartet ein abwechslungsreiches und spannendes Praktikumsjahr, in dem du wertvolle Einblicke in die Praxis erhältst und dein Wissen vertiefen kannst. Wenn du dich für den kaufmännischen Beruf interessierst und insbesondere die Immobilienbewirtschaftung spannend findest, bist du bei uns genau richtig!",
+        "en": "CSL Immobilien agiert seit über 50 Jahren als etablierter Akteur im Wirtschaftsraum Zürich und gehört seit 2018 zur Migros Bank. Mit unserem über 90-köpfigen Fachteam bieten wir massgeschneiderte Immobiliendienstleistungen für eine breite Kundschaft an. Unser Standort in Lausanne stärkt unsere Präsenz in der Westschweiz und wird durch die Kooperation mit der Migros Bank erhöht.\nBei CSL Immobilien legen wir grossen Wert auf eine Kultur der Offenheit und des familiären Zusammenhalts, die alle ermutigt, sich einzubringen und gemeinsam zu wachsen. Starte deine Karriere bei CSL Immobilien und werde Teil eines innovativen Teams, das die Standards in der Immobilienbranche neu definiert.\nAb August 2027 bieten wir dir die Möglichkeit, dein viertes und letztes Ausbildungsjahr im Rahmen der 3+1-Ausbildung zum/zur Kaufmann/-frau EFZ (Treuhand/Immobilien) bei CSL zu absolvieren.\nDich erwartet ein abwechslungsreiches und spannendes Praktikumsjahr, in dem du wertvolle Einblicke in die Praxis erhältst und dein Wissen vertiefen kannst. Wenn du dich für den kaufmännischen Beruf interessierst und insbesondere die Immobilienbewirtschaftung spannend findest, bist du bei uns genau richtig!",
+        "fr": "CSL Immobilien agiert seit über 50 Jahren als etablierter Akteur im Wirtschaftsraum Zürich und gehört seit 2018 zur Migros Bank. Mit unserem über 90-köpfigen Fachteam bieten wir massgeschneiderte Immobiliendienstleistungen für eine breite Kundschaft an. Unser Standort in Lausanne stärkt unsere Präsenz in der Westschweiz und wird durch die Kooperation mit der Migros Bank erhöht.\nBei CSL Immobilien legen wir grossen Wert auf eine Kultur der Offenheit und des familiären Zusammenhalts, die alle ermutigt, sich einzubringen und gemeinsam zu wachsen. Starte deine Karriere bei CSL Immobilien und werde Teil eines innovativen Teams, das die Standards in der Immobilienbranche neu definiert.\nAb August 2027 bieten wir dir die Möglichkeit, dein viertes und letztes Ausbildungsjahr im Rahmen der 3+1-Ausbildung zum/zur Kaufmann/-frau EFZ (Treuhand/Immobilien) bei CSL zu absolvieren.\nDich erwartet ein abwechslungsreiches und spannendes Praktikumsjahr, in dem du wertvolle Einblicke in die Praxis erhältst und dein Wissen vertiefen kannst. Wenn du dich für den kaufmännischen Beruf interessierst und insbesondere die Immobilienbewirtschaftung spannend findest, bist du bei uns genau richtig!"
+      },
+      "location": "Zürich, ZH",
+      "canton": "ZH",
+      "url": "https://app.jobportal.abaservices.ch/job-advertisement/cslimmobilien/90894baf-5ec6-cf55-6b6d-d1ff32afbbe3?jp=ABACUS",
+      "source": "CSL Immobilien AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-20T21:51:58.577Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "streetAddress": "Schärenmoosstrasse",
+      "category": "Altro",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-20",
+      "postedDate": "2026-11-20",
+      "postingDateSource": "reported",
+      "applyUrl": "https://app.jobportal.abaservices.ch/job-advertisement/cslimmobilien/90894baf-5ec6-cf55-6b6d-d1ff32afbbe3?jp=ABACUS",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-18T21:51:58.577Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-20T21:51:58.577Z"
     }
   ]
 }
