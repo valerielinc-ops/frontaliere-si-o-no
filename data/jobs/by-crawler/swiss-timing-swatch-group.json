@@ -93,7 +93,8 @@
       "streetAddress": "2606 Corgémont",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-13T09:23:49.431Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.swisstiming.com/company/job-offers?job=277850&company=81"
     },
     {
       "id": "company-xbt61g",
@@ -193,7 +194,8 @@
       "streetAddress": "2606 Corgémont",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-13T09:23:49.431Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.swisstiming.com/company/job-offers?job=279009&company=81"
     },
     {
       "id": "company-hqgznk",
@@ -270,7 +272,8 @@
       "streetAddress": "2606 Corgémont",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-11-29T09:23:49.431Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.swisstiming.com/company/job-offers?job=279470&company=81"
     }
   ]
 }
