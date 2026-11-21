@@ -25,7 +25,7 @@ compare_merge_base_is_sha1() {
 }
 
 compare_merge_base_from_local_graph() {
-  local remote_url="$1" left="$2" right="$3" label="$4" base deepen
+  local remote_url="$1" left="$2" right="$3" label="$4" base deepen scratch
   if ! compare_merge_base_has_no_lazy_fetch; then
     base=''
     echo "::error::No merge base found within the ${COMPARE_MERGE_BASE_MAX_DEEPEN}-commit history-depth cap for ${label} (local Git cannot disable lazy fetch)" >&2
@@ -37,24 +37,54 @@ compare_merge_base_from_local_graph() {
     return 0
   fi
 
+  # Do not deepen the workflow checkout itself. It already contains the full
+  # current tree, so Git's negotiation can spend the whole timeout comparing
+  # that object database even when the merge-base needs only commit objects.
+  # A fresh bare treeless repository keeps this fallback bounded to the two
+  # commit graphs requested below and never downloads trees or blobs.
+  scratch="$(mktemp -d "${TMPDIR:-/tmp}/compare-merge-base-graph.XXXXXX")" || {
+    echo "::error::Could not create a scratch repository for ${label} merge base" >&2
+    return 1
+  }
+  if ! git init --quiet --bare "$scratch" >/dev/null 2>&1; then
+    rm -rf -- "$scratch"
+    echo "::error::Could not initialize a scratch repository for ${label} merge base" >&2
+    return 1
+  fi
+  if ! run_bounded "$COMPARE_MERGE_BASE_FETCH_TIMEOUT_SECONDS" "git seed ${label} merge base" \
+    git --git-dir="$scratch" fetch --no-tags --filter=tree:0 --depth=1 "$remote_url" \
+    "+${left}:refs/compare-merge-base/left" "+${right}:refs/compare-merge-base/right"; then
+    rm -rf -- "$scratch"
+    echo "::error::Could not seed merge base graph for ${label}" >&2
+    return 1
+  fi
+  base="$(GIT_NO_LAZY_FETCH=1 git --no-lazy-fetch --git-dir="$scratch" merge-base \
+    refs/compare-merge-base/left refs/compare-merge-base/right 2>/dev/null || true)"
+  if compare_merge_base_is_sha1 "$base"; then
+    rm -rf -- "$scratch"
+    printf '%s\n' "$base"
+    return 0
+  fi
+
   for deepen in "${COMPARE_MERGE_BASE_DEEPEN_STEPS[@]}"; do
     echo "::notice::${label}: deepening commit graph by ${deepen} commits (cap ${COMPARE_MERGE_BASE_MAX_DEEPEN})" >&2
-    # Merge-base walks commits only. A blobless fetch still downloads every
-    # tree object in this repository; the treeless filter keeps the fallback
-    # bounded when GitHub refuses to generate the compare diff.
     if ! run_bounded "$COMPARE_MERGE_BASE_FETCH_TIMEOUT_SECONDS" "git deepen ${label} merge base" \
-      git fetch --no-tags --filter=tree:0 --deepen="$deepen" "$remote_url" \
+      git --git-dir="$scratch" fetch --no-tags --filter=tree:0 --deepen="$deepen" "$remote_url" \
       "+${left}:refs/compare-merge-base/left" "+${right}:refs/compare-merge-base/right"; then
+      rm -rf -- "$scratch"
       echo "::error::Could not deepen merge base graph for ${label}" >&2
       return 1
     fi
-    base="$(GIT_NO_LAZY_FETCH=1 git --no-lazy-fetch merge-base "$left" "$right" 2>/dev/null || true)"
+    base="$(GIT_NO_LAZY_FETCH=1 git --no-lazy-fetch --git-dir="$scratch" merge-base \
+      refs/compare-merge-base/left refs/compare-merge-base/right 2>/dev/null || true)"
     if compare_merge_base_is_sha1 "$base"; then
+      rm -rf -- "$scratch"
       printf '%s\n' "$base"
       return 0
     fi
   done
 
+  rm -rf -- "$scratch"
   echo "::error::No merge base found within the ${COMPARE_MERGE_BASE_MAX_DEEPEN}-commit history-depth cap for ${label} (${left}...${right})" >&2
   return 1
 }

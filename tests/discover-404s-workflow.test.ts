@@ -63,7 +63,10 @@ describe('404 discovery workflows publish protected data through PRs', () => {
     expect(compareBaseHelper).toContain('if [[ "$compare_failure" == *"422"* && "$compare_failure" == *"diff is taking too long"* ]]; then');
     expect(compareBaseHelper).toContain('COMPARE_MERGE_BASE_DEEPEN_STEPS=(64 256 1024)');
     expect(compareBaseHelper).toContain('COMPARE_MERGE_BASE_MAX_DEEPEN=1344');
-    expect(compareBaseHelper).toContain('git fetch --no-tags --filter=tree:0 --deepen="$deepen" "$remote_url"');
+    expect(compareBaseHelper).toContain('git init --quiet --bare "$scratch"');
+    expect(compareBaseHelper).toContain('git --git-dir="$scratch" fetch --no-tags --filter=tree:0 --depth=1 "$remote_url"');
+    expect(compareBaseHelper).toContain('git --git-dir="$scratch" fetch --no-tags --filter=tree:0 --deepen="$deepen" "$remote_url"');
+    expect(compareBaseHelper).toContain('git --no-lazy-fetch --git-dir="$scratch" merge-base');
     expect(compareBaseHelper).toContain('node "$COMPARE_MERGE_BASE_LIB_DIR/git-no-lazy.mjs" --supports');
     expect(compareBaseHelper).toContain('GIT_NO_LAZY_FETCH=1 git --no-lazy-fetch merge-base "$left" "$right"');
     expect(compareBaseHelper).toContain('[[ "$1" =~ ^[0-9a-fA-F]{40}$ ]]');
