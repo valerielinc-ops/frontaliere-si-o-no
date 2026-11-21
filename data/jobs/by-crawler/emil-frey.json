@@ -7290,8 +7290,9 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-18T21:28:30.933Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T21:28:30.933Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-11-20T09:21:53.759Z",
+      "needsRetranslation": true,
+      "sourceIdentity": "url:https://jobs.emilfrey.ch/mitarbeiterin-aussendienst-de-j2650.html"
     },
     {
       "id": "emil-frey-f9a32f2ed46f",
@@ -7363,7 +7364,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-18T21:28:30.930Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T21:28:30.930Z"
+      "firstSeenAt": "2026-11-20T21:28:30.930Z",
+      "sourceIdentity": "url:https://jobs.emilfrey.ch/verkaufsberater-in-toyota-de-j2643.html"
     },
     {
       "id": "emil-frey-3ab85ece1e20",
@@ -7448,7 +7450,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:28:30.925Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.emilfrey.ch/logistic-driver-de-j2569.html"
     }
   ]
 }
