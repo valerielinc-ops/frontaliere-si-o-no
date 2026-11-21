@@ -1253,7 +1253,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-18T21:22:44.140Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T21:22:44.140Z"
+      "firstSeenAt": "2026-11-20T21:22:44.140Z",
+      "sourceIdentity": "url:https://www.h-ju.ch/fr/carrieres/emploi/emploi.html#offer-4934"
     },
     {
       "id": "h-ju-hopital-du-jura-506e0c3db63b",
@@ -1326,7 +1327,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-18T21:22:43.585Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T21:22:43.585Z"
+      "firstSeenAt": "2026-11-20T21:22:43.585Z",
+      "sourceIdentity": "url:https://www.h-ju.ch/fr/carrieres/emploi/emploi.html#offer-4839"
     }
   ]
 }
