@@ -79,9 +79,10 @@ function writeManifest(
   prefix = 'en',
   includeRoot = false,
   omitCountKinds: string[] = [],
-  { locale = 'en', emitterFingerprint = RENDER_V1 }: {
+  { locale = 'en', emitterFingerprint = RENDER_V1, stablePages = [] }: {
     locale?: string;
     emitterFingerprint?: Record<string, string> | null;
+    stablePages?: string[];
   } = {},
 ): void {
   mkdirSync(scenario.manifestDir, { recursive: true });
@@ -100,7 +101,7 @@ function writeManifest(
     }),
     ...manifestPages.map((page) => JSON.stringify({
       path: pagePath(page, prefix),
-      hash: hash(`${version}:${page}`),
+      hash: hash(`${stablePages.includes(page) ? 'stable' : version}:${page}`),
     })),
     JSON.stringify({
       type: 'footer',
@@ -776,7 +777,15 @@ describe('delta push degli shard', () => {
     };
     const writeVersion = (scenario: Scenario, files: Record<string, string>, version: string) => {
       writeSectionPayload(scenario, files);
-      writeManifest(scenario, version === 'v1' ? ['pages/c'] : ['pages/d'], version, section);
+      writeManifest(
+        scenario,
+        ['pages/a', ...(version === 'v1' ? ['pages/c'] : ['pages/d'])],
+        version,
+        section,
+        false,
+        [],
+        { stablePages: ['pages/a'] },
+      );
     };
     try {
       for (const scenario of [deltaScenario, fullScenario]) {
@@ -784,6 +793,7 @@ describe('delta push degli shard', () => {
         expect(runPush(scenario, 'delta', {}, sectionTarget).status).toBe(0);
         writeVersion(scenario, updated, 'v2');
       }
+      const stableBlob = blobSha(deltaScenario.remote, ticinoPhysicalPath(`${section}/pages/a/index.html`));
 
       const deltaResult = runPush(deltaScenario, 'delta', {
         SHARD_DELTA_FULL_REWRITE_THRESHOLD: '0',
@@ -795,7 +805,7 @@ describe('delta push degli shard', () => {
       expect(deltaResult.output).toContain('delta indexed tree');
       expect(deltaResult.output).not.toContain('using a full canonical overlay');
       expect(deltaResult.output).toMatch(/changed=[1-9][0-9]*/u);
-      expect(deltaResult.output).toContain('unmanifested-overlay=5');
+      expect(deltaResult.output).toContain('unmanifested-overlay=4');
       expect(deltaResult.output).toContain('removed=2');
       expect(git(['-C', deltaScenario.remote, 'rev-parse', `main:${section}^{tree}`]))
         .toBe(git(['-C', fullScenario.remote, 'rev-parse', `main:${section}^{tree}`]));
@@ -803,6 +813,7 @@ describe('delta push degli shard', () => {
       expect(treeFiles(deltaScenario.remote)).toContain(ticinoPhysicalPath(`${section}/assets/new/index.html`));
       expect(treeFiles(deltaScenario.remote)).not.toContain(ticinoPhysicalPath(`${section}/pages/c/index.html`));
       expect(treeFiles(deltaScenario.remote)).not.toContain(ticinoPhysicalPath(`${section}/assets/stale/index.html`));
+      expect(blobSha(deltaScenario.remote, ticinoPhysicalPath(`${section}/pages/a/index.html`))).toBe(stableBlob);
       assertContent(deltaScenario.remote, ticinoPhysicalPath(`${section}/pages/b/index.html`), '<html>B v2</html>');
       assertContent(deltaScenario.remote, ticinoPhysicalPath(`${section}/assets/extra/index.html`), '<html>extra v2</html>');
     } finally {
